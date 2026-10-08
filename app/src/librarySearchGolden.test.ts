@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { gunzipSync } from 'node:zlib'
 import { groupSearchResults, importableWork, inTinct, REGISTRY_GUTENBERG_IDS, titleAuthorKey, type CatalogueWork } from '../public/lab/public-books.js'
 // @ts-expect-error -- plain module shared by Add a book, freepubs.fyi and the library
-import { createSearch, hydrate, borrowFor } from '../../addbooks/site/search.js'
+import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor } from '../../addbooks/site/search.js'
 // @ts-expect-error -- plain browser module of the library page
 import { createLibrarySearch } from '../public/lab/library_2/library-search.js'
 // @ts-expect-error -- plain browser module of the library page
@@ -17,6 +17,7 @@ import { GOLDEN_CASES } from './__fixtures__/librarySearchGolden'
 // "Not yet in Tinct" (the catalogue engine, English, 40 works, grouped by public-books.js), as the
 // library shows them. strict@1: the first row is a right answer, no Tinct book that is a right
 // answer is missing from "Available in Tinct", and no catalogue copy of a Tinct book is offered.
+// The catalogue's work priors (public/lab/addbook/data/work-priors.json) apply as the worker applies them.
 // Deterministic: the committed catalogue, no network. English works only are indexed, which ranks
 // an English search exactly as the whole catalogue does (other languages never pass its filter).
 type Person = { name: string; aliases?: string[] }
@@ -41,10 +42,14 @@ const matcher = (expectations: string[]) => {
   return (title: string, author: string) => parsed.some(([t, a]) => t.test(fold(title)) && a.test(fold(author)))
 }
 
-describe('library search golden set', () => {
-  it(`strict@1 is at least ${STRICT_AT_1 * 100}% of ${GOLDEN_CASES.length} queries`, () => {
+type Row = { tinct: boolean; title: string; author: string; id: string }
+let panel: { rows: (query: string) => Row[]; tinctBooks: Book[]; notYet: (query: string) => Work[] } | null = null
+/** The search panel's rows for a query, as the library shows them; built once. */
+function searchPanel() {
+  if (panel) return panel
     const raw = JSON.parse(gunzipSync(readFileSync(join(__dirname, '../public/lab/addbook/data/catalog.json.gz'))).toString('utf8')) as { works: Work[] }
-    const all: Work[] = hydrate(raw.works)
+    const priors = JSON.parse(readFileSync(join(__dirname, '../public/lab/addbook/data/work-priors.json'), 'utf8'))
+    const all: Work[] = applyPriors(hydrate(raw.works), priors)
     for (const w of all) for (const e of w.editions as unknown as Array<{ authors: Person[]; translators: Person[]; title: string }>) {
       if (!e.authors.length) e.authors = w.authors
       if (!e.translators.length) e.translators = (w as unknown as { translators: Person[] }).translators
@@ -61,6 +66,18 @@ describe('library search golden set', () => {
     }
     const workIds = (book: Book) => Object.entries(REGISTRY_GUTENBERG_IDS).filter(([, id]) => id === book.id).map(([workId]) => workId)
     const tinctSearch = createLibrarySearch(tinctBooks, borrowFor(tinctBooks.map(b => ({ ...b, workIds: workIds(b) })), all))
+    // As the worker sends a result (search-worker.js slim): its other titles, curated ones included, and its Wikidata work.
+    const sent = (w: Work) => ({ ...w, altTitles: [...new Set([...((w as { altTitles?: string[] }).altTitles || []), ...altTitlesFor(w.title, (w.authors as Person[]).map(p => p.name).join(' '))])], wikidata: (w as { wikidata?: string }).wikidata || null })
+    const notYet = (query: string) => groupSearchResults({ tinct: tinctSearch(query), free: search(query, { language: 'en' }, 40).results.map(sent), tinctBooks }).notYet as Work[]
+    const rows = (query: string): Row[] => [...(tinctSearch(query) as Book[]).map(b => ({ tinct: true, id: b.id, title: b.title, author: b.author })),
+      ...notYet(query).map(w => ({ tinct: false, id: w.id, title: w.title, author: (w.authors as Person[]).map(p => p.name).join(', ') }))]
+    panel = { rows, tinctBooks, notYet }
+  return panel
+}
+
+describe('library search golden set', () => {
+  it(`strict@1 is at least ${STRICT_AT_1 * 100}% of ${GOLDEN_CASES.length} queries`, () => {
+    const { rows: panelRows, tinctBooks, notYet: notYetFor } = searchPanel()
     // An independent check for copies: the audit's "first title segment + first author surname" key.
     const tinctKeys = new Set(tinctBooks.map(b => titleAuthorKey(b.title, b.author)))
     const copyKey = (w: Work) => titleAuthorKey(String(w.title).split(/[,:;(]| or /i)[0], w.authors?.[0]?.name || '')
@@ -69,10 +86,9 @@ describe('library search golden set', () => {
     let strict = 0
     for (const [query, , expectations] of GOLDEN_CASES) {
       const right = matcher(expectations)
-      const available: Book[] = tinctSearch(query)
-      const { notYet } = groupSearchResults({ tinct: available, free: search(query, { language: 'en' }, 40).results, tinctBooks })
-      const rows = [...available.map(b => ({ tinct: true, title: b.title, author: b.author })),
-        ...notYet.map(w => ({ tinct: false, title: w.title, author: (w.authors as Person[]).map(p => p.name).join(', ') }))]
+      const rows = panelRows(query)
+      const available = rows.filter(row => row.tinct)
+      const notYet = notYetFor(query)
       const first = rows[0]
       const tinctHidden = tinctBooks.some(b => right(b.title, b.author)) && !available.some(b => right(b.title, b.author))
       const copies = notYet.filter(w => inTinct(w, tinctBooks) || tinctKeys.has(copyKey(w as Work)) || !importableWork(w))
@@ -83,4 +99,48 @@ describe('library search golden set', () => {
     console.log(`library search golden set: strict@1 ${strict}/${GOLDEN_CASES.length} (${(share * 100).toFixed(1)}%)\n  ${failures.join('\n  ')}`)
     expect(share, failures.join('\n')).toBeGreaterThanOrEqual(STRICT_AT_1)
   }, 120_000)
+})
+
+// Ranking sense (2026-10-08): fame from the work priors, an author's own books first, other names
+// of famous works, one row per Wikidata work.
+describe('library search: fame, own books, other titles, one row per work', () => {
+  const ids = (query: string) => searchPanel().rows(query).map(row => row.id)
+  const at = (list: string[], id: string) => { const i = list.indexOf(id); return i < 0 ? Infinity : i }
+
+  it('"seneca": the Moral Letters first; his own books above Parker\'s Seneca folk tales and a three-author anthology', () => {
+    const list = ids('seneca')
+    expect(list[0]).toBe('ws:en:Q97452599') // Moral letters to Lucilius (Wikisource, no Gutenberg downloads)
+    for (const own of ['pg:64576', 'pg:56075', 'pg:3794', 'pg:57999']) {
+      expect(at(list, own)).toBeLessThan(at(list, 'pg:61477')) // Seneca myths and folk tales, by Arthur C. Parker
+      expect(at(list, own)).toBeLessThan(at(list, 'pg:60831')) // Between Heathenism and Christianity (Super, Plutarch, Seneca)
+    }
+  }, 120_000)
+
+  it('"letters from a stoic", "moral epistles" and "epistulae morales ad lucilium" find the Moral Letters first', () => {
+    for (const query of ['letters from a stoic', 'Letters from a Stoic', 'moral epistles', 'epistulae morales ad lucilium', 'moral letters to lucilius']) expect(ids(query)[0], query).toBe('ws:en:Q97452599')
+  })
+
+  it('"confessions": Tinct\'s Confessions, and no catalogue copy of it ("The Confessions of St. Augustine")', () => {
+    const list = ids('confessions')
+    expect(list[0]).toBe('confessions')
+    expect(list).not.toContain('pg:3296')
+  })
+
+  it('"homer": Homer\'s own books above books by people with Homer as a middle name', () => {
+    const list = ids('homer')
+    expect(list.slice(0, 2).sort()).toEqual(['iliad', 'odyssey'])
+    expect(at(list, 'pg:48895')).toBeLessThan(at(list, 'pg:929')) // The Odysseys of Homer before Charles Homer Haskins
+  })
+
+  it('"montaigne": the complete Essays first, Gutenberg\'s quotation selections not in the first rows', () => {
+    const list = ids('montaigne')
+    expect(list[0]).toBe('pg:3600')
+    expect(at(list, 'pg:3600')).toBeLessThan(at(list, 'pg:5637')) // Literary and Philosophical Essays, seven authors
+    for (const selection of ['pg:7551', 'pg:3661']) expect(list.slice(0, 8)).not.toContain(selection) // Quotes and Images…, Widger's Quotations…
+  })
+
+  it('"marcus aurelius": no catalogue copy of Tinct\'s Meditations under its other titles', () => {
+    const notYet = searchPanel().notYet('marcus aurelius').map(w => w.id)
+    for (const copy of ['pg:2680', 'pg:15877', 'pg:6920', 'ws:en:Q1152283', 'ws:en:Q52634585']) expect(notYet).not.toContain(copy)
+  })
 })

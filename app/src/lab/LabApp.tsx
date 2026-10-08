@@ -78,6 +78,7 @@ import {
   LAB_PHONE_QUERY,
   labPageTurnAffordance,
   labPageTurnSurfaceEnabled,
+  labNeedsGestureAudioUnlock,
 } from './labChrome'
 import { LabContentsV2 } from './LabContentsV2'
 import type { ContentsPlace } from './labContents'
@@ -272,6 +273,20 @@ function readPageTurnAffordance(layoutOverride: ReturnType<typeof labLayoutOverr
     finePointer: matches(POINTER_QUERIES[0]),
     hover: matches(POINTER_QUERIES[1]),
     coarsePointer: matches(POINTER_QUERIES[2]),
+    primaryCoarse: matches(POINTER_QUERIES[3]),
+    primaryHoverNone: matches(POINTER_QUERIES[4]),
+  })
+}
+
+/** The device needs the narration element unlocked inside a companion-opening tap (labNeedsGestureAudioUnlock). */
+function readNeedsGestureAudioUnlock(): boolean {
+  if (typeof window === 'undefined') return false
+  const matches = (query: string) => {
+    try { return typeof window.matchMedia === 'function' && window.matchMedia(query).matches } catch { return false }
+  }
+  return labNeedsGestureAudioUnlock({
+    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+    maxTouchPoints: typeof navigator !== 'undefined' ? navigator.maxTouchPoints : 0,
     primaryCoarse: matches(POINTER_QUERIES[3]),
     primaryHoverNone: matches(POINTER_QUERIES[4]),
   })
@@ -2565,13 +2580,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const askNoticeRef = useRef(ask.notice)
   askNoticeRef.current = ask.notice
 
-  const interruptHearForAsk = useCallback(() => {
+  const interruptHearForAsk = useCallback((options?: { alwaysUnlock?: boolean }) => {
     // Captured as the companion opens: only audio that was actually playing
     // (or starting) then comes back when it closes. Paused audio stays paused.
     const hearingNow = listen.playing || listen.isPending()
     // This tap may be the last gesture before the companion starts audio
-    // ("play the audiobook"), which then runs outside any gesture.
-    listen.unlockPlayback()
+    // ("play the audiobook"), which then runs outside any gesture. Only
+    // iOS/touch devices need that unlock; on a desktop it starts audio output
+    // and can take shared headphones from the reader's phone (stopping its
+    // music), so it is skipped there. Talk and Listen unlock on their own taps.
+    if (options?.alwaysUnlock || readNeedsGestureAudioUnlock()) listen.unlockPlayback()
     // Opening a companion pauses audio once. Follow-up actions inside that
     // same companion must not overwrite the original return mode after the
     // audio element is already paused. A companion opened afresh always
@@ -4154,7 +4172,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setCallStartedAt(Date.now())
     dictation.stop()
     setTocOpen(false)
-    interruptHearForAsk()
+    // Talk is an explicit audio start: it keeps unlocking narration on every device.
+    interruptHearForAsk({ alwaysUnlock: true })
     captureCallAnchor()
     setCallAwaitingConnection(true)
     setChrome('talking')

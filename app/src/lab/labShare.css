@@ -35,3 +35,12 @@
 /* The preview is the image as shared: the e-ink profile greys other images, but the page itself shows this highlight in colour. */
 html[data-eink="true"] .lab-share-preview img { filter: none !important; }
 @media (prefers-reduced-motion: reduce) { .lab-share-preview img { transition: none; } }
+/* Previous / Next for a series: the desktop's way between cards (touch also swipes; arrow keys work too). */
+.lab-share-step { position: absolute; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: color-mix(in srgb, var(--lab-paper, #ece7db) 82%, transparent); color: var(--lab-ink); box-shadow: 0 1px 4px rgba(20, 16, 12, 0.16); cursor: pointer; }
+.lab-share-step svg { width: 16px; height: 16px; }
+.lab-share-step.is-prev { left: 8px; }
+.lab-share-step.is-next { right: 8px; }
+.lab-share-step:disabled { opacity: 0; pointer-events: none; }
+.lab-share-step:focus-visible { outline: 2px solid var(--accent, #1f4a5c); outline-offset: 2px; }
+/* Touch screens swipe between cards; the arrows would sit over the card's text. */
+@media (hover: none) and (pointer: coarse) { .lab-share-step { display: none; } }

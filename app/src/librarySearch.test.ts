@@ -2,7 +2,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { groupSearchResults, inTinct, looseTitle, looseTitleAuthorKey, type CatalogueWork } from '../public/lab/public-books.js'
+import { groupEditions, groupSearchResults, inTinct, looseTitle, looseTitleAuthorKey, type CatalogueWork } from '../public/lab/public-books.js'
 import { INTERNAL_KEY } from '../public/lab/internal-traffic.js'
 // @ts-expect-error -- plain module shared by Add a book, freepubs.fyi and the library
 import { createSearch, hydrate, borrowFor } from '../../addbooks/site/search.js'
@@ -102,6 +102,30 @@ describe('"Not yet in Tinct": no copy of a Tinct book', () => {
   it('shows one row per book: a second copy with the same loose title and author is left out', () => {
     const free = [gutenberg('pg:105', 'Persuasion', 'Jane Austen'), gutenberg('pg:106', 'Persuasion: A Novel', 'Jane Austen'), gutenberg('pg:107', 'Persuasion', 'Somebody Else')]
     expect(groupSearchResults({ tinct: [], free, tinctBooks }).notYet.map(w => w.id)).toEqual(['pg:105', 'pg:107'])
+  })
+
+  it('knows a copy by its other titles, and by a title naming the author ("The Confessions of St. Augustine")', () => {
+    const shelf = [{ id: 'confessions', title: 'Confessions', author: 'Augustine' }, { id: 'meditations', title: 'Meditations', author: 'Marcus Aurelius' }]
+    expect(inTinct(gutenberg('pg:3296', 'The Confessions of St. Augustine', 'of Hippo, Saint Augustine'), shelf)).toBe(true)
+    expect(inTinct(gutenberg('pg:1', 'The Confessions of Jean Jacques Rousseau', 'Jean-Jacques Rousseau'), shelf)).toBe(false)
+    expect(inTinct({ ...gutenberg('pg:6920', 'Thoughts of Marcus Aurelius', 'Emperor of Rome Marcus Aurelius'), altTitles: ['Meditations', 'To Himself'] }, shelf)).toBe(true)
+    expect(inTinct(gutenberg('pg:6920', 'Thoughts of Marcus Aurelius', 'Emperor of Rome Marcus Aurelius'), shelf)).toBe(false) // without the other title
+    expect(inTinct({ ...gutenberg('pg:2', 'Meditations', 'René Descartes'), altTitles: ['Meditations'] }, shelf)).toBe(false) // another author
+  })
+
+  it('shows one row per Wikidata work: the best-ranked edition, the others as its alternates', () => {
+    const ws = (id: string, title: string, author: string, wikidata: string | null) => ({ ...gutenberg(id, title, author, 0), wikidata,
+      editions: [{ source: 'Wikisource', epubUrl: `https://ws-export.wmcloud.org/?format=epub&lang=en&page=${encodeURIComponent(title)}`, sourceUrl: null, licence: 'CC BY-SA 4.0' }] })
+    const free = [ws('ws:en:Q1', 'The Meditations of the Emperor Marcus Antoninus', 'Marcus Aurelius', 'Q1152283'), gutenberg('pg:9', 'Seekers after God', 'F. W. Farrar'),
+      ws('ws:en:Q2', 'The Thoughts of the Emperor Marcus Aurelius Antoninus', 'Marcus Aurelius', 'Q1152283'), ws('ws:en:Q3', 'Marcus Aurelius', 'Marcus Aurelius', null)]
+    const grouped = groupEditions(free)
+    expect(grouped.map(w => w.id)).toEqual(['ws:en:Q1', 'pg:9', 'ws:en:Q3'])
+    expect(grouped[0].alternates.map(w => w.id)).toEqual(['ws:en:Q2'])
+    expect(grouped[1].alternates).toEqual([])
+    expect(free[0]).not.toHaveProperty('alternates') // the catalogue's works are not changed
+    expect(groupSearchResults({ tinct: [], free, tinctBooks: [] }).notYet.map(w => w.id)).toEqual(['ws:en:Q1', 'pg:9', 'ws:en:Q3'])
+    // A work that cannot be added does not claim its book: the next edition stands for it.
+    expect(groupSearchResults({ tinct: [], free: [{ ...free[0], language: ['la'] }, free[2]], tinctBooks: [] }).notYet.map(w => w.id)).toEqual(['ws:en:Q2'])
   })
 })
 

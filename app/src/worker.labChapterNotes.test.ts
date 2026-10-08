@@ -67,21 +67,26 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(payload).toMatchObject({ model: COMPANION_MODEL, max_tokens: CHAPTER_NOTES_MAX_TOKENS.primer, output_config: { effort: 'low' } })
   })
 
-  it('a primer is two beats, "Where we are" then "Watch for", in the In brief voice and spoiler-free', () => {
+  it('a primer prepares the reader: why the chapter is interesting, what to expect, what to watch for; at most one line on before; spoiler-free', () => {
     const primer = CHAPTER_NOTES_SYSTEM.primer
+    expect(primer).toMatch(/prepare them to read it: why this chapter is interesting, what to expect, and what to watch for\. It is not a recap\./)
     expect(primer).toMatch(/Give exactly two beats, in this order\. Never more than two beats\./)
-    expect(primer).toMatch(/titled "Where we are" and says, from the PREVIOUS chapter only, where the story stands/)
-    expect(primer).toMatch(/titled "Watch for" and gives one or two concrete pointers for the coming chapter: a person, object, place or question to keep an eye on, named specifically/)
-    expect(primer).toContain('{"beats":[{"title":"Where we are","text":"…"},{"title":"Watch for","text":"…"}]}')
-    expect(primer).toMatch(/one or two plain sentences/)
-    expect(primer).toMatch(/Strictly spoiler-free: never state or hint at any event, outcome, turn or discovery in the coming chapter/)
+    expect(primer).toMatch(/The first beat is about the coming chapter\./)
+    expect(primer).toMatch(/what kind of chapter it is/)
+    expect(primer).toMatch(/at most one short sentence, at most 15 words, on where the story stands, taken from the PREVIOUS chapter only/)
+    expect(primer).toMatch(/Never more than one sentence about what came before\./)
+    expect(primer).toMatch(/titled "Watch for" and gives one or two concrete things to notice while reading/)
+    expect(primer).toContain('{"beats":[{"title":"…","text":"…"},{"title":"Watch for","text":"…"}]}')
+    expect(primer).toMatch(/Strictly spoiler-free: never state or hint at any event, outcome, turn, decision or discovery in the coming chapter/)
+    expect(primer).toMatch(/never how it develops or ends/)
     expect(primer).toContain('"Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed"')
     expect(primer).toMatch(/Never use the verbs list, record, document, establish, detail, reveal or examine/)
     expect(primer).toMatch(/Do not invent meaning, motives or symbolism/)
     expect(primer).toMatch(/State only facts the text gives; when unsure of a name or number, leave it out\./)
     expect(primer).toMatch(/no morals or aphorisms, no "we" or "us" in the text/)
+    // The old recap-first beat is gone.
+    expect(primer).not.toMatch(/"Where we are"/)
     expect(primer).not.toMatch(/"And"/)
-    expect(primer).not.toMatch(/two or three beats/)
   })
 
   it('the sheet takes a two-beat primer as it comes', () => {
@@ -136,12 +141,12 @@ describe('POST /api/lab-chapter-notes', () => {
   })
 
   it('new prompts are new cache versions: old In brief and three-beat primers are never served', async () => {
-    expect(CHAPTER_NOTES_PROMPT_VERSIONS).toEqual({ sofar: 'notes-v1', end: 'notes-v3', primer: 'notes-v2' })
+    expect(CHAPTER_NOTES_PROMPT_VERSIONS).toEqual({ sofar: 'notes-v1', end: 'notes-v3', primer: 'notes-v3' })
     const base = { bookId: 'bible', editionKey: 'original-en', chapterNumber: 12 }
     expect(chapterNotesCacheKey({ ...base, kind: 'end' })).toBe('notes-v3/bible/original-en/12/end/all')
-    expect(chapterNotesCacheKey({ ...base, kind: 'primer' })).toBe('notes-v2/bible/original-en/12/primer/all')
+    expect(chapterNotesCacheKey({ ...base, kind: 'primer' })).toBe('notes-v3/bible/original-en/12/primer/all')
     const threeBeatPrimer = JSON.stringify({ beats: [{ title: 'Where we are', text: 'a' }, { title: 'Watch for', text: 'b' }, { title: 'And', text: 'c' }] })
-    for (const [kind, old] of [['end', ['notes-v1', 'notes-v2']], ['primer', ['notes-v1']]] as const) {
+    for (const [kind, old] of [['end', ['notes-v1', 'notes-v2']], ['primer', ['notes-v1', 'notes-v2']]] as const) {
       const cache = fakeCache(); const fetchAnthropic = anthropic(); const { ctx: c, pending } = ctx()
       for (const version of old) cache.entries.set(`https://tinct.app/__lab-chapter-notes/${version}/frank/original-en/2/${kind}/all`, kind === 'primer' ? threeBeatPrimer : beatsJson)
       const response = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind }), env, c, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })

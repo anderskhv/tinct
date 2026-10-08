@@ -14,7 +14,6 @@ const slow = { timeout: 8_000 }
 
 import type { ChapterNotesRequest } from '../chapterNotes'
 import { CATCH_UP_ROUTE } from '../catchUp'
-import { LAB_RECAP_ROUTE } from '../recapSummary'
 import { LabBalanceEmptyLine } from './LabAiUsageBar'
 import { LabCatchUpSheet } from './LabCatchUpSheet'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
@@ -143,10 +142,11 @@ describe('LabCatchUpSheet at zero', () => {
   const chapters = Array.from({ length: 4 }, (_, i) => ({ number: i + 1, title: `Chapter ${i + 1}` }))
   const renderSheet = (onTopUp?: () => void) => render(
     <LabCatchUpSheet bookId="plain" editionKey={`c${run}`} bookTitle="Plain" chapters={chapters}
-      chapterNumber={3} paragraphIndex={4} completed={false} onClose={vi.fn()} onDiscuss={vi.fn()} onTopUp={onTopUp} />,
+      chapterNumber={4} paragraphIndex={4} completed={false} onClose={vi.fn()} onDiscuss={vi.fn()} onTopUp={onTopUp} />,
   )
 
-  it('shows the balance line on each refused entry, recap included, and keeps cached entries', async () => {
+  // At chapter 4 the timeline is chapters 1, 2 and 3 (the current chapter is never recapped).
+  it('shows the balance line on each refused entry, and keeps cached entries', async () => {
     stubFetch(() => refused)
     const onTopUp = vi.fn()
     renderSheet(onTopUp)
@@ -158,7 +158,8 @@ describe('LabCatchUpSheet at zero', () => {
   })
 
   it('shows the line on refused entries only; served entries read as before', async () => {
-    stubFetch(url => url === LAB_RECAP_ROUTE ? refused : { status: 200, body: { summary: 'Recap of an earlier chapter.' } })
+    let calls = 0
+    stubFetch(() => ++calls === 3 ? refused : { status: 200, body: { summary: 'Recap of an earlier chapter.' } })
     renderSheet(vi.fn())
     await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-balance')).toHaveLength(1), slow)
     expect(screen.getAllByText('Recap of an earlier chapter.')).toHaveLength(2)

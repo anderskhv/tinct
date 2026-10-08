@@ -177,6 +177,47 @@ describe('LabShareSheet', () => {
       expect(screen.getByTestId('lab-share-status').textContent).toBe('')
     })
 
+    it('moves between cards with Previous/Next and the arrow keys (desktop has no swipe)', async () => {
+      mockFetch(3)
+      render(<LabShareSheet target={target} look="paper" format="desktop" onClose={() => {}} />)
+      await settle(300)
+      const row = screen.getByTestId('lab-share-cards')
+      Object.defineProperty(row, 'clientWidth', { value: 500, configurable: true })
+      const count = () => screen.getByTestId('lab-share-count').textContent
+      const prev = screen.getByTestId('lab-share-prev') as HTMLButtonElement
+      const next = screen.getByTestId('lab-share-next') as HTMLButtonElement
+      expect(prev.getAttribute('aria-label')).toBe('Previous')
+      expect(next.getAttribute('aria-label')).toBe('Next')
+      expect(prev.disabled).toBe(true)
+      fireEvent.click(next)
+      expect(count()).toBe('2/3')
+      fireEvent.click(next)
+      expect(count()).toBe('3/3')
+      expect(next.disabled).toBe(true)
+      fireEvent.click(next)
+      expect(count()).toBe('3/3')
+      fireEvent.keyDown(window, { key: 'ArrowLeft' })
+      expect(count()).toBe('2/3')
+      fireEvent.keyDown(window, { key: 'ArrowLeft' })
+      fireEvent.keyDown(window, { key: 'ArrowLeft' })
+      expect(count()).toBe('1/3')
+      fireEvent.keyDown(window, { key: 'ArrowRight' })
+      expect(count()).toBe('2/3')
+    })
+
+    it('keeps the card in view when the tinct.app toggle redraws the images', async () => {
+      const calls = mockFetch(3)
+      render(<LabShareSheet target={target} look="paper" format="desktop" onClose={() => {}} />)
+      await settle(300)
+      fireEvent.click(screen.getByTestId('lab-share-next'))
+      fireEvent.click(screen.getByTestId('lab-share-tagline'))
+      await settle(300)
+      expect(screen.getByTestId('lab-share-count').textContent).toBe('2/3')
+      const images = [...screen.getByTestId('lab-share-cards').querySelectorAll('img')]
+      expect(images.every(img => /[?&]tagline=1(&|$)/.test(img.getAttribute('src') ?? ''))).toBe(true)
+      expect(calls.some(call => /[?&]tagline=1(&|$)/.test(call.url))).toBe(true)
+    })
+
     it('copies the card in view', async () => {
       mockFetch(3)
       const write = vi.fn(async (_items: Array<{ items: Record<string, Blob> }>) => {})

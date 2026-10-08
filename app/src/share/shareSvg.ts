@@ -103,13 +103,7 @@ export function renderShareSvg(page: SharePage, fonts: ShareFonts): string {
     hx += dotWidth + dotGap
     parts.push(italicRun(hx, headerBaseline, header.size, palette.muted, chapter))
   }
-  // A card of a series: a quiet "1/3" at the header's right edge, on every card.
-  if (page.series && page.series.count > 1) {
-    const label = `${page.series.index}/${page.series.count}`
-    const size = header.size * 0.9
-    const x = width - frame.padding.side - textWidth(fonts.regular, label, size)
-    parts.push(`<text x="${n(x)}" y="${n(headerBaseline)}" font-family="${FAMILY}" font-size="${n(size)}" fill="${palette.faint}">${esc(label)}</text>`)
-  }
+  // A card of a series carries no "1/3": the count is the share sheet's UI only.
 
   // Body.
   const size = layout.fontSize

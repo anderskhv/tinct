@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 // @ts-expect-error -- plain module shared by Add a book, freepubs.fyi and the library's "Not yet in Tinct"
-import { createSearch, hydrate, normalize, altTitlesFor } from '../../addbooks/site/search.js'
+import { createSearch, hydrate, normalize, altTitlesFor, applyPriors, fame } from '../../addbooks/site/search.js'
 
 // The catalogue search engine (addbooks/site/search.js, installed as public/lab/addbook/js/search.js)
 // over real records copied unchanged from public/lab/addbook/data/catalog.json.gz.
@@ -159,5 +159,64 @@ describe('catalogue search: variants, other titles, author words', () => {
     expect(altTitlesFor('The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata)', 'Edwin Arnold')).toEqual(['Bhagavad Gita'])
     expect(altTitlesFor('The Tao Teh King, or the Tao and its Characteristics', 'Laozi')).toContain('Tao Te Ching')
     expect(altTitlesFor("The Koran (Al-Qur'an)", '')).toContain('Quran')
+  })
+})
+
+// Ranking sense (2026-10-08): fame from the work priors (Wikidata sitelinks) for works without
+// Gutenberg downloads, an author's own books before shared ones, and other names of famous works.
+describe('catalogue search: work priors, own books, other titles', () => {
+  type Raw = { id: string; title: string; language: string[]; popularity: number; authors: Array<{ name: string }>; editions: Array<{ source: string }>; altTitles?: string[] }
+  const raw = (id: string, title: string, authors: string[], popularity = 0): Raw => ({ id, title, language: ['en'], popularity, authors: authors.map(name => ({ name })), editions: [{ source: id.startsWith('ws:') ? 'Wikisource' : 'Gutenberg' }] })
+  const engine = (list: Raw[], priors?: unknown) => {
+    const prepared: Work[] = applyPriors(hydrate(structuredClone(list)), priors)
+    for (const w of prepared) for (const e of w.editions) { if (!e.authors.length) e.authors = w.authors; if (!e.translators.length) e.translators = w.translators; if (!e.title) e.title = w.title }
+    const run: Search = createSearch(prepared)
+    return (query: string) => run(query, { language: 'en' }, 50).results.map(w => w.id)
+  }
+  const seneca = [
+    raw('ws:en:Q97452599', 'Moral letters to Lucilius', ['Seneca']),
+    raw('pg:64576', 'Minor Dialogues, Together With the Dialogue on Clemency', ['Lucius Annaeus Seneca'], 3627),
+    raw('pg:3794', 'L. Annaeus Seneca on Benefits', ['Lucius Annaeus Seneca'], 3108),
+    raw('pg:60831', 'Between Heathenism and Christianity', ['Charles William Super', 'Plutarch', 'Lucius Annaeus Seneca'], 758),
+    raw('pg:61477', 'Seneca myths and folk tales', ['Arthur C. (Arthur Caswell) Parker'], 2278),
+  ]
+  const priors = { works: { 'ws:en:Q97452599': ['Q720535', 26, 'Epistulae morales ad Lucilium'], 'pg:3794': ['Q5244244', 11] } }
+
+  it('applyPriors adds the Wikidata work, its sitelinks and English name; fame takes downloads or sitelinks, whichever says more', () => {
+    const [letters, , benefits] = applyPriors(hydrate(structuredClone(seneca)), priors)
+    expect(letters).toMatchObject({ wikidata: 'Q720535', sitelinks: 26 })
+    expect(letters.altTitles).toContain('Epistulae morales ad Lucilium')
+    expect(fame(letters)).toBeCloseTo(2.4 + 0.9 * Math.log10(27))
+    expect(fame(benefits)).toBeCloseTo(Math.log10(3109)) // its downloads say more than 11 sitelinks
+    expect(fame({ popularity: 0 })).toBe(0)
+    // No priors: the catalogue as it was.
+    expect(applyPriors(hydrate(structuredClone(seneca)), null)[0]).not.toHaveProperty('wikidata')
+  })
+
+  it('"seneca": the famous Wikisource letters first with the priors; his own books before an anthology and Parker\'s folk tales', () => {
+    expect(engine(seneca)('seneca')[0]).toBe('pg:64576') // without priors, downloads alone
+    const list = engine(seneca, priors)('seneca')
+    expect(list.slice(0, 3)).toEqual(['ws:en:Q97452599', 'pg:64576', 'pg:3794'])
+    expect(list.slice(3).sort()).toEqual(['pg:60831', 'pg:61477'])
+  })
+
+  it('"letters from a stoic" and the other names of the Moral Letters find them as titles', () => {
+    expect(altTitlesFor('Moral letters to Lucilius', 'Seneca')).toContain('Letters from a Stoic')
+    expect(altTitlesFor('Moral letters to Lucilius', 'Somebody Else')).toEqual([])
+    for (const query of ['letters from a stoic', 'moral epistles', 'epistulae morales', 'letters to lucilius']) expect(engine(seneca, priors)(query)[0], query).toBe('ws:en:Q97452599')
+    expect(altTitlesFor('Thoughts of Marcus Aurelius', 'Emperor of Rome Marcus Aurelius')).toEqual(['Meditations', 'To Himself'])
+    expect(altTitlesFor('Index of the Project Gutenberg Works of Marcus Aurelius Antoninus', 'Marcus Aurelius')).toEqual([])
+  })
+
+  it('for an author\'s name, a middle name and Gutenberg\'s quotation selections rank below the author\'s own books', () => {
+    const list = engine([
+      raw('pg:1', 'The Odysseys of Homer', ['Homer'], 900),
+      raw('pg:2', 'The Rise of Universities', ['Charles Homer Haskins'], 950),
+      raw('pg:3', 'Stories from the Odyssey', ['H. L. Havell', 'Homer'], 1400),
+      raw('pg:4', 'The Iliads of Homer', ['Homer'], 800),
+      raw('pg:5', 'Quotes and Images From The Works of Homer', ['Homer'], 5000),
+    ])('homer')
+    expect(list.slice(0, 2)).toEqual(['pg:1', 'pg:4'])
+    expect(list[list.length - 1]).toBe('pg:5')
   })
 })

@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 vi.setConfig({ testTimeout: 30_000 })
 const slow = { timeout: 8_000 }
 import { LabCatchUpSheet } from './LabCatchUpSheet'
-import { CATCH_UP_CONCURRENCY, CATCH_UP_INITIAL_WANTED, nextCatchUpKeys, resetCatchUpMemory } from './labCatchUp'
+import { CATCH_UP_CONCURRENCY, nextCatchUpKeys, resetCatchUpMemory } from './labCatchUp'
 import { CATCH_UP_ROUTE } from '../catchUp'
 import { LAB_RECAP_ROUTE } from '../recapSummary'
 
@@ -48,81 +48,74 @@ beforeEach(() => { run += 1; editionKey = `e${run}`; resetCatchUpMemory() })
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks() })
 
 describe('LabCatchUpSheet', () => {
-  it('lists every chapter read so far oldest first and ends at "You are here"', async () => {
-    stubFetch(okBodies)
+  const titles = () => screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)
+
+  it('one compact block for the earlier chapters, then the last two chapters each, and ends at "You are here" — never the current chapter', async () => {
+    const calls = stubFetch(okBodies)
     renderSheet()
-    const titles = screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)
-    expect(titles).toHaveLength(61)
-    expect(titles[0]).toBe('Chapter 1')
-    expect(titles.at(-1)).toBe('Chapter 61')
+    expect(titles()).toEqual(['Chapter 1 – Chapter 58', 'Chapter 59', 'Chapter 60'])
     const timeline = screen.getByTestId('lab-catch-up-body').querySelector('ol')!
     expect(timeline.lastElementChild?.textContent).toBe('You are here')
     expect(screen.getByTestId('lab-catch-up').querySelector('h2')?.textContent).toBe('Catch me up')
-    await waitFor(() => expect(screen.getByText('Recap of ch-1.')).toBeTruthy(), slow)
-  })
-
-  it('loads progressively in reading order, chapter 1 first, never everything at once — and never past the reader', async () => {
-    const calls = stubFetch(okBodies)
-    renderSheet()
-    await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-entry').filter(node => node.getAttribute('data-state') === 'ok')).toHaveLength(CATCH_UP_INITIAL_WANTED), slow)
-    // Without a scroll observer only the first few are asked for, oldest first.
-    expect(calls).toHaveLength(CATCH_UP_INITIAL_WANTED)
-    expect(calls.map(call => call.body.unitId)).toEqual(['ch-1', 'ch-2', 'ch-3', 'ch-4', 'ch-5'])
+    await waitFor(() => expect(screen.getByText('Recap of chs-1-58.')).toBeTruthy(), slow)
+    await waitFor(() => expect(calls).toHaveLength(3), slow)
+    // Three requests (was 61), oldest first, ids only, nothing at or past chapter 61.
+    expect(calls.map(call => call.body.unitId)).toEqual(['chs-1-58', 'ch-59', 'ch-60'])
     for (const call of calls) {
       expect(call.url).toBe(CATCH_UP_ROUTE)
       expect(Object.keys(call.body).sort()).toEqual(['bookId', 'bookTitle', 'editionKey', 'unitId'])
-      expect(Number(String(call.body.unitId).replace('ch-', ''))).toBeLessThan(61)
     }
-    expect(screen.getAllByTestId('lab-catch-up-entry').at(-1)!.getAttribute('data-state')).toBe('idle')
-    expect(screen.getAllByTestId('lab-catch-up-entry').at(-1)!.querySelector('.lab-catch-up-placeholder')).toBeTruthy()
-  })
-
-  it('asks for the brief recap of the chapter in progress', async () => {
-    const calls = stubFetch(okBodies)
-    renderSheet({ chapterNumber: 3 })
-    await waitFor(() => expect(screen.getByText('So far in 3.')).toBeTruthy(), slow)
-    expect(calls.find(call => call.url === LAB_RECAP_ROUTE)?.body).toEqual({ bookId: 'plain', editionKey, bookTitle: 'Plain', chapterNumber: 3, paragraphIndex: 4, completed: false, brief: true })
-  })
-
-  it('does not ask for the chapter in progress when only its heading lines are read', async () => {
-    const calls = stubFetch(okBodies)
-    const letter = ['_To Mrs. Saville, England._', 'August 5th, 17—.', ...Array.from({ length: 37 }, () => 'So strange an accident has happened to us that I cannot forbear recording it, although it is very probable that you will see me before these papers can come into your possession.')]
-    renderSheet({ chapterNumber: 4, paragraphIndex: 1, paragraphs: letter })
-    expect(screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)).toEqual(['Chapter 1', 'Chapter 2', 'Chapter 3'])
-    const timeline = screen.getByTestId('lab-catch-up-body').querySelector('ol')!
-    expect(timeline.lastElementChild?.textContent).toBe('You are here')
-    await waitFor(() => expect(calls).toHaveLength(3), slow)
     expect(calls.some(call => call.url === LAB_RECAP_ROUTE)).toBe(false)
+  })
+
+  it('never asks for the chapter in progress, finished or not', async () => {
+    for (const completed of [false, true]) {
+      const calls = stubFetch(okBodies)
+      renderSheet({ chapterNumber: 3, completed })
+      expect(titles()).toEqual(['Chapter 1', 'Chapter 2'])
+      await waitFor(() => expect(calls).toHaveLength(2), slow)
+      expect(calls.map(call => call.body.unitId)).toEqual(['ch-1', 'ch-2'])
+      expect(calls.some(call => call.url === LAB_RECAP_ROUTE || call.body.chapterNumber === 3)).toBe(false)
+      cleanup(); vi.unstubAllGlobals(); resetCatchUpMemory(); editionKey = `${editionKey}x`
+    }
+  })
+
+  it('in the first chapter there is nothing to recap: only "You are here", and no request', async () => {
+    const calls = stubFetch(okBodies)
+    renderSheet({ chapterNumber: 1 })
+    expect(screen.queryAllByTestId('lab-catch-up-entry')).toHaveLength(0)
+    expect(screen.getByTestId('lab-catch-up-here').textContent).toBe('You are here')
+    await new Promise(resolve => setTimeout(resolve, 30))
+    expect(calls).toHaveLength(0)
   })
 
   it('an empty answer or a reply asking for more text is never shown: the entry is left out, with no Retry', async () => {
     const complaint = 'I need to see the actual content of Chapter 2 to write an accurate summary. Could you provide the full text of the passage where the reader stopped?'
-    const calls = stubFetch(call => call.body.unitId === 'ch-1' ? { status: 200, body: { summary: '', empty: true } }
-      : call.body.unitId === 'ch-2' ? { status: 200, body: { summary: complaint } }
-        : call.url === LAB_RECAP_ROUTE ? { status: 200, body: { summary: '', empty: true, coverage: { chapterNumber: 4 } } }
-          : okBodies(call))
-    renderSheet({ chapterNumber: 4 })
-    await waitFor(() => expect(screen.getByText('Recap of ch-3.')).toBeTruthy(), slow)
-    await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)).toEqual(['Chapter 3']), slow)
+    const calls = stubFetch(call => call.body.unitId === 'chs-1-2' ? { status: 200, body: { summary: '', empty: true } }
+      : call.body.unitId === 'ch-3' ? { status: 200, body: { summary: complaint } }
+        : okBodies(call))
+    renderSheet({ chapterNumber: 5 })
+    await waitFor(() => expect(screen.getByText('Recap of ch-4.')).toBeTruthy(), slow)
+    await waitFor(() => expect(titles()).toEqual(['Chapter 4']), slow)
     expect(screen.queryByText(/I need to see/)).toBeNull()
     expect(screen.queryByTestId('lab-catch-up-retry')).toBeNull()
-    expect(calls.some(call => call.url === LAB_RECAP_ROUTE)).toBe(true)
+    expect(calls).toHaveLength(3)
     // Nothing was remembered for a reopen: the empty entries are asked again, never shown from memory.
     cleanup()
-    renderSheet({ chapterNumber: 4 })
+    renderSheet({ chapterNumber: 5 })
     expect(screen.queryByText(/I need to see/)).toBeNull()
   })
 
   it('a failed entry shows a quiet retry, and the rest of the timeline still loads', async () => {
     let fail = true
-    stubFetch(call => call.body.unitId === 'ch-2' && fail ? { status: 502, body: { error: 'x' } } : okBodies(call))
+    stubFetch(call => call.body.unitId === 'ch-59' && fail ? { status: 502, body: { error: 'x' } } : okBodies(call))
     renderSheet()
     const retry = await screen.findByTestId('lab-catch-up-retry', {}, slow)
     expect(retry.textContent).toBe('Retry')
-    expect(await screen.findByText('Recap of ch-3.', {}, slow)).toBeTruthy()
+    expect(await screen.findByText('Recap of ch-60.', {}, slow)).toBeTruthy()
     fail = false
     fireEvent.click(retry)
-    await waitFor(() => expect(screen.getByText('Recap of ch-2.')).toBeTruthy(), slow)
+    await waitFor(() => expect(screen.getByText('Recap of ch-59.')).toBeTruthy(), slow)
   })
 
   it('a resting AI or a rate limit pauses new requests instead of failing the whole timeline', async () => {
@@ -133,61 +126,47 @@ describe('LabCatchUpSheet', () => {
     expect(calls.length).toBeLessThanOrEqual(CATCH_UP_CONCURRENCY)
   })
 
-  it('the Bible: only the biblical book the reader is in, chapter by chapter; earlier books are never asked for', async () => {
+  it('the Bible: only the biblical book the reader is in; earlier books are never asked for', async () => {
     const calls = stubFetch(okBodies)
     const bible = [
       ...Array.from({ length: 3 }, (_, i) => ({ number: i + 1, title: `Ezra ${i + 1}` })),
       ...Array.from({ length: 5 }, (_, i) => ({ number: i + 4, title: `Job ${i + 1}` })),
-      ...Array.from({ length: 4 }, (_, i) => ({ number: i + 9, title: `Psalms ${i + 1}` })),
+      ...Array.from({ length: 6 }, (_, i) => ({ number: i + 9, title: `Psalms ${i + 1}` })),
     ]
-    renderSheet({ bookId: 'bible', editionKey: 'kjv-en', bookTitle: 'The Bible', chapters: bible, chapterNumber: 11, paragraphIndex: 2 })
-    const titles = screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)
-    expect(titles).toEqual(['Psalms 1', 'Psalms 2', 'Psalms 3'])
+    renderSheet({ bookId: 'bible', editionKey: 'kjv-en', bookTitle: 'The Bible', chapters: bible, chapterNumber: 14, paragraphIndex: 2 })
+    expect(titles()).toEqual(['Psalms 1 – Psalms 3', 'Psalms 4', 'Psalms 5'])
     expect(screen.queryByTestId('lab-catch-up-fold')).toBeNull()
     await waitFor(() => expect(calls).toHaveLength(3), slow)
-    expect(calls.filter(call => call.url === CATCH_UP_ROUTE).map(call => call.body.unitId)).toEqual(['ch-9', 'ch-10'])
+    expect(calls.map(call => call.body.unitId)).toEqual(['chs-9-11', 'ch-12', 'ch-13'])
     expect(calls.every(call => !('throughChapter' in call.body))).toBe(true)
   })
 
-  it('a short-story collection (library form): only the story the reader is in', async () => {
+  it('a short-story collection (library form): only the story the reader is in, so nothing in a story of one chapter', async () => {
     const calls = stubFetch(okBodies)
     const stories = ['A Scandal in Bohemia', 'The Red-Headed League', 'A Case of Identity'].map((title, i) => ({ number: i + 1, title }))
     renderSheet({ bookId: 'stories', bookTitle: 'Stories', chapters: stories, chapterNumber: 3, form: 'short-stories' })
-    expect(screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('h3')?.textContent)).toEqual(['A Case of Identity'])
-    await waitFor(() => expect(calls).toHaveLength(1), slow)
-    expect(calls[0].url).toBe(LAB_RECAP_ROUTE)
+    expect(screen.queryAllByTestId('lab-catch-up-entry')).toHaveLength(0)
+    await new Promise(resolve => setTimeout(resolve, 30))
+    expect(calls).toHaveLength(0)
   })
 
-  it('a novel with parts: earlier parts are one folded line each that opens on tap; the current part is chapter by chapter', async () => {
+  it('a novel with parts: the block runs across parts; the last two chapters each, whatever part they are in', async () => {
     const calls = stubFetch(okBodies)
     const parts = [
       ...[1, 2, 3].map(n => ({ number: n, title: `Book One — Chapter ${n}` })),
       ...[1, 2, 3].map(n => ({ number: n + 3, title: `Book Two — Chapter ${n}` })),
       ...[1, 2, 3].map(n => ({ number: n + 6, title: `Book Three — Chapter ${n}` })),
     ]
-    renderSheet({ bookId: 'novel', bookTitle: 'Novel', chapters: parts, chapterNumber: 9, paragraphIndex: 3 })
-    const entries = () => screen.getAllByTestId('lab-catch-up-entry')
-    expect(entries().map(node => node.querySelector('h3')?.textContent)).toEqual(['Book One', 'Book Two', 'Book Three — Chapter 1', 'Book Three — Chapter 2', 'Book Three — Chapter 3'])
-    const folds = screen.getAllByTestId('lab-catch-up-fold')
-    expect(folds.map(node => node.textContent)).toEqual(['Book One', 'Book Two'])
-    expect(folds.every(node => node.getAttribute('aria-expanded') === 'false')).toBe(true)
-    await waitFor(() => expect(screen.getByText('Recap of part-book-one.')).toBeTruthy(), slow)
-    expect(screen.getByText('Recap of part-book-one.').classList.contains('is-line')).toBe(true)
-    expect(screen.getByText('Recap of part-book-one.').closest('li')?.getAttribute('data-expanded')).toBe('false')
-    fireEvent.click(folds[0])
-    expect(folds[0].getAttribute('aria-expanded')).toBe('true')
-    expect(screen.getByText('Recap of part-book-one.').classList.contains('is-line')).toBe(false)
-    expect(folds[1].getAttribute('aria-expanded')).toBe('false')
-    fireEvent.click(folds[0])
-    expect(folds[0].getAttribute('aria-expanded')).toBe('false')
-    await waitFor(() => expect(calls).toHaveLength(5), slow)
-    expect(calls.filter(call => call.url === CATCH_UP_ROUTE).map(call => call.body.unitId)).toEqual(['part-book-one', 'part-book-two', 'ch-7', 'ch-8'])
+    renderSheet({ bookId: 'novel', bookTitle: 'Novel', chapters: parts, chapterNumber: 8, paragraphIndex: 3 })
+    expect(titles()).toEqual(['Book One — Chapter 1 – Book Two — Chapter 2', 'Book Two — Chapter 3', 'Book Three — Chapter 1'])
+    await waitFor(() => expect(calls).toHaveLength(3), slow)
+    expect(calls.map(call => call.body.unitId)).toEqual(['chs-1-5', 'ch-6', 'ch-7'])
   })
 
   it('Discuss hands over to chapter chat; close and Escape close; a reopen is served from memory', async () => {
     const calls = stubFetch(okBodies)
     const props = renderSheet()
-    await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-entry').filter(node => node.getAttribute('data-state') === 'ok')).toHaveLength(CATCH_UP_INITIAL_WANTED), slow)
+    await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-entry').filter(node => node.getAttribute('data-state') === 'ok')).toHaveLength(3), slow)
     fireEvent.click(screen.getByTestId('lab-catch-up-discuss'))
     expect(props.onDiscuss).toHaveBeenCalledOnce()
     fireEvent.click(screen.getByTestId('lab-catch-up-close'))
@@ -195,9 +174,9 @@ describe('LabCatchUpSheet', () => {
     expect(props.onClose).toHaveBeenCalledTimes(2)
     cleanup()
     renderSheet()
-    expect(screen.getByText('Recap of ch-1.')).toBeTruthy()
+    expect(screen.getByText('Recap of chs-1-58.')).toBeTruthy()
     await new Promise(resolve => setTimeout(resolve, 10))
-    expect(calls.map(call => String(call.body.unitId ?? call.body.chapterNumber))).toEqual(['ch-1', 'ch-2', 'ch-3', 'ch-4', 'ch-5'])
+    expect(calls.map(call => String(call.body.unitId))).toEqual(['chs-1-58', 'ch-59', 'ch-60'])
   })
 })
 

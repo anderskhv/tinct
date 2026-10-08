@@ -6,6 +6,7 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
+import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel5';
 import {addToTinctEnabled,groupSearchResults,freeRow,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
@@ -14,6 +15,8 @@ export const enabled=()=>addToTinctEnabled(undefined,signedIn());
 export const ADD_BOOK_PAGE='/lab/addbook/';
 /** Add a book's file step: "Your own book", a PDF or EPUB, without its free-book search (the library has its own). */
 export const ADD_FILE_PAGE='/lab/addbook/?mode=file';
+/** Where a file chosen in the library's pop-up continues: Add a book's own upload flow (file-handoff.js). */
+export const ADD_FILE_HANDOFF_PAGE=`${ADD_FILE_PAGE}&${HANDOFF_PARAM}=1`;
 /** The add a signed-out reader asked for resumes here after sign-in. */
 export const ADD_PARAM='add';
 
@@ -21,7 +24,7 @@ export const ADD_PARAM='add';
 let worker=null,ready=null,request=0;const waiting=new Map();
 export function warmFreeSearch(){
  if(worker||!enabled())return ready;
- try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261008rel4',{type:'module'});}catch{worker=null;return null;}
+ try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261008rel5',{type:'module'});}catch{worker=null;return null;}
  ready=new Promise((resolve,reject)=>{
   worker.onmessage=({data})=>{
    if(data.type==='ready')resolve();
@@ -74,7 +77,7 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261008rel4';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261008rel5';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -92,13 +95,68 @@ export function canAdd(){
 }
 /** Forget the answer (the reader signed in or out). */
 export function resetAddAccess(){access=null;}
-/** A file entry opens Add a book for Premium and trial, the Premium offer for a free account. */
+// ---- Your own book: a pop-up over the library, then the file picker ----
+// Add a book's own wording (addbook/index.html, "Your own book"); the rights confirmation
+// itself stays in Add a book's upload flow, asked there once per account as today.
+const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',cancel:'Cancel'};
+const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
+let openDialog=null;
+/** Close the pop-up (if open), focus back on what opened it. */
+export function closeFileDialog(){
+ if(!openDialog)return;
+ const {layer,from,onKey}=openDialog;openDialog=null;
+ removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});
+}
+/**
+ * The "Your own book" pop-up: Add a book's wording and one button that opens the file
+ * picker directly. The chosen file is handed to Add a book's upload flow (`onFile`, by
+ * default: kept for it in this browser, then Add a book continues), or, when it cannot be
+ * handed over, Add a book's file step opens as before (`fallback`).
+ */
+export function openFileDialog({from=null,fallback=ADD_FILE_PAGE,onFile=null,go=href=>location.assign(href),keep=putHandoff}={}){
+ closeFileDialog();
+ const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
+ const layer=make('div','own-file-layer');layer.dataset.testid='own-file-dialog';
+ const box=make('div','own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
+ const title=make('h2','',OWN_BOOK_COPY.title);title.id='own-file-title';
+ const input=make('input');input.type='file';input.accept=FILE_ACCEPT;input.hidden=true;input.className='own-file-input';
+ const cancel=make('button','own-file-cancel',OWN_BOOK_COPY.cancel);cancel.type='button';
+ const choose=make('button','own-file-choose',OWN_BOOK_COPY.choose);choose.type='button';
+ const actions=make('div','own-file-actions');actions.append(cancel,choose);
+ box.append(title,make('p','own-file-lede',OWN_BOOK_COPY.lede),make('p','own-file-fine',OWN_BOOK_COPY.fine),actions,input);
+ layer.append(box);document.body.append(layer);
+ const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeFileDialog();}};
+ addEventListener('keydown',onKey,true);
+ openDialog={layer,from,onKey};
+ layer.addEventListener('click',event=>{if(event.target===layer)closeFileDialog();});
+ cancel.onclick=()=>closeFileDialog();
+ // The picker opens on this tap (browsers allow a file picker only from a user's own click).
+ choose.onclick=()=>input.click();
+ input.onchange=async()=>{
+  const file=input.files?.[0];input.value='';if(!file)return;
+  closeFileDialog();
+  if(onFile){onFile(file);return;}
+  go(await keep(file)?ADD_FILE_HANDOFF_PAGE:fallback);
+ };
+ choose.focus({preventScroll:true});
+ return layer;
+}
+/**
+ * A file entry: for Premium and trial, the "Your own book" pop-up (signed in) or Add a
+ * book's file step (an internal device signed out: its account gate), the Premium offer
+ * for a free account, exactly as before the pop-up.
+ */
+export async function openFileEntry(link,{access=canAdd,go=href=>location.assign(href),keep=putHandoff}={}){
+ if((await access())===false){go(PREMIUM_PAGE);return null;}
+ if(!signedIn()){go(link.href);return null;}
+ return openFileDialog({from:link,fallback:link.href,go,keep});
+}
 function fileEntry(link){
  if(link.dataset.fileEntry)return link;link.dataset.fileEntry='1';
- link.addEventListener('click',async event=>{
+ link.addEventListener('click',event=>{
   if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
   event.preventDefault();
-  location.assign((await canAdd())===false?PREMIUM_PAGE:link.href);
+  void openFileEntry(link);
  });
  return link;
 }
@@ -197,9 +255,10 @@ export function syncSearchFilters(host,{query,tinctBooks,el,onChange}){
 // ---- Rendering ----
 /**
  * "Available in Tinct" / "Not yet in Tinct" / "Have it as a file?" in the search panel,
- * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown.
+ * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown;
+ * `onFreeShown(n)` hears how many "Not yet in Tinct" rows were drawn, when they are.
  */
-export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters}){
+export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters,onFreeShown}){
  box.classList.add('has-groups');
  const head=text=>el('h2','search-group-head',text);
  const bar=syncSearchFilters(filterHost,{query,tinctBooks,el,onChange:onFilters});
@@ -214,6 +273,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
    if(!group.isConnected)return;
    const {notYet}=groupSearchResults({tinct,free:filterNotYet(free,f),tinctBooks});group.dataset.freeGroup=String(notYet.length);
    if(!notYet.length)return;
+   onFreeShown?.(notYet.length);
    group.append(head('Not yet in Tinct'));const list=el('ol','free-list');
    for(const work of notYet){
     const row=freeRow(work),item=el('li','free-row'),text=el('span','free-text');
@@ -316,7 +376,13 @@ export function appendOwnShelf(grid,list,el,onAddBook){
  return added+1;
 }
 
-/** The + at the right end of the library's search field: the same file step, where Add to Tinct is on (a free account past its trial: the Premium offer). */
+/** The library top bar's +, beside search: opens the add-a-book flow (the library search, as My shelf's "+ Add a book"), where Add to Tinct is on. */
+export function syncLibraryAdd(button,onOpen){
+ if(!button)return;
+ button.hidden=!enabled();
+ if(onOpen&&!button.dataset.addBound){button.dataset.addBound='1';button.addEventListener('click',()=>onOpen());}
+}
+/** The + at the right end of the library's search field: the "Your own book" pop-up, where Add to Tinct is on (a free account past its trial: the Premium offer). */
 export function syncSearchAddFile(link){
  if(!link)return;
  link.href=ADD_FILE_PAGE;link.hidden=!enabled();fileEntry(link);

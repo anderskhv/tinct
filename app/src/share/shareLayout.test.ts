@@ -526,26 +526,26 @@ describe('share highlight: a series of cards for a long quote', () => {
       expect(cards.flatMap(cardWords)).toEqual(quote)
       for (const card of cards.slice(0, -1)) expect(/[.!?]["”’)]*$/.test(lastOf(cardWords(card)))).toBe(true)
       expect(cards.map(card => card.series)).toEqual(cards.map((_, k) => ({ index: k + 1, count: cards.length })))
-      // The credit on the last card only.
-      expect(cards.map(card => card.options.tagline)).toEqual(cards.map((_, k) => tagline && k === cards.length - 1))
+      // The credit, when chosen, on every card (Copy image copies the card in view).
+      expect(cards.map(card => card.options.tagline)).toEqual(cards.map(() => tagline))
     }
   })
 
-  it('draws book · chapter and a quiet counter in one place on every card, the credit on the last', () => {
-    const cards = composeShareCards(notesContent, options('phone', { look: 'night', context: false, tagline: true }), fonts)
-    const svgs = cards.map(card => renderShareSvg(card, fonts))
-    svgs.forEach((svg, k) => {
-      expect(svg).toContain('Notes from Underground')
-      expect(svg).toContain('Part 1, Chapter 8')
-      expect(svg).toContain(`>${k + 1}/${cards.length}</text>`)
-      expect(svg.includes(SHARE_TAGLINE)).toBe(k === cards.length - 1)
-      expect(svg).toContain(`fill="${SHARE_PALETTES.night.highlight}"`)
-      expect(svg).toContain(`fill="${SHARE_PALETTES.night.paper}"`)
-    })
-    // The header's right edge, on the header's baseline.
-    const place = (svg: string) => svg.match(/<text x="([\d.]+)" y="([\d.]+)"[^>]*>\d\/\d<\/text>/)!.slice(1)
-    for (const svg of svgs) expect(place(svg)).toEqual(place(svgs[0]))
-    expect(Number(place(svgs[0])[0])).toBeGreaterThan(cards[0].frame.canvas.width / 2)
+  it('draws book · chapter on every card, the credit on every card when chosen, and never a "1/3"', () => {
+    for (const tagline of [true, false]) {
+      const cards = composeShareCards(notesContent, options('phone', { look: 'night', context: false, tagline }), fonts)
+      expect(cards.length).toBeGreaterThan(1)
+      const svgs = cards.map(card => renderShareSvg(card, fonts))
+      svgs.forEach(svg => {
+        expect(svg).toContain('Notes from Underground')
+        expect(svg).toContain('Part 1, Chapter 8')
+        // The count is the share sheet's UI, not part of the copied/shared image.
+        expect(svg).not.toMatch(/>\d\/\d<\/text>/)
+        expect(svg.includes(SHARE_TAGLINE)).toBe(tagline)
+        expect(svg).toContain(`fill="${SHARE_PALETTES.night.highlight}"`)
+        expect(svg).toContain(`fill="${SHARE_PALETTES.night.paper}"`)
+      })
+    }
   })
 
   it('shows no counter on a single card, and keeps the page and spread for surrounding text', () => {
