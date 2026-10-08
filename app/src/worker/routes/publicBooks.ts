@@ -275,9 +275,13 @@ function tone(id: string): string {
   return TONES[h % TONES.length]
 }
 
+/** As Tinct's own books write an era: a composition year is approximate before 1500 ("c. 60 AD", "c. 4 BC", "c. 1200"). */
 function displayYear(year: number | null): string {
-  if (year === null) return ''
-  return year < 0 ? `${-year} BC` : String(year)
+  if (year === null || year === 0) return ''
+  if (year < 0) return `c. ${-year} BC`
+  if (year < 1000) return `c. ${year} AD`
+  if (year < 1500) return `c. ${year}`
+  return String(year)
 }
 
 const wordsIn = (paragraphs: string[]) => paragraphs.reduce((sum, p) => sum + p.split(/\s+/).filter(Boolean).length, 0)

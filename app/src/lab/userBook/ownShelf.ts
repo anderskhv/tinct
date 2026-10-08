@@ -9,7 +9,7 @@
  * the database and every `tinct-addbook:` key (`clearLocalUserData`).
  */
 import { ADD_BOOK_IDB_NAME } from '../../services/storage'
-import { chapterProgress, positionLine } from '../../preReader/recapPosition'
+import { chapterProgress, conciseChapterLabel, positionLine } from '../../preReader/recapPosition'
 import { userBookId, userBookReaderUrl, USER_BOOKS_SHELF_URL } from './userBookId'
 import type { UserBookChapter } from './userEdition'
 
@@ -87,7 +87,7 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
     // The text is not on this device (or the place is outside it): the book opens at its start.
     const first = list[0]
     const label = first?.title || ''
-    return { bookId, chapterNumber: first?.number ?? 1, chapterLabel: label, headline: label ? positionLine('start', label) : '', percent: list.length ? 0 : null, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt }
+    return { bookId, chapterNumber: first?.number ?? 1, chapterLabel: label, headline: label ? positionLine('start', conciseChapterLabel(label)) : '', percent: list.length ? 0 : null, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt }
   }
   const chapter = list[at]
   const paragraphIndex = Number.isInteger(raw.paragraphIndex) ? Math.max(0, Math.min(chapter.paragraphs.length - 1, raw.paragraphIndex as number)) : 0
@@ -108,7 +108,7 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
     bookId,
     chapterNumber: chapter.number,
     chapterLabel: label,
-    headline: label ? positionLine(progress, label) : '',
+    headline: label ? positionLine(progress, conciseChapterLabel(label)) : '',
     percent: total > 0 ? Math.max(0, Math.min(100, (before / total) * 100)) : null,
     wordCount: total > 0 ? total : null,
     lastActiveAt: updatedAt,

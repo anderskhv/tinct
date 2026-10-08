@@ -13,7 +13,7 @@ import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261008rel4';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel4';
-import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel4';
+import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008own';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd} from './add-to-tinct.js?v=20261008own';
 import {librarySearch} from './library-search.js?v=20261008rel4';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];

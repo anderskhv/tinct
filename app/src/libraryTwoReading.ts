@@ -38,6 +38,7 @@ import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../publi
 import { readLabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import { wholeBookProgress } from '../public/lab/library-2-model.js'
 import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, readingList, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
+import { conciseChapterLabel } from './preReader/recapPosition'
 import { hideOwnFromReadingTable, ownReadingNow, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './lab/userBook/ownShelf'
 import { isUserBookId, userBookHex, userBookReaderUrl } from './lab/userBook/userBookId'
 
@@ -425,7 +426,8 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         displayYear: book?.displayYear || '',
         tone: book?.cover?.background ?? null,
         chapterLabel: row.target.chapterLabel,
-        headline: heroHeadline(row),
+        // A long chapter label reads as its first sentence in the headline (the place line keeps it whole).
+        headline: heroHeadline({ ...row, target: { ...row.target, chapterLabel: conciseChapterLabel(row.target.chapterLabel) } }),
         percent: typeof percent === 'number' && Number.isFinite(percent) ? percent : null,
         recap: row.recap,
         lastActiveAt: row.lastActiveAt,

@@ -9,9 +9,10 @@
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008own';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
-import {renderBookMetadata} from './book-metadata.js?v=20261008rel4';
+import {renderBookMetadata} from './book-metadata.js?v=20261008own';
 import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel4';
 import { paperCover } from './add-to-tinct.js?v=20261008own';
+import { fitHeroTitle } from './hero-title.js?v=20261008own';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -337,6 +338,8 @@ function wire(view, table, demo, keepBookId, options={}) {
     const base = r.height - H * 0.05;
     stage.style.perspectiveOrigin = `50% ${Math.round(base - H * 0.42)}px`;
     layout(true);
+    const shownBook = table.reading[current];
+    if (shownBook && shown !== -1) fitHeroTitle($('rt-title'), shownBook.title);
   }
 
   /**
@@ -397,7 +400,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     // loading another library, reading private caches, or touching positions.
     try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].filter(book=>!book.own).slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
     const set = () => {
-      $('rt-title').textContent = b.title;
+      fitHeroTitle($('rt-title'), b.title);
       // A linked book the reader has not started: its question, and Read opens its introduction.
       view.classList.toggle('is-linked', !!b.linked);
       $('rt-continue').firstChild.textContent = b.linked ? 'Read' : 'Continue';
@@ -407,7 +410,7 @@ function wire(view, table, demo, keepBookId, options={}) {
       $('rt-pct').textContent = percentLabel(b.percent);
       // An own book with no place line (its text not on this device) shows no "Where you left off".
       $('rt-recap-box').hidden = !b.recap && !b.headline;
-      setRecap(b.recap || (b.headline ? `${b.headline}.` : ''));
+      setRecap(b.recap || (b.headline ? (/[.…!?]$/.test(b.headline) ? b.headline : `${b.headline}.`) : ''));
     };
     clearTimeout(swapTimer);
     if (firstShow) set();
