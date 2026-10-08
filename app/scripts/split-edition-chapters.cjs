@@ -83,6 +83,10 @@ for (const id of uniqueTargets) {
         title: ch.title || `Chapter ${ch.number}`,
         ...(ch.section ? { section: ch.section } : {}),
         paragraphs: ch.paragraphs,
+        // Structure travels with its paragraphs (editionLoader chapterShardOf).
+        ...(Array.isArray(ch.kinds) ? { kinds: ch.kinds } : {}),
+        ...(Array.isArray(ch.links) ? { links: ch.links } : {}),
+        ...(Array.isArray(ch.figures) ? { figures: ch.figures } : {}),
       }
       fs.writeFileSync(path.join(outDir, file), `${JSON.stringify(chapter)}\n`)
       return {

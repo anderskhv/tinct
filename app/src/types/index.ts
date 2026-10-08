@@ -136,6 +136,13 @@ export interface Book {
    * Edition files for local-only books are listed in .gitignore.
    */
   localOnly?: boolean
+  /**
+   * A contemporary book already written in modern English (the Conjecture
+   * books, 2025-26): it has no Tinct Modern English edition and none may be
+   * offered, defaulted to or advertised for it. Enforced by
+   * noModernEdition.test.ts.
+   */
+  noModernEdition?: boolean
 }
 
 // === Chat ===

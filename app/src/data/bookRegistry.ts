@@ -3381,7 +3381,99 @@ export const ADVENTURES_OF_SHERLOCK_HOLMES: Book = {
   ],
 }
 
-export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH, ALICE_IN_WONDERLAND, WUTHERING_HEIGHTS, MIDDLEMARCH, SENSE_AND_SENSIBILITY]
+// Conjecture Institute / Conjecture Press books (shelf Critical Rationalism),
+// integrated 2026-10-08 from books/wip/conjecture-books-2026-10. In copyright,
+// published on Tinct with the publisher's permission (Logan Chipkin, 8 Oct 2026;
+// rights/permission.md in the package). Never label them public domain.
+// One edition each: the publisher's text as published. They are contemporary
+// English, so there is no Modern English edition and none may be offered
+// (noModernEdition). No narration yet (hasAudio absent). Acclaim is empty.
+// Publishers: Conjecture Institute (Bold Conjectures I per the book's own page;
+// its OPF says Brownstone Institute); Bold Conjectures II: Conjecture Press.
+export const THE_SOVEREIGN_CHILD: Book = {
+  id: 'the-sovereign-child',
+  title: 'The Sovereign Child',
+  author: 'Aaron Stupple with Logan Chipkin',
+  altTitles: ['The Sovereign Child: How a Forgotten Philosophy Can Liberate Kids and Their Parents'],
+  description: 'A physician and father of five makes the case for raising children with no rules, grounded in Karl Popper\'s theory of how knowledge grows.',
+  year: 2025,
+  wordCount: 55213,
+  coverColor: '#0099d3',
+  coverAccent: '#f4d03f',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Stupple (Original)', year: 2025, aligned: false },
+  ],
+}
+
+export const LORDS_OF_THE_COSMOS: Book = {
+  id: 'lords-of-the-cosmos',
+  title: 'Lords of the Cosmos',
+  author: 'Arjun Khemani and Logan Chipkin',
+  altTitles: ['Lords of the Cosmos: From Stasis to Stars'],
+  description: 'The story of the universe and of human progress, from cosmic stagnation to the Enlightenment and beyond, told through David Deutsch\'s ideas about knowledge.',
+  year: 2025,
+  wordCount: 44090,
+  coverColor: '#392d4b',
+  coverAccent: '#e9c3b8',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Khemani & Chipkin (Original)', year: 2025, aligned: false },
+  ],
+}
+
+export const BOLD_CONJECTURES_VOLUME_1: Book = {
+  id: 'bold-conjectures-volume-1',
+  title: 'Bold Conjectures, Volume I',
+  author: 'Logan Chipkin (ed.)',
+  altTitles: ['Bold Conjectures: Select Interviews of David Deutsch'],
+  description: 'Fourteen interviews with physicist and philosopher David Deutsch, from 2012 to 2024, on quantum theory, knowledge, AI, freedom and progress.',
+  year: 2025,
+  wordCount: 141161,
+  coverColor: '#f3eee3',
+  coverAccent: '#8b7b22',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Chipkin, ed. (Original)', year: 2025, aligned: false },
+  ],
+}
+
+export const BOLD_CONJECTURES_VOLUME_2: Book = {
+  id: 'bold-conjectures-volume-2',
+  title: 'Bold Conjectures, Volume II',
+  author: 'Logan Chipkin (ed.)',
+  altTitles: ['Bold Conjectures: Essays Across Physics'],
+  description: 'Thirteen essays by physicists on gravity, time, locality, entropy, probability and the many-worlds view of quantum theory.',
+  year: 2026,
+  wordCount: 74611,
+  coverColor: '#0e2b4b',
+  coverAccent: '#f3e08a',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Chipkin, ed. (Original)', year: 2026, aligned: false },
+  ],
+}
+
+export const THE_FARTHEST_REACHES: Book = {
+  id: 'the-farthest-reaches',
+  title: 'The Farthest Reaches',
+  author: 'Brett Hall',
+  altTitles: ['The Farthest Reaches: Why People Are the Most Important Entities in the Universe'],
+  description: 'An argument that people, as universal explainers, are the most important entities in the universe, applied to education, IQ, culture, mental illness and AI.',
+  year: 2026,
+  wordCount: 39924,
+  coverColor: '#f169ab',
+  coverAccent: '#6675d5',
+  noModernEdition: true,
+  editions: [
+    { key: 'original-en', language: 'en', style: 'original', label: 'Hall (Original)', year: 2026, aligned: false },
+  ],
+}
+
+/** The five Conjecture books, in publication order (shelf Critical Rationalism). */
+export const CONJECTURE_BOOKS: Book[] = [THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES]
+
+export const BOOKS: Book[] = [TO_THE_LIGHTHOUSE, ODYSSEY, ULYSSES, WAR_AND_PEACE, BIBLE, GILGAMESH, HAMLET, MACBETH, MIDSUMMER, ROMEO_AND_JULIET, THE_TEMPEST, THE_ART_OF_WAR, PRIDE_AND_PREJUDICE, CRIME_AND_PUNISHMENT, THE_REPUBLIC, MEDITATIONS, DIVINE_COMEDY, JANE_EYRE, THE_AENEID, PARADISE_LOST, FRANKENSTEIN, THE_MANUAL, APOLOGY, SYMPOSIUM, PHAEDO, CRITO, PHAEDRUS, POETICS, MOBY_DICK, GREAT_EXPECTATIONS, THE_HISTORIES, NIELS_LYHNE, IMITATION_OF_CHRIST, JERUSALEM, THE_AWAKENING, BROTHERS_KARAMAZOV, ILIAD, NICOMACHEAN_ETHICS, THE_PRINCE, BEYOND_GOOD_AND_EVIL, KANT_GROUNDWORK, BEOWULF, CANDIDE, DEMOCRACY_IN_AMERICA, OEDIPUS_REX, OEDIPUS_AT_COLONUS, ANTIGONE, GENEALOGY_OF_MORALS, DESCARTES_MEDITATIONS, ON_LIBERTY, UTILITARIANISM, PELOPONNESIAN_WAR, ARISTOTLE_POLITICS, LEVIATHAN, FEAR_AND_TREMBLING, COMMUNIST_MANIFESTO, SECOND_TREATISE, HUME_ENQUIRY, SOCIAL_CONTRACT, WEALTH_OF_NATIONS, WERTHER, FAUST_PART_1, ORESTEIA, BACCHAE, MEDEA, CONFESSIONS, NOTES_FROM_UNDERGROUND, MAGNA_CARTA, US_FOUNDING_DOCUMENTS, FEDERALIST_PAPERS, FREDERICK_DOUGLASS, A_LITTLE_PRINCESS, THE_JUNGLE_BOOK, AROUND_THE_WORLD_IN_80_DAYS, HEART_OF_DARKNESS, DISCOURSE_ON_INEQUALITY, JEKYLL_AND_HYDE, WALDEN, VINDICATION_RIGHTS_OF_WOMAN, COMEDY_OF_ERRORS, MERCHANT_OF_VENICE, HENRY_V, AS_YOU_LIKE_IT, WINTERS_TALE, JULIUS_CAESAR, TWELFTH_NIGHT, MEASURE_FOR_MEASURE, HENRY_IV_PART_2, MERRY_WIVES_OF_WINDSOR, OTHELLO, KING_LEAR, MUCH_ADO_ABOUT_NOTHING, TAMING_OF_THE_SHREW, ANTONY_AND_CLEOPATRA, RICHARD_III, CORIOLANUS, CYMBELINE, ANNA_KARENINA, DON_QUIXOTE, ESSAYS_MONTAIGNE, IVAN_ILYICH, ALICE_IN_WONDERLAND, WUTHERING_HEIGHTS, MIDDLEMARCH, SENSE_AND_SENSIBILITY, THE_SOVEREIGN_CHILD, LORDS_OF_THE_COSMOS, BOLD_CONJECTURES_VOLUME_1, BOLD_CONJECTURES_VOLUME_2, THE_FARTHEST_REACHES]
 
 export const ALL_BOOKS: Book[] = BOOKS
 

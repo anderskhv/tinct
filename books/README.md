@@ -1,6 +1,6 @@
 # Adding books to Tinct
 
-For every book assignment, start with [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md). It is selected automatically by the root Claude instructions: content-only staging for Claude, integration and publication for Codex.
+For every book assignment, start with [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md). It is selected automatically by the root Claude instructions: content-only staging first, then integration and publication as a separately assigned step. Claude owns both since 8 October 2026 (Codex retired).
 
 **Updated: 2026-09-24.** Current scope: English reading editions and Grok streaming narration.
 

@@ -16,7 +16,7 @@ Use for reader UX, auth, sync, billing, library UI, Cloudflare Worker code, and 
 
 ## Content Work
 
-**Book requests automatically activate [BOOK-TASK-WORKFLOW.md](../books/BOOK-TASK-WORKFLOW.md).** Claude writes only its isolated content package; the runtime/registry paths below belong to Codex integration. Claude may code in an explicitly assigned separate coding task, never implicitly as part of adding a book.
+**Book requests automatically activate [BOOK-TASK-WORKFLOW.md](../books/BOOK-TASK-WORKFLOW.md).** Claude writes only its isolated content package; the runtime/registry paths below belong to the integration step, which Claude also owns since 8 October 2026 (Codex retired) as a separately assigned task. Claude may code in an explicitly assigned separate coding task, never implicitly as part of adding a book.
 
 
 Use for adding or editing book texts, onboarding JSON, taxonomy registration, and generated SEO metadata.
@@ -33,7 +33,7 @@ Canonical new-book flow:
 2. Claude parses the original text. For non-English works, keep the original-language text when available.
 3. Claude adds a public-domain human English translation for non-English originals.
 4. Claude creates `modern-en`.
-5. Hand off accepted text with exact hashes, review evidence and character-card impact. For approved repairs to published editions, Codex publishes the text with required character compatibility; legacy Kokoro audio or manifests are not a release prerequisite.
+5. Hand off accepted text with exact hashes, review evidence and character-card impact. For approved repairs to published editions, the integration step publishes the text with required character compatibility; legacy Kokoro audio or manifests are not a release prerequisite.
 6. New-book registry publication still requires its agreed content, onboarding, taxonomy and runtime availability contract. Audio work is separately scoped under the current [audiobook architecture](audiobook-architecture-2026-09-21.md); a text repair does not authorize synthesis or provider changes.
 
 Generated files such as `app/public/sitemap.xml` and `app/src/data/bookMetaGenerated.ts` should be committed only with content/library changes that require them.
@@ -73,4 +73,4 @@ Classify changed files before staging:
 - Audio tooling/docs should be separate from generated book text.
 - Scratch folders, logs, raw sources, and local audio should remain ignored.
 
-If Claude is adding books while Codex is coding, use isolated branches/checkouts and owned content folders. Never stash or alter another stream's work. Hand content to Codex for integration; do not mix reader fixes into the book task.
+If content work and coding run in parallel, use isolated branches/checkouts and owned content folders. Never stash or alter another stream's work. Hand content to the integration step; do not mix reader fixes into the book task.

@@ -81,8 +81,11 @@ Interpretation rules:
   do not invent blockers or re-ask for already approved work.
 - Until Tinct has more than 10 users, deploy-after-verify is the default. After `npm run build` and `npm run verify-bundle` pass, release by merging to `main`: the GitHub Actions deploy workflow (Node 24.13.0) runs the staged release described under Deploy flow. `npm run deploy` from `app/` remains only for the migrations fallback and emergencies. Do not ask first. Skip deploy only if Anders says local-only. Never run raw `wrangler` (deploy, versions, rollback); use the npm scripts. Never deploy from a dirty or unreconciled local checkout. Never deploy secrets. Never skip verify-bundle.
 - Do not call Anthropic APIs during development. The production reader chat may use Claude, but development content generation must happen in the agent conversation and be written to files.
-- While Anders assigns content work to Claude, Codex owns code and technical
-  pipelines only. Codex does not author or semantically approve translations,
+- Since 2026-10-08 Claude owns integration and publication as well as book
+  content; Codex is retired. The notes below that address Codex now apply to
+  the agent doing the coding/integration task.
+- While Anders assigns content work to Claude, the coding agent owns code and technical
+  pipelines only. It does not author or semantically approve translations,
   character copy, narration, or other book content.
 - Do not run `generate-editions.cjs` for development work.
 - Keep app, content, and audio work separated as described in `docs/workflow-boundaries.md`.

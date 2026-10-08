@@ -100,7 +100,7 @@ function build() {
   }
 
   const title = 'The Tinct Library — Read Classic Books Free Online | Tinct'
-  const description = `All ${books.length} classics in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online.`
+  const description = `All ${books.length} books in the Tinct library: philosophy, drama, novels, epics, scripture, and history. Each free to read online.`
   const canonical = `${ORIGIN}/read/`
 
   const breadcrumbLd = {
@@ -375,7 +375,7 @@ ${lis}
   <main>
     <div class="breadcrumb"><a href="/">Tinct</a> / <span>Library</span></div>
     <h1 class="title">The <em>Library</em></h1>
-    <p class="hook">${books.length} classics, free to read online.</p>
+    <p class="hook">${books.length} books, free to read online.</p>
 
 ${houseSections.join('\n\n')}
   </main>
