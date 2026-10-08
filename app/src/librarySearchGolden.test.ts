@@ -9,7 +9,7 @@ import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, includedWo
 // @ts-expect-error -- plain browser module of the library page
 import { createLibrarySearch } from '../public/lab/library_2/library-search.js'
 // @ts-expect-error -- plain browser module of the library page
-import { freeRowFacts, resultRow } from '../public/lab/library_2/add-to-tinct.js'
+import { freeRowFacts, resultRow, findAuthor, lifespan } from '../public/lab/library_2/add-to-tinct.js'
 // @ts-expect-error -- plain browser module of the library page
 import { books as starterBooks } from '../public/lab/library_2/books.js'
 import { serializePreReaderCatalogue } from './preReader/catalogue'
@@ -46,7 +46,8 @@ const matcher = (expectations: string[]) => {
 }
 
 type Row = { tinct: boolean; title: string; author: string; id: string }
-let panel: { rows: (query: string) => Row[]; tinctBooks: Book[]; notYet: (query: string) => Work[] } | null = null
+type Engine = (query: string, filters?: Record<string, string>, limit?: number) => { total: number; results: Work[]; author: { name: string; names: string[]; birthYear: number | null; deathYear: number | null; works: Set<Work> } | null }
+let panel: { rows: (query: string) => Row[]; tinctBooks: Book[]; notYet: (query: string) => Work[]; search: Engine; tinctSearch: (query: string) => Book[]; free: (query: string) => Work[]; all: Work[] } | null = null
 /** The search panel's rows for a query, as the library shows them; built once. */
 function searchPanel() {
   if (panel) return panel
@@ -68,13 +69,16 @@ function searchPanel() {
       if (known) { if (entry.altTitles) known.altTitles = entry.altTitles } else tinctBooks.push({ id: entry.id, title: entry.title, author: entry.author, ...(entry.altTitles ? { altTitles: entry.altTitles } : {}) })
     }
     const workIds = (book: Book) => Object.entries(REGISTRY_GUTENBERG_IDS).filter(([, id]) => id === book.id).map(([workId]) => workId)
-    const tinctSearch = createLibrarySearch(tinctBooks, borrowFor(tinctBooks.map(b => ({ ...b, workIds: workIds(b) })), all))
+    // The worker lends what the English catalogue knows of the library's books (search-worker.js borrow).
+    const tinctSearch = createLibrarySearch(tinctBooks, borrowFor(tinctBooks.map(b => ({ ...b, workIds: workIds(b) })), english))
     // As the worker sends a result (search-worker.js slim): its other titles, curated ones included, and its Wikidata work.
     const sent = (w: Work) => ({ ...w, altTitles: [...new Set([...((w as { altTitles?: string[] }).altTitles || []), ...altTitlesFor(w.title, (w.authors as Person[]).map(p => p.name).join(' '))])], wikidata: (w as { wikidata?: string }).wikidata || null })
     const notYet = (query: string) => groupSearchResults({ tinct: tinctSearch(query), free: search(query, { language: 'en' }, 40).results.map(sent), tinctBooks }).notYet as Work[]
     const rows = (query: string): Row[] => [...(tinctSearch(query) as Book[]).map(b => ({ tinct: true, id: b.id, title: b.title, author: b.author })),
       ...notYet(query).map(w => ({ tinct: false, id: w.id, title: w.title, author: (w.authors as Person[]).map(p => p.name).join(', ') }))]
-    panel = { rows, tinctBooks, notYet }
+    // The worker's "Not yet in Tinct" results as it posts them: the author the query names, their works flagged.
+    const free = (query: string) => { const out = search(query, { language: 'en' }, 40); return Object.assign(out.results.map(w => ({ ...sent(w), ...(out.author?.works.has(w) ? { byAuthor: true } : {}) })), { author: out.author }) as Work[] }
+    panel = { rows, tinctBooks, notYet, search, tinctSearch, free, all }
   return panel
 }
 
@@ -190,5 +194,96 @@ describe('library search: fame, own books, other titles, one row per work', () =
   it('"marcus aurelius": no catalogue copy of Tinct\'s Meditations under its other titles', () => {
     const notYet = searchPanel().notYet('marcus aurelius').map(w => w.id)
     for (const copy of ['pg:2680', 'pg:15877', 'pg:6920', 'ws:en:Q1152283', 'ws:en:Q52634585']) expect(notYet).not.toContain(copy)
+  })
+})
+
+// Search QA (2026-10-08): the queries the QA pass found wrong, over the real catalogue and library.
+describe('library search QA, 2026-10-08', () => {
+  const tinctIds = (query: string) => searchPanel().tinctSearch(query).map(book => book.id)
+  const notYet = (query: string) => searchPanel().notYet(query)
+  const titles = (query: string) => notYet(query).map(w => String(w.title))
+  const authors = (query: string) => notYet(query).map(w => (w.authors as Person[]).map(p => p.name).join(', '))
+  const card = (query: string) => {
+    const { tinctSearch, free, tinctBooks } = searchPanel()
+    const tinct = tinctSearch(query), works = free(query)
+    return findAuthor({ query, tinct, free: works, notYet: groupSearchResults({ tinct, free: works, tinctBooks }).notYet, tinctBooks })
+  }
+
+  it('an author query means that author: no Candide for "kant", no George Adam Smith, Fergus Hume or Dante Gabriel Rossetti before them', () => {
+    expect(tinctIds('kant')).toEqual(['kant-groundwork']) // Candide matched a Norwegian edition's translator, Charles Kent
+    for (const name of authors('adam smith')) expect(name).not.toMatch(/George Adam Smith/)
+    expect(card('adam smith')?.works.map((w: { title: string }) => w.title).join(' / ')).not.toMatch(/Jeremiah|Expositor/)
+    const hume = authors('hume')
+    expect(hume.slice(0, 5).every(name => name === 'David Hume')).toBe(true)
+    expect(titles('hume')).toContain('A Treatise of Human Nature')
+    for (const name of authors('dante')) expect(name).not.toBe('Dante Gabriel Rossetti')
+    for (const name of authors('homer')) expect(name).not.toMatch(/^Homer Greene$/)
+  })
+
+  it('the indexes and compilations Gutenberg makes of its own files are never listed', () => {
+    for (const query of ['marcus aurelius', 'jane austen', 'chekhov', 'dostoevsky', 'montaigne']) {
+      for (const title of titles(query)) expect(title, query).not.toMatch(/^(Index of the Project Gutenberg|The Complete Project Gutenberg Works|Project Gutenberg Compilation)/)
+    }
+    expect(card('marcus aurelius')?.works.map((w: { title: string }) => w.title)).not.toContain('Index of the Project Gutenberg Works of Marcus Aurelius Antoninus')
+  })
+
+  it('weak matches do not fill the rows: a title word near the query, or words only in subjects', () => {
+    expect(titles('sapiens')).not.toContain('Minor Dialogues, Together With the Dialogue on Clemency')
+    expect(tinctIds('sapiens')).toEqual([])
+    expect(titles('wealth of nations')).not.toContain('An Account of the Sore Throat Attended With Ulcers')
+    expect(titles('moby dick')).not.toContain('Dusky Dick')
+    expect(titles('crime and punishment')).not.toContain('A searchlight on Germany')
+    expect(titles('letters from a stoic')).not.toContain('Between Heathenism and Christianity')
+  })
+
+  it('volumes and parts of one work are one row', () => {
+    expect(titles('montaigne').filter(t => /^The journal of Montaigne's travels/.test(t))).toHaveLength(1)
+    expect(titles('spinoza').filter(t => /Theolog\w+-Political Treatise/.test(t))).toHaveLength(1)
+    // Volumes of the Divine Comedy, which Tinct has whole.
+    expect(titles('divine comedy').filter(t => /Illustrated, Hell, Volume/.test(t))).toEqual([])
+    expect(titles('inferno').filter(t => /Illustrated, Hell, Volume/.test(t))).toEqual([])
+  })
+
+  it('no catalogue copy of a book Tinct has, and one row for the same translation in two libraries', () => {
+    expect(titles('kant')).not.toContain('Fundamental Principles of the Metaphysic of Morals') // Tinct's Groundwork
+    expect(titles('nietzsche')).not.toContain('The Genealogy of Morals') // Tinct's On the Genealogy of Morals
+    const seneca = notYet('seneca')
+    expect(seneca.filter(w => /^(L\. Annaeus Seneca )?On Benefits$/i.test(String(w.title)))).toHaveLength(1)
+    // Gutenberg's and Wikisource's Walter K. Kelly.
+    expect(notYet('cervantes').filter(w => /^The Exemplary Novels of Cervantes$/.test(String(w.title)))).toHaveLength(1)
+  })
+
+  it('author cards for Tolstoy, Melville, Cervantes, Dante, Hume, and the misspelt "nietzche" and "shakespear"', () => {
+    const expected: Array<[string, string]> = [['tolstoy', 'Leo Tolstoy'], ['melville', 'Herman Melville'], ['cervantes', 'Miguel de Cervantes'], ['dante', 'Dante Alighieri'], ['hume', 'David Hume'], ['nietzche', 'Friedrich Nietzsche'], ['shakespear', 'William Shakespeare'], ['adam smith', 'Adam Smith']]
+    for (const [query, name] of expected) expect(card(query)?.name, query).toBe(name)
+    // His own works before the books about him.
+    const rows = searchPanel().rows('nietzche')
+    const own = rows.findIndex(row => /^Thus Spake Zarathustra/.test(row.title)), about = rows.findIndex(row => !/Nietzsche/.test(row.author))
+    expect(own).toBeGreaterThanOrEqual(0)
+    if (about >= 0) expect(about).toBeGreaterThan(own)
+    expect(rows.slice(0, own + 1).every(row => /Nietzsche/.test(row.author))).toBe(true)
+  })
+
+  it('names and titles as readers write them', () => {
+    const named = (id: string) => searchPanel().all.find(w => w.id === id) as unknown as { translators: Person[] }
+    expect(named('pg:56075').translators[0].name).toBe("Sir Roger L'Estrange")
+    expect(authors('tolstoy')).not.toContain('Leo, graf Tolstoy')
+    expect(authors('tolstoy')).toContain('Leo Tolstoy')
+    expect(titles('dante')).toContain('The vision of hell')
+    expect(titles('dickens')).toContain('Bleak House')
+    for (const title of titles('the prince')) expect(title).not.toMatch(/\(\d{4}\) Yale$/)
+    const austen = titles('jane austen')
+    expect(austen.indexOf('Persuasion')).toBeLessThan(austen.indexOf('Love and Freindship'))
+    expect(austen).not.toContain('Love and Freindship [sic]')
+    expect(card('homer')?.lifespan).toBe('c. 750 BC')
+    expect(lifespan({ birthYear: -428, deathYear: -348 })).toBe('428–348 BC')
+  })
+
+  it('in the default language, no titles in other languages, and Darwin\'s Descent of Man', () => {
+    const wilde = titles('oscar wilde')
+    for (const title of ['O Retrato de Dorian Gray', 'Le Fantôme de Canterville']) expect(wilde).not.toContain(title)
+    const darwin = titles('darwin')
+    expect(darwin).not.toContain('Die Abstammung des Menschen und die geschlechtliche Zuchtwahl')
+    expect(darwin.some(title => /^The Descent of Man/.test(title))).toBe(true)
   })
 })

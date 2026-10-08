@@ -85,7 +85,9 @@ describe('catalogue search ranking', () => {
     const dostoevsky = ids('dostoevsky')
     expect(dostoevsky.slice(0, 2)).toEqual(['pg:2554', 'pg:28054'])
     expect(dostoevsky).toContain('pg:76944')
-    expect(dostoevsky[dostoevsky.length - 1]).toBe('pg:59196') // the Gutenberg index goes last
+    // Gutenberg's index of its own Dostoevsky files is not a book: never listed (search audit, 2026-10-08).
+    expect(dostoevsky).not.toContain('pg:59196')
+    expect(search('index of the project gutenberg works of fyodor dostoyevsky', {}, 50).results.map(w => w.id)).not.toContain('pg:59196')
     expect(ids('the idiot')[0]).toBe('pg:18881')
     const austen = ids('jane austen')
     expect(austen.slice(0, 3)).toEqual(['pg:1342', 'pg:158', 'pg:105'])

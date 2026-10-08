@@ -336,7 +336,8 @@ describe('library search panel with the flag', () => {
     expect(toggle.getAttribute('aria-expanded')).toBe('false')
     expect(details.hidden).toBe(true)
     ;(second.querySelector('.row-toggle') as HTMLButtonElement).click()
-    expect([...second.querySelectorAll('dd')].map(dd => dd.textContent)[0]).toBe('54')
+    // Written as the library writes an approximate early date (book-metadata.js eraLabel), not a bare "54" (search audit, 2026-10-08).
+    expect([...second.querySelectorAll('dd')].map(dd => dd.textContent)[0]).toBe('c. 54 AD')
     const escape = new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
     second.querySelector('.row-toggle')!.dispatchEvent(escape)
     expect(escape.defaultPrevented).toBe(true) // the panel stays open: Escape only closes the row
