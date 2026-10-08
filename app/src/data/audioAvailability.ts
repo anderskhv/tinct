@@ -10,6 +10,13 @@ export const isAudioHeld = (bookId: string, editionKey: string, chapter?: number
 }
 export const isBookDiscoverable = (bookId: string): boolean => !isBookTemporarilyHeld(bookId) && (bookId === 'faust-part-1' || !heldBooks.has(bookId))
 /**
+ * Books held from browsing that a typed search still finds (Anders,
+ * 2026-10-08: War and Peace). Search only: shelves, the empty search list,
+ * links, the librarian and emails keep the hold.
+ */
+export const SEARCH_ONLY_BOOKS: ReadonlySet<string> = new Set(['war-and-peace'])
+export const isBookSearchable = (bookId: string): boolean => isBookDiscoverable(bookId) || (!isBookTemporarilyHeld(bookId) && SEARCH_ONLY_BOOKS.has(bookId))
+/**
  * Text discovery. Recording holds (the 2026-09-10 structural audio audit) keep
  * old recordings from playing; they no longer hide the text, which narration
  * now streams from (approved default editions, 2026-09-25). Danish stays out

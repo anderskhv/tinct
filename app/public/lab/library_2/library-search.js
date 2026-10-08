@@ -38,14 +38,16 @@ export function createLibrarySearch(books, borrowed = {}) {
 /**
  * The library's search over a list that grows (catalogue books, added books): rebuilt when the
  * books or what they borrow change. `lend(map)` adds borrowed facts; true when anything is new.
+ * `books` is the list, or a function returning it when the list is assembled from several.
  */
 export function librarySearch(books) {
   let engine = null, key = '', borrowed = {};
-  const keyOf = () => books.map(book => `${book.id}:${(book.altTitles || []).length}`).join(',');
+  const list = typeof books === 'function' ? books : () => books;
+  const keyOf = () => list().map(book => `${book.id}:${(book.altTitles || []).length}`).join(',');
   return {
     filter(query) {
       const now = keyOf();
-      if (!engine || now !== key) { engine = createLibrarySearch(books, borrowed); key = now; }
+      if (!engine || now !== key) { engine = createLibrarySearch(list(), borrowed); key = now; }
       return engine(query);
     },
     lend(map) {

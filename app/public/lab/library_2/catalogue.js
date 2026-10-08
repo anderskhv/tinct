@@ -37,6 +37,8 @@ export async function loadCatalogue() {
   const data = await loadCatalogueData();
   catalogue = {
     books: data.books.filter(book => book.discoveryAvailable !== false),
+    // Held from the shelves, found by a typed search (War and Peace, 2026-10-08).
+    searchOnly: data.books.filter(book => book.discoveryAvailable === false && book.searchAvailable === true),
     houses: data.houses || [],
   };
   return catalogue;
