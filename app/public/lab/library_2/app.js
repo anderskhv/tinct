@@ -26,10 +26,14 @@ all('[data-icon]').forEach(e=>e.innerHTML=icon(e.dataset.icon));
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
 let noticeTimer;function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,5000);}
 const images={};const textures=new Map();
+// Books held from the shelves that a typed search still finds (War and Peace, 2026-10-08): not in `books`, but they have covers.
+const searchOnlyBooks=[];
+/** A book by id among every book the page paints: the shelves' books and the search-only ones. */
+function bookById(id){return books.find(b=>b.id===id)||searchOnlyBooks.find(b=>b.id===id);}
 async function loadImage(key,low){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;await im.decode();images[key]=im;if(reduced.matches)drawScene(performance.now());return im;}
 function triangle(ctx,img,s,d){const [p,q,r]=s,[a,b,c]=d;const det=(q[0]-p[0])*(r[1]-p[1])-(r[0]-p[0])*(q[1]-p[1]);const aa=((b[0]-a[0])*(r[1]-p[1])-(c[0]-a[0])*(q[1]-p[1]))/det,cc=((c[0]-a[0])*(q[0]-p[0])-(b[0]-a[0])*(r[0]-p[0]))/det,bb=((b[1]-a[1])*(r[1]-p[1])-(c[1]-a[1])*(q[1]-p[1]))/det,dd=((c[1]-a[1])*(q[0]-p[0])-(b[1]-a[1])*(r[0]-p[0]))/det;ctx.save();ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.lineTo(...c);ctx.closePath();ctx.clip();ctx.transform(aa,bb,cc,dd,a[0]-aa*p[0]-cc*p[1],a[1]-bb*p[0]-dd*p[1]);ctx.drawImage(img,0,0);ctx.restore();}
 function makeTextures(){for(const book of books){const c=document.createElement('canvas');c.width=480;c.height=720;const ctx=c.getContext('2d');if(book.crop){const [x,y,w,h]=book.crop;ctx.drawImage(images.plate,x,y,w,h,0,0,480,720);}else{const corners=[[740,133],[1006,154],[1012,585],[739,588]];const point=(u,v)=>[mix(mix(corners[0][0],corners[1][0],u),mix(corners[3][0],corners[2][0],u),v),mix(mix(corners[0][1],corners[1][1],u),mix(corners[3][1],corners[2][1],u),v)];for(let j=0;j<12;j++)for(let i=0;i<8;i++){const u=i/8,v=j/12,u2=(i+1)/8,v2=(j+1)/12;const s=[point(u,v),point(u2,v),point(u2,v2),point(u,v2)],d=[[u*480,v*720],[u2*480,v*720],[u2*480,v2*720],[u*480,v2*720]];triangle(ctx,images.original,[s[0],s[1],s[2]],[d[0],d[1],d[2]]);triangle(ctx,images.original,[s[0],s[2],s[3]],[d[0],d[2],d[3]]);}}textures.set(book.id,c);}paintCovers();}
-function paintCover(c,id){const texture=textures.get(id);if(!texture)return;c.width=texture.naturalWidth||texture.width;c.height=texture.naturalHeight||texture.height;const ctx=c.getContext('2d');ctx.drawImage(texture,0,0);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=books.find(b=>b.id===id);if(book.typeset){const w=c.width,h=c.height;
+function paintCover(c,id){const texture=textures.get(id);if(!texture)return;c.width=texture.naturalWidth||texture.width;c.height=texture.naturalHeight||texture.height;const ctx=c.getContext('2d');ctx.drawImage(texture,0,0);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=bookById(id);if(book?.typeset){const w=c.width,h=c.height;
 const designs={
  'julius-caesar':{lines:['JULIUS','CAESAR'],y:.16,size:.16,align:'left',x:.10},
  'the-prince':{lines:['THE','PRINCE'],y:.68,size:.15,align:'center',x:.5},
@@ -51,7 +55,7 @@ const coverObserver=typeof IntersectionObserver==='undefined'?null:new Intersect
 // The first cover has priority; shelves and other scenes load as they approach view.
 if(!window.__library2Boot?.hint)ensureCover(books[0]).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
-function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=books.find(b=>b.id===meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
+function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
 /** A search row's small cover: painted like the shelf covers; the opening book flies from it. */
 function rowCover(book){const c=el('canvas','cover');c.dataset.book=book.id;paintCover(c,book.id);if(coverObserver)coverObserver.observe(c);else ensureCover(book);return c;}
 function coverButton(book,cls='book-card cover-button'){const b=el('button',cls);b.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);const c=el('canvas','cover');c.dataset.book=book.id;b.append(c);b.addEventListener('click',()=>openBook(book,c));paintCover(c,book.id);if(coverObserver)coverObserver.observe(c);else ensureCover(book);if(cls!=='book-card cover-button'){b.append(coverMetadata(book));return b;}
@@ -59,8 +63,6 @@ function coverButton(book,cls='book-card cover-button'){const b=el('button',cls)
  const wrap=el('div','card-wrap');const save=el('button','save-toggle');save.dataset.book=book.id;save.dataset.title=book.title;paintSaveToggle(save);save.onclick=e=>{e.stopPropagation();toggleSaved(book.id);};wrap.append(b,save,coverMetadata(book));return wrap;}
 [['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);});
 // The rest of the library: every discoverable book, shelved by house.
-// Books held from the shelves that a typed search still finds (War and Peace, 2026-10-08).
-const searchOnlyBooks=[];
 function searchPool(){const extra=searchOnlyBooks.filter(s=>!books.some(b=>b.id===s.id));return extra.length?[...books,...extra]:books;}
 loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);if(entry.altTitles?.length)book.altTitles=entry.altTitles;searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
  // Other titles the registry gives a book (altTitles) are searched as titles.

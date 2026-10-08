@@ -7,7 +7,8 @@
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
 import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel8';
-import {normalize,includedWork,altTitlesFor} from '../addbook/js/search.js?v=20261008rel8';
+import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261008rel8';
+import {eraLabel} from './book-metadata.js?v=20261008rel8';
 import {addToTinctEnabled,modernEditionsEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel8';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
@@ -33,7 +34,8 @@ export function warmFreeSearch(){
   worker.onmessage=({data})=>{
    if(data.type==='ready')resolve();
    else if(data.type==='error')reject(new Error(data.message));
-   else if(data.type==='results'){const done=waiting.get(data.request);waiting.delete(data.request);done?.(data.results||[]);}
+   // The works, with the author the query names (`author`) and, for an empty English search, where the other languages have them (`elsewhere`).
+   else if(data.type==='results'){const done=waiting.get(data.request);waiting.delete(data.request);done?.(Object.assign(data.results||[],{author:data.author||null,elsewhere:data.elsewhere||null}));}
    else if(data.type==='borrowed'){const done=waiting.get(data.request);waiting.delete(data.request);done?.(data.borrowed||{});}
   };
   worker.onerror=()=>reject(new Error('catalogue worker failed'));
@@ -397,10 +399,15 @@ export const sourceShort=work=>work?.editions?.[0]?.source||'';
 const unique=list=>[...new Set(list.filter(Boolean))];
 /** A year as the catalogue gives it: negative years are BC. */
 export const yearText=year=>Number.isFinite(year)?(year<0?`${-year} BC`:String(year)):'';
-/** "428–348 BC", "4 BC – AD 65", "1775–1817": only when both years are known. */
+/**
+ * "428–348 BC", "4 BC – AD 65", "1775–1817": only when both years are known. Dates more than a
+ * lifetime apart are an era, not a life (Homer, "750–650 BC"): the first, as the library writes an
+ * approximate date ("c. 750 BC", book-metadata.js eraLabel).
+ */
 export function lifespan(person){
  const born=person?.birthYear,died=person?.deathYear;
  if(!Number.isFinite(born)||!Number.isFinite(died))return '';
+ if(died-born>=100)return eraLabel(String(born));
  if(born<0&&died<0)return `${-born}–${-died} BC`;
  if(born<0)return `${-born} BC – AD ${died}`;
  return `${born}–${died}`;
@@ -411,7 +418,7 @@ export function lifespan(person){
  */
 export function writtenYear(work){
  const year=work?.firstPublishedYear,died=work?.authors?.[0]?.deathYear;
- return Number.isFinite(year)&&Number.isFinite(died)&&year<=died?yearText(year):'';
+ return Number.isFinite(year)&&Number.isFinite(died)&&year<=died?eraLabel(String(year)):'';
 }
 /** What a "Not yet in Tinct" row shows. */
 export function freeRowFacts(work,query=''){
@@ -423,10 +430,11 @@ export function freeRowFacts(work,query=''){
 }
 /** What a Tinct book's row shows (`length`: the library's reading time for it). */
 export function tinctRowFacts(book,{length='',query='',otherTitles=[]}={}){
- const facts=bookFacts(book),translators=unique(readableEditions(book).map(edition=>edition.translator));
+ // Translators as readers write them ("Sir Roger L'Estrange", search.js cleanName); an added book keeps the library's form.
+ const facts=bookFacts(book),translators=unique(readableEditions(book).map(edition=>edition.translator&&cleanName(edition.translator)));
  return {title:book.title||'',author:book.author||'',translator:translators.join(', '),editions:'',includes:query?includedWork(book.title,book.author,query):'',aka:query?knownAs(book.title,book.author,[...(book.altTitles||[]),...otherTitles],query):'',
   pills:[facts.modern?'Modern English':'',facts.audio?'Audio':''].filter(Boolean),description:book.summary||'',
-  facts:[['Written',book.displayYear||''],['Translation',translators.join(', ')],['Length',length],['Source',book.public?.sourceName||'']].filter(([,value])=>value)};
+  facts:[['Written',eraLabel(book.displayYear)],['Translation',translators.join(', ')],['Length',length],['Source',book.public?.sourceName||'']].filter(([,value])=>value)};
 }
 const QUERY_STOP=new Set(['a','an','the','of','and','in','to','by','for','on']);
 /**
@@ -509,7 +517,8 @@ function gatherPeople(entries){
  for(const {person,item} of entries){
   const name=person.name||'';const list=words(name),surname=surnameOf(name);if(!surname)continue;
   const years=p=>Number.isFinite(p.birthYear)&&Number.isFinite(p.deathYear)?`${p.birthYear}/${p.deathYear}`:'';
-  let found=people.find(p=>p.surname===surname&&(subset(list,p.words)||subset(p.words,list)||(years(person)&&years(person)===p.years)));
+  // Different life dates are different people (Adam Smith, 1723–1790, is not George Adam Smith).
+  let found=people.find(p=>p.surname===surname&&(!years(person)||!p.years||years(person)===p.years)&&(subset(list,p.words)||subset(p.words,list)||(years(person)&&years(person)===p.years)));
   if(!found){found={surname,words:list,years:years(person),names:[],records:[],items:new Set()};people.push(found);}
   if(!found.years&&years(person))found.years=years(person);
   found.names.push(name,...(person.aliases||[]));found.records.push(person);found.items.add(item);
@@ -525,16 +534,35 @@ function gatherPeople(entries){
  * (the worker's `contains`, each with the fame of its Wikidata work) stand in for the collection
  * and point to its row ("On the Shortness of Life" opens Minor Dialogues).
  */
+/**
+ * The person the catalogue's engine says the query names (`free.author`, its results by them
+ * flagged `byAuthor`: search.js identify, by full name and life dates, near spellings included),
+ * gathered with the library's books by them; null when the engine names no one.
+ */
+function engineAuthor(free,tinct){
+ const author=free?.author;
+ if(!author?.name)return null;
+ const names=unique([author.name,...(author.names||[])]);
+ const called=names.map(name=>({surname:surnameOf(name),words:words(name)}));
+ const by=name=>{const list=words(name),surname=surnameOf(name);return !!surname&&called.some(c=>(c.surname===surname||c.words.includes(surname))&&(list.every(w=>c.words.includes(w))||c.words.every(w=>list.includes(w))));};
+ const items=new Set([...tinct.filter(book=>by(book.author)),...free.filter(work=>work.byAuthor)]);
+ return {surname:surnameOf(author.name),words:words(author.name),names,records:[{name:author.name,birthYear:author.birthYear,deathYear:author.deathYear}],items,by};
+}
 export function findAuthor({query,tinct=[],free=[],notYet=[],tinctBooks=[]}){
  const terms=words(query).filter(term=>!['a','an','the','of','and'].includes(term));
  if(!terms.length||terms.join('').length<3)return null;
- const entries=[...tinct.map(book=>({person:{name:book.author||''},item:book})),...free.flatMap(work=>(work.authors||[]).map(person=>({person,item:work})))];
- const people=gatherPeople(entries).filter(p=>namesPerson(terms,p.names));
- if(!people.length)return null;
- people.sort((a,b)=>b.items.size-a.items.size);
- const best=people[0],first=tinct[0]||free[0];
- if(best.items.size<2||!best.items.has(first)||(people[1]&&people[1].items.size*2>best.items.size))return null;
- const own=book=>{const list=words(book.author);return surnameOf(book.author)===best.surname&&(list.every(w=>best.words.includes(w))||best.words.every(w=>list.includes(w)));};
+ const first=tinct[0]||free[0];
+ let best=engineAuthor(free,tinct);
+ if(best){if(best.items.size<2||!best.items.has(first))return null;}
+ else{
+  const entries=[...tinct.map(book=>({person:{name:book.author||''},item:book})),...free.flatMap(work=>(work.authors||[]).map(person=>({person,item:work})))];
+  const people=gatherPeople(entries).filter(p=>namesPerson(terms,p.names));
+  if(!people.length)return null;
+  people.sort((a,b)=>b.items.size-a.items.size);
+  best=people[0];
+  if(best.items.size<2||!best.items.has(first)||(people[1]&&people[1].items.size*2>best.items.size))return null;
+ }
+ const own=best.by?book=>best.by(book.author):book=>{const list=words(book.author);return surnameOf(book.author)===best.surname&&(list.every(w=>best.words.includes(w))||best.words.every(w=>list.includes(w)));};
  const library=(tinctBooks.length?tinctBooks:tinct).filter(own);
  const shownTinct=tinct.filter(book=>best.items.has(book));
  // Each row once, in the catalogue's order (fame); rows the catalogue does not rank follow.
@@ -548,7 +576,7 @@ export function findAuthor({query,tinct=[],free=[],notYet=[],tinctBooks=[]}){
   if(group)push('work:'+group.id,group.title,group);
  }
  for(const book of shownTinct)push('book:'+book.id,book.title,null);
- for(const work of notYet)if(best.items.has(work)||(work.authors||[]).some(person=>namesPerson(terms,[person.name,...(person.aliases||[])])))push('work:'+work.id,work.title,work);
+ for(const work of notYet)if(best.items.has(work)||(best.by?(work.alternates||[]).some(other=>best.items.has(other)):(work.authors||[]).some(person=>namesPerson(terms,[person.name,...(person.aliases||[])]))))push('work:'+work.id,work.title,work);
  const chips=[];
  rows.forEach((row,order)=>{
   const parts=row.contains.filter(part=>part.fame>0);
@@ -565,12 +593,28 @@ export function findAuthor({query,tinct=[],free=[],notYet=[],tinctBooks=[]}){
  const name=tinctName||(free.find(work=>best.items.has(work))?.authors||[]).find(person=>best.records.includes(person))?.name||best.names[0];
  return {name,names:unique(best.names),lifespan:lifespan(record),inTinct:library.length,works:works.slice(0,5)};
 }
+/** "German", "German and French", "German, French and Latin". */
+const languageList=codes=>{const list=codes.map(languageName);return list.length<2?list.join(''):`${list.slice(0,-1).join(', ')} and ${list[list.length-1]}`;};
+/**
+ * Why an empty search is empty (owner-approved, 2026-10-08): the author the query names is in the
+ * catalogue only in other languages (`elsewhere` from the worker: Kafka, whose English translators
+ * died too recently for life+70), or, with nothing at all, books still under copyright are not in
+ * Tinct ("harry potter"). Nothing for a chosen language other than English (that search was asked).
+ */
+export function emptyReason(elsewhere,otherLanguage=false){
+ if(otherLanguage)return '';
+ const codes=(elsewhere?.languages||[]).filter(code=>code!=='en');
+ if(elsewhere?.name&&codes.length)return `Tinct has ${elsewhere.name} only in ${languageList(codes)}. The English translations aren’t public domain yet.`;
+ return 'Tinct only has books in the public domain, so books still under copyright aren’t here.';
+}
 /** "3 books in Tinct" / "1 book in Tinct". */
 export const booksInTinct=n=>n>0?`${n} ${n===1?'book':'books'} in Tinct`:'';
 /** Open a row and bring it into view (an author card's chip). */
 export function revealRow(box,key){
- const row=[...box.querySelectorAll('.result-row')].find(item=>item.dataset.rowKey===key);
+ const rows=[...box.querySelectorAll('.result-row')],row=rows.find(item=>item.dataset.rowKey===key);
  if(!row)return null;
+ // One row open at a time: a chip closes the row the previous chip opened.
+ for(const other of rows)if(other!==row&&other.classList.contains('is-open'))setRowExpanded(other,false);
  setRowExpanded(row,true);
  const still=matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
  row.scrollIntoView?.({block:'center',behavior:still?'auto':'smooth'});
@@ -622,7 +666,9 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
   // "Available in Tinct" when it has books; with none, its place waits for the catalogue.
   const empty=el('div','search-empty');empty.hidden=true;
   if(shown.length){box.append(head('Available in Tinct'));renderTinct(shown);}else box.append(empty);
-  const nothing=()=>{empty.replaceWith(head('Available in Tinct'),el('p','search-none','Try another title or author.'));};
+  // Nothing at all; after a catalogue search, why (owner-approved wording, 2026-10-08): the author's
+  // books are only in other languages, or what is not here is still under copyright.
+  const nothing=(why='')=>{empty.replaceWith(head('Available in Tinct'),el('p','search-none','Try another title or author.'),...(why?[el('p','search-none search-why',why)]:[]));};
   const group=el('section','free-group');group.dataset.freeGroup='pending';box.append(group);
   const finish=(free,notYet)=>{
    const author=findAuthor({query,tinct:shown,free,notYet,tinctBooks});
@@ -633,7 +679,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
   else void searchFree(query,40,{language:f.language||notYetLanguage()}).then(free=>{
    if(!group.isConnected)return;
    const {notYet}=groupSearchResults({tinct,free:filterNotYet(free,f),tinctBooks});group.dataset.freeGroup=String(notYet.length);
-   if(!notYet.length){if(!shown.length)nothing();finish(filterNotYet(free,f),[]);return;}
+   if(!notYet.length){if(!shown.length)nothing(emptyReason(free.elsewhere,!!f.language&&f.language!=='en'));finish(filterNotYet(free,f),[]);return;}
    empty.remove();
    onFreeShown?.(notYet.length);
    group.append(head('Not yet in Tinct'));const list=el('ol','free-list');

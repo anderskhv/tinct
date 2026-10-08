@@ -173,20 +173,54 @@ export function looseTitle(title) {
  * St. Augustine", "The Republic of Plato") is the same title.
  */
 function sameCopy(work, book) {
-  const b = looseTitle(book.title)
   const surname = authorKey(book.author)
   // The surname, or a word of the name ("of Hippo, Saint Augustine" is Augustine).
   const byAuthor = person => sameSurname(authorKey(person.name), surname) || (!!surname && normalizeText(person.name).split(' ').includes(surname))
-  if (!b.base || !(work.authors?.length ? work.authors : [{ name: '' }]).some(byAuthor)) return false
+  if (!(work.authors?.length ? work.authors : [{ name: '' }]).some(byAuthor)) return false
+  const name = nameWords(book.author)
+  // The book's own title or one of its other titles ("Groundwork of the Metaphysics of Morals" is
+  // also "Fundamental Principles of the Metaphysic of Morals").
+  const own = [book.title, ...(book.altTitles || [])].map(title => looseTitle(title)).map(b => ({ ...b, base: bareTitle(b.base, name, surname) })).filter(b => b.base)
+  // A work printed whole, the book being one part of it in the same translation ("Goethe's Faust",
+  // Bayard Taylor, for Faust, Part One in his translation).
+  const translators = new Set((book.editions || []).map(edition => edition?.translator).filter(Boolean).map(authorKey))
+  const sameTranslation = translators.size > 0 && (work.translators || []).some(person => translators.has(authorKey(person.name)))
   return [work.title, ...(work.altTitles || [])].some(title => {
     const a = looseTitle(title)
-    return a.base && withoutAuthor(a.base, surname) === b.base && (b.part === null || a.part === b.part)
+    const base = a.base && bareTitle(a.base, name, surname)
+    return !!base && own.some(b => base === b.base && (b.part === null || a.part === b.part || (a.part === null && sameTranslation)))
   })
 }
-/** "confessions of saint augustine" → "confessions" for the surname "augustine". */
-function withoutAuthor(base, surname) {
+/** "confessions of saint augustine" → "confessions", "divine comedy by dante" → "divine comedy" for the surname "augustine". */
+function withoutAuthor(base, surname, name = new Set(surname ? [surname] : [])) {
+  const by = base.lastIndexOf(' by ')
+  if (by > 0 && base.slice(by + 4).split(' ').every(word => name.has(word))) return base.slice(0, by)
   const at = base.lastIndexOf(' of ')
-  return at > 0 && surname && base.slice(at + 4).split(' ').includes(surname) ? base.slice(0, at) : base
+  if (at <= 0) return base
+  const tail = base.slice(at + 4).split(' ')
+  return (surname && tail.includes(surname)) || (name.size > 1 && tail.every(word => name.has(word))) ? base.slice(0, at) : base
+}
+/** The words of a person's name, for bareTitle. */
+const nameWords = author => new Set(normalizeText(author).split(' ').filter(Boolean))
+/**
+ * A title without the author's name around it and a leading "On": "Goethe's Faust" is faust,
+ * "L. Annaeus Seneca on Benefits" and "On Benefits" are benefits, "On the Genealogy of Morals" is
+ * genealogy of morals, "The Essays of Adam Smith" essays (search audit, 2026-10-08).
+ */
+function bareTitle(base, name, surname) {
+  let words = withoutAuthor(base, surname, name).split(' ')
+  // "Goethe's Faust" (normalized "goethe s faust", or "goethes faust").
+  if (words.length > 2 && name.has(words[0]) && words[0].length >= 3 && words[1] === 's') words = words.slice(2)
+  else if (words.length > 1 && [...name].some(word => word.length >= 3 && words[0] === word + 's')) words = words.slice(1)
+  else {
+    // Leading name words or their initials, through the surname.
+    let i = 0
+    while (i < words.length - 1 && (name.has(words[i]) || (words[i].length === 1 && [...name].some(word => word[0] === words[i])))) i++
+    if (i && words.slice(0, i).includes(surname)) words = words.slice(i)
+  }
+  if (words.length > 1 && words[0] === 'on') words = words.slice(1)
+  if (words.length > 1 && words[0] === 'the') words = words.slice(1)
+  return words.join(' ')
 }
 /** The same surname, or a respelling of a long one ("Dostoyevsky" for Dostoevsky): at most two edits, same first letter. */
 function sameSurname(a, b) {
@@ -203,8 +237,21 @@ function sameSurname(a, b) {
 /** The key two catalogue copies of one book share (loose title, part, first author's surname). */
 export function looseTitleAuthorKey(title, author) {
   const { base, part } = looseTitle(title)
-  return `${base}|${part ?? ''}|${authorKey(author)}`
+  const surname = authorKey(author)
+  return `${bareTitle(base, nameWords(author), surname)}|${part ?? ''}|${surname}`
 }
+/**
+ * The key the volumes and parts of one work share: its loose title without the part, each word cut
+ * to six letters ("Theologico-Political Treatise — Part 1" and "A Theological-Political Treatise
+ * [Part IV]"), and the first author's surname.
+ */
+function volumesKey(title, author) {
+  const surname = authorKey(author)
+  const base = bareTitle(looseTitle(title).base, nameWords(author), surname)
+  return base ? `vol:${base.split(' ').map(word => word.slice(0, 6)).join(' ')}|${surname}` : null
+}
+/** A title naming a volume or part ("Volume 1 (of 3)", "Hell, Volume 01", "[Part IV]", "— Part 1"). */
+const NAMES_PART = /\b(?:part|vol\.?|volume|book|tome)\s+(?:\d+|[ivxlc]+|one|two|three|four|five|six)\b|\(of \d+\)/i
 
 /** Gutenberg ebook numbers the registry names for its sources (bookRegistry.ts comments). */
 export const REGISTRY_GUTENBERG_IDS = { 'pg:44024': 'the-art-of-war', 'pg:15877': 'meditations', 'pg:14591': 'faust-part-1' }
@@ -230,6 +277,8 @@ export function inTinct(work, tinctBooks) {
   return false
 }
 
+/** Gutenberg's quotation and picture selections from an author's works: not books to add (search audit, 2026-10-08). */
+const SELECTION = /^(quotes and images from|widger'?s quotations from)\b/i
 /**
  * The two search groups: "Available in Tinct" (the library's own matches, unchanged)
  * and "Not yet in Tinct" (importable catalogue works not already in Tinct, each book once:
@@ -238,27 +287,44 @@ export function inTinct(work, tinctBooks) {
  * stands for the work, so searching another edition's own title still finds that edition first).
  */
 export function groupSearchResults({ tinct, free, tinctBooks, limit = 8 }) {
-  const notYet = groupEditions(free, tinctBooks, importableWork).slice(0, limit)
+  const notYet = groupEditions(free, tinctBooks, work => importableWork(work) && !SELECTION.test(String(work.title || ''))).slice(0, limit)
   return { available: tinct, notYet }
 }
 
 /**
  * Catalogue works in their order, one per book (data-level grouping, not yet shown in the UI):
- * a later work with the same id, loose title and first author, or Wikidata work as an earlier one
+ * a later work with the same id, loose title and first author, Wikidata work, title and translator,
+ * or a volume or part of the same work as an earlier one
  * joins it as one of its `alternates` (each returned work is a copy carrying them). Works in Tinct,
  * and works `accept` refuses (e.g. not importable), are skipped without claiming their book, so
  * another translation of a Tinct book stays listed.
  */
 export function groupEditions(free, tinctBooks = [], accept = () => true) {
-  const seen = new Map()
+  const seen = new Map(), volumes = new Map(), parted = new Set()
   const out = []
   for (const work of free || []) {
     if (!work || !accept(work) || inTinct(work, tinctBooks)) continue
-    const keys = [work.id, looseTitleAuthorKey(work.title, work.authors?.[0]?.name || ''), work.wikidata ? 'wd:' + work.wikidata : null].filter(Boolean)
-    const first = keys.map(key => seen.get(key)).find(Boolean)
-    if (first) { if (first.id !== work.id && !first.alternates.some(other => other.id === work.id)) first.alternates.push(work); for (const key of keys) if (!seen.has(key)) seen.set(key, first); continue }
+    const author = work.authors?.[0]?.name || ''
+    // The same title in the same translation from another library (Gutenberg's and Wikisource's
+    // "On Benefits", Aubrey Stewart) is one book, whatever form the author's name takes.
+    const translator = work.translators?.[0]?.name
+    const translated = translator ? `tr:${bareTitle(looseTitle(work.title).base, nameWords(author), authorKey(author))}|${looseTitle(work.title).part ?? ''}|${authorKey(translator)}` : null
+    const keys = [work.id, looseTitleAuthorKey(work.title, author), work.wikidata ? 'wd:' + work.wikidata : null, translated].filter(Boolean)
+    // The volumes and parts of one work are one row too ("The journal of Montaigne's travels…,
+    // Volume 1 (of 3)", 2 and 3): a part joins the work's row, and the work joins its parts' row.
+    const volume = volumesKey(work.title, author), part = NAMES_PART.test(work.title)
+    let first = keys.map(key => seen.get(key)).find(Boolean)
+    if (!first && volume && volumes.has(volume) && (part || parted.has(volumes.get(volume)))) first = volumes.get(volume)
+    if (first) {
+      if (first.id !== work.id && !first.alternates.some(other => other.id === work.id)) first.alternates.push(work)
+      for (const key of keys) if (!seen.has(key)) seen.set(key, first)
+      if (part) parted.add(first)
+      continue
+    }
     const group = { ...work, alternates: [] }
     for (const key of keys) seen.set(key, group)
+    if (volume && !volumes.has(volume)) volumes.set(volume, group)
+    if (part) parted.add(group)
     out.push(group)
   }
   return out
