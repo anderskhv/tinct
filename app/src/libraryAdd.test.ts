@@ -77,6 +77,10 @@ describe('importWork (the browser half of Add)', () => {
     expect(await importWork('pg:1', { fetchImpl: reply(409, { error: 'in_progress' }) })).toEqual({ ok: false, reason: 'in_progress' })
     expect(await importWork('pg:1', { fetchImpl: reply(422, { error: 'not_importable' }) })).toEqual({ ok: false, reason: 'not_importable' })
     expect(await importWork('pg:1', { fetchImpl: reply(401, { error: 'Unauthorized' }) })).toEqual({ ok: false, reason: 'signed_out' })
+    // QA 2026-10-08: a file too large (even without pictures) is "cannot be added", never the generic "try again";
+    // a library's bot check instead of the book is "could not be read from its library".
+    expect(await importWork('pg:1', { fetchImpl: reply(413, { error: 'source_too_large' }) })).toEqual({ ok: false, reason: 'not_importable' })
+    expect(await importWork('pg:1', { fetchImpl: reply(503, { error: 'source_blocked' }) })).toEqual({ ok: false, reason: 'unreadable' })
     expect(await importWork('pg:1', { fetchImpl: (async () => { throw new Error('offline') }) as unknown as typeof fetch })).toEqual({ ok: false, reason: 'failed' })
   })
 })

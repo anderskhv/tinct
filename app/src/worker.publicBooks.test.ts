@@ -8,6 +8,7 @@ import {
   IMPORTS_PER_DAY,
   INDEX_KEY,
   MAX_EPUB_BYTES,
+  botChallenge,
   downloadEpub,
   handlePublicBooks,
   handlePublicEditionData,
@@ -24,7 +25,8 @@ import { COVER_CLAIM_MS, XAI_IMAGE_MODEL, XAI_IMAGE_OPTIONS, coverContentType, c
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { LIBRARY_HOUSES, LIBRARY_SHELVES } from './data/libraryTaxonomy'
-import type { CatalogueWork } from '../public/lab/public-books.js'
+import { displayTitle, importEditions, importableWork, personName, publishedYear, type CatalogueWork } from '../public/lab/public-books.js'
+import { WIKISOURCE_CONCURRENCY, setWikisourceSleepForTest } from './worker/lib/wikisourceEpub'
 
 const USER = '11111111-1111-4111-8111-111111111111'
 const OTHER = '22222222-2222-4222-8222-222222222222'
@@ -697,5 +699,174 @@ describe('painted covers: backfill, claims, spines and switches', () => {
     expect(client.addToTinctEnabled(store(false), false)).toBe(false)
     // Signed-in readers get Add to Tinct; Modern English is for every device (Anders, 2026-10-08).
     expect(client.addToTinctEnabled(store(false), true)).toBe(true)
+  })
+})
+
+// ===== QA 2026-10-08: sources, the bot check, sizes, languages, metadata =====
+
+describe('where an added book is downloaded from (QA 2026-10-08)', () => {
+  const VANITY_WS: CatalogueWork = {
+    ...WORK, id: 'pg:599', title: 'Vanity Fair', firstPublishedYear: 1848,
+    editions: [{ source: 'Wikisource', sourceUrl: 'https://en.wikisource.org/wiki/Vanity_Fair_(Thackeray)', epubUrl: 'https://ws-export.wmcloud.org/?format=epub&lang=en&page=Vanity_Fair_%28Thackeray%29', licence: 'CC BY-SA 4.0' }],
+  }
+  const LUCILIUS: CatalogueWork = {
+    ...WORK, id: 'ws:en:Q97452599', title: 'Moral letters to Lucilius', authors: [{ name: 'Seneca', deathYear: 65 }], firstPublishedYear: 1917,
+    editions: [{ source: 'Wikisource', sourceUrl: 'https://en.wikisource.org/wiki/Moral_letters_to_Lucilius', epubUrl: 'https://ws-export.wmcloud.org/?format=epub&lang=en&page=Moral_letters_to_Lucilius', licence: 'CC BY-SA 4.0' }],
+  }
+  const BLEAK_FR: CatalogueWork = {
+    ...WORK, id: 'pg:1023', title: 'Bleak-House',
+    editions: [{ source: 'Wikisource', sourceUrl: 'https://fr.wikisource.org/wiki/Bleak-House', epubUrl: 'https://ws-export.wmcloud.org/?format=epub&lang=fr&page=Bleak-House', licence: 'CC BY-SA 4.0' }],
+  }
+  const WS_FR_ONLY: CatalogueWork = { ...BLEAK_FR, id: 'ws:fr:Q1', title: 'Le Rouge et le Noir' }
+  /** ws-export's answer to the Worker, as QA saw it. */
+  const ANUBIS = '<!doctype html><html lang="en"><head><title>Making sure you&#39;re not a bot!</title></head><body><h1>Making sure you&#39;re not a bot!</h1><p>Protected by Anubis From Techaro.</p></body></html>'
+
+  /** The Wikisource API: a contents page linking its letters (and furniture to leave out), then each letter. Anything else: the bot check. */
+  function wikisource(calls: string[], options: { throttleFirst?: boolean } = {}) {
+    let throttled = !options.throttleFirst
+    return (async (input: string | URL | Request) => {
+      const url = new URL(String(input))
+      calls.push(url.hostname === 'en.wikisource.org' ? `api:${url.searchParams.get('page')}` : String(input))
+      if (url.hostname !== 'en.wikisource.org') return new Response(ANUBIS, { headers: { 'content-type': 'text/html' } })
+      if (!throttled) { throttled = true; return new Response('You are making too many requests', { status: 429, headers: { 'retry-after': '1' } }) }
+      const page = url.searchParams.get('page')!
+      const header = (section: string) => `<div class="ws-header wst-header ws-noexport noprint"><div class="headertemplate"><a href="/wiki/Moral_letters_to_Lucilius/Letter_0">Previous</a><div class="header-section-text">${section}</div></div></div><div class="ws-noexport" id="ws-data"><span id="ws-title">Moral letters</span></div>`
+      const text = page === 'Moral letters to Lucilius'
+        ? `<div class="mw-parser-output">${header('')}<ul><li><a href="/wiki/Moral_letters_to_Lucilius/Letter_1" title="x">Letter 1</a></li><li><a href="/wiki/Moral_letters_to_Lucilius/Letter_2">Letter 2</a></li><li><a href="/wiki/Author:Seneca">Seneca</a></li></ul></div>`
+        : page.endsWith('Letter 1')
+          ? `<div class="mw-parser-output">${header('Letter 1. On saving time')}<span class="pagenum ws-pagenum" id="27">27</span><p>${PARAGRAPHS[0][0]}<sup class="reference"><a href="#cite_note-1">[1]</a></sup></p><p>${PARAGRAPHS[0][1]}</p><p>${PARAGRAPHS[0][2]}</p><figure><img src="//upload.wikimedia.org/x.png"/></figure></div>`
+          : `<div class="mw-parser-output">${header('Letter 2. On discursiveness in reading')}<p>${PARAGRAPHS[1][0]}</p><p>${PARAGRAPHS[1][1]}</p><p>${PARAGRAPHS[1][2]}</p><style>.x{color:red}</style></div>`
+      return Response.json({ parse: { title: page, text } })
+    }) as unknown as typeof fetch
+  }
+
+  it('a Gutenberg work the catalogue lists under Wikisource (Vanity Fair, pg:599) downloads from Gutenberg and credits it', async () => {
+    const t = setup({ works: [VANITY_WS] })
+    expect((await t.prepare('pg:599')).status).toBe(200)
+    expect(t.downloads).toEqual(['https://www.gutenberg.org/ebooks/599.epub3.images'])
+    const body = await (await t.convertAndCommit('pd-pg-599')).json() as { entry: { public: { source: string; sourceName: string; sourceUrl: string; licence: string }; summary: string } }
+    expect(body.entry.public).toMatchObject({ source: 'Gutenberg', sourceName: 'Project Gutenberg', sourceUrl: 'https://www.gutenberg.org/ebooks/599', licence: 'Public domain' })
+    expect(body.entry.summary).toBe('Public-domain text from Project Gutenberg.')
+  })
+
+  it('a Wikisource-only work is built from the wiki\'s own API, never from ws-export, and credits Wikisource under its licence', async () => {
+    const calls: string[] = []
+    const t = setup({ works: [LUCILIUS], source: wikisource(calls) })
+    const first = await t.prepare('ws:en:Q97452599')
+    expect(first.status).toBe(200)
+    const { bookId } = await first.json() as { bookId: string }
+    expect(calls).toEqual(['api:Moral letters to Lucilius', 'api:Moral letters to Lucilius/Letter 1', 'api:Moral letters to Lucilius/Letter 2'])
+    const done = await t.convertAndCommit(bookId)
+    expect(done.status).toBe(201)
+    const body = await done.json() as { entry: { public: { source: string; licence: string }; summary: string } }
+    expect(body.entry.public).toMatchObject({ source: 'Wikisource', licence: 'CC BY-SA 4.0' })
+    expect(body.entry.summary).toBe('Text from Wikisource, CC BY-SA 4.0.')
+    const edition = await (await handlePublicEditionData(new Request(`https://tinct.app/data/editions/${bookId}-original-en.json`), t.env))!.json() as { chapters: Array<{ title: string; paragraphs: string[] }> }
+    expect(edition.chapters.map(chapter => chapter.title)).toEqual(['Letter 1. On saving time', 'Letter 2. On discursiveness in reading'])
+    // Wikisource's furniture (header, page numbers, note markers, pictures, styles) is not the book.
+    expect(edition.chapters[1].paragraphs).toEqual(PARAGRAPHS[1])
+    expect(JSON.stringify(edition)).not.toMatch(/Previous|\b27\b|\[1\]|color:red|Moral letters/)
+  })
+
+  it('waits as Wikimedia asks when its API answers 429 (Retry-After), then reads on', async () => {
+    const waits: number[] = []
+    setWikisourceSleepForTest(async ms => { waits.push(ms) })
+    try {
+      const calls: string[] = []
+      const t = setup({ works: [LUCILIUS], source: wikisource(calls, { throttleFirst: true }) })
+      expect((await t.prepare('ws:en:Q97452599')).status).toBe(200)
+      expect(waits[0]).toBe(1000)
+      expect(calls[0]).toBe(calls[1])
+      expect(WIKISOURCE_CONCURRENCY).toBeLessThanOrEqual(3)
+    } finally { setWikisourceSleepForTest(null) }
+  })
+
+  it('a bot check instead of the book is told apart (source_blocked), never taken for an EPUB', async () => {
+    const challenge = (async () => new Response(ANUBIS, { headers: { 'content-type': 'text/html' } })) as unknown as typeof fetch
+    await expect(downloadEpub('Gutenberg', 'https://www.gutenberg.org/ebooks/1.epub3.images', challenge)).rejects.toMatchObject({ code: 'source_blocked', status: 503 })
+    expect(botChallenge(new TextEncoder().encode(ANUBIS))).toBe(true)
+    expect(botChallenge(new TextEncoder().encode('<html>Not found</html>'))).toBe(false)
+    const t = setup({ source: challenge })
+    const answer = await t.prepare('pg:99999')
+    expect(answer.status).toBe(503)
+    expect(await answer.json()).toEqual({ error: 'source_blocked' })
+  })
+
+  it('an EPUB too large with its pictures is taken without them (Gutenberg\'s no-images file); too large without them is source_too_large', async () => {
+    const epub = bookEpub()
+    const seen: string[] = []
+    const big = (async (url: string) => { seen.push(url); return url.endsWith('.images') ? new Response('x', { headers: { 'content-length': String(MAX_EPUB_BYTES + 1) } }) : new Response(epub) }) as unknown as typeof fetch
+    const t = setup({ source: big })
+    expect((await t.prepare('pg:99999')).status).toBe(200)
+    expect(seen).toEqual(['https://www.gutenberg.org/ebooks/99999.epub3.images', 'https://www.gutenberg.org/ebooks/99999.epub.noimages'])
+    expect((await t.convertAndCommit('pd-pg-99999')).status).toBe(201)
+    const huge = (async () => new Response('x', { headers: { 'content-length': String(MAX_EPUB_BYTES + 1) } })) as unknown as typeof fetch
+    const refused = await setup({ source: huge }).prepare('pg:99999')
+    expect(refused.status).toBe(413)
+    expect(await refused.json()).toEqual({ error: 'source_too_large' })
+  })
+
+  it('a Wikisource page in another language is never imported as English: a Gutenberg work uses Gutenberg, a Wikisource-only one is not offered', async () => {
+    expect(importEditions(BLEAK_FR).map(edition => edition.source)).toEqual(['Gutenberg'])
+    expect(importableWork(BLEAK_FR)).toBe(true)
+    expect(importEditions(WS_FR_ONLY)).toEqual([])
+    expect(importableWork(WS_FR_ONLY)).toBe(false)
+    const t = setup({ works: [WS_FR_ONLY] })
+    expect((await t.prepare('ws:fr:Q1')).status).toBe(422)
+    expect(t.downloads).toEqual([])
+  })
+
+  it('the catalogue build picks Gutenberg\'s EPUB first and never a wrong-language Wikisource download', async () => {
+    const { slimWork } = await import('../../addbooks/web/scripts/catalog.mjs') as { slimWork: (work: unknown) => CatalogueWork }
+    const gutenberg = { source: 'Gutenberg', sourceUrl: 'https://www.gutenberg.org/ebooks/1023', epubUrl: 'https://www.gutenberg.org/ebooks/1023.epub3.images' }
+    expect(slimWork({ ...BLEAK_FR, editions: [...BLEAK_FR.editions, gutenberg] }).editions[0]).toMatchObject({ source: 'Gutenberg', epubUrl: gutenberg.epubUrl })
+    expect(slimWork({ ...VANITY_WS, editions: [...VANITY_WS.editions, { ...gutenberg, epubUrl: 'https://www.gutenberg.org/ebooks/599.epub3.images' }] }).editions[0].source).toBe('Gutenberg')
+    expect(slimWork(WS_FR_ONLY).editions[0]).toMatchObject({ source: 'Wikisource', epubUrl: null })
+    expect(slimWork(LUCILIUS).editions[0].epubUrl).toBe(LUCILIUS.editions[0].epubUrl)
+  })
+})
+
+describe('an added book\'s metadata (QA 2026-10-08)', () => {
+  it('title case for a sentence-case English title; the library\'s own capitals kept', () => {
+    expect(displayTitle('The three musketeers', ['en'])).toBe('The Three Musketeers')
+    expect(displayTitle('The man in the iron mask', ['en'])).toBe('The Man in the Iron Mask')
+    expect(displayTitle('A journey to Paris', ['en'])).toBe('A journey to Paris')
+    expect(displayTitle("A Doll's House", ['en'])).toBe("A Doll's House")
+    expect(displayTitle('Clarissa Harlowe; or the history of a young lady — Volume 1', ['en'])).toBe('Clarissa Harlowe; or the history of a young lady — Volume 1')
+    expect(displayTitle('Les trois mousquetaires', ['fr'])).toBe('Les trois mousquetaires')
+  })
+
+  it('names without Gutenberg\'s spelled-out initials', () => {
+    expect(personName('R. Farquharson (Robert Farquharson) Sharp')).toBe('Robert Farquharson Sharp')
+    expect(personName('R. H. M. (Robert Harvey Monro) Elwes')).toBe('Robert Harvey Monro Elwes')
+    expect(personName('C. J. (Charles James) Hogarth')).toBe('Charles James Hogarth')
+    expect(personName('Alphonse (de) Lamartine')).toBe('Alphonse (de) Lamartine')
+    expect(personName('Constance Garnett')).toBe('Constance Garnett')
+  })
+
+  it('a year only when it can be the first publication: none after the author died, never an estimate', () => {
+    expect(publishedYear({ firstPublishedYear: 1923, authors: [{ name: 'Henrik Ibsen', deathYear: 1906 }] })).toBeNull()
+    expect(publishedYear({ firstPublishedYear: 1848, authors: [{ name: 'Thackeray', deathYear: 1863 }] })).toBe(1848)
+    expect(publishedYear({ authors: [{ name: 'Alexandre Dumas', deathYear: 1870 }] })).toBeNull()
+  })
+
+  it('A Doll\'s House and The Three Musketeers as added: no wrong year, a title-cased title, the translator\'s full name', async () => {
+    const DOLL: CatalogueWork = { ...WORK, id: 'pg:2542', title: "A Doll's House", firstPublishedYear: 1923, authors: [{ name: 'Henrik Ibsen', birthYear: 1828, deathYear: 1906 }], translators: [{ name: 'R. Farquharson (Robert Farquharson) Sharp' }], editions: [{ source: 'Gutenberg', sourceUrl: 'https://www.gutenberg.org/ebooks/2542', epubUrl: 'https://www.gutenberg.org/ebooks/2542.epub3.images', licence: 'PD' }] }
+    const MUSKETEERS: CatalogueWork = { ...WORK, id: 'pg:1257', title: 'The three musketeers', firstPublishedYear: undefined, authors: [{ name: 'Alexandre Dumas', birthYear: 1802, deathYear: 1870 }, { name: 'Auguste Maquet', birthYear: 1813, deathYear: 1888 }], editions: [{ source: 'Gutenberg', sourceUrl: 'https://www.gutenberg.org/ebooks/1257', epubUrl: 'https://www.gutenberg.org/ebooks/1257.epub3.images', licence: 'PD' }] }
+    const t = setup({ works: [DOLL, MUSKETEERS] })
+    await t.prepare('pg:2542')
+    const doll = await (await t.convertAndCommit('pd-pg-2542')).json() as { book: { year?: number; editions: Array<{ translator?: string; year?: number; label: string }> }; entry: { displayYear: string; year: number | null } }
+    expect(doll.book.year).toBeUndefined()
+    expect(doll.entry).toMatchObject({ displayYear: '', year: null })
+    expect(doll.book.editions[0]).toMatchObject({ translator: 'Robert Farquharson Sharp', label: 'Translated by Robert Farquharson Sharp' })
+    expect(doll.book.editions[0].year).toBeUndefined()
+    await t.prepare('pg:1257')
+    const musketeers = await (await t.convertAndCommit('pd-pg-1257')).json() as { book: { title: string; year?: number }; entry: { title: string; displayYear: string; era: string } }
+    expect(musketeers.book.title).toBe('The Three Musketeers')
+    expect(musketeers.entry.title).toBe('The Three Musketeers')
+    expect(musketeers.book.year).toBeUndefined()
+    expect(musketeers.entry.displayYear).toBe('')
+    // The estimate from the author's dates still places the book in its era (shelves), unshown.
+    expect(musketeers.entry.era).toBe('modern')
   })
 })

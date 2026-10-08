@@ -1,6 +1,6 @@
 import { nativeLibraryCatalogue, ensureNativeBook } from './utils/nativeBooks'
 import { ensurePublicBook } from './utils/publicBooks'
-import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
+import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_FETCH, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
@@ -144,7 +144,7 @@ async function loadCatalogue(provided?: Promise<{ books?: CatalogueBook[] }>): P
 async function withPublicBooks(data: { books: CatalogueBook[] }): Promise<{ books: CatalogueBook[] }> {
   if (!addToTinctEnabled(undefined, document.documentElement.classList.contains('signed-in'))) return data
   try {
-    const response = await fetch(PUBLIC_BOOKS_INDEX_URL)
+    const response = await fetch(PUBLIC_BOOKS_INDEX_URL, PUBLIC_BOOKS_INDEX_FETCH)
     if (!response.ok) return data
     const index = await response.json() as { books?: Array<CatalogueBook & { shelfIds?: string[] }> }
     return mergePublicBooks(data, index.books ?? [])

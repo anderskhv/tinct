@@ -40,6 +40,11 @@ export const EXCLUDED_SOURCES: string[]
 export const IMPORT_LANGUAGES: string[]
 export function sourceName(source: string | undefined): string
 export function allowedSourceUrl(source: string, url: string): boolean
+export function wikisourcePage(edition: CatalogueEdition | null | undefined, workId?: string): { lang: string; page: string } | null
+export function wikisourceApi(lang: string): string
+export interface ImportEdition { source: string; sourceUrl: string | null; licence: string; epubUrls: string[]; wikisource?: { lang: string; page: string } }
+export function importEditions(work: CatalogueWork | null | undefined): ImportEdition[]
+export function importSource(work: CatalogueWork | null | undefined): string
 export function importableWork(work: CatalogueWork | null | undefined): boolean
 export function publicBookId(workId: string): string | null
 export function normalizeText(value: unknown): string
@@ -50,6 +55,10 @@ export const REGISTRY_GUTENBERG_IDS: Record<string, string>
 export function inTinct(work: CatalogueWork, tinctBooks: Array<{ id: string; title: string; author: string; public?: { workId?: string } }>): boolean
 export function groupEditions<W extends CatalogueWork>(free: W[], tinctBooks?: Array<{ id: string; title: string; author: string }>, accept?: (work: W) => boolean): Array<W & { alternates: W[] }>
 export function groupSearchResults<T>(input: { tinct: T[]; free: CatalogueWork[]; tinctBooks: Array<{ id: string; title: string; author: string }>; limit?: number }): { available: T[]; notYet: CatalogueWork[] }
+export function displayTitle(title: string, language?: string[] | string): string
+export function personName(name: string): string
+export function publishedYear(work: Pick<CatalogueWork, 'firstPublishedYear' | 'authors'> | null | undefined): number | null
 export function freeRow(work: CatalogueWork): { title: string; author: string; source: string }
 export function mergePublicBooks<C extends { books: Array<{ id: string }>; houses?: unknown[] }>(catalogue: C, entries: Array<{ id: string; shelfIds?: string[]; placement?: PublicPlacement[] }>): C
 export const PUBLIC_BOOKS_INDEX_URL: string
+export const PUBLIC_BOOKS_INDEX_FETCH: RequestInit
