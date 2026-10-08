@@ -2,6 +2,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
+// @ts-expect-error -- plain browser module of the library page
 import { tableWindow } from '../public/lab/library_2/table-window.js'
 
 const spines = (count: number, width = 30) => Array.from({ length: count }, () => width)
