@@ -12,8 +12,8 @@
  *   paragraph.
  *
  * Both sit over the page (absolutely placed in the page wrap), so neither
- * changes the page's size or pagination. System UI for chrome, Playfair for the
- * one title; no mono.
+ * changes the page's size or pagination. Two families, like the reader around
+ * them: EB Garamond for all text and buttons, Playfair for the one title; no mono.
  */
 export interface LabModernWaitView {
   kind: 'purchase' | 'writing' | 'unavailable'

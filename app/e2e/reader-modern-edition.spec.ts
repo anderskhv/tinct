@@ -119,7 +119,8 @@ async function expectCovered(page: Page) {
 
 /** The page is filled to the bottom: the last line painted sits close above the bottom chrome (no big empty band). */
 async function expectPageFilled(page: Page) {
-  const gap = await page.evaluate(() => {
+  // Once the page has settled (a fresh edition is paginated in steps).
+  await expect.poll(() => page.evaluate(() => {
     const words = [...document.querySelectorAll<HTMLElement>('[data-testid="lab-page-wrap"] [data-testid="lab-word"]')]
       .filter(w => !w.closest('.lab-page-measure'))
       .map(w => w.getBoundingClientRect())
@@ -128,8 +129,7 @@ async function expectPageFilled(page: Page) {
     const bottom = Math.max(...words.map(r => r.bottom))
     const lineHeight = words[0]?.height || 30
     return (wrap.bottom - bottom) / lineHeight
-  })
-  expect(gap).toBeLessThan(3.5)
+  }), { timeout: 10_000 }).toBeLessThan(3.5)
 }
 
 test('a page not yet written waits on a covering screen, then opens in Modern English at the same place', async ({ page }) => {
@@ -146,9 +146,10 @@ test('a page not yet written waits on a covering screen, then opens in Modern En
   await expect.poll(() => world.priority.at(-1), { timeout: 10_000 }).toMatchObject({ chapter: 1 })
   expect(world.priority.at(-1)!.paragraph).toBeGreaterThanOrEqual(5)
   expect(world.priority.at(-1)!.paragraph).toBeLessThanOrEqual(20)
-  // No mono type anywhere on the waiting screen.
+  // The reader's two families only (Playfair title, EB Garamond for the rest); never mono.
   const fonts = await page.getByTestId('lab-modern-wait').evaluate(node => [...node.querySelectorAll('*')].map(el => getComputedStyle(el).fontFamily))
   expect(fonts.some(f => /mono/i.test(f))).toBe(false)
+  expect(fonts.every(f => /^"?(EB Garamond|Playfair Display)/.test(f))).toBe(true)
   await shot(page, 'modern-wait')
 
   // The pace is known: an estimate appears with the next status.
@@ -187,6 +188,8 @@ test('after half a minute the original is offered, labelled, and Modern English 
   world.written = 32
   await expect(page.getByTestId('lab-modern-ready')).toBeVisible({ timeout: 20_000 })
   await expect(page.getByTestId('lab-modern-ready')).toContainText('Modern English is ready')
+  const noticeFonts = await page.getByTestId('lab-modern-ready').evaluate(node => [node, ...node.querySelectorAll('*')].map(el => getComputedStyle(el).fontFamily))
+  expect(noticeFonts.every(f => /^"?EB Garamond/.test(f))).toBe(true)
   await shot(page, 'modern-ready-notice')
   await page.getByTestId('lab-modern-ready-switch').click()
   await expect(text).toContainText('Modern paragraph 21', { timeout: 20_000 })
