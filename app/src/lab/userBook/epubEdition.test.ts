@@ -434,6 +434,8 @@ describe('a designed book, not a converted one', () => {
       const [one, two, three, four] = edition.chapters
       expect(edition.author).toBe('Sam Kuypers')
       expect(edition.collection).toBe(true)
+      // Read at conversion; older stored conversions are healed instead (chapterAuthors.ts).
+      expect(edition.bylines).toBe(true)
       expect(two.author).toBe('David Deutsch')
       expect([two.paragraphs[0], two.kinds?.[0]]).toEqual(['by David Deutsch', 'byline'])
       expect(three.author).toBe('Brett Hall')

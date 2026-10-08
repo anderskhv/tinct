@@ -27,9 +27,11 @@ import { dropPrintedContents } from '../../../public/lab/printed-contents.js'
 import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
 import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
+import { bylineName, chapterAuthors, nameLike, type AuthorCandidate, type BookCreators } from './chapterAuthors'
 import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture, sniffImageType } from './epubPictures'
 
 export { imageSize }
+export { bylineName, sameWriter } from './chapterAuthors'
 
 export { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition }
 
@@ -677,21 +679,12 @@ const titleKey = (text: string) => norm(text).replace(/^\d+\s+/, '')
 const plain = (text: string) => clean(text.replace(/(^|\s)_|_(\s|$)/g, '$1$2'))
 
 const SMALL_TITLE_WORDS = new Set(['a', 'an', 'the', 'and', 'or', 'nor', 'but', 'of', 'for', 'in', 'on', 'to', 'at', 'by', 'with', 'from', 'into', 'over', 'as', 'vs', 'via', 'about', 'after', 'before', 'between', 'through', 'under', 'without', 'is', 'are', 'its'])
-const NAME_PARTICLES = /^(and|&|with|van|von|de|der|den|du|da|di|la|le|bin|ibn|al)$/i
 
 /** Every word capitalised but the small ones ("What Many Worlds Means for Gravity"). */
 function titleCased(text: string): boolean {
   const words = plain(text).split(/\s+/).filter(word => /\p{L}/u.test(word))
   return words.length > 0 && words.every((word, index) => /^[^\p{L}]*\p{Lu}/u.test(word)
     || (index > 0 && SMALL_TITLE_WORDS.has(word.toLowerCase().replace(/[^\p{L}]/gu, ''))))
-}
-
-/** A person's name, or a few joined by "and" ("Sam Kuypers", "A. B. Smith and C. de Jong"). */
-function nameLike(text: string): boolean {
-  const words = plain(text).replace(/^by\s+/i, '').split(/\s+/)
-  if (words.length < 2 || words.length > 8 || text.length > 60) return false
-  return words.every(word => /^\p{Lu}[\p{L}'’.-]*,?$/u.test(word) || NAME_PARTICLES.test(word))
-    && words.filter(word => /^\p{Lu}/u.test(word)).length >= 2
 }
 
 /** Short, unpunctuated, title-cased: a line a heading's subtitle or byline could be. */
@@ -754,41 +747,6 @@ function chapterOpening(blocks: Block[], title: string): Block[] {
 
 /* ---------- Authorship ---------- */
 
-/** "by", "written by", "An interview with", "In conversation with": the line names the chapter's writer. */
-const BYLINE_LEAD = /^(?:(?:written\s+)?by|(?:an?\s+)?(?:interview|conversation|dialogue)\s+with|in\s+conversation\s+with)\s+/i
-/** A credit that names someone other than the writer. */
-const NOT_WRITER = /^(?:edited|compiled|selected|arranged|translated|introduced|illustrated|adapted|abridged|revised|foreword|introduction|preface|notes?|with an?)\b/i
-
-/**
- * The person a chapter's byline names: "by David Deutsch", "An interview with
- * David Deutsch", or a name alone. `explicit` when the line says so ("by …");
- * a name alone could be anything set under a heading. Never an editor or a translator.
- */
-export function bylineName(text: string): { name: string; explicit: boolean } | null {
-  const line = plain(text).replace(/(?<=\S)\[\d{1,3}\]$/, '').replace(/[.,;:]+$/, '').trim()
-  if (!line || line.length > 120 || NOT_WRITER.test(line)) return null
-  const lead = line.match(BYLINE_LEAD)
-  const name = (lead ? line.slice(lead[0].length) : line).trim()
-  if (/^(by|to|for|from|in|on)\s/i.test(name) || !nameLike(name)) return null
-  return { name, explicit: !!lead }
-}
-
-/** One person, however the book writes them: "Seneca" and "Lucius Annaeus Seneca", "D. Deutsch" and "David Deutsch". */
-export function sameWriter(a: string, b: string): boolean {
-  const ta = norm(a).split(' ').filter(Boolean)
-  const tb = norm(b).split(' ').filter(Boolean)
-  if (!ta.length || !tb.length || ta[ta.length - 1] !== tb[tb.length - 1]) return false
-  const [short, long] = ta.length <= tb.length ? [ta, tb] : [tb, ta]
-  return short.every(token => long.some(other => other === token || (token.length === 1 && other.startsWith(token)) || (other.length === 1 && token.startsWith(other))))
-}
-
-export interface BookCreators {
-  /** The book's authors, one per `dc:creator` (editors and translators left out). */
-  names: string[]
-  /** Its credit is an editor's or a compiler's, or "Various": an edited collection. */
-  edited: boolean
-}
-
 /** The book's creators, one by one, and whether its credit is an editor's (or "Various"). */
 function creatorsOf(meta: Element): BookCreators {
   const refines = byLocal(meta, 'meta').filter(item => item.getAttribute('property') === 'role')
@@ -828,13 +786,6 @@ function tocLabelName(label: string): string {
   return match && nameLike(match[2]) ? plain(match[2]) : ''
 }
 
-/** What a chapter says about its writer: a byline under its title, its own metadata, its contents entry. */
-export interface AuthorCandidate {
-  name: string
-  /** `byline`: "by …" or a byline class; `metadata`: the chapter document's own author; `contents`: its contents entry; `name`: a name alone under the title. */
-  source: 'byline' | 'metadata' | 'contents' | 'name'
-}
-
 /** A chapter's own word on its writer: the byline set under its title, its document's author, its contents entry. */
 function authorCandidate(opened: Block[], source: Block[], tocLabel: string): AuthorCandidate | null {
   const byline = opened.slice(0, 8).find(block => block.kind === 'byline')
@@ -845,33 +796,6 @@ function authorCandidate(opened: Block[], source: Block[], tocLabel: string): Au
   const listed = tocLabelName(tocLabel)
   if (listed) return { name: listed, source: 'contents' }
   return named ? { name: named.name, source: 'name' } : null
-}
-
-/**
- * Who wrote each chapter, when the book says so with confidence: an essay
- * collection's or anthology's bylines ("by Jo Smith" under the title, a
- * byline class), a chapter document's own author metadata, or a contents entry
- * or a name alone that is one of the book's creators. Names alone under the
- * headings also count when the book sets different ones that way in more than
- * one chapter. A chapter by the book's one author records nothing, so a
- * single-author book is unchanged. A book is a collection when any chapter
- * names its own writer, its credit is an editor's, or it has three or more
- * creators: there, a chapter without a byline is by an unnamed writer.
- */
-export function chapterAuthors(candidates: Array<AuthorCandidate | null>, creators: BookCreators): { authors: Array<string | undefined>; collection: boolean } {
-  const creatorNamed = (name: string) => creators.names.some(creator => sameWriter(creator, name))
-  const names = candidates.filter((candidate): candidate is AuthorCandidate => candidate?.source === 'name')
-  const repeatedNames = names.length >= 2 && new Set(names.map(candidate => norm(candidate.name))).size >= 2
-  const authors = candidates.map(candidate => {
-    if (!candidate) return undefined
-    const confident = candidate.source === 'byline' || candidate.source === 'metadata' || creatorNamed(candidate.name) || (candidate.source === 'name' && repeatedNames)
-    if (!confident) return undefined
-    // The book's one author: nothing to say per chapter.
-    if (creators.names.length === 1 && !creators.edited && sameWriter(creators.names[0], candidate.name)) return undefined
-    return candidate.name.slice(0, 120)
-  })
-  const collection = authors.some(Boolean) || creators.edited || creators.names.length >= 3
-  return { authors, collection }
 }
 
 /** Every word the book's own title page could print. */
@@ -1251,5 +1175,5 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   const kept = dropPrintedContents(converted)
   // Titles are read together, so boilerplate shared by a book's headings is left out (chapter-title.js).
   const chapters = options.sourceTitles ? kept : normalizeChapterTitles(kept, { language })
-  return { edition: { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, ...(collection ? { collection: true as const } : {}), language, chapters, droppedImages }, images }
+  return { edition: { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, ...(collection ? { collection: true as const } : {}), bylines: true, language, chapters, droppedImages }, images }
 }

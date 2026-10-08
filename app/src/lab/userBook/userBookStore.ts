@@ -13,6 +13,7 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
 import { readUserBookPlace, type UserBookPlace } from './userBookPlace'
 import { usableUserEdition, type UserBookEdition } from './userEdition'
+import { healChapterAuthors } from './chapterAuthors'
 import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
@@ -148,6 +149,10 @@ export async function openUserBook(hex: string, options: { owner?: string | null
     }
     // A browser that cannot keep it converts again next time; reading goes on.
     await keepEdition(key, owner, edition, data).catch(() => {})
+  } else {
+    // Converted before bylines were read: who wrote each chapter, from the stored
+    // text, in memory only. Its chapters and every reading place stay as they are.
+    edition = healChapterAuthors(edition)
   }
   // Blobs made now, in memory, from the kept bytes: each reader load draws from fresh object URLs.
   const images = new Map<string, Blob>([...data].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
