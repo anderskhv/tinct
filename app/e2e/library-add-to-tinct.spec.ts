@@ -171,6 +171,25 @@ test.describe('library search', () => {
     expect(await page.evaluate(() => (window as unknown as { __imports?: number }).__imports)).toBe(1)
   })
 
+  test('loading the library fetches no search catalogue and paints covers at their shown size; search loads the English part', async ({ page }) => {
+    // Memory on loading /library (integration, 2026-10-08): the catalogue (7.9 MB, ~1 GB to parse)
+    // loads only once search opens, in the search worker; covers are not full-size canvases.
+    const fetched: string[] = []
+    page.on('request', request => fetched.push(new URL(request.url()).pathname))
+    await prepare(page, { internal: false, signedIn: true })
+    await page.waitForTimeout(3000)
+    expect(fetched.filter(path => path.startsWith('/lab/addbook/data/') || path.endsWith('/search-worker.js'))).toEqual([])
+    const oversized = await page.evaluate(() => [...document.querySelectorAll<HTMLCanvasElement>('canvas.cover[data-painted]')]
+      .filter(canvas => canvas.isConnected && canvas.clientWidth > 0 && canvas.width > Math.ceil(canvas.clientWidth * Math.min(devicePixelRatio || 1, 2) * 1.25) + 1)
+      .map(canvas => `${canvas.dataset.book} ${canvas.width}px for ${canvas.clientWidth}px`))
+    expect(oversized).toEqual([])
+    await search(page, 'austen')
+    await expect(page.locator('#search-results .free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    const catalogue = fetched.filter(path => path.startsWith('/lab/addbook/data/catalog'))
+    expect(catalogue).toContain('/lab/addbook/data/catalog-en.json.gz')
+    expect(catalogue).not.toContain('/lab/addbook/data/catalog.json.gz')
+  })
+
   test('"faust": Goethe and Marlowe, no Max Brand westerns, and not the Faust already in Tinct', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true })
     await search(page, 'faust')

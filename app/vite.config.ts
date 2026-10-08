@@ -169,6 +169,35 @@ export default defineConfig(({ mode, command }) => {
       },
     },
     {
+      // The library search's catalogue parts on the dev server, as `npm run build` makes them
+      // (scripts/build-catalogue-shards.mjs): without them the search worker falls back to the
+      // whole 7.9 MB catalogue, whose parse took the dev page (and the browser tests) to ~1.9 GB.
+      name: 'lab-catalogue-shards',
+      configureServer(server) {
+        const whole = path.resolve(process.cwd(), 'public/lab/addbook/data/catalog.json.gz')
+        let parts: Promise<Record<string, Buffer>> | null = null, partsFor = 0
+        const build = async () => {
+          const { gunzipSync, gzipSync } = await import('zlib')
+          // Loaded by Node at run time (not bundled into this config): the build's own split.
+          const { pathToFileURL } = await import('url')
+          const { splitCatalogue } = await import(pathToFileURL(path.resolve(process.cwd(), 'scripts/build-catalogue-shards.mjs')).href)
+          const { english, more } = splitCatalogue(JSON.parse(gunzipSync(fs.readFileSync(whole)).toString('utf8')))
+          return { 'catalog-en.json.gz': gzipSync(Buffer.from(JSON.stringify(english))), 'catalog-more.json.gz': gzipSync(Buffer.from(JSON.stringify(more))) }
+        }
+        server.middlewares.use('/lab/addbook/data/', (req: IncomingMessage, res: ServerResponse, next: () => void) => {
+          const name = (req.url || '').split('?')[0].replace(/^\//, '')
+          if (name !== 'catalog-en.json.gz' && name !== 'catalog-more.json.gz') return next()
+          let stamp = 0
+          try { stamp = fs.statSync(whole).mtimeMs } catch { return next() }
+          if (!parts || partsFor !== stamp) { parts = build(); partsFor = stamp; parts.catch(() => { parts = null }) }
+          parts.then(files => {
+            res.writeHead(200, { 'Content-Type': 'application/gzip', 'Cache-Control': 'no-store' })
+            res.end(files[name])
+          }, () => next())
+        })
+      },
+    },
+    {
       name: 'lab-pre-reader-catalogue',
       configureServer(server) {
         server.middlewares.use('/lab/prefaces/', (req,res) => {
