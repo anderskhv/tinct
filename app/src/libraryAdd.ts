@@ -38,8 +38,10 @@ const failureFor = (status: number, code: string | undefined): ImportFailure =>
     : status === 402 ? 'premium_required'
     : code === 'daily_limit' ? 'daily_limit'
       : code === 'in_progress' ? 'in_progress'
-        : code === 'not_importable' || code === 'not_found' || code === 'source_not_allowed' ? 'not_importable'
-          : code === 'not_epub' || code === 'edition_mismatch' || code === 'bad_edition' ? 'unreadable'
+        // Too large even without its pictures (Gutenberg's no-images file is tried first): "cannot be added", never "try again".
+        : code === 'not_importable' || code === 'not_found' || code === 'source_not_allowed' || code === 'source_too_large' || code === 'too_large' ? 'not_importable'
+          // The library answered with a bot check instead of the book (ws-export's Anubis page).
+          : code === 'not_epub' || code === 'edition_mismatch' || code === 'bad_edition' || code === 'source_blocked' ? 'unreadable'
             : 'failed'
 
 /** Import one catalogue work (or find it already in Tinct). `onStage` reports progress for the button. */

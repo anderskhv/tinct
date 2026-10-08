@@ -1,7 +1,7 @@
 // First: applies and strips ?internal=1|0 before anything reads the address, and shows the badge.
 import './utils/internalTraffic'
 import { initializeNativeBooks } from './utils/nativeBooks'
-import { preloadPublicBooksForReader } from './utils/publicBooks'
+import { READER_HANDOFF_KEY, preparePublicBooksForReader } from './utils/publicBooks'
 import { nativeEntryDestination } from './utils/nativeEntry'
 import { registerReaderOffline } from './utils/registerReaderOffline'
 import { readEinkProfile } from '../public/lab/display-profile.js'
@@ -72,7 +72,16 @@ async function begin() {
   if (nativeDestination) { window.location.replace(nativeDestination); return }
   if (isCapacitor) await initializeNativeBooks()
   // Books readers added (pd-…) are registered before the reader reads the registry; bounded wait.
-  if (Root === LabApp && !userBookHex) await Promise.race([preloadPublicBooksForReader(), new Promise(resolve => setTimeout(resolve, 4000))])
+  if (Root === LabApp && !userBookHex) {
+    const missing = await preparePublicBooksForReader()
+    // The hand-off opens a book that could not be registered: the library shows that book
+    // (its ?book= link) rather than the reader silently opening another one.
+    if (missing) {
+      try { sessionStorage.removeItem(READER_HANDOFF_KEY) } catch { /* the library still opens */ }
+      window.location.replace(`/library?book=${encodeURIComponent(missing)}`)
+      return
+    }
+  }
   const contentMigrations = Root === LabApp ? storedContentMigrations() : null
   if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
   render()

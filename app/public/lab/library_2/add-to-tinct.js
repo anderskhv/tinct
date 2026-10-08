@@ -8,7 +8,7 @@
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
 import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel8';
 import {normalize,includedWork,altTitlesFor} from '../addbook/js/search.js?v=20261008rel8';
-import {addToTinctEnabled,modernEditionsEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel8';
+import {addToTinctEnabled,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel8';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -77,7 +77,7 @@ export async function borrowFromCatalogue(books){
 /** The library catalogue with every added public book, where this device sees them. */
 export async function withPublicBooks(data){
  if(!enabled())return data;
- try{const response=await fetch(PUBLIC_BOOKS_INDEX_URL);if(!response.ok)return data;const index=await response.json();return mergePublicBooks(data,index.books||[]);}catch{return data;}
+ try{const response=await fetch(PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH);if(!response.ok)return data;const index=await response.json();return mergePublicBooks(data,index.books||[]);}catch{return data;}
 }
 
 // ---- The engine (import, own books) ----
@@ -392,8 +392,8 @@ export function syncSearchFilters(host,{query,tinctBooks,el,onChange}){
 export const includesText=title=>title?`Includes ${title}`:'';
 /** "+1 edition" / "+3 editions": the other editions grouped under a row. */
 export const editionCount=n=>n>0?`+${n} ${n===1?'edition':'editions'}`:'';
-/** "Gutenberg", "Wikisource": the pill's short name of a catalogue work's library. */
-export const sourceShort=work=>work?.editions?.[0]?.source||'';
+/** "Gutenberg", "Wikisource": the pill's short name of the library Add downloads a work from (public-books.js importSource). */
+export const sourceShort=work=>importSource(work);
 const unique=list=>[...new Set(list.filter(Boolean))];
 /** A year as the catalogue gives it: negative years are BC. */
 export const yearText=year=>Number.isFinite(year)?(year<0?`${-year} BC`:String(year)):'';
@@ -415,7 +415,7 @@ export function writtenYear(work){
 }
 /** What a "Not yet in Tinct" row shows. */
 export function freeRowFacts(work,query=''){
- const row=freeRow(work),translators=unique((work.translators||[]).map(person=>person.name));
+ const row=freeRow(work),translators=unique((work.translators||[]).map(person=>personName(person.name)));
  const names=(work.authors||[]).flatMap(person=>[person.name,...(person.aliases||[])]).join(' ');
  return {title:row.title,author:row.author,translator:translators.join(', '),editions:editionCount((work.alternates||[]).length),includes:work.includes||'',aka:query?knownAs(row.title,names,work.altTitles,query):'',
   pills:[sourceShort(work)].filter(Boolean),description:'',

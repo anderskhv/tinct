@@ -229,6 +229,29 @@ test.describe('library search', () => {
     await expect(row.locator('.free-progress')).toHaveCount(0)
   })
 
+  test('closing search while a book is being added cancels opening it (QA 2026-10-08: the reader opened ~16 s later)', async ({ page }) => {
+    // An import that succeeds once the page lets it finish (window.__importStep()).
+    const SLOW_SUCCESS = `async(id,options)=>{window.__imports=(window.__imports||0)+1;await new Promise(done=>{window.__importStep=done;});return {ok:true,existed:false,bookId:${JSON.stringify(ADDED.id)},entry:${JSON.stringify(ADDED)}};}`
+    await prepare(page, { internal: false, signedIn: true, importWork: SLOW_SUCCESS })
+    await search(page, 'austen')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    await results.locator('.free-row').first().locator('.free-add').click()
+    await expect.poll(() => page.evaluate(() => typeof (window as unknown as { __importStep?: unknown }).__importStep)).toBe('function')
+    await page.locator('#search-close').click()
+    await expect(page.locator('#search-panel')).toBeHidden()
+    // The import finishes (it may on the server): the library stays, with no notice and no question.
+    await page.evaluate(() => (window as unknown as { __importStep: () => void }).__importStep())
+    await page.waitForTimeout(2500)
+    expect(new URL(page.url()).pathname).toBe('/library')
+    await expect(page.locator('#notice')).toBeHidden()
+    await expect(page.locator('[data-testid="modern-ask"]')).toHaveCount(0)
+    await expect(page.locator('body')).not.toHaveClass(/leaving/)
+    // A later Add works again (the cancelled one no longer holds the queue).
+    await search(page, 'austen')
+    await expect(results.locator('.free-add').first()).toBeEnabled({ timeout: 60_000 })
+  })
+
   test('the + in the search field opens the "Your own book" pop-up for a PDF or EPUB, clear of Cancel', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true })
     await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
@@ -588,6 +611,43 @@ test.describe('My shelf', () => {
     await expect(saved).toHaveCount(1)
     await expect(saved.locator('[data-shelf-remove]')).toHaveAttribute('aria-label', 'Remove from My shelf: The Odyssey')
     expect(await page.evaluate(() => localStorage.getItem('tinct:library-2-saved:guest'))).toBe(removal)
+  })
+
+  test('an added book\'s × asks first, with the approved copy: Keep book keeps it, Remove removes it (QA 2026-10-08)', async ({ page }) => {
+    // This device, with the internal flag: the added book Emma saved for later.
+    const saved = JSON.stringify({ items: { [ADDED.id]: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
+    await page.addInitScript(value => { try { localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ } }, saved)
+    await prepare(page, { internal: true, signedIn: false })
+    await openShelf(page)
+    const card = page.locator('#collection-books [data-shelf-group="want"]', { hasText: 'Emma' })
+    await expect(card).toHaveCount(1, { timeout: 20_000 })
+    const x = card.locator('[data-shelf-remove]')
+    await x.click()
+    const dialog = page.locator('[data-testid="own-delete-dialog"]')
+    await expect(dialog).toBeVisible()
+    await expect(dialog.locator('h2')).toHaveText('Remove Emma?')
+    await expect(dialog.locator('.tui-dialog__body')).toHaveText('It is removed from this device and your account.')
+    await expect(dialog.locator('.own-delete-cancel')).toHaveText('Keep book')
+    await expect(dialog.locator('.own-delete-confirm')).toHaveText('Remove')
+    await shot(page, 'myshelf-remove-added-confirm')
+    await dialog.locator('.own-delete-cancel').click()
+    await expect(dialog).toHaveCount(0)
+    await expect(card).toHaveCount(1)
+    await x.click()
+    await page.locator('[data-testid="own-delete-dialog"] .own-delete-confirm').click()
+    await expect(page.locator('#collection-books [data-shelf-group="want"]', { hasText: 'Emma' })).toHaveCount(0)
+  })
+
+  test('a registry book\'s × still removes it at once', async ({ page }) => {
+    const saved = JSON.stringify({ items: { odyssey: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
+    await page.addInitScript(value => { try { localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ } }, saved)
+    await prepare(page, { internal: false, signedIn: false })
+    await openShelf(page)
+    const card = page.locator('#collection-books [data-shelf-group="want"]')
+    await expect(card).toHaveCount(1, { timeout: 20_000 })
+    await card.locator('[data-shelf-remove]').click()
+    await expect(page.locator('[data-testid="own-delete-dialog"]')).toHaveCount(0)
+    await expect(page.locator('#collection-books [data-shelf-group="want"]')).toHaveCount(0)
   })
 
   test('signed out: My shelf as before', async ({ page }) => {
