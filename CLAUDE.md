@@ -93,7 +93,7 @@ A content-agnostic deep reading platform. Active wrestling with texts: multi-edi
 - Warm, literary, clean. Light mode default; dark mode + e-ink mode available.
 - Desktop-first; mobile = 5-tab swipeable layout (Read / Compare / Chat / Feed / Cast).
 - Library taxonomy is Houses -> Shelves -> Books. Every production book must be classified into the taxonomy when added: House, Shelf membership, form, era, and relevant canon/list metadata.
-- **Type:** Playfair Display (headlines), EB Garamond (body), IBM Plex Mono (UI chrome) — Google Fonts.
+- **Type:** Playfair Display for page/dialog titles, EB Garamond for book text and book titles, system UI font for all UI chrome. Never mono (figures use tabular-nums). At most two families per screen. No filler text: every line names, instructs, or informs a decision. See `docs/design-system.md`.
 - **Palette:** `--paper: #ece7db`, `--ink: #0b0b0b`, `--accent: #1f4a5c` (deep teal).
 - Canonical reader pattern: Variant D "The Hybrid" from `Design refs/Reader Variations.html`. Landing: `Design refs/Tinct Landing v2.html`.
 - Default reading view = single edition with quick-toggle. Split pane is an opt-in toggle, paragraph-aligned.

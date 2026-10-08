@@ -29,7 +29,7 @@
   .ds-theme p { margin: 0 0 12px; font-size: 12.5px; color: var(--tui-ink-muted); }
   .ds-sw { display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 10px; padding: 5px 0; font-size: 12.5px; }
   .ds-sw i { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--tui-line); }
-  .ds-sw code, .ds-code { font: 400 11px/1.4 var(--tui-font-mono); color: var(--tui-ink-muted); }
+  .ds-sw code, .ds-code { font: 400 12px/1.4 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink-muted); }
   .ds-demo { padding: 22px; border: 1px solid var(--tui-line); border-radius: var(--tui-radius-lg); background: var(--tui-paper); }
   .ds-demo + .ds-demo { margin-top: 16px; }
   .ds-demo > .tui-eyebrow { margin-bottom: 14px; }
@@ -57,10 +57,12 @@
   .ds-rules ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
   .ds-drift { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tui-line); counter-reset: d; }
   .ds-drift li { display: grid; grid-template-columns: 28px 1fr; gap: 4px 12px; padding: 14px 0; border-bottom: 1px solid var(--tui-line); counter-increment: d; }
-  .ds-drift li::before { content: counter(d, decimal-leading-zero); font: 400 11px/1.9 var(--tui-font-mono); color: var(--tui-ink-faint); }
+  .ds-drift li::before { content: counter(d, decimal-leading-zero); font: 400 12px/1.75 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink-faint); }
   .ds-drift strong { display: block; font: 400 var(--tui-text-body)/1.35 var(--tui-font-serif); }
   .ds-drift span { grid-column: 2; color: var(--tui-ink-muted); }
-  .ds-drift code { font: 400 11.5px/1.4 var(--tui-font-mono); color: var(--tui-ink); overflow-wrap: anywhere; }
+  .ds-mono { margin: 0; padding-left: 18px; display: grid; gap: 6px; font: 400 var(--tui-text-sm)/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
+  .ds-mono code { font: 400 12px/1.5 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink); overflow-wrap: anywhere; }
+  .ds-drift code { font: 400 12px/1.4 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink); overflow-wrap: anywhere; }
   .ds-status { display: inline-block; margin-left: 6px; }
   @media (max-width: 699px) {
     main { padding-top: 20px; }
@@ -99,12 +101,12 @@
 <section id="type">
   <p class="tui-eyebrow">Tokens</p>
   <h2>Type</h2>
-  <p class="ds-intro">Four families, one job each. The rule that matters most: buttons, chips and inputs are set in the system UI face, never in mono and never in capitals with wide tracking.</p>
+  <p class="ds-intro">Three families, one job each, and never mono. A screen shows at most two: book text in EB Garamond and everything else in the system UI face. Playfair Display only titles a page, dialog or sheet, and only where that screen does not already show two families.</p>
   <table class="ds-type">
     <tr><td class="tui-eyebrow">Display</td><td><span style="font:600 28px/1.2 var(--tui-font-display)">Your own book</span><br><span class="ds-code">--tui-font-display · Playfair Display · page, dialog and sheet titles only</span></td></tr>
     <tr><td class="tui-eyebrow">Serif</td><td><span style="font:400 21px/1.35 var(--tui-font-serif)">The Odyssey, Homer. Sing to me of the man, Muse.</span><br><span class="ds-code">--tui-font-serif · EB Garamond · book text, book titles, dialog body, list titles</span></td></tr>
     <tr><td class="tui-eyebrow">UI</td><td><span style="font:600 15px/1.4 var(--tui-font-ui)">Choose a PDF or EPUB · Cancel · Search</span><br><span class="ds-code">--tui-font-ui · system UI · buttons, chips, inputs, meta lines, section heads</span></td></tr>
-    <tr><td class="tui-eyebrow">Mono</td><td><span style="font:400 13px/1.4 var(--tui-font-mono)">Ch. 4 · 37% · 1.25× · 12 min</span><br><span class="ds-code">--tui-font-mono · IBM Plex Mono · figures and values only</span></td></tr>
+    <tr><td class="tui-eyebrow">Figures</td><td><span class="tui-figure" style="font-size:15px;color:var(--tui-ink)">Ch. 4 · 37% · 1.25× · 12 min</span><br><span class="ds-code">.tui-figure · system UI with tabular-nums · page, percent, speed, time. No mono.</span></td></tr>
   </table>
   <div class="ds-demo" style="margin-top:20px">
     <p class="tui-eyebrow">Scale</p>
@@ -314,7 +316,9 @@
       <li>Playfair Display: page, dialog and sheet titles. Nothing else.</li>
       <li>EB Garamond: book text, book titles, list titles, dialog body.</li>
       <li>System UI: every button, chip, input, meta line and shelf head.</li>
-      <li>IBM Plex Mono: figures (percent, chapter, speed, time, counts).</li></ul></div>
+      <li>Figures (page, percent, speed, time): the role's own font with <code class="ds-code">tabular-nums</code>.</li>
+      <li>Never mono, anywhere.</li>
+      <li>At most two families on one screen.</li></ul></div>
     <div class="tui-card"><h3>Buttons</h3><ul>
       <li>All buttons are pills; no square or 5px corners.</li>
       <li>One primary per surface; Cancel is secondary, to its left.</li>
@@ -328,6 +332,10 @@
       <li>Use tokens, never hex, in new CSS.</li>
       <li>Teal accent for links, switches and focus only.</li>
       <li>E-ink: no shadows, no motion, no blur, borders instead.</li></ul></div>
+    <div class="tui-card"><h3>Copy</h3><ul>
+      <li>Never add filler text.</li>
+      <li>Every line names, instructs, or informs a decision.</li>
+      <li>No decorative taglines, no restating what the UI already shows, no placeholder prose.</li></ul></div>
   </div>
 </section>
 
@@ -337,17 +345,19 @@
   <p class="ds-intro">Places where a screen invented its own look. Each is a candidate to move onto <code class="ds-code">tui-</code> classes; only the first is converted so far.</p>
   <ol class="ds-drift">
     <li><strong>Library “Your own book” pop-up had its own dialog <span class="tui-pill ds-status">Converted</span></strong><span>14px radius, Georgia 26px title, hand-rolled buttons. Now <code>tui-scrim</code> / <code>tui-dialog</code> / <code>tui-btn</code>. <code>app/public/lab/library_2/add-to-tinct.js</code> openFileDialog, <code>styles.css</code> (old <code>.own-file-*</code> rules removed).</span></li>
-    <li><strong>Add a book sets its buttons and controls in mono</strong><span>Buttons, page jump, selects and fine print in IBM Plex Mono 12-14px. <code>app/public/lab/addbook/css/reader.css:44,46,48,55,58,103,110,126,138</code> (<code>.byob-jump button</code>, <code>.byob-row select</code>, <code>.byob-fine</code>, <code>.byob-primary</code>, <code>.byob-chip</code>). Source: <code>addbooks/web/src/css/reader.css</code>.</span></li>
-    <li><strong>Add a book's rights pop-up is a stretched reader sheet</strong><span>A <code>lab-v2-sheet</code> forced to the centre with <code>!important</code> heights, mono buttons. <code>app/public/lab/addbook/js/reader.js</code> attest(), <code>css/reader.css:77-81</code>. Should be <code>tui-dialog</code> + <code>tui-check</code>.</span></li>
+    <li><strong>Add a book's rights pop-up is a stretched reader sheet</strong><span>A <code>lab-v2-sheet</code> forced to the centre with <code>!important</code> heights. <code>app/public/lab/addbook/js/reader.js</code> attest(), <code>css/reader.css:77-81</code>. Should be <code>tui-dialog</code> + <code>tui-check</code>.</span></li>
     <li><strong>Add a book has a gold accent and a private purple</strong><span><code>--ab-accent: #c9b682</code>, <code>--ab-private: #b9a6d8</code>; search input in Georgia 18px. <code>app/public/lab/addbook/css/addbook.css:4-6,49</code>.</span></li>
     <li><strong>Three different dialogs in the library</strong><span>Remove-from-reading: 320px, 12px radius, system-ui 500 17px title (<code>library_2/styles.css:295-300</code>). Collection dialog: 31px title, its own padding (<code>library_2/bookshelf.css:34-47</code>). The own-book pop-up was the third.</span></li>
     <li><strong>The library hero's Read button has 5px corners</strong><span>Every other button is a pill. <code>library_2/styles.css</code> <code>.read-button{border-radius:5px}</code>.</span></li>
     <li><strong>The library never loads EB Garamond or Playfair Display</strong><span>Georgia is hard-coded (on 17 lines of <code>library_2/styles.css</code>) while <code>assistant.css:39,48</code> asks for Playfair and EB Garamond, which then fall back to Georgia. <code>library_2/index.html</code> has no <code>/fonts/tinct-fonts.css</code>.</span></li>
-    <li><strong>Landing buttons are square, mono, tracked capitals; body is a fifth family</strong><span><code>app/public/landing.html:126</code> <code>.btn</code> (Plex Mono 13px, .2em, uppercase, no radius); body in IBM Plex Sans (<code>:115</code>), which the design direction never names.</span></li>
-    <li><strong>The reader mixes mono into chrome</strong><span>Back, pills and some send buttons in Plex Mono 11-12.5px: <code>app/src/lab/lab.css:98,1382,5289,5602</code>; group and theme labels at 9-9.6px mono (<code>:5348,5540</code>). IBM Plex Sans at <code>:1094,1307</code>.</span></li>
+    <li><strong>Landing buttons are square tracked capitals; body is another family</strong><span><code>app/public/landing.html:126</code> <code>.btn</code> (.2em, uppercase, no radius); body in IBM Plex Sans (<code>:115</code>), which the design direction never names.</span></li>
+    <li><strong>The reader adds IBM Plex Sans to its chrome</strong><span><code>app/src/lab/lab.css:1094,1307</code>: a family the system does not name.</span></li>
     <li><strong>Contents v2 uses Inter and its own palette</strong><span><code>app/src/lab/labContentsV2.css:5,27,54</code>: <code>--paper:#f4f0e7</code>, <code>--gold:#896636</code>, Inter. Inter is loaded nowhere, so it renders as system UI.</span></li>
     <li><strong>About and the static pages restate the library palette by hand</strong><span><code>app/public/about.html:23</code> redefines <code>--bg/--cream/--muted/--line</code> and Georgia. Fine visually, but a copy: should link <code>tinct-ui.css</code> with <code>data-tui-theme="dark"</code>.</span></li>
   </ol>
+  <h3 id="mono" style="margin-top:28px">Mono, to convert</h3>
+  <p class="ds-intro">Every place production still sets IBM Plex Mono or a monospace face: 230 lines in 25 files. Each moves to the role's own font (system UI for chrome, with <code class="ds-code">tabular-nums</code> for figures).</p>
+  <ul class="ds-mono"><li><code>app/src/index.css:40, 342, 556, 633, 885, 1001, 1015, 1356, 1573, 2086, 2134, 2215, 2475, 2801, 4197, 4204, 4211, 4453, 4488, 4503, 4718, 4728, 4736, 4779, 5665, 5678, 5789, 5797, 5833, 5928, 5941, 6027, 6082, 6159, 6215, 6291, 6398, 6466, 6500, 6591, 6605, 6617, 6672, 6696, 6894, 7065, 7114, 7547, 7625, 8306, 8986, 9494, 9520, 9556, 9637, 9671, 9745, 9795, 9852, 9883, 9993, 10122, 10332, 10590, 10639, 10652, 10678, 10765, 11371, 11485, 11553, 11566, 11594, 11641, 11678, 11741, 11810, 11818, 11869, 11886, 11912, 11941, 11992, 12048, 12084, 12115, 12193, 12223, 12374, 12385, 12425, 12441, 12526, 12617, 12651, 12662, 12772, 12791, 12898</code></li><li><code>app/src/lab/lab.css:44, 98, 193, 505, 903, 925, 944, 957, 993, 1013, 1029, 1059, 1382, 1419, 1482, 1580, 1607, 1667, 1713, 1747, 1797, 1808, 1820, 1878, 2003, 2272, 2351, 3363, 3388, 3854, 3977, 4004, 4197, 4279, 4531, 4535, 4570, 4698, 4711, 4779, 5289, 5348, 5491, 5528, 5540, 5602, 5666, 5679, 5743, 5986, 6844, 7212, 7221</code></li><li><code>app/public/lab/addbook/css/reader.css:29, 30, 35, 42, 44, 46, 48, 55, 58, 92, 103, 110, 123, 126, 138, 140</code></li><li><code>app/public/fonts/tinct-fonts.css:129, 138, 147, 156, 165, 174, 183, 192, 201, 210</code> (the @font-face rules; delete once nothing uses it)</li><li><code>app/public/privacy.html:18, 56, 61, 64, 66, 70, 76, 79</code></li><li><code>app/public/terms.html:18, 56, 61, 64, 66, 70, 76, 79</code></li><li><code>app/public/landing.html:126, 144, 150, 153, 159</code></li><li><code>app/public/read/index.html:90, 108, 160, 188, 209</code></li><li><code>app/src/lab/labCatchUp.css:2, 135, 145, 179, 238</code></li><li><code>app/src/lab/labLibrarianTab.css:50, 74, 94</code></li><li><code>app/src/lab/labShare.css:17, 21, 33</code></li><li><code>app/public/landing2.html:33, 113</code></li><li><code>app/public/404.html:23</code></li><li><code>app/public/applications.html:19</code></li><li><code>app/public/assets/about-v20/_next/static/css/index.Bhau7dE2.css:2</code></li><li><code>app/public/assets/about-v20/audio-journey.html:71</code></li><li><code>app/public/lab/addbook/css/addbook.css:126</code> (code blocks inside EPUB text)</li><li><code>app/public/lab/addbook/css/tinct-app.css:1</code></li><li><code>app/public/lab/addbook/js/reader.js:1224</code></li><li><code>app/public/lab/internal-traffic.js:57</code> (internal traffic badge)</li><li><code>app/public/lab/library_2/bookshelf.js:82</code> (?debug error detail)</li><li><code>app/public/omarchy/experience.js:112</code></li><li><code>app/public/omarchy/index.html:3</code></li><li><code>app/src/lab/LabApp.tsx:364</code> (seconds inside the skip icon)</li><li><code>app/src/lab/labContentsV2.css:22</code></li></ul>
 </section>
 </main>
 
@@ -375,7 +385,7 @@
       box.append(row);
     }
   }
-  const scale = [['hero', 'serif', 'Featured title'], ['3xl', 'display', 'Page title'], ['2xl', 'serif', 'Card or book title'], ['xl', 'display', 'Dialog title'], ['lg', 'display', 'Sheet title'], ['body', 'serif', 'Body, list titles'], ['md', 'ui', 'Quiet buttons'], ['ui', 'ui', 'Buttons, UI copy'], ['sm', 'ui', 'Chips, fine print'], ['xs', 'ui', 'Meta lines'], ['2xs', 'mono', 'Figures 37%']];
+  const scale = [['hero', 'serif', 'Featured title'], ['3xl', 'display', 'Page title'], ['2xl', 'serif', 'Card or book title'], ['xl', 'display', 'Dialog title'], ['lg', 'display', 'Sheet title'], ['body', 'serif', 'Body, list titles'], ['md', 'ui', 'Quiet buttons'], ['ui', 'ui', 'Buttons, UI copy'], ['sm', 'ui', 'Chips, fine print'], ['xs', 'ui', 'Meta lines'], ['2xs', 'ui', 'Eyebrows']];
   const sh = document.getElementById('scale');
   for (const [s, f, label] of scale) {
     const row = document.createElement('div');

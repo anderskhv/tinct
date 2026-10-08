@@ -49,11 +49,12 @@
   /* Type families: one role each (see docs/design-system.md) */
   --tui-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif; /* page, sheet and dialog titles only */
   --tui-font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;        /* book text, book titles, body copy */
-  --tui-font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;   /* chrome: buttons, chips, inputs, meta */
-  --tui-font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;          /* figures only: progress, counts, values */
+  --tui-font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;   /* chrome: buttons, chips, inputs, meta, figures */
+  /* No mono family, ever. Figures (page, %, speed, time) use the role's own
+     font with tabular-nums: see .tui-figure. At most two families per screen. */
 
   /* Type scale (px; production sizes) */
-  --tui-text-2xs: 11px;   /* eyebrows, mono figures */
+  --tui-text-2xs: 11px;   /* eyebrows */
   --tui-text-xs: 12.5px;  /* meta lines, fine print on phone */
   --tui-text-sm: 13px;    /* chips, fine print */
   --tui-text-ui: 14px;    /* buttons, UI copy */
@@ -216,7 +217,7 @@ html[data-eink="true"] [data-tui-theme] {
 .tui-lede { margin: 0; font: 400 var(--tui-text-body)/1.45 var(--tui-font-serif); color: var(--tui-ink); }
 .tui-body { margin: 0; font: 400 var(--tui-text-ui)/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
 .tui-fine { margin: 0; font: 400 var(--tui-text-sm)/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
-.tui-figure { font: 400 var(--tui-text-2xs)/1.4 var(--tui-font-mono); letter-spacing: .02em; color: var(--tui-ink-muted); font-variant-numeric: tabular-nums; }
+.tui-figure { font-family: var(--tui-font-ui); font-size: inherit; font-weight: 400; color: var(--tui-ink-muted); font-variant-numeric: tabular-nums; }
 .tui-link {
   padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer;
   text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px;
@@ -232,7 +233,7 @@ html[data-eink="true"] [data-tui-theme] {
 /* ------------------------------------------------------------------ buttons */
 /* Every button is a pill. Primary: one per surface, the action the surface exists for.
    Secondary: the alternative (Cancel beside a primary, Add in a row). Quiet: low-stakes
-   navigation in toolbars (Cancel in search, Back). Never set button text in mono. */
+   navigation in toolbars (Cancel in search, Back). Nothing in the system is set in mono. */
 .tui-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--tui-space-2);
   box-sizing: border-box; min-height: 44px; padding: 0 var(--tui-space-5);
@@ -435,7 +436,7 @@ select.tui-chip {
   min-height: 48px; box-shadow: inset 0 -1px 0 var(--tui-line);
   font: 400 var(--tui-text-body)/1.3 var(--tui-font-serif);
 }
-.tui-sheet__row .tui-figure { font-size: 12px; }
+.tui-sheet__row .tui-figure { font-size: var(--tui-text-ui); }
 @media (min-width: 700px) {
   .tui-sheet:not(.tui-sheet--phone) {
     left: auto; right: 24px; bottom: auto; top: calc(4.6rem + env(safe-area-inset-top, 0px));
