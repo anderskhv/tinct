@@ -41,8 +41,15 @@ function makeTextures(){for(const book of books){const c=document.createElement(
 // a cover when it is shown at a size its pixels no longer suit (a resize, the hero's cover).
 const COVER_FALLBACK_WIDTH=600;
 function coverSize(c,texture){const nw=texture.naturalWidth||texture.width,nh=texture.naturalHeight||texture.height;if(!nw||!nh)return [nw,nh];const css=c.isConnected?c.clientWidth:0,dpr=Math.min(devicePixelRatio||1,2);const w=Math.max(1,Math.min(nw,css?Math.ceil(css*dpr):COVER_FALLBACK_WIDTH));return [w,Math.max(1,Math.round(w*nh/nw))];}
-const coverResize=typeof ResizeObserver==='undefined'?null:new ResizeObserver(entries=>entries.forEach(({target})=>{const texture=target.isConnected&&target.dataset.painted&&textures.get(target.dataset.book);if(!texture)return;const [w]=coverSize(target,texture);if(Math.abs(w-target.width)>w*.25)paintCover(target,target.dataset.book);}));
-function paintCover(c,id){const texture=textures.get(id);if(!texture)return;const [w0,h0]=coverSize(c,texture);c.width=w0;c.height=h0;const ctx=c.getContext('2d');ctx.imageSmoothingQuality='high';ctx.drawImage(texture,0,0,w0,h0);if(!c.dataset.painted&&c.dataset.book)coverResize?.observe(c);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=bookById(id);if(book?.typeset){const w=c.width,h=c.height;
+// The observer only notes covers; observing new ones and repainting wait for the next frame.
+// A cover painted while the browser delivers resize notifications (an image decode settling
+// mid-frame in WebKit) was observed inside that loop, and every such new observation went
+// undelivered: "ResizeObserver loop completed with undelivered notifications" (2026-10-08).
+const coverResize=typeof ResizeObserver==='undefined'?null:new ResizeObserver(entries=>{for(const {target} of entries)coverRecheck.add(target);scheduleCoverWork();});
+const coverWatch=new Set(),coverRecheck=new Set();let coverWork=0;
+function scheduleCoverWork(){if(!coverWork)coverWork=requestAnimationFrame(()=>{coverWork=0;for(const c of coverWatch)coverResize.observe(c);coverWatch.clear();for(const c of coverRecheck){const texture=c.isConnected&&c.dataset.painted&&textures.get(c.dataset.book);if(!texture)continue;const [w]=coverSize(c,texture);if(Math.abs(w-c.width)>w*.25)paintCover(c,c.dataset.book);}coverRecheck.clear();});}
+function watchCover(c){if(!coverResize)return;coverWatch.add(c);scheduleCoverWork();}
+function paintCover(c,id){const texture=textures.get(id);if(!texture)return;const [w0,h0]=coverSize(c,texture);c.width=w0;c.height=h0;const ctx=c.getContext('2d');ctx.imageSmoothingQuality='high';ctx.drawImage(texture,0,0,w0,h0);if(!c.dataset.painted&&c.dataset.book)watchCover(c);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=bookById(id);if(book?.typeset){const w=c.width,h=c.height;
 const designs={
  'julius-caesar':{lines:['JULIUS','CAESAR'],y:.16,size:.16,align:'left',x:.10},
  'the-prince':{lines:['THE','PRINCE'],y:.68,size:.15,align:'center',x:.5},
