@@ -7,7 +7,8 @@
 // /api/user-books (the reader's private copies in their account) is an in-memory stand-in
 // for the Worker route: Bearer test-token / cloud-token / other-token are three accounts,
 // files are checked by their bytes (PDF, or ZIP with an EPUB mimetype) and capped at 50 MB.
-// Its state and a log of calls are at GET /__books.
+// Its state and a log of calls are at GET /__books. /api/user-books/places keeps each own
+// book's place (GET all, PUT one with the revision it read), as the Worker does.
 // The Tinct reader is served from the app build (app/dist, `npm run build` in app/) at
 // /reader, with its assets, so an EPUB opened here can be read in it (/reader?userBook=…).
 //   node addbooks/web/test/serve.mjs [port]
@@ -30,7 +31,7 @@ export const requests = [];
 
 const BOOK_USERS = { 'Bearer test-token': 'u-test', 'Bearer cloud-token': 'u-cloud', 'Bearer other-token': 'u-other' };
 const BOOK_BYTES = 50 * 1024 * 1024;
-export const books = { users: {}, log: [] };
+export const books = { users: {}, places: {}, log: [] };
 const sendJson = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) };
 function sniff(buf) {
   // As the Worker (sniffBookType): a PDF starts with %PDF- and ends with its %%EOF marker.
@@ -47,6 +48,27 @@ function userBooks(req, res, url) {
   books.log.push({ method: req.method, id, user: user || null });
   if (!user) return sendJson(res, 401, { error: 'Unauthorized' });
   const mine = books.users[user] ||= [];
+  // The reader's place in each own book (routes/userBooks.ts, own-book sync): one versioned place
+  // per owned book hex; a write naming an older revision is refused with the stored place.
+  const places = books.places[user] ||= {};
+  if (id === 'places' && req.method === 'GET') return sendJson(res, 200, { places });
+  if (id?.startsWith('places/')) {
+    const hex = id.slice('places/'.length);
+    if (req.method !== 'PUT') return sendJson(res, 405, { error: 'Method not allowed' });
+    if (!/^[0-9a-f]{24}$/.test(hex) || !mine.some(b => b.sha256.slice(0, 24) === hex)) return sendJson(res, 404, { error: 'Not found' });
+    const parts = [];
+    req.on('data', c => parts.push(c));
+    req.on('end', () => {
+      let body = null; try { body = JSON.parse(Buffer.concat(parts).toString('utf8')) } catch {}
+      const place = body?.place;
+      if (!place || !Number.isInteger(place.chapterNumber) || !Number.isInteger(body.rev)) return sendJson(res, 400, { error: 'bad_request' });
+      const current = places[hex] || null;
+      if ((current?.rev ?? 0) !== body.rev) return sendJson(res, 409, { error: 'conflict', place: current });
+      places[hex] = { ...place, rev: (current?.rev ?? 0) + 1 };
+      sendJson(res, 200, { place: places[hex] });
+    });
+    return;
+  }
   if (!id && req.method === 'GET') return sendJson(res, 200, { books: mine.map(({ bytes, ...b }) => b) });
   if (!id && req.method === 'POST') {
     const parts = []; let size = 0;
@@ -68,7 +90,7 @@ function userBooks(req, res, url) {
   const found = id && mine.find(b => b.id === id);
   if (!found) return sendJson(res, 404, { error: 'Not found' });
   if (req.method === 'GET') { res.writeHead(200, { 'Content-Type': found.type === 'pdf' ? 'application/pdf' : 'application/epub+zip', 'Content-Length': found.bytes.length, 'Cache-Control': 'no-store' }); res.end(found.bytes); return }
-  if (req.method === 'DELETE') { mine.splice(mine.indexOf(found), 1); return sendJson(res, 200, { ok: true }) }
+  if (req.method === 'DELETE') { mine.splice(mine.indexOf(found), 1); delete places[found.sha256.slice(0, 24)]; return sendJson(res, 200, { ok: true }) }
   sendJson(res, 405, { error: 'Method not allowed' });
 }
 

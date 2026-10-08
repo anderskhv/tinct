@@ -76,6 +76,9 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
       await p.keyboard.press('Escape');
       return shown;
     };
+    // The figures on the page the reader left the first device at, which the second device opens at.
+    let firstDevicePage = '';
+    const captions = shown => shown.page.map(item => item.caption).join(' | ');
     const judge = (when, shown) => {
       const listed = shown.listed;
       const byNumber = n => listed.find(item => new RegExp(`Figure ${n}:`).test(item.text))?.state;
@@ -84,7 +87,9 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
         listed.length === 13 && drawnAll && ['drawn', 'placeholder'].includes(byNumber(10)) && byNumber(13) === 'placeholder'
           && !listed.some(item => item.state === 'broken') && shown.page.length > 0 && shown.page.every(item => item.state === 'drawn' || item.state === 'placeholder')
           // Opened at the start, the first page shows Figure 1 (later opens resume at the reader's place).
-          && (!/just added|second device/.test(when) || shown.page.some(item => /Double slit/.test(item.caption) && item.state === 'drawn')),
+          && (!/just added/.test(when) || shown.page.some(item => /Double slit/.test(item.caption) && item.state === 'drawn'))
+          // The second device opens at the place read on the first (own-book sync): the same page.
+          && (!/second device/.test(when) || (!!firstDevicePage && captions(shown) === firstDevicePage)),
         { listed: listed.map(item => `${(/Figure (\d+):/.exec(item.text) || [])[1]}:${item.state}`).join(" "), page: shown.page });
     };
 
@@ -170,7 +175,9 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
       await shelfReady(p);
       await p.goBack();
       await ready(p);
-      judge('back from another page', await figures(p));
+      const back = await figures(p);
+      judge('back from another page', back);
+      firstDevicePage = captions(back);
     } catch (error) {
       check(`${label}: first device ran`, false, String(error?.stack || error).slice(0, 600));
     } finally {

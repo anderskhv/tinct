@@ -207,7 +207,9 @@ try {
     const refused = async file => {
       await openShelf(p, ORIGIN);
       await addFile(p, ORIGIN, file);
-      return p.textContent('[data-testid="own-file-dialog"] .own-file-message');
+      const message = await p.textContent('[data-testid="own-file-dialog"] .own-file-message');
+      await p.click('[data-testid="own-file-dialog"] .own-file-cancel');
+      return message;
     };
     const cut = join(OUT, 'cut-short.pdf'); writeFileSync(cut, pdfFixtures()['scan_0042.pdf'].subarray(0, 4000));
     const locked = await refused(join(FIX, 'locked.pdf')), broken = await refused(cut);
