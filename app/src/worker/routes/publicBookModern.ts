@@ -69,6 +69,8 @@ export type ModernEnv = PublicBooksEnv & BillingEnv & {
   PUBLIC_BOOK_MODERN_EDITIONS?: string
   /** Optional xAI model override for generation. */
   PUBLIC_BOOK_MODERN_MODEL?: string
+  /** 'text' asks without JSON mode (numbered paragraphs); JSON mode otherwise. Paragraphs asked for again always use text. */
+  PUBLIC_BOOK_MODERN_FORMAT?: string
   STRIPE_PRICE_MODERN_T1?: string
   STRIPE_PRICE_MODERN_T2?: string
   STRIPE_PRICE_MODERN_T3?: string
@@ -120,7 +122,7 @@ function modernEligible(meta: StoredMeta | null): meta is StoredMeta {
 
 function generatorFor(env: ModernEnv, deps: Pick<ModernDeps, 'generator'>): ModernGenerator | null {
   if (deps.generator) return deps.generator
-  return env.XAI_API_KEY ? xaiModernGenerator(env.XAI_API_KEY, { model: env.PUBLIC_BOOK_MODERN_MODEL }) : null
+  return env.XAI_API_KEY ? xaiModernGenerator(env.XAI_API_KEY, { model: env.PUBLIC_BOOK_MODERN_MODEL, format: env.PUBLIC_BOOK_MODERN_FORMAT === 'text' ? 'text' : 'json' }) : null
 }
 
 function offerFor(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number): { tier: ModernTier; cents: number } | null {

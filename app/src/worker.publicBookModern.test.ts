@@ -32,6 +32,14 @@ import {
   modernUserMessage,
   MODERN_SYSTEM_PROMPT,
   FAILED_REVIVAL,
+  HELD_MAX_ROUNDS,
+  HELD_RETRY_MS,
+  HOLD_AFTER_UNCHANGED,
+  MODERN_RETRY_NOTE,
+  MODERN_TEXT_REPLY,
+  RETRY_GROUP,
+  numberedParagraphs,
+  shortLine,
   MODERN_TIERS,
   modernStep,
   modernTierCents,
@@ -867,16 +875,19 @@ describe('never the original text as Modern English', () => {
     expect(results).not.toContain('chapter-ready')
     expect(results).not.toContain('complete')
     expect(results).not.toContain('progress')
+    // Paragraphs handed back again and again are held, never written (2026-10-08: accepted per paragraph).
+    expect(results).toContain('held')
     const job = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!
-    expect(job.state).toBe('failed')
+    expect(job.state).not.toBe('ready')
     expect(job.ranges).toBeUndefined()
     expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-3.json`)).toBe(false)
     expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-3.part.json`)).toBe(false)
     expect(t.r2.objects.has(`public-books/${BOOK}/modern-en.json`)).toBe(false)
     const data = await edition(t)
     expect(data.modern.complete).toBe(false)
-    expect(data.modern.chapters[3]).toBeUndefined()
+    expect(data.modern.chapters[3]).not.toBe('ready')
     expect(data.modern.written[3]).toBeUndefined()
+    expect(data.chapters[2].paragraphs).toEqual(LONG)
   })
 
   it('asks the model with the source as numbered plain paragraphs, and never takes the source handed back for an answer', async () => {
@@ -1159,8 +1170,9 @@ describe('larger chunks handed back', () => {
     for (let i = 0; i < 60 && results.at(-1) !== 'complete'; i++) results.push(await stepOf(t, 'runner-a'))
     expect(results.at(-1)).toBe('complete')
     expect(results).not.toContain('failed')
-    // 900 handed back → 450 (400 written) → grows to 562 (500 handed back) → 350 ...: never a counted failure.
-    expect(sizes.slice(0, 5)).toEqual([300, 900, 400, 500, 300])
+    // 900 handed back → its paragraphs asked for again three at a time (300 words) and rendered →
+    // on at the halved size (450: 400 written) → 562 (500 handed back) ...: never a counted failure.
+    expect(sizes.slice(0, 7)).toEqual([300, 900, 300, 300, 300, 400, 500])
     const job = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 3)!
     expect(job).toMatchObject({ state: 'ready', attempts: 0 })
     expect((await edition(t)).chapters[2].paragraphs).toEqual(LONG.map(p => `[m] ${p}`))
@@ -1179,8 +1191,9 @@ describe('larger chunks handed back', () => {
     await grantQuiet(t)
     await onlyChapterThree(t)
     for (let i = 0; i < 8; i++) await stepOf(t, 'runner-a')
-    // opening 300, 900 handed back, then 400 (limit 450), 500 (562), 700 (703): back up towards CHUNK_WORDS.
-    expect(sizes.slice(0, 5)).toEqual([300, 900, 400, 500, 700])
+    // opening 300, 900 handed back and its paragraphs asked for again (3 x 300), then 400 (limit 450),
+    // 500 (562): back up towards CHUNK_WORDS.
+    expect(sizes.slice(0, 7)).toEqual([300, 900, 300, 300, 300, 400, 500])
   })
 
   it('an echo at the smallest size counts as a failure, and the refused reply is kept for admins only', async () => {
@@ -1226,5 +1239,110 @@ describe('larger chunks handed back', () => {
     expect(job.revived).toBe(FAILED_REVIVAL)
     expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'queued', attempts: 0, ranges: [[0, 1]] })
     expect(job.chapters.find(c => c.number === 4)).toMatchObject({ state: 'queued', attempts: 0 })
+  })
+})
+
+// ===== 2026-10-08: echoes even at 350 words; accept per paragraph =====
+
+describe('accepted paragraph by paragraph', () => {
+  const GORGIAS_TEXT = gorgiasExcerpt as { introduction: string[]; dialogue: string[] }
+  const words = (p: string) => p.split(/\s+/).filter(Boolean).length
+  /** Chapter 3 = the opening of Gorgias's dialogue, chapter 4 = its Introduction (real text). */
+  const gorgiasSource = () => SOURCE.map(c => c.number === 3 ? { ...c, paragraphs: GORGIAS_TEXT.dialogue } : c.number === 4 ? { ...c, paragraphs: GORGIAS_TEXT.introduction } : c)
+  const useGorgias = (t: ReturnType<typeof setup>) => void t.r2.bucket.put(`public-books/${BOOK}/original-en.json`, JSON.stringify({ chapters: gorgiasSource() }))
+  const step = (t: ReturnType<typeof setup>, generate: ModernGenerator) => modernStep(t.r2.bucket, { bookId: BOOK, title: 'Gorgias', author: 'Plato', source: async () => gorgiasSource(), generate, now: () => t.clock.t, owner: 'runner-a' })
+  const onlyChapters = (t: ReturnType<typeof setup>, keep: number[]) => updateJob(t.r2.bucket, BOOK, job => job && { ...job, priority: keep, chapters: job.chapters.map(c => keep.includes(c.number) ? c : { ...c, state: 'ready' as const }) })
+
+  it('keeps every rewritten paragraph of a reply, short lines as they are, and asks again only for the long ones handed back', async () => {
+    const asked: Array<{ n: number; retry: boolean }> = []
+    // In a big chunk: half the long paragraphs handed back; asked for again (singly or a few), rewritten.
+    const generator: ModernGenerator = async input => {
+      asked.push({ n: input.paragraphs.length, retry: !!input.retry })
+      return input.paragraphs.map((p, i) => input.retry || words(p) < 12 || i % 2 === 0 ? (words(p) < 12 ? p : `[m] ${p}`) : p)
+    }
+    const t = setup({ generator, switchOn: false })
+    useGorgias(t)
+    await grantQuiet(t)
+    await onlyChapters(t, [3])
+    const results: string[] = []
+    for (let i = 0; i < 80 && results.at(-1) !== 'complete'; i++) results.push(await step(t, generator))
+    expect(results.at(-1)).toBe('complete')
+    expect(results).not.toContain('failed')
+    expect(asked.some(a => a.retry && a.n <= RETRY_GROUP)).toBe(true)
+    const written = (await t.r2.json(`public-books/${BOOK}/modern-en/ch-3.json`)) as { paragraphs: string[] }
+    GORGIAS_TEXT.dialogue.forEach((p, i) => {
+      // Every long paragraph rewritten; short lines ("By Plato", "SCENE: …", "SOCRATES: Yes.") may be as they were.
+      if (!shortLine(p)) expect(written.paragraphs[i]).toBe(`[m] ${p}`)
+    })
+    expect(shortLine('PERSONS OF THE DIALOGUE: Callicles, Socrates, Chaerephon, Gorgias, Polus.')).toBe(true)
+    expect(shortLine(GORGIAS_TEXT.dialogue[4])).toBe(false)
+  })
+
+  it('a paragraph that is never rewritten is held: the chapter waits, is asked again later, and never completes with the original', async () => {
+    const stubborn = GORGIAS_TEXT.introduction[2]
+    const generator: ModernGenerator = async input => input.paragraphs.map(p => p === stubborn ? p : `[m] ${p}`)
+    const t = setup({ generator, switchOn: false })
+    useGorgias(t)
+    await grantQuiet(t, 4)
+    await onlyChapters(t, [4])
+    const results: string[] = []
+    for (let i = 0; i < 20; i++) results.push(await step(t, generator))
+    expect(results).toContain('held')
+    expect(results).not.toContain('chapter-ready')
+    expect(results).not.toContain('complete')
+    let four = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 4)!
+    expect(four).toMatchObject({ state: 'queued', held: [2], waitingOnHeld: true, ranges: [[0, 2], [3, 6]] })
+    // Served: the held paragraph is not marked Modern English.
+    const data = await edition(t)
+    expect(data.modern.written[4]).toEqual([[0, 2], [3, 6]])
+    expect(data.chapters[3].paragraphs[2]).toBe(stubborn)
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-4.json`)).toBe(false)
+    // While held, nothing to do; after the wait it is asked for again (firmly, on its own), HELD_MAX_ROUNDS times at most.
+    expect(await step(t, generator)).toBe('idle')
+    for (let round = 0; round < HELD_MAX_ROUNDS; round++) {
+      t.clock.t += HELD_RETRY_MS
+      for (let i = 0; i < HOLD_AFTER_UNCHANGED + 1; i++) await step(t, generator)
+    }
+    t.clock.t += HELD_RETRY_MS
+    expect(await step(t, generator)).toBe('failed')
+    four = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 4)!
+    expect(four.state).toBe('failed')
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-4.json`)).toBe(false)
+    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en.json`)).toBe(false)
+  })
+
+  it('a chunk counts as a failed attempt only when nothing new was accepted', async () => {
+    let calls = 0
+    const generator: ModernGenerator = async input => { calls++; return calls === 1 ? input.paragraphs : input.paragraphs.map(p => `[m] ${p}`) }
+    const t = setup({ generator, switchOn: false })
+    useGorgias(t)
+    await grantQuiet(t, 4)
+    await onlyChapters(t, [4])
+    expect(await step(t, generator)).toBe('failed')
+    expect((await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 4)!.attempts).toBe(1)
+    expect(await step(t, generator)).toBe('progress')
+    expect((await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 4)!.attempts).toBe(0)
+  })
+
+  it('asks in plain text for paragraphs asked for again (or with PUBLIC_BOOK_MODERN_FORMAT=text), and reads numbered replies', async () => {
+    const bodies: Array<Record<string, unknown> & { messages: Array<{ content: string }> }> = []
+    const fetchImpl = (content: string) => (async (_url: string | URL | Request, init?: RequestInit) => {
+      bodies.push(JSON.parse(String(init?.body)))
+      return Response.json({ choices: [{ message: { content } }] })
+    }) as typeof fetch
+    const input = { title: 'Gorgias', author: 'Plato', chapterTitle: 'Introduction', paragraphs: ['First paragraph.', 'Second paragraph.'] }
+    expect(await xaiModernGenerator('k', { fetchImpl: fetchImpl('{"paragraphs": ["A.", "B."]}') })(input)).toEqual(['A.', 'B.'])
+    expect(bodies[0].response_format).toEqual({ type: 'json_object' })
+    expect(await xaiModernGenerator('k', { fetchImpl: fetchImpl('[1] A first.\n\n[2] A second.') })({ ...input, retry: true })).toEqual(['A first.', 'A second.'])
+    expect(bodies[1].response_format).toBeUndefined()
+    expect(bodies[1].messages[0].content).toContain(MODERN_TEXT_REPLY)
+    expect(bodies[1].messages[0].content).not.toContain('Reply with JSON only')
+    expect(bodies[1].messages[1].content).toContain(MODERN_RETRY_NOTE)
+    expect(await xaiModernGenerator('k', { format: 'text', fetchImpl: fetchImpl('1. A first.\n2. A second.') })(input)).toEqual(['A first.', 'A second.'])
+    expect(bodies[2].response_format).toBeUndefined()
+    expect(numberedParagraphs('[1] One.\n\n[2] Two.\n\n[3] Three.')).toEqual(['One.', 'Two.', 'Three.'])
+    expect(numberedParagraphs('[1] One.\n\n[3] Three.')).toBeNull()
+    expect(numberedParagraphs('Sure! [1] One.')).toBeNull()
+    expect(parseModernReply('[1] One.\n\n[2] Two.')).toEqual(['One.', 'Two.'])
   })
 })
