@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { amongFriendsLine, appearsOnBoard, finishedCardLine, mutualFriends, parseFindQuery, rankOfLine, socialFriendsOn, type BoardCard } from './socialRules'
+import { EVERYONE_BOARD_MIN_READERS, amongFriendsLine, appearsOnBoard, everyoneBoardOpen, finishedCardLine, isInternalAccount, isReservedTestEmail, mutualFriends, parseFindQuery, rankOfLine, socialFriendsOn, type BoardCard } from './socialRules'
 import { profileDocument, profileMainHtml, type ProfilePageData } from './profilePageView'
 
 const card = (over: Partial<BoardCard> = {}): BoardCard => ({
@@ -25,6 +25,36 @@ describe('socialRules', () => {
     expect(appearsOnBoard(card({ visibility: 'only_me' }), 'friends', viewer)).toBe(false)
     expect(appearsOnBoard(card(), 'friends', { friends: new Set(), blocked: new Set() })).toBe(false)
     expect(appearsOnBoard(card(), 'everyone', { friends: new Set(['b']), blocked: new Set(['b']) })).toBe(false)
+  })
+
+  it('the Everyone board opens at 10 real readers; unknown keeps it closed', () => {
+    expect(EVERYONE_BOARD_MIN_READERS).toBe(10)
+    expect(everyoneBoardOpen(0)).toBe(false)
+    expect(everyoneBoardOpen(9)).toBe(false)
+    expect(everyoneBoardOpen(10)).toBe(true)
+    expect(everyoneBoardOpen(250)).toBe(true)
+    expect(everyoneBoardOpen(null)).toBe(false)
+  })
+
+  it('internal and test accounts never appear on either board', () => {
+    const viewer = { friends: new Set(['b']), blocked: new Set<string>() }
+    expect(appearsOnBoard(card({ internal: true }), 'friends', viewer)).toBe(false)
+    expect(appearsOnBoard(card({ internal: true }), 'everyone', viewer)).toBe(false)
+    expect(appearsOnBoard(card({ internal: false }), 'friends', viewer)).toBe(true)
+    expect(appearsOnBoard(card({ internal: false }), 'everyone', viewer)).toBe(true)
+  })
+
+  it('internal accounts: the device flag or a reserved test address', () => {
+    for (const email of ['qa-1@example.com', 'QA-Reader@Example.COM', 'x@mail.example.org', 'a@b.test', 'a@b.invalid', 'a@host.localhost']) {
+      expect(isReservedTestEmail(email), email).toBe(true)
+    }
+    for (const email of ['anders@fastmail.com', 'reader@gmail.com', 'me@example.com.au', 'me@notexample.com', 'me@testing.dk', '', null, undefined]) {
+      expect(isReservedTestEmail(email), String(email)).toBe(false)
+    }
+    expect(isInternalAccount('reader@gmail.com', '1')).toBe(true)
+    expect(isInternalAccount('qa-2@example.com', null)).toBe(true)
+    expect(isInternalAccount('reader@gmail.com', null)).toBe(false)
+    expect(isInternalAccount('reader@gmail.com', '0')).toBe(false)
   })
 
   it('friends are mutual follows', () => {

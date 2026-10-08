@@ -40,6 +40,7 @@ import {
   type ProfileCard,
   type Visibility,
 } from '../../social/profileRules'
+import { isInternalAccount } from '../../social/socialRules'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
@@ -175,6 +176,22 @@ async function accountState(store: ProfileStore, user: ProfileAuthUser, now: Dat
  * reading (else the initial), Only me. Nobody becomes visible to others
  * without choosing to.
  */
+/**
+ * Tinct's own internal and test accounts (socialRules isInternalAccount: a
+ * reserved test address, or the internal-traffic device flag's
+ * `x-tinct-check: 1`) are flagged when their profile is read or saved, which
+ * happens on sign-in. Best effort: a failure (before
+ * 20261009_leaderboard_internal.sql has run) never stops the profile.
+ */
+async function flagInternal(store: ProfileStore, user: ProfileAuthUser, request: Request): Promise<void> {
+  if (!store.markInternal || !isInternalAccount(user.email, request.headers.get('x-tinct-check'))) return
+  try {
+    await store.markInternal(user.id)
+  } catch (error) {
+    console.warn(JSON.stringify({ event: 'internal_flag_failed', detail: error instanceof Error ? error.message : 'failed' }))
+  }
+}
+
 async function ownProfile(store: ProfileStore, user: ProfileAuthUser, bookHint: string | null, random: () => number): Promise<ReaderProfileRow> {
   const existing = await store.getOwn(user.id)
   if (existing) return existing
@@ -382,6 +399,7 @@ export async function handleProfiles(
     if (url.pathname === '/api/profile' && request.method === 'GET') {
       const bookHint = url.searchParams.get('book')
       const row = await ownProfile(store, user, bookHint && /^[a-z0-9-]{1,80}$/.test(bookHint) ? bookHint : null, random)
+      await flagInternal(store, user, request)
       const account = await accountState(store, user, now)
       return reply({ enabled: true, available: true, profile: selfView(row, account, user) }, 200, request)
     }
@@ -390,6 +408,7 @@ export async function handleProfiles(
       const body = await readJson(request)
       if (!body) return reply({ error: 'Invalid JSON' }, 400, request)
       const row = await ownProfile(store, user, null, random)
+      await flagInternal(store, user, request)
       const built = await buildPatch(store, row, body, now)
       if ('error' in built) return reply({ error: built.error, field: built.field }, built.status, request)
       const { patch } = built

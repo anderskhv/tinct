@@ -42,6 +42,9 @@ import {
   modernTierCents,
   modernTierFor,
   needsAudit,
+  FAILED_REVIVAL,
+  publicFailures,
+  reviveFailedChapters,
   paidJob,
   prioritise,
   publicChapterStates,
@@ -66,6 +69,8 @@ export type ModernEnv = PublicBooksEnv & BillingEnv & {
   PUBLIC_BOOK_MODERN_EDITIONS?: string
   /** Optional xAI model override for generation. */
   PUBLIC_BOOK_MODERN_MODEL?: string
+  /** 'text' asks without JSON mode (numbered paragraphs); JSON mode otherwise. Paragraphs asked for again always use text. */
+  PUBLIC_BOOK_MODERN_FORMAT?: string
   STRIPE_PRICE_MODERN_T1?: string
   STRIPE_PRICE_MODERN_T2?: string
   STRIPE_PRICE_MODERN_T3?: string
@@ -117,7 +122,7 @@ function modernEligible(meta: StoredMeta | null): meta is StoredMeta {
 
 function generatorFor(env: ModernEnv, deps: Pick<ModernDeps, 'generator'>): ModernGenerator | null {
   if (deps.generator) return deps.generator
-  return env.XAI_API_KEY ? xaiModernGenerator(env.XAI_API_KEY, { model: env.PUBLIC_BOOK_MODERN_MODEL }) : null
+  return env.XAI_API_KEY ? xaiModernGenerator(env.XAI_API_KEY, { model: env.PUBLIC_BOOK_MODERN_MODEL, format: env.PUBLIC_BOOK_MODERN_FORMAT === 'text' ? 'text' : 'json' }) : null
 }
 
 function offerFor(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number): { tier: ModernTier; cents: number } | null {
@@ -132,7 +137,7 @@ function statusBody(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now
   return {
     state, chapters: publicChapterStates(job, now), offer: canBuy ? offerFor(env, meta, job, now) : null,
     // While the edition is being written: how far each chapter is, and an estimate of when it is done.
-    ...(state === 'paid' ? { progress: publicProgress(job, totals) } : {}),
+    ...(state === 'paid' ? { progress: publicProgress(job, totals), failures: publicFailures(job, now) } : {}),
   }
 }
 
@@ -160,7 +165,13 @@ async function statusFor(request: Request, env: ModernEnv, meta: StoredMeta, job
  * is the source handed back is discarded and queued again (lib/modernEdition.ts
  * repairEchoedEdition). Returns the job as it now stands.
  */
-async function auditedJob(bucket: R2Bucket, bookId: string, meta: StoredMeta, job: ModernJob | null, now: number): Promise<ModernJob | null> {
+async function auditedJob(bucket: R2Bucket, bookId: string, meta: StoredMeta, checked: ModernJob | null, now: number): Promise<ModernJob | null> {
+  let job = checked
+  // Chapters left failed before failure reasons were recorded go again now (lib reviveFailedChapters).
+  if (job?.state === 'paid' && job.revived !== FAILED_REVIVAL) {
+    await reviveFailedChapters(bucket, bookId, now)
+    job = (await readJob(bucket, bookId))?.job ?? null
+  }
   if (!needsAudit(job)) return job
   const source = (await readJson<{ chapters?: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey)))?.chapters
   if (!source?.length) return job
@@ -194,7 +205,8 @@ export async function runModernBook(env: ModernEnv, bookId: string, options: { d
         const began = now()
         const result = await modernStep(bucket, { bookId, title: meta.book.title, author: meta.book.author, source: loadSource, generate: options.generate, now, owner })
         longest = Math.max(longest, now() - began)
-        if (result === 'idle' || result === 'complete') return
+        // 'backoff': the provider asked us to wait (429/5xx); the next request or the cron goes on after it.
+        if (result === 'idle' || result === 'complete' || result === 'backoff') return
         if (result === 'failed') { if (++failures >= 3) return } else failures = 0
       }
     } finally {
@@ -515,4 +527,29 @@ export async function modernEditionChapter(env: Pick<PublicBooksEnv, 'PUBLIC_BOO
   if (!source) return null
   const state = publicChapterStates(job, now)[source.number]
   return { ...await assembleChapter(bucket, bookId, source, state), pending: state !== 'ready' }
+}
+
+/**
+ * `GET /api/admin/modern-diagnostics?book=<pd-id>` (site admins only): the job's
+ * per-chapter generation state, including the start of the last refused reply
+ * and the chunk size it was refused at (lastReject). Public-domain book text
+ * and book progress only; never part of the public status.
+ */
+export async function handleModernDiagnostics(request: Request, env: ModernEnv, verifySiteAdmin: (env: ModernEnv, request: Request) => Promise<boolean>): Promise<Response> {
+  if (request.method !== 'GET') return reply({ error: 'Method not allowed' }, 405, request)
+  if (!await verifySiteAdmin(env, request).catch(() => false)) return reply({ error: 'Forbidden' }, 403, request)
+  const bookId = new URL(request.url).searchParams.get('book') || ''
+  const bucket = bucketOf(env)
+  if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  if (!isPublicBookId(bookId)) return reply({ error: 'bad_request' }, 400, request)
+  const job = (await readJob(bucket, bookId))?.job
+  if (!job) return reply({ error: 'Not found' }, 404, request)
+  return reply({
+    bookId, state: job.state, backoffUntil: job.backoffUntil ?? null, slowUntil: job.slowUntil ?? null, pace: job.pace ?? null, revived: job.revived ?? null,
+    chapters: job.chapters.map(c => ({
+      number: c.number, state: c.state, attempts: c.attempts, rounds: c.rounds ?? 0, chunkWords: c.chunkWords ?? null,
+      done: (c.ranges ?? []).reduce((sum, [a, b]) => sum + b - a, 0), total: c.total ?? null,
+      lastFailure: c.lastFailure ?? null, lastReject: c.lastReject ?? null,
+    })),
+  }, 200, request)
 }

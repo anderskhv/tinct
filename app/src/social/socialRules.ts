@@ -15,6 +15,11 @@
  *   only Everyone readers who show what they read.
  * - Blocked readers never see each other; Only me and hidden profiles never
  *   appear anywhere (public_profile_cards leaves them out).
+ * - Leaderboard threshold (Anders, 8 October 2026): Friends is there from day
+ *   one; Everyone is not offered at all (no tab, no board from the API) until
+ *   at least EVERYONE_BOARD_MIN_READERS real readers would appear on it.
+ *   Tinct's own internal and test accounts never appear on any board and
+ *   never count (isInternalAccount; reader_profiles.internal).
  */
 import { normalizeHandle, type PictureKind, type Visibility } from './profileRules'
 
@@ -75,6 +80,12 @@ export interface BoardCard {
   show_reading: boolean
   show_time: boolean
   on_leaderboard: boolean
+  /**
+   * Tinct's own internal or test account (reader_profiles.internal, through
+   * public_profile_cards). Undefined only before 20261009_leaderboard_internal.sql
+   * has run.
+   */
+  internal?: boolean
 }
 
 /**
@@ -87,11 +98,47 @@ export interface BoardCard {
  * - Friends: only mutual follows (whose profile is Friends or Everyone).
  */
 export function appearsOnBoard(card: BoardCard, board: Board, viewer: { friends: ReadonlySet<string>; blocked: ReadonlySet<string> }): boolean {
+  if (card.internal === true) return false
   if (viewer.blocked.has(card.id)) return false
   if (!card.on_leaderboard || !card.show_time) return false
   if (card.visibility === 'only_me') return false
   if (board === 'everyone') return card.visibility === 'everyone'
   return viewer.friends.has(card.id)
+}
+
+// ===== Internal accounts and the Everyone threshold =====
+
+/** The Everyone board appears once this many real readers would appear on it. */
+export const EVERYONE_BOARD_MIN_READERS = 10
+
+/** How long the Worker reuses the count of Everyone readers before asking again. */
+export const EVERYONE_COUNT_TTL_MS = 5 * 60_000
+
+/** Whether the Everyone board is offered, from the count of real readers on it (null = unknown: not offered). */
+export function everyoneBoardOpen(realReaders: number | null, min = EVERYONE_BOARD_MIN_READERS): boolean {
+  return typeof realReaders === 'number' && realReaders >= min
+}
+
+/**
+ * Addresses that cannot belong to a reader: the domains and top-level domains
+ * reserved for examples and testing (RFC 2606/6761), as QA's synthetic
+ * accounts use (qa-…@example.com).
+ */
+export function isReservedTestEmail(email: string | null | undefined): boolean {
+  const domain = String(email ?? '').trim().toLowerCase().split('@')[1] ?? ''
+  if (!domain) return false
+  return /(^|\.)example\.(com|net|org)$/.test(domain) || /\.(test|example|invalid|localhost)$/.test(domain)
+}
+
+/**
+ * Tinct's own internal or test account: a reserved test address, or a request
+ * from a device with the internal-traffic flag (`?internal=1`; it sends
+ * `x-tinct-check: 1`, see public/lab/internal-traffic.js). Such an account is
+ * flagged once (reader_profiles.internal) and the flag is never cleared by
+ * the Worker.
+ */
+export function isInternalAccount(email: string | null | undefined, checkHeader: string | null | undefined): boolean {
+  return checkHeader === '1' || isReservedTestEmail(email)
 }
 
 /** Friends = people you follow who follow you back. */

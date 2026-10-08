@@ -17,6 +17,7 @@ import {
   type Review,
   type Visibility,
 } from './profileRules'
+import { internalTrafficHeaders } from '../utils/internalTraffic'
 
 export function socialProfilesOn(doc: Document | null = typeof document === 'undefined' ? null : document): boolean {
   return doc?.querySelector('meta[name="tinct-social"]')?.getAttribute('content') === '1'
@@ -69,7 +70,7 @@ async function readResult(res: Response): Promise<ProfileResult> {
 export async function fetchOwnProfile(token: string, bookHint: string | null = currentBookHint(), fetchImpl: FetchLike = fetch): Promise<ProfileResult> {
   try {
     const query = bookHint ? `?book=${encodeURIComponent(bookHint)}` : ''
-    return await readResult(await fetchImpl(`/api/profile${query}`, { headers: auth(token), cache: 'no-store' }))
+    return await readResult(await fetchImpl(`/api/profile${query}`, { headers: { ...auth(token), ...internalTrafficHeaders() }, cache: 'no-store' }))
   } catch {
     return { ok: false, reason: 'failed' }
   }
@@ -77,7 +78,7 @@ export async function fetchOwnProfile(token: string, bookHint: string | null = c
 
 export async function saveProfile(token: string, body: Record<string, unknown>, fetchImpl: FetchLike = fetch): Promise<ProfileResult> {
   try {
-    return await readResult(await fetchImpl('/api/profile', { method: 'POST', headers: { ...auth(token), 'Content-Type': 'application/json' }, body: JSON.stringify(body) }))
+    return await readResult(await fetchImpl('/api/profile', { method: 'POST', headers: { ...auth(token), ...internalTrafficHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify(body) }))
   } catch {
     return { ok: false, reason: 'failed' }
   }
