@@ -473,4 +473,8 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
 .author-work{border:1px solid #eee7d040;border-radius:999px;padding:7px 13px;min-height:34px;font:14px/1.3 Georgia,serif;color:var(--cream);background:none;cursor:pointer;text-align:left}
 .author-work:hover{background:#eee7d014}
 @media(max-width:699px){.search-close{margin-left:-8px;width:40px;height:40px;font-size:28px}.row-title{font-size:15px}.row-author{font-size:12px}.result-row{column-gap:10px}.tinct-open{padding:7px 14px}.source-pill{padding:2px 7px;font-size:10.5px}.row-cover,.row-cover .cover{width:32px}.tinct-row .row-details{padding-left:0}.tinct-row{grid-template-columns:minmax(0,1fr) auto}.tinct-row>.row-pills{grid-column:1;grid-row:2;justify-content:flex-start;margin:-4px 0 10px;padding-left:46px}.tinct-row>.tinct-open{grid-column:2}.row-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.author-card{padding:14px}.author-portrait{width:48px;height:48px}.author-name{font-size:22px}.author-work{font-size:13px;padding:6px 11px}}
-.row-includes{color:#eee7d0cc}
+.row-includes,.row-aka{color:#eee7d0cc}
+/* Books beyond the table's window (reading-table.js tableWindow) step out of sight; the dots reach them. */
+.rt-b.is-away{opacity:0;visibility:hidden;pointer-events:none;transition:transform .72s cubic-bezier(.22,.8,.24,1),opacity .3s ease,visibility 0s linear .3s}
+.rt-b:not(.is-away){transition:transform .72s cubic-bezier(.22,.8,.24,1),opacity .3s ease .15s}
+@media(max-width:899px){.reading-table.has-many .rt-stage{margin-bottom:26px}.reading-table.has-many .rt-dots{display:flex;bottom:-30px;gap:0}.reading-table.has-many .rt-dots button{padding:8px 4px}.reading-table.has-many .rt-dots button::after{width:6px;height:6px}}

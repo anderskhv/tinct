@@ -13,6 +13,7 @@ import {renderBookMetadata} from './book-metadata.js?v=20261008rel6';
 import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel4';
 import { paperCover } from './add-to-tinct.js?v=20261008rel6';
 import { fitHeroTitle } from './hero-title.js?v=20261008rel6';
+import { tableWindow, MAX_SPINES } from './table-window.js?v=20261008lib';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -133,6 +134,8 @@ const monthName = at => (at ? new Date(at).toLocaleString('en', { month: 'long' 
 const percentLabel = p => (p == null ? '' : p > 0 && p < 1 ? '<1%' : `${Math.round(p)}%`);
 /** Thickness as a fraction of the book's height, from its length. */
 const depthRatio = book => Math.max(0.085, Math.min(0.2, 0.065 + (book.wordCount || 90000) / 1_600_000));
+
+const PHONE_DOTS_FROM = 5;
 
 function writeCache(table) {
   try {
@@ -286,6 +289,9 @@ function wire(view, table, demo, keepBookId, options={}) {
   let current = Math.max(0, table.reading.findIndex(b => b.bookId === keepBookId));
   if (!keepBookId) current = 0;
   const dots = [...view.querySelectorAll('#rt-dots button')];
+  // With this many books some step off a phone's table: there the dots are the way to them too
+  // (fixed by count, so the stage's height never depends on its own layout).
+  view.classList.toggle('has-many', books.length >= PHONE_DOTS_FROM);
   let turn = 1, H = 0, stageW = 0, summaryTimer = null, swapTimer = null, shown = -1;
 
   const remove = view.querySelector('#rt-remove'), dialog = view.querySelector('#rt-remove-dialog');
@@ -350,18 +356,22 @@ function wire(view, table, demo, keepBookId, options={}) {
    * never overlap, and the row is centred on the stage.
    */
   function layout(instant) {
-    const W = H * 2 / 3, gap = Math.max(2, H * 0.01), around = H * 0.08;
+    const W = H * 2 / 3, gap = Math.max(2, H * 0.01);
+    // Room for the remove × (36px, centred on the cover's corner) before the next spine.
+    const around = Math.max(H * 0.08, options.onRemoveReading ? 24 : 0);
     const face = 12 * turn, rad = Math.abs(face) * Math.PI / 180;
     const depth = i => H * depthRatio(table.reading[i]);
     const chosenFoot = W * Math.cos(rad) + depth(current) * Math.sin(rad);
+    const pad = innerWidth >= 900 ? 0 : 20, minEdge = -stageW / 2 + pad, maxEdge = stageW / 2 - pad;
+    const { from, to } = tableWindow(table.reading.map((_, i) => depth(i) + gap), current, Math.max(0, maxEdge - minEdge - chosenFoot - 2 * around), MAX_SPINES);
     const xs = [];
     xs[current] = 0;
     let right = chosenFoot / 2 + around, left = -chosenFoot / 2 - around;
-    for (let i = current + 1; i < books.length; i++) { xs[i] = right + depth(i) / 2; right += depth(i) + gap; }
-    for (let i = current - 1; i >= 0; i--) { xs[i] = left - depth(i) / 2; left -= depth(i) + gap; }
-    if (current === 0) left = -chosenFoot / 2;
-    if (current === books.length - 1) right = chosenFoot / 2;
-    const pad = innerWidth >= 900 ? 0 : 20, minEdge = -stageW / 2 + pad, maxEdge = stageW / 2 - pad;
+    // Books beyond the window wait just outside it, unseen, so they slide in from the right side.
+    for (let i = current + 1; i < books.length; i++) { xs[i] = right + depth(i) / 2; if (i <= to) right += depth(i) + gap; }
+    for (let i = current - 1; i >= 0; i--) { xs[i] = left - depth(i) / 2; if (i >= from) left -= depth(i) + gap; }
+    if (from === current) left = -chosenFoot / 2;
+    if (to === current) right = chosenFoot / 2;
     // Centre the row on the table; when it is wider than the stage, keep it
     // inside the edges, and the chosen book always fully in view.
     let shift = -(left + right) / 2;
@@ -371,6 +381,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     books.forEach((book, i) => {
       const chosen = i === current;
       book.classList.toggle('is-current', chosen);
+      book.classList.toggle('is-away', i < from || i > to);
       book.style.transitionDuration = instant || reduced ? '0s' : '';
       // Spine-out books step back so their spines line up with the chosen book's cover, not their centres.
       const z = chosen ? H * 0.05 : -(W / 2 - depth(i) / 2);
@@ -453,6 +464,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     // the stage instead. Use the painted face's screen bounds for pointer taps;
     // keep the real button target for keyboard activation.
     const painted = e.detail ? books.find((book,i)=>{
+      if(book.classList.contains('is-away'))return false;
       const r=book.querySelector(i===current?'.rt-front':'.rt-spine').getBoundingClientRect();
       return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
     }) : null;
