@@ -1,6 +1,7 @@
 /**
- * Reads the AI allowance switch (src/aiAllowanceSwitch.ts) for build scripts,
- * so the sitemap lists /terms exactly when the Worker serves it.
+ * Reads the AI allowance switch (src/aiAllowanceSwitch.ts) for build scripts.
+ * (/terms no longer follows the switch: it is published on its own since
+ * 2026-10-08, so the sitemap always lists it.)
  * Throws if the line is missing or not a plain literal: a build must never
  * guess the switch.
  */
