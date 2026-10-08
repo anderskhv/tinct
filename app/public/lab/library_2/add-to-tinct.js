@@ -262,20 +262,21 @@ export async function modernOfferAfterAdd(bookId,{allowed=modernAskAllowed,statu
  finally{clearTimeout(timer);}
 }
 /**
- * The question, over the library (the "Your own book" pop-up's styling, with its own
- * modern-ask-* classes to restyle). Resolves 'buy' or 'later' (Not now, Escape, a tap
- * outside).
+ * The question, over the library: Tinct UI's dialog (/lab/tinct-ui.css .tui-scrim/.tui-dialog/
+ * .tui-btn), as the "Your own book" pop-up, with modern-ask-* hooks. Resolves 'buy' or 'later'
+ * (Not now, Escape, a tap outside).
  */
 export function askModernEdition(offer){
  document.querySelector('.modern-ask-layer')?.remove();
  const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
- const layer=make('div','own-file-layer modern-ask-layer');layer.dataset.testid='modern-ask';
- const box=make('div','own-file-dialog modern-ask-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','modern-ask-title');
- const title=make('h2','modern-ask-title',MODERN_COPY.title);title.id='modern-ask-title';
- const later=make('button','own-file-cancel modern-ask-later',MODERN_COPY.later);later.type='button';
- const buy=make('button','own-file-choose modern-ask-buy',`${MODERN_COPY.buy} · ${offer.price}`);buy.type='button';
- const actions=make('div','own-file-actions modern-ask-actions');actions.append(later,buy);
- box.append(title,make('p','own-file-lede modern-ask-body',MODERN_COPY.body),actions);
+ const layer=make('div','tui-scrim modern-ask-layer');layer.dataset.testid='modern-ask';layer.dataset.tuiTheme='dark';
+ const box=make('div','tui-dialog modern-ask-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','modern-ask-title');
+ const title=make('h2','tui-dialog__title modern-ask-title',MODERN_COPY.title);title.id='modern-ask-title';
+ const head=make('div','tui-dialog__head');head.append(title);
+ const later=make('button','tui-btn tui-btn--secondary modern-ask-later',MODERN_COPY.later);later.type='button';
+ const buy=make('button','tui-btn tui-btn--primary modern-ask-buy',`${MODERN_COPY.buy} · ${offer.price}`);buy.type='button';
+ const actions=make('div','tui-dialog__actions modern-ask-actions');actions.append(later,buy);
+ box.append(head,make('p','tui-dialog__body modern-ask-body',MODERN_COPY.body),actions);
  layer.append(box);document.body.append(layer);
  return new Promise(resolve=>{
   const done=answer=>{removeEventListener('keydown',onKey,true);layer.remove();resolve(answer);};
