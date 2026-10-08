@@ -34,6 +34,8 @@ export interface BoardData {
   total: number
   me: BoardEntry | null
   meShown: boolean
+  /** Whether the Everyone board is offered (the page shows the Everyone tab only then). */
+  everyoneOpen?: boolean
   entries: BoardEntry[]
 }
 
@@ -74,7 +76,7 @@ async function postJson<T>(path: string, token: string, body: unknown, fetchImpl
 
 export const fetchBoard = (token: string, tab: 'friends' | 'everyone', fetchImpl?: FetchLike) => getJson<BoardData>(`/api/social/board?tab=${tab}`, token, fetchImpl)
 export const fetchRank = (token: string, fetchImpl?: FetchLike) => getJson<{ rank: number | null; total: number; seconds: number }>('/api/social/rank', token, fetchImpl)
-export const fetchFind = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[]; alsoReading: FindRow[]; link: string | null }>('/api/social/find', token, fetchImpl)
+export const fetchFind = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[]; alsoReading: FindRow[]; link: string | null; everyoneOpen?: boolean }>('/api/social/find', token, fetchImpl)
 export const searchReaders = (token: string, q: string, fetchImpl?: FetchLike) => getJson<{ results: FindRow[] }>(`/api/social/find?q=${encodeURIComponent(q)}`, token, fetchImpl)
 export const fetchProfile = (token: string | null, handle: string, fetchImpl?: FetchLike) => getJson<{ profile: ProfilePageData }>(`/api/social/profile/${encodeURIComponent(handle)}`, token, fetchImpl)
 export const fetchBlocked = (token: string, fetchImpl?: FetchLike) => getJson<{ blocked: Array<{ id: string; name: string; handle: string | null }> }>('/api/social/blocked', token, fetchImpl)

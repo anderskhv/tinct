@@ -5,7 +5,7 @@
  * SOCIAL_FRIENDS and SOCIAL_PROFILES are both "1"; off, worker.ts never calls
  * in and every URL behaves exactly as before.
  *
- *   GET  /api/social/board?tab=friends|everyone   the leaderboard (last 7 days)
+ *   GET  /api/social/board?tab=friends|everyone   the leaderboard (last 7 days); Everyone only once open
  *   GET  /api/social/rank                          "#N among friends" for the sheet and You
  *   GET  /api/social/find[?q=]                     search Everyone readers; Following you; Also reading your books
  *   GET  /api/social/profile/{handle}              one profile as this visitor may see it
@@ -21,6 +21,10 @@
  * Who sees what is decided here and in public_profile_cards: Only me and
  * hidden profiles never appear; blocked readers never see each other in
  * either direction; the leaderboard is opt-in; Find only lists Everyone.
+ * Tinct's internal and test accounts never appear on a board, and the Everyone
+ * board exists only once EVERYONE_BOARD_MIN_READERS real readers are on it
+ * (Anders, 8 October 2026): below that the API serves no Everyone board and
+ * every response says `everyoneOpen: false`, so the page shows no Everyone tab.
  * Never returned: email, highlights, notes, chats, Talk.
  */
 import {
@@ -37,9 +41,11 @@ import {
   type Relation,
 } from '../../social/profileRules'
 import {
+  EVERYONE_COUNT_TTL_MS,
   LEADERBOARD_STALE_MS,
   REPORT_REASONS,
   appearsOnBoard,
+  everyoneBoardOpen,
   finishedCardLine,
   leaderboardWindow,
   mutualFriends,
@@ -88,6 +94,8 @@ export interface SocialDeps {
   ledger?: (userId: string) => Promise<LedgerRow[]>
   checkRateLimit?: (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
   track?: SocialTrack
+  /** The Everyone threshold (tests only; EVERYONE_BOARD_MIN_READERS otherwise). */
+  everyoneMinReaders?: number
   /** The reading card's PNG (tests pass a stand-in; the Worker draws it with resvg). */
   renderCard?: (input: FinishedCardInput) => Promise<Uint8Array>
 }
@@ -235,6 +243,27 @@ function relationIn(circle: Circle, id: string): Relation {
 
 // ===== The leaderboard =====
 
+// The count of real Everyone readers, reused for a few minutes per Worker isolate
+// (per store in tests). Unknown (the count failed) is not cached and keeps Everyone closed.
+const SHARED_STORE = {}
+const everyoneCounts = new WeakMap<object, { count: number; at: number }>()
+
+/** Whether the Everyone board is offered now: at least EVERYONE_BOARD_MIN_READERS real readers on it. */
+export async function everyoneOpen(ctx: Context): Promise<boolean> {
+  const key = ctx.deps.social ?? SHARED_STORE
+  const cached = everyoneCounts.get(key)
+  let count: number | null = cached && ctx.now - cached.at >= 0 && ctx.now - cached.at < EVERYONE_COUNT_TTL_MS ? cached.count : null
+  if (count === null) {
+    try {
+      count = await ctx.social.everyoneReaderCount()
+      everyoneCounts.set(key, { count, at: ctx.now })
+    } catch (error) {
+      console.warn(JSON.stringify({ event: 'everyone_count_failed', detail: error instanceof Error ? error.message : 'failed' }))
+    }
+  }
+  return everyoneBoardOpen(count, ctx.deps.everyoneMinReaders)
+}
+
 async function freshBoard(ctx: Context): Promise<string | null> {
   let refreshedAt = await ctx.social.boardRefreshedAt()
   const age = refreshedAt ? ctx.now - Date.parse(refreshedAt) : Infinity
@@ -281,7 +310,7 @@ async function windowBooks(ctx: Context, ids: string[]): Promise<Map<string, str
   return out
 }
 
-export async function buildBoard(ctx: Context, viewerId: string, tab: Board): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; entries: BoardEntry[] }> {
+export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; everyoneOpen: boolean; entries: BoardEntry[] }> {
   const circle = await circleOf(ctx, viewerId)
   const refreshedAt = await freshBoard(ctx)
   const pool = tab === 'friends' ? await ctx.social.cardsByIds([...circle.friends]) : await ctx.social.everyoneBoardCards(EVERYONE_POOL)
@@ -310,9 +339,9 @@ export async function buildBoard(ctx: Context, viewerId: string, tab: Board): Pr
   })
   const window = leaderboardWindow(ctx.now)
   // Whether others see the viewer on this board (the page explains when they do not).
-  const ownCard = own ? await ctx.profiles.getCardById(viewerId).catch(() => null) : null
-  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && (tab === 'friends' || ownCard.visibility === 'everyone'))
-  return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, entries: shown.map(entry) }
+  const ownCard = own ? (await ctx.social.cardsByIds([viewerId]).catch(() => []))[0] ?? null : null
+  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && ownCard.internal !== true && (tab === 'friends' || ownCard.visibility === 'everyone'))
+  return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, everyoneOpen: open, entries: shown.map(entry) }
 }
 
 // ===== Find =====
@@ -653,14 +682,18 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
 
     if (path === '/api/social/board' && request.method === 'GET') {
       const tab: Board = url.searchParams.get('tab') === 'everyone' ? 'everyone' : 'friends'
-      return reply(await buildBoard(ctx, viewerId, tab), 200, request)
+      const open = await everyoneOpen(ctx)
+      // Below the threshold there is no Everyone board at all.
+      if (tab === 'everyone' && !open) return reply({ error: 'Not found', everyoneOpen: false }, 404, request)
+      return reply(await buildBoard(ctx, viewerId, tab, open), 200, request)
     }
     if (path === '/api/social/rank' && request.method === 'GET') {
       const board = await buildBoard(ctx, viewerId, 'friends')
       return reply({ rank: board.me?.rank ?? null, total: board.total, seconds: board.me?.seconds ?? 0 }, 200, request)
     }
     if (path === '/api/social/find' && request.method === 'GET') {
-      return reply(await buildFind(ctx, viewerId, url.searchParams.has('q') ? url.searchParams.get('q') : null), 200, request)
+      const found = await buildFind(ctx, viewerId, url.searchParams.has('q') ? url.searchParams.get('q') : null)
+      return reply(url.searchParams.has('q') ? found : { ...found, everyoneOpen: await everyoneOpen(ctx) }, 200, request)
     }
     if (path === '/api/social/blocked' && request.method === 'GET') {
       const blocked = await ctx.social.blockedByMe(viewerId)

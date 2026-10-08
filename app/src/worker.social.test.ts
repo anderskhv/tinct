@@ -3,7 +3,7 @@ import worker from './worker'
 import { handleSocial, runLeaderboardCron, serveProfilePage, withAddedBooks, type SocialDeps } from './worker/routes/social'
 import { handleProfiles } from './worker/routes/profiles'
 import type { AccountRow, ProfileStore, PublicCardRow, ReaderProfileRow } from './worker/lib/profileStore'
-import type { AdminProfileRow, LedgerDayRow, ReportRow, SocialStore } from './worker/lib/socialStore'
+import { supabaseSocialStore, type AdminProfileRow, type LedgerDayRow, type ReportRow, type SocialStore } from './worker/lib/socialStore'
 import { effectiveVisibility } from './social/profileRules'
 import { leaderboardWindow, rankRows, windowSeconds, type BoardCard } from './social/socialRules'
 import type { LedgerRow } from './readingTime/model'
@@ -33,6 +33,9 @@ class World implements ProfileStore, SocialStore {
   refreshedAt: string | null = null
   refreshes = 0
   reports: ReportRow[] = []
+  /** reader_profiles.internal */
+  internal = new Set<string>()
+  countCalls = 0
   now = NOW
 
   add(id: string, over: Partial<ReaderProfileRow> = {}, confirmed = true) {
@@ -58,7 +61,7 @@ class World implements ProfileStore, SocialStore {
       picture_kind: stored ? 'initial' : row.picture_kind, picture_value: stored ? null : row.picture_value,
       background_kind: bg ? 'library' : row.background_kind, background_value: bg ? null : row.background_value,
       visibility: effectiveVisibility(row.visibility, Boolean(this.accounts.get(row.id)?.email_confirmed_at)),
-      show_reading: row.show_reading, show_time: row.show_time, on_leaderboard: row.on_leaderboard,
+      show_reading: row.show_reading, show_time: row.show_time, on_leaderboard: row.on_leaderboard, internal: this.internal.has(row.id),
     }
   }
   cards(): PublicCardRow[] { return [...this.profiles.values()].map(row => this.card(row)).filter(Boolean) as PublicCardRow[] }
@@ -99,6 +102,8 @@ class World implements ProfileStore, SocialStore {
       : card.display_name.toLowerCase().includes(query.text.toLowerCase()) || card.handle.includes(query.text.toLowerCase()))) as BoardCard[]
   }
   async everyoneBoardCards() { return this.cards().filter(card => card.visibility === 'everyone' && card.on_leaderboard && card.show_time) as BoardCard[] }
+  async everyoneReaderCount() { this.countCalls++; return (await this.everyoneBoardCards()).filter(card => !card.internal).length }
+  async markInternal(id: string) { this.internal.add(id) }
   async boardSeconds(ids: string[]) { return new Map([...this.board].filter(([id]) => ids.includes(id))) }
   async boardRefreshedAt() { return this.refreshedAt }
   async refreshBoard() { this.refreshes++; this.board = windowSeconds(this.ledger, this.now); this.refreshedAt = new Date(this.now).toISOString() }
@@ -128,11 +133,13 @@ function deps(world: World, extra: Partial<SocialDeps> = {}): SocialDeps {
     profiles: world, social: world, now: () => world.now,
     verifyUser: async request => {
       const token = request.headers.get('authorization')?.slice(7)
-      return token ? { id: token, email: `${token}@example.com` } : null
+      return token ? { id: token, email: `${token}@readers.tinct.app` } : null
     },
     verifySiteAdmin: async request => request.headers.get('authorization') === `Bearer ${A}`,
     catalogue: async () => CATALOGUE as never,
     position: async () => null,
+    // The small worlds below test who appears; the threshold has its own tests.
+    everyoneMinReaders: 0,
     ledger: async id => world.ledger.filter(row => row.user_id === id).map(row => ({ day: row.day, bookId: row.book_id, read: row.read_seconds, listen: row.listen_seconds }) as LedgerRow),
     ...extra,
   }
@@ -285,7 +292,7 @@ describe('the leaderboard is opt-in', () => {
     expect(names(await board(world, A, 'friends'))).toContain('Bea')
     expect(names(await board(world, C, 'everyone'))).toContain('Bea')
     const off = await handleProfiles(new Request('https://tinct.app/api/profile', { method: 'POST', headers: { authorization: `Bearer ${B}`, 'content-type': 'application/json' }, body: JSON.stringify({ onLeaderboard: false }) }), on as never, {
-      store: world, verifyUser: async () => ({ id: B, email: 'b@example.com' }),
+      store: world, verifyUser: async () => ({ id: B, email: 'b@readers.tinct.app' }),
     })
     expect(off.status).toBe(200)
     // The cache still holds Bea's seconds (it is rebuilt hourly); the board leaves her out now.
@@ -499,6 +506,158 @@ describe('reports and the admin view', () => {
   })
 })
 
+describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', () => {
+  const uuid = (n: number) => `aaaaaaaa-aaaa-4aaa-8aaa-${String(n).padStart(12, '0')}`
+  /** `count` more Everyone readers on the leaderboard, each with an hour this week. */
+  function addReaders(world: World, from: number, count: number, internal = false): string[] {
+    const added: string[] = []
+    for (let n = from; n < from + count; n++) {
+      const id = uuid(n)
+      NAMES[id] = `Reader ${n}`
+      world.add(id, { handle: `reader${n}` })
+      if (internal) world.internal.add(id)
+      world.read(id, 0, 60)
+      added.push(id)
+    }
+    return added
+  }
+  const strict = { everyoneMinReaders: undefined }
+  const get = (world: World, path: string, as: string, init: RequestInit = {}) => api(world, path, as, init, strict)
+
+  it('9 real readers: no Everyone board and no tab; the 10th opens it on its own (no release)', async () => {
+    const world = new World()
+    world.add(A, { on_leaderboard: false })
+    addReaders(world, 1, 9)
+    const closed = await get(world, '/api/social/board?tab=everyone', A)
+    expect(closed.status).toBe(404)
+    expect(await closed.json()).toEqual({ error: 'Not found', everyoneOpen: false })
+    const friends = await json(await get(world, '/api/social/board?tab=friends', A))
+    expect(friends.everyoneOpen).toBe(false)
+    expect((await json(await get(world, '/api/social/find', A))).everyoneOpen).toBe(false)
+
+    addReaders(world, 10, 1)
+    // The count is reused briefly, then asked again (and the hourly rebuild has run).
+    world.now = NOW + 6 * 60_000
+    world.refreshedAt = null
+    const open = await get(world, '/api/social/board?tab=everyone', A)
+    expect(open.status).toBe(200)
+    const data = await open.json() as Record<string, any>
+    expect(data.everyoneOpen).toBe(true)
+    expect(data.entries).toHaveLength(11)
+    expect((await json(await get(world, '/api/social/board?tab=friends', A))).everyoneOpen).toBe(true)
+  })
+
+  it('internal and test accounts never count toward the 10', async () => {
+    const world = new World()
+    world.add(A, { on_leaderboard: false })
+    addReaders(world, 1, 9)
+    addReaders(world, 100, 5, true)
+    expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
+    // Readers who would not appear on Everyone do not count either.
+    const friendsOnly = addReaders(world, 200, 2)
+    world.profiles.get(friendsOnly[0])!.visibility = 'friends'
+    world.profiles.get(friendsOnly[1])!.on_leaderboard = false
+    world.now = NOW + 6 * 60_000
+    expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
+  })
+
+  it('internal accounts never appear on the Everyone board or the Friends board', async () => {
+    const world = new World()
+    world.add(A)
+    addReaders(world, 1, 10)
+    const [qa] = addReaders(world, 100, 1, true)
+    world.befriend(A, qa)
+    world.befriend(A, uuid(1))
+    const everyone = await json(await get(world, '/api/social/board?tab=everyone', A))
+    expect(everyone.entries).toHaveLength(11)
+    expect(names(everyone)).not.toContain('Reader 100')
+    const friends = await json(await get(world, '/api/social/board?tab=friends', A))
+    expect(names(friends)).toEqual(['Reader 1', 'You'])
+    const rank = await json(await get(world, '/api/social/rank', A))
+    expect(rank).toMatchObject({ total: 2 })
+  })
+
+  it('the Friends board is unaffected below the threshold', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 90); world.read(C, 0, 30); world.read(A, 0, 60)
+    const response = await get(world, '/api/social/board?tab=friends', A)
+    expect(response.status).toBe(200)
+    const data = await response.json() as Record<string, any>
+    expect(data.everyoneOpen).toBe(false)
+    expect(names(data)).toEqual(['Bea', 'You', 'Carl'])
+    expect(await json(await get(world, '/api/social/rank', A))).toEqual({ rank: 2, total: 3, seconds: 3600 })
+  })
+
+  it('the count is cheap: reused for a few minutes; a failed count keeps Everyone closed and is not kept', async () => {
+    const world = new World()
+    world.add(A)
+    addReaders(world, 1, 10)
+    for (let i = 0; i < 3; i++) expect((await get(world, '/api/social/board?tab=friends', A)).status).toBe(200)
+    expect(world.countCalls).toBe(1)
+    world.now = NOW + 6 * 60_000
+    vi.spyOn(world, 'everyoneReaderCount').mockRejectedValueOnce(new Error('column public_profile_cards.internal does not exist'))
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
+    expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(200)
+  })
+
+  it('an internal account sees its own row but is told others do not see it', async () => {
+    const world = new World()
+    world.add(A)
+    world.internal.add(A)
+    world.read(A, 0, 45)
+    const data = await json(await get(world, '/api/social/board?tab=friends', A))
+    expect(names(data)).toEqual(['You'])
+    expect(data.meShown).toBe(false)
+  })
+
+  it('a profile read or saved by an internal device, or with a test address, flags the account; real readers are never flagged', async () => {
+    const world = new World()
+    const profile = (id: string, email: string, headers: Record<string, string> = {}, method = 'GET') => handleProfiles(
+      new Request('https://tinct.app/api/profile', { method, headers: { authorization: `Bearer ${id}`, 'content-type': 'application/json', ...headers }, body: method === 'POST' ? '{}' : undefined }),
+      on as never, { store: world, verifyUser: async () => ({ id, email }) },
+    )
+    expect((await profile(A, 'anders@fastmail.com')).status).toBe(200)
+    expect((await profile(B, 'bea@gmail.com', { 'x-tinct-check': '1' })).status).toBe(200)
+    expect((await profile(C, 'qa-carl@example.com', {}, 'POST')).status).toBe(200)
+    expect((await profile(D, 'dora@gmail.com', { 'x-tinct-check': '0' }, 'POST')).status).toBe(200)
+    expect([...world.internal].sort()).toEqual([B, C])
+  })
+
+  it('the Supabase store: one exact count; before the SQL has run, cards come without the flag and the count fails', async () => {
+    const seen: string[] = []
+    let migrated = true
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      seen.push(url)
+      if (url.includes('internal') && !migrated) return new Response('{"code":"42703","message":"column public_profile_cards.internal does not exist"}', { status: 400 })
+      if (url.includes('internal=is.false')) {
+        expect((init?.headers as Record<string, string>).Prefer).toBe('count=exact')
+        return new Response('[{"id":"x"}]', { headers: { 'content-range': '0-0/12' } })
+      }
+      return new Response('[]')
+    }))
+    const store = supabaseSocialStore({ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' } as never)
+    expect(await store.everyoneReaderCount()).toBe(12)
+    expect(seen[0]).toContain('public_profile_cards?visibility=eq.everyone&on_leaderboard=is.true&show_time=is.true&internal=is.false')
+    await store.cardsByIds([A])
+    expect(seen[seen.length - 1]).toContain(',internal')
+    migrated = false
+    await expect(store.everyoneReaderCount()).rejects.toThrow()
+    expect(await store.cardsByIds([A])).toEqual([])
+    expect(seen[seen.length - 1]).not.toContain('internal')
+  })
+
+  it('a failed flag never stops the profile', async () => {
+    const world = new World()
+    vi.spyOn(world, 'markInternal').mockRejectedValue(new Error('reader_profiles 400'))
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const response = await handleProfiles(new Request('https://tinct.app/api/profile', { headers: { authorization: `Bearer ${A}` } }), on as never, { store: world, verifyUser: async () => ({ id: A, email: 'qa@example.com' }) })
+    expect(response.status).toBe(200)
+  })
+})
+
 describe('the public profile page', () => {
   it('is Worker-rendered, noindex, with the banner; a signed-in visitor gets a page their script fills in', async () => {
     const world = everyoneWorld()
@@ -514,7 +673,7 @@ describe('the public profile page', () => {
     expect(html).toContain('tinct.app/@bea')
     expect(html).toContain('1 h 10 m')
     expect(html).toContain('Report')
-    expect(html).not.toContain('@example.com')
+    expect(html).not.toContain('@readers.tinct.app')
     const signedIn = await serveProfilePage(new Request('https://tinct.app/@bea', { headers: { cookie: 'tinct_auth=1' } }), on as never, deps(world), 'bea')
     const shell = await signedIn.text()
     expect(shell).toContain('data-state="loading"')
