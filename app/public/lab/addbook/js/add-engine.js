@@ -63,6 +63,9 @@
         : e?.code === 'file_too_large' || e?.status === 413 ? 'Kept on this device only: files over 50 MB are not saved to your account.'
         : e?.code === 'offline' ? 'No connection. Check your internet and try again.'
         : e?.code === 'signed_out' || e?.status === 401 ? 'Your Tinct sign-in has expired. Sign in again on tinct.app, then try again.'
+        // Any other refusal (service busy, rate-limited, a type the account does not take): the PDF
+        // stays on this device and is sent again on its next open (reader.js openStored).
+        : meta?.kind === 'pdf' ? 'Kept on this device only: it could not be saved to your account. It will be saved the next time you open it.'
         : null;
       if (!silent && why) notify(why);
     } finally { cloud.busy.delete(key) }

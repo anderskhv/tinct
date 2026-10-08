@@ -857,12 +857,20 @@ function sheet(title, html, onClose, host = root) {
   return layer;
 }
 function closeSheet(layer) { const host = layer?.parentElement; layer?.remove(); if (host?.classList.contains('byob-sheet-host')) host.remove() }
-let toastTimer;
-function toast(text) {
+let toastTimer, toastHeld = 0, toastNext = null;
+// `hold`: a message that must be read (a book's own limits) is not replaced while it shows;
+// one arriving meanwhile is shown when it ends.
+function toast(text, { hold = false } = {}) {
+  if (!hold && Date.now() < toastHeld) { toastNext = text; return }
   let t = document.querySelector('.byob-toast');
   if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t) }
   t.textContent = text; t.hidden = false;
-  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true }, 4000);
+  const ms = hold ? 6000 : 4000;
+  toastHeld = hold ? Date.now() + ms : 0;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => {
+    t.hidden = true; toastHeld = 0;
+    if (toastNext) { const next = toastNext; toastNext = null; toast(next) }
+  }, ms);
 }
 
 /* The reader's one Chat and one Highlight icon, the same glyphs as
@@ -1035,6 +1043,7 @@ async function buildContents() {
   }
   setBookTitle(scan.title, scan.author);
   applyBookLanguage();
+  if (hasNoText()) toast(NO_TEXT, { hold: true });
   toc.entries = scan.entries.slice().sort((a, b) => a.page - b.page);
   toc.nav = toc.entries.length ? scan.nav : 'pages';
   toc.ready = true;
@@ -1045,6 +1054,7 @@ const bookLang = () => (isEpub() ? state.epub?.language : state.scan?.language) 
 // A scan without a text layer (no scanned page has text): read aloud, Summarize and Catch me up
 // have nothing to read, so they are switched off rather than run over empty pages.
 const hasNoText = () => !isEpub() && state.scan?.textPages === 0;
+const NO_TEXT = 'This PDF is a scan without text, so it can’t be read aloud or summarized.';
 function applyBookLanguage() {
   const lang = bookLang();
   for (const p of state.pages) if (p.kind !== 'epub') p.pg.lang = lang;

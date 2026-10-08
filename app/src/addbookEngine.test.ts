@@ -105,6 +105,22 @@ describe('Add a book’s engine (add-engine.js)', () => {
     expect(await save(Object.assign(new Error('x'), { code: 'file_too_large', status: 413 }))).toEqual(['Kept on this device only: files over 50 MB are not saved to your account.'])
   })
 
+  it('says a PDF refused for any other reason (busy, rate-limited, a refused type) is kept here and saved on its next open', async () => {
+    const save = async (failure: unknown, kind = 'pdf') => {
+      const engine = loadEngine({ userId: 'u1', token: 't' }, { upload: async () => { throw failure } })
+      engine.library.touch = async () => {}
+      const notify = vi.fn()
+      await (engine as unknown as { saveToAccount: (key: string, file: Blob, meta: object, options: object) => Promise<void> }).saveToAccount(kind + ':aa', new Blob(['%PDF-1.4']), { kind }, { notify })
+      return notify.mock.calls.map(c => c[0])
+    }
+    const kept = 'Kept on this device only: it could not be saved to your account. It will be saved the next time you open it.'
+    for (const failure of [{ code: 'busy', status: 503 }, { code: 'rate_limited', status: 429 }, { code: 'unsupported_type', status: 415 }, { code: 'failed', status: 500 }]) {
+      expect(await save(Object.assign(new Error('x'), failure)), failure.code).toEqual([kept])
+    }
+    // A full account keeps its own words.
+    expect(await save(Object.assign(new Error('x'), { code: 'account_full', status: 413 }))).toEqual(['Kept on this device only: your account’s storage for books is full.'])
+  })
+
   it('opens a kept PDF in Add a book’s PDF reader at its own address (?userBook=<hex>)', async () => {
     const engine = loadEngine({ userId: 'u1' })
     expect(engine.pdfHref('pdf:abc')).toBe('/lab/addbook/?userBook=abc')

@@ -253,6 +253,8 @@ try {
     // A scan without a text layer: read aloud, Summarize and Catch me up are switched off.
     await openFile(p, join(FIX, 'IMG_20240512_scan.pdf'));
     await p.waitForFunction(() => toc.ready);
+    const noText = await p.waitForFunction(() => document.querySelector('.byob-toast:not([hidden])')?.textContent === 'This PDF is a scan without text, so it can’t be read aloud or summarized.' && getComputedStyle(document.querySelector('.byob-toast')).fontFamily, null, { timeout: 15000 }).then(h => h.jsonValue()).catch(() => null);
+    check('a scan without text says why Play, Summarize and Catch me up are off (in the page’s own font)', !!noText && !/mono/i.test(noText), noText);
     await p.click('#superBtn');
     const off = await p.evaluate(() => ({ play: document.getElementById('playBtn').disabled, rows: [...document.querySelectorAll('.lab-super-row:disabled')].map(b => b.dataset.row) }));
     await p.keyboard.press('Escape');
@@ -264,6 +266,14 @@ try {
     await openFile(p, offline);
     const said = await p.waitForFunction(() => /No connection/.test(document.querySelector('.byob-toast:not([hidden])')?.textContent || '') && document.querySelector('.byob-toast').textContent, null, { timeout: 15000 }).then(h => h.jsonValue()).catch(() => null);
     check('an account copy that could not be sent says why', said === 'No connection. Check your internet and try again.', said);
+    // Refused for another reason (busy, rate-limited, a refused type): kept here, saved on the next open.
+    await p.unroute('**/api/user-books');
+    await p.route('**/api/user-books', route => route.request().method() === 'POST' ? route.fulfill({ status: 429, contentType: 'application/json', body: JSON.stringify({ error: 'rate_limited' }) }) : route.continue());
+    const limited = join(OUT, 'rate-limited.pdf'); writeFileSync(limited, makePdf({ info: { Title: 'Busy Notes ' + Date.now() }, pages: [{ lines: lines(720, 40) }] }));
+    await openFile(p, limited);
+    const keptHere = await p.waitForFunction(() => /Kept on this device only/.test(document.querySelector('.byob-toast:not([hidden])')?.textContent || '') && document.querySelector('.byob-toast').textContent, null, { timeout: 15000 }).then(h => h.jsonValue()).catch(() => null);
+    check('an account copy refused for another reason is kept on this device, saved on the next open', keptHere === 'Kept on this device only: it could not be saved to your account. It will be saved the next time you open it.', keptHere);
+    await p.unroute('**/api/user-books');
     check('QA cases: no page errors', problems.length === 0, problems);
     await ctx.close();
   }
