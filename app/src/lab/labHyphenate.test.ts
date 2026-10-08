@@ -124,6 +124,27 @@ describe('guessed breaks for words the patterns leave whole (phone reader)', () 
     }
   })
 
+  it('breaks a capitalised common word as it breaks the lowercase one (Malachi, "Yahweh of Armies")', () => {
+    // The patterns leave "armies" whole; the phone reader's guess gives "Ar-mies".
+    expect(hyphenationBreaks('Armies,', 'en')).toEqual([])
+    expect(hyphenationBreaks('Armies,', 'en', true).map(at => split('Armies,', at))).toEqual(['Ar-|mies,'])
+    expect(hyphenationBreaks('armies', 'en', true)).toEqual([2])
+    // A capital is no bar to a dictionary break either.
+    expect(hyphenationBreaks('Behold', 'en')).toEqual(hyphenationBreaks('behold', 'en'))
+    expect(hyphenationBreaks('Commandment', 'en')).toEqual(hyphenationBreaks('commandment', 'en'))
+    expect(pageEdgeBreaks('Armies', 'en', true)).toEqual([2])
+  })
+
+  it('never breaks an all-caps word or a short capitalised name', () => {
+    expect(hyphenationBreaks('HOLINESS', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('ARMIES', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('Judah', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('“Judah,', 'en', true)).toEqual([])
+    // The same short word in lowercase, and a longer name, still break.
+    expect(hyphenationBreaks('Israel', 'en').map(at => split('Israel', at))).toEqual(['Is-|rael'])
+    expect(hyphenationBreaks('holiness', 'en').length).toBeGreaterThan(0)
+  })
+
   it('never guesses in Danish, nor in an all-caps word, a hyphenated one or a verse number', () => {
     expect(hyphenationBreaks('Zechariah', 'da', true)).toEqual([])
     expect(hyphenationBreaks('ZECHARIAH', 'en', true)).toEqual([])

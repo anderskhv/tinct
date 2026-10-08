@@ -51,6 +51,21 @@ describe('guessed syllables for words the patterns leave whole', () => {
     expect(fallbackBreaks('O’Zechariah')).toEqual([])
   })
 
+  it('breaks a consonant + -ies plural the patterns leave whole, capitalised or not (Malachi, "Yahweh of Armies")', () => {
+    expect(offered('Armies')).toBe('Ar-mies')
+    expect(offered('armies')).toBe('ar-mies')
+    expect(offered('cities')).toBe('ci-ties')
+    expect(offered('Ladies')).toBe('La-dies')
+    expect(offered('allies')).toBe('al-lies')
+    expect(offered('replies')).toBe('re-plies')
+    // No head worth keeping: one letter, or no vowel.
+    expect(fallbackBreaks('Aries')).toEqual([])
+    expect(fallbackBreaks('flies')).toEqual([])
+    expect(fallbackBreaks('spies')).toEqual([])
+    // Never in capitals.
+    expect(fallbackBreaks('ARMIES')).toEqual([])
+  })
+
   it('takes a per-word correction from the exceptions map', () => {
     expect(drawSyllables('Gateshead')).toBe('Gates-head')
     expect(offered('Gateshead')).toBe('Gates-head')
@@ -65,9 +80,10 @@ describe('guessed syllables for words the patterns leave whole', () => {
    */
   const COMMON = ['thought', 'through', 'against', 'whether', 'brought', 'greater', 'replied', 'friends', 'brother', 'strange', 'strength', 'thoughts', 'evening', 'reached', 'quickly', 'stopped', 'clearly', 'straight', 'learned', 'pleased', 'equally', 'changed', 'courage', 'promise', 'telling', 'scarcely', 'clothes', 'mankind', 'shouted', 'obliged', 'laughed', 'putting', 'started', 'princess', 'plainly', 'promised', 'stranger', 'dressed', 'watched', 'pressed', 'crossed', 'wounded', 'wretched', 'ashamed', 'greatly', 'stronger', 'falling', 'amongst', 'dropped', 'touched', 'whereas', 'blessed', 'progress', 'virtues', 'painful', 'treated', 'supreme', 'granted', 'pointed', 'classes', 'glanced', 'closely', 'princes', 'thereby', 'branches', 'younger', 'singing', 'founded', 'kitchen', 'colonies', 'friendly', 'changes', 'smaller', 'stretched', 'weather', 'shillings', 'chiefly', 'poverty', 'rightly', 'beloved', 'arranged', 'grounds', 'wherein', 'stepped', 'tonight', 'streets', 'stirred', 'species', 'earnest', 'prayers', 'leisure', 'tyranny', 'presently', 'vengeance', 'rapidly', 'valiant', 'slightly', 'slipped', 'strongly', 'strangers', 'mounted', 'adopted', 'wealthy', 'silently', 'province', 'priests', 'prospect', 'lightly', 'springs', 'killing', 'earthly', 'avoided', 'dragged', 'promises', 'charged', 'praised', 'marched', 'farewell', 'wrapped', 'weapons', 'provinces', 'stretch', 'nowhere', 'process', 'pulling', 'strangely', 'knocked', 'painted', 'pleases', 'sounded', 'stripped', 'elected', 'counted', 'duchess', 'essence', 'wrought', 'crushed', 'rolling', 'healthy', 'sailors', 'strongest', 'flushed', 'dwelling', 'guardian', 'scoundrel', 'climbed', 'trusted', 'shortly', 'arrange', 'strictly', 'sharply', 'earnestly', 'therein', 'thither', 'hastily', 'colonel', 'alarmed', 'steadily', 'briefly', 'cleared', 'tempted', 'guessed', 'lessons', 'schools', 'penalty', 'worldly', 'knights', 'weighed', 'leather', 'teacher', 'claimed', 'planted', 'streams', 'largest', 'snatched', 'lighted', 'breathe', 'wronged', 'sources', 'crowded', 'trousers', 'chivalry', 'favourable', 'whereof', 'strikes', 'hideous', 'reaches', 'trained', 'drowned', 'colours', 'thereof', 'blushed', 'grieved', 'monastery', 'plunged', 'tongues', 'crowned', 'swiftly', 'drunken', 'doubted']
 
-  it('leaves common English words alone: 7 of 200 get a guessed break', () => {
+  it('leaves common English words alone: 9 of 200 get a guessed break', () => {
     expect(COMMON).toHaveLength(200)
     const guessed = COMMON.filter(word => fallbackBreaks(word).length > 0).map(offered)
-    expect(guessed).toEqual(['man-kind', 'pros-pect', 'fare-well', 'guar-dian', 'scoun-drel', 'chiv-alry', 'monas-tery'])
+    // colo-nies and spe-cies come from the -ies plural rule; both are dictionary breaks.
+    expect(guessed).toEqual(['man-kind', 'colo-nies', 'spe-cies', 'pros-pect', 'fare-well', 'guar-dian', 'scoun-drel', 'chiv-alry', 'monas-tery'])
   })
 })

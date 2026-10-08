@@ -26,7 +26,9 @@
  * 4. A first syllable too short to stand at a line end (a lone vowel, or a
  *    short vowel before ch/sh/th/ph) keeps the consonant after it, as
  *    dictionaries divide such names: Am-a-ri-ah, Zech-a-ri-ah.
- * 5. Words shaped like English (see ENGLISH_SHAPE) are never guessed at.
+ * 5. Words shaped like English (see ENGLISH_SHAPE) are never guessed at,
+ *    except a consonant + -ies plural, which gets one break of any length
+ *    ("Ar-mies", see iesPluralBreak).
  *
  * Only breaks that leave three letters on each side are offered: this is a
  * guess, so it is held to a stricter minimum than the dictionary's 2/3.
@@ -154,13 +156,40 @@ export function syllableBoundaries(word: string): number[] {
 }
 
 /**
+ * A plural in -ies after a consonant that the patterns leave whole ("armies",
+ * "cities", "ladies", "copies", "colonies"): the one break before that
+ * consonant (or a consonant pair a syllable may start with, "re-plies"), as
+ * the patterns themselves break the same shape ("du-ties", "ba-bies",
+ * "sto-ries"). Malachi's "Yahweh of Ar-mies" (WEB) stretched its line because
+ * the word is six letters and ends like an English inflection, so the general
+ * guess below declined it (Anders, iPhone, 8 Oct 2026). The head keeps two
+ * letters and a vowel; the tail is always four letters or more.
+ */
+function iesPluralBreak(word: string): number | null {
+  const lower = word.toLowerCase()
+  if (!/^[a-z]+ies$/.test(lower)) return null
+  const stem = lower.slice(0, -3)
+  const last = stem[stem.length - 1]
+  if (VOWELS.has(last)) return null
+  const pair = stem.slice(-2)
+  const cut = DIGRAPHS.has(pair) || LIQUID_ONSET.has(pair) ? stem.length - 2 : stem.length - 1
+  const head = lower.slice(0, cut)
+  return head.length >= 2 && /[aeiouy]/.test(head) ? cut : null
+}
+
+/**
  * The guessed breaks a line may use in `word` (letters only, no possessive):
  * three letters each side, never in an all-caps word, never in one shorter
- * than FALLBACK_MIN_WORD.
+ * than FALLBACK_MIN_WORD. A consonant + -ies plural has its own rule
+ * (iesPluralBreak), whatever its length.
  */
 export function fallbackBreaks(word: string): number[] {
-  if (word.length < FALLBACK_MIN_WORD || !/^\p{L}+$/u.test(word)) return []
-  if (word === word.toUpperCase()) return []
+  if (!/^\p{L}+$/u.test(word) || word === word.toUpperCase()) return []
+  if (!(word.toLowerCase() in SYLLABLE_EXCEPTIONS)) {
+    const plural = iesPluralBreak(word)
+    if (plural != null) return [plural]
+  }
+  if (word.length < FALLBACK_MIN_WORD) return []
   if (!(word.toLowerCase() in SYLLABLE_EXCEPTIONS) && ENGLISH_SHAPE.test(word.toLowerCase())) return []
   return syllableBoundaries(word).filter(at => at >= FALLBACK_MIN_SIDE && word.length - at >= FALLBACK_MIN_SIDE)
 }
