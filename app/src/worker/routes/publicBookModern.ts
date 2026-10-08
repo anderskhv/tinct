@@ -526,3 +526,28 @@ export async function modernEditionChapter(env: Pick<PublicBooksEnv, 'PUBLIC_BOO
   const state = publicChapterStates(job, now)[source.number]
   return { ...await assembleChapter(bucket, bookId, source, state), pending: state !== 'ready' }
 }
+
+/**
+ * `GET /api/admin/modern-diagnostics?book=<pd-id>` (site admins only): the job's
+ * per-chapter generation state, including the start of the last refused reply
+ * and the chunk size it was refused at (lastReject). Public-domain book text
+ * and book progress only; never part of the public status.
+ */
+export async function handleModernDiagnostics(request: Request, env: ModernEnv, verifySiteAdmin: (env: ModernEnv, request: Request) => Promise<boolean>): Promise<Response> {
+  if (request.method !== 'GET') return reply({ error: 'Method not allowed' }, 405, request)
+  if (!await verifySiteAdmin(env, request).catch(() => false)) return reply({ error: 'Forbidden' }, 403, request)
+  const bookId = new URL(request.url).searchParams.get('book') || ''
+  const bucket = bucketOf(env)
+  if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  if (!isPublicBookId(bookId)) return reply({ error: 'bad_request' }, 400, request)
+  const job = (await readJob(bucket, bookId))?.job
+  if (!job) return reply({ error: 'Not found' }, 404, request)
+  return reply({
+    bookId, state: job.state, backoffUntil: job.backoffUntil ?? null, slowUntil: job.slowUntil ?? null, pace: job.pace ?? null, revived: job.revived ?? null,
+    chapters: job.chapters.map(c => ({
+      number: c.number, state: c.state, attempts: c.attempts, rounds: c.rounds ?? 0, chunkWords: c.chunkWords ?? null,
+      done: (c.ranges ?? []).reduce((sum, [a, b]) => sum + b - a, 0), total: c.total ?? null,
+      lastFailure: c.lastFailure ?? null, lastReject: c.lastReject ?? null,
+    })),
+  }, 200, request)
+}

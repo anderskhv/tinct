@@ -44,7 +44,7 @@ import { handleLabCatchUp } from './worker/routes/labCatchUp'
 import { handleLabChapterNotes } from './worker/routes/labChapterNotes'
 import { handleUserBooks } from './worker/routes/userBooks'
 import { COVER_RUN_LIMIT, handlePublicBooks, handlePublicEditionData, runPublicCoverJobs } from './worker/routes/publicBooks'
-import { MODERN_EDITION_CRON, grantModernEdition, releaseModernCheckout, runModernEditionJobs } from './worker/routes/publicBookModern'
+import { MODERN_EDITION_CRON, grantModernEdition, handleModernDiagnostics, releaseModernCheckout, runModernEditionJobs } from './worker/routes/publicBookModern'
 import { handleEditionPatches } from './worker/routes/editionPatches'
 import { handleScheduled, sendEmail } from './worker/routes/emails'
 import { handleEmailLink, isEmailLinkRequest } from './worker/routes/emailLinks'
@@ -382,6 +382,7 @@ export default {
       })
       case '/api/admin/issues': return handleAdminIssues(request, env, verifySiteAdmin)
       case '/api/admin/metrics-users': return handleAdminMetricsUsers(request, env, verifySiteAdmin)
+      case '/api/admin/modern-diagnostics': return handleModernDiagnostics(request, env, verifySiteAdmin)
       case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
       case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
       case '/api/admin/announce-email': if (env.LIFECYCLE_EMAILS === '1') return handleAdminAnnounceEmail(request, env, verifySiteAdmin)

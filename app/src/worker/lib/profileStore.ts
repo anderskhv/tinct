@@ -46,6 +46,8 @@ export interface PublicCardRow {
   show_reading: boolean
   show_time: boolean
   on_leaderboard: boolean
+  /** Tinct's own internal or test account (only where the view carries it; see socialRules BoardCard). */
+  internal?: boolean
 }
 
 export interface AccountRow {
@@ -69,6 +71,12 @@ export interface ProfileStore {
   getCardByHandle(handle: string): Promise<PublicCardRow | null>
   getCardById(id: string): Promise<PublicCardRow | null>
   relation(viewerId: string, ownerId: string): Promise<RelationRows>
+  /**
+   * Flags Tinct's own internal or test account (reader_profiles.internal), so it
+   * never appears on a leaderboard or counts toward Everyone's threshold. Only
+   * ever sets true. Optional: stores without it never flag.
+   */
+  markInternal?(id: string): Promise<void>
 }
 
 const OWN_COLUMNS = 'id,display_name,handle,picture_kind,picture_value,picture_review,background_kind,background_value,background_review,visibility,show_reading,show_time,on_leaderboard,new_books_open_in,auto_created,set_up_at,prompted_at,updated_at'
@@ -131,6 +139,10 @@ export function supabaseProfileStore(env: SupabaseEnv): ProfileStore {
     },
     async updateAccount(id, patch) {
       await write(env, 'PATCH', `profiles?id=eq.${id}`, patch)
+    },
+    async markInternal(id) {
+      // A no-op once flagged; updated_at is left alone (the photo review queue orders by it).
+      await write(env, 'PATCH', `reader_profiles?id=eq.${id}&internal=is.false`, { internal: true })
     },
     async getCardByHandle(handle) {
       return (await rows<PublicCardRow>(env, `public_profile_cards?handle=eq.${encodeURIComponent(handle)}&select=${CARD_COLUMNS}&limit=1`))[0] ?? null

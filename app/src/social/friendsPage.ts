@@ -7,6 +7,10 @@
  * Everyone readers also reading your books, and Invite (copy or share your
  * link). Tap a reader to open their profile.
  *
+ * The Everyone tab shows only once the Worker says the Everyone board is open
+ * (`everyoneOpen`: at least 10 real readers on it; socialRules
+ * EVERYONE_BOARD_MIN_READERS). Until then it is simply not there.
+ *
  * Served only while SOCIAL_FRIENDS and SOCIAL_PROFILES are on.
  */
 import { supabase } from '../services/supabase'
@@ -177,6 +181,7 @@ async function renderFind() {
   })
 
   const data = await fetchFind(token)
+  if (data) showEveryoneTab(data.everyoneOpen)
   const link = data?.link ?? null
   const invite = el('section', { className: 'shelf', dataset: { testid: 'find-invite' } }, el('h2', {}, 'Invite a friend'))
   if (link) {
@@ -201,6 +206,11 @@ async function renderFind() {
 
 // ===== Navigation =====
 
+function showEveryoneTab(open: boolean | undefined) {
+  const button = root?.querySelector<HTMLButtonElement>('[data-tab="everyone"]')
+  if (button) button.hidden = open !== true
+}
+
 function paintTabs(tab: Tab) {
   root?.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach(button => button.setAttribute('aria-selected', String(button.dataset.tab === tab)))
 }
@@ -214,6 +224,9 @@ async function render() {
     await renderFind()
   } else {
     const data = await fetchBoard(token, tab)
+    // No Everyone board yet (or no longer): the Friends board instead.
+    if (!data && tab === 'everyone') { showEveryoneTab(false); go('friends'); return }
+    if (data) showEveryoneTab(data.everyoneOpen)
     if (!data) main.replaceChildren(el('p', { className: 'empty' }, 'The leaderboard is not available just now. Your reading time is safe.'))
     else renderBoard(data)
     trackFunnel('leaderboard_opened', { tab })

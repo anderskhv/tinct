@@ -51,6 +51,8 @@ export interface SocialStore {
   searchEveryone(query: { kind: 'handle'; handle: string } | { kind: 'name'; text: string }, limit: number): Promise<BoardCard[]>
   /** Everyone readers with the leaderboard and reading time on. */
   everyoneBoardCards(limit: number): Promise<BoardCard[]>
+  /** How many of those are real readers (internal and test accounts left out). Throws when it cannot be told. */
+  everyoneReaderCount(): Promise<number>
 
   /** The cached 7-day seconds for these readers, and when the cache was built. */
   boardSeconds(ids: string[]): Promise<Map<string, number>>
@@ -71,6 +73,11 @@ export interface SocialStore {
 }
 
 const CARD_COLUMNS = 'id,handle,display_name,picture_kind,picture_value,visibility,show_reading,show_time,on_leaderboard'
+// reader_profiles.internal through the view (20261009_leaderboard_internal.sql).
+// Until that file has run the column is missing: cards are read without it
+// (internal unknown) and the Everyone count cannot be told, so Everyone stays closed.
+// The column is tried again every 10 minutes, so running the file needs no release.
+let internalMissingAt = 0
 const ADMIN_COLUMNS = 'id,display_name,handle,picture_kind,picture_value,picture_review,background_kind,background_value,background_review,visibility,updated_at,hidden_at'
 
 function headers(env: SupabaseEnv, extra: Record<string, string> = {}): Record<string, string> {
@@ -100,6 +107,18 @@ async function write(env: SupabaseEnv, method: 'POST' | 'PATCH' | 'DELETE', path
   })
   if (!res.ok && res.status !== 409) throw new SocialUnavailable(`${method} ${path.split('?')[0]} ${res.status}`, res.status)
   return res
+}
+
+/** Cards from public_profile_cards, with `internal` where the column exists. */
+async function cardRows(env: SupabaseEnv, path: string): Promise<BoardCard[]> {
+  if (Date.now() - internalMissingAt > 10 * 60_000) {
+    const res = await request(env, `${path}&select=${CARD_COLUMNS},internal`)
+    if (res.ok) return await res.json() as BoardCard[]
+    const detail = res.status === 400 ? await res.text().catch(() => '') : ''
+    if (!/internal/.test(detail)) throw new SocialUnavailable(`${path.split('?')[0]} ${res.status}`, res.status)
+    internalMissingAt = Date.now()
+  }
+  return rows<BoardCard>(env, `${path}&select=${CARD_COLUMNS}`)
 }
 
 const ids = (list: string[]) => list.filter(id => /^[0-9a-f-]{36}$/i.test(id)).join(',')
@@ -148,7 +167,7 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
       const out: BoardCard[] = []
       for (const group of chunks([...new Set(list)], 100)) {
         if (!group.length) continue
-        out.push(...await rows<BoardCard>(env, `public_profile_cards?id=in.(${ids(group)})&select=${CARD_COLUMNS}`))
+        out.push(...await cardRows(env, `public_profile_cards?id=in.(${ids(group)})`))
       }
       return out
     },
@@ -156,10 +175,18 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
       const filter = query.kind === 'handle'
         ? `handle=eq.${encodeURIComponent(query.handle)}`
         : `or=(display_name.ilike.${like(query.text)},handle.ilike.${like(query.text.replace(/\s+/g, ''))})`
-      return rows<BoardCard>(env, `public_profile_cards?visibility=eq.everyone&${filter}&select=${CARD_COLUMNS}&order=display_name.asc&limit=${limit}`)
+      return cardRows(env, `public_profile_cards?visibility=eq.everyone&${filter}&order=display_name.asc&limit=${limit}`)
     },
     async everyoneBoardCards(limit) {
-      return rows<BoardCard>(env, `public_profile_cards?visibility=eq.everyone&on_leaderboard=is.true&show_time=is.true&select=${CARD_COLUMNS}&limit=${limit}`)
+      return cardRows(env, `public_profile_cards?visibility=eq.everyone&on_leaderboard=is.true&show_time=is.true&limit=${limit}`)
+    },
+    async everyoneReaderCount() {
+      // One row and the exact count in Content-Range ("0-0/12"); a missing column is a 400 and throws.
+      const res = await request(env, 'public_profile_cards?visibility=eq.everyone&on_leaderboard=is.true&show_time=is.true&internal=is.false&select=id&limit=1', { headers: { Prefer: 'count=exact' } })
+      if (!res.ok) throw new SocialUnavailable(`public_profile_cards count ${res.status}`, res.status)
+      const total = Number((res.headers.get('content-range') || '').split('/')[1])
+      if (!Number.isFinite(total)) throw new SocialUnavailable('public_profile_cards count unreadable')
+      return total
     },
 
     async boardSeconds(list) {
