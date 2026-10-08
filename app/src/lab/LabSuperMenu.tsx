@@ -10,11 +10,9 @@ export interface LabSuperMenuProps {
   privateBook?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
-  /** What the Librarian row's body opens: the reader's "Tab opens" choice. */
-  librarianMode?: 'chat' | 'talk'
 }
 
-/** The mic, as on the librarian tab: Talk in the Librarian row. */
+/** The mic: Talk in the Librarian row. */
 function MicIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -93,7 +91,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose, librarianMode = 'chat' }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -133,13 +131,15 @@ export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose, libr
         onClick={onClose}
       />
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
+        {/* The Librarian row is the one way to the librarian (2026-10-08): its
+            body opens Chat, its icons open Chat or Talk directly. */}
         {rows.map(row => row.modes ? (
           <div key={row.id} className={`lab-super-row is-librarian${row.ruleBefore ? ' has-rule' : ''}`} data-row={row.id} role="group" aria-label={row.label}>
             <button
               type="button"
               className="lab-super-row-main"
               data-testid={`lab-super-row-${row.id}`}
-              onClick={() => onSelect(row.modes!.includes(librarianMode) ? librarianMode : row.modes![0])}
+              onClick={() => onSelect(row.modes![0])}
             >
               <span className="lab-super-row-icon" aria-hidden="true"><RowIcon id={row.id} /></span>
               <span className="lab-super-row-label">{row.label}</span>
@@ -152,7 +152,6 @@ export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose, libr
                 aria-label={mode === 'chat' ? 'Chat' : 'Talk'}
                 title={mode === 'chat' ? 'Chat' : 'Talk'}
                 data-mode={mode}
-                data-default={mode === librarianMode ? 'true' : undefined}
                 data-testid={`lab-super-row-${mode}`}
                 onClick={() => onSelect(mode)}
               >
