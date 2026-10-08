@@ -9,8 +9,8 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { start } from './serve.mjs';
-import { pdfFixtures } from './make-pdf.mjs';
-import { shelfSignIn, addFile } from './shelf.mjs';
+import { pdfFixtures, makePdf } from './make-pdf.mjs';
+import { shelfSignIn, addFile, openShelf } from './shelf.mjs';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 const REPO = join(HERE, '../../..');
@@ -194,6 +194,75 @@ try {
     check('scan: the contents list its pages', pages.join() === 'p. 1,p. 2', pages);
     await shot(p, 'desktop-dark-scan-pages');
     check('report and scan: no page errors', problems.length === 0, problems);
+    await ctx.close();
+  }
+
+  // ---- QA on production PDFs (#359) ----
+  {
+    const { ctx, p, problems } = await page(browser, { width: 1280, height: 860 });
+    await signIn(p);
+    const kept = () => p.evaluate(async () => (await window.TinctAddEngine.library.list()).map(r => r.name));
+    // A damaged or password-locked PDF is refused where it is added; nothing lands on My shelf.
+    // Through My shelf's + pop-up (shelf.mjs): the refusal is the pop-up's message, back at its file step.
+    const refused = async file => {
+      await openShelf(p, ORIGIN);
+      await addFile(p, ORIGIN, file);
+      return p.textContent('[data-testid="own-file-dialog"] .own-file-message');
+    };
+    const cut = join(OUT, 'cut-short.pdf'); writeFileSync(cut, pdfFixtures()['scan_0042.pdf'].subarray(0, 4000));
+    const locked = await refused(join(FIX, 'locked.pdf')), broken = await refused(cut);
+    check('a password-locked or damaged PDF is refused before it is kept, and says why', locked === 'This PDF is password-protected, so it cannot be opened here.' && broken === 'This file could not be opened as a PDF. Choose another file.' && !(await kept()).some(n => /locked|cut-short/.test(n)), { locked, broken, kept: await kept() });
+
+    // Read aloud: page footers ("Page 1 of 2") are not read; words split at ligatures and
+    // hyphenated over a line end are read whole.
+    await openFile(p, join(FIX, 'week3_notes_final-v2.pdf'));
+    const spoken = await p.evaluate(async () => (await preparePage(1)).text);
+    check('read aloud leaves out the page footer and the running head', !/Page 1 of 2|Lecture notes, week 3/.test(spoken) && /hypothenuse is equal/.test(spoken), spoken.slice(0, 80) + ' … ' + spoken.slice(-60));
+    const joined = await p.evaluate(() => {
+      const item = (str, x, y, width, hasEOL = false) => ({ str, transform: [10, 0, 0, 10, x, y], width, hasEOL });
+      const run = items => { let text = '', prev = null; for (const it of items) { const j = joinItems(text, prev, it); text = j.text + j.join + it.str; prev = it } return text };
+      return [run([item('a', 100, 500, 5), item('ff', 105, 500, 6), item('air', 111, 500, 15)]), run([item('his pro-', 100, 500, 40, true), item('fession', 72, 486, 35)]), run([item('two', 100, 500, 15), item('words', 118, 500, 25)])];
+    });
+    check('read aloud joins a word split at a ligature or a line-end hyphen, and keeps word spaces', joined.join('|') === 'affair|his profession|two words', joined);
+    // The end of the book is 100% read.
+    await p.evaluate(() => { const s = document.getElementById('scroll'); s.scrollTop = s.scrollHeight });
+    await p.waitForTimeout(600);
+    const end = await p.evaluate(() => ({ progress: document.getElementById('progress').textContent, saved: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + state.key)) }));
+    check('scrolled to the end, the PDF is 100% read (pill and saved place)', end.progress === '100%' && end.saved.page === 2 && end.saved.frac === 1, end);
+
+    // A French PDF: its one title bookmark opens into its chapters, in French house style, and
+    // read aloud takes a French voice.
+    const french = 'Il y avait en Vestphalie, dans le château de monsieur le baron, un jeune garçon à qui la nature avait donné les mœurs les plus douces. Sa physionomie annonçait son âme. Il avait le jugement assez droit, avec l’esprit le plus simple; c’est, je crois, pour cette raison qu’on le nommait Candide.'.replace('œ', 'oe');
+    const lines = (top, n) => Array.from({ length: n }, (_, i) => ({ x: 72, y: top - i * 15, size: 11, font: 'Times-Roman', text: french.slice((i * 11) % 120, ((i * 11) % 120) + 80) }));
+    const candide = join(OUT, 'candide.pdf');
+    writeFileSync(candide, makePdf({ info: { Title: 'Candide, ou l’Optimisme' }, outline: [{ title: 'Candide', page: 1, children: [{ title: 'CHAPITRE I. Comment Candide fut élevé dans un beau château.', page: 2 }, { title: 'CHAPITRE XII. Suite des malheurs de la vieille.', page: 3 }] }], pages: [{ lines: [{ y: 600, size: 24, font: 'Times-Bold', text: 'Candide' }] }, { lines: lines(720, 40) }, { lines: lines(720, 40) }] }));
+    await openFile(p, candide);
+    await p.click('#pageBtn'); await p.waitForSelector('.lab-contents-v2 .tree');
+    const toc = await p.$$eval('.lab-contents-v2 .tree .text', els => els.map(e => e.textContent));
+    await p.keyboard.press('Escape');
+    check('a single title bookmark opens into its chapters, titled in French house style', toc.join(' | ') === 'Chapitre 1. Comment Candide fut élevé dans un beau château. | Chapitre 12. Suite des malheurs de la vieille.', toc);
+    const voice = await p.evaluate(() => {
+      speechSynthesis.getVoices = () => [{ name: 'Samantha', lang: 'en-US', default: true }, { name: 'Thomas', lang: 'fr-FR', default: false }, { name: 'Anna', lang: 'de-DE', default: false }];
+      prefs.voice = 'Samantha';
+      return { lang: bookLang(), page: document.querySelector('.pdf-sheet .pg').lang, voice: pickVoice()?.name, list: bookVoices().map(v => v.name) };
+    });
+    check('read aloud in the book’s language: a French voice, French text, French voices to choose from', voice.lang === 'fr' && voice.page === 'fr' && voice.voice === 'Thomas' && voice.list.join() === 'Thomas', voice);
+
+    // A scan without a text layer: read aloud, Summarize and Catch me up are switched off.
+    await openFile(p, join(FIX, 'IMG_20240512_scan.pdf'));
+    await p.waitForFunction(() => toc.ready);
+    await p.click('#superBtn');
+    const off = await p.evaluate(() => ({ play: document.getElementById('playBtn').disabled, rows: [...document.querySelectorAll('.lab-super-row:disabled')].map(b => b.dataset.row) }));
+    await p.keyboard.press('Escape');
+    check('a scan without text: Play, Summarize and Catch me up are off', off.play && off.rows.join() === 'summarize,catchup', off);
+
+    // An account copy that could not be sent says so (offline: the reader's own words).
+    await p.route('**/api/user-books', route => route.request().method() === 'POST' ? route.abort() : route.continue());
+    const offline = join(OUT, 'offline.pdf'); writeFileSync(offline, makePdf({ info: { Title: 'Offline Notes ' + Date.now() }, pages: [{ lines: lines(720, 40) }] }));
+    await openFile(p, offline);
+    const said = await p.waitForFunction(() => /No connection/.test(document.querySelector('.byob-toast:not([hidden])')?.textContent || '') && document.querySelector('.byob-toast').textContent, null, { timeout: 15000 }).then(h => h.jsonValue()).catch(() => null);
+    check('an account copy that could not be sent says why', said === 'No connection. Check your internet and try again.', said);
+    check('QA cases: no page errors', problems.length === 0, problems);
     await ctx.close();
   }
 } finally {

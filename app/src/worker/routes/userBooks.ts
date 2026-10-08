@@ -244,9 +244,16 @@ function isEpub(bytes: Uint8Array): boolean {
   return false
 }
 
+/** A PDF ends with its end-of-file marker (allowing trailing bytes); a file cut short has none. */
+const PDF_EOF_WINDOW = 4096
+function endsLikePdf(bytes: Uint8Array): boolean {
+  const from = Math.max(0, bytes.length - PDF_EOF_WINDOW)
+  return ascii(bytes, from, bytes.length - from).includes('%%EOF')
+}
+
 /** The file's type from its bytes alone; the client's Content-Type and name are not trusted. */
 export function sniffBookType(bytes: Uint8Array): UserBookType | null {
-  if (PDF_MAGIC.every((byte, i) => bytes[i] === byte)) return 'pdf'
+  if (PDF_MAGIC.every((byte, i) => bytes[i] === byte)) return endsLikePdf(bytes) ? 'pdf' : null
   if (isEpub(bytes)) return 'epub'
   return null
 }

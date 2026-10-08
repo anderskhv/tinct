@@ -84,6 +84,27 @@ describe('Add a book’s engine (add-engine.js)', () => {
     expect(notify).toHaveBeenCalledWith('Removed from this device, but not from your account. Try again.')
   })
 
+  // QA #359: a file named .pdf that is not a PDF landed on My shelf as a book that could not open.
+  it('refuses a ".pdf" that is not a PDF before it is kept, in the PDF reader’s own words', async () => {
+    const engine = loadEngine({ userId: 'u1' })
+    expect(await engine.readFile(new File(['<html>not a pdf</html>'], 'notes.pdf'))).toEqual({ error: 'This file could not be opened as a PDF. Choose another file.' })
+  })
+
+  // QA #359: an upload that failed for any reason but a full account said nothing.
+  it('says why the account copy was not saved, in the words the reader already has', async () => {
+    const save = async (failure: unknown) => {
+      const engine = loadEngine({ userId: 'u1', token: 't' }, { upload: async () => { throw failure } })
+      engine.library.touch = async () => {}
+      const notify = vi.fn()
+      await (engine as unknown as { saveToAccount: (key: string, file: Blob, meta: object, options: object) => Promise<void> }).saveToAccount('pdf:aa', new Blob(['%PDF-1.4']), { kind: 'pdf' }, { notify })
+      return notify.mock.calls.map(c => c[0])
+    }
+    expect(await save(Object.assign(new Error('x'), { code: 'account_full' }))).toEqual(['Kept on this device only: your account’s storage for books is full.'])
+    expect(await save(Object.assign(new Error('x'), { code: 'offline' }))).toEqual(['No connection. Check your internet and try again.'])
+    expect(await save(Object.assign(new Error('x'), { code: 'Unauthorized', status: 401 }))).toEqual(['Your Tinct sign-in has expired. Sign in again on tinct.app, then try again.'])
+    expect(await save(Object.assign(new Error('x'), { code: 'file_too_large', status: 413 }))).toEqual(['Kept on this device only: files over 50 MB are not saved to your account.'])
+  })
+
   it('opens a kept PDF in Add a book’s PDF reader at its own address (?userBook=<hex>)', async () => {
     const engine = loadEngine({ userId: 'u1' })
     expect(engine.pdfHref('pdf:abc')).toBe('/lab/addbook/?userBook=abc')

@@ -12,13 +12,17 @@
 //      the lines of a quotation above its "— Author, Work" line), running heads and feet (text
 //      repeated across pages) and page numbers. A document with no real headings gets page
 //      navigation (nav 'pages', no entries) instead of a chapter made up from a stray line.
+//      Headings found this way also leave out title pages, contents pages, scanners' notices
+//      and stamps, and lines of a scan's text layer that are only a little larger than the body.
+//   4. Language: the declared one, else the language of the text's common words.
+//   5. textPages: how many of the scanned pages carry text (0: a scan without a text layer).
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 3;
+  const SCAN_VERSION = 4;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
-  // Positioned text items -> visual lines, top first: { y, x, size, fonts, font, chars, text, words }.
+  // Positioned text items -> visual lines, top first: { y, x, x2, size, fonts, font, chars, text, words }.
   // Rotated text is left out.
   function textRows(items) {
     const rows = [];
@@ -31,8 +35,23 @@
       if (!row) { row = { y, parts: [] }; rows.push(row) }
       row.parts.push({ x, w: it.width || 0, s: it.str, size, font: it.fontName });
     }
-    return rows.sort((p, q) => q.y - p.y).map(r => {
+    // A line that runs across a wide gap into a second column is two lines: a heading in the
+    // left column is not joined to the right column's text ("1 Introduction" + "of long slow …").
+    const split = [];
+    for (const r of rows) {
       const parts = r.parts.sort((p, q) => p.x - q.x);
+      let seg = [parts[0]];
+      const close = () => split.push({ y: r.y, parts: seg });
+      for (let i = 1; i < parts.length; i++) {
+        const p = parts[i], prev = seg.at(-1), gap = p.x - (prev.x + prev.w), em = Math.max(p.size, prev.size) || 1;
+        const rest = parts.slice(i).map(q => q.s).join(' ').trim();
+        if (gap > em * 3 && (rest.split(/\s+/).length >= 2 || (rest.match(/\p{L}/gu) || []).length >= 8) && /\p{L}{2}/u.test(seg.map(q => q.s).join(''))) { close(); seg = [p] }
+        else seg.push(p);
+      }
+      close();
+    }
+    return split.sort((p, q) => q.y - p.y || p.parts[0].x - q.parts[0].x).map(r => {
+      const parts = r.parts;
       // The line's size is the size most of its characters are set in (a large symbol does not count).
       const by = new Map();
       for (const p of parts) { const k = Math.round(p.size * 2) / 2; by.set(k, (by.get(k) || 0) + p.s.trim().length) }
@@ -41,7 +60,7 @@
       parts.forEach((p, i) => { const prev = parts[i - 1]; if (prev && p.x - (prev.x + prev.w) > size * 0.12 && !/\s$/.test(text) && !/^\s/.test(p.s)) text += ' '; text += p.s });
       text = text.replace(/\s+/g, ' ').replace(/\s+([,.:;!?)])/g, '$1').trim();
       const fonts = new Set(parts.filter(p => p.s.trim()).map(p => p.font));
-      return { y: r.y, x: parts[0].x, size, fonts, font: fonts.size === 1 ? [...fonts][0] : null, chars: text.length, text, words: text.split(' ').length };
+      return { y: r.y, x: parts[0].x, x2: parts.at(-1).x + parts.at(-1).w, size, fonts, font: fonts.size === 1 ? [...fonts][0] : null, chars: text.length, text, words: text.split(' ').length };
     });
   }
   const sizeKey = s => Math.round(s * 2) / 2;
@@ -62,7 +81,8 @@
   /* ---------- Furniture: running heads and feet, page numbers ---------- */
   const PAGE_NUMBER = /^(?:(?:page|p\.|pg\.?|side|seite|s\.)\s*)?(?:\d{1,4}|[ivxlcdm]{1,7})(?:\s*(?:of|\/|af|von)\s*\d{1,4})?$/i;
   const isPageNumber = text => PAGE_NUMBER.test(text.trim()) || /^[-–—]\s*\d{1,4}\s*[-–—]$/.test(text.trim());
-  const edgeKey = r => r.text.toLowerCase().replace(/\d+/g, '').replace(/[^\p{L}]+/gu, '');
+  // Numbers aside (and, for scanned text, the short tokens a misread number leaves: "II", "H").
+  const edgeKey = r => r.text.toLowerCase().replace(/\d+/g, ' ').split(/\s+/).map(w => w.replace(/[^\p{L}]+/gu, '')).filter(w => w.length > 2 && !/^[ivxlc]+$/.test(w)).join('');
   const atEdge = (p, r) => r.y - p.y0 > p.h * 0.9 || r.y - p.y0 < p.h * 0.1;
   // Rows that repeat across pages: near the top or bottom on several pages (numbers aside), or
   // the very same line on several pages anywhere.
@@ -71,9 +91,10 @@
     const seen = new Map(), exact = new Map();
     for (const p of pages) {
       for (const k of new Set(p.rows.filter(r => atEdge(p, r)).map(edgeKey))) if (k) seen.set(k, (seen.get(k) || 0) + 1);
-      for (const k of new Set(p.rows.map(r => r.text.toLowerCase()))) exact.set(k, (exact.get(k) || 0) + 1);
+      // As printed: a running head in capitals ("DAVID DEUTSCH") is not the byline it repeats ("David Deutsch").
+      for (const k of new Set(p.rows.map(r => r.text))) exact.set(k, (exact.get(k) || 0) + 1);
     }
-    return (p, r) => isPageNumber(r.text) || (atEdge(p, r) && (seen.get(edgeKey(r)) || 0) >= need) || (exact.get(r.text.toLowerCase()) || 0) >= need;
+    return (p, r) => isPageNumber(r.text) || (atEdge(p, r) && (seen.get(edgeKey(r)) || 0) >= need) || (exact.get(r.text) || 0) >= need;
   }
 
   /* ---------- Epigraphs and quotations ---------- */
@@ -184,31 +205,58 @@
   /* ---------- Chapters ---------- */
   // A heading reads like a title: few words, mostly letters, starting with a capital or a
   // section number, not a sentence or formula running on, not a figure or table caption.
+  // A chapter set as a Roman numeral alone ("I.", "XII.") counts; any other heading has at least
+  // four letters ("FOR", "BY" on a title page are not chapters), or is a label ("Act", "Teil").
+  const LABEL_HEADING = /^(?:part|book|act|scene|canto|chapter|chap|teil|buch|akt|kapitel|livre|partie|chapitre|acte|libro|parte|capítulo|capitolo)\b/i;
   function headingLike(r) {
     const t = r.text, letters = (t.match(/\p{L}/gu) || []).length;
-    return r.words <= 12 && letters >= 2 && letters >= t.replace(/\s/g, '').length * 0.6
+    if (/^[IVXLC]{1,7}\.$/.test(t)) return true;
+    return r.words <= 12 && (letters >= 4 || (letters >= 2 && LABEL_HEADING.test(t))) && letters >= t.replace(/\s/g, '').length * 0.6
       && /^([\p{Lu}]|[\dIVXivx]+(?:\.\d+)*[.)]?\s|[A-Z]\.?\d*\s|§)/u.test(t) && !/[,;:]$/.test(t)
       && !/[=∑∫≡⊗⊕→←≈≤≥±×√∂∇]/.test(t) && !/^(fig(ure)?|table|tab)\.?\s*\d/i.test(t) && !isPageNumber(t);
   }
   // pages: [{ n, y0, h, rows }]; fontName(pageNumber, fontId) -> Promise<string>.
+  // Pages a scanning service adds (Google Books' notice) are not the book.
+  const BOILERPLATE_PAGE = /google book search|books\.google\.com|digital copy of a book that was preserved for generations/i;
+  const BOILERPLATE_HEADING = /^(usage guidelines|about google book search|digitized by( the)? (internet archive|google)|this is a digital copy)|\b(cents? fine|date due|this book is due|overdue|return(ed)? on or before)\b/i;
+  // A printed contents page without dot leaders: many lines ending in a page number.
+  const CONTENTS_LINE = /\p{L}[.,:;)'’]?\s+(?:\d{1,4}|[ivxlc]{1,6})$/u;
+  // Scanned (OCR) text: one face, and body lines whose sizes wander from line to line.
+  function noisySizes(rows, body) {
+    const lines = rows.filter(r => r.words >= 6 && Math.abs(r.size - body.size) <= body.size * 0.15);
+    return lines.length >= 20 && lines.filter(r => Math.abs(r.size - body.size) > body.size * 0.04).length > lines.length * 0.3;
+  }
   async function headingEntries(pages, { fontName = async () => '', title = '', author = '', live = () => true } = {}) {
     const docBody = bodyOf(pages.flatMap(p => p.rows));
     if (!docBody) return null;
     const isFurniture = furniture(pages);
     const same = s => bare(s);
+    // On a scan, a heading stands well above the body; a line set a little larger is noise.
+    const noisy = noisySizes(pages.flatMap(p => p.rows), docBody), step = noisy ? 1.35 : 1.15;
     const out = [];
+    let reading = false;
     for (const p of pages) {
       const local = bodyOf(p.rows), body = local && local.chars >= 300 ? local : docBody;
+      if (p.rows.filter(r => CONTENTS_LINE.test(r.text)).length >= 5 || BOILERPLATE_PAGE.test(p.rows.map(r => r.text).join(' '))) continue;
       const skip = epigraphRows(p.rows);
+      const isBody = r => Math.abs(r.size - body.size) <= body.size * 0.1 && r.words >= 6;
       // On page 1, what sits above the first body paragraph is the title block (title, authors, epigraph).
       const para = p.rows.findIndex(r => r.font === body.font && Math.abs(r.size - body.size) < 0.6 && r.words >= 6);
       const first = p.n > 1 ? 0 : para < 0 ? Infinity : para;
+      const found = [];
       let prev = null;
       for (const [i, r] of p.rows.entries()) {
         if (i < first) continue;
-        if (skip.has(i) || !headingLike(r) || isFurniture(p, r)) { prev = null; continue }
+        if (skip.has(i) || !headingLike(r) || isFurniture(p, r) || BOILERPLATE_HEADING.test(r.text)) { prev = null; continue }
         if (same(r.text) && (same(r.text) === same(title) || same(r.text) === same(author))) { prev = null; continue }
-        const larger = r.size >= body.size * 1.15;
+        // A line in the body's face running on into the body below (the next line of the same
+        // column starts in lower case, or this one ends in a hyphen) is a paragraph's first line.
+        const next = p.rows.slice(i + 1).find(n => n.y < r.y - 0.5 && n.x < r.x2 && n.x2 > r.x);
+        if (r.font === body.font && next && r.y - next.y < Math.max(r.size, next.size) * 1.8 && Math.abs(next.size - body.size) <= body.size * 0.1 && (/^\p{Ll}/u.test(next.text) || /-$/.test(r.text)) && !/[.!?:]$/.test(r.text)) { prev = null; continue }
+        // A misread stamp on a scan ("25 CENTS FINE OF AK imTXAL"): letters out of case inside a word.
+        if (noisy && /\p{Ll}\p{Lu}{2}/u.test(r.text)) { prev = null; continue }
+        // Larger than this page's body and the book's (a page of small-type notes does not make its body text a heading).
+        const larger = r.size >= Math.max(body.size, docBody.size) * step;
         const sameSize = Math.abs(r.size - body.size) <= body.size * 0.08;
         if (!larger && !(sameSize && r.font && r.font !== body.font)) { prev = null; continue }
         const face = r.font ? await fontName(p.n, r.font) : '';
@@ -218,15 +266,23 @@
         if (!larger && !isBold(face)) { prev = null; continue }
         // A heading that wraps onto a second line, in the same face.
         if (prev && prev.font === r.font && prev.y - r.y < r.size * 1.8 && prev.words + r.words <= 16) {
-          prev.entry.label = (prev.entry.label + ' ' + r.text).replace(/(?<=\p{L})-\s(?=\p{Ll})/gu, '');
+          prev.entry.label = (prev.entry.label + ' ' + r.text).replace(/(?<=\p{L})-\s(?=\p{Ll})/gu, '').replace(/(?<=\p{Lu})-\s(?=\p{Lu}+\b)/gu, m => /\p{Ll}/u.test(prev.entry.label + r.text) ? m : '');
           Object.assign(prev, { y: r.y, words: prev.words + r.words });
           continue;
         }
-        const entry = { id: 'h' + out.length, label: r.text, page: p.n, kind: 'chapter', parent: null };
-        out.push(entry);
+        const entry = { id: 'h' + (out.length + found.length), label: r.text, page: p.n, kind: 'chapter', parent: null };
+        found.push(entry);
         prev = { entry, font: r.font, y: r.y, words: r.words };
       }
+      // A title page (large lines and no running text: "A Study of Memory / for / … / by …") has no
+      // chapters: before the text begins, two such lines or more; after, three or more.
+      const text = p.rows.filter(isBody).length >= 3;
+      if (!text && found.length >= (reading ? 3 : 2)) continue;
+      reading ||= text;
+      out.push(...found);
     }
+    out.splice(0, out.length, ...out.filter(e => !BOILERPLATE_HEADING.test(e.label)));
+    out.forEach((e, i) => { e.id = 'h' + i });
     return out.length >= 2 && out.length <= Math.max(12, pages.length * 4) ? out : null;
   }
 
@@ -249,7 +305,10 @@
         } catch { /* an entry without a destination is left out */ }
       }
     };
-    await walk(outline, 0, null);
+    // One bookmark holding all the others (the book's own title over its acts or chapters):
+    // its children are the contents, not one entry to unfold.
+    const lone = outline.length === 1 && outline[0].items?.length ? outline[0].items : null;
+    await walk(lone || outline, 0, null);
     const entries = out.filter(e => e.page);
     return entries.length >= 2 ? entries : null;
   }
@@ -306,6 +365,33 @@
     return out.length >= 2 ? out : null;
   }
 
+  /* ---------- Language ---------- */
+  // The document's language ("en", "fr", "de", …): its declared language (the catalogue's /Lang),
+  // else the language whose common words its text uses most. Read aloud picks a voice by it and
+  // chapter titles are styled by it. '' when the text is too short to tell.
+  const COMMON_WORDS = {
+    en: 'the and of to in that is was he it with for as his on be at by had not but which',
+    fr: 'le la les et des du un une est que qui dans il ne pas pour au sur se plus elle',
+    de: 'der die und das nicht ist ich sie zu den mit sich des auf ein eine er es dem war',
+    es: 'el la los las y que de en un una por con no se del su para es al lo',
+    it: 'il di che la e per un una non in del si della con le gli sono è al',
+    nl: 'de het een en van dat niet is ik je op te zijn met voor er maar hij',
+    pt: 'o a os as que de do da em um uma não para com se por mais ao',
+    da: 'og at det er en til i den på som med han af for ikke var de',
+    sv: 'och att det är en som på av för med inte till han den var de jag',
+  };
+  const COMMON = Object.fromEntries(Object.entries(COMMON_WORDS).map(([k, v]) => [k, new Set(v.split(' '))]));
+  function languageOf(text, declared) {
+    const tag = String(declared || '').trim().toLowerCase().split(/[-_]/)[0];
+    if (/^[a-z]{2,3}$/.test(tag)) return tag;
+    const words = String(text || '').toLowerCase().match(/\p{L}+/gu) || [];
+    if (words.length < 40) return '';
+    const score = Object.fromEntries(Object.keys(COMMON).map(k => [k, 0]));
+    for (const w of words) for (const k in COMMON) if (COMMON[k].has(w)) score[k]++;
+    const [best, n] = Object.entries(score).sort((a, b) => b[1] - a[1])[0];
+    return n >= words.length * 0.08 ? best : '';
+  }
+
   /* ---------- The scan ---------- */
   // pdf: a pdf.js document. options.fileName names the file; options.items(n) may supply a
   // page's text items (the reader's cache); options.live() turns false to stop early;
@@ -353,13 +439,17 @@
     else if ((entries = await contentsEntries(pdf.numPages, async n => (await pageOf(n)).rows, text))) nav = 'contents';
     else if ((entries = await headingEntries(all, { fontName, title, author, live }))) nav = 'headings';
     if (!live()) return null;
+    let sample = '';
+    for (const p of all) { sample += ' ' + p.rows.map(r => r.text).join(' '); if (sample.length > 20000) break }
+    // Pages with running text (a scanner's notice page aside): none means a scan without a text layer.
+    const textPages = all.filter(p => { const t = p.rows.map(r => r.text).join(' '); return (t.match(/\p{L}/gu) || []).length >= 50 && !BOILERPLATE_PAGE.test(t) }).length;
     return {
-      v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [],
+      v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [], language: languageOf(sample, info.Language), textPages,
       source: { title: fromMeta ? 'metadata' : printed.title ? 'printed' : 'file', author: metaAuthor(info.Author) ? 'metadata' : printed.author ? 'printed' : 'none' },
     };
   }
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { SCAN_VERSION, scan, current, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, contentsEntries, printedTitle, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { SCAN_VERSION, scan, current, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -194,6 +194,10 @@ describe('/api/user-books', () => {
     await reject(new Uint8Array(), 'empty')
     await reject(new Uint8Array(zip([['hello.txt', 'just a zip']])), 'plain zip')
     await reject(new Uint8Array(zip([['mimetype', 'application/zip'], ['a.txt', 'x']])), 'zip with another mimetype')
+    // A PDF cut short (a broken download, a truncated copy) has no end-of-file marker.
+    const whole = pdfBytes('cut short')
+    await reject(whole.subarray(0, whole.length - 8), 'truncated pdf')
+    await reject(new TextEncoder().encode('%PDF-1.4'), 'pdf header only')
     expect(r2.objects.size).toBe(0)
 
     expect(sniffBookType(pdfBytes())).toBe('pdf')

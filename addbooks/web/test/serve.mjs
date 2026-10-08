@@ -33,7 +33,8 @@ const BOOK_BYTES = 50 * 1024 * 1024;
 export const books = { users: {}, log: [] };
 const sendJson = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) };
 function sniff(buf) {
-  if (buf.subarray(0, 5).toString('latin1') === '%PDF-') return 'pdf';
+  // As the Worker (sniffBookType): a PDF starts with %PDF- and ends with its %%EOF marker.
+  if (buf.subarray(0, 5).toString('latin1') === '%PDF-') return buf.subarray(Math.max(0, buf.length - 4096)).toString('latin1').includes('%%EOF') ? 'pdf' : null;
   if (buf.length > 38 && buf.readUInt32LE(0) === 0x04034b50 && buf.subarray(30, 38).toString('latin1') === 'mimetype') {
     const at = 30 + buf.readUInt16LE(26) + buf.readUInt16LE(28);
     if (buf.subarray(at, at + 20).toString('latin1') === 'application/epub+zip') return 'epub';

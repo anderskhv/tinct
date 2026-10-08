@@ -87,7 +87,7 @@ export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
 // Body text: wrapped lines of public-domain prose (Hume, An Enquiry Concerning Human
 // Understanding, 1748), set from the top of the text block down.
 const PROSE = 'All the objects of human reason or enquiry may naturally be divided into two kinds, to wit, Relations of Ideas, and Matters of Fact. Of the first kind are the sciences of Geometry, Algebra, and Arithmetic; and in short, every affirmation which is either intuitively or demonstratively certain. That the square of the hypothenuse is equal to the square of the two sides, is a proposition which expresses a relation between these figures. Propositions of this kind are discoverable by the mere operation of thought, without dependence on what is anywhere existent in the universe. Matters of fact, which are the second objects of human reason, are not ascertained in the same manner; nor is our evidence of their truth, however great, of a like nature with the foregoing.';
-function prose(top, count, { x = 72, size = 11, font = 'Times-Roman', width = 84, from = 0 } = {}) {
+export function prose(top, count, { x = 72, size = 11, font = 'Times-Roman', width = 84, from = 0 } = {}) {
   const words = PROSE.split(' ');
   const lines = [];
   let i = from % words.length, y = top;
