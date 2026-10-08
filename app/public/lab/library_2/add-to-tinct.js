@@ -6,7 +6,7 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel5';
+import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel6';
 import {normalize,includedWork} from '../addbook/js/search.js?v=20261008rel6';
 import {addToTinctEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
 
