@@ -44,7 +44,7 @@
     "SOCIAL_READING_TIME": "1",
     // Profiles (social ship 2, src/worker/routes/profiles.ts). "1" turns them on, only after
     // supabase/migrations/20261008_profiles.sql has run. Off: no profile route, page or marker exists.
-    "SOCIAL_PROFILES": "1",
+    "SOCIAL_PROFILES": "0",
     // Uploaded profile photos and backgrounds (POST /api/profile/image). Not at launch (Anders,
     // 8 Oct 2026): pictures are a library set or cover detail, the initial or the Google photo.
     // Anything but "1" refuses uploads with a 404; the editor offers none.
@@ -53,7 +53,7 @@
     // tinct.app/@handle pages, Find, reports, the reading card and /admin/social. "1" turns it on
     // only together with SOCIAL_PROFILES "1", and only after supabase/migrations/20261008_social.sql
     // has run. Off: no route, page, marker or event exists.
-    "SOCIAL_FRIENDS": "1",
+    "SOCIAL_FRIENDS": "0",
     // Lifecycle emails (src/worker/lifecycle, docs/lifecycle-emails/README.md). "1" turns the
     // engine on (welcome, keep-reading, next-book; replaces the 09:00 trial-day emails); only the
     // tinct{n}@fastmail.com test aliases receive anything while isLifecycleTestRecipient gates.
