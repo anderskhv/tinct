@@ -1,7 +1,8 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { normalizeChapterTitle, romanValue } from '../../public/lab/chapter-title.js'
+import { normalizeChapterTitle, normalizeTitleList, romanValue } from '../../public/lab/chapter-title.js'
+import { dropPrintedContents } from '../../public/lab/printed-contents.js'
 import { houseStyleSections, houseStyleSource } from './labChapterTitles'
 import type { LabSource } from './labSource'
 
@@ -175,4 +176,131 @@ describe('houseStyleSource', () => {
     expect(shown.sections).toEqual([{ title: 'Volume 1 — Fantine', sections: [{ title: 'Book 1 — A Just Man', chapters: [2] }] }])
     expect(houseStyleSections(undefined)).toBeUndefined()
   })
+
+  it('names the chapter on screen as the Contents does when the book’s titles are read together', () => {
+    const chapters = senecaChapters().map(chapter => ({ number: chapter.number, title: chapter.title }))
+    const sixth = chapters.find(chapter => chapter.title.startsWith('THE SIXTH BOOK'))!
+    const source = {
+      bookTitle: 'Minor Dialogues', bookAuthor: 'Seneca', editionLabel: 'Original',
+      chapterLabel: sixth.title, chapterTitle: sixth.title, chapterNumber: sixth.number, headerBook: 'Minor Dialogues', headerChapter: sixth.title,
+      paragraphs: ['I. Did I not know, Marcia, …'], compareParagraphs: [], followParagraphs: [], cast: [], chapters,
+    } satisfies LabSource
+    const shown = houseStyleSource(source, 'en')
+    expect(shown).toMatchObject({ chapterLabel: 'Of Consolation, to Marcia', chapterTitle: 'Of Consolation, to Marcia', headerChapter: 'Of Consolation, to Marcia', chapterNumber: sixth.number })
+    expect(shown.chapters.find(chapter => chapter.number === sixth.number)?.title).toBe('Of Consolation, to Marcia')
+  })
+})
+
+// Real Project Gutenberg books as the converter reads them (src/__fixtures__/gutenberg-contents-titles.json).
+interface FixtureChapter { number: number; title: string; paragraphs: string[] }
+const fixture = JSON.parse(readFileSync(join(process.cwd(), 'src/__fixtures__/gutenberg-contents-titles.json'), 'utf8')) as { books: Record<string, { chapters: FixtureChapter[] }> }
+const fixtureTitles = (name: string) => dropPrintedContents(fixture.books[name].chapters).map(chapter => chapter.title)
+function senecaChapters() { return dropPrintedContents(fixture.books['seneca-minor-dialogues'].chapters) }
+const list = (titles: string[], language = 'en') => normalizeTitleList(titles, { language })
+
+describe('a book’s titles read together', () => {
+  it('sets Seneca’s Minor Dialogues (Gutenberg 64576) as its own contents names them', () => {
+    expect(list(fixtureTitles('seneca-minor-dialogues'))).toEqual([
+      'Minor Dialogues Together With the Dialogue on Clemency',
+      'Preface',
+      'Of Providence',
+      'On the Firmness of the Wise Man',
+      'Of Anger, Book 1',
+      'Of Anger, Book 2',
+      'Of Anger, Book 3',
+      'Of Consolation, to Marcia',
+      'Of a Happy Life',
+      'Of Leisure',
+      'Of Peace of Mind',
+      'Of the Shortness of Life',
+      'Of Consolation, to Helvia',
+      'Of Consolation, to Polybius',
+      'On Clemency, Book 1',
+      'On Clemency, Book 2',
+      'Index',
+    ])
+  })
+
+  it('heals a copy already added with the titles one at a time', () => {
+    // As the Worker published them before titles were read together.
+    expect(list([
+      'Preface',
+      'The First Book of the Dialogues of L. Annaeus Seneca, Addressed to Lucilius. “Why, When a Providence Exists, Any Misfortunes Befall Good Men;” or, “of Providence”',
+      'The Second Book of the Dialogues of L. Annaeus Seneca, Addressed to Serenus. “That the Wise Man Can Neither Receive Injury nor Insult,” or, an Essay on the Firmness of the Wise Man',
+      'THE THIRD BOOK OF THE DIALOGUES OF L. ANNAEUS SENECA, ADDRESSED TO NOVATUS. OF ANGER. Book 1.',
+      'The Sixth Book of the Dialogues of L. Annaeus Seneca, Addressed to Marcia. of Consolation',
+      'The Tenth Book of the Dialogues of L. Annaeus Seneca, Addressed to Paulinus.[1] of the Shortness of Life',
+      'The Eleventh Book of the Dialogues of L. Annaeus Seneca, Addressed to His Mother, Helvia. of Consolation',
+    ])).toEqual(['Preface', 'Of Providence', 'On the Firmness of the Wise Man', 'Of Anger, Book 1', 'Of Consolation, to Marcia', 'Of the Shortness of Life', 'Of Consolation, to Helvia'])
+  })
+
+  it('cases ALL CAPS one title at a time: runs inside mixed case, a new sentence, a quoted title', () => {
+    expect(n('THE THIRD BOOK OF THE DIALOGUES OF L. ANNAEUS SENECA, ADDRESSED TO NOVATUS. OF ANGER. Book I.'))
+      .toBe('The Third Book of the Dialogues of L. Annaeus Seneca, Addressed to Novatus. Of Anger. Book 1.')
+    expect(n('THE SIXTH BOOK OF THE DIALOGUES OF L. ANNAEUS SENECA, ADDRESSED TO MARCIA. OF CONSOLATION.'))
+      .toBe('The Sixth Book of the Dialogues of L. Annaeus Seneca, Addressed to Marcia. Of Consolation')
+    expect(n('“WHY, WHEN A PROVIDENCE EXISTS, ANY MISFORTUNES BEFALL GOOD MEN;” OR, “OF PROVIDENCE”')).toBe('“Why, When a Providence Exists, Any Misfortunes Befall Good Men;” or, “Of Providence”')
+    // Montaigne (Gutenberg 3600): a run of capitals is cased, a single capitalised name stays.
+    expect(n('XIV.——To the KING, HENRY IV.')).toBe('14.——To the King, Henry IV.')
+    expect(n('VIII.——To Monsieur DUPUY,')).toBe('8.——To Monsieur DUPUY')
+    expect(n('of Providence')).toBe('Of Providence')
+    expect(n('eBook notes')).toBe('eBook notes')
+  })
+
+  it('drops the printed page’s marks: footnote calls and page numbers run into a heading (Cicero, Gutenberg 14988)', () => {
+    expect(list(fixtureTitles('cicero-tusculan-disputations')).slice(0, 4)).toEqual(['Cicero’s Tusculan Disputations', 'Note', 'Introduction', 'On the Contempt of Death'])
+    expect(n('359INTRODUCTION TO THE FIRST BOOK,')).toBe('Introduction to the First Book')
+    expect(n('3Note')).toBe('Note')
+    expect(n('Section 6: OF PROBABILITY[9].')).toBe('Section 6: Of Probability.')
+    expect(n('1 Kings 3')).toBe('1 Kings 3')
+    expect(n('1984')).toBe('1984')
+  })
+
+  it('prefers the short alternative of a quoted title', () => {
+    expect(list(['“That the Wise Man Can Neither Receive Injury nor Insult,” or, an Essay on the Firmness of the Wise Man'])).toEqual(['On the Firmness of the Wise Man'])
+    expect(list(['Twelfth Night; or, What You Will'])).toEqual(['Twelfth Night; or, What You Will'])
+  })
+
+  it('leaves clean titles alone: Dickens, Montaigne’s chapters, Cicero, the Bible, Shakespeare, Hume', () => {
+    const oliver = fixtureTitles('oliver-twist')
+    expect(list(oliver)).toEqual(oliver.map(title => n(title)))
+    expect(list(oliver)[0]).toBe('Chapter 1 — Treats of the Place Where Oliver Twist Was Born and of the Circumstances Attending His Birth')
+    expect(list(fixtureTitles('tale-of-two-cities')).slice(0, 2)).toEqual(['Chapter 1. The Period', 'Chapter 2. The Mail'])
+    expect(list(fixtureTitles('montaigne-essays')).slice(-2)).toEqual(['Chapter 4 — That the Soul Expends Its Passions Upon False Objects, Where the True Are Wanting', 'Chapter 5 — Whether the Governor of a Place Besieged Ought Himself to Go Out to Parley'])
+    expect(list(fixtureTitles('cicero-friendship-old-age'))).toEqual(['Introductory Note', 'On Friendship', 'On Old Age'])
+    const plays = ['Act 1, Scene 1 — Rome. A street', 'Act 1, Scene 2 — Rome. A public place', 'Act 2, Scene 1 — Rome. A street', 'Act 2, Scene 2 — Rome. The Capitol']
+    expect(list(plays)).toEqual(plays)
+    const hume = ['Section 4: Sceptical Doubts Concerning the Operations of the Understanding. — Part 1', 'Section 4: Sceptical Doubts Concerning the Operations of the Understanding. — Part 2', 'Section 5: Sceptical Solution of These Doubts. — Part 1']
+    expect(list(hume)).toEqual(hume)
+  })
+
+  it('never leaves a title empty, and is stable', () => {
+    const titles = fixtureTitles('seneca-minor-dialogues')
+    const once = list(titles)
+    expect(once.every(title => title.trim().length > 0)).toBe(true)
+    expect(list(once)).toEqual(once)
+    // Parts that cannot be told apart keep their full titles.
+    const alike = [
+      'The First Book of the Dialogues of L. Annaeus Seneca, Addressed to Serenus. Of Leisure',
+      'The First Book of the Dialogues of L. Annaeus Seneca, Addressed to Serenus. Of Leisure',
+      'The Third Book of the Dialogues of L. Annaeus Seneca, Addressed to Novatus. Of Anger',
+    ]
+    expect(list(alike)).toEqual([alike[0], alike[1], 'Of Anger'])
+    expect(list(['', 'Preface'])).toEqual(['', 'Preface'])
+  })
+
+  it('changes no built-in edition’s titles when they are read together', () => {
+    const dir = join(process.cwd(), 'public/data/editions')
+    let checked = 0
+    for (const file of readdirSync(dir).filter(name => /-(original|modern)-[a-z]{2}\.json$/.test(name))) {
+      let data: { chapters?: Array<{ title?: string }> }
+      try { data = JSON.parse(readFileSync(join(dir, file), 'utf8')) } catch { continue }
+      if (!Array.isArray(data.chapters)) continue
+      const language = file.match(/-([a-z]{2})\.json$/)![1]
+      const titles = data.chapters.map(chapter => chapter.title).filter((title): title is string => typeof title === 'string')
+      checked += titles.length
+      expect(list(titles, language), file).toEqual(titles.map(title => n(title, language)))
+    }
+    expect(checked).toBeGreaterThan(10000)
+  }, 60_000)
 })

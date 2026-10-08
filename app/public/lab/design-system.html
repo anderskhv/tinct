@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en" data-tui-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,noarchive">
+<title>Tinct Design System</title>
+<link rel="stylesheet" href="/fonts/tinct-fonts.css">
+<link rel="stylesheet" href="/lab/tinct-ui.css?v=20261008rel6">
+<style>
+  /* Page layout only. Everything that looks like Tinct comes from tinct-ui.css. */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--tui-paper); color: var(--tui-ink); }
+  body { font: 400 var(--tui-text-ui)/1.5 var(--tui-font-ui); -webkit-font-smoothing: antialiased; }
+  .ds-top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    padding: 12px var(--tui-gutter); background: color-mix(in srgb, var(--tui-paper) 92%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--tui-line); }
+  .ds-logo { font: 400 28px/1 var(--tui-font-serif); letter-spacing: -1.2px; }
+  .ds-logo small { margin-left: 10px; font: 500 var(--tui-text-2xs)/1 var(--tui-font-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--tui-ink-faint); }
+  main { max-width: 1120px; margin: 0 auto; padding: 32px var(--tui-gutter) 96px; }
+  section { padding: 40px 0; border-top: 1px solid var(--tui-line); }
+  section:first-of-type { border-top: 0; padding-top: 8px; }
+  section > .tui-eyebrow { margin-bottom: 6px; }
+  section > h2 { margin: 0 0 8px; font: 600 30px/1.15 var(--tui-font-display); }
+  section > p.ds-intro { max-width: 680px; margin: 0 0 24px; color: var(--tui-ink-muted); }
+  .ds-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .ds-themes { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .ds-theme { padding: 16px; border-radius: var(--tui-radius-lg); border: 1px solid var(--tui-line); background: var(--tui-paper); color: var(--tui-ink); }
+  .ds-theme h3 { margin: 0 0 2px; font: 600 17px/1.3 var(--tui-font-display); }
+  .ds-theme p { margin: 0 0 12px; font-size: 12.5px; color: var(--tui-ink-muted); }
+  .ds-sw { display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 10px; padding: 5px 0; font-size: 12.5px; }
+  .ds-sw i { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--tui-line); }
+  .ds-sw code, .ds-code { font: 400 12px/1.4 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink-muted); }
+  .ds-demo { padding: 22px; border: 1px solid var(--tui-line); border-radius: var(--tui-radius-lg); background: var(--tui-paper); }
+  .ds-demo + .ds-demo { margin-top: 16px; }
+  .ds-demo > .tui-eyebrow { margin-bottom: 14px; }
+  .ds-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .ds-note { margin: 12px 0 0; font-size: 12.5px; color: var(--tui-ink-muted); }
+  .ds-type td { padding: 10px 12px 10px 0; vertical-align: baseline; border-bottom: 1px solid var(--tui-line); }
+  .ds-type { width: 100%; border-collapse: collapse; }
+  .ds-type td:first-child { width: 150px; }
+  .ds-scale { display: flex; flex-direction: column; gap: 6px; }
+  .ds-space { display: flex; align-items: center; gap: 12px; font-size: 12.5px; }
+  .ds-space b { display: block; height: 12px; background: var(--tui-accent); border-radius: 2px; }
+  .ds-radius { width: 84px; height: 56px; border: 1px solid var(--tui-line-strong); background: var(--tui-surface); }
+  .ds-shadow { height: 72px; border-radius: var(--tui-radius-md); background: var(--tui-surface); display: grid; place-items: center; font-size: 12.5px; color: var(--tui-ink-muted); }
+  .ds-stage { position: relative; min-height: 360px; overflow: hidden; border-radius: var(--tui-radius-lg); border: 1px solid var(--tui-line); background: var(--tui-paper); }
+  .ds-stage .tui-scrim, .ds-stage .tui-sheet { position: absolute; animation: none; }
+  .ds-stage .tui-dialog { animation: none; }
+  .ds-stage--phone { max-width: 390px; min-height: 520px; margin: 0 auto; }
+  .ds-stage--phone .tui-sheet { top: auto; right: 0; left: 0; bottom: 0; width: auto; border-radius: var(--tui-radius-sheet) var(--tui-radius-sheet) 0 0; }
+  .ds-stage--phone .tui-sheet .tui-sheet__grabber { display: block; }
+  .ds-split { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .ds-rules { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .ds-rules .tui-card { padding: 20px; }
+  .ds-rules h3 { margin: 0; font: 600 17px/1.3 var(--tui-font-display); }
+  .ds-rules p, .ds-rules li { margin: 0; color: var(--tui-ink-muted); font-size: 14px; }
+  .ds-rules ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+  .ds-drift { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tui-line); counter-reset: d; }
+  .ds-drift li { display: grid; grid-template-columns: 28px 1fr; gap: 4px 12px; padding: 14px 0; border-bottom: 1px solid var(--tui-line); counter-increment: d; }
+  .ds-drift li::before { content: counter(d, decimal-leading-zero); font: 400 12px/1.75 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink-faint); }
+  .ds-drift strong { display: block; font: 400 var(--tui-text-body)/1.35 var(--tui-font-serif); }
+  .ds-drift span { grid-column: 2; color: var(--tui-ink-muted); }
+  .ds-mono { margin: 0; padding-left: 18px; display: grid; gap: 6px; font: 400 var(--tui-text-sm)/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
+  .ds-mono code { font: 400 12px/1.5 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink); overflow-wrap: anywhere; }
+  .ds-drift code { font: 400 12px/1.4 var(--tui-font-ui); font-variant-numeric: tabular-nums; color: var(--tui-ink); overflow-wrap: anywhere; }
+  .ds-status { display: inline-block; margin-left: 6px; }
+  @media (max-width: 699px) {
+    main { padding-top: 20px; }
+    section > h2 { font-size: 25px; }
+    .ds-type td:first-child { width: 96px; }
+    .ds-demo { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<header class="ds-top">
+  <div class="ds-logo">tinct<small>Design system v1</small></div>
+  <div class="tui-chips" role="group" aria-label="Theme">
+    <button class="tui-chip" type="button" data-theme="light" aria-pressed="true">Light</button>
+    <button class="tui-chip" type="button" data-theme="book" aria-pressed="false">Book</button>
+    <button class="tui-chip" type="button" data-theme="dark" aria-pressed="false">Dark</button>
+    <button class="tui-chip" type="button" data-theme="eink" aria-pressed="false">E-ink</button>
+  </div>
+</header>
+
+<main>
+<section id="intro">
+  <p class="tui-eyebrow">/lab/tinct-ui.css · v=20261008rel6</p>
+  <h1 class="tui-page-title">One Tinct, every screen</h1>
+  <p class="tui-lede" style="max-width:680px;margin-top:14px">These tokens and components are lifted from what production already does best: the library's dark room and its pills, the reader's papers and v2 sheets. A new screen links this file and uses <code class="ds-code">tui-</code> classes instead of writing its own buttons, dialogs or colours.</p>
+  <p class="ds-note">Link: <code class="ds-code">&lt;link rel="stylesheet" href="/lab/tinct-ui.css?v=20261008rel6"&gt;</code>. Theme: <code class="ds-code">data-tui-theme="light|book|dark|eink"</code> on <code class="ds-code">&lt;html&gt;</code> or on any element. Rules for agents: <code class="ds-code">docs/design-system.md</code>.</p>
+</section>
+
+<section id="colour">
+  <p class="tui-eyebrow">Tokens</p>
+  <h2>Colour</h2>
+  <p class="ds-intro">Four themes, the same token names. Dark is the library's green-black room; light and book are the reader's papers; e-ink is pure black on white with no shadows or motion. The deep teal accent is for links, switches and focus on paper, never for a large fill.</p>
+  <div class="ds-themes" id="swatches"></div>
+</section>
+
+<section id="type">
+  <p class="tui-eyebrow">Tokens</p>
+  <h2>Type</h2>
+  <p class="ds-intro">Three families, one job each, and never mono. A screen shows at most two: book text in EB Garamond and everything else in the system UI face. Playfair Display only titles a page, dialog or sheet, and only where that screen does not already show two families.</p>
+  <table class="ds-type">
+    <tr><td class="tui-eyebrow">Display</td><td><span style="font:600 28px/1.2 var(--tui-font-display)">Your own book</span><br><span class="ds-code">--tui-font-display · Playfair Display · page, dialog and sheet titles only</span></td></tr>
+    <tr><td class="tui-eyebrow">Serif</td><td><span style="font:400 21px/1.35 var(--tui-font-serif)">The Odyssey, Homer. Sing to me of the man, Muse.</span><br><span class="ds-code">--tui-font-serif · EB Garamond · book text, book titles, dialog body, list titles</span></td></tr>
+    <tr><td class="tui-eyebrow">UI</td><td><span style="font:600 15px/1.4 var(--tui-font-ui)">Choose a PDF or EPUB · Cancel · Search</span><br><span class="ds-code">--tui-font-ui · system UI · buttons, chips, inputs, meta lines, section heads</span></td></tr>
+    <tr><td class="tui-eyebrow">Figures</td><td><span class="tui-figure" style="font-size:15px;color:var(--tui-ink)">Ch. 4 · 37% · 1.25× · 12 min</span><br><span class="ds-code">.tui-figure · system UI with tabular-nums · page, percent, speed, time. No mono.</span></td></tr>
+  </table>
+  <div class="ds-demo" style="margin-top:20px">
+    <p class="tui-eyebrow">Scale</p>
+    <div class="ds-scale" id="scale"></div>
+  </div>
+</section>
+
+<section id="space">
+  <p class="tui-eyebrow">Tokens</p>
+  <h2>Spacing, radii, shadows, motion</h2>
+  <div class="ds-split">
+    <div class="ds-demo"><p class="tui-eyebrow">Spacing · 4px base</p><div class="ds-scale" id="spacing"></div></div>
+    <div class="ds-demo"><p class="tui-eyebrow">Radii</p>
+      <div class="ds-row" id="radii"></div>
+      <p class="ds-note">Every button and chip is a pill. Dialogs and cards 18px. Phone sheets 20px on the top corners. Covers keep their own 2-3px.</p>
+    </div>
+  </div>
+  <div class="ds-split" style="margin-top:16px">
+    <div class="ds-demo"><p class="tui-eyebrow">Shadows</p>
+      <div class="ds-grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="ds-shadow" style="box-shadow:var(--tui-shadow-sm)">sm</div>
+        <div class="ds-shadow" style="box-shadow:var(--tui-shadow-pop)">pop</div>
+        <div class="ds-shadow" style="box-shadow:var(--tui-shadow-dialog)">dialog</div>
+        <div class="ds-shadow" style="box-shadow:var(--tui-shadow-sheet)">sheet</div>
+      </div>
+    </div>
+    <div class="ds-demo"><p class="tui-eyebrow">Motion</p>
+      <table class="ds-type">
+        <tr><td class="ds-code">--tui-dur-fast</td><td>160ms · colour, hover, press</td></tr>
+        <tr><td class="ds-code">--tui-dur</td><td>240ms · dialogs and panels in</td></tr>
+        <tr><td class="ds-code">--tui-dur-slow</td><td>340ms · sheets</td></tr>
+        <tr><td class="ds-code">--tui-ease</td><td>cubic-bezier(.2, .8, .2, 1)</td></tr>
+      </table>
+      <p class="ds-note">Reduced motion and e-ink set every duration to 0.</p>
+    </div>
+  </div>
+</section>
+
+<section id="buttons">
+  <p class="tui-eyebrow">Components</p>
+  <h2>Buttons</h2>
+  <p class="ds-intro">One primary per surface: the action that surface exists for. Secondary is the alternative beside it. Quiet is toolbar navigation. All are pills, 44px tall (small ones keep a 44px tap area).</p>
+  <div class="ds-demo">
+    <p class="tui-eyebrow">Primary · secondary · quiet</p>
+    <div class="ds-row">
+      <button class="tui-btn tui-btn--primary" type="button">Choose a PDF or EPUB</button>
+      <button class="tui-btn tui-btn--secondary" type="button">Cancel</button>
+      <button class="tui-btn tui-btn--quiet" type="button">Back</button>
+      <button class="tui-btn tui-btn--primary" type="button" disabled>Continue</button>
+      <button class="tui-btn tui-btn--primary is-busy" type="button"><span class="tui-spinner" aria-hidden="true"></span>Adding</button>
+    </div>
+    <p class="tui-eyebrow" style="margin-top:20px">Sizes</p>
+    <div class="ds-row">
+      <button class="tui-btn tui-btn--primary tui-btn--lg" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor" stroke="none"/></svg>Read</button>
+      <button class="tui-btn tui-btn--secondary" type="button">Add to Tinct</button>
+      <button class="tui-btn tui-btn--secondary tui-btn--sm" type="button">Add</button>
+    </div>
+    <p class="tui-eyebrow" style="margin-top:20px">Icon button · close X</p>
+    <div class="ds-row">
+      <button class="tui-icon-btn" type="button" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+      <button class="tui-icon-btn" type="button" aria-label="Add a book"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+      <button class="tui-icon-btn" type="button" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="tui-close" type="button" aria-label="Close"><svg viewBox="0 0 14 14"><path d="m3 3 8 8M11 3l-8 8"/></svg></button>
+      <button class="tui-link" type="button">Text link</button>
+    </div>
+  </div>
+</section>
+
+<section id="pills">
+  <p class="tui-eyebrow">Components</p>
+  <h2>Chips, pills, tags</h2>
+  <p class="ds-intro">A chip is a control (it toggles). A pill states a fact. A tag is an uppercase category above a title. Do not mix the three.</p>
+  <div class="ds-demo">
+    <p class="tui-eyebrow">Filter chips</p>
+    <div class="tui-chips">
+      <button class="tui-chip" type="button" aria-pressed="true">All</button>
+      <button class="tui-chip" type="button" aria-pressed="false">Fiction</button>
+      <button class="tui-chip" type="button" aria-pressed="false">Philosophy</button>
+      <button class="tui-chip" type="button" aria-pressed="false">Under 3 hours</button>
+      <select class="tui-chip" aria-label="Sort"><option>Most read</option><option>A to Z</option></select>
+    </div>
+    <p class="tui-eyebrow" style="margin-top:20px">Source pills · tags</p>
+    <div class="ds-row">
+      <span class="tui-pill">Project Gutenberg</span>
+      <span class="tui-pill">6 h 40 min</span>
+      <span class="tui-pill">Primer</span>
+      <span class="tui-tag">Fiction</span>
+      <span class="tui-tag">Private</span>
+    </div>
+  </div>
+</section>
+
+<section id="inputs">
+  <p class="tui-eyebrow">Components</p>
+  <h2>Search and text input</h2>
+  <div class="ds-split">
+    <div class="ds-demo">
+      <p class="tui-eyebrow">Search bar (library)</p>
+      <label class="tui-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+        <input type="search" placeholder="Title, author, or a feeling" aria-label="Search books">
+        <button class="tui-btn tui-btn--quiet" type="button">Cancel</button>
+      </label>
+    </div>
+    <div class="ds-demo">
+      <p class="tui-eyebrow">Text input</p>
+      <input class="tui-input" type="text" placeholder="Name this shelf" aria-label="Shelf name">
+      <p class="ds-note">UI face, 12px radius, focus turns the border to the focus colour.</p>
+    </div>
+  </div>
+</section>
+
+<section id="rows">
+  <p class="tui-eyebrow">Components</p>
+  <h2>List row and card</h2>
+  <div class="ds-split">
+    <div class="ds-demo">
+      <p class="tui-eyebrow">List row</p>
+      <ul class="tui-list">
+        <li class="tui-row">
+          <span class="tui-row__text"><span class="tui-row__title">Middlemarch <span class="tui-row__author">· George Eliot</span></span><span class="tui-row__meta">Novel · 1871 · 31 h</span></span>
+          <span class="tui-row__trail"><button class="tui-btn tui-btn--secondary tui-btn--sm" type="button">Add</button></span>
+        </li>
+        <li class="tui-row tui-row--link" tabindex="0">
+          <span class="tui-row__text"><span class="tui-row__title">Meditations <span class="tui-row__author">· Marcus Aurelius</span></span><span class="tui-row__meta">Philosophy · In Tinct</span></span>
+          <span class="tui-row__trail tui-figure">42%</span>
+        </li>
+        <li class="tui-row">
+          <span class="tui-row__text"><span class="tui-row__title">Lecture notes, week 3</span><span class="tui-row__meta"><span class="tui-tag">Private</span> · PDF · 38 pages</span></span>
+          <span class="tui-row__trail"><button class="tui-icon-btn" type="button" aria-label="More"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="18" cy="12" r="1" fill="currentColor"/></svg></button></span>
+        </li>
+      </ul>
+    </div>
+    <div class="tui-card">
+      <span class="tui-tag">Your own book</span>
+      <h3 class="tui-card__title">A PDF or EPUB</h3>
+      <p class="tui-card__body">A textbook, lecture notes, a DRM-free ebook. It stays private to your account.</p>
+      <div class="tui-card__actions"><button class="tui-btn tui-btn--primary" type="button">Choose a file</button><button class="tui-btn tui-btn--secondary" type="button">Not now</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="headings">
+  <p class="tui-eyebrow">Components</p>
+  <h2>Section heading and eyebrow</h2>
+  <div class="ds-demo">
+    <p class="tui-eyebrow">Shelf</p>
+    <h3 class="tui-section-title">Currently reading</h3>
+    <p class="tui-fine" style="margin-top:4px">Shelf heads are the UI face at 21px, semibold. Eyebrows sit above, 11px, tracked capitals.</p>
+    <hr style="border:0;border-top:1px solid var(--tui-line);margin:18px 0">
+    <h3 class="tui-book-title">The Odyssey</h3>
+    <p class="tui-fine">Homer · <span class="tui-figure">Book 9 · 61%</span></p>
+  </div>
+</section>
+
+<section id="dialog">
+  <p class="tui-eyebrow">Components</p>
+  <h2>Dialog</h2>
+  <p class="ds-intro">A short decision over a page: Display title, serif body, UI fine print, then actions on the right (secondary before primary). Centred on desktop; on a phone it rises to the bottom edge. Escape and the scrim close it. If there is no Cancel, put a close X in the head.</p>
+  <div class="ds-split">
+    <div class="ds-stage">
+      <div class="tui-scrim">
+        <div class="tui-dialog" role="dialog" aria-modal="false" aria-labelledby="ds-d1">
+          <div class="tui-dialog__head"><h3 class="tui-dialog__title" id="ds-d1">Your own book</h3></div>
+          <p class="tui-dialog__body">Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.</p>
+          <p class="tui-dialog__fine">Kept privately in your account, never shared. DRM-protected files can’t be opened.</p>
+          <div class="tui-dialog__actions"><button class="tui-btn tui-btn--secondary" type="button">Cancel</button><button class="tui-btn tui-btn--primary" type="button">Choose a PDF or EPUB</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-stage">
+      <div class="tui-scrim">
+        <div class="tui-dialog" role="dialog" aria-modal="false" aria-labelledby="ds-d2">
+          <div class="tui-dialog__head"><h3 class="tui-dialog__title" id="ds-d2">Before it opens</h3><button class="tui-close" type="button" aria-label="Close"><svg viewBox="0 0 14 14"><path d="m3 3 8 8M11 3l-8 8"/></svg></button></div>
+          <p class="tui-dialog__body">Tinct keeps a private copy of <strong>notes.pdf</strong> in your account.</p>
+          <label class="tui-check"><input type="checkbox" checked> <span>I have the right to add this file and to read and listen to it in Tinct.</span></label>
+          <div class="tui-dialog__actions"><button class="tui-btn tui-btn--secondary" type="button">Cancel</button><button class="tui-btn tui-btn--primary" type="button">Continue</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sheet">
+  <p class="tui-eyebrow">Components</p>
+  <h2>Phone bottom sheet</h2>
+  <p class="ds-intro">The reader's v2 sheet: full width, 20px top corners, a grabber, a Display title with the close X. From 700px wide it floats top-right as a 400px panel (add <code class="ds-code">tui-sheet--phone</code> to keep the phone form).</p>
+  <div class="ds-stage ds-stage--phone">
+    <div class="tui-sheet tui-sheet--phone" role="dialog" aria-labelledby="ds-s1">
+      <div class="tui-sheet__grabber"></div>
+      <div class="tui-sheet__head"><h3 class="tui-sheet__title" id="ds-s1">Reading</h3><button class="tui-close" type="button" aria-label="Close"><svg viewBox="0 0 14 14"><path d="m3 3 8 8M11 3l-8 8"/></svg></button></div>
+      <div class="tui-sheet__body">
+        <div class="tui-sheet__row"><span>Text size</span><span class="tui-figure">110%</span></div>
+        <div class="tui-sheet__row"><span>Narration speed</span><span class="tui-figure">1.25×</span></div>
+        <div class="tui-sheet__row"><span>Edition</span><span class="tui-pill">Modern English</span></div>
+        <div style="padding-top:14px" class="tui-chips"><button class="tui-chip" type="button" aria-pressed="true">Light</button><button class="tui-chip" type="button" aria-pressed="false">Book</button><button class="tui-chip" type="button" aria-pressed="false">Night</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rules">
+  <p class="tui-eyebrow">Usage</p>
+  <h2>Rules</h2>
+  <div class="ds-rules">
+    <div class="tui-card"><h3>Fonts per role</h3><ul>
+      <li>Playfair Display: page, dialog and sheet titles. Nothing else.</li>
+      <li>EB Garamond: book text, book titles, list titles, dialog body.</li>
+      <li>System UI: every button, chip, input, meta line and shelf head.</li>
+      <li>Figures (page, percent, speed, time): the role's own font with <code class="ds-code">tabular-nums</code>.</li>
+      <li>Never mono, anywhere.</li>
+      <li>At most two families on one screen.</li></ul></div>
+    <div class="tui-card"><h3>Buttons</h3><ul>
+      <li>All buttons are pills; no square or 5px corners.</li>
+      <li>One primary per surface; Cancel is secondary, to its left.</li>
+      <li>Sentence case, no tracking, never mono, never capitals.</li>
+      <li>44px tall or a 44px tap area.</li></ul></div>
+    <div class="tui-card"><h3>Overlays</h3><ul>
+      <li>A decision: <code class="ds-code">tui-dialog</code>. Settings or a list: <code class="ds-code">tui-sheet</code>.</li>
+      <li>A dialog over the library carries <code class="ds-code">data-tui-theme="dark"</code>.</li>
+      <li>Escape and the scrim close; focus returns to the opener.</li></ul></div>
+    <div class="tui-card"><h3>Colour</h3><ul>
+      <li>Use tokens, never hex, in new CSS.</li>
+      <li>Teal accent for links, switches and focus only.</li>
+      <li>E-ink: no shadows, no motion, no blur, borders instead.</li></ul></div>
+    <div class="tui-card"><h3>Copy</h3><ul>
+      <li>Never add filler text.</li>
+      <li>Every line names, instructs, or informs a decision.</li>
+      <li>No decorative taglines, no restating what the UI already shows, no placeholder prose.</li></ul></div>
+  </div>
+</section>
+
+<section id="drift">
+  <p class="tui-eyebrow">Audit · 2026-10-08</p>
+  <h2>Drift found in production</h2>
+  <p class="ds-intro">Places where a screen invented its own look. Each is a candidate to move onto <code class="ds-code">tui-</code> classes; only the first is converted so far.</p>
+  <ol class="ds-drift">
+    <li><strong>Library “Your own book” pop-up had its own dialog <span class="tui-pill ds-status">Converted</span></strong><span>14px radius, Georgia 26px title, hand-rolled buttons. Now <code>tui-scrim</code> / <code>tui-dialog</code> / <code>tui-btn</code>. <code>app/public/lab/library_2/add-to-tinct.js</code> openFileDialog, <code>styles.css</code> (old <code>.own-file-*</code> rules removed).</span></li>
+    <li><strong>Add a book's rights pop-up is a stretched reader sheet</strong><span>A <code>lab-v2-sheet</code> forced to the centre with <code>!important</code> heights. <code>app/public/lab/addbook/js/reader.js</code> attest(), <code>css/reader.css:77-81</code>. Should be <code>tui-dialog</code> + <code>tui-check</code>.</span></li>
+    <li><strong>Add a book has a gold accent and a private purple</strong><span><code>--ab-accent: #c9b682</code>, <code>--ab-private: #b9a6d8</code>; search input in Georgia 18px. <code>app/public/lab/addbook/css/addbook.css:4-6,49</code>.</span></li>
+    <li><strong>Three different dialogs in the library</strong><span>Remove-from-reading: 320px, 12px radius, system-ui 500 17px title (<code>library_2/styles.css:295-300</code>). Collection dialog: 31px title, its own padding (<code>library_2/bookshelf.css:34-47</code>). The own-book pop-up was the third.</span></li>
+    <li><strong>The library hero's Read button has 5px corners</strong><span>Every other button is a pill. <code>library_2/styles.css</code> <code>.read-button{border-radius:5px}</code>.</span></li>
+    <li><strong>The library never loads EB Garamond or Playfair Display</strong><span>Georgia is hard-coded (on 17 lines of <code>library_2/styles.css</code>) while <code>assistant.css:39,48</code> asks for Playfair and EB Garamond, which then fall back to Georgia. <code>library_2/index.html</code> has no <code>/fonts/tinct-fonts.css</code>.</span></li>
+    <li><strong>Landing buttons are square tracked capitals; body is another family</strong><span><code>app/public/landing.html:126</code> <code>.btn</code> (.2em, uppercase, no radius); body in IBM Plex Sans (<code>:115</code>), which the design direction never names.</span></li>
+    <li><strong>The reader adds IBM Plex Sans to its chrome</strong><span><code>app/src/lab/lab.css:1094,1307</code>: a family the system does not name.</span></li>
+    <li><strong>Contents v2 uses Inter and its own palette</strong><span><code>app/src/lab/labContentsV2.css:5,27,54</code>: <code>--paper:#f4f0e7</code>, <code>--gold:#896636</code>, Inter. Inter is loaded nowhere, so it renders as system UI.</span></li>
+    <li><strong>About and the static pages restate the library palette by hand</strong><span><code>app/public/about.html:23</code> redefines <code>--bg/--cream/--muted/--line</code> and Georgia. Fine visually, but a copy: should link <code>tinct-ui.css</code> with <code>data-tui-theme="dark"</code>.</span></li>
+  </ol>
+  <h3 id="mono" style="margin-top:28px">Mono, to convert</h3>
+  <p class="ds-intro">Every place production still sets IBM Plex Mono or a monospace face: 230 lines in 25 files. Each moves to the role's own font (system UI for chrome, with <code class="ds-code">tabular-nums</code> for figures).</p>
+  <ul class="ds-mono"><li><code>app/src/index.css:40, 342, 556, 633, 885, 1001, 1015, 1356, 1573, 2086, 2134, 2215, 2475, 2801, 4197, 4204, 4211, 4453, 4488, 4503, 4718, 4728, 4736, 4779, 5665, 5678, 5789, 5797, 5833, 5928, 5941, 6027, 6082, 6159, 6215, 6291, 6398, 6466, 6500, 6591, 6605, 6617, 6672, 6696, 6894, 7065, 7114, 7547, 7625, 8306, 8986, 9494, 9520, 9556, 9637, 9671, 9745, 9795, 9852, 9883, 9993, 10122, 10332, 10590, 10639, 10652, 10678, 10765, 11371, 11485, 11553, 11566, 11594, 11641, 11678, 11741, 11810, 11818, 11869, 11886, 11912, 11941, 11992, 12048, 12084, 12115, 12193, 12223, 12374, 12385, 12425, 12441, 12526, 12617, 12651, 12662, 12772, 12791, 12898</code></li><li><code>app/src/lab/lab.css:44, 98, 193, 505, 903, 925, 944, 957, 993, 1013, 1029, 1059, 1382, 1419, 1482, 1580, 1607, 1667, 1713, 1747, 1797, 1808, 1820, 1878, 2003, 2272, 2351, 3363, 3388, 3854, 3977, 4004, 4197, 4279, 4531, 4535, 4570, 4698, 4711, 4779, 5289, 5348, 5491, 5528, 5540, 5602, 5666, 5679, 5743, 5986, 6844, 7212, 7221</code></li><li><code>app/public/lab/addbook/css/reader.css:29, 30, 35, 42, 44, 46, 48, 55, 58, 92, 103, 110, 123, 126, 138, 140</code></li><li><code>app/public/fonts/tinct-fonts.css:129, 138, 147, 156, 165, 174, 183, 192, 201, 210</code> (the @font-face rules; delete once nothing uses it)</li><li><code>app/public/privacy.html:18, 56, 61, 64, 66, 70, 76, 79</code></li><li><code>app/public/terms.html:18, 56, 61, 64, 66, 70, 76, 79</code></li><li><code>app/public/landing.html:126, 144, 150, 153, 159</code></li><li><code>app/public/read/index.html:90, 108, 160, 188, 209</code></li><li><code>app/src/lab/labCatchUp.css:2, 135, 145, 179, 238</code></li><li><code>app/src/lab/labLibrarianTab.css:50, 74, 94</code></li><li><code>app/src/lab/labShare.css:17, 21, 33</code></li><li><code>app/public/landing2.html:33, 113</code></li><li><code>app/public/404.html:23</code></li><li><code>app/public/applications.html:19</code></li><li><code>app/public/assets/about-v20/_next/static/css/index.Bhau7dE2.css:2</code></li><li><code>app/public/assets/about-v20/audio-journey.html:71</code></li><li><code>app/public/lab/addbook/css/addbook.css:126</code> (code blocks inside EPUB text)</li><li><code>app/public/lab/addbook/css/tinct-app.css:1</code></li><li><code>app/public/lab/addbook/js/reader.js:1224</code></li><li><code>app/public/lab/internal-traffic.js:57</code> (internal traffic badge)</li><li><code>app/public/lab/library_2/bookshelf.js:82</code> (?debug error detail)</li><li><code>app/public/omarchy/experience.js:112</code></li><li><code>app/public/omarchy/index.html:3</code></li><li><code>app/src/lab/LabApp.tsx:364</code> (seconds inside the skip icon)</li><li><code>app/src/lab/labContentsV2.css:22</code></li></ul>
+</section>
+</main>
+
+<script>
+(() => {
+  const themes = [
+    ['light', 'Light', 'The reader’s paper. Default.'],
+    ['book', 'Book', 'Warmer paper, brown ink.'],
+    ['dark', 'Dark', 'The library’s room; night page for text.'],
+    ['eink', 'E-ink', 'Black on white, no shadows.'],
+  ];
+  const tokens = ['paper', 'surface', 'surface-2', 'ink', 'ink-muted', 'ink-faint', 'line', 'line-strong', 'accent', 'tag', 'primary', 'on-primary', 'page', 'page-ink'];
+  const host = document.getElementById('swatches');
+  for (const [id, name, note] of themes) {
+    const box = document.createElement('div');
+    box.className = 'ds-theme';
+    box.dataset.tuiTheme = id;
+    box.innerHTML = `<h3>${name}</h3><p>${note}</p>`;
+    host.append(box);
+    const css = getComputedStyle(box);
+    for (const t of tokens) {
+      const row = document.createElement('div');
+      row.className = 'ds-sw';
+      row.innerHTML = `<i style="background:var(--tui-${t})"></i><span>${t}</span><code>${css.getPropertyValue('--tui-' + t).trim()}</code>`;
+      box.append(row);
+    }
+  }
+  const scale = [['hero', 'serif', 'Featured title'], ['3xl', 'display', 'Page title'], ['2xl', 'serif', 'Card or book title'], ['xl', 'display', 'Dialog title'], ['lg', 'display', 'Sheet title'], ['body', 'serif', 'Body, list titles'], ['md', 'ui', 'Quiet buttons'], ['ui', 'ui', 'Buttons, UI copy'], ['sm', 'ui', 'Chips, fine print'], ['xs', 'ui', 'Meta lines'], ['2xs', 'ui', 'Eyebrows']];
+  const sh = document.getElementById('scale');
+  for (const [s, f, label] of scale) {
+    const row = document.createElement('div');
+    row.innerHTML = `<span style="font:${f === 'display' ? 600 : 400} var(--tui-text-${s})/1.15 var(--tui-font-${f})">${label}</span> <span class="ds-code">--tui-text-${s}</span>`;
+    sh.append(row);
+  }
+  const sp = document.getElementById('spacing');
+  for (let i = 1; i <= 8; i++) {
+    const row = document.createElement('div');
+    row.className = 'ds-space';
+    row.innerHTML = `<b style="width:var(--tui-space-${i})"></b><span class="ds-code">--tui-space-${i}</span>`;
+    sp.append(row);
+  }
+  const rd = document.getElementById('radii');
+  for (const r of ['sm', 'md', 'lg', 'sheet', 'pill']) {
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `<div class="ds-radius" style="border-radius:var(--tui-radius-${r})"></div><div class="ds-code" style="margin-top:6px">${r}</div>`;
+    rd.append(wrap);
+  }
+  const chips = document.querySelectorAll('[data-theme]');
+  const set = id => {
+    document.documentElement.dataset.tuiTheme = id;
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.theme === id)));
+    try { localStorage.setItem('tinct-design-system-theme', id); } catch {}
+  };
+  chips.forEach(c => c.addEventListener('click', () => set(c.dataset.theme)));
+  let start = new URLSearchParams(location.search).get('theme');
+  if (!start) { try { start = localStorage.getItem('tinct-design-system-theme'); } catch {} }
+  if (start && themes.some(t => t[0] === start)) set(start);
+})();
+</script>
+</body>
+</html>

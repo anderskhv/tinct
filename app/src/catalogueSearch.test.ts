@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 // @ts-expect-error -- plain module shared by Add a book, freepubs.fyi and the library's "Not yet in Tinct"
-import { createSearch, hydrate, normalize, altTitlesFor, applyPriors, fame } from '../../addbooks/site/search.js'
+import { createSearch, hydrate, normalize, altTitlesFor, applyPriors, fame, containedWorksFor } from '../../addbooks/site/search.js'
 
 // The catalogue search engine (addbooks/site/search.js, installed as public/lab/addbook/js/search.js)
 // over real records copied unchanged from public/lab/addbook/data/catalog.json.gz.
@@ -206,6 +206,22 @@ describe('catalogue search: work priors, own books, other titles', () => {
     for (const query of ['letters from a stoic', 'moral epistles', 'epistulae morales', 'letters to lucilius']) expect(engine(seneca, priors)(query)[0], query).toBe('ws:en:Q97452599')
     expect(altTitlesFor('Thoughts of Marcus Aurelius', 'Emperor of Rome Marcus Aurelius')).toEqual(['Meditations', 'To Himself'])
     expect(altTitlesFor('Index of the Project Gutenberg Works of Marcus Aurelius Antoninus', 'Marcus Aurelius')).toEqual([])
+  })
+
+  it('Seneca\'s dialogues by their Latin names; the works a collection holds rank as its title words', () => {
+    expect(altTitlesFor('Moral letters to Lucilius', 'Seneca')).toContain('Letters on Ethics')
+    expect(altTitlesFor('De brevitate vitae', 'Seneca')).toContain('On the Shortness of Life')
+    expect(altTitlesFor('On the shortness of life', 'Seneca')).toContain('De Brevitate Vitae')
+    expect(altTitlesFor('De ira', 'Seneca')).toContain('On Anger')
+    expect(altTitlesFor('De tranquillitate animi', 'Seneca')).toContain('Peace of Mind')
+    expect(altTitlesFor('On Anger', 'Somebody Else')).toEqual([])
+    expect(containedWorksFor('Minor Dialogues, Together With the Dialogue on Clemency', 'Lucius Annaeus Seneca').map((w: { title: string }) => w.title))
+      .toEqual(['On Providence', 'On the Firmness of the Wise Man', 'On Anger', 'To Marcia, On Consolation', 'On the Happy Life', 'On Leisure', 'Peace of Mind', 'On the Shortness of Life', 'To Helvia, On Consolation', 'To Polybius, On Consolation', 'On Clemency'])
+    expect(containedWorksFor('Minor Dialogues', 'Somebody Else')).toEqual([])
+    const run = engine(seneca, priors)
+    expect(run('seneca on anger')[0]).toBe('pg:64576')
+    expect(run('peace of mind seneca')[0]).toBe('pg:64576')
+    expect(run('seneca letters from a stoic')[0]).toBe('ws:en:Q97452599')
   })
 
   it('for an author\'s name, a middle name and Gutenberg\'s quotation selections rank below the author\'s own books', () => {

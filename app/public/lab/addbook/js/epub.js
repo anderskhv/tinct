@@ -101,29 +101,38 @@
   }
 
   // Title, authors and language (the Tinct reader converts the book itself), and the
-  // book's own cover as a small JPEG data: URL for Your books (empty when it has none).
+  // book's own cover as a JPEG data: URL for Your books and the library (empty when it
+  // has none), with its width.
   async function metadata(buffer, opts = {}) {
     const zip = openZip(buffer);
     const { opfPath, opf, meta, title, authors, language } = await readPackage(zip, opts);
-    let cover = '';
-    try { cover = await coverThumb(zip, opfPath, opf, meta) } catch { cover = '' }
-    return { title, authors, language, cover };
+    let cover = { url: '', width: 0 };
+    try { cover = await coverImage(zip, opfPath, opf, meta) } catch { cover = { url: '', width: 0 } }
+    return { title, authors, language, cover: cover.url, coverWidth: cover.width };
   }
-  // The cover image (cover-image, else <meta name="cover">), drawn 180 px wide.
-  async function coverThumb(zip, opfPath, opf, meta) {
+  // The cover image (cover-image, else <meta name="cover">) at its own size, up to
+  // COVER_MAX_WIDTH px wide: the library's reading table shows it large. Same rule as
+  // the Tinct reader's (src/lab/userBook/userBookCover.ts).
+  const COVER_MAX_WIDTH = 900;
+  async function coverImage(zip, opfPath, opf, meta) {
     const items = byLocal(opf, 'item').map(item => ({ id: item.getAttribute('id'), href: resolve(opfPath, item.getAttribute('href') || ''), type: item.getAttribute('media-type') || '', props: (item.getAttribute('properties') || '').split(/\s+/) }));
     const coverId = byLocal(meta, 'meta').find(m => m.getAttribute('name') === 'cover')?.getAttribute('content');
     const item = items.find(i => i.props.includes('cover-image')) || items.find(i => i.id === coverId);
-    if (!item || !/^image\/(png|jpeg|gif|webp)$/.test(item.type) || typeof createImageBitmap !== 'function') return '';
+    const none = { url: '', width: 0 };
+    if (!item || !/^image\/(png|jpeg|gif|webp)$/.test(item.type) || typeof createImageBitmap !== 'function') return none;
     const bytes = await zip.read(item.href);
-    if (!bytes || bytes.length > 8000000) return '';
+    if (!bytes || bytes.length > 8000000) return none;
     const bmp = await createImageBitmap(new Blob([bytes], { type: item.type }));
+    // Not a cover's shape (a long strip, a sliver): none.
+    if (!bmp.width || !bmp.height || bmp.height > bmp.width * 3 || bmp.width > bmp.height * 2) { bmp.close?.(); return none }
     const canvas = document.createElement('canvas');
-    canvas.width = 180; canvas.height = Math.max(1, Math.round(180 * bmp.height / bmp.width));
-    if (canvas.height > 400) return '';
-    canvas.getContext('2d').drawImage(bmp, 0, 0, canvas.width, canvas.height);
+    canvas.width = Math.min(COVER_MAX_WIDTH, bmp.width); canvas.height = Math.max(1, Math.round(canvas.width * bmp.height / bmp.width));
+    const ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bmp, 0, 0, canvas.width, canvas.height);
     bmp.close?.();
-    return canvas.toDataURL('image/jpeg', 0.82);
+    return { url: canvas.toDataURL('image/jpeg', 0.88), width: canvas.width };
   }
 
   async function parse(buffer, opts = {}) {

@@ -1,14 +1,18 @@
 // Catalogue search off the main thread. The ranking is the search engine's own
 // (addbooks/site/search.js, copied in at build time as ./search.js).
-import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor } from './search.js?v=20261008rel5';
-let search = null, byId = null, catalogue = null;
+import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, containedWorksFor, includedWork, fame } from './search.js?v=20261008rel6';
+let search = null, byId = null, catalogue = null, sitelinks = new Map();
 // The page shows a slim copy of each work; editions carry only what a result card needs. Other
 // titles and the Wikidata work let the library tell a copy of one of its books (public-books.js).
 const slim = w => ({ id: w.id, page: w.page, title: w.title, subtitle: w.subtitle, authors: w.authors, translators: w.translators, language: w.language, onTinct: w.onTinct, tinctIds: w.tinctIds, firstPublishedYear: w.firstPublishedYear,
   altTitles: [...new Set([...w.altTitles, ...altTitlesFor(w.title, w.authors.map(p => p.name).join(' '))])], wikidata: w.wikidata || null,
-  editions: w.editions.slice(0, 1).map(e => ({ source: e.source, sourceUrl: e.sourceUrl, epubUrl: e.epubUrl, licence: e.licence })) });
+  editions: w.editions.slice(0, 1).map(e => ({ source: e.source, sourceUrl: e.sourceUrl, epubUrl: e.epubUrl, licence: e.licence })),
+  // How well known it is (the ranking's fame), and the works a collection holds, with theirs (from the priors' sitelinks).
+  fame: Math.round(fame(w) * 100) / 100, contains: contains(w) });
+const names = w => w.authors.map(p => p.name).join(' ');
+const contains = w => containedWorksFor(w.title, names(w)).map(c => ({ title: c.title, fame: c.wikidata && sitelinks.get(c.wikidata) ? Math.round(fame({ sitelinks: sitelinks.get(c.wikidata) }) * 100) / 100 : 0 }));
 // Work priors (Wikidata work, sitelinks, English name): without them the catalogue ranks as before.
-const loadPriors = () => fetch(new URL('../data/work-priors.json?v=20261008rel5', import.meta.url)).then(r => r.ok ? r.json() : null).catch(() => null);
+const loadPriors = () => fetch(new URL('../data/work-priors.json?v=20261008rel6', import.meta.url)).then(r => r.ok ? r.json() : null).catch(() => null);
 self.onmessage = async ({ data }) => {
   try {
     if (data.type === 'load') {
@@ -25,10 +29,11 @@ self.onmessage = async ({ data }) => {
       search = createSearch(works);
       catalogue = works;
       byId = new Map(works.map(w => [w.id, w]));
+      for (const w of works) if (w.wikidata && w.sitelinks) sitelinks.set(w.wikidata, Math.max(sitelinks.get(w.wikidata) || 0, w.sitelinks));
       self.postMessage({ type: 'ready', total: works.length, sources: new Set(works.flatMap(w => w.editions.map(e => e.source))).size });
     } else if (data.type === 'search' && search) {
       const out = search(data.query, data.filters || {}, data.limit || 12);
-      self.postMessage({ type: 'results', request: data.request, total: out.total, results: out.results.map(slim) });
+      self.postMessage({ type: 'results', request: data.request, total: out.total, results: out.results.map(w => { const item = slim(w), includes = includedWork(w.title, names(w), data.query); return includes ? { ...item, includes } : item }) });
     } else if (data.type === 'borrow' && catalogue) {
       // The library's own books, ranked with this engine, borrow what the catalogue knows of them.
       self.postMessage({ type: 'borrowed', request: data.request, borrowed: borrowFor(data.books || [], catalogue) });

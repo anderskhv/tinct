@@ -178,4 +178,17 @@ export const GOLDEN_CASES: GoldenCase[] = [
   ['frankenstein mary shelley', 'author+title', ['frankenstein|shelley']],
   ['hugo les miserables', 'author+title', ['miserables|hugo']],
   ['the odyssey butler', 'author+title', ['odyssey|homer']],
+  // Seneca (owner's cases, 2026-10-08): author and title words in any order, other names of the
+  // Moral Letters, and works printed inside a collection (Minor Dialogues, The Tragedies of Seneca).
+  ['seneca letters from a stoic', 'author+title', ['lucilius|seneca']],
+  ['letters from a stoic seneca', 'author+title', ['lucilius|seneca']],
+  ['seneca letters on ethics', 'author+title', ['lucilius|seneca']],
+  ['seneca on the shortness of life', 'contained', ['minor dialogues|seneca']],
+  ['on the shortness of life', 'contained', ['minor dialogues|seneca']],
+  ['de brevitate vitae', 'contained', ['minor dialogues|seneca']],
+  ['seneca on anger', 'contained', ['minor dialogues|seneca', 'anger|seneca']],
+  ['peace of mind seneca', 'contained', ['minor dialogues|seneca']],
+  ['seneca tragedies', 'author+title', ['tragedies of seneca|seneca']],
+  ['seneca medea', 'contained', ['tragedies of seneca|seneca']],
+  ['thyestes', 'contained', ['tragedies of seneca|seneca']],
 ];

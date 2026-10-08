@@ -189,15 +189,17 @@ describe('library search panel with the flag', () => {
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel5')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel6')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
     expect(freeShown).toEqual([2]) // the panel's "N books found" counts these rows too (app.js)
     expect([...box.querySelectorAll('.search-group-head')].map(h => h.textContent)).toEqual(['Available in Tinct', 'Not yet in Tinct'])
     expect(box.querySelector('.search-result')?.textContent).toBe('Pride and Prejudice')
     const rows = [...box.querySelectorAll('.free-row')]
-    expect(rows.map(row => row.querySelector('.free-line')?.textContent)).toEqual(['Persuasion · Jane Austen', 'Lady Susan · Jane Austen'])
-    expect(rows.map(row => row.querySelector('small')?.textContent)).toEqual(['Project Gutenberg', 'Wikisource'])
+    expect(rows.map(row => `${row.querySelector('.row-title')?.textContent} · ${row.querySelector('.row-by')?.textContent}`)).toEqual(['Persuasion · Jane Austen', 'Lady Susan · Jane Austen'])
+    // The source is a small pill just left of Add (approved search layout, 2026-10-08).
+    expect(rows.map(row => [...row.querySelectorAll('.source-pill')].map(pill => pill.textContent))).toEqual([['Gutenberg'], ['Wikisource']])
+    expect(rows.map(row => row.querySelector('.source-pill')?.parentElement?.nextElementSibling?.className)).toEqual(['free-add', 'free-add'])
     ;(rows[0].querySelector('.free-add') as HTMLButtonElement).click()
     expect(added).toEqual(['pg:105'])
     expect(rows[0].querySelector('.free-add')?.getAttribute('aria-label')).toBe('Add Persuasion to Tinct')
@@ -275,6 +277,170 @@ describe('library search panel with the flag', () => {
     expect((adding.closest('.free-row')!.querySelector('.free-progress') as HTMLElement).dataset.stage).toBe('convert')
     expect(other.disabled).toBe(false)
     expect(other.textContent).toBe('Add')
+    box.remove()
+  })
+
+  it('leaves out an empty "Available in Tinct" when the catalogue has books, and keeps the empty state when nothing is found', async () => {
+    FakeWorker.results = [work('pg:105', 'Persuasion', 'Jane Austen')]
+    const box = document.createElement('div')
+    document.body.append(box)
+    addToTinct.renderSearchGroups(box, { query: 'persuasion', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: null })
+    await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('1'))
+    expect([...box.querySelectorAll('.search-group-head')].map(h => h.textContent)).toEqual(['Not yet in Tinct'])
+    expect(box.querySelector('.search-none')).toBeNull()
+    box.remove()
+    FakeWorker.results = []
+    const none = document.createElement('div')
+    document.body.append(none)
+    addToTinct.renderSearchGroups(none, { query: 'zzzz', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: null })
+    await vi.waitFor(() => expect(none.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('0'))
+    expect([...none.querySelectorAll('.search-group-head')].map(h => h.textContent)).toEqual(['Available in Tinct'])
+    expect(none.querySelector('.search-none')?.textContent).toBe('Try another title or author.')
+    none.remove()
+  })
+
+  it('rows: author line with translator and other editions; tapping the row (not Add) opens the details in place, again or Escape closes', async () => {
+    FakeWorker.results = [
+      work('pg:3794', 'L. Annaeus Seneca on Benefits', 'Lucius Annaeus Seneca', { translators: [{ name: 'Aubrey Stewart' }], firstPublishedYear: 1887, subtitle: 'Seven books', authors: [{ name: 'Lucius Annaeus Seneca', deathYear: 65 }] }),
+      work('pg:10001', 'Apocolocyntosis', 'Lucius Annaeus Seneca', { firstPublishedYear: 54, authors: [{ name: 'Lucius Annaeus Seneca', birthYear: -4, deathYear: 65 }] }),
+      work('ws:en:Q2', 'Apocolocyntosis', 'Seneca', { wikidata: 'Q1', editions: [{ source: 'Wikisource', epubUrl: 'https://ws-export.wmcloud.org/?format=epub&page=A' }] }),
+    ]
+    FakeWorker.results[1].wikidata = 'Q1'
+    const box = document.createElement('div')
+    document.body.append(box)
+    const added: string[] = []
+    addToTinct.renderSearchGroups(box, { query: 'benefits', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null })
+    await vi.waitFor(() => expect(box.querySelectorAll('.free-row')).toHaveLength(2))
+    const [first, second] = [...box.querySelectorAll('.free-row')] as HTMLElement[]
+    expect(first.querySelector('.row-author')?.textContent).toBe('Lucius Annaeus Seneca · tr. Aubrey Stewart')
+    expect(second.querySelector('.row-author')?.textContent).toBe('Lucius Annaeus Seneca · +1 edition')
+    const toggle = first.querySelector('.row-toggle') as HTMLButtonElement
+    const details = first.querySelector('.row-details') as HTMLElement
+    expect(toggle.tagName).toBe('BUTTON')
+    expect(toggle.getAttribute('aria-expanded')).toBe('false')
+    expect(toggle.getAttribute('aria-controls')).toBe(details.id)
+    expect(details.hidden).toBe(true)
+    ;(first.querySelector('.free-add') as HTMLButtonElement).click()
+    expect(added).toEqual(['pg:3794'])
+    expect(toggle.getAttribute('aria-expanded')).toBe('false') // Add never opens the details
+    toggle.click()
+    expect(toggle.getAttribute('aria-expanded')).toBe('true')
+    expect(details.hidden).toBe(false)
+    // Written only when it is no later than the author's death (1887 is the translation's year).
+    expect([...details.querySelectorAll('dt')].map(dt => dt.textContent)).toEqual(['Translation', 'Source', 'Note'])
+    expect([...details.querySelectorAll('dd')].map(dd => dd.textContent)).toEqual(['Aubrey Stewart', 'Project Gutenberg', 'Seven books'])
+    expect(details.querySelector('.row-description')).toBeNull() // no description in the data: none is written
+    // The Add button stays in the row's first line, before the details.
+    expect(first.querySelector('.free-add')?.nextElementSibling).toBe(details)
+    toggle.click()
+    expect(toggle.getAttribute('aria-expanded')).toBe('false')
+    expect(details.hidden).toBe(true)
+    ;(second.querySelector('.row-toggle') as HTMLButtonElement).click()
+    expect([...second.querySelectorAll('dd')].map(dd => dd.textContent)[0]).toBe('54')
+    const escape = new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
+    second.querySelector('.row-toggle')!.dispatchEvent(escape)
+    expect(escape.defaultPrevented).toBe(true) // the panel stays open: Escape only closes the row
+    expect(second.querySelector('.row-toggle')?.getAttribute('aria-expanded')).toBe('false')
+    box.remove()
+  })
+
+  it('an author card leads for "seneca" (catalogue only) and "plato" (with Tinct books); chips open their rows', async () => {
+    const seneca = (id: string, title: string, name = 'Lucius Annaeus Seneca') => work(id, title, name, { authors: [{ name, birthYear: -4, deathYear: 65 }] })
+    FakeWorker.results = [seneca('ws:en:Q97452599', 'Moral letters to Lucilius', 'Seneca'), seneca('pg:3794', 'On Benefits'), seneca('pg:10001', 'Apocolocyntosis')]
+    const box = document.createElement('div')
+    document.body.append(box)
+    const portraits: string[][] = []
+    addToTinct.renderSearchGroups(box, { query: 'seneca', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: null, portraitFor: async (names: string[]) => { portraits.push(names); return null } })
+    await vi.waitFor(() => expect(box.querySelector('.author-card')).not.toBeNull())
+    const card = box.querySelector('.author-card')!
+    expect(box.firstElementChild).toBe(card)
+    expect(card.querySelector('.author-name')?.textContent).toBe('Seneca')
+    expect(card.querySelector('.author-subtitle')?.textContent).toBe('4 BC – AD 65')
+    expect(card.querySelector('.author-portrait img')).toBeNull() // a plain circle without a portrait
+    expect(portraits[0]).toContain('Lucius Annaeus Seneca')
+    expect([...card.querySelectorAll('.author-work')].map(chip => chip.textContent)).toEqual(['Moral letters to Lucilius', 'On Benefits', 'Apocolocyntosis'])
+    expect([...box.querySelectorAll('.search-group-head')].map(h => h.textContent)).toEqual(['Not yet in Tinct'])
+    ;(card.querySelectorAll('.author-work')[1] as HTMLButtonElement).click()
+    const row = box.querySelector('.result-row[data-row-key="work:pg:3794"]')!
+    expect(row.querySelector('.row-toggle')?.getAttribute('aria-expanded')).toBe('true')
+    expect(document.activeElement).toBe(row.querySelector('.row-toggle'))
+    box.remove()
+
+    const plato = (id: string, title: string) => work(id, title, 'Plato', { authors: [{ name: 'Plato', birthYear: -428, deathYear: -348 }] })
+    FakeWorker.results = [plato('pg:150', 'The Republic'), plato('pg:1672', 'Gorgias'), plato('pg:1750', 'Laws')]
+    const republic = { id: 'the-republic', title: 'The Republic', author: 'Plato', summary: 'A night of questions about justice.', displayYear: 'c. 375 BC', editions: [{ key: 'original-en', language: 'en', translator: 'Benjamin Jowett', availability: { chapterText: true, audio: true } }, { key: 'modern-en', language: 'en', translator: null, availability: { chapterText: true, audio: false } }] }
+    const crito = { id: 'crito', title: 'Crito', author: 'Plato', editions: [] }
+    const library = [republic, crito, { id: 'odyssey', title: 'The Odyssey', author: 'Homer' }]
+    const box2 = document.createElement('div')
+    document.body.append(box2)
+    const opened: string[] = []
+    addToTinct.renderSearchGroups(box2, {
+      query: 'plato', tinct: [republic, crito], tinctBooks: library, el, onAdd: () => {}, addingWork: null,
+      renderTinct: (list: typeof library) => { const rows = el('ol', 'tinct-list'); for (const book of list) rows.append(addToTinct.tinctRow(book, { el, cover: document.createElement('canvas'), onOpen: (b: { id: string }) => opened.push(b.id), length: '~10.5 hours to read' })); box2.append(rows) },
+      portraitFor: async (names: string[]) => names.includes('Plato') ? { src: '/lab/library_2/assets/author-flaps/plato.png' } : null,
+    })
+    await vi.waitFor(() => expect(box2.querySelector('.author-card .author-portrait img')).not.toBeNull())
+    const card2 = box2.querySelector('.author-card')!
+    expect(card2.querySelector('.author-name')?.textContent).toBe('Plato')
+    expect(card2.querySelector('.author-subtitle')?.textContent).toBe('428–348 BC · 2 books in Tinct')
+    expect([...card2.querySelectorAll('.author-work')].map(chip => chip.textContent)).toEqual(['The Republic', 'Gorgias', 'Laws', 'Crito'])
+    expect([...box2.querySelectorAll('.search-group-head')].map(h => h.textContent)).toEqual(['Available in Tinct', 'Not yet in Tinct'])
+    // A Tinct book's row: the edition pills, Read (opens the book as its cover does), and its details.
+    const tinctRow = box2.querySelector('.tinct-row')!
+    expect([...tinctRow.querySelectorAll('.source-pill')].map(pill => pill.textContent)).toEqual(['Modern English', 'Audio'])
+    expect(tinctRow.querySelector('.row-author')?.textContent).toBe('Plato · tr. Benjamin Jowett')
+    ;(tinctRow.querySelector('.tinct-open') as HTMLButtonElement).click()
+    expect(opened).toEqual(['the-republic'])
+    ;(card2.querySelector('.author-work') as HTMLButtonElement).click()
+    expect(tinctRow.querySelector('.row-toggle')?.getAttribute('aria-expanded')).toBe('true')
+    expect(tinctRow.querySelector('.row-description')?.textContent).toBe('A night of questions about justice.')
+    expect([...tinctRow.querySelectorAll('dt')].map(dt => dt.textContent)).toEqual(['Written', 'Translation', 'Length'])
+    box2.remove()
+  })
+
+  it('a collection: "Includes <work>" on its row, and its best-known works as the author card\'s chips, each opening its row', async () => {
+    const seneca = { name: 'Lucius Annaeus Seneca', birthYear: -4, deathYear: 65 }
+    const dialogues = work('pg:64576', 'Minor Dialogues, Together With the Dialogue on Clemency', 'Lucius Annaeus Seneca', { authors: [seneca], fame: 3.56, contains: [{ title: 'On Providence', fame: 3.34 }, { title: 'On the Happy Life', fame: 3.53 }, { title: 'To Marcia, On Consolation', fame: 0 }, { title: 'On the Shortness of Life', fame: 3.59 }] } as Partial<CatalogueWork>)
+    FakeWorker.results = [
+      work('ws:en:Q97452599', 'Moral letters to Lucilius', 'Seneca', { authors: [{ ...seneca, name: 'Seneca' }], fame: 3.69, contains: [] } as Partial<CatalogueWork>),
+      dialogues,
+      work('pg:57999', 'The Tragedies of Seneca', 'Lucius Annaeus Seneca', { authors: [seneca], fame: 3.2, contains: [{ title: 'Medea', fame: 0 }] } as Partial<CatalogueWork>),
+    ]
+    const box = document.createElement('div')
+    document.body.append(box)
+    addToTinct.renderSearchGroups(box, { query: 'seneca', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: null })
+    await vi.waitFor(() => expect(box.querySelector('.author-card')).not.toBeNull())
+    const chips = [...box.querySelectorAll('.author-work')] as HTMLButtonElement[]
+    // The collection's works with a known fame stand in for it; a work without one (To Marcia) is no chip.
+    expect(chips.map(chip => chip.textContent)).toEqual(['Moral letters to Lucilius', 'On the Shortness of Life', 'On the Happy Life', 'On Providence', 'The Tragedies of Seneca'])
+    expect(chips.map(chip => chip.dataset.rowKey)).toEqual(['work:ws:en:Q97452599', 'work:pg:64576', 'work:pg:64576', 'work:pg:64576', 'work:pg:57999'])
+    chips[1].click()
+    expect(box.querySelector('.result-row[data-row-key="work:pg:64576"] .row-toggle')?.getAttribute('aria-expanded')).toBe('true')
+    expect(box.querySelector('.row-includes')).toBeNull() // "seneca" asks for no work inside one
+    box.remove()
+
+    FakeWorker.results = [{ ...dialogues, includes: 'On Anger' } as CatalogueWork]
+    const box2 = document.createElement('div')
+    document.body.append(box2)
+    addToTinct.renderSearchGroups(box2, { query: 'seneca on anger', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: null })
+    await vi.waitFor(() => expect(box2.querySelectorAll('.free-row')).toHaveLength(1))
+    expect(box2.querySelector('.free-row .row-author')?.textContent).toBe('Lucius Annaeus Seneca · Includes On Anger')
+    expect(box2.querySelector('.author-card')).toBeNull() // a title query
+    box2.remove()
+
+    // Once a reader has added it, the Tinct row says so too (from the query, in the page).
+    const added = { id: 'pd-pg-64576', title: dialogues.title, author: 'Lucius Annaeus Seneca', editions: [] }
+    const row = addToTinct.tinctRow(added, { el, cover: document.createElement('canvas'), onOpen: () => {}, query: 'peace of mind seneca' })
+    expect(row.querySelector('.row-author')?.textContent).toBe('Lucius Annaeus Seneca · Includes Peace of Mind')
+  })
+
+  it('shows no author card for a title query', async () => {
+    FakeWorker.results = [work('pg:1', 'Emma', 'Jane Austen'), work('pg:2', 'Emma McChesney & Co.', 'Edna Ferber')]
+    const box = document.createElement('div')
+    document.body.append(box)
+    addToTinct.renderSearchGroups(box, { query: 'emma', tinct: [], tinctBooks: [], renderTinct: () => {}, el, onAdd: () => {}, addingWork: null })
+    await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
+    expect(box.querySelector('.author-card')).toBeNull()
     box.remove()
   })
 
@@ -421,6 +587,15 @@ describe('My shelf groups', () => {
     const notes = grid.querySelector('.own-book a') as HTMLAnchorElement
     expect(notes.getAttribute('href')).toBe('/reader?userBook=cc')
     expect(grid.querySelector('.own-book canvas.cover')).not.toBeNull()
+  })
+
+  it('shows an own book\u2019s own cover at full size, and a paper cover without one', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [{ ...own('epub:aa', 'Notes', null), cover: 'data:image/jpeg;base64,AAAA' }, own('epub:bb', 'Plain', null)], el)
+    const cards = [...grid.querySelectorAll('.own-book')]
+    const image = cards.find(card => card.textContent?.includes('Notes'))!.querySelector('img.cover') as HTMLImageElement
+    expect(image.getAttribute('src')).toBe('data:image/jpeg;base64,AAAA')
+    expect(cards.find(card => card.textContent?.includes('Plain'))!.querySelector('canvas.cover')).not.toBeNull()
   })
 
   it('opens a Currently reading heading for own books when the library has none, and shows only the + tile on an empty list', () => {

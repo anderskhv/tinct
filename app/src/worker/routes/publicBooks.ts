@@ -51,6 +51,7 @@ import {
   type PublicPlacement,
 } from '../../../public/lab/public-books.js'
 import { normalizeChapterTitles } from '../../../public/lab/chapter-title.js'
+import { dropPrintedContents } from '../../../public/lab/printed-contents.js'
 import type { Book, Edition } from '../../types'
 import { handleModernEdition, modernEditionChapter, serveModernEdition, type ModernDeps, type ModernEnv } from './publicBookModern'
 
@@ -275,9 +276,13 @@ function tone(id: string): string {
   return TONES[h % TONES.length]
 }
 
+/** As Tinct's own books write an era: a composition year is approximate before 1500 ("c. 60 AD", "c. 4 BC", "c. 1200"). */
 function displayYear(year: number | null): string {
-  if (year === null) return ''
-  return year < 0 ? `${-year} BC` : String(year)
+  if (year === null || year === 0) return ''
+  if (year < 0) return `c. ${-year} BC`
+  if (year < 1000) return `c. ${year} AD`
+  if (year < 1500) return `c. ${year}`
+  return String(year)
 }
 
 const wordsIn = (paragraphs: string[]) => paragraphs.reduce((sum, p) => sum + p.split(/\s+/).filter(Boolean).length, 0)
@@ -439,8 +444,11 @@ async function commit(request: Request, env: PublicBooksEnv, bucket: R2Bucket, b
   const addedAt = (deps.now?.() ?? new Date()).toISOString()
   const index = await readJson<{ books?: unknown[] }>(bucket, INDEX_KEY)
   // Titles were checked as the EPUB writes them; they are published in house style
-  // ("CHAPTER I—M. MYRIEL" -> "Chapter 1 — M. Myriel", public/lab/chapter-title.js).
-  const verified = { ...checked, chapters: normalizeChapterTitles(checked.chapters, { language: publicEditionKey(work).slice('original-'.length) }) }
+  // ("CHAPTER I—M. MYRIEL" -> "Chapter 1 — M. Myriel", public/lab/chapter-title.js), read
+  // together so a heading's shared boilerplate is left out. The book's printed contents
+  // ("CONTENTS / PAGE / Of Providence 1 …") is not published: the converter leaves it out,
+  // and an older converter's upload is held to the same rule (public/lab/printed-contents.js).
+  const verified = { ...checked, chapters: normalizeChapterTitles(dropPrintedContents(checked.chapters), { language: publicEditionKey(work).slice('original-'.length) }) }
   const { book, entry, editionKey } = publicRecords({ bookId, work, chapters: verified.chapters, classification, addedAt, catalogueIndex: 100_000 + (index?.books?.length ?? 0) })
   const editionData = { chapters: verified.chapters }
   await bucket.put(editionObjectKey(bookId, editionKey), JSON.stringify(editionData), { httpMetadata: { contentType: 'application/json' } })

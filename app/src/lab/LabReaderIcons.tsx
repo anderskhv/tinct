@@ -13,9 +13,9 @@ type LabActionIconProps = Omit<SVGProps<SVGSVGElement>, 'children'> & { size?: n
 
 /**
  * Chat: the one chat icon in the reader. The selection menu, the Explain card,
- * the Librarian row, the margin tab, the phone bar and Contents all draw this
+ * the Librarian row, the phone bar and Contents all draw this
  * glyph, so Chat always looks the same. Stroke sits on the root so a surface
- * (the margin tab) can set its own weight from CSS.
+ * can set its own weight from CSS.
  */
 export const CHAT_ICON_PATHS = [
   'M4.4 10.8c0-3.1 2.9-5.6 6.5-5.6s6.5 2.5 6.5 5.6-2.9 5.6-6.5 5.6c-.7 0-1.4-.1-2.1-.3L5 17.6l.5-2.8c-.7-1.1-1.1-2.5-1.1-4Z',

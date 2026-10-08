@@ -4,6 +4,7 @@ import { completedLibraryBookId } from './libraryCompletion'
 import { productionPlaces, withProductionPlaces } from './productionPositions'
 import { readingList, type ContinueTarget, type LibraryBookInfo } from './libraryRecap'
 import { isPublicBookId } from '../../public/lab/public-books.js'
+import type { OwnShelfBook, OwnShelfReading } from '../lab/userBook/ownShelf'
 
 export interface QuickBookCatalogueEntry {
   id: string
@@ -26,6 +27,36 @@ export interface QuickBookRow {
   coverTone: string | null
   target: ContinueTarget
   lastActiveAt: number
+  /**
+   * Where the row opens, when it is not a Tinct book: a reader's own book opens
+   * at its own URL (`/reader?userBook=<hex>`), at the place kept on this device.
+   */
+  href?: string
+}
+
+/** The reader's own books being read (userBook/ownShelf.ts), as switcher rows: same row, own cover. */
+export function ownQuickBookRows(books: ReadonlyArray<OwnShelfBook & { reading: OwnShelfReading }>): QuickBookRow[] {
+  return books.map(book => ({
+    bookId: book.reading.bookId,
+    title: book.title,
+    chapterLabel: book.reading.chapterLabel,
+    coverSrc: book.cover,
+    coverSrcSet: null,
+    coverTone: null,
+    target: {
+      bookId: book.reading.bookId, editionKey: null, chapterNumber: book.reading.chapterNumber, chapterLabel: book.reading.chapterLabel,
+      pageIndex: 0, paragraphIndex: 0, wordIndex: 0, paragraphCount: null, source: 'position', at: book.reading.lastActiveAt,
+    },
+    lastActiveAt: book.reading.lastActiveAt,
+    href: book.href,
+  }))
+}
+
+/** Tinct's rows and the reader's own books in one list, most recently read first. */
+export function withOwnBookRows(rows: readonly QuickBookRow[], own: readonly QuickBookRow[]): QuickBookRow[] {
+  if (own.length === 0) return [...rows]
+  const ids = new Set(own.map(row => row.bookId))
+  return [...rows.filter(row => !ids.has(row.bookId)), ...own].sort((a, b) => b.lastActiveAt - a.lastActiveAt)
 }
 
 export function quickBookPositions(

@@ -1,4 +1,4 @@
-import { metadata, categories } from './taxonomy.js?v=20261008rel5';
+import { metadata, categories } from './taxonomy.js?v=20261008rel6';
 
 // One deliberately approximate silent-reading estimate for the whole library.
 // Catalogue word counts are book-level, not audio length or a measured personal speed.
@@ -22,10 +22,28 @@ export function readingTime(book, { compact = false, percent = null } = {}) {
   return `~${value}${unit}${compact ? '' : remaining ? ' left' : ' to read'}`;
 }
 
+/**
+ * A book's era as Tinct's own books write it ("1927", "c. 1000", "c. 175 AD",
+ * "c. 700 BC"). Catalogued dates are kept as written; a bare year (an added
+ * book's composition year, e.g. "60" or "-4"; never one already written like "458 BC") reads as an approximate date:
+ * before 1000 with "AD" (or "BC"), before 1500 with "c.".
+ */
+export function eraLabel(value) {
+  const text = String(value ?? '').trim();
+  const bare = /^(-?\d{1,4})$/.exec(text);
+  if (!bare) return text;
+  const year = Number(bare[1]);
+  if (!Number.isFinite(year) || year === 0) return '';
+  if (year < 0) return `c. ${-year} BC`;
+  if (year < 1000) return `c. ${year} AD`;
+  if (year < 1500) return `c. ${year}`;
+  return String(year);
+}
+
 export function bookMetadata(book, options = {}) {
   // Keep historical dates (including approximate/ancient dates) as catalogued.
   // Do not turn a composition date into a claimed first-publication date.
-  return [book?.displayYear, readingTime(book, options)].filter(Boolean).join(' · ');
+  return [eraLabel(book?.displayYear), readingTime(book, options)].filter(Boolean).join(' · ');
 }
 
 /** Shared factual label, never inferred from the cover artwork. */
@@ -47,7 +65,7 @@ export function renderBookMetadata(element, book, { compact = false, percent = n
   const details = document.createElement('span');
   details.className = 'metadata-details';
   const date = document.createElement('span');
-  date.textContent = book?.displayYear || '';
+  date.textContent = eraLabel(book?.displayYear);
   const time = document.createElement('span');
   time.textContent = readingTime(book, { compact, percent });
   if (date.textContent) details.append(date);

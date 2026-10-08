@@ -211,6 +211,40 @@ describe('library matter', () => {
     expect(source.chapters.map(chapter => chapter.title)).toEqual(['PREFACE', 'CHAPTER I—M. MYRIEL'])
   })
 
+  it('leaves out a printed contents set as text, and reads the titles together (Seneca, Gutenberg 64576)', async () => {
+    // Shaped like the Gutenberg file: preface and contents in one document, cut by the nav's anchors.
+    const heading = (ordinal: string, to: string, name: string) => `THE ${ordinal} BOOK OF THE DIALOGUES OF L. ANNAEUS SENECA, ADDRESSED TO ${to}. ${name}`
+    const parts: Array<[string, string, string, string]> = [
+      ['FIRST', 'LUCILIUS', '“WHY, WHEN A PROVIDENCE EXISTS, ANY MISFORTUNES BEFALL GOOD MEN;” OR, “OF PROVIDENCE”', 'I. You have asked me, Lucilius, why, if the world be ruled by providence, so many evils befall good men.'],
+      ['THIRD', 'NOVATUS', 'OF ANGER. Book I.', 'You have demanded of me, Novatus, that I should write how anger may be soothed.'],
+      ['FOURTH', 'NOVATUS', 'OF ANGER. Book II.', 'My first book, Novatus, had a more abundant subject.'],
+      ['SIXTH', 'MARCIA', 'OF CONSOLATION.', 'I. Did I not know, Marcia, that you have as little of a woman’s weakness of mind as of her other vices.'],
+      ['ELEVENTH', 'HIS MOTHER, HELVIA', 'OF CONSOLATION.', 'I. My best of mothers, I have often felt eager to console you.'],
+    ]
+    const front = xhtml(`<h2 id="pre">PREFACE.</h2><p>I can say little by way of preface to Seneca’s “Minor Dialogues”.</p>
+      <h2 id="toc">CONTENTS.</h2><table><tr><td>PAGE</td></tr><tr><td>Of Providence</td><td>1</td></tr><tr><td>Of Anger. I.</td><td>48</td></tr><tr><td>"</td><td>II.</td><td>76</td></tr><tr><td>Of Consolation. To Marcia</td><td>162</td></tr><tr><td>Of Consolation. To Helvia</td><td>320</td></tr></table>`)
+    const body = xhtml(parts.map(([ordinal, to, name, text]) => `<h2 id="${ordinal}">${heading(ordinal, to, name)}</h2><p>${text}</p>`).join(''))
+    // Gutenberg's nav names each part by its whole heading.
+    const entries: Array<[string, string]> = [['front.xhtml#pre', 'PREFACE.'], ['front.xhtml#toc', 'CONTENTS.'],
+      ...parts.map(([ordinal, to, name]): [string, string] => [`body.xhtml#${ordinal}`, heading(ordinal, to, name)])]
+    const bytes = zip([
+      ['mimetype', 'application/epub+zip'],
+      ['META-INF/container.xml', CONTAINER],
+      ['OEBPS/content.opf', opf([['nav', 'toc.xhtml', 'properties="nav"'], ['f', 'front.xhtml'], ['b', 'body.xhtml']], ['f', 'b']).replace('<dc:language>da<', '<dc:language>en<')],
+      ['OEBPS/toc.xhtml', nav(entries)],
+      ['OEBPS/front.xhtml', front],
+      ['OEBPS/body.xhtml', body],
+    ])
+    const shown = await epubToEdition(bytes)
+    expect(shown.chapters.map(chapter => chapter.title)).toEqual(['Preface', 'Of Providence', 'Of Anger, Book 1', 'Of Anger, Book 2', 'Of Consolation, to Marcia', 'Of Consolation, to Helvia'])
+    expect(shown.chapters.map(chapter => chapter.number)).toEqual([1, 2, 3, 4, 5, 6])
+    expect(shown.chapters.flatMap(chapter => chapter.paragraphs).some(text => /PAGE|Of Providence\s+1/.test(text))).toBe(false)
+    // Add to Tinct: the contents is left out too, the titles stay as written for the Worker's check.
+    const source = await epubToEdition(bytes, { sourceTitles: true })
+    expect(source.chapters).toHaveLength(6)
+    expect(source.chapters[1].title).toBe('THE FIRST BOOK OF THE DIALOGUES OF L. ANNAEUS SENECA, ADDRESSED TO LUCILIUS. “WHY, WHEN A PROVIDENCE EXISTS, ANY MISFORTUNES BEFALL GOOD MEN;” OR, “OF PROVIDENCE”')
+  })
+
   it('leaves out Standard Ebooks’ imprint, colophon and uncopyright, and Wikisource’s own pages', async () => {
     const section = (type: string, text: string) => xhtml(`<section epub:type="${type}"><h2>${type}</h2><p>${text}</p></section>`)
     const bytes = zip([

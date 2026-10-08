@@ -1,7 +1,7 @@
 import {describe,expect,it} from 'vitest'
 import {TUCK,orbFrame,tuckAt,tuckDockX,tuckRelease,tuckRestY,tuckSettled,tuckShape,tuckSide,tuckStep,tuckCovers} from '../public/lab/library_2/motion.js'
 
-// A · Tuck: the library librarian docked as a capsule under a side wall.
+// A · Tuck: the library librarian, minimized, is the dotted orb alone, docked just inside a side wall.
 const W=390,H=844
 
 type State=ReturnType<typeof tuckAt>
@@ -12,12 +12,13 @@ function run(state:State,frames:number,opts:{drag?:{x:number,y:number}|null,rest
 }
 
 describe('docking geometry',()=>{
- it('tucks a 46 x 88 capsule (34 x 62 while scrolling) 6 px under the left or right wall',()=>{
-  expect(TUCK.dock).toEqual({w:46,h:88});expect(TUCK.scrollDock).toEqual({w:34,h:62});expect(TUCK).toMatchObject({free:{w:50,h:50},inset:-6,release:64,scrollIdle:300})
-  expect(tuckDockX('right',W)+TUCK.dock.w/2).toBe(W+6)
-  expect(tuckDockX('left',W)-TUCK.dock.w/2).toBe(-6)
+ it('docks a 44 px orb (36 px while scrolling) 8 px inside the left or right wall, with no capsule or icon',()=>{
+  expect(TUCK.dock).toEqual({w:44,h:44});expect(TUCK.scrollDock).toEqual({w:36,h:36});expect(TUCK).toMatchObject({free:{w:50,h:50},inset:8,release:64,scrollIdle:300})
+  expect(tuckDockX('right',W)+TUCK.dock.w/2).toBe(W-8)
+  expect(tuckDockX('left',W)-TUCK.dock.w/2).toBe(8)
   const s=tuckAt('right',400,W)
-  expect(s).toMatchObject({side:'right',attached:true,w:46,h:88,ar:TUCK.anchor,y:400})
+  expect(s).toMatchObject({side:'right',attached:true,w:44,h:44,ar:TUCK.anchor,y:400})
+  expect(TUCK).not.toHaveProperty('icon')
  })
  it('rests on the nearer side and keeps clear of the header and the bottom bar',()=>{
   expect(tuckSide(100,W)).toBe('left')
@@ -35,16 +36,14 @@ describe('docking geometry',()=>{
   expect(squashed.hit.h).toBeGreaterThanOrEqual(44)
   expect(squashed.hit.w).toBeGreaterThanOrEqual(44)
  })
- it('draws the anchor on the wall and three neck circles toward the body',()=>{
+ it('draws only the orb: a round box the size of the docked orb, no goo or icon',()=>{
   const shape=tuckShape(tuckAt('right',400,W),W)
-  expect(shape.anchor).toMatchObject({cx:W,cy:400,r:TUCK.anchor})
-  expect(shape.necks).toHaveLength(3)
-  expect(shape.body).toMatchObject({w:46,h:88,r:23})
-  expect(shape.orb.opacity).toBe(1)
-  // Docked, the orb sits in the middle of the visible part of the capsule.
-  expect(shape.orb.dx).toBe(-3)
-  expect(tuckShape(tuckAt('left',400,W),W).orb.dx).toBe(3)
-  expect(tuckShape({...tuckAt('left',400,W),attached:false,ar:0},W).orb.dx).toBe(0)
+  expect(Object.keys(shape).sort()).toEqual(['body','hit','orb'])
+  expect(shape.body).toMatchObject({x:W-8-44,y:400-22,w:44,h:44,r:22})
+  expect(shape.orb).toEqual({size:44,sx:1,sy:1})
+  // Squashed against the wall, the orb squashes with it.
+  const squashed=tuckShape({...tuckAt('right',400,W),wob:-.2},W)
+  expect(squashed.orb.sx).toBeLessThan(1);expect(squashed.orb.sy).toBeGreaterThan(1)
  })
 })
 
@@ -104,38 +103,30 @@ describe('letting go',()=>{
 })
 
 describe('scrolling',()=>{
- it('shrinks to 34 x 62 while the page scrolls, staying tucked, and grows back',()=>{
+ it('shrinks to 36 px while the page scrolls, staying tucked, and grows back',()=>{
   const start=tuckAt('right',400,W)
-  expect(start.x).toBe(W-23+6)
+  expect(start.x).toBe(W-22-8)
   const shrunk=run(start,200,{restY:400,dock:TUCK.scrollDock}).state
-  expect(shrunk.w).toBeCloseTo(34,1)
-  expect(shrunk.h).toBeCloseTo(62,1)
-  expect(shrunk.x).toBeCloseTo(tuckDockX('right',W,34),1)
+  expect(shrunk.w).toBeCloseTo(36,1)
+  expect(shrunk.h).toBeCloseTo(36,1)
+  expect(shrunk.x).toBeCloseTo(tuckDockX('right',W,36),1)
   expect(shrunk.attached).toBe(true)
   expect(tuckSettled(shrunk,W,400,TUCK.scrollDock)).toBe(true)
   const back=run(shrunk,200,{restY:400}).state
-  expect(back.w).toBeCloseTo(46,1)
-  expect(back.h).toBeCloseTo(88,1)
+  expect(back.w).toBeCloseTo(44,1)
+  expect(back.h).toBeCloseTo(44,1)
   expect(tuckSettled(back,W,400)).toBe(true)
  })
  it('changes size at once with reduced motion',()=>{
   const next=tuckStep(tuckAt('right',400,W),{W,H,restY:400,dock:TUCK.scrollDock,reduced:true})
-  expect(next).toMatchObject({w:34,h:62,x:tuckDockX('right',W,34)})
+  expect(next).toMatchObject({w:36,h:36,x:tuckDockX('right',W,36)})
  })
- it('shows the chat icon under the orb only when the capsule is tall enough',()=>{
-  const docked=tuckShape(tuckAt('right',400,W),W)
-  expect(docked.icon.opacity).toBe(1)
-  expect(docked.orb.dy).toBeLessThan(0)
-  expect(docked.icon.dy).toBeGreaterThan(0)
-  // Orb and icon fit inside the capsule.
-  expect(-docked.orb.dy+docked.orb.size/2).toBeLessThanOrEqual(44)
-  expect(docked.icon.dy+TUCK.icon.size/2).toBeLessThanOrEqual(44)
+ it('keeps the shrunk and the held orb round and the pointer target at least 44 px',()=>{
   const shrunk=tuckShape(tuckAt('right',400,W,TUCK.scrollDock),W)
-  expect(shrunk.icon.opacity).toBe(0)
+  expect(shrunk.orb).toEqual({size:36,sx:1,sy:1})
+  expect(shrunk.hit.w).toBe(44);expect(shrunk.hit.h).toBe(44)
   const free=tuckShape({...tuckAt('right',400,W),attached:false,ar:0,w:50,h:50},W)
-  expect(free.icon.opacity).toBe(0)
-  expect(free.orb.dx).toBeCloseTo(0);expect(free.orb.dy).toBeCloseTo(0);expect(free.orb.size).toBe(TUCK.orb.free)
-  expect(docked.orb.size).toBe(TUCK.orb.docked)
+  expect(free.orb).toEqual({size:50,sx:1,sy:1})
  })
 })
 
@@ -143,7 +134,7 @@ describe('reduced motion',()=>{
  it('jumps to each target with no spring, wobble or squash',()=>{
   const free=tuckRelease({...tuckAt('right',400,W),attached:false,x:300,y:500,w:50,h:50,ar:0,vx:9,wobv:.3},W)
   const next=tuckStep(free,{W,H,restY:500,reduced:true})
-  expect(next).toMatchObject({attached:true,x:tuckDockX('right',W),y:500,w:46,h:88,vx:0,vy:0,wob:0,wobv:0,ar:TUCK.anchor})
+  expect(next).toMatchObject({attached:true,x:tuckDockX('right',W),y:500,w:44,h:44,vx:0,vy:0,wob:0,wobv:0,ar:TUCK.anchor})
   expect(tuckSettled(next,W,500)).toBe(true)
   const held=tuckStep(tuckAt('right',400,W),{W,H,drag:{x:100,y:300},reduced:true})
   expect(held).toMatchObject({attached:false,x:100,y:300,w:50,h:50,wob:0})
@@ -156,16 +147,16 @@ it('still tweens the orb into and out of the panel',()=>{
 })
 
 describe('search panel',()=>{
- it('hides the capsule where it would cover the search results (phone), not where they stop short of it (desktop)',()=>{
+ it('hides the orb where it would cover the search results (phone), not where they stop short of it (desktop)',()=>{
   // Phone: results run to 20 px from either wall.
   expect(tuckCovers('right',390,{left:20,right:370})).toBe(true)
   expect(tuckCovers('left',390,{left:20,right:370})).toBe(true)
   // Desktop: a 1100 px column centred in 1440 px leaves the walls clear.
   expect(tuckCovers('right',1440,{left:165,right:1265})).toBe(false)
   expect(tuckCovers('left',1440,{left:165,right:1265})).toBe(false)
-  // Within the 8 px spare of the capsule's reach (46 - 6 = 40 px from the wall).
-  expect(tuckCovers('right',1000,{left:100,right:953})).toBe(true)
-  expect(tuckCovers('right',1000,{left:100,right:951})).toBe(false)
+  // Within the 8 px spare of the orb's reach (8 + 44 = 52 px from the wall).
+  expect(tuckCovers('right',1000,{left:100,right:941})).toBe(true)
+  expect(tuckCovers('right',1000,{left:100,right:939})).toBe(false)
   expect(tuckCovers('right',390,null)).toBe(false)
  })
 })

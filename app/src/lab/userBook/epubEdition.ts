@@ -22,11 +22,12 @@
  * codes and wording Add a book uses.
  */
 
-import { normalizeChapterTitle } from '../../../public/lab/chapter-title.js'
+import { normalizeChapterTitles } from '../../../public/lab/chapter-title.js'
+import { dropPrintedContents } from '../../../public/lab/printed-contents.js'
 import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
 import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
-import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture } from './epubPictures'
+import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture, sniffImageType } from './epubPictures'
 
 export { imageSize }
 
@@ -891,6 +892,31 @@ export interface EpubConvertOptions {
   images?: boolean
 }
 
+/**
+ * The book's own cover picture (the manifest's `cover-image`, else `<meta name="cover">`),
+ * as stored in the file, or null when it names none. Add a book draws its shelf cover
+ * from the same picture (public/lab/addbook/js/epub.js).
+ */
+export async function readEpubCover(input: ArrayBuffer | Uint8Array): Promise<UserBookImage | null> {
+  const zip = openZip(input)
+  const container = await zip.readText('META-INF/container.xml')
+  const opfPath = container ? byLocal(parseXml(container), 'rootfile')[0]?.getAttribute('full-path') || '' : ''
+  const opfText = opfPath ? await zip.readText(opfPath) : null
+  if (!opfText) return null
+  const opf = parseXml(opfText)
+  const meta = byLocal(opf, 'metadata')[0] || opf
+  const items = byLocal(opf, 'item').map(item => ({ id: item.getAttribute('id') || '', href: resolveHref(opfPath, item.getAttribute('href') || ''), type: item.getAttribute('media-type') || '', props: (item.getAttribute('properties') || '').split(/\s+/) }))
+  const coverId = byLocal(meta, 'meta').find(item => item.getAttribute('name') === 'cover')?.getAttribute('content') || ''
+  const item = items.find(candidate => candidate.props.includes('cover-image')) || items.find(candidate => candidate.id === coverId)
+  const path = item ? zip.find(item.href) : null
+  const bytes = path ? await zip.read(path) : null
+  if (!bytes || bytes.length === 0) return null
+  // What the bytes are, whatever the manifest calls them; only pictures every browser draws.
+  const type = sniffImageType(bytes)
+  if (!/^image\/(png|jpeg|gif|webp)$/.test(type)) return null
+  return { type, data: bytes.slice().buffer }
+}
+
 export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: EpubConvertOptions = {}): Promise<UserBookEdition> {
   return (await convertEpub(input, { images: false, ...options })).edition
 }
@@ -1072,12 +1098,13 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     piece.blocks = kept
   }
   pieces = pieces.filter(piece => piece.blocks.length > 0)
-  const chapters: UserBookChapter[] = pieces.map((piece, index) => {
+  const converted: UserBookChapter[] = pieces.map((piece, index) => {
     const titled = piece.title || piece.blocks.find(block => block.heading)?.text.replace(/(^|\s)_|_(\s|$)/g, '$1$2') || `Section ${index + 1}`
-    const opened = chapterOpening(piece.blocks, titled)
+    // The heading repeated under the title is found without the title's footnote call ("PAULINUS.[1] OF …").
+    const opened = chapterOpening(piece.blocks, titled.replace(/(?<=\S)\[\d{1,3}\]/g, ''))
     const blocks = opened.length ? opened : piece.blocks
     const sourceTitle = clean(titled).slice(0, 200)
-    const chapter: UserBookChapter = { number: index + 1, title: options.sourceTitles ? sourceTitle : normalizeChapterTitle(sourceTitle, { language }), paragraphs: blocks.map(block => block.text) }
+    const chapter: UserBookChapter = { number: index + 1, title: sourceTitle, paragraphs: blocks.map(block => block.text) }
     if (blocks.some(block => block.kind)) chapter.kinds = blocks.map(block => block.kind ?? null)
     const links = blocks.flatMap((block, paragraph) => (block.links ?? []).map(([from, to, href]): [number, number, number, string] => [paragraph, from, to, href]))
     if (links.length) chapter.links = links
@@ -1085,5 +1112,10 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     if (figures.length) chapter.figures = figures
     return chapter
   })
+  // The book's own printed contents ("CONTENTS / PAGE / Of Providence 1 …") is left out like
+  // its contents page (public/lab/printed-contents.js); the reader has its own chapter menu.
+  const kept = dropPrintedContents(converted)
+  // Titles are read together, so boilerplate shared by a book's headings is left out (chapter-title.js).
+  const chapters = options.sourceTitles ? kept : normalizeChapterTitles(kept, { language })
   return { edition: { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, language, chapters, droppedImages }, images }
 }

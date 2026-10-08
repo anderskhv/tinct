@@ -235,16 +235,11 @@ async function run(engine,name,phone) {
       await drag(page,resize,60,-50)
       await page.getByRole('button',{name:'Minimize chat'}).click()
       assert.equal(await chat.isVisible(),false)
-      const orb=page.getByTestId('lab-chat-orb')
-      await orb.waitFor()
-      assert((await orb.boundingBox()).width<=70)
-      const orbBefore=await orb.boundingBox()
-      // A real drag remains within the browser viewport in both engines.
-      await drag(page,orb,0,40-(orbBefore.y+orbBefore.height/2))
-      assert.equal(Math.round((await orb.boundingBox()).y),8,'orb docks at the top')
-      await drag(page,orb,-200,180)
-      assert((await orb.boundingBox()).y>100,'orb can float freely')
-      await page.getByRole('button',{name:'Restore chat',exact:true}).click()
+      // Chat pill removed (Anders, 2026-10-08): a minimized chat leaves no orb
+      // or margin tab; the menu's Librarian row is the way back.
+      assert.equal(await page.getByTestId('lab-chat-orb').count(),0,'no floating chat orb')
+      assert.equal(await page.locator('.lab-companion-orb,.lab-librarian-tab,[data-testid="lab-librarian-tab-band"],[data-testid="lab-ask-tab-settings"]').count(),0,'no chat pill')
+      await clickMenu(page,'chat')
       assert((await chat.boundingBox()).height>200)
       await page.screenshot({path:output+'/'+name+'-desktop-chat.png'})
       // Menus must remain clickable while a floating companion is open.
@@ -843,9 +838,12 @@ async function menuRedesign(engine,name,phone) {
     await page.getByTestId('lab-super').click()
     // Desktop: Library lives in the icon-only back arrow at the top left.
     assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Librarian','Summarize','Catch me up','Book editions','Settings','Library','Account']:['Librarian','Summarize','Catch me up','Book editions','Settings','Account'])
-    // One Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button.
+    // One Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button:
+    // the only way to the librarian since the chat pill went (2026-10-08).
+    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
+    assert.equal(await page.locator('.lab-librarian-tab,[data-testid="lab-librarian-tab-band"],[data-testid="lab-chat-orb"]').count(),0,'no chat pill')
     assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)
     if(!phone)assert.equal((await page.getByTestId('lab-library-back').innerText()).trim(),'')
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)

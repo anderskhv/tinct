@@ -29,7 +29,7 @@ export interface LabSuperMenuRow {
 export function labSuperMenuRows({ phone = false, privateBook = false }: { phone?: boolean; privateBook?: boolean } = {}): LabSuperMenuRow[] {
   const rows: LabSuperMenuRow[] = [
     // One row for both conversations (Anders, 2026-10-07): always here, so
-    // hiding the margin tab never takes the librarian away.
+    // the only way to the librarian since the margin tab went (2026-10-08).
     { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },

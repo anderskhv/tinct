@@ -33,8 +33,6 @@ import {
   readLabPrefs,
   syncLabAudioEdition,
   writeLabPrefs,
-  labLibrarianTabPrefs,
-  DEFAULT_LIBRARIAN_TAB_PREFS,
 } from './labPrefs'
 
 afterEach(() => {
@@ -544,58 +542,35 @@ describe('Compare on by default (Anders, 2026-10-06)', () => {
   })
 })
 
-describe('librarian tab prefs (2026-10-07)', () => {
+describe('librarian tab prefs, removed 2026-10-08', () => {
   afterEach(() => { try { localStorage.clear() } catch { /* jsdom */ } })
 
-  it('defaults: shown, a tap opens Chat, long press off', () => {
-    expect(DEFAULT_LAB_PREFS).toMatchObject({ librarianTab: true, librarianTabOpens: 'chat', librarianTabLongPress: false })
-    expect(readLabPrefs('phone')).toMatchObject({ librarianTab: true, librarianTabOpens: 'chat', librarianTabLongPress: false })
-    expect(readLabPrefs('phone').librarianTabDock).toBeUndefined()
+  it('the prefs carry no librarian-tab keys', () => {
+    for (const key of ['librarianTab', 'librarianTabOpens', 'librarianTabLongPress', 'librarianTabDock']) {
+      expect(DEFAULT_LAB_PREFS).not.toHaveProperty(key)
+      expect(readLabPrefs('phone')).not.toHaveProperty(key)
+    }
   })
 
-  it('old prefs gain the defaults and keep their stored shape until the reader changes the tab', () => {
-    const old = { version: 2, shared: { primaryEdition: 'web-en', voicePersona: 'male' }, phone: { margins: 'wide' }, desktop: {} }
-    const parsed = parseLabStoredPrefs(old)
-    expect(parsed.shared).not.toHaveProperty('librarianTab')
-    expect(parsed.shared).not.toHaveProperty('librarianTabOpens')
-    expect(parsed.shared).not.toHaveProperty('librarianTabLongPress')
-    expect(parsed.phone).not.toHaveProperty('librarianTabDock')
-    expect(parseLabPrefs(old)).toMatchObject({ librarianTab: true, librarianTabOpens: 'chat', librarianTabLongPress: false, margins: 'wide' })
+  it('stored tab values are ignored on read and dropped on the next write', () => {
+    const old = {
+      version: 2,
+      shared: { primaryEdition: 'web-en', voicePersona: 'male', librarianTab: false, librarianTabOpens: 'talk', librarianTabLongPress: true },
+      phone: { margins: 'wide', librarianTabDock: { side: 'left', y: 0.3 } },
+      desktop: { librarianTabDock: { side: 'right', y: 0.5 } },
+    }
+    const parsed = parseLabPrefs(old)
+    expect(parsed.margins).toBe('wide')
+    for (const key of ['librarianTab', 'librarianTabOpens', 'librarianTabLongPress', 'librarianTabDock']) expect(parsed).not.toHaveProperty(key)
+    expect(parseLabPrefs({ darkMode: true, librarianTab: false }, 'phone')).not.toHaveProperty('librarianTab')
     localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(old))
     writeLabPrefs(readLabPrefs('phone'), 'phone')
     const stored = JSON.parse(localStorage.getItem(LAB_PREFS_KEY)!)
     expect(stored.shared).not.toHaveProperty('librarianTab')
+    expect(stored.shared).not.toHaveProperty('librarianTabOpens')
+    expect(stored.shared).not.toHaveProperty('librarianTabLongPress')
     expect(stored.phone).not.toHaveProperty('librarianTabDock')
-  })
-
-  it('persists a reader’s choices, shared by both layouts', () => {
-    writeLabPrefs({ ...readLabPrefs('phone'), librarianTab: false, librarianTabOpens: 'talk', librarianTabLongPress: true }, 'phone')
-    expect(readLabPrefs('desktop')).toMatchObject({ librarianTab: false, librarianTabOpens: 'talk', librarianTabLongPress: true })
-    writeLabPrefs({ ...readLabPrefs('desktop'), librarianTab: true }, 'desktop')
-    expect(readLabPrefs('phone').librarianTab).toBe(true)
-  })
-
-  it('rejects unreadable values', () => {
-    const parsed = parseLabPrefs({ version: 2, shared: { librarianTab: 'no', librarianTabOpens: 'video', librarianTabLongPress: 1 }, phone: { librarianTabDock: { side: 'top', y: 0.3 } }, desktop: {} })
-    expect(parsed).toMatchObject({ librarianTab: true, librarianTabOpens: 'chat', librarianTabLongPress: false })
-    expect(parsed.librarianTabDock).toBeUndefined()
-    expect(parseLabPrefs({ version: 2, shared: {}, phone: { librarianTabDock: { side: 'left', y: 'x' } }, desktop: {} }).librarianTabDock).toBeUndefined()
-  })
-
-  it('keeps the dock per layout, clamped to the page', () => {
-    writeLabPrefs({ ...readLabPrefs('phone'), librarianTabDock: { side: 'left', y: 0.3 } }, 'phone')
-    expect(readLabPrefs('phone').librarianTabDock).toEqual({ side: 'left', y: 0.3 })
-    expect(readLabPrefs('desktop').librarianTabDock).toBeUndefined()
-    expect(parseLabPrefs({ version: 2, shared: {}, phone: { librarianTabDock: { side: 'right', y: 4 } }, desktop: {} }).librarianTabDock).toEqual({ side: 'right', y: 1 })
-  })
-
-  it('migrates a V1 flat record with the defaults', () => {
-    expect(parseLabPrefs({ darkMode: true, librarianTab: false }, 'phone')).toMatchObject({ theme: 'dark', librarianTab: false, librarianTabOpens: 'chat' })
-    expect(labLibrarianTabPrefs(null)).toEqual(DEFAULT_LIBRARIAN_TAB_PREFS)
-  })
-
-  it('Restore defaults leaves the tab alone', () => {
-    const prefs = { ...DEFAULT_LAB_PREFS, librarianTab: false, librarianTabDock: { side: 'left' as const, y: 0.4 } }
-    expect(restoreLabAppearance(prefs)).toMatchObject({ librarianTab: false, librarianTabDock: { side: 'left', y: 0.4 } })
+    expect(stored.desktop).not.toHaveProperty('librarianTabDock')
+    expect(stored.phone.margins).toBe('wide')
   })
 })

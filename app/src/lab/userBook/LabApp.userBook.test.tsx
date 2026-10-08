@@ -15,6 +15,11 @@ import { USER_BOOK_CHAPTER_CHARS, USER_BOOK_PASSAGE_CHARS, chapterWindow, passag
 
 const leave = vi.hoisted(() => vi.fn())
 vi.mock('../labLeaveForLibrary', async importOriginal => ({ ...await importOriginal<typeof import('../labLeaveForLibrary')>(), leaveForLibrary: leave }))
+const ownShelf = vi.hoisted(() => ({ books: [] as unknown[], owners: [] as unknown[] }))
+vi.mock('./ownShelf', async importOriginal => ({
+  ...await importOriginal<typeof import('./ownShelf')>(),
+  readOwnShelf: vi.fn(async (owner: unknown) => { ownShelf.owners.push(owner); return ownShelf.books }),
+}))
 vi.mock('../labNarration', async importOriginal => ({
   ...await importOriginal<typeof import('../labNarration')>(),
   initialNarrationPilotInfo: () => null,
@@ -77,7 +82,8 @@ describe('a user book in the Tinct reader', () => {
     expect(root.getAttribute('data-chapter')).toBe('2')
     expect(root.getAttribute('lang')).toBe('en')
     expect(screen.getByTestId('lab-header-book').textContent).toBe('My Own Notebook')
-    expect(screen.getByTestId('lab-header-book').getAttribute('aria-label')).toBe('Table of contents')
+    // The title opens the book switcher, exactly as for Tinct's books (Anders, 2026-10-08).
+    expect(screen.getByTestId('lab-header-book').getAttribute('aria-label')).toBe('Switch books, currently My Own Notebook')
     expect(screen.queryByTestId('lab-v2-play')).toBeNull()
     expect(document.title).toBe('My Own Notebook · Tinct')
     fireEvent.click(screen.getByTestId('lab-super'))
@@ -86,6 +92,39 @@ describe('a user book in the Tinct reader', () => {
     // The Librarian row offers Chat and Talk, as for any book (2026-10-08).
     expect(screen.getByTestId('lab-super-row-chat')).toBeTruthy()
     expect(screen.getByTestId('lab-super-row-talk')).toBeTruthy()
+  })
+
+  it('opens the book switcher from its title, with the reader\u2019s other own books and the library', async () => {
+    ownShelf.books = [{
+      key: 'epub:cc12cd34ef56ab12cd34ef56', kind: 'epub', hex: 'cc12cd34ef56ab12cd34ef56', title: 'The Sovereign Child', author: 'A. Writer',
+      cover: 'data:image/jpeg;base64,AAAA', at: 5, href: '/reader?userBook=cc12cd34ef56ab12cd34ef56',
+      reading: { bookId: 'userbook-cc12cd34ef56ab12cd34ef56', chapterNumber: 3, chapterLabel: 'Chapter Three', headline: '', percent: 20, wordCount: 1000, lastActiveAt: 9 },
+    }]
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'u-test', email: 'reader@example.com' } }))
+    ownShelf.owners = []
+    const assign = vi.fn()
+    vi.stubGlobal('location', { ...window.location, assign, search: '?userBook=' + HEX, href: 'http://localhost/reader?userBook=' + HEX })
+    render(<LabApp pathname="/lab/desktop" authToken="test-token" userBook={{ ...loaded({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 0 }), cover: 'data:image/jpeg;base64,BBBB' }} />)
+    fireEvent.click(screen.getByTestId('lab-header-book'))
+    const switcher = await screen.findByTestId('lab-book-switcher')
+    expect(switcher.textContent).toContain('Reading now')
+    await waitFor(() => expect(switcher.textContent).toContain('The Sovereign Child'))
+    // Only this account's own books are read from this device.
+    expect(ownShelf.owners).toEqual(['u-test'])
+    const rows = [...switcher.querySelectorAll('.lab-book-switcher-row')]
+    // The book being read is the current row, with its own cover; the other own book follows.
+    expect(rows[0].getAttribute('aria-current')).toBe('true')
+    expect(rows[0].textContent).toContain('My Own Notebook')
+    expect(rows[0].querySelector('img')?.getAttribute('src')).toBe('data:image/jpeg;base64,BBBB')
+    const other = rows.find(row => row.textContent?.includes('The Sovereign Child'))!
+    expect(other.textContent).toContain('Chapter Three')
+    expect(other.querySelector('img')?.getAttribute('src')).toBe('data:image/jpeg;base64,AAAA')
+    expect(switcher.querySelector('.lab-book-switcher-library')?.textContent).toContain('Library')
+    fireEvent.click(other)
+    expect(assign).toHaveBeenCalledWith('/reader?userBook=cc12cd34ef56ab12cd34ef56')
+    // Nothing about the own books was sent anywhere.
+    expect(requests.filter(request => request.url !== '/lab/catalogue.json' && /userbook|Sovereign/.test(request.url + JSON.stringify(request.body)))).toEqual([])
+    ownShelf.books = []
   })
 
   it('keeps its place on this device only and loads chapters without fetching', async () => {
