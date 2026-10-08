@@ -13,6 +13,7 @@ import {
   cutPageTailTo,
   applyPaintShrink,
   isLabVerseMarker,
+  LAB_VERSE_SEPARATOR,
   labVerseMarkerDisplay,
   sameChapterPages,
   snapShrinkEndToSentence,
@@ -218,7 +219,7 @@ function nativeWordSpacing(
   if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
   // Mirrors LabPassage.wordSpacing exactly: the paginator must measure the same
   // characters the reading column renders, or pages break in different places.
-  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
+  return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
 }
 
 function NativeWord({

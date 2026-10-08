@@ -426,7 +426,7 @@ describe('lab passage headline pages', () => {
         readingPage={{ paragraphIndex: 0, from: 0, to: 5 }}
       />,
     )
-    expect(screen.getByTestId('lab-reading-stage').textContent).toContain(`9\u00a0And`)
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain(`9\u202fAnd`)
   })
 
   it('lets the line break before a protected verse start', () => {
@@ -447,7 +447,7 @@ describe('lab passage headline pages', () => {
     const unit = screen.getByTestId('lab-reading-stage').querySelector('.lab-verse-unit')
     expect(unit?.previousSibling?.textContent).toBe(' ')
     expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
-    expect(unit?.textContent).toContain(`9\u00a0And`)
+    expect(unit?.textContent).toContain(`9\u202fAnd`)
   })
 
   it('shows the chapter headline only on the first hearing page', () => {
@@ -582,7 +582,7 @@ describe('lab passage headline pages', () => {
     }
     const view = render(<LabPassage {...props} pageTurn={{ direction: 'next', nonce: 1 }} />)
     expect(screen.getByTestId('lab-reading-stage').getAttribute('data-page-turn')).toBe('next')
-    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Before 2\u00a0the marker')
+    expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Before 2\u202fthe marker')
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('After the marker')
 
     view.rerender(<LabPassage {...props} pageTurn={{ direction: 'previous', nonce: 2 }} />)

@@ -2242,6 +2242,11 @@
   line-height: 0;
   font-weight: 600;
   margin-left: 0;
+  /* With the narrow no-break space after it (LAB_VERSE_SEPARATOR) this is
+     the number's fixed room: about a fifth of an em that a justified line
+     never stretches, so the number stays with its verse. Inside the number's
+     word span, whose own background paints highlights here, so no slit. */
+  margin-right: 0.18em;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
 }

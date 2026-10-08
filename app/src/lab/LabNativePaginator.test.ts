@@ -3,7 +3,8 @@
 import { createElement } from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { chapterPagesCover, chapterPageSegments } from './labHearing'
+import { chapterPagesCover, chapterPageSegments, LAB_VERSE_SEPARATOR, tokenizeHearingWords } from './labHearing'
+import { labMeasureParagraphInto } from './labMeasureParagraph'
 import { LabNativePaginator, balanceNativeChapterTail, nativePagesFromPlacements, shrinkNativePageAfterPaint, type LabNativeWordPlacement } from './LabNativePaginator'
 
 afterEach(cleanup)
@@ -74,8 +75,24 @@ describe('native phone pagination', () => {
     }))
 
     const unit = view.container.querySelector('.lab-verse-unit')
-    expect(unit?.textContent).toBe('10\u00a0And')
+    expect(unit?.textContent).toBe('10\u202fAnd')
     expect(unit?.querySelectorAll('[data-native-word="true"]')).toHaveLength(2)
+  })
+
+  it('sets a verse number off by a narrow no-break space, which justification never stretches', () => {
+    // Browsers stretch U+0020 and U+00A0 on a justified line; U+202F they leave alone.
+    expect(LAB_VERSE_SEPARATOR).toBe(' ')
+    const view = render(createElement(LabNativePaginator, {
+      chapterTitle: 'Ezra 9',
+      paragraphs: ['¹ Now when these things were done'],
+      layoutKey: 'test',
+      onPages: vi.fn(),
+    }))
+    const p = document.createElement('p')
+    labMeasureParagraphInto(p, tokenizeHearingWords('¹ Now when these things were done'))
+    expect(view.container.querySelector('.lab-verse-unit')?.textContent).toBe(`1${LAB_VERSE_SEPARATOR}Now`)
+    expect(p.querySelector('.lab-verse-unit')?.textContent).toBe(`1${LAB_VERSE_SEPARATOR}Now`)
+    expect(p.textContent).not.toMatch(/ /)
   })
 
   it('keeps the break before a verse start outside the no-wrap unit', () => {
@@ -88,7 +105,7 @@ describe('native phone pagination', () => {
 
     const unit = view.container.querySelector('.lab-verse-unit')
     expect(unit?.previousSibling?.textContent).toBe(' ')
-    expect(unit?.textContent).toBe('8\u00a0And')
+    expect(unit?.textContent).toBe('8\u202fAnd')
     expect(unit?.previousSibling?.previousSibling?.textContent).toBe('so.')
   })
 

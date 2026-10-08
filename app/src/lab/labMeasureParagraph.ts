@@ -1,5 +1,5 @@
 import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
-import { isLabVerseMarker, labVerseMarkerDisplay } from './labHearing'
+import { isLabVerseMarker, LAB_VERSE_SEPARATOR, labVerseMarkerDisplay } from './labHearing'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { hyphenPlanFor, plannedBreak, type HyphenPlan } from './labHyphenPlan'
 import { figureElement, figureFor } from './labFigures'
@@ -33,7 +33,7 @@ export function labMeasuredWordSpacing(
   if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
   // Mirrors LabPassage.wordSpacing exactly: the measured paragraph has to hold
   // the same characters the reader paints, or pages break in the wrong places.
-  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
+  return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
 }
 
 /**
@@ -41,7 +41,7 @@ export function labMeasuredWordSpacing(
  * to the painted paragraph.
  *
  * Measuring plain text instead of this markup was a real defect: a verse
- * marker paints as a small superscript inside an inline-block `lab-verse-unit`,
+ * marker paints as a small superscript inside a no-wrap `lab-verse-unit`,
  * which is both narrower than the same digits in body type AND taller than the
  * line's strut. A plain-text probe therefore measured the wrong line width and
  * the wrong line height, so the desktop paginator packed pages that did not

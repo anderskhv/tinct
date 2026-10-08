@@ -23,7 +23,7 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
+import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, LAB_VERSE_SEPARATOR, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
@@ -144,8 +144,9 @@ function wordSpacing(
   // After a verse marker the separator belongs to THIS word, not to the marker:
   // it is then inside the word's painted span, so a highlight that starts here
   // has no unpainted notch between the number and the first word. Non-breaking,
-  // so the marker and its word still never split across a line.
-  return previous && isLabVerseMarker(previous.text) ? '\u00a0' : ' '
+  // so the marker and its word still never split across a line, and never
+  // stretched by justification (LAB_VERSE_SEPARATOR).
+  return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
 }
 
 function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1, hyphenAt?: number, onOpenFigure?: (figure: LabFigure) => void) {
