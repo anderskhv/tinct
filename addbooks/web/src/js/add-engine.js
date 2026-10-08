@@ -132,9 +132,12 @@
     if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet: silent, notify }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
     return { title: meta.title, author, href: '/reader?userBook=' + encodeURIComponent(key.slice('epub:'.length)) };
   }
-  /** A PDF kept on this device: the account copy (bounded), then where it opens (Add a book's PDF reader). */
-  async function preparePdf(file, key, { quiet: silent = false, notify = quiet } = {}) {
-    await Promise.race([saveToAccount(key, file, { kind: 'pdf', name: file.name, title: nameTitle(file.name), author: '' }, { quiet: silent, notify }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
+  /**
+   * A PDF kept on this device: where it opens (Add a book's PDF reader). The account copy is
+   * sent from there, once the viewer's scan has read the document's own title and author
+   * (reader.js openStored), so it is not named by the file name.
+   */
+  async function preparePdf(file, key) {
     return { href: pdfHref(key) };
   }
   /**

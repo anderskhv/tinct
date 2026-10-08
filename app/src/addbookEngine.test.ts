@@ -118,3 +118,19 @@ describe('/lab/addbook is no longer a destination (route.js)', () => {
     expect(html.indexOf('js/add-engine.js')).toBeLessThan(html.indexOf('js/reader.js'))
   })
 })
+
+describe('Add a book’s classic scripts parse together', () => {
+  // reader.js (the PDF viewer) shares one global script scope with add-engine.js: a name declared
+  // twice (as `engine` once was: the add engine and the book switcher's loader) stops the page.
+  it('reader.js, add-engine.js, pdf-scan.js, pdf-theme.js and route.js are valid scripts', () => {
+    for (const file of ['js/reader.js', 'js/add-engine.js', 'js/pdf-scan.js', 'js/pdf-theme.js', 'js/route.js']) {
+      expect(() => new Function(readFileSync(join(ADDBOOK, file), 'utf8')), file).not.toThrow()
+    }
+  })
+  it('the source copy (addbooks/web/src) matches the installed scripts', () => {
+    const SRC = join(__dirname, '../../addbooks/web/src')
+    for (const file of ['js/reader.js', 'js/add-engine.js', 'js/route.js', 'js/start.js', 'js/pdf-scan.js', 'js/pdf-theme.js', 'css/reader.css']) {
+      expect(readFileSync(join(SRC, file), 'utf8'), file).toBe(readFileSync(join(ADDBOOK, file), 'utf8'))
+    }
+  })
+})

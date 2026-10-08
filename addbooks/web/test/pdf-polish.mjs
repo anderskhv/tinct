@@ -36,16 +36,18 @@ async function page(browser, viewport) {
   await p.addInitScript(() => document.addEventListener('securitypolicyviolation', e => console.error('CSP violation: ' + e.violatedDirective + ' ' + e.blockedURI)));
   return { ctx, p, problems };
 }
+// Add a book's start page is retired (2026-10-08): files are added on the library's My shelf,
+// stood in by serve.mjs's /__shelf-add (the same engine, add-engine.js), and open at their address.
+const SHELF_ADD = `${ORIGIN}/__shelf-add`;
 async function signIn(p) {
-  await p.goto(BASE + '?mode=file');
+  await p.goto(SHELF_ADD);
   await p.evaluate(key => localStorage.setItem(key, JSON.stringify({ access_token: 'test-token', refresh_token: 'refresh-test-token', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: 'u-test', email: 'reader@example.com' } })), SESSION_KEY);
   await p.reload();
-  await p.waitForSelector('#doorOwn');
+  await p.waitForSelector('#status:text("ready")');
 }
 async function openFile(p, file) {
-  const chooser = p.waitForEvent('filechooser');
-  await p.click('#abDrop');
-  await (await chooser).setFiles(file);
+  if (p.url() !== SHELF_ADD) { await p.goto(SHELF_ADD); await p.waitForSelector('#status:text("ready")') }
+  await p.setInputFiles('#file', file);
   await p.waitForSelector('#attestBox, .pdf-sheet', { timeout: 30000 });
   const box = await p.$('#attestBox');
   if (box) { await box.check(); await p.click('#attestOk') }
@@ -128,7 +130,8 @@ try {
     p.on('request', r => { if (r.isNavigationRequest()) went.push(r.url()) });
     await p.click('#backBtn');
     await p.waitForTimeout(800);
-    check('the back arrow goes to My shelf in the library', went[0] === `${ORIGIN}/library?shelf=mine`, went);
+    // My shelf's one address is /library#my-shelf (the fragment is not part of the request).
+    check('the back arrow goes to My shelf in the library', went[0] === `${ORIGIN}/library` && p.url() === `${ORIGIN}/library#my-shelf`, [went, p.url()]);
     check('desktop: no page errors', problems.length === 0, problems);
     await ctx.close();
   }
@@ -189,7 +192,6 @@ try {
     await p.click('#pageBtn'); await p.fill('.lab-contents-v2 #jumpInput', '4'); await p.press('.lab-contents-v2 #jumpInput', 'Enter');
     await p.waitForTimeout(1200);
     await shot(p, 'desktop-dark-picture');
-    await p.goto(BASE + '?mode=file'); await p.waitForSelector('#doorOwn');
     await openFile(p, join(FIX, 'IMG_20240512_scan.pdf'));
     check('scan: a readable file name, page navigation', await p.textContent('#bookTitle') === 'IMG 20240512 scan' && await label(p) === 'p. 1 of 2', [await p.textContent('#bookTitle'), await label(p)]);
     await p.evaluate(([k, v]) => localStorage.setItem(k, v), ['tinct-lab-prefs', prefsFor('dark')]);

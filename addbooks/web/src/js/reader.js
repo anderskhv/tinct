@@ -150,7 +150,12 @@ async function openStored(key) {
   const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
   if (rec.kind === 'epub' && await library.get(key)) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key);
-  if (pending && hasBook() && state.key === key) saveToAccount(key, pending, { kind: rec.kind, name: rec.name, title: state.title, author: state.author }, { quiet: true });
+  if (!pending) return true;
+  // A PDF just added on My shelf (add-engine preparePdf) reaches the account here, named like a
+  // file chosen on this page: by the document's own title, once the scan has read it (briefly).
+  const fresh = Date.now() - (rec.addedAt || 0) < 2 * 60 * 1000;
+  if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000))]);
+  if (hasBook() && state.key === key) saveToAccount(key, pending, { kind: rec.kind, name: rec.name, title: state.title, author: state.author }, { quiet: !fresh });
   return true;
 }
 // EPUBs open in the Tinct reader (/reader?userBook=<hex>), which reads the file from
@@ -1101,7 +1106,7 @@ function pageList(current) {
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
 const SWITCHER_ENGINE = '/lab/library-add.js?v=20261008rel8';
 let switcherEngine = null;
-function engine() {
+function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
   switcherEngine.catch(() => { switcherEngine = null });
   return switcherEngine;
@@ -1137,7 +1142,7 @@ async function openSwitcher() {
     layer.querySelectorAll('[data-row]').forEach(b => b.onclick = () => {
       const r = rows[Number(b.dataset.row)];
       if (!r || r.bookId === id) return closeSwitcher();
-      engine().then(api => { const to = api.switcherTarget(r); if (!to) { error = 'That saved place is temporarily unavailable.'; paint(); return } savePlaceNow(); stopNarration(); location.assign(to) }, () => { error = 'That book could not be opened from here.'; paint() });
+      switcherApi().then(api => { const to = api.switcherTarget(r); if (!to) { error = 'That saved place is temporarily unavailable.'; paint(); return } savePlaceNow(); stopNarration(); location.assign(to) }, () => { error = 'That book could not be opened from here.'; paint() });
     });
     (layer.querySelector('.lab-book-switcher-row.is-active') || layer.querySelector('[data-close]'))?.focus({ preventScroll: true });
   };
@@ -1145,7 +1150,7 @@ async function openSwitcher() {
   paint();
   root.appendChild(layer);
   savePlaceNow();
-  try { const res = await (await engine()).switcherRows(); rows = res.rows; error = res.error } catch { error = 'Showing this book only.' }
+  try { const res = await (await switcherApi()).switcherRows(); rows = res.rows; error = res.error } catch { error = 'Showing this book only.' }
   loading = false;
   if (layer.isConnected) paint();
 }

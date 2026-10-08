@@ -129,6 +129,9 @@ export function start(port = 4720) {
     if (req.method === 'GET' && url.pathname === '/api/reading-time/status') return sendJson(res, 200, { enabled: false });
     // The library is not served here: a stand-in page marks where own books' back arrows land (My shelf).
     if (url.pathname === '/library') { res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': CSP }); res.end('<!doctype html><meta charset="utf-8"><title>Library</title><p>Library stand-in</p>'); return }
+    // The library's My shelf "+" pop-up, stood in: it adds a file with Add a book's engine (shelf-add.js).
+    if (url.pathname === '/__shelf-add') { res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': CSP, 'Cache-Control': 'no-store' }); res.end('<!doctype html><meta charset="utf-8"><title>My shelf</title><input type="file" id="file" accept="application/pdf,.pdf,application/epub+zip,.epub"><p id="status"></p><script src="/lab/addbook/js/tinct-api.js"></script><script src="/lab/addbook/js/epub.js"></script><script src="/lab/addbook/js/add-engine.js"></script><script src="/__shelf-add.js"></script>'); return }
+    if (url.pathname === '/__shelf-add.js') { res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8', 'Content-Security-Policy': CSP, 'Cache-Control': 'no-store' }); res.end(readFileSync(join(REPO, 'addbooks/web/test/shelf-add.js'))); return }
     if (url.pathname === '/__books') { sendJson(res, 200, { users: Object.fromEntries(Object.entries(books.users).map(([u, list]) => [u, list.map(({ bytes, ...b }) => b)])), log: books.log }); return }
     if (url.pathname === '/__requests') { res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(requests)); return }
     let file = null;

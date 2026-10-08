@@ -13,6 +13,10 @@ html[data-pdf-theme="dark"] body:not([data-view="reader"]) { --pdf-room: #171411
 html[data-pdf-theme="eink"] { --pdf-paper: #fff; --pdf-room: #fff; --pdf-ink: #111; --pdf-muted: #444; --pdf-surface: #fff; --pdf-line: #777; --pdf-sheet-shadow: 0 0 0 1px #777; }
 html, body { background: var(--pdf-room); color: var(--pdf-ink); margin: 0; }
 body[data-view="reader"] .lab.byob { background: var(--pdf-room); }
+/* The Tinct reader's paged desktop dark room (lab.css, in tinct-app.css) is more specific than the
+   rule above; the viewer keeps its own room there too. */
+body[data-view="reader"] .lab.byob.is-desktop.is-night[data-chrome-version][data-desktop-paging],
+body[data-view="reader"] .lab.byob.is-desktop.is-night[data-chrome-version][data-desktop-paging] .lab-body { background: var(--pdf-room); }
 body { overscroll-behavior: none; }
 .lab.byob { min-height: 0; height: 100%; }
 .byob .lab-header { position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); z-index: 40; background: var(--lab-paper); }
