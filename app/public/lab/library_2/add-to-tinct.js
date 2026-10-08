@@ -7,7 +7,7 @@
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
 import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel6';
-import {normalize,includedWork} from '../addbook/js/search.js?v=20261008rel6';
+import {normalize,includedWork,altTitlesFor} from '../addbook/js/search.js?v=20261008rel6';
 import {addToTinctEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
@@ -289,19 +289,38 @@ export function writtenYear(work){
  return Number.isFinite(year)&&Number.isFinite(died)&&year<=died?yearText(year):'';
 }
 /** What a "Not yet in Tinct" row shows. */
-export function freeRowFacts(work){
+export function freeRowFacts(work,query=''){
  const row=freeRow(work),translators=unique((work.translators||[]).map(person=>person.name));
- return {title:row.title,author:row.author,translator:translators.join(', '),editions:editionCount((work.alternates||[]).length),includes:work.includes||'',
+ const names=(work.authors||[]).flatMap(person=>[person.name,...(person.aliases||[])]).join(' ');
+ return {title:row.title,author:row.author,translator:translators.join(', '),editions:editionCount((work.alternates||[]).length),includes:work.includes||'',aka:query?knownAs(row.title,names,work.altTitles,query):'',
   pills:[sourceShort(work)].filter(Boolean),description:'',
   facts:[['Written',writtenYear(work)],['Translation',translators.join(', ')],['Source',row.source],['Note',work.subtitle||'']].filter(([,value])=>value)};
 }
 /** What a Tinct book's row shows (`length`: the library's reading time for it). */
-export function tinctRowFacts(book,{length='',query=''}={}){
+export function tinctRowFacts(book,{length='',query='',otherTitles=[]}={}){
  const facts=bookFacts(book),translators=unique(readableEditions(book).map(edition=>edition.translator));
- return {title:book.title||'',author:book.author||'',translator:translators.join(', '),editions:'',includes:query?includedWork(book.title,book.author,query):'',
+ return {title:book.title||'',author:book.author||'',translator:translators.join(', '),editions:'',includes:query?includedWork(book.title,book.author,query):'',aka:query?knownAs(book.title,book.author,[...(book.altTitles||[]),...otherTitles],query):'',
   pills:[facts.modern?'Modern English':'',facts.audio?'Audio':''].filter(Boolean),description:book.summary||'',
   facts:[['Written',book.displayYear||''],['Translation',translators.join(', ')],['Length',length],['Source',book.public?.sourceName||'']].filter(([,value])=>value)};
 }
+const QUERY_STOP=new Set(['a','an','the','of','and','in','to','by','for','on']);
+/**
+ * The other title a row was found by, when its own title does not hold the query ("Letters from a
+ * Stoic" for "seneca letters from a stoic" finding Moral Letters to Lucilius), else ''. The author's
+ * names are not title words. Other titles: the row's own (`altTitles`, a Wikidata name) and the
+ * curated ALT_TITLES (search.js altTitlesFor).
+ */
+export function knownAs(title,authors,altTitles,query){
+ const author=new Set(words(authors));
+ const terms=[...new Set(words(query))].filter(term=>!QUERY_STOP.has(term)&&!author.has(term));
+ if(!terms.length)return '';
+ const holds=name=>{const list=words(name);return terms.every((term,i)=>list.includes(term)||(i===terms.length-1&&term.length>=3&&list.some(word=>word.startsWith(term))));};
+ if(holds(title))return '';
+ const own=normalize(title||'');
+ return unique([...(altTitles||[]),...altTitlesFor(title,authors)]).find(name=>normalize(name)!==own&&holds(name))||'';
+}
+/** The author line's note for a row found by another title (approved wording, 2026-10-08). */
+export const akaText=title=>title?`also known as ${title}`:'';
 let rowCount=0;
 /** Open or close a row's details. */
 export function setRowExpanded(row,open){
@@ -321,8 +340,9 @@ export function resultRow({el,facts,action,lead=null,key,className}){
  const text=el('span','row-text');
  const by=el('span','row-author');by.append(el('span','row-by',facts.author));
  for(const extra of [facts.translator?`tr. ${facts.translator}`:'',facts.editions])if(extra)by.append(el('span','row-extra',` · ${extra}`));
+ if(facts.aka)by.append(el('span','row-aka',` · ${akaText(facts.aka)}`));
  if(facts.includes)by.append(el('span','row-includes',` · ${includesText(facts.includes)}`));
- text.append(el('span','row-title',facts.title));if(facts.author||facts.translator||facts.editions||facts.includes)text.append(by);
+ text.append(el('span','row-title',facts.title));if(facts.author||facts.translator||facts.editions||facts.includes||facts.aka)text.append(by);
  if(lead)toggle.append(lead);toggle.append(text);
  const pills=el('span','row-pills');for(const pill of facts.pills)pills.append(el('span','source-pill',pill));
  const details=el('div','row-details');details.id=id;details.hidden=true;
@@ -337,10 +357,10 @@ export function resultRow({el,facts,action,lead=null,key,className}){
  * A Tinct book's row in a search with a query: `cover` (its small painted cover, also where the
  * opening book flies from) inside the row toggle, and Read, which opens the book as its cover does.
  */
-export function tinctRow(book,{el,cover,onOpen,length='',query=''}){
+export function tinctRow(book,{el,cover,onOpen,length='',query='',otherTitles=[]}){
  const read=el('button','tinct-open','Read');read.type='button';read.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);read.onclick=()=>onOpen(book,cover);
  const thumb=el('span','row-cover');thumb.append(cover);
- const row=resultRow({el,facts:tinctRowFacts(book,{length,query}),action:read,lead:thumb,key:'book:'+book.id,className:'search-result tinct-row'});
+ const row=resultRow({el,facts:tinctRowFacts(book,{length,query,otherTitles}),action:read,lead:thumb,key:'book:'+book.id,className:'search-result tinct-row'});
  row.dataset.book=book.id;return row;
 }
 
@@ -495,7 +515,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
    for(const work of notYet){
     const add=el('button','free-add','Add');add.type='button';add.dataset.work=work.id;add.setAttribute('aria-label',`Add ${work.title} to Tinct`);
     add.onclick=()=>onAdd(work,add);
-    const item=resultRow({el,facts:freeRowFacts(work),action:add,key:'work:'+work.id,className:'free-row'});item.dataset.work=work.id;
+    const item=resultRow({el,facts:freeRowFacts(work,query),action:add,key:'work:'+work.id,className:'free-row'});item.dataset.work=work.id;
     list.append(item);
     if(addingWork===work.id)setAddBusy(add,addingStage||'start');
    }
