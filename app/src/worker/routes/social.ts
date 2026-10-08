@@ -54,6 +54,8 @@ import {
 import { profileDocument, profileMissingHtml, type ProfileBook, type ProfilePageData, type ProfilePicture } from '../../social/profilePageView'
 import { formatDuration, readingTimeStats, type LedgerRow } from '../../readingTime/model'
 import { yourReadingView, type CatalogueEntry } from '../../readingTime/yourReading'
+import { PRIVATE_BOOK_LABEL, isPrivateBucket, isShareableBookId } from '../../readingTime/privateBook'
+import { INDEX_KEY, bucketOf, readJson as readBucketJson, type PublicBooksEnv } from './publicBooks'
 import type { LabPositionState } from '../../lab/labPosition'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
 import { corsHeaders } from '../lib/responses'
@@ -66,7 +68,7 @@ import { createLifecycleDeps } from '../lifecycle/runtime'
 import { SECURITY_HEADERS } from './seo'
 import { SOCIAL_META } from './socialPages'
 
-export type SocialEnv = ProfilesEnv & {
+export type SocialEnv = ProfilesEnv & Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'> & {
   SOCIAL_FRIENDS?: string
   RATE_LIMIT?: KVNamespace
   READER_POSITION?: DurableObjectNamespace<import('../readerPositionCoordinator').ReaderPositionCoordinator>
@@ -150,10 +152,26 @@ function context(env: SocialEnv, deps: SocialDeps): Context {
   }
 }
 
+/**
+ * The library catalogue plus the public-domain books readers added (`pd-…`,
+ * routes/publicBooks.ts), so those show by title like any library book. A
+ * reader's own books are in neither: they show only as "a private book".
+ */
+export function withAddedBooks(base: ReadonlyMap<string, CatalogueEntry>, added: unknown): Map<string, CatalogueEntry> {
+  const map = new Map(base)
+  for (const entry of Array.isArray(added) ? added as CatalogueEntry[] : []) {
+    if (entry && typeof entry.id === 'string' && entry.id.startsWith('pd-') && typeof entry.title === 'string' && !map.has(entry.id)) map.set(entry.id, entry)
+  }
+  return map
+}
+
 async function catalogueOf(ctx: Context): Promise<Map<string, CatalogueEntry>> {
   if (ctx.deps.catalogue) return ctx.deps.catalogue()
-  const map = await createLifecycleDeps(ctx.env as never).catalogue()
-  return map as unknown as Map<string, CatalogueEntry>
+  const base = await createLifecycleDeps(ctx.env as never).catalogue() as unknown as Map<string, CatalogueEntry>
+  const bucket = bucketOf(ctx.env)
+  if (!bucket) return base
+  const index = await readBucketJson<{ books?: unknown }>(bucket, INDEX_KEY).catch(() => null)
+  return withAddedBooks(base, index?.books)
 }
 
 async function positionOf(ctx: Context, userId: string): Promise<LabPositionState | null> {
@@ -256,8 +274,9 @@ async function windowBooks(ctx: Context, ids: string[]): Promise<Map<string, str
   }
   const catalogue = per.size ? await catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>()) : new Map<string, CatalogueEntry>()
   for (const [id, books] of per) {
-    const top = [...books.entries()].sort((a, b) => b[1] - a[1]).find(([bookId]) => catalogue.has(bookId))
-    if (top) out.set(id, catalogue.get(top[0])!.title)
+    const top = [...books.entries()].sort((a, b) => b[1] - a[1]).find(([bookId]) => isPrivateBucket(bookId) || catalogue.has(bookId))
+    // The reader's own books are "a private book": never an id or a title.
+    if (top) out.set(id, isPrivateBucket(top[0]) ? PRIVATE_BOOK_LABEL : catalogue.get(top[0])!.title)
   }
   return out
 }
@@ -319,11 +338,12 @@ async function buildFind(ctx: Context, viewerId: string, q: string | null) {
   // Also reading your books: Everyone readers who show what they read, in the last 30 days.
   const since = leaderboardWindow(ctx.now - 23 * 86_400_000).start
   const mine = await ctx.social.ledgerSince([viewerId], since, undefined, 500).catch(() => [])
-  const myBooks = [...new Set(mine.map(row => row.book_id))].slice(0, 20)
+  // Only real books are matched: never the private bucket of the reader's own books, nor time from before the ledger.
+  const myBooks = [...new Set(mine.map(row => row.book_id).filter(isShareableBookId))].slice(0, 20)
   const others = myBooks.length ? await ctx.social.ledgerSince(null, since, myBooks, 1000).catch(() => []) : []
   const latest = new Map<string, { bookId: string; day: string }>()
   for (const row of others) {
-    if (row.user_id === viewerId || circle.blocked.has(row.user_id)) continue
+    if (row.user_id === viewerId || circle.blocked.has(row.user_id) || !isShareableBookId(row.book_id)) continue
     const known = latest.get(row.user_id)
     if (!known || row.day > known.day) latest.set(row.user_id, { bookId: row.book_id, day: row.day })
   }

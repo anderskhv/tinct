@@ -35,10 +35,8 @@ import {
   ownPictureView,
   paintAvatar,
   paintBackground,
-  resizePhoto,
   saveProfile,
   socialProfilesOn,
-  uploadProfileImage,
   type OwnProfile,
   type ProfileResult,
 } from './socialClient'
@@ -373,33 +371,16 @@ function openPictureSheet() {
     button.addEventListener('click', () => { closeSheet(); void apply(saveProfile(token, { picture: { kind: 'set', value: set.id }, background: { kind: 'set', value: set.id }, setUp: true })) })
     presets.append(button)
   }
-  const fileInput = (slot: 'picture' | 'background') => {
-    const input = el('input', { type: 'file', accept: 'image/*', className: 'hidden-input' })
-    input.addEventListener('change', async () => {
-      const file = input.files?.[0]
-      if (!file) return
-      closeSheet()
-      status = { text: 'Adding your photo…', tone: 'neutral' }
-      render()
-      const resized = await resizePhoto(file, slot)
-      if (!resized) { status = { text: 'That photo could not be read. Try another.', tone: 'error' }; render(); return }
-      await apply(uploadProfileImage(token, slot, resized), () => { status = { text: 'Added. Others see it after a quick check.', tone: 'neutral' } })
-    })
-    return input
-  }
-  const pictureFile = fileInput('picture')
-  const backgroundFile = fileInput('background')
+  // No photo uploads at launch (8 Oct 2026): a set, the Google photo or the initial.
   const list = el('div', { className: 'list' },
-    item('Upload a photo', '', () => pictureFile.click()),
     p.googlePhoto ? item('Use my Google photo', '', () => { closeSheet(); void apply(chooseGooglePhoto(token), () => { status = { text: 'Added. Others see it after a quick check.', tone: 'neutral' } }) }) : null,
-    item('Upload a background', '', () => backgroundFile.click()),
     item('Use my initial', '', () => { closeSheet(); void apply(saveProfile(token, { picture: { kind: 'initial' }, setUp: true })) }))
   const sheet = el('div', { className: 'sheet', role: 'dialog', ariaLabel: 'Picture and background', dataset: { youSheet: '' } },
     el('span', { className: 'grab' }),
     el('h2', {}, 'Picture and background'),
-    el('p', { className: 'sub' }, 'Sets, or mix your own'),
-    presets, list, pictureFile, backgroundFile,
-    el('p', { className: 'note' }, 'Sets pair a picture with a background from the same book. Uploads show to others after a quick check.'))
+    el('p', { className: 'sub' }, 'Sets from the library'),
+    presets, list,
+    el('p', { className: 'note' }, 'Sets pair a picture with a background from the same book.'))
   root?.append(scrim, sheet)
 }
 

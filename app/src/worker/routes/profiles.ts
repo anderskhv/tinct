@@ -6,7 +6,8 @@
  *   GET  /api/profile                 the reader's own profile (created private on first read)
  *   POST /api/profile                 change it (name, link, picture, who can see you, switches, reading default, emails)
  *   GET  /api/profile/handle?h=       is this link free and allowed?
- *   POST /api/profile/image?slot=     upload a picture or background (JPEG, resized in the browser)
+ *   POST /api/profile/image?slot=     upload a picture or background (JPEG, resized in the browser);
+ *                                     only while SOCIAL_PHOTO_UPLOADS is "1" (off at launch: a 404)
  *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others once approved and allowed
  *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
  *   GET  /api/profiles/{handle}       what this viewer may see of a profile (ship 3 builds the page on it)
@@ -48,6 +49,11 @@ import type { SupabaseEnv } from '../lib/supabase'
 export type ProfilesEnv = SupabaseEnv & {
   /** "1" turns profiles on. Anything else: every profile route is a 404 and no page changes. */
   SOCIAL_PROFILES?: string
+  /**
+   * "1" accepts uploaded pictures and backgrounds. Anything else (the launch
+   * default): POST /api/profile/image is a 404 and the editor offers no upload.
+   */
+  SOCIAL_PHOTO_UPLOADS?: string
   /** Private bucket; profile photos live under profile/{userId}/ (purged with the account). */
   USER_BOOKS?: R2Bucket
 }
@@ -72,6 +78,11 @@ export interface ProfileDeps {
 
 export function socialProfilesOn(env: { SOCIAL_PROFILES?: string }): boolean {
   return env.SOCIAL_PROFILES === '1'
+}
+
+/** Uploaded photos (not the Google photo copy): off unless SOCIAL_PHOTO_UPLOADS is "1". */
+export function photoUploadsOn(env: { SOCIAL_PHOTO_UPLOADS?: string }): boolean {
+  return env.SOCIAL_PHOTO_UPLOADS === '1'
 }
 
 /** Paths this module answers (only while the switch is on). */
@@ -361,6 +372,8 @@ export async function handleProfiles(
     if (url.pathname === '/api/profile/image' && request.method === 'GET') {
       return await serveImage(request, url, env, store, deps)
     }
+    // No uploads at launch: refused before anything is read, the caller's identity included.
+    if (url.pathname === '/api/profile/image' && request.method === 'POST' && !photoUploadsOn(env)) return notFound(request)
 
     const user = await deps.verifyUser(request)
     if (!user) return reply({ error: 'Authentication required' }, 401, request)

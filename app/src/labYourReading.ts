@@ -11,6 +11,7 @@ import { fetchLabPositionCloud, readLabPositionLocal } from './lab/labPositionSt
 import { fetchReadingTime, pendingSeconds, readPending, withPending } from './lab/labReadingTime'
 import { deviceReadingSeconds } from './lab/useLabReadingTime'
 import { formatDayMonth, formatDuration, hoursMinutes, localDay, readingTimeStats, type ReadingTimeStats } from './readingTime/model'
+import { PRIVATE_BOOK_ID } from './readingTime/model'
 import { yourReadingView, type CatalogueEntry, type ShelfBook, type YourReadingView } from './readingTime/yourReading'
 import { supabase } from './services/supabase'
 import { apiUrl } from './utils/apiUrl'
@@ -51,9 +52,10 @@ function shelf(title: string, books: ShelfBook[], empty: string, testId: string)
     const cover = book.cover
       ? el('img', { className: 'cover', attrs: { src: book.cover, alt: book.title, loading: 'lazy' } })
       : el('span', { className: 'cover paper', text: book.title })
-    row.append(el('a', { className: 'book', attrs: { href: `/library?book=${encodeURIComponent(book.bookId)}&view=book-detail` } },
-      cover,
-      el('span', { className: 'meta' }, el('i', { text: book.progress ?? book.author }), book.hours ? el('span', { text: book.hours }) : null)))
+    const meta = el('span', { className: 'meta' }, el('i', { text: book.progress ?? book.author }), book.hours ? el('span', { text: book.hours }) : null)
+    // The reader's own books: "a private book", no cover and no link.
+    if (book.bookId === PRIVATE_BOOK_ID) row.append(el('span', { className: 'book', attrs: { 'data-private-book': '' } }, cover, meta))
+    else row.append(el('a', { className: 'book', attrs: { href: `/library?book=${encodeURIComponent(book.bookId)}&view=book-detail` } }, cover, meta))
   }
   section.append(row)
   return section

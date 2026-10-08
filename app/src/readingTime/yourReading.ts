@@ -6,6 +6,7 @@
 import type { LabPositionState } from '../lab/labPosition'
 import { positionPlacesByBook, type LibraryBookInfo } from '../preReader/libraryRecap'
 import { booksComparison, finishedBookIds, formatDuration, type ReadingTimeStats } from './model'
+import { PRIVATE_BOOK_ID, PRIVATE_BOOK_LABEL, isPrivateBucket } from './privateBook'
 
 export interface CatalogueEntry {
   id: string
@@ -48,7 +49,8 @@ export function yourReadingView(input: {
   catalogue: Map<string, CatalogueEntry>
 }): YourReadingView {
   const { stats, positions, catalogue } = input
-  const finishedIds = finishedBookIds(positions?.finished, id => lastChapterOf(catalogue.get(id)))
+  // An own book is never finished or placed by its id here; its time shows as the private bucket.
+  const finishedIds = finishedBookIds(positions?.finished, id => lastChapterOf(catalogue.get(id))).filter(id => !isPrivateBucket(id))
   const finishedSet = new Set(finishedIds)
   const chaptersCount = Object.values(positions?.finished ?? {}).reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0)
   const secondsBy = new Map(stats.books.map(book => [book.bookId, book]))
@@ -57,6 +59,9 @@ export function yourReadingView(input: {
     return seconds >= 60 ? formatDuration(seconds) : null
   }
   const shelfBook = (bookId: string, progress: string | null): ShelfBook | null => {
+    // The reader's own books: one "a private book", no cover, never an id or title.
+    if (bookId === PRIVATE_BOOK_ID) return { bookId: PRIVATE_BOOK_ID, title: PRIVATE_BOOK_LABEL, author: '', cover: null, progress: null, hours: hoursOf(PRIVATE_BOOK_ID) }
+    if (isPrivateBucket(bookId)) return null
     const book = catalogue.get(bookId)
     if (!book) return null
     return { bookId, title: book.title, author: book.author ?? '', cover: book.art?.src ?? null, progress, hours: hoursOf(bookId) }
@@ -70,7 +75,7 @@ export function yourReadingView(input: {
   const places = positionPlacesByBook(positions, infos, infos.get('bible')?.chapters ?? [])
   const reading: Array<{ book: ShelfBook; at: number }> = []
   for (const [bookId, place] of places) {
-    if (finishedSet.has(bookId)) continue
+    if (finishedSet.has(bookId) || isPrivateBucket(bookId)) continue
     const hiddenAt = positions?.hidden?.[bookId] ?? 0
     if (hiddenAt > 0 && hiddenAt >= place.updatedAt) continue
     const chapters = infos.get(bookId)?.chapters ?? []

@@ -10,6 +10,7 @@
  * Never shown: email, highlights, notes, chats, Talk.
  */
 import type { Relation } from './profileRules'
+import { PRIVATE_BOOK_ID } from '../readingTime/model'
 
 export interface ProfileBook {
   bookId: string
@@ -85,7 +86,10 @@ function shelfHtml(title: string, books: ProfileBook[], empty: string, testId: s
     const cover = book.cover
       ? `<img class="cover" src="${esc(book.cover)}" alt="" loading="lazy">`
       : `<span class="cover paper">${esc(book.title)}</span>`
-    return `<a class="book" href="/read/${esc(book.bookId)}">${cover}<span class="meta"><i>${esc(book.progress || book.title)}</i>${book.hours ? `<span>${esc(book.hours)}</span>` : ''}</span></a>`
+    const meta = `<span class="meta"><i>${esc(book.progress || book.title)}</i>${book.hours ? `<span>${esc(book.hours)}</span>` : ''}</span>`
+    // A reader's own book: "a private book", no cover and no link.
+    if (book.bookId === PRIVATE_BOOK_ID) return `<span class="book" data-private-book>${cover}${meta}</span>`
+    return `<a class="book" href="/read/${esc(book.bookId)}">${cover}${meta}</a>`
   }).join('')
   return `<section class="shelf" data-testid="${testId}"><h2>${esc(title)}</h2>${books.length ? `<div class="books">${items}</div>` : `<p class="empty">${esc(empty)}</p>`}</section>`
 }

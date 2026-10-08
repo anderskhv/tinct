@@ -1259,10 +1259,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     bookId: book.bookId || 'bible',
     chapter: book.chapterNumber,
     page: readingPageIndex,
-    // A user book is not counted in the reading year.
+    // A user book is not counted in the reading year (no pages, no device
+    // time); with the reading-time ledger on, its time counts under the one
+    // private bucket, never its id.
     onCover: privateBook || Boolean(chapterCoverTitle),
-    paused: privateBook || tocOpen,
+    paused: tocOpen,
     listeningRef: listenPlayingRef,
+    privateBook,
   })
   // Warm narration ahead of the reader: the chapter's opening on arrival, the
   // next chapter's opening when the reader nears the end of this one.
