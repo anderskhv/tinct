@@ -197,7 +197,8 @@ import { writeUserBookPlace } from './userBook/userBookPlace'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
-import { quickBookCompletedIds, quickBookPositions, quickBookRows, type QuickAddedBooks, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
+import { ownQuickBookRows, quickBookCompletedIds, quickBookPositions, quickBookRows, withOwnBookRows, type QuickAddedBooks, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
+import { ownReadingNow, readOwnShelf } from './userBook/ownShelf'
 import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
 import { socialProfilesOn } from '../social/socialClient'
 import './lab.css'
@@ -412,8 +413,8 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   }))
 }
 
-/** Desktop commands that do not apply to a user book: one edition, no Talk or book switching; Listen only when own-book narration is on. */
-const USER_BOOK_HIDDEN_COMMANDS = new Set(['listen', 'editions', 'original', 'modern', 'compare', 'books'])
+/** Desktop commands that do not apply to a user book: one edition; Listen only when own-book narration is on. */
+const USER_BOOK_HIDDEN_COMMANDS = new Set(['listen', 'editions', 'original', 'modern', 'compare'])
 
 /** A user book reads in its one edition; the reader's edition choices for other books are left as they are. */
 function userBookPrefs(prefs: LabPrefs, editionKey: string): LabPrefs {
@@ -1461,20 +1462,37 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         ? { entries: [...registered.entries, ...index], complete: true }
         : registered)
       : Promise.resolve(registered)
-    setBookSwitcherRows(rowsForQuickCatalogue(fallback, registered))
+    // The reader's own books being read join the list exactly like Tinct's books
+    // (userBook/ownShelf.ts: this account's records on this device; nothing is sent).
+    let tinctRows = rowsForQuickCatalogue(fallback, registered)
+    let ownRows: QuickBookRow[] = []
+    const paint = () => setBookSwitcherRows(withOwnBookRows(tinctRows, ownRows))
+    paint()
     setBookSwitcherLoading(true)
+    const owner = signedIn ? (authUser?.id ?? readCachedSupabaseUser()?.id ?? null) : null
+    const ownReady = readOwnShelf(owner)
+      .then(books => { ownRows = ownQuickBookRows(ownReadingNow(books)); paint() }, () => {})
     void fetch('/lab/catalogue.json')
       .then(async response => {
         if (!response.ok) throw new Error(String(response.status))
         const payload = await response.json() as { books?: QuickBookCatalogueEntry[] }
         if (!Array.isArray(payload.books)) throw new Error('Invalid catalogue')
-        setBookSwitcherRows(rowsForQuickCatalogue(payload.books, await addedReady))
+        tinctRows = rowsForQuickCatalogue(payload.books, await addedReady)
+        paint()
       })
       .catch(() => setBookSwitcherError('Showing books saved on this device.'))
-      .finally(() => setBookSwitcherLoading(false))
-  }, [book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome, tocOpen])
+      .finally(() => { void ownReady.finally(() => setBookSwitcherLoading(false)) })
+  }, [authUser?.id, book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome, signedIn, tocOpen])
 
   const switchQuickBook = useCallback((row: QuickBookRow) => {
+    if (row.href) {
+      // A reader's own book opens at its own URL, at the place kept on this device.
+      notePlace('hide')
+      rememberLibraryPlace()
+      setBookSwitcherOpen(false)
+      window.location.assign(row.href)
+      return
+    }
     const intent = continueHandoff(row.target)
     if (!intent) {
       setBookSwitcherError('That saved place is temporarily unavailable.')
@@ -4889,10 +4907,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               type="button"
               className="lab-header-book"
               data-testid="lab-header-book"
-              aria-label={privateBook ? 'Table of contents' : `Switch books, currently ${book.bookTitle}`}
-              aria-expanded={privateBook ? tocOpen : bookSwitcherOpen}
+              aria-label={`Switch books, currently ${book.bookTitle}`}
+              aria-expanded={bookSwitcherOpen}
               aria-haspopup="dialog"
-              onClick={privateBook ? () => { setReaderControlsVisible(true); setTocOpen(true) } : openBookSwitcher}
+              onClick={openBookSwitcher}
             >
               <span>{book.bookTitle}</span>
             </button>
@@ -4941,7 +4959,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         </p>
       </header>}
       {bookSwitcherOpen && !frontispieceVisible && <LabBookSwitcher
-        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, coverSrc: isPublicBookId(book.bookId) ? registeredPublicCover(book.bookId) ?? '' : `/covers/v2/${book.bookId || 'bible'}.webp`, coverTone: getBook(book.bookId || 'bible')?.coverColor ?? null }}
+        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, coverSrc: userBook ? userBook.cover ?? '' : isPublicBookId(book.bookId) ? registeredPublicCover(book.bookId) ?? '' : `/covers/v2/${book.bookId || 'bible'}.webp`, coverTone: userBook ? null : getBook(book.bookId || 'bible')?.coverColor ?? null }}
         rows={bookSwitcherRows}
         loading={bookSwitcherLoading}
         error={bookSwitcherError}
@@ -5628,7 +5646,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       />
 
       <LabContentsV2
-        onSwitchBook={privateBook ? undefined : openBookSwitcher}
+        onSwitchBook={openBookSwitcher}
         open={tocOpen}
         bookId={book.bookId || 'bible'}
         title={book.bookTitle}

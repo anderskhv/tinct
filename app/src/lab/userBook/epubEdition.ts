@@ -26,7 +26,7 @@ import { normalizeChapterTitle } from '../../../public/lab/chapter-title.js'
 import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition, type UserBookParagraphKind } from './userEdition'
 import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
-import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture } from './epubPictures'
+import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture, sniffImageType } from './epubPictures'
 
 export { imageSize }
 
@@ -889,6 +889,31 @@ export interface EpubConvertOptions {
   sourceTitles?: boolean
   /** False when only the text is wanted: pictures are sized but not decoded or kept. */
   images?: boolean
+}
+
+/**
+ * The book's own cover picture (the manifest's `cover-image`, else `<meta name="cover">`),
+ * as stored in the file, or null when it names none. Add a book draws its shelf cover
+ * from the same picture (public/lab/addbook/js/epub.js).
+ */
+export async function readEpubCover(input: ArrayBuffer | Uint8Array): Promise<UserBookImage | null> {
+  const zip = openZip(input)
+  const container = await zip.readText('META-INF/container.xml')
+  const opfPath = container ? byLocal(parseXml(container), 'rootfile')[0]?.getAttribute('full-path') || '' : ''
+  const opfText = opfPath ? await zip.readText(opfPath) : null
+  if (!opfText) return null
+  const opf = parseXml(opfText)
+  const meta = byLocal(opf, 'metadata')[0] || opf
+  const items = byLocal(opf, 'item').map(item => ({ id: item.getAttribute('id') || '', href: resolveHref(opfPath, item.getAttribute('href') || ''), type: item.getAttribute('media-type') || '', props: (item.getAttribute('properties') || '').split(/\s+/) }))
+  const coverId = byLocal(meta, 'meta').find(item => item.getAttribute('name') === 'cover')?.getAttribute('content') || ''
+  const item = items.find(candidate => candidate.props.includes('cover-image')) || items.find(candidate => candidate.id === coverId)
+  const path = item ? zip.find(item.href) : null
+  const bytes = path ? await zip.read(path) : null
+  if (!bytes || bytes.length === 0) return null
+  // What the bytes are, whatever the manifest calls them; only pictures every browser draws.
+  const type = sniffImageType(bytes)
+  if (!/^image\/(png|jpeg|gif|webp)$/.test(type)) return null
+  return { type, data: bytes.slice().buffer }
 }
 
 export async function epubToEdition(input: ArrayBuffer | Uint8Array, options: EpubConvertOptions = {}): Promise<UserBookEdition> {

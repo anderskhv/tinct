@@ -13,6 +13,8 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
 import { readUserBookPlace, type UserBookPlace } from './userBookPlace'
 import { usableUserEdition, type UserBookEdition } from './userEdition'
+import { OWN_COVER_VERSION } from './ownShelf'
+import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
 
 const STORE = 'books'
@@ -34,6 +36,10 @@ interface UserBookRecord {
   figureData?: Record<string, UserBookImage>
   /** Converter 4 and earlier kept Blobs here; such a record converts again. */
   figureImages?: unknown
+  /** The book's cover as a JPEG data: URL (Add a book or the reader draws it from the file). */
+  cover?: unknown
+  /** Below OWN_COVER_VERSION the cover was a 180 px thumbnail (or never drawn): it is drawn again. */
+  coverV?: unknown
   [field: string]: unknown
 }
 
@@ -47,6 +53,8 @@ export interface LoadedUserBook {
   images: Map<string, Blob>
   /** Saved place, already checked against the edition; null opens the first chapter. */
   place: UserBookPlace | null
+  /** The book's own cover (a data: URL kept on this device), or null. */
+  cover?: string | null
 }
 
 export type UserBookOpenResult =
@@ -143,7 +151,48 @@ export async function openUserBook(hex: string, options: { owner?: string | null
   }
   // Blobs made now, in memory, from the kept bytes: each reader load draws from fresh object URLs.
   const images = new Map<string, Blob>([...data].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
-  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition) } }
+  // A cover kept before full-size covers (a 180 px thumbnail, or none drawn) is drawn
+  // again from the file, after the book has opened.
+  if (shouldHealCover(record)) {
+    const bytes = record.bytes!
+    setTimeout(() => { void healCover(key, owner, bytes).catch(() => {}) }, COVER_HEAL_DELAY_MS)
+  }
+  const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
+  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover } }
+}
+
+const COVER_HEAL_DELAY_MS = 1500
+
+function shouldHealCover(record: UserBookRecord): boolean {
+  return record.kind === 'epub' && !!record.bytes && !(Number(record.coverV) >= OWN_COVER_VERSION) && canDrawCover()
+}
+
+/** Draw the book's cover from its file at full size and keep it on the record (one transaction). */
+export async function healCover(key: string, owner: string, bytes: ArrayBuffer): Promise<boolean> {
+  if (!canDrawCover()) return false
+  const { readEpubCover } = await import('./epubEdition')
+  const picture = await readEpubCover(new Uint8Array(bytes)).catch(() => null)
+  const drawn = picture ? await drawCover(new Blob([picture.data], { type: picture.type })).catch(() => null) : null
+  // A picture this browser could not draw is tried again on the next open.
+  if (picture && !drawn) return false
+  const db = await openDb()
+  try {
+    return await new Promise<boolean>((resolve, reject) => {
+      const tx = db.transaction(STORE, 'readwrite')
+      const store = tx.objectStore(STORE)
+      let kept = false
+      const request = store.get(key)
+      request.onsuccess = () => {
+        const record = request.result as UserBookRecord | undefined
+        if (!record || record.owner !== owner || Number(record.coverV) >= OWN_COVER_VERSION) return
+        store.put({ ...record, coverV: OWN_COVER_VERSION, ...(drawn ? { cover: drawn.url, coverW: drawn.width } : {}) })
+        kept = true
+      }
+      tx.oncomplete = () => resolve(kept)
+      tx.onerror = () => reject(tx.error)
+      tx.onabort = () => reject(tx.error)
+    })
+  } finally { db.close() }
 }
 
 function storedImages(value: unknown): Map<string, UserBookImage> {
