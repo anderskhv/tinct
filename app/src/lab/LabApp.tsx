@@ -112,6 +112,7 @@ import {
   bibleEditions,
   labFontFamilyCss,
   labReadingFont,
+  labDesktopDefaultFontSize,
   labFootProgress,
   labBookPageEstimate,
   labPageFolio,
@@ -522,7 +523,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const phoneShakespeare = isPhone && isShakespeare && isShakespearePhone()
   const flowingShakespeare = phoneShakespeare && prefs.shakespeareLayout === 'flowing'
   const readingAlignment = prefs.alignmentExplicit === false ? (isShakespeare ? 'left' : 'justify') : prefs.alignment
-  const displayPrefs = { ...prefs, alignment: readingAlignment }
+  // A desktop reader who never set a size reads at the size for their window
+  // (labDesktopDefaultFontSize); a size they chose is kept exactly.
+  const [desktopDefaultFontSize, setDesktopDefaultFontSize] = useState(() => labDesktopDefaultFontSize(typeof window === 'undefined' ? 0 : window.innerWidth))
+  const readingFontSize = appearanceProfile === 'desktop' && !prefs.fontSizeExplicit ? desktopDefaultFontSize : prefs.fontSize
+  const displayPrefs = { ...prefs, alignment: readingAlignment, fontSize: readingFontSize }
   const readingFont = labReadingFont(prefs.fontFamily)
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)
   const desktopAppearance = useDesktopAppearance()
@@ -1068,8 +1073,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     restoreView: restoreLabVoiceView,
     getTheme: () => resolvedDarkMode ? 'dark' : 'light',
     setTheme: theme => updatePrefs({ ...prefs, theme, darkMode: theme === 'dark' }),
-    getFontSize: () => prefs.fontSize,
-    setFontSize: fontSize => updatePrefs({ ...prefs, fontSize }),
+    getFontSize: () => readingFontSize,
+    setFontSize: fontSize => updatePrefs({ ...prefs, fontSize, fontSizeExplicit: true }),
     getAudioSpeed: () => listenSpeedRef.current,
     setAudioSpeed: speed => {
       listenSpeedRef.current = speed
@@ -1730,6 +1735,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       const phone = readPhoneSurface(layoutOverride)
       setIsPhone(phone)
       setShowPhoneChrome(readPhoneFooter(layoutOverride, phone))
+      setDesktopDefaultFontSize(labDesktopDefaultFontSize(window.innerWidth))
     }
     sync()
     const mq = typeof window.matchMedia === 'function' ? window.matchMedia(PHONE_QUERY) : null
@@ -1829,7 +1835,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   useEffect(() => {
     mobilePrimaryPagesRef.current = null
-  }, [book.bookId, book.chapterNumber, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
+  }, [book.bookId, book.chapterNumber, readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing])
 
   useLayoutEffect(() => {
     if (measuredPaging) return
@@ -1869,7 +1875,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     unmeasuredTriesRef.current = 0
     setSettleIndex(measuredPaging ? null : 0)
     settleIndexRef.current = measuredPaging ? null : 0
-  }, [readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
+  }, [readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, measuredPaging])
 
   const lastVvRef = useRef(0)
   const lastBarTopRef = useRef(0)
@@ -2466,7 +2472,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       ro?.disconnect()
       viewport?.removeEventListener('resize', apply)
     }
-  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, readingFont, prefs.fontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
+  }, [isPhone, showPhoneChrome, listen.playing, chrome, phoneAskOpen, readerControlsVisible, readingFont, readingFontSize, readingAlignment, flowingShakespeare, prefs.lineSpacing, prefs.margins, prefs.paragraphSpacing, fullscreen, measuredPaging])
 
   useLayoutEffect(() => {
     if (
@@ -2747,7 +2753,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     book.chapterNumber,
     editionKey,
     readingFont,
-    prefs.fontSize,
+    readingFontSize,
     readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
@@ -2776,7 +2782,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   standbyKeyRef.current = standbyKey
   const readerLayoutKey = [
     readingFont,
-    prefs.fontSize,
+    readingFontSize,
     readingAlignment, flowingShakespeare,
     prefs.lineSpacing,
     prefs.margins,
@@ -4760,7 +4766,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       data-audio-speed={String(listen.speed)}
       style={{
         ['--lab-font-reader' as string]: labFontFamilyCss(readingFont),
-        ['--lab-font-size' as string]: String(prefs.fontSize),
+        ['--lab-font-size' as string]: String(readingFontSize),
         ['--lab-text-align' as string]: readingAlignment,
         ['--lab-line-height' as string]: String(labLineHeight(prefs.lineSpacing)),
         ['--lab-reader-margin' as string]: typeof prefs.margins === 'number' ? `${1.55 * prefs.margins}rem` : prefs.margins === 'narrow' ? '1.1rem' : prefs.margins === 'wide' ? '2.2rem' : '1.55rem',
@@ -5542,7 +5548,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         active={ask.voiceActive && !callOpen}
         view={voiceLabView}
         darkMode={resolvedDarkMode}
-        fontSize={prefs.fontSize}
+        fontSize={readingFontSize}
         audioSpeed={listen.speed}
         fixtureEnabled={voiceHistoryFixture}
         onFixtureEnabled={setVoiceHistoryFixture}

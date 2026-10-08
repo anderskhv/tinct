@@ -2,7 +2,7 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import {
-  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
+  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance, labDesktopDefaultFontSize,
   labCompactFootProgress,
   readStoredWordsPerPage,
   storeWordsPerPage,
@@ -304,6 +304,28 @@ describe('lab prefs', () => {
     expect(desktop.audioEdition).toBe('web-en')
     expect(phone.audioSpeed).toBe(2)
     expect(desktop.audioSpeed).toBe(2)
+  })
+
+  it('sizes desktop text for the window until the reader sets a size (about 68 characters a line)', () => {
+    expect(labDesktopDefaultFontSize(1280)).toBe(1)
+    expect(labDesktopDefaultFontSize(1440)).toBe(1.1)
+    expect(labDesktopDefaultFontSize(1512)).toBe(1.2)
+    expect(labDesktopDefaultFontSize(1728)).toBe(1.3)
+    expect(labDesktopDefaultFontSize(2560)).toBe(1.4)
+    expect(labDesktopDefaultFontSize(1024)).toBe(1)
+    expect(labDesktopDefaultFontSize(0)).toBe(DEFAULT_LAB_PREFS.fontSize)
+    // Never chosen: a new reader, and an old record that stored the old default on every write.
+    expect(DEFAULT_LAB_PREFS.fontSizeExplicit).toBe(false)
+    expect(parseLabPrefs(null, 'desktop').fontSizeExplicit).toBe(false)
+    expect(parseLabPrefs({ fontSize: 1.3 }, 'desktop').fontSizeExplicit).toBe(false)
+    // A size the reader chose stays theirs, old record or new.
+    expect(parseLabPrefs({ fontSize: 1.6 }, 'desktop')).toMatchObject({ fontSize: 1.6, fontSizeExplicit: true })
+    writeLabPrefs({ ...parseLabPrefs(null, 'desktop'), fontSize: 1.3, fontSizeExplicit: true }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ fontSize: 1.3, fontSizeExplicit: true })
+    // Another change written with the window's size does not make it a choice.
+    writeLabPrefs({ ...readLabPrefs('desktop'), fontSize: 1.1, fontSizeExplicit: false, theme: 'dark' }, 'desktop')
+    expect(readLabPrefs('desktop')).toMatchObject({ fontSizeExplicit: false, theme: 'dark' })
+    expect(restoreLabAppearance({ ...DEFAULT_LAB_PREFS, fontSize: 1.8, fontSizeExplicit: true }).fontSizeExplicit).toBe(false)
   })
 
   it('offers a genuinely smaller size and clamps imported preferences', () => {

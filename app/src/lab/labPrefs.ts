@@ -81,6 +81,12 @@ export interface LabAppearancePrefs {
   /** `null` is "never chosen" — see `labReadingFont`. */
   fontFamily: LabFontFamily | null
   fontSize: number
+  /**
+   * True once the reader set the text size themselves. Until then the
+   * desktop reads at `labDesktopDefaultFontSize` for its window rather than
+   * at `fontSize`; the phone reads at `fontSize` either way.
+   */
+  fontSizeExplicit?: boolean
   alignment: LabTextAlignment
   alignmentExplicit?: boolean
   shakespeareLayout?: 'verse' | 'flowing'
@@ -198,6 +204,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   theme: 'system',
   fontFamily: null,
   fontSize: 1.3,
+  fontSizeExplicit: false,
   alignment: 'justify',
   alignmentExplicit: false,
   shakespeareLayout: 'verse',
@@ -325,6 +332,9 @@ function parseAppearance(
       : (legacy && Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : fallback.theme),
     fontFamily: isFamily(src.fontFamily) ? src.fontFamily : fallback.fontFamily,
     fontSize,
+    // Older records stored the size on every write. The old default (1.3) is
+    // read as never chosen; any other stored size was the reader's own.
+    fontSizeExplicit: typeof src.fontSizeExplicit === 'boolean' ? src.fontSizeExplicit : typeof src.fontSize === 'number' && src.fontSize !== DEFAULT_LAB_PREFS.fontSize,
     alignment: src.alignment === 'left' || src.alignment === 'justify' ? src.alignment : fallback.alignment,
     // Old records did not distinguish automatic writes from user choices.
     // Preserve their alignment rather than risk erasing an explicit choice.
@@ -470,6 +480,7 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       theme: prefs.theme,
       fontFamily: prefs.fontFamily,
       fontSize: prefs.fontSize,
+      fontSizeExplicit: prefs.fontSizeExplicit ?? prefs.fontSize !== DEFAULT_LAB_PREFS.fontSize,
       alignment: prefs.alignment,
       alignmentExplicit: prefs.alignmentExplicit ?? true,
       shakespeareLayout: prefs.shakespeareLayout ?? 'verse',
@@ -752,6 +763,20 @@ export function editionLabelFor(key: string, editions: Edition[]): string {
   return editions.find(edition => edition.key === key)?.label || key
 }
 
+/**
+ * The desktop text size for a reader who never set one, for a window
+ * `viewportWidth` CSS pixels wide: about 68 characters a line in the default
+ * face (Literata) in each leaf of the spread, measured at 1280-1920px (Oct
+ * 2026: 1.3 everywhere set ~51 characters at 1280 and ~58 at 1440). In steps
+ * of the size slider (0.1), from 1.0 (1280px and narrower) to 1.4.
+ */
+export const LAB_DESKTOP_FONT_SIZE_RANGE = [1.0, 1.4] as const
+export function labDesktopDefaultFontSize(viewportWidth: number): number {
+  if (!(viewportWidth > 0)) return DEFAULT_LAB_PREFS.fontSize
+  const size = Math.round(viewportWidth * 0.00077 * 10) / 10
+  return Math.max(LAB_DESKTOP_FONT_SIZE_RANGE[0], Math.min(LAB_DESKTOP_FONT_SIZE_RANGE[1], size))
+}
+
 /** Numeric layout controls preserve the existing named presets on read. */
 export function labLineHeight(value: LabLineSpacing): number {
   return typeof value === 'number' ? value : value === 'compact' ? 1.34 : value === 'open' ? 1.62 : 1.48
@@ -764,6 +789,6 @@ export function labParagraphGap(value: LabParagraphSpacing): number {
 }
 export function restoreLabAppearance(prefs: LabPrefs): LabPrefs {
   return { ...prefs, theme: DEFAULT_LAB_PREFS.theme, darkMode: DEFAULT_LAB_PREFS.theme === 'dark',
-    fontFamily: null, fontSize: DEFAULT_LAB_PREFS.fontSize, alignment: DEFAULT_LAB_PREFS.alignment, alignmentExplicit: false, shakespeareLayout: 'verse',
+    fontFamily: null, fontSize: DEFAULT_LAB_PREFS.fontSize, fontSizeExplicit: false, alignment: DEFAULT_LAB_PREFS.alignment, alignmentExplicit: false, shakespeareLayout: 'verse',
     lineSpacing: 'comfortable', margins: 'medium', paragraphSpacing: 'standard' }
 }
