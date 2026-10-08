@@ -1,6 +1,6 @@
 // Catalogue search off the main thread. The ranking is the search engine's own
 // (addbooks/site/search.js, copied in at build time as ./search.js).
-import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor } from './search.js?v=20261008rank1';
+import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor } from './search.js?v=20261008rel5';
 let search = null, byId = null, catalogue = null;
 // The page shows a slim copy of each work; editions carry only what a result card needs. Other
 // titles and the Wikidata work let the library tell a copy of one of its books (public-books.js).
@@ -8,7 +8,7 @@ const slim = w => ({ id: w.id, page: w.page, title: w.title, subtitle: w.subtitl
   altTitles: [...new Set([...w.altTitles, ...altTitlesFor(w.title, w.authors.map(p => p.name).join(' '))])], wikidata: w.wikidata || null,
   editions: w.editions.slice(0, 1).map(e => ({ source: e.source, sourceUrl: e.sourceUrl, epubUrl: e.epubUrl, licence: e.licence })) });
 // Work priors (Wikidata work, sitelinks, English name): without them the catalogue ranks as before.
-const loadPriors = () => fetch(new URL('../data/work-priors.json?v=20261008rank1', import.meta.url)).then(r => r.ok ? r.json() : null).catch(() => null);
+const loadPriors = () => fetch(new URL('../data/work-priors.json?v=20261008rel5', import.meta.url)).then(r => r.ok ? r.json() : null).catch(() => null);
 self.onmessage = async ({ data }) => {
   try {
     if (data.type === 'load') {
