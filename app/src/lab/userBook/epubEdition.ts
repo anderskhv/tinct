@@ -177,6 +177,8 @@ interface Block {
   figure?: Picture
   /** The numbered figure, once its image has been read. */
   meta?: ChapterFigure
+  /** The first block of a document whose head names its own author (`<meta name="author">`). */
+  writer?: string
 }
 
 /** A picture found in the text, before its image is read. */
@@ -732,6 +734,8 @@ function chapterOpening(blocks: Block[], title: string): Block[] {
     if (block.lead) break
     if (block.hint === 'byline') kind = 'byline'
     else if (block.hint === 'subtitle' && !subtitle) kind = 'subtitle'
+    // "by Jo Smith", "An interview with Jo Smith": a byline however it is set.
+    else if ((!block.kind || block.kind === 'heading') && bylineName(block.text)?.explicit) kind = 'byline'
     else if (!subtitle && block.level && level && block.level > level && wordCount(block.text) <= HEADING_MAX_WORDS) kind = 'subtitle'
     else if (openingLine(block)) {
       // A name closes the opening; a name-like line followed by another opening line is the subtitle.
@@ -746,6 +750,128 @@ function chapterOpening(blocks: Block[], title: string): Block[] {
     at += 1
   }
   return out
+}
+
+/* ---------- Authorship ---------- */
+
+/** "by", "written by", "An interview with", "In conversation with": the line names the chapter's writer. */
+const BYLINE_LEAD = /^(?:(?:written\s+)?by|(?:an?\s+)?(?:interview|conversation|dialogue)\s+with|in\s+conversation\s+with)\s+/i
+/** A credit that names someone other than the writer. */
+const NOT_WRITER = /^(?:edited|compiled|selected|arranged|translated|introduced|illustrated|adapted|abridged|revised|foreword|introduction|preface|notes?|with an?)\b/i
+
+/**
+ * The person a chapter's byline names: "by David Deutsch", "An interview with
+ * David Deutsch", or a name alone. `explicit` when the line says so ("by …");
+ * a name alone could be anything set under a heading. Never an editor or a translator.
+ */
+export function bylineName(text: string): { name: string; explicit: boolean } | null {
+  const line = plain(text).replace(/(?<=\S)\[\d{1,3}\]$/, '').replace(/[.,;:]+$/, '').trim()
+  if (!line || line.length > 120 || NOT_WRITER.test(line)) return null
+  const lead = line.match(BYLINE_LEAD)
+  const name = (lead ? line.slice(lead[0].length) : line).trim()
+  if (/^(by|to|for|from|in|on)\s/i.test(name) || !nameLike(name)) return null
+  return { name, explicit: !!lead }
+}
+
+/** One person, however the book writes them: "Seneca" and "Lucius Annaeus Seneca", "D. Deutsch" and "David Deutsch". */
+export function sameWriter(a: string, b: string): boolean {
+  const ta = norm(a).split(' ').filter(Boolean)
+  const tb = norm(b).split(' ').filter(Boolean)
+  if (!ta.length || !tb.length || ta[ta.length - 1] !== tb[tb.length - 1]) return false
+  const [short, long] = ta.length <= tb.length ? [ta, tb] : [tb, ta]
+  return short.every(token => long.some(other => other === token || (token.length === 1 && other.startsWith(token)) || (other.length === 1 && token.startsWith(other))))
+}
+
+export interface BookCreators {
+  /** The book's authors, one per `dc:creator` (editors and translators left out). */
+  names: string[]
+  /** Its credit is an editor's or a compiler's, or "Various": an edited collection. */
+  edited: boolean
+}
+
+/** The book's creators, one by one, and whether its credit is an editor's (or "Various"). */
+function creatorsOf(meta: Element): BookCreators {
+  const refines = byLocal(meta, 'meta').filter(item => item.getAttribute('property') === 'role')
+  const roleOf = (creator: Element) => {
+    const id = creator.getAttribute('id')
+    const refined = id ? refines.find(item => (item.getAttribute('refines') || '') === `#${id}`) : undefined
+    return clean(refined?.textContent || creator.getAttribute('opf:role') || creator.getAttributeNS('http://www.idpf.org/2007/opf', 'role')).toLowerCase()
+  }
+  const names: string[] = []
+  let edited = false
+  for (const creator of byLocal(meta, 'creator')) {
+    const name = clean(creator.textContent)
+    if (!name) continue
+    const role = roleOf(creator)
+    if (role === 'edt' || role === 'com' || /^various( authors)?$/i.test(name) || /\(eds?\.?\)$|,\s*eds?\.?$|\beditor\b/i.test(name)) { edited = true; continue }
+    if (role === 'aut' || !role) names.push(name)
+  }
+  return { names, edited }
+}
+
+/** A chapter document's own author, from its head (`<meta name="author">`, `dc.creator`). */
+function documentAuthor(source: string): string {
+  const bodyAt = source.search(/<body[\s>]/i)
+  const head = source.slice(0, bodyAt >= 0 ? bodyAt : 4_000)
+  for (const tag of head.match(/<meta\b[^>]*>/gi) ?? []) {
+    if (!/\bname\s*=\s*["'](?:author|dc\.creator|dcterms\.creator|dc:creator)["']/i.test(tag)) continue
+    const content = tag.match(/\bcontent\s*=\s*(?:"([^"]*)"|'([^']*)')/i)
+    const name = clean((content?.[1] ?? content?.[2] ?? '').replace(/&amp;/g, '&'))
+    if (name && nameLike(name)) return name
+  }
+  return ''
+}
+
+/** "Essay Title — Jo Smith", "Essay Title, by Jo Smith": the name a contents entry gives after its title. */
+function tocLabelName(label: string): string {
+  const match = clean(label).match(/^(.+?)(?:\s+[—–]\s+|\s+-{1,2}\s+|,?\s+by\s+)(.+)$/i)
+  return match && nameLike(match[2]) ? plain(match[2]) : ''
+}
+
+/** What a chapter says about its writer: a byline under its title, its own metadata, its contents entry. */
+export interface AuthorCandidate {
+  name: string
+  /** `byline`: "by …" or a byline class; `metadata`: the chapter document's own author; `contents`: its contents entry; `name`: a name alone under the title. */
+  source: 'byline' | 'metadata' | 'contents' | 'name'
+}
+
+/** A chapter's own word on its writer: the byline set under its title, its document's author, its contents entry. */
+function authorCandidate(opened: Block[], source: Block[], tocLabel: string): AuthorCandidate | null {
+  const byline = opened.slice(0, 8).find(block => block.kind === 'byline')
+  const named = byline ? bylineName(byline.text) : null
+  if (named && (named.explicit || byline!.hint === 'byline')) return { name: named.name, source: 'byline' }
+  const writer = source.slice(0, 6).find(block => block.writer)?.writer
+  if (writer) return { name: writer, source: 'metadata' }
+  const listed = tocLabelName(tocLabel)
+  if (listed) return { name: listed, source: 'contents' }
+  return named ? { name: named.name, source: 'name' } : null
+}
+
+/**
+ * Who wrote each chapter, when the book says so with confidence: an essay
+ * collection's or anthology's bylines ("by Jo Smith" under the title, a
+ * byline class), a chapter document's own author metadata, or a contents entry
+ * or a name alone that is one of the book's creators. Names alone under the
+ * headings also count when the book sets different ones that way in more than
+ * one chapter. A chapter by the book's one author records nothing, so a
+ * single-author book is unchanged. A book is a collection when any chapter
+ * names its own writer, its credit is an editor's, or it has three or more
+ * creators: there, a chapter without a byline is by an unnamed writer.
+ */
+export function chapterAuthors(candidates: Array<AuthorCandidate | null>, creators: BookCreators): { authors: Array<string | undefined>; collection: boolean } {
+  const creatorNamed = (name: string) => creators.names.some(creator => sameWriter(creator, name))
+  const names = candidates.filter((candidate): candidate is AuthorCandidate => candidate?.source === 'name')
+  const repeatedNames = names.length >= 2 && new Set(names.map(candidate => norm(candidate.name))).size >= 2
+  const authors = candidates.map(candidate => {
+    if (!candidate) return undefined
+    const confident = candidate.source === 'byline' || candidate.source === 'metadata' || creatorNamed(candidate.name) || (candidate.source === 'name' && repeatedNames)
+    if (!confident) return undefined
+    // The book's one author: nothing to say per chapter.
+    if (creators.names.length === 1 && !creators.edited && sameWriter(creators.names[0], candidate.name)) return undefined
+    return candidate.name.slice(0, 120)
+  })
+  const collection = authors.some(Boolean) || creators.edited || creators.names.length >= 3
+  return { authors, collection }
 }
 
 /** Every word the book's own title page could print. */
@@ -938,6 +1064,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   const meta = byLocal(opf, 'metadata')[0] || opf
   const title = textOf(meta, 'title') || clean(options.fallbackTitle) || 'Untitled book'
   const author = byLocal(meta, 'creator').map(creator => clean(creator.textContent)).filter(Boolean).join(', ')
+  const creators = creatorsOf(meta)
   const language = textOf(meta, 'language')
   const subtitle = subtitleOf(meta)
   const manifest = new Map<string, ManifestItem>()
@@ -991,6 +1118,8 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     if (parsed.blocks.length && (titleMatter(parsed.blocks, parsed.docType, bookWords) || copyrightMatter(parsed.blocks)
       || contentsMatter(parsed.blocks, parsed.docType, tocLabels))) { droppedPlaces.add(item.href); continue }
     docWords.set(item.href, blockWords(parsed.blocks))
+    const writer = documentAuthor(source || '')
+    if (writer && parsed.blocks.length) parsed.blocks[0] = { ...parsed.blocks[0], writer }
     docStart.set(item.href, stream.length)
     for (const [id, index] of parsed.anchors) anchorAt.set(`${item.href}#${id}`, stream.length + index)
     const firstHeading = parsed.blocks.find(block => block.heading)?.text
@@ -1098,6 +1227,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     piece.blocks = kept
   }
   pieces = pieces.filter(piece => piece.blocks.length > 0)
+  const candidates: Array<AuthorCandidate | null> = []
   const converted: UserBookChapter[] = pieces.map((piece, index) => {
     const titled = piece.title || piece.blocks.find(block => block.heading)?.text.replace(/(^|\s)_|_(\s|$)/g, '$1$2') || `Section ${index + 1}`
     // The heading repeated under the title is found without the title's footnote call ("PAULINUS.[1] OF …").
@@ -1110,12 +1240,16 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     if (links.length) chapter.links = links
     const figures = blocks.flatMap(block => block.meta ? [block.meta] : [])
     if (figures.length) chapter.figures = figures
+    candidates.push(authorCandidate(blocks, piece.blocks, piece.title))
     return chapter
   })
+  // Who wrote each chapter of an essay collection or anthology, beside the text: its byline stays in it.
+  const { authors, collection } = chapterAuthors(candidates, creators)
+  authors.forEach((name, index) => { if (name) converted[index].author = name })
   // The book's own printed contents ("CONTENTS / PAGE / Of Providence 1 …") is left out like
   // its contents page (public/lab/printed-contents.js); the reader has its own chapter menu.
   const kept = dropPrintedContents(converted)
   // Titles are read together, so boilerplate shared by a book's headings is left out (chapter-title.js).
   const chapters = options.sourceTitles ? kept : normalizeChapterTitles(kept, { language })
-  return { edition: { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, language, chapters, droppedImages }, images }
+  return { edition: { format: USER_EDITION_FORMAT, converter: USER_EDITION_CONVERTER, title, ...(subtitle ? { subtitle } : {}), author, ...(collection ? { collection: true as const } : {}), language, chapters, droppedImages }, images }
 }

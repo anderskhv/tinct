@@ -410,6 +410,76 @@ describe('a designed book, not a converted one', () => {
     expect([four.paragraphs, four.kinds]).toEqual([['Ann Lee', 'Ann Lee said that lamps were bright.'], ['byline', null]])
   })
 
+  describe('who wrote each chapter', () => {
+    /** The same designed book with its own creators in place of the fixture's two. */
+    const authored = (creators: string, docs: Array<[string, string]>, entries: Array<[string, string]>) => {
+      const files = [
+        ['mimetype', 'application/epub+zip'],
+        ['META-INF/container.xml', CONTAINER],
+        ['OEBPS/content.opf', opf([['nav', 'toc.xhtml', 'properties="nav"'], ...docs.map(([name]): [string, string] => [name, `${name}.xhtml`])], docs.map(([name]) => name))
+          .replace('<dc:creator>A. Writer</dc:creator><dc:creator>B. Editor</dc:creator>', creators).replace('<dc:language>da</dc:language>', '<dc:language>en</dc:language>')],
+        ['OEBPS/toc.xhtml', nav(entries)],
+        ...docs.map(([name, body]): [string, string] => [`OEBPS/${name}.xhtml`, body.startsWith('<?xml') ? body : xhtml(body)]),
+      ]
+      return zip(files)
+    }
+
+    it('reads a Bold Conjectures-like essay’s “by David Deutsch” as its writer, and keeps the line in the text', async () => {
+      const edition = await epubToEdition(authored('<dc:creator>Sam Kuypers</dc:creator>', [
+        ['one', '<h1>Introduction</h1><p>This book collects essays and interviews about explanation and its reach.</p>'],
+        ['two', '<h1>The Beginning of Infinity</h1><p>by David Deutsch</p><p>Progress that is both rapid and sustained has only ever happened once in history.</p>'],
+        ['three', '<h1>On Conjecture</h1><p>An interview with Brett Hall</p><p>We sat down to talk about what knowledge is and where it comes from.</p>'],
+        ['four', '<h1>Afterword</h1><p>Edited by Sam Kuypers</p><p>Thanks to everyone who took part in these conversations over the years.</p>'],
+      ], [['one.xhtml', 'Introduction'], ['two.xhtml', 'The Beginning of Infinity'], ['three.xhtml', 'On Conjecture'], ['four.xhtml', 'Afterword']]))
+      const [one, two, three, four] = edition.chapters
+      expect(edition.author).toBe('Sam Kuypers')
+      expect(edition.collection).toBe(true)
+      expect(two.author).toBe('David Deutsch')
+      expect([two.paragraphs[0], two.kinds?.[0]]).toEqual(['by David Deutsch', 'byline'])
+      expect(three.author).toBe('Brett Hall')
+      expect(three.paragraphs[0]).toBe('An interview with Brett Hall')
+      // An introduction names no writer; an editor's credit is not a writer's byline.
+      expect(one.author).toBeUndefined()
+      expect(four.author).toBeUndefined()
+    })
+
+    it('leaves a single-author book unchanged, even where its chapters repeat the author’s name', async () => {
+      const edition = await epubToEdition(authored('<dc:creator>Lucius Annaeus Seneca</dc:creator>', [
+        ['one', '<h1>On Providence</h1><p>By L. Annaeus Seneca</p><p>You have asked me, Lucilius, why, if the world is ruled by providence, good men suffer.</p>'],
+        ['two', '<h1>On Anger</h1><p>You have demanded of me, Novatus, that I should write how anger may be soothed.</p>'],
+        ['three', '<h1>To Marcia</h1><p>Ann Lee</p><p>If I did not know, Marcia, that you had no more weakness of mind than of virtue.</p>'],
+      ], [['one.xhtml', 'On Providence'], ['two.xhtml', 'On Anger'], ['three.xhtml', 'To Marcia']]))
+      expect(edition.author).toBe('Lucius Annaeus Seneca')
+      expect(edition.collection).toBeUndefined()
+      // One bare name under one heading is not enough to call it a writer.
+      expect(edition.chapters.map(chapter => chapter.author)).toEqual([undefined, undefined, undefined])
+      expect(JSON.stringify(edition.chapters)).not.toMatch(/"author"/)
+    })
+
+    it('marks an anthology of several creators a collection, naming a chapter’s writer only where it says so', async () => {
+      const edition = await epubToEdition(authored('<dc:creator>Mary Ward</dc:creator><dc:creator>John Ruskin</dc:creator><dc:creator>Charles Kingsley</dc:creator>', [
+        ['one', '<h1>The First Sermon</h1><p>It was a grey morning when the people gathered by the river to hear the preacher.</p>'],
+        ['two', '<h1>The Second Sermon</h1><p>The second gathering was larger, and the preacher spoke longer than before.</p>'],
+        ['three', `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>x</title><meta name="author" content="Charles Kingsley"/></head><body><h1>The Third Sermon</h1><p>At the third gathering the river had risen and nobody could cross it.</p></body></html>`],
+      ], [['one.xhtml', 'The First Sermon'], ['two.xhtml', 'The Second Sermon — John Ruskin'], ['three.xhtml', 'The Third Sermon']]))
+      expect(edition.collection).toBe(true)
+      // No byline, no metadata: an unnamed writer ("the author"), never the book's list of creators.
+      expect(edition.chapters[0].author).toBeUndefined()
+      // A contents entry naming one of the creators, and a chapter document's own author.
+      expect(edition.chapters[1].author).toBe('John Ruskin')
+      expect(edition.chapters[2].author).toBe('Charles Kingsley')
+    })
+
+    it('reads names set alone under several headings as bylines once the book sets more than one that way', async () => {
+      const edition = await epubToEdition(authored('<dc:creator id="e">Jo Smith</dc:creator><meta refines="#e" property="role">edt</meta>', [
+        ['one', '<h1>The Fate of Lamps</h1><p>Sam Writer</p><p>Modern lamps consist of two parts, and both of them are bright.</p>'],
+        ['two', '<h1>The Night Garden</h1><p>Ann Lee</p><p>The night garden opens only after the lamps have been lit.</p>'],
+      ], [['one.xhtml', 'The Fate of Lamps'], ['two.xhtml', 'The Night Garden']]))
+      expect(edition.collection).toBe(true)
+      expect(edition.chapters.map(chapter => chapter.author)).toEqual(['Sam Writer', 'Ann Lee'])
+    })
+  })
+
   it('leaves body text alone when an opening line is not clearly a subtitle or byline', async () => {
     const edition = await epubToEdition(book([
       ['one', '<h1>One</h1><p>It was dark.</p><p>Nobody came.</p>'],
