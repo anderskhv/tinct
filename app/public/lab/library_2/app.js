@@ -126,11 +126,13 @@ function setSearch(open,preserve=false){searchOpen=open;$('search-panel').hidden
 // The library's own books, ranked by the catalogue's search engine (library-search.js): typos, other spellings and titles find them.
 const tinctSearch=librarySearch(books);
 export function filterBooks(query){return tinctSearch.filter(query);}
-function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?`${matches.length} ${matches.length===1?'book':'books'} found`:'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});
+const foundLabel=n=>`${n} ${n===1?'book':'books'} found`;
+function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?foundLabel(matches.length):'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});
  // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
- // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them.
+ // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them,
+ // and counts the "Not yet in Tinct" rows too once they are drawn (every book the panel lists).
  // What the catalogue knows of each book (popularity, the author's other names) ranks them as the catalogue would; asked once per book.
- if(addEnabled()){void borrowFromCatalogue(books).then(map=>{if(tinctSearch.lend(map)&&searchOpen&&!openedFromSearch)renderResults();});const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,addingStage,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults});if(q)$('search-label').textContent=`${shown.length} ${shown.length===1?'book':'books'} found`;return;}
+ if(addEnabled()){void borrowFromCatalogue(books).then(map=>{if(tinctSearch.lend(map)&&searchOpen&&!openedFromSearch)renderResults();});const shown=renderSearchGroups(box,{query:q,tinct:matches,tinctBooks:books,renderTinct,el,onAdd:addWork,addingWork,addingStage,filterHost:$('search-panel').querySelector('.search-content'),onFilters:renderResults,onFreeShown:n=>{if(q&&$('search-input').value===q)$('search-label').textContent=foundLabel(shown.length+n);}});if(q)$('search-label').textContent=foundLabel(shown.length);return;}
  renderTinct(matches);if(!matches.length)box.append(el('p','','Try another title or author.'));}
 // A catalogue book readers added: its form, era and year join the library's menus.
 function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}

@@ -24,7 +24,7 @@ export const ADD_PARAM='add';
 let worker=null,ready=null,request=0;const waiting=new Map();
 export function warmFreeSearch(){
  if(worker||!enabled())return ready;
- try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261008rel4',{type:'module'});}catch{worker=null;return null;}
+ try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261008rank1',{type:'module'});}catch{worker=null;return null;}
  ready=new Promise((resolve,reject)=>{
   worker.onmessage=({data})=>{
    if(data.type==='ready')resolve();
@@ -77,7 +77,7 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261008rel4';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261008rank1';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -255,9 +255,10 @@ export function syncSearchFilters(host,{query,tinctBooks,el,onChange}){
 // ---- Rendering ----
 /**
  * "Available in Tinct" / "Not yet in Tinct" / "Have it as a file?" in the search panel,
- * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown.
+ * with the filter chips in `filterHost`. Returns the "Available in Tinct" books shown;
+ * `onFreeShown(n)` hears how many "Not yet in Tinct" rows were drawn, when they are.
  */
-export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters}){
+export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,onAdd,addingWork,addingStage,filterHost,onFilters,onFreeShown}){
  box.classList.add('has-groups');
  const head=text=>el('h2','search-group-head',text);
  const bar=syncSearchFilters(filterHost,{query,tinctBooks,el,onChange:onFilters});
@@ -272,6 +273,7 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
    if(!group.isConnected)return;
    const {notYet}=groupSearchResults({tinct,free:filterNotYet(free,f),tinctBooks});group.dataset.freeGroup=String(notYet.length);
    if(!notYet.length)return;
+   onFreeShown?.(notYet.length);
    group.append(head('Not yet in Tinct'));const list=el('ol','free-list');
    for(const work of notYet){
     const row=freeRow(work),item=el('li','free-row'),text=el('span','free-text');

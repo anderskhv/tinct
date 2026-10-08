@@ -182,16 +182,17 @@ describe('library search panel with the flag', () => {
     FakeWorker.results = [work('pg:1342', 'Pride and Prejudice', 'Jane Austen', { onTinct: true }), work('pg:105', 'Persuasion', 'Jane Austen'), work('ws:en:Q1', 'Lady Susan', 'Jane Austen', { editions: [{ source: 'Wikisource', epubUrl: 'https://ws-export.wmcloud.org/?format=epub&page=Lady_Susan' }] })]
     const box = document.createElement('div')
     document.body.append(box) // results for a panel no longer on screen are dropped
-    const added: string[] = []
+    const added: string[] = [], freeShown: number[] = []
     addToTinct.renderSearchGroups(box, {
-      query: 'austen', tinct: [{ id: 'pride-and-prejudice', title: 'Pride and Prejudice', author: 'Jane Austen' }],
+      query: 'austen', onFreeShown: (n: number) => freeShown.push(n), tinct: [{ id: 'pride-and-prejudice', title: 'Pride and Prejudice', author: 'Jane Austen' }],
       tinctBooks: [{ id: 'pride-and-prejudice', title: 'Pride and Prejudice', author: 'Jane Austen' }],
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel4')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rank1')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
+    expect(freeShown).toEqual([2]) // the panel's "N books found" counts these rows too (app.js)
     expect([...box.querySelectorAll('.search-group-head')].map(h => h.textContent)).toEqual(['Available in Tinct', 'Not yet in Tinct'])
     expect(box.querySelector('.search-result')?.textContent).toBe('Pride and Prejudice')
     const rows = [...box.querySelectorAll('.free-row')]

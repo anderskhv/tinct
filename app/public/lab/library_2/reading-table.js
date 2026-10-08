@@ -9,8 +9,8 @@
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008add';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
-import {renderBookMetadata} from './book-metadata.js?v=20261008rel4';
-import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel4';
+import {renderBookMetadata} from './book-metadata.js?v=20261008rank1';
+import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rank1';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
