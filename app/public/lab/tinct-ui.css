@@ -1,0 +1,455 @@
+/* Tinct UI: the shared design system (v1, 2026-10-08).
+   Reference page: /lab/design-system.html · Rules: docs/design-system.md
+
+   Extracted from what production already does well, not a new look:
+   - dark ("the room") is the library's palette (lab/library_2/styles.css :root);
+   - light, book and the reading page are the reader's papers (src/lab/lab.css .lab,
+     .lab.is-book-theme, .lab.is-night);
+   - pills, filter chips and list rows are the library's (search filters, free rows);
+   - sheets are the reader's v2 sheets (lab.css .lab-v2-sheet), dialogs follow them;
+   - e-ink mirrors lab/display-profile.css.
+
+   Use: <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261008ds">. Every class is
+   prefixed tui-. Themes are scoped: put data-tui-theme="light|book|dark|eink" on
+   <html> or on any element (a dialog over the dark library carries "dark").
+   Light is the default. html[data-eink="true"] (display-profile.js) wins everywhere.
+   The fonts are not loaded here (no external dependencies); a page that wants EB
+   Garamond and Playfair Display links /fonts/tinct-fonts.css, otherwise the stacks
+   fall back to Georgia, as the library does today. */
+
+/* ------------------------------------------------------------------ tokens */
+:root,
+[data-tui-theme="light"],
+[data-tui-theme="book"] { /* book starts from light (complete set) and overrides below */
+  /* Paper and ink (the reader's light page) */
+  --tui-paper: #ece7db;          /* page ground */
+  --tui-surface: #f7f3ea;        /* dialogs, sheets, cards: one step above paper */
+  --tui-surface-2: #e2d8c4;      /* wells, pressed rows, theme swatches */
+  --tui-ink: #0b0b0b;
+  --tui-ink-muted: #6a6256;
+  --tui-ink-faint: #82796b;
+  --tui-line: rgba(32, 26, 19, .12);        /* hairlines, row rules */
+  --tui-line-strong: #c8c0ae;               /* outlined pills, inputs, card edges */
+  --tui-hover: rgba(11, 11, 11, .06);
+  --tui-disc: rgba(159, 141, 109, .16);     /* close X disc, quiet fills */
+  --tui-accent: #1f4a5c;                    /* deep teal: switches, links, focus */
+  --tui-focus: #1f4a5c;
+  --tui-tag: #7a6a45;                       /* uppercase category tags */
+  --tui-primary: #0b0b0b;                   /* primary pill fill */
+  --tui-on-primary: #ece7db;
+  --tui-scrim: rgba(28, 24, 18, .32);
+  --tui-page: #ece7db;                      /* reading surface (book text) */
+  --tui-page-ink: #0b0b0b;
+  /* Shadows */
+  --tui-shadow-sm: 0 1px 4px rgba(20, 15, 8, .16);
+  --tui-shadow-pop: 0 8px 30px rgba(20, 15, 8, .14);
+  --tui-shadow-dialog: 0 18px 50px rgba(20, 15, 8, .22);
+  --tui-shadow-sheet: 0 -12px 36px rgba(20, 15, 8, .2);
+
+  /* Type families: one role each (see docs/design-system.md) */
+  --tui-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif; /* page, sheet and dialog titles only */
+  --tui-font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;        /* book text, book titles, body copy */
+  --tui-font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;   /* chrome: buttons, chips, inputs, meta, figures */
+  /* No mono family, ever. Figures (page, %, speed, time) use the role's own
+     font with tabular-nums: see .tui-figure. At most two families per screen. */
+
+  /* Type scale (px; production sizes) */
+  --tui-text-2xs: 11px;   /* eyebrows */
+  --tui-text-xs: 12.5px;  /* meta lines, fine print on phone */
+  --tui-text-sm: 13px;    /* chips, fine print */
+  --tui-text-ui: 14px;    /* buttons, UI copy */
+  --tui-text-md: 15px;    /* quiet buttons, small section heads */
+  --tui-text-body: 17px;  /* serif body, list titles */
+  --tui-text-lg: 19px;    /* sheet titles */
+  --tui-text-xl: 23px;    /* dialog titles */
+  --tui-text-2xl: 28px;   /* card titles */
+  --tui-text-3xl: clamp(34px, 5vw, 48px);  /* page titles */
+  --tui-text-hero: clamp(48px, 5.1vw, 88px); /* the library's featured book title */
+
+  /* Spacing (4px base) */
+  --tui-space-1: 4px;
+  --tui-space-2: 8px;
+  --tui-space-3: 12px;
+  --tui-space-4: 16px;
+  --tui-space-5: 20px;
+  --tui-space-6: 24px;
+  --tui-space-7: 32px;
+  --tui-space-8: 48px;
+  --tui-gutter: max(16px, 2.5vw); /* page side margin (library: max(28px,2.5vw) on desktop) */
+
+  /* Radii */
+  --tui-radius-sm: 8px;    /* selects, small wells */
+  --tui-radius-md: 12px;   /* inputs, file box, theme swatches */
+  --tui-radius-lg: 18px;   /* cards, dialogs, desktop sheets */
+  --tui-radius-sheet: 20px;/* phone sheet top corners */
+  --tui-radius-pill: 999px;/* every button and chip */
+
+  /* Motion */
+  --tui-dur-fast: 160ms;   /* colour, hover, press */
+  --tui-dur: 240ms;        /* panels, dialogs in */
+  --tui-dur-slow: 340ms;   /* sheets, tabs that travel */
+  --tui-ease: cubic-bezier(.2, .8, .2, 1);
+  --tui-ease-spring: cubic-bezier(.2, 1.45, .4, 1); /* only for the librarian tab family */
+
+  /* Layers */
+  --tui-z-sheet: 340;
+  --tui-z-dialog: 140;
+}
+
+/* color-scheme only where a theme is named, so linking this file never repaints a page's own scrollbars. */
+[data-tui-theme="light"], [data-tui-theme="book"], [data-tui-theme="eink"] { color-scheme: light; }
+
+[data-tui-theme="book"] {
+  --tui-paper: #e7dcc7;
+  --tui-surface: #f3ecdf;
+  --tui-surface-2: #d8c9ad;
+  --tui-ink: #201a13;
+  --tui-ink-muted: #675b4b;
+  --tui-ink-faint: #796c59;
+  --tui-line: rgba(32, 26, 19, .14);
+  --tui-line-strong: #b9a98d;
+  --tui-hover: rgba(32, 26, 19, .07);
+  --tui-tag: #7a6a45;
+  --tui-primary: #201a13;
+  --tui-on-primary: #f3ecdf;
+  --tui-page: #e7dcc7;
+  --tui-page-ink: #201a13;
+}
+
+/* Dark is the library's room: green-black ground, cream ink. */
+[data-tui-theme="dark"] {
+  color-scheme: dark;
+  --tui-paper: #111610;
+  --tui-surface: #151b14;
+  --tui-surface-2: #1a2119;
+  --tui-ink: #eee7d0;
+  --tui-ink-muted: #b8bea9;
+  --tui-ink-faint: #8e957f;
+  --tui-line: rgba(238, 231, 208, .18);
+  --tui-line-strong: rgba(238, 231, 208, .35);
+  --tui-hover: rgba(238, 231, 208, .08);
+  --tui-disc: rgba(238, 231, 208, .1);
+  --tui-accent: #78aabd;
+  --tui-focus: #dbd3ae;
+  --tui-tag: #c6bd95;
+  --tui-primary: #eee7d0;
+  --tui-on-primary: #222b20;
+  --tui-scrim: rgba(5, 8, 6, .6);
+  --tui-page: #171411;        /* the reader's night page: warmer and dimmer than the room */
+  --tui-page-ink: #bdb3a7;
+  --tui-shadow-sm: 0 1px 4px rgba(0, 0, 0, .3);
+  --tui-shadow-pop: 0 12px 32px rgba(0, 0, 0, .45);
+  --tui-shadow-dialog: 0 18px 50px rgba(0, 0, 0, .55);
+  --tui-shadow-sheet: 0 -12px 36px rgba(0, 0, 0, .45);
+}
+
+[data-tui-theme="eink"],
+html[data-eink="true"],
+html[data-eink="true"] [data-tui-theme] {
+  --tui-paper: #fff;
+  --tui-surface: #fff;
+  --tui-surface-2: #f2f2f2;
+  --tui-ink: #111;
+  --tui-ink-muted: #444;
+  --tui-ink-faint: #555;
+  --tui-line: #777;
+  --tui-line-strong: #777;
+  --tui-hover: #eee;
+  --tui-disc: #eee;
+  --tui-accent: #111;
+  --tui-focus: #111;
+  --tui-tag: #333;
+  --tui-primary: #111;
+  --tui-on-primary: #fff;
+  --tui-scrim: rgba(0, 0, 0, .15);
+  --tui-page: #fff;
+  --tui-page-ink: #111;
+  --tui-shadow-sm: none;
+  --tui-shadow-pop: none;
+  --tui-shadow-dialog: none;
+  --tui-shadow-sheet: none;
+  --tui-dur-fast: 0ms;
+  --tui-dur: 0ms;
+  --tui-dur-slow: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root, [data-tui-theme] { --tui-dur-fast: 0ms; --tui-dur: 0ms; --tui-dur-slow: 0ms; }
+}
+
+/* ------------------------------------------------------------------ base */
+.tui-root {
+  background: var(--tui-paper);
+  color: var(--tui-ink);
+  font: 400 var(--tui-text-ui)/1.5 var(--tui-font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+.tui-visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ text roles */
+.tui-page-title {
+  margin: 0;
+  font: 600 var(--tui-text-3xl)/1.08 var(--tui-font-display);
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+.tui-book-title { /* a book's title, wherever it appears */
+  margin: 0;
+  font: 400 var(--tui-text-2xl)/1.15 var(--tui-font-serif);
+  letter-spacing: -.01em;
+}
+.tui-book-title--hero { font-size: var(--tui-text-hero); line-height: 1.04; letter-spacing: -.035em; }
+.tui-section-title { /* shelf and group heads */
+  margin: 0;
+  font: 650 21px/1.3 var(--tui-font-ui);
+}
+.tui-section-title--sm { font-size: var(--tui-text-md); letter-spacing: .01em; }
+.tui-eyebrow {
+  margin: 0;
+  font: 500 var(--tui-text-2xs)/1.4 var(--tui-font-ui);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tui-ink-faint);
+}
+.tui-lede { margin: 0; font: 400 var(--tui-text-body)/1.45 var(--tui-font-serif); color: var(--tui-ink); }
+.tui-body { margin: 0; font: 400 var(--tui-text-ui)/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
+.tui-fine { margin: 0; font: 400 var(--tui-text-sm)/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
+.tui-figure { font-family: var(--tui-font-ui); font-size: inherit; font-weight: 400; color: var(--tui-ink-muted); font-variant-numeric: tabular-nums; }
+.tui-link {
+  padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer;
+  text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px;
+}
+.tui-link:hover { color: var(--tui-accent); }
+
+/* ------------------------------------------------------------------ focus */
+:is(.tui-btn, .tui-icon-btn, .tui-close, .tui-chip, .tui-link, .tui-input, .tui-check input, .tui-row--link):focus-visible {
+  outline: 2px solid var(--tui-focus);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ buttons */
+/* Every button is a pill. Primary: one per surface, the action the surface exists for.
+   Secondary: the alternative (Cancel beside a primary, Add in a row). Quiet: low-stakes
+   navigation in toolbars (Cancel in search, Back). Nothing in the system is set in mono. */
+.tui-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--tui-space-2);
+  box-sizing: border-box; min-height: 44px; padding: 0 var(--tui-space-5);
+  border: 1px solid transparent; border-radius: var(--tui-radius-pill);
+  background: none; color: var(--tui-ink);
+  font: 600 var(--tui-text-ui)/1 var(--tui-font-ui); letter-spacing: 0;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--tui-dur-fast) ease, color var(--tui-dur-fast) ease, border-color var(--tui-dur-fast) ease, filter var(--tui-dur-fast) ease;
+}
+.tui-btn svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tui-btn:disabled, .tui-btn[aria-disabled="true"] { opacity: .45; cursor: default; }
+.tui-btn--primary { background: var(--tui-primary); border-color: var(--tui-primary); color: var(--tui-on-primary); }
+.tui-btn--primary:not(:disabled):hover { filter: brightness(1.08); }
+.tui-btn--secondary { border-color: var(--tui-line-strong); color: var(--tui-ink); }
+.tui-btn--secondary:not(:disabled):hover { background: var(--tui-hover); }
+.tui-btn--quiet { padding: 0 var(--tui-space-3); font-weight: 500; font-size: var(--tui-text-md); color: var(--tui-ink-muted); }
+.tui-btn--quiet:not(:disabled):hover { color: var(--tui-ink); background: var(--tui-hover); }
+.tui-btn--sm { min-height: 34px; padding: 0 var(--tui-space-4); font-size: var(--tui-text-sm); position: relative; }
+.tui-btn--sm::before { content: ''; position: absolute; inset: -5px 0; } /* 44px tap height */
+.tui-btn--lg { min-height: 48px; padding: 0 26px; font-size: var(--tui-text-body); }
+.tui-btn--block { display: flex; width: 100%; }
+.tui-btn.is-busy { pointer-events: none; }
+.tui-spinner { width: 15px; height: 15px; border: 1.6px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: tui-spin .9s linear infinite; }
+@keyframes tui-spin { to { transform: rotate(360deg); } }
+
+/* Icon button: a 44px round target, the glyph alone (header search, menu, +). */
+.tui-icon-btn {
+  display: inline-grid; place-items: center; flex: none;
+  width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%;
+  background: none; color: var(--tui-ink); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--tui-dur-fast) ease, color var(--tui-dur-fast) ease;
+}
+.tui-icon-btn:hover { background: var(--tui-hover); }
+.tui-icon-btn svg, .tui-close svg { display: block; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+/* Close X: the reader sheet's 30px disc, with a 44px target around it. */
+.tui-close {
+  position: relative; display: inline-grid; place-items: center; flex: none;
+  width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%;
+  background: var(--tui-disc); color: var(--tui-ink-muted); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--tui-dur-fast) ease, background-color var(--tui-dur-fast) ease;
+}
+.tui-close::before { content: ''; position: absolute; inset: -7px; }
+.tui-close:hover { color: var(--tui-ink); }
+.tui-close svg { width: 14px; height: 14px; stroke-width: 1.8; }
+
+/* ------------------------------------------------------------------ chips, pills, tags */
+/* Filter chip: a toggle in a row of choices (search filters, segmented choices). */
+.tui-chip {
+  display: inline-flex; align-items: center; gap: 6px; box-sizing: border-box;
+  min-height: 36px; padding: 7px 14px;
+  border: 1px solid var(--tui-line-strong); border-radius: var(--tui-radius-pill);
+  background: none; color: var(--tui-ink-muted);
+  font: 400 var(--tui-text-sm)/1.4 var(--tui-font-ui); white-space: nowrap; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--tui-dur-fast) ease, color var(--tui-dur-fast) ease, border-color var(--tui-dur-fast) ease;
+}
+.tui-chip:hover { background: var(--tui-hover); color: var(--tui-ink); }
+.tui-chip[aria-pressed="true"], .tui-chip[aria-checked="true"], .tui-chip.is-on {
+  background: var(--tui-primary); border-color: var(--tui-primary); color: var(--tui-on-primary);
+}
+select.tui-chip {
+  -webkit-appearance: none; appearance: none; padding-right: 30px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='m1 1 4 4 4-4' fill='none' stroke='%23888' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right 12px center / 10px 6px;
+}
+.tui-chips { display: flex; flex-wrap: wrap; gap: var(--tui-space-2); }
+/* Source pill: a fact, not a control (genre, reading time, source, "Primer"). */
+.tui-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 9px; border: 1px solid var(--tui-line); border-radius: var(--tui-radius-pill);
+  font: 400 12px/1.3 var(--tui-font-ui); color: var(--tui-ink-muted); white-space: nowrap;
+}
+/* Tag: an uppercase category above a title (FICTION, PRIVATE). No border, no fill. */
+.tui-tag {
+  display: inline-block;
+  font: 500 10px/1.4 var(--tui-font-ui); letter-spacing: .12em; text-transform: uppercase;
+  color: var(--tui-tag);
+}
+
+/* ------------------------------------------------------------------ inputs */
+.tui-input {
+  box-sizing: border-box; width: 100%; min-width: 0; min-height: 48px;
+  padding: 12px 16px; border: 1px solid var(--tui-line-strong); border-radius: var(--tui-radius-md);
+  background: var(--tui-paper); color: var(--tui-ink);
+  font: 400 var(--tui-text-body)/1.3 var(--tui-font-ui);
+  transition: border-color var(--tui-dur-fast) ease;
+}
+.tui-input::placeholder { color: var(--tui-ink-faint); }
+.tui-input:focus { border-color: var(--tui-focus); outline: none; }
+/* Search bar: the library's search toolbar. Icon, a large borderless field, trailing actions; a hairline below. */
+.tui-search {
+  display: flex; align-items: center; gap: var(--tui-space-3);
+  padding-bottom: var(--tui-space-4); border-bottom: 1px solid var(--tui-line);
+  color: var(--tui-ink);
+}
+.tui-search > svg { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
+.tui-search input {
+  flex: 1; min-width: 0; padding: 10px 0; border: 0; background: none; outline: none;
+  color: var(--tui-ink); font: 400 24px/1.4 var(--tui-font-ui);
+}
+.tui-search input::placeholder { color: var(--tui-ink-faint); }
+.tui-search input::-webkit-search-cancel-button { display: none; }
+.tui-search:focus-within { border-bottom-color: var(--tui-line-strong); }
+
+/* ------------------------------------------------------------------ list row */
+.tui-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tui-line); }
+.tui-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: var(--tui-space-3) 0; border-bottom: 1px solid var(--tui-line);
+  color: var(--tui-ink); text-decoration: none;
+}
+.tui-row__lead { flex: none; width: 40px; }
+.tui-row__text { flex: 1; min-width: 0; }
+.tui-row__title { display: block; margin: 0; font: 400 var(--tui-text-body)/1.35 var(--tui-font-serif); overflow-wrap: anywhere; }
+.tui-row__author { color: var(--tui-ink-muted); }
+.tui-row__meta { display: block; margin-top: 3px; font: 400 var(--tui-text-xs)/1.4 var(--tui-font-ui); color: var(--tui-ink-muted); }
+.tui-row__trail { flex: none; display: flex; align-items: center; gap: var(--tui-space-2); color: var(--tui-ink-muted); }
+.tui-row--link { cursor: pointer; }
+.tui-row--link:hover .tui-row__title { text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+
+/* ------------------------------------------------------------------ card */
+.tui-card {
+  display: flex; flex-direction: column; gap: var(--tui-space-3); min-width: 0; box-sizing: border-box;
+  padding: 26px clamp(18px, 3vw, 30px);
+  border: 1px solid var(--tui-line); border-radius: var(--tui-radius-lg);
+  background: var(--tui-surface); color: var(--tui-ink);
+}
+.tui-card__title { margin: 0; font: 400 var(--tui-text-2xl)/1.15 var(--tui-font-serif); }
+.tui-card__body { margin: 0; font: 400 15px/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
+.tui-card__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--tui-space-1); }
+/* Dashed drop or "have it as a file?" box. */
+.tui-card--dashed { background: none; border: 1.5px dashed var(--tui-line-strong); border-radius: var(--tui-radius-md); }
+
+/* ------------------------------------------------------------------ dialog */
+/* A short decision over a page: a title, a few lines, an actions row. Centred on
+   desktop; on a phone it sits at the bottom, above the safe area, like a sheet. */
+.tui-scrim {
+  position: fixed; inset: 0; z-index: var(--tui-z-dialog);
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--tui-space-5); box-sizing: border-box;
+  background: var(--tui-scrim);
+  animation: tui-fade var(--tui-dur) ease both;
+}
+.tui-dialog {
+  position: relative; box-sizing: border-box;
+  width: min(100%, 440px); max-height: calc(100dvh - 40px); overflow: auto;
+  padding: var(--tui-space-6) var(--tui-space-6) var(--tui-space-5);
+  border: 1px solid var(--tui-line); border-radius: var(--tui-radius-lg);
+  background: var(--tui-surface); color: var(--tui-ink);
+  box-shadow: var(--tui-shadow-dialog);
+  font: 400 var(--tui-text-ui)/1.5 var(--tui-font-ui);
+  animation: tui-rise var(--tui-dur) var(--tui-ease) both;
+}
+.tui-dialog__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--tui-space-3); margin: 0 0 10px; }
+.tui-dialog__title { margin: 0; font: 600 var(--tui-text-xl)/1.2 var(--tui-font-display); letter-spacing: -.005em; color: var(--tui-ink); }
+.tui-dialog__head .tui-close { margin: -1px -4px 0 0; }
+.tui-dialog__body { margin: 0 0 var(--tui-space-3); font: 400 var(--tui-text-body)/1.45 var(--tui-font-serif); color: var(--tui-ink); text-wrap: pretty; }
+.tui-dialog__fine { margin: 0 0 var(--tui-space-5); font: 400 var(--tui-text-sm)/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
+.tui-dialog__actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: var(--tui-space-5); }
+.tui-dialog__fine + .tui-dialog__actions { margin-top: 0; }
+/* Checkbox row: a confirmation the reader must tick (rights, terms). */
+.tui-check {
+  display: flex; align-items: flex-start; gap: 10px; margin: 14px 0;
+  font: 400 16px/1.4 var(--tui-font-serif); color: var(--tui-ink); cursor: pointer;
+}
+.tui-check input { flex: none; width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--tui-primary); cursor: pointer; }
+@media (max-width: 699px) {
+  .tui-scrim { align-items: flex-end; padding: var(--tui-space-4) var(--tui-space-4) max(var(--tui-space-4), env(safe-area-inset-bottom)); }
+  .tui-dialog { padding: var(--tui-space-5) 18px var(--tui-space-4); }
+  .tui-dialog__title { font-size: 21px; }
+  .tui-dialog__body { font-size: 16px; }
+  /* Phone: full-width actions, the primary on top and nearest the thumb's reach above Cancel. */
+  .tui-dialog__actions { flex-direction: column-reverse; gap: var(--tui-space-2); }
+  .tui-dialog__actions .tui-btn { width: 100%; }
+}
+
+/* ------------------------------------------------------------------ bottom sheet */
+/* The reader's v2 sheet: phone = full-width, rounded top, grabber; from 700px it
+   floats top-right as a panel (the reader's desktop sheet). */
+.tui-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--tui-z-sheet);
+  display: flex; flex-direction: column; box-sizing: border-box;
+  max-height: min(88vh, 640px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  border-radius: var(--tui-radius-sheet) var(--tui-radius-sheet) 0 0;
+  background: color-mix(in srgb, var(--tui-surface) 94%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.06); backdrop-filter: blur(16px) saturate(1.06);
+  color: var(--tui-ink); box-shadow: var(--tui-shadow-sheet);
+  font: 400 var(--tui-text-ui)/1.5 var(--tui-font-ui);
+  animation: tui-sheet-in var(--tui-dur-slow) var(--tui-ease) both;
+}
+.tui-sheet__grabber { flex: none; width: 40px; height: 3px; margin: 8px auto 0; border-radius: 9px; background: var(--tui-line-strong); }
+.tui-sheet__head { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px 10px; }
+.tui-sheet__title { margin: 0; font: 700 var(--tui-text-lg)/1.2 var(--tui-font-display); color: inherit; }
+.tui-sheet__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 16px 16px; }
+.tui-sheet__row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 48px; box-shadow: inset 0 -1px 0 var(--tui-line);
+  font: 400 var(--tui-text-body)/1.3 var(--tui-font-serif);
+}
+.tui-sheet__row .tui-figure { font-size: var(--tui-text-ui); }
+@media (min-width: 700px) {
+  .tui-sheet:not(.tui-sheet--phone) {
+    left: auto; right: 24px; bottom: auto; top: calc(4.6rem + env(safe-area-inset-top, 0px));
+    width: min(400px, calc(100vw - 48px)); max-height: min(620px, calc(100dvh - 4.6rem - 32px));
+    border-radius: var(--tui-radius-lg); box-shadow: var(--tui-shadow-pop);
+    animation-name: tui-rise;
+  }
+  .tui-sheet:not(.tui-sheet--phone) .tui-sheet__grabber { display: none; }
+}
+
+@keyframes tui-fade { from { opacity: 0; } }
+@keyframes tui-rise { from { opacity: 0; transform: translateY(8px) scale(.99); } }
+@keyframes tui-sheet-in { from { transform: translateY(24px); opacity: 0; } }
+html[data-eink="true"] :is(.tui-scrim, .tui-dialog, .tui-sheet) { animation: none !important; backdrop-filter: none !important; }
+html[data-eink="true"] .tui-sheet { background: var(--tui-surface); border-top: 1px solid var(--tui-line); }
+html[data-eink="true"] .tui-dialog { border-color: var(--tui-ink); }

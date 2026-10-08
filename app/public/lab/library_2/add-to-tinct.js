@@ -77,7 +77,7 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261008rel5';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261008ds';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -116,14 +116,16 @@ export function closeFileDialog(){
 export function openFileDialog({from=null,fallback=ADD_FILE_PAGE,onFile=null,go=href=>location.assign(href),keep=putHandoff}={}){
  closeFileDialog();
  const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
- const layer=make('div','own-file-layer');layer.dataset.testid='own-file-dialog';
- const box=make('div','own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
- const title=make('h2','',OWN_BOOK_COPY.title);title.id='own-file-title';
+ // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
+ const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
+ const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
+ const title=make('h2','tui-dialog__title',OWN_BOOK_COPY.title);title.id='own-file-title';
+ const head=make('div','tui-dialog__head');head.append(title);
  const input=make('input');input.type='file';input.accept=FILE_ACCEPT;input.hidden=true;input.className='own-file-input';
- const cancel=make('button','own-file-cancel',OWN_BOOK_COPY.cancel);cancel.type='button';
- const choose=make('button','own-file-choose',OWN_BOOK_COPY.choose);choose.type='button';
- const actions=make('div','own-file-actions');actions.append(cancel,choose);
- box.append(title,make('p','own-file-lede',OWN_BOOK_COPY.lede),make('p','own-file-fine',OWN_BOOK_COPY.fine),actions,input);
+ const cancel=make('button','tui-btn tui-btn--secondary own-file-cancel',OWN_BOOK_COPY.cancel);cancel.type='button';
+ const choose=make('button','tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);choose.type='button';
+ const actions=make('div','tui-dialog__actions own-file-actions');actions.append(cancel,choose);
+ box.append(head,make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine),actions,input);
  layer.append(box);document.body.append(layer);
  const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeFileDialog();}};
  addEventListener('keydown',onKey,true);
