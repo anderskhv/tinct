@@ -13,14 +13,22 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
  await context.addInitScript(older=>{
   HTMLMediaElement.prototype.play=async()=>{};
   if(sessionStorage.getItem('opening-seeded'))return;sessionStorage.setItem('opening-seeded','1');
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,theme:'dark',compareOpen:false}));
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'literata',fontSize:1.8,fontSizeExplicit:true,theme:'dark',compareOpen:false}));
   localStorage.setItem('tinct-lab-highlights',JSON.stringify([older]));
   sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'web-en',savedPlace:{bookId:'bible',chapterNumber:917,paragraphIndex:0,wordIndex:0,page:0}}));
  },older);
  const p=await context.newPage();p.setDefaultTimeout(25000);
  try{
-  await p.goto(origin+'/reader');await ready(p);
-  for(let i=0;i<15&&!await p.locator('.lab-next-chapter-opening').count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
+  // Chapter length may end on either leaf at a given viewport (the leaf's
+  // line count follows the reader's margins). Select a viewport where 917
+  // actually ends on the left leaf, as check-audio-spread does.
+  for(const height of [879,813,940,740]){
+   await p.setViewportSize({width:1450,height});
+   await p.evaluate(()=>sessionStorage.removeItem('opening-seeded')).catch(()=>{});
+   await p.goto(origin+'/reader');await ready(p);
+   for(let i=0;i<15&&!await p.locator('.lab-next-chapter-opening').count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
+   if(await p.locator('.lab-next-chapter-opening').count()&&await p.locator('.lab').getAttribute('data-chapter')==='917')break;
+  }
   const opening=p.locator('.lab-next-chapter-opening');await opening.waitFor();
   assert.equal(await p.locator('.lab').getAttribute('data-chapter'),'917');
   if(baseline){
