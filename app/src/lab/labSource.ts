@@ -46,6 +46,8 @@ export interface LabChapter {
   /** Bible chapters ship a paragraph count but no word count: 1,189 chapters
    * are never all loaded, so the book-page estimate weights them by this. */
   paragraphCount?: number
+  /** The chapter's own writer in an essay collection (Chapter.author). */
+  author?: string
 }
 
 export interface LabSource {
@@ -54,6 +56,12 @@ export interface LabSource {
   editions?: Edition[]
   bookTitle: string
   bookAuthor: string
+  /**
+   * An essay collection or anthology (EditionData.collection): each chapter's
+   * writer is its `chapters[].author`, and the AI features name it, or "the
+   * author", instead of the book's credit (companion/authorship.ts). Absent for one author's book.
+   */
+  collection?: true
   editionLabel: string
   chapterLabel: string
   chapterTitle: string
@@ -613,6 +621,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     editions: registryBook.editions,
     bookTitle: registryBook.title,
     bookAuthor: registryBook.author,
+    ...(primaryData.collection || primaryData.chapters.some(chapter => chapter.author) ? { collection: true as const } : {}),
     editionLabel: primaryEdition.label,
     chapterLabel: entry.title,
     chapterTitle: entry.title,
@@ -631,6 +640,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
         ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
         : undefined,
       paragraphCount: chapter.paragraphCount ?? chapter.paragraphs.length,
+      ...(chapter.author ? { author: chapter.author } : {}),
     })),
     sections: primaryData.sections,
     cast: supporting.cast,

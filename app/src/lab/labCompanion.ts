@@ -1,6 +1,7 @@
 import { COMPANION_EFFORT_VOICE, COMPANION_MODEL } from '../companionModel'
 import { apiUrl } from '../utils/apiUrl'
 import { nearbyParagraphWindow } from '../voice/context'
+import { authorshipNote, bookByline, type Authorship } from '../companion/authorship'
 import { LAB_COPY } from './labCopy'
 import type { LabReadingTrailEntry } from './labReadingTrail'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
@@ -8,6 +9,8 @@ import { internalTrafficHeaders } from '../utils/internalTraffic'
 export interface LabTalkContext {
   bookTitle: string
   bookAuthor: string
+  /** An essay collection or anthology: who wrote the current chapter (companion/authorship.ts). */
+  authorship?: Authorship
   chapterLabel: string
   chapterNumber?: number
   editionLabel?: string
@@ -172,9 +175,11 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
     `If they want the book back, call resume_audiobook. One short goodbye is fine.`,
     `Speak in complete sentences. Warm, literary, and calm. Do not use the formula "it's not X, it's Y." Almost never use em dashes.`,
     `[Current state]`,
-    `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${edition}).`,
+    `Right now reading: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel} (${edition}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}. Treat later chapters as unknown.`,
   ]
+  const authorship = authorshipNote(input.bookAuthor, input.authorship)
+  if (authorship) lines.push(authorship)
 
   if (input.readingAngle) lines.push(`Reading angle: ${input.readingAngle}`)
   if (current) lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
@@ -191,7 +196,8 @@ export function buildCompanionHopUserContent(input: LabTalkContext & { question:
   const nearby = nearbyParagraphWindow(input.paragraphs, idx)
   return [
     input.question,
-    `Book: ${input.bookTitle} by ${input.bookAuthor}`,
+    `Book: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)}`,
+    authorshipNote(input.bookAuthor, input.authorship),
     `Chapter: ${input.chapterLabel}`,
     `How far read: paragraph ${idx + 1} of ${input.paragraphs.length}`,
     nearby.length ? `Nearby text:\n${nearby.map(text => `- ${text}`).join('\n')}` : '',

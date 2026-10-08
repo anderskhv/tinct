@@ -22,6 +22,7 @@ import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import { sourceAuthorship, withAuthorship } from '../companion/authorship'
 import {
   applyNarrationPilotFlag,
   ensureNarration,
@@ -1105,9 +1106,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   useLabFunnel({ bookId: book.bookId || 'bible', ready: book.paragraphs.length > 0, signedIn, authToken })
 
+  // An essay collection's chapters are by their own writers (companion/authorship.ts).
+  const authorshipOf = useMemo(() => book.collection
+    ? (chapterNumber: number | undefined) => sourceAuthorship(book, chapterNumber)
+    : undefined, [book])
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
+    authorshipOf,
     headerBook: book.headerBook,
     chapterLabel: book.chapterLabel,
     chapterNumber: book.chapterNumber,
@@ -4526,6 +4532,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
     const request = createChapterChatRequest(kind, {
       bookId: book.bookId || 'bible', bookTitle: book.bookTitle, bookAuthor: book.bookAuthor,
+      ...withAuthorship(authorshipOf?.(book.chapterNumber)),
       editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, allBookEditions),
       chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel,
       paragraphs: readerParagraphs, paragraphIndex: placeRef.current.paragraphIndex,

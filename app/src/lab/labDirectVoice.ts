@@ -1,4 +1,5 @@
 import { editionNumberingNote } from '../companion/editionNotes'
+import { authorshipNote, promptAuthor } from '../companion/authorship'
 import { loadEditionWindow } from '../data/editionLoader'
 import type { VoiceApplicationToolResult } from '../voice/types'
 import type { LabAskContext } from './labAsk'
@@ -48,7 +49,8 @@ export function buildLabTalkReference(
   const numberingNote = editionNumberingNote(context.bookId, context.editionKey)
   return JSON.stringify({
     book: context.bookTitle,
-    author: context.bookAuthor,
+    author: promptAuthor(context.bookAuthor, context.authorship),
+    ...(context.authorship ? { authorship: authorshipNote(context.bookAuthor, context.authorship) } : {}),
     edition: context.editionLabel || context.editionKey,
     chapter: context.chapterLabel,
     chapterNumber: context.chapterNumber,

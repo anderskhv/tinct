@@ -9,6 +9,7 @@ import { CONTEXTUAL_LOOKUP_PROMPT } from '../components/reader/contextualLookup'
 import { COMPANION_EFFORT_TYPED, COMPANION_EFFORT_VOICE, type CompanionEffort } from '../companionModel'
 import { libraryAssistantSystem, type LibraryCatalogue, type LibraryShelf } from '../lab/libraryLibrarian'
 import type { ChapterChatAction } from '../types'
+import { parseAuthorship } from './authorship'
 import { buildChapterChatInstructions, parseChapterChatAction } from './chapterChatPrompt'
 import { buildLabAskInstructions, type LabAskContext, type ShownExplanation } from './labAskPrompt'
 
@@ -110,6 +111,7 @@ function parseContext(raw: unknown): LabAskContext | null {
   const bookTitle = text(c.bookTitle, LABEL_CHARS)
   const chapterLabel = text(c.chapterLabel, LABEL_CHARS)
   if (!paragraphs || !bookTitle || !chapterLabel) return null
+  const authorship = parseAuthorship(c.authorship)
   const bookId = typeof c.bookId === 'string' && ID_RE.test(c.bookId) ? c.bookId : undefined
   const editionKey = typeof c.editionKey === 'string' && ID_RE.test(c.editionKey) ? c.editionKey : undefined
   const trail = Array.isArray(c.readingTrail)
@@ -125,6 +127,7 @@ function parseContext(raw: unknown): LabAskContext | null {
   return {
     bookTitle,
     bookAuthor: text(c.bookAuthor, LABEL_CHARS) ?? '',
+    ...(authorship ? { authorship } : {}),
     chapterLabel,
     chapterNumber: int(c.chapterNumber, 1, 5_000),
     editionLabel: text(c.editionLabel, LABEL_CHARS),
