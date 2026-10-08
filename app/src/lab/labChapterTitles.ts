@@ -24,15 +24,24 @@ export function houseStyleSections(sections: Section[] | undefined, language?: s
   }))
 }
 
-/** A loaded book with its chapter titles in house style (the chapter on screen and the Contents). */
+/**
+ * A loaded book with its chapter titles in house style (the chapter on screen and the Contents).
+ * Titles are read together (a heading's boilerplate shared across the book is left out), so the
+ * chapter on screen takes its title from the same list the Contents shows.
+ */
 export function houseStyleSource(source: LabSource, language?: string | null): LabSource {
-  const title = (text: string) => normalizeChapterTitle(text, { language })
+  const chapters = houseStyleChapters(source.chapters, language)
+  const shown = new Map<string, string>()
+  source.chapters.forEach((chapter, index) => {
+    if (chapter.number === source.chapterNumber && typeof chapter.title === 'string') shown.set(chapter.title, chapters[index].title)
+  })
+  const title = (text: string) => shown.get(text) ?? normalizeChapterTitle(text, { language })
   return {
     ...source,
     chapterLabel: title(source.chapterLabel),
     chapterTitle: title(source.chapterTitle),
     headerChapter: title(source.headerChapter),
-    chapters: houseStyleChapters(source.chapters, language),
+    chapters,
     ...(source.sections ? { sections: houseStyleSections(source.sections, language) } : {}),
   }
 }
