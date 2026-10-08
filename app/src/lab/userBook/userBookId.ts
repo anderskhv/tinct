@@ -44,8 +44,21 @@ export function userBookReaderUrl(hex: string): string {
   return `/reader?${USER_BOOK_QUERY}=${encodeURIComponent(hex)}`
 }
 
-/** Where the reader's back arrow goes: Add a book, with Your books in view. */
-export const USER_BOOKS_SHELF_URL = '/lab/addbook/?mode=file#books'
+/**
+ * Where the back arrow from a reader's own book goes (EPUB in the reader, PDF
+ * in Add a book's viewer): the library's My shelf, where own books are listed.
+ * library_2 opens My shelf for `?shelf=mine` (app.js).
+ */
+export const USER_BOOKS_SHELF_URL = '/library?shelf=mine'
+
+/**
+ * Add a book's page for one own book: a PDF opens in its viewer there (and a
+ * reload of that URL reopens it at its place); an EPUB goes on to the reader;
+ * a book kept only in the account is downloaded to this device first.
+ */
+export function ownBookOpenUrl(hex: string): string {
+  return `/lab/addbook/?${USER_BOOK_QUERY}=${encodeURIComponent(hex)}`
+}
 
 /** True when any string anywhere in `value` names a user book (analytics guard). */
 export function mentionsUserBook(value: unknown, depth = 0): boolean {

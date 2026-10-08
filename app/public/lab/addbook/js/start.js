@@ -164,6 +164,10 @@ window.TinctStart = {
   showGate,
 };
 function boot() {
+  // One book's address (/lab/addbook/?userBook=<hex>: a PDF read here, the library's and the
+  // book switcher's links, a reload): that book, at its place; no start page, no catalogue.
+  const hex = window.TinctReader.urlHex();
+  if (hex) { renderAccount(); void window.TinctReader.openFromUrl(hex); return }
   // Back from the Tinct reader: /lab/addbook/#books shows Your books.
   const toShelf = location.hash === '#books';
   if (toShelf) history.replaceState(null, '', location.pathname + location.search);

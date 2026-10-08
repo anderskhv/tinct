@@ -612,5 +612,7 @@ registerCommands({
  ]
 });
 const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;if(commandsEnabled)$('search-toggle').before(commandsButton);
+// /library?shelf=mine opens My shelf: where the back arrow from a reader's own book (EPUB or PDF) lands.
+{const params=new URLSearchParams(location.search);if(params.get('shelf')==='mine'){params.delete('shelf');const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}selectCollection('saved');}}
 // Back from sign-in after a signed-out Add (/library?add=<work id>): the add continues once.
 {const params=new URLSearchParams(location.search),pendingAdd=params.get(ADD_PARAM);if(pendingAdd!==null){params.delete(ADD_PARAM);const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}if(addEnabled()&&document.documentElement.classList.contains('signed-in')&&/^[a-z]{2,4}:\S{1,200}$/.test(pendingAdd)){notice('Adding to Tinct…');void addWork({id:pendingAdd},null);}}}

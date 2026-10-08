@@ -14,7 +14,7 @@
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
-import { USER_BOOKS_SHELF_URL } from './lab/userBook/userBookId'
+import { ownBookOpenUrl } from './lab/userBook/userBookId'
 import { readOwnShelf } from './lab/userBook/ownShelf'
 
 export type ImportFailure = 'signed_out' | 'premium_required' | 'daily_limit' | 'in_progress' | 'not_importable' | 'unreadable' | 'failed'
@@ -128,11 +128,26 @@ export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook
         const key = `${book.type}:${String(book.sha256 || '').slice(0, 24)}`
         if (!book.sha256 || here.has(key)) continue
         here.add(key)
-        out.push({ key, kind: book.type, title: book.title || book.name || 'Untitled', author: book.author || '', cover: null, at: Date.parse(book.createdAt || '') || 0, readingAt: null, href: USER_BOOKS_SHELF_URL })
+        out.push({ key, kind: book.type, title: book.title || book.name || 'Untitled', author: book.author || '', cover: null, at: Date.parse(book.createdAt || '') || 0, readingAt: null, href: ownBookOpenUrl(String(book.sha256).slice(0, 24)) })
       }
     } catch { /* this device's books still show */ }
   }
   return out.sort((a, b) => b.at - a.at)
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd }
+/**
+ * The book switcher for pages outside the reader (Add a book's PDF viewer):
+ * loaded only when it opens, so the library does not carry it.
+ */
+const switcher = () => import('./lab/userBook/ownSwitcher')
+let switcherModule: Awaited<ReturnType<typeof switcher>> | null = null
+export async function switcherRows(): Promise<{ rows: unknown[]; error: string }> {
+  switcherModule ??= await switcher()
+  return switcherModule.switcherRows()
+}
+/** Where a switcher row opens (null: its place cannot be handed over). Call after switcherRows. */
+export function switcherTarget(row: Parameters<Awaited<ReturnType<typeof switcher>>['switcherTarget']>[0]): string | null {
+  return switcherModule ? switcherModule.switcherTarget(row) : row.href ?? null
+}
+
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, switcherRows, switcherTarget }
