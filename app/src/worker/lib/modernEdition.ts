@@ -77,6 +77,12 @@ export const MAX_ATTEMPTS = 4
 /** A failed chapter is tried again after this long, at most MAX_ROUNDS times in all. */
 export const FAILED_RETRY_MS = 30 * 60_000
 export const MAX_ROUNDS = 3
+/** After a provider 429 (without Retry-After) or 5xx the book waits this long; after a 429 it runs one chapter at a time for SLOW_AFTER_429_MS. */
+export const BACKOFF_429_MS = 30_000
+export const BACKOFF_5XX_MS = 15_000
+export const SLOW_AFTER_429_MS = 10 * 60_000
+/** Version of the one-time revival of chapters left failed before failure reasons were recorded (reviveFailedChapters). */
+export const FAILED_REVIVAL = 1
 /** A checkout holds the book this long; its Stripe session expires 30 minutes after creation, before the hold ends. */
 export const HOLD_MS = 35 * 60_000
 export const SESSION_EXPIRES_S = 30 * 60 + 30
@@ -105,6 +111,8 @@ export interface ModernJobChapter {
   /** Times the chapter has been left as failed, and when it may be tried again. */
   rounds?: number
   retryAt?: number
+  /** Why its last chunk was not written (reader-safe; shown in the status). */
+  lastFailure?: { reason: ModernFailure; at: number }
 }
 
 export interface ModernJob {
@@ -126,6 +134,11 @@ export interface ModernJob {
   pace?: { words: number; ms: number }
   /** The written text has been checked against the source (MODERN_AUDIT); see repairEchoedEdition. */
   audit?: number
+  /** No chunk is started before this (a provider 429 or 5xx), and one chapter at a time until slowUntil. */
+  backoffUntil?: number
+  slowUntil?: number
+  /** FAILED_REVIVAL once failed chapters from before have been given another go. */
+  revived?: number
   updatedAt: number
 }
 
@@ -171,7 +184,7 @@ function after(job: ModernJob, n: number): number | null {
 export function paidJob(input: { bookId: string; tier: ModernTier; sessionId: string; chapters: number[]; anchor: number | null; now: number }): ModernJob {
   const chapters = input.chapters.map(number => ({ number, state: 'queued' as const, attempts: 0 }))
   // Written only through validChunk (echo checked): nothing to audit (repairEchoedEdition).
-  const job: ModernJob = { version: 1, bookId: input.bookId, state: 'paid', tier: input.tier, sessionId: input.sessionId, paidAt: input.now, priority: [], chapters, audit: MODERN_AUDIT, updatedAt: input.now }
+  const job: ModernJob = { version: 1, bookId: input.bookId, state: 'paid', tier: input.tier, sessionId: input.sessionId, paidAt: input.now, priority: [], chapters, audit: MODERN_AUDIT, revived: FAILED_REVIVAL, updatedAt: input.now }
   const anchor = chapters.some(c => c.number === input.anchor) ? input.anchor! : chapters[0]?.number
   if (anchor !== undefined) {
     job.anchor = anchor
@@ -210,9 +223,12 @@ const retryable = (c: ModernJobChapter, now: number) => c.state === 'failed' && 
  */
 export function nextChapter(job: ModernJob, now: number, owner?: string): number | null {
   if (job.state !== 'paid') return null
+  // The provider asked us to wait (429/5xx): nothing starts until then; after a 429, one chapter at a time.
+  if ((job.backoffUntil ?? 0) > now) return null
+  const parallel = (job.slowUntil ?? 0) > now ? 1 : MAX_PARALLEL
   const others = job.chapters.filter(c => leaseLive(c, now) && !heldBy(c, owner, now)).length
   const own = job.chapters.find(c => heldBy(c, owner, now))
-  if (others >= MAX_PARALLEL) return own?.number ?? null
+  if (others >= parallel) return own?.number ?? null
   for (const n of workOrder(job)) {
     const c = job.chapters.find(item => item.number === n)!
     if (c.state === 'queued' || !leaseLive(c, now) || heldBy(c, owner, now)) return n
@@ -319,45 +335,68 @@ const wordsOf = (text: string) => text.split(/\s+/).filter(Boolean).length
  * paragraph and none is truncated or padded far beyond its source. Text only.
  */
 export function validChunk(source: string[], output: unknown): string[] | null {
-  if (!Array.isArray(output) || output.length !== source.length) return null
+  const checked = checkChunk(source, output)
+  return 'paragraphs' in checked ? checked.paragraphs : null
+}
+
+/** validChunk, saying why a chunk is refused: 'parse' (not one string per paragraph), 'validation' (a paragraph cut short or padded), 'echo'. */
+export function checkChunk(source: string[], output: unknown): { paragraphs: string[] } | { failure: 'parse' | 'validation' | 'echo' } {
+  if (!Array.isArray(output) || output.length !== source.length) return { failure: 'parse' }
   const out: string[] = []
   for (let i = 0; i < source.length; i++) {
     const value = output[i]
-    if (typeof value !== 'string') return null
+    if (typeof value !== 'string') return { failure: 'parse' }
     const text = value.replace(/[<>]/g, '').trim()
     const src = wordsOf(source[i])
     const got = wordsOf(text)
-    if (source[i].trim() && !text) return null
-    if (src >= 12 && got < src * 0.6) return null
-    if (got > src * 2.5 + 20) return null
+    if (source[i].trim() && !text) return { failure: 'validation' }
+    if (src >= 12 && got < src * 0.6) return { failure: 'validation' }
+    if (got > src * 2.5 + 20) return { failure: 'validation' }
     out.push(text)
   }
   // The source handed back is not a Modern English edition (2026-10-08: Gorgias was "written" as Jowett's text).
-  if (echoesSource(source, out)) return null
-  return out
+  if (echoesSource(source, out)) return { failure: 'echo' }
+  return { paragraphs: out }
 }
 
 const sameText = (a: string, b: string) => a.replace(/\s+/g, ' ').trim() === b.replace(/\s+/g, ' ').trim()
 /** Paragraphs this short may honestly stay as they are ("Yes.", "CALLICLES: True."). */
 const ECHO_MIN_WORDS = 8
+/** Long-form prose (Jowett's introduction runs to 100–800 words a paragraph): never honestly returned word for word. */
+const ECHO_PROSE_WORDS = 40
+/** A dialogue chunk with fewer of its lines (of ECHO_MIN_WORDS or more) changed than this is handed back, not rendered. */
+const ECHO_MIN_CHANGED_SHARE = 0.2
 
 /**
- * True when the output is mostly the source unchanged: over half the words
- * of its paragraphs of ECHO_MIN_WORDS or more are in paragraphs returned
- * word for word. A model that echoes its input must never be taken for a
- * Modern English edition.
+ * True when the output is the source handed back rather than rendered. Plain
+ * dialogue ("CALLICLES: The wise man, as the proverb says, is late for a fray,
+ * but not for a feast.") may honestly come back unchanged line by line, so the
+ * chunk is an echo only when it is mostly unchanged (over half the words of
+ * its lines of ECHO_MIN_WORDS or more) AND either its long-form prose is
+ * mostly unchanged or almost none of its lines changed (under
+ * ECHO_MIN_CHANGED_SHARE). A model that echoes its input must never be taken
+ * for a Modern English edition.
  */
 export function echoesSource(source: string[], output: Array<string | null | undefined>): boolean {
   let words = 0
   let same = 0
+  let prose = 0
+  let proseSame = 0
+  let lines = 0
+  let changed = 0
   for (let i = 0; i < source.length; i++) {
     const w = wordsOf(source[i])
     if (w < ECHO_MIN_WORDS) continue
-    words += w
     const text = output[i]
-    if (typeof text === 'string' && sameText(text, source[i])) same += w
+    const kept = typeof text === 'string' && sameText(text, source[i])
+    words += w
+    lines += 1
+    if (kept) same += w
+    else changed += 1
+    if (w >= ECHO_PROSE_WORDS) { prose += w; if (kept) proseSame += w }
   }
-  return words > 0 && same * 2 > words
+  if (!(words > 0 && same * 2 > words)) return false
+  return (prose > 0 && proseSame * 2 > prose) || changed < lines * ECHO_MIN_CHANGED_SHARE
 }
 
 /** The first paragraph still to write: from `focus` to the end, then from the start; null when all are written. */
@@ -414,6 +453,7 @@ export const XAI_MODERN_MODEL = 'grok-4-fast-non-reasoning'
 export function xaiModernGenerator(apiKey: string, options: { model?: string; fetchImpl?: typeof fetch; timeoutMs?: number } = {}): ModernGenerator {
   const fetchImpl = options.fetchImpl ?? fetch
   return async input => {
+    // Provider trouble is thrown (ModernProviderError) so it is told from a bad reply; a reply with no paragraphs is null.
     const response = await fetchImpl('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
@@ -427,13 +467,91 @@ export function xaiModernGenerator(apiKey: string, options: { model?: string; fe
         ],
       }),
       signal: AbortSignal.timeout(options.timeoutMs ?? 60_000),
+    }).catch((error: unknown) => {
+      const name = (error as { name?: string } | null)?.name
+      throw new ModernProviderError(name === 'TimeoutError' || name === 'AbortError' ? 'timeout' : 'provider_5xx')
     })
-    if (!response.ok) return null
-    const data = await response.json() as { choices?: Array<{ message?: { content?: string } }> }
-    const content = data.choices?.[0]?.message?.content
-    if (!content) return null
-    try { return (JSON.parse(content) as { paragraphs?: unknown }).paragraphs ?? null } catch { return null }
+    if (response.status === 429) throw new ModernProviderError('provider_429', retryAfterMs(response.headers.get('Retry-After')))
+    if (response.status >= 500) throw new ModernProviderError('provider_5xx', retryAfterMs(response.headers.get('Retry-After')))
+    if (!response.ok) throw new ModernProviderError('provider_error')
+    let content: string | undefined
+    try {
+      const data = await response.json() as { choices?: Array<{ message?: { content?: string } }> }
+      content = data.choices?.[0]?.message?.content
+    } catch (error) {
+      const name = (error as { name?: string } | null)?.name
+      if (name === 'TimeoutError' || name === 'AbortError') throw new ModernProviderError('timeout')
+      return null
+    }
+    return content ? parseModernReply(content) : null
   }
+}
+
+/**
+ * Why a chunk was not written. Reader-safe (book progress only): shown in the
+ * status so a stuck edition can be diagnosed without logs. Provider limits and
+ * outages ('provider_429', 'provider_5xx') back the book off and do not count
+ * toward MAX_ATTEMPTS.
+ */
+export type ModernFailure = 'echo' | 'parse' | 'validation' | 'provider_429' | 'provider_5xx' | 'provider_error' | 'timeout' | 'source'
+
+/** Thrown by a generator when the provider, not the reply, failed. */
+export class ModernProviderError extends Error {
+  constructor(readonly reason: 'provider_429' | 'provider_5xx' | 'provider_error' | 'timeout', readonly retryAfterMs: number | null = null) {
+    super(reason)
+    this.name = 'ModernProviderError'
+  }
+}
+
+/** Retry-After as milliseconds (seconds or an HTTP date), at most ten minutes; null when absent or unreadable. */
+export function retryAfterMs(value: string | null, now = Date.now()): number | null {
+  if (!value) return null
+  const seconds = Number(value)
+  const ms = Number.isFinite(seconds) ? seconds * 1000 : Date.parse(value) - now
+  return Number.isFinite(ms) && ms >= 0 ? Math.min(ms, 10 * 60_000) : null
+}
+
+const REPLY_KEYS = ['paragraphs', 'source', 'modern', 'output', 'result', 'results', 'text', 'translation', 'rendering']
+
+/**
+ * The paragraphs in a model's reply, in the shapes models send: the asked-for
+ * {"paragraphs": [...]}, the input's own key ({"source": [...]}), another
+ * obvious key or the only array in the object (one level down too), a bare
+ * array, any of these in a ```json fence or with prose around the JSON, and
+ * paragraphs given as {"text": "..."}. Null when nothing is paragraph-shaped
+ * ('parse'). Whether the paragraphs are any good is validChunk's question.
+ */
+export function parseModernReply(content: string): string[] | null {
+  const text = content.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim()
+  let data: unknown
+  try { data = JSON.parse(text) } catch {
+    const start = text.search(/[[{]/)
+    const end = Math.max(text.lastIndexOf('}'), text.lastIndexOf(']'))
+    if (start < 0 || end <= start) return null
+    try { data = JSON.parse(text.slice(start, end + 1)) } catch { return null }
+  }
+  const pick = (value: unknown, depth: number): unknown[] | null => {
+    if (Array.isArray(value)) return value
+    if (!value || typeof value !== 'object' || depth > 1) return null
+    const record = value as Record<string, unknown>
+    for (const key of REPLY_KEYS) if (Array.isArray(record[key])) return record[key] as unknown[]
+    const arrays = Object.values(record).filter(Array.isArray)
+    if (arrays.length === 1) return arrays[0] as unknown[]
+    if (arrays.length > 1) return null
+    for (const inner of Object.values(record)) { if (inner && typeof inner === 'object') { const found = pick(inner, depth + 1); if (found) return found } }
+    return null
+  }
+  const list = pick(data, 0)
+  if (!list) return null
+  const out: string[] = []
+  for (const item of list) {
+    if (typeof item === 'string') { out.push(item); continue }
+    const record = item && typeof item === 'object' ? item as Record<string, unknown> : null
+    const value = record ? ['text', 'paragraph', 'modern', 'output', 'content'].map(key => record[key]).find(v => typeof v === 'string') : undefined
+    if (typeof value !== 'string') return null
+    out.push(value)
+  }
+  return out
 }
 
 // ===== R2 =====
@@ -519,7 +637,7 @@ export async function releaseRunner(bucket: R2Like, bookId: string, owner: strin
 export async function modernStep(
   bucket: R2Like,
   input: { bookId: string; title: string; author: string; source: () => Promise<SourceChapter[]>; generate: ModernGenerator; now: () => number; owner?: string },
-): Promise<'idle' | 'progress' | 'chapter-ready' | 'complete' | 'failed'> {
+): Promise<'idle' | 'progress' | 'chapter-ready' | 'complete' | 'failed' | 'backoff'> {
   const { bookId } = input
   const owner = input.owner ?? crypto.randomUUID()
   const pick: { n: number | null } = { n: null }
@@ -559,6 +677,8 @@ export async function modernStep(
   const start = chapter ? chunkStart(chapter.paragraphs.length, slots, focus) : null
 
   let output: string[] | null = null
+  let failure: ModernFailure | null = chapter ? null : 'source'
+  let provider: ModernProviderError | null = null
   let chunk: string[] = []
   let ms = 0
   if (chapter) {
@@ -566,21 +686,49 @@ export async function modernStep(
       chunk = nextChunk(chapter.paragraphs, start, slots)
       const began = input.now()
       let raw: unknown = null
-      try { raw = await input.generate({ title: input.title, author: input.author, chapterTitle: chapter.title, paragraphs: chunk }) } catch { raw = null }
+      try {
+        raw = await input.generate({ title: input.title, author: input.author, chapterTitle: chapter.title, paragraphs: chunk })
+      } catch (error) {
+        if (error instanceof ModernProviderError) provider = error
+        else failure = 'provider_error'
+      }
       ms = Math.max(0, input.now() - began)
-      output = validChunk(chunk, raw)
+      if (provider) failure = provider.reason
+      else if (!failure) {
+        const checked = checkChunk(chunk, raw)
+        if ('paragraphs' in checked) output = checked.paragraphs
+        else failure = checked.failure
+      }
     } else {
       output = []
     }
   }
+  const failedAt = input.now()
+  if (provider && (provider.reason === 'provider_429' || provider.reason === 'provider_5xx')) {
+    // The provider's limit or outage, not this chapter's fault: the book backs off (honouring
+    // Retry-After), runs one chapter at a time for a while after a 429, and no attempt is counted.
+    const limited = provider.reason === 'provider_429'
+    const wait = provider.retryAfterMs ?? (limited ? BACKOFF_429_MS : BACKOFF_5XX_MS)
+    await updateJob(bucket, bookId, job => job ? {
+      ...job, updatedAt: failedAt,
+      backoffUntil: Math.max(job.backoffUntil ?? 0, failedAt + wait),
+      ...(limited ? { slowUntil: failedAt + SLOW_AFTER_429_MS } : {}),
+      chapters: job.chapters.map(c => c.number === n && c.state !== 'ready' && (!c.leaseBy || c.leaseBy === owner)
+        ? { ...unlease(c, 'queued'), lastFailure: { reason: provider!.reason, at: failedAt } }
+        : c),
+    } : null)
+    return 'backoff'
+  }
   if (!chapter || output === null) {
+    const reason: ModernFailure = failure ?? 'parse'
     await update(c => {
       // Another runner has the chapter now: its claim is left alone.
       if (c.leaseBy && c.leaseBy !== owner) return c
       const attempts = c.attempts + 1
-      if (attempts < MAX_ATTEMPTS) return { ...unlease(c, 'queued'), attempts }
+      const lastFailure = { reason, at: failedAt }
+      if (attempts < MAX_ATTEMPTS) return { ...unlease(c, 'queued'), attempts, lastFailure }
       const rounds = (c.rounds ?? 0) + 1
-      return { ...unlease(c, 'failed'), attempts, rounds, ...(rounds < MAX_ROUNDS ? { retryAt: input.now() + FAILED_RETRY_MS } : {}) }
+      return { ...unlease(c, 'failed'), attempts, rounds, lastFailure, ...(rounds < MAX_ROUNDS ? { retryAt: failedAt + FAILED_RETRY_MS } : {}) }
     })
     return 'failed'
   }
@@ -628,6 +776,39 @@ async function finishEdition(bucket: R2Like, bookId: string, source: SourceChapt
   await bucket.put(wholeKey(bookId), JSON.stringify({ chapters }), JSON_META)
   await updateJob(bucket, bookId, job => job && !job.completedAt ? { ...job, completedAt: now, updatedAt: now } : null)
   await bucket.delete(markerKey(bookId))
+}
+
+/**
+ * Chapters left failed before failure reasons were recorded (2026-10-08:
+ * Gorgias failed both chapters within a minute) get another go at once, not
+ * after FAILED_RETRY_MS: queued, attempts and rounds reset, written paragraphs
+ * (ranges, part files) kept. Once per job. Returns the chapters revived.
+ */
+export async function reviveFailedChapters(bucket: R2Like, bookId: string, now: number): Promise<number[]> {
+  let revived: number[] = []
+  const result = await updateJob(bucket, bookId, job => {
+    if (!job || job.state !== 'paid' || job.revived === FAILED_REVIVAL) return null
+    revived = []
+    const chapters = job.chapters.map(c => {
+      if (c.state !== 'failed') return c
+      revived.push(c.number)
+      const { retryAt: _retry, rounds: _rounds, ...rest } = c
+      return { ...rest, state: 'queued' as const, attempts: 0 }
+    })
+    return { ...job, chapters, revived: FAILED_REVIVAL, updatedAt: now }
+  })
+  if (result.wrote && revived.length) await bucket.put(markerKey(bookId), '', {})
+  return result.wrote ? revived : []
+}
+
+/** Why chapters' last chunks were not written, and any provider back-off: reader-safe book state for the status. */
+export function publicFailures(job: ModernJob | null, now: number): { chapters: Record<string, { reason: ModernFailure; at: number; attempts: number; state: ChapterState }>; backoffUntil: number | null } {
+  const chapters: Record<string, { reason: ModernFailure; at: number; attempts: number; state: ChapterState }> = {}
+  if (!job || job.state !== 'paid') return { chapters, backoffUntil: null }
+  for (const c of job.chapters) {
+    if (c.lastFailure && c.state !== 'ready') chapters[c.number] = { reason: c.lastFailure.reason, at: c.lastFailure.at, attempts: c.attempts, state: c.state }
+  }
+  return { chapters, backoffUntil: (job.backoffUntil ?? 0) > now ? job.backoffUntil! : null }
 }
 
 /** Version of the check repairEchoedEdition makes; a job carrying it has been checked. */
