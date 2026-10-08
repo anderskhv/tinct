@@ -299,10 +299,16 @@ describe('Listen for a user book without Premium', () => {
 })
 
 describe('UserBookReader', () => {
-  it('says why a book cannot be opened and links back to Your books', async () => {
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} />)
-    await waitFor(() => expect(screen.getByRole('alert').textContent).toContain('no longer on this device'))
+  it('says why a book cannot be opened and links back to My shelf', async () => {
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'unreadable', message: 'This file could not be opened as an EPUB. Choose another file.' })} forward={() => { throw new Error('no forward') }} />)
+    await waitFor(() => expect(screen.getByRole('alert').textContent).toContain('could not be opened'))
     expect(screen.getByRole('link').getAttribute('href')).toBe('/library#my-shelf')
+  })
+
+  it('sends a book that is not an EPUB on this device (a PDF, an account copy) on to Add a book’s page for it', async () => {
+    const forward = vi.fn()
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} forward={forward} />)
+    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX))
   })
 
   it('opens the reader once the book is ready', async () => {

@@ -4,7 +4,7 @@ import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930
 // never loses a reader's place.
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 import { withPublicBooks } from './add-to-tinct.js?v=20261008rel8';
-import { coverToneFor } from './spine.js?v=20261008rel4';
+import { coverToneFor } from './spine.js?v=20261008rel8';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
 let catalogue = null;

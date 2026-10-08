@@ -14,10 +14,12 @@ const store = {
 };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const TRIM = { x: 0.08, y: 0.04 };
-const state = { kind: null, figs: new Map(), pdf: null, epub: null, key: '', title: '', author: '', pages: [], zoom: 1, trim: false, base: { w: 612, h: 792 }, token: 0, observer: null, texts: new Map() };
+const state = { kind: null, figs: new Map(), pdf: null, epub: null, key: '', name: '', title: '', author: '', scan: null, titleReady: null, pages: [], zoom: 1, trim: false, base: { w: 612, h: 792 }, token: 0, observer: null, texts: new Map() };
 const hasBook = () => !!(state.pdf || state.epub);
 const isEpub = () => state.kind === 'epub';
-const prefs = Object.assign({ dark: false, tone: false, trim: false, full: false, rate: 1, voice: '', dockW: 380, dock: 'docked' }, store.get('prefs') || {});
+const prefs = Object.assign({ trim: false, full: false, rate: 1, voice: '', dockW: 380, dock: 'docked' }, store.get('prefs') || {});
+// "Dark pages" and "Paper tone" were PDF-only switches; the page now follows the reader's theme.
+delete prefs.dark; delete prefs.tone;
 const savePrefs = () => store.set('prefs', prefs);
 
 /* ---------- Layout: Tinct's phone/desktop classes ---------- */
@@ -27,86 +29,65 @@ function applyLayout() {
   root.classList.toggle('is-desktop', !phone); root.classList.toggle('has-page-buttons', !phone);
   root.dataset.labLayout = phone ? 'phone' : 'desktop';
   document.documentElement.style.setProperty('--pdf-top', Math.ceil($('hdr').getBoundingClientRect().bottom) + 'px');
+  applyTheme();
 }
 const isPhone = () => root.classList.contains('is-phone');
 
-/* ---------- Your books ---------- */
-// Files are kept in this browser (IndexedDB), tagged with the Tinct account that opened
-// them so a different reader on the same browser does not see them. Signed in, each is
-// also kept privately in that account (below, `cloud`) so it opens on other devices.
-const owner = () => window.TinctAI?.session().userId || 'guest';
-const library = {
-  open() { return new Promise((res, rej) => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error) }) },
-  async tx(mode, fn) { const db = await this.open(); return new Promise((res, rej) => { const t = db.transaction('books', mode); const out = fn(t.objectStore('books')); t.oncomplete = () => res(out?.result ?? out); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error) }) },
-  async put(rec) { try { await this.tx('readwrite', s => s.put(rec)); return true } catch { return false } },
-  async get(key) { try { const rec = await this.tx('readonly', s => s.get(key)); return rec && rec.owner === owner() ? rec : null } catch { return null } },
-  async remove(key) { try { await this.tx('readwrite', s => s.delete(key)) } catch {} },
-  async list() {
-    try { const all = await this.tx('readonly', s => s.getAll()); return (all || []).filter(r => r.owner === owner()).map(({ bytes, edition, ...r }) => r).sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0)) }
-    catch { return [] }
-  },
-  // Read and write in one transaction, so concurrent patches (title, cloud id) both land.
-  async touch(key, patch) { try { await this.tx('readwrite', s => { const r = s.get(key); r.onsuccess = () => { const rec = r.result; if (rec && rec.owner === owner()) s.put(Object.assign(rec, patch)) } }) } catch {} },
-};
-// The account's copies (/api/user-books via TinctAI.books), keyed like the local records:
-// kind + ':' + the first 24 hex digits of the file's SHA-256.
-const cloud = {
-  owner: null, records: new Map(), busy: new Set(),
-  keyOf: b => b.type + ':' + String(b.sha256 || '').slice(0, 24),
-  usable: () => !!window.TinctAI?.session().token,
-  mine() { if (this.owner !== owner()) { this.owner = owner(); this.records = new Map() } return this.records },
-  get(key) { return this.mine().get(key) || null },
-  async refresh() {
-    if (!this.usable()) return false;
-    try { const list = await window.TinctAI.books.list(); const m = this.mine(); m.clear(); for (const b of list) if (b.sha256) m.set(this.keyOf(b), b); return true }
-    catch { return false }
-  },
-};
-// Saves a private copy to the account in the background; quiet on reopen retries.
-async function saveToAccount(key, file, meta, { quiet = false } = {}) {
-  if (!cloud.usable() || cloud.busy.has(key)) return;
-  const known = cloud.get(key);
-  if (known) { await library.touch(key, { cloudId: known.id }); return }
-  if (file.size > window.TinctAI.books.maxBytes) { if (!quiet) toast('Kept on this device only: files over 50 MB are not saved to your account.'); return }
-  cloud.busy.add(key);
+/* ---------- Theme: the reader's own (js/pdf-theme.js) ---------- */
+// Light, Book and Dark are the reader's setting for this layout (phone or desktop), e-ink the
+// device's display profile. The whole viewer follows it: the top bar, menus and sheets through
+// Tinct's own classes (is-night, is-book-theme), the pages through data-pdf-theme (css/reader.css)
+// and, in Dark, pages recoloured as they are drawn (renderPage).
+const Theme = window.TinctPdfTheme;
+let pageTheme = 'light';
+const systemDark = matchMedia('(prefers-color-scheme: dark)');
+function readTheme() {
+  let raw = null, profile = null;
+  try { raw = localStorage.getItem(Theme.PREFS_KEY); profile = localStorage.getItem(Theme.PROFILE_KEY) } catch {}
+  const eink = document.documentElement.hasAttribute('data-eink') || Theme.readEink(location.search, profile);
+  return Theme.resolveTheme(raw, isPhone() ? 'phone' : 'desktop', systemDark.matches, eink);
+}
+function themeHost(el, theme) {
+  el.classList.toggle('is-night', theme === 'dark');
+  el.classList.toggle('is-book-theme', theme === 'book');
+  el.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+}
+function applyTheme() {
+  const theme = readTheme(), before = pageTheme;
+  pageTheme = theme;
+  themeHost(root, theme);
+  document.querySelectorAll('.byob-sheet-host').forEach(h => themeHost(h, theme));
+  document.documentElement.dataset.pdfTheme = theme;
+  document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
+  // Pages drawn for the other kind of paper are drawn again.
+  if ((before === 'dark') !== (theme === 'dark')) for (const p of state.pages) if (p.canvas && p.kind !== 'epub') { p.renderedWidth = 0; if (isNear(p)) renderPage(p) }
+}
+function setTheme(theme) {
+  let raw = null;
+  try { raw = localStorage.getItem(Theme.PREFS_KEY) } catch {}
+  const next = Theme.withTheme(raw, isPhone() ? 'phone' : 'desktop', theme);
   try {
-    const book = await window.TinctAI.books.upload(file, Object.assign({ rights: store.get('rights:' + accountId()) }, meta));
-    if (book?.sha256) cloud.get(key) || cloud.mine().set(cloud.keyOf(book), book);
-    await library.touch(key, { cloudId: book?.id || null });
-    if (!quiet) toast('Saved to your account.');
-  } catch (e) {
-    if (!quiet && e?.code === 'account_full') toast('Kept on this device only: your account’s storage for books is full.');
-  } finally { cloud.busy.delete(key) }
+    if (next) localStorage.setItem(Theme.PREFS_KEY, next);
+    // Choosing a theme leaves the e-ink profile, as in the reader's Settings.
+    if (localStorage.getItem(Theme.PROFILE_KEY) === 'eink') localStorage.setItem(Theme.PROFILE_KEY, 'normal');
+  } catch {}
+  document.documentElement.removeAttribute('data-eink');
+  applyTheme();
 }
-// Every book on the shelf: this device's, plus the account's copies not yet on it.
-async function shelf() {
-  const local = await library.list();
-  const here = new Set(local.map(r => r.key));
-  const out = local.map(r => Object.assign(r, { cloud: !!(r.cloudId || cloud.get(r.key)), local: true }));
-  for (const [key, b] of cloud.mine()) {
-    if (here.has(key)) continue;
-    out.push({ key, kind: b.type, name: b.name, title: b.title || b.name || 'Untitled', author: b.author || '', size: b.size, addedAt: Date.parse(b.createdAt) || 0, cloud: true, local: false });
-  }
-  return out.sort((a, b) => (b.openedAt || b.addedAt || 0) - (a.openedAt || a.addedAt || 0));
-}
-// Removes a book from this device and from the account.
-async function removeBook(key) {
-  const rec = await library.get(key);
-  const id = rec?.cloudId || cloud.get(key)?.id;
-  await library.remove(key);
-  store.del('place:' + key.replace(/^epub:/, ''));
-  if (!id) return true;
-  try { await window.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
-  catch { toast('Removed from this device, but not from your account. Try again.'); return false }
-}
+addEventListener('storage', e => { if (e.key === Theme.PREFS_KEY || e.key === Theme.PROFILE_KEY) applyTheme() });
+addEventListener('tinct:display-profile', () => applyTheme());
+systemDark.addEventListener?.('change', () => applyTheme());
+const isNear = p => { const r = p.sheet.getBoundingClientRect(); return r.bottom > -innerHeight * 1.5 && r.top < innerHeight * 2.5 };
+
+/* ---------- Your books ---------- */
+// Keeping, naming and saving a file is the engine shared with the library's My shelf
+// (add-engine.js): this page reads PDFs, and EPUBs leave for the Tinct reader.
+const engine = window.TinctAddEngine;
+const { owner, library, cloud, shelf, RIGHTS_COPY, accountId } = engine;
+const saveToAccount = (key, file, meta, options = {}) => engine.saveToAccount(key, file, meta, { notify: toast, ...options });
+const removeBook = key => engine.removeBook(key, { notify: toast });
 // Opening your own file needs a Tinct account (searching free books does not). The
-// rights confirmation is asked once per account, before its first file opens; the key
-// sits under tinct-addbook:, so signing out clears it with the rest.
-// RIGHTS_VERSION names this wording: a confirmation of an earlier wording is asked again,
-// and each upload records which wording was confirmed, and when, with the file.
-const RIGHTS_COPY = "I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4).";
-const RIGHTS_VERSION = '2026-10-08.2';
-const accountId = () => window.TinctAI?.session().userId || null;
+// rights confirmation (add-engine.js) is asked once per account, before its first file opens.
 function needsAccount() {
   if (accountId()) return false;
   window.TinctStart?.showGate?.();
@@ -128,32 +109,23 @@ function attest(fileName) {
     ok.onclick = () => { closeSheet(layer); resolve(true) };
   });
 }
-const kindOf = file => /\.epub$/i.test(file.name) || file.type === 'application/epub+zip' ? 'epub' : /\.pdf$/i.test(file.name) || file.type === 'application/pdf' ? 'pdf' : null;
-async function digest(bytes) {
-  try { const h = await crypto.subtle.digest('SHA-256', bytes); return [...new Uint8Array(h)].slice(0, 12).map(b => b.toString(16).padStart(2, '0')).join('') }
-  catch { return String(bytes.byteLength) }
-}
-const MAX_BYTES = 300 * 1024 * 1024;
 async function chooseFile(file) {
   if (!file || needsAccount()) return;
-  const kind = kindOf(file);
-  if (!kind) { toast('Choose a PDF or EPUB file.'); return }
-  if (file.size > MAX_BYTES) { toast('That file is larger than 300 MB, too big to open here.'); return }
-  const bytes = new Uint8Array(await file.arrayBuffer());
-  const key = kind + ':' + await digest(bytes);
-  const rightsKey = 'rights:' + accountId();
-  if (store.get(rightsKey)?.v !== RIGHTS_VERSION) {
+  const read = await engine.readFile(file);
+  if (read.error) { toast(read.error); return }
+  const { kind, bytes, key } = read;
+  if (!engine.rightsConfirmed()) {
     if (!await attest(file.name)) return;
-    store.set(rightsKey, { at: new Date().toISOString(), v: RIGHTS_VERSION });
+    engine.confirmRights();
   }
   stopNarration();
-  const now = Date.now();
-  const existing = await library.get(key);
-  const saved = await library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || nameTitle(file.name), author: existing?.author || '', owner: owner(), addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer });
+  const saved = await engine.keepFile(file, read, TinctPdfScan.cleanFileName(file.name));
   if (!saved) toast('This browser could not keep a copy, so you will need to open the file again next time.');
   // An EPUB reads in the Tinct reader, which opens it from this browser's copy.
   if (kind === 'epub' && saved) { await openInTinct(bytes, file.name, key, file); return }
   await openBook(kind, bytes, file.name, key);
+  // The account copy is named by the document's own title: wait (briefly) for the scan to read it.
+  if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000))]);
   if (hasBook() && state.key === key) saveToAccount(key, file, { kind, name: file.name, title: state.title, author: state.author });
 }
 async function openStored(key) {
@@ -185,23 +157,17 @@ async function openStored(key) {
 // this browser's copy and converts it to Tinct's own pages. Here: refuse what it cannot
 // open (DRM, not an EPUB), name the book on the shelf, and send the account copy before
 // leaving the page (bounded: a slow upload finishes on the next open).
-const ACCOUNT_COPY_WAIT_MS = 10000;
 async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
   const token = ++state.token;
   showReader();
   closeAllPopups();
   $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
-  let meta;
-  try { meta = await TinctEpub.metadata(bytes, { fallbackTitle: name.replace(/\.epub$/i, '') }) }
-  catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
-  if (token !== state.token) return;
-  const author = meta.authors.join(', ');
-  // The cover at full size (coverV 2); a book kept with the old 180 px thumbnail is redrawn here, on its next open.
-  await library.touch(key, { title: meta.title, author, coverV: 2, ...(meta.cover ? { cover: meta.cover, coverW: meta.coverWidth } : {}) });
-  if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
+  let opened;
+  try { opened = await engine.prepareEpub(bytes, name, key, upload, { quiet, notify: toast }) }
+  catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e.message)}</div>`; return }
   if (token !== state.token) return;
   leftForTinct = true;
-  location.assign('/reader?userBook=' + encodeURIComponent(key.slice('epub:'.length)));
+  location.assign(opened.href);
 }
 // Back from the reader may restore this page as it was left ("Opening…"): show Your books.
 let leftForTinct = false;
@@ -211,11 +177,32 @@ async function openBook(kind, bytes, name, key) {
   if (kind === 'epub') await openEpub(bytes, name, key); else await openPdf(bytes, name, key);
   if (hasBook()) {
     library.touch(key, { title: state.title, author: state.author || '' });
-    if (location.hash !== '#read') history.pushState({ addbookReader: key }, '', '#read');
+    // A PDF is a book with its own address (/lab/addbook/?userBook=<hex>): a reload, the
+    // library and the book switcher open it again at its place.
+    const url = kind === 'pdf' ? bookUrl(key) : null;
+    if (url) { if (location.pathname + location.search !== url) history.pushState({ addbookReader: key }, '', url) }
+    else if (location.hash !== '#read') history.pushState({ addbookReader: key }, '', '#read');
   }
 }
+const hexOf = key => String(key).slice(String(key).indexOf(':') + 1);
+const bookUrl = key => '/lab/addbook/?userBook=' + encodeURIComponent(hexOf(key));
+const urlHex = () => { const v = new URLSearchParams(location.search).get('userBook'); return /^[0-9a-f]{8,64}$/.test(v || '') ? v : null };
+// The library's My shelf, where the reader's own books are (the back arrow of every own book).
+const SHELF_URL = '/library#my-shelf';
+function leaveToShelf() { savePlaceNow(); stopNarration(); location.assign(SHELF_URL) }
+// /lab/addbook/?userBook=<hex>: this book, from this device, else from the account.
+async function openFromUrl(hex) {
+  if (needsAccount()) return false;
+  showReader();
+  $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
+  for (const kind of ['pdf', 'epub']) if (await library.get(kind + ':' + hex)) return openStored(kind + ':' + hex);
+  await cloud.refresh();
+  for (const kind of ['pdf', 'epub']) if (cloud.get(kind + ':' + hex)) return openStored(kind + ':' + hex);
+  $('column').innerHTML = `<div class="pdf-status" role="alert">That book is no longer on this device or in your account. <a href="${SHELF_URL}">Go to My shelf</a></div>`;
+  return false;
+}
 $('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
-$('bookBtn').onclick = () => openContents();
+$('bookBtn').onclick = () => openSwitcher();
 let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
@@ -226,22 +213,29 @@ addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hid
 const readerShown = () => document.body.dataset.view === 'reader';
 function showReader() { document.body.dataset.view = 'reader'; $('root').hidden = false; window.TinctStart?.hide(); applyLayout() }
 async function closeBook({ fromHistory = false, toShelf = false } = {}) {
+  const hadBook = hasBook();
   closeChat(); stopNarration(); closeAllPopups(); endSnip?.();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
-  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], key: '', title: '', author: '', texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
+  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], key: '', name: '', title: '', author: '', scan: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
   if (window.CSS?.highlights) for (const [k] of HL_COLORS) CSS.highlights.delete('tinct-hl-' + k);
   chat.turns = []; chat.passage = null; chat.attach = [];
   $('column').innerHTML = '';
   document.body.dataset.view = 'start'; $('root').hidden = true;
   document.title = 'Add a book · Tinct';
   if (!fromHistory && location.hash === '#read') history.back();
+  else if (!fromHistory && hadBook && urlHex()) history.replaceState(null, '', location.pathname);
   window.TinctStart?.show({ shelf: toShelf });
 }
 // Back to library: the start page, with "Your books" in view.
-$('backBtn').onclick = () => closeBook({ toShelf: true });
-addEventListener('popstate', () => { if (hasBook() && location.hash !== '#read') closeBook({ fromHistory: true }) });
-window.TinctReader = { chooseFile, openStored, close: closeBook, library, cloud, shelf, removeBook, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
+$('backBtn').onclick = () => leaveToShelf();
+addEventListener('popstate', () => {
+  if (!hasBook()) return;
+  const hex = urlHex();
+  if (hex && hex !== hexOf(state.key)) { closeBook({ fromHistory: true }); openFromUrl(hex); return }
+  if (!hex && location.hash !== '#read') closeBook({ fromHistory: true });
+});
+window.TinctReader = { chooseFile, openStored, openFromUrl, urlHex, close: closeBook, library, cloud, shelf, removeBook, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
 
 /* ---------- EPUB ---------- */
 async function openEpub(bytes, name, key) {
@@ -300,21 +294,19 @@ async function openPdf(bytes, name, key) {
   if (token !== state.token) return;
   state.pdf?.destroy?.();
   furniture.clear();
-  let title = null, author = '';
-  try { const meta = await pdf.getMetadata(); title = metaTitle(meta?.info?.Title, name); author = meta?.info?.Author?.trim() || '' } catch {}
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, title: '', author, texts: new Map(), figs: new Map() });
-  if (!title) title = await printedTitle().catch(() => null);
+  // The scan (js/pdf-scan.js) kept with the book is used while it is of the current version;
+  // until a new scan has read the title, the book's stored name stands in.
+  const rec = await library.get(key);
+  const scan = TinctPdfScan.current(rec?.scan) ? rec.scan : null;
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, texts: new Map(), figs: new Map() });
   if (token !== state.token) return;
-  state.title = title || nameTitle(name);
   root.classList.add('is-pdf'); root.classList.remove('is-epub');
   root.style.removeProperty('--epub-scale');
   const first = (await pdf.getPage(1)).getViewport({ scale: 1 });
   state.base = { w: first.width, h: first.height };
   const saved = store.get('pos:' + state.key);
   state.zoom = saved?.zoom || 1;
-  $('bookTitle').textContent = state.title;
-  $('bookBtn').setAttribute('aria-label', `Contents of ${state.title}`);
-  document.title = `${state.title} · Tinct`;
+  setBookTitle(state.title, state.author);
   buildSheets(pdf.numPages);
   noteSession();
   buildContents();
@@ -322,15 +314,21 @@ async function openPdf(bytes, name, key) {
   if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
 }
+function setBookTitle(title, author) {
+  state.title = title; state.author = author || '';
+  $('bookTitle').textContent = title;
+  $('bookBtn').setAttribute('aria-label', `${title}. Switch books`);
+  document.title = `${title} · Tinct`;
+}
 // A PDF's cover is its first page, drawn once (coverV 2) at the size Your books and the
 // library show it, after the page is open so it never delays reading.
-const PDF_COVER_WIDTH = 720;
+const PDF_COVER_WIDTH = 900;
 function keepPdfCover(pdf, key, token) {
   setTimeout(async () => {
     try {
       if (token !== state.token || state.pdf !== pdf) return;
       const rec = await library.get(key);
-      if (!rec || rec.coverV >= 2) return;
+      if (!rec || (rec.coverV >= 2 && rec.coverW >= PDF_COVER_WIDTH)) return;
       const page = await pdf.getPage(1);
       const base = page.getViewport({ scale: 1 });
       const viewport = page.getViewport({ scale: PDF_COVER_WIDTH / base.width });
@@ -342,58 +340,6 @@ function keepPdfCover(pdf, key, token) {
       await library.touch(key, { cover: canvas.toDataURL('image/jpeg', 0.86), coverW: canvas.width, coverV: 2 });
     } catch { /* the paper cover stays */ }
   }, 1200);
-}
-// The document's title: its metadata Title when that is a real title, else the largest
-// line(s) printed on page 1, else the file name made readable.
-const nameTitle = name => name.replace(/\.(pdf|epub)$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || name;
-function metaTitle(raw, name) {
-  const t = String(raw || '').replace(/\s+/g, ' ').trim();
-  const bare = s => s.toLowerCase().replace(/\.(pdf|epub)$/i, '').replace(/[^\p{L}\p{N}]+/gu, '');
-  if (t.length <= 3 || /^(untitled|microsoft word|document)\b/i.test(t) || /\.(pdf|docx?|tex|dvi|html?|txt|rtf|odt|pages)$/i.test(t)) return null;
-  if (bare(t) === bare(name) || (/_/.test(t) && !/\s/.test(t))) return null;
-  return t;
-}
-// Positioned text → visual lines: { y, size, fonts, text, words }. Rotated text is left out.
-function textRows(items) {
-  const rows = [];
-  for (const it of items) {
-    const [a, b, c, d, x, y] = it.transform;
-    if (!it.str.trim() || Math.abs(b) > 0.01 * Math.abs(a) || Math.abs(c) > 0.01 * Math.abs(d)) continue;
-    const size = Math.hypot(c, d) || it.height || 0;
-    let row = rows.find(r => Math.abs(r.y - y) < Math.max(2, size * 0.3));
-    if (!row) { row = { y, parts: [] }; rows.push(row) }
-    row.parts.push({ x, w: it.width || 0, s: it.str, size, font: it.fontName });
-  }
-  return rows.sort((p, q) => q.y - p.y).map(r => {
-    const parts = r.parts.sort((p, q) => p.x - q.x);
-    // The line's size is the size most of its characters are set in (a large symbol does not count).
-    const by = new Map();
-    for (const p of parts) { const k = Math.round(p.size * 2) / 2; by.set(k, (by.get(k) || 0) + p.s.trim().length) }
-    const size = [...by].sort((p, q) => q[1] - p[1])[0][0];
-    let text = '';
-    parts.forEach((p, i) => { const prev = parts[i - 1]; if (prev && p.x - (prev.x + prev.w) > size * 0.12 && !/\s$/.test(text) && !/^\s/.test(p.s)) text += ' '; text += p.s });
-    text = text.replace(/\s+/g, ' ').replace(/\s+([,.:;!?)])/g, '$1').trim();
-    const fonts = new Set(parts.filter(p => p.s.trim()).map(p => p.font));
-    return { y: r.y, x: parts[0].x, size, fonts, font: fonts.size === 1 ? [...fonts][0] : null, chars: text.length, text, words: text.split(' ').length };
-  });
-}
-async function printedTitle() {
-  const rows = textRows((await pageText(1)).items).filter(r => /\p{L}{2}/u.test(r.text));
-  if (!rows.length) return null;
-  const weight = new Map();
-  for (const r of rows) { const k = Math.round(r.size * 2) / 2; weight.set(k, (weight.get(k) || 0) + r.chars) }
-  const body = [...weight].sort((p, q) => q[1] - p[1])[0][0];
-  const top = Math.max(...rows.map(r => r.size));
-  if (top < body * 1.15) return null;
-  const i = rows.findIndex(r => r.size >= top * 0.92);
-  const lines = [rows[i]];
-  for (let j = i + 1; j < rows.length && lines.length < 3; j++) {
-    const r = rows[j], prev = lines.at(-1);
-    if (r.size < top * 0.92 || prev.y - r.y > r.size * 2) break;
-    lines.push(r);
-  }
-  const t = lines.map(l => l.text).join(' ').replace(/(?<=\p{L})-\s(?=\p{Ll})/gu, '').replace(/\s+/g, ' ').trim();
-  return t.length >= 3 && t.length <= 200 ? t : null;
 }
 function crop() { return state.trim ? TRIM : { x: 0, y: 0 } }
 function sheetRatio(w, h) { const c = crop(); return `${w * (1 - 2 * c.x)} / ${h * (1 - 2 * c.y)}` }
@@ -433,8 +379,8 @@ async function pageText(n) {
   return value;
 }
 async function renderPage(p) {
-  const width = sheetWidth();
-  if (p.canvas && p.renderedWidth === width) return;
+  const width = sheetWidth(), dark = pageTheme === 'dark';
+  if (p.canvas && p.renderedWidth === width && p.dark === dark) return;
   const token = state.token;
   const page = await state.pdf.getPage(p.n);
   if (token !== state.token) return;
@@ -451,13 +397,35 @@ async function renderPage(p) {
   p.task = task;
   try { await task.promise } catch { return }
   if (token !== state.token || p.task !== task) return;
+  // Dark: the page as shown is a recoloured copy; the page as drawn stays for snips, figures
+  // and sketches. Without a copy (out of memory), a CSS filter darkens the page instead.
+  const shown = dark ? (await darkCopy(page, canvas, viewport)) || canvas : canvas;
+  if (token !== state.token || p.task !== task) return;
+  shown.classList.toggle('is-raw', dark && shown === canvas);
   p.canvas?.remove(); p.layer?.remove();
-  p.pg.prepend(canvas); p.canvas = canvas; p.renderedWidth = width;
+  if (p.source && p.source !== canvas) p.source.width = 0;
+  p.pg.prepend(shown); p.canvas = shown; p.source = shown === canvas ? null : canvas; p.renderedWidth = width; p.dark = dark;
   const { items } = await pageText(p.n);
   if (token !== state.token || p.canvas !== canvas) return;
   buildTextLayer(p, items, page.getViewport({ scale: cssScale }));
   if (!state.figs.has(p.n)) setTimeout(() => detectFigures(p), 0); else p.figures = state.figs.get(p.n);
   if (narr.active && narr.page === p.n) paintNarration();
+}
+// The drawn page, as printed: what snips, figure detection and sketches read.
+const drawn = p => p.source || p.canvas;
+async function darkCopy(page, canvas, viewport) {
+  try {
+    const ops = await page.getOperatorList();
+    const keep = Theme.imageRects(ops, pdfjsLib.OPS, viewport.transform, canvas.width, canvas.height);
+    const out = document.createElement('canvas');
+    out.width = canvas.width; out.height = canvas.height; out.setAttribute('aria-hidden', 'true');
+    const g = out.getContext('2d', { alpha: false });
+    g.drawImage(canvas, 0, 0);
+    const img = g.getImageData(0, 0, out.width, out.height);
+    Theme.recolourDark(img.data, out.width, out.height, keep, Theme.PALETTE.dark);
+    g.putImageData(img, 0, 0);
+    return out;
+  } catch { return null }
 }
 const measureCtx = document.createElement('canvas').getContext('2d');
 function buildTextLayer(p, items, vp) {
@@ -757,6 +725,7 @@ function epubHighlightAt(x, y) {
 function releasePage(p) {
   p.task?.cancel(); p.task = null;
   if (p.canvas) { p.canvas.width = 0; p.canvas.remove(); p.canvas = null; p.renderedWidth = 0 }
+  if (p.source) { p.source.width = 0; p.source = null }
   p.layer?.remove(); p.layer = null; p.spans = null;
   p.pg.querySelectorAll('.hl-layer, .sel-layer, .byob-hot, .byob-region').forEach(l => l.remove());
 }
@@ -788,17 +757,27 @@ function onScroll() {
     $('pageBtn').setAttribute('aria-label', `Table of contents, ${ch ? ch.label + ', ' : ''}${pct}% read`);
     $('progress').textContent = `${pct}%`;
   } else {
-  $('pageLabel').textContent = ch ? ch.label : `p. ${place.page}`;
-  $('pageBtn').setAttribute('aria-label', `Table of contents, ${ch ? ch.label + ', ' : ''}page ${place.page}`);
-  $('progress').textContent = ch ? `p. ${place.page} · ${Math.round(((place.page - 1 + place.frac) / n) * 100)}%` : `${Math.round(((place.page - 1 + place.frac) / n) * 100)}%`;
+  // The chapter pill: the chapter (a real one, from the scan) or the page, then page and percent.
+  const pct = `${Math.round(((place.page - 1 + place.frac) / n) * 100)}%`;
+  $('pageLabel').textContent = ch ? ch.label : `p. ${place.page} of ${n}`;
+  $('pageBtn').setAttribute('aria-label', `Contents and pages, ${ch ? ch.label + ', ' : ''}page ${place.page} of ${n}, ${pct} read`);
+  $('progress').textContent = ch ? `p. ${place.page} · ${pct}` : pct;
   }
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => {
-    store.set('pos:' + state.key, { ...place, zoom: state.zoom });
-    const hist = store.get('read:' + state.key) || { furthest: 1 };
-    if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
-  }, 250);
+  saveTimer = setTimeout(savePlaceNow, 250);
 }
+// The place on this device only (localStorage tinct-addbook:pos:<key>): page, position on it,
+// zoom, the page count and when, so the library lists the book as being read.
+function savePlaceNow() {
+  clearTimeout(saveTimer);
+  if (!state.pages.length || !state.key) return;
+  const place = currentPlace();
+  store.set('pos:' + state.key, { ...place, zoom: state.zoom, pages: state.pages.length, at: Date.now() });
+  const hist = store.get('read:' + state.key) || { furthest: 1 };
+  if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
+}
+addEventListener('pagehide', () => { if (hasBook()) savePlaceNow() });
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && hasBook()) savePlaceNow() });
 $('scroll').addEventListener('scroll', onScroll, { passive: true });
 function noteSession() {
   // Catch me up starts from the page the previous visit ended on.
@@ -818,13 +797,13 @@ function setZoom(z, { quick = false } = {}) {
     if (state.zoom > 1 && before <= 1 && dock.state === 'docked') setDock('minimized', { byZoom: true });
     else if (state.zoom <= 1 && dock.byZoom && dock.state === 'minimized') setDock('docked');
   }
-  if (isEpub()) { applyEpubScale(); goTo(place); onScroll(); store.set('pos:' + state.key, { ...currentPlace(), zoom: state.zoom }); return }
+  if (isEpub()) { applyEpubScale(); goTo(place); onScroll(); savePlaceNow(); return }
   applyCrop();
   const w = sheetWidth();
   for (const p of state.pages) { p.sheet.style.width = w + 'px'; p.sheet.style.aspectRatio = sheetRatio(p.w, p.h) }
   goTo(place); onScroll();
   clearTimeout(zoomTimer);
-  zoomTimer = setTimeout(() => { for (const p of state.pages) if (p.canvas) { p.renderedWidth = 0; renderPage(p) } store.set('pos:' + state.key, { ...currentPlace(), zoom: state.zoom }) }, quick ? 220 : 0);
+  zoomTimer = setTimeout(() => { for (const p of state.pages) if (p.canvas) { p.renderedWidth = 0; renderPage(p) } savePlaceNow() }, quick ? 220 : 0);
 }
 // Ctrl/Cmd +/- and trackpad pinch zoom the pages, not the browser page, so the top bar stays put.
 addEventListener('keydown', e => {
@@ -847,12 +826,12 @@ addEventListener('keydown', e => {
 
 /* ---------- Popups, sheets and the menu, in Tinct's markup ---------- */
 let openPanel = null;
-function closeAllPopups() { closeMenu(); hideSelection(); closeJump(); document.querySelector('.lab-contents-v2')?.remove(); document.querySelector('.lab-audio-speed-popover')?.remove() }
+function closeAllPopups() { closeMenu(); hideSelection(); closeJump(); closeSwitcher(); document.querySelector('.byob-settings')?.remove(); document.querySelector('.lab-contents-v2')?.remove(); document.querySelector('.lab-audio-speed-popover')?.remove() }
 // Sheets live in the reader's root; on the start page, in a host that carries the same classes.
 function startHost() {
   const host = document.createElement('div');
   host.className = `lab byob byob-sheet-host ${innerWidth < 700 ? 'is-phone' : 'is-desktop'}`;
-  host.dataset.chromeVersion = 'v2'; host.dataset.theme = 'light';
+  host.dataset.chromeVersion = 'v2'; themeHost(host, pageTheme);
   document.body.appendChild(host);
   return host;
 }
@@ -874,18 +853,24 @@ function closeSheet(layer) { const host = layer?.parentElement; layer?.remove();
 let toastTimer;
 function toast(text) {
   let t = document.querySelector('.byob-toast');
-  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; Object.assign(t.style, { position: 'fixed', left: '50%', bottom: '56px', transform: 'translateX(-50%)', zIndex: 80, background: '#f6f2e8', padding: '8px 14px', borderRadius: '12px', boxShadow: '0 4px 14px rgba(0,0,0,.12)' }); document.body.appendChild(t) }
+  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t) }
   t.textContent = text; t.hidden = false;
   clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true }, 4000);
 }
 
+/* The reader's one Chat and one Highlight icon, the same glyphs as
+   src/lab/LabReaderIcons.tsx (ChatIcon, HighlightIcon). */
+const CHAT_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="chat"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5Z"></path></svg>';
+const HIGHLIGHT_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="highlight"><path d="m9 11-6 6v3h9l3-3"></path><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"></path></svg>';
+
 const ICON = {
-  chat: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8.5A1.5 1.5 0 0 1 19 17H11l-4.5 3.5V17H5a1.5 1.5 0 0 1-1.5-1.5V7A1.5 1.5 0 0 1 5 5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>',
+  chat: CHAT_SVG,
   talk: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="4.2" y="9" width="2.6" height="6" rx="1.1"></rect><rect x="10.7" y="5" width="2.6" height="14" rx="1.1"></rect><rect x="17.2" y="8" width="2.6" height="8" rx="1.1"></rect></svg>',
   summarize: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 6h12M8 12h12M8 18h12M3 6h.1M3 12h.1M3 18h.1"></path></svg>',
   catchup: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6.6v3M6 12.6v3.2"></path><circle cx="6" cy="5" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="6" cy="11" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="6" cy="18" r="2.2"></circle><path d="M11 5h9M11 11h9M11 18h5"></path></svg>',
   settings: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h7M15 7h5M4 17h5M13 17h7"></path><circle cx="13" cy="7" r="2"></circle><circle cx="11" cy="17" r="2"></circle></svg>',
   library: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m10 5-7 7 7 7M3 12h18"></path></svg>',
+  librarian: CHAT_SVG,
   close: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="m7 7 10 10M17 7 7 17"></path></svg>',
   open: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m-4 4 4-4 4 4M5 14v5h14v-5"></path></svg>',
   pause: '<svg width="20.7" height="20.7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="0.5"></rect><rect x="14" y="5" width="4" height="14" rx="0.5"></rect></svg>',
@@ -895,8 +880,10 @@ const ICON = {
   attach: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="m20.5 16-5-5-8 8"></path></svg>',
   copy: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" stroke-width="1.5"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.5"></path></svg>',
 };
-const MENU = [['chat', 'Chat'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['settings', 'Settings', true, true], ['open', 'Open another book', true], ['close', 'Your books']];
-const menuItems = () => MENU.filter(([id]) => id !== 'snip' || state.kind === 'pdf');
+// The reader's rows (src/lab/labSuperMenu.ts: Librarian, Summarize, Catch me up, Settings,
+// Library on the phone), with this viewer's own: Snip a figure, Export notes, Open another book.
+const MENU = [['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['settings', 'Settings', true, true], ['open', 'Open another book', true], ['library', 'Library', true]];
+const menuItems = () => MENU.filter(([id]) => (id !== 'snip' || state.kind === 'pdf') && (id !== 'library' || isPhone()));
 function openMenu() {
   if (document.querySelector('.lab-super-layer')) return closeMenu();
   closeAllPopups();
@@ -917,9 +904,9 @@ function closeMenu() {
 }
 $('superBtn').onclick = openMenu;
 function menuAction(id) {
-  if (id === 'close') { closeBook(); return }
+  if (id === 'library') { leaveToShelf(); return }
   if (!hasBook() && id !== 'open' && id !== 'settings') { toast('Open a book first.'); return }
-  if (id === 'chat') return openChat();
+  if (id === 'librarian') return openChat();
   if (id === 'summarize') return summarize();
   if (id === 'catchup') return catchUp();
   if (id === 'snip') return startSnip();
@@ -945,32 +932,56 @@ function openJump() {
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
 $('pageBtn').onclick = () => openContents();
 
-/* Settings, as rows in a Tinct sheet */
+/* Settings: the reader's Settings sheet (src/lab/LabV2Sheet.tsx), with the rows that apply here:
+   the theme, the page size, read-aloud voice and speed, full screen; and this viewer's own
+   full width and page-margin trim. The theme is the reader's own setting (applyTheme). */
+const toggleRow = (id, label, on, hidden) => `<button type="button" class="lab-v2-row is-toggle" role="switch" aria-checked="${on}" data-t="${id}"${hidden ? ' hidden' : ''}><span class="lab-v2-row-label">${label}</span><span class="lab-v2-switch" aria-hidden="true"><span class="lab-v2-switch-knob"></span></span></button>`;
+const selectRow = (id, label, value, options) => `<div class="lab-v2-row is-select"><span class="lab-v2-row-label">${label}</span><span class="lab-v2-value"><span data-value="${id}">${esc((options.find(o => o[0] === value) || options[0])[1])}</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></span><select class="lab-v2-row-select" id="${id}" aria-label="${label}">${options.map(([v, l]) => `<option value="${esc(v)}"${v === value ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select></div>`;
 function openSettings() {
+  closeAllPopups();
   const voices = speechSynthesis?.getVoices?.().filter(v => /^en/i.test(v.lang)) || [];
-  const layer = sheet('Settings', `
-    <div class="byob-row"><span>${isEpub() ? 'Text size' : 'Zoom'}</span><span class="seg"><button type="button" data-z="-">−</button><span id="zoomVal">${Math.round(state.zoom * 100)}%</span><button type="button" data-z="+">+</button></span></div>
-    <div class="byob-row"><span>Full width</span><span class="seg"><button type="button" data-t="full" aria-pressed="${prefs.full}">${prefs.full ? 'On' : 'Off'}</button></span></div>
-    <div class="byob-row"><span>Full screen</span><span class="seg"><button type="button" data-t="screen" aria-pressed="${!!document.fullscreenElement}">${document.fullscreenElement ? 'On' : 'Off'}</button></span></div>
-    <div class="byob-row"${isEpub() ? ' hidden' : ''}><span>Trim page margins</span><span class="seg"><button type="button" data-t="trim" aria-pressed="${state.trim}">${state.trim ? 'On' : 'Off'}</button></span></div>
-    <div class="byob-row"><span>Dark pages</span><span class="seg"><button type="button" data-t="dark" aria-pressed="${prefs.dark}">${prefs.dark ? 'On' : 'Off'}</button></span></div>
-    <div class="byob-row"><span>Paper tone</span><span class="seg"><button type="button" data-t="tone" aria-pressed="${prefs.tone}">${prefs.tone ? 'On' : 'Off'}</button></span></div>
-    <div class="byob-row"${isEpub() ? ' hidden' : ''}><span>Read-aloud speed</span><span class="seg"><select id="rateSel">${[0.75, 1, 1.25, 1.5, 1.75, 2].map(r => `<option value="${r}" ${r === prefs.rate ? 'selected' : ''}>${r}×</option>`).join('')}</select></span></div>
-    <div class="byob-row"${isEpub() ? ' hidden' : ''}><span>Read-aloud voice</span><span class="seg"><select id="voiceSel"><option value="">Device default</option>${voices.map(v => `<option value="${esc(v.name)}" ${v.name === prefs.voice ? 'selected' : ''}>${esc(v.name)}</option>`).join('')}</select></span></div>
-    ${isEpub() ? '' : '<p class="byob-fine">Read-aloud uses your device’s own voice. Nothing is recorded or stored.</p>'}<p class="byob-fine" id="imgStatus">${esc(imgNote)}</p><p class="byob-fine">${BUILD}</p>`);
-  layer.querySelectorAll('[data-z]').forEach(b => b.onclick = () => { setZoom(state.zoom + (b.dataset.z === '+' ? 0.15 : -0.15)); layer.querySelector('#zoomVal').textContent = Math.round(state.zoom * 100) + '%'; store.set('pos:' + state.key, { ...currentPlace(), zoom: state.zoom }) });
+  const eink = pageTheme === 'eink';
+  const rates = [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.rate])].sort((a, b) => a - b);
+  const layer = document.createElement('div');
+  layer.className = 'lab-v2-sheet-layer byob-settings'; layer.dataset.testid = 'lab-v2-sheet-layer';
+  layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
+    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Settings">
+      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">Settings</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
+      <div class="lab-v2-sheet-body">
+        <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
+        <div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>
+        <div class="lab-v2-rows">
+          ${toggleRow('full', 'Full width', !!prefs.full)}
+          ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}
+          ${toggleRow('screen', 'Full screen', !!document.fullscreenElement)}
+          ${isEpub() ? '' : selectRow('voiceSel', 'Voice', prefs.voice, [['', 'Device voice'], ...voices.map(v => [v.name, v.name])])}
+          ${isEpub() ? '' : selectRow('rateSel', 'Speed', String(prefs.rate), rates.map(r => [String(r), r + '×']))}
+        </div>
+        <p class="lab-v2-note">${isEpub() ? '' : 'Read aloud uses this device’s own voice; nothing is recorded. '}${esc(imgNote)}</p>
+      </div>
+    </section>`;
+  const close = () => layer.remove();
+  layer.querySelector('.lab-super-scrim').onclick = close;
+  layer.querySelector('.lab-v2-dismiss').onclick = close;
+  layer.querySelectorAll('[data-theme-choice]').forEach(b => b.onclick = () => {
+    setTheme(b.dataset.themeChoice);
+    layer.querySelectorAll('[data-theme-choice]').forEach(o => { const on = o.dataset.themeChoice === pageTheme; o.classList.toggle('is-active', on); o.setAttribute('aria-pressed', String(on)) });
+    layer.querySelector('[data-testid="lab-v2-theme-eink"]')?.remove();
+  });
+  let sizeTimer;
+  layer.querySelector('[data-testid="lab-v2-size"]').oninput = e => { const z = Number(e.target.value); clearTimeout(sizeTimer); sizeTimer = setTimeout(() => setZoom(z, { quick: true }), 60) };
   layer.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
     const t = b.dataset.t;
-    if (t === 'trim') setTrim(!state.trim); if (t === 'dark') setDark(!prefs.dark); if (t === 'tone') setTone(!prefs.tone); if (t === 'full') setFull(!prefs.full);
-    if (t === 'screen') { toggleFullscreen().then(on => { b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'On' : 'Off' }); return }
-    const on = t === 'trim' ? state.trim : prefs[t];
-    b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'On' : 'Off';
+    if (t === 'screen') { toggleFullscreen().then(on => b.setAttribute('aria-checked', String(on))); return }
+    if (t === 'trim') setTrim(!state.trim); if (t === 'full') setFull(!prefs.full);
+    b.setAttribute('aria-checked', String(t === 'trim' ? state.trim : !!prefs[t]));
   });
-  layer.querySelector('#rateSel').onchange = e => { prefs.rate = Number(e.target.value); savePrefs() };
-  layer.querySelector('#voiceSel').onchange = e => { prefs.voice = e.target.value; savePrefs() };
+  const sync = (sel, fn) => { const el = layer.querySelector('#' + sel); if (!el) return; el.onchange = e => { fn(e.target.value); layer.querySelector(`[data-value="${sel}"]`).textContent = e.target.selectedOptions[0]?.textContent || '' } };
+  sync('rateSel', v => { prefs.rate = Number(v); savePrefs(); renderTransport() });
+  sync('voiceSel', v => { prefs.voice = v; savePrefs() });
+  root.appendChild(layer);
+  layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
-function setDark(on) { prefs.dark = on; root.classList.toggle('dark-pages', on); savePrefs() }
-function setTone(on) { prefs.tone = on; root.classList.toggle('tone-pages', on); savePrefs() }
 function setFull(on) { prefs.full = on; savePrefs(); if (state.pages.length) setZoom(state.zoom) }
 async function toggleFullscreen() {
   try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen() } catch { toast('Full screen is not available here. Use Full width instead.') }
@@ -978,152 +989,8 @@ async function toggleFullscreen() {
 }
 function setTrim(on) { prefs.trim = state.trim = on; savePrefs(); if (state.pages.length) setZoom(state.zoom); else applyCrop() }
 
-/* ---------- Chapters: the PDF outline, else the printed Contents pages, else the headings ---------- */
-const toc = { entries: [], ready: false, expanded: new Set() };
-const norm = s => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-const ROMAN = { i: 1, v: 5, x: 10, l: 50, c: 100, d: 500, m: 1000 };
-function roman(s) { let t = 0, prev = 0; for (const ch of s.toLowerCase().split('').reverse()) { const v = ROMAN[ch] || 0; t += v < prev ? -v : v; prev = Math.max(prev, v) } return t }
-async function pageLines(n) {
-  // Rebuild visual lines from positioned text items.
-  const { items } = await pageText(n);
-  const rows = [];
-  for (const it of items) {
-    if (!it.str.trim()) continue;
-    const y = it.transform[5], x = it.transform[4];
-    let row = rows.find(r => Math.abs(r.y - y) < 2.5);
-    if (!row) { row = { y, parts: [] }; rows.push(row) }
-    row.parts.push({ x, s: it.str });
-  }
-  return rows.sort((a, b) => b.y - a.y).map(r => r.parts.sort((a, b) => a.x - b.x).map(p => p.s).join(' ').replace(/\s+/g, ' ').trim());
-}
-async function outlineEntries(pdf) {
-  const outline = await pdf.getOutline().catch(() => null);
-  if (!outline?.length) return null;
-  const out = [];
-  const walk = async (items, depth, parent) => {
-    for (const it of items) {
-      let dest = it.dest;
-      try {
-        if (typeof dest === 'string') dest = await pdf.getDestination(dest);
-        const page = Array.isArray(dest) && dest[0] ? (await pdf.getPageIndex(dest[0])) + 1 : null;
-        const e = { id: 'o' + out.length, label: it.title.trim(), page, kind: it.items?.length ? 'part' : 'chapter', parent };
-        out.push(e);
-        if (it.items?.length && depth < 2) await walk(it.items, depth + 1, e.id);
-      } catch {}
-    }
-  };
-  await walk(outline, 0, null);
-  return out.filter(e => e.page);
-}
-async function contentsEntries(pdf) {
-  const limit = Math.min(30, pdf.numPages), raw = [], contentsPages = new Set();
-  for (let n = 1; n <= limit; n++) {
-    const lines = await pageLines(n);
-    let hits = 0, carry = '';
-    const found = [];
-    for (const line of lines) {
-      const m = line.match(/^(.*?)\s*(?:\.\s*){3,}\s*(\d{1,4}|[ivxlc]{1,6})$/i) || (carry && line.match(/^(.*?)\s+(\d{1,4})$/));
-      if (!m) { if (/^\d{1,2}\s+\S/.test(line) && !/\d$/.test(line)) carry = line.replace(/-$/, ''); else carry = ''; continue }
-      let label = (carry ? carry + (m[1] ? (carry.endsWith('-') ? '' : ' ') + m[1] : '') : m[1]).replace(/\s*\.\s*$/, '').replace(/\s+/g, ' ').trim();
-      carry = '';
-      if (!label) continue;
-      hits++; found.push({ label, printed: m[2] });
-    }
-    if (hits >= 4) { contentsPages.add(n); raw.push(...found) }
-    else if (raw.length && hits === 0) break;
-  }
-  if (raw.length < 3) return null;
-  let part = null;
-  const entries = raw.map((r, i) => {
-    const ch = r.label.match(/^(\d{1,3})\s+(.+)$/), pt = r.label.match(/^([IVX]{1,5})\s+(.+)$/);
-    const e = { id: 'c' + i, printed: r.printed, arabic: /^\d+$/.test(r.printed) };
-    if (pt) { Object.assign(e, { kind: 'part', label: `${pt[1]} · ${pt[2]}`, title: pt[2], parent: null }); part = e }
-    else if (ch) Object.assign(e, { kind: 'chapter', label: `${ch[1]} · ${ch[2]}`, title: ch[2], number: Number(ch[1]), parent: part?.id || null });
-    else Object.assign(e, { kind: 'front', label: r.label, title: r.label, parent: part && r.arabic ? part.id : null });
-    return e;
-  });
-  // Printed page numbers differ from PDF pages: find the shift that puts chapter titles on their pages.
-  const hasTitle = async (n, title) => n >= 1 && n <= pdf.numPages && !contentsPages.has(n) && norm((await pageText(n)).text).includes(norm(title).slice(0, 28));
-  const offsetFor = async (list, range) => {
-    let best = null;
-    for (let off = range[0]; off <= range[1]; off++) {
-      let score = 0;
-      for (const e of list) if (await hasTitle(e.base + off, e.title)) score++;
-      if (!best || score > best.score) best = { off, score };
-      if (score === list.length) break;
-    }
-    return best && best.score > 0 ? best.off : null;
-  };
-  const arabic = entries.filter(e => e.arabic && e.kind !== 'part').slice(0, 5).map(e => ({ ...e, base: Number(e.printed) }));
-  const romanList = entries.filter(e => !e.arabic).slice(0, 3).map(e => ({ ...e, base: roman(e.printed) }));
-  const offA = arabic.length ? await offsetFor(arabic, [-5, 80]) : null;
-  const offR = romanList.length ? await offsetFor(romanList, [-5, 40]) : null;
-  for (const e of entries) e.page = e.arabic ? (offA == null ? null : Number(e.printed) + offA) : (offR == null ? null : roman(e.printed) + offR);
-  return entries.filter(e => e.page && e.page <= pdf.numPages);
-}
-// Headings, for a PDF with neither: short lines set clearly larger than the page's body
-// text, or in a bold face at body size, that do not repeat across pages (running heads).
-const HEADING_PAGES = 400;
-const isBold = name => /bold|black|heavy|semibold|demi|cmbx/i.test(name || '');
-async function fontName(page, id) {
-  try { if (!page.commonObjs.has(id)) await page.getOperatorList(); return page.commonObjs.has(id) ? page.commonObjs.get(id)?.name || '' : '' } catch { return '' }
-}
-// A heading reads like a title: few words, mostly letters, starting with a capital or a
-// section number, not a sentence or formula running on, not a figure or table caption.
-function headingLike(r) {
-  const t = r.text, letters = (t.match(/\p{L}/gu) || []).length;
-  return r.words <= 12 && letters >= 2 && letters >= t.replace(/\s/g, '').length * 0.6
-    && /^([\p{Lu}]|[\dIVXivx]+(?:\.\d+)*[.)]?\s|[A-Z]\.?\d*\s|§)/u.test(t) && !/[,;]$/.test(t)
-    && !/[=∑∫≡⊗⊕→←≈≤≥±×√∂∇]/.test(t) && !/^(fig(ure)?|table|tab)\.?\s*\d/i.test(t);
-}
-async function headingEntries(pdf) {
-  const token = state.token, pages = [];
-  for (let n = 1; n <= Math.min(HEADING_PAGES, pdf.numPages); n++) {
-    const page = await pdf.getPage(n), [, y0, , y1] = page.view;
-    if (token !== state.token) return null;
-    pages.push({ n, page, y0, h: y1 - y0, rows: textRows((await pageText(n)).items) });
-  }
-  // Body text: the size and face that carry the most characters, per page when it has enough.
-  const bodyOf = rows => { const w = new Map(); for (const r of rows) if (r.font) { const k = Math.round(r.size * 2) / 2 + '|' + r.font; w.set(k, (w.get(k) || 0) + r.chars) } const top = [...w].sort((p, q) => q[1] - p[1])[0]; return top && { size: Number(top[0].split('|')[0]), font: top[0].slice(top[0].indexOf('|') + 1), chars: top[1] } };
-  const docBody = bodyOf(pages.flatMap(p => p.rows));
-  if (!docBody) return null;
-  // Running heads and feet: the same words (numbers aside) near the top or bottom of several pages.
-  const edgeKey = r => r.text.toLowerCase().replace(/\d+/g, '').replace(/[^\p{L}]+/gu, '');
-  const atEdge = (p, r) => r.y - p.y0 > p.h * 0.9 || r.y - p.y0 < p.h * 0.1;
-  const seen = new Map(), exact = new Map();
-  for (const p of pages) {
-    for (const k of new Set(p.rows.filter(r => atEdge(p, r)).map(edgeKey))) seen.set(k, (seen.get(k) || 0) + 1);
-    for (const k of new Set(p.rows.map(r => r.text.toLowerCase()))) exact.set(k, (exact.get(k) || 0) + 1);
-  }
-  const out = [];
-  for (const p of pages) {
-    const local = bodyOf(p.rows), body = local && local.chars >= 300 ? local : docBody;
-    // On page 1, what sits above the first body paragraph is the title block (title, authors).
-    const para = p.rows.findIndex(r => r.font === body.font && Math.abs(r.size - body.size) < 0.6 && r.words >= 6);
-    const first = p.n > 1 ? 0 : para < 0 ? Infinity : para;
-    let prev = null;
-    for (const [i, r] of p.rows.entries()) {
-      if (i < first) continue;
-      if (!headingLike(r)) { prev = null; continue }
-      if ((atEdge(p, r) && seen.get(edgeKey(r)) >= 3) || exact.get(r.text.toLowerCase()) >= 3) { prev = null; continue }
-      const larger = r.size >= body.size * 1.15;
-      const sameSize = Math.abs(r.size - body.size) <= body.size * 0.08;
-      const heading = larger || (sameSize && r.font && r.font !== body.font && isBold(await fontName(p.page, r.font)));
-      if (token !== state.token) return null;
-      if (!heading) { prev = null; continue }
-      // A heading that wraps onto a second line, in the same face.
-      if (prev && prev.font === r.font && prev.y - r.y < r.size * 1.8 && prev.words + r.words <= 16) {
-        prev.entry.label = (prev.entry.label + ' ' + r.text).replace(/(?<=\p{L})-\s(?=\p{Ll})/gu, '');
-        Object.assign(prev, { y: r.y, words: prev.words + r.words });
-        continue;
-      }
-      const entry = { id: 'h' + out.length, label: r.text, page: p.n, kind: 'chapter', parent: null };
-      out.push(entry);
-      prev = { entry, font: r.font, y: r.y, words: r.words };
-    }
-  }
-  return out.length >= 2 && out.length <= Math.max(12, pages.length * 4) ? out : null;
-}
+/* ---------- Chapters: from the scan (js/pdf-scan.js), kept with the book ---------- */
+const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages' };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
@@ -1131,20 +998,34 @@ function chapterTitleStyle() {
   return chapterTitles;
 }
 async function buildContents() {
-  const token = state.token, key = 'toc:' + state.key;
+  const token = state.token, key = state.key, pdf = state.pdf;
   toc.ready = false; toc.entries = [];
-  // Cached as { v: 2, entries }; an older empty list predates headings, so look again.
-  const cached = store.get(key);
-  let entries = Array.isArray(cached) ? (cached.length ? cached : null) : cached?.v === 2 ? cached.entries : null;
-  if (!entries) {
-    entries = (await outlineEntries(state.pdf)) || (await contentsEntries(state.pdf)) || (await headingEntries(state.pdf)) || [];
+  let scan = state.scan;
+  if (!scan) {
+    let heard;
+    state.titleReady = new Promise(r => { heard = r });
+    // A new scan: run at the first open (and again when SCAN_VERSION moves on), then kept on
+    // the book's record with the title, author and page count the library shows.
+    scan = await TinctPdfScan.scan(pdf, {
+      fileName: state.name,
+      items: async n => (await pageText(n)).items,
+      live: () => token === state.token,
+      onTitle: t => { if (token === state.token) setBookTitle(t.title, t.author); heard() },
+    }).catch(() => null);
+    heard();
     if (token !== state.token) return;
-    store.set(key, { v: 2, entries });
+    if (!scan) scan = { v: 0, title: state.title, author: state.author, pages: pdf.numPages, nav: 'pages', entries: [] };
+    // Shown in Tinct's house style: never ALL CAPS, never Roman numerals (app/public/lab/chapter-title.js).
+    const house = await chapterTitleStyle();
+    if (token !== state.token) return;
+    scan = { ...scan, entries: scan.entries.map(e => ({ ...e, label: house(e.label) })) };
+    state.scan = scan;
+    if (scan.v) await library.touch(key, { title: scan.title, author: scan.author, pages: scan.pages, scan });
+    store.del('toc:' + key);
   }
-  // Shown in Tinct's house style: never ALL CAPS, never Roman numerals (app/public/lab/chapter-title.js).
-  const house = await chapterTitleStyle();
-  if (token !== state.token) return;
-  toc.entries = entries.map(e => ({ ...e, label: house(e.label) })).sort((a, b) => a.page - b.page);
+  setBookTitle(scan.title, scan.author);
+  toc.entries = scan.entries.slice().sort((a, b) => a.page - b.page);
+  toc.nav = toc.entries.length ? scan.nav : 'pages';
   toc.ready = true;
   onScroll();
 }
@@ -1188,7 +1069,7 @@ function openContents() {
       <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>
       <div class="viewport">
         <form class="byob-jump byob-toc-jump"${isEpub() ? ' hidden' : ''}><label for="jumpInput">Go to page</label><input id="jumpInput" inputmode="numeric" value="${page}"><span>of ${state.pages.length}</span><button type="submit">Go</button></form>
-        ${toc.ready ? (tops.length ? `<nav class="tree" aria-label="Chapters"><ul>${tops.map(node).join('')}</ul></nav>` : `<p class="status">${isEpub() ? 'This book has no table of contents.' : 'This PDF has no table of contents. Use the page number above.'}</p>`) : '<p class="status" role="status">Reading the book’s contents…</p>'}
+        ${toc.ready ? (tops.length ? `<nav class="tree" aria-label="Chapters"><ul>${tops.map(node).join('')}</ul></nav>` : isEpub() ? '<p class="status">This book has no table of contents.</p>' : pageList(page)) : '<p class="status" role="status">Reading the book’s contents…</p>'}
       </div></div>`;
   const close = () => layer.remove();
   layer.querySelector('.lc-scrim').onclick = close;
@@ -1201,9 +1082,72 @@ function openContents() {
     close(); goToEntry(e);
   });
   layer.querySelectorAll('[data-collapse]').forEach(b => b.onclick = () => { toc.expanded.delete(b.dataset.collapse); close(); openContents() });
+  layer.querySelectorAll('[data-page]').forEach(b => b.onclick = () => { close(); goTo({ page: Number(b.dataset.page), frac: 0 }) });
   root.appendChild(layer);
   if (!toc.ready) { const t = setInterval(() => { if (toc.ready) { clearInterval(t); if (layer.isConnected) { close(); openContents() } } else if (!layer.isConnected) clearInterval(t) }, 400) }
   layer.querySelector('[aria-current="page"]')?.scrollIntoView({ block: 'center' });
+}
+
+// A PDF without real chapters is read by page: its pages, in the contents' rows.
+const PAGE_LIST_MAX = 80;
+function pageList(current) {
+  const n = state.pages.length;
+  if (n > PAGE_LIST_MAX) return '';
+  return `<nav class="tree byob-pages" aria-label="Pages"><ul>${Array.from({ length: n }, (_, i) => i + 1).map(k => `<li class="${k === current ? 'reading' : ''}"><div class="node"><button class="label" data-page="${k}"${k === current ? ' aria-current="page"' : ''}><span class="text">p. ${k}</span></button></div></li>`).join('')}</ul></nav>`;
+}
+
+/* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
+// Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
+// src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
+const SWITCHER_ENGINE = '/lab/library-add.js?v=20261008rel8';
+let switcherEngine = null;
+function engine() {
+  switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
+  switcherEngine.catch(() => { switcherEngine = null });
+  return switcherEngine;
+}
+function closeSwitcher() { const el = document.querySelector('.byob-switcher'); if (!el) return; el.remove(); $('bookBtn').focus({ preventScroll: true }) }
+function switcherCover(src) { return `<span class="lab-book-switcher-cover${src ? '' : ' is-fallback'}" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" decoding="async">` : ''}</span>` }
+async function openSwitcher() {
+  if (!hasBook()) return;
+  if (document.querySelector('.byob-switcher')) return closeSwitcher();
+  closeAllPopups();
+  const id = 'userbook-' + hexOf(state.key), rec = await library.get(state.key);
+  const place = currentPlace();
+  const current = { bookId: id, title: state.title, chapterLabel: isEpub() ? '' : `p. ${place.page} of ${state.pages.length}`, cover: rec?.cover || '' };
+  const layer = document.createElement('div');
+  layer.className = 'lab-book-switcher-backdrop byob-switcher'; layer.dataset.testid = 'lab-book-switcher';
+  let rows = [], loading = true, error = '';
+  const paint = () => {
+    const active = rows.find(r => r.bookId === id);
+    const ordered = active ? [active, ...rows.filter(r => r !== active)] : rows;
+    const row = (r, i) => { const on = r.bookId === id; return `<button type="button" class="lab-book-switcher-row${on ? ' is-active' : ''}"${on ? ' aria-current="true"' : ''} data-row="${i}">${switcherCover(on ? current.cover || r.coverSrc : r.coverSrc)}<span class="lab-book-switcher-copy"><strong>${esc(on ? current.title : r.title)}</strong><small>${esc(on ? current.chapterLabel : r.chapterLabel)}</small></span>${on ? '<span class="lab-book-switcher-check" aria-hidden="true">✓</span>' : ''}</button>` };
+    layer.innerHTML = `<section class="lab-book-switcher" role="dialog" aria-modal="true" aria-label="Switch books">
+      <header class="lab-book-switcher-head"><span>Reading now</span><button type="button" data-close aria-label="Close book switcher">×</button></header>
+      <div class="lab-book-switcher-list">
+        ${active ? '' : `<button type="button" class="lab-book-switcher-row is-active" aria-current="true" data-close>${switcherCover(current.cover)}<span class="lab-book-switcher-copy"><strong>${esc(current.title)}</strong><small>${esc(current.chapterLabel)}</small></span><span class="lab-book-switcher-check" aria-hidden="true">✓</span></button>`}
+        ${ordered.map((r, i) => row(r, rows.indexOf(r))).join('')}
+        ${loading && !ordered.length ? '<p class="lab-book-switcher-status">Loading your books…</p>' : ''}
+        ${error ? `<p class="lab-book-switcher-status" role="status">${esc(error)}</p>` : ''}
+      </div>
+      <button type="button" class="lab-book-switcher-library" data-library><svg class="lab-book-switcher-library-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16 5l3-1 4 15-3 1z"></path></svg><span>Library</span><span class="lab-book-switcher-library-arrow" aria-hidden="true">→</span></button>
+    </section>`;
+    layer.querySelectorAll('[data-close]').forEach(b => b.onclick = closeSwitcher);
+    layer.querySelector('[data-library]').onclick = () => leaveToShelf();
+    layer.querySelectorAll('[data-row]').forEach(b => b.onclick = () => {
+      const r = rows[Number(b.dataset.row)];
+      if (!r || r.bookId === id) return closeSwitcher();
+      engine().then(api => { const to = api.switcherTarget(r); if (!to) { error = 'That saved place is temporarily unavailable.'; paint(); return } savePlaceNow(); stopNarration(); location.assign(to) }, () => { error = 'That book could not be opened from here.'; paint() });
+    });
+    (layer.querySelector('.lab-book-switcher-row.is-active') || layer.querySelector('[data-close]'))?.focus({ preventScroll: true });
+  };
+  layer.addEventListener('pointerdown', e => { if (e.target === layer) closeSwitcher() });
+  paint();
+  root.appendChild(layer);
+  savePlaceNow();
+  try { const res = await (await engine()).switcherRows(); rows = res.rows; error = res.error } catch { error = 'Showing this book only.' }
+  loading = false;
+  if (layer.isConnected) paint();
 }
 
 /* ---------- Reader windows: drag by the header, resize from the corner (desktop) ---------- */
@@ -1239,7 +1183,7 @@ function makeWindow(el, handle, key) {
 }
 
 /* ---------- Tinct's audio controls for read-aloud ---------- */
-const SKIP = dir => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${dir === 'back' ? 'M8.25 7.15H4.7v-3.5M4.9 7.05A8 8 0 1 1 4.15 15' : 'M15.75 7.15h3.55v-3.5M19.1 7.05A8 8 0 1 0 19.85 15'}"></path><text x="12" y="14.15" text-anchor="middle" fill="currentColor" stroke="none" font-size="6.5" font-family="IBM Plex Mono, monospace">15</text></svg>`;
+const SKIP = dir => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${dir === 'back' ? 'M8.25 7.15H4.7v-3.5M4.9 7.05A8 8 0 1 1 4.15 15' : 'M15.75 7.15h3.55v-3.5M19.1 7.05A8 8 0 1 0 19.85 15'}"></path><text x="12" y="14.15" text-anchor="middle" fill="currentColor" stroke="none" font-size="6.5" font-family="system-ui, sans-serif">15</text></svg>`;
 function renderTransport() {
   let bar = document.querySelector('.byob-transport');
   const show = narr.active || narr.paused;
@@ -1338,7 +1282,7 @@ async function pageImage(n, region) {
   // A picture of the printed page (or a region of it), so maths survives.
   const p = state.pages[n - 1];
   if (!PAGE_IMAGES || sampleImages === false || !p) return null;
-  let src = p.canvas;
+  let src = drawn(p);
   if (!src) {
     const page = await state.pdf.getPage(n);
     const vp = page.getViewport({ scale: 1100 / page.getViewport({ scale: 1 }).width });
@@ -1359,7 +1303,7 @@ async function contextText(from, to, budget) {
 }
 const bookLine = () => `The reader is reading their own copy of ${isEpub() ? 'an EPUB' : 'a PDF'} titled "${state.title}"${state.author ? ' by ' + state.author : ''}. They have confirmed they are entitled to use it.`;
 
-/* ---------- Selection: Explain / Ask / Copy ---------- */
+/* ---------- Selection: Explain / Chat / Copy ---------- */
 let sel = null;
 function selectionInfo() {
   const s = getSelection();
@@ -1405,8 +1349,8 @@ function showSelection(existing) {
   pop.dataset.popupMode = 'main';
   pop.innerHTML = `${existing ? paletteHtml(highlights().find(x => x.id === existing.id)?.color || 'gold') : ''}<div class="popup-compact-menu">
     <button type="button" class="popup-menu-action" data-a="explain" data-dock="1"><span class="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-    <button type="button" class="popup-menu-action" data-a="ask"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3h11v7.5H8L5 13v-2.5H2.5z"></path></svg><span>Ask</span></button>
-    ${existing ? '<button type="button" class="popup-menu-action" data-a="unhighlight"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><path d="m5 5 6 6M11 5l-6 6"></path></svg><span>Remove highlight</span></button>' : '<button type="button" class="popup-menu-action" data-a="highlight"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><line x1="5" y1="5" x2="11" y2="5"></line><line x1="5" y1="8" x2="11" y2="8"></line><line x1="5" y1="11" x2="8" y2="11"></line></svg><span>Highlight</span></button>'}
+    <button type="button" class="popup-menu-action" data-a="ask">${CHAT_SVG}<span>Chat</span></button>
+    ${existing ?'<button type="button" class="popup-menu-action" data-a="unhighlight"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><path d="m5 5 6 6M11 5l-6 6"></path></svg><span>Remove highlight</span></button>' : '<button type="button" class="popup-menu-action" data-a="highlight">' + HIGHLIGHT_SVG + '<span>Highlight</span></button>'}
     <button type="button" class="popup-menu-action" data-a="copy"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="9" height="9" rx="1"></rect><path d="M11 5V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h2"></path></svg><span>Copy</span></button></div>`;
   root.appendChild(pop);
   placePopup(pop, sel.box, 220);
@@ -1606,7 +1550,7 @@ function clearRegion() { document.querySelectorAll('.byob-region').forEach(m => 
 // A rough text sketch of an area of the rendered page, for when Claude cannot be sent the picture.
 function sketchOf(p, f) {
   try {
-    const c = p.canvas; if (!c) return '';
+    const c = drawn(p); if (!c) return '';
     const cols = 64, aspect = (f.h * c.height) / (f.w * c.width), rows = Math.max(6, Math.min(30, Math.round(cols * aspect * 0.5)));
     const g = document.createElement('canvas'); g.width = cols; g.height = rows;
     const x = g.getContext('2d', { willReadFrequently: true }); x.fillStyle = '#fff'; x.fillRect(0, 0, cols, rows);
@@ -1659,8 +1603,8 @@ async function copyImage(item) {
   toast('Copying images is not allowed in this browser, so the image was saved as a file instead.');
 }
 const ACT = {
-  ask: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3h11v7.5H8L5 13v-2.5H2.5z"></path></svg>',
-  highlight: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h12v12H2z"></path><line x1="5" y1="5" x2="11" y2="5"></line><line x1="5" y1="8" x2="11" y2="8"></line><line x1="5" y1="11" x2="8" y2="11"></line></svg>',
+  ask: CHAT_SVG,
+  highlight: HIGHLIGHT_SVG,
   copy: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="9" height="9" rx="1"></rect><path d="M11 5V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h2"></path></svg>',
 };
 async function regionPopup(box, item) {
@@ -1671,7 +1615,7 @@ async function regionPopup(box, item) {
   const url = item.blob ? await blobToDataUrl(item.blob) : '';
   pop.innerHTML = `${url ? `<div class="byob-snip-thumb"><img src="${url}" alt="The captured area"><span>${KIND[item.kind] || 'Snip'} · p. ${item.page}</span></div>` : ''}<div class="popup-compact-menu">
     <button type="button" class="popup-menu-action" data-a="explain"><span class="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
-    <button type="button" class="popup-menu-action" data-a="ask">${ACT.ask}<span>Ask</span></button>
+    <button type="button" class="popup-menu-action" data-a="ask">${ACT.ask}<span>Chat</span></button>
     <button type="button" class="popup-menu-action" data-a="highlight">${ACT.highlight}<span>Highlight</span></button>
     <button type="button" class="popup-menu-action" data-a="copy">${ACT.copy}<span>Copy image</span></button></div>`;
   root.appendChild(pop); placePopup(pop, box, 230); pop.addEventListener('mousedown', e => e.preventDefault());
@@ -1681,7 +1625,7 @@ async function regionPopup(box, item) {
 /* ---------- Figures: areas with ink but no running text get a hover chip ---------- */
 function detectFigures(p) {
   if (!p.canvas || !p.layer || state.figs.has(p.n)) return;
-  const c = p.canvas, W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
+  const c = drawn(p), W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
   const g = document.createElement('canvas'); g.width = W; g.height = H;
   const x = g.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
   const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H);
@@ -1737,7 +1681,7 @@ function showHot(reg, sticky) {
   Object.assign(el.style, { left: reg.f.x * 100 + '%', top: reg.f.y * 100 + '%', width: reg.f.w * 100 + '%', height: reg.f.h * 100 + '%' });
   el.innerHTML = `<div class="byob-hot-chip" role="toolbar" aria-label="${KIND[reg.kind]} actions">
     <button type="button" data-a="explain" title="Explain this ${reg.kind} in chat"><span class="byob-hot-sym" aria-hidden="true">✧</span>Explain</button>
-    <button type="button" data-a="ask" title="Ask a question about this ${reg.kind}">${ACT.ask}Ask</button>
+    <button type="button" data-a="ask" title="Chat about this ${reg.kind}">${ACT.ask}Chat</button>
     <button type="button" data-a="highlight" title="Highlight this ${reg.kind}">${ACT.highlight}Highlight</button>
     <button type="button" data-a="copy" title="Copy this ${reg.kind} as an image">${ACT.copy}Copy</button></div>`;
   const chip = el.querySelector('.byob-hot-chip');
@@ -1877,7 +1821,7 @@ function openChat(opts = {}) {
   loadTurns();
   if (!chat.el) {
     const el = document.createElement('aside');
-    el.setAttribute('aria-label', 'Ask');
+    el.setAttribute('aria-label', 'Chat');
     el.innerHTML = `<div class="lab-desktop-companion-head"><strong id="chatTitle">Chat</strong><button type="button" aria-label="Minimize chat" data-min>−</button><button type="button" aria-label="Close chat" data-x>×</button></div>
       <div class="lab-ask-thread" id="thread"></div>
       <p class="lab-ask-greeting" id="greeting">Ask about this page.</p>
@@ -2201,7 +2145,7 @@ async function seekChapter(frac) {
   jumpNarration(page, Math.floor((exact - page) * prep.sentences.length));
 }
 $('playBtn').onclick = togglePlay;
-// Clicking a saved highlight offers Explain, Ask, Remove highlight and Copy.
+// Clicking a saved highlight offers Explain, Chat, Remove highlight and Copy.
 document.addEventListener('click', e => {
   if (!getSelection().isCollapsed || narr.active || e.target.closest('.selection-popup, .lab-ask, .lab-header')) return;
   const h = highlightAt(e.clientX, e.clientY), open = document.querySelector('.selection-popup[data-popup-mode="highlight"]');
@@ -2236,10 +2180,12 @@ function blobToDataUrl(blob) { return new Promise(res => { const r = new FileRea
 /* ---------- Boot ---------- */
 applyLayout();
 document.fonts?.ready.then(applyLayout);
-setDark(prefs.dark); setTone(prefs.tone); state.trim = !!prefs.trim;
+applyTheme(); state.trim = !!prefs.trim;
 if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('vendor/pdfjs/pdf.worker.min.js', document.baseURI).href;
 if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => {};
 if (window.TinctAI) TinctAI.onSignedOut = () => toast('Your Tinct sign-in has expired, so this answer used the guest allowance. Sign in again to use your own.');
 document.body.dataset.view = 'start';
+// A book's own address opens straight into the reader (start.js boot opens the book).
+if (urlHex()) { $('start').hidden = true; showReader(); $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>' }
 if (location.hash === '#read') history.replaceState(null, '', location.pathname + location.search);
 window.dispatchEvent(new Event('tinct-reader-ready'));

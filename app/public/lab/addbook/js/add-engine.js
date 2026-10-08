@@ -137,8 +137,11 @@
     await Promise.race([saveToAccount(key, file, { kind: 'pdf', name: file.name, title: nameTitle(file.name), author: '' }, { quiet: silent, notify }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
     return { href: pdfHref(key) };
   }
-  /** Where a kept PDF (or an account copy not yet on this device) opens. */
-  const pdfHref = key => '/lab/addbook/?open=' + encodeURIComponent(key);
+  /**
+   * Where a kept PDF (or an account copy not yet on this device) opens: its own address in
+   * Add a book's PDF reader, /lab/addbook/?userBook=<hex> (older ?open=<key> links still work).
+   */
+  const pdfHref = key => '/lab/addbook/?userBook=' + encodeURIComponent(String(key).slice(String(key).indexOf(':') + 1));
 
   global.TinctAddEngine = {
     store, owner, library, cloud, saveToAccount, shelf, removeBook,

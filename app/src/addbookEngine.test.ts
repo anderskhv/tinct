@@ -84,10 +84,10 @@ describe('Add a book’s engine (add-engine.js)', () => {
     expect(notify).toHaveBeenCalledWith('Removed from this device, but not from your account. Try again.')
   })
 
-  it('opens a kept PDF in Add a book’s PDF reader by its key', async () => {
+  it('opens a kept PDF in Add a book’s PDF reader at its own address (?userBook=<hex>)', async () => {
     const engine = loadEngine({ userId: 'u1' })
-    expect(engine.pdfHref('pdf:abc')).toBe('/lab/addbook/?open=pdf%3Aabc')
-    expect(await engine.preparePdf(new File(['%PDF'], 'a.pdf'), 'pdf:abc')).toEqual({ href: '/lab/addbook/?open=pdf%3Aabc' })
+    expect(engine.pdfHref('pdf:abc')).toBe('/lab/addbook/?userBook=abc')
+    expect(await engine.preparePdf(new File(['%PDF'], 'a.pdf'), 'pdf:abc')).toEqual({ href: '/lab/addbook/?userBook=abc' })
   })
 })
 
@@ -101,8 +101,8 @@ describe('/lab/addbook is no longer a destination (route.js)', () => {
   it('sends the start page, its file step and its #books shelf to My shelf in the library', () => {
     for (const search of ['', '?mode=file', '?q=meditations', '?work=pg2680']) expect(route(search).replace).toHaveBeenCalledWith('/library#my-shelf')
   })
-  it('stays only as the PDF reader for one book (?open=) and for an older link’s handed-over file', () => {
-    for (const search of ['?open=pdf%3Aabc', '?mode=file&handoff=1']) {
+  it('stays only as the PDF reader for one book (?userBook=, or an older ?open=) and for an older link’s handed-over file', () => {
+    for (const search of ['?userBook=abcdef0123456789abcdef01', '?open=pdf%3Aabc', '?mode=file&handoff=1']) {
       const result = route(search)
       expect(result.replace).not.toHaveBeenCalled()
       expect(result.route).toBe('reader')

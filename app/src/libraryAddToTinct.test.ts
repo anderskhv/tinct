@@ -189,7 +189,7 @@ describe('library search panel with the flag', () => {
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel7')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel8')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
     expect(freeShown).toEqual([2]) // the panel's "N books found" counts these rows too (app.js)
@@ -568,7 +568,7 @@ describe('My shelf groups', () => {
   // jsdom has no canvas: the paper cover keeps its blank canvas (paperCover handles a null context).
   beforeEach(() => { vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null) })
   afterEach(() => { vi.restoreAllMocks() })
-  const own = (key: string, title: string, readingAt: number | null, kind = 'epub') => ({ key, kind, title, author: 'Me', at: 1, readingAt, href: kind === 'epub' ? `/reader?userBook=${key.slice(5)}` : `/lab/addbook/?open=${encodeURIComponent(key)}` })
+  const own = (key: string, title: string, readingAt: number | null, kind = 'epub') => ({ key, kind, title, author: 'Me', at: 1, readingAt, href: kind === 'epub' ? `/reader?userBook=${key.slice(5)}` : `/lab/addbook/?userBook=${key.slice(4)}` })
 
   it('puts own books being read under Currently reading, then every one under "My private uploads", with no add tiles', () => {
     const grid = document.createElement('div')
@@ -586,7 +586,7 @@ describe('My shelf groups', () => {
     expect(notes.getAttribute('href')).toBe('/reader?userBook=cc')
     expect(grid.querySelector('.own-book canvas.cover')).not.toBeNull()
     // A PDF opens by its own key in Add a book's PDF reader, never the old start page.
-    expect(grid.querySelector('[data-own-key="pdf:bb"] a')?.getAttribute('href')).toBe('/lab/addbook/?open=pdf%3Abb')
+    expect(grid.querySelector('[data-own-key="pdf:bb"] a')?.getAttribute('href')).toBe('/lab/addbook/?userBook=bb')
   })
 
   it('shows an own book’s own cover at full size, and a paper cover without one', () => {
@@ -707,7 +707,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
       readFile: async (file: File) => { steps.push('read ' + file.name); return readError ? { error: readError } : { kind, bytes: new Uint8Array([1]), key: `${kind}:abc` } },
       keepFile: async () => { steps.push('keep'); return kept },
       prepareEpub: async (_bytes: Uint8Array, name: string, key: string) => { steps.push('epub ' + name + ' ' + key); if (epubError) throw new Error(epubError); return { href: '/reader?userBook=abc' } },
-      preparePdf: async (_file: File, key: string) => { steps.push('pdf ' + key); return { href: '/lab/addbook/?open=' + encodeURIComponent(key) } },
+      preparePdf: async (_file: File, key: string) => { steps.push('pdf ' + key); return { href: '/lab/addbook/?userBook=' + key.slice(4) } },
     }
     return { steps, engine: async () => api }
   }
@@ -765,7 +765,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     choose(new File(['%PDF-1.4'], 'notes.pdf', { type: 'application/pdf' }))
     await vi.waitFor(() => expect(go).toHaveBeenCalledTimes(1))
     expect(steps).toEqual(['read notes.pdf', 'keep', 'pdf pdf:abc'])
-    expect(go).toHaveBeenCalledWith('/lab/addbook/?open=pdf%3Aabc')
+    expect(go).toHaveBeenCalledWith('/lab/addbook/?userBook=abc')
   })
 
   it('says why a file cannot be added, in the pop-up, and offers another', async () => {

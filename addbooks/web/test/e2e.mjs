@@ -290,12 +290,14 @@ try {
   const place = await p.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:place:' + h) || 'null'), hex);
   check('Tinct reader: the place is kept on this device', place?.chapterNumber === 4, place);
 
-  // The back arrow returns to Add a book, with the book on "Your books".
+  // The back arrow goes to My shelf in the library, where own books are listed.
+  const toShelf = p.waitForRequest(r => r.isNavigationRequest() && /\/library\?shelf=mine$/.test(r.url()), { timeout: 10000 }).then(() => true, () => false);
   await p.click('[data-testid="lab-library-back"]');
-  // Back to the file step (?mode=file), never the free-book search the library already has.
-  await p.waitForURL(/\/lab\/addbook\/\?mode=file$/, { timeout: 10000 });
+  check('back arrow goes to My shelf in the library', await toShelf, p.url());
+  await p.waitForURL(/\/library/, { timeout: 10000 });
+  await p.goto(BASE + '?mode=file');
   await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
-  check('back arrow returns to Your books', /time machine/i.test(await p.textContent('#abBooks')) && await p.isVisible('#abShelf'), p.url());
+  check('Your books lists it', /time machine/i.test(await p.textContent('#abBooks')) && await p.isVisible('#abShelf'), p.url());
   await p.screenshot({ path: join(OUT, 'desktop-shelf.png') });
   await p.click('.ab-book-open');
   await tinctReader(p);
@@ -373,7 +375,7 @@ try {
     await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
     // Its metadata Title is just the file name, so the title printed large on page 1 is used.
     const shown = await p.evaluate(() => ({ title: document.getElementById('bookTitle').textContent, doc: document.title, contents: document.getElementById('bookBtn').getAttribute('aria-label') }));
-    check('title: from page 1 when the metadata title is just the file name', shown.title === 'Constructor theory of time' && shown.doc === 'Constructor theory of time · Tinct' && shown.contents === 'Contents of Constructor theory of time', shown);
+    check('title: from page 1 when the metadata title is just the file name', shown.title === 'Constructor theory of time' && shown.doc === 'Constructor theory of time · Tinct' && shown.contents === 'Constructor theory of time. Switch books', shown);
     // Top bar: Back to library at the left; Play and the t menu at the right; no snip button.
     const bar = await p.evaluate(() => {
       const back = document.getElementById('backBtn'), hdr = document.getElementById('hdr');
@@ -401,13 +403,16 @@ try {
     await p.waitForFunction(t => /^3\. Possible and impossible tasks/.test(document.getElementById('pageLabel').textContent) && new RegExp(`^p\\. ${t} ·`).test(document.getElementById('progress').textContent), target, { timeout: 5000 }).catch(() => {});
     const at = await p.evaluate(() => ({ label: document.getElementById('pageLabel').textContent, progress: document.getElementById('progress').textContent }));
     check('headings: choosing one goes to its page and names the section', target > 1 && at.label === '3. Possible and impossible tasks' && at.progress.startsWith(`p. ${target} ·`), { target, ...at });
-    // Back to library: the start page, with "Your books" in view, under the document title.
+    // Back to library: My shelf in the library; Your books here lists the document title.
+    const toShelf = p.waitForRequest(r => r.isNavigationRequest() && /\/library\?shelf=mine$/.test(r.url()), { timeout: 10000 }).then(() => true, () => false);
     await p.click('#backBtn');
+    check('Back to library goes to My shelf', await toShelf, p.url());
+    await p.waitForURL(/\/library/, { timeout: 10000 });
+    await p.goto(BASE + '#books');
     await p.waitForSelector('#abShelf:not([hidden]) .ab-book', { timeout: 10000 });
     await p.waitForTimeout(300);
-    const back = await p.evaluate(() => { const r = document.getElementById('abShelf').getBoundingClientRect(); return { view: document.body.dataset.view, start: !document.getElementById('start').hidden, root: !document.getElementById('root').hidden, inView: r.top >= 0 && r.top < innerHeight && r.bottom <= innerHeight + 1, hash: location.hash, books: document.getElementById('abBooks').textContent.replace(/\s+/g, ' ').trim() } });
-    check('Back to library returns to the start page with Your books in view', back.view === 'start' && back.start && !back.root && back.inView && back.hash === '', back);
-    check('title: Your books lists the document title', /Constructor theory of time/.test(back.books) && !/SUB|_/.test(back.books), back.books);
+    const back = await p.evaluate(() => ({ view: document.body.dataset.view, books: document.getElementById('abBooks').textContent.replace(/\s+/g, ' ').trim() }));
+    check('title: Your books lists the document title', back.view === 'start' && /Constructor theory of time/.test(back.books) && !/SUB|_/.test(back.books), back);
     await p.screenshot({ path: join(OUT, 'desktop-back-to-shelf.png') });
     // The start page scrolls by hand too (the app's stylesheet pins body to the viewport for the reader).
     await p.evaluate(() => scrollTo(0, 0)); await p.mouse.move(700, 400); await p.mouse.wheel(0, 500); await p.waitForTimeout(400);
@@ -416,10 +421,10 @@ try {
     await openFile(p, await titledPdf(browser));
     await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
     check('title: from the PDF metadata when it is a real title', await p.textContent('#bookTitle') === 'Notes on Natural Philosophy', await p.textContent('#bookTitle'));
-    // A PDF whose outline-less pages carry no headings keeps the message.
+    // A PDF whose outline-less pages carry no headings is read by page: no made-up chapter.
     await p.click('#pageBtn');
-    await p.waitForSelector('.lab-contents-v2 .status:not([role])', { timeout: 15000 });
-    check('headings: none found keeps the no-contents message', /This PDF has no table of contents\. Use the page number above\./.test(await p.textContent('.lab-contents-v2')));
+    await p.waitForSelector('.lab-contents-v2 .byob-pages', { timeout: 15000 });
+    check('headings: none found lists the pages instead', /^p\. 1/.test(await p.textContent('.lab-contents-v2 .byob-pages .text')) && !(await p.$('.lab-contents-v2 [data-go]')));
     await p.keyboard.press('Escape');
     check('titles and headings: no page errors', !problems.length, problems.slice(0, 6));
     await ctx.close();
@@ -493,6 +498,8 @@ try {
     await p.screenshot({ path: join(OUT, 'desktop-figures-tab.png') });
     await p.keyboard.press('Escape');
     await p.click('[data-testid="lab-library-back"]');
+    await p.waitForURL(/\/library\?shelf=mine$/, { timeout: 10000 });
+    await p.goto(BASE + '?mode=file');
     await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
     const cover = await p.evaluate(() => [...document.querySelectorAll('.ab-book')].find(li => /Lanterns Illustrated/.test(li.textContent))?.querySelector('.ab-cover.has-image img')?.naturalWidth || 0);
     check('figures: Your books shows the EPUB’s own cover', cover > 0, cover);
@@ -540,7 +547,7 @@ try {
     const linked = await one.p.evaluate(async () => (await window.TinctReader.library.list()).map(r => r.cloudId));
     check('this device’s copy is linked to the account copy', linked.length === 1 && linked[0] === mine[0]?.id, linked);
     // Reopening from the shelf does not upload again.
-    await one.p.click('#superBtn'); await one.p.click('.lab-super-row[data-row="close"]');
+    await one.p.goto(BASE + '?mode=file');
     await one.p.waitForSelector('#abShelf:not([hidden]) .ab-book');
     await one.p.click('.ab-book-open'); await one.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
     await one.p.waitForTimeout(500);
@@ -572,7 +579,7 @@ try {
     const kept = await two.p.evaluate(async () => (await window.TinctReader.library.list()).map(r => ({ cloudId: r.cloudId, size: r.size })));
     check('a book only in the account downloads, opens and is kept on this device', kept.length === 1 && kept[0].cloudId === mine[0]?.id && kept[0].size === mine[0]?.size
       && (await bookState()).log.some(l => l.method === 'GET' && l.id === mine[0]?.id), kept);
-    await two.p.click('#superBtn'); await two.p.click('.lab-super-row[data-row="close"]');
+    await two.p.goto(BASE + '?mode=file');
     await two.p.waitForSelector('#abShelf:not([hidden]) .ab-book:not([data-cloud-only])');
     // Remove (× then Remove): gone from this device and from the account.
     await two.p.click('.ab-book-x'); await two.p.click('.ab-book-x');

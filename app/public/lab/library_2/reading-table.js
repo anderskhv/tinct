@@ -9,8 +9,8 @@
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008rel8';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
-import {renderBookMetadata} from './book-metadata.js?v=20261008rel7';
-import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel4';
+import {renderBookMetadata} from './book-metadata.js?v=20261008rel8';
+import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel8';
 import { paperCover } from './add-to-tinct.js?v=20261008rel8';
 import { fitHeroTitle } from './hero-title.js?v=20261008rel8';
 import { tableWindow, MAX_SPINES } from './table-window.js?v=20261008rel8';

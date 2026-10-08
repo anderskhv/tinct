@@ -2,7 +2,7 @@
 // one live on the library's My shelf ("My private uploads" and its + pop-up, which keeps and
 // opens a file in place with add-engine.js). What remains here is the PDF reader (reader.js):
 // route.js sends every other visit to My shelf before the page draws, and this file opens the
-// one book a link names, or takes an older link's handed-over file, then returns to My shelf.
+// one book a link names (?userBook=<hex>, or an older ?open=<key>), or takes an older link's handed-over file, then returns to My shelf.
 import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=20261008rel8';
 
 const params = new URLSearchParams(location.search);
@@ -19,7 +19,15 @@ window.TinctStart = {
 };
 
 async function boot() {
-  // /lab/addbook/?open=<key>: one kept book (a PDF, or an account copy not on this device yet).
+  // One book's address (/lab/addbook/?userBook=<hex>: a PDF read here, My shelf's and the
+  // book switcher's links, a reload): that book, at its place, from this device or the account.
+  const hex = window.TinctReader.urlHex();
+  if (hex) {
+    if (!window.TinctAI?.session().userId) { location.replace(signInHref()); return }
+    if (!await window.TinctReader.openFromUrl(hex)) setTimeout(toShelf, 2500);
+    return;
+  }
+  // An older address, /lab/addbook/?open=<pdf|epub>:<hex>: the same book (a PDF, or an account copy not on this device yet).
   const open = params.get('open');
   if (open) {
     if (!window.TinctAI?.session().userId) { location.replace(signInHref()); return }

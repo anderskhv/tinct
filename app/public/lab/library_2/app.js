@@ -11,9 +11,9 @@ import {books} from './books.js?v=20260928covers';
 import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261008rel8';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
-import {categories,eras,metadata} from './taxonomy.js?v=20261008rel4';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel7';
-import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel4';
+import {categories,eras,metadata} from './taxonomy.js?v=20261008rel8';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel8';
+import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel8';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,modernOfferAfterAdd,askModernEdition} from './add-to-tinct.js?v=20261008rel8';
 import {librarySearch} from './library-search.js?v=20261008rel8';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
@@ -664,6 +664,8 @@ registerCommands({
  ]
 });
 const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;if(commandsEnabled)$('search-toggle').before(commandsButton);
+// /library?shelf=mine: an alias of /library#my-shelf (below), the one My shelf address; older back arrows from a reader's own book used it.
+{const params=new URLSearchParams(location.search);if(params.get('shelf')==='mine'){params.delete('shelf');const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}selectCollection('saved');}}
 // Back from sign-in after a signed-out Add (/library?add=<work id>): the add continues once.
 {const params=new URLSearchParams(location.search),pendingAdd=params.get(ADD_PARAM);if(pendingAdd!==null){params.delete(ADD_PARAM);const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}if(addEnabled()&&document.documentElement.classList.contains('signed-in')&&/^[a-z]{2,4}:\S{1,200}$/.test(pendingAdd)){notice('Adding to Tinct…');void addWork({id:pendingAdd},null);}}}
 // /library#my-shelf (the reader's way back to your own books, and Add a book's old links): My shelf.

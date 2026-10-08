@@ -125,6 +125,10 @@ export function start(port = 4720) {
       return;
     }
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) return userBooks(req, res, url);
+    // Reading time (social ship 1) is off here, as the Worker answers with the flag off.
+    if (req.method === 'GET' && url.pathname === '/api/reading-time/status') return sendJson(res, 200, { enabled: false });
+    // The library is not served here: a stand-in page marks where own books' back arrows land (My shelf).
+    if (url.pathname === '/library') { res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': CSP }); res.end('<!doctype html><meta charset="utf-8"><title>Library</title><p>Library stand-in</p>'); return }
     if (url.pathname === '/__books') { sendJson(res, 200, { users: Object.fromEntries(Object.entries(books.users).map(([u, list]) => [u, list.map(({ bytes, ...b }) => b)])), log: books.log }); return }
     if (url.pathname === '/__requests') { res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(requests)); return }
     let file = null;
