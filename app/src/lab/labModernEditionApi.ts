@@ -9,10 +9,22 @@ import { apiUrl } from '../utils/apiUrl'
 
 export const MODERN_EDITION_KEY = 'modern-en'
 export type ModernChapterState = 'ready' | 'preparing' | 'queued'
+/** How far one chapter is (worker lib/modernEdition.ts publicProgress). Times are estimates in seconds. */
+export interface ModernChapterProgress {
+  done: number
+  total: number | null
+  /** Paragraphs written, as [start, end) runs. */
+  ranges: Array<[number, number]>
+  startsIn: number | null
+  eta: number | null
+}
+export interface ModernProgress { chapters: Record<string, ModernChapterProgress>; wordsPerMinute: number | null }
 export interface ModernStatus {
   state: 'none' | 'checkout' | 'paid' | 'complete'
   chapters: Record<string, ModernChapterState>
   offer: { tier: number; cents: number } | null
+  /** While the edition is being written. */
+  progress?: ModernProgress
 }
 type FetchLike = (input: string, init?: RequestInit) => Promise<Response>
 
@@ -23,7 +35,28 @@ function parseStatus(value: unknown): ModernStatus | null {
   const data = value as Partial<ModernStatus> | null
   if (!data || typeof data.state !== 'string' || !data.chapters || typeof data.chapters !== 'object') return null
   const offer = data.offer && typeof data.offer.cents === 'number' ? data.offer : null
-  return { state: data.state, chapters: data.chapters, offer }
+  const progress = parseProgress(data.progress)
+  return { state: data.state, chapters: data.chapters, offer, ...(progress ? { progress } : {}) }
+}
+
+const count = (value: unknown): number | null => typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null
+
+/** Written runs as [start, end) pairs; anything malformed is dropped. */
+export function parseRuns(value: unknown): Array<[number, number]> {
+  if (!Array.isArray(value)) return []
+  return value.filter((run): run is [number, number] => Array.isArray(run) && run.length === 2
+    && Number.isInteger(run[0]) && Number.isInteger(run[1]) && run[0] >= 0 && run[1] > run[0])
+}
+
+function parseProgress(value: unknown): ModernProgress | null {
+  const data = value as { chapters?: unknown; wordsPerMinute?: unknown } | null | undefined
+  if (!data || !data.chapters || typeof data.chapters !== 'object') return null
+  const chapters: Record<string, ModernChapterProgress> = {}
+  for (const [key, raw] of Object.entries(data.chapters as Record<string, Partial<ModernChapterProgress>>)) {
+    if (!raw || typeof raw !== 'object') continue
+    chapters[key] = { done: count(raw.done) ?? 0, total: count(raw.total), ranges: parseRuns(raw.ranges), startsIn: count(raw.startsIn), eta: count(raw.eta) }
+  }
+  return { chapters, wordsPerMinute: count(data.wordsPerMinute) || null }
 }
 
 /** A signed-in reader's token, so the offer is shown only to readers who may buy (Premium or the trial). */
@@ -38,10 +71,14 @@ export async function fetchModernStatus(bookId: string, fetchImpl: FetchLike = f
   }
 }
 
-/** A reader opened a chapter not yet written: it goes to the front of the queue. */
-export async function prioritiseModernChapter(bookId: string, chapter: number, fetchImpl: FetchLike = fetch, token?: string | null): Promise<ModernStatus | null> {
+/**
+ * A reader opened a chapter not yet written: it goes to the front of the
+ * queue, written from `paragraph` (where the reader is waiting) when given.
+ */
+export async function prioritiseModernChapter(bookId: string, chapter: number, fetchImpl: FetchLike = fetch, token?: string | null, paragraph?: number): Promise<ModernStatus | null> {
   try {
-    const response = await fetchImpl(statusUrl(bookId, '/priority'), { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders(token) }, body: JSON.stringify({ chapter }) })
+    const body = Number.isInteger(paragraph) && paragraph! >= 0 ? { chapter, paragraph } : { chapter }
+    const response = await fetchImpl(statusUrl(bookId, '/priority'), { method: 'POST', headers: { 'Content-Type': 'application/json', ...authHeaders(token) }, body: JSON.stringify(body) })
     return response.ok ? parseStatus(await response.json()) : null
   } catch {
     return null
