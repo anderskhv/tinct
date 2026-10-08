@@ -12,6 +12,9 @@ await fs.mkdir(output, { recursive: true })
 const results = []
 const explanation = 'A compact opening grounded in the selected passage.\n\nA second paragraph adds useful context and interpretation without filling the entire screen.'
 const definition = 'pronoun. Used to refer to people or things already identified.'
+// Profiles (social ship 2) rename the reader's Account row to Profile (#356). Live, the
+// Worker serves wrangler.jsonc's switch; local dist is served without the Worker, so off.
+const socialProfiles = live && /"SOCIAL_PROFILES"\s*:\s*"1"/.test(await fs.readFile('wrangler.jsonc','utf8'))
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
 
@@ -836,8 +839,11 @@ async function menuRedesign(engine,name,phone) {
     const {page,requests}=state
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
+    // The page's profiles marker must match the deployed switch; the row's name follows it.
+    assert.equal(await page.locator('meta[name="tinct-social"][content="1"]').count(),socialProfiles?1:0,'tinct-social marker matches SOCIAL_PROFILES')
+    const accountRow=socialProfiles?'Profile':'Account'
     // Desktop: Library lives in the icon-only back arrow at the top left.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Librarian','Summarize','Catch me up','Book editions','Settings','Library','Account']:['Librarian','Summarize','Catch me up','Book editions','Settings','Account'])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Librarian','Summarize','Catch me up','Book editions','Settings','Library',accountRow]:['Librarian','Summarize','Catch me up','Book editions','Settings',accountRow])
     // One Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button:
     // the only way to the librarian since the chat pill went (2026-10-08).
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),1)
