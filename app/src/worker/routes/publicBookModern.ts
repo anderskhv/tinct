@@ -41,6 +41,7 @@ import {
   modernStep,
   modernTierCents,
   modernTierFor,
+  needsAudit,
   paidJob,
   prioritise,
   publicChapterStates,
@@ -48,6 +49,7 @@ import {
   purchaseOpen,
   readJob,
   releaseHold,
+  repairEchoedEdition,
   releaseRunner,
   updateJob,
   wholeKey,
@@ -154,6 +156,19 @@ async function statusFor(request: Request, env: ModernEnv, meta: StoredMeta, job
 // ===== Generation =====
 
 /**
+ * Once per paid job written before outputs were checked for echoes: text that
+ * is the source handed back is discarded and queued again (lib/modernEdition.ts
+ * repairEchoedEdition). Returns the job as it now stands.
+ */
+async function auditedJob(bucket: R2Bucket, bookId: string, meta: StoredMeta, job: ModernJob | null, now: number): Promise<ModernJob | null> {
+  if (!needsAudit(job)) return job
+  const source = (await readJson<{ chapters?: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey)))?.chapters
+  if (!source?.length) return job
+  await repairEchoedEdition(bucket, bookId, source, now)
+  return (await readJob(bucket, bookId))?.job ?? null
+}
+
+/**
  * Work on one book until it is done, idle, or the deadline passes: up to
  * MAX_PARALLEL chapters at once, each step one saved chunk. Safe to run from
  * several requests at once: chapters are claimed in the job record.
@@ -164,6 +179,7 @@ export async function runModernBook(env: ModernEnv, bookId: string, options: { d
   const now = options.now ?? Date.now
   const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
   if (!modernEligible(meta)) return
+  await auditedJob(bucket, bookId, meta, (await readJob(bucket, bookId))?.job ?? null, now())
   let source: Promise<Array<{ number: number; title: string; paragraphs: string[] }>> | null = null
   const loadSource = () => source ??= readJson<{ chapters: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey)).then(data => data?.chapters ?? [])
   const worker = async () => {
@@ -439,7 +455,7 @@ export async function handleModernEdition(request: Request, env: ModernEnv, book
   if (!modernEligible(meta)) return reply({ error: 'Not found' }, 404, request)
   const now = deps.now ?? Date.now
   if (request.method === 'GET' && rest.length === 0) {
-    const job = (await readJob(bucket, bookId))?.job ?? null
+    const job = await auditedJob(bucket, bookId, meta, (await readJob(bucket, bookId))?.job ?? null, now())
     if (job?.state === 'paid' && !jobComplete(job)) kick(env, bookId, deps)
     return reply(await statusFor(request, env, meta, job, now(), deps), 200, request)
   }
@@ -457,12 +473,16 @@ export async function serveModernEdition(request: Request, env: ModernEnv, bookI
   const bucket = bucketOf(env)
   const headers = (cache: string) => ({ ...corsHeaders(request), 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': cache, 'X-Content-Type-Options': 'nosniff' })
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  // Checked before the finished object is served: an echoed edition must not be handed out (auditedJob).
+  const unchecked = (await readJob(bucket, bookId))?.job ?? null
+  const meta = needsAudit(unchecked) ? await readJson<StoredMeta>(bucket, metaKey(bookId)) : null
+  if (meta && modernEligible(meta)) await auditedJob(bucket, bookId, meta, unchecked, now)
   const whole = await bucket.get(wholeKey(bookId))
   if (whole) return new Response(whole.body, { status: 200, headers: headers('public, max-age=300') })
-  const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
+  const stored = meta ?? await readJson<StoredMeta>(bucket, metaKey(bookId))
   const job = (await readJob(bucket, bookId))?.job ?? null
-  if (!modernEligible(meta) || job?.state !== 'paid') return reply({ error: 'Not found' }, 404, request)
-  const original = await readJson<{ chapters: SourceChapter[]; collection?: boolean }>(bucket, editionObjectKey(bookId, meta.editionKey))
+  if (!modernEligible(stored) || job?.state !== 'paid') return reply({ error: 'Not found' }, 404, request)
+  const original = await readJson<{ chapters: SourceChapter[]; collection?: boolean }>(bucket, editionObjectKey(bookId, stored.editionKey))
   if (!original?.chapters?.length) return reply({ error: 'Not found' }, 404, request)
   return new Response(JSON.stringify(await assembleEdition(bucket, bookId, original.chapters, job, now, original.collection === true)), { status: 200, headers: headers('no-store') })
 }
@@ -477,6 +497,11 @@ export async function serveModernEdition(request: Request, env: ModernEnv, bookI
 export async function modernEditionChapter(env: Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'>, bookId: string, chapterNumber: number, now = Date.now()): Promise<(SourceChapter & { pending: boolean }) | null> {
   const bucket = bucketOf(env)
   if (!bucket) return null
+  const unchecked = (await readJob(bucket, bookId))?.job ?? null
+  if (needsAudit(unchecked)) {
+    const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
+    if (modernEligible(meta)) await auditedJob(bucket, bookId, meta, unchecked, now)
+  }
   const whole = await readJson<{ chapters?: SourceChapter[] }>(bucket, wholeKey(bookId))
   if (whole) {
     const chapter = editionChapter(whole.chapters, chapterNumber)
