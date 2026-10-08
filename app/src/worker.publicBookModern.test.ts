@@ -143,7 +143,7 @@ function setup(options: { switchOn?: boolean; prices?: Record<string, string>; n
   const status = async () => (await call(`/api/public-books/${BOOK}/modern-en`)).json() as Promise<{ state: string; chapters: Record<string, string>; offer: { tier: number; cents: number } | null }>
   const buy = (token: string, chapter = 3) => call(`/api/public-books/${BOOK}/modern-en/checkout`, { token, json: { chapter } })
   const grant = (sessionId: string, metadata: Record<string, string> = {}) => grantModernEdition(env, { id: sessionId, payment_intent: `pi_${sessionId}`, metadata: { type: 'modern_edition', book_id: BOOK, tier: '2', chapter: '3', supabase_user_id: USER, ...metadata } }, { now: () => clock.t, generator, stripeFetch, waitUntil: p => { waits.push(p) } })
-  return { r2, env, deps, clock, stripe, call, status, buy, grant, calls, generator }
+  return { r2, env, deps, clock, stripe, call, status, buy, grant, calls, generator, waits }
 }
 
 afterEach(() => vi.unstubAllGlobals())
@@ -517,7 +517,9 @@ describe('job ordering', () => {
 describe('generation', () => {
   it('writes every chapter, resumably, and serves finished chapters in place of the original', async () => {
     const t = setup()
-    await t.grant('cs_a')
+    // Granted without the request's own burst of work: these steps are the only runner, so
+    // which step finishes the book is not a race with a background runner (see the next test).
+    await grantQuiet(t)
     const source = async () => SOURCE
     const step = () => modernStep(t.r2.bucket, { bookId: BOOK, title: 'T', author: 'A', source, generate: t.generator, now: () => t.clock.t })
     expect(await step()).toBe('chapter-ready')
@@ -538,6 +540,24 @@ describe('generation', () => {
     expect(t.r2.objects.has(`public-books/modern-jobs/${BOOK}`)).toBe(false)
     // Each chapter was asked for exactly once: nothing generated twice.
     expect(t.calls).toHaveLength(5)
+  })
+
+  it('the grant’s own burst and another runner at the same time write each chapter once and finish the book', async () => {
+    const t = setup()
+    // The grant starts a runner after its response (waitUntil); a second one (a status request, the cron) steps alongside.
+    await t.grant('cs_a')
+    expect(t.waits).toHaveLength(1)
+    const step = () => modernStep(t.r2.bucket, { bookId: BOOK, title: 'T', author: 'A', source: async () => SOURCE, generate: t.generator, now: () => t.clock.t })
+    const results: string[] = []
+    const alongside = (async () => { for (let i = 0; i < 10 && results.at(-1) !== 'complete'; i++) results.push(await step()) })()
+    await Promise.all([...t.waits, alongside])
+    // Either runner may finish the book; while the other holds both chapters in hand, a step is 'idle'.
+    expect((await t.status()).state).toBe('complete')
+    expect(t.calls).toHaveLength(5)
+    const whole = await (await handlePublicEditionData(new Request(`https://tinct.app/data/editions/${BOOK}-modern-en.json`), t.env))!.json() as { chapters: Array<{ paragraphs: string[] }> }
+    expect(whole.chapters.every(c => c.paragraphs.every(p => p.startsWith('[m] ')))).toBe(true)
+    const job = (await readJob(t.r2.bucket, BOOK))!.job
+    expect(job.chapters.every(c => c.state === 'ready' && c.leaseBy === undefined)).toBe(true)
   })
 
   it('rejects output that drops, merges or truncates paragraphs', () => {
