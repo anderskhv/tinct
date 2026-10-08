@@ -35,16 +35,16 @@
     "GUEST_AI_DAILY_CENTS": "500",
     // Added public-domain books (src/worker/routes/publicBooks.ts). Approved by Anders 2026-10-07.
     // Paid Modern English editions: offers checkout and runs xAI generation (prices are
-    // STRIPE_PRICE_MODERN_T1..T4 secrets). The client offers it to Premium readers (MODERN_EDITIONS_FOR_EVERYONE).
+    // STRIPE_PRICE_MODERN_T1..T4 secrets). The client still shows the offer to internal devices only.
     "PUBLIC_BOOK_MODERN_EDITIONS": "1",
     // Painted covers (xAI image, about $0.04 each, once per book). Paper cover until one exists.
     "PUBLIC_BOOK_PAINTED_COVERS": "1",
-    // Reading time (social ship 1, src/worker/routes/readingTime.ts). On since 8 Oct 2026
-    // (Anders), after supabase/migrations/20261008_reading_time.sql ran. Absent = off.
-    "SOCIAL_READING_TIME": "1",
+    // Reading time (social ship 1, src/worker/routes/readingTime.ts): add
+    // "SOCIAL_READING_TIME": "1" here to turn it on, after running
+    // supabase/migrations/20261008_reading_time.sql. Absent = off.
     // Profiles (social ship 2, src/worker/routes/profiles.ts). "1" turns them on, only after
     // supabase/migrations/20261008_profiles.sql has run. Off: no profile route, page or marker exists.
-    "SOCIAL_PROFILES": "1",
+    "SOCIAL_PROFILES": "0",
     // Uploaded profile photos and backgrounds (POST /api/profile/image). Not at launch (Anders,
     // 8 Oct 2026): pictures are a library set or cover detail, the initial or the Google photo.
     // Anything but "1" refuses uploads with a 404; the editor offers none.
@@ -53,7 +53,7 @@
     // tinct.app/@handle pages, Find, reports, the reading card and /admin/social. "1" turns it on
     // only together with SOCIAL_PROFILES "1", and only after supabase/migrations/20261008_social.sql
     // has run. Off: no route, page, marker or event exists.
-    "SOCIAL_FRIENDS": "1",
+    "SOCIAL_FRIENDS": "0",
     // Lifecycle emails (src/worker/lifecycle, docs/lifecycle-emails/README.md). "1" turns the
     // engine on (welcome, keep-reading, next-book; replaces the 09:00 trial-day emails); only the
     // tinct{n}@fastmail.com test aliases receive anything while isLifecycleTestRecipient gates.
