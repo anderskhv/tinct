@@ -6,6 +6,9 @@ import { SelectionPopup, type SelectionPopupProps } from './SelectionPopup'
 import { ContextualExplainCard } from './ContextualExplainCard'
 import { CHAT_ICON_PATHS, HIGHLIGHT_ICON_PATHS } from '../../lab/LabReaderIcons'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
+import { LabChapterNotesSheet } from '../../lab/LabChapterNotesSheet'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 /**
  * Anders, 2026-10-07: chat is always called Chat and always drawn with one
@@ -77,5 +80,28 @@ describe('one Chat icon and one Highlight icon', () => {
   it('the Librarian row draws that same Chat icon', () => {
     const { container: row } = render(<RowIcon id="chat" />)
     expect(paths(row.querySelector('svg'))).toEqual([...CHAT_ICON_PATHS])
+  })
+
+  it('the Chat icon is one plain speech bubble, not two overlapping ones (Anders, 2026-10-08)', () => {
+    expect(CHAT_ICON_PATHS).toHaveLength(1)
+    const { container } = render(<RowIcon id="chat" />)
+    expect(container.querySelectorAll('svg path')).toHaveLength(1)
+  })
+
+  it('the chapter-notes card footer draws that same Chat icon', () => {
+    const request = { bookId: 'frankenstein', editionKey: 'original-en', chapterNumber: 2, kind: 'end' as const }
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, status: 502, json: async () => ({}) })))
+    render(<LabChapterNotesSheet request={request} title="Chapter 2 in brief" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
+    expect(paths(iconIn(screen.getByTestId('lab-chapter-notes-chat')))).toEqual([...CHAT_ICON_PATHS])
+    vi.unstubAllGlobals()
+  })
+
+  it('the static pages (library Librarian, added-book reader) draw that same bubble', () => {
+    const root = resolve(__dirname, '../../../public/lab')
+    const library = readFileSync(resolve(root, 'library_2/app.js'), 'utf8')
+    expect(/chat:'<path d="([^"]+)"\/>'/.exec(library)?.[1]).toBe(CHAT_ICON_PATHS[0])
+    const reader = readFileSync(resolve(root, 'addbook/js/reader.js'), 'utf8')
+    const chatSvg = /const CHAT_SVG = '([^']+)'/.exec(reader)?.[1] ?? ''
+    expect([...chatSvg.matchAll(/<path d="([^"]+)"/g)].map(match => match[1])).toEqual([...CHAT_ICON_PATHS])
   })
 })

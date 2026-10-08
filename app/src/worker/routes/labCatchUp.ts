@@ -40,11 +40,15 @@ import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } fro
 import { isUsableRecapSummary } from '../../recapSummary'
 import { sampleCatchUpText } from '../../ownCatchUp'
 import type { RecapCache } from './labRecap'
+import { bookAssets } from './publicBooks'
 
 export type LabCatchUpEnv = LedgerEnv & {
   ANTHROPIC_API_KEY?: string
   RATE_LIMIT?: KVNamespace
   ASSETS?: AssetsBinding
+  /** Added (`pd-`) books' editions live here (publicBooks.ts bookAssets). */
+  PUBLIC_BOOKS?: R2Bucket
+  AUDIO_BUCKET?: R2Bucket
 }
 
 type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
@@ -217,7 +221,7 @@ export async function handleLabCatchUp(
 
   const origin = new URL(request.url).origin
   const retrieval: BookRetrieval = (deps.createRetrieval ?? createBookRetrieval)({
-    assets: env.ASSETS,
+    assets: bookAssets(env),
     origin,
     book: { bookId: parsed.bookId, editionKey: parsed.editionKey },
   })

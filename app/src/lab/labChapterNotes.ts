@@ -8,6 +8,7 @@ import { CHAPTER_NOTES_ROUTE, chapterNotesCacheKey, parseChapterNotesBeats, type
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 import { allowanceAuthHeaders, isAllowanceUsedResponse } from './labAiAllowance'
+import { AI_RESTING_ERROR_TYPE, labChatErrorType } from './labCompanion'
 
 export const CHAPTER_NOTES_STORAGE_KEY = 'tinct:chapter-notes'
 export const EXPLANATIONS_STORAGE_KEY = 'tinct:explanations'
@@ -33,8 +34,11 @@ export function storedChapterNotes(request: ChapterNotesRequest): ChapterNotesBe
   return entry ? parseChapterNotesBeats(entry) : null
 }
 
-/** `allowanceUsed`: refused because the reader's AI allowance is at zero (only while the switch is on). */
-export type ChapterNotesResult = { ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number; allowanceUsed?: true }
+/**
+ * `allowanceUsed`: refused because the reader's AI allowance is at zero (only while the switch is on).
+ * `resting`: the daily AI ceiling or a provider limit (503 `ai_resting`); the card says so above Retry.
+ */
+export type ChapterNotesResult = { ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number; allowanceUsed?: true; resting?: true }
 
 export async function fetchChapterNotes(request: ChapterNotesRequest, options: { fetchImpl?: FetchLike; readToken?: () => Promise<string | null> } = {}): Promise<ChapterNotesResult> {
   const stored = storedChapterNotes(request)
@@ -45,7 +49,11 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
     // The session goes along only while the AI allowance is on (labAiAllowance.ts).
     const token = AI_ALLOWANCE_ENFORCED && options.readToken ? await options.readToken().catch(() => null) : null
     const response = await fetchImpl(CHAPTER_NOTES_ROUTE, { method: 'POST', headers: { 'Content-Type': 'application/json', ...allowanceAuthHeaders(token), ...internalTrafficHeaders() }, body: JSON.stringify(request) })
-    if (!response.ok) return await isAllowanceUsedResponse(response) ? { ok: false, status: response.status, allowanceUsed: true } : { ok: false, status: response.status }
+    if (!response.ok) {
+      if (await isAllowanceUsedResponse(response)) return { ok: false, status: response.status, allowanceUsed: true }
+      if (response.status === 503 && await labChatErrorType(response) === AI_RESTING_ERROR_TYPE) return { ok: false, status: response.status, resting: true }
+      return { ok: false, status: response.status }
+    }
     const beats = parseChapterNotesBeats(await response.json())
     if (!beats) return { ok: false, status: response.status }
     const map = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)

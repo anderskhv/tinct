@@ -25,11 +25,15 @@ import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import type { RecapCache } from './labRecap'
+import { bookAssets } from './publicBooks'
 
 export type LabChapterNotesEnv = LedgerEnv & {
   ANTHROPIC_API_KEY?: string
   RATE_LIMIT?: KVNamespace
   ASSETS?: AssetsBinding
+  /** Added (`pd-`) books' editions live here (publicBooks.ts bookAssets). */
+  PUBLIC_BOOKS?: R2Bucket
+  AUDIO_BUCKET?: R2Bucket
 }
 
 type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
@@ -206,7 +210,7 @@ export async function handleLabChapterNotes(
 
   const origin = new URL(request.url).origin
   const retrieval: BookRetrieval = (deps.createRetrieval ?? createBookRetrieval)({
-    assets: env.ASSETS, origin, book: { bookId: parsed.bookId, editionKey: parsed.editionKey, chapterNumber: parsed.chapterNumber },
+    assets: bookAssets(env), origin, book: { bookId: parsed.bookId, editionKey: parsed.editionKey, chapterNumber: parsed.chapterNumber },
   })
   const chapter = await retrieval.chapterText(parsed.chapterNumber)
   if (!chapter || chapter.paragraphs.length === 0) return jsonResponse({ error: 'Chapter not available' }, 404, request)

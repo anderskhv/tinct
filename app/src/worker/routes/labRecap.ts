@@ -33,6 +33,7 @@ import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetriev
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
+import { bookAssets } from './publicBooks'
 import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 
@@ -40,6 +41,9 @@ export type LabRecapEnv = LedgerEnv & {
   ANTHROPIC_API_KEY?: string
   RATE_LIMIT?: KVNamespace
   ASSETS?: AssetsBinding
+  /** Added (`pd-`) books' editions live here (publicBooks.ts bookAssets). */
+  PUBLIC_BOOKS?: R2Bucket
+  AUDIO_BUCKET?: R2Bucket
 }
 
 type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
@@ -209,7 +213,7 @@ export async function handleLabRecap(
 
   const origin = new URL(request.url).origin
   const retrieval: BookRetrieval = (deps.createRetrieval ?? createBookRetrieval)({
-    assets: env.ASSETS,
+    assets: bookAssets(env),
     origin,
     book: { bookId: parsed.bookId, editionKey: parsed.editionKey, chapterNumber: parsed.chapterNumber },
   })

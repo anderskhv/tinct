@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { ChapterNotesRequest } from '../chapterNotes'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { CHAPTER_NOTES_STORAGE_KEY, chapterNotesKey, chapterNotesPlainText } from './labChapterNotes'
+import { LAB_COPY } from './labCopy'
 
 const request: ChapterNotesRequest = { bookId: 'bible', editionKey: 'original-en', chapterNumber: 12, kind: 'end', bookTitle: 'The Bible' }
 const beats = [
@@ -82,5 +83,25 @@ describe('LabChapterNotesSheet Copy', () => {
     renderSheet()
     expect(screen.queryByTestId('lab-chapter-notes-copy')).toBeNull()
     expect(screen.getByTestId('lab-chapter-notes-chat')).toBeTruthy()
+  })
+})
+
+describe('LabChapterNotesSheet errors', () => {
+  beforeEach(() => { localStorage.clear() })
+  afterEach(() => { cleanup(); vi.unstubAllGlobals() })
+  const answer = (status: number, body: unknown) => vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, status, json: async () => body })))
+
+  it('a resting AI (503 ai_resting) shows the existing "AI is resting" line above Retry', async () => {
+    answer(503, { type: 'error', error: { type: 'ai_resting', message: 'AI is resting — try again later.' } })
+    renderSheet()
+    expect((await screen.findByTestId('lab-chapter-notes-resting')).textContent).toBe(LAB_COPY.aiResting)
+    expect(screen.getByTestId('lab-chapter-notes-retry').textContent).toBe('Retry')
+  })
+
+  it('a failure with no copy of its own (404, 502) stays a bare Retry', async () => {
+    answer(404, { error: 'Chapter not available' })
+    renderSheet()
+    expect((await screen.findByTestId('lab-chapter-notes-retry')).textContent).toBe('Retry')
+    expect(screen.queryByTestId('lab-chapter-notes-resting')).toBeNull()
   })
 })

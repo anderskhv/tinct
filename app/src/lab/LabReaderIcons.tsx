@@ -16,10 +16,14 @@ type LabActionIconProps = Omit<SVGProps<SVGSVGElement>, 'children'> & { size?: n
  * the Librarian row, the phone bar and Contents all draw this
  * glyph, so Chat always looks the same. Stroke sits on the root so a surface
  * can set its own weight from CSS.
+ *
+ * One plain speech bubble (Anders, 2026-10-08: not the two overlapping
+ * bubbles it used to be), the same bubble the library's Librarian draws
+ * (public/lab/library_2/app.js `iconPaths.chat`) and the added-book reader
+ * (public/lab/addbook/js/reader.js `CHAT_SVG`).
  */
 export const CHAT_ICON_PATHS = [
-  'M4.4 10.8c0-3.1 2.9-5.6 6.5-5.6s6.5 2.5 6.5 5.6-2.9 5.6-6.5 5.6c-.7 0-1.4-.1-2.1-.3L5 17.6l.5-2.8c-.7-1.1-1.1-2.5-1.1-4Z',
-  'M11.2 16.6c.6.2 1.3.4 2.1.4 3.6 0 6.5-2.2 6.5-5 0-1.1-.5-2.2-1.2-3',
+  'M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5Z',
 ] as const
 
 export function ChatIcon({ size = 20, ...rest }: LabActionIconProps) {
