@@ -133,3 +133,20 @@ Lessons from drafting it: answer the question they actually asked (here: what th
 **Draft for the YouTube B lead:**
 
 > *Treasure Island* is the obvious one and still the best. Then *Captain Blood* by Rafael Sabatini if you want swashbuckling, and *Moby-Dick* if you want to go deep (literally). Patrick O'Brian's *Master and Commander* if you'll take navy instead of pirates.
+
+---
+
+## 8. What works and what doesn't (running lessons)
+
+| Date | Post | Result | Lesson |
+|---|---|---|---|
+| 2026-10-08 | r/classicliterature: stock Frankenstein cover + Jeanette Winterson quote, title "attention earthlings: …" | 0 votes, 0 comments | A publisher's cover plus someone else's praise gives nobody anything to respond to. The gimmicky opener reads as low effort. |
+
+**Patterns that tend to work on book subreddits**
+- Your own experience: "I just finished X and can't stop thinking about Y."
+- The book's own words: a specific passage, ideally an image of the actual page (a Tinct share card or a photo of your copy).
+- A real question that invites opinions: "Was Victor or the creature the real monster?", "Which book does this opening belong to?"
+- A title that states the topic plainly, with no gimmicks.
+
+**Patterns that don't**
+- Stock cover images, quotes *about* a book rather than *from* it, titles that are jokes or hooks, and posts with no question.
