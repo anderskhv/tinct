@@ -330,8 +330,10 @@ describe('the super-menu', () => {
     // The settings sheet does not draw over it.
     expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
     expect(screen.getByTestId('lab-catch-up-here').textContent).toBe('You are here')
-    await waitFor(() => expect(screen.getByTestId('lab-catch-up-retry')).toBeTruthy())
-    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-recap'))).toBe(true)
+    // The fixture opens on the first chapter: nothing before it, and the current chapter is never recapped.
+    await new Promise(resolve => setTimeout(resolve, 50))
+    expect(screen.queryAllByTestId('lab-catch-up-entry')).toHaveLength(0)
+    expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-recap') || String(call[0]).includes('/api/lab-catch-up'))).toBe(false)
     fireEvent.click(screen.getByTestId('lab-catch-up-close'))
     expect(screen.queryByTestId('lab-catch-up')).toBeNull()
     expect(root().getAttribute('data-super-sheet')).toBe('closed')
