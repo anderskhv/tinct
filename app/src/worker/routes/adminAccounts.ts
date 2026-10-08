@@ -16,7 +16,7 @@ import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
-import { listUserBooks, purgeUserBooks } from './userBooks'
+import { listOwnPlaces, listUserBooks, purgeUserBooks } from './userBooks'
 import { listProfileImages, purgeProfileImages } from './profiles'
 
 export type AdminAccountsEnv = SupabaseEnv & {
@@ -25,7 +25,7 @@ export type AdminAccountsEnv = SupabaseEnv & {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
-  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/ and Catch me up recaps under u/{userId}/recaps/ (routes/userBooks.ts). */
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/ (routes/userBooks.ts). */
   USER_BOOKS?: R2Bucket
   /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
   NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
@@ -358,6 +358,10 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     // Recordings made when the reader chose Listen on an own book: counted, never the audio.
     ownBookNarration: env.USER_BOOKS
       ? await attempt('r2 own-book narration', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/narration/`))
+      : null,
+    // The reader's place in each own book (by the book's hex; chapter, paragraph, word, when, percent).
+    ownBookPlaces: env.USER_BOOKS
+      ? await attempt('r2 own-book places', () => listOwnPlaces(env.USER_BOOKS!, account.userId))
       : null,
     // Catch me up recaps of own books (one object per finished chapter, one for the chapter in progress): counted, never the text.
     ownBookRecaps: env.USER_BOOKS

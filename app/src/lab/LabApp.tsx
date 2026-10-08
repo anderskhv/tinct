@@ -190,7 +190,8 @@ import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import { USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { userBookLangAttribute } from './userBook/userBookLanguage'
-import { writeUserBookPlace } from './userBook/userBookPlace'
+import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
+import { flushOwnPlaces, noteOwnPlace } from './userBook/ownSync'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
@@ -1400,13 +1401,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     },
   })
   const { initialPositionResolved, biblicalBook, readPositionState } = positionSync
-  // A user book's place: the same tuple, written to this device only, under
-  // the same suspensions. No 'hide' flush is needed: every note is written.
+  // A user book's place: the same tuple, kept on this device under the same
+  // suspensions, and saved a moment later to the reader's private copy in
+  // their account (userBook/ownSync.ts: never the shared position stores),
+  // so it opens there on their other devices. 'hide' sends what is waiting.
   const userPlaceBookRef = useRef(book)
   userPlaceBookRef.current = book
   const notePlace = useCallback<typeof positionSync.notePlace>((reason, at) => {
     if (!userBook) { positionSync.notePlace(reason, at); return }
-    if (reason === 'hide' || placeWritesSuspended) return
+    if (reason === 'hide') { flushOwnPlaces(); return }
+    if (placeWritesSuspended) return
     const current = userPlaceBookRef.current
     if (current.bookId !== userBook.bookId || current.paragraphs.length === 0) return
     writeUserBookPlace(userBook.hex, {
@@ -1415,9 +1419,32 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       wordIndex: at?.wordIndex ?? placeRef.current.wordIndex,
       updatedAt: Date.now(),
     })
+    noteOwnPlace(userBook.hex, userBook.edition.chapters)
   // positionSync.notePlace is the stable callback the hook returns.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, placeWritesSuspended, positionSync.notePlace])
+  // Leaving or hiding the page sends the own book's place still waiting (keepalive).
+  useEffect(() => {
+    if (!userBook) return
+    const onVisibility = () => { if (document.visibilityState === 'hidden') flushOwnPlaces() }
+    window.addEventListener('pagehide', flushOwnPlaces)
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      window.removeEventListener('pagehide', flushOwnPlaces)
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [userBook])
+  // An own book opened without a saved place is being read from its start: it
+  // joins Currently reading as a Tinct book does when it is opened. The mark
+  // carries no reading time (updatedAt 0), so it is never sent to the account
+  // and never outranks a place read on another device.
+  const userBookOpenNotedRef = useRef(false)
+  useEffect(() => {
+    if (!userBook || userBook.place || userBookOpenNotedRef.current || placeWritesSuspended) return
+    userBookOpenNotedRef.current = true
+    if (readUserBookPlace(userBook.hex, userBook.edition)) return
+    writeUserBookPlace(userBook.hex, { chapterNumber: userBookBoot?.book.chapterNumber ?? 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 0 })
+  }, [userBook, userBookBoot, placeWritesSuspended])
   const [userBookFinished, setUserBookFinished] = useState<Set<number>>(() => new Set())
   const finishedChapters = userBook ? userBookFinished : positionSync.finishedChapters
   const markChapterFinished = useCallback((chapterNumber: number) => {

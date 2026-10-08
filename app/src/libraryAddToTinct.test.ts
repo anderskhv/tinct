@@ -640,6 +640,21 @@ describe('My shelf groups', () => {
     expect(addToTinct.ownShelfGroups([own('epub:a', 'A', null), own('epub:b', 'B', 2), own('epub:c', 'C', 7)]).reading.map((b: { title: string }) => b.title)).toEqual(['C', 'B'])
   })
 
+  it('shows how far through each own book being read the reader is, as the reading table writes it, under Currently reading only', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [{ ...own('epub:aa', 'Notes', 5), percent: 13.4 }, { ...own('epub:bb', 'Barely', 4), percent: 0.4 }, { ...own('epub:cc', 'Unknown', 3), percent: null }], el)
+    const progress = (group: string) => [...grid.querySelectorAll(`[data-shelf-group="${group}"]`)].map(card => card.querySelector('.own-progress')?.textContent ?? '')
+    expect(progress('own-reading')).toEqual(['13%', '<1%', ''])
+    expect(progress('own')).toEqual(['', '', ''])
+  })
+
+  it('lists each own book once, even when the list names it twice', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 5), own('epub:aa', 'Notes', 5), own('epub:bb', 'Plain', null)], el)
+    expect(grid.querySelectorAll('[data-shelf-group="own-reading"]')).toHaveLength(1)
+    expect([...grid.querySelectorAll('[data-shelf-group="own"]')].map(card => card.getAttribute('data-own-key'))).toEqual(['epub:aa', 'epub:bb'])
+  })
+
   it('offers the pop-up from the search field only where Add to Tinct is on', () => {
     const link = document.createElement('a')
     link.hidden = true

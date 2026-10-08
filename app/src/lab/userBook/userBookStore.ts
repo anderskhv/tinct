@@ -5,8 +5,10 @@
  * record, so removing the book or signing out removes it too), and the
  * reader's place in it (localStorage `tinct-addbook:place:<hex>`).
  *
- * Nothing here leaves the device. Sign-out deletes the database and every
- * `tinct-addbook:` key (`clearLocalUserData`).
+ * The file is read from this device; when it is not here (another device of
+ * the account added it) or the copy here is damaged, the account's private
+ * copy (`/api/user-books`, ownAccount.ts) is downloaded and kept here instead.
+ * Sign-out deletes the database and every `tinct-addbook:` key (`clearLocalUserData`).
  */
 import { ADD_BOOK_IDB_NAME } from '../../services/storage'
 import { readCachedSupabaseUser } from '../labLibraryBoot'
@@ -17,6 +19,7 @@ import { healChapterAuthors } from './chapterAuthors'
 import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
+import { fetchAccountCopy, ownBookToken, type AccountCopy } from './ownAccount'
 
 const STORE = 'books'
 
@@ -116,37 +119,118 @@ async function keepEdition(key: string, owner: string, edition: UserBookEdition,
 const STORAGE_MESSAGE = 'This browser could not open its saved books. Open the file again from Add a book.'
 const MISSING_MESSAGE = 'That book is no longer on this device. Open the file again.'
 
+/** Keep a record (the account copy downloaded to this device), replacing what was there. */
+async function putRecord(record: UserBookRecord): Promise<void> {
+  const db = await openDb()
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(STORE, 'readwrite')
+      tx.objectStore(STORE).put(record)
+      tx.oncomplete = () => resolve()
+      tx.onerror = () => reject(tx.error)
+      tx.onabort = () => reject(tx.error)
+    })
+  } finally { db.close() }
+}
+
+/** The account copy of one EPUB (ownAccount.ts); injectable for tests. */
+export type AccountCopyLoader = (hex: string) => Promise<AccountCopy>
+const loadAccountCopy: AccountCopyLoader = async hex => fetchAccountCopy(hex, await ownBookToken())
+
+/**
+ * The account's copy as this device's record: downloaded, checked against the
+ * book's hex, and kept here (as Add a book keeps a file it downloads) so the
+ * next open needs no network. What this device knew of the book (its name,
+ * cover, when it was added) is kept; its conversion, made from other bytes, is not.
+ */
+async function recordFromAccount(key: string, owner: string, hex: string, previous: UserBookRecord | null, load: AccountCopyLoader): Promise<UserBookRecord | 'pdf' | null> {
+  const copy = await load(hex).catch((): AccountCopy => ({ status: 'unavailable' }))
+  if (copy.status === 'pdf') return 'pdf'
+  if (copy.status !== 'found') return null
+  const now = Date.now()
+  const { edition: _edition, figureData: _figures, figureImages: _legacy, ...kept } = previous ?? ({} as Partial<UserBookRecord>)
+  const record: UserBookRecord = {
+    ...kept,
+    key,
+    kind: 'epub',
+    name: (typeof kept.name === 'string' && kept.name) || copy.book.name || copy.book.title,
+    size: copy.bytes.byteLength,
+    title: (typeof kept.title === 'string' && kept.title) || copy.book.title || copy.book.name,
+    author: (typeof kept.author === 'string' && kept.author) || copy.book.author || '',
+    owner,
+    addedAt: Number(kept.addedAt) || Date.parse(copy.book.createdAt) || now,
+    openedAt: now,
+    cloudId: copy.book.id,
+    bytes: copy.bytes,
+  }
+  // A browser that cannot keep it downloads it again next time; reading goes on.
+  await putRecord(record).catch(() => {})
+  return record
+}
+
+const CONVERT_FAILED = 'This file could not be opened as an EPUB. Choose another file.'
+type Converted = { edition: UserBookEdition; images: Map<string, UserBookImage> } | { error: unknown }
+
+async function convertRecord(record: UserBookRecord): Promise<Converted> {
+  try {
+    // The converter loads only for a book not converted on this device yet.
+    const { convertEpub } = await import('./epubEdition')
+    const converted = await convertEpub(new Uint8Array(record.bytes!), { fallbackTitle: String(record.title || record.name || '').replace(/\.epub$/i, '') })
+    return { edition: converted.edition, images: converted.images }
+  } catch (error) {
+    return { error }
+  }
+}
+
+const refusalCode = (result: Converted): string | undefined => 'error' in result ? (result.error as { code?: string } | null)?.code : undefined
+
 /**
  * The book for `/reader?userBook=<hex>`: this account's file on this device,
- * converted once (and again only when the conversion changes).
+ * converted once (and again only when the conversion changes). When the file
+ * is not on this device, or the copy here cannot be read as an EPUB, the
+ * account's private copy is downloaded and kept here instead; only a book in
+ * neither place (or a PDF, which Add a book's viewer opens) is 'missing'.
  */
-export async function openUserBook(hex: string, options: { owner?: string | null } = {}): Promise<UserBookOpenResult> {
+export async function openUserBook(hex: string, options: { owner?: string | null; account?: AccountCopyLoader } = {}): Promise<UserBookOpenResult> {
   const owner = options.owner !== undefined ? options.owner : userBookOwner()
   if (!owner) return { ok: false, reason: 'signed_out', message: MISSING_MESSAGE }
   if (typeof indexedDB === 'undefined') return { ok: false, reason: 'storage', message: STORAGE_MESSAGE }
+  const account = options.account ?? loadAccountCopy
   const key = 'epub:' + hex
   let record: UserBookRecord | null
   try { record = await readRecord(key, owner) } catch { return { ok: false, reason: 'storage', message: STORAGE_MESSAGE } }
-  if (!record || record.kind !== 'epub') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
-  let edition = usableUserEdition(record.edition) ? record.edition : null
-  let data = storedImages(record.figureData)
+  if (record && record.kind !== 'epub') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
+  let fromAccount = false
+  let edition = record && usableUserEdition(record.edition) ? record.edition : null
+  let data = storedImages(record?.figureData)
   // Every picture the edition shows must be on the record; one missing converts the book again.
   if (edition && !edition.chapters.every(chapter => (chapter.figures ?? []).every(figure => !figure.src.startsWith('asset:') || data.has(figure.src.slice('asset:'.length))))) edition = null
+  if (!record || (!edition && !record.bytes)) {
+    // Not on this device (added on another device of the account), or kept without its file.
+    const downloaded = await recordFromAccount(key, owner, hex, record, account)
+    if (!downloaded || downloaded === 'pdf') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
+    record = downloaded
+    fromAccount = true
+    edition = null
+  }
   if (!edition) {
-    if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
-    try {
-      // The converter loads only for a book not converted on this device yet.
-      const { convertEpub } = await import('./epubEdition')
-      const converted = await convertEpub(new Uint8Array(record.bytes), { fallbackTitle: String(record.title || record.name || '').replace(/\.epub$/i, '') })
-      edition = converted.edition
-      data = converted.images
-    } catch (error) {
-      const code = (error as { code?: string } | null)?.code
-      const message = code && ['drm', 'unsupported', 'bad_epub', 'not_zip'].includes(code) && error instanceof Error
-        ? error.message
-        : 'This file could not be opened as an EPUB. Choose another file.'
+    let converted = await convertRecord(record)
+    // The copy on this device is damaged (no longer an EPUB): the account's copy replaces it.
+    // A file refused for what it is (DRM, an unsupported kind) is the same file in the account.
+    if ('error' in converted && !fromAccount && !['drm', 'unsupported'].includes(refusalCode(converted) ?? '')) {
+      const downloaded = await recordFromAccount(key, owner, hex, record, account)
+      if (downloaded && downloaded !== 'pdf') {
+        record = downloaded
+        converted = await convertRecord(record)
+      }
+    }
+    if ('error' in converted) {
+      const code = refusalCode(converted)
+      const message = code && ['drm', 'unsupported', 'bad_epub', 'not_zip'].includes(code) && converted.error instanceof Error ? converted.error.message : CONVERT_FAILED
       return { ok: false, reason: 'unreadable', message }
     }
+    edition = converted.edition
+    data = converted.images
     // A browser that cannot keep it converts again next time; reading goes on.
     await keepEdition(key, owner, edition, data).catch(() => {})
   } else {

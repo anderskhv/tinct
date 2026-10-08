@@ -8,6 +8,11 @@ const calls = vi.hoisted(() => ({
   auth: vi.fn(), memory: vi.fn(), localPositions: vi.fn(), cloudPositions: vi.fn(),
   completions: vi.fn(), readingList: vi.fn(), readMemory: vi.fn(),
   readPosition: vi.fn(), writePosition: vi.fn(), putPosition: vi.fn(), onAuth: vi.fn(),
+  ownShelf: vi.fn(async () => []),
+}))
+// The reader's own books (their private account copies and places): an independent read, stubbed here.
+vi.mock('./lab/userBook/ownSync', async original => ({
+  ...await original<typeof import('./lab/userBook/ownSync')>(), ownShelfWithAccount: calls.ownShelf,
 }))
 vi.mock('./libraryTwoSaved', () => ({ loadShelfMembership: calls.membership, setSavedBook: calls.saved, loadSavedBooks: vi.fn() }))
 vi.mock('./services/supabase', () => ({

@@ -695,12 +695,16 @@ export function ownCoverElement(book){
  if(typeof book.cover==='string'&&/^data:image\/(jpeg|png|webp);base64,/.test(book.cover)){const img=document.createElement('img');img.className='cover own-cover-image';img.src=book.cover;img.alt='';img.decoding='async';return img;}
  const cover=paperCover(book.title,book.author,book.kind);cover.className='cover';return cover;
 }
+/** How far through a book, as the reading table writes it (reading-table.js): "13%", "<1%". */
+export const ownPercentLabel=p=>typeof p!=='number'||!Number.isFinite(p)?'':p>0&&p<1?'<1%':`${Math.round(p)}%`;
 /**
  * My shelf's own-book card: the book's cover (or a paper cover) that opens the book, and the
  * same × as the shelf's other books (`onRemove`, labelled "Remove from My shelf: <title>").
  * `cover` replaces the listed cover (the reading table's full-size one, when it has it).
+ * `progress`: under Currently reading, how far through it the reader is (read on this device
+ * or another of the account), under the cover where Tinct's books show theirs.
  */
-export function ownBookCard(book,el,{onRemove=null,cover=null}={}){
+export function ownBookCard(book,el,{onRemove=null,cover=null,progress=false}={}){
  const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';card.dataset.ownKey=book.key;
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
  open.append(ownCoverElement(cover?{...book,cover}:book));
@@ -711,12 +715,15 @@ export function ownBookCard(book,el,{onRemove=null,cover=null}={}){
   x.onclick=event=>{event.preventDefault();event.stopPropagation();onRemove(book,x);};
   face.append(open,x);
  }
- card.append(face,el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
+ card.append(face);
+ const percent=progress?ownPercentLabel(book.percent):'';
+ if(percent){const meta=el('span','cover-metadata own-progress');meta.append(el('span','metadata-details',percent));card.append(meta);}
+ card.append(el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
 }
 
 /** Own books under Currently reading (those with a saved place, latest first) and the rest of "My private uploads". */
 export function ownShelfGroups(list){
- const own=[...(list||[])];
+ const seen=new Set();const own=(list||[]).filter(book=>book&&!seen.has(book.key)&&seen.add(book.key));
  return {reading:own.filter(book=>book.readingAt!==null&&book.readingAt!==undefined).sort((a,b)=>b.readingAt-a.readingAt),own};
 }
 /** Approved name of My shelf's own-books group (owner, 2026-10-08; was "Your own books"). */
@@ -736,7 +743,7 @@ export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,
  if(reading.length){
   let after=[...grid.querySelectorAll('[data-shelf-group="reading"]')].pop()||null;
   if(!after){after=el('h2','my-books-head','Currently reading');grid.prepend(after);}
-  for(const book of reading){const card=ownBookCard(book,el,{onRemove:onRemoveReading,cover:coverFor(book)});card.dataset.shelfGroup='own-reading';after.after(card);after=card;added++;}
+  for(const book of reading){const card=ownBookCard(book,el,{onRemove:onRemoveReading,cover:coverFor(book),progress:true});card.dataset.shelfGroup='own-reading';after.after(card);after=card;added++;}
  }
  if(own.length){
   grid.append(el('h2','my-books-head',PRIVATE_UPLOADS));

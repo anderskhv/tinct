@@ -1,17 +1,19 @@
 /**
  * `/reader?userBook=<hex>`: a reader's own EPUB in the Tinct reader. Opens
- * this account's file from this device (converting it the first time), then
- * hands it to the reader. Add a book downloads an account copy to the device
- * before it links here, so nothing is fetched on this page. A book that is not
- * an EPUB on this device (a PDF, or a copy kept only in the account) goes on to
- * Add a book's page for it, which opens a PDF in its viewer and downloads an
- * account copy first.
+ * this account's file from this device (converting it the first time), or
+ * the account's private copy when it is not on this device or the copy here
+ * is damaged (userBookStore.ts). The place is reconciled with the account's
+ * (ownSync.ts: the later read wins) before the reader draws its first page.
+ * A PDF, or a book in neither place, goes on to Add a book's page for it,
+ * which opens a PDF in its viewer.
  */
 import { useEffect, useState } from 'react'
 import { LabApp } from '../LabApp'
 import { ownBookOpenUrl, USER_BOOKS_SHELF_URL } from './userBookId'
 import { registerUserBook } from './userBookSource'
 import { openUserBook, type LoadedUserBook, type UserBookOpenResult } from './userBookStore'
+import { readUserBookPlace } from './userBookPlace'
+import { reconcileOpenPlace } from './ownSync'
 import { registerFigureAssets } from '../labFigures'
 
 type ReaderState = { status: 'opening' } | { status: 'ready'; book: LoadedUserBook } | { status: 'failed'; message: string }
@@ -23,30 +25,38 @@ type ReaderState = { status: 'opening' } | { status: 'ready'; book: LoadedUserBo
  */
 const replaceLocation = (url: string) => window.location.replace(url)
 
-export function UserBookReader({ hex, owner, open = openUserBook, forward = replaceLocation }: {
+const reconcilePlace = (hex: string, book: LoadedUserBook) => reconcileOpenPlace(hex, { chapters: book.edition.chapters })
+
+export function UserBookReader({ hex, owner, open = openUserBook, forward = replaceLocation, reconcile = reconcilePlace }: {
   hex: string
   owner?: string | null
   open?: (hex: string, options: { owner?: string | null }) => Promise<UserBookOpenResult>
   forward?: (url: string) => void
+  /** Bring this device's place in line with the account's (bounded; never rejects the open). */
+  reconcile?: (hex: string, book: LoadedUserBook) => Promise<void>
 }) {
   const [state, setState] = useState<ReaderState>({ status: 'opening' })
   useEffect(() => {
     let live = true
     setState({ status: 'opening' })
-    void open(hex, owner !== undefined ? { owner } : {}).then(result => {
+    void open(hex, owner !== undefined ? { owner } : {}).then(async result => {
       if (!live) return
       if (!result.ok && result.reason === 'missing') { forward(ownBookOpenUrl(hex)); return }
       if (!result.ok) { setState({ status: 'failed', message: result.message }); return }
-      registerUserBook(result.book.bookId, result.book.edition)
+      // A place read later on another device of the account opens here.
+      await reconcile(hex, result.book).catch(() => {})
+      if (!live) return
+      const book = { ...result.book, place: readUserBookPlace(hex, result.book.edition) ?? result.book.place }
+      registerUserBook(book.bookId, book.edition)
       // The pictures are handed over before the reader draws its first page.
-      const images = result.book.images
+      const images = book.images
       registerFigureAssets(key => images.get(key) ?? null)
-      setState({ status: 'ready', book: result.book })
+      setState({ status: 'ready', book })
     }).catch(() => {
       if (live) setState({ status: 'failed', message: 'This file could not be opened as an EPUB. Choose another file.' })
     })
     return () => { live = false }
-  }, [hex, open, owner, forward])
+  }, [hex, open, owner, forward, reconcile])
 
   // The book's pictures are drawn from this device while it is open (labFigures),
   // from object URLs made in this page load from the bytes kept on the device.

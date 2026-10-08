@@ -6,7 +6,11 @@
  *   POST   /api/user-books            upload one file (raw body; metadata in headers);
  *                                     Premium or the 30-day trial only (402 otherwise)
  *   GET    /api/user-books/{fileId}   the file's bytes, to its owner only
- *   DELETE /api/user-books/{fileId}   delete it
+ *   DELETE /api/user-books/{fileId}   delete it (with its place, narration and recap)
+ *   GET    /api/user-books/places     the reader's place in each own book
+ *   PUT    /api/user-books/places/{bookHex}
+ *                                     save one place: versioned (`rev`), a stale
+ *                                     write gets 409 and the stored place back
  *
  * Storage is the private R2 bucket USER_BOOKS (never AUDIO_BUCKET, which is
  * public). Every key is `u/{userId}/{fileId}`: the user id comes from the
@@ -29,6 +33,15 @@
  * files, under `u/{userId}/narration/{bookHex}/`, where bookHex is the first 24
  * hex digits of the file's SHA-256 (the reader's `userbook-` id). Deleting a
  * book deletes that prefix too; account deletion takes it with the rest.
+ *
+ * The reader's place in an own book (so it opens where they left it on their
+ * other devices) is one empty object per book, `u/{userId}/places/{bookHex}`,
+ * its place in customMetadata (chapter, paragraph, word, when, whole-book
+ * percent and a revision): never the book's title or text, never in the
+ * shared position stores. One listing reads every place. A write names the
+ * revision it read; an older one is refused with the stored place (and the
+ * put itself is conditional on the object's etag), so devices never
+ * overwrite a newer place blindly. Deleting the book deletes its place.
  *
  * Catch me up on an own book (routes/ownCatchUp.ts) keeps its cumulative
  * recap the same way, under `u/{userId}/recaps/{bookHex}/`: deleted with the
@@ -79,6 +92,11 @@ export function ownNarrationPrefix(userId: string, bookHex: string): string {
 /** Where one own book's Catch me up recap lives: inside the owner's private prefix only. */
 export function ownRecapPrefix(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}recaps/${bookHex}/`
+}
+
+/** Where the reader's place in one own book lives: inside the owner's private prefix only. */
+export function ownPlaceKey(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}places/${bookHex}`
 }
 
 /** Every object under `prefix`, deleted page by page. Returns how many went. */
@@ -359,8 +377,106 @@ async function remove(request: Request, bucket: R2Bucket, userId: string, fileId
     const bookHex = sha256.slice(0, USER_BOOK_HEX_LENGTH)
     await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
     await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
+    await bucket.delete(ownPlaceKey(userId, bookHex))
   }
   return reply({ ok: true }, 200, request)
+}
+
+// ===== Places =====
+
+/** A reader's place in an own book, as stored and served. */
+export type OwnPlace = { chapterNumber: number; paragraphIndex: number; wordIndex: number; updatedAt: number; percent?: number; rev: number }
+/** Place writes per account per rate-limit window (the reader sends one every few seconds at most). */
+export const PLACE_WRITES_PER_MINUTE = 60
+const BOOK_HEX = /^[0-9a-f]{24}$/
+const MAX_PLACE_INDEX = 1_000_000
+
+const wholeNumber = (value: unknown, max = MAX_PLACE_INDEX): value is number => Number.isInteger(value) && (value as number) >= 0 && (value as number) <= max
+
+/** A place from a request body or from stored metadata (strings); null when any field is out of shape. */
+export function readPlace(value: unknown): Omit<OwnPlace, 'rev'> | null {
+  if (!value || typeof value !== 'object') return null
+  const raw = value as Record<string, unknown>
+  const number = (field: unknown) => typeof field === 'string' && field !== '' ? Number(field) : field
+  const chapterNumber = number(raw.chapterNumber)
+  const paragraphIndex = number(raw.paragraphIndex)
+  const wordIndex = number(raw.wordIndex)
+  const updatedAt = number(raw.updatedAt)
+  const percent = number(raw.percent)
+  if (!wholeNumber(chapterNumber) || chapterNumber < 1 || !wholeNumber(paragraphIndex) || !wholeNumber(wordIndex)) return null
+  if (!wholeNumber(updatedAt, Number.MAX_SAFE_INTEGER) || updatedAt <= 0) return null
+  const place: Omit<OwnPlace, 'rev'> = { chapterNumber, paragraphIndex, wordIndex, updatedAt }
+  if (typeof percent === 'number' && Number.isFinite(percent) && percent >= 0 && percent <= 100) place.percent = Math.round(percent * 10) / 10
+  return place
+}
+
+function storedPlace(meta: Record<string, string> | undefined): OwnPlace | null {
+  const place = readPlace(meta)
+  const rev = Number(meta?.rev)
+  return place && Number.isInteger(rev) && rev > 0 ? { ...place, rev } : null
+}
+
+const placeMetadata = (place: OwnPlace): Record<string, string> => Object.fromEntries(Object.entries(place).map(([key, value]) => [key, String(value)]))
+
+/** Every place this account keeps, by book hex. */
+export async function listOwnPlaces(bucket: R2Bucket, userId: string): Promise<Record<string, OwnPlace>> {
+  const prefix = ownPlaceKey(userId, '')
+  const places: Record<string, OwnPlace> = {}
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000, include: ['customMetadata'] })
+    for (const object of page.objects) {
+      const hex = object.key.slice(prefix.length)
+      const place = BOOK_HEX.test(hex) ? storedPlace(object.customMetadata) : null
+      if (place) places[hex] = place
+    }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return places
+}
+
+/**
+ * Save one place. The body is `{ place, rev }`: `rev` is the revision the
+ * device last read (0 for none). Only a book this account owns has a place.
+ */
+async function savePlace(request: Request, bucket: R2Bucket, userId: string, bookHex: string, checkRateLimit: CheckRateLimit): Promise<Response> {
+  if (!await checkRateLimit(`user-books-place:${userId}`, undefined, PLACE_WRITES_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+  let body: { place?: unknown; rev?: unknown } | null
+  try { body = await request.json() as typeof body } catch { return reply({ error: 'bad_request' }, 400, request) }
+  const place = readPlace(body?.place)
+  const expected = body?.rev
+  if (!place || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
+  if (await ownedBookHex(bucket, userId, bookHex) !== bookHex) return notFound(request)
+  const key = ownPlaceKey(userId, bookHex)
+  const head = await bucket.head(key)
+  const current = head ? storedPlace(head.customMetadata) : null
+  if ((current?.rev ?? 0) !== expected) return reply({ error: 'conflict', place: current }, 409, request)
+  const next: OwnPlace = { ...place, rev: (current?.rev ?? 0) + 1 }
+  // Conditional on the object read above: a write that landed in between wins, and this one is told.
+  const stored = await bucket.put(key, '', { customMetadata: placeMetadata(next), ...(head ? { onlyIf: { etagMatches: head.etag } } : {}) })
+  if (!stored) {
+    const latest = await bucket.head(key)
+    return reply({ error: 'conflict', place: latest ? storedPlace(latest.customMetadata) : null }, 409, request)
+  }
+  return reply({ place: next }, 200, request)
+}
+
+/** `/api/user-books/places` (GET) and `/api/user-books/places/{bookHex}` (PUT). */
+async function handlePlaces(
+  request: Request,
+  env: UserBooksEnv,
+  deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
+  bookHex: string,
+): Promise<Response> {
+  const allowed = bookHex === '' ? ['GET'] : ['PUT']
+  if (!allowed.includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
+  const user = await deps.verifyUser(request)
+  if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
+  if (bookHex !== '' && !BOOK_HEX.test(bookHex)) return notFound(request)
+  const bucket = env.USER_BOOKS
+  if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  if (bookHex === '') return reply({ places: await listOwnPlaces(bucket, user.id) }, 200, request)
+  return savePlace(request, bucket, user.id, bookHex, deps.checkRateLimit)
 }
 
 export async function handleUserBooks(
@@ -375,6 +491,8 @@ export async function handleUserBooks(
 ): Promise<Response> {
   const url = new URL(request.url)
   const rest = url.pathname.slice('/api/user-books'.length)
+  const placeHex = rest === '/places' ? '' : rest.startsWith('/places/') ? rest.slice('/places/'.length) : null
+  if (placeHex !== null) return handlePlaces(request, env, deps, placeHex)
   const fileId = rest === '' || rest === '/' ? null : rest.slice(1)
   const allowed = fileId === null ? ['GET', 'POST'] : ['GET', 'DELETE']
   if (!allowed.includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
