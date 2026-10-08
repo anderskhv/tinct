@@ -6,7 +6,6 @@ import { SelectionPopup, type SelectionPopupProps } from './SelectionPopup'
 import { ContextualExplainCard } from './ContextualExplainCard'
 import { CHAT_ICON_PATHS, HIGHLIGHT_ICON_PATHS } from '../../lab/LabReaderIcons'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
-import { LibrarianTabIcon } from '../../lab/LabLibrarianTab.tsx'
 
 /**
  * Anders, 2026-10-07: chat is always called Chat and always drawn with one
@@ -75,14 +74,8 @@ describe('one Chat icon and one Highlight icon', () => {
     expect(onAsk).toHaveBeenCalledWith('An explanation.')
   })
 
-  it('the Librarian row and the margin tab draw that same Chat icon', () => {
+  it('the Librarian row draws that same Chat icon', () => {
     const { container: row } = render(<RowIcon id="chat" />)
     expect(paths(row.querySelector('svg'))).toEqual([...CHAT_ICON_PATHS])
-    cleanup()
-    const { container: tab } = render(<LibrarianTabIcon mode="chat" size={12} />)
-    const svg = tab.querySelector('svg')
-    expect(svg?.getAttribute('class')).toBe('lab-librarian-tab-icon')
-    expect(svg?.getAttribute('data-mode')).toBe('chat')
-    expect(paths(svg)).toEqual([...CHAT_ICON_PATHS])
   })
 })

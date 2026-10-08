@@ -8,7 +8,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { useVoiceSession } from '../../hooks/useVoiceSession'
 import { buildVoiceReaderContext, nearbyParagraphWindow } from '../../voice/context'
 import { LabApp } from '../LabApp'
-import { readLabPrefs, writeLabPrefs } from '../labPrefs'
 import type { UserBookEdition } from './userEdition'
 import { userBookId } from './userBookId'
 
@@ -106,12 +105,11 @@ describe('Talk on a reader’s own book', () => {
     expect(requests.filter(request => request.url.includes('userbook-') || JSON.stringify(request.body ?? '').includes('userbook-'))).toEqual([])
   })
 
-  it('the Librarian row opens Talk when the tab is set to open Talk', async () => {
-    writeLabPrefs({ ...readLabPrefs('phone'), librarianTabOpens: 'talk' }, 'phone')
+  it('the Librarian row’s mic opens Talk', async () => {
     render(<LabApp pathname="/lab/phone" authToken="token-a" userBook={loaded()} />)
     fireEvent.click(screen.getByTestId('lab-super'))
-    expect(screen.getByTestId('lab-super-row-talk').getAttribute('data-default')).toBe('true')
-    fireEvent.click(screen.getByTestId('lab-super-row-librarian'))
+    expect(screen.getAllByTestId('lab-super-row-talk')).toHaveLength(1)
+    fireEvent.click(screen.getByTestId('lab-super-row-talk'))
     await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
   })
 })

@@ -207,31 +207,30 @@ test.describe('library search', () => {
     await page.waitForURL(/\/lab\/addbook\/\?mode=file$/)
   })
 
-  test('the librarian capsule steps aside while search is open wherever it would cover the results', async ({ page }) => {
+  test('the librarian orb steps aside while search is open wherever it would cover the results', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true })
-    const capsule = page.locator('#librarian')
-    await expect(capsule).toBeVisible()
+    const orb = page.locator('#librarian')
+    await expect(orb).toBeVisible()
     await search(page, 'austen')
     await expect(page.locator('#search-results .free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
     const phone = (page.viewportSize()?.width ?? 0) < 700
     if (phone) {
-      await expect(capsule).toBeHidden()
-      await expect(page.locator('#librarian-goo')).toBeHidden()
-      await expect(capsule).toHaveAttribute('tabindex', '-1')
+      await expect(orb).toBeHidden()
+      await expect(orb).toHaveAttribute('tabindex', '-1')
       // Nothing of it is left over the Add buttons.
       const add = (await page.locator('.free-row .free-add').first().boundingBox())!
       expect(await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.closest('.free-add') !== null, [add.x + add.width - 2, add.y + add.height / 2])).toBe(true)
-      await shot(page, 'search-capsule-away')
+      await shot(page, 'search-orb-away')
     } else {
-      // Desktop: the results stop well short of the wall, so the capsule stays.
-      await expect(capsule).toBeVisible()
-      const results = (await page.locator('#search-panel .search-content').boundingBox())!, box = (await capsule.boundingBox())!
+      // Desktop: the results stop well short of the wall, so the orb stays.
+      await expect(orb).toBeVisible()
+      const results = (await page.locator('#search-panel .search-content').boundingBox())!, box = (await orb.boundingBox())!
       expect(results.x + results.width).toBeLessThan(box.x)
     }
     await page.locator('#search-cancel').click()
-    await expect(capsule).toBeVisible()
-    await expect(capsule).not.toHaveAttribute('tabindex', '-1')
-    await expect(capsule).not.toHaveAttribute('aria-hidden', 'true')
+    await expect(orb).toBeVisible()
+    await expect(orb).not.toHaveAttribute('tabindex', '-1')
+    await expect(orb).not.toHaveAttribute('aria-hidden', 'true')
   })
 
   test('a typo ("wuthering hights") finds the Tinct book first, and no catalogue copy of it is offered', async ({ page }) => {
@@ -286,11 +285,11 @@ test.describe('library search', () => {
   })
 })
 
-test.describe('librarian capsule', () => {
-  test('a book\'s introduction: the capsule steps aside on a phone, where it would cover Begin reading, and is back in the library', async ({ page }) => {
+test.describe('librarian orb', () => {
+  test('a book\'s introduction: the orb steps aside on a phone, where it would cover Begin reading, and is back in the library', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: false })
-    const capsule = page.locator('#librarian')
-    await expect(capsule).toBeVisible()
+    const orb = page.locator('#librarian')
+    await expect(orb).toBeVisible()
     await page.waitForTimeout(1500)
     await page.locator('#shelves button.cover-button').nth(2).click()
     await expect(page.locator('#book-overlay')).toBeVisible()
@@ -301,15 +300,15 @@ test.describe('librarian capsule', () => {
     await expect(page.locator('#begin-reading')).toBeVisible()
     const phone = (page.viewportSize()?.width ?? 0) < 700
     if (phone) {
-      await expect(capsule).toBeHidden()
-      await expect(capsule).toHaveAttribute('tabindex', '-1')
-      await shot(page, 'intro-capsule-away')
+      await expect(orb).toBeHidden()
+      await expect(orb).toHaveAttribute('tabindex', '-1')
+      await shot(page, 'intro-orb-away')
     } else {
-      await expect(capsule).toBeVisible()
+      await expect(orb).toBeVisible()
     }
     await page.keyboard.press('Escape')
     await expect(page.locator('#book-overlay')).toBeHidden({ timeout: 15_000 })
-    await expect(capsule).toBeVisible()
+    await expect(orb).toBeVisible()
   })
 })
 
