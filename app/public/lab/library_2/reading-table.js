@@ -6,12 +6,12 @@
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008rel6';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261008lib';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
 import {renderBookMetadata} from './book-metadata.js?v=20261008rel6';
 import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261008rel4';
-import { paperCover } from './add-to-tinct.js?v=20261008rel6';
+import { paperCover } from './add-to-tinct.js?v=20261008lib';
 import { fitHeroTitle } from './hero-title.js?v=20261008rel6';
 import { tableWindow, MAX_SPINES } from './table-window.js?v=20261008lib';
 
@@ -315,8 +315,8 @@ function wire(view, table, demo, keepBookId, options={}) {
   // Name the book in the confirmation: the × sits beside neighbouring spines,
   // so a generic question could confirm removing a book the reader never chose.
   remove.onclick=e=>{e.stopPropagation();const b=table.reading[current];dialog.dataset.book=b.bookId;view.querySelector('#rt-remove-heading').textContent=`Remove ${b.title} from currently reading?`;
-    // An own book stays under Your own books on My shelf, not Saved for later.
-    dialog.querySelector('p').textContent=b.own?'It stays on My shelf under Your own books, and your place is kept.':'It stays on My shelf under Saved for later, and your place is kept.';
+    // An own book stays under My private uploads on My shelf, not Saved for later.
+    dialog.querySelector('p').textContent=b.own?'It stays on My shelf under My private uploads, and your place is kept.':'It stays on My shelf under Saved for later, and your place is kept.';
     dialog.showModal();};
   dialog.addEventListener('click',e=>{e.stopPropagation();if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
   view.querySelector('#rt-remove-cancel').onclick=()=>dialog.close();

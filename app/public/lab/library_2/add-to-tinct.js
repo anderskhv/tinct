@@ -1,6 +1,6 @@
 // "Add to Tinct" in the library (approved designs D1/D2, 2026-10-06): the search's
 // "Not yet in Tinct" group, the "Have it as a file?" box, and My shelf's
-// "Your own books". Only where public-books.js addToTinctEnabled() allows (signed-in
+// "My private uploads" and its + pop-up. Only where public-books.js addToTinctEnabled() allows (signed-in
 // readers and internal devices; the page's signed-in class, kept live by the
 // reading bridge, is the account state); elsewhere
 // the library is unchanged. The catalogue search is Add a book's own worker and
@@ -13,11 +13,14 @@ import {addToTinctEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PU
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
 export const enabled=()=>addToTinctEnabled(undefined,signedIn());
-export const ADD_BOOK_PAGE='/lab/addbook/';
-/** Add a book's file step: "Your own book", a PDF or EPUB, without its free-book search (the library has its own). */
-export const ADD_FILE_PAGE='/lab/addbook/?mode=file';
-/** Where a file chosen in the library's pop-up continues: Add a book's own upload flow (file-handoff.js). */
-export const ADD_FILE_HANDOFF_PAGE=`${ADD_FILE_PAGE}&${HANDOFF_PARAM}=1`;
+/** My shelf, where your own books are ("My private uploads"): Add a book is no longer a page of its own (owner, 2026-10-08). */
+export const MY_SHELF_URL='/library#my-shelf';
+/** A file entry's link (the search field's +, "Add a PDF or EPUB"): My shelf, for a click the pop-up does not take. */
+export const ADD_FILE_PAGE=MY_SHELF_URL;
+/** Only when this browser cannot keep the file itself: Add a book's PDF reader takes it (file-handoff.js) and opens it unkept. */
+export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
+/** Signed out (an internal device): sign in, then back to My shelf. */
+export const SIGN_IN_FOR_FILE=`/sign-in?returnTo=${encodeURIComponent(MY_SHELF_URL)}`;
 /** The add a signed-out reader asked for resumes here after sign-in. */
 export const ADD_PARAM='add';
 
@@ -78,7 +81,7 @@ export async function withPublicBooks(data){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261008rel6';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261008lib';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -96,11 +99,23 @@ export function canAdd(){
 }
 /** Forget the answer (the reader signed in or out). */
 export function resetAddAccess(){access=null;}
-// ---- Your own book: a pop-up over the library, then the file picker ----
-// Add a book's own wording (addbook/index.html, "Your own book"); the rights confirmation
-// itself stays in Add a book's upload flow, asked there once per account as today.
-const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',cancel:'Cancel'};
+// ---- Your own book: a pop-up over the library that adds the file in place ----
+// Add a book's own wording (its "Your own book" card and rights confirmation) and its engine
+// (/lab/addbook/js/add-engine.js, with tinct-api.js and epub.js): the file is read, the rights
+// confirmation asked once per account (the same recorded confirmation), kept in this browser,
+// saved privately to the account, then the book opens: an EPUB in the Tinct reader, a PDF in
+// Add a book's PDF reader. Nothing goes through Add a book's page.
+const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',search:'Add a book',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
 const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261008lib'];
+function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
+let fileEngine=null;
+/** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
+export function loadFileEngine(load=loadScript){
+ if(window.TinctAddEngine&&window.TinctAI&&window.TinctEpub)return Promise.resolve(window.TinctAddEngine);
+ if(!fileEngine){fileEngine=Promise.all(FILE_ENGINE.map(src=>load(src))).then(()=>{if(!window.TinctAddEngine)throw new Error('add engine unavailable');return window.TinctAddEngine;});fileEngine.catch(()=>{fileEngine=null;});}
+ return fileEngine;
+}
 let openDialog=null;
 /** Close the pop-up (if open), focus back on what opened it. */
 export function closeFileDialog(){
@@ -108,51 +123,103 @@ export function closeFileDialog(){
  const {layer,from,onKey}=openDialog;openDialog=null;
  removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});
 }
+const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
+const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return b;};
 /**
- * The "Your own book" pop-up: Add a book's wording and one button that opens the file
- * picker directly. The chosen file is handed to Add a book's upload flow (`onFile`, by
- * default: kept for it in this browser, then Add a book continues), or, when it cannot be
- * handed over, Add a book's file step opens as before (`fallback`).
+ * The "Your own book" pop-up. `onSearch` (the top bar's and My shelf's +) adds "Add a book",
+ * which opens the library search; the search field's own entries leave it out. A chosen file
+ * is added in the pop-up, with its progress there; `go` then opens the book.
  */
-export function openFileDialog({from=null,fallback=ADD_FILE_PAGE,onFile=null,go=href=>location.assign(href),keep=putHandoff}={}){
+export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
  closeFileDialog();
- const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
  // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
  const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
  const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
  const title=make('h2','tui-dialog__title',OWN_BOOK_COPY.title);title.id='own-file-title';
  const head=make('div','tui-dialog__head');head.append(title);
  const input=make('input');input.type='file';input.accept=FILE_ACCEPT;input.hidden=true;input.className='own-file-input';
- const cancel=make('button','tui-btn tui-btn--secondary own-file-cancel',OWN_BOOK_COPY.cancel);cancel.type='button';
- const choose=make('button','tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);choose.type='button';
- const actions=make('div','tui-dialog__actions own-file-actions');actions.append(cancel,choose);
- box.append(head,make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine),actions,input);
- layer.append(box);document.body.append(layer);
- const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();closeFileDialog();}};
+ const content=make('div','own-file-content');
+ box.append(head,content,input);layer.append(box);document.body.append(layer);
+ // While a file is being added, the pop-up stays until the book opens.
+ const onKey=event=>{if(event.key==='Escape'&&!box.dataset.busy){event.preventDefault();event.stopPropagation();closeFileDialog();}};
  addEventListener('keydown',onKey,true);
  openDialog={layer,from,onKey};
- layer.addEventListener('click',event=>{if(event.target===layer)closeFileDialog();});
- cancel.onclick=()=>closeFileDialog();
- // The picker opens on this tap (browsers allow a file picker only from a user's own click).
- choose.onclick=()=>input.click();
- input.onchange=async()=>{
-  const file=input.files?.[0];input.value='';if(!file)return;
-  closeFileDialog();
-  if(onFile){onFile(file);return;}
-  go(await keep(file)?ADD_FILE_HANDOFF_PAGE:fallback);
+ layer.addEventListener('click',event=>{if(event.target===layer&&!box.dataset.busy)closeFileDialog();});
+ let ready=null;const api=()=>{if(!ready){ready=engine();ready.catch(()=>{ready=null;});}return ready;};
+ // Warm the engine while the reader picks a file.
+ api().catch(()=>{});
+ const step=(name,...children)=>{box.dataset.step=name;content.replaceChildren(...children);};
+ const actions=(...list)=>{const row=make('div','tui-dialog__actions own-file-actions');row.append(...list);return row;};
+ const cancel=()=>{const b=button('tui-btn tui-btn--secondary own-file-cancel',OWN_BOOK_COPY.cancel);b.onclick=()=>closeFileDialog();return b;};
+ const chooseStep=(message='')=>{
+  delete box.dataset.busy;
+  const choose=button('tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);
+  // The picker opens on this tap (browsers allow a file picker only from a user's own click).
+  choose.onclick=()=>input.click();
+  const row=actions(cancel());
+  if(onSearch){const search=button('tui-btn tui-btn--secondary own-file-search',OWN_BOOK_COPY.search);search.onclick=()=>{closeFileDialog();onSearch();};row.append(search);}
+  row.append(choose);
+  const parts=[make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine)];
+  if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.unshift(alert);}
+  step('choose',...parts,row);
+  choose.focus({preventScroll:true});
  };
- choose.focus({preventScroll:true});
+ const progress=value=>{
+  box.dataset.busy='1';
+  if(box.dataset.step!=='progress'){
+   const status=make('p','tui-dialog__body own-file-status');status.setAttribute('role','status');status.append(make('span','tui-spinner'),make('span','',OWN_BOOK_COPY.opening));
+   const bar=make('span','own-file-progress');bar.setAttribute('aria-hidden','true');bar.append(make('i'));
+   step('progress',status,bar,make('p','tui-dialog__fine own-file-note'));
+  }
+  const bar=content.querySelector('.own-file-progress');bar.style.setProperty('--p',String(value));bar.dataset.value=String(value);
+ };
+ const note=text=>{const line=content.querySelector('.own-file-note');if(line)line.textContent=text;};
+ // The rights confirmation, once per account (Add a book's wording; the engine records it).
+ const confirmRights=(engineApi,name)=>new Promise(resolve=>{
+  delete box.dataset.busy;
+  const intro=make('p','tui-dialog__body own-file-rights-intro');
+  intro.append('Tinct opens ',make('strong','',name),' here and keeps a private copy in your account, so you can open it on your other devices. It is never shared.');
+  const label=make('label','tui-check own-file-rights');const check=make('input');check.type='checkbox';check.className='own-file-rights-box';label.append(check,make('span','',engineApi.RIGHTS_COPY));
+  const ok=button('tui-btn tui-btn--primary own-file-continue',OWN_BOOK_COPY.keep);ok.disabled=true;
+  const no=button('tui-btn tui-btn--secondary own-file-cancel',OWN_BOOK_COPY.cancel);
+  check.onchange=()=>{ok.disabled=!check.checked;};
+  no.onclick=()=>{resolve(false);closeFileDialog();};
+  ok.onclick=()=>{engineApi.confirmRights();resolve(true);};
+  step('rights',intro,label,actions(no,ok));
+  check.focus({preventScroll:true});
+ });
+ async function addFile(file){
+  progress(.08);
+  let engineApi;
+  try{engineApi=await api();}catch{chooseStep(OWN_BOOK_COPY.failed);return;}
+  const read=await engineApi.readFile(file);
+  if(read.error){chooseStep(read.error);return;}
+  if(!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,file.name))return;
+  progress(.3);
+  const kept=await engineApi.keepFile(file,read);
+  // Unkept (storage full or blocked): Add a book's PDF reader takes the file and opens it unkept, as before.
+  if(!kept){note(OWN_BOOK_COPY.unkept);go(await keep(file)?fallback:MY_SHELF_URL);return;}
+  progress(.6);
+  try{
+   const opened=read.kind==='epub'?await engineApi.prepareEpub(read.bytes,file.name,read.key,file,{notify:note}):await engineApi.preparePdf(file,read.key,{notify:note});
+   progress(1);
+   go(opened.href);
+  }catch(error){chooseStep(error?.message||OWN_BOOK_COPY.failed);}
+ }
+ input.onchange=()=>{const file=input.files?.[0];input.value='';if(file)void addFile(file);};
+ chooseStep();
+ layer.addFile=addFile;
  return layer;
 }
 /**
- * A file entry: for Premium and trial, the "Your own book" pop-up (signed in) or Add a
- * book's file step (an internal device signed out: its account gate), the Premium offer
- * for a free account, exactly as before the pop-up.
+ * A file entry (the search field's +, "Add a PDF or EPUB", the top bar's and My shelf's +):
+ * for Premium and trial, the "Your own book" pop-up (signed in) or sign-in first (an internal
+ * device signed out), the Premium offer for a free account, exactly as before.
  */
-export async function openFileEntry(link,{access=canAdd,go=href=>location.assign(href),keep=putHandoff}={}){
+export async function openFileEntry(from,{access=canAdd,go=href=>location.assign(href),...options}={}){
  if((await access())===false){go(PREMIUM_PAGE);return null;}
- if(!signedIn()){go(link.href);return null;}
- return openFileDialog({from:link,fallback:link.href,go,keep});
+ if(!signedIn()){go(SIGN_IN_FOR_FILE);return null;}
+ return openFileDialog({from,go,...options});
 }
 function fileEntry(link){
  if(link.dataset.fileEntry)return link;link.dataset.fileEntry='1';
@@ -570,58 +637,109 @@ export function ownCoverElement(book){
  if(typeof book.cover==='string'&&/^data:image\/(jpeg|png|webp);base64,/.test(book.cover)){const img=document.createElement('img');img.className='cover own-cover-image';img.src=book.cover;img.alt='';img.decoding='async';return img;}
  const cover=paperCover(book.title,book.author,book.kind);cover.className='cover';return cover;
 }
-/** My shelf's own-book card: the book's cover (or a paper cover) that opens the book. */
-export function ownBookCard(book,el){
- const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';
+/**
+ * My shelf's own-book card: the book's cover (or a paper cover) that opens the book, and the
+ * same × as the shelf's other books (`onRemove`, labelled "Remove from My shelf: <title>").
+ * `cover` replaces the listed cover (the reading table's full-size one, when it has it).
+ */
+export function ownBookCard(book,el,{onRemove=null,cover=null}={}){
+ const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';card.dataset.ownKey=book.key;
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
- open.append(ownCoverElement(book));
- card.append(open,el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
-}
-/** The dashed "+" tile that opens My shelf: straight to Add a book's file step. */
-export function addFileTile(el){
- const card=el('article','collection-card add-file-card');const tile=el('a','add-file-tile');tile.href=ADD_FILE_PAGE;
- tile.append(el('span','add-file-plus','+'),el('span','','Add a PDF or EPUB'));card.append(fileEntry(tile));return card;
-}
-
-/** My shelf's "+ Add a book" tile: opens the library search, with "Not yet in Tinct" and the file box. */
-export function addBookTile(el,onOpen){
- const card=el('article','collection-card add-book-card');const tile=el('button','add-file-tile add-book-tile');tile.type='button';tile.onclick=()=>onOpen();
- tile.append(el('span','add-file-plus','+'),el('span','','Add a book'));card.append(tile);return card;
+ open.append(ownCoverElement(cover?{...book,cover}:book));
+ let face=open;
+ if(onRemove){
+  face=el('div','card-wrap');
+  const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=book.title;x.setAttribute('aria-label','Remove from My shelf: '+book.title);
+  x.onclick=event=>{event.preventDefault();event.stopPropagation();onRemove(book,x);};
+  face.append(open,x);
+ }
+ card.append(face,el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
 }
 
-/** Own books under Currently reading (those with a saved place, latest first) and the rest of "Your own books". */
+/** Own books under Currently reading (those with a saved place, latest first) and the rest of "My private uploads". */
 export function ownShelfGroups(list){
  const own=[...(list||[])];
  return {reading:own.filter(book=>book.readingAt!==null&&book.readingAt!==undefined).sort((a,b)=>b.readingAt-a.readingAt),own};
 }
+/** Approved name of My shelf's own-books group (owner, 2026-10-08; was "Your own books"). */
+export const PRIVATE_UPLOADS='My private uploads';
+/** The reading table's id for an own book (`userbook-<hex>`, src/lab/userBook/userBookId.ts). */
+export const ownTableId=key=>'userbook-'+String(key||'').replace(/^(epub|pdf):/,'');
 /**
- * My shelf's additions (D1): the add tiles first, so adding a book is the first thing on
- * the shelf: "+ Add a book" (when `onAddBook` is given; it opens the library search), then
- * the dashed + tile for a PDF or EPUB. Own books being read join Currently reading (after
- * the library's own, or under a new heading at the top); then "Your own books" with every
- * own book, when there are any. Returns how many cards were added.
+ * My shelf's own books. Own books being read join Currently reading (after the library's own,
+ * or under a new heading at the top), with the × that takes a book off Currently reading
+ * (`onRemoveReading`); then "My private uploads" with every own book and the × that deletes
+ * one (`onDelete`). `covers` maps a reading-table id to its full-size cover. Adding a book is
+ * the + beside My shelf's heading. Returns how many cards were added.
  */
-export function appendOwnShelf(grid,list,el,onAddBook){
+export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,covers=null}={}){
  const {reading,own}=ownShelfGroups(list);let added=0;
+ const coverFor=book=>covers?.get?.(ownTableId(book.key))||null;
  if(reading.length){
   let after=[...grid.querySelectorAll('[data-shelf-group="reading"]')].pop()||null;
   if(!after){after=el('h2','my-books-head','Currently reading');grid.prepend(after);}
-  for(const book of reading){const card=ownBookCard(book,el);card.dataset.shelfGroup='own-reading';after.after(card);after=card;added++;}
+  for(const book of reading){const card=ownBookCard(book,el,{onRemove:onRemoveReading,cover:coverFor(book)});card.dataset.shelfGroup='own-reading';after.after(card);after=card;added++;}
  }
  if(own.length){
-  grid.append(el('h2','my-books-head','Your own books'));
-  for(const book of own){grid.append(ownBookCard(book,el));added++;}
+  grid.append(el('h2','my-books-head',PRIVATE_UPLOADS));
+  for(const book of own){grid.append(ownBookCard(book,el,{onRemove:onDelete,cover:coverFor(book)}));added++;}
  }
- grid.prepend(addFileTile(el));
- if(onAddBook){grid.prepend(addBookTile(el,onAddBook));added++;}
- return added+1;
+ return added;
 }
 
-/** The library top bar's +, beside search: opens the add-a-book flow (the library search, as My shelf's "+ Add a book"), where Add to Tinct is on. */
-export function syncLibraryAdd(button,onOpen){
+// ---- Removing one of My private uploads: the existing delete (this device and the account) ----
+/**
+ * Confirm before an own book is deleted (the reading table's remove dialog, in Tinct UI).
+ * Resolves true on Remove.
+ */
+export function confirmDeleteUpload(book,{from=null}={}){
+ return new Promise(resolve=>{
+  const layer=make('div','tui-scrim own-delete-layer');layer.dataset.testid='own-delete-dialog';layer.dataset.tuiTheme='dark';
+  const box=make('div','tui-dialog own-delete-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-delete-title');
+  const title=make('h2','tui-dialog__title',`Remove ${book.title}?`);title.id='own-delete-title';
+  const head=make('div','tui-dialog__head');head.append(title);
+  const keepIt=button('tui-btn tui-btn--secondary own-delete-cancel','Keep book');
+  const remove=button('tui-btn tui-btn--primary own-delete-confirm','Remove');
+  const row=make('div','tui-dialog__actions');row.append(keepIt,remove);
+  box.append(head,make('p','tui-dialog__body','It is removed from this device and your account.'),row);layer.append(box);document.body.append(layer);
+  const done=value=>{removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});resolve(value);};
+  const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();done(false);}};
+  addEventListener('keydown',onKey,true);
+  layer.addEventListener('click',event=>{if(event.target===layer)done(false);});
+  keepIt.onclick=()=>done(false);remove.onclick=()=>done(true);
+  keepIt.focus({preventScroll:true});
+ });
+}
+/**
+ * Delete an own book from this device and the account with Add a book's own delete
+ * (add-engine.js removeBook: the kept file, its place, the account copy). Other books'
+ * places are never touched. Resolves true when it is gone from both.
+ */
+export async function deleteUpload(book,{engine=loadFileEngine}={}){
+ const api=await engine();
+ // An account copy not on this device is found by the account's list.
+ if(!(await api.library.get(book.key)))await api.cloud.refresh();
+ return api.removeBook(book.key);
+}
+
+/** The library top bar's +, beside search: the "Your own book" pop-up with "Add a book" (`onSearch`: the library search), where Add to Tinct is on. */
+export function syncLibraryAdd(button,onSearch){
  if(!button)return;
  button.hidden=!enabled();
- if(onOpen&&!button.dataset.addBound){button.dataset.addBound='1';button.addEventListener('click',()=>onOpen());}
+ if(onSearch&&!button.dataset.addBound){button.dataset.addBound='1';button.addEventListener('click',()=>{void openFileEntry(button,{onSearch});});}
+}
+/** My shelf's +, beside its heading: the same pop-up as the top bar's +; shown where Add to Tinct is on. */
+export function syncShelfAdd(header,onSearch){
+ if(!header)return null;
+ let add=header.querySelector('.shelf-add');
+ if(!add){
+  add=document.createElement('button');add.type='button';add.className='tui-icon-btn shelf-add';add.setAttribute('aria-label','Add a book');add.title='Add a book';
+  add.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  add.addEventListener('click',()=>{void openFileEntry(add,{onSearch});});
+  header.append(add);
+ }
+ add.hidden=!enabled();
+ return add;
 }
 /** The + at the right end of the library's search field: the "Your own book" pop-up, where Add to Tinct is on (a free account past its trial: the Premium offer). */
 export function syncSearchAddFile(link){

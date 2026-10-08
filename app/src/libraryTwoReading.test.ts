@@ -68,6 +68,24 @@ it('removes only shelf visibility and syncs the merged record without altering s
   expect(localStorage.getItem('tinct:bookmarks:hamlet')).toBe('unchanged')
 })
 
+it('My shelf’s × takes any book off the shelf (a Tinct book or an added one) and drops only this viewer’s fast-paint snapshot, keeping places', async () => {
+  calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-a' }, access_token: 'token-a' } } })
+  const { removeFromShelf } = await import('./libraryTwoReading')
+  for (const id of ['hamlet', 'pd-pg-135']) {
+    localStorage.setItem('tinct:library-2-table:viewer-a', `{"reading":[{"bookId":"${id}"}]}`)
+    localStorage.setItem('tinct:library-2-table:viewer-b', '{"private":true}')
+    localStorage.setItem('tinct:position:' + id, 'kept')
+    await removeFromShelf(id)
+    expect(calls.saved).toHaveBeenLastCalledWith(id, false)
+    // A refresh cannot paint the removed book back from the snapshot.
+    expect(localStorage.getItem('tinct:library-2-table:viewer-a')).toBeNull()
+    expect(localStorage.getItem('tinct:library-2-table:viewer-b')).toBe('{"private":true}')
+    expect(localStorage.getItem('tinct:position:' + id)).toBe('kept')
+  }
+  expect(calls.writePosition).not.toHaveBeenCalled()
+  expect(calls.putPosition).not.toHaveBeenCalled()
+})
+
 it('does not remove a previous account’s book after an account switch', async () => {
   calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-b' }, access_token: 'token-b' } } })
   calls.readPosition.mockReturnValue(emptyLabPositionState('device-a', 'viewer-a'))

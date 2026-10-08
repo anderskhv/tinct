@@ -66,7 +66,7 @@ describe('/terms while the AI allowance is off', () => {
       expect(html).not.toContain('href="/terms"')
     }
     // Nor in the shipped files, the sitemap or Add a book.
-    for (const file of ['public/about.html', 'public/privacy.html', 'public/story.html', 'public/sitemap.xml', 'public/lab/addbook/js/reader.js', 'public/lab/library_2/index.html']) {
+    for (const file of ['public/about.html', 'public/privacy.html', 'public/story.html', 'public/sitemap.xml', 'public/lab/addbook/js/reader.js', 'public/lab/addbook/js/add-engine.js', 'public/lab/library_2/add-to-tinct.js', 'public/lab/library_2/index.html']) {
       expect(readFileSync(file, 'utf8'), file).not.toMatch(/tinct\.app\/terms|href="\/terms/)
     }
   })

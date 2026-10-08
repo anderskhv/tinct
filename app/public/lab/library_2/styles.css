@@ -390,14 +390,10 @@ html.linked-pending .hero-copy,html.linked-pending #hero-book,html.linked-pendin
 .file-box{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;border:1.5px dashed #eee7d059;border-radius:12px;padding:18px 20px;margin-top:4px}
 .file-box p{margin:0;font:17px/1.35 Georgia,serif}
 .own-cover{display:block;width:100%;aspect-ratio:2/3}.own-cover-image{object-fit:cover}
-.add-file-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;aspect-ratio:2/3;border:1.5px dashed #eee7d066;border-radius:4px;color:var(--cream);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;text-align:center;padding:12px;box-sizing:border-box}
-.add-file-tile:hover{background:#eee7d00f}
-.add-file-plus{font:300 42px/1 system-ui,sans-serif}
 .search-add-file{flex:none;color:var(--muted);text-decoration:none}
 .search-add-file:hover{color:var(--cream);background:#eee7d00f}
 .search-add-file svg{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
 @media(max-width:699px){.search-add-file{width:40px;height:40px}.search-add-file svg{width:20px;height:20px}}
-.add-book-tile{background:none;cursor:pointer;-webkit-appearance:none;appearance:none}
 @media(max-width:699px){.free-add{padding:7px 14px}.file-box{padding:14px 16px}.file-box p{font-size:15px}}
 /* Search filters (add-to-tinct.js): chips in the scene-pill style (.room-preview), under the search field. */
 .search-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
@@ -432,7 +428,15 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
 /* The top bar's + beside search (Add to Tinct only): the add-a-book flow. */
 #header nav .library-add{margin-left:-16px;color:var(--cream)}
 @media(max-width:699px){#header nav .library-add{margin-left:-4px;width:40px;height:40px}#header nav .library-add svg{width:20px;height:20px}}
-/* "Your own book": Tinct UI's dialog (/lab/tinct-ui.css .tui-scrim/.tui-dialog/.tui-btn); no local styles. */
+/* "Your own book": Tinct UI's dialog (/lab/tinct-ui.css .tui-scrim/.tui-dialog/.tui-btn/.tui-check);
+   only the adding step's status line and hairline (as an Add row's) are drawn here. */
+.own-file-status{display:flex;align-items:center;gap:10px}
+.own-file-progress{display:block;height:2px;margin:4px 0 14px;border-radius:2px;background:var(--tui-line,#eee7d02e);overflow:hidden}
+.own-file-progress i{display:block;height:100%;background:var(--tui-ink,var(--cream));transform-origin:left;transform:scaleX(var(--p,0));transition:transform .5s ease}
+.own-file-note:empty{display:none}
+/* My shelf's + beside its heading (Add to Tinct only): the same pop-up as the top bar's +. */
+#collection>header .shelf-add{margin:0 auto 0 -6px;color:var(--cream)}
+#collection>header .shelf-add[hidden]{display:none}
 /* Search layout (approved 2026-10-08): rows in both groups, details in place, the author card, the search close ×. */
 .search-close{flex:none;margin-left:-12px;font:30px/1 system-ui,sans-serif;color:var(--cream)}
 .tinct-list,.author-slot,.search-empty,.author-card{grid-column:1/-1;min-width:0}
