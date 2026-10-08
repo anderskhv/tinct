@@ -65,7 +65,7 @@ Taken from `taxonomy-proposal.json`:
 
 Copy `<id>/onboarding.json` to `app/public/data/onboarding/<id>.json`. The schema follows current files: `about`, `whyItMatters` ×3, `angleCards` ×4, `cast`, `openingText` (verified as an exact paragraph of each edition), and `acclaim: []`.
 - **Cast for the collections lists contributors** (interviewers for Volume I, essay authors for Volume II), with roles such as "ESSAY 6 — SUPERINFORMATION". The schema has no separate contributors field. If one is added later, the metadata contributor maps are its source.
-- **Acclaim is deliberately empty.** No endorsement could be verified in a primary source with a URL. The only candidate is the quotation printed on *The Sovereign Child*'s front cover: "This transformative book challenges the conventional wisdom of enforcing rules on children." — Ray Scott Percival, PhD, author of *The Myth of the Closed Mind*. It is primary (the publisher's cover) but has no URL. Anders can decide whether the cover itself counts.
+- **Acclaim is deliberately empty.** No endorsement could be verified in a primary source with a URL. The only candidate is the quotation printed on *The Sovereign Child*'s front cover: "This transformative book challenges the conventional wisdom of enforcing rules on children." — Ray Scott Percival, PhD, author of *The Myth of the Closed Mind*. It is primary (the publisher's cover) but has no URL. Anders can decide whether the cover itself counts. **Decided 2026-10-08:** Anders approved it; it is the book's acclaim (source "Ray Scott Percival", context "Cover endorsement"), verbatim from `the-sovereign-child/cover.jpg`.
 
 ## 6. Character cards
 
