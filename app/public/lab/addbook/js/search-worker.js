@@ -1,6 +1,6 @@
 // Catalogue search off the main thread. The ranking is the search engine's own
 // (addbooks/site/search.js, copied in at build time as ./search.js).
-import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, containedWorksFor, includedWork, fame } from './search.js?v=20261008srch';
+import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, containedWorksFor, includedWork, fame } from './search.js?v=20261008rel6';
 let search = null, byId = null, catalogue = null, sitelinks = new Map();
 // The page shows a slim copy of each work; editions carry only what a result card needs. Other
 // titles and the Wikidata work let the library tell a copy of one of its books (public-books.js).

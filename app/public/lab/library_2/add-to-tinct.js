@@ -7,7 +7,7 @@
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
 import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel5';
-import {normalize,includedWork} from '../addbook/js/search.js?v=20261008srch';
+import {normalize,includedWork} from '../addbook/js/search.js?v=20261008rel6';
 import {addToTinctEnabled,groupSearchResults,freeRow,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel4';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
