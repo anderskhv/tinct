@@ -1,4 +1,4 @@
-import { metadata, categories } from './taxonomy.js?v=20261009rel1';
+import { metadata, categories } from './taxonomy.js?v=20261009rel10';
 
 // One deliberately approximate silent-reading estimate for the whole library.
 // Catalogue word counts are book-level, not audio length or a measured personal speed.

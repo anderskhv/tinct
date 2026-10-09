@@ -1,7 +1,7 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261009rel1';
-import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel1';
+import { bindingFor } from './reading-table.js?v=20261009rel10';
+import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel10';
 
 export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled,prepareCover,initial,onSelection}){
 root.innerHTML=bookshelfMarkup;

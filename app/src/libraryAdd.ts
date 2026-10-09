@@ -100,7 +100,7 @@ export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean |
   }
 }
 
-// ===== Modern English, asked right after an add (add-to-tinct.js modernOfferAfterAdd) =====
+// ===== Modern English, asked right after an add (add-to-tinct.js finishAdd) =====
 
 /** The book's Modern English edition: its state and offer, as the reader asks (labModernEditionApi). Null when it cannot be told. */
 export function modernStatus(bookId: string, fetchImpl: typeof fetch = fetch): Promise<ModernStatus | null> {

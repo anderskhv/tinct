@@ -1,6 +1,6 @@
 // Catalogue search off the main thread. The ranking is the search engine's own
 // (addbooks/site/search.js, copied in at build time as ./search.js).
-import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, containedWorksFor, includedWork, renown } from './search.js?v=20261009rel1';
+import { createSearch, hydrate, borrowFor, applyPriors, altTitlesFor, containedWorksFor, includedWork, renown } from './search.js?v=20261009rel10';
 let search = null, byId = null, catalogue = null, english = null, sitelinks = new Map(), priorsTable = null;
 // The page shows a slim copy of each work; editions carry only what a result card needs. Other
 // titles and the Wikidata work let the library tell a copy of one of its books (public-books.js).
@@ -12,7 +12,7 @@ const slim = w => ({ id: w.id, page: w.page, title: w.title, subtitle: w.subtitl
 const names = w => w.authors.map(p => p.name).join(' ');
 const contains = w => containedWorksFor(w.title, names(w)).map(c => ({ title: c.title, fame: c.wikidata && sitelinks.get(c.wikidata) ? Math.round(renown({ sitelinks: sitelinks.get(c.wikidata) }) * 100) / 100 : 0 }));
 // Work priors (Wikidata work, sitelinks, English name): without them the catalogue ranks as before.
-const loadPriors = () => fetch(new URL('../data/work-priors.json?v=20261009rel1', import.meta.url)).then(r => r.ok ? r.json() : null).catch(() => null);
+const loadPriors = () => fetch(new URL('../data/work-priors.json?v=20261009rel10', import.meta.url)).then(r => r.ok ? r.json() : null).catch(() => null);
 // The catalogue comes in two parts when the build made them (app/scripts/build-catalogue-shards.mjs):
 // its English works first, which every search without a chosen language needs (Add imports English
 // only), and the other languages only when a search asks for one. Without the parts, the whole file.

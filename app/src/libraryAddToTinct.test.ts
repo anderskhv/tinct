@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { readFileSync } from 'node:fs'
 import {
   EXCLUDED_SOURCES,
   IMPORT_SOURCES,
@@ -222,7 +223,7 @@ describe('library search panel with the flag', () => {
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261009rel1')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261009rel10')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
     expect(freeShown).toEqual([2]) // the panel's "N books found" counts these rows too (app.js)
@@ -983,7 +984,8 @@ describe('Modern English, asked right after an add', () => {
     expect(layer.querySelector('h2')?.textContent).toBe('Also get it in Modern English?')
     expect(layer.querySelector('.modern-ask-body')?.textContent).toBe('A Modern English edition is written for you chapter by chapter, and anyone who adds this book later reads it too.')
     expect([...layer.querySelectorAll('button')].map(b => b.textContent)).toEqual(['Not now', 'Get Modern English · $4.99'])
-    expect(document.activeElement).toBe(layer.querySelector('.modern-ask-buy'))
+    // Not now has the focus (Anders, 2026-10-09: Enter must never start a checkout); was the Get button.
+    expect(document.activeElement).toBe(layer.querySelector('.modern-ask-later'))
     ;(layer.querySelector('.modern-ask-buy') as HTMLButtonElement).click()
     expect(await asked).toBe('buy')
     expect(document.querySelector('.modern-ask-layer')).toBeNull()
@@ -997,6 +999,107 @@ describe('Modern English, asked right after an add', () => {
       expect(await again).toBe('later')
       expect(document.querySelector('.modern-ask-layer')).toBeNull()
     }
+  })
+})
+
+describe('Modern English asked alongside the end of an add (Anders, 2026-10-09)', () => {
+  const none = { state: 'none', chapters: {}, offer: { tier: 2, cents: 499 } }
+  const yes = () => true
+  const question = () => document.querySelector('[data-testid="modern-ask"]') as HTMLElement | null
+  const settled = async <T,>(promise: Promise<T>) => { let done = false; void promise.then(() => { done = true }, () => { done = true }); await Promise.resolve(); await new Promise(resolve => setTimeout(resolve, 0)); return done }
+  afterEach(() => { document.querySelector('.modern-ask-layer')?.remove(); vi.useRealTimers() })
+
+  it('the question shows as soon as the status answers, without waiting for the add\'s last steps', async () => {
+    let finishLast: (href: string) => void = () => {}
+    const finish = vi.fn(() => new Promise<string>(resolve => { finishLast = resolve })) // the shelf and the reader's hand-off, still running
+    const status = vi.fn(async () => none)
+    const end = addToTinct.finishAdd('pd-pg-158', { allowed: yes, status, finish })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(status).toHaveBeenCalledWith('pd-pg-158')
+    expect(finish).toHaveBeenCalled()
+    expect(question()?.querySelector('.modern-ask-buy')?.textContent).toBe('Get Modern English · $4.99')
+    expect(await settled(end)).toBe(false)
+    finishLast('/reader')
+    ;(question()!.querySelector('.modern-ask-later') as HTMLButtonElement).click()
+    expect(await end).toEqual({ href: '/reader', answer: 'later' })
+  })
+
+  it('library_2 asks right after the commit answers: the shelf and the reader\'s hand-off run alongside, not before', () => {
+    const app = readFileSync('public/lab/library_2/app.js', 'utf8')
+    const add = app.slice(app.indexOf('async function addWork('), app.indexOf('// Add your own book from the search field'))
+    const committed = add.indexOf('.importWork(work.id')
+    const asked = add.indexOf('await finishAdd(entry.id')
+    expect(committed).toBeGreaterThan(0)
+    expect(asked).toBeGreaterThan(committed)
+    // Nothing slow is awaited between the commit and the question: addCatalogueBook and readerDestination are finishAdd's `finish`.
+    const between = add.slice(committed, asked)
+    expect(between).not.toContain('addCatalogueBook')
+    expect(between).not.toContain('readerDestination')
+    expect(add.slice(asked)).toMatch(/finish:async\(\)=>\{try\{\(await readingApi\(\)\)\.addCatalogueBook\?\.\(entry\);\}catch\{\}return readerDestination\(book,null\);\}/)
+    expect(add).not.toContain('modernOfferAfterAdd(')
+  })
+
+  it('the add completes while the question is unanswered, and the reader opens only once it is answered', async () => {
+    const steps: string[] = []
+    const finish = vi.fn(async () => { steps.push('shelf'); await Promise.resolve(); steps.push('hand-off'); return '/reader' })
+    const end = addToTinct.finishAdd('pd-pg-158', { allowed: yes, status: async () => none, finish })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(steps).toEqual(['shelf', 'hand-off']) // done, with the question open
+    expect(question()).not.toBeNull()
+    expect(await settled(end)).toBe(false) // never under an open question
+    await new Promise(resolve => setTimeout(resolve, 30))
+    expect(await settled(end)).toBe(false)
+    ;(question()!.querySelector('.modern-ask-later') as HTMLButtonElement).click()
+    expect(await end).toEqual({ href: '/reader', answer: 'later' })
+  })
+
+  it('answered before the add is done, the add simply continues to the reader (Get included)', async () => {
+    let finishLast: (href: string) => void = () => {}
+    const end = addToTinct.finishAdd('pd-pg-158', { allowed: yes, status: async () => none, finish: () => new Promise<string>(resolve => { finishLast = resolve }) })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    ;(question()!.querySelector('.modern-ask-buy') as HTMLButtonElement).click()
+    expect(question()).toBeNull()
+    expect(await settled(end)).toBe(false) // the reader's hand-off is still being written: checkout waits for it, as before
+    finishLast('/reader')
+    expect(await end).toEqual({ href: '/reader', answer: 'buy' })
+  })
+
+  it('no question: not allowed, no offer, search closed, or a status still unanswered 1.5 s after the add is done', async () => {
+    const finish = async () => '/reader'
+    const ask = vi.fn(async () => 'later')
+    expect(await addToTinct.finishAdd('pd-pg-158', { allowed: () => false, status: async () => none, finish, ask })).toEqual({ href: '/reader', answer: null })
+    expect(await addToTinct.finishAdd('pd-pg-158', { allowed: yes, status: async () => ({ ...none, offer: null }), finish, ask })).toEqual({ href: '/reader', answer: null })
+    expect(await addToTinct.finishAdd('pd-pg-158', { allowed: yes, status: async () => none, finish, ask, live: () => false })).toEqual({ href: '/reader', answer: null })
+    expect(ask).not.toHaveBeenCalled()
+    vi.useFakeTimers()
+    const slow = addToTinct.finishAdd('pd-pg-158', { allowed: yes, status: () => new Promise(resolve => { setTimeout(() => resolve(none), 1600) }), finish, ask })
+    await vi.advanceTimersByTimeAsync(1500)
+    expect(await slow).toEqual({ href: '/reader', answer: null })
+    expect(ask).not.toHaveBeenCalled()
+    // A slow status is still asked while the add is not done yet.
+    const later = addToTinct.finishAdd('pd-pg-158', { allowed: yes, status: () => new Promise(resolve => { setTimeout(() => resolve(none), 4000) }), finish: () => new Promise<string>(resolve => { setTimeout(() => resolve('/reader'), 5000) }), ask })
+    await vi.advanceTimersByTimeAsync(5000)
+    expect(await later).toEqual({ href: '/reader', answer: 'later' })
+    expect(ask).toHaveBeenCalledTimes(1)
+  })
+
+  it('an add that fails closes an open question and reports the failure', async () => {
+    let fail: (error: Error) => void = () => {}
+    const end = addToTinct.finishAdd('pd-pg-158', { allowed: yes, status: async () => none, finish: () => new Promise<string>((_, reject) => { fail = reject }) })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(question()).not.toBeNull()
+    fail(new Error('hand-off'))
+    await expect(end).rejects.toThrow('hand-off')
+    expect(question()).toBeNull()
+  })
+
+  it('focus is on Not now, never on Get: Enter does not start a checkout', async () => {
+    const asked = addToTinct.askModernEdition({ cents: 799, price: '$7.99' })
+    const layer = question()!
+    expect(document.activeElement).toBe(layer.querySelector('.modern-ask-later'))
+    expect(document.activeElement).not.toBe(layer.querySelector('.modern-ask-buy'))
+    ;(document.activeElement as HTMLButtonElement).click() // what Enter does on the focused button
+    expect(await asked).toBe('later')
   })
 })
 
