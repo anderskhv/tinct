@@ -219,7 +219,7 @@ const readerShown = () => document.body.dataset.view === 'reader';
 function showReader() { document.body.dataset.view = 'reader'; $('root').hidden = false; window.TinctStart?.hide(); applyLayout() }
 async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   const hadBook = hasBook();
-  closeChat(); stopNarration(); closeAllPopups(); endSnip?.();
+  closeChat(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
   Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
@@ -828,12 +828,14 @@ function textSpot(place) {
 // pages here; both keep one place (pos:<key>: the page, the spot in the text and the edition
 // read), so either opens where the other was left, here and on the reader's other devices.
 // Which one a PDF opens in: TinctPdfText.choice (app/src/lab/userBook/pdfEditions.ts).
-const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages > 0 : !!state.textEdition);
-const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), store.get('edition:' + hexOf(state.key)), scan?.layout?.default);
+const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages > 0 || isOcrText() : !!state.textEdition);
+// A scan whose text the account recognised (js/pdf-ocr.js): its Tinct text opens by its own default.
+const isOcrText = () => state.textEdition?.source === 'ocr';
+const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), store.get('edition:' + hexOf(state.key)), isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : scan?.layout?.default);
 const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + (page ? '&page=' + page : '');
 // Opened here but read as Tinct text: on to the Tinct reader (not for a link that asks for the pages).
 function forwardToText(scan) {
-  if (!scan || !(scan.textPages > 0) || new URLSearchParams(location.search).has('pages') || editionChoice(scan) !== 'text') return false;
+  if (!scan || !(scan.textPages > 0 || isOcrText()) || new URLSearchParams(location.search).has('pages') || editionChoice(scan) !== 'text') return false;
   const pos = store.get('pos:' + state.key);
   location.replace(textUrl(pos?.page));
   return true;
@@ -862,6 +864,102 @@ function openEditions() {
   layer.querySelector('[data-edition="pages"]').onclick = () => { closeSheet(layer); store.set('edition:' + hexOf(state.key), 'pages') };
 }
 $('textBtn').onclick = () => readAsText();
+
+/* ---------- Recognising a scan's text (js/pdf-ocr.js) ---------- */
+// A scan (no text layer) can read as Tinct text once the account has recognised its text
+// (Premium and the trial). Asked once per book; a free account sees one calm line; with the
+// account's switch off (the status route answers 404), nothing but the scan's own note. What
+// this device remembers of a book's job is `ocr:<hex>` (asked, the blank pages it found, how
+// far it got); the job itself is the account's, so it resumes on any of the reader's devices.
+const ocr = { token: 0, el: null, api: null, readyTimer: 0 };
+const ocrLocal = hex => ({ get: () => store.get('ocr:' + hex) || {}, set: patch => store.set('ocr:' + hex, { ...(store.get('ocr:' + hex) || {}), ...patch }) });
+const ocrApi = () => (ocr.api ??= TinctPdfOcr.api({ token: () => window.TinctAI?.session?.().token || null }));
+const visibleNow = () => document.visibilityState !== 'hidden';
+// Pages are made and sent only while this page is in front.
+const waitVisible = () => visibleNow() ? Promise.resolve() : new Promise(resolve => {
+  const on = () => { if (visibleNow()) { document.removeEventListener('visibilitychange', on); resolve() } };
+  document.addEventListener('visibilitychange', on);
+});
+const ACCOUNT_URL = () => '/sign-in?mode=account&returnTo=' + encodeURIComponent(location.pathname + location.search);
+function ocrStop() { ocr.token++; clearTimeout(ocr.readyTimer); ocr.el?.remove(); ocr.el = null }
+async function ocrOpen() {
+  if (!window.TinctPdfOcr || state.kind !== 'pdf') return;
+  const token = ++ocr.token, key = state.key, hex = hexOf(key);
+  const live = () => token === ocr.token && state.key === key && hasBook();
+  const status = window.TinctAI?.session?.().token ? await ocrApi().status(hex) : null;
+  if (!live()) return;
+  // Switched off, or the account cannot be asked: the scan as before.
+  if (!status) { if (!isOcrText()) toast(NO_TEXT, { hold: true }); return }
+  // Recognised on another device (or while this page was away): kept here now.
+  if (status.state === 'done' && !isOcrText()) {
+    const edition = await ocrApi().edition(hex);
+    if (!live()) return;
+    if (edition) { await ocrKeep(edition); ocrLocal(hex).set({ ready: true }); if (sameSpot(currentPlace(), state.lastPlace) && forwardToText(state.scan)) return }
+  }
+  ocrShow(status, token);
+  const goingOn = status.state === 'uploading' || status.state === 'running' || (status.state === 'paused' && status.reason === 'premium_required');
+  if (goingOn && TinctPdfOcr.canStart(status.tier)) ocrRun(token);
+}
+// The recognised text reached this device: kept with the book, and from now on the book opens
+// in its default edition (Tinct text, unless a paper); the "Tinct text" control appears.
+async function ocrKeep(edition) {
+  const hex = hexOf(state.key), choice = TinctPdfOcr.defaultEdition(edition);
+  state.textEdition = edition;
+  await library.touch(state.key, { edition });
+  store.set('edition:' + hex, choice);
+  const pos = store.get('pos:' + state.key);
+  if (pos) store.set('pos:' + state.key, { ...pos, edition: choice === 'text' ? 't' : 'p' });
+  showEditions();
+}
+async function ocrRun(token, { rerun } = {}) {
+  const key = state.key, hex = hexOf(key), pdf = state.pdf;
+  const live = () => token === ocr.token && state.key === key && hasBook();
+  const local = ocrLocal(hex);
+  try {
+    await TinctPdfOcr.run({
+      hex, pages: pdf.numPages, api: ocrApi(), local, live, rerun, waitVisible,
+      render: n => TinctPdfOcr.renderPage(pdf, n),
+      sleep: ms => new Promise(r => setTimeout(r, ms)).then(waitVisible),
+      onStatus: status => ocrShow(status, token),
+      onEdition: async (edition, status) => { await ocrKeep(edition); ocrShow(status, token) },
+    });
+  } catch (e) {
+    if (!live()) return;
+    // Premium ended meanwhile: the free line. Anything else (offline, the account busy): the
+    // pages sent so far are kept by the account, and the rest go on the next open.
+    if (e?.status === 402) ocrShow({ state: 'none', tier: 'none', pages: pdf.numPages }, token);
+  }
+}
+function ocrShow(status, token) {
+  if (token !== ocr.token) return;
+  const hex = hexOf(state.key), local = ocrLocal(hex);
+  const shown = TinctPdfOcr.view(status, local.get(), state.pdf?.numPages);
+  clearTimeout(ocr.readyTimer);
+  if (!shown) { ocr.el?.remove(); ocr.el = null; return }
+  if (!ocr.el?.isConnected) {
+    ocr.el = document.createElement('div');
+    ocr.el.className = 'byob-ocr';
+    ocr.el.setAttribute('role', 'status');
+    root.appendChild(ocr.el);
+  }
+  const el = ocr.el;
+  el.dataset.kind = shown.kind;
+  if (shown.kind === 'free') {
+    // One calm line, which opens the account sheet.
+    el.innerHTML = `<a class="byob-ocr-line" href="${esc(ACCOUNT_URL())}">${esc(shown.text)}</a>`;
+  } else if (shown.kind === 'offer') {
+    el.innerHTML = `<p class="byob-ocr-line">${esc(shown.text)}</p><div class="byob-ocr-actions"><button type="button" data-ocr="later">Not now</button><button type="button" class="primary" data-ocr="start">Recognise text</button></div>`;
+    el.querySelector('[data-ocr="later"]').onclick = () => { local.set({ asked: true }); ocrShow(status, token) };
+    el.querySelector('[data-ocr="start"]').onclick = () => { local.set({ asked: true }); el.querySelector('.byob-ocr-actions')?.remove(); ocrRun(token) };
+  } else if (shown.kind === 'failed') {
+    el.innerHTML = `<p class="byob-ocr-line">${esc(shown.text)} <button type="button" class="byob-ocr-link" data-ocr="retry">Try them again</button></p>`;
+    el.querySelector('[data-ocr="retry"]').onclick = () => { el.querySelector('[data-ocr="retry"]').disabled = true; ocrRun(token, { rerun: 'failed' }) };
+  } else {
+    el.innerHTML = `<p class="byob-ocr-line">${esc(shown.text)}</p>`;
+    // Said once; the "Tinct text" control stays.
+    if (shown.kind === 'ready') { local.set({ ready: true }); ocr.readyTimer = setTimeout(() => { if (token === ocr.token) { ocr.el?.remove(); ocr.el = null } }, 8000) }
+  }
+}
 
 // Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
 function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush() }
@@ -1119,7 +1217,7 @@ const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages' };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
-  chapterTitles ??= import('/lab/chapter-title.js?v=20261009pdf2').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
+  chapterTitles ??= import('/lab/chapter-title.js?v=20261009ocr').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
   return chapterTitles;
 }
 async function buildContents() {
@@ -1156,7 +1254,7 @@ async function buildContents() {
   // best so, unless the reader has moved here meanwhile.
   if (fresh && sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
   showEditions();
-  if (hasNoText()) toast(NO_TEXT, { hold: true });
+  if (hasNoText()) ocrOpen();
   toc.entries = scan.entries.slice().sort((a, b) => a.page - b.page);
   toc.nav = toc.entries.length ? scan.nav : 'pages';
   toc.ready = true;
@@ -1245,7 +1343,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009pdf2';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009ocr';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });

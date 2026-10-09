@@ -87,6 +87,8 @@
     const id = rec?.cloudId || cloud.get(key)?.id;
     await library.remove(key);
     store.del('place:' + key.replace(/^epub:/, ''));
+    // A scan's text being recognised: the account deletes the job with the book; this device forgets it.
+    store.del('ocr:' + key.slice(key.indexOf(':') + 1));
     if (!id) return true;
     try { await global.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
     catch { notify('Removed from this device, but not from your account. Try again.'); return false }
