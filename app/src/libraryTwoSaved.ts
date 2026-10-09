@@ -1,6 +1,7 @@
 /** The library's To read shelf. No reading position or completion writes. */
 import { supabase } from './services/supabase'
 import { coerceRev, versionedWriteApplied } from './services/supabaseStorage.versioning'
+import type { ShelfMembership } from './preReader/readingNow'
 const PREFIX = 'library-shelf:'
 const DEVICE = 'tinct:library-2-saved:'
 type Change = { saved: boolean; at: number; tableHidden?: boolean }
@@ -138,10 +139,19 @@ export async function setSavedBook(id: string, saved: boolean, options: { tableH
  * Each removal carries its time (`removedAt`, `tableHiddenAt`; 0 = unknown):
  * it holds only until the reader reads that book again, exactly like the
  * desk's own hide stamp, so no removal can hide a book being read forever.
+ * Synced with the account first (loadSavedBooks).
  */
-export async function loadShelfMembership() {
+export async function loadShelfMembership(): Promise<ShelfMembership> {
   await loadSavedBooks()
-  const owner = await account()
+  return readShelfMembership(await account())
+}
+
+/**
+ * The membership this device holds for a viewer (the account's, as last synced
+ * here), without asking the account. The reader's book switcher reads it so its
+ * "Reading now" leaves out the books taken off My shelf, as the library does.
+ */
+export function readShelfMembership(owner: string | null): ShelfMembership {
   const state = read(owner)
   const removed = Object.entries(state.items).filter(([, item]) => !item.saved)
   const tableHidden = Object.entries(state.items).filter(([, item]) => item.saved && item.tableHidden)

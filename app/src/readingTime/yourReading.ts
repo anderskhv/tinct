@@ -7,6 +7,7 @@ import type { LabPositionState } from '../lab/labPosition'
 import { finishedBookIdsFor, positionPlacesByBook, type LibraryBookInfo } from '../preReader/libraryRecap'
 import { emptyReadingMemory, type ReadingMemoryState } from '../readingMemory'
 import { booksComparison, formatDuration, type ReadingTimeStats } from './model'
+import { bookCoverSrc } from '../../public/lab/book-cover.js'
 import { PRIVATE_BOOK_ID, PRIVATE_BOOK_LABEL, isPrivateBucket } from './privateBook'
 
 export interface CatalogueEntry {
@@ -89,7 +90,8 @@ export function yourReadingView(input: {
     if (isPrivateBucket(bookId)) return null
     const book = catalogue.get(bookId)
     if (!book) return null
-    return { bookId, title: book.title, author: book.author ?? '', cover: book.art?.src ?? null, progress, hours: hoursOf(bookId) }
+    // The library's cover for the book (book-cover.js): its painting first.
+    return { bookId, title: book.title, author: book.author ?? '', cover: bookCoverSrc({ bookId, art: book.art }), progress, hours: hoursOf(bookId) }
   }
 
   const places = positionPlacesByBook(positions, infos, infos.get('bible')?.chapters ?? [])

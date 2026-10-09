@@ -3,9 +3,10 @@
  * on /lab/addbook/, which loads this as part of /lab/library-add.js): the same
  * "Reading now" list the reader's LabBookSwitcher shows, from this device only.
  * Tinct's books come from the local position record and reading memory, with
- * titles and covers from /lab/catalogue.json; the reader's own books (EPUB and
- * PDF) from Add a book's IndexedDB (ownShelf.ts). Nothing is sent anywhere;
- * own-book ids never leave the device.
+ * titles and covers from /lab/catalogue.json, less the books taken off My shelf
+ * (preReader/readingNow.ts, as the library); the reader's own books (EPUB and
+ * PDF) from Add a book's IndexedDB and the account's private copies
+ * (ownSync.ts, as the library). Own-book ids never leave the device.
  */
 import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { readLabPositionLocal } from '../labPositionStore'
@@ -14,14 +15,15 @@ import { LAB_READER_HANDOFF_KEY } from '../labReaderHandoff'
 import { readDeviceReadingMemory } from '../../readingMemory'
 import { continueHandoff } from '../../preReader/continueHandoff'
 import { ownQuickBookRows, quickBookCompletedIds, quickBookPositions, quickBookRows, withOwnBookRows, type QuickBookCatalogueEntry, type QuickBookRow } from '../../preReader/quickBookSwitcher'
-import { ownReadingNow, readOwnShelf } from './ownShelf'
+import { ownReadingNowWithAccount } from './ownSync'
+import { readShelfMembership } from '../../libraryTwoSaved'
 
 export interface SwitcherRows { rows: QuickBookRow[]; error: string }
 
 /** Reading now: Tinct's books and the reader's own, most recently read first. */
 export async function switcherRows(fetchImpl: typeof fetch = fetch, storage: Storage = localStorage): Promise<SwitcherRows> {
   const viewer = readCachedSupabaseUser()?.id ?? null
-  const ownRows = await readOwnShelf(viewer).then(books => ownQuickBookRows(ownReadingNow(books)), () => [] as QuickBookRow[])
+  const ownRows = await ownReadingNowWithAccount(viewer).then(ownQuickBookRows, () => [] as QuickBookRow[])
   let tinctRows: QuickBookRow[] = []
   let error = ''
   try {
@@ -36,6 +38,7 @@ export async function switcherRows(fetchImpl: typeof fetch = fetch, storage: Sto
       memory: readDeviceReadingMemory(),
       viewer,
       completedBookIds: quickBookCompletedIds(storage),
+      membership: readShelfMembership(viewer),
     })
   } catch {
     error = 'Showing your own books only.'

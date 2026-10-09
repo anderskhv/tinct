@@ -199,6 +199,9 @@ import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSes
 import { continueHandoff } from '../preReader/continueHandoff'
 import { ownQuickBookRows, quickBookCompletedIds, quickBookPositions, quickBookRows, withOwnBookRows, type QuickAddedBooks, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
 import { ownReadingNow, readOwnShelf } from './userBook/ownShelf'
+import { ownReadingNowWithAccount } from './userBook/ownSync'
+import { readShelfMembership } from '../libraryTwoSaved'
+import { resolveBookCover } from '../../public/lab/book-cover.js'
 import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
 import { socialProfilesOn } from '../social/socialClient'
 import './lab.css'
@@ -420,11 +423,23 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
   return BOOKS.filter(book => !isPublicBookId(book.id)).map(book => ({
     id: book.id,
     title: book.title,
+    author: book.author,
     art: { src: `/covers/v2/${book.id}.webp` },
     readingStructure: book.id === currentBookId
       ? { chapters: current.chapters.map(chapter => ({ number: chapter.number, title: chapter.title })) }
       : null,
   }))
+}
+
+/**
+ * The switcher's cover for the book open now, by the library's rule (book-cover.js):
+ * its painting, else its catalogue art, else an own book's kept picture.
+ */
+function currentSwitcherCover(bookId: string, ownBook: { cover?: string | null } | null | undefined): { coverSrc: string; coverSrcSet: string | null } {
+  const cover = ownBook
+    ? resolveBookCover({ bookId, ownCover: ownBook.cover ?? null })
+    : resolveBookCover({ bookId, art: isPublicBookId(bookId) ? registeredPublicCover(bookId) : `/covers/v2/${bookId}.webp` })
+  return { coverSrc: cover?.src ?? '', coverSrcSet: cover?.srcSet ?? null }
 }
 
 /** Desktop commands that do not apply to a user book: one edition; Listen only when own-book narration is on. */
@@ -1524,6 +1539,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         viewer,
         completedBookIds: quickBookCompletedIds(localStorage),
         added,
+        // My shelf's removals, as the library last synced them here (readingNow.ts).
+        membership: readShelfMembership(viewer),
       })
     } catch {
       return []
@@ -1562,8 +1579,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     paint()
     setBookSwitcherLoading(true)
     const owner = signedIn ? (authUser?.id ?? readCachedSupabaseUser()?.id ?? null) : null
-    const ownReady = readOwnShelf(owner)
-      .then(books => { ownRows = ownQuickBookRows(ownReadingNow(books)); paint() }, () => {})
+    // This device's own books paint at once; the account's (a book added or read on
+    // another device) follow, exactly as the library lists them (ownSync.ts).
+    let ownSettled = false
+    void readOwnShelf(owner)
+      .then(books => { if (!ownSettled) { ownRows = ownQuickBookRows(ownReadingNow(books)); paint() } }, () => {})
+    const ownReady = ownReadingNowWithAccount(owner, { token: authToken ?? undefined })
+      .then(books => { ownSettled = true; ownRows = ownQuickBookRows(books); paint() }, () => {})
     void fetch('/lab/catalogue.json')
       .then(async response => {
         if (!response.ok) throw new Error(String(response.status))
@@ -1574,7 +1596,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       })
       .catch(() => setBookSwitcherError('Showing books saved on this device.'))
       .finally(() => { void ownReady.finally(() => setBookSwitcherLoading(false)) })
-  }, [authUser?.id, book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome, signedIn, tocOpen])
+  }, [authToken, authUser?.id, book, readerControlsVisible, rowsForQuickCatalogue, showPhoneChrome, signedIn, tocOpen])
 
   const switchQuickBook = useCallback((row: QuickBookRow) => {
     if (row.href) {
@@ -5011,7 +5033,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         </p>
       </header>}
       {bookSwitcherOpen && !frontispieceVisible && <LabBookSwitcher
-        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, coverSrc: userBook ? userBook.cover ?? '' : isPublicBookId(book.bookId) ? registeredPublicCover(book.bookId) ?? '' : `/covers/v2/${book.bookId || 'bible'}.webp`, coverTone: userBook ? null : getBook(book.bookId || 'bible')?.coverColor ?? null }}
+        current={{ bookId: book.bookId || 'bible', title: book.bookTitle, chapterLabel: paintedChapterLabel, ...currentSwitcherCover(book.bookId || 'bible', userBook), coverTone: userBook ? null : getBook(book.bookId || 'bible')?.coverColor ?? null }}
         rows={bookSwitcherRows}
         loading={bookSwitcherLoading}
         error={bookSwitcherError}

@@ -4,20 +4,22 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261009cover';
+import {mountBookshelf} from './bookshelf.js?v=20261009shelf';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261009rel10';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261009shelf';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261009rel10';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261009shelf';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
+import {shortTitle} from '../book-title.js?v=20261009shelf';
+import {bookCoverSrc} from '../book-cover.js?v=20261009shelf';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -539,10 +541,23 @@ async function deleteOwnBook(book,from){
 function readingRowCard(row){
  const card=el('article','collection-card');card.dataset.shelfGroup='reading';card.dataset.rowBook=row.bookId;
  const wrap=el('div','card-wrap');const open=el('button','book-card cover-button');open.type='button';open.setAttribute('aria-label',`Open ${row.title}${row.author?', by '+row.author:''}`);
- if(row.cover){const img=el('img','cover');img.src=row.cover;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
+ const src=bookCoverSrc({bookId:row.bookId,art:row.cover});
+ if(src){const img=el('img','cover');img.src=src;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
  open.onclick=async()=>{document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination({id:row.bookId},null),new Promise(r=>setTimeout(r,240))]);location.assign(href);};
  const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=row.title;x.setAttribute('aria-label','Remove from My shelf: '+row.title);x.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(row.bookId,{title:row.title,from:x});};
- wrap.append(open,x);card.append(wrap,el('h2','',row.title),el('p','',row.author||''));return card;
+ wrap.append(open,x);card.append(wrap,el('h2','',shortTitle(row.title)),el('p','',row.author||''));return card;
+}
+/**
+ * A Currently reading card for one of the reader's own books, from its reading-table row: the same
+ * book, cover (its own picture, else the paper cover) and place as the desk. A row from an older
+ * snapshot without the record's key takes it from the own-books list; without either it waits.
+ */
+function ownReadingCard(row,ownList){
+ const listed=(ownList||[]).find(own=>ownTableId(own.key)===row.bookId)||null;
+ const key=row.ownKey||listed?.key;if(!key)return null;
+ const book={key,kind:row.kind||listed?.kind||(key.startsWith('pdf:')?'pdf':'epub'),title:row.title||listed?.title||'',author:row.author||listed?.author||'',cover:row.cover||listed?.cover||null,href:row.href||listed?.href||'',percent:row.percent??listed?.percent??null};
+ if(!book.href)return null;
+ const card=ownBookCard(book,el,{onRemove:own=>void removeOwnFromReading(own),progress:true});card.dataset.shelfGroup='own-reading';return card;
 }
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 // Removing a book from My shelf (Anders, 2026-10-09: "like Apple apps in iOS"): the
@@ -571,11 +586,18 @@ function drawMyBooks(){
  // Desk membership defines Currently reading, including older cached snapshots.
  const reading=table.reading;
  const present=new Set([...reading,...table.finished].map(row=>row.bookId));
- const groups=[['Currently reading',reading.map(r=>byId(r.bookId)).filter(Boolean),'reading'],['Saved for later',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean),'finished']];
+ // Currently reading is the reading table's own list (src/preReader/readingNow.ts), in its order:
+ // Tinct's books and the reader's own together, as the desk and the reader's book switcher list them.
+ const showOwn=addEnabled();
+ const readingCards=reading.map(row=>row.own?(showOwn?ownReadingCard(row,ownShelf):null):byId(row.bookId)?{book:byId(row.bookId)}:readingRowCard(row)).filter(Boolean);
+ const groups=[['Currently reading',readingCards,'reading'],['Saved for later',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean).map(book=>({book})),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
-  list.forEach(book=>{
+  list.forEach(item=>{
+   // A card drawn from its row (an own book, or a book the library's list does not hold yet).
+   if(item instanceof Node){grid.append(item);return;}
+   const book=item.book;
    const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;card.dataset.book=book.id;
    const toggle=open.querySelector('.save-toggle');
    // Finished books cannot be removed (Anders, 2026-10-07): they stay on the shelf.
@@ -586,19 +608,17 @@ function drawMyBooks(){
     const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
     b.addEventListener('click',async e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});
    }
-   card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);
+   card.append(open,el('h2','',shortTitle(book.title)),el('p','',book.author));grid.append(card);
   });
  });
- // A book being read that the library's list does not hold yet (an added book before the catalogue
- // arrives): its own card from the reading row, with the same × as the others.
- reading.filter(r=>!r.own&&!byId(r.bookId)).forEach(row=>{const after=[...grid.querySelectorAll('[data-shelf-group="reading"]')].pop();const card=readingRowCard(row);if(after)after.after(card);else{const head=el('h2','my-books-head','Currently reading');grid.prepend(head);head.after(card);}total++;});
  // My private uploads: this account's PDFs and EPUBs. Adding one is the + beside My shelf's heading.
+ // (Own books being read are already under Currently reading, from the reading table's list.)
  syncShelfAdd(document.querySelector('#collection>header'),()=>setSearch(true));
- if(addEnabled()){
+ if(showOwn){
   if(ownShelf===null)void loadOwnShelf();
   // The reading table's own rows carry each cover at full size (read fresh with the table).
   const covers=new Map(reading.filter(r=>r.own&&r.cover).map(r=>[r.bookId,r.cover]));
-  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,onRemoveReading:book=>void removeOwnFromReading(book),onDelete:(book,from)=>void deleteOwnBook(book,from)});
+  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,currentlyReading:false,onDelete:(book,from)=>void deleteOwnBook(book,from)});
  }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
  for(const node of grid.children){

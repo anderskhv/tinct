@@ -21,7 +21,7 @@
  * to the shared position stores (lab-position, reading memory).
  */
 import { accountBookKey, fetchAccountPlaceSets, listAccountBooks, ownBookToken, putAccountPagePlace, putAccountPlace, type AccountBook, type AccountPagePlace, type AccountPlace, type FetchLike } from './ownAccount'
-import { PDF_PLACE_PREFIX, forgetRemovedOwnBooks, ownReading, pdfReading, placePercent, readOwnShelf, type OwnShelfBook } from './ownShelf'
+import { PDF_PLACE_PREFIX, forgetRemovedOwnBooks, ownReading, ownReadingNow, pdfReading, placePercent, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './ownShelf'
 import { ownBookOpenUrl, userBookReaderUrl } from './userBookId'
 import type { UserBookChapter } from './userEdition'
 
@@ -338,6 +338,18 @@ export async function ownShelfWithAccount(owner: string | null | undefined, opti
     out.push(listed)
   }
   return out.sort((a, b) => b.at - a.at)
+}
+
+/**
+ * The reader's own books being read, as every "Reading now" lists them (the
+ * library's reading table, My shelf, the reader's book switcher): this
+ * device's and the account's (a book added or read on another device), most
+ * recently read first. Without the account, this device's.
+ */
+export async function ownReadingNowWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number } = {}): Promise<Array<OwnShelfBook & { reading: OwnShelfReading }>> {
+  if (!owner) return []
+  const books = await ownShelfWithAccount(owner, options).catch(() => readOwnShelf(owner).catch(() => [] as OwnShelfBook[]))
+  return ownReadingNow(books)
 }
 
 /**

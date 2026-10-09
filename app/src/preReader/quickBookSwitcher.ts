@@ -1,14 +1,17 @@
 import type { ReadingMemoryState } from '../readingMemory'
 import type { LabPositionState } from '../lab/labPosition'
-import { completedLibraryBookId } from './libraryCompletion'
+import { completedBookIdsIn } from './libraryCompletion'
 import { productionPlaces, withProductionPlaces } from './productionPositions'
-import { readingList, type ContinueTarget, type LibraryBookInfo } from './libraryRecap'
+import type { ContinueTarget, LibraryBookInfo } from './libraryRecap'
+import { mergeReadingNow, readingNowList, type ShelfMembership } from './readingNow'
 import { isPublicBookId } from '../../public/lab/public-books.js'
+import { resolveBookCover } from '../../public/lab/book-cover.js'
 import type { OwnShelfBook, OwnShelfReading } from '../lab/userBook/ownShelf'
 
 export interface QuickBookCatalogueEntry {
   id: string
   title: string
+  author?: string | null
   art?: { src: string; srcSet?: string } | null
   /** Generated-cover palette; its background is the book's tone when there is no art. */
   cover?: { background?: string } | null
@@ -25,6 +28,10 @@ export interface QuickBookRow {
   coverSrcSet: string | null
   /** The generated cover's ground, for the fallback cover when there is no art. */
   coverTone: string | null
+  /** For the paper cover, when there is no cover image (book-cover.js paperCover). */
+  author?: string
+  /** An own book's kind (`epub`, `pdf`), printed on its paper cover as My shelf prints it. */
+  kind?: 'pdf' | 'epub'
   target: ContinueTarget
   lastActiveAt: number
   /**
@@ -40,9 +47,11 @@ export function ownQuickBookRows(books: ReadonlyArray<OwnShelfBook & { reading: 
     bookId: book.reading.bookId,
     title: book.title,
     chapterLabel: book.reading.chapterLabel,
-    coverSrc: book.cover,
+    coverSrc: resolveBookCover({ bookId: book.reading.bookId, ownCover: book.cover })?.src ?? null,
     coverSrcSet: null,
     coverTone: null,
+    author: book.author,
+    kind: book.kind,
     target: {
       bookId: book.reading.bookId, editionKey: null, chapterNumber: book.reading.chapterNumber, chapterLabel: book.reading.chapterLabel,
       pageIndex: 0, paragraphIndex: 0, wordIndex: 0, paragraphCount: null, source: 'position', at: book.reading.lastActiveAt,
@@ -52,11 +61,9 @@ export function ownQuickBookRows(books: ReadonlyArray<OwnShelfBook & { reading: 
   }))
 }
 
-/** Tinct's rows and the reader's own books in one list, most recently read first. */
+/** Tinct's rows and the reader's own books in one list, most recently read first (readingNow.ts, as the library). */
 export function withOwnBookRows(rows: readonly QuickBookRow[], own: readonly QuickBookRow[]): QuickBookRow[] {
-  if (own.length === 0) return [...rows]
-  const ids = new Set(own.map(row => row.bookId))
-  return [...rows.filter(row => !ids.has(row.bookId)), ...own].sort((a, b) => b.lastActiveAt - a.lastActiveAt)
+  return mergeReadingNow(rows, own, row => row.bookId, row => row.lastActiveAt)
 }
 
 export function quickBookPositions(
@@ -70,17 +77,9 @@ export function quickBookPositions(
   }))
 }
 
+/** The library's completion rule over this device's records (libraryCompletion.ts). */
 export function quickBookCompletedIds(storage: Pick<Storage, 'getItem' | 'key' | 'length'>): Set<string> {
-  const ids = new Set<string>()
-  for (let index = 0; index < storage.length; index += 1) {
-    const key = storage.key(index)
-    if (!key || (!key.startsWith('tinct:book-completed:') && !key.startsWith('tinct:progress:'))) continue
-    try {
-      const id = completedLibraryBookId(key, JSON.parse(storage.getItem(key) ?? 'null'))
-      if (id) ids.add(id)
-    } catch { /* one malformed legacy record must not hide other rows */ }
-  }
-  return ids
+  return completedBookIdsIn(storage)
 }
 
 /**
@@ -128,6 +127,8 @@ export function quickBookRows(input: {
   completedBookIds?: ReadonlySet<string>
   /** Added books the built catalogue does not list (see QuickAddedBooks). */
   added?: QuickAddedBooks
+  /** The library's shelf membership on this device (libraryTwoSaved.ts readShelfMembership). */
+  membership?: ShelfMembership | null
 }): QuickBookRow[] {
   const books = withAddedBooks(input.catalogue, input.added?.entries ?? [])
   // An added book this device has no metadata for keeps the title its position
@@ -150,25 +151,30 @@ export function quickBookRows(input: {
       paragraphCount: chapter.paragraphCount,
     })),
   }]))
-  return readingList({
+  // The library's own list (readingNow.ts): the same books, removals and order.
+  return readingNowList({
     memory: input.memory,
     viewer: input.viewer,
     positions: input.positions,
     books: bookInfos,
     completedBookIds: input.completedBookIds,
+    membership: input.membership,
   }).readingNow.flatMap(row => {
     const book = catalogue.get(row.bookId)
     // A raw `pd-…` id is never a title. An added book nothing names any more
     // (gone from the index, or unknown to this device with no recorded title)
     // cannot be opened from here either, so it leaves the list.
     if (!book && isPublicBookId(row.bookId)) return []
+    // The library's cover for the book (book-cover.js): its painting first.
+    const cover = resolveBookCover({ bookId: row.bookId, art: book?.art })
     return [{
       bookId: row.bookId,
       title: book?.title ?? row.bookId,
       chapterLabel: row.target.chapterLabel,
-      coverSrc: book?.art?.src ?? null,
-      coverSrcSet: book?.art?.srcSet ?? null,
+      coverSrc: cover?.src ?? null,
+      coverSrcSet: cover?.srcSet ?? null,
       coverTone: book?.cover?.background ?? null,
+      author: book?.author ?? '',
       target: row.target,
       lastActiveAt: row.lastActiveAt,
     }]

@@ -11,9 +11,13 @@ const calls = vi.hoisted(() => ({
   ownShelf: vi.fn(async () => []),
 }))
 // The reader's own books (their private account copies and places): an independent read, stubbed here.
-vi.mock('./lab/userBook/ownSync', async original => ({
-  ...await original<typeof import('./lab/userBook/ownSync')>(), ownShelfWithAccount: calls.ownShelf,
-}))
+vi.mock('./lab/userBook/ownSync', async original => {
+  const { ownReadingNow } = await import('./lab/userBook/ownShelf')
+  return {
+    ...await original<typeof import('./lab/userBook/ownSync')>(), ownShelfWithAccount: calls.ownShelf,
+    ownReadingNowWithAccount: async (owner: string | null) => owner ? ownReadingNow(await calls.ownShelf() ?? []) : [],
+  }
+})
 vi.mock('./libraryTwoSaved', () => ({ loadShelfMembership: calls.membership, setSavedBook: calls.saved, loadSavedBooks: vi.fn() }))
 vi.mock('./services/supabase', () => ({
   supabase: {
@@ -388,7 +392,8 @@ it('leads the first paint with the book the reader just left, before the account
  await vi.waitFor(()=>expect(onCached).toHaveBeenCalled());
  const first=onCached.mock.calls[0][0];
  expect(first.reading.map((book:{bookId:string})=>book.bookId)).toEqual(['confessions','bible','to-the-lighthouse']);
- expect(first.reading[0]).toMatchObject({title:'Confessions',chapterLabel:'Book 3',cover:'/covers/confessions.webp'});
+ // The library's painting of Confessions, as every surface draws it (book-cover.js).
+ expect(first.reading[0]).toMatchObject({title:'Confessions',chapterLabel:'Book 3',cover:'/lab/library_2/assets/confessions.jpg'});
  expect(calls.readingList).not.toHaveBeenCalled();
  completed.resolve({data:[],error:null});await result;
 })

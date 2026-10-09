@@ -37,11 +37,13 @@ import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary,
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
 import { readLabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import { wholeBookProgress } from '../public/lab/library-2-model.js'
-import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, readingList, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
+import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
+import { mergeReadingNow, readingNowList } from './preReader/readingNow'
+import { bookCoverSrc } from '../public/lab/book-cover.js'
 import { conciseChapterLabel } from './preReader/recapPosition'
-import { hideOwnFromReadingTable, ownReadingNow, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './lab/userBook/ownShelf'
+import { hideOwnFromReadingTable, type OwnShelfBook, type OwnShelfReading } from './lab/userBook/ownShelf'
 import { isUserBookId, userBookHex, userBookReaderUrl } from './lab/userBook/userBookId'
-import { ownShelfWithAccount } from './lab/userBook/ownSync'
+import { ownReadingNowWithAccount } from './lab/userBook/ownSync'
 
 interface CatalogueBook {
   id: string
@@ -83,6 +85,10 @@ export interface ReadingTableBook {
   own?: boolean
   /** When the reader last read it: own books and Tinct's share one order. */
   lastActiveAt?: number
+  /** An own book's record key (`epub:<hex>`, `pdf:<hex>`), kind and URL, for My shelf's card. */
+  ownKey?: string
+  kind?: 'pdf' | 'epub'
+  href?: string
 }
 
 export interface ReadingTableFinished {
@@ -344,7 +350,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
       const ids = new Set(Object.values(positions.books).map(place => catalogueBookIdForPlace(place, books, books.get('bible')?.readingStructure?.chapters)))
       const artwork = [...ids].flatMap(id => {
         const book = id ? books.get(id) : null
-        return book ? [{ bookId: book.id, cover: book.art?.src ?? null, tone: book.cover?.background ?? null }] : []
+        return book ? [{ bookId: book.id, cover: bookCoverSrc({ bookId: book.id, art: book.art }), tone: book.cover?.background ?? null }] : []
       })
       // Warming is optional presentation work. It must not block or fail data
       // reconciliation, and never returns reading progress or recap text early.
@@ -357,7 +363,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   // The reader's own books being read, shelved with Tinct's: this device's, and
   // the account's private copies and places (a book read on another device;
   // one removed there leaves here), userBook/ownSync.ts.
-  const ownReady = auth.userId ? ownShelfWithAccount(auth.userId, { token: auth.token }).catch(() => readOwnShelf(auth.userId).catch(() => [] as OwnShelfBook[])) : Promise.resolve([] as OwnShelfBook[])
+  const ownReady = ownReadingNowWithAccount(auth.userId, { token: auth.token }).catch(() => [] as Array<OwnShelfBook & { reading: OwnShelfReading }>)
   const positionsReady = loadPositions(auth, warmArtwork)
   const memoryReady = loadRecap({
     auth: readAuth,
@@ -384,27 +390,21 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   if (needsCatalogue) options.onCached?.(withJustRead(cached ?? { mode: 'returning', reading: [], finished: [] } as ReadingTable, justRead, books.get(justRead!.bookId) ?? null))
   const [positions, membership] = await Promise.all([positionsReady, membershipReady, memoryReady, completionsReady])
   lastPositions = positionsWithProduction(positions, books)
-  const list = readingList({
+  // One list for the reading table, My shelf and the reader's book switcher
+  // (preReader/readingNow.ts): in progress, less what the reader took off it since.
+  const list = readingNowList({
     memory: readDeviceReadingMemory(),
     viewer: auth.userId,
-    // Explicit membership owns visibility; old hide stamps remain recovery data.
-    positions: lastPositions ? { ...lastPositions, hidden: {} } : null,
+    positions: lastPositions,
     books: bookInfos(books),
     completedBookIds: completedBookIds(),
+    membership,
   })
-  lastRows = new Map(list.readingNow.map(row => [row.bookId, row]))
-  // One rule for every removal of a book being read (My shelf ×, desk × to Saved for
-  // later, the legacy desk hide stamp): it hides the book only while it is at least as
-  // new as the book's latest reading. Reading the book again brings it back.
-  // An unknown removal time (0) stays hidden, as before.
-  const removedSince = (at: Record<string, number> | undefined, ids: string[], bookId: string, readAt: number | null | undefined) => {
-    if (!ids.includes(bookId)) return false
-    const removedAt = at?.[bookId] ?? 0
-    return removedAt <= 0 || removedAt >= (readAt ?? 0)
-  }
+  // Removed books still resume at their place (placeFor).
+  lastRows = new Map(list.inProgress.map(row => [row.bookId, row]))
   const table: ReadingTable = {
     mode: libraryModeFor(list),
-    reading: list.readingNow.filter(row => !removedSince(membership.removedAt, membership.removed, row.bookId, row.lastActiveAt)).map(row => {
+    reading: list.readingNow.map(row => {
       const book = books.get(row.bookId)
       const selectedEdition = book?.editions.find(edition => edition.key === row.target.editionKey)
       const estimateBook = selectedEdition?.readingStructure ? { ...book, readingStructure: selectedEdition.readingStructure } : book
@@ -413,7 +413,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         bookId: row.bookId,
         title: book?.title ?? row.bookId,
         author: book?.author ?? '',
-        cover: book?.art?.src ?? null,
+        cover: bookCoverSrc({ bookId: row.bookId, art: book?.art }),
         wordCount: selectedEdition?.wordCount ?? book?.wordCount ?? null,
         displayYear: book?.displayYear || '',
         tone: book?.cover?.background ?? null,
@@ -430,12 +430,10 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     // reappear without any stored removal being rewritten.
     finished: list.finished.map(row => {
       const book = books.get(row.bookId)
-      return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: book?.art?.src ?? null, finishedAt: row.finishedAt }
+      return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: bookCoverSrc({ bookId: row.bookId, art: book?.art }), finishedAt: row.finishedAt }
     }),
   }
-  table.reading = table.reading.filter(row => !removedSince(membership.tableHiddenAt, membership.tableHidden, row.bookId, lastRows.get(row.bookId)?.lastActiveAt)
-    && !((positions?.hidden?.[row.bookId] ?? 0) >= (lastRows.get(row.bookId)?.lastActiveAt ?? 1)))
-  table.reading = withOwnReading(table.reading, ownReadingNow(await ownReady))
+  table.reading = withOwnReading(table.reading, await ownReady)
   if (table.reading.length) table.mode = 'returning'
   // Paint each book's stored "so far" summary with the table itself, so the
   // desk never flashes the position headline first (cache reads only).
@@ -464,7 +462,7 @@ export function ownTableBook(book: OwnShelfBook & { reading: OwnShelfReading }):
     bookId: book.reading.bookId,
     title: book.title,
     author: book.author,
-    cover: book.cover,
+    cover: bookCoverSrc({ bookId: book.reading.bookId, ownCover: book.cover }),
     wordCount: book.reading.wordCount,
     displayYear: '',
     tone: null,
@@ -475,13 +473,16 @@ export function ownTableBook(book: OwnShelfBook & { reading: OwnShelfReading }):
     recap: null,
     own: true,
     lastActiveAt: book.reading.lastActiveAt,
+    ownKey: book.key,
+    kind: book.kind,
+    href: book.href,
   }
 }
 
 /** Tinct's books and the reader's own in one row, most recently read first. */
 export function withOwnReading(reading: ReadingTableBook[], own: ReadonlyArray<OwnShelfBook & { reading: OwnShelfReading }>): ReadingTableBook[] {
   if (own.length === 0) return reading
-  return [...reading, ...own.map(ownTableBook)].sort((a, b) => (b.lastActiveAt ?? 0) - (a.lastActiveAt ?? 0))
+  return mergeReadingNow(reading, own.map(ownTableBook), row => row.bookId, row => row.lastActiveAt)
 }
 
 /**
@@ -518,7 +519,7 @@ function withJustRead(table: ReadingTable, justRead: ReturnType<typeof justLeftR
         bookId: justRead.bookId,
         title: book?.title ?? justRead.title,
         author: book?.author ?? '',
-        cover: book?.art?.src ?? null,
+        cover: bookCoverSrc({ bookId: justRead.bookId, art: book?.art }),
         wordCount: book?.wordCount ?? null,
         displayYear: book?.displayYear || '',
         tone: book?.cover?.background ?? null,

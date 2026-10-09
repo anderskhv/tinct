@@ -113,8 +113,8 @@ describe('a user book in the Tinct reader', () => {
     const switcher = await screen.findByTestId('lab-book-switcher')
     expect(switcher.textContent).toContain('Reading now')
     await waitFor(() => expect(switcher.textContent).toContain('The Sovereign Child'))
-    // Only this account's own books are read from this device.
-    expect(ownShelf.owners).toEqual(['u-test'])
+    // Only this account's own books are read (this device's at once, then with the account's, as the library).
+    expect([...new Set(ownShelf.owners)]).toEqual(['u-test'])
     const rows = [...switcher.querySelectorAll('.lab-book-switcher-row')]
     // The book being read is the current row, with its own cover; the other own book follows.
     expect(rows[0].getAttribute('aria-current')).toBe('true')

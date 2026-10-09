@@ -1227,7 +1227,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009rel10';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009shelf';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
@@ -1235,7 +1235,20 @@ function switcherApi() {
   return switcherEngine;
 }
 function closeSwitcher() { const el = document.querySelector('.byob-switcher'); if (!el) return; el.remove(); $('bookBtn').focus({ preventScroll: true }) }
-function switcherCover(src) { return `<span class="lab-book-switcher-cover${src ? '' : ' is-fallback'}" aria-hidden="true">${src ? `<img src="${esc(src)}" alt="" decoding="async">` : ''}</span>` }
+// The switcher's covers and titles follow the library's rules (/lab/book-cover.js, /lab/book-title.js):
+// a book's image (a painting's small file at 32 px), else its paper cover; the short title in the one-line row.
+const SWITCHER_LOOKS = '?v=20261009shelf';
+let switcherLooks = null;
+function loadSwitcherLooks() {
+  switcherLooks ??= Promise.all([import('/lab/book-cover.js' + SWITCHER_LOOKS), import('/lab/book-title.js' + SWITCHER_LOOKS)])
+    .then(([cover, title]) => ({ paper: cover.paperCoverUrl, short: title.shortTitle }), () => ({ paper: () => '', short: t => t }));
+  return switcherLooks;
+}
+function switcherCover(src, { srcSet = null, title = '', author = '', kind = '', looks = null } = {}) {
+  const image = src || (looks ? looks.paper(title, author, kind) : '');
+  const set = src && srcSet ? ` srcset="${esc(srcSet)}" sizes="32px"` : '';
+  return `<span class="lab-book-switcher-cover${image ? '' : ' is-fallback'}" aria-hidden="true">${image ? `<img src="${esc(image)}"${set} alt="" decoding="async">` : ''}</span>`;
+}
 async function openSwitcher() {
   if (!hasBook()) return;
   if (document.querySelector('.byob-switcher')) return closeSwitcher();
@@ -1246,14 +1259,16 @@ async function openSwitcher() {
   const layer = document.createElement('div');
   layer.className = 'lab-book-switcher-backdrop byob-switcher'; layer.dataset.testid = 'lab-book-switcher';
   let rows = [], loading = true, error = '';
+  const looks = await loadSwitcherLooks();
+  const short = t => looks.short(t);
   const paint = () => {
     const active = rows.find(r => r.bookId === id);
     const ordered = active ? [active, ...rows.filter(r => r !== active)] : rows;
-    const row = (r, i) => { const on = r.bookId === id; return `<button type="button" class="lab-book-switcher-row${on ? ' is-active' : ''}"${on ? ' aria-current="true"' : ''} data-row="${i}">${switcherCover(on ? current.cover || r.coverSrc : r.coverSrc)}<span class="lab-book-switcher-copy"><strong>${esc(on ? current.title : r.title)}</strong><small>${esc(on ? current.chapterLabel : r.chapterLabel)}</small></span>${on ? '<span class="lab-book-switcher-check" aria-hidden="true">✓</span>' : ''}</button>` };
+    const row = (r, i) => { const on = r.bookId === id; return `<button type="button" class="lab-book-switcher-row${on ? ' is-active' : ''}"${on ? ' aria-current="true"' : ''} data-row="${i}">${switcherCover(on ? current.cover || r.coverSrc : r.coverSrc, { srcSet: on && current.cover ? null : r.coverSrcSet, title: on ? current.title : r.title, author: r.author, kind: r.kind, looks })}<span class="lab-book-switcher-copy"><strong title="${esc(on ? current.title : r.title)}">${esc(short(on ? current.title : r.title))}</strong><small>${esc(on ? current.chapterLabel : r.chapterLabel)}</small></span>${on ? '<span class="lab-book-switcher-check" aria-hidden="true">✓</span>' : ''}</button>` };
     layer.innerHTML = `<section class="lab-book-switcher" role="dialog" aria-modal="true" aria-label="Switch books">
       <header class="lab-book-switcher-head"><span>Reading now</span><button type="button" data-close aria-label="Close book switcher">×</button></header>
       <div class="lab-book-switcher-list">
-        ${active ? '' : `<button type="button" class="lab-book-switcher-row is-active" aria-current="true" data-close>${switcherCover(current.cover)}<span class="lab-book-switcher-copy"><strong>${esc(current.title)}</strong><small>${esc(current.chapterLabel)}</small></span><span class="lab-book-switcher-check" aria-hidden="true">✓</span></button>`}
+        ${active ? '' : `<button type="button" class="lab-book-switcher-row is-active" aria-current="true" data-close>${switcherCover(current.cover, { title: current.title, author: state.author || '', kind: state.kind || '', looks })}<span class="lab-book-switcher-copy"><strong title="${esc(current.title)}">${esc(short(current.title))}</strong><small>${esc(current.chapterLabel)}</small></span><span class="lab-book-switcher-check" aria-hidden="true">✓</span></button>`}
         ${ordered.map((r, i) => row(r, rows.indexOf(r))).join('')}
         ${loading && !ordered.length ? '<p class="lab-book-switcher-status">Loading your books…</p>' : ''}
         ${error ? `<p class="lab-book-switcher-status" role="status">${esc(error)}</p>` : ''}
