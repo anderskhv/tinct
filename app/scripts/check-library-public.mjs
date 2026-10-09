@@ -5,6 +5,8 @@ import assert from 'node:assert/strict'
 // The Worker's book-link composition, run here against the local build.
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage } from '../src/worker/lib/bookLibraryPage.ts'
 import { markInternal } from './lib/internalTraffic.cjs'
+// Local runs answer /api/public-books with an empty list: readers' added books in the live
+// catalogue (QA added ~25 on 9 Oct) are not this check's fixture.
 const root=path.resolve('dist'),out=process.env.LIBRARY_OUT||'artifacts/library-public';fs.mkdirSync(out+'/book-links',{recursive:true});
 // LIBRARY_ENGINES=chromium limits the engines; PW_CHROMIUM_PATH names a local Chromium binary.
 const engines=(process.env.LIBRARY_ENGINES||'chromium,webkit').split(','),chromiumPath=process.env.PW_CHROMIUM_PATH;
@@ -26,7 +28,7 @@ async function checkSceneFilm(b,engine,label,options,expected){
  await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};});
  const p=await c.newPage(),films=[];p.on('request',r=>{if(new URL(r.url()).pathname.endsWith('.mp4'))films.push({path:new URL(r.url()).pathname,type:r.resourceType()});});
  const pending=new Set(),errors=[];p.on('request',r=>pending.add(r));p.on('requestfinished',r=>pending.delete(r));p.on('requestfailed',r=>pending.delete(r));p.on('pageerror',e=>errors.push(e.message));
- if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
+ if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());if(u.pathname==='/api/public-books')return r.fulfill({contentType:'application/json',body:'{"books":[]}'});const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
  // The request proves the film's src; never let the browser decode it. CI's Chromium has no
  // H.264, and decoding the film the spoofed canPlayType admits has frozen the page for 20+ minutes.
  await p.route('**/*.mp4',r=>r.abort());
@@ -87,7 +89,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  stage('film browser close');await Promise.race([fb.close(),new Promise(r=>setTimeout(()=>{console.log('FILM_BROWSER_CLOSE_SLOW');r();},15000))]).catch(()=>{});
  stage('library '+engine.name());
  const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(engine===webkit?{isMobile:true,hasTouch:true}:{})}),p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
- if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
+ if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());if(u.pathname==='/api/public-books')return r.fulfill({contentType:'application/json',body:'{"books":[]}'});const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname.endsWith('/')?u.pathname+'index.html':u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
  await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.locator('#read-featured').waitFor();await p.waitForFunction(()=>document.querySelectorAll('.hero-dots button').length===5);assert.equal(await p.locator('#hero-title').innerText(),'Frankenstein');assert(!(await c.cookies()).some(x=>x.name==='tinct_library_preview'));assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'new library fits viewport');await p.waitForFunction(()=>document.querySelector('[data-metadata-book=frankenstein]')?.textContent.includes('1818'));assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-category').first().innerText(),'FICTION');assert.equal(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').first().innerText(),'1818');assert.match(await p.locator('[data-metadata-book=frankenstein] .metadata-details span').nth(1).innerText(),/^~[0-9.]+h$/);await p.screenshot({path:out+`/${live?'live':'local'}-${engine.name()}-new.png`});
  await p.locator('#menu-toggle').click();
  assert.equal(await p.locator('#library-menu details, #library-menu summary').count(),0,'main menu has top-level categories only');
