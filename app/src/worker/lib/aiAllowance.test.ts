@@ -20,6 +20,8 @@ import {
   hasPremiumAccess,
   loadPremiumAccess,
   isPaidAiFeature,
+  loadPremiumTier,
+  premiumTier,
   isSubscribed,
   loadAllowanceView,
   requestAllowsAiFeature,
@@ -72,12 +74,23 @@ describe('configuration', () => {
   })
 
   it('leaves out of the SQL spend exactly the features that are never charged', () => {
-    const sql = readFileSync(new URL('../../../supabase/migrations/20261007_ai_allowance_never_charged.sql', import.meta.url), 'utf8')
-    const excluded = /e\.feature not in \(([^)]*)\)/.exec(sql)?.[1].split(',').map(name => name.trim().replace(/'/g, '')) ?? []
-    expect([...excluded].sort()).toEqual([...NEVER_CHARGED_AI_FEATURES].sort())
+    const excludedIn = (file: string) => {
+      const sql = readFileSync(new URL(`../../../supabase/migrations/${file}`, import.meta.url), 'utf8')
+      // Same function signature as the migration already run, so it replaces it in place.
+      expect(sql).toContain('create or replace function public.ai_spend_micros(p_user uuid, p_since timestamptz, p_until timestamptz default null)')
+      return /e\.feature not in \(([^)]*)\)/.exec(sql)?.[1].split(',').map(name => name.trim().replace(/'/g, '')) ?? []
+    }
+    // The latest definition of ai_spend_micros (OCR, 2026-10-09) is the one in force.
+    expect([...excludedIn('20261009_ai_usage_ocr.sql')].sort()).toEqual([...NEVER_CHARGED_AI_FEATURES].sort())
     expect(NEVER_CHARGED_AI_FEATURES).toEqual(expect.arrayContaining(['narration_listen', 'narration_generate', 'dictation']))
-    // Same function signature as the migration already run, so it replaces it in place.
-    expect(sql).toContain('create or replace function public.ai_spend_micros(p_user uuid, p_since timestamptz, p_until timestamptz default null)')
+    // The earlier one excluded every never-charged feature that existed then.
+    expect([...excludedIn('20261007_ai_allowance_never_charged.sql')].sort()).toEqual(['dictation', 'narration_generate', 'narration_listen'])
+  })
+
+  it('allows the ocr feature in the ledger constraint', () => {
+    const sql = readFileSync(new URL('../../../supabase/migrations/20261009_ai_usage_ocr.sql', import.meta.url), 'utf8')
+    const allowed = /feature in \(([^)]*)\)/.exec(sql)?.[1].split(',').map(name => name.trim().replace(/'/g, '')) ?? []
+    expect(allowed).toEqual(expect.arrayContaining(['dictation', 'narration_generate', 'ocr', 'chat']))
   })
 })
 
@@ -237,7 +250,7 @@ describe('state', () => {
 
 describe('gate', () => {
   const paid: AiFeature[] = ['chat', 'librarian', 'talk', 'recap', 'chapter_notes', 'catch_up', 'source_search']
-  const free: AiFeature[] = ['explain', 'narration_generate', 'narration_listen']
+  const free: AiFeature[] = ['explain', 'narration_generate', 'narration_listen', 'ocr']
 
   it('allows everything while the switch is off', () => {
     for (const feature of [...paid, ...free]) expect(allowsAiFeature(false, feature, usedUp)).toBe(true)
@@ -264,8 +277,9 @@ describe('gate', () => {
     expect(NEVER_CHARGED_AI_FEATURES).toContain('dictation')
   })
 
-  it('charges neither narration nor dictation, but does count Explain', () => {
-    expect([...NEVER_CHARGED_AI_FEATURES].sort()).toEqual(['dictation', 'narration_generate', 'narration_listen'])
+  it('charges neither narration, dictation nor OCR, but does count Explain', () => {
+    expect([...NEVER_CHARGED_AI_FEATURES].sort()).toEqual(['dictation', 'narration_generate', 'narration_listen', 'ocr'])
+    expect(isPaidAiFeature('ocr')).toBe(false)
     expect(NEVER_CHARGED_AI_FEATURES).not.toContain('explain')
   })
 
@@ -347,5 +361,20 @@ describe('loadAllowanceView', () => {
       ? Response.json([{ subscription_status: 'active', subscription_period_end: null, created_at: null }])
       : new Response('missing function', { status: 404 })))
     expect(await loadAllowanceView(env, userId, now)).toBeNull()
+  })
+})
+
+describe('premium tier (trial told from paid Premium)', () => {
+  const now = new Date('2026-10-09T12:00:00Z')
+  it('is premium when subscribed, trial in the first 30 days only, none after', () => {
+    expect(premiumTier({ subscription_status: 'active', subscription_period_end: null, created_at: '2026-10-01T00:00:00Z' }, now)).toBe('premium')
+    expect(premiumTier({ subscription_status: 'canceled', subscription_period_end: '2026-11-01T00:00:00Z', created_at: '2025-01-01T00:00:00Z' }, now)).toBe('premium')
+    expect(premiumTier({ subscription_status: null, subscription_period_end: null, created_at: '2026-10-01T00:00:00Z' }, now)).toBe('trial')
+    expect(premiumTier({ subscription_status: null, subscription_period_end: null, created_at: '2026-08-01T00:00:00Z' }, now)).toBe('none')
+    expect(premiumTier({ subscription_status: 'past_due', subscription_period_end: null, created_at: '2026-08-01T00:00:00Z' }, now)).toBe('none')
+  })
+
+  it('is null when the profile cannot be read', async () => {
+    expect(await loadPremiumTier({}, 'u', now)).toBeNull()
   })
 })

@@ -169,6 +169,32 @@ export async function loadPremiumAccess(env: SupabaseEnv, userId: string, now: D
 }
 
 /**
+ * Which kind of Premium access an account has: a paid subscription, the
+ * 30-day trial (and not subscribed), or none. Features with a smaller trial
+ * ceiling (OCR of scanned PDFs: lib/ownOcr.ts) tell the two apart with it.
+ */
+export type PremiumTier = 'premium' | 'trial' | 'none'
+
+export function premiumTier(profile: AllowanceProfile, now: Date): PremiumTier {
+  if (isSubscribed(profile, now)) return 'premium'
+  const end = trialEndsAt(profile)
+  return end && now.getTime() < end.getTime() ? 'trial' : 'none'
+}
+
+/** `premiumTier` for an account, from its profile; null when the profile cannot be read. Never throws. */
+export async function loadPremiumTier(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<PremiumTier | null> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
+  try {
+    const res = await supabaseGet(env, `profiles?id=eq.${userId}&select=subscription_status,subscription_period_end,created_at`)
+    if (!res.ok) return null
+    const profile = ((await res.json()) as AllowanceProfile[])?.[0]
+    return profile ? premiumTier(profile, now) : null
+  } catch {
+    return null
+  }
+}
+
+/**
  * The reader's current billing period and its allowance.
  *  - Subscription, monthly or yearly: the calendar month, counted from
  *    Stripe's period end, that contains now. Stripe keeps the period end on
@@ -257,11 +283,12 @@ export type GatedAiFeature = AiFeature | 'dictation'
 
 /**
  * Never charged (Anders, 2026-10-06): their cost stays out of the allowance.
- * Narration (generating and listening) and chat dictation. The SQL spend sum
- * excludes exactly these (ai_spend_micros in
- * 20261007_ai_allowance_never_charged.sql; a test keeps the two equal).
+ * Narration (generating and listening), chat dictation and recognising the
+ * text of a scanned own PDF ('ocr', which has its own page and dollar
+ * ceilings: lib/ownOcr.ts). The SQL spend sum excludes exactly these
+ * (ai_spend_micros in 20261009_ai_usage_ocr.sql; a test keeps the two equal).
  */
-export const NEVER_CHARGED_AI_FEATURES: readonly GatedAiFeature[] = Object.freeze(['narration_listen', 'narration_generate', 'dictation'] as const)
+export const NEVER_CHARGED_AI_FEATURES: readonly GatedAiFeature[] = Object.freeze(['narration_listen', 'narration_generate', 'dictation', 'ocr'] as const)
 
 /**
  * Never blocked: the never-charged features, plus Explain and Define (metered

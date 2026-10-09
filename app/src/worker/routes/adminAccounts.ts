@@ -18,6 +18,8 @@ import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
 import { listOwnPlaces, listUserBooks, purgeUserBooks } from './userBooks'
 import { listProfileImages, purgeProfileImages } from './profiles'
+import type { OwnOcrCoordinator } from '../ownOcrCoordinator'
+import { listOwnOcrJobs, ocrCoordinatorName, ocrPagesName, ocrUserName, ownOcrBooks } from '../lib/ownOcr'
 
 export type AdminAccountsEnv = SupabaseEnv & {
   STRIPE_SECRET_KEY?: string
@@ -29,6 +31,12 @@ export type AdminAccountsEnv = SupabaseEnv & {
   USER_BOOKS?: R2Bucket
   /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
   NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
+  /**
+   * OCR of scanned own PDFs: one job object per book (ownOcrCoordinator.ts), its
+   * files under u/{userId}/ocr/, and the account's page and dollar counts on
+   * NARRATION_COORDINATOR (`ocr-pages:{userId}`, `ocr-user:{userId}`; lib/ownOcr.ts).
+   */
+  OWN_OCR?: DurableObjectNamespace<OwnOcrCoordinator>
 }
 
 /** The account's own-book narration spend object. */
@@ -367,7 +375,19 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     ownBookRecaps: env.USER_BOOKS
       ? await attempt('r2 own-book recaps', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/recaps/`))
       : null,
+    // Text recognised from scanned own PDFs: each job's book hex, page count, state and dates, never the text or images.
+    ownOcr: env.USER_BOOKS
+      ? await attempt('r2 own-book ocr', () => listOwnOcrJobs(env.USER_BOOKS!, account.userId))
+      : null,
   }
+
+  // OCR of own PDFs: daily page and micro-dollar counts of the last two months, nothing else.
+  const ownOcrSpend = env.NARRATION_COORDINATOR
+    ? await attempt('do own-book ocr', async () => ({
+      pages: await env.NARRATION_COORDINATOR!.getByName(ocrPagesName(account.userId)).usage(),
+      microUsd: await env.NARRATION_COORDINATOR!.getByName(ocrUserName(account.userId)).usage(),
+    }))
+    : null
 
   // Own-book narration spend: daily byte counts of the last two months, nothing else.
   const ownBookNarrationSpend = env.NARRATION_COORDINATOR
@@ -389,6 +409,7 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     durableObjects,
     r2,
     ownBookNarrationSpend,
+    ownOcrSpend,
     stripe: stripeSummary,
   }, 200, request)
 }
@@ -440,7 +461,18 @@ function purgeAndKvSteps(env: AdminAccountsEnv, userId: string, prefix: string):
       if (!env.NARRATION_COORDINATOR) throw new Error('NARRATION_COORDINATOR binding missing')
       await env.NARRATION_COORDINATOR.getByName(ownNarrationSpendName(userId)).purge()
     }],
-    // The reader's own PDF/EPUB files, their narration and recaps: every object under u/{userId}/.
+    // OCR jobs (found by their files, so before those go) stop and forget everything; then the account's page and dollar counts.
+    [`${prefix}do:own-ocr`, async () => {
+      if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
+      if (!env.NARRATION_COORDINATOR) throw new Error('NARRATION_COORDINATOR binding missing')
+      const books = await ownOcrBooks(env.USER_BOOKS, userId)
+      if (books.length && !env.OWN_OCR) throw new Error('OWN_OCR binding missing')
+      for (const hex of books) await env.OWN_OCR!.getByName(await ocrCoordinatorName(userId, hex)).cancel()
+      await env.NARRATION_COORDINATOR.getByName(ocrPagesName(userId)).purge()
+      await env.NARRATION_COORDINATOR.getByName(ocrUserName(userId)).purge()
+      return books.length ? `${books.length} job(s)` : undefined
+    }],
+    // The reader's own PDF/EPUB files, their narration, recaps and recognised text: every object under u/{userId}/.
     [`${prefix}r2:user-books`, async () => {
       if (!env.USER_BOOKS) throw new Error('USER_BOOKS binding missing')
       await purgeUserBooks(env.USER_BOOKS, userId)

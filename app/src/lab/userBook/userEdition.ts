@@ -22,7 +22,6 @@ export const USER_EDITION_CONVERTER = 6
 export const LEGACY_EDITION_CONVERTER = 5
 /** Every rule set a stored conversion may have been made with; each stays readable as it is. */
 export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, USER_EDITION_CONVERTER]
-
 /**
  * Where an edition's text comes from: an EPUB's own text (the default, when
  * absent), a text PDF's text layer (addbooks/web/src/js/pdf-text.js, "Tinct
@@ -93,15 +92,22 @@ export interface UserBookEdition {
   droppedImages: number
 }
 
+/** The rule sets an edition from `source` may have been made with (absent: an EPUB). */
+export function editionConverters(source: UserEditionSource | undefined): readonly number[] {
+  return EDITION_CONVERTERS[source ?? 'epub']
+}
+
 /**
- * A stored edition this code reads as it is: of a rule set its source knows.
- * `source`, when given, is the source the book needs (an EPUB's record never
- * opens a PDF's text, nor the other way round).
+ * A stored edition this code reads as it is: of a known source and a rule set
+ * that source knows. `source`, when given, is the source the book needs (an
+ * EPUB's record never opens a PDF's text, nor the other way round; a PDF may
+ * open its recognised text).
  */
 export function usableUserEdition(value: unknown, source?: UserEditionSource): value is UserBookEdition {
   const edition = value as UserBookEdition | null
   if (!edition || edition.format !== USER_EDITION_FORMAT) return false
+  if (edition.source !== undefined && edition.source !== 'epub' && edition.source !== 'pdf' && edition.source !== 'ocr') return false
   const from = editionSource(edition)
   if (source && from !== source && !(source === 'pdf' && from === 'ocr')) return false
-  return EDITION_CONVERTERS[from].includes(edition.converter) && Array.isArray(edition.chapters) && edition.chapters.length > 0
+  return editionConverters(from).includes(edition.converter) && Array.isArray(edition.chapters) && edition.chapters.length > 0
 }
