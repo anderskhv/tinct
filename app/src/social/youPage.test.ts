@@ -124,6 +124,45 @@ describe('Who can see you: "Send confirmation link"', () => {
     expect(document.querySelector('[data-testid="confirm-link"]')).toBeNull()
   })
 
+  it('Friends or Only me with an unconfirmed email: the page never asks to confirm (the email went out at sign-up)', async () => {
+    for (const visibility of ['friends', 'only_me']) {
+      document.body.innerHTML = '<div id="tinct-you" class="you" data-ready="false"></div>'
+      vi.resetModules()
+      const mock = stub({ visibility, effectiveVisibility: visibility, emailConfirmed: false }, () => Response.json({ ok: true }))
+      await openVisibility()
+      const main = document.querySelector('main')!
+      expect(main.textContent).not.toMatch(/confirm/i)
+      expect(document.querySelector('[data-testid="confirm-link"]')).toBeNull()
+      const everyone = [...document.querySelectorAll('.tick .item')].find(item => item.textContent?.startsWith('Everyone'))!
+      expect(everyone.querySelector('small')!.textContent).toBe('Anyone with your link, and the Everyone board.')
+      expect(confirmCalls(mock)).toHaveLength(0)
+    }
+  })
+
+  it('Everyone while unconfirmed: one quiet line and the resend button, nothing else about confirming', async () => {
+    stub(waiting, () => Response.json({ ok: true }))
+    await openVisibility()
+    const notes = [...document.querySelectorAll('main .note')].map(note => note.textContent)
+    expect(notes.filter(text => /confirm/i.test(text ?? ''))).toEqual(['Until you confirm your email, friends can see you.'])
+    expect([...document.querySelectorAll('.tick .item small')].map(line => line.textContent).filter(text => /confirm/i.test(text ?? ''))).toEqual([])
+    expect(document.querySelector('[data-testid="confirm-link"]')!.textContent).toBe('Send confirmation link')
+  })
+
+  it('the leaderboard switch never asks to confirm, whatever the visibility', async () => {
+    for (const own of [waiting, { visibility: 'friends', emailConfirmed: false }]) {
+      document.body.innerHTML = '<div id="tinct-you" class="you" data-ready="false"></div>'
+      vi.resetModules()
+      stub(own, () => Response.json({ ok: true }))
+      history.replaceState(null, '', '/you?view=onLeaderboard')
+      await import('./youPage')
+      await flush()
+      const main = document.querySelector('main')!
+      expect(main.textContent).toContain('You appear on the boards of the people who can see you.')
+      expect(main.textContent).not.toMatch(/confirm/i)
+      expect(document.querySelector('[data-testid="confirm-link"]')).toBeNull()
+    }
+  })
+
   it('picking Everyone with an unconfirmed email shows the button', async () => {
     let own: Record<string, unknown> = { visibility: 'friends', emailConfirmed: false }
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {

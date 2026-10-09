@@ -12,6 +12,10 @@
  *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
  *   POST /api/profile/confirm-link    "Send confirmation link": one service email with the signed
  *                                     /confirm link (routes/confirmLink.ts); 1 per 5 minutes, 5 a day
+ *
+ * The first GET /api/profile of a new email-and-password account (the
+ * sign-up page reads it right after the account is created) also sends that
+ * confirmation email once, automatically (sendSignUpConfirmation).
  *   GET  /api/profiles/{handle}       what this viewer may see of a profile (ship 3 builds the page on it)
  *
  * Email confirmation is not here: the link (in the welcome email, or sent again
@@ -45,6 +49,7 @@ import {
 } from '../../social/profileRules'
 import { isInternalAccount } from '../../social/socialRules'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
+import { SIGNUP_CONFIRM_DEDUPE_KEY, SIGNUP_CONFIRM_TEMPLATE, SIGNUP_CONFIRM_WINDOW_MS } from './confirmLink'
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { ProfilesUnavailable, supabaseProfileStore, type ProfileStore, type ReaderProfileRow } from '../lib/profileStore'
@@ -69,6 +74,8 @@ export interface ProfileAuthUser {
   app_metadata?: { provider?: string; providers?: string[] } & Record<string, unknown>
   user_metadata?: Record<string, unknown>
   identities?: { provider?: string }[]
+  /** When the account was created (Supabase's created_at). */
+  created_at?: string
 }
 
 export interface ProfileDeps {
@@ -82,6 +89,8 @@ export interface ProfileDeps {
   sendConfirmLink?: ((to: string, userId: string) => Promise<boolean>) | null
   /** One confirm-link email for this account now? (1 per 5 minutes, 5 a day; false when the limiter is down.) */
   confirmLinkAllowed?: (userId: string) => Promise<boolean>
+  /** Runs work after the reply (the Worker's ctx.waitUntil). Absent: awaited before replying. */
+  defer?: (promise: Promise<unknown>) => void
 }
 
 export function socialProfilesOn(env: { SOCIAL_PROFILES?: string }): boolean {
@@ -408,6 +417,11 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, bookHint && /^[a-z0-9-]{1,80}$/.test(bookHint) ? bookHint : null, random)
       await flagInternal(store, user, request)
       const account = await accountState(store, user, now)
+      if (!account.emailConfirmed) {
+        const confirmation = sendSignUpConfirmation(store, user, deps, now)
+        if (deps.defer) deps.defer(confirmation)
+        else await confirmation
+      }
       return reply({ enabled: true, available: true, profile: selfView(row, account, user) }, 200, request)
     }
 
@@ -523,6 +537,35 @@ async function sendConfirmLink(request: Request, store: ProfileStore, user: Prof
   if (!await deps.confirmLinkAllowed(user.id)) return reply({ error: 'Too many requests' }, 429, request)
   if (!await deps.sendConfirmLink(to, user.id)) return reply({ error: 'Unavailable' }, 503, request)
   return reply({ ok: true }, 200, request)
+}
+
+/**
+ * The confirmation email at sign-up (routes/confirmLink.ts): once, for a new
+ * email-and-password account whose address is not confirmed (Google accounts
+ * are confirmed by accountState first and never get here). Reserved in
+ * email_log before sending; a failed send releases the reservation so a later
+ * read may try again. Never throws: the profile and the sign-up never wait on
+ * or fail with the email.
+ */
+async function sendSignUpConfirmation(store: ProfileStore, user: ProfileAuthUser, deps: ProfileDeps, now: Date): Promise<void> {
+  try {
+    if (isGoogleAccount(user) || !deps.sendConfirmLink || !store.reserveEmail) return
+    const created = Date.parse(String(user.created_at ?? ''))
+    if (!Number.isFinite(created) || now.getTime() - created > SIGNUP_CONFIRM_WINDOW_MS) return
+    const account = await store.getAccount(user.id)
+    if (!account || account.email_confirmed_at) return
+    const to = typeof account.email === 'string' ? account.email.trim() : ''
+    if (!to || to.toLowerCase() !== String(user.email || '').trim().toLowerCase()) return
+    if (!await store.reserveEmail(user.id, SIGNUP_CONFIRM_TEMPLATE, SIGNUP_CONFIRM_DEDUPE_KEY)) return
+    let sent = false
+    try {
+      sent = await deps.sendConfirmLink(to, user.id)
+    } finally {
+      if (!sent) await store.releaseEmail?.(user.id, SIGNUP_CONFIRM_DEDUPE_KEY)
+    }
+  } catch (error) {
+    console.warn(JSON.stringify({ event: 'signup_confirm_email_failed', detail: error instanceof Error ? error.message : 'failed' }))
+  }
 }
 
 /** The relationship-aware view of one profile (ship 3's page and lists use this). */

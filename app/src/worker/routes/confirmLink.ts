@@ -72,6 +72,22 @@ export function confirmLinkSender(env: ConfirmLinkEnv, now: () => number = Date.
   }
 }
 
+/**
+ * At sign-up (Anders, 9 Oct 2026: "email addresses are confirmed at sign-up,
+ * not at the leaderboard or profile"): an email-and-password account gets this
+ * same email once, automatically, on its first profile read (the sign-up
+ * page's step 2 reads it right after the account is created; routes/
+ * profiles.ts sendSignUpConfirmation). Google accounts count as confirmed and
+ * get nothing. Once per account: the email_log row (20261008_email_log.sql,
+ * unique per reader + dedupe key) is reserved before sending and released if
+ * the send fails. Only accounts created within the last 48 hours qualify, so
+ * accounts from before this change are never emailed out of the blue. An
+ * account email like the button's: no LIFECYCLE_EMAILS, no consent, no test gate.
+ */
+export const SIGNUP_CONFIRM_TEMPLATE = 'confirm-email'
+export const SIGNUP_CONFIRM_DEDUPE_KEY = 'confirm-email:-'
+export const SIGNUP_CONFIRM_WINDOW_MS = 48 * 3600_000
+
 export const CONFIRM_LINK_GAP_MS = 5 * 60_000
 export const CONFIRM_LINK_DAILY = 5
 

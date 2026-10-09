@@ -79,6 +79,16 @@ export interface ProfileStore {
    * ever sets true. Optional: stores without it never flag.
    */
   markInternal?(id: string): Promise<void>
+  /**
+   * Reserves one account email in public.email_log (20261008_email_log.sql,
+   * unique per reader + dedupe key) BEFORE it is sent: true only for the call
+   * that inserted the row, so the same email can never go out twice. False
+   * when the row exists or the log cannot be written (send nothing).
+   * Optional: stores without it never send.
+   */
+  reserveEmail?(id: string, template: string, dedupeKey: string): Promise<boolean>
+  /** Removes a reservation whose email could not be sent. Best effort. */
+  releaseEmail?(id: string, dedupeKey: string): Promise<void>
 }
 
 const OWN_COLUMNS = 'id,display_name,handle,picture_kind,picture_value,picture_review,background_kind,background_value,background_review,visibility,show_reading,show_time,on_leaderboard,new_books_open_in,auto_created,set_up_at,prompted_at,updated_at'
@@ -145,6 +155,28 @@ export function supabaseProfileStore(env: SupabaseEnv): ProfileStore {
     async markInternal(id) {
       // A no-op once flagged; updated_at is left alone (the photo review queue orders by it).
       await write(env, 'PATCH', `reader_profiles?id=eq.${id}&internal=is.false`, { internal: true })
+    },
+    async reserveEmail(id, template, dedupeKey) {
+      // Same reservation as the lifecycle engine's (lifecycle/runtime.ts reserve).
+      if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return false
+      try {
+        const res = await fetch(`${env.SUPABASE_URL}/rest/v1/email_log?on_conflict=user_id,dedupe_key`, {
+          method: 'POST',
+          headers: headers(env, { 'Content-Type': 'application/json', Prefer: 'resolution=ignore-duplicates,return=representation' }),
+          body: JSON.stringify({ user_id: id, template, book_id: null, dedupe_key: dedupeKey, meta: {} }),
+        })
+        if (!res.ok) return false
+        const inserted = await res.json() as unknown[]
+        return Array.isArray(inserted) && inserted.length === 1
+      } catch {
+        return false
+      }
+    },
+    async releaseEmail(id, dedupeKey) {
+      if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return
+      try {
+        await fetch(`${env.SUPABASE_URL}/rest/v1/email_log?user_id=eq.${id}&dedupe_key=eq.${encodeURIComponent(dedupeKey)}`, { method: 'DELETE', headers: headers(env, { Prefer: 'return=minimal' }) })
+      } catch { /* the reservation stays; the email is not retried */ }
     },
     async getCardByHandle(handle) {
       return (await rows<PublicCardRow>(env, `public_profile_cards?handle=eq.${encodeURIComponent(handle)}&select=${CARD_COLUMNS}&limit=1`))[0] ?? null
