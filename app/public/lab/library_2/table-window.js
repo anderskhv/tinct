@@ -18,3 +18,21 @@ export function tableWindow(costs, current, room, max = MAX_SPINES) {
   }
   return { from, to };
 }
+
+/** The library's cover shape (width/height), and the shape of a book whose cover has not loaded. */
+export const COVER_ASPECT = 2 / 3;
+/** Covers keep their own shape between these width/height ratios; beyond them the face is held to the bound and the painting letterboxed. */
+export const MIN_COVER_ASPECT = 0.5, MAX_COVER_ASPECT = 1;
+/** The widest a book stands, as a share of the table's book height: a cover wider than 3:4 stands shorter instead. */
+export const MAX_BOOK_WIDTH = 0.75;
+/**
+ * A book's front face on the table, `height` being the table's book height: the
+ * shape of its own cover (`aspect` = naturalWidth / naturalHeight), so a cover is
+ * never stretched or cropped. Up to 3:4 it stands the full height; wider covers
+ * stand shorter, at most MAX_BOOK_WIDTH × height wide.
+ */
+export function bookBox(height, aspect) {
+  const shape = Number.isFinite(aspect) && aspect > 0 ? Math.min(MAX_COVER_ASPECT, Math.max(MIN_COVER_ASPECT, aspect)) : COVER_ASPECT;
+  const w = Math.min(height * shape, height * MAX_BOOK_WIDTH);
+  return { w, h: w / shape };
+}

@@ -5,7 +5,8 @@
 // The books are real 3D boxes (cover, spine, head, fore-edge, back) standing
 // on one table line under one camera. The book being read is pulled out and
 // turned to face the reader; the others stand spine-out beside it. Changing
-// book moves every box in one transition, so nothing is ever stretched.
+// book moves every box in one transition, so nothing is ever stretched. Each
+// box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009rel10';
 import { coverAsset } from './cover-assets.js?v=20260928covers';
 
@@ -13,8 +14,8 @@ import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
 import { paperCover } from './add-to-tinct.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
-import { tableWindow, MAX_SPINES } from './table-window.js?v=20261009rel10';
-import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009motion';
+import { tableWindow, MAX_SPINES, bookBox, COVER_ASPECT } from './table-window.js?v=20261009cover';
+import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -301,6 +302,24 @@ function wire(view, table, demo, keepBookId, options={}) {
   // (fixed by count, so the stage's height never depends on its own layout).
   view.classList.toggle('has-many', books.length >= PHONE_DOTS_FROM);
   let turn = 1, H = 0, stageW = 0, summaryTimer = null, swapTimer = null, shown = -1, moveMs = 0, moveTimer = 0;
+  // Each book is as wide as its own cover (naturalWidth / naturalHeight, held to bookBox's
+  // bounds), never a fixed 2:3 box: The Beginning of Infinity's 1600×2560 EPUB cover lost
+  // "THE" and "DEUTSCH" to object-fit: cover in one (Anders, 2026-10-09). A cover read later
+  // (a library painting through prepareCover, an own book's cover arriving) re-measures it.
+  const aspects = books.map(() => COVER_ASPECT);
+  const size = i => bookBox(H, aspects[i]);
+  books.forEach((book, i) => {
+    const img = book.querySelector('.rt-front img');
+    const measure = () => {
+      if (!img.naturalWidth || !img.naturalHeight) return;
+      const aspect = img.naturalWidth / img.naturalHeight;
+      if (Math.abs(aspect - aspects[i]) < 1e-3) return;
+      aspects[i] = aspect;
+      if (H) layout(shown === -1 || view.classList.contains('is-preparing'));
+    };
+    img.addEventListener('load', measure);
+    if (img.complete) measure();
+  });
 
   const remove = view.querySelector('#rt-remove'), dialog = view.querySelector('#rt-remove-dialog');
   let removeFrame=0;
@@ -365,12 +384,12 @@ function wire(view, table, demo, keepBookId, options={}) {
    * never overlap, and the row is centred on the stage.
    */
   function layout(instant) {
-    const W = H * 2 / 3, gap = Math.max(2, H * 0.01);
+    const gap = Math.max(2, H * 0.01);
     // Room for the remove × (36px, centred on the cover's corner) before the next spine.
     const around = Math.max(H * 0.08, options.onRemoveReading ? 24 : 0);
     const face = 12 * turn, rad = Math.abs(face) * Math.PI / 180;
     const depth = i => H * depthRatio(table.reading[i]);
-    const chosenFoot = W * Math.cos(rad) + depth(current) * Math.sin(rad);
+    const chosenFoot = size(current).w * Math.cos(rad) + depth(current) * Math.sin(rad);
     const pad = innerWidth >= 900 ? 0 : 20, minEdge = -stageW / 2 + pad, maxEdge = stageW / 2 - pad;
     const { from, to } = tableWindow(table.reading.map((_, i) => depth(i) + gap), current, Math.max(0, maxEdge - minEdge - chosenFoot - 2 * around), MAX_SPINES);
     const xs = [];
@@ -393,8 +412,13 @@ function wire(view, table, demo, keepBookId, options={}) {
       book.classList.toggle('is-away', i < from || i > to);
       book.style.transitionDuration = instant || reduced ? '0s' : moveMs ? `${moveMs}ms` : '';
       book.style.transitionTimingFunction = moveMs && !instant ? MOVE_EASE : '';
+      // Its own cover's shape; the depth stays the table's (a shorter, wider book is no thinner).
+      const { w, h } = size(i);
+      book.style.setProperty('--bw', `${w.toFixed(1)}px`);
+      book.style.setProperty('--bh', `${h.toFixed(1)}px`);
+      book.style.setProperty('--d', `${depth(i).toFixed(1)}px`);
       // Spine-out books step back so their spines line up with the chosen book's cover, not their centres.
-      const z = chosen ? H * 0.05 : -(W / 2 - depth(i) / 2);
+      const z = chosen ? H * 0.05 : -(w / 2 - depth(i) / 2);
       book.style.transform = `translate3d(${(xs[i] + shift).toFixed(1)}px,0,${z.toFixed(1)}px) rotateY(${chosen ? face : 90}deg)`;
       book.setAttribute('aria-current', String(chosen));
       book.tabIndex = chosen ? 0 : -1;
@@ -562,7 +586,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     for(let i=books.length-1;i>=0;i--){
       if(!gone.has(table.reading[i].bookId))continue;
       const leaving=books[i],dot=dots[i];
-      books.splice(i,1);table.reading.splice(i,1);dots.splice(i,1);dot?.remove();
+      books.splice(i,1);aspects.splice(i,1);table.reading.splice(i,1);dots.splice(i,1);dot?.remove();
       leaving.classList.remove('is-current');leaving.removeAttribute('data-i');
       if(still)fadeOut(leaving,{transform:leaving.style.transform,faces:leaving.children}).then(()=>leaving.remove());else leaving.remove();
     }

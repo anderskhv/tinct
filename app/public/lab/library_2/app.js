@@ -4,7 +4,7 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261009motion';
+import {mountBookshelf} from './bookshelf.js?v=20261009cover';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
@@ -16,7 +16,7 @@ import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261009rel10';
 import {librarySearch} from './library-search.js?v=20261009rel10';
-import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009motion';
+import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
