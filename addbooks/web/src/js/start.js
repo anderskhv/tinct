@@ -3,7 +3,7 @@
 // opens a file in place with add-engine.js). What remains here is the PDF reader (reader.js):
 // route.js sends every other visit to My shelf before the page draws, and this file opens the
 // one book a link names (?userBook=<hex>, or an older ?open=<key>), or takes an older link's handed-over file, then returns to My shelf.
-import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=20261008rel9';
+import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=20261009ipad';
 
 const params = new URLSearchParams(location.search);
 export const MY_SHELF = '/library#my-shelf';
