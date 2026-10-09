@@ -460,6 +460,23 @@ describe('admin account routes', () => {
     expect(w.userBooks.objects.has(`u/${otherUser}/places/${pdfHex}`)).toBe(true)
   })
 
+  it('exports own-book cover images (listed, never the bytes) and deletes them with the account prefix', async () => {
+    const w = world()
+    const hex = 'c3'.repeat(12)
+    const cover = (owner: string, size: number) => w.userBooks.objects.set(`u/${owner}/covers/${hex}`, {
+      key: `u/${owner}/covers/${hex}`, bytes: new Uint8Array(size), uploaded: new Date('2026-10-09T00:00:00Z'), customMetadata: {}, httpMetadata: { contentType: 'image/jpeg' },
+    })
+    cover(userId, 4321)
+    cover(otherUser, 999)
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.r2.ownBookCovers).toEqual([{ bookHex: hex, size: 4321, uploaded: '2026-10-09T00:00:00.000Z' }])
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/`))).toEqual([])
+    expect(w.userBooks.objects.has(`u/${otherUser}/covers/${hex}`)).toBe(true)
+  })
+
   it('keeps the auth user when the narration coordinator is not bound, so the spend record is never orphaned', async () => {
     const w = world()
     delete (w.env as { NARRATION_COORDINATOR?: unknown }).NARRATION_COORDINATOR

@@ -20,6 +20,7 @@ import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
 import { fetchAccountCopy, ownBookToken, type AccountCopy } from './ownAccount'
+import { cachedStoredCover, offerCoverToAccount } from './ownCovers'
 
 const STORE = 'books'
 
@@ -59,6 +60,8 @@ export interface LoadedUserBook {
   place: UserBookPlace | null
   /** The book's own cover (a data: URL kept on this device), or null. */
   cover?: string | null
+  /** Without one here: the account's stored copy of it, as this device kept it (ownCovers.ts), or null. */
+  storedCover?: string | null
 }
 
 export type UserBookOpenResult =
@@ -243,12 +246,20 @@ export async function openUserBook(hex: string, options: { owner?: string | null
   const images = new Map<string, Blob>([...data].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
   // A cover kept before full-size covers (a 180 px thumbnail, or none drawn) is drawn
   // again from the file, after the book has opened.
-  if (shouldHealCover(record)) {
+  const heal = shouldHealCover(record)
+  if (heal) {
     const bytes = record.bytes!
     setTimeout(() => { void healCover(key, owner, bytes).catch(() => {}) }, COVER_HEAL_DELAY_MS)
   }
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
-  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover } }
+  // A cover this device has goes to an account copy that has none (once per book per page
+  // load); a cover being drawn again goes when healCover has drawn it.
+  if (cover && !heal && !offered.has(hex)) {
+    offered.add(hex)
+    setTimeout(() => { void offerCoverToAccount(hex, cover).catch(() => false) }, COVER_HEAL_DELAY_MS)
+  }
+  const storedCover = cover ? null : await cachedStoredCover(owner, hex).catch(() => null)
+  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover, storedCover } }
 }
 
 /**
@@ -267,13 +278,21 @@ export function conversionRules(stored: unknown, placeConverter: number | null |
 }
 
 const COVER_HEAL_DELAY_MS = 1500
+/** Books whose cover this page load has offered to the account already. */
+const offered = new Set<string>()
 
 function shouldHealCover(record: UserBookRecord): boolean {
   return record.kind === 'epub' && !!record.bytes && !(Number(record.coverV) >= OWN_COVER_VERSION) && canDrawCover()
 }
 
-/** Draw the book's cover from its file at full size and keep it on the record (one transaction). */
-export async function healCover(key: string, owner: string, bytes: ArrayBuffer): Promise<boolean> {
+/** The cover drawn by healCover goes to the account copy when it has none; injectable for tests. */
+export type CoverOffer = (hex: string, cover: string) => Promise<boolean>
+
+/**
+ * Draw the book's cover from its file at full size and keep it on the record
+ * (one transaction); then send its small copy to the account copy, when that has none.
+ */
+export async function healCover(key: string, owner: string, bytes: ArrayBuffer, offer: CoverOffer = offerCoverToAccount): Promise<boolean> {
   if (!canDrawCover()) return false
   const { readEpubCover } = await import('./epubEdition')
   const picture = await readEpubCover(new Uint8Array(bytes)).catch(() => null)
@@ -281,8 +300,9 @@ export async function healCover(key: string, owner: string, bytes: ArrayBuffer):
   // A picture this browser could not draw is tried again on the next open.
   if (picture && !drawn) return false
   const db = await openDb()
+  let kept = false
   try {
-    return await new Promise<boolean>((resolve, reject) => {
+    kept = await new Promise<boolean>((resolve, reject) => {
       const tx = db.transaction(STORE, 'readwrite')
       const store = tx.objectStore(STORE)
       let kept = false
@@ -298,6 +318,12 @@ export async function healCover(key: string, owner: string, bytes: ArrayBuffer):
       tx.onabort = () => reject(tx.error)
     })
   } finally { db.close() }
+  if (kept && drawn) {
+    const hex = key.slice(key.indexOf(':') + 1)
+    offered.add(hex)
+    void offer(hex, drawn.url).catch(() => false)
+  }
+  return kept
 }
 
 function storedImages(value: unknown): Map<string, UserBookImage> {

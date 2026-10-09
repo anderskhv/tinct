@@ -207,7 +207,7 @@
   }
   const books = {
     maxBytes: BOOK_BYTES,
-    // -> [{ id, name, title, author, type: 'pdf'|'epub', size, sha256, createdAt }]
+    // -> [{ id, name, title, author, type: 'pdf'|'epub', size, sha256, createdAt, cover: URL of its stored cover | null }]
     async list() { return (await (await booksFetch('')).json()).books || [] },
     // `file`: a Blob or File. -> the stored record (the same one when this account already has the file).
     async upload(file, meta = {}) {
@@ -222,6 +222,12 @@
       return (await r.json()).book;
     },
     async download(id) { return new Uint8Array(await (await booksFetch('/' + encodeURIComponent(id))).arrayBuffer()) },
+    // The small copy of a book's cover (a JPEG or WebP Blob under 64 KB), kept with its account copy.
+    // `hex`: the first 24 hex digits of the file's SHA-256. -> the stored cover's URL.
+    async putCover(hex, image) {
+      if (!/^[0-9a-f]{24}$/.test(String(hex)) || !(image instanceof Blob) || image.size > 64 * 1024) throw err('bad_request');
+      return (await (await booksFetch('/covers/' + hex, { method: 'PUT', body: image, headers: { 'Content-Type': image.type || 'image/jpeg' } })).json()).cover || null;
+    },
     async remove(id) {
       try { await booksFetch('/' + encodeURIComponent(id), { method: 'DELETE' }) }
       catch (e) { if (e.code !== 'not_found') throw e }

@@ -7,7 +7,9 @@
 //   1. the library's painting of a Tinct book (assets/<id>.jpg);
 //   2. the catalogue's own art (/covers/v2/…, or an added book's painting from the Worker);
 //   3. a reader's own book: its own picture, kept on this device (a data: URL);
-//   4. nothing (null): the surface draws the paper cover (paperCover below).
+//   4. else the small copy of that picture kept with the book's account copy, read on
+//      another device of the account (a data: URL kept on this device; userBook/ownCovers.ts);
+//   5. nothing (null): the surface draws the paper cover (paperCover below).
 
 /** Tinct books the library has a painting of (assets/<id>.jpg, 1024 px; thumbs/<id>.webp, 240 px). */
 export const PAINTED_COVER_IDS = Object.freeze(['frankenstein', 'jekyll-and-hyde', 'candide', 'julius-caesar', 'the-prince', 'meditations', 'jane-eyre', 'odyssey', 'crime-and-punishment', 'pride-and-prejudice', 'to-the-lighthouse', 'iliad', 'the-republic', 'confessions', 'nicomachean-ethics']);
@@ -29,15 +31,16 @@ export function ownCoverImage(cover) {
 
 /**
  * A book's cover: `{ src, srcSet }`, or null for the paper cover.
- * `art` is the catalogue's `art` ({ src, srcSet }) or its src; `ownCover` an own book's kept picture.
+ * `art` is the catalogue's `art` ({ src, srcSet }) or its src; `ownCover` an own book's kept picture;
+ * `storedCover` the account's copy of it, used only when this device has none.
  * srcSet (with `w` descriptors) lets a small surface (the switcher's 32 px rows) take a small file.
  */
-export function resolveBookCover({ bookId, art = null, ownCover = null } = {}) {
+export function resolveBookCover({ bookId, art = null, ownCover = null, storedCover = null } = {}) {
   const paintedSrc = paintedCover(bookId);
   if (paintedSrc) return { src: paintedSrc, srcSet: `${PAINTED_BASE}thumbs/${bookId}.webp ${PAINTED_WIDTHS.thumb}w, ${paintedSrc} ${PAINTED_WIDTHS.full}w` };
   const artSrc = typeof art === 'string' ? art : typeof art?.src === 'string' ? art.src : '';
   if (artSrc) return { src: artSrc, srcSet: typeof art === 'object' && typeof art?.srcSet === 'string' && art.srcSet ? art.srcSet : null };
-  const own = ownCoverImage(ownCover);
+  const own = ownCoverImage(ownCover) || ownCoverImage(storedCover);
   return own ? { src: own, srcSet: null } : null;
 }
 

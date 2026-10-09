@@ -7,10 +7,10 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009shelf';
-import { coverAsset } from './cover-assets.js?v=20261009shelf';
-import { ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009shelf';
-import { shortTitle } from '../book-title.js?v=20261009shelf';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009owncover';
+import { coverAsset } from './cover-assets.js?v=20261009owncover';
+import { ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009owncover';
+import { shortTitle } from '../book-title.js?v=20261009owncover';
 
 import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';

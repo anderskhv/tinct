@@ -434,11 +434,11 @@ function quickCatalogueFallback(current: LabSource): QuickBookCatalogueEntry[] {
 
 /**
  * The switcher's cover for the book open now, by the library's rule (book-cover.js):
- * its painting, else its catalogue art, else an own book's kept picture.
+ * its painting, else its catalogue art, else an own book's kept picture (or the account's copy of it).
  */
-function currentSwitcherCover(bookId: string, ownBook: { cover?: string | null } | null | undefined): { coverSrc: string; coverSrcSet: string | null } {
+function currentSwitcherCover(bookId: string, ownBook: { cover?: string | null; storedCover?: string | null } | null | undefined): { coverSrc: string; coverSrcSet: string | null } {
   const cover = ownBook
-    ? resolveBookCover({ bookId, ownCover: ownBook.cover ?? null })
+    ? resolveBookCover({ bookId, ownCover: ownBook.cover ?? null, storedCover: ownBook.storedCover ?? null })
     : resolveBookCover({ bookId, art: isPublicBookId(bookId) ? registeredPublicCover(bookId) : `/covers/v2/${bookId}.webp` })
   return { coverSrc: cover?.src ?? '', coverSrcSet: cover?.srcSet ?? null }
 }

@@ -78,7 +78,12 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 8 October 2026')
+    expect(privacy).toContain('Last updated: 9 October 2026')
+  })
+
+  // Own-book covers stored with the account copy (2026-10-09).
+  it('privacy: says a small image of an own book\'s cover is kept privately with its account copy and deleted with it', () => {
+    expect(privacyText).toContain('You can remove it from your books at any time, and it is deleted when your account is deleted. A small image of the book\'s cover is kept privately with that copy, so your other devices show it, and is deleted with the book.')
   })
 
   it('terms §4: own books are processed on the reader’s instruction; the compensation follows Danish law (v3.1)', () => {
@@ -99,5 +104,13 @@ describe('privacy: account deletion', () => {
     expect(privacyText).toContain('You can also ask for deletion by writing to contact@tinct.app; it is completed within 30 days of the request.')
     expect(privacyText).not.toContain('You may request deletion of your account and all associated data by writing to')
     expect(privacyText).toContain('Deletion: delete your account and all associated data in Settings → Account, or ask us to.')
+  })
+})
+
+describe('privacy: retention', () => {
+  const privacyText = text(privacy)
+  it('says the email send record and the reader-data change history are deleted after 24 months, like analytics', () => {
+    expect(privacyText).toContain('Account and reading data are kept for as long as your account exists. Analytics events, usage records, the record of the emails we have sent you and the history of changes to your reading data are kept for 24 months and then deleted automatically.')
+    expect(privacyText).not.toContain('Analytics events and usage records are kept for 24 months')
   })
 })

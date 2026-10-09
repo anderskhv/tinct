@@ -3,8 +3,10 @@
  * (docs/lifecycle-emails/templates/announce.*), site admins only.
  *
  * Body: { campaign: "add-any-book-2026-10", omitFeatures?: [...], dryRun?: true }
- * - campaign: a slug; each reader gets a campaign at most once (send log key
- *   `announce:<campaign>`), so repeating the call is safe.
+ * - campaign: a slug ending in its month (-YYYY-MM); each reader gets a
+ *   campaign at most once (send log key `announce:<campaign>`), so repeating
+ *   the call is safe. It sends only from a month before that month to 12
+ *   months after it, inside the send log's 24 months (announceCampaignOpen).
  * - omitFeatures: feature rows not live at send time, from ANNOUNCE_FEATURES
  *   (their row, and their privacy sentence, are dropped from both parts).
  * - dryRun: returns the rendered email and the recipient count; sends nothing.
@@ -13,7 +15,7 @@
  * tinct{n}@fastmail.com aliases (and Anders's own account) can receive it.
  */
 import { jsonResponse } from '../lib/responses'
-import { ANNOUNCE_DEFAULTS, ANNOUNCE_FEATURES, LIBRARY_ART, runAnnouncement, SENDER_ADDRESS } from '../lifecycle/engine'
+import { ANNOUNCE_DEFAULTS, ANNOUNCE_FEATURES, announceCampaignOpen, LIBRARY_ART, runAnnouncement, SENDER_ADDRESS } from '../lifecycle/engine'
 import { renderEmail } from '../lifecycle/render'
 import { configured, createLifecycleDeps, lifecycleEmailsOn, lifecycleProfiles, type LifecycleEnv } from '../lifecycle/runtime'
 
@@ -29,6 +31,9 @@ export async function handleAdminAnnounceEmail(request: Request, env: LifecycleE
   try { body = await request.json() } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
   const campaign = typeof body?.campaign === 'string' ? body.campaign : ''
   if (!/^[a-z0-9][a-z0-9-]{2,60}$/.test(campaign)) return jsonResponse({ error: 'campaign must be a slug (a-z, 0-9, -)' }, 400, request)
+  if (body.dryRun !== true && !announceCampaignOpen(campaign, Date.now())) {
+    return jsonResponse({ error: 'campaign must end in its month (-YYYY-MM) and is sent from a month before it to 12 months after' }, 400, request)
+  }
   const omit = Array.isArray(body.omitFeatures) ? body.omitFeatures : []
   const known = new Set<string>(ANNOUNCE_FEATURES)
   if (!omit.every(item => typeof item === 'string' && known.has(item))) {

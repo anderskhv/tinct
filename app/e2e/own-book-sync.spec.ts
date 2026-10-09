@@ -1,7 +1,9 @@
 import { expect, test, type Browser, type BrowserContext, type Page } from '@playwright/test'
 import { createHash, randomBytes } from 'node:crypto'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book e2e tests
-import { zip } from '../../addbooks/web/test/make-epub.mjs'
+import { png, zip } from '../../addbooks/web/test/make-epub.mjs'
+import { mkdirSync } from 'node:fs'
+import { join } from 'node:path'
 
 /**
  * A reader's own EPUB on two devices of one account (two browser profiles):
@@ -9,7 +11,9 @@ import { zip } from '../../addbooks/web/test/make-epub.mjs'
  * both profiles share) opens on a device without the file, replaces a local
  * copy that cannot be read, a book removed on one device leaves the other's
  * shelf, and the place read on one device opens on the other (the account's
- * private places, `/api/user-books/places`).
+ * private places, `/api/user-books/places`), and a book added with its cover on
+ * one device wears that cover on the other before it is opened there (the
+ * account's stored cover, `/api/user-books/covers`).
  *
  * Run against a vite dev server started with a dummy Supabase project:
  *   VITE_SUPABASE_URL=https://local.supabase.co VITE_SUPABASE_ANON_KEY=dummy npx vite --port 5287
@@ -21,28 +25,31 @@ const USER = '33333333-3333-4333-8333-333333333333'
 const TOKEN_SUB = USER
 
 const para = (chapter: number, index: number) => `Chapter ${chapter} paragraph ${index}: ${'the river bends past the mill and the old stone bridge '.repeat(4)}`
-function bookEpub(title: string): Buffer {
+function bookEpub(title: string, cover?: Buffer): Buffer {
   const chapters = [1, 2, 3, 4]
   const xhtml = (n: number) => `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><body><h1>Part ${n}</h1>${Array.from({ length: 30 }, (_, i) => `<p>${para(n, i + 1)}</p>`).join('')}</body></html>`
   return zip([
     ['mimetype', 'application/epub+zip'],
     ['META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'],
-    ['OEBPS/content.opf', `<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">${title}</dc:identifier><dc:title>${title}</dc:title><dc:creator>Test Author</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>${chapters.map(n => `<item id="c${n}" href="c${n}.xhtml" media-type="application/xhtml+xml"/>`).join('')}</manifest><spine>${chapters.map(n => `<itemref idref="c${n}"/>`).join('')}</spine></package>`],
+    ['OEBPS/content.opf', `<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">${title}</dc:identifier><dc:title>${title}</dc:title><dc:creator>Test Author</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>${chapters.map(n => `<item id="c${n}" href="c${n}.xhtml" media-type="application/xhtml+xml"/>`).join('')}${cover ? '<item id="cover" href="cover.png" media-type="image/png" properties="cover-image"/>' : ''}</manifest><spine>${chapters.map(n => `<itemref idref="c${n}"/>`).join('')}</spine></package>`],
     ['OEBPS/nav.xhtml', `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><body><nav epub:type="toc"><ol>${chapters.map(n => `<li><a href="c${n}.xhtml">Part ${n}</a></li>`).join('')}</ol></nav></body></html>`],
     ...chapters.map(n => [`OEBPS/c${n}.xhtml`, xhtml(n)]),
+    ...(cover ? [['OEBPS/cover.png', cover]] : []),
   ])
 }
 
 interface CloudBook { id: string; name: string; title: string; author: string; type: 'epub'; size: number; sha256: string; createdAt: string; bytes: Buffer }
+interface CloudCover { bytes: Buffer; type: string; v: string }
 interface CloudPlace { chapterNumber: number; paragraphIndex: number; wordIndex: number; updatedAt: number; percent?: number; rev: number }
 
 /** One account both profiles sign in to: its private copies and places. */
 function account() {
   const books = new Map<string, CloudBook>()
   const places = new Map<string, CloudPlace>()
+  const covers = new Map<string, CloudCover>()
   const calls: string[] = []
   return {
-    books, places, calls,
+    books, places, covers, calls,
     add(bytes: Buffer, title: string): CloudBook {
       const sha256 = createHash('sha256').update(bytes).digest('hex')
       const book: CloudBook = { id: randomBytes(16).toString('hex'), name: `${title}.epub`, title, author: 'Test Author', type: 'epub', size: bytes.byteLength, sha256, createdAt: new Date().toISOString(), bytes }
@@ -52,13 +59,16 @@ function account() {
     remove(id: string) {
       const book = books.get(id)
       books.delete(id)
-      if (book) places.delete(book.sha256.slice(0, 24))
+      if (book) { places.delete(book.sha256.slice(0, 24)); covers.delete(book.sha256.slice(0, 24)) }
     },
   }
 }
 type Account = ReturnType<typeof account>
 const hexOf = (book: CloudBook) => book.sha256.slice(0, 24)
-const meta = ({ bytes: _bytes, ...rest }: CloudBook) => rest
+const meta = (store: Account) => ({ bytes: _bytes, ...rest }: CloudBook) => {
+  const cover = store.covers.get(rest.sha256.slice(0, 24))
+  return { ...rest, cover: cover ? `/api/user-books/covers/${rest.sha256.slice(0, 24)}?v=${cover.v}` : null }
+}
 
 async function device(browser: Browser, store: Account, viewport = { width: 1280, height: 860 }): Promise<{ context: BrowserContext; page: Page }> {
   const context = await browser.newContext({ baseURL: BASE_URL, viewport })
@@ -69,13 +79,38 @@ async function device(browser: Browser, store: Account, viewport = { width: 1280
   const session = { access_token: `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ sub: TOKEN_SUB, exp, role: 'authenticated' })}.fixture`, refresh_token: 'fixture', token_type: 'bearer', expires_in: 3600, expires_at: exp, user }
   await context.addInitScript(value => { try { if (!localStorage.getItem('sb-local-auth-token')) localStorage.setItem('sb-local-auth-token', value) } catch { /* private */ } }, JSON.stringify(session))
   await context.route(url => !['localhost', '127.0.0.1'].includes(url.hostname), route => route.abort())
-  await context.route(url => url.pathname.startsWith('/api/') && !url.pathname.startsWith('/api/user-books'), route => route.fulfill({ status: 404, json: { error: 'Not found' } }))
+  await context.route(url => url.pathname.startsWith('/api/') && !url.pathname.startsWith('/api/user-books'), route =>
+    // Adding a file is Premium (or the trial): this account may.
+    new URL(route.request().url()).pathname === '/api/public-books/import/access' ? route.fulfill({ json: { canAdd: true } }) : route.fulfill({ status: 404, json: { error: 'Not found' } }))
   await context.route(url => url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/'), async route => {
     const request = route.request()
     const path = new URL(request.url()).pathname.slice('/api/user-books'.length)
     store.calls.push(`${request.method()} ${path || '/'}`)
     if (!request.headers().authorization?.startsWith('Bearer ')) return route.fulfill({ status: 401, json: { error: 'Unauthorized' } })
-    if (path === '' && request.method() === 'GET') return route.fulfill({ json: { books: [...store.books.values()].map(meta) } })
+    if (path === '' && request.method() === 'GET') return route.fulfill({ json: { books: [...store.books.values()].map(meta(store)) } })
+    if (path === '' && request.method() === 'POST') {
+      const bytes = request.postDataBuffer() ?? Buffer.alloc(0)
+      const sha256 = createHash('sha256').update(bytes).digest('hex')
+      const same = [...store.books.values()].find(book => book.sha256 === sha256)
+      if (same) return route.fulfill({ json: { book: meta(store)(same), existing: true } })
+      const header = (name: string) => decodeURIComponent(request.headers()[name] || '')
+      const book: CloudBook = { id: randomBytes(16).toString('hex'), name: header('x-book-name'), title: header('x-book-title'), author: header('x-book-author'), type: 'epub', size: bytes.byteLength, sha256, createdAt: new Date().toISOString(), bytes }
+      store.books.set(book.id, book)
+      return route.fulfill({ status: 201, json: { book: meta(store)(book) } })
+    }
+    const cover = path.match(/^\/covers\/([0-9a-f]{24})$/)
+    if (cover && request.method() === 'PUT') {
+      const bytes = request.postDataBuffer() ?? Buffer.alloc(0)
+      if (![...store.books.values()].some(book => hexOf(book) === cover[1])) return route.fulfill({ status: 404, json: { error: 'Not found' } })
+      if (bytes.byteLength > 64 * 1024) return route.fulfill({ status: 413, json: { error: 'cover_too_large' } })
+      const v = Date.now().toString(36)
+      store.covers.set(cover[1], { bytes, type: request.headers()['content-type'] || 'image/jpeg', v })
+      return route.fulfill({ json: { cover: `/api/user-books/covers/${cover[1]}?v=${v}` } })
+    }
+    if (cover && request.method() === 'GET') {
+      const stored = store.covers.get(cover[1])
+      return stored ? route.fulfill({ status: 200, body: stored.bytes, contentType: stored.type, headers: { 'Cache-Control': 'private, max-age=86400' } }) : route.fulfill({ status: 404, json: { error: 'Not found' } })
+    }
     if (path === '/places' && request.method() === 'GET') return route.fulfill({ json: { places: Object.fromEntries(store.places) } })
     const place = path.match(/^\/places\/([0-9a-f]{24})$/)
     if (place && request.method() === 'PUT') {
@@ -242,6 +277,73 @@ test.describe('own books across two devices of one account', () => {
     await phone.page.goto(`/reader?userBook=${hexOf(book)}`)
     await expect(readerText(phone.page).getByText(para(3, 5).slice(0, 40)).first()).toBeVisible({ timeout: 30_000 })
     await desktop.context.close()
+    await phone.context.close()
+  })
+
+  test('a book added with its cover on one device wears that cover on the other, before it is opened there', async ({ browser }) => {
+    const shots = process.env.OWN_COVER_SHOTS || ''
+    if (shots) mkdirSync(shots, { recursive: true })
+    const shot = async (page: Page, name: string) => { if (shots) await page.screenshot({ path: join(shots, `${name}.png`) }) }
+    const store = account()
+    const coverPng = png(600, 900, [178, 34, 52])
+    const file = bookEpub('Lantern Field', coverPng)
+    const hex = createHash('sha256').update(file).digest('hex').slice(0, 24)
+
+    // Device A adds the EPUB from My shelf: the file goes to the account, then the small copy of its cover.
+    const desktop = await device(browser, store)
+    await openShelf(desktop.page)
+    await desktop.page.locator('#collection > header .shelf-add').click()
+    const dialog = desktop.page.locator('[data-testid="own-file-dialog"]')
+    const [chooser] = await Promise.all([desktop.page.waitForEvent('filechooser'), dialog.locator('.own-file-choose').click()])
+    await chooser.setFiles({ name: 'lantern-field.epub', mimeType: 'application/epub+zip', buffer: file })
+    await expect(dialog.locator('[role="dialog"]')).toHaveAttribute('data-step', 'rights', { timeout: 15_000 })
+    await dialog.locator('.own-file-rights-box').check()
+    await dialog.locator('.own-file-continue').click()
+    await desktop.page.waitForURL(new RegExp(`/reader\\?userBook=${hex}$`), { timeout: 30_000 })
+    await expect.poll(() => store.covers.has(hex), { timeout: 20_000 }).toBe(true)
+    const stored = store.covers.get(hex)!
+    expect(['image/webp', 'image/jpeg']).toContain(stored.type)
+    expect(stored.bytes.byteLength).toBeLessThanOrEqual(60 * 1024)
+    expect(store.calls.filter(call => call === `PUT /covers/${hex}`)).toHaveLength(1)
+    await shot(desktop.page, 'a-reader-after-add')
+    await desktop.context.close()
+
+    // Being read (on device A), so it is on the reading table and in the switcher; and a second book to open on B.
+    store.places.set(hex, { chapterNumber: 2, paragraphIndex: 3, wordIndex: 0, updatedAt: Date.now(), percent: 30, rev: 1 })
+    const other = store.add(bookEpub('Quiet Orchard'), 'Quiet Orchard')
+    const storedSrc = `data:${stored.type};base64,${stored.bytes.toString('base64')}`
+
+    // Device B, a fresh profile of the same account, never had the file.
+    const phone = await device(browser, store)
+    await openShelf(phone.page)
+    const card = phone.page.locator(`#collection-books [data-shelf-group="own"][data-own-key="epub:${hex}"]`).first()
+    await expect(card.locator('img.own-cover-image')).toHaveAttribute('src', storedSrc, { timeout: 20_000 })
+    await card.scrollIntoViewIfNeeded()
+    await shot(phone.page, 'b-my-shelf')
+    expect(store.calls.filter(call => call.startsWith(`GET /covers/${hex}`)).length).toBeGreaterThanOrEqual(1)
+    // Not on this device as a book: only its cover was read.
+    expect(store.calls).not.toContain(`GET /${[...store.books.values()].find(book => hexOf(book) === hex)!.id}`)
+
+    // The reading table.
+    await phone.page.goto('about:blank')
+    await phone.page.goto('/library', { waitUntil: 'domcontentloaded' })
+    const tableBook = phone.page.locator('.rt-b[aria-label="Lantern Field"] .rt-front img')
+    await expect(tableBook).toHaveAttribute('src', storedSrc, { timeout: 30_000 })
+    await phone.page.waitForTimeout(1500)
+    await shot(phone.page, 'b-reading-table')
+
+    // The reader's book switcher, from another book.
+    await phone.page.goto(`/reader?userBook=${hexOf(other)}`)
+    await expect(readerText(phone.page).getByText(para(1, 1).slice(0, 40)).first()).toBeVisible({ timeout: 30_000 })
+    await phone.page.getByRole('button', { name: /^Switch books, currently/ }).first().click()
+    const row = phone.page.locator('.lab-book-switcher-row', { hasText: 'Lantern Field' })
+    await expect(row.locator('img')).toHaveAttribute('src', storedSrc, { timeout: 20_000 })
+    await shot(phone.page, 'b-reader-switcher')
+    // Kept on device B (IndexedDB), so the next open reads no cover from the account.
+    const reads = store.calls.filter(call => call.startsWith(`GET /covers/${hex}`)).length
+    await openShelf(phone.page)
+    await expect(card.locator('img.own-cover-image')).toHaveAttribute('src', storedSrc, { timeout: 20_000 })
+    expect(store.calls.filter(call => call.startsWith(`GET /covers/${hex}`)).length).toBe(reads)
     await phone.context.close()
   })
 })

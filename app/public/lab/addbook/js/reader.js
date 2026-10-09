@@ -374,7 +374,8 @@ function keepPdfCover(pdf, key, token) {
     try {
       if (token !== state.token || state.pdf !== pdf) return;
       const rec = await library.get(key);
-      if (!rec || (rec.coverV >= 2 && rec.coverW >= PDF_COVER_WIDTH)) return;
+      // Drawn already: its small copy goes to an account copy that has none (copies saved before covers were kept).
+      if (!rec || (rec.coverV >= 2 && rec.coverW >= PDF_COVER_WIDTH)) { if (rec) await engine.covers?.save(key); return; }
       const page = await pdf.getPage(1);
       const base = page.getViewport({ scale: 1 });
       const viewport = page.getViewport({ scale: PDF_COVER_WIDTH / base.width });
@@ -384,6 +385,8 @@ function keepPdfCover(pdf, key, token) {
       ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
       await page.render({ canvasContext: ctx, viewport }).promise;
       await library.touch(key, { cover: canvas.toDataURL('image/jpeg', 0.86), coverW: canvas.width, coverV: 2 });
+      // Its small copy goes with the account copy, when that has none (add-engine.js covers).
+      await engine.covers?.save(key);
     } catch { /* the paper cover stays */ }
   }, 1200);
 }
@@ -1240,7 +1243,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009shelf';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009owncover';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
@@ -1250,7 +1253,7 @@ function switcherApi() {
 function closeSwitcher() { const el = document.querySelector('.byob-switcher'); if (!el) return; el.remove(); $('bookBtn').focus({ preventScroll: true }) }
 // The switcher's covers and titles follow the library's rules (/lab/book-cover.js, /lab/book-title.js):
 // a book's image (a painting's small file at 32 px), else its paper cover; the short title in the one-line row.
-const SWITCHER_LOOKS = '?v=20261009shelf';
+const SWITCHER_LOOKS = '?v=20261009owncover';
 let switcherLooks = null;
 function loadSwitcherLooks() {
   switcherLooks ??= Promise.all([import('/lab/book-cover.js' + SWITCHER_LOOKS), import('/lab/book-title.js' + SWITCHER_LOOKS)])

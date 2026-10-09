@@ -25,6 +25,14 @@ export const TRIAL_ENDED_LAST_DAY = 36
 /** "None between 21:00 and 08:00 in the reader's time zone." */
 export const QUIET_HOURS = { from: 21, to: 8 }
 export const DEFAULT_TIME_ZONE = 'Europe/Copenhagen'
+/**
+ * The send log only remembers 24 months: email_log rows are deleted 24 months
+ * after sent_at (routes/retention.ts, privacy notice). A log row is the only
+ * proof an email went out, so the rules never plan an email whose earlier
+ * send could be older than this horizon. 700 days sits a month inside 24
+ * months, which also absorbs a device clock running ahead of the server.
+ */
+export const LOG_HORIZON_MS = 700 * DAY
 
 export type OptInTemplate = 'keep-reading' | 'keep-reading-with-question' | 'next-book' | 'next-book-classic-lead'
 export type ServiceTemplate = 'welcome' | 'welcome-google' | 'trial-ending' | 'trial-ended' | 'announce'
@@ -93,6 +101,15 @@ export function alreadySent(log: LogRow[], dedupeKey: string): boolean {
   return log.some(row => row.dedupe_key === dedupeKey)
 }
 
+/**
+ * True when no row of this reader's log can have expired yet: the account is
+ * younger than the horizon, and every row is newer than the account. Only then
+ * does a missing once-per-book key prove the email was never sent.
+ */
+export function logComplete(facts: Pick<ReaderFacts, 'createdAt'>, now: number): boolean {
+  return Number.isFinite(facts.createdAt) && now - facts.createdAt < LOG_HORIZON_MS
+}
+
 /** Opt-in emails need the consent box and a confirmed email (ship 2). Missing column = not confirmed. */
 export function mayReceiveOptIn(facts: Pick<ReaderFacts, 'optedIn' | 'confirmed'>): boolean {
   return facts.optedIn && facts.confirmed === true
@@ -144,20 +161,30 @@ export type ReadingPlan =
  * Each email is logged per template family and book; keep-reading's key also
  * carries the reading episode (the place's time) and its count, which is how
  * "never the same template/book pair twice" and "stop after 2 ignored" agree.
+ *
+ * The log keeps 24 months (LOG_HORIZON_MS), so nothing is planned that an
+ * expired row could have blocked: next-book's key is once per book, ever, so
+ * it needs a complete log (an account younger than the horizon); keep-reading
+ * and the stalled next-book are only about a place touched within the horizon,
+ * since every email about that place was sent after it.
  */
 export function readingCandidates(facts: ReaderFacts, now: number): ReadingPlan[] {
   const candidates: ReadingPlan[] = []
-  for (const source of facts.finished) {
-    const key = nextBookKey(source.bookId)
-    if (!alreadySent(facts.log, key)) candidates.push({ kind: 'next-book', opening: 'finished', source, dedupeKey: key })
+  const complete = logComplete(facts, now)
+  if (complete) {
+    for (const source of facts.finished) {
+      const key = nextBookKey(source.bookId)
+      if (!alreadySent(facts.log, key)) candidates.push({ kind: 'next-book', opening: 'finished', source, dedupeKey: key })
+    }
   }
   const place = facts.places[0]
   if (!place || now - place.updatedAt < KEEP_READING_IDLE_MS) return candidates
+  if (now - place.updatedAt >= LOG_HORIZON_MS) return candidates
   const stalledKey = nextBookKey(place.bookId)
   if (alreadySent(facts.log, stalledKey)) return candidates
   const ignored = ignoredKeepReading(facts.log, place)
   if (ignored >= KEEP_READING_MAX_IGNORED) {
-    candidates.push({ kind: 'next-book', opening: 'stalled', source: place, dedupeKey: stalledKey })
+    if (complete) candidates.push({ kind: 'next-book', opening: 'stalled', source: place, dedupeKey: stalledKey })
     return candidates
   }
   const latest = Math.max(-Infinity, ...keepReadingRows(facts.log).map(sentAt))

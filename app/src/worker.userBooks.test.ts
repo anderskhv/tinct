@@ -4,6 +4,8 @@ import { makeEpub, zip } from '../../addbooks/web/test/make-epub.mjs'
 import worker from './worker'
 import { fakeUserBooksBucket } from './worker/fakeUserBooksBucket'
 import {
+  COVER_WRITES_PER_MINUTE,
+  MAX_COVER_BYTES,
   MAX_ACCOUNT_BYTES,
   MAX_ACCOUNT_FILES,
   MAX_FILE_BYTES,
@@ -392,5 +394,87 @@ describe('/api/user-books/places', () => {
     await put(call, 'token-a', hex, { place: page(12), rev: 0 })
     expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
     expect(r2.objects.has(`u/${A}/places/${hex}`)).toBe(false)
+  })
+})
+
+describe('/api/user-books/covers', () => {
+  // A JPEG and a WebP by their first bytes (the Worker sniffs; it never decodes).
+  const jpeg = (size = 2000) => { const b = new Uint8Array(size); b.set([0xff, 0xd8, 0xff, 0xe0]); return b }
+  const webp = (size = 2000) => { const b = new Uint8Array(size); b.set(new TextEncoder().encode('RIFF')); b.set(new TextEncoder().encode('WEBPVP8 '), 8); return b }
+  const putCover = (call: ReturnType<typeof setup>['call'], token: string | undefined, hex: string, body: BodyInit) =>
+    call(`/api/user-books/covers/${hex}`, { method: 'PUT', token, body, headers: { 'Content-Type': 'image/jpeg' } })
+
+  async function withBook() {
+    const env = setup()
+    const { book } = await (await env.upload('token-a', epubBytes(), { Title: 'Private title' })).json() as { book: UserBook }
+    return { ...env, book, hex: book.sha256.slice(0, 24) }
+  }
+
+  it('stores an owned book\'s cover in the owner\'s prefix, lists it with the book and serves it to the owner with private caching', async () => {
+    const { r2, call, book, hex } = await withBook()
+    expect(book.cover).toBeNull()
+    const res = await putCover(call, 'token-a', hex, jpeg())
+    expect(res.status).toBe(200)
+    const { cover } = await res.json() as { cover: string }
+    expect(cover).toMatch(new RegExp(`^/api/user-books/covers/${hex}\\?v=[0-9a-z]+$`))
+    expect(r2.objects.has(`u/${A}/covers/${hex}`)).toBe(true)
+    expect(r2.objects.get(`u/${A}/covers/${hex}`)!.httpMetadata?.contentType).toBe('image/jpeg')
+    // The list names it; the cover is not a book and is not counted as one.
+    const list = await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }
+    expect(list.books).toHaveLength(1)
+    expect(list.books[0].cover).toBe(cover)
+    const image = await call(cover, { token: 'token-a' })
+    expect(image.status).toBe(200)
+    expect(image.headers.get('Content-Type')).toBe('image/jpeg')
+    expect(image.headers.get('Cache-Control')).toBe('private, max-age=86400')
+    expect(image.headers.get('X-Content-Type-Options')).toBe('nosniff')
+    expect(new Uint8Array(await image.arrayBuffer())).toEqual(jpeg())
+    // A WebP replaces it, served as WebP.
+    expect((await putCover(call, 'token-a', hex, webp())).status).toBe(200)
+    expect((await call(`/api/user-books/covers/${hex}`, { token: 'token-a' })).headers.get('Content-Type')).toBe('image/webp')
+  })
+
+  it('needs a signed-in owner: signed out is 401, another account and a book not kept are 404', async () => {
+    const { r2, call, hex } = await withBook()
+    expect((await putCover(call, undefined, hex, jpeg())).status).toBe(401)
+    expect((await call(`/api/user-books/covers/${hex}`)).status).toBe(401)
+    // Account B does not own the book: it can neither store nor read A's cover.
+    expect((await putCover(call, 'token-b', hex, jpeg())).status).toBe(404)
+    expect((await putCover(call, 'token-a', hex, jpeg())).status).toBe(200)
+    const other = await call(`/api/user-books/covers/${hex}`, { token: 'token-b' })
+    expect(other.status).toBe(404)
+    expect(other.headers.get('Cache-Control')).toBe('no-store')
+    expect(r2.objects.has(`u/${B}/covers/${hex}`)).toBe(false)
+    // A book this account does not keep, or a malformed hex, has no cover.
+    expect((await putCover(call, 'token-a', 'f'.repeat(24), jpeg())).status).toBe(404)
+    expect((await putCover(call, 'token-a', 'nope', jpeg())).status).toBe(404)
+    expect((await call('/api/user-books/covers/', { token: 'token-a' })).status).toBe(404)
+    expect((await call(`/api/user-books/covers/${hex}`, { method: 'DELETE', token: 'token-a' })).status).toBe(405)
+  })
+
+  it('caps the size (declared or streamed), takes only JPEG or WebP, and rate-limits writes', async () => {
+    const { call, hex } = await withBook()
+    expect((await putCover(call, 'token-a', hex, jpeg(MAX_COVER_BYTES))).status).toBe(200)
+    expect((await putCover(call, 'token-a', hex, jpeg(MAX_COVER_BYTES + 1))).status).toBe(413)
+    const streamed = new ReadableStream<Uint8Array>({ start(c) { c.enqueue(jpeg(40_000)); c.enqueue(new Uint8Array(40_000)); c.close() } })
+    const res = await call(`/api/user-books/covers/${hex}`, { method: 'PUT', token: 'token-a', body: streamed, duplex: 'half' } as RequestInit)
+    expect(res.status).toBe(413)
+    expect((await putCover(call, 'token-a', hex, new TextEncoder().encode('<svg onload=alert(1)>'))).status).toBe(415)
+    expect((await putCover(call, 'token-a', hex, pdfBytes())).status).toBe(415)
+    let last = 200
+    for (let i = 0; i < COVER_WRITES_PER_MINUTE + 1; i++) last = (await putCover(call, 'token-a', hex, jpeg())).status
+    expect(last).toBe(429)
+  })
+
+  it('deletes the cover with the book, and only that book\'s', async () => {
+    const { r2, call, upload, book, hex } = await withBook()
+    const { book: other } = await (await upload('token-a', pdfBytes('other'), { Title: 'Other' })).json() as { book: UserBook }
+    const otherHex = other.sha256.slice(0, 24)
+    await putCover(call, 'token-a', hex, jpeg())
+    await putCover(call, 'token-a', otherHex, jpeg())
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect(r2.objects.has(`u/${A}/covers/${hex}`)).toBe(false)
+    expect(r2.objects.has(`u/${A}/covers/${otherHex}`)).toBe(true)
+    expect((await call(`/api/user-books/covers/${hex}`, { token: 'token-a' })).status).toBe(404)
   })
 })
