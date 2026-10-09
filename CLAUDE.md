@@ -151,6 +151,16 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 
 ---
 
+## SQL for Anders to run (always)
+
+Whenever Anders must run SQL (a migration, a repair, a read-only query on his own data), give him in the same message:
+1. the Supabase SQL editor link for the project: https://supabase.com/dashboard/project/yazjyiqsxjystvpkyouk/sql/new
+2. the complete SQL in one copy-paste block (not just a file path), and
+3. one line on what it does, whether it changes data, and whether it is safe to run twice.
+Check the SQL against the latest migration on main first (e.g. that a constraint keeps every existing value). Read-only queries on his own rows only, never other readers' data. (Anders, 9 Oct 2026.)
+
+---
+
 ## Pre-Deploy Checklist (MANDATORY)
 
 1. `npm run dev` — open localhost:3001, manually verify the change.

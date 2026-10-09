@@ -19,7 +19,7 @@ for(const engine of [chromium,webkit].filter(engine=>(process.env.READER_ENGINES
 const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
 for(const {fontSize,chapter,height} of [
  ...[1.3,1.8,2.2].flatMap(fontSize=>[917,918].map(chapter=>({fontSize,chapter,height:813}))),
- {fontSize:1.3,chapter:595,height:400}
+ {fontSize:1.3,chapter:595,height:364}
 ]){
  const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height}});
  if(built)await context.route('**/*',r=>{
