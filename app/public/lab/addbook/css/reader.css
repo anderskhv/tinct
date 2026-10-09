@@ -22,6 +22,8 @@ body { overscroll-behavior: none; }
 .byob .lab-header { position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); z-index: 40; background: var(--lab-paper); }
 .byob .lab-header-chapter-label { font-variant-numeric: tabular-nums; }
 .pdf-scroll { position: fixed; left: 0; right: 0; bottom: 0; top: var(--pdf-top, 64px); overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+/* A pinch on the pages zooms the pages (reader.js), never the browser page: the top bar stays on screen */
+.byob .pdf-scroll, .byob .lab-header { touch-action: pan-x pan-y; }
 .pdf-column { display: flex; flex-direction: column; align-items: safe center; gap: var(--pdf-gap); padding: 14px 16px 42vh; min-width: min-content; }
 .pdf-sheet { position: relative; flex: none; background: var(--pdf-paper); box-shadow: var(--pdf-sheet-shadow); overflow: hidden; }
 .pdf-sheet .pg { position: absolute; left: var(--cx, 0%); top: var(--cy, 0%); width: var(--cw, 100%); height: var(--ch, 100%); }
@@ -87,8 +89,13 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob .lab-v2-library-back:hover { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
 /* Off for a scan without text (read aloud, Summarize, Catch me up): dimmed as Tinct's buttons are (tinct-ui.css .tui-btn:disabled) */
 .lab.byob .lab-v2-play:disabled, .lab.byob .lab-super-row:disabled { opacity: .45; cursor: default; }
-/* The phone keeps "Your books" in the t menu, as Tinct's reader keeps Library there. */
-.lab.byob.is-phone .lab-v2-library-back { display: none; }
+/* The phone has the back arrow too, whatever the PDF shows (a scanned page fills the screen):
+   a way back to My shelf always in view, at the left of the top bar (Library stays in the t menu). */
+.lab.byob.is-phone .lab-header { grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 4px; }
+.lab.byob.is-phone .lab-v2-library-back { width: 40px; height: 40px; flex-basis: 40px; margin-left: -10px; }
+/* With the arrow there, the title gives way before the page pill (the page stays whole) */
+.lab.byob.is-phone .lab-header-work { flex: 0 1 auto; min-width: 0; }
+.lab.byob.is-phone .lab-header-chapter { flex: none; }
 /* The rights sheet over the start page */
 .lab.byob.byob-sheet-host { position: fixed; inset: 0; z-index: 90; min-height: 0; height: auto; background: transparent; }
 /* A short sheet (the rights question) is as tall as its content; a centred dialog on desktop */
@@ -158,6 +165,9 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .drop-cover[hidden] { display: none; }
 /* The toast, in the theme */
 .byob-toast { position: fixed; left: 50%; bottom: 56px; transform: translateX(-50%); z-index: 80; background: var(--pdf-surface); color: var(--pdf-ink); padding: 8px 14px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.12); font: 14px/1.4 var(--pdf-ui); }
+/* It wraps inside the page area: centred on the pages, never under the docked chat (the pages' own right edge, .pdf-scroll) */
+.byob-toast { box-sizing: border-box; width: max-content; max-width: min(560px, calc(100vw - 32px)); margin: 0; white-space: normal; overflow-wrap: break-word; text-wrap: pretty; }
+.lab.byob.dock-open .byob-toast { left: calc((100vw - var(--dock-w) - 14px) / 2); max-width: min(560px, calc(100vw - var(--dock-w) - 14px - 32px)); }
 /* Settings: the reader's sheet over the PDF */
 .lab.byob .byob-settings { position: fixed; inset: 0; z-index: 70; }
 .lab.byob .byob-settings .lab-v2-row[hidden] { display: none; }

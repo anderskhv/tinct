@@ -32,6 +32,9 @@ export const requests = [];
 const BOOK_USERS = { 'Bearer test-token': 'u-test', 'Bearer cloud-token': 'u-cloud', 'Bearer other-token': 'u-other' };
 const BOOK_BYTES = 50 * 1024 * 1024;
 export const books = { users: {}, places: {}, log: [] };
+// A slow connection, for tests: an upload lands this long after its last byte, and only while
+// the page that sent it is still waiting (leaving the page cuts it off, as on a real network).
+export const uploadDelay = { ms: 0 };
 const sendJson = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) };
 function sniff(buf) {
   // As the Worker (sniffBookType): a PDF starts with %PDF- and ends with its %%EOF marker.
@@ -74,6 +77,10 @@ function userBooks(req, res, url) {
     const parts = []; let size = 0;
     req.on('data', c => { size += c.length; if (size <= BOOK_BYTES) parts.push(c) });
     req.on('end', () => {
+      if (uploadDelay.ms) return void setTimeout(() => { if (!res.destroyed && !req.socket.destroyed) land() }, uploadDelay.ms);
+      land();
+    });
+    const land = () => {
       if (size > BOOK_BYTES) return sendJson(res, 413, { error: 'file_too_large' });
       const buf = Buffer.concat(parts), type = sniff(buf);
       if (!type) return sendJson(res, 415, { error: 'unsupported_type' });
@@ -84,7 +91,7 @@ function userBooks(req, res, url) {
       const book = { id: randomBytes(16).toString('hex'), name: h('x-book-name'), title: h('x-book-title'), author: h('x-book-author'), type, size: buf.length, sha256, createdAt: new Date().toISOString() };
       mine.unshift({ ...book, bytes: buf });
       sendJson(res, 201, { book });
-    });
+    };
     return;
   }
   const found = id && mine.find(b => b.id === id);

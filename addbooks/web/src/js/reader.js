@@ -124,9 +124,7 @@ async function chooseFile(file) {
   // An EPUB reads in the Tinct reader, which opens it from this browser's copy.
   if (kind === 'epub' && saved) { await openInTinct(bytes, file.name, key, file); return }
   await openBook(kind, bytes, file.name, key);
-  // The account copy is named by the document's own title: wait (briefly) for the scan to read it.
-  if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000))]);
-  if (hasBook() && state.key === key) saveToAccount(key, file, { kind, name: file.name, title: state.title, author: state.author });
+  sendAccountCopy(key, file, { kind, name: file.name });
 }
 async function openStored(key) {
   if (needsAccount()) return false;
@@ -154,9 +152,28 @@ async function openStored(key) {
   // A PDF just added on My shelf (add-engine preparePdf) reaches the account here, named like a
   // file chosen on this page: by the document's own title, once the scan has read it (briefly).
   const fresh = Date.now() - (rec.addedAt || 0) < 2 * 60 * 1000;
-  if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000))]);
-  if (hasBook() && state.key === key) saveToAccount(key, pending, { kind: rec.kind, name: rec.name, title: state.title, author: state.author }, { quiet: !fresh });
+  sendAccountCopy(key, pending, { kind: rec.kind, name: rec.name }, { quiet: !fresh });
   return true;
+}
+// The open PDF's account copy, named by the document's own title: sent once the scan has read
+// it (briefly), or at once when the reader leaves the book. Leaving waits for it (bounded, as an
+// EPUB's copy is waited for: add-engine ACCOUNT_COPY_WAIT_MS), so the way back never cuts a copy
+// off and the book is on the reader's other devices too.
+const accountCopy = { sending: null, now: null };
+function sendAccountCopy(key, file, meta, options) {
+  const leaving = new Promise(r => { accountCopy.now = r });
+  const sending = (async () => {
+    if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000)), leaving]);
+    if (hasBook() && state.key === key) await saveToAccount(key, file, { ...meta, title: state.title, author: state.author }, options);
+  })();
+  accountCopy.sending = sending;
+  sending.finally(() => { if (accountCopy.sending === sending) Object.assign(accountCopy, { sending: null, now: null }) });
+  return sending;
+}
+async function accountCopySent() {
+  if (!accountCopy.sending) return;
+  accountCopy.now?.();
+  await Promise.race([accountCopy.sending, new Promise(r => setTimeout(r, engine.ACCOUNT_COPY_WAIT_MS))]);
 }
 // EPUBs open in the Tinct reader (/reader?userBook=<hex>), which reads the file from
 // this browser's copy and converts it to Tinct's own pages. Here: refuse what it cannot
@@ -194,7 +211,16 @@ const bookUrl = key => '/lab/addbook/?userBook=' + encodeURIComponent(hexOf(key)
 const urlHex = () => { const v = new URLSearchParams(location.search).get('userBook'); return /^[0-9a-f]{8,64}$/.test(v || '') ? v : null };
 // The library's My shelf, where the reader's own books are (the back arrow of every own book).
 const SHELF_URL = '/library#my-shelf';
-function leaveToShelf() { leavePlace(); stopNarration(); location.assign(SHELF_URL) }
+let leavingToShelf = false;
+async function leaveToShelf() {
+  if (leavingToShelf) return;
+  leavingToShelf = true;
+  leavePlace(); stopNarration();
+  await accountCopySent();
+  location.assign(SHELF_URL);
+}
+// Back on this page from My shelf (restored as it was left): the way back works again.
+addEventListener('pageshow', () => { leavingToShelf = false });
 // /lab/addbook/?userBook=<hex>: this book, from this device, else from the account.
 async function openFromUrl(hex) {
   if (needsAccount()) return false;
@@ -368,7 +394,10 @@ function applyCrop() {
   s.setProperty('--cw', (100 / (1 - 2 * c.x)) + '%'); s.setProperty('--ch', (100 / (1 - 2 * c.y)) + '%');
   s.setProperty('--cx', (-100 * c.x / (1 - 2 * c.x)) + '%'); s.setProperty('--cy', (-100 * c.y / (1 - 2 * c.y)) + '%');
 }
-const columnWidth = () => { const w = $('scroll').clientWidth - (innerWidth < 700 ? 16 : 28); return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') ? 1100 : 1500) };
+// The pages' width at fit: the scroll area less the column's own side padding (css/reader.css
+// .pdf-column), so a page never runs past the screen's edge.
+const columnPad = () => { const cs = getComputedStyle($('column')); return (parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)) || 32 };
+const columnWidth = () => { const w = $('scroll').clientWidth - columnPad(); return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') ? 1100 : 1500) };
 const sheetWidth = () => Math.round(columnWidth() * state.zoom);
 function buildSheets(count) {
   state.observer?.disconnect();
@@ -871,6 +900,20 @@ addEventListener('wheel', e => {
   e.preventDefault();
   setZoom(state.zoom * Math.exp(-e.deltaY * 0.01), { quick: true });
 }, { passive: false });
+// On a touch screen, two fingers on the pages zoom the pages too, not the browser page: a
+// pinch-zoomed browser page leaves the fixed top bar, and its way back, off the screen.
+let pinch = null;
+const fingerGap = touches => Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+$('scroll').addEventListener('touchstart', e => { if (e.touches.length === 2 && state.pages.length) pinch = { gap: fingerGap(e.touches) || 1, zoom: state.zoom } }, { passive: true });
+$('scroll').addEventListener('touchmove', e => {
+  if (!pinch || e.touches.length !== 2) return;
+  e.preventDefault();
+  setZoom(pinch.zoom * fingerGap(e.touches) / pinch.gap, { quick: true });
+}, { passive: false });
+$('scroll').addEventListener('touchend', e => { if (e.touches.length < 2) pinch = null });
+$('scroll').addEventListener('touchcancel', () => { pinch = null });
+// Safari's own pinch (gesture events) over the reader: the pages zoom instead (above).
+for (const type of ['gesturestart', 'gesturechange']) addEventListener(type, e => { if (readerShown() && state.pages.length) e.preventDefault() }, { passive: false });
 let resizeTimer;
 addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { applyLayout(); if (state.pages.length) setZoom(state.zoom) }, 150) });
 addEventListener('keydown', e => {
@@ -904,14 +947,19 @@ function sheet(title, html, onClose, host = root) {
   return layer;
 }
 function closeSheet(layer) { const host = layer?.parentElement; layer?.remove(); if (host?.classList.contains('byob-sheet-host')) host.remove() }
-let toastTimer, toastHeld = 0, toastNext = null;
+let toastTimer, toastHeld = 0, toastNext = null, toastAt = 0;
 // `hold`: a message that must be read (a book's own limits) is not replaced while it shows;
-// one arriving meanwhile is shown when it ends.
+// one arriving meanwhile is shown when it ends, as is one it replaces before it could be read
+// (why the book was kept on this device only, just before the scan notice).
 function toast(text, { hold = false } = {}) {
   if (!hold && Date.now() < toastHeld) { toastNext = text; return }
   let t = document.querySelector('.byob-toast');
-  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t) }
-  t.textContent = text; t.hidden = false;
+  if (hold && t && !t.hidden && t.textContent !== text && Date.now() >= toastHeld && Date.now() - toastAt < 2500) toastNext = t.textContent;
+  // In the reader, the toast is the reader's own (css/reader.css keeps it inside the page area, left of the docked chat).
+  const host = readerShown() ? root : document.body;
+  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status') }
+  if (t.parentElement !== host) host.appendChild(t);
+  t.textContent = text; t.hidden = false; toastAt = Date.now();
   const ms = hold ? 6000 : 4000;
   toastHeld = hold ? Date.now() + ms : 0;
   clearTimeout(toastTimer); toastTimer = setTimeout(() => {
