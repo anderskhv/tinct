@@ -156,86 +156,140 @@ body { margin: 0; background: var(--desk); color: var(--note); font-family: var(
 .dk .libhero { left: 40px; bottom: 60px; } .dk .libhero b { font-size: 3.2rem; }
 .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px 32px; font-size: 1.05rem; line-height: 1.5; color: var(--note-soft); }
 .notes b { color: #f3ecdf; font-weight: 500; display: block; font-family: var(--play); }
+/* v2 additions: a trimmer header, quieter credits, settings in grouped wells with word choices */
+.hero.slim { height: 64px; }
+.who.slim { margin-top: -24px; gap: 10px; }
+.who.slim .pic { width: 46px; height: 46px; }
+.who.slim .nm { padding-top: 20px; }
+.who.slim .nm b { font-size: 1.15rem; }
+.who.slim .nm span { font-size: .9rem; }
+.cred { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; }
+.cred .ln { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; }
+.cred .ln span { font-size: .92rem; color: var(--muted); }
+.cred .ln span b { font-family: var(--play); font-weight: 700; color: var(--ink); font-size: .98rem; }
+.cred .tr { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: rgba(32,26,19,.10); overflow: hidden; }
+.cred .tr i { display: block; height: 100%; background: var(--ink); }
+.cred .ln.top .tr i { background: rgba(32,26,19,.45); }
+.cred .act { display: flex; justify-content: space-between; align-items: center; font-size: .9rem; color: var(--muted); font-style: italic; }
+.smallbtn { font-family: var(--gara); font-style: normal; font-size: .92rem; border: 1px solid rgba(32,26,19,.28); border-radius: 999px; padding: 2px 12px; color: var(--ink); }
+.pop { position: absolute; background: var(--ink); color: #f3ecdf; border-radius: 12px; box-shadow: 0 10px 26px rgba(0,0,0,.28); padding: 4px; z-index: 4; min-width: 180px; }
+.pop div { padding: 8px 12px; font-size: 1rem; border-radius: 8px; }
+.pop div + div { border-top: 1px solid rgba(243,236,223,.14); }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.grid4 span { aspect-ratio: 1; border-radius: 50%; background: var(--img) var(--pos, 50% 35%) / 260% auto no-repeat; }
+.grid4 span.on { box-shadow: 0 0 0 2px var(--card), 0 0 0 3.5px var(--ink); }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.grid3 span { aspect-ratio: 3 / 4; border-radius: 8px; background: var(--s) center / cover; }
+.grid3 span.on { box-shadow: 0 0 0 2px var(--card), 0 0 0 3.5px var(--ink); }
+.list2 div { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--hair); font-size: 1rem; line-height: 1.25; }
+.list2 div span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.list2 div span:last-child { color: var(--muted); font-size: .9rem; font-style: italic; white-space: nowrap; }
+.well { background: #fffdf8; border-radius: 14px; box-shadow: 0 0 0 1px var(--hair); padding: 2px 14px; }
+.well > div { padding: 11px 0; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.well > div + div { border-top: 1px solid var(--hair); }
+.well .lab { font-size: 1.04rem; display: flex; align-items: center; gap: 7px; }
+.well .val { font-size: 1rem; color: var(--muted); font-style: italic; }
+.well .val u { font-style: normal; color: var(--ink); text-underline-offset: 3px; margin-left: 6px; }
+.well .stack2 { flex-direction: column; align-items: stretch; gap: 8px; }
+.choice { display: flex; border-radius: 10px; background: rgba(32,26,19,.05); padding: 3px; gap: 3px; }
+.choice span { flex: 1; text-align: center; padding: 6px 4px; border-radius: 8px; font-size: .95rem; color: var(--muted); white-space: nowrap; }
+.choice span.on { background: #fffdf8; color: var(--ink); box-shadow: 0 1px 3px rgba(32,26,19,.14); }
+.gh2 { font-family: var(--play); font-weight: 700; font-size: .95rem; margin: 6px 2px -2px; }
+.later { font-style: italic; font-size: .82rem; color: var(--faint); }
+.red2 { color: #8a3a2a; }
 </style>
 
 <div class="wrap">
   <section class="intro">
     <h1>Account, as cards</h1>
-    <p>Everything opens as a card over the page you are on, in the reader or the library. A row opens the next card on top; the arrow goes back one; the cross closes all of them and you are where you were, with no page load. Two fonts only, Playfair Display and EB Garamond. People and numbers are examples.</p>
+    <p>Second pass, from your notes: a trimmer You card, quieter AI credits, the leaderboard only for readers who joined it, followers instead of friends, book lists instead of covers, and Account settings in two tidy groups. Everything opens as a card over the page you are on; the cross closes all of them with no page load. Playfair Display and EB Garamond only. People and numbers are examples.</p>
   </section>
 
   <section class="sec" aria-label="Phone">
     <h2>Phone</h2>
-    <p>Cards rise from the bottom over the page. The page stays behind them, so closing is instant.</p>
+    <p>Cards rise from the bottom over the page.</p>
     <div class="strip">
 
-      <div class="step"><span class="num">1 · The way in</span>
-        <div class="ph"><div class="libbg"></div>
-          <div class="libtop"><span>tinct</span><span class="r"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="mini"></span></span></div>
-          <div class="libhero"><small>Mary Shelley's</small><b>Frankenstein</b></div>
-        </div>
-        <span class="cap"><b>In the library, your picture is the size of the search icon,</b> with no ring. In a book, it is "Profile" in the t menu.</span></div>
-
-      <div class="step"><span class="num">2 · You</span>
+      <div class="step"><span class="num">1 · You</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div><p>Some time elapsed before I learned the history of my friends. It was one which could not fail to impress itself deeply on my mind.</p></div><div class="shade"></div>
-          <div class="card" style="--top:40px"><div class="grab"></div>
+          <div class="card" style="--top:120px"><div class="grab"></div>
             <div class="cb" style="padding-top:0">
-              <div class="hero" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"><span class="chg"><svg width="13" height="13" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 3.5h2l1-1.5h3l1 1.5h2v6h-9z" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><circle cx="6" cy="6.3" r="1.7" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></span></div>
-              <div class="who"><span class="pic" style="--img:url('mockup-images/meditations.jpg')"><span class="cam"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 3.5h2l1-1.5h3l1 1.5h2v6h-9z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="6" cy="6.3" r="1.7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span></span><span class="nm"><b>Anders</b><span>Premium · friends see your reading</span></span></div>
+              <div class="hero slim" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div>
+              <div class="who slim"><span class="pic" style="--img:url('mockup-images/meditations.jpg')"></span><span class="nm"><b>Anders</b><span>Premium</span></span></div>
               <div>
-                <div class="row"><span><span class="t">Your reading</span><br><span class="v">last 7 days</span></span><span style="display:flex;gap:10px;align-items:center"><span class="big">6<small>h</small> 10<small>m</small></span><span class="go">›</span></span></div>
-                <div class="row"><span><span class="t">Leaderboard</span><br><span class="v">3rd of 5 friends</span></span><span style="display:flex;gap:10px;align-items:center"><span class="stack"><span class="pic xs" style="--img:url('mockup-images/crime-and-punishment.jpg')"></span><span class="pic xs init">J</span><span class="pic xs" style="--img:url('mockup-images/meditations.jpg')"></span></span><span class="go">›</span></span></div>
+                <div class="row"><span class="t">Your reading</span><span style="display:flex;gap:10px;align-items:center"><span class="v">6 h 10 m · 7 days</span><span class="go">›</span></span></div>
+                <div class="row"><span class="t">Leaderboard</span><span style="display:flex;gap:10px;align-items:center"><span class="v">3rd of 5</span><span class="go">›</span></span></div>
                 <div class="row"><span class="t">AI credits</span><span></span>
-                  <div class="ai"><div class="meter"><span>This month</span><i><b style="width:15%"></b></i><span>15%</span></div><div class="meter top"><span>Top-up</span><i><b style="width:64%"></b></i><span>64%</span></div><div class="lk"><span>Renews 5 November</span><u>Top up</u></div></div></div>
-                <div class="row"><span class="t">Find friends</span><span class="go">›</span></div>
+                  <div class="cred">
+                    <div class="ln"><span>This month</span><span><b>15%</b> left</span><div class="tr"><i style="width:15%"></i></div></div>
+                    <div class="ln top"><span>Top-up</span><span><b>64%</b> left</span><div class="tr"><i style="width:64%"></i></div></div>
+                    <div class="act"><span>renews 5 November</span><span class="smallbtn">Top up</span></div>
+                  </div></div>
+                <div class="row"><span class="t">Find readers</span><span class="go">›</span></div>
                 <div class="row"><span class="t">Account settings</span><span class="go">›</span></div>
               </div>
             </div></div>
         </div>
-        <span class="cap"><b>One card.</b> Your reading, then the leaderboard, then a compact AI credits block. The second bar appears only after you buy a top-up. Camera buttons change the picture and the background.</span></div>
+        <span class="cap"><b>Trimmed:</b> a slim background strip, a smaller picture, just "Premium". Tap the picture or the background to change it. The top-up bar shows only after you buy one.</span></div>
 
-      <div class="step"><span class="num">3 · Picture and background</span>
+      <div class="step"><span class="num">2 · Tap your picture</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card" style="--top:250px"><div class="grab"></div>
-            <div class="ch"><span class="bk">‹</span><b>Picture and background</b><span class="x">×</span></div>
-            <div class="cb">
-              <div class="sets">
-                <div class="on" style="--s:url('mockup-images/scene-meditations-phone.jpg')"><span class="pic" style="--img:url('mockup-images/meditations.jpg')"></span><span>Stoic</span></div>
-                <div style="--s:url('mockup-images/scene-odyssey-phone.jpg')"><span class="pic" style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span><span>At sea</span></div>
-                <div style="--s:url('mockup-images/scene-the-prince-phone.jpg')"><span class="pic" style="--img:url('mockup-images/the-prince.jpg');--pos:40% 55%"></span><span>Florence</span></div>
+          <div class="card" style="--top:120px"><div class="grab"></div>
+            <div class="cb" style="padding-top:0;position:relative">
+              <div class="hero slim" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div>
+              <div class="who slim"><span class="pic" style="--img:url('mockup-images/meditations.jpg')"></span><span class="nm"><b>Anders</b><span>Premium</span></span></div>
+              <div class="pop" style="top:84px;left:18px"><div>Upload a picture</div><div>Choose a picture</div></div>
+              <div style="opacity:.35">
+                <div class="row"><span class="t">Your reading</span><span class="v">6 h 10 m · 7 days</span></div>
+                <div class="row"><span class="t">Leaderboard</span><span class="v">3rd of 5</span></div>
               </div>
-              <div class="set"><div class="l"><span class="plain">Upload a picture</span></div><div class="l"><span class="plain">Upload a background</span></div><div class="l"><span class="plain">Use my Google photo</span></div></div>
             </div></div>
         </div>
-        <span class="cap"><b>Sets pair a picture and background</b> from one book, or upload either. Uploads appear to others after a check.</span></div>
+        <span class="cap"><b>Two choices, right where you tapped.</b> The background works the same way: upload one, or choose one.</span></div>
+
+      <div class="step"><span class="num">3 · Choose a picture</span>
+        <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
+          <div class="card" style="--top:300px"><div class="grab"></div>
+            <div class="ch"><span class="bk">‹</span><b>Choose a picture</b><span class="x">×</span></div>
+            <div class="cb">
+              <div class="grid4">
+                <span class="on" style="--img:url('mockup-images/meditations.jpg')"></span>
+                <span style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span>
+                <span style="--img:url('mockup-images/the-prince.jpg');--pos:40% 55%"></span>
+                <span style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span>
+                <span style="--img:url('mockup-images/crime-and-punishment.jpg')"></span>
+                <span style="--img:url('mockup-images/frankenstein.jpg');--pos:50% 55%"></span>
+                <span style="--img:url('mockup-images/iliad.jpg');--pos:50% 70%"></span>
+                <span style="--img:url('mockup-images/notes-from-underground.jpg');--pos:50% 60%"></span>
+              </div>
+              <p class="lede" style="font-size:.92rem">Details from the library's paintings.</p>
+            </div></div>
+        </div>
+        <span class="cap"><b>A small grid, one tap to pick.</b> Choose a background shows the library's scenes the same way.</span></div>
 
       <div class="step"><span class="num">4 · Your reading</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card under"></div>
-          <div class="card" style="--top:60px"><div class="grab"></div>
+          <div class="card" style="--top:44px"><div class="grab"></div>
             <div class="ch"><span class="bk">‹</span><b>Your reading</b><span class="x">×</span></div>
-            <div class="cb">
+            <div class="cb" style="gap:8px">
               <div class="bignum">41<small>h</small> 20<small>m</small></div>
               <p class="lede">since 14 July, reading and listening.</p>
               <div class="bars"><i style="height:18%"></i><i style="height:30%"></i><i style="height:47%"></i><i style="height:37%"></i><i style="height:9%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:67%"></i><i style="height:46%"></i><i style="height:80%"></i><i style="height:100%"></i><i style="height:95%"></i></div>
               <div class="facts"><div><b>6 h 10</b><span>last 7 days</span></div><div><b>3</b><span>finished</span></div><div><b>6 days</b><span>streak</span></div></div>
-              <span class="sh">Most read <span>this year</span></span>
-              <div class="books">
-                <div><span>Meditations<em>finished</em></span><span>5 h 40</span></div>
-                <div><span>Notes from Underground<em>finished</em></span><span>4 h 15</span></div>
-                <div><span>Frankenstein<em>chapter 14 of 24</em></span><span>4 h 10</span></div>
-              </div>
+              <span class="sh">Reading now</span>
+              <div class="list2"><div><span>Frankenstein</span><span>ch. 14 of 24 · 4 h 10</span></div><div><span>The Prince</span><span>ch. 9 of 26 · 1 h 05</span></div></div>
+              <span class="sh">Finished</span>
+              <div class="list2"><div><span>Meditations</span><span>September · 5 h 40</span></div><div><span>Notes from Underground</span><span>August · 4 h 15</span></div><div><span>Jekyll and Hyde</span><span>July · 2 h 50</span></div></div>
             </div></div>
         </div>
-        <span class="cap"><b>One card, no covers,</b> no separate Reading now page. The same numbers as the You card.</span></div>
+        <span class="cap"><b>Top as before; below, one narrow line per book:</b> what you're reading now, then what you've finished.</span></div>
 
       <div class="step"><span class="num">5 · Leaderboard</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card under"></div>
           <div class="card" style="--top:60px"><div class="grab"></div>
             <div class="ch"><span class="bk">‹</span><b>Leaderboard</b><span class="x">×</span></div>
             <div class="cb">
-              <div class="tabs"><span class="on">Friends</span><span>Everyone</span></div>
+              <div class="tabs"><span class="on">Following</span><span>Everyone</span></div>
               <span class="sh">Last 7 days <span>updated hourly</span></span>
               <div class="lb">
                 <div><span class="n">1</span><span class="pic sm" style="--img:url('mockup-images/crime-and-punishment.jpg')"></span><span>Sofie Berg<em>Crime and Punishment</em></span><span class="h">9 h 40</span></div>
@@ -244,149 +298,177 @@ body { margin: 0; background: var(--desk); color: var(--note); font-family: var(
                 <div><span class="n">4</span><span class="pic sm" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span>Maja Holm<em>Pride and Prejudice</em></span><span class="h">4 h 50</span></div>
                 <div><span class="n">5</span><span class="pic sm init">T</span><span>Thomas Krag<em>Meditations</em></span><span class="h">2 h 30</span></div>
               </div>
-              <span class="link">Find friends</span>
+              <span class="link">Find readers</span>
             </div></div>
         </div>
-        <span class="cap"><b>Tap anyone to open their profile card.</b> Underlined words for tabs, no pills. "Find friends" opens the same card as on You.</span></div>
+        <span class="cap"><b>Shown only if you joined it.</b> "Following" is you and the readers you follow; "Everyone" is every reader who joined.</span></div>
 
-      <div class="step"><span class="num">6 · Find friends</span>
+      <div class="step"><span class="num">6 · Find readers</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card under"></div>
           <div class="card" style="--top:60px"><div class="grab"></div>
-            <div class="ch"><span class="bk">‹</span><b>Find friends</b><span class="x">×</span></div>
+            <div class="ch"><span class="bk">‹</span><b>Find readers</b><span class="x">×</span></div>
             <div class="cb">
               <div class="search"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Name or tinct.app link</div>
-              <span class="sh">Following you</span>
-              <div class="pp"><div><span class="pic sm init">E</span><span>Ellen Ravn<em>follows you</em></span><span class="btn solid">Follow back</span></div></div>
+              <span class="sh">Asking to follow you</span>
+              <div class="pp"><div><span class="pic sm init">E</span><span>Ellen Ravn<em>private profile</em></span><span class="btn solid">Accept</span></div></div>
               <span class="sh">Reading your books</span>
               <div class="pp">
                 <div><span class="pic sm" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span>Maja Holm<em>Frankenstein</em></span><span class="btn">Following</span></div>
                 <div><span class="pic sm" style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span><span>Karl Ny<em>Meditations</em></span><span class="btn">Follow</span></div>
               </div>
               <span class="sh">Invite</span>
-              <div class="set"><div class="l"><span class="plain">tinct.app/anders</span><span class="link">Copy</span></div></div>
+              <div class="list2"><div><span>tinct.app/anders</span><span class="link" style="font-style:normal">Copy</span></div></div>
             </div></div>
         </div>
-        <span class="cap"><b>Follow, and follow back, makes you friends.</b> Search and "reading your books" only show public readers; private readers are found by their link.</span></div>
+        <span class="cap"><b>Followers, not friends.</b> Anyone can follow a public reader. A private reader approves each follower, so their reading stays with people they chose.</span></div>
 
       <div class="step"><span class="num">7 · A reader's profile</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card under"></div>
-          <div class="card" style="--top:60px"><div class="grab"></div>
-            <div class="cb" style="padding-top:0">
-              <div class="hero" style="--bgimg:url('mockup-images/scene-pride-and-prejudice-phone.jpg')"><span class="chg" style="left:12px;right:auto;background:rgba(27,24,20,.6);font-size:1.2rem">‹</span></div>
-              <div class="who"><span class="pic" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="nm"><b>Maja Holm</b><span>friends</span></span></div>
-              <span class="btn" style="align-self:flex-start">Following</span>
+          <div class="card" style="--top:44px"><div class="grab"></div>
+            <div class="cb" style="padding-top:0;gap:8px">
+              <div class="hero slim" style="--bgimg:url('mockup-images/scene-pride-and-prejudice-phone.jpg')"><span class="chg" style="left:12px;top:10px;right:auto;font-size:1.1rem">‹</span><span class="chg" style="font-size:.8rem">×</span></div>
+              <div class="who slim"><span class="pic" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="nm"><b>Maja Holm</b><span>you follow each other</span></span><span class="btn" style="margin:20px 0 0 auto">Following</span></div>
               <div class="facts"><div><b>4 h 50</b><span>last 7 days</span></div><div><b>96 h</b><span>this year</span></div><div><b>11</b><span>finished</span></div></div>
               <span class="sh">Reading now</span>
-              <div class="books"><div><span>Pride and Prejudice<em>chapter 41 of 61</em></span><span></span></div><div><span>The Odyssey<em>book 5 of 24</em></span><span></span></div></div>
+              <div class="list2"><div><span>Pride and Prejudice</span><span>ch. 41 of 61</span></div><div><span>The Odyssey</span><span>book 5 of 24</span></div></div>
+              <span class="sh">Finished</span>
+              <div class="list2"><div><span>Crime and Punishment</span><span>September</span></div><div><span>Frankenstein</span><span>August</span></div><div><span>Meditations</span><span>August</span></div><div><span>8 more</span><span>›</span></div></div>
             </div></div>
         </div>
-        <span class="cap"><b>Her own background and picture,</b> and as much reading as she shares with you.</span></div>
+        <span class="cap"><b>Same layout as Your reading:</b> what she's reading, then what she's finished, as far as she shares it with you.</span></div>
 
       <div class="step"><span class="num">8 · A private profile</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card" style="--top:250px"><div class="grab"></div>
+          <div class="card" style="--top:330px"><div class="grab"></div>
             <div class="cb" style="padding-top:0">
-              <div class="hero" style="--bgimg:url('mockup-images/scene-crime-and-punishment-phone.jpg')"><span class="chg" style="left:12px;right:auto;background:rgba(27,24,20,.6);font-size:1.2rem">‹</span></div>
-              <div class="who"><span class="pic init">E</span><span class="nm"><b>Ellen Ravn</b><span>private</span></span></div>
-              <p class="lede">Ellen shares her reading with friends.</p>
-              <span class="btn solid" style="align-self:flex-start">Follow back</span>
+              <div class="hero slim" style="--bgimg:url('mockup-images/scene-crime-and-punishment-phone.jpg')"><span class="chg" style="left:12px;top:10px;right:auto;font-size:1.1rem">‹</span></div>
+              <div class="who slim"><span class="pic init">E</span><span class="nm"><b>Ellen Ravn</b><span>private profile</span></span></div>
+              <p class="lede">Ellen shares her reading with followers she approves.</p>
+              <span class="btn solid" style="align-self:flex-start">Ask to follow</span>
             </div></div>
         </div>
-        <span class="cap"><b>Private:</b> picture, name and Follow until you are friends. Then the full card.</span></div>
+        <span class="cap"><b>Private:</b> picture, name and Ask to follow. Once she accepts, you see the full card.</span></div>
 
       <div class="step"><span class="num">9 · Account settings</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card under"></div>
-          <div class="card" style="--top:40px"><div class="grab"></div>
+          <div class="card" style="--top:36px"><div class="grab"></div>
             <div class="ch"><span class="bk">‹</span><b>Account settings</b><span class="x">×</span></div>
-            <div class="cb" style="position:relative">
-              <div class="set">
-                <div><div class="l"><b>Profile <span class="info">i</span></b></div><div class="opts"><span class="on">Private</span><span>Public</span></div></div>
-                <div><div class="l"><b>Share my reading</b></div><div class="opts"><span>No one</span><span class="on">Friends</span><span>Everyone</span></div><span class="foot" style="text-align:left">What you read and your reading time.</span></div>
-                <div><div class="l"><b>Join the leaderboard</b><span class="sw"></span></div><span class="foot" style="text-align:left">Friends' board, because you share with friends.</span></div>
-                <div><div class="l"><b>New books open in</b> <span class="added">added</span></div><div class="opts"><span class="on">Modern English</span><span>Translations</span></div></div>
-                <div><div class="l"><b>Reading emails</b> <span class="added">added</span><span class="sw off"></span></div></div>
-                <div><div class="l"><b>Premium</b> <span class="added">added</span><span class="v">$5 a month · Manage</span></div></div>
-                <div><div class="l"><span class="plain">Change email</span><span class="plain">Change password</span></div></div>
-                <div><div class="l"><span class="plain">Sign out</span><span class="plain red">Delete account</span></div></div>
+            <div class="cb" style="gap:8px">
+              <span class="gh2">Privacy</span>
+              <div class="well">
+                <div class="stack2"><span class="lab">Profile <span class="info">i</span></span><div class="choice"><span class="on">Private</span><span>Public</span></div></div>
+                <div class="stack2"><span class="lab">Share my reading <span class="info">i</span></span><div class="choice"><span>No one</span><span class="on">Followers</span><span>Everyone</span></div></div>
+                <div><span class="lab">Join the leaderboard <span class="info">i</span></span><span class="sw"></span></div>
+              </div>
+              <span class="gh2">Reading</span>
+              <div class="well">
+                <div class="stack2"><span class="lab">New books open in</span><div class="choice"><span class="on">Modern English (AI)</span><span>Original source</span></div></div>
+              </div>
+              <span class="gh2">Account</span>
+              <div class="well">
+                <div><span class="lab">Account type</span><span class="val">Premium<u>Change</u></span></div>
+                <div><span class="lab">Email</span><span class="val">anders@…<u>Change</u></span></div>
+                <div><span class="lab">Password</span><span class="val"><u>Change</u></span></div>
               </div>
             </div></div>
         </div>
-        <span class="cap"><b>Every option is on the card.</b> No sub-pages. "Added" marks the four rows I added for you to keep or cut.</span></div>
+        <span class="cap"><b>Three small groups.</b> Choices sit on the card; each (i) explains in two sentences. Scrolls to the next screen.</span></div>
 
-      <div class="step"><span class="num">10 · The i, opened</span>
+      <div class="step"><span class="num">10 · Further down</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card" style="--top:40px"><div class="grab"></div>
+          <div class="card" style="--top:36px"><div class="grab"></div>
             <div class="ch"><span class="bk">‹</span><b>Account settings</b><span class="x">×</span></div>
-            <div class="cb" style="position:relative">
-              <div class="set">
-                <div><div class="l"><b>Profile <span class="info">i</span></b></div><div class="opts"><span class="on">Private</span><span>Public</span></div></div>
-                <div class="dim"><div class="l"><b>Share my reading</b></div><div class="opts"><span>No one</span><span class="on">Friends</span><span>Everyone</span></div></div>
-                <div class="dim"><div class="l"><b>Join the leaderboard</b><span class="sw"></span></div></div>
+            <div class="cb" style="gap:8px">
+              <span class="gh2">Account</span>
+              <div class="well">
+                <div><span class="lab">Account type</span><span class="val">Premium<u>Change</u></span></div>
+                <div><span class="lab">Email</span><span class="val">anders@…<u>Change</u></span></div>
+                <div><span class="lab">Password</span><span class="val"><u>Change</u></span></div>
+                <div><span class="lab">Export my books and data</span><span class="later">later</span></div>
               </div>
-              <div class="tip" style="top:52px"><b>Private.</b> Only friends can open your profile and see your reading. You don't appear in search.<br><br><b>Public.</b> Anyone with your link, or who finds you in search, can open your profile and see what you share.</div>
+              <div class="well">
+                <div><span class="lab">Sign out</span><span></span></div>
+                <div><span class="lab red2">Delete account</span><span></span></div>
+              </div>
             </div></div>
         </div>
-        <span class="cap"><b>A small box under the i,</b> two plain sentences. Tap anywhere to close it.</span></div>
+        <span class="cap"><b>Sign out and Delete in their own group</b> at the bottom. Export is shown as "later".</span></div>
 
-      <div class="step"><span class="num">11 · Sharing with no one</span>
+      <div class="step"><span class="num">11 · An (i), opened</span>
         <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
-          <div class="card" style="--top:40px"><div class="grab"></div>
+          <div class="card" style="--top:36px"><div class="grab"></div>
             <div class="ch"><span class="bk">‹</span><b>Account settings</b><span class="x">×</span></div>
+            <div class="cb" style="gap:8px;position:relative">
+              <span class="gh2">Privacy</span>
+              <div class="well">
+                <div class="stack2"><span class="lab">Profile <span class="info">i</span></span><div class="choice"><span class="on">Private</span><span>Public</span></div></div>
+                <div class="stack2"><span class="lab">Share my reading <span class="info">i</span></span><div class="choice"><span>No one</span><span class="on">Followers</span><span>Everyone</span></div></div>
+                <div class="dim"><span class="lab">Join the leaderboard <span class="info">i</span></span><span class="sw"></span></div>
+              </div>
+              <div class="tip" style="top:178px"><b>Share my reading.</b> What you read and how long. Followers means the people you approved; Everyone means anyone who opens your profile.</div>
+            </div></div>
+        </div>
+        <span class="cap"><b>Each (i) opens a small box</b> in place of the extra lines. Tap anywhere to close.</span></div>
+
+      <div class="step"><span class="num">12 · Export (later)</span>
+        <div class="ph"><div class="page"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="shade"></div>
+          <div class="card" style="--top:300px"><div class="grab"></div>
+            <div class="ch"><span class="bk">‹</span><b>Export</b><span class="x">×</span></div>
             <div class="cb">
-              <div class="set">
-                <div><div class="l"><b>Profile <span class="info">i</span></b></div><div class="opts"><span class="on">Private</span><span>Public</span></div></div>
-                <div><div class="l"><b>Share my reading</b></div><div class="opts"><span class="on">No one</span><span>Friends</span><span>Everyone</span></div></div>
-                <div class="dim"><div class="l"><b>Join the leaderboard</b><span class="sw off"></span></div><span class="foot" style="text-align:left">Share your reading with friends or everyone to join.</span></div>
+              <p class="lede" style="color:var(--ink)">Everything you've read, with your highlights, notes and conversations.</p>
+              <div class="well">
+                <div><span class="lab">Books, highlights and notes</span><span class="val">EPUB</span></div>
+                <div><span class="lab">Conversations</span><span class="val">text</span></div>
               </div>
+              <span class="btn solid" style="align-self:flex-start">Prepare my export</span>
             </div></div>
         </div>
-        <span class="cap"><b>Leaderboard is its own switch,</b> but greyed out while you share with no one.</span></div>
+        <span class="cap"><b>For later:</b> one card, one button. We email a link when the export is ready.</span></div>
     </div>
   </section>
 
   <section class="sec" aria-label="Desktop">
     <h2>Desktop</h2>
-    <p>Cards sit on the right, over the page, the way the reader's panels already do. The book stays where it was.</p>
+    <p>Cards sit on the right, over the page, where the reader's panels already go.</p>
     <div class="strip" style="flex-direction:column;gap:34px">
 
       <div class="step" style="width:auto"><span class="num">A · From the library</span>
         <div class="dkwrap"><div class="dk"><div class="lib"></div>
           <div class="libtop"><span>tinct</span><span class="r"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="mini"></span></span></div>
           <div class="libhero"><small>Mary Shelley's</small><b>Frankenstein</b></div>
-          <div class="panel" style="top:64px">
+          <div class="panel" style="top:64px;bottom:auto">
             <div class="cb" style="padding-top:0">
-              <div class="hero" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"><span class="chg"><svg width="13" height="13" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 3.5h2l1-1.5h3l1 1.5h2v6h-9z" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><circle cx="6" cy="6.3" r="1.7" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></span></div>
-              <div class="who"><span class="pic" style="--img:url('mockup-images/meditations.jpg')"><span class="cam"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 3.5h2l1-1.5h3l1 1.5h2v6h-9z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="6" cy="6.3" r="1.7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span></span><span class="nm"><b>Anders</b><span>Premium · friends see your reading</span></span></div>
+              <div class="hero slim" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"><span class="chg" style="font-size:.8rem">×</span></div>
+              <div class="who slim"><span class="pic" style="--img:url('mockup-images/meditations.jpg')"></span><span class="nm"><b>Anders</b><span>Premium</span></span></div>
               <div>
-                <div class="row"><span><span class="t">Your reading</span><br><span class="v">last 7 days</span></span><span style="display:flex;gap:10px;align-items:center"><span class="big">6<small>h</small> 10<small>m</small></span><span class="go">›</span></span></div>
-                <div class="row"><span><span class="t">Leaderboard</span><br><span class="v">3rd of 5 friends</span></span><span class="go">›</span></div>
-                <div class="row"><span class="t">AI credits</span><span></span><div class="ai"><div class="meter"><span>This month</span><i><b style="width:15%"></b></i><span>15%</span></div><div class="lk"><span>Renews 5 November</span><u>Top up</u></div></div></div>
-                <div class="row"><span class="t">Find friends</span><span class="go">›</span></div>
+                <div class="row"><span class="t">Your reading</span><span style="display:flex;gap:10px;align-items:center"><span class="v">6 h 10 m · 7 days</span><span class="go">›</span></span></div>
+                <div class="row"><span class="t">Leaderboard</span><span style="display:flex;gap:10px;align-items:center"><span class="v">3rd of 5</span><span class="go">›</span></span></div>
+                <div class="row"><span class="t">AI credits</span><span></span><div class="cred"><div class="ln"><span>This month</span><span><b>15%</b> left</span><div class="tr"><i style="width:15%"></i></div></div><div class="act"><span>renews 5 November</span><span class="smallbtn">Top up</span></div></div></div>
+                <div class="row"><span class="t">Find readers</span><span class="go">›</span></div>
                 <div class="row"><span class="t">Account settings</span><span class="go">›</span></div>
               </div>
             </div></div>
         </div></div>
-        <span class="cap" style="max-width:80ch"><b>The same You card, over the library.</b> No top-up yet, so only one credits bar. Closing leaves you on the library exactly as it was.</span></div>
+        <span class="cap" style="max-width:80ch"><b>The same You card over the library,</b> sized to its content. No top-up bought, so one credits bar.</span></div>
 
-      <div class="step" style="width:auto"><span class="num">B · In a book: a reader's profile on top of the leaderboard</span>
+      <div class="step" style="width:auto"><span class="num">B · In a book: Your reading</span>
         <div class="dkwrap"><div class="dk">
           <div class="top"><span>←</span><span><b>Frankenstein</b><i>Chapter 14</i></span><span class="r">t</span></div>
           <div class="spread"><p>Some time elapsed before I learned the history of my friends. It was one which could not fail to impress itself deeply on my mind, unfolding as it did a number of circumstances, each interesting and wonderful to one so utterly inexperienced as I was.</p><p></p></div>
-          <div class="panel under"></div>
           <div class="panel">
-            <div class="cb" style="padding-top:0">
-              <div class="hero" style="--bgimg:url('mockup-images/scene-pride-and-prejudice-phone.jpg');height:120px"><span class="chg" style="left:12px;right:auto;background:rgba(27,24,20,.6);font-size:1.2rem">‹</span><span class="chg" style="font-size:.9rem">×</span></div>
-              <div class="who"><span class="pic" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="nm"><b>Maja Holm</b><span>friends</span></span></div>
-              <span class="btn" style="align-self:flex-start">Following</span>
-              <div class="facts"><div><b>4 h 50</b><span>last 7 days</span></div><div><b>96 h</b><span>this year</span></div><div><b>11</b><span>finished</span></div></div>
+            <div class="ch"><span class="bk">‹</span><b>Your reading</b><span class="x">×</span></div>
+            <div class="cb" style="gap:8px">
+              <div class="bignum">41<small>h</small> 20<small>m</small></div>
+              <p class="lede">since 14 July, reading and listening.</p>
+              <div class="bars"><i style="height:18%"></i><i style="height:30%"></i><i style="height:47%"></i><i style="height:37%"></i><i style="height:9%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:67%"></i><i style="height:46%"></i><i style="height:80%"></i><i style="height:100%"></i><i style="height:95%"></i></div>
+              <div class="facts"><div><b>6 h 10</b><span>last 7 days</span></div><div><b>3</b><span>finished</span></div><div><b>6 days</b><span>streak</span></div></div>
               <span class="sh">Reading now</span>
-              <div class="books"><div><span>Pride and Prejudice<em>chapter 41 of 61</em></span><span></span></div><div><span>The Odyssey<em>book 5 of 24</em></span><span></span></div></div>
+              <div class="list2"><div><span>Frankenstein</span><span>ch. 14 of 24 · 4 h 10</span></div><div><span>The Prince</span><span>ch. 9 of 26 · 1 h 05</span></div></div>
+              <span class="sh">Finished</span>
+              <div class="list2"><div><span>Meditations</span><span>September · 5 h 40</span></div><div><span>Notes from Underground</span><span>August · 4 h 15</span></div><div><span>Jekyll and Hyde</span><span>July · 2 h 50</span></div></div>
             </div></div>
         </div></div>
-        <span class="cap" style="max-width:80ch"><b>Cards stack on the right.</b> The leaderboard sits just behind Maja's card; the arrow goes back to it, the cross closes both.</span></div>
+        <span class="cap" style="max-width:80ch"><b>The book stays put on the left.</b> The arrow returns to You; the cross closes the card.</span></div>
 
       <div class="step" style="width:auto"><span class="num">C · In a book: Account settings</span>
         <div class="dkwrap"><div class="dk">
@@ -394,32 +476,36 @@ body { margin: 0; background: var(--desk); color: var(--note); font-family: var(
           <div class="spread"><p>Some time elapsed before I learned the history of my friends. It was one which could not fail to impress itself deeply on my mind, unfolding as it did a number of circumstances, each interesting and wonderful to one so utterly inexperienced as I was.</p><p></p></div>
           <div class="panel">
             <div class="ch"><span class="bk">‹</span><b>Account settings</b><span class="x">×</span></div>
-            <div class="cb">
-              <div class="set">
-                <div><div class="l"><b>Profile <span class="info">i</span></b></div><div class="opts"><span>Private</span><span class="on">Public</span></div></div>
-                <div><div class="l"><b>Share my reading</b></div><div class="opts"><span>No one</span><span>Friends</span><span class="on">Everyone</span></div><span class="foot" style="text-align:left">What you read and your reading time.</span></div>
-                <div><div class="l"><b>Join the leaderboard</b><span class="sw"></span></div><span class="foot" style="text-align:left">Friends' and Everyone boards.</span></div>
-                <div><div class="l"><b>New books open in</b> <span class="added">added</span></div><div class="opts"><span class="on">Modern English</span><span>Translations</span></div></div>
-                <div><div class="l"><b>Reading emails</b> <span class="added">added</span><span class="sw"></span></div></div>
-                <div><div class="l"><b>Premium</b> <span class="added">added</span><span class="v">$5 a month · Manage</span></div></div>
-                <div><div class="l"><span class="plain">Change email</span><span class="plain">Change password</span></div></div>
-                <div><div class="l"><span class="plain">Sign out</span><span class="plain red">Delete account</span></div></div>
+            <div class="cb" style="gap:8px">
+              <span class="gh2">Privacy</span>
+              <div class="well">
+                <div class="stack2"><span class="lab">Profile <span class="info">i</span></span><div class="choice"><span>Private</span><span class="on">Public</span></div></div>
+                <div class="stack2"><span class="lab">Share my reading <span class="info">i</span></span><div class="choice"><span>No one</span><span>Followers</span><span class="on">Everyone</span></div></div>
+                <div><span class="lab">Join the leaderboard <span class="info">i</span></span><span class="sw"></span></div>
+              </div>
+              <span class="gh2">Reading</span>
+              <div class="well"><div class="stack2"><span class="lab">New books open in</span><div class="choice"><span class="on">Modern English (AI)</span><span>Original source</span></div></div></div>
+              <span class="gh2">Account</span>
+              <div class="well">
+                <div><span class="lab">Account type</span><span class="val">Premium<u>Change</u></span></div>
+                <div><span class="lab">Email</span><span class="val">anders@…<u>Change</u></span></div>
+                <div><span class="lab">Password</span><span class="val"><u>Change</u></span></div>
               </div>
             </div></div>
         </div></div>
-        <span class="cap" style="max-width:80ch"><b>A public reader sharing with everyone</b> appears on both boards. Change email and password open small forms in the same card.</span></div>
+        <span class="cap" style="max-width:80ch"><b>The same groups on desktop;</b> Sign out and Delete account sit below, as on the phone.</span></div>
     </div>
   </section>
 
   <section class="sec" aria-label="Rules">
-    <h2>What these cards follow</h2>
+    <h2>What changed from the first pass</h2>
     <div class="notes" style="margin-top:14px">
-      <div><b>Cards, not pages</b>Five cards in all: You, Your reading, Leaderboard, Find friends, Account settings, plus a reader's profile. Each opens on top of the last.</div>
-      <div><b>Instant back</b>The page stays underneath. The cross closes every card at once; nothing reloads.</div>
-      <div><b>Two fonts</b>Playfair Display for names, numbers and headings; EB Garamond for everything else. No monospace, no capitals-only labels, no pills.</div>
-      <div><b>One set of numbers</b>Last 7 days, total, finished and streak are the same on every card.</div>
-      <div><b>Email confirmed at sign-up</b>Nothing here asks for confirmation; sign-up does that once.</div>
-      <div><b>Privacy</b>Private: only friends see your reading and you are not in search. The leaderboard switch follows what you share.</div>
+      <div><b>You card</b>Slim header, just "Premium". The picture and background change from the card itself: upload one or choose one. The separate sets card is gone.</div>
+      <div><b>AI credits</b>One quiet bar for the month, a second only after a top-up, and a small Top up button. No gold, no underlined links.</div>
+      <div><b>Leaderboard</b>Only on the You card if you joined it. Tabs are Following and Everyone.</div>
+      <div><b>Followers</b>Public readers can be followed by anyone; private readers approve followers. "Share my reading" is No one, Followers or Everyone.</div>
+      <div><b>Books as lines</b>Your reading and other readers' profiles list Reading now, then Finished, one narrow line per book.</div>
+      <div><b>Settings</b>Privacy, Reading and Account groups; an (i) instead of extra text. Reading emails are gone (their own unsubscribe page). Account type: Premium, Change. Export is marked "later".</div>
     </div>
   </section>
 </div>
