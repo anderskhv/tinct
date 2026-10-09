@@ -182,12 +182,12 @@ describe('price tiers', () => {
     expect(modernTierFor(200_000)).toBe(3)
     expect(modernTierFor(200_001)).toBe(4)
     expect(modernTierFor(1_500_000)).toBe(4)
-    expect([1, 2, 3, 4].map(t => modernTierCents(t as 1))).toEqual([299, 499, 799, 1199])
-    expect(MODERN_TIERS.map(t => t.cents)).toEqual([299, 499, 799, 1199])
+    expect([1, 2, 3, 4].map(t => modernTierCents(t as 1))).toEqual([300, 500, 800, 1200])
+    expect(MODERN_TIERS.map(t => t.cents)).toEqual([300, 500, 800, 1200])
   })
 
   it('offers the book’s tier, and only with the switch on and the tier’s price configured', async () => {
-    expect((await setup().status()).offer).toEqual({ tier: 2, cents: 499 })
+    expect((await setup().status()).offer).toEqual({ tier: 2, cents: 500 })
     expect((await setup({ switchOn: false }).status()).offer).toBeNull()
     expect((await setup({ prices: { STRIPE_PRICE_MODERN_T1: 'price_t1' } }).status()).offer).toBeNull()
   })
@@ -237,7 +237,7 @@ describe('purchase guard', () => {
     const expiresAt = Number(t.stripe.created[0].get('expires_at')) * 1000
     expect(expiresAt).toBeLessThan(t.clock.t + HOLD_MS)
     t.clock.t += HOLD_MS + 1
-    expect((await t.status()).offer).toEqual({ tier: 2, cents: 499 })
+    expect((await t.status()).offer).toEqual({ tier: 2, cents: 500 })
     expect((await t.buy('b')).status).toBe(200)
     expect(t.stripe.created).toHaveLength(2)
   })
@@ -285,7 +285,7 @@ describe('purchase guard', () => {
     expect((await t.status()).state).toBe('checkout')
     expect(await (await cancel('a')).json()).toEqual({ released: true })
     expect(t.stripe.expired).toEqual(['cs_test_1'])
-    expect(await t.status()).toMatchObject({ state: 'none', offer: { tier: 2, cents: 499 } })
+    expect(await t.status()).toMatchObject({ state: 'none', offer: { tier: 2, cents: 500 } })
     expect((await t.buy('b')).status).toBe(200)
     // Nothing to release once the book is free, or once it is paid.
     expect(await (await cancel('a')).json()).toEqual({ released: false })
@@ -416,7 +416,7 @@ describe('webhook grant', () => {
       expect(response.status).toBe(200)
     }
     expect(inserts).toHaveLength(3)
-    expect(inserts[0]).toMatchObject({ user_id: USER, stripe_session_id: 'cs_paid', amount_cents: 499, type: 'modern_edition', status: 'completed' })
+    expect(inserts[0]).toMatchObject({ user_id: USER, stripe_session_id: 'cs_paid', amount_cents: 500, type: 'modern_edition', status: 'completed' })
     expect(sessionIds.size).toBe(1)
     const meta = t.r2.json(`public-books/${BOOK}/meta.json`)
     expect(meta.book.editions.filter((e: { key: string }) => e.key === 'modern-en')).toHaveLength(1)
@@ -460,7 +460,7 @@ describe('webhook grant', () => {
     expect(t.r2.json(`public-books/${BOOK}/meta.json`).book.editions.map((e: { key: string }) => e.key)).toEqual(['original-en'])
     expect((await deliver('checkout.session.async_payment_succeeded', sessionObject('cs_test_1', 'paid'), modernHooks(t))).status).toBe(200)
     expect((await t.status()).state).toBe('paid')
-    expect(inserts).toEqual([expect.objectContaining({ stripe_session_id: 'cs_test_1', amount_cents: 499, type: 'modern_edition', status: 'completed' })])
+    expect(inserts).toEqual([expect.objectContaining({ stripe_session_id: 'cs_test_1', amount_cents: 500, type: 'modern_edition', status: 'completed' })])
     expect(t.r2.json(`public-books/${BOOK}/meta.json`).book.editions.map((e: { key: string }) => e.key)).toEqual(['original-en', 'modern-en'])
   })
 
@@ -471,7 +471,7 @@ describe('webhook grant', () => {
     await deliver('checkout.session.completed', sessionObject('cs_test_1', 'unpaid'), modernHooks(t))
     expect((await deliver('checkout.session.async_payment_failed', sessionObject('cs_test_1', 'unpaid'), modernHooks(t))).status).toBe(200)
     expect(inserts).toHaveLength(0)
-    expect(await t.status()).toMatchObject({ state: 'none', offer: { tier: 2, cents: 499 } })
+    expect(await t.status()).toMatchObject({ state: 'none', offer: { tier: 2, cents: 500 } })
   })
 
   it('an expired checkout frees the book at once, not after the 35-minute hold', async () => {
