@@ -86,6 +86,13 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* Back to library: icon-only arrow at the left of the top bar, as in Tinct's reader */
 .lab.byob .lab-v2-library-back { flex: 0 0 34px; width: 34px; height: 34px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 999px; background: transparent; box-shadow: none; color: inherit; cursor: pointer; }
 .lab.byob .lab-v2-library-back:hover { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
+/* "Tinct text": a text PDF's other edition, in the reader's book face (never the UI's mono) */
+.lab.byob .lab-header-edition { flex: 0 0 auto; height: 30px; padding: 0 12px; border: 1px solid color-mix(in srgb, var(--pdf-ink) 22%, transparent); border-radius: 999px; background: transparent; color: inherit; font-family: 'EB Garamond', Georgia, serif; font-size: 15px; letter-spacing: 0; line-height: 1; cursor: pointer; white-space: nowrap; }
+.lab.byob .lab-header-edition:hover { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
+.lab.byob .lab-header-edition[hidden] { display: none; }
+.lab.byob.is-phone .lab-header-edition { height: 26px; padding: 0 9px; font-size: 13.5px; }
+/* On the phone the controls are one narrow column; with "Tinct text" they take the width they need, in one row. */
+.lab.byob.is-phone .lab-header-controls:has(.lab-header-edition:not([hidden])) { width: auto; min-width: 0; flex-wrap: nowrap; gap: .35rem; }
 /* Off for a scan without text (read aloud, Summarize, Catch me up): dimmed as Tinct's buttons are (tinct-ui.css .tui-btn:disabled) */
 .lab.byob .lab-v2-play:disabled, .lab.byob .lab-super-row:disabled { opacity: .45; cursor: default; }
 /* The phone has the back arrow too, whatever the PDF shows (a scanned page fills the screen):
@@ -180,3 +187,15 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-book-theme.is-desktop .lab-header-chapter { background: color-mix(in srgb, var(--lab-surface) 70%, transparent); }
 /* A clear edge under the top bar so it doesn't fade into the scrolling pages (Anders, 9 Oct 2026). */
 .byob .lab-header { border-bottom: 1px solid color-mix(in srgb, currentColor 16%, transparent); box-shadow: 0 6px 14px -10px rgba(0, 0, 0, .35); }
+/* Recognising a scan's text (js/pdf-ocr.js): one line under the header, in the book's own type. */
+.lab.byob .byob-ocr { position: fixed; top: calc(var(--pdf-top, 50px) + 12px); left: 50%; transform: translateX(-50%); z-index: 70; width: min(calc(100vw - 32px), 560px); box-sizing: border-box; padding: 12px 16px; border-radius: 14px; background: var(--pdf-surface); color: var(--pdf-ink); box-shadow: 0 4px 18px rgba(0,0,0,.12); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.4; }
+.lab.byob .byob-ocr-line { margin: 0; font: inherit; color: inherit; }
+.lab.byob a.byob-ocr-line { display: block; text-decoration: none; }
+.lab.byob a.byob-ocr-line:hover { text-decoration: underline; text-underline-offset: 3px; }
+.lab.byob .byob-ocr-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
+.lab.byob .byob-ocr-actions button { min-height: 36px; padding: 0 14px; border: 1px solid var(--pdf-line); border-radius: 999px; background: transparent; color: inherit; font: inherit; font-size: 16px; cursor: pointer; }
+.lab.byob .byob-ocr-actions button.primary { border-color: var(--pdf-accent); background: var(--pdf-accent); color: var(--pdf-surface); }
+.lab.byob .byob-ocr-link { padding: 0; border: 0; background: none; color: var(--pdf-accent); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.lab.byob .byob-ocr-link:disabled { opacity: .55; cursor: default; }
+/* Beside the docked chat: centred over the pages. */
+.lab.byob.dock-open .byob-ocr { left: calc((100vw - var(--dock-w) - 14px) / 2); width: min(calc(100vw - var(--dock-w) - 46px), 560px); }

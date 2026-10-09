@@ -59,10 +59,40 @@
  * The list names it as each book's `cover` (that URL with a version, or null).
  * Deleting the book deletes its cover; account deletion takes it with the
  * whole `u/{userId}/` prefix, and account export lists it.
+ *
+ * Recognising the text of a scanned own PDF (Premium; dark until the Worker
+ * var OWN_PDF_OCR is "1", and every route below answers 404 while it is not):
+ *
+ *   POST   /api/user-books/ocr/{bookHex}           start `{ pages, blank?, rerun?: 'failed'|'all' }`
+ *   GET    /api/user-books/ocr/{bookHex}           the job's status, pages still to upload, the reader's tier and month
+ *   PUT    /api/user-books/ocr/{bookHex}/pages/{n} one page image (image/jpeg, at most 1.5 MB)
+ *   GET    /api/user-books/ocr/{bookHex}/edition   the recognised Tinct text
+ *   DELETE /api/user-books/ocr/{bookHex}           cancel: unused page reservations back, everything deleted
+ *
+ * Owner only (a PDF under the caller's own prefix whose SHA-256 starts with
+ * the hex; 404 otherwise). Starting needs Premium or the trial (402
+ * `premium_required`, 503 when it cannot be read). Everything is kept under
+ * `u/{userId}/ocr/{bookHex}/` (lib/ownOcr.ts); the job runs in
+ * ownOcrCoordinator.ts. Deleting the book deletes it, and so does deleting the account.
  */
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { CheckRateLimit } from '../lib/rateLimit'
+import type { PremiumTier } from '../lib/aiAllowance'
+import {
+  OCR_MAX_IMAGE_BYTES,
+  OCR_READS_PER_MINUTE,
+  OCR_STARTS_PER_MINUTE,
+  OCR_UPLOADS_PER_MINUTE,
+  ocrCoordinatorName,
+  ocrEditionKey,
+  ocrImageKey,
+  ownOcrLimits,
+  ownOcrPrefix,
+  ownPdfOcrOn,
+  type OwnOcrEnv,
+} from '../lib/ownOcr'
+import type { OwnOcrCoordinator } from '../ownOcrCoordinator'
 
 export const MAX_FILE_BYTES = 50 * 1024 * 1024
 export const MAX_ACCOUNT_BYTES = 2 * 1024 * 1024 * 1024
@@ -76,7 +106,9 @@ const FILE_ID = /^[0-9a-f]{32}$/
 const TYPES = { pdf: 'application/pdf', epub: 'application/epub+zip' } as const
 export type UserBookType = keyof typeof TYPES
 
-export type UserBooksEnv = { USER_BOOKS?: R2Bucket }
+export type UserBooksEnv = { USER_BOOKS?: R2Bucket; OWN_OCR?: DurableObjectNamespace<OwnOcrCoordinator> }
+  & Pick<OwnOcrEnv, 'OWN_PDF_OCR' | 'OCR_MAX_PAGES' | 'XAI_API_KEY'>
+export { ownOcrPrefix }
 /** A stored cover is at most this many bytes (the browser aims under 60 KB). */
 export const MAX_COVER_BYTES = 64 * 1024
 /** Cover writes per account per rate-limit window. */
@@ -398,28 +430,154 @@ async function download(request: Request, bucket: R2Bucket, userId: string, file
   })
 }
 
-async function remove(request: Request, bucket: R2Bucket, userId: string, fileId: string): Promise<Response> {
+async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, userId: string, fileId: string): Promise<Response> {
   const key = `${userBooksPrefix(userId)}${fileId}`
   const head = await bucket.head(key)
   if (!head) return notFound(request)
   await bucket.delete(key)
-  // Its narration and its Catch me up recap go with it (the same file is stored once per account).
+  // Its narration, Catch me up recap and recognised text go with it (the same file is stored once per account).
   const sha256 = head.customMetadata?.sha256 ?? ''
   if (/^[0-9a-f]{64}$/.test(sha256)) {
     const bookHex = sha256.slice(0, USER_BOOK_HEX_LENGTH)
     await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
     await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
     await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex)])
+    // An OCR job stops and gives back what it held (with job.json gone it would stop on its own too).
+    if (env.OWN_OCR) await env.OWN_OCR.getByName(await ocrCoordinatorName(userId, bookHex)).cancel().catch(() => null)
+    await purgePrefix(bucket, ownOcrPrefix(userId, bookHex))
   }
   return reply({ ok: true }, 200, request)
+}
+
+// ===== OCR of scanned PDFs =====
+
+const JPEG_SOI = [0xff, 0xd8, 0xff]
+
+/** A whole JPEG: its start-of-image marker first and its end-of-image marker last. */
+export function looksLikeJpeg(bytes: Uint8Array): boolean {
+  return bytes.length > 4 && JPEG_SOI.every((byte, i) => bytes[i] === byte) && bytes[bytes.length - 2] === 0xff && bytes[bytes.length - 1] === 0xd9
+}
+
+type OcrRouteDeps = {
+  verifyUser: (request: Request) => Promise<VerifiedUser | null>
+  checkRateLimit: CheckRateLimit
+  premiumAccess: (userId: string) => Promise<boolean | null>
+  premiumTier?: (userId: string) => Promise<PremiumTier | null>
+}
+
+/** Paid Premium, the trial, or neither; null when unknown. Without a tier source, any Premium access counts as paid. */
+async function tierOf(deps: OcrRouteDeps, userId: string): Promise<PremiumTier | null> {
+  if (deps.premiumTier) return deps.premiumTier(userId).catch(() => null)
+  const access = await deps.premiumAccess(userId).catch(() => null)
+  return access === null ? null : access ? 'premium' : 'none'
+}
+
+const declaredLength = (request: Request): number | null => {
+  const value = request.headers.get('content-length')
+  return value !== null && /^\d+$/.test(value.trim()) ? Number(value) : null
+}
+
+/** `/api/user-books/ocr/…`; `rest` is what follows `/ocr/`. */
+async function handleOcr(request: Request, env: UserBooksEnv, deps: OcrRouteDeps, rest: string): Promise<Response> {
+  // Dark: nothing here exists until the switch is on.
+  if (!ownPdfOcrOn(env)) return notFound(request)
+  const [bookHex = '', part, pageText, ...extra] = rest.split('/')
+  const route = part === undefined ? 'job'
+    : part === 'edition' && pageText === undefined ? 'edition'
+      : part === 'pages' && pageText !== undefined && !extra.length ? 'page' : null
+  if (!route) return notFound(request)
+  const allowed = route === 'job' ? ['GET', 'POST', 'DELETE'] : route === 'edition' ? ['GET'] : ['PUT']
+  if (!allowed.includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
+  const user = await deps.verifyUser(request)
+  if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
+  if (!BOOK_HEX.test(bookHex)) return notFound(request)
+  const bucket = env.USER_BOOKS
+  const namespace = env.OWN_OCR
+  if (!bucket || !namespace) return reply({ error: 'Not configured' }, 503, request)
+  const limits = ownOcrLimits(env)
+
+  let n = 0
+  if (route === 'page') {
+    if (!/^[1-9]\d{0,5}$/.test(pageText!) || Number(pageText) > limits.maxPages) return notFound(request)
+    n = Number(pageText)
+    const type = (request.headers.get('content-type') ?? '').split(';')[0].trim().toLowerCase()
+    if (type !== 'image/jpeg') return reply({ error: 'unsupported_type' }, 415, request)
+    if ((declaredLength(request) ?? 0) > OCR_MAX_IMAGE_BYTES) return reply({ error: 'image_too_large', maxBytes: OCR_MAX_IMAGE_BYTES }, 413, request)
+  }
+  const [limitKey, perMinute] = route === 'page' ? ['user-books-ocr-page', OCR_UPLOADS_PER_MINUTE] as const
+    : request.method === 'GET' ? ['user-books-ocr-read', OCR_READS_PER_MINUTE] as const
+      : ['user-books-ocr-start', OCR_STARTS_PER_MINUTE] as const
+  if (!await deps.checkRateLimit(`${limitKey}:${user.id}`, undefined, perMinute)) return reply({ error: 'rate_limited' }, 429, request)
+
+  // Owner only: a PDF stored under the caller's own prefix.
+  const book = (await listUserBooks(bucket, user.id)).find(item => item.type === 'pdf' && item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
+  if (!book) return notFound(request)
+  const job = namespace.getByName(await ocrCoordinatorName(user.id, bookHex))
+
+  if (route === 'edition') {
+    const object = await bucket.get(ocrEditionKey(user.id, bookHex))
+    if (!object) return notFound(request)
+    return new Response(object.body, { status: 200, headers: headers(request, { 'Content-Type': 'application/json' }) })
+  }
+  if (route === 'page') {
+    if (!await job.canUpload(n)) return reply({ error: 'not_expected' }, 409, request)
+    const bytes = await readCapped(request.body, OCR_MAX_IMAGE_BYTES, declaredLength(request))
+    if (!bytes) return reply({ error: 'image_too_large', maxBytes: OCR_MAX_IMAGE_BYTES }, 413, request)
+    if (!looksLikeJpeg(bytes)) return reply({ error: 'unsupported_type' }, 415, request)
+    const imageKey = ocrImageKey(user.id, bookHex, n)
+    await bucket.put(imageKey, bytes, { httpMetadata: { contentType: 'image/jpeg' } })
+    if (!await job.pageUploaded(n)) {
+      await bucket.delete(imageKey)
+      return reply({ error: 'not_expected' }, 409, request)
+    }
+    return reply({ ok: true }, 200, request)
+  }
+  // The reader's tier and month come too: the reader offers recognition from them.
+  if (request.method === 'GET') {
+    const tier = await tierOf(deps, user.id)
+    return reply({ ...await job.status({ userId: user.id, tier }), tier }, 200, request)
+  }
+  if (request.method === 'DELETE') {
+    const { refunded } = await job.cancel()
+    await purgePrefix(bucket, ownOcrPrefix(user.id, bookHex))
+    return reply({ ok: true, refunded }, 200, request)
+  }
+
+  // POST: start, or re-run.
+  let body: { pages?: unknown; blank?: unknown; rerun?: unknown } | null
+  try { body = await request.json() as typeof body } catch { return reply({ error: 'bad_request' }, 400, request) }
+  const pages = body?.pages
+  if (typeof pages !== 'number' || !Number.isInteger(pages) || pages < 1) return reply({ error: 'bad_request' }, 400, request)
+  if (pages > limits.maxPages) return reply({ error: 'too_many_pages', maxPages: limits.maxPages }, 413, request)
+  const blank = body?.blank ?? []
+  if (!Array.isArray(blank) || blank.length > pages || !blank.every(item => Number.isInteger(item) && item >= 1 && item <= pages)) {
+    return reply({ error: 'bad_request' }, 400, request)
+  }
+  const rerun = body?.rerun === 'failed' || body?.rerun === 'all' ? body.rerun : undefined
+  if (body?.rerun !== undefined && !rerun) return reply({ error: 'bad_request' }, 400, request)
+  const tier = await tierOf(deps, user.id)
+  if (tier === null) return reply({ error: 'unavailable' }, 503, request)
+  if (tier === 'none') return reply({ error: 'premium_required' }, 402, request)
+  if (!env.XAI_API_KEY) return reply({ error: 'unavailable' }, 503, request)
+  const status = await job.start({ userId: user.id, hex: bookHex, pages, title: book.title, author: book.author, blank: blank as number[], rerun, tier })
+  return reply(status, 202, request)
 }
 
 // ===== Places =====
 
 /** A reader's place in an EPUB they added (the Tinct reader): chapter, paragraph and word. */
 export type OwnTextPlace = { chapterNumber: number; paragraphIndex: number; wordIndex: number; updatedAt: number; percent?: number; converter?: number; rev: number }
-/** A reader's place in a PDF they added (Add a book's viewer): the page and how far down it (0-1). */
-export type OwnPagePlace = { page: number; frac?: number; updatedAt: number; percent?: number; rev: number }
+/**
+ * A reader's place in a PDF they added: the page and how far down it (0-1)
+ * and, whichever of its editions they read it in, the same spot in its Tinct
+ * text (chapter, paragraph, word, the rules it was converted under) and the
+ * edition read ('t' Tinct text, 'p' Original pages).
+ */
+export type OwnPagePlace = {
+  page: number; frac?: number; updatedAt: number; percent?: number
+  chapterNumber?: number; paragraphIndex?: number; wordIndex?: number; converter?: number; edition?: 't' | 'p'
+  rev: number
+}
 /** A reader's place in an own book, as stored and served. */
 export type OwnPlace = OwnTextPlace | OwnPagePlace
 type PlaceBody = Omit<OwnTextPlace, 'rev'> | Omit<OwnPagePlace, 'rev'>
@@ -433,7 +591,9 @@ const wholeNumber = (value: unknown, max = MAX_PLACE_INDEX): value is number => 
 /**
  * A place from a request body or from stored metadata (strings); null when any
  * field is out of shape. A place with a `page` is a PDF's (the page and how far
- * down it); any other is an EPUB's (chapter, paragraph, word).
+ * down it, and the spot in its Tinct text when it carries one: all three of
+ * chapter, paragraph and word, or none); any other is an EPUB's (chapter,
+ * paragraph, word).
  */
 export function readPlace(value: unknown): PlaceBody | null {
   if (!value || typeof value !== 'object') return null
@@ -452,6 +612,18 @@ export function readPlace(value: unknown): PlaceBody | null {
     if (frac !== undefined && (typeof frac !== 'number' || !Number.isFinite(frac) || frac < 0 || frac > 1)) return null
     const pagePlace: Omit<OwnPagePlace, 'rev'> = { page, ...(typeof frac === 'number' ? { frac: Math.round(frac * 10_000) / 10_000 } : {}), updatedAt }
     keepPercent(pagePlace)
+    const chapterNumber = number(raw.chapterNumber), paragraphIndex = number(raw.paragraphIndex), wordIndex = number(raw.wordIndex)
+    const anyText = [chapterNumber, paragraphIndex, wordIndex].some(field => field !== undefined)
+    if (anyText) {
+      if (!wholeNumber(chapterNumber) || chapterNumber < 1 || !wholeNumber(paragraphIndex) || !wholeNumber(wordIndex)) return null
+      Object.assign(pagePlace, { chapterNumber, paragraphIndex, wordIndex })
+      const converter = number(raw.converter)
+      if (wholeNumber(converter, 1000) && converter >= 1) pagePlace.converter = converter
+    }
+    if (raw.edition !== undefined) {
+      if (raw.edition !== 't' && raw.edition !== 'p') return null
+      pagePlace.edition = raw.edition
+    }
     return pagePlace
   }
   const chapterNumber = number(raw.chapterNumber)
@@ -625,10 +797,13 @@ export async function handleUserBooks(
     checkRateLimit: CheckRateLimit
     /** Premium or in the 30-day trial (lib/aiAllowance.ts loadPremiumAccess); null when unknown. Uploading is Premium only. */
     premiumAccess: (userId: string) => Promise<boolean | null>
+    /** Paid Premium, the trial or neither (lib/aiAllowance.ts loadPremiumTier): OCR has a smaller trial ceiling. */
+    premiumTier?: (userId: string) => Promise<PremiumTier | null>
   },
 ): Promise<Response> {
   const url = new URL(request.url)
   const rest = url.pathname.slice('/api/user-books'.length)
+  if (rest === '/ocr' || rest.startsWith('/ocr/')) return handleOcr(request, env, deps, rest.slice('/ocr/'.length))
   const placeHex = rest === '/places' ? '' : rest.startsWith('/places/') ? rest.slice('/places/'.length) : null
   if (placeHex !== null) return handlePlaces(request, env, deps, placeHex)
   if (rest === '/covers' || rest.startsWith('/covers/')) return handleCover(request, env, deps, rest.slice('/covers/'.length))
@@ -656,6 +831,6 @@ export async function handleUserBooks(
       limits: { maxFileBytes: MAX_FILE_BYTES, maxAccountBytes: MAX_ACCOUNT_BYTES, maxAccountFiles: MAX_ACCOUNT_FILES },
     }, 200, request)
   }
-  if (request.method === 'DELETE') return remove(request, bucket, user.id, fileId)
+  if (request.method === 'DELETE') return remove(request, env, bucket, user.id, fileId)
   return download(request, bucket, user.id, fileId)
 }

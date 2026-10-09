@@ -29,8 +29,8 @@ vi.mock('../labNarration', async importOriginal => ({
 }))
 
 // Saving a place to the reader's private account copy (ownSync.ts, tested there): watched here.
-const ownSync = vi.hoisted(() => ({ note: vi.fn(), flush: vi.fn() }))
-vi.mock('./ownSync', async importOriginal => ({ ...await importOriginal<typeof import('./ownSync')>(), noteOwnPlace: ownSync.note, flushOwnPlaces: ownSync.flush }))
+const ownSync = vi.hoisted(() => ({ note: vi.fn(), flush: vi.fn(), notePdf: vi.fn() }))
+vi.mock('./ownSync', async importOriginal => ({ ...await importOriginal<typeof import('./ownSync')>(), noteOwnPlace: ownSync.note, flushOwnPlaces: ownSync.flush, notePdfPlace: ownSync.notePdf }))
 
 const HEX = 'ab12cd34ef56ab12cd34ef56'
 const BOOK_ID = userBookId(HEX)
@@ -330,7 +330,91 @@ describe('Listen for a user book without Premium', () => {
   })
 })
 
+/** A text PDF's Tinct text: chapter 1 starts on page 2 and runs onto page 3; chapter 2 is on page 4. */
+function pdfBook(place: { chapterNumber: number; paragraphIndex: number; wordIndex: number } | null = null) {
+  const pdf: UserBookEdition = {
+    ...edition(), source: 'pdf', converter: 1, title: 'A Paper of My Own',
+    chapters: [
+      { ...edition().chapters[0], pages: [2, 2, 2, 3], pageBreaks: [[2, 40, 3]] },
+      { ...edition().chapters[1], pages: [4, 4] },
+    ],
+  }
+  return { hex: HEX, bookId: BOOK_ID, kind: 'pdf' as const, pdfPages: 6, edition: pdf, images: new Map(), place: place ? { ...place, updatedAt: 1, converter: 1 } : null }
+}
+
+describe('a PDF read as its Tinct text', () => {
+  it('offers Book editions with its two editions, and nothing else of an edition', async () => {
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={pdfBook({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 45 })} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
+    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'account'])
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    const sheet = await screen.findByText('Book editions')
+    const body = sheet.closest('section, [role="dialog"], .lab-v2-sheet') ?? document.body
+    expect(screen.getByTestId('lab-v2-main-edition').textContent).toContain('Tinct text')
+    expect(screen.queryByTestId('lab-v2-audio-edition')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-main-edition'))
+    const options = [...body.querySelectorAll('.lab-v2-edition-option')].map(option => [option.textContent?.replace('✓', '').trim(), option.getAttribute('aria-pressed')])
+    expect(options).toEqual([['Tinct text', 'true'], ['Original pages', 'false']])
+  })
+
+  it('picking Original pages opens the viewer at the same spot, kept and sent as the PDF\u2019s one place', async () => {
+    ownSync.notePdf.mockClear(); ownSync.flush.mockClear()
+    const assign = vi.fn()
+    vi.stubGlobal('location', { ...window.location, assign, search: '?userBook=' + HEX, href: 'http://localhost/reader?userBook=' + HEX })
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={pdfBook({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 0 })} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    fireEvent.click(await screen.findByTestId('lab-v2-main-edition'))
+    fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Original pages'))!)
+    expect(assign).toHaveBeenCalledWith(`/lab/addbook/?userBook=${HEX}&page=4`)
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`) || 'null')).toMatchObject({ page: 4, chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, converter: 1, edition: 'p' })
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:edition:${HEX}`) || 'null')).toBe('pages')
+    expect(ownSync.notePdf).toHaveBeenCalledWith(HEX, { now: true })
+    expect(ownSync.flush).toHaveBeenCalled()
+  })
+
+  it('keeps each place it notes as the PDF\u2019s place, shared with its pages', async () => {
+    ownSync.note.mockClear()
+    const book = pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 })
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={book} />)
+    const root = screen.getByTestId('lab-root')
+    for (let i = 0; i < 10 && root.getAttribute('data-chapter') !== '2'; i++) {
+      const next = screen.queryByTestId('lab-page-next')
+      if (next) fireEvent.click(next)
+      else fireEvent.keyDown(document.body, { key: 'ArrowRight' })
+      await new Promise(resolve => setTimeout(resolve, 0))
+    }
+    await waitFor(() => expect(ownSync.note).toHaveBeenCalledWith(HEX, book.edition.chapters, { pdf: { pages: 6 } }))
+  })
+
+  it('an EPUB keeps one edition and no Book editions row', () => {
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect(screen.queryByTestId('lab-super-row-editions')).toBeNull()
+  })
+})
+
 describe('UserBookReader', () => {
+  it('sends a PDF read in its pages, or one without text to reflow, on to the viewer (a scan never back here)', async () => {
+    const forward = vi.fn()
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages', message: '' })} forward={forward} />)
+    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX))
+    cleanup()
+    const scan = vi.fn()
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={scan} />)
+    await waitFor(() => expect(scan).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX + '&pages=1'))
+  })
+
+  it('opens a PDF\u2019s Tinct text at the place last read in its pages, found from the page', async () => {
+    // Read in Original pages later than the Tinct text: the top of page 4 is chapter 2.
+    writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 100, converter: 1 })
+    localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, JSON.stringify({ page: 4, frac: 0, at: 5_000, edition: 'p' }))
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+  })
+
   it('says why a book cannot be opened and links back to My shelf', async () => {
     render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'unreadable', message: 'This file could not be opened as an EPUB. Choose another file.' })} forward={() => { throw new Error('no forward') }} />)
     await waitFor(() => expect(screen.getByRole('alert').textContent).toContain('could not be opened'))

@@ -191,11 +191,12 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
-import { USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
+import { ownBookOpenUrl, USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { userBookLangAttribute } from './userBook/userBookLanguage'
 import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
-import { flushOwnPlaces, noteOwnPlace } from './userBook/ownSync'
+import { flushOwnPlaces, noteOwnPlace, notePdfPlace } from './userBook/ownSync'
+import { choosePdfPages, PDF_PAGES_EDITION_KEY } from './userBook/pdfEditions'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
@@ -480,6 +481,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [])
   const { user: authUser, likelyAuthenticated } = useAuth()
   const privateBook = Boolean(userBook)
+  // A reader's own PDF read as its Tinct text: Book editions also offers its Original pages.
+  const ownPdf = userBook?.kind === 'pdf'
   // A user book opens at its own saved place (userBookStore.ts), never the
   // reader's registry place; it is registered so chapter loads find it.
   const [userBookBoot] = useState(() => {
@@ -1493,7 +1496,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       // The rules of the conversion this place is in: converted again, the book keeps its words where they were.
       converter: userBook.edition.converter,
     })
-    noteOwnPlace(userBook.hex, userBook.edition.chapters)
+    // A PDF's place is the one it shares with its Original pages (userBook/pdfEditions.ts).
+    if (userBook.kind === 'pdf') noteOwnPlace(userBook.hex, userBook.edition.chapters, { pdf: { pages: userBook.pdfPages } })
+    else noteOwnPlace(userBook.hex, userBook.edition.chapters)
   // positionSync.notePlace is the stable callback the hook returns.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, placeWritesSuspended, positionSync.notePlace])
@@ -4749,13 +4754,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
     if (id === 'chat' || id === 'librarian') { handleChat(); return }
     if (privateBook) {
-      // Back to Add a book's Your books; one edition, so no editions layer.
+      // Back to Add a book's Your books; one edition (a PDF two), so no editions layer but a PDF's.
       // Catch me up builds its recap from this device's text, signed in only.
       if (id === 'talk') handleTalk()
       else if (id === 'catchup') { if (signedIn) setSuperSheet('catchup'); else setAccountPrompt({ action: 'chat' }) }
       else if (id === 'summarize') openChapterNotes('end')
       else if (id === 'settings') setSuperSheet('reading')
       else if (id === 'account') setSuperSheet('account')
+      else if (id === 'editions' && ownPdf) setSuperSheet('editions')
       else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary(USER_BOOKS_SHELF_URL)
       return
     }
@@ -4770,7 +4776,29 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     leaveForLibrary(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`)
-  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, openChapterNotes, signedIn])
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownPdf, openChapterNotes, signedIn])
+
+  // A PDF's Original pages, picked in Book editions: the same spot, kept as the
+  // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
+  const openPdfPages = useCallback(() => {
+    if (!userBook || userBook.kind !== 'pdf') return
+    const current = userPlaceBookRef.current
+    const page = choosePdfPages(userBook.hex, userBook.edition.chapters, {
+      chapterNumber: current.chapterNumber,
+      paragraphIndex: placeRef.current.paragraphIndex,
+      wordIndex: placeRef.current.wordIndex,
+      updatedAt: Date.now(),
+      converter: userBook.edition.converter,
+    }, userBook.pdfPages)
+    notePdfPlace(userBook.hex, { now: true })
+    flushOwnPlaces()
+    setSuperSheet(null)
+    window.location.assign(`${ownBookOpenUrl(userBook.hex)}&page=${page}`)
+  }, [userBook])
+  const sheetPrefs = useCallback((next: LabPrefs) => {
+    if (ownPdf && next.primaryEdition === PDF_PAGES_EDITION_KEY) { openPdfPages(); return }
+    updatePrefs(next)
+  }, [ownPdf, openPdfPages, updatePrefs])
 
   // Contents -> Introduction opens the book's introduction in the library.
   // The navigation waits for the commit that closes Contents: writes are
@@ -4869,7 +4897,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
-    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration)),
+    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownPdf)),
   })
 
   if (temporaryHold && !holdRecovery) return (
@@ -5078,6 +5106,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           open={superMenuOpen}
           phone={showPhoneChrome}
           privateBook={privateBook}
+          ownPdf={ownPdf}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
@@ -5091,7 +5120,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           onClose={() => setSuperSheet(null)}
           prefs={displayPrefs}
           phoneShakespeare={phoneShakespeare}
-          onPrefs={updatePrefs}
+          onPrefs={sheetPrefs}
+          ownPdf={ownPdf}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)

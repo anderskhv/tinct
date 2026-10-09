@@ -624,6 +624,14 @@ describe('My shelf groups', () => {
     expect(grid.querySelector('[data-own-key="pdf:bb"] a')?.getAttribute('href')).toBe('/lab/addbook/?userBook=bb')
   })
 
+  it('says "Recognising text…" under a scan whose text is being recognised', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [{ ...own('pdf:bb', 'A scan', null, 'pdf'), ocrLine: 'Recognising text…' }, own('pdf:cc', 'Slides', null, 'pdf')], el)
+    const scan = grid.querySelector('[data-own-key="pdf:bb"]')!
+    expect(scan.querySelector('.own-ocr')?.textContent).toBe('Recognising text…')
+    expect(grid.querySelector('[data-own-key="pdf:cc"] .own-ocr')).toBeNull()
+  })
+
   it('shows an own book’s own cover at full size, and a paper cover without one', () => {
     const grid = document.createElement('div')
     addToTinct.appendOwnShelf(grid, [{ ...own('epub:aa', 'Notes', null), cover: 'data:image/jpeg;base64,AAAA' }, own('epub:bb', 'Plain', null)], el)

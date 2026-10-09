@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
-import { describe, expect, it } from 'vitest'
-import { ownReading, ownReadingNow, pdfReading, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { ownReading, ownReadingNow, pdfReading, readOwnShelf, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
+import { ownBookHref } from './userBookId'
 import { ownQuickBookRows, withOwnBookRows, type QuickBookRow } from '../../preReader/quickBookSwitcher'
 import { ownTableBook, withOwnReading, type ReadingTableBook } from '../../libraryTwoReading'
 
@@ -93,5 +94,85 @@ describe('own books beside Tinct’s', () => {
     expect(table[0]).toEqual(ownTableBook(own('cc', 'The Sovereign Child', 6)))
     expect(table[0]).toMatchObject({ title: 'The Sovereign Child', author: 'A. Writer', cover: 'data:image/jpeg;base64,AAAA', chapterLabel: 'Chapter Three', percent: 25, wordCount: 90000, recap: null, own: true })
     expect(withOwnReading(tinct, [])).toBe(tinct)
+  })
+})
+
+describe('where an own book opens', () => {
+  /** Add a book's IndexedDB, in memory: the reads readOwnShelf makes (one cursor over `books`). */
+  function withRecords(records: Array<Record<string, unknown>>) {
+    const db = {
+      objectStoreNames: { contains: () => true },
+      close() {},
+      transaction: () => ({
+        objectStore: () => ({
+          openCursor() {
+            const request: { result?: unknown; onsuccess?: () => void } = {}
+            let i = 0
+            const step = () => setTimeout(() => {
+              request.result = i < records.length ? { value: records[i], continue: () => { i += 1; step() } } : null
+              request.onsuccess?.()
+            }, 0)
+            step()
+            return request
+          },
+        }),
+      }),
+    }
+    vi.stubGlobal('indexedDB', {
+      databases: async () => [{ name: 'tinct-addbook' }],
+      open() {
+        const request: { result?: unknown; onsuccess?: () => void } = {}
+        setTimeout(() => { request.result = db; request.onsuccess?.() }, 0)
+        return request
+      },
+    })
+  }
+  afterEach(() => { vi.unstubAllGlobals(); localStorage.clear() })
+  const pdf = (hex: string, layout?: string) => ({ key: `pdf:${hex}`, kind: 'pdf', owner: 'me', name: `${hex}.pdf`, openedAt: 1, ...(layout ? { scan: { v: 5, entries: [], layout: { default: layout } } } : {}) })
+
+  it('opens a PDF in the edition it is read in: its Tinct text in the reader, its pages in the viewer', async () => {
+    const [prose, paper, legacy, unknown, switched] = ['a1', 'b2', 'c3', 'd4', 'e5'].map(p => p.repeat(12))
+    withRecords([
+      pdf(prose, 'text'), pdf(paper, 'pages'), pdf(legacy, 'text'), pdf(unknown), pdf(switched, 'pages'),
+      { key: `epub:${HEX}`, kind: 'epub', owner: 'me', name: 'b.epub', openedAt: 1 },
+    ])
+    // Read in the viewer before Tinct text existed: it stays in its pages until the reader switches.
+    localStorage.setItem(`tinct-addbook:pos:pdf:${legacy}`, JSON.stringify({ page: 4, frac: 0, at: 9 }))
+    // Read as Tinct text (here, or on another device: the place says so).
+    localStorage.setItem(`tinct-addbook:pos:pdf:${switched}`, JSON.stringify({ page: 2, frac: 0, at: 9, edition: 't' }))
+    const hrefs = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
+    expect(hrefs).toEqual({
+      [prose]: `/reader?userBook=${prose}`,
+      [paper]: `/lab/addbook/?userBook=${paper}`,
+      [legacy]: `/lab/addbook/?userBook=${legacy}`,
+      // Not scanned on this device yet: the viewer, which forwards once it has classified it.
+      [unknown]: `/lab/addbook/?userBook=${unknown}`,
+      [switched]: `/reader?userBook=${switched}`,
+      [HEX]: `/reader?userBook=${HEX}`,
+    })
+  })
+
+  it('marks a scan whose text is not on this device, and opens one whose recognised text is here as Tinct text', async () => {
+    const [scan, recognised, prose] = ['f1', 'f2', 'f3'].map(p => p.repeat(12))
+    const scanned = { v: 5, entries: [], textPages: 0, layout: { default: 'pages-only' } }
+    withRecords([
+      { ...pdf(scan), scan: scanned },
+      { ...pdf(recognised), scan: scanned, edition: { format: 'tinct-user-edition-v1', converter: 1, source: 'ocr', title: 't', author: '', language: 'en', droppedImages: 0, chapters: [{ number: 1, title: 't', paragraphs: ['x'] }] } },
+      pdf(prose, 'text'),
+    ])
+    // The recognised text reached this device: it opens as Tinct text from now on (pdfEditions.ts adoptOcrEditionChoice).
+    localStorage.setItem(`tinct-addbook:edition:${recognised}`, '"text"')
+    const books = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book]))
+    expect(books[scan]).toMatchObject({ scan: true, href: `/lab/addbook/?userBook=${scan}` })
+    expect(books[recognised].scan).toBeUndefined()
+    expect(books[recognised].href).toBe(`/reader?userBook=${recognised}`)
+    expect(books[prose].scan).toBeUndefined()
+  })
+
+  it('opens a book of unknown kind in the reader, unless it is a PDF read in its pages', () => {
+    expect(ownBookHref(HEX, null, null)).toBe(`/reader?userBook=${HEX}`)
+    expect(ownBookHref(HEX, null, 'pages')).toBe(`/lab/addbook/?userBook=${HEX}`)
+    expect(ownBookHref(HEX, 'epub', 'pages')).toBe(`/reader?userBook=${HEX}`)
+    expect(ownBookHref(HEX, 'pdf', 'text')).toBe(`/reader?userBook=${HEX}`)
   })
 })

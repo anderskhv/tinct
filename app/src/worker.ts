@@ -11,9 +11,10 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
 import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
 import { createGuestSpendReserver } from './worker/lib/aiSpend'
-import { createAllowanceGate, loadPremiumAccess, requestAllowsAiFeature } from './worker/lib/aiAllowance'
+import { createAllowanceGate, loadPremiumAccess, loadPremiumTier, requestAllowsAiFeature } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
 import type { UsageCoordinator } from './worker/usageCoordinator'
+import type { OwnOcrCoordinator } from './worker/ownOcrCoordinator'
 import type { ShareStore } from './worker/shareStore'
 import { handleShareApi, handleSharePage } from './worker/routes/share'
 import { isValidUUID } from './worker/lib/security'
@@ -138,6 +139,16 @@ interface Env {
   OWN_BOOK_NARRATION?: string
   OWN_BOOK_NARRATION_MONTHLY_USD?: string
   OWN_BOOK_NARRATION_GLOBAL_MONTHLY_USD?: string
+  /** "1": recognising the text of scanned own PDFs (lib/ownOcr.ts). Off when absent; every OCR route is then 404. */
+  OWN_PDF_OCR?: string
+  OWN_PDF_OCR_MONTHLY_PAGES?: string
+  OWN_PDF_OCR_TRIAL_MONTHLY_PAGES?: string
+  OWN_PDF_OCR_MONTHLY_USD?: string
+  OWN_PDF_OCR_GLOBAL_MONTHLY_USD?: string
+  OCR_MAX_PAGES?: string
+  OCR_MODEL?: string
+  /** One OCR job per account and book (ownOcrCoordinator.ts). */
+  OWN_OCR?: DurableObjectNamespace<OwnOcrCoordinator>
   RATE_LIMIT?: KVNamespace
   AUDIO_BUCKET?: R2Bucket
   /** Private bucket for readers' own PDF/EPUB files (routes/userBooks.ts). Never public. */
@@ -254,7 +265,7 @@ export default {
     if (sharePage) return sharePage
 
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) {
-      return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit, premiumAccess: userId => loadPremiumAccess(env, userId) })
+      return handleUserBooks(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit, premiumAccess: userId => loadPremiumAccess(env, userId), premiumTier: userId => loadPremiumTier(env, userId) })
     }
 
     if (url.pathname === '/api/public-books' || url.pathname.startsWith('/api/public-books/')) {
