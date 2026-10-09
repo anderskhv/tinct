@@ -18,7 +18,7 @@ import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
-import { listOwnPlaces, listUserBooks, purgeUserBooks } from './userBooks'
+import { listOwnCovers, listOwnPlaces, listUserBooks, purgeUserBooks } from './userBooks'
 import { listProfileImages, purgeProfileImages } from './profiles'
 
 export type AdminAccountsEnv = SupabaseEnv & {
@@ -27,7 +27,7 @@ export type AdminAccountsEnv = SupabaseEnv & {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
-  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/ (routes/userBooks.ts). */
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/ and the small images of their covers under u/{userId}/covers/ (routes/userBooks.ts). */
   USER_BOOKS?: R2Bucket
   /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
   NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
@@ -364,6 +364,10 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     // The reader's place in each own book (by the book's hex; chapter, paragraph, word, when, percent).
     ownBookPlaces: env.USER_BOOKS
       ? await attempt('r2 own-book places', () => listOwnPlaces(env.USER_BOOKS!, account.userId))
+      : null,
+    // The small image of each own book's cover, kept with the file (by the book's hex): listed, never the bytes, like the files.
+    ownBookCovers: env.USER_BOOKS
+      ? await attempt('r2 own-book covers', () => listOwnCovers(env.USER_BOOKS!, account.userId))
       : null,
     // Catch me up recaps of own books (one object per finished chapter, one for the chapter in progress): counted, never the text.
     ownBookRecaps: env.USER_BOOKS

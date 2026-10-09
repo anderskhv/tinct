@@ -47,6 +47,18 @@
  * Catch me up on an own book (routes/ownCatchUp.ts) keeps its cumulative
  * recap the same way, under `u/{userId}/recaps/{bookHex}/`: deleted with the
  * book and with the account, never shared between accounts.
+ *
+ * A small image of the book's own cover (drawn on the device that has the
+ * file: JPEG or WebP, about 400 px on its long side, at most MAX_COVER_BYTES)
+ * is kept beside the file at `u/{userId}/covers/{bookHex}`, so the reader's
+ * other devices show the real cover before the book is opened there:
+ *
+ *   PUT    /api/user-books/covers/{bookHex}   store it (an owned book only)
+ *   GET    /api/user-books/covers/{bookHex}   the image, to its owner only (private caching)
+ *
+ * The list names it as each book's `cover` (that URL with a version, or null).
+ * Deleting the book deletes its cover; account deletion takes it with the
+ * whole `u/{userId}/` prefix, and account export lists it.
  */
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
@@ -65,6 +77,10 @@ const TYPES = { pdf: 'application/pdf', epub: 'application/epub+zip' } as const
 export type UserBookType = keyof typeof TYPES
 
 export type UserBooksEnv = { USER_BOOKS?: R2Bucket }
+/** A stored cover is at most this many bytes (the browser aims under 60 KB). */
+export const MAX_COVER_BYTES = 64 * 1024
+/** Cover writes per account per rate-limit window. */
+export const COVER_WRITES_PER_MINUTE = 30
 type VerifiedUser = { id: string; email?: string }
 
 export type UserBook = {
@@ -76,6 +92,8 @@ export type UserBook = {
   size: number
   sha256: string
   createdAt: string
+  /** Its stored cover (`/api/user-books/covers/{bookHex}?v=…`, the owner only), or null. */
+  cover: string | null
 }
 
 export function userBooksPrefix(userId: string): string {
@@ -98,6 +116,11 @@ export function ownRecapPrefix(userId: string, bookHex: string): string {
 /** Where the reader's place in one own book lives: inside the owner's private prefix only. */
 export function ownPlaceKey(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}places/${bookHex}`
+}
+
+/** Where the small image of one own book's cover lives: inside the owner's private prefix only. */
+export function ownCoverKey(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}covers/${bookHex}`
 }
 
 /** Every object under `prefix`, deleted page by page. Returns how many went. */
@@ -180,6 +203,7 @@ export function bookFromObject(object: { key: string; size: number; uploaded: Da
     size: object.size,
     sha256: /^[0-9a-f]{64}$/.test(meta.sha256 ?? '') ? meta.sha256 : '',
     createdAt: meta.createdAt || object.uploaded.toISOString(),
+    cover: null,
   }
 }
 
@@ -334,7 +358,7 @@ async function upload(request: Request, bucket: R2Bucket, userId: string, checkR
 
   const existing = await listUserBooks(bucket, userId)
   const same = existing.find(book => book.sha256 === sha256 && book.size === bytes.byteLength)
-  if (same) return reply({ book: same, existing: true }, 200, request)
+  if (same) return reply({ book: (await withCovers(bucket, userId, [same]))[0], existing: true }, 200, request)
   const used = existing.reduce((sum, book) => sum + book.size, 0)
   if (existing.length >= MAX_ACCOUNT_FILES || used + bytes.byteLength > MAX_ACCOUNT_BYTES) {
     return reply({ error: 'account_full', maxFiles: MAX_ACCOUNT_FILES, maxBytes: MAX_ACCOUNT_BYTES }, 413, request)
@@ -385,7 +409,7 @@ async function remove(request: Request, bucket: R2Bucket, userId: string, fileId
     const bookHex = sha256.slice(0, USER_BOOK_HEX_LENGTH)
     await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
     await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
-    await bucket.delete(ownPlaceKey(userId, bookHex))
+    await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex)])
   }
   return reply({ ok: true }, 200, request)
 }
@@ -514,6 +538,85 @@ async function handlePlaces(
   return savePlace(request, bucket, user.id, bookHex, deps.checkRateLimit)
 }
 
+// ===== Covers =====
+
+/** The stored image's type from its bytes alone: JPEG or WebP (what the browser draws), else null. */
+export function sniffCoverType(bytes: Uint8Array): 'image/jpeg' | 'image/webp' | null {
+  if (bytes.length > 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) return 'image/jpeg'
+  if (bytes.length > 12 && ascii(bytes, 0, 4) === 'RIFF' && ascii(bytes, 8, 4) === 'WEBP') return 'image/webp'
+  return null
+}
+
+const coverUrl = (bookHex: string, uploaded: Date) => `/api/user-books/covers/${bookHex}?v=${uploaded.getTime().toString(36)}`
+
+/** Every stored cover of one account: book hex, size and when it was stored (account export lists these). */
+export async function listOwnCovers(bucket: R2Bucket, userId: string): Promise<Array<{ bookHex: string; size: number; uploaded: string }>> {
+  const prefix = ownCoverKey(userId, '')
+  const out: Array<{ bookHex: string; size: number; uploaded: Date }> = []
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000 })
+    for (const object of page.objects) {
+      const bookHex = object.key.slice(prefix.length)
+      if (BOOK_HEX.test(bookHex)) out.push({ bookHex, size: object.size, uploaded: object.uploaded })
+    }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return out.map(item => ({ ...item, uploaded: item.uploaded.toISOString() }))
+}
+
+/** The books with their stored cover's URL (one listing of the covers prefix). */
+async function withCovers(bucket: R2Bucket, userId: string, books: UserBook[]): Promise<UserBook[]> {
+  if (!books.length) return books
+  const covers = new Map((await listOwnCovers(bucket, userId)).map(item => [item.bookHex, item]))
+  return books.map(book => {
+    const bookHex = book.sha256.slice(0, USER_BOOK_HEX_LENGTH)
+    const cover = book.sha256 ? covers.get(bookHex) : undefined
+    return { ...book, cover: cover ? coverUrl(bookHex, new Date(cover.uploaded)) : null }
+  })
+}
+
+/** `/api/user-books/covers/{bookHex}`: PUT stores the image of an owned book's cover, GET serves it to its owner. */
+async function handleCover(
+  request: Request,
+  env: UserBooksEnv,
+  deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
+  bookHex: string,
+): Promise<Response> {
+  if (!['GET', 'PUT'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
+  const user = await deps.verifyUser(request)
+  if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
+  if (!BOOK_HEX.test(bookHex)) return notFound(request)
+  const bucket = env.USER_BOOKS
+  if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  const key = ownCoverKey(user.id, bookHex)
+
+  if (request.method === 'GET') {
+    const object = await bucket.get(key)
+    if (!object) return notFound(request)
+    const type = object.httpMetadata?.contentType === 'image/webp' ? 'image/webp' : 'image/jpeg'
+    return new Response(object.body, {
+      status: 200,
+      // Private: the browser may keep it, no shared cache may. The URL the list gives carries a version.
+      headers: headers(request, { 'Content-Type': type, 'Content-Length': String(object.size), 'Cache-Control': 'private, max-age=86400', Vary: 'Authorization' }),
+    })
+  }
+
+  const lengthHeader = request.headers.get('content-length')
+  const declared = lengthHeader !== null && /^\d+$/.test(lengthHeader.trim()) ? Number(lengthHeader) : null
+  if (declared !== null && declared > MAX_COVER_BYTES) return reply({ error: 'cover_too_large', maxBytes: MAX_COVER_BYTES }, 413, request)
+  if (!await deps.checkRateLimit(`user-books-cover:${user.id}`, undefined, COVER_WRITES_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+  const bytes = await readCapped(request.body, MAX_COVER_BYTES, declared)
+  if (!bytes) return reply({ error: 'cover_too_large', maxBytes: MAX_COVER_BYTES }, 413, request)
+  const type = sniffCoverType(bytes)
+  if (!type) return reply({ error: 'unsupported_type' }, 415, request)
+  // Only a book this account keeps has a cover here (the same rule as its place).
+  const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
+  if (!book) return notFound(request)
+  const stored = await bucket.put(key, bytes, { httpMetadata: { contentType: type } })
+  return reply({ cover: coverUrl(bookHex, stored.uploaded) }, 200, request)
+}
+
 export async function handleUserBooks(
   request: Request,
   env: UserBooksEnv,
@@ -528,6 +631,7 @@ export async function handleUserBooks(
   const rest = url.pathname.slice('/api/user-books'.length)
   const placeHex = rest === '/places' ? '' : rest.startsWith('/places/') ? rest.slice('/places/'.length) : null
   if (placeHex !== null) return handlePlaces(request, env, deps, placeHex)
+  if (rest === '/covers' || rest.startsWith('/covers/')) return handleCover(request, env, deps, rest.slice('/covers/'.length))
   const fileId = rest === '' || rest === '/' ? null : rest.slice(1)
   const allowed = fileId === null ? ['GET', 'POST'] : ['GET', 'DELETE']
   if (!allowed.includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
@@ -546,7 +650,7 @@ export async function handleUserBooks(
       if (!premium) return reply({ error: 'premium_required' }, 402, request)
       return upload(request, bucket, user.id, deps.checkRateLimit)
     }
-    const books = await listUserBooks(bucket, user.id)
+    const books = await withCovers(bucket, user.id, await listUserBooks(bucket, user.id))
     return reply({
       books,
       limits: { maxFileBytes: MAX_FILE_BYTES, maxAccountBytes: MAX_ACCOUNT_BYTES, maxAccountFiles: MAX_ACCOUNT_FILES },

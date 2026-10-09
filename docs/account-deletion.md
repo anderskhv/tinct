@@ -112,9 +112,14 @@ narration from the account's spend object (`own-user:<id>` in the
 `r2.ownBookRecaps` counts the Catch me up recaps of the reader's own books
 (objects and bytes under `u/<id>/recaps/`: one per finished chapter and one
 for the chapter in progress, per book, routes/ownCatchUp.ts), never the text.
+`r2.ownBookCovers` lists the small image of each own book's cover kept with
+the account copy (`u/<id>/covers/<bookHex>`: book hex, size, when stored;
+JPEG or WebP, at most 64 KB), without the bytes; the reader sees each one on
+My shelf while signed in.
 Deleting one book from Your books (`DELETE /api/user-books/<fileId>`) deletes
-that book's narration and recaps (`u/<id>/narration/<bookHex>/`,
-`u/<id>/recaps/<bookHex>/`) with the file.
+that book's narration, recaps, place and cover (`u/<id>/narration/<bookHex>/`,
+`u/<id>/recaps/<bookHex>/`, `u/<id>/places/<bookHex>`,
+`u/<id>/covers/<bookHex>`) with the file.
 
 ## What deletion does, in order
 
@@ -126,8 +131,9 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    (legacy position record). The own-book narration spend object
    (`own-user:<id>`, purged). Then **R2:** every object under `u/<id>/` in the
    private `tinct-user-books` bucket (the reader's own PDF/EPUB files, their
-   narration under `u/<id>/narration/` and their Catch me up recaps under
-   `u/<id>/recaps/`,
+   narration under `u/<id>/narration/`, their Catch me up recaps under
+   `u/<id>/recaps/`, places under `u/<id>/places/` and cover images under
+   `u/<id>/covers/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
    none remain; then every object under `profile/<id>/` in the same bucket
    (profile pictures and backgrounds, `app/src/worker/routes/profiles.ts`).
