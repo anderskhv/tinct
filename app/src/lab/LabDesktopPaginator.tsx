@@ -77,6 +77,9 @@ export interface LabPaginationStart {
   headBreak?: number
 }
 
+/** How long one task may lay out pages before the browser gets the thread back. */
+const MEASURE_SLICE_MS = 50
+
 /** Fewer words than this left of a paragraph would open the next page as a stray line. */
 const WIDOW_WORDS = 4
 /** How far back a stray line may reach for the start of its sentence. */
@@ -92,6 +95,29 @@ export function measuredDesktopPages(
   lineStarts?: LineStartLookup,
   tailGap?: TailGapLookup,
 ): ChapterHearingPage[] {
+  const steps = measuredDesktopPageSteps(lengths, fits, breaks, pageLimit, paragraphs, start, lineStarts, tailGap)
+  let step = steps.next()
+  while (!step.done) step = steps.next()
+  return step.value
+}
+
+/**
+ * `measuredDesktopPages`, one page at a time: the generator pauses after each
+ * page it closes (yielding how many are closed) and returns the finished map.
+ * A caller that lays out a whole chapter can spread the work over several
+ * tasks and drop it the moment it is stale; draining it in one go is exactly
+ * `measuredDesktopPages`.
+ */
+export function* measuredDesktopPageSteps(
+  lengths: number[],
+  fits: (segments: ChapterPageSegment[], first: boolean) => boolean,
+  breaks?: WordBreakLookup,
+  pageLimit = Infinity,
+  paragraphs?: string[],
+  start?: LabPaginationStart,
+  lineStarts?: LineStartLookup,
+  tailGap?: TailGapLookup,
+): Generator<number, ChapterHearingPage[], void> {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
   // A figure that did not fit the rest of its page opens the next one.
@@ -102,9 +128,10 @@ export function measuredDesktopPages(
     deferred = null
   }
   const isFirst = () => !start && pages.length === 0
-  lengths.forEach((length, paragraphIndex) => {
-    if (pages.length >= pageLimit) return
-    if (start && paragraphIndex < start.paragraphIndex) return
+  for (let paragraphIndex = 0; paragraphIndex < lengths.length; paragraphIndex += 1) {
+    const length = lengths[paragraphIndex]
+    if (pages.length >= pageLimit) break
+    if (start && paragraphIndex < start.paragraphIndex) continue
     const resumes = start && paragraphIndex === start.paragraphIndex
     let from = resumes ? start.wordIndex : 0
     let headBreak: number | undefined = resumes && start.wordIndex < length ? start.headBreak : undefined
@@ -114,7 +141,7 @@ export function measuredDesktopPages(
     if (!resumes && length === 1 && segments.length && !deferred && paragraphIndex < lengths.length - 1
       && isFigureToken(paragraphs?.[paragraphIndex]) && !fits([...segments, { paragraphIndex, from: 0, to: 1 }], isFirst())) {
       deferred = { paragraphIndex, from: 0, to: 1 }
-      return
+      continue
     }
     while (from < length && pages.length < pageLimit) {
       const segment = (to: number, tailFragment?: number): ChapterPageSegment => ({
@@ -144,6 +171,7 @@ export function measuredDesktopPages(
         }
         commit()
         segments = [...segments, ...carried]
+        yield pages.length
         continue
       }
       let to = Math.max(from + 1, low)
@@ -217,12 +245,13 @@ export function measuredDesktopPages(
       }
       if (to > from) segments.push(segment(to, tailFragment))
       commit()
+      yield pages.length
       if (to === from) continue
       // Whatever this page showed of the next word, that page resumes after.
       headBreak = tailFragment
       from = to
     }
-  })
+  }
   commit()
   commit()
   return pages
@@ -278,19 +307,36 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
   useLayoutEffect(() => {
     const host = hostRef.current
     if (!host) return
-    let cancelled = false, frame = 0, generation = 0
+    let cancelled = false, frame = 0, generation = 0, slice = 0
     // The host size the last map was measured at. A new ResizeObserver always
     // reports once on observe; when that size is the one just measured, a
     // second full measurement would only repeat the first.
     let measuredSize = ''
     const hostSize = () => `${host.clientWidth}x${host.clientHeight}`
+    // The host size when this measurement was asked for. A window being
+    // resized (a maximise, a tile, a drag) reports a new size every frame;
+    // laying the whole chapter out for each passing size blocked the page for
+    // seconds and left it blank, its last painted frame stuck at the old width
+    // (To the Lighthouse, Chrome, half screen to full screen; Anders, 9 Oct
+    // 2026). The chapter is measured once the box has kept its size for a frame.
+    let askedSize = ''
+    // A measurement in progress (see `measuredDesktopPageSteps`) gives way to a
+    // newer request; this counts how often in a row one has, so a box that
+    // never stops changing still gets its pages.
+    let busy = false, yielded = 0
     const source = paragraphs.map(tokenizeHearingWords)
     const target = comparison?.map(tokenizeHearingWords)
     // Editions paragraphed differently (BSB beside KJV) pair verse by verse.
     const alignment = comparison && needsVerseAlignment(paragraphs, comparison) ? buildVerseAlignment(paragraphs, comparison) : null
+    // Emphasised words paint in the italic face. Requested with the upright one
+    // so the map is measured with it: arriving mid-measurement, it restarted
+    // the measurement (and before that, re-measured the whole chapter once the
+    // first map, set in a stand-in italic, was already up).
+    const emphasised = [...source, ...(target ?? [])].flatMap(words => words.filter(word => word.emphasis).map(word => word.text)).join(' ')
     const schedule = () => {
       const revision = ++generation
       cancelAnimationFrame(frame)
+      askedSize = hostSize()
       // An empty measurement tree has not requested the reading font yet.
       // Request the actual body and heading faces before awaiting fonts.ready;
       // otherwise the first map can be measured with the fallback font.
@@ -301,15 +347,25 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
       probe.textContent = paragraphs.join(' ')
       rows.replaceChildren(probe)
       const fonts = document.fonts
+      const bodyFont = getComputedStyle(probe).font
       const requested = fonts ? [
-        fonts.load(getComputedStyle(probe).font, probe.textContent),
+        fonts.load(bodyFont, probe.textContent),
         fonts.load(getComputedStyle(heading).font, chapterTitle),
+        ...(emphasised ? [fonts.load(`italic ${bodyFont}`, emphasised)] : []),
       ] : []
+      // The probe was only needed for its computed font. Left in the tree, the
+      // whole chapter as one paragraph is laid out again in every frame until
+      // the measurement starts.
+      probe.remove()
       void Promise.allSettled(requested).then(() => fonts?.ready).then(() => {
         if (cancelled || revision !== generation) return
-        frame = requestAnimationFrame(() => {
+        const begin = () => {
           if (cancelled || revision !== generation || host.clientWidth < 10 || host.clientHeight < 10) return
-          measuredSize = hostSize()
+          // Still resizing, or the previous measurement is finishing (below):
+          // look again next frame. Nothing is measured for a passing size.
+          const size = hostSize()
+          if (size !== askedSize || busy) { askedSize = size; frame = requestAnimationFrame(begin); return }
+          measuredSize = size
           const page = host.querySelector<HTMLElement>('.lab-desktop-measure-page')!
           const header = host.querySelector<HTMLElement>('.lab-passage-header')!
           const rows = host.querySelector<HTMLElement>('.lab-desktop-measure-rows')!
@@ -415,7 +471,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             const join = (runs[runs.length - 1]?.length ?? 0) > 1 ? block.lastElementChild : null
             return measuredLineStarts(join ?? block, tail.from)
           }
-          let pages = measuredDesktopPages(
+          const steps = measuredDesktopPageSteps(
             source.map(words => words.length),
             fits,
             // A heading, list item or index line is never hyphenated: at a page edge only its own dashes break.
@@ -433,45 +489,68 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               return block ? measuredTailGapEm(block) : null
             },
           )
-          const tail = pages.length ? chapterPageSegments(pages[pages.length - 1]).at(-1) : undefined
-          const complete = tail?.paragraphIndex === source.length - 1 && tail.to === source[source.length - 1]?.length
-          let endInFooter = false
-          if (chapterActions && pages.length && complete) {
-            const lastFits = fits(chapterPageSegments(pages[pages.length - 1]), pages.length === 1, true)
-            // The bottom padding is already reserved for folios. Only borrow
-            // it if the complete action row fits; the matching folio is hidden.
-            // The row is measured as it is shown there (is-docked: compact),
-            // below its 2px top margin and 1px clear of the leaf's edge.
-            const footerSpace = parseFloat(getComputedStyle(host).getPropertyValue('--desktop-pad-bottom')) - 3
-            let dockedHeight = Infinity
-            if (end) {
-              end.classList.add('is-docked')
-              dockedHeight = end.getBoundingClientRect().height
-              end.classList.remove('is-docked')
+          // The chapter is laid out a few pages per task, so the browser keeps
+          // painting (the reader's chrome follows the window) and a measurement
+          // for a size that has already gone is dropped at its next page
+          // instead of being finished. One that has given way twice in a row
+          // finishes, and the newer request waits for it.
+          busy = true
+          const run = () => {
+            slice = 0
+            if (cancelled) { busy = false; return }
+            if (revision !== generation && yielded < 2) { yielded += 1; busy = false; return }
+            const until = performance.now() + MEASURE_SLICE_MS
+            let step = steps.next()
+            while (!step.done && performance.now() < until) step = steps.next()
+            if (!step.done) { slice = window.setTimeout(run, 0); return }
+            busy = false
+            yielded = 0
+            finish(step.value)
+          }
+          const finish = (measured: ChapterHearingPage[]) => {
+            let pages = measured
+            const tail = pages.length ? chapterPageSegments(pages[pages.length - 1]).at(-1) : undefined
+            const complete = tail?.paragraphIndex === source.length - 1 && tail.to === source[source.length - 1]?.length
+            let endInFooter = false
+            if (chapterActions && pages.length && complete) {
+              const lastFits = fits(chapterPageSegments(pages[pages.length - 1]), pages.length === 1, true)
+              // The bottom padding is already reserved for folios. Only borrow
+              // it if the complete action row fits; the matching folio is hidden.
+              // The row is measured as it is shown there (is-docked: compact),
+              // below its 2px top margin and 1px clear of the leaf's edge.
+              const footerSpace = parseFloat(getComputedStyle(host).getPropertyValue('--desktop-pad-bottom')) - 3
+              let dockedHeight = Infinity
+              if (end) {
+                end.classList.add('is-docked')
+                dockedHeight = end.getBoundingClientRect().height
+                end.classList.remove('is-docked')
+              }
+              endInFooter = !comparison && !lastFits && !!end && dockedHeight <= footerSpace
+              if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true), cleanPageStarts(source), lineStarts)
             }
-            endInFooter = !comparison && !lastFits && !!end && dockedHeight <= footerSpace
-            if (!lastFits && !endInFooter) pages = fitChapterEnd(pages, (segments, first) => fits(segments, first, true), cleanPageStarts(source), lineStarts)
-          }
-          if (end) end.hidden = true
-          header.hidden = true
-          if (pageLimit != null) {
+            if (end) end.hidden = true
+            header.hidden = true
+            if (pageLimit != null) {
+              rows.replaceChildren()
+              callbackRef.current(pages, paragraphs, layoutKey, null, endInFooter)
+              return
+            }
+            const capacityProbe = document.createElement('p')
+            capacityProbe.className = 'lab-hearing-line'
+            labMeasureParagraphInto(capacityProbe, source.flat())
+            // A paired measure row is a two-column grid; an unwrapped probe would
+            // run the full spread width and claim twice the words per line.
+            const capacityRow = document.createElement('div')
+            capacityRow.className = 'lab-desktop-measure-row'
+            capacityRow.append(capacityProbe)
+            rows.replaceChildren(capacityRow)
+            const capacity = measuredLeafCapacity(page, capacityProbe, source.reduce((total, words) => total + words.length, 0))
             rows.replaceChildren()
-            callbackRef.current(pages, paragraphs, layoutKey, null, endInFooter)
-            return
+            callbackRef.current(pages, paragraphs, layoutKey, capacity, endInFooter)
           }
-          const capacityProbe = document.createElement('p')
-          capacityProbe.className = 'lab-hearing-line'
-          labMeasureParagraphInto(capacityProbe, source.flat())
-          // A paired measure row is a two-column grid; an unwrapped probe would
-          // run the full spread width and claim twice the words per line.
-          const capacityRow = document.createElement('div')
-          capacityRow.className = 'lab-desktop-measure-row'
-          capacityRow.append(capacityProbe)
-          rows.replaceChildren(capacityRow)
-          const capacity = measuredLeafCapacity(page, capacityProbe, source.reduce((total, words) => total + words.length, 0))
-          rows.replaceChildren()
-          callbackRef.current(pages, paragraphs, layoutKey, capacity, endInFooter)
-        })
+          run()
+        }
+        frame = requestAnimationFrame(begin)
       })
     }
     schedule()
@@ -480,7 +559,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
     })
     observer.observe(host)
     document.fonts?.addEventListener('loadingdone', schedule)
-    return () => { cancelled = true; cancelAnimationFrame(frame); observer.disconnect(); document.fonts?.removeEventListener('loadingdone', schedule) }
+    return () => { cancelled = true; cancelAnimationFrame(frame); window.clearTimeout(slice); observer.disconnect(); document.fonts?.removeEventListener('loadingdone', schedule) }
   }, [paragraphs, comparison, chapterTitle, layoutKey, chapterActions, hasNextChapter, pageLimit, hyphenLang, hyphensReady])
   return <div ref={hostRef} className={`lab-desktop-measure lab-page-measure${comparison ? ' is-paired' : ''}`} aria-hidden="true">
     <div className="lab-desktop-measure-page">
