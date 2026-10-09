@@ -7,6 +7,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
+import { LEAVE_FADE_MS } from './labLeaveForLibrary'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 
 afterEach(() => {
@@ -257,6 +258,7 @@ describe('Talk on the desktop with Chrome V2', () => {
 })
 
 it('opens the book introduction in the library from Contents, without a cover or preface in the reader', async () => {
+  vi.useFakeTimers({ shouldAdvanceTime: true })
   render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
   const before = readerPlace()
   fireEvent.click(screen.getByTestId('lab-header-chapter'))
@@ -265,6 +267,9 @@ it('opens the book introduction in the library from Contents, without a cover or
   fireEvent.click(screen.getByRole('button', { name: 'Introduction', exact: true }))
   expect(screen.queryByTestId('lab-chapter-cover')).toBeNull()
   expect(readerPlace()).toBe(before)
+  // The library opens after the reader's fade; let it run inside this test.
+  await vi.advanceTimersByTimeAsync(LEAVE_FADE_MS + 20)
+  expect(screen.getByTestId('lab-leave-veil')).toBeTruthy()
 })
 
 it('keeps Reconnect available after cancelling a pending microphone and can end the next attempt', async () => {

@@ -774,10 +774,12 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
       const reason = body?.reason as ReportReason
       if (!REPORT_REASONS.includes(reason)) return reply({ error: 'Choose a reason.' }, 422, request)
       if (deps.checkRateLimit && !(await deps.checkRateLimit(`social-report:${viewerId}`, env.RATE_LIMIT, 10))) return reply({ error: 'rate_limited' }, 429, request)
+      // Only a reader the viewer may see, or who follows them: a Friends profile the viewer
+      // cannot see answers like an Only me or missing one, so a report never probes.
+      const id = await targetId(ctx, viewerId, body)
+      if (!id || !(await viewFor(ctx.profiles, id, viewerId))) return reply({ error: 'Not found' }, 404, request)
       const handle = normalizeHandle(String(body?.handle ?? ''))
-      const card = handleProblem(handle) === 'format' ? null : await ctx.profiles.getCardByHandle(handle)
-      if (!card || card.id === viewerId) return reply({ error: 'Not found' }, 404, request)
-      const result = await ctx.social.report({ reporter: viewerId, reported: card.id, handle: card.handle, reason })
+      const result = await ctx.social.report({ reporter: viewerId, reported: id, handle, reason })
       return reply({ ok: true, duplicate: result === 'duplicate' }, 200, request)
     }
 

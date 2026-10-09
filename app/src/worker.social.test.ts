@@ -579,6 +579,19 @@ describe('reports and the admin view', () => {
     expect((await json(await api(world, '/api/admin/social', A))).reports).toEqual([])
   })
 
+  it('a report answers alike for a hidden Friends, an Only me and a missing profile; a follower can be reported whatever their visibility', async () => {
+    const world = new World()
+    world.add(B); world.add(C, { visibility: 'friends' }); world.add(D, { visibility: 'only_me' }); world.add(E, { visibility: 'only_me' })
+    world.follows.push([E, B])
+    const report = (handle: string) => api(world, '/api/social/report', B, { method: 'POST', body: JSON.stringify({ handle, reason: 'name' }) })
+    const unseen = await Promise.all(['carl', 'dora', 'nobody'].map(async handle => { const r = await report(handle); return [r.status, await r.text()] }))
+    expect(unseen).toEqual([unseen[2], unseen[2], [404, unseen[2][1]]])
+    expect(await json(await report('erik'))).toEqual({ ok: true, duplicate: false })
+    world.befriend(B, C)
+    expect(await json(await report('carl'))).toEqual({ ok: true, duplicate: false })
+    expect(world.reports.map(r => [r.reported, r.handle])).toEqual([[E, 'erik'], [C, 'carl']])
+  })
+
   it('approving an uploaded picture shows it to others; declining keeps the initial; rename and hide', async () => {
     const world = everyoneWorld()
     Object.assign(world.profiles.get(B)!, { picture_kind: 'upload', picture_value: 'abcdef0123', picture_review: 'pending' })
