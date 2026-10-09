@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handleAdminDeleteUser, handleAdminExportUser, type AdminAccountsEnv } from './worker/routes/adminAccounts'
 import { fakeUserBooksBucket } from './worker/fakeUserBooksBucket'
 import { ACCOUNT_DELETE_CONFIRM, handleAccountDelete } from './worker/routes/accountDelete'
+import { ocrCoordinatorName } from './worker/lib/ownOcr'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const email = 'reader@example.com'
@@ -164,6 +165,9 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
   book(otherUser, 4, 'Theirs.pdf', 40)
   // Own-book narration: recordings beside the files, and one spend object per account.
   const ownNarration = { spend: [{ day: '2026-10-07', bytes: 1200 }] as { day: string; bytes: number }[], purged: [] as string[] }
+  // OCR of own PDFs: page and dollar counts per account, and one job object per book.
+  const ownOcr = { spend: {} as Record<string, { day: string; bytes: number }[]>, purged: [] as string[], cancelled: [] as string[] }
+  const ocrJobs = { getByName: vi.fn((name: string) => ({ cancel: vi.fn(async () => { ownOcr.cancelled.push(name); return { refunded: 0 } }) })) }
   const narrationObject = (owner: string, name: string, size: number) => userBooks.objects.set(`u/${owner}/narration/${'ab'.repeat(12)}/${name}`, {
     key: `u/${owner}/narration/${'ab'.repeat(12)}/${name}`, bytes: new Uint8Array(size), uploaded: new Date('2026-10-07T00:00:00Z'), customMetadata: {},
   })
@@ -177,6 +181,13 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
     RECAP_PREPARATION: namespace('recap'),
     NARRATION_COORDINATOR: {
       getByName: vi.fn((name: string) => {
+        // The OCR page and dollar counts of the same account (lib/ownOcr.ts) sit on this namespace too.
+        if (name === `ocr-pages:${userId}` || name === `ocr-user:${userId}`) {
+          return {
+            usage: vi.fn(async () => ownOcr.spend[name] ?? []),
+            purge: vi.fn(async () => { ownOcr.purged.push(name); ownOcr.spend[name] = [] }),
+          }
+        }
         expect(name).toBe(`own-user:${userId}`)
         return {
           usage: vi.fn(async () => ownNarration.spend),
@@ -184,6 +195,7 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
         }
       }),
     },
+    OWN_OCR: ocrJobs,
     SHARE_STORE: {
       getByName: vi.fn((name: string) => {
         expect(name).toBe('shares')
@@ -193,7 +205,7 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
   } as unknown as AdminAccountsEnv
   vi.stubGlobal('fetch', fetchMock)
   vi.spyOn(console, 'log').mockImplementation(() => {})
-  return { env, log, state, kvStore, doState, fetchMock, options, userBooks, ownNarration, narrationObject }
+  return { env, log, state, kvStore, doState, fetchMock, options, userBooks, ownNarration, narrationObject, ownOcr, ocrJobs }
 }
 
 function post(path: string, body: unknown): Request {
@@ -477,6 +489,47 @@ describe('admin account routes', () => {
     expect(w.userBooks.objects.has(`u/${otherUser}/covers/${hex}`)).toBe(true)
   })
 
+  it('exports OCR jobs of own PDFs (never their text or images) and their counts, and deletes all of it with the account', async () => {
+    const w = world()
+    const hex = 'cd'.repeat(12)
+    const put = (owner: string, rest: string, size: number, customMetadata: Record<string, string> = {}) => w.userBooks.objects.set(`u/${owner}/ocr/${hex}/${rest}`, {
+      key: `u/${owner}/ocr/${hex}/${rest}`, bytes: new Uint8Array(size), uploaded: new Date('2026-10-09T00:00:00Z'), customMetadata,
+    })
+    put(userId, 'job.json', 80, { pages: '3', state: 'done', createdAt: '2026-10-09T10:00:00.000Z', completedAt: '2026-10-09T10:05:00.000Z' })
+    put(userId, 'img/3.jpg', 9000)
+    put(userId, 'page/1.json', 400)
+    put(userId, 'edition.json', 1200)
+    put(otherUser, 'job.json', 80, { pages: '9', state: 'running', createdAt: '2026-10-09T11:00:00.000Z' })
+    w.ownOcr.spend[`ocr-pages:${userId}`] = [{ day: '2026-10-09', bytes: 2 }]
+    w.ownOcr.spend[`ocr-user:${userId}`] = [{ day: '2026-10-09', bytes: 1300 }]
+
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.r2.ownOcr).toEqual([{ bookHex: hex, pages: 3, state: 'done', createdAt: '2026-10-09T10:00:00.000Z', completedAt: '2026-10-09T10:05:00.000Z' }])
+    expect(exported.ownOcrSpend).toEqual({ pages: [{ day: '2026-10-09', bytes: 2 }], microUsd: [{ day: '2026-10-09', bytes: 1300 }] })
+    // Recognised text is not a book: the file listing is unchanged.
+    expect(exported.r2.userBooks).toHaveLength(3)
+
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean; steps: { step: string; status: string; detail?: string }[] }
+    expect(deleted.ok).toBe(true)
+    expect(deleted.steps.find(s => s.step === 'do:own-ocr')).toEqual({ step: 'do:own-ocr', status: 'ok', detail: '1 job(s)' })
+    expect(w.ownOcr.cancelled).toEqual([await ocrCoordinatorName(userId, hex)])
+    expect(w.ownOcr.purged).toEqual(expect.arrayContaining([`ocr-pages:${userId}`, `ocr-user:${userId}`]))
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/`))).toEqual([])
+    // Another reader's job stays.
+    expect(w.userBooks.objects.has(`u/${otherUser}/ocr/${hex}/job.json`)).toBe(true)
+  })
+
+  it('keeps the auth user when OCR jobs exist but their coordinator is not bound', async () => {
+    const w = world()
+    w.userBooks.objects.set(`u/${userId}/ocr/${'cd'.repeat(12)}/job.json`, { key: `u/${userId}/ocr/${'cd'.repeat(12)}/job.json`, bytes: new Uint8Array(1), uploaded: new Date(), customMetadata: {} })
+    delete (w.env as { OWN_OCR?: unknown }).OWN_OCR
+    const body = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean; steps: { step: string; status: string; detail?: string }[] }
+    expect(body.ok).toBe(false)
+    expect(body.steps.find(s => s.step === 'do:own-ocr')).toEqual({ step: 'do:own-ocr', status: 'failed', detail: 'OWN_OCR binding missing' })
+    expect(w.state.authUser).not.toBeNull()
+  })
+
   it('keeps the auth user when the narration coordinator is not bound, so the spend record is never orphaned', async () => {
     const w = world()
     delete (w.env as { NARRATION_COORDINATOR?: unknown }).NARRATION_COORDINATOR
@@ -623,6 +676,32 @@ describe('the reader\'s own Delete account (POST /api/account/delete)', () => {
     const res = await handleAccountDelete(selfPost(confirmBody), w.env, deps(w))
     expect(await res.json()).toEqual({ ok: true, deleted: true })
     expect(w.log.filter(entry => entry.startsWith('stripe:'))).toEqual([])
+    expect(w.state.authUser).toBeNull()
+  })
+
+  it('stops and forgets each OCR job (its OWN_OCR object), purges the OCR counts and deletes the recognised text', async () => {
+    const w = world()
+    const hexes = ['cd'.repeat(12), 'ef'.repeat(12)]
+    const put = (owner: string, hex: string, rest: string) => w.userBooks.objects.set(`u/${owner}/ocr/${hex}/${rest}`, {
+      key: `u/${owner}/ocr/${hex}/${rest}`, bytes: new Uint8Array(10), uploaded: new Date('2026-10-09T00:00:00Z'), customMetadata: { state: 'running', pages: '2' },
+    })
+    for (const hex of hexes) for (const rest of ['job.json', 'img/1.jpg', 'page/1.json', 'edition.json']) put(userId, hex, rest)
+    put(otherUser, hexes[0], 'job.json')
+    w.ownOcr.spend[`ocr-pages:${userId}`] = [{ day: '2026-10-09', bytes: 4 }]
+    w.ownOcr.spend[`ocr-user:${userId}`] = [{ day: '2026-10-09', bytes: 900 }]
+
+    const res = await handleAccountDelete(selfPost(confirmBody), w.env, deps(w))
+    expect(await res.json()).toEqual({ ok: true, deleted: true })
+    // Every job's Durable Object is cancelled (it deletes all it holds), the reader's and no one else's.
+    const names = await Promise.all(hexes.map(hex => ocrCoordinatorName(userId, hex)))
+    expect([...new Set(w.ownOcr.cancelled)].sort()).toEqual([...names].sort())
+    expect(w.ownOcr.cancelled).not.toContain(await ocrCoordinatorName(otherUser, hexes[0]))
+    expect(w.ownOcr.purged).toEqual(expect.arrayContaining([`ocr-pages:${userId}`, `ocr-user:${userId}`]))
+    expect(w.ownOcr.spend[`ocr-pages:${userId}`]).toEqual([])
+    expect(w.ownOcr.spend[`ocr-user:${userId}`]).toEqual([])
+    // Job state, page images and recognised text: nothing under u/<id>/ocr/; another reader's job stays.
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/`))).toEqual([])
+    expect(w.userBooks.objects.has(`u/${otherUser}/ocr/${hexes[0]}/job.json`)).toBe(true)
     expect(w.state.authUser).toBeNull()
   })
 })

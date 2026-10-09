@@ -4,6 +4,7 @@ import { GROK_VOICE_MODEL } from './voice/grokConfig'
 import {
   AI_PRICING,
   AI_PRICING_VERSION,
+  ocrCostUsd,
   anthropicCostUsd,
   buildUsageRow,
   hashGuestKey,
@@ -67,6 +68,13 @@ describe('pricing table', () => {
     expect(AI_PRICING_VERSION).toMatch(/^\d{4}-\d{2}-\d{2}$/)
     expect(AI_PRICING.anthropic['claude-sonnet-5']).toEqual({ inputPerMTok: 2, outputPerMTok: 10, cacheReadPerMTok: 0.2, cacheWritePerMTok: 2.5 })
     expect(AI_PRICING.anthropic['claude-sonnet-5'].cacheWritePerMTok).toBe(AI_PRICING.anthropic['claude-sonnet-5'].inputPerMTok * 1.25)
+  })
+
+  it('prices an OCR page by xAI vision tokens at $0.20 in / $0.50 out per MTok', () => {
+    expect(AI_PRICING.xai.ocrInputPerMTok).toBe(1.25)
+    expect(AI_PRICING.xai.ocrOutputPerMTok).toBe(2.5)
+    expect(ocrCostUsd(3000, 1200)).toBeCloseTo(0.00675, 8)
+    expect(ocrCostUsd(-5, Number.NaN)).toBe(0)
   })
 
   it('prices Claude tokens, cache reads and cache writes separately', () => {

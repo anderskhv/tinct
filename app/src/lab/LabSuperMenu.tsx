@@ -7,6 +7,8 @@ export interface LabSuperMenuProps {
   phone?: boolean
   /** A reader's own book: the rows that apply to it only. */
   privateBook?: boolean
+  /** A reader's own PDF: Book editions holds its Tinct text and its Original pages. */
+  ownPdf?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -80,7 +82,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -107,7 +109,7 @@ export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose }: La
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook })
+  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook, ownPdf })
 
   return (
     <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">

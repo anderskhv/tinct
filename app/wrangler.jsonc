@@ -31,6 +31,18 @@
     // Own ceilings, never the shared ones above: $20 per account and $100 for all
     // own books per UTC month (OWN_BOOK_NARRATION_MONTHLY_USD / _GLOBAL_MONTHLY_USD).
     "OWN_BOOK_NARRATION": "1",
+    // Recognising the text of scanned own PDFs (src/worker/lib/ownOcr.ts, xAI vision), Premium only.
+    // "1" turns it on, only after supabase/migrations/20261009_ai_usage_ocr.sql has run and
+    // privacy.html says so. Off: every /api/user-books/ocr/ route answers 404.
+    "OWN_PDF_OCR": "0",
+    // Pages one account may have recognised per UTC month; a trial account has the smaller ceiling.
+    "OWN_PDF_OCR_MONTHLY_PAGES": "1500",
+    "OWN_PDF_OCR_TRIAL_MONTHLY_PAGES": "300",
+    // Dollar backstops per UTC month: one account, and all accounts together.
+    "OWN_PDF_OCR_MONTHLY_USD": "2",
+    "OWN_PDF_OCR_GLOBAL_MONTHLY_USD": "75",
+    // The most pages one PDF may send for recognition.
+    "OCR_MAX_PAGES": "1000",
     // Daily ceiling for signed-out AI, in whole US cents (see src/worker/lib/aiSpend.ts).
     "GUEST_AI_DAILY_CENTS": "500",
     // Added public-domain books (src/worker/routes/publicBooks.ts). Approved by Anders 2026-10-07.
@@ -71,8 +83,8 @@
     // access or custom domain. Keys u/{userId}/{fileId}; purged by account deletion.
     { "binding": "USER_BOOKS", "bucket_name": "tinct-user-books" }
   ],
-  "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }, { "name": "USAGE_COORDINATOR", "class_name": "UsageCoordinator" }, { "name": "SHARE_STORE", "class_name": "ShareStore" }] },
-  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }, { "tag": "usage-coordinator-v1", "new_sqlite_classes": ["UsageCoordinator"] }, { "tag": "share-store-v1", "new_sqlite_classes": ["ShareStore"] }],
+  "durable_objects": { "bindings": [{ "name": "READER_POSITION", "class_name": "ReaderPositionCoordinator" }, { "name": "NARRATION_COORDINATOR", "class_name": "NarrationCoordinator" }, { "name": "RECAP_PREPARATION", "class_name": "RecapPreparationCoordinator" }, { "name": "USAGE_COORDINATOR", "class_name": "UsageCoordinator" }, { "name": "SHARE_STORE", "class_name": "ShareStore" }, { "name": "OWN_OCR", "class_name": "OwnOcrCoordinator" }] },
+  "migrations": [{ "tag": "narration-coordinator-v1", "new_sqlite_classes": ["NarrationCoordinator"] }, { "tag": "recap-preparation-v1", "new_sqlite_classes": ["RecapPreparationCoordinator"] }, { "tag": "reader-position-v1", "new_sqlite_classes": ["ReaderPositionCoordinator"] }, { "tag": "usage-coordinator-v1", "new_sqlite_classes": ["UsageCoordinator"] }, { "tag": "share-store-v1", "new_sqlite_classes": ["ShareStore"] }, { "tag": "own-ocr-v1", "new_sqlite_classes": ["OwnOcrCoordinator"] }],
   "triggers": {
     // 09:00 lifecycle emails; 03:17 retention cleanup (src/worker/routes/retention.ts RETENTION_CRON).
     "crons": ["0 9 * * *", "17 3 * * *", "*/10 * * * *"]

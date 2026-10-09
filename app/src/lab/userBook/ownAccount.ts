@@ -11,6 +11,7 @@
  * offline, a server error): callers keep what this device has.
  */
 import { supabase } from '../../services/supabase'
+import { editionSource, usableUserEdition, type UserBookEdition } from './userEdition'
 
 export interface AccountBook {
   id: string
@@ -36,12 +37,21 @@ export interface AccountPlace {
   rev: number
 }
 
-/** A PDF's place (Add a book's viewer): the page and how far down it (0–1). */
+/**
+ * A PDF's place: the page and how far down it (0–1), and, when its Tinct text
+ * was read or known there (pdfEditions.ts), the same spot in the text and the
+ * edition it was read in ('t' Tinct text, 'p' Original pages).
+ */
 export interface AccountPagePlace {
   page: number
   frac?: number
   updatedAt: number
   percent?: number
+  chapterNumber?: number
+  paragraphIndex?: number
+  wordIndex?: number
+  converter?: number
+  edition?: 't' | 'p'
   rev: number
 }
 
@@ -165,6 +175,24 @@ export async function fetchAccountCopy(hex: string, token: string | null, fetchI
   }
 }
 
+/**
+ * The recognised Tinct text of a scanned PDF of the account
+ * (`GET /api/user-books/ocr/{hex}/edition`), or null: none recognised yet,
+ * recognition switched off (the route answers 404), signed out, offline, or
+ * not a recognised text this code reads.
+ */
+export async function fetchOcrEdition(hex: string, token: string | null, fetchImpl: FetchLike = fetch): Promise<UserBookEdition | null> {
+  if (!token || !/^[0-9a-f]{24}$/.test(hex)) return null
+  try {
+    const response = await fetchImpl(`/api/user-books/ocr/${hex}/edition`, authorized(token))
+    if (!response.ok) return null
+    const edition = await response.json() as unknown
+    return usableUserEdition(edition, 'pdf') && editionSource(edition) === 'ocr' ? edition : null
+  } catch {
+    return null
+  }
+}
+
 function accountPlace(value: unknown): AccountPlace | null {
   if (!value || typeof value !== 'object') return null
   const raw = value as Record<string, unknown>
@@ -183,6 +211,13 @@ function accountPagePlace(value: unknown): AccountPagePlace | null {
   const place: AccountPagePlace = { page: raw.page as number, updatedAt: raw.updatedAt as number, rev: raw.rev as number }
   if (typeof raw.frac === 'number' && Number.isFinite(raw.frac)) place.frac = Math.max(0, Math.min(1, raw.frac))
   if (typeof raw.percent === 'number' && Number.isFinite(raw.percent)) place.percent = Math.max(0, Math.min(100, raw.percent))
+  const whole = (field: unknown, min = 0) => Number.isInteger(field) && (field as number) >= min
+  // The spot in the Tinct text: whole, or not at all.
+  if (whole(raw.chapterNumber, 1) && whole(raw.paragraphIndex) && whole(raw.wordIndex)) {
+    Object.assign(place, { chapterNumber: raw.chapterNumber, paragraphIndex: raw.paragraphIndex, wordIndex: raw.wordIndex })
+    if (whole(raw.converter, 1)) place.converter = raw.converter as number
+  }
+  if (raw.edition === 't' || raw.edition === 'p') place.edition = raw.edition
   return place
 }
 
@@ -197,10 +232,11 @@ export async function fetchAccountPlaceSets(token: string | null, fetchImpl: Fet
     const pages: Record<string, AccountPagePlace> = {}
     for (const [hex, value] of Object.entries(data.places ?? {})) {
       if (!/^[0-9a-f]{24}$/.test(hex)) continue
-      const place = accountPlace(value)
-      if (place) { text[hex] = place; continue }
+      // A place with a page is a PDF's, whichever of its editions it was read in.
       const page = accountPagePlace(value)
-      if (page) pages[hex] = page
+      if (page) { pages[hex] = page; continue }
+      const place = accountPlace(value)
+      if (place) text[hex] = place
     }
     return { text, pages }
   } catch {

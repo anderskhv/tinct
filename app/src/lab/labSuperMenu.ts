@@ -26,7 +26,7 @@ export interface LabSuperMenuRow {
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
  * Summarize), reading choices, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false }: { phone?: boolean; privateBook?: boolean } = {}): LabSuperMenuRow[] {
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false }: { phone?: boolean; privateBook?: boolean; ownPdf?: boolean } = {}): LabSuperMenuRow[] {
   const rows: LabSuperMenuRow[] = [
     // One row for both conversations (Anders, 2026-10-07): always here, so
     // the only way to the librarian since the margin tab went (2026-10-08).
@@ -41,9 +41,10 @@ export function labSuperMenuRows({ phone = false, privateBook = false }: { phone
   ]
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
-  // at a time), but one edition. Library returns to Your books.
+  // at a time), but one edition, except a PDF: its Tinct text and its
+  // Original pages (2026-10-09). Library returns to Your books.
   return privateBook
-    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id)).map(row => row.id === 'library' ? { ...row, label: 'Your books' } : row)
+    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id) || (ownPdf && row.id === 'editions')).map(row => row.id === 'library' ? { ...row, label: 'Your books' } : row)
     : rows
 }
 

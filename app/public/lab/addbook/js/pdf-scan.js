@@ -15,10 +15,14 @@
 //      Headings found this way also leave out title pages, contents pages, scanners' notices
 //      and stamps, and lines of a scan's text layer that are only a little larger than the body.
 //   4. Language: the declared one, else the language of the text's common words.
-//   5. textPages: how many of the scanned pages carry text (0: a scan without a text layer).
+//   5. textPages: how many of the scanned pages carry text (0: a scan without a text layer, or
+//      one whose text layer is garbage: more than 30% of its tokens without a letter).
+//   6. layout: the edition the PDF opens in by default ('text': Tinct text, 'pages': Original
+//      pages, 'pages-only': no text to reflow), from its columns, mathematics, figures and
+//      tables (see layout below). Version 5 (2026-10-09) added it.
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 4;
+  const SCAN_VERSION = 5;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
@@ -392,6 +396,124 @@
     return n >= words.length * 0.08 ? best : '';
   }
 
+  /* ---------- Layout: which edition a PDF opens in ---------- */
+  // A PDF whose pages carry what reflowed text loses (columns, mathematics, figures, tables:
+  // a paper, a textbook, slides) opens as its pages; running prose opens as Tinct text. Scored
+  // on at most 40 pages with text, spread through the document:
+  //   columns +3   at least 30% of the pages in two columns (8+ lines each side, their starts
+  //                more than 0.35 of the page apart, lines narrower than 0.48 of it);
+  //   math +2      1.5% of the characters mathematical (U+2200–22FF, U+1D400–1D7FF, or set
+  //                in a mathematics font), or 0.4 display equations a page;
+  //   figures +1.5 at least 25% of the pages with pictures over 20% of the page (a page-size
+  //                scan aside), or drawn with more than 300 paths;
+  //   tables +1.5  at least 15% of the pages with 4 lines in a row of 3 or more wide gaps;
+  //   paper +1     "Abstract" on the first 2 pages, "References" or "Bibliography" on the last
+  //                3, or an arXiv or DOI identifier;
+  //   short +0.5   40 pages or fewer;
+  //   prose −2     80% of the characters in the body's face and size, over 1200 a page.
+  // 3.5 or more: 'pages'; else 'text'; no text layer: 'pages-only'. Deterministic.
+  const LAYOUT_SAMPLE = 40;
+  const MATH_FONT = /CMMI|CMSY|CMEX|MSBM|MSAM|STIX.*Math|Cambria ?Math|Symbol|Asana|XITS ?Math|Latin ?Modern ?Math/i;
+  const MATH_CHAR = /[∀-⋿]|[\u{1d400}-\u{1d7ff}]/u;
+  const SIGNAL_POINTS = { columns: 3, math: 2, figures: 1.5, tables: 1.5, paper: 1, short: 0.5, prose: -2 };
+  // Two columns on a page (see js/pdf-text.js columnsOf, the same test).
+  function twoColumns(rows, x0, w) {
+    const mid = x0 + w / 2, slack = w * 0.02, med = l => { const s = [...l].sort((a, b) => a - b); return s[Math.floor(s.length / 2)] ?? 0 };
+    const left = rows.filter(r => r.x2 <= mid + slack && r.words >= 3), right = rows.filter(r => r.x >= mid - slack && r.x2 > mid + slack && r.words >= 3);
+    return left.length >= 8 && right.length >= 8 && med(right.map(r => r.x)) - med(left.map(r => r.x)) > 0.35 * w && med([...left, ...right].map(r => r.x2 - r.x)) < 0.48 * w;
+  }
+  // Lines of a table: 4 in a row with 3 or more gaps wider than 2 em between their pieces.
+  function hasTable(items) {
+    const lines = [];
+    for (const it of items || []) {
+      if (!it?.transform || typeof it.str !== 'string' || !it.str.trim()) continue;
+      const [a, , , d, x, y] = it.transform, size = Math.abs(d) || Math.abs(a) || 10;
+      let line = lines.find(l => Math.abs(l.y - y) < Math.max(2, size * 0.3));
+      if (!line) { line = { y, parts: [] }; lines.push(line) }
+      line.parts.push({ x, x2: x + (it.width || 0), size });
+    }
+    // In a row: each within 3 lines of the one above (a column of text beside it aside).
+    let run = 0, above = null;
+    for (const l of lines.sort((p, q) => q.y - p.y)) {
+      const parts = l.parts.sort((p, q) => p.x - q.x);
+      let gaps = 0;
+      for (let i = 1; i < parts.length; i++) if (parts[i].x - parts[i - 1].x2 > 2 * Math.max(parts[i].size, parts[i - 1].size)) gaps++;
+      if (gaps < 3) continue;
+      run = above && above.y - l.y < 3 * parts[0].size ? run + 1 : 1;
+      above = l;
+      if (run >= 4) return true;
+    }
+    return false;
+  }
+  // Pictures and drawings on a page, from its operators: the share of the page under pictures
+  // (one covering 85% or more is a scanned page, not a figure) and how many paths it draws.
+  async function pagePictures(page, OPS) {
+    const ops = await page.getOperatorList();
+    const [x0, y0, x1, y1] = page.view, area = Math.abs((x1 - x0) * (y1 - y0)) || 1;
+    let ctm = [1, 0, 0, 1, 0, 0], covered = 0, full = false, paths = 0;
+    const stack = [];
+    const times = (m, n) => [m[0] * n[0] + m[1] * n[2], m[0] * n[1] + m[1] * n[3], m[2] * n[0] + m[3] * n[2], m[2] * n[1] + m[3] * n[3], m[4] * n[0] + m[5] * n[2] + n[4], m[4] * n[1] + m[5] * n[3] + n[5]];
+    for (let i = 0; i < ops.fnArray.length; i++) {
+      const fn = ops.fnArray[i], args = ops.argsArray[i];
+      if (fn === OPS.save) stack.push(ctm);
+      else if (fn === OPS.restore) ctm = stack.pop() || [1, 0, 0, 1, 0, 0];
+      else if (fn === OPS.transform && args?.length >= 6) ctm = times(args, ctm);
+      else if (fn === OPS.constructPath) paths++;
+      else if (fn === OPS.paintImageXObject || fn === OPS.paintInlineImageXObject || fn === OPS.paintImageMaskXObject || fn === OPS.paintImageXObjectRepeat) {
+        const share = Math.abs(ctm[0] * ctm[3] - ctm[1] * ctm[2]) / area;
+        if (share >= 0.85) full = true; else covered += share;
+      }
+    }
+    return { figure: (!full && covered > 0.2) || paths > 300 };
+  }
+  // pages: the scan's pages ({ n, page, x0, w, rows }); itemsOf(n): a page's text items;
+  // fontName(n, id): a font's name. Returns { default, score, signals }.
+  async function layout(pdf, pages, { itemsOf, fontName, isFurniture, textPages, live = () => true }) {
+    if (!textPages) return { default: 'pages-only', score: 0, signals: {} };
+    const withText = pages.filter(p => (p.rows.map(r => r.text).join('').match(/\p{L}/gu) || []).length >= 50);
+    const sample = withText.length <= LAYOUT_SAMPLE ? withText : Array.from({ length: LAYOUT_SAMPLE }, (_, i) => withText[Math.floor((i * withText.length) / LAYOUT_SAMPLE)]);
+    const OPS = global.pdfjsLib?.OPS;
+    let columns = 0, figures = 0, tables = 0, equations = 0, chars = 0, math = 0, bodyChars = 0;
+    const mathFonts = new Map();
+    for (const p of sample) {
+      const rows = p.rows.filter(r => !isFurniture(p, r));
+      if (twoColumns(rows, p.x0, p.w)) columns++;
+      if (hasTable(await itemsOf(p.n))) tables++;
+      if (OPS && (await pagePictures(p.page, OPS).catch(() => ({ figure: false }))).figure) figures++;
+      if (!live()) return null;
+      const body = bodyOf(rows);
+      for (const r of rows) {
+        const n = r.text.replace(/\s/g, '').length;
+        chars += n;
+        if (body && Math.abs(r.size - body.size) < 0.6 && r.font === body.font) bodyChars += n;
+        let inMathFont = false;
+        if (r.font) {
+          if (!mathFonts.has(r.font)) mathFonts.set(r.font, MATH_FONT.test(await fontName(p.n, r.font)));
+          inMathFont = mathFonts.get(r.font);
+        }
+        const symbols = [...r.text].filter(ch => MATH_CHAR.test(ch)).length;
+        math += inMathFont ? n : symbols;
+        // A display equation: a short line of symbols more than words.
+        const letters = (r.text.match(/\p{L}/gu) || []).length;
+        if ((inMathFont || symbols > 0 || /=/.test(r.text)) && r.words <= 12 && letters < n * 0.65 && r.x2 - r.x < p.w * 0.45) equations++;
+      }
+    }
+    const count = Math.max(1, sample.length);
+    const first = pages.filter(p => p.n <= 2), last = pages.filter(p => p.n > pdf.numPages - 3);
+    const textOf = list => list.flatMap(p => p.rows.map(r => r.text)).join('\n');
+    const signals = {
+      columns: columns / count >= 0.3,
+      math: (chars > 0 && math / chars >= 0.015) || equations / count >= 0.4,
+      figures: figures / count >= 0.25,
+      tables: tables / count >= 0.15,
+      paper: first.some(p => p.rows.some(r => /^(?:\d+\.?\s*)?abstract\b/i.test(r.text))) || last.some(p => p.rows.some(r => /^(?:\d+\.?\s*)?(?:references|bibliography)\.?$/i.test(r.text))) || /\barxiv:\s*\d|\bdoi:\s*10\.\d/i.test(textOf([...first, ...last])),
+      short: pdf.numPages <= 40,
+      prose: chars > 0 && bodyChars / chars >= 0.8 && chars / count > 1200,
+    };
+    const score = Math.round(Object.entries(signals).reduce((s, [k, on]) => s + (on ? SIGNAL_POINTS[k] : 0), 0) * 10) / 10;
+    return { default: score >= 3.5 ? 'pages' : 'text', score, signals };
+  }
+
   /* ---------- The scan ---------- */
   // pdf: a pdf.js document. options.fileName names the file; options.items(n) may supply a
   // page's text items (the reader's cache); options.live() turns false to stop early;
@@ -406,8 +528,8 @@
     const pageCache = new Map();
     const pageOf = async n => {
       if (!pageCache.has(n)) {
-        const page = await pdf.getPage(n), [, y0, , y1] = page.view;
-        pageCache.set(n, { n, page, y0, h: y1 - y0, rows: textRows(await itemsOf(n)) });
+        const page = await pdf.getPage(n), [x0, y0, x1, y1] = page.view;
+        pageCache.set(n, { n, page, x0, w: x1 - x0, y0, h: y1 - y0, rows: textRows(await itemsOf(n)) });
       }
       return pageCache.get(n);
     };
@@ -442,14 +564,19 @@
     let sample = '';
     for (const p of all) { sample += ' ' + p.rows.map(r => r.text).join(' '); if (sample.length > 20000) break }
     // Pages with running text (a scanner's notice page aside): none means a scan without a text layer.
-    const textPages = all.filter(p => { const t = p.rows.map(r => r.text).join(' '); return (t.match(/\p{L}/gu) || []).length >= 50 && !BOILERPLATE_PAGE.test(t) }).length;
+    let textPages = all.filter(p => { const t = p.rows.map(r => r.text).join(' '); return (t.match(/\p{L}/gu) || []).length >= 50 && !BOILERPLATE_PAGE.test(t) }).length;
+    // A text layer that is mostly not words (a broken font's codes, an OCR layer of noise) is no text.
+    const tokens = sample.split(/\s+/).filter(Boolean);
+    if (tokens.length >= 40 && tokens.filter(t => !/\p{L}/u.test(t)).length > tokens.length * 0.3) textPages = 0;
+    const kind = await layout(pdf, all, { itemsOf, fontName, isFurniture: furniture(all), textPages, live });
+    if (!live() || !kind) return null;
     return {
-      v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [], language: languageOf(sample, info.Language), textPages,
+      v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [], language: languageOf(sample, info.Language), textPages, layout: kind,
       source: { title: fromMeta ? 'metadata' : printed.title ? 'printed' : 'file', author: metaAuthor(info.Author) ? 'metadata' : printed.author ? 'printed' : 'none' },
     };
   }
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { SCAN_VERSION, scan, current, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { SCAN_VERSION, scan, current, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);
