@@ -222,7 +222,8 @@ async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   closeChat(); stopNarration(); closeAllPopups(); endSnip?.();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
-  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
+  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
+  $('textBtn').hidden = true;
   if (window.CSS?.highlights) for (const [k] of HL_COLORS) CSS.highlights.delete('tinct-hl-' + k);
   chat.turns = []; chat.passage = null; chat.attach = [];
   $('column').innerHTML = '';
@@ -306,7 +307,10 @@ async function openPdf(bytes, name, key) {
   // until a new scan has read the title, the book's stored name stands in.
   const rec = await library.get(key);
   const scan = TinctPdfScan.current(rec?.scan) ? rec.scan : null;
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, texts: new Map(), figs: new Map() });
+  // The PDF's Tinct text when this device has converted it (the Tinct reader keeps it on the
+  // record): a place here also names the same spot in it (textSpot).
+  const textEdition = window.TinctPdfText?.usable(rec?.edition) ? rec.edition : null;
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, texts: new Map(), figs: new Map() });
   if (token !== state.token) return;
   root.classList.add('is-pdf'); root.classList.remove('is-epub');
   root.style.removeProperty('--epub-scale');
@@ -314,7 +318,12 @@ async function openPdf(bytes, name, key) {
   state.base = { w: first.width, h: first.height };
   const { late } = await synced;
   if (token !== state.token) return;
-  const saved = store.get('pos:' + state.key);
+  // Read as Tinct text (here or, by its place, on another device): the Tinct reader, before the pages draw.
+  if (scan && forwardToText(scan)) return;
+  let saved = store.get('pos:' + state.key);
+  // A link's page (the Tinct reader's "Original pages") wins for this open; at the saved page, its spot on it too.
+  const asked = Number(new URLSearchParams(location.search).get('page'));
+  if (Number.isInteger(asked) && asked >= 1 && asked <= pdf.numPages && asked !== saved?.page) saved = { ...(saved || {}), page: asked, frac: 0 };
   state.zoom = saved?.zoom || 1;
   // Where the book opens: the reader has not moved until they leave it (savePlaceNow).
   state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
@@ -800,11 +809,60 @@ function savePlaceNow() {
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
   const moved = !sameSpot(place, state.lastPlace);
   if (moved) state.lastPlace = place;
-  store.set('pos:' + state.key, moved ? { ...prev, ...place, zoom: state.zoom, pages: state.pages.length, at: Date.now() } : { ...prev, zoom: state.zoom, pages: state.pages.length });
+  // A move in a PDF is read in Original pages, at this spot in its Tinct text when this device has it.
+  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : {};
+  store.set('pos:' + state.key, moved ? { ...prev, ...place, ...read, zoom: state.zoom, pages: state.pages.length, at: Date.now() } : { ...prev, zoom: state.zoom, pages: state.pages.length });
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
 }
+// The same spot in the PDF's Tinct text (js/pdf-text.js placeOf), or none (the Tinct reader
+// finds it from the page): never a spot left from an earlier place.
+function textSpot(place) {
+  const spot = state.textEdition ? TinctPdfText.placeOf(state.textEdition, place.page, place.frac) : null;
+  return spot ? { ...spot, converter: state.textEdition.converter } : { chapterNumber: undefined, paragraphIndex: undefined, wordIndex: undefined, converter: undefined };
+}
+
+/* ---------- Two editions: Tinct text and Original pages ---------- */
+// A text PDF reads as its Tinct text in the Tinct reader (/reader?userBook=<hex>) or as its
+// pages here; both keep one place (pos:<key>: the page, the spot in the text and the edition
+// read), so either opens where the other was left, here and on the reader's other devices.
+// Which one a PDF opens in: TinctPdfText.choice (app/src/lab/userBook/pdfEditions.ts).
+const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages > 0 : !!state.textEdition);
+const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), store.get('edition:' + hexOf(state.key)), scan?.layout?.default);
+const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + (page ? '&page=' + page : '');
+// Opened here but read as Tinct text: on to the Tinct reader (not for a link that asks for the pages).
+function forwardToText(scan) {
+  if (!scan || !(scan.textPages > 0) || new URLSearchParams(location.search).has('pages') || editionChoice(scan) !== 'text') return false;
+  const pos = store.get('pos:' + state.key);
+  location.replace(textUrl(pos?.page));
+  return true;
+}
+// "Tinct text": the place now, read from here on in the Tinct text, sent at once; then the reader.
+function readAsText() {
+  if (!hasText()) return;
+  savePlaceNow();
+  const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
+  const spot = sameSpot(place, { page: prev.page, frac: prev.frac }) && Number.isInteger(prev.chapterNumber) ? {} : textSpot(place);
+  store.set('pos:' + state.key, { ...prev, ...(sameSpot(place, { page: prev.page, frac: prev.frac }) ? {} : place), ...spot, edition: 't', pages: state.pages.length, at: Date.now() });
+  store.set('edition:' + hexOf(state.key), 'text');
+  placeSync.note(hexOf(state.key), true);
+  placeSync.flush();
+  stopNarration();
+  location.assign(textUrl(place.page));
+}
+function showEditions() {
+  $('textBtn').hidden = !hasText();
+}
+function openEditions() {
+  if (!hasText()) return;
+  const option = (id, label, on) => `<button type="button" class="lab-v2-edition-option" data-edition="${id}" aria-pressed="${on}"><span class="lab-v2-edition-name">${label}</span><span class="lab-v2-edition-check" aria-hidden="true">${on ? '✓' : ''}</span></button>`;
+  const layer = sheet('Book editions', `<div class="lab-v2-edition-choices" role="group" aria-label="Book editions">${option('text', 'Tinct text', false)}${option('pages', 'Original pages', true)}</div>`);
+  layer.querySelector('[data-edition="text"]').onclick = () => { closeSheet(layer); readAsText() };
+  layer.querySelector('[data-edition="pages"]').onclick = () => { closeSheet(layer); store.set('edition:' + hexOf(state.key), 'pages') };
+}
+$('textBtn').onclick = () => readAsText();
+
 // Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
 function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush() }
 addEventListener('pagehide', leavePlace);
@@ -822,7 +880,7 @@ const placeSync = {
     if (!window.TinctAI?.session?.().userId) return Promise.resolve(null);
     return switcherApi().then(api => (this.api = api.pdfPlaces || null), () => null);
   },
-  note(hex) { if (this.api) this.api.note(hex); else this.load().then(api => api?.note(hex)) },
+  note(hex, now = false) { if (this.api) this.api.note(hex, now); else this.load().then(api => api?.note(hex, now)) },
   flush() { this.api?.flush() },
   // -> true once the account's place (read later on another device) is the one kept here.
   async reconcile(key) {
@@ -932,6 +990,8 @@ const ICON = {
   catchup: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6.6v3M6 12.6v3.2"></path><circle cx="6" cy="5" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="6" cy="11" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="6" cy="18" r="2.2"></circle><path d="M11 5h9M11 11h9M11 18h5"></path></svg>',
   settings: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h7M15 7h5M4 17h5M13 17h7"></path><circle cx="13" cy="7" r="2"></circle><circle cx="11" cy="17" r="2"></circle></svg>',
   library: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m10 5-7 7 7 7M3 12h18"></path></svg>',
+  // The reader's Book editions glyph (src/lab/LabSuperMenu.tsx).
+  editions: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="4" height="16" rx="0.8"></rect><rect x="10" y="4" width="4" height="16" rx="0.8"></rect><path d="m14.6 5.2 3.9-.9 3 15.6-3.9.9z"></path></svg>',
   librarian: CHAT_SVG,
   close: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="m7 7 10 10M17 7 7 17"></path></svg>',
   open: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m-4 4 4-4 4 4M5 14v5h14v-5"></path></svg>',
@@ -944,8 +1004,8 @@ const ICON = {
 };
 // The reader's rows (src/lab/labSuperMenu.ts: Librarian, Summarize, Catch me up, Settings,
 // Library on the phone), with this viewer's own: Snip a figure, Export notes, Open another book.
-const MENU = [['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['settings', 'Settings', true, true], ['open', 'Open another book', true], ['library', 'Library', true]];
-const menuItems = () => MENU.filter(([id]) => (id !== 'snip' || state.kind === 'pdf') && (id !== 'library' || isPhone()));
+const MENU = [['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['editions', 'Book editions', true, true], ['settings', 'Settings', false, true], ['open', 'Open another book', true], ['library', 'Library', true]];
+const menuItems = () => MENU.filter(([id]) => (id !== 'snip' || state.kind === 'pdf') && (id !== 'editions' || hasText()) && (id !== 'library' || isPhone())).map(([id, label, rule, chevron]) => id === 'settings' && !hasText() ? [id, label, true, chevron] : [id, label, rule, chevron]);
 function openMenu() {
   if (document.querySelector('.lab-super-layer')) return closeMenu();
   closeAllPopups();
@@ -976,6 +1036,7 @@ function menuAction(id) {
   if (id === 'snip') return startSnip();
   if (id === 'export') return exportNotes();
   if (id === 'settings') return openSettings();
+  if (id === 'editions') return openEditions();
   if (id === 'open') return $('fileInput').click();
 }
 
@@ -1058,13 +1119,14 @@ const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages' };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
-  chapterTitles ??= import('/lab/chapter-title.js?v=20261009rel1').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
+  chapterTitles ??= import('/lab/chapter-title.js?v=20261009pdf2').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
   return chapterTitles;
 }
 async function buildContents() {
   const token = state.token, key = state.key, pdf = state.pdf;
   toc.ready = false; toc.entries = [];
   let scan = state.scan;
+  const fresh = !scan;
   if (!scan) {
     let heard;
     state.titleReady = new Promise(r => { heard = r });
@@ -1090,6 +1152,10 @@ async function buildContents() {
   }
   setBookTitle(scan.title, scan.author);
   applyBookLanguage();
+  // Classified now (a PDF opened for the first time, or scanned again): Tinct text when it reads
+  // best so, unless the reader has moved here meanwhile.
+  if (fresh && sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
+  showEditions();
   if (hasNoText()) toast(NO_TEXT, { hold: true });
   toc.entries = scan.entries.slice().sort((a, b) => a.page - b.page);
   toc.nav = toc.entries.length ? scan.nav : 'pages';
@@ -1179,7 +1245,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009rel1';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009pdf2';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
