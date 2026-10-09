@@ -59,6 +59,32 @@ describe('pending time on the device', () => {
     expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'odyssey', guestEarlier: null })).toBeNull()
   })
 
+  it('a flush that failed part-way keeps exactly what did not land, under a new id', async () => {
+    addPending('u1', '2026-10-05', 'odyssey', { read: 600 })
+    addPending('u1', '2026-10-06', 'odyssey', { read: 300 })
+    const flush = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    expect(flush.entries).toHaveLength(2)
+    const fetchMock = vi.fn(async () => Response.json({ enabled: true, error: 'unavailable', applied: 1 }, { status: 503 }))
+    expect(await sendFlush('token', 'u1', flush, () => {}, fetchMock as unknown as typeof fetch)).toBe('unavailable')
+    const landed = flush.entries[0]
+    const left = flush.entries[1]
+    expect(readPending('u1')).toEqual({ [left.day]: { odyssey: { read: left.read, listen: 0 } } })
+    expect(landed.day).not.toBe(left.day)
+    // The next flush carries only what is left, under a new id (the old one is spent).
+    const next = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    expect(next.flushId).not.toBe(flush.flushId)
+    expect(next.entries).toEqual([left])
+  })
+
+  it('a flush the ledger refused before it began (503 without applied) is resent as it was', async () => {
+    addPending('u1', '2026-10-05', 'odyssey', { read: 600 })
+    const flush = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    const fetchMock = vi.fn(async () => Response.json({ enabled: true, error: 'unavailable' }, { status: 503 }))
+    expect(await sendFlush('token', 'u1', flush, () => {}, fetchMock as unknown as typeof fetch)).toBe('unavailable')
+    expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })?.flushId).toBe(flush.flushId)
+    expect(pendingSeconds(readPending('u1'))).toBe(600)
+  })
+
   it('leaves the current book’s time today to the heartbeat', () => {
     addPending('u1', '2026-10-07', 'odyssey', { read: 600 })
     addPending('u1', '2026-10-07', 'bible', { read: 60 })

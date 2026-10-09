@@ -207,6 +207,27 @@ describe('the one-time merge of yearly totals', () => {
   })
 })
 
+describe('a flush the ledger fails part-way through', () => {
+  it('says how many entries landed, so a retry under the same id cannot drop the rest', async () => {
+    const { table, fetchMock } = fakeSupabase()
+    const inner = fetchMock.getMockImplementation()!
+    let rpcCalls = 0
+    fetchMock.mockImplementation(async (input, init) => {
+      if (String(input).includes('/rpc/add_reading_time') && ++rpcCalls === 2) return Response.json({ message: 'timeout' }, { status: 504 })
+      return inner(input, init)
+    })
+    const d = deps({ now: NOW })
+    const body = { flushId: 'flush-part-1', entries: [
+      { day: '2026-10-05', bookId: 'odyssey', read: 600, listen: 0 },
+      { day: '2026-10-06', bookId: 'odyssey', read: 300, listen: 0 },
+    ], earlier: 0 }
+    const response = await handleReadingTime(post('/api/reading-time/flush', body), on, d)
+    expect(response.status).toBe(503)
+    expect(await response.json()).toEqual({ enabled: true, error: 'unavailable', applied: 1 })
+    expect(table.filter(row => row.book_id === 'odyssey').map(row => row.day)).toEqual(['2026-10-05'])
+  })
+})
+
 describe('a reader’s own books', () => {
   it('a beat or flush naming an own book (userbook-<hex>) is recorded under the private bucket, never the id', async () => {
     const { table, calls } = fakeSupabase()

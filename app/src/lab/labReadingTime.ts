@@ -230,7 +230,17 @@ export async function sendFlush(token: string, userId: string, flush: StoredFlus
       body: JSON.stringify({ flushId: flush.flushId, entries: flush.entries, earlier: flush.earlier }),
     })
     if (response.status === 429) return 'too-soon'
-    if (response.status === 503) return 'unavailable'
+    if (response.status === 503) {
+      // Failed part-way: the id is spent and the first `applied` entries landed.
+      // Take those off and drop the stored flush; the rest goes under a new id.
+      const data = await response.json().catch(() => null) as { applied?: unknown } | null
+      const applied = data?.applied
+      if (typeof applied === 'number' && Number.isInteger(applied) && applied >= 0) {
+        subtractPending(flush.owner, flush.entries.slice(0, applied))
+        try { localStorage.removeItem(flushKey(userId)) } catch { /* ignore */ }
+      }
+      return 'unavailable'
+    }
     if (!response.ok) {
       // A flush the Worker refuses as malformed will never land; drop it rather than retry forever.
       if (response.status === 400) {

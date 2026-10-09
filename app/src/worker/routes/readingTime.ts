@@ -200,15 +200,25 @@ export async function handleReadingTime(request: Request, env: ReadingTimeEnv, d
       await ensureYearlyTotalsMerged(env, userId, now())
       // Applied once: a retry of the same flush (a lost reply) credits nothing.
       if (!(await deps.flushOnce(userId, flush.flushId))) return noStore(jsonResponse({ enabled: true, credited: 0, repeat: true }, 200, request))
-      let credited = 0
-      for (const entry of flush.entries) {
-        const result = await addTime(env, userId, entry.day, entry.bookId, entry.read, entry.listen)
-        credited += result.read + result.listen
-      }
-      if (flush.earlier > 0) {
-        const year = new Date(now()).getUTCFullYear()
-        const result = await addTime(env, userId, earlierDayForYear(year), EARLIER_BOOK_ID, flush.earlier, 0)
-        credited += result.read
+      // The flush id is spent: a failure from here on says how many entries
+      // landed (in order; `earlier` goes last), so the reader keeps the rest
+      // pending under a new id instead of a retry being answered "repeat".
+      let credited = 0, applied = 0
+      try {
+        for (const entry of flush.entries) {
+          const result = await addTime(env, userId, entry.day, entry.bookId, entry.read, entry.listen)
+          credited += result.read + result.listen
+          applied += 1
+        }
+        if (flush.earlier > 0) {
+          const year = new Date(now()).getUTCFullYear()
+          const result = await addTime(env, userId, earlierDayForYear(year), EARLIER_BOOK_ID, flush.earlier, 0)
+          credited += result.read
+        }
+      } catch (error) {
+        if (!(error instanceof LedgerUnavailable)) throw error
+        console.warn(JSON.stringify({ event: 'reading_time_unavailable', route, reason: error.message, applied }))
+        return noStore(jsonResponse({ enabled: true, error: 'unavailable', applied }, 503, request))
       }
       return noStore(jsonResponse({ enabled: true, credited }, 200, request))
     }
