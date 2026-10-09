@@ -955,14 +955,23 @@ let toastTimer, toastHeld = 0, toastNext = null, toastAt = 0;
 // `hold`: a message that must be read (a book's own limits) is not replaced while it shows;
 // one arriving meanwhile is shown when it ends, as is one it replaces before it could be read
 // (why the book was kept on this device only, just before the scan notice).
+// In the reader, the toast is the reader's own (css/reader.css keeps it inside the page area, left of the docked chat).
+// Over the phone's chat sheet it is one of the chat's own quiet status lines, above the composer
+// (the shared thread's .tc-status: EB Garamond italic, no fill), so the sheet never shows a grey box.
+// Opening or closing Chat moves a toast that is showing (openChat, closeChat).
+function placeToast(t) {
+  let inChat = false;
+  try { inChat = isPhone() && !!chat.el?.isConnected && readerShown() } catch { /* before the chat exists */ }
+  t.className = inChat ? 'tc-status byob-toast is-in-chat' : 'lab-ask-notice byob-toast';
+  if (inChat) { const composer = chat.el.querySelector('#composer'); if (t.nextElementSibling !== composer) chat.el.insertBefore(t, composer) }
+  else { const host = readerShown() ? root : document.body; if (t.parentElement !== host) host.appendChild(t) }
+}
 function toast(text, { hold = false } = {}) {
   if (!hold && Date.now() < toastHeld) { toastNext = text; return }
   let t = document.querySelector('.byob-toast');
   if (hold && t && !t.hidden && t.textContent !== text && Date.now() >= toastHeld && Date.now() - toastAt < 2500) toastNext = t.textContent;
-  // In the reader, the toast is the reader's own (css/reader.css keeps it inside the page area, left of the docked chat).
-  const host = readerShown() ? root : document.body;
-  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status') }
-  if (t.parentElement !== host) host.appendChild(t);
+  if (!t) { t = document.createElement('p'); t.setAttribute('role', 'status') }
+  placeToast(t);
   t.textContent = text; t.hidden = false; toastAt = Date.now();
   const ms = hold ? 6000 : 4000;
   toastHeld = hold ? Date.now() + ms : 0;
@@ -2027,6 +2036,7 @@ function openChat(opts = {}) {
   if (!isPhone()) { dockGrip(el); el.hidden = false; setDock(opts.overlay || state.zoom > 1 ? 'overlay' : 'docked') }
   root.classList.add('chat-open');
   root.dataset.desktopPanel = 'chat';
+  const shown = document.querySelector('.byob-toast:not([hidden])'); if (shown) placeToast(shown);
   if (opts.passage) chat.passage = opts.passage;
   if (opts.explanation) {
     chat.turns.push({ role: 'user', content: 'Explain this passage.', passage: opts.passage.text, page: opts.passage.page, at: Date.now() });
@@ -2038,7 +2048,7 @@ function openChat(opts = {}) {
   if (opts.prompt) ask(opts.prompt, opts.display);
   else if (!opts.quiet) setTimeout(() => { const t = el.querySelector('textarea'); t.focus({ preventScroll: true }); t.dispatchEvent(new Event('input')) }, 50);
 }
-function closeChat() { chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+function closeChat() { chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
 function setTalk(on) {
   chat.talk = on;
   if (!chat.el) return;

@@ -155,7 +155,12 @@
 .tc .tc-latest[hidden] { display: none; }
 
 /* Status lines above the composer (dictation, Talk, a notice): quiet italics. */
-.tc .tc-status { margin: 0 var(--tc-pad) 6px; padding: 0; color: var(--tc-muted); font: italic 13px/1.4 var(--tc-gara); background: none; border: 0; text-align: left; }
+.tc .tc-status {
+  position: static; inset: auto; transform: none; width: auto; max-width: none; z-index: auto;
+  margin: 0 var(--tc-pad) 6px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
+  color: var(--tc-muted); font: italic 13px/1.4 var(--tc-gara); letter-spacing: 0; text-transform: none; text-align: left;
+}
+.tc .tc-status[hidden] { display: none; }
 .tc .tc-status button { margin-left: 8px; padding: 0; border: 0; background: none; min-height: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
 
 /* The composer: a hairline, 12px of air, then the text and a 2px caret. */
@@ -191,7 +196,9 @@
 .tc .tc-field .tc-mark:disabled { opacity: .45; cursor: default; }
 .tc .tc-field .tc-mark[hidden] { display: none; }
 .tc .tc-field .tc-talk-live { color: var(--tc-ink); }
-.tc .tc-hint { margin: 8px 0 0; text-align: center; color: var(--tc-faint); font: 400 11px/1.3 var(--tc-sans); }
+/* At 11px the hint is wider than the 312px book box (about 336-358px even with thin
+   separators), so it wraps there; balanced, the two lines are even. */
+.tc .tc-hint { margin: 8px 0 0; text-align: center; color: var(--tc-faint); font: 400 11px/1.3 var(--tc-sans); text-wrap: balance; }
 
 .tc button:focus-visible { outline: 2px solid var(--tc-faint); outline-offset: 2px; }
 

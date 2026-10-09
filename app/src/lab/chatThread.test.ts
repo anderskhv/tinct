@@ -172,6 +172,19 @@ describe('the thread’s look: the book’s type, nothing else', () => {
   it('carries no empty-state copy: no welcome line, suggestions or placeholder', () => {
     expect(js + css).not.toMatch(/Ask about this|placeholder=|Suggested|Welcome|How can I help/i)
   })
+  it('notices in the thread (a failed save, a dictation or Talk line) are quiet italics: EB Garamond, no box, fill or shadow', () => {
+    const rule = css.match(/\.tc \.tc-status \{([^}]*)\}/)?.[1] ?? ''
+    expect(rule).toMatch(/font:\s*italic 13px\/1\.4 var\(--tc-gara\)/)
+    expect(rule).toMatch(/background:\s*none/)
+    expect(rule).toMatch(/box-shadow:\s*none/)
+    expect(rule).toMatch(/border:\s*0/)
+    expect(rule).toMatch(/position:\s*static/)
+    // The PDF reader's toast ("Kept on this device only: …") joins the phone chat as one of these lines.
+    const reader = readFileSync(resolve(__dirname, '../../public/lab/addbook/js/reader.js'), 'utf8')
+    expect(reader).toMatch(/t\.className = inChat \? 'tc-status byob-toast is-in-chat'/)
+    // A toast already showing when Chat opens moves into the chat as well.
+    expect(reader).toMatch(/if \(shown\) placeToast\(shown\)/)
+  })
   it('e-ink: no fills or shadows', () => {
     const eink = css.split('\n').filter(line => line.includes('data-eink'))
     expect(eink.length).toBeGreaterThan(0)

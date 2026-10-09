@@ -146,6 +146,13 @@ describe('no header, no labels, no empty-state copy', () => {
     expect(pane_.querySelector('.tc-field.is-empty')).toBeTruthy()
     expect(pane_.textContent).not.toMatch(/Ask about|Suggested|Welcome|reply is on the way/)
   })
+  it('shows a notice as a quiet status line in the thread, not a box', () => {
+    render(pane({ notice: 'Kept on this device only: it could not be saved to your account. It will be saved the next time you open it.' }))
+    const notice = screen.getByTestId('lab-ask-notice')
+    expect(notice.className).toBe('tc-status')
+    expect(notice.textContent).toContain('Kept on this device only')
+    expect(notice.getAttribute('style')).toBeNull()
+  })
   it('renders no monospace, uppercase or accent colour inline either', () => {
     render(pane())
     const html = screen.getByTestId('lab-ask-pane').outerHTML
