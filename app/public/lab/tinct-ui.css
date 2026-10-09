@@ -9,7 +9,7 @@
    - sheets are the reader's v2 sheets (lab.css .lab-v2-sheet), dialogs follow them;
    - e-ink mirrors lab/display-profile.css.
 
-   Use: <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261008rel9">. Every class is
+   Use: <link rel="stylesheet" href="/lab/tinct-ui.css?v=20261009rel1">. Every class is
    prefixed tui-. Themes are scoped: put data-tui-theme="light|book|dark|eink" on
    <html> or on any element (a dialog over the dark library carries "dark").
    Light is the default. html[data-eink="true"] (display-profile.js) wins everywhere.

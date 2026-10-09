@@ -36,8 +36,9 @@
  *
  * The reader's place in an own book (so it opens where they left it on their
  * other devices) is one empty object per book, `u/{userId}/places/{bookHex}`,
- * its place in customMetadata (chapter, paragraph, word, when, whole-book
- * percent and a revision): never the book's title or text, never in the
+ * its place in customMetadata (an EPUB's chapter, paragraph and word, or a
+ * PDF's page and how far down it; when, whole-book percent and a revision):
+ * never the book's title or text, never in the
  * shared position stores. One listing reads every place. A write names the
  * revision it read; an older one is refused with the stored place (and the
  * put itself is conditional on the object's etag), so devices never
@@ -391,8 +392,13 @@ async function remove(request: Request, bucket: R2Bucket, userId: string, fileId
 
 // ===== Places =====
 
+/** A reader's place in an EPUB they added (the Tinct reader): chapter, paragraph and word. */
+export type OwnTextPlace = { chapterNumber: number; paragraphIndex: number; wordIndex: number; updatedAt: number; percent?: number; converter?: number; rev: number }
+/** A reader's place in a PDF they added (Add a book's viewer): the page and how far down it (0-1). */
+export type OwnPagePlace = { page: number; frac?: number; updatedAt: number; percent?: number; rev: number }
 /** A reader's place in an own book, as stored and served. */
-export type OwnPlace = { chapterNumber: number; paragraphIndex: number; wordIndex: number; updatedAt: number; percent?: number; converter?: number; rev: number }
+export type OwnPlace = OwnTextPlace | OwnPagePlace
+type PlaceBody = Omit<OwnTextPlace, 'rev'> | Omit<OwnPagePlace, 'rev'>
 /** Place writes per account per rate-limit window (the reader sends one every few seconds at most). */
 export const PLACE_WRITES_PER_MINUTE = 60
 const BOOK_HEX = /^[0-9a-f]{24}$/
@@ -400,21 +406,37 @@ const MAX_PLACE_INDEX = 1_000_000
 
 const wholeNumber = (value: unknown, max = MAX_PLACE_INDEX): value is number => Number.isInteger(value) && (value as number) >= 0 && (value as number) <= max
 
-/** A place from a request body or from stored metadata (strings); null when any field is out of shape. */
-export function readPlace(value: unknown): Omit<OwnPlace, 'rev'> | null {
+/**
+ * A place from a request body or from stored metadata (strings); null when any
+ * field is out of shape. A place with a `page` is a PDF's (the page and how far
+ * down it); any other is an EPUB's (chapter, paragraph, word).
+ */
+export function readPlace(value: unknown): PlaceBody | null {
   if (!value || typeof value !== 'object') return null
   const raw = value as Record<string, unknown>
   const number = (field: unknown) => typeof field === 'string' && field !== '' ? Number(field) : field
+  const updatedAt = number(raw.updatedAt)
+  const percent = number(raw.percent)
+  if (!wholeNumber(updatedAt, Number.MAX_SAFE_INTEGER) || updatedAt <= 0) return null
+  const keepPercent = (place: PlaceBody) => {
+    if (typeof percent === 'number' && Number.isFinite(percent) && percent >= 0 && percent <= 100) place.percent = Math.round(percent * 10) / 10
+  }
+  if (raw.page !== undefined) {
+    const page = number(raw.page)
+    const frac = number(raw.frac)
+    if (!wholeNumber(page) || page < 1) return null
+    if (frac !== undefined && (typeof frac !== 'number' || !Number.isFinite(frac) || frac < 0 || frac > 1)) return null
+    const pagePlace: Omit<OwnPagePlace, 'rev'> = { page, ...(typeof frac === 'number' ? { frac: Math.round(frac * 10_000) / 10_000 } : {}), updatedAt }
+    keepPercent(pagePlace)
+    return pagePlace
+  }
   const chapterNumber = number(raw.chapterNumber)
   const paragraphIndex = number(raw.paragraphIndex)
   const wordIndex = number(raw.wordIndex)
-  const updatedAt = number(raw.updatedAt)
-  const percent = number(raw.percent)
   const converter = number(raw.converter)
   if (!wholeNumber(chapterNumber) || chapterNumber < 1 || !wholeNumber(paragraphIndex) || !wholeNumber(wordIndex)) return null
-  if (!wholeNumber(updatedAt, Number.MAX_SAFE_INTEGER) || updatedAt <= 0) return null
-  const place: Omit<OwnPlace, 'rev'> = { chapterNumber, paragraphIndex, wordIndex, updatedAt }
-  if (typeof percent === 'number' && Number.isFinite(percent) && percent >= 0 && percent <= 100) place.percent = Math.round(percent * 10) / 10
+  const place: Omit<OwnTextPlace, 'rev'> = { chapterNumber, paragraphIndex, wordIndex, updatedAt }
+  keepPercent(place)
   // The conversion rules the place was read under (userEdition.ts), so another device converts the book the same way.
   if (wholeNumber(converter, 1000) && converter >= 1) place.converter = converter
   return place
@@ -456,7 +478,10 @@ async function savePlace(request: Request, bucket: R2Bucket, userId: string, boo
   const place = readPlace(body?.place)
   const expected = body?.rev
   if (!place || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
-  if (await ownedBookHex(bucket, userId, bookHex) !== bookHex) return notFound(request)
+  const book = (await listUserBooks(bucket, userId)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
+  if (!book) return notFound(request)
+  // A page place is a PDF's only.
+  if ('page' in place && book.type !== 'pdf') return reply({ error: 'bad_request' }, 400, request)
   const key = ownPlaceKey(userId, bookHex)
   const head = await bucket.head(key)
   const current = head ? storedPlace(head.customMetadata) : null
