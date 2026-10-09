@@ -72,6 +72,39 @@ describe('signed-in gating', () => {
     expect(fetchSpy).not.toHaveBeenCalled()
     vi.unstubAllGlobals()
   })
+
+  // QA 2026-10-09: a guest's /library?book=pd-pg-1672 (Gorgias) showed Frankenstein; the signed-out catalogue had no added books.
+  it('gives a signed-out visitor the added book a link names, and only that one', async () => {
+    localStorage.removeItem(INTERNAL_KEY)
+    expect(addToTinct.enabled()).toBe(false)
+    const catalogue = { books: [{ id: 'odyssey' }], houses: [] }
+    const gorgias = { id: 'pd-pg-1672', title: 'Gorgias', shelfIds: ['philosophy'], placement: [{ houseId: 'ideas', houseTitle: 'Ideas', houseSubtitle: '', houseHue: 200, shelfId: 'philosophy', shelfTitle: 'Philosophy', shelfSubtitle: '', shelfHue: 200 }] }
+    const fetchSpy = vi.fn(async (url: string) => url === '/api/public-books/pd-pg-1672' ? Response.json({ book: { id: 'pd-pg-1672' }, entry: gorgias }) : new Response('', { status: 404 }))
+    vi.stubGlobal('fetch', fetchSpy)
+    try {
+      for (const link of ['/library?book=pd-pg-1672', '/read/pd-pg-1672/']) {
+        window.history.replaceState(null, '', link)
+        expect(addToTinct.linkedPublicBook()).toBe('pd-pg-1672')
+        const merged = await addToTinct.withPublicBooks(catalogue)
+        expect(merged.books.map((book: { id: string }) => book.id)).toEqual(['odyssey', 'pd-pg-1672'])
+        expect(merged.houses[0]).toMatchObject({ id: 'ideas', shelves: [{ id: 'philosophy', bookIds: ['pd-pg-1672'] }] })
+      }
+      expect(fetchSpy.mock.calls).toEqual([['/api/public-books/pd-pg-1672', { cache: 'no-cache' }], ['/api/public-books/pd-pg-1672', { cache: 'no-cache' }]])
+      // A registry book's link, or no book, asks for nothing.
+      for (const link of ['/library?book=frankenstein', '/library']) {
+        window.history.replaceState(null, '', link)
+        expect(addToTinct.linkedPublicBook()).toBeNull()
+        expect(await addToTinct.withPublicBooks(catalogue)).toBe(catalogue)
+      }
+      expect(fetchSpy).toHaveBeenCalledTimes(2)
+      // A book that is not there leaves the catalogue as it was.
+      window.history.replaceState(null, '', '/library?book=pd-pg-9999')
+      expect(await addToTinct.withPublicBooks(catalogue)).toBe(catalogue)
+    } finally {
+      window.history.replaceState(null, '', '/')
+      vi.unstubAllGlobals()
+    }
+  })
 })
 
 describe('public book ids and importable works', () => {

@@ -183,51 +183,72 @@ async function ensureWithRetry(bookId: string, fetchImpl: typeof fetch): Promise
 }
 
 /**
- * Before the reader's first render: register the book the hand-off opens
- * directly from `/api/public-books/{id}` (a book added a moment ago is not in
- * a cached index; the reader then opened another book, QA 2026-10-08), and
- * every added book when the saved places name one (one small index request).
- * Never throws; a failure leaves the reader's usual fallbacks.
+ * The added (`pd-`) book the reader's address names: a deep link
+ * (`/reader?book=pd-…&chapter=2`), a plain `?book=pd-…`, or a Checkout return
+ * (`?book=pd-…&modern=…`, labModernEditionApi). Null for registry books and other ids.
  */
-export async function preloadPublicBooksForReader(fetchImpl: typeof fetch = fetch, search: string = typeof location === 'undefined' ? '' : location.search): Promise<void> {
-  // A Checkout return (`?book=pd-…&modern=…`, labModernEditionApi) opens that book,
-  // in this tab or any other: it is registered first, on its own.
-  const returned = modernReturnFromParams(new URLSearchParams(search))
-  const named = returned ? ensurePublicBook(returned.bookId, fetchImpl).catch(() => {}) : null
+export function urlPublicBookId(search: string | null | undefined): string | null {
+  if (!search) return null
+  const bookId = new URLSearchParams(search).get('book')
+  return isPublicBookId(bookId) ? bookId : null
+}
+
+function currentSearch(search?: string): string {
+  return search ?? (typeof location === 'undefined' ? '' : location.search)
+}
+
+/**
+ * Before the reader's first render: register the book the hand-off or the
+ * address opens directly from `/api/public-books/{id}` (a book added a moment
+ * ago is not in a cached index; the reader then opened another book, QA
+ * 2026-10-08; a guest's `/reader?book=pd-…&chapter=2` opened the Bible, QA
+ * 2026-10-09), and every added book when the saved places name one (one small
+ * index request). Never throws; a failure leaves the reader's usual fallbacks.
+ */
+export async function preloadPublicBooksForReader(fetchImpl: typeof fetch = fetch, search?: string): Promise<void> {
+  // The address's book opens in this tab whatever else is stored: it is registered first, on its own.
+  const urlBook = urlPublicBookId(currentSearch(search))
+  const named = urlBook ? ensureWithRetry(urlBook, fetchImpl).catch(() => {}) : null
   let raw: Array<string | null> = []
   try { raw = [sessionStorage.getItem(READER_HANDOFF_KEY), localStorage.getItem('tinct-lab-position')] } catch { await named; return }
   const handoffBook = handoffPublicBookId(raw[0])
-  const opened = handoffBook ? ensureWithRetry(handoffBook, fetchImpl).catch(() => {}) : null
+  const opened = handoffBook && handoffBook !== urlBook ? ensureWithRetry(handoffBook, fetchImpl).catch(() => {}) : null
   if (!mentionsPublicBook(...raw)) { await Promise.all([named, opened]); return }
   try {
     const response = await fetchImpl(apiUrl(PUBLIC_BOOKS_INDEX_URL), PUBLIC_BOOKS_INDEX_FETCH)
     if (response.ok) {
       const data = await response.json() as { books?: PublicEntry[] }
-      // The hand-off's own book is registered from its own record (above), never replaced by an index copy.
-      for (const entry of data.books ?? []) if (isPublicBookId(entry?.id) && entry.id !== handoffBook) registerPublicBook(bookFromEntry(entry), entry)
+      // The books the page opens are registered from their own records (above), never replaced by an index copy.
+      for (const entry of data.books ?? []) if (isPublicBookId(entry?.id) && entry.id !== handoffBook && entry.id !== urlBook) registerPublicBook(bookFromEntry(entry), entry)
     }
   } catch { /* the reader falls back as for any unknown book */ }
   await Promise.all([named, opened])
 }
 
-/** How long the reader's first render waits for added books in general, and for the hand-off's own book. */
+/** How long the reader's first render waits for added books in general, and for the book the page opens. */
 export const READER_PRELOAD_WAIT_MS = 4000
 export const READER_HANDOFF_BOOK_WAIT_MS = 15_000
 
 /**
- * main.tsx before the reader renders: the preload, bounded. A hand-off that opens an added
- * book waits for that book longer, and never renders without it: the reader would drop the
- * hand-off and open another book. Returns the book's id when it still could not be
- * registered (the caller sends the reader to the book in the library), else null.
+ * main.tsx before the reader renders: the preload, bounded. A hand-off or an address
+ * (`?book=pd-…`) that opens an added book waits for that book longer, and never renders
+ * without it: the reader would drop it and open another book. Returns the book's id when
+ * it still could not be registered (the caller sends the reader to the book in the
+ * library), else null. A Checkout return still renders the reader: it settles the purchase
+ * (or its cancellation) there, and the library would lose the return's parameters.
  */
 export async function preparePublicBooksForReader(options: { fetchImpl?: typeof fetch; search?: string; wait?: number; handoffWait?: number } = {}): Promise<string | null> {
+  const search = currentSearch(options.search)
+  const urlBook = urlPublicBookId(search)
   const handoffBook = pendingHandoffPublicBook()
-  const preload = preloadPublicBooksForReader(options.fetchImpl ?? fetch, options.search)
-  const wait = handoffBook ? options.handoffWait ?? READER_HANDOFF_BOOK_WAIT_MS : options.wait ?? READER_PRELOAD_WAIT_MS
+  const required = [urlBook, handoffBook].filter((id): id is string => !!id)
+  const preload = preloadPublicBooksForReader(options.fetchImpl ?? fetch, search)
+  const wait = required.length ? options.handoffWait ?? READER_HANDOFF_BOOK_WAIT_MS : options.wait ?? READER_PRELOAD_WAIT_MS
   let timer: ReturnType<typeof setTimeout> | undefined
   await Promise.race([preload, new Promise(resolve => { timer = setTimeout(resolve, wait) })])
   clearTimeout(timer)
-  return handoffBook && !publicBookRegistered(handoffBook) ? handoffBook : null
+  if (modernReturnFromParams(new URLSearchParams(search))) return null
+  return required.find(id => !publicBookRegistered(id)) ?? null
 }
 
 /** True when the book is registered for the reader (its registry entry and its pre-reader entry). */

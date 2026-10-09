@@ -9,7 +9,7 @@
 import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel9';
 import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261008rel9';
 import {eraLabel} from './book-metadata.js?v=20261008rel9';
-import {addToTinctEnabled,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel9';
+import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel9';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -78,8 +78,16 @@ export async function borrowFromCatalogue(books){
 // ---- Added books in the library catalogue ----
 /** The library catalogue with every added public book, where this device sees them. */
 export async function withPublicBooks(data){
- if(!enabled())return data;
- try{const response=await fetch(PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH);if(!response.ok)return data;const index=await response.json();return mergePublicBooks(data,index.books||[]);}catch{return data;}
+ const linked=linkedPublicBook();let merged=data;
+ if(enabled()){try{const response=await fetch(PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH);if(response.ok){const index=await response.json();merged=mergePublicBooks(data,index.books||[]);}}catch{/* the linked book below, or the plain catalogue */}}
+ // The added book a link names (/library?book=pd-…, /read/pd-…) is in the catalogue for every visitor,
+ // signed out too, and when an index from before the add left it out; otherwise the hero showed another book (QA 2026-10-09).
+ if(!linked||merged?.books?.some(book=>book.id===linked))return merged;
+ try{const response=await fetch(`${PUBLIC_BOOKS_INDEX_URL}/${encodeURIComponent(linked)}`,PUBLIC_BOOKS_INDEX_FETCH);if(!response.ok)return merged;const record=await response.json();return record?.entry?.id===linked?mergePublicBooks(merged,[record.entry]):merged;}catch{return merged;}
+}
+/** The added (pd-) book this page's link names: `?book=` or the shared `/read/<id>`; null otherwise. */
+export function linkedPublicBook(){
+ try{const id=new URLSearchParams(location.search).get('book')||location.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/)?.[1]||null;return isPublicBookId(id)?id:null;}catch{return null;}
 }
 
 // ---- The engine (import, own books) ----
