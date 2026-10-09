@@ -89,3 +89,15 @@ describe('own books and the AI features', () => {
     expect(published.join(' ')).not.toContain('arise from your content or from your breach of these terms')
   })
 })
+
+// In-app account deletion (Anders, 2026-10-09: "Ideally right away in the app").
+describe('privacy: account deletion', () => {
+  const privacyText = text(privacy)
+  it('says the account is deleted at once in Settings → Account, what goes, and that email still works', () => {
+    expect(privacyText).toContain('You can delete your account and all associated data yourself in Settings → Account → Delete account. Deletion happens immediately')
+    expect(privacyText).toContain('an active subscription is cancelled at once')
+    expect(privacyText).toContain('You can also ask for deletion by writing to contact@tinct.app; it is completed within 30 days of the request.')
+    expect(privacyText).not.toContain('You may request deletion of your account and all associated data by writing to')
+    expect(privacyText).toContain('Deletion: delete your account and all associated data in Settings → Account, or ask us to.')
+  })
+})

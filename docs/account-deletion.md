@@ -1,14 +1,40 @@
 # Account export and deletion (operator guide)
 
 The privacy notice (`app/public/privacy.html`) promises that a reader can get a
-copy of their data (access/portability) and that their account and all
-associated data are deleted within **30 days of the request**. These two
-admin-only routes are how that promise is kept. Only site admins (rows in
+copy of their data (access/portability), can delete their account and all
+associated data themselves in Settings → Account, at once, and that an emailed
+deletion request is completed within **30 days of the request**. These two
+admin-only routes (and the reader's own route, which reuses the deletion) are
+how that promise is kept. Only site admins (rows in
 `site_admins`) can call them.
 
 Code: `app/src/worker/routes/adminAccounts.ts`. Tests: `app/src/worker.adminAccounts.test.ts`.
 
-## Handling a request
+## Readers delete their own account (since 2026-10-09)
+
+Settings → Account → **Delete account** (in-card confirm) calls
+`POST /api/account/delete` (`app/src/worker/routes/accountDelete.ts`) with the
+reader's own token and the body `{"confirm":"delete-my-account","userId":"<own id>"}`.
+It runs the same erasure as the admin route below (`deleteAccountData`), for
+the caller's own account only, rate-limited to 3 requests a minute. Replies:
+
+- `200 {"ok":true,"deleted":true}`: everything is gone; the app signs out
+  (wiping local data) and goes to `/`.
+- `500 {"ok":false,"deleted":false}`: an earlier step failed and the account
+  is intact; the reader sees "That did not work. Please try again." and can retry.
+- `200 {"ok":false,"deleted":true}`: the auth user is gone but the final sweep
+  or cascade check failed. The app still signs out. Find the
+  `account_self_delete_incomplete` log line (Workers logs; it carries the
+  deleted account's full `userId` and the failed steps) and re-run the admin
+  delete with that `userId` (any `confirmEmail`; the email check is skipped
+  once the account is gone) to clear the leftovers.
+
+The manual follow-up below applies to self-service deletions too, but there
+is no request email to trigger it. The Worker only sends transactional email
+through Brevo (`/v3/smtp/email`) and creates no Brevo contacts, so Brevo keeps
+only its own send logs.
+
+## Handling an emailed request
 
 1. **Verify the requester owns the account.** Reply from the inbox to the
    account's email address and wait for a reply from that address (or have them
