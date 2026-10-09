@@ -7,11 +7,11 @@
 :root {
   --stage: #161616; --note: #e4e4e4; --note-soft: #9a9a9a;
   --ground: #ffffff; --group: #ffffff; --ink: #111111; --muted: #8a8a8a; --faint: #b8b8b8; --sep: rgba(0,0,0,.09);
-  --track: #ececec; --switch-off: #e2e2e2; --on: #111111; --knob: #ffffff; --fill: #111111; --seg: #f0f0f0; --thumb: #ffffff; --chip: rgba(0,0,0,.06);
+  --track: #e3e3e3; --bar: #9e9e9e; --switch-off: #d9d9d9; --on: #111111; --knob: #ffffff; --fill: #111111; --seg: #e8e8e8; --thumb: #ffffff; --chip: #e8e8e8;
   --play: "Playfair Display", Georgia, serif; --sys: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --gara: "EB Garamond", Georgia, serif;
   color-scheme: dark;
 }
-.dark, .dm .card, .dm .panel { --ground: #1c1c1c; --group: #1c1c1c; --ink: #f2f2f2; --muted: #8e8e8e; --faint: #5c5c5c; --sep: rgba(255,255,255,.10); --track: #333333; --switch-off: #3a3a3a; --on: #f2f2f2; --knob: #1c1c1c; --fill: #f2f2f2; --seg: #2c2c2c; --thumb: #4a4a4a; --chip: rgba(255,255,255,.1); }
+.dark, .dm .card, .dm .panel { --ground: #1c1c1c; --group: #1c1c1c; --ink: #f2f2f2; --muted: #8e8e8e; --faint: #5c5c5c; --sep: rgba(255,255,255,.10); --track: #333333; --bar: #6e6e6e; --switch-off: #3a3a3a; --on: #f2f2f2; --knob: #1c1c1c; --fill: #f2f2f2; --seg: #2c2c2c; --thumb: #4a4a4a; --chip: #2e2e2e; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--stage); color: var(--note); font-family: var(--sys); padding-block: 30px 90px; padding-inline: 16px; }
 .wrap { max-width: 1480px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px; }
@@ -99,9 +99,9 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
 .figure b { font-family: var(--play); font-weight: 800; font-size: 2.5rem; line-height: 1; }
 .figure small { font-size: 1rem; color: var(--muted); margin-right: 6px; }
 .mini7 { display: grid; grid-template-columns: repeat(7, 7px); gap: 3px; align-items: end; height: 20px; }
-.mini7 i { background: var(--track); border-radius: 1.5px; } .mini7 i:last-child { background: var(--fill); }
+.mini7 i { background: var(--bar); border-radius: 1.5px; } .mini7 i:last-child { background: var(--fill); }
 .bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; align-items: end; height: 50px; padding: 0 2px 14px; }
-.bars i { background: var(--track); border-radius: 2px; } .bars i:last-child { background: var(--fill); }
+.bars i { background: var(--bar); border-radius: 2px; } .bars i:last-child { background: var(--fill); }
 .meter { flex-direction: column; align-items: stretch; gap: 7px; padding: 11px 2px 12px; }
 .meter .top { display: flex; justify-content: space-between; }
 .meter .tr { height: 5px; border-radius: 3px; background: var(--track); overflow: hidden; }
