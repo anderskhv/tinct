@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { EVERYONE_BOARD_MIN_READERS, amongFriendsLine, appearsOnBoard, everyoneBoardOpen, finishedCardLine, isInternalAccount, isReservedTestEmail, mutualFriends, parseFindQuery, rankOfLine, socialFriendsOn, type BoardCard } from './socialRules'
-import { profileDocument, profileMainHtml, type ProfilePageData } from './profilePageView'
+import { followButtonHtml, profileDocument, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
 
 const card = (over: Partial<BoardCard> = {}): BoardCard => ({
   id: 'b', handle: 'bea', display_name: 'Bea', picture_kind: 'initial', picture_value: null,
@@ -102,12 +102,23 @@ describe('the profile page HTML', () => {
     expect(html).toContain('noindex')
   })
 
-  it('a signed-out visitor is asked to sign in to follow or report; a Friends card shows no reading', () => {
+  it('a signed-out visitor is asked to sign in to follow or report; the follower view shows no reading', () => {
     expect(profileMainHtml(data)).toContain('/sign-in?returnTo=%2F%40bea')
-    const limited = profileMainHtml({ ...data, limited: true, relation: 'stranger' })
-    expect(limited).toContain('data-testid="profile-limited"')
+    const limited = profileMainHtml({ ...data, limited: true, relation: 'followed', followsYou: true })
     expect(limited).not.toContain('4 h 50 m')
-    expect(limited).toContain('data-action="follow"')
+    expect(limited).not.toContain('Reading now')
+    expect(limited).not.toContain('shares their reading')
+    expect(limited).toContain('Follow back')
+    expect(limited).toContain('data-action="remove-follower"')
+    expect(limited).toContain('data-action="block"')
     expect(profileMainHtml({ ...data, relation: 'self' })).not.toContain('Report')
+  })
+
+  it('the page nobody may see is the same for every handle; with a link it offers Follow', () => {
+    expect(profileMissingHtml()).not.toContain('profile-follow')
+    const withFollow = profileMissingHtml(followButtonHtml({ relation: null, handle: 'bea' }))
+    expect(withFollow).toContain('No profile here')
+    expect(withFollow).toContain('/sign-in?returnTo=%2F%40bea')
+    expect(profileMissingHtml(followButtonHtml({ relation: 'follower', handle: 'bea' }))).toContain('Following')
   })
 })

@@ -83,9 +83,10 @@ export async function renderReadingCardPng(assets: Assets, origin: string, stats
  * The finished-book card (social ship 3): "Finished Frankenstein · 6 h 20 m",
  * offered at the end of a book. The book's painting on top, the reader's
  * hours in that book large, and the link it carries (the reader's public
- * profile, or the book). Drawn on request and never stored.
+ * profile, or the book). Drawn on request and never stored. "Finished" only
+ * when the book is finished (`finished: false` draws the title alone).
  */
-export interface FinishedCardSvgInput { title: string; author: string; duration: string | null; link: string; cover: string | null }
+export interface FinishedCardSvgInput { title: string; author: string; duration: string | null; link: string; cover: string | null; finished?: boolean }
 
 function wrapWords(text: string, max: number): string[] {
   const lines: string[] = []
@@ -108,7 +109,7 @@ export function finishedCardSvg(input: FinishedCardSvgInput, fonts?: ShareFonts)
   parts.push(`<rect width="${W}" height="${H}" fill="url(#fade)"/>`)
   parts.push(`<text x="${left}" y="150" font-family="${FAMILY}" font-size="58" letter-spacing="-2" fill="${CREAM}">tinct</text>`)
 
-  const titleLines = wrapWords(`Finished ${input.title}`, 30).slice(0, 2)
+  const titleLines = wrapWords(input.finished === false ? input.title : `Finished ${input.title}`, 30).slice(0, 2)
   let y = input.duration ? 760 : 900
   for (const line of titleLines) {
     parts.push(`<text x="${left}" y="${y}" font-family="${FAMILY}" font-style="italic" font-size="50" fill="${GOLD}">${esc(line)}</text>`)

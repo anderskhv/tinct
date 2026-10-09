@@ -18,9 +18,16 @@
  *   GET  /friends, /admin/social                   the pages
  *   GET|POST /api/admin/social…                    admin view: rename, hide, reports, photo review
  *
- * Who sees what is decided here and in public_profile_cards: Only me and
- * hidden profiles never appear; blocked readers never see each other in
- * either direction; the leaderboard is opt-in; Find only lists Everyone.
+ * Who sees what is decided here, in profileRules.publicProfileView and in
+ * public_profile_cards, and app/public/privacy.html ("Your profile") binds it:
+ * Only me and hidden profiles never appear, and a Friends profile shows only
+ * to friends (to anyone else, signed in or out, it is Not found, like Only
+ * me); a reader who follows you is always listed to you (by name and link,
+ * with the initial) so you can remove or block them; following works from a
+ * link before the profile shows, and the answer never tells a Friends, Only
+ * me or missing profile apart; blocked readers never see each other in
+ * either direction; the leaderboard is opt-in and shows name, picture and
+ * time only; Find only lists Everyone.
  * Tinct's internal and test accounts never appear on a board, and the Everyone
  * board exists only once EVERYONE_BOARD_MIN_READERS real readers are on it
  * (Anders, 8 October 2026): below that the API serves no Everyone board and
@@ -57,16 +64,16 @@ import {
   type BoardCard,
   type ReportReason,
 } from '../../social/socialRules'
-import { profileDocument, profileMissingHtml, type ProfileBook, type ProfilePageData, type ProfilePicture } from '../../social/profilePageView'
-import { formatDuration, readingTimeStats, type LedgerRow } from '../../readingTime/model'
-import { yourReadingView, type CatalogueEntry } from '../../readingTime/yourReading'
-import { PRIVATE_BOOK_LABEL, isPrivateBucket, isShareableBookId } from '../../readingTime/privateBook'
+import { followButtonHtml, profileDocument, profileMissingHtml, type ProfileBook, type ProfilePageData, type ProfilePicture } from '../../social/profilePageView'
+import { finishedBookIds, formatDuration, readingTimeStats, type LedgerRow } from '../../readingTime/model'
+import { lastChapterOf, yourReadingView, type CatalogueEntry } from '../../readingTime/yourReading'
+import { isShareableBookId } from '../../readingTime/privateBook'
 import { INDEX_KEY, bucketOf, readJson as readBucketJson, type PublicBooksEnv } from './publicBooks'
 import type { LabPositionState } from '../../lab/labPosition'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
-import { ProfilesUnavailable, supabaseProfileStore, type ProfileStore } from '../lib/profileStore'
+import { ProfilesUnavailable, supabaseProfileStore, type ProfileStore, type ReaderProfileRow } from '../lib/profileStore'
 import { SocialUnavailable, supabaseSocialStore, type AdminProfileRow, type SocialStore } from '../lib/socialStore'
 import { imageUrl, viewFor, type ProfileAuthUser, type ProfilesEnv } from './profiles'
 import { loadLedger } from './readingTime'
@@ -100,7 +107,7 @@ export interface SocialDeps {
   renderCard?: (input: FinishedCardInput) => Promise<Uint8Array>
 }
 
-export interface FinishedCardInput { title: string; author: string; duration: string | null; link: string; cover: string | null }
+export interface FinishedCardInput { title: string; author: string; duration: string | null; link: string; cover: string | null; finished: boolean }
 
 /** The public paths this module answers while switched on. */
 export const FRIENDS_PATHS = new Set(['/friends', '/friends/'])
@@ -278,36 +285,19 @@ async function freshBoard(ctx: Context): Promise<string | null> {
   return refreshedAt
 }
 
+/**
+ * One leaderboard row. The privacy notice: on the leaderboard other readers
+ * see only your name, picture and reading time over the last 7 days. So a row
+ * carries exactly that (the time as seconds and as a plain duration, and the
+ * rank it gives) plus `me` for the viewer's own row: no handle, id or book.
+ */
 export interface BoardEntry {
   rank: number
-  handle: string
   name: string
   picture: ProfilePicture
   seconds: number
   duration: string
-  book: string | null
-  self: boolean
-}
-
-/** The book each reader spent most time in this window (only for readers who show what they read). */
-async function windowBooks(ctx: Context, ids: string[]): Promise<Map<string, string>> {
-  const out = new Map<string, string>()
-  if (!ids.length) return out
-  const { start } = leaderboardWindow(ctx.now)
-  const rows = await ctx.social.ledgerSince(ids, start, undefined, 2000).catch(() => [])
-  const per = new Map<string, Map<string, number>>()
-  for (const row of rows) {
-    const books = per.get(row.user_id) ?? new Map<string, number>()
-    books.set(row.book_id, (books.get(row.book_id) ?? 0) + (Number(row.read_seconds) || 0) + (Number(row.listen_seconds) || 0))
-    per.set(row.user_id, books)
-  }
-  const catalogue = per.size ? await catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>()) : new Map<string, CatalogueEntry>()
-  for (const [id, books] of per) {
-    const top = [...books.entries()].sort((a, b) => b[1] - a[1]).find(([bookId]) => isPrivateBucket(bookId) || catalogue.has(bookId))
-    // The reader's own books are "a private book": never an id or a title.
-    if (top) out.set(id, isPrivateBucket(top[0]) ? PRIVATE_BOOK_LABEL : catalogue.get(top[0])!.title)
-  }
-  return out
+  me: boolean
 }
 
 export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; everyoneOpen: boolean; entries: BoardEntry[] }> {
@@ -317,25 +307,24 @@ export async function buildBoard(ctx: Context, viewerId: string, tab: Board, ope
   const others = pool.filter(card => card.id !== viewerId && appearsOnBoard(card, tab, circle))
   const own = await ctx.profiles.getOwn(viewerId)
   const seconds = await ctx.social.boardSeconds([viewerId, ...others.map(card => card.id)])
-  type Row = { id: string; handle: string; name: string; picture: ProfilePicture; seconds: number; showsReading: boolean; self: boolean }
+  type Row = { name: string; picture: ProfilePicture; seconds: number; me: boolean }
   const rows: Row[] = others
     // Everyone lists readers with time this week; Friends lists every friend on the board.
     .filter(card => tab === 'friends' || (seconds.get(card.id) ?? 0) > 0)
-    .map(card => ({ id: card.id, handle: card.handle, name: card.display_name, picture: cardPicture(card), seconds: seconds.get(card.id) ?? 0, showsReading: card.show_reading, self: false }))
+    .map(card => ({ name: card.display_name, picture: cardPicture(card), seconds: seconds.get(card.id) ?? 0, me: false }))
   if (own) {
     rows.push({
-      id: viewerId, handle: own.handle, name: own.display_name,
+      name: own.display_name,
       picture: pictureFor(viewerId, { kind: own.picture_kind, value: own.picture_value }, own.display_name, false),
-      seconds: seconds.get(viewerId) ?? 0, showsReading: true, self: true,
+      seconds: seconds.get(viewerId) ?? 0, me: true,
     })
   }
   const ranked = rankRows(rows, row => row.seconds, row => row.name)
   const shown = ranked.slice(0, BOARD_LIMIT)
-  const meRanked = ranked.find(item => item.row.self) ?? null
-  const books = await windowBooks(ctx, [...shown, ...(meRanked ? [meRanked] : [])].filter(item => item.row.showsReading).map(item => item.row.id))
+  const meRanked = ranked.find(item => item.row.me) ?? null
   const entry = (item: typeof ranked[number]): BoardEntry => ({
-    rank: item.rank, handle: item.row.handle, name: item.row.self ? 'You' : item.row.name, picture: item.row.picture,
-    seconds: item.seconds, duration: formatDuration(item.seconds), book: books.get(item.row.id) ?? null, self: item.row.self,
+    rank: item.rank, name: item.row.me ? 'You' : item.row.name, picture: item.row.picture,
+    seconds: item.seconds, duration: formatDuration(item.seconds), me: item.row.me,
   })
   const window = leaderboardWindow(ctx.now)
   // Whether others see the viewer on this board (the page explains when they do not).
@@ -353,6 +342,29 @@ function findRow(card: BoardCard, circle: Circle, book: string | null = null) {
   }
 }
 
+/**
+ * Following you: the people who follow you are always listed to you, so you
+ * can follow back, remove or block any of them (privacy notice: "You can
+ * remove a follower or block a reader at any time"). An Everyone reader shows
+ * with their card until you follow back (then they are a friend on the board).
+ * A follower whose profile you may not otherwise see (Friends before you
+ * follow back, Only me, hidden) shows as the follower view: their name and
+ * link with the initial, never their picture or reading. Only me and hidden
+ * followers stay listed after you follow back, since no board shows them.
+ */
+async function followingYouRows(ctx: Context, circle: Circle) {
+  const followers = [...circle.followers].slice(0, FOLLOWER_LOOKUP_LIMIT)
+  const cards = followers.length ? await ctx.social.cardsByIds(followers) : []
+  const followerRow = (id: string, handle: string, name: string) => ({
+    handle, name, link: profileLinkText(handle), picture: pictureFor(id, { kind: 'initial', value: null }, name, false), relation: relationIn(circle, id), book: null,
+  })
+  const rows = cards
+    .filter(card => !circle.following.has(card.id))
+    .map(card => card.visibility === 'everyone' ? findRow(card, circle) : followerRow(card.id, card.handle, card.display_name))
+  const cardless = await cardlessFollowers(ctx, followers, cards)
+  return [...rows, ...cardless.map(row => followerRow(row.id, row.handle, row.display_name))]
+}
+
 async function buildFind(ctx: Context, viewerId: string, q: string | null) {
   const circle = await circleOf(ctx, viewerId)
   const query = parseFindQuery(q)
@@ -361,9 +373,7 @@ async function buildFind(ctx: Context, viewerId: string, q: string | null) {
     const cards = await ctx.social.searchEveryone(query, 20)
     return { results: cards.filter(card => card.id !== viewerId && !circle.blocked.has(card.id)).map(card => findRow(card, circle)) }
   }
-  // Following you, not followed back (their card shows to anyone with the link, so it may show here).
-  const waiting = [...circle.followers].filter(id => !circle.following.has(id))
-  const waitingCards = waiting.length ? await ctx.social.cardsByIds(waiting.slice(0, 50)) : []
+  const followingYou = await followingYouRows(ctx, circle)
   // Also reading your books: Everyone readers who show what they read, in the last 30 days.
   const since = leaderboardWindow(ctx.now - 23 * 86_400_000).start
   const mine = await ctx.social.ledgerSince([viewerId], since, undefined, 500).catch(() => [])
@@ -395,7 +405,7 @@ async function buildFind(ctx: Context, viewerId: string, q: string | null) {
   }))
   const own = await ctx.profiles.getOwn(viewerId)
   return {
-    followingYou: waitingCards.filter(card => !circle.blocked.has(card.id)).map(card => findRow(card, circle)),
+    followingYou,
     alsoReading: alsoRows.filter(row => row.book),
     link: own ? profileLinkText(own.handle) : null,
   }
@@ -403,12 +413,36 @@ async function buildFind(ctx: Context, viewerId: string, q: string | null) {
 
 // ===== One profile =====
 
+/**
+ * Whose handle this is: the viewer's own, a public card's (Friends or
+ * Everyone, not hidden), or one of the viewer's followers, whatever their
+ * visibility. Nothing else: an Only me or hidden profile is found only by the
+ * readers it follows, so no one can probe for them.
+ */
 async function ownerIdFor(ctx: Context, handle: string, viewerId: string | null): Promise<string | null> {
   if (viewerId) {
     const own = await ctx.profiles.getOwn(viewerId)
     if (own?.handle === handle) return viewerId
   }
-  return (await ctx.profiles.getCardByHandle(handle))?.id ?? null
+  const card = await ctx.profiles.getCardByHandle(handle)
+  if (card) return card.id
+  return viewerId ? followerByHandle(ctx, viewerId, handle) : null
+}
+
+const FOLLOWER_LOOKUP_LIMIT = 50
+
+/** The viewer's followers that have no public card (Only me or hidden), with their own rows. */
+async function cardlessFollowers(ctx: Context, followers: string[], cards?: BoardCard[]): Promise<ReaderProfileRow[]> {
+  if (!followers.length) return []
+  const carded = new Set((cards ?? await ctx.social.cardsByIds(followers)).map(card => card.id))
+  const rows = await Promise.all(followers.filter(id => !carded.has(id)).slice(0, FOLLOWER_LOOKUP_LIMIT).map(id => ctx.profiles.getOwn(id).catch(() => null)))
+  return rows.filter(Boolean) as ReaderProfileRow[]
+}
+
+async function followerByHandle(ctx: Context, viewerId: string, handle: string): Promise<string | null> {
+  const blocked = await ctx.social.blockedEitherWay(viewerId)
+  const followers = (await ctx.social.followers(viewerId)).filter(id => !blocked.has(id))
+  return (await cardlessFollowers(ctx, followers)).find(row => row.handle === handle)?.id ?? null
 }
 
 /** One profile as this visitor may see it, or null (missing, Only me, hidden, blocked). */
@@ -490,7 +524,8 @@ export async function serveProfilePage(request: Request, env: SocialEnv, deps: S
   }
   const html = data
     ? profileDocument(data, { handle, loading: false, markers })
-    : profileDocument(null, { handle, loading: false, markers }).replace('<main data-main></main>', `<main data-main>${profileMissingHtml()}</main>`)
+    // The same page for every handle nobody may see: Follow (signing in) for any well-formed link.
+    : profileDocument(null, { handle, loading: false, markers }).replace('<main data-main></main>', `<main data-main>${profileMissingHtml(handleProblem(handle) === 'format' ? undefined : followButtonHtml({ relation: null, handle }))}</main>`)
   return new Response(request.method === 'HEAD' ? null : html, { status: data ? 200 : 404, headers: pageHeaders() })
 }
 
@@ -537,8 +572,11 @@ async function handleCard(request: Request, ctx: Context, viewerId: string): Pro
   // It links to the reader's public profile when others can see it, else to the book.
   const own = await ctx.profiles.getOwn(viewerId).catch(() => null)
   const link = own && own.visibility !== 'only_me' ? `https://${profileLinkText(own.handle)}` : `https://tinct.app/read/${bookId}`
+  // "Finished" only when the reader has finished the book's last chapter.
+  const position = await positionOf(ctx, viewerId).catch(() => null)
+  const finished = finishedBookIds(position?.finished, () => lastChapterOf(book)).includes(bookId)
   const origin = new URL(request.url).origin
-  const input: FinishedCardInput = { title: book.title, author: (book as { author?: string }).author ?? '', duration, link, cover: await coverDataUri(ctx.env, origin, book.art?.src ?? null) }
+  const input: FinishedCardInput = { title: book.title, author: (book as { author?: string }).author ?? '', duration, link, cover: await coverDataUri(ctx.env, origin, book.art?.src ?? null), finished }
   let png: Uint8Array
   try {
     png = ctx.deps.renderCard ? await ctx.deps.renderCard(input) : await (await import('../lib/readingCard')).renderFinishedCardPng(ctx.env.ASSETS!, origin, input)
@@ -553,7 +591,7 @@ async function handleCard(request: Request, ctx: Context, viewerId: string): Pro
       'Cache-Control': 'private, no-store',
       'X-Content-Type-Options': 'nosniff',
       'X-Card-Link': link,
-      'X-Card-Line': encodeURIComponent(finishedCardLine(book.title, duration)),
+      'X-Card-Line': encodeURIComponent(finishedCardLine(book.title, duration, finished)),
       'Access-Control-Expose-Headers': 'X-Card-Link, X-Card-Line',
     },
   })
@@ -649,13 +687,31 @@ async function handleAdmin(request: Request, url: URL, ctx: Context): Promise<Re
 
 // ===== Router =====
 
+/**
+ * Whom a follow, unfollow, remove-follower or block names: a Friends or
+ * Everyone profile (not hidden), or one of the viewer's followers whatever
+ * their visibility (ownerIdFor). Anything else, including an Only me
+ * profile that does not follow the viewer, is no one.
+ */
 async function targetId(ctx: Context, viewerId: string, body: Record<string, unknown> | null): Promise<string | null> {
   const handle = normalizeHandle(String(body?.handle ?? ''))
   if (handleProblem(handle) === 'format') return null
-  const card = await ctx.profiles.getCardByHandle(handle)
-  if (!card || card.id === viewerId) return null
-  // Only a profile this reader may see can be followed (never Only me, hidden, or across a block).
-  return (await viewFor(ctx.profiles, card.id, viewerId)) ? card.id : null
+  const id = await ownerIdFor(ctx, handle, viewerId)
+  return id && id !== viewerId ? id : null
+}
+
+type SocialActionPath = '/api/social/follow' | '/api/social/unfollow' | '/api/social/remove-follower' | '/api/social/block'
+
+/**
+ * What an action answers about a reader the viewer may not see: the same
+ * for a Friends profile, an Only me one, one across a block and a handle
+ * nobody has, so no answer tells them apart.
+ */
+const UNSEEN_RESULT: Record<SocialActionPath, { relation: Relation; followsYou: false }> = {
+  '/api/social/follow': { relation: 'follower', followsYou: false },
+  '/api/social/unfollow': { relation: 'stranger', followsYou: false },
+  '/api/social/remove-follower': { relation: 'stranger', followsYou: false },
+  '/api/social/block': { relation: 'blocked', followsYou: false },
 }
 
 export async function handleSocial(request: Request, env: SocialEnv, deps: SocialDeps): Promise<Response> {
@@ -725,24 +781,38 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
       return reply({ ok: true, duplicate: result === 'duplicate' }, 200, request)
     }
 
-    const actions = ['/api/social/follow', '/api/social/unfollow', '/api/social/remove-follower', '/api/social/block']
-    if (actions.includes(path)) {
+    if (path in UNSEEN_RESULT) {
+      const action = path as SocialActionPath
+      const handle = normalizeHandle(String(body?.handle ?? ''))
+      if (handleProblem(handle) === 'format') return reply({ error: 'Not found' }, 404, request)
+      if (action === '/api/social/follow' && deps.checkRateLimit && !(await deps.checkRateLimit(`social-follow:${viewerId}`, env.RATE_LIMIT, 60))) return reply({ error: 'rate_limited' }, 429, request)
+      const own = await ctx.profiles.getOwn(viewerId)
+      if (own?.handle === handle) return reply({ error: 'Not found' }, 404, request)
       const id = await targetId(ctx, viewerId, body)
-      if (!id) return reply({ error: 'Not found' }, 404, request)
-      if (path === '/api/social/follow') {
-        if (deps.checkRateLimit && !(await deps.checkRateLimit(`social-follow:${viewerId}`, env.RATE_LIMIT, 60))) return reply({ error: 'rate_limited' }, 429, request)
-        await ctx.social.follow(viewerId, id)
-        deps.track?.('follow', viewerId)
-      } else if (path === '/api/social/unfollow') {
-        await ctx.social.unfollow(viewerId, id)
-        deps.track?.('unfollow', viewerId)
-      } else if (path === '/api/social/remove-follower') {
-        await ctx.social.unfollow(id, viewerId)
-      } else {
-        await ctx.social.block(viewerId, id)
+      if (id) {
+        const before = await ctx.profiles.relation(viewerId, id)
+        if (action === '/api/social/follow') {
+          // Following works from a link, before the profile shows (it shows once you are friends);
+          // never across a block.
+          if (!before.blocked) {
+            await ctx.social.follow(viewerId, id)
+            deps.track?.('follow', viewerId)
+          }
+        } else if (action === '/api/social/unfollow') {
+          await ctx.social.unfollow(viewerId, id)
+          deps.track?.('unfollow', viewerId)
+        } else if (action === '/api/social/remove-follower') {
+          await ctx.social.unfollow(id, viewerId)
+        } else {
+          await ctx.social.block(viewerId, id)
+        }
+        // The real relation only for a reader the viewer may see (or who follows them).
+        if (await viewFor(ctx.profiles, id, viewerId)) {
+          const rel = await ctx.profiles.relation(viewerId, id)
+          return reply({ ok: true, relation: relationOf({ self: false, ...rel }), followsYou: rel.ownerFollowsViewer }, 200, request)
+        }
       }
-      const rel = await ctx.profiles.relation(viewerId, id)
-      return reply({ ok: true, relation: relationOf({ self: false, ...rel }), followsYou: rel.ownerFollowsViewer }, 200, request)
+      return reply({ ok: true, ...UNSEEN_RESULT[action] }, 200, request)
     }
     return reply({ error: 'Not found' }, 404, request)
   } catch (error) {

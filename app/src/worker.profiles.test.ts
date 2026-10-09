@@ -241,7 +241,12 @@ describe('sign-up step 2', () => {
     expect((await post(store, C, { handle: 'cee.reads' })).status).toBe(200)
     expect(store.profiles.get(C)!.handle).toBe('cee.reads')
     const check = await (await call(store, '/api/profile/handle?h=Cee.Reads', { as: A })).json()
-    expect(check).toMatchObject({ ok: false, reason: 'taken' })
+    expect(check).toMatchObject({ ok: false, reason: 'unavailable' })
+    // Cee is Only me: the check must not say a profile is there. Taken and reserved read the same.
+    expect(store.profiles.get(C)!.visibility).toBe('only_me')
+    const reserved = await (await call(store, '/api/profile/handle?h=library', { as: A })).json()
+    expect(check).toEqual(reserved)
+    expect(check.message).not.toMatch(/taken|reserved/i)
   })
 })
 
@@ -267,10 +272,10 @@ describe('visibility seen by a stranger, a one-way follower and a friend', () =>
   it('Friends', async () => {
     const store = await world()
     await post(store, A, { visibility: 'friends' })
-    expect((await look(store, D))!.limited).toBe(true)
-    expect((await look(store, null))!.limited).toBe(true)
-    expect((await look(store, B))!.limited).toBe(true)
-    expect((await look(store, B))!.shows).toEqual({ reading: false, time: false, leaderboard: false })
+    // Only friends (mutual follows) see a Friends profile: a stranger, a one-way follower and a signed-out visitor get Not found.
+    expect(await look(store, D)).toBeNull()
+    expect(await look(store, null)).toBeNull()
+    expect(await look(store, B)).toBeNull()
     expect((await look(store, C))!.limited).toBe(false)
     await post(store, A, { showReading: false, onLeaderboard: true })
     expect((await look(store, C))!.shows).toEqual({ reading: false, time: true, leaderboard: true })
@@ -280,8 +285,9 @@ describe('visibility seen by a stranger, a one-way follower and a friend', () =>
     const store = await world()
     const saved = await (await post(store, A, { visibility: 'everyone' })).json() as { profile: { visibility: string; effectiveVisibility: string } }
     expect(saved.profile).toMatchObject({ visibility: 'everyone', effectiveVisibility: 'friends' })
-    expect((await look(store, D))!.limited).toBe(true)
-    expect((await look(store, B))!.limited).toBe(true)
+    expect(await look(store, D)).toBeNull()
+    expect(await look(store, B)).toBeNull()
+    expect((await look(store, C))!.limited).toBe(false)
     store.accounts.get(A)!.email_confirmed_at = '2026-10-08T11:00:00Z'
     for (const viewer of [null, D, B, C]) expect((await look(store, viewer))!.limited).toBe(false)
     await post(store, A, { showTime: false })
