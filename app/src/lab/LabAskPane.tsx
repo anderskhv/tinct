@@ -564,7 +564,7 @@ export function LabAskPane({
         />
       )}
       {desktopCompanion && (
-        <button type="button" className="tc-tab" aria-label={minimized ? 'Restore chat' : 'Minimize chat'} onClick={() => setMinimized(value => !value)} dangerouslySetInnerHTML={{ __html: ICONS.collapse }} />
+        <button type="button" className="tc-tab" data-reader-window-control aria-label={minimized ? 'Restore chat' : 'Minimize chat'} onClick={() => setMinimized(value => !value)} dangerouslySetInnerHTML={{ __html: ICONS.collapse }} />
       )}
       {onBackToContents && <button type="button" className="tc-older" onClick={onBackToContents}>← Back to contents</button>}
       <div className="tc-body">

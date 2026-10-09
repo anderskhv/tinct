@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { render, cleanup } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { READER_COMPANION_WINDOW, READER_TALK_WINDOW, readerCompanionPlacement, readerWindowEdgeName, readerWindowEdgesAt, readerWindowMinimum, useReaderWindow } from './useReaderWindow'
@@ -80,6 +80,28 @@ describe('dragging a reader window edge', () => {
     // The interior still does nothing but select text.
     pointer('pointermove', panel, 450, 350)
     expect(panel.dataset.readerWindowEdge).toBeUndefined()
+  })
+
+  it('a control drawn over the edge (the chat’s collapse tab) is pressed, never a resize', () => {
+    function Tabbed() {
+      const ref = useReaderWindow<HTMLDivElement>('tab-window')
+      return <div className="lab is-desktop"><div ref={ref} data-testid="panel"><button type="button" data-reader-window-control data-testid="tab">›</button></div></div>
+    }
+    const { getByTestId } = render(<Tabbed />)
+    const panel = getByTestId('panel'), tab = getByTestId('tab')
+    panel.getBoundingClientRect = () => ({ left: 300, top: 200, width: 400, height: 300, right: 700, bottom: 500, x: 300, y: 200, toJSON: () => ({}) } as DOMRect)
+    const capture = vi.fn()
+    panel.setPointerCapture = capture
+    // 4px inside the right edge: on the window itself this resizes; on the tab it does not.
+    pointer('pointermove', tab, 696, 350)
+    expect(panel.dataset.readerWindowEdge).toBeUndefined()
+    const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, clientX: 696, clientY: 350, button: 0 })
+    Object.assign(down, { pointerId: 1, pointerType: 'mouse' })
+    tab.dispatchEvent(down)
+    expect(down.defaultPrevented).toBe(false)
+    expect(capture).not.toHaveBeenCalled()
+    pointer('pointerdown', panel, 696, 350)
+    expect(capture).toHaveBeenCalledOnce()
   })
 })
 

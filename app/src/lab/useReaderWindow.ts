@@ -111,13 +111,15 @@ export function useReaderWindow<T extends HTMLElement>(
       collapsed || event.pointerType === 'touch' ? null : readerWindowEdgesAt(node.getBoundingClientRect(), event.clientX, event.clientY))
     const hover = (event: PointerEvent) => {
       if (drag) return
-      const edges = edgesAt(event)
+      const edges = (event.target as Element | null)?.closest?.('[data-reader-window-control]') ? null : edgesAt(event)
       if (edges) node.dataset.readerWindowEdge = readerWindowEdgeName(edges)
       else delete node.dataset.readerWindowEdge
     }
     const leave = () => { if (!drag) delete node.dataset.readerWindowEdge }
     const down = (event: PointerEvent) => {
       const target = event.target as Element
+      // A control drawn over the window's edge (the chat's › collapse tab) is pressed, never a resize.
+      if (target.closest('[data-reader-window-control]')) return
       const corner = !!target.closest('[data-reader-window-resize]')
       if (event.button !== 0 || collapsed && corner) return
       const resize: Edges | null = corner ? { n: false, s: true, e: true, w: false } : edgesAt(event)
