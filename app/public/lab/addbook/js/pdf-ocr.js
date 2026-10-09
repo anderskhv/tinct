@@ -160,7 +160,8 @@
         // Blank pages found on the way: the account counts them as done (never sent, never charged).
         status = found.length ? await api.start(hex, { pages, blank: local.get().blank || [] }) : await api.status(hex);
         if (!status) return status;
-        show(status);
+        // Done already (a few pages, recognised as they came): said below, once the text is kept.
+        if (status.state !== 'done') show(status);
         continue;
       }
       // Done: the Tinct text is kept first, so "Tinct text is ready" comes with its control.

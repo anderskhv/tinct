@@ -228,6 +228,23 @@ describe('sending pages: only what is missing, four at a time, only while visibl
     expect(order.filter(state => state === 'done')).toHaveLength(1)
   })
 
+  it('says it once, after the text is kept, also when the pages were recognised as they were sent', async () => {
+    // "Try them again" for two pages: done by the first status after the upload. Said twice,
+    // the second "ready" (already said) took the line away at once (pdf-ocr-e2e, flaky).
+    const { api } = account(2)
+    const put = api.put.getMockImplementation()!
+    api.put.mockImplementation(async (hex: string, n: number) => { const r = await put(hex, n); api.recognise(); return r })
+    const order: string[] = []
+    await ocr.run({
+      hex: 'h', pages: 2, api, local: memory(), sleep: async () => {}, pollMs: 0,
+      render: async () => ({ blank: false, blob: new Blob(['x']) }),
+      onStatus: (s: Status) => order.push(s.state),
+      onEdition: async () => { order.push('kept') },
+    })
+    expect(order.filter(state => state === 'done')).toHaveLength(1)
+    expect(order.slice(-2)).toEqual(['kept', 'done'])
+  })
+
   it('tells the account of blank pages it finds, so the job can finish', async () => {
     const { state, api } = account(3)
     const local = memory()
