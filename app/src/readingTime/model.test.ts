@@ -149,15 +149,18 @@ describe('reading time figures', () => {
 })
 
 describe('books finished', () => {
-  const last = (id: string) => ({ frankenstein: 24, odyssey: 24, bible: 1189 } as Record<string, number>)[id] ?? null
-  it('is reaching the end of the last chapter, from the position record', () => {
+  const range = (count: number) => Array.from({ length: count }, (_, index) => index + 1)
+  const chapters = (id: string) => ({ frankenstein: range(24), odyssey: range(24), dracula: range(27), bible: range(1189) } as Record<string, number[]>)[id] ?? null
+  it('is every chapter finished, or the last chapter plus 90% of them, from the position record', () => {
     expect(finishedBookIds({
-      frankenstein: [1, 2, 3, 24], // jumped to the end and finished it: finished
-      odyssey: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], // all but the last
+      frankenstein: [1, 2, 3, 24], // jumped to the end and finished it: not the book
+      odyssey: range(23), // all but the last
+      dracula: [...range(24), 27], // 25 of 27 including the last: finished
       bible: [1, 2, 3],
       'unknown-book': [1], // structure unknown: never counted
-    }, last)).toEqual(['frankenstein'])
-    expect(finishedBookIds(null, last)).toEqual([])
+    }, chapters)).toEqual(['dracula'])
+    expect(finishedBookIds({ frankenstein: range(24) }, chapters)).toEqual(['frankenstein'])
+    expect(finishedBookIds(null, chapters)).toEqual([])
   })
 
   it('compares hours with the book’s estimated reading time', () => {

@@ -74,6 +74,52 @@ describe('session setup', () => {
   })
 })
 
+describe('Talk speed', () => {
+  const speedOf = (event: Sent) => ((event.session as { audio?: { output?: { speed?: number } } }).audio?.output?.speed)
+
+  it('starts the session at the reader\'s saved speed', () => {
+    const { controller, sent } = connected({}, { assistantSpeed: 1.25 })
+    controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(sent[0])).toBe(1.25)
+  })
+
+  it('holds a saved speed inside xAI\'s documented 0.7-1.5 at session start', () => {
+    const fast = connected({}, { assistantSpeed: 3 })
+    fast.controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(fast.sent[0])).toBe(1.5)
+    const slow = connected({}, { assistantSpeed: 0.2 })
+    slow.controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(slow.sent[0])).toBe(0.7)
+  })
+
+  it('changes speed live with session.update audio.output.speed, never outside 0.7-1.5', () => {
+    const { controller, sent } = connected()
+    controller.handleEvent({ type: 'session.created' })
+    controller.handleEvent({ type: 'session.updated' })
+    for (const speed of [0.8, 1, 1.25, 1.5, 2, 0.5]) controller.setAssistantSpeed(speed)
+    const updates = sent.filter(event => event.type === 'session.update').slice(1)
+    expect(updates.map(event => event.session)).toEqual([0.8, 1, 1.25, 1.5, 1.5, 0.7].map(speed => ({ audio: { output: { speed } } })))
+  })
+
+  it('a change made while connecting is the speed the session is configured with', () => {
+    const { controller, sent } = connected({}, { assistantSpeed: 1 })
+    controller.setAssistantSpeed(1.5)
+    controller.handleEvent({ type: 'session.created' })
+    expect(speedOf(sent.filter(event => event.type === 'session.update').at(-1)!)).toBe(1.5)
+  })
+
+  it('keeps the spoken slow / normal / fast mapping and reports it so the host can save it', async () => {
+    const onSetAssistantPace = vi.fn()
+    const { controller, sent } = connected({ onSetAssistantPace }, { tools: [{ type: 'function', name: 'set_assistant_pace', parameters: {} }] })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'set_assistant_pace', call_id: 'c1', arguments: '{"pace":"slow"}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.waitFor(() => expect(onSetAssistantPace).toHaveBeenCalledWith('slow'))
+    expect(sent.some(event => event.type === 'session.update' && speedOf(event) === 0.8)).toBe(true)
+  })
+})
+
 describe('turns and transcripts', () => {
   it('records the reader’s completed transcript and the assistant’s spoken text as book-scoped turns', () => {
     const onTurn = vi.fn()

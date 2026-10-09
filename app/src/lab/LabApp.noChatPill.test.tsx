@@ -3,7 +3,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
-import { LabSuperMenu } from './LabSuperMenu'
+import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 import { LAB_PREFS_KEY } from './labPrefs'
 

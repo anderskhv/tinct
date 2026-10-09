@@ -4,6 +4,7 @@ import { BIBLE } from '../data/bookRegistry'
 import { isEditionWithheld, migrateWithheldEdition } from '../data/withheldEditions'
 import { LAB_COMPARE_EDITION_KEY, LAB_EDITION_KEY } from './labSource'
 import { resolveAudioEditionKey } from '../utils/audioEditionSelection'
+import { clampTalkSpeed } from './labTalkSpeed'
 
 /** Lab library route. Full navigation, never /app or a book id. */
 export const LAB_LIBRARY_URL = '/library'
@@ -111,6 +112,11 @@ export interface LabSharedPrefs {
   /** Omitted in older preferences: narration follows the primary edition. */
   audioFollowsPrimary?: boolean
   audioSpeed: number
+  /**
+   * Talk's speaking speed (xAI `audio.output.speed`, 0.7-1.5). Stored only
+   * once the reader changed it; absent reads as 1.
+   */
+  talkSpeed?: number
   /**
    * Compare is on by default (Anders, 2026-10-06): the AI/modern edition
    * reads, the human edition sits beside it. Only a reader's own choice,
@@ -382,6 +388,7 @@ function parseShared(raw: unknown, fallback: LabSharedPrefs): LabStoredShared {
       : fallback.audioEdition,
     audioFollowsPrimary: src.audioFollowsPrimary !== false,
     audioSpeed: parsedSpeed,
+    ...(typeof src.talkSpeed === 'number' && Number.isFinite(src.talkSpeed) ? { talkSpeed: clampTalkSpeed(src.talkSpeed) } : {}),
     ...(src.audiobookVoice === 'orion' || src.audiobookVoice === 'eve' ? { audiobookVoice: src.audiobookVoice } : {}),
     // Before 2026-10-06 Compare was off by default and that default was stored
     // as if chosen; only a marked choice keeps Compare off now.

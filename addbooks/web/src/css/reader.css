@@ -188,3 +188,6 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-book-theme.is-desktop .lab-header-chapter { background: color-mix(in srgb, var(--lab-surface) 70%, transparent); }
 /* The chat's place line in the UI face, not mono. */
 .lab.byob .lab-ask-location, .lab.byob .lab-ask-location * { font-family: var(--pdf-ui) !important; letter-spacing: .02em; }
+
+/* A clear edge under the top bar so it doesn't fade into the scrolling pages (Anders, 9 Oct 2026). */
+.byob .lab-header { border-bottom: 1px solid color-mix(in srgb, currentColor 16%, transparent); box-shadow: 0 6px 14px -10px rgba(0, 0, 0, .35); }

@@ -1,11 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
-  LAB_CALL_CAPTION_CHARS,
-  LAB_CALL_COPY,
-  labCallCaption,
   labCallCue,
   labCallRestore,
-  labCallUtterance,
   labCallView,
   type LabCallInput,
   type LabCallView,
@@ -33,7 +29,7 @@ describe('the call view', () => {
     expect(live.statusText).toBe('Listening.')
     expect(live.motion).toBe('breathe')
     expect(live.broken).toBe(false)
-    expect(live.connectionText).toBe(LAB_CALL_COPY.connectionConnected)
+    expect(live.connected).toBe(true)
   })
 
   it('turns a broken ring while the assistant works, and says Thinking', () => {
@@ -56,11 +52,9 @@ describe('the call view', () => {
   })
 
   it('reports the connection separately from what is happening on it', () => {
-    expect(view({ connection: 'connecting', activity: 'listening' }).connectionText)
-      .toBe(LAB_CALL_COPY.connectionConnecting)
-    expect(view({ activity: 'speaking' }).connectionText).toBe(LAB_CALL_COPY.connectionConnected)
-    expect(view({ connection: 'disconnected', activity: 'speaking' }).connectionText)
-      .toBe(LAB_CALL_COPY.connectionLost)
+    expect(view({ connection: 'connecting', activity: 'listening' }).connected).toBe(false)
+    expect(view({ activity: 'speaking' }).connected).toBe(true)
+    expect(view({ connection: 'disconnected', activity: 'speaking' }).connected).toBe(false)
   })
 
   describe('when the transport is gone', () => {
@@ -90,11 +84,12 @@ describe('the call view', () => {
     })
   })
 
-  it('shows Connecting, not Listening, before the transport is up', () => {
+  it('shows "Connecting to AI…", not Listening, before the transport is up', () => {
     for (const activity of ['idle', 'connecting', 'listening'] as const) {
       const opening = view({ connection: 'connecting', activity })
       expect(opening.status).toBe('connecting')
-      expect(opening.statusText).toBe('Connecting.')
+      // The connecting line is also the call's AI disclosure (AI Act art. 50).
+      expect(opening.statusText).toBe('Connecting to AI…')
       expect(opening.connected).toBe(false)
       expect(opening.showReconnect).toBe(false)
     }
@@ -106,7 +101,6 @@ describe('the call view', () => {
       expect(muted.status).toBe('muted')
       expect(muted.statusText).toBe('Microphone off')
       expect(muted.connected).toBe(true)
-      expect(muted.connectionText).toBe(LAB_CALL_COPY.connectionConnected)
       expect(muted.micOff).toBe(true)
       // A muted circle must not breathe: breathing is what listening looks like.
       expect(muted.motion).toBe('still')
@@ -207,43 +201,6 @@ describe('the reading place the dialogue began from', () => {
       .toEqual({ kind: 'none' })
   })
 })
-
-describe('the caption under the status word', () => {
-  const turns = [
-    { role: 'user' as const, content: 'Why the real name?' },
-    { role: 'assistant' as const, content: 'Pride,   mostly.\nHe has just won.' },
-  ]
-
-  it('is what she is saying while she speaks, as one line', () => {
-    expect(labCallUtterance(turns)).toBe('Pride, mostly. He has just won.')
-    expect(labCallCaption({ status: 'speaking' }, labCallUtterance(turns))).toBe('Pride, mostly. He has just won.')
-  })
-
-  it('keeps the tail of a long utterance behind an ellipsis', () => {
-    const long = `${'The name is what lets Polyphemus curse him to Poseidon, and that curse shapes the next ten years. '.repeat(3)}Pride wins.`
-    const line = labCallUtterance([{ role: 'assistant', content: long }])!
-    expect(line.startsWith('\u2026')).toBe(true)
-    expect(line.endsWith('Pride wins.')).toBe(true)
-    expect(line.length).toBeLessThanOrEqual(LAB_CALL_CAPTION_CHARS + 1)
-  })
-
-  it('invites the reader while the microphone is open', () => {
-    expect(labCallCaption({ status: 'listening' }, 'earlier reply')).toBe(LAB_CALL_COPY.askAboutPage)
-  })
-
-  it('says nothing more while connecting, thinking, muted or dropped', () => {
-    for (const status of ['connecting', 'thinking', 'muted', 'disconnected'] as const) {
-      expect(labCallCaption({ status }, 'earlier reply')).toBeNull()
-    }
-  })
-
-  it('has nothing to say before she has spoken', () => {
-    expect(labCallUtterance([])).toBeNull()
-    expect(labCallUtterance([{ role: 'user', content: 'Hello' }])).toBeNull()
-    expect(labCallCaption({ status: 'speaking' }, null)).toBeNull()
-  })
-})
-
 
 it('keeps full duplex Live stable across activity changes while honoring mute and disconnect', () => {
   for (const activity of ['listening', 'thinking', 'speaking', 'checking', 'preparing'] as const) {

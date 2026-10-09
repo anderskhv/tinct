@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import {
   LAB_CALL_COPY,
-  labCallCaption,
   labCallCue,
   type LabCallCue,
   type LabCallView,
@@ -13,11 +12,13 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { LabTalkSpeedControl } from './LabTalkSpeedControl'
 
 /**
- * The phone call surface (locked 2026-09-11): the book line and connection
- * at the top, the dotted orb and one large status word in the middle with an
- * optional italic caption, and three round icon buttons at the bottom.
+ * The phone call surface (minimal Talk, 2026-10-09): the dotted orb, one
+ * status line (Connecting to AI… / Listening. / Speaking. …, announced through
+ * aria-live) and the round icon buttons, centred together on the screen.
+ * Nothing else is drawn: no book line, captions or transcript.
  *
  * Every indicator here is driven by the view it is handed, and that view is a
  * pure function of session events. The one thing this surface reads for
@@ -30,16 +31,14 @@ interface LabVoiceCallProps {
   /** Real assistant loudness, 0-1, or null when the audio path exposes none. */
   getAssistantLevel?: () => number | null
   reducedMotion?: boolean
+  /** A failure the reader must act on (sign in, allowance, start failed). */
   notice?: string | null
-  /** "The Odyssey, Book IX": the book and chapter the conversation is about. */
-  bookLine?: string
-  /** The newest thing the assistant said, for the caption while she speaks. */
-  utterance?: string | null
-  /** Context-specific listening prompt. The reader surface keeps its page prompt by default. */
-  idleCaption?: string
   onMuteToggle: () => void
   onEnd: () => void
   onReconnect: () => void
+  /** Talk's saved speaking speed; the control shows when a setter is given. */
+  talkSpeed?: number
+  onTalkSpeedChange?: (speed: number) => void
 }
 
 /** Two short tones, made in the browser: nothing to fetch, nothing to cache. */
@@ -79,19 +78,19 @@ function playCallCue(cue: LabCallCue) {
   } catch { /* a browser that refuses the tone still shows the state */ }
 }
 
-export const LAB_CALL_ORB_PX = 280
+/** 176px: about 63% of the original 280px orb (2026-10-09, tighter call). */
+export const LAB_CALL_ORB_PX = 176
 
 export function LabVoiceCall({
   view,
   getAssistantLevel,
   reducedMotion = false,
   notice,
-  bookLine,
-  utterance = null,
-  idleCaption,
   onMuteToggle,
   onEnd,
   onReconnect,
+  talkSpeed = 1,
+  onTalkSpeedChange,
 }: LabVoiceCallProps) {
   const previousRef = useRef<LabCallView | null>(null)
   useEffect(() => {
@@ -101,10 +100,6 @@ export function LabVoiceCall({
   }, [view])
 
   const motion = reducedMotion ? 'still' : view.motion
-  const defaultCaption = labCallCaption(view, utterance)
-  const caption = idleCaption && !utterance && (view.status === 'listening' || view.status === 'live')
-    ? idleCaption
-    : defaultCaption
   return (
     <div
       className={`lab-call is-${view.status}`}
@@ -114,17 +109,7 @@ export function LabVoiceCall({
       role="dialog"
       aria-label={LAB_CALL_COPY.callLabel}
     >
-      <div className="lab-call-top">
-        {bookLine && <span className="lab-call-book" data-testid="lab-call-book">{bookLine}</span>}
-        <p className="lab-call-connection" data-testid="lab-call-connection">
-          <span className="lab-call-connection-dot" aria-hidden="true" />
-          <span className="lab-call-connection-value">{view.connectionText}</span>
-        </p>
-      </div>
-
       <div className="lab-call-stage">
-        {/* The conversation's first line, quiet and never in the way (AI Act art. 50). */}
-        <p className="lab-call-ai" data-testid="lab-call-ai">{LAB_CALL_COPY.aiDisclosure}</p>
         <VoiceOrb
           status={view.status}
           motion={motion}
@@ -138,13 +123,6 @@ export function LabVoiceCall({
           <p className="lab-call-status" data-testid="lab-call-status" aria-live="polite">
             {view.statusText}
           </p>
-          {caption && <p className="lab-call-caption" data-testid="lab-call-caption">{caption}</p>}
-          {view.micOff && view.status !== 'muted' && (
-            <p className="lab-call-micoff" data-testid="lab-call-micoff">{LAB_CALL_COPY.micOff}</p>
-          )}
-          {view.status === 'disconnected' && (
-            <p className="lab-call-help" data-testid="lab-call-help">{LAB_CALL_COPY.disconnectedHelp}</p>
-          )}
           {notice && <p className="lab-call-notice" data-testid="lab-call-notice">{notice}</p>}
         </div>
       </div>
@@ -164,15 +142,19 @@ export function LabVoiceCall({
             icon={<VoiceMicIcon off={view.micOff} />}
             on={view.micOff}
             pressed={view.micOff}
+            iconOnly
             onClick={onMuteToggle}
           />
         )}
+        {onTalkSpeedChange && (
+          <LabTalkSpeedControl speed={talkSpeed} onChange={onTalkSpeedChange} testIdPrefix="lab-call" />
+        )}
         <VoiceControl
           testId="lab-call-end"
-          word={LAB_CALL_COPY.endWord}
-          label={LAB_CALL_COPY.end}
+          word={LAB_CALL_COPY.end}
           icon={<VoiceEndIcon />}
           filled
+          iconOnly
           onClick={onEnd}
         />
       </div>

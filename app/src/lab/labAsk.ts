@@ -239,6 +239,8 @@ export const ASSISTANT_PACE_SPEED: Record<AssistantPace, number> = {
   fast: 1.25,
 }
 
+export { TALK_SPEED_STEPS, TALK_SPEED_MIN, TALK_SPEED_MAX, TALK_SPEED_DEFAULT, clampTalkSpeed } from './labTalkSpeed'
+
 export const LAB_SET_PLAYBACK_SPEED_TOOL = {
   type: 'function',
   name: 'set_playback_speed',

@@ -4,8 +4,9 @@
  * its tests agree.
  */
 import type { LabPositionState } from '../lab/labPosition'
-import { positionPlacesByBook, type LibraryBookInfo } from '../preReader/libraryRecap'
-import { booksComparison, finishedBookIds, formatDuration, type ReadingTimeStats } from './model'
+import { finishedBookIdsFor, positionPlacesByBook, type LibraryBookInfo } from '../preReader/libraryRecap'
+import { emptyReadingMemory, type ReadingMemoryState } from '../readingMemory'
+import { booksComparison, formatDuration, type ReadingTimeStats } from './model'
 import { PRIVATE_BOOK_ID, PRIVATE_BOOK_LABEL, isPrivateBucket } from './privateBook'
 
 export interface CatalogueEntry {
@@ -38,9 +39,9 @@ export interface YourReadingView {
 /** Default reading speed of the library's estimates (library-model.js). */
 const WORDS_PER_MINUTE = 250
 
-export function lastChapterOf(book: CatalogueEntry | undefined): number | null {
-  const chapters = book?.readingStructure?.chapters ?? []
-  return chapters.length ? chapters.reduce((max, chapter) => Math.max(max, chapter.number), 0) || null : null
+/** The book's chapter numbers per the catalogue; empty when its structure is unknown. */
+export function chapterNumbersOf(book: CatalogueEntry | undefined): number[] {
+  return (book?.readingStructure?.chapters ?? []).map(chapter => chapter.number)
 }
 
 export function yourReadingView(input: {
@@ -53,12 +54,28 @@ export function yourReadingView(input: {
    * The lab record's finished chapters only exist since September 2026.
    */
   completedBookIds?: ReadonlySet<string>
+  /** Books the reader explicitly marked read. */
+  markedReadBookIds?: ReadonlySet<string>
+  /** Reading-memory sessions (device mirror): completed ones count as finished chapters, as in the library. */
+  memory?: ReadingMemoryState
+  viewer?: string | null
 }): YourReadingView {
   const { stats, positions, catalogue } = input
+  const infos = new Map<string, LibraryBookInfo>([...catalogue.values()].map(book => [book.id, {
+    id: book.id,
+    title: book.title,
+    chapters: (book.readingStructure?.chapters ?? []).map(chapter => ({ number: chapter.number, title: chapter.title, paragraphCount: chapter.paragraphCount ?? 0 })),
+  }]))
+  // The library's own rule and evidence (libraryRecap.finishedBookIdsFor), so the two views agree.
   // An own book is never finished or placed by its id here; its time shows as the private bucket.
-  const byChapters = finishedBookIds(positions?.finished, id => lastChapterOf(catalogue.get(id)))
-  const classic = [...(input.completedBookIds ?? [])].filter(id => catalogue.has(id))
-  const finishedIds = [...new Set([...byChapters, ...classic])].sort().filter(id => !isPrivateBucket(id))
+  const finishedIds = [...finishedBookIdsFor({
+    memory: input.memory ?? emptyReadingMemory(),
+    viewer: input.viewer ?? null,
+    positions,
+    books: infos,
+    completedBookIds: input.completedBookIds,
+    markedReadBookIds: input.markedReadBookIds,
+  })].sort().filter(id => !isPrivateBucket(id))
   const finishedSet = new Set(finishedIds)
   const chaptersCount = Object.values(positions?.finished ?? {}).reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0)
   const secondsBy = new Map(stats.books.map(book => [book.bookId, book]))
@@ -75,11 +92,6 @@ export function yourReadingView(input: {
     return { bookId, title: book.title, author: book.author ?? '', cover: book.art?.src ?? null, progress, hours: hoursOf(bookId) }
   }
 
-  const infos = new Map<string, LibraryBookInfo>([...catalogue.values()].map(book => [book.id, {
-    id: book.id,
-    title: book.title,
-    chapters: (book.readingStructure?.chapters ?? []).map(chapter => ({ number: chapter.number, title: chapter.title, paragraphCount: chapter.paragraphCount ?? 0 })),
-  }]))
   const places = positionPlacesByBook(positions, infos, infos.get('bible')?.chapters ?? [])
   const reading: Array<{ book: ShelfBook; at: number }> = []
   for (const [bookId, place] of places) {

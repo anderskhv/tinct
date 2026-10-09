@@ -85,6 +85,8 @@ export interface StartVoiceSessionInput {
   /** Native provider web search. Defaults to on. */
   enableSearch?: boolean
   assistantPace?: AssistantPace
+  /** Talk's saved speaking speed (0.7-1.5); wins over `assistantPace`. */
+  assistantSpeed?: number
   voicePersona?: 'female' | 'male'
 }
 

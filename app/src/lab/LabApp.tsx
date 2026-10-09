@@ -149,7 +149,7 @@ import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabVoiceCall } from './LabVoiceCall.tsx'
 import { LabVoiceDesktopPanel, LabVoicePill } from './LabVoiceDesktop.tsx'
-import { labCallRestore, labCallUtterance, labCallView, type LabCallAnchor } from './labVoiceCall'
+import { labCallRestore, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { readerEditionLabel } from './editionDifficulty'
@@ -596,6 +596,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setPrefs(synced)
     persistPrefs(synced, appearanceProfile)
   }, [appearanceProfile, book.bookId, allBookEditions, persistPrefs])
+  // Talk's speaking speed is saved with the reader's other shared prefs, as
+  // narration speed is; a functional update so a voice request mid-render
+  // never writes over a newer choice.
+  const applyTalkSpeed = useCallback((talkSpeed: number) => {
+    setPrefs(current => {
+      if (current.talkSpeed === talkSpeed) return current
+      const next = { ...current, talkSpeed }
+      persistPrefs(next, appearanceProfile)
+      return next
+    })
+  }, [appearanceProfile, persistPrefs])
   const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
     setPrefs(current => {
       if (current.voicePersona === voicePersona && current.voicePersonaChosen) return current
@@ -1172,6 +1183,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     voiceToolAdapter,
     voiceVersion,
     voicePersona: prefs.voicePersona,
+    talkSpeed: prefs.talkSpeed ?? 1,
+    onTalkSpeedChange: applyTalkSpeed,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
         const next = [...current, entry].slice(-20)
@@ -2873,10 +2886,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const callFullScreen = showPhoneChrome && callOpen && !phoneAskOpen
   // The desktop conversation: the companion panel, or the pill while minimized.
   const desktopVoiceOpen = voicePanelSurface && callOpen
-  const [callStartedAt, setCallStartedAt] = useState(0)
-  const callTurns = ask.turns.filter(turn => turn.source === 'voice' && (turn.timestamp ?? 0) >= callStartedAt)
-  const callUtterance = labCallUtterance(callTurns)
-  const callBookLine = `${book.bookTitle}, ${book.chapterLabel}`
   const callConnection = callAwaitingConnection && ask.voiceConnection === 'idle'
     ? ('connecting' as const)
     : ask.voiceConnection
@@ -2891,7 +2900,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     if (ask.voiceConnection === 'idle') return
     setCallAwaitingConnection(false)
   }, [ask.voiceConnection])
-  // A connect that never lands is a failed call, not a permanent "Connecting."
+  // A connect that never lands is a failed call, not a permanent "Connecting to AI…"
   useEffect(() => {
     if (!callOpen || callConnection !== 'connecting') return
     const timer = window.setTimeout(() => {
@@ -4287,7 +4296,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const handleTalk = useCallback(() => {
     // A reader's own book too (2026-10-08): the session hears the passage on
     // screen and the recent conversation, never the chapter (useLabAsk).
-    setCallStartedAt(Date.now())
     dictation.stop()
     setTocOpen(false)
     // Talk is an explicit audio start: it keeps unlocking narration on every device.
@@ -5333,7 +5341,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         {desktopVoiceOpen && !callMinimized && (
           <LabVoiceDesktopPanel
             view={callView}
-            turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             notice={ask.notice}
@@ -5341,12 +5348,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             onEnd={endCall}
             onReconnect={reconnectCall}
             onMinimize={() => setCallMinimized(true)}
+            talkSpeed={ask.talkSpeed}
+            onTalkSpeedChange={ask.setTalkSpeed}
           />
         )}
         {desktopVoiceOpen && callMinimized && (
           <LabVoicePill
             view={callView}
-            turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             onMuteToggle={toggleCallMute}
@@ -5741,11 +5749,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           getAssistantLevel={ask.getAssistantLevel}
           reducedMotion={reducedMotion}
           notice={ask.notice}
-          bookLine={callBookLine}
-          utterance={callUtterance}
           onMuteToggle={toggleCallMute}
           onEnd={endCall}
           onReconnect={reconnectCall}
+          talkSpeed={ask.talkSpeed}
+          onTalkSpeedChange={ask.setTalkSpeed}
         />
       )}
 

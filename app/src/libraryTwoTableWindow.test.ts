@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 // @ts-expect-error -- plain browser module of the library page
-import { tableWindow } from '../public/lab/library_2/table-window.js'
+import { tableWindow, bookBox } from '../public/lab/library_2/table-window.js'
 
 const spines = (count: number, width = 30) => Array.from({ length: count }, () => width)
 
@@ -53,5 +53,38 @@ describe('the reading table with many books in progress', () => {
     expect(css).toMatch(/\.reading-table\.has-many \.rt-dots\{display:flex/)
     // Room for the remove × before the first spine on either side.
     expect(js).toMatch(/Math\.max\(H \* 0\.08, options\.onRemoveReading \? 24 : 0\)/)
+  })
+
+  it('stands each book in its own cover\'s shape, never stretched or cropped (The Beginning of Infinity, 2026-10-09)', () => {
+    const H = 300
+    const shape = (aspect: number) => { const { w, h } = bookBox(H, aspect); return w / h }
+    // A tall EPUB cover (1600×2560), the library's 2:3 and a wide cover: each keeps its shape.
+    for (const aspect of [0.5, 0.625, 2 / 3, 0.707, 0.8, 1]) expect(shape(aspect)).toBeCloseTo(aspect, 6)
+    // Up to 3:4 every book stands the table's full height; wider ones are no wider than 0.75 of it, so shorter.
+    expect(bookBox(H, 0.625)).toEqual({ w: 187.5, h: 300 })
+    expect(bookBox(H, 2 / 3).h).toBeCloseTo(300, 6)
+    expect(bookBox(H, 0.8)).toEqual({ w: 225, h: 281.25 })
+    for (const aspect of [0.3, 0.5, 0.625, 0.8, 1, 1.41, 4]) {
+      const { w, h } = bookBox(H, aspect)
+      expect(h).toBeLessThanOrEqual(H + 1e-9)
+      expect(w).toBeLessThanOrEqual(H * 0.75 + 1e-9)
+    }
+    // Beyond the bounds the face is held to them (the painting is letterboxed inside it).
+    expect(shape(1.41)).toBeCloseTo(1, 6)
+    expect(shape(0.3)).toBeCloseTo(0.5, 6)
+    // Not known yet (not loaded, broken): the library's 2:3.
+    for (const unknown of [NaN, 0, Infinity, undefined]) expect(bookBox(H, unknown as unknown as number)).toEqual(bookBox(H, 2 / 3))
+  })
+
+  it('shows a cover whole on the table: contained in its face, never object-fit: cover', () => {
+    const js = readFileSync(resolve(__dirname, '../public/lab/library_2/reading-table.js'), 'utf8')
+    const css = readFileSync(resolve(__dirname, '../public/lab/library_2/styles.css'), 'utf8')
+    expect(css).toMatch(/\.rt-front img\{[^}]*object-fit:contain/)
+    expect(css).not.toMatch(/\.rt-front img\{[^}]*object-fit:cover/)
+    // The reflection is the same painting, contained the same way.
+    expect(css).toMatch(/\.rt-refl-front\{[^}]*var\(--cover\) 50% 50%\/contain no-repeat/)
+    // Each book's size follows its own cover once that cover has loaded.
+    expect(js).toMatch(/naturalWidth \/ img\.naturalHeight/)
+    expect(js).toMatch(/bookBox\(H, aspects\[i\]\)/)
   })
 })

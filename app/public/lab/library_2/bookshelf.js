@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261009rel10';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261009cover';
 import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009rel10';
-import { createBookshelf } from './bookshelf-view.js?v=20261009rel10';
+import { createBookshelf } from './bookshelf-view.js?v=20261009cover';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
@@ -87,7 +87,8 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  addEventListener('library2:shelf-removed',event=>{const id=event.detail;table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
  // A refresh that lands behind the menu, search, a book or My shelf is applied as
  // soon as the desk is visible again, so the desk and My shelf never disagree.
- const flushPending=()=>{if(pendingUpdate&&view&&enabled()){pendingUpdate=false;view.update(desk(),saved,catalogue);}};
+ // A change made elsewhere (My shelf) is simply there on return: no removal plays out on the desk.
+ const flushPending=()=>{if(pendingUpdate&&view&&enabled()){pendingUpdate=false;view.update(desk(),saved,catalogue,{instant:true});}};
  addEventListener('library2:overlayclosed',flushPending);
  addEventListener('library2:interactive',flushPending);
  // Preserve the live scene in the back/forward cache while refreshing its data.

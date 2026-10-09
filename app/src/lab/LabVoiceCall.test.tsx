@@ -34,18 +34,51 @@ function renderCall(input: Partial<LabCallInput> = {}, props: Record<string, unk
 const circle = () => screen.getByTestId('lab-call-circle')
 
 describe('the call surface', () => {
-  it('says the AI line from the start of every conversation, above the orb, without blocking anything', () => {
+  it('holds only the orb, one status line and the controls', () => {
+    renderCall()
+    const call = screen.getByTestId('lab-call')
+    expect([...call.children].map(node => node.className)).toEqual(['lab-call-stage', 'lab-call-controls'])
+    const stage = call.querySelector('.lab-call-stage')!
+    expect(stage.firstElementChild).toBe(circle())
+    expect(stage.querySelector('.lab-call-words')?.children).toHaveLength(1)
+    expect(stage.querySelector('.lab-call-words')?.firstElementChild).toBe(screen.getByTestId('lab-call-status'))
+  })
+
+  it('announces the status through one aria-live line', () => {
+    renderCall()
+    const live = screen.getByTestId('lab-call').querySelectorAll('[aria-live]')
+    expect(live).toHaveLength(1)
+    expect(live[0]).toBe(screen.getByTestId('lab-call-status'))
+    expect(live[0].getAttribute('aria-live')).toBe('polite')
+  })
+
+  it('says "Connecting to AI…" while connecting, once, with no second connecting line', () => {
     for (const activity of ['listening', 'speaking'] as const) {
       const { unmount } = renderCall({ connection: 'connecting', activity })
-      const line = screen.getByTestId('lab-call-ai')
-      expect(line.textContent).toBe("You're talking to an AI.")
-      expect(line.tagName).toBe('P')
-      // First in the stage, before the orb and the status word; not a dialog or a button.
-      expect(line.parentElement?.className).toBe('lab-call-stage')
-      expect(line.parentElement?.firstElementChild).toBe(line)
-      expect(line.querySelector('button')).toBeNull()
+      expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
+      expect(screen.getByTestId('lab-call').textContent).not.toMatch(/Connecting(?! to AI…)/)
+      expect(screen.queryByTestId('lab-call-connection')).toBeNull()
       unmount()
     }
+  })
+
+  it('draws no AI line, book line, caption, hint or transcript', () => {
+    for (const input of [{ connection: 'connecting' as const }, {}, { activity: 'speaking' as const }, { connection: 'disconnected' as const }, { micMuted: true, activity: 'speaking' as const }]) {
+      const { unmount } = renderCall(input)
+      const call = screen.getByTestId('lab-call')
+      expect(call.textContent).not.toContain("You're talking to an AI.")
+      expect(call.textContent).not.toContain('Ask about this page')
+      expect(call.textContent).not.toMatch(/Connected|Not connected/)
+      for (const id of ['lab-call-ai', 'lab-call-book', 'lab-call-connection', 'lab-call-caption', 'lab-call-micoff', 'lab-call-help']) {
+        expect(screen.queryByTestId(id)).toBeNull()
+      }
+      unmount()
+    }
+  })
+
+  it('still shows a failure the reader must act on', () => {
+    renderCall({ connection: 'disconnected' }, { notice: 'Sign in to talk.' })
+    expect(screen.getByTestId('lab-call-notice').textContent).toBe('Sign in to talk.')
   })
 
   it('breathes and says Listening once the microphone is live', () => {
@@ -55,15 +88,6 @@ describe('the call surface', () => {
     expect(circle().getAttribute('data-broken')).toBe('false')
   })
 
-  it('accepts a library-specific listening prompt without changing the reader default', () => {
-    const { unmount } = renderCall({}, { idleCaption: 'Tell me what you feel like reading.' })
-    expect(screen.getByText('Tell me what you feel like reading.')).toBeTruthy()
-    expect(screen.queryByText('Ask about this page.')).toBeNull()
-    unmount()
-    renderCall()
-    expect(screen.getByText('Ask about this page.')).toBeTruthy()
-  })
-
   it('turns a broken ring and says Thinking', () => {
     renderCall({ activity: 'thinking' })
     expect(screen.getByTestId('lab-call-status').textContent).toBe('Thinking.')
@@ -71,25 +95,27 @@ describe('the call surface', () => {
     expect(circle().getAttribute('data-broken')).toBe('true')
   })
 
-  it('shows the connection apart from the activity', () => {
+  it('says Speaking while she speaks', () => {
     renderCall({ activity: 'speaking' })
     expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking.')
-    expect(screen.getByTestId('lab-call-connection').textContent).toContain('Connected')
+    expect(screen.getByTestId('lab-call').getAttribute('data-connection')).toBe('connected')
   })
 
   describe('mute', () => {
     it('says the microphone is off and stays connected', () => {
       renderCall({ micMuted: true })
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Microphone off')
-      expect(screen.getByTestId('lab-call-connection').textContent).toContain('Connected')
-      expect(screen.getByTestId('lab-call-mute').textContent).toBe('Unmute')
+      expect(screen.getByTestId('lab-call').getAttribute('data-connection')).toBe('connected')
+      expect(screen.getByTestId('lab-call-mute').getAttribute('aria-label')).toBe('Unmute')
+      expect(screen.getByTestId('lab-call-mute').textContent).toBe('')
       expect(screen.getByTestId('lab-call-mute').getAttribute('aria-pressed')).toBe('true')
     })
 
-    it('keeps the closed microphone visible while the assistant speaks', () => {
+    it('keeps the closed microphone visible on Mute while the assistant speaks', () => {
       renderCall({ micMuted: true, activity: 'speaking' })
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Speaking.')
-      expect(screen.getByTestId('lab-call-micoff').textContent).toBe('Microphone off')
+      expect(screen.getByTestId('lab-call-mute').getAttribute('aria-pressed')).toBe('true')
+      expect(screen.getByTestId('lab-call-mute').getAttribute('aria-label')).toBe('Unmute')
     })
 
     it("toggles on the reader tap", () => {
@@ -107,7 +133,6 @@ describe('the call surface', () => {
       expect(screen.queryByText('Listening.')).toBeNull()
       expect(circle().getAttribute('data-motion')).toBe('still')
       expect(circle().getAttribute('data-broken')).toBe('true')
-      expect(screen.getByTestId('lab-call-help')).toBeTruthy()
       expect(screen.getByTestId('lab-call').getAttribute('data-connection')).toBe('lost')
     })
 
@@ -138,7 +163,8 @@ describe('the call surface', () => {
       const onEnd = vi.fn()
       const { unmount } = renderCall(input, { onEnd })
       // The word beneath the filled X is "End"; the full action is its name.
-      expect(screen.getByTestId('lab-call-end').textContent).toBe('End')
+      expect(screen.getByTestId('lab-call-end').textContent).toBe('')
+      expect(screen.getByTestId('lab-call-end').getAttribute('title')).toBe('End conversation')
       expect(screen.getByTestId('lab-call-end').getAttribute('aria-label')).toBe('End conversation')
       fireEvent.click(screen.getByTestId('lab-call-end'))
       expect(onEnd).toHaveBeenCalledTimes(1)

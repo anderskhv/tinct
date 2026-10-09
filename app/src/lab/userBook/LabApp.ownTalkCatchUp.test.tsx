@@ -71,12 +71,13 @@ afterEach(() => {
 const size = (text: string) => text.length
 
 describe('Talk on a reader’s own book', () => {
-  it('is offered in the menu and starts with the AI line, hearing only the passage on screen', async () => {
+  it('is offered in the menu and starts with "Connecting to AI…", hearing only the passage on screen', async () => {
     render(<LabApp pathname="/lab/phone" authToken="token-a" userBook={loaded({ chapterNumber: 1, paragraphIndex: 150, wordIndex: 0 })} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-talk'))
     await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-    expect(screen.getByTestId('lab-call-ai').textContent).toBe("You're talking to an AI.")
+    // The AI Act disclosure is the connecting status line (minimal Talk, 2026-10-09).
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
 
     const options = captured.options!
     expect(options.editionKey).toBeUndefined()

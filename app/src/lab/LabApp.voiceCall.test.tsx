@@ -4,11 +4,14 @@
 // throughout: getUserMedia hangs, so the call never reaches a real Realtime
 // session and no network call is made.
 
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { LEAVE_FADE_MS } from './labLeaveForLibrary'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
+import { LAB_PREFS_KEY, parseLabPrefs } from './labPrefs'
+import { TALK_SPEED_MAX, TALK_SPEED_MIN, TALK_SPEED_STEPS } from './labTalkSpeed'
+import { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
 
 afterEach(() => {
   cleanup()
@@ -59,9 +62,33 @@ describe('Talk on the phone with Chrome V2', () => {
     expect(screen.queryByTestId('lab-voice-gate')).toBeNull()
   })
 
+  it('shows Mute and End as icons, named for screen readers, beside the speed value', async () => {
+    await openCall()
+    const mute = screen.getByTestId('lab-call-mute')
+    const end = screen.getByTestId('lab-call-end')
+    expect(mute.textContent).toBe('')
+    expect(end.textContent).toBe('')
+    expect(mute.querySelector('.lab-voice-control-word')).toBeNull()
+    expect(end.querySelector('.lab-voice-control-word')).toBeNull()
+    expect(mute.getAttribute('aria-label')).toBe('Mute')
+    expect(mute.getAttribute('title')).toBe('Mute')
+    expect(end.getAttribute('aria-label')).toBe('End conversation')
+    expect(end.getAttribute('title')).toBe('End conversation')
+    expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-word')?.textContent).toBe('1×')
+    // Minimal Talk: orb, one status line, controls. The AI Act disclosure is
+    // the connecting status line itself; no separate AI line, hint or book line.
+    expect(screen.queryByTestId('lab-call-ai')).toBeNull()
+    expect(screen.queryByTestId('lab-call-book')).toBeNull()
+    expect(screen.queryByTestId('lab-call-connection')).toBeNull()
+    expect(screen.queryByTestId('lab-call-caption')).toBeNull()
+    expect(screen.getByTestId('lab-call').textContent).not.toContain("You're talking to an AI.")
+    expect(screen.getByTestId('lab-call').textContent).not.toContain('Ask about this page')
+  })
+
   it('never claims to be listening before a connection exists', async () => {
     await openCall()
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
+    expect(screen.getByTestId('lab-call-status').getAttribute('aria-live')).toBe('polite')
     expect(screen.getByTestId('lab-call-circle').getAttribute('data-motion')).not.toBe('breathe')
   })
 
@@ -113,7 +140,7 @@ describe('Talk on the phone with Chrome V2', () => {
     renderPhone('?chrome=v2')
     tapTalk()
     await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
     await vi.advanceTimersByTimeAsync(9000)
     await waitFor(() => {
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Disconnected')
@@ -147,14 +174,25 @@ describe('Talk on the desktop with Chrome V2', () => {
     const root = screen.getByTestId('lab-root')
     expect(root.getAttribute('data-desktop-panel')).toBe('talk')
     expect(screen.getByTestId('lab-voice-panel-orb')).toBeTruthy()
-    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting to AI…')
+    expect(screen.getByTestId('lab-voice-panel-status').getAttribute('aria-live')).toBe('polite')
+    // One connecting line, not "Connecting." plus "◦ Connecting".
+    expect(screen.getByTestId('lab-voice-panel').textContent?.match(/Connecting/g)).toHaveLength(1)
     expect(screen.queryByTestId('lab-call')).toBeNull()
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
     expect(screen.queryByTestId('lab-voice-pill')).toBeNull()
-    // Mute and End are in the panel; the transcript is the panel body.
+    // Mute and End are in the panel; no transcript, AI line or hint is drawn.
     expect(screen.getByTestId('lab-voice-panel-mute')).toBeTruthy()
     expect(screen.getByTestId('lab-voice-panel-end')).toBeTruthy()
-    expect(screen.getByTestId('lab-voice-panel-thread')).toBeTruthy()
+    // Icons only, still named for screen readers and tooltips.
+    expect(screen.getByTestId('lab-voice-panel-mute').textContent).toBe('')
+    expect(screen.getByTestId('lab-voice-panel-end').textContent).toBe('')
+    expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('aria-label')).toBe('Mute')
+    expect(screen.getByTestId('lab-voice-panel-end').getAttribute('aria-label')).toBe('End conversation')
+    expect(screen.queryByTestId('lab-voice-panel-ai')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-thread')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-empty')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-connection')).toBeNull()
   })
 
   it('opens the full desktop voice panel from Chat', async () => {
@@ -180,7 +218,7 @@ describe('Talk on the desktop with Chrome V2', () => {
       expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
       const pill = screen.getByTestId('lab-voice-pill')
       expect(pill).toBeTruthy()
-      expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Connecting.')
+      expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Connecting to AI…')
       expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('pill')
       expect(screen.getByTestId('lab-root').getAttribute('data-chrome-state')).toBe('talking')
       // Still tinted while minimized.
@@ -280,8 +318,75 @@ it('keeps Reconnect available after cancelling a pending microphone and can end 
   await vi.advanceTimersByTimeAsync(9000)
   await waitFor(() => expect(screen.getByTestId('lab-voice-panel-reconnect')).toBeTruthy())
   fireEvent.click(screen.getByTestId('lab-voice-panel-reconnect'))
-  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.'))
+  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting to AI…'))
   fireEvent.click(screen.getByTestId('lab-voice-panel-end'))
   await vi.advanceTimersByTimeAsync(35000)
   expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
+})
+
+// Talk speed. The voice layer stays stubbed: the microphone request hangs, so
+// no xAI session ever opens. The controller methods are spied on, called
+// through, and with no socket their session.update goes nowhere.
+describe('Talk speed', () => {
+  const storedTalkSpeed = () => JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || '{}')?.shared?.talkSpeed
+
+  for (const surface of [
+    { name: 'phone', prefix: 'lab-call', open: openCall },
+    { name: 'desktop', prefix: 'lab-voice-panel', open: openDesktopCall },
+  ] as const) {
+    it(`shows the speed control in the ${surface.name} Talk controls, at 1× by default`, async () => {
+      await surface.open()
+      const control = screen.getByTestId(`${surface.prefix}-speed`)
+      expect(control.textContent).toContain('1×')
+      expect(control.getAttribute('aria-label')).toBe('Playback speed 1 times. Open speed control')
+      fireEvent.click(control)
+      const steps = TALK_SPEED_STEPS.map(step => screen.getByTestId(`${surface.prefix}-speed-${step}`).textContent)
+      expect(steps).toEqual(['0.8×', '1×', '1.25×', '1.5×'])
+    })
+
+    it(`on the ${surface.name}, a new speed goes to the live session, is saved, and starts the next session`, async () => {
+      const setSpeed = vi.spyOn(GrokVoiceSessionController.prototype, 'setAssistantSpeed')
+      const start = vi.spyOn(GrokVoiceSessionController.prototype, 'start')
+      await surface.open()
+      expect(start.mock.calls.at(-1)?.[0].assistantSpeed).toBe(1)
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-speed`))
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-speed-1.25`))
+      expect(setSpeed).toHaveBeenLastCalledWith(1.25)
+      expect(screen.getByTestId(`${surface.prefix}-speed`).textContent).toContain('1.25×')
+      expect(screen.queryByTestId(`${surface.prefix}-speed-popover`)).toBeNull()
+      expect(storedTalkSpeed()).toBe(1.25)
+
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-end`))
+      await waitFor(() => expect(screen.queryByTestId(surface.prefix)).toBeNull())
+      cleanup()
+      start.mockClear()
+      await surface.open()
+      await waitFor(() => expect(start).toHaveBeenCalled())
+      expect(start.mock.calls.at(-1)?.[0].assistantSpeed).toBe(1.25)
+      expect(screen.getByTestId(`${surface.prefix}-speed`).textContent).toContain('1.25×')
+    })
+  }
+
+  it('a spoken "talk slower" request updates the same saved speed', async () => {
+    const start = vi.spyOn(GrokVoiceSessionController.prototype, 'start')
+    await openCall()
+    await waitFor(() => expect(start).toHaveBeenCalled())
+    const controller = start.mock.contexts.at(-1) as unknown as { callbacks: { onSetAssistantPace?: (pace: 'slow' | 'normal' | 'fast') => void } }
+    act(() => controller.callbacks.onSetAssistantPace?.('slow'))
+    expect(storedTalkSpeed()).toBe(0.8)
+    expect(screen.getByTestId('lab-call-speed').textContent).toContain('0.8×')
+    act(() => controller.callbacks.onSetAssistantPace?.('fast'))
+    expect(storedTalkSpeed()).toBe(1.25)
+  })
+
+  it('reads a saved speed back inside xAI\'s 0.7-1.5, and leaves it unset until chosen', () => {
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 9 } }).talkSpeed).toBe(TALK_SPEED_MAX)
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 0.1 } }).talkSpeed).toBe(TALK_SPEED_MIN)
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 1.5 } }).talkSpeed).toBe(1.5)
+    expect(parseLabPrefs({ version: 2, shared: {} }).talkSpeed).toBeUndefined()
+    for (const step of TALK_SPEED_STEPS) {
+      expect(step).toBeGreaterThanOrEqual(TALK_SPEED_MIN)
+      expect(step).toBeLessThanOrEqual(TALK_SPEED_MAX)
+    }
+  })
 })
