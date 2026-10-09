@@ -1,6 +1,8 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261009cover';
+import { bindingFor } from './reading-table.js?v=20261009shelf';
+import { bookCoverSrc, ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009shelf';
+import { shortTitle } from '../book-title.js?v=20261009shelf';
 import { recordRects, playFlip } from './shelf-motion.js?v=20261009cover';
 import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel10';
 
@@ -9,14 +11,13 @@ root.innerHTML=bookshelfMarkup;
 const $=id=>root.querySelector('#bs-'+id);
 const ASSETS='assets/';
 const books={};
-const studyCovers=new Set(['to-the-lighthouse','frankenstein','meditations','odyssey','crime-and-punishment','candide','jane-eyre','jekyll-and-hyde','julius-caesar','niels-lyhne','pride-and-prejudice','the-prince','the-awakening','notes-from-underground']);
 const shelves={reading:[],finished:[],later:[]};
 const chosen={reading:null,finished:null,later:null,...initial?.chosen};
 let busy=false,summaryTimer=null,summaryTurn=0;
 function updateData(nextTable,nextSaved){
- for(const entry of catalogue){books[entry.id]={title:entry.title,author:entry.author,cover:entry.art?.src||null,wordCount:entry.wordCount,binding:bindingFor({bookId:entry.id,tone:entry.cover?.background})[0]};}
- for(const b of [...nextTable.finished,...nextTable.reading]){books[b.bookId]={...books[b.bookId],title:b.title,author:b.author||books[b.bookId]?.author||'',cover:b.cover||books[b.bookId]?.cover||null,binding:bindingFor(b)[0],wordCount:b.wordCount||books[b.bookId]?.wordCount,place:b.chapterLabel,progress:b.percent,recap:b.recap||b.headline};}
- for(const [id,b] of Object.entries(books))if(studyCovers.has(id))b.cover=`assets/${id}.jpg`;
+ for(const entry of catalogue){books[entry.id]={title:entry.title,author:entry.author,cover:bookCoverSrc({bookId:entry.id,art:entry.art}),wordCount:entry.wordCount,binding:bindingFor({bookId:entry.id,tone:entry.cover?.background})[0]};}
+ for(const b of [...nextTable.finished,...nextTable.reading]){books[b.bookId]={...books[b.bookId],title:b.title,author:b.author||books[b.bookId]?.author||'',cover:b.own?(ownCoverImage(b.cover)||paperCoverUrl(b.title,b.author||'',b.kind||'')||null):bookCoverSrc({bookId:b.bookId,art:b.cover})||books[b.bookId]?.cover||null,binding:bindingFor(b)[0],wordCount:b.wordCount||books[b.bookId]?.wordCount,place:b.chapterLabel,progress:b.percent,recap:b.recap||b.headline};}
+ // Every cover by the one rule (/lab/book-cover.js): the same painting as the reading table and My shelf.
  const unique=ids=>[...new Set(ids)].filter(id=>books[id]);
  const previous={...shelves};
  shelves.reading=unique(nextTable.reading.map(b=>b.bookId));shelves.finished=unique(nextTable.finished.map(b=>b.bookId));
@@ -54,8 +55,10 @@ function renderShelf(key){
   const words=Number(b.wordCount)||70000,depth=Math.round(Math.max(14,Math.min(hero?44:32,10+Math.sqrt(words/1000)*1.1)));
   const measure=document.createElement('canvas').getContext('2d');measure.font='16px Georgia';
   const paper=hasPaperSpine(id,b.cover);
-  const spineFont=Math.min(hero?14:11,16*(height*.62)/(measure.measureText(b.title.toUpperCase()).width+b.title.length*.8));
-  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${spineFont}px;--binding:${paper?`${PAPER_SPINE.edge},linear-gradient(${PAPER_SPINE.colour},${PAPER_SPINE.colour})`:`url('${ASSETS}spines/spine-${b.binding}.jpg')`};--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span${paper?` style="color:${PAPER_SPINE.ink};text-shadow:none"`:''}>${escapeText(b.title)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><canvas data-cover="${escapeText(id)}" aria-hidden="true"></canvas></span></button>`;
+  // The spine carries the title's short form (/lab/book-title.js), fitted to its length.
+  const spineText=shortTitle(b.title);
+  const spineFont=Math.min(hero?14:11,16*(height*.62)/(measure.measureText(spineText.toUpperCase()).width+spineText.length*.8));
+  return `<button class="volume" data-book="${escapeText(id)}" data-on-shelf="${key}" aria-label="${escapeText(b.title+' by '+b.author)}" aria-pressed="${id===chosen[key]}" style="--depth:${depth}px;--height:${height}px;--cover-width:${width}px;--spine-font:${spineFont}px;--binding:${paper?`${PAPER_SPINE.edge},linear-gradient(${PAPER_SPINE.colour},${PAPER_SPINE.colour})`:`url('${ASSETS}spines/spine-${b.binding}.jpg')`};--bookmark:${20+(b.progress||0)*.55}%"><span class="ribbon" aria-hidden="true"></span><span class="spine" aria-hidden="true"><span${paper?` style="color:${PAPER_SPINE.ink};text-shadow:none"`:''}>${escapeText(spineText)}</span></span><span class="face"><span class="fallback-title">${escapeText(b.title)}</span><canvas data-cover="${escapeText(id)}" aria-hidden="true"></canvas></span></button>`;
  }).join('') || '<p class=empty-bay>A little room for a new book</p>';
  $('count-'+key).textContent=shelves[key].length;
  $('shelf-'+key).querySelectorAll('[data-cover]').forEach(canvas=>{prepareCover(canvas.dataset.cover,canvas).catch(()=>{});});

@@ -7,12 +7,13 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009rel10';
-import { coverAsset } from './cover-assets.js?v=20260928covers';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009shelf';
+import { coverAsset } from './cover-assets.js?v=20261009shelf';
+import { ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009shelf';
+import { shortTitle } from '../book-title.js?v=20261009shelf';
 
 import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
-import { paperCover } from './add-to-tinct.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { tableWindow, MAX_SPINES, bookBox, COVER_ASPECT } from './table-window.js?v=20261009cover';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
@@ -158,23 +159,29 @@ function spineStyle(b) {
 }
 
 /**
- * A reader's own book (b.own, src/lab/userBook/ownShelf.ts) stands on the table like
- * any book: its own cover (a data: URL kept on this device), else a paper cover with
- * its title, as My shelf draws it.
+ * A book's cover by the one rule every surface uses (/lab/book-cover.js): the library's
+ * painting, else the catalogue's art; a reader's own book (b.own, src/lab/userBook/ownShelf.ts)
+ * wears its own picture (a data: URL kept on this device), else the same paper cover with its
+ * title as My shelf and the reader's book switcher draw.
  */
-const ownPaper = new Map();
-function ownPaperCover(b) {
-  const key = `${b.bookId}\n${b.title}\n${b.author || ''}`;
-  if (!ownPaper.has(key)) { let url = ''; try { url = paperCover(b.title, b.author || '', 'epub').toDataURL('image/jpeg', 0.9); } catch {} ownPaper.set(key, url); }
-  return ownPaper.get(key);
-}
 function bookCover(b) {
-  return b.own ? (b.cover || ownPaperCover(b)) : coverAsset(b.bookId, b.cover);
+  return b.own ? (ownCoverImage(b.cover) || paperCoverUrl(b.title, b.author || '', b.kind || '')) : coverAsset(b.bookId, b.cover);
+}
+
+/**
+ * The spine's title: its short form (/lab/book-title.js), set in one line along the spine.
+ * `--tl` (its length in characters) lets the stylesheet fit the type to the spine's length
+ * (styles.css .rt-spine em); a title still too long ends in an ellipsis, never past the spine.
+ */
+function spineTitle(b) {
+  const text = shortTitle(b.title);
+  return { text, length: Math.max(1, [...text].length) };
 }
 
 function bookMarkup(b, i) {
   const cover = bookCover(b);
   const s = spineStyle(b);
+  const spine = spineTitle(b);
   return `
     <button class="rt-b${b.linked ? ' is-linked' : ''}" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${s.colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
       <span class="rt-shadow" aria-hidden="true"></span>
@@ -185,7 +192,7 @@ function bookMarkup(b, i) {
       <span class="rt-mark" aria-hidden="true"><i></i></span>
       <span class="rt-f rt-refl rt-refl-front"></span>
       <span class="rt-f rt-refl rt-refl-spine" style="background:${s.reflection}"></span>
-      <span class="rt-f rt-spine${s.textured ? ' is-textured' : ''}" data-binding="${s.name}" style="background:${s.spine}"><i class="rt-gilt"${s.gilt}></i><em${s.title}>${esc(b.title)}</em><i class="rt-gilt"${s.gilt}></i></span>
+      <span class="rt-f rt-spine${s.textured ? ' is-textured' : ''}" data-binding="${s.name}" style="background:${s.spine};--tl:${spine.length}"><i class="rt-gilt"${s.gilt}></i><em${s.title}>${esc(spine.text)}</em><i class="rt-gilt"${s.gilt}></i></span>
       <span class="rt-f rt-front"><img src="${esc(cover)}" alt="" decoding="async" fetchpriority="${i === 0 ? 'high' : 'auto'}" draggable="false"></span>
     </button>`;
 }
@@ -616,7 +623,7 @@ function addFinishedShelf(finished, shelves, el) {
     const card = el('a', 'book-card finished-card');
     card.href = `/library?book=${encodeURIComponent(book.bookId)}&view=book-detail`;
     card.setAttribute('aria-label', `${book.title}, finished`);
-    card.innerHTML = `<span class="cv"><img src="${esc(book.cover)}" alt="" loading="lazy" decoding="async"><span class="done" aria-hidden="true">✓</span></span>${monthName(book.finishedAt) ? `<small>Finished in ${esc(monthName(book.finishedAt))}</small>` : ''}`;
+    card.innerHTML = `<span class="cv"><img src="${esc(coverAsset(book.bookId, book.cover))}" alt=""" loading="lazy" decoding="async"><span class="done" aria-hidden="true">✓</span></span>${monthName(book.finishedAt) ? `<small>Finished in ${esc(monthName(book.finishedAt))}</small>` : ''}`;
     row.append(card);
   });
   section.append(row);

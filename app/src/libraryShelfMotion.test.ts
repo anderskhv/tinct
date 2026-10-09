@@ -134,13 +134,35 @@ describe('every removal path uses the motion', () => {
     expect(view).toMatch(/playFlip\(root\.querySelectorAll\('\.volume'\)/)
   })
   it('the changed modules share one cache tag', () => {
-    const tag = '20261009cover'
+    // Shelf motion and cover shape (20261009cover) are unchanged since; one shelf truth
+    // (20261009shelf) changed the reading table, My shelf, covers and titles above them.
+    const motion = '20261009cover', tag = '20261009shelf'
     expect(lib('index.html')).toContain(`app.js?v=${tag}`)
+    expect(lib('index.html')).toContain(`styles.css?v=${tag}`)
     expect(lib('app.js')).toContain(`bookshelf.js?v=${tag}`)
-    expect(lib('app.js')).toContain(`shelf-motion.js?v=${tag}`)
+    expect(lib('app.js')).toContain(`catalogue.js?v=${tag}`)
+    expect(lib('app.js')).toContain(`add-to-tinct.js?v=${tag}`)
+    expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${tag}`)
     expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${tag}`)
+    expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${tag}`)
     expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${tag}`)
-    expect(lib('reading-table.js')).toContain(`shelf-motion.js?v=${tag}`)
+    expect(lib('bookshelf-view.js')).toContain(`shelf-motion.js?v=${motion}`)
+    expect(lib('reading-table.js')).toContain(`shelf-motion.js?v=${motion}`)
+    expect(lib('reading-table.js')).toContain(`table-window.js?v=${motion}`)
+    expect(lib('reading-table.js')).toContain(`catalogue.js?v=${tag}`)
+    expect(lib('reading-table.js')).toContain(`cover-assets.js?v=${tag}`)
+    expect(lib('catalogue.js')).toContain(`cover-assets.js?v=${tag}`)
+    expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${tag}`)
+    expect(lib('catalogue.js')).toContain(`library-2-reading.js?v=${tag}`)
+    expect(lib('boot.js')).toContain(`library-2-reading.js?v=${tag}`)
+    // A module imported under two tags would load twice: every importer names the same one.
+    const files = ['app.js', 'bookshelf.js', 'bookshelf-view.js', 'reading-table.js', 'catalogue.js', 'add-to-tinct.js', 'cover-assets.js', 'spine.js']
+    const tags = new Map<string, Set<string>>()
+    for (const file of files) for (const [, name, version] of lib(file).matchAll(/['"]\.{1,2}\/([\w./-]+\.js)\?v=(\w+)['"]/g)) {
+      if (!tags.has(name)) tags.set(name, new Set())
+      tags.get(name)!.add(version)
+    }
+    for (const [name, versions] of tags) expect([...versions], name).toHaveLength(1)
   })
 })

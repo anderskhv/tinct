@@ -1,8 +1,9 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261009cover';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261009shelf';
 import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009rel10';
-import { createBookshelf } from './bookshelf-view.js?v=20261009cover';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261009shelf';
+import { createBookshelf } from './bookshelf-view.js?v=20261009shelf';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
+import { bookCoverSrc } from '../book-cover.js?v=20261009shelf';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
@@ -17,7 +18,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  // reading stands at the front for this visit only; nothing is saved, and
  // their own books keep their order.
  const linked=sample||shelfStudy?null:window.__library2Boot?.book||null;
- function deskBook(id){const entry=catalogue.find(b=>b.id===id&&b.discoveryAvailable!==false);if(!entry)return null;return {bookId:entry.id,title:entry.title,author:entry.author||'',cover:entry.art?.src||null,tone:entry.cover?.background||null,wordCount:entry.wordCount??null,displayYear:entry.displayYear||'',chapterLabel:'',headline:'',percent:null,recap:reviewedHooks[entry.id]||entry.blurb||entry.summary||'',linked:true};}
+ function deskBook(id){const entry=catalogue.find(b=>b.id===id&&b.discoveryAvailable!==false);if(!entry)return null;return {bookId:entry.id,title:entry.title,author:entry.author||'',cover:bookCoverSrc({bookId:entry.id,art:entry.art}),tone:entry.cover?.background||null,wordCount:entry.wordCount??null,displayYear:entry.displayYear||'',chapterLabel:'',headline:'',percent:null,recap:reviewedHooks[entry.id]||entry.blurb||entry.summary||'',linked:true};}
  function desk(){if(!linked||table.reading.some(b=>b.bookId===linked))return table;const book=deskBook(linked);return book?{...table,reading:[book,...table.reading]}:table;}
  function settle(){loading.hidden=true;html.classList.remove('returning-pending');if(!html.classList.contains('returning')||shelfStudy)html.classList.remove('returning-scene-pending');}
  function show(key){

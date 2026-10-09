@@ -9,6 +9,8 @@
 import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261009rel10';
 import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261009rel10';
 import {eraLabel} from './book-metadata.js?v=20261009rel10';
+import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009shelf';
+import {shortTitle} from '../book-title.js?v=20261009shelf';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
@@ -91,7 +93,7 @@ export function linkedPublicBook(){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261009rel10';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261009shelf';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -328,23 +330,8 @@ export function askModernEdition(offer){
 }
 
 // ---- Paper covers ----
-function hue(text){let h=0;for(const c of String(text))h=(h*31+c.charCodeAt(0))%360;return h;}
-function wrap(ctx,text,width){const words=String(text).split(/\s+/).filter(Boolean),lines=[];let line='';for(const word of words){const next=line?line+' '+word:word;if(line&&ctx.measureText(next).width>width){lines.push(line);line=word;}else line=next;}if(line)lines.push(line);return lines;}
-/** A typographic paper cover (480×720): title and author set on cream paper, a thin rule in the book's own hue. */
-export function paperCover(title,author,kind){
- const c=document.createElement('canvas');c.width=480;c.height=720;const ctx=c.getContext('2d');if(!ctx)return c;
- const h=hue(title);ctx.fillStyle='#ece5d0';ctx.fillRect(0,0,480,720);
- const grain=ctx.createLinearGradient(0,0,480,720);grain.addColorStop(0,'#f4eedc');grain.addColorStop(1,'#ddd3b8');ctx.fillStyle=grain;ctx.globalAlpha=.6;ctx.fillRect(0,0,480,720);ctx.globalAlpha=1;
- ctx.fillStyle=`hsl(${h} 30% 32%)`;ctx.fillRect(0,0,14,720);
- ctx.strokeStyle=`hsl(${h} 25% 38%)`;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(70,250);ctx.lineTo(410,250);ctx.stroke();
- ctx.fillStyle='#1c1a14';ctx.textAlign='left';ctx.textBaseline='alphabetic';
- let size=48;ctx.font=`${size}px Georgia,serif`;let lines=wrap(ctx,title,340);
- while(lines.length>5&&size>26){size-=4;ctx.font=`${size}px Georgia,serif`;lines=wrap(ctx,title,340);}
- lines.slice(0,6).forEach((line,i)=>ctx.fillText(line,70,310+i*size*1.18,340));
- if(author){ctx.font='22px Georgia,serif';ctx.fillStyle='#4a4536';wrap(ctx,author.toUpperCase(),340).slice(0,2).forEach((line,i)=>ctx.fillText(line,70,620+i*28,340));}
- if(kind){ctx.font='600 15px system-ui,sans-serif';ctx.fillStyle=`hsl(${h} 25% 38%)`;ctx.fillText(String(kind).toUpperCase(),70,200);}
- return c;
-}
+/** A typographic paper cover (480×720): /lab/book-cover.js, shared with the reader's book switcher. */
+export {paperCover};
 
 // ---- Search filters (with the search, so only where enabled() allows) ----
 // Modern English, Audio and a language narrow "Available in Tinct" using the catalogue
@@ -774,7 +761,8 @@ export function setAddBusy(button,stage){
 
 /** An own book's cover: its own picture (kept on this device, full size), else a paper cover. */
 export function ownCoverElement(book){
- if(typeof book.cover==='string'&&/^data:image\/(jpeg|png|webp);base64,/.test(book.cover)){const img=document.createElement('img');img.className='cover own-cover-image';img.src=book.cover;img.alt='';img.decoding='async';return img;}
+ const own=ownCoverImage(book.cover);
+ if(own){const img=document.createElement('img');img.className='cover own-cover-image';img.src=own;img.alt='';img.decoding='async';return img;}
  const cover=paperCover(book.title,book.author,book.kind);cover.className='cover';return cover;
 }
 /** How far through a book, as the reading table writes it (reading-table.js): "13%", "<1%". */
@@ -800,7 +788,7 @@ export function ownBookCard(book,el,{onRemove=null,cover=null,progress=false}={}
  card.append(face);
  const percent=progress?ownPercentLabel(book.percent):'';
  if(percent){const meta=el('span','cover-metadata own-progress');meta.append(el('span','metadata-details',percent));card.append(meta);}
- card.append(el('h2','',book.title),el('p','',book.author||book.kind.toUpperCase()));return card;
+ card.append(el('h2','',shortTitle(book.title)),el('p','',book.author||book.kind.toUpperCase()));return card;
 }
 
 /** Own books under Currently reading (those with a saved place, latest first) and the rest of "My private uploads". */
@@ -817,12 +805,13 @@ export const ownTableId=key=>'userbook-'+String(key||'').replace(/^(epub|pdf):/,
  * or under a new heading at the top), with the × that takes a book off Currently reading
  * (`onRemoveReading`); then "My private uploads" with every own book and the × that deletes
  * one (`onDelete`). `covers` maps a reading-table id to its full-size cover. Adding a book is
- * the + beside My shelf's heading. Returns how many cards were added.
+ * the + beside My shelf's heading. Returns how many cards were added. `currentlyReading: false`:
+ * the library's My shelf, whose Currently reading is the reading table's list (own books in it).
  */
-export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,covers=null}={}){
+export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,covers=null,currentlyReading=true}={}){
  const {reading,own}=ownShelfGroups(list);let added=0;
  const coverFor=book=>covers?.get?.(ownTableId(book.key))||null;
- if(reading.length){
+ if(currentlyReading&&reading.length){
   let after=[...grid.querySelectorAll('[data-shelf-group="reading"]')].pop()||null;
   if(!after){after=el('h2','my-books-head','Currently reading');grid.prepend(after);}
   for(const book of reading){const card=ownBookCard(book,el,{onRemove:onRemoveReading,cover:coverFor(book),progress:true});card.dataset.shelfGroup='own-reading';after.after(card);after=card;added++;}
