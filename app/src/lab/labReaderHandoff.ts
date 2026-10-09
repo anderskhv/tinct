@@ -87,9 +87,11 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
  * Public deep link: `/reader?book=<id>&edition=<key>&chapter=<n>`. The SEO book
  * and chapter pages ("Start reading in Tinct") use it. A link that names a
  * chapter opens exactly that chapter (paragraph 0) in that edition, even if
- * the reader has a saved place in the same book; a link without a chapter is
- * not a handoff at all, so the reader's own saved position is never
- * overridden. Book and edition are validated against the registry, and an
+ * the reader has a saved place in the same book. A link without a chapter
+ * (`/reader?book=<id>`, the lifecycle emails' "keep reading") opens that book
+ * at the reader's latest place in it, else its first chapter, so the reader's
+ * own saved position is never overridden; before, it opened whatever book was
+ * read last, or the Bible (QA 2026-10-09). Book and edition are validated against the registry, and an
  * unknown book yields null (the normal reader entry); an unavailable edition falls back to original-en.
  * A link without an edition opens the new-reader default: the default edition
  * with its default Compare edition beside it.
@@ -97,7 +99,9 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
 export function readerHandoffFromUrlParams(params: URLSearchParams | null): ReaderHandoffIntent | null {
   const bookId = params?.get('book')
   const chapterText = params?.get('chapter')
-  if (!params || !bookId || !chapterText || !/^\d{1,5}$/.test(chapterText)) return null
+  if (!params || !bookId) return null
+  if (chapterText === null) return params.has('modern') ? null : modernReturnHandoff(bookId)
+  if (!/^\d{1,5}$/.test(chapterText)) return null
   const chapterNumber = Number(chapterText)
   if (chapterNumber < 1 || !getBook(bookId)) return null
   // A shared highlight (/q/{id}) opens at its passage, not the chapter top.

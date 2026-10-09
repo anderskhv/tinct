@@ -143,8 +143,11 @@ describe('Reader URL deep link (/reader?book=&edition=&chapter=)', () => {
     expect(prefsFromLabReaderHandoff({ ...DEFAULT_LAB_PREFS, compareOpen: false }, handoff)).toMatchObject({ primaryEdition: 'modern-en', compareEdition: 'original-en', compareOpen: true })
   })
 
-  it('is not a handoff without a chapter, so saved positions are never overridden', () => {
-    expect(link('book=odyssey&edition=original-en')).toBeNull()
+  it('without a chapter opens that book at the reader\'s latest place, so saved positions are never overridden', () => {
+    const handoff = link('book=odyssey&edition=original-en')
+    expect(handoff).toMatchObject({ bookId: 'odyssey', resumeLatest: true })
+    expect(handoff?.startAtSavedPlace).toBeFalsy()
+    expect(link('book=nope')).toBeNull()
   })
 
   it('rejects unknown books, editions and malformed chapters', () => {
