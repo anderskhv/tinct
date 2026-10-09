@@ -3,7 +3,7 @@ import path from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { emptyLabPositionState, type LabPositionState } from '../../lab/labPosition'
 import { isLifecycleTestRecipient } from '../routes/emails'
-import { runAnnouncement, runLifecycleSweep, runWelcomeSweep, type CatalogueEntry, type LifecycleDeps, type OutgoingEmail, type Profile } from './engine'
+import { announceCampaignOpen, runAnnouncement, runLifecycleSweep, runWelcomeSweep, type CatalogueEntry, type LifecycleDeps, type OutgoingEmail, type Profile } from './engine'
 import { verifyLink } from './links'
 import { DAY } from './rules'
 
@@ -274,6 +274,22 @@ describe('announcement', () => {
     expect(outbox[0].text).toContain('Open the library: https://tinct.app/library')
     expect(outbox[0].html).toContain('https://tinct.app/email-art/library.jpg')
     expect(log).toEqual([expect.objectContaining({ template: 'announce', dedupe_key: 'announce:add-any-book-2026-10', meta: { campaign: 'add-any-book-2026-10', omitted: ['librarian'] } })])
+  })
+
+  it('a campaign carries its month and is sent only from a month before it to 12 months after, so its log rows (kept 24 months) always prove a send', async () => {
+    expect(announceCampaignOpen('add-any-book-2026-10', NOW)).toBe(true)
+    expect(announceCampaignOpen('add-any-book-2026-11', NOW)).toBe(true) // a month early
+    expect(announceCampaignOpen('add-any-book-2026-12', NOW)).toBe(false)
+    expect(announceCampaignOpen('add-any-book-2025-11', NOW)).toBe(true)
+    expect(announceCampaignOpen('add-any-book-2025-10', NOW)).toBe(false) // 12 months on
+    expect(announceCampaignOpen('add-any-book', NOW)).toBe(false)
+    expect(announceCampaignOpen('add-any-book-2026-13', NOW)).toBe(false)
+    const { deps, outbox, log } = harness()
+    const closed = await runAnnouncement(deps, [profile()], 'add-any-book-2024-09', [])
+    expect(closed.sent).toEqual([])
+    expect(closed.skipped['campaign-closed']).toBe(1)
+    expect(outbox).toEqual([])
+    expect(log).toEqual([])
   })
 })
 

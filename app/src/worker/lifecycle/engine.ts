@@ -397,6 +397,22 @@ export const ANNOUNCE_DEFAULTS = {
 }
 
 /**
+ * An announcement goes once per reader per campaign, proven by its email_log
+ * row, which is deleted after 24 months (routes/retention.ts). So a campaign
+ * slug ends in its month (`-YYYY-MM`) and is sent only from a month before
+ * that month until 12 months after it: two sends of one campaign are never
+ * 24 months apart, and the first send's row is always still there.
+ */
+export function announceCampaignOpen(campaign: string, now: number): boolean {
+  const match = /-(\d{4})-(\d{2})$/.exec(campaign)
+  if (!match) return false
+  const year = Number(match[1])
+  const month = Number(match[2])
+  if (month < 1 || month > 12) return false
+  return now >= Date.UTC(year, month - 1, 1) - 31 * DAY && now < Date.UTC(year, month - 1 + 12, 1)
+}
+
+/**
  * The one-off announcement (service notice, docs/lifecycle-emails/templates/
  * announce.*): admin-triggered, once per reader per campaign, logged. Exempt
  * from the reading-email rules (it is a notice the privacy policy promises),
@@ -404,6 +420,7 @@ export const ANNOUNCE_DEFAULTS = {
  */
 export async function runAnnouncement(deps: LifecycleDeps, profiles: Profile[], campaign: string, omitFeatures: string[]): Promise<SweepResult> {
   const result: SweepResult = { considered: 0, sent: [], skipped: {} }
+  if (!announceCampaignOpen(campaign, deps.now())) { count(result, 'campaign-closed'); return result }
   for (const profile of profiles) {
     if (!profile.email || !deps.isRecipientAllowed(profile.email)) { count(result, 'test-gate'); continue }
     result.considered++

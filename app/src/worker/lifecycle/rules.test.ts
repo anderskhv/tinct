@@ -3,6 +3,7 @@ import {
   DAY,
   HOUR,
   inQuietHours,
+  LOG_HORIZON_MS,
   mayReceiveOptIn,
   planLifecycle,
   planTrialNotice,
@@ -119,6 +120,39 @@ describe('keep-reading and the stalled next-book', () => {
     const place = { ...facts().places[0], updatedAt: NOW - 4 * DAY }
     const answered = [sent('keep-reading', 'frankenstein', NOW - 20 * DAY, 'keep-reading:frankenstein:1:1'), sent('keep-reading', 'frankenstein', NOW - 13 * DAY, 'keep-reading:frankenstein:1:2')]
     expect(readingCandidates(facts({ places: [place], log: answered }), NOW)).toEqual([{ kind: 'keep-reading', place, dedupeKey: `keep-reading:frankenstein:${place.updatedAt}:1` }])
+  })
+})
+
+describe('the send log keeps 24 months: nothing is planned that an expired row could have blocked', () => {
+  const OLD = NOW - LOG_HORIZON_MS - DAY
+  const finished = { bookId: 'odyssey', updatedAt: NOW - 4 * DAY, sequentialChapter: 24, paragraphIndex: 80 }
+
+  it('the horizon sits at least a month inside 24 months', () => {
+    expect(LOG_HORIZON_MS).toBeLessThanOrEqual(700 * DAY)
+  })
+
+  it('an account older than the horizon gets no once-per-book next-book (its first send may have been deleted)', () => {
+    expect(readingCandidates(facts({ createdAt: NOW - LOG_HORIZON_MS + DAY, finished: [finished], places: [] }), NOW)).toHaveLength(1)
+    expect(readingCandidates(facts({ createdAt: OLD, finished: [finished], places: [] }), NOW)).toEqual([])
+    expect(readingCandidates(facts({ createdAt: NaN, finished: [finished], places: [] }), NOW)).toEqual([])
+  })
+
+  it('an account older than the horizon gets no stalled next-book either, but keeps keep-reading for a recent place', () => {
+    const place12 = { ...facts().places[0], updatedAt: NOW - 12 * DAY }
+    const log = [
+      sent('keep-reading', 'frankenstein', NOW - 10 * DAY, `keep-reading:frankenstein:${place12.updatedAt}:1`),
+      sent('keep-reading', 'frankenstein', NOW - 3 * DAY, `keep-reading:frankenstein:${place12.updatedAt}:2`),
+    ]
+    expect(readingCandidates(facts({ createdAt: NOW - 60 * DAY, places: [place12], log }), NOW)).toEqual([{ kind: 'next-book', opening: 'stalled', source: place12, dedupeKey: 'next-book:frankenstein' }])
+    expect(readingCandidates(facts({ createdAt: OLD, places: [place12], log }), NOW)).toEqual([])
+    expect(readingCandidates(facts({ createdAt: OLD }), NOW)).toEqual([{ kind: 'keep-reading', place: facts().places[0], dedupeKey: `keep-reading:frankenstein:${NOW - 4 * DAY}:1` }])
+  })
+
+  it('nothing about a place untouched for longer than the horizon (its keep-reading rows may have been deleted)', () => {
+    const stale = { ...facts().places[0], updatedAt: NOW - LOG_HORIZON_MS }
+    // The rows that would have proven both keep-reading emails and the stalled next-book are gone.
+    expect(readingCandidates(facts({ places: [stale], log: [] }), NOW)).toEqual([])
+    expect(readingCandidates(facts({ createdAt: OLD, places: [stale], log: [] }), NOW)).toEqual([])
   })
 })
 

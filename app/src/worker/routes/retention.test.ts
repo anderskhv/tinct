@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import worker from '../../worker'
+import { LOG_HORIZON_MS } from '../lifecycle/rules'
 import { MODERN_EDITION_CRON } from './publicBookModern'
 import {
   RETENTION_BATCH,
@@ -40,7 +41,8 @@ function mockSupabase(older: Record<string, number>, options: { failDelete?: str
       const limit = Number(new URL(url).searchParams.get('limit'))
       const count = Math.min(remaining[table] ?? 0, limit)
       const offset = (older[table] ?? 0) - (remaining[table] ?? 0)
-      const rows = Array.from({ length: count }, (_, i) => ({ id: table === 'ai_usage_events' || table === 'profile_reports' ? String(offset + i + 1) : uuid(offset + i + 1) }))
+      const bigint = table === 'ai_usage_events' || table === 'profile_reports' || table === 'email_log'
+      const rows = Array.from({ length: count }, (_, i) => ({ id: bigint ? String(offset + i + 1) : uuid(offset + i + 1) }))
       return Response.json(rows)
     }
     if (method === 'DELETE') {
@@ -78,9 +80,11 @@ describe('runRetentionCleanup', () => {
     vi.unstubAllGlobals()
   })
 
-  it('covers profile reports (12 months) first, then the analytics and usage tables (24 months), by created_at', () => {
+  it('covers profile reports (12 months) first, then the small email log and reader-data audit, then the analytics and usage tables (24 months)', () => {
     expect(RETENTION_TABLES).toEqual([
       { table: 'profile_reports', column: 'created_at', months: 12 },
+      { table: 'email_log', column: 'sent_at', months: 24 },
+      { table: 'user_data_audit', column: 'created_at', months: 24 },
       { table: 'analytics_events', column: 'created_at', months: 24 },
       { table: 'ai_usage_events', column: 'created_at', months: 24 },
       { table: 'token_usage', column: 'created_at', months: 24 },
@@ -92,6 +96,53 @@ describe('runRetentionCleanup', () => {
     const table = /create table if not exists public\.profile_reports \(([\s\S]*?)\n\);/.exec(sql)?.[1]
     expect(table).toMatch(/\bid bigint generated always as identity primary key/)
     expect(table).toMatch(/\bcreated_at timestamptz not null default now\(\)/)
+  })
+
+  it('email_log is the table and sent_at the column its migration defines (no created_at)', () => {
+    const sql = readFileSync(fileURLToPath(new URL('../../../supabase/migrations/20261008_email_log.sql', import.meta.url)), 'utf8')
+    const table = /create table if not exists public\.email_log \(([\s\S]*?)\n\);/.exec(sql)?.[1]
+    expect(table).toMatch(/\bid bigint generated always as identity primary key/)
+    expect(table).toMatch(/\bsent_at timestamptz not null default now\(\)/)
+    expect(table).not.toMatch(/\bcreated_at\b/)
+  })
+
+  it('user_data_audit is the table and created_at the column its SQL defines', () => {
+    const sql = readFileSync(fileURLToPath(new URL('../../../supabase/user_data_audit.sql', import.meta.url)), 'utf8')
+    const table = /CREATE TABLE IF NOT EXISTS public\.user_data_audit \(([\s\S]*?)\n\);/.exec(sql)?.[1]
+    expect(table).toMatch(/\bid UUID PRIMARY KEY DEFAULT gen_random_uuid\(\)/)
+    expect(table).toMatch(/\bcreated_at TIMESTAMPTZ NOT NULL DEFAULT NOW\(\)/)
+  })
+
+  it('deletes email_log rows older than 24 months by sent_at, and user_data_audit rows by created_at', async () => {
+    const { calls } = mockSupabase({ email_log: 2, user_data_audit: 1 })
+    const result = await runRetentionCleanup(env, NOW)
+    expect(calls.filter(call => call.path.startsWith('email_log'))).toEqual([
+      { method: 'GET', path: `email_log?select=id&sent_at=lt.${CUTOFF}&order=sent_at.asc,id.asc&limit=${RETENTION_BATCH}` },
+      { method: 'DELETE', path: `email_log?id=in.(1,2)&sent_at=lt.${CUTOFF}` },
+    ])
+    expect(calls.filter(call => call.path.startsWith('user_data_audit'))).toEqual([
+      { method: 'GET', path: `user_data_audit?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
+      { method: 'DELETE', path: `user_data_audit?id=in.(${uuid(1)})&created_at=lt.${CUTOFF}` },
+    ])
+    expect(result?.tables.slice(1, 3)).toEqual([
+      { table: 'email_log', cutoff: CUTOFF, deleted: 2, batches: 1, complete: true },
+      { table: 'user_data_audit', cutoff: CUTOFF, deleted: 1, batches: 1, complete: true },
+    ])
+  })
+
+  it('the lifecycle rules\' log horizon stays at least 30 days inside the email_log cutoff', () => {
+    const months = RETENTION_TABLES.find(t => t.table === 'email_log')!.months
+    for (const at of ['2026-10-06T03:17:00.000Z', '2028-02-29T12:00:00.000Z', '2027-03-31T00:00:00.000Z', '2030-12-31T23:59:59.999Z']) {
+      const now = new Date(at)
+      expect(now.getTime() - LOG_HORIZON_MS - Date.parse(retentionCutoff(now, months))).toBeGreaterThanOrEqual(30 * 24 * 3600_000)
+    }
+  })
+
+  it('a large analytics backlog never starves the email log or the reader-data audit', async () => {
+    const { calls } = mockSupabase({ analytics_events: RETENTION_BATCH * 100, email_log: 1, user_data_audit: 1 })
+    const result = await runRetentionCleanup(env, NOW)
+    expect(calls.filter(call => call.method === 'DELETE' && /^(email_log|user_data_audit)\?/.test(call.path))).toHaveLength(2)
+    expect(result?.tables.slice(1, 3).map(t => [t.table, t.deleted, t.complete])).toEqual([['email_log', 1, true], ['user_data_audit', 1, true]])
   })
 
   it('deletes only profile reports older than 12 months, resolved or not', async () => {
@@ -106,14 +157,14 @@ describe('runRetentionCleanup', () => {
     expect(reportCalls.every(call => !call.path.includes('resolved_at'))).toBe(true)
     expect(result?.tables[0]).toEqual({ table: 'profile_reports', cutoff: REPORT_CUTOFF, deleted: 3, batches: 1, complete: true })
     // The 24-month tables keep their own, older cutoff.
-    expect(calls.filter(call => !call.path.startsWith('profile_reports')).every(call => call.path.includes(`created_at=lt.${CUTOFF}&`))).toBe(true)
+    expect(calls.filter(call => !call.path.startsWith('profile_reports')).every(call => call.path.includes(`_at=lt.${CUTOFF}&`))).toBe(true)
   })
 
   it('a failed profile report cleanup does not stop the other tables', async () => {
     const { calls } = mockSupabase({ profile_reports: 2, analytics_events: 1 }, { failDelete: 'profile_reports' })
     const result = await runRetentionCleanup(env, NOW)
     expect(result?.tables[0]).toMatchObject({ table: 'profile_reports', deleted: 0, complete: false, error: 'delete 500' })
-    expect(result?.tables[1]).toMatchObject({ table: 'analytics_events', deleted: 1, complete: true })
+    expect(result?.tables[3]).toMatchObject({ table: 'analytics_events', deleted: 1, complete: true })
     expect(calls.filter(call => call.method === 'DELETE' && call.path.startsWith('analytics_events'))).toHaveLength(1)
   })
 
@@ -123,12 +174,14 @@ describe('runRetentionCleanup', () => {
 
     expect(calls).toEqual([
       { method: 'GET', path: `profile_reports?select=id&created_at=lt.${REPORT_CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
+      { method: 'GET', path: `email_log?select=id&sent_at=lt.${CUTOFF}&order=sent_at.asc,id.asc&limit=${RETENTION_BATCH}` },
+      { method: 'GET', path: `user_data_audit?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
       { method: 'GET', path: `analytics_events?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
       { method: 'GET', path: `ai_usage_events?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
       { method: 'GET', path: `token_usage?select=id&created_at=lt.${CUTOFF}&order=created_at.asc,id.asc&limit=${RETENTION_BATCH}` },
     ])
     expect(result?.tables.map(t => [t.table, t.deleted, t.complete])).toEqual([
-      ['profile_reports', 0, true], ['analytics_events', 0, true], ['ai_usage_events', 0, true], ['token_usage', 0, true],
+      ['profile_reports', 0, true], ['email_log', 0, true], ['user_data_audit', 0, true], ['analytics_events', 0, true], ['ai_usage_events', 0, true], ['token_usage', 0, true],
     ])
   })
 
@@ -146,10 +199,12 @@ describe('runRetentionCleanup', () => {
     }
     expect(deletes[0].path.split('id=in.(')[1].split(')')[0].split(',')).toHaveLength(RETENTION_BATCH)
     expect(deletes[2].path).toBe(`ai_usage_events?id=in.(1,2)&created_at=lt.${CUTOFF}`)
-    expect(calls.filter(call => call.method === 'GET' && !call.path.startsWith('profile_reports')).every(call => call.path.includes(`&created_at=lt.${CUTOFF}&`))).toBe(true)
+    expect(calls.filter(call => call.method === 'GET' && !call.path.startsWith('profile_reports')).every(call => call.path.includes(`_at=lt.${CUTOFF}&`))).toBe(true)
 
     expect(result?.tables).toEqual([
       { table: 'profile_reports', cutoff: REPORT_CUTOFF, deleted: 0, batches: 0, complete: true },
+      { table: 'email_log', cutoff: CUTOFF, deleted: 0, batches: 0, complete: true },
+      { table: 'user_data_audit', cutoff: CUTOFF, deleted: 0, batches: 0, complete: true },
       { table: 'analytics_events', cutoff: CUTOFF, deleted: RETENTION_BATCH + 3, batches: 2, complete: true },
       { table: 'ai_usage_events', cutoff: CUTOFF, deleted: 2, batches: 1, complete: true },
       { table: 'token_usage', cutoff: CUTOFF, deleted: 0, batches: 0, complete: true },
@@ -169,17 +224,17 @@ describe('runRetentionCleanup', () => {
     const { fetchMock } = mockSupabase({ analytics_events: RETENTION_BATCH * 100 })
     const result = await runRetentionCleanup(env, NOW)
     expect(fetchMock.mock.calls.length).toBeLessThanOrEqual(RETENTION_SUBREQUEST_BUDGET)
-    // profile_reports (empty) spends one read first.
-    expect(result?.tables[0]).toMatchObject({ table: 'profile_reports', complete: true })
-    expect(result?.tables[1]).toMatchObject({ complete: false, deleted: RETENTION_BATCH * Math.floor((RETENTION_SUBREQUEST_BUDGET - 1) / 2) })
-    expect(result?.tables[2]).toMatchObject({ deleted: 0, complete: false })
+    // profile_reports, email_log and user_data_audit (empty) spend one read each first.
+    expect(result?.tables.slice(0, 3).map(t => [t.table, t.complete])).toEqual([['profile_reports', true], ['email_log', true], ['user_data_audit', true]])
+    expect(result?.tables[3]).toMatchObject({ table: 'analytics_events', complete: false, deleted: RETENTION_BATCH * Math.floor((RETENTION_SUBREQUEST_BUDGET - 3) / 2) })
+    expect(result?.tables[4]).toMatchObject({ deleted: 0, complete: false })
   })
 
   it('stops a table on a failed delete and moves on', async () => {
     const { calls } = mockSupabase({ analytics_events: 3, ai_usage_events: 1 }, { failDelete: 'analytics_events' })
     const result = await runRetentionCleanup(env, NOW)
-    expect(result?.tables[1]).toMatchObject({ deleted: 0, complete: false, error: 'delete 500' })
-    expect(result?.tables[2]).toMatchObject({ deleted: 1, complete: true })
+    expect(result?.tables[3]).toMatchObject({ table: 'analytics_events', deleted: 0, complete: false, error: 'delete 500' })
+    expect(result?.tables[4]).toMatchObject({ table: 'ai_usage_events', deleted: 1, complete: true })
     expect(calls.filter(call => call.method === 'DELETE' && call.path.startsWith('analytics_events'))).toHaveLength(1)
   })
 
@@ -198,7 +253,7 @@ describe('runRetentionCleanup', () => {
     expect(logs.join('\n')).not.toContain(uuid(1))
     expect(logs.join('\n')).not.toContain('in.(')
     expect(JSON.parse(logs[0])).toEqual({ event: 'retention_cleanup', table: 'profile_reports', cutoff: REPORT_CUTOFF, deleted: 1, batches: 1, complete: true })
-    expect(JSON.parse(logs[1])).toEqual({ event: 'retention_cleanup', table: 'analytics_events', cutoff: CUTOFF, deleted: 2, batches: 1, complete: true })
+    expect(JSON.parse(logs[3])).toEqual({ event: 'retention_cleanup', table: 'analytics_events', cutoff: CUTOFF, deleted: 2, batches: 1, complete: true })
   })
 
   it('does nothing without Supabase config', async () => {
@@ -240,7 +295,7 @@ describe('retention cron wiring', () => {
   it('the retention cron runs only the cleanup', async () => {
     const urls = await runCron(RETENTION_CRON)
     expect(urls).toHaveLength(RETENTION_TABLES.length)
-    expect(urls.every(url => url.includes('created_at=lt.'))).toBe(true)
+    expect(urls.every(url => url.includes('created_at=lt.') || url.includes('/email_log?select=id&sent_at=lt.'))).toBe(true)
     expect(urls[0]).toContain(`/rest/v1/profile_reports?select=id&created_at=lt.${REPORT_CUTOFF}&`)
   })
 

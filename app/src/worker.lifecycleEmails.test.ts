@@ -166,6 +166,8 @@ describe('LIFECYCLE_EMAILS switch', () => {
     vi.stubGlobal('fetch', vi.fn(async () => json([{ id: UID, email: 'tinct2@fastmail.com', created_at: new Date().toISOString() }])))
     const bad = await handleAdminAnnounceEmail(new Request('https://tinct.app/api/admin/announce-email', { method: 'POST', body: JSON.stringify({ campaign: 'x', omitFeatures: ['nope'] }) }), { ...BASE, LIFECYCLE_EMAILS: '1' }, async () => true)
     expect(bad.status).toBe(400)
+    const undated = await handleAdminAnnounceEmail(new Request('https://tinct.app/api/admin/announce-email', { method: 'POST', body: JSON.stringify({ campaign: 'add-any-book' }) }), { ...BASE, LIFECYCLE_EMAILS: '1' }, async () => true)
+    expect(undated.status).toBe(400)
     const dry = await handleAdminAnnounceEmail(new Request('https://tinct.app/api/admin/announce-email', { method: 'POST', body: JSON.stringify({ campaign: 'add-any-book', omitFeatures: ['search'], dryRun: true }) }), { ...BASE, LIFECYCLE_EMAILS: '1' }, async () => true)
     const preview = await dry.json() as { recipients: number; html: string; text: string }
     expect(preview.recipients).toBe(1)

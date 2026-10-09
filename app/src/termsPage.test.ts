@@ -106,3 +106,11 @@ describe('privacy: account deletion', () => {
     expect(privacyText).toContain('Deletion: delete your account and all associated data in Settings → Account, or ask us to.')
   })
 })
+
+describe('privacy: retention', () => {
+  const privacyText = text(privacy)
+  it('says the email send record and the reader-data change history are deleted after 24 months, like analytics', () => {
+    expect(privacyText).toContain('Account and reading data are kept for as long as your account exists. Analytics events, usage records, the record of the emails we have sent you and the history of changes to your reading data are kept for 24 months and then deleted automatically.')
+    expect(privacyText).not.toContain('Analytics events and usage records are kept for 24 months')
+  })
+})

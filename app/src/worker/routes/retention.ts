@@ -1,12 +1,13 @@
 /**
- * Retention cleanup: keeps the privacy notice's promises that analytics events
- * and usage records are kept for 24 months (app/public/privacy.html#retention)
- * and that a report about a profile is kept for up to 12 months.
+ * Retention cleanup: keeps the privacy notice's promises that analytics events,
+ * usage records, the email send log and the reader-data audit history are kept
+ * for 24 months (app/public/privacy.html#retention) and that a report about a
+ * profile is kept for up to 12 months.
  *
  * Runs on its own Cloudflare cron (RETENTION_CRON, wrangler.jsonc), separate
  * from the daily email cron so each run has its own subrequest budget and the
  * lifecycle emails never run twice. Every request is filtered by the table's
- * timestamp column (`created_at=lt.<cutoff>`, the cutoff set by that table's
+ * timestamp column (e.g. `created_at=lt.<cutoff>`, the cutoff set by that table's
  * retention period): a batch of ids older than the cutoff is read, then
  * deleted by those ids AND the same cutoff, so a row younger than its period
  * can never be removed and no delete is unfiltered. Each table is handled on
@@ -30,19 +31,26 @@ export const PROFILE_REPORT_RETENTION_MONTHS = 12
 
 /**
  * Tables with a retention promise, their timestamp column and period in months.
- * profile_reports comes first: it is small and has the shorter promise, so a
- * large analytics backlog using up the run's budget can never starve it.
+ * profile_reports comes first (small, shorter promise), then the small email
+ * log and reader-data audit, then the large analytics and usage tables, so a
+ * large analytics backlog using up the run's budget can never starve the rest.
  */
 export const RETENTION_TABLES: ReadonlyArray<{ table: string; column: string; months: number }> = [
   // Reports about profiles (supabase/migrations/20261008_social.sql), resolved or not.
   { table: 'profile_reports', column: 'created_at', months: PROFILE_REPORT_RETENTION_MONTHS },
+  // Email send log (supabase/migrations/20261008_email_log.sql); its timestamp is sent_at.
+  // The lifecycle rules never plan an email whose earlier send could be this old
+  // (lifecycle/rules.ts LOG_HORIZON_MS), so a deleted row cannot cause a re-send.
+  { table: 'email_log', column: 'sent_at', months: RETENTION_MONTHS },
+  // Old/new values of reader-data writes (supabase/user_data_audit.sql).
+  { table: 'user_data_audit', column: 'created_at', months: RETENTION_MONTHS },
   { table: 'analytics_events', column: 'created_at', months: RETENTION_MONTHS },
   { table: 'ai_usage_events', column: 'created_at', months: RETENTION_MONTHS },
   // Legacy per-reader token ledger (supabase/migration.sql); no longer written.
   { table: 'token_usage', column: 'created_at', months: RETENTION_MONTHS },
 ]
 
-/** uuid (analytics_events, token_usage) or bigint identity (ai_usage_events, profile_reports). */
+/** uuid (analytics_events, token_usage, user_data_audit) or bigint identity (ai_usage_events, profile_reports, email_log). */
 const ROW_ID = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9]{1,19})$/i
 
 /**
