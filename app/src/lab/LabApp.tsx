@@ -137,7 +137,9 @@ import {
   type LabPrefs,
   type LabAppearanceProfile,
   type LabReaderProgressMode,
+  labSignInUrl,
 } from './labPrefs'
+import { closeAccountCards, consumeCardParam, openAccountCards, type CardName } from '../cards/openCards'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labLayoutOverride } from './labRoute'
@@ -203,7 +205,6 @@ import { ownReadingNowWithAccount } from './userBook/ownSync'
 import { readShelfMembership } from '../libraryTwoSaved'
 import { resolveBookCover } from '../../public/lab/book-cover.js'
 import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
-import { socialProfilesOn } from '../social/socialClient'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -737,6 +738,37 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   useBackCloses(tocOpen, () => setTocOpen(false))
   useBackCloses(superMenuOpen, () => setSuperMenuOpen(false))
   useBackCloses(superSheet !== null, () => setSuperSheet(null))
+  // The account cards (src/cards, CARDS-BRIEF.md) open over the reader while the
+  // layer is 'account', so every overlay guard above applies to them; the
+  // reader never unloads. An old account link arrives as ?card=<name>.
+  const accountCardRef = useRef<CardName | null>(null)
+  useEffect(() => {
+    const card = consumeCardParam()
+    if (!card) return
+    accountCardRef.current = card
+    setSuperSheet('account')
+  }, [])
+  const accountCardsWanted = superSheet === 'account'
+  useEffect(() => {
+    if (!accountCardsWanted) { closeAccountCards(); return }
+    const start = accountCardRef.current ?? 'you'
+    accountCardRef.current = null
+    let live = true
+    void openAccountCards({
+      start,
+      dark: resolvedDarkMode,
+      deskTop: 76,
+      onClose: () => setSuperSheet(layer => (layer === 'account' ? null : layer)),
+    }).then(opened => {
+      if (opened || !live) return
+      // Signed out: the account lives behind sign-in.
+      setSuperSheet(null)
+      window.location.assign(labSignInUrl(labCurrentPath()))
+    })
+    return () => { live = false }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- opened once per 'account'; the theme is read at open
+  }, [accountCardsWanted])
+  useEffect(() => () => closeAccountCards(), [])
   useBackCloses(bookSwitcherOpen, () => setBookSwitcherOpen(false))
   useBackCloses(chapterNotes !== null, () => setChapterNotes(null))
   useBackCloses(inTheBookOpen, () => { setInTheBookOpen(false); setPeekBook(false) })
@@ -4835,7 +4867,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
-      { id: 'account', label: socialProfilesOn() ? 'Profile' : 'Account', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration)),
   })
@@ -5067,7 +5099,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             : null}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
-          returnTo={signInReturnTo}
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
             ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
             : undefined}

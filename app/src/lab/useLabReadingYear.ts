@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { readLabDeviceId } from './labPositionStore'
-import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear, type ReadingYearTotals } from './labReadingYear'
+import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear } from './labReadingYear'
 import { SWITCH_RECHECK_MS, addPending, beatPayload, nextFlush, readPending, readingTimeSwitch, sendBeat, sendFlush, subtractPending, type LedgerStatus } from './labReadingTime'
 import { PRIVATE_BOOK_ID, ledgerBookId, localDay } from '../readingTime/model'
 import { supabase } from '../services/supabase'
@@ -213,18 +213,4 @@ export function useLabReadingYear(input: {
     window.addEventListener('pagehide', sync)
     return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', onHide); window.removeEventListener('pagehide', sync); sync() }
   }, [userId])
-}
-
-/** This year's totals for the account sheet: the device copy at once, then the account's (all devices) when signed in. */
-export function useReadingYearTotals(userId: string | null, open: boolean): ReadingYearTotals {
-  const year = new Date().getFullYear()
-  const [totals, setTotals] = useState(() => readingYearTotals(readLocalReadingYear(year, userId)))
-  useEffect(() => {
-    if (!open) return
-    let live = true
-    setTotals(readingYearTotals(readLocalReadingYear(year, userId)))
-    if (userId) syncReadingYear(userId, readLocalReadingYear(year, userId)).then(state => { if (live) setTotals(readingYearTotals(state)) }).catch(() => {})
-    return () => { live = false }
-  }, [open, userId, year])
-  return totals
 }

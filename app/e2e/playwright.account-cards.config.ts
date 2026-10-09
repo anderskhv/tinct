@@ -1,10 +1,9 @@
 import { defineConfig } from '@playwright/test'
 
 /**
- * Reading time (social ship 1, `reading-time.spec.ts`): the account sheet with
- * the SOCIAL_READING_TIME switch off and on, signed in and out, and the Your
- * reading page, at phone and desktop size. Every /api/reading-time call is
- * mocked; nothing reaches a database. Chromium only: set
+ * The account cards (`account-cards.spec.ts`): every card over the reader and
+ * the library, at phone and desktop size, with every Worker route mocked.
+ * Chromium only: set
  * PW_CHROMIUM_EXECUTABLE (e.g. /opt/pw-browsers/chromium); never run
  * `playwright install` for this. BASE_URL is a running `vite` dev server
  * started with VITE_SUPABASE_URL=<BASE_URL>/sb (a placeholder the spec
@@ -15,7 +14,7 @@ const launchOptions = executablePath ? { executablePath } : {}
 
 export default defineConfig({
   testDir: './',
-  testMatch: ['reading-time.spec.ts'],
+  testMatch: ['account-cards.spec.ts'],
   fullyParallel: false,
   retries: 0,
   workers: 1,

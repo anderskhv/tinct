@@ -23,12 +23,8 @@ export function labLibraryIntroductionUrl(bookId: string, editionKey?: string, p
 export function labSignInUrl(returnTo: string = LAB_LIBRARY_URL): string {
   return `/sign-in?returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
 }
-export function labAccountUrl(returnTo: string = LAB_LIBRARY_URL): string {
-  return `/sign-in?mode=account&returnTo=${encodeURIComponent(returnTo || LAB_LIBRARY_URL)}`
-}
 /** Library defaults, for surfaces with no reader to return to. */
 export const LAB_SIGN_IN_URL = labSignInUrl()
-export const LAB_ACCOUNT_URL = labAccountUrl()
 
 export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 

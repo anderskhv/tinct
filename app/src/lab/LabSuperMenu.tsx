@@ -1,6 +1,5 @@
 import { useEffect, useLayoutEffect, useRef } from 'react'
 import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './labSuperMenu'
-import { socialProfilesOn } from '../social/socialClient'
 import { ChatIcon, TalkIcon } from './LabReaderIcons'
 
 export interface LabSuperMenuProps {
@@ -108,8 +107,7 @@ export function LabSuperMenu({ open, phone, privateBook, onSelect, onClose }: La
   }, [open, onClose])
 
   if (!open) return null
-  // Profiles (social ship 2): "Account" is called Profile while they are on.
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook }).map(row => row.id === 'account' && socialProfilesOn() ? { ...row, label: 'Profile' } : row)
+  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook })
 
   return (
     <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">

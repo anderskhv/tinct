@@ -9,6 +9,8 @@ import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache
 import { DEFAULT_LAB_PREFS, writeLabPrefs } from './labPrefs'
 import { LAB_TEE_CROSS, LAB_TEE_MORPH_FRAMES, LAB_TEE_REST } from './labSuperGlyph'
 import { labSuperMenuRows } from './labSuperMenu'
+const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
+vi.mock('../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../cards/openCards')>(), openAccountCards: accountCards.open }))
 
 // Transport geometry uses a synthetic Bible fixture; availability has its own regression.
 vi.mock('../data/audioAvailability', async importOriginal => ({ ...await importOriginal<typeof import('../data/audioAvailability')>(), isAudioHeld: () => false }))
@@ -256,7 +258,7 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    expect(labels).toEqual(['Librarian', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Library', 'Account'])
+    expect(labels).toEqual(['Librarian', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Library', 'Profile'])
     // Chat and Talk are labelled icon buttons inside the Librarian row.
     expect(screen.getByTestId('lab-super-row-chat').getAttribute('aria-label')).toBe('Chat')
     expect(screen.getByTestId('lab-super-row-talk').getAttribute('aria-label')).toBe('Talk')
@@ -359,11 +361,15 @@ describe('the super-menu', () => {
     expect(bodies.some(body => 'paragraphIndex' in body)).toBe(false)
   })
 
-  it('opens Account on the same sheet rather than leaving the book', () => {
+  it('opens the account cards over the book (Profile) rather than leaving it', async () => {
     renderPhone()
+    accountCards.open.mockClear()
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-account'))
-    expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('account')
+    expect(screen.getByTestId('lab-root').getAttribute('data-super-sheet')).toBe('account')
+    await waitFor(() => expect(accountCards.open).toHaveBeenCalledTimes(1))
+    expect(accountCards.open.mock.calls[0][0]).toMatchObject({ start: 'you' })
+    expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
   })
 })
 

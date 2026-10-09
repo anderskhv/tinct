@@ -136,8 +136,9 @@ describe('every removal path uses the motion', () => {
   it('the changed modules share one cache tag', () => {
     // Shelf motion and cover shape (20261009cover) are unchanged since; one shelf truth
     // (20261009shelf) changed the reading table, My shelf, covers and titles above them.
-    const motion = '20261009cover', tag = '20261009shelf'
-    expect(lib('index.html')).toContain(`app.js?v=${tag}`)
+    // The account cards (20261009cards) changed app.js alone: only index.html's tag for it moved.
+    const motion = '20261009cover', tag = '20261009shelf', cards = '20261009cards'
+    expect(lib('index.html')).toContain(`app.js?v=${cards}`)
     expect(lib('index.html')).toContain(`styles.css?v=${tag}`)
     expect(lib('app.js')).toContain(`bookshelf.js?v=${tag}`)
     expect(lib('app.js')).toContain(`catalogue.js?v=${tag}`)

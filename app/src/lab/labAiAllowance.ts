@@ -27,6 +27,10 @@ export type AiAllowanceState = 'ok' | 'low' | 'used_up'
 
 export interface AiAllowance {
   usedFraction: number
+  /** This month's allowance alone (the cards' first bar); null from an older Worker. */
+  monthUsedFraction: number | null
+  /** What is left of this period's top-up (the cards' second bar); null when none was bought. */
+  topUpLeftFraction: number | null
   state: AiAllowanceState
   resetsAt: string | null
   hasTopUp: boolean
@@ -54,8 +58,11 @@ export function parseAiAllowance(data: unknown): AiAllowance | null {
   if (typeof value.usedFraction !== 'number' || !Number.isFinite(value.usedFraction)) return null
   if (!STATES.includes(value.state as AiAllowanceState)) return null
   const resetsAt = typeof value.resetsAt === 'string' && Number.isFinite(Date.parse(value.resetsAt)) ? value.resetsAt : null
+  const fraction = (raw: unknown) => (typeof raw === 'number' && Number.isFinite(raw) ? Math.min(1, Math.max(0, raw)) : null)
   return {
     usedFraction: Math.min(1, Math.max(0, value.usedFraction)),
+    monthUsedFraction: fraction(value.monthUsedFraction),
+    topUpLeftFraction: fraction(value.topUpLeftFraction),
     state: value.state as AiAllowanceState,
     resetsAt,
     hasTopUp: value.hasTopUp === true,
