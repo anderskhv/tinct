@@ -32,8 +32,8 @@ import type { AiFeature } from './aiUsage'
 const require = createRequire(import.meta.url)
 const now = new Date('2026-10-05T12:00:00Z')
 const iso = (value: string) => new Date(value).toISOString()
-const usedUp: AllowanceView = { usedFraction: 1, state: 'used_up', resetsAt: null, hasTopUp: false }
-const ok: AllowanceView = { usedFraction: 0.2, state: 'ok', resetsAt: null, hasTopUp: false }
+const usedUp: AllowanceView = { usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: null, hasTopUp: false }
+const ok: AllowanceView = { usedFraction: 0.2, monthUsedFraction: 0.2, topUpLeftFraction: null, state: 'ok', resetsAt: null, hasTopUp: false }
 
 afterEach(() => vi.unstubAllGlobals())
 
@@ -203,7 +203,7 @@ describe('state', () => {
     allowanceView({ allowanceMicros: allowance, spendMicros: spend, creditMicros: credit, drawnMicros: drawn }, resets)
 
   it('is ok below 80% used', () => {
-    expect(view(0)).toEqual({ usedFraction: 0, state: 'ok', resetsAt: resets.toISOString(), hasTopUp: false })
+    expect(view(0)).toEqual({ usedFraction: 0, monthUsedFraction: 0, topUpLeftFraction: null, state: 'ok', resetsAt: resets.toISOString(), hasTopUp: false })
     expect(view(2_390_000).state).toBe('ok')
   })
 
@@ -226,7 +226,25 @@ describe('state', () => {
 
   it('has nothing to use on a standard account without credit', () => {
     expect(allowanceView({ allowanceMicros: 0, spendMicros: 0, creditMicros: 0, drawnMicros: 0 }, null))
-      .toEqual({ usedFraction: 1, state: 'used_up', resetsAt: null, hasTopUp: false })
+      .toEqual({ usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: null, hasTopUp: false })
+  })
+
+  it('splits the bar: this month\'s allowance and the top-up, as fractions only', () => {
+    // 1.50 of a 3.00 allowance spent; no top-up this period.
+    expect(view(1_500_000)).toMatchObject({ monthUsedFraction: 0.5, topUpLeftFraction: null })
+    // Allowance spent (overflow drawn from the top-up): the month is full, 1.10 of 2.10 credit left.
+    const topped = view(4_000_000, 1_100_000, 1_000_000)
+    expect(topped.monthUsedFraction).toBe(1)
+    expect(topped.topUpLeftFraction).toBe(0.524)
+    // A top-up bought, nothing drawn yet: all of it left.
+    expect(view(600_000, 2_000_000, 0)).toMatchObject({ monthUsedFraction: 0.2, topUpLeftFraction: 1 })
+    // A top-up fully drawn this period: still shown, empty.
+    expect(view(3_500_000, 0, 500_000)).toMatchObject({ monthUsedFraction: 1, topUpLeftFraction: 0 })
+  })
+
+  it('counts a standard account\'s month as used and its top-up on its own bar', () => {
+    expect(allowanceView({ allowanceMicros: 0, spendMicros: 500_000, creditMicros: 1_500_000, drawnMicros: 500_000 }, null))
+      .toMatchObject({ monthUsedFraction: 1, topUpLeftFraction: 0.75 })
   })
 
   it('lets a standard account use its top-up', () => {
@@ -339,7 +357,7 @@ describe('loadAllowanceView', () => {
     }))
     const view = await loadAllowanceView(env, userId, now)
     expect(settleBody).toEqual({ p_user: userId, p_period_start: iso('2026-09-20T00:00:00Z'), p_allowance_micros: 3_000_000 })
-    expect(view).toEqual({ usedFraction: 0.9, state: 'low', resetsAt: iso('2026-10-20T00:00:00Z'), hasTopUp: false })
+    expect(view).toEqual({ usedFraction: 0.9, monthUsedFraction: 0.9, topUpLeftFraction: null, state: 'low', resetsAt: iso('2026-10-20T00:00:00Z'), hasTopUp: false })
   })
 
   it('returns null when the settlement fails (fail open)', async () => {
