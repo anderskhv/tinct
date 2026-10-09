@@ -1,0 +1,256 @@
+<title>Tinct Chat Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap">
+<style>
+/* Layout: phone frames (390 × 844) and a desktop reader with the chat panel on the right, in the reader's Paper look with a Night switch. The chat is the book's own typography: EB Garamond for every word, Playfair for the one title, the system face only for the tiny hover line. One bubble marks the reader's words; everything else is plain text on paper. */
+:root {
+  --stage: #141414; --stage-ink: #ededed; --stage-soft: #9a9a9a;
+  --paper: #ece7db; --ink: #0b0b0b; --muted: #6a6256; --faint: #9a9183; --surface: #e2d8c4; --bubble: #dfd5bf; --hair: rgba(32,26,19,.14); --field: #f6f2ea; --disc: rgba(32,26,19,.08); --quote-bar: #b9ad92;
+  --gara: "EB Garamond", Georgia, serif; --play: "Playfair Display", Georgia, serif; --sans: Inter, -apple-system, system-ui, sans-serif;
+  color-scheme: dark;
+}
+.night .ph, .night .dk, .dark { --paper: #171411; --ink: #d6ccbf; --muted: #9a9083; --faint: #6f675d; --surface: #241f1a; --bubble: #2a241e; --hair: rgba(214,204,191,.14); --field: #1f1b17; --disc: rgba(214,204,191,.1); --quote-bar: #5a5146; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family: var(--sans); padding-block: 36px 100px; padding-inline: 20px; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1500px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
+.intro { display: flex; flex-direction: column; gap: 14px; max-width: 74ch; }
+.intro h1 { font-family: var(--play); font-weight: 700; font-size: 2.4rem; margin: 0; letter-spacing: -.01em; }
+.intro p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: var(--stage-soft); }
+.mode { display: inline-flex; gap: 2px; background: #262626; border-radius: 10px; padding: 3px; align-self: flex-start; }
+.mode button { font: 500 .88rem var(--sans); color: #9a9a9a; background: none; border: 0; border-radius: 8px; padding: 7px 18px; cursor: pointer; }
+.mode button[aria-pressed="true"] { background: #ededed; color: #141414; }
+.mode button:focus-visible { outline: 2px solid #ededed; outline-offset: 2px; }
+.sec > h2 { font-family: var(--play); font-weight: 700; font-size: 1.5rem; margin: 0; }
+.sec > p { margin: 6px 0 0; color: var(--stage-soft); }
+.strip { display: flex; flex-wrap: wrap; gap: 40px 32px; padding-top: 26px; align-items: flex-start; }
+.step { width: 390px; display: flex; flex-direction: column; gap: 12px; flex: none; }
+.step .num { font-size: .9rem; color: #d6d6d6; font-weight: 500; }
+.step .cap { font-size: .95rem; line-height: 1.5; color: var(--stage-soft); }
+.step .cap b { color: var(--stage-ink); font-weight: 500; }
+
+/* frames */
+.ph { width: 390px; height: 844px; border-radius: 48px; overflow: hidden; position: relative; background: var(--paper); color: var(--ink); box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 60px rgba(0,0,0,.55); isolation: isolate; font-family: var(--gara); display: flex; flex-direction: column; }
+
+/* chat header: the one Playfair word, two quiet discs */
+.hd { display: flex; align-items: center; height: 56px; padding: 0 20px; margin-top: 48px; flex: none; }
+.hd b { font-family: var(--play); font-weight: 700; font-size: 20px; }
+.hd .sp { flex: 1; }
+.disc { width: 32px; height: 32px; border-radius: 50%; background: var(--disc); color: var(--muted); display: grid; place-items: center; margin-left: 10px; }
+.disc svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+
+/* the thread */
+.thread { flex: 1; min-height: 0; overflow: hidden; padding: 8px 20px 0; display: flex; flex-direction: column; gap: 12px; position: relative; }
+.thread.bottom { justify-content: flex-end; }
+.div { display: flex; align-items: center; gap: 12px; margin: 10px 0 2px; color: var(--faint); font-style: italic; font-size: 15px; white-space: nowrap; }
+.div::before, .div::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
+.you { align-self: flex-end; max-width: 82%; background: var(--bubble); border-radius: 18px 18px 4px 18px; padding: 10px 16px; font-size: 18px; line-height: 1.4; margin-top: 12px; }
+.you + .you { margin-top: 0; }
+.ai { font-size: 19px; line-height: 1.5; max-width: 100%; }
+.ai p { margin: 0 0 .7em; } .ai p:last-child { margin-bottom: 0; }
+.ai q { quotes: "\201C" "\201D"; }
+.ai + .you, .acts + .you { margin-top: 16px; }
+.quote { position: relative; align-self: flex-end; max-width: 82%; margin-top: 16px; padding: 2px 0 2px 14px; font-style: italic; font-size: 16px; line-height: 1.4; color: var(--muted); }
+.quote::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; background: var(--quote-bar); border-radius: 1px; }
+.quote + .you { margin-top: 6px; }
+.acts { display: flex; align-items: center; gap: 18px; margin-top: -2px; color: var(--faint); }
+.acts svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.acts .t { font-family: var(--sans); font-size: 12px; margin-left: auto; letter-spacing: .01em; }
+.acts.hover { position: relative; }
+.acts.hover::after { content: ""; position: absolute; left: -12px; right: -12px; top: -6px; bottom: -6px; border-radius: 8px; background: var(--disc); z-index: -1; }
+.cursor { display: inline-block; width: 2px; height: 1.05em; background: var(--ink); vertical-align: -0.18em; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+.jump { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: var(--ink); color: var(--paper); font-family: var(--sans); font-size: 13px; font-weight: 500; border-radius: 999px; padding: 8px 14px; display: flex; align-items: center; gap: 6px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.jump svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.fade { position: absolute; left: 0; right: 0; top: 0; height: 36px; background: linear-gradient(var(--paper), transparent); pointer-events: none; }
+
+/* composer */
+.compose { flex: none; padding: 12px 16px calc(16px + 18px); }
+.field { display: flex; align-items: flex-end; gap: 6px; background: var(--field); border-radius: 22px; box-shadow: 0 0 0 1px var(--hair); padding: 6px 6px 6px 18px; min-height: 44px; }
+.field .ph-text { flex: 1; font-size: 18px; line-height: 1.4; color: var(--faint); padding: 5px 0; }
+.field .typed { flex: 1; font-size: 18px; line-height: 1.4; color: var(--ink); padding: 5px 0; }
+.ib { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; color: var(--muted); flex: none; }
+.ib svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ib.send { background: var(--ink); color: var(--paper); }
+.hint { text-align: center; font-family: var(--sans); font-size: 11px; color: var(--faint); margin-top: 8px; }
+
+/* reader page behind (phone, dimmed) and desktop */
+.page { position: absolute; inset: 0; padding: 70px 24px 0; font-family: var(--gara); color: var(--ink); opacity: .35; }
+.page .bar { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-size: 1rem; }
+.page .bar b { font-family: var(--play); font-weight: 700; }
+.page .bar i { font-style: italic; color: var(--muted); background: var(--surface); border-radius: 999px; padding: 2px 10px; }
+.page p { margin: 0; font-size: 1.25rem; line-height: 1.5; text-align: justify; hyphens: auto; }
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; top: 90px; background: var(--paper); border-radius: 20px 20px 0 0; box-shadow: 0 -12px 36px rgba(0,0,0,.18); display: flex; flex-direction: column; }
+.sheet .hd { margin-top: 10px; }
+.grab { width: 36px; height: 5px; border-radius: 3px; background: var(--hair); margin: 8px auto 0; flex: none; }
+
+.dkwrap { overflow-x: auto; padding-bottom: 8px; }
+.dk { width: 1200px; height: 760px; border-radius: 16px; overflow: hidden; position: relative; background: var(--paper); color: var(--ink); box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 60px rgba(0,0,0,.55); isolation: isolate; font-family: var(--gara); }
+.dk .top { height: 60px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 28px; }
+.dk .top b { font-family: var(--play); font-weight: 700; font-size: 1.3rem; }
+.dk .top i { margin-left: 10px; font-style: italic; color: var(--muted); background: var(--surface); border-radius: 999px; padding: 3px 12px; }
+.dk .top .rt { justify-self: end; font-family: var(--play); font-weight: 700; font-style: italic; }
+.dk .spread { position: absolute; left: 28px; top: 68px; bottom: 32px; width: 640px; background: var(--paper); box-shadow: 0 0 0 1px var(--hair), 0 8px 24px rgba(0,0,0,.08); padding: 44px 56px; font-size: 1.35rem; line-height: 1.55; text-align: justify; hyphens: auto; }
+.dk .spread h3 { font-family: var(--play); font-size: 1.5rem; margin: 0 0 14px; text-align: left; }
+.dk .panel { position: absolute; top: 68px; right: 28px; bottom: 32px; width: 460px; background: var(--paper); border-radius: 18px; box-shadow: 0 0 0 1px var(--hair), 0 20px 50px rgba(0,0,0,.14); display: flex; flex-direction: column; overflow: hidden; }
+.dk .panel .hd { margin-top: 0; height: 60px; }
+.dk .panel .thread { padding: 4px 24px 0; }
+.dk .panel .compose { padding: 12px 18px 18px; }
+.dk .ai { font-size: 18px; } .dk .you { font-size: 17px; }
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px 36px; font-size: .98rem; line-height: 1.55; color: var(--stage-soft); margin-top: 16px; }
+.notes b { color: var(--stage-ink); font-weight: 500; display: block; }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="x" viewBox="0 0 14 14"><path d="M3 3l8 8M11 3l-8 8"/></symbol>
+  <symbol id="min" viewBox="0 0 14 14"><path d="M3 7h8"/></symbol>
+  <symbol id="copy" viewBox="0 0 18 18"><rect x="6" y="6" width="9" height="9" rx="1.8"/><path d="M12 6V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v6A1.5 1.5 0 0 0 4.5 12H6"/></symbol>
+  <symbol id="spk" viewBox="0 0 18 18"><path d="M3 7h3l4-3v10l-4-3H3z"/><path d="M12.5 6.5a3.5 3.5 0 0 1 0 5M14.5 4.5a6 6 0 0 1 0 9"/></symbol>
+  <symbol id="again" viewBox="0 0 18 18"><path d="M14.5 9a5.5 5.5 0 1 1-1.6-3.9"/><path d="M14.8 3.2v3.6h-3.6"/></symbol>
+  <symbol id="mic" viewBox="0 0 18 18"><rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5"/><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5"/></symbol>
+  <symbol id="talk" viewBox="0 0 18 18"><path d="M4 7v4M7 4.5v9M10 6.5v5M13 3.5v11M16 8v2"/></symbol>
+  <symbol id="up" viewBox="0 0 18 18"><path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/></symbol>
+  <symbol id="down" viewBox="0 0 12 12"><path d="M6 2v8M2.5 6.5 6 10l3.5-3.5"/></symbol>
+</defs></svg>
+
+<div class="wrap">
+  <section class="intro">
+    <h1>Chat, redrawn</h1>
+    <p>The chat is the book's own typography. Your words sit in one quiet bubble on the right; the companion's answers are plain text on the paper. No sender labels, no timestamps under every message: one italic rule marks a new chapter or a new day, and the time and copy appear only when you hover or press. The composer is one line until you type. Same component in the book reader and in the PDF reader for your own books.</p>
+    <div class="mode" role="group" aria-label="Look"><button type="button" data-m="paper" aria-pressed="true">Paper</button><button type="button" data-m="night" aria-pressed="false">Night</button></div>
+  </section>
+
+  <section class="sec" aria-label="Phone">
+    <h2>Phone</h2>
+    <p>The chat is a sheet over the page, as today. Text from the 1927 edition of <em>To the Lighthouse</em>.</p>
+    <div class="strip">
+
+      <div class="step"><span class="num">1 · A conversation</span>
+        <div class="ph">
+          <div class="page"><div class="bar"><b>To the Lighthouse</b><i>The Window · 1</i></div><p>“Yes, of course, if it’s fine tomorrow,” said Mrs. Ramsay. “But you’ll have to be up with the lark,” she added.</p></div>
+          <div class="sheet"><div class="grab"></div>
+            <div class="hd"><b>Chat</b><span class="sp"></span><span class="disc"><svg><use href="#min"/></svg></span><span class="disc"><svg><use href="#x"/></svg></span></div>
+            <div class="thread bottom">
+              <div class="fade"></div>
+              <div class="you">Who is James?</div>
+              <div class="ai"><p>The Ramsays’ youngest son, six years old, cutting out pictures from the illustrated catalogue at his mother’s feet. The lighthouse trip is his wish, and the chapter opens inside his hope.</p></div>
+              <div class="div">The Window · 1 · 3 October</div>
+              <div class="you">What is she really saying?</div>
+              <div class="ai"><p>She’s giving James hope while quietly hedging it with a condition. <q>Yes, of course, if it’s fine tomorrow</q> sounds like a promise, but the whole sentence rests on the weather, which nobody controls.</p><p>Woolf lets the comfort and the doubt share one breath. That’s the pattern of the chapter: Mrs. Ramsay soothes, and the world outside the window stays indifferent.</p></div>
+              <div class="acts"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><svg><use href="#again"/></svg></div>
+            </div>
+            <div class="compose"><div class="field"><span class="ph-text">Ask about this page</span><span class="ib"><svg><use href="#mic"/></svg></span><span class="ib"><svg><use href="#talk"/></svg></span></div></div>
+          </div>
+        </div>
+        <span class="cap"><b>No labels, no stamps.</b> Your question is the bubble; the answer is the page’s own text. The divider says which chapter and day the exchange belongs to. Only the latest answer shows its three actions: copy, listen, ask again.</span></div>
+
+      <div class="step"><span class="num">2 · From a highlight</span>
+        <div class="ph">
+          <div class="page"><div class="bar"><b>To the Lighthouse</b><i>The Window · 1</i></div></div>
+          <div class="sheet"><div class="grab"></div>
+            <div class="hd"><b>Chat</b><span class="sp"></span><span class="disc"><svg><use href="#min"/></svg></span><span class="disc"><svg><use href="#x"/></svg></span></div>
+            <div class="thread bottom">
+              <div class="fade"></div>
+              <div class="ai"><p>…and the world outside the window stays indifferent.</p></div>
+              <div class="quote">“But you’ll have to be up with the lark,” she added.</div>
+              <div class="you">Why “up with the lark”?</div>
+              <div class="ai"><p>It’s an old English way of saying <q>up at dawn</q>: larks sing at first light. Mrs. Ramsay adds it as a small, practical condition on top of the big one, the weather.</p><p>Notice how it turns a child’s wish into a plan with rules. That is her way of loving him.<span class="cursor"></span></p></div>
+            </div>
+            <div class="compose"><div class="field"><span class="ph-text">Ask about this page</span><span class="ib"><svg><use href="#mic"/></svg></span><span class="ib"><svg><use href="#talk"/></svg></span></div></div>
+          </div>
+        </div>
+        <span class="cap"><b>The passage you asked about</b> sits above your question as a small italic quote. While the answer is arriving there is only a cursor, no “thinking” line; the actions appear when it finishes.</span></div>
+
+      <div class="step"><span class="num">3 · Press and hold an older message</span>
+        <div class="ph">
+          <div class="page"><div class="bar"><b>To the Lighthouse</b><i>The Window · 1</i></div></div>
+          <div class="sheet"><div class="grab"></div>
+            <div class="hd"><b>Chat</b><span class="sp"></span><span class="disc"><svg><use href="#min"/></svg></span><span class="disc"><svg><use href="#x"/></svg></span></div>
+            <div class="thread bottom">
+              <div class="fade"></div>
+              <div class="div">The Window · 1 · 3 October</div>
+              <div class="you">What is she really saying?</div>
+              <div class="ai"><p>She’s giving James hope while quietly hedging it with a condition. <q>Yes, of course, if it’s fine tomorrow</q> sounds like a promise, but the whole sentence rests on the weather, which nobody controls.</p></div>
+              <div class="acts hover"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><span class="t">3 Oct, 10:24</span></div>
+              <div class="quote">“But you’ll have to be up with the lark,” she added.</div>
+              <div class="you">Why “up with the lark”?</div>
+              <div class="ai"><p>It’s an old English way of saying <q>up at dawn</q>: larks sing at first light.</p></div>
+              <div class="acts"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><svg><use href="#again"/></svg></div>
+            </div>
+            <div class="compose"><div class="field"><span class="ph-text">Ask about this page</span><span class="ib"><svg><use href="#mic"/></svg></span><span class="ib"><svg><use href="#talk"/></svg></span></div></div>
+          </div>
+        </div>
+        <span class="cap"><b>Time and copy only when you ask for them.</b> Press and hold on the phone, hover on desktop: a faint row with copy, listen and the exact time. Let go and it fades.</span></div>
+
+      <div class="step"><span class="num">4 · Typing, and scrolled up</span>
+        <div class="ph">
+          <div class="page"><div class="bar"><b>To the Lighthouse</b><i>The Window · 1</i></div></div>
+          <div class="sheet"><div class="grab"></div>
+            <div class="hd"><b>Chat</b><span class="sp"></span><span class="disc"><svg><use href="#min"/></svg></span><span class="disc"><svg><use href="#x"/></svg></span></div>
+            <div class="thread">
+              <div class="div">The Window · 1 · 28 September</div>
+              <div class="you">Who is James?</div>
+              <div class="ai"><p>The Ramsays’ youngest son, six years old, cutting pictures out of a catalogue at his mother’s feet. The lighthouse trip is his wish, and the chapter opens inside his hope.</p></div>
+              <div class="you">And Mr. Ramsay?</div>
+              <div class="ai"><p>His father, a philosopher, who stops at the drawing-room window and says <q>it won’t be fine.</q> Woolf gives him the truth and his wife the kindness, and lets you feel the cost of each.</p></div>
+              <div class="jump"><svg><use href="#down"/></svg>Latest</div>
+            </div>
+            <div class="compose"><div class="field"><span class="typed">Is Mr. Ramsay cruel, or just honest? I can’t decide whether Woolf wants me to</span><span class="ib send"><svg><use href="#up"/></svg></span></div><div class="hint">Return to send · Shift-Return for a new line</div></div>
+          </div>
+        </div>
+        <span class="cap"><b>The composer grows as you type</b> (to about five lines) and a send arrow replaces the mic and Talk icons. Scrolled into older messages, a small “Latest” pill brings you back.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-label="Desktop">
+    <h2>Desktop</h2>
+    <p>The chat panel beside the page, as today, with the new thread. Hovering an older answer reveals its row.</p>
+    <div class="strip" style="flex-direction:column;gap:40px">
+      <div class="step" style="width:auto"><span class="num">A · In the book</span>
+        <div class="dkwrap"><div class="dk">
+          <div class="top"><span>←</span><span><b>To the Lighthouse</b><i>The Window · 1</i></span><span class="rt">t</span></div>
+          <div class="spread"><h3>The Window · 1</h3>“Yes, of course, if it’s fine tomorrow,” said Mrs. Ramsay. “But you’ll have to be up with the lark,” she added. To her son these words conveyed an extraordinary joy, as if it were settled the expedition were bound to take place, and the wonder to which he had looked forward, for years and years it seemed, was, after a night’s darkness and a day’s sail, within touch.</div>
+          <div class="panel">
+            <div class="hd"><b>Chat</b><span class="sp"></span><span class="disc"><svg><use href="#min"/></svg></span><span class="disc"><svg><use href="#x"/></svg></span></div>
+            <div class="thread bottom">
+              <div class="fade"></div>
+              <div class="div">The Window · 1 · 3 October</div>
+              <div class="you">What is she really saying?</div>
+              <div class="ai"><p>She’s giving James hope while quietly hedging it with a condition. <q>Yes, of course, if it’s fine tomorrow</q> sounds like a promise, but the whole sentence rests on the weather, which nobody controls.</p><p>Woolf lets the comfort and the doubt share one breath.</p></div>
+              <div class="acts hover"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><span class="t">3 Oct, 10:24</span></div>
+              <div class="quote">“But you’ll have to be up with the lark,” she added.</div>
+              <div class="you">Why “up with the lark”?</div>
+              <div class="ai"><p>It’s an old English way of saying <q>up at dawn</q>: larks sing at first light. Mrs. Ramsay adds it as a small, practical condition on top of the big one, the weather.</p><p>Notice how it turns a child’s wish into a plan with rules. That is her way of loving him.</p></div>
+              <div class="acts"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><svg><use href="#again"/></svg></div>
+            </div>
+            <div class="compose"><div class="field"><span class="ph-text">Ask about this page</span><span class="ib"><svg><use href="#mic"/></svg></span><span class="ib"><svg><use href="#talk"/></svg></span></div></div>
+          </div>
+        </div></div>
+        <span class="cap" style="max-width:84ch"><b>The same thread beside the page.</b> The hovered answer shows copy, listen and its time; the latest shows its actions by default. Nothing else carries chrome.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-label="Rules">
+    <h2>What changed, and the rules</h2>
+    <div class="notes">
+      <div><b>Speakers</b>Your words in one paper-tinted bubble, right-aligned. The companion’s answers as plain text at full width. No “You” or “Tinct” labels.</div>
+      <div><b>Time</b>No timestamps under messages. An italic rule marks a new chapter or a new day (“The Window · 1 · 3 October”). The exact time appears on hover or press.</div>
+      <div><b>Actions</b>The latest answer shows copy, listen and ask again. Older messages show copy and listen on hover (desktop) or press-and-hold (phone), in a faint row that fades.</div>
+      <div><b>Passages</b>A question that came from a highlight or Explain carries the passage above it as a small italic quote with a hairline bar.</div>
+      <div><b>Composer</b>One line (“Ask about this page”) at 44 points, growing to five lines. Mic and Talk as quiet icons inside; a send arrow replaces them once there is text. Return sends, Shift-Return breaks a line.</div>
+      <div><b>Rhythm</b>12 points between a question and its answer, 16 to 24 between exchanges. Answers at the reader’s text size, 1.5 line height; never monospace, no uppercase.</div>
+      <div><b>Looks</b>Follows the reader’s look: Paper, Night, e-ink. Night shown with the switch above.</div>
+      <div><b>One component</b>The same chat in the book reader and in the PDF reader for a reader’s own books. The divider there names the file’s page or section instead of a chapter.</div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var btns = document.querySelectorAll('.mode button');
+  function set(m) { document.body.classList.toggle('night', m === 'night'); btns.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.m === m ? 'true' : 'false'); }); }
+  btns.forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.m); }); });
+  if (location.hash === '#night') set('night');
+})();
+</script>
