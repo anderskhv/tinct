@@ -5416,6 +5416,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
             minimized={!showPhoneChrome ? desktopChatMinimized : undefined}
             onMinimizedChange={!showPhoneChrome ? setDesktopChatMinimized : undefined}
+            // A question's quoted passage: show it on the page. The phone sheet
+            // gives way to the page; the desktop box stays open beside it.
+            onQuote={(turn) => {
+              if (turn.chapterNumber == null || (turn.bookId && turn.bookId !== (book.bookId || 'bible'))) return
+              openContentsPassage({ chapterNumber: turn.chapterNumber, paragraphIndex: turn.paragraphIndex ?? 0, wordIndex: 0 })
+              if (!showPhoneChrome) setDesktopAskOpen(true)
+            }}
           />
         )}
       </div>
