@@ -16,12 +16,16 @@ async function turn(p,key){const before=await p.locator('.lab').evaluate(n=>n.da
 (async()=>{
 const results=[];let continuations=0,docked=0;
 for(const engine of [chromium,webkit].filter(engine=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(engine.name()))){
+let psalmDocked=false;
 const browser=await markInternal(await engine.launch({args:engine===chromium?['--mute-audio']:[]}));
 for(const {fontSize,chapter,height} of [
  ...[1.3,1.8,2.2].flatMap(fontSize=>[917,918].map(chapter=>({fontSize,chapter,height:813}))),
- {fontSize:1.3,chapter:595,height:364}
+ // Psalm 117 docks its actions in the footer only where its leaf is just full; that depends on
+ // the engine's font metrics (macOS WebKit differs), so try heights from tallest down and stop at the first dock.
+ ...[400,388,376,364,352,340].map(height=>({fontSize:1.3,chapter:595,height}))
 ]){
- const name=engine.name()+'-'+chapter+'-'+fontSize,context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height}});
+ if(chapter===595&&psalmDocked)continue;
+ const name=engine.name()+'-'+chapter+'-'+fontSize+(chapter===595?'-'+height:''),context=await browser.newContext({serviceWorkers:'block',viewport:{width:1450,height}});
  if(built)await context.route('**/*',r=>{
   const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();
   const f=path.resolve('dist','.'+(u.pathname==='/reader'?'/app.html':u.pathname));
@@ -46,7 +50,7 @@ for(const {fontSize,chapter,height} of [
    if(s.end){
     assert.ok(s.end.previousBottom<=s.end.rect.top+1,'Actions follow prose');
     assert.ok(s.end.rect.bottom<=s.article.bottom-1,'Controls stay in page');
-    if(s.end.docked){docked++;if(chapter===595)assert.equal(states.length,1,'The compact Psalm retains its complete text on one leaf');}
+    if(s.end.docked){docked++;if(chapter===595)psalmDocked=true;if(chapter===595)assert.equal(states.length,1,'The compact Psalm retains its complete text on one leaf');}
     last=s;break;
    }
    await turn(p,'ArrowRight');
