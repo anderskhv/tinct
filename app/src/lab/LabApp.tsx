@@ -596,6 +596,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setPrefs(synced)
     persistPrefs(synced, appearanceProfile)
   }, [appearanceProfile, book.bookId, allBookEditions, persistPrefs])
+  // Talk's speaking speed is saved with the reader's other shared prefs, as
+  // narration speed is; a functional update so a voice request mid-render
+  // never writes over a newer choice.
+  const applyTalkSpeed = useCallback((talkSpeed: number) => {
+    setPrefs(current => {
+      if (current.talkSpeed === talkSpeed) return current
+      const next = { ...current, talkSpeed }
+      persistPrefs(next, appearanceProfile)
+      return next
+    })
+  }, [appearanceProfile, persistPrefs])
   const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
     setPrefs(current => {
       if (current.voicePersona === voicePersona && current.voicePersonaChosen) return current
@@ -1172,6 +1183,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     voiceToolAdapter,
     voiceVersion,
     voicePersona: prefs.voicePersona,
+    talkSpeed: prefs.talkSpeed ?? 1,
+    onTalkSpeedChange: applyTalkSpeed,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
         const next = [...current, entry].slice(-20)
@@ -5341,6 +5354,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             onEnd={endCall}
             onReconnect={reconnectCall}
             onMinimize={() => setCallMinimized(true)}
+            talkSpeed={ask.talkSpeed}
+            onTalkSpeedChange={ask.setTalkSpeed}
           />
         )}
         {desktopVoiceOpen && callMinimized && (
@@ -5746,6 +5761,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           onMuteToggle={toggleCallMute}
           onEnd={endCall}
           onReconnect={reconnectCall}
+          talkSpeed={ask.talkSpeed}
+          onTalkSpeedChange={ask.setTalkSpeed}
         />
       )}
 

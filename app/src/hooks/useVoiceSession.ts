@@ -57,6 +57,8 @@ export interface UseVoiceSessionOptions {
   setPlaybackSpeed?: (rate: number) => void
   skipPlayback?: VoiceAudioEngine['skipPlayback']
   assistantPace?: AssistantPace
+  /** Talk's saved speaking speed, applied when the session starts. */
+  assistantSpeed?: number
   onSetAssistantPace?: (pace: AssistantPace) => void
   voicePersona?: 'female' | 'male'
 }
@@ -197,6 +199,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       tools: opts.tools,
       applicationTools: opts.applicationTools,
       assistantPace: opts.assistantPace,
+      assistantSpeed: opts.assistantSpeed,
       voicePersona: opts.voicePersona,
     })
     return controllerRef.current?.getSnapshot() ?? IDLE_VOICE_SNAPSHOT
@@ -260,6 +263,9 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     explicitResume,
     setAssistantPace: (pace: AssistantPace) => {
       controllerRef.current?.setAssistantPace(pace)
+    },
+    setAssistantSpeed: (speed: number) => {
+      controllerRef.current?.setAssistantSpeed(speed)
     },
   }
 }

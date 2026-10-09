@@ -11,6 +11,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { LabTalkSpeedControl } from './LabTalkSpeed'
 import { useReaderWindow } from './useReaderWindow'
 import { useDraggableSurface } from './useDraggableSurface'
 
@@ -84,6 +85,9 @@ interface LabVoiceDesktopPanelProps {
   onEnd: () => void
   onReconnect: () => void
   onMinimize: () => void
+  /** Talk's saved speaking speed; the control shows when a setter is given. */
+  talkSpeed?: number
+  onTalkSpeedChange?: (speed: number) => void
 }
 
 export function LabVoiceDesktopPanel({
@@ -96,6 +100,8 @@ export function LabVoiceDesktopPanel({
   onEnd,
   onReconnect,
   onMinimize,
+  talkSpeed = 1,
+  onTalkSpeedChange,
 }: LabVoiceDesktopPanelProps) {
   const windowRef = useReaderWindow<HTMLElement>('talk')
   const threadRef = useRef<HTMLDivElement | null>(null)
@@ -186,6 +192,9 @@ export function LabVoiceDesktopPanel({
       </div>
       <div className="lab-voice-panel-controls">
         <MuteOrReconnect view={view} testIdPrefix="lab-voice-panel" onMuteToggle={onMuteToggle} onReconnect={onReconnect} />
+        {onTalkSpeedChange && (
+          <LabTalkSpeedControl speed={talkSpeed} onChange={onTalkSpeedChange} testIdPrefix="lab-voice-panel" iconSize={22} />
+        )}
         <VoiceControl
           testId="lab-voice-panel-end"
           word={LAB_CALL_COPY.endWord}

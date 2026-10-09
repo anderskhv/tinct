@@ -4,11 +4,14 @@
 // throughout: getUserMedia hangs, so the call never reaches a real Realtime
 // session and no network call is made.
 
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { LEAVE_FADE_MS } from './labLeaveForLibrary'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
+import { LAB_PREFS_KEY, parseLabPrefs } from './labPrefs'
+import { TALK_SPEED_MAX, TALK_SPEED_MIN, TALK_SPEED_STEPS } from './labTalkSpeed'
+import { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
 
 afterEach(() => {
   cleanup()
@@ -284,4 +287,71 @@ it('keeps Reconnect available after cancelling a pending microphone and can end 
   fireEvent.click(screen.getByTestId('lab-voice-panel-end'))
   await vi.advanceTimersByTimeAsync(35000)
   expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
+})
+
+// Talk speed. The voice layer stays stubbed: the microphone request hangs, so
+// no xAI session ever opens. The controller methods are spied on, called
+// through, and with no socket their session.update goes nowhere.
+describe('Talk speed', () => {
+  const storedTalkSpeed = () => JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || '{}')?.shared?.talkSpeed
+
+  for (const surface of [
+    { name: 'phone', prefix: 'lab-call', open: openCall },
+    { name: 'desktop', prefix: 'lab-voice-panel', open: openDesktopCall },
+  ] as const) {
+    it(`shows the speed control in the ${surface.name} Talk controls, at 1× by default`, async () => {
+      await surface.open()
+      const control = screen.getByTestId(`${surface.prefix}-speed`)
+      expect(control.textContent).toContain('1×')
+      expect(control.getAttribute('aria-label')).toBe('Playback speed 1 times. Open speed control')
+      fireEvent.click(control)
+      const steps = TALK_SPEED_STEPS.map(step => screen.getByTestId(`${surface.prefix}-speed-${step}`).textContent)
+      expect(steps).toEqual(['0.8×', '1×', '1.25×', '1.5×'])
+    })
+
+    it(`on the ${surface.name}, a new speed goes to the live session, is saved, and starts the next session`, async () => {
+      const setSpeed = vi.spyOn(GrokVoiceSessionController.prototype, 'setAssistantSpeed')
+      const start = vi.spyOn(GrokVoiceSessionController.prototype, 'start')
+      await surface.open()
+      expect(start.mock.calls.at(-1)?.[0].assistantSpeed).toBe(1)
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-speed`))
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-speed-1.25`))
+      expect(setSpeed).toHaveBeenLastCalledWith(1.25)
+      expect(screen.getByTestId(`${surface.prefix}-speed`).textContent).toContain('1.25×')
+      expect(screen.queryByTestId(`${surface.prefix}-speed-popover`)).toBeNull()
+      expect(storedTalkSpeed()).toBe(1.25)
+
+      fireEvent.click(screen.getByTestId(`${surface.prefix}-end`))
+      await waitFor(() => expect(screen.queryByTestId(surface.prefix)).toBeNull())
+      cleanup()
+      start.mockClear()
+      await surface.open()
+      await waitFor(() => expect(start).toHaveBeenCalled())
+      expect(start.mock.calls.at(-1)?.[0].assistantSpeed).toBe(1.25)
+      expect(screen.getByTestId(`${surface.prefix}-speed`).textContent).toContain('1.25×')
+    })
+  }
+
+  it('a spoken "talk slower" request updates the same saved speed', async () => {
+    const start = vi.spyOn(GrokVoiceSessionController.prototype, 'start')
+    await openCall()
+    await waitFor(() => expect(start).toHaveBeenCalled())
+    const controller = start.mock.contexts.at(-1) as unknown as { callbacks: { onSetAssistantPace?: (pace: 'slow' | 'normal' | 'fast') => void } }
+    act(() => controller.callbacks.onSetAssistantPace?.('slow'))
+    expect(storedTalkSpeed()).toBe(0.8)
+    expect(screen.getByTestId('lab-call-speed').textContent).toContain('0.8×')
+    act(() => controller.callbacks.onSetAssistantPace?.('fast'))
+    expect(storedTalkSpeed()).toBe(1.25)
+  })
+
+  it('reads a saved speed back inside xAI\'s 0.7-1.5, and leaves it unset until chosen', () => {
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 9 } }).talkSpeed).toBe(TALK_SPEED_MAX)
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 0.1 } }).talkSpeed).toBe(TALK_SPEED_MIN)
+    expect(parseLabPrefs({ version: 2, shared: { talkSpeed: 1.5 } }).talkSpeed).toBe(1.5)
+    expect(parseLabPrefs({ version: 2, shared: {} }).talkSpeed).toBeUndefined()
+    for (const step of TALK_SPEED_STEPS) {
+      expect(step).toBeGreaterThanOrEqual(TALK_SPEED_MIN)
+      expect(step).toBeLessThanOrEqual(TALK_SPEED_MAX)
+    }
+  })
 })

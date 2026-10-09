@@ -1,6 +1,6 @@
 import { apiUrl } from '../utils/apiUrl'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
-import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
+import { ASSISTANT_PACE_SPEED, clampTalkSpeed, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
 import { LAB_COPY } from '../lab/labCopy'
 import { VOICE_TOOLS } from './context'
 import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE_MODEL, buildGrokReaderReference, buildGrokVoiceInstructions, grokVoiceFor } from './grokConfig'
@@ -259,7 +259,13 @@ export class GrokVoiceSessionController {
   }
 
   setAssistantPace(pace: AssistantPace): void {
-    this.send({ type: 'session.update', session: { audio: { output: { speed: ASSISTANT_PACE_SPEED[pace] } } } })
+    this.setAssistantSpeed(ASSISTANT_PACE_SPEED[pace])
+  }
+
+  /** Talk's speaking speed, live: always inside xAI's documented 0.7-1.5. */
+  setAssistantSpeed(speed: number): void {
+    if (this.input) this.input.assistantSpeed = clampTalkSpeed(speed)
+    this.send({ type: 'session.update', session: { audio: { output: { speed: clampTalkSpeed(speed) } } } })
   }
 
   /** Reader movement refreshes the prompt in place; the conversation is kept. */
@@ -484,7 +490,7 @@ export class GrokVoiceSessionController {
             tools: this.sessionTools(input),
             audio: {
               input: { format: { type: 'audio/pcm', rate: GROK_AUDIO_RATE } },
-              output: { format: { type: 'audio/pcm', rate: GROK_AUDIO_RATE }, ...(input.assistantPace ? { speed: ASSISTANT_PACE_SPEED[input.assistantPace] } : {}) },
+              output: { format: { type: 'audio/pcm', rate: GROK_AUDIO_RATE }, ...(input.assistantSpeed != null ? { speed: clampTalkSpeed(input.assistantSpeed) } : input.assistantPace ? { speed: ASSISTANT_PACE_SPEED[input.assistantPace] } : {}) },
             },
           },
         })

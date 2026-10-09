@@ -13,6 +13,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { LabTalkSpeedControl } from './LabTalkSpeed'
 
 /**
  * The phone call surface (locked 2026-09-11): the book line and connection
@@ -40,6 +41,9 @@ interface LabVoiceCallProps {
   onMuteToggle: () => void
   onEnd: () => void
   onReconnect: () => void
+  /** Talk's saved speaking speed; the control shows when a setter is given. */
+  talkSpeed?: number
+  onTalkSpeedChange?: (speed: number) => void
 }
 
 /** Two short tones, made in the browser: nothing to fetch, nothing to cache. */
@@ -92,6 +96,8 @@ export function LabVoiceCall({
   onMuteToggle,
   onEnd,
   onReconnect,
+  talkSpeed = 1,
+  onTalkSpeedChange,
 }: LabVoiceCallProps) {
   const previousRef = useRef<LabCallView | null>(null)
   useEffect(() => {
@@ -166,6 +172,9 @@ export function LabVoiceCall({
             pressed={view.micOff}
             onClick={onMuteToggle}
           />
+        )}
+        {onTalkSpeedChange && (
+          <LabTalkSpeedControl speed={talkSpeed} onChange={onTalkSpeedChange} testIdPrefix="lab-call" />
         )}
         <VoiceControl
           testId="lab-call-end"

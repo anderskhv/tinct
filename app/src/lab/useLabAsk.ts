@@ -31,6 +31,8 @@ import {
   labTypedSpeed,
   separateShownExplanations,
   type AssistantPace,
+  ASSISTANT_PACE_SPEED,
+  clampTalkSpeed,
   type LabAskContext,
   type LabAskTurn,
   type LabPlaybackSkip,
@@ -123,6 +125,10 @@ export interface UseLabAskOptions {
   /** `'v2'` only from `/reader?voice=v2` and Chrome V2. Defaults to Voice V1. */
   voiceVersion?: LabVoiceVersion
   voicePersona?: 'female' | 'male'
+  /** Talk's saved speaking speed (0.7-1.5). The host persists changes. */
+  talkSpeed?: number
+  /** A new Talk speed, from the control or a spoken / typed pace request. */
+  onTalkSpeedChange?: (speed: number) => void
 }
 
 export { LAB_EXPLAIN_PROMPT } from '../companion/companionRequest'
@@ -158,7 +164,17 @@ export function useLabAsk(options: UseLabAskOptions) {
   const dismissNotice = useCallback(() => setNotice(null), [])
   const [starting, setStarting] = useState(false)
   const voiceStartRequestRef = useRef(0)
-  const [assistantPace, setAssistantPace] = useState<AssistantPace>('normal')
+  // Talk's speaking speed: the host's saved value when it keeps one, else
+  // this hook's own. Every change lands in both and reaches the live session.
+  const [localTalkSpeed, setLocalTalkSpeed] = useState(() => clampTalkSpeed(options.talkSpeed ?? 1))
+  const talkSpeed = options.talkSpeed != null ? clampTalkSpeed(options.talkSpeed) : localTalkSpeed
+  const rememberTalkSpeed = useCallback((speed: number) => {
+    const next = clampTalkSpeed(speed)
+    setLocalTalkSpeed(next)
+    optionsRef.current.onTalkSpeedChange?.(next)
+    return next
+  }, [])
+  const rememberAssistantPace = useCallback((pace: AssistantPace) => { rememberTalkSpeed(ASSISTANT_PACE_SPEED[pace]) }, [rememberTalkSpeed])
   const sendingRef = useRef(false)
   const gatedChapterRef = useRef<ChapterChatRequest | undefined>(undefined)
   const [failedTyped, setFailedTyped] = useState<{
@@ -499,8 +515,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     },
     setPlaybackSpeed: (rate) => optionsRef.current.onSetPlaybackSpeed?.(rate),
     skipPlayback: (kind) => optionsRef.current.onPlaybackSkip?.(kind),
-    assistantPace,
-    onSetAssistantPace: setAssistantPace,
+    assistantSpeed: talkSpeed,
+    onSetAssistantPace: rememberAssistantPace,
     voicePersona: options.voicePersona,
   })
 
@@ -839,7 +855,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         optionsRef.current.onSetPlaybackSpeed?.(parsed.speed)
       }
       if (!chapterRequest && paced.pace) {
-        setAssistantPace(paced.pace)
+        rememberAssistantPace(paced.pace)
         voice.setAssistantPace(paced.pace)
       }
       const skip = (lookupConsent || chapterRequest || !typedTextAsksToMove(text)) ? null : skipped.skip
@@ -1006,6 +1022,11 @@ export function useLabAsk(options: UseLabAskOptions) {
     voiceConnection: starting && voice.connection === 'idle' ? 'connecting' as const : voice.connection,
     micMuted: voice.micMuted,
     setMicMuted: voice.setMicMuted,
+    /** Talk's speaking speed, saved and applied live to a running session. */
+    talkSpeed,
+    setTalkSpeed: (speed: number) => {
+      voice.setAssistantSpeed?.(rememberTalkSpeed(speed))
+    },
     getAssistantLevel: voice.getAssistantLevel,
     userSpeechStarted: voice.userSpeechStarted,
     startVoice,

@@ -187,3 +187,26 @@ describe('the pill', () => {
     expect(screen.queryByTestId('lab-voice-pill-mute')).toBeNull()
   })
 })
+
+describe('Talk speed in the desktop Talk window', () => {
+  it('sits in the controls row between Mute and End and offers the four steps', () => {
+    const onTalkSpeedChange = vi.fn()
+    renderPanel({}, { talkSpeed: 1.25, onTalkSpeedChange })
+    const row = screen.getByTestId('lab-voice-panel-end').parentElement!
+    expect([...row.querySelectorAll('[data-testid]')].map(node => node.getAttribute('data-testid')).filter(id => !id!.startsWith('lab-voice-panel-speed-')))
+      .toEqual(['lab-voice-panel-mute', 'lab-voice-panel-speed', 'lab-voice-panel-end'])
+    const control = screen.getByTestId('lab-voice-panel-speed')
+    expect(control.textContent).toContain('1.25×')
+    fireEvent.click(control)
+    expect(control.getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByTestId('lab-voice-panel-speed-1.25').getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByTestId('lab-voice-panel-speed-0.8'))
+    expect(onTalkSpeedChange).toHaveBeenCalledWith(0.8)
+    expect(screen.queryByTestId('lab-voice-panel-speed-popover')).toBeNull()
+  })
+
+  it('stays out of a panel whose host keeps no speed', () => {
+    renderPanel()
+    expect(screen.queryByTestId('lab-voice-panel-speed')).toBeNull()
+  })
+})

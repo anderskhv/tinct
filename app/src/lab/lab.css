@@ -7713,3 +7713,31 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   line-height: 1.4;
   color: var(--lab-v2-quiet);
 }
+
+/* Talk speed (2026-10-09): a third voice control between Mute and End. Its
+   popover follows narration's speed popover (paper, hairline, mono labels)
+   and rises from the control so it never leaves the call or the Talk window. */
+.lab[data-chrome-version="v2"] .lab-talk-speed { position: relative; display: flex; }
+.lab[data-chrome-version="v2"] .lab-talk-speed-popover {
+  position: absolute; bottom: calc(100% + 10px); left: 50%; translate: -50% 0;
+  z-index: 5; display: flex; gap: 4px; padding: 6px;
+  border: 1px solid var(--lab-border); border-radius: 1.12rem;
+  background: var(--lab-paper); color: var(--lab-ink);
+  box-shadow: 0 14px 36px rgba(43, 36, 26, 0.2), 0 3px 9px rgba(43, 36, 26, 0.1);
+  animation: lab-audio-speed-enter 170ms cubic-bezier(.22,.8,.3,1) both;
+}
+.lab[data-chrome-version="v2"] .lab-talk-speed-step {
+  min-width: 52px; min-height: 44px; padding: 6px 10px; border: 1px solid transparent; border-radius: 999px;
+  background: transparent; color: inherit; cursor: pointer;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.82rem; white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-talk-speed-step.is-current { border-color: currentColor; font-weight: 600; }
+.lab[data-chrome-version="v2"] .lab-talk-speed-step:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .lab[data-chrome-version="v2"] .lab-talk-speed-popover { animation: none; }
+}
+/* The Talk window's controls stay in view at its smallest size: the orb
+   stage gives up height before the row does, and the row's gap tightens. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { flex: 0 1 auto; min-height: 0; overflow: hidden; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls { gap: clamp(10px, 4%, 22px); }
+.lab[data-chrome-version="v2"] .lab-call-controls { gap: clamp(16px, 6vw, 28px); }
