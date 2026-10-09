@@ -7431,13 +7431,37 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   padding-bottom: 0.5rem; overflow-y: hidden;
 }
 
-/* Desktop companions start compact; explicit user resizing still wins inline. */
+/* Desktop companions start compact at the book's lower right (Anders, 9 Oct
+   2026: 312 x 390, READER_COMPANION_WINDOW; useReaderWindow anchors the
+   place). Explicit user resizing still wins inline. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
-  width:min(390px,calc(100vw - 48px));
-  height:min(640px,calc(100dvh - 132px));
+  width:min(312px,calc(100vw - 48px));
+  height:min(390px,calc(100dvh - 132px));
+}
+/* Talk at any window size: the header and the Mute / End row never leave the
+   window. The orb scales with the window's height (170px at full size), the
+   transcript scrolls, and a very short window drops the orb before anything
+   else. useReaderWindow keeps Talk at least 280 x 300. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] { container:talk-window / size; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-head,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-controls { flex:none; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-stage { flex:0 1 auto; min-height:0; overflow:hidden; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-thread { flex:1 1 0; min-height:0; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb-canvas {
+  width:clamp(56px,calc(100cqh - 330px),170px)!important; height:clamp(56px,calc(100cqh - 330px),170px)!important;
+}
+@container talk-window (max-height: 520px) {
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { gap:2px; padding-bottom:10px; }
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin-top:2px; font-size:22px; }
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread { gap:14px; padding:14px 8px; font-size:16px; }
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls { padding:10px 0 2px; }
+}
+@container talk-window (max-height: 340px) {
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage .lab-voice-orb { display:none; }
 }
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-voice-panel[data-reader-window] {
