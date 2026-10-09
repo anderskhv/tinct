@@ -174,6 +174,16 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
 .search { border: 1px solid var(--outline); }
 .meter .tr { height: 4px; }
 .pr { height: 3px; }
+
+/* inline choices: compact, on the row's right; darker grey track, white selected thumb */
+.seg.in { flex: none; width: auto; border: 0; background: #d9d9d9; padding: 2px; border-radius: 8px; }
+.seg.in span { flex: none; padding: 4px 6px; font-size: .72rem; border-radius: 6px; color: #333; }
+.seg.in span.on { background: #fff; color: #111; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.18); }
+.dm .seg.in { background: #333; } .dm .seg.in span { color: #cfcfcf; } .dm .seg.in span.on { background: #5a5a5a; color: #fff; }
+.r .l { flex: 1 1 auto; min-width: 0; }
+.r > .seg.in { margin-left: auto; }
+.g { border-top: 0; }
+.head + .body > .g:first-child, .body > .g:first-child { border-top: 1px solid var(--sep); }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -206,9 +216,9 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
                 <div class="r"><span class="l">Your reading</span><span class="v">6 h 10 m</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
                 <div class="r"><span class="l">Leaderboard</span><span class="v">3rd of 5</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
-              <span class="gh">AI credits</span>
+              
               <div class="g">
-                <div class="r meter"><div class="top"><span>This month</span><span class="v">15% left</span></div><div class="tr"><i style="width:15%"></i></div></div>
+                <div class="r meter"><div class="top"><span>AI credits this month</span><span class="v">15% left</span></div><div class="tr"><i style="width:15%"></i></div></div>
                 <div class="r meter light"><div class="top"><span>Top-up</span><span class="v">64% left</span></div><div class="tr"><i style="width:64%"></i></div></div>
                 <div class="r act"><span class="l">Top up</span><span class="v">renews 5 Nov</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
@@ -339,15 +349,15 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
           <div class="card" style="--top:34px"><div class="grab"></div>
             <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
             <div class="body" style="gap:20px">
-              <span class="gh">Privacy</span>
+              
               <div class="g">
-                <div class="r col"><div class="top">Profile <span class="info">i</span></div><div class="seg"><span class="on">Private</span><span>Public</span></div></div>
-                <div class="r col"><div class="top">Share my reading <span class="info">i</span></div><div class="seg"><span>No one</span><span class="on">Followers</span><span>Everyone</span></div></div>
+                <div class="r"><span class="l">Profile <span class="info">i</span></span><div class="seg in"><span class="on">Private</span><span>Public</span></div></div>
+                <div class="r"><span class="l">Sharing <span class="info">i</span></span><div class="seg in"><span>None</span><span class="on">Followers</span><span>Everyone</span></div></div>
                 <div class="r"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
-              <span class="gh">Reading</span>
-              <div class="g"><div class="r col"><div class="top">New books open in</div><div class="seg"><span class="on">Modern English (AI)</span><span>Original source</span></div></div></div>
-              <span class="gh">Account</span>
+              
+              <div class="g"><div class="r"><span class="l">New books in</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
+              
               <div class="g">
                 <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
                 <div class="r"><span class="l">Email</span><span class="v">anders@…</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
@@ -361,7 +371,7 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
           <div class="card" style="--top:34px"><div class="grab"></div>
             <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
             <div class="body" style="gap:20px">
-              <span class="gh">Account</span>
+              
               <div class="g">
                 <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
                 <div class="r"><span class="l">Email</span><span class="v">anders@…</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
@@ -383,13 +393,13 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
           <div class="card" style="--top:34px"><div class="grab"></div>
             <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
             <div class="body" style="gap:20px;position:relative">
-              <span class="gh">Privacy</span>
+              
               <div class="g">
-                <div class="r col"><div class="top">Profile <span class="info">i</span></div><div class="seg"><span class="on">Private</span><span>Public</span></div></div>
-                <div class="r col"><div class="top">Share my reading <span class="info">i</span></div><div class="seg"><span>No one</span><span class="on">Followers</span><span>Everyone</span></div></div>
+                <div class="r"><span class="l">Profile <span class="info">i</span></span><div class="seg in"><span class="on">Private</span><span>Public</span></div></div>
+                <div class="r"><span class="l">Sharing <span class="info">i</span></span><div class="seg in"><span>None</span><span class="on">Followers</span><span>Everyone</span></div></div>
                 <div class="r dim"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
-              <div class="tip" style="top:164px;--arrow:132px"><b>Share my reading.</b> What you read and how long. Followers are readers you accepted; Everyone is anyone who opens your profile.</div>
+              <div class="tip" style="top:96px;--arrow:68px"><b>Sharing.</b> What you read and how long. Followers are readers you accepted; Everyone is anyone who opens your profile.</div>
             </div></div>
         </div>
         <span class="cap"><b>A small dark box under the (i).</b> Tap anywhere to close.</span></div>
@@ -413,9 +423,9 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
                 <div class="r"><span class="l">Your reading</span><span class="v">6 h 10 m</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
                 <div class="r"><span class="l">Leaderboard</span><span class="v">3rd of 5</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
-              <span class="gh">AI credits</span>
+              
               <div class="g">
-                <div class="r meter"><div class="top"><span>This month</span><span class="v">15% left</span></div><div class="tr"><i style="width:15%"></i></div></div>
+                <div class="r meter"><div class="top"><span>AI credits this month</span><span class="v">15% left</span></div><div class="tr"><i style="width:15%"></i></div></div>
                 <div class="r act"><span class="l">Top up</span><span class="v">renews 5 Nov</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
               <div class="g">
@@ -433,15 +443,15 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
           <div class="panel">
             <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
             <div class="body" style="gap:20px">
-              <span class="gh">Privacy</span>
+              
               <div class="g">
-                <div class="r col"><div class="top">Profile <span class="info">i</span></div><div class="seg"><span>Private</span><span class="on">Public</span></div></div>
-                <div class="r col"><div class="top">Share my reading <span class="info">i</span></div><div class="seg"><span>No one</span><span>Followers</span><span class="on">Everyone</span></div></div>
+                <div class="r"><span class="l">Profile <span class="info">i</span></span><div class="seg in"><span>Private</span><span class="on">Public</span></div></div>
+                <div class="r"><span class="l">Sharing <span class="info">i</span></span><div class="seg in"><span>None</span><span>Followers</span><span class="on">Everyone</span></div></div>
                 <div class="r"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
-              <span class="gh">Reading</span>
-              <div class="g"><div class="r col"><div class="top">New books open in</div><div class="seg"><span class="on">Modern English (AI)</span><span>Original source</span></div></div></div>
-              <span class="gh">Account</span>
+              
+              <div class="g"><div class="r"><span class="l">New books in</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
+              
               <div class="g">
                 <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
