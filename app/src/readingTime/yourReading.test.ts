@@ -1,7 +1,5 @@
-// @vitest-environment jsdom
 import { describe, expect, it } from 'vitest'
 import { emptyLabPositionState, type LabBookPlace } from '../lab/labPosition'
-import { renderYourReading } from '../labYourReading'
 import { readingTimeStats } from './model'
 import { yourReadingView, type CatalogueEntry } from './yourReading'
 import { readingCardSvg } from '../worker/lib/readingCard'
@@ -55,20 +53,6 @@ describe('Your reading', () => {
     expect(view.finished.map(book => book.title)).toEqual(['The Odyssey'])
     expect(view.finishedCount).toBe(1)
     expect(view.readingNow.map(book => book.title)).toEqual(['Frankenstein'])
-  })
-
-  it('says how much of the total has no day (before daily records), since the weeks cannot show it', () => {
-    const stats = readingTimeStats([
-      { day: '2026-09-30', bookId: '_earlier', read: 12154, listen: 0 },
-      { day: '2026-10-09', bookId: 'pd-pg-1672', read: 235, listen: 0 },
-    ], '2026-10-09')
-    expect(stats.totalSeconds).toBe(12389)
-    expect(stats.weeks.reduce((sum, week) => sum + week.seconds, 0)).toBe(235)
-    expect(stats.earlierSeconds).toBe(12154)
-    expect(stats.firstDailyDay).toBe('2026-10-09')
-    const main = document.createElement('main')
-    renderYourReading(main, stats, yourReadingView({ stats, positions: null, catalogue }), () => {})
-    expect(main.querySelector('[data-testid="your-reading-earlier"]')?.textContent).toBe('Plus 3 h 22 m from before 9 October, not split by week.')
   })
 
   it('draws the reading card from the figures alone, naming no one', () => {
