@@ -20,6 +20,8 @@ import {
   hasPremiumAccess,
   loadPremiumAccess,
   isPaidAiFeature,
+  loadPremiumTier,
+  premiumTier,
   isSubscribed,
   loadAllowanceView,
   requestAllowsAiFeature,
@@ -359,5 +361,20 @@ describe('loadAllowanceView', () => {
       ? Response.json([{ subscription_status: 'active', subscription_period_end: null, created_at: null }])
       : new Response('missing function', { status: 404 })))
     expect(await loadAllowanceView(env, userId, now)).toBeNull()
+  })
+})
+
+describe('premium tier (trial told from paid Premium)', () => {
+  const now = new Date('2026-10-09T12:00:00Z')
+  it('is premium when subscribed, trial in the first 30 days only, none after', () => {
+    expect(premiumTier({ subscription_status: 'active', subscription_period_end: null, created_at: '2026-10-01T00:00:00Z' }, now)).toBe('premium')
+    expect(premiumTier({ subscription_status: 'canceled', subscription_period_end: '2026-11-01T00:00:00Z', created_at: '2025-01-01T00:00:00Z' }, now)).toBe('premium')
+    expect(premiumTier({ subscription_status: null, subscription_period_end: null, created_at: '2026-10-01T00:00:00Z' }, now)).toBe('trial')
+    expect(premiumTier({ subscription_status: null, subscription_period_end: null, created_at: '2026-08-01T00:00:00Z' }, now)).toBe('none')
+    expect(premiumTier({ subscription_status: 'past_due', subscription_period_end: null, created_at: '2026-08-01T00:00:00Z' }, now)).toBe('none')
+  })
+
+  it('is null when the profile cannot be read', async () => {
+    expect(await loadPremiumTier({}, 'u', now)).toBeNull()
   })
 })

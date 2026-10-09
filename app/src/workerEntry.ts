@@ -4,3 +4,4 @@ export { RecapPreparationCoordinator } from './worker/recapPreparationCoordinato
 export { ReaderPositionCoordinator } from './worker/readerPositionCoordinator'
 export { UsageCoordinator } from './worker/usageCoordinator'
 export { ShareStore } from './worker/shareStore'
+export { OwnOcrCoordinator } from './worker/ownOcrCoordinator'
