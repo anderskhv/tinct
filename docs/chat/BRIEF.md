@@ -13,7 +13,7 @@ Anders approved this on 9 October 2026. It changes what is inside the chat, not 
 ## What changes
 1. **No sender labels.** The reader's words sit in one right-aligned bubble; the companion's answers are plain text at full width. Remove "You" and "Tinct".
 2. **No timestamps under messages.** One italic divider appears only when the chapter/page or the calendar day changes: `{chapter label} · {day}`. The exact time appears in the hover/press row.
-3. **Hover / press row.** Hidden by default. Desktop: on hover; phone: on press-and-hold, fading after 3 s or on scroll. Copy and listen (copy only on the reader's own bubble), plus the time right-aligned. The **newest answer** shows copy, listen and ask again permanently, until a newer answer exists.
+3. **Hover / press row.** Hidden by default. Desktop: on hover; phone: on press-and-hold, fading after 3 s or on scroll. Copy, plus the time right-aligned (same on the reader's own bubble). No read-aloud button: listening is not a chat feature. The **newest answer** shows copy and ask again permanently, until a newer answer exists.
 4. **Quoted passage.** A question that came from a highlight or Explain carries the passage above the bubble as an italic quote with a 2px bar, cut at 240 characters. Tapping it scrolls the page to the passage.
 5. **Composer.** One line at rest (44px), "Ask about this page", mic and Talk as quiet discs inside. Grows to five lines. Once there is text, an ink disc with an up arrow replaces mic and Talk. Return sends, Shift-Return breaks a line. Desktop shows the hint once per session.
 6. **Streaming:** a blinking 2px cursor, no "thinking" line.
