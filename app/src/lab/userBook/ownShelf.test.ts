@@ -152,6 +152,23 @@ describe('where an own book opens', () => {
     })
   })
 
+  it('marks a scan whose text is not on this device, and opens one whose recognised text is here as Tinct text', async () => {
+    const [scan, recognised, prose] = ['f1', 'f2', 'f3'].map(p => p.repeat(12))
+    const scanned = { v: 5, entries: [], textPages: 0, layout: { default: 'pages-only' } }
+    withRecords([
+      { ...pdf(scan), scan: scanned },
+      { ...pdf(recognised), scan: scanned, edition: { format: 'tinct-user-edition-v1', converter: 1, source: 'ocr', title: 't', author: '', language: 'en', droppedImages: 0, chapters: [{ number: 1, title: 't', paragraphs: ['x'] }] } },
+      pdf(prose, 'text'),
+    ])
+    // The recognised text reached this device: it opens as Tinct text from now on (pdfEditions.ts adoptOcrEditionChoice).
+    localStorage.setItem(`tinct-addbook:edition:${recognised}`, '"text"')
+    const books = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book]))
+    expect(books[scan]).toMatchObject({ scan: true, href: `/lab/addbook/?userBook=${scan}` })
+    expect(books[recognised].scan).toBeUndefined()
+    expect(books[recognised].href).toBe(`/reader?userBook=${recognised}`)
+    expect(books[prose].scan).toBeUndefined()
+  })
+
   it('opens a book of unknown kind in the reader, unless it is a PDF read in its pages', () => {
     expect(ownBookHref(HEX, null, null)).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, null, 'pages')).toBe(`/lab/addbook/?userBook=${HEX}`)

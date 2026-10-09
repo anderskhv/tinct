@@ -222,7 +222,7 @@ describe('library search panel with the flag', () => {
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261009pdf2')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261009ocr')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
     expect(freeShown).toEqual([2]) // the panel's "N books found" counts these rows too (app.js)
@@ -621,6 +621,14 @@ describe('My shelf groups', () => {
     expect(grid.querySelector('.own-book canvas.cover')).not.toBeNull()
     // A PDF opens by its own key in Add a book's PDF reader, never the old start page.
     expect(grid.querySelector('[data-own-key="pdf:bb"] a')?.getAttribute('href')).toBe('/lab/addbook/?userBook=bb')
+  })
+
+  it('says "Recognising text…" under a scan whose text is being recognised', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [{ ...own('pdf:bb', 'A scan', null, 'pdf'), ocrLine: 'Recognising text…' }, own('pdf:cc', 'Slides', null, 'pdf')], el)
+    const scan = grid.querySelector('[data-own-key="pdf:bb"]')!
+    expect(scan.querySelector('.own-ocr')?.textContent).toBe('Recognising text…')
+    expect(grid.querySelector('[data-own-key="pdf:cc"] .own-ocr')).toBeNull()
   })
 
   it('shows an own book’s own cover at full size, and a paper cover without one', () => {

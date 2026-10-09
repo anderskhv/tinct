@@ -482,3 +482,6 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
 .rt-b.is-away{opacity:0;visibility:hidden;pointer-events:none;transition:transform .72s cubic-bezier(.22,.8,.24,1),opacity .3s ease,visibility 0s linear .3s}
 .rt-b:not(.is-away){transition:transform .72s cubic-bezier(.22,.8,.24,1),opacity .3s ease .15s}
 @media(max-width:899px){.reading-table.has-many .rt-stage{margin-bottom:26px}.reading-table.has-many .rt-dots{display:flex;bottom:-30px;gap:0}.reading-table.has-many .rt-dots button{padding:8px 4px}.reading-table.has-many .rt-dots button::after{width:6px;height:6px}}
+
+/* A scan whose text is being recognised (add-to-tinct.js ownBookCard): "Recognising text…". */
+.collection-card p.own-ocr{font:italic 14px/1.35 'EB Garamond',Georgia,serif;margin:-8px 0 12px}

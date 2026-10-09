@@ -18,6 +18,7 @@ import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import type { OwnShelfBook } from './lab/userBook/ownShelf'
 import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
+import { ocrShelfLines } from './lab/userBook/ownOcrShelf'
 import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
 import { publicChapters, type PublicChapterUpload } from './lab/userBook/publicChapters'
 
@@ -137,6 +138,8 @@ export interface OwnBook {
   /** How far through it the reader is (0–100), when known. */
   percent: number | null
   href: string
+  /** "Recognising text…": a scan whose text the account is recognising (ownOcrShelf.ts). */
+  ocrLine?: string
 }
 
 const ownBook = (book: OwnShelfBook): OwnBook => ({
@@ -153,7 +156,15 @@ const ownBook = (book: OwnShelfBook): OwnBook => ({
 export async function ownBooks(fetchImpl: typeof fetch = fetch): Promise<OwnBook[]> {
   const owner = readCachedSupabaseUser()?.id
   if (!owner) return []
-  return (await ownShelfWithAccount(owner, { token: await token(), fetchImpl })).map(ownBook)
+  const auth = await token()
+  const books = await ownShelfWithAccount(owner, { token: auth, fetchImpl })
+  // The scans kept here: is their text being recognised?
+  const lines = await ocrShelfLines(books.filter(book => book.scan).map(book => book.hex), { token: auth, fetchImpl })
+  return books.map(book => {
+    const listed = ownBook(book)
+    const line = lines.get(book.hex)
+    return line ? { ...listed, ocrLine: line } : listed
+  })
 }
 
 /**
