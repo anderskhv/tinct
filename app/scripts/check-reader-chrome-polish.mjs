@@ -7,7 +7,7 @@
 //     italic ink fit the label box ("Ezra 9", "Psalms 119");
 //   - a reader who never set a size reads at about 65-75 characters a line;
 //   - dark paper has no visible frame line round the leaf;
-//   - folios and chapter progress are set as the phone sets its progress line
+//   - folios (EB Garamond) and chapter progress are set as the phone sets its progress line
 //     (the reading face, 12px).
 // Phone 390x844 (Bible, WEB and BSB):
 //   - a verse number is followed by the narrow no-break space (U+202F), which
@@ -65,7 +65,7 @@ try {
     assert.ok(r.scrollWidth <= r.clientWidth && r.scrollHeight <= r.clientHeight, `Chapter label "${r.text}" overflows its box: ${JSON.stringify(r)}`)
     assert.ok(r.inkRight <= r.textWidth + r.padRight, `Italic ink of "${r.text}" passes the label's right edge: ${JSON.stringify(r)}`)
     if (r.night) assert.match(r.border, /rgba\(.*,\s*0\)|transparent/, `Dark leaf shows a frame line: ${r.border}`)
-    assert.equal(r.folio[0], r.reader, 'Folios in the reading face')
+    assert.match(r.folio[0], /^"?EB Garamond/, 'Folios in EB Garamond, never mono (Anders, 9 Oct 2026)')
     assert.equal(r.progress[0], r.reader, 'Chapter progress in the reading face')
     assert.deepEqual([r.folio[1], r.progress[1]], ['12px', '12px'])
     await page.screenshot({ path: `${out}/desktop-${chapter}-${scheme}.png` })
