@@ -406,9 +406,10 @@ try {
     await signIn(p, { token: 'test-token', user: 'u-phone' });
     await openFile(p, await paperPdf(browser));
     await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
-    // As in Tinct's reader, the phone keeps the way back in the t menu ("Your books") and draws no arrow.
+    // The phone draws the back arrow too (Anders, 9 Oct 2026: a scanned page filled the screen and
+    // there was no visible way back); Library stays in the t menu as well.
     const bar = await p.evaluate(() => { const box = id => document.getElementById(id).getBoundingClientRect(); return { back: box('backBtn').width > 0, snip: !!document.querySelector('#snipBtn, .byob-snip-btn'), oneRow: Math.abs(box('playBtn').top - box('bookBtn').top) < 20 && Math.abs(box('superBtn').top - box('bookBtn').top) < 20, overflow: document.getElementById('hdr').scrollWidth > innerWidth + 1, title: document.getElementById('bookTitle').textContent } });
-    check('phone: top bar has no snip button and fits on one row', !bar.back && !bar.snip && bar.oneRow && !bar.overflow && bar.title === 'Constructor theory of time', bar);
+    check('phone: top bar has the back arrow, no snip button, and fits on one row', bar.back && !bar.snip && bar.oneRow && !bar.overflow && bar.title === 'Constructor theory of time', bar);
     await p.screenshot({ path: join(OUT, 'phone-pdf-topbar.png') });
     check('phone top bar: no page errors', !problems.length, problems.slice(0, 6));
     await ctx.close();
