@@ -4,6 +4,7 @@ import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfP
 import { fetchAccountCopy, fetchAccountPlaces, type AccountPagePlace, type AccountPlace } from './ownAccount'
 import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace } from './userBookPlace'
 import type { UserBookEdition } from './userEdition'
+import { choosePdfPages, pdfEditionChoice, readPdfTextPlace } from './pdfEditions'
 
 const forget = vi.hoisted(() => vi.fn(async () => [] as string[]))
 vi.mock('./ownShelf', async original => ({ ...await original<typeof import('./ownShelf')>(), forgetRemovedOwnBooks: forget }))
@@ -279,6 +280,86 @@ describe('PDF places across devices', () => {
     expect(kept()).toMatchObject({ chapterNumber: 2 })
     const pdf = accountOnlyBook({ id: 'e'.repeat(32), type: 'pdf', sha256: PDF + '0'.repeat(40), title: 'Slides', name: 'slides.pdf', author: '', size: 1, createdAt: '' })
     expect(pdf.reading).toMatchObject({ bookId: `userbook-${PDF}`, chapterLabel: 'p. 7', lastActiveAt: 700 })
+  })
+})
+
+describe('a PDF read in both its editions (Tinct text and Original pages)', () => {
+  const PDF = 'fe12cd34ef56ab12cd34ef56'
+  const POS = `tinct-addbook:pos:pdf:${PDF}`
+  const pos = () => JSON.parse(localStorage.getItem(POS) || 'null')
+  // Pages 1–3: chapter 1 (its second paragraph runs from page 1 onto page 2); pages 4–5: chapter 2.
+  const pdfChapters = [
+    { number: 1, title: 'One', paragraphs: [words(40), words(60), words(30)], pages: [1, 1, 3], pageBreaks: [[1, 20, 2]] as Array<[number, number, number]> },
+    { number: 2, title: 'Two', paragraphs: [words(50), words(50)], pages: [4, 5] },
+  ]
+  const pdfEdition = { format: 'tinct-user-edition-v1', converter: 1, source: 'pdf', title: 'Paper', author: '', language: 'en', droppedImages: 0, chapters: pdfChapters } as unknown as UserBookEdition
+
+  it('keeps one place for both editions: read as Tinct text on one device, it opens there at the same word on the other', async () => {
+    vi.useFakeTimers()
+    const { places, calls, fetchImpl } = account()
+    // Desktop, in the Tinct text: chapter 1, paragraph 1, word 30 (on page 2).
+    writeUserBookPlace(PDF, { chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, updatedAt: 1_000, converter: 1 })
+    noteOwnPlace(PDF, pdfChapters, { pdf: { pages: 5 } })
+    // The place it shares with its pages: page, spot on it, the same word and the edition read.
+    expect(pos()).toEqual({ page: 2, frac: 0.25, at: 1_000, chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, converter: 1, edition: 't', pages: 5 })
+    // Saved as the PDF's one place (not a text place), with both coordinates.
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('saved')
+    expect(places[PDF]).toEqual({ page: 2, frac: 0.25, updatedAt: 1_000, percent: 25, chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, converter: 1, edition: 't', rev: 1 })
+    expect(calls.every(call => !JSON.stringify(call.body).includes('Paper'))).toBe(true)
+    vi.useRealTimers()
+
+    // The phone: nothing of it yet. The account's place opens the Tinct text at the same word.
+    localStorage.clear()
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
+    expect(pdfEditionChoice(PDF)).toBe('text')
+    expect(readPdfTextPlace(PDF, pdfEdition)).toEqual({ chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, updatedAt: 1_000, converter: 1 })
+    // Listed with the account's places, it is a PDF's place, never an EPUB's.
+    expect(await fetchAccountPlaces('tok', fetchImpl)).toEqual({})
+  })
+
+  it('switches to Original pages at the same spot, and back to the same word after reading on in the pages', async () => {
+    const { places, fetchImpl } = account()
+    writeUserBookPlace(PDF, { chapterNumber: 2, paragraphIndex: 0, wordIndex: 25, updatedAt: 1_000, converter: 1 })
+    // Original pages, picked in Book editions: page 4, half way down its words, read in the pages from now.
+    const page = choosePdfPages(PDF, pdfChapters, readUserBookPlace(PDF, pdfEdition)!, 5)
+    expect(page).toBe(4)
+    expect(pos()).toMatchObject({ page: 4, frac: 0.5, chapterNumber: 2, paragraphIndex: 0, wordIndex: 25, edition: 'p' })
+    expect(pdfEditionChoice(PDF)).toBe('pages')
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('saved')
+    expect(places[PDF]).toMatchObject({ page: 4, edition: 'p', chapterNumber: 2, wordIndex: 25 })
+    // Back without moving: the same word.
+    expect(readPdfTextPlace(PDF, pdfEdition)).toMatchObject({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 25 })
+
+    // Read on in the pages on another device to the top of page 5 (its viewer knows no Tinct text).
+    places[PDF] = { page: 5, frac: 0, updatedAt: Date.now() + 5_000, edition: 'p', rev: 7 }
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
+    // The spot in the text from before is not kept with the new page; the text is found from the page.
+    expect(pos().chapterNumber).toBeUndefined()
+    expect(readPdfTextPlace(PDF, pdfEdition)).toMatchObject({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 0 })
+  })
+
+  it('opens a PDF read in its pages before Tinct text existed in its pages, a new one by its scan', () => {
+    localStorage.setItem(POS, JSON.stringify({ page: 3, frac: 0.25, zoom: 1, at: 50 }))
+    expect(pdfEditionChoice(PDF, 'text')).toBe('pages')
+    localStorage.clear()
+    expect(pdfEditionChoice(PDF, 'text')).toBe('text')
+    expect(pdfEditionChoice(PDF, 'pages')).toBe('pages')
+    expect(pdfEditionChoice(PDF)).toBeNull()
+    // The choice kept on this device, as Add a book writes it.
+    localStorage.setItem(`tinct-addbook:edition:${PDF}`, '"text"')
+    expect(pdfEditionChoice(PDF, 'pages')).toBe('text')
+  })
+
+  it('never keeps the opening mark (no reading time) as a place', () => {
+    writeUserBookPlace(PDF, { chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 0 })
+    noteOwnPlace(PDF, pdfChapters, { pdf: {} })
+    expect(pos()).toBeNull()
+  })
+
+  it('opens the Tinct text at a link\'s page when its place is on another one', () => {
+    writeUserBookPlace(PDF, { chapterNumber: 1, paragraphIndex: 0, wordIndex: 3, updatedAt: 1_000, converter: 1 })
+    expect(readPdfTextPlace(PDF, pdfEdition, { page: 3 })).toMatchObject({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 0 })
+    expect(readPdfTextPlace(PDF, pdfEdition, { page: 3 })).toMatchObject({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 0 })
   })
 })
 

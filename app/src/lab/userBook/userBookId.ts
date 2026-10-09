@@ -64,6 +64,20 @@ export function ownBookOpenUrl(hex: string): string {
   return `/lab/addbook/?${USER_BOOK_QUERY}=${encodeURIComponent(hex)}`
 }
 
+/**
+ * Where an own book opens: an EPUB in the Tinct reader; a PDF in the reader
+ * as its Tinct text when that is the edition it opens in (`choice`, from
+ * pdfEditions.ts pdfEditionChoice), else in Add a book's viewer (Original
+ * pages), which forwards to the Tinct text once it knows the PDF reads best so.
+ * A book of unknown kind (`kind` absent) opens in the reader, which forwards a
+ * PDF read in its pages to the viewer.
+ */
+export function ownBookHref(hex: string, kind?: 'pdf' | 'epub' | null, choice?: 'text' | 'pages' | null): string {
+  if (kind === 'pdf') return choice === 'text' ? userBookReaderUrl(hex) : ownBookOpenUrl(hex)
+  if (!kind && choice === 'pages') return ownBookOpenUrl(hex)
+  return userBookReaderUrl(hex)
+}
+
 /** True when any string anywhere in `value` names a user book (analytics guard). */
 export function mentionsUserBook(value: unknown, depth = 0): boolean {
   if (typeof value === 'string') return value.includes(USER_BOOK_PREFIX)

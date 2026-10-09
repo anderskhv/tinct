@@ -387,6 +387,29 @@ describe('/api/user-books/places', () => {
     expect((await put(call, 'token-b', hex, { place: page(12), rev: 0 })).status).toBe(404)
   })
 
+  it('keeps both coordinates of a PDF read in either edition: the page and the same spot in its Tinct text', async () => {
+    const { call, hex } = await withPdf()
+    const both = { ...page(12), chapterNumber: 3, paragraphIndex: 14, wordIndex: 7, converter: 1, edition: 't' }
+    const saved = await put(call, 'token-a', hex, { place: both, rev: 0 })
+    expect(saved.status).toBe(200)
+    expect(await saved.json()).toEqual({ place: { ...both, percent: 29.4, rev: 1 } })
+    expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: { [hex]: { ...both, percent: 29.4, rev: 1 } } })
+    // Read on in Original pages: the page alone and the edition, the old spot in the text gone.
+    const pages = await put(call, 'token-a', hex, { place: { page: 13, updatedAt: 2_000, edition: 'p' }, rev: 1 })
+    expect(await pages.json()).toEqual({ place: { page: 13, updatedAt: 2_000, edition: 'p', rev: 2 } })
+    expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: { [hex]: { page: 13, updatedAt: 2_000, edition: 'p', rev: 2 } } })
+  })
+
+  it('refuses a PDF place whose spot in the text is out of shape or partial, or names another edition', async () => {
+    const { call, hex } = await withPdf()
+    for (const bad of [
+      { ...page(12), chapterNumber: 0, paragraphIndex: 1, wordIndex: 1 },
+      { ...page(12), chapterNumber: 2, paragraphIndex: 1.5, wordIndex: 1 },
+      { ...page(12), chapterNumber: 2, paragraphIndex: 1 },
+      { ...page(12), edition: 'x' },
+    ]) expect((await put(call, 'token-a', hex, { place: bad, rev: 0 })).status).toBe(400)
+  })
+
   it('deletes a PDF\'s page place with the book', async () => {
     const { r2, call, book, hex } = await withPdf()
     await put(call, 'token-a', hex, { place: page(12), rev: 0 })

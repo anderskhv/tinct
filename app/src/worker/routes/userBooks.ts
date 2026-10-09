@@ -394,8 +394,17 @@ async function remove(request: Request, bucket: R2Bucket, userId: string, fileId
 
 /** A reader's place in an EPUB they added (the Tinct reader): chapter, paragraph and word. */
 export type OwnTextPlace = { chapterNumber: number; paragraphIndex: number; wordIndex: number; updatedAt: number; percent?: number; converter?: number; rev: number }
-/** A reader's place in a PDF they added (Add a book's viewer): the page and how far down it (0-1). */
-export type OwnPagePlace = { page: number; frac?: number; updatedAt: number; percent?: number; rev: number }
+/**
+ * A reader's place in a PDF they added: the page and how far down it (0-1)
+ * and, whichever of its editions they read it in, the same spot in its Tinct
+ * text (chapter, paragraph, word, the rules it was converted under) and the
+ * edition read ('t' Tinct text, 'p' Original pages).
+ */
+export type OwnPagePlace = {
+  page: number; frac?: number; updatedAt: number; percent?: number
+  chapterNumber?: number; paragraphIndex?: number; wordIndex?: number; converter?: number; edition?: 't' | 'p'
+  rev: number
+}
 /** A reader's place in an own book, as stored and served. */
 export type OwnPlace = OwnTextPlace | OwnPagePlace
 type PlaceBody = Omit<OwnTextPlace, 'rev'> | Omit<OwnPagePlace, 'rev'>
@@ -409,7 +418,9 @@ const wholeNumber = (value: unknown, max = MAX_PLACE_INDEX): value is number => 
 /**
  * A place from a request body or from stored metadata (strings); null when any
  * field is out of shape. A place with a `page` is a PDF's (the page and how far
- * down it); any other is an EPUB's (chapter, paragraph, word).
+ * down it, and the spot in its Tinct text when it carries one: all three of
+ * chapter, paragraph and word, or none); any other is an EPUB's (chapter,
+ * paragraph, word).
  */
 export function readPlace(value: unknown): PlaceBody | null {
   if (!value || typeof value !== 'object') return null
@@ -428,6 +439,18 @@ export function readPlace(value: unknown): PlaceBody | null {
     if (frac !== undefined && (typeof frac !== 'number' || !Number.isFinite(frac) || frac < 0 || frac > 1)) return null
     const pagePlace: Omit<OwnPagePlace, 'rev'> = { page, ...(typeof frac === 'number' ? { frac: Math.round(frac * 10_000) / 10_000 } : {}), updatedAt }
     keepPercent(pagePlace)
+    const chapterNumber = number(raw.chapterNumber), paragraphIndex = number(raw.paragraphIndex), wordIndex = number(raw.wordIndex)
+    const anyText = [chapterNumber, paragraphIndex, wordIndex].some(field => field !== undefined)
+    if (anyText) {
+      if (!wholeNumber(chapterNumber) || chapterNumber < 1 || !wholeNumber(paragraphIndex) || !wholeNumber(wordIndex)) return null
+      Object.assign(pagePlace, { chapterNumber, paragraphIndex, wordIndex })
+      const converter = number(raw.converter)
+      if (wholeNumber(converter, 1000) && converter >= 1) pagePlace.converter = converter
+    }
+    if (raw.edition !== undefined) {
+      if (raw.edition !== 't' && raw.edition !== 'p') return null
+      pagePlace.edition = raw.edition
+    }
     return pagePlace
   }
   const chapterNumber = number(raw.chapterNumber)
