@@ -301,8 +301,10 @@ function viewVisibility(): Node[] {
   const options = (['only_me', 'friends', 'everyone'] as Visibility[]).map(value => ({
     value,
     label: VISIBILITY_COPY[value].label,
-    line: value === 'everyone' && !p.emailConfirmed ? 'Anyone with your link, once you confirm your email.' : VISIBILITY_COPY[value].line,
+    line: VISIBILITY_COPY[value].line,
   }))
+  // The confirmation email goes out at sign-up (Anders, 9 Oct 2026): only a
+  // reader who chose Everyone while unconfirmed sees one quiet line and the resend.
   return tickView('Who can see you', options, p.visibility, value => void apply(saveProfile(token, { visibility: value, setUp: true })), [
     waiting ? el('p', { className: 'note' }, 'Until you confirm your email, friends can see you.') : null,
     waiting ? confirmLinkControl() : null,

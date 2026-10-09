@@ -307,6 +307,8 @@ export default {
         // "Send confirmation link": a service email, so LIFECYCLE_EMAILS and the lifecycle test gate do not apply (routes/confirmLink.ts).
         sendConfirmLink: confirmLinkSender(env),
         confirmLinkAllowed: confirmLinkLimiter(env),
+        // The same email, once, at sign-up (first profile read), sent after the reply.
+        defer: promise => ctx.waitUntil(promise),
       })
     }
     if (social && pageRequest && isYouPath(url.pathname)) {

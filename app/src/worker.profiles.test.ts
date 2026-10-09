@@ -686,3 +686,160 @@ describe('"Send confirmation link" (POST /api/profile/confirm-link)', () => {
     expect(confirmLinkEmail('https://tinct.app/confirm?t=a"b').html).toContain('t=a&quot;b')
   })
 })
+
+describe('the confirmation email at sign-up (Anders, 9 Oct 2026)', () => {
+  const NOW = Date.parse('2026-10-08T10:00:00Z')
+  const fresh = new Date(NOW - 60_000).toISOString()
+
+  /** MemoryStore plus public.email_log's unique (user_id, dedupe_key) reservation. */
+  class LoggedStore extends MemoryStore {
+    log: { user_id: string; template: string; dedupe_key: string }[] = []
+    async reserveEmail(id: string, template: string, dedupeKey: string) {
+      if (this.log.some(row => row.user_id === id && row.dedupe_key === dedupeKey)) return false
+      this.log.push({ user_id: id, template, dedupe_key: dedupeKey }); return true
+    }
+    async releaseEmail(id: string, dedupeKey: string) { this.log = this.log.filter(row => !(row.user_id === id && row.dedupe_key === dedupeKey)) }
+  }
+
+  function setup(options: { sender?: (to: string, userId: string) => Promise<boolean>; env?: Record<string, unknown>; defer?: boolean } = {}) {
+    const store = new LoggedStore(); seed(store)
+    for (const id of [A, B, C, D]) store.accounts.get(id)!.email = users[id].email
+    const signedUp: Record<string, ProfileAuthUser> = {
+      [A]: { ...users[A], created_at: fresh },
+      [B]: { ...users[B], created_at: fresh },
+      [C]: { ...users[C], created_at: '2026-10-01T10:00:00Z' },
+      [D]: { ...users[D] },
+    }
+    const sent: { to: string; userId: string }[] = []
+    const deferred: Promise<unknown>[] = []
+    const sender = options.sender ?? (async (to: string, userId: string) => { sent.push({ to, userId }); return true })
+    const read = async (as: string, method = 'GET') => {
+      const response = await handleProfiles(new Request('https://tinct.app/api/profile', {
+        method,
+        headers: { authorization: `Bearer ${as}`, 'content-type': 'application/json' },
+        body: method === 'POST' ? JSON.stringify({ showTime: true }) : undefined,
+      }), (options.env ?? on) as never, {
+        store,
+        verifyUser: async req => signedUp[req.headers.get('authorization')?.slice(7) ?? ''] ?? null,
+        now: () => new Date(NOW),
+        random: () => 0.42,
+        sendConfirmLink: sender,
+        confirmLinkAllowed: async () => true,
+        defer: options.defer ? promise => { deferred.push(promise) } : undefined,
+      })
+      await Promise.all(deferred)
+      return response
+    }
+    return { store, sent, read }
+  }
+
+  it('an email sign-up gets the confirmation email once, on the first profile read, logged in email_log', async () => {
+    const { store, sent, read } = setup()
+    const first = await read(A)
+    expect(first.status).toBe(200)
+    expect(sent).toEqual([{ to: 'anders.h@example.com', userId: A }])
+    expect(store.log).toEqual([{ user_id: A, template: 'confirm-email', dedupe_key: 'confirm-email:-' }])
+    await read(A)
+    await read(A, 'POST')
+    expect(sent).toHaveLength(1)
+  })
+
+  it('it is an account email: sent with LIFECYCLE_EMAILS "0" and whatever the reading-email choice', async () => {
+    const { store, sent, read } = setup({ env: { ...on, LIFECYCLE_EMAILS: '0' } })
+    store.accounts.get(A)!.email_opt_in = false
+    await read(A)
+    expect(sent).toHaveLength(1)
+  })
+
+  it('never for Google, an already confirmed address, an account older than 48 hours, or an unknown sign-up time', async () => {
+    const { store, sent, read } = setup()
+    store.accounts.get(A)!.email_confirmed_at = '2026-10-08T09:59:00Z'
+    for (const id of [A, B, C, D]) await read(id)
+    expect(sent).toEqual([])
+    expect(store.log).toEqual([])
+  })
+
+  it('only to the address the reader signed up with (as "Send confirmation link")', async () => {
+    const { store, sent, read } = setup()
+    store.accounts.get(A)!.email = 'someone.else@example.com'
+    await read(A)
+    expect(sent).toEqual([])
+  })
+
+  it('a send failure never blocks the profile; the reservation is released so a later read can try again', async () => {
+    let fail = true
+    const sent: string[] = []
+    const { store, read } = setup({
+      sender: async to => {
+        if (fail) throw new Error('brevo down')
+        sent.push(to); return true
+      },
+    })
+    const response = await read(A)
+    expect(response.status).toBe(200)
+    expect(((await response.json()) as { profile: { handle: string } }).profile.handle).toBe('anders.h')
+    expect(store.log).toEqual([])
+    fail = false
+    await read(A)
+    await read(A)
+    expect(sent).toEqual(['anders.h@example.com'])
+  })
+
+  it('a refused send (false) or a failing email log never blocks the profile either', async () => {
+    const refused = setup({ sender: async () => false })
+    expect((await refused.read(A)).status).toBe(200)
+    expect(refused.store.log).toEqual([])
+    const broken = setup()
+    broken.store.reserveEmail = async () => { throw new Error('email_log 404') }
+    expect((await broken.read(A)).status).toBe(200)
+    expect(broken.sent).toEqual([])
+  })
+
+  it('without a sender (no EMAIL_LINK_SECRET or BREVO_API_KEY) nothing is reserved or sent', async () => {
+    const store = new LoggedStore(); seed(store)
+    store.accounts.get(A)!.email = users[A].email
+    const response = await handleProfiles(new Request('https://tinct.app/api/profile', { headers: { authorization: `Bearer ${A}` } }), on as never, {
+      store, verifyUser: async () => ({ ...users[A], created_at: fresh }), now: () => new Date(NOW), random: () => 0.42, sendConfirmLink: null,
+    })
+    expect(response.status).toBe(200)
+    expect(store.log).toEqual([])
+  })
+
+  it('in the Worker it runs after the reply (waitUntil), so a slow send never delays sign-up', async () => {
+    const { sent, read } = setup({ defer: true })
+    expect((await read(A)).status).toBe(200)
+    expect(sent).toHaveLength(1)
+  })
+
+  it('the Everyone rule is unchanged: sending the email confirms nothing; Everyone counts as Friends until the link is used', async () => {
+    const { store, read } = setup()
+    await read(A)
+    expect(store.accounts.get(A)!.email_confirmed_at).toBeNull()
+    const saved = await (await post(store, A, { visibility: 'everyone' })).json() as { profile: { visibility: string; effectiveVisibility: string; emailConfirmed: boolean } }
+    expect(saved.profile).toMatchObject({ visibility: 'everyone', effectiveVisibility: 'friends', emailConfirmed: false })
+    expect(effectiveVisibility('everyone', false)).toBe('friends')
+    expect(effectiveVisibility('friends', false)).toBe('friends')
+    expect(effectiveVisibility('everyone', true)).toBe('everyone')
+  })
+
+  it('the Supabase store reserves in email_log (unique per reader and key) and releases on failure', async () => {
+    const calls: { url: string; init?: RequestInit }[] = []
+    let answer: Response = Response.json([{ id: 1 }], { status: 201 })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => { calls.push({ url: String(input), init }); return answer.clone() }))
+    const { supabaseProfileStore } = await import('./worker/lib/profileStore')
+    const store = supabaseProfileStore(on)
+    expect(await store.reserveEmail!(A, 'confirm-email', 'confirm-email:-')).toBe(true)
+    expect(calls[0].url).toBe('https://example.supabase.co/rest/v1/email_log?on_conflict=user_id,dedupe_key')
+    expect(calls[0].init?.method).toBe('POST')
+    expect(new Headers(calls[0].init?.headers).get('Prefer')).toBe('resolution=ignore-duplicates,return=representation')
+    expect(JSON.parse(String(calls[0].init?.body))).toEqual({ user_id: A, template: 'confirm-email', book_id: null, dedupe_key: 'confirm-email:-', meta: {} })
+    answer = Response.json([], { status: 201 })
+    expect(await store.reserveEmail!(A, 'confirm-email', 'confirm-email:-')).toBe(false)
+    answer = Response.json({ message: 'relation "email_log" does not exist' }, { status: 404 })
+    expect(await store.reserveEmail!(A, 'confirm-email', 'confirm-email:-')).toBe(false)
+    answer = new Response(null, { status: 204 })
+    await store.releaseEmail!(A, 'confirm-email:-')
+    expect(calls[calls.length - 1].url).toBe(`https://example.supabase.co/rest/v1/email_log?user_id=eq.${A}&dedupe_key=eq.confirm-email%3A-`)
+    expect(calls[calls.length - 1].init?.method).toBe('DELETE')
+  })
+})
