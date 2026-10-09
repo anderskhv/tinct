@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { EVERYONE_BOARD_MIN_READERS, amongFriendsLine, appearsOnBoard, everyoneBoardOpen, finishedCardLine, isInternalAccount, isReservedTestEmail, mutualFriends, parseFindQuery, rankOfLine, socialFriendsOn, type BoardCard } from './socialRules'
-import { followButtonHtml, profileDocument, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
+import { followButtonHtml, profileBlockedHtml, profileDocument, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
 
 const card = (over: Partial<BoardCard> = {}): BoardCard => ({
   id: 'b', handle: 'bea', display_name: 'Bea', picture_kind: 'initial', picture_value: null,
@@ -112,6 +112,13 @@ describe('the profile page HTML', () => {
     expect(limited).toContain('data-action="remove-follower"')
     expect(limited).toContain('data-action="block"')
     expect(profileMainHtml({ ...data, relation: 'self' })).not.toContain('Report')
+  })
+
+  it('a blocked reader\'s page offers Unblock and never sends the reader to Settings for it', () => {
+    const html = profileBlockedHtml()
+    expect(html).toContain('data-action="unblock"')
+    expect(html).toContain('>Unblock<')
+    expect(html).not.toMatch(/Settings/)
   })
 
   it('the page nobody may see is the same for every handle; with a link it offers Follow', () => {

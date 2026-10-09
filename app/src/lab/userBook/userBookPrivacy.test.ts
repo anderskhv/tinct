@@ -53,7 +53,7 @@ describe('a user book stays on this device', () => {
 
   it('menu: Talk and Catch me up are offered, editions are not; Library is Your books', () => {
     expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => [row.id, row.label])).toEqual([
-      ['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['settings', 'Settings'], ['library', 'Your books'], ['account', 'Account'],
+      ['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['settings', 'Settings'], ['library', 'Your books'], ['account', 'Profile'],
     ])
     expect(labSuperMenuRows({ phone: true, privateBook: true })[0].modes).toEqual(['chat', 'talk'])
     expect(labSuperMenuRows({ phone: true })[0].modes).toContain('talk')

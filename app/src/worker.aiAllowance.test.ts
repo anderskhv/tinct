@@ -15,8 +15,8 @@ const supabaseEnv = { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERV
 const reader = async () => ({ id: userId, email: 'reader@example.com' })
 const allow = async () => true
 
-const usedUp: AllowanceView = { usedFraction: 1, state: 'used_up', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: false }
-const plenty: AllowanceView = { usedFraction: 0.25, state: 'ok', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: true }
+const usedUp: AllowanceView = { usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: false }
+const plenty: AllowanceView = { usedFraction: 0.25, monthUsedFraction: 0.4, topUpLeftFraction: 0.5, state: 'ok', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: true }
 const gate = (view: AllowanceView | null, enforced = true): AllowanceGate & { load: ReturnType<typeof vi.fn> } => ({ enforced, load: vi.fn(async () => view) })
 
 function context() {
@@ -67,8 +67,8 @@ describe('GET /api/ai-allowance', () => {
     expect(response.status).toBe(200)
     expect(response.headers.get('Cache-Control')).toBe('no-store')
     const body = await response.json() as Record<string, unknown>
-    expect(Object.keys(body).sort()).toEqual(['enabled', 'hasTopUp', 'resetsAt', 'state', 'topUps', 'usedFraction'])
-    expect(body).toEqual({ enabled: true, usedFraction: 0.25, state: 'ok', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: true, topUps: [] })
+    expect(Object.keys(body).sort()).toEqual(['enabled', 'hasTopUp', 'monthUsedFraction', 'resetsAt', 'state', 'topUpLeftFraction', 'topUps', 'usedFraction'])
+    expect(body).toEqual({ enabled: true, usedFraction: 0.25, monthUsedFraction: 0.4, topUpLeftFraction: 0.5, state: 'ok', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: true, topUps: [] })
     expect(JSON.stringify(body)).not.toMatch(/usd|micros|cents|credit|spend|\$/i)
   })
 

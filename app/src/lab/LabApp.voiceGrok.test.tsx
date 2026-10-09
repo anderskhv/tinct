@@ -9,6 +9,8 @@ import type { useVoiceSession } from '../hooks/useVoiceSession'
 import { GROK_VOICE_INSTRUCTIONS } from '../voice/grokConfig'
 import { LabApp } from './LabApp'
 import { fallbackLabSource } from './labSource'
+const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
+vi.mock('../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../cards/openCards')>(), openAccountCards: accountCards.open }))
 
 const captured = vi.hoisted(() => ({ options: null as Parameters<typeof useVoiceSession>[0] | null }))
 vi.mock('../hooks/useVoiceSession', async importOriginal => {
@@ -66,8 +68,8 @@ it('keeps an account rejection visible after the call closes, without an audio b
   expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
   expect(stop).toHaveBeenCalled()
   fireEvent.click(screen.getByRole('button', { name: 'View account' }))
-  expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('account')
-  fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-super-sheet')).toBe('account')
+  await waitFor(() => expect(accountCards.open).toHaveBeenCalled())
   fireEvent.click(screen.getByRole('button', { name: 'Dismiss message' }))
   expect(screen.queryByTestId('lab-voice-notice')).toBeNull()
 })

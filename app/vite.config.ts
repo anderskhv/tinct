@@ -8,6 +8,7 @@ import path from 'path'
 import { serializePreReaderCatalogue } from './src/preReader/catalogue'
 import { addLibraryReadingStructures } from './src/preReader/libraryReadingStructure'
 import { legacyLabPageRedirect } from './src/lab/labRoute'
+import { accountPageRedirect } from './src/cards/cardRoutes'
 import { buildReaderBootScript } from './scripts/readerBootScript'
 
 const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
@@ -91,13 +92,10 @@ export default defineConfig(({ mode, command }) => {
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
         libraryTwoReading: path.resolve(process.cwd(), 'src/libraryTwoReading.ts'),
         libraryAdd: path.resolve(process.cwd(), 'src/libraryAdd.ts'),
-        labYourReading: path.resolve(process.cwd(), 'src/labYourReading.ts'),
         nativeBooks: path.resolve(process.cwd(), 'src/utils/nativeBooks.ts'),
-        // Profiles (social ship 2): the You page and the library's entry. Served only while SOCIAL_PROFILES is on.
-        youPage: path.resolve(process.cwd(), 'src/social/youPage.ts'),
-        librarySocialEntry: path.resolve(process.cwd(), 'src/social/librarySocialEntry.ts'),
-        // Social (ship 3): the Friends page, a profile page's script and the admin view. Served only while SOCIAL_FRIENDS is on.
-        friendsPage: path.resolve(process.cwd(), 'src/social/friendsPage.ts'),
+        // The account cards over the library (CARDS-BRIEF.md); the reader imports them itself.
+        libraryCards: path.resolve(process.cwd(), 'src/cards/libraryCards.ts'),
+        // Social (ship 3): a profile page's script and the admin view. Served only while SOCIAL_FRIENDS is on.
         profilePage: path.resolve(process.cwd(), 'src/social/profilePage.ts'),
         adminSocialPage: path.resolve(process.cwd(), 'src/social/adminSocialPage.ts'),
       },
@@ -118,14 +116,8 @@ export default defineConfig(({ mode, command }) => {
                 ? 'lab/library-2-reading.js'
               : chunk.name === 'libraryAdd'
                 ? 'lab/library-add.js'
-              : chunk.name === 'labYourReading'
-                ? 'lab/your-reading-runtime.js'
-              : chunk.name === 'youPage'
-                ? 'lab/profile-runtime.js'
-              : chunk.name === 'librarySocialEntry'
-                ? 'lab/social-entry.js'
-              : chunk.name === 'friendsPage'
-                ? 'lab/friends-runtime.js'
+              : chunk.name === 'libraryCards'
+                ? 'lab/account-cards.js'
               : chunk.name === 'profilePage'
                 ? 'lab/social-profile.js'
               : chunk.name === 'adminSocialPage'
@@ -252,18 +244,19 @@ export default defineConfig(({ mode, command }) => {
             next()
             return
           }
-          if (pathOnly === '/lab/profile-runtime.js') {
-            req.url = `/src/social/youPage.ts${url.slice(pathOnly.length)}`
+          if (pathOnly === '/lab/account-cards.js') {
+            req.url = `/src/cards/libraryCards.ts${url.slice(pathOnly.length)}`
             next()
             return
           }
-          if (pathOnly === '/lab/social-entry.js') {
-            req.url = `/src/social/librarySocialEntry.ts${url.slice(pathOnly.length)}`
-            next()
+          // Old account pages open their card over the library or reader, as in the Worker.
+          const cardTarget = req.method === 'GET' || req.method === 'HEAD' ? accountPageRedirect(pathOnly, url.slice(pathOnly.length)) : null
+          if (cardTarget) {
+            res.writeHead(302, { Location: cardTarget })
+            res.end()
             return
           }
           const socialRuntime: Record<string, string> = {
-            '/lab/friends-runtime.js': '/src/social/friendsPage.ts',
             '/lab/social-profile.js': '/src/social/profilePage.ts',
             '/lab/admin-social-runtime.js': '/src/social/adminSocialPage.ts',
           }
@@ -274,11 +267,6 @@ export default defineConfig(({ mode, command }) => {
           }
           if (pathOnly === '/lab/library-add.js') {
             req.url = `/src/libraryAdd.ts${url.slice(pathOnly.length)}`
-            next()
-            return
-          }
-          if (pathOnly === '/lab/your-reading-runtime.js') {
-            req.url = `/src/labYourReading.ts${url.slice(pathOnly.length)}`
             next()
             return
           }
@@ -301,13 +289,7 @@ export default defineConfig(({ mode, command }) => {
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
             '/library/': '/lab/library_2/index.html',
-            // Your reading: the Worker serves it only while SOCIAL_READING_TIME is on.
-            '/your-reading': '/lab/your-reading/index.html',
-            '/your-reading/': '/lab/your-reading/index.html',
-            '/you': '/lab/you/index.html',
-            // Social (ship 3): the Worker serves these only while SOCIAL_FRIENDS is on.
-            '/friends': '/lab/friends/index.html',
-            '/friends/': '/lab/friends/index.html',
+            // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.
             '/admin/social': '/lab/admin-social/index.html',
           }
           if (pageAssets[pathOnly]) {

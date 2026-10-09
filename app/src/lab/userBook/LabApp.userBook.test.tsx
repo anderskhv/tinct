@@ -12,6 +12,8 @@ import { readUserBookPlace, writeUserBookPlace } from './userBookPlace'
 import { UserBookReader } from './UserBookReader'
 import { fetchNarrationPilotInfo, OWN_BOOK_NARRATION_UNAVAILABLE } from '../labNarration'
 import { USER_BOOK_CHAPTER_CHARS, USER_BOOK_PASSAGE_CHARS, chapterWindow, passageWindow } from './userBookContext'
+const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
+vi.mock('../../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../../cards/openCards')>(), openAccountCards: accountCards.open }))
 
 const leave = vi.hoisted(() => vi.fn())
 vi.mock('../labLeaveForLibrary', async importOriginal => ({ ...await importOriginal<typeof import('../labLeaveForLibrary')>(), leaveForLibrary: leave }))
@@ -313,7 +315,7 @@ describe('Listen for a user book', () => {
 })
 
 describe('Listen for a user book without Premium', () => {
-  it('opens the account sheet, with its Premium offer, when the server answers 402', async () => {
+  it('opens the account cards, with their Premium offer, when the server answers 402', async () => {
     vi.mocked(fetchNarrationPilotInfo).mockResolvedValue({ enabled: true, provider: 'grok', voices: [{ key: 'f', label: 'Ara', persona: 'female' }], ownBooks: true })
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input)
@@ -323,7 +325,7 @@ describe('Listen for a user book without Premium', () => {
     }))
     render(<LabApp pathname="/lab/desktop" authToken="token-a" userBook={loaded()} />)
     fireEvent.click(await screen.findByTestId('lab-v2-play'))
-    await waitFor(() => expect(screen.getByTestId('lab-v2-account-card')).toBeTruthy())
+    await waitFor(() => expect(accountCards.open).toHaveBeenCalled())
     expect(screen.queryByTestId('lab-narration-error')).toBeNull()
   })
 })

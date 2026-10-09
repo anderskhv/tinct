@@ -1,8 +1,10 @@
 // @vitest-environment jsdom
 
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
+const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
+vi.mock('../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../cards/openCards')>(), openAccountCards: accountCards.open }))
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 import { THE_HISTORIES } from '../data/bookRegistry'
 import { DEFAULT_LAB_PREFS, writeLabPrefs, LAB_ACCESSIBILITY_FONTS, LAB_PREFS_KEY, LAB_READING_FONTS, readLabPrefs } from './labPrefs'
@@ -192,17 +194,13 @@ describe('the font picker', () => {
 })
 
 describe('account', () => {
-  it('opens on the same sheet, and its last row sits on the rows above it', () => {
+  it('is the account cards now: the sheet stays closed and the cards open over the reader', async () => {
+    accountCards.open.mockClear()
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-account'))
-    expect(layer()).toBe('account')
-    expect(screen.getByTestId('lab-v2-account-card')).toBeTruthy()
-    // Signed out there is no password to reset; the row that remains is the
-    // sign-in one, and it is a `lab-v2-row` like every row above it — which
-    // is the whole of the alignment fix.
-    const link = screen.getByTestId('lab-v2-account-sign-in')
-    expect(link.classList.contains('lab-v2-row')).toBe(true)
+    expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
+    await waitFor(() => expect(accountCards.open).toHaveBeenCalledTimes(1))
   })
 })
 

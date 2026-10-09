@@ -37,7 +37,7 @@ export function labSuperMenuRows({ phone = false, privateBook = false }: { phone
     { id: 'settings', label: 'Settings', chevron: true },
     // Desktop has the back arrow at the top left instead (2026-10-01).
     ...(phone ? [{ id: 'library' as const, label: 'Library', ruleBefore: true }] : []),
-    { id: 'account', label: 'Account', chevron: true, ruleBefore: !phone },
+    { id: 'account', label: 'Profile', chevron: true, ruleBefore: !phone },
   ]
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter

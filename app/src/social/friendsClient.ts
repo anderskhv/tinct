@@ -78,9 +78,22 @@ export const fetchRank = (token: string, fetchImpl?: FetchLike) => getJson<{ ran
 export const fetchFind = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[]; alsoReading: FindRow[]; link: string | null; everyoneOpen?: boolean }>('/api/social/find', token, fetchImpl)
 export const searchReaders = (token: string, q: string, fetchImpl?: FetchLike) => getJson<{ results: FindRow[] }>(`/api/social/find?q=${encodeURIComponent(q)}`, token, fetchImpl)
 export const fetchProfile = (token: string | null, handle: string, fetchImpl?: FetchLike) => getJson<{ profile: ProfilePageData }>(`/api/social/profile/${encodeURIComponent(handle)}`, token, fetchImpl)
-export const fetchBlocked = (token: string, fetchImpl?: FetchLike) => getJson<{ blocked: Array<{ id: string; name: string; handle: string | null }> }>('/api/social/blocked', token, fetchImpl)
 
 export type SocialAction = 'follow' | 'unfollow' | 'remove-follower' | 'block'
+
+/**
+ * The id of a reader the viewer blocked, found by handle in /api/social/blocked;
+ * null when not blocked (or unknown). A blocked reader's profile answers 404 to
+ * the viewer, so this is how their card knows to offer Unblock.
+ */
+export async function blockedReaderId(token: string, handle: string, fetchImpl?: FetchLike): Promise<string | null> {
+  const data = await getJson<{ blocked: Array<{ id: string; handle: string | null }> }>('/api/social/blocked', token, fetchImpl)
+  return data?.blocked?.find(reader => reader.handle === handle)?.id ?? null
+}
+
+export async function unblockReader(token: string, id: string, fetchImpl?: FetchLike): Promise<boolean> {
+  return (await postJson('/api/social/unblock', token, { id }, fetchImpl)).ok
+}
 
 /** The relation a follow (true) or unfollow (false) leads to: what a Follow button shows while it waits. */
 export function followingAfter(relation: Relation | null, follow: boolean): Relation {
@@ -92,10 +105,6 @@ export function followingAfter(relation: Relation | null, follow: boolean): Rela
 export async function socialAction(token: string, action: SocialAction, handle: string, fetchImpl?: FetchLike): Promise<{ ok: boolean; relation?: Relation; followsYou?: boolean }> {
   const result = await postJson<{ relation?: Relation; followsYou?: boolean }>(`/api/social/${action}`, token, { handle }, fetchImpl)
   return { ok: result.ok, relation: result.data?.relation, followsYou: result.data?.followsYou }
-}
-
-export async function unblockReader(token: string, id: string, fetchImpl?: FetchLike): Promise<boolean> {
-  return (await postJson('/api/social/unblock', token, { id }, fetchImpl)).ok
 }
 
 export async function reportProfile(token: string, handle: string, reason: ReportReason, fetchImpl?: FetchLike): Promise<boolean> {

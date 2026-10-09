@@ -179,11 +179,11 @@ describe('switch off', () => {
     expect(spy).not.toHaveBeenCalled()
   })
 
-  it('the Worker router leaves /@handle, /friends, /admin/social, their assets and the pages exactly as before', async () => {
+  it('the Worker router leaves /@handle, /admin/social, their assets and the pages exactly as before; /friends opens the Leaderboard card', async () => {
     const assets = vi.fn(async (request: Request) => {
       const path = new URL(request.url).pathname
       if (path.startsWith('/lab/library_2/') || path === '/lab/sign-in/' || path === '/reader') return new Response('<html><head><title>x</title></head><body></body></html>', { headers: { 'content-type': 'text/html' } })
-      if (path === '/lab/friends/' || path === '/lab/admin-social/' || path === '/lab/you/') return new Response('<html><head></head><body>page</body></html>', { headers: { 'content-type': 'text/html' } })
+      if (path === '/lab/admin-social/') return new Response('<html><head></head><body>page</body></html>', { headers: { 'content-type': 'text/html' } })
       return new Response('Not found', { status: 404 })
     })
     vi.stubGlobal('fetch', vi.fn(async () => new Response('[]')))
@@ -191,12 +191,16 @@ describe('switch off', () => {
     const base = { ASSETS: { fetch: assets }, SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' }
     for (const vars of [{}, { SOCIAL_FRIENDS: '1' }, { SOCIAL_PROFILES: '1' }, { SOCIAL_FRIENDS: '1', SOCIAL_PROFILES: '0' }]) {
       const env = { ...base, ...vars } as never
-      for (const path of ['/@anders', '/friends', '/admin/social', '/lab/friends/', '/lab/admin-social/index.html', '/api/social/board', '/api/admin/social']) {
+      for (const path of ['/@anders', '/admin/social', '/lab/admin-social/index.html', '/api/social/board', '/api/admin/social']) {
         const response = await worker.fetch(new Request(`https://tinct.app${path}`), env, ctx)
         expect(response.status, `${path} ${JSON.stringify(vars)}`).toBe(404)
       }
       const library = await worker.fetch(new Request('https://tinct.app/library'), env, ctx)
       expect(await library.text()).not.toContain('tinct-friends')
+      // The old Friends page is the Leaderboard card (Find readers for its Find tab), switch or not.
+      const friends = await worker.fetch(new Request('https://tinct.app/friends?tab=find'), env, ctx)
+      expect(friends.status).toBe(302)
+      expect(friends.headers.get('Location')).toBe('/library?card=find')
     }
   })
 })

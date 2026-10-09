@@ -207,6 +207,10 @@ export type AllowanceState = 'ok' | 'low' | 'used_up'
 /** What the reader may see. No currency, no amounts. */
 export interface AllowanceView {
   usedFraction: number
+  /** This period's allowance alone: min(spend, allowance) / allowance (1 when there is no allowance). */
+  monthUsedFraction: number
+  /** The top-up credit left of the credit there was this period (left + drawn); null when there was none. */
+  topUpLeftFraction: number | null
   state: AllowanceState
   /** When this period's allowance renews; null for a standard account, which has none. */
   resetsAt: string | null
@@ -239,8 +243,12 @@ export function allowanceView(ledger: AllowanceLedger, resetsAt: Date | null): A
   const total = allowance + drawn + credit
   const usedFraction = total > 0 ? Math.min(1, Math.max(0, (total - remaining) / total)) : 1
   const state: AllowanceState = remaining <= 0 ? 'used_up' : usedFraction >= ALLOWANCE_LOW_FRACTION ? 'low' : 'ok'
+  const round = (value: number) => Math.round(value * 1000) / 1000
+  const topUpTotal = credit + drawn
   return {
-    usedFraction: Math.round(usedFraction * 1000) / 1000,
+    usedFraction: round(usedFraction),
+    monthUsedFraction: allowance > 0 ? round(Math.min(spend, allowance) / allowance) : 1,
+    topUpLeftFraction: topUpTotal > 0 ? round(credit / topUpTotal) : null,
     state,
     resetsAt: resetsAt ? resetsAt.toISOString() : null,
     hasTopUp: credit > 0,

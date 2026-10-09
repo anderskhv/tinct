@@ -15,15 +15,14 @@ import {
   LAB_AUTH_CALLBACK_PATH,
 } from './lab/labSignInProviders'
 import { reconcileLabDeviceIdentity } from './lab/labDeviceIdentity'
-import { wipeLabDeviceUserData } from './lab/labSignOut'
 import { supabase } from './services/supabase'
 import { funnel, setFunnelToken, trackFunnel } from './utils/funnel'
-import { clearSignedInCookie, setSignedInCookie } from './utils/authCookie'
-import { fetchSubscriptionInfo, premiumOfferIntervals, startPremiumCheckout, type PremiumInterval } from './lab/labPremiumOffer'
+import { setSignedInCookie } from './utils/authCookie'
+import { cardUrl } from './cards/cardRoutes'
 import { enhanceSignInPage, rememberSignupConsent, startProfileSteps, updateStepCounter } from './social/signUpSteps'
 import { EMAIL_CONSENT_VERSION } from './social/profileRules'
 
-type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'account' | 'welcome' | 'profile' | 'reading'
+type Mode = 'signin' | 'create' | 'forgot' | 'reset' | 'welcome' | 'profile' | 'reading'
 
 const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')
 const form = root?.querySelector<HTMLFormElement>('[data-auth-form]')
@@ -34,10 +33,14 @@ const password = root?.querySelector<HTMLInputElement>('[name=password]')
 const confirmPassword = root?.querySelector<HTMLInputElement>('[name=confirmPassword]')
 const emailOptIn = root?.querySelector<HTMLInputElement>('[name=emailOptIn]')
 const initialParams = new URLSearchParams(location.search)
-const returnTo = safeLabReturnTo(initialParams.get('returnTo'))
+// The old account page (?mode=account, "Your Tinct account") is the Account card now:
+// signed in, the reader goes straight to it over the page they came from; signed
+// out, they sign in first and land on it.
+const accountLink = initialParams.get('mode') === 'account'
+const returnTo = accountLink ? cardUrl('account', safeLabReturnTo(initialParams.get('returnTo'))) : safeLabReturnTo(initialParams.get('returnTo'))
 // Profiles (social ship 2): only when the Worker marks the page; otherwise nothing changes.
-const social = enhanceSignInPage(root ?? null, returnTo)
-const allowedModes = new Set<Mode>(['signin', 'create', 'forgot', 'reset', 'account', 'welcome', ...(social ? ['profile', 'reading'] as Mode[] : [])])
+const social = enhanceSignInPage(root ?? null)
+const allowedModes = new Set<Mode>(['signin', 'create', 'forgot', 'reset', 'welcome', ...(social ? ['profile', 'reading'] as Mode[] : [])])
 let mode: Mode = allowedModes.has(initialParams.get('mode') as Mode)
   ? initialParams.get('mode') as Mode
   : 'signin'
@@ -69,12 +72,12 @@ function setMode(next: Mode) {
   root.querySelectorAll<HTMLElement>('[data-mode-copy]').forEach(node => {
     node.hidden = node.dataset.modeCopy !== mode
   })
-  email?.closest<HTMLElement>('[data-email-field]')?.toggleAttribute('hidden', mode === 'reset' || mode === 'account' || mode === 'welcome')
-  password?.closest<HTMLElement>('[data-password-field]')?.toggleAttribute('hidden', mode === 'forgot' || mode === 'account' || mode === 'welcome')
+  email?.closest<HTMLElement>('[data-email-field]')?.toggleAttribute('hidden', mode === 'reset' || mode === 'welcome')
+  password?.closest<HTMLElement>('[data-password-field]')?.toggleAttribute('hidden', mode === 'forgot' || mode === 'welcome')
   confirmPassword?.closest<HTMLElement>('[data-confirm-field]')?.toggleAttribute('hidden', mode !== 'reset')
   // Consent to occasional email is asked only when creating an account, never pre-ticked.
   emailOptIn?.closest<HTMLElement>('[data-email-optin-field]')?.toggleAttribute('hidden', mode !== 'create')
-  if (submit) submit.hidden = mode === 'account' || mode === 'welcome'
+  if (submit) submit.hidden = mode === 'welcome'
   if (social) updateStepCounter(root, mode)
   setStatus()
   const url = new URL(location.href)
@@ -82,41 +85,6 @@ function setMode(next: Mode) {
   else url.searchParams.set('mode', mode)
   url.searchParams.set('returnTo', returnTo)
   history.replaceState(null, '', url)
-}
-
-let premiumToken: string | null = null
-
-/**
- * The account page offers Premium, monthly or yearly, to a signed-in reader who
- * is not paying. Only the intervals the Worker has a price for are shown; with
- * none (or no answer) the block stays hidden.
- */
-async function showPremiumOffer(token: string | undefined) {
-  const block = root?.querySelector<HTMLElement>('[data-premium]')
-  if (!block || !token) return
-  const intervals = premiumOfferIntervals(await fetchSubscriptionInfo(token))
-  if (!intervals.length) return
-  premiumToken = token
-  block.querySelectorAll<HTMLElement>('[data-plan]').forEach(plan => {
-    plan.hidden = !intervals.includes(plan.dataset.plan as PremiumInterval)
-  })
-  const first = block.querySelector<HTMLInputElement>(`[data-plan="${intervals[0]}"] input`)
-  if (first) first.checked = true
-  block.hidden = false
-}
-
-async function checkout(button: HTMLButtonElement) {
-  if (!premiumToken) return
-  const chosen = root?.querySelector<HTMLInputElement>('[name=premiumInterval]:checked')?.value
-  const interval: PremiumInterval = chosen === 'year' ? 'year' : 'month'
-  button.disabled = true
-  setStatus()
-  try {
-    location.assign(await startPremiumCheckout(premiumToken, interval))
-  } catch {
-    setStatus('Payment could not start. Please try again.', 'error')
-    button.disabled = false
-  }
 }
 
 function returnToLibrary() {
@@ -318,24 +286,11 @@ async function signInWithProvider(button: HTMLElement) {
 }
 
 root?.addEventListener('click', async event => {
-  const target = (event.target as Element).closest<HTMLElement>('[data-set-mode], [data-oauth], [data-sign-out], [data-return], [data-checkout]')
+  const target = (event.target as Element).closest<HTMLElement>('[data-set-mode], [data-oauth], [data-return]')
   if (!target) return
-  if (target.hasAttribute('data-checkout')) await checkout(target as HTMLButtonElement)
   if (target.dataset.setMode) setMode(target.dataset.setMode as Mode)
   if (target.hasAttribute('data-return')) returnToLibrary()
   if (target.hasAttribute('data-oauth')) await signInWithProvider(target)
-  if (target.hasAttribute('data-sign-out') && supabase) {
-    setBusy(true)
-    const { error } = await supabase.auth.signOut()
-    if (error) setStatus(error.message, 'error')
-    else {
-      clearSignedInCookie()
-      // The next person on this device must not inherit this reader's data.
-      wipeLabDeviceUserData()
-      returnToLibrary()
-    }
-    setBusy(false)
-  }
 })
 
 form?.addEventListener('submit', submitAuth)
@@ -369,20 +324,17 @@ async function initialize() {
       return
     }
     reconcileLabDeviceIdentity(data.session?.user?.id)
-    const accountEmail = root?.querySelector<HTMLElement>('[data-account-email]')
-    if (accountEmail) accountEmail.textContent = data.session?.user.email || ''
     if (data.session?.user) {
       setSignedInCookie()
       if (mode === 'reset') setMode('reset')
       else if (authReturn) completeSignIn(data.session, callback === 'signup')
       else if (social && (mode === 'profile' || mode === 'reading')) void startSocialSteps(data.session.access_token)
-      else {
-        setMode(mode === 'welcome' ? 'welcome' : 'account')
-        if (mode === 'account') void showPremiumOffer(data.session.access_token)
-      }
+      else if (mode === 'welcome') setMode('welcome')
+      // Signed in already: the account is the cards, over the page the reader came from.
+      else { navigateAfterAuth(accountLink ? returnTo : cardUrl('you', returnTo), true); return }
       rememberPendingProvider(null)
     } else {
-      setMode(mode === 'welcome' || mode === 'account' || mode === 'profile' || mode === 'reading' ? 'signin' : mode)
+      setMode(mode === 'welcome' || mode === 'profile' || mode === 'reading' ? 'signin' : mode)
       reportProviderReturnError()
     }
   } catch (error) {

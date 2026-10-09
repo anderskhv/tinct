@@ -2,8 +2,8 @@
  * GET /api/ai-allowance (signed-in): the reader's own usage bar.
  *
  * Switch off: `{ enabled: false }` and nothing is read, so the client shows
- * no bar. On: `{ enabled: true, usedFraction, state, resetsAt, hasTopUp,
- * topUps }`, where topUps names the top-ups checkout can sell now ($5 first,
+ * no bar. On: `{ enabled: true, usedFraction, monthUsedFraction,
+ * topUpLeftFraction, state, resetsAt, hasTopUp, topUps }`, where topUps names the top-ups checkout can sell now ($5 first,
  * then $10 once its price is set). Never a currency or an amount.
  */
 import { createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
@@ -29,6 +29,9 @@ export async function handleAiAllowance<E extends SupabaseEnv & BillingEnv>(
   return noStore(jsonResponse({
     enabled: true,
     usedFraction: view.usedFraction,
+    // The cards' two bars: fractions only.
+    monthUsedFraction: view.monthUsedFraction,
+    topUpLeftFraction: view.topUpLeftFraction,
     state: view.state,
     resetsAt: view.resetsAt,
     hasTopUp: view.hasTopUp,

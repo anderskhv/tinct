@@ -53,16 +53,33 @@ afterEach(() => {
 })
 
 describe('lab sign-in runtime', () => {
-  it('honours a reader returnTo (with its query) on the back link and in the account mode URL', async () => {
+  it('sends a signed-in reader on the old account link to the Account card over the page they came from', async () => {
+    history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader%3Fvoice%3Dv2')
+    mountSignInShell()
+    await import('./labSignIn')
+    await flush()
+    expect(navigation).toHaveBeenCalledWith('/reader?voice=v2&card=account', true)
+  })
+
+  it('sends a signed-in reader on a plain sign-in link to the You card', async () => {
+    history.replaceState(null, '', '/sign-in?returnTo=%2Freader')
+    mountSignInShell()
+    await import('./labSignIn')
+    await flush()
+    expect(navigation).toHaveBeenCalledWith('/reader?card=you', true)
+  })
+
+  it('signs a signed-out reader in first, then returns to the Account card', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
     history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader%3Fvoice%3Dv2')
     mountSignInShell()
     await import('./labSignIn')
     await flush()
     const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')!
     expect(root.dataset.ready).toBe('true')
-    expect(root.dataset.mode).toBe('account')
-    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/reader?voice=v2')
-    expect(new URLSearchParams(location.search).get('returnTo')).toBe('/reader?voice=v2')
+    expect(root.dataset.mode).toBe('signin')
+    expect(new URLSearchParams(location.search).get('returnTo')).toBe('/reader?voice=v2&card=account')
+    expect(document.querySelector('[data-mode-copy="account"]')).toBeNull()
   })
 
   it('falls back to the library for a foreign returnTo', async () => {
@@ -71,34 +88,6 @@ describe('lab sign-in runtime', () => {
     await import('./labSignIn')
     await flush()
     expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/library')
-  })
-
-  it('wipes this reader\'s device data on sign out and keeps device-level preferences', async () => {
-    history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader')
-    localStorage.setItem('tinct-lab-position', '{"books":{}}')
-    localStorage.setItem('tinct:reading-memory', '{"owner":"user-a"}')
-    localStorage.setItem('tinct:chat-history:lab', '[]')
-    localStorage.setItem('tinct-lab-highlights', '[]')
-    localStorage.setItem('tinct-lab-prefs', '{"version":2}')
-    localStorage.setItem('tinct-lab-device-id', 'device-1')
-    mountSignInShell()
-    await import('./labSignIn')
-    await flush()
-    // jsdom's Location is unforgeable, so the `location.assign(returnTo)` that
-    // follows is not observable here (jsdom logs "Not implemented: navigation").
-    // The returnTo it navigates to is the same value the back link carries.
-    expect(document.querySelector<HTMLAnchorElement>('[data-auth-back]')!.getAttribute('href')).toBe('/reader')
-    document.querySelector<HTMLButtonElement>('[data-sign-out]')!.click()
-    await flush()
-    await flush()
-    expect(auth.signOut).toHaveBeenCalledTimes(1)
-    expect(localStorage.getItem('tinct-lab-position')).toBeNull()
-    expect(localStorage.getItem('tinct:reading-memory')).toBeNull()
-    expect(localStorage.getItem('tinct:chat-history:lab')).toBeNull()
-    expect(localStorage.getItem('tinct-lab-highlights')).toBeNull()
-    expect(localStorage.getItem('tinct-lab-prefs')).toBe('{"version":2}')
-    // A fresh device id after sign-out: analytics are not linked across readers.
-    expect(localStorage.getItem('tinct-lab-device-id')).toBeNull()
   })
 })
 
@@ -357,55 +346,5 @@ describe('completed authentication', () => {
     document.querySelector('form')!.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }))
     await flush()
     expect(mode()).toBe('welcome')
-  })
-})
-
-describe('account page Premium choice', () => {
-  const signedIn = { data: { session: { access_token: 'token-1', user: { id: 'user-a', email: 'reader@example.com' } } } }
-
-  async function account(info: unknown) {
-    const fetchMock = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => String(input) === '/api/subscription-info'
-      ? Response.json(info)
-      : Response.json({ error: 'Payment processing failed' }, { status: 400 }))
-    vi.stubGlobal('fetch', fetchMock)
-    auth.getSession.mockResolvedValueOnce(signedIn as never)
-    history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader')
-    mountSignInShell()
-    await import('./labSignIn')
-    for (let i = 0; i < 4; i++) await flush()
-    const block = document.querySelector<HTMLElement>('[data-premium]')!
-    const visiblePlans = [...block.querySelectorAll<HTMLElement>('[data-plan]')].filter(plan => !plan.hidden).map(plan => plan.textContent?.trim())
-    return { fetchMock, block, visiblePlans }
-  }
-  afterEach(() => vi.unstubAllGlobals())
-
-  it('offers monthly and yearly to a signed-in reader who does not pay', async () => {
-    const { block, visiblePlans, fetchMock } = await account({ subscription_status: null, intervals: ['month', 'year'] })
-    expect(block.hidden).toBe(false)
-    expect(visiblePlans).toEqual(['Monthly$5/month', 'Yearly$50/year'])
-    expect(document.querySelector<HTMLInputElement>('[name=premiumInterval]:checked')?.value).toBe('month')
-    expect((fetchMock.mock.calls[0][1]?.headers as Record<string, string>).Authorization).toBe('Bearer token-1')
-  })
-
-  it('hides the yearly plan when the Worker has no yearly price', async () => {
-    const { block, visiblePlans } = await account({ subscription_status: null, intervals: ['month'] })
-    expect(block.hidden).toBe(false)
-    expect(visiblePlans).toEqual(['Monthly$5/month'])
-  })
-
-  it('shows nothing to a paying reader', async () => {
-    const { block } = await account({ subscription_status: 'active', intervals: ['month', 'year'] })
-    expect(block.hidden).toBe(true)
-  })
-
-  it('sends the chosen interval to checkout and says so when it cannot start', async () => {
-    const { fetchMock } = await account({ subscription_status: null, intervals: ['month', 'year'] })
-    document.querySelector<HTMLInputElement>('[name=premiumInterval][value=year]')!.checked = true
-    document.querySelector<HTMLButtonElement>('[data-checkout]')!.click()
-    for (let i = 0; i < 4; i++) await flush()
-    const call = fetchMock.mock.calls.find(([url]) => String(url) === '/api/create-checkout')!
-    expect(JSON.parse(String(call[1]?.body))).toMatchObject({ type: 'subscription', interval: 'year' })
-    expect(document.querySelector('[data-auth-status]')?.textContent).toBe('Payment could not start. Please try again.')
-    expect(document.querySelector<HTMLButtonElement>('[data-checkout]')!.disabled).toBe(false)
   })
 })
