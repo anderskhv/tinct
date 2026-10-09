@@ -6,10 +6,10 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261008rel9';
-import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261008rel9';
-import {eraLabel} from './book-metadata.js?v=20261008rel9';
-import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261008rel9';
+import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261009rel10';
+import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261009rel10';
+import {eraLabel} from './book-metadata.js?v=20261009rel10';
+import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -29,7 +29,7 @@ export const ADD_PARAM='add';
 let worker=null,ready=null,request=0;const waiting=new Map();
 export function warmFreeSearch(){
  if(worker||!enabled())return ready;
- try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261008rel9',{type:'module'});}catch{worker=null;return null;}
+ try{worker=new Worker('/lab/addbook/js/search-worker.js?v=20261009rel10',{type:'module'});}catch{worker=null;return null;}
  ready=new Promise((resolve,reject)=>{
   worker.onmessage=({data})=>{
    if(data.type==='ready')resolve();
@@ -91,7 +91,7 @@ export function linkedPublicBook(){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261008rel9';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261009rel10';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -117,7 +117,7 @@ export function resetAddAccess(){access=null;}
 // Add a book's PDF reader. Nothing goes through Add a book's page.
 const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',search:'Add a book',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
 const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261008rel9'];
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261009rel10'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
@@ -243,10 +243,14 @@ function fileEntry(link){
 
 // ---- Modern English, asked right after a catalogue book is added (Anders, 2026-10-08) ----
 // One shared edition per book: the first buyer pays, everyone after reads it. Asked only
-// when the book has none yet and the Worker offers one; never when the status cannot be
-// told in time, so opening the book is never held up. Buying is the reader's own checkout
-// (the add engine's buyModern: labModernEditionApi startModernCheckout).
-/** How long the status may take before the question is skipped. */
+// when the book has none yet and the Worker offers one. The price is the Worker's tier for
+// the published book's word count (worker/lib/modernEdition.ts modernTierFor, from the
+// chapters the commit verified; the catalogue has no lengths), so it is known as soon as the
+// add's commit (or, for a book already in Tinct, its first step) has answered: the status is
+// asked then, and the question shows the moment it answers, while the add finishes alongside
+// (Anders, 2026-10-09: right after Add, never holding the add up). Buying is the reader's own
+// checkout (the add engine's buyModern: labModernEditionApi startModernCheckout).
+/** How long the status may take, once the add is done, before the question is skipped. */
 export const MODERN_ASK_TIMEOUT_MS=1500;
 const MODERN_COPY={title:'Also get it in Modern English?',body:'A Modern English edition is written for you chapter by chapter, and anyone who adds this book later reads it too.',buy:'Get Modern English',later:'Not now'};
 /** Cents as the reader shows them (labModernEditionApi formatModernPrice). */
@@ -261,23 +265,45 @@ export function modernAsk(status){
 export const modernAskAllowed=()=>signedIn()&&enabled()&&modernEditionsEnabled();
 /**
  * After an add: the question to ask for `bookId`, or null (not allowed, no offer, already
- * bought or being bought, the status failed, or it took longer than `timeoutMs`).
+ * bought or being bought, the status failed, or it took longer than `timeoutMs`; with `late`,
+ * a promise, until that settles instead).
  */
-export async function modernOfferAfterAdd(bookId,{allowed=modernAskAllowed,status=id=>addEngine().then(api=>api.modernStatus?api.modernStatus(id):null),timeoutMs=MODERN_ASK_TIMEOUT_MS}={}){
+export async function modernOfferAfterAdd(bookId,{allowed=modernAskAllowed,status=id=>addEngine().then(api=>api.modernStatus?api.modernStatus(id):null),timeoutMs=MODERN_ASK_TIMEOUT_MS,late=null}={}){
  if(!allowed())return null;
  let timer;
- const late=new Promise(resolve=>{timer=setTimeout(()=>resolve(null),timeoutMs);});
- try{return modernAsk(await Promise.race([Promise.resolve().then(()=>status(bookId)).catch(()=>null),late]));}
+ const deadline=late?Promise.resolve(late).then(()=>null,()=>null):new Promise(resolve=>{timer=setTimeout(()=>resolve(null),timeoutMs);});
+ try{return modernAsk(await Promise.race([Promise.resolve().then(()=>status(bookId)).catch(()=>null),deadline]));}
  catch{return null;}
  finally{clearTimeout(timer);}
 }
 /**
+ * The end of an add, with the question alongside: the status is asked at once and the question
+ * shows as soon as it answers, while `finish` (the library's own last steps: the shelf, the
+ * reader's hand-off; resolves where the reader opens) runs on. Neither waits for the other:
+ * the add finishes whatever the reader does with the question. Resolves {href, answer} once
+ * `finish` is done and the question, if asked, is answered ('buy' or 'later'; null when it was
+ * not asked), so the reader never opens under an open question. A status still unanswered
+ * `timeoutMs` after `finish` is done is not asked. `live()` false (search closed): not asked.
+ * When `finish` fails, an open question closes and the failure is passed on.
+ */
+export async function finishAdd(bookId,{finish,allowed=modernAskAllowed,status,ask=askModernEdition,live=()=>true,timeoutMs=MODERN_ASK_TIMEOUT_MS}={}){
+ const finished=Promise.resolve().then(finish);
+ const late=finished.then(()=>new Promise(resolve=>setTimeout(resolve,timeoutMs)),()=>null);
+ const asked=modernOfferAfterAdd(bookId,{allowed,...(status?{status}:{}),late}).then(offer=>offer&&live()?ask(offer):null).catch(()=>null);
+ let href;
+ try{href=await finished;}catch(error){closeModernAsk();throw error;}
+ return {href,answer:await asked};
+}
+let closeAsk=null;
+/** Close the question if it is open (it answers null: not asked to the end). */
+export function closeModernAsk(){closeAsk?.(null);}
+/**
  * The question, over the library: Tinct UI's dialog (/lab/tinct-ui.css .tui-scrim/.tui-dialog/
  * .tui-btn), as the "Your own book" pop-up, with modern-ask-* hooks. Resolves 'buy' or 'later'
- * (Not now, Escape, a tap outside).
+ * (Not now, Escape, a tap outside); null when closed by closeModernAsk. Not now has the focus.
  */
 export function askModernEdition(offer){
- document.querySelector('.modern-ask-layer')?.remove();
+ closeModernAsk();document.querySelector('.modern-ask-layer')?.remove();
  const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
  const layer=make('div','tui-scrim modern-ask-layer');layer.dataset.testid='modern-ask';layer.dataset.tuiTheme='dark';
  const box=make('div','tui-dialog modern-ask-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','modern-ask-title');
@@ -289,13 +315,15 @@ export function askModernEdition(offer){
  box.append(head,make('p','tui-dialog__body modern-ask-body',MODERN_COPY.body),actions);
  layer.append(box);document.body.append(layer);
  return new Promise(resolve=>{
-  const done=answer=>{removeEventListener('keydown',onKey,true);layer.remove();resolve(answer);};
+  const done=answer=>{if(closeAsk===done)closeAsk=null;removeEventListener('keydown',onKey,true);layer.remove();resolve(answer);};
+  closeAsk=done;
   const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();done('later');}};
   addEventListener('keydown',onKey,true);
   layer.addEventListener('click',event=>{if(event.target===layer)done('later');});
   later.onclick=()=>done('later');
   buy.onclick=()=>done('buy');
-  buy.focus({preventScroll:true});
+  // Not now takes the focus, so Enter never starts a checkout.
+  later.focus({preventScroll:true});
  });
 }
 

@@ -4,19 +4,19 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261008rel9';
-import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261008rel9';
+import {mountBookshelf} from './bookshelf.js?v=20261009rel10';
+import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261008rel9';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261009rel10';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
-import {categories,eras,metadata} from './taxonomy.js?v=20261008rel9';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel9';
-import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel9';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,modernOfferAfterAdd,askModernEdition} from './add-to-tinct.js?v=20261008rel9';
-import {librarySearch} from './library-search.js?v=20261008rel9';
-import {isPublicBookId} from '../public-books.js?v=20261008rel9';
+import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
+import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261009rel10';
+import {librarySearch} from './library-search.js?v=20261009rel10';
+import {isPublicBookId} from '../public-books.js?v=20261009rel10';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -179,19 +179,19 @@ async function addWork(work,button){
  if(addingWork)return;addingWork=work.id;addingStage='start';addCancelled=false;setAddBusy(button,'start');
  const step=stage=>{addingStage=stage;setAddBusy(addButton(work.id),stage);};
  try{
+  // The reading engine (the shelf, the reader's hand-off) loads while the book is added.
+  readingApi().catch(()=>{});
   if((await canAdd())===false){if(!addCancelled)location.assign(PREMIUM_PAGE);return;}
   const result=await (await addEngine()).importWork(work.id,{onStage:step});
   // Search was closed while it ran: no notice, no question, no reader. A book that was added stays in the library.
   if(addCancelled){if(result.ok){placePublicBook(result.entry);let book=books.find(b=>b.id===result.entry.id);if(!book){book=libraryBook(result.entry);books.push(book);}attachCatalogue(book,result.entry);}return;}
   if(!result.ok){if(result.reason==='signed_out'){signIn();return;}if(result.reason==='premium_required'){location.assign(PREMIUM_PAGE);return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
   const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
-  try{(await readingApi()).addCatalogueBook?.(entry);}catch{}
-  // Modern English (add-to-tinct.js): asked only when the book has none yet and the answer came in time.
-  const ask=modernOfferAfterAdd(entry.id);
-  const href=await readerDestination(book,null);
-  const offer=await ask;
+  // Modern English (add-to-tinct.js finishAdd): its price is known now the book is published, so it is
+  // asked at once, while the add finishes alongside (the shelf, the reader's hand-off); the reader opens once it is answered.
+  const {href,answer}=await finishAdd(entry.id,{live:()=>!addCancelled,finish:async()=>{try{(await readingApi()).addCatalogueBook?.(entry);}catch{}return readerDestination(book,null);}});
   if(addCancelled)return;
-  if(offer&&await askModernEdition(offer)==='buy'){
+  if(answer==='buy'){
    // The reader's checkout. Stripe returns to /reader, which opens this book (readerDestination's hand-off) and switches to the edition once paid.
    try{const url=await (await addEngine()).buyModern(entry.id,entry.readingStructure?.chapters?.[0]?.number??1);document.body.classList.add('leaving');location.assign(url);return;}catch{}
   }

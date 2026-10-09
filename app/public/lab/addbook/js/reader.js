@@ -1011,7 +1011,7 @@ const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages' };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
-  chapterTitles ??= import('/lab/chapter-title.js?v=20261008rel9').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
+  chapterTitles ??= import('/lab/chapter-title.js?v=20261009rel10').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
   return chapterTitles;
 }
 async function buildContents() {
@@ -1132,7 +1132,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261008rel9';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009rel10';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
