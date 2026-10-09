@@ -186,7 +186,7 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* The chat's place line in the UI face, not mono. */
 .lab.byob .lab-ask-location, .lab.byob .lab-ask-location * { font-family: var(--pdf-ui) !important; letter-spacing: .02em; }
 /* Recognising a scan's text (js/pdf-ocr.js): one line under the header, in the book's own type. */
-.lab.byob .byob-ocr { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 64px); left: 50%; transform: translateX(-50%); z-index: 70; width: min(calc(100vw - 32px), 560px); box-sizing: border-box; padding: 12px 16px; border-radius: 14px; background: var(--pdf-surface); color: var(--pdf-ink); box-shadow: 0 4px 18px rgba(0,0,0,.12); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.4; }
+.lab.byob .byob-ocr { position: fixed; top: calc(var(--pdf-top, 50px) + 12px); left: 50%; transform: translateX(-50%); z-index: 70; width: min(calc(100vw - 32px), 560px); box-sizing: border-box; padding: 12px 16px; border-radius: 14px; background: var(--pdf-surface); color: var(--pdf-ink); box-shadow: 0 4px 18px rgba(0,0,0,.12); font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.4; }
 .lab.byob .byob-ocr-line { margin: 0; font: inherit; color: inherit; }
 .lab.byob a.byob-ocr-line { display: block; text-decoration: none; }
 .lab.byob a.byob-ocr-line:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -195,3 +195,5 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob .byob-ocr-actions button.primary { border-color: var(--pdf-accent); background: var(--pdf-accent); color: var(--pdf-surface); }
 .lab.byob .byob-ocr-link { padding: 0; border: 0; background: none; color: var(--pdf-accent); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .lab.byob .byob-ocr-link:disabled { opacity: .55; cursor: default; }
+/* Beside the docked chat: centred over the pages. */
+.lab.byob.dock-open .byob-ocr { left: calc((100vw - var(--dock-w) - 14px) / 2); width: min(calc(100vw - var(--dock-w) - 46px), 560px); }

@@ -86,6 +86,8 @@ describe('progress, in the approved words', () => {
     // This device's count, while it sends, when it is ahead of the account's.
     expect(ocr.view(status('uploading', { uploaded: 10 }), { prepared: 40 })!.text).toBe('Preparing pages 40 of 250')
     expect(ocr.view(status('running', { uploaded: 248, blank: 2, done: 118 }))).toEqual({ kind: 'progress', text: 'Recognising text: 120 of 250 pages' })
+    // The account recognises pages as they arrive ("running"): while some are still to send, it is preparing.
+    expect(ocr.view(status('running', { uploaded: 38, blank: 2, done: 10, missing: [41, 42] }))).toEqual({ kind: 'progress', text: 'Preparing pages 40 of 250' })
     expect(ocr.view(status('done', { done: 248, blank: 2 }))).toEqual({ kind: 'ready', text: 'Tinct text is ready' })
     // Said once: once seen, the "Tinct text" control is what stays.
     expect(ocr.view(status('done', { done: 248, blank: 2 }), { ready: true })).toBeNull()
@@ -209,6 +211,19 @@ describe('sending pages: only what is missing, four at a time, only while visibl
     expect(render.mock.calls.map(([n]) => n).every(n => !sentFirst.includes(n as number))).toBe(true)
     expect(last).toMatchObject({ state: 'done', blank: 1, done: 9 })
     expect(editions).toHaveLength(1)
+  })
+
+  it('says "Tinct text is ready" only once the Tinct text is kept, so it comes with its control', async () => {
+    const { api } = account(2)
+    const order: string[] = []
+    await ocr.run({
+      hex: 'h', pages: 2, api, local: memory(), sleep: async () => { api.recognise() }, pollMs: 0,
+      render: async () => ({ blank: false, blob: new Blob(['x']) }),
+      onStatus: (s: Status) => order.push(s.state),
+      onEdition: async () => { await new Promise(r => setTimeout(r, 5)); order.push('kept') },
+    })
+    expect(order.slice(-2)).toEqual(['kept', 'done'])
+    expect(order.filter(state => state === 'done')).toHaveLength(1)
   })
 
   it('tells the account of blank pages it finds, so the job can finish', async () => {

@@ -69,7 +69,8 @@
       // Premium had lapsed and is back: the job goes on once asked again (run).
       return { kind: 'progress', text: recognising(settled(status), n) };
     }
-    if (status.state === 'uploading') {
+    // The account recognises pages as they arrive ("running"): while some are still to send, it is preparing.
+    if (status.state === 'uploading' || (status.state === 'running' && status.missing?.length)) {
       const x = Math.max(local.prepared || 0, (status.uploaded || 0) + (status.blank || 0));
       return { kind: 'progress', text: preparing(Math.min(x, n), n) };
     }
@@ -156,12 +157,14 @@
         show(status);
         continue;
       }
-      show(status);
+      // Done: the Tinct text is kept first, so "Tinct text is ready" comes with its control.
       if (status.state === 'done') {
         const edition = await api.edition(hex);
         if (edition && live()) await ctx.onEdition?.(edition, status);
+        show(status);
         return status;
       }
+      show(status);
       if (status.state === 'paused' && status.reason !== 'premium_required') return status;
       if (status.state === 'failed') return status;
       await sleep(ctx.pollMs ?? POLL_MS);

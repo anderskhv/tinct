@@ -921,7 +921,7 @@ async function ocrRun(token, { rerun } = {}) {
       render: n => TinctPdfOcr.renderPage(pdf, n),
       sleep: ms => new Promise(r => setTimeout(r, ms)).then(waitVisible),
       onStatus: status => ocrShow(status, token),
-      onEdition: async (edition, status) => { await ocrKeep(edition); ocrShow(status, token) },
+      onEdition: edition => ocrKeep(edition),
     });
   } catch (e) {
     if (!live()) return;
