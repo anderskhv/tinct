@@ -1,270 +1,222 @@
 <title>Tinct Account Cards</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=EB+Garamond:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=EB+Garamond:ital@0;1&display=swap">
 <style>
-/* Layout: phone and desktop frames with cards over the reader and library. Fourth pass, after an iOS Settings reference: a light grouped background, plain white groups, label left and value right, chevrons, a neutral switch, no icons and no accent colour. Two families per card: Playfair Display for the card title and big figures, the system font for everything else. */
+/* Layout: phone frames at real iPhone proportions (390 × 844) and a desktop panel, each showing a card over the page. Grammar borrowed from iOS Settings: grey ground, white inset groups with soft corners, 48px rows, 17px text, inset separators only inside a group, 32px of air between groups. Pure greyscale; Playfair Display only for the card title, the name and the big figure. Inter stands in for the system font so the mockup renders the same everywhere. */
 :root {
-  --stage: #161616; --note: #e4e4e4; --note-soft: #9a9a9a;
-  --ground: #ffffff; --group: #ffffff; --ink: #111111; --muted: #6b6b6b; --faint: #9a9a9a; --sep: rgba(0,0,0,.16);
-  --track: #b5b5b5; --bar: #6b6b6b; --switch-off: #a8a8a8; --on: #111111; --knob: #ffffff; --fill: #111111; --seg: transparent; --thumb: #111111; --thumb-ink: #ffffff; --chip: transparent; --outline: #8f8f8f;
-  --play: "Playfair Display", Georgia, serif; --sys: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --gara: "EB Garamond", Georgia, serif;
+  --stage: #141414; --stage-ink: #ededed; --stage-soft: #9a9a9a;
+  --ground: #f2f2f2; --cell: #ffffff; --ink: #0a0a0a; --sec: #8a8a8a; --ter: #c2c2c2; --sep: #e1e1e1;
+  --track: #e6e6e6; --bar: #8a8a8a; --fill: #0a0a0a; --seg: #e8e8e8; --thumb: #ffffff; --disc: rgba(0,0,0,.07);
+  --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; --play: "Playfair Display", Georgia, serif; --gara: "EB Garamond", Georgia, serif;
   color-scheme: dark;
 }
-.dark, .dm .card, .dm .panel { --ground: #1c1c1c; --group: #1c1c1c; --ink: #f2f2f2; --muted: #8e8e8e; --faint: #5c5c5c; --sep: rgba(255,255,255,.10); --track: #333333; --bar: #6e6e6e; --switch-off: #3a3a3a; --on: #f2f2f2; --knob: #1c1c1c; --fill: #f2f2f2; --seg: transparent; --thumb: #f2f2f2; --thumb-ink: #111111; --chip: transparent; --outline: #4a4a4a; }
+.dm .ph, .dm .panel, .dark { --ground: #000000; --cell: #1c1c1c; --ink: #f5f5f5; --sec: #8d8d8d; --ter: #5a5a5a; --sep: #2c2c2c; --track: #333333; --bar: #7a7a7a; --fill: #f5f5f5; --seg: #2e2e2e; --thumb: #5a5a5a; --disc: rgba(255,255,255,.1); }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--stage); color: var(--note); font-family: var(--sys); padding-block: 30px 90px; padding-inline: 16px; }
-.wrap { max-width: 1480px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px; }
-.intro h1 { font-family: var(--play); font-weight: 800; font-size: clamp(2rem, 4vw, 2.6rem); margin: 0; color: #f2f2f2; }
-.intro p { margin: 8px 0 0; font-size: 1.05rem; line-height: 1.55; max-width: 76ch; }
-.sec > h2 { font-family: var(--play); font-weight: 700; font-size: 1.5rem; margin: 0; color: #f2f2f2; }
-.sec > p { margin: 4px 0 0; color: var(--note-soft); font-size: 1rem; }
-.strip { display: flex; flex-wrap: wrap; gap: 34px 26px; padding-top: 22px; align-items: flex-start; }
-.step { width: 320px; display: flex; flex-direction: column; gap: 10px; flex: none; }
-.step .num { color: #cfcfcf; font-size: .95rem; }
-.step .cap { font-size: .95rem; line-height: 1.45; color: var(--note-soft); }
-.step .cap b { color: #f2f2f2; font-weight: 600; }
+body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family: var(--sans); padding-block: 36px 100px; padding-inline: 20px; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1500px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
+.intro { display: flex; flex-direction: column; gap: 14px; max-width: 72ch; }
+.intro h1 { font-family: var(--play); font-weight: 700; font-size: 2.4rem; margin: 0; letter-spacing: -.01em; }
+.intro p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: var(--stage-soft); }
+.mode { display: inline-flex; gap: 2px; background: #262626; border-radius: 10px; padding: 3px; align-self: flex-start; }
+.mode button { font: 600 .88rem var(--sans); color: #9a9a9a; background: none; border: 0; border-radius: 8px; padding: 7px 18px; cursor: pointer; }
+.mode button[aria-pressed="true"] { background: #ededed; color: #141414; }
+.mode button:focus-visible { outline: 2px solid #ededed; outline-offset: 2px; }
+.sec > h2 { font-family: var(--play); font-weight: 700; font-size: 1.5rem; margin: 0; }
+.sec > p { margin: 6px 0 0; color: var(--stage-soft); }
+.strip { display: flex; flex-wrap: wrap; gap: 40px 32px; padding-top: 26px; align-items: flex-start; }
+.step { width: 390px; display: flex; flex-direction: column; gap: 12px; flex: none; }
+.step .num { font-size: .9rem; color: #d6d6d6; font-weight: 600; }
+.step .cap { font-size: .95rem; line-height: 1.5; color: var(--stage-soft); }
+.step .cap b { color: var(--stage-ink); font-weight: 600; }
 
-.ph { width: 320px; height: 680px; border-radius: 34px; overflow: hidden; position: relative; background: #ededed; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 22px 46px rgba(0,0,0,.5); isolation: isolate; }
-.book { padding: 20px; color: #0b0b0b; font-family: var(--gara); }
-.book .bar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-.book .bar b { font-family: var(--play); font-weight: 800; font-size: 1.05rem; }
-.book .bar i { font-style: italic; color: #6b6b6b; background: #dedede; border-radius: 999px; padding: 2px 10px; }
-.book .bar span { margin-left: auto; font-family: var(--play); font-weight: 800; font-style: italic; }
-.book p { margin: 0; font-size: 1.2rem; line-height: 1.5; text-align: justify; hyphens: auto; }
-.scrim { position: absolute; inset: 0; background: rgba(0,0,0,.32); }
+/* phone */
+.ph { width: 390px; height: 844px; border-radius: 48px; overflow: hidden; position: relative; background: #ebe6da; box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 60px rgba(0,0,0,.55); isolation: isolate; }
+.dm .ph { background: #171411; }
+.book { padding: 58px 24px 0; font-family: var(--gara); color: #141414; }
+.dm .book { color: #b5aea3; }
+.book .bar { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.book .bar b { font-family: var(--play); font-size: 1.15rem; }
+.book .bar i { font-style: italic; color: #6a6256; background: rgba(0,0,0,.06); border-radius: 999px; padding: 3px 12px; font-size: 1rem; }
+.dm .book .bar i { color: #8f857a; background: rgba(255,255,255,.08); }
+.book .bar span { margin-left: auto; font-family: var(--play); font-style: italic; font-weight: 700; }
+.book p { margin: 0; font-size: 1.3rem; line-height: 1.5; text-align: justify; hyphens: auto; }
+.scrim { position: absolute; inset: 0; background: rgba(0,0,0,.35); }
 
-/* card */
-.card { position: absolute; left: 0; right: 0; bottom: 0; top: var(--top, 60px); background: var(--ground); color: var(--ink); border-radius: 20px 20px 0 0; box-shadow: 0 -12px 36px rgba(0,0,0,.22); display: flex; flex-direction: column; overflow: hidden; font-family: var(--sys); }
-.grab { width: 36px; height: 5px; border-radius: 3px; background: var(--chip); margin: 7px auto 0; flex: none; }
-
-.head { display: grid; grid-template-columns: 32px 1fr 32px; align-items: center; padding: 10px 14px 6px; flex: none; }
-.head .t { font-family: var(--play); font-weight: 700; font-size: 1.15rem; text-align: center; }
-.circle { width: 30px; height: 30px; border-radius: 50%; background: var(--chip); color: var(--muted); display: grid; place-items: center; }
-
-.circle svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.circle.end { justify-self: end; }
-.body { padding: 6px 16px 18px; display: flex; flex-direction: column; gap: 22px; overflow: hidden; flex: 1; }
-
-/* groups (the screenshot's white rounded sections) */
-.g { background: none; border-top: 1px solid var(--sep); border-bottom: 1px solid var(--sep); }
-.gh { font-size: .8rem; color: var(--muted); margin: 0 0 -16px 2px; }
-.r { display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 2px; position: relative; font-size: 1rem; }
-.r + .r::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--sep); }
-.r .l { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.r .v { color: var(--muted); white-space: nowrap; }
-.r .v b { color: var(--ink); font-weight: 600; }
-.chev { width: 7px; height: 12px; flex: none; color: var(--faint); }
-.chev svg { width: 7px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
-.r.act .l { font-weight: 600; }
-.r.danger .l { color: var(--ink); }
-.r.col { flex-direction: column; align-items: stretch; gap: 9px; padding: 11px 2px 12px; }
-.r.col .top { display: flex; align-items: center; gap: 6px; }
-.foot { font-size: .78rem; color: var(--muted); padding: 0 14px 12px; line-height: 1.4; margin-top: -4px; }
-.sw { width: 46px; height: 28px; border-radius: 14px; background: var(--switch-off); position: relative; flex: none; }
-.sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
-.sw.on::after { background: var(--knob); }
-.sw.on { background: var(--on); } .sw.on::after { left: 20px; }
-
-.seg { display: flex; background: var(--seg); border-radius: 9px; padding: 2px; }
-
-.seg span { flex: 1; text-align: center; padding: 6px 2px; border-radius: 7px; font-size: .84rem; color: var(--ink); white-space: nowrap; }
-.seg span.on { background: var(--thumb); box-shadow: 0 1px 3px rgba(0,0,0,.14); font-weight: 600; }
-
-.info { width: 16px; height: 16px; border-radius: 50%; border: 1.2px solid var(--faint); color: var(--muted); display: inline-grid; place-items: center; font-size: .62rem; font-weight: 700; font-style: italic; font-family: Georgia, serif; flex: none; }
-.dim { opacity: .4; }
-.tip { position: absolute; left: 16px; right: 16px; background: var(--ink); color: var(--group); border-radius: 12px; padding: 10px 12px; font-size: .88rem; line-height: 1.4; box-shadow: 0 12px 28px rgba(0,0,0,.3); z-index: 3; }
-.tip b { font-weight: 600; }
-.tip::before { content: ""; position: absolute; top: -5px; left: var(--arrow, 120px); width: 10px; height: 10px; background: var(--ink); transform: rotate(45deg); }
+/* card = sheet */
+.card { position: absolute; left: 0; right: 0; bottom: 0; top: var(--top, 72px); background: var(--ground); color: var(--ink); border-radius: 20px 20px 0 0; display: flex; flex-direction: column; overflow: hidden; }
+.grab { width: 36px; height: 5px; border-radius: 3px; background: var(--ter); margin: 8px auto 0; flex: none; opacity: .8; }
+.nav { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; height: 56px; padding: 0 8px; flex: none; }
+.nav .t { font-family: var(--play); font-weight: 700; font-size: 20px; text-align: center; letter-spacing: -.01em; }
+.disc { width: 32px; height: 32px; border-radius: 50%; background: var(--disc); color: var(--ink); display: grid; place-items: center; }
+.disc svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.disc.end { justify-self: end; }
+.body { padding: 4px 16px 24px; display: flex; flex-direction: column; gap: 32px; overflow: hidden; flex: 1; }
+.body.tight { gap: 24px; }
 
 /* profile header */
-.prof { flex: none; position: relative; }
-.prof .bg { height: 84px; background: var(--bgimg) center 40% / cover; }
-.prof .bg::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 84px; background: linear-gradient(0deg, var(--ground), transparent 75%); }
-.prof .me { display: flex; align-items: center; gap: 12px; padding: 0 16px; margin-top: -30px; position: relative; }
-.av { width: 56px; height: 56px; border-radius: 50%; flex: none; background: var(--img) var(--pos, 50% 35%) / 260% auto no-repeat, #cfcfcf; box-shadow: 0 0 0 3px var(--ground); display: grid; place-items: center; font-family: var(--play); font-weight: 800; color: #f2f2f2; position: relative; }
-.av.s { width: 30px; height: 30px; box-shadow: none; font-size: .75rem; }
-.av.init { background: #6b6b6b; }
-.prof .nm { padding-top: 26px; line-height: 1.2; }
-.prof .nm b { font-family: var(--play); font-weight: 700; font-size: 1.2rem; display: block; }
-.prof .nm span { color: var(--muted); font-size: .88rem; }
-.prof .close { position: absolute; right: 14px; top: 12px; background: rgba(255,255,255,.85); color: #111; }
-.prof .back { position: absolute; left: 14px; top: 12px; background: rgba(255,255,255,.85); color: #111; }
-.edit { position: absolute; right: -3px; bottom: -1px; width: 21px; height: 21px; border-radius: 50%; background: var(--group); display: grid; place-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.2); color: var(--ink); }
-.edit svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
-.bgedit { position: absolute; right: 16px; top: 52px; font-size: .74rem; background: rgba(255,255,255,.85); color: #111; border-radius: 999px; padding: 3px 9px; }
+.hero { position: relative; flex: none; height: 150px; }
+.hero .bg { position: absolute; inset: 0 0 46px; background: var(--bgimg) center 45% / cover; }
+.hero .bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.25), transparent 50%); }
+.hero .disc { position: absolute; top: 16px; background: rgba(255,255,255,.9); color: #0a0a0a; }
+.hero .disc.x { right: 16px; } .hero .disc.b { left: 16px; }
+.hero .who { position: absolute; left: 16px; right: 16px; bottom: 0; display: flex; align-items: flex-end; gap: 14px; }
+.av { width: 76px; height: 76px; border-radius: 50%; flex: none; background: var(--img) var(--pos, 50% 35%) / 260% auto no-repeat, #d0d0d0; box-shadow: 0 0 0 4px var(--ground); display: grid; place-items: center; font-family: var(--play); font-weight: 700; font-size: 28px; color: #fff; position: relative; }
+.av.init { background: #6a6a6a; }
+.av.s { width: 36px; height: 36px; font-size: 15px; box-shadow: none; }
+.cam { position: absolute; right: -2px; bottom: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--cell); display: grid; place-items: center; box-shadow: 0 0 0 3px var(--ground); }
+.cam svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+.hero .nm { padding-bottom: 6px; line-height: 1.2; min-width: 0; }
+.hero .nm b { font-family: var(--play); font-weight: 700; font-size: 24px; display: block; letter-spacing: -.01em; }
+.hero .nm span { font-size: 15px; color: var(--sec); }
+.hero .act { margin-left: auto; margin-bottom: 10px; }
 
-/* figures */
-.figure { display: flex; align-items: baseline; gap: 2px; }
-.figure b { font-family: var(--play); font-weight: 800; font-size: 2.5rem; line-height: 1; }
-.figure small { font-size: 1rem; color: var(--muted); margin-right: 6px; }
-.mini7 { display: grid; grid-template-columns: repeat(7, 7px); gap: 3px; align-items: end; height: 20px; }
-.mini7 i { background: var(--bar); border-radius: 1.5px; } .mini7 i:last-child { background: var(--fill); }
-.bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; align-items: end; height: 50px; padding: 0 2px 14px; }
-.bars i { background: var(--bar); border-radius: 2px; } .bars i:last-child { background: var(--fill); }
-.meter { flex-direction: column; align-items: stretch; gap: 7px; padding: 11px 2px 12px; }
-.meter .top { display: flex; justify-content: space-between; }
+/* groups */
+.g { background: var(--cell); border-radius: 12px; overflow: hidden; }
+.gh { font-size: 13px; color: var(--sec); margin: 0 0 -24px 16px; }
+.r { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 16px; position: relative; font-size: 17px; letter-spacing: -.01em; }
+.r + .r::before { content: ""; position: absolute; top: 0; left: 16px; right: 0; height: 1px; background: var(--sep); }
+.r.av-row + .r::before { left: 64px; }
+.r .l { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.r .v { color: var(--sec); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.r .v b { color: var(--ink); font-weight: 600; }
+.chev { width: 8px; height: 14px; flex: none; color: var(--ter); margin-left: -2px; }
+.chev svg { width: 8px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.r.act .l { font-weight: 600; }
+.r.center { justify-content: center; }
+.r.center .l { flex: none; font-weight: 500; }
+.info { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--ter); color: var(--sec); display: inline-grid; place-items: center; font: italic 700 11px Georgia, serif; flex: none; }
+.sw { width: 51px; height: 31px; border-radius: 16px; background: var(--track); position: relative; flex: none; }
+.sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
+.sw.on { background: var(--fill); } .sw.on::after { left: 22px; }
+.dm .sw.on::after { background: #1c1c1c; }
+.seg { display: flex; flex: none; background: var(--seg); border-radius: 9px; padding: 2px; margin-left: auto; }
+.seg span { padding: 6px 11px; border-radius: 7px; font-size: 14px; color: var(--ink); white-space: nowrap; line-height: 1.2; }
+.seg span.on { background: var(--thumb); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+.dm .seg span.on { color: #fff; }
+.meter { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 16px 16px; }
+.meter .top { display: flex; justify-content: space-between; align-items: baseline; }
 .meter .tr { height: 5px; border-radius: 3px; background: var(--track); overflow: hidden; }
 .meter .tr i { display: block; height: 100%; background: var(--fill); border-radius: 3px; }
-.meter.light .tr i { background: var(--faint); }
-.pr { height: 3px; border-radius: 2px; background: var(--track); overflow: hidden; margin-top: 5px; }
-.pr i { display: block; height: 100%; background: var(--fill); }
-.r.bk { min-height: 50px; }
-.r.bk .l { flex-direction: column; align-items: stretch; gap: 0; }
-.three { display: grid; grid-template-columns: repeat(3, 1fr); }
-.three div { padding: 10px 6px; text-align: center; position: relative; }
-.three div + div::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 1px; background: var(--sep); }
-.three b { display: block; font-family: var(--play); font-weight: 700; font-size: 1.15rem; }
-.three span { font-size: .76rem; color: var(--muted); }
+.meter.light .tr i { background: var(--bar); }
+.badge { min-width: 22px; height: 22px; border-radius: 11px; background: var(--fill); color: var(--cell); font-size: 13px; font-weight: 600; display: grid; place-items: center; padding: 0 7px; }
+.dim { opacity: .4; }
+.foot { font-size: 13px; color: var(--sec); line-height: 1.45; margin: -22px 16px 0; }
 
-.btn { font-family: var(--sys); font-size: .85rem; font-weight: 600; border-radius: 999px; padding: 5px 13px; white-space: nowrap; }
-.btn.fill { background: var(--ink); color: var(--group); }
-.btn.line { border: 1px solid var(--faint); color: var(--ink); background: none; }
-.btn.wide { display: block; text-align: center; padding: 12px; font-size: .98rem; }
-.search { display: flex; align-items: center; gap: 8px; background: var(--seg); border-radius: 10px; min-height: 38px; padding: 0 10px; color: var(--muted); font-size: .98rem; }
-.search svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-.rank { width: 1.2rem; text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* figures */
+.figure { font-family: var(--play); font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -.02em; font-variant-numeric: lining-nums; }
+.figure small { font-family: var(--sans); font-weight: 400; font-size: 17px; color: var(--sec); letter-spacing: 0; margin: 0 8px 0 2px; }
+.sub { font-size: 15px; color: var(--sec); margin-top: 6px; }
+.bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 5px; align-items: end; height: 56px; margin-top: 18px; }
+.bars i { background: var(--bar); border-radius: 3px; } .bars i:last-child { background: var(--fill); }
+.three { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+.three.ruled::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--sep); }
+.three div { padding: 14px 8px 16px; text-align: center; position: relative; }
+.three div + div::after { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 1px; background: var(--sep); }
+.three b { display: block; font-family: var(--play); font-weight: 700; font-size: 20px; font-variant-numeric: lining-nums; }
+.three span { font-size: 13px; color: var(--sec); }
+.pr { height: 4px; border-radius: 2px; background: var(--track); overflow: hidden; margin-top: 7px; }
+.pr i { display: block; height: 100%; background: var(--fill); }
+.r.bk { min-height: 60px; }
+.r.bk .l { flex-direction: column; align-items: stretch; gap: 0; }
+.rank { width: 20px; text-align: center; color: var(--sec); font-size: 15px; font-variant-numeric: tabular-nums; }
 .r.me .l, .r.me .v { font-weight: 600; color: var(--ink); }
-.pop { position: absolute; background: var(--group); border-radius: 13px; box-shadow: 0 14px 36px rgba(0,0,0,.28); z-index: 4; width: 200px; overflow: hidden; padding: 0 12px; }
-.pop .g { border: 0; }
-.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 14px; }
+.btn { font: 600 15px var(--sans); border-radius: 999px; padding: 7px 14px; white-space: nowrap; }
+.btn.fill { background: var(--fill); color: var(--cell); }
+.btn.line { color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ter); }
+.btn.wide { display: block; text-align: center; padding: 14px; font-size: 17px; border-radius: 12px; }
+.search { display: flex; align-items: center; gap: 8px; background: var(--seg); border-radius: 10px; height: 38px; padding: 0 12px; color: var(--sec); font-size: 17px; }
+.search svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.pop { position: absolute; left: 16px; top: 180px; width: 240px; background: var(--cell); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.3); z-index: 4; overflow: hidden; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 16px; }
 .grid4 span { aspect-ratio: 1; border-radius: 50%; background: var(--img) var(--pos, 50% 35%) / 260% auto no-repeat; }
-.grid4 span.on { box-shadow: 0 0 0 2px var(--group), 0 0 0 4px var(--ink); }
+.grid4 span.on { box-shadow: 0 0 0 3px var(--cell), 0 0 0 5px var(--fill); }
+.tip { position: absolute; left: 16px; right: 16px; background: var(--ink); color: var(--ground); border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.45; z-index: 3; box-shadow: 0 14px 30px rgba(0,0,0,.3); }
+.tip b { font-weight: 600; }
+.tip::before { content: ""; position: absolute; top: -6px; left: var(--arrow, 120px); width: 12px; height: 12px; background: var(--ink); transform: rotate(45deg); }
 
 /* desktop */
-.dkwrap { overflow-x: auto; padding-bottom: 6px; }
-.dk { width: 1080px; height: 660px; border-radius: 14px; overflow: hidden; position: relative; background: #ededed; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 24px 50px rgba(0,0,0,.5); isolation: isolate; }
-.dk .topbar { height: 58px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 26px; color: #0b0b0b; font-family: var(--gara); }
-.dk .topbar b { font-family: var(--play); font-weight: 800; font-size: 1.3rem; }
-.dk .topbar i { margin-left: 8px; font-style: italic; color: #6b6b6b; background: #dedede; border-radius: 999px; padding: 3px 12px; }
-.dk .topbar .rt { justify-self: end; font-family: var(--play); font-weight: 800; font-style: italic; }
-.dk .spread { position: absolute; left: 26px; right: 26px; top: 64px; bottom: 30px; background: #ededed; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 8px 22px rgba(0,0,0,.08); }
-.dk .spread p { margin: 0; padding: 44px 50px; width: 50%; font-family: var(--gara); font-size: 1.32rem; line-height: 1.55; text-align: justify; color: #0b0b0b; }
-.dk .panel { position: absolute; top: 72px; right: 24px; width: 380px; max-height: 570px; background: var(--ground); color: var(--ink); border-radius: 18px; box-shadow: 0 10px 34px rgba(0,0,0,.22); display: flex; flex-direction: column; overflow: hidden; font-family: var(--sys); }
+.dkwrap { overflow-x: auto; padding-bottom: 8px; }
+.dk { width: 1120px; height: 700px; border-radius: 16px; overflow: hidden; position: relative; background: #ebe6da; box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 60px rgba(0,0,0,.55); isolation: isolate; }
+.dm .dk { background: #171411; }
+.dk .topbar { height: 60px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 28px; font-family: var(--gara); color: #141414; }
+.dm .dk .topbar { color: #b5aea3; }
+.dk .topbar b { font-family: var(--play); font-weight: 700; font-size: 1.35rem; }
+.dk .topbar i { margin-left: 10px; font-style: italic; color: #6a6256; background: rgba(0,0,0,.06); border-radius: 999px; padding: 3px 12px; }
+.dm .dk .topbar i { color: #8f857a; background: rgba(255,255,255,.08); }
+.dk .topbar .rt { justify-self: end; font-family: var(--play); font-weight: 700; font-style: italic; }
+.dk .spread { position: absolute; left: 28px; right: 28px; top: 68px; bottom: 32px; background: #ebe6da; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.08); }
+.dm .dk .spread { background: #171411; box-shadow: 0 0 0 1px rgba(255,255,255,.06); }
+.dk .spread p { margin: 0; padding: 48px 56px; width: 50%; font-family: var(--gara); font-size: 1.35rem; line-height: 1.55; text-align: justify; color: #141414; }
+.dm .dk .spread p { color: #b5aea3; }
+.dk .panel { position: absolute; top: 76px; right: 28px; width: 400px; max-height: 592px; background: var(--ground); color: var(--ink); border-radius: 18px; box-shadow: 0 20px 50px rgba(0,0,0,.3); display: flex; flex-direction: column; overflow: hidden; }
 .dk .lib { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,14,14,.94), rgba(14,14,14,.45)), url('mockup-images/table-night-wide.jpg') center / cover; }
-.libtop { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 18px 26px; color: #eeeeee; font-family: Georgia, serif; font-size: 1.45rem; letter-spacing: -.04em; }
-.libtop .rr { display: flex; gap: 16px; align-items: center; }
-.libtop .mini { width: 22px; height: 22px; border-radius: 50%; background: url('mockup-images/meditations.jpg') 50% 34% / 260% auto; box-shadow: 0 0 0 1px rgba(238,238,238,.35); }
-.libhero { position: absolute; left: 40px; bottom: 60px; color: #eeeeee; font-family: Georgia, serif; } .libhero small { color: #aaaaaa; } .libhero b { display: block; font-weight: 400; font-size: 3.2rem; letter-spacing: -.03em; }
-.dark .prof .close, .dm .prof .close, .dm .prof .back { background: rgba(28,28,28,.8); color: #f2f2f2; }
-.dark .av { box-shadow: 0 0 0 3px var(--ground); }
-.dark .edit, .dm .edit { background: #3a3a3a; color: #f2f2f2; }
-.dark .bgedit, .dm .bgedit { background: rgba(28,28,28,.8); color: #f2f2f2; }
-.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px 32px; font-size: 1rem; line-height: 1.5; color: var(--note-soft); margin-top: 14px; }
-.notes b { color: #f2f2f2; font-weight: 600; display: block; }
-
-.dm .ph { background: #121212; }
-.dm .book { color: #b5b5b5; }
-.dm .book .bar i { background: #242424; color: #8a8a8a; }
-.dm .dk { background: #121212; } .dm .dk .topbar { color: #b5b5b5; } .dm .dk .topbar i { background: #242424; color: #8a8a8a; }
-.dm .dk .spread { background: #121212; box-shadow: 0 0 0 1px rgba(255,255,255,.06); } .dm .dk .spread p { color: #b5b5b5; }
-.dm .scrim { background: rgba(0,0,0,.45); }
-.dm .card, .dm .panel { box-shadow: 0 -12px 36px rgba(0,0,0,.5); }
-.dm .prof .bg::after { background: linear-gradient(0deg, var(--ground), transparent 75%); }
-.mode { display: inline-flex; gap: 2px; background: #2a2a2a; border-radius: 10px; padding: 3px; margin-top: 14px; }
-.mode button { font: 600 .9rem var(--sys); color: #9a9a9a; background: none; border: 0; border-radius: 8px; padding: 7px 16px; cursor: pointer; }
-.mode button[aria-pressed="true"] { background: #f2f2f2; color: #161616; }
-.mode button:focus-visible { outline: 2px solid #f2f2f2; outline-offset: 2px; }
-
-/* no pale fills: outlines and black (white in dark) only */
-.seg { border: 1px solid var(--outline); padding: 2px; }
-.seg span.on { color: var(--thumb-ink); box-shadow: none; }
-.circle { border: 1px solid var(--outline); color: var(--ink); }
-.prof .close, .prof .back { border: 0; }
-.search { border: 1px solid var(--outline); }
-.meter .tr { height: 4px; }
-.pr { height: 3px; }
-
-/* inline choices: compact, on the row's right; darker grey track, white selected thumb */
-.seg.in { flex: none; width: auto; border: 0; background: #d9d9d9; padding: 2px; border-radius: 8px; }
-.seg.in span { flex: none; padding: 4px 6px; font-size: .72rem; border-radius: 6px; color: #333; }
-.seg.in span.on { background: #fff; color: #111; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.18); }
-.dm .seg.in { background: #333; } .dm .seg.in span { color: #cfcfcf; } .dm .seg.in span.on { background: #5a5a5a; color: #fff; }
-.r .l { flex: 1 1 auto; min-width: 0; }
-.r > .seg.in { margin-left: auto; }
-.g { border-top: 0; }
-.head + .body > .g:first-child, .body > .g:first-child { border-top: 1px solid var(--sep); }
-
-/* grouped style (iOS Settings): grey ground, white rounded groups, inset dividers only inside a group */
-.card, .panel { --ground: #f2f2f2; --group: #ffffff; }
-.dm .card, .dm .panel, .dark { --ground: #0f0f0f; --group: #1f1f1f; }
-.g { background: var(--group); border: 0 !important; border-radius: 14px; overflow: hidden; }
-.body > .g:first-child { border-top: 0 !important; }
-.r { padding: 0 14px; }
-.r + .r::before { left: 14px; right: 0; }
-.r.col, .meter { padding: 13px 14px 14px; }
-.bars { padding: 0 14px 14px; }
-.circle { border: 0; background: rgba(0,0,0,.06); }
-.dm .circle { background: rgba(255,255,255,.1); }
-.prof .close, .prof .back { background: rgba(255,255,255,.88); }
-.dm .prof .close, .dm .prof .back { background: rgba(31,31,31,.85); }
-.search { border: 0; background: #ffffff; }
-.dm .search { background: #1f1f1f; }
-.seg.in { background: #e3e3e3; } .dm .seg.in { background: #333; }
-.pop .g { box-shadow: none; }
-.three div + div::before { background: var(--sep); }
-.dm .menu, .menu { background: var(--group); }
+.libtop { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 20px 28px; color: #eeeeee; font-family: Georgia, serif; font-size: 1.5rem; letter-spacing: -.04em; }
+.libtop .rr { display: flex; gap: 18px; align-items: center; }
+.libtop .mini { width: 24px; height: 24px; border-radius: 50%; background: url('mockup-images/meditations.jpg') 50% 34% / 260% auto; box-shadow: 0 0 0 1px rgba(238,238,238,.4); }
+.libhero { position: absolute; left: 44px; bottom: 64px; color: #eeeeee; font-family: Georgia, serif; } .libhero small { color: #aaaaaa; } .libhero b { display: block; font-weight: 400; font-size: 3.4rem; letter-spacing: -.03em; }
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px 36px; font-size: .98rem; line-height: 1.55; color: var(--stage-soft); margin-top: 16px; }
+.notes b { color: var(--stage-ink); font-weight: 600; display: block; }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <symbol id="x" viewBox="0 0 14 14"><path d="M3 3l8 8M11 3l-8 8"/></symbol>
   <symbol id="bk" viewBox="0 0 14 14"><path d="M9 2.5 4.5 7 9 11.5"/></symbol>
-  <symbol id="ch" viewBox="0 0 7 12"><path d="M1 1l5 5-5 5"/></symbol>
-  <symbol id="pen" viewBox="0 0 12 12"><path d="M2 10l.6-2.4L8.2 2l1.8 1.8-5.6 5.6z"/></symbol>
+  <symbol id="ch" viewBox="0 0 8 14"><path d="M1.5 1.5 6.5 7l-5 5.5"/></symbol>
+  <symbol id="cam" viewBox="0 0 14 14"><path d="M2 4.5h2.2l1.1-1.6h3.4l1.1 1.6H12v6.5H2z"/><circle cx="7" cy="7.6" r="2"/></symbol>
   <symbol id="sr" viewBox="0 0 16 16"><circle cx="6.8" cy="6.8" r="4.6"/><path d="M10.4 10.4 14 14"/></symbol>
 </defs></svg>
 
 <div class="wrap">
   <section class="intro">
     <h1>Account, as cards</h1>
+    <p>Rebuilt at real phone proportions with the grammar of a settings app: a grey ground, white groups with soft corners, 48-point rows, 17-point text, separators only inside a group, and real space between groups. Pure greyscale; the paintings are the only colour. Playfair Display for the card title, your name and the big figure. People and numbers are examples.</p>
     <div class="mode" role="group" aria-label="Theme"><button type="button" data-m="light" aria-pressed="true">Light</button><button type="button" data-m="dark" aria-pressed="false">Dark</button></div>
-    <p>Fifth pass: fully greyscale, no boxes. Rows sit straight on the card with hairlines between them and small grey headings above each group, the way the reader's own settings do. Black (white in dark mode) is the only emphasis. Playfair Display for card titles, names and big figures; the system font for the rest. Use the switch for dark mode. People and numbers are examples.</p>
   </section>
 
   <section class="sec" aria-label="Phone">
     <h2>Phone</h2>
-    <p>Cards rise over the page; the cross closes them all and you are where you were.</p>
+    <p>Cards rise over the page. The cross closes everything; the arrow goes back one card.</p>
     <div class="strip">
 
       <div class="step"><span class="num">1 · You</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div><p>Some time elapsed before I learned the history of my friends.</p></div><div class="scrim"></div>
-          <div class="card" style="--top:90px"><div class="grab"></div>
-            <div class="prof"><div class="bg" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div><span class="circle close"><svg><use href="#x"/></svg></span><span class="bgedit">Edit</span>
-              <div class="me"><span class="av" style="--img:url('mockup-images/meditations.jpg')"><span class="edit"><svg><use href="#pen"/></svg></span></span><span class="nm"><b>Anders</b><span>Premium</span></span></div></div>
-            <div class="body" style="padding-top:16px">
+          <div class="card" style="--top:120px"><div class="grab"></div>
+            <div class="hero"><div class="bg" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div><span class="disc x"><svg><use href="#x"/></svg></span>
+              <div class="who"><span class="av" style="--img:url('mockup-images/meditations.jpg')"><span class="cam"><svg><use href="#cam"/></svg></span></span><span class="nm"><b>Anders</b><span>Premium</span></span></div></div>
+            <div class="body" style="padding-top:28px">
               <div class="g">
                 <div class="r"><span class="l">Your reading</span><span class="v">6 h 10 m</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
                 <div class="r"><span class="l">Leaderboard</span><span class="v">3rd of 5</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
-              
               <div class="g">
-                <div class="r meter"><div class="top"><span>AI credits this month</span><span class="v">15% left</span></div><div class="tr"><i style="width:15%"></i></div></div>
-                <div class="r meter light"><div class="top"><span>Top-up</span><span class="v">64% left</span></div><div class="tr"><i style="width:64%"></i></div></div>
-                <div class="r act"><span class="l">Top up</span><span class="v">renews 5 Nov</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r meter"><div class="top"><span>AI credits</span><span class="v"><b>15%</b> left this month</span></div><div class="tr"><i style="width:15%"></i></div></div>
+                <div class="r meter light"><div class="top"><span>Top-up</span><span class="v"><b>64%</b> left</span></div><div class="tr"><i style="width:64%"></i></div></div>
+                <div class="r"><span class="l">Top up</span><span class="v">Renews 5 Nov</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
               <div class="g">
-                <div class="r"><span class="l">Find readers</span><span class="v">1 request</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-                <div class="r"><span class="l">Account settings</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Find readers</span><span class="badge">1</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Settings</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
             </div></div>
         </div>
-        <span class="cap"><b>Three plain groups.</b> Reading and leaderboard first, AI credits second, then the two ways on. The pencil changes your picture; Edit changes the background. Leaderboard appears only if you joined.</span></div>
+        <span class="cap"><b>Three groups, nothing else.</b> Tap your picture or the painting to change them. The top-up bar appears only once you have bought one; the Leaderboard row only if you joined.</span></div>
 
       <div class="step"><span class="num">2 · Tap your picture</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:90px"><div class="grab"></div>
-            <div class="prof"><div class="bg" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div><span class="circle close"><svg><use href="#x"/></svg></span>
-              <div class="me"><span class="av" style="--img:url('mockup-images/meditations.jpg')"></span><span class="nm"><b>Anders</b><span>Premium</span></span></div></div>
-            <div class="pop" style="top:150px;left:16px"><div class="g"><div class="r"><span class="l">Upload a picture</span></div><div class="r"><span class="l">Choose a picture</span></div></div></div>
-            <div class="body dim" style="padding-top:16px"><div class="g" style="height:92px"></div><div class="g" style="height:140px"></div></div></div>
+          <div class="card" style="--top:120px"><div class="grab"></div>
+            <div class="hero"><div class="bg" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div><span class="disc x"><svg><use href="#x"/></svg></span>
+              <div class="who"><span class="av" style="--img:url('mockup-images/meditations.jpg')"></span><span class="nm"><b>Anders</b><span>Premium</span></span></div></div>
+            <div class="pop"><div class="g" style="border-radius:0"><div class="r"><span class="l">Upload a picture</span></div><div class="r"><span class="l">Choose a picture</span></div><div class="r"><span class="l">Change background</span></div></div></div>
+            <div class="body dim" style="padding-top:28px"><div class="g" style="height:97px"></div><div class="g" style="height:170px"></div></div></div>
         </div>
-        <span class="cap"><b>Two choices where you tapped.</b> Edit on the background offers the same two.</span></div>
+        <span class="cap"><b>A small menu where you tapped.</b> Three plain choices.</span></div>
 
       <div class="step"><span class="num">3 · Choose a picture</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:330px"><div class="grab"></div>
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Choose a picture</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body">
+          <div class="card" style="--top:420px"><div class="grab"></div>
+            <div class="nav"><span class="disc"><svg><use href="#bk"/></svg></span><span class="t">Choose a picture</span><span class="disc end"><svg><use href="#x"/></svg></span></div>
+            <div class="body tight">
               <div class="g"><div class="grid4">
                 <span class="on" style="--img:url('mockup-images/meditations.jpg')"></span><span style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span><span style="--img:url('mockup-images/the-prince.jpg');--pos:40% 55%"></span><span style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span>
                 <span style="--img:url('mockup-images/crime-and-punishment.jpg')"></span><span style="--img:url('mockup-images/frankenstein.jpg');--pos:50% 55%"></span><span style="--img:url('mockup-images/iliad.jpg');--pos:50% 70%"></span><span style="--img:url('mockup-images/notes-from-underground.jpg');--pos:50% 60%"></span>
@@ -272,17 +224,17 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
               <span class="btn fill wide">Use this picture</span>
             </div></div>
         </div>
-        <span class="cap"><b>Details from the library's paintings,</b> in one white group.</span></div>
+        <span class="cap"><b>Details from the library's paintings.</b> One tap to pick, one button to confirm.</span></div>
 
       <div class="step"><span class="num">4 · Your reading</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:40px"><div class="grab"></div>
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Your reading</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body" style="gap:20px">
+          <div class="card" style="--top:60px"><div class="grab"></div>
+            <div class="nav"><span class="disc"><svg><use href="#bk"/></svg></span><span class="t">Your reading</span><span class="disc end"><svg><use href="#x"/></svg></span></div>
+            <div class="body">
               <div class="g">
-                <div class="r" style="padding-top:14px;min-height:0"><div><div class="figure"><b>41</b><small>h</small><b>20</b><small>m</small></div><span class="v" style="font-size:.85rem">since 14 July, reading and listening</span></div></div>
-                <div class="bars" style="padding-top:12px"><i style="height:18%"></i><i style="height:30%"></i><i style="height:47%"></i><i style="height:37%"></i><i style="height:9%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:67%"></i><i style="height:46%"></i><i style="height:80%"></i><i style="height:100%"></i><i style="height:95%"></i></div>
-                <div class="three" style="box-shadow:inset 0 1px 0 var(--sep)"><div><b>6 h 10</b><span>last 7 days</span></div><div><b>3</b><span>finished</span></div><div><b>6 days</b><span>streak</span></div></div>
+                <div style="padding:20px 16px 18px"><div class="figure">41<small>h</small>20<small>m</small></div><div class="sub">since 14 July, reading and listening</div>
+                  <div class="bars"><i style="height:18%"></i><i style="height:30%"></i><i style="height:47%"></i><i style="height:37%"></i><i style="height:9%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:67%"></i><i style="height:46%"></i><i style="height:80%"></i><i style="height:100%"></i><i style="height:95%"></i></div></div>
+                <div class="three ruled"><div><b>6 h 10</b><span>last 7 days</span></div><div><b>3</b><span>finished</span></div><div><b>6 days</b><span>streak</span></div></div>
               </div>
               <span class="gh">Reading now</span>
               <div class="g">
@@ -297,39 +249,39 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
               </div>
             </div></div>
         </div>
-        <span class="cap"><b>Black bars on a light track, nothing else.</b> One row per book.</span></div>
+        <span class="cap"><b>One big figure, one chart, three facts.</b> Then one row per book, with a thin progress line for books in progress.</span></div>
 
       <div class="step"><span class="num">5 · Leaderboard</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
           <div class="card" style="--top:60px"><div class="grab"></div>
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Leaderboard</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body" style="gap:20px">
-              <div class="seg"><span class="on">Following</span><span>Everyone</span></div>
-              <span class="gh">Last 7 days</span>
+            <div class="nav"><span class="disc"><svg><use href="#bk"/></svg></span><span class="t">Leaderboard</span><span class="disc end"><svg><use href="#x"/></svg></span></div>
+            <div class="body tight">
+              <div class="seg" style="margin:0;width:100%"><span class="on" style="flex:1;text-align:center">Following</span><span style="flex:1;text-align:center">Everyone</span></div>
+              <span class="gh" style="margin-bottom:-16px">Last 7 days</span>
               <div class="g">
-                <div class="r"><span class="rank">1</span><span class="av s" style="--img:url('mockup-images/crime-and-punishment.jpg')"></span><span class="l">Sofie Berg</span><span class="v">9 h 40</span></div>
-                <div class="r"><span class="rank">2</span><span class="av s init">J</span><span class="l">Jonas Lund</span><span class="v">7 h 15</span></div>
-                <div class="r me"><span class="rank">3</span><span class="av s" style="--img:url('mockup-images/meditations.jpg')"></span><span class="l">You</span><span class="v">6 h 10</span></div>
-                <div class="r"><span class="rank">4</span><span class="av s" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="l">Maja Holm</span><span class="v">4 h 50</span></div>
-                <div class="r"><span class="rank">5</span><span class="av s init">T</span><span class="l">Thomas Krag</span><span class="v">2 h 30</span></div>
+                <div class="r av-row" style="min-height:56px"><span class="rank">1</span><span class="av s" style="--img:url('mockup-images/crime-and-punishment.jpg')"></span><span class="l">Sofie Berg</span><span class="v">9 h 40</span></div>
+                <div class="r av-row" style="min-height:56px"><span class="rank">2</span><span class="av s init">J</span><span class="l">Jonas Lund</span><span class="v">7 h 15</span></div>
+                <div class="r av-row me" style="min-height:56px"><span class="rank">3</span><span class="av s" style="--img:url('mockup-images/meditations.jpg')"></span><span class="l">You</span><span class="v">6 h 10</span></div>
+                <div class="r av-row" style="min-height:56px"><span class="rank">4</span><span class="av s" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="l">Maja Holm</span><span class="v">4 h 50</span></div>
+                <div class="r av-row" style="min-height:56px"><span class="rank">5</span><span class="av s init">T</span><span class="l">Thomas Krag</span><span class="v">2 h 30</span></div>
               </div>
               <div class="g"><div class="r"><span class="l">Find readers</span><span class="chev"><svg><use href="#ch"/></svg></span></div></div>
             </div></div>
         </div>
-        <span class="cap"><b>A plain ranked list.</b> Your row is in bold, nothing more. Tap anyone for their card.</span></div>
+        <span class="cap"><b>A plain ranked list.</b> You are in bold. Tap anyone for their card.</span></div>
 
       <div class="step"><span class="num">6 · Find readers</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
           <div class="card" style="--top:60px"><div class="grab"></div>
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Find readers</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body" style="gap:20px">
+            <div class="nav"><span class="disc"><svg><use href="#bk"/></svg></span><span class="t">Find readers</span><span class="disc end"><svg><use href="#x"/></svg></span></div>
+            <div class="body">
               <div class="search"><svg><use href="#sr"/></svg>Name or tinct.app link</div>
               <span class="gh">Asking to follow you</span>
-              <div class="g"><div class="r"><span class="av s init">E</span><span class="l">Ellen Ravn</span><span class="btn fill">Accept</span></div></div>
+              <div class="g"><div class="r av-row" style="min-height:56px"><span class="av s init">E</span><span class="l">Ellen Ravn</span><span class="btn fill">Accept</span></div></div>
               <span class="gh">Reading your books</span>
               <div class="g">
-                <div class="r"><span class="av s" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="l">Maja Holm</span><span class="btn line">Following</span></div>
-                <div class="r"><span class="av s" style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span><span class="l">Karl Ny</span><span class="btn fill">Follow</span></div>
+                <div class="r av-row" style="min-height:56px"><span class="av s" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="l">Maja Holm</span><span class="btn line">Following</span></div>
+                <div class="r av-row" style="min-height:56px"><span class="av s" style="--img:url('mockup-images/odyssey.jpg');--pos:30% 60%"></span><span class="l">Karl Ny</span><span class="btn fill">Follow</span></div>
               </div>
               <span class="gh">Invite a reader</span>
               <div class="g"><div class="r"><span class="l">tinct.app/anders</span><span class="btn line">Copy</span></div><div class="r"><span class="l">Share…</span><span class="chev"><svg><use href="#ch"/></svg></span></div></div>
@@ -339,10 +291,10 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
 
       <div class="step"><span class="num">7 · A reader's profile</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:40px"><div class="grab"></div>
-            <div class="prof"><div class="bg" style="--bgimg:url('mockup-images/scene-pride-and-prejudice-phone.jpg')"></div><span class="circle back"><svg><use href="#bk"/></svg></span>
-              <div class="me"><span class="av" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="nm"><b>Maja Holm</b><span>follows you</span></span><span class="btn line" style="margin:26px 0 0 auto">Following</span></div></div>
-            <div class="body" style="padding-top:16px;gap:20px">
+          <div class="card" style="--top:60px"><div class="grab"></div>
+            <div class="hero"><div class="bg" style="--bgimg:url('mockup-images/scene-pride-and-prejudice-phone.jpg')"></div><span class="disc b"><svg><use href="#bk"/></svg></span><span class="disc x"><svg><use href="#x"/></svg></span>
+              <div class="who"><span class="av" style="--img:url('mockup-images/pride-and-prejudice.jpg');--pos:46% 30%"></span><span class="nm"><b>Maja Holm</b><span>Follows you</span></span><span class="btn line act">Following</span></div></div>
+            <div class="body" style="padding-top:28px">
               <div class="g"><div class="three"><div><b>4 h 50</b><span>last 7 days</span></div><div><b>96 h</b><span>this year</span></div><div><b>11</b><span>finished</span></div></div></div>
               <span class="gh">Reading now</span>
               <div class="g"><div class="r bk"><span class="l"><span>Pride and Prejudice</span><span class="pr"><i style="width:67%"></i></span></span><span class="v">67%</span></div><div class="r bk"><span class="l"><span>The Odyssey</span><span class="pr"><i style="width:21%"></i></span></span><span class="v">21%</span></div></div>
@@ -350,144 +302,110 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
               <div class="g"><div class="r"><span class="l">Crime and Punishment</span><span class="v">Sep</span></div><div class="r"><span class="l">Frankenstein</span><span class="v">Aug</span></div><div class="r"><span class="l">9 more</span><span class="chev"><svg><use href="#ch"/></svg></span></div></div>
             </div></div>
         </div>
-        <span class="cap"><b>The same groups as Your reading,</b> as far as she shares with you.</span></div>
+        <span class="cap"><b>Her painting, her picture, her numbers,</b> as far as she shares them with you.</span></div>
 
-      <div class="step"><span class="num">8 · A private profile</span>
+      <div class="step"><span class="num">8 · Settings</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:376px"><div class="grab"></div>
-            <div class="prof"><div class="bg" style="--bgimg:url('mockup-images/scene-crime-and-punishment-phone.jpg')"></div><span class="circle back"><svg><use href="#bk"/></svg></span>
-              <div class="me"><span class="av init">E</span><span class="nm"><b>Ellen Ravn</b><span>private profile</span></span></div></div>
-            <div class="body" style="padding-top:14px;gap:14px">
-              <div class="g"><div class="r" style="min-height:0;padding:12px 14px;color:var(--muted);font-size:.92rem;line-height:1.4">Ellen shares her reading with followers she accepts.</div></div>
-              <span class="btn fill wide">Ask to follow</span>
-            </div></div>
-        </div>
-        <span class="cap"><b>Picture, name and one action.</b></span></div>
-
-      <div class="step"><span class="num">9 · Account settings</span>
-        <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:34px"><div class="grab"></div>
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body" style="gap:20px">
-              
+          <div class="card" style="--top:60px"><div class="grab"></div>
+            <div class="nav"><span class="disc"><svg><use href="#bk"/></svg></span><span class="t">Settings</span><span class="disc end"><svg><use href="#x"/></svg></span></div>
+            <div class="body">
               <div class="g">
-                <div class="r"><span class="l">Profile <span class="info">i</span></span><div class="seg in"><span class="on">Private</span><span>Public</span></div></div>
-                <div class="r"><span class="l">Sharing <span class="info">i</span></span><div class="seg in"><span>None</span><span class="on">Followers</span><span>Everyone</span></div></div>
-                <div class="r"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
+                <div class="r" style="min-height:52px"><span class="l">Profile <span class="info">i</span></span><div class="seg"><span class="on">Private</span><span>Public</span></div></div>
+                <div class="r" style="min-height:52px"><span class="l">Sharing <span class="info">i</span></span><div class="seg"><span>None</span><span class="on">Followers</span><span>Everyone</span></div></div>
+                <div class="r" style="min-height:52px"><span class="l">Leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
-              
-              <div class="g"><div class="r"><span class="l">New books</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
-              
               <div class="g">
-                <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-                <div class="r"><span class="l">Email</span><span class="v">anders@…</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r" style="min-height:52px"><span class="l">New books open in</span><div class="seg"><span class="on">Modern</span><span>Original</span></div></div>
               </div>
-            </div></div>
-        </div>
-        <span class="cap"><b>Like the screenshot:</b> white groups, label left, value right, a neutral switch. Scroll for the rest.</span></div>
-
-      <div class="step"><span class="num">10 · Further down</span>
-        <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:34px"><div class="grab"></div>
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body" style="gap:20px">
-              
+              <span class="foot" style="margin-top:-22px">Modern is Tinct's English rewrite; Original is the source text or a published translation.</span>
               <div class="g">
-                <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Account</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
                 <div class="r"><span class="l">Email</span><span class="v">anders@…</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
                 <div class="r"><span class="l">Password</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-                <div class="r dim"><span class="l">Export my books and data</span><span class="v">later</span></div>
               </div>
-              <div class="g">
-                <div class="r act"><span class="l">Sign out</span></div>
-              </div>
-              <div class="g">
-                <div class="r danger"><span class="l">Delete account</span></div>
-              </div>
+              <div class="g"><div class="r center"><span class="l">Sign out</span></div></div>
             </div></div>
         </div>
-        <span class="cap"><b>Sign out and Delete each in their own group,</b> as Settings apps do.</span></div>
+        <span class="cap"><b>Everything fits on one line now.</b> Choices sit at the right of their row; the switch is the only other control. "Delete account" lives behind Account.</span></div>
 
-      <div class="step"><span class="num">11 · An (i), opened</span>
+      <div class="step"><span class="num">9 · An (i), opened</span>
         <div class="ph"><div class="book"><div class="bar"><b>Frankenstein</b><i>Ch. 14</i><span>t</span></div></div><div class="scrim"></div>
-          <div class="card" style="--top:34px"><div class="grab"></div>
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body" style="gap:20px;position:relative">
-              
+          <div class="card" style="--top:60px"><div class="grab"></div>
+            <div class="nav"><span class="disc"><svg><use href="#bk"/></svg></span><span class="t">Settings</span><span class="disc end"><svg><use href="#x"/></svg></span></div>
+            <div class="body" style="position:relative">
               <div class="g">
-                <div class="r"><span class="l">Profile <span class="info">i</span></span><div class="seg in"><span class="on">Private</span><span>Public</span></div></div>
-                <div class="r"><span class="l">Sharing <span class="info">i</span></span><div class="seg in"><span>None</span><span class="on">Followers</span><span>Everyone</span></div></div>
-                <div class="r dim"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
+                <div class="r" style="min-height:52px"><span class="l">Profile <span class="info">i</span></span><div class="seg"><span class="on">Private</span><span>Public</span></div></div>
+                <div class="r" style="min-height:52px"><span class="l">Sharing <span class="info">i</span></span><div class="seg"><span>None</span><span class="on">Followers</span><span>Everyone</span></div></div>
+                <div class="r dim" style="min-height:52px"><span class="l">Leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
-              <div class="tip" style="top:96px;--arrow:68px"><b>Sharing.</b> What you read and how long. Followers are readers you accepted; Everyone is anyone who opens your profile.</div>
+              <div class="tip" style="top:116px;--arrow:94px"><b>Sharing.</b> What you read and for how long. Followers are readers you have accepted; Everyone is anyone who opens your profile.</div>
             </div></div>
         </div>
-        <span class="cap"><b>A small dark box under the (i).</b> Tap anywhere to close.</span></div>
+        <span class="cap"><b>A dark box under the (i).</b> Tap anywhere to close.</span></div>
     </div>
   </section>
 
   <section class="sec" aria-label="Desktop">
     <h2>Desktop</h2>
-    <p>Cards sit top right, over the page. Over the library they use the same groups in dark.</p>
-    <div class="strip" style="flex-direction:column;gap:34px">
+    <p>The same card as a panel at top right, over the book or the library.</p>
+    <div class="strip" style="flex-direction:column;gap:40px">
 
-      <div class="step" style="width:auto"><span class="num">A · From the library</span>
-        <div class="dkwrap"><div class="dk"><div class="lib"></div>
-          <div class="libtop"><span>tinct</span><span class="rr"><svg width="20" height="20" viewBox="0 0 16 16" style="fill:none;stroke:currentColor;stroke-width:1.6"><use href="#sr"/></svg><span class="mini"></span></span></div>
-          <div class="libhero"><small>Mary Shelley's</small><b>Frankenstein</b></div>
-          <div class="panel dark" style="top:64px">
-            <div class="prof"><div class="bg" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div><span class="circle close"><svg><use href="#x"/></svg></span><span class="bgedit">Edit</span>
-              <div class="me"><span class="av" style="--img:url('mockup-images/meditations.jpg')"><span class="edit"><svg><use href="#pen"/></svg></span></span><span class="nm"><b>Anders</b><span>Premium</span></span></div></div>
-            <div class="body" style="padding-top:16px">
-              <div class="g">
-                <div class="r"><span class="l">Your reading</span><span class="v">6 h 10 m</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-                <div class="r"><span class="l">Leaderboard</span><span class="v">3rd of 5</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-              </div>
-              
-              <div class="g">
-                <div class="r meter"><div class="top"><span>AI credits this month</span><span class="v">15% left</span></div><div class="tr"><i style="width:15%"></i></div></div>
-                <div class="r act"><span class="l">Top up</span><span class="v">renews 5 Nov</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-              </div>
-              <div class="g">
-                <div class="r"><span class="l">Find readers</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-                <div class="r"><span class="l">Account settings</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
-              </div>
-            </div></div>
-        </div></div>
-        <span class="cap" style="max-width:80ch"><b>Same groups, dark.</b> No top-up bought, so one credits bar.</span></div>
-
-      <div class="step" style="width:auto"><span class="num">B · In a book: Account settings</span>
+      <div class="step" style="width:auto"><span class="num">A · In a book: Settings</span>
         <div class="dkwrap"><div class="dk">
           <div class="topbar"><span>←</span><span><b>Frankenstein</b><i>Chapter 14</i></span><span class="rt">t</span></div>
           <div class="spread"><p>Some time elapsed before I learned the history of my friends. It was one which could not fail to impress itself deeply on my mind, unfolding as it did a number of circumstances, each interesting and wonderful to one so utterly inexperienced as I was.</p></div>
           <div class="panel">
-            <div class="head"><span class="circle"><svg><use href="#bk"/></svg></span><span class="t">Account settings</span><span class="circle end"><svg><use href="#x"/></svg></span></div>
-            <div class="body" style="gap:20px">
-              
+            <div class="nav"><span class="disc"><svg><use href="#bk"/></svg></span><span class="t">Settings</span><span class="disc end"><svg><use href="#x"/></svg></span></div>
+            <div class="body">
               <div class="g">
-                <div class="r"><span class="l">Profile <span class="info">i</span></span><div class="seg in"><span>Private</span><span class="on">Public</span></div></div>
-                <div class="r"><span class="l">Sharing <span class="info">i</span></span><div class="seg in"><span>None</span><span>Followers</span><span class="on">Everyone</span></div></div>
-                <div class="r"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
+                <div class="r" style="min-height:52px"><span class="l">Profile <span class="info">i</span></span><div class="seg"><span>Private</span><span class="on">Public</span></div></div>
+                <div class="r" style="min-height:52px"><span class="l">Sharing <span class="info">i</span></span><div class="seg"><span>None</span><span>Followers</span><span class="on">Everyone</span></div></div>
+                <div class="r" style="min-height:52px"><span class="l">Leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
-              
-              <div class="g"><div class="r"><span class="l">New books</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
-              
+              <div class="g"><div class="r" style="min-height:52px"><span class="l">New books open in</span><div class="seg"><span class="on">Modern</span><span>Original</span></div></div></div>
               <div class="g">
-                <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Account</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Email</span><span class="v">anders@…</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Password</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+              </div>
+              <div class="g"><div class="r center"><span class="l">Sign out</span></div></div>
+            </div></div>
+        </div></div>
+        <span class="cap" style="max-width:80ch"><b>The book stays put.</b> The panel scrolls inside itself.</span></div>
+
+      <div class="step" style="width:auto"><span class="num">B · From the library: You</span>
+        <div class="dkwrap"><div class="dk"><div class="lib"></div>
+          <div class="libtop"><span>tinct</span><span class="rr"><svg width="22" height="22" viewBox="0 0 16 16" style="fill:none;stroke:currentColor;stroke-width:1.6"><use href="#sr"/></svg><span class="mini"></span></span></div>
+          <div class="libhero"><small>Mary Shelley's</small><b>Frankenstein</b></div>
+          <div class="panel dark" style="top:68px;max-height:none">
+            <div class="hero"><div class="bg" style="--bgimg:url('mockup-images/scene-meditations-phone.jpg')"></div><span class="disc x"><svg><use href="#x"/></svg></span>
+              <div class="who"><span class="av" style="--img:url('mockup-images/meditations.jpg')"><span class="cam"><svg><use href="#cam"/></svg></span></span><span class="nm"><b>Anders</b><span>Premium</span></span></div></div>
+            <div class="body" style="padding-top:28px">
+              <div class="g">
+                <div class="r"><span class="l">Your reading</span><span class="v">6 h 10 m</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Leaderboard</span><span class="v">3rd of 5</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+              </div>
+              <div class="g">
+                <div class="r meter"><div class="top"><span>AI credits</span><span class="v"><b>15%</b> left this month</span></div><div class="tr"><i style="width:15%"></i></div></div>
+                <div class="r"><span class="l">Top up</span><span class="v">Renews 5 Nov</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+              </div>
+              <div class="g">
+                <div class="r"><span class="l">Find readers</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
+                <div class="r"><span class="l">Settings</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
               </div>
             </div></div>
         </div></div>
-        <span class="cap" style="max-width:80ch"><b>The book stays put;</b> the card scrolls inside the panel.</span></div>
+        <span class="cap" style="max-width:80ch"><b>Over the library the card is dark,</b> matching the room. No top-up bought, so one bar.</span></div>
     </div>
   </section>
 
   <section class="sec" aria-label="Rules">
-    <h2>What changed in this pass</h2>
+    <h2>What is different this time</h2>
     <div class="notes">
-      <div><b>Greyscale</b>White, greys and black. No warm tints, no yellow, no teal. Only the paintings carry colour.</div>
-      <div><b>No boxes</b>Groups are rows on the card itself, separated by hairlines, with a small grey heading. The segmented controls and buttons are the only shapes.</div>
-      <div><b>Dark mode</b>Near-black card, white text and white as the emphasis; the reader's night page shows behind it.</div>
-      <div><b>Two families</b>Playfair Display for titles, names and big figures; the system font for rows and controls.</div>
+      <div><b>Real proportions</b>Frames are 390 points wide, like an iPhone, so 17-point text and 48-point rows sit the way they will on a phone. Nothing is truncated.</div>
+      <div><b>Settings grammar</b>Grey ground, white groups with 12-point corners, inset separators only inside a group, 32 points of air between groups. One idea per group.</div>
+      <div><b>Greyscale</b>Black for the switch, the chart's current bar and the main button; mid-grey for everything secondary. Colour comes only from the paintings.</div>
+      <div><b>Fewer words</b>Short labels, values on the right, "Settings" instead of "Account settings", one footnote where a choice needs explaining.</div>
     </div>
   </section>
 </div>
