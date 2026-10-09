@@ -31,6 +31,24 @@ describe('the switch on the reader', () => {
   })
 })
 
+describe('the switch on a long-lived page', () => {
+  it('a failed question is asked again after a minute, and an answer once it is older than the caller allows', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    const fetchMock = vi.fn(async () => { throw new Error('offline') })
+    expect(await readingTimeSwitch(fetchMock as unknown as typeof fetch)).toBe(false)
+    expect(await readingTimeSwitch(fetchMock as unknown as typeof fetch)).toBe(false)
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    vi.setSystemTime(Date.now() + 61_000)
+    const on = vi.fn(async () => Response.json({ enabled: true }))
+    expect(await readingTimeSwitch(on as unknown as typeof fetch)).toBe(true)
+    // A good answer lasts for the page unless the caller asks for a fresher one.
+    vi.setSystemTime(Date.now() + 10 * 60_000)
+    const off = vi.fn(async () => Response.json({ enabled: false }))
+    expect(await readingTimeSwitch(off as unknown as typeof fetch)).toBe(true)
+    expect(await readingTimeSwitch(off as unknown as typeof fetch, { maxAgeMs: 5 * 60_000 })).toBe(false)
+  })
+})
+
 describe('the ledger summary', () => {
   it('a request that never answers reads as unavailable after the timeout, so the sheet is never stuck loading', async () => {
     const hanging = vi.fn(() => new Promise<Response>(() => {}))

@@ -18,7 +18,7 @@ import { BEAT_MAX_SECONDS, FLUSH_MAX_AGE_DAYS, addDays, daysBetween, localDay, t
 
 export type LedgerStatus = 'unknown' | 'off' | 'on' | 'unavailable'
 
-let statusRequest: { at: number; promise: Promise<boolean> } | null = null
+let statusRequest: { at: number; promise: Promise<boolean>; failed?: boolean } | null = null
 
 /**
  * How long a reader page trusts the switch it was told. A reader tab stays
@@ -29,16 +29,23 @@ let statusRequest: { at: number; promise: Promise<boolean> } | null = null
  */
 export const SWITCH_RECHECK_MS = 5 * 60_000
 
+/** A failed status request is kept this long at most, then asked again. */
+export const SWITCH_FAILURE_KEEP_MS = 60_000
+
 /**
  * Whether reading time is switched on. One answer is shared while it is
- * younger than `maxAgeMs` (default: for the page's life). A failed request is
- * never kept, so the next caller asks again. Any failure reads as off.
+ * younger than `maxAgeMs` (default: for the page's life); a failed request
+ * (read as off) only for SWITCH_FAILURE_KEEP_MS, so the next caller after
+ * that asks again.
  */
 export function readingTimeSwitch(fetchImpl: typeof fetch | undefined = typeof fetch === 'function' ? fetch : undefined, options: { maxAgeMs?: number } = {}): Promise<boolean> {
   if (!fetchImpl) return Promise.resolve(false)
   const maxAge = options.maxAgeMs ?? Number.POSITIVE_INFINITY
-  if (statusRequest && Date.now() - statusRequest.at <= maxAge) return statusRequest.promise
-  const entry: { at: number; promise: Promise<boolean> } = { at: Date.now(), promise: Promise.resolve(false) }
+  if (statusRequest) {
+    const keep = statusRequest.failed ? Math.min(maxAge, SWITCH_FAILURE_KEEP_MS) : maxAge
+    if (Date.now() - statusRequest.at <= keep) return statusRequest.promise
+  }
+  const entry: { at: number; promise: Promise<boolean>; failed?: boolean } = { at: Date.now(), promise: Promise.resolve(false) }
   statusRequest = entry
   entry.promise = fetchImpl(apiUrl('/api/reading-time/status'), { cache: 'no-store' })
     .then(async response => {
@@ -46,7 +53,7 @@ export function readingTimeSwitch(fetchImpl: typeof fetch | undefined = typeof f
       return (await response.json() as { enabled?: unknown }).enabled === true
     })
     .catch(() => {
-      if (statusRequest === entry) statusRequest = null
+      entry.failed = true
       return false
     })
   return entry.promise
