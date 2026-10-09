@@ -7,7 +7,7 @@ import {
   type ProfileAuthUser,
 } from './worker/routes/profiles'
 import { ProfilesUnavailable, type AccountRow, type ProfileStore, type PublicCardRow, type ReaderProfileRow } from './worker/lib/profileStore'
-import { SOCIAL_ENTRY_SCRIPT, SOCIAL_META, withSocialMarkers } from './worker/routes/socialPages'
+import { SOCIAL_META, withSocialMarkers } from './worker/routes/socialPages'
 import { EMAIL_CONSENT_VERSION, effectiveVisibility } from './social/profileRules'
 import { confirmUrl, verifyLink } from './worker/lifecycle/links'
 import { confirmLinkEmail, confirmLinkLimiter, confirmLinkSender, CONFIRM_LINK_SUBJECT } from './worker/routes/confirmLink'
@@ -121,7 +121,7 @@ describe('switch off', () => {
     expect(store.calls).toBe(0)
   })
 
-  it('the Worker router leaves /api/profile, /you and every page exactly as before', async () => {
+  it('the Worker router leaves /api/profile and every page exactly as before; /you opens the You card', async () => {
     const assets = vi.fn(async (request: Request) => {
       const path = new URL(request.url).pathname
       if (path.startsWith('/lab/library_2/') || path === '/lab/sign-in/') return new Response('<html><head><title>x</title></head><body></body></html>', { headers: { 'content-type': 'text/html' } })
@@ -136,8 +136,10 @@ describe('switch off', () => {
       expect(await library.text()).not.toContain('tinct-social')
       const signIn = await worker.fetch(new Request('https://tinct.app/sign-in'), { ...env, SOCIAL_PROFILES: off } as never, ctx)
       expect(await signIn.text()).not.toContain('tinct-social')
+      // The old You page is the You card over the library (src/cards/cardRoutes.ts), switch or not.
       const you = await worker.fetch(new Request('https://tinct.app/you'), { ...env, SOCIAL_PROFILES: off } as never, ctx)
-      expect(you.status).toBe(404)
+      expect(you.status).toBe(302)
+      expect(you.headers.get('Location')).toBe('/library?card=you')
       const api = await worker.fetch(new Request('https://tinct.app/api/profile'), { ...env, SOCIAL_PROFILES: off } as never, ctx)
       expect(api.status).toBe(404)
     }
@@ -147,9 +149,10 @@ describe('switch off', () => {
 
   it('switch on marks the library, reader and sign-in pages, and only those', async () => {
     const page = (path: string) => withSocialMarkers(new Response('<html><head></head><body></body></html>', { headers: { 'content-type': 'text/html' } }), new Request(`https://tinct.app${path}`))
-    expect(await (await page('/library')).text()).toContain(SOCIAL_META + SOCIAL_ENTRY_SCRIPT)
+    expect(await (await page('/library')).text()).toContain(SOCIAL_META)
     expect(await (await page('/reader')).text()).toContain(SOCIAL_META)
-    expect(await (await page('/reader')).text()).not.toContain(SOCIAL_ENTRY_SCRIPT)
+    // The library loads the account cards itself (public/lab/library_2/index.html); nothing is injected.
+    expect(await (await page('/library')).text()).not.toContain('<script')
     expect(await (await page('/sign-in')).text()).toContain(SOCIAL_META)
     expect(await (await page('/privacy')).text()).not.toContain(SOCIAL_META)
   })

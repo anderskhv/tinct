@@ -78,7 +78,7 @@ interface SignInHooks {
 }
 
 /** Step 1 changes and the account page link. Returns false (and touches nothing) when profiles are off. */
-export function enhanceSignInPage(root: HTMLElement | null, returnTo: string): boolean {
+export function enhanceSignInPage(root: HTMLElement | null): boolean {
   if (!root || !socialProfilesOn()) return false
   root.classList.add('is-social')
   const style = document.createElement('style')
@@ -131,18 +131,6 @@ export function enhanceSignInPage(root: HTMLElement | null, returnTo: string): b
     root.querySelector('[data-auth-submit]')?.after(consent)
   }
 
-  // Desktop account page: the way to Profile and privacy.
-  const account = root.querySelector<HTMLElement>('[data-mode-copy="account"]')
-  const returnButton = account?.querySelector('[data-return]')
-  if (account && returnButton) {
-    const link = document.createElement('a')
-    link.className = 'auth-secondary'
-    link.style.cssText = 'display:flex;align-items:center;justify-content:center;text-decoration:none;margin:0 0 12px'
-    link.href = `/you?view=settings&returnTo=${encodeURIComponent(returnTo)}`
-    link.textContent = 'Profile and privacy'
-    link.dataset.socialProfileLink = ''
-    returnButton.before(link)
-  }
   return true
 }
 

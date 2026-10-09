@@ -64,11 +64,11 @@ import { handleApproveFix } from './worker/routes/issueReview'
 import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
 import { handleProfiles, isProfileApiPath, socialProfilesOn, type ProfileAuthUser } from './worker/routes/profiles'
 import { confirmLinkLimiter, confirmLinkSender } from './worker/routes/confirmLink'
-import { isYouAssetPage, isYouPath, serveYouPage, withSocialMarkers } from './worker/routes/socialPages'
+import { withSocialMarkers } from './worker/routes/socialPages'
+import { accountPageRedirect } from './cards/cardRoutes'
 import {
   ADMIN_SOCIAL_PATHS,
   FRIENDS_META,
-  FRIENDS_PATHS,
   handleSocial,
   isSocialApiPath,
   isSocialAssetPage,
@@ -80,15 +80,12 @@ import {
 } from './worker/routes/social'
 import { socialFriendsOn } from './social/socialRules'
 import {
-  YOUR_READING_PATHS,
   handleIndexNowVerification,
   handleSeoAndStaticRequest,
   isBlockedBot,
-  isYourReadingAssetPage,
   serveNotFoundPage,
-  serveYourReadingPage,
 } from './worker/routes/seo'
-import { handleReadingTime, readingTimeEnabled } from './worker/routes/readingTime'
+import { handleReadingTime } from './worker/routes/readingTime'
 import { BEAT_MIN_GAP_MS } from './readingTime/model'
 
 
@@ -287,12 +284,11 @@ export default {
         checkRateLimit,
       })
     }
-    // Your reading: a page only while reading time is switched on.
-    if ((request.method === 'GET' || request.method === 'HEAD') && readingTimeEnabled(env) && YOUR_READING_PATHS.has(url.pathname)) {
-      return serveYourReadingPage(request, env)
-    }
-    if ((request.method === 'GET' || request.method === 'HEAD') && !readingTimeEnabled(env) && isYourReadingAssetPage(url.pathname)) {
-      return serveNotFoundPage(request, env)
+    // The old account pages (/you, /your-reading, /friends) are cards now (CARDS-BRIEF.md):
+    // their links, in emails too, open the matching card over the library or the reader.
+    if (request.method === 'GET' || request.method === 'HEAD') {
+      const card = accountPageRedirect(url.pathname, url.search)
+      if (card) return new Response(null, { status: 302, headers: { Location: card, 'Cache-Control': 'no-store' } })
     }
     // Profiles (social ship 2): nothing here runs while SOCIAL_PROFILES is off.
     const social = socialProfilesOn(env)
@@ -311,11 +307,6 @@ export default {
         defer: promise => ctx.waitUntil(promise),
       })
     }
-    if (social && pageRequest && isYouPath(url.pathname)) {
-      const you = await serveYouPage(request, env, friends ? FRIENDS_META : '')
-      if (you) return you
-    }
-    if (!social && pageRequest && isYouAssetPage(url.pathname)) return serveNotFoundPage(request, env)
     if (friends) {
       const socialDeps: SocialDeps = {
         verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
@@ -327,7 +318,7 @@ export default {
       if (pageRequest) {
         const handle = profileHandleFromPath(url.pathname)
         if (handle) return serveProfilePage(request, env, socialDeps, handle)
-        const asset = FRIENDS_PATHS.has(url.pathname) ? '/lab/friends/' : ADMIN_SOCIAL_PATHS.has(url.pathname) ? '/lab/admin-social/' : null
+        const asset = ADMIN_SOCIAL_PATHS.has(url.pathname) ? '/lab/admin-social/' : null
         if (asset) {
           const page = await serveSocialAssetPage(request, env, asset)
           if (page) return page

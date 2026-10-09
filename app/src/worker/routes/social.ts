@@ -15,7 +15,7 @@
  *   POST /api/social/report                        { handle, reason }
  *   POST /api/social/card                          { bookId } -> PNG "Finished {book} · {hours}"
  *   GET  /@{handle}                                the public profile page (noindex)
- *   GET  /friends, /admin/social                   the pages
+ *   GET  /admin/social                             the admin page (/friends redirects to the account cards)
  *   GET|POST /api/admin/social…                    admin view: rename, hide, reports, photo review
  *
  * Who sees what is decided here, in profileRules.publicProfileView and in
@@ -110,7 +110,6 @@ export interface SocialDeps {
 export interface FinishedCardInput { title: string; author: string; duration: string | null; link: string; cover: string | null; finished: boolean }
 
 /** The public paths this module answers while switched on. */
-export const FRIENDS_PATHS = new Set(['/friends', '/friends/'])
 export const ADMIN_SOCIAL_PATHS = new Set(['/admin/social', '/admin/social/'])
 
 export function isSocialApiPath(pathname: string): boolean {
@@ -123,9 +122,9 @@ export function profileHandleFromPath(pathname: string): string | null {
   return match ? normalizeHandle(match[1]) : null
 }
 
-/** The static pages behind /friends and /admin/social are not pages while the switch is off. */
+/** The static page behind /admin/social is not a page while the switch is off. */
 export function isSocialAssetPage(pathname: string): boolean {
-  return /^\/lab\/(?:friends|admin-social)(?:\/(?:index\.html)?)?$/.test(pathname)
+  return /^\/lab\/admin-social(?:\/(?:index\.html)?)?$/.test(pathname)
 }
 
 export const FRIENDS_META = '<meta name="tinct-friends" content="1">'
@@ -529,7 +528,7 @@ export async function serveProfilePage(request: Request, env: SocialEnv, deps: S
   return new Response(request.method === 'HEAD' ? null : html, { status: data ? 200 : 404, headers: pageHeaders() })
 }
 
-/** /friends and /admin/social, from their static pages, with the switch markers. */
+/** /admin/social, from its static page, with the switch markers. */
 export async function serveSocialAssetPage(request: Request, env: { ASSETS: { fetch: (request: Request) => Promise<Response> } }, assetPath: string): Promise<Response | null> {
   const url = new URL(request.url)
   const asset = await env.ASSETS.fetch(new Request(new URL(assetPath, url.origin).toString(), { method: request.method }))

@@ -7,6 +7,7 @@ export function isInitialAccountSession(user: { created_at?: string; last_sign_i
 }
 
 /** Kept separate so navigation can be asserted without touching real accounts. */
-export function navigateAfterAuth(destination: string): void {
-  window.location.assign(destination)
+export function navigateAfterAuth(destination: string, replace = false): void {
+  if (replace) window.location.replace(destination)
+  else window.location.assign(destination)
 }
