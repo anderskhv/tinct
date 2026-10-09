@@ -7655,3 +7655,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   gap: clamp(28px, 6vh, 52px);
 }
 .lab[data-chrome-version="v2"] .lab-call-stage { flex: 0 1 auto; max-width: 100%; }
+
+/* Talk status (Anders, 9 Oct 2026): slightly smaller, with more room above the controls. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { font-size: 19px; margin: 2px 0 14px; }
+.lab[data-chrome-version="v2"] .lab-call-status { font-size: 24px; margin-bottom: 18px; }
