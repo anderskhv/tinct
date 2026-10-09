@@ -90,6 +90,14 @@ Deleting one book from Your books (`DELETE /api/user-books/<fileId>`) deletes
 that book's narration and recaps (`u/<id>/narration/<bookHex>/`,
 `u/<id>/recaps/<bookHex>/`) with the file.
 
+`r2.ownOcr` lists the reader's requests to recognise the text of a scanned own
+PDF (dark until `OWN_PDF_OCR` is "1"; `app/src/worker/lib/ownOcr.ts`): per book
+hex, its page count, state and dates from `u/<id>/ocr/<bookHex>/job.json`,
+never the recognised text or page images. `ownOcrSpend` is the daily page count
+and micro-dollar count from the account's `ocr-pages:<id>` and `ocr-user:<id>`
+objects in `NARRATION_COORDINATOR`. Deleting the book deletes
+`u/<id>/ocr/<bookHex>/` and stops its job.
+
 ## What deletion does, in order
 
 Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
@@ -98,10 +106,14 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    storage). Recap goes first because its alarm reads the position object.
 2. **KV:** `lab-chat-history:<id>` (Talk/chat history) and `lab-position:<id>`
    (legacy position record). The own-book narration spend object
-   (`own-user:<id>`, purged). Then **R2:** every object under `u/<id>/` in the
+   (`own-user:<id>`, purged). Each OCR job found under `u/<id>/ocr/` is
+   cancelled (its `OWN_OCR` Durable Object deletes everything it holds), then
+   `ocr-pages:<id>` and `ocr-user:<id>` are purged (step `do:own-ocr`; it fails,
+   keeping the auth user, if jobs exist and `OWN_OCR` is not bound). Then
+   **R2:** every object under `u/<id>/` in the
    private `tinct-user-books` bucket (the reader's own PDF/EPUB files, their
-   narration under `u/<id>/narration/` and their Catch me up recaps under
-   `u/<id>/recaps/`,
+   narration under `u/<id>/narration/`, their Catch me up recaps under
+   `u/<id>/recaps/` and text recognised from scanned PDFs under `u/<id>/ocr/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
    none remain; then every object under `profile/<id>/` in the same bucket
    (profile pictures and backgrounds, `app/src/worker/routes/profiles.ts`).

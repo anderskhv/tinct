@@ -119,6 +119,35 @@ export function nextMonthStart(now: number): number {
   return Date.UTC(at.getUTCFullYear(), at.getUTCMonth() + 1, 1)
 }
 
+/** The hex of every book with OCR data under the account (`u/{userId}/ocr/{hex}/`). */
+export async function ownOcrBooks(bucket: R2Bucket, userId: string): Promise<string[]> {
+  const root = ownOcrRoot(userId)
+  const hexes: string[] = []
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix: root, cursor, limit: 1000, delimiter: '/' })
+    for (const prefix of page.delimitedPrefixes ?? []) {
+      const hex = prefix.slice(root.length, -1)
+      if (/^[0-9a-f]{24}$/.test(hex)) hexes.push(hex)
+    }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return hexes.sort()
+}
+
+export interface OwnOcrJobSummary { bookHex: string; pages: number | null; state: string | null; createdAt: string | null; completedAt: string | null }
+
+/** Account export: each OCR job's page count, state and dates (from job.json's metadata), never its text or images. */
+export async function listOwnOcrJobs(bucket: R2Bucket, userId: string): Promise<OwnOcrJobSummary[]> {
+  const jobs: OwnOcrJobSummary[] = []
+  for (const bookHex of await ownOcrBooks(bucket, userId)) {
+    const meta = (await bucket.head(ocrJobKey(userId, bookHex)))?.customMetadata ?? {}
+    const pages = Number(meta.pages)
+    jobs.push({ bookHex, pages: Number.isInteger(pages) ? pages : null, state: meta.state ?? null, createdAt: meta.createdAt ?? null, completedAt: meta.completedAt ?? null })
+  }
+  return jobs
+}
+
 // ===== Ceilings =====
 
 export type OcrCeiling = 'account_pages' | 'account_usd' | 'global_usd'
