@@ -6866,6 +6866,10 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   column-gap: var(--desktop-gutter);
   position: relative;
   height: 100%;
+  /* The row stays the leaf's height: the last paragraph's bottom margin must
+     not stretch a column, or a docked chapter-end row (top: 100%) slides
+     past the leaf (macOS WebKit, 2.6px). */
+  grid-template-rows: minmax(0, 1fr);
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-col { min-width: 0; padding: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns::after {
@@ -6877,6 +6881,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   column-gap: var(--desktop-gutter);
   align-content: start;
   height: auto;
+  grid-template-rows: none;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare .lab-book-col,
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare .lab-hearing-stage { display: contents; }
