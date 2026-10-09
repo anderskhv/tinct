@@ -4,7 +4,7 @@
 // the series' leather bindings, chosen from the painting: the Worker stores the
 // painting's spine tone as the entry's cover.background when it stores the
 // painting, and the table samples the painting itself as for every cover.
-import { isPublicBookId } from '../public-books.js?v=20261009ipad';
+import { isPublicBookId } from '../public-books.js?v=20261009rel1';
 
 export const PAPER_SPINE = Object.freeze({
   colour: '#e6dfca',
