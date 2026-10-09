@@ -422,6 +422,28 @@ describe('admin account routes', () => {
     expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${otherUser}/recaps/`))).toHaveLength(1)
   })
 
+  it('exports a PDF\'s page place with the EPUB places and deletes both with the account', async () => {
+    const w = world()
+    const place = (owner: string, hex: string, customMetadata: Record<string, string>) => w.userBooks.objects.set(`u/${owner}/places/${hex}`, {
+      key: `u/${owner}/places/${hex}`, bytes: new Uint8Array(0), uploaded: new Date('2026-10-09T00:00:00Z'), customMetadata,
+    })
+    const pdfHex = 'a1'.repeat(12)
+    const epubHex = 'b2'.repeat(12)
+    place(userId, pdfHex, { page: '12', frac: '0.25', updatedAt: '1000', rev: '3' })
+    place(userId, epubHex, { chapterNumber: '2', paragraphIndex: '1', wordIndex: '0', updatedAt: '900', rev: '1' })
+    place(otherUser, pdfHex, { page: '4', updatedAt: '1000', rev: '1' })
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.r2.ownBookPlaces).toEqual({
+      [pdfHex]: { page: 12, frac: 0.25, updatedAt: 1000, rev: 3 },
+      [epubHex]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, updatedAt: 900, rev: 1 },
+    })
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/`))).toEqual([])
+    expect(w.userBooks.objects.has(`u/${otherUser}/places/${pdfHex}`)).toBe(true)
+  })
+
   it('keeps the auth user when the narration coordinator is not bound, so the spend record is never orphaned', async () => {
     const w = world()
     delete (w.env as { NARRATION_COORDINATOR?: unknown }).NARRATION_COORDINATOR
