@@ -75,15 +75,20 @@ describe('Talk on the phone with Chrome V2', () => {
     expect(end.getAttribute('aria-label')).toBe('End conversation')
     expect(end.getAttribute('title')).toBe('End conversation')
     expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-word')?.textContent).toBe('1×')
-    // The AI Act disclosure stays, as one restylable element.
-    const ai = screen.getByTestId('lab-call-ai')
-    expect(ai.textContent).toBe("You're talking to an AI.")
-    expect(ai.classList.contains('lab-ai-disclosure')).toBe(true)
+    // Minimal Talk: orb, one status line, controls. The AI Act disclosure is
+    // the connecting status line itself; no separate AI line, hint or book line.
+    expect(screen.queryByTestId('lab-call-ai')).toBeNull()
+    expect(screen.queryByTestId('lab-call-book')).toBeNull()
+    expect(screen.queryByTestId('lab-call-connection')).toBeNull()
+    expect(screen.queryByTestId('lab-call-caption')).toBeNull()
+    expect(screen.getByTestId('lab-call').textContent).not.toContain("You're talking to an AI.")
+    expect(screen.getByTestId('lab-call').textContent).not.toContain('Ask about this page')
   })
 
   it('never claims to be listening before a connection exists', async () => {
     await openCall()
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
+    expect(screen.getByTestId('lab-call-status').getAttribute('aria-live')).toBe('polite')
     expect(screen.getByTestId('lab-call-circle').getAttribute('data-motion')).not.toBe('breathe')
   })
 
@@ -135,7 +140,7 @@ describe('Talk on the phone with Chrome V2', () => {
     renderPhone('?chrome=v2')
     tapTalk()
     await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
-    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting to AI…')
     await vi.advanceTimersByTimeAsync(9000)
     await waitFor(() => {
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Disconnected')
@@ -169,11 +174,14 @@ describe('Talk on the desktop with Chrome V2', () => {
     const root = screen.getByTestId('lab-root')
     expect(root.getAttribute('data-desktop-panel')).toBe('talk')
     expect(screen.getByTestId('lab-voice-panel-orb')).toBeTruthy()
-    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.')
+    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting to AI…')
+    expect(screen.getByTestId('lab-voice-panel-status').getAttribute('aria-live')).toBe('polite')
+    // One connecting line, not "Connecting." plus "◦ Connecting".
+    expect(screen.getByTestId('lab-voice-panel').textContent?.match(/Connecting/g)).toHaveLength(1)
     expect(screen.queryByTestId('lab-call')).toBeNull()
     expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
     expect(screen.queryByTestId('lab-voice-pill')).toBeNull()
-    // Mute and End are in the panel; the transcript is the panel body.
+    // Mute and End are in the panel; no transcript, AI line or hint is drawn.
     expect(screen.getByTestId('lab-voice-panel-mute')).toBeTruthy()
     expect(screen.getByTestId('lab-voice-panel-end')).toBeTruthy()
     // Icons only, still named for screen readers and tooltips.
@@ -181,8 +189,10 @@ describe('Talk on the desktop with Chrome V2', () => {
     expect(screen.getByTestId('lab-voice-panel-end').textContent).toBe('')
     expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('aria-label')).toBe('Mute')
     expect(screen.getByTestId('lab-voice-panel-end').getAttribute('aria-label')).toBe('End conversation')
-    expect(screen.getByTestId('lab-voice-panel-ai').classList.contains('lab-ai-disclosure')).toBe(true)
-    expect(screen.getByTestId('lab-voice-panel-thread')).toBeTruthy()
+    expect(screen.queryByTestId('lab-voice-panel-ai')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-thread')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-empty')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-panel-connection')).toBeNull()
   })
 
   it('opens the full desktop voice panel from Chat', async () => {
@@ -208,7 +218,7 @@ describe('Talk on the desktop with Chrome V2', () => {
       expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
       const pill = screen.getByTestId('lab-voice-pill')
       expect(pill).toBeTruthy()
-      expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Connecting.')
+      expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Connecting to AI…')
       expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('pill')
       expect(screen.getByTestId('lab-root').getAttribute('data-chrome-state')).toBe('talking')
       // Still tinted while minimized.
@@ -308,7 +318,7 @@ it('keeps Reconnect available after cancelling a pending microphone and can end 
   await vi.advanceTimersByTimeAsync(9000)
   await waitFor(() => expect(screen.getByTestId('lab-voice-panel-reconnect')).toBeTruthy())
   fireEvent.click(screen.getByTestId('lab-voice-panel-reconnect'))
-  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.'))
+  await waitFor(() => expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting to AI…'))
   fireEvent.click(screen.getByTestId('lab-voice-panel-end'))
   await vi.advanceTimersByTimeAsync(35000)
   expect(screen.queryByTestId('lab-voice-panel')).toBeNull()

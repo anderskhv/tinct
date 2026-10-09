@@ -6240,34 +6240,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   outline-offset: 3px;
 }
 
-/* "• Connected" beside the book line; hollow while the line is not open. */
-.lab[data-chrome-version="v2"] .lab-call-connection,
-.lab[data-chrome-version="v2"] .lab-voice-connection {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin: 0;
-  font-family: 'EB Garamond', Georgia, serif;
-  font-style: normal;
-  color: var(--lab-call-muted);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-connection-dot,
-.lab[data-chrome-version="v2"] .lab-voice-connection-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--lab-call-ink);
-}
-
-.lab[data-chrome-version="v2"] [data-connection="connecting"] .lab-call-connection-dot,
-.lab[data-chrome-version="v2"] [data-connection="connecting"] .lab-voice-connection-dot,
-.lab[data-chrome-version="v2"] [data-connection="lost"] .lab-call-connection-dot,
-.lab[data-chrome-version="v2"] [data-connection="lost"] .lab-voice-connection-dot {
-  background: transparent;
-  box-shadow: inset 0 0 0 1px var(--lab-call-muted);
-}
-
 /* ── Phone: the full-screen call ──────────────────────────────────────── */
 
 /* z-index sits above the V2 header (330): a call owns the whole screen. */
@@ -6293,29 +6265,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   color: var(--lab-call-ink);
   font-family: 'EB Garamond', Georgia, serif;
   text-align: center;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-top {
-  display: flex;
-  min-width: 0;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  font-size: 17px;
-  color: var(--lab-call-muted);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-book {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-style: italic;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-top .lab-call-connection {
-  flex: none;
-  font-size: 17px;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-stage {
@@ -6349,9 +6298,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   color: var(--lab-call-ink);
 }
 
-.lab[data-chrome-version="v2"] .lab-call-caption,
-.lab[data-chrome-version="v2"] .lab-call-micoff,
-.lab[data-chrome-version="v2"] .lab-call-help,
 .lab[data-chrome-version="v2"] .lab-call-notice {
   margin: 0;
   max-width: 300px;
@@ -6360,22 +6306,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   font-size: 18px;
   line-height: 1.45;
   color: var(--lab-call-muted);
-}
-
-/* "You're talking to an AI.": one quiet line above the orb. */
-.lab[data-chrome-version="v2"] .lab-call-ai {
-  margin: 0 0 -12px;
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 16px;
-  line-height: 1.3;
-  color: var(--lab-call-muted);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-caption {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-controls {
@@ -6457,15 +6387,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   letter-spacing: -0.01em;
 }
 
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection {
-  font-size: 15px;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection-dot {
-  width: 5px;
-  height: 5px;
-}
-
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line {
   margin: 4px 0 0;
   max-width: 26rem;
@@ -6473,59 +6394,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   font-size: 16px;
   line-height: 1.4;
   color: var(--lab-call-muted);
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  padding: 26px 22px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-ai {
-  margin: 0;
-  font-size: 15px;
-  color: var(--lab-call-muted);
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-empty {
-  margin: 0;
-  font-style: italic;
-  color: var(--lab-call-muted);
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn-label {
-  font-size: 15px;
-  font-style: italic;
-  color: var(--lab-call-muted);
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn-text {
-  margin: 0;
-  color: var(--lab-call-ink);
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-caret {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  margin-left: 2px;
-  vertical-align: -0.15em;
-  background: var(--lab-call-ink);
 }
 
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls {
@@ -6591,16 +6459,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   font-size: 21px;
   line-height: 1.15;
   letter-spacing: -0.01em;
-}
-
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-line {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1.35;
-  color: var(--lab-call-muted);
 }
 
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-controls {
@@ -7150,9 +7008,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
       max(1.25rem, env(safe-area-inset-left, 0px));
   }
 
-  .lab[data-chrome-version="v2"] .lab-call-top { font-size: 15px; }
-  .lab[data-chrome-version="v2"] .lab-call-top .lab-call-connection { font-size: 15px; }
-
   .lab[data-chrome-version="v2"] .lab-call-stage {
     flex-direction: row;
     gap: 32px;
@@ -7174,9 +7029,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 
   .lab[data-chrome-version="v2"] .lab-call-status { font-size: 26px; }
 
-  .lab[data-chrome-version="v2"] .lab-call-caption,
-  .lab[data-chrome-version="v2"] .lab-call-micoff,
-  .lab[data-chrome-version="v2"] .lab-call-help,
   .lab[data-chrome-version="v2"] .lab-call-notice {
     font-size: 16px;
     max-width: 280px;
@@ -7490,26 +7342,28 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   width:min(312px,calc(100vw - 48px));
   height:min(390px,calc(100dvh - 132px));
 }
-/* Talk at any window size: the header and the Mute / End row never leave the
-   window. The orb scales with the window's height (170px at full size), the
-   transcript scrolls, and a very short window drops the orb before anything
-   else. useReaderWindow keeps Talk at least 280 x 300. */
+/* Minimal Talk (Anders, 9 Oct 2026): the window holds only the header, the
+   orb, one status line and the controls, so it opens just tall enough for
+   them (READER_TALK_WINDOW, 312 x 252) at the same lower-right anchor as Chat.
+   The header and the controls row never leave the window; the orb takes
+   what height is left (108px at the default size, up to 170px in a window
+   the reader makes taller) and drops out first in a very short one.
+   useReaderWindow keeps Talk at least 260 x 180. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
+  height:min(252px,calc(100dvh - 132px));
+}
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] { container:talk-window / size; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-head,
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-controls { flex:none; }
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-stage { flex:0 1 auto; min-height:0; overflow:hidden; }
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-thread { flex:1 1 0; min-height:0; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-stage {
+  flex:1 1 auto; min-height:0; overflow:hidden; justify-content:center; border-bottom:0;
+}
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb,
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb-canvas {
-  width:clamp(56px,calc(100cqh - 330px),170px)!important; height:clamp(56px,calc(100cqh - 330px),170px)!important;
+  width:clamp(56px,calc(100cqh - 124px),170px)!important; height:clamp(56px,calc(100cqh - 124px),170px)!important;
 }
-@container talk-window (max-height: 520px) {
-  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { gap:2px; padding-bottom:10px; }
-  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin-top:2px; font-size:22px; }
-  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread { gap:14px; padding:14px 8px; font-size:16px; }
-  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls { padding:10px 0 2px; }
-}
-@container talk-window (max-height: 340px) {
+@container talk-window (max-height: 190px) {
   .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage .lab-voice-orb { display:none; }
 }
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-ask.is-desktop-companion[data-reader-window],
@@ -7746,13 +7600,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
    the phone; set in the components), less padding and no words under Mute
    and End (their names stay as aria-labels and tooltips). The speed control
    keeps its value, which is information rather than a label. Talk reads in
-   EB Garamond and Playfair only. The space freed goes to the transcript. */
-/* The AI disclosure's one restyle hook on both surfaces; size and place
-   still come from .lab-call-ai and .lab-voice-panel-ai, unchanged. */
-.lab[data-chrome-version="v2"] .lab-ai-disclosure {
-  font-family: 'EB Garamond', Georgia, serif;
-  color: var(--lab-call-muted);
-}
+   EB Garamond and Playfair only. */
 .lab[data-chrome-version="v2"] .lab-talk-speed-step {
   font-family: 'EB Garamond', Georgia, serif; font-size: 1rem;
 }
@@ -7767,15 +7615,12 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-control { gap: 2px; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-minimize { width: 28px; height: 28px; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { gap: 2px; padding: 0 0 6px; }
-/* In a short window the orb stage gives way first, so the AI line at the top
-   of the transcript and the controls row both stay whole. */
+/* In a short window the orb stage gives way first, so the controls row
+   stays whole. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { flex-shrink: 1000; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin: 2px 0 0; font-size: 22px; }
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection { font-size: 14px; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line { margin: 2px 0 0; font-size: 15px; }
-.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread { gap: 14px; padding: 8px 6px 4px; font-size: 17px; }
-/* The rule above the controls only fenced off empty transcript; the row now
-   sits straight under the thread. */
+/* No rule above the controls; the row sits straight under the status. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls {
   align-items: flex-start;
   padding: 6px 0 0;
@@ -7796,7 +7641,17 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   }
   .lab[data-chrome-version="v2"] .lab-call-words { gap: 6px; }
   .lab[data-chrome-version="v2"] .lab-call-status { font-size: 28px; }
-  .lab[data-chrome-version="v2"] .lab-call-ai { margin: 0 0 -4px; }
   .lab[data-chrome-version="v2"] .lab-call-controls { align-items: flex-start; }
   .lab[data-chrome-version="v2"] .lab-call .lab-voice-control { gap: 4px; }
 }
+/* Minimal Talk on the phone (Anders, 9 Oct 2026): the orb, one status line
+   and the controls, centred together on the screen with even space above
+   and below; nothing pinned to the top. */
+.lab[data-chrome-version="v2"] .lab-call {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 6vh, 52px);
+}
+.lab[data-chrome-version="v2"] .lab-call-stage { flex: 0 1 auto; max-width: 100%; }

@@ -3,7 +3,7 @@ import { render, cleanup } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { READER_COMPANION_WINDOW, readerCompanionPlacement, readerWindowEdgeName, readerWindowEdgesAt, readerWindowMinimum, useReaderWindow } from './useReaderWindow'
+import { READER_COMPANION_WINDOW, READER_TALK_WINDOW, readerCompanionPlacement, readerWindowEdgeName, readerWindowEdgesAt, readerWindowMinimum, useReaderWindow } from './useReaderWindow'
 
 const box = { left: 100, top: 100, right: 500, bottom: 400 }
 const name = (x: number, y: number) => {
@@ -142,26 +142,37 @@ describe('Chat and Talk default geometry (Anders, 9 Oct 2026)', () => {
     expect(panel.style.height).toBe('500px')
   })
 
-  it('Talk and Chat cannot be made smaller than 280 x 300, so their controls keep room', () => {
-    expect(readerWindowMinimum('talk')).toEqual({ width: 280, height: 300 })
+  it('Chat cannot be made smaller than 280 x 300, Talk not smaller than 260 x 180, so their controls keep room', () => {
+    expect(readerWindowMinimum('talk')).toEqual({ width: 260, height: 180 })
     expect(readerWindowMinimum('chat')).toEqual({ width: 280, height: 300 })
     expect(readerWindowMinimum('settings')).toEqual({ width: 260, height: 160 })
-    const panel = mountWithLayout('talk').getByTestId('panel')
-    panel.getBoundingClientRect = () => styledBox(panel)
-    for (const [property, value] of Object.entries({ left: 1120, top: 418, width: 312, height: 390 })) panel.style.setProperty(property, value + 'px')
-    // Drag the top-left corner far down and right.
-    pointer('pointerdown', panel, 1121, 419)
-    pointer('pointermove', window, 1421, 819)
-    pointer('pointerup', window, 1421, 819)
-    expect(panel.style.width).toBe('280px')
-    expect(panel.style.height).toBe('300px')
+    for (const [name, minimum] of [['talk', { width: 260, height: 180 }], ['chat', { width: 280, height: 300 }]] as const) {
+      const view = mountWithLayout(name)
+      const panel = view.getByTestId('panel')
+      panel.getBoundingClientRect = () => styledBox(panel)
+      for (const [property, value] of Object.entries({ left: 1120, top: 418, width: 312, height: 390 })) panel.style.setProperty(property, value + 'px')
+      // Drag the top-left corner far down and right.
+      pointer('pointerdown', panel, 1121, 419)
+      pointer('pointermove', window, 1421, 819)
+      pointer('pointerup', window, 1421, 819)
+      expect(panel.style.width).toBe(minimum.width + 'px')
+      expect(panel.style.height).toBe(minimum.height + 'px')
+      view.unmount()
+    }
   })
 
-  it('pins the Talk header and controls: only the orb and transcript give way (lab.css)', () => {
+  it('Talk opens at its compact size on the same anchor: 8px in, foot on the pages\' foot', () => {
+    expect(READER_TALK_WINDOW).toEqual({ width: 312, height: 252, right: 8 })
+    const point = readerCompanionPlacement(READER_TALK_WINDOW, { width: 1440, height: 900 }, pages.bottom)
+    expect(point).toEqual({ x: 1440 - 8 - 312, y: 808 - 252 })
+  })
+
+  it('pins the Talk header and controls: only the orb gives way; Talk is sized to its content (lab.css)', () => {
     const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
     expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-controls \{ flex:none; \}/)
-    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-stage \{ flex:0 1 auto; min-height:0; overflow:hidden; \}/)
-    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-thread \{ flex:1 1 0; min-height:0; \}/)
+    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-stage \{\s*flex:1 1 auto; min-height:0; overflow:hidden;/)
     expect(css).toMatch(/width:min\(312px,calc\(100vw - 48px\)\);\s*height:min\(390px,calc\(100dvh - 132px\)\);/)
+    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] \{\s*height:min\(252px,calc\(100dvh - 132px\)\);/)
+    expect(css).not.toMatch(/lab-voice-panel-thread/)
   })
 })

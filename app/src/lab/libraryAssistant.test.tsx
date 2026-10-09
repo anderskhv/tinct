@@ -50,7 +50,9 @@ describe('library assistant lifecycle', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Talk' }))
     await waitFor(() => expect(mocks.start).toHaveBeenCalledWith({ authToken: 'token-a' }))
     expect(mocks.unlockAudio).toHaveBeenCalledTimes(1)
-    expect(screen.getByText('Tell me what you feel like reading.')).toBeTruthy()
+    // Minimal Talk: the call shows the orb, one status line and the controls, no prompt caption.
+    expect(screen.getByTestId('lab-call-status')).toBeTruthy()
+    expect(screen.queryByText('Tell me what you feel like reading.')).toBeNull()
     expect(screen.queryByText('Ask about this page.')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'End conversation' }))
     expect(mocks.stop).toHaveBeenCalled()

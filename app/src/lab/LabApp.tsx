@@ -149,7 +149,7 @@ import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabVoiceCall } from './LabVoiceCall.tsx'
 import { LabVoiceDesktopPanel, LabVoicePill } from './LabVoiceDesktop.tsx'
-import { labCallRestore, labCallUtterance, labCallView, type LabCallAnchor } from './labVoiceCall'
+import { labCallRestore, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { readerEditionLabel } from './editionDifficulty'
@@ -2886,10 +2886,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const callFullScreen = showPhoneChrome && callOpen && !phoneAskOpen
   // The desktop conversation: the companion panel, or the pill while minimized.
   const desktopVoiceOpen = voicePanelSurface && callOpen
-  const [callStartedAt, setCallStartedAt] = useState(0)
-  const callTurns = ask.turns.filter(turn => turn.source === 'voice' && (turn.timestamp ?? 0) >= callStartedAt)
-  const callUtterance = labCallUtterance(callTurns)
-  const callBookLine = `${book.bookTitle}, ${book.chapterLabel}`
   const callConnection = callAwaitingConnection && ask.voiceConnection === 'idle'
     ? ('connecting' as const)
     : ask.voiceConnection
@@ -2904,7 +2900,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     if (ask.voiceConnection === 'idle') return
     setCallAwaitingConnection(false)
   }, [ask.voiceConnection])
-  // A connect that never lands is a failed call, not a permanent "Connecting."
+  // A connect that never lands is a failed call, not a permanent "Connecting to AI…"
   useEffect(() => {
     if (!callOpen || callConnection !== 'connecting') return
     const timer = window.setTimeout(() => {
@@ -4300,7 +4296,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const handleTalk = useCallback(() => {
     // A reader's own book too (2026-10-08): the session hears the passage on
     // screen and the recent conversation, never the chapter (useLabAsk).
-    setCallStartedAt(Date.now())
     dictation.stop()
     setTocOpen(false)
     // Talk is an explicit audio start: it keeps unlocking narration on every device.
@@ -5346,7 +5341,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         {desktopVoiceOpen && !callMinimized && (
           <LabVoiceDesktopPanel
             view={callView}
-            turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             notice={ask.notice}
@@ -5361,7 +5355,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         {desktopVoiceOpen && callMinimized && (
           <LabVoicePill
             view={callView}
-            turns={callTurns}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             onMuteToggle={toggleCallMute}
@@ -5756,8 +5749,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           getAssistantLevel={ask.getAssistantLevel}
           reducedMotion={reducedMotion}
           notice={ask.notice}
-          bookLine={callBookLine}
-          utterance={callUtterance}
           onMuteToggle={toggleCallMute}
           onEnd={endCall}
           onReconnect={reconnectCall}

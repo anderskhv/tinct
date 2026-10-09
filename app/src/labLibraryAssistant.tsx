@@ -6,7 +6,7 @@ import { useVoiceSession } from './hooks/useVoiceSession'
 import { useVoicePersonaSync, type VoicePersona } from './lab/useVoicePersonaSync'
 import { LabMarkdown } from './lab/LabMarkdown'
 import { LabVoiceCall } from './lab/LabVoiceCall.tsx'
-import { labCallUtterance, labCallView } from './lab/labVoiceCall'
+import { labCallView } from './lab/labVoiceCall'
 import { decideLabAiAction, gateLabAiAction, labSignInHref } from './lab/labAccountPrompt'
 import { LabChatError, isAiRestingError, labChatErrorType, readAnthropicResponse } from './lab/labCompanion'
 import { LAB_COPY } from './lab/labCopy'
@@ -448,9 +448,6 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
           view={voiceView}
           getAssistantLevel={voice.getAssistantLevel}
           notice={voice.error}
-          bookLine={contextBook?.title ?? "Tinct Library"}
-          utterance={labCallUtterance(voiceTurnsRef.current)}
-          idleCaption={contextBook ? "What would you like to know before reading?" : "Tell me what you feel like reading."}
           onMuteToggle={() => voice.setMicMuted(!voice.micMuted)}
           onEnd={close}
           onReconnect={() => void voice.start({ authToken: token })}
