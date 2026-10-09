@@ -16,12 +16,16 @@ export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
  * 6 (2026-10-08): act, part and story titles kept, contents labels for bare
  * numbers, verse and poem titles, speakers, footnote backlinks and Wikisource
  * export pages left out.
+ *
+ * 7 (2026-10-09): a document that holds the printed contents and the book's text
+ * together (a short book of poems in one document) is kept, not left out as a
+ * contents page (epubEdition.ts contentsMatter).
  */
-export const USER_EDITION_CONVERTER = 6
+export const USER_EDITION_CONVERTER = 7
 /** The rules every book converted before USER_EDITION_CONVERTER was converted with. */
 export const LEGACY_EDITION_CONVERTER = 5
 /** Every rule set a stored conversion may have been made with; each stays readable as it is. */
-export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, USER_EDITION_CONVERTER]
+export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, USER_EDITION_CONVERTER]
 
 /** The general paragraph kinds every edition may carry (types/index.ts). */
 export type UserBookParagraphKind = ParagraphKind

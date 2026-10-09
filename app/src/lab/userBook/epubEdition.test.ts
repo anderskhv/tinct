@@ -625,6 +625,21 @@ describe('figures in a commercially made EPUB', () => {
   })
 })
 
+// Gutenberg Add to Tinct check, 2026-10-09: Roget's Thesaurus (PG 10681) keeps most of the book
+// in one document, and finding its <body> listed every element of it; under jsdom (where the
+// check converts) that took over ten minutes. Elements are now asked of the DOM by name.
+describe('one very large document', () => {
+  it('converts in reasonable time', async () => {
+    const entries = Array.from({ length: 6000 }, (_, i) => `<p><b>${i}.</b> <i>Existence</i>, being, entity, ens, esse, subsistence ${i}.</p>`).join('')
+    const opf = '<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">t</dc:identifier><dc:title>Thesaurus</dc:title><dc:creator>P. M. Roget</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="a" href="a.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="a"/></spine></package>'
+    const bytes = zip([['mimetype', 'application/epub+zip'], ['META-INF/container.xml', CONTAINER], ['OEBPS/content.opf', opf], ['OEBPS/a.xhtml', xhtml(`<h1>CLASS I</h1>${entries}`)]])
+    const started = performance.now()
+    const edition = await epubToEdition(bytes)
+    expect(edition.chapters.flatMap(chapter => chapter.paragraphs)).toHaveLength(6000)
+    expect(performance.now() - started).toBeLessThan(15_000)
+  }, 120_000)
+})
+
 describe('joinSegments', () => {
   it('marks only whole-word italic runs, so the word sequence never changes', () => {
     expect(joinSegments([{ text: 'a ', em: false }, { text: 'b c', em: true }, { text: '. d', em: false }])).toBe('a _b c_. d')
