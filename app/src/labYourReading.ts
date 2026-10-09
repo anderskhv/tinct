@@ -87,7 +87,11 @@ export function renderYourReading(main: HTMLElement, stats: ReadingTimeStats, vi
   const right = el('div', {},
     el('p', { className: 'chart-head' }, el('span', { text: 'Hours per week' }), el('strong', { text: `This week ${hoursLabel(thisWeek.seconds) || '0'} h` })),
     chart,
-    el('p', { className: 'axis' }, el('span', { text: formatDayMonth(stats.weeks[0].start) }), el('span', { text: formatDayMonth(stats.weeks[6].start) }), el('span', { text: 'Now' })))
+    el('p', { className: 'axis' }, el('span', { text: formatDayMonth(stats.weeks[0].start) }), el('span', { text: formatDayMonth(stats.weeks[6].start) }), el('span', { text: 'Now' })),
+    // Time from before the ledger has no day: say so, rather than a chart that starts this week.
+    stats.earlierSeconds >= 60
+      ? el('p', { className: 'note', text: `Plus ${formatDuration(stats.earlierSeconds)} from before ${stats.firstDailyDay ? formatDayMonth(stats.firstDailyDay) : 'daily records'}, not split by week.`, attrs: { 'data-testid': 'your-reading-earlier' } })
+      : null)
   main.append(el('section', { className: 'hero' }, left, right))
 
   const stat = (label: string, value: string, testId: string) => el('li', { attrs: { 'data-testid': testId } }, el('span', { text: label }), el('strong', { text: value }))
