@@ -7,5 +7,4 @@ export function isInternal(storage?: KeyStore): boolean
 export function setInternal(enabled: boolean, storage?: KeyStore): void
 export function internalHeaders(storage?: KeyStore): Record<string, string>
 export function applyInternalFromUrl(win?: Window): boolean
-export function syncInternalBadge(doc: Document | undefined, enabled: boolean): HTMLElement | null
 export function initInternalTraffic(win?: Window): boolean

@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { applyInternalFromUrl, initInternalTraffic, internalHeaders, syncInternalBadge } from '../public/lab/internal-traffic.js'
+import { applyInternalFromUrl, initInternalTraffic, internalHeaders } from '../public/lab/internal-traffic.js'
 import { INTERNAL_KEY, internalTrafficHeaders, isInternalTraffic } from './utils/internalTraffic'
 import { clearLocalUserData } from './services/storage'
 import { corsHeaders } from './worker/lib/responses'
@@ -62,24 +62,14 @@ describe('the internal flag from the address', () => {
   })
 })
 
-describe('the internal badge', () => {
-  it('shows one small, non-interactive "internal" badge while the flag is set and removes it when cleared', () => {
-    const badge = syncInternalBadge(document, true)!
-    expect(badge.textContent).toBe('internal')
-    expect(badge.getAttribute('aria-label')).toBe('internal')
-    expect(badge.style.position).toBe('fixed')
-    expect(badge.style.pointerEvents).toBe('none')
-    expect(badge.style.fontSize || badge.style.font).toMatch(/10px/)
-    syncInternalBadge(document, true)
-    expect(document.querySelectorAll('[data-tinct-internal-badge]')).toHaveLength(1)
-    syncInternalBadge(document, false)
-    expect(document.querySelector('[data-tinct-internal-badge]')).toBeNull()
-  })
-
-  it('initialising from ?internal=1 marks the device and shows the badge', () => {
+describe('no visible internal marker', () => {
+  it('initialising from ?internal=1 marks the device without putting any "internal" text on screen', () => {
     visit('/library?internal=1')
     expect(initInternalTraffic(window)).toBe(true)
-    expect(document.querySelector('[data-tinct-internal-badge]')?.textContent).toBe('internal')
+    expect(localStorage.getItem(INTERNAL_KEY)).toBe('1')
+    expect(document.querySelector('[data-tinct-internal-badge]')).toBeNull()
+    expect(document.body.textContent ?? '').not.toMatch(/internal/i)
+    expect(internalHeaders()).toEqual({ 'x-tinct-check': '1' })
     expect(location.search).toBe('')
   })
 })
