@@ -14,6 +14,7 @@ import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=202
 import { paperCover } from './add-to-tinct.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { tableWindow, MAX_SPINES } from './table-window.js?v=20261009rel10';
+import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009motion';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -258,7 +259,14 @@ export async function mountReadingTable({ hero, shelves, el }) {
 /** The retained time-of-day table, sharing the shelf's account-safe loader. */
 export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summaryFor,onSelection,onRemoveReading,initial,enabled}) {
  let view=null,currentTable=null;
- function render(next){
+ function render(next,{instant=false}={}){
+  // A book (or more) taken off the table: it fades away and the others glide into place,
+  // with the same table, never a fresh one that starts again at the first book.
+  if(currentTable&&view?.removeBooks&&next.reading.length&&next.reading.length<currentTable.reading.length){
+   const ids=currentTable.reading.map(b=>b.bookId),kept=next.reading.map(b=>b.bookId);let at=0;
+   for(const id of ids)if(id===kept[at])at++;
+   if(at===kept.length){view.removeBooks(ids.filter(id=>!kept.includes(id)),{instant:instant||!enabled?.()||view.hidden||view.checkVisibility?.()===false});}
+  }
   if(currentTable&&currentTable.reading.map(b=>b.bookId).join()===next.reading.map(b=>b.bookId).join()){
    next.reading.forEach((b,i)=>{
     // An own book's cover arrives with the fresh read (the fast-paint snapshot keeps none).
@@ -279,7 +287,7 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
   if(e.target.closest?.('input,textarea,select,[contenteditable]'))return;
   e.preventDefault();view.querySelector(e.key==='ArrowRight'?'#rt-next':'#rt-prev').click();
  });
- return {update(next){if(next.reading.length){view.hidden=false;render(next);}else{view.dispose?.();view.hidden=true;currentTable=null;}},focus(){},get selected(){return view?.dataset.current;}};
+ return {update(next,_saved,_catalogue,options){if(next.reading.length){const was=view.hidden;view.hidden=false;render(next,{instant:was||!!options?.instant});}else{view.dispose?.();view.hidden=true;currentTable=null;}},focus(){},get selected(){return view?.dataset.current;}};
 }
 
 function wire(view, table, demo, keepBookId, options={}) {
@@ -292,7 +300,7 @@ function wire(view, table, demo, keepBookId, options={}) {
   // With this many books some step off a phone's table: there the dots are the way to them too
   // (fixed by count, so the stage's height never depends on its own layout).
   view.classList.toggle('has-many', books.length >= PHONE_DOTS_FROM);
-  let turn = 1, H = 0, stageW = 0, summaryTimer = null, swapTimer = null, shown = -1;
+  let turn = 1, H = 0, stageW = 0, summaryTimer = null, swapTimer = null, shown = -1, moveMs = 0, moveTimer = 0;
 
   const remove = view.querySelector('#rt-remove'), dialog = view.querySelector('#rt-remove-dialog');
   let removeFrame=0;
@@ -300,7 +308,8 @@ function wire(view, table, demo, keepBookId, options={}) {
     cancelAnimationFrame(removeFrame);
     if(!options.onRemoveReading)return;
     // A linked book is not on the reader's list, so there is nothing to remove.
-    remove.hidden=!!table.reading[current]?.linked;
+    // Hidden while books glide after a removal; the move itself brings it back.
+    remove.hidden=!!table.reading[current]?.linked||!!moveTimer;
     if(remove.hidden)return;
     const until=performance.now()+(animate&&!reduced?900:0);
     const move=()=>{
@@ -382,7 +391,8 @@ function wire(view, table, demo, keepBookId, options={}) {
       const chosen = i === current;
       book.classList.toggle('is-current', chosen);
       book.classList.toggle('is-away', i < from || i > to);
-      book.style.transitionDuration = instant || reduced ? '0s' : '';
+      book.style.transitionDuration = instant || reduced ? '0s' : moveMs ? `${moveMs}ms` : '';
+      book.style.transitionTimingFunction = moveMs && !instant ? MOVE_EASE : '';
       // Spine-out books step back so their spines line up with the chosen book's cover, not their centres.
       const z = chosen ? H * 0.05 : -(W / 2 - depth(i) / 2);
       book.style.transform = `translate3d(${(xs[i] + shift).toFixed(1)}px,0,${z.toFixed(1)}px) rotateY(${chosen ? face : 90}deg)`;
@@ -513,14 +523,16 @@ function wire(view, table, demo, keepBookId, options={}) {
   // Prepare only this resolved reader's shelf. Covers and likely spine textures
   // start together; sampled bindings finish before anything is revealed.
   const artwork = books.map(async (book, i) => {
+    // Its own entry, held: a removal mid-preparation renumbers the row.
+    const entry = table.reading[i];
     const img = book.querySelector('.rt-front img');
-    if(options.prepareCover&&!table.reading[i].own){const canvas=document.createElement('canvas');try{await options.prepareCover(table.reading[i].bookId,canvas);const cover=canvas.toDataURL('image/jpeg',.88);img.src=cover;book.style.setProperty('--cover',`url('${cover}')`);}catch{}}
+    if(options.prepareCover&&!entry.own){const canvas=document.createElement('canvas');try{await options.prepareCover(entry.bookId,canvas);const cover=canvas.toDataURL('image/jpeg',.88);img.src=cover;book.style.setProperty('--cover',`url('${cover}')`);}catch{}}
     const [{ name, colour }] = await Promise.all([
-      prepareArtwork(table.reading[i]),
+      prepareArtwork(entry),
       img.decode().catch(() => {}),
     ]);
     // The paper cover's spine is already drawn, as paper (spineStyle).
-    if (hasPaperSpine(table.reading[i].bookId, table.reading[i].cover)) return;
+    if (hasPaperSpine(entry.bookId, entry.cover)) return;
     book.style.setProperty('--binding', colour);
     const tex = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
     book.querySelector('.rt-spine').dataset.binding = name;
@@ -530,8 +542,43 @@ function wire(view, table, demo, keepBookId, options={}) {
   const observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(fit):null;
   if(observer)observer.observe(stage);else addEventListener('resize',fit);
   fit();select(current,false);
-  view.refresh=()=>{shown=-1;select(current,false);};
-  view.dispose=()=>{cancelAnimationFrame(removeFrame);if(dialog.open)dialog.close();observer?.disconnect();removeEventListener('resize',fit);clearTimeout(summaryTimer);clearTimeout(swapTimer);};
+  // Fresh data for the same books. While books are gliding after a removal the row is
+  // left to finish; laying it out at once would snap them to their places.
+  view.refresh=()=>{if(moveTimer)return;shown=-1;select(current,false);};
+  /**
+   * Take books off the table in place (2026-10-09): each leaving book fades and
+   * shrinks (LEAVE_MS), then the rest glide to their new places (MOVE_MS, ease-out).
+   * When the chosen book leaves, its neighbour is chosen: the next book along,
+   * or the one before it at the end of the row. The lists change at once, so a
+   * second removal, a tap or a refresh mid-motion always meets the true row.
+   */
+  view.removeBooks=(ids,{instant=false}={})=>{
+    const gone=new Set(ids);if(!table.reading.some(b=>gone.has(b.bookId)))return;
+    let keepId=table.reading[current]?.bookId;
+    if(gone.has(keepId)){
+      keepId=table.reading.slice(current+1).find(b=>!gone.has(b.bookId))?.bookId??table.reading.slice(0,current).reverse().find(b=>!gone.has(b.bookId))?.bookId;
+    }
+    const still=!instant&&!reduced;
+    for(let i=books.length-1;i>=0;i--){
+      if(!gone.has(table.reading[i].bookId))continue;
+      const leaving=books[i],dot=dots[i];
+      books.splice(i,1);table.reading.splice(i,1);dots.splice(i,1);dot?.remove();
+      leaving.classList.remove('is-current');leaving.removeAttribute('data-i');
+      if(still)fadeOut(leaving,{transform:leaving.style.transform,faces:leaving.children}).then(()=>leaving.remove());else leaving.remove();
+    }
+    books.forEach((book,i)=>{book.dataset.i=i;});dots.forEach((dot,i)=>{dot.dataset.i=i;});
+    view.classList.toggle('has-many', books.length >= PHONE_DOTS_FROM);
+    current=Math.max(0,table.reading.findIndex(b=>b.bookId===keepId));
+    if(books.length&&table.reading[current].bookId!==view.dataset.current)show(current);
+    clearTimeout(moveTimer);moveTimer=0;
+    if(!books.length)return;
+    if(!still){layout(true);return;}
+    // The × belonged to the leaving book; it returns on the chosen one once the row has moved.
+    remove.hidden=true;
+    // The neighbours wait for the leaving book to go, then close the gap.
+    moveTimer=setTimeout(()=>{moveTimer=0;if(!view.isConnected)return;moveMs=MOVE_MS;layout(false);moveMs=0;},LEAVE_MS);
+  };
+  view.dispose=()=>{cancelAnimationFrame(removeFrame);clearTimeout(moveTimer);moveTimer=0;if(dialog.open)dialog.close();observer?.disconnect();removeEventListener('resize',fit);clearTimeout(summaryTimer);clearTimeout(swapTimer);};
   // A distant spine must not hold the selected book behind a loading screen.
   return artwork[current]||Promise.resolve();
 }

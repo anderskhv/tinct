@@ -1,6 +1,7 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261009rel10';
+import { bindingFor } from './reading-table.js?v=20261009motion';
+import { recordRects, playFlip } from './shelf-motion.js?v=20261009motion';
 import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel10';
 
 export function createBookshelf(root,{table,catalogue,saved,onOpen,onRemove,onError,summaryFor,enabled,prepareCover,initial,onSelection}){
@@ -17,10 +18,16 @@ function updateData(nextTable,nextSaved){
  for(const b of [...nextTable.finished,...nextTable.reading]){books[b.bookId]={...books[b.bookId],title:b.title,author:b.author||books[b.bookId]?.author||'',cover:b.cover||books[b.bookId]?.cover||null,binding:bindingFor(b)[0],wordCount:b.wordCount||books[b.bookId]?.wordCount,place:b.chapterLabel,progress:b.percent,recap:b.recap||b.headline};}
  for(const [id,b] of Object.entries(books))if(studyCovers.has(id))b.cover=`assets/${id}.jpg`;
  const unique=ids=>[...new Set(ids)].filter(id=>books[id]);
+ const previous={...shelves};
  shelves.reading=unique(nextTable.reading.map(b=>b.bookId));shelves.finished=unique(nextTable.finished.map(b=>b.bookId));
  // A saved discovery hold is retained in storage, but cannot become a new selection.
  shelves.later=unique(nextSaved).filter(id=>catalogue.some(b=>b.id===id&&b.discoveryAvailable!==false)&&!shelves.reading.includes(id)&&!shelves.finished.includes(id));
- for(const key of Object.keys(shelves))if(!shelves[key].includes(chosen[key]))chosen[key]=shelves[key][0]||null;
+ // A chosen book taken off its shelf hands the choice to its neighbour (the next
+ // along, or the one before at the end of the row), never back to the first book.
+ for(const key of Object.keys(shelves))if(!shelves[key].includes(chosen[key])){
+  const was=previous[key]?.indexOf(chosen[key])??-1,stay=id=>shelves[key].includes(id);
+  chosen[key]=(was<0?null:previous[key].slice(was+1).find(stay)??previous[key].slice(0,was).reverse().find(stay))||shelves[key][0]||null;
+ }
 }
 updateData(table,saved);
 function updateRecap(id){
@@ -213,6 +220,8 @@ function atmosphere(t){
 function startAtmosphere(){if(frame)cancelAnimationFrame(frame);frame=requestAnimationFrame(atmosphere);}
 document.addEventListener('visibilitychange',startAtmosphere);reduced.addEventListener('change',startAtmosphere);startAtmosphere();
 
-return {update(nextTable,nextSaved,nextCatalogue){if(nextCatalogue)catalogue=nextCatalogue;updateData(nextTable,nextSaved);Object.keys(shelves).forEach(renderShelf);updateSelection();layout();},focus(key){focusShelf(key);},get selected(){return chosen[shelf];}};
+// The volumes left on a shelf glide into the room a removed one leaves (shelf-motion.js).
+const volumeKey=el=>el.dataset.onShelf+':'+el.dataset.book;
+return {update(nextTable,nextSaved,nextCatalogue,options){if(nextCatalogue)catalogue=nextCatalogue;const before=options?.instant||!root.checkVisibility()?null:recordRects(root.querySelectorAll('.volume'),volumeKey);updateData(nextTable,nextSaved);Object.keys(shelves).forEach(renderShelf);updateSelection();layout();if(before)playFlip(root.querySelectorAll('.volume'),before,volumeKey,{reduced:reduced.matches});},focus(key){focusShelf(key);},get selected(){return chosen[shelf];}};
 }
 

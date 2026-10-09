@@ -4,7 +4,7 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261009rel10';
+import {mountBookshelf} from './bookshelf.js?v=20261009motion';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
@@ -16,6 +16,7 @@ import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261009rel10';
 import {librarySearch} from './library-search.js?v=20261009rel10';
+import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009motion';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
@@ -497,15 +498,17 @@ function selectCollection(value){const fromHome=collectionChoice==='home';const 
 async function removeFromMyShelf(id,{title='',from=null}={}){
  // A book added to Tinct leaves My shelf only once confirmed, as My private uploads do (approved copy, Anders 2026-10-08).
  if(isPublicBookId(id)&&!await confirmDeleteUpload({title:title||books.find(b=>b.id===id)?.title||''},{from}))return;
+ const leave=leaveShelf(['reading:'+id,'want:'+id]);
  try{
   const api=await readingApi();
   // Off My shelf, with the desk's fast-paint snapshot (so a refresh cannot paint it back), for every kind of book.
-  const result=await (api.removeFromShelf?api.removeFromShelf(id):api.setSavedBook(id,false));
+  const [result]=await Promise.all([api.removeFromShelf?api.removeFromShelf(id):api.setSavedBook(id,false),leave.faded]);
+  leave.done();
   receiveSaved(result.ids);
   dropFromReading(id);
   renderMyBooks();
   if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
- }catch{notice('Your shelf could not be saved. Please try again.');}
+ }catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
 }
 let ownShelf=null,ownShelfLoading=null;
 /** Forget the listed own books (their covers, places and membership changed) and list them again. */
@@ -518,18 +521,19 @@ function dropFromReading(id){
 }
 /** An own book's × under Currently reading: off Currently reading, as the desk's × does (its place is kept; it stays in My private uploads). */
 async function removeOwnFromReading(book){
- const id=ownTableId(book.key);
- try{const api=await readingApi();await api.hideFromReadingNow(id);dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null}:own));}
- catch{notice('Your shelf could not be saved. Please try again.');}
+ const id=ownTableId(book.key),leave=leaveShelf(['own-reading:'+book.key]);
+ try{const api=await readingApi();await Promise.all([api.hideFromReadingNow(id),leave.faded]);leave.done();dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null}:own));}
+ catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
 }
 /** An own book's × under My private uploads: confirmed, then Add a book's own delete (this device and the account). */
 async function deleteOwnBook(book,from){
  if(!await confirmDeleteUpload(book,{from}))return;
+ const leave=leaveShelf(['own:'+book.key,'own-reading:'+book.key]);
  try{
-  const gone=await deleteUpload(book);
+  const [gone]=await Promise.all([deleteUpload(book),leave.faded]);leave.done();
   if(!gone)notice('Removed from this device, but not from your account. Try again.');
   dropFromReading(ownTableId(book.key));refreshOwnShelf(list=>list.filter(own=>own.key!==book.key));
- }catch{notice('This book could not be removed. Please try again.');}
+ }catch{leave.cancel();notice('This book could not be removed. Please try again.');}
 }
 /** A Currently reading card from the reading row itself, for a book the library's list does not hold yet. */
 function readingRowCard(row){
@@ -541,7 +545,27 @@ function readingRowCard(row){
  wrap.append(open,x);card.append(wrap,el('h2','',row.title),el('p','',row.author||''));return card;
 }
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
+// Removing a book from My shelf (Anders, 2026-10-09: "like Apple apps in iOS"): the
+// book fades and shrinks away while the change is saved, then every re-render lets
+// the remaining books glide from where they are to their new places (shelf-motion.js),
+// with the page's scroll kept. Keys are group + book, so a book in two groups is two cards.
+const leavingShelf=new Set();
+const shelfKey=node=>node.dataset.flipKey;
+const shelfNodes=()=>$('collection-books').querySelectorAll(':scope > [data-flip-key]');
+function leaveShelf(keys){
+ keys.forEach(key=>leavingShelf.add(key));
+ const cards=[...shelfNodes()].filter(node=>keys.includes(shelfKey(node)));
+ const forget=()=>keys.forEach(key=>leavingShelf.delete(key));
+ return {faded:Promise.all(cards.map(card=>fadeOut(card,{reduced:reduced.matches}))),done:forget,cancel(){forget();if(collectionChoice==='saved')renderMyBooks();}};
+}
 function renderMyBooks(){
+ const shown=collectionChoice==='saved'&&!$('collection').hidden,before=shown?recordRects(shelfNodes(),shelfKey):null,y=scrollY;
+ drawMyBooks();
+ if(!before)return;
+ if(Math.abs(scrollY-y)>.5)scrollTo({top:y,behavior:'instant'});
+ playFlip(shelfNodes(),before,shelfKey,{reduced:reduced.matches});
+}
+function drawMyBooks(){
  $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.classList.remove('has-collection-reels');grid.replaceChildren();
  const table=window.__library2Reading||{reading:[],finished:[]},byId=id=>books.find(b=>b.id===id);
  // Desk membership defines Currently reading, including older cached snapshots.
@@ -552,7 +576,7 @@ function renderMyBooks(){
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
   list.forEach(book=>{
-   const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;
+   const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;card.dataset.book=book.id;
    const toggle=open.querySelector('.save-toggle');
    // Finished books cannot be removed (Anders, 2026-10-07): they stay on the shelf.
    // Books being read and books saved for later keep their ×.
@@ -577,6 +601,10 @@ function renderMyBooks(){
   total+=appendOwnShelf(grid,ownShelf||[],el,{covers,onRemoveReading:book=>void removeOwnFromReading(book),onDelete:(book,from)=>void deleteOwnBook(book,from)});
  }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
+ for(const node of grid.children){
+  node.dataset.flipKey=node.classList.contains('my-books-head')?'head:'+node.textContent:`${node.dataset.shelfGroup}:${node.dataset.book||node.dataset.rowBook||node.dataset.ownKey||''}`;
+  if(leavingShelf.has(node.dataset.flipKey))markGone(node);
+ }
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
 // Back from a book (the page restored as it was left): its cover or place may have changed since.
