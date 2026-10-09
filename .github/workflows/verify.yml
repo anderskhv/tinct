@@ -15,7 +15,8 @@ permissions:
 jobs:
   app:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # The job takes about 29.5 minutes (Oct 2026); at 30 a slower runner was cancelled mid-check.
+    timeout-minutes: 45
     defaults:
       run:
         working-directory: app
