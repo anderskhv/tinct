@@ -6,6 +6,7 @@ import { clearPendingPurchase, markPendingPurchase, modernReturnFromParams, pend
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
 import type { LabBookPlace } from './labPosition'
+import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
@@ -28,11 +29,30 @@ export function modernReturnForPage(): ModernReturn | null {
 export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null {
   const book = getBook(bookId)
   if (!book) return null
+  const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
+  // The place this device saved in the book (the cloud record still reconciles it once
+  // signed in), like the library's own hand-off; else the first chapter.
+  const saved = bookId === 'bible' ? null : localPlace(bookId)
+  if (saved) {
+    const place = { bookId, chapterNumber: saved.sequentialChapter, paragraphIndex: saved.paragraphIndex, wordIndex: saved.wordIndex, page: saved.pageIndex ?? 0 }
+    const edition = saved.primaryEditionKey && saved.primaryEditionKey !== primaryEditionKey
+      ? createReaderHandoffIntent({ bookId, primaryEditionKey: saved.primaryEditionKey, resumeLatest: true, savedPlace: place })
+      : null
+    return edition ?? createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: place })
+  }
   const entry = PRE_READER_CATALOGUE.booksById.get(bookId) as { readingStructure?: { chapters?: Array<{ number?: number }> } } | undefined
   const first = entry?.readingStructure?.chapters?.[0]?.number
   const chapterNumber = Number.isInteger(first) && (first as number) >= 1 ? first as number : 1
-  const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
   return createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 } })
+}
+
+function localPlace(bookId: string): LabBookPlace | null {
+  try {
+    const place = readLabPositionLocal().books[bookId]
+    return place?.bookId === bookId && Number.isInteger(place.sequentialChapter) && place.sequentialChapter >= 1 ? place : null
+  } catch {
+    return null
+  }
 }
 
 /**
