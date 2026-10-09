@@ -12,7 +12,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
-import { LabTalkSpeedControl } from './LabTalkSpeed'
+import { LabTalkSpeedControl } from './LabTalkSpeedControl'
 
 /**
  * The phone call surface (minimal Talk, 2026-10-09): the dotted orb, one

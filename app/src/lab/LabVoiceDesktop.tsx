@@ -8,7 +8,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
-import { LabTalkSpeedControl } from './LabTalkSpeed'
+import { LabTalkSpeedControl } from './LabTalkSpeedControl'
 import { useReaderWindow } from './useReaderWindow'
 import { useDraggableSurface } from './useDraggableSurface'
 
