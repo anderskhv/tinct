@@ -60,6 +60,23 @@ fi
 # 1c. SPA loads at /reader
 echo "1c. App"
 HTML=$(curl -sf "$URL/reader" 2>/dev/null || echo "FAIL")
+# While Cloudflare rolls a version out, a request can still reach the old one:
+# its page names the old stylesheet, which the new version no longer serves
+# (#372's deploy: an old page at 13:33, then five minutes of 404s for its CSS).
+# With the expected bundle known, check the page that names it.
+if [ -n "${TINCT_EXPECTED_BUNDLE:-}" ]; then
+  for attempt in $(seq 1 60); do
+    printf '%s\n' "$HTML" | grep -qF "src=\"$TINCT_EXPECTED_BUNDLE\"" && break
+    [ $((attempt % 6)) -eq 1 ] && echo "    /reader still names another bundle (attempt $attempt)"
+    sleep 5
+    HTML=$(curl -sf "$URL/reader" 2>/dev/null || echo "FAIL")
+  done
+  if printf '%s\n' "$HTML" | grep -qF "src=\"$TINCT_EXPECTED_BUNDLE\""; then
+    pass "/reader names the expected bundle"
+  else
+    fail "/reader never named the expected bundle $TINCT_EXPECTED_BUNDLE"
+  fi
+fi
 if printf '%s\n' "$HTML" | grep -q '<div id="root"'; then
   pass "SPA loads at /reader with root div"
 else
