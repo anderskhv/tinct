@@ -100,6 +100,45 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .dk .ai { font-size: 18px; } .dk .you { font-size: 17px; }
 .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px 36px; font-size: .98rem; line-height: 1.55; color: var(--stage-soft); margin-top: 16px; }
 .notes b { color: var(--stage-ink); font-weight: 500; display: block; }
+
+/* desktop homes */
+.dk .spread2 { position: absolute; left: 28px; right: 28px; top: 68px; bottom: 32px; display: grid; grid-template-columns: 1fr 1fr; background: var(--paper); box-shadow: 0 0 0 1px var(--hair), 0 8px 24px rgba(0,0,0,.08); }
+.dk .spread2 .pg { padding: 44px 52px; font-size: 1.25rem; line-height: 1.55; text-align: justify; hyphens: auto; }
+.dk .spread2 .pg h3 { font-family: var(--play); font-size: 1.5rem; margin: 0 0 14px; text-align: left; }
+.dk .spread2 .pg + .pg { box-shadow: inset 1px 0 0 var(--hair); }
+.dk .box { position: absolute; top: 84px; right: 24px; bottom: 40px; width: min(30rem, 38vw); max-width: 480px; background: var(--paper); border-radius: 24px; box-shadow: 0 0 0 1px var(--hair), 0 24px 60px rgba(0,0,0,.18); display: flex; flex-direction: column; overflow: visible; }
+.dk .box .hd { margin-top: 0; height: 60px; padding: 0 22px; }
+.dk .box .thread { padding: 4px 24px 0; overflow: hidden; border-radius: 0 0 24px 24px; }
+.dk .box .compose { padding: 12px 18px 18px; }
+.dk .tab { position: absolute; right: -22px; top: 50%; transform: translateY(-50%); width: 36px; height: 72px; border-radius: 0 18px 18px 0; background: var(--paper); box-shadow: 0 0 0 1px var(--hair), 6px 0 16px rgba(0,0,0,.08); display: grid; place-items: center; color: var(--muted); }
+.dk .tab svg { width: 10px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dk.pdf .top.pdf { grid-template-columns: 1fr auto 1fr; }
+.dk .pdfpage { position: absolute; left: 0; right: 422px; top: 60px; bottom: 0; background: var(--surface); display: flex; justify-content: center; padding: 20px; }
+.dk .sheetpg { width: 560px; height: 100%; background: #fff; color: #222; padding: 48px 56px; font-family: Georgia, serif; font-size: 1.05rem; line-height: 1.55; box-shadow: 0 6px 24px rgba(0,0,0,.12); }
+.night .dk .sheetpg { filter: brightness(.82); }
+.dk .sheetpg h4 { font-family: Georgia, serif; font-size: 1.2rem; margin: 0 0 12px; }
+.dk .dock { position: absolute; top: 72px; right: 14px; bottom: 14px; width: 380px; background: var(--paper); border-radius: 16px; box-shadow: 0 0 0 1px var(--hair), 0 20px 50px rgba(0,0,0,.14); display: flex; flex-direction: column; overflow: hidden; }
+.dk .dock .hd { margin-top: 0; height: 56px; padding: 0 20px; }
+.dk .dock .thread { padding: 4px 20px 0; }
+.dk .dock .compose { padding: 12px 16px 16px; }
+.dk .dock .ai { font-size: 18px; } .dk .dock .you { font-size: 17px; }
+.rl { position: absolute; font-family: var(--sans); font-size: 11px; color: #d6d6d6; background: #141414; padding: 2px 6px; border-radius: 4px; z-index: 5; display: flex; align-items: center; gap: 6px; }
+.rl i { display: block; width: 28px; height: 1px; background: #d6d6d6; }
+.rl.v i { width: 1px; height: 22px; }
+.rl.v { flex-direction: column; }
+/* anatomy */
+.anat { width: 480px; background: var(--paper); color: var(--ink); border-radius: 16px; padding: 18px 24px 22px; display: flex; flex-direction: column; gap: 12px; font-family: var(--gara); position: relative; }
+.mk { position: absolute; right: -34px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; background: #ededed; color: #141414; font: 600 12px var(--sans); display: inline-grid; place-items: center; }
+.anat .you, .anat .quote, .anat .div, .anat .ai p { position: relative; }
+.anat .ai p .mk { right: -36px; top: 10px; transform: none; }
+.anat .div .mk, .anat .quote .mk { right: -34px; }
+.anat .you .mk { right: -34px; }
+.spec { border-collapse: collapse; font-size: .95rem; line-height: 1.5; color: var(--stage-soft); width: 100%; }
+.spec th { width: 34px; vertical-align: top; padding: 12px 0; }
+.spec th span { font: 600 12px var(--sans); color: #141414; background: #ededed; width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; }
+.spec td { padding: 10px 10px 10px 0; vertical-align: top; border-bottom: 1px solid #2a2a2a; }
+.spec td b { color: var(--stage-ink); font-weight: 500; white-space: nowrap; }
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -204,30 +243,93 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
   </section>
 
   <section class="sec" aria-label="Desktop">
-    <h2>Desktop</h2>
-    <p>The chat panel beside the page, as today, with the new thread. Hovering an older answer reveals its row.</p>
-    <div class="strip" style="flex-direction:column;gap:40px">
-      <div class="step" style="width:auto"><span class="num">A · In the book</span>
+    <h2>Desktop: two homes, one thread</h2>
+    <p>The book reader keeps its floating box over the right page, with the collapse tab, as today. The PDF reader keeps its docked panel on the right, with the page area making room. Only the inside changes.</p>
+    <div class="strip" style="flex-direction:column;gap:44px">
+
+      <div class="step" style="width:auto"><span class="num">A · Book reader: the floating box</span>
         <div class="dkwrap"><div class="dk">
           <div class="top"><span>←</span><span><b>To the Lighthouse</b><i>The Window · 1</i></span><span class="rt">t</span></div>
-          <div class="spread"><h3>The Window · 1</h3>“Yes, of course, if it’s fine tomorrow,” said Mrs. Ramsay. “But you’ll have to be up with the lark,” she added. To her son these words conveyed an extraordinary joy, as if it were settled the expedition were bound to take place, and the wonder to which he had looked forward, for years and years it seemed, was, after a night’s darkness and a day’s sail, within touch.</div>
-          <div class="panel">
+          <div class="spread2"><div class="pg"><h3>The Window · 1</h3>“Yes, of course, if it’s fine tomorrow,” said Mrs. Ramsay. “But you’ll have to be up with the lark,” she added. To her son these words conveyed an extraordinary joy, as if it were settled the expedition were bound to take place, and the wonder to which he had looked forward, for years and years it seemed, was, after a night’s darkness and a day’s sail, within touch.</div><div class="pg">Since he belonged, even at the age of six, to that great clan which cannot keep this feeling separate from that, but must let future prospects, with their joys and sorrows, cloud what is actually at hand, since to such people even in earliest childhood any turn in the wheel of sensation has the power to crystallize and transfix the moment upon which its gloom or radiance rests, James Ramsay, sitting on the floor cutting out pictures from the illustrated catalogue of the Army and Navy Stores, endowed the picture of a refrigerator, as his mother spoke, with heavenly bliss.</div></div>
+          <div class="box">
             <div class="hd"><b>Chat</b><span class="sp"></span><span class="disc"><svg><use href="#min"/></svg></span><span class="disc"><svg><use href="#x"/></svg></span></div>
             <div class="thread bottom">
               <div class="fade"></div>
               <div class="div">The Window · 1 · 3 October</div>
               <div class="you">What is she really saying?</div>
-              <div class="ai"><p>She’s giving James hope while quietly hedging it with a condition. <q>Yes, of course, if it’s fine tomorrow</q> sounds like a promise, but the whole sentence rests on the weather, which nobody controls.</p><p>Woolf lets the comfort and the doubt share one breath.</p></div>
+              <div class="ai"><p>She’s giving James hope while quietly hedging it with a condition. <q>Yes, of course, if it’s fine tomorrow</q> sounds like a promise, but the whole sentence rests on the weather, which nobody controls.</p></div>
               <div class="acts hover"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><span class="t">3 Oct, 10:24</span></div>
               <div class="quote">“But you’ll have to be up with the lark,” she added.</div>
               <div class="you">Why “up with the lark”?</div>
-              <div class="ai"><p>It’s an old English way of saying <q>up at dawn</q>: larks sing at first light. Mrs. Ramsay adds it as a small, practical condition on top of the big one, the weather.</p><p>Notice how it turns a child’s wish into a plan with rules. That is her way of loving him.</p></div>
+              <div class="ai"><p>It’s an old English way of saying <q>up at dawn</q>: larks sing at first light. Mrs. Ramsay adds it as a small, practical condition on top of the big one, the weather.</p></div>
+              <div class="acts"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><svg><use href="#again"/></svg></div>
+            </div>
+            <div class="compose"><div class="field"><span class="ph-text">Ask about this page</span><span class="ib"><svg><use href="#mic"/></svg></span><span class="ib"><svg><use href="#talk"/></svg></span></div></div>
+            <span class="tab"><svg viewBox="0 0 8 14"><path d="M1.5 1.5 6.5 7l-5 5.5"/></svg></span>
+          </div>
+          <div class="rl" style="top:76px;right:508px"><i></i>24</div>
+          <div class="rl" style="top:76px;right:300px"><i></i>width min(30rem, 38vw)</div>
+          <div class="rl v" style="top:62px;right:520px"><i></i>top 84</div>
+          <div class="rl v" style="bottom:4px;right:520px"><i></i>bottom 40</div>
+        </div></div>
+        <span class="cap" style="max-width:88ch"><b>Geometry unchanged from today:</b> the box floats over the right page, 24px from the edge, width min(30rem, 38vw), 24px corners, the <b>›</b> tab on its right edge collapses it. Inside: the new header, thread and composer.</span></div>
+
+      <div class="step" style="width:auto"><span class="num">B · PDF reader: the docked panel</span>
+        <div class="dkwrap"><div class="dk pdf">
+          <div class="top pdf"><span>←</span><span><b>Lecture notes, week 4.pdf</b><i>Page 12 of 38</i></span><span class="rt">t</span></div>
+          <div class="pdfpage"><div class="sheetpg"><h4>4.2 Why the window?</h4>Woolf opens with a promise that depends on the weather. Note how the first sentence hands James a certainty and the second takes a little of it back. In seminar: compare with the father’s line, and ask who the narrator sides with.<br><br>Further reading: Auerbach, <em>Mimesis</em>, ch. 20 (“The Brown Stocking”).</div></div>
+          <div class="dock">
+            <div class="hd"><b>Chat</b><span class="sp"></span><span class="disc"><svg><use href="#min"/></svg></span><span class="disc"><svg><use href="#x"/></svg></span></div>
+            <div class="thread bottom">
+              <div class="fade"></div>
+              <div class="div">Page 12 · 9 October</div>
+              <div class="quote">compare with the father’s line, and ask who the narrator sides with.</div>
+              <div class="you">Who does the narrator side with?</div>
+              <div class="ai"><p>Neither, quite. The free indirect style lets you hear each Ramsay from inside, so the father’s bluntness and the mother’s comfort both arrive as reasonable. Your notes are pointing at that balance.</p><p>If the seminar wants a side, the better question is whose feeling the paragraph lingers in longest. Here it is James’s.</p></div>
               <div class="acts"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><svg><use href="#again"/></svg></div>
             </div>
             <div class="compose"><div class="field"><span class="ph-text">Ask about this page</span><span class="ib"><svg><use href="#mic"/></svg></span><span class="ib"><svg><use href="#talk"/></svg></span></div></div>
           </div>
+          <div class="rl" style="top:70px;right:396px"><i></i>14</div>
+          <div class="rl" style="top:70px;right:200px"><i></i>width 380</div>
+          <div class="rl v" style="top:52px;right:410px"><i></i>top: bar + 12</div>
+          <div class="rl v" style="bottom:0;right:410px"><i></i>bottom 14</div>
         </div></div>
-        <span class="cap" style="max-width:84ch"><b>The same thread beside the page.</b> The hovered answer shows copy, listen and its time; the latest shows its actions by default. Nothing else carries chrome.</span></div>
+        <span class="cap" style="max-width:88ch"><b>Geometry unchanged from today:</b> a fixed dock 14px from the right, 380px wide, full height below the bar, 16px corners; the page area narrows while it is open. The divider names the page instead of a chapter. Inside: the same header, thread and composer.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-label="Measurements">
+    <h2>The thread, measured</h2>
+    <p>Every number Coder needs. The same values in both homes and on the phone.</p>
+    <div class="strip" style="align-items:flex-start">
+      <div class="step" style="width:480px">
+        <div class="anat">
+          <div class="div">The Window · 1 · 3 October<span class="mk">1</span></div>
+          <div class="you">What is she really saying?<span class="mk">2</span></div>
+          <div class="ai"><p>She’s giving James hope while quietly hedging it with a condition. <q>Yes, of course, if it’s fine tomorrow</q> sounds like a promise, but the whole sentence rests on the weather.<span class="mk">3</span></p></div>
+          <div class="acts hover"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><span class="t">3 Oct, 10:24</span><span class="mk" style="position:static;margin-left:10px">4</span></div>
+          <div class="quote">“But you’ll have to be up with the lark,” she added.<span class="mk">5</span></div>
+          <div class="you">Why “up with the lark”?</div>
+          <div class="ai"><p>It’s an old English way of saying <q>up at dawn</q>.</p></div>
+          <div class="acts"><svg><use href="#copy"/></svg><svg><use href="#spk"/></svg><svg><use href="#again"/></svg><span class="mk" style="position:static;margin-left:10px">6</span></div>
+          <div class="compose" style="padding:16px 0 0"><div class="field"><span class="ph-text">Ask about this page</span><span class="ib"><svg><use href="#mic"/></svg></span><span class="ib"><svg><use href="#talk"/></svg></span></div><span class="mk" style="position:static;margin-left:8px">7</span></div>
+        </div>
+      </div>
+      <div class="step" style="width:min(100%, 640px)">
+        <table class="spec">
+          <tr><th><span>1</span></th><td><b>Divider</b></td><td>EB Garamond italic 15px, colour muted (#9a9183 Paper / #6f675d Night); 1px hairlines either side (rgba ink .14); 12px gap to the lines; margins 10px above, 2px below. Shown only when the chapter (or PDF page) or the calendar day changes from the previous message. Format: <em>{chapter label as the edition names it} · {day, e.g. 3 October}</em>; the year only when it differs from today’s.</td></tr>
+          <tr><th><span>2</span></th><td><b>Reader’s bubble</b></td><td>Right-aligned, max-width 82% of the thread. Fill: Paper #dfd5bf, Night #2a241e, e-ink: outline 1px ink, no fill. Corners 18px, bottom-right 4px. Padding 10px 16px. EB Garamond 18px, line-height 1.4, ink colour. 12px gap above a bubble that follows an answer’s action row; 6px when it follows a quoted passage.</td></tr>
+          <tr><th><span>3</span></th><td><b>Answer</b></td><td>Plain text, full width, no bubble, no label. EB Garamond 19px (18px on desktop), line-height 1.5, ink colour. Paragraph gap .7em. Streaming shows a 2px ink cursor blinking once a second; no “thinking” text. 12px gap below the bubble it answers.</td></tr>
+          <tr><th><span>4</span></th><td><b>Hover / press row</b></td><td>Hidden by default. Desktop: appears on hover over the message; phone: on press-and-hold, fades after 3s or on scroll. Height 28px; icons 17px, stroke 1.7, colour faint; 18px between icons; the time right-aligned in the system font 12px, “3 Oct, 10:24” (today: “10:24”). A soft rounded wash (rgba ink .08) behind the row while visible. Items: copy, listen; on the reader’s own bubble: copy only.</td></tr>
+          <tr><th><span>5</span></th><td><b>Quoted passage</b></td><td>Only when the question came from a highlight or Explain. Right-aligned above the bubble, max-width 82%, 2px bar on the left (#b9ad92 Paper / #5a5146 Night), 14px padding-left. EB Garamond italic 16px, line-height 1.4, muted colour. Cut at 240 characters with “…”. Tapping it scrolls the page to the passage.</td></tr>
+          <tr><th><span>6</span></th><td><b>Latest answer’s actions</b></td><td>Always visible under the newest answer only: copy, listen, ask again (regenerate). Same icon metrics as the hover row, no time, no wash. Disappears from an answer the moment a newer one exists.</td></tr>
+          <tr><th><span>7</span></th><td><b>Composer</b></td><td>One line at rest: height 44px, pill corners 22px, fill Paper #f6f2ea / Night #1f1b17, 1px hairline. Placeholder “Ask about this page” (“Ask about this book” on a chapter cover), EB Garamond 18px, faint colour. Mic and Talk as 32px quiet discs inside on the right. Grows with the text to 5 lines, then scrolls inside. Once there is text, a 32px ink disc with an up arrow replaces mic and Talk. Return sends; Shift-Return breaks a line; phone shows the arrow only. Beneath it on desktop, once per session, a 11px system-font hint: “Return to send · Shift-Return for a new line”.</td></tr>
+          <tr><th><span>·</span></th><td><b>Rhythm</b></td><td>Thread side padding 20px (phone) / 24px (desktop). 12px between a question and its answer; 16px between an answer’s action row and the next question; 24px before a divider. A 36px fade at the top of the thread. When scrolled up more than one screen, a “Latest” pill (ink fill, paper text, system 13px, 999px corners) centred 14px above the composer.</td></tr>
+          <tr><th><span>·</span></th><td><b>Header</b></td><td>“Chat” in Playfair Display 700 at 20px, left; minimise and close as 32px discs (rgba ink .08) on the right, 10px apart. Height 56px (60px in the desktop box). Nothing else in the header.</td></tr>
+          <tr><th><span>·</span></th><td><b>Never</b></td><td>No sender labels, no timestamps under messages, no monospace, no uppercase, no accent colour. The thread uses the reader’s current look (Paper, Night, e-ink) and nothing else.</td></tr>
+        </table>
+      </div>
     </div>
   </section>
 
