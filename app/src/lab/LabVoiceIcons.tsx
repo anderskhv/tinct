@@ -89,6 +89,9 @@ interface VoiceControlProps {
   pressed?: boolean
   /** Icon only: the word becomes the accessible name. */
   compact?: boolean
+  /** No visible word under the disc (the full-size call and Talk window):
+   *  the word still names the button for screen readers and as a tooltip. */
+  iconOnly?: boolean
   /** For a control that opens a popover: its open state and the popover's id. */
   expanded?: boolean
   controls?: string
@@ -96,21 +99,22 @@ interface VoiceControlProps {
 }
 
 /** A round icon button with one word beneath it. */
-export function VoiceControl({ testId, word, label, icon, filled, on, pressed, compact, expanded, controls, onClick }: VoiceControlProps) {
+export function VoiceControl({ testId, word, label, icon, filled, on, pressed, compact, iconOnly, expanded, controls, onClick }: VoiceControlProps) {
+  const wordless = compact || iconOnly
   return (
     <button
       type="button"
       className={`lab-voice-control${filled ? ' is-filled' : ''}${on ? ' is-on' : ''}${compact ? ' is-compact' : ''}`}
       data-testid={testId}
-      aria-label={compact ? (label ?? word) : label}
+      aria-label={wordless ? (label ?? word) : label}
       aria-pressed={pressed}
       aria-expanded={expanded}
       aria-controls={controls}
-      title={compact ? (label ?? word) : undefined}
+      title={wordless ? (label ?? word) : undefined}
       onClick={onClick}
     >
       <span className="lab-voice-control-disc" aria-hidden="true">{icon}</span>
-      {!compact && <span className="lab-voice-control-word">{word}</span>}
+      {!wordless && <span className="lab-voice-control-word">{word}</span>}
     </button>
   )
 }

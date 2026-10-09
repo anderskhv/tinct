@@ -62,6 +62,25 @@ describe('Talk on the phone with Chrome V2', () => {
     expect(screen.queryByTestId('lab-voice-gate')).toBeNull()
   })
 
+  it('shows Mute and End as icons, named for screen readers, beside the speed value', async () => {
+    await openCall()
+    const mute = screen.getByTestId('lab-call-mute')
+    const end = screen.getByTestId('lab-call-end')
+    expect(mute.textContent).toBe('')
+    expect(end.textContent).toBe('')
+    expect(mute.querySelector('.lab-voice-control-word')).toBeNull()
+    expect(end.querySelector('.lab-voice-control-word')).toBeNull()
+    expect(mute.getAttribute('aria-label')).toBe('Mute')
+    expect(mute.getAttribute('title')).toBe('Mute')
+    expect(end.getAttribute('aria-label')).toBe('End conversation')
+    expect(end.getAttribute('title')).toBe('End conversation')
+    expect(screen.getByTestId('lab-call-speed').querySelector('.lab-voice-control-word')?.textContent).toBe('1×')
+    // The AI Act disclosure stays, as one restylable element.
+    const ai = screen.getByTestId('lab-call-ai')
+    expect(ai.textContent).toBe("You're talking to an AI.")
+    expect(ai.classList.contains('lab-ai-disclosure')).toBe(true)
+  })
+
   it('never claims to be listening before a connection exists', async () => {
     await openCall()
     expect(screen.getByTestId('lab-call-status').textContent).toBe('Connecting.')
@@ -157,6 +176,12 @@ describe('Talk on the desktop with Chrome V2', () => {
     // Mute and End are in the panel; the transcript is the panel body.
     expect(screen.getByTestId('lab-voice-panel-mute')).toBeTruthy()
     expect(screen.getByTestId('lab-voice-panel-end')).toBeTruthy()
+    // Icons only, still named for screen readers and tooltips.
+    expect(screen.getByTestId('lab-voice-panel-mute').textContent).toBe('')
+    expect(screen.getByTestId('lab-voice-panel-end').textContent).toBe('')
+    expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('aria-label')).toBe('Mute')
+    expect(screen.getByTestId('lab-voice-panel-end').getAttribute('aria-label')).toBe('End conversation')
+    expect(screen.getByTestId('lab-voice-panel-ai').classList.contains('lab-ai-disclosure')).toBe(true)
     expect(screen.getByTestId('lab-voice-panel-thread')).toBeTruthy()
   })
 

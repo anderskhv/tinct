@@ -82,7 +82,8 @@ describe('the call surface', () => {
       renderCall({ micMuted: true })
       expect(screen.getByTestId('lab-call-status').textContent).toBe('Microphone off')
       expect(screen.getByTestId('lab-call-connection').textContent).toContain('Connected')
-      expect(screen.getByTestId('lab-call-mute').textContent).toBe('Unmute')
+      expect(screen.getByTestId('lab-call-mute').getAttribute('aria-label')).toBe('Unmute')
+      expect(screen.getByTestId('lab-call-mute').textContent).toBe('')
       expect(screen.getByTestId('lab-call-mute').getAttribute('aria-pressed')).toBe('true')
     })
 
@@ -138,7 +139,8 @@ describe('the call surface', () => {
       const onEnd = vi.fn()
       const { unmount } = renderCall(input, { onEnd })
       // The word beneath the filled X is "End"; the full action is its name.
-      expect(screen.getByTestId('lab-call-end').textContent).toBe('End')
+      expect(screen.getByTestId('lab-call-end').textContent).toBe('')
+      expect(screen.getByTestId('lab-call-end').getAttribute('title')).toBe('End conversation')
       expect(screen.getByTestId('lab-call-end').getAttribute('aria-label')).toBe('End conversation')
       fireEvent.click(screen.getByTestId('lab-call-end'))
       expect(onEnd).toHaveBeenCalledTimes(1)

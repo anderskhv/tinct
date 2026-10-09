@@ -40,10 +40,8 @@ export const LAB_CALL_COPY = {
   connectionConnecting: 'Connecting',
   connectionLost: 'Not connected',
   connectionLabel: 'Connection',
-  /** The accessible name of End. */
+  /** End's accessible name and tooltip; the X carries no visible word. */
   end: 'End conversation',
-  /** The word under the X. */
-  endWord: 'End',
   mute: 'Mute',
   unmute: 'Unmute',
   reconnect: 'Reconnect',

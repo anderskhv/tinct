@@ -11,6 +11,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { LabAiDisclosure } from './LabAiDisclosure'
 import { LabTalkSpeedControl } from './LabTalkSpeed'
 import { useReaderWindow } from './useReaderWindow'
 import { useDraggableSurface } from './useDraggableSurface'
@@ -18,7 +19,8 @@ import { useDraggableSurface } from './useDraggableSurface'
 /**
  * The desktop voice surface. The conversation lives in the companion panel:
  * orb on top with the status word and connection beneath, the transcript in
- * the panel body, Mute and End at the bottom. A minimize control collapses
+ * the panel body, Mute, speed and End at the bottom as icons (their names
+ * are aria-labels and tooltips; only the speed shows its value). A minimize control collapses
  * it to a pill in the corner of the page while the call keeps running.
  *
  * Both are rendering only. The view they draw is the same `LabCallView`
@@ -26,7 +28,8 @@ import { useDraggableSurface } from './useDraggableSurface'
  * reader-owned session; nothing here starts, stops or moves anything.
  */
 
-export const LAB_VOICE_PANEL_ORB_PX = 170
+/** 108px: about 64% of the original 170px orb (2026-10-09, tighter Talk window). */
+export const LAB_VOICE_PANEL_ORB_PX = 108
 export const LAB_VOICE_PILL_ORB_PX = 60
 
 function ConnectionLine({ view, testId }: { view: LabCallView; testId: string }) {
@@ -70,6 +73,7 @@ function MuteOrReconnect({
       on={view.micOff}
       pressed={view.micOff}
       compact={compact}
+      iconOnly
       onClick={onMuteToggle}
     />
   )
@@ -171,7 +175,7 @@ export function LabVoiceDesktopPanel({
       </div>
       <div className="lab-voice-panel-thread" data-testid="lab-voice-panel-thread" ref={threadRef} onScroll={onScroll}>
         {/* The conversation's first line, above every turn (AI Act art. 50). */}
-        <p className="lab-voice-panel-ai" data-testid="lab-voice-panel-ai">{LAB_CALL_COPY.aiDisclosure}</p>
+        <LabAiDisclosure className="lab-voice-panel-ai" testId="lab-voice-panel-ai" />
         {turns.length === 0 && (
           <p className="lab-voice-panel-empty" data-testid="lab-voice-panel-empty">{LAB_CALL_COPY.askAboutPage}</p>
         )}
@@ -197,10 +201,10 @@ export function LabVoiceDesktopPanel({
         )}
         <VoiceControl
           testId="lab-voice-panel-end"
-          word={LAB_CALL_COPY.endWord}
-          label={LAB_CALL_COPY.end}
+          word={LAB_CALL_COPY.end}
           icon={<VoiceEndIcon size={22} />}
           filled
+          iconOnly
           onClick={onEnd}
         />
       </div>

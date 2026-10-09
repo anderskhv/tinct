@@ -13,6 +13,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { LabAiDisclosure } from './LabAiDisclosure'
 import { LabTalkSpeedControl } from './LabTalkSpeed'
 
 /**
@@ -83,7 +84,8 @@ function playCallCue(cue: LabCallCue) {
   } catch { /* a browser that refuses the tone still shows the state */ }
 }
 
-export const LAB_CALL_ORB_PX = 280
+/** 176px: about 63% of the original 280px orb (2026-10-09, tighter call). */
+export const LAB_CALL_ORB_PX = 176
 
 export function LabVoiceCall({
   view,
@@ -130,7 +132,7 @@ export function LabVoiceCall({
 
       <div className="lab-call-stage">
         {/* The conversation's first line, quiet and never in the way (AI Act art. 50). */}
-        <p className="lab-call-ai" data-testid="lab-call-ai">{LAB_CALL_COPY.aiDisclosure}</p>
+        <LabAiDisclosure className="lab-call-ai" testId="lab-call-ai" />
         <VoiceOrb
           status={view.status}
           motion={motion}
@@ -170,6 +172,7 @@ export function LabVoiceCall({
             icon={<VoiceMicIcon off={view.micOff} />}
             on={view.micOff}
             pressed={view.micOff}
+            iconOnly
             onClick={onMuteToggle}
           />
         )}
@@ -178,10 +181,10 @@ export function LabVoiceCall({
         )}
         <VoiceControl
           testId="lab-call-end"
-          word={LAB_CALL_COPY.endWord}
-          label={LAB_CALL_COPY.end}
+          word={LAB_CALL_COPY.end}
           icon={<VoiceEndIcon />}
           filled
+          iconOnly
           onClick={onEnd}
         />
       </div>

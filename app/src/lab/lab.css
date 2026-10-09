@@ -7741,3 +7741,62 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { flex: 0 1 auto; min-height: 0; overflow: hidden; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls { gap: clamp(10px, 4%, 22px); }
 .lab[data-chrome-version="v2"] .lab-call-controls { gap: clamp(16px, 6vw, 28px); }
+
+/* Tighter Talk (2026-10-09). A smaller orb (108px on the desktop, 176px on
+   the phone; set in the components), less padding and no words under Mute
+   and End (their names stay as aria-labels and tooltips). The speed control
+   keeps its value, which is information rather than a label. Talk reads in
+   EB Garamond and Playfair only. The space freed goes to the transcript. */
+/* The AI disclosure's one restyle hook on both surfaces; size and place
+   still come from .lab-call-ai and .lab-voice-panel-ai, unchanged. */
+.lab[data-chrome-version="v2"] .lab-ai-disclosure {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--lab-call-muted);
+}
+.lab[data-chrome-version="v2"] .lab-talk-speed-step {
+  font-family: 'EB Garamond', Georgia, serif; font-size: 1rem;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
+  padding: 8px 14px 10px;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel {
+  --lab-voice-control-size: 48px;
+  --lab-voice-control-word: 14px;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-control { gap: 2px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-minimize { width: 28px; height: 28px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { gap: 2px; padding: 0 0 6px; }
+/* In a short window the orb stage gives way first, so the AI line at the top
+   of the transcript and the controls row both stay whole. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { flex-shrink: 1000; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin: 2px 0 0; font-size: 22px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection { font-size: 14px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line { margin: 2px 0 0; font-size: 15px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread { gap: 14px; padding: 8px 6px 4px; font-size: 17px; }
+/* The rule above the controls only fenced off empty transcript; the row now
+   sits straight under the thread. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls {
+  align-items: flex-start;
+  padding: 6px 0 0;
+  border-top: 0;
+}
+/* The phone call upright; a phone lying down keeps its own layout above. */
+@media not all and (orientation: landscape) and (max-height: 500px) and (any-pointer: coarse) {
+  .lab[data-chrome-version="v2"] .lab-call {
+    padding:
+      calc(1.25rem + env(safe-area-inset-top, 0px))
+      1.25rem
+      calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  .lab[data-chrome-version="v2"] .lab-call-stage { gap: 16px; }
+  .lab[data-chrome-version="v2"] .lab-call-circle {
+    max-width: min(46vw, 176px);
+    max-height: min(46vw, 176px);
+  }
+  .lab[data-chrome-version="v2"] .lab-call-words { gap: 6px; }
+  .lab[data-chrome-version="v2"] .lab-call-status { font-size: 28px; }
+  .lab[data-chrome-version="v2"] .lab-call-ai { margin: 0 0 -4px; }
+  .lab[data-chrome-version="v2"] .lab-call-controls { align-items: flex-start; }
+  .lab[data-chrome-version="v2"] .lab-call .lab-voice-control { gap: 4px; }
+}
