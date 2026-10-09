@@ -61,7 +61,7 @@ function openDesktopChat() {
 }
 
 function sendTyped(text: string) {
-  fireEvent.change(screen.getByPlaceholderText('Ask'), { target: { value: text } })
+  fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: text } })
   fireEvent.click(screen.getByTestId('lab-ask-send'))
 }
 
@@ -170,7 +170,7 @@ describe('lab account prompt in the reader', () => {
     expect(screen.queryByTestId('lab-account-sheet')).toBeNull()
     // The reader keeps the chat pane and the unsent question.
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
-    expect((screen.getByPlaceholderText('Ask') as HTMLInputElement).value).toBe('One more?')
+    expect((screen.getByTestId('lab-ask-input') as HTMLInputElement).value).toBe('One more?')
     expect(chatCalls(fetchMock)).toHaveLength(LAB_FREE_AI_ACTIONS)
 
     // Trying again is still held: the dismissed sheet spent nothing.

@@ -918,7 +918,11 @@ let resizeTimer;
 addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { applyLayout(); if (state.pages.length) setZoom(state.zoom) }, 150) });
 addEventListener('keydown', e => {
   if (e.target.closest('input, textarea, select')) return;
-  if (e.key === 'Escape') { endSnip(); closeAllPopups() }
+  if (e.key === 'Escape') {
+    const popup = root.dataset.superMenu === 'open' || !!document.querySelector('.selection-popup, .byob-settings, .lab-contents-v2, .lab-audio-speed-popover, .byob-sheet-host, .byob-snip');
+    endSnip(); closeAllPopups();
+    if (!popup && !isPhone() && chat.el?.isConnected) closeChat();
+  }
 });
 
 /* ---------- Popups, sheets and the menu, in Tinct's markup ---------- */
@@ -951,14 +955,23 @@ let toastTimer, toastHeld = 0, toastNext = null, toastAt = 0;
 // `hold`: a message that must be read (a book's own limits) is not replaced while it shows;
 // one arriving meanwhile is shown when it ends, as is one it replaces before it could be read
 // (why the book was kept on this device only, just before the scan notice).
+// In the reader, the toast is the reader's own (css/reader.css keeps it inside the page area, left of the docked chat).
+// Over the phone's chat sheet it is one of the chat's own quiet status lines, above the composer
+// (the shared thread's .tc-status: EB Garamond italic, no fill), so the sheet never shows a grey box.
+// Opening or closing Chat moves a toast that is showing (openChat, closeChat).
+function placeToast(t) {
+  let inChat = false;
+  try { inChat = isPhone() && !!chat.el?.isConnected && readerShown() } catch { /* before the chat exists */ }
+  t.className = inChat ? 'tc-status byob-toast is-in-chat' : 'lab-ask-notice byob-toast';
+  if (inChat) { const composer = chat.el.querySelector('#composer'); if (t.nextElementSibling !== composer) chat.el.insertBefore(t, composer) }
+  else { const host = readerShown() ? root : document.body; if (t.parentElement !== host) host.appendChild(t) }
+}
 function toast(text, { hold = false } = {}) {
   if (!hold && Date.now() < toastHeld) { toastNext = text; return }
   let t = document.querySelector('.byob-toast');
   if (hold && t && !t.hidden && t.textContent !== text && Date.now() >= toastHeld && Date.now() - toastAt < 2500) toastNext = t.textContent;
-  // In the reader, the toast is the reader's own (css/reader.css keeps it inside the page area, left of the docked chat).
-  const host = readerShown() ? root : document.body;
-  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status') }
-  if (t.parentElement !== host) host.appendChild(t);
+  if (!t) { t = document.createElement('p'); t.setAttribute('role', 'status') }
+  placeToast(t);
   t.textContent = text; t.hidden = false; toastAt = Date.now();
   const ms = hold ? 6000 : 4000;
   toastHeld = hold ? Date.now() + ms : 0;
@@ -1596,7 +1609,7 @@ function dockGrip(el) {
 }
 
 /* ---------- Chat (and Talk) in Tinct's companion pane ---------- */
-const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [] };
+const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [], live: null, fresh: false };
 function loadTurns() { chat.turns = (store.get('chat:' + state.key) || []).filter(t => t && t.content) }
 /* ---------- Images in chat: attach, paste, drop, or snip from the page ---------- */
 let imageLimits = null;
@@ -1629,7 +1642,6 @@ function renderTray() {
   tray.hidden = !chat.attach.length;
   tray.innerHTML = chat.attach.map((a, i) => `<span class="byob-chip">${a.thumb ? `<img src="${a.thumb}" alt="">` : '<i>Snip</i>'}<span class="byob-chip-label">${a.snip ? `${KIND[a.kind] || 'Snip'} · p. ${a.page}` : 'Image'}</span><button type="button" aria-label="Remove image" data-rm="${i}">×</button></span>`).join('');
   tray.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { chat.attach.splice(Number(b.dataset.rm), 1); renderTray(); chat.el.querySelector('textarea').dispatchEvent(new Event('input')) });
-  const t = chat.el.querySelector('textarea'); if (t) t.placeholder = chat.attach.length ? 'Ask about it, or press Enter to explain' : 'Ask';
 }
 /* Snip: drag a box on the page; the box is re-rendered sharply from the PDF and sent as an image. */
 function startSnip() {
@@ -1959,39 +1971,65 @@ async function exportNotes() {
 }
 
 function saveTurns() { store.set('chat:' + state.key, chat.turns.slice(-40)) }
+/* The thread is the one both readers share (app/public/lab/chat-thread.{js,css};
+   docs/chat/mockup.html): no header, the reader's words in a bubble, answers as
+   plain text, one divider when the page or the day changes, copy and time on hover
+   or press, a hairline-and-caret composer. */
+const CHAT_THREAD = '/lab/chat-thread.js?v=20261009chat';
+let TC = null;
+const tcReady = import(CHAT_THREAD).then(m => (TC = m)).catch(() => null);
 function openChat(opts = {}) {
+  if (!TC) { tcReady.then(m => { if (m) openChat(opts) }); return }
   closeAllPopups();
   loadTurns();
   if (!chat.el) {
     const el = document.createElement('aside');
     el.setAttribute('aria-label', 'Chat');
-    el.innerHTML = `<div class="lab-desktop-companion-head"><strong id="chatTitle">Chat</strong><button type="button" aria-label="Minimize chat" data-min>−</button><button type="button" aria-label="Close chat" data-x>×</button></div>
-      <div class="lab-ask-thread" id="thread"></div>
-      <p class="lab-ask-greeting" id="greeting">Ask about this page.</p>
-      <p class="lab-ask-notice" id="chatNotice" hidden></p>
-      <form class="lab-ask-composer is-multiline" id="composer">
+    el.innerHTML = `<button type="button" class="tc-close" aria-label="Close chat" data-x>${TC.ICONS.close}</button>
+      <div class="tc-body"><div class="tc-thread" id="thread"></div><div class="tc-fade" aria-hidden="true"></div><button type="button" class="tc-latest" id="latest" hidden>${TC.ICONS.down}Latest</button></div>
+      <p class="tc-status" id="chatNotice" hidden></p>
+      <form class="tc-compose" id="composer">
         <div class="byob-tray" id="tray" hidden></div>
-        <button type="button" class="byob-attach" id="attachBtn" aria-label="Attach an image" title="Attach an image (or paste one)" hidden>${ICON.attach}</button>
+        <section class="tc-attached" id="attached" hidden><span id="attachedText"></span><button type="button" class="tc-mark" aria-label="Remove" data-unattach>${TC.ICONS.close}</button></section>
         <input type="file" id="attachInput" accept="image/*" multiple hidden>
-        <label class="lab-visually-hidden" for="lab-ask-input">Ask</label>
-        <textarea id="lab-ask-input" rows="1" class="lab-ask-input" placeholder="Ask" enterkeyhint="send"></textarea>
-        <button type="submit" class="lab-ask-send" aria-label="Send" hidden><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        <div class="tc-field is-empty">
+          <label class="lab-visually-hidden" for="lab-ask-input">Ask</label>
+          <textarea id="lab-ask-input" rows="1" class="tc-input" enterkeyhint="send"></textarea>
+          <button type="button" class="tc-mark byob-attach" id="attachBtn" aria-label="Attach an image" title="Attach an image (or paste one)" hidden>${TC.ICONS.attach}</button>
+          <button type="submit" class="tc-mark tc-send" aria-label="Send" hidden>${TC.ICONS.send}</button>
+        </div>
+        <p class="tc-hint" id="chatHint" hidden>${esc(TC.HINT_TEXT)}</p>
       </form>`;
+    el.querySelector('[data-x]').onmousedown = e => e.preventDefault();
     el.querySelector('[data-x]').onclick = closeChat;
-    el.querySelector('[data-min]').onclick = () => isPhone() ? closeChat() : setDock('minimized');
-    const input = el.querySelector('textarea'), send = el.querySelector('.lab-ask-send');
-    input.addEventListener('input', () => { const ok = !!input.value.trim() || chat.attach.length > 0; send.hidden = !ok; send.disabled = !ok; input.style.height = 'auto'; input.style.height = Math.min(160, Math.max(44, input.scrollHeight)) + 'px' });
-    input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !isPhone()) { e.preventDefault(); el.querySelector('form').requestSubmit() } });
+    el.querySelector('[data-unattach]').onclick = () => { chat.passage = null; renderAttached(); el.querySelector('textarea').focus({ preventScroll: true }) };
+    const input = el.querySelector('textarea'), send = el.querySelector('.tc-send'), field = el.querySelector('.tc-field');
+    input.addEventListener('input', () => { const ok = !!input.value.trim() || chat.attach.length > 0; send.hidden = !ok; send.disabled = !ok; field.classList.toggle('is-empty', !input.value); TC.fitComposer(input) });
+    input.addEventListener('keydown', e => {
+      const action = TC.composerKey(e, { phone: isPhone(), empty: !input.value });
+      if (action === 'send') { e.preventDefault(); el.querySelector('form').requestSubmit() }
+      else if (action === 'recall') { const last = TC.lastQuestion(chat.turns, t => t.display || t.content); if (last) { e.preventDefault(); input.value = last; input.dispatchEvent(new Event('input')) } }
+      else if (action === 'close') { e.preventDefault(); closeChat() }
+    });
+    el.querySelector('.tc-compose').addEventListener('pointerdown', e => { if (e.target.closest('button, a, input, textarea, .tc-attached, .byob-tray')) return; e.preventDefault(); input.focus() });
+    const thread = el.querySelector('#thread'), latest = el.querySelector('#latest');
+    TC.bindPress(thread);
+    thread.addEventListener('scroll', () => { latest.hidden = !TC.isAway(thread) }, { passive: true });
+    latest.onclick = () => TC.scrollToLatest(thread);
+    // The clean window stays a full screen while the sheet settles (phone chrome, keyboard).
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => { const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) thread.scrollTop = thread.scrollHeight }).observe(thread);
     el.querySelector('#attachBtn').onclick = () => el.querySelector('#attachInput').click();
     el.querySelector('#attachInput').onchange = e => { addAttachments([...e.target.files]); e.target.value = '' };
     el.addEventListener('dragover', e => { if ([...(e.dataTransfer?.items || [])].some(i => i.kind === 'file')) { e.preventDefault(); el.classList.add('byob-drop-over') } });
     el.addEventListener('dragleave', e => { if (!el.contains(e.relatedTarget)) el.classList.remove('byob-drop-over') });
     el.addEventListener('drop', e => { el.classList.remove('byob-drop-over'); const files = [...(e.dataTransfer?.files || [])].filter(f => f.type.startsWith('image/')); if (files.length) { e.preventDefault(); addAttachments(files) } });
-    el.querySelector('form').onsubmit = e => { e.preventDefault(); const q = input.value.trim() || (chat.attach.length ? (chat.attach.length > 1 ? 'Explain these images.' : chat.attach[0].snip ? 'Explain this figure.' : 'Explain this image.') : ''); if (!q) return; input.value = ''; input.dispatchEvent(new Event('input')); ask(q) };
+    el.querySelector('form').onsubmit = e => { e.preventDefault(); const q = input.value.trim() || (chat.attach.length ? (chat.attach.length > 1 ? 'Explain these images.' : chat.attach[0].snip ? 'Explain this figure.' : 'Explain this image.') : ''); if (!q) return; input.value = ''; input.dispatchEvent(new Event('input')); el.querySelector('#chatHint').hidden = true; ask(q) };
     chat.el = el;
   }
   const el = chat.el;
-  el.className = `lab-ask ${isPhone() ? 'is-phone-sheet byob-phone-chat' : 'is-desktop-companion is-chat byob-dock'}`;
+  el.className = `lab-ask tc ${isPhone() ? 'is-phone-sheet byob-phone-chat' : 'is-desktop-companion is-chat byob-dock'}`;
+  // The keyboard hint, once per session, on the desktop.
+  if (!isPhone() && TC.takeHint((() => { try { return sessionStorage } catch { return null } })())) el.querySelector('#chatHint').hidden = false;
   el.removeAttribute('style');
   if (isPhone()) el.removeAttribute('data-reader-window'); else { el.dataset.readerWindow = 'true'; el.dataset.companion = 'chat' }
   if (!el.isConnected) root.appendChild(el);
@@ -2000,39 +2038,64 @@ function openChat(opts = {}) {
   if (!isPhone()) { dockGrip(el); el.hidden = false; setDock(opts.overlay || state.zoom > 1 ? 'overlay' : 'docked') }
   root.classList.add('chat-open');
   root.dataset.desktopPanel = 'chat';
+  const shown = document.querySelector('.byob-toast:not([hidden])'); if (shown) placeToast(shown);
   if (opts.passage) chat.passage = opts.passage;
   if (opts.explanation) {
+    chat.fresh = false;
     chat.turns.push({ role: 'user', content: 'Explain this passage.', passage: opts.passage.text, page: opts.passage.page, at: Date.now() });
     chat.turns.push({ role: 'assistant', content: opts.explanation, at: Date.now() });
     saveTurns();
   }
+  chat.fresh = !opts.prompt && !opts.explanation;
   setTalk(!!opts.talk || chat.talk);
   renderThread();
   if (opts.prompt) ask(opts.prompt, opts.display);
   else if (!opts.quiet) setTimeout(() => { const t = el.querySelector('textarea'); t.focus({ preventScroll: true }); t.dispatchEvent(new Event('input')) }, 50);
 }
-function closeChat() { chat.ctl?.abort(); speechSynthesis?.cancel?.(); chat.el?.remove(); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+function closeChat() { chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
 function setTalk(on) {
   chat.talk = on;
   if (!chat.el) return;
   chat.el.classList.toggle('byob-talk-on', on);
-  chat.el.querySelector('#chatTitle').textContent = on ? 'Talk' : 'Chat';
   const note = chat.el.querySelector('#chatNotice');
   note.hidden = !on;
   note.textContent = on ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak; answers are read aloud.' : 'Talk: answers are read aloud. Speak with your system’s dictation, or type.') : '';
   if (!on) speechSynthesis?.cancel?.();
 }
+function placeOf(t) { return t.page ? (isEpub() ? (toc.entries.find(e => e.page === t.page)?.label || 'Section ' + t.page) : 'Page ' + t.page) : null }
+function renderAttached() {
+  const box = chat.el?.querySelector('#attached'); if (!box) return;
+  box.hidden = !chat.passage;
+  box.querySelector('#attachedText').textContent = chat.passage ? TC.cutQuote(chat.passage.text) : '';
+}
 function renderThread() {
   const el = chat.el, thread = el.querySelector('#thread');
-  el.querySelector('#greeting').hidden = chat.turns.length > 0 || !!chat.passage;
-  el.classList.toggle('is-empty', !chat.turns.length); el.classList.toggle('has-thread', !!chat.turns.length);
-  const fmt = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-  thread.innerHTML = `<p class="lab-ask-location"><span>${esc(chapterAt(currentPlace().page)?.label || 'p. ' + currentPlace().page)}</span></p>` + chat.turns.map((t, i) => t.role === 'user'
-    ? `<div class="lab-ask-turn is-user"><p class="lab-ask-user">${t.passage ? `<span class="lab-ask-history-passage">${esc(t.passage.slice(0, 400))}</span>` : ''}${t.imgs?.length ? `<span class="byob-turn-imgs">${t.imgs.map(u => `<img src="${u}" alt="Attached image">`).join('')}</span>` : ''}<span class="lab-ask-user-label">You</span>${esc(t.display || t.content)}${t.failed ? `<span class="lab-ask-unanswered">No answer — ${esc(t.failed)}</span>` : ''}</p><div class="lab-ask-meta"><time class="lab-ask-time">${fmt.format(t.at || Date.now())}</time></div></div>`
-    : `<div class="lab-ask-turn is-assistant"><div class="lab-ask-reply"><span class="lab-ask-reply-label">Tinct</span><div class="lab-markdown">${md(t.content)}</div></div><div class="lab-ask-meta"><time class="lab-ask-time">${fmt.format(t.at || Date.now())}</time><button type="button" class="lab-ask-copy" aria-label="Copy answer" data-copy="${i}">${ICON.copy}</button></div></div>`).join('')
-    + (chat.passage ? `<div class="lab-ask-turn is-user"><p class="lab-ask-user"><span class="lab-ask-history-passage">${esc(chat.passage.text.slice(0, 400))}</span><span class="lab-ask-user-label">Asking about this passage</span></p></div>` : '');
-  thread.querySelectorAll('[data-copy]').forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText(chat.turns[b.dataset.copy].content); b.textContent = '✓' } catch { toast('Copy did not work here.') } });
+  el.classList.toggle('is-empty', !chat.turns.length && !chat.live); el.classList.toggle('has-thread', !!chat.turns.length || !!chat.live);
+  const turns = chat.turns.map(t => ({
+    role: t.role, text: t.role === 'user' ? (t.display || t.content) : t.content, html: t.role === 'assistant' ? md(t.content) : undefined,
+    at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined,
+    note: t.failed ? `No answer — ${t.failed}` : undefined,
+    extra: t.imgs?.length ? `<span class="tc-imgs">${t.imgs.map(u => `<img src="${esc(u)}" alt="Attached image">`).join('')}</span>` : '',
+  }));
+  if (chat.live) turns.push({ role: 'assistant', text: chat.live.text, html: chat.live.text ? md(chat.live.text) : '', place: turns.at(-1)?.place });
+  thread.innerHTML = TC.threadHtml(turns, { streaming: !!chat.live });
+  // Opened, Chat looks like a clean window: a screen of writing space above the composer, the
+  // history above that, reached by scrolling up (as the book reader opens). The next question clears it.
+  if (chat.fresh && turns.length) { const space = document.createElement('div'); space.className = 'tc-spacer'; space.setAttribute('aria-hidden', 'true'); space.style.height = thread.clientHeight + 'px'; thread.appendChild(space) }
+  thread.querySelectorAll('[data-copy]').forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText(chat.turns[b.dataset.copy].display || chat.turns[b.dataset.copy].content); b.innerHTML = TC.ICONS.copied; b.setAttribute('aria-label', 'Copied') } catch { toast('Copy did not work here.') } });
+  thread.querySelectorAll('[data-quote]').forEach(b => b.onclick = () => { const t = chat.turns[b.dataset.quote]; if (t?.page) goTo({ page: t.page }, true) });
+  renderAttached();
   thread.scrollTop = thread.scrollHeight;
+  el.querySelector('#latest').hidden = true;
+}
+/** An answer arriving: its text so far, under a blinking cursor. */
+function liveText(text) {
+  if (!chat.live || !chat.el) return;
+  chat.live.text = text;
+  const thread = chat.el.querySelector('#thread'), md_ = thread.querySelector('.tc-a.is-streaming .tc-md');
+  if (!md_) { renderThread(); return }
+  md_.innerHTML = md(text); thread.querySelector('.tc-a.is-streaming .tc-cursor')?.remove();
+  if (!TC.isAway(thread)) thread.scrollTop = thread.scrollHeight;
 }
 async function ask(question, display) {
   const s = await ai();
@@ -2040,15 +2103,11 @@ async function ask(question, display) {
   const passage = chat.passage; chat.passage = null;
   const page = currentPlace().page;
   const attached = chat.attach.splice(0); renderTray();
+  chat.fresh = false;
   chat.turns.push({ role: 'user', content: question, display, passage: passage?.text, page: passage?.page || page, imgs: attached.map(a => a.thumb), snipText: attached.map(a => a.text).filter(Boolean).join('\n') || undefined, at: Date.now() });
   renderThread();
   if (!s) { chat.turns[chat.turns.length - 1].failed = 'Claude is not available on this page.'; renderThread(); toast(AI_OFF); return }
-  const thread = el.querySelector('#thread');
-  const pending = document.createElement('div');
-  pending.className = 'lab-ask-turn is-assistant';
-  pending.innerHTML = '<div class="lab-ask-reply"><span class="lab-ask-reply-label">Tinct</span><div class="lab-markdown byob-live"><p class="lab-ask-pending">A reply is on the way.</p></div></div>';
-  thread.appendChild(pending); thread.scrollTop = thread.scrollHeight;
-  const live = pending.querySelector('.byob-live');
+  chat.live = { text: '' }; renderThread();
   const focusPage = passage?.page || attached[0]?.page || page;
   const ctx = await contextText(Math.max(1, focusPage - 1), Math.min(state.pages.length, focusPage + 1), 9000);
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
@@ -2060,7 +2119,7 @@ async function ask(question, display) {
   const input = [{ role: 'user', content: rules }, ...history, { role: 'user', content: question }];
   const ctl = new AbortController(); chat.ctl = ctl;
   try {
-    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, onText: ({ text }) => { live.innerHTML = md(text); thread.scrollTop = thread.scrollHeight } });
+    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, onText: ({ text }) => liveText(text) });
     const imgs = blobs.length ? blobs : image ? [image] : null;
     let res, note = !blobs.length && attached.some(a => a.blob) ? (snipText ? (attached.some(a => a.snip) ? '\n\n*Claude can’t receive pictures in this viewer, so this answer works from the caption, labels and a rough sketch of the area.*' : '\n\n*Claude can’t receive pictures in this viewer, so this answer is based on the text inside your snip.*') : '\n\n*Claude can’t receive pictures in this viewer, so it could not see your image.*') : '';
     try { res = await call(imgs) }
@@ -2076,10 +2135,12 @@ async function ask(question, display) {
       res = await call(null);
     }
     if (imgs?.length && !note) { sampleImages = true; imgNote = 'pictures reached Claude in this view' }
+    chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text + note, at: Date.now() });
     saveTurns(); renderThread();
     if (chat.talk) speak(res.text);
   } catch (e) {
+    chat.live = null;
     if (e?.code === 'cancelled') return;
     chat.turns[chat.turns.length - 1].failed = errorCopy(e);
     if (e?.text) chat.turns.push({ role: 'assistant', content: e.text + '\n\n(Interrupted.)', at: Date.now() });
@@ -2111,18 +2172,18 @@ async function summarize() {
   askSummary(`Summarize ${what}.`, `Summarize ${ch ? 'the chapter "' + ch.label + '"' : 'these pages'} (pages ${from} to ${to}) for someone reading along: the main ideas and how they connect, key terms or results, in a short paragraph and then 3 to 6 bullets. Use only this text:\n${text}`);
 }
 async function askSummary(display, prompt) {
-  const s = await ai(); const thread = chat.el.querySelector('#thread');
-  chat.turns.push({ role: 'user', content: display, at: Date.now() }); renderThread();
-  const pending = document.createElement('div'); pending.className = 'lab-ask-turn is-assistant';
-  pending.innerHTML = '<div class="lab-ask-reply"><span class="lab-ask-reply-label">Tinct</span><div class="lab-markdown byob-live"><p class="lab-ask-pending">A reply is on the way.</p></div></div>';
-  thread.appendChild(pending);
-  const live = pending.querySelector('.byob-live');
+  const s = await ai();
+  chat.fresh = false;
+  chat.turns.push({ role: 'user', content: display, page: currentPlace().page, at: Date.now() });
+  chat.live = { text: '' }; renderThread();
   const ctl = new AbortController(); chat.ctl = ctl;
   try {
-    const res = await s(`You are Tinct's reading companion. ${bookLine()}\n\n${prompt}`, { signal: ctl.signal, cache: { gcTime: 86400000 }, onText: ({ text }) => { live.innerHTML = md(text); thread.scrollTop = thread.scrollHeight } });
+    const res = await s(`You are Tinct's reading companion. ${bookLine()}\n\n${prompt}`, { signal: ctl.signal, cache: { gcTime: 86400000 }, onText: ({ text }) => liveText(text) });
+    chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text, at: Date.now() }); saveTurns(); renderThread();
     if (chat.talk) speak(res.text);
   } catch (e) {
+    chat.live = null;
     if (e?.code === 'cancelled') return;
     chat.turns[chat.turns.length - 1].failed = errorCopy(e); saveTurns(); renderThread();
   }

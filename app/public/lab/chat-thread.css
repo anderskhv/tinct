@@ -1,0 +1,219 @@
+/* The reader's chat thread, shared by the book reader (bundled through
+   src/lab/LabAskPane.tsx) and the PDF reader (linked from
+   lab/addbook/index.html). Values from docs/chat/mockup.html, "The thread,
+   measured". The book's own type: EB Garamond for every word, the system face
+   only for the 12px time and the 11px hint. Follows the reader's look: Paper,
+   Night (.is-night), Book (.is-book-theme) and e-ink (no fills or shadows).
+
+   The homes keep their geometry (.lab-ask's box in the book reader, the
+   .byob-dock in the PDF reader, the phone sheet); this file only dresses the
+   inside, and the frame's paper, ring and corners. The doubled .tc.tc lifts
+   these rules above the readers' older chat rules without !important where
+   that is enough. */
+
+.tc {
+  --tc-paper: #ece7db; --tc-ink: #0b0b0b; --tc-muted: #6a6256; --tc-faint: #9a9183;
+  --tc-bubble: #dfd5bf; --tc-hair: rgba(32, 26, 19, .14); --tc-wash: rgba(32, 26, 19, .08); --tc-bar: #b9ad92;
+  --tc-ring: 0 0 0 1px var(--tc-hair), 0 24px 60px rgba(0, 0, 0, .18);
+  --tc-gara: "EB Garamond", Georgia, serif;
+  --tc-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --tc-pad: 20px; --tc-answer: 17px; --tc-question: 16px;
+}
+.lab.is-book-theme .tc { --tc-paper: #e7dcc7; --tc-ink: #201a13; --tc-muted: #675b4b; --tc-bubble: #dacdb3; --tc-bar: #b3a586; }
+.lab.is-night .tc {
+  --tc-paper: #171411; --tc-ink: #d6ccbf; --tc-muted: #9a9083; --tc-faint: #6f675d;
+  --tc-bubble: #2a241e; --tc-hair: rgba(214, 204, 191, .14); --tc-wash: rgba(214, 204, 191, .1); --tc-bar: #5a5146;
+  --tc-ring: 0 0 0 1px var(--tc-hair), 0 24px 60px rgba(0, 0, 0, .45);
+}
+.lab.is-desktop .tc { --tc-pad: 24px; --tc-answer: 16px; --tc-question: 15px; }
+.lab.is-desktop .tc.byob-dock { --tc-pad: 20px; --tc-ring: 0 0 0 1px var(--tc-hair), 0 20px 50px rgba(0, 0, 0, .14); }
+
+/* The frame: paper, a hairline ring, no header. */
+.lab .lab-ask.tc.tc {
+  padding: 0 !important; gap: 0; border: 0 !important;
+  background: var(--tc-paper) !important; color: var(--tc-ink);
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+  font-family: var(--tc-gara); display: flex; flex-direction: column; justify-content: flex-end;
+}
+.lab.is-desktop .lab-ask.tc.tc.is-desktop-companion:not(.byob-dock) { border-radius: 24px !important; box-shadow: var(--tc-ring) !important; overflow: visible !important; }
+.lab.is-desktop .lab-ask.tc.tc.byob-dock { border-radius: 16px !important; box-shadow: var(--tc-ring) !important; }
+/* The phone sheet keeps its own place (the PDF reader's is fixed); the close mark needs a positioned box. */
+.lab .lab-ask.tc.tc.is-phone-sheet, .lab.is-phone .lab-ask.tc.tc { box-shadow: none !important; }
+.lab .lab-ask.tc.tc.is-phone-sheet:not(.byob-phone-chat), .lab.is-phone .lab-ask.tc.tc:not(.byob-phone-chat) { position: relative; }
+
+/* One faint close mark, 14px from the top and 16px from the right (28px hit area). */
+.tc .tc-close {
+  position: absolute; top: 14px; right: 16px; z-index: 4; width: 28px; height: 28px; min-height: 0;
+  display: grid; place-items: center; padding: 0; margin: 0; border: 0; border-radius: 50%;
+  background: transparent; color: var(--tc-faint); cursor: pointer; box-shadow: none;
+}
+.tc .tc-close:hover { color: var(--tc-muted); }
+.tc .tc-close svg { width: 12px; height: 12px; display: block; }
+/* The book box's collapse tab on its right edge. The box sits 8px from the
+   window's edge (READER_COMPANION_WINDOW), so the tab shows 8px outside it
+   rather than the mockup's 22px; the rest lies over the box's gutter. */
+.tc .tc-tab {
+  position: absolute; right: -8px; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 30px; height: 72px; min-height: 0; padding: 0 0 0 6px; margin: 0; border: 0; border-radius: 0 18px 18px 0;
+  background: var(--tc-paper); color: var(--tc-muted); box-shadow: 0 0 0 1px var(--tc-hair), 6px 0 16px rgba(0, 0, 0, .08);
+  display: grid; place-items: center; cursor: pointer;
+}
+.tc .tc-tab svg { display: block; }
+/* An invisible strip across the top keeps the floating box draggable (there is no header to hold). */
+.tc .tc-handle { position: absolute; top: 0; left: 24px; right: 52px; height: 30px; z-index: 2; cursor: grab; }
+
+/* The thread. */
+.tc .tc-body { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; border-radius: inherit; overflow: hidden; clip-path: inset(0); }
+.tc .tc-thread {
+  flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; overflow-anchor: none; overscroll-behavior: contain;
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 36px var(--tc-pad) 2px; margin: 0; scrollbar-width: thin; scrollbar-color: var(--tc-hair) transparent;
+}
+.tc .tc-thread > :first-child { margin-top: auto; }
+.tc .tc-fade { position: absolute; left: 0; right: 0; top: 0; height: 36px; background: linear-gradient(var(--tc-paper), transparent); pointer-events: none; z-index: 1; }
+.tc .tc-spacer { flex: none; margin: 0 0 -12px; }
+
+.tc .tc-divider {
+  display: flex; align-items: center; gap: 12px; margin: 10px 0 2px; padding: 0;
+  color: var(--tc-faint); font: italic 13px/1.4 var(--tc-gara); white-space: nowrap; letter-spacing: 0; text-transform: none;
+}
+.tc .tc-divider::before, .tc .tc-divider::after { content: ""; flex: 1; height: 1px; background: var(--tc-hair); }
+.tc .tc-older {
+  align-self: center; margin: 0; padding: 4px 10px; border: 0; background: none; min-height: 0;
+  color: var(--tc-faint); font: italic 13px/1.4 var(--tc-gara); cursor: pointer;
+}
+
+.tc .tc-turn { position: relative; display: flex; flex-direction: column; min-width: 0; margin: 0; }
+.tc .tc-q { align-items: flex-end; margin-top: 12px; }
+.tc .tc-a + .tc-q, .tc .tc-q.has-quote { margin-top: 16px; }
+.tc .tc-q + .tc-q:not(.has-quote) { margin-top: 0; }
+.tc .tc-bubble {
+  max-width: 82%; margin: 0; padding: 8px 14px; border-radius: 16px 16px 4px 16px;
+  background: var(--tc-bubble); color: var(--tc-ink);
+  font: 400 var(--tc-question)/1.4 var(--tc-gara); white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.tc .tc-quote {
+  position: relative; display: block; max-width: 82%; margin: 0 0 6px; padding: 2px 0 2px 14px; border: 0; background: none; min-height: 0;
+  color: var(--tc-muted); font: italic 14px/1.4 var(--tc-gara); text-align: left; cursor: pointer; overflow-wrap: anywhere;
+}
+.tc .tc-quote::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; border-radius: 1px; background: var(--tc-bar); }
+.tc .tc-quote:disabled { cursor: default; }
+.tc .tc-note { max-width: 82%; margin-top: 4px; color: var(--tc-faint); font: italic 13px/1.4 var(--tc-gara); text-align: right; }
+.tc .tc-imgs { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; margin: 0 0 6px; }
+.tc .tc-imgs img { max-width: 120px; max-height: 90px; border-radius: 8px; }
+
+.tc .tc-answer { color: var(--tc-ink); font: 400 var(--tc-answer)/1.5 var(--tc-gara); overflow-wrap: anywhere; min-width: 0; }
+.tc .tc-answer :is(.tc-md, .lab-markdown) { margin: 0; padding: 0; font: inherit; color: inherit; }
+.tc .tc-answer :is(p, li, ul, ol, strong, em, a, code) { font-family: var(--tc-gara) !important; font-size: inherit !important; line-height: inherit !important; color: inherit; letter-spacing: 0; text-transform: none; }
+.tc .tc-answer p { margin: 0 0 .7em !important; }
+.tc .tc-answer :is(ul, ol) { margin: 0 0 .7em; padding-left: 1.2em; }
+.tc .tc-answer li { margin: 0 0 .25em !important; }
+.tc .tc-answer :is(p, ul, ol):last-child { margin-bottom: 0 !important; }
+.tc .tc-answer code { background: none; padding: 0; font-style: italic; }
+.tc .tc-answer a { color: inherit; text-decoration: underline; text-decoration-color: var(--tc-faint); }
+
+/* Streaming: a blinking 2px ink cursor, no "thinking" line. */
+.tc .tc-cursor, .tc .tc-a.is-streaming :is(.tc-md > :last-child:not(ul):not(ol):not(.lab-markdown), .tc-md > .lab-markdown > :last-child:not(ul):not(ol), .tc-md :is(ul, ol):last-child > li:last-child)::after {
+  content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 2px; vertical-align: -.18em;
+  background: var(--tc-ink); animation: tc-blink 1s steps(1) infinite;
+}
+@keyframes tc-blink { 50% { opacity: 0; } }
+
+/* The hover / press row: copy and the time. Hidden by default; on hover
+   (desktop), on press-and-hold (phone, [data-pressed]); the newest answer
+   keeps its copy mark (.is-kept) without the time or the wash. */
+.tc .tc-acts {
+  position: relative; display: none; align-items: center; gap: 18px; align-self: stretch;
+  height: 28px; margin: 4px 0 -6px; color: var(--tc-faint);
+}
+.tc .tc-q .tc-acts { justify-content: flex-start; }
+.tc .tc-acts.is-kept { display: flex; }
+.tc .tc-acts.is-kept .tc-time { display: none; }
+.tc .tc-turn[data-pressed] .tc-acts, .tc .tc-turn[data-pressed] .tc-acts .tc-time { display: flex; }
+@media (hover: hover) {
+  .tc .tc-turn:hover .tc-acts, .tc .tc-turn:hover .tc-acts .tc-time, .tc .tc-turn:focus-within .tc-acts { display: flex; }
+  .tc .tc-turn:hover .tc-acts::after { content: ""; position: absolute; left: -12px; right: -12px; top: 0; bottom: 0; border-radius: 8px; background: var(--tc-wash); z-index: -1; }
+}
+.tc .tc-turn[data-pressed] .tc-acts::after { content: ""; position: absolute; left: -12px; right: -12px; top: 0; bottom: 0; border-radius: 8px; background: var(--tc-wash); z-index: -1; }
+.tc .tc-mark {
+  position: relative; width: 22px; height: 22px; min-width: 0; min-height: 0; padding: 0; margin: 0; border: 0; border-radius: 0;
+  display: grid; place-items: center; flex: none; background: transparent; color: var(--tc-faint); box-shadow: none; cursor: pointer;
+}
+.tc .tc-mark::after { content: ""; position: absolute; inset: -8px; }
+.tc .tc-mark:hover { color: var(--tc-muted); }
+.tc .tc-mark svg { width: 17px; height: 17px; display: block; }
+.tc .tc-time { margin-left: auto; font: 400 12px/1 var(--tc-sans); letter-spacing: .01em; color: var(--tc-faint); white-space: nowrap; }
+.tc .tc-copy { margin-left: -2px; }
+
+/* "Latest": ink pill, paper text, centred 14px above the composer. */
+.tc .tc-latest {
+  position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 3;
+  display: flex; align-items: center; gap: 6px; min-height: 0; margin: 0; padding: 8px 14px; border: 0; border-radius: 999px;
+  background: var(--tc-ink); color: var(--tc-paper); font: 500 13px/1 var(--tc-sans); cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+}
+.tc .tc-latest[hidden] { display: none; }
+
+/* Status lines above the composer (dictation, Talk, a notice): quiet italics. */
+.tc .tc-status {
+  position: static; inset: auto; transform: none; width: auto; max-width: none; z-index: auto;
+  margin: 0 var(--tc-pad) 6px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
+  color: var(--tc-muted); font: italic 13px/1.4 var(--tc-gara); letter-spacing: 0; text-transform: none; text-align: left;
+}
+.tc .tc-status[hidden] { display: none; }
+.tc .tc-status button { margin-left: 8px; padding: 0; border: 0; background: none; min-height: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+
+/* The composer: a hairline, 12px of air, then the text and a 2px caret. */
+.tc .tc-compose { position: relative; flex: none; margin: 0; padding: 8px var(--tc-pad) calc(16px + env(safe-area-inset-bottom, 0px)); background: transparent; border: 0; box-shadow: none; }
+.lab.is-desktop .tc .tc-compose { padding-bottom: 18px; }
+.lab.is-desktop .tc.byob-dock .tc-compose { padding-bottom: 16px; }
+.lab.is-phone.has-phone-keyboard .tc .tc-compose, .lab.has-phone-chrome.has-phone-keyboard .tc .tc-compose { padding-bottom: 6px; }
+.tc .tc-attached { position: relative; display: block; margin: 0 0 10px; padding: 2px 34px 2px 14px; color: var(--tc-muted); font: italic 14px/1.4 var(--tc-gara); max-height: 5.6em; overflow-y: auto; }
+.tc .tc-attached::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; border-radius: 1px; background: var(--tc-bar); }
+.tc .tc-attached .tc-mark { position: absolute; right: 0; top: 0; }
+.tc .tc-attached .tc-mark svg { width: 12px; height: 12px; }
+.tc .tc-field {
+  position: relative; display: flex; align-items: flex-end; gap: 14px; min-height: 44px; box-sizing: border-box;
+  margin: 0; padding: 12px 0 0; border: 0; border-top: 1px solid var(--tc-hair); border-radius: 0; background: transparent; box-shadow: none;
+}
+.tc .tc-input {
+  flex: 1 1 auto; min-width: 0; height: 31px; min-height: 31px; max-height: none; box-sizing: border-box;
+  margin: 0; padding: 4px 0 5px; border: 0; border-radius: 0; outline: none; background: transparent; box-shadow: none; resize: none;
+  color: var(--tc-ink); caret-color: var(--tc-ink); font: 400 16px/1.4 var(--tc-gara); letter-spacing: 0;
+  -webkit-appearance: none; appearance: none;
+}
+.tc .tc-input::placeholder { color: transparent; }
+.tc .tc-input:focus, .tc .tc-input:focus-visible { outline: none !important; box-shadow: none !important; }
+/* At rest (empty) the caret is the mockup's 2px bar, blinking once a second. */
+.tc .tc-field.is-empty .tc-input { caret-color: transparent; }
+.tc .tc-field.is-empty::before {
+  content: ""; position: absolute; left: 0; top: 18px; width: 2px; height: 18px; background: var(--tc-ink);
+  animation: tc-blink 1s steps(1) infinite; pointer-events: none;
+}
+.tc .tc-field .tc-mark { margin-bottom: 4px; }
+.tc .tc-field .tc-send { color: var(--tc-ink); }
+.tc .tc-field .tc-mark[aria-pressed="true"] { color: var(--tc-ink); }
+.tc .tc-field .tc-mark:disabled { opacity: .45; cursor: default; }
+.tc .tc-field .tc-mark[hidden] { display: none; }
+.tc .tc-field .tc-talk-live { color: var(--tc-ink); }
+/* At 11px the hint is wider than the 312px book box (about 336-358px even with thin
+   separators), so it wraps there; balanced, the two lines are even. */
+.tc .tc-hint { margin: 8px 0 0; text-align: center; color: var(--tc-faint); font: 400 11px/1.3 var(--tc-sans); text-wrap: balance; }
+
+.tc button:focus-visible { outline: 2px solid var(--tc-faint); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tc .tc-cursor, .tc .tc-field.is-empty::before, .tc .tc-a.is-streaming *::after { animation: none !important; }
+}
+
+/* e-ink: ink on white, outlines instead of fills, no shadows. */
+html[data-eink="true"] .tc, html[data-pdf-theme="eink"] .tc {
+  --tc-paper: #fff; --tc-ink: #111; --tc-muted: #333; --tc-faint: #555; --tc-hair: #777; --tc-wash: transparent; --tc-bar: #111; --tc-ring: none;
+}
+html[data-eink="true"] .tc.tc, html[data-pdf-theme="eink"] .tc.tc,
+html[data-eink="true"] .tc :is(.tc-tab, .tc-latest), html[data-pdf-theme="eink"] .tc :is(.tc-tab, .tc-latest) { box-shadow: none !important; }
+html[data-eink="true"] .lab .lab-ask.tc.tc, html[data-pdf-theme="eink"] .lab .lab-ask.tc.tc { border: 1px solid #777 !important; }
+html[data-eink="true"] .tc .tc-bubble, html[data-pdf-theme="eink"] .tc .tc-bubble { background: transparent; outline: 1px solid var(--tc-ink); outline-offset: -1px; }
+html[data-eink="true"] .tc .tc-fade, html[data-pdf-theme="eink"] .tc .tc-fade { display: none; }
+html[data-eink="true"] .tc .tc-latest, html[data-pdf-theme="eink"] .tc .tc-latest { background: #fff; color: #111; outline: 1px solid #111; }
+html[data-eink="true"] .tc *, html[data-pdf-theme="eink"] .tc * { animation: none !important; }

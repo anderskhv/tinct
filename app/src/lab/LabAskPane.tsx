@@ -1,10 +1,17 @@
-import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { useReaderWindow } from './useReaderWindow'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
 import { LabMarkdown } from './LabMarkdown'
-
+// The thread both readers share (Anders, 9 Oct 2026; docs/chat/): its model,
+// keys, press-and-hold and look live in public/lab/chat-thread.{js,css}, which
+// the PDF reader for a reader's own books loads too.
+import {
+  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, HINT_TEXT, ICONS, isAway, keptCopyIndex, lastQuestion, scrollToLatest,
+  takeHint, threadRows, timeLabel,
+} from '../../public/lab/chat-thread.js'
+import '../../public/lab/chat-thread.css'
 
 interface LabAskPaneProps {
   conversationState: LabConversationState
@@ -39,6 +46,8 @@ interface LabAskPaneProps {
    * date when the newer turns were had on another device.
    */
   historyStatus?: 'loading' | 'ready' | 'unavailable'
+  /** A question's quoted passage was tapped: show that passage on the page. */
+  onQuote?: (turn: LabAskTurn) => void
   /**
    * Desktop minimize, held by the host when it passes these (the menu's
    * Librarian row restores a minimized chat). Uncontrolled otherwise.
@@ -54,27 +63,10 @@ export const LAB_ASK_FOLLOW_PX = 80
 export const LAB_ASK_WINDOW = 40
 /** Scrolling within this many pixels of the top reveals the next window of older turns. */
 export const LAB_ASK_LOAD_MORE_PX = 120
-/** The composer grows with its text up to here, then scrolls. */
-export const LAB_ASK_MAX_COMPOSER_PX = 180
-/** Breathing room above a reply pinned to the top of the viewport. */
-export const LAB_ASK_REPLY_TOP_GAP = 8
-
-const DAY_MS = 24 * 60 * 60 * 1000
-
-/**
- * The day a divider's turns belong to, when that is not today. The Bible is
- * one thread across all 1,189 chapters, so the turn above a divider can be
- * months old; the date is what tells the reader so at a glance.
- */
-export function labAskDividerDate(timestamp: number | undefined, now = Date.now()): string | null {
-  if (timestamp == null || !Number.isFinite(timestamp)) return null
-  const day = new Date(timestamp)
-  const today = new Date(now)
-  if (day.toDateString() === today.toDateString()) return null
-  if (day.toDateString() === new Date(now - DAY_MS).toDateString()) return 'Yesterday'
-  const sameYear = day.getFullYear() === today.getFullYear()
-  return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', ...(sameYear ? {} : { year: 'numeric' }) }).format(day)
-}
+/** The composer grows with its text to five lines (16px/1.4, plus its padding), then scrolls. */
+export const LAB_ASK_MAX_COMPOSER_PX = Math.round(16 * 1.4 * COMPOSER_LINES)
+/** Breathing room above a reply pinned to the top of the viewport: clear of the close mark and the top fade (36px). */
+export const LAB_ASK_REPLY_TOP_GAP = 36
 
 /**
  * A question that never got an answer: the turn after it is another question,
@@ -92,26 +84,6 @@ export function labAskTurnUnanswered(turns: LabAskTurn[], index: number, typedLo
 
 function isNearBottom(node: HTMLElement): boolean {
   return node.scrollHeight - node.scrollTop - node.clientHeight <= LAB_ASK_FOLLOW_PX
-}
-
-function MicIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="9" y="3.5" width="6" height="10" rx="3" stroke="currentColor" strokeWidth="1.55" />
-      <path d="M6.5 11.5a5.5 5.5 0 0 0 11 0" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" />
-      <path d="M12 17v3.2M9.2 20.2h5.6" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" />
-    </svg>
-  )
-}
-
-function VoiceIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <rect x="4.2" y="9" width="2.6" height="6" rx="1.1" />
-      <rect x="10.7" y="5" width="2.6" height="14" rx="1.1" />
-      <rect x="17.2" y="8" width="2.6" height="8" rx="1.1" />
-    </svg>
-  )
 }
 
 export function LabAskPane({
@@ -141,6 +113,7 @@ export function LabAskPane({
   historyStatus = 'ready',
   minimized: minimizedProp,
   onMinimizedChange,
+  onQuote,
 }: LabAskPaneProps) {
   const [minimizedOwn, setMinimizedOwn] = useState(false)
   const minimized = minimizedProp ?? minimizedOwn
@@ -152,23 +125,22 @@ export function LabAskPane({
   const windowRef = useReaderWindow<HTMLElement>('chat', !!desktopCompanion && !minimized)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
-  // Auto-grow. The measurement collapses the field to 0px to read its
-  // scrollHeight, which for that moment makes the content overflow the box by
-  // its whole height — and an overflowing textarea paints a scrollbar. Where
-  // scrollbars are overlays (macOS) that is a short dark thumb at the field's
-  // top-right, flashed on every keystroke that adds a line. So the field
-  // carries no scrollbar at all until it is actually clipped: overflow is
-  // hidden while the box still fits its text, and only the capped field —
-  // which really does hide text — gets one back.
+  // Auto-grow to five lines (fitComposer: no scrollbar until the field really clips).
   useLayoutEffect(() => {
     const field = textareaRef.current
-    if (!field) return
-    field.style.overflowY = 'hidden'
-    field.style.height = '0px'
-    const content = field.scrollHeight
-    field.style.height = `${Math.min(content, LAB_ASK_MAX_COMPOSER_PX)}px`
-    if (content > LAB_ASK_MAX_COMPOSER_PX) field.style.overflowY = 'auto'
+    if (field) fitComposer(field)
   }, [draft])
+  // The keyboard hint, once per session, on the desktop only.
+  // (An effect, not a state initializer: React's strict mode runs initializers twice.)
+  const [hint, setHint] = useState(false)
+  useEffect(() => {
+    if (phoneSheet) return
+    let storage: Storage | null = null
+    try { storage = window.sessionStorage } catch { /* blocked */ }
+    if (takeHint(storage)) setHint(true)
+  }, [])
+  // More than a screen above the newest line: the "Latest" pill.
+  const [away, setAway] = useState(false)
   const copyTurn = async (turn: LabAskTurn) => {
     try {
       await navigator.clipboard.writeText(turn.content)
@@ -222,6 +194,8 @@ export function LabAskPane({
   // viewport even while the reply is short; it shrinks as the reply grows,
   // so the text fills downward under a still first line.
   const spacerRef = useRef<HTMLDivElement | null>(null)
+  // Opened on a clean window and nothing new since: the space follows the thread's height.
+  const cleanOpenRef = useRef(false)
   const canSend = draft.trim().length > 0
   const empty = turns.length === 0 && !typedLoading
   const syncing = historyStatus === 'loading'
@@ -290,6 +264,7 @@ export function LabAskPane({
   const onThreadScroll = useCallback(() => {
     const node = threadRef.current
     if (!node) return
+    setAway(isAway(node))
     if (hidden > 0 && node.scrollTop <= LAB_ASK_LOAD_MORE_PX && revealAnchorRef.current === null) {
       revealOlder()
       return
@@ -336,10 +311,13 @@ export function LabAskPane({
       holdReplyTop(node, heldReply)
     } else {
       if (newTurn || justOpened) setSpacer(node, null)
-      // Open on fresh writing space; the complete thread remains immediately above.
+      // Open on a clean window: one screen of writing space above the
+      // composer, the whole thread immediately above it, reached by scrolling up.
       if (justOpened && !focusTurnId && !typedLoading && spacerRef.current) {
         spacerRef.current.style.height = `${node.clientHeight}px`
+        cleanOpenRef.current = true
       }
+      if (newTurn && !justOpened) cleanOpenRef.current = false
       const shouldFollow = justOpened
         || (newTurn && lastTurn.role === 'user')
         || pinnedScrollTopRef.current !== null
@@ -366,6 +344,12 @@ export function LabAskPane({
     focusedTurnRef.current = focusTurnId
   }, [focusTurnId, hidden, turns])
 
+  // Press-and-hold on the phone reveals a message's row (the shared behaviour).
+  useEffect(() => {
+    const node = threadRef.current
+    return node ? bindPress(node) : undefined
+  }, [])
+
   // The phone keyboard shrinks the thread; keep the newest message in view
   // when the reader was already at the bottom.
   useEffect(() => {
@@ -375,6 +359,8 @@ export function LabAskPane({
       const current = threadRef.current
       if (!current) return
       if (pinModeRef.current === 'reply-top' && pinnedScrollTopRef.current !== null) return
+      const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
+      if (resizedClean && spacerRef.current) spacerRef.current.style.height = `${current.clientHeight}px`
       if (pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(current)
     })
     observer.observe(node)
@@ -389,6 +375,7 @@ export function LabAskPane({
       return
     }
     setLocalError(null)
+    setHint(false)
     if (phoneSheet) {
       textareaRef.current?.blur()
       onKeyboardOpenChange?.(false)
@@ -396,260 +383,245 @@ export function LabAskPane({
     onSubmit(value)
   }
 
-  // Above the composer, not inside the thread: the thread opens scrolled to
-  // its end, so a line at the top of it is the one thing the reader cannot see.
+  const close = () => { textareaRef.current?.blur(); onKeyboardOpenChange?.(false); onDone?.() }
+  const streaming = typedLoading && turns[turns.length - 1]?.role === 'assistant'
+  const kept = keptCopyIndex(turns, streaming)
+  const placeOf = (turn: LabAskTurn) => (turn.chapterNumber != null ? chapterLabels[turn.chapterNumber] : undefined)
+  // Dividers come from the whole thread, so the first turn of a window shows one only when it starts a new chapter or day.
+  const rows = threadRows(turns.map(turn => ({ role: turn.role, at: turn.timestamp, place: placeOf(turn) })))
+    .flatMap(row => {
+      if (row.type === 'turn') return row.index >= hidden ? [{ ...row, index: row.index - hidden }] : []
+      const next = Number(row.key.slice('divider-'.length))
+      return next > hidden ? [row] : []
+    })
+
+  // Status lines sit above the composer, not inside the thread: the thread
+  // opens scrolled to its end, so a line at its top is the one thing the
+  // reader cannot see. No empty-state copy: an empty thread is a caret.
   const syncingNode = syncing && !empty && (
-    <p className="lab-ask-syncing" data-testid="lab-ask-syncing" role="status">{LAB_COPY.askHistorySyncing}</p>
+    <p className="tc-status" data-testid="lab-ask-syncing" role="status">{LAB_COPY.askHistorySyncing}</p>
   )
   const noticeNode = (notice || localError) && (
-    <p className="lab-ask-notice" data-testid="lab-ask-notice">{notice || localError}{onRetry && !typedLoading && <button type="button" className="lab-text-btn" onClick={onRetry}>Try again</button>}</p>
+    <p className="tc-status" data-testid="lab-ask-notice">{notice || localError}{onRetry && !typedLoading && <button type="button" onClick={onRetry}>Try again</button>}</p>
   )
   const dictationNode = dictationState !== 'idle' && (
-    <p className="lab-ask-voice-status" role="status" data-testid="lab-dictation-status">
+    <p className="tc-status" role="status" data-testid="lab-dictation-status">
       {dictationState === 'starting' ? 'Starting microphone…' : dictationState === 'transcribing' ? 'Writing down what you said…' : 'Listening — tap stop to finish'}
     </p>
   )
   const statusNode = conversationState !== 'idle' && (
-    <p
-      className={`lab-ask-voice-status is-${conversationState}`}
-      data-testid="lab-ask-voice-status"
-      data-voice-phase={conversationState}
-      role="status"
-    >
-      <span className="lab-ask-voice-status-glyph" aria-hidden="true"><i /><i /><i /></span>
-      <span>{labVoicePhaseLabel(conversationState)}</span>
+    <p className={`tc-status is-${conversationState}`} data-testid="lab-ask-voice-status" data-voice-phase={conversationState} role="status">
+      {labVoicePhaseLabel(conversationState)}
     </p>
   )
   const composerNode = (
     <form
-      className="lab-ask-composer is-multiline"
+      className="tc-compose"
       data-testid="lab-ask-composer"
       data-voice-phase={conversationState}
       onSubmit={(event) => {
         event.preventDefault()
         submit()
       }}
-      // An attached highlight fills most of the composer, so most of what the
-      // reader can see and aim at is the quote rather than the field. Any tap
-      // on the composer that is not aimed at a control means "write here".
+      // Any press on the composer that is not aimed at a control means "write here".
       onPointerDown={(event) => {
         const target = event.target as HTMLElement
         if (target.closest('button, a, input, textarea, [contenteditable]')) return
-        // The quote scrolls on its own; a tap inside it is not a miss.
-        if (target.closest('.lab-ask-attachment-text')) return
+        if (target.closest('.tc-attached')) return
         event.preventDefault()
         textareaRef.current?.focus()
       }}
     >
       {attachment && (
-        <section className="lab-ask-attachment" data-testid="lab-ask-attachment" aria-label={attachment.kind === 'figure' ? 'Figure attached to question' : 'Highlighted passage attached to question'}>
-          <span className="lab-ask-attachment-label">{attachment.kind === 'figure' ? 'Figure:' : 'Highlight:'}</span>
-          <p className="lab-ask-attachment-text" tabIndex={0}>{attachment.text}</p>
-          <div className="lab-ask-attachment-actions">
-            <button type="button" onClick={() => {
-              onRemoveAttachment?.()
-              window.requestAnimationFrame(() => textareaRef.current?.focus())
-            }}>Remove</button>
-          </div>
+        <section className="tc-attached" data-testid="lab-ask-attachment" aria-label={attachment.kind === 'figure' ? 'Figure attached to question' : 'Highlighted passage attached to question'} tabIndex={0}>
+          {cutQuote(attachment.text)}
+          <button type="button" className="tc-mark" aria-label="Remove" onClick={() => {
+            onRemoveAttachment?.()
+            window.requestAnimationFrame(() => textareaRef.current?.focus())
+          }} dangerouslySetInnerHTML={{ __html: ICONS.close }} />
         </section>
       )}
-      <label className="lab-visually-hidden" htmlFor="lab-ask-input">
-        {LAB_COPY.askPlaceholder}
-      </label>
-      <textarea
-        id="lab-ask-input"
-        data-testid="lab-ask-input"
-        ref={node => {
-          textareaRef.current = node
-          if (typeof inputRef === 'function') inputRef(node)
-          else if (inputRef) (inputRef as MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null>).current = node
-        }}
-        rows={1}
-        className="lab-ask-input"
-        value={draft}
-        onFocus={() => onKeyboardOpenChange?.(true)}
-        onBlur={() => onKeyboardOpenChange?.(false)}
-        onChange={event => onDraftChange(event.target.value)}
-        onKeyDown={event => {
-          if (event.key !== 'Enter' || event.nativeEvent.isComposing) return
-          // Cmd/Ctrl+Enter sends everywhere. On the desktop, where there is a
-          // real keyboard, plain Enter sends too and Shift+Enter is the
-          // newline — the phone sheet keeps Enter as a newline.
-          const send = event.metaKey || event.ctrlKey || (!phoneSheet && !event.shiftKey && !event.altKey)
-          if (!send) return
-          event.preventDefault()
-          submit()
-        }}
-        placeholder={attachment ? (attachment.kind === 'figure' ? 'Ask about this figure…' : 'Ask about this passage…') : LAB_COPY.askPlaceholder}
-      />
-      <button
-        type="button"
-        className="lab-ask-icon lab-ask-mic"
-        onClick={onMic}
-        aria-label={dictationState === 'idle' ? 'Dictate a question' : 'Stop dictation'}
-        aria-pressed={dictationState !== 'idle'}
-        disabled={conversationState !== 'idle' || dictationState === 'transcribing'}
-        data-testid="lab-ask-mic"
-      >
-        {dictationState !== 'idle' ? (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <rect x="6" y="6" width="12" height="12" rx="2" />
-          </svg>
-        ) : <MicIcon />}
-      </button>
-      <button
-        type="button"
-        className="lab-ask-send"
-        hidden={!canSend}
-        aria-label={LAB_COPY.sendLabel}
-        data-testid="lab-ask-send"
-        disabled={typedLoading || !canSend}
-        onPointerDown={(event) => {
-          // Keep the focused input (and mobile keyboard chrome) stable until
-          // the activation completes. Otherwise the target can move between
-          // pointer-down and click when the input blurs.
-          event.preventDefault()
-        }}
-        onClick={submit}
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-      </button>
-      {conversationState !== 'idle' && (
+      <div className={`tc-field${draft.length === 0 ? ' is-empty' : ''}`}>
+        <label className="lab-visually-hidden" htmlFor="lab-ask-input">{LAB_COPY.askPlaceholder}</label>
+        <textarea
+          id="lab-ask-input"
+          data-testid="lab-ask-input"
+          ref={node => {
+            textareaRef.current = node
+            if (typeof inputRef === 'function') inputRef(node)
+            else if (inputRef) (inputRef as MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null>).current = node
+          }}
+          rows={1}
+          className="tc-input"
+          value={draft}
+          enterKeyHint={phoneSheet ? undefined : 'send'}
+          onFocus={() => onKeyboardOpenChange?.(true)}
+          onBlur={() => onKeyboardOpenChange?.(false)}
+          onChange={event => onDraftChange(event.target.value)}
+          onKeyDown={event => {
+            const action = composerKey({
+              key: event.key, shiftKey: event.shiftKey, metaKey: event.metaKey, ctrlKey: event.ctrlKey, altKey: event.altKey,
+              isComposing: event.nativeEvent.isComposing,
+            }, { phone: phoneSheet, empty: draft.length === 0 })
+            if (action === 'send') {
+              event.preventDefault()
+              submit()
+            } else if (action === 'recall') {
+              const last = lastQuestion(turns)
+              if (!last) return
+              event.preventDefault()
+              onDraftChange(last)
+            }
+            // Escape: the reader closes Chat itself (LabApp), like every other sheet.
+          }}
+        />
+        {conversationState !== 'idle' ? (
+          <button
+            type="button"
+            className={`tc-mark tc-talk-live is-${conversationState} is-alive`}
+            onClick={onStopVoice ?? onMic}
+            aria-label={LAB_COPY.stopTalk}
+            data-testid="lab-ask-voice"
+            data-voice-phase={conversationState}
+            dangerouslySetInnerHTML={{ __html: ICONS.close }}
+          />
+        ) : null}
+        {(!canSend || dictationState !== 'idle') && (
+          <button
+            type="button"
+            className="tc-mark tc-mic"
+            onClick={onMic}
+            aria-label={dictationState === 'idle' ? 'Dictate a question' : 'Stop dictation'}
+            aria-pressed={dictationState !== 'idle'}
+            disabled={conversationState !== 'idle' || dictationState === 'transcribing'}
+            data-testid="lab-ask-mic"
+            dangerouslySetInnerHTML={{ __html: dictationState !== 'idle' ? ICONS.stop : ICONS.mic }}
+          />
+        )}
+        {conversationState === 'idle' && !canSend && dictationState === 'idle' && onVoiceMode && (
+          <button
+            type="button"
+            className="tc-mark tc-talk"
+            onClick={onVoiceMode}
+            aria-label={LAB_COPY.voiceModeLabel}
+            data-testid="lab-ask-voice"
+            data-voice-phase={conversationState}
+            dangerouslySetInnerHTML={{ __html: ICONS.talk }}
+          />
+        )}
         <button
           type="button"
-          className={`lab-ask-icon lab-ask-voice is-${conversationState} is-alive`}
-          onClick={onStopVoice ?? onMic}
-          aria-label={LAB_COPY.stopTalk}
-          data-testid="lab-ask-voice"
-          data-voice-phase={conversationState}
-        >
-          <span className="lab-ask-voice-x" aria-hidden="true">×</span>
-        </button>
-      )}
-      {conversationState === 'idle' && !canSend && dictationState === 'idle' && onVoiceMode && (
-        <button
-          type="button"
-          className="lab-ask-icon lab-ask-voice"
-          onClick={onVoiceMode}
-          aria-label={LAB_COPY.voiceModeLabel}
-          data-testid="lab-ask-voice"
-          data-voice-phase={conversationState}
-        >
-          <VoiceIcon />
-        </button>
-      )}
+          className="tc-mark tc-send"
+          hidden={!canSend}
+          aria-label={LAB_COPY.sendLabel}
+          data-testid="lab-ask-send"
+          disabled={typedLoading || !canSend}
+          onPointerDown={(event) => {
+            // Keep the focused input (and mobile keyboard chrome) stable until
+            // the activation completes. Otherwise the target can move between
+            // pointer-down and click when the input blurs.
+            event.preventDefault()
+          }}
+          onClick={submit}
+          dangerouslySetInnerHTML={{ __html: ICONS.send }}
+        />
+      </div>
+      {hint && !phoneSheet && <p className="tc-hint" data-testid="lab-ask-hint">{HINT_TEXT}</p>}
     </form>
   )
+  const latestNode = (
+    <button type="button" className="tc-latest" data-testid="lab-ask-latest" hidden={!away} onClick={() => {
+      const node = threadRef.current
+      if (node) scrollToLatest(node)
+    }}><span dangerouslySetInnerHTML={{ __html: ICONS.down }} />Latest</button>
+  )
   return (
-    <>
     <aside
       style={minimized && desktopCompanion ? { display: 'none' } : undefined}
       ref={windowRef}
       data-window-minimized={minimized && desktopCompanion ? 'true' : undefined}
-      className={`lab-ask ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
+      className={`lab-ask tc ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
       data-testid="lab-ask-pane"
       data-companion={desktopCompanion || undefined}
       aria-label={LAB_DESKTOP_PANES[0]}
     >
       {desktopCompanion && !minimized && <button type="button" data-reader-window-resize data-testid="lab-ask-resizer" aria-label="Resize the conversation panel" />}
+      {desktopCompanion && <div className="tc-handle" data-reader-window-handle aria-hidden="true" />}
+      {onDone && (
+        <button
+          type="button"
+          className="tc-close"
+          aria-label={desktopCompanion ? `Close ${desktopCompanion}` : 'Close chat'}
+          data-testid={desktopCompanion ? 'lab-desktop-companion-close' : 'lab-ask-done'}
+          // With the keyboard up this is still the way back to the book: one
+          // tap puts the keyboard away and closes Chat together. The press must
+          // not move focus: a blur on press closes the keyboard, the sheet
+          // reflows under the finger and the click never lands (QA 2026-10-06).
+          onPointerDown={(event) => event.preventDefault()}
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={close}
+          dangerouslySetInnerHTML={{ __html: ICONS.close }}
+        />
+      )}
       {desktopCompanion && (
-        <div className="lab-desktop-companion-head" data-reader-window-handle>
-          {desktopCompanion === 'talk' && <span className="lab-desktop-companion-mark" aria-hidden="true"><VoiceIcon /></span>}
-          <strong>{desktopCompanion === 'talk' ? LAB_COPY.talk : LAB_COPY.chat}</strong>
-          <button type="button" aria-label={minimized ? "Restore chat" : "Minimize chat"} onClick={() => setMinimized(value => !value)}>{minimized ? "↗" : "−"}</button>
-          <button type="button" onClick={onDone} aria-label={`Close ${desktopCompanion}`} data-testid="lab-desktop-companion-close">×</button>
-        </div>
+        <button type="button" className="tc-tab" data-reader-window-control aria-label={minimized ? 'Restore chat' : 'Minimize chat'} onClick={() => setMinimized(value => !value)} dangerouslySetInnerHTML={{ __html: ICONS.collapse }} />
       )}
-      {onDone && !desktopCompanion && (
-        <div className="lab-ask-toolbar">
-          <button
-            type="button"
-            className="lab-ask-done"
-            // With the keyboard up this is still the way back to the book:
-            // one tap puts the keyboard away and closes Chat together. The
-            // press must not move focus: a blur on press closes the keyboard,
-            // the sheet reflows under the finger and the click never lands,
-            // so the first tap only dismissed the keyboard (QA 2026-10-06).
-            // The click below blurs the field itself.
-            onPointerDown={(event) => event.preventDefault()}
-            onMouseDown={(event) => event.preventDefault()}
-            onClick={() => { textareaRef.current?.blur(); onKeyboardOpenChange?.(false); onDone?.() }}
-            data-testid="lab-ask-done"
-          >
-            ← Back to book
-          </button>
-        </div>
-      )}
-      {onBackToContents && <button className="lab-ask-back-contents" onClick={onBackToContents}>← Back to contents</button>}
-      {empty ? (
-        <p className="lab-ask-greeting">{syncing ? LAB_COPY.askHistoryLoading : LAB_COPY.askGreeting}</p>
-      ) : (
-        <div className="lab-ask-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden}>
+      {onBackToContents && <button type="button" className="tc-older" onClick={onBackToContents}>← Back to contents</button>}
+      <div className="tc-body">
+        <div className="tc-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden}>
           {hidden > 0 && (
-            <button
-              type="button"
-              className="lab-ask-older"
-              data-testid="lab-ask-older"
-              onClick={revealOlder}
-            >
+            <button type="button" className="tc-older" data-testid="lab-ask-older" onClick={revealOlder}>
               {hidden === 1 ? '1 earlier message' : `${hidden} earlier messages`}
             </button>
           )}
-          {visibleTurns.map((turn, index) => {
-            const previousChapter = visibleTurns[index - 1]?.chapterNumber
-            const chapterLabel = turn.chapterNumber != null ? chapterLabels[turn.chapterNumber] : undefined
-            const showChapter = !!chapterLabel && turn.chapterNumber !== previousChapter
-            const dividerDate = showChapter ? labAskDividerDate(turn.timestamp) : null
-            const unanswered = labAskTurnUnanswered(visibleTurns, index, typedLoading)
-            return (
-              <Fragment key={turn.id}>
-                {showChapter && (
-                  <p className="lab-ask-location" data-testid="lab-ask-location">
-                    <span>{chapterLabel}{dividerDate ? <span className="lab-ask-location-date"> · {dividerDate}</span> : null}</span>
-                  </p>
+          {rows.map(row => {
+            if (row.type === 'divider') return <p key={row.key} className="tc-divider" data-testid="lab-ask-location">{row.label}</p>
+            const index = hidden + row.index
+            const turn = turns[index]
+            const live = streaming && index === turns.length - 1
+            const unanswered = labAskTurnUnanswered(visibleTurns, row.index, typedLoading)
+            const copied = copiedTurn === turn.id
+            const acts = !live && (
+              <div className={`tc-acts${index === kept ? ' is-kept' : ''}`}>
+                <button
+                  type="button"
+                  className="tc-mark tc-copy"
+                  aria-label={copied ? 'Copied' : turn.role === 'user' ? 'Copy question' : 'Copy answer'}
+                  onClick={() => void copyTurn(turn)}
+                  dangerouslySetInnerHTML={{ __html: copied ? ICONS.copied : ICONS.copy }}
+                />
+                {turn.timestamp != null && Number.isFinite(turn.timestamp) && (
+                  <time className="tc-time" dateTime={new Date(turn.timestamp).toISOString()}>{timeLabel(turn.timestamp)}</time>
                 )}
-                <div
-                  className={`lab-ask-turn is-${turn.role}`}
-                  data-testid={`lab-ask-turn-${turn.role}`}
-                  data-turn-id={turn.id}
-                >
-                  {turn.role === 'user' ? (
-                    <p className="lab-ask-user">
-                      {turn.highlightedText && <span className="lab-ask-history-passage" data-testid="lab-ask-history-passage">{turn.highlightedText}</span>}
-                      <span className="lab-ask-user-label">{LAB_COPY.youLabel}</span>
-                      {turn.content}
-                      {unanswered && <span className="lab-ask-unanswered" data-testid="lab-ask-unanswered">{LAB_COPY.askUnanswered}</span>}
-                    </p>
-                  ) : (
-                    <div className="lab-ask-reply">
-                      <span className="lab-ask-reply-label">{LAB_COPY.tinctLabel}</span>
-                      <LabMarkdown>{turn.content}</LabMarkdown>
-                    </div>
-                  )}
-                  {(
-                    <div className="lab-ask-meta">
-                      {turn.timestamp != null && Number.isFinite(turn.timestamp) && (
-                        <time className="lab-ask-time" dateTime={new Date(turn.timestamp).toISOString()}>
-                          {new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(turn.timestamp)}
-                        </time>
-                      )}
-                      <button type="button" className="lab-ask-copy" aria-label={copiedTurn === turn.id ? 'Copied' : turn.role === 'user' ? 'Copy question' : 'Copy answer'} onClick={() => void copyTurn(turn)}>
-                        {copiedTurn === turn.id ? '✓' : <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" strokeWidth="1.5"/></svg>}
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </Fragment>
+              </div>
+            )
+            return turn.role === 'user' ? (
+              <div key={turn.id} className={`tc-turn tc-q${turn.highlightedText ? ' has-quote' : ''}`} data-chat-row data-testid="lab-ask-turn-user" data-turn-id={turn.id}>
+                {turn.highlightedText && (
+                  <button type="button" className="tc-quote" data-testid="lab-ask-history-passage" disabled={!onQuote} onClick={() => onQuote?.(turn)}>{cutQuote(turn.highlightedText)}</button>
+                )}
+                <div className="tc-bubble">{turn.content}</div>
+                {unanswered && <span className="tc-note" data-testid="lab-ask-unanswered">{LAB_COPY.askUnanswered}</span>}
+                {acts}
+              </div>
+            ) : (
+              <div key={turn.id} className={`tc-turn tc-a${live ? ' is-streaming' : ''}`} data-chat-row data-testid="lab-ask-turn-assistant" data-turn-id={turn.id}>
+                <div className="tc-answer"><div className="tc-md"><LabMarkdown>{turn.content}</LabMarkdown></div></div>
+                {acts}
+              </div>
             )
           })}
-          {typedLoading && (
-            <p className="lab-ask-pending">{LAB_COPY.typedPending}</p>
+          {typedLoading && !streaming && (
+            // The answer has not begun: only its cursor, no "thinking" line.
+            <div className="tc-pending tc-a is-streaming" data-testid="lab-ask-pending"><div className="tc-answer"><span className="tc-cursor" role="status" aria-label="Answer on the way" /></div></div>
           )}
-          <div className="lab-ask-thread-spacer" data-testid="lab-ask-thread-spacer" ref={spacerRef} aria-hidden="true" />
+          <div className="tc-spacer" data-testid="lab-ask-thread-spacer" ref={spacerRef} aria-hidden="true" />
         </div>
-      )}
+        {!empty && <div className="tc-fade" aria-hidden="true" />}
+        {latestNode}
+      </div>
       {phoneSheet ? (
-        <div className="lab-ask-chrome" data-testid="lab-ask-chrome">
+        <div className="lab-ask-chrome tc-chrome" data-testid="lab-ask-chrome">
           {syncingNode}
           {noticeNode}
           {dictationNode}
@@ -666,6 +638,5 @@ export function LabAskPane({
         </>
       )}
     </aside>
-    </>
   )
 }

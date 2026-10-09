@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_MAX_COMPOSER_PX, LAB_ASK_WINDOW, labAskTurnUnanswered, LabAskPane } from './LabAskPane'
+import { LAB_ASK_LOAD_MORE_PX, LAB_ASK_MAX_COMPOSER_PX, LAB_ASK_REPLY_TOP_GAP, LAB_ASK_WINDOW, labAskTurnUnanswered, LabAskPane } from './LabAskPane'
 import type { LabConversationState } from './labAsk'
 
 afterEach(() => {
@@ -41,7 +41,6 @@ describe('lab ask living circle', () => {
     expect(screen.getByTestId('lab-ask-voice').className).toContain('is-listening')
     expect(screen.getByTestId('lab-ask-voice-status').textContent).toBe('Listening')
     expect(screen.getByTestId('lab-ask-voice-status').getAttribute('data-voice-phase')).toBe('listening')
-    expect(document.querySelectorAll('.lab-ask-voice-status-glyph i')).toHaveLength(3)
     expect(screen.getByTestId('lab-ask-voice').textContent).not.toContain('Listening')
     expect(screen.getByTestId('lab-ask-mic').className).not.toMatch(/is-listening|is-speaking|is-connecting/)
 
@@ -70,7 +69,7 @@ describe('lab ask living circle', () => {
     rerender(pane('connecting', onMic, onVoiceMode))
     fireEvent.click(screen.getByTestId('lab-ask-voice'))
     expect(onMic).toHaveBeenCalledTimes(1)
-    expect(screen.getByTestId('lab-ask-voice').textContent).toContain('×')
+    expect(screen.getByTestId('lab-ask-voice').getAttribute('aria-label')).toBe('Stop talking')
   })
 })
 
@@ -82,7 +81,9 @@ describe('lab ask phone done', () => {
     rerender(pane('idle', vi.fn(), vi.fn(), onDone))
     fireEvent.click(screen.getByTestId('lab-ask-done'))
     expect(onDone).toHaveBeenCalledTimes(1)
-    expect(screen.getByText('Ask about this page.')).toBeTruthy()
+    // No header and no empty-state copy: an empty thread is the composer's caret.
+    expect(screen.queryByText('Ask about this page.')).toBeNull()
+    expect(screen.getByTestId('lab-ask-done').getAttribute('aria-label')).toBe('Close chat')
   })
 })
 
@@ -109,7 +110,7 @@ describe('lab ask typed send', () => {
     expect(fireEvent.pointerDown(send)).toBe(false)
     fireEvent.click(send)
     expect(onSubmit).toHaveBeenCalledWith('Who is Calypso?')
-    fireEvent.keyDown(screen.getByPlaceholderText('Ask'), { key: 'Enter', ctrlKey: true })
+    fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'Enter', ctrlKey: true })
     expect(onSubmit).toHaveBeenCalledTimes(2)
   })
 
@@ -139,7 +140,7 @@ describe('selected passage attachment', () => {
     )
     const input = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
     expect(input.value).toBe('Why does Socrates say this?')
-    expect(input.placeholder).toBe('Ask about this passage…')
+    expect(input.placeholder).toBe('')
     fireEvent.click(screen.getByRole('button', { name: 'Remove' }))
     expect(onRemoveAttachment).toHaveBeenCalledTimes(1)
     expect(input.value).toBe('Why does Socrates say this?')
@@ -169,7 +170,7 @@ describe('lab ask phone listen', () => {
     render(pane('idle', vi.fn(), vi.fn(), vi.fn()))
     expect(screen.queryByTestId('lab-phone-listen')).toBeNull()
     expect(screen.getByTestId('lab-ask-composer')).toBeTruthy()
-    expect(screen.getByPlaceholderText('Ask')).toBeTruthy()
+    expect(screen.getByTestId('lab-ask-input')).toBeTruthy()
   })
 })
 
@@ -290,10 +291,8 @@ describe('lab ask thread above composer', () => {
       />,
     )
 
-    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual([
-      'Genesis 1',
-      'Genesis 2',
-    ])
+    // A divider only where the chapter changes; the thread's first turn needs none.
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual(['Genesis 2'])
   })
 
   it('hands the composer input to the host so a tap can focus it', () => {
@@ -368,7 +367,7 @@ describe('lab ask thread opens at the newest message', () => {
       configurable: true,
       get(this: HTMLElement) {
         if (!isThread(this)) return 0
-        return metrics.perTurn > 0 ? this.querySelectorAll('.lab-ask-turn').length * metrics.perTurn : metrics.scrollHeight
+        return metrics.perTurn > 0 ? this.querySelectorAll('.tc-turn').length * metrics.perTurn : metrics.scrollHeight
       },
     })
     Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
@@ -417,7 +416,7 @@ describe('lab ask thread opens at the newest message', () => {
     const { rerender } = render(<LabAskPane {...props} turns={turns} />)
     const thread = screen.getByTestId('lab-ask-thread')
     expect(LAB_ASK_WINDOW).toBe(40)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(40)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(40)
     expect(screen.getAllByTestId('lab-ask-turn-user')[0].textContent).toContain('Turn 80 ')
     expect(thread.getAttribute('data-hidden-turns')).toBe('80')
     expect(screen.getByTestId('lab-ask-older').textContent).toBe('80 earlier messages')
@@ -427,26 +426,26 @@ describe('lab ask thread opens at the newest message', () => {
     // reader's line stays where it was (scrollTop grows by the added height).
     thread.scrollTop = LAB_ASK_LOAD_MORE_PX - 20
     fireEvent.scroll(thread)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(80)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(80)
     expect(screen.getAllByTestId('lab-ask-turn-user')[0].textContent).toContain('Turn 40 ')
     expect(thread.getAttribute('data-hidden-turns')).toBe('40')
     expect(thread.scrollTop).toBe(LAB_ASK_LOAD_MORE_PX - 20 + 2000)
 
     // The button is the same reveal for readers who do not scroll.
     fireEvent.click(screen.getByTestId('lab-ask-older'))
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(120)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(120)
     expect(screen.queryByTestId('lab-ask-older')).toBeNull()
     expect(thread.getAttribute('data-hidden-turns')).toBe('0')
 
     // A new reply appends without re-hiding what was revealed.
     rerender(<LabAskPane {...props} turns={history(120, [{ id: 'a-new', role: 'assistant', content: 'A fresh reply.' }])} />)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(121)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(121)
   })
 
   it('resets the window to the newest messages when a different history opens', () => {
     const { rerender } = render(<LabAskPane {...props} turns={history(120)} />)
     fireEvent.click(screen.getByTestId('lab-ask-older'))
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(80)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(80)
     // Ends on the reader's own question, so the thread pins to the bottom.
     const other = Array.from({ length: 91 }, (_, i) => ({
       id: `o${i}`,
@@ -455,15 +454,15 @@ describe('lab ask thread opens at the newest message', () => {
       source: 'typed' as const,
     }))
     rerender(<LabAskPane {...props} turns={other} />)
-    expect(document.querySelectorAll('.lab-ask-turn')).toHaveLength(40)
+    expect(document.querySelectorAll('.tc-turn')).toHaveLength(40)
     expect(screen.getByTestId('lab-ask-older').textContent).toBe('51 earlier messages')
     expect(screen.getByTestId('lab-ask-thread').scrollTop).toBe(2000)
   })
 
-  it('shows the chapter label for the first visible turn of a window', () => {
+  it('divides a window only where its chapter changes, judged against the turns before it', () => {
     const turns = history(120).map((turn, i) => ({ ...turn, chapterNumber: i < 100 ? 3 : 4 }))
     render(<LabAskPane {...props} turns={turns} chapterLabels={{ 3: 'Genesis 3', 4: 'Genesis 4' }} />)
-    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual(['Genesis 3', 'Genesis 4'])
+    expect(screen.getAllByTestId('lab-ask-location').map(node => node.textContent)).toEqual(['Genesis 4'])
   })
 
   it('follows a new assistant message while the reader is at the bottom', () => {
@@ -521,8 +520,8 @@ describe('lab ask thread shows the answer begin', () => {
       const thread = this.closest('[data-testid="lab-ask-thread"]') as HTMLElement | null
       let top = 0
       if (isThread(this)) top = 0
-      else if (thread && this.classList.contains('lab-ask-turn')) {
-        const turnsBefore = Array.from(thread.querySelectorAll('.lab-ask-turn')).indexOf(this)
+      else if (thread && this.classList.contains('tc-turn')) {
+        const turnsBefore = Array.from(thread.querySelectorAll('.tc-turn')).indexOf(this)
         top = turnsBefore * TURN_HEIGHT - thread.scrollTop
       }
       return { top, bottom: top + TURN_HEIGHT, left: 0, right: 0, width: 0, height: TURN_HEIGHT, x: 0, y: top, toJSON: () => ({}) } as DOMRect
@@ -568,13 +567,13 @@ describe('lab ask thread shows the answer begin', () => {
     const replying = [...asked, { id: 'a-reply', role: 'assistant' as const, content: 'In chapter 32', source: 'typed' as const }]
     metrics.scrollHeight = 4200
     rerender(<LabAskPane {...props} typedLoading turns={replying} />)
-    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - 8)
+    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - LAB_ASK_REPLY_TOP_GAP)
     // Room below the reply so its first line can hold the top of the viewport while it is short.
-    expect(screen.getByTestId('lab-ask-thread-spacer').style.height).toBe(`${300 - TURN_HEIGHT - 8}px`)
+    expect(screen.getByTestId('lab-ask-thread-spacer').style.height).toBe(`${300 - TURN_HEIGHT - LAB_ASK_REPLY_TOP_GAP}px`)
     // Streaming continues under a held first line: the text fills downward, the top does not move.
     metrics.scrollHeight = 4300
     rerender(<LabAskPane {...props} typedLoading turns={[...asked, { ...replying[replying.length - 1], content: 'In chapter 32, Jeremiah bought a field while in the court of the prison.' }]} />)
-    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - 8)
+    expect(thread.scrollTop).toBe(41 * TURN_HEIGHT - LAB_ASK_REPLY_TOP_GAP)
     // A long reply grows past the viewport: the reader keeps reading from where they are.
     thread.scrollTop = 3500
     fireEvent.scroll(thread)
@@ -589,20 +588,22 @@ describe('lab ask thread shows the answer begin', () => {
   })
 })
 
-it('shows stored dates in V2 and keeps older messages accessible', () => {
+it('keeps each message’s time in its hover/press row, not under it, and keeps older messages accessible', () => {
   const onDone = vi.fn()
   const turns = Array.from({ length: 45 }, (_, index) => ({ id: `dated-${index}`, role: 'user' as const, content: `Saved question ${index}`, source: 'typed' as const, timestamp: Date.UTC(2026, 8, 1, 9, index) }))
   render(<LabAskPane conversationState="idle" voiceActive={false} typedLoading={false} turns={turns} draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()} onDone={onDone} phoneSheet />)
   const firstVisibleTime = document.querySelector('time')
   expect(firstVisibleTime?.getAttribute('datetime')).toBe(new Date(turns[5].timestamp).toISOString())
-  const footer = firstVisibleTime?.closest('.lab-ask-meta')
-  expect(footer).toBeTruthy()
-  expect(footer?.querySelector('[aria-label="Copy question"]')).toBeTruthy()
-  expect(firstVisibleTime?.compareDocumentPosition(firstVisibleTime.closest('.lab-ask-turn')!.querySelector('.lab-ask-user')!) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
+  const row = firstVisibleTime?.closest('.tc-acts')
+  expect(row).toBeTruthy()
+  expect(row?.querySelector('[aria-label="Copy question"]')).toBeTruthy()
+  // The row is the hidden hover/press row: it is not the newest answer's kept copy mark.
+  expect(row?.classList.contains('is-kept')).toBe(false)
+  expect(firstVisibleTime?.compareDocumentPosition(firstVisibleTime.closest('.tc-turn')!.querySelector('.tc-bubble')!) & Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy()
   fireEvent.click(screen.getByTestId('lab-ask-older'))
   expect(screen.getByText('Saved question 0')).toBeTruthy()
   expect(document.querySelectorAll('time')).toHaveLength(45)
-  fireEvent.click(screen.getByText('← Back to book'))
+  fireEvent.click(screen.getByTestId('lab-ask-done'))
   expect(onDone).toHaveBeenCalledOnce()
 })
 
@@ -667,9 +668,9 @@ describe('V2 multiline composer and copying', () => {
     const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
     expect(field.tagName).toBe('TEXTAREA')
     expect(screen.getByTestId('lab-ask-send').hidden).toBe(true)
-    Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 120 })
+    Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 45 })
     rerender(<LabAskPane {...base} draft={'First line\nSecond line'} onSubmit={onSubmit} />)
-    expect(field.style.height).toBe('120px')
+    expect(field.style.height).toBe('45px')
     expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
     expect(screen.getByTestId('lab-ask-send').hidden).toBe(false)
     expect(fireEvent.keyDown(field, { key: 'Enter' })).toBe(true)
@@ -678,7 +679,8 @@ describe('V2 multiline composer and copying', () => {
     expect(onSubmit).toHaveBeenCalledWith('First line\nSecond line')
     Object.defineProperty(field, 'scrollHeight', { configurable: true, value: 800 })
     rerender(<LabAskPane {...base} draft={'Long question\n'.repeat(30)} />)
-    expect(field.style.height).toBe('180px')
+    // Five lines, then it scrolls inside.
+    expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
   })
   it('copies the complete question and answer without speaker labels', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined)
@@ -710,7 +712,7 @@ describe('chat dictation control', () => {
       rerender(<LabAskPane {...props} dictationState={dictationState} />)
       expect(screen.queryByTestId('lab-ask-voice')).toBeNull()
       const stop = screen.getByRole('button', { name: 'Stop dictation' })
-      expect(stop.querySelector('rect')?.getAttribute('width')).toBe('12')
+      expect(stop.querySelector('rect')).toBeTruthy()
       expect(stop.querySelector('path')).toBeNull()
       fireEvent.click(stop)
     }
@@ -814,29 +816,29 @@ describe('lab ask composer: the growing field never flashes a scrollbar', () => 
   })
 
   it('keeps overflow hidden while the field still fits its text', () => {
-    stubScrollHeight(30)
+    stubScrollHeight(22)
     const { rerender } = render(pane('One line'))
     const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
     expect(field.style.overflowY).toBe('hidden')
-    expect(field.style.height).toBe('30px')
+    expect(field.style.height).toBe('22px')
 
     // Every added line grows the box and still shows no scrollbar — the
     // top-right artifact the measurement used to flash.
     for (const lines of [2, 3, 4, 5]) {
       rerender(pane(Array(lines).fill('Line').join('\n')))
       expect(field.style.overflowY).toBe('hidden')
-      expect(field.style.height).toBe(`${lines * 30}px`)
+      expect(field.style.height).toBe(`${lines * 22}px`)
     }
   })
 
-  it('gives the scrollbar back only once the field is capped and really clips', () => {
-    stubScrollHeight(30)
-    const { rerender } = render(pane(Array(6).fill('Line').join('\n')))
+  it('gives the scrollbar back only once the field is capped at five lines and really clips', () => {
+    stubScrollHeight(22)
+    const { rerender } = render(pane(Array(5).fill('Line').join('\n')))
     const field = screen.getByTestId('lab-ask-input') as HTMLTextAreaElement
-    expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
+    expect(field.style.height).toBe('110px')
     expect(field.style.overflowY).toBe('hidden')
 
-    rerender(pane(Array(7).fill('Line').join('\n')))
+    rerender(pane(Array(6).fill('Line').join('\n')))
     expect(field.style.height).toBe(`${LAB_ASK_MAX_COMPOSER_PX}px`)
     expect(field.style.overflowY).toBe('auto')
 
@@ -900,7 +902,10 @@ describe('lab ask thread and the account history that arrives late', () => {
     // An empty device copy must not greet the reader as if they had no history.
     cleanup()
     render(<LabAskPane {...props} turns={[]} historyStatus="loading" />)
-    expect(screen.getByText('Loading your saved conversations…')).toBeTruthy()
+    // An empty thread is a caret, even while the account row is in flight: no greeting, no loading line.
+    expect(screen.queryByText('Loading your saved conversations…')).toBeNull()
+    expect(screen.queryByTestId('lab-ask-syncing')).toBeNull()
+    expect(screen.getByTestId('lab-ask-input')).toBeTruthy()
   })
 
   it('drops the notice and shows the newest turn once the account history lands', () => {
@@ -914,7 +919,7 @@ describe('lab ask thread and the account history that arrives late', () => {
     expect(screen.queryByTestId('lab-ask-syncing')).toBeNull()
     // Not left parked in May: the thread ends on today's turn and is scrolled there.
     expect(thread.scrollTop).toBe(4000)
-    const turnNodes = Array.from(document.querySelectorAll('.lab-ask-turn'))
+    const turnNodes = Array.from(document.querySelectorAll('.tc-turn'))
     expect(turnNodes[turnNodes.length - 1].textContent).toContain('Cyrus of Persia')
   })
 
@@ -934,21 +939,18 @@ describe('lab ask thread and the account history that arrives late', () => {
     expect(thread.getAttribute('data-hidden-turns')).toBe('160')
     // The first turn the reader sees is inside the newest window, and the last
     // turn in the DOM is the most recent one in the thread.
-    const turnNodes = Array.from(document.querySelectorAll('.lab-ask-turn'))
+    const turnNodes = Array.from(document.querySelectorAll('.tc-turn'))
     expect(turnNodes).toHaveLength(40)
     expect(turnNodes[0].textContent).toContain('Turn 160.')
     expect(turnNodes[turnNodes.length - 1].textContent).toContain('Turn 199.')
     expect(thread.scrollTop).toBe(metrics.scrollHeight)
   })
 
-  it('dates a chapter divider whose turns are not from today, and marks a question that got no answer', () => {
+  it('dates a divider with the day its turns are from, and marks a question that got no answer', () => {
     render(<LabAskPane {...props} turns={reconciled} chapterLabels={{ 930: 'Matthew 5', 774: 'Jeremiah 50' }} />)
     const dividers = screen.getAllByTestId('lab-ask-location').map(node => node.textContent)
-    // The date's own shape follows the reader's locale; what matters is that
-    // the divider carries the day the turns under it are from.
-    expect(dividers[0]).toMatch(/^Matthew 5 · .*25/)
-    expect(dividers[0]).toMatch(/May/)
-    expect(dividers[1]).toBe('Jeremiah 50')
+    // "{chapter} · {day}": one divider, where both the chapter and the day change.
+    expect(dividers).toEqual([`Jeremiah 50 · ${new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long' }).format(today)}`])
     expect(screen.queryByTestId('lab-ask-unanswered')).toBeNull()
 
     cleanup()

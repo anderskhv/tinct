@@ -142,10 +142,10 @@ async function snipAndExplain(p) {
   });
   await p.mouse.move(r.x1, r.y1); await p.mouse.down(); await p.mouse.move(r.x2, r.y2, { steps: 10 }); await p.mouse.up();
   await p.waitForSelector('.byob-snip-pop [data-a="explain"]', { timeout: 10000 });
-  const turns = await p.locator('.lab-ask-turn.is-assistant').count();
+  const turns = await p.locator('.tc-a').count();
   await p.click('.byob-snip-pop [data-a="explain"]');
-  await p.waitForFunction(n => document.querySelectorAll('.lab-ask-turn.is-assistant:not(:has(.byob-live))').length > n && /MOCK ANSWER/.test([...document.querySelectorAll('.lab-ask-turn.is-assistant')].at(-1)?.textContent || ''), turns, { timeout: 20000 });
-  return { request: await lastRequest(), answer: await p.locator('.lab-ask-turn.is-assistant').last().textContent() };
+  await p.waitForFunction(n => document.querySelectorAll('.tc-a:not(.is-streaming)').length > n && /MOCK ANSWER/.test([...document.querySelectorAll('.tc-a')].at(-1)?.textContent || ''), turns, { timeout: 20000 });
+  return { request: await lastRequest(), answer: await p.locator('.tc-a').last().textContent() };
 }
 
 const server = await start(PORT);
@@ -298,14 +298,14 @@ try {
   await p.waitForSelector('.selection-popup [data-a="ask"]', { timeout: 5000 });
   await p.click('.selection-popup [data-a="ask"]');
   await p.fill('#lab-ask-input', 'What does this mean?'); await p.press('#lab-ask-input', 'Enter');
-  await p.waitForFunction(() => /What does this mean/.test(document.querySelector('.lab-ask-thread')?.textContent || '') && /MOCK ANSWER/.test([...document.querySelectorAll('.lab-ask-turn.is-assistant')].at(-1)?.textContent || ''), null, { timeout: 15000 });
+  await p.waitForFunction(() => /What does this mean/.test(document.querySelector('.tc-thread')?.textContent || '') && /MOCK ANSWER/.test([...document.querySelectorAll('.tc-a')].at(-1)?.textContent || ''), null, { timeout: 15000 });
   check('Ask works in a PDF', true);
   await p.screenshot({ path: join(OUT, 'desktop-pdf-ask.png') });
 
   // Signed in: the request carries the account token to /api/chat.
   await p.evaluate(() => localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', JSON.stringify({ access_token: 'test-token', expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: 'u-test', email: 'reader@example.com' } })));
   await p.fill('#lab-ask-input', 'And signed in?'); await p.press('#lab-ask-input', 'Enter');
-  await p.waitForFunction(() => /api\/chat\)/.test([...document.querySelectorAll('.lab-ask-turn.is-assistant')].at(-1)?.textContent || ''), null, { timeout: 15000 });
+  await p.waitForFunction(() => /api\/chat\)/.test([...document.querySelectorAll('.tc-a')].at(-1)?.textContent || ''), null, { timeout: 15000 });
   const signed = (await (await fetch(`http://127.0.0.1:${PORT}/__requests`)).json()).at(-1);
   check('signed-in calls use /api/chat with the account token', signed.path === '/api/chat' && signed.auth === 'Bearer test-token', { path: signed.path, auth: signed.auth });
 
@@ -331,7 +331,7 @@ try {
   // Expired token: falls back to the guest route, and says so.
   await p.evaluate(() => localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', JSON.stringify({ access_token: 'expired-token', expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: 'u-test' } })));
   await p.fill('#lab-ask-input', 'After expiry?'); await p.press('#lab-ask-input', 'Enter');
-  await p.waitForFunction(() => /api\/lab-chat\)/.test([...document.querySelectorAll('.lab-ask-turn.is-assistant')].at(-1)?.textContent || ''), null, { timeout: 15000 });
+  await p.waitForFunction(() => /api\/lab-chat\)/.test([...document.querySelectorAll('.tc-a')].at(-1)?.textContent || ''), null, { timeout: 15000 });
   check('an expired sign-in falls back to the guest companion', true);
   await p.evaluate(() => localStorage.removeItem('sb-yazjyiqsxjystvpkyouk-auth-token'));
 
