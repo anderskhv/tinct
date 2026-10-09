@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { readLabDeviceId } from './labPositionStore'
 import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear, type ReadingYearTotals } from './labReadingYear'
-import { addPending, beatPayload, nextFlush, readPending, readingTimeSwitch, sendBeat, sendFlush, subtractPending, type LedgerStatus } from './labReadingTime'
+import { SWITCH_RECHECK_MS, addPending, beatPayload, nextFlush, readPending, readingTimeSwitch, sendBeat, sendFlush, subtractPending, type LedgerStatus } from './labReadingTime'
 import { PRIVATE_BOOK_ID, ledgerBookId, localDay } from '../readingTime/model'
 import { supabase } from '../services/supabase'
 
@@ -64,6 +64,30 @@ export function useLabReadingYear(input: {
   const lastBeatRef = useRef(Date.now())
   const lastFlushRef = useRef(0)
   const sendingRef = useRef(false)
+  /** When the page last learned the switch was off or the ledger unavailable. */
+  const checkedAtRef = useRef(Date.now())
+
+  const settle = (outcome: Awaited<ReturnType<typeof sendBeat>>) => {
+    if (outcome !== 'unavailable' && outcome !== 'off') return
+    ledgerRef.current = outcome
+    checkedAtRef.current = Date.now()
+  }
+
+  // Off or unavailable is not for the page's life: ask again every few
+  // minutes, and resume the ledger (and flush what waited) once it is on.
+  const recheck = () => {
+    const status = ledgerRef.current
+    if (status !== 'off' && status !== 'unavailable') return
+    if (Date.now() - checkedAtRef.current < SWITCH_RECHECK_MS) return
+    checkedAtRef.current = Date.now()
+    void readingTimeSwitch(undefined, { maxAgeMs: SWITCH_RECHECK_MS }).then(on => {
+      const current = ledgerRef.current
+      if (current !== 'off' && current !== 'unavailable') return
+      if (!on) { ledgerRef.current = 'off'; return }
+      ledgerRef.current = 'on'
+      void flush(true)
+    })
+  }
 
   // Flush what the heartbeat cannot carry: other books and days, offline
   // time, and after sign-in the signed-out tally. One request at a time.
@@ -81,8 +105,7 @@ export function useLabReadingYear(input: {
       const batch = nextFlush({ userId: user, today: localDay(), currentBookId: bookRef.current, guestEarlier: guestSeconds > 0 ? { year, seconds: guestSeconds } : null })
       if (!batch) return
       const outcome = await sendFlush(token, user, batch, flushedYear => writeLocalReadingYear(emptyReadingYear(flushedYear), null))
-      if (outcome === 'unavailable') ledgerRef.current = 'unavailable'
-      else if (outcome === 'off') ledgerRef.current = 'off'
+      settle(outcome)
     } finally {
       sendingRef.current = false
     }
@@ -103,8 +126,7 @@ export function useLabReadingYear(input: {
       outcome = await sendBeat(token, payload)
       // Sent is settled: the Worker's limits decide what of it counts.
       if (outcome === 'credited') subtractPending(user, [payload])
-      else if (outcome === 'unavailable') ledgerRef.current = 'unavailable'
-      else if (outcome === 'off') ledgerRef.current = 'off'
+      else settle(outcome)
     } finally {
       sendingRef.current = false
     }
@@ -116,6 +138,7 @@ export function useLabReadingYear(input: {
     void readingTimeSwitch().then(on => {
       if (!live || ledgerRef.current !== 'unknown') return
       ledgerRef.current = on ? 'on' : 'off'
+      checkedAtRef.current = Date.now()
     })
     return () => { live = false }
   }, [])
@@ -159,6 +182,7 @@ export function useLabReadingYear(input: {
     events.forEach(name => window.addEventListener(name, mark, { passive: true }))
     let last = Date.now()
     const timer = window.setInterval(() => {
+      recheck()
       const now = Date.now()
       const active = now - activeAtRef.current < ACTIVE_WINDOW_MS || listeningRef.current
       if (document.visibilityState === 'visible' && !paused && active) {

@@ -20,6 +20,7 @@ vi.mock('../hooks/useAuth', () => ({
 vi.mock('../hooks/useBalance', () => ({ useBalance: () => ({ isSubscribed: false }) }))
 
 import { LabV2Sheet } from './LabV2Sheet.tsx'
+import { resetLastLedger } from './useLabReadingTime'
 
 const signedIn = { user: { id: '11111111-1111-4111-8111-111111111111', email: 'reader@example.com' }, session: { access_token: 'token' } }
 
@@ -39,6 +40,7 @@ function sheet() {
 beforeEach(() => {
   localStorage.clear()
   resetReadingTimeSwitch()
+  resetLastLedger()
   auth.current = null
 })
 
@@ -88,6 +90,30 @@ describe('account sheet, reading time switch on', () => {
     // "Books" (opened) is gone; AI use and Manage account stay.
     expect(document.querySelector('.lab-v2-year')).toBeNull()
     expect(screen.getByTestId('lab-v2-account-manage')).toBeTruthy()
+  })
+
+  it('opened again while the ledger is slow: the figures it last had (with this device’s new time), never a dash', async () => {
+    auth.current = signedIn
+    const today = localDay()
+    let answer = true
+    routes({
+      '/api/reading-time/status': () => Response.json({ enabled: true }),
+      '/api/ai-allowance': () => Response.json({ enabled: false }),
+      '/api/reading-time': () => answer
+        ? Response.json({ enabled: true, rows: [{ day: today, bookId: 'pd-pg-1672', read: 235, listen: 0 }] })
+        : new Promise<Response>(() => {}) as unknown as Response,
+    })
+    const first = sheet()
+    await waitFor(() => expect(screen.getByTestId('lab-v2-reading-time').getAttribute('data-mode')).toBe('ledger'))
+    expect(screen.getByTestId('lab-v2-time-figure').textContent).toBe('3m')
+    first.unmount()
+    // The ledger now hangs; the reader read two more minutes on this device.
+    answer = false
+    addPending(signedIn.user.id, today, 'pd-pg-1672', { read: 120 })
+    sheet()
+    const block = await screen.findByTestId('lab-v2-reading-time')
+    await waitFor(() => expect(block.getAttribute('data-mode')).toBe('ledger'))
+    expect(screen.getByTestId('lab-v2-time-figure').textContent).toBe('5m')
   })
 
   it('signed out: hours on this device and the invitation', async () => {

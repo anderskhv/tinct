@@ -46,6 +46,35 @@ export function hasLikelySupabaseSession(): boolean {
   }
 }
 
+/**
+ * One profile request per account, shared by every useAuth instance for a
+ * short while. The reader mounts useAuth in about seven places and each one
+ * fetched the row on mount and on every auth event (15 requests per reader
+ * load, each queueing on the Supabase auth lock for its token).
+ */
+const PROFILE_SHARE_MS = 60_000
+const profileRequests = new Map<string, { at: number; promise: Promise<UserProfile | null> }>()
+
+function loadProfile(userId: string, force = false): Promise<UserProfile | null> {
+  const client = supabase
+  if (!client) return Promise.resolve(null)
+  const shared = profileRequests.get(userId)
+  if (!force && shared && Date.now() - shared.at < PROFILE_SHARE_MS) return shared.promise
+  const promise = Promise.resolve(client.from('profiles').select('*').eq('id', userId).single())
+    .then(({ data }) => (data as UserProfile | null) ?? null)
+    .catch(() => null)
+  const entry = { at: Date.now(), promise }
+  profileRequests.set(userId, entry)
+  // A failed or empty answer is not shared: the next caller asks again.
+  void promise.then(profile => { if (!profile && profileRequests.get(userId) === entry) profileRequests.delete(userId) })
+  return promise
+}
+
+/** Tests only. */
+export function resetProfileRequestsForTest(): void {
+  profileRequests.clear()
+}
+
 export function useAuth(): UseAuthReturn {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
@@ -54,21 +83,15 @@ export function useAuth(): UseAuthReturn {
   const [likelyAuthenticated, setLikelyAuthenticated] = useState(() => hasLikelySupabaseSession())
   const [isPasswordRecovery, setIsPasswordRecovery] = useState(false)
 
-  const fetchProfile = useCallback(async (userId: string) => {
-    if (!supabase) return
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', userId)
-      .single()
-
+  const fetchProfile = useCallback(async (userId: string, force = false) => {
+    const data = await loadProfile(userId, force)
     if (data) {
-      setProfile(data as UserProfile)
+      setProfile(data)
     }
   }, [])
 
   const refreshProfile = useCallback(async () => {
-    if (user) await fetchProfile(user.id)
+    if (user) await fetchProfile(user.id, true)
   }, [user, fetchProfile])
 
   useEffect(() => {

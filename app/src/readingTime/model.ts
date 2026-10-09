@@ -200,6 +200,10 @@ export interface ReadingTimeStats {
   listenSeconds: number
   /** The first day with any time (null when there is none). */
   firstDay: string | null
+  /** Time from before the ledger (`_earlier`): in the totals, on no day, week or streak. */
+  earlierSeconds: number
+  /** The first real day in the ledger (null when there is none). */
+  firstDailyDay: string | null
   /** Today and the six days before, oldest first. */
   last7: Array<{ day: string; seconds: number }>
   last7Seconds: number
@@ -224,7 +228,8 @@ export function readingTimeStats(rows: LedgerRow[], today: string): ReadingTimeS
   const perDay = new Map<string, number>()
   const perBook = new Map<string, { seconds: number; listenSeconds: number; lastDay: string | null }>()
   let readSeconds = 0, listenSeconds = 0
-  let firstDay: string | null = null
+  let firstDay: string | null = null, firstDailyDay: string | null = null
+  let earlierSeconds = 0
   for (const row of rows) {
     const read = seconds(row.read), listen = seconds(row.listen)
     const total = read + listen
@@ -232,7 +237,8 @@ export function readingTimeStats(rows: LedgerRow[], today: string): ReadingTimeS
     readSeconds += read
     listenSeconds += listen
     if (!firstDay || row.day < firstDay) firstDay = row.day
-    if (row.bookId === EARLIER_BOOK_ID) continue
+    if (row.bookId === EARLIER_BOOK_ID) { earlierSeconds += total; continue }
+    if (!firstDailyDay || row.day < firstDailyDay) firstDailyDay = row.day
     perDay.set(row.day, (perDay.get(row.day) ?? 0) + total)
     const book = perBook.get(row.bookId) ?? { seconds: 0, listenSeconds: 0, lastDay: null }
     book.seconds += total
@@ -268,6 +274,8 @@ export function readingTimeStats(rows: LedgerRow[], today: string): ReadingTimeS
     readSeconds,
     listenSeconds,
     firstDay,
+    earlierSeconds,
+    firstDailyDay,
     last7,
     last7Seconds: last7.reduce((sum, item) => sum + item.seconds, 0),
     streak,

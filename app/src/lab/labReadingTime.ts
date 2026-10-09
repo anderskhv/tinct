@@ -18,15 +18,45 @@ import { BEAT_MAX_SECONDS, FLUSH_MAX_AGE_DAYS, addDays, daysBetween, localDay, t
 
 export type LedgerStatus = 'unknown' | 'off' | 'on' | 'unavailable'
 
-let statusRequest: Promise<boolean> | null = null
+let statusRequest: { at: number; promise: Promise<boolean>; failed?: boolean } | null = null
 
-/** Whether reading time is switched on, asked once per page. Any failure reads as off. */
-export function readingTimeSwitch(fetchImpl: typeof fetch | undefined = typeof fetch === 'function' ? fetch : undefined): Promise<boolean> {
+/**
+ * How long a reader page trusts the switch it was told. A reader tab stays
+ * open for days; on 8 Oct 2026 the switch went on, off and on again while tabs
+ * stayed open, and a page that had once heard "off" (or could not ask) kept
+ * counting into the yearly tally, which the ledger had already merged once,
+ * so that reading never reached the ledger.
+ */
+export const SWITCH_RECHECK_MS = 5 * 60_000
+
+/** A failed status request is kept this long at most, then asked again. */
+export const SWITCH_FAILURE_KEEP_MS = 60_000
+
+/**
+ * Whether reading time is switched on. One answer is shared while it is
+ * younger than `maxAgeMs` (default: for the page's life); a failed request
+ * (read as off) only for SWITCH_FAILURE_KEEP_MS, so the next caller after
+ * that asks again.
+ */
+export function readingTimeSwitch(fetchImpl: typeof fetch | undefined = typeof fetch === 'function' ? fetch : undefined, options: { maxAgeMs?: number } = {}): Promise<boolean> {
   if (!fetchImpl) return Promise.resolve(false)
-  statusRequest ??= fetchImpl(apiUrl('/api/reading-time/status'), { cache: 'no-store' })
-    .then(async response => response.ok && (await response.json() as { enabled?: unknown }).enabled === true)
-    .catch(() => false)
-  return statusRequest
+  const maxAge = options.maxAgeMs ?? Number.POSITIVE_INFINITY
+  if (statusRequest) {
+    const keep = statusRequest.failed ? Math.min(maxAge, SWITCH_FAILURE_KEEP_MS) : maxAge
+    if (Date.now() - statusRequest.at <= keep) return statusRequest.promise
+  }
+  const entry: { at: number; promise: Promise<boolean>; failed?: boolean } = { at: Date.now(), promise: Promise.resolve(false) }
+  statusRequest = entry
+  entry.promise = fetchImpl(apiUrl('/api/reading-time/status'), { cache: 'no-store' })
+    .then(async response => {
+      if (!response.ok) throw new Error(String(response.status))
+      return (await response.json() as { enabled?: unknown }).enabled === true
+    })
+    .catch(() => {
+      entry.failed = true
+      return false
+    })
+  return entry.promise
 }
 
 /** Tests only. */
@@ -207,7 +237,17 @@ export async function sendFlush(token: string, userId: string, flush: StoredFlus
       body: JSON.stringify({ flushId: flush.flushId, entries: flush.entries, earlier: flush.earlier }),
     })
     if (response.status === 429) return 'too-soon'
-    if (response.status === 503) return 'unavailable'
+    if (response.status === 503) {
+      // Failed part-way: the id is spent and the first `applied` entries landed.
+      // Take those off and drop the stored flush; the rest goes under a new id.
+      const data = await response.json().catch(() => null) as { applied?: unknown } | null
+      const applied = data?.applied
+      if (typeof applied === 'number' && Number.isInteger(applied) && applied >= 0) {
+        subtractPending(flush.owner, flush.entries.slice(0, applied))
+        try { localStorage.removeItem(flushKey(userId)) } catch { /* ignore */ }
+      }
+      return 'unavailable'
+    }
     if (!response.ok) {
       // A flush the Worker refuses as malformed will never land; drop it rather than retry forever.
       if (response.status === 400) {
@@ -229,10 +269,30 @@ export async function sendFlush(token: string, userId: string, flush: StoredFlus
 
 export interface ReadingTimeSummary { rows: LedgerRow[] }
 
-/** The reader's ledger rows; null while off or unavailable (the caller shows the device tally). */
-export async function fetchReadingTime(token: string, fetchImpl: typeof fetch = fetch): Promise<ReadingTimeSummary | null> {
+/** How long the reader waits for its ledger rows before showing what it has. */
+export const SUMMARY_TIMEOUT_MS = 8_000
+
+/**
+ * The reader's ledger rows; null while off, unavailable or slower than
+ * `timeoutMs` (the caller shows the device tally). Without a timeout a request
+ * that never answered left the account sheet on its loading dash.
+ */
+export async function fetchReadingTime(token: string, fetchImpl: typeof fetch = fetch, options: { timeoutMs?: number } = {}): Promise<ReadingTimeSummary | null> {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const controller = typeof AbortController === 'function' ? new AbortController() : null
+  const timeout = new Promise<null>(resolve => {
+    timer = setTimeout(() => { controller?.abort(); resolve(null) }, options.timeoutMs ?? SUMMARY_TIMEOUT_MS)
+  })
   try {
-    const response = await fetchImpl(apiUrl('/api/reading-time'), { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' })
+    return await Promise.race([readSummary(token, fetchImpl, controller?.signal), timeout])
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+async function readSummary(token: string, fetchImpl: typeof fetch, signal: AbortSignal | undefined): Promise<ReadingTimeSummary | null> {
+  try {
+    const response = await fetchImpl(apiUrl('/api/reading-time'), { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store', ...(signal ? { signal } : {}) })
     if (!response.ok) return null
     const data = await response.json() as { enabled?: boolean; rows?: unknown }
     if (data.enabled !== true || !Array.isArray(data.rows)) return null
