@@ -8,9 +8,9 @@
  */
 import { supabase } from '../services/supabase'
 import { funnel, setFunnelToken, trackFunnel } from '../utils/funnel'
-import { fetchProfile, followingAfter, reportProfile, socialAction, socialFriendsOn } from './friendsClient'
+import { blockedReaderId, fetchProfile, followingAfter, reportProfile, socialAction, socialFriendsOn, unblockReader } from './friendsClient'
 import type { Relation } from './profileRules'
-import { followButtonHtml, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
+import { followButtonHtml, profileBlockedHtml, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
 import { privateImageUrl } from './socialClient'
 import { REPORT_REASONS, REPORT_REASON_COPY, type ReportReason } from './socialRules'
 
@@ -19,6 +19,8 @@ const main = root?.querySelector<HTMLElement>('[data-main]') ?? null
 const handle = root?.dataset.handle ?? ''
 let token: string | null = null
 let data: ProfilePageData | null = null
+/** Set while the visitor has blocked this reader: the page offers Unblock. */
+let blockedId: string | null = null
 
 function status(text: string) {
   const line = main?.querySelector<HTMLElement>('[data-status]')
@@ -51,7 +53,10 @@ function wellFormed(value: string): boolean {
 
 function render() {
   if (!root || !main) return
-  if (!data) {
+  if (!data && blockedId) {
+    main.innerHTML = profileBlockedHtml()
+    root.dataset.state = 'blocked'
+  } else if (!data) {
     main.innerHTML = profileMissingHtml(wellFormed(handle) ? followButtonHtml({ relation: token ? unseenRelation : null, handle }) : undefined)
     root.dataset.state = 'missing'
   } else {
@@ -126,6 +131,16 @@ async function actUnseen(action: 'follow' | 'unfollow') {
   render()
 }
 
+async function unblock() {
+  if (!token || !blockedId) return
+  const button = main?.querySelector<HTMLButtonElement>('[data-action="unblock"]')
+  if (button) button.disabled = true
+  if (!await unblockReader(token, blockedId)) { if (button) button.disabled = false; status('That did not work. Please try again.'); return }
+  blockedId = null
+  data = (await fetchProfile(token, handle))?.profile ?? null
+  render()
+}
+
 async function act(action: 'follow' | 'unfollow' | 'remove-follower' | 'block') {
   if (!token || !data) return
   if (action === 'follow' || action === 'unfollow') pending(action === 'follow', data.relation)
@@ -133,8 +148,8 @@ async function act(action: 'follow' | 'unfollow' | 'remove-follower' | 'block') 
   if (!result.ok) { render(); status('That did not work. Please try again.'); return }
   if (action === 'block') {
     data = null
+    blockedId = await blockedReaderId(token, handle)
     render()
-    if (main) main.innerHTML = '<section class="missing"><h1>Blocked</h1><p>You and this reader no longer see each other on Tinct. You can unblock them in Settings.</p><a class="primary" href="/library?card=leaderboard">Friends</a></section>'
     return
   }
   data = { ...data, relation: result.relation ?? data.relation, followsYou: result.followsYou ?? data.followsYou }
@@ -152,7 +167,8 @@ function wire() {
     if (!target || (target as HTMLButtonElement).disabled) return
     const action = target.dataset.action
     if (!data) {
-      if (action === 'follow' || action === 'unfollow') void actUnseen(action)
+      if (action === 'unblock') void unblock()
+      else if (action === 'follow' || action === 'unfollow') void actUnseen(action)
       return
     }
     if (action === 'follow') void act('follow')
@@ -181,6 +197,8 @@ async function initialize() {
   if (token || root.dataset.state === 'loading') {
     const fresh = await fetchProfile(token, handle)
     data = fresh?.profile ?? null
+    // A reader the visitor blocked answers like a missing one: look them up to offer Unblock.
+    if (!data && token && wellFormed(handle)) blockedId = await blockedReaderId(token, handle)
     render()
   } else {
     // Signed out: the Worker's page stands; only private images need nothing.

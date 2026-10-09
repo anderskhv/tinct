@@ -10,6 +10,7 @@
 import { CARDS_COPY } from './cardsCopy'
 import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, rankOf, shortEmail, weekHeights } from './cardsFormat'
 import {
+  blockedReaderId,
   fetchBoard,
   fetchFind,
   fetchProfile,
@@ -17,6 +18,7 @@ import {
   saveProfile,
   searchReaders,
   socialAction,
+  unblockReader,
   type BoardData,
   type BoardEntry,
   type FindRow,
@@ -557,13 +559,15 @@ async function shareLink(url: string, clipboard?: (text: string) => Promise<bool
   return (await (clipboard ?? copyText)(url)) ? 'copied' : 'failed'
 }
 
-/** 5 · A reader's profile (from Find readers). */
+/** 5 · A reader's profile (from Find readers); Unblock for a reader the viewer blocked. */
 export function profileCard(env: CardsEnv, handle: string, name: string, picture: CardPicture | null): CardSpec {
   let data: ProfilePageData | null | undefined
   /** The relation while the profile cannot be seen (follow from a link still works). */
   let unseen: Relation | null = null
   let expanded = false
   let status = ''
+  /** Set while the viewer has blocked this reader (their profile answers 404): the card offers Unblock. */
+  let blockedId: string | null = null
   return {
     id: 'profile',
     label: name,
@@ -571,8 +575,9 @@ export function profileCard(env: CardsEnv, handle: string, name: string, picture
       const token = env.session.token
       if (data === undefined) {
         data = null
-        void fetchProfile(token, handle).then(result => {
+        void fetchProfile(token, handle).then(async result => {
           data = result?.profile ?? null
+          if (!data) blockedId = await blockedReaderId(token, handle)
           if (!card.stack.isClosed) card.refresh()
         })
       }
@@ -586,7 +591,18 @@ export function profileCard(env: CardsEnv, handle: string, name: string, picture
       const who = el('div', { className: 'tc-who' }, pic,
         el('span', { className: 'tc-nm' }, el('b', { text: current?.name ?? name }), current?.followsYou ? el('span', { text: CARDS_COPY.followsYou }) : null))
       const spec = followButton(relation)
-      if (spec) {
+      if (blockedId) {
+        const id = blockedId
+        const unblock = button(CARDS_COPY.unblock, 'line', async () => {
+          unblock.disabled = true
+          if (await unblockReader(token, id)) {
+            blockedId = null
+            data = (await fetchProfile(token, handle))?.profile ?? null
+          } else status = CARDS_COPY.actionFailed
+          card.refresh()
+        }, 'profile-unblock')
+        who.append(unblock)
+      } else if (spec) {
         const action = spec.action
         const btn = button(spec.label, spec.style, action ? async () => {
           btn.disabled = true

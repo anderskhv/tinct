@@ -232,6 +232,11 @@ ${body}
  * were given; the button is the same whoever, if anyone, has the link, and a
  * Friends profile opens once they follow each other.
  */
+/** A reader the visitor blocked: what that means, and Unblock (so a block is never permanent by accident). */
+export function profileBlockedHtml(): string {
+  return '<section class="missing" data-testid="profile-blocked"><h1>Blocked</h1><p>You and this reader no longer see each other on Tinct.</p><div class="actions" data-actions><button type="button" class="secondary" data-action="unblock" data-testid="profile-unblock">Unblock</button></div><p class="foot status" role="status" data-status></p></section>'
+}
+
 export function profileMissingHtml(follow?: string): string {
   const actions = follow ? `<div class="actions" data-actions>${follow}</div>` : ''
   return `<section class="missing" data-testid="profile-missing"><h1>No profile here</h1><p>This link does not lead to a profile you can see.</p>${actions}<a class="secondary" href="/library">Open the library</a><p class="foot status" role="status" data-status></p></section>`

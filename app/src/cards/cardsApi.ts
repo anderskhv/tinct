@@ -27,7 +27,7 @@ import { productionPlaces, withProductionPlaces } from '../preReader/productionP
 import { apiUrl } from '../utils/apiUrl'
 
 export { fetchOwnProfile, saveProfile, type OwnProfile } from '../social/socialClient'
-export { fetchBoard, fetchFind, fetchProfile, fetchRank, searchReaders, socialAction, type BoardData, type BoardEntry, type FindRow } from '../social/friendsClient'
+export { blockedReaderId, fetchBoard, fetchFind, fetchProfile, fetchRank, searchReaders, socialAction, unblockReader, type BoardData, type BoardEntry, type FindRow } from '../social/friendsClient'
 export type { ProfilePageData, ProfileBook, ProfilePicture } from '../social/profilePageView'
 
 const POSITION_DEVICE_ID = 'lab-your-reading'

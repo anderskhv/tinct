@@ -78,6 +78,8 @@ export const CARDS_COPY = {
   // You page and Friends page errors and empty states
   saveFailed: 'That did not save. Please try again.',
   actionFailed: 'That did not work. Please try again.',
+  // The old Settings' Blocked readers list (youPage.ts)
+  unblock: 'Unblock',
   noSearchResult: 'No public reader by that name.',
   boardUnavailable: 'The leaderboard is not available just now. Your reading time is safe.',
   linkCopied: 'Link copied.',

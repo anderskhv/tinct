@@ -29,6 +29,7 @@ let profile = ownProfile()
 let posts: Array<{ url: string; body: Record<string, unknown> }> = []
 let readerProfile: Record<string, unknown> | null = null
 let searchResults: unknown[] = []
+let blocked: Array<{ id: string; name: string; handle: string | null }> = []
 
 function api() {
   return vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -43,6 +44,12 @@ function api() {
     if (url.startsWith('/api/social/rank')) return Response.json({ rank: 3, total: 5, seconds: 3600 })
     if (url.startsWith('/api/social/find?q=')) return Response.json({ results: searchResults })
     if (url.startsWith('/api/social/find')) return Response.json({ followingYou: [person('ellen', 'Ellen Ravn', 'followed')], alsoReading: [person('karl', 'Karl Ny', 'stranger')], link: 'tinct.app/@anders' })
+    if (url.startsWith('/api/social/blocked')) return Response.json({ blocked })
+    if (url.startsWith('/api/social/unblock')) {
+      blocked = blocked.filter(reader => reader.id !== body?.id)
+      readerProfile = { handle: 'karl', name: 'Karl Ny', link: 'tinct.app/@karl', picture: pic('K'), banner: { src: '/b.jpg', private: false }, relation: 'stranger', followsYou: false, limited: false, time: null, readingNow: null, finished: null }
+      return Response.json({ ok: true })
+    }
     if (url.startsWith('/api/social/follow')) return Response.json({ relation: 'friend', followsYou: true })
     if (url.startsWith('/api/social/profile/')) return readerProfile ? Response.json({ profile: readerProfile }) : Response.json({ error: 'Not found' }, { status: 404 })
     if (url.startsWith('/api/social/board')) return Response.json({ tab: 'friends', total: 1, meShown: true, me: null, entries: [{ rank: 1, name: 'Anders', picture: pic('A'), seconds: 3600, duration: '1 h', me: true }] })
@@ -61,6 +68,7 @@ beforeEach(() => {
   posts = []
   readerProfile = null
   searchResults = []
+  blocked = []
   document.body.innerHTML = '<main id="page"><p id="place">Chapter 14, page 3</p></main>'
   vi.stubGlobal('fetch', api())
 })
@@ -242,6 +250,20 @@ describe('Find readers and a reader\'s profile', () => {
     expect(byTest('card-facts')?.textContent).toBe('4 h 50 mlast 7 days96 hthis year')
     expect(byTest('profile-now-row')?.textContent).toContain('Ch. 5 of 24')
     expect(top().textContent).not.toContain('Finished')
+  })
+
+  it('offers Unblock, not Follow, on the card of a reader you blocked, so a block is never permanent by accident', async () => {
+    blocked = [{ id: '22222222-2222-4222-8222-222222222222', name: 'Karl Ny', handle: 'karl' }]
+    await open('find')
+    click(byTest('reader-row'))
+    await flush()
+    expect(byTest('profile-follow')).toBeNull()
+    expect(byTest('profile-unblock')?.textContent).toBe('Unblock')
+    click(byTest('profile-unblock'))
+    await flush()
+    expect(posts.find(post => post.url === '/api/social/unblock')?.body).toEqual({ id: '22222222-2222-4222-8222-222222222222' })
+    expect(byTest('profile-unblock')).toBeNull()
+    expect(byTest('profile-follow')?.textContent).toBe('Follow')
   })
 
   it('opens nothing for a missing profile beyond the name and Follow', async () => {
