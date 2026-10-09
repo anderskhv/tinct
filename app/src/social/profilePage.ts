@@ -134,7 +134,7 @@ async function act(action: 'follow' | 'unfollow' | 'remove-follower' | 'block') 
   if (action === 'block') {
     data = null
     render()
-    if (main) main.innerHTML = '<section class="missing"><h1>Blocked</h1><p>You and this reader no longer see each other on Tinct. You can unblock them in Settings.</p><a class="primary" href="/friends">Friends</a></section>'
+    if (main) main.innerHTML = '<section class="missing"><h1>Blocked</h1><p>You and this reader no longer see each other on Tinct. You can unblock them in Settings.</p><a class="primary" href="/library?card=leaderboard">Friends</a></section>'
     return
   }
   data = { ...data, relation: result.relation ?? data.relation, followsYou: result.followsYou ?? data.followsYou }
