@@ -152,7 +152,14 @@ function parseXml(text: string): Document {
   return doc
 }
 
-const byLocal = (root: Document | Element, name: string): Element[] => [...root.getElementsByTagName('*')].filter(el => el.localName === name)
+/**
+ * Elements of a local name in any namespace, in document order. Asked of the DOM by name
+ * (getElementsByTagNameNS '*'): the same elements as filtering every element by
+ * localName, without listing a whole book's elements to find its <body>. That listing
+ * took Roget's Thesaurus (PG 10681, one document of most of the book) over ten minutes
+ * in jsdom, where the Gutenberg Add to Tinct check converts.
+ */
+const byLocal = (root: Document | Element, name: string): Element[] => [...root.getElementsByTagNameNS('*', name)]
 const clean = (text: string | null | undefined) => (text || '').replace(/\s+/g, ' ').trim()
 const textOf = (root: Document | Element, name: string) => clean(byLocal(root, name)[0]?.textContent)
 const epubType = (el: Element) => (el.getAttribute('epub:type') || el.getAttributeNS('http://www.idpf.org/2007/ops', 'type') || '').toLowerCase()
@@ -1188,12 +1195,24 @@ function copyrightMatter(blocks: Block[]): boolean {
   return signals.filter(signal => signal.test(text)).length >= 2
 }
 
+/**
+ * Words a document may hold beyond its contents entries and still be the contents page
+ * (rules 7). Project Gutenberg sets a short book of poems as one document: its printed
+ * contents, then each poem's title (both contents entries) over the poem in a few long
+ * blocks. By blocks that is mostly entries, but the poems are thousands of words (Nothing
+ * to Eat, PG 5868: 6,663; Silver Linings, PG 75155: 8,973), and dropping the document left
+ * no text, so Add to Tinct refused the book as unreadable.
+ */
+const CONTENTS_OTHER_WORDS = 2000
+
 /** The book's own contents page, which the reader's chapter menu replaces. */
-function contentsMatter(blocks: Block[], docType: string, labels: Set<string>): boolean {
+function contentsMatter(blocks: Block[], docType: string, labels: Set<string>, v7 = false): boolean {
   if (/\b(toc|doc-toc)\b/.test(docType)) return true
   const entries = blocks.filter((block, index) => !(index === 0 && /^(table of )?contents$/.test(norm(block.text))))
   if (entries.length < 3 || labels.size < 3) return false
-  return entries.filter(block => labels.has(titleKey(block.text))).length / entries.length >= 0.6
+  const other = entries.filter(block => !labels.has(titleKey(block.text)))
+  if (v7 && blockWords(other) > CONTENTS_OTHER_WORDS) return false
+  return (entries.length - other.length) / entries.length >= 0.6
 }
 
 const COVER_LABEL = /^(cover|cover page|front cover|book cover|title|title page|titlepage|half title|halftitle)$/
@@ -1362,6 +1381,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   const meta = byLocal(opf, 'metadata')[0] || opf
   const rules = USER_EDITION_CONVERTERS.includes(options.rules ?? USER_EDITION_CONVERTER) ? options.rules ?? USER_EDITION_CONVERTER : USER_EDITION_CONVERTER
   const v6 = rules >= 6
+  const v7 = rules >= 7
   const title = textOf(meta, 'title') || clean(options.fallbackTitle) || 'Untitled book'
   // Rules 6: a creator as readers know them ("graf Leo Tolstoy" is Leo Tolstoy).
   const author = byLocal(meta, 'creator').map(creator => clean(creator.textContent)).filter(Boolean).map(name => v6 ? personName(name) : name).join(', ')
@@ -1419,7 +1439,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     // The book's cover, title pages, copyright page and its own contents page:
     // the reader opens with the title itself (labParagraphStyle) and has its own chapter menu.
     if (parsed.blocks.length && (titleMatter(parsed.blocks, parsed.docType, bookWords) || copyrightMatter(parsed.blocks)
-      || contentsMatter(parsed.blocks, parsed.docType, tocLabels))) { droppedPlaces.add(item.href); continue }
+      || contentsMatter(parsed.blocks, parsed.docType, tocLabels, v7))) { droppedPlaces.add(item.href); continue }
     docWords.set(item.href, blockWords(parsed.blocks))
     const writer = documentAuthor(source || '')
     if (writer && parsed.blocks.length) parsed.blocks[0] = { ...parsed.blocks[0], writer }

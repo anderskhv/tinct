@@ -47,11 +47,12 @@ const prose = `<p>${PROSE}</p>`
 describe('conversion rules', () => {
   it('converts new books under the current rules and records them; rules 5 on request, for a book converted before', async () => {
     const bytes = epub({ title: 'A Short Book', nav: [['One', 'a.xhtml']], docs: [['a.xhtml', page('<h1>One</h1><p>Text.</p>')]] })
-    expect(USER_EDITION_CONVERTER).toBe(6)
-    expect((await epubToEdition(bytes)).converter).toBe(6)
+    expect(USER_EDITION_CONVERTER).toBe(7)
+    expect((await epubToEdition(bytes)).converter).toBe(7)
+    expect((await epubToEdition(bytes, { rules: 6 })).converter).toBe(6)
     expect((await epubToEdition(bytes, { rules: 5 })).converter).toBe(5)
     // Rules nobody converted with are never used: the current ones are.
-    expect((await epubToEdition(bytes, { rules: 4 })).converter).toBe(6)
+    expect((await epubToEdition(bytes, { rules: 4 })).converter).toBe(7)
   })
 })
 
