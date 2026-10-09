@@ -13,6 +13,8 @@ const PUBLIC = path.resolve(__dirname, '../../../public')
 const UID = '22222222-2222-4222-8222-222222222222'
 
 const chapters = (n: number) => ({ chapters: Array.from({ length: n }, (_, i) => ({ number: i + 1 })) })
+// Every chapter finished: the shared finished rule (preReader/bookFinished.ts), not the last chapter alone.
+const allOf = (n: number) => Array.from({ length: n }, (_, i) => i + 1)
 const CATALOGUE = new Map<string, CatalogueEntry>([
   ['frankenstein', { id: 'frankenstein', title: 'Frankenstein', author: 'Mary Shelley', readingStructure: chapters(28) }],
   ['odyssey', { id: 'odyssey', title: 'The Odyssey', author: 'Homer', readingStructure: chapters(24) }],
@@ -118,7 +120,7 @@ describe('lifecycle sweep', () => {
   })
 
   it('suggests the next book after a finished book, with the verified lead card and the classic quote', async () => {
-    const { deps, outbox, log } = harness({ positions: { [UID]: positionWith({ odyssey: NOW - 4 * DAY }, { odyssey: [23, 24] }) } })
+    const { deps, outbox, log } = harness({ positions: { [UID]: positionWith({ odyssey: NOW - 4 * DAY }, { odyssey: allOf(24) }) } })
     await runLifecycleSweep(deps, [profile()])
     expect(outbox).toHaveLength(1)
     const email = outbox[0]
@@ -135,7 +137,7 @@ describe('lifecycle sweep', () => {
 
   it('skips a held or already-opened target and leads with the classic quote when the card may not lead', async () => {
     // Hamlet → Macbeth (whole-book hold) → King Lear, whose card is a "second" card: classic lead.
-    const { deps, outbox } = harness({ positions: { [UID]: positionWith({ hamlet: NOW - 4 * DAY }, { hamlet: [5] }) } })
+    const { deps, outbox } = harness({ positions: { [UID]: positionWith({ hamlet: NOW - 4 * DAY }, { hamlet: allOf(5) }) } })
     await runLifecycleSweep(deps, [profile()])
     expect(outbox).toHaveLength(1)
     expect(outbox[0].html).toContain('King Lear')
@@ -143,11 +145,11 @@ describe('lifecycle sweep', () => {
     expect(outbox[0].subject).toMatch(/^Hazlitt on King Lear: ".+"$/)
     expect(outbox[0].html).not.toContain('Recommended by')
 
-    const held = harness({ positions: { [UID]: positionWith({ beowulf: NOW - 4 * DAY }, { beowulf: [3] }) } })
+    const held = harness({ positions: { [UID]: positionWith({ beowulf: NOW - 4 * DAY }, { beowulf: allOf(3) }) } })
     expect((await runLifecycleSweep(held.deps, [profile()])).skipped['no-next-book']).toBe(1)
     expect(held.outbox).toHaveLength(0)
 
-    const opened = harness({ positions: { [UID]: positionWith({ odyssey: NOW - 4 * DAY, iliad: NOW - 30 * DAY }, { odyssey: [24] }) } })
+    const opened = harness({ positions: { [UID]: positionWith({ odyssey: NOW - 4 * DAY, iliad: NOW - 30 * DAY }, { odyssey: allOf(24) }) } })
     await runLifecycleSweep(opened.deps, [profile()])
     expect(opened.outbox.map(email => email.subject)).not.toContain('Helen Keller: "the Iliad made Greece my paradise"')
   })

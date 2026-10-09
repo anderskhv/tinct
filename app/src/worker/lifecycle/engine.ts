@@ -9,6 +9,7 @@
  * Nothing here runs unless LIFECYCLE_EMAILS is on, and nothing reaches an
  * address that fails isLifecycleTestRecipient.
  */
+import { isBookFinished } from '../../preReader/bookFinished'
 import { finishedChaptersFor, type LabPositionState } from '../../lab/labPosition'
 import { EMAIL_ART_BOOK_IDS } from './emailArt.generated'
 import { chooseNextBook, type Acclaim, type CatalogueBook } from './nextBook'
@@ -98,12 +99,6 @@ function count(result: SweepResult, reason: string): void {
 
 // ---------------------------------------------------------------- facts ----
 
-export function lastChapterOf(book: CatalogueEntry | undefined): number | null {
-  const chapters = book?.readingStructure?.chapters ?? []
-  const last = chapters.reduce((max, chapter) => Math.max(max, Number(chapter.number) || 0), 0)
-  return last > 0 ? last : null
-}
-
 /** Opt-in: the consent box (or the settings switch) given after any unsubscribe. */
 export function profileOptedIn(profile: Profile): boolean {
   if (profile.email_opt_in !== true) return false
@@ -139,8 +134,9 @@ export function readerFacts(profile: Profile, position: LabPositionState | null,
       opened.add(bookId)
       const entry: ReaderPlace = { bookId, updatedAt: place.updatedAt, sequentialChapter: place.sequentialChapter, paragraphIndex: place.paragraphIndex }
       lastReadAt = Math.max(lastReadAt ?? 0, place.updatedAt)
-      const last = lastChapterOf(catalogue.get(bookId))
-      if (last !== null && finishedChaptersFor(position, bookId).has(last)) finished.push(entry)
+      // The shared finished rule (preReader/bookFinished.ts), as the library shows it.
+      const chapters = (catalogue.get(bookId)?.readingStructure?.chapters ?? []).map(chapter => Number(chapter.number))
+      if (isBookFinished({ chapterNumbers: chapters, finishedChapters: finishedChaptersFor(position, bookId) })) finished.push(entry)
       else if (!((position.hidden?.[bookId] ?? 0) >= place.updatedAt) && catalogue.has(bookId)) places.push(entry)
     }
     for (const bookId of Object.keys(position.finished ?? {})) opened.add(bookId)

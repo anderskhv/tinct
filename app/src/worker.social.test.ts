@@ -809,11 +809,13 @@ describe('the reading card', () => {
     const world = everyoneWorld()
     world.read(A, -3, 200, 'frankenstein'); world.read(A, -1, 180, 'frankenstein')
     const renderCard = vi.fn(async () => new Uint8Array([137, 80, 78, 71]))
-    // Not finished (the last chapter is not done): the card names the book, never "Finished".
+    // Not finished (three chapters, or the last chapter alone): the card names the book, never "Finished".
     const partway = await api(world, '/api/social/card', A, { method: 'POST', body: JSON.stringify({ bookId: 'frankenstein' }) }, { renderCard, position: async () => ({ finished: { frankenstein: [1, 2, 3] } }) as never })
     expect(decodeURIComponent(partway.headers.get('X-Card-Line')!)).toBe('Frankenstein · 6 h 20 m')
     expect(renderCard).toHaveBeenLastCalledWith(expect.objectContaining({ title: 'Frankenstein', finished: false }))
-    const finished = { position: async () => ({ finished: { frankenstein: [24] } }) as never }
+    await api(world, '/api/social/card', A, { method: 'POST', body: JSON.stringify({ bookId: 'frankenstein' }) }, { renderCard, position: async () => ({ finished: { frankenstein: [24] } }) as never })
+    expect(renderCard).toHaveBeenLastCalledWith(expect.objectContaining({ title: 'Frankenstein', finished: false }))
+    const finished ={ position: async () => ({ finished: { frankenstein: Array.from({ length: 24 }, (_, i) => i + 1) } }) as never }
     const card = await api(world, '/api/social/card', A, { method: 'POST', body: JSON.stringify({ bookId: 'frankenstein' }) }, { renderCard, ...finished })
     expect(card.headers.get('Content-Type')).toBe('image/png')
     expect(card.headers.get('X-Card-Link')).toBe('https://tinct.app/@anders')

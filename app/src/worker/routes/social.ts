@@ -66,7 +66,7 @@ import {
 } from '../../social/socialRules'
 import { followButtonHtml, profileDocument, profileMissingHtml, type ProfileBook, type ProfilePageData, type ProfilePicture } from '../../social/profilePageView'
 import { finishedBookIds, formatDuration, readingTimeStats, type LedgerRow } from '../../readingTime/model'
-import { lastChapterOf, yourReadingView, type CatalogueEntry } from '../../readingTime/yourReading'
+import { chapterNumbersOf, yourReadingView, type CatalogueEntry } from '../../readingTime/yourReading'
 import { isShareableBookId } from '../../readingTime/privateBook'
 import { INDEX_KEY, bucketOf, readJson as readBucketJson, type PublicBooksEnv } from './publicBooks'
 import type { LabPositionState } from '../../lab/labPosition'
@@ -572,9 +572,9 @@ async function handleCard(request: Request, ctx: Context, viewerId: string): Pro
   // It links to the reader's public profile when others can see it, else to the book.
   const own = await ctx.profiles.getOwn(viewerId).catch(() => null)
   const link = own && own.visibility !== 'only_me' ? `https://${profileLinkText(own.handle)}` : `https://tinct.app/read/${bookId}`
-  // "Finished" only when the reader has finished the book's last chapter.
+  // "Finished" by the same rule as the library and Your reading (preReader/bookFinished.ts).
   const position = await positionOf(ctx, viewerId).catch(() => null)
-  const finished = finishedBookIds(position?.finished, () => lastChapterOf(book)).includes(bookId)
+  const finished = finishedBookIds(position?.finished, () => chapterNumbersOf(book)).includes(bookId)
   const origin = new URL(request.url).origin
   const input: FinishedCardInput = { title: book.title, author: (book as { author?: string }).author ?? '', duration, link, cover: await coverDataUri(ctx.env, origin, book.art?.src ?? null), finished }
   let png: Uint8Array

@@ -9,6 +9,7 @@
  * rows by `readingTimeStats`.
  */
 import { isUserBookId } from '../lab/userBook/userBookId'
+import { isBookFinished } from '../preReader/bookFinished'
 
 /** At most one heartbeat per reader in this window (the Worker's gate). */
 export const BEAT_MIN_GAP_MS = 50_000
@@ -278,15 +279,16 @@ export function readingTimeStats(rows: LedgerRow[], today: string): ReadingTimeS
 }
 
 /**
- * A book is finished when the reader reached the end of its last chapter:
- * the position record marks that chapter finished. Books whose structure is
- * unknown are never counted.
+ * Books the position record's finished chapters say are finished, by the
+ * shared rule (preReader/bookFinished.ts): every chapter, or the last chapter
+ * plus 90% of them. Finishing only the last chapter is not finishing the book.
+ * Books whose structure is unknown are never counted.
  */
-export function finishedBookIds(finished: Record<string, number[]> | null | undefined, lastChapter: (bookId: string) => number | null | undefined): string[] {
+export function finishedBookIds(finished: Record<string, number[]> | null | undefined, chaptersOf: (bookId: string) => readonly number[] | null | undefined): string[] {
   const ids: string[] = []
   for (const [bookId, chapters] of Object.entries(finished ?? {})) {
-    const last = lastChapter(bookId)
-    if (typeof last === 'number' && last > 0 && Array.isArray(chapters) && chapters.includes(last)) ids.push(bookId)
+    const numbers = chaptersOf(bookId) ?? []
+    if (Array.isArray(chapters) && isBookFinished({ chapterNumbers: numbers, finishedChapters: chapters })) ids.push(bookId)
   }
   return ids.sort()
 }

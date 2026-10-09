@@ -16,11 +16,11 @@ function place(bookId: string, sequentialChapter: number, updatedAt: number): La
 }
 
 describe('Your reading', () => {
-  it('lists finished books by the end of the last chapter, the rest as reading now, each with its hours', () => {
+  it('lists finished books (every chapter finished), the rest as reading now, each with its hours', () => {
     const positions = {
       ...emptyLabPositionState('device'),
       books: { frankenstein: place('frankenstein', 24, Date.UTC(2026, 9, 1, 20)), odyssey: place('odyssey', 14, Date.UTC(2026, 9, 6, 20)) },
-      finished: { frankenstein: [1, 2, 24], odyssey: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] },
+      finished: { frankenstein: chapters(24).map(chapter => chapter.number), odyssey: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] },
     }
     const stats = readingTimeStats([
       { day: '2026-10-01', bookId: 'frankenstein', read: 6 * 3600 + 1200, listen: 0 },
@@ -29,7 +29,7 @@ describe('Your reading', () => {
     ], '2026-10-07')
     const view = yourReadingView({ stats, positions, catalogue })
     expect(view.finishedCount).toBe(1)
-    expect(view.chaptersCount).toBe(16)
+    expect(view.chaptersCount).toBe(37)
     expect(view.finished.map(book => [book.title, book.hours])).toEqual([['Frankenstein', '6 h 20 m']])
     expect(view.readingNow.map(book => [book.title, book.progress, book.hours])).toEqual([
       ['The Odyssey', 'Ch. 14 of 24', '4 h 10 m'],
