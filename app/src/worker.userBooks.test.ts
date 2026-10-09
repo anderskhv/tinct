@@ -349,4 +349,48 @@ describe('/api/user-books/places', () => {
     expect(r2.objects.has(`u/${A}/places/${hex}`)).toBe(false)
     expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: {} })
   })
+
+  // A PDF's place (Add a book's viewer): the page and how far down it, in the same per-book object.
+  async function withPdf() {
+    const env = setup()
+    const { book } = await (await env.upload('token-a', pdfBytes(), { Title: 'Private PDF' })).json() as { book: UserBook }
+    return { ...env, book, hex: book.sha256.slice(0, 24) }
+  }
+  const page = (n: number, updatedAt = 1_000) => ({ page: n, frac: 0.25, updatedAt, percent: 29.37 })
+
+  it('round-trips a PDF\'s page place, versioned like an EPUB\'s, in the owner\'s prefix without the title', async () => {
+    const { r2, call, hex } = await withPdf()
+    const first = await put(call, 'token-a', hex, { place: page(12), rev: 0 })
+    expect(first.status).toBe(200)
+    expect(await first.json()).toEqual({ place: { ...page(12), percent: 29.4, rev: 1 } })
+    expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: { [hex]: { ...page(12), percent: 29.4, rev: 1 } } })
+    const key = `u/${A}/places/${hex}`
+    expect(r2.objects.get(key)?.bytes.byteLength).toBe(0)
+    expect(JSON.stringify(r2.objects.get(key)?.customMetadata)).not.toContain('Private')
+    // The newer place, read on another device, names the revision it saw.
+    const second = await put(call, 'token-a', hex, { place: { page: 20, updatedAt: 2_000 }, rev: 1 })
+    expect(await second.json()).toEqual({ place: { page: 20, updatedAt: 2_000, rev: 2 } })
+    // A device still on revision 1 is refused with the stored place.
+    const stale = await put(call, 'token-a', hex, { place: page(12, 1_500), rev: 1 })
+    expect(stale.status).toBe(409)
+    expect(await stale.json()).toEqual({ error: 'conflict', place: { page: 20, updatedAt: 2_000, rev: 2 } })
+  })
+
+  it('refuses a page place out of shape, or on an EPUB', async () => {
+    const { call, hex } = await withPdf()
+    expect((await put(call, 'token-a', hex, { place: { ...page(12), page: 0 }, rev: 0 })).status).toBe(400)
+    expect((await put(call, 'token-a', hex, { place: { ...page(12), page: 1.5 }, rev: 0 })).status).toBe(400)
+    expect((await put(call, 'token-a', hex, { place: { ...page(12), frac: 2 }, rev: 0 })).status).toBe(400)
+    expect((await put(call, 'token-a', hex, { place: { ...page(12), updatedAt: 0 }, rev: 0 })).status).toBe(400)
+    const epub = await withBook()
+    expect((await put(epub.call, 'token-a', epub.hex, { place: page(12), rev: 0 })).status).toBe(400)
+    expect((await put(call, 'token-b', hex, { place: page(12), rev: 0 })).status).toBe(404)
+  })
+
+  it('deletes a PDF\'s page place with the book', async () => {
+    const { r2, call, book, hex } = await withPdf()
+    await put(call, 'token-a', hex, { place: page(12), rev: 0 })
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect(r2.objects.has(`u/${A}/places/${hex}`)).toBe(false)
+  })
 })
