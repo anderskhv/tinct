@@ -1,7 +1,9 @@
 export const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 export const mix=(a,b,t)=>a+(b-a)*t;
-export function destination(w,h,coarse=false){const tour=w<1100||h<600||(coarse&&w<=1400);const width=tour?w:Math.min(660,(w-96)/2);const top=tour?0:76;return {x:tour?w:w/2,y:top,w:width,h:tour?h:h-top-28,spread:true,tour};}
+// The two-page spread wherever it fits (touch tablets in landscape included); otherwise
+// the compact tour: the author flap first, then the introduction full screen.
+export function destination(w,h){const tour=w<1100||h<600;const width=tour?w:Math.min(660,(w-96)/2);const top=tour?0:76;return {x:tour?w:w/2,y:top,w:width,h:tour?h:h-top-28,spread:true,tour};}
 // The cover and paper share one uniformly scaled parent throughout the motion.
 export function bookFrame(source,target,t){t=clamp(t,0,1);const open=ease(clamp(t/.48,0,1));const zoom=ease(clamp((t-.48)/.52,0,1));const width=mix(source.w,target.w,zoom);return {x:mix(source.x,target.x,zoom),y:mix(source.y,target.y,zoom),w:width,h:mix(source.h,target.h,zoom),angle:-180*open,scale:width/target.w,opacity:1};}
 export function orbFrame(a,b,t){const p=ease(clamp(t,0,1));return {x:mix(a.x,b.x,p),y:mix(a.y,b.y,p),size:mix(a.size,b.size,p)};}
