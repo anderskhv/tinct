@@ -22,6 +22,7 @@ import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import { sourceAuthorship, withAuthorship } from '../companion/authorship'
 import {
   applyNarrationPilotFlag,
   ensureNarration,
@@ -101,7 +102,8 @@ import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { chapterNotesText, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
-import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, startModernCheckout, useLabModernEdition } from './labModernEdition'
+import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, startModernCheckout, useLabModernEdition, type ModernVisible } from './labModernEdition'
+import { LabModernReadyNotice, LabModernWait, MODERN_WAIT_COPY } from './LabModernWait'
 import { cancelModernCheckout } from './labModernEditionApi'
 import { isPublicBookId, modernEditionsEnabled } from '../../public/lab/public-books.js'
 import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
@@ -189,7 +191,8 @@ import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
 import { USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { userBookLangAttribute } from './userBook/userBookLanguage'
-import { writeUserBookPlace } from './userBook/userBookPlace'
+import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
+import { flushOwnPlaces, noteOwnPlace } from './userBook/ownSync'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
@@ -820,12 +823,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const modernBookId = book.bookId || 'bible'
   const modernPrefsRef = useRef(prefs)
   modernPrefsRef.current = prefs
+  const modernEnabled = !privateBook && isPublicBookId(modernBookId) && modernEditionsEnabled()
+  // The paragraphs on the page in view (set below, once the pages are known): a
+  // page with any paragraph not yet in Modern English is covered, never shown.
+  const [modernVisible, setModernVisible] = useState<ModernVisible | null>(null)
   const modern = useLabModernEdition({
-    enabled: !privateBook && isPublicBookId(modernBookId) && modernEditionsEnabled(),
+    enabled: modernEnabled,
     bookId: modernBookId,
     editionKey: prefs.primaryEdition,
     chapterNumber: book.chapterNumber,
     pending: !!book.modernPending,
+    written: book.modernWritten,
+    visible: modernVisible,
+    paragraphCount: book.paragraphs.length,
     // Signed in, the status carries an offer only for Premium (trial included).
     readToken: signedIn ? readSupabaseAccessToken : undefined,
     // Back from a completed purchase: read the edition just bought.
@@ -835,6 +845,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       updatePrefs(labPrefsForMainEdition(modernPrefsRef.current, MODERN_EDITION_KEY, modernBookId, registered.editions, registered.year))
     },
   })
+  const modernBlocksNextRef = useRef(false)
+  modernBlocksNextRef.current = modern.wait !== null
+  const [modernNoteDismissed, setModernNoteDismissed] = useState<string | null>(null)
   const [modernCheckoutBusy, setModernCheckoutBusy] = useState(false)
   const buyModernEdition = useCallback(async () => {
     const token = await readSupabaseAccessToken()
@@ -1122,9 +1135,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   useLabFunnel({ bookId: book.bookId || 'bible', ready: book.paragraphs.length > 0, signedIn, authToken })
 
+  // An essay collection's chapters are by their own writers (companion/authorship.ts).
+  const authorshipOf = useMemo(() => book.collection
+    ? (chapterNumber: number | undefined) => sourceAuthorship(book, chapterNumber)
+    : undefined, [book])
   const ask = useLabAsk({
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
+    authorshipOf,
     headerBook: book.headerBook,
     chapterLabel: book.chapterLabel,
     chapterNumber: book.chapterNumber,
@@ -1394,13 +1412,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     },
   })
   const { initialPositionResolved, biblicalBook, readPositionState } = positionSync
-  // A user book's place: the same tuple, written to this device only, under
-  // the same suspensions. No 'hide' flush is needed: every note is written.
+  // A user book's place: the same tuple, kept on this device under the same
+  // suspensions, and saved a moment later to the reader's private copy in
+  // their account (userBook/ownSync.ts: never the shared position stores),
+  // so it opens there on their other devices. 'hide' sends what is waiting.
   const userPlaceBookRef = useRef(book)
   userPlaceBookRef.current = book
   const notePlace = useCallback<typeof positionSync.notePlace>((reason, at) => {
     if (!userBook) { positionSync.notePlace(reason, at); return }
-    if (reason === 'hide' || placeWritesSuspended) return
+    if (reason === 'hide') { flushOwnPlaces(); return }
+    if (placeWritesSuspended) return
     const current = userPlaceBookRef.current
     if (current.bookId !== userBook.bookId || current.paragraphs.length === 0) return
     writeUserBookPlace(userBook.hex, {
@@ -1408,10 +1429,35 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       paragraphIndex: at?.paragraphIndex ?? placeRef.current.paragraphIndex,
       wordIndex: at?.wordIndex ?? placeRef.current.wordIndex,
       updatedAt: Date.now(),
+      // The rules of the conversion this place is in: converted again, the book keeps its words where they were.
+      converter: userBook.edition.converter,
     })
+    noteOwnPlace(userBook.hex, userBook.edition.chapters)
   // positionSync.notePlace is the stable callback the hook returns.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, placeWritesSuspended, positionSync.notePlace])
+  // Leaving or hiding the page sends the own book's place still waiting (keepalive).
+  useEffect(() => {
+    if (!userBook) return
+    const onVisibility = () => { if (document.visibilityState === 'hidden') flushOwnPlaces() }
+    window.addEventListener('pagehide', flushOwnPlaces)
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      window.removeEventListener('pagehide', flushOwnPlaces)
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [userBook])
+  // An own book opened without a saved place is being read from its start: it
+  // joins Currently reading as a Tinct book does when it is opened. The mark
+  // carries no reading time (updatedAt 0), so it is never sent to the account
+  // and never outranks a place read on another device.
+  const userBookOpenNotedRef = useRef(false)
+  useEffect(() => {
+    if (!userBook || userBook.place || userBookOpenNotedRef.current || placeWritesSuspended) return
+    userBookOpenNotedRef.current = true
+    if (readUserBookPlace(userBook.hex, userBook.edition)) return
+    writeUserBookPlace(userBook.hex, { chapterNumber: userBookBoot?.book.chapterNumber ?? 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 0 })
+  }, [userBook, userBookBoot, placeWritesSuspended])
   const [userBookFinished, setUserBookFinished] = useState<Set<number>>(() => new Set())
   const finishedChapters = userBook ? userBookFinished : positionSync.finishedChapters
   const markChapterFinished = useCallback((chapterNumber: number) => {
@@ -2991,6 +3037,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     && carriedEnding.layoutKey === `${readerLayoutKey}:${fullscreen}` && carriedEnding.width === window.innerWidth && carriedEnding.height === window.innerHeight
     ? carriedEnding : null
   const openingOnRight = Boolean(carriedEndingCurrent && readingPageIndex === 0)
+  // The paragraphs on the page (or spread) in view, for an added book's Modern
+  // English edition still being written (labModernEdition.ts).
+  const modernSpreadPage = desktopSpread && !openingOnRight ? readingPages[readingPageIndex + 1] : undefined
+  // Before paint: a page turned onto unwritten paragraphs is covered in the same frame, never shown first.
+  useLayoutEffect(() => {
+    if (!modernEnabled) return
+    const pages = [readingPage, modernSpreadPage].filter((page): page is ChapterHearingPage => !!page)
+    const indexes = pages.flatMap(page => [page.paragraphIndex, ...(page.segments ?? []).map(segment => segment.paragraphIndex)])
+    const place = placeRef.current.paragraphIndex
+    const next = indexes.length ? { first: Math.min(...indexes), last: Math.max(...indexes) } : { first: place, last: place }
+    setModernVisible(prev => prev && prev.first === next.first && prev.last === next.last ? prev : next)
+  }, [modernEnabled, readingPage, modernSpreadPage])
   const nextOpeningCurrent = nextOpening && nextOpening.key === nextOpeningKey ? nextOpening : null
   const nextOpeningLayoutKey = `${desktopLayoutKey}:next:${nextOpeningKey ?? ''}`
   const nextChapterOpening = nextOpeningCurrent && nextOpeningPage?.key === nextOpeningLayoutKey && nextOpeningPage.paragraphs === nextOpeningCurrent.paragraphs
@@ -3190,6 +3248,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     : showPhoneChrome
       ? phoneProgressLabel
       : desktopProgressLabel
+  // Reading the original while Modern English is written: the folio names it, like the compare mark.
+  const readingFootLabel = modern.originalNote && footProgressLabel ? `${MODERN_WAIT_COPY.originalLabel} · ${footProgressLabel}` : footProgressLabel
 
   useEffect(() => {
     if (!showHearing || listen.pending) return
@@ -3888,6 +3948,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [desktopPaging, listen.playing])
 
   const goNext = useCallback(() => {
+    // A page still being written in Modern English is covered: the reader waits there, never turning on into text they cannot see.
+    if (modernBlocksNextRef.current) return
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       if (book.paragraphs.length === 0) return
@@ -4563,6 +4625,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     // Capture one coherent tuple before opening Chat or awaiting a chapter fetch.
     const request = createChapterChatRequest(kind, {
       bookId: book.bookId || 'bible', bookTitle: book.bookTitle, bookAuthor: book.bookAuthor,
+      ...withAuthorship(authorshipOf?.(book.chapterNumber)),
       editionKey: readerEditionKey, editionLabel: editionLabelFor(readerEditionKey, allBookEditions),
       chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel,
       paragraphs: readerParagraphs, paragraphIndex: placeRef.current.paragraphIndex,
@@ -5048,8 +5111,30 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           aria-busy={initialResolving || undefined}
         >
           {desktopCompareActive && <div className="lab-compare-divider" aria-hidden="true"><span>Compare</span></div>}
-          {modern.preparing && !readerLoadError && (
-            <p className="lab-modern-status" role="status" data-testid="lab-modern-status">Modern English for this chapter is being prepared.</p>
+          {modern.wait && !readerLoadError && !chapterCoverTitle && (
+            <LabModernWait
+              wait={modern.wait}
+              bookTitle={book.bookTitle}
+              chapterTitle={book.chapterTitle}
+              onReadOriginal={() => {
+                // The edition toggle, to the original (paragraph-aligned: the place is kept).
+                const original = editionCommand('original')
+                modern.readOriginal()
+                if (original && prefs.primaryEdition !== original.key) updatePrefs({ ...prefs, primaryEdition: original.key, compareOpen: prefs.compareOpen && prefs.compareEdition !== original.key })
+              }}
+            />
+          )}
+          {/* Reading the original meanwhile, the folio names it (readingFootLabel); once Modern
+              English is ready here, one notice switches (dismissed for this chapter: the folio stays). */}
+          {modern.originalNote === 'ready' && modernNoteDismissed !== `${book.bookId}:${book.chapterNumber}` && !modern.wait && !readerLoadError && !chapterCoverTitle && (
+            <LabModernReadyNotice
+              onDismiss={() => setModernNoteDismissed(`${book.bookId}:${book.chapterNumber}`)}
+              onSwitch={() => {
+                const modernEdition = editionCommand('modern')
+                modern.backToModern()
+                if (modernEdition) updatePrefs({ ...prefs, primaryEdition: modernEdition.key, compareOpen: prefs.compareOpen && prefs.compareEdition !== modernEdition.key })
+              }}
+            />
           )}
           {/* The version just swapped to, named for about a second and then
               gone. It sits on the page the reader landed on, every swap, and
@@ -5361,7 +5446,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               {mobileCompareActive ? (
                 <span className="lab-chapter-progress-info lab-v2-compare-mark" data-testid="lab-v2-compare-mark">{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</span>
               ) : (
-                <span className="lab-chapter-progress-info">{footProgressLabel}</span>
+                <span className="lab-chapter-progress-info" data-original={modern.originalNote ? true : undefined}>{readingFootLabel}</span>
               )}
             </button>
           ) : (
@@ -5371,7 +5456,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               aria-label={`${footProgressLabel}. Show ${readerProgressMode === 'book' ? 'chapter' : 'book'} progress`}
               onClick={toggleReaderProgressMode}
             >
-              <span className="lab-chapter-progress-info">{footProgressLabel}</span>
+              <span className="lab-chapter-progress-info" data-original={modern.originalNote ? true : undefined}>{readingFootLabel}</span>
             </button>
           )}
           {chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (

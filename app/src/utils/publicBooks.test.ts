@@ -1,7 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { PRE_READER_CATALOGUE } from '../preReader/catalogue'
-import { bookFromEntry, ensurePublicBook, fetchPublicBooksIndex, mentionsPublicBook, preloadPublicBooksForReader, quickPublicEntry, registeredPublicCover, registeredPublicEntries, registerPublicBook, type PublicEntry } from './publicBooks'
+import { bookFromEntry, ensurePublicBook, fetchPublicBooksIndex, handoffPublicBookId, mentionsPublicBook, preloadPublicBooksForReader, preparePublicBooksForReader, quickPublicEntry, registeredPublicCover, registeredPublicEntries, registerPublicBook, type PublicEntry } from './publicBooks'
+import { readerHandoffFromUrlParams } from '../lab/labReaderHandoff'
 
 const entry = (id: string): PublicEntry => ({
   id, title: 'The River House', author: 'Ann Example', summary: 'Public-domain text from Project Gutenberg.', year: 1871, wordCount: 1200,
@@ -33,20 +34,20 @@ describe('public books in the reader', () => {
     await ensurePublicBook('pd-pg-78', fetchImpl as unknown as typeof fetch)
     await ensurePublicBook('odyssey', fetchImpl as unknown as typeof fetch)
     expect(fetchImpl).toHaveBeenCalledTimes(1)
-    expect(fetchImpl.mock.calls[0]).toEqual(['/api/public-books/pd-pg-78'])
+    expect(fetchImpl.mock.calls[0]).toEqual(['/api/public-books/pd-pg-78', { cache: 'no-cache' }])
     expect(getBook('pd-pg-78')).toBeTruthy()
   })
 
   it('preloads the index before the reader renders only when stored state names a public book', async () => {
     const storage = (values: Record<string, string>) => ({ getItem: (key: string) => values[key] ?? null })
-    const fetchImpl = vi.fn(async () => Response.json({ books: [entry('pd-pg-79')] }))
+    const fetchImpl = vi.fn(async (url: string) => url === '/api/public-books' ? Response.json({ books: [entry('pd-pg-79')] }) : Response.json({ book: bookFromEntry(entry('pd-pg-79')), entry: entry('pd-pg-79') }))
     vi.stubGlobal('sessionStorage', storage({}))
     vi.stubGlobal('localStorage', storage({ 'tinct-lab-position': '{"books":{"odyssey":{"bookId":"odyssey"}}}' }))
     await preloadPublicBooksForReader(fetchImpl as unknown as typeof fetch)
     expect(fetchImpl).not.toHaveBeenCalled()
     vi.stubGlobal('sessionStorage', storage({ 'tinct:lab-reader-handoff': '{"kind":"open-reader","bookId":"pd-pg-79"}' }))
     await preloadPublicBooksForReader(fetchImpl as unknown as typeof fetch)
-    expect(fetchImpl).toHaveBeenCalledWith('/api/public-books')
+    expect(fetchImpl).toHaveBeenCalledWith('/api/public-books', { cache: 'no-cache' })
     expect(getBook('pd-pg-79')?.editions[0].key).toBe('original-en')
     expect(mentionsPublicBook(null, '"pd-ws-da-q1-abc"')).toBe(true)
     expect(mentionsPublicBook('{"bookId":"pride-and-prejudice"}')).toBe(false)
@@ -72,10 +73,93 @@ describe('public books in the reader', () => {
 
     const ok = vi.fn(async () => Response.json({ books: [painted, { id: 'odyssey', title: 'x' }] }))
     expect((await fetchPublicBooksIndex(ok as unknown as typeof fetch))?.map(book => book.id)).toEqual(['pd-pg-135'])
-    expect(ok).toHaveBeenCalledWith('/api/public-books')
+    expect(ok).toHaveBeenCalledWith('/api/public-books', { cache: 'no-cache' })
     const unavailable = async () => new Response('', { status: 503 })
     expect(await fetchPublicBooksIndex(unavailable as unknown as typeof fetch)).toBeNull()
     const offline = async () => Promise.reject(new Error('offline'))
     expect(await fetchPublicBooksIndex(offline as unknown as typeof fetch)).toBeNull()
+  })
+
+  // QA 2026-10-08: 6 of 10 adds opened another book. The index is cached for a minute, so a book
+  // added in that minute was missing from it, the hand-off was dropped and the reader opened its last book.
+  it('registers the hand-off’s added book from its own record when the index does not have it yet', async () => {
+    const storage = (values: Record<string, string>) => ({ getItem: (key: string) => values[key] ?? null, removeItem: () => {} })
+    const added = entry('pd-pg-599')
+    const seen: Array<[string, RequestInit | undefined]> = []
+    // The reader is served an index from before the add: an older book only.
+    const fetchImpl = vi.fn(async (url: string, init?: RequestInit) => {
+      seen.push([url, init])
+      if (url === '/api/public-books') return Response.json({ books: [entry('pd-pg-80')] })
+      if (url === '/api/public-books/pd-pg-599') return Response.json({ book: bookFromEntry(added), entry: { ...added, readingStructure: { chapters: [{ number: 1, title: 'Chapter 1', paragraphCount: 3 }] } } })
+      return new Response('', { status: 404 })
+    })
+    vi.stubGlobal('sessionStorage', storage({ 'tinct:lab-reader-handoff': JSON.stringify({ kind: 'open-reader', bookId: 'pd-pg-599', primaryEditionKey: 'original-en' }) }))
+    vi.stubGlobal('localStorage', storage({ 'tinct-lab-position': JSON.stringify({ books: { 'pd-pg-80': { bookId: 'pd-pg-80' } } }) }))
+    expect(handoffPublicBookId(JSON.stringify({ kind: 'open-reader', bookId: 'pd-pg-599' }))).toBe('pd-pg-599')
+    expect(handoffPublicBookId(JSON.stringify({ kind: 'open-reader', bookId: 'odyssey' }))).toBeNull()
+    expect(await preparePublicBooksForReader({ fetchImpl: fetchImpl as unknown as typeof fetch, search: '' })).toBeNull()
+    expect(getBook('pd-pg-599')?.title).toBe('The River House')
+    expect(PRE_READER_CATALOGUE.booksById.get('pd-pg-599')).toBeTruthy()
+    expect(getBook('pd-pg-80')).toBeTruthy()
+    // Every request revalidates: never the browser's cached copy.
+    for (const [, init] of seen) expect(init).toEqual({ cache: 'no-cache' })
+  })
+
+  it('never renders the reader without the hand-off’s book: when it cannot be registered, its id comes back for the library', async () => {
+    const storage = (values: Record<string, string>) => ({ getItem: (key: string) => values[key] ?? null, removeItem: () => {} })
+    vi.stubGlobal('sessionStorage', storage({ 'tinct:lab-reader-handoff': JSON.stringify({ kind: 'open-reader', bookId: 'pd-pg-600', primaryEditionKey: 'original-en' }) }))
+    vi.stubGlobal('localStorage', storage({}))
+    const missing = vi.fn(async () => new Response('', { status: 404 }))
+    expect(await preparePublicBooksForReader({ fetchImpl: missing as unknown as typeof fetch, search: '' })).toBe('pd-pg-600')
+    expect(missing.mock.calls.filter(call => (call as unknown[])[0] === '/api/public-books/pd-pg-600')).toHaveLength(2) // asked again once
+    expect(getBook('pd-pg-600')).toBeUndefined()
+    // A registry hand-off waits for nothing.
+    vi.stubGlobal('sessionStorage', storage({ 'tinct:lab-reader-handoff': JSON.stringify({ kind: 'open-reader', bookId: 'odyssey', primaryEditionKey: 'original-en' }) }))
+    expect(await preparePublicBooksForReader({ fetchImpl: missing as unknown as typeof fetch, search: '' })).toBeNull()
+  })
+
+  // QA 2026-10-09: a guest's /reader?book=pd-pg-1672&chapter=2 (Gorgias) opened the Bible at Genesis 1.
+  // Only the hand-off, a saved place or a Checkout return registered an added book; the address did not.
+  it('registers the added book a plain ?book= deep link names, on a fresh device, and opens its chapter', async () => {
+    const storage = (values: Record<string, string>) => ({ getItem: (key: string) => values[key] ?? null, removeItem: () => {} })
+    vi.stubGlobal('sessionStorage', storage({}))
+    vi.stubGlobal('localStorage', storage({}))
+    const available = { chapterText: true, audio: false, compare: true }
+    const gorgias = { ...entry('pd-pg-1672'), title: 'Gorgias', author: 'Plato', editions: [
+      { key: 'original-en', language: 'en', style: 'original', label: 'Original', translator: 'Benjamin Jowett', year: 1871, availability: available },
+      { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', translator: null, year: 2026, availability: available },
+    ], readingStructure: { totalParagraphs: 20, chapters: [{ number: 1, title: 'Introduction', paragraphCount: 10 }, { number: 2, title: 'Gorgias', paragraphCount: 10 }] } }
+    const book = bookFromEntry(gorgias as unknown as PublicEntry)
+    const fetchImpl = vi.fn(async (url: string) => url === '/api/public-books/pd-pg-1672'
+      ? Response.json({ book, entry: gorgias })
+      : new Response('', { status: 404 }))
+    for (const search of ['?book=pd-pg-1672&chapter=2', '?book=pd-pg-1672&chapter=2&edition=modern-en']) {
+      for (let i = BOOKS.length - 1; i >= 0; i--) if (BOOKS[i].id.startsWith('pd-')) BOOKS.splice(i, 1)
+      ;(PRE_READER_CATALOGUE.booksById as Map<string, unknown>).delete('pd-pg-1672')
+      expect(await preparePublicBooksForReader({ fetchImpl: fetchImpl as unknown as typeof fetch, search })).toBeNull()
+      expect(getBook('pd-pg-1672')?.title).toBe('Gorgias')
+      expect(PRE_READER_CATALOGUE.booksById.get('pd-pg-1672')).toBeTruthy()
+      const handoff = readerHandoffFromUrlParams(new URLSearchParams(search))
+      expect(handoff?.bookId).toBe('pd-pg-1672')
+      expect(handoff?.savedPlace?.chapterNumber).toBe(2)
+    }
+    expect(readerHandoffFromUrlParams(new URLSearchParams('?book=pd-pg-1672&chapter=2&edition=modern-en'))?.primaryEditionKey).toBe('modern-en')
+    expect(fetchImpl.mock.calls.map(call => call[0])).toEqual(['/api/public-books/pd-pg-1672', '/api/public-books/pd-pg-1672'])
+  })
+
+  it('never renders the reader without the address’s added book: when it cannot be registered, its id comes back for the library', async () => {
+    const storage = (values: Record<string, string>) => ({ getItem: (key: string) => values[key] ?? null, removeItem: () => {} })
+    vi.stubGlobal('sessionStorage', storage({}))
+    vi.stubGlobal('localStorage', storage({}))
+    const missing = vi.fn(async () => new Response('', { status: 404 }))
+    expect(await preparePublicBooksForReader({ fetchImpl: missing as unknown as typeof fetch, search: '?book=pd-pg-1673&chapter=2' })).toBe('pd-pg-1673')
+    expect(missing.mock.calls.filter(call => (call as unknown[])[0] === '/api/public-books/pd-pg-1673')).toHaveLength(2) // asked again once
+    expect(getBook('pd-pg-1673')).toBeUndefined()
+    // A Checkout return still renders the reader, which settles the purchase there.
+    expect(await preparePublicBooksForReader({ fetchImpl: missing as unknown as typeof fetch, search: '?book=pd-pg-1673&modern=cancel' })).toBeNull()
+    // A registry book in the address waits for nothing.
+    const none = vi.fn()
+    expect(await preparePublicBooksForReader({ fetchImpl: none as unknown as typeof fetch, search: '?book=odyssey&chapter=2' })).toBeNull()
+    expect(none).not.toHaveBeenCalled()
   })
 })

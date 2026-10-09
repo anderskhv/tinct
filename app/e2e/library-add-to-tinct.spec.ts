@@ -1,18 +1,23 @@
 import { expect, test, type Page } from '@playwright/test'
 import { mkdirSync } from 'node:fs'
 import { join } from 'node:path'
+// A real (one-page) PDF: Add a book's engine opens a PDF before keeping it and refuses one that
+// does not open (fix/pdf-qa-1008), so a stand-in byte string is no longer kept.
+import { makePdf } from '../../addbooks/web/test/make-pdf.mjs'
 
 /**
  * Add to Tinct (approved D1/D2, 2026-10-06) in the library: the search's
  * "Available in Tinct" / "Not yet in Tinct" groups with Add and the file box,
- * and My shelf's "Your own books" with "+ Add a book" and the + tile. Signed in
+ * and My shelf's "My private uploads" with the + beside its heading (2026-10-08). Signed in
  * (any account) or the internal flag: shown; signed out: the library exactly as
  * before, with no Add and no sign-in prompt for it. The session is mocked (the
  * signed-in cookie and a cached Supabase user); the page's sign-in and sign-out
  * without a reload is the reading bridge's `library2:auth` event, dispatched
  * here as the bridge does. The catalogue search is the real Add a
- * book worker and catalogue; the added-book index and the add engine
- * (/lab/library-add.js) are stubs, so nothing is imported or uploaded.
+ * book worker and catalogue; the added-book index and the import engine
+ * (/lab/library-add.js) are stubs, so nothing is imported. A file chosen in the
+ * "Your own book" pop-up goes through Add a book's real engine (add-engine.js), kept
+ * in this browser only: the account and the book's page are not reached.
  *
  * Run: PW_CHROMIUM_EXECUTABLE=/opt/pw-browsers/chromium npx playwright test -c e2e/playwright.library-add.config.ts
  * ARTIFACT_DIR=<dir> saves a screenshot of each state.
@@ -32,7 +37,7 @@ const ADDED = {
 }
 const OWN_BOOKS = [
   { key: 'epub:aaaaaaaaaaaaaaaaaaaaaaaa', kind: 'epub', title: 'Thesis draft: Rivers in Victorian fiction', author: 'Me', at: 3, readingAt: 3, href: '/reader?userBook=aaaaaaaaaaaaaaaaaaaaaaaa' },
-  { key: 'pdf:bbbbbbbbbbbbbbbbbbbbbbbb', kind: 'pdf', title: 'Lecture notes, week 4', author: '', at: 2, readingAt: null, href: '/lab/addbook/#books' },
+  { key: 'pdf:bbbbbbbbbbbbbbbbbbbbbbbb', kind: 'pdf', title: 'Lecture notes, week 4', author: '', at: 2, readingAt: null, href: '/lab/addbook/?userBook=bbbbbbbbbbbbbbbbbbbbbbbb' },
 ]
 
 
@@ -93,10 +98,16 @@ async function setAuth(page: Page, signedIn: boolean) {
   }, signedIn)
 }
 
+/** My shelf, where own books are and where a file is added (Add a book is no longer a page, 2026-10-08). */
+const MY_SHELF = '/library#my-shelf'
+const RIGHTS = "I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4)."
+
 /**
  * A signed-in Premium or trial reader's file entry: the "Your own book" pop-up over the
- * library (no page change), whose button opens the file picker; the chosen file goes on
- * to Add a book's file step (its upload flow, handed the file).
+ * library (no page change), whose button opens the file picker; the chosen file is added in
+ * the pop-up with Add a book's own engine (/lab/addbook/js/add-engine.js: the rights
+ * confirmation once per account, kept on this device), then the book opens at its own
+ * address (a PDF: /lab/addbook/?userBook=<hex>, stubbed here).
  */
 async function expectOwnBookPopUp(page: Page) {
   const dialog = page.locator('[data-testid="own-file-dialog"]')
@@ -108,8 +119,18 @@ async function expectOwnBookPopUp(page: Page) {
   await expect(choose).toBeFocused()
   expect(new URL(page.url()).pathname).toBe('/library')
   const [chooser] = await Promise.all([page.waitForEvent('filechooser'), choose.click()])
-  await chooser.setFiles({ name: 'notes.epub', mimeType: 'application/epub+zip', buffer: Buffer.from('PK fixture') })
-  await page.waitForURL(/\/lab\/addbook\/\?mode=file&handoff=1$/)
+  await chooser.setFiles({ name: 'notes.pdf', mimeType: 'application/pdf', buffer: Buffer.from(makePdf({ pages: [{ lines: [{ x: 72, y: 700, size: 12, font: 'Times-Roman', text: 'Lecture notes' }] }] })) })
+  // The first file on this account: the rights confirmation, in the same pop-up, still on the library.
+  await expect(dialog.locator('[role="dialog"]')).toHaveAttribute('data-step', 'rights', { timeout: 15_000 })
+  await expect(dialog.locator('.own-file-rights')).toHaveText(RIGHTS)
+  await expect(dialog.locator('.own-file-rights-intro')).toContainText('notes.pdf')
+  const keep = dialog.locator('.own-file-continue')
+  await expect(keep).toBeDisabled()
+  expect(new URL(page.url()).pathname).toBe('/library')
+  await dialog.locator('.own-file-rights-box').check()
+  await expect(keep).toBeEnabled()
+  await keep.click()
+  await page.waitForURL(/\/lab\/addbook\/\?userBook=[0-9a-f]{24}$/)
 }
 
 async function expectNoAddToTinct(page: Page) {
@@ -143,7 +164,7 @@ test.describe('library search', () => {
     await expect(rows.first().locator('.free-add')).toHaveText('Add')
     const file = results.locator('.file-box')
     await expect(file).toContainText('Have it as a file?')
-    await expect(file.locator('a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
+    await expect(file.locator('a')).toHaveAttribute('href', MY_SHELF)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     await shot(page, 'search-signed-in')
     // Add runs the add engine (stubbed to fail here): no sign-in detour for a signed-in reader.
@@ -151,6 +172,25 @@ test.describe('library search', () => {
     await expect(page.locator('#notice')).toHaveText('This book could not be added. Please try again.')
     expect(page.url()).not.toContain('/sign-in')
     expect(await page.evaluate(() => (window as unknown as { __imports?: number }).__imports)).toBe(1)
+  })
+
+  test('loading the library fetches no search catalogue and paints covers at their shown size; search loads the English part', async ({ page }) => {
+    // Memory on loading /library (integration, 2026-10-08): the catalogue (7.9 MB, ~1 GB to parse)
+    // loads only once search opens, in the search worker; covers are not full-size canvases.
+    const fetched: string[] = []
+    page.on('request', request => fetched.push(new URL(request.url()).pathname))
+    await prepare(page, { internal: false, signedIn: true })
+    await page.waitForTimeout(3000)
+    expect(fetched.filter(path => path.startsWith('/lab/addbook/data/') || path.endsWith('/search-worker.js'))).toEqual([])
+    const oversized = await page.evaluate(() => [...document.querySelectorAll<HTMLCanvasElement>('canvas.cover[data-painted]')]
+      .filter(canvas => canvas.isConnected && canvas.clientWidth > 0 && canvas.width > Math.ceil(canvas.clientWidth * Math.min(devicePixelRatio || 1, 2) * 1.25) + 1)
+      .map(canvas => `${canvas.dataset.book} ${canvas.width}px for ${canvas.clientWidth}px`))
+    expect(oversized).toEqual([])
+    await search(page, 'austen')
+    await expect(page.locator('#search-results .free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    const catalogue = fetched.filter(path => path.startsWith('/lab/addbook/data/catalog'))
+    expect(catalogue).toContain('/lab/addbook/data/catalog-en.json.gz')
+    expect(catalogue).not.toContain('/lab/addbook/data/catalog.json.gz')
   })
 
   test('"faust": Goethe and Marlowe, no Max Brand westerns, and not the Faust already in Tinct', async ({ page }) => {
@@ -211,6 +251,29 @@ test.describe('library search', () => {
     await expect(row.locator('.free-progress')).toHaveCount(0)
   })
 
+  test('closing search while a book is being added cancels opening it (QA 2026-10-08: the reader opened ~16 s later)', async ({ page }) => {
+    // An import that succeeds once the page lets it finish (window.__importStep()).
+    const SLOW_SUCCESS = `async(id,options)=>{window.__imports=(window.__imports||0)+1;await new Promise(done=>{window.__importStep=done;});return {ok:true,existed:false,bookId:${JSON.stringify(ADDED.id)},entry:${JSON.stringify(ADDED)}};}`
+    await prepare(page, { internal: false, signedIn: true, importWork: SLOW_SUCCESS })
+    await search(page, 'austen')
+    const results = page.locator('#search-results')
+    await expect(results.locator('.free-group .search-group-head')).toHaveText('Not yet in Tinct', { timeout: 60_000 })
+    await results.locator('.free-row').first().locator('.free-add').click()
+    await expect.poll(() => page.evaluate(() => typeof (window as unknown as { __importStep?: unknown }).__importStep)).toBe('function')
+    await page.locator('#search-close').click()
+    await expect(page.locator('#search-panel')).toBeHidden()
+    // The import finishes (it may on the server): the library stays, with no notice and no question.
+    await page.evaluate(() => (window as unknown as { __importStep: () => void }).__importStep())
+    await page.waitForTimeout(2500)
+    expect(new URL(page.url()).pathname).toBe('/library')
+    await expect(page.locator('#notice')).toBeHidden()
+    await expect(page.locator('[data-testid="modern-ask"]')).toHaveCount(0)
+    await expect(page.locator('body')).not.toHaveClass(/leaving/)
+    // A later Add works again (the cancelled one no longer holds the queue).
+    await search(page, 'austen')
+    await expect(results.locator('.free-add').first()).toBeEnabled({ timeout: 60_000 })
+  })
+
   test('the + in the search field opens the "Your own book" pop-up for a PDF or EPUB, clear of Cancel', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true })
     await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
@@ -218,14 +281,14 @@ test.describe('library search', () => {
     const plus = page.locator('#search-add-file')
     await expect(plus).toBeVisible()
     await expect(plus).toHaveAttribute('aria-label', 'Add your own book (PDF or EPUB)')
-    await expect(plus).toHaveAttribute('href', '/lab/addbook/?mode=file')
+    await expect(plus).toHaveAttribute('href', MY_SHELF)
     expect((await plus.innerText()).trim()).toBe('')
     const a = (await plus.boundingBox())!, b = (await page.locator('#search-cancel').boundingBox())!, input = (await page.locator('#search-input').boundingBox())!
     expect(a.x + a.width).toBeLessThanOrEqual(b.x)
     expect(input.x + input.width).toBeLessThanOrEqual(a.x + 0.5)
     expect(a.width).toBeGreaterThanOrEqual(40)
     await page.locator('#search-input').fill('austen')
-    await expect(page.locator('.file-box a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
+    await expect(page.locator('.file-box a')).toHaveAttribute('href', MY_SHELF)
     await shot(page, 'search-add-file')
     await plus.click()
     await expectOwnBookPopUp(page)
@@ -471,11 +534,11 @@ test.describe('Premium (adding books is Premium or the 30-day trial)', () => {
     await page.waitForURL(/\/sign-in\?mode=account/)
   })
 
-  test('Premium or trial: the file box opens the "Your own book" pop-up, then Add a book\'s file step', async ({ page }) => {
+  test('Premium or trial: the file box opens the "Your own book" pop-up, which adds the file in place and opens it', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true, premium: true })
     await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
     await page.locator('#search-toggle').click()
-    await expect(page.locator('#search-results .file-box a')).toHaveAttribute('href', '/lab/addbook/?mode=file')
+    await expect(page.locator('#search-results .file-box a')).toHaveAttribute('href', MY_SHELF)
     await page.locator('#search-results .file-box a').click()
     await expectOwnBookPopUp(page)
   })
@@ -488,42 +551,56 @@ test.describe('My shelf', () => {
     await expect(page.locator('#collection-title')).toHaveText('My shelf')
   }
 
-  test('signed in: + Add a book and the + file tile first, then own books under Currently reading and Your own books', async ({ page }) => {
+  test('signed in: the + beside My shelf\'s heading, then own books under Currently reading and My private uploads', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true })
     await openShelf(page)
     const grid = page.locator('#collection-books')
-    await expect(grid.locator('.my-books-head', { hasText: 'Your own books' })).toBeVisible()
+    await expect(grid.locator('.my-books-head', { hasText: 'My private uploads' })).toBeVisible()
     await expect(grid.locator('.own-book')).toHaveCount(3) // one being read (also under Currently reading) + two own
     const heads = await grid.locator('.my-books-head').allTextContents()
     expect(heads[0]).toBe('Currently reading')
-    expect(heads.at(-1)).toBe('Your own books')
-    // The add tiles are the first things on My shelf: + Add a book, then the file step.
-    await expect(grid.locator(':scope > *').nth(0)).toHaveClass(/add-book-card/)
-    await expect(grid.locator(':scope > *').nth(1)).toHaveClass(/add-file-card/)
-    await expect(grid.locator('.add-file-card .add-file-tile')).toHaveAttribute('href', '/lab/addbook/?mode=file')
-    await expect(grid.locator('.add-file-card .add-file-tile')).toContainText('Add a PDF or EPUB')
-    // The reader's own EPUB opens in the reader.
+    expect(heads.at(-1)).toBe('My private uploads')
+    // Adding is the + beside My shelf's heading (no add tiles in the grid any more).
+    const plus = page.locator('#collection > header .shelf-add')
+    await expect(plus).toBeVisible()
+    await expect(plus).toHaveAttribute('aria-label', 'Add a book')
+    await expect(grid.locator('.add-book-card, .add-file-card')).toHaveCount(0)
+    // The reader's own EPUB opens in the reader; the PDF at its own address in Add a book's PDF reader.
     await expect(grid.locator('.own-book a').first()).toHaveAttribute('href', '/reader?userBook=aaaaaaaaaaaaaaaaaaaaaaaa')
-    const addBook = grid.locator('.add-book-tile')
-    await expect(addBook).toHaveText('+Add a book')
+    await expect(grid.locator('[data-shelf-group="own"][data-own-key="pdf:bbbbbbbbbbbbbbbbbbbbbbbb"] a')).toHaveAttribute('href', '/lab/addbook/?userBook=bbbbbbbbbbbbbbbbbbbbbbbb')
+    // Every upload has the shelf's ×.
+    await expect(grid.locator('[data-shelf-group="own"] [data-shelf-remove]')).toHaveCount(2)
     await expect(page.locator('#collection input, #collection [type="search"]')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     await shot(page, 'myshelf-signed-in')
-    // + Add a book opens the library search, with the file box.
-    await addBook.click()
+    // + opens the "Your own book" pop-up; its "Add a book" opens the library search, with the file box.
+    await plus.click()
+    const dialog = page.locator('[data-testid="own-file-dialog"]')
+    await expect(dialog).toBeVisible()
+    await expect(dialog.locator('.own-file-choose')).toBeFocused()
+    await dialog.locator('.own-file-search').click()
+    await expect(dialog).toHaveCount(0)
     await expect(page.locator('#search-panel')).toBeVisible()
     await expect(page.locator('#search-results .file-box')).toContainText('Have it as a file?')
     await expect(page.locator('#search-input')).toBeFocused()
     await shot(page, 'myshelf-add-a-book-search')
   })
 
-  test('free account past its trial: own books still open in the reader; the + file tile leads to the Premium offer', async ({ page }) => {
+  test('signed in: My shelf\'s + adds a file in place and opens it', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true })
+    await page.route(url => url.pathname === '/lab/addbook/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Add a book</title>' }))
+    await openShelf(page)
+    await page.locator('#collection > header .shelf-add').click()
+    await expectOwnBookPopUp(page)
+  })
+
+  test('free account past its trial: own books still open in the reader; My shelf\'s + leads to the Premium offer', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: true, premium: false })
     await openShelf(page)
     const grid = page.locator('#collection-books')
     await expect(grid.locator('.own-book')).toHaveCount(3)
     await expect(grid.locator('.own-book a').first()).toHaveAttribute('href', '/reader?userBook=aaaaaaaaaaaaaaaaaaaaaaaa')
-    await grid.locator('.add-file-card .add-file-tile').click()
+    await page.locator('#collection > header .shelf-add').click()
     await page.waitForURL(/\/sign-in\?mode=account/)
   })
 
@@ -558,12 +635,50 @@ test.describe('My shelf', () => {
     expect(await page.evaluate(() => localStorage.getItem('tinct:library-2-saved:guest'))).toBe(removal)
   })
 
+  test('an added book\'s × asks first, with the approved copy: Keep book keeps it, Remove removes it (QA 2026-10-08)', async ({ page }) => {
+    // This device, with the internal flag: the added book Emma saved for later.
+    const saved = JSON.stringify({ items: { [ADDED.id]: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
+    await page.addInitScript(value => { try { localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ } }, saved)
+    await prepare(page, { internal: true, signedIn: false })
+    await openShelf(page)
+    const card = page.locator('#collection-books [data-shelf-group="want"]', { hasText: 'Emma' })
+    await expect(card).toHaveCount(1, { timeout: 20_000 })
+    const x = card.locator('[data-shelf-remove]')
+    await x.click()
+    const dialog = page.locator('[data-testid="own-delete-dialog"]')
+    await expect(dialog).toBeVisible()
+    await expect(dialog.locator('h2')).toHaveText('Remove Emma?')
+    await expect(dialog.locator('.tui-dialog__body')).toHaveText('It is removed from this device and your account.')
+    await expect(dialog.locator('.own-delete-cancel')).toHaveText('Keep book')
+    await expect(dialog.locator('.own-delete-confirm')).toHaveText('Remove')
+    await shot(page, 'myshelf-remove-added-confirm')
+    await dialog.locator('.own-delete-cancel').click()
+    await expect(dialog).toHaveCount(0)
+    await expect(card).toHaveCount(1)
+    await x.click()
+    await page.locator('[data-testid="own-delete-dialog"] .own-delete-confirm').click()
+    await expect(page.locator('#collection-books [data-shelf-group="want"]', { hasText: 'Emma' })).toHaveCount(0)
+  })
+
+  test('a registry book\'s × still removes it at once', async ({ page }) => {
+    const saved = JSON.stringify({ items: { odyssey: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
+    await page.addInitScript(value => { try { localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ } }, saved)
+    await prepare(page, { internal: false, signedIn: false })
+    await openShelf(page)
+    const card = page.locator('#collection-books [data-shelf-group="want"]')
+    await expect(card).toHaveCount(1, { timeout: 20_000 })
+    await card.locator('[data-shelf-remove]').click()
+    await expect(page.locator('[data-testid="own-delete-dialog"]')).toHaveCount(0)
+    await expect(page.locator('#collection-books [data-shelf-group="want"]')).toHaveCount(0)
+  })
+
   test('signed out: My shelf as before', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: false })
     await openShelf(page)
     await page.waitForTimeout(1000)
     await expect(page.locator('#collection-books .own-book, #collection-books .add-file-card, #collection-books .add-book-card')).toHaveCount(0)
-    await expect(page.locator('#collection-books .my-books-head', { hasText: 'Your own books' })).toHaveCount(0)
+    await expect(page.locator('#collection-books .my-books-head', { hasText: 'My private uploads' })).toHaveCount(0)
+    await expect(page.locator('#collection > header .shelf-add')).toBeHidden()
     await shot(page, 'myshelf-signed-out')
   })
 })

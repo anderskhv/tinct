@@ -53,3 +53,89 @@ describe('the profile editor at launch (no photo uploads)', () => {
     expect(api.mock.calls.some(([input]) => String(input).includes('/api/profile/image'))).toBe(false)
   })
 })
+
+describe('Who can see you: "Send confirmation link"', () => {
+  function stub(own: Record<string, unknown>, confirmLink: () => Response) {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/api/profile/confirm-link')) return confirmLink()
+      if (url.includes('/api/profile')) return Response.json({ enabled: true, available: true, profile: { ...profile, ...own } })
+      if (url.includes('/api/reading-time/status')) return Response.json({ enabled: false })
+      return Response.json({})
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    return fetchMock
+  }
+  const waiting = { visibility: 'everyone', effectiveVisibility: 'friends', emailConfirmed: false }
+  const confirmCalls = (mock: ReturnType<typeof stub>) => mock.mock.calls.filter(([input]) => String(input).includes('/api/profile/confirm-link'))
+
+  async function openVisibility() {
+    history.replaceState(null, '', '/you?view=visibility')
+    await import('./youPage')
+    await flush()
+  }
+
+  it('replaces the welcome-email hint with the button; one tap sends once, then "Check your email for the link."', async () => {
+    const mock = stub(waiting, () => Response.json({ ok: true }))
+    await openVisibility()
+    const main = document.querySelector('main')!
+    expect(main.textContent).not.toContain('welcome email')
+    expect(main.textContent).toContain('Until you confirm your email, friends can see you.')
+    const button = document.querySelector<HTMLButtonElement>('[data-testid="confirm-link"]')!
+    expect(button.textContent).toBe('Send confirmation link')
+    button.click()
+    expect(button.disabled).toBe(true)
+    button.click()
+    await flush()
+    expect(confirmCalls(mock)).toHaveLength(1)
+    const [, init] = confirmCalls(mock)[0]
+    expect(init?.method).toBe('POST')
+    expect(new Headers(init?.headers).get('authorization')).toBe('Bearer tok')
+    expect(document.querySelector('[data-testid="confirm-link"]')).toBeNull()
+    expect(document.querySelector('[data-testid="confirm-link-sent"]')!.textContent).toBe('Check your email for the link.')
+  })
+
+  it('a refusal for sending too soon still reads "Check your email for the link."', async () => {
+    stub(waiting, () => Response.json({ error: 'Too many requests' }, { status: 429 }))
+    await openVisibility()
+    document.querySelector<HTMLButtonElement>('[data-testid="confirm-link"]')!.click()
+    await flush()
+    expect(document.querySelector('[data-testid="confirm-link-sent"]')!.textContent).toBe('Check your email for the link.')
+  })
+
+  it('a failure keeps the button and asks to try again later', async () => {
+    stub(waiting, () => Response.json({ error: 'Unavailable' }, { status: 503 }))
+    await openVisibility()
+    document.querySelector<HTMLButtonElement>('[data-testid="confirm-link"]')!.click()
+    await flush()
+    expect(document.querySelector<HTMLButtonElement>('[data-testid="confirm-link"]')!.disabled).toBe(false)
+    expect(document.querySelector('[data-testid="confirm-link-sent"]')).toBeNull()
+    expect(document.querySelector('.status')!.textContent).toBe('Please try again later.')
+  })
+
+  it('no button when the email is confirmed or Everyone is not chosen', async () => {
+    stub({ visibility: 'everyone', effectiveVisibility: 'everyone', emailConfirmed: true }, () => Response.json({ ok: true }))
+    await openVisibility()
+    expect(document.querySelector('[data-testid="confirm-link"]')).toBeNull()
+    document.body.innerHTML = '<div id="tinct-you" class="you" data-ready="false"></div>'
+    vi.resetModules()
+    stub({ visibility: 'friends', emailConfirmed: false }, () => Response.json({ ok: true }))
+    await openVisibility()
+    expect(document.querySelector('[data-testid="confirm-link"]')).toBeNull()
+  })
+
+  it('picking Everyone with an unconfirmed email shows the button', async () => {
+    let own: Record<string, unknown> = { visibility: 'friends', emailConfirmed: false }
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (init?.method === 'POST' && String(input).endsWith('/api/profile')) own = { ...own, ...JSON.parse(String(init.body)) }
+      return Response.json({ enabled: true, available: true, profile: { ...profile, ...own } })
+    })
+    vi.stubGlobal('fetch', fetchMock)
+    await openVisibility()
+    expect(document.querySelector('[data-testid="confirm-link"]')).toBeNull()
+    const everyone = [...document.querySelectorAll<HTMLButtonElement>('.tick .item')].find(item => item.textContent?.startsWith('Everyone'))!
+    everyone.click()
+    await flush()
+    expect(document.querySelector('[data-testid="confirm-link"]')!.textContent).toBe('Send confirmation link')
+  })
+})

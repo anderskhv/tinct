@@ -90,6 +90,8 @@ export function documentLetters(markup: string): string {
   const text = markup
     .replace(/<head[\s>][\s\S]*?<\/head>/gi, ' ')
     .replace(/<(script|style)[\s>][\s\S]*?<\/\1>/gi, ' ')
+    // A lettered note call linked to its note ("2a"): the converter leaves it out of the text, as it does a numbered one.
+    .replace(/<a\b[^>]*\bhref=["'][^"']*#[^"']*["'][^>]*>\s*[[(]?\d{1,3}[a-z][\])]?\s*<\/a>/gi, ' ')
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
     .replace(/<[^>]*>/g, ' ')
     .replace(/&#x([0-9a-f]+);/gi, (_, hex) => { try { return String.fromCodePoint(parseInt(hex, 16)) } catch { return ' ' } })
@@ -121,7 +123,38 @@ export async function epubSourceLetters(bytes: Uint8Array): Promise<string> {
   return pieces.join('')
 }
 
-export interface EditionChapterInput { number: number; title: string; paragraphs: string[] }
+/** What a paragraph is beyond running prose (types/index.ts ParagraphKind): painted by the reader, never text. */
+export type EditionParagraphKind = 'heading' | 'label' | 'item' | 'subtitle' | 'byline' | 'line'
+
+export interface EditionChapterInput {
+  number: number
+  title: string
+  paragraphs: string[]
+  /** Per paragraph, when any is more than prose (verse lines, a poem's title); in step with `paragraphs`. */
+  kinds?: Array<EditionParagraphKind | null>
+  /** The chapter's own writer (an essay collection's byline), kept only when the source names them. */
+  author?: string
+}
+
+/** A title the converter makes from a number alone ("Chapter IV", "PART II"): no text of the book's own. */
+const GENERATED_LABEL = /^(?:chapter|part|book|act|scene|section|letter|canto|volume)\.?\s+(?:\d{1,4}|[ivxlcdm]{1,8})\.?$/i
+
+/**
+ * A chapter title the source contains: as written, or as two of its contents
+ * entries joined (a part's and its chapter's, "BOOK ONE, CHAPTER II", "PART II —
+ * DEFINITIONS"), or a story's title and the number of its part ("…, PART II").
+ */
+export function titleInSource(title: string, source: string): boolean {
+  const whole = letters(title)
+  if (!whole || source.includes(whole)) return true
+  for (const match of title.matchAll(/,\s+|\s+[—–]\s+/g)) {
+    const head = title.slice(0, match.index).trim()
+    const tail = title.slice(match.index! + match[0].length).trim()
+    const found = (part: string) => GENERATED_LABEL.test(part) || (letters(part).length > 0 && source.includes(letters(part)))
+    if (head && tail && found(head) && found(tail)) return true
+  }
+  return GENERATED_LABEL.test(title.trim())
+}
 
 export interface VerifiedEdition {
   chapters: EditionChapterInput[]
@@ -151,25 +184,31 @@ export function verifyEditionAgainstSource(chapters: EditionChapterInput[], sour
   const out: EditionChapterInput[] = []
   for (const chapter of chapters) {
     const kept: string[] = []
-    for (const paragraph of chapter.paragraphs) {
+    const keptKinds: Array<EditionParagraphKind | null> = []
+    chapter.paragraphs.forEach((paragraph, index) => {
       const needle = letters(paragraph)
       checked++
-      if (!needle) { kept.push(paragraph); continue }
+      const keep = () => { kept.push(paragraph); keptKinds.push(chapter.kinds?.[index] ?? null) }
+      if (!needle) { keep(); return }
       let at = source.indexOf(needle, cursor)
       if (at < 0) at = source.indexOf(needle)
       if (at < 0) {
         removed++
-        if (++misses > missLimit) return null
-        continue
+        misses++
+        return
       }
       if (at >= cursor) cursor = at + needle.length
-      kept.push(paragraph)
-    }
-    const titleLetters = letters(chapter.title)
+      keep()
+    })
+    if (misses > missLimit) return null
     const generated = /^section \d+$/i.test(chapter.title.trim())
-    const title = !titleLetters || generated || source.includes(titleLetters) ? chapter.title : `Section ${out.length + 1}`
+    const title = generated || titleInSource(chapter.title, source) ? chapter.title : `Section ${out.length + 1}`
     if (title !== chapter.title) renamed++
-    if (kept.length) out.push({ number: out.length + 1, title, paragraphs: kept })
+    // A chapter's writer is published only as the source names them (its byline, its contents entry).
+    const authorLetters = chapter.author ? letters(chapter.author) : ''
+    const author = authorLetters.length >= 4 && source.includes(authorLetters) ? chapter.author : undefined
+    const kinds = chapter.kinds && keptKinds.some(Boolean) ? { kinds: keptKinds } : {}
+    if (kept.length) out.push({ number: out.length + 1, title, paragraphs: kept, ...kinds, ...(author ? { author } : {}) })
   }
   if (!out.length) return null
   return { chapters: out, checkedParagraphs: checked, removedParagraphs: removed, renamedChapters: renamed }

@@ -15,19 +15,22 @@ describe('reversible edition discovery availability', () => {
     // 201 with the Berean Standard Bible (streamed narration) on 2026-09-25;
     // 202 with the WEB Catholic Edition; 204 with both Lighthouse editions;
     // 212 with Alice, Wuthering Heights, Middlemarch and Sense and Sensibility
-    // (streamed narration, 2026-10-03).
-    expect(new Set(reviewed).size).toBe(212)
-    expect(manifest.eligible_editions).toHaveLength(166)
+    // (streamed narration, 2026-10-03); 217 with the five Conjecture books
+    // (2026-10-08: listed so they stay discoverable; no narration is offered
+    // because their editions carry no hasAudio).
+    expect(new Set(reviewed).size).toBe(217)
+    expect(manifest.eligible_editions).toHaveLength(171)
     expect(manifest.held_editions).toHaveLength(46)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
-    // 105 with the four books published 2026-10-03.
-    expect(PRE_READER_CATALOGUE.books).toHaveLength(105)
+    // 105 with the four books published 2026-10-03; 110 with the five
+    // Conjecture books (2026-10-08).
+    expect(PRE_READER_CATALOGUE.books).toHaveLength(110)
     // 2026-10-02 rights holds: gilgamesh, social-contract, discourse-on-inequality,
     // symposium and second-treatise leave discovery (94 -> 89); 93 with the
-    // four books published 2026-10-03.
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(93)
+    // four books published 2026-10-03; 98 with the five Conjecture books.
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(98)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!

@@ -50,6 +50,26 @@ async function checkSceneFilm(b,engine,label,options,expected){
 // Closing a context while the looping film still streams has hung CI for 20+
 // minutes (2026-10-05, 2026-10-06) after every check had passed. Stop the film
 // first, and never wait on the close itself for long.
+// Library search (search QA, 2026-10-08): a search-only book's cached cover (War and Peace) no
+// longer blanks the results ("Cannot read properties of undefined (reading 'typeset')"), and an
+// empty English search says why (Kafka).
+async function checkSearch(b,engine,w,h){
+ const c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h}}),p=await c.newPage(),errors=[];p.setDefaultTimeout(60000);p.on('pageerror',e=>errors.push(e.message));
+ if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());if(u.pathname==='/api/public-books')return r.fulfill({contentType:'application/json',body:'{"books":[]}'});const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
+ await p.route('**/*.mp4',r=>r.abort());
+ await p.goto('https://tinct.app/library?view=new',{waitUntil:'domcontentloaded'});await p.locator('#search-toggle').waitFor();
+ await p.locator('#search-toggle').click();await p.waitForFunction(()=>!document.getElementById('search-panel').hidden);
+ const settled=()=>p.waitForFunction(()=>{const g=document.querySelector('[data-free-group]');return !g||g.dataset.freeGroup!=='pending';},null,{timeout:90000});
+ const search=async query=>{await p.fill('#search-input','');await p.fill('#search-input',query);await settled();};
+ await search('war and peace');
+ await p.locator('.tinct-row[data-book="war-and-peace"] canvas[data-painted="true"]').waitFor();
+ for(const query of ['Tolstoy','war and peace']){await search(query);assert.equal(await p.locator('.tinct-row[data-book="war-and-peace"]').count(),1,query+': War and Peace listed');}
+ assert.equal(errors.filter(e=>/typeset/.test(e)).length,0,'no blank results after a cached search-only cover');
+ await search('kafka');await p.locator('.search-why').waitFor();
+ assert.match(await p.locator('.search-why').innerText(),/^Tinct has Franz Kafka only in German[ ,a-zA-Z]*\. The English translations aren’t public domain yet\.$/);
+ assert.deepEqual(errors,[],'search: no page errors');
+ console.log('LIBRARY_SEARCH '+JSON.stringify({engine,errors}));await c.close();
+}
 async function closeQuietly(c,p){
  await Promise.race([p.evaluate(()=>{for(const v of document.querySelectorAll('video')){v.pause();v.removeAttribute('src');v.load();}}),new Promise(r=>setTimeout(r,5000))]).catch(()=>{});
  let timer;await Promise.race([c.close(),new Promise(r=>{timer=setTimeout(()=>{console.log('CONTEXT_CLOSE_SLOW');r();},15000);})]).catch(()=>{});clearTimeout(timer);
@@ -58,6 +78,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  const b=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})}));
  // Book links: the linked book is in the hero from the first paint, nothing opens by itself.
  for(const [bw,bh,mobile] of engine===chromium?[[1440,900,false],[390,844,true]]:[[390,844,true]])await checkBookLinks(b,engine.name(),bw,bh,mobile,engine===chromium&&!mobile);
+ if(engine===chromium){stage('search chromium');await checkSearch(b,engine.name(),1440,900);}
  // The film checks get a browser of their own: one that wedges after a film
  // (CI, 5-6 Oct) cannot stall the checks that follow on \`b\`.
  const fb=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})});

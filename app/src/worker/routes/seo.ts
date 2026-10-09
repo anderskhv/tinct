@@ -3,6 +3,7 @@ import { TEMPORARY_EDITION_HOLDS, editionHold, isBookTemporarilyHeld, TEMPORARY_
 import { GENERATED_BOOK_META, type BookMetaEntry } from '../../data/bookMetaGenerated'
 import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
+import { isPublicBookId } from '../../../public/lab/public-books.js'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
 
 export type SeoEnv = {
@@ -617,6 +618,9 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const cookie = request.headers.get('Cookie') || request.headers.get('cookie') || ''
       const hasAuthCookie = /(?:^|;\s*)tinct_auth=1(?:;|$)/.test(cookie)
       const publicBook = !!(BOOK_META[bookId] || GENERATED_BOOK_META[bookId])
+      // A book readers added (pd-…) has no static page: its link opens it in the library
+      // (or the reader, with a chapter) like any book, never the 404 (QA 2026-10-09).
+      const addedBook = !publicBook && isPublicBookId(bookId)
       // `/read/{bookId}` is the shared book link: the library with that book in
       // the hero, nothing opened by itself, plus the book's search metadata and
       // text. Share and campaign parameters (fbclid, utm_*) keep that page; the
@@ -624,10 +628,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const inApp = ['chapter', 'edition', 'from', 'view'].some(key => url.searchParams.has(key))
       if (!inApp) {
         // Signed-in readers land on their library with this book in focus.
-        if (hasAuthCookie && publicBook) {
+        if (hasAuthCookie && (publicBook || addedBook)) {
           return new Response(null, { status: 302, headers: { Location: `/library?book=${encodeURIComponent(bookId)}`, 'Cache-Control': 'no-store' } })
         }
-        if (!hasAuthCookie) {
+        if (!hasAuthCookie && !addedBook) {
           const bookPage = await serveBookLibraryPage(request.method, url, env, bookId)
           if (bookPage) return bookPage
           const staticBookResp = await serveStaticHtml(request.method, request, url, `/read/${bookId}/book`, env)
@@ -636,7 +640,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
       // In-app opens go to the book in the library, as does a book without a
       // static SEO page.
-      if (publicBook) {
+      if (publicBook || addedBook) {
         // Older pages linked /read/{book}?chapter=N&edition=E. Open the live
         // reader on that chapter and edition instead of the library detail.
         const chapter = url.searchParams.get('chapter')

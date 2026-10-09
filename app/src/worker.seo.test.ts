@@ -429,6 +429,23 @@ describe('worker SEO routing', () => {
     expect(bad.headers.get('Location')).toBe('/library?book=odyssey&view=book-detail')
   })
 
+  // QA 2026-10-09: /read/pd-pg-1672/ (a book readers added) answered 404.
+  it('opens an added (pd-) book’s /read/ link in the library, or the reader with a chapter, never the 404', async () => {
+    for (const cookie of ['', 'tinct_auth=1']) {
+      for (const path of ['/read/pd-pg-1672', '/read/pd-pg-1672/']) {
+        const resp = await worker.fetch(new Request(`https://tinct.app${path}`, { headers: cookie ? { Cookie: cookie } : {} }), routerEnv() as never, ctx)
+        expect(resp.status).toBe(302)
+        expect(resp.headers.get('Location')).toBe('/library?book=pd-pg-1672')
+      }
+    }
+    const chapter = await worker.fetch(new Request('https://tinct.app/read/pd-pg-1672/?chapter=2&edition=modern-en'), routerEnv() as never, ctx)
+    expect(chapter.status).toBe(302)
+    expect(chapter.headers.get('Location')).toBe('/reader?book=pd-pg-1672&edition=modern-en&chapter=2')
+    // Not a book id at all: still the branded 404.
+    const unknown = await worker.fetch(new Request('https://tinct.app/read/pd-x/'), routerEnv() as never, ctx)
+    expect(unknown.status).toBe(404)
+  })
+
   it('serves /reader?book=&edition=&chapter= as the reader without redirecting', async () => {
     const resp = await worker.fetch(new Request('https://tinct.app/reader?book=odyssey&edition=modern-en&chapter=4'), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)

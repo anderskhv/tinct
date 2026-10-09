@@ -1,4 +1,5 @@
 import type { VoiceReaderContext } from './types'
+import { authorshipNote, promptAuthor } from '../companion/authorship'
 
 /** xAI native speech-to-speech. Rollback: revert the Grok commit; the OpenAI Worker secret stays in place. */
 export const GROK_VOICE_MODEL = 'grok-voice-latest'
@@ -42,7 +43,8 @@ function clip(text: string | undefined, cap = CAP): string {
 export function buildGrokReaderReference(context: VoiceReaderContext): string {
   const reference: Record<string, unknown> = {
     book: context.bookTitle,
-    author: context.bookAuthor,
+    author: promptAuthor(context.bookAuthor, context.authorship),
+    authorship: authorshipNote(context.bookAuthor, context.authorship) || undefined,
     edition: context.editionLabel || context.editionKey,
     chapter: context.chapterLabel,
     chapterNumber: context.chapterNumber,

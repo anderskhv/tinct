@@ -8,6 +8,7 @@ import { existsSync, mkdirSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { start } from './serve.mjs';
+import { SHELF_PATH, openShelf, shelfReady, shelfSignIn, openPopUp, addFile, uploads } from './shelf.mjs';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 const REPO = join(HERE, '../../..');
@@ -15,7 +16,9 @@ const require = createRequire(join(REPO, 'app/package.json'));
 const { chromium } = require('@playwright/test');
 const OUT = join(HERE, 'output'); mkdirSync(OUT, { recursive: true });
 const FIX = join(HERE, 'fixtures');
-const PORT = 4721, BASE = `http://127.0.0.1:${PORT}/lab/addbook/`;
+const PORT = 4721, ORIGIN = `http://127.0.0.1:${PORT}`, BASE = `${ORIGIN}/lab/addbook/`;
+// My shelf, where the back arrow of every own book lands: /library#my-shelf (the fragment is not part of the request).
+const MY_SHELF = url => url.pathname === '/library' && url.hash === '#my-shelf';
 // CHROMIUM_PATH picks a browser binary; otherwise the shared cloud install, else Playwright's own.
 const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
 const RIGHTS = "I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4).";
@@ -117,27 +120,14 @@ async function page(browser, viewport, opts = {}) {
   await p.addInitScript(() => document.addEventListener('securitypolicyviolation', e => console.error('CSP violation: ' + e.violatedDirective + ' ' + e.blockedURI)));
   return { ctx, p, problems };
 }
-// Opening a file needs an account; the rights confirmation comes once per account.
-// Returns what the confirmation showed, or null when it was not asked.
-async function openFile(p, file) {
-  const chooser = p.waitForEvent('filechooser');
-  await p.click('#abDrop');
-  await (await chooser).setFiles(file);
-  await Promise.race([p.waitForSelector('#attestBox, .epub-sheet, .pdf-sheet, .pdf-status[role="alert"]', { timeout: 30000 }), p.waitForURL(READER_URL, { timeout: 30000 })]);
-  const box = !READER_URL.test(p.url()) && await p.$('#attestBox');
-  if (!box) return null;
-  const shown = await p.evaluate(() => ({ text: document.querySelector('#attestBox').closest('label').textContent.trim(), disabled: document.getElementById('attestOk').disabled, button: document.getElementById('attestOk').textContent.trim(),
-    overStart: !document.getElementById('start').hidden && document.getElementById('root').hidden && !document.getElementById('root').contains(document.getElementById('attestBox')) }));
-  await box.check(); await p.click('#attestOk');
-  return shown;
-}
-// A Tinct session as tinct.app stores it. `expired`: the account is known but its token
-// has lapsed, so the companion uses the guest route.
-async function signIn(p, { expired = false, token = 'test-token', user = 'u-test' } = {}) {
-  await p.evaluate(([key, expired, token, user]) => localStorage.setItem(key, JSON.stringify({ access_token: token, refresh_token: 'refresh-' + token, token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + (expired ? -60 : 3600), user: { id: user, email: 'reader@example.com' } })), [SESSION_KEY, expired, token, user]);
-  await p.reload();
-  await p.waitForSelector('#doorOwn');
-}
+// Opening a file needs an account; the rights confirmation comes once per account. Add a book's
+// start page is retired (2026-10-08): a file is added with My shelf's + pop-up (shelf.mjs, the
+// library's own code for it), which opens the book at its address. Returns what the confirmation
+// showed, or null when it was not asked.
+const openFile = (p, file) => addFile(p, ORIGIN, file);
+// A Tinct session as tinct.app stores it, on My shelf. `expired`: the account is known but its
+// token has lapsed, so the companion uses the guest route.
+const signIn = (p, options) => shelfSignIn(p, ORIGIN, options);
 const bookState = async () => (await fetch(`http://127.0.0.1:${PORT}/__books`)).json();
 const lastRequest = async () => (await (await fetch(`http://127.0.0.1:${PORT}/__requests`)).json()).at(-1);
 // Drag a snip box over the middle of a PDF page in view, then Explain it.
@@ -164,83 +154,72 @@ try {
   const epub = await ensureFixture('pg35.epub', 'https://www.gutenberg.org/ebooks/35.epub3.images');
   const pdf = process.env.PDF_FIXTURE || (existsSync('/tmp/claude-0/pdf/sample.pdf') ? '/tmp/claude-0/pdf/sample.pdf' : await samplePdf(browser));
 
-  // ---- The library's + (?mode=file): straight to "Your own book", no free-book search ----
+  // ---- My shelf's + (the library's file step): "Your own book" only, no free-book search ----
   for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
     const f = await page(browser, viewport);
+    await f.ctx.route(/\/sign-in(\?|$)/, route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Sign in</title>' }));
     const worker = [];
     f.p.on('request', r => { if (/search-worker\.js|catalog\.json/.test(r.url())) worker.push(r.url()) });
-    await f.p.goto(BASE + '?mode=file');
-    await f.p.waitForSelector('#doorOwn');
-    await f.p.waitForTimeout(600);
-    const shown = await f.p.evaluate(() => ({ own: !!document.getElementById('doorOwn').offsetParent, free: !!document.getElementById('doorFree').offsetParent, lede: !!document.querySelector('.ab-lede').offsetParent, results: !!document.getElementById('abResults').offsetParent,
-      focus: document.activeElement?.id, create: document.getElementById('abCreate').getAttribute('href'), wide: document.documentElement.scrollWidth <= innerWidth }));
     const size = viewport.width < 700 ? 'phone' : 'desktop';
-    check(`${size} ?mode=file: only "Your own book", no free-book search, no catalogue loaded`, shown.own && !shown.free && !shown.lede && !shown.results && worker.length === 0 && shown.wide, { shown, worker });
-    check(`${size} ?mode=file signed out: the account gate has the focus and sign-in returns to the file step`, shown.focus === 'abCreate' && shown.create === '/sign-in?mode=create&returnTo=%2Flab%2Faddbook%2F%3Fmode%3Dfile', shown);
-    await f.p.screenshot({ path: join(OUT, `${size}-file-step.png`) });
+    // Signed out: My shelf offers no +; on a device with the internal flag the + is there and asks to sign in (adding needs an account).
+    await openShelf(f.p, ORIGIN);
+    const plainPlus = await f.p.isVisible('#shelf-head .shelf-add');
+    await f.p.evaluate(() => localStorage.setItem('tinct:internal', '1'));
+    await f.p.reload(); await shelfReady(f.p);
+    const toSignIn = f.p.waitForRequest(r => r.isNavigationRequest() && /\/sign-in\?/.test(r.url()), { timeout: 10000 }).then(r => r.url(), () => null);
+    await f.p.click('#shelf-head .shelf-add');
+    const signInUrl = await toSignIn;
+    check(`${size} My shelf signed out: no file step; the + asks to sign in (the account page) and returns to the library`, !plainPlus && signInUrl === `${ORIGIN}/sign-in?mode=account&returnTo=%2Flibrary`, { plainPlus, signInUrl });
+    await f.p.goto(ORIGIN + SHELF_PATH); await shelfReady(f.p);
+    await f.p.evaluate(() => localStorage.removeItem('tinct:internal'));
     await signIn(f.p);
+    await openPopUp(f.p, ORIGIN);
+    await f.p.waitForTimeout(600);
+    const shown = await f.p.evaluate(() => { const box = document.querySelector('[data-testid="own-file-dialog"] .tui-dialog'); return { title: box.querySelector('h2').textContent, choose: box.querySelector('.own-file-choose')?.textContent, search: !!box.querySelector('input[type="search"], input[type="text"], input:not([type])'), accept: document.querySelector('.own-file-input')?.accept, focus: document.activeElement?.classList.contains('own-file-choose'), wide: document.documentElement.scrollWidth <= innerWidth } });
+    check(`${size} My shelf's +: only "Your own book" (a PDF or EPUB), no free-book search, no catalogue loaded`, shown.title === 'Your own book' && shown.choose === 'Choose a PDF or EPUB' && !shown.search && /\.pdf/.test(shown.accept) && /\.epub/.test(shown.accept) && worker.length === 0 && shown.wide, { shown, worker });
+    await f.p.screenshot({ path: join(OUT, `${size}-file-step.png`) });
     const chooser = f.p.waitForEvent('filechooser', { timeout: 3000 }).catch(() => null);
-    const focused = await f.p.evaluate(() => document.activeElement?.id);
-    await f.p.click('#abDrop');
-    check(`${size} ?mode=file signed in: the PDF/EPUB picker is the step`, focused === 'abDrop' && !!(await chooser) && !(await f.p.isVisible('#doorFree')), focused);
-    check(`${size} ?mode=file: no page errors`, !f.problems.length, f.problems.slice(0, 6));
+    await f.p.click('[data-testid="own-file-dialog"] .own-file-choose');
+    check(`${size} My shelf's + signed in: the PDF/EPUB picker is the step`, shown.focus && !!(await chooser), shown.focus);
+    check(`${size} My shelf's +: no page errors`, !f.problems.length, f.problems.slice(0, 6));
     await f.ctx.close();
   }
 
-  // ---- Desktop: start page, search, EPUB, PDF ----
+  // ---- Desktop: My shelf, EPUB, PDF ----
   const { ctx, p, problems } = await page(browser, { width: 1440, height: 900 });
-  await p.goto(BASE);
-  await p.waitForSelector('#doorOwn');
-  check('start page shows both doors', await p.isVisible('#doorOwn') && await p.isVisible('#doorFree'));
-  // Signed out: your own book needs a free account; searching stays open.
-  const gate = await p.evaluate(() => ({ drop: !document.getElementById('abDrop').hidden, gate: !document.getElementById('abGate').hidden, text: document.querySelector('#abGate .ab-gate-copy').textContent.trim(), links: [...document.querySelectorAll('#abGate a')].map(a => [a.textContent.trim(), a.getAttribute('href')]) }));
-  check('signed out: own book asks for a free account', gate.gate && !gate.drop && gate.text === 'Add books to your shelf with a free account.'
-    && gate.links.length === 2 && gate.links[0][0] === 'Create account' && gate.links[0][1] === '/sign-in?mode=create&returnTo=%2Flab%2Faddbook%2F'
-    && gate.links[1][0] === 'Sign in' && gate.links[1][1] === '/sign-in?returnTo=%2Flab%2Faddbook%2F', gate);
+  await ctx.route(/\/sign-in(\?|$)/, route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Sign in</title>' }));
+  // Signed out: Add a book's reader opens nothing for a book's address; it asks to sign in and returns to that address.
   {
-    const chooser = p.waitForEvent('filechooser', { timeout: 1500 }).catch(() => null);
-    await p.evaluate(() => window.TinctReader.pickFile());
-    check('signed out: no file can be opened', !(await chooser) && await p.isVisible('#abGate') && !(await p.isVisible('#root')));
+    const hexOut = 'ab'.repeat(12);
+    const toSignIn = p.waitForRequest(r => r.isNavigationRequest() && /\/sign-in\?/.test(r.url()), { timeout: 10000 }).then(r => r.url(), () => null);
+    await p.goto(BASE + '?userBook=' + hexOut);
+    const signInUrl = await toSignIn;
+    check('signed out: no file can be opened; a book\u2019s address asks to sign in and returns to it', signInUrl === `${ORIGIN}/sign-in?returnTo=${encodeURIComponent('/lab/addbook/?userBook=' + hexOut)}`, signInUrl);
   }
-  await p.waitForFunction(() => /free books/.test(document.getElementById('abCatalogStatus').textContent), null, { timeout: 60000 });
-  check('catalogue loads', true, await p.textContent('#abCatalogStatus'));
-  await p.screenshot({ path: join(OUT, 'desktop-start.png') });
-
-  await p.fill('#abQuery', 'time machine wells');
-  await p.waitForSelector('.ab-result', { timeout: 15000 });
-  const first = await p.locator('.ab-result h3').first().textContent();
-  check('search finds The Time Machine', /time machine/i.test(first), first);
-  const getHref = await p.locator('.ab-result [data-get]').first().getAttribute('href');
-  check('result links to its source library', /^https:\/\//.test(getHref || ''), getHref);
-  await p.locator('.ab-result [data-get]').first().evaluate(a => a.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })));
-  check('"Downloaded? Open it here" appears after Get', await p.locator('.ab-result [data-then]').first().isVisible());
-  await p.screenshot({ path: join(OUT, 'desktop-search.png') });
+  await openShelf(p, ORIGIN);
 
   // A known account whose token has lapsed: files open, the companion uses the guest route.
   await signIn(p, { expired: true });
-  check('signed in: own book opens files', await p.isVisible('#abDrop') && !(await p.isVisible('#abGate')));
-  // The rights confirmation is a pop-up over the start page; Cancel stays there.
+  await openPopUp(p, ORIGIN);
+  check('signed in: My shelf\u2019s + opens files', await p.isVisible('[data-testid="own-file-dialog"] .own-file-choose'));
+  await p.keyboard.press('Escape');
+  // The rights confirmation is a step in the pop-up over My shelf; Cancel stays there.
   {
-    const chooser = p.waitForEvent('filechooser');
-    await p.click('#abDrop');
-    await (await chooser).setFiles(epub);
-    await p.waitForSelector('#attestBox', { timeout: 30000 });
-    const over = await p.evaluate(() => ({ view: document.body.dataset.view, start: !document.getElementById('start').hidden, root: !document.getElementById('root').hidden, title: document.title,
-      sheet: document.querySelector('#attestBox').closest('.lab-v2-sheet')?.getAttribute('aria-label'), text: document.querySelector('.byob-attest p').textContent.trim() }));
-    check('the rights confirmation opens over the start page, not an empty reader', over.view === 'start' && over.start && !over.root && over.title === 'Add a book · Tinct' && over.sheet === 'Your own book'
-      && /^Tinct opens pg35\.epub here and keeps a private copy in your account/.test(over.text), over);
-    await p.screenshot({ path: join(OUT, 'desktop-rights-over-start.png') });
-    await p.click('#attestCancel');
-    await p.waitForTimeout(300);
-    const after = await p.evaluate(() => ({ view: document.body.dataset.view, start: !document.getElementById('start').hidden, root: !document.getElementById('root').hidden, sheet: !!document.querySelector('#attestBox, .byob-sheet-host'), hash: location.hash, rights: localStorage.getItem('tinct-addbook:rights:u-test') }));
-    check('Cancel stays on the start page and opens nothing', after.view === 'start' && after.start && !after.root && !after.sheet && after.hash === '' && !after.rights && await p.isVisible('#doorOwn'), after);
+    const over = await addFile(p, ORIGIN, epub, { confirm: false });
+    check('the rights confirmation opens in the pop-up over My shelf, not an empty reader', over?.step === 'rights' && over.overShelf && over.title === 'Your own book'
+      && /^Tinct opens pg35\.epub here and keeps a private copy in your account/.test(over.intro || ''), over);
+    await p.screenshot({ path: join(OUT, 'desktop-rights-over-shelf.png') });
+    await p.click('[data-testid="own-file-dialog"] .own-file-cancel');
+    await p.waitForSelector('[data-testid="own-file-dialog"]', { state: 'detached', timeout: 5000 }).catch(() => {});
+    const after = await p.evaluate(async () => ({ path: location.pathname, hash: location.hash, dialog: !!document.querySelector('[data-testid="own-file-dialog"]'), rights: localStorage.getItem('tinct-addbook:rights:u-test'), kept: (await window.TinctAddEngine.library.list()).length }));
+    check('Cancel stays on My shelf and opens nothing', after.path === SHELF_PATH && after.hash === '' && !after.dialog && !after.rights && after.kept === 0 && await p.isVisible('#shelf-head .shelf-add'), after);
   }
   const rights = await openFile(p, epub);
-  check('first file asks for the rights confirmation, with the approved copy', rights?.text === RIGHTS && rights.button === 'Continue' && rights.overStart, rights);
+  check('first file asks for the rights confirmation, with the approved copy', rights?.text === RIGHTS && rights.button === 'Continue' && rights.overShelf, rights);
   check('Continue stays disabled until the box is ticked', rights?.disabled === true);
-  check('the confirmation is kept per account under tinct-addbook:', await p.evaluate(() => !!localStorage.getItem('tinct-addbook:rights:u-test')));
   // The EPUB opens in the Tinct reader, not in Add a book's own view.
   await tinctReader(p);
+  check('the confirmation is kept per account under tinct-addbook:', await p.evaluate(() => !!localStorage.getItem('tinct-addbook:rights:u-test')));
   const hex = p.url().match(/userBook=([0-9a-f]{24})/)[1];
   const epubInfo = await p.evaluate(() => ({ title: document.querySelector('[data-testid="lab-header-book"]').textContent, chapter: document.querySelector('[data-testid="lab-header-chapter"]').textContent.trim(), words: document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length, oldView: document.querySelectorAll('.epub-sheet, .epub-pg').length, play: !!document.querySelector('[data-testid="lab-v2-play"]'), docTitle: document.title }));
   const opening = (await p.textContent('.lab-page-wrap')).replace(/\s+/g, ' ');
@@ -290,19 +269,20 @@ try {
   const place = await p.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:place:' + h) || 'null'), hex);
   check('Tinct reader: the place is kept on this device', place?.chapterNumber === 4, place);
 
-  // The back arrow returns to Add a book, with the book on "Your books".
+  // The back arrow goes to My shelf in the library, where own books are listed.
   await p.click('[data-testid="lab-library-back"]');
-  // Back to the file step (?mode=file), never the free-book search the library already has.
-  await p.waitForURL(/\/lab\/addbook\/\?mode=file$/, { timeout: 10000 });
-  await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
-  check('back arrow returns to Your books', /time machine/i.test(await p.textContent('#abBooks')) && await p.isVisible('#abShelf'), p.url());
+  const toShelf = await p.waitForURL(MY_SHELF, { timeout: 10000 }).then(() => true, () => false);
+  check('back arrow goes to My shelf in the library', toShelf, p.url());
+  await openShelf(p, ORIGIN);
+  const listedEpub = await uploads(p);
+  check('My shelf lists it under My private uploads', listedEpub.some(b => /time machine/i.test(b.title) && b.href === '/reader?userBook=' + hex) && await p.isVisible('text=My private uploads'), listedEpub);
   await p.screenshot({ path: join(OUT, 'desktop-shelf.png') });
-  await p.click('.ab-book-open');
+  await p.click(`[data-shelf-group="own"][data-own-key="epub:${hex}"] a`);
   await tinctReader(p);
-  check('reopens from Your books at the saved chapter', await p.evaluate(() => document.querySelector('[data-testid="lab-root"]').dataset.chapter) === '4');
+  check('reopens from My shelf at the saved chapter', await p.evaluate(() => document.querySelector('[data-testid="lab-root"]').dataset.chapter) === '4');
   await p.goBack();
-  await p.waitForSelector('#doorOwn:visible');
-  check('browser Back returns to the start page', await p.isVisible('#doorOwn'));
+  await shelfReady(p);
+  check('browser Back returns to My shelf', new URL(p.url()).pathname === SHELF_PATH && await p.isVisible('#shelf-head .shelf-add'));
 
   // PDF
   const again = await openFile(p, pdf);
@@ -366,14 +346,13 @@ try {
   // ---- Titles, headings, the top bar and Back to library ----
   {
     const { ctx, p, problems } = await page(browser, { width: 1440, height: 900 });
-    await p.goto(BASE);
     await signIn(p, { token: 'test-token', user: 'u-titles' });
     const paper = await paperPdf(browser);
     await openFile(p, paper);
     await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
     // Its metadata Title is just the file name, so the title printed large on page 1 is used.
     const shown = await p.evaluate(() => ({ title: document.getElementById('bookTitle').textContent, doc: document.title, contents: document.getElementById('bookBtn').getAttribute('aria-label') }));
-    check('title: from page 1 when the metadata title is just the file name', shown.title === 'Constructor theory of time' && shown.doc === 'Constructor theory of time · Tinct' && shown.contents === 'Contents of Constructor theory of time', shown);
+    check('title: from page 1 when the metadata title is just the file name', shown.title === 'Constructor theory of time' && shown.doc === 'Constructor theory of time · Tinct' && shown.contents === 'Constructor theory of time. Switch books', shown);
     // Top bar: Back to library at the left; Play and the t menu at the right; no snip button.
     const bar = await p.evaluate(() => {
       const back = document.getElementById('backBtn'), hdr = document.getElementById('hdr');
@@ -401,25 +380,21 @@ try {
     await p.waitForFunction(t => /^3\. Possible and impossible tasks/.test(document.getElementById('pageLabel').textContent) && new RegExp(`^p\\. ${t} ·`).test(document.getElementById('progress').textContent), target, { timeout: 5000 }).catch(() => {});
     const at = await p.evaluate(() => ({ label: document.getElementById('pageLabel').textContent, progress: document.getElementById('progress').textContent }));
     check('headings: choosing one goes to its page and names the section', target > 1 && at.label === '3. Possible and impossible tasks' && at.progress.startsWith(`p. ${target} ·`), { target, ...at });
-    // Back to library: the start page, with "Your books" in view, under the document title.
+    // Back to library: My shelf in the library, which lists the document title.
     await p.click('#backBtn');
-    await p.waitForSelector('#abShelf:not([hidden]) .ab-book', { timeout: 10000 });
-    await p.waitForTimeout(300);
-    const back = await p.evaluate(() => { const r = document.getElementById('abShelf').getBoundingClientRect(); return { view: document.body.dataset.view, start: !document.getElementById('start').hidden, root: !document.getElementById('root').hidden, inView: r.top >= 0 && r.top < innerHeight && r.bottom <= innerHeight + 1, hash: location.hash, books: document.getElementById('abBooks').textContent.replace(/\s+/g, ' ').trim() } });
-    check('Back to library returns to the start page with Your books in view', back.view === 'start' && back.start && !back.root && back.inView && back.hash === '', back);
-    check('title: Your books lists the document title', /Constructor theory of time/.test(back.books) && !/SUB|_/.test(back.books), back.books);
+    check('Back to library goes to My shelf', await p.waitForURL(MY_SHELF, { timeout: 10000 }).then(() => true, () => false), p.url());
+    await openShelf(p, ORIGIN);
+    const back = (await uploads(p)).map(b => b.title).join(' | ');
+    check('title: My shelf lists the document title', /Constructor theory of time/.test(back) && !/SUB|_/.test(back), back);
     await p.screenshot({ path: join(OUT, 'desktop-back-to-shelf.png') });
-    // The start page scrolls by hand too (the app's stylesheet pins body to the viewport for the reader).
-    await p.evaluate(() => scrollTo(0, 0)); await p.mouse.move(700, 400); await p.mouse.wheel(0, 500); await p.waitForTimeout(400);
-    check('the start page scrolls with the wheel', await p.evaluate(() => document.documentElement.scrollHeight > innerHeight && scrollY > 0));
     // A real metadata Title wins over the page and the file name.
     await openFile(p, await titledPdf(browser));
     await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
     check('title: from the PDF metadata when it is a real title', await p.textContent('#bookTitle') === 'Notes on Natural Philosophy', await p.textContent('#bookTitle'));
-    // A PDF whose outline-less pages carry no headings keeps the message.
+    // A PDF whose outline-less pages carry no headings is read by page: no made-up chapter.
     await p.click('#pageBtn');
-    await p.waitForSelector('.lab-contents-v2 .status:not([role])', { timeout: 15000 });
-    check('headings: none found keeps the no-contents message', /This PDF has no table of contents\. Use the page number above\./.test(await p.textContent('.lab-contents-v2')));
+    await p.waitForSelector('.lab-contents-v2 .byob-pages', { timeout: 15000 });
+    check('headings: none found lists the pages instead', /^p\. 1/.test(await p.textContent('.lab-contents-v2 .byob-pages .text')) && !(await p.$('.lab-contents-v2 [data-go]')));
     await p.keyboard.press('Escape');
     check('titles and headings: no page errors', !problems.length, problems.slice(0, 6));
     await ctx.close();
@@ -428,7 +403,6 @@ try {
   // ---- Phone top bar ----
   {
     const { ctx, p, problems } = await page(browser, { width: 390, height: 844 }, { isMobile: true, hasTouch: true });
-    await p.goto(BASE);
     await signIn(p, { token: 'test-token', user: 'u-phone' });
     await openFile(p, await paperPdf(browser));
     await p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
@@ -443,7 +417,6 @@ try {
   // ---- DRM-protected EPUB is refused ----
   {
     const { ctx, p, problems } = await page(browser, { width: 1280, height: 800 });
-    await p.goto(BASE);
     await signIn(p);
     const drm = join(FIX, 'drm.epub');
     if (!existsSync(drm)) {
@@ -451,8 +424,8 @@ try {
       writeFileSync(drm, makeEpub({ title: 'Locked', drm: true }));
     }
     await openFile(p, drm);
-    await p.waitForSelector('.pdf-status[role="alert"]', { timeout: 10000 });
-    check('DRM EPUB is refused with an explanation', /DRM/.test(await p.textContent('.pdf-status')));
+    await p.waitForSelector('[data-testid="own-file-dialog"] .own-file-message[role="alert"]', { timeout: 10000 });
+    check('DRM EPUB is refused with an explanation', /DRM/.test(await p.textContent('[data-testid="own-file-dialog"] .own-file-message')) && new URL(p.url()).pathname === SHELF_PATH);
     check('DRM test: no page errors', !problems.length, problems);
     await ctx.close();
   }
@@ -460,7 +433,6 @@ try {
   // ---- An EPUB with pictures: figures at their place, the card, Explain with the picture, the cover on Your books ----
   {
     const { ctx, p, problems } = await page(browser, { width: 1280, height: 800 });
-    await p.goto(BASE);
     await signIn(p);
     const figuresEpub = join(FIX, 'figures.epub');
     const { makeFigureEpub } = await import('./make-epub.mjs');
@@ -493,9 +465,11 @@ try {
     await p.screenshot({ path: join(OUT, 'desktop-figures-tab.png') });
     await p.keyboard.press('Escape');
     await p.click('[data-testid="lab-library-back"]');
-    await p.waitForSelector('#abShelf:not([hidden]) .ab-book');
-    const cover = await p.evaluate(() => [...document.querySelectorAll('.ab-book')].find(li => /Lanterns Illustrated/.test(li.textContent))?.querySelector('.ab-cover.has-image img')?.naturalWidth || 0);
-    check('figures: Your books shows the EPUB’s own cover', cover > 0, cover);
+    await p.waitForURL(MY_SHELF, { timeout: 10000 });
+    await openShelf(p, ORIGIN);
+    await p.waitForFunction(() => [...document.querySelectorAll('[data-shelf-group="own"] img.own-cover-image')].every(img => img.complete), null, { timeout: 5000 }).catch(() => {});
+    const cover = (await uploads(p)).find(b => /Lanterns Illustrated/.test(b.title))?.cover || 0;
+    check('figures: My shelf shows the EPUB’s own cover', cover > 0, cover);
     await p.screenshot({ path: join(OUT, 'desktop-shelf-cover.png') });
     check('figures: no page errors or CSP violations', !problems.length, problems.slice(0, 6));
     await ctx.close();
@@ -504,12 +478,12 @@ try {
   // ---- Phone ----
   {
     const { ctx, p, problems } = await page(browser, { width: 390, height: 844 }, { isMobile: true, hasTouch: true });
-    await p.goto(BASE);
-    await p.waitForSelector('#doorOwn');
-    const overflow = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
-    check('phone: start page has no sideways scroll', !overflow);
-    await p.screenshot({ path: join(OUT, 'phone-start.png'), fullPage: true });
     await signIn(p);
+    await openPopUp(p, ORIGIN);
+    const overflow = await p.evaluate(() => { const box = document.querySelector('[data-testid="own-file-dialog"] .tui-dialog').getBoundingClientRect(); return document.documentElement.scrollWidth > innerWidth + 1 || box.left < 0 || box.right > innerWidth });
+    check('phone: My shelf\u2019s "Your own book" pop-up has no sideways scroll', !overflow);
+    await p.screenshot({ path: join(OUT, 'phone-file-step.png'), fullPage: true });
+    await p.keyboard.press('Escape');
     await openFile(p, epub);
     await tinctReader(p);
     const overflow2 = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
@@ -527,7 +501,6 @@ try {
   // ---- Your books in your account: saved after opening, listed and opened on another device, removed from both ----
   {
     const one = await page(browser, { width: 1280, height: 800 });
-    await one.p.goto(BASE);
     await signIn(one.p, { token: 'cloud-token', user: 'u-cloud' });
     await openFile(one.p, pdf);
     await one.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
@@ -539,10 +512,9 @@ try {
       && posts.length === 1 && posts[0].user === 'u-cloud', { mine: mine.map(b => ({ name: b.name, title: b.title, size: b.size })), posts });
     const linked = await one.p.evaluate(async () => (await window.TinctReader.library.list()).map(r => r.cloudId));
     check('this device’s copy is linked to the account copy', linked.length === 1 && linked[0] === mine[0]?.id, linked);
-    // Reopening from the shelf does not upload again.
-    await one.p.click('#superBtn'); await one.p.click('.lab-super-row[data-row="close"]');
-    await one.p.waitForSelector('#abShelf:not([hidden]) .ab-book');
-    await one.p.click('.ab-book-open'); await one.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
+    // Reopening from My shelf does not upload again.
+    await openShelf(one.p, ORIGIN);
+    await one.p.click('[data-shelf-group="own"] a'); await one.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
     await one.p.waitForTimeout(500);
     check('reopening does not upload again', (await bookState()).log.filter(l => l.method === 'POST' && l.user === 'u-cloud').length === 1);
     check('account copy, first device: no page errors', !one.problems.length, one.problems.slice(0, 6));
@@ -550,39 +522,40 @@ try {
 
     // A different account never sees it: its shelf stays empty.
     const three = await page(browser, { width: 1280, height: 800 });
-    await three.p.goto(BASE);
+    await openShelf(three.p, ORIGIN);
     const before = (await bookState()).log.length;
     await signIn(three.p, { token: 'other-token', user: 'u-other' });
     for (let i = 0; i < 40 && !(await bookState()).log.slice(before).some(l => l.user === 'u-other' && l.method === 'GET'); i++) await three.p.waitForTimeout(100);
     await three.p.waitForTimeout(300);
-    check('another account’s shelf does not list it', await three.p.evaluate(() => document.getElementById('abShelf').hidden && !document.querySelector('.ab-book')));
+    await shelfReady(three.p);
+    check('another account’s My shelf does not list it', (await uploads(three.p)).length === 0 && !(await three.p.isVisible('text=My private uploads')));
     await three.ctx.close();
 
     // A second device: empty browser storage, same account.
     const two = await page(browser, { width: 1280, height: 800 });
-    await two.p.goto(BASE);
     await signIn(two.p, { token: 'cloud-token', user: 'u-cloud' });
-    await two.p.waitForSelector('#abShelf:not([hidden]) .ab-book[data-cloud-only]', { timeout: 10000 });
-    const listed = await two.p.textContent('#abBooks');
-    check('another device lists the account’s book on “Your books”', listed.includes(mine[0]?.title || '?') && /PDF · added today/.test(listed), listed.replace(/\s+/g, ' ').trim());
+    await two.p.waitForSelector('[data-shelf-group="own"]', { timeout: 10000 });
+    const listed = await uploads(two.p);
+    const cloudKey = 'pdf:' + String(mine[0]?.sha256 || '').slice(0, 24);
+    check('another device lists the account’s book on My shelf, not yet on this device', listed.length === 1 && listed[0].title === mine[0]?.title && listed[0].by === 'PDF' && listed[0].key === cloudKey && listed[0].href === '/lab/addbook/?userBook=' + cloudKey.slice(4)
+      && (await two.p.evaluate(() => new Promise(resolve => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => { const t = r.result.transaction('books', 'readonly').objectStore('books').count(); t.onsuccess = () => resolve(t.result); t.onerror = () => resolve(-1) }; r.onerror = () => resolve(-1) }))) === 0, listed);
     await two.p.screenshot({ path: join(OUT, 'desktop-shelf-account.png') });
-    await two.p.click('.ab-book[data-cloud-only] .ab-book-open');
+    await two.p.click('[data-shelf-group="own"] a');
     await two.p.waitForSelector('.pdf-sheet canvas', { timeout: 30000 });
     await two.p.waitForSelector('.text-layer span', { timeout: 15000 });
     const kept = await two.p.evaluate(async () => (await window.TinctReader.library.list()).map(r => ({ cloudId: r.cloudId, size: r.size })));
     check('a book only in the account downloads, opens and is kept on this device', kept.length === 1 && kept[0].cloudId === mine[0]?.id && kept[0].size === mine[0]?.size
       && (await bookState()).log.some(l => l.method === 'GET' && l.id === mine[0]?.id), kept);
-    await two.p.click('#superBtn'); await two.p.click('.lab-super-row[data-row="close"]');
-    await two.p.waitForSelector('#abShelf:not([hidden]) .ab-book:not([data-cloud-only])');
-    // Remove (× then Remove): gone from this device and from the account.
-    await two.p.click('.ab-book-x'); await two.p.click('.ab-book-x');
-    await two.p.waitForFunction(() => document.getElementById('abShelf').hidden, null, { timeout: 10000 });
+    await openShelf(two.p, ORIGIN);
+    // Remove (× then Remove in the confirmation): gone from this device and from the account.
+    await two.p.click('[data-shelf-group="own"] [data-shelf-remove]');
+    await two.p.click('[data-testid="own-delete-dialog"] .own-delete-confirm');
+    await two.p.waitForFunction(() => document.getElementById('status').textContent === 'ready' && !document.querySelector('[data-shelf-group="own"]'), null, { timeout: 10000 });
     const after = await bookState();
-    const local = await two.p.evaluate(async () => (await window.TinctReader.library.list()).length);
+    const local = await two.p.evaluate(async () => (await window.TinctAddEngine.library.list()).length);
     check('removing a book deletes it from this device and the account', local === 0 && (after.users['u-cloud'] || []).length === 0 && after.log.some(l => l.method === 'DELETE' && l.id === mine[0]?.id), { local, left: after.users['u-cloud'] });
-    await two.p.reload(); await two.p.waitForSelector('#doorOwn');
-    await two.p.waitForTimeout(800);
-    check('and it stays removed after a reload', await two.p.evaluate(() => document.getElementById('abShelf').hidden));
+    await two.p.reload(); await shelfReady(two.p);
+    check('and it stays removed after a reload', (await uploads(two.p)).length === 0);
     check('account copy, second device: no page errors', !two.problems.length, two.problems.slice(0, 6));
     await two.ctx.close();
 

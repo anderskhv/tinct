@@ -74,6 +74,7 @@ describe('own books and the AI features', () => {
   const privacyText = text(privacy)
   it('privacy: names what of an own book each AI feature sends, where the recap is kept, and no training', () => {
     expect(privacyText).not.toContain('Only the passages you ask about are sent to the AI companion, as with any question.')
+    expect(privacyText).toContain('Your place in it (the chapter and paragraph, when you read there, and how far through you are, never its title or text) is kept privately in your account too, so it opens where you left off on your other devices; it is deleted with the book.')
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')

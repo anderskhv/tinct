@@ -121,6 +121,34 @@ the app build: `npm run build` in `app/`, served by `test/serve.mjs` at `/reader
   so the Worker answers from the text (no book lookups, no book id in the usage ledger),
   with its usual auth and limits.
 
+### PDFs: the viewer as a Tinct book
+
+Code: `src/js/reader.js` with `src/js/pdf-scan.js` and `src/js/pdf-theme.js` (unit tests in
+`app/src/lab/userBook/pdfScan.test.ts`, `pdfTheme.test.ts`; browser checks in
+`test/pdf-polish.mjs`, fixtures written by `test/make-pdf.mjs` into `test/pdf-fixtures/`).
+
+- **Address:** a PDF reads at `/lab/addbook/?userBook=<hex>`; a reload, the library and the
+  book switcher open it there, at its place. `/reader?userBook=<hex>` (the library's Continue)
+  goes on to it when the book is not an EPUB on this device. A copy kept only in the account is
+  downloaded first.
+- **Place:** `tinct-addbook:pos:pdf:<hex>` `{ page, frac, zoom, pages, at }`, on this device only.
+  The library's reading table, Currently reading and the switcher's Reading now list a PDF with
+  a kept place (`pdfReading` in `app/src/lab/userBook/ownShelf.ts`): "p. 3 of 8" and its percent
+  in place of a chapter, no time left.
+- **Scan** (`pdf-scan.js`, `SCAN_VERSION`): at the first open, and again when the version moves
+  on, a deterministic pass finds the title (metadata Title if real, else the largest line on
+  the first pages, else the cleaned file name), the author (metadata Author if a person, else a
+  "by" / name line by the title) and the chapters (outline, else printed Contents, else headings
+  without epigraphs, quotations, running heads or page numbers; none: page navigation). Kept on
+  the IndexedDB record (`scan`, `title`, `author`, `pages`); the account copy is named by it.
+- **Theme:** the reader's own setting (`tinct-lab-prefs`, per layout; e-ink from
+  `tinct:display-profile`). Light and Book tint the page to the paper; Dark recolours each drawn
+  page (pictures kept, dimmed). Settings is the reader's sheet; choosing a theme there sets the
+  reader's.
+- **Back and Library** go to the library's My shelf (`/library?shelf=mine`). The title opens the
+  book switcher (Reading now, from `/lab/library-add.js` `switcherRows`); the chapter pill opens
+  the contents with Go to page.
+
 ### Your books in your account (release 2)
 
 Worker: `app/src/worker/routes/userBooks.ts`, tests `app/src/worker.userBooks.test.ts`.

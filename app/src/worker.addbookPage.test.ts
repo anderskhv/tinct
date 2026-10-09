@@ -29,7 +29,9 @@ describe('/lab/addbook/', () => {
     const response = await worker.fetch(new Request('https://tinct.app/lab/addbook/'), env() as never, ctx)
     expect(response.status).toBe(200)
     const html = await response.text()
-    expect(html).toContain('<h1 id="ab-title">Add a book</h1>')
+    // The start page (and its <h1>) was retired on 2026-10-08: the page is Add a book's PDF reader.
+    expect(html).toContain('<title>Add a book · Tinct</title>')
+    expect(html).toContain('js/reader.js')
     expect(html).not.toContain('app shell')
     expect(html).toMatch(/<meta name="robots" content="noindex">/)
     expect(html).not.toMatch(/<script>(?!<\/script>)/) // no inline scripts

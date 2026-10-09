@@ -5,11 +5,14 @@
  * tests. Pure: no browser or Worker APIs.
  */
 import { editionNumberingNote } from './editionNotes'
+import { authorshipNote, bookByline, type Authorship } from './authorship'
 import type { LabReadingTrailEntry } from '../lab/labReadingTrail'
 
 export interface LabAskContext {
   bookTitle: string
   bookAuthor: string
+  /** An essay collection or anthology: who wrote the current chapter (authorship.ts). Absent for one author's book. */
+  authorship?: Authorship
   chapterLabel: string
   chapterNumber?: number
   editionLabel?: string
@@ -171,9 +174,11 @@ export function buildLabAskInstructions(input: LabAskContext, options: { nearby?
   if (toolsAvailable) lines.push(LAB_ASK_BOOK_TOOLS_RULE)
   lines.push(
     `[Current state: authoritative for this turn. Older conversation locations are historical, even within the Bible. In the Bible, "this book" means the current biblical book unless the reader explicitly says otherwise.]`,
-    `Right now reading: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,
+    `Right now reading: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}.`,
   )
+  const authorship = authorshipNote(input.bookAuthor, input.authorship)
+  if (authorship) lines.push(authorship)
   const numberingNote = editionNumberingNote(input.bookId, input.editionKey)
   if (numberingNote) lines.push(numberingNote)
 

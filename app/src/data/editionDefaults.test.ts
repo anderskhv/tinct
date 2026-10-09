@@ -16,7 +16,8 @@ describe('default editions (approved 2026-09-25)', () => {
     for (const book of BOOKS) {
       const overrides: Record<string, string | undefined> = { bible: 'bsb-en' }
       // A book held whole has no available edition, so it has no default.
-      const expected = isBookTemporarilyHeld(book.id) ? undefined : book.id in overrides ? overrides[book.id] : 'modern-en'
+      // A book already in modern English has no Modern English edition: it opens in its original.
+      const expected = isBookTemporarilyHeld(book.id) ? undefined : book.id in overrides ? overrides[book.id] : book.noModernEdition ? 'original-en' : 'modern-en'
       expect(defaultPrimaryEditionKey(book.id, book.editions), book.id).toBe(expected)
     }
   })

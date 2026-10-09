@@ -58,7 +58,9 @@ function loadPublicBooks() {
     const title = pickString(body, 'title')
     const author = pickString(body, 'author')
     const description = pickString(body, 'description')
-    if (id) constToBook.set(constName, { id, title, author, description })
+    // Contemporary books with no Modern English edition (Book.noModernEdition).
+    const noModernEdition = /\bnoModernEdition:\s*true\b/.test(body)
+    if (id) constToBook.set(constName, { id, title, author, description, noModernEdition })
   }
 
   // The BOOKS array is the public list. Only include those — local-only
@@ -186,7 +188,14 @@ function seoChapterTitle(book, chapterTitle) {
   return cappedWithFixedParts('Free Chapter: ', `${book.title} - ${chapterTitle}`, ' | Tinct', MAX_META_TITLE_CHARS)
 }
 
+// In-copyright books published by permission (src/data/publisherPermissions.json).
+const PUBLISHER_PERMISSIONS = require('../src/data/publisherPermissions.json').books
+
 function seoBookDescription(book) {
+  // No Modern English, narration or cast guide to advertise, and never "classic".
+  if (book.noModernEdition || PUBLISHER_PERMISSIONS[book.id]) {
+    return clipAtWord(`Read ${book.title} free, no ads, with an AI reading companion. On Tinct with the publisher's permission.`, MAX_META_DESCRIPTION_CHARS)
+  }
   const full = `Read free, no ads. Modern English compare, AI companion, cast guide, and audio for ${book.title}.`
   if (full.length <= MAX_META_DESCRIPTION_CHARS) return full
   const compact = `Read free, no ads. Modern compare, AI guide, cast, and audio for ${book.title}.`
@@ -208,7 +217,8 @@ function paragraphExcerpt(paragraphs, maxWords = SEO_EXCERPT_WORDS) {
   let count = 0
   for (const raw of paragraphs || []) {
     const text = plainText(raw)
-    if (!text) continue
+    // A figure stands in the text as one token (\uFFFC + id): not prose.
+    if (!text || text.startsWith('\uFFFC')) continue
     const words = text.split(' ').filter(Boolean)
     if (count >= maxWords) break
     const remaining = maxWords - count
@@ -479,6 +489,7 @@ function buildBookIndexPage(book, edition) {
   const scene = bookSceneSrc(book.id)
   const cover = bookCoverSrc(book.id)
   const blurb = libraryBlurb(book.id)
+  const permission = PUBLISHER_PERMISSIONS[book.id]
   const body = `<nav class="top">
   <a href="/" class="logo">tinct</a>
   <a href="/read/" class="top-link">Library</a>
@@ -511,7 +522,7 @@ ${chapterLinks}
   <h2 class="section">${escapeHtml(firstChapter.title || 'Opening')}</h2>
   <div class="body"${editionKey.endsWith("-de") ? ' lang="de"' : ''}>
     ${firstParagraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n    ')}
-  </div>
+  </div>${permission ? `\n  <p class="breadcrumb">${escapeHtml(permission.rights)} Published by ${escapeHtml(permission.publisher)}; on Tinct with permission.</p>` : ''}
 </main>
 <!--/tinct:about-->
 ${libraryHero(book)}
@@ -534,7 +545,7 @@ ${libraryHero(book)}
       description,
       url: `${ORIGIN}/read/${book.id}`,
       isAccessibleForFree: true,
-      publisher: { '@type': 'Organization', name: 'Tinct', url: ORIGIN },
+      publisher: permission ? { '@type': 'Organization', name: permission.publisher } : { '@type': 'Organization', name: 'Tinct', url: ORIGIN },
     },
   })
 }

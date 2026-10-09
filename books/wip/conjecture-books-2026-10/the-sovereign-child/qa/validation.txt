@@ -1,0 +1,10 @@
+json.tool the-sovereign-child-original-en.json: OK
+json.tool onboarding.json: OK
+json.tool metadata-proposal.json: OK
+chapters=15 paragraphs=733
+apparatus/stub scan (books/AGENTS.md pattern): 0 hits []
+short (<20 chars) non-heading paragraphs: 0 (inspected: dialogue fragments, list values, sign-offs)
+structural problems: 0
+strict verify: unmatched paragraphs=0, covered 259498/259983 source letters+digits
+app verifyEditionAgainstSource on converter output: {'checkedParagraphs': 744, 'removedParagraphs': 0, 'renamedChapters': 0, 'chapters': 15}
+app verifyEditionAgainstSource on FINAL edition: see qa/app-verifier-final.json

@@ -3,7 +3,7 @@ import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
 import { ensurePublicBook, isPublicBookId } from '../utils/publicBooks'
-import { loadPublicModernEdition, modernChapterPending, MODERN_EDITION_KEY } from './labModernEdition'
+import { loadPublicModernEdition, modernChapterPending, modernChapterWritten, MODERN_EDITION_KEY } from './labModernEdition'
 import { getBook } from '../data/bookRegistry'
 import { migrateWithheldEdition } from '../data/withheldEditions'
 import { loadEditionWindow, loadEditionChapterList } from '../data/editionLoader'
@@ -46,6 +46,8 @@ export interface LabChapter {
   /** Bible chapters ship a paragraph count but no word count: 1,189 chapters
    * are never all loaded, so the book-page estimate weights them by this. */
   paragraphCount?: number
+  /** The chapter's own writer in an essay collection (Chapter.author). */
+  author?: string
 }
 
 export interface LabSource {
@@ -54,6 +56,12 @@ export interface LabSource {
   editions?: Edition[]
   bookTitle: string
   bookAuthor: string
+  /**
+   * An essay collection or anthology (EditionData.collection): each chapter's
+   * writer is its `chapters[].author`, and the AI features name it, or "the
+   * author", instead of the book's credit (companion/authorship.ts). Absent for one author's book.
+   */
+  collection?: true
   editionLabel: string
   chapterLabel: string
   chapterTitle: string
@@ -76,10 +84,13 @@ export interface LabSource {
   /** The book's figures, in reading order (those of the chapters loaded, for a windowed edition). */
   figures?: LabFigure[]
   /**
-   * An added book's Modern English chapter that is not written yet, served in
-   * its original text (labModernEdition.ts). The paragraphs match one to one.
+   * An added book's Modern English chapter that is not all written yet: its
+   * unwritten paragraphs are served in the original text (labModernEdition.ts).
+   * The paragraphs match one to one.
    */
   modernPending?: boolean
+  /** With modernPending: the paragraphs that are Modern English, as [start, end) runs. Nothing else is shown. */
+  modernWritten?: Array<[number, number]>
   /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
   supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
 }
@@ -590,7 +601,8 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   // Subheadings, list items and links travel beside the text, as in a reader's own book.
   registerChapterStructure(entry)
   registerChapterStructure(compareChapter)
-  if (registryBook.author === 'William Shakespeare') {
+  // A play set with its speakers in its speeches (Shakespeare, or a play a reader added: EditionData.speakers).
+  if (registryBook.author === 'William Shakespeare' || primaryData.speakers || compareData?.speakers) {
     registerShakespeareSpeakers(entry.paragraphs)
     registerShakespeareSpeakers(compareParagraphs)
   }
@@ -613,6 +625,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     editions: registryBook.editions,
     bookTitle: registryBook.title,
     bookAuthor: registryBook.author,
+    ...(primaryData.collection || primaryData.chapters.some(chapter => chapter.author) ? { collection: true as const } : {}),
     editionLabel: primaryEdition.label,
     chapterLabel: entry.title,
     chapterTitle: entry.title,
@@ -631,10 +644,11 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
         ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
         : undefined,
       paragraphCount: chapter.paragraphCount ?? chapter.paragraphs.length,
+      ...(chapter.author ? { author: chapter.author } : {}),
     })),
     sections: primaryData.sections,
     cast: supporting.cast,
-    ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true } : {}),
+    ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true, modernWritten: modernChapterWritten(primaryData, entry.number) } : {}),
     ...(selection.readingFirst ? { supplement } : {}),
   }, primaryEdition.language)
 }

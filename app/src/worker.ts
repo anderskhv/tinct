@@ -63,6 +63,7 @@ import {
 import { handleApproveFix } from './worker/routes/issueReview'
 import { handleFixesCount, handleReportStatus } from './worker/routes/issueStatus'
 import { handleProfiles, isProfileApiPath, socialProfilesOn, type ProfileAuthUser } from './worker/routes/profiles'
+import { confirmLinkLimiter, confirmLinkSender } from './worker/routes/confirmLink'
 import { isYouAssetPage, isYouPath, serveYouPage, withSocialMarkers } from './worker/routes/socialPages'
 import {
   ADMIN_SOCIAL_PATHS,
@@ -303,6 +304,9 @@ export default {
         verifyUser: req => verifyUser(env, req) as Promise<ProfileAuthUser | null>,
         // The brief's profile events land in the funnel while ship 3 is on.
         track: friends ? (name, userId, props) => recordServerEvent(env, ctx, { name, userId, props }) : undefined,
+        // "Send confirmation link": a service email, so LIFECYCLE_EMAILS and the lifecycle test gate do not apply (routes/confirmLink.ts).
+        sendConfirmLink: confirmLinkSender(env),
+        confirmLinkAllowed: confirmLinkLimiter(env),
       })
     }
     if (social && pageRequest && isYouPath(url.pathname)) {

@@ -4,6 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { wikisourcePage } from '../../../app/public/lab/public-books.js';
 
 export const REPO = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const DATA = join(REPO, 'addbooks/site/data');
@@ -24,12 +25,27 @@ const person = p => {
   return out;
 };
 const nameOnly = p => ({ name: p.name });
+/** A Wikisource edition read from a wiki in another language than the work's ("Bleak-House" pg:1023 → fr.wikisource). */
+export function wrongLanguageEdition(w, edition) {
+  const page = wikisourcePage(edition, w.id);
+  return !!page && !(w.language || []).includes(page.lang);
+}
+/**
+ * The edition the browser gets: Project Gutenberg's EPUB whenever the work has one (Add
+ * imports Gutenberg first, public-books.js importEditions; 6,556 English works were
+ * Wikisource-first, QA 2026-10-08), else the first other EPUB in the work's own language,
+ * else the first edition. Never a Wikisource page in another language.
+ */
+export function preferredEdition(w) {
+  const editions = (w.editions || []).filter(edition => !wrongLanguageEdition(w, edition));
+  return editions.find(edition => edition.source === 'Gutenberg' && edition.epubUrl) || editions.find(edition => edition.epubUrl) || editions[0] || w.editions?.[0] || {};
+}
 // Only what search ranks on and what a result card shows. Every edition except the
-// preferred one is dropped; translators and authors live on the work. The preferred edition
-// is the first with an EPUB (build-index puts those first), so a work Gutenberg has as an
-// EPUB never reaches the browser as a library page without one.
+// preferred one is dropped; translators and authors live on the work.
 export function slimWork(w) {
-  const e = w.editions.find(edition => edition.epubUrl) || w.editions[0] || {};
+  const chosen = preferredEdition(w);
+  // Only a wrong-language edition left: no download is offered (the page link stays for "Get it").
+  const e = wrongLanguageEdition(w, chosen) ? { ...chosen, epubUrl: null } : chosen;
   const out = { id: w.id, title: w.title, language: w.language, popularity: w.popularity || 0, editions: [{ source: e.source, sourceUrl: e.sourceUrl || null, epubUrl: e.epubUrl || null, licence: e.licence || 'PD' }] };
   if (w.subtitle) out.subtitle = w.subtitle;
   if (w.altTitles?.length) out.altTitles = w.altTitles.slice(0, 4);

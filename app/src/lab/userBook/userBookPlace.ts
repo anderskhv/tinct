@@ -13,6 +13,13 @@ export interface UserBookPlace {
   paragraphIndex: number
   wordIndex: number
   updatedAt: number
+  /**
+   * The conversion rules of the edition the place is in (userEdition.ts). A
+   * book converted again on this device is converted under them, so the place
+   * still points at the same words. A place saved before places recorded them
+   * is in a conversion made before USER_EDITION_CONVERTER.
+   */
+  converter?: number
 }
 
 export function readUserBookPlace(hex: string, edition: UserBookEdition): UserBookPlace | null {
@@ -30,12 +37,37 @@ export function readUserBookPlace(hex: string, edition: UserBookEdition): UserBo
       paragraphIndex,
       wordIndex: Math.min(raw.wordIndex!, Math.max(0, words - 1)),
       updatedAt: typeof raw.updatedAt === 'number' ? raw.updatedAt : 0,
+      ...(typeof raw.converter === 'number' ? { converter: raw.converter } : {}),
     }
   } catch {
     return null
   }
 }
 
+/**
+ * The rules the saved place was read under: undefined without a saved place,
+ * null for a place saved before places recorded them.
+ */
+export function storedPlaceConverter(hex: string): number | null | undefined {
+  try {
+    const raw = JSON.parse(localStorage.getItem(PLACE_PREFIX + hex) || 'null') as Partial<UserBookPlace> | null
+    if (!raw || typeof raw !== 'object') return undefined
+    return typeof raw.converter === 'number' ? raw.converter : null
+  } catch {
+    return undefined
+  }
+}
+
+/**
+ * Keep a new place, with the conversion rules it was read under (`converter`).
+ * The account revision this device last saw for the book (`rev`, ownSync.ts)
+ * stays with it, so saving it to the account names that revision.
+ */
 export function writeUserBookPlace(hex: string, place: UserBookPlace): void {
-  try { localStorage.setItem(PLACE_PREFIX + hex, JSON.stringify(place)) } catch { /* full or private */ }
+  try {
+    let rev: unknown
+    try { rev = (JSON.parse(localStorage.getItem(PLACE_PREFIX + hex) || 'null') as { rev?: unknown } | null)?.rev } catch { rev = undefined }
+    const { chapterNumber, paragraphIndex, wordIndex, updatedAt, converter } = place
+    localStorage.setItem(PLACE_PREFIX + hex, JSON.stringify({ chapterNumber, paragraphIndex, wordIndex, updatedAt, ...(typeof converter === 'number' ? { converter } : {}), ...(Number.isInteger(rev) ? { rev } : {}) }))
+  } catch { /* full or private */ }
 }

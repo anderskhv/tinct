@@ -1,5 +1,6 @@
 import { parseContextualLookup } from '../components/reader/contextualLookup'
 import type { CompanionRequest } from '../companion/companionRequest'
+import { withAuthorship, type Authorship } from '../companion/authorship'
 import { PERSONAL_HISTORY_TOOL, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
 import { CHAPTER_CHAT_MESSAGES, chapterChatHistoryContent, loadChapterChatTarget, type ChapterChatRequest } from './labChapterChat'
 import { VOICE_RESEARCH_TOOL, researchVoiceQuestion, voiceSourceLinks, type VoiceSource } from './labVoiceResearch'
@@ -87,6 +88,8 @@ export interface LabAskAttachment {
 export interface UseLabAskOptions {
   bookTitle: string
   bookAuthor: string
+  /** An essay collection's or anthology's authorship at a chapter (companion/authorship.ts); absent for one author's book. Keep it stable. */
+  authorshipOf?: (chapterNumber: number | undefined) => Authorship | undefined
   /** Biblical book / registry title; display only. History is keyed by `bookId`. */
   headerBook?: string
   chapterLabel: string
@@ -222,6 +225,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     return {
       bookTitle: current.bookTitle,
       bookAuthor: current.bookAuthor,
+      ...withAuthorship(current.authorshipOf?.(current.chapterNumber)),
       chapterLabel: current.chapterLabel,
       chapterNumber: current.chapterNumber,
       editionLabel: current.editionLabel,
@@ -354,6 +358,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   const askContext = useMemo(() => ({
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
+    ...withAuthorship(options.authorshipOf?.(options.chapterNumber)),
     chapterLabel: options.chapterLabel,
     chapterNumber: options.chapterNumber,
     editionLabel: options.editionLabel,
@@ -365,6 +370,7 @@ export function useLabAsk(options: UseLabAskOptions) {
   }), [
     privateBook,
     options.bookAuthor,
+    options.authorshipOf,
     options.bookTitle,
     options.chapterLabel,
     options.chapterNumber,
@@ -464,6 +470,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     editionKey: privateBook ? undefined : askEditionKey, editionLabel: options.editionLabel,
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
+    authorship: askContext.authorship,
     chapterNumber: options.chapterNumber ?? 1,
     chapterTitle: options.chapterLabel,
     readingObjective: labReadingAngle(),
@@ -927,6 +934,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     entry.promise = (async () => {
       const context: LabAskContext = {
         ...askContextNow([]),
+        // A passage from another chapter of a collection is by that chapter's writer.
+        authorship: optionsRef.current.authorshipOf?.(requestChapter),
         chapterNumber: requestChapter,
         chapterLabel: input.chapterLabel ?? optionsRef.current.chapterLabel,
         editionKey: privateBook ? undefined : input.editionKey,

@@ -166,6 +166,32 @@ export function shakespeareSpeakerWords(text: string): number {
   return (italic?.[0] ?? plain![0]).split(/\s+/).length
 }
 
+/** Labels that open a paragraph in prose, never a speaker: a proof's, a figure's, a numbered part's. */
+const NOT_A_SPEAKER = /^(?:act|scene|curtain|end|finis|chapter|chap|part|book|section|letter|vol|volume|no|enter|exit|exeunt|preface|contents|notes?|introduction|epilogue|prologue|dedication|appendix|index|proof|corollary|scholium|lemma|prop|proposition|definition|axiom|postulate|explanation|remark|obs|observ|fig|figure|schem|plate|example|answer|question|ans|q|a|ibid|id|cf|see|vide|viz|n\s*b|p\s*s|postscript|ps|song|tableau)$/i
+
+/**
+ * A play set the way Tinct's own plays are: its speeches open on their speaker
+ * ("NORA. Hide the Christmas Tree…"). Twenty speeches or more, one paragraph in
+ * ten at least, by three speakers or more who speak three times or more each.
+ * Labels that open prose ("PROOF.", "_Fig._ 2.") and numerals ("VI.") are not speakers.
+ */
+export function isPlayText(paragraphs: Iterable<string>): boolean {
+  let all = 0
+  let speeches = 0
+  const speakers = new Map<string, number>()
+  for (const text of paragraphs) {
+    all += 1
+    const count = shakespeareSpeakerWords(text)
+    const words = text.split(/\s+/).filter(Boolean)
+    if (!count || words.length <= count) continue
+    const label = words.slice(0, count).join(' ').replace(/[_.,:]/g, '').trim()
+    if (!label || NOT_A_SPEAKER.test(label) || /^[IVXLCDM]+$/.test(label)) continue
+    speeches += 1
+    speakers.set(label, (speakers.get(label) ?? 0) + 1)
+  }
+  return speeches >= 20 && speeches / Math.max(1, all) >= 0.1 && [...speakers.values()].filter(count => count >= 3).length >= 3
+}
+
 export function registerShakespeareSpeakers(paragraphs: string[]): void {
   for (const text of paragraphs) {
     const words = [...text.matchAll(/\S+/g)]

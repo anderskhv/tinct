@@ -8,6 +8,11 @@ const calls = vi.hoisted(() => ({
   auth: vi.fn(), memory: vi.fn(), localPositions: vi.fn(), cloudPositions: vi.fn(),
   completions: vi.fn(), readingList: vi.fn(), readMemory: vi.fn(),
   readPosition: vi.fn(), writePosition: vi.fn(), putPosition: vi.fn(), onAuth: vi.fn(),
+  ownShelf: vi.fn(async () => []),
+}))
+// The reader's own books (their private account copies and places): an independent read, stubbed here.
+vi.mock('./lab/userBook/ownSync', async original => ({
+  ...await original<typeof import('./lab/userBook/ownSync')>(), ownShelfWithAccount: calls.ownShelf,
 }))
 vi.mock('./libraryTwoSaved', () => ({ loadShelfMembership: calls.membership, setSavedBook: calls.saved, loadSavedBooks: vi.fn() }))
 vi.mock('./services/supabase', () => ({
@@ -66,6 +71,24 @@ it('removes only shelf visibility and syncs the merged record without altering s
   expect(localStorage.getItem('tinct:library-2-table:viewer-a')).toBeNull()
   expect(localStorage.getItem('tinct:library-2-table:viewer-b')).toBe('{"private":true}')
   expect(localStorage.getItem('tinct:bookmarks:hamlet')).toBe('unchanged')
+})
+
+it('My shelf’s × takes any book off the shelf (a Tinct book or an added one) and drops only this viewer’s fast-paint snapshot, keeping places', async () => {
+  calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-a' }, access_token: 'token-a' } } })
+  const { removeFromShelf } = await import('./libraryTwoReading')
+  for (const id of ['hamlet', 'pd-pg-135']) {
+    localStorage.setItem('tinct:library-2-table:viewer-a', `{"reading":[{"bookId":"${id}"}]}`)
+    localStorage.setItem('tinct:library-2-table:viewer-b', '{"private":true}')
+    localStorage.setItem('tinct:position:' + id, 'kept')
+    await removeFromShelf(id)
+    expect(calls.saved).toHaveBeenLastCalledWith(id, false)
+    // A refresh cannot paint the removed book back from the snapshot.
+    expect(localStorage.getItem('tinct:library-2-table:viewer-a')).toBeNull()
+    expect(localStorage.getItem('tinct:library-2-table:viewer-b')).toBe('{"private":true}')
+    expect(localStorage.getItem('tinct:position:' + id)).toBe('kept')
+  }
+  expect(calls.writePosition).not.toHaveBeenCalled()
+  expect(calls.putPosition).not.toHaveBeenCalled()
 })
 
 it('does not remove a previous account’s book after an account switch', async () => {

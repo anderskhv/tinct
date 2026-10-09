@@ -1,18 +1,35 @@
-/* Tinct's own reader CSS above; below, only what the PDF column needs. Single light theme, like the Tinct reader. */
-:root { color-scheme: light; --pdf-sheet: #ffffff; --pdf-gap: 18px; --pdf-hl: rgba(214, 186, 112, .38); --pdf-hl-strong: rgba(214, 186, 112, .85); }
-html, body { background: #ece7db; margin: 0; }
+/* Tinct's own reader CSS above; below, only what the PDF column needs. The viewer follows the
+   reader's theme (js/pdf-theme.js sets html[data-pdf-theme] and the .lab root's is-night /
+   is-book-theme): the same papers and inks as src/lab/lab.css. UI text is the system face. */
+:root {
+  color-scheme: light; --pdf-gap: 18px; --pdf-hl: rgba(214, 186, 112, .38); --pdf-hl-strong: rgba(214, 186, 112, .85);
+  --pdf-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --pdf-paper: #ece7db; --pdf-room: #ece7db; --pdf-ink: #0b0b0b; --pdf-muted: #6a6256; --pdf-surface: #f6f2e8; --pdf-line: rgba(123, 108, 85, .3);
+  --pdf-sheet-shadow: 0 1px 2px rgba(40,34,20,.12), 0 6px 18px rgba(40,34,20,.10); --pdf-accent: #1f4a5c;
+}
+html[data-pdf-theme="book"] { --pdf-paper: #e7dcc7; --pdf-room: #e7dcc7; --pdf-ink: #201a13; --pdf-muted: #675b4b; --pdf-surface: #efe6d3; --pdf-line: rgba(103, 91, 75, .32); }
+html[data-pdf-theme="dark"] { color-scheme: dark; --pdf-paper: #171411; --pdf-room: #100e0c; --pdf-ink: #bdb3a7; --pdf-muted: #8f857a; --pdf-surface: #211d18; --pdf-line: rgba(189, 179, 167, .2); --pdf-sheet-shadow: 0 0 0 1px #2a251f, 0 8px 24px rgba(0,0,0,.35); --pdf-accent: #78aabd; --pdf-hl: rgba(214, 186, 112, .30); }
+html[data-pdf-theme="dark"] body:not([data-view="reader"]) { --pdf-room: #171411; }
+html[data-pdf-theme="eink"] { --pdf-paper: #fff; --pdf-room: #fff; --pdf-ink: #111; --pdf-muted: #444; --pdf-surface: #fff; --pdf-line: #777; --pdf-sheet-shadow: 0 0 0 1px #777; }
+html, body { background: var(--pdf-room); color: var(--pdf-ink); margin: 0; }
+body[data-view="reader"] .lab.byob { background: var(--pdf-room); }
+/* The Tinct reader's paged desktop dark room (lab.css, in tinct-app.css) is more specific than the
+   rule above; the viewer keeps its own room there too. */
+body[data-view="reader"] .lab.byob.is-desktop.is-night[data-chrome-version][data-desktop-paging],
+body[data-view="reader"] .lab.byob.is-desktop.is-night[data-chrome-version][data-desktop-paging] .lab-body { background: var(--pdf-room); }
 body { overscroll-behavior: none; }
 .lab.byob { min-height: 0; height: 100%; }
 .byob .lab-header { position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); z-index: 40; background: var(--lab-paper); }
 .byob .lab-header-chapter-label { font-variant-numeric: tabular-nums; }
 .pdf-scroll { position: fixed; left: 0; right: 0; bottom: 0; top: var(--pdf-top, 64px); overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .pdf-column { display: flex; flex-direction: column; align-items: safe center; gap: var(--pdf-gap); padding: 14px 16px 42vh; min-width: min-content; }
-.pdf-sheet { position: relative; flex: none; background: var(--pdf-sheet); box-shadow: 0 1px 2px rgba(40,34,20,.12), 0 6px 18px rgba(40,34,20,.10); overflow: hidden; }
+.pdf-sheet { position: relative; flex: none; background: var(--pdf-paper); box-shadow: var(--pdf-sheet-shadow); overflow: hidden; }
 .pdf-sheet .pg { position: absolute; left: var(--cx, 0%); top: var(--cy, 0%); width: var(--cw, 100%); height: var(--ch, 100%); }
-.pdf-sheet canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; filter: var(--pdf-filter, none); }
-.byob.tone-pages .pdf-sheet { background: #ece7db; }
-.byob.tone-pages .pdf-sheet canvas { mix-blend-mode: multiply; }
-.byob.dark-pages { --pdf-filter: invert(.9) hue-rotate(180deg) contrast(.92); }
+.pdf-sheet canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+/* Light and Book: the white sheet takes the paper's tone (white becomes paper, ink stays ink). */
+html[data-pdf-theme="light"] .pdf-sheet canvas, html[data-pdf-theme="book"] .pdf-sheet canvas { mix-blend-mode: multiply; }
+/* Dark: pages are recoloured as they are drawn (js/pdf-theme.js); a page that could not be is darkened here. */
+html[data-pdf-theme="dark"] .pdf-sheet canvas.is-raw { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }
 .text-layer { position: absolute; inset: 0; line-height: 1; z-index: 2; }
 .text-layer span { position: absolute; white-space: pre; color: transparent; transform-origin: 0 0; cursor: text; font-family: sans-serif; }
 .text-layer span::selection, .text-layer br::selection, .text-layer::selection, .side-col::selection { background: transparent; color: transparent; }
@@ -23,43 +40,39 @@ body { overscroll-behavior: none; }
 .sel-layer i { background: rgba(214, 186, 112, .40); }
 .hl-layer i { background: var(--hl, rgba(232, 196, 92, .42)); mix-blend-mode: multiply; }
 .hl-layer i.is-box { background: color-mix(in srgb, var(--hl, rgba(232, 196, 92, .42)) 45%, transparent); box-shadow: inset 0 0 0 1.5px rgba(196, 150, 40, .55); border-radius: 4px; }
-.byob.dark-pages .hl-layer i { mix-blend-mode: normal; opacity: .7; }
+html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .text-layer span.is-reading { background: rgba(214, 186, 112, .22); }
 .text-layer span.is-word { background: var(--pdf-hl-strong); }
-.pdf-num { position: absolute; right: 6px; bottom: 4px; font: 10px var(--font-mono); color: #82796b; z-index: 3; pointer-events: none; }
-.pdf-status { font: 12px var(--font-mono); color: #6a6256; text-align: center; padding: 40px 16px; }
-.pdf-sample-note { max-width: 640px; margin: 0 auto; padding: 4px 16px 0; font: 17px/1.45 var(--font-serif); color: #4a4438; text-wrap: pretty; }
-.byob-demo { background: #f6f2e8; border: 1px solid #ddd5c4; border-radius: 14px; padding: 16px 20px; margin-top: 6px; }
+.pdf-num { position: absolute; right: 6px; bottom: 4px; font: 10px var(--pdf-ui); font-variant-numeric: tabular-nums; color: var(--pdf-muted); z-index: 3; pointer-events: none; }
+.pdf-status { font: 14px/1.5 var(--pdf-ui); color: var(--pdf-muted); text-align: center; padding: 40px 16px; }
+.pdf-sample-note { max-width: 640px; margin: 0 auto; padding: 4px 16px 0; font: 17px/1.45 var(--font-serif); color: var(--pdf-ink); text-wrap: pretty; }
+.byob-demo { background: var(--pdf-surface); border: 1px solid var(--pdf-line); border-radius: 14px; padding: 16px 20px; margin-top: 6px; }
 .byob-welcome { max-width: 620px; margin: 8vh auto 0; padding: 28px 30px; }
 .byob-welcome h2 { font: 600 26px/1.25 var(--font-display); margin: 6px 0 4px; text-wrap: balance; }
-.byob-eyebrow { font: 11px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: #6a6256; margin: 0; }
-.byob-quiet { font: 15px var(--font-serif); color: #6a6256 !important; }
+.byob-eyebrow { font: 11px var(--pdf-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--pdf-muted); margin: 0; }
+.byob-quiet { font: 15px var(--font-serif); color: var(--pdf-muted) !important; }
 .byob-demo ol { margin: 10px 0 8px; padding-left: 1.3em; }
 .byob-demo li { margin: 4px 0; }
 .byob-demo a { color: var(--lab-ink); }
 .pdf-sample-note button { font: inherit; color: var(--lab-ink); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 .byob-panel { position: fixed; z-index: 60; }
-.byob-jump { padding: 12px; display: flex; gap: 8px; align-items: center; font: 13px var(--font-mono); }
-.byob-jump input { width: 5em; font: inherit; padding: 6px 8px; border: 1px solid #c8c0ae; border-radius: 8px; background: #fbf8f1; text-align: right; }
-.byob-jump button, .byob-row button, .byob-attest button { font: 13px var(--font-mono); padding: 7px 12px; border-radius: 999px; border: 1px solid #c8c0ae; background: #fbf8f1; color: #0b0b0b; cursor: pointer; }
-.byob-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #ddd5c4; font: 17px var(--font-serif); }
-.byob-row .seg { display: flex; gap: 6px; align-items: center; font: 13px var(--font-mono); }
-.byob-row button[aria-pressed="true"] { background: #0b0b0b; color: #ece7db; border-color: #0b0b0b; }
-.byob-row select { font: 13px var(--font-mono); padding: 6px; border-radius: 8px; border: 1px solid #c8c0ae; background: #fbf8f1; max-width: 12em; }
-.byob-attest p { font: 17px/1.5 var(--font-serif); margin: 0 0 12px; color: #2b2721; text-wrap: pretty; }
+.byob-jump { padding: 12px; display: flex; gap: 8px; align-items: center; font: 14px var(--pdf-ui); font-variant-numeric: tabular-nums; }
+.byob-jump input { width: 5em; font: inherit; padding: 6px 8px; border: 1px solid var(--pdf-line); border-radius: 12px; background: var(--pdf-surface); color: var(--pdf-ink); text-align: right; }
+.byob-jump button, .byob-attest button { font: 14px var(--pdf-ui); padding: 8px 16px; min-height: 36px; border-radius: 999px; border: 1px solid var(--pdf-line); background: transparent; color: var(--pdf-ink); cursor: pointer; }
+.byob-attest p { font: 17px/1.5 var(--font-serif); margin: 0 0 12px; color: var(--pdf-ink); text-wrap: pretty; }
 .byob-attest label { display: flex; gap: 10px; align-items: flex-start; font: 16px/1.4 var(--font-serif); margin: 14px 0; }
-.byob-attest input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: #0b0b0b; }
+.byob-attest input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--pdf-accent); }
 .byob-attest .actions { display: flex; gap: 10px; justify-content: flex-end; }
-.byob-attest button.primary { background: #0b0b0b; color: #ece7db; border-color: #0b0b0b; }
+.byob-attest button.primary { background: var(--pdf-ink); color: var(--pdf-paper); border-color: var(--pdf-ink); }
 .byob-attest button:disabled { opacity: .4; cursor: default; }
-.byob-fine { font: 12px/1.5 var(--font-mono); color: #6a6256; margin-top: 10px; }
+.byob-fine { font: 12px/1.5 var(--pdf-ui); color: var(--pdf-muted); margin-top: 10px; }
 .lab-contextual-explain-scroll p { margin: 0 0 .7em; }
 .lab-contextual-explain-scroll ul, .lab-catch-up-text ul { margin: 0 0 .7em; padding-left: 1.2em; list-style: disc; }
-.byob-ai-off { font: 13px/1.5 var(--font-mono); color: #6a6256; }
+.byob-ai-off { font: 13px/1.5 var(--pdf-ui); color: var(--pdf-muted); }
 .lab.is-phone.byob.chat-open .pdf-scroll { visibility: hidden; }
 .lab.is-phone.byob .lab-ask.byob-phone-chat { position: fixed; left: 0; right: 0; bottom: 0; top: var(--pdf-top, 56px); z-index: 45; }
-.byob-talk-on .lab-ask-voice { background: #0b0b0b; color: #ece7db; }
-.byob-toc-jump { padding: 6px 4px 14px; border-bottom: 1px solid rgba(123,108,85,.18); margin-bottom: 8px; }
+.byob-talk-on .lab-ask-voice { background: var(--pdf-ink); color: var(--pdf-paper); }
+.byob-toc-jump { padding: 6px 4px 14px; border-bottom: 1px solid var(--pdf-line); margin-bottom: 8px; }
 .byob .lab-desktop-audio-dock { z-index: 50; }
 .byob .lab-phone-bar.byob-transport { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; }
 /* Slimmer top bar than the reader's default */
@@ -71,7 +84,9 @@ body { overscroll-behavior: none; }
 .lab.byob.is-phone .lab-header { height: 46px; }
 /* Back to library: icon-only arrow at the left of the top bar, as in Tinct's reader */
 .lab.byob .lab-v2-library-back { flex: 0 0 34px; width: 34px; height: 34px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 999px; background: transparent; box-shadow: none; color: inherit; cursor: pointer; }
-.lab.byob .lab-v2-library-back:hover { background: rgba(32, 26, 19, .06); }
+.lab.byob .lab-v2-library-back:hover { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
+/* Off for a scan without text (read aloud, Summarize, Catch me up): dimmed as Tinct's buttons are (tinct-ui.css .tui-btn:disabled) */
+.lab.byob .lab-v2-play:disabled, .lab.byob .lab-super-row:disabled { opacity: .45; cursor: default; }
 /* The phone keeps "Your books" in the t menu, as Tinct's reader keeps Library there. */
 .lab.byob.is-phone .lab-v2-library-back { display: none; }
 /* The rights sheet over the start page */
@@ -89,29 +104,29 @@ body { overscroll-behavior: none; }
 .byob-dock-grip:hover::after, .is-resizing .byob-dock-grip::after { background: rgba(31,74,92,.35); }
 .byob-dock-grip:focus { outline: none; }
 .byob-dock-grip:focus-visible::after { background: rgba(31,74,92,.5); }
-.byob-pg { font: 11px var(--font-mono); color: #6a6256; margin-left: 8px; white-space: nowrap; letter-spacing: .02em; }
+.byob-pg { font: 12px var(--pdf-ui); font-variant-numeric: tabular-nums; color: var(--lab-ink-muted, var(--pdf-muted)); margin-left: 8px; white-space: nowrap; }
 .lab.is-phone.byob .byob-pg { display: none; }
 /* Compact chat text, closer to a chat app than to the page */
 .lab.byob .lab-ask .lab-markdown, .lab.byob .lab-ask .lab-markdown p, .lab.byob .lab-ask .lab-markdown li, .lab.byob .lab-ask .lab-ask-user, .lab.byob .lab-ask .lab-ask-input, .lab.byob .lab-contextual-explain-scroll, .lab.byob .lab-contextual-explain-scroll p, .lab.byob .lab-contextual-explain-scroll li { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important; font-size: 15px !important; line-height: 1.5 !important; }
 .lab.byob .lab-ask .lab-markdown p, .lab.byob .lab-contextual-explain-scroll p { margin: 0 0 .6em !important; }
 .lab.byob .lab-ask .lab-markdown li { margin: 0 0 .25em !important; }
-.lab.byob .lab-ask .lab-ask-history-passage { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important; font-size: 13.5px !important; line-height: 1.45 !important; font-weight: 400 !important; color: #6a6256 !important; }
+.lab.byob .lab-ask .lab-ask-history-passage { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important; font-size: 13.5px !important; line-height: 1.45 !important; font-weight: 400 !important; color: var(--pdf-muted) !important; }
 .lab.byob .lab-ask .lab-ask-user { font-weight: 500 !important; }
 .lab.byob .lab-ask .lab-ask-turn { margin-bottom: 14px; }
 .byob-snip { position: fixed; inset: var(--pdf-top, 50px) 0 0 0; z-index: 60; cursor: crosshair; touch-action: none; background: rgba(11,11,11,.06); }
 .lab.byob.dock-open .byob-snip { right: calc(var(--dock-w) + 14px); }
-.byob-snip-hint { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); margin: 0; padding: 7px 8px 7px 14px; border-radius: 999px; background: #0b0b0b; color: #ece7db; font: 12px var(--font-mono); white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,.18); cursor: default; }
-.byob-snip-hint button { margin-left: 6px; border: 0; border-radius: 999px; padding: 3px 10px; background: #ece7db; color: #0b0b0b; font: inherit; cursor: pointer; }
+.byob-snip-hint { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); margin: 0; padding: 7px 8px 7px 14px; border-radius: 999px; background: var(--pdf-ink); color: var(--pdf-paper); font: 13px var(--pdf-ui); white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,.18); cursor: default; }
+.byob-snip-hint button { margin-left: 6px; border: 0; border-radius: 999px; padding: 3px 10px; background: var(--pdf-paper); color: var(--pdf-ink); font: inherit; cursor: pointer; }
 .byob-snip-box { position: fixed; border: 1.5px solid #1f4a5c; background: rgba(31,74,92,.08); box-shadow: 0 0 0 9999px rgba(11,11,11,.18); border-radius: 3px; pointer-events: none; }
 .lab.byob .lab-ask-composer { flex-wrap: wrap; }
 .lab.byob .lab-ask-composer .byob-tray { order: -1; }
 .lab.byob .lab-ask-composer .byob-attach { order: 2; margin-right: auto; align-self: center; padding: 4px; }
 .byob-tray { flex: 0 0 100%; display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 2px 8px; }
-.byob-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 4px 3px 3px; border: 1px solid rgba(123,108,85,.3); border-radius: 10px; background: #fbf8f1; font: 11px var(--font-mono); color: #4a443b; }
+.byob-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 4px 3px 3px; border: 1px solid var(--pdf-line); border-radius: 10px; background: var(--pdf-surface); font: 12px var(--pdf-ui); color: var(--pdf-ink); }
 .byob-chip img { height: 40px; max-width: 72px; object-fit: cover; border-radius: 7px; display: block; background: #fff; }
-.byob-chip button { border: 0; background: none; font-size: 15px; line-height: 1; padding: 2px 5px; cursor: pointer; color: #6a6256; }
-.byob-attach { flex: 0 0 auto; align-self: flex-end; border: 0; background: none; color: #6a6256; padding: 8px 4px 8px 0; cursor: pointer; }
-.byob-attach:hover { color: #0b0b0b; }
+.byob-chip button { border: 0; background: none; font-size: 15px; line-height: 1; padding: 2px 5px; cursor: pointer; color: var(--pdf-muted); }
+.byob-attach { flex: 0 0 auto; align-self: flex-end; border: 0; background: none; color: var(--pdf-muted); padding: 8px 4px 8px 0; cursor: pointer; }
+.byob-attach:hover { color: var(--pdf-ink); }
 .byob-drop-over { outline: 2px dashed #1f4a5c; outline-offset: -8px; }
 .byob-turn-imgs { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 8px; }
 .byob-turn-imgs img { max-height: 120px; max-width: 100%; border-radius: 8px; border: 1px solid rgba(123,108,85,.25); background: #fff; display: block; }
@@ -120,24 +135,46 @@ body { overscroll-behavior: none; }
 @keyframes byob-flash { 0% { background: rgba(255,255,255,.85); box-shadow: 0 0 0 6px rgba(31,74,92,.25) } 100% { background: rgba(31,74,92,.07); box-shadow: 0 0 0 0 rgba(31,74,92,0) } }
 .byob-snip-thumb { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px 8px; border-bottom: 1px solid rgba(123,108,85,.18); }
 .byob-snip-thumb img { max-width: 100%; max-height: 120px; object-fit: contain; align-self: flex-start; border-radius: 6px; border: 1px solid rgba(123,108,85,.25); background: #fff; }
-.byob-snip-thumb span { font: 11px var(--font-mono); color: #6a6256; }
+.byob-snip-thumb span { font: 12px var(--pdf-ui); color: var(--pdf-muted); }
 .byob-hot { position: absolute; z-index: 4; pointer-events: none; border: 1px dashed rgba(31,74,92,.45); border-radius: 4px; background: rgba(31,74,92,.035); }
-.byob-hot-chip { position: absolute; right: -1px; top: 0; transform: translateY(calc(-100% - 4px)); z-index: 6; display: flex; gap: 2px; padding: 3px; pointer-events: auto; background: #f6f2e8; border: 1px solid rgba(123,108,85,.3); border-radius: 999px; box-shadow: 0 4px 14px rgba(43,36,26,.14); white-space: nowrap; }
-.byob-hot-chip button { display: inline-flex; align-items: center; gap: 5px; height: 26px; min-width: 26px; padding: 0 9px; border: 0; border-radius: 999px; background: transparent; color: #0b0b0b; font: 12px var(--font-mono); cursor: pointer; }
+.byob-hot-chip { position: absolute; right: -1px; top: 0; transform: translateY(calc(-100% - 4px)); z-index: 6; display: flex; gap: 2px; padding: 3px; pointer-events: auto; background: var(--pdf-surface); border: 1px solid var(--pdf-line); border-radius: 999px; box-shadow: 0 4px 14px rgba(43,36,26,.14); white-space: nowrap; }
+.byob-hot-chip button { display: inline-flex; align-items: center; gap: 5px; height: 26px; min-width: 26px; padding: 0 9px; border: 0; border-radius: 999px; background: transparent; color: var(--pdf-ink); font: 13px var(--pdf-ui); cursor: pointer; }
 .byob-hot-chip button:hover { background: rgba(31,74,92,.1); }
 .byob-hot-chip::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 10px; }
 .byob-hot-sym { font-size: 13px; line-height: 1; }
 .byob-hot-chip svg { width: 14px; height: 14px; flex: none; }
-.byob.dark-pages .byob-hot-chip { background: #2a2620; color: #ece7db; }
+
 .selection-popup.byob-palette-pop { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center; padding: 4px 6px 4px 14px !important; width: auto !important; min-width: 0 !important; }
 .byob-palette { gap: 16px !important; min-height: 40px !important; }
 .selection-popup .byob-palette { padding: 2px 14px; border-bottom: 1px solid rgba(123,108,85,.18); }
 .byob-palette-pop .byob-palette { border: 0; padding: 0; }
 .byob-palette-x { border: 0; border-left: 1px solid rgba(123,108,85,.25); margin-left: 12px; padding: 8px 6px 8px 12px; background: none; color: inherit; cursor: pointer; opacity: .75; }
 .byob-palette-x:hover { opacity: 1; }
-.byob-primary { padding: 10px 18px; border-radius: 999px; border: 1px solid #0b0b0b; background: #0b0b0b; color: #ece7db; font: 14px var(--font-mono); cursor: pointer; }
+.byob-primary { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--pdf-ink); background: var(--pdf-ink); color: var(--pdf-paper); font: 14px var(--pdf-ui); cursor: pointer; }
 .is-resizing, .is-resizing * { user-select: none !important; cursor: col-resize !important; }
-.byob-dock-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 36; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 8px; border: 1px solid rgba(123,108,85,.3); border-right: 0; border-radius: 12px 0 0 12px; background: #f6f2e8; box-shadow: -6px 0 18px #352b1e1a; font: 12px var(--font-mono); color: #0b0b0b; cursor: pointer; writing-mode: vertical-rl; }
+.byob-dock-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 36; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 8px; border: 1px solid var(--pdf-line); border-right: 0; border-radius: 12px 0 0 12px; background: var(--pdf-surface); box-shadow: -6px 0 18px #352b1e1a; font: 13px var(--pdf-ui); color: var(--pdf-ink); cursor: pointer; writing-mode: vertical-rl; }
 .byob-dock-tab svg { writing-mode: horizontal-tb; }
-.drop-cover { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; background: rgba(236,231,219,.88); border: 3px dashed #0b0b0b; font: 26px var(--font-display); }
+.drop-cover { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; background: color-mix(in srgb, var(--pdf-paper) 88%, transparent); color: var(--pdf-ink); border: 3px dashed var(--pdf-ink); font: 26px var(--font-display); }
 .drop-cover[hidden] { display: none; }
+/* The toast, in the theme */
+.byob-toast { position: fixed; left: 50%; bottom: 56px; transform: translateX(-50%); z-index: 80; background: var(--pdf-surface); color: var(--pdf-ink); padding: 8px 14px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.12); font: 14px/1.4 var(--pdf-ui); }
+/* Settings: the reader's sheet over the PDF */
+.lab.byob .byob-settings { position: fixed; inset: 0; z-index: 70; }
+.lab.byob .byob-settings .lab-v2-row[hidden] { display: none; }
+.lab.byob .byob-settings .lab-v2-note { margin: 14px 4px 0; font: 13px/1.45 var(--pdf-ui); color: var(--lab-ink-muted, var(--pdf-muted)); }
+/* Switch books: above the pages and the docked chat */
+.lab.byob .byob-switcher { z-index: 72; }
+/* Pages, for a PDF read by page */
+.lab-contents-v2 .byob-pages .text { font-variant-numeric: tabular-nums; }
+.lab.byob.is-phone, html[data-pdf-theme] body[data-view="reader"] .lab.byob.is-phone { background: var(--pdf-paper); }
+/* The settings sheet in the design system's faces: UI in the system face (title, rows, values,
+   theme names; never mono), the swatches' "Aa" in the reading face. Sized to its rows. */
+.lab.byob .byob-settings .lab-v2-sheet { height: auto !important; min-height: 0 !important; max-height: calc(100dvh - 48px); }
+.lab.byob .byob-settings :is(.lab-v2-title, .lab-v2-row-label, .lab-v2-row-select, button, .lab-v2-value, .lab-v2-theme-label, .lab-v2-note, .lab-v2-size-small, .lab-v2-size-large, .lab-v2-dismiss) { font-family: var(--pdf-ui) !important; letter-spacing: 0 !important; text-transform: none !important; }
+.lab.byob .byob-settings .lab-v2-title { font-weight: 600; }
+.lab.byob .byob-settings .lab-v2-value { font-variant-numeric: tabular-nums; }
+/* The chapter pill in the theme (the desktop pill's fill is the light paper's). */
+.lab.byob.is-night .lab-header-chapter { background: var(--lab-surface); color: var(--lab-ink); }
+.lab.byob.is-book-theme.is-desktop .lab-header-chapter { background: color-mix(in srgb, var(--lab-surface) 70%, transparent); }
+/* The chat's place line in the UI face, not mono. */
+.lab.byob .lab-ask-location, .lab.byob .lab-ask-location * { font-family: var(--pdf-ui) !important; letter-spacing: .02em; }

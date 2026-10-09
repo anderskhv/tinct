@@ -12,6 +12,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { makeCommercialEpub } from './make-epub.mjs';
+import { SHELF_PATH, shelfReady, shelfSignIn, addFile } from './shelf.mjs';
 
 const HERE = fileURLToPath(new URL('.', import.meta.url));
 const REPO = join(HERE, '../../..');
@@ -37,6 +38,8 @@ const FIGURE_STATE = () => {
 };
 
 export async function ownFigureChecks({ base, check, browsers = ['chromium', 'webkit'] }) {
+  // Own books are added and listed on the library's My shelf (Add a book's start page is retired, 2026-10-08).
+  const origin = new URL(base).origin;
   const epub = join(FIX, 'quiet-experiments.epub');
   writeFileSync(epub, makeCommercialEpub());
   for (const name of browsers) {
@@ -56,11 +59,7 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
       await p.addInitScript(() => document.addEventListener('securitypolicyviolation', e => console.error('CSP violation: ' + e.violatedDirective + ' ' + e.blockedURI)));
       return p;
     };
-    const signIn = async p => {
-      await p.evaluate(([key, token, user]) => localStorage.setItem(key, JSON.stringify({ access_token: token, refresh_token: 'refresh-' + token, token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: user, email: 'reader@example.com' } })), [SESSION_KEY, token, user]);
-      await p.reload();
-      await p.waitForSelector('#doorOwn');
-    };
+    const signIn = p => shelfSignIn(p, origin, { token, user });
     const ready = async p => {
       await p.waitForURL(RIGHTS_READER, { timeout: 60000 });
       await p.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]').length > 3, null, { timeout: 60000 });
@@ -77,6 +76,9 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
       await p.keyboard.press('Escape');
       return shown;
     };
+    // The figures on the page the reader left the first device at, which the second device opens at.
+    let firstDevicePage = '';
+    const captions = shown => shown.page.map(item => item.caption).join(' | ');
     const judge = (when, shown) => {
       const listed = shown.listed;
       const byNumber = n => listed.find(item => new RegExp(`Figure ${n}:`).test(item.text))?.state;
@@ -85,7 +87,9 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
         listed.length === 13 && drawnAll && ['drawn', 'placeholder'].includes(byNumber(10)) && byNumber(13) === 'placeholder'
           && !listed.some(item => item.state === 'broken') && shown.page.length > 0 && shown.page.every(item => item.state === 'drawn' || item.state === 'placeholder')
           // Opened at the start, the first page shows Figure 1 (later opens resume at the reader's place).
-          && (!/just added|second device/.test(when) || shown.page.some(item => /Double slit/.test(item.caption) && item.state === 'drawn')),
+          && (!/just added/.test(when) || shown.page.some(item => /Double slit/.test(item.caption) && item.state === 'drawn'))
+          // The second device opens at the place read on the first (own-book sync): the same page.
+          && (!/second device/.test(when) || (!!firstDevicePage && captions(shown) === firstDevicePage)),
         { listed: listed.map(item => `${(/Figure (\d+):/.exec(item.text) || [])[1]}:${item.state}`).join(" "), page: shown.page });
     };
 
@@ -94,13 +98,9 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
     let p = await prepare(ctx);
     let hex = '';
     try {
-      await p.goto(base);
       await signIn(p);
-      const chooser = p.waitForEvent('filechooser');
-      await p.click('#abDrop');
-      await (await chooser).setFiles(epub);
-      await Promise.race([p.waitForSelector('#attestBox', { timeout: 30000 }), p.waitForURL(RIGHTS_READER, { timeout: 30000 })]);
-      if (!RIGHTS_READER.test(p.url())) { await p.check('#attestBox'); await p.click('#attestOk') }
+      // My shelf's + pop-up: the file, the rights confirmation once per account, then the reader.
+      await addFile(p, origin, epub);
       await ready(p);
       hex = RIGHTS_READER.exec(p.url())[1];
       await p.screenshot({ path: join(OUT, `own-figures-${name}.png`) });
@@ -167,11 +167,17 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
       await ready(p);
       judge('after the browser was closed and opened again', await figures(p));
       // Back and forward through the browser's page cache: the figures draw from fresh URLs.
-      await p.goto(base);
-      await p.waitForSelector('#doorOwn');
+      // The open Contents owns a history entry (useBackCloses). Close it and leave once Back has
+      // taken that entry away: a history step still under way would abort the navigation.
+      await p.keyboard.press('Escape');
+      await p.waitForFunction(() => !document.querySelector('[data-testid="lab-contents-tab-figures"]') && !history.state?.tinctReaderLayer, null, { timeout: 5000 });
+      await p.goto(new URL(SHELF_PATH, origin).href);
+      await shelfReady(p);
       await p.goBack();
       await ready(p);
-      judge('back from another page', await figures(p));
+      const back = await figures(p);
+      judge('back from another page', back);
+      firstDevicePage = captions(back);
     } catch (error) {
       check(`${label}: first device ran`, false, String(error?.stack || error).slice(0, 600));
     } finally {
@@ -184,11 +190,11 @@ export async function ownFigureChecks({ base, check, browsers = ['chromium', 'we
     try {
       const two = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
       p = await prepare(two);
-      await p.goto(base);
       await signIn(p);
-      await p.waitForSelector('#abShelf:not([hidden]) .ab-book[data-cloud-only]', { timeout: 15000 });
-      const row = p.locator('.ab-book[data-cloud-only]', { hasText: 'Quiet Experiments' });
-      await row.locator('.ab-book-open').click();
+      // My shelf lists the account copy (not on this device yet); it opens at its address.
+      const row = p.locator('[data-shelf-group="own"]', { hasText: 'Quiet Experiments' });
+      await row.waitFor({ timeout: 15000 });
+      await row.locator('a').click();
       await ready(p);
       check(`${label}, second device: the account copy opens as the same book`, RIGHTS_READER.exec(p.url())?.[1] === hex, p.url());
       judge('second device', await figures(p));

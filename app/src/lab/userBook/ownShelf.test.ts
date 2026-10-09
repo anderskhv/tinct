@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from 'vitest'
-import { ownReading, ownReadingNow, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
+import { ownReading, ownReadingNow, pdfReading, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
 import { ownQuickBookRows, withOwnBookRows, type QuickBookRow } from '../../preReader/quickBookSwitcher'
 import { ownTableBook, withOwnReading, type ReadingTableBook } from '../../libraryTwoReading'
 
@@ -33,6 +33,34 @@ describe('an own book being read', () => {
   it('without its text on this device, keeps the place time and claims no progress line', () => {
     const reading = ownReading(HEX, null, 7, store({ [`tinct-addbook:place:${HEX}`]: { chapterNumber: 4, paragraphIndex: 0, wordIndex: 0 } }))!
     expect(reading).toMatchObject({ chapterLabel: '', headline: '', percent: null, wordCount: null, lastActiveAt: 7 })
+  })
+})
+
+describe('a PDF being read', () => {
+  const scan = { entries: [{ id: 'h0', label: 'Misconceptions of Thinking', page: 3, kind: 'chapter', parent: null }, { id: 'h1', label: 'What It Means to Think', page: 6, kind: 'chapter', parent: null }] }
+  it('shows its page in place of a chapter, with how far through it is, and no time left', () => {
+    const reading = pdfReading(HEX, { pages: 8 }, 1, store({ [`tinct-addbook:pos:pdf:${HEX}`]: { page: 3, frac: 0.4, zoom: 1, pages: 8, at: 900 } }))!
+    expect(reading).toMatchObject({ bookId: `userbook-${HEX}`, chapterLabel: 'p. 3 of 8', headline: '', wordCount: null, lastActiveAt: 900 })
+    expect(reading.percent).toBeCloseTo(30)
+  })
+  it('says which real chapter the page is in, when the scan found chapters', () => {
+    const reading = pdfReading(HEX, { pages: 8, scan }, 1, store({ [`tinct-addbook:pos:pdf:${HEX}`]: { page: 4, frac: 0, pages: 8, at: 900 } }))!
+    expect(reading.chapterLabel).toBe('p. 4 of 8')
+    expect(reading.headline).toBe('You’re in the middle of Misconceptions of Thinking')
+  })
+  it('stands on the reading table and in Reading now like an EPUB, opening at its own address', () => {
+    const reading = pdfReading(HEX, { pages: 8 }, 1, store({ [`tinct-addbook:pos:pdf:${HEX}`]: { page: 3, frac: 0.4, pages: 8, at: 900 } }))!
+    const book: OwnShelfBook & { reading: typeof reading } = { key: `pdf:${HEX}`, kind: 'pdf', hex: HEX, title: 'Beyond Reward and Punishment', author: 'David Deutsch', cover: 'data:image/jpeg;base64,AAAA', at: 1, href: `/lab/addbook/?userBook=${HEX}`, reading }
+    const row = ownTableBook(book)
+    expect(row).toMatchObject({ bookId: `userbook-${HEX}`, title: 'Beyond Reward and Punishment', chapterLabel: 'p. 3 of 8', own: true, wordCount: null, lastActiveAt: 900 })
+    expect(row.percent).toBeCloseTo(30)
+    expect(ownQuickBookRows([book])[0]).toMatchObject({ chapterLabel: 'p. 3 of 8', href: `/lab/addbook/?userBook=${HEX}` })
+  })
+  it('is not being read before a page is kept, and an older place (no time, no page count) still counts', () => {
+    expect(pdfReading(HEX, { pages: 8 }, 1, store({}))).toBeNull()
+    const old = pdfReading(HEX, { pages: 5 }, 77, store({ [`tinct-addbook:pos:pdf:${HEX}`]: { page: 9, frac: 0, zoom: 1 } }))!
+    expect(old).toMatchObject({ chapterLabel: 'p. 5 of 5', lastActiveAt: 77 })
+    expect(pdfReading(HEX, { pages: 5 }, 77, store({ [`tinct-addbook:pos:pdf:${HEX}`]: { page: 2, at: 500 }, [OWN_TABLE_HIDDEN_PREFIX + HEX]: '600' }))).toBeNull()
   })
 })
 

@@ -703,7 +703,13 @@ export async function releaseHold(bucket: R2Like, bookId: string, holdId: string
   await bucket.delete(jobKey(bookId))
 }
 
-export interface SourceChapter { number: number; title: string; paragraphs: string[] }
+export interface SourceChapter {
+  number: number
+  title: string
+  paragraphs: string[]
+  /** The chapter's own writer in an essay collection (types/index.ts Chapter.author); carried into Modern English. */
+  author?: string
+}
 
 type Slots = Array<string | null>
 
@@ -818,7 +824,7 @@ export async function modernStep(
       }
       const began = input.now()
       try {
-        raw = await input.generate({ title: input.title, author: input.author, chapterTitle: chapter.title, paragraphs: chunk, ...(retry ? { retry: true } : {}) })
+        raw = await input.generate({ title: input.title, author: chapter.author || input.author, chapterTitle: chapter.title, paragraphs: chunk, ...(retry ? { retry: true } : {}) })
       } catch (error) {
         if (error instanceof ModernProviderError) provider = error
         else failure = 'provider_error'
@@ -947,9 +953,9 @@ async function finishEdition(bucket: R2Like, bookId: string, source: SourceChapt
   for (const c of source) {
     const ready = await readJson<SourceChapter>(bucket, chapterKey(bookId, c.number))
     if (!ready) return
-    chapters.push({ number: c.number, title: c.title, paragraphs: ready.value.paragraphs })
+    chapters.push({ ...c, paragraphs: ready.value.paragraphs })
   }
-  await bucket.put(wholeKey(bookId), JSON.stringify({ chapters }), JSON_META)
+  await bucket.put(wholeKey(bookId), JSON.stringify({ chapters, ...(chapters.some(c => c.author) ? { collection: true } : {}) }), JSON_META)
   await updateJob(bucket, bookId, job => job && !job.completedAt ? { ...job, completedAt: now, updatedAt: now } : null)
   await bucket.delete(markerKey(bookId))
 }

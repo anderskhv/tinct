@@ -1,6 +1,6 @@
 import { nativeLibraryCatalogue, ensureNativeBook } from './utils/nativeBooks'
 import { ensurePublicBook } from './utils/publicBooks'
-import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
+import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_FETCH, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
 import { editionHold } from './data/editionAvailability'
@@ -41,6 +41,7 @@ import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryMod
 import { conciseChapterLabel } from './preReader/recapPosition'
 import { hideOwnFromReadingTable, ownReadingNow, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './lab/userBook/ownShelf'
 import { isUserBookId, userBookHex, userBookReaderUrl } from './lab/userBook/userBookId'
+import { ownShelfWithAccount } from './lab/userBook/ownSync'
 
 interface CatalogueBook {
   id: string
@@ -76,7 +77,8 @@ export interface ReadingTableBook {
   recap: string | null
   /**
    * A reader's own book (`userbook-<hex>`, userBook/ownShelf.ts): read from this
-   * device only, its cover a data: URL kept on it, never sent anywhere.
+   * device and the reader's private account copies and places (userBook/ownSync.ts),
+   * its cover a data: URL kept on this device, never sent anywhere.
    */
   own?: boolean
   /** When the reader last read it: own books and Tinct's share one order. */
@@ -144,7 +146,7 @@ async function loadCatalogue(provided?: Promise<{ books?: CatalogueBook[] }>): P
 async function withPublicBooks(data: { books: CatalogueBook[] }): Promise<{ books: CatalogueBook[] }> {
   if (!addToTinctEnabled(undefined, document.documentElement.classList.contains('signed-in'))) return data
   try {
-    const response = await fetch(PUBLIC_BOOKS_INDEX_URL)
+    const response = await fetch(PUBLIC_BOOKS_INDEX_URL, PUBLIC_BOOKS_INDEX_FETCH)
     if (!response.ok) return data
     const index = await response.json() as { books?: Array<CatalogueBook & { shelfIds?: string[] }> }
     return mergePublicBooks(data, index.books ?? [])
@@ -364,8 +366,10 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   // Independent account reads start together; reconcile every mirror before
   // deriving the shelf, so slower memory/completion reads cannot paint stale data.
   const membershipReady = loadShelfMembership()
-  // The reader's own books being read (this device only), shelved with Tinct's.
-  const ownReady = auth.userId ? readOwnShelf(auth.userId).catch(() => [] as OwnShelfBook[]) : Promise.resolve([] as OwnShelfBook[])
+  // The reader's own books being read, shelved with Tinct's: this device's, and
+  // the account's private copies and places (a book read on another device;
+  // one removed there leaves here), userBook/ownSync.ts.
+  const ownReady = auth.userId ? ownShelfWithAccount(auth.userId, { token: auth.token }).catch(() => readOwnShelf(auth.userId).catch(() => [] as OwnShelfBook[])) : Promise.resolve([] as OwnShelfBook[])
   const positionsReady = loadPositions(auth, warmArtwork)
   const memoryReady = loadRecap({
     auth: readAuth,
@@ -609,6 +613,19 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
   return outcome
 }
 
+/**
+ * My shelf's × on a book being read or saved: off My shelf, its place kept. The viewer's
+ * fast-paint snapshot is dropped with it, so the next refresh cannot paint the book back
+ * before the account's membership is read (an added book's catalogue arrives later still).
+ */
+export async function removeFromShelf(bookId: string) {
+  const auth = await readAuth()
+  const result = await setSavedBook(bookId, false)
+  storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+  lastRows.delete(bookId)
+  return result
+}
+
 /** Explicit shelf action: only a hide timestamp changes; saved places stay intact. */
 export async function hideFromReadingNow(bookId: string): Promise<void> {
   if (!bookId || bookId.length > 80) throw new Error('Invalid book')
@@ -652,4 +669,4 @@ if (supabase && typeof document !== 'undefined') {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, hideFromReadingNow, introductionProgress, addCatalogueBook }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }

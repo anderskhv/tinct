@@ -12,6 +12,7 @@ import { isUserBookId } from './userBookId'
 import { userBookLanguage } from './userBookLanguage'
 import { registerBookOpening, registerChapterStructure } from '../labParagraphStyle'
 import { bookFigures } from '../labFigures'
+import { registerShakespeareSpeakers } from '../labVerseLines'
 
 const editions = new Map<string, UserBookEdition>()
 const editionLists = new Map<string, Edition[]>()
@@ -25,6 +26,7 @@ function chapterList(edition: UserBookEdition): LabSource['chapters'] {
       title: item.title,
       wordCount: item.paragraphs.join(' ').split(/\s+/).filter(Boolean).length,
       paragraphCount: item.paragraphs.length,
+      ...(item.author ? { author: item.author } : {}),
     }))
     chapterLists.set(edition, list)
   }
@@ -58,6 +60,8 @@ export function registerUserBook(bookId: string, edition: UserBookEdition): void
   // conversion recorded beside each chapter's paragraphs; the book opens under
   // its own title, above the first chapter's heading.
   for (const chapter of edition.chapters) registerChapterStructure(chapter)
+  // A play's speakers ("NORA. …") are set as labels, as in Tinct's own plays.
+  if (edition.speakers) for (const chapter of edition.chapters) registerShakespeareSpeakers(chapter.paragraphs)
   const first = edition.chapters[0]
   if (first) registerBookOpening(first.title, { title: edition.title, subtitle: edition.subtitle, author: edition.author })
 }
@@ -74,6 +78,7 @@ export function userBookLabSource(bookId: string, edition: UserBookEdition, chap
     editions: list,
     bookTitle: edition.title,
     bookAuthor: edition.author,
+    ...(edition.collection || edition.chapters.some(item => item.author) ? { collection: true as const } : {}),
     editionLabel: list[0].label,
     chapterLabel: chapter.title,
     chapterTitle: chapter.title,

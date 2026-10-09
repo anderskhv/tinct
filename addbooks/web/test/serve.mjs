@@ -7,7 +7,8 @@
 // /api/user-books (the reader's private copies in their account) is an in-memory stand-in
 // for the Worker route: Bearer test-token / cloud-token / other-token are three accounts,
 // files are checked by their bytes (PDF, or ZIP with an EPUB mimetype) and capped at 50 MB.
-// Its state and a log of calls are at GET /__books.
+// Its state and a log of calls are at GET /__books. /api/user-books/places keeps each own
+// book's place (GET all, PUT one with the revision it read), as the Worker does.
 // The Tinct reader is served from the app build (app/dist, `npm run build` in app/) at
 // /reader, with its assets, so an EPUB opened here can be read in it (/reader?userBook=…).
 //   node addbooks/web/test/serve.mjs [port]
@@ -30,10 +31,11 @@ export const requests = [];
 
 const BOOK_USERS = { 'Bearer test-token': 'u-test', 'Bearer cloud-token': 'u-cloud', 'Bearer other-token': 'u-other' };
 const BOOK_BYTES = 50 * 1024 * 1024;
-export const books = { users: {}, log: [] };
+export const books = { users: {}, places: {}, log: [] };
 const sendJson = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) };
 function sniff(buf) {
-  if (buf.subarray(0, 5).toString('latin1') === '%PDF-') return 'pdf';
+  // As the Worker (sniffBookType): a PDF starts with %PDF- and ends with its %%EOF marker.
+  if (buf.subarray(0, 5).toString('latin1') === '%PDF-') return buf.subarray(Math.max(0, buf.length - 4096)).toString('latin1').includes('%%EOF') ? 'pdf' : null;
   if (buf.length > 38 && buf.readUInt32LE(0) === 0x04034b50 && buf.subarray(30, 38).toString('latin1') === 'mimetype') {
     const at = 30 + buf.readUInt16LE(26) + buf.readUInt16LE(28);
     if (buf.subarray(at, at + 20).toString('latin1') === 'application/epub+zip') return 'epub';
@@ -46,6 +48,27 @@ function userBooks(req, res, url) {
   books.log.push({ method: req.method, id, user: user || null });
   if (!user) return sendJson(res, 401, { error: 'Unauthorized' });
   const mine = books.users[user] ||= [];
+  // The reader's place in each own book (routes/userBooks.ts, own-book sync): one versioned place
+  // per owned book hex; a write naming an older revision is refused with the stored place.
+  const places = books.places[user] ||= {};
+  if (id === 'places' && req.method === 'GET') return sendJson(res, 200, { places });
+  if (id?.startsWith('places/')) {
+    const hex = id.slice('places/'.length);
+    if (req.method !== 'PUT') return sendJson(res, 405, { error: 'Method not allowed' });
+    if (!/^[0-9a-f]{24}$/.test(hex) || !mine.some(b => b.sha256.slice(0, 24) === hex)) return sendJson(res, 404, { error: 'Not found' });
+    const parts = [];
+    req.on('data', c => parts.push(c));
+    req.on('end', () => {
+      let body = null; try { body = JSON.parse(Buffer.concat(parts).toString('utf8')) } catch {}
+      const place = body?.place;
+      if (!place || !Number.isInteger(place.chapterNumber) || !Number.isInteger(body.rev)) return sendJson(res, 400, { error: 'bad_request' });
+      const current = places[hex] || null;
+      if ((current?.rev ?? 0) !== body.rev) return sendJson(res, 409, { error: 'conflict', place: current });
+      places[hex] = { ...place, rev: (current?.rev ?? 0) + 1 };
+      sendJson(res, 200, { place: places[hex] });
+    });
+    return;
+  }
   if (!id && req.method === 'GET') return sendJson(res, 200, { books: mine.map(({ bytes, ...b }) => b) });
   if (!id && req.method === 'POST') {
     const parts = []; let size = 0;
@@ -67,7 +90,7 @@ function userBooks(req, res, url) {
   const found = id && mine.find(b => b.id === id);
   if (!found) return sendJson(res, 404, { error: 'Not found' });
   if (req.method === 'GET') { res.writeHead(200, { 'Content-Type': found.type === 'pdf' ? 'application/pdf' : 'application/epub+zip', 'Content-Length': found.bytes.length, 'Cache-Control': 'no-store' }); res.end(found.bytes); return }
-  if (req.method === 'DELETE') { mine.splice(mine.indexOf(found), 1); return sendJson(res, 200, { ok: true }) }
+  if (req.method === 'DELETE') { mine.splice(mine.indexOf(found), 1); delete places[found.sha256.slice(0, 24)]; return sendJson(res, 200, { ok: true }) }
   sendJson(res, 405, { error: 'Method not allowed' });
 }
 
@@ -124,7 +147,17 @@ export function start(port = 4720) {
       res.end(JSON.stringify({ enabled: false, reason: 'pilot_off', provider: 'grok', model: 'grok-tts-v1', voices: [voice('f', 'Ara', 'female'), voice('m', 'Helios', 'male'), voice('orion', 'Orion', 'male'), voice('eve', 'Eve', 'female')], ownBooks: false }));
       return;
     }
+    // Adding a book is Premium or the 30-day trial (the Worker's hasPremiumAccess): the three test accounts may.
+    if (req.method === 'GET' && url.pathname === '/api/public-books/import/access') return BOOK_USERS[req.headers.authorization || ''] ? sendJson(res, 200, { canAdd: true }) : sendJson(res, 401, { error: 'Unauthorized' });
     if (url.pathname === '/api/user-books' || url.pathname.startsWith('/api/user-books/')) return userBooks(req, res, url);
+    // Reading time (social ship 1) is off here, as the Worker answers with the flag off.
+    if (req.method === 'GET' && url.pathname === '/api/reading-time/status') return sendJson(res, 200, { enabled: false });
+    // The library is not served here: a stand-in page marks where own books' back arrows land (My shelf).
+    if (url.pathname === '/library') { res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': CSP }); res.end('<!doctype html><meta charset="utf-8"><title>Library</title><p>Library stand-in</p>'); return }
+    // The library's My shelf, stood in with the library's own code for it (shelf-add.js): own books
+    // are listed, added (its + pop-up) and removed there now that Add a book's start page is retired.
+    if (url.pathname === '/__shelf-add') { res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': CSP, 'Cache-Control': 'no-store' }); res.end('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My shelf</title><link rel="stylesheet" href="/lab/tinct-ui.css"><style>#shelf-head .shelf-add[hidden]{display:none}#collection-books{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:16px}#collection-books .my-books-head{grid-column:1/-1}#collection-books .cover{display:block;width:100%;height:auto}</style><body style="margin:0;padding:16px;background:#111610;color:#eee7d0"><section id="collection"><header id="shelf-head"><h1 id="collection-title">My shelf</h1></header><div id="collection-books"></div></section><p id="status"></p><p id="notice" role="status"></p><script src="/lab/addbook/js/tinct-api.js"></script><script type="module" src="/__shelf-add.js"></script></body></html>'); return }
+    if (url.pathname === '/__shelf-add.js') { res.writeHead(200, { 'Content-Type': 'text/javascript; charset=utf-8', 'Content-Security-Policy': CSP, 'Cache-Control': 'no-store' }); res.end(readFileSync(join(REPO, 'addbooks/web/test/shelf-add.js'))); return }
     if (url.pathname === '/__books') { sendJson(res, 200, { users: Object.fromEntries(Object.entries(books.users).map(([u, list]) => [u, list.map(({ bytes, ...b }) => b)])), log: books.log }); return }
     if (url.pathname === '/__requests') { res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(requests)); return }
     let file = null;

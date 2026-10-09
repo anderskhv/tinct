@@ -4,6 +4,7 @@ import { catchUpPlan, catchUpSeparateWorks, catchUpUnits, type CatchUpEntry } fr
 import type { LabChapter } from './labSource'
 import { useReaderWindow } from './useReaderWindow'
 import { LabBalanceEmptyLine } from './LabAiUsageBar'
+import { LAB_COPY } from './labCopy'
 import {
   CATCH_UP_COOLDOWN_MS,
   CATCH_UP_INITIAL_WANTED,
@@ -39,8 +40,11 @@ export interface LabCatchUpSheetProps {
   onTopUp?: () => void
 }
 
-/** `allowanceUsed`: refused at zero (402 allowance_used, only while the AI allowance is on). */
-interface EntryState { state: CatchUpLoadState; summary?: string; allowanceUsed?: true }
+/**
+ * `allowanceUsed`: refused at zero (402 allowance_used, only while the AI allowance is on).
+ * `resting`: the daily AI ceiling or a provider limit (503 ai_resting).
+ */
+interface EntryState { state: CatchUpLoadState; summary?: string; allowanceUsed?: true; resting?: true }
 
 /**
  * "Catch me up": a timeline of what has been read, oldest at the top, ending
@@ -128,7 +132,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
       setStates(prev => ({
         ...prev,
         [entry.key]: result.ok ? { state: 'ok', summary: result.summary } : result.empty ? { state: 'empty' }
-          : result.allowanceUsed ? { state: 'error', allowanceUsed: true } : { state: 'error' },
+          : result.allowanceUsed ? { state: 'error', allowanceUsed: true } : result.resting ? { state: 'error', resting: true } : { state: 'error' },
       }))
     })()
   }, [readToken])
@@ -180,6 +184,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
                       : <p className="lab-catch-up-text">{status.summary}</p>
                   ) : status?.state === 'error' ? (<>
                     {status.allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-catch-up-balance" />}
+                    {status.resting && <p className="lab-catch-up-balance" data-testid="lab-catch-up-resting">{LAB_COPY.aiResting}</p>}
                     <button type="button" className="lab-catch-up-retry" data-testid="lab-catch-up-retry" onClick={() => { setCoolUntil(0); load(entry) }}>Retry</button>
                   </>) : (
                     <span className="lab-catch-up-placeholder" aria-hidden="true"><i /><i /><i /></span>

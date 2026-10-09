@@ -4,18 +4,19 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261008rel7';
-import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261008rel7';
+import {mountBookshelf} from './bookshelf.js?v=20261008rel9';
+import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261008rel9';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261008rel7';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261008rel9';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
-import {categories,eras,metadata} from './taxonomy.js?v=20261008rel4';
-import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel7';
-import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel4';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,modernOfferAfterAdd,askModernEdition} from './add-to-tinct.js?v=20261008rel7';
-import {librarySearch} from './library-search.js?v=20261008rel7';
+import {categories,eras,metadata} from './taxonomy.js?v=20261008rel9';
+import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261008rel9';
+import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261008rel9';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,modernOfferAfterAdd,askModernEdition} from './add-to-tinct.js?v=20261008rel9';
+import {librarySearch} from './library-search.js?v=20261008rel9';
+import {isPublicBookId} from '../public-books.js?v=20261008rel9';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 const reduced={get matches(){return motionPreference.matches||document.documentElement.dataset.eink==='true';}};
@@ -26,10 +27,29 @@ all('[data-icon]').forEach(e=>e.innerHTML=icon(e.dataset.icon));
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
 let noticeTimer;function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,5000);}
 const images={};const textures=new Map();
+// Books held from the shelves that a typed search still finds (War and Peace, 2026-10-08): not in `books`, but they have covers.
+const searchOnlyBooks=[];
+/** A book by id among every book the page paints: the shelves' books and the search-only ones. */
+function bookById(id){return books.find(b=>b.id===id)||searchOnlyBooks.find(b=>b.id===id);}
 async function loadImage(key,low){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;await im.decode();images[key]=im;if(reduced.matches)drawScene(performance.now());return im;}
 function triangle(ctx,img,s,d){const [p,q,r]=s,[a,b,c]=d;const det=(q[0]-p[0])*(r[1]-p[1])-(r[0]-p[0])*(q[1]-p[1]);const aa=((b[0]-a[0])*(r[1]-p[1])-(c[0]-a[0])*(q[1]-p[1]))/det,cc=((c[0]-a[0])*(q[0]-p[0])-(b[0]-a[0])*(r[0]-p[0]))/det,bb=((b[1]-a[1])*(r[1]-p[1])-(c[1]-a[1])*(q[1]-p[1]))/det,dd=((c[1]-a[1])*(q[0]-p[0])-(b[1]-a[1])*(r[0]-p[0]))/det;ctx.save();ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.lineTo(...c);ctx.closePath();ctx.clip();ctx.transform(aa,bb,cc,dd,a[0]-aa*p[0]-cc*p[1],a[1]-bb*p[0]-dd*p[1]);ctx.drawImage(img,0,0);ctx.restore();}
 function makeTextures(){for(const book of books){const c=document.createElement('canvas');c.width=480;c.height=720;const ctx=c.getContext('2d');if(book.crop){const [x,y,w,h]=book.crop;ctx.drawImage(images.plate,x,y,w,h,0,0,480,720);}else{const corners=[[740,133],[1006,154],[1012,585],[739,588]];const point=(u,v)=>[mix(mix(corners[0][0],corners[1][0],u),mix(corners[3][0],corners[2][0],u),v),mix(mix(corners[0][1],corners[1][1],u),mix(corners[3][1],corners[2][1],u),v)];for(let j=0;j<12;j++)for(let i=0;i<8;i++){const u=i/8,v=j/12,u2=(i+1)/8,v2=(j+1)/12;const s=[point(u,v),point(u2,v),point(u2,v2),point(u,v2)],d=[[u*480,v*720],[u2*480,v*720],[u2*480,v2*720],[u*480,v2*720]];triangle(ctx,images.original,[s[0],s[1],s[2]],[d[0],d[1],d[2]]);triangle(ctx,images.original,[s[0],s[2],s[3]],[d[0],d[2],d[3]]);}}textures.set(book.id,c);}paintCovers();}
-function paintCover(c,id){const texture=textures.get(id);if(!texture)return;c.width=texture.naturalWidth||texture.width;c.height=texture.naturalHeight||texture.height;const ctx=c.getContext('2d');ctx.drawImage(texture,0,0);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=books.find(b=>b.id===id);if(book.typeset){const w=c.width,h=c.height;
+// A cover is painted at the size it is shown (its CSS width × the screen's pixel ratio, at
+// most the painting's own), never at the painting's full 1024×1536: 120 full-size cover
+// canvases held ~1 GB of canvas and GPU memory on loading /library (2026-10-08). A canvas not
+// laid out yet (detached, hidden) gets at most COVER_FALLBACK_WIDTH; the observer below repaints
+// a cover when it is shown at a size its pixels no longer suit (a resize, the hero's cover).
+const COVER_FALLBACK_WIDTH=600;
+function coverSize(c,texture){const nw=texture.naturalWidth||texture.width,nh=texture.naturalHeight||texture.height;if(!nw||!nh)return [nw,nh];const css=c.isConnected?c.clientWidth:0,dpr=Math.min(devicePixelRatio||1,2);const w=Math.max(1,Math.min(nw,css?Math.ceil(css*dpr):COVER_FALLBACK_WIDTH));return [w,Math.max(1,Math.round(w*nh/nw))];}
+// The observer only notes covers; observing new ones and repainting wait for the next frame.
+// A cover painted while the browser delivers resize notifications (an image decode settling
+// mid-frame in WebKit) was observed inside that loop, and every such new observation went
+// undelivered: "ResizeObserver loop completed with undelivered notifications" (2026-10-08).
+const coverResize=typeof ResizeObserver==='undefined'?null:new ResizeObserver(entries=>{for(const {target} of entries)coverRecheck.add(target);scheduleCoverWork();});
+const coverWatch=new Set(),coverRecheck=new Set();let coverWork=0;
+function scheduleCoverWork(){if(!coverWork)coverWork=requestAnimationFrame(()=>{coverWork=0;for(const c of coverWatch)coverResize.observe(c);coverWatch.clear();for(const c of coverRecheck){const texture=c.isConnected&&c.dataset.painted&&textures.get(c.dataset.book);if(!texture)continue;const [w]=coverSize(c,texture);if(Math.abs(w-c.width)>w*.25)paintCover(c,c.dataset.book);}coverRecheck.clear();});}
+function watchCover(c){if(!coverResize)return;coverWatch.add(c);scheduleCoverWork();}
+function paintCover(c,id){const texture=textures.get(id);if(!texture)return;const [w0,h0]=coverSize(c,texture);c.width=w0;c.height=h0;const ctx=c.getContext('2d');ctx.imageSmoothingQuality='high';ctx.drawImage(texture,0,0,w0,h0);if(!c.dataset.painted&&c.dataset.book)watchCover(c);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=bookById(id);if(book?.typeset){const w=c.width,h=c.height;
 const designs={
  'julius-caesar':{lines:['JULIUS','CAESAR'],y:.16,size:.16,align:'left',x:.10},
  'the-prince':{lines:['THE','PRINCE'],y:.68,size:.15,align:'center',x:.5},
@@ -46,12 +66,17 @@ if(book.id==='odyssey'){ctx.strokeStyle='#d1bd7780';ctx.lineWidth=w*.003;ctx.beg
 function paintCovers(){all('canvas[data-book]').forEach(c=>paintCover(c,c.dataset.book));}
 // Covers load as they near the screen: the full catalogue must not download at once.
 const coverReady=new Map();
-function ensureCover(book){if(book.paper&&!coverReady.has(book.id)){textures.set(book.id,paperCover(book.title,book.author));coverReady.set(book.id,Promise.resolve());all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}if(!coverReady.has(book.id)){const ready=(async()=>{const im=new Image();im.src=book.cover;await im.decode();textures.set(book.id,im);all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready)coverReady.delete(book.id);});coverReady.set(book.id,ready);}return coverReady.get(book.id);}
+// A cover's painting is kept as a bitmap at most COVER_TEXTURE_WIDTH wide (the hero's cover at a
+// 2× screen), not as the decoded 1024×1536 image: each full-size source stayed in the decode
+// cache for every canvas drawn from it (≈6 MB apiece, 300+ MB on loading /library).
+const COVER_TEXTURE_WIDTH=640;
+async function coverTexture(im){const nw=im.naturalWidth,nh=im.naturalHeight;if(!nw||!nh||nw<=COVER_TEXTURE_WIDTH||typeof createImageBitmap!=='function')return im;try{return await createImageBitmap(im,{resizeWidth:COVER_TEXTURE_WIDTH,resizeHeight:Math.round(COVER_TEXTURE_WIDTH*nh/nw),resizeQuality:'high'});}catch{return im;}}
+function ensureCover(book){if(book.paper&&!coverReady.has(book.id)){textures.set(book.id,paperCover(book.title,book.author));coverReady.set(book.id,Promise.resolve());all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}if(!coverReady.has(book.id)){const ready=(async()=>{const im=new Image();im.src=book.cover;await im.decode();textures.set(book.id,await coverTexture(im));all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready)coverReady.delete(book.id);});coverReady.set(book.id,ready);}return coverReady.get(book.id);}
 const coverObserver=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;coverObserver.unobserve(entry.target);const book=searchPool().find(b=>b.id===entry.target.dataset.book);if(book)ensureCover(book);}),{rootMargin:'400px'});
 // The first cover has priority; shelves and other scenes load as they approach view.
 if(!window.__library2Boot?.hint)ensureCover(books[0]).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
-function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=books.find(b=>b.id===meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
+function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
 /** A search row's small cover: painted like the shelf covers; the opening book flies from it. */
 function rowCover(book){const c=el('canvas','cover');c.dataset.book=book.id;paintCover(c,book.id);if(coverObserver)coverObserver.observe(c);else ensureCover(book);return c;}
 function coverButton(book,cls='book-card cover-button'){const b=el('button',cls);b.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);const c=el('canvas','cover');c.dataset.book=book.id;b.append(c);b.addEventListener('click',()=>openBook(book,c));paintCover(c,book.id);if(coverObserver)coverObserver.observe(c);else ensureCover(book);if(cls!=='book-card cover-button'){b.append(coverMetadata(book));return b;}
@@ -59,8 +84,6 @@ function coverButton(book,cls='book-card cover-button'){const b=el('button',cls)
  const wrap=el('div','card-wrap');const save=el('button','save-toggle');save.dataset.book=book.id;save.dataset.title=book.title;paintSaveToggle(save);save.onclick=e=>{e.stopPropagation();toggleSaved(book.id);};wrap.append(b,save,coverMetadata(book));return wrap;}
 [['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);});
 // The rest of the library: every discoverable book, shelved by house.
-// Books held from the shelves that a typed search still finds (War and Peace, 2026-10-08).
-const searchOnlyBooks=[];
 function searchPool(){const extra=searchOnlyBooks.filter(s=>!books.some(b=>b.id===s.id));return extra.length?[...books,...extra]:books;}
 loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);if(entry.altTitles?.length)book.altTitles=entry.altTitles;searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
  // Other titles the registry gives a book (altTitles) are searched as titles.
@@ -127,13 +150,13 @@ function drawBookGround(ctx){
 }
 
 let searchOpen=false,openedFromSearch=false,menuOpen=false;
-function setSearch(open,preserve=false){searchOpen=open;$('search-panel').hidden=!open;syncLock();syncLibrarianAway();if(open){void warmFreeSearch();if(menuOpen)setMenu(false);if(!preserve)renderResults();setTimeout(()=>$('search-input').focus(),40);}else{$('search-toggle').focus();}}
+function setSearch(open,preserve=false){if(!open)cancelPendingAdd();searchOpen=open;$('search-panel').hidden=!open;syncLock();syncLibrarianAway();if(open){void warmFreeSearch();if(menuOpen)setMenu(false);if(!preserve)renderResults();setTimeout(()=>$('search-input').focus(),40);}else{$('search-toggle').focus();}}
 // The library's own books, ranked by the catalogue's search engine (library-search.js): typos, other spellings and titles find them.
 // A typed query also searches the books held from the shelves; the empty list stays the shelves' books.
 const tinctSearch=librarySearch(searchPool);
 export function filterBooks(query){return String(query||'').trim()?tinctSearch.filter(query):books.slice();}
 const foundLabel=n=>`${n} ${n===1?'book':'books'} found`;
-function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?foundLabel(matches.length):'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>{if(q.trim()&&addEnabled()){const rows=el('ol','tinct-list');list.forEach(book=>rows.append(tinctRow(book,{el,cover:rowCover(book),onOpen:openBook,length:readingTime(book),query:q})));box.append(rows);return;}list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});};
+function renderResults(){const q=$('search-input').value;const matches=filterBooks(q);$('search-label').textContent=q?foundLabel(matches.length):'Explore the library';const box=$('search-results');box.replaceChildren();box.classList.remove('has-groups');const renderTinct=list=>{if(q.trim()&&addEnabled()){const rows=el('ol','tinct-list');list.forEach(book=>rows.append(tinctRow(book,{el,cover:rowCover(book),onOpen:openBook,length:readingTime(book),query:q,otherTitles:tinctSearch.titlesFor(book.id)})));box.append(rows);return;}list.forEach(book=>{const b=coverButton(book,'search-result');b.append(el('span','',book.title),el('small','',book.author));box.append(b);});};
  // Add to Tinct (add-to-tinct.js): grouped results, on devices the switch allows.
  // Its filter chips (Modern English, Audio, language) narrow the results; the count follows them,
  // and counts the "Not yet in Tinct" rows too once they are drawn (every book the panel lists).
@@ -143,7 +166,9 @@ function renderResults(){const q=$('search-input').value;const matches=filterBoo
 // A catalogue book readers added: its form, era and year join the library's menus.
 function placePublicBook(entry){if(!entry?.public)return;if(entry.form&&!metadata[entry.id])metadata[entry.id]={form:entry.form==='short-stories'?'novel':entry.form,era:entry.era};if(Number.isFinite(entry.year)&&compositionYears[entry.id]===undefined)compositionYears[entry.id]=entry.year;}
 const ADD_FAILURES={daily_limit:'You have added the most books you can today. Please try again tomorrow.',in_progress:'This book is being added. Please try again in a few minutes.',not_importable:'This book cannot be added to Tinct.',unreadable:'This book could not be read from its library.',failed:'This book could not be added. Please try again.'};
-let addingWork=null,addingStage=null;
+let addingWork=null,addingStage=null,addCancelled=false;
+/** Closing search while a book is being added: the add no longer opens it (the import itself may still finish on the server). */
+function cancelPendingAdd(){if(addingWork)addCancelled=true;}
 /** The Add button of the work being added, as rendered now (a new search re-renders the rows). */
 const addButton=id=>[...document.querySelectorAll('#search-results .free-add')].find(b=>b.dataset.work===id)||null;
 /** Add: import the work for everyone, then open it (Currently reading). Signed out: sign in first, then it continues here. A free account past its trial: the Premium offer, never an import (the Worker answers 402 first). */
@@ -151,11 +176,13 @@ async function addWork(work,button){
  const signIn=()=>location.assign(`/sign-in?returnTo=${encodeURIComponent(`/library?${ADD_PARAM}=${encodeURIComponent(work.id)}`)}`);
  if(!document.documentElement.classList.contains('signed-in')){signIn();return;}
  // One import at a time: while it runs its button is a spinner (setAddBusy) and every Add waits.
- if(addingWork)return;addingWork=work.id;addingStage='start';setAddBusy(button,'start');
+ if(addingWork)return;addingWork=work.id;addingStage='start';addCancelled=false;setAddBusy(button,'start');
  const step=stage=>{addingStage=stage;setAddBusy(addButton(work.id),stage);};
  try{
-  if((await canAdd())===false){location.assign(PREMIUM_PAGE);return;}
+  if((await canAdd())===false){if(!addCancelled)location.assign(PREMIUM_PAGE);return;}
   const result=await (await addEngine()).importWork(work.id,{onStage:step});
+  // Search was closed while it ran: no notice, no question, no reader. A book that was added stays in the library.
+  if(addCancelled){if(result.ok){placePublicBook(result.entry);let book=books.find(b=>b.id===result.entry.id);if(!book){book=libraryBook(result.entry);books.push(book);}attachCatalogue(book,result.entry);}return;}
   if(!result.ok){if(result.reason==='signed_out'){signIn();return;}if(result.reason==='premium_required'){location.assign(PREMIUM_PAGE);return;}notice(ADD_FAILURES[result.reason]||ADD_FAILURES.failed);return;}
   const entry=result.entry;placePublicBook(entry);let book=books.find(b=>b.id===entry.id);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);
   try{(await readingApi()).addCatalogueBook?.(entry);}catch{}
@@ -163,12 +190,14 @@ async function addWork(work,button){
   const ask=modernOfferAfterAdd(entry.id);
   const href=await readerDestination(book,null);
   const offer=await ask;
+  if(addCancelled)return;
   if(offer&&await askModernEdition(offer)==='buy'){
    // The reader's checkout. Stripe returns to /reader, which opens this book (readerDestination's hand-off) and switches to the edition once paid.
    try{const url=await (await addEngine()).buyModern(entry.id,entry.readingStructure?.chapters?.[0]?.number??1);document.body.classList.add('leaving');location.assign(url);return;}catch{}
   }
+  if(addCancelled)return;
   document.body.classList.add('leaving');location.assign(href);
- }catch{document.body.classList.remove('leaving');notice(ADD_FAILURES.failed);}
+ }catch{document.body.classList.remove('leaving');if(!addCancelled)notice(ADD_FAILURES.failed);}
  finally{if(!document.body.classList.contains('leaving'))setAddBusy(addButton(work.id),null);addingWork=null;addingStage=null;}
 }
 // Add your own book from the search field (Add to Tinct devices only): Add a book's file step.
@@ -454,19 +483,52 @@ let layerSkipPop=false;
 addEventListener('popstate',()=>{if(layerSkipPop){layerSkipPop=false;return;}layerFromPop=true;try{if(activeBook){if(reading)$('reader-back').click();closeBook();}else if(collectionChoice!=='home')selectCollection('home');}finally{layerFromPop=false;}});
 function selectCollection(value){const fromHome=collectionChoice==='home';const shelfView=value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf';if(value!=='home'&&fromHome&&!shelfView)pushLayer('collection');else if(value==='home'&&!fromHome)dropLayer('collection');collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
 // My shelf: what you are reading, what you want to read, and what you have finished.
-async function removeFromMyShelf(id){
+async function removeFromMyShelf(id,{title='',from=null}={}){
+ // A book added to Tinct leaves My shelf only once confirmed, as My private uploads do (approved copy, Anders 2026-10-08).
+ if(isPublicBookId(id)&&!await confirmDeleteUpload({title:title||books.find(b=>b.id===id)?.title||''},{from}))return;
  try{
   const api=await readingApi();
-  const result=await api.setSavedBook(id,false);
+  // Off My shelf, with the desk's fast-paint snapshot (so a refresh cannot paint it back), for every kind of book.
+  const result=await (api.removeFromShelf?api.removeFromShelf(id):api.setSavedBook(id,false));
   receiveSaved(result.ids);
-  const table=window.__library2Reading;
-  if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
-  dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
+  dropFromReading(id);
   renderMyBooks();
   if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
  }catch{notice('Your shelf could not be saved. Please try again.');}
 }
 let ownShelf=null,ownShelfLoading=null;
+/** Forget the listed own books (their covers, places and membership changed) and list them again. */
+function refreshOwnShelf(change){if(ownShelf&&change)ownShelf=change(ownShelf);ownShelfLoading=null;if(collectionChoice==='saved')renderMyBooks();void loadOwnShelf();}
+/** Drop a book from the desk's lists here and tell the desk (bookshelf.js reloads the account's). */
+function dropFromReading(id){
+ const table=window.__library2Reading;
+ if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
+ dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
+}
+/** An own book's × under Currently reading: off Currently reading, as the desk's × does (its place is kept; it stays in My private uploads). */
+async function removeOwnFromReading(book){
+ const id=ownTableId(book.key);
+ try{const api=await readingApi();await api.hideFromReadingNow(id);dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null}:own));}
+ catch{notice('Your shelf could not be saved. Please try again.');}
+}
+/** An own book's × under My private uploads: confirmed, then Add a book's own delete (this device and the account). */
+async function deleteOwnBook(book,from){
+ if(!await confirmDeleteUpload(book,{from}))return;
+ try{
+  const gone=await deleteUpload(book);
+  if(!gone)notice('Removed from this device, but not from your account. Try again.');
+  dropFromReading(ownTableId(book.key));refreshOwnShelf(list=>list.filter(own=>own.key!==book.key));
+ }catch{notice('This book could not be removed. Please try again.');}
+}
+/** A Currently reading card from the reading row itself, for a book the library's list does not hold yet. */
+function readingRowCard(row){
+ const card=el('article','collection-card');card.dataset.shelfGroup='reading';card.dataset.rowBook=row.bookId;
+ const wrap=el('div','card-wrap');const open=el('button','book-card cover-button');open.type='button';open.setAttribute('aria-label',`Open ${row.title}${row.author?', by '+row.author:''}`);
+ if(row.cover){const img=el('img','cover');img.src=row.cover;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
+ open.onclick=async()=>{document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination({id:row.bookId},null),new Promise(r=>setTimeout(r,240))]);location.assign(href);};
+ const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=row.title;x.setAttribute('aria-label','Remove from My shelf: '+row.title);x.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(row.bookId,{title:row.title,from:x});};
+ wrap.append(open,x);card.append(wrap,el('h2','',row.title),el('p','',row.author||''));return card;
+}
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 function renderMyBooks(){
  $('collection-title').textContent='My shelf';const grid=$('collection-books');grid.classList.remove('has-collection-reels');grid.replaceChildren();
@@ -484,7 +546,7 @@ function renderMyBooks(){
    // Finished books cannot be removed (Anders, 2026-10-07): they stay on the shelf.
    // Books being read and books saved for later keep their ×.
    if(toggle&&kind==='finished')toggle.remove();
-   else if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id);};}
+   else if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id,{title:book.title,from:toggle});};}
    if(kind==='reading'){
     const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
     b.addEventListener('click',async e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});
@@ -492,14 +554,22 @@ function renderMyBooks(){
    card.append(open,el('h2','',book.title),el('p','',book.author));grid.append(card);
   });
  });
- // Your own books: this account's PDFs and EPUBs from Add a book, then the + tile.
+ // A book being read that the library's list does not hold yet (an added book before the catalogue
+ // arrives): its own card from the reading row, with the same × as the others.
+ reading.filter(r=>!r.own&&!byId(r.bookId)).forEach(row=>{const after=[...grid.querySelectorAll('[data-shelf-group="reading"]')].pop();const card=readingRowCard(row);if(after)after.after(card);else{const head=el('h2','my-books-head','Currently reading');grid.prepend(head);head.after(card);}total++;});
+ // My private uploads: this account's PDFs and EPUBs. Adding one is the + beside My shelf's heading.
+ syncShelfAdd(document.querySelector('#collection>header'),()=>setSearch(true));
  if(addEnabled()){
   if(ownShelf===null)void loadOwnShelf();
-  total+=appendOwnShelf(grid,ownShelf||[],el,()=>setSearch(true));
+  // The reading table's own rows carry each cover at full size (read fresh with the table).
+  const covers=new Map(reading.filter(r=>r.own&&r.cover).map(r=>[r.bookId,r.cover]));
+  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,onRemoveReading:book=>void removeOwnFromReading(book),onDelete:(book,from)=>void deleteOwnBook(book,from)});
  }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
+// Back from a book (the page restored as it was left): its cover or place may have changed since.
+addEventListener('pageshow',event=>{if(event.persisted){ownShelf=null;ownShelfLoading=null;}});
 // Signed in or out on this page (the reading bridge's library2:auth): Add to Tinct appears or goes without a reload.
 addEventListener('library2:auth',()=>{syncAccountButton();resetAddAccess();syncSearchAddFile($('search-add-file'));syncLibraryAdd($('library-add'));ownShelf=null;ownShelfLoading=null;if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice==='saved')renderMyBooks();});
 function collectionCard(book){
@@ -510,6 +580,7 @@ function collectionCard(book){
 function renderCollection(){
  const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';
  if(kind==='saved'){renderMyBooks();return;}
+ const shelfAdd=document.querySelector('#collection .shelf-add');if(shelfAdd)shelfAdd.hidden=true;
  if(kind==='credits'){$('collection-title').textContent='Image credits';const grid=$('collection-books');grid.classList.remove('has-collection-reels');$('collection-empty').hidden=true;void renderImageCredits(grid).catch(()=>{grid.textContent='Image credits could not load. Please try again.';});return;}
  if(kind==='category'){selected=id==='all'?books:books.filter(b=>metadata[b.id]?.form===id);title=categories.find(c=>c.id===id)?.label||title;}
  if(kind==='era'){selected=books.filter(b=>metadata[b.id]?.era===id);title=eras.find(c=>c.id===id)?.label||title;}
@@ -624,5 +695,10 @@ registerCommands({
  ]
 });
 const commandsButton=document.createElement('button');commandsButton.type='button';commandsButton.className='icon-button';commandsButton.id='library-commands';commandsButton.setAttribute('aria-label','Commands and themes');commandsButton.title='Commands & themes (?)';commandsButton.textContent='⌨';commandsButton.onclick=openCommands;if(commandsEnabled)$('search-toggle').before(commandsButton);
+// /library?shelf=mine: an alias of /library#my-shelf (below), the one My shelf address; older back arrows from a reader's own book used it.
+{const params=new URLSearchParams(location.search);if(params.get('shelf')==='mine'){params.delete('shelf');const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}selectCollection('saved');}}
 // Back from sign-in after a signed-out Add (/library?add=<work id>): the add continues once.
 {const params=new URLSearchParams(location.search),pendingAdd=params.get(ADD_PARAM);if(pendingAdd!==null){params.delete(ADD_PARAM);const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}if(addEnabled()&&document.documentElement.classList.contains('signed-in')&&/^[a-z]{2,4}:\S{1,200}$/.test(pendingAdd)){notice('Adding to Tinct…');void addWork({id:pendingAdd},null);}}}
+// /library#my-shelf (the reader's way back to your own books, and Add a book's old links): My shelf.
+function openMyShelfFromHash(){if(location.hash!=='#my-shelf')return;try{history.replaceState(history.state,'',location.pathname+location.search);}catch{}if(collectionChoice!=='saved')selectCollection('saved');}
+openMyShelfFromHash();addEventListener('hashchange',openMyShelfFromHash);

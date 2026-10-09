@@ -3,6 +3,7 @@ import type { ChapterChatAction } from '../types'
 import type { LabAskContext, LabAskTurn } from './labAsk'
 export { CHAPTER_CHAT_INSTRUCTIONS, buildChapterChatInstructions, parseChapterChatAction } from '../companion/chapterChatPrompt'
 import { loadEditionWindow } from '../data/editionLoader'
+import { chapterAuthorship, withAuthorship } from '../companion/authorship'
 
 export const CHAPTER_CHAT_MESSAGES = {
   discuss: 'Recap this chapter.',
@@ -26,7 +27,8 @@ export function createChapterChatRequest(kind: ChapterChatAction['kind'], contex
     action: { kind, bookId: context.bookId, editionKey: context.editionKey,
       chapterNumber: current.number, chapterLabel: current.title,
       targetChapterNumber: target.number, targetChapterLabel: target.title },
-    context: { ...context, chapterLabel: current.title, paragraphs: [...context.paragraphs] },
+    // In a collection the action names the writer of the chapter it is about (the next one, for preparation).
+    context: { ...context, ...withAuthorship(chapterAuthorship({ collection: !!context.authorship }, target)), chapterLabel: current.title, paragraphs: [...context.paragraphs] },
   }
 }
 

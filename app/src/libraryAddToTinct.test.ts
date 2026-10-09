@@ -72,6 +72,39 @@ describe('signed-in gating', () => {
     expect(fetchSpy).not.toHaveBeenCalled()
     vi.unstubAllGlobals()
   })
+
+  // QA 2026-10-09: a guest's /library?book=pd-pg-1672 (Gorgias) showed Frankenstein; the signed-out catalogue had no added books.
+  it('gives a signed-out visitor the added book a link names, and only that one', async () => {
+    localStorage.removeItem(INTERNAL_KEY)
+    expect(addToTinct.enabled()).toBe(false)
+    const catalogue = { books: [{ id: 'odyssey' }], houses: [] }
+    const gorgias = { id: 'pd-pg-1672', title: 'Gorgias', shelfIds: ['philosophy'], placement: [{ houseId: 'ideas', houseTitle: 'Ideas', houseSubtitle: '', houseHue: 200, shelfId: 'philosophy', shelfTitle: 'Philosophy', shelfSubtitle: '', shelfHue: 200 }] }
+    const fetchSpy = vi.fn(async (url: string) => url === '/api/public-books/pd-pg-1672' ? Response.json({ book: { id: 'pd-pg-1672' }, entry: gorgias }) : new Response('', { status: 404 }))
+    vi.stubGlobal('fetch', fetchSpy)
+    try {
+      for (const link of ['/library?book=pd-pg-1672', '/read/pd-pg-1672/']) {
+        window.history.replaceState(null, '', link)
+        expect(addToTinct.linkedPublicBook()).toBe('pd-pg-1672')
+        const merged = await addToTinct.withPublicBooks(catalogue)
+        expect(merged.books.map((book: { id: string }) => book.id)).toEqual(['odyssey', 'pd-pg-1672'])
+        expect(merged.houses[0]).toMatchObject({ id: 'ideas', shelves: [{ id: 'philosophy', bookIds: ['pd-pg-1672'] }] })
+      }
+      expect(fetchSpy.mock.calls).toEqual([['/api/public-books/pd-pg-1672', { cache: 'no-cache' }], ['/api/public-books/pd-pg-1672', { cache: 'no-cache' }]])
+      // A registry book's link, or no book, asks for nothing.
+      for (const link of ['/library?book=frankenstein', '/library']) {
+        window.history.replaceState(null, '', link)
+        expect(addToTinct.linkedPublicBook()).toBeNull()
+        expect(await addToTinct.withPublicBooks(catalogue)).toBe(catalogue)
+      }
+      expect(fetchSpy).toHaveBeenCalledTimes(2)
+      // A book that is not there leaves the catalogue as it was.
+      window.history.replaceState(null, '', '/library?book=pd-pg-9999')
+      expect(await addToTinct.withPublicBooks(catalogue)).toBe(catalogue)
+    } finally {
+      window.history.replaceState(null, '', '/')
+      vi.unstubAllGlobals()
+    }
+  })
 })
 
 describe('public book ids and importable works', () => {
@@ -189,7 +222,7 @@ describe('library search panel with the flag', () => {
       renderTinct: (list: Array<{ title: string }>) => list.forEach(book => box.append(el('button', 'search-result', book.title))), el,
       onAdd: (w: CatalogueWork) => added.push(w.id), addingWork: null,
     })
-    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel7')
+    expect(FakeWorker.last?.url).toBe('/lab/addbook/js/search-worker.js?v=20261008rel9')
     await vi.waitFor(() => expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).not.toBe('pending'))
     expect(box.querySelector('.free-group')?.getAttribute('data-free-group')).toBe('2')
     expect(freeShown).toEqual([2]) // the panel's "N books found" counts these rows too (app.js)
@@ -206,8 +239,8 @@ describe('library search panel with the flag', () => {
     const file = box.querySelector('.file-box')!
     expect(box.lastElementChild).toBe(file)
     expect(file.querySelector('p')?.textContent).toBe('Have it as a file?')
-    // Straight to Add a book's file step, never its free-book search (the library search above is that).
-    expect(file.querySelector('a')?.getAttribute('href')).toBe('/lab/addbook/?mode=file')
+    // The "Your own book" pop-up (its link is My shelf, never Add a book's old start page).
+    expect(file.querySelector('a')?.getAttribute('href')).toBe('/library#my-shelf')
     expect(file.querySelector('a')?.textContent).toBe('Add a PDF or EPUB')
   })
 
@@ -336,7 +369,8 @@ describe('library search panel with the flag', () => {
     expect(toggle.getAttribute('aria-expanded')).toBe('false')
     expect(details.hidden).toBe(true)
     ;(second.querySelector('.row-toggle') as HTMLButtonElement).click()
-    expect([...second.querySelectorAll('dd')].map(dd => dd.textContent)[0]).toBe('54')
+    // Written as the library writes an approximate early date (book-metadata.js eraLabel), not a bare "54" (search audit, 2026-10-08).
+    expect([...second.querySelectorAll('dd')].map(dd => dd.textContent)[0]).toBe('c. 54 AD')
     const escape = new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
     second.querySelector('.row-toggle')!.dispatchEvent(escape)
     expect(escape.defaultPrevented).toBe(true) // the panel stays open: Escape only closes the row
@@ -568,28 +602,28 @@ describe('My shelf groups', () => {
   // jsdom has no canvas: the paper cover keeps its blank canvas (paperCover handles a null context).
   beforeEach(() => { vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null) })
   afterEach(() => { vi.restoreAllMocks() })
-  const own = (key: string, title: string, readingAt: number | null, kind = 'epub') => ({ key, kind, title, author: 'Me', at: 1, readingAt, href: kind === 'epub' ? `/reader?userBook=${key.slice(5)}` : '/lab/addbook/#books' })
+  const own = (key: string, title: string, readingAt: number | null, kind = 'epub') => ({ key, kind, title, author: 'Me', at: 1, readingAt, href: kind === 'epub' ? `/reader?userBook=${key.slice(5)}` : `/lab/addbook/?userBook=${key.slice(4)}` })
 
-  it('opens My shelf with the + tile, puts own books being read under Currently reading, then Your own books', () => {
+  it('puts own books being read under Currently reading, then every one under "My private uploads", with no add tiles', () => {
     const grid = document.createElement('div')
     grid.append(el('h2', 'my-books-head', 'Currently reading'))
     const library = el('article', 'collection-card'); library.dataset.shelfGroup = 'reading'; grid.append(library)
     grid.append(el('h2', 'my-books-head', 'Finished'))
     const added = addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 5), own('pdf:bb', 'Slides', null, 'pdf'), own('epub:cc', 'Thesis', 9)], el)
-    expect(added).toBe(6)
-    const order = [...grid.children].map(child => child.classList.contains('my-books-head') ? `# ${child.textContent}` : child.querySelector('h2')?.textContent ?? (child.classList.contains('add-file-card') ? '+' : 'library'))
-    expect(order).toEqual(['+', '# Currently reading', 'library', 'Thesis', 'Notes', '# Finished', '# Your own books', 'Notes', 'Slides', 'Thesis'])
-    const tile = grid.querySelector('.add-file-tile')!
-    expect(grid.firstElementChild?.contains(tile)).toBe(true)
-    // The + goes straight to the file step (PDF or EPUB), not to a second free-book search.
-    expect(tile.getAttribute('href')).toBe('/lab/addbook/?mode=file')
-    expect(tile.textContent).toBe('+Add a PDF or EPUB')
+    expect(added).toBe(5)
+    const order = [...grid.children].map(child => child.classList.contains('my-books-head') ? `# ${child.textContent}` : child.querySelector('h2')?.textContent ?? 'library')
+    expect(order).toEqual(['# Currently reading', 'library', 'Thesis', 'Notes', '# Finished', '# My private uploads', 'Notes', 'Slides', 'Thesis'])
+    // The separate "Add a book" and "Add a PDF" tiles are gone: My shelf's heading has the +.
+    expect(grid.querySelector('.add-file-tile, .add-book-tile, .add-file-card, .add-book-card')).toBeNull()
+    expect(grid.textContent).not.toContain('Your own books')
     const notes = grid.querySelector('.own-book a') as HTMLAnchorElement
     expect(notes.getAttribute('href')).toBe('/reader?userBook=cc')
     expect(grid.querySelector('.own-book canvas.cover')).not.toBeNull()
+    // A PDF opens by its own key in Add a book's PDF reader, never the old start page.
+    expect(grid.querySelector('[data-own-key="pdf:bb"] a')?.getAttribute('href')).toBe('/lab/addbook/?userBook=bb')
   })
 
-  it('shows an own book\u2019s own cover at full size, and a paper cover without one', () => {
+  it('shows an own book’s own cover at full size, and a paper cover without one', () => {
     const grid = document.createElement('div')
     addToTinct.appendOwnShelf(grid, [{ ...own('epub:aa', 'Notes', null), cover: 'data:image/jpeg;base64,AAAA' }, own('epub:bb', 'Plain', null)], el)
     const cards = [...grid.querySelectorAll('.own-book')]
@@ -598,58 +632,139 @@ describe('My shelf groups', () => {
     expect(cards.find(card => card.textContent?.includes('Plain'))!.querySelector('canvas.cover')).not.toBeNull()
   })
 
-  it('opens a Currently reading heading for own books when the library has none, and shows only the + tile on an empty list', () => {
+  it('draws Currently reading’s own book with the reading table’s full-size cover (the listed one can be an older thumbnail)', () => {
+    const grid = document.createElement('div')
+    const thumb = 'data:image/jpeg;base64,THUMB', full = 'data:image/jpeg;base64,FULLSIZE'
+    const covers = new Map([[addToTinct.ownTableId('epub:aa'), full]])
+    addToTinct.appendOwnShelf(grid, [{ ...own('epub:aa', 'The Sovereign Child', 4), cover: thumb }], el, { covers })
+    const images = [...grid.querySelectorAll('.own-book img.cover')].map(img => img.getAttribute('src'))
+    expect(images).toEqual([full, full])
+    expect(addToTinct.ownTableId('epub:aa')).toBe('userbook-aa')
+    expect(addToTinct.ownTableId('pdf:bb')).toBe('userbook-bb')
+  })
+
+  it('gives own books the same × as the shelf’s other books: off Currently reading, or deleted from My private uploads', () => {
+    const grid = document.createElement('div')
+    const onRemoveReading = vi.fn(), onDelete = vi.fn()
+    addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 3), own('pdf:bb', 'Slides', null, 'pdf')], el, { onRemoveReading, onDelete })
+    const reading = grid.querySelector('[data-shelf-group="own-reading"]')!
+    const x = reading.querySelector('.save-toggle') as HTMLButtonElement
+    expect(x.textContent).toBe('×')
+    expect(x.dataset.shelfRemove).toBe('true')
+    expect(x.getAttribute('aria-label')).toBe('Remove from My shelf: Notes')
+    x.click()
+    expect(onRemoveReading).toHaveBeenCalledWith(expect.objectContaining({ key: 'epub:aa' }), x)
+    expect(onDelete).not.toHaveBeenCalled()
+    const uploads = [...grid.querySelectorAll('[data-shelf-group="own"]')]
+    expect(uploads.map(card => card.querySelector('.save-toggle')?.getAttribute('aria-label'))).toEqual(['Remove from My shelf: Notes', 'Remove from My shelf: Slides'])
+    ;(uploads[1].querySelector('.save-toggle') as HTMLButtonElement).click()
+    expect(onDelete).toHaveBeenCalledWith(expect.objectContaining({ key: 'pdf:bb' }), uploads[1].querySelector('.save-toggle'))
+    // Removing never opens the book.
+    expect(reading.querySelector('a')?.contains(x)).toBe(false)
+  })
+
+  it('opens a Currently reading heading for own books when the library has none, and adds nothing for an empty list', () => {
     const grid = document.createElement('div')
     grid.append(el('h2', 'my-books-head', 'Saved for later'))
     addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 3)], el)
-    expect([...grid.querySelectorAll('.my-books-head')].map(h => h.textContent)).toEqual(['Currently reading', 'Saved for later', 'Your own books'])
-    expect(grid.firstElementChild?.classList.contains('add-file-card')).toBe(true)
+    expect([...grid.querySelectorAll('.my-books-head')].map(h => h.textContent)).toEqual(['Currently reading', 'Saved for later', 'My private uploads'])
     const empty = document.createElement('div')
-    expect(addToTinct.appendOwnShelf(empty, [], el)).toBe(1)
-    expect([...empty.children].map(c => c.className)).toEqual(['collection-card add-file-card'])
+    expect(addToTinct.appendOwnShelf(empty, [], el)).toBe(0)
+    expect(empty.children).toHaveLength(0)
     expect(addToTinct.ownShelfGroups([own('epub:a', 'A', null), own('epub:b', 'B', 2), own('epub:c', 'C', 7)]).reading.map((b: { title: string }) => b.title)).toEqual(['C', 'B'])
   })
 
-  it('offers the file step from the search field only where Add to Tinct is on', () => {
+  it('shows how far through each own book being read the reader is, as the reading table writes it, under Currently reading only', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [{ ...own('epub:aa', 'Notes', 5), percent: 13.4 }, { ...own('epub:bb', 'Barely', 4), percent: 0.4 }, { ...own('epub:cc', 'Unknown', 3), percent: null }], el)
+    const progress = (group: string) => [...grid.querySelectorAll(`[data-shelf-group="${group}"]`)].map(card => card.querySelector('.own-progress')?.textContent ?? '')
+    expect(progress('own-reading')).toEqual(['13%', '<1%', ''])
+    expect(progress('own')).toEqual(['', '', ''])
+  })
+
+  it('lists each own book once, even when the list names it twice', () => {
+    const grid = document.createElement('div')
+    addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 5), own('epub:aa', 'Notes', 5), own('epub:bb', 'Plain', null)], el)
+    expect(grid.querySelectorAll('[data-shelf-group="own-reading"]')).toHaveLength(1)
+    expect([...grid.querySelectorAll('[data-shelf-group="own"]')].map(card => card.getAttribute('data-own-key'))).toEqual(['epub:aa', 'epub:bb'])
+  })
+
+  it('offers the pop-up from the search field only where Add to Tinct is on', () => {
     const link = document.createElement('a')
     link.hidden = true
     localStorage.setItem(INTERNAL_KEY, '1')
     addToTinct.syncSearchAddFile(link)
     expect(link.hidden).toBe(false)
-    expect(link.getAttribute('href')).toBe('/lab/addbook/?mode=file')
+    // Never Add a book's old start page: My shelf, for a click the pop-up does not take.
+    expect(link.getAttribute('href')).toBe('/library#my-shelf')
     localStorage.removeItem(INTERNAL_KEY)
     addToTinct.syncSearchAddFile(link)
     expect(link.hidden).toBe(true)
     addToTinct.syncSearchAddFile(null)
   })
+})
 
-  it('opens with "+ Add a book", which opens the library search, before the file tile', () => {
-    const grid = document.createElement('div')
-    const open = vi.fn()
-    expect(addToTinct.appendOwnShelf(grid, [], el, open)).toBe(2)
-    expect([...grid.children].map(c => c.className)).toEqual(['collection-card add-book-card', 'collection-card add-file-card'])
-    const shelf = document.createElement('div')
-    shelf.append(el('h2', 'my-books-head', 'Currently reading'))
-    addToTinct.appendOwnShelf(shelf, [own('epub:aa', 'Notes', null)], el, open)
-    expect([...shelf.children].map(c => c.classList.contains('my-books-head') ? `# ${c.textContent}` : c.className)).toEqual(['collection-card add-book-card', 'collection-card add-file-card', '# Currently reading', '# Your own books', 'collection-card own-book'])
-    const tile = grid.querySelector('.add-book-tile') as HTMLButtonElement
-    expect(tile.tagName).toBe('BUTTON')
-    expect(tile.textContent).toBe('+Add a book')
-    expect(tile.getAttribute('href')).toBeNull()
-    tile.click()
-    expect(open).toHaveBeenCalledTimes(1)
+describe('Removing one of My private uploads', () => {
+  afterEach(() => { document.body.replaceChildren() })
+  const book = { key: 'epub:aa', kind: 'epub', title: 'The Sovereign Child', author: 'Me', at: 1, readingAt: null, href: '/reader?userBook=aa' }
+
+  it('asks first, naming the book; Keep book keeps it', async () => {
+    const asked = addToTinct.confirmDeleteUpload(book)
+    const dialog = document.querySelector('[data-testid="own-delete-dialog"]')!
+    expect(dialog.querySelector('h2')?.textContent).toBe('Remove The Sovereign Child?')
+    expect(dialog.textContent).toContain('It is removed from this device and your account.')
+    ;(dialog.querySelector('.own-delete-cancel') as HTMLButtonElement).click()
+    expect(await asked).toBe(false)
+    expect(document.querySelector('[data-testid="own-delete-dialog"]')).toBeNull()
+    const confirmed = addToTinct.confirmDeleteUpload(book)
+    ;(document.querySelector('.own-delete-confirm') as HTMLButtonElement).click()
+    expect(await confirmed).toBe(true)
+  })
+
+  it('deletes with Add a book’s own delete (this device and the account), finding an account-only copy first', async () => {
+    const calls: string[] = []
+    const engine = (local: boolean) => async () => ({
+      library: { get: async (key: string) => { calls.push('get ' + key); return local ? { key } : null } },
+      cloud: { refresh: async () => { calls.push('refresh'); return true } },
+      removeBook: async (key: string) => { calls.push('remove ' + key); return true },
+    })
+    expect(await addToTinct.deleteUpload(book, { engine: engine(true) })).toBe(true)
+    expect(calls).toEqual(['get epub:aa', 'remove epub:aa'])
+    calls.length = 0
+    expect(await addToTinct.deleteUpload(book, { engine: engine(false) })).toBe(true)
+    expect(calls).toEqual(['get epub:aa', 'refresh', 'remove epub:aa'])
   })
 })
 
-describe('Your own book pop-up (the search field +, "Add a PDF or EPUB")', () => {
-  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren() })
-  const entry = () => { const link = document.createElement('a'); link.href = '/lab/addbook/?mode=file'; document.body.append(link); return link }
+describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add a PDF or EPUB")', () => {
+  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren(); localStorage.clear() })
+  const entry = () => { const link = document.createElement('a'); link.href = '/library#my-shelf'; document.body.append(link); return link }
   const dialog = () => document.querySelector('[data-testid="own-file-dialog"]')
+  const choose = (file: File) => {
+    const input = dialog()!.querySelector('input[type="file"]') as HTMLInputElement
+    Object.defineProperty(input, 'files', { value: [file], configurable: true })
+    input.dispatchEvent(new Event('change'))
+  }
+  /** Add a book's engine (add-engine.js) as the pop-up uses it, recording each step. */
+  function fakeEngine({ rights = true, kept = true, kind = 'epub' as 'epub' | 'pdf', readError = '', epubError = '' } = {}) {
+    const steps: string[] = []
+    let confirmed = rights
+    const api = {
+      RIGHTS_COPY: "I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4).",
+      rightsConfirmed: () => confirmed,
+      confirmRights: () => { steps.push('rights'); confirmed = true },
+      readFile: async (file: File) => { steps.push('read ' + file.name); return readError ? { error: readError } : { kind, bytes: new Uint8Array([1]), key: `${kind}:abc` } },
+      keepFile: async () => { steps.push('keep'); return kept },
+      prepareEpub: async (_bytes: Uint8Array, name: string, key: string) => { steps.push('epub ' + name + ' ' + key); if (epubError) throw new Error(epubError); return { href: '/reader?userBook=abc' } },
+      preparePdf: async (_file: File, key: string) => { steps.push('pdf ' + key); return { href: '/lab/addbook/?userBook=' + key.slice(4) } },
+    }
+    return { steps, engine: async () => api }
+  }
 
   it('shows Add a book’s own wording and a button that opens the file picker, without leaving the page', async () => {
     document.documentElement.classList.add('signed-in')
     const go = vi.fn()
-    await addToTinct.openFileEntry(entry(), { access: async () => true, go })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine().engine })
     expect(go).not.toHaveBeenCalled()
     const box = dialog()!
     expect(box.querySelector('[role="dialog"]')?.getAttribute('aria-modal')).toBe('true')
@@ -662,57 +777,146 @@ describe('Your own book pop-up (the search field +, "Add a PDF or EPUB")', () =>
     ;(box.querySelector('.own-file-choose') as HTMLButtonElement).click()
     expect(picker).toHaveBeenCalledTimes(1)
     expect(box.querySelector('.own-file-choose')?.textContent).toBe('Choose a PDF or EPUB')
+    // From the search field there is no second search to offer.
+    expect(box.querySelector('.own-file-search')).toBeNull()
   })
 
-  it('hands the chosen file to Add a book’s upload flow, or opens its file step when it cannot', async () => {
+  it('adds an EPUB in place: rights once (the engine records it), kept, saved, then opens in the Tinct reader, never via Add a book’s page', async () => {
     document.documentElement.classList.add('signed-in')
-    for (const kept of [true, false]) {
-      const go = vi.fn()
-      const keep = vi.fn(async () => kept)
-      await addToTinct.openFileEntry(entry(), { access: async () => null, go, keep })
-      const input = dialog()!.querySelector('input[type="file"]') as HTMLInputElement
-      const file = new File(['%PDF-1.4'], 'notes.pdf', { type: 'application/pdf' })
-      Object.defineProperty(input, 'files', { value: [file], configurable: true })
-      input.dispatchEvent(new Event('change'))
-      await vi.waitFor(() => expect(go).toHaveBeenCalledTimes(1))
-      expect(keep).toHaveBeenCalledWith(file)
-      expect(go).toHaveBeenCalledWith(kept ? '/lab/addbook/?mode=file&handoff=1' : 'http://localhost:3000/lab/addbook/?mode=file')
-      expect(dialog()).toBeNull()
-    }
+    const go = vi.fn(), keep = vi.fn(async () => true)
+    const { steps, engine } = fakeEngine({ rights: false })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go, keep, engine })
+    choose(new File(['PK'], 'sovereign.epub', { type: 'application/epub+zip' }))
+    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-rights')).not.toBeNull())
+    const box = dialog()!
+    expect(box.textContent).toContain('Tinct opens sovereign.epub here and keeps a private copy in your account')
+    expect(box.textContent).toContain("I have the right to add this file and to read and listen to it in Tinct, including with its AI features. I'm responsible for what I upload and share (Terms §4).")
+    const ok = box.querySelector('.own-file-continue') as HTMLButtonElement
+    expect(ok.disabled).toBe(true)
+    const check = box.querySelector('.own-file-rights-box') as HTMLInputElement
+    check.checked = true; check.dispatchEvent(new Event('change'))
+    expect(ok.disabled).toBe(false)
+    ok.click()
+    await vi.waitFor(() => expect(go).toHaveBeenCalledTimes(1))
+    expect(steps).toEqual(['read sovereign.epub', 'rights', 'keep', 'epub sovereign.epub epub:abc'])
+    expect(go).toHaveBeenCalledWith('/reader?userBook=abc')
+    expect(keep).not.toHaveBeenCalled()
+    // The progress is shown in the pop-up while it works.
+    expect(dialog()!.querySelector('.own-file-progress')?.getAttribute('data-value')).toBe('1')
+    expect(dialog()!.textContent).toContain('Opening…')
   })
 
-  it('keeps the gating: a free account past its trial gets the Premium offer, never the pop-up', async () => {
+  it('adds a PDF in place and opens it in Add a book’s PDF reader by its key; a confirmed account is not asked again', async () => {
     document.documentElement.classList.add('signed-in')
     const go = vi.fn()
+    const { steps, engine } = fakeEngine({ kind: 'pdf' })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine })
+    choose(new File(['%PDF-1.4'], 'notes.pdf', { type: 'application/pdf' }))
+    await vi.waitFor(() => expect(go).toHaveBeenCalledTimes(1))
+    expect(steps).toEqual(['read notes.pdf', 'keep', 'pdf pdf:abc'])
+    expect(go).toHaveBeenCalledWith('/lab/addbook/?userBook=abc')
+  })
+
+  it('says why a file cannot be added, in the pop-up, and offers another', async () => {
+    document.documentElement.classList.add('signed-in')
+    const go = vi.fn()
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine({ readError: 'Choose a PDF or EPUB file.' }).engine })
+    choose(new File(['x'], 'notes.txt'))
+    await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('Choose a PDF or EPUB file.'))
+    expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine({ epubError: 'This book is protected by DRM.' }).engine })
+    choose(new File(['PK'], 'locked.epub'))
+    await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('This book is protected by DRM.'))
+    expect(go).not.toHaveBeenCalled()
+  })
+
+  it('a rights confirmation cancelled adds nothing', async () => {
+    document.documentElement.classList.add('signed-in')
+    const go = vi.fn()
+    const { steps, engine } = fakeEngine({ rights: false })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine })
+    choose(new File(['PK'], 'a.epub'))
+    await vi.waitFor(() => expect(dialog()?.querySelector('.own-file-rights')).toBeTruthy())
+    ;(dialog()!.querySelector('.own-file-cancel') as HTMLButtonElement).click()
+    expect(dialog()).toBeNull()
+    expect(steps).toEqual(['read a.epub'])
+    expect(go).not.toHaveBeenCalled()
+  })
+
+  it('only when this browser cannot keep the file, hands it to Add a book’s PDF reader to open unkept', async () => {
+    document.documentElement.classList.add('signed-in')
+    const go = vi.fn(), keep = vi.fn(async () => true)
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go, keep, engine: fakeEngine({ kept: false }).engine })
+    const file = new File(['PK'], 'a.epub')
+    choose(file)
+    await vi.waitFor(() => expect(go).toHaveBeenCalledTimes(1))
+    expect(keep).toHaveBeenCalledWith(file)
+    expect(go).toHaveBeenCalledWith('/lab/addbook/?mode=file&handoff=1')
+  })
+
+  it('keeps the gating: a free account past its trial gets the Premium offer, signed out signs in first, never the pop-up', async () => {
+    const go = vi.fn()
+    document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => false, go })
     expect(go).toHaveBeenCalledWith(addToTinct.PREMIUM_PAGE)
+    document.documentElement.classList.remove('signed-in')
+    await addToTinct.openFileEntry(entry(), { access: async () => null, go })
+    expect(go).toHaveBeenLastCalledWith('/sign-in?returnTo=%2Flibrary%23my-shelf')
     expect(dialog()).toBeNull()
   })
 
   it('closes on Cancel and Escape', async () => {
     document.documentElement.classList.add('signed-in')
-    await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn() })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
     ;(dialog()!.querySelector('.own-file-cancel') as HTMLButtonElement).click()
     expect(dialog()).toBeNull()
-    await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn() })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
     expect(dialog()).toBeNull()
   })
 
-  it('shows the top bar + only where Add to Tinct is on, opening the add-a-book flow', () => {
+  it('the top bar + opens this pop-up (not the search), with "Add a book" for the library search; shown only where Add to Tinct is on', async () => {
     const button = document.createElement('button')
-    const open = vi.fn()
-    addToTinct.syncLibraryAdd(button, open)
+    document.body.append(button)
+    const search = vi.fn()
+    addToTinct.syncLibraryAdd(button, search)
     expect(button.hidden).toBe(true)
     document.documentElement.classList.add('signed-in')
-    addToTinct.syncLibraryAdd(button, open)
+    localStorage.setItem(INTERNAL_KEY, '1')
+    addToTinct.syncLibraryAdd(button, search)
     expect(button.hidden).toBe(false)
     button.click()
-    expect(open).toHaveBeenCalledTimes(1)
+    await vi.waitFor(() => expect(dialog()).not.toBeNull())
+    expect(search).not.toHaveBeenCalled()
+    expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
+    const add = dialog()!.querySelector('.own-file-search') as HTMLButtonElement
+    expect(add.textContent).toBe('Add a book')
+    add.click()
+    expect(search).toHaveBeenCalledTimes(1)
+    expect(dialog()).toBeNull()
     // Re-synced on sign-in/out without binding twice.
-    addToTinct.syncLibraryAdd(button, open)
+    addToTinct.syncLibraryAdd(button, search)
     button.click()
-    expect(open).toHaveBeenCalledTimes(2)
+    await vi.waitFor(() => expect(dialog()).not.toBeNull())
+    expect(document.querySelectorAll('[data-testid="own-file-dialog"]')).toHaveLength(1)
+  })
+
+  it('My shelf’s + beside its heading: a round "Add a book" icon button opening the same pop-up; nothing signed out', async () => {
+    const header = document.createElement('header'); header.append(el('h2', '', 'My shelf')); document.body.append(header)
+    const search = vi.fn()
+    const add = addToTinct.syncShelfAdd(header, search) as HTMLButtonElement
+    expect(add.hidden).toBe(true)
+    document.documentElement.classList.add('signed-in')
+    localStorage.setItem(INTERNAL_KEY, '1')
+    expect(addToTinct.syncShelfAdd(header, search)).toBe(add)
+    expect(header.querySelectorAll('.shelf-add')).toHaveLength(1)
+    expect(add.hidden).toBe(false)
+    expect(add.classList.contains('tui-icon-btn')).toBe(true)
+    expect(add.getAttribute('aria-label')).toBe('Add a book')
+    expect(add.previousElementSibling?.textContent).toBe('My shelf')
+    add.click()
+    await vi.waitFor(() => expect(dialog()).not.toBeNull())
+    expect(dialog()!.querySelector('.own-file-search')?.textContent).toBe('Add a book')
   })
 })
 

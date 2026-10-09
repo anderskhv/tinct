@@ -87,6 +87,12 @@ export interface Chapter {
   section?: string
   /** Known paragraph total when a chapter's text is not loaded yet. */
   paragraphCount?: number
+  /**
+   * Who wrote this chapter, when it names a writer other than the book's
+   * credit: an essay collection's or anthology's byline ("by David Deutsch"
+   * under the title). The byline itself stays in the text. Absent otherwise.
+   */
+  author?: string
 }
 
 /** Hierarchical section for table of contents (e.g., Testament → Book → Chapter) */
@@ -102,6 +108,18 @@ export interface EditionData {
   chapters: Chapter[]
   /** Optional hierarchical section structure for ToC (e.g., Bible) */
   sections?: Section[]
+  /**
+   * The book collects writing by several authors (an essay collection, an
+   * anthology): a chapter's writer is its `author`, and a chapter without one
+   * is by an unnamed writer, never the book's credit (an editor, a list).
+   */
+  collection?: boolean
+  /**
+   * A play whose speeches open on their speaker ("NORA. Hide the Christmas
+   * Tree…"), as Tinct's own plays are set: the reader sets each speaker as a
+   * label (labVerseLines.ts). Absent for every other book.
+   */
+  speakers?: boolean
   /** Present when only a chapter window is loaded for fast initial render. */
   windowed?: {
     complete: false
@@ -136,6 +154,13 @@ export interface Book {
    * Edition files for local-only books are listed in .gitignore.
    */
   localOnly?: boolean
+  /**
+   * A contemporary book already written in modern English (the Conjecture
+   * books, 2025-26): it has no Tinct Modern English edition and none may be
+   * offered, defaulted to or advertised for it. Enforced by
+   * noModernEdition.test.ts.
+   */
+  noModernEdition?: boolean
 }
 
 // === Chat ===

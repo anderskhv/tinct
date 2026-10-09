@@ -176,9 +176,10 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 
 **Long-term: the Western canon end-to-end.** Homer to Kafka, Genesis to the Church Fathers, Greek tragedy to Russian modernism. Anything that has survived a century of readers and still has something to give.
 
+**Classics first, but open to other books** (Anders, 2026-10-08). The canon remains the core of the library. Other books, including contemporary non-fiction, may join when their rights holders permit it; the first are the five Conjecture Institute books on the Critical Rationalism shelf, published with Logan Chipkin's permission. Such books are never labelled public domain, keep their publisher and copyright lines, and get no Modern English edition when they are already written in modern English.
+
 **Out of scope:**
 - **Kids editions** — dropped 2026-03-25. Diluted the product without growing the audience.
-- **Contemporary fiction / nonfiction** — not the mission.
 - **User-uploaded EPUBs (BYOB)** — a separate product if we ever build it. Not a feature on the side.
 
 ---

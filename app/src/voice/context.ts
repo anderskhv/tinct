@@ -1,5 +1,6 @@
 import { buildGrokReaderReference, buildGrokVoiceInstructions } from './grokConfig'
 import type { VoiceReaderContext } from './types'
+import { authorshipNote, bookByline } from '../companion/authorship'
 
 const CURRENT_PARAGRAPH_CAP = 600
 const NEARBY_PARAGRAPH_CAP = 400
@@ -38,7 +39,8 @@ export function buildVoiceReaderContext(input: VoiceReaderContext): string {
   ].filter(Boolean).join(', ')
   const lines = [
     `[Current state]`,
-    `Right now listening to: ${input.bookTitle} by ${input.bookAuthor} — ${input.chapterLabel}`,
+    `Right now listening to: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel}`,
+    authorshipNote(input.bookAuthor, input.authorship),
     exactLocation ? `Exact reader position: ${exactLocation}` : '',
     edition ? `Edition: ${edition}` : '',
   ].filter(Boolean)

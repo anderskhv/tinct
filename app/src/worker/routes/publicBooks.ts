@@ -36,23 +36,30 @@ import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { CheckRateLimit } from '../lib/rateLimit'
 import { sniffBookType } from './userBooks'
-import { epubSourceLetters, verifyEditionAgainstSource, type EditionChapterInput } from '../lib/epubSource'
+import { epubSourceLetters, verifyEditionAgainstSource, type EditionChapterInput, type EditionParagraphKind } from '../lib/epubSource'
+import { isPlayText } from '../../lab/labVerseLines'
 import { lookupCatalogueWork } from '../lib/publicBookCatalogue'
 import { anthropicShelfChooser, classifyWork, placementFor, type Classification, type ShelfChooser } from '../lib/publicBookClassify'
 import { backfillCoverJobs, coverContentType, coverObjectKey, paintingSpineTone, processCoverJobs, queueCoverJob, type CoverFetch } from '../lib/publicBookCovers'
 import {
   WORK_ID,
   allowedSourceUrl,
+  displayTitle,
+  importEditions,
   importableWork,
   isPublicBookId,
+  personName,
   publicBookId,
+  publishedYear,
   sourceName,
   type CatalogueWork,
+  type ImportEdition,
   type PublicPlacement,
 } from '../../../public/lab/public-books.js'
 import { normalizeChapterTitles } from '../../../public/lab/chapter-title.js'
 import { dropPrintedContents } from '../../../public/lab/printed-contents.js'
 import type { Book, Edition } from '../../types'
+import { WIKISOURCE_TIMEOUT_MS, WikisourceError, wikisourceEpub, wikisourcePages } from '../lib/wikisourceEpub'
 import { handleModernEdition, modernEditionChapter, serveModernEdition, type ModernDeps, type ModernEnv } from './publicBookModern'
 
 export const PREFIX = 'public-books/'
@@ -221,13 +228,93 @@ export async function downloadEpub(source: string, url: string, fetchImpl: typeo
     const bytes = new Uint8Array(total)
     let at = 0
     for (const part of parts) { bytes.set(part, at); at += part.byteLength }
-    if (sniffBookType(bytes) !== 'epub') throw new ImportError(422, 'not_epub')
+    if (sniffBookType(bytes) !== 'epub') throw botChallenge(bytes) ? new ImportError(503, 'source_blocked') : new ImportError(422, 'not_epub')
     return bytes
   }
   throw new ImportError(502, 'source_unavailable')
 }
 
+/**
+ * A library's bot check instead of the book (ws-export's Anubis "Making sure you're
+ * not a bot!", QA 2026-10-08, or a similar interstitial). Detected so the import
+ * says so (`source_blocked`); it is never answered or worked around.
+ */
+export function botChallenge(bytes: Uint8Array): boolean {
+  const head = new TextDecoder('utf-8', { fatal: false }).decode(bytes.subarray(0, 64 * 1024))
+  if (!/<html|<!doctype/i.test(head)) return false
+  return /anubis|making sure you(?:'|’|&#39;|&#x27;)re not a bot|cf-challenge|challenge-platform|just a moment\.\.\.|checking your browser/i.test(head)
+}
+
+/** The EPUB of one import edition (importEditions): a library's file, or a Wikisource work built from its API. */
+export async function downloadEdition(work: Pick<CatalogueWork, 'title' | 'authors'>, edition: ImportEdition, fetchImpl: typeof fetch = fetch): Promise<Uint8Array> {
+  if (edition.wikisource) {
+    const signal = AbortSignal.timeout(WIKISOURCE_TIMEOUT_MS)
+    try {
+      const pages = await wikisourcePages(edition.wikisource, { fetchImpl, signal, maxBytes: MAX_EPUB_BYTES })
+      const author = (work.authors || []).map(person => person.name).filter(Boolean).join(', ')
+      const bytes = await wikisourceEpub({ title: work.title, author, lang: edition.wikisource.lang, sourceUrl: edition.sourceUrl || '' }, pages)
+      if (bytes.byteLength > MAX_EPUB_BYTES) throw new ImportError(413, 'source_too_large')
+      return bytes
+    } catch (error) {
+      if (error instanceof ImportError) throw error
+      if (error instanceof WikisourceError && error.code === 'source_too_large') throw new ImportError(413, 'source_too_large')
+      throw new ImportError(502, 'source_unavailable')
+    }
+  }
+  let failure: ImportError = new ImportError(502, 'source_unavailable')
+  // A file too large (a book of many pictures): the library's next file for it (Gutenberg's no-images EPUB).
+  for (const url of edition.epubUrls) {
+    try { return await downloadEpub(edition.source, url, fetchImpl) } catch (error) {
+      failure = error instanceof ImportError ? error : new ImportError(502, 'source_unavailable')
+      if (failure.code !== 'source_too_large') throw failure
+    }
+  }
+  throw failure
+}
+
+/**
+ * The first import edition that downloads, most preferred first (Gutenberg before another
+ * library's copy of a Gutenberg work). When none does, the first edition's failure, unless a
+ * later one was refused as too large (a size limit is what the reader can be told about).
+ */
+export async function downloadWork(work: CatalogueWork, fetchImpl: typeof fetch = fetch): Promise<{ bytes: Uint8Array; edition: ImportEdition }> {
+  const editions = importEditions(work)
+  let failure: ImportError | null = null
+  for (const edition of editions) {
+    try { return { bytes: await downloadEdition(work, edition, fetchImpl), edition } } catch (error) {
+      const next = error instanceof ImportError ? error : new ImportError(502, 'source_unavailable')
+      if (!failure || next.code === 'source_too_large') failure = next
+    }
+  }
+  throw failure ?? new ImportError(422, 'not_importable')
+}
+
 // ===== The uploaded conversion =====
+
+const CHAPTER_AUTHOR_CHARS = 120
+
+/**
+ * Writing by several authors: a chapter names its own writer, or the catalogue
+ * credits three or more people, "Various", or an editor. A chapter without a
+ * byline is then by an unnamed writer, never the book's credit (EditionData.collection).
+ */
+export function publicCollection(work: Pick<CatalogueWork, 'authors'>, chapters: EditionChapterInput[]): boolean {
+  const names = (work.authors || []).map(person => person.name?.trim()).filter(Boolean) as string[]
+  return chapters.some(chapter => chapter.author) || names.length >= 3
+    || names.some(name => /^various( authors)?$/i.test(name) || /\(eds?\.?\)$|,\s*eds?\.?$|\beditor\b/i.test(name))
+}
+
+const PARAGRAPH_KINDS = new Set<EditionParagraphKind>(['heading', 'label', 'item', 'subtitle', 'byline', 'line'])
+/** A picture's place in the text (labFigures.ts): an added book shows no pictures, so it is not text. */
+const FIGURE_TOKEN = /^\uFFFC\S*$/
+
+/**
+ * A play whose speeches open on their speaker ("NORA. Hide the Christmas Tree…"),
+ * the way Tinct's own plays are set (EditionData.speakers; lab/labVerseLines.ts isPlayText).
+ */
+export function publicSpeakers(chapters: Array<{ paragraphs: string[] }>): boolean {
+  return isPlayText(chapters.flatMap(chapter => chapter.paragraphs))
+}
 
 /** The chapters the browser sent, if they have the converter's shape and fit the limits. */
 export function parseChapters(value: unknown): EditionChapterInput[] | null {
@@ -236,13 +323,27 @@ export function parseChapters(value: unknown): EditionChapterInput[] | null {
   let total = 0
   const out: EditionChapterInput[] = []
   for (const chapter of chapters) {
-    const c = chapter as { title?: unknown; paragraphs?: unknown }
+    const c = chapter as { title?: unknown; paragraphs?: unknown; author?: unknown; kinds?: unknown }
     if (typeof c?.title !== 'string' || !Array.isArray(c.paragraphs) || c.paragraphs.length > LIMITS.paragraphsPerChapter) return null
     if (c.paragraphs.some(p => typeof p !== 'string' || p.length > LIMITS.paragraphChars)) return null
     total += c.paragraphs.length
     if (total > LIMITS.totalParagraphs) return null
     // Text only: the reader renders paragraphs as text, but nothing tag-like is kept either way.
-    out.push({ number: out.length + 1, title: c.title.replace(/[<>]/g, '').slice(0, LIMITS.titleChars), paragraphs: (c.paragraphs as string[]).map(p => p.replace(/[<>]/g, '')) })
+    // A chapter's own writer (an essay collection's byline): a short name, checked against the source like titles.
+    const author = typeof c.author === 'string' ? c.author.replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, CHAPTER_AUTHOR_CHARS) : ''
+    // What each paragraph is (verse lines, a poem's title), when the converter says: one of the reader's kinds, in step.
+    const sent = Array.isArray(c.kinds) && c.kinds.length === c.paragraphs.length
+      && c.kinds.every(kind => kind === null || PARAGRAPH_KINDS.has(kind as EditionParagraphKind)) ? c.kinds as Array<EditionParagraphKind | null> : null
+    const paragraphs: string[] = []
+    const kinds: Array<EditionParagraphKind | null> = []
+    ;(c.paragraphs as string[]).forEach((p, index) => {
+      // A picture's place (an older converter sent them): no picture is published, so neither is its place.
+      if (FIGURE_TOKEN.test(p)) return
+      paragraphs.push(p.replace(/[<>]/g, ''))
+      kinds.push(sent?.[index] ?? null)
+    })
+    if (!paragraphs.length) continue
+    out.push({ number: out.length + 1, title: c.title.replace(/[<>]/g, '').slice(0, LIMITS.titleChars), paragraphs, ...(sent && kinds.some(Boolean) ? { kinds } : {}), ...(author ? { author } : {}) })
   }
   return out
 }
@@ -287,6 +388,17 @@ function displayYear(year: number | null): string {
 
 const wordsIn = (paragraphs: string[]) => paragraphs.reduce((sum, p) => sum + p.split(/\s+/).filter(Boolean).length, 0)
 
+/** The work as downloaded: its edition is the library the staged EPUB came from (prepare's customMetadata). */
+export function stagedWork(work: CatalogueWork, staged: Record<string, string> | undefined): CatalogueWork {
+  const source = staged?.source
+  if (!source) {
+    // Staged before the source was recorded: the edition Add downloads first.
+    const first = importEditions(work)[0]
+    return first ? { ...work, editions: [{ source: first.source, sourceUrl: first.sourceUrl, epubUrl: first.epubUrls[0] ?? null, licence: first.licence }] } : work
+  }
+  return { ...work, editions: [{ source, sourceUrl: staged.sourceUrl || null, epubUrl: null, licence: staged.licence || undefined }] }
+}
+
 /** Registry `Book` and library catalogue entry for an added work. */
 export function publicRecords(input: {
   bookId: string; work: CatalogueWork; chapters: EditionChapterInput[]; classification: Classification; addedAt: string; catalogueIndex: number
@@ -295,18 +407,22 @@ export function publicRecords(input: {
   const edition = work.editions[0]
   const editionKey = publicEditionKey(work)
   const language = editionKey.slice('original-'.length) as Edition['language']
-  const author = (work.authors || []).map(person => person.name).filter(Boolean).join(', ') || 'Anonymous'
-  const translator = (work.translators || []).map(person => person.name).filter(Boolean).join(', ') || undefined
-  const title = work.title.trim()
+  // Names, title and year as Tinct shows them (public-books.js): Gutenberg's spelled-out initials
+  // folded in, a sentence-case English title in title case, and only a first-publication year
+  // that can be one (classification.year may be an estimate from the author's dates: era and shelf only).
+  const author = (work.authors || []).map(person => personName(person.name)).filter(Boolean).join(', ') || 'Anonymous'
+  const translator = (work.translators || []).map(person => personName(person.name)).filter(Boolean).join(', ') || undefined
+  const title = displayTitle(work.title, work.language)
+  const year = publishedYear(work)
   const wordCount = chapters.reduce((sum, chapter) => sum + wordsIn(chapter.paragraphs), 0)
   const library = sourceName(edition.source)
   const licence = edition.licence && edition.licence !== 'PD' ? edition.licence : 'Public domain'
   // Attribution, as the source licence asks (CC BY-SA for Wikisource and Bibebook).
   const summary = licence === 'Public domain' ? `Public-domain text from ${library}.` : `Text from ${library}, ${licence}.`
   const label = translator ? `Translated by ${translator}` : 'Original'
-  const bookEdition: Edition = { key: editionKey, language, style: 'original', label, aligned: false, hasAudio: false, ...(translator ? { translator } : {}), ...(classification.year !== null ? { year: classification.year } : {}) }
+  const bookEdition: Edition = { key: editionKey, language, style: 'original', label, aligned: false, hasAudio: false, ...(translator ? { translator } : {}), ...(year !== null ? { year } : {}) }
   const background = tone(bookId)
-  const book: Book = { id: bookId, title, author, description: summary, ...(classification.year !== null ? { year: classification.year } : {}), wordCount, coverColor: background, coverAccent: '#e9dfc4', editions: [bookEdition] }
+  const book: Book = { id: bookId, title, author, description: summary, ...(year !== null ? { year } : {}), wordCount, coverColor: background, coverAccent: '#e9dfc4', editions: [bookEdition] }
   const placement = placementFor(classification.shelfIds)
   const readingStructure = { totalParagraphs: chapters.reduce((sum, c) => sum + c.paragraphs.length, 0), chapters: chapters.map(c => ({ number: c.number, title: c.title, paragraphCount: c.paragraphs.length })) }
   const entry: PublicCatalogueEntry = {
@@ -315,7 +431,7 @@ export function publicRecords(input: {
     author,
     summary,
     blurb: summary,
-    displayYear: displayYear(classification.year),
+    displayYear: displayYear(year),
     wordCount,
     cover: { kind: 'generated', background, accent: '#e9dfc4' },
     art: null,
@@ -326,9 +442,9 @@ export function publicRecords(input: {
     topics: [classification.form, classification.era, ...placement.flatMap(p => [p.shelfTitle, p.houseTitle])].filter((x): x is string => !!x),
     form: classification.form,
     era: classification.era,
-    year: classification.year,
+    year,
     editions: [{
-      key: editionKey, language, style: 'original', label, translator: translator ?? null, year: classification.year, aligned: false,
+      key: editionKey, language, style: 'original', label, translator: translator ?? null, year, aligned: false,
       group: 'human', provenance: translator ? 'human-translation' : 'published-edition',
       provenanceLabel: translator ? `Human translation by ${translator}` : 'Published public-domain edition',
       availability: { chapterText: true, audio: false, compare: false }, discoveryAvailable: true,
@@ -399,15 +515,17 @@ async function prepare(request: Request, env: PublicBooksEnv, bucket: R2Bucket, 
   if (!await deps.countDaily('public-book-day:all', IMPORTS_PER_DAY_ALL)) return reply({ error: 'daily_limit' }, 429, request)
   if (!await deps.acquireLock(bookId)) return reply({ error: 'in_progress' }, 409, request)
   let bytes: Uint8Array
+  let edition: ImportEdition
   try {
-    bytes = await downloadEpub(work.editions[0].source, work.editions[0].epubUrl!, deps.fetchSource)
+    ({ bytes, edition } = await downloadWork(work, deps.fetchSource))
   } catch (error) {
     const failure = error instanceof ImportError ? error : new ImportError(502, 'source_unavailable')
     return reply({ error: failure.code }, failure.status, request)
   }
   await bucket.put(stagingKey(bookId), bytes, {
     httpMetadata: { contentType: 'application/epub+zip' },
-    customMetadata: { workId, sha256: await sha256Hex(bytes), fetchedAt: (deps.now?.() ?? new Date()).toISOString() },
+    // The library the text came from, so the book credits that one (not the catalogue's first edition).
+    customMetadata: { workId, sha256: await sha256Hex(bytes), fetchedAt: (deps.now?.() ?? new Date()).toISOString(), source: edition.source, sourceUrl: edition.sourceUrl || '', licence: edition.licence || '' },
   })
   return reply({ status: 'convert', bookId, source: `/api/public-books/import/${bookId}/source` }, 200, request)
 }
@@ -449,8 +567,8 @@ async function commit(request: Request, env: PublicBooksEnv, bucket: R2Bucket, b
   // ("CONTENTS / PAGE / Of Providence 1 …") is not published: the converter leaves it out,
   // and an older converter's upload is held to the same rule (public/lab/printed-contents.js).
   const verified = { ...checked, chapters: normalizeChapterTitles(dropPrintedContents(checked.chapters), { language: publicEditionKey(work).slice('original-'.length) }) }
-  const { book, entry, editionKey } = publicRecords({ bookId, work, chapters: verified.chapters, classification, addedAt, catalogueIndex: 100_000 + (index?.books?.length ?? 0) })
-  const editionData = { chapters: verified.chapters }
+  const { book, entry, editionKey } = publicRecords({ bookId, work: stagedWork(work, stagedObject.customMetadata), chapters: verified.chapters, classification, addedAt, catalogueIndex: 100_000 + (index?.books?.length ?? 0) })
+  const editionData = { chapters: verified.chapters, ...(publicCollection(work, verified.chapters) ? { collection: true } : {}), ...(publicSpeakers(verified.chapters) ? { speakers: true } : {}) }
   await bucket.put(editionObjectKey(bookId, editionKey), JSON.stringify(editionData), { httpMetadata: { contentType: 'application/json' } })
   const meta: StoredMeta = { version: 1, book, entry, editionKey, sha256: stagedObject.customMetadata?.sha256 || '', classification, verification: { checked: verified.checkedParagraphs, removed: verified.removedParagraphs, renamed: verified.renamedChapters } }
   await bucket.put(metaKey(bookId), JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
@@ -537,6 +655,28 @@ export async function handlePublicEditionData(request: Request, env: PublicBooks
   const object = await bucket.get(editionObjectKey(match[1], match[2]))
   if (!object) return reply({ error: 'Not found' }, 404, request)
   return new Response(object.body, { status: 200, headers: headers(request, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300' }) })
+}
+
+/**
+ * The asset binding as the Worker's own book routes see it: an added book's
+ * edition (`/data/editions/pd-…`) comes from R2 through
+ * handlePublicEditionData, exactly as the reader loads it; everything else
+ * from the static assets. `env.ASSETS.fetch` alone never reaches a Worker
+ * route, so server-side readers of book text (Primer and chapter notes,
+ * Recap, Catch me up, Prepare, the companion's read_chapter / find_in_book)
+ * take their binding from here, or an added book has no text for them.
+ */
+export function bookAssets(env: Pick<PublicBooksEnv, 'PUBLIC_BOOKS' | 'AUDIO_BUCKET'> & { ASSETS?: PublicBooksEnv['ASSETS'] }): PublicBooksEnv['ASSETS'] {
+  return {
+    fetch: async (request: Request) => {
+      if (new URL(request.url).pathname.startsWith('/data/editions/pd-')) {
+        const edition = await handlePublicEditionData(new Request(request.url), env as PublicBooksEnv)
+        if (edition) return edition
+      }
+      if (!env.ASSETS) return new Response('Not found', { status: 404 })
+      return env.ASSETS.fetch(request)
+    },
+  }
 }
 
 type EditionChapter = { number: number; title: string; paragraphs: string[] }

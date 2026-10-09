@@ -168,16 +168,57 @@ export function near(a, b, limit = 1) {
   }
   return prev[b.length] <= limit;
 }
+// Names as readers write them (search audit, 2026-10-08). The catalogue keeps library forms that
+// lost their order: "Roger, Sir L'Estrange" is Sir Roger L'Estrange, "Leo, graf Tolstoy" is Leo
+// Tolstoy, "Agénor, comte de Gasparin" Agénor de Gasparin, "Emperor of Rome Marcus Aurelius"
+// Marcus Aurelius. A form that already reads right ("Alfred Tennyson, Baron Tennyson") is kept.
+const COURTESY = /^(.+?), (Sir|Dame|Lady|Mrs\.?) (\S.*)$/;
+const NOBLE = /^(.+?), (?:graf|gräfin|count|countess|comte|comtesse|vicomte|baron|baronne|freiherr|marquis|marquise|duc|duke|conde|conte) (\S.*)$/i;
+const PARTICLE = /^(de|von|van|di|da|du|del|della|le|la|zu)\b/i;
+export function cleanName(name) {
+  const text = String(name ?? '').trim().replace(/^(?:Emperor|Empress|King|Queen) of [A-Z][a-z]+ (?=\S)/, '');
+  const saint = /^of (.+?), Saint (\S.*)$/.exec(text);
+  if (saint) return `Saint ${saint[2]} of ${saint[1]}`;
+  const courtesy = COURTESY.exec(text);
+  if (courtesy && !courtesy[3].includes(',')) return `${courtesy[2]} ${courtesy[1]} ${courtesy[3]}`;
+  const noble = NOBLE.exec(text);
+  if (noble && !noble[2].includes(',') && (!noble[1].includes(' ') || PARTICLE.test(noble[2]))) return `${noble[1]} ${noble[2]}`;
+  return text;
+}
+// Titles as readers write them: no "[sic]", no trailing full stop ("The vision of hell."), no
+// Wikisource edition label ("Pericles (1925) Yale", "Tragedies of Seneca (1907) Miller"), and the few the libraries misspell.
+const TITLE_FIXES = {'Bleak-House': 'Bleak House'};
+const ABBREVIATIONS = new Set(['etc', 'esq', 'vol', 'viz', 'ibid', 'co', 'no', 'jr', 'sr', 'mr', 'mrs', 'dr', 'st', 'bros', 'ltd']);
+export function cleanTitle(title) {
+  const text = String(title ?? '').replace(/\s*\[sic\]/gi, '').replace(/\s*\(\d{4}\)\s*\p{Lu}\p{L}+$/u, '')
+    .replace(/(?<![\p{L}.])(\p{L}{3,})\.$/u, (all, word) => ABBREVIATIONS.has(word.toLowerCase()) ? all : word).trim();
+  return TITLE_FIXES[text] || text;
+}
+// A Wikisource work is in its wiki's language: German Wikisource's "Die Abstammung des Menschen"
+// is not English, whatever its record says.
+const WIKI_LANGUAGE = /^ws:([a-z]{2,3}):/;
+/** A catalogue work's languages, as the search reads them (raw or hydrated record). */
+export function languagesOf(w) {
+  const languages = w.language?.length ? w.language : ['und'];
+  const wiki = WIKI_LANGUAGE.exec(w.id || '')?.[1];
+  return wiki && wiki !== 'en' && !languages.includes(wiki) ? [wiki] : languages;
+}
 // The catalogue omits empty fields to stay small; restore the shape every consumer expects.
-const person = p => ({birthYear: null, deathYear: null, aliases: [], ...p});
+// Each person's name is cleaned (cleanName); the library's form stays one of their other names.
+const person = p => {
+  const out = {birthYear: null, deathYear: null, aliases: [], ...p};
+  const name = cleanName(out.name);
+  if (name !== out.name) { out.aliases = [...out.aliases, out.name]; out.name = name; }
+  return out;
+};
 export function hydrate(works) {
   for (const w of works) {
     w.authors = (w.authors || []).map(person); w.translators = (w.translators || []).map(person);
     w.subjects ||= []; w.bookshelves ||= []; w.altTitles ||= []; w.tinctIds ||= []; w.onTinct ||= false;
-    w.title ??= ''; w.language ||= ['und']; w.subtitle ??= null; w.firstPublishedYear ??= null; w.originalLanguage ??= null;
+    w.title = cleanTitle(w.title); w.language = languagesOf(w); w.subtitle ??= null; w.firstPublishedYear ??= null; w.originalLanguage ??= null;
     for (const e of w.editions) {
       e.authors = (e.authors || []).map(person); e.translators = (e.translators || []).map(person);
-      e.title ??= ''; e.subjects ||= []; e.bookshelves ||= []; e.language ||= ['und'];
+      e.title = e.title ? cleanTitle(e.title) : ''; e.subjects ||= []; e.bookshelves ||= []; e.language ||= ['und'];
       e.epubUrl ??= null; e.coverUrl ??= null; e.sourceUrl ??= null; e.subtitle ??= null; e.popularity ??= 0;
     }
   }
@@ -209,6 +250,12 @@ export function applyPriors(works, priors) {
  * with 20-40 about 10^3.4-3.9 and with 80+ about 10^4.3, so 2.4 + 0.9 log10(1 + sitelinks).
  */
 export const fame = w => Math.max(Math.log10(1 + (w.popularity || 0)), w.sitelinks > 0 ? 2.4 + 0.9 * Math.log10(1 + w.sitelinks) : 0);
+/**
+ * Fame with a tiebreak for works read about as often: a work with a page on 20 or more Wikimedia
+ * sites gains a tenth of log10 sitelinks, so Persuasion (46 sites) ranks above Love and Freindship (7),
+ * though Gutenberg counts their downloads alike. What the ranking and the author card's works use.
+ */
+export const renown = w => fame(w) + (w.sitelinks >= 20 ? 0.1 * Math.log10(1 + w.sitelinks) : 0);
 /**
  * What Tinct's own books borrow from the catalogue works that are the same book, so the
  * library ranks them with this engine as the catalogue would: the best-read copy's popularity,
@@ -268,16 +315,27 @@ export function borrowFor(books, works) {
 // title is exactly the query (an author's own book, for their name, counts as title and exact),
 // so "meditations marcus" puts Meditations by Marcus Aurelius above small editions titled "Marcus Aurelius".
 // A volume or part ("Vol. 2 (of 6)", "Part 3") loses a little unless the query asks for one.
-// For an author's name, a book other authors share, or one by someone with that middle name, loses
-// SHARED_PENALTY, and Gutenberg's indexes
-// and quotation selections of an author rank last in the tier (see INDEX).
+// For an author's name, a book other authors share loses SHARED_PENALTY, and Gutenberg's quotation
+// and picture selections of an author rank last in the tier (see INDEX).
+// The author a name query means (search audit, 2026-10-08): the person the matching works name,
+// told apart by full name and life dates, whose books are read most ("hume": David Hume, not
+// Fergus Hume; "dante": Dante Alighieri, not Dante Gabriel Rossetti). Only their books rank as
+// the author's; books by someone the query names only by a given or middle name ("Dante" Gabriel
+// Rossetti, George "Adam" Smith, "Homer" Greene) are left out, others of that surname follow the
+// books that name the author in their title. A near spelling or the start of a long name counts
+// ("nietzche", "shakespear").
+// Weak matches are left out when strong ones exist: once any work has every query word in its
+// title or author's name (or is the author's), works holding a word only in a translator, a
+// subject, a shelf or another name are dropped ("crime and punishment" lists no criminology).
+// Gutenberg's indexes and compilations of its own files are not books and are never listed (COMPILATION).
 // A respelling of a person's own name among their other names ("Tchekhov" for Anton Chekhov,
 // a near spelling of the name) counts as their name; a pen name stays tier 5.
 const TITLE = 1, AUTHOR = 2, OTHER = 3;
-// [exact word, word starting with it, near spelling] for each field.
-const TIER = {[TITLE]: [1, 2, 2.5], [AUTHOR]: [3, 3, 3.5], [OTHER]: [4, 4, 4.5]};
-const EXACT = 0, PREFIX = 1, NEAR = 2;
-const TITLE_COVER = [1, 0.75, 0.6];
+// [exact word, word starting with it, near spelling, two edits away] for each field. Two edits
+// count only in a title ("oddysey"): a name or a subject two letters off is another word.
+const TIER = {[TITLE]: [1, 2, 2.5, 2.5], [AUTHOR]: [3, 3, 3.5, Infinity], [OTHER]: [4, 4, 4.5, Infinity]};
+const EXACT = 0, PREFIX = 1, NEAR = 2, NEAR2 = 3;
+const TITLE_COVER = [1, 0.75, 0.6, 0.6];
 const ALIAS_TIER = 5, INDEX_TIER = 4.9;
 // A title that is exactly the query ("La divina commedia") outweighs a 300-fold popularity gap.
 const EXACT_TITLE = 2.5;
@@ -297,7 +355,10 @@ function nameEnds(list) {
   while (name.length > 1 && SUFFIX.has(name[name.length - 1])) name.pop();
   return name.length ? [name[0], name[name.length - 1]] : [];
 }
-const INDEX = /^(index of (the )?project gutenberg|quotes and images from|widgers quotations from)\b/;
+const INDEX = /^(quotes and images from|widgers quotations from)\b/;
+const COMPILATION = /^(index of (the )?project gutenberg|complete project gutenberg works of|project gutenberg compilation of)\b/;
+// A person's name words for telling people apart (identity), not particles.
+const NAME_PARTICLE = new Set(['de', 'von', 'van', 'der', 'den', 'di', 'da', 'du', 'del', 'della', 'la', 'le', 'of', 'the', 'saint']);
 const VOLUME = /\b(vol(ume)?s?\.?|part|book|tome|chapters?|series)\s+([0-9]+|[ivxlc]+|one|two|three|four|five)\b|\(of \d+\)/i;
 const ASKS_FOR_VOLUME = /\b(vol|volume|part|book|tome|chapter|series|\d+)\b/;
 export function createSearch(works) {
@@ -324,6 +385,8 @@ export function createSearch(works) {
     return out;
   };
   const docs = works.map((w, id) => {
+    const title = core(norm(w.title || ''));
+    if (COMPILATION.test(title)) return {skip: true};
     // Each word with the best field it appears in.
     const field = new Map();
     const put = (text, f) => { for (const t of words(text)) if (!(field.get(t) <= f)) field.set(t, f); };
@@ -350,10 +413,20 @@ export function createSearch(works) {
     }
     for (const t of aliasWords) add(t, id);
     for (const t of spelled) add(t, id);
-    const title = core(norm(w.title || ''));
-    return {field, titles: [...new Set(titles.filter(Boolean).map(t => core(norm(t))))], inside: [...new Set(inside.map(t => core(norm(t))))], own: new Set(words(w.title)),
+    // Each author once, with their name's words (respellings included) and the words they are called by.
+    const persons = [];
+    for (const p of authors) {
+      const name = norm(p.name || '');
+      if (!name || persons.some(q => q.name === name)) continue;
+      const list = name.split(' ');
+      const own = list.filter(t => t.length >= 4);
+      const respellings = (p.aliases || []).flatMap(a => words(a)).filter(t => !list.includes(t) && own.length && respelled(own, t));
+      persons.push({name, words: new Set([...list, ...respellings]), ends: new Set([...nameEnds(list), ...respellings]), last: nameEnds(list).pop(),
+        born: Number.isFinite(p.birthYear) ? p.birthYear : null, died: Number.isFinite(p.deathYear) ? p.deathYear : null, person: p});
+    }
+    return {field, persons, titles: [...new Set(titles.filter(Boolean).map(t => core(norm(t))))], inside: [...new Set(inside.map(t => core(norm(t))))], own: new Set(words(w.title)),
       author: new Set([...authors.flatMap(p => words(p.name)), ...spelled]), volume: VOLUME.test(w.title), index: INDEX.test(title),
-      shared: new Set(authors.map(p => p.name)).size > 1, ownName: new Set([...authors.flatMap(p => nameEnds(words(p.name))), ...spelled])};
+      shared: new Set(authors.map(p => p.name)).size > 1};
   });
   normCache.clear(); spelling.clear();
   const expansionCache = new Map();
@@ -369,9 +442,17 @@ export function createSearch(works) {
       }
     }
     if (term.length >= 4) {
-      for (let length = term.length - limit; length <= term.length + limit; length++) {
-        for (const word of vocabByLength.get(length) || []) {
-          if (!matches.has(word) && near(term, word, limit)) matches.set(word, NEAR);
+      // One edit first; two (for long words) only when nothing nearer is known: "oddysey" finds
+      // "odyssey", but "sapiens", a word the catalogue has, does not also find "spies" or "salient".
+      for (const edits of limit > 1 ? [1, 2] : [1]) {
+        if (edits === 2 && matches.size) break;
+        // Seven letters: two edits only within a word of that length that begins and ends alike.
+        const tight = edits > 1 && term.length < 8;
+        for (let length = term.length - (tight ? 0 : edits); length <= term.length + (tight ? 0 : edits); length++) {
+          for (const word of vocabByLength.get(length) || []) {
+            if (tight && (word[0] !== term[0] || word[1] !== term[1] || word[length - 1] !== term[length - 1])) continue;
+            if (!matches.has(word) && near(term, word, edits)) matches.set(word, edits > 1 ? NEAR2 : NEAR);
+          }
         }
       }
     }
@@ -385,7 +466,7 @@ export function createSearch(works) {
     if (expansions.length < 2) return Infinity;
     for (const p of people(w)) for (const a of p.aliases || []) {
       const words = new Set(tokens(a));
-      const holds = expansions.map(expansion => [...expansion.keys()].some(t => words.has(t)));
+      const holds = expansions.map(expansion => [...expansion].some(([t, kind]) => kind !== NEAR2 && words.has(t)));
       if (holds.filter(Boolean).length >= 2 && missing.every(i => holds[i])) return ALIAS_TIER;
     }
     return Infinity;
@@ -407,7 +488,14 @@ export function createSearch(works) {
         return ids;
       }).sort((a, b) => a.size - b.size);
       candidates = [...sets[0]].filter(id => sets.every(set => set.has(id)));
-    } else candidates = works.map((_, i) => i);
+    } else candidates = works.map((_, i) => i).filter(i => !docs[i].skip);
+    // Does a query word (its expansion) hit one of these name words? Exactly; by a near spelling, for
+    // words of six letters or more ("nietzche", not "emma" for Emmy); or as the start of a name at
+    // most two letters longer, for words of five or more ("shakespear").
+    const hitsName = (i, set) => {
+      for (const [token, kind] of expansions[i]) if (set.has(token) && (kind === EXACT || (kind === NEAR && terms[i].length >= 6) || (kind === PREFIX && terms[i].length >= 5 && token.length - terms[i].length <= 2))) return true;
+      return false;
+    };
     const ranked = [];
     for (const id of candidates) {
       const w = works[id];
@@ -416,25 +504,27 @@ export function createSearch(works) {
       if (filters.source && !w.editions.some(e => e.source === filters.source)) continue;
       if (filters.subject && ![...w.subjects, ...w.bookshelves].includes(filters.subject)) continue;
       const doc = docs[id];
-      let tier = terms.length ? Infinity : 1, cover = 0, authorCover = 0;
+      let tier = terms.length ? Infinity : 1, worst = terms.length ? 0 : 1, cover = 0, authorCover = 0, titleWord = false;
       const missing = [];
       expansions.forEach((expansion, i) => {
         let best = Infinity, inTitle = 0, inAuthor = 0;
         for (const [token, kind] of expansion) {
           const f = doc.field.get(token);
-          if (!f) continue;
+          if (!f || TIER[f][kind] === Infinity) continue;
           best = Math.min(best, TIER[f][kind]);
-          if (f === TITLE) inTitle = Math.max(inTitle, TITLE_COVER[kind]);
+          if (f === TITLE) { inTitle = Math.max(inTitle, TITLE_COVER[kind]); if (kind === EXACT) titleWord = true; }
           if (f === AUTHOR) inAuthor = Math.max(inAuthor, TITLE_COVER[kind]);
         }
         if (best === Infinity) missing.push(i);
+        else worst = Math.max(worst, best);
         tier = Math.min(tier, best);
         cover += inTitle; authorCover += inAuthor;
       });
       if (missing.length) {
         const alias = aliasTier(w, expansions, missing);
         if (alias === Infinity) continue;
-        tier = Math.min(tier, alias);
+        // Two query words in one other name are a strong match (a pen name), though it ranks last.
+        tier = Math.min(tier, alias); worst = Math.max(worst, 3);
       }
       let exact = !!normalized && doc.titles.includes(normalized);
       if (exact || (normalized && doc.titles.some(t => t.startsWith(normalized + ' ')))) tier = 1;
@@ -444,27 +534,101 @@ export function createSearch(works) {
       if (!exact && rest && rest !== normalized && doc.titles.includes(rest)) exact = true;
       // (Only for a work the title does not already name: "...Benefits, Anger and Clemency" is a title match.)
       const insideExact = !exact && !!rest && doc.inside.includes(rest) && !rest.split(' ').every(t => STOP.has(t) || doc.own.has(t));
-      const byAuthor = terms.length > 0 && terms.every(t => doc.author.has(t));
-      // A book by someone the query only names in passing (a middle name) is not the author's own.
-      const ownName = byAuthor && terms.some(t => doc.ownName.has(t));
-      ranked.push({id, tier, cover, authorCover, exact, insideExact, byAuthor, ownName, index: doc.index, volume: doc.volume, shared: doc.shared});
+      const byAuthor = terms.length > 0 && (terms.every(t => doc.author.has(t)) || terms.every((_, i) => hitsName(i, doc.author)));
+      // The authors the query names (every word in one person's name).
+      const persons = byAuthor ? doc.persons.filter(p => terms.every((_, i) => hitsName(i, p.words))) : [];
+      // Weak: a query word found only by a near spelling outside the title, or only outside the title
+      // and author with no query word in the title ("A searchlight on Germany" for "crime and
+      // punishment"; Shaw's "The Dark Lady of the Sonnets" stays for "shakespeare sonnets").
+      const weak = worst >= 4.5 || (worst >= 4 && !titleWord);
+      ranked.push({id, fame: renown(w), wikidata: w.wikidata || null, sitelinks: w.sitelinks || 0, tier, worst, weak, cover, authorCover, exact, insideExact, byAuthor, persons, index: doc.index, volume: doc.volume, shared: doc.shared});
     }
     // The query is an author's name when more matching works carry it as their author's own
     // name than as a title ("dostoevsky", "jane austen"; not "faust"): then the author's books
     // rank with the title matches, as if their titles were the query.
     const titled = ranked.filter(r => r.tier === 1 && !r.byAuthor).length;
     const authorQuery = ranked.filter(r => r.byAuthor).length > titled;
-    for (const r of ranked) {
-      if (authorQuery && r.byAuthor) { r.tier = 1; r.cover = terms.length; r.exact = true; r.authorCover = 0; }
+    const author = authorQuery ? identify(ranked, terms, hitsName) : null;
+    let list = ranked;
+    if (author) {
+      list = [];
+      for (const r of ranked) {
+        r.identity = r.persons.some(p => author.persons.has(p));
+        if (author.dominant && !r.identity) {
+          // Someone else the query names only by a given or middle name: not what was asked for.
+          if (r.byAuthor && !r.persons.some(p => terms.length === 1 ? hitsName(0, new Set([p.last])) : terms.every((_, i) => hitsName(i, p.ends)))) continue;
+          // Any other work must hold every query word in its title ("Adam Smith" by Hirst, not
+          // "John Henry Smith" by Frederick Upham Adams).
+          if (!r.byAuthor && r.worst > 2) continue;
+        }
+        list.push(r);
+      }
+    }
+    // Weak matches go when strong ones exist.
+    if (terms.length && list.some(r => r.identity || r.worst <= 3)) list = list.filter(r => r.identity || !r.weak);
+    for (const r of list) {
+      if (author && r.identity) { r.tier = 1; r.cover = terms.length; r.exact = true; r.authorCover = 0; }
+      // For an author's name, books that name them in their title follow the author's own.
+      // (A title that is the query keeps its place: Austen's "Emma" for "emma".)
+      else if (author && !r.exact) r.tier = Math.max(r.tier, 1.5);
       if (r.index) r.tier = Math.max(r.tier, INDEX_TIER);
       const w = works[r.id];
       r.english = preferEnglish && w.language.includes('en') ? 1 : 0;
       r.score = 3 * r.cover / Math.max(1, terms.length) + AUTHOR_COVER * r.authorCover / Math.max(1, terms.length) + (r.exact ? EXACT_TITLE : r.insideExact ? INSIDE_EXACT : 0)
-        - (r.volume && !askedVolume ? VOLUME_PENALTY : 0) - (authorQuery && r.byAuthor && (r.shared || !r.ownName) ? SHARED_PENALTY : 0)
-        + fame(w) + (w.quality === 'clean' ? 0.4 : 0);
+        - (r.volume && !askedVolume ? VOLUME_PENALTY : 0) - (r.identity && r.shared ? SHARED_PENALTY : 0)
+        + r.fame + (w.quality === 'clean' ? 0.4 : 0);
     }
-    ranked.sort((a, b) => a.tier - b.tier || b.english - a.english || b.score - a.score
+    list.sort((a, b) => a.tier - b.tier || b.english - a.english || b.score - a.score
       || works[a.id].title.localeCompare(works[b.id].title) || works[a.id].id.localeCompare(works[b.id].id));
-    return {total: ranked.length, results: ranked.slice(0, limit).map(({id}) => works[id]), elapsedMs: Math.round((performance.now() - started) * 10) / 10};
+    // The author the query names, for an author card: their name as their best-read book gives it,
+    // their other names and dates, and their works among the results (`works`).
+    let named = null;
+    if (author) {
+      const own = list.filter(r => r.identity);
+      const first = own[0]?.persons.find(p => author.persons.has(p));
+      const records = [...author.persons].map(p => p.person);
+      const dated = records.find(p => Number.isFinite(p.birthYear) && Number.isFinite(p.deathYear)) || first?.person || {};
+      named = {name: first?.person.name || records[0]?.name || '', names: [...new Set(records.flatMap(p => [p.name, ...(p.aliases || [])]))],
+        birthYear: dated.birthYear ?? null, deathYear: dated.deathYear ?? null, works: new Set(own.map(r => works[r.id]))};
+    }
+    return {total: list.length, results: list.slice(0, limit).map(({id}) => works[id]), author: named, elapsedMs: Math.round((performance.now() - started) * 10) / 10};
   };
+}
+/**
+ * The person a name query means: the matching works' authors gathered into people (one full name,
+ * or the same life dates and a shared name word: "Seneca" and "Lucius Annaeus Seneca"), each scored
+ * by how widely their matching works are known (the Wikimedia sitelinks of their distinct Wikidata
+ * works, from the work priors), then by how much they are read (sum of 10^fame): Gutenberg's
+ * download counts alone put Fergus Hume's thrillers above David Hume. People the query calls by their first
+ * or last name come first ("dante" is what Dante Alighieri is called; "adam" is a middle name).
+ * Returns {persons: Set of the chosen person's entries, dominant} or null.
+ */
+function identify(ranked, terms, hitsName) {
+  const people = [];
+  const shares = (a, b) => [...a.words].some(t => t.length >= 4 && !NAME_PARTICLE.has(t) && b.words.has(t));
+  const within = (a, b) => [...a.words].every(t => b.words.has(t)) || [...b.words].every(t => a.words.has(t));
+  // One person: a shared name word, no date that differs, and a date in common (or one name inside
+  // the other with the same last name: "Homer" is not Charles Homer Haskins).
+  const same = (a, b) => shares(a, b) && (a.born === null || b.born === null || a.born === b.born) && (a.died === null || b.died === null || a.died === b.died)
+    && ((a.born !== null && a.born === b.born) || (a.died !== null && a.died === b.died) || (within(a, b) && a.last === b.last));
+  for (const r of ranked) {
+    if (!r.byAuthor) continue;
+    for (const p of r.persons) {
+      let group = people.find(g => g.names.has(p.name) || g.members.some(q => same(p, q)));
+      if (!group) people.push(group = {names: new Set(), members: [], persons: new Set(), works: new Set(), wikidata: new Set(), known: 0, read: 0, called: false});
+      group.names.add(p.name); group.members.push(p); group.persons.add(p);
+      if (!group.works.has(r.id)) {
+        group.works.add(r.id); group.read += 10 ** r.fame;
+        if (r.wikidata && !group.wikidata.has(r.wikidata)) { group.wikidata.add(r.wikidata); group.known += r.sitelinks; }
+      }
+      if (terms.every((_, i) => hitsName(i, p.ends))) group.called = true;
+    }
+  }
+  if (!people.length) return null;
+  const pool = people.some(g => g.called) ? people.filter(g => g.called) : people;
+  const chosen = pool.reduce((best, g) => g.known > best.known || (g.known === best.known && g.read > best.read) ? g : best);
+  // Clearly the one meant: Wikimedia knows their works at least three times as widely as anyone
+  // else's the query names. Only then are the others' books left out (above).
+  chosen.dominant = chosen.known > 0 && people.every(g => g === chosen || chosen.known >= 3 * g.known);
+  return chosen;
 }
