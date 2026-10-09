@@ -5,7 +5,9 @@
  * Both routes are POST, gated by the site-admin check, and act on exactly one
  * account. Deletion requires the operator to type the account's email, runs
  * every step idempotently, and removes the auth user only after every earlier
- * step succeeded, so a partial run can simply be repeated.
+ * step succeeded, so a partial run can simply be repeated. The deletion
+ * itself (deleteAccountData) is also the reader's own Delete account
+ * (routes/accountDelete.ts).
  */
 import type { ReaderPositionCoordinator } from '../readerPositionCoordinator'
 import type { RecapPreparationCoordinator } from '../recapPreparationCoordinator'
@@ -67,7 +69,7 @@ type AuthUser = {
 
 type Profile = Record<string, unknown> & { id: string; email?: string | null; stripe_customer_id?: string | null }
 
-type Account = { userId: string; email: string | null; authUser: AuthUser | null; profile: Profile | null }
+export type Account = { userId: string; email: string | null; authUser: AuthUser | null; profile: Profile | null }
 
 /** Every Supabase table holding rows for one account, with a stable page order. */
 const USER_TABLES: { table: string; column: string; order: string; optional?: true }[] = [
@@ -160,7 +162,7 @@ async function getAll(env: AdminAccountsEnv, table: string, filter: string, orde
 
 type Resolved = { account: Account } | { error: string; status: number }
 
-async function resolveAccount(env: AdminAccountsEnv, body: Record<string, unknown>): Promise<Resolved> {
+export async function resolveAccount(env: AdminAccountsEnv, body: Record<string, unknown>): Promise<Resolved> {
   let userId = typeof body.userId === 'string' ? body.userId.trim() : ''
   const email = normalizeEmail(body.email)
   if (!userId && email) {
@@ -474,8 +476,27 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
     if (!account.email) return reply({ error: 'Account has no email to confirm against' }, 409, request)
     if (confirmEmail !== account.email) return reply({ error: 'confirmEmail does not match the account' }, 400, request)
   }
-  const accountAlreadyDeleted = !account.authUser && !account.profile
+  const result = await deleteAccountData(env, account, 'admin_account_delete')
+  return reply({ ok: result.ok, userId: account.userId, accountAlreadyDeleted: result.accountAlreadyDeleted, completedAt: new Date().toISOString(), steps: result.steps }, result.ok ? 200 : 500, request)
+}
 
+export type DeletionResult = {
+  /** Every step succeeded and the auth user is gone. */
+  ok: boolean
+  /** The auth user is gone (deleted now or by an earlier run): sign-in is no longer possible. */
+  authGone: boolean
+  accountAlreadyDeleted: boolean
+  steps: DeletionStep[]
+}
+
+/**
+ * Delete everything held for one account, in order, every step idempotent.
+ * Shared by the admin route and the reader's own Delete account
+ * (routes/accountDelete.ts). The auth user goes last and only after every
+ * earlier step succeeded, so a partial run can simply be repeated.
+ */
+export async function deleteAccountData(env: AdminAccountsEnv, account: Account, logEvent: string): Promise<DeletionResult> {
+  const accountAlreadyDeleted = !account.authUser && !account.profile
   const userId = account.userId
   const steps: DeletionStep[] = []
   let allOk = true
@@ -562,6 +583,6 @@ export async function handleAdminDeleteUser(request: Request, env: AdminAccounts
   }
 
   const ok = authGone && allOk
-  console.log(JSON.stringify({ event: 'admin_account_delete', user: userId.slice(0, 8), ok, failed: steps.filter(s => s.status === 'failed').map(s => s.step) }))
-  return reply({ ok, userId, accountAlreadyDeleted, completedAt: new Date().toISOString(), steps }, ok ? 200 : 500, request)
+  console.log(JSON.stringify({ event: logEvent, user: userId.slice(0, 8), ok, failed: steps.filter(s => s.status === 'failed').map(s => s.step) }))
+  return { ok, authGone, accountAlreadyDeleted, steps }
 }

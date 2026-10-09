@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handleAdminDeleteUser, handleAdminExportUser, type AdminAccountsEnv } from './worker/routes/adminAccounts'
 import { fakeUserBooksBucket } from './worker/fakeUserBooksBucket'
+import { ACCOUNT_DELETE_CONFIRM, handleAccountDelete } from './worker/routes/accountDelete'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const email = 'reader@example.com'
@@ -38,6 +39,13 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
       ai_usage_events: [{ id: 1, user_id: userId }],
       reading_time: [{ user_id: userId, day: '2026-10-07', book_id: 'odyssey', read_seconds: 600, listen_seconds: 0 }],
       site_admins: [] as Record<string, unknown>[],
+      // Social and email tables (2026-10-08 migrations): removed by the auth delete's cascade.
+      reader_profiles: [{ id: userId, handle: 'reader' }, { id: otherUser, handle: 'other' }],
+      follows: [{ follower: userId, followed: otherUser }, { follower: otherUser, followed: userId }],
+      blocks: [{ blocker: userId, blocked: otherUser }],
+      email_log: [{ id: 1, user_id: userId, template: 'welcome' }],
+      leaderboard_7d: [{ user_id: userId, seconds: 600 }],
+      profile_reports: [{ id: 'r1', reporter: userId, reported: otherUser }, { id: 'r2', reporter: otherUser, reported: userId }],
     } as Record<string, Record<string, unknown>[]>,
     customerDeleted: false,
     subscriptions: [{ id: 'sub_Live1', status: 'active' }, { id: 'sub_Old1', status: 'canceled' }],
@@ -50,6 +58,14 @@ function world(options: { stripeCustomer?: boolean; failIssueDelete?: boolean; r
     for (const table of ['analytics_events', 'issue_reports', 'ai_usage_events']) {
       state.tables[table] = state.tables[table].map(row => row.user_id === userId ? { ...row, user_id: null } : row)
     }
+    for (const table of ['reader_profiles', 'email_log', 'leaderboard_7d']) {
+      state.tables[table] = (state.tables[table] ?? []).filter(row => row.user_id !== userId && row.id !== userId)
+    }
+    state.tables.follows = state.tables.follows.filter(row => row.follower !== userId && row.followed !== userId)
+    state.tables.blocks = state.tables.blocks.filter(row => row.blocker !== userId && row.blocked !== userId)
+    state.tables.profile_reports = state.tables.profile_reports
+      .filter(row => row.reported !== userId)
+      .map(row => row.reporter === userId ? { ...row, reporter: null } : row)
   }
 
   const matches = (row: Record<string, unknown>, params: URLSearchParams) => {
@@ -460,5 +476,136 @@ describe('admin account routes', () => {
     w.state.tables.profiles = []
     const res = await handleAdminExportUser(post('/api/admin/export-user', { email: 'nobody@example.com' }), w.env, admin)
     expect(res.status).toBe(404)
+  })
+})
+
+describe('the reader\'s own Delete account (POST /api/account/delete)', () => {
+  afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks() })
+
+  const selfPost = (body: unknown, token = 'reader-token') => new Request('https://tinct.app/api/account/delete', {
+    method: 'POST', body: typeof body === 'string' ? body : JSON.stringify(body), headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+  })
+  const confirmBody = { confirm: ACCOUNT_DELETE_CONFIRM, userId }
+  const deps = (w: ReturnType<typeof world>, options: { limited?: boolean } = {}) => ({
+    // The token names the account only while its auth user exists (Supabase /auth/v1/user).
+    verifyUser: vi.fn(async (request: Request) => request.headers.get('authorization') === 'Bearer reader-token' && w.state.authUser ? { id: userId, email } : null),
+    checkRateLimit: vi.fn(async (key: string) => { expect(key).toBe(`account-delete:${userId}`); return !options.limited }),
+  })
+  const withPictures = (w: ReturnType<typeof world>) => {
+    for (const [owner, name] of [[userId, 'picture.jpg'], [userId, 'background.jpg'], [otherUser, 'picture.jpg']]) {
+      w.userBooks.objects.set(`profile/${owner}/${name}`, { key: `profile/${owner}/${name}`, bytes: new Uint8Array(5), uploaded: new Date('2026-10-08T00:00:00Z'), customMetadata: {} })
+    }
+  }
+
+  it('needs a signed-in caller: no token, a bad token or GET deletes nothing', async () => {
+    const w = world()
+    const d = deps(w)
+    expect((await handleAccountDelete(new Request('https://tinct.app/api/account/delete', { method: 'POST', body: JSON.stringify(confirmBody) }), w.env, d)).status).toBe(401)
+    expect((await handleAccountDelete(selfPost(confirmBody, 'someone-else'), w.env, d)).status).toBe(401)
+    expect((await handleAccountDelete(new Request('https://tinct.app/api/account/delete'), w.env, d)).status).toBe(405)
+    expect(w.log).toEqual([])
+    expect(w.fetchMock).not.toHaveBeenCalled()
+    expect(w.state.authUser).not.toBeNull()
+  })
+
+  it('needs the confirmation phrase and the caller\'s own id in the body', async () => {
+    const w = world()
+    const d = deps(w)
+    for (const body of [{}, { userId }, { confirm: 'yes', userId }, { confirm: ACCOUNT_DELETE_CONFIRM }, { confirm: ACCOUNT_DELETE_CONFIRM, userId: otherUser }, 'not json', [confirmBody]]) {
+      const res = await handleAccountDelete(selfPost(body), w.env, d)
+      expect(res.status).toBe(400)
+    }
+    expect(w.log).toEqual([])
+    expect(w.fetchMock).not.toHaveBeenCalled()
+    expect(w.state.authUser).not.toBeNull()
+  })
+
+  it('is rate-limited before anything is read or deleted', async () => {
+    const w = world()
+    const res = await handleAccountDelete(selfPost(confirmBody), w.env, deps(w, { limited: true }))
+    expect(res.status).toBe(429)
+    expect(w.log).toEqual([])
+    expect(w.fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('deletes every store held for the account, cancels the live subscription, and the auth user last', async () => {
+    const w = world({ stripeCustomer: true })
+    withPictures(w)
+    w.narrationObject(userId, `${'c'.repeat(64)}.mp3`, 900)
+    w.userBooks.objects.set(`u/${userId}/recaps/${'ab'.repeat(12)}/own-catch-up-v1/c1.json`, { key: `u/${userId}/recaps/${'ab'.repeat(12)}/own-catch-up-v1/c1.json`, bytes: new Uint8Array(3), uploaded: new Date(), customMetadata: {} })
+    w.userBooks.objects.set(`u/${userId}/places/${'ab'.repeat(12)}`, { key: `u/${userId}/places/${'ab'.repeat(12)}`, bytes: new Uint8Array(0), uploaded: new Date(), customMetadata: { page: '3' } })
+    w.state.tables.user_data.push({ user_id: userId, key: 'lab-highlights:emma', value: { v: 1 } })
+
+    const res = await handleAccountDelete(selfPost(confirmBody), w.env, deps(w))
+    expect(res.status).toBe(200)
+    expect(res.headers.get('Cache-Control')).toBe('no-store')
+    expect(await res.json()).toEqual({ ok: true, deleted: true })
+
+    // Stripe: the live subscription cancelled at once (DELETE, no refund call), then the customer; the old one untouched.
+    expect(w.log.filter(entry => entry.startsWith('stripe:'))).toEqual(['stripe:cancel:sub_Live1', 'stripe:delete-customer'])
+    expect(w.fetchMock.mock.calls.some(([input]) => String(input).includes('/refunds'))).toBe(false)
+    // The auth user goes after every other store, before the sweep.
+    const auth = w.log.indexOf('auth:delete')
+    expect(auth).toBeGreaterThan(w.log.indexOf('stripe:delete-customer'))
+    expect(auth).toBeGreaterThan(w.log.lastIndexOf('rest:delete:ai_usage_events'))
+    expect(w.log.slice(0, auth)).toEqual(expect.arrayContaining(['do:purge:recap', 'do:purge:position', 'do:share-forget', 'kv:delete:lab-chat-history', 'kv:delete:lab-position', 'r2:delete:user-books']))
+    expect(w.state.authUser).toBeNull()
+    expect(w.ownNarration.purged).toContain(`own-user:${userId}`)
+
+    // Every Supabase row keyed by the account is gone; another reader's rows stay.
+    for (const table of ['profiles', 'user_data', 'user_data_audit', 'token_usage', 'payments', 'reading_memory_sessions', 'issue_reports', 'ai_usage_events', 'reading_time', 'email_log', 'leaderboard_7d']) {
+      expect(w.state.tables[table].filter(row => row.user_id === userId || row.id === userId), table).toEqual([])
+    }
+    expect(w.state.tables.issue_reports).toEqual([])
+    expect(w.state.tables.ai_usage_events).toEqual([])
+    expect(w.state.tables.analytics_events.map(row => row.id)).toEqual(['e3'])
+    expect(w.state.tables.reader_profiles).toEqual([{ id: otherUser, handle: 'other' }])
+    expect(w.state.tables.follows).toEqual([])
+    expect(w.state.tables.blocks).toEqual([])
+    // A report the reader filed keeps no reporter (the notice keeps reports up to 12 months); reports about them go.
+    expect(w.state.tables.profile_reports).toEqual([{ id: 'r1', reporter: null, reported: otherUser }])
+    // KV, Durable Objects and R2: nothing of theirs left; another reader's files and picture stay.
+    expect(w.kvStore.size).toBe(0)
+    expect(w.doState).toEqual({ position: {}, recap: {} })
+    expect([...w.userBooks.objects.keys()].sort()).toEqual([`profile/${otherUser}/picture.jpg`, `u/${otherUser}/${'4'.padStart(32, '0')}`])
+  })
+
+  it('keeps the account when a step fails, so the reader can try again, and a retry finishes the job', async () => {
+    const w = world({ failIssueDelete: true })
+    const d = deps(w)
+    const first = await handleAccountDelete(selfPost(confirmBody), w.env, d)
+    expect(first.status).toBe(500)
+    expect(await first.json()).toEqual({ ok: false, deleted: false, error: 'deletion_failed' })
+    expect(w.log).not.toContain('auth:delete')
+    expect(w.state.authUser).not.toBeNull()
+
+    w.options.failIssueDelete = false
+    const second = await handleAccountDelete(selfPost(confirmBody), w.env, d)
+    expect(second.status).toBe(200)
+    expect(await second.json()).toEqual({ ok: true, deleted: true })
+    expect(w.state.authUser).toBeNull()
+    // Once the account is gone the token no longer names anyone: a replay deletes nothing.
+    const replay = await handleAccountDelete(selfPost(confirmBody), w.env, d)
+    expect(replay.status).toBe(401)
+  })
+
+  it('reports the account as deleted when only the sweep after the auth delete fails, logging the id for the operator', async () => {
+    const w = world()
+    let calls = 0
+    ;(w.env as { SHARE_STORE: unknown }).SHARE_STORE = { getByName: () => ({ forgetCreator: async () => { if (++calls > 1) throw new Error('down'); return 0 } }) }
+    const res = await handleAccountDelete(selfPost(confirmBody), w.env, deps(w))
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({ ok: false, deleted: true })
+    expect(w.state.authUser).toBeNull()
+    const logged = (console.log as unknown as { mock: { calls: unknown[][] } }).mock.calls.map(([line]) => String(line))
+    expect(logged.some(line => line.includes('account_self_delete_incomplete') && line.includes(userId) && line.includes('sweep:do:share-creator'))).toBe(true)
+  })
+
+  it('without a Stripe customer, deletes everything and skips billing', async () => {
+    const w = world()
+    const res = await handleAccountDelete(selfPost(confirmBody), w.env, deps(w))
+    expect(await res.json()).toEqual({ ok: true, deleted: true })
+    expect(w.log.filter(entry => entry.startsWith('stripe:'))).toEqual([])
+    expect(w.state.authUser).toBeNull()
   })
 })
