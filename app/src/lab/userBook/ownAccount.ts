@@ -11,6 +11,7 @@
  * offline, a server error): callers keep what this device has.
  */
 import { supabase } from '../../services/supabase'
+import { editionSource, usableUserEdition, type UserBookEdition } from './userEdition'
 
 export interface AccountBook {
   id: string
@@ -129,6 +130,24 @@ export async function fetchAccountCopy(hex: string, token: string | null, fetchI
     return { status: 'found', book, bytes }
   } catch {
     return { status: 'unavailable' }
+  }
+}
+
+/**
+ * The recognised Tinct text of a scanned PDF of the account
+ * (`GET /api/user-books/ocr/{hex}/edition`), or null: none recognised yet,
+ * recognition switched off (the route answers 404), signed out, offline, or
+ * not a recognised text this code reads.
+ */
+export async function fetchOcrEdition(hex: string, token: string | null, fetchImpl: FetchLike = fetch): Promise<UserBookEdition | null> {
+  if (!token || !/^[0-9a-f]{24}$/.test(hex)) return null
+  try {
+    const response = await fetchImpl(`/api/user-books/ocr/${hex}/edition`, authorized(token))
+    if (!response.ok) return null
+    const edition = await response.json() as unknown
+    return usableUserEdition(edition, 'pdf') && editionSource(edition) === 'ocr' ? edition : null
+  } catch {
+    return null
   }
 }
 

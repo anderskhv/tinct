@@ -71,6 +71,20 @@ export function writePdfEditionChoice(hex: string, choice: PdfEditionChoice): vo
   try { localStorage.setItem(PDF_EDITION_PREFIX + hex, JSON.stringify(choice)) } catch { /* full or private */ }
 }
 
+/**
+ * A scan's text has just been recognised (its OCR edition reached this
+ * device): from now on it opens in `choice` (ocrEdition.ts ocrDefaultEdition),
+ * though its place was read in its pages until now. The place keeps its page
+ * and time; a later choice of the reader's own stands. Also done by Add a
+ * book's viewer (pdf-ocr.js adoptEdition).
+ */
+export function adoptOcrEditionChoice(hex: string, choice: PdfEditionChoice): void {
+  writePdfEditionChoice(hex, choice)
+  const pos = readPos(hex)
+  if (!pos) return
+  try { localStorage.setItem(PDF_PLACE_PREFIX + hex, JSON.stringify({ ...pos, edition: choice === 'text' ? 't' : 'p' })) } catch { /* full or private */ }
+}
+
 const whole = (value: unknown, min = 0): value is number => Number.isInteger(value) && (value as number) >= min
 
 /** A text place checked against the edition: null outside it. */
