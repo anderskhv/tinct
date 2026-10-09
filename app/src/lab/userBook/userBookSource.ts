@@ -7,7 +7,8 @@
  */
 import type { Edition } from '../../types'
 import type { LabSource } from '../labSource'
-import type { UserBookEdition } from './userEdition'
+import { editionSource, type UserBookEdition } from './userEdition'
+import { PDF_PAGES_EDITION_KEY } from './pdfEditions'
 import { isUserBookId } from './userBookId'
 import { userBookLanguage } from './userBookLanguage'
 import { registerBookOpening, registerChapterStructure } from '../labParagraphStyle'
@@ -43,12 +44,24 @@ export function userBookEditionKey(edition: Pick<UserBookEdition, 'language' | '
   return lang === 'en' || lang === 'da' ? `own-${lang}` : 'own'
 }
 
+/**
+ * An EPUB is one edition. A PDF is two: its Tinct text, read here, and
+ * "Original pages", the PDF itself in Add a book's viewer (choosing it there
+ * leaves the reader: LabApp).
+ */
 export function userBookEditions(edition: UserBookEdition): Edition[] {
   const key = userBookEditionKey(edition)
-  const cacheKey = `${key}/${edition.title}`
+  const pdf = editionSource(edition) !== 'epub'
+  const cacheKey = `${key}/${pdf ? 'pdf' : 'epub'}/${edition.title}`
   const cached = editionLists.get(cacheKey)
   if (cached) return cached
-  const list: Edition[] = [{ key, language: userBookLanguage(edition) ?? 'en', style: 'original', label: 'EPUB', aligned: false, hasAudio: false }]
+  const language = userBookLanguage(edition) ?? 'en'
+  const list: Edition[] = pdf
+    ? [
+        { key, language, style: 'original', label: 'Tinct text', aligned: false, hasAudio: false },
+        { key: PDF_PAGES_EDITION_KEY, language, style: 'original', label: 'Original pages', aligned: false, hasAudio: false },
+      ]
+    : [{ key, language, style: 'original', label: 'EPUB', aligned: false, hasAudio: false }]
   editionLists.set(cacheKey, list)
   return list
 }

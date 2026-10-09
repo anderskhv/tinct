@@ -1,13 +1,14 @@
 // Writes small PDFs for tests, with no dependencies: text in the standard fonts (WinAnsi),
 // optional document info (Title, Author), an outline (bookmarks) and grey raster images.
 //   makePdf({ info, pages: [{ size, lines: [{ x, y, size, font, text }], images: [{ x, y, w, h }] }], outline })
-// Fonts: Helvetica, Helvetica-Bold, Helvetica-Oblique, Times-Roman, Times-Bold, Times-Italic.
+// Fonts: Helvetica, Helvetica-Bold, Helvetica-Oblique, Times-Roman, Times-Bold, Times-Italic,
+// and Symbol (its own encoding: '\xe5' is ∑, '\xf2' ∫, '\xb6' ∂), added only to a PDF that uses it.
 // Outline items: { title, page (1-based), children? }.
-// The three fixtures the PDF scan is tested on (pdfFixtures) are built here too.
+// The fixtures the PDF scan, its default edition and the Tinct text are tested on (pdfFixtures) are built here too.
 
 const FONTS = ['Helvetica', 'Helvetica-Bold', 'Helvetica-Oblique', 'Times-Roman', 'Times-Bold', 'Times-Italic'];
 // The few non-ASCII characters the fixtures use, as WinAnsi bytes.
-const WIN = { '—': 0x97, '–': 0x96, '“': 0x93, '”': 0x94, '‘': 0x91, '’': 0x92, '…': 0x85, 'é': 0xe9, 'ü': 0xfc };
+const WIN = { '—': 0x97, '–': 0x96, '“': 0x93, '”': 0x94, '‘': 0x91, '’': 0x92, '…': 0x85, 'é': 0xe9, 'ü': 0xfc, '\u00ad': 0xad };
 const textBytes = s => {
   let out = '';
   for (const ch of s) {
@@ -25,8 +26,10 @@ export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
   const add = body => { objs.push(body); return objs.length };
   const reserve = () => add(null);
   const catalogId = reserve(), pagesId = reserve();
-  const fontIds = Object.fromEntries(FONTS.map(f => [f, add(`<< /Type /Font /Subtype /Type1 /BaseFont /${f} /Encoding /WinAnsiEncoding >>`)]));
-  const fontRes = FONTS.map((f, i) => `/F${i + 1} ${fontIds[f]} 0 R`).join(' ');
+  // Symbol only when a line is set in it, so every other PDF is written exactly as before.
+  const fonts = pages.some(pg => (pg.lines || []).some(l => l.font === 'Symbol')) ? [...FONTS, 'Symbol'] : FONTS;
+  const fontIds = Object.fromEntries(fonts.map(f => [f, add(f === 'Symbol' ? '<< /Type /Font /Subtype /Type1 /BaseFont /Symbol >>' : `<< /Type /Font /Subtype /Type1 /BaseFont /${f} /Encoding /WinAnsiEncoding >>`)]));
+  const fontRes = fonts.map((f, i) => `/F${i + 1} ${fontIds[f]} 0 R`).join(' ');
   const pageIds = [];
   for (const pg of pages) {
     const [w, h] = pg.size || [612, 792];
@@ -41,7 +44,7 @@ export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
       ops += `q ${im.w} 0 0 ${im.h} ${im.x} ${im.y} cm /Im${i + 1} Do Q\n`;
     });
     for (const l of pg.lines || []) {
-      const f = FONTS.indexOf(l.font || 'Times-Roman') + 1;
+      const f = fonts.indexOf(l.font || 'Times-Roman') + 1;
       if (f < 1) throw new Error('unknown font ' + l.font);
       ops += `BT /F${f} ${l.size || 11} Tf ${l.x ?? 72} ${l.y} Td ${textBytes(l.text)} Tj ET\n`;
     }
@@ -99,6 +102,150 @@ export function prose(top, count, { x = 72, size = 11, font = 'Times-Roman', wid
   return lines;
 }
 
+// Words of public-domain prose (Hume, 1748, as above) for longer fixtures: paragraph i of a
+// book, deterministic, ending in a full stop. "self-evident" stands in some of them. The words
+// are taken in a stride that changes from paragraph to paragraph, so no two lines are the same
+// (a line printed on several pages is taken for a running head).
+const BOOK_WORDS = (PROSE + ' It is self-evident that the understanding demonstratively perceives the relations which are discoverable among ideas, and that experience alone instructs us concerning matters of fact and existence.').split(' ');
+function paragraphText(i, words) {
+  const out = [];
+  const stride = [1, 3, 7, 11, 13][i % 5];
+  for (let k = 0; k < words; k++) out.push(BOOK_WORDS[(i * 53 + k * stride + Math.floor(k / 17)) % BOOK_WORDS.length]);
+  const text = out.join(' ').replace(/[.,;:]+$/, '') + '.';
+  return text[0].toUpperCase() + text.slice(1);
+}
+// A paragraph set in lines of at most `width` characters (the first indented by `indent`
+// points and `indentChars` shorter). A long word that does not fit is broken with a hyphen
+// (every fifth break a soft hyphen, U+00AD, as some typesetters leave them), a hyphenated
+// word at its own hyphen.
+let breaks = 0;
+function setParagraph(text, { x = 72, indent = 18, width = 86, indentChars = 4, size = 11, font = 'Times-Roman' } = {}) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '', first = true;
+  const limit = () => first ? width - indentChars : width;
+  const push = () => { lines.push({ x: first ? x + indent : x, size, font, text: line }); line = ''; first = false };
+  for (const w of words) {
+    const next = line ? line + ' ' + w : w;
+    if (next.length <= limit()) { line = next; continue }
+    const room = limit() - line.length - 2;
+    const dash = w.indexOf('-');
+    if (dash > 0 && dash + 1 <= room) { line += ' ' + w.slice(0, dash + 1); push(); line = w.slice(dash + 1); continue }
+    const letters = /^[A-Za-z]+[,.;:]?$/.test(w) ? w.replace(/[,.;:]$/, '').length : 0;
+    if (line && letters >= 8 && room >= 4 && letters - room >= 3) {
+      const mark = ++breaks % 5 === 2 ? '­' : '-';
+      line += ' ' + w.slice(0, room) + mark; push(); line = w.slice(room); continue;
+    }
+    push(); line = w;
+  }
+  if (line) push();
+  return lines;
+}
+
+// 5. A book of prose: a title page, five chapters (each on a new page, in the outline), first
+//    lines indented, running heads and page numbers, words broken at line ends, paragraphs
+//    running over page breaks, and a footnote at the foot of chapter 2's first page.
+//    proseBook({ text: true }) also returns each chapter's paragraphs as written.
+export function proseBook({ text = false } = {}) {
+  breaks = 0;
+  const written = [];
+  const titles = ['Chapter 1. Of Ideas', 'Chapter 2. Of Impressions', 'Chapter 3. Of Custom', 'Chapter 4. Of Belief', 'Chapter 5. Of Necessity'];
+  const pages = [{ lines: [
+    { x: 150, y: 560, size: 24, font: 'Times-Bold', text: 'A Treatise of Small Things' },
+    { x: 250, y: 520, size: 14, font: 'Times-Roman', text: 'Ann Example' },
+  ] }];
+  const outline = [];
+  let para = 0;
+  const TOP = 700, FOOT = 90, PITCH = 15;
+  titles.forEach((title, c) => {
+    outline.push({ title, page: pages.length + 1 });
+    let page = { lines: [{ x: 72, y: 680, size: 16, font: 'Times-Bold', text: title }] };
+    let y = 640;
+    const opening = () => page.lines[0]?.text === title;
+    written.push({ title, paragraphs: [] });
+    for (let k = 0; k < 18 + c * 2; k++) {
+      const words = paragraphText(para, 45 + ((para * 37) % 70));
+      written.at(-1).paragraphs.push(words);
+      for (const l of setParagraph(words)) {
+        if (y < (c === 1 && opening() ? 150 : FOOT)) {
+          if (c === 1 && opening()) page.lines.push(
+            { x: 72, y: 110, size: 8, font: 'Times-Roman', text: '1 Hume first printed this argument in 1748, and he revised it for the edition' },
+            { x: 72, y: 100, size: 8, font: 'Times-Roman', text: 'that appeared after his death.' });
+          pages.push(page); page = { lines: [] }; y = TOP;
+        }
+        page.lines.push({ ...l, y }); y -= PITCH;
+      }
+      para++;
+    }
+    pages.push(page);
+  });
+  // Running heads (the book's title on even pages, the chapter's on odd) and page numbers.
+  pages.forEach((pg, i) => {
+    if (i === 0) return;
+    const chapter = titles[outline.filter(o => o.page <= i + 1).length - 1];
+    pg.lines.push({ x: 72, y: 750, size: 9, font: 'Helvetica', text: (i % 2 ? chapter : 'A Treatise of Small Things').toUpperCase() });
+    pg.lines.push({ x: 300, y: 50, size: 9, font: 'Helvetica', text: String(i + 1) });
+  });
+  const bytes = makePdf({ info: { Title: 'A Treatise of Small Things', Author: 'Ann Example' }, outline, pages });
+  return text ? { bytes, chapters: written } : bytes;
+}
+
+// 6. A two-column paper: title, authors, abstract and a DOI across the page, then two
+//    columns; figures across both columns with captions, display equations in Symbol,
+//    tables, numbered section headings and a references list on the last page.
+export function twoColumnPaper() {
+  breaks = 0;
+  const col = (x, top, bottom, from) => {
+    const lines = [];
+    let y = top, i = from;
+    while (y > bottom) {
+      for (const l of setParagraph(paragraphText(i, 40 + ((i * 29) % 50)), { x, indent: 10, width: 54, indentChars: 2, size: 9.5 })) {
+        if (y <= bottom) break;
+        lines.push({ ...l, y }); y -= 12.5;
+      }
+      i++;
+    }
+    return lines;
+  };
+  // Each equation its own (a line printed the same on several pages is a running head).
+  const equation = (x, y, n) => ({ x: x + 60, y, size: 10, font: 'Symbol', text: `\xe5 r(t) = \xf2 a(t) dt + ${n}` });
+  const table = (x, y) => [['Chapter', 'Words', 'Return', 'Rate'], ['1', '4,210', '0.81', '62%'], ['2', '6,980', '0.74', '55%'], ['3', '3,115', '0.88', '71%'], ['4', '9,402', '0.52', '38%'], ['5', '5,560', '0.79', '60%']]
+    .flatMap((row, r) => row.map((cell, k) => ({ x: x + k * 62, y: y - r * 13, size: 9, font: 'Times-Roman', text: cell })));
+  const pages = [{ lines: [
+    { x: 95, y: 720, size: 17, font: 'Times-Bold', text: 'Attention and Return in Long-Form Reading' },
+    { x: 235, y: 698, size: 10, font: 'Times-Roman', text: 'A. Researcher and B. Scholar' },
+    { x: 48, y: 672, size: 10, font: 'Times-Bold', text: 'Abstract' },
+    ...setParagraph(paragraphText(900, 90), { x: 48, indent: 0, width: 118, indentChars: 0, size: 9.5 }).map((l, i) => ({ ...l, y: 658 - i * 12 })),
+    { x: 48, y: 586, size: 9, font: 'Times-Roman', text: 'doi:10.5555/tinct.2026.001' },
+    { x: 48, y: 562, size: 11, font: 'Times-Bold', text: '1 Introduction' },
+    ...col(48, 545, 80, 0), ...col(315, 562, 80, 30),
+  ] }];
+  for (let n = 2; n <= 7; n++) {
+    const lines = [];
+    const images = [];
+    let top = 720;
+    // A figure across both columns, with its caption, on every other page.
+    if (n % 2 === 0) {
+      images.push({ x: 56, y: 470, w: 500, h: 250, pw: 50, ph: 25 });
+      lines.push({ x: 56, y: 455, size: 8, font: 'Times-Italic', text: `Figure ${n / 2}. Return rates across chapters of different lengths, by week of reading.` });
+      top = 435;
+    }
+    let left = col(48, top, 80, n * 40), right = col(315, top, 80, n * 40 + 20);
+    // A table in the left column, an equation in each column.
+    if (n === 3 || n === 5) left = [...left.filter(l => l.y > 400 || l.y < 300), ...table(48, 390)];
+    left = left.filter(l => Math.abs(l.y - 270) > 12); right = right.filter(l => Math.abs(l.y - 220) > 12);
+    if (n === 4) { left = left.filter(l => l.y < top - 20); left.unshift({ x: 48, y: top, size: 11, font: 'Times-Bold', text: '2 Method' }) }
+    lines.push(...left, equation(48, 270, n), ...right, equation(315, 220, n + 10));
+    pages.push({ lines, images });
+  }
+  pages.push({ lines: [
+    { x: 48, y: 720, size: 11, font: 'Times-Bold', text: 'References' },
+    ...Array.from({ length: 12 }, (_, i) => ({ x: 48, y: 700 - i * 22, size: 8.5, font: 'Times-Roman', text: `[${i + 1}] A. Author. On reading at length, part ${i + 1}. Journal of Reading ${10 + i}, ${2000 + i}.` })),
+  ] });
+  pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
+  return makePdf({ info: { Title: 'Attention and Return in Long-Form Reading' }, pages });
+}
+
 export function pdfFixtures() {
   // 1. A report with document info and bookmarks, under an unhelpful file name; a picture on page 4.
   const report = makePdf({
@@ -147,6 +294,9 @@ export function pdfFixtures() {
     'PossibleMinds Deutsch (1).pdf': essay,
     'IMG_20240512_scan.pdf': scan,
     'week3_notes_final-v2.pdf': note,
+    // 5 and 6 (above): the default edition is the Tinct text for the book, the pages for the paper.
+    'prose_book.pdf': proseBook(),
+    'two_column_paper.pdf': twoColumnPaper(),
   };
 }
 

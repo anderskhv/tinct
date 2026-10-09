@@ -69,6 +69,8 @@ export interface LabV2SheetProps {
   modernOffer?: { price: string; busy?: boolean; onBuy: () => void }
   /** Current reader path; the sign-in page returns here. */
   returnTo?: string
+  /** A reader's own PDF: Book editions picks between its Tinct text and its Original pages only. */
+  ownPdf?: boolean
 }
 
 /** A row's value and chevron, right-aligned in the mono the canvas uses. */
@@ -190,7 +192,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo, modernOffer }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, returnTo, modernOffer, ownPdf = false }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -367,6 +369,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
           {layer === 'editions' && (
             <div className="lab-v2-editions">
               {editionRow('Main version', 'mainEdition', editionName(prefs.primaryEdition), 'lab-v2-main-edition')}
+              {!ownPdf && <>
               {editionRow('Audiobook version', 'audioEdition', prefs.audioFollowsPrimary === false ? editionName(prefs.audioEdition) : 'Follow main version', 'lab-v2-audio-edition')}
               <div className="lab-v2-edition-divider" />
               {editionRow('Compare version', 'compareEdition', prefs.compareOpen ? editionName(prefs.compareEdition) : 'None', 'lab-v2-compare-edition')}
@@ -388,6 +391,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                         : 'Compare isn’t available for these two versions: their paragraphs don’t line up.'}
                 </p>
               )}
+              </>}
             </div>
           )}
           {picker && (

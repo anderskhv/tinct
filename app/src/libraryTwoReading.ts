@@ -40,7 +40,8 @@ import { wholeBookProgress } from '../public/lab/library-2-model.js'
 import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, readingList, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
 import { conciseChapterLabel } from './preReader/recapPosition'
 import { hideOwnFromReadingTable, ownReadingNow, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './lab/userBook/ownShelf'
-import { isUserBookId, userBookHex, userBookReaderUrl } from './lab/userBook/userBookId'
+import { isUserBookId, ownBookHref, userBookHex } from './lab/userBook/userBookId'
+import { pdfEditionChoice } from './lab/userBook/pdfEditions'
 import { ownShelfWithAccount } from './lab/userBook/ownSync'
 
 interface CatalogueBook {
@@ -279,7 +280,8 @@ export async function readerDestination(
   choice?: { compare?: string | null; explicit?: boolean; compareExplicit?: boolean },
 ): Promise<string> {
   // A reader's own book opens at its own URL; the reader restores the place kept on this device.
-  if (isUserBookId(bookId)) return userBookReaderUrl(userBookHex(bookId)!)
+  // A PDF read in its pages opens in Add a book's viewer (pdfEditions.ts).
+  if (isUserBookId(bookId)) { const hex = userBookHex(bookId)!; return ownBookHref(hex, null, pdfEditionChoice(hex)) }
   await ensureNativeBook(bookId)
   await ensurePublicBook(bookId).catch(() => {})
   const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])

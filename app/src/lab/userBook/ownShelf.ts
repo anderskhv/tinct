@@ -11,7 +11,8 @@
  */
 import { ADD_BOOK_IDB_NAME } from '../../services/storage'
 import { chapterProgress, conciseChapterLabel, positionLine } from '../../preReader/recapPosition'
-import { ownBookOpenUrl, userBookId, userBookReaderUrl } from './userBookId'
+import { ownBookHref, userBookId } from './userBookId'
+import { pdfEditionChoice } from './pdfEditions'
 import type { UserBookChapter } from './userEdition'
 
 /** A cover is kept up to this many pixels wide (the reading table draws it up to ~530 px at 2x). */
@@ -49,7 +50,7 @@ export interface OwnShelfBook {
   cover: string | null
   /** Last opened (or added) on this device. */
   at: number
-  /** Where the reader opens it: the Tinct reader for an EPUB, Add a book's viewer for a PDF. */
+  /** Where the reader opens it: the Tinct reader for an EPUB and a PDF read as Tinct text, Add a book's viewer for a PDF read in its pages. */
   href: string
   /** The saved place, for an EPUB being read (and not removed from the reading table since). */
   reading: OwnShelfReading | null
@@ -67,7 +68,9 @@ interface StoredRecord {
   cover?: unknown
   /** A PDF's page count and its scan (addbooks/web/src/js/pdf-scan.js): the chapters with their pages. */
   pages?: unknown
-  scan?: { entries?: unknown } | null
+  scan?: { entries?: unknown; layout?: { default?: unknown } | null } | null
+  /** A PDF's default edition (pdf-scan.js layout), kept with its Tinct text. */
+  layout?: { default?: unknown } | null
   edition?: { title?: unknown; author?: unknown; chapters?: unknown } | null
 }
 
@@ -192,7 +195,8 @@ function summarize(record: StoredRecord): OwnShelfBook | null {
     key, kind, hex, title, author,
     cover: typeof record.cover === 'string' && COVER_RE.test(record.cover) ? record.cover : null,
     at,
-    href: kind === 'epub' ? userBookReaderUrl(hex) : ownBookOpenUrl(hex),
+    // A PDF opens in the edition it is read in (pdfEditions.ts): its Tinct text or its pages.
+    href: ownBookHref(hex, kind, kind === 'pdf' ? pdfEditionChoice(hex, String(record.layout?.default ?? record.scan?.layout?.default ?? '') || null) : null),
     reading: kind === 'epub' ? ownReading(hex, chapters, at) : pdfReading(hex, record, at),
   }
 }
