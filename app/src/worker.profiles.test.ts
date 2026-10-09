@@ -9,7 +9,9 @@ import {
 import { ProfilesUnavailable, type AccountRow, type ProfileStore, type PublicCardRow, type ReaderProfileRow } from './worker/lib/profileStore'
 import { SOCIAL_ENTRY_SCRIPT, SOCIAL_META, withSocialMarkers } from './worker/routes/socialPages'
 import { EMAIL_CONSENT_VERSION, effectiveVisibility } from './social/profileRules'
-import { confirmUrl } from './worker/lifecycle/links'
+import { confirmUrl, verifyLink } from './worker/lifecycle/links'
+import { confirmLinkEmail, confirmLinkLimiter, confirmLinkSender, CONFIRM_LINK_SUBJECT } from './worker/routes/confirmLink'
+import { LIFECYCLE_TEST_GATE, isLifecycleTestRecipient } from './worker/routes/emails'
 import { handleEmailLink } from './worker/routes/emailLinks'
 
 const A = '11111111-1111-4111-8111-111111111111'
@@ -430,5 +432,133 @@ describe('email confirmation (one route: ship 4\'s signed /confirm)', () => {
     vi.unstubAllGlobals()
     const profile = await (await call(store, '/api/profile', { as: A })).json() as { profile: { emailConfirmed: boolean } }
     expect(profile.profile.emailConfirmed).toBe(true)
+  })
+})
+
+describe('"Send confirmation link" (POST /api/profile/confirm-link)', () => {
+  const secret = 'test-secret'
+  const NOW = Date.parse('2026-10-08T10:00:00Z')
+
+  /** The usage coordinator's windows (usageCoordinator.ts hit), in memory. */
+  function memoryWindows() {
+    const windows = new Map<string, { resetAt: number; count: number }>()
+    let clock = NOW
+    const namespace = {
+      getByName: (name: string) => ({
+        hit: async (limit: number, windowMs: number) => {
+          const row = windows.get(name)
+          if (!row || clock >= row.resetAt) { windows.set(name, { resetAt: clock + windowMs, count: 1 }); return true }
+          if (row.count >= limit) return false
+          row.count++
+          return true
+        },
+      }),
+    }
+    return { env: { USAGE_COORDINATOR: namespace as never }, advance: (ms: number) => { clock += ms } }
+  }
+
+  function setup(options: { sender?: boolean } = {}) {
+    const store = new MemoryStore(); seed(store)
+    for (const id of [A, B, C, D]) store.accounts.get(id)!.email = users[id].email
+    const sent: { to: string; userId: string }[] = []
+    const windows = memoryWindows()
+    const send = (as?: string) => {
+      const headers = new Headers()
+      if (as) headers.set('authorization', `Bearer ${as}`)
+      return handleProfiles(new Request('https://tinct.app/api/profile/confirm-link', { method: 'POST', headers }), on as never, {
+        store,
+        verifyUser: async req => users[req.headers.get('authorization')?.slice(7) ?? ''] ?? null,
+        now: () => new Date(NOW),
+        sendConfirmLink: options.sender === false ? null : async (to, userId) => { sent.push({ to, userId }); return true },
+        confirmLinkAllowed: confirmLinkLimiter(windows.env),
+      })
+    }
+    return { store, sent, send, windows }
+  }
+
+  it('is a profile route, signed-in only, and off with the profiles switch', async () => {
+    expect(isProfileApiPath('/api/profile/confirm-link')).toBe(true)
+    const { send, sent } = setup()
+    expect((await send()).status).toBe(401)
+    expect((await send('nobody')).status).toBe(401)
+    const store = new MemoryStore()
+    const off = await handleProfiles(new Request('https://tinct.app/api/profile/confirm-link', { method: 'POST', headers: { authorization: `Bearer ${A}` } }), { ...on, SOCIAL_PROFILES: '0' } as never, {
+      store, verifyUser: async () => users[A], sendConfirmLink: async () => true, confirmLinkAllowed: async () => true,
+    })
+    expect(off.status).toBe(404)
+    expect(store.calls).toBe(0)
+    expect(sent).toEqual([])
+  })
+
+  it('sends one email to the reader\'s own address, then refuses for 5 minutes and after 5 a day', async () => {
+    const { send, sent, windows } = setup()
+    const first = await send(A)
+    expect(first.status).toBe(200)
+    expect(await first.json()).toEqual({ ok: true })
+    expect(sent).toEqual([{ to: 'anders.h@example.com', userId: A }])
+    expect((await send(A)).status).toBe(429)
+    expect(sent).toHaveLength(1)
+    windows.advance(5 * 60_000)
+    for (let i = 0; i < 4; i++) {
+      expect((await send(A)).status).toBe(200)
+      windows.advance(5 * 60_000)
+    }
+    expect(sent).toHaveLength(5)
+    expect((await send(A)).status).toBe(429)
+    expect(sent).toHaveLength(5)
+    // Per account: another reader is not held up.
+    expect((await send(C)).status).toBe(200)
+    expect(sent).toHaveLength(6)
+  })
+
+  it('sends nothing when the email is already confirmed (Google counts as confirmed)', async () => {
+    const { store, send, sent } = setup()
+    store.accounts.get(A)!.email_confirmed_at = '2026-10-08T09:00:00Z'
+    expect(await (await send(A)).json()).toEqual({ ok: true, confirmed: true })
+    expect(await (await send(B)).json()).toEqual({ ok: true, confirmed: true })
+    expect(sent).toEqual([])
+  })
+
+  it('says nothing about an address: no stored or a different stored address answers like a send, and sends nothing', async () => {
+    const { store, send, sent } = setup()
+    store.accounts.get(A)!.email = 'someone.else@example.com'
+    store.accounts.get(C)!.email = null
+    for (const id of [A, C]) {
+      const response = await send(id)
+      expect(response.status).toBe(200)
+      expect(await response.json()).toEqual({ ok: true })
+    }
+    expect(sent).toEqual([])
+  })
+
+  it('without a sender (no EMAIL_LINK_SECRET or BREVO_API_KEY) or a limiter it is a 503 and sends nothing', async () => {
+    const { send } = setup({ sender: false })
+    expect((await send(A)).status).toBe(503)
+    expect(confirmLinkSender({ BREVO_API_KEY: 'k' })).toBeNull()
+    expect(confirmLinkSender({ EMAIL_LINK_SECRET: secret })).toBeNull()
+    expect(await confirmLinkLimiter({})(A)).toBe(false)
+  })
+
+  it('the email: welcome-email wording and the signed link /confirm accepts, sent to a real account past the lifecycle test gate', async () => {
+    expect(LIFECYCLE_TEST_GATE).toBe(true)
+    expect(isLifecycleTestRecipient('reader@gmail.com')).toBe(false)
+    const brevo = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => Response.json({ messageId: 'x' }))
+    vi.stubGlobal('fetch', brevo)
+    const sender = confirmLinkSender({ EMAIL_LINK_SECRET: secret, BREVO_API_KEY: 'k', LIFECYCLE_EMAILS: '0' }, () => NOW)!
+    expect(await sender('reader@gmail.com', A)).toBe(true)
+    expect(brevo).toHaveBeenCalledTimes(1)
+    const [target, init] = brevo.mock.calls[0]
+    expect(String(target)).toBe('https://api.brevo.com/v3/smtp/email')
+    const body = JSON.parse(String(init!.body)) as { to: { email: string }[]; subject: string; htmlContent: string; textContent: string; headers?: unknown }
+    expect(body.to).toEqual([{ email: 'reader@gmail.com' }])
+    expect(body.subject).toBe(CONFIRM_LINK_SUBJECT)
+    expect(body.headers).toBeUndefined()
+    expect(body.htmlContent).toContain('One click confirms this is your address:')
+    expect(body.htmlContent).toContain('>Confirm my email</a>')
+    const link = body.textContent.match(/Confirm my email: (\S+)/)![1]
+    expect(link).toMatch(/^https:\/\/tinct\.app\/confirm\?t=/)
+    expect(await verifyLink(secret, new URL(link).searchParams.get('t'), 'c', NOW)).toMatchObject({ u: A })
+    expect(body.htmlContent).toContain(`href="${link}"`)
+    expect(confirmLinkEmail('https://tinct.app/confirm?t=a"b').html).toContain('t=a&quot;b')
   })
 })

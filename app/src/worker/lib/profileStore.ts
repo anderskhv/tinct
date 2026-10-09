@@ -51,6 +51,8 @@ export interface PublicCardRow {
 }
 
 export interface AccountRow {
+  /** profiles.email: the address a confirm link is bound to (lifecycle/links.ts). */
+  email?: string | null
   email_opt_in: boolean
   email_confirmed_at: string | null
   email_consent_version: string | null
@@ -124,7 +126,7 @@ export function supabaseProfileStore(env: SupabaseEnv): ProfileStore {
       return (await rows<ReaderProfileRow>(env, `reader_profiles?id=eq.${id}&select=${OWN_COLUMNS}&limit=1`))[0] ?? null
     },
     async getAccount(id) {
-      return (await rows<AccountRow>(env, `profiles?id=eq.${id}&select=email_opt_in,email_confirmed_at,email_consent_version&limit=1`))[0] ?? null
+      return (await rows<AccountRow>(env, `profiles?id=eq.${id}&select=email,email_opt_in,email_confirmed_at,email_consent_version&limit=1`))[0] ?? null
     },
     async takenHandles(candidates) {
       if (!candidates.length) return new Set()

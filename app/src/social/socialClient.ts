@@ -110,6 +110,23 @@ export async function chooseGooglePhoto(token: string, fetchImpl: FetchLike = fe
   }
 }
 
+/**
+ * "Send confirmation link": asks the Worker to email the signed confirm link to
+ * the reader's own address. 'sent' (also when one went out a moment ago),
+ * 'confirmed' (nothing to send), or 'failed'. Never throws.
+ */
+export async function requestConfirmLink(token: string, fetchImpl: FetchLike = fetch): Promise<'sent' | 'confirmed' | 'failed'> {
+  try {
+    const res = await fetchImpl('/api/profile/confirm-link', { method: 'POST', headers: auth(token) })
+    if (res.status === 429) return 'sent'
+    if (!res.ok) return 'failed'
+    const data = await res.json().catch(() => ({})) as { confirmed?: unknown }
+    return data.confirmed === true ? 'confirmed' : 'sent'
+  } catch {
+    return 'failed'
+  }
+}
+
 // ===== Stored photos (fetched with the reader's token, shown as blob: URLs) =====
 
 const blobUrls = new Map<string, Promise<string | null>>()

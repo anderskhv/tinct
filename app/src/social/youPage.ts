@@ -35,6 +35,7 @@ import {
   ownPictureView,
   paintAvatar,
   paintBackground,
+  requestConfirmLink,
   saveProfile,
   socialProfilesOn,
   type OwnProfile,
@@ -51,6 +52,8 @@ let token = ''
 let userId: string | null = null
 let profile: OwnProfile | null = null
 let status: { text: string; tone: 'error' | 'neutral' } | null = null
+/** "Send confirmation link" was used on this visit: show the sent line instead of the button. */
+let confirmLinkSent = false
 
 function el<K extends keyof HTMLElementTagNameMap>(tag: K, props: Partial<HTMLElementTagNameMap[K]> & { dataset?: Record<string, string> } = {}, ...children: (Node | string | null | false)[]): HTMLElementTagNameMap[K] {
   const node = document.createElement(tag)
@@ -301,9 +304,36 @@ function viewVisibility(): Node[] {
     line: value === 'everyone' && !p.emailConfirmed ? 'Anyone with your link, once you confirm your email.' : VISIBILITY_COPY[value].line,
   }))
   return tickView('Who can see you', options, p.visibility, value => void apply(saveProfile(token, { visibility: value, setUp: true })), [
-    waiting ? el('p', { className: 'note' }, 'Until you confirm your email, friends can see you. The link is in your welcome email.') : null,
+    waiting ? el('p', { className: 'note' }, 'Until you confirm your email, friends can see you.') : null,
+    waiting ? confirmLinkControl() : null,
     el('p', { className: 'note' }, 'Highlights, notes and conversations are never shown to anyone.'),
   ])
+}
+
+/** "Send confirmation link" (approved 9 Oct 2026): one email with the confirm link, then "Check your email for the link." */
+function confirmLinkControl(): HTMLElement {
+  if (confirmLinkSent) return el('p', { className: 'note', dataset: { testid: 'confirm-link-sent' } }, 'Check your email for the link.')
+  const button = el('button', { type: 'button', className: 'primary' }, 'Send confirmation link')
+  button.dataset.testid = 'confirm-link'
+  button.addEventListener('click', async () => {
+    button.disabled = true
+    const outcome = await requestConfirmLink(token)
+    if (outcome === 'failed') {
+      status = { text: 'Please try again later.', tone: 'error' }
+      render()
+      return
+    }
+    if (outcome === 'confirmed') {
+      // Confirmed meanwhile (another tab, or the welcome link): show the fresh profile.
+      const fresh = await fetchOwnProfile(token, null)
+      if (fresh.ok) profile = fresh.profile
+    } else {
+      confirmLinkSent = true
+    }
+    status = null
+    render()
+  })
+  return button
 }
 
 function switchView(title: string, field: 'showReading' | 'showTime' | 'onLeaderboard', on: string, off: string): Node[] {

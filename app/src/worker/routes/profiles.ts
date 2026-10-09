@@ -10,11 +10,14 @@
  *                                     only while SOCIAL_PHOTO_UPLOADS is "1" (off at launch: a 404)
  *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others once approved and allowed
  *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
+ *   POST /api/profile/confirm-link    "Send confirmation link": one service email with the signed
+ *                                     /confirm link (routes/confirmLink.ts); 1 per 5 minutes, 5 a day
  *   GET  /api/profiles/{handle}       what this viewer may see of a profile (ship 3 builds the page on it)
  *
- * Email confirmation is not here: the welcome email's one link is ship 4's
- * signed /confirm?t= (routes/emailLinks.ts, lifecycle/links.ts), which sets the
- * same profiles.email_confirmed_at this module reads.
+ * Email confirmation is not here: the link (in the welcome email, or sent again
+ * by /api/profile/confirm-link) is ship 4's signed /confirm?t=
+ * (routes/emailLinks.ts, lifecycle/links.ts), which sets the same
+ * profiles.email_confirmed_at this module reads.
  *
  * Never returned to anyone: email, highlights, notes, chats, Talk.
  * Readers never write rows directly; this route writes only the caller's own.
@@ -75,6 +78,10 @@ export interface ProfileDeps {
   random?: () => number
   /** Analytics (social ship 3's funnel events): profile_created, profile_skipped, visibility_changed. */
   track?: (name: 'profile_created' | 'profile_skipped' | 'visibility_changed', userId: string, props?: Record<string, string>) => void
+  /** Sends the confirm-link service email (routes/confirmLink.ts confirmLinkSender). Absent: confirm-link is a 503. */
+  sendConfirmLink?: ((to: string, userId: string) => Promise<boolean>) | null
+  /** One confirm-link email for this account now? (1 per 5 minutes, 5 a day; false when the limiter is down.) */
+  confirmLinkAllowed?: (userId: string) => Promise<boolean>
 }
 
 export function socialProfilesOn(env: { SOCIAL_PROFILES?: string }): boolean {
@@ -484,6 +491,10 @@ export async function handleProfiles(
       return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user) }, 200, request)
     }
 
+    if (url.pathname === '/api/profile/confirm-link' && request.method === 'POST') {
+      return await sendConfirmLink(request, store, user, deps, now)
+    }
+
     return notFound(request)
   } catch (error) {
     if (error instanceof ProfilesUnavailable) {
@@ -493,6 +504,25 @@ export async function handleProfiles(
     }
     throw error
   }
+}
+
+/**
+ * "Send confirmation link". Takes no address: the link goes only to the
+ * signed-in reader's own address (profiles.email, which the link is bound to,
+ * and only while it is the address they signed in with). Every outcome that is
+ * not "already confirmed", "too soon" or "cannot send" answers the same
+ * { ok: true }, so the reply never says anything about an address.
+ */
+async function sendConfirmLink(request: Request, store: ProfileStore, user: ProfileAuthUser, deps: ProfileDeps, now: Date): Promise<Response> {
+  const account = await accountState(store, user, now)
+  if (account.emailConfirmed) return reply({ ok: true, confirmed: true }, 200, request)
+  if (!deps.sendConfirmLink || !deps.confirmLinkAllowed) return reply({ error: 'Unavailable' }, 503, request)
+  const row = await store.getAccount(user.id)
+  const to = typeof row?.email === 'string' ? row.email.trim() : ''
+  if (!to || to.toLowerCase() !== String(user.email || '').trim().toLowerCase()) return reply({ ok: true }, 200, request)
+  if (!await deps.confirmLinkAllowed(user.id)) return reply({ error: 'Too many requests' }, 429, request)
+  if (!await deps.sendConfirmLink(to, user.id)) return reply({ error: 'Unavailable' }, 503, request)
+  return reply({ ok: true }, 200, request)
 }
 
 /** The relationship-aware view of one profile (ship 3's page and lists use this). */
