@@ -73,7 +73,6 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .byob-ai-off { font: 13px/1.5 var(--pdf-ui); color: var(--pdf-muted); }
 .lab.is-phone.byob.chat-open .pdf-scroll { visibility: hidden; }
 .lab.is-phone.byob .lab-ask.byob-phone-chat { position: fixed; left: 0; right: 0; bottom: 0; top: var(--pdf-top, 56px); z-index: 45; }
-.byob-talk-on .lab-ask-voice { background: var(--pdf-ink); color: var(--pdf-paper); }
 .byob-toc-jump { padding: 6px 4px 14px; border-bottom: 1px solid var(--pdf-line); margin-bottom: 8px; }
 .byob .lab-desktop-audio-dock { z-index: 50; }
 .byob .lab-phone-bar.byob-transport { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; }
@@ -113,21 +112,14 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .byob-dock-grip:focus-visible::after { background: rgba(31,74,92,.5); }
 .byob-pg { font: 12px var(--pdf-ui); font-variant-numeric: tabular-nums; color: var(--lab-ink-muted, var(--pdf-muted)); margin-left: 8px; white-space: nowrap; }
 .lab.is-phone.byob .byob-pg { display: none; }
-/* Compact chat text, closer to a chat app than to the page */
-.lab.byob .lab-ask .lab-markdown, .lab.byob .lab-ask .lab-markdown p, .lab.byob .lab-ask .lab-markdown li, .lab.byob .lab-ask .lab-ask-user, .lab.byob .lab-ask .lab-ask-input, .lab.byob .lab-contextual-explain-scroll, .lab.byob .lab-contextual-explain-scroll p, .lab.byob .lab-contextual-explain-scroll li { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important; font-size: 15px !important; line-height: 1.5 !important; }
-.lab.byob .lab-ask .lab-markdown p, .lab.byob .lab-contextual-explain-scroll p { margin: 0 0 .6em !important; }
-.lab.byob .lab-ask .lab-markdown li { margin: 0 0 .25em !important; }
-.lab.byob .lab-ask .lab-ask-history-passage { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important; font-size: 13.5px !important; line-height: 1.45 !important; font-weight: 400 !important; color: var(--pdf-muted) !important; }
-.lab.byob .lab-ask .lab-ask-user { font-weight: 500 !important; }
-.lab.byob .lab-ask .lab-ask-turn { margin-bottom: 14px; }
+/* Compact explanation text in the popup. The chat itself is the shared thread (/lab/chat-thread.css): the book's type. */
+.lab.byob .lab-contextual-explain-scroll, .lab.byob .lab-contextual-explain-scroll p, .lab.byob .lab-contextual-explain-scroll li { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important; font-size: 15px !important; line-height: 1.5 !important; }
+.lab.byob .lab-contextual-explain-scroll p { margin: 0 0 .6em !important; }
 .byob-snip { position: fixed; inset: var(--pdf-top, 50px) 0 0 0; z-index: 60; cursor: crosshair; touch-action: none; background: rgba(11,11,11,.06); }
 .lab.byob.dock-open .byob-snip { right: calc(var(--dock-w) + 14px); }
 .byob-snip-hint { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); margin: 0; padding: 7px 8px 7px 14px; border-radius: 999px; background: var(--pdf-ink); color: var(--pdf-paper); font: 13px var(--pdf-ui); white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,.18); cursor: default; }
 .byob-snip-hint button { margin-left: 6px; border: 0; border-radius: 999px; padding: 3px 10px; background: var(--pdf-paper); color: var(--pdf-ink); font: inherit; cursor: pointer; }
 .byob-snip-box { position: fixed; border: 1.5px solid #1f4a5c; background: rgba(31,74,92,.08); box-shadow: 0 0 0 9999px rgba(11,11,11,.18); border-radius: 3px; pointer-events: none; }
-.lab.byob .lab-ask-composer { flex-wrap: wrap; }
-.lab.byob .lab-ask-composer .byob-tray { order: -1; }
-.lab.byob .lab-ask-composer .byob-attach { order: 2; margin-right: auto; align-self: center; padding: 4px; }
 .byob-tray { flex: 0 0 100%; display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 2px 8px; }
 .byob-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 4px 3px 3px; border: 1px solid var(--pdf-line); border-radius: 10px; background: var(--pdf-surface); font: 12px var(--pdf-ui); color: var(--pdf-ink); }
 .byob-chip img { height: 40px; max-width: 72px; object-fit: cover; border-radius: 7px; display: block; background: #fff; }
@@ -186,8 +178,5 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* The chapter pill in the theme (the desktop pill's fill is the light paper's). */
 .lab.byob.is-night .lab-header-chapter { background: var(--lab-surface); color: var(--lab-ink); }
 .lab.byob.is-book-theme.is-desktop .lab-header-chapter { background: color-mix(in srgb, var(--lab-surface) 70%, transparent); }
-/* The chat's place line in the UI face, not mono. */
-.lab.byob .lab-ask-location, .lab.byob .lab-ask-location * { font-family: var(--pdf-ui) !important; letter-spacing: .02em; }
-
 /* A clear edge under the top bar so it doesn't fade into the scrolling pages (Anders, 9 Oct 2026). */
 .byob .lab-header { border-bottom: 1px solid color-mix(in srgb, currentColor 16%, transparent); box-shadow: 0 6px 14px -10px rgba(0, 0, 0, .35); }
