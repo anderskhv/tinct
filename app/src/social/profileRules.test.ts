@@ -110,22 +110,29 @@ describe('who sees what', () => {
     expect(publicProfileView(card('everyone'), 'blocked')).toBeNull()
   })
 
+  const followerView = { handle: 'anders', name: 'Anders', picture: { kind: 'initial', value: null }, background: null, limited: true, shows: { reading: false, time: false, leaderboard: false } }
+
   it('Only me: nobody but the owner sees anything', () => {
-    for (const viewer of viewers) expect(publicProfileView(card('only_me'), viewer)).toBeNull()
+    for (const viewer of ['stranger', 'follower'] as const) expect(publicProfileView(card('only_me'), viewer)).toBeNull()
     expect(publicProfileView(card('only_me'), 'self')?.limited).toBe(false)
   })
 
-  it('Friends: friends see the profile; a stranger or one-way follower sees only the card', () => {
+  it('Friends: friends see the profile; a stranger or one-way follower sees nothing, as for Only me (privacy notice)', () => {
     const friend = publicProfileView(card('friends'), 'friend')!
     expect(friend.limited).toBe(false)
     expect(friend.shows).toEqual({ reading: true, time: true, leaderboard: true })
-    for (const viewer of ['stranger', 'follower'] as const) {
-      const view = publicProfileView(card('friends'), viewer)!
-      expect(view.limited).toBe(true)
-      expect(view.background).toBeNull()
-      expect(view.shows).toEqual({ reading: false, time: false, leaderboard: false })
-      expect(Object.keys(view).sort()).toEqual(['background', 'handle', 'limited', 'name', 'picture', 'shows'])
+    for (const viewer of ['stranger', 'follower'] as const) expect(publicProfileView(card('friends'), viewer)).toBeNull()
+  })
+
+  it('a reader who follows you shows to you by name and link with the initial, whatever their visibility, so you can remove or block them', () => {
+    for (const visibility of ['only_me', 'friends'] as const) {
+      expect(publicProfileView(card(visibility), 'followed')).toEqual(followerView)
     }
+    // Following them back does not open an Only me profile: still only the follower view.
+    expect(publicProfileView(card('only_me'), 'friend')).toEqual(followerView)
+    // Not even an approved photo shows in the follower view.
+    expect(publicProfileView(card('friends', { pictureKind: 'upload', pictureValue: 'abc123', pictureReview: 'approved' }), 'followed')!.picture).toEqual({ kind: 'initial', value: null })
+    expect(publicProfileView(card('only_me'), 'blocked')).toBeNull()
   })
 
   it('Everyone: every viewer sees the profile, as far as the switches allow', () => {
@@ -144,8 +151,8 @@ describe('who sees what', () => {
     expect(effectiveVisibility('everyone', false)).toBe('friends')
     expect(effectiveVisibility('everyone', true)).toBe('everyone')
     const waiting = card('everyone', { emailConfirmed: false })
-    expect(publicProfileView(waiting, 'stranger')!.limited).toBe(true)
-    expect(publicProfileView(waiting, 'follower')!.limited).toBe(true)
+    expect(publicProfileView(waiting, 'stranger')).toBeNull()
+    expect(publicProfileView(waiting, 'follower')).toBeNull()
     expect(publicProfileView(waiting, 'friend')!.limited).toBe(false)
   })
 

@@ -19,6 +19,7 @@ import { funnel, setFunnelToken, trackFunnel } from '../utils/funnel'
 import {
   fetchBoard,
   fetchFind,
+  followingAfter,
   paintPicture,
   searchReaders,
   shareOrCopy,
@@ -72,7 +73,8 @@ function podium(entries: BoardEntry[]): HTMLElement {
   for (const index of [1, 0, 2]) {
     const entry = entries[index]
     if (!entry) { box.append(el('span')); continue }
-    const place = el('a', { className: `place${entry.self ? ' is-self' : ''}`, href: profileHref(entry.handle), dataset: { rank: String(entry.rank) } },
+    // Board rows carry no link: others see only a name, picture and time (privacy notice).
+    const place = el('div', { className: `place${entry.me ? ' is-self' : ''}`, dataset: { rank: String(entry.rank) } },
       avatar(entry), el('span', { className: 'name' }, entry.name), el('span', { className: 'hours' }, entry.duration), el('span', { className: 'num' }, String(entry.rank)))
     box.append(place)
   }
@@ -80,10 +82,10 @@ function podium(entries: BoardEntry[]): HTMLElement {
 }
 
 function row(entry: BoardEntry): HTMLElement {
-  return el('a', { className: `row${entry.self ? ' is-self' : ''}`, href: profileHref(entry.handle), dataset: { testid: entry.self ? 'friends-row-self' : 'friends-row' } },
+  return el('div', { className: `row${entry.me ? ' is-self' : ''}`, dataset: { testid: entry.me ? 'friends-row-self' : 'friends-row' } },
     el('span', { className: 'num' }, String(entry.rank)),
     avatar(entry),
-    el('span', { className: 'who' }, el('b', {}, entry.name), entry.book ? el('i', {}, entry.book) : null),
+    el('span', { className: 'who' }, el('b', {}, entry.name)),
     el('span', { className: 'hours' }, entry.duration))
 }
 
@@ -103,10 +105,11 @@ function renderBoard(data: BoardData) {
     const rest = entries.slice(3)
     const list = el('div', { className: 'rows' }, ...rest.map(row))
     // Your own row and rank always show.
-    if (data.me && !entries.some(entry => entry.self)) list.append(row(data.me))
+    if (data.me && !entries.some(entry => entry.me)) list.append(row(data.me))
     nodes.push(list)
   }
-  if (data.tab === 'friends') nodes.push(el('p', { className: 'note' }, 'Friends are people you follow who follow you back.'))
+  // The empty Friends board already says what friends are.
+  if (data.tab === 'friends' && !onlyMe) nodes.push(el('p', { className: 'note' }, 'Friends are people you follow who follow you back.'))
   else nodes.push(el('p', { className: 'note' }, 'Readers who chose to appear, by reading and listening time.'))
   if (!data.meShown) {
     const settings = el('a', { href: `/you?view=settings&returnTo=${encodeURIComponent(`/friends?tab=${data.tab}`)}` }, 'Settings')
@@ -137,11 +140,18 @@ function person(row: FindRow): HTMLElement {
   }
   paint()
   button.addEventListener('click', async () => {
-    button.disabled = true
+    if (button.disabled) return
+    const before = relation
     const following = relation === 'friend' || relation === 'follower'
+    // Pending at once: the label the tap leads to, held until the answer comes.
+    relation = followingAfter(before, !following)
+    paint()
+    button.disabled = true
+    button.setAttribute('aria-busy', 'true')
     const result = await socialAction(token, following ? 'unfollow' : 'follow', row.handle)
-    if (result.ok && result.relation) relation = result.relation
+    relation = result.ok ? result.relation ?? relation : before
     button.disabled = false
+    button.removeAttribute('aria-busy')
     paint()
   })
   return el('div', { className: 'person', dataset: { testid: 'find-person' } },
@@ -174,7 +184,7 @@ async function renderFind() {
     searchTimer = setTimeout(async () => {
       const found = await searchReaders(token, q)
       if (input.value.trim() !== q) return
-      results.replaceChildren(el('h2', {}, 'Readers'), ...(found?.results.length ? found.results.map(person) : [el('p', { className: 'muted' }, 'No public reader by that name. Friends-only readers are found by their link.')]))
+      results.replaceChildren(el('h2', {}, 'Readers'), ...(found?.results.length ? found.results.map(person) : [el('p', { className: 'muted' }, 'No public reader by that name.')]))
       results.hidden = false
       browse.hidden = true
     }, 250)

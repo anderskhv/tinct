@@ -8,7 +8,8 @@
  */
 import { supabase } from '../services/supabase'
 import { funnel, setFunnelToken, trackFunnel } from '../utils/funnel'
-import { fetchProfile, reportProfile, socialAction, socialFriendsOn } from './friendsClient'
+import { fetchProfile, followingAfter, reportProfile, socialAction, socialFriendsOn } from './friendsClient'
+import type { Relation } from './profileRules'
 import { followButtonHtml, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
 import { privateImageUrl } from './socialClient'
 import { REPORT_REASONS, REPORT_REASON_COPY, type ReportReason } from './socialRules'
@@ -41,10 +42,17 @@ function paintPrivate() {
   else if (banner && data) banner.style.setProperty('--scene', `url("${data.banner.src}")`)
 }
 
+/** Follow from a link before the profile shows (a Friends profile opens once you follow each other). */
+let unseenRelation: Relation = 'stranger'
+
+function wellFormed(value: string): boolean {
+  return /^[a-z0-9_.]{3,20}$/.test(value) && /[a-z0-9]/.test(value)
+}
+
 function render() {
   if (!root || !main) return
   if (!data) {
-    main.innerHTML = profileMissingHtml()
+    main.innerHTML = profileMissingHtml(wellFormed(handle) ? followButtonHtml({ relation: token ? unseenRelation : null, handle }) : undefined)
     root.dataset.state = 'missing'
   } else {
     main.innerHTML = profileMainHtml(data)
@@ -92,10 +100,37 @@ function sheet(title: string, line: string, items: Array<{ label: string; run: (
   root?.append(scrim, box)
 }
 
+/** Follow and unfollow show their new state at once, held (and disabled) until the answer. */
+function pending(follow: boolean, relation: Relation | null) {
+  const button = main?.querySelector<HTMLElement>('[data-testid="profile-follow"]')
+  if (!button) return
+  const holder = document.createElement('div')
+  holder.innerHTML = followButtonHtml({ relation: followingAfter(relation, follow), handle })
+  const next = holder.firstElementChild as HTMLButtonElement | null
+  if (!next) return
+  next.disabled = true
+  next.setAttribute('aria-busy', 'true')
+  button.replaceWith(next)
+}
+
+async function actUnseen(action: 'follow' | 'unfollow') {
+  if (!token) return
+  const before = unseenRelation
+  pending(action === 'follow', before)
+  const result = await socialAction(token, action, handle)
+  if (!result.ok) { render(); status('That did not work. Please try again.'); return }
+  unseenRelation = result.relation ?? followingAfter(before, action === 'follow')
+  // Following back may open the profile: read it again.
+  const fresh = await fetchProfile(token, handle)
+  data = fresh?.profile ?? null
+  render()
+}
+
 async function act(action: 'follow' | 'unfollow' | 'remove-follower' | 'block') {
   if (!token || !data) return
+  if (action === 'follow' || action === 'unfollow') pending(action === 'follow', data.relation)
   const result = await socialAction(token, action, data.handle)
-  if (!result.ok) { status('That did not work. Please try again.'); return }
+  if (!result.ok) { render(); status('That did not work. Please try again.'); return }
   if (action === 'block') {
     data = null
     render()
@@ -103,9 +138,10 @@ async function act(action: 'follow' | 'unfollow' | 'remove-follower' | 'block') 
     return
   }
   data = { ...data, relation: result.relation ?? data.relation, followsYou: result.followsYou ?? data.followsYou }
-  // Following may open a Friends profile: read it again for what the visitor may now see.
+  // Following may open a Friends profile, unfollowing or removing may close it: read it again.
   const fresh = await fetchProfile(token, handle)
-  if (fresh) data = fresh.profile
+  data = fresh?.profile ?? null
+  if (!data) unseenRelation = result.relation ?? 'stranger'
   render()
   if (action === 'remove-follower') status('Removed. They no longer follow you.')
 }
@@ -113,8 +149,12 @@ async function act(action: 'follow' | 'unfollow' | 'remove-follower' | 'block') 
 function wire() {
   main?.addEventListener('click', event => {
     const target = (event.target as Element | null)?.closest<HTMLElement>('[data-action]')
-    if (!target || !data) return
+    if (!target || (target as HTMLButtonElement).disabled) return
     const action = target.dataset.action
+    if (!data) {
+      if (action === 'follow' || action === 'unfollow') void actUnseen(action)
+      return
+    }
     if (action === 'follow') void act('follow')
     else if (action === 'unfollow') {
       sheet(data.relation === 'friend' ? 'Unfollow?' : 'Stop following?', `${data.name} will no longer be on your Friends board.`, [{ label: 'Unfollow', run: () => void act('unfollow') }])

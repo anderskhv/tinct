@@ -219,7 +219,8 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     ? { kind: profile.picture.kind, value: profile.picture.value }
     : pictureForBook(null)
   if (picture.kind === 'initial' && !hint) picture = { kind: 'set', value: sets[0].id }
-  let visibility: Visibility = 'friends'
+  // A new profile is Only me until the reader picks otherwise (privacy notice).
+  let visibility: Visibility = 'only_me'
 
   const pictures = el('div', { className: 'social-pictures' })
   const pictureButtons: HTMLButtonElement[] = []
