@@ -28,8 +28,14 @@ import { supabaseInsertMinimal, type SupabaseEnv } from './supabase'
  *  - OpenAI, developers.openai.com/api/docs/pricing: gpt-4.1 $2.00/MTok input,
  *    $0.50 cached input, $8.00 output; web search tool $10.00 per 1,000 calls for
  *    non-reasoning models, search content tokens free. VERIFIED.
+ *
+ * Version 2026-10-09 adds:
+ *  - xAI grok-4-fast-non-reasoning (OCR of scanned own PDFs, image input billed
+ *    as input tokens): $0.20/MTok input, $0.50/MTok output, as stated in the
+ *    approved OCR plan of 9 Oct 2026. UNVERIFIED here (not re-fetched from
+ *    docs.x.ai/docs/models): re-check before OWN_PDF_OCR is switched on.
  */
-export const AI_PRICING_VERSION = '2026-09-30'
+export const AI_PRICING_VERSION = '2026-10-09'
 
 export interface AnthropicRates { inputPerMTok: number; outputPerMTok: number; cacheReadPerMTok: number; cacheWritePerMTok: number }
 
@@ -51,6 +57,9 @@ export const AI_PRICING = {
     voicePerMinute: 0.08,
     ttsPerMChars: 15,
     sttPerHour: 0.1,
+    /** grok-4-fast-non-reasoning, the OCR model (worker/lib/ocrVision.ts). */
+    ocrInputPerMTok: 0.2,
+    ocrOutputPerMTok: 0.5,
   },
   openai: {
     'gpt-4.1': { inputPerMTok: 2, cachedInputPerMTok: 0.5, outputPerMTok: 8 },
@@ -60,7 +69,7 @@ export const AI_PRICING = {
 
 export type AiFeature =
   | 'chat' | 'explain' | 'librarian' | 'recap' | 'chapter_notes' | 'catch_up' | 'lab_chat' | 'talk'
-  | 'narration_generate' | 'narration_listen' | 'source_search' | 'dictation'
+  | 'narration_generate' | 'narration_listen' | 'source_search' | 'dictation' | 'ocr'
 export type AiProvider = 'anthropic' | 'xai' | 'openai'
 
 export interface AnthropicUsage {
@@ -94,6 +103,11 @@ export function narrationCostUsd(chars: number): number {
 /** Chat dictation (xAI REST speech-to-text), by seconds of audio. Never part of an AI allowance. */
 export function dictationCostUsd(seconds: number): number {
   return round5(Math.max(0, seconds) / 3600 * AI_PRICING.xai.sttPerHour)
+}
+
+/** One OCR page (xAI vision, chat-completions usage), by tokens. Never part of an AI allowance. */
+export function ocrCostUsd(inputTokens: number, outputTokens: number): number {
+  return round5((count(inputTokens) * AI_PRICING.xai.ocrInputPerMTok + count(outputTokens) * AI_PRICING.xai.ocrOutputPerMTok) / 1_000_000)
 }
 
 export interface OpenAiUsage { input_tokens?: number; output_tokens?: number; input_tokens_details?: { cached_tokens?: number } }

@@ -257,11 +257,12 @@ export type GatedAiFeature = AiFeature | 'dictation'
 
 /**
  * Never charged (Anders, 2026-10-06): their cost stays out of the allowance.
- * Narration (generating and listening) and chat dictation. The SQL spend sum
- * excludes exactly these (ai_spend_micros in
- * 20261007_ai_allowance_never_charged.sql; a test keeps the two equal).
+ * Narration (generating and listening), chat dictation and recognising the
+ * text of a scanned own PDF ('ocr', which has its own page and dollar
+ * ceilings: lib/ownOcr.ts). The SQL spend sum excludes exactly these
+ * (ai_spend_micros in 20261009_ai_usage_ocr.sql; a test keeps the two equal).
  */
-export const NEVER_CHARGED_AI_FEATURES: readonly GatedAiFeature[] = Object.freeze(['narration_listen', 'narration_generate', 'dictation'] as const)
+export const NEVER_CHARGED_AI_FEATURES: readonly GatedAiFeature[] = Object.freeze(['narration_listen', 'narration_generate', 'dictation', 'ocr'] as const)
 
 /**
  * Never blocked: the never-charged features, plus Explain and Define (metered
