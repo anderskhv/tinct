@@ -209,6 +209,24 @@ describe('/api/user-books/ocr', () => {
     for (const spy of logs) expect(spy).not.toHaveBeenCalled()
   })
 
+  it('tells the reader asking their tier and their month, before any job too, so the reader can offer it', async () => {
+    const s = setup({ tier: id => (id === A ? 'premium' : 'none') })
+    const first = await s.addBook('token-a')
+    await s.start(first.hex, { pages: 2 })
+    await s.put(first.hex, 1)
+    await s.put(first.hex, 2)
+    await s.runJob(A, first.hex)
+    const second = await s.addBook('token-a', pdfBytes('second'))
+    expect(await (await s.call(`/api/user-books/ocr/${second.hex}`, { token: 'token-a' })).json())
+      .toMatchObject({ state: 'none', tier: 'premium', month: { used: 2, limit: 1500 } })
+    expect(await (await s.call(`/api/user-books/ocr/${first.hex}`, { token: 'token-a' })).json()).toMatchObject({ state: 'done', tier: 'premium' })
+    const free = await s.addBook('token-b')
+    expect(await (await s.call(`/api/user-books/ocr/${free.hex}`, { token: 'token-b' })).json()).toMatchObject({ state: 'none', tier: 'none' })
+    const trial = setup({ tier: () => 'trial' })
+    const book = await trial.addBook('token-a')
+    expect(await (await trial.call(`/api/user-books/ocr/${book.hex}`, { token: 'token-a' })).json()).toMatchObject({ state: 'none', tier: 'trial', month: { used: 0, limit: 300 } })
+  })
+
   it('shows a trial account the trial ceiling', async () => {
     const s = setup({ tier: () => 'trial' })
     const { hex } = await s.addBook('token-a')

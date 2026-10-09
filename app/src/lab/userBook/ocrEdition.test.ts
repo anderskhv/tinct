@@ -5,7 +5,7 @@
  * else 20 pages each) and every paragraph anchored to its PDF page.
  */
 import { describe, expect, it } from 'vitest'
-import { assembleOcrEdition, ocrFailedPageText, type OcrPage } from './ocrEdition'
+import { assembleOcrEdition, ocrDefaultEdition, ocrFailedPageText, type OcrPage } from './ocrEdition'
 import { OCR_EDITION_FORMAT, PDF_TEXT_CONVERTER, USER_EDITION_CONVERTER, USER_EDITION_FORMAT, usableUserEdition, type UserBookEdition } from './userEdition'
 
 const p = (x: string) => ({ t: 'p' as const, x })
@@ -132,6 +132,30 @@ describe('assembleOcrEdition', () => {
     const b = assembleOcrEdition({ ...book, pages: [...pages].reverse() })
     expect(a).toEqual(b)
     expect(a.chapters[0].paragraphs).toEqual(['First.', 'Second.'])
+  })
+
+  it('reports its layout: recognised pages, pages set in two or more columns, pages with equations', () => {
+    const edition = assembleOcrEdition({ ...book, pages: [
+      page(1, [p('Prose.')], { columns: 2 }),
+      page(2, [p('More.'), { t: 'eq', x: 'E = mc^2' }], { columns: 1 }),
+      page(3, [], { blank: true, columns: 2 }),
+      page(4, [], { failed: true }),
+      page(5, [p('End.')]),
+    ] })
+    expect(edition.ocrLayout).toEqual({ pages: 3, columns: 1, equations: 1 })
+  })
+
+  it('opens as Tinct text unless it is set in columns on ≥30% of its pages and has equations on ≥20%', () => {
+    const many = (n: number, of: (i: number) => OcrPage) => Array.from({ length: n }, (_, i) => of(i + 1))
+    const paper = (columnPages: number, equationPages: number) => assembleOcrEdition({ ...book, pages: many(10, n => page(n, [p(`Page ${n}.`), ...(n <= equationPages ? [{ t: 'eq' as const, x: 'x = 1' }] : [])], { columns: n <= columnPages ? 2 : 1 })) })
+    expect(ocrDefaultEdition(paper(3, 2))).toBe('pages')
+    expect(ocrDefaultEdition(paper(10, 10))).toBe('pages')
+    expect(ocrDefaultEdition(paper(2, 10))).toBe('text')
+    expect(ocrDefaultEdition(paper(10, 1))).toBe('text')
+    expect(ocrDefaultEdition(paper(0, 0))).toBe('text')
+    // An edition without a layout (or any other) reads as text.
+    expect(ocrDefaultEdition({ ...paper(10, 10), ocrLayout: undefined })).toBe('text')
+    expect(ocrDefaultEdition(null)).toBe('text')
   })
 
   it('has no chapters when nothing was recognised', () => {

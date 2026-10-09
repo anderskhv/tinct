@@ -62,8 +62,13 @@ export interface OcrStatus {
   blank: number
   reason?: OcrPauseReason | 'abandoned' | 'no_text'
   resumesAt?: number
+  /** The pages still to upload, in order (absent when none): a device resumes from here. */
+  missing?: number[]
   month: { used: number; limit: number }
 }
+
+/** Who asks for a status: their own pages this month and their tier's ceiling (the job's owner, or a reader with no job yet). */
+export interface OcrViewer { userId: string; tier: PremiumTier | null }
 
 export interface OcrStartInput {
   userId: string
@@ -71,7 +76,11 @@ export interface OcrStartInput {
   pages: number
   title: string
   author: string
-  /** Pages the device found blank (ink under 0.3 %): never sent, never charged. */
+  /**
+   * Pages the device found blank (ink under 0.3 %): never sent, never charged.
+   * Also taken when the job exists, for pages still missing (a device finds
+   * them while it uploads).
+   */
   blank?: number[]
   rerun?: 'failed' | 'all'
   tier: PremiumTier
@@ -210,6 +219,10 @@ export class OwnOcrCoordinator extends DurableObject<OwnOcrEnv> {
     } else {
       // The owner asked with Premium: a pause for lapsed Premium is over.
       this.ctx.storage.sql.exec("UPDATE job SET tier = ?, tier_at = ?, updated_at = ?, abandoned = 0, paused = CASE WHEN paused = 'premium_required' THEN NULL ELSE paused END WHERE id = 1", input.tier, now, now)
+      // Blank pages found since the start: only a page still missing becomes blank.
+      for (const n of new Set(input.blank ?? [])) {
+        if (Number.isInteger(n) && n >= 1 && n <= job.pages) this.ctx.storage.sql.exec("UPDATE page SET state = 'blank' WHERE n = ? AND state = 'missing'", n)
+      }
       if (input.rerun === 'failed') {
         const failed = this.ctx.storage.sql.exec<{ n: number }>("SELECT n FROM page WHERE state = 'failed'").toArray()
         for (const { n } of failed) {
@@ -249,16 +262,22 @@ export class OwnOcrCoordinator extends DurableObject<OwnOcrEnv> {
     return true
   }
 
-  async status(): Promise<OcrStatus> {
+  /**
+   * The job's state and counts, and the month of `viewer` (the reader asking;
+   * else the job's owner under the job's tier).
+   */
+  async status(viewer?: OcrViewer): Promise<OcrStatus> {
     const job = this.job()
     const now = this.deps().now()
     const limits = ownOcrLimits(this.env)
-    const used = job && this.env.NARRATION_COORDINATOR ? await ocrPagesThisMonth(this.env.NARRATION_COORDINATOR, job.user_id, now).catch(() => 0) : 0
-    const month = { used, limit: monthlyPageLimit(limits, job?.tier as PremiumTier | null) }
+    const userId = viewer?.userId ?? job?.user_id
+    const used = userId && this.env.NARRATION_COORDINATOR ? await ocrPagesThisMonth(this.env.NARRATION_COORDINATOR, userId, now).catch(() => 0) : 0
+    const month = { used, limit: monthlyPageLimit(limits, (viewer?.tier ?? job?.tier) as PremiumTier | null) }
     if (!job) return { state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month }
     const counts: Record<OcrPageState, number> = { missing: 0, ready: 0, done: 0, failed: 0, blank: 0 }
     for (const row of this.ctx.storage.sql.exec<{ state: OcrPageState; c: number }>('SELECT state, COUNT(*) AS c FROM page GROUP BY state').toArray()) counts[row.state] = row.c
-    const base = { pages: job.pages, uploaded: counts.ready + counts.done + counts.failed, done: counts.done, failed: counts.failed, blank: counts.blank, month }
+    const missing = counts.missing > 0 ? this.ctx.storage.sql.exec<{ n: number }>("SELECT n FROM page WHERE state = 'missing' ORDER BY n").toArray().map(row => row.n) : []
+    const base = { pages: job.pages, uploaded: counts.ready + counts.done + counts.failed, done: counts.done, failed: counts.failed, blank: counts.blank, ...(missing.length ? { missing } : {}), month }
     if (job.finished === 'done') return { state: 'done', ...base }
     if (job.finished === 'no_text') return { state: 'failed', ...base, reason: 'no_text' }
     if (job.paused) return { state: 'paused', ...base, reason: job.paused as OcrPauseReason, ...(job.resumes_at ? { resumesAt: job.resumes_at } : {}) }

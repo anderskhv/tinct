@@ -52,7 +52,7 @@
  * var OWN_PDF_OCR is "1", and every route below answers 404 while it is not):
  *
  *   POST   /api/user-books/ocr/{bookHex}           start `{ pages, blank?, rerun?: 'failed'|'all' }`
- *   GET    /api/user-books/ocr/{bookHex}           the job's status and this month's pages
+ *   GET    /api/user-books/ocr/{bookHex}           the job's status, pages still to upload, the reader's tier and month
  *   PUT    /api/user-books/ocr/{bookHex}/pages/{n} one page image (image/jpeg, at most 1.5 MB)
  *   GET    /api/user-books/ocr/{bookHex}/edition   the recognised Tinct text
  *   DELETE /api/user-books/ocr/{bookHex}           cancel: unused page reservations back, everything deleted
@@ -508,7 +508,11 @@ async function handleOcr(request: Request, env: UserBooksEnv, deps: OcrRouteDeps
     }
     return reply({ ok: true }, 200, request)
   }
-  if (request.method === 'GET') return reply(await job.status(), 200, request)
+  // The reader's tier and month come too: the reader offers recognition from them.
+  if (request.method === 'GET') {
+    const tier = await tierOf(deps, user.id)
+    return reply({ ...await job.status({ userId: user.id, tier }), tier }, 200, request)
+  }
   if (request.method === 'DELETE') {
     const { refunded } = await job.cancel()
     await purgePrefix(bucket, ownOcrPrefix(user.id, bookHex))

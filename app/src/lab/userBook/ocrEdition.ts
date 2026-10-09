@@ -21,7 +21,9 @@
  *  - every paragraph records the PDF page it starts on (`pages`) and a page
  *    that begins inside a paragraph is a `pageBreaks` entry [paragraph, word, page],
  *    word being the first whole word on that page;
- *  - a page that could not be recognised stands as one placeholder paragraph.
+ *  - a page that could not be recognised stands as one placeholder paragraph;
+ *  - the edition reports its layout (`ocrLayout`): pages recognised, set in
+ *    columns and carrying equations, for the edition it opens in.
  */
 import type { UserBookParagraphKind } from './userEdition'
 import { OCR_EDITION_FORMAT, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition } from './userEdition'
@@ -220,6 +222,7 @@ export function assembleOcrEdition(input: OcrAssembleInput): UserBookEdition {
     return chapter
   })
 
+  const recognised = pages.filter(page => !page.blank && !page.failed)
   return {
     format: USER_EDITION_FORMAT,
     converter: OCR_EDITION_FORMAT,
@@ -229,5 +232,27 @@ export function assembleOcrEdition(input: OcrAssembleInput): UserBookEdition {
     language: input.language ?? '',
     chapters: out,
     droppedImages: 0,
+    ocrLayout: {
+      pages: recognised.length,
+      columns: recognised.filter(page => (page.columns ?? 1) >= 2).length,
+      equations: recognised.filter(page => page.blocks.some(block => block.t === 'eq')).length,
+    },
   }
+}
+
+/** A recognised text opens in Original pages when this share of its pages is set in columns... */
+export const OCR_PAGES_COLUMN_SHARE = 0.3
+/** ...and this share carries equations (a paper); otherwise it opens as Tinct text. */
+export const OCR_PAGES_EQUATION_SHARE = 0.2
+
+/**
+ * The edition a scanned PDF opens in once its text is recognised: Tinct text,
+ * unless the job found two or more columns on at least 30% of its pages and
+ * equations on at least 20% (the same rule as TinctPdfText.ocrDefault in
+ * addbooks/web/src/js/pdf-text.js).
+ */
+export function ocrDefaultEdition(edition: Pick<UserBookEdition, 'ocrLayout'> | null | undefined): 'text' | 'pages' {
+  const layout = edition?.ocrLayout
+  if (!layout || !(layout.pages > 0)) return 'text'
+  return layout.columns / layout.pages >= OCR_PAGES_COLUMN_SHARE && layout.equations / layout.pages >= OCR_PAGES_EQUATION_SHARE ? 'pages' : 'text'
 }

@@ -127,6 +127,56 @@ describe('OwnOcrCoordinator: a job from upload to Tinct text', () => {
     expect(await w.job().pageUploaded(2)).toBe(false)
   })
 
+  it('lists the pages still to upload, so a device resumes where it stopped', async () => {
+    const w = world()
+    await w.start(5, { blank: [3] })
+    expect(await w.job().status()).toMatchObject({ state: 'uploading', missing: [1, 2, 4, 5] })
+    await w.upload(1, 4)
+    expect(await w.job().status()).toMatchObject({ missing: [2, 5] })
+    await w.upload(2, 5)
+    await w.run()
+    const done = await w.job().status()
+    expect(done).toMatchObject({ state: 'done' })
+    expect(done.missing).toBeUndefined()
+  })
+
+  it('takes blank pages the device finds after the start (never sent, never charged), and finishes', async () => {
+    const w = world()
+    await w.start(3)
+    await w.upload(1)
+    await w.run()
+    // Found blank while uploading: told with the same start.
+    expect(await w.start(3, { blank: [2] })).toMatchObject({ blank: 1, missing: [3] })
+    // A page already uploaded is not made blank.
+    expect(await w.start(3, { blank: [1] })).toMatchObject({ blank: 1, done: 1 })
+    await w.upload(3)
+    await w.run()
+    expect(await w.job().status()).toMatchObject({ state: 'done', done: 2, blank: 1 })
+    expect(w.calls.map(call => call.page)).toEqual([1, 3])
+    expect(w.usageOf(`ocr-pages:${USER}`)).toBe(2)
+  })
+
+  it('finishes when the last missing pages turn out blank', async () => {
+    const w = world()
+    await w.start(2)
+    await w.upload(1)
+    await w.run()
+    expect(await w.job().status()).toMatchObject({ state: 'uploading' })
+    await w.start(2, { blank: [2] })
+    await w.run()
+    expect(await w.job().status()).toMatchObject({ state: 'done', done: 1, blank: 1 })
+  })
+
+  it('names the month of the account asking: its own pages, and the trial ceiling in the trial, with or without a job', async () => {
+    const w = world()
+    expect(await w.job().status({ userId: USER, tier: 'trial' })).toMatchObject({ state: 'none', month: { used: 0, limit: 300 } })
+    await w.start(2)
+    await w.upload(1, 2)
+    await w.run()
+    expect(await w.job().status({ userId: USER, tier: 'trial' })).toMatchObject({ state: 'done', month: { used: 2, limit: 300 } })
+    expect(await w.job().status({ userId: USER, tier: 'premium' })).toMatchObject({ month: { used: 2, limit: 1500 } })
+  })
+
   it('processes at most 24 pages a run, four at a time, and runs again a second later', async () => {
     const w = world()
     let inFlight = 0

@@ -90,6 +90,12 @@ export interface UserBookEdition {
   chapters: UserBookChapter[]
   /** Pictures left out of the text. */
   droppedImages: number
+  /**
+   * Recognised text only (`source: 'ocr'`): how many pages were recognised,
+   * how many of them are set in two or more columns and how many carry
+   * equations, which decide the edition it opens in (ocrEdition.ts ocrDefaultEdition).
+   */
+  ocrLayout?: { pages: number; columns: number; equations: number }
 }
 
 /** The rule sets an edition from `source` may have been made with (absent: an EPUB). */
