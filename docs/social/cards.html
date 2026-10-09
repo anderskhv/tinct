@@ -184,6 +184,26 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
 .r > .seg.in { margin-left: auto; }
 .g { border-top: 0; }
 .head + .body > .g:first-child, .body > .g:first-child { border-top: 1px solid var(--sep); }
+
+/* grouped style (iOS Settings): grey ground, white rounded groups, inset dividers only inside a group */
+.card, .panel { --ground: #f2f2f2; --group: #ffffff; }
+.dm .card, .dm .panel, .dark { --ground: #0f0f0f; --group: #1f1f1f; }
+.g { background: var(--group); border: 0 !important; border-radius: 14px; overflow: hidden; }
+.body > .g:first-child { border-top: 0 !important; }
+.r { padding: 0 14px; }
+.r + .r::before { left: 14px; right: 0; }
+.r.col, .meter { padding: 13px 14px 14px; }
+.bars { padding: 0 14px 14px; }
+.circle { border: 0; background: rgba(0,0,0,.06); }
+.dm .circle { background: rgba(255,255,255,.1); }
+.prof .close, .prof .back { background: rgba(255,255,255,.88); }
+.dm .prof .close, .dm .prof .back { background: rgba(31,31,31,.85); }
+.search { border: 0; background: #ffffff; }
+.dm .search { background: #1f1f1f; }
+.seg.in { background: #e3e3e3; } .dm .seg.in { background: #333; }
+.pop .g { box-shadow: none; }
+.three div + div::before { background: var(--sep); }
+.dm .menu, .menu { background: var(--group); }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -356,7 +376,7 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
                 <div class="r"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
               
-              <div class="g"><div class="r"><span class="l">New books in</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
+              <div class="g"><div class="r"><span class="l">New books</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
               
               <div class="g">
                 <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
@@ -450,7 +470,7 @@ body { margin: 0; background: var(--stage); color: var(--note); font-family: var
                 <div class="r"><span class="l">Join the leaderboard <span class="info">i</span></span><span class="sw on"></span></div>
               </div>
               
-              <div class="g"><div class="r"><span class="l">New books in</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
+              <div class="g"><div class="r"><span class="l">New books</span><div class="seg in"><span class="on">Modern (AI)</span><span>Original</span></div></div></div>
               
               <div class="g">
                 <div class="r"><span class="l">Account type</span><span class="v">Premium</span><span class="chev"><svg><use href="#ch"/></svg></span></div>
