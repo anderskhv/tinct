@@ -5,7 +5,9 @@
 // the reader's own account (/api/user-books/ocr/{hex}, app/src/worker/routes/userBooks.ts);
 // the account recognises them and assembles the Tinct text (app/src/lab/userBook/ocrEdition.ts).
 //   - Each page is drawn with its long edge at 1600 px, in greyscale, as a JPEG of quality 0.75.
-//   - A page with less than 0.3% ink is blank: never sent (and never counted).
+//   - A page with less than 0.3% ink is blank: never sent (and never counted), unless it has
+//     faint print: 1% of it well darker than its paper (a light scan of small type, where
+//     hardly a pixel is dark, as a 1911 Britannica page in the real test of 9 Oct 2026).
 //   - Four pages are sent at a time, and only while the page is visible; the job resumes from
 //     what the account says is still missing (GET status `missing`), on this device or another.
 //   - The reader is asked once per book, never automatically. A free account is told, once, in
@@ -20,6 +22,10 @@
   const BLANK_INK = 0.003;
   /** A pixel darker than this (0-255 grey) is ink. */
   const INK_LEVEL = 128;
+  /** Faint print: a pixel this much darker than the page's paper (its median grey)... */
+  const FAINT_BELOW_PAPER = 64;
+  /** ...on at least this share of the page is text, however light the scan. */
+  const FAINT_INK = 0.01;
   const PARALLEL = 4;
   const POLL_MS = 5000;
   /** Waiting after the account's upload rate limit (120 pages a minute). */
@@ -196,6 +202,26 @@
     return px ? ink / px : 0;
   }
 
+  /**
+   * The share of a greyed page (greyInk first) well darker than its paper, its median grey.
+   * With its `width`, only the middle of the page counts: a scan's dark gutter and edges are not print.
+   */
+  function faintInk(data, width = 0) {
+    const counts = new Uint32Array(256);
+    const all = data.length / 4;
+    const w = width > 0 ? width : all, h = all / w;
+    const mx = width > 0 ? Math.floor(w * 0.08) : 0, my = width > 0 ? Math.floor(h * 0.08) : 0;
+    let px = 0;
+    for (let y = my; y < h - my; y++) for (let x = mx, i = (y * w + mx) * 4; x < w - mx; x++, i += 4) { counts[data[i]]++; px++ }
+    let seen = 0, paper = 255;
+    for (let y = 0; y < 256; y++) { seen += counts[y]; if (seen * 2 >= px) { paper = y; break } }
+    let faint = 0;
+    for (let y = 0; y < paper - FAINT_BELOW_PAPER; y++) faint += counts[y];
+    return px ? faint / px : 0;
+  }
+  /** Blank: hardly any ink and no faint print either. Greys `data` in place. */
+  const isBlank = (data, width = 0) => greyInk(data) < BLANK_INK && faintInk(data, width) < FAINT_INK;
+
   /** One page as the account takes it: { blank: true }, or { blank: false, blob } (greyscale JPEG). */
   async function renderPage(pdf, n, doc = global.document) {
     const page = await pdf.getPage(n);
@@ -208,7 +234,7 @@
       ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
       await page.render({ canvasContext: ctx, viewport }).promise;
       const image = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      if (greyInk(image.data) < BLANK_INK) return { blank: true };
+      if (isBlank(image.data, image.width)) return { blank: true };
       ctx.putImageData(image, 0, 0);
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', JPEG_QUALITY));
       if (!blob) throw Object.assign(new Error('render_failed'), { code: 'render_failed' });
@@ -256,6 +282,6 @@
   global.TinctPdfOcr = {
     RENDER_EDGE, JPEG_QUALITY, BLANK_INK, INK_LEVEL, PARALLEL, POLL_MS,
     FREE_LINE, READY, SHELF, LATER,
-    view, shelfLine, toSend, upload, run, defaultEdition, greyInk, renderPage, api, canStart,
+    view, shelfLine, toSend, upload, run, defaultEdition, greyInk, faintInk, isBlank, renderPage, api, canStart,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

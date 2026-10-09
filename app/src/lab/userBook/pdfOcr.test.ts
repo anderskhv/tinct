@@ -26,6 +26,8 @@ interface OcrApi {
   run: (ctx: Record<string, unknown>) => Promise<Status | null>
   defaultEdition: (edition: unknown) => 'text' | 'pages'
   greyInk: (data: Uint8ClampedArray) => number
+  faintInk: (data: Uint8ClampedArray, width?: number) => number
+  isBlank: (data: Uint8ClampedArray, width?: number) => boolean
   api: (options: Record<string, unknown>) => { status: (hex: string) => Promise<Status | null>; put: (hex: string, n: number, blob: Blob) => Promise<string> }
 }
 
@@ -277,6 +279,32 @@ describe('pages and their ink', () => {
     // Grey now: red, green and blue the same.
     expect(some[0]).toBe(some[1])
     expect(some[1]).toBe(some[2])
+  })
+
+  // The real test of 9 Oct 2026: a 1911 Britannica page (two columns of small type, a light scan)
+  // had 0.17% of its pixels under 128 and was called blank; 4.4% of it is 64 below its paper.
+  it('is not blank with faint print: 1% of the page well darker than its paper', () => {
+    const page = (paper: number, print: number, printed: number, of = 10000) => {
+      const data = new Uint8ClampedArray(of * 4).fill(paper)
+      for (let i = 0; i < printed; i++) data[i * 4] = data[i * 4 + 1] = data[i * 4 + 2] = print
+      for (let i = 0; i < of; i++) data[i * 4 + 3] = 255
+      return data
+    }
+    // Light grey type (170) on 247 paper: no "ink" under 128, but 4% faint print.
+    const light = page(247, 170, 400)
+    expect(ocr.greyInk(page(247, 170, 400))).toBe(0)
+    expect(ocr.faintInk(light)).toBeCloseTo(0.04, 5)
+    expect(ocr.isBlank(page(247, 170, 400))).toBe(false)
+    // A blank page with a little scanner noise stays blank.
+    expect(ocr.isBlank(page(252, 180, 50))).toBe(true)
+    expect(ocr.isBlank(page(255, 255, 0))).toBe(true)
+    // Dark print is never blank.
+    expect(ocr.isBlank(page(250, 20, 31))).toBe(false)
+    // A blank scan's dark gutter (its first column of pixels, 100 x 100) is not print.
+    const gutter = page(250, 250, 0)
+    for (let y = 0; y < 100; y++) for (const x of [0, 1, 2]) gutter[(y * 100 + x) * 4] = gutter[(y * 100 + x) * 4 + 1] = gutter[(y * 100 + x) * 4 + 2] = 160
+    expect(ocr.faintInk(page(250, 250, 0).map((v, i) => gutter[i]))).toBeCloseTo(0.03, 5)
+    expect(ocr.isBlank(gutter, 100)).toBe(true)
   })
 })
 
