@@ -777,7 +777,7 @@ describe('the confirmation email at sign-up (Anders, 9 Oct 2026)', () => {
     })
     const response = await read(A)
     expect(response.status).toBe(200)
-    expect(((await response.json()) as { profile: { handle: string } }).profile.handle).toBe('anders.h')
+    expect(((await response.json()) as { profile: { handle: string } }).profile.handle).toBe('reader4780')
     expect(store.log).toEqual([])
     fail = false
     await read(A)
