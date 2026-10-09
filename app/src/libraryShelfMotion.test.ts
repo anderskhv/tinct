@@ -134,7 +134,7 @@ describe('every removal path uses the motion', () => {
     expect(view).toMatch(/playFlip\(root\.querySelectorAll\('\.volume'\)/)
   })
   it('the changed modules share one cache tag', () => {
-    const tag = '20261009motion'
+    const tag = '20261009cover'
     expect(lib('index.html')).toContain(`app.js?v=${tag}`)
     expect(lib('app.js')).toContain(`bookshelf.js?v=${tag}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${tag}`)
