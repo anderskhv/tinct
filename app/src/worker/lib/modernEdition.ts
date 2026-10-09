@@ -38,13 +38,14 @@ export const MODERN_JOB_PREFIX = 'public-books/modern-jobs/'
  * tier 4. Roughly: novella or short work / short novel / novel / long novel.
  * Prices are Stripe prices STRIPE_PRICE_MODERN_T1..T4 (Worker secrets); the
  * cents here are what the offer shows and the payment record stores, and must
- * match those prices: $2.99 / $4.99 / $7.99 / $11.99.
+ * match those prices: $3 / $5 / $8 / $12 (round numbers, Anders 9 Oct 2026; Stripe
+ * charged $3.00 while the offer showed $2.99).
  */
 export const MODERN_TIERS = [
-  { tier: 1, maxWords: 40_000, cents: 299 },
-  { tier: 2, maxWords: 100_000, cents: 499 },
-  { tier: 3, maxWords: 200_000, cents: 799 },
-  { tier: 4, maxWords: Infinity, cents: 1199 },
+  { tier: 1, maxWords: 40_000, cents: 300 },
+  { tier: 2, maxWords: 100_000, cents: 500 },
+  { tier: 3, maxWords: 200_000, cents: 800 },
+  { tier: 4, maxWords: Infinity, cents: 1200 },
 ] as const
 
 export type ModernTier = 1 | 2 | 3 | 4

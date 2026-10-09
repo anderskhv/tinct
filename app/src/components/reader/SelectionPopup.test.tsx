@@ -104,6 +104,17 @@ describe('compact selection popup', () => {
     expect(underlying).not.toHaveBeenCalled()
     unmount()
   })
+  it('lets a sheet opened above it take its first tap (the account sheet after the free AI uses)', () => {
+    const create = vi.fn(), input = props()
+    const { unmount } = render(<><div className="lab-v2-sheet-layer"><button onClick={create}>Create free account</button></div><SelectionPopup {...input} /></>)
+    const button = screen.getByText('Create free account')
+    fireEvent.pointerDown(button)
+    fireEvent.pointerUp(button)
+    fireEvent.click(button)
+    expect(create).toHaveBeenCalledOnce()
+    expect(input.dismissPopup).toHaveBeenCalledOnce()
+    unmount()
+  })
   it('saves notes explicitly and cancellation does not write edits', () => {
     const input = props({ popupMode: 'note', selection: selection({ existingHighlightId: 'h' }), noteInput: 'new note' })
     render(<SelectionPopup {...input} />)

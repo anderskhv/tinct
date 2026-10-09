@@ -298,6 +298,9 @@ export function SelectionPopup({
   useEffect(() => {
     const outside = (event: PointerEvent) => {
       if (popupRef.current?.contains(event.target as Node)) return
+      // A sheet opened above the popup (the account sheet after the free AI uses)
+      // owns its own taps: its first button tap was eaten here (desktop QA, 9 Oct).
+      if ((event.target as Element | null)?.closest?.('.lab-v2-sheet-layer, [aria-modal="true"]')) { dismissRef.current(); return }
       // The first outside gesture only dismisses, including desktop text.
       // Otherwise pointerup can open a definition beneath the closing menu.
       consumeDismissGesture(event)

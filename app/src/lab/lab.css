@@ -7412,8 +7412,11 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked { position: absolute; top: 100%; left: 0; right: 0; margin: 2px 0 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked .lab-chapter-end-actions button { position: relative; min-height: 26px; padding: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-end.is-docked .lab-chapter-end-actions button::after { content: ''; position: absolute; inset: -4px 0 -10px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col:first-child > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:first-child,
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap:has(.lab-book-col-next > .lab-chapter-end.is-docked) .lab-desktop-page-footers > span:last-child { visibility: hidden; }
+/* Scoped to the passage, a sibling of the footers: a :has() on the whole page
+   wrap also watched the paginator's measuring leaf, so every trial restyled
+   the page (Gorgias froze 20-45 s; production QA, 9 Oct 2026). */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage:has(> .lab-book-columns > .lab-book-col:first-child > .lab-chapter-end.is-docked) ~ .lab-desktop-page-footers > span:first-child,
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage:has(> .lab-book-columns > .lab-book-col-next > .lab-chapter-end.is-docked) ~ .lab-desktop-page-footers > span:last-child { visibility: hidden; }
 
 /* Audio paints the existing words; its controls and wash never change the leaf. */
 .lab[data-chrome-version="v2"] .lab-passage .lab-hearing-word {

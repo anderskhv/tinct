@@ -6,6 +6,7 @@ import { clearPendingPurchase, markPendingPurchase, modernReturnFromParams, pend
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
 import type { LabBookPlace } from './labPosition'
+import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
@@ -28,11 +29,30 @@ export function modernReturnForPage(): ModernReturn | null {
 export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null {
   const book = getBook(bookId)
   if (!book) return null
+  const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
+  // The place this device saved in the book (the cloud record still reconciles it once
+  // signed in), like the library's own hand-off; else the first chapter.
+  const saved = bookId === 'bible' ? null : localPlace(bookId)
+  if (saved) {
+    const place = { bookId, chapterNumber: saved.sequentialChapter, paragraphIndex: saved.paragraphIndex, wordIndex: saved.wordIndex, page: saved.pageIndex ?? 0 }
+    const edition = saved.primaryEditionKey && saved.primaryEditionKey !== primaryEditionKey
+      ? createReaderHandoffIntent({ bookId, primaryEditionKey: saved.primaryEditionKey, resumeLatest: true, savedPlace: place })
+      : null
+    return edition ?? createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: place })
+  }
   const entry = PRE_READER_CATALOGUE.booksById.get(bookId) as { readingStructure?: { chapters?: Array<{ number?: number }> } } | undefined
   const first = entry?.readingStructure?.chapters?.[0]?.number
   const chapterNumber = Number.isInteger(first) && (first as number) >= 1 ? first as number : 1
-  const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
   return createReaderHandoffIntent({ bookId, primaryEditionKey, resumeLatest: true, savedPlace: { bookId, chapterNumber, paragraphIndex: 0, wordIndex: 0, page: 0 } })
+}
+
+function localPlace(bookId: string): LabBookPlace | null {
+  try {
+    const place = readLabPositionLocal().books[bookId]
+    return place?.bookId === bookId && Number.isInteger(place.sequentialChapter) && place.sequentialChapter >= 1 ? place : null
+  } catch {
+    return null
+  }
 }
 
 /**
@@ -87,9 +107,11 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
  * Public deep link: `/reader?book=<id>&edition=<key>&chapter=<n>`. The SEO book
  * and chapter pages ("Start reading in Tinct") use it. A link that names a
  * chapter opens exactly that chapter (paragraph 0) in that edition, even if
- * the reader has a saved place in the same book; a link without a chapter is
- * not a handoff at all, so the reader's own saved position is never
- * overridden. Book and edition are validated against the registry, and an
+ * the reader has a saved place in the same book. A link without a chapter
+ * (`/reader?book=<id>`, the lifecycle emails' "keep reading") opens that book
+ * at the reader's latest place in it, else its first chapter, so the reader's
+ * own saved position is never overridden; before, it opened whatever book was
+ * read last, or the Bible (QA 2026-10-09). Book and edition are validated against the registry, and an
  * unknown book yields null (the normal reader entry); an unavailable edition falls back to original-en.
  * A link without an edition opens the new-reader default: the default edition
  * with its default Compare edition beside it.
@@ -97,7 +119,9 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
 export function readerHandoffFromUrlParams(params: URLSearchParams | null): ReaderHandoffIntent | null {
   const bookId = params?.get('book')
   const chapterText = params?.get('chapter')
-  if (!params || !bookId || !chapterText || !/^\d{1,5}$/.test(chapterText)) return null
+  if (!params || !bookId) return null
+  if (chapterText === null) return params.has('modern') ? null : modernReturnHandoff(bookId)
+  if (!/^\d{1,5}$/.test(chapterText)) return null
   const chapterNumber = Number(chapterText)
   if (chapterNumber < 1 || !getBook(bookId)) return null
   // A shared highlight (/q/{id}) opens at its passage, not the chapter top.
