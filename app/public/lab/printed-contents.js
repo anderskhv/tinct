@@ -38,21 +38,65 @@ export function isContentsHeading(text) {
   return t.length > 0 && t.length <= 60 && CONTENTS_HEADING.test(t)
 }
 
-/** Keys of the book's chapter titles, for "names one of the book's chapters". */
-function titleKeys(titles) {
-  return [...new Set((titles || []).map(key).filter(k => k.length >= 4))]
+/**
+ * The book's chapter titles as keys (four letters or more), built once per book, for
+ * "names one of the book's chapters". A chapter is asked about the others' titles, so
+ * its own key is left out (`exclude`) unless another chapter has the same title.
+ *
+ * Built once rather than per chapter, and asked by lookup rather than title by title:
+ * the per-chapter list made a book of N chapters cost N² (Gutenberg Add to Tinct check,
+ * 2026-10-09: the Worker's publish spent ~15 s here on a 1,200-chapter book and ~26 s
+ * in all on Shakespeare's Complete Works, near its CPU limit). The answers are the same.
+ */
+function titleIndex(titles) {
+  const keys = (titles || []).map(key)
+  const counts = new Map()
+  for (const k of keys) if (k.length >= 4) counts.set(k, (counts.get(k) || 0) + 1)
+  // Every key once, each between newlines: a run of whole words found in it is in one title.
+  let joined = '\n'
+  let longest = 0
+  for (const k of counts.keys()) {
+    joined += ` ${k} \n`
+    if (k.includes(' ')) longest = Math.max(longest, k.split(' ').length)
+  }
+  return { keys, counts, joined, longest }
 }
 
+/** The index as chapter `index` asks it: every other chapter's title. */
+function othersOf(names, index) {
+  const own = index == null ? '' : names.keys[index]
+  return { ...names, exclude: own && names.counts.get(own) === 1 ? own : null }
+}
+
+/** How many distinct titles the asking chapter sees. */
+const titleCount = names => names.counts.size - (names.exclude ? 1 : 0)
+
 /** Whether a line names a chapter: equal, or one contains the other as whole words (two words or more). */
-function namesChapter(line, keys) {
+function namesChapter(line, names) {
   const k = key(line.replace(PAGE_END, ''))
   if (!k || k.length < 4) return false
-  return keys.some(title => title === k
-    || (k.split(' ').length >= 2 && (` ${title} `.includes(` ${k} `) || (title.split(' ').length >= 2 && ` ${k} `.includes(` ${title} `)))))
+  const other = title => title !== names.exclude
+  if (names.counts.has(k) && other(k)) return true
+  if (!k.includes(' ')) return false
+  // The line within a title.
+  const needle = ` ${k} `
+  for (let at = names.joined.indexOf(needle); at >= 0; at = names.joined.indexOf(needle, at + 1)) {
+    const start = names.joined.lastIndexOf('\n', at) + 2
+    if (other(names.joined.slice(start, names.joined.indexOf('\n', at) - 1))) return true
+  }
+  // A title of two words or more within the line.
+  const parts = k.split(' ')
+  for (let length = 2; length <= Math.min(names.longest, parts.length); length++) {
+    for (let from = 0; from + length <= parts.length; from++) {
+      const title = parts.slice(from, from + length).join(' ')
+      if (names.counts.has(title) && other(title)) return true
+    }
+  }
+  return false
 }
 
 /** How a line reads in a contents: 'header' (PAGE), 'entry', or null. */
-function lineKind(text, keys, underHeading) {
+function lineKind(text, names, underHeading) {
   const t = plainText(text)
   if (!t) return 'header'
   // A column header, or a contents table's number cell read as a line of its own ("1.", "57").
@@ -68,7 +112,7 @@ function lineKind(text, keys, underHeading) {
   }
   if (LABEL_START.test(t) || ARABIC_START.test(t)) return 'entry'
   if (BARE_ROMAN_START.test(t) && !/^I\s+\p{Ll}/u.test(t)) return 'entry'
-  if (namesChapter(t, keys)) return 'entry'
+  if (namesChapter(t, names)) return 'entry'
   // Under a contents heading, a short title-like line (no sentence) is an entry too.
   if (underHeading && n <= 14 && !/[.!?;]["”’)]?$/.test(t.replace(/\b(?:\p{L}|mr|mrs|dr|st)\.$/iu, '')) && /^[\p{Lu}“"‘(\d]/u.test(t)) return 'entry'
   return null
@@ -77,18 +121,19 @@ function lineKind(text, keys, underHeading) {
 /**
  * The printed contents in a chapter's paragraphs, as [start, end) to remove, or null.
  * `titles` are the book's chapter titles (others than this one); `heading` says the
- * chapter's own title is a contents heading.
+ * chapter's own title is a contents heading. (`names`, from dropPrintedContents: the
+ * whole book's titles indexed once, as this chapter sees them.)
  */
-export function printedContentsRange(paragraphs, { titles = [], heading = false } = {}) {
+export function printedContentsRange(paragraphs, { titles = [], heading = false, names: indexed = null } = {}) {
   if (!Array.isArray(paragraphs) || !paragraphs.length) return null
-  const keys = titleKeys(titles)
+  const names = indexed || othersOf(titleIndex(titles), null)
   const scan = (from, underHeading, skipLead) => {
     let entries = 0, others = 0, last = -1, lead = 0, i = from
     for (; i < paragraphs.length; i++) {
       const text = paragraphs[i]
       if (typeof text !== 'string') break
       if (words(plainText(text)) > 45) break
-      const kind = lineKind(text, keys, underHeading)
+      const kind = lineKind(text, names, underHeading)
       if (kind === 'header') continue
       if (kind === 'entry') { entries++; last = i; continue }
       // A title page before the first entry (book title, author, translator) is not counted.
@@ -96,7 +141,7 @@ export function printedContentsRange(paragraphs, { titles = [], heading = false 
       others++
       // A sentence of prose, or two lines in a row that are not entries, end the contents.
       if (entries && words(plainText(text)) > 20) break
-      if (i + 1 < paragraphs.length && lineKind(paragraphs[i + 1], keys, underHeading) !== 'entry') break
+      if (i + 1 < paragraphs.length && lineKind(paragraphs[i + 1], names, underHeading) !== 'entry') break
     }
     return { entries, others, last }
   }
@@ -113,18 +158,18 @@ export function printedContentsRange(paragraphs, { titles = [], heading = false 
     if (entries >= 3 && entries / (entries + others) >= 0.6) return endRange(paragraphs, at, last)
   }
   // No heading: a list of the book's own chapters and nothing else.
-  if (keys.length >= 3 && paragraphs.length >= 5 && paragraphs.length <= 600) {
+  if (titleCount(names) >= 3 && paragraphs.length >= 5 && paragraphs.length <= 600) {
     let entries = 0, named = 0, counted = 0
     const allowed = Math.floor(paragraphs.length * 0.1)
     for (const text of paragraphs) {
       // Prose gives itself away at once: stop at the first long paragraph or too many non-entries.
       if (typeof text !== 'string' || words(plainText(text)) > 45) return null
-      const kind = lineKind(text, keys, false)
+      const kind = lineKind(text, names, false)
       if (kind === 'header') continue
       counted++
       if (kind === 'entry') entries++
       else if (counted - entries > allowed) return null
-      if (namesChapter(plainText(text), keys)) named++
+      if (namesChapter(plainText(text), names)) named++
     }
     if (counted >= 5 && entries / counted >= 0.9 && named >= 5 && named / counted >= 0.6) return [0, paragraphs.length]
   }
@@ -153,14 +198,13 @@ function onlyTitleLines(paragraphs) {
  */
 export function dropPrintedContents(chapters) {
   if (!Array.isArray(chapters) || chapters.length < 2) return chapters
-  const titles = chapters.map(chapter => chapter?.title || '')
+  const book = titleIndex(chapters.map(chapter => chapter?.title || ''))
   let changed = false
   const out = []
   chapters.forEach((chapter, index) => {
     if (!chapter || !Array.isArray(chapter.paragraphs)) { out.push(chapter); return }
-    const others = titles.filter((_, i) => i !== index)
     const heading = isContentsHeading(chapter.title)
-    const range = printedContentsRange(chapter.paragraphs, { titles: others, heading })
+    const range = printedContentsRange(chapter.paragraphs, { names: othersOf(book, index), heading })
     if (!range) { out.push(chapter); return }
     changed = true
     const [start, end] = range

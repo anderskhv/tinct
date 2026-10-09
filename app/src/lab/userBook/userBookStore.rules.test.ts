@@ -3,7 +3,7 @@
  * openUserBook never re-cuts a book a reader already has: a stored conversion
  * made under rules 5 opens as it is (healed in memory only), and a book that
  * must be converted again on this device, with a place saved under rules 5,
- * is converted under rules 5. Only a book never converted here gets rules 6.
+ * is converted under rules 5. Only a book never converted here gets the current rules (6 and later).
  * IndexedDB is a small in-memory stand-in (the store's own calls only).
  */
 import { createRequire } from 'node:module'
@@ -14,7 +14,7 @@ import { zip } from '../../../../addbooks/web/test/make-epub.mjs'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book tests
 import { pdfFixtures } from '../../../../addbooks/web/test/make-pdf.mjs'
 import { openUserBook } from './userBookStore'
-import { USER_EDITION_FORMAT, type UserBookEdition } from './userEdition'
+import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookEdition } from './userEdition'
 
 const OWNER = 'owner-1'
 const HEX = 'ab'.repeat(12)
@@ -109,7 +109,7 @@ describe('openUserBook keeps every book already converted as it was', () => {
     const result = await openUserBook(HEX, { owner: OWNER })
     expect(result.ok).toBe(true)
     if (!result.ok) return
-    expect(result.book.edition.converter).toBe(6)
+    expect(result.book.edition.converter).toBe(USER_EDITION_CONVERTER)
     expect(result.book.edition.chapters.map(chapter => chapter.title)).toEqual(['First Act'])
     expect(result.book.edition.chapters[0].paragraphs[2]).toBe('ALGERNON. Line 0 of the scene, sir.')
     expect(result.book.edition.speakers).toBe(true)

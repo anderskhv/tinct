@@ -140,3 +140,34 @@ describe('what is not a printed contents', () => {
     expect(printedContentsRange(paragraphs, { titles: others })).toBeNull()
   })
 })
+
+// Gutenberg Add to Tinct check, 2026-10-09: every chapter was asked about every other chapter's
+// title one by one, so a book of many chapters cost chapters² (Shakespeare's Complete Works,
+// 862 chapters, spent ~26 s in the Worker's publish; a 1,334-chapter book ~28 s; 1,500 chapters
+// below took 22 s). The book's titles are now indexed once, with the same answers.
+describe('a book of many chapters', () => {
+  const many = (count: number) => Array.from({ length: count }, (_, i) => ({
+    number: i + 1,
+    title: `Of the ${i}th matter and its many curious consequences`,
+    paragraphs: Array.from({ length: 30 }, (_, j) => `A short line ${j} about a thing that happened`),
+  }))
+
+  it('is read in time linear in its chapters', () => {
+    const chapters = many(1500)
+    const started = performance.now()
+    expect(dropPrintedContents(chapters)).toBe(chapters)
+    expect(performance.now() - started).toBeLessThan(5000)
+  }, 30_000)
+
+  it('still finds a list of the other chapters, and counts a chapter’s own title only when another chapter shares it', () => {
+    const chapters = many(8)
+    const listing = { number: 9, title: 'The Plan', paragraphs: chapters.map(chapter => chapter.title) }
+    expect(titles(dropPrintedContents([listing, ...chapters]))).toEqual(titles(chapters))
+    const own = { number: 1, title: 'Of the sea and of ships', paragraphs: Array.from({ length: 6 }, () => 'Of the sea and of ships') }
+    const rest = ['Of the land and of carts', 'Of the air and of birds', 'Of fire and of smiths'].map((title, i) => ({ number: i + 2, title, paragraphs: ['Text.'] }))
+    expect(dropPrintedContents([own, ...rest])).toHaveLength(4)
+    // With a second chapter of that title, each names the other: both read as lists of chapters.
+    expect(dropPrintedContents([own, ...rest, { ...own, number: 5 }])).toHaveLength(3)
+    expect(printedContentsRange(own.paragraphs, { titles: [...titles(rest), own.title] })).toEqual([0, 6])
+  })
+})
