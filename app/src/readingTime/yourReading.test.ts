@@ -40,6 +40,21 @@ describe('Your reading', () => {
     expect(view.comparison).toBe('About two Frankensteins, start to finish.')
   })
 
+  it('counts a book finished in the classic reader (its completion record), as the library does', () => {
+    // The Odyssey was finished before the lab reader kept finished chapters: its
+    // place is mid-book in the lab record, and only the classic record says done.
+    const positions = {
+      ...emptyLabPositionState('device'),
+      books: { odyssey: place('odyssey', 3, Date.UTC(2026, 8, 1, 20)), frankenstein: place('frankenstein', 5, Date.UTC(2026, 9, 6, 20)) },
+      finished: { odyssey: [1, 2] },
+    }
+    const stats = readingTimeStats([], '2026-10-07')
+    const view = yourReadingView({ stats, positions, catalogue, completedBookIds: new Set(['odyssey', 'not-in-catalogue']) })
+    expect(view.finished.map(book => book.title)).toEqual(['The Odyssey'])
+    expect(view.finishedCount).toBe(1)
+    expect(view.readingNow.map(book => book.title)).toEqual(['Frankenstein'])
+  })
+
   it('draws the reading card from the figures alone, naming no one', () => {
     const stats = readingTimeStats([{ day: '2026-10-07', bookId: 'odyssey', read: 41 * 3600 + 1200, listen: 0 }], '2026-10-07')
     const svg = readingCardSvg(stats)

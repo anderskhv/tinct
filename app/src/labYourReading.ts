@@ -14,6 +14,8 @@ import { formatDayMonth, formatDuration, hoursMinutes, localDay, readingTimeStat
 import { PRIVATE_BOOK_ID } from './readingTime/model'
 import { yourReadingView, type CatalogueEntry, type ShelfBook, type YourReadingView } from './readingTime/yourReading'
 import { supabase } from './services/supabase'
+import { completedBookIdsIn } from './preReader/libraryCompletion'
+import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { apiUrl } from './utils/apiUrl'
 
 const POSITION_DEVICE_ID = 'lab-your-reading'
@@ -187,7 +189,10 @@ async function start(): Promise<void> {
     return
   }
   const stats = readingTimeStats(withPending(summary.rows, readPending(session.user.id)), localDay())
-  const view = yourReadingView({ stats, positions, catalogue })
+  // The same books as the library's shelves: classic-reader places and completion records count too.
+  const local = (() => { try { return localStorage } catch { return null } })()
+  const places = positions ? withProductionPlaces(positions, productionPlaces({ bookIds: catalogue.keys(), read: key => local?.getItem(key) ?? null })) : null
+  const view = yourReadingView({ stats, positions: places, catalogue, completedBookIds: completedBookIdsIn(local) })
   root.dataset.state = 'ready'
   renderYourReading(main, stats, view, () => {
     void shareCard(session.access_token, main.querySelector('[data-share-note]'), main.querySelector('[data-testid="your-reading-share"]'))

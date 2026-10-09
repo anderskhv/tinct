@@ -47,10 +47,18 @@ export function yourReadingView(input: {
   stats: ReadingTimeStats
   positions: LabPositionState | null
   catalogue: Map<string, CatalogueEntry>
+  /**
+   * Books the classic reader recorded as finished (`book-completed:*`,
+   * completed `progress:*`), as the library's Finished shelf counts them.
+   * The lab record's finished chapters only exist since September 2026.
+   */
+  completedBookIds?: ReadonlySet<string>
 }): YourReadingView {
   const { stats, positions, catalogue } = input
   // An own book is never finished or placed by its id here; its time shows as the private bucket.
-  const finishedIds = finishedBookIds(positions?.finished, id => lastChapterOf(catalogue.get(id))).filter(id => !isPrivateBucket(id))
+  const byChapters = finishedBookIds(positions?.finished, id => lastChapterOf(catalogue.get(id)))
+  const classic = [...(input.completedBookIds ?? [])].filter(id => catalogue.has(id))
+  const finishedIds = [...new Set([...byChapters, ...classic])].sort().filter(id => !isPrivateBucket(id))
   const finishedSet = new Set(finishedIds)
   const chaptersCount = Object.values(positions?.finished ?? {}).reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0)
   const secondsBy = new Map(stats.books.map(book => [book.bookId, book]))
