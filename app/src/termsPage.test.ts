@@ -81,6 +81,16 @@ describe('own books and the AI features', () => {
     expect(privacy).toContain('Last updated: 8 October 2026')
   })
 
+  // Recognising the text of a scanned PDF (Premium; approved by Anders on 9 Oct 2026). True while
+  // the switch is off too: the feature exists in code and is only used when a reader asks.
+  it('privacy: recognising a scanned PDF’s text: what goes to xAI, where the text is kept, when it is deleted', () => {
+    expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio, which is stored privately in your account and deleted with the book. If you have Premium and ask Tinct to recognise the text of a scanned PDF you added, images of its pages are sent to xAI to recognise the text; the text is stored privately in your account and deleted with the book, and the page images are deleted once their text is recognised.')
+    expect(privacyText).toContain('xAI also produces the narration voices, writes Modern English editions of public-domain books from book text only, and recognises the text of scanned PDFs Premium readers add, from images of their pages.')
+    expect(privacyText).not.toContain('xAI also produces the narration voices and writes Modern English editions of public-domain books, from book text only.')
+    expect(privacyText).toContain('file storage (R2) for audio, for the PDF and EPUB files signed-in readers add and the text recognised from scanned ones and for a copy of your Google photo if you choose it')
+    expect(privacyText).toContain('the PDF and EPUB files you added and any audio or recognised text made from them')
+  })
+
   it('terms §4: own books are processed on the reader’s instruction; the compensation follows Danish law (v3.1)', () => {
     const section4 = published.slice(published.indexOf('4. Your content and your responsibility for it'), published.indexOf('Reporting and removal'))
     expect(section4).toContain('If you add your own books, the AI features process their text on your instruction and only for you. Keep a lawful copy of any book you add.')
