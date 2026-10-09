@@ -363,7 +363,7 @@ export function readingCard(env: CardsEnv): CardSpec {
       const reading = env.data.reading
       const body = el('div', { className: 'tc-body' })
       if (reading) {
-        const { stats, view } = reading
+        const { stats } = reading
         const seconds = new Map(stats.books.map(book => [book.bookId, book]))
         const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
         for (const [n, unit] of figureParts(stats.totalSeconds)) figure.append(n, el('small', { text: unit }))
@@ -378,18 +378,18 @@ export function readingCard(env: CardsEnv): CardSpec {
           el('div', { className: 'tc-sum' }, figure, since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null, bars),
           factsRow([
             { value: durationShort(stats.last7Seconds), label: CARDS_COPY.last7 },
-            { value: String(view.finishedCount), label: CARDS_COPY.finished },
+            { value: String(reading.finished.length), label: CARDS_COPY.finished },
             { value: `${stats.streak} ${stats.streak === 1 ? 'day' : 'days'}`, label: CARDS_COPY.streak },
           ], true)))
         const time = (bookId: string) => {
           const s = seconds.get(bookId)?.seconds ?? 0
           return s >= 60 ? durationShort(s) : ''
         }
-        if (view.readingNow.length) {
-          body.append(heading(CARDS_COPY.readingNow), group(...view.readingNow.map(book => bookRow(book.title, chapterFraction(book.progress) ?? 0, time(book.bookId), 'reading-now-row')))!)
+        if (reading.readingNow.length) {
+          body.append(heading(CARDS_COPY.readingNow), group(...reading.readingNow.map(book => bookRow(book.title, book.fraction ?? 0, time(book.bookId), 'reading-now-row')))!)
         }
-        if (view.finished.length) {
-          body.append(heading(CARDS_COPY.finishedHeading), group(...view.finished.map(book => {
+        if (reading.finished.length) {
+          body.append(heading(CARDS_COPY.finishedHeading), group(...reading.finished.map(book => {
             const entry = seconds.get(book.bookId)
             return bookRow(book.title, null, finishedValue(entry?.lastDay ?? null, entry && entry.seconds >= 60 ? entry.seconds : null), 'finished-row')
           }))!)
