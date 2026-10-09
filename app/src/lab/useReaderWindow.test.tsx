@@ -1,7 +1,9 @@
 // @vitest-environment jsdom
 import { render, cleanup } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
-import { readerWindowEdgeName, readerWindowEdgesAt, useReaderWindow } from './useReaderWindow'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { READER_COMPANION_WINDOW, readerCompanionPlacement, readerWindowEdgeName, readerWindowEdgesAt, readerWindowMinimum, useReaderWindow } from './useReaderWindow'
 
 const box = { left: 100, top: 100, right: 500, bottom: 400 }
 const name = (x: number, y: number) => {
@@ -78,5 +80,88 @@ describe('dragging a reader window edge', () => {
     // The interior still does nothing but select text.
     pointer('pointermove', panel, 450, 350)
     expect(panel.dataset.readerWindowEdge).toBeUndefined()
+  })
+})
+
+describe('Chat and Talk default geometry (Anders, 9 Oct 2026)', () => {
+  afterEach(() => { cleanup(); sessionStorage.clear() })
+
+  it('opens 312 x 390, 8px from the right edge, its foot level with the foot of the pages', () => {
+    expect(READER_COMPANION_WINDOW).toEqual({ width: 312, height: 390, right: 8 })
+    expect(readerCompanionPlacement({ width: 312, height: 390 }, { width: 1440, height: 900 }, 808)).toEqual({ x: 1120, y: 418 })
+    expect(readerCompanionPlacement({ width: 312, height: 390 }, { width: 1280, height: 800 }, 708)).toEqual({ x: 960, y: 318 })
+    // No pages measured (or off screen): the foot sits 8px above the viewport's.
+    expect(readerCompanionPlacement({ width: 312, height: 390 }, { width: 1440, height: 900 }, null)).toEqual({ x: 1120, y: 502 })
+    expect(readerCompanionPlacement({ width: 312, height: 390 }, { width: 1440, height: 900 }, 1200)).toEqual({ x: 1120, y: 502 })
+  })
+
+  function Companion({ name }: { name: string }) {
+    const ref = useReaderWindow<HTMLDivElement>(name)
+    return (
+      <div className="lab is-desktop">
+        <div className="lab-page-wrap" />
+        <div ref={ref} data-testid="panel"><div data-reader-window-handle>Chat</div><p>Body</p></div>
+      </div>
+    )
+  }
+
+  // jsdom has no layout: the pages end at 808px and the window's box is whatever its inline styles say.
+  const pages = { left: 30, top: 58, right: 1410, bottom: 808, width: 1380, height: 750, x: 30, y: 58, toJSON: () => ({}) } as DOMRect
+  function styledBox(panel: HTMLElement): DOMRect {
+    const px = (value: string, otherwise: number) => (value ? Number.parseFloat(value) : otherwise)
+    const left = px(panel.style.left, 0), top = px(panel.style.top, 0)
+    const width = px(panel.style.width, 312), height = px(panel.style.height, 390)
+    return { left, top, width, height, right: left + width, bottom: top + height, x: left, y: top, toJSON: () => ({}) } as DOMRect
+  }
+  function mountWithLayout(name: string) {
+    Object.assign(window, { innerWidth: 1440, innerHeight: 900 })
+    const original = Element.prototype.getBoundingClientRect
+    Element.prototype.getBoundingClientRect = function (this: Element) {
+      if (this.classList.contains('lab-page-wrap')) return pages
+      if ((this as HTMLElement).dataset.testid === 'panel') return styledBox(this as HTMLElement)
+      return original.call(this)
+    }
+    try { return render(<Companion name={name} />) } finally { Element.prototype.getBoundingClientRect = original }
+  }
+
+  for (const name of ['chat', 'talk']) {
+    it(`${name} opens anchored at the book's lower right`, () => {
+      const panel = mountWithLayout(name).getByTestId('panel')
+      expect(panel.style.left).toBe('1120px')
+      expect(panel.style.top).toBe('418px')
+      expect(panel.style.right).toBe('auto')
+    })
+  }
+
+  it("a reader's own place still wins over the default", () => {
+    sessionStorage.setItem('tinct-window:chat', JSON.stringify({ x: 200, y: 150, width: 400, height: 500 }))
+    const panel = mountWithLayout('chat').getByTestId('panel')
+    expect(panel.style.left).toBe('200px')
+    expect(panel.style.top).toBe('150px')
+    expect(panel.style.width).toBe('400px')
+    expect(panel.style.height).toBe('500px')
+  })
+
+  it('Talk and Chat cannot be made smaller than 280 x 300, so their controls keep room', () => {
+    expect(readerWindowMinimum('talk')).toEqual({ width: 280, height: 300 })
+    expect(readerWindowMinimum('chat')).toEqual({ width: 280, height: 300 })
+    expect(readerWindowMinimum('settings')).toEqual({ width: 260, height: 160 })
+    const panel = mountWithLayout('talk').getByTestId('panel')
+    panel.getBoundingClientRect = () => styledBox(panel)
+    for (const [property, value] of Object.entries({ left: 1120, top: 418, width: 312, height: 390 })) panel.style.setProperty(property, value + 'px')
+    // Drag the top-left corner far down and right.
+    pointer('pointerdown', panel, 1121, 419)
+    pointer('pointermove', window, 1421, 819)
+    pointer('pointerup', window, 1421, 819)
+    expect(panel.style.width).toBe('280px')
+    expect(panel.style.height).toBe('300px')
+  })
+
+  it('pins the Talk header and controls: only the orb and transcript give way (lab.css)', () => {
+    const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
+    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-controls \{ flex:none; \}/)
+    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-stage \{ flex:0 1 auto; min-height:0; overflow:hidden; \}/)
+    expect(css).toMatch(/\.lab-voice-panel\[data-reader-window\] > \.lab-voice-panel-thread \{ flex:1 1 0; min-height:0; \}/)
+    expect(css).toMatch(/width:min\(312px,calc\(100vw - 48px\)\);\s*height:min\(390px,calc\(100dvh - 132px\)\);/)
   })
 })

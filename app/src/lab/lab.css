@@ -6072,7 +6072,8 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   height: calc(3.72rem + env(safe-area-inset-bottom, 0px));
 }
 .lab[data-chrome-version="v2"][data-transport="open"].is-phone:not(.has-phone-ask) .lab-page-turn.is-phone-rail .lab-chapter-progress,
-.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail .lab-chapter-progress {
+.lab[data-chrome-version="v2"][data-transport="open"].has-phone-chrome:not(.has-phone-ask) .lab-page-turn.is-phone-rail .lab-chapter-progress,
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-chapter-progress {
   visibility: hidden;
 }
 
@@ -6912,6 +6913,41 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button { width: 40px; height: 40px; min-width: 40px; color: var(--lab-ink); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button.is-primary { background: var(--lab-surface); color: var(--lab-ink); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-track span { display: block; font-size: 10px; opacity: .65; }
+/* Liquid glass (Anders approved variant A, 9 Oct 2026): translucent paper
+   tint, backdrop blur and saturation, a hairline edge, a soft top highlight.
+   It sits over the leaf's foot, so it stacks above the leaf. No monospace. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] {
+  --dock-glass-top: rgba(255, 252, 245, .58);
+  --dock-glass-bottom: rgba(244, 237, 224, .42);
+  --dock-glass-edge: rgba(255, 255, 255, .62);
+  --dock-glass-rim: rgba(92, 76, 54, .20);
+  --dock-glass-highlight: rgba(255, 255, 255, .80);
+  --dock-glass-shadow: 0 12px 32px rgba(53, 43, 30, .16), 0 2px 6px rgba(53, 43, 30, .08);
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"].is-night {
+  --dock-glass-top: rgba(58, 50, 42, .52);
+  --dock-glass-bottom: rgba(30, 26, 22, .40);
+  --dock-glass-edge: rgba(255, 238, 214, .16);
+  --dock-glass-rim: rgba(0, 0, 0, .45);
+  --dock-glass-highlight: rgba(255, 240, 220, .14);
+  --dock-glass-shadow: 0 14px 36px rgba(0, 0, 0, .38), 0 2px 6px rgba(0, 0, 0, .22);
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock,
+.lab.is-night[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock {
+  background: linear-gradient(180deg, var(--dock-glass-top), var(--dock-glass-bottom));
+  border: 1px solid var(--dock-glass-edge);
+  box-shadow: inset 0 1px 0 var(--dock-glass-highlight), inset 0 -1px 0 rgba(120, 100, 70, .08),
+    0 0 0 .5px var(--dock-glass-rim), var(--dock-glass-shadow);
+  backdrop-filter: blur(18px) saturate(1.7);
+  -webkit-backdrop-filter: blur(18px) saturate(1.7);
+  z-index: 200;
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button.is-primary,
+.lab.is-night[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock button.is-primary {
+  background: color-mix(in srgb, var(--lab-ink) 88%, transparent); color: var(--lab-paper);
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock > button.lab-desktop-audio-speed { font: 500 15px/1 'EB Garamond', Georgia, serif; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-track span { font: italic 12px/1.2 'EB Garamond', Georgia, serif; letter-spacing: 0; opacity: .75; }
 /* bottom:88px cleared the audio dock but not the book-progress line beneath
    it: measured at 1180x820 (playing, popover open), the progress line
    (".lab-chapter-progress", part of ".lab-bottom-chrome") sits 725-743px
@@ -6993,15 +7029,20 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
    so opening it never re-paginates (and never moves the reader's place).
    Closed, the progress line sits just under the leaf; open, the dock takes
    the bottom and the line rises to sit between the dock and the leaf. */
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 92px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-body { padding-bottom: 92px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 52px; pointer-events: auto; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 58px; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { bottom: 6px; }
+/* 9 Oct 2026 (Anders): the space under the leaf is trimmed from 92px to 56px,
+   still the same in both states. The dock rides ~10px over the leaf's foot
+   (its bottom padding, where the folios sit) but never over the text:
+   labAudioDock.ts measures the live leaf and sets --lab-dock-bottom. While
+   the dock shows, "% of book" is hidden (beside the phone rail's rule). */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 56px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-body { padding-bottom: 56px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-bottom-chrome { bottom: 22px; pointer-events: auto; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"][data-transport="open"] .lab-bottom-chrome { bottom: 22px; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { bottom: var(--lab-dock-bottom, 12px); }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers {
   position: absolute; left: var(--desktop-pad-x); right: var(--desktop-pad-x); bottom: 6px;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--desktop-gutter);
-  color: var(--lab-ink-muted); font: 11px/1.4 'IBM Plex Mono', monospace; pointer-events: none;
+  color: var(--lab-ink-muted); font: 11px/1.4 'EB Garamond', Georgia, serif; pointer-events: none;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers > span { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { font-weight: 400; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -7016,7 +7057,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-header-chapter,
   .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-reader-controls="hidden"] .lab-header:hover .lab-header-controls { opacity: 1; }
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock { box-shadow: inset 0 1px 0 #ffffff35, 0 5px 20px #00000012; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock .lab-desktop-audio-dismiss { margin-left: 2px; width: 32px; min-width: 32px; height: 32px; display: grid; place-items: center; padding: 0; }
 /* One row, always. Paused, the dock gains a close (×) after Talk; it sits
    inline at the end in an implicit column instead of wrapping onto a second
@@ -7279,13 +7319,14 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   --lab-fold-light: rgb(242 230 207 / .09);
   box-shadow: 0 1px 3px rgb(0 0 0 / .1), 0 12px 36px rgb(0 0 0 / .18);
 }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { opacity:.6; font-family:var(--lab-font-reader); font-size:12px; }
-/* Folios and chapter progress as the phone sets its progress line: the
-   reading face, 12px, muted. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { opacity:.6; font-family:'EB Garamond', Georgia, serif; font-size:12px; }
+/* Folios and chapter progress as the phone sets its progress line: 12px,
+   muted. Folios are always EB Garamond, never mono (Anders, 9 Oct 2026). */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers,
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-progress-info {
   font-family: var(--lab-font-reader); font-size: 12px; color: var(--lab-ink-muted); letter-spacing: .02em;
 }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers { font-family: 'EB Garamond', Georgia, serif; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers > span { gap:20px; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window-handle] { cursor:grab; touch-action:none; user-select:none; }
 .lab.is-desktop[data-chrome-version="v2"] [data-reader-window] { position:fixed!important; margin:0!important; box-sizing:border-box; max-height:calc(100dvh - 32px); min-height:0; max-width:calc(100vw - 32px); border-radius:16px; }
@@ -7434,13 +7475,37 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   padding-bottom: 0.5rem; overflow-y: hidden;
 }
 
-/* Desktop companions start compact; explicit user resizing still wins inline. */
+/* Desktop companions start compact at the book's lower right (Anders, 9 Oct
+   2026: 312 x 390, READER_COMPANION_WINDOW; useReaderWindow anchors the
+   place). Explicit user resizing still wins inline. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
-  width:min(390px,calc(100vw - 48px));
-  height:min(640px,calc(100dvh - 132px));
+  width:min(312px,calc(100vw - 48px));
+  height:min(390px,calc(100dvh - 132px));
+}
+/* Talk at any window size: the header and the Mute / End row never leave the
+   window. The orb scales with the window's height (170px at full size), the
+   transcript scrolls, and a very short window drops the orb before anything
+   else. useReaderWindow keeps Talk at least 280 x 300. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] { container:talk-window / size; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-head,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-controls { flex:none; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-stage { flex:0 1 auto; min-height:0; overflow:hidden; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-thread { flex:1 1 0; min-height:0; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb-canvas {
+  width:clamp(56px,calc(100cqh - 330px),170px)!important; height:clamp(56px,calc(100cqh - 330px),170px)!important;
+}
+@container talk-window (max-height: 520px) {
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage { gap:2px; padding-bottom:10px; }
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin-top:2px; font-size:22px; }
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread { gap:14px; padding:14px 8px; font-size:16px; }
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls { padding:10px 0 2px; }
+}
+@container talk-window (max-height: 340px) {
+  .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage .lab-voice-orb { display:none; }
 }
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-voice-panel[data-reader-window] {

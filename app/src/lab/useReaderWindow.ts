@@ -8,6 +8,24 @@ type Edges = { n: boolean; s: boolean; e: boolean; w: boolean }
 /** How far inside a window's border its edges and corners resize it. */
 export const READER_WINDOW_EDGE = 8
 
+/** Chat and Talk open as a compact window at the book's lower right: about
+ * 312 x 390, 8px from the viewport's right edge, its foot level with the foot
+ * of the pages (Anders, 9 Oct 2026). A reader's own move or resize still wins. */
+export const READER_COMPANION_WINDOW = { width: 312, height: 390, right: 8 } as const
+const COMPANION_KEYS = new Set(['chat', 'talk'])
+/** The smallest a reader can make a window; Chat and Talk keep room for their controls. */
+export function readerWindowMinimum(key: string): { width: number; height: number } {
+  return COMPANION_KEYS.has(key) ? { width: 280, height: 300 } : { width: 260, height: 160 }
+}
+
+/** Where a companion window opens: right edge inset, foot on the pages' foot. */
+export function readerCompanionPlacement(
+  box: { width: number; height: number }, viewport: { width: number; height: number }, pagesBottom: number | null,
+): { x: number; y: number } {
+  const bottom = pagesBottom != null && pagesBottom > 0 && pagesBottom <= viewport.height ? pagesBottom : viewport.height - 8
+  return { x: viewport.width - READER_COMPANION_WINDOW.right - box.width, y: bottom - box.height }
+}
+
 /** The edges under a point within `box`, or null in the window's interior. */
 export function readerWindowEdgesAt(box: Pick<DOMRect, 'left' | 'top' | 'right' | 'bottom'>, x: number, y: number, band = READER_WINDOW_EDGE): Edges | null {
   if (x < box.left || x > box.right || y < box.top || y > box.bottom) return null
@@ -50,16 +68,28 @@ export function useReaderWindow<T extends HTMLElement>(
       set('left', point.x + 'px'); set('top', Math.max(topInset(), point.y) + 'px')
       set('right', 'auto'); set('bottom', 'auto'); set('transform', 'none')
     }
+    const minimum = readerWindowMinimum(key)
     const size = (width: number, height: number) => {
       // Explain / Define may grow only as wide as one reader leaf.
       const limit = key === 'explain' || key === 'define' ? innerWidth / 2 - 36 : innerWidth - 32
-      set('width', Math.max(260, Math.min(width, limit)) + 'px')
-      set('height', Math.max(160, Math.min(height, innerHeight - topInset() - 8)) + 'px')
+      const tallest = innerHeight - topInset() - 8
+      set('width', Math.max(minimum.width, Math.min(width, limit)) + 'px')
+      set('height', Math.max(Math.min(minimum.height, tallest), Math.min(height, tallest)) + 'px')
+    }
+    // Chat and Talk, until the reader moves or resizes them: anchored to the book's lower right.
+    const anchored = () => COMPANION_KEYS.has(key) && !collapsed && !saved
+    const anchor = () => {
+      const pages = node.closest('.lab')?.querySelector('.lab-page-wrap')?.getBoundingClientRect()
+      const box = node.getBoundingClientRect()
+      const point = readerCompanionPlacement(box, { width: innerWidth, height: innerHeight }, pages && pages.height > 0 ? pages.bottom : null)
+      set('left', Math.max(8, point.x) + 'px'); set('top', Math.max(topInset(), point.y) + 'px')
+      set('right', 'auto'); set('bottom', 'auto'); set('transform', 'none')
     }
     if (collapsed) { set('width', '240px'); set('height', '52px') }
     else if (saved && Number.isFinite(saved.width) && Number.isFinite(saved.height)) size(saved.width!, saved.height!)
     if (saved) place(saved.x, saved.y)
     const clamp = () => {
+      if (anchored()) { anchor(); return }
       const box = node.getBoundingClientRect()
       if (!collapsed && (box.width > innerWidth - 16 || box.height > innerHeight - topInset() - 8)) size(box.width, box.height)
       const current = node.getBoundingClientRect()

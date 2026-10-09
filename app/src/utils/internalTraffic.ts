@@ -2,7 +2,7 @@
  * Internal traffic flag for the reader bundle. The logic lives in
  * public/lab/internal-traffic.js so the plain pages (library, sign-in, about,
  * story, Add a book) share exactly the same rules; importing it here also
- * applies `?internal=1|0` and shows the badge as soon as the reader loads.
+ * applies `?internal=1|0` as soon as the reader loads.
  */
 export {
   CHECK_HEADER,

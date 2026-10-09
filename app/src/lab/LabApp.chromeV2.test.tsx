@@ -260,6 +260,10 @@ describe('the super-menu', () => {
     // Chat and Talk are labelled icon buttons inside the Librarian row.
     expect(screen.getByTestId('lab-super-row-chat').getAttribute('aria-label')).toBe('Chat')
     expect(screen.getByTestId('lab-super-row-talk').getAttribute('aria-label')).toBe('Talk')
+    // Talk wears the audio bar's "ılı" bars (TalkIcon), not a microphone.
+    const talkGlyph = screen.getByTestId('lab-super-row-talk').querySelector('svg')!
+    expect(talkGlyph.querySelectorAll('rect')).toHaveLength(3)
+    expect(talkGlyph.querySelector('path')).toBeNull()
     expect(labels).not.toContain('Play')
     // No section headers and no sub-labels: a row is an icon and a word.
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
