@@ -462,7 +462,7 @@ export function ownTableBook(book: OwnShelfBook & { reading: OwnShelfReading }):
     bookId: book.reading.bookId,
     title: book.title,
     author: book.author,
-    cover: bookCoverSrc({ bookId: book.reading.bookId, ownCover: book.cover }),
+    cover: bookCoverSrc({ bookId: book.reading.bookId, ownCover: book.cover, storedCover: book.storedCover }),
     wordCount: book.reading.wordCount,
     displayYear: '',
     tone: null,

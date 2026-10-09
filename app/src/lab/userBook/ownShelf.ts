@@ -47,6 +47,11 @@ export interface OwnShelfBook {
   author: string
   /** The book's own cover (a data: URL kept on this device), or null. */
   cover: string | null
+  /**
+   * The small copy of its cover kept with the account copy (a data: URL, read
+   * once and kept on this device; ownCovers.ts), set only when `cover` is null.
+   */
+  storedCover?: string | null
   /** Last opened (or added) on this device. */
   at: number
   /** Where the reader opens it: the Tinct reader for an EPUB, Add a book's viewer for a PDF. */

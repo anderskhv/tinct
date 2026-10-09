@@ -49,7 +49,8 @@
   async function saveToAccount(key, file, meta, { quiet: silent = false, notify = quiet } = {}) {
     if (!cloud.usable() || cloud.busy.has(key)) return;
     const known = cloud.get(key);
-    if (known) { await library.touch(key, { cloudId: known.id }); return }
+    // Already in the account: its cover goes too when the account copy has none (copies saved before covers were kept).
+    if (known) { await library.touch(key, { cloudId: known.id }); await covers.save(key); return }
     if (file.size > global.TinctAI.books.maxBytes) { if (!silent) notify('Kept on this device only: files over 50 MB are not saved to your account.'); return }
     cloud.busy.add(key);
     try {
@@ -57,6 +58,7 @@
       if (book?.sha256) cloud.get(key) || cloud.mine().set(cloud.keyOf(book), book);
       await library.touch(key, { cloudId: book?.id || null });
       if (!silent) notify('Saved to your account.');
+      await covers.save(key);
     } catch (e) {
       // Not saved: the copy is sent again on the book's next open. Said in the words the reader already knows.
       const why = e?.code === 'account_full' ? 'Kept on this device only: your account’s storage for books is full.'
@@ -70,6 +72,53 @@
       if (!silent && why) notify(why);
     } finally { cloud.busy.delete(key) }
   }
+  // The account copy's cover: a small copy of the book's own picture (WebP, else JPEG; 400 px on its
+  // long side, under 60 KB), kept with the file (/api/user-books/covers/<hex>, the owner only) so the
+  // reader's other devices show the real cover before the book is opened there (src/lab/userBook/
+  // ownCovers.ts reads it). Sent once the account copy exists and has none; quiet, and sent on a later
+  // open when it could not be now.
+  const COVER_DATA = /^data:image\/(jpeg|png|webp);base64,/;
+  const canvasBlob = (c, type, quality) => new Promise(res => { try { c.toBlob(res, type, quality) } catch { res(null) } });
+  const covers = {
+    side: 400, maxBytes: 60 * 1024, busy: new Set(),
+    // The kept picture (a data: URL) as the small copy; null where this browser cannot draw it.
+    async blob(url) {
+      if (!COVER_DATA.test(url) || typeof createImageBitmap !== 'function') return null;
+      const raw = atob(url.slice(url.indexOf(',') + 1)), bytes = new Uint8Array(raw.length);
+      for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+      let bmp; try { bmp = await createImageBitmap(new Blob([bytes], { type: url.slice(5, url.indexOf(';')) })) } catch { return null }
+      try {
+        let scale = Math.min(1, covers.side / Math.max(bmp.width, bmp.height));
+        for (let round = 0; round < 4; round++, scale *= 0.8) {
+          const c = document.createElement('canvas');
+          c.width = Math.max(1, Math.round(bmp.width * scale)); c.height = Math.max(1, Math.round(bmp.height * scale));
+          const g = c.getContext('2d'); if (!g) return null;
+          g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(bmp, 0, 0, c.width, c.height);
+          for (const [type, quality] of [['image/webp', 0.8], ['image/jpeg', 0.8], ['image/jpeg', 0.65]]) {
+            const out = await canvasBlob(c, type, quality);
+            if (out && out.type === type && out.size <= covers.maxBytes) return out;
+          }
+        }
+        return null;
+      } finally { bmp.close?.() }
+    },
+    // Send this book's cover when its account copy has none. Resolves true when it was stored.
+    async save(key) {
+      const remote = cloud.get(key);
+      if (!remote || remote.cover || !cloud.usable() || typeof global.TinctAI?.books?.putCover !== 'function' || covers.busy.has(key)) return false;
+      const rec = await library.get(key);
+      // A full-size cover only (coverV 2), never the old 180 px thumbnail.
+      if (!rec || !COVER_DATA.test(String(rec.cover || '')) || !(Number(rec.coverV) >= 2)) return false;
+      covers.busy.add(key);
+      try {
+        const image = await covers.blob(rec.cover).catch(() => null);
+        if (!image) return false;
+        remote.cover = await global.TinctAI.books.putCover(key.slice(key.indexOf(':') + 1), image) || true;
+        return true;
+      } catch { return false }
+      finally { covers.busy.delete(key) }
+    },
+  };
   // Every book on the shelf: this device's, plus the account's copies not yet on it.
   async function shelf() {
     const local = await library.list();
@@ -191,7 +240,7 @@
   const pdfHref = key => '/lab/addbook/?userBook=' + encodeURIComponent(String(key).slice(String(key).indexOf(':') + 1));
 
   global.TinctAddEngine = {
-    store, owner, library, cloud, saveToAccount, shelf, removeBook,
+    store, owner, library, cloud, covers, saveToAccount, shelf, removeBook,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
     kindOf, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, ACCOUNT_COPY_WAIT_MS,
   };

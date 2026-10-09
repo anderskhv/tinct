@@ -183,6 +183,17 @@ describe('the cover resolver', () => {
     expect(bookCoverSrc({ bookId: 'pd-pg-135', art: null })).toBeNull()
   })
 
+  it('an own book wears this device\'s picture, else the account\'s stored copy, else paper', async () => {
+    const { bookCoverSrc } = await import('../public/lab/book-cover.js')
+    const local = 'data:image/jpeg;base64,LOCAL'
+    const stored = 'data:image/webp;base64,STORED'
+    expect(bookCoverSrc({ bookId: 'userbook-ab', ownCover: local, storedCover: stored })).toBe(local)
+    expect(bookCoverSrc({ bookId: 'userbook-ab', ownCover: null, storedCover: stored })).toBe(stored)
+    // Only an image data: URL is worn; anything else is the paper cover.
+    expect(bookCoverSrc({ bookId: 'userbook-ab', storedCover: '/api/user-books/covers/ab?v=1' })).toBeNull()
+    expect(bookCoverSrc({ bookId: 'userbook-ab', ownCover: null, storedCover: null })).toBeNull()
+  })
+
   it('every painting has its small file for the switcher’s rows', async () => {
     const { PAINTED_COVER_IDS } = await import('../public/lab/book-cover.js')
     const { existsSync } = await import('node:fs')

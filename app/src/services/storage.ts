@@ -139,6 +139,8 @@ export function setAnonymousMode(restricted: boolean): void {
  */
 /** IndexedDB database of the Add-a-book page (addbooks/web/src/js/reader.js). */
 export const ADD_BOOK_IDB_NAME = 'tinct-addbook'
+/** IndexedDB database of own books' covers read from the account (lab/userBook/ownCovers.ts). */
+export const ADD_BOOK_COVERS_IDB_NAME = 'tinct-addbook-covers'
 
 export function clearLocalUserData(): void {
   try {
@@ -157,6 +159,8 @@ export function clearLocalUserData(): void {
   }
   // Books opened from the reader's own files on /lab/addbook/ live in IndexedDB.
   try { if (typeof indexedDB !== 'undefined') indexedDB.deleteDatabase(ADD_BOOK_IDB_NAME) } catch { /* private mode */ }
+  // And the covers of those books read from the account.
+  try { if (typeof indexedDB !== 'undefined') indexedDB.deleteDatabase(ADD_BOOK_COVERS_IDB_NAME) } catch { /* private mode */ }
 }
 
 // Active storage provider — starts as localStorage, can be swapped

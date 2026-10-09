@@ -21,6 +21,8 @@ export interface AccountBook {
   size: number
   sha256: string
   createdAt: string
+  /** The small image of its cover kept with the account copy (`/api/user-books/covers/<hex>?v=…`), or null. */
+  cover?: string | null
 }
 
 export interface AccountPlace {
@@ -74,7 +76,47 @@ export async function listAccountBooks(token: string | null, fetchImpl: FetchLik
     return data.books.filter((book): book is AccountBook => !!book && typeof book === 'object'
       && ((book as AccountBook).type === 'epub' || (book as AccountBook).type === 'pdf')
       && typeof (book as AccountBook).sha256 === 'string' && /^[0-9a-f]{64}$/.test((book as AccountBook).sha256))
-      .map(book => ({ ...book, id: typeof book.id === 'string' ? book.id : '', name: typeof book.name === 'string' ? book.name : '', title: typeof book.title === 'string' ? book.title : '', author: typeof book.author === 'string' ? book.author : '', createdAt: typeof book.createdAt === 'string' ? book.createdAt : '' }))
+      .map(book => ({ ...book, id: typeof book.id === 'string' ? book.id : '', name: typeof book.name === 'string' ? book.name : '', title: typeof book.title === 'string' ? book.title : '', author: typeof book.author === 'string' ? book.author : '', createdAt: typeof book.createdAt === 'string' ? book.createdAt : '', cover: accountCoverUrl(book.cover, book.sha256) }))
+  } catch {
+    return null
+  }
+}
+
+/** The list's cover URL when it is this book's own (`/api/user-books/covers/<hex>?v=…`), else null. */
+function accountCoverUrl(value: unknown, sha256: string): string | null {
+  return typeof value === 'string' && value.startsWith(`/api/user-books/covers/${sha256.slice(0, 24)}?v=`) && /^[\w/?=.-]+$/.test(value) ? value : null
+}
+
+/** The account keeps covers up to this many bytes (worker/routes/userBooks.ts MAX_COVER_BYTES). */
+export const ACCOUNT_COVER_MAX_BYTES = 64 * 1024
+
+/** Store the small image of a book's cover with its account copy; the stored cover's URL, or null when it was not stored. */
+export async function putAccountCover(hex: string, image: Blob, token: string | null, fetchImpl: FetchLike = fetch): Promise<string | null> {
+  if (!token || !/^[0-9a-f]{24}$/.test(hex) || image.size > ACCOUNT_COVER_MAX_BYTES || !/^image\/(jpeg|webp)$/.test(image.type)) return null
+  try {
+    const response = await fetchImpl(`/api/user-books/covers/${hex}`, authorized(token, { method: 'PUT', headers: { 'Content-Type': image.type }, body: image }))
+    if (!response.ok) return null
+    const data = await response.json().catch(() => null) as { cover?: unknown } | null
+    return accountCoverUrl(data?.cover, hex) ?? null
+  } catch {
+    return null
+  }
+}
+
+/** A stored cover (the URL the list gave) as a data: URL; null when it cannot be read. */
+export async function fetchAccountCover(url: string, token: string | null, fetchImpl: FetchLike = fetch): Promise<string | null> {
+  if (!token || !/^\/api\/user-books\/covers\/[0-9a-f]{24}\?v=[0-9a-z]+$/.test(url)) return null
+  try {
+    // Kept on this device after the first read (ownCovers.ts), so the browser's own cache is not needed.
+    const response = await fetchImpl(url, authorized(token))
+    if (!response.ok) return null
+    const type = (response.headers.get('content-type') || '').split(';')[0].trim()
+    if (type !== 'image/jpeg' && type !== 'image/webp') return null
+    const bytes = new Uint8Array(await response.arrayBuffer())
+    if (!bytes.byteLength || bytes.byteLength > ACCOUNT_COVER_MAX_BYTES) return null
+    let binary = ''
+    for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000))
+    return `data:${type};base64,${btoa(binary)}`
   } catch {
     return null
   }

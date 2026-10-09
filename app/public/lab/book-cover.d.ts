@@ -6,6 +6,8 @@ export interface BookCoverInput {
   art?: { src?: string | null; srcSet?: string | null } | string | null
   /** An own book's kept picture (a data: URL). */
   ownCover?: string | null
+  /** The account's small copy of an own book's cover (a data: URL), used when this device has none. */
+  storedCover?: string | null
 }
 export const PAINTED_COVER_IDS: readonly string[]
 export const PAINTED_WIDTHS: Readonly<{ full: number; thumb: number }>

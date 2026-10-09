@@ -16,7 +16,7 @@ type Engine = {
   removeBook(key: string, options?: { notify?: (text: string) => void }): Promise<boolean>
   preparePdf(file: File, key: string): Promise<{ href: string }>
   pdfHref(key: string): string
-  library: { get(key: string): Promise<unknown>; remove(key: string): Promise<void> }
+  library: { get(key: string): Promise<unknown>; remove(key: string): Promise<void>; touch(key: string, patch: object): Promise<void> }
   cloud: { mine(): Map<string, { id: string }> }
 }
 const win = window as unknown as { TinctAddEngine?: Engine; TinctAI?: unknown }
@@ -119,6 +119,66 @@ describe('Add a book’s engine (add-engine.js)', () => {
     }
     // A full account keeps its own words.
     expect(await save(Object.assign(new Error('x'), { code: 'account_full', status: 413 }))).toEqual(['Kept on this device only: your account’s storage for books is full.'])
+  })
+
+  describe('the account copy’s cover', () => {
+    type Covers = { blob(url: string): Promise<Blob | null>; save(key: string): Promise<boolean> }
+    const COVER = 'data:image/jpeg;base64,AAAA'
+    const HEX = 'ab'.repeat(12)
+    function withCover(record: Record<string, unknown> | null, remote: Record<string, unknown> | null) {
+      const putCover = vi.fn(async (hex: string) => `/api/user-books/covers/${hex}?v=k1`)
+      const upload = vi.fn(async () => ({ id: 'c'.repeat(32), sha256: HEX + '0'.repeat(40), type: 'epub', cover: null }))
+      const engine = loadEngine({ userId: 'u1', token: 't' }, { putCover, upload }) as Engine & { covers: Covers; saveToAccount: (key: string, file: Blob, meta: object, options?: object) => Promise<void>; library: { touch(key: string, patch: object): Promise<void> } }
+      engine.library.get = async () => record
+      engine.library.touch = async () => {}
+      engine.covers.blob = vi.fn(async () => new Blob([new Uint8Array([0xff, 0xd8, 0xff])], { type: 'image/webp' }))
+      if (remote) engine.cloud.mine().set(`epub:${HEX}`, remote as { id: string })
+      return { engine, putCover, upload }
+    }
+
+    it('sends the small copy of the book’s cover when a book is added and saved to the account', async () => {
+      const { engine, putCover, upload } = withCover({ key: `epub:${HEX}`, cover: COVER, coverV: 2 }, null)
+      await engine.saveToAccount(`epub:${HEX}`, new Blob(['PK']), { kind: 'epub' }, { quiet: true })
+      expect(upload).toHaveBeenCalledTimes(1)
+      expect(engine.covers.blob).toHaveBeenCalledWith(COVER)
+      expect(putCover).toHaveBeenCalledWith(HEX, expect.any(Blob))
+    })
+
+    it('sends it for a book already in the account without one (backfill on its next open), and never twice', async () => {
+      const remote = { id: 'c'.repeat(32), cover: null }
+      const { engine, putCover, upload } = withCover({ key: `epub:${HEX}`, cover: COVER, coverV: 2 }, remote)
+      await engine.saveToAccount(`epub:${HEX}`, new Blob(['PK']), { kind: 'epub' }, { quiet: true })
+      expect(upload).not.toHaveBeenCalled()
+      expect(putCover).toHaveBeenCalledTimes(1)
+      expect(await engine.covers.save(`epub:${HEX}`)).toBe(false)
+      expect(putCover).toHaveBeenCalledTimes(1)
+    })
+
+    it('sends nothing when the account copy has a cover, the book has none here, or only the old thumbnail', async () => {
+      for (const [record, remote] of [
+        [{ cover: COVER, coverV: 2 }, { id: 'x', cover: `/api/user-books/covers/${HEX}?v=k0` }],
+        [{ cover: null, coverV: 2 }, { id: 'x', cover: null }],
+        [{ cover: COVER }, { id: 'x', cover: null }],
+        [{ cover: 'javascript:alert(1)', coverV: 2 }, { id: 'x', cover: null }],
+      ] as const) {
+        const { engine, putCover } = withCover({ key: `epub:${HEX}`, ...record }, { ...remote })
+        expect(await engine.covers.save(`epub:${HEX}`)).toBe(false)
+        expect(putCover).not.toHaveBeenCalled()
+      }
+    })
+
+    it('keeps reading when the cover cannot be sent', async () => {
+      const { engine, putCover } = withCover({ key: `epub:${HEX}`, cover: COVER, coverV: 2 }, { id: 'x', cover: null })
+      putCover.mockRejectedValueOnce(Object.assign(new Error('x'), { code: 'rate_limited' }))
+      expect(await engine.covers.save(`epub:${HEX}`)).toBe(false)
+      // Tried again later (the next open or listing).
+      expect(await engine.covers.save(`epub:${HEX}`)).toBe(true)
+    })
+
+    it('the PDF reader sends a PDF’s first-page cover once it is drawn (reader.js)', () => {
+      const reader = readFileSync(join(ADDBOOK, 'js/reader.js'), 'utf8')
+      expect(reader).toMatch(/library\.touch\(key, \{ cover: canvas\.toDataURL[^\n]+\n[^\n]+\n\s+await engine\.covers\?\.save\(key\)/)
+    })
   })
 
   it('opens a kept PDF in Add a book’s PDF reader at its own address (?userBook=<hex>)', async () => {

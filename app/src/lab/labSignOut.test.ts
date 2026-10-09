@@ -99,5 +99,7 @@ describe('classic sign-out wipe (clearLocalUserData) and the lab keys', () => {
     vi.stubGlobal('indexedDB', { deleteDatabase })
     clearLocalUserData()
     expect(deleteDatabase).toHaveBeenCalledWith('tinct-addbook')
+    // And own books' covers read from the account (lab/userBook/ownCovers.ts).
+    expect(deleteDatabase).toHaveBeenCalledWith('tinct-addbook-covers')
   })
 })

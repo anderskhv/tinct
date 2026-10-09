@@ -24,6 +24,7 @@ import { accountBookKey, fetchAccountPlaceSets, listAccountBooks, ownBookToken, 
 import { PDF_PLACE_PREFIX, forgetRemovedOwnBooks, ownReading, ownReadingNow, pdfReading, placePercent, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './ownShelf'
 import { ownBookOpenUrl, userBookReaderUrl } from './userBookId'
 import type { UserBookChapter } from './userEdition'
+import { sendMissingCovers, storedCovers, type CoverCache, type CoverShrinker } from './ownCovers'
 
 const PLACE_PREFIX = 'tinct-addbook:place:'
 
@@ -308,6 +309,7 @@ export function accountOnlyBook(book: AccountBook): OwnShelfBook {
     title: book.title || book.name.replace(/\.(pdf|epub)$/i, '') || 'Untitled',
     author: book.author || '',
     cover: null,
+    storedCover: null,
     at,
     href: book.type === 'epub' ? userBookReaderUrl(hex) : ownBookOpenUrl(hex),
     // A PDF's place: the page read on another device of the account (pullAccountPlaces), if any.
@@ -321,12 +323,14 @@ export function accountOnlyBook(book: AccountBook): OwnShelfBook {
  * key once, latest first. Without the account (signed out, offline, slow past
  * `timeoutMs`), this device's books as they are.
  */
-export async function ownShelfWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number } = {}): Promise<OwnShelfBook[]> {
+export async function ownShelfWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number; shrink?: CoverShrinker; cache?: CoverCache } = {}): Promise<OwnShelfBook[]> {
   if (!owner) return []
-  const account = await withTimeout(reconcileOwnBooks(owner, options).catch(() => null), options.timeoutMs ?? 5000, null)
+  const token = options.token !== undefined ? options.token : await ownBookToken()
+  const account = await withTimeout(reconcileOwnBooks(owner, { ...options, token }).catch(() => null), options.timeoutMs ?? 5000, null)
   const out: OwnShelfBook[] = []
   const here = new Set<string>()
-  for (const book of await readOwnShelf(owner)) {
+  const local = await readOwnShelf(owner)
+  for (const book of local) {
     if (here.has(book.key)) continue
     here.add(book.key)
     out.push(book)
@@ -337,6 +341,14 @@ export async function ownShelfWithAccount(owner: string | null | undefined, opti
     here.add(listed.key)
     out.push(listed)
   }
+  // This device's covers go to account copies that have none (in the background);
+  // a book with no picture here wears the account's stored one (book-cover.js).
+  if (account) void sendMissingCovers(local, account, { token, fetchImpl: options.fetchImpl, shrink: options.shrink }).catch(() => [])
+  const bare = new Set(out.filter(book => !book.cover).map(book => book.hex))
+  if (bare.size) {
+    const stored = await withTimeout(storedCovers(owner, account, bare, { token, fetchImpl: options.fetchImpl, cache: options.cache }).catch(() => new Map<string, string>()), 4000, new Map<string, string>())
+    for (const book of out) if (!book.cover && stored.has(book.hex)) book.storedCover = stored.get(book.hex)!
+  }
   return out.sort((a, b) => b.at - a.at)
 }
 
@@ -346,7 +358,7 @@ export async function ownShelfWithAccount(owner: string | null | undefined, opti
  * device's and the account's (a book added or read on another device), most
  * recently read first. Without the account, this device's.
  */
-export async function ownReadingNowWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number } = {}): Promise<Array<OwnShelfBook & { reading: OwnShelfReading }>> {
+export async function ownReadingNowWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number; shrink?: CoverShrinker; cache?: CoverCache } = {}): Promise<Array<OwnShelfBook & { reading: OwnShelfReading }>> {
   if (!owner) return []
   const books = await ownShelfWithAccount(owner, options).catch(() => readOwnShelf(owner).catch(() => [] as OwnShelfBook[]))
   return ownReadingNow(books)

@@ -18,6 +18,8 @@ import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import type { OwnShelfBook } from './lab/userBook/ownShelf'
 import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
+import { userBookId } from './lab/userBook/userBookId'
+import { bookCoverSrc } from '../public/lab/book-cover.js'
 import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
 import { publicChapters, type PublicChapterUpload } from './lab/userBook/publicChapters'
 
@@ -128,7 +130,7 @@ export interface OwnBook {
   kind: 'pdf' | 'epub'
   title: string
   author: string
-  /** The book's own cover, kept on this device (a data: URL); null without one or for an account copy not on it. */
+  /** The book's own cover (a data: URL): kept on this device, else the account's stored copy; null without either. */
   cover: string | null
   /** Last opened (or added) on this device or in the account. */
   at: number
@@ -140,7 +142,8 @@ export interface OwnBook {
 }
 
 const ownBook = (book: OwnShelfBook): OwnBook => ({
-  key: book.key, kind: book.kind, title: book.title, author: book.author, cover: book.cover, at: book.at,
+  // This device's picture, else the account's stored copy of it (book-cover.js).
+  key: book.key, kind: book.kind, title: book.title, author: book.author, cover: bookCoverSrc({ bookId: userBookId(book.hex), ownCover: book.cover, storedCover: book.storedCover }), at: book.at,
   readingAt: book.reading?.lastActiveAt ?? null, percent: book.reading?.percent ?? null, href: book.href,
 })
 

@@ -1,8 +1,8 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261009shelf';
-import { bookCoverSrc, ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009shelf';
-import { shortTitle } from '../book-title.js?v=20261009shelf';
+import { bindingFor } from './reading-table.js?v=20261009owncover';
+import { bookCoverSrc, ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009owncover';
+import { shortTitle } from '../book-title.js?v=20261009owncover';
 import { recordRects, playFlip } from './shelf-motion.js?v=20261009cover';
 import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel10';
 

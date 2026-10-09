@@ -47,7 +47,7 @@ export function ownQuickBookRows(books: ReadonlyArray<OwnShelfBook & { reading: 
     bookId: book.reading.bookId,
     title: book.title,
     chapterLabel: book.reading.chapterLabel,
-    coverSrc: resolveBookCover({ bookId: book.reading.bookId, ownCover: book.cover })?.src ?? null,
+    coverSrc: resolveBookCover({ bookId: book.reading.bookId, ownCover: book.cover, storedCover: book.storedCover })?.src ?? null,
     coverSrcSet: null,
     coverTone: null,
     author: book.author,
