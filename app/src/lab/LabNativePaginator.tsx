@@ -1,4 +1,5 @@
 import { proseJoins, proseRuns } from './labPoetry'
+import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
@@ -451,15 +452,16 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         // starts, its last line's spacing, right after fitting it) reads that
         // layout instead of building it again.
         let onStage = ''
+        const stageRows = measureRowsState()
         const paint = (segments: ChapterPageSegment[], first: boolean, withEnd: boolean) => {
           const trial = JSON.stringify([segments, first, withEnd])
           if (trial === onStage && stage.isConnected) return
           onStage = trial
           if (end) end.hidden = !withEnd
           header.hidden = !first
-          stage.replaceChildren()
-          tailBlock = null
-          for (const run of proseRuns(paragraphs, segments)) {
+          // Rows this trial shares with the one on the stage stay painted (labMeasureRows).
+          const runs = proseRuns(paragraphs, segments)
+          const blocks = paintRows(stage, stageRows, runs.map(run => ({ key: JSON.stringify(run.map(index => segments[index])), build: () => {
             const p = document.createElement('p')
             p.className = 'lab-hearing-line'
             run.forEach((index, position) => {
@@ -468,10 +470,11 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               const lineation = { text: paragraphs[segment.paragraphIndex], from: segment.from }
               if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true })
               else labMeasureJoinInto(p, words, lineation, { plans: true })
-              if (index === segments.length - 1) tailBlock = position === 0 ? p : p.lastElementChild
             })
-            stage.append(p)
-          }
+            return p
+          } })))
+          const last = blocks[blocks.length - 1]
+          tailBlock = last ? (runs[runs.length - 1].length > 1 ? last.lastElementChild : last) : null
         }
         const lineStarts = (segments: ChapterPageSegment[], first: boolean) => {
           const tail = segments[segments.length - 1]

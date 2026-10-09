@@ -1,4 +1,5 @@
 import { proseRuns, sliceJoinsPrevious } from './labPoetry'
+import { measureRowsState, paintRows, type MeasureRow } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
@@ -346,16 +347,18 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             )
           }
           const end = page.querySelector<HTMLElement>('.lab-chapter-end')
+          // Rows a trial shares with the one on the stage stay painted (labMeasureRows).
+          const painted = measureRowsState()
           const fits = (segments: ChapterPageSegment[], first: boolean, withEnd = false) => {
             if (end) end.hidden = !withEnd
             header.hidden = !first
-            rows.replaceChildren()
+            const next: MeasureRow[] = []
             if (comparison && target && alignment) {
               // Verse-paired rows: a compare cell spans the primary lines of
               // its verses (see LabPassage), so measure each verse group as
               // one row. The primary stack keeps its lines' own margins, as
               // separate grid rows do.
-              for (const group of verseGroups(segments, alignment)) {
+              for (const group of verseGroups(segments, alignment)) next.push({ key: JSON.stringify([group.segments, group.pieces]), build: () => {
                 const row = document.createElement('div')
                 row.className = 'lab-desktop-measure-row'
                 const stack = document.createElement('div')
@@ -377,15 +380,16 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
                   cell.append(p)
                 }
                 row.append(stack, cell)
-                rows.append(row)
-              }
-            } else if (comparison && target) for (const segment of segments) {
+                return row
+              } })
+            } else if (comparison && target) for (const segment of segments) next.push({ key: JSON.stringify(segment), build: () => {
               const row = document.createElement('div')
               row.className = 'lab-desktop-measure-row'
               row.append(makeParagraph(segment, source, paragraphs))
               row.append(makeParagraph(comparisonSegment(segment, paragraphs, comparison), target, comparison))
-              rows.append(row)
-            } else for (const run of proseRuns(paragraphs, segments)) {
+              return row
+            } })
+            else for (const run of proseRuns(paragraphs, segments)) next.push({ key: JSON.stringify(run.map(index => segments[index])), build: () => {
               // BSB poetry lines paint inside one visual paragraph (labPoetry).
               const row = document.createElement('div')
               row.className = 'lab-desktop-measure-row'
@@ -395,8 +399,9 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
                 labMeasureJoinInto(p, segmentWordTexts(source[segment.paragraphIndex] || [], segment), { text: paragraphs[segment.paragraphIndex], from: segment.from })
               }
               row.append(p)
-              rows.append(row)
-            }
+              return row
+            } })
+            paintRows(rows, painted, next)
             const bottom = withEnd && end ? end.getBoundingClientRect().bottom : rows.getBoundingClientRect().bottom
             return bottom <= page.getBoundingClientRect().bottom + .1
           }
