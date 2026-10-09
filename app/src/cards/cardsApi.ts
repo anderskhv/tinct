@@ -13,6 +13,7 @@
  *   GET  /api/ai-allowance                AI credits (labAiAllowance.ts)
  *   GET  /api/subscription-info           the plan (labPremiumOffer.ts)
  *   POST /api/create-portal               Stripe's billing portal
+ *   POST /api/account/delete              Delete account (worker/routes/accountDelete.ts)
  *
  * Every call resolves (never throws).
  */
@@ -111,6 +112,28 @@ export async function loadReading(token: string, userId: string | null, fetchImp
 }
 
 /** Stripe's billing portal (existing /api/create-portal). */
+/** The phrase the Worker requires before it deletes an account (worker/routes/accountDelete.ts). */
+export const ACCOUNT_DELETE_CONFIRM = 'delete-my-account'
+
+/**
+ * Delete the signed-in reader's own account and everything held for it.
+ * True once the account is gone (the caller then signs out); false when it
+ * still exists, so the reader can try again.
+ */
+export async function deleteOwnAccount(token: string, userId: string, fetchImpl: typeof fetch = fetch): Promise<boolean> {
+  try {
+    const res = await fetchImpl(apiUrl('/api/account/delete'), {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ confirm: ACCOUNT_DELETE_CONFIRM, userId }),
+    })
+    const data = await res.json().catch(() => ({})) as { deleted?: unknown }
+    return res.ok && data.deleted === true
+  } catch {
+    return false
+  }
+}
+
 export async function openBillingPortal(token: string, fetchImpl: typeof fetch = fetch): Promise<string | null> {
   try {
     const res = await fetchImpl(apiUrl('/api/create-portal'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: '{}' })

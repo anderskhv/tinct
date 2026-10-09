@@ -8,6 +8,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import cardsCss from './cards.css?raw'
 import { accountCardsOpen, closeAccountCards, openAccountCards } from './openCards'
+import { CardStack } from './cardStack'
+import { accountCard, type CardsEnv } from './cardViews'
+import { CARDS_COPY } from './cardsCopy'
+import { ACCOUNT_DELETE_CONFIRM, ACCOUNT_DELETE_PATH } from '../worker/routes/accountDelete'
 
 const session = { token: 'tok', userId: '11111111-1111-4111-8111-111111111111', email: 'anders@example.com', accountName: 'Anders' }
 
@@ -30,6 +34,7 @@ let posts: Array<{ url: string; body: Record<string, unknown> }> = []
 let readerProfile: Record<string, unknown> | null = null
 let searchResults: unknown[] = []
 let blocked: Array<{ id: string; name: string; handle: string | null }> = []
+let deleteAnswer: { status: number; body: Record<string, unknown> } = { status: 200, body: { ok: true, deleted: true } }
 
 function api() {
   return vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -53,6 +58,7 @@ function api() {
     if (url.startsWith('/api/social/follow')) return Response.json({ relation: 'friend', followsYou: true })
     if (url.startsWith('/api/social/profile/')) return readerProfile ? Response.json({ profile: readerProfile }) : Response.json({ error: 'Not found' }, { status: 404 })
     if (url.startsWith('/api/social/board')) return Response.json({ tab: 'friends', total: 1, meShown: true, me: null, entries: [{ rank: 1, name: 'Anders', picture: pic('A'), seconds: 3600, duration: '1 h', me: true }] })
+    if (url.startsWith('/api/account/delete')) return Response.json(deleteAnswer.body, { status: deleteAnswer.status })
     if (url.startsWith('/api/subscription-info')) return Response.json({ subscription_status: 'active' })
     return Response.json({}, { status: 404 })
   })
@@ -69,6 +75,7 @@ beforeEach(() => {
   readerProfile = null
   searchResults = []
   blocked = []
+  deleteAnswer = { status: 200, body: { ok: true, deleted: true } }
   document.body.innerHTML = '<main id="page"><p id="place">Chapter 14, page 3</p></main>'
   vi.stubGlobal('fetch', api())
 })
@@ -195,6 +202,73 @@ describe('Settings', () => {
     scrim.click()
     expect(top().querySelector('[data-testid="card-tip"]')).toBeNull()
     expect(top().dataset.card).toBe('settings')
+  })
+})
+
+describe('Delete account', () => {
+  const deletePosts = () => posts.filter(post => post.url === '/api/account/delete')
+
+  /** The Account card alone, with a recording signOut (the real one leaves the page). */
+  function accountOnly() {
+    const signOut = vi.fn(async (_landing?: string) => {})
+    const env: CardsEnv = {
+      session, social: true, changed: () => {}, reloadFind: () => {}, signOut, resetPassword: async () => '', navigate: vi.fn(),
+      data: { profile: null, reading: null, allowance: null, plan: 'free', intervals: [], rank: null, find: null, findBadge: 0 },
+    }
+    const stack = new CardStack({ dark: false, onClosed: () => {} })
+    stack.push(accountCard(env))
+    return { env, signOut, stack }
+  }
+
+  it('asks in the card first, then deletes the account and signs out to the front page', async () => {
+    const { signOut, stack } = accountOnly()
+    click(byTest('account-delete'))
+    expect(top().textContent).toContain(CARDS_COPY.deleteConfirm)
+    expect(deletePosts()).toEqual([])
+    // Cancel goes back without deleting anything.
+    click(byTest('account-delete-cancel'))
+    expect(byTest('account-delete-confirm')).toBeNull()
+    click(byTest('account-delete'))
+    click(byTest('account-delete-confirm'))
+    await flush()
+    // Exactly what the Worker requires (worker/routes/accountDelete.ts).
+    expect(deletePosts()).toEqual([{ url: ACCOUNT_DELETE_PATH, body: { confirm: ACCOUNT_DELETE_CONFIRM, userId: session.userId } }])
+    expect(signOut).toHaveBeenCalledWith('/')
+    stack.closeAll()
+  })
+
+  it('shows the error line and keeps the reader signed in when deletion fails', async () => {
+    deleteAnswer = { status: 500, body: { ok: false, deleted: false, error: 'deletion_failed' } }
+    const { signOut, stack } = accountOnly()
+    click(byTest('account-delete'))
+    click(byTest('account-delete-confirm'))
+    await flush()
+    expect(signOut).not.toHaveBeenCalled()
+    expect(top().querySelector('.tc-status')?.textContent).toBe(CARDS_COPY.actionFailed)
+    expect(top().dataset.card).toBe('account')
+    stack.closeAll()
+  })
+
+  it('signs out once the account is gone even if a final sweep was incomplete', async () => {
+    deleteAnswer = { status: 200, body: { ok: false, deleted: true } }
+    const { signOut, stack } = accountOnly()
+    click(byTest('account-delete'))
+    click(byTest('account-delete-confirm'))
+    await flush()
+    expect(signOut).toHaveBeenCalledWith('/')
+    stack.closeAll()
+  })
+
+  it('uses the real sign-out, which wipes this device\'s reader data', async () => {
+    localStorage.setItem('tinct:highlights', '[1]')
+    localStorage.setItem('tinct:device-preferences', '{}')
+    await open('account')
+    click(byTest('account-delete'))
+    click(byTest('account-delete-confirm'))
+    await flush()
+    expect(deletePosts()).toHaveLength(1)
+    expect(localStorage.getItem('tinct:highlights')).toBeNull()
+    expect(localStorage.getItem('tinct:device-preferences')).toBe('{}')
   })
 })
 

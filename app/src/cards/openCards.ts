@@ -121,13 +121,13 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
     changed: () => stack?.refreshLive(),
     reloadFind: () => loadFind(env, patch => { Object.assign(env.data, patch); env.changed() }),
     navigate: url => { location.assign(url) },
-    signOut: async () => {
+    signOut: async (landing = '/library') => {
       try { await supabase?.auth.signOut() } catch { /* signed out locally below */ }
       clearSignedInCookie()
       // The next person on this device must not inherit this reader's data.
       wipeLabDeviceUserData()
       cached = null
-      location.assign('/library')
+      location.assign(landing)
     },
     resetPassword: async () => {
       if (!supabase || !session.email) return ''

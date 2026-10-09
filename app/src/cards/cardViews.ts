@@ -11,6 +11,7 @@ import { CARDS_COPY } from './cardsCopy'
 import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, rankOf, shortEmail, weekHeights } from './cardsFormat'
 import {
   blockedReaderId,
+  deleteOwnAccount,
   fetchBoard,
   fetchFind,
   fetchProfile,
@@ -72,7 +73,8 @@ export interface CardsEnv {
   changed: () => void
   /** Read Find readers again (after a follow). */
   reloadFind: () => void
-  signOut: () => Promise<void>
+  /** Sign out and wipe this device's reader data; then go to `landing` (default: the library). */
+  signOut: (landing?: string) => Promise<void>
   resetPassword: () => Promise<string>
   navigate: (url: string) => void
   clipboard?: (text: string) => Promise<boolean>
@@ -718,6 +720,7 @@ export function settingsCard(env: CardsEnv): CardSpec {
 /** Behind Settings → Account: the plan, changing it, and deleting the account. */
 export function accountCard(env: CardsEnv): CardSpec {
   let confirming = false
+  let deleting = false
   let status = ''
   return {
     id: 'account',
@@ -750,8 +753,18 @@ export function accountCard(env: CardsEnv): CardSpec {
           el('p', { className: 'tc-foot', style: { margin: '0 16px -16px' }, text: CARDS_COPY.deleteConfirm }),
           group(
             row({ label: CARDS_COPY.cancel, className: 'is-center', onClick: () => { confirming = false; card.refresh() }, testid: 'account-delete-cancel' }),
-            // Deleting an account is a request to contact@tinct.app (privacy notice, "Data retention and deletion").
-            row({ label: CARDS_COPY.deleteAccount, className: 'is-center', onClick: () => env.navigate(deleteAccountMailto(env.session.email)), testid: 'account-delete-confirm' }),
+            // Deleted at once (privacy notice, "Data retention and deletion"), then signed out to the front page.
+            row({
+              label: CARDS_COPY.deleteAccount, className: 'is-center', testid: 'account-delete-confirm', onClick: async () => {
+                if (deleting || !env.session.userId) return
+                deleting = true
+                const deleted = await deleteOwnAccount(token, env.session.userId)
+                deleting = false
+                if (deleted) { await env.signOut('/'); return }
+                status = CARDS_COPY.actionFailed
+                card.refresh()
+              },
+            }),
           )!,
         )
       } else {
@@ -762,12 +775,6 @@ export function accountCard(env: CardsEnv): CardSpec {
       return [navBar(card, CARDS_COPY.account), body]
     },
   }
-}
-
-export function deleteAccountMailto(email: string | null): string {
-  const subject = encodeURIComponent('Delete my account')
-  const body = encodeURIComponent(`Please delete my Tinct account${email ? ` (${email})` : ''} and all associated data.`)
-  return `mailto:contact@tinct.app?subject=${subject}&body=${body}`
 }
 
 // ===== Pictures and backgrounds =====
