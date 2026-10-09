@@ -55,8 +55,8 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .body.tight { gap: 24px; }
 
 /* profile header */
-.hero { position: relative; flex: none; height: 150px; }
-.hero .bg { position: absolute; inset: 0 0 46px; background: var(--bgimg) center 45% / cover; }
+.hero { position: relative; flex: none; height: 168px; }
+.hero .bg { position: absolute; inset: 0 0 62px; background: var(--bgimg) center 45% / cover; }
 .hero .bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.25), transparent 50%); }
 .hero .disc { position: absolute; top: 16px; background: rgba(255,255,255,.9); color: #0a0a0a; }
 .hero .disc.x { right: 16px; } .hero .disc.b { left: 16px; }
@@ -77,7 +77,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .r { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 16px; position: relative; font-size: 17px; letter-spacing: -.01em; }
 .r + .r::before { content: ""; position: absolute; top: 0; left: 16px; right: 0; height: 1px; background: var(--sep); }
 .r.av-row + .r::before { left: 64px; }
-.r .l { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.r .l { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .r .v { color: var(--sec); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .r .v b { color: var(--ink); font-weight: 600; }
 .chev { width: 8px; height: 14px; flex: none; color: var(--ter); margin-left: -2px; }
@@ -91,7 +91,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .sw.on { background: var(--fill); } .sw.on::after { left: 22px; }
 .dm .sw.on::after { background: #1c1c1c; }
 .seg { display: flex; flex: none; background: var(--seg); border-radius: 9px; padding: 2px; margin-left: auto; }
-.seg span { padding: 6px 11px; border-radius: 7px; font-size: 14px; color: var(--ink); white-space: nowrap; line-height: 1.2; }
+.seg span { padding: 6px 8px; border-radius: 7px; font-size: 13.5px; color: var(--ink); white-space: nowrap; line-height: 1.2; }
 .seg span.on { background: var(--thumb); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
 .dm .seg span.on { color: #fff; }
 .meter { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 16px 16px; }
