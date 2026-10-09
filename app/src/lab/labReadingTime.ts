@@ -18,15 +18,38 @@ import { BEAT_MAX_SECONDS, FLUSH_MAX_AGE_DAYS, addDays, daysBetween, localDay, t
 
 export type LedgerStatus = 'unknown' | 'off' | 'on' | 'unavailable'
 
-let statusRequest: Promise<boolean> | null = null
+let statusRequest: { at: number; promise: Promise<boolean> } | null = null
 
-/** Whether reading time is switched on, asked once per page. Any failure reads as off. */
-export function readingTimeSwitch(fetchImpl: typeof fetch | undefined = typeof fetch === 'function' ? fetch : undefined): Promise<boolean> {
+/**
+ * How long a reader page trusts the switch it was told. A reader tab stays
+ * open for days; on 8 Oct 2026 the switch went on, off and on again while tabs
+ * stayed open, and a page that had once heard "off" (or could not ask) kept
+ * counting into the yearly tally, which the ledger had already merged once,
+ * so that reading never reached the ledger.
+ */
+export const SWITCH_RECHECK_MS = 5 * 60_000
+
+/**
+ * Whether reading time is switched on. One answer is shared while it is
+ * younger than `maxAgeMs` (default: for the page's life). A failed request is
+ * never kept, so the next caller asks again. Any failure reads as off.
+ */
+export function readingTimeSwitch(fetchImpl: typeof fetch | undefined = typeof fetch === 'function' ? fetch : undefined, options: { maxAgeMs?: number } = {}): Promise<boolean> {
   if (!fetchImpl) return Promise.resolve(false)
-  statusRequest ??= fetchImpl(apiUrl('/api/reading-time/status'), { cache: 'no-store' })
-    .then(async response => response.ok && (await response.json() as { enabled?: unknown }).enabled === true)
-    .catch(() => false)
-  return statusRequest
+  const maxAge = options.maxAgeMs ?? Number.POSITIVE_INFINITY
+  if (statusRequest && Date.now() - statusRequest.at <= maxAge) return statusRequest.promise
+  const entry: { at: number; promise: Promise<boolean> } = { at: Date.now(), promise: Promise.resolve(false) }
+  statusRequest = entry
+  entry.promise = fetchImpl(apiUrl('/api/reading-time/status'), { cache: 'no-store' })
+    .then(async response => {
+      if (!response.ok) throw new Error(String(response.status))
+      return (await response.json() as { enabled?: unknown }).enabled === true
+    })
+    .catch(() => {
+      if (statusRequest === entry) statusRequest = null
+      return false
+    })
+  return entry.promise
 }
 
 /** Tests only. */
