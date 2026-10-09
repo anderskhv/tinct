@@ -262,10 +262,30 @@ export async function sendFlush(token: string, userId: string, flush: StoredFlus
 
 export interface ReadingTimeSummary { rows: LedgerRow[] }
 
-/** The reader's ledger rows; null while off or unavailable (the caller shows the device tally). */
-export async function fetchReadingTime(token: string, fetchImpl: typeof fetch = fetch): Promise<ReadingTimeSummary | null> {
+/** How long the reader waits for its ledger rows before showing what it has. */
+export const SUMMARY_TIMEOUT_MS = 8_000
+
+/**
+ * The reader's ledger rows; null while off, unavailable or slower than
+ * `timeoutMs` (the caller shows the device tally). Without a timeout a request
+ * that never answered left the account sheet on its loading dash.
+ */
+export async function fetchReadingTime(token: string, fetchImpl: typeof fetch = fetch, options: { timeoutMs?: number } = {}): Promise<ReadingTimeSummary | null> {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const controller = typeof AbortController === 'function' ? new AbortController() : null
+  const timeout = new Promise<null>(resolve => {
+    timer = setTimeout(() => { controller?.abort(); resolve(null) }, options.timeoutMs ?? SUMMARY_TIMEOUT_MS)
+  })
   try {
-    const response = await fetchImpl(apiUrl('/api/reading-time'), { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' })
+    return await Promise.race([readSummary(token, fetchImpl, controller?.signal), timeout])
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+async function readSummary(token: string, fetchImpl: typeof fetch, signal: AbortSignal | undefined): Promise<ReadingTimeSummary | null> {
+  try {
+    const response = await fetchImpl(apiUrl('/api/reading-time'), { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store', ...(signal ? { signal } : {}) })
     if (!response.ok) return null
     const data = await response.json() as { enabled?: boolean; rows?: unknown }
     if (data.enabled !== true || !Array.isArray(data.rows)) return null

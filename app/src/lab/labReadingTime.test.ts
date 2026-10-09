@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { act, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { addPending, beatPayload, nextFlush, pendingSeconds, readPending, readingTimeSwitch, resetReadingTimeSwitch, sendFlush } from './labReadingTime'
+import { addPending, beatPayload, fetchReadingTime, nextFlush, pendingSeconds, readPending, readingTimeSwitch, resetReadingTimeSwitch, sendFlush } from './labReadingTime'
 import { useLabReadingYear } from './useLabReadingYear'
 import { readLocalReadingYear, readingYearTotals } from './labReadingYear'
 import { localDay } from '../readingTime/model'
@@ -28,6 +28,13 @@ describe('the switch on the reader', () => {
     resetReadingTimeSwitch()
     vi.stubGlobal('fetch', vi.fn(async () => Response.json({ enabled: true })))
     expect(await readingTimeSwitch()).toBe(true)
+  })
+})
+
+describe('the ledger summary', () => {
+  it('a request that never answers reads as unavailable after the timeout, so the sheet is never stuck loading', async () => {
+    const hanging = vi.fn(() => new Promise<Response>(() => {}))
+    expect(await fetchReadingTime('token', hanging as unknown as typeof fetch, { timeoutMs: 20 })).toBeNull()
   })
 })
 
