@@ -20,7 +20,7 @@ import { editionHold } from './data/editionAvailability'
  * that book's own reader. Session summaries are not generated here.
  */
 import { supabase } from './services/supabase'
-import { completedLibraryBookId } from './preReader/libraryCompletion'
+import { completedBookIdsIn } from './preReader/libraryCompletion'
 import { createSupabaseReadingMemoryCloud } from './readingMemory/cloud'
 import { readDeviceReadingMemory } from './readingMemory/deviceStore'
 import { loadRecap, type RecapAuth } from './readingMemory/recapLoad'
@@ -105,7 +105,6 @@ export type SummaryResult =
   | { status: 'cached' | 'fresh'; text: string }
   | { status: 'none' | 'recent' | 'from-reader' | 'offline' | 'account-required' | 'unavailable'; text: null }
 
-const BOOK_COMPLETED_PREFIX = 'tinct:book-completed:'
 /** How recently the reader must have been left for the desk to lead with that book. */
 const JUST_READ_MS = 60 * 60 * 1000
 /** An explicit id keeps position reads side-effect free. */
@@ -197,18 +196,7 @@ async function loadPositions(auth: RecapAuth, onReady?: (positions: LabPositionS
 }
 
 function completedBookIds(): Set<string> {
-  const ids = new Set<string>()
-  try {
-    for (let index = 0; index < localStorage.length; index += 1) {
-      const key = localStorage.key(index)
-      if (!key || (!key.startsWith(BOOK_COMPLETED_PREFIX) && !key.startsWith('tinct:progress:'))) continue
-      try {
-        const id = completedLibraryBookId(key, JSON.parse(localStorage.getItem(key) ?? 'null'))
-        if (id) ids.add(id)
-      } catch { /* A malformed legacy record must not hide other finished books. */ }
-    }
-  } catch { /* storage blocked */ }
-  return ids
+  try { return completedBookIdsIn(localStorage) } catch { return new Set() }
 }
 
 function positionsWithProduction(positions: LabPositionState | null, books: Map<string, CatalogueBook>): LabPositionState | null {

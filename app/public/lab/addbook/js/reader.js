@@ -124,9 +124,7 @@ async function chooseFile(file) {
   // An EPUB reads in the Tinct reader, which opens it from this browser's copy.
   if (kind === 'epub' && saved) { await openInTinct(bytes, file.name, key, file); return }
   await openBook(kind, bytes, file.name, key);
-  // The account copy is named by the document's own title: wait (briefly) for the scan to read it.
-  if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000))]);
-  if (hasBook() && state.key === key) saveToAccount(key, file, { kind, name: file.name, title: state.title, author: state.author });
+  sendAccountCopy(key, file, { kind, name: file.name });
 }
 async function openStored(key) {
   if (needsAccount()) return false;
@@ -154,9 +152,28 @@ async function openStored(key) {
   // A PDF just added on My shelf (add-engine preparePdf) reaches the account here, named like a
   // file chosen on this page: by the document's own title, once the scan has read it (briefly).
   const fresh = Date.now() - (rec.addedAt || 0) < 2 * 60 * 1000;
-  if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000))]);
-  if (hasBook() && state.key === key) saveToAccount(key, pending, { kind: rec.kind, name: rec.name, title: state.title, author: state.author }, { quiet: !fresh });
+  sendAccountCopy(key, pending, { kind: rec.kind, name: rec.name }, { quiet: !fresh });
   return true;
+}
+// The open PDF's account copy, named by the document's own title: sent once the scan has read
+// it (briefly), or at once when the reader leaves the book. Leaving waits for it (bounded, as an
+// EPUB's copy is waited for: add-engine ACCOUNT_COPY_WAIT_MS), so the way back never cuts a copy
+// off and the book is on the reader's other devices too.
+const accountCopy = { sending: null, now: null };
+function sendAccountCopy(key, file, meta, options) {
+  const leaving = new Promise(r => { accountCopy.now = r });
+  const sending = (async () => {
+    if (state.titleReady) await Promise.race([state.titleReady, new Promise(r => setTimeout(r, 5000)), leaving]);
+    if (hasBook() && state.key === key) await saveToAccount(key, file, { ...meta, title: state.title, author: state.author }, options);
+  })();
+  accountCopy.sending = sending;
+  sending.finally(() => { if (accountCopy.sending === sending) Object.assign(accountCopy, { sending: null, now: null }) });
+  return sending;
+}
+async function accountCopySent() {
+  if (!accountCopy.sending) return;
+  accountCopy.now?.();
+  await Promise.race([accountCopy.sending, new Promise(r => setTimeout(r, engine.ACCOUNT_COPY_WAIT_MS))]);
 }
 // EPUBs open in the Tinct reader (/reader?userBook=<hex>), which reads the file from
 // this browser's copy and converts it to Tinct's own pages. Here: refuse what it cannot
@@ -194,7 +211,16 @@ const bookUrl = key => '/lab/addbook/?userBook=' + encodeURIComponent(hexOf(key)
 const urlHex = () => { const v = new URLSearchParams(location.search).get('userBook'); return /^[0-9a-f]{8,64}$/.test(v || '') ? v : null };
 // The library's My shelf, where the reader's own books are (the back arrow of every own book).
 const SHELF_URL = '/library#my-shelf';
-function leaveToShelf() { savePlaceNow(); stopNarration(); location.assign(SHELF_URL) }
+let leavingToShelf = false;
+async function leaveToShelf() {
+  if (leavingToShelf) return;
+  leavingToShelf = true;
+  leavePlace(); stopNarration();
+  await accountCopySent();
+  location.assign(SHELF_URL);
+}
+// Back on this page from My shelf (restored as it was left): the way back works again.
+addEventListener('pageshow', () => { leavingToShelf = false });
 // /lab/addbook/?userBook=<hex>: this book, from this device, else from the account.
 async function openFromUrl(hex) {
   if (needsAccount()) return false;
@@ -222,7 +248,7 @@ async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   closeChat(); stopNarration(); closeAllPopups(); endSnip?.();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
-  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], key: '', name: '', title: '', author: '', scan: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
+  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
   if (window.CSS?.highlights) for (const [k] of HL_COLORS) CSS.highlights.delete('tinct-hl-' + k);
   chat.turns = []; chat.passage = null; chat.attach = [];
   $('column').innerHTML = '';
@@ -256,6 +282,7 @@ async function openEpub(bytes, name, key) {
   root.classList.add('is-epub'); root.classList.remove('is-pdf');
   const saved = store.get('pos:' + state.key);
   state.zoom = saved?.zoom || 1;
+  state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
   $('bookTitle').textContent = state.title;
   $('bookBtn').setAttribute('aria-label', `Contents of ${state.title}`);
   document.title = `${state.title} · Tinct`;
@@ -293,6 +320,8 @@ async function openPdf(bytes, name, key) {
   const token = ++state.token;
   closeAllPopups();
   $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
+  // Asked while the file opens: a place read later on another device of the account.
+  const synced = placeSync.reconcile(key);
   let pdf;
   try { pdf = await pdfjsLib.getDocument({ data: bytes, isEvalSupported: false }).promise }
   catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${e?.name === 'PasswordException' ? 'This PDF is password-protected, so it cannot be opened here.' : 'This file could not be opened as a PDF. Choose another file.'}</div>`; return }
@@ -309,8 +338,12 @@ async function openPdf(bytes, name, key) {
   root.style.removeProperty('--epub-scale');
   const first = (await pdf.getPage(1)).getViewport({ scale: 1 });
   state.base = { w: first.width, h: first.height };
+  const { late } = await synced;
+  if (token !== state.token) return;
   const saved = store.get('pos:' + state.key);
   state.zoom = saved?.zoom || 1;
+  // Where the book opens: the reader has not moved until they leave it (savePlaceNow).
+  state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
   setBookTitle(state.title, state.author);
   buildSheets(pdf.numPages);
   noteSession();
@@ -318,6 +351,14 @@ async function openPdf(bytes, name, key) {
   keepPdfCover(pdf, key, token);
   if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
+  // The account answered after the book opened: its newer place is shown if the reader is still where it opened.
+  late.then(adopted => {
+    if (!adopted || token !== state.token || !sameSpot(currentPlace(), state.lastPlace)) return;
+    const pos = store.get('pos:' + state.key);
+    if (!pos?.page) return;
+    state.lastPlace = { page: pos.page, frac: pos.frac || 0 };
+    goTo(state.lastPlace); onScroll();
+  });
 }
 function setBookTitle(title, author) {
   state.title = title; state.author = author || '';
@@ -353,7 +394,10 @@ function applyCrop() {
   s.setProperty('--cw', (100 / (1 - 2 * c.x)) + '%'); s.setProperty('--ch', (100 / (1 - 2 * c.y)) + '%');
   s.setProperty('--cx', (-100 * c.x / (1 - 2 * c.x)) + '%'); s.setProperty('--cy', (-100 * c.y / (1 - 2 * c.y)) + '%');
 }
-const columnWidth = () => { const w = $('scroll').clientWidth - (innerWidth < 700 ? 16 : 28); return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') ? 1100 : 1500) };
+// The pages' width at fit: the scroll area less the column's own side padding (css/reader.css
+// .pdf-column), so a page never runs past the screen's edge.
+const columnPad = () => { const cs = getComputedStyle($('column')); return (parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)) || 32 };
+const columnWidth = () => { const w = $('scroll').clientWidth - columnPad(); return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') ? 1100 : 1500) };
 const sheetWidth = () => Math.round(columnWidth() * state.zoom);
 function buildSheets(count) {
   state.observer?.disconnect();
@@ -773,18 +817,50 @@ function onScroll() {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(savePlaceNow, 250);
 }
-// The place on this device only (localStorage tinct-addbook:pos:<key>): page, position on it,
-// zoom, the page count and when, so the library lists the book as being read.
+// The place on this device (localStorage tinct-addbook:pos:<key>): page, position on it,
+// zoom, the page count and when, so the library lists the book as being read. Only a move
+// is a new place (more than 2% of a page from where the book opened or was last kept):
+// opening, zooming or leaving at the same spot keeps when it was read there, so a place
+// read later on another device still wins. A PDF's place also goes to the account.
+const sameSpot = (a, b) => !!a && !!b && Math.abs((a.page - 1 + (a.frac || 0)) - (b.page - 1 + (b.frac || 0))) <= 0.02;
 function savePlaceNow() {
   clearTimeout(saveTimer);
   if (!state.pages.length || !state.key) return;
-  const place = currentPlace();
-  store.set('pos:' + state.key, { ...place, zoom: state.zoom, pages: state.pages.length, at: Date.now() });
+  const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
+  const moved = !sameSpot(place, state.lastPlace);
+  if (moved) state.lastPlace = place;
+  store.set('pos:' + state.key, moved ? { ...prev, ...place, zoom: state.zoom, pages: state.pages.length, at: Date.now() } : { ...prev, zoom: state.zoom, pages: state.pages.length });
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
+  if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
 }
-addEventListener('pagehide', () => { if (hasBook()) savePlaceNow() });
-document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && hasBook()) savePlaceNow() });
+// Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
+function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush() }
+addEventListener('pagehide', leavePlace);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leavePlace() });
+
+/* ---------- A PDF's place on the reader's other devices ---------- */
+// Signed in, the place in a PDF is kept privately in the account (/api/user-books/places,
+// src/lab/userBook/ownSync.ts through /lab/library-add.js): the newer place wins, never a
+// stale one. Before the book shows, the account is asked (bounded: offline or slow, the book
+// opens here at once and the answer is used if it arrives while the reader has not moved).
+const PLACE_SYNC_WAIT_MS = 3000;
+const placeSync = {
+  api: null,
+  load() {
+    if (!window.TinctAI?.session?.().userId) return Promise.resolve(null);
+    return switcherApi().then(api => (this.api = api.pdfPlaces || null), () => null);
+  },
+  note(hex) { if (this.api) this.api.note(hex); else this.load().then(api => api?.note(hex)) },
+  flush() { this.api?.flush() },
+  // -> true once the account's place (read later on another device) is the one kept here.
+  async reconcile(key) {
+    if (!String(key).startsWith('pdf:')) return { adopted: false, late: Promise.resolve(false) };
+    const late = this.load().then(api => api ? api.reconcile(hexOf(key)) : 'unavailable').then(r => r === 'adopted', () => false);
+    const adopted = await Promise.race([late, new Promise(r => setTimeout(() => r(null), PLACE_SYNC_WAIT_MS))]);
+    return { adopted: adopted === true, late: adopted === null ? late : Promise.resolve(false) };
+  },
+};
 $('scroll').addEventListener('scroll', onScroll, { passive: true });
 function noteSession() {
   // Catch me up starts from the page the previous visit ended on.
@@ -824,6 +900,20 @@ addEventListener('wheel', e => {
   e.preventDefault();
   setZoom(state.zoom * Math.exp(-e.deltaY * 0.01), { quick: true });
 }, { passive: false });
+// On a touch screen, two fingers on the pages zoom the pages too, not the browser page: a
+// pinch-zoomed browser page leaves the fixed top bar, and its way back, off the screen.
+let pinch = null;
+const fingerGap = touches => Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+$('scroll').addEventListener('touchstart', e => { if (e.touches.length === 2 && state.pages.length) pinch = { gap: fingerGap(e.touches) || 1, zoom: state.zoom } }, { passive: true });
+$('scroll').addEventListener('touchmove', e => {
+  if (!pinch || e.touches.length !== 2) return;
+  e.preventDefault();
+  setZoom(pinch.zoom * fingerGap(e.touches) / pinch.gap, { quick: true });
+}, { passive: false });
+$('scroll').addEventListener('touchend', e => { if (e.touches.length < 2) pinch = null });
+$('scroll').addEventListener('touchcancel', () => { pinch = null });
+// Safari's own pinch (gesture events) over the reader: the pages zoom instead (above).
+for (const type of ['gesturestart', 'gesturechange']) addEventListener(type, e => { if (readerShown() && state.pages.length) e.preventDefault() }, { passive: false });
 let resizeTimer;
 addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { applyLayout(); if (state.pages.length) setZoom(state.zoom) }, 150) });
 addEventListener('keydown', e => {
@@ -857,14 +947,19 @@ function sheet(title, html, onClose, host = root) {
   return layer;
 }
 function closeSheet(layer) { const host = layer?.parentElement; layer?.remove(); if (host?.classList.contains('byob-sheet-host')) host.remove() }
-let toastTimer, toastHeld = 0, toastNext = null;
+let toastTimer, toastHeld = 0, toastNext = null, toastAt = 0;
 // `hold`: a message that must be read (a book's own limits) is not replaced while it shows;
-// one arriving meanwhile is shown when it ends.
+// one arriving meanwhile is shown when it ends, as is one it replaces before it could be read
+// (why the book was kept on this device only, just before the scan notice).
 function toast(text, { hold = false } = {}) {
   if (!hold && Date.now() < toastHeld) { toastNext = text; return }
   let t = document.querySelector('.byob-toast');
-  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status'); document.body.appendChild(t) }
-  t.textContent = text; t.hidden = false;
+  if (hold && t && !t.hidden && t.textContent !== text && Date.now() >= toastHeld && Date.now() - toastAt < 2500) toastNext = t.textContent;
+  // In the reader, the toast is the reader's own (css/reader.css keeps it inside the page area, left of the docked chat).
+  const host = readerShown() ? root : document.body;
+  if (!t) { t = document.createElement('p'); t.className = 'lab-ask-notice byob-toast'; t.setAttribute('role', 'status') }
+  if (t.parentElement !== host) host.appendChild(t);
+  t.textContent = text; t.hidden = false; toastAt = Date.now();
   const ms = hold ? 6000 : 4000;
   toastHeld = hold ? Date.now() + ms : 0;
   clearTimeout(toastTimer); toastTimer = setTimeout(() => {
@@ -1011,7 +1106,7 @@ const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages' };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
-  chapterTitles ??= import('/lab/chapter-title.js?v=20261008rel9').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
+  chapterTitles ??= import('/lab/chapter-title.js?v=20261009rel10').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
   return chapterTitles;
 }
 async function buildContents() {
@@ -1132,7 +1227,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261008rel9';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=20261009rel10';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
@@ -1170,7 +1265,7 @@ async function openSwitcher() {
     layer.querySelectorAll('[data-row]').forEach(b => b.onclick = () => {
       const r = rows[Number(b.dataset.row)];
       if (!r || r.bookId === id) return closeSwitcher();
-      switcherApi().then(api => { const to = api.switcherTarget(r); if (!to) { error = 'That saved place is temporarily unavailable.'; paint(); return } savePlaceNow(); stopNarration(); location.assign(to) }, () => { error = 'That book could not be opened from here.'; paint() });
+      switcherApi().then(api => { const to = api.switcherTarget(r); if (!to) { error = 'That saved place is temporarily unavailable.'; paint(); return } leavePlace(); stopNarration(); location.assign(to) }, () => { error = 'That book could not be opened from here.'; paint() });
     });
     (layer.querySelector('.lab-book-switcher-row.is-active') || layer.querySelector('[data-close]'))?.focus({ preventScroll: true });
   };

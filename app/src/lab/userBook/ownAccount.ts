@@ -2,8 +2,9 @@
  * The signed-in reader's private copies of their own books in their account
  * (`/api/user-books`, worker/routes/userBooks.ts): the list, one file's bytes,
  * and the reader's place in each book (`/api/user-books/places`). Only the
- * owner reaches any of it; a place carries the chapter, paragraph, word, time
- * and whole-book percent, never the book's title or text, and never goes to
+ * owner reaches any of it; a place carries the chapter, paragraph and word (an
+ * EPUB) or the page and how far down it (a PDF), the time and whole-book
+ * percent, never the book's title or text, and never goes to
  * the shared position stores.
  *
  * Every call answers null when the account cannot be asked (signed out,
@@ -30,6 +31,15 @@ export interface AccountPlace {
   percent?: number
   /** The conversion rules the place was read under (userEdition.ts; userBookPlace.ts). */
   converter?: number
+  rev: number
+}
+
+/** A PDF's place (Add a book's viewer): the page and how far down it (0–1). */
+export interface AccountPagePlace {
+  page: number
+  frac?: number
+  updatedAt: number
+  percent?: number
   rev: number
 }
 
@@ -124,40 +134,81 @@ function accountPlace(value: unknown): AccountPlace | null {
   return place
 }
 
-/** Every place the account keeps, by book hex; null when they cannot be read. */
-export async function fetchAccountPlaces(token: string | null, fetchImpl: FetchLike = fetch): Promise<Record<string, AccountPlace> | null> {
+function accountPagePlace(value: unknown): AccountPagePlace | null {
+  if (!value || typeof value !== 'object') return null
+  const raw = value as Record<string, unknown>
+  if (!Number.isInteger(raw.page) || (raw.page as number) < 1 || !Number.isInteger(raw.updatedAt) || (raw.updatedAt as number) < 1 || !Number.isInteger(raw.rev) || (raw.rev as number) < 1) return null
+  const place: AccountPagePlace = { page: raw.page as number, updatedAt: raw.updatedAt as number, rev: raw.rev as number }
+  if (typeof raw.frac === 'number' && Number.isFinite(raw.frac)) place.frac = Math.max(0, Math.min(1, raw.frac))
+  if (typeof raw.percent === 'number' && Number.isFinite(raw.percent)) place.percent = Math.max(0, Math.min(100, raw.percent))
+  return place
+}
+
+/** Every place the account keeps, by book hex: EPUBs' (`text`) and PDFs' (`pages`); null when they cannot be read. */
+export async function fetchAccountPlaceSets(token: string | null, fetchImpl: FetchLike = fetch): Promise<{ text: Record<string, AccountPlace>; pages: Record<string, AccountPagePlace> } | null> {
   if (!token) return null
   try {
     const response = await fetchImpl('/api/user-books/places', authorized(token))
     if (!response.ok) return null
     const data = await response.json() as { places?: Record<string, unknown> }
-    const out: Record<string, AccountPlace> = {}
+    const text: Record<string, AccountPlace> = {}
+    const pages: Record<string, AccountPagePlace> = {}
     for (const [hex, value] of Object.entries(data.places ?? {})) {
+      if (!/^[0-9a-f]{24}$/.test(hex)) continue
       const place = accountPlace(value)
-      if (place && /^[0-9a-f]{24}$/.test(hex)) out[hex] = place
+      if (place) { text[hex] = place; continue }
+      const page = accountPagePlace(value)
+      if (page) pages[hex] = page
     }
-    return out
+    return { text, pages }
   } catch {
     return null
   }
 }
 
-export type PlaceWrite =
-  | { status: 'saved'; place: AccountPlace }
+/** Every EPUB place the account keeps, by book hex; null when they cannot be read. */
+export async function fetchAccountPlaces(token: string | null, fetchImpl: FetchLike = fetch): Promise<Record<string, AccountPlace> | null> {
+  return (await fetchAccountPlaceSets(token, fetchImpl))?.text ?? null
+}
+
+export type PlaceWrite<P = AccountPlace> =
+  | { status: 'saved'; place: P }
   /** The account holds a newer revision (`place`, or none any more). */
-  | { status: 'conflict'; place: AccountPlace | null }
+  | { status: 'conflict'; place: P | null }
   /** The book is not in the account (removed, or never saved there). */
   | { status: 'gone' }
   | { status: 'unavailable' }
 
 /** Save one place, naming the revision this device last read (0 for none). */
-export async function putAccountPlace(
+export function putAccountPlace(
   hex: string,
   place: Omit<AccountPlace, 'rev'>,
   rev: number,
   token: string | null,
   options: { fetchImpl?: FetchLike; keepalive?: boolean } = {},
 ): Promise<PlaceWrite> {
+  return putPlace(hex, place, rev, token, accountPlace, options)
+}
+
+/** Save one PDF's place (the same endpoint and revisions as an EPUB's). */
+export function putAccountPagePlace(
+  hex: string,
+  place: Omit<AccountPagePlace, 'rev'>,
+  rev: number,
+  token: string | null,
+  options: { fetchImpl?: FetchLike; keepalive?: boolean } = {},
+): Promise<PlaceWrite<AccountPagePlace>> {
+  return putPlace(hex, place, rev, token, accountPagePlace, options)
+}
+
+async function putPlace<P>(
+  hex: string,
+  place: object,
+  rev: number,
+  token: string | null,
+  parse: (value: unknown) => P | null,
+  options: { fetchImpl?: FetchLike; keepalive?: boolean },
+): Promise<PlaceWrite<P>> {
   if (!token) return { status: 'unavailable' }
   const fetchImpl = options.fetchImpl ?? fetch
   try {
@@ -169,8 +220,8 @@ export async function putAccountPlace(
     }))
     if (response.status === 404) return { status: 'gone' }
     const data = await response.json().catch(() => null) as { place?: unknown } | null
-    if (response.status === 409) return { status: 'conflict', place: accountPlace(data?.place) }
-    const saved = response.ok ? accountPlace(data?.place) : null
+    if (response.status === 409) return { status: 'conflict', place: parse(data?.place) }
+    const saved = response.ok ? parse(data?.place) : null
     return saved ? { status: 'saved', place: saved } : { status: 'unavailable' }
   } catch {
     return { status: 'unavailable' }

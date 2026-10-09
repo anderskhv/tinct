@@ -175,19 +175,19 @@ describe('missing tables (SQL not run yet)', () => {
 })
 
 describe('existing accounts get a private profile', () => {
-  it('created on first read: Only me, name and link from the email, the book they are reading', async () => {
+  it('created on first read: Only me, the neutral name and link (never the email), the book they are reading', async () => {
     const store = new MemoryStore(); seed(store)
     const response = await call(store, '/api/profile?book=odyssey', { as: A })
     const { profile } = await response.json() as { profile: Record<string, unknown> }
     expect(profile).toMatchObject({
-      handle: 'anders.h', link: 'tinct.app/@anders.h', name: 'Anders H',
+      handle: 'reader4780', link: 'tinct.app/@reader4780', name: 'Reader',
       picture: { kind: 'set', value: 'at-sea' }, background: { kind: 'set', value: 'at-sea' },
       visibility: 'only_me', effectiveVisibility: 'only_me', onLeaderboard: false,
       needsSetup: true, shouldPrompt: true, emailConfirmed: false,
     })
     // Nobody else can see it.
-    expect((await call(store, '/api/profiles/anders.h', { as: C })).status).toBe(404)
-    expect((await call(store, '/api/profiles/anders.h')).status).toBe(404)
+    expect((await call(store, '/api/profiles/reader4780', { as: C })).status).toBe(404)
+    expect((await call(store, '/api/profiles/reader4780')).status).toBe(404)
     expect(JSON.stringify(profile)).not.toContain('@example.com')
   })
 
@@ -205,6 +205,130 @@ describe('existing accounts get a private profile', () => {
     const { profile } = await (await post(store, A, { prompted: true })).json() as { profile: { shouldPrompt: boolean; needsSetup: boolean } }
     expect(profile.shouldPrompt).toBe(false)
     expect(profile.needsSetup).toBe(true)
+  })
+})
+
+describe('names and links never come from the email (Anders, 9 Oct 2026)', () => {
+  const E = '55555555-5555-4555-8555-555555555555'
+  const G = '66666666-6666-4666-8666-666666666666'
+  const emailUser: ProfileAuthUser = { id: E, email: 'qa-ux-desk+a9cs927@example.com', app_metadata: { provider: 'email' } }
+  const googleUser: ProfileAuthUser = { id: G, email: 'anders.h@gmail.com', app_metadata: { provider: 'google', providers: ['google'] }, user_metadata: { full_name: 'Anders Hvelplund' } }
+  const extra: Record<string, ProfileAuthUser> = { [E]: emailUser, [G]: googleUser }
+  const callAs = (store: ProfileStore, path: string, as: string, init: RequestInit = {}) => {
+    const headers = new Headers(init.headers)
+    headers.set('authorization', `Bearer ${as}`)
+    return handleProfiles(new Request(`https://tinct.app${path}`, { ...init, headers }), on as never, {
+      store,
+      verifyUser: async req => extra[req.headers.get('authorization')!.slice(7)] ?? null,
+      now: () => new Date('2026-10-08T10:00:00Z'),
+      random: () => 0.42,
+    })
+  }
+  const get = async (store: ProfileStore, as: string) => (await (await callAs(store, '/api/profile', as)).json() as { profile: { name: string; handle: string; link: string } }).profile
+  const save = async (store: ProfileStore, as: string, body: unknown) => {
+    const response = await callAs(store, '/api/profile', as, { method: 'POST', body: JSON.stringify(body), headers: { 'content-type': 'application/json' } })
+    return { status: response.status, profile: (await response.json() as { profile: { name: string; handle: string } }).profile }
+  }
+  /** Any four letters or digits in a row from the email's local part. */
+  const emailText = (value: string, email: string) => {
+    const local = email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g, '')
+    const plain = value.toLowerCase().replace(/[^a-z0-9]/g, '')
+    for (let i = 0; i + 4 <= local.length; i++) if (plain.includes(local.slice(i, i + 4))) return local.slice(i, i + 4)
+    return null
+  }
+  const legacyRow = (over: Partial<ReaderProfileRow> = {}): ReaderProfileRow => ({
+    id: E, display_name: 'Qa Ux Desk A Cs', handle: 'qauxdeska9cs927',
+    picture_kind: 'initial', picture_value: null, picture_review: 'none',
+    background_kind: 'library', background_value: null, background_review: 'none',
+    visibility: 'only_me', show_reading: true, show_time: true, on_leaderboard: false, new_books_open_in: 'modern',
+    auto_created: true, set_up_at: null, prompted_at: null, updated_at: '2026-10-08T09:00:00Z', ...over,
+  })
+  const seeded = () => {
+    const store = new MemoryStore()
+    for (const id of [E, G]) store.accounts.set(id, { email_opt_in: false, email_confirmed_at: null, email_consent_version: null })
+    return store
+  }
+
+  it('an email sign-up gets a neutral name and a reader link with a short random part, nothing from the email', async () => {
+    const store = seeded()
+    const profile = await get(store, E)
+    expect(profile.name).toBe('Reader')
+    expect(profile.handle).toMatch(/^reader\d{3,}$/)
+    expect(emailText(profile.name, emailUser.email!)).toBeNull()
+    expect(emailText(profile.handle, emailUser.email!)).toBeNull()
+    expect(store.profiles.get(E)).toMatchObject({ display_name: 'Reader', handle: profile.handle })
+    // The set-up name field is filled from profile.name: it shows the neutral name, never email text.
+    expect(JSON.stringify(profile)).not.toMatch(/qaux|desk|a9cs|927/i)
+  })
+
+  it('a Google sign-up keeps its name for both name and link', async () => {
+    const store = seeded()
+    expect(await get(store, G)).toMatchObject({ name: 'Anders Hvelplund', handle: 'anders.hvelplund' })
+  })
+
+  it('setting a name re-derives the link while it is still the automatic one', async () => {
+    const store = seeded()
+    await get(store, E)
+    // Sign-up step 2 sends the name with setUp.
+    const { profile } = await save(store, E, { name: 'Quinn Adler', visibility: 'friends', setUp: true })
+    expect(profile).toMatchObject({ name: 'Quinn Adler', handle: 'quinn.adler' })
+    // Once set up, the link may be shared: a later name change leaves it alone.
+    expect((await save(store, E, { name: 'Quinn A' })).profile).toMatchObject({ name: 'Quinn A', handle: 'quinn.adler' })
+  })
+
+  it('a name set from the You page before set-up also re-derives the automatic link, uniquely', async () => {
+    const store = seeded()
+    store.profiles.set(G, { ...legacyRow({ id: G, display_name: 'Someone', handle: 'quinn.adler' }), set_up_at: '2026-10-08T08:00:00Z' })
+    await get(store, E)
+    expect((await save(store, E, { name: 'Quinn Adler' })).profile).toMatchObject({ name: 'Quinn Adler', handle: 'quinn.adler2' })
+  })
+
+  it('a link the reader typed is never changed', async () => {
+    const store = seeded()
+    await get(store, E)
+    expect((await save(store, E, { handle: 'q.reads' })).profile.handle).toBe('q.reads')
+    expect((await save(store, E, { name: 'Quinn Adler' })).profile).toMatchObject({ name: 'Quinn Adler', handle: 'q.reads' })
+    expect((await save(store, E, { name: 'Quinn B', setUp: true })).profile.handle).toBe('q.reads')
+    // A name and a typed link in the same save: the typed link wins.
+    const other = seeded()
+    await get(other, E)
+    expect((await save(other, E, { name: 'Quinn Adler', handle: 'quinny', setUp: true })).profile.handle).toBe('quinny')
+  })
+
+  it('an existing profile not yet set up, made from the email, is repaired on its next read', async () => {
+    const store = seeded()
+    store.profiles.set(E, legacyRow())
+    const profile = await get(store, E)
+    expect(profile.name).toBe('Reader')
+    expect(profile.handle).toMatch(/^reader\d{3,}$/)
+    expect(store.profiles.get(E)).toMatchObject({ display_name: 'Reader', handle: profile.handle, set_up_at: null, visibility: 'only_me' })
+    // Re-reading changes nothing more.
+    expect(await get(store, E)).toMatchObject({ name: 'Reader', handle: profile.handle })
+  })
+
+  it('a legacy profile is repaired on its next save too, and a name the reader chose is kept', async () => {
+    const store = seeded()
+    store.profiles.set(E, legacyRow({ handle: 'qauxdeska9cs9272' }))
+    expect((await save(store, E, { prompted: true })).profile).toMatchObject({ name: 'Reader', handle: expect.stringMatching(/^reader\d{3,}$/) })
+    // A name the reader typed (not the email's) stays; only the email link is re-derived from it.
+    const typed = seeded()
+    typed.profiles.set(E, legacyRow({ display_name: 'Quinn Adler' }))
+    expect(await get(typed, E)).toMatchObject({ name: 'Quinn Adler', handle: 'quinn.adler' })
+  })
+
+  it('a legacy Google profile whose link came from the email gets its link from the Google name', async () => {
+    const store = seeded()
+    store.profiles.set(G, legacyRow({ id: G, display_name: 'Anders Hvelplund', handle: 'anders.h' }))
+    expect(await get(store, G)).toMatchObject({ name: 'Anders Hvelplund', handle: 'anders.hvelplund' })
+  })
+
+  it('a profile that is set up is never touched, even if it came from the email', async () => {
+    const store = seeded()
+    const row = legacyRow({ set_up_at: '2026-10-08T08:00:00Z', visibility: 'everyone' })
+    store.profiles.set(E, row)
+    expect(await get(store, E)).toMatchObject({ name: 'Qa Ux Desk A Cs', handle: 'qauxdeska9cs927' })
+    await save(store, E, { showTime: false })
+    expect(store.profiles.get(E)).toMatchObject({ display_name: 'Qa Ux Desk A Cs', handle: 'qauxdeska9cs927', show_time: false })
   })
 })
 
@@ -237,8 +361,8 @@ describe('sign-up step 2', () => {
     expect((await post(store, C, { name: 'shithead' })).status).toBe(422)
     expect((await post(store, C, { handle: 'library' })).status).toBe(422)
     expect((await post(store, C, { handle: 'odyssey' })).status).toBe(422)
-    expect((await post(store, C, { handle: 'anders.h' })).status).toBe(409)
-    expect((await post(store, C, { handle: 'ANDERS.H' })).status).toBe(409)
+    expect((await post(store, C, { handle: 'reader4780' })).status).toBe(409)
+    expect((await post(store, C, { handle: 'READER4780' })).status).toBe(409)
     expect((await post(store, C, { visibility: 'public' })).status).toBe(422)
     expect((await post(store, C, { handle: 'cee.reads' })).status).toBe(200)
     expect(store.profiles.get(C)!.handle).toBe('cee.reads')
@@ -261,7 +385,7 @@ describe('visibility seen by a stranger, a one-way follower and a friend', () =>
     return store
   }
   const look = async (store: MemoryStore, viewer: string | null) => {
-    const response = await call(store, '/api/profiles/anders.h', viewer ? { as: viewer } : {})
+    const response = await call(store, '/api/profiles/reader4780', viewer ? { as: viewer } : {})
     return response.status === 200 ? (await response.json() as { profile: { limited: boolean; shows: Record<string, boolean>; background: unknown } }).profile : null
   }
 
@@ -309,7 +433,7 @@ describe('visibility seen by a stranger, a one-way follower and a friend', () =>
     const store = await world()
     store.accounts.get(A)!.email_confirmed_at = '2026-10-08T11:00:00Z'
     await post(store, A, { visibility: 'everyone' })
-    const body = await (await call(store, '/api/profiles/anders.h', { as: D })).text()
+    const body = await (await call(store, '/api/profiles/reader4780', { as: D })).text()
     expect(body).not.toMatch(/@example\.com|highlight|note|chat|talk/i)
   })
 })
@@ -350,7 +474,7 @@ describe('uploads', () => {
     expect((await call(store, profile.picture.url, { as: A }, env)).status).toBe(200)
     expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(404)
     expect((await call(store, profile.picture.url, {}, env)).status).toBe(404)
-    const seen = await (await call(store, '/api/profiles/anders.h', { as: D }, env)).json() as { profile: { picture: { kind: string } } }
+    const seen = await (await call(store, '/api/profiles/reader4780', { as: D }, env)).json() as { profile: { picture: { kind: string } } }
     expect(seen.profile.picture.kind).toBe('initial')
     store.profiles.get(A)!.picture_review = 'approved'
     expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(200)
@@ -560,5 +684,162 @@ describe('"Send confirmation link" (POST /api/profile/confirm-link)', () => {
     expect(await verifyLink(secret, new URL(link).searchParams.get('t'), 'c', NOW)).toMatchObject({ u: A })
     expect(body.htmlContent).toContain(`href="${link}"`)
     expect(confirmLinkEmail('https://tinct.app/confirm?t=a"b').html).toContain('t=a&quot;b')
+  })
+})
+
+describe('the confirmation email at sign-up (Anders, 9 Oct 2026)', () => {
+  const NOW = Date.parse('2026-10-08T10:00:00Z')
+  const fresh = new Date(NOW - 60_000).toISOString()
+
+  /** MemoryStore plus public.email_log's unique (user_id, dedupe_key) reservation. */
+  class LoggedStore extends MemoryStore {
+    log: { user_id: string; template: string; dedupe_key: string }[] = []
+    async reserveEmail(id: string, template: string, dedupeKey: string) {
+      if (this.log.some(row => row.user_id === id && row.dedupe_key === dedupeKey)) return false
+      this.log.push({ user_id: id, template, dedupe_key: dedupeKey }); return true
+    }
+    async releaseEmail(id: string, dedupeKey: string) { this.log = this.log.filter(row => !(row.user_id === id && row.dedupe_key === dedupeKey)) }
+  }
+
+  function setup(options: { sender?: (to: string, userId: string) => Promise<boolean>; env?: Record<string, unknown>; defer?: boolean } = {}) {
+    const store = new LoggedStore(); seed(store)
+    for (const id of [A, B, C, D]) store.accounts.get(id)!.email = users[id].email
+    const signedUp: Record<string, ProfileAuthUser> = {
+      [A]: { ...users[A], created_at: fresh },
+      [B]: { ...users[B], created_at: fresh },
+      [C]: { ...users[C], created_at: '2026-10-01T10:00:00Z' },
+      [D]: { ...users[D] },
+    }
+    const sent: { to: string; userId: string }[] = []
+    const deferred: Promise<unknown>[] = []
+    const sender = options.sender ?? (async (to: string, userId: string) => { sent.push({ to, userId }); return true })
+    const read = async (as: string, method = 'GET') => {
+      const response = await handleProfiles(new Request('https://tinct.app/api/profile', {
+        method,
+        headers: { authorization: `Bearer ${as}`, 'content-type': 'application/json' },
+        body: method === 'POST' ? JSON.stringify({ showTime: true }) : undefined,
+      }), (options.env ?? on) as never, {
+        store,
+        verifyUser: async req => signedUp[req.headers.get('authorization')?.slice(7) ?? ''] ?? null,
+        now: () => new Date(NOW),
+        random: () => 0.42,
+        sendConfirmLink: sender,
+        confirmLinkAllowed: async () => true,
+        defer: options.defer ? promise => { deferred.push(promise) } : undefined,
+      })
+      await Promise.all(deferred)
+      return response
+    }
+    return { store, sent, read }
+  }
+
+  it('an email sign-up gets the confirmation email once, on the first profile read, logged in email_log', async () => {
+    const { store, sent, read } = setup()
+    const first = await read(A)
+    expect(first.status).toBe(200)
+    expect(sent).toEqual([{ to: 'anders.h@example.com', userId: A }])
+    expect(store.log).toEqual([{ user_id: A, template: 'confirm-email', dedupe_key: 'confirm-email:-' }])
+    await read(A)
+    await read(A, 'POST')
+    expect(sent).toHaveLength(1)
+  })
+
+  it('it is an account email: sent with LIFECYCLE_EMAILS "0" and whatever the reading-email choice', async () => {
+    const { store, sent, read } = setup({ env: { ...on, LIFECYCLE_EMAILS: '0' } })
+    store.accounts.get(A)!.email_opt_in = false
+    await read(A)
+    expect(sent).toHaveLength(1)
+  })
+
+  it('never for Google, an already confirmed address, an account older than 48 hours, or an unknown sign-up time', async () => {
+    const { store, sent, read } = setup()
+    store.accounts.get(A)!.email_confirmed_at = '2026-10-08T09:59:00Z'
+    for (const id of [A, B, C, D]) await read(id)
+    expect(sent).toEqual([])
+    expect(store.log).toEqual([])
+  })
+
+  it('only to the address the reader signed up with (as "Send confirmation link")', async () => {
+    const { store, sent, read } = setup()
+    store.accounts.get(A)!.email = 'someone.else@example.com'
+    await read(A)
+    expect(sent).toEqual([])
+  })
+
+  it('a send failure never blocks the profile; the reservation is released so a later read can try again', async () => {
+    let fail = true
+    const sent: string[] = []
+    const { store, read } = setup({
+      sender: async to => {
+        if (fail) throw new Error('brevo down')
+        sent.push(to); return true
+      },
+    })
+    const response = await read(A)
+    expect(response.status).toBe(200)
+    expect(((await response.json()) as { profile: { handle: string } }).profile.handle).toBe('reader4780')
+    expect(store.log).toEqual([])
+    fail = false
+    await read(A)
+    await read(A)
+    expect(sent).toEqual(['anders.h@example.com'])
+  })
+
+  it('a refused send (false) or a failing email log never blocks the profile either', async () => {
+    const refused = setup({ sender: async () => false })
+    expect((await refused.read(A)).status).toBe(200)
+    expect(refused.store.log).toEqual([])
+    const broken = setup()
+    broken.store.reserveEmail = async () => { throw new Error('email_log 404') }
+    expect((await broken.read(A)).status).toBe(200)
+    expect(broken.sent).toEqual([])
+  })
+
+  it('without a sender (no EMAIL_LINK_SECRET or BREVO_API_KEY) nothing is reserved or sent', async () => {
+    const store = new LoggedStore(); seed(store)
+    store.accounts.get(A)!.email = users[A].email
+    const response = await handleProfiles(new Request('https://tinct.app/api/profile', { headers: { authorization: `Bearer ${A}` } }), on as never, {
+      store, verifyUser: async () => ({ ...users[A], created_at: fresh }), now: () => new Date(NOW), random: () => 0.42, sendConfirmLink: null,
+    })
+    expect(response.status).toBe(200)
+    expect(store.log).toEqual([])
+  })
+
+  it('in the Worker it runs after the reply (waitUntil), so a slow send never delays sign-up', async () => {
+    const { sent, read } = setup({ defer: true })
+    expect((await read(A)).status).toBe(200)
+    expect(sent).toHaveLength(1)
+  })
+
+  it('the Everyone rule is unchanged: sending the email confirms nothing; Everyone counts as Friends until the link is used', async () => {
+    const { store, read } = setup()
+    await read(A)
+    expect(store.accounts.get(A)!.email_confirmed_at).toBeNull()
+    const saved = await (await post(store, A, { visibility: 'everyone' })).json() as { profile: { visibility: string; effectiveVisibility: string; emailConfirmed: boolean } }
+    expect(saved.profile).toMatchObject({ visibility: 'everyone', effectiveVisibility: 'friends', emailConfirmed: false })
+    expect(effectiveVisibility('everyone', false)).toBe('friends')
+    expect(effectiveVisibility('friends', false)).toBe('friends')
+    expect(effectiveVisibility('everyone', true)).toBe('everyone')
+  })
+
+  it('the Supabase store reserves in email_log (unique per reader and key) and releases on failure', async () => {
+    const calls: { url: string; init?: RequestInit }[] = []
+    let answer: Response = Response.json([{ id: 1 }], { status: 201 })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => { calls.push({ url: String(input), init }); return answer.clone() }))
+    const { supabaseProfileStore } = await import('./worker/lib/profileStore')
+    const store = supabaseProfileStore(on)
+    expect(await store.reserveEmail!(A, 'confirm-email', 'confirm-email:-')).toBe(true)
+    expect(calls[0].url).toBe('https://example.supabase.co/rest/v1/email_log?on_conflict=user_id,dedupe_key')
+    expect(calls[0].init?.method).toBe('POST')
+    expect(new Headers(calls[0].init?.headers).get('Prefer')).toBe('resolution=ignore-duplicates,return=representation')
+    expect(JSON.parse(String(calls[0].init?.body))).toEqual({ user_id: A, template: 'confirm-email', book_id: null, dedupe_key: 'confirm-email:-', meta: {} })
+    answer = Response.json([], { status: 201 })
+    expect(await store.reserveEmail!(A, 'confirm-email', 'confirm-email:-')).toBe(false)
+    answer = Response.json({ message: 'relation "email_log" does not exist' }, { status: 404 })
+    expect(await store.reserveEmail!(A, 'confirm-email', 'confirm-email:-')).toBe(false)
+    answer = new Response(null, { status: 204 })
+    await store.releaseEmail!(A, 'confirm-email:-')
+    expect(calls[calls.length - 1].url).toBe(`https://example.supabase.co/rest/v1/email_log?user_id=eq.${A}&dedupe_key=eq.confirm-email%3A-`)
+    expect(calls[calls.length - 1].init?.method).toBe('DELETE')
   })
 })

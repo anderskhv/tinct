@@ -5,6 +5,9 @@ import {
   handleBase,
   handleFromPath,
   handleProblem,
+  isHandleFrom,
+  legacyEmailDerived,
+  neutralHandleBase,
   passesWordFilter,
   pictureForBook,
   profileLinkText,
@@ -69,10 +72,26 @@ describe('handle rules', () => {
     expect(handleProblem(fallback)).toBeNull()
   })
 
-  it('prefills the name from Google, else the email', () => {
-    expect(suggestedName('Anders Hvelplund', 'x@y.z')).toBe('Anders Hvelplund')
-    expect(suggestedName(undefined, 'mary.shelley42@example.com')).toBe('Mary Shelley')
-    expect(suggestedName(undefined, '123@example.com')).toBe('Reader')
+  it('prefills the name from the account (Google), else a neutral name; never from the email', () => {
+    expect(suggestedName('Anders Hvelplund')).toBe('Anders Hvelplund')
+    expect(suggestedName(undefined)).toBe('Reader')
+    expect(suggestedName('   ')).toBe('Reader')
+    // Anders, 9 Oct 2026: the email is never a source, even when it is passed along.
+    expect((suggestedName as (name: unknown, email?: unknown) => string)(undefined, 'mary.shelley42@example.com')).toBe('Reader')
+  })
+
+  it('neutral links, automatic-link recognition and the old email-made values', () => {
+    expect(neutralHandleBase(() => 0.42)).toBe('reader4780')
+    expect(handleProblem(neutralHandleBase(() => 0.999))).toBeNull()
+    expect(isHandleFrom('anders', 'anders')).toBe(true)
+    expect(isHandleFrom('anders3', 'anders')).toBe(true)
+    expect(isHandleFrom('x'.repeat(19) + '2', 'x'.repeat(20))).toBe(true)
+    expect(isHandleFrom('reader4780', 'reader')).toBe(true)
+    expect(isHandleFrom('anders.reads', 'anders')).toBe(false)
+    expect(isHandleFrom('q.reads', 'reader')).toBe(false)
+    expect(legacyEmailDerived('qa-ux-desk+a9cs927@example.com')).toEqual({ name: 'Qa Ux Desk A Cs', handleBases: ['qauxdeska9cs927', 'qa.ux.desk.a.cs'] })
+    expect(legacyEmailDerived('123@example.com')).toEqual({ name: null, handleBases: ['123'] })
+    expect(legacyEmailDerived(null)).toEqual({ name: null, handleBases: [] })
   })
 })
 

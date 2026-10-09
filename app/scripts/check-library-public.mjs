@@ -128,7 +128,8 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  assert(reels.every(r=>!r.scrollable||r.moved),'every overflowing row can be scrolled');
  if(w<600)assert(reels.some(r=>r.scrollable&&r.moved),'populated drama rows scroll on phones');
  await p.locator('.collection-reel .book-row').evaluateAll(rows=>rows.forEach(row=>row.scrollLeft=0));
- await p.waitForFunction(()=>[...document.querySelectorAll('.collection-reel canvas[data-book]')].filter(c=>{const r=c.getBoundingClientRect();return r.left<innerWidth&&r.right>0&&r.top<innerHeight}).every(c=>c.dataset.painted==='true'));
+ // Visible means inside the viewport and inside its reel's scrolled window (the row clips the covers past its edge).
+ await p.waitForFunction(()=>[...document.querySelectorAll('.collection-reel canvas[data-book]')].filter(c=>{const r=c.getBoundingClientRect(),row=c.closest('.book-row')?.getBoundingClientRect();return r.left<Math.min(innerWidth,row?row.right:innerWidth)&&r.right>Math.max(0,row?row.left:0)&&r.top<innerHeight&&r.bottom>0}).every(c=>c.dataset.painted==='true'));
  const navReview=await p.screenshot({path:out+'/drama-'+engine.name()+'.jpg',type:'jpeg',quality:75});
  console.log('REVIEW_BEGIN drama-'+engine.name());const encoded=navReview.toString('base64');for(let i=0;i<encoded.length;i+=12000)console.log('REVIEW_CHUNK '+encoded.slice(i,i+12000));console.log('REVIEW_END');
  await p.locator('#collection-back').click();

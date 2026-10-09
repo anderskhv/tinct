@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { accountOnlyBook, flushOwnPlaces, noteOwnPlace, pullAccountPlaces, pushOwnPlace, reconcileOpenPlace, reconcileOwnBooks } from './ownSync'
-import { fetchAccountCopy, type AccountPlace } from './ownAccount'
+import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfPlace, pullAccountPlaces, pushOwnPlace, pushPdfPlace, reconcileOpenPlace, reconcileOwnBooks, reconcilePdfPlace } from './ownSync'
+import { fetchAccountCopy, fetchAccountPlaces, type AccountPagePlace, type AccountPlace } from './ownAccount'
 import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace } from './userBookPlace'
 import type { UserBookEdition } from './userEdition'
 
@@ -19,7 +19,7 @@ const edition = { title: 'Mine', chapters } as unknown as UserBookEdition
 const kept = () => JSON.parse(localStorage.getItem(KEY) || 'null')
 
 /** The account's places endpoint, in memory: versioned like worker/routes/userBooks.ts. */
-function account(initial: Record<string, AccountPlace> = {}) {
+function account(initial: Record<string, AccountPlace | AccountPagePlace> = {}) {
   const places = { ...initial }
   const calls: Array<{ method: string; url: string; body: unknown; keepalive?: boolean }> = []
   const fetchImpl = vi.fn(async (input: RequestInfo | URL, init: RequestInit = {}) => {
@@ -146,6 +146,139 @@ describe('own-book places across devices', () => {
     const started = Date.now()
     await reconcileOpenPlace(HEX, { token: 'tok', fetchImpl: never, timeoutMs: 50 })
     expect(Date.now() - started).toBeLessThan(1_000)
+  })
+})
+
+// Add a book's PDF viewer keeps its place as `tinct-addbook:pos:pdf:<hex>` = { page, frac, zoom, pages, at }.
+describe('PDF places across devices', () => {
+  const PDF = 'fe12cd34ef56ab12cd34ef56'
+  const POS = `tinct-addbook:pos:pdf:${PDF}`
+  const pos = () => JSON.parse(localStorage.getItem(POS) || 'null')
+  const readTo = (page: number, at: number, extra: Record<string, unknown> = {}) =>
+    localStorage.setItem(POS, JSON.stringify({ ...(pos() ?? {}), page, frac: 0.5, zoom: 1, pages: 40, at, ...extra }))
+  /** Two devices: what Add a book's viewer keeps in each browser. */
+  const devices = () => {
+    const kept: Record<string, string | null> = { desktop: null, phone: null }
+    let on = 'desktop'
+    return {
+      use(name: 'desktop' | 'phone') {
+        kept[on] = localStorage.getItem(POS)
+        localStorage.clear()
+        on = name
+        if (kept[name]) localStorage.setItem(POS, kept[name]!)
+      },
+    }
+  }
+
+  it('round-trips a page place: read to p. 12 on one device, opened at p. 12 on the other; then p. 20 back', async () => {
+    const { places, calls, fetchImpl } = account()
+    const device = devices()
+    device.use('desktop')
+    readTo(12, 1_000)
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('saved')
+    expect(places[PDF]).toEqual({ page: 12, frac: 0.5, updatedAt: 1_000, percent: 28.75, rev: 1 })
+    expect(pos()).toMatchObject({ page: 12, rev: 1, savedAt: 1_000 })
+    // Nothing new: nothing sent.
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('current')
+    expect(calls).toHaveLength(1)
+
+    device.use('phone')
+    readTo(1, 500, { zoom: 1.4 })
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
+    // The account's page and how far down it; this device's zoom is its own.
+    expect(pos()).toMatchObject({ page: 12, frac: 0.5, at: 1_000, zoom: 1.4, rev: 1, savedAt: 1_000 })
+
+    readTo(20, 2_000)
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('saved')
+    expect(calls[calls.length - 1].body).toMatchObject({ rev: 1, place: { page: 20, updatedAt: 2_000 } })
+
+    device.use('desktop')
+    expect(pos()).toMatchObject({ page: 12 })
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
+    expect(pos()).toMatchObject({ page: 20, at: 2_000, rev: 2, savedAt: 2_000 })
+    expect(JSON.stringify(calls)).not.toContain('zoom')
+  })
+
+  it('the newer place wins both ways: a newer device place is saved on open, a newer account place is taken', async () => {
+    const { places, fetchImpl } = account({ [PDF]: { page: 5, frac: 0, updatedAt: 500, rev: 3 } })
+    readTo(9, 900, { rev: 3, savedAt: 400 })
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('kept')
+    await vi.waitFor(() => expect(places[PDF]).toMatchObject({ page: 9, updatedAt: 900, rev: 4 }))
+    expect(pos()).toMatchObject({ page: 9, at: 900 })
+
+    // Read later on another device while this device's write names an old revision: that place stands here.
+    places[PDF] = { page: 30, frac: 0.1, updatedAt: 5_000, rev: 9 }
+    readTo(10, 1_200, { rev: 4 })
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
+    expect(pos()).toMatchObject({ page: 30, frac: 0.1, at: 5_000, rev: 9 })
+    expect(places[PDF]).toMatchObject({ page: 30, rev: 9 })
+
+    // An older account place on a newer revision: this device's newer place replaces it.
+    places[PDF] = { page: 2, frac: 0, updatedAt: 100, rev: 12 }
+    readTo(31, 6_000)
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('saved')
+    expect(places[PDF]).toMatchObject({ page: 31, updatedAt: 6_000, rev: 13 })
+  })
+
+  it('a stale account place never replaces a newer one here, on open or in a listing', async () => {
+    const { fetchImpl } = account({ [PDF]: { page: 3, frac: 0, updatedAt: 100, rev: 2 } })
+    readTo(17, 800, { rev: 2, savedAt: 800 })
+    await pullAccountPlaces('tok', fetchImpl)
+    expect(pos()).toMatchObject({ page: 17, at: 800 })
+    await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })
+    expect(pos()).toMatchObject({ page: 17, at: 800 })
+  })
+
+  it('offline: the place stays on this device and is saved on a later open', async () => {
+    const { places, fetchImpl } = account()
+    readTo(12, 1_000)
+    const offline = vi.fn(async () => { throw new TypeError('Failed to fetch') }) as unknown as typeof fetch
+    expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl: offline })).toBe('unavailable')
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl: offline })).toBe('unavailable')
+    expect(pos()).toMatchObject({ page: 12, at: 1_000 })
+    expect(pos().savedAt).toBeUndefined()
+    // Back online: the next open saves it.
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('kept')
+    await vi.waitFor(() => expect(places[PDF]).toMatchObject({ page: 12, updatedAt: 1_000, rev: 1 }))
+    await vi.waitFor(() => expect(pos()).toMatchObject({ rev: 1, savedAt: 1_000 }))
+    // Slow or unreachable: the book opens at this device's place at once.
+    const never = vi.fn(() => new Promise<Response>(() => {})) as unknown as typeof fetch
+    const started = Date.now()
+    expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl: never, timeoutMs: 50 })).toBe('unavailable')
+    expect(Date.now() - started).toBeLessThan(1_000)
+    // Signed out: nothing is asked.
+    expect(await reconcilePdfPlace(PDF, { token: null, fetchImpl: never })).toBe('unavailable')
+  })
+
+  it('the viewer\'s notes are sent a moment later, the last one only, and at once when the page is hidden', async () => {
+    vi.useFakeTimers()
+    const { calls, fetchImpl } = account()
+    readTo(3, 10)
+    notePdfPlace(PDF, { fetchImpl, token: 'tok' })
+    readTo(4, 20)
+    notePdfPlace(PDF, { fetchImpl, token: 'tok' })
+    expect(calls).toHaveLength(0)
+    await vi.advanceTimersByTimeAsync(3_000)
+    expect(calls).toHaveLength(1)
+    expect(calls[0]).toMatchObject({ method: 'PUT', body: { rev: 0, place: { page: 4, updatedAt: 20 } } })
+    readTo(5, 30)
+    notePdfPlace(PDF, { fetchImpl, token: 'tok' })
+    flushPdfPlaces()
+    await vi.waitFor(() => expect(calls).toHaveLength(2))
+    expect(calls[1]).toMatchObject({ keepalive: true, body: { rev: 1, place: { page: 5 } } })
+    await vi.advanceTimersByTimeAsync(5_000)
+    expect(calls).toHaveLength(2)
+  })
+
+  it('keeps EPUB and PDF places apart; the shelf shows a PDF read on another device at its page', async () => {
+    const { fetchImpl } = account({ [PDF]: { page: 7, frac: 0, updatedAt: 700, percent: 15, rev: 1 }, [HEX]: { chapterNumber: 2, paragraphIndex: 0, wordIndex: 0, updatedAt: 600, rev: 1 } })
+    expect(Object.keys(await fetchAccountPlaces('tok', fetchImpl) ?? {})).toEqual([HEX])
+    await pullAccountPlaces('tok', fetchImpl)
+    expect(localStorage.getItem(`tinct-addbook:place:${PDF}`)).toBeNull()
+    expect(pos()).toMatchObject({ page: 7, at: 700, rev: 1 })
+    expect(kept()).toMatchObject({ chapterNumber: 2 })
+    const pdf = accountOnlyBook({ id: 'e'.repeat(32), type: 'pdf', sha256: PDF + '0'.repeat(40), title: 'Slides', name: 'slides.pdf', author: '', size: 1, createdAt: '' })
+    expect(pdf.reading).toMatchObject({ bookId: `userbook-${PDF}`, chapterLabel: 'p. 7', lastActiveAt: 700 })
   })
 })
 

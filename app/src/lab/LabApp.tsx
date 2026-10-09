@@ -11,6 +11,7 @@ import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
 import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
+import { useDesktopDockPlacement } from './labAudioDock'
 import { isAudioHeld } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
 import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
@@ -2922,6 +2923,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     && !mobileCompareActive
     && (listen.pending || listen.playing || audioChapterTransitioning || pausedTransportVisible)
   const desktopAudioBarActive = !showPhoneChrome && (listen.pending || listen.playing || pausedTransportVisible)
+  // The dock rides over the leaf's foot, never over its text (labAudioDock).
+  const desktopDockRef = useRef<HTMLElement | null>(null)
+  useDesktopDockPlacement(desktopDockRef, desktopAudioBarActive && desktopPaging)
   const phoneTransportOpen = showPhoneChrome && audioBarActive
   transportOpenRef.current = phoneTransportOpen
   const lastPhoneTransportRef = useRef(phoneTransportOpen)
@@ -5476,7 +5480,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       )}
 
       {desktopAudioBarActive && (
-        <section className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
+        <section ref={desktopDockRef} className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
           <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
           <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
           <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading ? <LoadingIcon size={22} /> : listen.pending || !listen.playing ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>

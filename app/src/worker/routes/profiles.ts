@@ -12,6 +12,10 @@
  *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
  *   POST /api/profile/confirm-link    "Send confirmation link": one service email with the signed
  *                                     /confirm link (routes/confirmLink.ts); 1 per 5 minutes, 5 a day
+ *
+ * The first GET /api/profile of a new email-and-password account (the
+ * sign-up page reads it right after the account is created) also sends that
+ * confirmation email once, automatically (sendSignUpConfirmation).
  *   GET  /api/profiles/{handle}       what this viewer may see of a profile (ship 3 builds the page on it)
  *
  * Email confirmation is not here: the link (in the welcome email, or sent again
@@ -25,6 +29,7 @@
 import {
   EMAIL_CONSENT_VERSION,
   HANDLE_PROBLEM_COPY,
+  NEUTRAL_NAME,
   PICTURE_SETS,
   COVER_BOOK_IDS,
   VISIBILITIES,
@@ -33,6 +38,9 @@ import {
   handleBase,
   handleCandidates,
   handleProblem,
+  isHandleFrom,
+  legacyEmailDerived,
+  neutralHandleBase,
   normalizeHandle,
   pictureForBook,
   profileLinkText,
@@ -45,6 +53,7 @@ import {
 } from '../../social/profileRules'
 import { isInternalAccount } from '../../social/socialRules'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
+import { SIGNUP_CONFIRM_DEDUPE_KEY, SIGNUP_CONFIRM_TEMPLATE, SIGNUP_CONFIRM_WINDOW_MS } from './confirmLink'
 import { corsHeaders } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { ProfilesUnavailable, supabaseProfileStore, type ProfileStore, type ReaderProfileRow } from '../lib/profileStore'
@@ -69,6 +78,8 @@ export interface ProfileAuthUser {
   app_metadata?: { provider?: string; providers?: string[] } & Record<string, unknown>
   user_metadata?: Record<string, unknown>
   identities?: { provider?: string }[]
+  /** When the account was created (Supabase's created_at). */
+  created_at?: string
 }
 
 export interface ProfileDeps {
@@ -82,6 +93,8 @@ export interface ProfileDeps {
   sendConfirmLink?: ((to: string, userId: string) => Promise<boolean>) | null
   /** One confirm-link email for this account now? (1 per 5 minutes, 5 a day; false when the limiter is down.) */
   confirmLinkAllowed?: (userId: string) => Promise<boolean>
+  /** Runs work after the reply (the Worker's ctx.waitUntil). Absent: awaited before replying. */
+  defer?: (promise: Promise<unknown>) => void
 }
 
 export function socialProfilesOn(env: { SOCIAL_PROFILES?: string }): boolean {
@@ -178,12 +191,6 @@ async function accountState(store: ProfileStore, user: ProfileAuthUser, now: Dat
 }
 
 /**
- * The reader's row, created private on first read: name from Google or the
- * email, a unique handle made from it, the picture of the book they are
- * reading (else the initial), Only me. Nobody becomes visible to others
- * without choosing to.
- */
-/**
  * Tinct's own internal and test accounts (socialRules isInternalAccount: a
  * reserved test address, or the internal-traffic device flag's
  * `x-tinct-check: 1`) are flagged when their profile is read or saved, which
@@ -199,16 +206,72 @@ async function flagInternal(store: ProfileStore, user: ProfileAuthUser, request:
   }
 }
 
+/** The account's own name (Google's full name), if it has one. Never the email. */
+function accountName(user: ProfileAuthUser): string | null {
+  const meta = user.user_metadata || {}
+  const raw = meta.full_name ?? meta.name
+  return typeof raw === 'string' ? cleanDisplayName(raw) : null
+}
+
+/**
+ * The automatic link for a name: made from the name, or for the neutral name
+ * "reader" and a short random part; unique. `current` is kept when it already
+ * is one for this name.
+ */
+async function autoHandle(store: ProfileStore, name: string, current: string | null, random: () => number): Promise<string> {
+  const fromName = handleBase(name)
+  if (current && isHandleFrom(current, fromName)) return current
+  const base = name === NEUTRAL_NAME ? neutralHandleBase(random) : fromName
+  const taken = await store.takenHandles(handleCandidates(base))
+  return uniqueHandle(base, taken, BOOK_IDS, random)
+}
+
+/**
+ * Is the link still the one Tinct made (so a new name may re-derive it)?
+ * Only before set-up, only while the reader has not typed a link themselves
+ * (that clears auto_created), and only while it still matches the name.
+ */
+function hasAutoHandle(row: ReaderProfileRow): boolean {
+  return row.auto_created && !row.set_up_at && isHandleFrom(row.handle, handleBase(row.display_name))
+}
+
+/**
+ * Profiles made before 9 October 2026 took the name and link from the email.
+ * One not yet set up (Only me, so nobody else has seen it or its link) is
+ * re-derived by today's rules on its next read or save. A set-up profile is
+ * never touched: its link may be shared.
+ */
+async function repairEmailDerived(store: ProfileStore, row: ReaderProfileRow, user: ProfileAuthUser, random: () => number): Promise<ReaderProfileRow> {
+  if (row.set_up_at || !row.auto_created) return row
+  const legacy = legacyEmailDerived(user.email)
+  const fromAccount = accountName(user)
+  const nameFromEmail = legacy.name !== null && row.display_name === legacy.name && row.display_name !== fromAccount
+  const name = nameFromEmail ? fromAccount ?? NEUTRAL_NAME : row.display_name
+  const handleFromEmail = legacy.handleBases.some(base => isHandleFrom(row.handle, base)) && !isHandleFrom(row.handle, handleBase(name))
+  if (!nameFromEmail && !handleFromEmail) return row
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const patch: Patch = {}
+    if (nameFromEmail) patch.display_name = name
+    if (handleFromEmail) patch.handle = await autoHandle(store, name, null, random)
+    if (await store.update(row.id, patch) === 'ok') return { ...row, ...patch }
+  }
+  return row
+}
+
+/**
+ * The reader's row, created private on first read: the account's own name
+ * (Google's), else the neutral name; a unique link made from it ("reader" and
+ * a short random part for the neutral name; never anything from the email);
+ * the picture of the book they are reading (else the initial), Only me.
+ * Nobody becomes visible to others without choosing to.
+ */
 async function ownProfile(store: ProfileStore, user: ProfileAuthUser, bookHint: string | null, random: () => number): Promise<ReaderProfileRow> {
   const existing = await store.getOwn(user.id)
-  if (existing) return existing
-  const meta = user.user_metadata || {}
-  const name = suggestedName(meta.full_name ?? meta.name, user.email)
-  const base = handleBase(isGoogleAccount(user) ? name : String(user.email || '').split('@')[0] || name)
+  if (existing) return repairEmailDerived(store, existing, user, random)
+  const name = suggestedName(accountName(user))
   const start = pictureForBook(bookHint)
   for (let attempt = 0; attempt < 3; attempt++) {
-    const taken = await store.takenHandles(handleCandidates(base))
-    const handle = uniqueHandle(base, taken, BOOK_IDS, random)
+    const handle = await autoHandle(store, name, null, random)
     const row: Omit<ReaderProfileRow, 'updated_at'> = {
       id: user.id,
       display_name: name,
@@ -249,7 +312,7 @@ async function readJson(request: Request): Promise<Record<string, unknown> | nul
 type Patch = Partial<ReaderProfileRow>
 
 /** Validate a change request. Returns the patch, or the problem to show. */
-async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Record<string, unknown>, now: Date): Promise<{ patch: Patch } | { error: string; field: string; status: number }> {
+async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Record<string, unknown>, now: Date, random: () => number): Promise<{ patch: Patch; autoHandle: boolean } | { error: string; field: string; status: number }> {
   const patch: Patch = {}
   if ('name' in body) {
     const name = cleanDisplayName(body.name)
@@ -263,7 +326,15 @@ async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Reco
       if (problem) return { error: HANDLE_PROBLEM_COPY[problem], field: 'handle', status: 422 }
       if ((await store.takenHandles([handle])).has(handle)) return { error: HANDLE_PROBLEM_COPY.taken, field: 'handle', status: 409 }
       patch.handle = handle
+      // The reader chose this link: it is never re-derived from a name again.
+      if (row.auto_created) patch.auto_created = false
     }
+  }
+  // A new name while the link is still Tinct's own: the link follows the name.
+  let autoHandleChosen = false
+  if (patch.display_name && patch.handle === undefined && hasAutoHandle(row)) {
+    const next = await autoHandle(store, patch.display_name, row.handle, random)
+    if (next !== row.handle) { patch.handle = next; autoHandleChosen = true }
   }
   if ('picture' in body) {
     const picture = body.picture as { kind?: unknown; value?: unknown } | null
@@ -301,7 +372,7 @@ async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Reco
   }
   if (body.setUp === true) patch.set_up_at = row.set_up_at ?? now.toISOString()
   if (body.prompted === true) patch.prompted_at = row.prompted_at ?? now.toISOString()
-  return { patch }
+  return { patch, autoHandle: autoHandleChosen }
 }
 
 async function deleteStoredImage(env: ProfilesEnv, userId: string, slot: 'picture' | 'background', token: string | null) {
@@ -408,6 +479,11 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, bookHint && /^[a-z0-9-]{1,80}$/.test(bookHint) ? bookHint : null, random)
       await flagInternal(store, user, request)
       const account = await accountState(store, user, now)
+      if (!account.emailConfirmed) {
+        const confirmation = sendSignUpConfirmation(store, user, deps, now)
+        if (deps.defer) deps.defer(confirmation)
+        else await confirmation
+      }
       return reply({ enabled: true, available: true, profile: selfView(row, account, user) }, 200, request)
     }
 
@@ -416,14 +492,19 @@ export async function handleProfiles(
       if (!body) return reply({ error: 'Invalid JSON' }, 400, request)
       const row = await ownProfile(store, user, null, random)
       await flagInternal(store, user, request)
-      const built = await buildPatch(store, row, body, now)
+      const built = await buildPatch(store, row, body, now, random)
       if ('error' in built) return reply({ error: built.error, field: built.field }, built.status, request)
       const { patch } = built
       // Leaving a stored photo removes it (nothing is kept that is not shown).
       const leavingPicture = patch.picture_kind && patch.picture_kind !== row.picture_kind && (row.picture_kind === 'upload' || row.picture_kind === 'google')
       const leavingBackground = patch.background_kind && patch.background_kind !== row.background_kind && row.background_kind === 'upload'
       if (Object.keys(patch).length) {
-        const result = await store.update(user.id, patch)
+        let result = await store.update(user.id, patch)
+        // A link Tinct picked was taken meanwhile: pick again rather than blame the reader.
+        for (let attempt = 0; result === 'taken' && built.autoHandle && attempt < 2; attempt++) {
+          patch.handle = await autoHandle(store, patch.display_name!, null, random)
+          result = await store.update(user.id, patch)
+        }
         if (result === 'taken') return reply({ error: HANDLE_PROBLEM_COPY.taken, field: 'handle' }, 409, request)
       }
       if (deps.track) {
@@ -523,6 +604,35 @@ async function sendConfirmLink(request: Request, store: ProfileStore, user: Prof
   if (!await deps.confirmLinkAllowed(user.id)) return reply({ error: 'Too many requests' }, 429, request)
   if (!await deps.sendConfirmLink(to, user.id)) return reply({ error: 'Unavailable' }, 503, request)
   return reply({ ok: true }, 200, request)
+}
+
+/**
+ * The confirmation email at sign-up (routes/confirmLink.ts): once, for a new
+ * email-and-password account whose address is not confirmed (Google accounts
+ * are confirmed by accountState first and never get here). Reserved in
+ * email_log before sending; a failed send releases the reservation so a later
+ * read may try again. Never throws: the profile and the sign-up never wait on
+ * or fail with the email.
+ */
+async function sendSignUpConfirmation(store: ProfileStore, user: ProfileAuthUser, deps: ProfileDeps, now: Date): Promise<void> {
+  try {
+    if (isGoogleAccount(user) || !deps.sendConfirmLink || !store.reserveEmail) return
+    const created = Date.parse(String(user.created_at ?? ''))
+    if (!Number.isFinite(created) || now.getTime() - created > SIGNUP_CONFIRM_WINDOW_MS) return
+    const account = await store.getAccount(user.id)
+    if (!account || account.email_confirmed_at) return
+    const to = typeof account.email === 'string' ? account.email.trim() : ''
+    if (!to || to.toLowerCase() !== String(user.email || '').trim().toLowerCase()) return
+    if (!await store.reserveEmail(user.id, SIGNUP_CONFIRM_TEMPLATE, SIGNUP_CONFIRM_DEDUPE_KEY)) return
+    let sent = false
+    try {
+      sent = await deps.sendConfirmLink(to, user.id)
+    } finally {
+      if (!sent) await store.releaseEmail?.(user.id, SIGNUP_CONFIRM_DEDUPE_KEY)
+    }
+  } catch (error) {
+    console.warn(JSON.stringify({ event: 'signup_confirm_email_failed', detail: error instanceof Error ? error.message : 'failed' }))
+  }
 }
 
 /** The relationship-aware view of one profile (ship 3's page and lists use this). */

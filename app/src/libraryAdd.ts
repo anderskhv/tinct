@@ -11,12 +11,13 @@
  * Your own books: the files Add a book keeps on this device (IndexedDB
  * `tinct-addbook`, this account's records only) and in the account
  * (`/api/user-books`), listed for My shelf, with the places read on the
- * account's other devices (`/api/user-books/places`). Nothing is uploaded here.
+ * account's other devices (`/api/user-books/places`). Nothing is uploaded here,
+ * except Add a book's viewer saving a PDF's place (`pdfPlaces`).
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import type { OwnShelfBook } from './lab/userBook/ownShelf'
-import { ownShelfWithAccount } from './lab/userBook/ownSync'
+import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
 import { fetchModernStatus, markPendingPurchase, startModernCheckout, type ModernStatus } from './lab/labModernEditionApi'
 import { publicChapters, type PublicChapterUpload } from './lab/userBook/publicChapters'
 
@@ -99,7 +100,7 @@ export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean |
   }
 }
 
-// ===== Modern English, asked right after an add (add-to-tinct.js modernOfferAfterAdd) =====
+// ===== Modern English, asked right after an add (add-to-tinct.js finishAdd) =====
 
 /** The book's Modern English edition: its state and offer, as the reader asks (labModernEditionApi). Null when it cannot be told. */
 export function modernStatus(bookId: string, fetchImpl: typeof fetch = fetch): Promise<ModernStatus | null> {
@@ -170,4 +171,15 @@ export function switcherTarget(row: Parameters<Awaited<ReturnType<typeof switche
   return switcherModule ? switcherModule.switcherTarget(row) : row.href ?? null
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget }
+/**
+ * A PDF's place across the account's devices, for Add a book's viewer
+ * (userBook/ownSync.ts): reconciled before the book shows, each new place
+ * saved a moment later, and anything waiting sent when the page is left.
+ */
+export const pdfPlaces = {
+  reconcile: (hex: string) => reconcilePdfPlace(hex),
+  note: (hex: string, now = false) => notePdfPlace(hex, { now }),
+  flush: () => flushPdfPlaces(),
+}
+
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces }

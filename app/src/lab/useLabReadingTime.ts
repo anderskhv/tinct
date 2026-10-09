@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { readingTimeStats, localDay, type ReadingTimeStats } from '../readingTime/model'
+import { readingTimeStats, localDay, type LedgerRow, type ReadingTimeStats } from '../readingTime/model'
 import { readLocalReadingYear, readingYearTotals } from './labReadingYear'
-import { fetchReadingTime, pendingSeconds, readPending, readingTimeSwitch, withPending } from './labReadingTime'
+import { SWITCH_RECHECK_MS, fetchReadingTime, pendingSeconds, readPending, readingTimeSwitch, withPending } from './labReadingTime'
 
 /**
  * What the account sheet shows for reading time.
@@ -23,20 +23,40 @@ export function deviceReadingSeconds(owner: string | null, year = new Date().get
   return readingYearTotals(readLocalReadingYear(year, owner)).seconds + pendingSeconds(readPending(owner))
 }
 
+/**
+ * The ledger rows this page last received, per account (memory only, gone
+ * with the page and never another account's). Opening the sheet again, or the
+ * reader remounting it, shows these with this device's newer time at once
+ * while the ledger is asked again, instead of the loading dash.
+ */
+let lastLedger: { userId: string; rows: LedgerRow[] } | null = null
+
+/** Tests only. */
+export function resetLastLedger(): void {
+  lastLedger = null
+}
+
+function ledgerState(userId: string, rows: LedgerRow[]): SheetReadingTime {
+  return { mode: 'ledger', stats: readingTimeStats(withPending(rows, readPending(userId)), localDay()) }
+}
+
 export function useLabReadingTime(userId: string | null, token: string | null, open: boolean): SheetReadingTime {
   const [state, setState] = useState<SheetReadingTime>({ mode: 'off' })
   useEffect(() => {
     if (!open) return
     let live = true
-    void readingTimeSwitch().then(async on => {
+    void readingTimeSwitch(undefined, { maxAgeMs: SWITCH_RECHECK_MS }).then(async on => {
       if (!live) return
       if (!on) { setState({ mode: 'off' }); return }
       if (!userId) { setState({ mode: 'device', seconds: deviceReadingSeconds(null) }); return }
-      setState(previous => previous.mode === 'ledger' ? previous : { mode: 'loading' })
+      const known = lastLedger?.userId === userId ? lastLedger.rows : null
+      setState(previous => known ? ledgerState(userId, known) : previous.mode === 'ledger' ? previous : { mode: 'loading' })
       const summary = token ? await fetchReadingTime(token) : null
       if (!live) return
-      setState(summary
-        ? { mode: 'ledger', stats: readingTimeStats(withPending(summary.rows, readPending(userId)), localDay()) }
+      if (summary) lastLedger = { userId, rows: summary.rows }
+      const rows = summary?.rows ?? (lastLedger?.userId === userId ? lastLedger.rows : null)
+      setState(rows
+        ? ledgerState(userId, rows)
         : { mode: 'fallback', pendingSeconds: pendingSeconds(readPending(userId)) })
     })
     return () => { live = false }

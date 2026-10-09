@@ -306,6 +306,15 @@ describe('the leaderboard is opt-in', () => {
     expect(names(await board(world, C, 'everyone'))).not.toContain('Bea')
   })
 
+  it('the Friends board never needs a confirmed email (Friends, or Everyone while unconfirmed)', async () => {
+    const world = new World()
+    world.add(A, {}, false); world.add(B, { visibility: 'friends' }, false); world.add(C, {}, false)
+    world.befriend(A, B); world.befriend(A, C)
+    for (const id of [A, B, C]) world.read(id, 0, 60)
+    expect(names(await board(world, A, 'friends')).sort()).toEqual(['Bea', 'Carl', 'You'])
+    expect(names(await board(world, B, 'friends')).sort()).toEqual(['Anders', 'You'])
+  })
+
   it('the Everyone board lists only Everyone readers with a confirmed email', async () => {
     const world = new World()
     world.add(A); world.add(B); world.add(C, { visibility: 'friends' }); world.add(D, {}, false)

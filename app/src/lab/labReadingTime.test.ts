@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { act, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { addPending, beatPayload, nextFlush, pendingSeconds, readPending, readingTimeSwitch, resetReadingTimeSwitch, sendFlush } from './labReadingTime'
+import { addPending, beatPayload, fetchReadingTime, nextFlush, pendingSeconds, readPending, readingTimeSwitch, resetReadingTimeSwitch, sendFlush } from './labReadingTime'
 import { useLabReadingYear } from './useLabReadingYear'
 import { readLocalReadingYear, readingYearTotals } from './labReadingYear'
 import { localDay } from '../readingTime/model'
@@ -31,6 +31,31 @@ describe('the switch on the reader', () => {
   })
 })
 
+describe('the switch on a long-lived page', () => {
+  it('a failed question is asked again after a minute, and an answer once it is older than the caller allows', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] })
+    const fetchMock = vi.fn(async () => { throw new Error('offline') })
+    expect(await readingTimeSwitch(fetchMock as unknown as typeof fetch)).toBe(false)
+    expect(await readingTimeSwitch(fetchMock as unknown as typeof fetch)).toBe(false)
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    vi.setSystemTime(Date.now() + 61_000)
+    const on = vi.fn(async () => Response.json({ enabled: true }))
+    expect(await readingTimeSwitch(on as unknown as typeof fetch)).toBe(true)
+    // A good answer lasts for the page unless the caller asks for a fresher one.
+    vi.setSystemTime(Date.now() + 10 * 60_000)
+    const off = vi.fn(async () => Response.json({ enabled: false }))
+    expect(await readingTimeSwitch(off as unknown as typeof fetch)).toBe(true)
+    expect(await readingTimeSwitch(off as unknown as typeof fetch, { maxAgeMs: 5 * 60_000 })).toBe(false)
+  })
+})
+
+describe('the ledger summary', () => {
+  it('a request that never answers reads as unavailable after the timeout, so the sheet is never stuck loading', async () => {
+    const hanging = vi.fn(() => new Promise<Response>(() => {}))
+    expect(await fetchReadingTime('token', hanging as unknown as typeof fetch, { timeoutMs: 20 })).toBeNull()
+  })
+})
+
 describe('pending time on the device', () => {
   it('keeps each day and book apart, and a beat carries at most a minute of the current one', () => {
     addPending('u1', '2026-10-07', 'odyssey', { read: 30 })
@@ -57,6 +82,32 @@ describe('pending time on the device', () => {
     expect(readPending(null)).toEqual({})
     expect(cleared).toEqual([2026])
     expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'odyssey', guestEarlier: null })).toBeNull()
+  })
+
+  it('a flush that failed part-way keeps exactly what did not land, under a new id', async () => {
+    addPending('u1', '2026-10-05', 'odyssey', { read: 600 })
+    addPending('u1', '2026-10-06', 'odyssey', { read: 300 })
+    const flush = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    expect(flush.entries).toHaveLength(2)
+    const fetchMock = vi.fn(async () => Response.json({ enabled: true, error: 'unavailable', applied: 1 }, { status: 503 }))
+    expect(await sendFlush('token', 'u1', flush, () => {}, fetchMock as unknown as typeof fetch)).toBe('unavailable')
+    const landed = flush.entries[0]
+    const left = flush.entries[1]
+    expect(readPending('u1')).toEqual({ [left.day]: { odyssey: { read: left.read, listen: 0 } } })
+    expect(landed.day).not.toBe(left.day)
+    // The next flush carries only what is left, under a new id (the old one is spent).
+    const next = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    expect(next.flushId).not.toBe(flush.flushId)
+    expect(next.entries).toEqual([left])
+  })
+
+  it('a flush the ledger refused before it began (503 without applied) is resent as it was', async () => {
+    addPending('u1', '2026-10-05', 'odyssey', { read: 600 })
+    const flush = nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })!
+    const fetchMock = vi.fn(async () => Response.json({ enabled: true, error: 'unavailable' }, { status: 503 }))
+    expect(await sendFlush('token', 'u1', flush, () => {}, fetchMock as unknown as typeof fetch)).toBe('unavailable')
+    expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'bible', guestEarlier: null })?.flushId).toBe(flush.flushId)
+    expect(pendingSeconds(readPending('u1'))).toBe(600)
   })
 
   it('leaves the current book’s time today to the heartbeat', () => {

@@ -174,14 +174,48 @@ export function cleanDisplayName(raw: unknown): string | null {
   return passesWordFilter(name) ? name : null
 }
 
-/** The prefilled name: Google's full name, else the email's local part, tidied. */
-export function suggestedName(fullName: unknown, email: unknown): string {
+/** The name a profile gets when the account has none. */
+export const NEUTRAL_NAME = 'Reader'
+
+/**
+ * The prefilled name: the account's own name (Google's full name), else the
+ * neutral name. Never the email (Anders, 9 October 2026): profile pages and
+ * links are built from the reader's name only.
+ */
+export function suggestedName(fullName: unknown): string {
   const named = typeof fullName === 'string' ? cleanDisplayName(fullName) : null
-  if (named) return named
+  return named || NEUTRAL_NAME
+}
+
+/** The neutral link's base: "reader" and a short random part (uniqueHandle settles clashes). */
+export function neutralHandleBase(random = Math.random): string {
+  return `reader${Math.floor(random() * 9000 + 1000)}`
+}
+
+/** Could uniqueHandle(base) have made this handle? The base, or the base trimmed to fit plus digits. */
+export function isHandleFrom(handle: string, base: string): boolean {
+  if (handle === base) return true
+  for (let cut = 1; cut < handle.length; cut++) {
+    const tail = handle.slice(cut)
+    if (!/^\d+$/.test(tail)) continue
+    if (handle.slice(0, cut) === base.slice(0, HANDLE_MAX - tail.length).replace(/[._]+$/g, '')) return true
+  }
+  return false
+}
+
+/**
+ * What profiles made before 9 October 2026 took from the email: the name
+ * (the local part, tidied) and the link bases (the local part, and that
+ * name). Only used to recognise and repair those profiles, never to make one.
+ */
+export function legacyEmailDerived(email: unknown): { name: string | null; handleBases: string[] } {
   const local = typeof email === 'string' ? email.split('@')[0] : ''
+  if (!local) return { name: null, handleBases: [] }
   const words = local.replace(/[._+-]+/g, ' ').replace(/\d+/g, ' ').trim().split(/\s+/).filter(Boolean)
-  const name = words.map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
-  return cleanDisplayName(name) || 'Reader'
+  const tidied = cleanDisplayName(words.map(word => word[0].toUpperCase() + word.slice(1)).join(' '))
+  const name = tidied && tidied !== NEUTRAL_NAME ? tidied : null
+  const handleBases = [handleBase(local), ...(name ? [handleBase(name)] : [])].filter(base => base !== 'reader')
+  return { name, handleBases }
 }
 
 // ===== Profile links =====
