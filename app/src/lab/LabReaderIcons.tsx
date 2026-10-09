@@ -49,9 +49,10 @@ export function HighlightIcon({ size = 20, ...rest }: LabActionIconProps) {
 }
 
 
-export function TalkIcon() {
+/** Talk: the "ılı" bars, shared by the audio bar, the phone chrome and the menu. */
+export function TalkIcon({ size = 20 }: { size?: number }) {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <rect x="4.2" y="9" width="2.6" height="6" rx="1.1" />
       <rect x="10.7" y="5" width="2.6" height="14" rx="1.1" />
       <rect x="17.2" y="8" width="2.6" height="8" rx="1.1" />
