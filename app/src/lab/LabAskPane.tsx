@@ -8,7 +8,7 @@ import { LabMarkdown } from './LabMarkdown'
 // keys, press-and-hold and look live in public/lab/chat-thread.{js,css}, which
 // the PDF reader for a reader's own books loads too.
 import {
-  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, HINT_TEXT, ICONS, isAway, keptCopyIndex, lastQuestion,
+  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, HINT_TEXT, ICONS, isAway, keptCopyIndex, lastQuestion, scrollToLatest,
   takeHint, threadRows, timeLabel,
 } from '../../public/lab/chat-thread.js'
 import '../../public/lab/chat-thread.css'
@@ -194,6 +194,8 @@ export function LabAskPane({
   // viewport even while the reply is short; it shrinks as the reply grows,
   // so the text fills downward under a still first line.
   const spacerRef = useRef<HTMLDivElement | null>(null)
+  // Opened on a clean window and nothing new since: the space follows the thread's height.
+  const cleanOpenRef = useRef(false)
   const canSend = draft.trim().length > 0
   const empty = turns.length === 0 && !typedLoading
   const syncing = historyStatus === 'loading'
@@ -309,6 +311,13 @@ export function LabAskPane({
       holdReplyTop(node, heldReply)
     } else {
       if (newTurn || justOpened) setSpacer(node, null)
+      // Open on a clean window: one screen of writing space above the
+      // composer, the whole thread immediately above it, reached by scrolling up.
+      if (justOpened && !focusTurnId && !typedLoading && spacerRef.current) {
+        spacerRef.current.style.height = `${node.clientHeight}px`
+        cleanOpenRef.current = true
+      }
+      if (newTurn && !justOpened) cleanOpenRef.current = false
       const shouldFollow = justOpened
         || (newTurn && lastTurn.role === 'user')
         || pinnedScrollTopRef.current !== null
@@ -350,6 +359,8 @@ export function LabAskPane({
       const current = threadRef.current
       if (!current) return
       if (pinModeRef.current === 'reply-top' && pinnedScrollTopRef.current !== null) return
+      const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
+      if (resizedClean && spacerRef.current) spacerRef.current.style.height = `${current.clientHeight}px`
       if (pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(current)
     })
     observer.observe(node)
@@ -521,9 +532,7 @@ export function LabAskPane({
   const latestNode = (
     <button type="button" className="tc-latest" data-testid="lab-ask-latest" hidden={!away} onClick={() => {
       const node = threadRef.current
-      if (!node) return
-      node.scrollTo?.({ top: node.scrollHeight, behavior: 'smooth' })
-      if (!node.scrollTo) node.scrollTop = node.scrollHeight
+      if (node) scrollToLatest(node)
     }}><span dangerouslySetInnerHTML={{ __html: ICONS.down }} />Latest</button>
   )
   return (

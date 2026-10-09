@@ -1609,7 +1609,7 @@ function dockGrip(el) {
 }
 
 /* ---------- Chat (and Talk) in Tinct's companion pane ---------- */
-const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [], live: null };
+const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [], live: null, fresh: false };
 function loadTurns() { chat.turns = (store.get('chat:' + state.key) || []).filter(t => t && t.content) }
 /* ---------- Images in chat: attach, paste, drop, or snip from the page ---------- */
 let imageLimits = null;
@@ -2015,7 +2015,9 @@ function openChat(opts = {}) {
     const thread = el.querySelector('#thread'), latest = el.querySelector('#latest');
     TC.bindPress(thread);
     thread.addEventListener('scroll', () => { latest.hidden = !TC.isAway(thread) }, { passive: true });
-    latest.onclick = () => thread.scrollTo({ top: thread.scrollHeight, behavior: 'smooth' });
+    latest.onclick = () => TC.scrollToLatest(thread);
+    // The clean window stays a full screen while the sheet settles (phone chrome, keyboard).
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => { const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) thread.scrollTop = thread.scrollHeight }).observe(thread);
     el.querySelector('#attachBtn').onclick = () => el.querySelector('#attachInput').click();
     el.querySelector('#attachInput').onchange = e => { addAttachments([...e.target.files]); e.target.value = '' };
     el.addEventListener('dragover', e => { if ([...(e.dataTransfer?.items || [])].some(i => i.kind === 'file')) { e.preventDefault(); el.classList.add('byob-drop-over') } });
@@ -2039,10 +2041,12 @@ function openChat(opts = {}) {
   const shown = document.querySelector('.byob-toast:not([hidden])'); if (shown) placeToast(shown);
   if (opts.passage) chat.passage = opts.passage;
   if (opts.explanation) {
+    chat.fresh = false;
     chat.turns.push({ role: 'user', content: 'Explain this passage.', passage: opts.passage.text, page: opts.passage.page, at: Date.now() });
     chat.turns.push({ role: 'assistant', content: opts.explanation, at: Date.now() });
     saveTurns();
   }
+  chat.fresh = !opts.prompt && !opts.explanation;
   setTalk(!!opts.talk || chat.talk);
   renderThread();
   if (opts.prompt) ask(opts.prompt, opts.display);
@@ -2075,6 +2079,9 @@ function renderThread() {
   }));
   if (chat.live) turns.push({ role: 'assistant', text: chat.live.text, html: chat.live.text ? md(chat.live.text) : '', place: turns.at(-1)?.place });
   thread.innerHTML = TC.threadHtml(turns, { streaming: !!chat.live });
+  // Opened, Chat looks like a clean window: a screen of writing space above the composer, the
+  // history above that, reached by scrolling up (as the book reader opens). The next question clears it.
+  if (chat.fresh && turns.length) { const space = document.createElement('div'); space.className = 'tc-spacer'; space.setAttribute('aria-hidden', 'true'); space.style.height = thread.clientHeight + 'px'; thread.appendChild(space) }
   thread.querySelectorAll('[data-copy]').forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText(chat.turns[b.dataset.copy].display || chat.turns[b.dataset.copy].content); b.innerHTML = TC.ICONS.copied; b.setAttribute('aria-label', 'Copied') } catch { toast('Copy did not work here.') } });
   thread.querySelectorAll('[data-quote]').forEach(b => b.onclick = () => { const t = chat.turns[b.dataset.quote]; if (t?.page) goTo({ page: t.page }, true) });
   renderAttached();
@@ -2096,6 +2103,7 @@ async function ask(question, display) {
   const passage = chat.passage; chat.passage = null;
   const page = currentPlace().page;
   const attached = chat.attach.splice(0); renderTray();
+  chat.fresh = false;
   chat.turns.push({ role: 'user', content: question, display, passage: passage?.text, page: passage?.page || page, imgs: attached.map(a => a.thumb), snipText: attached.map(a => a.text).filter(Boolean).join('\n') || undefined, at: Date.now() });
   renderThread();
   if (!s) { chat.turns[chat.turns.length - 1].failed = 'Claude is not available on this page.'; renderThread(); toast(AI_OFF); return }
@@ -2165,6 +2173,7 @@ async function summarize() {
 }
 async function askSummary(display, prompt) {
   const s = await ai();
+  chat.fresh = false;
   chat.turns.push({ role: 'user', content: display, page: currentPlace().page, at: Date.now() });
   chat.live = { text: '' }; renderThread();
   const ctl = new AbortController(); chat.ctl = ctl;

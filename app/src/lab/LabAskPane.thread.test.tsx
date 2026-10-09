@@ -112,6 +112,67 @@ describe('the hover / press row', () => {
   })
 })
 
+describe('at rest: one copy mark, on the newest answer (Anders, 9 Oct 2026)', () => {
+  it('with the thread’s own stylesheet applied, exactly one copy mark shows without hover or press, under the newest answer', () => {
+    const style = document.createElement('style')
+    // Media-gated hover rules need a pointer; jsdom applies the base rules only, which is the state at rest.
+    style.textContent = readFileSync(resolve(__dirname, '../../public/lab/chat-thread.css'), 'utf8').replace(/@media[^{]*\{([\s\S]*?\})\s*\}/g, '')
+    document.head.append(style)
+    try {
+      render(pane())
+      const shown = Array.from(document.querySelectorAll<HTMLElement>('.tc-acts')).filter(row => getComputedStyle(row).display !== 'none')
+      expect(shown).toHaveLength(1)
+      expect(shown[0].closest('[data-turn-id]')!.getAttribute('data-turn-id')).toBe('a3')
+      // No time beside it, and no mark on any bubble.
+      expect(getComputedStyle(shown[0].querySelector('.tc-time')!).display).toBe('none')
+      expect(Array.from(document.querySelectorAll<HTMLElement>('.tc-q .tc-acts')).every(row => getComputedStyle(row).display === 'none')).toBe(true)
+      // Pressed, an older answer's row shows too (and only while pressed).
+      const older = screen.getAllByTestId('lab-ask-turn-assistant')[0]
+      older.setAttribute('data-pressed', 'true')
+      expect(getComputedStyle(older.querySelector('.tc-acts')!).display).toBe('flex')
+    } finally {
+      style.remove()
+    }
+  })
+})
+
+describe('opening with history: a clean window, the history above it', () => {
+  it('opens scrolled past one screen of writing space; scrolling up reaches the thread', () => {
+    const client = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight')
+    const scroll = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight')
+    const isThread = (node: HTMLElement) => node.getAttribute('data-testid') === 'lab-ask-thread'
+    // The thread's content is the messages (600px) plus whatever height the spacer has.
+    Object.defineProperty(HTMLElement.prototype, 'clientHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? 400 : 0 } })
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', { configurable: true, get(this: HTMLElement) {
+      if (!isThread(this)) return 0
+      return 600 + (parseFloat((this.querySelector('[data-testid="lab-ask-thread-spacer"]') as HTMLElement | null)?.style.height || '0') || 0)
+    } })
+    try {
+      render(pane())
+      const thread = screen.getByTestId('lab-ask-thread')
+      const spacer = screen.getByTestId('lab-ask-thread-spacer')
+      expect(spacer.style.height).toBe('400px')
+      // Pinned to the end: the visible window (scrollTop .. scrollTop + 400) is all spacer, no message in it.
+      expect(thread.scrollTop).toBe(1000)
+      expect(thread.scrollTop).toBeGreaterThanOrEqual(600)
+      // The history is above, reachable by scrolling up.
+      thread.scrollTop = 0
+      fireEvent.scroll(thread)
+      expect(screen.getAllByTestId('lab-ask-turn-assistant')).toHaveLength(3)
+    } finally {
+      if (client) Object.defineProperty(HTMLElement.prototype, 'clientHeight', client)
+      if (scroll) Object.defineProperty(HTMLElement.prototype, 'scrollHeight', scroll)
+    }
+  })
+
+  it('the PDF reader opens the same way: a spacer of one screen after the history, cleared by the next question', () => {
+    const reader = readFileSync(resolve(__dirname, '../../public/lab/addbook/js/reader.js'), 'utf8')
+    expect(reader).toMatch(/chat\.fresh = !opts\.prompt && !opts\.explanation/)
+    expect(reader).toMatch(/if \(chat\.fresh && turns\.length\) \{[^}]*space\.style\.height = thread\.clientHeight \+ 'px'/)
+    expect(reader.match(/chat\.fresh = false;/g)?.length).toBeGreaterThanOrEqual(2)
+  })
+})
+
 describe('quoted passage', () => {
   it('sits above the bubble, cut at 240 characters, and a tap shows the passage on the page', () => {
     const onQuote = vi.fn()

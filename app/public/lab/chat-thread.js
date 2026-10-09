@@ -172,9 +172,27 @@ export function takeHint(storage) {
   } catch { return false }
 }
 
-/** Scrolled up more than one screen from the newest line: the "Latest" pill shows. */
+/**
+ * Where the thread's last message ends, in the thread's scroll coordinates.
+ * Chat opens on a clean window (a screen of writing space, `.tc-spacer`, after
+ * the history); the messages end where that space begins.
+ */
+export function contentEnd(node) {
+  const space = node.querySelector?.('.tc-spacer')
+  const height = space ? parseFloat(space.style?.height || '0') || 0 : 0
+  return node.scrollHeight - height
+}
+
+/** The newest message's end is more than one screen below the window: the "Latest" pill shows. */
 export function isAway(node) {
-  return node.scrollHeight - node.scrollTop - node.clientHeight > node.clientHeight
+  return contentEnd(node) - node.scrollTop - node.clientHeight > node.clientHeight
+}
+
+/** "Latest": the newest message at the foot of the window (the clean space stays below it). */
+export function scrollToLatest(node) {
+  const top = Math.max(0, contentEnd(node) - node.clientHeight)
+  if (node.scrollTo) node.scrollTo({ top, behavior: 'smooth' })
+  else node.scrollTop = top
 }
 
 /**

@@ -104,6 +104,17 @@ describe('composer keys', () => {
     expect(isAway({ scrollHeight: 3000, scrollTop: 1000, clientHeight: 500 })).toBe(true)
     expect(isAway({ scrollHeight: 3000, scrollTop: 2100, clientHeight: 500 })).toBe(false)
   })
+  it('measures from the newest message, not from the clean writing space below it', () => {
+    const thread = document.createElement('div')
+    thread.innerHTML = '<div class="tc-turn"></div><div class="tc-spacer" style="height: 500px"></div>'
+    Object.defineProperty(thread, 'scrollHeight', { value: 3000 })
+    Object.defineProperty(thread, 'clientHeight', { value: 500 })
+    // Just scrolled up from the clean opening so the last messages fill the window: not "away".
+    thread.scrollTop = 2000
+    expect(isAway(thread)).toBe(false)
+    thread.scrollTop = 1400
+    expect(isAway(thread)).toBe(true)
+  })
 })
 
 describe('press-and-hold row (phone)', () => {

@@ -22,7 +22,9 @@ export function composerKey(
 ): ComposerAction
 export function fitComposer(field: HTMLTextAreaElement, lines?: number): number
 export function takeHint(storage: Pick<Storage, 'getItem' | 'setItem'> | null | undefined): boolean
-export function isAway(node: Pick<HTMLElement, 'scrollHeight' | 'scrollTop' | 'clientHeight'>): boolean
+export function contentEnd(node: Pick<HTMLElement, 'scrollHeight'> & { querySelector?: HTMLElement['querySelector'] }): number
+export function isAway(node: Pick<HTMLElement, 'scrollHeight' | 'scrollTop' | 'clientHeight'> & { querySelector?: HTMLElement['querySelector'] }): boolean
+export function scrollToLatest(node: HTMLElement): void
 export function bindPress(thread: HTMLElement, options?: { holdMs?: number; fadeMs?: number }): () => void
 export interface ThreadHtmlTurn extends ThreadTurnShape { text: string; html?: string; quote?: string | null; note?: string | null; extra?: string }
 export function threadHtml(turns: ThreadHtmlTurn[], options?: { now?: number; streaming?: boolean }): string
