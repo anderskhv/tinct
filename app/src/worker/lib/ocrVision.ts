@@ -19,7 +19,9 @@ import { OCR_BLOCK_TYPES, type OcrBlock, type OcrBlockType, type OcrPage } from 
 import { retryAfterMs } from './modernEdition'
 
 export const OCR_DEFAULT_MODEL = 'grok-4-fast-non-reasoning'
-export const OCR_MAX_REPLY_CHARS = 8000
+// A dense two-column page (a 1911 Britannica page, ~8,000 characters) runs past 8,000 in JSON;
+// 16,000 is about what MAX_TOKENS allows, so only a runaway reply is cut.
+export const OCR_MAX_REPLY_CHARS = 16000
 /** The previous page's last paragraph, at most this many characters, as context. */
 export const OCR_CONTEXT_CHARS = 600
 const MAX_TOKENS = 4000
@@ -31,8 +33,11 @@ export interface OcrRecognition {
   /** The page, or null with `invalid` saying why the reply was not one. */
   reply: OcrReply | null
   invalid?: OcrInvalid
-  /** Tokens the provider billed, when it said (`usage` in its reply). */
-  usage: { input: number; output: number } | null
+  /**
+   * Tokens the provider billed, when it said (`usage` in its reply), and what
+   * the call cost in dollars when xAI said that too (`cost_in_usd_ticks`, 1e-10 USD).
+   */
+  usage: { input: number; output: number; costUsd?: number } | null
 }
 
 export interface OcrRecognizeInput {
@@ -59,6 +64,8 @@ const RULES = [
   'Read columns left to right, each column top to bottom.',
   'Join words hyphenated across line ends. Keep the original spelling, punctuation and capitalisation: never correct, modernise, summarise or translate.',
   'Write [illegible] for a word you cannot read. A blank page, or one with only a picture, has no blocks.',
+  'Leave out dot leaders (the rows of dots between an entry and its page number).',
+  'The line at the very top of a page that repeats the book, part or chapter title, with or without the page number, is a running head (head), never h1 or h2.',
   'Tables: one row per line, cells separated by " | ". Equations as plain text or LaTeX.',
   'Block types: h1 chapter title, h2 section heading, p paragraph, fn footnote, cap caption, tbl table, eq equation, head running head, foot running footer, num page number.',
 ].join('\n')
@@ -161,7 +168,7 @@ export function xaiOcrRecognizer(apiKey: string, options: { model?: string; fetc
     if (response.status === 429) throw new OcrProviderError('provider_429', retryAfterMs(response.headers.get('Retry-After')))
     if (response.status >= 500) throw new OcrProviderError('provider_5xx', retryAfterMs(response.headers.get('Retry-After')))
     if (!response.ok) throw new OcrProviderError('provider_error')
-    let data: { choices?: Array<{ message?: { content?: string } }>; usage?: { prompt_tokens?: number; completion_tokens?: number } }
+    let data: { choices?: Array<{ message?: { content?: string } }>; usage?: { prompt_tokens?: number; completion_tokens?: number; cost_in_usd_ticks?: number } }
     try {
       data = await response.json() as typeof data
     } catch (error) {
@@ -170,7 +177,11 @@ export function xaiOcrRecognizer(apiKey: string, options: { model?: string; fetc
       return { reply: null, invalid: 'parse', usage: null }
     }
     const usage = data.usage && (Number.isFinite(data.usage.prompt_tokens) || Number.isFinite(data.usage.completion_tokens))
-      ? { input: Math.max(0, Number(data.usage.prompt_tokens) || 0), output: Math.max(0, Number(data.usage.completion_tokens) || 0) }
+      ? {
+        input: Math.max(0, Number(data.usage.prompt_tokens) || 0),
+        output: Math.max(0, Number(data.usage.completion_tokens) || 0),
+        ...(Number.isFinite(data.usage.cost_in_usd_ticks) && data.usage.cost_in_usd_ticks! >= 0 ? { costUsd: data.usage.cost_in_usd_ticks! / 1e10 } : {}),
+      }
       : null
     const content = data.choices?.[0]?.message?.content ?? ''
     const invalid = invalidOcrContent(content)

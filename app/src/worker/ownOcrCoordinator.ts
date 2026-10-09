@@ -495,7 +495,8 @@ export class OwnOcrCoordinator extends DurableObject<OwnOcrEnv> {
       if (fail.reason === 'provider_5xx') return { kind: 'backoff', ms: fail.retryAfterMs ?? BACKOFF_5XX_MS }
       return { kind: 'failed' }
     }
-    const cost = recognition.usage ? ocrCostUsd(recognition.usage.input, recognition.usage.output) : OCR_CALL_RESERVE_MICROS / 1_000_000
+    // What xAI says the call cost, else its tokens at our rates, else the reservation.
+    const cost = recognition.usage ? recognition.usage.costUsd ?? ocrCostUsd(recognition.usage.input, recognition.usage.output) : OCR_CALL_RESERVE_MICROS / 1_000_000
     await settleOcrCall(spend, job.user_id, day, Math.round(cost * 1_000_000))
     this.ledger(job.user_id, cost, recognition.usage)
     return recognition.reply ? { kind: 'ok', reply: recognition.reply } : { kind: 'invalid' }

@@ -30,10 +30,14 @@ import { supabaseInsertMinimal, type SupabaseEnv } from './supabase'
  *    non-reasoning models, search content tokens free. VERIFIED.
  *
  * Version 2026-10-09 adds:
- *  - xAI grok-4-fast-non-reasoning (OCR of scanned own PDFs, image input billed
- *    as input tokens): $0.20/MTok input, $0.50/MTok output, as stated in the
- *    approved OCR plan of 9 Oct 2026. UNVERIFIED here (not re-fetched from
- *    docs.x.ai/docs/models): re-check before OWN_PDF_OCR is switched on.
+ *  - xAI OCR of scanned own PDFs (model id grok-4-fast-non-reasoning, image
+ *    input billed as input tokens): $1.25/MTok input, $2.50/MTok output.
+ *    VERIFIED 9 Oct 2026 against GET api.x.ai/v1/language-models: that id is
+ *    now served by grok-4.3 (prompt 12500, completion 25000 in 1e-10 USD per
+ *    token), and a real 20-page test's `cost_in_usd_ticks` matched. The plan's
+ *    $0.20/$0.50 was the old grok-4-fast price. The coordinator settles each
+ *    call from the reply's own `cost_in_usd_ticks` when xAI sends it, so a
+ *    later price change is still counted right; these rates are the fallback.
  */
 export const AI_PRICING_VERSION = '2026-10-09'
 
@@ -57,9 +61,9 @@ export const AI_PRICING = {
     voicePerMinute: 0.08,
     ttsPerMChars: 15,
     sttPerHour: 0.1,
-    /** grok-4-fast-non-reasoning, the OCR model (worker/lib/ocrVision.ts). */
-    ocrInputPerMTok: 0.2,
-    ocrOutputPerMTok: 0.5,
+    /** The OCR model (worker/lib/ocrVision.ts; grok-4-fast-non-reasoning, served as grok-4.3). */
+    ocrInputPerMTok: 1.25,
+    ocrOutputPerMTok: 2.5,
   },
   openai: {
     'gpt-4.1': { inputPerMTok: 2, cachedInputPerMTok: 0.5, outputPerMTok: 8 },

@@ -24,9 +24,9 @@ const HEX = 'ab'.repeat(12)
 const OCT = Date.UTC(2026, 9, 9, 12)
 const NOV = Date.UTC(2026, 10, 1)
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 0xff, 0xd9])
-/** 2,000 in + 500 out tokens = $0.00065 = 650 micro-dollars. */
+/** 2,000 in + 500 out tokens at $1.25/$2.50 per MTok = $0.00375 = 3,750 micro-dollars. */
 const USAGE = { input: 2000, output: 500 }
-const PAGE_MICROS = 650
+const PAGE_MICROS = 3750
 
 const okReply = (n: number): OcrRecognition => ({ reply: { printed_page: String(n), blocks: [{ t: 'p', x: `Text of page ${n}.` }] }, usage: USAGE })
 
@@ -96,8 +96,8 @@ describe('OwnOcrCoordinator: a job from upload to Tinct text', () => {
     expect(edition.chapters[0].pages).toEqual([1, 2, 3])
     expect(w.r2.objects.get(ocrJobKey(USER, HEX))?.customMetadata).toMatchObject({ state: 'done' })
     expect(w.fake().alarm()).toBeNull()
-    // Each call reserved $0.0012 and was settled to what it cost.
-    expect(OCR_CALL_RESERVE_MICROS).toBe(1200)
+    // Each call reserved $0.00675 and was settled to what it cost.
+    expect(OCR_CALL_RESERVE_MICROS).toBe(6750)
     expect(w.usageOf(`ocr-user:${USER}`)).toBe(3 * PAGE_MICROS)
     expect(w.usageOf('ocr-budget:2026-10')).toBe(3 * PAGE_MICROS)
     expect(w.usageOf(`ocr-pages:${USER}`)).toBe(3)
@@ -224,8 +224,8 @@ describe('OwnOcrCoordinator: ceilings', () => {
   })
 
   it('pauses at the account dollar ceiling, giving back the page count and the refused reservation', async () => {
-    // $0.0013: the first call ($0.0012 reserved, $0.00065 spent) fits, the second reservation does not.
-    const w = world({ vars: { OWN_PDF_OCR_MONTHLY_USD: '0.0013' } })
+    // $0.008: the first call ($0.00675 reserved, $0.00375 spent) fits, the second reservation does not.
+    const w = world({ vars: { OWN_PDF_OCR_MONTHLY_USD: '0.008' } })
     await w.start(2)
     await w.upload(1)
     await w.run()
@@ -239,7 +239,7 @@ describe('OwnOcrCoordinator: ceilings', () => {
   })
 
   it('pauses at the global dollar ceiling and gives the account its share back', async () => {
-    const w = world({ vars: { OWN_PDF_OCR_GLOBAL_MONTHLY_USD: '0.0013' } })
+    const w = world({ vars: { OWN_PDF_OCR_GLOBAL_MONTHLY_USD: '0.008' } })
     await w.start(2)
     await w.upload(1)
     await w.run()
@@ -262,9 +262,19 @@ describe('OwnOcrCoordinator: ceilings', () => {
     await w.start(1)
     await w.upload(1)
     await w.run()
-    // 10,000 x $0.20 + 2,000 x $0.50 per MTok = $0.003.
-    expect(w.usageOf(`ocr-user:${USER}`)).toBe(3000)
-    expect(w.usageOf('ocr-budget:2026-10')).toBe(3000)
+    // 10,000 x $1.25 + 2,000 x $2.50 per MTok = $0.0175.
+    expect(w.usageOf(`ocr-user:${USER}`)).toBe(17500)
+    expect(w.usageOf('ocr-budget:2026-10')).toBe(17500)
+  })
+
+  it('settles a call at what xAI says it cost (cost_in_usd_ticks), not at the token rates', async () => {
+    const w = world()
+    w.setRecognize(async input => ({ ...okReply(input.page), usage: { input: 2000, output: 500, costUsd: 0.0035243 } }))
+    await w.start(1)
+    await w.upload(1)
+    await w.run()
+    expect(w.usageOf(`ocr-user:${USER}`)).toBe(3524)
+    expect(w.usageOf('ocr-budget:2026-10')).toBe(3524)
   })
 
   it('pauses when Premium has lapsed, and goes on when the owner starts it again with Premium', async () => {
@@ -453,6 +463,17 @@ describe('xaiOcrRecognizer', () => {
     expect(body.response_format).toEqual({ type: 'json_object' })
     expect(body.messages[1].content[0].image_url.url).toBe(`data:image/jpeg;base64,${btoa(String.fromCharCode(...JPEG))}`)
     expect(body.messages[1].content[1].text).toContain('The end of page six.')
+    // A contents page's rows of dots once ran a reply past its limit (real test, 9 Oct 2026).
+    expect(body.messages[0].content).toContain('Leave out dot leaders')
+    // Running heads were taken for chapter titles, and each became a chapter (same test).
+    expect(body.messages[0].content).toContain('is a running head (head), never h1 or h2')
+  })
+
+  it('reads what the call cost from xAI\'s cost_in_usd_ticks (1e-10 USD) when it is there', async () => {
+    const content = JSON.stringify({ printed_page: null, blocks: [{ t: 'p', x: 'Hi.' }] })
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ choices: [{ message: { content } }], usage: { prompt_tokens: 2039, completion_tokens: 444, cost_in_usd_ticks: 35243500 } })))
+    const result = await xaiOcrRecognizer('k', { fetchImpl: fetchImpl as unknown as typeof fetch })({ image: JPEG, page: 1, context: '', format: 'json' })
+    expect(result.usage).toEqual({ input: 2039, output: 444, costUsd: 0.00352435 })
   })
 
   it('uses OCR_MODEL when given, and text mode without JSON', async () => {

@@ -21,7 +21,7 @@
  *   - dollars for everyone, `ocr-budget:{YYYY-MM}`: OWN_PDF_OCR_GLOBAL_MONTHLY_USD ($75).
  * Dollars are counted in micro-dollars. Every provider call reserves
  * OCR_CALL_RESERVE_MICROS (3,000 input + 1,200 output tokens at the
- * grok-4-fast-non-reasoning price = $0.0012) in the account first, then the
+ * OCR model's price, $1.25/$2.50 per million = $0.00675) in the account first, then the
  * pool (a refusal by the pool gives the account its share back), and the
  * difference from the provider's reported usage is refunded afterwards. A
  * page counts once against the page ceiling, however many calls it takes,
@@ -54,7 +54,7 @@ export const OCR_DEFAULTS = { monthlyPages: 1500, trialMonthlyPages: 300, monthl
 /** Tokens one provider call is assumed to use until it reports its own. */
 export const OCR_RESERVE_INPUT_TOKENS = 3000
 export const OCR_RESERVE_OUTPUT_TOKENS = 1200
-/** 1,200 micro-dollars: $0.0012 per call. */
+/** 6,750 micro-dollars: $0.00675 per call (a real page cost $0.0025-0.008, most about $0.0035). */
 export const OCR_CALL_RESERVE_MICROS = Math.round(ocrCostUsd(OCR_RESERVE_INPUT_TOKENS, OCR_RESERVE_OUTPUT_TOKENS) * 1_000_000)
 /** Largest page image accepted (a 1600 px greyscale JPEG at q0.75 is far smaller). */
 export const OCR_MAX_IMAGE_BYTES = 1.5 * 1024 * 1024

@@ -71,9 +71,9 @@ describe('pricing table', () => {
   })
 
   it('prices an OCR page by xAI vision tokens at $0.20 in / $0.50 out per MTok', () => {
-    expect(AI_PRICING.xai.ocrInputPerMTok).toBe(0.2)
-    expect(AI_PRICING.xai.ocrOutputPerMTok).toBe(0.5)
-    expect(ocrCostUsd(3000, 1200)).toBeCloseTo(0.0012, 8)
+    expect(AI_PRICING.xai.ocrInputPerMTok).toBe(1.25)
+    expect(AI_PRICING.xai.ocrOutputPerMTok).toBe(2.5)
+    expect(ocrCostUsd(3000, 1200)).toBeCloseTo(0.00675, 8)
     expect(ocrCostUsd(-5, Number.NaN)).toBe(0)
   })
 
