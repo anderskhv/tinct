@@ -16,6 +16,8 @@ if (!process.env.TEST_ORIGIN) {
     assert.ok(!hub.includes('/read/'+id),id+' absent from static discovery')
     assert.ok(!sitemap.includes('/read/'+id),id+' absent from sitemap')
   }
+  // The offered Danish edition (To the Lighthouse) stays out of static discovery and the sitemap.
+  for(const text of [hub,sitemap,fs.readFileSync('dist/read/to-the-lighthouse/book.html','utf8')])assert.ok(!/modern-da|Moderne Dansk|lang="da"/.test(text),'Danish edition absent from static discovery')
   server = http.createServer((req,res) => {
     const url = new URL(req.url, origin)
     const file = path.resolve('dist', '.' + (['/reader'].includes(url.pathname) ? '/app.html' : url.pathname))
@@ -72,6 +74,29 @@ if (!process.env.TEST_ORIGIN) {
     results.push({bookId,editionKey,width,preserved:true,recovery:true})
     await context.close()
    }
+  }
+  // Positive case: the one offered Danish edition (OFFERED_DANISH_EDITIONS) is not held and opens.
+  for (const width of [390,1440]) {
+   const bookId='to-the-lighthouse',editionKey='modern-da'
+   const context=await (width < 900 ? browsers.phone : browsers.desktop).newContext({serviceWorkers:'block',viewport:{width,height:900},isMobile:width<900,hasTouch:width<900})
+   const page=await context.newPage(),errors=[]
+   page.on('pageerror',e=>errors.push(e.message))
+   await page.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
+   await page.route('**/*.supabase.co/**',r=>r.fulfill({status:200,contentType:'application/json',body:'[]'}))
+   await page.addInitScript(({bookId,editionKey})=>{
+     if(sessionStorage.getItem('offered-test-seeded'))return
+     sessionStorage.setItem('offered-test-seeded','1')
+     sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:editionKey,savedPlace:{bookId,chapterNumber:1,paragraphIndex:0,wordIndex:0,page:0}}))
+   },{bookId,editionKey})
+   await page.goto(origin+'/reader'+(width<900?'?layout=phone':''))
+   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true',null,{timeout:30000})
+   assert.equal(await page.getByTestId('edition-hold').count(),0,'offered Danish edition is not held')
+   assert.equal(await page.getByTestId('lab-root').getAttribute('data-reader-edition'),editionKey)
+   await page.locator('.lab-page-wrap [data-testid="lab-word"]').first().waitFor()
+   assert.deepEqual(errors,[])
+   await page.screenshot({path:dir+'/'+bookId+'-'+editionKey+'-offered-'+width+'.png'})
+   results.push({bookId,editionKey,width,offered:true,opens:true})
+   await context.close()
   }
   fs.writeFileSync(dir+'/results.json',JSON.stringify(results,null,2))
  } finally { await Promise.all(Object.values(browsers).map(browser=>browser.close())); if(server)server.close() }

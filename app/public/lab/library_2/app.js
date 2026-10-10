@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261009ocrrel';
+import {mountBookshelf} from './bookshelf.js?v=20261010danish';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261009ocrrel';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261010danish';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261009ocrrel';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261010danish';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
@@ -217,7 +217,8 @@ $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>se
 
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
 const editionChoices=new Map();
-function availableEditions(){return (activeBook.editions||[]).filter(e=>e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
+// Danish only where the catalogue offers it (OFFERED_DANISH_EDITIONS: To the Lighthouse).
+function availableEditions(){return (activeBook.editions||[]).filter(e=>(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
 // Compare is on by default (Anders, 2026-10-06): the AI/modern edition reads and
 // the human edition sits beside it. A reader who chose None in the reader keeps None.
 function compareChosenOff(){try{const shared=JSON.parse(localStorage.getItem('tinct-lab-prefs')||'null')?.shared;return shared?.compareChosen===true&&shared.compareOpen===false;}catch{return false;}}
@@ -712,7 +713,7 @@ function featureLinked(book,entry){
 }
 // A book that is not in the library: back to the featured book.
 function linkedUnavailable(){if(linkedState!=='pending')return;linkedState=null;featuredTarget=0;const first=all('.hero-dots button')[0];if(first)first.click();if(document.documentElement.dataset.linkedBook)delete document.documentElement.dataset.linkedBook;refreshMetadata();setTimeout(()=>document.documentElement.classList.remove('linked-pending'),400);}
-if(linkedBook)loadCatalogueData().then(data=>{if(linkedState!=='pending')return;const params=new URLSearchParams(location.search);const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return linkedUnavailable();let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);const requested=params.get('edition');if(entry.editions?.some(e=>e.key===requested&&e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});featureLinked(book,entry);if(params.get('view')==='book-detail')return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>{linkedUnavailable();notice('This book could not load. Please try again.');});
+if(linkedBook)loadCatalogueData().then(data=>{if(linkedState!=='pending')return;const params=new URLSearchParams(location.search);const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return linkedUnavailable();let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);const requested=params.get('edition');if(entry.editions?.some(e=>e.key===requested&&(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});featureLinked(book,entry);if(params.get('view')==='book-detail')return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>{linkedUnavailable();notice('This book could not load. Please try again.');});
 
 // Reveal a fully drawn, positioned librarian instead of an empty circle at (0, 0).
 drawOrb(performance.now());document.documentElement.classList.add('library-ready');

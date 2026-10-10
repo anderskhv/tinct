@@ -3,7 +3,7 @@ import { ensurePublicBook } from './utils/publicBooks'
 import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_FETCH, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
-import { editionHold } from './data/editionAvailability'
+import { editionHold, isEditionLanguageOffered } from './data/editionAvailability'
 /**
  * Returning-reader data for the library_2 design (public/lab/library_2).
  *
@@ -227,7 +227,7 @@ function bookInfos(books: Map<string, CatalogueBook>): Map<string, LibraryBookIn
  * original; a machine-made "original" is never chosen.
  */
 function defaultEditionKey(book: CatalogueBook | undefined, savedPlaceWithoutEdition = false): string | null {
-  const editions = (book?.editions ?? []).filter(edition => edition.language !== 'da' && !editionHold(book?.id || '', edition.key) && edition.availability?.chapterText !== false)
+  const editions = (book?.editions ?? []).filter(edition => isEditionLanguageOffered(book?.id || '', edition) && !editionHold(book?.id || '', edition.key) && edition.availability?.chapterText !== false)
   const approved = editions.find(edition => edition.key === book?.defaultEditionKey)?.key
   const original = book ? editions.find(edition => edition.style === 'original' && edition.language === 'en' && !isMachineMadeOriginal(book.id, edition.key))?.key : undefined
   return (savedPlaceWithoutEdition ? original ?? approved : approved ?? original)
@@ -538,6 +538,7 @@ function summaryRequestFor(row: ReadingListRow, book: CatalogueBook | undefined)
   const { target } = row
   if (!target.editionKey) return null
   const edition = book?.editions.find(item => item.key === target.editionKey)
+  // Prepared recaps stay English-only, including the offered Danish edition.
   if (edition?.language === 'da' || target.editionKey.endsWith('-da')) return null
   return {
     bookId: row.bookId,

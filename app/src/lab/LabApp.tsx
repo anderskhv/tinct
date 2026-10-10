@@ -4180,6 +4180,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
     if (temporaryHold) return
+    // An edition with no audio at all (To the Lighthouse in Danish) says so,
+    // rather than asking a signed-out reader to sign in for audio.
+    if (audioUnavailable && !narrationOption && !retainedBella && !prefs.primaryEdition.endsWith('-en') && !listen.isPending()) { setAudioUnavailableNotice(true); return }
     if (audioAccountRequiredRef.current && !signedIn) { setAccountPrompt({ action: 'audio' }); return }
     if (listen.isPending()) { listen.pause(); return }
     if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }

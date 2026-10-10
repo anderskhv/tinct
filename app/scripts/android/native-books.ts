@@ -14,6 +14,11 @@ export function buildNativeBooks(
   const books = catalogue.books.filter(book => book.discoveryAvailable !== false).map(view => {
     const source = registry.find(book => book.id === view.id)
     if (!source) throw new Error('Native catalogue book has no registry: ' + view.id)
+    // Danish stays out of the native index, the offered To the Lighthouse
+    // edition included: installed APKs fetch this index from tinct.app and
+    // their validator (src/utils/nativeBooks.ts before 2026-10-10) rejects the
+    // whole catalogue when any entry carries a Danish edition. Add it only once
+    // every supported APK accepts OFFERED_DANISH_EDITIONS.
     const editions = source.editions.filter(edition => edition.language !== 'da'
       && view.editions.some(item => item.key === edition.key && item.discoveryAvailable !== false && item.availability.chapterText))
     const files: NativeBookFile[] = []
@@ -55,5 +60,10 @@ export function buildNativeBooks(
     manifests[entry.manifest.slice(1)] = text
     return entry
   })
-  return { index: JSON.stringify({ schema: 1, catalogue, books }), manifests }
+  // The native library never offers an edition the native packages leave out.
+  const nativeCatalogue = { ...catalogue, books: catalogue.books.map(view => ({
+    ...view,
+    editions: view.editions.map(edition => (edition as { language?: string }).language === 'da' ? { ...edition, discoveryAvailable: false } : edition),
+  })) }
+  return { index: JSON.stringify({ schema: 1, catalogue: nativeCatalogue, books }), manifests }
 }

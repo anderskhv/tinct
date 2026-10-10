@@ -55,6 +55,7 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "the-histories-modern-en",
   "the-histories-original-en",
   "the-sovereign-child-original-en",
+  "to-the-lighthouse-modern-da",
   "to-the-lighthouse-modern-en",
   "to-the-lighthouse-original-en",
   "ulysses-modern-da",

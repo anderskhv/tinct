@@ -46,6 +46,26 @@ const get = async path => {
    assert.equal(book.editions.find(e=>e.key===key)?.discoveryAvailable,true)
    assert.ok(!(await (await get('/read/'+id+'?edition='+key)).text()).includes('<h2>Temporarily unavailable</h2>'))
  }
+ // Danish stays withdrawn everywhere except the one offered edition (OFFERED_DANISH_EDITIONS).
+ for(const identity of ['jane-eyre/modern-da','odyssey/modern-da']){
+   const [bookId,editionKey]=identity.split('/')
+   assert.equal(catalogue.books.find(b=>b.id===bookId)?.editions.find(e=>e.key===editionKey)?.discoveryAvailable,false,identity)
+   const html=await (await get('/read/'+bookId+'?edition='+editionKey+'&chapter=1&paragraph=2&word=1')).text()
+   assert.ok(html.includes('Temporarily unavailable')&&html.includes('heldEdition='+editionKey),identity+' still held')
+   results.push({identity,discovery:false,held:true})
+ }
+ {
+   const identity='to-the-lighthouse/modern-da',book=catalogue.books.find(b=>b.id==='to-the-lighthouse')
+   assert.equal(book.editions.find(e=>e.key==='modern-da')?.discoveryAvailable,true,identity+' offered')
+   assert.equal(book.defaultEditionKey,'modern-en',identity+' not a new-reader default')
+   assert.notEqual(book.defaultCompareEditionKey,'modern-da',identity+' not a default compare')
+   assert.ok(!(await (await get('/read/to-the-lighthouse?edition=modern-da')).text()).includes('<h2>Temporarily unavailable</h2>'),identity+' not held')
+   const local=fs.readFileSync('public/data/editions/to-the-lighthouse-modern-da.json')
+   const sha256=createHash('sha256').update(Buffer.from(await (await get('/data/editions/to-the-lighthouse-modern-da.json?v='+version)).arrayBuffer())).digest('hex')
+   assert.equal(sha256,createHash('sha256').update(local).digest('hex'),identity+' served bytes')
+   results.push({identity,sha256,discovery:true,held:false})
+ }
+ for(const text of [hub,sitemap])assert.ok(!text.includes('modern-da'),'Danish edition absent from static discovery and sitemap')
  fs.mkdirSync('artifacts/edition-holds-production',{recursive:true})
  fs.writeFileSync('artifacts/edition-holds-production/served-evidence.json',JSON.stringify({version,at:new Date().toISOString(),results},null,2))
 })().catch(error=>{console.error(error);process.exitCode=1})
