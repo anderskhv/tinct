@@ -31,6 +31,13 @@ export const HINT_SESSION_KEY = 'tinct:chat-hint-shown'
 const svg = (viewBox, body, size = 17, extra = '') =>
   `<svg width="${size}" height="${size}" viewBox="${viewBox}" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra}>${body}</svg>`
 
+/**
+ * The way back to the book, top left of the thread: the pre-redesign "← Back
+ * to book" pill (Anders, 10 Oct 2026), in place of the faint ×. Its
+ * accessible name is "Back to book" (the arrow is decoration).
+ */
+export const BACK_TO_BOOK_HTML = '<span aria-hidden="true">←</span> Back to book'
+
 /** The marks the thread uses, as the mockup draws them. */
 export const ICONS = {
   close: svg('0 0 14 14', '<path d="M3 3l8 8M11 3l-8 8"/>', 12, ' stroke-width="1.6"'),
@@ -206,11 +213,14 @@ export function isBelow(node, slack = 12) {
  * 2026); the answer then grows downward under it and nothing moves. At most
  * this much of what came before stays visible (a fifth of a short window).
  */
-export const QUESTION_PEEK = 96
+export const QUESTION_PEEK = 116
+/** The thread's top padding (and fade): "Back to book" sits above it and never covers a line. */
+export const TOP_CLEAR = 60
 
 /** Where the thread scrolls to so `row` (the question) sits near its top. */
 export function questionTop(node, row, peek = QUESTION_PEEK) {
-  const room = Math.min(peek, Math.round((node.clientHeight || 0) * 0.2))
+  // Never less than the strip under "Back to book" and the top fade, plus a line's worth.
+  const room = Math.min(peek, Math.max(TOP_CLEAR + 24, Math.round((node.clientHeight || 0) * 0.2)))
   const top = row.getBoundingClientRect().top - node.getBoundingClientRect().top + node.scrollTop - room
   return Math.max(0, Math.round(top))
 }

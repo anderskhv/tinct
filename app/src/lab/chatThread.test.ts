@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   bindPress, composerKey, cutQuote, dayLabel, fadeInWords, fitSpacer, HINT_TEXT, isAway, isBelow, keptCopyIndex, lastQuestion, PRESS_FADE_MS, PRESS_HOLD_MS,
-  QUESTION_PEEK, questionTop, QUOTE_LIMIT, takeHint, threadHtml, threadRows, timeLabel, WORD_FADE_MS,
+  QUESTION_PEEK, questionTop, QUOTE_LIMIT, TOP_CLEAR, BACK_TO_BOOK_HTML, takeHint, threadHtml, threadRows, timeLabel, WORD_FADE_MS,
 } from '../../public/lab/chat-thread.js'
 
 const NOW = new Date(2026, 9, 9, 15, 0).getTime()
@@ -134,10 +134,10 @@ describe('calm answer (Anders, 10 Oct 2026): the question near the top once, the
     thread.getBoundingClientRect = () => ({ top: 0 } as DOMRect)
     // 500px below the window's top at scrollTop 1500: the question starts at 2000.
     expect(questionTop(thread, row)).toBe(2000 - Math.min(QUESTION_PEEK, 120))
-    // A short desktop box keeps a fifth of its height for what came before.
+    // A short desktop box still keeps the strip under "Back to book" and a line above the question.
     const small = threadOf(2100, 300)
     small.scrollTop = 1500
-    expect(questionTop(small, row)).toBe(2000 - 60)
+    expect(questionTop(small, row)).toBe(2000 - (TOP_CLEAR + 24))
   })
   it('the writing space lets the thread reach that place, and shrinks as the answer grows', () => {
     const thread = threadOf(2100)
@@ -167,6 +167,32 @@ describe('calm answer (Anders, 10 Oct 2026): the question near the top once, the
     expect(live).not.toMatch(/tc-cursor/)
     expect(reader).toMatch(/chat\.anchor = chat\.turns\.length - 1; chat\.placeAnchor = true;/)
     expect(reader).toMatch(/if \(chat\.pinTop != null && Math\.abs\(thread\.scrollTop - chat\.pinTop\) > 1\) chat\.pinTop = null/)
+  })
+})
+
+describe('"Back to book" instead of the faint × (Anders, 10 Oct 2026)', () => {
+  const css = readFileSync(resolve(__dirname, '../../public/lab/chat-thread.css'), 'utf8')
+  it('is the pre-redesign pill: "← Back to book", EB Garamond 14px, 36px tall, top left', () => {
+    expect(BACK_TO_BOOK_HTML).toBe('<span aria-hidden="true">←</span> Back to book')
+    const rule = css.match(/\.tc \.tc-back \{([^}]*)\}/)?.[1] ?? ''
+    expect(rule).toMatch(/font:\s*400 14px\/1\.2 var\(--tc-gara\)/)
+    expect(rule).toMatch(/min-height:\s*36px/)
+    expect(rule).toMatch(/border-radius:\s*18px/)
+    expect(rule).toMatch(/top:\s*10px/)
+    expect(css).not.toMatch(/\.tc-close/)
+  })
+  it('never covers the first line: the thread starts below it (padding and fade)', () => {
+    const top = Number(css.match(/\.tc \.tc-back \{[^}]*top:\s*(\d+)px/)?.[1])
+    const height = Number(css.match(/\.tc \.tc-back \{[^}]*min-height:\s*(\d+)px/)?.[1])
+    expect(top + height).toBeLessThan(TOP_CLEAR)
+    expect(css).toMatch(new RegExp(`\\.tc \\.tc-thread \\{[^}]*padding:\\s*${TOP_CLEAR}px var\\(--tc-pad\\) 2px`))
+    expect(css).toMatch(new RegExp(`\\.tc \\.tc-fade \\{[^}]*height:\\s*${TOP_CLEAR}px`))
+  })
+  it('e-ink: an outline, no fill; the PDF reader uses the same control and handler', () => {
+    expect(css).toMatch(/html\[data-eink="true"\] \.tc :is\(\.tc-bubble, \.tc-back\)[^{]*\{[^}]*background:\s*transparent/)
+    const reader = readFileSync(resolve(__dirname, '../../public/lab/addbook/js/reader.js'), 'utf8')
+    expect(reader).toContain('<button type="button" class="tc-back" data-reader-window-control data-x>${TC.BACK_TO_BOOK_HTML}</button>')
+    expect(reader).toContain("el.querySelector('[data-x]').onclick = closeChat;")
   })
 })
 

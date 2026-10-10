@@ -84,7 +84,9 @@ describe('lab ask phone done', () => {
     expect(onDone).toHaveBeenCalledTimes(1)
     // No header and no empty-state copy: an empty thread is the composer's caret.
     expect(screen.queryByText('Ask about this page.')).toBeNull()
-    expect(screen.getByTestId('lab-ask-done').getAttribute('aria-label')).toBe('Close chat')
+    // "Back to book" (Anders, 10 Oct 2026), not a faint ×: the visible words are its name.
+    expect(screen.getByRole('button', { name: 'Back to book' })).toBe(screen.getByTestId('lab-ask-done'))
+    expect(screen.getByTestId('lab-ask-done').textContent).toBe('← Back to book')
   })
 })
 

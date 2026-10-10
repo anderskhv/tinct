@@ -2152,7 +2152,7 @@ function openChat(opts = {}) {
   if (!chat.el) {
     const el = document.createElement('aside');
     el.setAttribute('aria-label', 'Chat');
-    el.innerHTML = `<button type="button" class="tc-close" aria-label="Close chat" data-x>${TC.ICONS.close}</button>
+    el.innerHTML = `<button type="button" class="tc-back" data-reader-window-control data-x>${TC.BACK_TO_BOOK_HTML}</button>
       <div class="tc-body"><div class="tc-thread" id="thread"></div><div class="tc-fade" aria-hidden="true"></div><button type="button" class="tc-latest" id="latest" hidden>${TC.ICONS.down}Latest</button></div>
       <p class="tc-status" id="chatNotice" hidden></p>
       <form class="tc-compose" id="composer">

@@ -9,7 +9,7 @@ import { LabMarkdown } from './LabMarkdown'
 // the PDF reader for a reader's own books loads too.
 import {
   bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, HINT_TEXT, ICONS, isAway, isBelow, keptCopyIndex, lastQuestion,
-  questionTop, scrollToLatest, takeHint, threadRows, timeLabel, WAIT_HTML,
+  questionTop, scrollToLatest, takeHint, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
 } from '../../public/lab/chat-thread.js'
 import '../../public/lab/chat-thread.css'
 
@@ -578,8 +578,9 @@ export function LabAskPane({
       {onDone && (
         <button
           type="button"
-          className="tc-close"
-          aria-label={desktopCompanion ? `Close ${desktopCompanion}` : 'Close chat'}
+          // "Back to book" (Anders, 10 Oct 2026), the pre-redesign control, in place of the faint ×.
+          className="tc-back"
+          data-reader-window-control
           data-testid={desktopCompanion ? 'lab-desktop-companion-close' : 'lab-ask-done'}
           // With the keyboard up this is still the way back to the book: one
           // tap puts the keyboard away and closes Chat together. The press must
@@ -588,7 +589,7 @@ export function LabAskPane({
           onPointerDown={(event) => event.preventDefault()}
           onMouseDown={(event) => event.preventDefault()}
           onClick={close}
-          dangerouslySetInnerHTML={{ __html: ICONS.close }}
+          dangerouslySetInnerHTML={{ __html: BACK_TO_BOOK_HTML }}
         />
       )}
       {desktopCompanion && (

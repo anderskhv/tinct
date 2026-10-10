@@ -206,7 +206,7 @@ describe('quoted passage', () => {
 })
 
 describe('no header, no labels, no empty-state copy', () => {
-  it('has one close mark and the collapse tab, and nothing above the thread', () => {
+  it('has "Back to book" (not a faint ×), the collapse tab, and nothing else above the thread', () => {
     const onDone = vi.fn()
     render(pane({ desktopCompanion: 'chat', onDone }))
     expect(document.querySelector('.lab-desktop-companion-head')).toBeNull()
@@ -214,7 +214,13 @@ describe('no header, no labels, no empty-state copy', () => {
     expect(screen.queryByText('You')).toBeNull()
     expect(screen.queryByText('Tinct')).toBeNull()
     expect(screen.getByRole('button', { name: 'Minimize chat' }).className).toBe('tc-tab')
-    fireEvent.click(screen.getByTestId('lab-desktop-companion-close'))
+    const back = screen.getByTestId('lab-desktop-companion-close')
+    expect(back).toBe(screen.getByRole('button', { name: 'Back to book' }))
+    expect(back.className).toBe('tc-back')
+    // Pressed, never dragged: it sits where the box's drag strip begins.
+    expect(back.hasAttribute('data-reader-window-control')).toBe(true)
+    expect(document.querySelector('.tc-close')).toBeNull()
+    fireEvent.click(back)
     expect(onDone).toHaveBeenCalledOnce()
   })
   it('an empty thread is a caret: no welcome line, suggestions or placeholder', () => {

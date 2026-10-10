@@ -35,3 +35,5 @@ export function fitSpacer(node: HTMLElement, top: number): void
 export const WAIT_HTML: string
 export const WORD_FADE_MS: number
 export function fadeInWords(container: Element, seen: number[], now?: number): number
+export const BACK_TO_BOOK_HTML: string
+export const TOP_CLEAR: number

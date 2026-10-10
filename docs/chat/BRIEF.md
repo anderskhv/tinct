@@ -10,6 +10,7 @@ These replace the matching rules below and in the mockup.
 - **Caret (rules 5, 9, 10):** no drawn 2px bar. The composer uses the system's own thin caret, tinted with the muted ink (`caret-color: var(--tc-muted)`). An empty, unfocused composer shows just the hairline.
 - **Streaming (rule 6):** no cursor anywhere. Before the first word, three small faint dots breathe slowly; then new words fade in. Static under `prefers-reduced-motion`.
 - **Scrolling while answering:** on send the thread scrolls once so the question sits near the top, with a little of the previous answer above it. The answer grows downward under it; the view does not follow. If it runs past the bottom, the Latest pill shows (no jump). A reader's own scroll is never undone, and nothing moves when the answer finishes. The previous answer keeps its copy mark until the new one finishes (rule 3), so nothing above the question shifts as the answer begins.
+- **Back to book (rule 8):** the faint 12px × is replaced by the pre-redesign "← Back to book" pill (EB Garamond 14px, 36px tall, bubble tone; outline only in e-ink), top left of the thread in both readers, phone and desktop. It closes Chat exactly as the × did; Escape still closes on the desktop, and the book box keeps its › collapse tab. The thread's top padding and fade are 60px (solid paper under the pill) so it never covers a line.
 - **Type (rule 11):** answers 18px (17px desktop), bubbles 17px (16px desktop); line-heights keep their ratios (1.5, 1.4).
 
 ## Two homes, one component
