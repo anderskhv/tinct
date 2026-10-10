@@ -43,7 +43,8 @@ describe('spines', () => {
   })
 
   it('the reading table sets the short form in one line, fitted to its length, never past its ends', () => {
-    const table = lib('reading-table.js')
+    // The table's markup (reading-table-markup.js since 2026-10-10, so the first paint's placeholder can be held to it).
+    const table = lib('reading-table-markup.js')
     expect(table).toMatch(/const text = shortTitle\(b\.title\)/)
     expect(table).toMatch(/--tl:\$\{spine\.length\}/)
     expect(table).toMatch(/<em\$\{s\.title\}>\$\{esc\(spine\.text\)\}<\/em>/)
@@ -105,7 +106,7 @@ describe('the reader’s book switcher', () => {
   it('takes a painting’s small file for its 32 px cover', () => {
     render(<LabBookSwitcher {...props} current={{ bookId: 'bible', title: 'The Bible', chapterLabel: 'Genesis 1', coverSrc: '' }} rows={[row('to-the-lighthouse', 'To the Lighthouse', {
       coverSrc: '/lab/library_2/assets/to-the-lighthouse.jpg',
-      coverSrcSet: '/lab/library_2/assets/thumbs/to-the-lighthouse.webp 240w, /lab/library_2/assets/to-the-lighthouse.jpg 1024w',
+      coverSrcSet: '/lab/library_2/assets/thumbs/to-the-lighthouse.webp 240w, /lab/library_2/assets/covers/to-the-lighthouse-480.webp 480w, /lab/library_2/assets/covers/to-the-lighthouse-960.webp 960w, /lab/library_2/assets/to-the-lighthouse.jpg 1024w',
     })]} />)
     const img = document.querySelector<HTMLImageElement>('.lab-book-switcher-row:not(.is-active) img')!
     expect(img.getAttribute('src')).toBe('/lab/library_2/assets/to-the-lighthouse.jpg')

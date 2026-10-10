@@ -46,13 +46,17 @@ describe('the reading table with many books in progress', () => {
   it('hides books beyond the window and gives phones the dots once there are many books', () => {
     const js = readFileSync(resolve(__dirname, '../public/lab/library_2/reading-table.js'), 'utf8')
     const css = readFileSync(resolve(__dirname, '../public/lab/library_2/styles.css'), 'utf8')
-    expect(js).toMatch(/classList\.toggle\('is-away', i < from \|\| i > to\)/)
+    // The geometry is table-layout.js (shared with the first paint's placeholder in boot.js, 2026-10-10).
+    const layout = readFileSync(resolve(__dirname, '../public/lab/library_2/table-layout.js'), 'utf8')
+    expect(layout).toMatch(/away: i < from \|\| i > to/)
+    expect(js).toMatch(/classList\.toggle\('is-away', box\.away\)/)
     // A hidden book is not a tap target either.
     expect(js).toMatch(/if\(book\.classList\.contains\('is-away'\)\)return false/)
     expect(css).toMatch(/\.rt-b\.is-away\{[^}]*visibility:hidden[^}]*pointer-events:none/)
     expect(css).toMatch(/\.reading-table\.has-many \.rt-dots\{display:flex/)
     // Room for the remove × before the first spine on either side.
-    expect(js).toMatch(/Math\.max\(H \* 0\.08, options\.onRemoveReading \? 24 : 0\)/)
+    expect(layout).toMatch(/Math\.max\(H \* 0\.08, removable \? 24 : 0\)/)
+    expect(js).toMatch(/removable: !!options\.onRemoveReading/)
   })
 
   it('stands each book in its own cover\'s shape, never stretched or cropped (The Beginning of Infinity, 2026-10-09)', () => {
@@ -85,6 +89,7 @@ describe('the reading table with many books in progress', () => {
     expect(css).toMatch(/\.rt-refl-front\{[^}]*var\(--cover\) 50% 50%\/contain no-repeat/)
     // Each book's size follows its own cover once that cover has loaded.
     expect(js).toMatch(/naturalWidth \/ img\.naturalHeight/)
-    expect(js).toMatch(/bookBox\(H, aspects\[i\]\)/)
+    expect(js).toMatch(/aspect: aspects\[i\]/)
+    expect(readFileSync(resolve(__dirname, '../public/lab/library_2/table-layout.js'), 'utf8')).toMatch(/bookBox\(H, books\[i\]\.aspect\)/)
   })
 })

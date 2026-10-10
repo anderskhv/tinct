@@ -4,20 +4,21 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261010libperf';
+import {mountBookshelf} from './bookshelf.js?v=20261010desk';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261010libperf';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261010desk';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261010libperf';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261010desk';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
+import {coverSources} from './cover-assets.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {bookCoverSrc} from '../book-cover.js?v=20261009owncover';
 const $=id=>document.getElementById(id), all=s=>[...document.querySelectorAll(s)];
@@ -30,6 +31,7 @@ all('[data-icon]').forEach(e=>e.innerHTML=icon(e.dataset.icon));
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
 let noticeTimer;function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,5000);}
 const images={};const textures=new Map();
+for(const book of books)book.coverSources=coverSources(book.id,{src:book.cover});
 // Books held from the shelves that a typed search still finds (War and Peace, 2026-10-08): not in `books`, but they have covers.
 const searchOnlyBooks=[];
 /** A book by id among every book the page paints: the shelves' books and the search-only ones. */
@@ -73,8 +75,17 @@ const coverReady=new Map();
 // 2× screen), not as the decoded 1024×1536 image: each full-size source stayed in the decode
 // cache for every canvas drawn from it (≈6 MB apiece, 300+ MB on loading /library).
 const COVER_TEXTURE_WIDTH=640;
-async function coverTexture(im){const nw=im.naturalWidth,nh=im.naturalHeight;if(!nw||!nh||nw<=COVER_TEXTURE_WIDTH||typeof createImageBitmap!=='function')return im;try{return await createImageBitmap(im,{resizeWidth:COVER_TEXTURE_WIDTH,resizeHeight:Math.round(COVER_TEXTURE_WIDTH*nh/nw),resizeQuality:'high'});}catch{return im;}}
-function ensureCover(book){if(book.paper&&!coverReady.has(book.id)){textures.set(book.id,paperCover(book.title,book.author));coverReady.set(book.id,Promise.resolve());all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}if(!coverReady.has(book.id)){const ready=(async()=>{const im=new Image();im.src=book.cover;await im.decode();textures.set(book.id,await coverTexture(im));all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready)coverReady.delete(book.id);paperFallback(book);});coverReady.set(book.id,ready);}return coverReady.get(book.id);}
+async function coverTexture(im,cap=COVER_TEXTURE_WIDTH){const nw=im.naturalWidth,nh=im.naturalHeight;if(!nw||!nh||nw<=cap||typeof createImageBitmap!=='function')return im;try{return await createImageBitmap(im,{resizeWidth:cap,resizeHeight:Math.round(cap*nh/nw),resizeQuality:'high'});}catch{return im;}}
+// Each surface takes the cover at about the pixels it draws (2026-10-10): the shelves' cards (106-212
+// CSS px, at most 2× in the canvas) and the desk (at most 235 CSS px) the 480 px copy, the hero its
+// 960, the introduction's large cover the painting whole, from the book's own list of files
+// (cover-assets.js coverSources: a painting's copies, or catalogue art and its @2x, or the one file).
+// A texture already loaded smaller than a later surface needs is replaced by the larger one.
+function ensureCover(book,need=COVER_SHELF_PX){if(book.paper&&!coverReady.has(book.id)){textures.set(book.id,paperCover(book.title,book.author));coverReady.set(book.id,Promise.resolve());textureWidths.set(book.id,Infinity);all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}const source=coverSource(book,need);if(!coverReady.has(book.id)||(textureWidths.get(book.id)||0)<Math.min(need,source.width)){textureWidths.set(book.id,source.width);const ready=(async()=>{const im=new Image();im.src=source.src;await im.decode();textures.set(book.id,await coverTexture(im,Math.max(COVER_TEXTURE_WIDTH,Math.min(need,im.naturalWidth||need))));all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready){coverReady.delete(book.id);textureWidths.delete(book.id);}paperFallback(book);});coverReady.set(book.id,ready);}return coverReady.get(book.id);}
+const COVER_SHELF_PX=480,COVER_HERO_PX=960,COVER_WHOLE_PX=Infinity;
+const textureWidths=new Map();
+/** The book's file for `need` device pixels: the smallest of its sources at least that wide, else its largest (or its one cover). */
+function coverSource(book,need){const sources=Array.isArray(book.coverSources)&&book.coverSources.length?book.coverSources:[{src:book.cover,width:Infinity}];return sources.find(s=>s.width>=need)||sources[sources.length-1];}
 // A painting that cannot load still leaves a cover: its paper boards, never a blank canvas (a later approach retries the painting).
 function paperFallback(book){if(textures.has(book.id))return;try{textures.set(book.id,paperCover(book.title,book.author));}catch{return;}all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}
 // Each canvas keeps the book it was made for, so a book not (yet) in searchPool() still paints.
@@ -91,7 +102,7 @@ const coverObserver=typeof IntersectionObserver==='undefined'?null:new Intersect
 function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book)):ensureCover(book)).catch(()=>{});}
 function observeCover(c,book){paintCover(c,book.id);coverBooks.set(c,book);if(coverObserver)coverObserver.observe(c);else shelfCover(book);}
 // The first cover has priority; shelves and other scenes load as they approach view.
-if(!window.__library2Boot?.hint)ensureCover(books[0]).catch(()=>{});
+if(!window.__library2Boot?.hint)ensureCover(books[0],COVER_HERO_PX).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
 function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
 /** A search row's small cover: painted like the shelf covers; the opening book flies from it. */
@@ -120,7 +131,7 @@ let featured=books[0],featureRequest=0,featuredTarget=0;// The hero's scene pill
 const HERO_PILL_SKIP=new Set(['pride-and-prejudice']);
 const featuredBooks=Object.keys(signature).filter(id=>!HERO_PILL_SKIP.has(id)).map(id=>books.find(b=>b.id===id)).filter(Boolean);
 if(linkedBook)featuredTarget=featuredBooks.findIndex(b=>b.id===linkedBook);else document.querySelector('.question').textContent=signature[featured.id].question;
-featuredBooks.forEach((book,i)=>{const b=el('button');b.setAttribute('aria-label',`Feature ${book.title}`);b.classList.toggle('active',i===featuredTarget);b.addEventListener('click',async()=>{if(linkedState==='pending')linkedState=null;const request=++featureRequest;featuredTarget=i;b.setAttribute('aria-busy','true');try{await Promise.all([ensureCover(book),loadScene(book.id)]);if(request!==featureRequest)return;featured=book;rememberVisit({featured:book.id});updateHeroAction();const info=signature[book.id];$('hero-time').textContent=readingTime(book)||`~${info.hours} hours to read`;$('hero-genre').textContent=info.genre;$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info.question;$('hero-book').setAttribute('aria-label',`Open ${book.title}`);const c=$('hero-book').querySelector('canvas');c.dataset.book=book.id;paintCover(c,book.id);showScene(book.id);all('.hero-dots button').forEach((e,j)=>{e.classList.toggle('active',i===j);e.setAttribute('aria-pressed',String(i===j));});}catch{if(request===featureRequest){featuredTarget=featuredBooks.indexOf(featured);notice('This scene could not load. Please try again.');}}finally{b.removeAttribute('aria-busy');}});b.setAttribute('aria-pressed',String(i===featuredTarget));document.querySelector('.hero-dots').append(b);});
+featuredBooks.forEach((book,i)=>{const b=el('button');b.setAttribute('aria-label',`Feature ${book.title}`);b.classList.toggle('active',i===featuredTarget);b.addEventListener('click',async()=>{if(linkedState==='pending')linkedState=null;const request=++featureRequest;featuredTarget=i;b.setAttribute('aria-busy','true');try{await Promise.all([ensureCover(book,COVER_HERO_PX),loadScene(book.id)]);if(request!==featureRequest)return;featured=book;rememberVisit({featured:book.id});updateHeroAction();const info=signature[book.id];$('hero-time').textContent=readingTime(book)||`~${info.hours} hours to read`;$('hero-genre').textContent=info.genre;$('hero-title').textContent=book.title;$('hero-author').textContent=book.author+'’s';document.querySelector('.question').textContent=info.question;$('hero-book').setAttribute('aria-label',`Open ${book.title}`);const c=$('hero-book').querySelector('canvas');c.dataset.book=book.id;paintCover(c,book.id);showScene(book.id);all('.hero-dots button').forEach((e,j)=>{e.classList.toggle('active',i===j);e.setAttribute('aria-pressed',String(i===j));});}catch{if(request===featureRequest){featuredTarget=featuredBooks.indexOf(featured);notice('This scene could not load. Please try again.');}}finally{b.removeAttribute('aria-busy');}});b.setAttribute('aria-pressed',String(i===featuredTarget));document.querySelector('.hero-dots').append(b);});
 function updateHeroAction(){const continuing=window.__library2Reading?.reading.some(b=>b.bookId===featured.id);$('read-featured').firstChild.textContent=continuing?'Continue':'Read';}
 async function openFeatured(){if(window.__library2Reading?.reading.some(b=>b.bookId===featured.id)){try{const href=await readerDestination(featured,null);if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});location.assign(href);}catch{notice('Your book could not open. Please try again.');}}else openBook(featured,$('hero-book').querySelector('canvas'));}
 $('hero-book').onclick=$('read-featured').onclick=openFeatured;
@@ -145,7 +156,7 @@ const SCENE_FADE=700;
 // Match each portrait painting's table horizon to the book's base, leaving
 // a little depth behind it on the table, including on shorter phone screens.
 const phoneTableY={'pride-and-prejudice':675,odyssey:775,'crime-and-punishment':745,'the-prince':675,meditations:730};
-function cropForScene(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=$('rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.3,Math.min(h*.8,edge)));}
+function cropForScene(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=document.querySelector('.rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.3,Math.min(h*.8,edge)));}
 let returningScene=window.__library2Boot?.scene?.startsWith('table-')?window.__library2Boot.scene:'table-'+readingRoom();
 if(!window.__library2Boot?.hint)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
 addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(linkedState==='pending'?linkedBook:featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
@@ -259,7 +270,7 @@ function setSlip(book){
 }
 let introExpanded=false,introProgress=null;
 
-async function openBook(book,canvas){if(activeBook)return;if(menuOpen)setMenu(false);warmSheet(book.id);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
+async function openBook(book,canvas){if(activeBook)return;if(menuOpen)setMenu(false);warmSheet(book.id);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_WHOLE_PX),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
 async function closeBook(){if(!activeBook||closing)return;dropLayer('book');closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
 function animateTour(to){if(tourAnimation)cancelAnimationFrame(tourAnimation);resolveTourAnimation?.();const from=tourProgress,start=performance.now();return new Promise(resolve=>{resolveTourAnimation=resolve;function step(now){const t=reduced.matches?1:clamp((now-start)/550,0,1);tourProgress=t===1?to:mix(from,to,t);drawBook(1);if(t<1)tourAnimation=requestAnimationFrame(step);else{tourAnimation=null;resolveTourAnimation=null;resolve();}}tourAnimation=requestAnimationFrame(step);});}
 $('slip-next').onclick=async()=>{if(tourAnimation)return;await animateTour(1);if(!activeBook||closing||tourProgress!==1)return;resetIntroScroll();fitIntroFooter();screenBack.focus({preventScroll:true});};
@@ -683,7 +694,7 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 // A book's character sketches load when the book is opened, before the Characters tab is shown.
 const warmedSheets=new Set();function warmSheet(id){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-ink.png`);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';im.src=src;}
 function warmCharacterArt(){
- const warm=()=>featuredBooks.forEach(b=>{warmSheet(b.id);ensureCover(b).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
+ const warm=()=>featuredBooks.forEach(b=>{warmSheet(b.id);ensureCover(b,COVER_HERO_PX).catch(()=>{});if(sceneIds.has(b.id))loadScene(b.id,true).catch(()=>{});});
  const whenModeKnown=()=>{
   const root=document.documentElement;
   if(root.classList.contains('returning'))return;
@@ -715,7 +726,7 @@ function featureLinked(book,entry){
  $('hero-genre').textContent=info?.genre||bookCategory(book);$('hero-time').textContent=readingTime(book)||(info?`~${info.hours} hours to read`:'');
  $('hero-book').setAttribute('aria-label',`Open ${book.title}`);
  if(c.dataset.book!==book.id){c.dataset.book=book.id;c.removeAttribute('data-painted');preview.hidden=false;}
- paintCover(c,book.id);ensureCover(book).catch(()=>{});showScene(book.id);
+ paintCover(c,book.id);ensureCover(book,COVER_HERO_PX).catch(()=>{});showScene(book.id);
  all('.hero-dots button').forEach((e,j)=>{e.classList.toggle('active',j===featuredTarget);e.setAttribute('aria-pressed',String(j===featuredTarget));});
  updateHeroAction();root.classList.remove('linked-pending');
 }

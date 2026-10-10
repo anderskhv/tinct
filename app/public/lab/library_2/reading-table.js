@@ -7,20 +7,20 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261010libperf';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261010desk';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
-import { ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009owncover';
-import { shortTitle } from '../book-title.js?v=20261009owncover';
+import { paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 
 import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
-import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
+import { hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
-import { tableWindow, MAX_SPINES, bookBox, COVER_ASPECT } from './table-window.js?v=20261009cover';
+import { COVER_ASPECT } from './table-window.js?v=20261009cover';
+import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261010desk';
+import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261010desk';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
-import { FIRST_PAINT_KEY, firstPaintRecord, keepShownOrder, sameOrder } from './reading-table-first-paint.js?v=20261010libperf';
+import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261010desk';
 
 const $ = id => document.getElementById(id);
-const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const CACHE_KEY = 'tinct-library-2-reading-table';
 const isDemo = new URLSearchParams(location.search).get('demo') === 'reading';
 // Start the account-safe read alongside app setup, before the scene and shelves
@@ -66,16 +66,6 @@ const DEMO = {
   ],
 };
 
-// Spine bindings. Each book takes the binding nearest its cover tone. When
-// SPINE_TEXTURES is true, the painted texture assets/spines/spine-<name>.jpg is
-// layered under the gilt lettering; until then the colour alone is used.
-const SPINE_TEXTURES = true;
-const BINDINGS = [
-  ['green', '#24472a'], ['oxblood', '#5a1c18'], ['navy', '#253c5c'], ['black', '#2b2d2e'],
-  ['brown', '#5a3522'], ['slate', '#5d6f7c'], ['plum', '#4a2a45'], ['ochre', '#9a7a2c'],
-];
-const hash = id => [...id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
-const hexRgb = hex => { const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if (!m) return null; const n = parseInt(m[1], 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
 /** Average colour of a cover's artwork (same-origin image), sampled once. */
 const toneCache = new Map();
 function coverTone(img) {
@@ -90,27 +80,11 @@ function coverTone(img) {
     return hex;
   } catch { return null; }
 }
-function bindingFor(book) {
-  const rgb = hexRgb(book.tone);
-  if (!rgb) return BINDINGS[hash(book.bookId) % BINDINGS.length];
-  const find = name => BINDINGS.find(b => b[0] === name);
-  const [r, g, b] = rgb, max = Math.max(r, g, b), chroma = max - Math.min(r, g, b);
-  // Nearly grey covers: dark or pale neutral bindings.
-  if (chroma < 10) return find(max > 110 ? 'slate' : 'black');
-  // Otherwise by hue, so a red cover gets a red spine however dark it is.
-  const hue = (max === r ? ((g - b) / chroma + 6) % 6 : max === g ? (b - r) / chroma + 2 : (r - g) / chroma + 4) * 60;
-  if (hue < 15 || hue >= 330) return find('oxblood');
-  if (hue < 55) return find(chroma > 55 ? 'ochre' : 'brown');
-  if (hue < 175) return find('green');
-  if (hue < 255) return find(chroma < 20 && max > 90 ? 'slate' : 'navy');
-  return find('plum');
-}
-
 // Warm the resolved viewer's covers during cloud reconciliation. This retains
 // decoded public images only, never a personal shelf snapshot or reading data.
 const readyArtwork = new Map();
 function prepareArtwork(book) {
-  const cover = book.own ? bookCover(book) : coverAsset(book.bookId, book.cover);
+  const cover = deskCover(book);
   const key = cover || book.bookId;
   if (!readyArtwork.has(key)) {
     const img = new Image();
@@ -131,13 +105,7 @@ function prepareArtwork(book) {
   return readyArtwork.get(key);
 }
 
-// Bookmark ribbons: one colour per book, stable across visits.
-const RIBBONS = ['#69413e', '#6b6045', '#58634c', '#86724b'];
-const ribbonFor = id => RIBBONS[hash(id) % RIBBONS.length];
 const monthName = at => (at ? new Date(at).toLocaleString('en', { month: 'long' }) : null);
-const percentLabel = p => (p == null ? '' : p > 0 && p < 1 ? '<1%' : `${Math.round(p)}%`);
-/** Thickness as a fraction of the book's height, from its length. */
-const depthRatio = book => Math.max(0.085, Math.min(0.2, 0.065 + (book.wordCount || 90000) / 1_600_000));
 
 const PHONE_DOTS_FROM = 5;
 
@@ -146,76 +114,6 @@ function writeCache(table) {
     if (table.mode === 'returning' && table.reading.length) localStorage.setItem(CACHE_KEY, JSON.stringify({ mode: 'returning' }));
     else localStorage.removeItem(CACHE_KEY);
   } catch { /* private mode */ }
-}
-
-/** The spine's look: the leather binding, or (an added book's paper cover) the same paper. */
-function spineStyle(b) {
-  if (hasPaperSpine(b.bookId, b.cover)) {
-    return { name: 'paper', colour: PAPER_SPINE.colour, textured: false, spine: `${PAPER_SPINE.edge},${PAPER_SPINE.colour}`, reflection: PAPER_SPINE.colour,
-      title: ` style="color:${PAPER_SPINE.ink};text-shadow:none"`, gilt: ' style="visibility:hidden"' };
-  }
-  const [name, colour] = bindingFor(b);
-  const texture = SPINE_TEXTURES ? `url('assets/spines/spine-${name}.jpg') 50% 50%/100% 100%,` : '';
-  return { name, colour, textured: SPINE_TEXTURES, spine: `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${texture}${colour}`, reflection: `${texture}${colour}`, title: '', gilt: '' };
-}
-
-/**
- * A book's cover by the one rule every surface uses (/lab/book-cover.js): the library's
- * painting, else the catalogue's art; a reader's own book (b.own, src/lab/userBook/ownShelf.ts)
- * wears its own picture (a data: URL kept on this device), else the same paper cover with its
- * title as My shelf and the reader's book switcher draw.
- */
-function bookCover(b) {
-  return b.own ? (ownCoverImage(b.cover) || paperCoverUrl(b.title, b.author || '', b.kind || '')) : coverAsset(b.bookId, b.cover);
-}
-
-/**
- * The spine's title: its short form (/lab/book-title.js), set in one line along the spine.
- * `--tl` (its length in characters) lets the stylesheet fit the type to the spine's length
- * (styles.css .rt-spine em); a title still too long ends in an ellipsis, never past the spine.
- */
-function spineTitle(b) {
-  const text = shortTitle(b.title);
-  return { text, length: Math.max(1, [...text].length) };
-}
-
-function bookMarkup(b, i) {
-  const cover = bookCover(b);
-  const s = spineStyle(b);
-  const spine = spineTitle(b);
-  return `
-    <button class="rt-b${b.linked ? ' is-linked' : ''}" data-i="${i}" aria-label="${esc(b.title)}" style="--dr:${depthRatio(b)};--ribbon:${ribbonFor(b.bookId)};--binding:${s.colour};--p:${Math.max(6, Math.min(94, b.percent ?? 50)) / 100};--cover:url('${esc(cover)}')">
-      <span class="rt-shadow" aria-hidden="true"></span>
-      <span class="rt-cast" aria-hidden="true"></span>
-      <span class="rt-f rt-back"></span>
-      <span class="rt-f rt-fore"></span>
-      <span class="rt-f rt-head"></span>
-      <span class="rt-mark" aria-hidden="true"><i></i></span>
-      <span class="rt-f rt-refl rt-refl-front"></span>
-      <span class="rt-f rt-refl rt-refl-spine" style="background:${s.reflection}"></span>
-      <span class="rt-f rt-spine${s.textured ? ' is-textured' : ''}" data-binding="${s.name}" style="background:${s.spine};--tl:${spine.length}"><i class="rt-gilt"${s.gilt}></i><em${s.title}>${esc(spine.text)}</em><i class="rt-gilt"${s.gilt}></i></span>
-      <span class="rt-f rt-front"><img src="${esc(cover)}" alt="" decoding="async" fetchpriority="${i === 0 ? 'high' : 'auto'}" draggable="false"></span>
-    </button>`;
-}
-
-function markup(table) {
-  return `
-    <div class="rt-stage" id="rt-stage"><div class="rt-row" id="rt-row">${table.reading.map(bookMarkup).join('')}</div>
-      <div class="rt-dots" id="rt-dots">${table.reading.map((b, i) => `<button data-i="${i}" aria-label="${esc(b.title)}"></button>`).join('')}</div>
-      <button type="button" class="rt-remove" id="rt-remove" aria-label="Remove book from currently reading" hidden>×</button>
-      <button id="rt-prev" class="rt-hidden-nav" aria-label="Previous book" tabindex="-1"></button><button id="rt-next" class="rt-hidden-nav" aria-label="Next book" tabindex="-1"></button></div>
-    <div class="rt-info"><div class="rt-fade" id="rt-info">
-      <h1 id="rt-title"></h1>
-      <p class="rt-book-metadata" id="rt-book-metadata"></p>
-      <p class="rt-meta"><span id="rt-place"></span><span id="rt-pct"></span></p>
-      <div class="rt-recap" id="rt-recap-box"><div class="rt-quote"><small>Where you left off</small><p id="rt-recap"></p></div><button id="rt-more">Read more</button></div>
-    </div>
-    <a class="rt-continue read-button" id="rt-continue" href="#">Continue<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20m-6-6 6 6-6 6"/></svg></a></div>
-    <dialog class="rt-remove-dialog" id="rt-remove-dialog" aria-labelledby="rt-remove-heading">
-      <h2 id="rt-remove-heading">Remove from currently reading?</h2>
-      <p>It stays on My shelf under Saved for later, and your place is kept.</p>
-      <div><button type="button" id="rt-remove-cancel" autofocus>Keep book</button><button type="button" id="rt-remove-confirm">Remove</button></div>
-    </dialog>`;
 }
 
 export async function mountReadingTable({ hero, shelves, el }) {
@@ -280,11 +178,18 @@ function viewerId() {
   return null;
 }
 function rememberFirstPaint(view, table) {
-  if (isDemo) return;
+  if (isDemo || !view.isConnected || !view.classList.contains('is-ready')) return;
   try {
-    const record = firstPaintRecord(table, view, viewerId(), bookCover);
+    const record = deskRecord(table, view, viewerId(), deskCover, view.parentElement);
     if (record) localStorage.setItem(FIRST_PAINT_KEY, JSON.stringify(record)); else localStorage.removeItem(FIRST_PAINT_KEY);
   } catch { /* private mode */ }
+}
+// The desk changes after its reveal (a book chosen, fresh facts, a resize): the record follows
+// once the row has settled, so the next visit's placeholder is the desk as it was last seen.
+let rememberTimer = 0;
+function rememberFirstPaintSoon(view, table) {
+  clearTimeout(rememberTimer);
+  rememberTimer = setTimeout(() => rememberFirstPaint(view, table), 1000);
 }
 
 /** The retained time-of-day table, sharing the shelf's account-safe loader. */
@@ -315,10 +220,16 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
   currentTable={...next,reading:next.reading.map(b=>({...b}))};
   view=document.createElement('div');view.className='reading-table is-preparing';view.innerHTML=markup(currentTable);hero.append(view);
   view.api=summaryFor?{summaryFor}:null;
-  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading}).then(()=>{
+  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading,onLayout:()=>rememberFirstPaintSoon(active,currentTable)}).then(()=>{
    if(!active.isConnected)return;
    if(view!==active){active.dispose?.();active.remove();return;}
-   for(const other of hero.querySelectorAll('.reading-table')){if(other!==active){other.dispose?.();other.remove();}}
+   for(const other of hero.querySelectorAll('.reading-table')){
+    if(other===active)continue;
+    // The first paint's placeholder (boot.js) stands under this table, book for book, and leaves
+    // only once the table's faces have arrived over it (styles.css table-arrive), never before.
+    if(other.classList.contains(PLACEHOLDER_CLASS)){setTimeout(()=>other.remove(),matchMedia('(prefers-reduced-motion: reduce)').matches?0:320);continue;}
+    other.dispose?.();other.remove();
+   }
    active.classList.replace('is-preparing','is-ready');document.documentElement.classList.remove('returning-scene-pending');
    rememberFirstPaint(active,currentTable);
   });
@@ -351,7 +262,6 @@ function wire(view, table, demo, keepBookId, options={}) {
   // "THE" and "DEUTSCH" to object-fit: cover in one (Anders, 2026-10-09). A cover read later
   // (a library painting through prepareCover, an own book's cover arriving) re-measures it.
   const aspects = books.map(() => COVER_ASPECT);
-  const size = i => bookBox(H, aspects[i]);
   books.forEach((book, i) => {
     const img = book.querySelector('.rt-front img');
     const measure = () => {
@@ -401,74 +311,41 @@ function wire(view, table, demo, keepBookId, options={}) {
   };
 
   /** Book height from the stage, with headroom for the bookmark; the row stands on the stage's floor. */
+  // The geometry itself is table-layout.js (shared with the first paint's placeholder in boot.js).
   function fit() {
     const r = stage.getBoundingClientRect();
     if (!r.height) return;
     const desk = innerWidth >= 900;
-    const next = Math.round(Math.max(130, Math.min(desk ? 352 : 240, r.height / 1.36, r.width * (desk ? 0.44 : 0.39) * 1.5)));
-    if (next === H && Math.abs(r.width - stageW) < 2) { positionRemove(); return; }
-    H = next;
+    const next = tableFit(r.width, r.height, desk);
+    // The eye level follows the stage's floor even while the book height is held at its bound.
+    stage.style.perspectiveOrigin = `50% ${next.originY}px`;
+    if (next.H === H && Math.abs(r.width - stageW) < 0.5) { positionRemove(); return; }
+    H = next.H;
     stageW = r.width;
     view.style.setProperty('--bh', `${H}px`);
-    view.style.setProperty('--bw', `${Math.round(H * 2 / 3)}px`);
-    // Eye level of the painted room: a little above the books' base, so the
-    // table is seen at a low angle and the books stand on it rather than float.
-    const base = r.height - H * 0.05;
-    stage.style.perspectiveOrigin = `50% ${Math.round(base - H * 0.42)}px`;
+    view.style.setProperty('--bw', `${next.bw}px`);
     layout(true);
     const shownBook = table.reading[current];
     if (shownBook && shown !== -1) fitHeroTitle($('rt-title'), shownBook.title);
   }
 
-  /**
-   * Books stand in reading order, the most recent on the left. The chosen one
-   * is pulled forward and turned to face the reader, turning a few degrees
-   * (alternating direction per change); the others stand spine-out, spines
-   * flush with its cover. Positions come from real footprints, so neighbours
-   * never overlap, and the row is centred on the stage.
-   */
   function layout(instant) {
-    const gap = Math.max(2, H * 0.01);
     // Room for the remove × (36px, centred on the cover's corner) before the next spine.
-    const around = Math.max(H * 0.08, options.onRemoveReading ? 24 : 0);
-    const face = 12 * turn, rad = Math.abs(face) * Math.PI / 180;
-    const depth = i => H * depthRatio(table.reading[i]);
-    const chosenFoot = size(current).w * Math.cos(rad) + depth(current) * Math.sin(rad);
-    const pad = innerWidth >= 900 ? 0 : 20, minEdge = -stageW / 2 + pad, maxEdge = stageW / 2 - pad;
-    const { from, to } = tableWindow(table.reading.map((_, i) => depth(i) + gap), current, Math.max(0, maxEdge - minEdge - chosenFoot - 2 * around), MAX_SPINES);
-    const xs = [];
-    xs[current] = 0;
-    let right = chosenFoot / 2 + around, left = -chosenFoot / 2 - around;
-    // Books beyond the window wait just outside it, unseen, so they slide in from the right side.
-    for (let i = current + 1; i < books.length; i++) { xs[i] = right + depth(i) / 2; if (i <= to) right += depth(i) + gap; }
-    for (let i = current - 1; i >= 0; i--) { xs[i] = left - depth(i) / 2; if (i >= from) left -= depth(i) + gap; }
-    if (from === current) left = -chosenFoot / 2;
-    if (to === current) right = chosenFoot / 2;
-    // Centre the row on the table; when it is wider than the stage, keep it
-    // inside the edges, and the chosen book always fully in view.
-    let shift = -(left + right) / 2;
-    if (left + shift < minEdge) shift = minEdge - left;
-    if (right + shift > maxEdge) shift = maxEdge - right;
-    shift = Math.min(Math.max(shift, minEdge + chosenFoot / 2), maxEdge - chosenFoot / 2);
+    const boxes = tableLayout({ H, stageW, desk: innerWidth >= 900, books: table.reading.map((b, i) => ({ aspect: aspects[i], depthRatio: depthRatio(b) })), current, turn, removable: !!options.onRemoveReading });
     books.forEach((book, i) => {
-      const chosen = i === current;
-      book.classList.toggle('is-current', chosen);
-      book.classList.toggle('is-away', i < from || i > to);
+      const box = boxes[i];
+      book.classList.toggle('is-current', box.current);
+      book.classList.toggle('is-away', box.away);
       book.style.transitionDuration = instant || reduced ? '0s' : moveMs ? `${moveMs}ms` : '';
       book.style.transitionTimingFunction = moveMs && !instant ? MOVE_EASE : '';
       // Its own cover's shape; the depth stays the table's (a shorter, wider book is no thinner).
-      const { w, h } = size(i);
-      book.style.setProperty('--bw', `${w.toFixed(1)}px`);
-      book.style.setProperty('--bh', `${h.toFixed(1)}px`);
-      book.style.setProperty('--d', `${depth(i).toFixed(1)}px`);
-      // Spine-out books step back so their spines line up with the chosen book's cover, not their centres.
-      const z = chosen ? H * 0.05 : -(w / 2 - depth(i) / 2);
-      book.style.transform = `translate3d(${(xs[i] + shift).toFixed(1)}px,0,${z.toFixed(1)}px) rotateY(${chosen ? face : 90}deg)`;
-      book.setAttribute('aria-current', String(chosen));
-      book.tabIndex = chosen ? 0 : -1;
+      for (const [property, value] of Object.entries(bookStyle(box))) property.startsWith('--') ? book.style.setProperty(property, value) : (book.style[property] = value);
+      book.setAttribute('aria-current', String(box.current));
+      book.tabIndex = box.current ? 0 : -1;
     });
     dots.forEach((dot, i) => { dot.classList.toggle('active', i === current); dot.setAttribute('aria-pressed', String(i === current)); });
     positionRemove(!instant);
+    options.onLayout?.();
   }
 
   function select(index, byUser) {
@@ -487,7 +364,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     options.onSelection?.({bookId:b.bookId});
     // Public artwork only: the reader can warm the selected cover first without
     // loading another library, reading private caches, or touching positions.
-    try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].filter(book=>!book.own).slice(0,13).map(book=>coverAsset(book.bookId,book.cover)).filter(Boolean))); } catch {}
+    try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].filter(book=>!book.own).slice(0,13).map(deskCover).filter(Boolean))); } catch {}
     const set = () => {
       fitHeroTitle($('rt-title'), b.title);
       // A linked book the reader has not started: its question, and Read opens its introduction.
@@ -500,6 +377,7 @@ function wire(view, table, demo, keepBookId, options={}) {
       // An own book with no place line (its text not on this device) shows no "Where you left off".
       $('rt-recap-box').hidden = !b.recap && !b.headline;
       setRecap(b.recap || (b.headline ? (/[.…!?]$/.test(b.headline) ? b.headline : `${b.headline}.`) : ''));
+      options.onLayout?.();
     };
     clearTimeout(swapTimer);
     if (firstShow) set();
@@ -610,6 +488,9 @@ function wire(view, table, demo, keepBookId, options={}) {
   const observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(fit):null;
   if(observer)observer.observe(stage);else addEventListener('resize',fit);
   fit();select(current,false);
+  // The title now set (its lines change the stage), measure again at once: the table is revealed in
+  // its final geometry, not a frame before the ResizeObserver's refit (visible over the placeholder).
+  fit();
   // Fresh data for the same books. While books are gliding after a removal the row is
   // left to finish; laying it out at once would snap them to their places.
   view.refresh=()=>{if(moveTimer)return;shown=-1;select(current,false);};
@@ -660,7 +541,7 @@ function addFinishedShelf(finished, shelves, el) {
     const card = el('a', 'book-card finished-card');
     card.href = `/library?book=${encodeURIComponent(book.bookId)}&view=book-detail`;
     card.setAttribute('aria-label', `${book.title}, finished`);
-    card.innerHTML = `<span class="cv"><img src="${esc(coverAsset(book.bookId, book.cover))}" alt=""" loading="lazy" decoding="async"><span class="done" aria-hidden="true">✓</span></span>${monthName(book.finishedAt) ? `<small>Finished in ${esc(monthName(book.finishedAt))}</small>` : ''}`;
+    card.innerHTML = `<span class="cv"><img src="${esc(paintedCoverAt(book.bookId, DESK_COVER_PX) ?? coverAsset(book.bookId, book.cover))}" alt=""" loading="lazy" decoding="async"><span class="done" aria-hidden="true">✓</span></span>${monthName(book.finishedAt) ? `<small>Finished in ${esc(monthName(book.finishedAt))}</small>` : ''}`;
     row.append(card);
   });
   section.append(row);
@@ -668,6 +549,6 @@ function addFinishedShelf(finished, shelves, el) {
 }
 
 // Shared account-safe data and public bindings for the approved bookshelf.
-export { DEMO, bindingFor };
+export { DEMO, bindingFor, markup };
 export function onCachedTable(fn){cachedListeners.add(fn);if(cachedTable)readingApi().then(api=>fn(cachedTable,api));return()=>cachedListeners.delete(fn);}
 export async function resolveReadingTable(refresh=false) { const early = firstTable && !refresh ? await firstTable : null; if (early?.error) throw early.error; return early?.value || loadTable(); }

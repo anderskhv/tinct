@@ -175,7 +175,7 @@ describe('the cover resolver', () => {
     const { resolveBookCover, bookCoverSrc } = await import('../public/lab/book-cover.js')
     expect(resolveBookCover({ bookId: 'to-the-lighthouse', art: { src: '/covers/v2/to-the-lighthouse.webp', srcSet: 'x 540w' } })).toEqual({
       src: '/lab/library_2/assets/to-the-lighthouse.jpg',
-      srcSet: '/lab/library_2/assets/thumbs/to-the-lighthouse.webp 240w, /lab/library_2/assets/to-the-lighthouse.jpg 1024w',
+      srcSet: '/lab/library_2/assets/thumbs/to-the-lighthouse.webp 240w, /lab/library_2/assets/covers/to-the-lighthouse-480.webp 480w, /lab/library_2/assets/covers/to-the-lighthouse-960.webp 960w, /lab/library_2/assets/to-the-lighthouse.jpg 1024w',
     })
     expect(resolveBookCover({ bookId: 'notes-from-underground', art: { src: '/covers/v2/notes-from-underground.webp', srcSet: 'x 540w' } })).toEqual({ src: '/covers/v2/notes-from-underground.webp', srcSet: 'x 540w' })
     expect(bookCoverSrc({ bookId: 'userbook-ab', ownCover: 'data:image/jpeg;base64,AA' })).toBe('data:image/jpeg;base64,AA')
@@ -209,7 +209,7 @@ describe('the cover resolver', () => {
     expect(lib('bookshelf-view.js')).not.toMatch(/studyCovers/)
     expect(lib('bookshelf-view.js')).toMatch(/bookCoverSrc\(\{bookId:entry\.id,art:entry\.art\}\)/)
     expect(lib('bookshelf.js')).toMatch(/cover:bookCoverSrc\(\{bookId:entry\.id,art:entry\.art\}\)/)
-    expect(lib('reading-table.js')).toMatch(/ownCoverImage\(b\.cover\) \|\| paperCoverUrl\(/)
+    expect(lib('reading-table-markup.js')).toMatch(/ownCoverImage\(b\.cover\) \|\| paperCoverUrl\(/)
     expect(lib('add-to-tinct.js')).toMatch(/export \{paperCover\}/)
     const switcher = readFileSync(resolve(__dirname, 'preReader/quickBookSwitcher.ts'), 'utf8')
     expect(switcher).not.toMatch(/art\?\.src/)

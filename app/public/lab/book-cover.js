@@ -17,10 +17,42 @@ const painted = new Set(PAINTED_COVER_IDS);
 const PAINTED_BASE = '/lab/library_2/assets/';
 /** The widths of a painting's two files, for srcset. */
 export const PAINTED_WIDTHS = Object.freeze({ full: 1024, thumb: 240 });
+/**
+ * The smaller copies of each painting (assets/covers/<id>-<width>.webp, scripts/build-cover-derivatives.mjs)
+ * and the painting's own width: a surface takes the smallest file with at least the pixels it draws
+ * (paintedCoverAt), so a phone, a laptop at 2× and a 1× desktop each download about what they show.
+ * The four 768 px paintings have a 480 copy only. src/libraryCoverDerivatives.test.ts holds this to the files.
+ */
+export const PAINTED_SIZES = Object.freeze({
+  default: Object.freeze({ widths: Object.freeze([480, 960]), full: 1024 }),
+  confessions: Object.freeze({ widths: Object.freeze([480]), full: 768 }),
+  iliad: Object.freeze({ widths: Object.freeze([480]), full: 768 }),
+  'nicomachean-ethics': Object.freeze({ widths: Object.freeze([480]), full: 768 }),
+  'the-republic': Object.freeze({ widths: Object.freeze([480]), full: 768 }),
+});
 
 /** The library's painting of a book, or null. */
 export function paintedCover(bookId) {
   return painted.has(bookId) ? `${PAINTED_BASE}${bookId}.jpg` : null;
+}
+
+/** The painting's copies, smallest first, each `{ src, width }`, ending with the painting itself. */
+export function paintedCoverSources(bookId) {
+  if (!painted.has(bookId)) return null;
+  const sizes = PAINTED_SIZES[bookId] || PAINTED_SIZES.default;
+  return [...sizes.widths.map(width => ({ src: `${PAINTED_BASE}covers/${bookId}-${width}.webp`, width })), { src: `${PAINTED_BASE}${bookId}.jpg`, width: sizes.full }];
+}
+
+/**
+ * The painting's file for a surface drawing it `pixels` device pixels wide (CSS width × the screen's
+ * pixel ratio): the smallest copy at least that wide, else the painting itself. Null for a book
+ * without a painting. A surface asking for nothing in particular gets the painting.
+ */
+export function paintedCoverAt(bookId, pixels) {
+  const sources = paintedCoverSources(bookId);
+  if (!sources) return null;
+  const need = Number.isFinite(pixels) && pixels > 0 ? pixels : Infinity;
+  return (sources.find(source => source.width >= need) || sources[sources.length - 1]).src;
 }
 
 const OWN_COVER = /^data:image\/(jpeg|png|webp);base64,/;
@@ -37,7 +69,7 @@ export function ownCoverImage(cover) {
  */
 export function resolveBookCover({ bookId, art = null, ownCover = null, storedCover = null } = {}) {
   const paintedSrc = paintedCover(bookId);
-  if (paintedSrc) return { src: paintedSrc, srcSet: `${PAINTED_BASE}thumbs/${bookId}.webp ${PAINTED_WIDTHS.thumb}w, ${paintedSrc} ${PAINTED_WIDTHS.full}w` };
+  if (paintedSrc) return { src: paintedSrc, srcSet: [`${PAINTED_BASE}thumbs/${bookId}.webp ${PAINTED_WIDTHS.thumb}w`, ...paintedCoverSources(bookId).map(source => `${source.src} ${source.width}w`)].join(', ') };
   const artSrc = typeof art === 'string' ? art : typeof art?.src === 'string' ? art.src : '';
   if (artSrc) return { src: artSrc, srcSet: typeof art === 'object' && typeof art?.srcSet === 'string' && art.srcSet ? art.srcSet : null };
   const own = ownCoverImage(ownCover) || ownCoverImage(storedCover);

@@ -62,10 +62,10 @@ it('trusts a hero the Worker already filled and otherwise holds the hero for the
 it('starts a new reader on the linked book: its catalogue, never the featured cover', () => {
   const linked = boot('/library?book=wuthering-heights', { fresh: true, linkedBook: 'wuthering-heights' })
   expect(linked.fetch).toHaveBeenCalledWith('/lab/catalogue.json')
-  expect(linked.document.head.append).not.toHaveBeenCalledWith(expect.objectContaining({ href: 'assets/frankenstein.jpg' }))
+  expect(linked.document.head.append).not.toHaveBeenCalledWith(expect.objectContaining({ href: 'assets/covers/frankenstein-960.webp' }))
   expect(linked.window.__library2Boot?.scene).toBe('frankenstein')
   const featured = boot('/library', { fresh: true })
-  expect(featured.document.head.append).toHaveBeenCalledWith(expect.objectContaining({ href: 'assets/frankenstein.jpg' }))
+  expect(featured.document.head.append).toHaveBeenCalledWith(expect.objectContaining({ href: 'assets/covers/frankenstein-960.webp' }))
   // A book with its own painted room opens in that room.
   const odyssey = boot('/read/odyssey/', { fresh: true, linkedBook: 'odyssey' })
   expect(odyssey.window.__library2Boot).toMatchObject({ book: 'odyssey', scene: 'odyssey', asset: 'assets/scene-odyssey-phone.jpg' })
