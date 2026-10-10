@@ -49,6 +49,9 @@
     // Paid Modern English editions: offers checkout and runs xAI generation (prices are
     // STRIPE_PRICE_MODERN_T1..T4 secrets). The client offers it to Premium readers (MODERN_EDITIONS_FOR_EVERYONE).
     "PUBLIC_BOOK_MODERN_EDITIONS": "1",
+    // Dollars all Modern English generation may spend per UTC month (src/worker/lib/modernBudget.ts).
+    // Gates NEW purchases only (no offer, checkout refused before payment); paid books always finish.
+    "MODERN_EDITION_MONTHLY_USD": "100",
     // Painted covers (xAI image, about $0.04 each, once per book). Paper cover until one exists.
     "PUBLIC_BOOK_PAINTED_COVERS": "1",
     // Reading time (social ship 1, src/worker/routes/readingTime.ts). On since 8 Oct 2026

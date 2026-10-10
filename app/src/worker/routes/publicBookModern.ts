@@ -21,6 +21,15 @@
  * Prices: STRIPE_PRICE_MODERN_T1..T4 (Worker secrets). Generation: xAI with
  * XAI_API_KEY; book text only, no reader data. The webhook grants a paid
  * session through grantModernEdition (billing.ts WebhookHooks).
+ *
+ * Spend (Anders, 2026-10-10; lib/modernBudget.ts): every call is settled on
+ * xAI's reported cost, kept as the job's costUsd and written to the AI ledger
+ * as 'modern_edition' with no reader on the row (never charged). A monthly
+ * ceiling, MODERN_EDITION_MONTHLY_USD ($100), gates new purchases only: the
+ * offer is not shown and checkout refuses (404 not_available) before any
+ * Stripe session when the book's expected cost does not fit. A paid book is
+ * always finished (chunks the model cannot write fall back to the original
+ * text and flag the job for review: GET /api/admin/modern-diagnostics?review=1).
  */
 import { corsHeaders, getAllowedOrigin } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
@@ -57,14 +66,30 @@ import {
   updateJob,
   wholeKey,
   xaiModernGenerator,
+  XAI_MODERN_MODEL,
+  MODERN_REVIEW_PREFIX,
+  type ModernCost,
   type ModernGenerator,
   type ModernJob,
   type ModernTier,
   type SourceChapter,
 } from '../lib/modernEdition'
 import { isPublicBookId } from '../../../public/lab/public-books.js'
+import { recordAiUsage, type LedgerEnv } from '../lib/aiUsage'
+import {
+  chargeModernOverrun,
+  modernBookExpectedUsd,
+  modernMonthHasRoom,
+  modernMonthMicros,
+  modernMonthlyMicros,
+  refundModernReservation,
+  reserveModernBook,
+  usdToMicros,
+  type ModernBudgetEnv,
+  type ModernReservation,
+} from '../lib/modernBudget'
 
-export type ModernEnv = PublicBooksEnv & BillingEnv & {
+export type ModernEnv = PublicBooksEnv & BillingEnv & ModernBudgetEnv & LedgerEnv & {
   /** "1" offers Modern English editions and runs their generation. Off by default. */
   PUBLIC_BOOK_MODERN_EDITIONS?: string
   /** Optional xAI model override for generation. */
@@ -131,11 +156,21 @@ function offerFor(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: 
   return modernPriceId(env, tier) ? { tier, cents: modernTierCents(tier) } : null
 }
 
-function statusBody(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number, canBuy = true) {
+/** What writing the book is expected to cost, from its word count (lib/modernBudget.ts). */
+const bookExpectedUsd = (meta: StoredMeta) => modernBookExpectedUsd(meta.book.wordCount ?? meta.entry.wordCount)
+
+/** The offer, only while the month's ceiling has room for this book's expected cost (new purchases only). */
+async function availableOffer(env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number): Promise<{ tier: ModernTier; cents: number } | null> {
+  const offer = offerFor(env, meta, job, now)
+  if (!offer) return null
+  return await modernMonthHasRoom(env, now, usdToMicros(bookExpectedUsd(meta))) ? offer : null
+}
+
+function statusBody(meta: StoredMeta, job: ModernJob | null, now: number, offer: { tier: ModernTier; cents: number } | null) {
   const state = !job ? 'none' : job.state === 'paid' ? (jobComplete(job) ? 'complete' : 'paid') : holdLive(job, now) ? 'checkout' : 'none'
   const totals = Object.fromEntries(meta.entry.readingStructure.chapters.map(c => [c.number, c.paragraphCount]))
   return {
-    state, chapters: publicChapterStates(job, now), offer: canBuy ? offerFor(env, meta, job, now) : null,
+    state, chapters: publicChapterStates(job, now), offer,
     // While the edition is being written: how far each chapter is, and an estimate of when it is done.
     ...(state === 'paid' ? { progress: publicProgress(job, totals), failures: publicFailures(job, now) } : {}),
   }
@@ -152,10 +187,11 @@ async function buyerPremium(userId: string, deps: ModernDeps): Promise<boolean |
  * looked up only when there is an offer to show.
  */
 async function statusFor(request: Request, env: ModernEnv, meta: StoredMeta, job: ModernJob | null, now: number, deps: ModernDeps) {
-  if (!offerFor(env, meta, job, now) || !request.headers.get('Authorization')) return statusBody(env, meta, job, now)
+  const offer = await availableOffer(env, meta, job, now)
+  if (!offer || !request.headers.get('Authorization')) return statusBody(meta, job, now, offer)
   const user = await deps.verifyUser(request).catch(() => null)
-  if (!user || !isValidUUID(user.id)) return statusBody(env, meta, job, now)
-  return statusBody(env, meta, job, now, await buyerPremium(user.id, deps) === true)
+  if (!user || !isValidUUID(user.id)) return statusBody(meta, job, now, offer)
+  return statusBody(meta, job, now, await buyerPremium(user.id, deps) === true ? offer : null)
 }
 
 // ===== Generation =====
@@ -191,6 +227,53 @@ export async function runModernBook(env: ModernEnv, bookId: string, options: { d
   const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
   if (!modernEligible(meta)) return
   await auditedJob(bucket, bookId, meta, (await readJob(bucket, bookId))?.job ?? null, now())
+  // Ledger rows are written in the background; this run waits for them before it ends.
+  const ledger: Promise<unknown>[] = []
+  const onCost = (cost: ModernCost) => recordModernCost(env, { waitUntil: promise => { ledger.push(promise) } }, bookId, cost)
+  try {
+    await runModernWorkers(env, bucket, bookId, meta, options, now, onCost)
+  } finally {
+    await settleModernMonth(env, bucket, bookId, now()).catch(() => {})
+    await Promise.allSettled(ledger)
+  }
+}
+
+/** One ledger row per provider call: Tinct's own cost, no reader on it, never charged (lib/aiAllowance.ts NEVER_CHARGED_AI_FEATURES). */
+function recordModernCost(env: ModernEnv, ctx: { waitUntil(promise: Promise<unknown>): void }, bookId: string, cost: ModernCost): void {
+  recordAiUsage(env, ctx, {}, {
+    feature: 'modern_edition', provider: 'xai', model: cost.model || env.PUBLIC_BOOK_MODERN_MODEL || XAI_MODERN_MODEL, book_id: bookId,
+    input_tokens: cost.inputTokens, output_tokens: cost.outputTokens, cost_usd: cost.costUsd,
+  })
+}
+
+/**
+ * The month's budget follows the paid book: what it has cost beyond its
+ * reservation is added to this month (never refused; logged when the month
+ * goes over), once each, on the job's etag; once the book is finished, what
+ * the reservation did not use is given back.
+ */
+export async function settleModernMonth(env: ModernEnv, bucket: R2Bucket, bookId: string, now: number): Promise<void> {
+  let overrun = 0
+  let unused: ModernReservation | null = null
+  let unusedMicros = 0
+  const result = await updateJob(bucket, bookId, job => {
+    overrun = 0; unused = null; unusedMicros = 0
+    if (!job || job.state !== 'paid') return null
+    const cost = usdToMicros(job.costUsd ?? 0)
+    const reserved = job.budget?.micros ?? 0
+    const beyond = Math.max(0, cost - reserved)
+    overrun = beyond - (job.overrunMicros ?? 0)
+    const settle = jobComplete(job) && !!job.budget && !job.budgetSettled
+    if (settle) { unused = job.budget!; unusedMicros = Math.max(0, reserved - cost) }
+    if (overrun <= 0 && !settle) return null
+    return { ...job, ...(overrun > 0 ? { overrunMicros: beyond } : {}), ...(settle ? { budgetSettled: true } : {}), updatedAt: now }
+  })
+  if (!result.wrote) return
+  if (overrun > 0) await chargeModernOverrun(env, now, overrun, bookId)
+  if (unused && unusedMicros > 0) await refundModernReservation(env, unused, unusedMicros)
+}
+
+async function runModernWorkers(env: ModernEnv, bucket: R2Bucket, bookId: string, meta: StoredMeta, options: { deadline: number; generate: ModernGenerator }, now: () => number, onCost: (cost: ModernCost) => void): Promise<void> {
   let source: Promise<Array<{ number: number; title: string; paragraphs: string[] }>> | null = null
   const loadSource = () => source ??= readJson<{ chapters: SourceChapter[] }>(bucket, editionObjectKey(bookId, meta.editionKey)).then(data => data?.chapters ?? [])
   const worker = async () => {
@@ -203,7 +286,7 @@ export async function runModernBook(env: ModernEnv, bookId: string, options: { d
         // Never start a chunk that would not finish in time (a request's waitUntil is cut off): it would be paid for and lost.
         if (longest && options.deadline - now() < longest) return
         const began = now()
-        const result = await modernStep(bucket, { bookId, title: meta.book.title, author: meta.book.author, source: loadSource, generate: options.generate, now, owner })
+        const result = await modernStep(bucket, { bookId, title: meta.book.title, author: meta.book.author, source: loadSource, generate: options.generate, now, owner, onCost })
         longest = Math.max(longest, now() - began)
         // 'backoff': the provider asked us to wait (429/5xx); the next request or the cron goes on after it.
         if (result === 'idle' || result === 'complete' || result === 'backoff') return
@@ -297,10 +380,13 @@ export async function grantModernEdition(env: ModernEnv, session: CheckoutSessio
   if (!modernEligible(meta)) { await refund(env, session, stripeFetch); return { outcome: 'refunded', amountCents } }
   const chapter = Number(session.metadata?.chapter)
   let previous: ModernJob | null = null
+  const expectedUsd = bookExpectedUsd(meta)
   const result = await updateJob(bucket, bookId, job => {
     previous = job
     if (job?.state === 'paid') return null
-    return paidJob({ bookId, tier, sessionId: session.id, chapters: meta.entry.readingStructure.chapters.map(c => c.number), anchor: Number.isInteger(chapter) ? chapter : null, now: now() })
+    // This session's checkout reserved the book's expected cost in the month: the paid job carries it.
+    const budget = job?.state === 'checkout' && job.sessionId === session.id ? job.budget : undefined
+    return paidJob({ bookId, tier, sessionId: session.id, chapters: meta.entry.readingStructure.chapters.map(c => c.number), anchor: Number.isInteger(chapter) ? chapter : null, now: now(), expectedUsd, budget })
   })
   if (!result.wrote) {
     if (result.job?.sessionId !== session.id) { await refund(env, session, stripeFetch); return { outcome: 'refunded', amountCents } }
@@ -312,6 +398,15 @@ export async function grantModernEdition(env: ModernEnv, session: CheckoutSessio
   const held = previous as ModernJob | null
   if (held?.state === 'checkout' && held.sessionId !== session.id && held.sessionId.startsWith('cs_') && env.STRIPE_SECRET_KEY) {
     await stripeFetch(`https://api.stripe.com/v1/checkout/sessions/${held.sessionId}/expire`, { method: 'POST', headers: stripeHeaders(env) }).catch(() => null)
+  }
+  if (held?.state === 'checkout' && held.sessionId !== session.id) await refundModernReservation(env, held.budget)
+  if (!result.job?.budget) {
+    // Paid without a reservation of its own (its hold had lapsed): reserved now, never refused, since it is paid.
+    const budget = await reserveModernBook(env, now(), usdToMicros(expectedUsd), { force: true, bookId })
+    if (budget) {
+      const kept = await updateJob(bucket, bookId, job => job?.state === 'paid' && job.sessionId === session.id && !job.budget ? { ...job, budget, updatedAt: now() } : null)
+      if (!kept.wrote) await refundModernReservation(env, budget)
+    }
   }
   await bucket.put(markerKey(bookId), '', {})
   await publishEditionRecords(bucket, bookId)
@@ -334,7 +429,8 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
   const now = deps.now ?? Date.now
   const stripeFetch = deps.stripeFetch ?? fetch
   const current = await readJob(bucket, bookId)
-  const offer = offerFor(env, meta, current?.job ?? null, now())
+  // The month's ceiling (new purchases only) hides the offer like any other unavailability: 404 not_available.
+  const offer = await availableOffer(env, meta, current?.job ?? null, now())
   if (!offer) {
     // The buyer's own open session (a second tap, another tab) is returned, never doubled.
     if (current && holdLive(current.job, now()) && current.job.sessionId.startsWith('cs_')) {
@@ -345,15 +441,25 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
     return reply({ error: state }, state === 'not_available' ? 404 : 409, request)
   }
   const priceId = modernPriceId(env, offer.tier)!
-  // Hold the book first: of two buyers racing, only one conditional put wins.
+  // The month's budget first, strictly, before any Stripe session exists: no room, no payment.
+  const budget = await reserveModernBook(env, now(), usdToMicros(bookExpectedUsd(meta)), { bookId })
+  if (!budget) return reply({ error: 'not_available' }, 404, request)
+  // Hold the book: of two buyers racing, only one conditional put wins.
   const holdId = `hold_${crypto.randomUUID()}`
-  const hold = await updateJob(bucket, bookId, job => purchaseOpen(job, now())
-    ? { version: 1, bookId, state: 'checkout', tier: offer.tier, sessionId: holdId, holdUntil: now() + HOLD_MS, priority: [], chapters: [], updatedAt: now() }
-    : null)
-  if (!hold.wrote) return reply({ error: hold.job?.state === 'paid' ? 'exists' : 'in_progress' }, 409, request)
+  let lapsed: ModernJob | null = null
+  const hold = await updateJob(bucket, bookId, job => {
+    lapsed = job?.state === 'checkout' ? job : null
+    return purchaseOpen(job, now())
+      ? { version: 1, bookId, state: 'checkout', tier: offer.tier, sessionId: holdId, holdUntil: now() + HOLD_MS, priority: [], chapters: [], budget, updatedAt: now() }
+      : null
+  })
+  if (!hold.wrote) { await refundModernReservation(env, budget); return reply({ error: hold.job?.state === 'paid' ? 'exists' : 'in_progress' }, 409, request) }
+  // A lapsed hold taken over gives back what it reserved.
+  await refundModernReservation(env, (lapsed as ModernJob | null)?.budget)
+  const release = async () => { await refundModernReservation(env, (await releaseHold(bucket, bookId, holdId))?.budget) }
 
   const customer = await (deps.ensureCustomer ?? (u => ensureStripeCustomer(env, u)))({ id: user.id, email: user.email }).catch(() => ({ error: 'customer' }))
-  if ('error' in customer) { await releaseHold(bucket, bookId, holdId); return reply({ error: 'payment_unavailable' }, 502, request) }
+  if ('error' in customer) { await release(); return reply({ error: 'payment_unavailable' }, 502, request) }
   const origin = getAllowedOrigin(request)
   const params = new URLSearchParams()
   params.set('customer', customer.id)
@@ -380,7 +486,7 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
     const response = await stripeFetch('https://api.stripe.com/v1/checkout/sessions', { method: 'POST', headers: stripeHeaders(env, `modern-${bookId}-${holdId}`), body: params.toString() })
     session = response.ok ? await response.json() as { id?: string; url?: string } : null
   } catch { session = null }
-  if (!session?.id || !session.url) { await releaseHold(bucket, bookId, holdId); return reply({ error: 'payment_unavailable' }, 502, request) }
+  if (!session?.id || !session.url) { await release(); return reply({ error: 'payment_unavailable' }, 502, request) }
   const sessionId = session.id
   const bound = await updateJob(bucket, bookId, job => job?.state === 'checkout' && job.sessionId === holdId ? { ...job, sessionId, updatedAt: now() } : null)
   if (!bound.wrote) {
@@ -417,7 +523,7 @@ async function cancelCheckout(request: Request, env: ModernEnv, bucket: R2Bucket
   } else if (open.status !== 'expired') {
     return reply({ released: false }, 200, request)
   }
-  await releaseHold(bucket, bookId, sessionId)
+  await refundModernReservation(env, (await releaseHold(bucket, bookId, sessionId))?.budget)
   return reply({ released: true }, 200, request)
 }
 
@@ -432,7 +538,7 @@ export async function releaseModernCheckout(env: ModernEnv, session: CheckoutSes
   if (!isPublicBookId(bookId) || !bucket) return 'ignored'
   const current = await readJob(bucket, bookId)
   if (!current || current.job.state !== 'checkout' || current.job.sessionId !== session.id) return 'ignored'
-  await releaseHold(bucket, bookId, session.id)
+  await refundModernReservation(env, (await releaseHold(bucket, bookId, session.id))?.budget)
   return 'released'
 }
 
@@ -532,24 +638,37 @@ export async function modernEditionChapter(env: Pick<PublicBooksEnv, 'PUBLIC_BOO
 /**
  * `GET /api/admin/modern-diagnostics?book=<pd-id>` (site admins only): the job's
  * per-chapter generation state, including the start of the last refused reply
- * and the chunk size it was refused at (lastReject). Public-domain book text
- * and book progress only; never part of the public status.
+ * and the chunk size it was refused at (lastReject), what it has cost against
+ * what it was expected to cost, and the paragraphs written in the original
+ * text (fallback, review). `?review=1` lists every book flagged for review,
+ * with the month's Modern English spend. Public-domain book text, book
+ * progress and Tinct's own cost only; never part of the public status.
  */
 export async function handleModernDiagnostics(request: Request, env: ModernEnv, verifySiteAdmin: (env: ModernEnv, request: Request) => Promise<boolean>): Promise<Response> {
   if (request.method !== 'GET') return reply({ error: 'Method not allowed' }, 405, request)
   if (!await verifySiteAdmin(env, request).catch(() => false)) return reply({ error: 'Forbidden' }, 403, request)
-  const bookId = new URL(request.url).searchParams.get('book') || ''
+  const params = new URL(request.url).searchParams
+  const bookId = params.get('book') || ''
   const bucket = bucketOf(env)
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  if (params.get('review') === '1') {
+    const page = await bucket.list({ prefix: MODERN_REVIEW_PREFIX, limit: 1000 })
+    const used = await modernMonthMicros(env, Date.now())
+    return reply({
+      review: page.objects.map((object: { key: string }) => object.key.slice(MODERN_REVIEW_PREFIX.length)).filter((id: string) => isPublicBookId(id)),
+      month: { usedUsd: used === null ? null : used / 1_000_000, limitUsd: modernMonthlyMicros(env) / 1_000_000 },
+    }, 200, request)
+  }
   if (!isPublicBookId(bookId)) return reply({ error: 'bad_request' }, 400, request)
   const job = (await readJob(bucket, bookId))?.job
   if (!job) return reply({ error: 'Not found' }, 404, request)
   return reply({
     bookId, state: job.state, backoffUntil: job.backoffUntil ?? null, slowUntil: job.slowUntil ?? null, pace: job.pace ?? null, revived: job.revived ?? null,
+    costUsd: job.costUsd ?? null, expectedUsd: job.expectedUsd ?? null, budget: job.budget ?? null, overrunMicros: job.overrunMicros ?? null, review: job.review ?? null,
     chapters: job.chapters.map(c => ({
       number: c.number, state: c.state, attempts: c.attempts, rounds: c.rounds ?? 0, chunkWords: c.chunkWords ?? null,
       done: (c.ranges ?? []).reduce((sum, [a, b]) => sum + b - a, 0), total: c.total ?? null,
-      lastFailure: c.lastFailure ?? null, lastReject: c.lastReject ?? null,
+      lastFailure: c.lastFailure ?? null, lastReject: c.lastReject ?? null, spentHere: c.spentHere ?? null, fallback: c.fallback ?? null,
     })),
   }, 200, request)
 }

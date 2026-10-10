@@ -26,11 +26,30 @@
  * file holds one slot per source paragraph (null until written).
  * The model is mocked in tests; nothing here calls a provider unless the
  * route passes a real generator.
+ *
+ * Spend (Anders, 2026-10-10): every call is settled on the cost xAI reports
+ * and added to the job's running `costUsd`. A paid book always finishes: a
+ * chunk is not retried once it alone has cost CHUNK_COST_CAP times its
+ * expected cost, nor once its attempts run out (MAX_ATTEMPTS × MAX_ROUNDS),
+ * nor at all once the book has cost BOOK_SOFT_BUDGET times its expected cost;
+ * its paragraphs are then written in the original text (`fallback` on the
+ * chapter) and the job is flagged for review (`review`, and a marker under
+ * MODERN_REVIEW_PREFIX for the admin diagnostics). Paragraphs that keep coming
+ * back unchanged end the same way. Nothing here ever stops a paid book.
  */
+import { modernBookExpectedUsd, modernChunkExpectedUsd, type ModernReservation } from './modernBudget'
+import { xaiReportedCostUsd } from './aiUsage'
+
 type R2Like = R2Bucket
 
 export const MODERN_KEY = 'modern-en'
 export const MODERN_JOB_PREFIX = 'public-books/modern-jobs/'
+/** Marker: this book has paragraphs written in the original text (fallback) for an admin to look at. */
+export const MODERN_REVIEW_PREFIX = 'public-books/modern-review/'
+/** A chunk is not tried again once it alone has cost this many times its expected cost. */
+export const CHUNK_COST_CAP = 3
+/** Once a book has cost this many times its expected cost, a chunk that fails is not tried again. */
+export const BOOK_SOFT_BUDGET = 3
 
 /**
  * Price tiers by book length (source word count). A book up to the first
@@ -75,7 +94,7 @@ export const CHUNK_WORDS = 900
 export const OPENING_WORDS = 350
 /** Consecutive failed chunks of one chapter before it is left as failed for a while (original text stays). */
 export const MAX_ATTEMPTS = 4
-/** A failed chapter is tried again after this long, at most MAX_ROUNDS times in all. */
+/** A failed chapter is tried again after this long, at most MAX_ROUNDS times in all; the last attempt of the last round writes the chunk in the original text instead of failing (a paid book always finishes). */
 export const FAILED_RETRY_MS = 30 * 60_000
 export const MAX_ROUNDS = 3
 /** After a provider 429 (without Retry-After) or 5xx the book waits this long; after a 429 it runs one chapter at a time for SLOW_AFTER_429_MS. */
@@ -135,6 +154,10 @@ export interface ModernJobChapter {
   waitingOnHeld?: boolean
   /** Admin diagnostics only (never in the public status): the start of the last refused reply, as public-domain book text. */
   lastReject?: { reason: ModernFailure; chunkWords: number; sample: string; at: number }
+  /** Dollars spent on calls at the current place since a chunk was last written (CHUNK_COST_CAP). */
+  spentHere?: number
+  /** Paragraphs written in the original text after the model could not be used for them, as [start, end) runs. */
+  fallback?: Array<[number, number]>
 }
 
 export interface ModernJob {
@@ -161,6 +184,18 @@ export interface ModernJob {
   slowUntil?: number
   /** FAILED_REVIVAL once failed chapters from before have been given another go. */
   revived?: number
+  /** Dollars the provider calls have cost so far (settled on xAI's reported cost). Admin only. */
+  costUsd?: number
+  /** Dollars the book was expected to cost (from its word count, lib/modernBudget.ts). */
+  expectedUsd?: number
+  /** The month's reservation for this book (lib/modernBudget.ts), made at checkout. */
+  budget?: ModernReservation
+  /** Micro-dollars of cost beyond the reservation already added to the monthly budget. */
+  overrunMicros?: number
+  /** The reservation's unused part has been given back (the book is finished). */
+  budgetSettled?: boolean
+  /** Chapters with paragraphs written in the original text (fallback): for an admin to look at. */
+  review?: { at: number; chapters: number[] }
   updatedAt: number
 }
 
@@ -203,10 +238,13 @@ function after(job: ModernJob, n: number): number | null {
 }
 
 /** A new paid job: every chapter queued, the buyer's chapter and the next two first. */
-export function paidJob(input: { bookId: string; tier: ModernTier; sessionId: string; chapters: number[]; anchor: number | null; now: number }): ModernJob {
+export function paidJob(input: { bookId: string; tier: ModernTier; sessionId: string; chapters: number[]; anchor: number | null; now: number; expectedUsd?: number; budget?: ModernReservation }): ModernJob {
   const chapters = input.chapters.map(number => ({ number, state: 'queued' as const, attempts: 0 }))
   // Written only through validChunk (echo checked): nothing to audit (repairEchoedEdition).
-  const job: ModernJob = { version: 1, bookId: input.bookId, state: 'paid', tier: input.tier, sessionId: input.sessionId, paidAt: input.now, priority: [], chapters, audit: MODERN_AUDIT, revived: FAILED_REVIVAL, updatedAt: input.now }
+  const job: ModernJob = {
+    version: 1, bookId: input.bookId, state: 'paid', tier: input.tier, sessionId: input.sessionId, paidAt: input.now, priority: [], chapters, audit: MODERN_AUDIT, revived: FAILED_REVIVAL, updatedAt: input.now,
+    costUsd: 0, ...(input.expectedUsd !== undefined ? { expectedUsd: input.expectedUsd } : {}), ...(input.budget ? { budget: input.budget } : {}),
+  }
   const anchor = chapters.some(c => c.number === input.anchor) ? input.anchor! : chapters[0]?.number
   if (anchor !== undefined) {
     job.anchor = anchor
@@ -232,6 +270,12 @@ export function workOrder(job: ModernJob): number[] {
 }
 
 const leaseLive = (c: ModernJobChapter, now: number) => c.state === 'preparing' && (c.leaseUntil ?? 0) > now
+/**
+ * A chapter left failed with no retry to come (an older job's last round, or
+ * paragraphs that never stopped coming back unchanged): it is finished in the
+ * original text, without another call.
+ */
+export const stranded = (c: ModernJobChapter) => c.state === 'failed' && c.retryAt === undefined
 const heldBy = (c: ModernJobChapter, owner: string | undefined, now: number) => !!owner && c.leaseBy === owner && leaseLive(c, now)
 /** A failed chapter whose wait is over and that has rounds left. */
 const retryable = (c: ModernJobChapter, now: number) => c.state === 'failed' && c.retryAt !== undefined && c.retryAt <= now && (c.rounds ?? 1) < MAX_ROUNDS
@@ -257,7 +301,7 @@ export function nextChapter(job: ModernJob, now: number, owner?: string): number
     if (c.held?.length && (c.heldUntil ?? 0) > now && c.state === 'queued' && c.waitingOnHeld) continue
     if (c.state === 'queued' || !leaseLive(c, now) || heldBy(c, owner, now)) return n
   }
-  return job.chapters.find(c => retryable(c, now))?.number ?? null
+  return job.chapters.find(c => retryable(c, now) || stranded(c))?.number ?? null
 }
 
 /**
@@ -487,8 +531,13 @@ export interface ChunkInput {
   /** These paragraphs came back unchanged before: ask again, singly or a few at a time, more firmly. */
   retry?: boolean
 }
-/** Returns the modern paragraphs (unchecked), or null on failure. */
-export type ModernGenerator = (input: ChunkInput) => Promise<unknown>
+/** What one provider call used and cost (costUsd settled on xAI's cost_in_usd_ticks when sent, else tokens at the text rates). */
+export interface ModernUsage { costUsd: number; inputTokens: number; outputTokens: number; model?: string }
+/**
+ * Returns the modern paragraphs (unchecked), or null on failure. `meter` is
+ * told what each provider call cost, whether or not its reply is usable.
+ */
+export type ModernGenerator = (input: ChunkInput, meter?: (usage: ModernUsage) => void) => Promise<unknown>
 
 /** The rules of books/AGENTS.md "Modern English", as the model's instructions. */
 const MODERN_JSON_REPLY = 'Reply with JSON only: {"paragraphs": ["...", "..."]}, one string per source paragraph, without the numbers.'
@@ -542,13 +591,14 @@ export const XAI_MODERN_MODEL = 'grok-4-fast-non-reasoning'
  */
 export function xaiModernGenerator(apiKey: string, options: { model?: string; fetchImpl?: typeof fetch; timeoutMs?: number; format?: 'json' | 'text' } = {}): ModernGenerator {
   const fetchImpl = options.fetchImpl ?? fetch
-  return async input => {
+  const model = options.model || XAI_MODERN_MODEL
+  return async (input, meter) => {
     // Provider trouble is thrown (ModernProviderError) so it is told from a bad reply; a reply with no paragraphs is null.
     const response = await fetchImpl('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({
-        model: options.model || XAI_MODERN_MODEL,
+        model,
         temperature: 0.5,
         max_tokens: modernMaxTokens(input),
         ...(textMode(input, options.format) ? {} : { response_format: { type: 'json_object' } }),
@@ -567,8 +617,17 @@ export function xaiModernGenerator(apiKey: string, options: { model?: string; fe
     if (!response.ok) throw new ModernProviderError('provider_error')
     let content: string | undefined
     try {
-      const data = await response.json() as { choices?: Array<{ message?: { content?: string } }> }
+      const data = await response.json() as { model?: string; choices?: Array<{ message?: { content?: string } }>; usage?: { prompt_tokens?: number; completion_tokens?: number; cost_in_usd_ticks?: number } }
       content = data.choices?.[0]?.message?.content
+      // Billed whether or not the reply is usable: settled on xAI's own figure (lib/aiUsage.ts).
+      if (data.usage && meter) {
+        meter({
+          costUsd: xaiReportedCostUsd(data.usage),
+          inputTokens: Math.max(0, Math.floor(Number(data.usage.prompt_tokens) || 0)),
+          outputTokens: Math.max(0, Math.floor(Number(data.usage.completion_tokens) || 0)),
+          model: typeof data.model === 'string' && data.model ? data.model : model,
+        })
+      }
     } catch (error) {
       const name = (error as { name?: string } | null)?.name
       if (name === 'TimeoutError' || name === 'AbortError') throw new ModernProviderError('timeout')
@@ -697,11 +756,12 @@ export async function updateJob(
   throw new Error('modern job contended')
 }
 
-/** Remove a checkout hold that never became a session (only if it is still that hold). */
-export async function releaseHold(bucket: R2Like, bookId: string, holdId: string): Promise<void> {
+/** Remove a checkout hold that never became a session (only if it is still that hold). Returns the hold removed (its reservation is the caller's to give back). */
+export async function releaseHold(bucket: R2Like, bookId: string, holdId: string): Promise<ModernJob | null> {
   const current = await readJob(bucket, bookId)
-  if (!current || current.job.state !== 'checkout' || current.job.sessionId !== holdId) return
+  if (!current || current.job.state !== 'checkout' || current.job.sessionId !== holdId) return null
   await bucket.delete(jobKey(bookId))
+  return current.job
 }
 
 export interface SourceChapter {
@@ -743,24 +803,40 @@ export async function releaseRunner(bucket: R2Like, bookId: string, owner: strin
   })
 }
 
+/** What one step's provider call cost, for the ledger (routes/publicBookModern.ts). Book text and progress only. */
+export interface ModernCost { chapter: number; costUsd: number; inputTokens: number; outputTokens: number; model: string | null; estimated: boolean }
+
+const roundUsd = (usd: number) => Math.round(usd * 1e8) / 1e8
+
+/** [start, end) runs holding every index of `runs` and `indices`. */
+export function mergeRuns(runs: Array<[number, number]> | undefined, indices: number[]): Array<[number, number]> {
+  const all = new Set(indices)
+  for (const [a, b] of runs ?? []) for (let i = a; i < b; i++) all.add(i)
+  if (!all.size) return []
+  const slots = Array.from({ length: Math.max(...all) + 1 }, (_, i) => (all.has(i) ? '' : null))
+  return writtenRanges(slots)
+}
+
 /**
  * One step of work on a book: claim the next chapter (keeping `owner`'s own
  * chapter), write one chunk, save it. Returns what happened, so callers can
- * loop until 'idle' or a deadline.
+ * loop until 'idle' or a deadline. What the step's call cost is added to the
+ * job's costUsd and told to `onCost` (the ledger).
  */
 export async function modernStep(
   bucket: R2Like,
-  input: { bookId: string; title: string; author: string; source: () => Promise<SourceChapter[]>; generate: ModernGenerator; now: () => number; owner?: string },
+  input: { bookId: string; title: string; author: string; source: () => Promise<SourceChapter[]>; generate: ModernGenerator; now: () => number; owner?: string; onCost?: (cost: ModernCost) => void },
 ): Promise<'idle' | 'progress' | 'chapter-ready' | 'complete' | 'failed' | 'backoff' | 'smaller' | 'held'> {
   const { bookId } = input
   const owner = input.owner ?? crypto.randomUUID()
-  const pick: { n: number | null } = { n: null }
+  const pick: { n: number | null; stranded: boolean } = { n: null, stranded: false }
   const claim = await updateJob(bucket, bookId, job => {
     if (!job) return null
     const at = input.now()
     const n = nextChapter(job, at, owner)
     if (n === null) return null
     pick.n = n
+    pick.stranded = job.chapters.some(c => c.number === n && stranded(c))
     return {
       ...job, updatedAt: at,
       chapters: job.chapters.map(c => {
@@ -777,11 +853,44 @@ export async function modernStep(
   const n = pick.n
   const chapters = await input.source()
   const chapter = chapters.find(c => c.number === n)
-  const update = (patch: (c: ModernJobChapter) => ModernJobChapter, pace?: { words: number; ms: number }) => updateJob(bucket, bookId, job => job ? {
-    ...job, updatedAt: input.now(),
-    ...(pace ? { pace: addPace(job.pace, pace.words, pace.ms) } : {}),
-    chapters: withSizes(job.chapters, chapters).map(c => c.number === n && c.state !== 'ready' ? patch(c) : c),
-  } : null)
+
+  // Spend: this step's call, added to the job once, with the first job write after it.
+  let stepCost = 0
+  let charged = false
+  /** Set when paragraphs of this chapter are written in the original text: the job is flagged for review. */
+  let review = false
+  const bookExpected = claim.job?.expectedUsd ?? modernBookExpectedUsd(chapters.reduce((sum, c) => sum + c.paragraphs.reduce((a, p) => a + wordsOf(p), 0), 0))
+  const jobFields = (job: ModernJob, at: number): Partial<ModernJob> => ({
+    ...(stepCost > 0 && !charged ? { costUsd: roundUsd((job.costUsd ?? 0) + stepCost) } : {}),
+    ...(review ? { review: { at, chapters: [...new Set([...(job.review?.chapters ?? []), n])].sort((a, b) => a - b) } } : {}),
+  })
+  const flagged = async () => { if (review) await bucket.put(MODERN_REVIEW_PREFIX + bookId, '', {}) }
+  const update = async (patch: (c: ModernJobChapter) => ModernJobChapter, pace?: { words: number; ms: number }) => {
+    const result = await updateJob(bucket, bookId, job => {
+      if (!job) return null
+      const at = input.now()
+      return {
+        ...job, updatedAt: at, ...jobFields(job, at),
+        ...(pace ? { pace: addPace(job.pace, pace.words, pace.ms) } : {}),
+        chapters: withSizes(job.chapters, chapters).map(c => c.number === n && c.state !== 'ready' ? patch(c) : c),
+      }
+    })
+    if (result.wrote) { charged = true; await flagged() }
+    return result
+  }
+  const finish = async (released: { job: ModernJob | null }) => {
+    if (jobComplete(released.job)) {
+      await finishEdition(bucket, bookId, chapters, input.now())
+      return 'complete' as const
+    }
+    return 'chapter-ready' as const
+  }
+
+  if (!chapter && pick.stranded) {
+    // Nothing to write it from, and no retry to come: the chapter is done as it is.
+    review = true
+    return finish(await update(c => ({ ...unlease(c, 'ready'), attempts: 0, fallback: [[0, c.total ?? 0]] })))
+  }
 
   const partRead = chapter ? await readJson<{ paragraphs?: unknown[] }>(bucket, partKey(bookId, n)) : null
   const saved = partRead?.value.paragraphs ?? []
@@ -791,20 +900,19 @@ export async function modernStep(
   const focus = record?.focus ?? 0
   const begun = input.now()
   // Held paragraphs (handed back unchanged again and again) are skipped until their wait is
-  // over; then they are asked for again, at most HELD_MAX_ROUNDS times, never written as they are.
+  // over; then they are asked for again, at most HELD_MAX_ROUNDS times, never as Modern English
+  // when they come back as they are: after that they are written in the original text (fallback).
   const heldActive = new Set((record?.heldUntil ?? 0) > begun ? record?.held ?? [] : [])
   const reopening = !!record?.held?.length && heldActive.size === 0
-  if (reopening && (record?.heldRounds ?? 0) + 1 > HELD_MAX_ROUNDS) {
-    await update(c => c.leaseBy && c.leaseBy !== owner ? c : {
-      ...unlease(c, 'failed'), lastFailure: { reason: 'echo', at: begun }, waitingOnHeld: false,
-    })
-    return 'failed'
-  }
+  /** Paragraphs written in the original text this step. */
+  let fallbackIdx: number[] = []
+  if (chapter && reopening && (record?.heldRounds ?? 0) + 1 > HELD_MAX_ROUNDS) fallbackIdx = record!.held!.filter(i => i >= 0 && i < slots.length && slots[i] === null)
+  else if (chapter && pick.stranded) fallbackIdx = slots.flatMap((text, i) => (text === null ? [i] : []))
   const unchanged: Record<string, number> = { ...(record?.unchanged ?? {}) }
   if (reopening) for (const i of record!.held!) unchanged[i] = HOLD_AFTER_UNCHANGED - 1
   // For choosing the chunk only: written and held paragraphs both stop it.
   const taken: Slots = slots.map((text, i) => text ?? (heldActive.has(i) ? '' : null))
-  const start = chapter ? chunkStart(chapter.paragraphs.length, taken, focus) : null
+  const start = chapter && !fallbackIdx.length ? chunkStart(chapter.paragraphs.length, taken, focus) : null
   // A paragraph that came back unchanged is asked for again on its own (or a few together), firmly.
   const retry = start !== null && (unchanged[start] ?? 0) > 0
 
@@ -816,7 +924,14 @@ export async function modernStep(
   let provider: ModernProviderError | null = null
   let chunk: string[] = []
   let ms = 0
-  if (chapter) {
+  let metered = false
+  const meter = (usage: ModernUsage) => {
+    const usd = Math.max(0, Number(usage?.costUsd) || 0)
+    stepCost += usd
+    metered = true
+    try { input.onCost?.({ chapter: n, costUsd: usd, inputTokens: Math.max(0, usage.inputTokens || 0), outputTokens: Math.max(0, usage.outputTokens || 0), model: usage.model ?? null, estimated: false }) } catch { /* the ledger never fails a step */ }
+  }
+  if (chapter && !fallbackIdx.length) {
     if (start !== null) {
       if (retry) {
         for (let i = start; i < chapter.paragraphs.length && chunk.length < RETRY_GROUP && taken[i] === null && (unchanged[i] ?? 0) > 0; i++) chunk.push(chapter.paragraphs[i])
@@ -825,7 +940,7 @@ export async function modernStep(
       }
       const began = input.now()
       try {
-        raw = await input.generate({ title: input.title, author: chapter.author || input.author, chapterTitle: chapter.title, paragraphs: chunk, ...(retry ? { retry: true } : {}) })
+        raw = await input.generate({ title: input.title, author: chapter.author || input.author, chapterTitle: chapter.title, paragraphs: chunk, ...(retry ? { retry: true } : {}) }, meter)
       } catch (error) {
         if (error instanceof ModernProviderError) provider = error
         else failure = 'provider_error'
@@ -845,10 +960,21 @@ export async function modernStep(
       verdicts = []
     }
   }
+  const chunkExpected = chunk.length ? modernChunkExpectedUsd(chunk.reduce((sum, p) => sum + wordsOf(p), 0)) : 0
+  if (provider?.reason === 'timeout' && !metered && chunk.length) {
+    // A call cut off by its timeout may still be billed and reports nothing: counted at its expected cost.
+    stepCost += chunkExpected
+    try { input.onCost?.({ chapter: n, costUsd: chunkExpected, inputTokens: 0, outputTokens: 0, model: null, estimated: true }) } catch { /* as above */ }
+  }
+  const spentHere = roundUsd((record?.spentHere ?? 0) + stepCost)
+  /** This chunk alone has cost too much, or the book has: a failing chunk is not tried again. */
+  const overChunk = chunk.length > 0 && spentHere > CHUNK_COST_CAP * chunkExpected
+  const overBook = (claim.job?.costUsd ?? 0) + stepCost > BOOK_SOFT_BUDGET * bookExpected
   // Each paragraph on its own: rewritten ones (and short lines kept as they are) are written;
-  // a long paragraph handed back is not, and after HOLD_AFTER_UNCHANGED times it is held.
+  // a long paragraph handed back is not, and after HOLD_AFTER_UNCHANGED times it is held
+  // (or, past the book's soft budget, written in the original text at once).
   let accepted = 0
-  const newlyHeld: number[] = []
+  let newlyHeld: number[] = []
   if (verdicts && start !== null) {
     verdicts.forEach((v, k) => {
       const i = start + k
@@ -858,58 +984,79 @@ export async function modernStep(
         if (unchanged[i] >= HOLD_AFTER_UNCHANGED) newlyHeld.push(i)
       }
     })
-    if (chunk.length && !accepted && !newlyHeld.length) failure = verdicts.some(v => v.verdict === 'unchanged') ? 'echo' : 'validation'
+    if (overBook && newlyHeld.length) { fallbackIdx = newlyHeld; newlyHeld = [] }
+    if (chunk.length && !accepted && !newlyHeld.length && !fallbackIdx.length) failure = verdicts.some(v => v.verdict === 'unchanged') ? 'echo' : 'validation'
   }
-  const output = verdicts && !failure ? verdicts : null
   const failedAt = input.now()
   if (provider && (provider.reason === 'provider_429' || provider.reason === 'provider_5xx')) {
     // The provider's limit or outage, not this chapter's fault: the book backs off (honouring
     // Retry-After), runs one chapter at a time for a while after a 429, and no attempt is counted.
     const limited = provider.reason === 'provider_429'
     const wait = provider.retryAfterMs ?? (limited ? BACKOFF_429_MS : BACKOFF_5XX_MS)
-    await updateJob(bucket, bookId, job => job ? {
-      ...job, updatedAt: failedAt,
+    const backedOff = await updateJob(bucket, bookId, job => job ? {
+      ...job, updatedAt: failedAt, ...jobFields(job, failedAt),
       backoffUntil: Math.max(job.backoffUntil ?? 0, failedAt + wait),
       ...(limited ? { slowUntil: failedAt + SLOW_AFTER_429_MS } : {}),
       chapters: job.chapters.map(c => c.number === n && c.state !== 'ready' && (!c.leaseBy || c.leaseBy === owner)
         ? { ...unlease(c, 'queued'), lastFailure: { reason: provider!.reason, at: failedAt } }
         : c),
     } : null)
+    if (backedOff.wrote) charged = true
     return 'backoff'
   }
-  if (!chapter || output === null) {
-    const reason: ModernFailure = failure ?? 'parse'
-    const lastReject = { reason, chunkWords: limit, sample: (typeof raw === 'string' ? raw : JSON.stringify(raw) ?? '').slice(0, 200), at: failedAt }
-    if (reason === 'echo' && !retry && limit > OPENING_WORDS && chunk.length > 1) {
+  const reason: ModernFailure = failure ?? 'parse'
+  const lastReject = { reason, chunkWords: limit, sample: (typeof raw === 'string' ? raw : JSON.stringify(raw) ?? '').slice(0, 200), at: failedAt }
+  /** This failure would use the chunk's last attempt of its last round. */
+  const lastAttempt = (record?.attempts ?? 0) + 1 >= MAX_ATTEMPTS && (record?.rounds ?? 0) + 1 >= MAX_ROUNDS
+  const halving = reason === 'echo' && !retry && limit > OPENING_WORDS && chunk.length > 1
+  if (chapter && failure && start !== null && chunk.length && (overChunk || overBook || (!halving && lastAttempt))) {
+    // Not tried again: this chunk is written in the original text, so the paid book completes.
+    fallbackIdx = chunk.map((_, k) => start + k)
+    failure = null
+  }
+  if (fallbackIdx.length) {
+    review = true
+    for (const i of fallbackIdx) { slots[i] = chapter!.paragraphs[i]; delete unchanged[i] }
+    accepted += fallbackIdx.length
+  }
+  if (!chapter || failure) {
+    if (halving) {
       // Handed back at this size: the same place again at half the size (down to OPENING_WORDS,
       // where the opening chunks were rendered); only an echo at the smallest size counts.
       await update(c => c.leaseBy && c.leaseBy !== owner ? c : {
-        ...unlease(c, 'queued'), chunkWords: Math.max(OPENING_WORDS, Math.floor(limit / 2)), lastFailure: { reason, at: failedAt }, lastReject, unchanged,
+        ...unlease(c, 'queued'), chunkWords: Math.max(OPENING_WORDS, Math.floor(limit / 2)), lastFailure: { reason, at: failedAt }, lastReject, unchanged, spentHere,
       })
       return 'smaller'
+    }
+    if (!chapter && lastAttempt) {
+      // The source has no such chapter: after its last attempt it is done as it is.
+      review = true
+      return finish(await update(c => c.leaseBy && c.leaseBy !== owner ? c : { ...unlease(c, 'ready'), attempts: 0, lastFailure: { reason, at: failedAt }, fallback: [[0, c.total ?? 0]] }))
     }
     await update(c => {
       // Another runner has the chapter now: its claim is left alone.
       if (c.leaseBy && c.leaseBy !== owner) return c
       const attempts = c.attempts + 1
       const lastFailure = { reason, at: failedAt }
-      if (attempts < MAX_ATTEMPTS) return { ...unlease(c, 'queued'), attempts, lastFailure, lastReject, unchanged }
+      if (attempts < MAX_ATTEMPTS) return { ...unlease(c, 'queued'), attempts, lastFailure, lastReject, unchanged, spentHere }
       const rounds = (c.rounds ?? 0) + 1
-      return { ...unlease(c, 'failed'), attempts, rounds, lastFailure, lastReject, ...(rounds < MAX_ROUNDS ? { retryAt: failedAt + FAILED_RETRY_MS } : {}) }
+      return { ...unlease(c, 'failed'), attempts, rounds, lastFailure, lastReject, spentHere, ...(rounds < MAX_ROUNDS ? { retryAt: failedAt + FAILED_RETRY_MS } : {}) }
     })
     return 'failed'
   }
-  const held = [...new Set([...heldActive, ...newlyHeld])].sort((x, y) => x - y)
+  const fellBack = new Set(fallbackIdx)
+  const held = [...new Set([...heldActive, ...newlyHeld])].filter(i => !fellBack.has(i)).sort((x, y) => x - y)
   const heldUntil = held.length ? Math.max(heldActive.size ? record?.heldUntil ?? 0 : 0, newlyHeld.length ? input.now() + HELD_RETRY_MS : 0) : undefined
   const heldState = {
     unchanged, held, waitingOnHeld: false,
     ...(heldUntil ? { heldUntil } : {}),
     ...(reopening ? { heldRounds: (record?.heldRounds ?? 0) + 1 } : {}),
   }
+  const withFallback = (c: ModernJobChapter) => (fallbackIdx.length ? { fallback: mergeRuns(c.fallback, fallbackIdx) } : {})
   if (chunk.length && !accepted) {
     // Nothing new written, only paragraphs held: the part file stays as it is.
     await update(c => c.leaseBy && c.leaseBy !== owner ? c : {
-      ...c, ...heldState, ...(c.leaseBy === owner ? { leaseUntil: input.now() + LEASE_MS } : {}),
+      ...c, ...heldState, spentHere, ...(c.leaseBy === owner ? { leaseUntil: input.now() + LEASE_MS } : {}),
     })
     return 'held'
   }
@@ -918,16 +1065,20 @@ export async function modernStep(
   const put = await bucket.put(partKey(bookId, n), JSON.stringify({ paragraphs: slots }), {
     ...JSON_META, onlyIf: partRead ? { etagMatches: partRead.etag } : { etagDoesNotMatch: '*' },
   })
-  if (!put) return 'progress'
-  const words = chapter.paragraphs.map(wordsOf)
-  const sizes = { total: chapter.paragraphs.length, words: words.reduce((a, b) => a + b, 0) }
+  if (!put) {
+    // Dropped, but paid for: the cost is still counted.
+    if (stepCost > 0) { review = false; await update(c => c) }
+    return 'progress'
+  }
+  const words = chapter!.paragraphs.map(wordsOf)
+  const sizes = { total: chapter!.paragraphs.length, words: words.reduce((a, b) => a + b, 0) }
   const wordsDone = words.reduce((sum, w, i) => typeof slots[i] === 'string' ? sum + w : sum, 0)
-  const pace = { words: chunk.reduce((sum, p) => sum + wordsOf(p), 0), ms }
+  const pace = fallbackIdx.length ? undefined : { words: chunk.reduce((sum, p) => sum + wordsOf(p), 0), ms }
   if (slots.some(s => typeof s !== 'string')) {
     const ranges = writtenRanges(slots)
     // Keep the claim (renewed) while the chapter is still being written, unless another runner has it now.
     await update(c => ({
-      ...c, ...sizes, ...(accepted ? { attempts: 0 } : {}), wordsDone, ranges, ...heldState,
+      ...c, ...sizes, ...(accepted ? { attempts: 0 } : {}), wordsDone, ranges, ...heldState, ...withFallback(c), spentHere: 0,
       ...(heldUntil ? {} : { heldUntil: undefined }),
       // A chunk size cut after an echo grows back a quarter with each chunk written.
       ...(!retry && c.chunkWords !== undefined && c.chunkWords < CHUNK_WORDS ? { chunkWords: Math.min(CHUNK_WORDS, Math.round(c.chunkWords * 1.25)) } : {}),
@@ -935,17 +1086,12 @@ export async function modernStep(
     }), pace)
     return 'progress'
   }
-  await bucket.put(chapterKey(bookId, n), JSON.stringify({ number: n, title: chapter.title, paragraphs: slots }), JSON_META)
+  await bucket.put(chapterKey(bookId, n), JSON.stringify({ number: n, title: chapter!.title, paragraphs: slots }), JSON_META)
   await bucket.delete(partKey(bookId, n))
-  const released = await update(c => {
-    const { ranges: _ranges, focus: _focus, unchanged: _unchanged, held: _held, heldUntil: _heldUntil, waitingOnHeld: _waiting, ...rest } = unlease(c, 'ready')
-    return { ...rest, ...sizes, attempts: 0, wordsDone: sizes.words }
-  }, pace)
-  if (jobComplete(released.job)) {
-    await finishEdition(bucket, bookId, chapters, input.now())
-    return 'complete'
-  }
-  return 'chapter-ready'
+  return finish(await update(c => {
+    const { ranges: _ranges, focus: _focus, unchanged: _unchanged, held: _held, heldUntil: _heldUntil, waitingOnHeld: _waiting, spentHere: _spent, ...rest } = unlease(c, 'ready')
+    return { ...rest, ...sizes, ...withFallback(c), attempts: 0, wordsDone: sizes.words }
+  }, pace))
 }
 
 /** Every chapter is ready: write the whole edition once and drop the work marker. */

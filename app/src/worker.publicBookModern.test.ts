@@ -52,8 +52,12 @@ import {
   updateJob,
   validChunk,
   workOrder,
+  jobComplete,
   type ModernGenerator,
 } from './worker/lib/modernEdition'
+import { modernBookExpectedUsd, modernChunkExpectedUsd } from './worker/lib/modernBudget'
+import { AI_PRICING, xaiReportedCostUsd } from './worker/lib/aiUsage'
+import { NEVER_CHARGED_AI_FEATURES, isPaidAiFeature } from './worker/lib/aiAllowance'
 
 const USER = '11111111-1111-4111-8111-111111111111'
 const OTHER = '22222222-2222-4222-8222-222222222222'
@@ -105,14 +109,42 @@ function seed(r2: ReturnType<typeof fakeBucket>, wordCount = 60_000) {
 /** Echo "generator": keeps every paragraph (with a marker), as a model would return them. */
 const modernise: ModernGenerator = async input => input.paragraphs.map(p => `[m] ${p}`)
 
+/**
+ * NarrationCoordinator stand-in (reserve / refund / usage by object name), as
+ * the Durable Object counts them: micro-dollars per day row.
+ */
+function fakeSpend() {
+  const rows = new Map<string, Map<string, number>>()
+  const of = (name: string) => { if (!rows.has(name)) rows.set(name, new Map()); return rows.get(name)! }
+  const namespace = {
+    getByName: (name: string) => ({
+      async reserve(day: string, amount: number, daily: number, monthly: number) {
+        const object = of(name)
+        const total = [...object.values()].reduce((a, b) => a + b, 0)
+        if (!Number.isSafeInteger(amount) || amount <= 0 || (object.get(day) ?? 0) + amount > daily || total + amount > monthly) return false
+        object.set(day, (object.get(day) ?? 0) + amount)
+        return true
+      },
+      async refund(day: string, amount: number) { const object = of(name); if (object.has(day)) object.set(day, Math.max(0, object.get(day)! - amount)) },
+      async usage() { return [...of(name).entries()].map(([day, bytes]) => ({ day, bytes })) },
+    }),
+  }
+  const total = (name: string) => [...of(name).values()].reduce((a, b) => a + b, 0)
+  return { namespace: namespace as unknown as DurableObjectNamespace, total, rows }
+}
+
 const PRICES = { STRIPE_PRICE_MODERN_T1: 'price_t1', STRIPE_PRICE_MODERN_T2: 'price_t2', STRIPE_PRICE_MODERN_T3: 'price_t3', STRIPE_PRICE_MODERN_T4: 'price_t4' }
 
-function setup(options: { switchOn?: boolean; prices?: Record<string, string>; now?: { t: number }; generator?: ModernGenerator; stripeFails?: boolean } = {}) {
+function setup(options: { switchOn?: boolean; prices?: Record<string, string>; now?: { t: number }; generator?: ModernGenerator; stripeFails?: boolean; monthlyUsd?: string; noSpend?: boolean } = {}) {
   const r2 = fakeBucket()
   seed(r2)
   const clock = options.now ?? { t: Date.UTC(2026, 9, 6) }
+  const spend = fakeSpend()
   const env = {
     AUDIO_BUCKET: r2.bucket, ASSETS: { fetch: async () => new Response('') },
+    ...(options.noSpend ? {} : { NARRATION_COORDINATOR: spend.namespace }),
+    ...(options.monthlyUsd ? { MODERN_EDITION_MONTHLY_USD: options.monthlyUsd } : {}),
+    SUPABASE_URL: undefined as string | undefined, SUPABASE_SERVICE_ROLE_KEY: undefined as string | undefined,
     STRIPE_SECRET_KEY: 'sk_test_x', XAI_API_KEY: undefined as string | undefined,
     ...(options.switchOn === false ? {} : { PUBLIC_BOOK_MODERN_EDITIONS: '1' }),
     ...(options.prices ?? PRICES),
@@ -166,7 +198,7 @@ function setup(options: { switchOn?: boolean; prices?: Record<string, string>; n
   const status = async () => (await call(`/api/public-books/${BOOK}/modern-en`)).json() as Promise<{ state: string; chapters: Record<string, string>; offer: { tier: number; cents: number } | null }>
   const buy = (token: string, chapter = 3) => call(`/api/public-books/${BOOK}/modern-en/checkout`, { token, json: { chapter } })
   const grant = (sessionId: string, metadata: Record<string, string> = {}) => grantModernEdition(env, { id: sessionId, payment_intent: `pi_${sessionId}`, metadata: { type: 'modern_edition', book_id: BOOK, tier: '2', chapter: '3', supabase_user_id: USER, ...metadata } }, { now: () => clock.t, generator, stripeFetch, waitUntil: p => { waits.push(p) } })
-  return { r2, env, deps, clock, stripe, call, status, buy, grant, calls, generator, waits }
+  return { r2, env, deps, clock, stripe, call, status, buy, grant, calls, generator, waits, spend }
 }
 
 afterEach(() => vi.unstubAllGlobals())
@@ -595,7 +627,8 @@ describe('generation', () => {
 
   it('retries a failed chapter and leaves it in the original text after MAX_ATTEMPTS', async () => {
     const t = setup({ generator: async () => ['too short'] })
-    await t.grant('cs_a')
+    // Granted without the request's own burst: these steps are the only runner (no race over the claim).
+    await grantQuiet(t)
     const step = () => modernStep(t.r2.bucket, { bookId: BOOK, title: 'T', author: 'A', source: async () => SOURCE, generate: t.generator, now: () => t.clock.t })
     for (let i = 0; i < MAX_ATTEMPTS; i++) expect(await step()).toBe('failed')
     const job = (await readJob(t.r2.bucket, BOOK))!.job
@@ -794,13 +827,25 @@ describe('long chapters', () => {
     expect(await stepOf(t)).toBe('idle')
     t.clock.t += FAILED_RETRY_MS
     expect(nextChapter(job, t.clock.t)).toBe(3)
-    for (let round = 2; round <= MAX_ROUNDS; round++) {
+    for (let round = 2; round < MAX_ROUNDS; round++) {
       for (let i = 0; i < MAX_ATTEMPTS; i++) expect(await stepOf(t)).toBe('failed')
       t.clock.t += FAILED_RETRY_MS
     }
+    // The last attempt of the last round is not a failure (2026-10-10, a paid book always
+    // finishes): the chunk is written in the original text, recorded, and the job flagged.
+    for (let i = 0; i < MAX_ATTEMPTS - 1; i++) expect(await stepOf(t)).toBe('failed')
+    expect(await stepOf(t)).toBe('progress')
     job = (await readJob(t.r2.bucket, BOOK))!.job
-    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'failed', rounds: MAX_ROUNDS })
-    expect(nextChapter(job, t.clock.t + FAILED_RETRY_MS)).toBeNull()
+    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'preparing', rounds: MAX_ROUNDS - 1, fallback: [[0, 3]] })
+    expect(job.review).toMatchObject({ chapters: [3] })
+    let result = ''
+    // The runner that wrote it keeps the chapter; once its lease lapses one runner goes on to the end.
+    t.clock.t += LEASE_MS + 1
+    for (let i = 0; i < 100 && result !== 'complete'; i++) result = await stepOf(t, 'runner-a')
+    expect(result).toBe('complete')
+    job = (await readJob(t.r2.bucket, BOOK))!.job
+    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'ready', fallback: [[0, LONG.length]] })
+    expect(t.r2.json(`public-books/${BOOK}/modern-en/ch-3.json`).paragraphs).toEqual(LONG)
   })
 
   it('reports progress and an estimate from the pace so far, book-level only', async () => {
@@ -1278,7 +1323,7 @@ describe('accepted paragraph by paragraph', () => {
     expect(shortLine(GORGIAS_TEXT.dialogue[4])).toBe(false)
   })
 
-  it('a paragraph that is never rewritten is held: the chapter waits, is asked again later, and never completes with the original', async () => {
+  it('a paragraph that is never rewritten is held: the chapter waits, is asked again later, and is never written as Modern English', async () => {
     const stubborn = GORGIAS_TEXT.introduction[2]
     const generator: ModernGenerator = async input => input.paragraphs.map(p => p === stubborn ? p : `[m] ${p}`)
     const t = setup({ generator, switchOn: false })
@@ -1304,11 +1349,16 @@ describe('accepted paragraph by paragraph', () => {
       for (let i = 0; i < HOLD_AFTER_UNCHANGED + 1; i++) await step(t, generator)
     }
     t.clock.t += HELD_RETRY_MS
-    expect(await step(t, generator)).toBe('failed')
+    // Out of rounds (2026-10-10, a paid book always finishes): the paragraph is written in the
+    // original text without another call, recorded as such, and the job flagged for review.
+    let calls = 0
+    expect(await step(t, async input => { calls++; return generator(input) })).toBe('complete')
+    expect(calls).toBe(0)
     four = (await readJob(t.r2.bucket, BOOK))!.job.chapters.find(c => c.number === 4)!
-    expect(four.state).toBe('failed')
-    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en/ch-4.json`)).toBe(false)
-    expect(t.r2.objects.has(`public-books/${BOOK}/modern-en.json`)).toBe(false)
+    expect(four).toMatchObject({ state: 'ready', fallback: [[2, 3]] })
+    expect((await readJob(t.r2.bucket, BOOK))!.job.review).toMatchObject({ chapters: [4] })
+    expect(t.r2.json(`public-books/${BOOK}/modern-en/ch-4.json`).paragraphs[2]).toBe(stubborn)
+    expect(t.r2.objects.has(`public-books/modern-review/${BOOK}`)).toBe(true)
   })
 
   it('a chunk counts as a failed attempt only when nothing new was accepted', async () => {
@@ -1344,5 +1394,206 @@ describe('accepted paragraph by paragraph', () => {
     expect(numberedParagraphs('[1] One.\n\n[3] Three.')).toBeNull()
     expect(numberedParagraphs('Sure! [1] One.')).toBeNull()
     expect(parseModernReply('[1] One.\n\n[2] Two.')).toEqual(['One.', 'Two.'])
+  })
+})
+
+// ===== Spend: metering, retry fallback, soft budget, monthly ceiling (Anders, 2026-10-10) =====
+
+describe('spend: metered, bounded, and a paid book always finishes', () => {
+  const MONTH = 'modern-budget:2026-10'
+  const expectedMicros = Math.round(modernBookExpectedUsd(60_000) * 1_000_000)
+  /** A generator that writes every chunk and reports `usd` per call, as xaiModernGenerator does. */
+  const costing = (usd: number, inner: ModernGenerator = modernise): ModernGenerator => async (input, meter) => {
+    meter?.({ costUsd: usd, inputTokens: 1000, outputTokens: 1000, model: 'grok-4.3' })
+    return inner(input)
+  }
+  const ticking = (t: ReturnType<typeof setup>) => () => t.clock.t++
+  const runBook = (t: ReturnType<typeof setup>, generate: ModernGenerator) => runModernBook(t.env, BOOK, { deadline: t.clock.t + 1_000_000, generate, now: ticking(t) })
+  const jobOf = async (t: ReturnType<typeof setup>) => (await readJob(t.r2.bucket, BOOK))!.job
+  const diagnosticsOf = async (t: ReturnType<typeof setup>) => (await handleModernDiagnostics(new Request(`https://tinct.app/api/admin/modern-diagnostics?book=${BOOK}`), t.env, async () => true)).json() as Promise<Record<string, unknown> & { chapters: Array<Record<string, unknown>> }>
+
+  it('settles each call on xAI’s reported cost_in_usd_ticks, and on tokens at $1.25 / $2.50 per million without it', async () => {
+    const reply = (usage: Record<string, unknown>) => vi.fn(async () => Response.json({ model: 'grok-4.3', choices: [{ message: { content: JSON.stringify({ paragraphs: ['[m] a'] }) } }], usage }))
+    const metered: unknown[] = []
+    const reported = xaiModernGenerator('k', { fetchImpl: reply({ prompt_tokens: 2039, completion_tokens: 444, cost_in_usd_ticks: 35243500 }) as unknown as typeof fetch })
+    expect(await reported({ title: 'T', author: 'A', chapterTitle: 'C', paragraphs: ['a'] }, usage => metered.push(usage))).toEqual(['[m] a'])
+    const tokens = xaiModernGenerator('k', { fetchImpl: reply({ prompt_tokens: 1000, completion_tokens: 2000 }) as unknown as typeof fetch })
+    await tokens({ title: 'T', author: 'A', chapterTitle: 'C', paragraphs: ['a'] }, usage => metered.push(usage))
+    expect(metered).toEqual([
+      { costUsd: 0.00352435, inputTokens: 2039, outputTokens: 444, model: 'grok-4.3' },
+      { costUsd: 0.00625, inputTokens: 1000, outputTokens: 2000, model: 'grok-4.3' },
+    ])
+    expect(xaiReportedCostUsd({ prompt_tokens: 1_000_000, completion_tokens: 1_000_000 })).toBe(3.75)
+    expect(AI_PRICING.xai.textInputPerMTok).toBe(1.25)
+    expect(AI_PRICING.xai.textOutputPerMTok).toBe(2.5)
+    // A reply billed but unreadable is still counted.
+    const garbled = xaiModernGenerator('k', { fetchImpl: vi.fn(async () => Response.json({ choices: [{ message: { content: 'no paragraphs here' } }], usage: { cost_in_usd_ticks: 10_000_000 } })) as unknown as typeof fetch })
+    const seen: Array<{ costUsd: number }> = []
+    expect(await garbled({ title: 'T', author: 'A', chapterTitle: 'C', paragraphs: ['a'] }, usage => seen.push(usage))).toBeNull()
+    expect(seen[0].costUsd).toBe(0.001)
+  })
+
+  it('keeps a running costUsd on the job, shown to admins', async () => {
+    const t = setup({ switchOn: false })
+    await grantQuiet(t)
+    await runBook(t, costing(0.01))
+    const job = await jobOf(t)
+    expect(jobComplete(job)).toBe(true)
+    expect(job.costUsd).toBeCloseTo(0.05, 6)
+    expect(job.expectedUsd).toBeCloseTo(modernBookExpectedUsd(60_000), 6)
+    const diagnostics = await diagnosticsOf(t)
+    expect(diagnostics).toMatchObject({ costUsd: job.costUsd, expectedUsd: job.expectedUsd, review: null })
+    // Never in the public status.
+    expect(JSON.stringify(await t.status())).not.toContain('costUsd')
+  })
+
+  it('writes one never-charged ledger row per chunk: feature modern_edition, no reader on it', async () => {
+    const inserts: Array<Record<string, unknown>> = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).includes('/rest/v1/ai_usage_events')) inserts.push(JSON.parse(String(init?.body)))
+      return new Response(null, { status: 201 })
+    }))
+    const t = setup({ switchOn: false })
+    t.env.SUPABASE_URL = 'https://example.supabase.co'
+    t.env.SUPABASE_SERVICE_ROLE_KEY = 'srk'
+    await grantQuiet(t)
+    await runBook(t, costing(0.002))
+    expect(inserts).toHaveLength(5)
+    for (const row of inserts) {
+      expect(row).toMatchObject({ feature: 'modern_edition', provider: 'xai', model: 'grok-4.3', user_id: null, guest_key: null, book_id: BOOK, cost_usd: 0.002, input_tokens: 1000, output_tokens: 1000 })
+    }
+    // The allowance (ai_spend_micros and the gate) never counts it.
+    expect(NEVER_CHARGED_AI_FEATURES).toContain('modern_edition')
+    expect(isPaidAiFeature('modern_edition')).toBe(false)
+  })
+
+  it('stops retrying a chunk once it alone has cost over 3× its expected cost, and finishes it in the original text', async () => {
+    const chunkUsd = modernChunkExpectedUsd(wordsIn(SOURCE[2].paragraphs))
+    let calls = 0
+    const t = setup({ switchOn: false, generator: async (_input, meter) => { calls++; meter?.({ costUsd: chunkUsd * 2, inputTokens: 1, outputTokens: 1 }); return ['too short'] } })
+    await grantQuiet(t)
+    await updateJob(t.r2.bucket, BOOK, job => job && { ...job, chapters: job.chapters.map(c => c.number === 3 ? c : { ...c, state: 'ready' as const }) })
+    const step = () => modernStep(t.r2.bucket, { bookId: BOOK, title: 'T', author: 'A', source: async () => SOURCE, generate: t.generator, now: () => t.clock.t })
+    expect(await step()).toBe('failed')
+    expect(await step()).toBe('complete')
+    expect(calls).toBe(2)
+    const job = await jobOf(t)
+    const three = job.chapters.find(c => c.number === 3)!
+    expect(three).toMatchObject({ state: 'ready', fallback: [[0, 3]] })
+    expect(t.r2.json(`public-books/${BOOK}/modern-en/ch-3.json`).paragraphs).toEqual(SOURCE[2].paragraphs)
+    expect(job.review).toMatchObject({ chapters: [3] })
+    expect(t.r2.objects.has(`public-books/modern-review/${BOOK}`)).toBe(true)
+    expect(job.costUsd).toBeCloseTo(chunkUsd * 4, 8)
+    const diagnostics = await diagnosticsOf(t)
+    expect(diagnostics.review).toMatchObject({ chapters: [3] })
+    expect(diagnostics.chapters.find(c => c.number === 3)).toMatchObject({ fallback: [[0, 3]] })
+    // Admins can list every book flagged for review.
+    const flagged = await (await handleModernDiagnostics(new Request('https://tinct.app/api/admin/modern-diagnostics?review=1'), t.env, async () => true)).json() as { review: string[] }
+    expect(flagged.review).toEqual([BOOK])
+  })
+
+  it('beyond the book’s soft budget (3× expected) a failing chunk falls back at once; good chunks are still written', async () => {
+    let failing = 0
+    const generator: ModernGenerator = async (input, meter) => {
+      meter?.({ costUsd: 0.0001, inputTokens: 1, outputTokens: 1 })
+      if (input.chapterTitle === 'Chapter 3') { failing++; return ['too short'] }
+      return modernise(input)
+    }
+    const t = setup({ switchOn: false, generator })
+    await grantQuiet(t)
+    await updateJob(t.r2.bucket, BOOK, job => job && { ...job, costUsd: 3 * job.expectedUsd! + 0.01 })
+    await runBook(t, generator)
+    const job = await jobOf(t)
+    expect(jobComplete(job)).toBe(true)
+    expect(failing).toBe(1)
+    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ fallback: [[0, 3]] })
+    expect(t.r2.json(`public-books/${BOOK}/modern-en/ch-4.json`).paragraphs[0]).toMatch(/^\[m\] /)
+    expect(job.chapters.filter(c => c.fallback?.length).map(c => c.number)).toEqual([3])
+  })
+
+  it('a chapter left failed for good by an older job is finished in the original text, without another call', async () => {
+    const generator = vi.fn(modernise)
+    const t = setup({ switchOn: false })
+    await grantQuiet(t)
+    await updateJob(t.r2.bucket, BOOK, job => job && { ...job, chapters: job.chapters.map(c => c.number === 3 ? { ...c, state: 'failed' as const, attempts: MAX_ATTEMPTS, rounds: MAX_ROUNDS } : { ...c, state: 'ready' as const }) })
+    await runBook(t, generator)
+    expect(generator).not.toHaveBeenCalled()
+    const job = await jobOf(t)
+    expect(jobComplete(job)).toBe(true)
+    expect(job.chapters.find(c => c.number === 3)).toMatchObject({ state: 'ready', fallback: [[0, 3]] })
+    expect(job.review).toMatchObject({ chapters: [3] })
+  })
+
+  it('the monthly ceiling hides the offer for a new purchase while a paid book still completes (and is logged over)', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const paid = setup({ switchOn: false, monthlyUsd: '1' })
+    await grantQuiet(paid)
+    expect(paid.spend.total(MONTH)).toBe(expectedMicros)
+    // The paid book costs far more than the month allows: it is finished all the same.
+    await runBook(paid, costing(0.5))
+    expect(jobComplete(await jobOf(paid))).toBe(true)
+    expect(paid.spend.total(MONTH)).toBe(2_500_000)
+    expect(warn.mock.calls.some(call => String(call[0]).includes('modern_edition_month_over'))).toBe(true)
+    warn.mockRestore()
+
+    // Another book, the month nearly spent: no offer, and checkout is refused before Stripe.
+    const t = setup({ monthlyUsd: '1' })
+    expect((await t.status()).offer).toEqual({ tier: 2, cents: 500 })
+    await t.spend.namespace.getByName(MONTH).reserve('2026-10-06', 700_000, Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)
+    expect((await t.status()).offer).toBeNull()
+    const refused = await t.buy('a')
+    expect(refused.status).toBe(404)
+    expect(await refused.json()).toEqual({ error: 'not_available' })
+    expect(t.stripe.created).toHaveLength(0)
+    expect(await readJob(t.r2.bucket, BOOK)).toBeNull()
+    // Next month there is room again.
+    t.clock.t = Date.UTC(2026, 10, 1)
+    expect((await t.status()).offer).toEqual({ tier: 2, cents: 500 })
+  })
+
+  it('checkout refuses before payment when the reservation no longer fits (a race with the offer)', async () => {
+    const t = setup({ monthlyUsd: '1' })
+    expect((await t.status()).offer).not.toBeNull()
+    // Spent between the offer and the tap: the strict reservation, not the offer, decides.
+    await t.spend.namespace.getByName(MONTH).reserve('2026-10-06', 1_000_000 - expectedMicros + 1, Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)
+    const refused = await t.buy('a')
+    expect(refused.status).toBe(404)
+    expect(t.stripe.created).toHaveLength(0)
+    expect(await readJob(t.r2.bucket, BOOK)).toBeNull()
+    expect(t.spend.total(MONTH)).toBe(1_000_000 - expectedMicros + 1)
+  })
+
+  it('fails closed: no coordinator, no offer and no checkout', async () => {
+    const t = setup({ noSpend: true })
+    expect((await t.status()).offer).toBeNull()
+    expect((await t.buy('a')).status).toBe(404)
+    expect(t.stripe.created).toHaveLength(0)
+  })
+
+  it('a checkout reserves the expected cost; an unpaid one gives it back; a finished book returns what it did not use', async () => {
+    const t = setup()
+    await t.buy('a')
+    expect(t.spend.total(MONTH)).toBe(expectedMicros)
+    expect((await releaseModernCheckout(t.env, { id: 'cs_test_1', metadata: { type: 'modern_edition', book_id: BOOK } }))).toBe('released')
+    expect(t.spend.total(MONTH)).toBe(0)
+    // A lapsed hold taken over by the next buyer gives its reservation back too.
+    await t.buy('a')
+    t.clock.t += HOLD_MS + 1
+    await t.buy('b')
+    expect(t.spend.total(MONTH)).toBe(expectedMicros)
+    // Paid, then written for $0.05 in all: the month keeps only what it cost.
+    await grantModernEdition({ ...t.env, PUBLIC_BOOK_MODERN_EDITIONS: undefined }, { id: 'cs_test_3', payment_intent: 'pi_3', metadata: { type: 'modern_edition', book_id: BOOK, tier: '2', chapter: '1' } }, { now: () => t.clock.t, stripeFetch: (async () => Response.json({})) as unknown as typeof fetch })
+    expect((await jobOf(t)).budget).toMatchObject({ micros: expectedMicros })
+    await runBook(t, costing(0.01))
+    expect(jobComplete(await jobOf(t))).toBe(true)
+    expect(t.spend.total(MONTH)).toBe(50_000)
+  })
+
+  it('leaves the model id and request shape as they are (pinning grok-4.3 waits on a documented reasoning-off field)', async () => {
+    const fetchImpl = vi.fn(async (_url: string, _init: RequestInit) => Response.json({ choices: [{ message: { content: '{"paragraphs":["x"]}' } }] }))
+    await xaiModernGenerator('k', { fetchImpl: fetchImpl as unknown as typeof fetch })({ title: 'T', author: 'A', chapterTitle: 'C', paragraphs: ['a'] })
+    const body = JSON.parse(String(fetchImpl.mock.calls[0][1].body))
+    expect(Object.keys(body).sort()).toEqual(['max_tokens', 'messages', 'model', 'response_format', 'temperature'])
+    expect(body.model).toBe('grok-4-fast-non-reasoning')
   })
 })

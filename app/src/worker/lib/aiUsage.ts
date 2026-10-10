@@ -39,7 +39,16 @@ import { supabaseInsertMinimal, type SupabaseEnv } from './supabase'
  *    call from the reply's own `cost_in_usd_ticks` when xAI sends it, so a
  *    later price change is still counted right; these rates are the fallback.
  */
-export const AI_PRICING_VERSION = '2026-10-09'
+/*
+ * Version 2026-10-10 adds:
+ *  - Modern English editions (worker/lib/modernEdition.ts, model id
+ *    grok-4-fast-non-reasoning, retired 15 May 2026 and served and billed as
+ *    grok-4.3): the same $1.25/MTok input, $2.50/MTok output, now named as the
+ *    xAI text rates (textInputPerMTok / textOutputPerMTok) that OCR shares.
+ *    Each call is settled from the reply's `cost_in_usd_ticks` when xAI sends
+ *    it; these rates are the fallback.
+ */
+export const AI_PRICING_VERSION = '2026-10-10'
 
 export interface AnthropicRates { inputPerMTok: number; outputPerMTok: number; cacheReadPerMTok: number; cacheWritePerMTok: number }
 
@@ -61,6 +70,9 @@ export const AI_PRICING = {
     voicePerMinute: 0.08,
     ttsPerMChars: 15,
     sttPerHour: 0.1,
+    /** xAI text models as billed today (grok-4.3; the retired grok-4-fast-non-reasoning id is billed so): Modern English editions. */
+    textInputPerMTok: 1.25,
+    textOutputPerMTok: 2.5,
     /** The OCR model (worker/lib/ocrVision.ts; grok-4-fast-non-reasoning, served as grok-4.3). */
     ocrInputPerMTok: 1.25,
     ocrOutputPerMTok: 2.5,
@@ -73,7 +85,7 @@ export const AI_PRICING = {
 
 export type AiFeature =
   | 'chat' | 'explain' | 'librarian' | 'recap' | 'chapter_notes' | 'catch_up' | 'lab_chat' | 'talk'
-  | 'narration_generate' | 'narration_listen' | 'source_search' | 'dictation' | 'ocr'
+  | 'narration_generate' | 'narration_listen' | 'source_search' | 'dictation' | 'ocr' | 'modern_edition'
 export type AiProvider = 'anthropic' | 'xai' | 'openai'
 
 export interface AnthropicUsage {
@@ -112,6 +124,21 @@ export function dictationCostUsd(seconds: number): number {
 /** One OCR page (xAI vision, chat-completions usage), by tokens. Never part of an AI allowance. */
 export function ocrCostUsd(inputTokens: number, outputTokens: number): number {
   return round5((count(inputTokens) * AI_PRICING.xai.ocrInputPerMTok + count(outputTokens) * AI_PRICING.xai.ocrOutputPerMTok) / 1_000_000)
+}
+
+/** One xAI text call (chat completions), by tokens: the fallback when the reply carries no cost_in_usd_ticks. */
+export function xaiTextCostUsd(inputTokens: number, outputTokens: number): number {
+  return round5((Math.max(0, inputTokens) * AI_PRICING.xai.textInputPerMTok + Math.max(0, outputTokens) * AI_PRICING.xai.textOutputPerMTok) / 1_000_000)
+}
+
+/**
+ * What one xAI text call cost: the reply's own `cost_in_usd_ticks` (1e-10 USD)
+ * when xAI sends it, else its tokens at the text rates.
+ */
+export function xaiReportedCostUsd(usage: { prompt_tokens?: unknown; completion_tokens?: unknown; cost_in_usd_ticks?: unknown } | null | undefined): number {
+  const ticks = usage?.cost_in_usd_ticks
+  if (typeof ticks === 'number' && Number.isFinite(ticks) && ticks >= 0) return ticks / 1e10
+  return xaiTextCostUsd(count(usage?.prompt_tokens), count(usage?.completion_tokens))
 }
 
 export interface OpenAiUsage { input_tokens?: number; output_tokens?: number; input_tokens_details?: { cached_tokens?: number } }
