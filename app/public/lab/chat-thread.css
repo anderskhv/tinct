@@ -190,6 +190,9 @@
   -webkit-appearance: none; appearance: none;
 }
 .tc .tc-input::placeholder { color: transparent; }
+/* Night: the field's only mark is its rule, and a 14% hairline vanishes on #171411 (Anders, 10 Oct 2026); the rule and caret are drawn in brighter ink. */
+.lab.is-night .tc .tc-field { border-top-color: rgba(214, 204, 191, .34); }
+.lab.is-night .tc .tc-input { caret-color: var(--tc-ink); }
 .tc .tc-input:focus, .tc .tc-input:focus-visible { outline: none !important; box-shadow: none !important; }
 /* The caret is the system's own thin one, in the muted ink: no drawn bar (Anders, 10 Oct 2026). */
 .tc .tc-field .tc-mark { margin-bottom: 4px; }
