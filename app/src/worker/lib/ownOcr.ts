@@ -17,7 +17,7 @@
  * (routes/ownBookNarration.ts), each per UTC calendar month:
  *   - pages per account, `ocr-pages:{userId}`: OWN_PDF_OCR_MONTHLY_PAGES (1500),
  *     or OWN_PDF_OCR_TRIAL_MONTHLY_PAGES (300) while the account is in its trial;
- *   - dollars per account, `ocr-user:{userId}`: OWN_PDF_OCR_MONTHLY_USD ($2), a backstop;
+ *   - dollars per account, `ocr-user:{userId}`: OWN_PDF_OCR_MONTHLY_USD ($6, so the 1,500-page ceiling is reachable at real prices), a backstop;
  *   - dollars for everyone, `ocr-budget:{YYYY-MM}`: OWN_PDF_OCR_GLOBAL_MONTHLY_USD ($75).
  * Dollars are counted in micro-dollars. Every provider call reserves
  * OCR_CALL_RESERVE_MICROS (3,000 input + 1,200 output tokens at the
@@ -50,7 +50,7 @@ export type OwnOcrEnv = SupabaseEnv & {
 
 export const ownPdfOcrOn = (env: { OWN_PDF_OCR?: string }) => env.OWN_PDF_OCR === '1'
 
-export const OCR_DEFAULTS = { monthlyPages: 1500, trialMonthlyPages: 300, monthlyUsd: 2, globalMonthlyUsd: 75, maxPages: 1000 } as const
+export const OCR_DEFAULTS = { monthlyPages: 1500, trialMonthlyPages: 300, monthlyUsd: 6, globalMonthlyUsd: 75, maxPages: 1000 } as const
 /** Tokens one provider call is assumed to use until it reports its own. */
 export const OCR_RESERVE_INPUT_TOKENS = 3000
 export const OCR_RESERVE_OUTPUT_TOKENS = 1200
