@@ -46,7 +46,7 @@ export const FUNNEL_EVENT_NAMES = new Set<string>([
   'landing_view', 'book_opened', 'first_page_turn', 'chapter_completed',
   'ai_first_use', 'anon_limit_reached', 'signup_started', 'signup_completed',
   'member_ai_use', 'checkout_started', 'checkout_completed',
-  'book_intro_viewed', 'audio_failed', 'talk_failed',
+  'book_intro_viewed', 'audio_failed', 'audio_slow_start', 'talk_failed',
   'share_sheet_opened', 'share_created', 'share_completed', 'share_link_opened', 'share_link_signup',
 ])
 const SOCIAL_EVENTS = new Set<string>(SOCIAL_EVENT_NAMES)

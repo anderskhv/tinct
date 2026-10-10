@@ -2,9 +2,12 @@
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readNarrationReplay, storeNarrationReplay } from './narrationReplayCache'
-import { narrationLookAheadWidth, useLabListen, type LabNarrationOption } from './useLabListen'
+import { NARRATION_PREPARE_CEILING_MS, narrationLookAheadWidth, useLabListen, type LabNarrationOption } from './useLabListen'
 import { NarrationEnsureError, type NarrationParagraphResult, type NarrationParagraphState } from './labNarration'
 import { chunkNarrationText, narrationTextForParagraph, sha256Hex } from '../narration/narrationCore'
+
+const funnel = vi.hoisted(() => ({ track: vi.fn() }))
+vi.mock('../utils/funnel', () => ({ trackFunnel: funnel.track }))
 
 const LONG = 'Now Neptune had gone off to the Ethiopians, who are at the world’s end, and lie in two halves, the one looking West and the other East. '
   + 'He had gone there to accept a hecatomb of sheep and oxen, and was enjoying himself at his festival; but the other gods met in the house of Olympian Jove, and the sire of gods and men spoke first. '
@@ -604,7 +607,7 @@ describe('useLabListen narration pilot (sentence groups)', () => {
       await act(async () => { h.calls[0].reject(new NarrationEnsureError('Too many', 'rate_limited', 429)) })
       await act(async () => { await vi.advanceTimersByTimeAsync(3100) })
       await waitFor(() => expect(h.calls.length).toBe(2))
-      expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0 })
+      expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0, waiting: true })
       await act(async () => { await h.answer(h.calls[1], { 0: 1 }) })
       await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     } finally {
@@ -832,5 +835,110 @@ describe('spoken navigation stays outside reader text', () => {
     expect(h.result.current.playing).toBe(false)
     expect(h.result.current.clips).toHaveLength(0)
     h.unmount()
+  })
+})
+
+describe('cold chapter: narration still being made', () => {
+  /** Answer every call so far that is still open with "nothing ready yet, ask again in 1 s". */
+  const answerPending = async (h: ReturnType<typeof harness>, from: number) => {
+    for (const call of h.calls.slice(from)) call.resolve([{ ...(await state(0, 0)), retryAfterMs: 1000 }])
+    return h.calls.length
+  }
+
+  it('keeps waiting with back-off past the old three polls and starts once the first group lands', async () => {
+    funnel.track.mockClear()
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      await waitFor(() => expect(h.calls.length).toBe(1))
+      let answered = 0
+      // ~20 s of "pending": six answers, well beyond the previous three-poll limit.
+      for (let poll = 0; poll < 6; poll += 1) {
+        await act(async () => { answered = await answerPending(h, answered) })
+        await act(async () => { await vi.advanceTimersByTimeAsync(5_100) })
+        await waitFor(() => expect(h.calls.length).toBe(answered + 1))
+        expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 0, waiting: true })
+      }
+      await act(async () => { await h.answer(last(h), { 0: 1 }) })
+      await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+      expect(h.result.current.narration).toEqual({ status: 'idle' })
+      expect(funnel.track).not.toHaveBeenCalledWith('audio_failed', expect.anything())
+      const slow = funnel.track.mock.calls.find(call => call[0] === 'audio_slow_start')
+      expect(slow?.[1]).toEqual({ seconds: expect.any(Number), outcome: 'started' })
+      expect(slow![1].seconds).toBeGreaterThanOrEqual(15)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('keeps waiting through repeated rate limits', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      for (let poll = 0; poll < 5; poll += 1) {
+        await waitFor(() => expect(h.calls.length).toBe(poll + 1))
+        await act(async () => { h.calls[poll].reject(new NarrationEnsureError('Too many', 'rate_limited', 429)) })
+        await act(async () => { await vi.advanceTimersByTimeAsync(5_100) })
+      }
+      await waitFor(() => expect(h.calls.length).toBe(6))
+      expect(h.result.current.narration.status).toBe('loading')
+      await act(async () => { await h.answer(h.calls[5], { 0: 1 }) })
+      await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('gives up with a retryable error only after the ceiling', async () => {
+    funnel.track.mockClear()
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      await waitFor(() => expect(h.calls.length).toBe(1))
+      const started = Date.now()
+      let answered = 0
+      while (h.result.current.narration.status === 'loading' && Date.now() - started < 120_000) {
+        await act(async () => { answered = await answerPending(h, answered) })
+        await act(async () => { await vi.advanceTimersByTimeAsync(1_000) })
+      }
+      const waited = Date.now() - started
+      expect(h.result.current.narration).toMatchObject({ status: 'error', reason: 'pending' })
+      expect(waited).toBeGreaterThanOrEqual(NARRATION_PREPARE_CEILING_MS - 6_000)
+      expect(waited).toBeLessThanOrEqual(NARRATION_PREPARE_CEILING_MS + 2_000)
+      expect(h.result.current.pending).toBe(false)
+      expect(h.audio.play).not.toHaveBeenCalled()
+      expect(funnel.track).toHaveBeenCalledWith('audio_failed', expect.objectContaining({ reason: 'pending' }))
+      expect(funnel.track).toHaveBeenCalledWith('audio_slow_start', { seconds: expect.any(Number), outcome: 'failed' })
+      // Retry asks again.
+      const before = h.calls.length
+      act(() => h.result.current.retryNarration())
+      await waitFor(() => expect(h.calls.length).toBe(before + 1))
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('cancel while preparing stops polling and never starts late', async () => {
+    funnel.track.mockClear()
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      const h = harness()
+      await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+      await waitFor(() => expect(h.calls.length).toBe(1))
+      await act(async () => { await answerPending(h, 0) })
+      await waitFor(() => expect(h.result.current.narration).toMatchObject({ status: 'loading', waiting: true }))
+      act(() => h.result.current.pause())
+      expect(h.result.current.narration).toEqual({ status: 'idle' })
+      expect(h.result.current.pending).toBe(false)
+      await act(async () => { await vi.advanceTimersByTimeAsync(30_000) })
+      expect(h.calls.length).toBe(1)
+      expect(h.audio.play).not.toHaveBeenCalled()
+      expect(funnel.track).not.toHaveBeenCalledWith('audio_failed', expect.anything())
+    } finally {
+      vi.useRealTimers()
+    }
   })
 })

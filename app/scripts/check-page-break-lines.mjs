@@ -20,6 +20,7 @@
 // short continuing last line; gappy lines are reported, and fail too unless
 // PAGE_BREAK_ALLOW_GAPS=1.
 import { chromium } from '@playwright/test'
+import { markInternal } from './lib/internalTraffic.cjs'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
@@ -45,7 +46,7 @@ const only = process.env.PAGE_BREAK_ONLY
 const chapters = only ? PAGE_BREAK_CHAPTERS.filter(item => item.book === only) : PAGE_BREAK_CHAPTERS
 
 await fs.mkdir(output, { recursive: true })
-const browser = await chromium.launch({ headless: true, executablePath, args: ['--mute-audio'] })
+const browser = await markInternal(await chromium.launch({ headless: true, executablePath, args: ['--mute-audio'] }))
 
 async function routeBuild(page) {
   if (live) return

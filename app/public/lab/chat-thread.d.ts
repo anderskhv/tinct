@@ -28,3 +28,12 @@ export function scrollToLatest(node: HTMLElement): void
 export function bindPress(thread: HTMLElement, options?: { holdMs?: number; fadeMs?: number }): () => void
 export interface ThreadHtmlTurn extends ThreadTurnShape { text: string; html?: string; quote?: string | null; note?: string | null; extra?: string }
 export function threadHtml(turns: ThreadHtmlTurn[], options?: { now?: number; streaming?: boolean }): string
+export function isBelow(node: Pick<HTMLElement, 'scrollHeight' | 'scrollTop' | 'clientHeight'> & { querySelector?: HTMLElement['querySelector'] }, slack?: number): boolean
+export const QUESTION_PEEK: number
+export function questionTop(node: HTMLElement, row: Element, peek?: number): number
+export function fitSpacer(node: HTMLElement, top: number): void
+export const WAIT_HTML: string
+export const WORD_FADE_MS: number
+export function fadeInWords(container: Element, seen: number[], now?: number): number
+export const BACK_TO_BOOK_HTML: string
+export const TOP_CLEAR: number

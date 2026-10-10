@@ -26,6 +26,9 @@ import {
   type LabV2SheetLayer,
 } from './labV2Sheet'
 import { getBook } from '../data/bookRegistry'
+import { LabOfflineRow } from './LabOfflineRow'
+import { offlineEditionKeys } from './labOfflineBook'
+import { isUserBookId } from './userBook/userBookId'
 
 export interface LabV2SheetProps {
   bookId?: string
@@ -365,6 +368,12 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                         : 'Compare isn’t available for these two versions: their paragraphs don’t line up.'}
                 </p>
               )}
+              </>}
+              {bookId && !ownPdf && !isUserBookId(bookId) && <>
+                <div className="lab-v2-edition-divider" />
+                <LabOfflineRow bookId={bookId}
+                  editionKeys={offlineEditionKeys(prefs.primaryEdition, prefs.compareOpen ? prefs.compareEdition : null)}
+                  hasVerseLines={editions.some(edition => edition.hasVerseLines)} />
               </>}
             </div>
           )}

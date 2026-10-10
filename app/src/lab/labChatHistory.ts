@@ -48,7 +48,7 @@ function isFiniteInt(value: unknown, min: number, max: number): value is number 
   return typeof value === 'number' && Number.isInteger(value) && value >= min && value <= max
 }
 
-function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
+function parseChatMessage(raw: unknown, bookId: string, fallbackTimestamp: number): ChatMessage | null {
   if (!raw || typeof raw !== 'object') return null
   const src = raw as Record<string, unknown>
   if (typeof src.id !== 'string' || !src.id || src.id.length > 160) return null
@@ -63,7 +63,10 @@ function parseChatMessage(raw: unknown, bookId: string): ChatMessage | null {
   const content = src.content.trim()
   if (!content || content.length > MAX_CONTENT) return null
   if (typeof src.bookId === 'string' && src.bookId && src.bookId !== bookId) return null
-  const timestamp = isFiniteInt(src.timestamp, 1, 1e15) ? src.timestamp : Date.now()
+  // A message without a usable time keeps its neighbour's (or its
+  // conversation's), never "now": stamped with the time it was read, it would
+  // move to the end of the thread on every load.
+  const timestamp = isFiniteInt(src.timestamp, 1, 1e15) ? src.timestamp : fallbackTimestamp
   const source = src.source === 'voice' ? 'voice' : src.source === 'text' ? 'text' : undefined
   return {
     id: src.id,
@@ -87,9 +90,14 @@ function parseConversation(raw: unknown, bookId: string): ChatConversation | nul
   if (typeof src.id !== 'string' || !src.id || src.id.length > 160) return null
   if (typeof src.bookId === 'string' && src.bookId && src.bookId !== bookId) return null
   if (!Array.isArray(src.messages)) return null
-  const messages = src.messages
-    .map(item => parseChatMessage(item, bookId))
-    .filter((item): item is ChatMessage => item !== null)
+  let fallback = isFiniteInt(src.startTimestamp, 1, 1e15) ? src.startTimestamp : isFiniteInt(src.endTimestamp, 1, 1e15) ? src.endTimestamp : 1
+  const messages: ChatMessage[] = []
+  for (const item of src.messages) {
+    const parsed = parseChatMessage(item, bookId, fallback)
+    if (!parsed) continue
+    messages.push(parsed)
+    fallback = parsed.timestamp
+  }
   if (messages.length === 0) return null
   return {
     id: src.id,
@@ -114,17 +122,27 @@ export function parseChatConversations(raw: unknown, bookId: string): ChatConver
     .filter((item): item is ChatConversation => item !== null)
 }
 
+/**
+ * Past the cap, the oldest *messages* go, by their own time: a conversation
+ * that began long ago but is still being added to (continued from Contents)
+ * keeps its new turns. Conversations left empty are dropped.
+ */
 function trimConversations(conversations: ChatConversation[]): ChatConversation[] {
-  let total = conversations.reduce((sum, item) => sum + item.messages.length, 0)
+  const total = conversations.reduce((sum, item) => sum + item.messages.length, 0)
   if (total <= LAB_CHAT_MAX_MESSAGES_PER_BOOK) return conversations
-  const next = [...conversations]
-  while (next.length > 1 && total > LAB_CHAT_MAX_MESSAGES_PER_BOOK) {
-    const removed = next.shift()
-    total -= removed?.messages.length ?? 0
-  }
-  if (total > LAB_CHAT_MAX_MESSAGES_PER_BOOK && next[0]) {
-    next[0] = { ...next[0], messages: next[0].messages.slice(-LAB_CHAT_MAX_MESSAGES_PER_BOOK) }
-  }
+  const all = conversations.flatMap((conversation, c) => conversation.messages.map((message, m) => ({ c, m, at: message.timestamp })))
+  all.sort((x, y) => y.at - x.at || y.c - x.c || y.m - x.m)
+  const keep = new Set(all.slice(0, LAB_CHAT_MAX_MESSAGES_PER_BOOK).map(({ c, m }) => `${c}:${m}`))
+  const next: ChatConversation[] = []
+  conversations.forEach((conversation, c) => {
+    const messages = conversation.messages.filter((_, m) => keep.has(`${c}:${m}`))
+    if (messages.length === 0) return
+    next.push(messages.length === conversation.messages.length ? conversation : {
+      ...conversation,
+      messages,
+      startTimestamp: Math.max(conversation.startTimestamp, Math.min(...messages.map(message => message.timestamp))),
+    })
+  })
   return next
 }
 
@@ -199,23 +217,46 @@ export function sortConversationsByTime(conversations: ChatConversation[]): Chat
   return [...conversations].sort((x, y) => x.startTimestamp - y.startTimestamp || x.id.localeCompare(y.id))
 }
 
+/**
+ * The thread: every message, ordered by its own time, oldest first. Not
+ * conversation by conversation: a conversation that began days ago and was
+ * continued today would otherwise sit above one that began later and ended
+ * long ago, and the older exchange would read as the latest (Anders, 10 Oct
+ * 2026, 1 Maccabees 2 vs Matthew 14). Equal times keep conversation order.
+ */
 export function turnsFromConversations(conversations: ChatConversation[]): LabAskTurn[] {
-  return sortConversationsByTime(conversations).flatMap(conversation => [...conversation.messages]
-    .sort((x, y) => x.timestamp - y.timestamp)
-    .map(message => ({
-    id: message.id,
-    bookId: conversation.bookId,
-    chapterAction: message.chapterAction,
-    role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
-    content: message.content,
-    timestamp: message.timestamp,
-    source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
-    chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
-    paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
-    highlightedText: message.highlightedText,
-    cancelled: message.isComplete === false,
-    ...(message.shownExplanation ? { shownExplanation: true } : {}),
-  })))
+  return sortConversationsByTime(conversations)
+    .flatMap(conversation => conversation.messages.map(message => ({ conversation, message })))
+    .sort((x, y) => x.message.timestamp - y.message.timestamp)
+    .map(({ conversation, message }) => ({
+      id: message.id,
+      bookId: conversation.bookId,
+      chapterAction: message.chapterAction,
+      role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
+      content: message.content,
+      timestamp: message.timestamp,
+      source: message.source === 'voice' ? 'voice' as const : 'typed' as const,
+      chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
+      paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
+      highlightedText: message.highlightedText,
+      cancelled: message.isComplete === false,
+      ...(message.shownExplanation ? { shownExplanation: true } : {}),
+    }))
+}
+
+/**
+ * The displayed thread after a re-read of the stored history: the stored turns
+ * plus every live turn the store does not have (yet): an answer still
+ * arriving, a turn whose save is in flight or failed. Ordered by time; a turn
+ * without one (an answer still arriving) stays at the end. A re-read can add
+ * turns but never drops or reorders the ones on screen.
+ */
+export function reconcileTurns(live: LabAskTurn[], stored: LabAskTurn[]): LabAskTurn[] {
+  const known = new Set(stored.map(turn => turn.id))
+  const pending = live.filter(turn => !known.has(turn.id))
+  if (pending.length === 0) return stored
+  const at = (turn: LabAskTurn) => (typeof turn.timestamp === 'number' && Number.isFinite(turn.timestamp) ? turn.timestamp : Infinity)
+  return [...stored, ...pending].sort((x, y) => at(x) - at(y))
 }
 
 // ---------------------------------------------------------------------------
@@ -316,6 +357,14 @@ function appendTurnToConversations(
   }]
 }
 
+/** The device copy, plus anything `base` holds that it lacks (normally nothing: then the copy itself, in its stored order). */
+function withUnsaved(local: ChatConversation[], base: ChatConversation[] | undefined): ChatConversation[] {
+  if (!base || base.length === 0) return local
+  const saved = new Set(local.flatMap(conversation => conversation.messages.map(message => message.id)))
+  const missing = base.some(conversation => conversation.messages.some(message => !saved.has(message.id)))
+  return missing ? mergeChatConversations(base, local) : local
+}
+
 /**
  * Record a finalized Chat/Talk turn under the registry book and write the
  * local mirror. The message's `bookId` is set to the target book: a voice
@@ -327,8 +376,14 @@ export function appendLabChatTurn(
   chapterNumber = 1,
   paragraphIndex?: number,
   conversationId?: string,
+  /**
+   * The thread as this page last knew it. Merged under the device copy so a
+   * turn whose local write failed (a full localStorage on a phone) is not
+   * missing from the value the next turn commits to the account row.
+   */
+  base?: ChatConversation[],
 ): ChatConversation[] {
-  let current = readLabBookChat(bookId)
+  let current = withUnsaved(readLabBookChat(bookId), base)
   if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
   if (conversationId) {
     const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)

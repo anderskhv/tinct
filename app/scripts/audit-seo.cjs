@@ -13,6 +13,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { checkHeaders } = require('./lib/internalTraffic.cjs')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const PUBLIC_DIR = path.join(APP_DIR, 'public')
@@ -217,10 +218,10 @@ async function fetchNoBody(url, init = {}) {
   return fetch(url, {
     redirect: 'manual',
     ...init,
-    headers: {
+    headers: checkHeaders({
       'User-Agent': 'Tinct SEO audit',
       ...(init.headers || {}),
-    },
+    }),
   })
 }
 

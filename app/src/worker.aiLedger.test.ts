@@ -120,6 +120,12 @@ describe('ledger rows', () => {
     expect(buildUsageRow(draft, { userId: 'not-a-uuid', guestKey: 'abc' })).toMatchObject({ user_id: null, guest_key: 'abc' })
   })
 
+  it("a signed-in check keeps the account (the allowance still counts) and adds only the 'check' marker", () => {
+    const draft = { feature: 'recap' as const, provider: 'anthropic' as const, model: 'm', cost_usd: 0.01 }
+    expect(buildUsageRow(draft, { userId, guestKey: 'check' })).toMatchObject({ user_id: userId, guest_key: 'check' })
+    expect(buildUsageRow(draft, { userId: null, guestKey: 'check' })).toMatchObject({ user_id: null, guest_key: 'check' })
+  })
+
   it('hashes the guest key: stable, keyed, and never the raw IP', async () => {
     const a = await hashGuestKey(env, '203.0.113.9')
     expect(a).toMatch(/^[0-9a-f]{20}$/)
@@ -159,6 +165,16 @@ describe('Anthropic call paths write one row each', () => {
     })
     expect(rows[0].cost_usd).toBe(anthropicCostUsd(COMPANION_MODEL, { input_tokens: 100, output_tokens: 40, cache_read_input_tokens: 500, cache_creation_input_tokens: 200 }))
     expect(JSON.stringify(rows[0])).not.toContain('An answer')
+  })
+
+  it('chat from a signed-in check (x-tinct-check: 1) is marked check beside the account; a reader IP is never stored', async () => {
+    const { rows } = stubFetch(url => url === 'https://api.anthropic.com/v1/messages'
+      ? Response.json({ content: [{ text: 'An answer.' }], usage: { input_tokens: 10, output_tokens: 4 } }) : undefined)
+    const { ctx, pending } = context()
+    await handleChat(post('/api/chat', { companion: { intent: 'ask', context: readerContext } }, { 'x-tinct-check': '1' }), env, ctx, async () => reader, allow)
+    await handleChat(post('/api/chat', { companion: { intent: 'ask', context: readerContext } }), env, ctx, async () => reader, allow)
+    await Promise.all(pending)
+    expect(rows.map(row => [row.user_id, row.guest_key])).toEqual([[userId, 'check'], [userId, null]])
   })
 
   it('explain: the structured explain intent is its own feature', async () => {

@@ -145,6 +145,16 @@ or own test accounts. Never commit reader data, emails or exports to this
 public repo, and never paste them into outside services. Aggregate numbers
 Anders asks for are fine.
 
+Our own testing must never count as readers (since 2026-10-10). A production
+test account is created only with `app/scripts/lib/testAccounts.cjs`
+(`qa-<label>-<random>@test.tinct.app`, `profiles.is_test`), never by signing
+up through the live form with another address. Every script or agent browser
+that reaches production uses `app/scripts/lib/internalTraffic.cjs`:
+`markInternal` on the browser before any navigation (it also adds
+`x-tinct-check: 1` to the page's `/api/` calls) and `checkHeaders` /
+`checkFetch` for direct API calls. `src/scripts.internalTraffic.test.ts`
+fails CI for a script under `app/scripts/` that targets production without it.
+
 ## Verification
 
 For app changes, use:

@@ -49,9 +49,20 @@ if (fs.existsSync(fontCssPath)) {
 }
 
 const sortedUrls = [...urls].sort()
+// Every other bundle in assets/: imported on demand (the voice call, a PDF,
+// collections), cached by sw.js on first use or when a book is made available
+// offline, never downloaded at install.
+const assetsDir = path.join(dist, 'assets')
+const lazyUrls = fs.existsSync(assetsDir)
+  ? fs.readdirSync(assetsDir)
+    .filter(name => /\.(?:js|css)$/.test(name))
+    .map(name => `/assets/${name}`)
+    .filter(url => !urls.has(url))
+    .sort()
+  : []
 const digest = crypto
   .createHash('sha256')
-  .update(sortedUrls.join('\n'))
+  .update(sortedUrls.concat(lazyUrls).join('\n'))
   .digest('hex')
   .slice(0, 12)
 
@@ -65,5 +76,10 @@ sw = sw.replace(
   `const APP_SHELL_PRECACHE_URLS = ${JSON.stringify(sortedUrls, null, 2)}`,
 )
 
+sw = sw.replace(
+  /const APP_SHELL_LAZY_URLS = \[[\s\S]*?\]/,
+  `const APP_SHELL_LAZY_URLS = ${JSON.stringify(lazyUrls, null, 2)}`,
+)
+
 fs.writeFileSync(swPath, sw)
-console.log(`[sw] Stamped app shell cache tinct-app-shell-${digest} with ${sortedUrls.length} URLs`)
+console.log(`[sw] Stamped app shell cache tinct-app-shell-${digest} with ${sortedUrls.length} URLs and ${lazyUrls.length} on-demand bundles`)

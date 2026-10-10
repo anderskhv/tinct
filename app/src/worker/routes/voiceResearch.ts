@@ -3,7 +3,7 @@ import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type Allowance
 import { supabaseGet } from '../lib/supabase'
 import { isValidUUID } from '../lib/security'
 import type { VoiceEnv } from './voice'
-import { createAiMeter, type LedgerEnv, type OpenAiUsage } from '../lib/aiUsage'
+import { createAiMeter, ledgerGuestKey, type LedgerEnv, type OpenAiUsage } from '../lib/aiUsage'
 
 export type ReadingSourceResearch = {
   notes: string
@@ -113,7 +113,7 @@ export async function handleVoiceResearch(
   let query: unknown
   try { query = JSON.parse(raw).query } catch { return jsonResponse({ error: 'Invalid question.' }, 400, request) }
   if (typeof query !== 'string' || !query.trim() || query.length > 1000) return jsonResponse({ error: 'Invalid question.' }, 400, request)
-  const meter = createAiMeter(env as LedgerEnv, ctx, { userId: user.id }, { feature: 'source_search', model: 'gpt-4.1' })
+  const meter = createAiMeter(env as LedgerEnv, ctx, { userId: user.id, guest: ledgerGuestKey(request) }, { feature: 'source_search', model: 'gpt-4.1' })
   const result = await searchReadingSources(env.OPENAI_API_KEY, query.trim(), report => meter.sourceSearch(report.usage, report.searches))
   return result
     ? jsonResponse({ ok: true, ...result }, 200, request)

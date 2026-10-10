@@ -9,6 +9,7 @@
 // keeps its words where they are, so the player may cover its last line); closing the player brings the
 // progress line back and keeps the reader on the same page.
 import { chromium } from '@playwright/test'
+import { markInternal } from './lib/internalTraffic.cjs'
 import { build } from 'esbuild'
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -61,7 +62,7 @@ function measure(page) {
   })
 }
 
-const browser = await chromium.launch({ headless: true, executablePath, args: ['--mute-audio'] })
+const browser = await markInternal(await chromium.launch({ headless: true, executablePath, args: ['--mute-audio'] }))
 const report = { live, origin: live ? origin : 'dist', cases: [] }
 try {
  // Letter 1's opening page, and a page further in (a saved place mid-letter).

@@ -264,7 +264,7 @@ async function handleListen(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (!Number.isFinite(raw) || raw <= 0) return jsonResponse({ error: 'Invalid seconds' }, 400, request)
   const bookId = typeof body.bookId === 'string' && /^[a-z0-9-]{1,64}$/.test(body.bookId) ? body.bookId : null
   const user = request.headers.get('authorization') ? await deps.verifyUser(env, request) : null
-  const ledger: AiIdentity = user?.id ? { userId: user.id } : { guest: ledgerGuestKey(request) }
+  const ledger: AiIdentity = { userId: user?.id ?? null, guest: ledgerGuestKey(request) }
   if (!await deps.checkRateLimit(`narration-listen:${user?.id ?? requestGuestKey(request)}`, env.RATE_LIMIT, 30)) return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   recordAiUsage(env as LedgerEnv, ctx, ledger, {
     feature: 'narration_listen', provider: 'xai', model: narrationConfig(env).model,
@@ -1047,7 +1047,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       return new Response(null, { status: 204 })
     }
     userId = user?.id || `guest:${request.headers.get('cf-connecting-ip') || 'unknown'}`
-    ledger = user?.id ? { userId: user.id } : { guest: ledgerGuestKey(request) }
+    ledger = { userId: user?.id ?? null, guest: ledgerGuestKey(request) }
   }
 
   let body: EnsureRequestBody

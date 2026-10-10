@@ -1,5 +1,5 @@
 /** Remove generated website-only pages from the native copy, never source data. */
-import { rm, stat, readdir, readFile, writeFile, mkdir } from 'node:fs/promises'
+import { rm, stat, readdir, readFile, writeFile, mkdir, copyFile } from 'node:fs/promises'
 import { resolve, join } from 'node:path'
 const root = resolve('dist')
 async function bytes(path) {
@@ -15,6 +15,14 @@ for (const name of ['read', 'sitemap.xml', 'robots.txt', 'lab/addbook']) {
   const path = join(root, name)
   removed += await bytes(path)
   await rm(path, { recursive: true, force: true })
+}
+// The library statically imports these two dependency-free modules (library-search.js,
+// add-to-tinct.js). Without them the whole library module graph fails to load and no
+// control works, so restore them from the source copy after removing the test page.
+for (const name of ['search.js', 'file-handoff.js']) {
+  await mkdir(join(root, 'lab/addbook/js'), { recursive: true })
+  await copyFile(resolve('public/lab/addbook/js', name), join(root, 'lab/addbook/js', name))
+  removed -= (await stat(join(root, 'lab/addbook/js', name))).size
 }
 console.log(JSON.stringify({ nativeWebsiteBytesRemoved: removed, preserved: 'reader, catalogue, fonts, covers, all text and annotation recovery assets' }))
 

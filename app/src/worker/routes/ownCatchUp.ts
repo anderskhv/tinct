@@ -41,7 +41,7 @@ import {
 import { sha256Hex } from '../../narration/narrationCore'
 import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { allowanceUsedBody } from '../lib/aiAllowance'
-import { createAiMeter, type LedgerEnv } from '../lib/aiUsage'
+import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { CheckRateLimit } from '../lib/rateLimit'
@@ -240,7 +240,7 @@ export async function handleOwnCatchUp(request: Request, env: OwnCatchUpEnv, ctx
   const estimate = estimateAiCostMicros({ inputChars: OWN_CATCH_UP_SYSTEM_PROMPT.length + content.length, maxTokens: OWN_CATCH_UP_MAX_TOKENS })
   if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
   if (!deps.reserveGuestSpend || !await deps.reserveGuestSpend(estimate)) return jsonResponse(aiRestingBody(), 503, request)
-  const meter = createAiMeter(env, ctx, { userId: user.id }, { feature: 'catch_up', bookId: OWN_CATCH_UP_LEDGER_BOOK_ID, model: RECAP_FAST_MODEL })
+  const meter = createAiMeter(env, ctx, { userId: user.id, guest: ledgerGuestKey(request) }, { feature: 'catch_up', bookId: OWN_CATCH_UP_LEDGER_BOOK_ID, model: RECAP_FAST_MODEL })
   let recap: string
   try {
     const response = await (deps.fetchAnthropic ?? defaultFetchAnthropic)({

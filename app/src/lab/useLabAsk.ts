@@ -53,9 +53,11 @@ import {
   appendLabChatTurn,
   createLabChatCloudWriter,
   createLabChatHistoryCloud,
+  mergeChatConversations,
   migrateLegacyLabChatHistoryCloud,
   migrateLegacyLabChatHistoryLocal,
   readLabBookChat,
+  reconcileTurns,
   turnsFromConversations,
 } from './labChatHistory'
 import type { ChatConversation } from '../types'
@@ -151,11 +153,15 @@ export function useLabAsk(options: UseLabAskOptions) {
     return readLabBookChat(chatBookId)
   })
   const [turns, setTurns] = useState<LabAskTurn[]>(() => turnsFromConversations(conversations))
+  // The thread as this page last knew it, for recordTurn: a turn whose local
+  // write failed must still be in the value the next turn commits.
+  const conversationsRef = useRef(conversations)
   const loadedForBookRef = useRef(chatBookId)
   if (loadedForBookRef.current !== chatBookId) {
     loadedForBookRef.current = chatBookId
     const stored = readLabBookChat(chatBookId)
     const hydrated = turnsFromConversations(stored)
+    conversationsRef.current = stored
     setConversations(stored)
     setTurns(hydrated)
     dumpLabTalkTurns(hydrated)
@@ -193,6 +199,13 @@ export function useLabAsk(options: UseLabAskOptions) {
   const viewerId = options.userId !== undefined ? options.userId : (session?.user?.id ?? null)
   const viewerRef = useRef(viewerId)
   viewerRef.current = viewerId
+  // What this page holds belongs to the account it was had under: another
+  // account starts from its own device copy, never from this one's turns.
+  const baseViewerRef = useRef(viewerId)
+  if (baseViewerRef.current !== viewerId) {
+    baseViewerRef.current = viewerId
+    conversationsRef.current = readLabBookChat(chatBookId)
+  }
 
   // Chapters the reader visited during this session, with their opening
   // lines, for the companion's reading trail. Read-only observation of the
@@ -296,8 +309,12 @@ export function useLabAsk(options: UseLabAskOptions) {
   const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
     const bookId = chatBookIdRef.current
     if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
-    const next = appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
-    if (loadedForBookRef.current === bookId) setConversations(next)
+    const base = loadedForBookRef.current === bookId ? conversationsRef.current : undefined
+    const next = appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined, base)
+    if (loadedForBookRef.current === bookId) {
+      conversationsRef.current = next
+      setConversations(next)
+    }
     cloudWriterRef.current?.push(bookId, next)
   }, [])
 
@@ -314,12 +331,17 @@ export function useLabAsk(options: UseLabAskOptions) {
     let running = false
     let again = false
     let debounce: ReturnType<typeof setTimeout> | undefined
+    // Only the first read for this book and account is "loading" (the device
+    // copy on screen may be months old). A refresh when the tab comes back is
+    // quiet: the thread stays as it is and only gains what is new.
+    let first = true
     const run = async (): Promise<void> => {
       if (cancelled) return
       if (running) { again = true; return }
       running = true
       try {
-      setHistoryStatus('loading')
+      if (first) setHistoryStatus('loading')
+      first = false
       await migrateLegacyLabChatHistoryCloud({
         userId: viewerId,
         fetchLegacy: () => fetchLabChatHistoryCloud(liveToken),
@@ -329,13 +351,16 @@ export function useLabAsk(options: UseLabAskOptions) {
       const merged = await cloudWriter.sync(chatBookId, () => { unavailable = true }, () => !cancelled)
       if (cancelled || loadedForBookRef.current !== chatBookId) return
       setHistoryStatus(unavailable ? 'unavailable' : 'ready')
-      setConversations(merged)
-      const hydrated = turnsFromConversations(merged)
-      // A reply still streaming (not stored yet) survives the re-hydration.
+      // Never lose what this page holds that the read did not (a turn saved
+      // after the read began, or one whose save failed).
+      const kept = mergeChatConversations(merged, conversationsRef.current)
+      conversationsRef.current = kept
+      setConversations(kept)
+      const hydrated = turnsFromConversations(kept)
+      // A reply still streaming (not stored yet) survives the re-hydration,
+      // and every turn keeps its place by time: a read never reorders the thread.
       setTurns((current) => {
-        const stored = new Set(hydrated.map(turn => turn.id))
-        const pending = current.filter(turn => !stored.has(turn.id))
-        const next = pending.length > 0 ? [...hydrated, ...pending] : hydrated
+        const next = reconcileTurns(current, hydrated)
         dumpLabTalkTurns(next)
         return next
       })
@@ -775,9 +800,10 @@ export function useLabAsk(options: UseLabAskOptions) {
             if (!content || !stillHere()) return
             setTurns(current => {
               if (!stillHere()) return current
-              const last = current[current.length - 1]
-              const nextTurns = last?.id === assistantId
-                ? [...current.slice(0, -1), { ...last, content }]
+              // By id, not "the last turn": a refresh may have added turns meanwhile.
+              const at = current.findIndex(turn => turn.id === assistantId)
+              const nextTurns = at >= 0
+                ? current.map((turn, index) => (index === at ? { ...turn, content } : turn))
                 : [...current, {
                     bookId: requestBookId,
                     chapterAction: chapterRequest?.action,
@@ -785,6 +811,8 @@ export function useLabAsk(options: UseLabAskOptions) {
                     role: 'assistant' as const,
                     content,
                     source: 'typed' as const,
+                    // When it began: an answer that never finishes still keeps its place.
+                    timestamp: Date.now(),
                     chapterNumber: requestChapter,
                     paragraphIndex: requestParagraph,
                   }]
@@ -832,9 +860,9 @@ export function useLabAsk(options: UseLabAskOptions) {
         }
         setTurns(current => {
           if (!stillHere()) return current
-          const last = current[current.length - 1]
-          const next = last?.id === assistantTurn.id
-            ? [...current.slice(0, -1), assistantTurn]
+          const at = current.findIndex(turn => turn.id === assistantTurn.id)
+          const next = at >= 0
+            ? current.map((turn, index) => (index === at ? assistantTurn : turn))
             : [...current, assistantTurn]
           dumpLabTalkTurns(next)
           return next

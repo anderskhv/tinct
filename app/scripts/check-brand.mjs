@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import { createHash } from 'node:crypto'
+import { checkFetch } from './lib/internalTraffic.cjs'
 const origin='https://tinct.app'
 const results=[]
 for(const [path,image] of [
@@ -10,7 +11,7 @@ for(const [path,image] of [
  ['/library?book=frankenstein','/brand/20260921/books/frankenstein.jpg'],
  ['/read/the-prince','/brand/20260921/books/the-prince.jpg'],
 ]){
- const response=await fetch(origin+path);assert.equal(response.status,200,path)
+ const response=await checkFetch(origin+path);assert.equal(response.status,200,path)
  const html=await response.text()
  assert.equal((html.match(/property="og:image"/g)||[]).length,1,path+' has one social image')
  assert(html.includes('content="'+origin+image+'"'),path+' uses its public brand card')
@@ -20,7 +21,7 @@ for(const [path,image] of [
 }
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex')
 for(const path of ['/brand/manifest.webmanifest','/brand/20260921/favicon.svg','/brand/20260921/apple-touch-icon.png','/brand/20260921/icon-maskable-512.png','/brand/20261001/share-tinct-1200x630.jpg','/brand/20260921/books/frankenstein.jpg','/brand/20260921/books/the-prince.jpg','/brand/20260921/books/vindication-rights-of-woman.jpg']){
- const response=await fetch(origin+path);assert.equal(response.status,200,path)
+ const response=await checkFetch(origin+path);assert.equal(response.status,200,path)
  const remote=Buffer.from(await response.arrayBuffer()),expected=await fs.readFile('dist'+path)
  assert.equal(hash(remote),hash(expected),path+' serves the deployed asset')
  results.push({path,sha256:hash(remote),passed:true})

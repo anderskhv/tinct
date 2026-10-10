@@ -120,14 +120,23 @@ export function everyoneBoardOpen(realReaders: number | null, min = EVERYONE_BOA
 }
 
 /**
- * Addresses that cannot belong to a reader: the domains and top-level domains
- * reserved for examples and testing (RFC 2606/6761), as QA's synthetic
- * accounts use (qa-…@example.com).
+ * The one domain Tinct's own test tools create accounts under (since
+ * 2026-10-10; app/scripts/lib/testAccounts.cjs). Nobody can receive mail
+ * there, so no reader can sign up with it.
+ */
+export const TEST_ACCOUNT_DOMAIN = 'test.tinct.app'
+
+/**
+ * Addresses that cannot belong to a reader: Tinct's test-account domain and
+ * the domains and top-level domains reserved for examples and testing
+ * (RFC 2606/6761), as QA's older synthetic accounts use (qa-…@example.com).
+ * Mirrored in SQL by public.is_test_email (20261010_profiles_is_test.sql).
  */
 export function isReservedTestEmail(email: string | null | undefined): boolean {
   const domain = String(email ?? '').trim().toLowerCase().split('@')[1] ?? ''
   if (!domain) return false
-  return /(^|\.)example\.(com|net|org)$/.test(domain) || /\.(test|example|invalid|localhost)$/.test(domain)
+  return domain === TEST_ACCOUNT_DOMAIN
+    || /(^|\.)example\.(com|net|org)$/.test(domain) || /\.(test|example|invalid|localhost)$/.test(domain)
 }
 
 /**

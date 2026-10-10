@@ -18,6 +18,7 @@ import { editionHold, isBookTemporarilyHeld } from '../src/data/editionAvailabil
 import { isEditionWithheld } from '../src/data/withheldEditions.ts'
 import { narrationTokens, chunkNarrationTokens, utf8ByteLength, isPilotScope, NARRATION_MAX_PARAGRAPHS_PER_REQUEST } from '../src/narration/narrationCore.ts'
 import { releaseWarmSignature } from '../src/narration/narrationReleaseAuth.ts'
+import { checkHeaders } from './lib/internalTraffic.cjs'
 
 const VOICE = 'm' // Helios. Never parameterised: this job must not warm other voices.
 const USD_PER_MILLION_CHARS = 15 // xAI TTS, src/worker/lib/aiUsage.ts AI_PRICING.xai.ttsPerMChars
@@ -120,7 +121,7 @@ async function releaseFetch(path, init = {}) {
   const signature = await releaseWarmSignature(process.env.XAI_API_KEY, method, path, timestamp, init.body || '')
   return fetch(origin + path, {
     ...init, method,
-    headers: { 'Content-Type': 'application/json', 'x-narration-provider': 'grok', 'x-narration-release-time': timestamp, 'x-narration-release-signature': signature },
+    headers: checkHeaders({ 'Content-Type': 'application/json', 'x-narration-provider': 'grok', 'x-narration-release-time': timestamp, 'x-narration-release-signature': signature }),
     signal: AbortSignal.timeout(95000),
   })
 }

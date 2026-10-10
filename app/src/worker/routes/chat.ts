@@ -919,7 +919,7 @@ export async function handleChat(
       return jsonResponse(allowanceUsedBody(), 402, request)
     }
     const meterBook = parseBookRef(companion ? companionBookRef(companion) : body.book)
-    const meter = createAiMeter(env, ctx, { userId, guest: userId ? null : ledgerGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
+    const meter = createAiMeter(env, ctx, { userId, guest: ledgerGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
 
     const charge = () => {
       if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {

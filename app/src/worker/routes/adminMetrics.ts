@@ -1,6 +1,7 @@
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseGet, type SupabaseEnv } from '../lib/supabase'
+import { isReservedTestEmail } from '../../social/socialRules'
 
 export type AdminMetricsEnv = SupabaseEnv
 
@@ -46,6 +47,21 @@ function isExcludedMetricsEmail(email: string): boolean {
   return normalized === 'ahvelplund@fastmail.com' || /^tinct\d+@fastmail\.com$/.test(normalized)
 }
 
+/**
+ * Tinct's own test accounts never count as readers: profiles.is_test
+ * (20261010_profiles_is_test.sql) once it has run, and until then (and as a
+ * backstop) the test-account domains alone (qa-*@test.tinct.app, and the
+ * reserved example/test domains older QA accounts used).
+ */
+export function isTestAccount(profile: { email: string | null; is_test?: boolean | null }): boolean {
+  return profile.is_test === true || isReservedTestEmail(profile.email)
+}
+
+/** A row Tinct's own testing sent: the internal flag or the x-tinct-check header marks it `internal`. */
+function isInternalRow(row: AnalyticsAdminRow): boolean {
+  return row.payload?.internal === true
+}
+
 function formatSupabaseIn(values: string[]): string {
   return values.join(',')
 }
@@ -77,28 +93,38 @@ export async function handleAdminMetricsUsers(
   const userIds = [...new Set(rows.map(row => row.user_id).filter((id): id is string => !!id && isValidUUID(id)))]
 
   const emailByUserId = new Map<string, string>()
+  const testUserIds = new Set<string>()
+  // profiles.is_test exists once its migration has run; until then ask without it.
+  let withTestFlag = true
   for (let i = 0; i < userIds.length; i += 100) {
     const chunk = userIds.slice(i, i + 100)
     if (chunk.length === 0) continue
-    const profilesRes = await supabaseGet(env, `profiles?id=in.(${formatSupabaseIn(chunk)})&select=id,email`)
+    let profilesRes = await supabaseGet(env, `profiles?id=in.(${formatSupabaseIn(chunk)})&select=id,email${withTestFlag ? ',is_test' : ''}`)
+    if (!profilesRes.ok && withTestFlag) {
+      withTestFlag = false
+      profilesRes = await supabaseGet(env, `profiles?id=in.(${formatSupabaseIn(chunk)})&select=id,email`)
+    }
     if (!profilesRes.ok) continue
-    const profiles = await profilesRes.json() as { id: string; email: string | null }[]
+    const profiles = await profilesRes.json() as { id: string; email: string | null; is_test?: boolean | null }[]
     for (const profile of profiles) {
       emailByUserId.set(profile.id, (profile.email || '').toLowerCase())
+      if (isTestAccount(profile)) testUserIds.add(profile.id)
     }
   }
 
-  const excludedUserIds = new Set(
-    [...emailByUserId.entries()]
+  const excludedUserIds = new Set([
+    ...[...emailByUserId.entries()]
       .filter(([, email]) => isExcludedMetricsEmail(email))
       .map(([id]) => id),
-  )
+    ...testUserIds,
+  ])
   const excludedSessions = new Set(
     rows
-      .filter(row => row.user_id && excludedUserIds.has(row.user_id))
+      .filter(row => (row.user_id && excludedUserIds.has(row.user_id)) || isInternalRow(row))
       .map(row => row.session_id),
   )
   const includedRows = rows.filter(row => {
+    if (isInternalRow(row)) return false
     if (row.user_id && excludedUserIds.has(row.user_id)) return false
     if (excludedSessions.has(row.session_id)) return false
     return true
