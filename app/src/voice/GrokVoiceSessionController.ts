@@ -48,6 +48,14 @@ const VOICE_CONNECT_RETRY_DELAY_MS = 1_000
 
 /** A setup failure worth one more try: the network or the provider, not the reader's account. */
 class RetryableVoiceSetupError extends Error {}
+
+/**
+ * The setup step a Talk start failed in, counted as `talk_failed.stage`:
+ * microphone permission/stream, the Web Audio graph, the single-use session
+ * token from Tinct, or the provider socket until the session is ready.
+ */
+export type VoiceSetupStage = 'setup_mic' | 'setup_audio_context' | 'setup_token' | 'setup_socket'
+export type VoiceFailStage = 'sign_in' | 'microphone' | 'connection' | 'request' | VoiceSetupStage
 export const LOOKUP_ACKNOWLEDGEMENT_DELAY_MS = 1_500
 /**
  * What the app has Grok say while a lookup runs long. Short and plain, taken in
@@ -189,6 +197,8 @@ export class GrokVoiceSessionController {
   private playbackConfirmation: { resolve: () => void } | null = null
   /** The socket opened for setup closed or errored before the session was ready. */
   private setupSocketFailed = false
+  /** The setup step in progress, reported as the failure stage when a start fails. */
+  private setupStage: VoiceSetupStage = 'setup_mic'
   private acknowledgementsSaid = 0
   /** Tool rounds still running: the answer to the reader's turn has not come yet. */
   private toolRoundsInFlight = 0
@@ -292,7 +302,7 @@ export class GrokVoiceSessionController {
   }
 
   /** `stage` is a fixed code counted in the funnel; the message never leaves the device. */
-  private fail(message: string, stage: 'sign_in' | 'microphone' | 'setup' | 'connection' | 'request') {
+  private fail(message: string, stage: VoiceFailStage) {
     trackFunnel('talk_failed', { stage })
     this.stop()
     this.emit({ error: message, connection: 'disconnected' })
@@ -312,6 +322,7 @@ export class GrokVoiceSessionController {
       return
     }
     const current = () => generation === this.generation
+    this.setupStage = 'setup_mic'
     try {
       if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
         throw new Error("Couldn't start voice. Microphone access is unavailable. Type a question instead.")
@@ -328,6 +339,7 @@ export class GrokVoiceSessionController {
       // Capture immediately after permission succeeds. Until session.updated,
       // flushCapture retains a bounded local buffer; this preserves a first
       // statement spoken while the ephemeral token and socket are connecting.
+      this.setupStage = 'setup_audio_context'
       if (typeof AudioContext !== 'undefined') this.startCapture()
       for (let attempt = 1; ; attempt += 1) {
         try {
@@ -345,7 +357,7 @@ export class GrokVoiceSessionController {
       this.callbacks.onUsage?.()
       this.callbacks.onLatency?.({ kind: 'session_setup', at: Date.now(), sessionSetupMs: Date.now() - this.startedAt, model: GROK_VOICE_MODEL })
     } catch (error) {
-      if (current()) this.fail(error instanceof Error ? error.message : 'Could not start voice.', 'setup')
+      if (current()) this.fail(error instanceof Error ? error.message : 'Could not start voice.', this.setupStage)
     }
   }
 
@@ -411,6 +423,7 @@ export class GrokVoiceSessionController {
 
   /** One setup attempt: mint a single-use secret, open the socket, wait for the session. */
   private async connect(input: StartVoiceSessionInput, generation: number): Promise<void> {
+    this.setupStage = 'setup_token'
     const { response, data } = await this.requestSession(input)
     if (generation !== this.generation) return
     if (!response.ok || !data.value) {
@@ -423,6 +436,7 @@ export class GrokVoiceSessionController {
       throw response.status >= 500 || response.status === 408 ? new RetryableVoiceSetupError(message) : new Error(message)
     }
     this.setupSocketFailed = false
+    this.setupStage = 'setup_socket'
     const socket = this.openSocket(data.value, data.model || GROK_VOICE_MODEL)
     this.socket = socket
     await this.awaitReady(generation)
