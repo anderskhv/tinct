@@ -143,7 +143,11 @@ Agents and real reader data: do not read production user rows, analytics,
 chats or exports without Anders's approval for that task; test with synthetic
 or own test accounts. Never commit reader data, emails or exports to this
 public repo, and never paste them into outside services. Aggregate numbers
-Anders asks for are fine.
+Anders asks for are fine. Anders's own account is the exception (his standing
+permission, 2026-10-10): his reading figures, profile and stats are not secret
+to agents and may be read whenever useful, as ground truth for checking what
+the app shows. That covers his account only, never another reader's, and his
+data still never goes into the repo or outside services.
 
 Our own testing must never count as readers (since 2026-10-10). A production
 test account is created only with `app/scripts/lib/testAccounts.cjs`

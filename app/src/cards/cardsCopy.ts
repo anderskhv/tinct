@@ -20,8 +20,13 @@ export const CARDS_COPY = {
   uploadPicture: 'Upload a picture',
   choosePicture: 'Choose a picture',
   changeBackground: 'Change background',
+  // Anders's feedback, 10 October 2026: the banner's own button
+  chooseBackground: 'Choose a background',
+  uploadBackground: 'Upload a background',
   useThisPicture: 'Use this picture',
   since: (date: string) => `since ${date}, reading and listening`,
+  // Under the last bar of Your reading's week chart (Anders asked what a bar is).
+  thisWeek: 'This week',
   last7: 'last 7 days',
   finished: 'finished',
   streak: 'streak',

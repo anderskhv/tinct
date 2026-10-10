@@ -41,6 +41,8 @@ export interface OwnProfile {
   emailConfirmed: boolean
   emailOptIn: boolean
   googlePhoto: boolean
+  /** The Worker accepts uploaded pictures and backgrounds (SOCIAL_PHOTO_UPLOADS). Absent: no uploads. */
+  uploads?: boolean
 }
 
 export type ProfileResult =

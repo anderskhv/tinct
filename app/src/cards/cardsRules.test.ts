@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter } from './cardsRules'
-import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, ordinal, rankOf, shortEmail, weekHeights } from './cardsFormat'
+import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, ordinal, rankOf, shortEmail, weekHeights, chartWeeks, dayMonthShortDate } from './cardsFormat'
 import { accountPageRedirect, cardUrl, isCardName } from './cardRoutes'
 import type { ProfilePageData } from './cardsApi'
 
@@ -113,6 +113,18 @@ describe('numbers, as cards.html writes them', () => {
 
   it('draws the busiest week full height and keeps a sliver for empty weeks', () => {
     expect(weekHeights([{ seconds: 0 }, { seconds: 50 }, { seconds: 100 }])).toEqual([4, 50, 100])
+  })
+
+  it('starts the week chart at the week of the first reading day, and always keeps this week', () => {
+    const weeks = Array.from({ length: 12 }, (_, i) => ({ start: new Date(Date.UTC(2026, 6, 20 + i * 7)).toISOString().slice(0, 10), seconds: i }))
+    // 20 Jul … 5 Oct; first read on Wednesday 9 Sep → the week of 7 Sep onward.
+    expect(chartWeeks(weeks, '2026-09-09').map(w => w.start)).toEqual(['2026-09-07', '2026-09-14', '2026-09-21', '2026-09-28', '2026-10-05'])
+    expect(chartWeeks(weeks, '2026-09-07')[0].start).toBe('2026-09-07')
+    expect(chartWeeks(weeks, '2026-10-08').map(w => w.start)).toEqual(['2026-10-05'])
+    expect(chartWeeks(weeks, '2026-01-01')).toHaveLength(12)
+    expect(chartWeeks(weeks, null)).toHaveLength(12)
+    expect(dayMonthShortDate('2026-09-07')).toBe('7 Sep')
+    expect(dayMonthShortDate('')).toBe('')
   })
 })
 

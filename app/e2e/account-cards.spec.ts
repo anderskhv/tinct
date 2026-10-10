@@ -60,6 +60,8 @@ function ownProfile(overrides: Record<string, unknown> = {}) {
     background: { kind: 'set', value: 'stoic', url: null, review: 'none' },
     visibility: 'friends', effectiveVisibility: 'friends', showReading: true, showTime: true, onLeaderboard: true,
     newBooksOpenIn: 'modern', setUp: true, needsSetup: false, shouldPrompt: false, emailConfirmed: true, emailOptIn: false, googlePhoto: false,
+    // Shown with uploads on (SOCIAL_PHOTO_UPLOADS "1"), so both menus appear.
+    uploads: true,
     ...overrides,
   }
 }
@@ -151,6 +153,8 @@ export async function prepare(page: Page, options: { night?: boolean; profile?: 
 export async function openReader(page: Page) {
   await page.goto('/reader?book=frankenstein', { waitUntil: 'domcontentloaded' })
   await expect(page.getByTestId('lab-super')).toBeVisible({ timeout: 90_000 })
+  // The book's page itself, not the frame still loading, before the page is compared after the cards.
+  await expect(page.locator('[data-testid="lab-root"] article p').first()).toBeVisible({ timeout: 90_000 })
   await page.waitForTimeout(800)
   await page.evaluate(() => { (window as unknown as { __stay: number }).__stay = 1 })
 }
@@ -184,6 +188,23 @@ async function nothingCut(page: Page) {
   expect(problems).toEqual([])
 }
 
+/** Phone: the sheet is as tall as its content (at most 90% of the screen) and sits on the bottom edge. */
+async function sheetFits(page: Page, id: string) {
+  if (test.info().project.name.startsWith('desktop')) return
+  // After the sheet's rise (0.26 s).
+  await page.waitForTimeout(400)
+  const box = await page.evaluate(card => {
+    const node = document.querySelector<HTMLElement>(`.tc-card[data-card="${card}"]`)!
+    const rect = node.getBoundingClientRect()
+    const last = [...node.querySelectorAll<HTMLElement>('.tc-body > *')].filter(child => child.offsetParent !== null).pop()
+    return { top: rect.top, bottom: rect.bottom, height: rect.height, vh: innerHeight, scrolls: node.scrollHeight > node.clientHeight + 1, gap: last ? rect.bottom - last.getBoundingClientRect().bottom : 0 }
+  }, id)
+  expect(Math.abs(box.bottom - box.vh), JSON.stringify(box)).toBeLessThanOrEqual(1)
+  expect(box.height, JSON.stringify(box)).toBeLessThanOrEqual(box.vh * 0.9 + 1)
+  // No empty space under the content (only the body's own padding and the safe area).
+  if (!box.scrolls) expect(box.gap, JSON.stringify(box)).toBeLessThanOrEqual(40)
+}
+
 /** The brief's type rules: no monospace and no capitals-only labels anywhere in the cards. */
 async function typeRules(page: Page) {
   const bad = await page.evaluate(() => [...document.querySelectorAll<HTMLElement>('.tcards *')].flatMap(node => {
@@ -210,11 +231,25 @@ for (const night of [false, true]) {
     await expect(page.getByTestId('you-top-up-bar')).toContainText('64%')
     await expect(page.locator('.tc-badge')).toHaveText('1')
     await nothingCut(page); await typeRules(page)
+    await sheetFits(page, 'you')
     await shot(page, `reader-you-${theme}`)
 
     await page.getByTestId('you-picture').click()
     await expect(page.getByTestId('card-menu')).toBeVisible()
+    await expect(page.getByTestId('card-menu').locator('.tc-r')).toHaveText(['Upload a picture', 'Choose a picture'])
     await shot(page, `reader-picture-menu-${theme}`)
+    // A tap elsewhere on the card closes the menu and does nothing else.
+    await page.locator('.tc-card[data-card="you"] .tc-nm b').click()
+    await expect(page.getByTestId('card-menu')).toHaveCount(0)
+    // The painting has its own button and menu.
+    await page.getByTestId('you-background').click()
+    await expect(page.getByTestId('card-menu').locator('.tc-r')).toHaveText(['Choose a background', 'Upload a background'])
+    await shot(page, `reader-background-menu-${theme}`)
+    await page.getByTestId('menu-background').click()
+    await expect(top(page, 'background')).toBeVisible()
+    await shot(page, `reader-choose-background-${theme}`)
+    await top(page, 'background').getByTestId('card-back').click()
+    await page.getByTestId('you-picture').click()
     await page.getByTestId('menu-choose').click()
     await expect(top(page, 'picture')).toBeVisible()
     await expect(page.locator('[data-testid="picture-grid"] button')).toHaveCount(8)
@@ -224,6 +259,10 @@ for (const night of [false, true]) {
     await page.getByTestId('you-reading').click()
     await expect(top(page, 'reading')).toBeVisible()
     await expect(page.getByTestId('reading-total')).toBeVisible()
+    // One figure per label: the You row is the last 7 days, the same as the card's fact.
+    const youRow = (await page.locator('.tc-card[data-card="you"] [data-testid="you-reading"] .tc-v').textContent()) ?? ''
+    const last7 = (await top(page, 'reading').locator('[data-testid="card-facts"] b').first().textContent()) ?? ''
+    expect(youRow.match(/\d+/g)).toEqual(last7.match(/\d+/g))
     await nothingCut(page); await typeRules(page)
     await shot(page, `reader-reading-${theme}`)
     await top(page, 'reading').getByTestId('card-back').click()
@@ -261,8 +300,22 @@ for (const night of [false, true]) {
     await page.getByTestId('info-leaderboard').click()
     await expect(page.getByTestId('card-tip')).toBeVisible()
     await shot(page, `reader-settings-tip-${theme}`)
-    await page.mouse.click(5, 5)
+    // A tap elsewhere in the card closes the tip (and does nothing else).
+    await top(page, 'settings').locator('.tc-title').click()
     await expect(page.getByTestId('card-tip')).toHaveCount(0)
+    await expect(top(page, 'settings')).toBeVisible()
+    // The tap that closed the tip is swallowed for a moment (swallowNextClick); then a new tap.
+    await page.waitForTimeout(700)
+    // Change password: the reset email goes, and its line shows under the row, in view.
+    await page.getByTestId('settings-password').click()
+    await expect(page.getByTestId('settings-password-status')).toHaveText('Password reset email sent.')
+    await expect(page.getByTestId('settings-password-status')).toBeInViewport()
+    await shot(page, `reader-settings-password-${theme}`)
+    // Premium by grant (no Stripe subscription): the plan, no Manage.
+    await page.getByTestId('settings-account').click()
+    await expect(page.getByTestId('account-plan')).toHaveText('Premium account')
+    await expect(page.getByTestId('account-manage')).toHaveCount(0)
+    await top(page, 'account').getByTestId('card-back').click()
     // Changes post at once; Only me takes the reader off the board and disables the switch.
     await page.getByTestId('settings-visibility').locator('[data-value="only_me"]').click()
     await expect(page.getByTestId('settings-leaderboard')).toBeDisabled()
@@ -277,17 +330,26 @@ for (const night of [false, true]) {
   })
 }
 
-test('the library: the picture in the top bar opens the dark cards over the page', async ({ page }) => {
-  await prepare(page)
+for (const night of [true, false]) test(`the library (${night ? 'dark' : 'light'}): the picture in the top bar opens the dark cards over the page`, async ({ page }) => {
+  await prepare(page, { night })
   await page.goto('/library', { waitUntil: 'domcontentloaded' })
   const you = page.locator('#sign-in.cards-you')
   await expect(you).toBeVisible({ timeout: 60_000 })
   const search = await page.locator('#search-toggle svg').boundingBox()
   const picture = await you.locator('.tinct-avatar').boundingBox()
   expect(Math.abs((picture?.width ?? 0) - (search?.width ?? 0))).toBeLessThanOrEqual(2)
+  // Nothing lies over the picture (the librarian's orb, the shelf, the reading table).
+  expect(await page.evaluate(() => {
+    const button = document.getElementById('sign-in')!
+    const box = button.getBoundingClientRect()
+    return button.contains(document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2))
+  })).toBe(true)
   await page.evaluate(() => { (window as unknown as { __stay: number }).__stay = 1 })
-  await you.click()
+  // A finger on the phone, the mouse on desktop (Anders, iPhone Safari: a tap did nothing).
+  if (test.info().project.use.hasTouch) await you.tap()
+  else await you.click()
   await expect(page.locator('.tcards.is-dark .tc-card[data-card="you"]')).toBeVisible()
+  if (!night) return
   await expect(page.getByTestId('you-reading')).toBeVisible()
   await shot(page, 'library-you-dark')
   for (const [row, id] of [['you-reading', 'reading'], ['you-leaderboard', 'leaderboard'], ['you-find', 'find'], ['you-settings', 'settings']] as const) {

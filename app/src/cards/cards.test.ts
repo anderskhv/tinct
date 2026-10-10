@@ -9,9 +9,19 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import cardsCss from './cards.css?raw'
 import { accountCardsOpen, closeAccountCards, openAccountCards } from './openCards'
 import { CardStack } from './cardStack'
-import { accountCard, type CardsEnv } from './cardViews'
+import { accountCard, settingsCard, type CardsEnv } from './cardViews'
 import { CARDS_COPY } from './cardsCopy'
 import { ACCOUNT_DELETE_CONFIRM, ACCOUNT_DELETE_PATH } from '../worker/routes/accountDelete'
+import { readingFigures } from './cardsFormat'
+import { CARDS_CACHE_PREFIX, readCardsCache, writeCardsCache } from './cardsCache'
+import { wipeLabDeviceUserData } from '../lab/labSignOut'
+import { readingTimeStats } from '../readingTime/model'
+
+// The photo resize needs a real canvas; the cards' upload path is what is tested here.
+vi.mock('../social/socialClient', async importOriginal => ({
+  ...(await importOriginal<typeof import('../social/socialClient')>()),
+  resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+}))
 
 const session = { token: 'tok', userId: '11111111-1111-4111-8111-111111111111', email: 'anders@example.com', accountName: 'Anders' }
 
@@ -35,17 +45,30 @@ let readerProfile: Record<string, unknown> | null = null
 let searchResults: unknown[] = []
 let blocked: Array<{ id: string; name: string; handle: string | null }> = []
 let deleteAnswer: { status: number; body: Record<string, unknown> } = { status: 200, body: { ok: true, deleted: true } }
+let readSeconds = 3600
+let subscription: Record<string, unknown> = { subscription_status: 'active' }
+/** Held until released: the profile answer (to see the first paint). */
+let profileGate: Promise<void> | null = null
+let uploads: Array<{ url: string; type: string | null }> = []
 
 function api() {
   return vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
     const url = String(input)
-    const body = init?.body ? JSON.parse(String(init.body)) as Record<string, unknown> : null
+    const body = typeof init?.body === 'string' ? JSON.parse(init.body) as Record<string, unknown> : null
     if (init?.method === 'POST' && body) posts.push({ url: url.replace(/\?.*$/, ''), body })
+    if (url.startsWith('/api/profile/image') && init?.method === 'POST') {
+      uploads.push({ url, type: new Headers(init?.headers).get('Content-Type') })
+      const slot = new URL(url, 'https://tinct.app').searchParams.get('slot')
+      if (slot === 'background') profile = { ...profile, background: { kind: 'upload', value: null, url: '/api/profile/image?user=u&slot=background&v=1', review: 'pending' } }
+      else profile = { ...profile, picture: { kind: 'upload', value: null, url: '/api/profile/image?user=u&slot=picture&v=1', review: 'pending' } }
+      return Response.json({ enabled: true, available: true, profile })
+    }
     if (url.startsWith('/api/profile')) {
+      if (profileGate && !body) await profileGate
       if (body) profile = { ...profile, ...body }
       return Response.json({ enabled: true, available: true, profile })
     }
-    if (url.startsWith('/api/reading-time')) return Response.json({ enabled: true, rows: [{ day: new Date().toISOString().slice(0, 10), bookId: 'frankenstein', read: 3600, listen: 0 }] })
+    if (url.startsWith('/api/reading-time')) return Response.json({ enabled: true, rows: [{ day: today(), bookId: 'frankenstein', read: readSeconds, listen: 0 }] })
     if (url.startsWith('/api/social/rank')) return Response.json({ rank: 3, total: 5, seconds: 3600 })
     if (url.startsWith('/api/social/find?q=')) return Response.json({ results: searchResults })
     if (url.startsWith('/api/social/find')) return Response.json({ followingYou: [person('ellen', 'Ellen Ravn', 'followed')], alsoReading: [person('karl', 'Karl Ny', 'stranger')], link: 'tinct.app/@anders' })
@@ -59,9 +82,15 @@ function api() {
     if (url.startsWith('/api/social/profile/')) return readerProfile ? Response.json({ profile: readerProfile }) : Response.json({ error: 'Not found' }, { status: 404 })
     if (url.startsWith('/api/social/board')) return Response.json({ tab: 'friends', total: 1, meShown: true, me: null, entries: [{ rank: 1, name: 'Anders', picture: pic('A'), seconds: 3600, duration: '1 h', me: true }] })
     if (url.startsWith('/api/account/delete')) return Response.json(deleteAnswer.body, { status: deleteAnswer.status })
-    if (url.startsWith('/api/subscription-info')) return Response.json({ subscription_status: 'active' })
+    if (url.startsWith('/api/subscription-info')) return Response.json(subscription)
     return Response.json({}, { status: 404 })
   })
+}
+
+function today(): string {
+  const date = new Date()
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
 }
 
 const flush = async () => { for (let i = 0; i < 12; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
@@ -76,6 +105,11 @@ beforeEach(() => {
   searchResults = []
   blocked = []
   deleteAnswer = { status: 200, body: { ok: true, deleted: true } }
+  readSeconds = 3600
+  subscription = { subscription_status: 'active' }
+  profileGate = null
+  uploads = []
+  localStorage.clear()
   document.body.innerHTML = '<main id="page"><p id="place">Chapter 14, page 3</p></main>'
   vi.stubGlobal('fetch', api())
 })
@@ -373,5 +407,185 @@ describe('type rules', () => {
     } finally {
       style.remove()
     }
+  })
+})
+
+describe('reading time: one figure per label (Anders, 10 October 2026)', () => {
+  it('the You row and the Your reading card show the same last-7-days figure, with the same rounding', () => {
+    for (const seconds of [0, 59, 60, 2659, 2699, 2700, 3599, 3600, 3659, 14_879, 22_200, 22_259, 359_999]) {
+      const { youRow, last7 } = readingFigures({ totalSeconds: seconds * 3, last7Seconds: seconds })
+      // "44 m" against "44 m", "6 h 10 m" against "6 h 10": the same hours and minutes.
+      const numbers = (text: string) => (text.match(/\d+/g) ?? []).map(Number)
+      expect(numbers(youRow), `${seconds}s`).toEqual(numbers(last7))
+    }
+    expect(readingFigures({ totalSeconds: 14_880, last7Seconds: 2699 })).toEqual({ youRow: '44 m', last7: '44 m', total: [['4', 'h'], ['8', 'm']] })
+  })
+
+  it('in the cards: You says 44 m and Your reading says 44 m for 44 min 59 s', async () => {
+    readSeconds = 2699
+    const userId = '22222222-2222-4222-8222-222222222299'
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false })).toBe(true)
+    await flush()
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}44 m`)
+    click(byTest('you-reading'))
+    const facts = byTest('card-facts')!.querySelectorAll('b')
+    expect(facts[0].textContent).toBe('44 m')
+    expect(byTest('reading-total')?.textContent).toBe('44m')
+  })
+
+  it('a stale cached figure is replaced on both cards at once, so they never disagree', async () => {
+    const userId = '33333333-3333-4333-8333-333333333333'
+    const stale = readingTimeStats([{ day: today(), bookId: 'frankenstein', read: 2640, listen: 0 }], today())
+    writeCardsCache(userId, { profile: ownProfile() as never, reading: { stats: stale, readingNow: [], finished: [] }, rank: null, plan: 'premium', billing: false })
+    readSeconds = 2700
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false, start: 'reading' })).toBe(true)
+    // First paint: the cached 44 m.
+    expect(byTest('card-facts')!.querySelector('b')?.textContent).toBe('44 m')
+    await flush()
+    expect(byTest('card-facts')!.querySelector('b')?.textContent).toBe('45 m')
+    click(byTest('card-back'))
+    expect(byTest('you-reading')?.textContent).toContain('45 m')
+  })
+})
+
+describe('first paint (Anders, 10 October 2026)', () => {
+  it('with nothing cached: a quiet skeleton, never a stand-in name, then the real profile', async () => {
+    let release = () => {}
+    profileGate = new Promise(resolve => { release = resolve })
+    const userId = '44444444-4444-4444-8444-444444444444'
+    expect(await openAccountCards({ session: { ...session, userId, accountName: null }, social: true, dark: false })).toBe(true)
+    await flush()
+    const hero = top().querySelector('.tc-hero')!
+    expect(byTest('you-name-skeleton')).toBeTruthy()
+    expect(hero.textContent).toBe('')
+    expect(top().textContent).not.toContain('Reader')
+    expect(byTest('you-picture')?.classList.contains('is-skel')).toBe(true)
+    release()
+    await flush()
+    expect(top().querySelector('.tc-nm b')?.textContent).toBe('Anders')
+    expect(byTest('you-name-skeleton')).toBeNull()
+  })
+
+  it('from the cached profile and figures at once, before any answer', async () => {
+    const userId = '55555555-5555-4555-8555-555555555555'
+    const cachedStats = readingTimeStats([{ day: today(), bookId: 'frankenstein', read: 22_200, listen: 0 }], today())
+    writeCardsCache(userId, { profile: ownProfile({ name: 'Anders H' }) as never, reading: { stats: cachedStats, readingNow: [], finished: [] }, rank: '3rd of 5', plan: 'premium', billing: false })
+    vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(() => {})))
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false })).toBe(true)
+    expect(top().querySelector('.tc-nm')?.textContent).toBe('Anders HPremium')
+    expect(byTest('you-reading')?.textContent).toContain('6 h 10 m')
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 5')
+  })
+
+  it('asks for the profile, the reading time and the rank at once', async () => {
+    const userId = '66666666-6666-4666-8666-666666666666'
+    const calls: string[] = []
+    vi.stubGlobal('fetch', vi.fn((input: RequestInfo | URL) => { calls.push(String(input)); return new Promise<Response>(() => {}) }))
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false })).toBe(true)
+    await flush()
+    expect(calls.some(url => url.startsWith('/api/profile'))).toBe(true)
+    expect(calls.some(url => url.startsWith('/api/reading-time'))).toBe(true)
+    expect(calls.some(url => url.startsWith('/api/social/rank'))).toBe(true)
+  })
+
+  it('keeps the cache per account and lets sign-out wipe it', () => {
+    writeCardsCache(session.userId, { profile: null, reading: null, rank: '1st of 2', plan: 'free', billing: false })
+    expect(readCardsCache(session.userId)?.rank).toBe('1st of 2')
+    expect(readCardsCache('77777777-7777-4777-8777-777777777777')).toBeNull()
+    wipeLabDeviceUserData()
+    expect(localStorage.getItem(CARDS_CACHE_PREFIX + session.userId)).toBeNull()
+  })
+})
+
+describe('picture and background (Anders, 10 October 2026)', () => {
+  const choose = (field: HTMLInputElement) => {
+    Object.defineProperty(field, 'files', { configurable: true, value: [new File(['x'], 'photo.png', { type: 'image/png' })] })
+    field.dispatchEvent(new Event('change'))
+  }
+
+  it('without uploads: the camera opens Choose a picture, the banner button Choose a background; no upload anywhere', async () => {
+    await open('you')
+    expect(byTest('you-background')?.getAttribute('aria-label')).toBe(CARDS_COPY.changeBackground)
+    click(byTest('you-picture'))
+    expect(top().dataset.card).toBe('picture')
+    click(byTest('card-back'))
+    click(byTest('you-background'))
+    expect(top().dataset.card).toBe('background')
+    expect(top().querySelector('.tc-title')?.textContent).toBe(CARDS_COPY.chooseBackground)
+    click(byTest('card-back'))
+    expect(top().textContent).not.toMatch(/Upload/)
+  })
+
+  it('with uploads: the camera menu holds the picture only, the banner menu the background; both upload', async () => {
+    profile = ownProfile({ uploads: true })
+    await open('you')
+    click(byTest('you-picture'))
+    expect([...byTest('card-menu')!.querySelectorAll('.tc-lt')].map(node => node.textContent)).toEqual([CARDS_COPY.uploadPicture, CARDS_COPY.choosePicture])
+    click(byTest('menu-upload'))
+    choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[0])
+    await flush()
+    expect(uploads).toEqual([{ url: '/api/profile/image?slot=picture', type: 'image/jpeg' }])
+
+    click(byTest('you-background'))
+    expect([...byTest('card-menu')!.querySelectorAll('.tc-lt')].map(node => node.textContent)).toEqual([CARDS_COPY.chooseBackground, CARDS_COPY.uploadBackground])
+    expect(byTest('card-menu')?.classList.contains('is-end')).toBe(true)
+    click(byTest('menu-upload-background'))
+    choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[1])
+    await flush()
+    expect(uploads[1]).toEqual({ url: '/api/profile/image?slot=background', type: 'image/jpeg' })
+    expect(top().querySelector('.tc-status')?.textContent ?? '').toBe('')
+  })
+
+  it('says so when an upload is refused', async () => {
+    profile = ownProfile({ uploads: true })
+    await open('you')
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ error: 'That picture is too large.' }, { status: 413 })))
+    click(byTest('you-background'))
+    click(byTest('menu-upload-background'))
+    choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[1])
+    await flush()
+    expect(top().querySelector('.tc-status')?.textContent).toBe('That picture is too large.')
+  })
+})
+
+describe('Account and Change password (Anders, 10 October 2026)', () => {
+  it('Premium without a Stripe subscription (by grant): the plan, no Manage', async () => {
+    subscription = { subscription_status: 'active', stripe: null }
+    await open('account')
+    expect(byTest('account-plan')?.textContent).toBe(CARDS_COPY.premiumAccount)
+    expect(byTest('account-manage')).toBeNull()
+  })
+
+  it('Premium with a Stripe subscription: Manage', async () => {
+    subscription = { subscription_status: 'active', stripe: { status: 'active', currentPeriodEnd: '2026-11-05T00:00:00.000Z', cancelAtPeriodEnd: false } }
+    await open('account')
+    expect(byTest('account-manage')).toBeTruthy()
+  })
+
+  it('Password sends the reset email and shows the confirmation under the row, kept through refreshes', async () => {
+    let answer = (_text: string) => {}
+    const resetPassword = vi.fn(() => new Promise<string>(resolve => { answer = resolve }))
+    let stack: CardStack | null = null
+    const env: CardsEnv = {
+      session, social: true, changed: () => stack?.refreshLive(), reloadFind: () => {}, signOut: async () => {}, resetPassword, navigate: vi.fn(),
+      data: { profile: null, reading: null, allowance: null, plan: 'premium', intervals: [], rank: null, find: null, findBadge: 0 },
+    }
+    stack = new CardStack({ dark: false })
+    stack.push(settingsCard(env))
+    click(byTest('settings-password'))
+    expect(resetPassword).toHaveBeenCalledTimes(1)
+    // Sending: the row waits, a second tap sends nothing more.
+    expect((byTest('settings-password') as HTMLButtonElement).disabled).toBe(true)
+    ;(byTest('settings-password') as HTMLButtonElement).click()
+    expect(resetPassword).toHaveBeenCalledTimes(1)
+    answer(CARDS_COPY.resetSent)
+    await flush()
+    const line = byTest('settings-password-status')!
+    expect(line.textContent).toBe(CARDS_COPY.resetSent)
+    // Right under the Password row's group, not at the foot of the card.
+    expect(line.previousElementSibling?.querySelector('[data-testid="settings-password"]')).toBeTruthy()
+    env.changed()
+    expect(byTest('settings-password-status')?.textContent).toBe(CARDS_COPY.resetSent)
+    stack.closeAll()
   })
 })

@@ -11,7 +11,8 @@
 import { supabase } from '../services/supabase'
 import { fetchOwnProfile, ownPictureView, paintAvatar, saveProfile, currentBookHint } from '../social/socialClient'
 import { cardUrl } from './cardRoutes'
-import { consumeCardParam, openAccountCards, type CardName } from './openCards'
+import { consumeCardParam, openAccountCards, storedSession, type CardName } from './openCards'
+import { readCardsCache } from './cardsCache'
 
 const STYLE = `
 #sign-in.cards-you{display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;padding:0;border-radius:50%;background:transparent;border:0}
@@ -27,10 +28,33 @@ function signedIn(): boolean {
   return document.documentElement.classList.contains('signed-in')
 }
 
+let opening = false
+
 function open(start: CardName = 'you'): void {
+  if (opening) return
+  opening = true
   void openAccountCards({ start, dark: true, deskTop: 68 }).then(opened => {
     if (!opened) location.assign(`/sign-in?returnTo=${encodeURIComponent(cardUrl(start))}`)
-  })
+  }).catch(error => {
+    console.error('account cards: could not open', error)
+  }).finally(() => { opening = false })
+}
+
+/**
+ * The tap on the top bar's picture, delegated from the document (capture), so
+ * it works whatever the library does to its header and whenever this script
+ * runs: bound once at load, before the signed-in check, and it matches the
+ * account button itself, not only once it shows the picture. Signed out, the
+ * library's own handler (sign in) runs.
+ */
+export function accountButtonTap(event: Event): boolean {
+  const target = event.target as Element | null
+  const button = target?.closest?.('#sign-in')
+  if (!button || !signedIn()) return false
+  event.preventDefault()
+  event.stopPropagation()
+  open()
+  return true
 }
 
 let started = false
@@ -41,29 +65,32 @@ async function start(pending: CardName | null): Promise<void> {
   const style = document.createElement('style')
   style.textContent = STYLE
   document.head.append(style)
-  const button = document.getElementById('sign-in')
   const avatar = document.createElement('span')
-  if (button) {
-    // The library's own handler goes to the account page; the picture opens the cards instead.
-    document.addEventListener('click', event => {
-      if (!(event.target as Element | null)?.closest?.('#sign-in.cards-you')) return
-      event.preventDefault()
-      event.stopPropagation()
-      open()
-    }, { capture: true })
-  }
   if (pending) open(pending)
-  const { data } = await supabase.auth.getSession()
-  const token = data.session?.access_token
-  if (!token) return
-  const meta = (data.session?.user?.user_metadata ?? {}) as Record<string, unknown>
-  const name = typeof meta.full_name === 'string' ? meta.full_name : 'Reader'
-  paintAvatar(avatar, { kind: 'initial', initial: (name.trim()[0] || 'R').toUpperCase() }, token)
-  if (button) {
-    button.replaceChildren(avatar)
-    button.classList.add('cards-you')
-    button.setAttribute('aria-label', 'You')
+  // At once, from the session stored in this browser and this device's last
+  // profile: the picture the reader chose, else an empty disc. Never a
+  // stand-in letter ("R" for "Reader" showed for seconds on iPhone, where
+  // getSession() can wait behind a token refresh).
+  const stored = storedSession()
+  const known = readCardsCache(stored?.session.userId ?? null)?.profile ?? null
+  const show = (token: string) => {
+    paintAvatar(avatar, known ? ownPictureView(known) : { kind: 'initial', initial: '' }, token)
+    // Looked up now: the header may have been drawn again since the script loaded.
+    const button = document.getElementById('sign-in')
+    if (button && !button.contains(avatar)) {
+      button.replaceChildren(avatar)
+      button.classList.add('cards-you')
+      button.setAttribute('aria-label', 'You')
+    }
   }
+  if (stored) show(stored.session.token)
+  let token = stored?.fresh ? stored.session.token : ''
+  if (!token) {
+    const { data } = await supabase.auth.getSession()
+    token = data.session?.access_token ?? ''
+  }
+  if (!token) return
+  if (!stored) show(token)
   const result = await fetchOwnProfile(token, currentBookHint())
   if (!result.ok) return
   paintAvatar(avatar, ownPictureView(result.profile), token)
@@ -97,6 +124,8 @@ function showPrompt(token: string) {
 }
 
 function boot(): void {
+  // The library's own handler goes to the account page; signed in, the picture opens the cards instead.
+  document.addEventListener('click', accountButtonTap, { capture: true })
   const pending = consumeCardParam()
   if (signedIn()) { void start(pending).catch(() => {}); return }
   // The library marks a signed-in device from its cookie at boot; the auth check may mark it later.

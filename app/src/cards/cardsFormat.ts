@@ -39,6 +39,17 @@ export function figureParts(seconds: number): Array<[string, string]> {
   return hours ? [[String(hours), 'h'], [String(minutes), 'm']] : [[String(minutes), 'm']]
 }
 
+/**
+ * Every reading-time figure the cards show, from one readingTimeStats and one
+ * rounding (whole minutes, rounded down). cards.html: the You row "Your
+ * reading" is the last 7 days ("6 h 10 m"), the same figure as the Your
+ * reading card's "last 7 days" fact ("6 h 10"); the big figure is the total.
+ * Both cards call this, so the two can never disagree (44 m against 45 m).
+ */
+export function readingFigures(stats: { totalSeconds: number; last7Seconds: number }): { youRow: string; last7: string; total: Array<[string, string]> } {
+  return { youRow: durationLong(stats.last7Seconds), last7: durationShort(stats.last7Seconds), total: figureParts(stats.totalSeconds) }
+}
+
 export function ordinal(n: number): string {
   const tens = n % 100
   if (tens >= 11 && tens <= 13) return `${n}th`
@@ -70,6 +81,13 @@ export function dayMonth(value: string | null | undefined): string {
   return month ? `${Number(match[3])} ${month}` : ''
 }
 
+/** "7 Sep" from a calendar date "2026-09-07" (no time zone shift); '' when unreadable. */
+export function dayMonthShortDate(value: string | null | undefined): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(value || ''))
+  const month = match ? MONTHS_SHORT[Number(match[2]) - 1] : ''
+  return match && month ? `${Number(match[3])} ${month}` : ''
+}
+
 /** "6 days", "1 day". */
 export function streakText(days: number): string {
   const n = Math.max(0, Math.floor(days || 0))
@@ -81,6 +99,18 @@ export function finishedValue(finishedAt: string | null | undefined, seconds?: n
   const month = monthShort(finishedAt)
   const time = typeof seconds === 'number' ? durationShort(seconds) : ''
   return [month, time].filter(Boolean).join(' · ')
+}
+
+/**
+ * The weeks the chart shows: from the week of the first reading day on, so a
+ * reader who started five weeks ago sees five bars, not seven empty ones
+ * first (Anders, 10 Oct 2026: "looks like an error"). This week always shows.
+ */
+export function chartWeeks<T extends { start: string }>(weeks: T[], firstDay: string | null | undefined): T[] {
+  const first = /^\d{4}-\d{2}-\d{2}/.test(String(firstDay || '')) ? String(firstDay).slice(0, 10) : ''
+  if (!first) return weeks
+  const from = weeks.findIndex((week, index) => index === weeks.length - 1 || (weeks[index + 1]?.start ?? '') > first)
+  return from > 0 ? weeks.slice(from) : weeks
 }
 
 /** Bar heights (percent) for the 12 weeks: the busiest week is 100%; empty weeks keep a sliver. */
