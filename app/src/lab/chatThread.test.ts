@@ -4,8 +4,8 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
-  bindPress, composerKey, cutQuote, dayLabel, HINT_TEXT, isAway, keptCopyIndex, lastQuestion, PRESS_FADE_MS, PRESS_HOLD_MS,
-  QUOTE_LIMIT, takeHint, threadHtml, threadRows, timeLabel,
+  bindPress, composerKey, cutQuote, dayLabel, fadeInWords, fitSpacer, HINT_TEXT, isAway, isBelow, keptCopyIndex, lastQuestion, PRESS_FADE_MS, PRESS_HOLD_MS,
+  QUESTION_PEEK, questionTop, QUOTE_LIMIT, takeHint, threadHtml, threadRows, timeLabel, WORD_FADE_MS,
 } from '../../public/lab/chat-thread.js'
 
 const NOW = new Date(2026, 9, 9, 15, 0).getTime()
@@ -67,10 +67,11 @@ describe('labels', () => {
 describe('the newest answer keeps its copy mark until a newer one exists', () => {
   const q = { role: 'user' as const }
   const a = { role: 'assistant' as const }
-  it('moves to the new answer, and is on none while the new one is still arriving', () => {
+  it('moves to the new answer once it finishes; while it arrives the previous answer keeps it', () => {
     expect(keptCopyIndex([q, a])).toBe(1)
     expect(keptCopyIndex([q, a, q])).toBe(1)
-    expect(keptCopyIndex([q, a, q, a], true)).toBe(-1)
+    expect(keptCopyIndex([q, a, q, a], true)).toBe(1)
+    expect(keptCopyIndex([q, a], true)).toBe(-1)
     expect(keptCopyIndex([q, a, q, a])).toBe(3)
     expect(keptCopyIndex([q])).toBe(-1)
   })
@@ -117,6 +118,99 @@ describe('composer keys', () => {
   })
 })
 
+describe('calm answer (Anders, 10 Oct 2026): the question near the top once, then nothing moves', () => {
+  const threadOf = (contentHeight: number, client = 600) => {
+    const thread = document.createElement('div')
+    thread.innerHTML = '<div class="tc-turn" id="q"></div><div class="tc-spacer" style="height: 0px"></div>'
+    Object.defineProperty(thread, 'scrollHeight', { configurable: true, get: () => contentHeight + (parseFloat((thread.querySelector('.tc-spacer') as HTMLElement).style.height) || 0) })
+    Object.defineProperty(thread, 'clientHeight', { value: client })
+    return thread
+  }
+  it('places the question a little below the top, leaving some of the previous answer visible', () => {
+    const thread = threadOf(2100)
+    thread.scrollTop = 1500
+    const row = thread.querySelector('#q')!
+    row.getBoundingClientRect = () => ({ top: 500 } as DOMRect)
+    thread.getBoundingClientRect = () => ({ top: 0 } as DOMRect)
+    // 500px below the window's top at scrollTop 1500: the question starts at 2000.
+    expect(questionTop(thread, row)).toBe(2000 - Math.min(QUESTION_PEEK, 120))
+    // A short desktop box keeps a fifth of its height for what came before.
+    const small = threadOf(2100, 300)
+    small.scrollTop = 1500
+    expect(questionTop(small, row)).toBe(2000 - 60)
+  })
+  it('the writing space lets the thread reach that place, and shrinks as the answer grows', () => {
+    const thread = threadOf(2100)
+    fitSpacer(thread, 1900)
+    expect(thread.scrollHeight - thread.clientHeight).toBe(1900)
+    const grown = threadOf(2400)
+    fitSpacer(grown, 1900)
+    expect(parseFloat((grown.querySelector('.tc-spacer') as HTMLElement).style.height)).toBe(100)
+    const long = threadOf(4000)
+    fitSpacer(long, 1900)
+    expect((long.querySelector('.tc-spacer') as HTMLElement).style.height).toBe('0px')
+  })
+  it('the Latest pill shows once the answer runs past the foot of the window', () => {
+    const thread = threadOf(2400)
+    thread.scrollTop = 1900
+    fitSpacer(thread, 1900)
+    expect(isBelow(thread)).toBe(false)
+    const long = threadOf(2700)
+    long.scrollTop = 1900
+    expect(isBelow(long)).toBe(true)
+  })
+  it('the PDF reader holds the question too: no follow while the answer arrives, and the reader’s own scroll lets go', () => {
+    const reader = readFileSync(resolve(__dirname, '../../public/lab/addbook/js/reader.js'), 'utf8')
+    const live = reader.slice(reader.indexOf('function liveText('), reader.indexOf('async function ask('))
+    expect(live).toMatch(/holdQuestion\(false\)/)
+    expect(live).toMatch(/TC\.fadeInWords\(/)
+    expect(live).not.toMatch(/tc-cursor/)
+    expect(reader).toMatch(/chat\.anchor = chat\.turns\.length - 1; chat\.placeAnchor = true;/)
+    expect(reader).toMatch(/if \(chat\.pinTop != null && Math\.abs\(thread\.scrollTop - chat\.pinTop\) > 1\) chat\.pinTop = null/)
+  })
+})
+
+describe('streaming without a cursor (Anders, 10 Oct 2026)', () => {
+  it('waits with three faint dots, then the words that just arrived fade in, and a re-render continues the fade', () => {
+    const host = document.createElement('div')
+    host.innerHTML = threadHtml([{ role: 'user', text: 'Why?', at: OCT9 }, { role: 'assistant', text: '' }], { now: NOW, streaming: true })
+    expect(host.querySelectorAll('.tc-wait i')).toHaveLength(3)
+    expect(host.querySelector('.tc-cursor')).toBeNull()
+
+    const md = document.createElement('div')
+    const seen: number[] = []
+    md.innerHTML = '<p>Neither, quite.</p>'
+    fadeInWords(md, seen, 1000)
+    expect([...md.querySelectorAll('.tc-w')].map(n => n.textContent)).toEqual(['Neither,', 'quite.'])
+    // The whole answer is drawn again with more text, 200ms later.
+    md.innerHTML = '<p>Neither, quite. He <em>loves</em> both.</p>'
+    fadeInWords(md, seen, 1200)
+    const words = [...md.querySelectorAll<HTMLElement>('.tc-w')]
+    expect(words.map(n => n.textContent)).toEqual(['Neither,', 'quite.', 'He', 'loves', 'both.'])
+    expect(words[0].style.animationDelay).toBe('-200ms')
+    expect(words[2].style.animationDelay).toBe('')
+    expect(md.textContent).toBe('Neither, quite. He loves both.')
+    // Long since faded: plain text again.
+    md.innerHTML = '<p>Neither, quite. He <em>loves</em> both.</p>'
+    fadeInWords(md, seen, 1200 + WORD_FADE_MS)
+    expect(md.querySelectorAll('.tc-w')).toHaveLength(0)
+  })
+  it('no blinking anywhere: the composer uses the system caret in the muted ink, and nothing in the thread blinks', () => {
+    const css = readFileSync(resolve(__dirname, '../../public/lab/chat-thread.css'), 'utf8')
+    expect(css).not.toMatch(/tc-blink|steps\(1\)/)
+    expect(css).not.toMatch(/\.tc-field\.is-empty::before/)
+    expect(css).not.toMatch(/caret-color:\s*transparent/)
+    expect(css.match(/\.tc \.tc-input \{([^}]*)\}/)?.[1]).toMatch(/caret-color:\s*var\(--tc-muted\)/)
+    // Reduced motion: the dots and words are still.
+    expect(css).toMatch(/prefers-reduced-motion: reduce\)\s*\{[^}]*\.tc-wait i, \.tc \.tc-a\.is-streaming \.tc-w \{ animation: none !important; \}/)
+  })
+  it('type one pixel larger: answers 18px (17px desktop), bubbles 17px (16px desktop)', () => {
+    const css = readFileSync(resolve(__dirname, '../../public/lab/chat-thread.css'), 'utf8')
+    expect(css).toMatch(/--tc-answer: 18px; --tc-question: 17px;/)
+    expect(css).toMatch(/\.lab\.is-desktop \.tc \{[^}]*--tc-answer: 17px; --tc-question: 16px;/)
+  })
+})
+
 describe('press-and-hold row (phone)', () => {
   it('is hidden by default, shown on press-and-hold, and fades after three seconds or on scroll', () => {
     vi.useFakeTimers()
@@ -157,14 +251,15 @@ describe('threadHtml (the PDF reader’s markup)', () => {
     { role: 'user' as const, text: 'Why?', at: OCT9 + 2000, place: 'Page 13' },
     { role: 'assistant' as const, text: 'Because', html: '<p>Because</p>', place: 'Page 13' },
   ]
-  it('no labels or stamps under messages; a divider on the page change; the quote above the bubble; a cursor while streaming', () => {
+  it('no labels or stamps under messages; a divider on the page change; the quote above the bubble; nothing under a streaming answer', () => {
     const host = document.createElement('div')
     host.innerHTML = threadHtml(turns, { now: NOW, streaming: true })
     expect(host.querySelectorAll('.tc-divider')).toHaveLength(1)
     expect(host.querySelector('.tc-divider')!.textContent).toBe('Page 13 · 9 October')
     expect(host.querySelector('.tc-q .tc-quote')!.nextElementSibling!.className).toBe('tc-bubble')
     expect(host.querySelector('.tc-a.is-streaming .tc-acts')).toBeNull()
-    expect(host.querySelectorAll('.tc-acts.is-kept')).toHaveLength(0)
+    // The previous answer keeps its mark while the new one arrives (nothing above the question moves).
+    expect([...host.querySelectorAll('.tc-acts.is-kept')].map(n => n.closest('[data-turn]')!.getAttribute('data-turn'))).toEqual(['1'])
     expect(host.textContent).not.toMatch(/\bYou\b|\bTinct\b|thinking|on the way/)
     host.innerHTML = threadHtml(turns, { now: NOW })
     expect([...host.querySelectorAll('.tc-acts.is-kept')].map(n => n.closest('[data-turn]')!.getAttribute('data-turn'))).toEqual(['3'])

@@ -14,7 +14,8 @@
 //   - the behaviour: composer keys (Return sends, Shift-Return new line, ↑
 //     recalls the last question, Escape closes), the composer growing to five
 //     lines, press-and-hold on the phone, the "Latest" pill, the once-a-session
-//     keyboard hint;
+//     keyboard hint, the calm scroll while an answer arrives (the question is
+//     brought near the top once, then nothing moves), and words fading in;
 //   - the icons.
 // No browser globals at import time; the DOM helpers take the nodes they work on.
 
@@ -107,14 +108,16 @@ export function threadRows(turns, { now = Date.now() } = {}) {
 }
 
 /**
- * The answer that keeps its copy mark: the newest answer, until a newer one
- * exists. While an answer is still arriving it is the newest, and its marks
- * appear only when it finishes, so no answer shows one. -1: none.
+ * The answer that keeps its copy mark: the newest finished answer. While a
+ * new answer is still arriving the previous one keeps its mark, so nothing
+ * above the reader's question moves as the answer begins (10 Oct 2026); the
+ * mark moves when the new one finishes. -1: none.
  */
 export function keptCopyIndex(turns, streaming = false) {
   for (let i = turns.length - 1; i >= 0; i--) {
     if (turns[i].role !== 'assistant') continue
-    return streaming && i === turns.length - 1 ? -1 : i
+    if (streaming && i === turns.length - 1) continue
+    return i
   }
   return -1
 }
@@ -188,6 +191,56 @@ export function isAway(node) {
   return contentEnd(node) - node.scrollTop - node.clientHeight > node.clientHeight
 }
 
+/**
+ * The newest message ends below the window's foot (more than `slack` of it
+ * hidden). While an answer grows under a question held near the top, this is
+ * when the "Latest" pill shows: the view does not follow the answer.
+ */
+export function isBelow(node, slack = 12) {
+  return contentEnd(node) - node.scrollTop - node.clientHeight > slack
+}
+
+/**
+ * After a question is sent the thread scrolls once, so the question sits near
+ * the top with a little of the previous answer above it (Anders, 10 Oct
+ * 2026); the answer then grows downward under it and nothing moves. At most
+ * this much of what came before stays visible (a fifth of a short window).
+ */
+export const QUESTION_PEEK = 96
+
+/** Where the thread scrolls to so `row` (the question) sits near its top. */
+export function questionTop(node, row, peek = QUESTION_PEEK) {
+  const room = Math.min(peek, Math.round((node.clientHeight || 0) * 0.2))
+  const top = row.getBoundingClientRect().top - node.getBoundingClientRect().top + node.scrollTop - room
+  return Math.max(0, Math.round(top))
+}
+
+/**
+ * Size the writing space (`.tc-spacer`) so the thread can scroll exactly to
+ * `top` while what follows it is short. As the answer grows the space shrinks
+ * to nothing, so the view never has to move.
+ */
+export function fitSpacer(node, top) {
+  const space = node.querySelector?.('.tc-spacer')
+  if (!space) return
+  const current = parseFloat(space.style.height || '0') || 0
+  const was = node.scrollTop
+  const content = node.scrollHeight - current
+  let height = Math.max(0, Math.round(top + node.clientHeight - content))
+  space.style.height = `${height}px`
+  // The space's negative margin (it absorbs the thread's gap) stops counting
+  // once the space is shorter than the gap, so measure once more and make up
+  // any shortfall: the thread must still reach `top`, or the browser pulls the view up.
+  const short = top - (node.scrollHeight - node.clientHeight)
+  if (short > 0) {
+    height += Math.ceil(short)
+    space.style.height = `${height}px`
+  }
+  // A browser that pulled the view up while the space was briefly too short
+  // (WebKit clamps on the intermediate layout): put it back where it was.
+  if (node.scrollTop < was - 1 && was <= node.scrollHeight - node.clientHeight + 1) node.scrollTop = was
+}
+
 /** "Latest": the newest message at the foot of the window (the clean space stays below it). */
 export function scrollToLatest(node) {
   const top = Math.max(0, contentEnd(node) - node.clientHeight)
@@ -238,6 +291,57 @@ export function bindPress(thread, { holdMs = PRESS_HOLD_MS, fadeMs = PRESS_FADE_
   }
 }
 
+/**
+ * Before the first word of an answer: three small, faint dots breathing
+ * slowly (no blinking bar). Static under prefers-reduced-motion.
+ */
+export const WAIT_HTML = '<span class="tc-wait" role="status" aria-label="Answer on the way"><i></i><i></i><i></i></span>'
+
+/** How long a newly arrived word takes to fade in. */
+export const WORD_FADE_MS = 420
+
+/**
+ * Let an answer's newly arrived words fade in, for a thread that re-renders
+ * the whole answer on every update (the PDF reader). `seen` remembers when
+ * each word first appeared (keep one per answer, start it as []); a word
+ * still fading is drawn mid-fade (a negative animation delay), so a re-render
+ * never restarts or cuts short a fade. Words are `.tc-w` spans; only words
+ * younger than WORD_FADE_MS are wrapped.
+ */
+export function fadeInWords(container, seen, now = Date.now()) {
+  const doc = container.ownerDocument
+  const walker = doc.createTreeWalker(container, 4 /* NodeFilter.SHOW_TEXT */)
+  const texts = []
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) texts.push(node)
+  let index = 0
+  for (const text of texts) {
+    const parts = text.nodeValue.split(/(\s+)/)
+    let fresh = false
+    const marks = parts.map(part => {
+      if (!part || /^\s+$/.test(part)) return null
+      if (seen[index] === undefined) seen[index] = now
+      const age = now - seen[index]
+      index += 1
+      if (age >= WORD_FADE_MS) return null
+      fresh = true
+      return age
+    })
+    if (!fresh) continue
+    const frag = doc.createDocumentFragment()
+    parts.forEach((part, i) => {
+      if (!part) return
+      if (marks[i] === null) { frag.appendChild(doc.createTextNode(part)); return }
+      const span = doc.createElement('span')
+      span.className = 'tc-w'
+      if (marks[i] > 0) span.style.animationDelay = `-${marks[i]}ms`
+      span.textContent = part
+      frag.appendChild(span)
+    })
+    text.parentNode.replaceChild(frag, text)
+  }
+  return index
+}
+
 const escapeHtml = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
 
 /**
@@ -263,6 +367,6 @@ export function threadHtml(turns, { now = Date.now(), streaming = false } = {}) 
       return `<div class="tc-turn tc-q${turn.quote ? ' has-quote' : ''}" data-chat-row data-turn="${i}">${quote}${turn.extra || ''}<div class="tc-bubble">${escapeHtml(turn.text)}</div>${note}${acts}</div>`
     }
     const body = turn.html ?? `<p>${escapeHtml(turn.text)}</p>`
-    return `<div class="tc-turn tc-a${live ? ' is-streaming' : ''}" data-chat-row data-turn="${i}"><div class="tc-answer"><div class="tc-md">${body}</div>${live && !String(turn.text || '').trim() ? '<span class="tc-cursor" aria-hidden="true"></span>' : ''}</div>${acts}</div>`
+    return `<div class="tc-turn tc-a${live ? ' is-streaming' : ''}" data-chat-row data-turn="${i}"><div class="tc-answer"><div class="tc-md">${body}</div>${live && !String(turn.text || '').trim() ? WAIT_HTML : ''}</div>${acts}</div>`
   }).join('')
 }

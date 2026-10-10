@@ -1776,7 +1776,7 @@ function dockGrip(el) {
 }
 
 /* ---------- Chat (and Talk) in Tinct's companion pane ---------- */
-const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [], live: null, fresh: false };
+const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [], live: null, fresh: false, anchor: null, placeAnchor: false, pinTop: null };
 function loadTurns() { chat.turns = (store.get('chat:' + state.key) || []).filter(t => t && t.content) }
 /* ---------- Images in chat: attach, paste, drop, or snip from the page ---------- */
 let imageLimits = null;
@@ -2142,7 +2142,7 @@ function saveTurns() { store.set('chat:' + state.key, chat.turns.slice(-40)) }
    docs/chat/mockup.html): no header, the reader's words in a bubble, answers as
    plain text, one divider when the page or the day changes, copy and time on hover
    or press, a hairline-and-caret composer. */
-const CHAT_THREAD = '/lab/chat-thread.js?v=20261009chat';
+const CHAT_THREAD = '/lab/chat-thread.js?v=20261010chat';
 let TC = null;
 const tcReady = import(CHAT_THREAD).then(m => (TC = m)).catch(() => null);
 function openChat(opts = {}) {
@@ -2181,10 +2181,15 @@ function openChat(opts = {}) {
     el.querySelector('.tc-compose').addEventListener('pointerdown', e => { if (e.target.closest('button, a, input, textarea, .tc-attached, .byob-tray')) return; e.preventDefault(); input.focus() });
     const thread = el.querySelector('#thread'), latest = el.querySelector('#latest');
     TC.bindPress(thread);
-    thread.addEventListener('scroll', () => { latest.hidden = !TC.isAway(thread) }, { passive: true });
+    // A scroll the reader made (not one we made) lets go of the held question's place.
+    thread.addEventListener('scroll', () => { if (chat.pinTop != null && Math.abs(thread.scrollTop - chat.pinTop) > 1) chat.pinTop = null; latestState() }, { passive: true });
     latest.onclick = () => TC.scrollToLatest(thread);
-    // The clean window stays a full screen while the sheet settles (phone chrome, keyboard).
-    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => { const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) thread.scrollTop = thread.scrollHeight }).observe(thread);
+    // The clean window stays a full screen while the sheet settles (phone chrome, keyboard);
+    // a held question stays where it was put (the keyboard closing after send), unless the reader scrolled.
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => {
+      if (holdQuestion(chat.pinTop != null)) return;
+      const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) thread.scrollTop = thread.scrollHeight
+    }).observe(thread);
     el.querySelector('#attachBtn').onclick = () => el.querySelector('#attachInput').click();
     el.querySelector('#attachInput').onchange = e => { addAttachments([...e.target.files]); e.target.value = '' };
     el.addEventListener('dragover', e => { if ([...(e.dataTransfer?.items || [])].some(i => i.kind === 'file')) { e.preventDefault(); el.classList.add('byob-drop-over') } });
@@ -2214,6 +2219,8 @@ function openChat(opts = {}) {
     saveTurns();
   }
   chat.fresh = !opts.prompt && !opts.explanation;
+  // Opened: no question is held yet (an explanation brought in now is the one held).
+  chat.anchor = opts.explanation ? chat.turns.length - 2 : null; chat.placeAnchor = !!opts.explanation; chat.pinTop = null;
   setTalk(!!opts.talk || chat.talk);
   renderThread();
   if (opts.prompt) ask(opts.prompt, opts.display);
@@ -2235,8 +2242,31 @@ function renderAttached() {
   box.hidden = !chat.passage;
   box.querySelector('#attachedText').textContent = chat.passage ? TC.cutQuote(chat.passage.text) : '';
 }
+/* After a question is sent the thread scrolls once, so the question sits near the top
+   with a little of the previous answer above it; the answer then grows downward under
+   it and nothing follows it (Anders, 10 Oct 2026). The "Latest" pill shows when the
+   answer runs past the foot. A scroll the reader makes is never undone. */
+function heldRow() {
+  const thread = chat.el?.querySelector('#thread');
+  return chat.anchor == null || !thread ? null : thread.querySelector(`[data-turn="${chat.anchor}"]`);
+}
+/** Size the room below the held question; with `place`, put the question near the top. True when a question is held. */
+function holdQuestion(place) {
+  const row = heldRow(); if (!row) return false;
+  const thread = chat.el.querySelector('#thread');
+  const top = TC.questionTop(thread, row);
+  TC.fitSpacer(thread, top);
+  if (place) { thread.scrollTop = top; chat.pinTop = thread.scrollTop }
+  latestState();
+  return true;
+}
+function latestState() {
+  const thread = chat.el?.querySelector('#thread'); if (!thread) return;
+  chat.el.querySelector('#latest').hidden = !(chat.anchor != null ? TC.isBelow(thread) : TC.isAway(thread));
+}
 function renderThread() {
   const el = chat.el, thread = el.querySelector('#thread');
+  const kept = thread.scrollTop;
   el.classList.toggle('is-empty', !chat.turns.length && !chat.live); el.classList.toggle('has-thread', !!chat.turns.length || !!chat.live);
   const turns = chat.turns.map(t => ({
     role: t.role, text: t.role === 'user' ? (t.display || t.content) : t.content, html: t.role === 'assistant' ? md(t.content) : undefined,
@@ -2248,21 +2278,31 @@ function renderThread() {
   thread.innerHTML = TC.threadHtml(turns, { streaming: !!chat.live });
   // Opened, Chat looks like a clean window: a screen of writing space above the composer, the
   // history above that, reached by scrolling up (as the book reader opens). The next question clears it.
-  if (chat.fresh && turns.length) { const space = document.createElement('div'); space.className = 'tc-spacer'; space.setAttribute('aria-hidden', 'true'); space.style.height = thread.clientHeight + 'px'; thread.appendChild(space) }
+  if ((chat.fresh || chat.anchor != null) && turns.length) { const space = document.createElement('div'); space.className = 'tc-spacer'; space.setAttribute('aria-hidden', 'true'); space.style.height = (chat.fresh ? thread.clientHeight : 0) + 'px'; thread.appendChild(space) }
   thread.querySelectorAll('[data-copy]').forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText(chat.turns[b.dataset.copy].display || chat.turns[b.dataset.copy].content); b.innerHTML = TC.ICONS.copied; b.setAttribute('aria-label', 'Copied') } catch { toast('Copy did not work here.') } });
   thread.querySelectorAll('[data-quote]').forEach(b => b.onclick = () => { const t = chat.turns[b.dataset.quote]; if (t?.page) goTo({ page: t.page }, true) });
   renderAttached();
+  if (chat.anchor != null && heldRow()) {
+    // Held: place the question once; after that the view stays where it is.
+    const place = chat.placeAnchor; chat.placeAnchor = false;
+    holdQuestion(place);
+    if (!place) { thread.scrollTop = kept; latestState() }
+    return;
+  }
   thread.scrollTop = thread.scrollHeight;
   el.querySelector('#latest').hidden = true;
 }
-/** An answer arriving: its text so far, under a blinking cursor. */
+/** An answer arriving: its text so far, the new words fading in; the view does not follow it. */
 function liveText(text) {
   if (!chat.live || !chat.el) return;
   chat.live.text = text;
   const thread = chat.el.querySelector('#thread'), md_ = thread.querySelector('.tc-a.is-streaming .tc-md');
   if (!md_) { renderThread(); return }
-  md_.innerHTML = md(text); thread.querySelector('.tc-a.is-streaming .tc-cursor')?.remove();
-  if (!TC.isAway(thread)) thread.scrollTop = thread.scrollHeight;
+  const kept = thread.scrollTop;
+  md_.innerHTML = md(text); thread.querySelector('.tc-a.is-streaming .tc-wait')?.remove();
+  TC.fadeInWords(md_, chat.live.seen || (chat.live.seen = []));
+  if (!holdQuestion(false) && !TC.isAway(thread)) thread.scrollTop = thread.scrollHeight;
+  else thread.scrollTop = kept;
 }
 async function ask(question, display) {
   const s = await ai();
@@ -2272,6 +2312,7 @@ async function ask(question, display) {
   const attached = chat.attach.splice(0); renderTray();
   chat.fresh = false;
   chat.turns.push({ role: 'user', content: question, display, passage: passage?.text, page: passage?.page || page, imgs: attached.map(a => a.thumb), snipText: attached.map(a => a.text).filter(Boolean).join('\n') || undefined, at: Date.now() });
+  chat.anchor = chat.turns.length - 1; chat.placeAnchor = true;
   renderThread();
   if (!s) { chat.turns[chat.turns.length - 1].failed = 'Claude is not available on this page.'; renderThread(); toast(AI_OFF); return }
   chat.live = { text: '' }; renderThread();
@@ -2342,6 +2383,7 @@ async function askSummary(display, prompt) {
   const s = await ai();
   chat.fresh = false;
   chat.turns.push({ role: 'user', content: display, page: currentPlace().page, at: Date.now() });
+  chat.anchor = chat.turns.length - 1; chat.placeAnchor = true;
   chat.live = { text: '' }; renderThread();
   const ctl = new AbortController(); chat.ctl = ctl;
   try {

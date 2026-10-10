@@ -17,7 +17,7 @@
   --tc-ring: 0 0 0 1px var(--tc-hair), 0 24px 60px rgba(0, 0, 0, .18);
   --tc-gara: "EB Garamond", Georgia, serif;
   --tc-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --tc-pad: 20px; --tc-answer: 17px; --tc-question: 16px;
+  --tc-pad: 20px; --tc-answer: 18px; --tc-question: 17px;
 }
 .lab.is-book-theme .tc { --tc-paper: #e7dcc7; --tc-ink: #201a13; --tc-muted: #675b4b; --tc-bubble: #dacdb3; --tc-bar: #b3a586; }
 .lab.is-night .tc {
@@ -25,7 +25,7 @@
   --tc-bubble: #2a241e; --tc-hair: rgba(214, 204, 191, .14); --tc-wash: rgba(214, 204, 191, .1); --tc-bar: #5a5146;
   --tc-ring: 0 0 0 1px var(--tc-hair), 0 24px 60px rgba(0, 0, 0, .45);
 }
-.lab.is-desktop .tc { --tc-pad: 24px; --tc-answer: 16px; --tc-question: 15px; }
+.lab.is-desktop .tc { --tc-pad: 24px; --tc-answer: 17px; --tc-question: 16px; }
 .lab.is-desktop .tc.byob-dock { --tc-pad: 20px; --tc-ring: 0 0 0 1px var(--tc-hair), 0 20px 50px rgba(0, 0, 0, .14); }
 
 /* The frame: paper, a hairline ring, no header. */
@@ -112,12 +112,16 @@
 .tc .tc-answer code { background: none; padding: 0; font-style: italic; }
 .tc .tc-answer a { color: inherit; text-decoration: underline; text-decoration-color: var(--tc-faint); }
 
-/* Streaming: a blinking 2px ink cursor, no "thinking" line. */
-.tc .tc-cursor, .tc .tc-a.is-streaming :is(.tc-md > :last-child:not(ul):not(ol):not(.lab-markdown), .tc-md > .lab-markdown > :last-child:not(ul):not(ol), .tc-md :is(ul, ol):last-child > li:last-child)::after {
-  content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 2px; vertical-align: -.18em;
-  background: var(--tc-ink); animation: tc-blink 1s steps(1) infinite;
-}
-@keyframes tc-blink { 50% { opacity: 0; } }
+/* Streaming, calm (Anders, 10 Oct 2026): no cursor and no "thinking" line.
+   Before the first word, three small faint dots breathe slowly; then each
+   new word fades in. Nothing blinks. */
+.tc .tc-wait { display: inline-flex; align-items: center; gap: 5px; height: 1.5em; vertical-align: top; }
+.tc .tc-wait i { width: 5px; height: 5px; border-radius: 50%; background: var(--tc-faint); opacity: .35; animation: tc-breathe 2.4s ease-in-out infinite; }
+.tc .tc-wait i:nth-child(2) { animation-delay: .4s; }
+.tc .tc-wait i:nth-child(3) { animation-delay: .8s; }
+@keyframes tc-breathe { 0%, 100% { opacity: .2; } 50% { opacity: .6; } }
+.tc .tc-a.is-streaming .tc-w { animation: tc-word-in .42s ease-out both; }
+@keyframes tc-word-in { from { opacity: 0; } to { opacity: 1; } }
 
 /* The hover / press row: copy and the time. Hidden by default; on hover
    (desktop), on press-and-hold (phone, [data-pressed]); the newest answer
@@ -163,7 +167,7 @@
 .tc .tc-status[hidden] { display: none; }
 .tc .tc-status button { margin-left: 8px; padding: 0; border: 0; background: none; min-height: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
 
-/* The composer: a hairline, 12px of air, then the text and a 2px caret. */
+/* The composer: a hairline, 12px of air, then the text and the system caret. */
 .tc .tc-compose { position: relative; flex: none; margin: 0; padding: 8px var(--tc-pad) calc(16px + env(safe-area-inset-bottom, 0px)); background: transparent; border: 0; box-shadow: none; }
 .lab.is-desktop .tc .tc-compose { padding-bottom: 18px; }
 .lab.is-desktop .tc.byob-dock .tc-compose { padding-bottom: 16px; }
@@ -179,17 +183,12 @@
 .tc .tc-input {
   flex: 1 1 auto; min-width: 0; height: 31px; min-height: 31px; max-height: none; box-sizing: border-box;
   margin: 0; padding: 4px 0 5px; border: 0; border-radius: 0; outline: none; background: transparent; box-shadow: none; resize: none;
-  color: var(--tc-ink); caret-color: var(--tc-ink); font: 400 16px/1.4 var(--tc-gara); letter-spacing: 0;
+  color: var(--tc-ink); caret-color: var(--tc-muted); font: 400 16px/1.4 var(--tc-gara); letter-spacing: 0;
   -webkit-appearance: none; appearance: none;
 }
 .tc .tc-input::placeholder { color: transparent; }
 .tc .tc-input:focus, .tc .tc-input:focus-visible { outline: none !important; box-shadow: none !important; }
-/* At rest (empty) the caret is the mockup's 2px bar, blinking once a second. */
-.tc .tc-field.is-empty .tc-input { caret-color: transparent; }
-.tc .tc-field.is-empty::before {
-  content: ""; position: absolute; left: 0; top: 18px; width: 2px; height: 18px; background: var(--tc-ink);
-  animation: tc-blink 1s steps(1) infinite; pointer-events: none;
-}
+/* The caret is the system's own thin one, in the muted ink: no drawn bar (Anders, 10 Oct 2026). */
 .tc .tc-field .tc-mark { margin-bottom: 4px; }
 .tc .tc-field .tc-send { color: var(--tc-ink); }
 .tc .tc-field .tc-mark[aria-pressed="true"] { color: var(--tc-ink); }
@@ -203,7 +202,8 @@
 .tc button:focus-visible { outline: 2px solid var(--tc-faint); outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .tc .tc-cursor, .tc .tc-field.is-empty::before, .tc .tc-a.is-streaming *::after { animation: none !important; }
+  .tc .tc-wait i, .tc .tc-a.is-streaming .tc-w { animation: none !important; }
+  .tc .tc-wait i { opacity: .45; }
 }
 
 /* e-ink: ink on white, outlines instead of fills, no shadows. */

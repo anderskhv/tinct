@@ -94,9 +94,9 @@ describe('the hover / press row', () => {
     const asked = [...twoChaptersTwoDays, turn('q4', 'user', 'And then?', DAY2 + 5000, 2)]
     rerender(pane({ turns: asked, typedLoading: true }))
     expect(keptOn()).toEqual(['a3'])
-    // While the new answer arrives: a cursor, no marks, no "thinking" line.
+    // While the new answer arrives: the previous answer keeps its mark (nothing above moves), the new one has none, no "thinking" line.
     rerender(pane({ turns: [...asked, turn('a4', 'assistant', 'Then the evening', undefined, 2)], typedLoading: true }))
-    expect(keptOn()).toEqual([])
+    expect(keptOn()).toEqual(['a3'])
     const live = screen.getAllByTestId('lab-ask-turn-assistant').at(-1)!
     expect(live.classList.contains('is-streaming')).toBe(true)
     expect(live.querySelector('.tc-acts')).toBeNull()
@@ -105,10 +105,27 @@ describe('the hover / press row', () => {
     expect(keptOn()).toEqual(['a4'])
   })
 
-  it('before the first word arrives the answer is only a blinking cursor', () => {
+  it('before the first word arrives the answer is three faint breathing dots: no cursor, no words (Anders, 10 Oct 2026)', () => {
     render(pane({ turns: [...twoChaptersTwoDays, turn('q4', 'user', 'And then?', DAY2 + 5000, 2)], typedLoading: true }))
-    expect(screen.getByTestId('lab-ask-pending').querySelector('.tc-cursor')).toBeTruthy()
-    expect(screen.getByTestId('lab-ask-pending').textContent).toBe('')
+    const pending = screen.getByTestId('lab-ask-pending')
+    expect(pending.querySelectorAll('.tc-wait i')).toHaveLength(3)
+    expect(pending.querySelector('.tc-cursor')).toBeNull()
+    expect(pending.textContent).toBe('')
+  })
+
+  it('while the answer arrives each word is its own span (new ones fade in); finished, it is plain text again', () => {
+    const asked = [...twoChaptersTwoDays, turn('q4', 'user', 'And then?', DAY2 + 5000, 2)]
+    const { rerender } = render(pane({ turns: [...asked, turn('a4', 'assistant', 'Then the', DAY2 + 6000, 2)], typedLoading: true }))
+    const live = () => screen.getAllByTestId('lab-ask-turn-assistant').at(-1)!
+    const first = live().querySelector('.tc-w')
+    expect(Array.from(live().querySelectorAll('.tc-w')).map(node => node.textContent)).toEqual(['Then', 'the'])
+    rerender(pane({ turns: [...asked, turn('a4', 'assistant', 'Then the evening comes.', DAY2 + 6000, 2)], typedLoading: true }))
+    // The words already shown keep their nodes: only "evening" and "comes." mount (and fade).
+    expect(live().querySelector('.tc-w')).toBe(first)
+    expect(live().querySelectorAll('.tc-w')).toHaveLength(4)
+    rerender(pane({ turns: [...asked, turn('a4', 'assistant', 'Then the evening comes.', DAY2 + 6000, 2)] }))
+    expect(live().querySelectorAll('.tc-w')).toHaveLength(0)
+    expect(live().querySelector('.tc-md')?.textContent).toBe('Then the evening comes.')
   })
 })
 
@@ -168,7 +185,8 @@ describe('opening with history: a clean window, the history above it', () => {
   it('the PDF reader opens the same way: a spacer of one screen after the history, cleared by the next question', () => {
     const reader = readFileSync(resolve(__dirname, '../../public/lab/addbook/js/reader.js'), 'utf8')
     expect(reader).toMatch(/chat\.fresh = !opts\.prompt && !opts\.explanation/)
-    expect(reader).toMatch(/if \(chat\.fresh && turns\.length\) \{[^}]*space\.style\.height = thread\.clientHeight \+ 'px'/)
+    // The same spacer is the room under a held question once one is asked (sized by fitSpacer).
+    expect(reader).toMatch(/if \(\(chat\.fresh \|\| chat\.anchor != null\) && turns\.length\) \{[^}]*space\.style\.height = \(chat\.fresh \? thread\.clientHeight : 0\) \+ 'px'/)
     expect(reader.match(/chat\.fresh = false;/g)?.length).toBeGreaterThanOrEqual(2)
   })
 })
