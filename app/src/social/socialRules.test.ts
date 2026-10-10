@@ -87,7 +87,7 @@ describe('the profile page HTML', () => {
   const data: ProfilePageData = {
     handle: 'bea', name: 'Bea <script>alert(1)</script>', link: 'tinct.app/@bea',
     picture: { src: '/lab/library_2/assets/meditations.jpg', pos: '50% 34%', cover: true, private: false, initial: 'B' },
-    banner: { src: '/lab/library_2/assets/scene-meditations-phone.jpg', private: false },
+    banner: { src: '/lab/library_2/assets/room-meditations-phone.jpg', private: false },
     relation: null, followsYou: false, limited: false,
     time: { last7: '4 h 50 m', year: '96 h' },
     readingNow: [{ bookId: 'frankenstein', title: 'Frankenstein', cover: null, progress: 'Ch. 9 of 24', hours: '2 h' }],
