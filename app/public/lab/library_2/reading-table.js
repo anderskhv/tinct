@@ -7,7 +7,7 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261010danish';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261010libperf';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009owncover';
 import { shortTitle } from '../book-title.js?v=20261009owncover';
@@ -17,6 +17,7 @@ import { PAPER_SPINE, hasPaperSpine, hasStoredSpineTone } from './spine.js?v=202
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { tableWindow, MAX_SPINES, bookBox, COVER_ASPECT } from './table-window.js?v=20261009cover';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
+import { FIRST_PAINT_KEY, firstPaintRecord, keepShownOrder, sameOrder } from './reading-table-first-paint.js?v=20261010libperf';
 
 const $ = id => document.getElementById(id);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -264,6 +265,28 @@ export async function mountReadingTable({ hero, shelves, el }) {
   return root.classList.contains('returning');
 }
 
+// The shown book's cover and spine texture, remembered for boot.js to fetch with the next
+// visit's page (reading-table-first-paint.js): public URLs and this account's id, never an
+// own book's cover (a data: URL kept on this device) and nothing about the reading.
+function viewerId() {
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!/^sb-.*-auth-token$/.test(key || '')) continue;
+      const id = JSON.parse(localStorage.getItem(key) || 'null')?.user?.id;
+      if (typeof id === 'string' && id) return id;
+    }
+  } catch { /* no storage */ }
+  return null;
+}
+function rememberFirstPaint(view, table) {
+  if (isDemo) return;
+  try {
+    const record = firstPaintRecord(table, view, viewerId(), bookCover);
+    if (record) localStorage.setItem(FIRST_PAINT_KEY, JSON.stringify(record)); else localStorage.removeItem(FIRST_PAINT_KEY);
+  } catch { /* private mode */ }
+}
+
 /** The retained time-of-day table, sharing the shelf's account-safe loader. */
 export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summaryFor,onSelection,onRemoveReading,initial,enabled}) {
  let view=null,currentTable=null;
@@ -275,7 +298,11 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
    for(const id of ids)if(id===kept[at])at++;
    if(at===kept.length){view.removeBooks(ids.filter(id=>!kept.includes(id)),{instant:instant||!enabled?.()||view.hidden||view.checkVisibility?.()===false});}
   }
-  if(currentTable&&currentTable.reading.map(b=>b.bookId).join()===next.reading.map(b=>b.bookId).join()){
+  // The same books in another order: the first paint led with the book just left
+  // (the device's snapshot), the account read orders by last activity. The row the
+  // reader is looking at keeps its order; the fresh facts land in place (2026-10-10).
+  if(currentTable)next=keepShownOrder(currentTable,next);
+  if(currentTable&&sameOrder(currentTable.reading,next.reading)){
    next.reading.forEach((b,i)=>{
     // An own book's cover arrives with the fresh read (the fast-paint snapshot keeps none).
     const before=bookCover(currentTable.reading[i]);Object.assign(currentTable.reading[i],b);const after=bookCover(currentTable.reading[i]);
@@ -283,10 +310,18 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
    });view.refresh();return;
   }
   const selected=view?.dataset.current||initial?.bookId;
-  view?.dispose?.();view?.remove();currentTable={...next,reading:next.reading.map(b=>({...b}))};
+  // Another table (a book added): prepared behind the one shown, which leaves in the
+  // frame the new one is revealed, so the desk never blinks to bare boxes (2026-10-10).
+  currentTable={...next,reading:next.reading.map(b=>({...b}))};
   view=document.createElement('div');view.className='reading-table is-preparing';view.innerHTML=markup(currentTable);hero.append(view);
   view.api=summaryFor?{summaryFor}:null;
-  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading}).then(()=>{if(active.isConnected){active.classList.replace('is-preparing','is-ready');document.documentElement.classList.remove('returning-scene-pending');}});
+  const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading}).then(()=>{
+   if(!active.isConnected)return;
+   if(view!==active){active.dispose?.();active.remove();return;}
+   for(const other of hero.querySelectorAll('.reading-table')){if(other!==active){other.dispose?.();other.remove();}}
+   active.classList.replace('is-preparing','is-ready');document.documentElement.classList.remove('returning-scene-pending');
+   rememberFirstPaint(active,currentTable);
+  });
  }
  render(table);
  document.addEventListener('keydown',e=>{
@@ -299,7 +334,9 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
 }
 
 function wire(view, table, demo, keepBookId, options={}) {
-  const stage = view.querySelector('#rt-stage'), row = view.querySelector('#rt-row');
+  // This table's own parts: while a fresh table is prepared behind the shown one, both exist.
+  const $ = id => view.querySelector('#' + id);
+  const stage = $('rt-stage'), row = $('rt-row');
   const books = [...row.children];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let current = Math.max(0, table.reading.findIndex(b => b.bookId === keepBookId));
