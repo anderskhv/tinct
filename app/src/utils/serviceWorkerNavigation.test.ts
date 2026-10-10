@@ -38,7 +38,8 @@ it.each([
   expect(response!.type === 'opaqueredirect' || response!.status >= 400).toBe(true)
 })
 
-it.each(['/read/odyssey', '/read/odyssey/chapter-2', '/app', '/library'])('does not intercept a navigation to %s', async (path) => {
+// /library and / fall back to the reader only offline: serviceWorkerOfflineBook.test.ts.
+it.each(['/read/odyssey', '/read/odyssey/chapter-2', '/app'])('does not intercept a navigation to %s', async (path) => {
   const h = harness(true)
   expect(await h.navigate('https://tinct.app' + path)).toBeNull()
 })

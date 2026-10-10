@@ -7229,6 +7229,12 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-text { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-current { font: 12px/1.4 'IBM Plex Mono', monospace; opacity: .75; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-divider { height: 1px; background: var(--lab-v2-hairline); margin: 8px 0; }
+/* Make available offline: one row; once saved, a tick and a quiet Remove. */
+.lab[data-chrome-version="v2"] .lab-v2-offline { min-height: 52px; }
+.lab[data-chrome-version="v2"] .lab-v2-offline.is-saved { cursor: default; }
+.lab[data-chrome-version="v2"] .lab-v2-offline-tick { flex: 0 0 auto; color: var(--lab-accent, #1f4a5c); font: 17px/1 'EB Garamond', Georgia, serif; }
+.lab[data-chrome-version="v2"] .lab-v2-offline-remove { flex: 0 0 auto; min-height: 44px; padding: 0 0 0 14px; border: 0; background: transparent;
+  color: inherit; opacity: .72; font: 15px/1.2 'EB Garamond', Georgia, serif; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .lab[data-chrome-version="v2"] .lab-v2-row-note { margin: 6px 0 2px; font-family: 'EB Garamond', Georgia, serif; font-size: 14px; line-height: 1.35; color: var(--lab-v2-muted, currentColor); opacity: .8; }
 .lab[data-chrome-version="v2"] .lab-v2-edition-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px;
   padding: 10px 0; border: 0; background: transparent; color: inherit; font: 16px/1.5 'EB Garamond', Georgia, serif; text-align: left; cursor: pointer; }
