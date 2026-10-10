@@ -3,7 +3,7 @@
 | Item | Value |
 |---|---|
 | New file | `candidate.json` -> `app/public/data/editions/to-the-lighthouse-modern-da.json` |
-| candidate sha256 | `46d3bcafe74b0d6b09b33f4cb6498d7876fce0feb8ab1232c4243eec8449da86` |
+| candidate sha256 | `adea2203ed23857a8e12c9566f0e2a340cb44f4e52a231c880ac49ec2283ed06` |
 | Source (served modern-en) sha256 | `3b20ae3172ec905012082fe0948d81f5e0bee4832ef1c03860708b8ebfa84e22` |
 | Chapters / paragraphs | 42 / 495, 1:1 with the source |
 | Review coverage | every paragraph reviewed once; all 125 corrections verified (6 verifier-supplied replacements not re-verified) |

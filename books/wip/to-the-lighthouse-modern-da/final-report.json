@@ -1,11 +1,11 @@
 {
  "book": "to-the-lighthouse",
  "edition": "modern-da",
- "sha256": "46d3bcafe74b0d6b09b33f4cb6498d7876fce0feb8ab1232c4243eec8449da86",
+ "sha256": "adea2203ed23857a8e12c9566f0e2a340cb44f4e52a231c880ac49ec2283ed06",
  "source_modern_en_sha256": "3b20ae3172ec905012082fe0948d81f5e0bee4832ef1c03860708b8ebfa84e22",
  "chapters": 42,
  "paragraphs": 495,
- "danish_words": 73015,
+ "danish_words": 73022,
  "reviewer_fails_fixed": 125,
  "verifier_pass": 119,
  "verifier_fail_replaced_not_reverified": [
@@ -15,5 +15,23 @@
   "17:37",
   "22:0",
   "34:18"
- ]
+ ],
+ "quality_check": {
+  "method": "second independent full read of the final text (16 reviewers, Danish alone then against English), 52 paragraph fixes verified by 3 fresh verifiers",
+  "paragraphs_failed": 52,
+  "severity": {
+   "language": 46,
+   "mechanical": 3,
+   "meaning": 3
+  },
+  "verifier_replacements_not_reverified": [
+   "3:5",
+   "17:22",
+   "34:15",
+   "36:1",
+   "40:3"
+  ],
+  "mean_fluency": 4.3,
+  "mean_fidelity": 4.8
+ }
 }
