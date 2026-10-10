@@ -39,6 +39,17 @@ export function figureParts(seconds: number): Array<[string, string]> {
   return hours ? [[String(hours), 'h'], [String(minutes), 'm']] : [[String(minutes), 'm']]
 }
 
+/**
+ * Every reading-time figure the cards show, from one readingTimeStats and one
+ * rounding (whole minutes, rounded down). cards.html: the You row "Your
+ * reading" is the last 7 days ("6 h 10 m"), the same figure as the Your
+ * reading card's "last 7 days" fact ("6 h 10"); the big figure is the total.
+ * Both cards call this, so the two can never disagree (44 m against 45 m).
+ */
+export function readingFigures(stats: { totalSeconds: number; last7Seconds: number }): { youRow: string; last7: string; total: Array<[string, string]> } {
+  return { youRow: durationLong(stats.last7Seconds), last7: durationShort(stats.last7Seconds), total: figureParts(stats.totalSeconds) }
+}
+
 export function ordinal(n: number): string {
   const tens = n % 100
   if (tens >= 11 && tens <= 13) return `${n}th`

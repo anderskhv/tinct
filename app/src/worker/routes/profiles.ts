@@ -154,7 +154,7 @@ export function imageUrl(userId: string, slot: 'picture' | 'background', token: 
 }
 
 /** The reader's own profile as the client sees it. */
-function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; emailOptIn: boolean }, user: ProfileAuthUser) {
+function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; emailOptIn: boolean }, user: ProfileAuthUser, uploads: boolean) {
   const stored = row.picture_kind === 'upload' || row.picture_kind === 'google'
   return {
     handle: row.handle,
@@ -176,6 +176,8 @@ function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; ema
     emailConfirmed: account.emailConfirmed,
     emailOptIn: account.emailOptIn,
     googlePhoto: Boolean(googlePhotoUrl(user)),
+    /** Uploads are accepted (SOCIAL_PHOTO_UPLOADS "1"): the cards offer Upload a picture / a background only then. */
+    uploads,
   }
 }
 
@@ -484,7 +486,7 @@ export async function handleProfiles(
         if (deps.defer) deps.defer(confirmation)
         else await confirmation
       }
-      return reply({ enabled: true, available: true, profile: selfView(row, account, user) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(row, account, user, photoUploadsOn(env)) }, 200, request)
     }
 
     if (url.pathname === '/api/profile' && request.method === 'POST') {
@@ -524,7 +526,7 @@ export async function handleProfiles(
       else if (body.emailOptIn === false) await store.updateAccount(user.id, { email_opt_in: false, email_opt_out_at: now.toISOString() })
       const next = await store.getOwn(user.id) ?? { ...row, ...patch }
       const account = await accountState(store, user, now)
-      return reply({ enabled: true, available: true, profile: selfView(next, account, user) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, account, user, photoUploadsOn(env)) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/handle' && request.method === 'GET') {
@@ -551,7 +553,7 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, slot, jpeg.bytes, 'image/jpeg', 'upload', random)
       const next = await store.getOwn(user.id) ?? row
-      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env)) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/google-photo' && request.method === 'POST') {
@@ -569,7 +571,7 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, 'picture', bytes, type, 'google', random)
       const next = await store.getOwn(user.id) ?? row
-      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env)) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/confirm-link' && request.method === 'POST') {

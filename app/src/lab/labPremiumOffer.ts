@@ -13,6 +13,8 @@ export type SubscriptionInfo = {
   subscription_status?: string | null
   subscription_period_end?: string | null
   intervals?: unknown
+  /** The Stripe subscription, when the account has one (null for Premium by grant). */
+  stripe?: { status?: string } | null
 }
 
 /**

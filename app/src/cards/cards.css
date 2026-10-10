@@ -32,20 +32,26 @@
 .tc-scrim { position: absolute; inset: 0; background: rgba(0,0,0,.35); animation: tc-fade .2s ease-out; }
 .tcards.is-desk .tc-scrim { background: transparent; animation: none; }
 
-/* A card: a sheet on phone, a panel at top right on desktop. */
+/* A card: a sheet on phone, a panel at top right on desktop. The phone sheet
+   is as tall as its content (at most 90% of the screen, then it scrolls inside),
+   with the reader's "Book editions" sheet's corners and shadow (lab.css .lab-v2-sheet). */
 .tc-card {
-  position: absolute; left: 0; right: 0; bottom: 0; top: var(--top, 60px);
+  --tc-radius: 20px;
+  position: absolute; left: 0; right: 0; bottom: 0; top: auto;
+  max-height: 90vh; max-height: 90dvh;
   background: var(--tc-ground); color: var(--tc-ink);
-  border-radius: 20px 20px 0 0; display: flex; flex-direction: column;
+  border-radius: var(--tc-radius) var(--tc-radius) 0 0; display: flex; flex-direction: column;
+  box-shadow: 0 -12px 36px rgba(20, 15, 8, 0.2);
   overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
   padding-bottom: env(safe-area-inset-bottom);
   animation: tc-rise .26s cubic-bezier(.2,.8,.2,1);
 }
 .tc-card.is-under { visibility: hidden; animation: none; }
 .tcards.is-desk .tc-card {
+  --tc-radius: 18px;
   left: auto; bottom: auto; top: var(--desk-top, 76px); right: 28px; width: 400px;
   max-height: calc(100dvh - var(--desk-top, 76px) - 32px);
-  border-radius: 18px; box-shadow: 0 20px 50px rgba(0,0,0,.3);
+  border-radius: var(--tc-radius); box-shadow: 0 20px 50px rgba(0,0,0,.3);
   padding-bottom: 0; animation: tc-fade .16s ease-out;
 }
 @keyframes tc-rise { from { transform: translateY(32px); opacity: .4; } to { transform: none; opacity: 1; } }
@@ -65,14 +71,17 @@
 
 /* Profile header */
 .tc-hero { position: relative; flex: none; height: 168px; }
-.tc-hero-bg { position: absolute; inset: 0 0 62px; background: var(--bgimg, none) center 45% / cover; background-color: #3a3a3a; }
-.tc-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.25), transparent 50%); }
+.tc-hero-bg { position: absolute; inset: 0 0 62px; background: var(--bgimg, none) center 45% / cover; background-color: #3a3a3a; border-radius: var(--tc-radius) var(--tc-radius) 0 0; overflow: hidden; }
+.tc-hero-bg::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, rgba(0,0,0,.25), transparent 50%); }
 .tc-hero .tc-disc { position: absolute; top: 16px; background: rgba(255,255,255,.9); color: #0a0a0a; }
 .tc-hero .tc-disc.is-x { right: 16px; }
 .tc-hero .tc-disc.is-b { left: 16px; }
+/* Change background: on the painting's lower right, clear of the picture and the name. */
+.tc-hero .tc-disc.is-bg { top: auto; bottom: 72px; right: 16px; }
 .tc-who { position: absolute; left: 16px; right: 16px; bottom: 0; display: flex; align-items: flex-end; gap: 14px; }
 .tc-av { width: 76px; height: 76px; border-radius: 50%; flex: none; background-color: #d0d0d0; background-repeat: no-repeat; background-size: 260% auto; background-position: 50% 35%; box-shadow: 0 0 0 4px var(--tc-ground); display: grid; place-items: center; font-family: var(--tc-play); font-weight: 700; font-size: 28px; color: #fff; position: relative; line-height: 1; }
 .tc-av.is-init { background-color: #6a6a6a; background-image: none !important; }
+.tc-av.is-skel { background-color: var(--tc-track); }
 .tc-av.is-s { width: 36px; height: 36px; font-size: 15px; box-shadow: none; }
 button.tc-av { padding: 0; }
 .tc-cam { position: absolute; right: -2px; bottom: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--tc-ink); color: var(--tc-cell); display: grid; place-items: center; box-shadow: 0 0 0 3px var(--tc-ground); }
@@ -156,7 +165,11 @@ button.tc-av { padding: 0; }
 .tc-search input::placeholder { color: var(--tc-sec); opacity: 1; }
 .tc-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
 .tc-pop { position: absolute; left: 16px; top: 180px; width: 240px; background: var(--tc-cell); border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,.3); z-index: 4; overflow: hidden; }
+.tc-pop.is-end { left: auto; right: 16px; }
 .tc-pop .tc-g { border-radius: 0; }
+/* A quiet skeleton while nothing is known yet: no stand-in words. */
+.tc-skel { display: inline-block; width: 56px; height: 12px; border-radius: 6px; background: var(--tc-track); vertical-align: middle; }
+.tc-skel.is-name { display: block; width: 132px; height: 22px; margin-bottom: 10px; }
 .tc-grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 16px; }
 .tc-grid4 button { aspect-ratio: 1; border-radius: 50%; background-repeat: no-repeat; background-size: 260% auto; background-color: var(--tc-track); }
 .tc-grid4 button[aria-checked="true"] { box-shadow: 0 0 0 3px var(--tc-cell), 0 0 0 5px var(--tc-fill); }

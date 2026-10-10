@@ -8,7 +8,7 @@
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
-import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, rankOf, shortEmail, weekHeights } from './cardsFormat'
+import { dayMonth, dayMonthShort, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights } from './cardsFormat'
 import {
   blockedReaderId,
   deleteOwnAccount,
@@ -54,6 +54,10 @@ export interface CardsData {
   find: FindData | null
   /** Readers who follow you whom you do not follow back. */
   findBadge: number
+  /** The account has a Stripe subscription, so Stripe's portal has something to manage. */
+  billing?: boolean
+  /** Not answered yet (and nothing cached): the You card shows a quiet skeleton there. */
+  loading?: { profile?: boolean; reading?: boolean }
 }
 
 export interface CardsSession {
@@ -87,7 +91,8 @@ export type CardPicture = Partial<ProfilePicture> & { kind?: PictureKind; value?
 
 /** Draw a picture into a round element. Stored photos load with the reader's token. */
 export function paintPicture(node: HTMLElement, picture: CardPicture | null | undefined, name: string, token: string | null): void {
-  const initial = (name.trim()[0] || 'R').toUpperCase()
+  // No name, no letter: never a stand-in initial.
+  const initial = (name.trim()[0] || '').toUpperCase()
   let view: { src: string | null; pos: string; cover: boolean; private: boolean; initial: string }
   if (picture?.kind) {
     const own = pictureView(picture.kind, picture.value ?? null, name, picture.url ?? null)
@@ -128,8 +133,9 @@ function avatar(picture: CardPicture | null | undefined, name: string, token: st
   return node
 }
 
+/** The reader's own name: the profile's, else the account's; '' rather than a stand-in. */
 function ownName(env: CardsEnv): string {
-  return env.data.profile?.name || env.session.accountName || 'Reader'
+  return env.data.profile?.name || env.session.accountName || ''
 }
 
 function planWord(env: CardsEnv): string {
@@ -176,11 +182,12 @@ function swallowNextClick(): void {
 }
 
 /** A small menu where you tapped (cards.html step 2). Tap anywhere else to close. */
-function popMenu(card: HTMLElement, top: number, items: Array<{ label: string; run: () => void; testid?: string }>, dim?: HTMLElement | null): void {
+function popMenu(card: HTMLElement, top: number, items: Array<{ label: string; run: () => void; testid?: string }>, dim?: HTMLElement | null, align: 'start' | 'end' = 'start'): void {
   card.querySelector('.tc-pop')?.remove()
   const pop = el('div', { className: 'tc-pop', role: 'menu', dataset: { testid: 'card-menu' } },
     el('div', { className: 'tc-g' }, ...items.map(item => row({ label: item.label, onClick: () => { close(); item.run() }, testid: item.testid }))))
   pop.style.top = `${top}px`
+  if (align === 'end') pop.classList.add('is-end')
   dim?.classList.add('tc-dim')
   function close() {
     pop.remove()
@@ -254,51 +261,80 @@ export function cardSpec(id: CardId, env: CardsEnv): CardSpec {
 /** 1 · You */
 export function youCard(env: CardsEnv): CardSpec {
   let status = ''
+  // One file field per slot for the card's life, so a re-render while the
+  // system picker is open never drops the reader's choice.
+  const files = { picture: fileField(), background: fileField() }
+  for (const slot of ['picture', 'background'] as const) {
+    const field = files[slot]
+    field.addEventListener('change', async () => {
+      const chosen = field.files?.[0]
+      field.value = ''
+      if (!chosen) return
+      const image = await resizePhoto(chosen, slot)
+      const saved = image ? await uploadProfileImage(env.session.token, slot, image) : null
+      if (saved?.ok) env.data.profile = saved.profile
+      else status = (saved && !saved.ok && saved.message) || CARDS_COPY.saveFailed
+      env.changed()
+    })
+  }
   return {
     id: 'you',
     label: CARDS_COPY.you,
-    top: 120,
     live: true,
     render: card => {
       const { data, session } = env
       const profile = data.profile
-      const name = ownName(env)
+      const waitingProfile = !profile && data.loading?.profile === true
+      const name = waitingProfile ? '' : ownName(env)
       const bg = el('div', { className: 'tc-hero-bg' })
-      paintBanner(bg, profile ? backgroundView(profile.background.kind, profile.background.value, profile.background.url) : { src: LIBRARY_BACKGROUND }, session.token)
-      const pic = el('button', { type: 'button', className: 'tc-av', 'aria-label': CARDS_COPY.choosePicture, dataset: { testid: 'you-picture' } }) as HTMLButtonElement
-      paintPicture(pic, profile?.picture ?? null, name, session.token)
+      // While the profile is on its way: no painting yet rather than the wrong one.
+      if (!waitingProfile) paintBanner(bg, profile ? backgroundView(profile.background.kind, profile.background.value, profile.background.url) : { src: LIBRARY_BACKGROUND }, session.token)
+      const pic = el('button', { type: 'button', className: `tc-av${waitingProfile ? ' is-skel' : ''}`, 'aria-label': CARDS_COPY.choosePicture, dataset: { testid: 'you-picture' } }) as HTMLButtonElement
+      if (!waitingProfile) paintPicture(pic, profile?.picture ?? null, name, session.token)
       const body = el('div', { className: 'tc-body is-under-hero' })
+      let bgButton: HTMLElement | null = null
       if (profile) {
+        // Uploads only while the Worker accepts them (SOCIAL_PHOTO_UPLOADS); otherwise straight to the choices.
+        const uploads = profile.uploads === true
+        const menuTop = (anchor: HTMLElement) => {
+          const box = card.element.getBoundingClientRect()
+          return anchor.getBoundingClientRect().bottom - box.top + card.element.scrollTop + 6
+        }
+        // The picture: the camera on the avatar is for the profile picture only.
         pic.append(el('span', { className: 'tc-cam', html: ICONS.cam, 'aria-hidden': 'true' }))
-        const file = el('input', { type: 'file', accept: 'image/*', className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
-        file.addEventListener('change', async () => {
-          const chosen = file.files?.[0]
-          file.value = ''
-          if (!chosen) return
-          const image = await resizePhoto(chosen, 'picture')
-          const saved = image ? await uploadProfileImage(session.token, 'picture', image) : null
-          if (saved?.ok) env.data.profile = saved.profile
-          else status = CARDS_COPY.saveFailed
-          env.changed()
+        pic.addEventListener('click', () => {
+          if (!uploads) { card.stack.push(pictureCard(env)); return }
+          popMenu(card.element, menuTop(pic), [
+            { label: CARDS_COPY.uploadPicture, run: () => files.picture.click(), testid: 'menu-upload' },
+            { label: CARDS_COPY.choosePicture, run: () => card.stack.push(pictureCard(env)), testid: 'menu-choose' },
+          ], body)
         })
-        const menu = () => popMenu(card.element, 180, [
-          { label: CARDS_COPY.uploadPicture, run: () => file.click(), testid: 'menu-upload' },
-          { label: CARDS_COPY.choosePicture, run: () => card.stack.push(pictureCard(env)), testid: 'menu-choose' },
-          { label: CARDS_COPY.changeBackground, run: () => card.stack.push(backgroundCard(env)), testid: 'menu-background' },
-        ], body)
-        pic.addEventListener('click', menu)
-        bg.addEventListener('click', menu)
-        body.append(file)
+        // The background: its own small button on the painting.
+        const button = el('button', { type: 'button', className: 'tc-disc is-bg', 'aria-label': CARDS_COPY.changeBackground, html: ICONS.scene, dataset: { testid: 'you-background' } })
+        button.addEventListener('click', () => {
+          if (!uploads) { card.stack.push(backgroundCard(env)); return }
+          popMenu(card.element, menuTop(button), [
+            { label: CARDS_COPY.chooseBackground, run: () => card.stack.push(backgroundCard(env)), testid: 'menu-background' },
+            { label: CARDS_COPY.uploadBackground, run: () => files.background.click(), testid: 'menu-upload-background' },
+          ], body, 'end')
+        })
+        bgButton = button
+        body.append(files.picture, files.background)
       } else {
         pic.disabled = true
         pic.removeAttribute('aria-label')
       }
-      const hero = el('div', { className: 'tc-hero' }, bg, heroClose(card),
-        el('div', { className: 'tc-who' }, pic, el('span', { className: 'tc-nm' }, el('b', { text: name }), el('span', { text: planWord(env) }))))
+      const nameNode = waitingProfile
+        ? el('span', { className: 'tc-nm', dataset: { testid: 'you-name-skeleton' } }, el('i', { className: 'tc-skel is-name', 'aria-hidden': 'true' }))
+        : el('span', { className: 'tc-nm' }, el('b', { text: name }), el('span', { text: planWord(env) }))
+      const hero = el('div', { className: 'tc-hero' }, bg, bgButton, heroClose(card), el('div', { className: 'tc-who' }, pic, nameNode))
 
       const stats = data.reading?.stats
+      const readingRow = stats
+        ? row({ label: CARDS_COPY.yourReading, value: readingFigures(stats).youRow, chevron: true, onClick: () => card.stack.push(readingCard(env)), testid: 'you-reading' })
+        : data.loading?.reading ? row({ label: CARDS_COPY.yourReading, value: el('i', { className: 'tc-skel', 'aria-hidden': 'true' }), testid: 'you-reading-skeleton' }) : null
       const readingGroup = group(
-        stats ? row({ label: CARDS_COPY.yourReading, value: durationLong(stats.last7Seconds), chevron: true, onClick: () => card.stack.push(readingCard(env)), testid: 'you-reading' }) : null,
+        readingRow,
         // Only once the reader joined the leaderboard.
         env.social && profile?.onLeaderboard ? row({ label: CARDS_COPY.leaderboard, value: data.rank, chevron: true, onClick: () => card.stack.push(leaderboardCard(env)), testid: 'you-leaderboard' }) : null,
       )
@@ -312,6 +348,10 @@ export function youCard(env: CardsEnv): CardSpec {
       return [hero, body]
     },
   }
+}
+
+function fileField(): HTMLInputElement {
+  return el('input', { type: 'file', accept: 'image/*', className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
 }
 
 function creditsGroup(env: CardsEnv, card: CardHandle): HTMLElement {
@@ -367,8 +407,9 @@ export function readingCard(env: CardsEnv): CardSpec {
       if (reading) {
         const { stats } = reading
         const seconds = new Map(stats.books.map(book => [book.bookId, book]))
+        const figures = readingFigures(stats)
         const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
-        for (const [n, unit] of figureParts(stats.totalSeconds)) figure.append(n, el('small', { text: unit }))
+        for (const [n, unit] of figures.total) figure.append(n, el('small', { text: unit }))
         const bars = el('div', { className: 'tc-bars', 'aria-hidden': 'true' })
         for (const height of weekHeights(stats.weeks)) {
           const bar = el('i')
@@ -379,7 +420,7 @@ export function readingCard(env: CardsEnv): CardSpec {
         body.append(el('div', { className: 'tc-g' },
           el('div', { className: 'tc-sum' }, figure, since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null, bars),
           factsRow([
-            { value: durationShort(stats.last7Seconds), label: CARDS_COPY.last7 },
+            { value: figures.last7, label: CARDS_COPY.last7 },
             { value: String(reading.finished.length), label: CARDS_COPY.finished },
             { value: `${stats.streak} ${stats.streak === 1 ? 'day' : 'days'}`, label: CARDS_COPY.streak },
           ], true)))
@@ -648,6 +689,9 @@ export function profileCard(env: CardsEnv, handle: string, name: string, picture
 /** 6 · Settings */
 export function settingsCard(env: CardsEnv): CardSpec {
   let status = ''
+  /** Change password: sending, then the confirmation line under the row (kept while the card is open). */
+  let sendingReset = false
+  let resetStatus = ''
   return {
     id: 'settings',
     label: CARDS_COPY.settings,
@@ -704,11 +748,31 @@ export function settingsCard(env: CardsEnv): CardSpec {
         body.append(group(row({ label: CARDS_COPY.newBooksOpenIn, className: 'is-seg', extra: [segmented<NewBooksOpenIn>(CARDS_COPY.newBooksOpenIn, [{ value: 'modern', label: CARDS_COPY.modern }, { value: 'human', label: CARDS_COPY.original }], profile.newBooksOpenIn, chooseNewBooks, { testid: 'settings-new-books' })] }))!,
           el('p', { className: 'tc-foot', text: CARDS_COPY.newBooksFoot }))
       }
+      const password = env.session.email ? row({
+        label: CARDS_COPY.password, chevron: true, testid: 'settings-password', onClick: async () => {
+          if (sendingReset) return
+          sendingReset = true
+          resetStatus = ''
+          card.refresh()
+          try { resetStatus = await env.resetPassword() } catch { resetStatus = CARDS_COPY.actionFailed }
+          sendingReset = false
+          if (card.stack.isClosed) return
+          card.refresh()
+          // The line sits under the row, in view, not at the foot of a card taller than the screen.
+          card.element.querySelector<HTMLElement>('[data-testid="settings-password-status"]')?.scrollIntoView?.({ block: 'nearest' })
+        },
+      }) as HTMLButtonElement : null
+      if (password && sendingReset) { password.disabled = true; password.setAttribute('aria-busy', 'true') }
       body.append(group(
         row({ label: CARDS_COPY.account, value: planWord(env), chevron: true, onClick: () => card.stack.push(accountCard(env)), testid: 'settings-account' }),
         env.session.email ? row({ label: CARDS_COPY.email, value: shortEmail(env.session.email), testid: 'settings-email' }) : null,
-        env.session.email ? row({ label: CARDS_COPY.password, chevron: true, testid: 'settings-password', onClick: async () => { status = await env.resetPassword(); card.refresh() } }) : null,
+        password,
       )!)
+      if (password) {
+        const line = statusLine(resetStatus)
+        line.dataset.testid = 'settings-password-status'
+        body.append(line)
+      }
       body.append(group(row({ label: CARDS_COPY.signOut, className: 'is-center', onClick: () => void env.signOut(), testid: 'settings-sign-out' }))!)
       body.append(statusLine(status))
       status = ''
@@ -730,14 +794,16 @@ export function accountCard(env: CardsEnv): CardSpec {
       const token = env.session.token
       const premium = env.data.plan === 'premium'
       const body = el('div', { className: 'tc-body' })
+      // Manage (Stripe's portal) only with a Stripe subscription to manage; Premium by
+      // grant has none, and its portal would say "No payment method": the plan row alone.
       const plans = premium
-        ? [row({
+        ? (env.data.billing ? [row({
           label: CARDS_COPY.manage, chevron: true, testid: 'account-manage', onClick: async () => {
             const url = await openBillingPortal(token)
             if (url) env.navigate(url)
             else { status = CARDS_COPY.actionFailed; card.refresh() }
           },
-        })]
+        })] : [])
         : env.data.intervals.map(interval => row({
           label: interval === 'year' ? CARDS_COPY.yearly : CARDS_COPY.monthly,
           value: interval === 'year' ? CARDS_COPY.yearlyPrice : CARDS_COPY.monthlyPrice,
@@ -802,7 +868,6 @@ export function pictureCard(env: CardsEnv): CardSpec {
   return {
     id: 'picture',
     label: CARDS_COPY.choosePicture,
-    top: 420,
     render: card => {
       const grid = el('div', { className: 'tc-grid4', role: 'radiogroup', 'aria-label': CARDS_COPY.choosePicture, dataset: { testid: 'picture-grid' } })
       for (const choice of pictureChoices()) {
@@ -839,11 +904,10 @@ export function backgroundCard(env: CardsEnv): CardSpec {
   let status = ''
   return {
     id: 'background',
-    label: CARDS_COPY.changeBackground,
-    top: 420,
+    label: CARDS_COPY.chooseBackground,
     render: card => {
       const current = env.data.profile?.background
-      const grid = el('div', { className: 'tc-grid4 is-scenes', role: 'radiogroup', 'aria-label': CARDS_COPY.changeBackground, dataset: { testid: 'background-grid' } })
+      const grid = el('div', { className: 'tc-grid4 is-scenes', role: 'radiogroup', 'aria-label': CARDS_COPY.chooseBackground, dataset: { testid: 'background-grid' } })
       const choices: Array<{ kind: BackgroundKind; value: string | null; src: string }> = [
         ...PICTURE_SETS.map(set => ({ kind: 'set' as BackgroundKind, value: set.id, src: set.scene })),
         { kind: 'library', value: null, src: LIBRARY_BACKGROUND },
@@ -863,7 +927,7 @@ export function backgroundCard(env: CardsEnv): CardSpec {
       grid.style.gridTemplateColumns = 'repeat(3, 1fr)'
       const body = el('div', { className: 'tc-body is-tight' }, el('div', { className: 'tc-g' }, grid), statusLine(status))
       status = ''
-      return [navBar(card, CARDS_COPY.changeBackground), body]
+      return [navBar(card, CARDS_COPY.chooseBackground), body]
     },
   }
 }

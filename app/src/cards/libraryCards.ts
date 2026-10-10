@@ -27,10 +27,33 @@ function signedIn(): boolean {
   return document.documentElement.classList.contains('signed-in')
 }
 
+let opening = false
+
 function open(start: CardName = 'you'): void {
+  if (opening) return
+  opening = true
   void openAccountCards({ start, dark: true, deskTop: 68 }).then(opened => {
     if (!opened) location.assign(`/sign-in?returnTo=${encodeURIComponent(cardUrl(start))}`)
-  })
+  }).catch(error => {
+    console.error('account cards: could not open', error)
+  }).finally(() => { opening = false })
+}
+
+/**
+ * The tap on the top bar's picture, delegated from the document (capture), so
+ * it works whatever the library does to its header and whenever this script
+ * runs: bound once at load, before the signed-in check, and it matches the
+ * account button itself, not only once it shows the picture. Signed out, the
+ * library's own handler (sign in) runs.
+ */
+export function accountButtonTap(event: Event): boolean {
+  const target = event.target as Element | null
+  const button = target?.closest?.('#sign-in')
+  if (!button || !signedIn()) return false
+  event.preventDefault()
+  event.stopPropagation()
+  open()
+  return true
 }
 
 let started = false
@@ -41,24 +64,17 @@ async function start(pending: CardName | null): Promise<void> {
   const style = document.createElement('style')
   style.textContent = STYLE
   document.head.append(style)
-  const button = document.getElementById('sign-in')
   const avatar = document.createElement('span')
-  if (button) {
-    // The library's own handler goes to the account page; the picture opens the cards instead.
-    document.addEventListener('click', event => {
-      if (!(event.target as Element | null)?.closest?.('#sign-in.cards-you')) return
-      event.preventDefault()
-      event.stopPropagation()
-      open()
-    }, { capture: true })
-  }
   if (pending) open(pending)
   const { data } = await supabase.auth.getSession()
   const token = data.session?.access_token
   if (!token) return
   const meta = (data.session?.user?.user_metadata ?? {}) as Record<string, unknown>
-  const name = typeof meta.full_name === 'string' ? meta.full_name : 'Reader'
-  paintAvatar(avatar, { kind: 'initial', initial: (name.trim()[0] || 'R').toUpperCase() }, token)
+  const name = typeof meta.full_name === 'string' ? meta.full_name : ''
+  // No stand-in letter: an empty disc until the profile's picture arrives.
+  paintAvatar(avatar, { kind: 'initial', initial: (name.trim()[0] || '').toUpperCase() }, token)
+  // Looked up now: the header may have been drawn again since the script loaded.
+  const button = document.getElementById('sign-in')
   if (button) {
     button.replaceChildren(avatar)
     button.classList.add('cards-you')
@@ -97,6 +113,8 @@ function showPrompt(token: string) {
 }
 
 function boot(): void {
+  // The library's own handler goes to the account page; signed in, the picture opens the cards instead.
+  document.addEventListener('click', accountButtonTap, { capture: true })
   const pending = consumeCardParam()
   if (signedIn()) { void start(pending).catch(() => {}); return }
   // The library marks a signed-in device from its cookie at boot; the auth check may mark it later.

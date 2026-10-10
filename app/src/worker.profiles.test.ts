@@ -471,8 +471,11 @@ describe('uploads', () => {
     const env = { ...on, SOCIAL_PHOTO_UPLOADS: '1', USER_BOOKS: bucket }
     await post(store, A, { visibility: 'everyone' }, env)
     const upload = await call(store, '/api/profile/image?slot=picture', { method: 'POST', as: A, body: jpegWithExif() as BodyInit }, env)
-    const { profile } = await upload.json() as { profile: { picture: { kind: string; url: string; review: string } } }
+    const { profile } = await upload.json() as { profile: { picture: { kind: string; url: string; review: string }; uploads: boolean } }
     expect(profile.picture).toMatchObject({ kind: 'upload', review: 'pending' })
+    // The profile tells the cards that uploads are on.
+    expect(profile.uploads).toBe(true)
+    expect((await (await call(store, '/api/profile', { as: A }, env)).json() as { profile: { uploads: boolean } }).profile.uploads).toBe(true)
     expect([...objects.values()][0].length).toBeLessThan(jpegWithExif().length)
     expect((await call(store, profile.picture.url, { as: A }, env)).status).toBe(200)
     expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(404)
@@ -505,6 +508,8 @@ describe('photo uploads at launch (SOCIAL_PHOTO_UPLOADS not "1")', () => {
     const env: Record<string, unknown> = { ...on, USER_BOOKS: r2 }
     if (value !== undefined) env.SOCIAL_PHOTO_UPLOADS = value
     await post(store, A, { visibility: 'everyone' }, env)
+    // The profile says uploads are off, so the cards offer none.
+    expect((await (await call(store, '/api/profile', { as: A }, env)).json() as { profile: { uploads: boolean } }).profile.uploads).toBe(false)
     const before = store.calls
     for (const slot of ['picture', 'background']) {
       const res = await call(store, `/api/profile/image?slot=${slot}`, { method: 'POST', as: A, body: jpeg() as BodyInit }, env)
