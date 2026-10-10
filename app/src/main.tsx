@@ -13,6 +13,7 @@ import { userBookFromSearch } from './lab/userBook/userBookId'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
+import { warmAccountCards } from './cards/warmCards'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import { storedContentMigrations } from './lab/labStoredContentMigrations'
 import './index.css'
@@ -57,6 +58,7 @@ if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader') {
   startReaderLoadTrace()
   warmLibraryPreview()
+  warmAccountCards()
 }
 
 const render = () => ReactDOM.createRoot(document.getElementById('root')!).render(

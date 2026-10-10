@@ -76,9 +76,8 @@ function deskImages(): string[] {
 }
 
 export function warmLibraryPreview() {
-  const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection
   // Never on Save Data or a 2G-class connection: there, every byte belongs to the book.
-  if (connection?.saveData || /^(slow-)?2g$/.test(connection?.effectiveType || '') || navigator.onLine === false) return
+  if (!networkSpare()) return
   const controller = new AbortController()
   let stopped = false
   const keepVisit = () => {
@@ -127,20 +126,33 @@ export function warmLibraryPreview() {
     })()
     keepVisit()
   }
+  whenReaderSettled(warm, () => stopped)
+}
+
+/** Save Data, a 2G-class connection, or offline: no optional network work at all. */
+export function networkSpare(): boolean {
+  const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection
+  return !(connection?.saveData || /^(slow-)?2g$/.test(connection?.effectiveType || '') || navigator.onLine === false)
+}
+
+/**
+ * Run optional work once the reader has settled: the reader's own first page
+ * comes first, and so do the chapter texts and audio it fetches right after,
+ * so this waits for the page to be on screen, then three seconds more, then
+ * the browser's idle time. Bounded, so a reader that never reports ready
+ * still gets its optional work.
+ */
+export function whenReaderSettled(run: () => void, stopped: () => boolean = () => false, settleMs = 3000): void {
   const idle = () => {
-    if ('requestIdleCallback' in window) window.requestIdleCallback(warm, { timeout: 5000 })
-    else setTimeout(warm, 1500)
+    if (stopped()) return
+    if ('requestIdleCallback' in window) window.requestIdleCallback(run, { timeout: 5000 })
+    else setTimeout(run, 1500)
   }
-  // The reader's own first page comes first, and so do the chapter texts and
-  // audio it fetches right after: the warm-up starts in idle time no earlier
-  // than three seconds after the page is on screen. Bounded, so a reader that
-  // never reports ready still warms the way back.
-  const SETTLE_MS = 3000
   const schedule = () => {
     const started = Date.now()
     const tick = () => {
-      if (stopped) return
-      if (document.querySelector('[data-reader-ready="true"]') || Date.now() - started > 10000) setTimeout(idle, SETTLE_MS)
+      if (stopped()) return
+      if (document.querySelector('[data-reader-ready="true"]') || Date.now() - started > 10000) setTimeout(idle, settleMs)
       else setTimeout(tick, 250)
     }
     tick()
