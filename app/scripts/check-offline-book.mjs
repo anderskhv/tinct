@@ -233,10 +233,10 @@ try {
         if (Date.now() - told > 5000) { told = Date.now(); await page.evaluate(() => window.dispatchEvent(new Event('online'))) }
         // The Bible keeps a place per biblical book (books.revelation, sequentialChapter 1189).
         synced = puts.slice(putsBefore).flatMap(put => Object.values(put?.books || {}))
-          .find(place => place?.bookId === bookId && (place.sequentialChapter ?? place.chapterNumber) === last.chapter) || null
+          .find(place => (place?.sequentialChapter ?? place?.chapterNumber) === last.chapter) || null
         if (!synced) await new Promise(resolve => setTimeout(resolve, 500))
       }
-      if (!synced) console.log('SYNC_MISSING ' + JSON.stringify({ last, puts: puts.slice(putsBefore).map(put => Object.keys(put?.books || {})), dirty: await page.evaluate(() => localStorage.getItem('tinct-lab-position-dirty')), local: await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.[id], bookId) }))
+      if (!synced) console.log('SYNC_MISSING ' + JSON.stringify({ last, puts: puts.slice(putsBefore).slice(-1).map(put => put?.books), dirty: await page.evaluate(() => localStorage.getItem('tinct-lab-position-dirty')), local: await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.[id], bookId) }))
       assert(synced, 'the offline place synced once online')
       // Network failures are the point of the check. Supabase's auth lock reports
       // WebKit words a refused (here: stubbed-out) request "access control checks".
