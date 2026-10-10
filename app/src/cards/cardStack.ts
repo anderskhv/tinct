@@ -15,7 +15,6 @@ export const ICONS = {
   back: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2.5 4.5 7 9 11.5"/></svg>',
   chev: '<svg viewBox="0 0 8 14" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5"/></svg>',
   cam: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 4.5h2.2l1.1-1.6h3.4l1.1 1.6H12v6.5H2z"/><circle cx="7" cy="7.6" r="2"/></svg>',
-  scene: '<svg viewBox="0 0 14 14" aria-hidden="true"><rect x="1.8" y="2.6" width="10.4" height="8.8" rx="1.6"/><path d="M1.8 9.6 4.9 6.6l2.5 2.4 1.6-1.5 3.2 3"/><circle cx="9.3" cy="5.3" r="0.9"/></svg>',
   search: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.8" cy="6.8" r="4.6"/><path d="M10.4 10.4 14 14"/></svg>',
 } as const
 

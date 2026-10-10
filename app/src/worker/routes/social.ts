@@ -179,8 +179,21 @@ export function withAddedBooks(base: ReadonlyMap<string, CatalogueEntry>, added:
   return map
 }
 
+/** The catalogue (the library's books plus added books), kept a few minutes per Worker isolate. */
+const CATALOGUE_TTL_MS = 5 * 60 * 1000
+let catalogueMemo: { at: number; value: Promise<Map<string, CatalogueEntry>> } | null = null
+
 async function catalogueOf(ctx: Context): Promise<Map<string, CatalogueEntry>> {
   if (ctx.deps.catalogue) return ctx.deps.catalogue()
+  const now = Date.now()
+  if (catalogueMemo && now - catalogueMemo.at < CATALOGUE_TTL_MS) return catalogueMemo.value
+  const value = loadCatalogue(ctx)
+  catalogueMemo = { at: now, value }
+  value.catch(() => { if (catalogueMemo?.value === value) catalogueMemo = null })
+  return value
+}
+
+async function loadCatalogue(ctx: Context): Promise<Map<string, CatalogueEntry>> {
   const base = await createLifecycleDeps(ctx.env as never).catalogue() as unknown as Map<string, CatalogueEntry>
   const bucket = bucketOf(ctx.env)
   if (!bucket) return base
@@ -419,11 +432,12 @@ async function buildFind(ctx: Context, viewerId: string, q: string | null) {
  * readers it follows, so no one can probe for them.
  */
 async function ownerIdFor(ctx: Context, handle: string, viewerId: string | null): Promise<string | null> {
-  if (viewerId) {
-    const own = await ctx.profiles.getOwn(viewerId)
-    if (own?.handle === handle) return viewerId
-  }
-  const card = await ctx.profiles.getCardByHandle(handle)
+  // The viewer's own row and the public card are asked for at once (each is a database round trip).
+  const [own, card] = await Promise.all([
+    viewerId ? ctx.profiles.getOwn(viewerId) : Promise.resolve(null),
+    ctx.profiles.getCardByHandle(handle),
+  ])
+  if (viewerId && own?.handle === handle) return viewerId
   if (card) return card.id
   return viewerId ? followerByHandle(ctx, viewerId, handle) : null
 }
@@ -449,14 +463,22 @@ export async function buildProfile(ctx: Context, handle: string, viewerId: strin
   if (handleProblem(handle) === 'format') return null
   const ownerId = await ownerIdFor(ctx, handle, viewerId)
   if (!ownerId) return null
-  const view = await viewFor(ctx.profiles, ownerId, viewerId)
+  // Everything the page may show is asked for at once, alongside the
+  // visibility check; nothing of it reaches the page unless the check allows
+  // it. (One after another this was five or six round trips: 2.5-5 s.)
+  const later = <T>(promise: Promise<T>): Promise<T | null> => promise.catch(() => null)
+  const ledger = later(ledgerOf(ctx, ownerId))
+  const shelfData = Promise.all([catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>()), later(positionOf(ctx, ownerId))])
+  const [view, rel] = await Promise.all([
+    viewFor(ctx.profiles, ownerId, viewerId),
+    viewerId && viewerId !== ownerId ? ctx.profiles.relation(viewerId, ownerId) : Promise.resolve(null),
+  ])
   if (!view) return null
   let relation: Relation | null = null
   let followsYou = false
   if (viewerId) {
     if (viewerId === ownerId) relation = 'self'
-    else {
-      const rel = await ctx.profiles.relation(viewerId, ownerId)
+    else if (rel) {
       relation = relationOf({ self: false, ...rel })
       followsYou = rel.ownerFollowsViewer
       if (relation === 'blocked') return null
@@ -470,7 +492,7 @@ export async function buildProfile(ctx: Context, handle: string, viewerId: strin
     relation, followsYou, limited: view.limited, time: null, readingNow: null, finished: null,
   }
   if (view.limited || (!view.shows.time && !view.shows.reading)) return data
-  const rows = await ledgerOf(ctx, ownerId)
+  const rows = await ledger
   if (rows && view.shows.time) {
     const last7 = windowSeconds(rows.map(row => ({ user_id: ownerId, day: row.day, book_id: row.bookId, read_seconds: row.read, listen_seconds: row.listen })), ctx.now).get(ownerId) ?? 0
     const year = String(new Date(ctx.now).getUTCFullYear())
@@ -478,7 +500,7 @@ export async function buildProfile(ctx: Context, handle: string, viewerId: strin
     data.time = { last7: formatDuration(last7), year: formatDuration(yearSeconds) }
   }
   if (view.shows.reading) {
-    const [catalogue, position] = await Promise.all([catalogueOf(ctx).catch(() => new Map<string, CatalogueEntry>()), positionOf(ctx, ownerId).catch(() => null)])
+    const [catalogue, position] = await shelfData
     const stats = readingTimeStats(rows ?? [], new Date(ctx.now).toISOString().slice(0, 10))
     const shelf = yourReadingView({ stats, positions: position, catalogue })
     const toBook = (book: { bookId: string; title: string; cover: string | null; progress: string | null; hours: string | null }): ProfileBook => ({

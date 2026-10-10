@@ -552,6 +552,27 @@ describe('a reader’s own books are private', () => {
     expect(html).toContain('href="/read/frankenstein"')
   })
 
+  it('asks for the reading data alongside the visibility check, not after it (profile latency, 10 Oct 2026)', async () => {
+    const world = everyoneWorld()
+    world.read(B, -1, 30, 'frankenstein')
+    const events: string[] = []
+    const getCardById = world.getCardById.bind(world)
+    world.getCardById = (async (...args: Parameters<typeof getCardById>) => {
+      events.push('card-start')
+      await new Promise(resolve => setTimeout(resolve, 20))
+      events.push('card-end')
+      return getCardById(...args)
+    }) as typeof world.getCardById
+    const base = deps(world)
+    const data = await json(await api(world, '/api/social/profile/bea', A, {}, {
+      ledger: async id => { events.push('ledger'); return base.ledger!(id) },
+      position: async id => { events.push('position'); return base.position!(id) },
+    }))
+    expect(data.profile.readingNow.map((book: { title: string }) => book.title)).toEqual(['Frankenstein'])
+    expect(events.indexOf('ledger')).toBeLessThan(events.indexOf('card-end'))
+    expect(events.indexOf('position')).toBeLessThan(events.indexOf('card-end'))
+  })
+
   it('never matched for "Also reading your books"; added public-domain books are shown normally', async () => {
     const world = everyoneWorld()
     world.read(A, -1, 30, 'private'); world.read(A, -1, 30, OWN)

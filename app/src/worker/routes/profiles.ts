@@ -640,14 +640,13 @@ async function sendSignUpConfirmation(store: ProfileStore, user: ProfileAuthUser
 /** The relationship-aware view of one profile (ship 3's page and lists use this). */
 export async function viewFor(store: ProfileStore, ownerId: string, viewerId: string | null) {
   if (viewerId === ownerId) {
-    const own = await store.getOwn(ownerId)
+    const [own, account] = await Promise.all([store.getOwn(ownerId), store.getAccount(ownerId)])
     if (!own) return null
-    const account = await store.getAccount(ownerId)
     return publicProfileView(cardFromOwn(own, Boolean(account?.email_confirmed_at)), 'self')
   }
-  const card = await store.getCardById(ownerId)
+  // The card and the relation at once (two round trips otherwise).
+  const [card, rel] = await Promise.all([store.getCardById(ownerId), viewerId ? store.relation(viewerId, ownerId) : Promise.resolve(null)])
   if (!card && !viewerId) return null
-  const rel = viewerId ? await store.relation(viewerId, ownerId) : null
   const relation = rel ? relationOf({ self: false, ...rel }) : 'stranger'
   if (card) return publicProfileView(cardFromPublic(card), relation)
   // No public card (Only me, or hidden): only a reader who follows the viewer
