@@ -23,6 +23,8 @@ describe('static asset caching (worker/lib/staticCache)', () => {
     expect(staticCacheControl(at('/lab/library-2-reading.js'), 200, js)).toBeNull()
     expect(staticCacheControl(at('/lab/native-books.js'), 200, js)).toBeNull()
     expect(staticCacheControl(at('/lab/catalogue.json'), 200, 'application/json')).toBeNull()
+    // Tagged or not: JSON is data and keeps revalidating (the catalogue changes with every book release).
+    expect(staticCacheControl(at('/lab/catalogue.json?v=20260912-withheld-1'), 200, 'application/json')).toBeNull()
     expect(staticCacheControl(at('/lab/library_2/app.js?v='), 200, js)).toBeNull()
     expect(staticCacheControl(at('/lab/library_2/app.js?v=a%20b'), 200, js)).toBeNull()
   })
