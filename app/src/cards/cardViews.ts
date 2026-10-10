@@ -316,7 +316,7 @@ export function youCard(env: CardsEnv): CardSpec {
           ], body)
         })
         // The background: its own small button on the painting.
-        const button = el('button', { type: 'button', className: 'tc-disc is-bg', 'aria-label': CARDS_COPY.changeBackground, html: ICONS.scene, dataset: { testid: 'you-background' } })
+        const button = el('button', { type: 'button', className: 'tc-disc is-bg', 'aria-label': CARDS_COPY.changeBackground, html: ICONS.cam, dataset: { testid: 'you-background' } })
         button.addEventListener('click', () => {
           if (!uploads) { card.stack.push(backgroundCard(env)); return }
           popMenu(card.element, menuTop(button), [

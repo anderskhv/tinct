@@ -82,6 +82,9 @@
 .tc-hero .tc-disc.is-b { left: 16px; }
 /* Change background: on the painting's lower right, clear of the picture and the name. */
 .tc-hero .tc-disc.is-bg { top: auto; bottom: 72px; right: 16px; }
+/* The same camera, in the same dark disc, as the picture's (Anders: one change-image icon for both). */
+.tc-hero .tc-disc.is-bg { background: var(--tc-ink); color: var(--tc-cell); box-shadow: 0 0 0 3px rgba(255,255,255,.35); }
+.tc-hero .tc-disc.is-bg svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
 .tc-who { position: absolute; left: 16px; right: 16px; bottom: 0; display: flex; align-items: flex-end; gap: 14px; }
 .tc-av { width: 76px; height: 76px; border-radius: 50%; flex: none; background-color: #d0d0d0; background-repeat: no-repeat; background-size: 260% auto; background-position: 50% 35%; box-shadow: 0 0 0 4px var(--tc-ground); display: grid; place-items: center; font-family: var(--tc-play); font-weight: 700; font-size: 28px; color: #fff; position: relative; line-height: 1; }
 .tc-av.is-init { background-color: #6a6a6a; background-image: none !important; }
