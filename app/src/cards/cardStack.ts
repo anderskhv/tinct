@@ -135,9 +135,47 @@ export class CardStack {
     for (const entry of this.entries) entry.handle.element.classList.add('is-under')
     this.entries.push({ spec, handle })
     element.replaceChildren(...this.chrome(), ...spec.render(handle))
+    this.sheetGestures(element)
     this.root.append(element)
     try { element.focus({ preventScroll: true }) } catch { /* old browsers */ }
     return handle
+  }
+
+  /**
+   * Phone: a downward drag anywhere on a card that is scrolled to its top
+   * pulls the sheet down and closes it past 90px, as the grabber does. Without
+   * this, iPhone Safari rubber-bands the card's own scroller instead (the
+   * content slid down, leaving empty ground above it), and the only way to
+   * close was the small grabber (Anders, 10 Oct 2026). Touch events, since a
+   * scroll cannot be cancelled from pointer events; a sideways or upward
+   * start hands the gesture back to the scroller.
+   */
+  private sheetGestures(card: HTMLElement) {
+    let y0 = 0, x0 = 0, dy = 0, pulling: boolean | null = null
+    card.addEventListener('touchstart', event => {
+      if (this.desktop || event.touches.length !== 1 || card.scrollTop > 0) { pulling = false; return }
+      y0 = event.touches[0].clientY; x0 = event.touches[0].clientX; dy = 0; pulling = null
+    }, { passive: true })
+    card.addEventListener('touchmove', event => {
+      if (pulling === false || event.touches.length !== 1) return
+      const moveY = event.touches[0].clientY - y0, moveX = event.touches[0].clientX - x0
+      if (pulling === null) {
+        if (Math.abs(moveY) < 6 && Math.abs(moveX) < 6) return
+        pulling = moveY > 0 && Math.abs(moveY) > Math.abs(moveX) && card.scrollTop === 0
+        if (!pulling) return
+      }
+      event.preventDefault()
+      dy = Math.max(0, moveY)
+      card.style.transform = `translateY(${dy}px)`
+    }, { passive: false })
+    const end = () => {
+      if (!pulling) return
+      pulling = false
+      card.style.transform = ''
+      if (dy > 90) this.closeAll()
+    }
+    card.addEventListener('touchend', end)
+    card.addEventListener('touchcancel', end)
   }
 
   /** The grabber (phone; hidden by CSS on desktop), with pull-down to close. */
