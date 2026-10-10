@@ -50,6 +50,8 @@ export const LAB_COPY = {
   connecting: 'Connecting',
   checkingText: 'Checking text',
   preparingAnswer: 'Preparing answer',
+  /** Shown while the first sentence group of a chapter is still being synthesised. */
+  preparingNarration: 'Preparing narration…',
   readyToSpeak: 'Ready to speak',
   stopTalk: 'Stop talking',
   typedPending: 'A reply is on the way.',

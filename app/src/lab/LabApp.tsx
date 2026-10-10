@@ -1353,26 +1353,28 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     listeningRef: listenPlayingRef,
     privateBook,
   })
-  // Warm narration ahead of the reader: the chapter's opening on arrival, the
-  // next chapter's opening when the reader nears the end of this one.
+  // Warm narration ahead of the listener: the next chapter's opening when the
+  // chapter being heard nears its end. It follows the chapter playing
+  // (listenSource), not the page shown, so browsing elsewhere while listening
+  // does not stop the next chapter from being prepared.
   const narrationCurrentParagraph = listen.playing && listen.follow.kind !== 'none'
     ? listen.follow.paragraphIndex
-    : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
+    : listenSource.chapterNumber === book.chapterNumber ? (readingPages[readingPageIndex]?.paragraphIndex ?? 0) : 0
   useNarrationPrefetch({
     // Never for an own book: it is narrated on demand only, nothing ahead.
-    active: !privateBook && !temporaryHold && Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    active: !privateBook && !temporaryHold && Boolean(narrationOption) && listen.playing,
     voice: narrationVoice,
-    bookId: book.bookId || 'bible',
+    bookId: listenSource.bookId,
     editionKey: prefs.primaryEdition,
-    chapter: book.chapterNumber,
-    nextChapter: nextLabChapter(book.chapters, book.chapterNumber),
-    paragraphCount: book.paragraphs.length,
+    chapter: listenSource.chapterNumber,
+    nextChapter: nextLabChapter(listenSource.chapters, listenSource.chapterNumber),
+    paragraphCount: listenSource.paragraphs.length,
     currentParagraph: narrationCurrentParagraph,
     remainingSeconds: listen.chapterDuration > 0 ? Math.max(0, listen.chapterDuration - listen.chapterTime) / listen.speed : undefined,
     onPrepared: (target, results) => {
-      storeNarrationReplay({ bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, chapter: target, identity: narrationCacheIdentity }, results)
+      storeNarrationReplay({ bookId: listenSource.bookId, editionKey: prefs.primaryEdition, chapter: target, identity: narrationCacheIdentity }, results)
       const cache = warmedNarrationRef.current
-      const key = warmedNarrationKey(book.bookId || 'bible', prefs.primaryEdition, target, narrationVoice)
+      const key = warmedNarrationKey(listenSource.bookId, prefs.primaryEdition, target, narrationVoice)
       cache.delete(key)
       cache.set(key, results)
       while (cache.size > 4) cache.delete(cache.keys().next().value!)
@@ -5490,6 +5492,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
       <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
+      {listen.narration.status === 'loading' && listen.narration.waiting && listen.pending && <div className="lab-narration-inline" role="status" data-testid="lab-narration-preparing">
+        <span>{LAB_COPY.preparingNarration}</span>
+        <button type="button" data-testid="lab-narration-cancel" onClick={listen.pause}>Cancel</button>
+      </div>}
       {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && listen.narration.reason !== 'own_book_premium' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
         <span title={listen.narration.message} aria-label={listen.narration.message}>{listen.narration.reason === 'unauthenticated'
           ? listen.narration.message

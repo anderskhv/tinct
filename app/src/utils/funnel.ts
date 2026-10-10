@@ -24,7 +24,7 @@ export type FunnelEventName =
   | 'ai_first_use' | 'anon_limit_reached' | 'signup_started' | 'signup_completed'
   | 'member_ai_use' | 'checkout_started' | 'checkout_completed'
   | 'share_sheet_opened' | 'share_created' | 'share_completed' | 'share_link_opened' | 'share_link_signup'
-  | 'book_intro_viewed' | 'audio_failed' | 'talk_failed'
+  | 'book_intro_viewed' | 'audio_failed' | 'audio_slow_start' | 'talk_failed'
   // Social (ship 3): sent by the Friends page, a profile page and the reader.
   | 'leaderboard_opened' | 'profile_viewed' | 'reading_card_shared'
 

@@ -49,6 +49,27 @@ export const NARRATION_PENDING_SRC = 'narration:pending'
 export const NARRATION_BUFFER_TARGET_SECONDS = 150
 /** Ready clips after the playing one whose audio is downloaded ahead of its turn. */
 export const NARRATION_DOWNLOAD_AHEAD = 2
+/**
+ * How long Play keeps waiting while the Worker reports the first sentence
+ * group as still being made (pending, another generator holding its lease, or
+ * rate limited). A cold group usually lands in 4–20 s; production saw three
+ * `audio_failed: pending` after the old three short polls (~5 s), each
+ * playable a minute later. Only after this does the wait become an error.
+ */
+export const NARRATION_PREPARE_CEILING_MS = 60_000
+/** Back-off between polls of a group that is still being made. */
+export const NARRATION_POLL_MIN_MS = 1_000
+export const NARRATION_POLL_MAX_MS = 5_000
+/** A wait at least this long is counted (`audio_slow_start`, seconds only). */
+export const NARRATION_SLOW_START_SECONDS = 5
+/** Without any answer from the server for this long, a start is a real stall. */
+const PENDING_DEADLINE_MS = 45_000
+
+/** The n-th wait (0-based) for a group still being made: the server's hint, growing by half each time. */
+export function narrationPollDelayMs(poll: number, retryAfterMs?: number): number {
+  const base = Math.max(NARRATION_POLL_MIN_MS, retryAfterMs ?? 1500)
+  return Math.min(NARRATION_POLL_MAX_MS, Math.round(base * 1.5 ** Math.max(0, poll)))
+}
 
 /**
  * How many sentence groups a round prepares at once, by playback speed: at
@@ -104,7 +125,8 @@ export interface LabNarrationOption {
 
 export type LabNarrationState =
   | { status: 'idle' }
-  | { status: 'loading'; paragraphIndex: number }
+  /** `waiting`: the server is still making this recording; the reader sees "Preparing narration…" with Cancel. */
+  | { status: 'loading'; paragraphIndex: number; waiting?: true }
   | { status: 'error'; paragraphIndex: number; message: string; reason?: string }
 
 interface PreparedChunk {
@@ -136,6 +158,14 @@ type PlaceInput = { paragraphIndex?: number; wordIndex?: number } | undefined
 
 function bareFollowParagraphs(paragraphs: FollowParagraph[]): FollowParagraph[] {
   return paragraphs.map(paragraph => ({ index: paragraph.index, text: paragraph.text }))
+}
+
+/**
+ * Wall-clock milliseconds, used only to bound and count a wait for synthesis.
+ * The follow paint never reads it: that follows the audio element's clock.
+ */
+function waitClockMs(): number {
+  return new Date().getTime()
 }
 
 function wait(ms: number): Promise<void> {
@@ -241,14 +271,11 @@ export function useLabListen(options: UseLabListenOptions) {
   // Intent is cancellable immediately; delay only the spinner to avoid flashing
   // between cached native clips. Neither preparation nor play() completion may
   // revive a cancelled request.
-  const setPending = useCallback((value: boolean) => {
-    if (pendingRef.current === value) return
-    pendingRef.current = value
-    setPendingState(value)
-    clearTimeout(loadingTimerRef.current)
+  // The deadline is a stall guard: it restarts whenever the server answers
+  // "still being made", so only silence (a hung request) trips it; the
+  // preparation loop enforces its own ceiling for long waits.
+  const armPendingDeadline = useCallback(() => {
     clearTimeout(loadingDeadlineRef.current)
-    if (!value) { setLoading(false); return }
-    loadingTimerRef.current = setTimeout(() => setLoading(true), 150)
     loadingDeadlineRef.current = setTimeout(() => {
       pendingRef.current = false
       setPendingState(false)
@@ -263,8 +290,19 @@ export function useLabListen(options: UseLabListenOptions) {
       narrationRetryRef.current = () => retryPlaybackRef.current()
       setNarrationState({ status: 'error', paragraphIndex: clipsRef.current[clipIndexRef.current]?.kind === 'paragraph' ? (clipsRef.current[clipIndexRef.current] as Extract<LabAudioClip, { kind: 'paragraph' }>).index : 0,
         message: 'Audio took too long to start. Try again.', reason: 'timeout' })
-    }, 45_000)
+    }, PENDING_DEADLINE_MS)
   }, [])
+
+  const setPending = useCallback((value: boolean) => {
+    if (pendingRef.current === value) return
+    pendingRef.current = value
+    setPendingState(value)
+    clearTimeout(loadingTimerRef.current)
+    clearTimeout(loadingDeadlineRef.current)
+    if (!value) { setLoading(false); return }
+    loadingTimerRef.current = setTimeout(() => setLoading(true), 150)
+    armPendingDeadline()
+  }, [armPendingDeadline])
 
   const audioChapter = () => optionsRef.current.chapterNumber ?? 1
   const audioEdition = () => optionsRef.current.audioEdition || 'kjv-en'
@@ -500,11 +538,18 @@ export function useLabListen(options: UseLabListenOptions) {
     const superseded = () => request !== narrationRequestRef.current || playRequest !== playRequestRef.current
     setPending(true)
     setNarrationState({ status: 'loading', paragraphIndex: target.paragraphIndex })
+    const startedAt = waitClockMs()
+    // Counted, never shown: how long a start waited on synthesis, no text.
+    const reportWait = (outcome: 'started' | 'failed' | 'cancelled') => {
+      const seconds = Math.round((waitClockMs() - startedAt) / 1000)
+      if (seconds >= NARRATION_SLOW_START_SECONDS) trackFunnel('audio_slow_start', { seconds, outcome })
+    }
     let outcome: NarrationOutcome = { ok: true }
     let polls = 0
-    // Each round lands one chunk; a chunk beyond the ready prefix needs as
-    // many rounds as it is deep, plus a few for waits on other generators.
-    for (let round = 0; round < target.chunkIndex + 6 && !chunkReady(target); round += 1) {
+    // Each productive round lands one chunk; a chunk beyond the ready prefix
+    // needs as many rounds as it is deep, plus a few spare. Waiting on a
+    // group still being made does not use up rounds: it is bounded by time.
+    for (let round = 0; round - polls < target.chunkIndex + 6 && !chunkReady(target); round += 1) {
       // Starting at speed, the groups after this one are asked for alongside
       // it: the first handoff would otherwise wait on a synthesis that takes
       // longer than this group plays.
@@ -516,19 +561,25 @@ export function useLabListen(options: UseLabListenOptions) {
         { [target.paragraphIndex]: target.chunkIndex },
         following.length ? [{ index: target.paragraphIndex, chunk: target.chunkIndex }, ...following] : undefined,
       )
-      if (superseded()) return
+      if (superseded()) { reportWait('cancelled'); return }
       if (!outcome.ok) {
-        if (outcome.reason !== 'pending' || polls >= 3) break
+        if (outcome.reason !== 'pending') break
+        const delay = narrationPollDelayMs(polls, outcome.retryAfterMs)
+        if (waitClockMs() - startedAt + delay > NARRATION_PREPARE_CEILING_MS) break
         polls += 1
-        await wait(Math.min(5000, Math.max(500, outcome.retryAfterMs ?? 1500)))
-        if (superseded()) return
+        // The server answered: this is a wait, not a stall.
+        armPendingDeadline()
+        if (polls === 1) setNarrationState({ status: 'loading', paragraphIndex: target.paragraphIndex, waiting: true })
+        await wait(delay)
+        if (superseded()) { reportWait('cancelled'); return }
       }
     }
-    if (superseded()) return
+    if (superseded()) { reportWait('cancelled'); return }
     if (chunkReady(target)) outcome = { ok: true }
     else if (outcome.ok) outcome = { ok: false, reason: 'unavailable' }
     if (!outcome.ok) {
-      if (outcome.reason === 'cancelled') return
+      if (outcome.reason === 'cancelled') { reportWait('cancelled'); return }
+      reportWait('failed')
       setPending(false)
       narrationRetryRef.current = () => { void prepareThenRun(target, resume) }
       setNarrationState({ status: 'error', paragraphIndex: target.paragraphIndex, message: narrationFailureMessage(outcome.reason), reason: outcome.reason })
@@ -537,9 +588,12 @@ export function useLabListen(options: UseLabListenOptions) {
       setPlaying(false)
       return
     }
+    reportWait('started')
+    // Starting the element may still take a moment; that is the stall guard's again.
+    armPendingDeadline()
     setNarrationState({ status: 'idle' })
     resume()
-  }, [ensureRound, nextMissingGroups, setPending])
+  }, [armPendingDeadline, ensureRound, nextMissingGroups, setPending])
 
   /**
    * Keep NARRATION_BUFFER_TARGET_SECONDS ready ahead of the actual playhead,
