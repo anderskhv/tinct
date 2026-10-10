@@ -11,6 +11,7 @@
 // tail starting the next line. A German book (tagged de, or untagged) gets no English plan.
 // OWN_HYPHEN_SHOTS=<dir> writes a phone screenshot per run.
 import { chromium, webkit } from '@playwright/test'
+import { markInternal } from './lib/internalTraffic.cjs'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -71,7 +72,7 @@ async function serveDist(context) {
 }
 
 async function runCase(browserType, engine, testCase, index) {
-  const browser = await browserType.launch({ headless: true })
+  const browser = await markInternal(await browserType.launch({ headless: true }))
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' })
   await serveDist(context)
   const page = await context.newPage()

@@ -2,11 +2,12 @@ const assert = require('node:assert/strict')
 const fs = require('node:fs')
 const { createHash } = require('node:crypto')
 const manifest = require('../src/data/editionAvailability.json')
+const { checkHeaders } = require('./lib/internalTraffic.cjs')
 const origin = 'https://tinct.app'
 const version = process.env.EXPECTED_BUILD_SHA
 assert.ok(version, 'Pin production evidence to the deployed commit')
 const get = async path => {
-  const response = await fetch(origin + path, {headers:{'User-Agent':'Tinct-availability-verification'}})
+  const response = await fetch(origin + path, {headers:checkHeaders({'User-Agent':'Tinct-availability-verification'})})
   assert.equal(response.status,200,path)
   return response
 }

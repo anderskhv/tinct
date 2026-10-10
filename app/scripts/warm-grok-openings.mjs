@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { narrationTextForParagraph, sha256Hex } from '../src/narration/narrationCore.ts'
 import { releaseWarmSignature } from '../src/narration/narrationReleaseAuth.ts'
+import { checkHeaders } from './lib/internalTraffic.cjs'
 const origin=process.env.NARRATION_ORIGIN || 'https://tinct.app'
 assert(process.env.XAI_API_KEY,'Missing cloud release credential')
 const plan=JSON.parse(await fs.readFile('artifacts/grok-openings/plan.json','utf8'))
@@ -11,7 +12,7 @@ assert(plan.entries.every(e=>e.targetSeconds===300 && e.voices.join(',')==='f,m'
 async function releaseFetch(path, init) {
   const timestamp=String(Date.now())
   const signature=await releaseWarmSignature(process.env.XAI_API_KEY,init.method,path,timestamp,init.body || '')
-  return fetch(origin+path,{...init,headers:{'Content-Type':'application/json','x-narration-provider':'grok','x-narration-release-time':timestamp,'x-narration-release-signature':signature}})
+  return fetch(origin+path,{...init,headers:checkHeaders({'Content-Type':'application/json','x-narration-provider':'grok','x-narration-release-time':timestamp,'x-narration-release-signature':signature})})
 }
 const report={startedAt:new Date().toISOString(),entries:[],generatedCalls:0}
 let pendingWrite=Promise.resolve()
@@ -72,7 +73,7 @@ async function warm(entry,voice){
   assert.equal(repeat.generated,0,'Cached replay must not synthesize')
   const firstChunk=repeat.paragraphs[0].chunks.find(c=>c.index===first.chunk)
   assert.equal(firstChunk.hash,first.hash)
-  const audio=await fetch(origin+first.url,{headers:{Range:'bytes=0-1023'}})
+  const audio=await fetch(origin+first.url,{headers:checkHeaders({Range:'bytes=0-1023'})})
   assert([200,206].includes(audio.status))
   const bytes=await audio.arrayBuffer();assert(bytes.byteLength>=800)
   const row={bookId:entry.bookId,editionKey:entry.editionKey,voice,seconds,recordings,preparedStartMs:Math.round(performance.now()-started),repeatGenerated:repeat.generated}

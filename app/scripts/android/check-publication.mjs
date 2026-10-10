@@ -1,13 +1,14 @@
 import fs from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import {createHash} from 'node:crypto'
+import {checkHeaders} from '../lib/internalTraffic.cjs'
 
 // Public, read-only acceptance: compare the exact deployed catalogue/manifests
 // and one complete on-demand book against the build's content identities.
 const origin=process.argv[2]||'https://tinct.app'
 const expected=await fs.readFile('dist/native-books/index.json')
 async function get(path){
- const response=await fetch(new URL(path,origin),{redirect:'error',signal:AbortSignal.timeout(20000)})
+ const response=await fetch(new URL(path,origin),{redirect:'error',headers:checkHeaders(),signal:AbortSignal.timeout(20000)})
  assert.equal(response.status,200,'published asset '+path)
  return Buffer.from(await response.arrayBuffer())
 }

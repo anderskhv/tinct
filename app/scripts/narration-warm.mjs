@@ -9,6 +9,7 @@
 // it every paragraph is completed. Safe to re-run: cached chunks cost nothing.
 import fs from 'node:fs'
 import path from 'node:path'
+import { checkHeaders } from './lib/internalTraffic.cjs'
 
 const args = Object.fromEntries(process.argv.slice(2).map((arg, i, all) => (arg.startsWith('--') ? [arg.slice(2), all[i + 1]?.startsWith('--') || all[i + 1] === undefined ? '1' : all[i + 1]] : [])).filter(Boolean))
 const origin = process.env.TINCT_ORIGIN || 'https://tinct.app'
@@ -33,7 +34,7 @@ async function listChapter(book, edition, voice) {
   // The admin header exempts the listing from the public per-address throttle;
   // a 429 or transient error is retried with backoff rather than aborting the run.
   for (let attempt = 0; attempt < 5; attempt += 1) {
-    const res = await fetch(`${origin}/api/narration/chapter?bookId=${book}&editionKey=${edition}&chapter=${chapter}&voice=${voice}`, { headers: { 'x-narration-admin': token } })
+    const res = await fetch(`${origin}/api/narration/chapter?bookId=${book}&editionKey=${edition}&chapter=${chapter}&voice=${voice}`, { headers: checkHeaders({ 'x-narration-admin': token }) })
     if (res.ok) return (await res.json()).paragraphs
     if (res.status === 429 || res.status >= 500) { await new Promise(r => setTimeout(r, 3000 * (attempt + 1))); continue }
     throw new Error(`chapter ${book}/${edition} ${voice}: HTTP ${res.status}`)
@@ -44,7 +45,7 @@ async function listChapter(book, edition, voice) {
 async function warm(book, edition, voice, indexes) {
   const res = await fetch(`${origin}/api/narration/warm`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-narration-admin': token },
+    headers: checkHeaders({ 'Content-Type': 'application/json', 'x-narration-admin': token }),
     body: JSON.stringify({ bookId: book, editionKey: edition, chapter, voice, mode: 'all', paragraphs: indexes.map(index => ({ index })) }),
   })
   if (!res.ok) throw new Error(`warm ${book}/${edition} ${voice} ${indexes}: HTTP ${res.status} ${await res.text()}`)

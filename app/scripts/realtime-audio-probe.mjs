@@ -5,10 +5,11 @@
  */
 import { mkdir, writeFile, readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { checkHeaders } from './lib/internalTraffic.cjs'
 const out = process.argv[2]
 if (!out) throw new Error('Provide an output directory')
 await mkdir(out, { recursive: true })
-const tokenResponse = await fetch('https://tinct.app/api/lab-voice-session', { method: 'POST', headers: {'Content-Type':'application/json'} })
+const tokenResponse = await fetch('https://tinct.app/api/lab-voice-session', { method: 'POST', headers: checkHeaders({'Content-Type':'application/json'}) })
 if (!tokenResponse.ok) throw new Error(`Session endpoint HTTP ${tokenResponse.status}`)
 const { value: token, model } = await tokenResponse.json()
 if (!token) throw new Error('No ephemeral session credential')

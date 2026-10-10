@@ -15,6 +15,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { checkHeaders } = require('./lib/internalTraffic.cjs')
 
 const APP_DIR = path.resolve(__dirname, '..')
 const ENV_FILE = path.join(APP_DIR, '.env')
@@ -70,7 +71,7 @@ async function findUserId(env, email) {
 async function verifyLiveRoute(base) {
   if (!base) return
   const res = await fetch(`${base}/admin/metrics`, {
-    headers: { 'User-Agent': 'Tinct admin metrics verifier' },
+    headers: checkHeaders({ 'User-Agent': 'Tinct admin metrics verifier' }),
   })
   if (res.status !== 200) throw new Error(`${base}/admin/metrics returned ${res.status}`)
   const robots = res.headers.get('x-robots-tag') || ''
