@@ -88,6 +88,61 @@ describe('lab position local store', () => {
   })
 })
 
+describe('one PUT at a time (reader open, 10 Oct 2026)', () => {
+  const settle = () => new Promise(resolve => setTimeout(resolve, 0))
+
+  it('holds the latest state while a PUT is in flight and sends it once, after', async () => {
+    let release: (ok: boolean) => void = () => {}
+    const put = vi.fn((_t: string, state: LabPositionState) => state.books.romans?.wordIndex === 11
+      ? new Promise<boolean>(resolve => { release = resolve })
+      : Promise.resolve(true))
+    const sync = createLabPositionSync({ token: 'tok', put, online: () => true })
+    const first = stateWithRomans()
+    sync.persist(first)
+    const second = { ...first, books: { romans: { ...first.books.romans!, wordIndex: 20, updatedAt: 70_000 } }, updatedAt: 70_000 }
+    const third = { ...first, books: { romans: { ...first.books.romans!, wordIndex: 30, updatedAt: 80_000 } }, updatedAt: 80_000 }
+    sync.persist(second)
+    sync.persist(third)
+    expect(put).toHaveBeenCalledTimes(1)
+    release(true)
+    await settle(); await settle()
+    expect(put).toHaveBeenCalledTimes(2)
+    expect((put.mock.calls[1] as unknown[])[1]).toMatchObject({ books: { romans: { wordIndex: 30 } } })
+    expect(sync.isDirty()).toBe(false)
+  })
+
+  it('never writes back a state identical to what the account already holds', async () => {
+    const put = vi.fn(async () => true)
+    const sync = createLabPositionSync({ token: 'tok', put, online: () => true })
+    const cloud = stateWithRomans()
+    sync.noteWritten(cloud)
+    sync.persist({ ...cloud })
+    expect(put).not.toHaveBeenCalled()
+    const moved = { ...cloud, books: { romans: { ...cloud.books.romans!, wordIndex: 12, updatedAt: 70_000 } }, updatedAt: 70_000 }
+    sync.persist(moved)
+    await settle()
+    expect(put).toHaveBeenCalledTimes(1)
+    sync.persist({ ...moved })
+    expect(put).toHaveBeenCalledTimes(1)
+    // flush sends the locally merged record only while it differs from the account's; then nothing.
+    expect(await sync.flush()).toBe(true)
+    const sent = put.mock.calls.length
+    expect(await sync.flush()).toBe(true)
+    expect(put).toHaveBeenCalledTimes(sent)
+  })
+
+  it('a keepalive write (the page is leaving) goes out at once, even during a flight', async () => {
+    const put = vi.fn(() => new Promise<boolean>(() => {}))
+    const sync = createLabPositionSync({ token: 'tok', put, online: () => true })
+    const first = stateWithRomans()
+    sync.persist(first)
+    const leaving = { ...first, books: { romans: { ...first.books.romans!, wordIndex: 40, updatedAt: 90_000 } }, updatedAt: 90_000 }
+    sync.persist(leaving, { keepalive: true })
+    expect(put).toHaveBeenCalledTimes(2)
+    expect((put.mock.calls[1] as unknown[])[2]).toMatchObject({ keepalive: true })
+  })
+})
+
 describe('merge-before-write', () => {
   it('lets an older tab write without regressing a newer record', () => {
     const newer: LabPositionState = {

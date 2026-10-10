@@ -444,6 +444,7 @@ export function useLabPositionSync(args: {
         ownershipRef.current = 'own'
         cloudDoneRef.current = true
         writeLabPositionLocal(next, { authoritative: true })
+        syncRef.current?.noteWritten(cloud)
         syncRef.current?.persist(next)
         setFinishedRevision(revision => revision + 1)
         return
@@ -485,6 +486,8 @@ export function useLabPositionSync(args: {
       // Latch only now: the record was merged against the real chapter list.
       cloudDoneRef.current = true
       writeLabPositionLocal(next, { authoritative: true })
+      // Nothing to add to the account's record: no write-back of what was just read.
+      syncRef.current?.noteWritten(cloud)
       syncRef.current?.persist(next)
       setFinishedRevision(revision => revision + 1)
       const initial = !initialResolvedRef.current || (paintedInventedPlace && !args.interactedRef?.current)
