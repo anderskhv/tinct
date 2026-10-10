@@ -4733,7 +4733,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }
     const chapter = book.chapters.find(item => item.number === chapterNumber)
     const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
-    const title = kind === 'primer' ? `Before ${label}` : kind === 'end' ? `${label} in brief` : `${label} so far`
+    // The sheets carry the names the page uses for them: the heading's ✧ Primer, the chapter end's ✧ Recap (Anders, 10 Oct 2026).
+    const title = kind === 'primer' ? `Primer · ${label}` : kind === 'end' ? `Recap · ${label}` : `Recap · ${label} so far`
     dictation.stop()
     setSuperMenuOpen(false)
     setChapterNotes({
