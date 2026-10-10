@@ -60,6 +60,10 @@
 
 .tc-grab { width: 36px; height: 5px; border-radius: 3px; background: var(--tc-ter); margin: 8px auto 0; flex: none; opacity: .8; touch-action: none; }
 .tcards.is-desk .tc-grab { display: none; }
+/* A card that opens on a painting (You, a reader's profile): the painting itself
+   is the sheet's rounded top, with the grabber on it, not a strip of sheet
+   above a square-cornered image (Anders, 10 Oct 2026). */
+.tcards:not(.is-desk) .tc-card:has(> .tc-hero) > .tc-grab { position: absolute; top: 0; left: 50%; margin: 8px 0 0 -18px; z-index: 3; background: rgba(255,255,255,.78); opacity: 1; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
 .tc-nav { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; height: 56px; padding: 0 8px; flex: none; }
 .tc-title { font-family: var(--tc-play); font-weight: 700; font-size: 20px; text-align: center; letter-spacing: -.01em; margin: 0; line-height: normal; font-variant-numeric: lining-nums; }
 .tc-disc { width: 32px; height: 32px; border-radius: 50%; background: var(--tc-disc); color: var(--tc-ink); display: grid; place-items: center; }
@@ -141,8 +145,9 @@ button.tc-av { padding: 0; }
 .tc-figure { font-family: var(--tc-play); font-weight: 700; font-size: 44px; line-height: 1; letter-spacing: -.02em; font-variant-numeric: lining-nums; }
 .tc-figure small { font-family: var(--tc-sans); font-weight: 400; font-size: 17px; color: var(--tc-sec); letter-spacing: 0; margin: 0 8px 0 2px; }
 .tc-sub { font-size: 15px; color: var(--tc-sec); margin-top: 6px; }
-.tc-bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 5px; align-items: end; height: 56px; margin-top: 18px; }
-.tc-bars i { background: var(--tc-bar); border-radius: 3px; display: block; }
+.tc-bars { display: grid; grid-template-columns: repeat(var(--tc-weeks, 12), minmax(0, 1fr)); gap: 5px; align-items: end; justify-items: center; height: 56px; margin-top: 18px; }
+.tc-bars i { background: var(--tc-bar); border-radius: 3px; display: block; width: min(100%, 44px); }
+.tc-axis { display: flex; justify-content: space-between; margin-top: 6px; font-size: 12px; color: var(--tc-sec); font-variant-numeric: tabular-nums; }
 .tc-bars i:last-child { background: var(--tc-fill); }
 .tc-three { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
 .tc-three.is-ruled::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--tc-sep); }

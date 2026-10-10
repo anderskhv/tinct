@@ -8,7 +8,7 @@
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
-import { dayMonth, dayMonthShort, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights } from './cardsFormat'
+import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights } from './cardsFormat'
 import {
   blockedReaderId,
   deleteOwnAccount,
@@ -50,6 +50,12 @@ export interface CardsData {
   intervals: PremiumInterval[]
   /** "3rd of 5" among friends (/api/social/rank). */
   rank: string | null
+  /**
+   * The Friends board, asked for when the cards open so the Leaderboard card
+   * paints at once (it refreshes behind). In memory only: it names other
+   * readers, so it is never written to this device's storage.
+   */
+  board?: BoardData | null
   /** Find readers: Following you, Also reading your books, the invite link. */
   find: FindData | null
   /** Readers who follow you whom you do not follow back. */
@@ -410,15 +416,22 @@ export function readingCard(env: CardsEnv): CardSpec {
         const figures = readingFigures(stats)
         const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
         for (const [n, unit] of figures.total) figure.append(n, el('small', { text: unit }))
-        const bars = el('div', { className: 'tc-bars', 'aria-hidden': 'true' })
-        for (const height of weekHeights(stats.weeks)) {
+        // One bar per week (Monday to Sunday), from the first reading week;
+        // the dates under the first and last bar say what a bar is.
+        const weeks = chartWeeks(stats.weeks, stats.firstDay)
+        const bars = el('div', { className: 'tc-bars', 'aria-hidden': 'true', dataset: { testid: 'reading-weeks' } })
+        bars.style.setProperty('--tc-weeks', String(weeks.length))
+        for (const height of weekHeights(weeks)) {
           const bar = el('i')
           bar.style.height = `${height}%`
           bars.append(bar)
         }
+        const axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
+          el('span', { text: weeks.length > 1 ? dayMonthShortDate(weeks[0].start) : '' }),
+          el('span', { text: CARDS_COPY.thisWeek }))
         const since = dayMonth(stats.firstDay)
         body.append(el('div', { className: 'tc-g' },
-          el('div', { className: 'tc-sum' }, figure, since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null, bars),
+          el('div', { className: 'tc-sum' }, figure, since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null, bars, axis),
           factsRow([
             { value: figures.last7, label: CARDS_COPY.last7 },
             { value: String(reading.finished.length), label: CARDS_COPY.finished },
@@ -453,6 +466,18 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
     id: 'leaderboard',
     label: CARDS_COPY.leaderboard,
     render: card => {
+      // Friends: paint the board the cards fetched on open, and refresh it once behind.
+      if (board === undefined && tab === 'friends' && env.data.board) {
+        board = env.data.board
+        if (env.data.board.everyoneOpen !== undefined) everyoneOpen = env.data.board.everyoneOpen === true
+        void fetchBoard(env.session.token, 'friends').then(result => {
+          if (tab !== 'friends' || !result) return
+          board = result
+          env.data.board = result
+          if (result.everyoneOpen !== undefined) everyoneOpen = result.everyoneOpen === true
+          if (!card.stack.isClosed) card.refresh()
+        })
+      }
       if (board === undefined) {
         board = 'loading'
         const asked = tab
@@ -463,6 +488,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
           // No Everyone board (any more): the Friends board.
           if (!result && asked === 'everyone') { tab = 'friends'; everyoneOpen = false; board = undefined }
           if (result && asked === 'friends') {
+            env.data.board = result
             const me = result.entries.find(entry => entry.me) ?? result.me
             env.data.rank = rankOf(me?.rank, result.total)
           }

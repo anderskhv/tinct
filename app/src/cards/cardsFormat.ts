@@ -81,6 +81,13 @@ export function dayMonth(value: string | null | undefined): string {
   return month ? `${Number(match[3])} ${month}` : ''
 }
 
+/** "7 Sep" from a calendar date "2026-09-07" (no time zone shift); '' when unreadable. */
+export function dayMonthShortDate(value: string | null | undefined): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(value || ''))
+  const month = match ? MONTHS_SHORT[Number(match[2]) - 1] : ''
+  return match && month ? `${Number(match[3])} ${month}` : ''
+}
+
 /** "6 days", "1 day". */
 export function streakText(days: number): string {
   const n = Math.max(0, Math.floor(days || 0))
@@ -92,6 +99,18 @@ export function finishedValue(finishedAt: string | null | undefined, seconds?: n
   const month = monthShort(finishedAt)
   const time = typeof seconds === 'number' ? durationShort(seconds) : ''
   return [month, time].filter(Boolean).join(' · ')
+}
+
+/**
+ * The weeks the chart shows: from the week of the first reading day on, so a
+ * reader who started five weeks ago sees five bars, not seven empty ones
+ * first (Anders, 10 Oct 2026: "looks like an error"). This week always shows.
+ */
+export function chartWeeks<T extends { start: string }>(weeks: T[], firstDay: string | null | undefined): T[] {
+  const first = /^\d{4}-\d{2}-\d{2}/.test(String(firstDay || '')) ? String(firstDay).slice(0, 10) : ''
+  if (!first) return weeks
+  const from = weeks.findIndex((week, index) => index === weeks.length - 1 || (weeks[index + 1]?.start ?? '') > first)
+  return from > 0 ? weeks.slice(from) : weeks
 }
 
 /** Bar heights (percent) for the 12 weeks: the busiest week is 100%; empty weeks keep a sliver. */

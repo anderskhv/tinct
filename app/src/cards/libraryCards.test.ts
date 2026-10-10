@@ -92,4 +92,32 @@ describe('the library picture', () => {
     expect(accountButtonTap(new MouseEvent('click'))).toBe(false)
     expect(document.querySelector('.tcards')).toBeNull()
   })
+
+  it('paints the picture at once from the stored session and this device\'s last profile, never a stand-in letter', async () => {
+    vi.resetModules()
+    getSession.mockClear()
+    storeSession(3600)
+    // No cached profile yet: an empty disc, not "R" or "A".
+    document.documentElement.classList.add('signed-in')
+    await import('./libraryCards')
+    await Promise.resolve()
+    const disc = document.querySelector<HTMLElement>('#sign-in.cards-you .tinct-avatar')
+    expect(disc).toBeTruthy()
+    expect(disc!.textContent).toBe('')
+
+    vi.resetModules()
+    document.body.innerHTML = '<header id="header"><nav><button id="search-toggle"></button><button id="sign-in" class="sign-in">Account</button></nav></header>'
+    const { writeCardsCache } = await import('./cardsCache')
+    writeCardsCache(USER, {
+      profile: { name: 'Anders K. Hvelplund', handle: 'anders', picture: { kind: 'cover', value: 'frankenstein' } } as never,
+      reading: null, rank: null, plan: null, billing: false,
+    })
+    await import('./libraryCards')
+    await Promise.resolve()
+    const picture = document.querySelector<HTMLElement>('#sign-in.cards-you .tinct-avatar')
+    expect(picture?.dataset.kind).not.toBe('initial')
+    expect(picture?.textContent).toBe('')
+    // getSession never answered: none of this waited on it.
+    expect(getSession).not.toHaveBeenCalled()
+  })
 })

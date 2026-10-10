@@ -17,7 +17,7 @@ import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo, premiumOfferIntervals } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
-import { fetchFind, fetchOwnProfile, fetchRank, loadReading } from './cardsApi'
+import { fetchBoard, fetchFind, fetchOwnProfile, fetchRank, loadReading } from './cardsApi'
 import { followBackCount } from './cardsRules'
 import { rankOf } from './cardsFormat'
 import { CARD_PARAM, isCardName, type CardName } from './cardRoutes'
@@ -80,7 +80,7 @@ async function readSession(): Promise<CardsSession | null> {
  * once the access token has expired: the cards then paint from the device cache
  * and load only with the token Supabase hands back.
  */
-function storedSession(): { session: CardsSession; fresh: boolean } | null {
+export function storedSession(): { session: CardsSession; fresh: boolean } | null {
   if (!supabase || isNativeCapacitor()) return null
   try {
     const key = (supabase.auth as unknown as { storageKey?: unknown }).storageKey
@@ -136,6 +136,8 @@ function load(env: CardsEnv, social: boolean): void {
   void loadReading(token, userId).then(reading => set(reading ? { reading, loading: settled('reading') } : { loading: settled('reading') }))
   if (social) {
     void fetchRank(token).then(rank => { if (rank) set({ rank: rankOf(rank.rank, rank.total) }) })
+    // The Friends board now, so Leaderboard opens without a wait (kept in memory only).
+    void fetchBoard(token, 'friends').then(board => { if (board) { env.data.board = board; if (cached?.userId === userId) cached.data = env.data } })
     loadFind(env, set)
   }
   void fetchAiAllowance(token).then(allowance => set({ allowance }))

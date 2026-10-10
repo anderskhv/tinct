@@ -147,6 +147,7 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 - **Demand elegance** for non-trivial changes — pause and ask "is there a more elegant way?". Skip for simple fixes.
 - **Self-improvement:** after any user correction, append the pattern to the Decisions Log.
 - **Errors don't stop you.** Work around. Reading must degrade gracefully if Claude API fails.
+- **Anders's own stats are not secret (2026-10-10, his words: "you may always … check my stats").** Claude may read Anders's own account data (reading time, profile, figures) at any time to establish ground truth for what the app shows. His account only; other readers' data still needs his approval per `AGENTS.md`, and nothing of his goes into the repo.
 - **Keep the privacy notice true.** Changes to what personal data is collected, where it goes, how long it is kept or who sees it follow the Privacy section of `AGENTS.md` (update `app/public/privacy.html` in the same PR; new data categories or providers go to Anders). Everything else — books, reader, layout — needs no privacy check.
 
 ---
