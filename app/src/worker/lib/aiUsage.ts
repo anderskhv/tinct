@@ -176,7 +176,11 @@ export type AiUsageDraft = Partial<Omit<AiUsageRow, 'user_id' | 'guest_key'>> & 
 /** Who a row belongs to. `resolveUser` runs inside the background write, off the response path. */
 export interface AiIdentity {
   userId?: string | null
-  /** Raw client IP (or "warm"); hashed before storage. */
+  /**
+   * Raw client IP (or "warm" / "check"); hashed before storage, and stored
+   * only for signed-out callers. For a signed-in caller only "check" (Tinct's
+   * own checks, `x-tinct-check: 1`) is kept, as a marker beside the account.
+   */
   guest?: string | null
   resolveUser?: () => Promise<string | null>
 }
@@ -207,7 +211,10 @@ export function buildUsageRow(draft: AiUsageDraft, owner: { userId: string | nul
   const userId = owner.userId && UUID.test(owner.userId) ? owner.userId : null
   return {
     user_id: userId,
-    guest_key: userId ? null : owner.guestKey,
+    // A signed-in row keeps its account (the allowance is summed by user_id,
+    // so a client header can never make use free) and carries only the
+    // `check` marker from Tinct's own checks, never an IP-derived key.
+    guest_key: userId ? (owner.guestKey === CHECK_GUEST_KEY ? CHECK_GUEST_KEY : null) : owner.guestKey,
     feature: draft.feature,
     provider: draft.provider,
     model: String(draft.model).slice(0, 80),
@@ -233,7 +240,9 @@ export function recordAiUsage(env: LedgerEnv, ctx: WaitUntil | undefined, identi
       try {
         if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return
         const userId = identity.userId ?? (identity.resolveUser ? await identity.resolveUser().catch(() => null) : null)
-        const guestKey = !userId && identity.guest ? (identity.guest === WARM_GUEST_KEY || identity.guest === CHECK_GUEST_KEY ? identity.guest : await hashGuestKey(env, identity.guest)) : null
+        const guestKey = userId
+          ? (identity.guest === CHECK_GUEST_KEY ? CHECK_GUEST_KEY : null)
+          : identity.guest ? (identity.guest === WARM_GUEST_KEY || identity.guest === CHECK_GUEST_KEY ? identity.guest : await hashGuestKey(env, identity.guest)) : null
         const response = await supabaseInsertMinimal(env, 'ai_usage_events', buildUsageRow(draft, { userId: userId ?? null, guestKey }))
         if (!response.ok) console.warn(JSON.stringify({ event: 'ai_usage_write_failed', status: response.status, feature: draft.feature }))
       } catch (error) {

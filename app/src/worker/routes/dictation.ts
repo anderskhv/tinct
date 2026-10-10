@@ -2,7 +2,7 @@ import { AI_RESTING_MESSAGE, AI_RESTING_TYPE } from '../lib/aiSpend'
 import { isProviderBudgetError } from '../lib/chatUpstream'
 import { jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
-import { dictationCostUsd, recordAiUsage, type LedgerEnv } from '../lib/aiUsage'
+import { dictationCostUsd, ledgerGuestKey, recordAiUsage, type LedgerEnv } from '../lib/aiUsage'
 import type { SupabaseEnv } from '../lib/supabase'
 
 /**
@@ -153,7 +153,7 @@ export async function handleDictation(
     }
     const seconds = typeof data.duration === 'number' && Number.isFinite(data.duration) && data.duration > 0 ? data.duration : 0
     // Cost ledger only: no message is charged and nothing counts toward an allowance.
-    recordAiUsage(env as LedgerEnv, ctx, { userId: user.id }, {
+    recordAiUsage(env as LedgerEnv, ctx, { userId: user.id, guest: ledgerGuestKey(request) }, {
       feature: 'dictation', provider: 'xai', model: XAI_STT_MODEL, seconds, book_id: bookId, cost_usd: dictationCostUsd(seconds),
     })
     return jsonResponse({ text: data.text.trim() }, 200, request)

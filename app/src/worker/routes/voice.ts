@@ -5,7 +5,7 @@ import { isProviderBudgetError } from '../lib/chatUpstream'
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseRpc, type SupabaseEnv } from '../lib/supabase'
-import { recordAiUsage, talkCostUsd, type LedgerEnv } from '../lib/aiUsage'
+import { ledgerGuestKey, recordAiUsage, talkCostUsd, type LedgerEnv } from '../lib/aiUsage'
 
 export type VoiceEnv = SupabaseEnv & {
   /** Grok native speech-to-speech: mints the browser's ephemeral client secret. */
@@ -102,7 +102,7 @@ export async function handleVoiceSession(
       ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
     }
     // Cost ledger: the session row. Connected seconds arrive later from /api/voice-usage.
-    recordAiUsage(env as LedgerEnv, ctx, { userId }, { feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds: 0, cost_usd: 0 })
+    recordAiUsage(env as LedgerEnv, ctx, { userId, guest: ledgerGuestKey(request) }, { feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds: 0, cost_usd: 0 })
 
     return jsonResponse({
       value: data.value,
@@ -150,7 +150,7 @@ export async function handleVoiceUsage(
   const bookId = typeof body.bookId === 'string' && /^[a-z0-9-]{1,64}$/.test(body.bookId)
     ? (body.bookId.startsWith('userbook') ? 'userbook' : body.bookId)
     : null
-  recordAiUsage(env as LedgerEnv, ctx, { userId: user.id }, {
+  recordAiUsage(env as LedgerEnv, ctx, { userId: user.id, guest: ledgerGuestKey(request) }, {
     feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds, book_id: bookId, cost_usd: talkCostUsd(seconds),
   })
   return new Response(null, { status: 204, headers: corsHeaders(request) })

@@ -45,10 +45,10 @@ describe('socialRules', () => {
   })
 
   it('internal accounts: the device flag or a reserved test address', () => {
-    for (const email of ['qa-1@example.com', 'QA-Reader@Example.COM', 'x@mail.example.org', 'a@b.test', 'a@b.invalid', 'a@host.localhost']) {
+    for (const email of ['qa-soc-a-1@test.tinct.app', 'QA@Test.Tinct.App', 'qa-1@example.com', 'QA-Reader@Example.COM', 'x@mail.example.org', 'a@b.test', 'a@b.invalid', 'a@host.localhost']) {
       expect(isReservedTestEmail(email), email).toBe(true)
     }
-    for (const email of ['anders@fastmail.com', 'reader@gmail.com', 'me@example.com.au', 'me@notexample.com', 'me@testing.dk', '', null, undefined]) {
+    for (const email of ['anders@fastmail.com', 'reader@gmail.com', 'me@example.com.au', 'me@notexample.com', 'anders@tinct.app', 'a@nottest.tinct.app', 'a@test.tinct.app.evil.com', 'me@testing.dk', '', null, undefined]) {
       expect(isReservedTestEmail(email), String(email)).toBe(false)
     }
     expect(isInternalAccount('reader@gmail.com', '1')).toBe(true)

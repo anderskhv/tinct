@@ -43,7 +43,7 @@
  * not AI use: narration is in NEVER_CHARGED_AI_FEATURES (lib/aiAllowance.ts).
  * Logs carry no book text and no book id.
  */
-import { narrationCostUsd, recordAiUsage, AI_PRICING, type LedgerEnv } from '../lib/aiUsage'
+import { ledgerGuestKey, narrationCostUsd, recordAiUsage, AI_PRICING, type LedgerEnv } from '../lib/aiUsage'
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isSubscribed, trialEndsAt, type AllowanceProfile } from '../lib/aiAllowance'
 import { supabaseGet } from '../lib/supabase'
@@ -368,7 +368,7 @@ export async function handleOwnEnsure(request: Request, env: OwnBookNarrationEnv
           },
         })
         // The provider has billed these characters whether or not validation passes.
-        recordAiUsage(env as LedgerEnv, ctx, { userId: user.id }, {
+        recordAiUsage(env as LedgerEnv, ctx, { userId: user.id, guest: ledgerGuestKey(request) }, {
           feature: 'narration_generate', provider: 'xai', model: config.model, chars: chunk.text.length,
           cache_hit: false, book_id: OWN_BOOK_LEDGER_BOOK_ID, cost_usd: narrationCostUsd(chunk.text.length),
         })
