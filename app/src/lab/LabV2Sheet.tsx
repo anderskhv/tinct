@@ -393,7 +393,7 @@ export function LabV2Sheet({ narrationPilot, bookId = 'bible', phoneShakespeare 
                   data-edition={edition.key} disabled={missing} onClick={() => choose(edition.key)}>
                   <span className="lab-v2-edition-name">{readerEditionLabel(edition)}
                     {difficulty && <span className="lab-v2-difficulty" title="Reading difficulty">{difficulty}</span>}
-                    {edition.key === 'modern-en' && <span className="lab-v2-difficulty">AI-generated</span>}
+                    {edition.style === 'modern' && <span className="lab-v2-difficulty">AI-generated</span>}
                     {missing && <span className="lab-v2-difficulty" data-testid="lab-v2-edition-missing-chapter">Doesn’t include this book</span>}
                   </span>
                   <span className="lab-v2-edition-check" aria-hidden="true">{selected === edition.key ? '✓' : ''}</span>

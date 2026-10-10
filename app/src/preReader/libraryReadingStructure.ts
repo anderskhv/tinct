@@ -1,4 +1,4 @@
-import { isBookTemporarilyHeld } from '../data/editionAvailability'
+import { isBookTemporarilyHeld, isEditionLanguageOffered } from '../data/editionAvailability'
 import fs from 'node:fs'
 import path from 'node:path'
 import type { SerializablePreReaderCatalogue } from './catalogue'
@@ -41,7 +41,7 @@ export type LibraryCatalogueWithStructure = SerializablePreReaderCatalogue & {
 type ChapterLike = { number?: unknown; title?: unknown; paragraphCount?: unknown; paragraphs?: unknown }
 
 function visibleReadingEdition(book: SerializablePreReaderCatalogue['books'][number]) {
-  const visible = book.editions.filter(edition => edition.language !== 'da' && edition.availability.chapterText)
+  const visible = book.editions.filter(edition => isEditionLanguageOffered(book.id, edition) && edition.availability.chapterText)
   const key = defaultPrimaryEditionKey(book.id, visible)
   // A held book retains its structure for saved-reader recovery, not selection.
   return visible.find(edition => edition.key === key) || (isBookTemporarilyHeld(book.id) ? visible.find(edition => edition.key === 'original-en') : undefined)
@@ -126,8 +126,8 @@ export function addLibraryReadingStructures(
         editions: book.editions.map(item => ({
           ...item,
           chapterShards: hasChapterShards(publicDirectory, book.id, item.key),
-          wordCount: item.language !== 'da' && item.availability.chapterText ? publishedWordCount(publicDirectory, book.id, item.key) : null,
-          readingStructure: item.language !== 'da' && item.availability.chapterText ? readStructure(publicDirectory, book.id, item.key) : null,
+          wordCount: isEditionLanguageOffered(book.id, item) && item.availability.chapterText ? publishedWordCount(publicDirectory, book.id, item.key) : null,
+          readingStructure: isEditionLanguageOffered(book.id, item) && item.availability.chapterText ? readStructure(publicDirectory, book.id, item.key) : null,
         })),
         readingStructure: readStructure(publicDirectory, book.id, edition.key),
       }

@@ -2,10 +2,11 @@ import { migrateWithheldEdition } from '../data/withheldEditions'
 import { PRE_READER_CATALOGUE, createReaderHandoffIntent, type ReaderHandoffIntent } from './catalogue'
 import type { ContinueTarget } from './libraryRecap'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
+import { isEditionLanguageOffered } from '../data/editionAvailability'
 
 function defaultEditionKey(bookId: string): string | null {
   const editions = (PRE_READER_CATALOGUE.booksById.get(bookId)?.editions ?? [])
-    .filter(edition => edition.language !== 'da' && edition.availability.chapterText)
+    .filter(edition => isEditionLanguageOffered(bookId, edition) && edition.availability.chapterText)
   // A saved row without an edition predates edition keys; those readers were
   // reading the old default, the original. Continuing must not switch their
   // text to the new-reader default (Tinct Modern English).

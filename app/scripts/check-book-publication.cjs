@@ -4,6 +4,9 @@ const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
 // Books published through a reviewed release package (books/wip/<id>/release).
 const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility']
+// Text-only editions published beside the English pair: To the Lighthouse in
+// Danish (OFFERED_DANISH_EDITIONS, 2026-10-10). No narration, no character cards.
+const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da']}[book]||[]
 assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))
@@ -62,10 +65,10 @@ async function toggleCompare(page,phone){
 }
 async function main(){
  if(live){
-  const files=[...['original-en','modern-en'].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/characters/'+book+'.v1.json','data/onboarding/'+book+'.json','data/editions/'+book+'-threads.json']
+  const files=[...['original-en','modern-en',...TEXT_ONLY_EDITIONS].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/characters/'+book+'.v1.json','data/onboarding/'+book+'.json','data/editions/'+book+'-threads.json']
   for(const asset of ['covers/v2/'+book+'.webp','brand/20260921/books/'+book+'.jpg'])if(fs.existsSync('public/'+asset))files.push(asset)
   if(book==='symposium')files.push('brand/20260921/books/to-the-lighthouse.jpg')
-  for(const ed of ['original-en','modern-en']){
+  for(const ed of ['original-en','modern-en',...TEXT_ONLY_EDITIONS]){
    const dir='data/editions-chapters/'+book+'-'+ed
    // Small editions (Alice's original) are served whole and have no shards.
    if(fs.existsSync('public/'+dir))files.push(...fs.readdirSync('public/'+dir).map(f=>dir+'/'+f))
@@ -151,6 +154,36 @@ async function main(){
     assert.equal(legacy.filter(url=>url.startsWith('/api/audio-file')).length,0,'Must not load obsolete recordings')
     assert.deepEqual(errors,[])
     results.cases.push({device,edition:ed,opening:true,compare:true,streamingRequest:request,legacyManifestProbes:legacy,bundle:state.bundle})
+    await state.context.close()
+   }
+   for(const ed of TEXT_ONLY_EDITIONS){
+    // Opens 1:1 beside Modern English; Play says audio is unavailable and never
+    // narrates (no Danish narration, no English audio for Danish text).
+    const state=await boot(browser,phone,ed),{page,calls,errors,legacy}=state,root=page.getByTestId('lab-root')
+    assert.equal(await root.getAttribute('data-chapter'),'1')
+    assert.equal(await root.getAttribute('lang'),ed.slice(-2))
+    const first=page.locator('.lab-page-wrap [data-paragraph-index="0"][data-word-index="0"]').first()
+    await first.waitFor({state:'visible'});assert.equal(clean(await first.innerText()),clean(source(ed).chapters[0].paragraphs[0].split(/\s+/)[0]))
+    assert.equal(await page.getByTestId('edition-hold').count(),0,'An offered edition is not held')
+    await page.screenshot({path:out+'/'+device+'-'+ed+'-opening.png'})
+    const place=await root.getAttribute('data-place')
+    await toggleCompare(page,phone)
+    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
+    await page.waitForTimeout(300)
+    await page.screenshot({path:out+'/'+device+'-'+ed+'-compare.png'})
+    await toggleCompare(page,phone)
+    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
+    assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
+    const play=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first()
+    if(await play.count()){
+     await play.click()
+     await page.locator('.lab-audio-unavailable').waitFor({state:'visible',timeout:5000})
+    }
+    await page.waitForTimeout(1500)
+    assert.equal(calls.length,0,'A text-only edition never asks for narration')
+    assert.deepEqual(legacy,[],'A text-only edition never asks for recordings')
+    assert.deepEqual(errors,[])
+    results.cases.push({device,edition:ed,opening:true,compare:true,textOnly:true,playButton:await play.count()>0,bundle:state.bundle})
     await state.context.close()
    }
    if(book==='symposium'){

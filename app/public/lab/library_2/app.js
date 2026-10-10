@@ -217,7 +217,8 @@ $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>se
 
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
 const editionChoices=new Map();
-function availableEditions(){return (activeBook.editions||[]).filter(e=>e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
+// Danish only where the catalogue offers it (OFFERED_DANISH_EDITIONS: To the Lighthouse).
+function availableEditions(){return (activeBook.editions||[]).filter(e=>(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
 // Compare is on by default (Anders, 2026-10-06): the AI/modern edition reads and
 // the human edition sits beside it. A reader who chose None in the reader keeps None.
 function compareChosenOff(){try{const shared=JSON.parse(localStorage.getItem('tinct-lab-prefs')||'null')?.shared;return shared?.compareChosen===true&&shared.compareOpen===false;}catch{return false;}}
@@ -712,7 +713,7 @@ function featureLinked(book,entry){
 }
 // A book that is not in the library: back to the featured book.
 function linkedUnavailable(){if(linkedState!=='pending')return;linkedState=null;featuredTarget=0;const first=all('.hero-dots button')[0];if(first)first.click();if(document.documentElement.dataset.linkedBook)delete document.documentElement.dataset.linkedBook;refreshMetadata();setTimeout(()=>document.documentElement.classList.remove('linked-pending'),400);}
-if(linkedBook)loadCatalogueData().then(data=>{if(linkedState!=='pending')return;const params=new URLSearchParams(location.search);const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return linkedUnavailable();let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);const requested=params.get('edition');if(entry.editions?.some(e=>e.key===requested&&e.language!=='da'&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});featureLinked(book,entry);if(params.get('view')==='book-detail')return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>{linkedUnavailable();notice('This book could not load. Please try again.');});
+if(linkedBook)loadCatalogueData().then(data=>{if(linkedState!=='pending')return;const params=new URLSearchParams(location.search);const entry=data.books.find(b=>b.id===linkedBook&&b.discoveryAvailable!==false);if(!entry)return linkedUnavailable();let book=books.find(b=>b.id===linkedBook);if(!book){book=libraryBook(entry);books.push(book);}attachCatalogue(book,entry);const requested=params.get('edition');if(entry.editions?.some(e=>e.key===requested&&(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false))editionChoices.set(book.id,{main:requested,explicit:true});featureLinked(book,entry);if(params.get('view')==='book-detail')return openBook(book,$('hero-book').querySelector('canvas'));}).catch(()=>{linkedUnavailable();notice('This book could not load. Please try again.');});
 
 // Reveal a fully drawn, positioned librarian instead of an empty circle at (0, 0).
 drawOrb(performance.now());document.documentElement.classList.add('library-ready');

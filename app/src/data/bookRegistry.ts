@@ -3282,6 +3282,9 @@ export const TO_THE_LIGHTHOUSE: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Woolf (1927)', year: 1927, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    // The only Danish edition Tinct offers (Anders, 2026-10-10; OFFERED_DANISH_EDITIONS).
+    // Translated 1:1 from modern-en. Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
