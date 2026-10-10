@@ -13,12 +13,15 @@ afterEach(() => {
   localStorage.clear()
 })
 
-function setup(saveData = false, readerReady = true) {
+function setup(saveData = false, readerReady = true, effectiveType = '4g') {
   document.body.replaceChildren()
   if (readerReady) document.body.innerHTML = '<div data-reader-ready="true"></div>'
   vi.spyOn(document, 'readyState', 'get').mockReturnValue('complete')
   vi.stubGlobal('requestIdleCallback', (run: () => void) => { run(); return 1 })
-  Object.defineProperty(navigator, 'connection', { configurable: true, value: { saveData } })
+  // The warm-up waits a settle time after the reader is ready; tests run it at once.
+  const realSetTimeout = globalThis.setTimeout
+  vi.stubGlobal('setTimeout', ((fn: () => void, ms?: number, ...rest: unknown[]) => realSetTimeout(fn, ms === 3000 ? 0 : ms, ...rest)) as typeof setTimeout)
+  Object.defineProperty(navigator, 'connection', { configurable: true, value: { saveData, effectiveType } })
   const requests = vi.fn(async (url: string) => ({
     text: async () => url.endsWith('index.html') ? INDEX : /\/boot\.js/.test(url) ? BOOT : '',
     arrayBuffer: async () => new ArrayBuffer(0),
@@ -28,6 +31,8 @@ function setup(saveData = false, readerReady = true) {
 }
 
 const warmed = (requests: ReturnType<typeof setup>) => requests.mock.calls.map(call => String(call[0]))
+/** The warm-up starts a tick after the (stubbed) settle time. */
+const started = () => new Promise(resolve => setTimeout(resolve, 0))
 
 test('warms exactly what the library page lists, so the list can never drift from the page again', async () => {
   const requests = setup()
@@ -91,9 +96,38 @@ test('does not spend bandwidth when Save Data is enabled', () => {
   expect(requests).not.toHaveBeenCalled()
 })
 
-test('preloads the public library for ordinary reader visits', () => {
+test('does not spend bandwidth on a 2G-class connection', () => {
+  const requests = setup(false, true, '2g')
+  warmLibraryPreview()
+  expect(requests).not.toHaveBeenCalled()
+  const slow = setup(false, true, 'slow-2g')
+  warmLibraryPreview()
+  expect(slow).not.toHaveBeenCalled()
+})
+
+test('starts no earlier than three seconds after the reader is on screen', () => {
+  vi.useFakeTimers()
+  try {
+    document.body.innerHTML = '<div data-reader-ready="true"></div>'
+    vi.spyOn(document, 'readyState', 'get').mockReturnValue('complete')
+    vi.stubGlobal('requestIdleCallback', (run: () => void) => { run(); return 1 })
+    Object.defineProperty(navigator, 'connection', { configurable: true, value: { saveData: false, effectiveType: '4g' } })
+    const requests = vi.fn(async () => ({ text: async () => INDEX, arrayBuffer: async () => new ArrayBuffer(0) }))
+    vi.stubGlobal('fetch', requests)
+    warmLibraryPreview()
+    vi.advanceTimersByTime(2900)
+    expect(requests).not.toHaveBeenCalled()
+    vi.advanceTimersByTime(200)
+    expect(requests).toHaveBeenCalled()
+  } finally {
+    vi.useRealTimers()
+  }
+})
+
+test('preloads the public library for ordinary reader visits', async () => {
   const requests = setup()
   warmLibraryPreview()
+  await started()
   expect(requests).toHaveBeenCalled()
 })
 
@@ -104,6 +138,7 @@ test('aborts active downloads and stops further batches after leaving the page',
   const requests = vi.fn(async (_url: string, _options: RequestInit) => ({ text: () => body, arrayBuffer: () => body }))
   vi.stubGlobal('fetch', requests)
   warmLibraryPreview()
+  await started()
   expect(requests).toHaveBeenCalledTimes(2)
   const signal = requests.mock.calls[0][1].signal
   window.dispatchEvent(new Event('pagehide'))
@@ -120,6 +155,7 @@ test('stops when a request rejects before pagehide, as WebKit does at navigation
   const requests = vi.fn(async () => ({ text: () => failing, arrayBuffer: () => failing }))
   vi.stubGlobal('fetch', requests)
   warmLibraryPreview()
+  await started()
   expect(requests).toHaveBeenCalledTimes(2)
   reject(new Error('cancelled'))
   await new Promise(resolve => setTimeout(resolve, 0))
@@ -134,7 +170,7 @@ test('waits for the reader to be ready before warming, bounded', () => {
     warmLibraryPreview()
     expect(requests).not.toHaveBeenCalled()
     document.body.innerHTML = '<div data-reader-ready="true"></div>'
-    vi.advanceTimersByTime(300)
+    vi.advanceTimersByTime(300 + 3000)
     expect(requests).toHaveBeenCalled()
   } finally {
     vi.useRealTimers()
