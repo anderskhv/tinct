@@ -53,7 +53,12 @@ try {
     await page.locator('#chat').click()
     await field.fill('What should I notice?')
     await page.getByRole('button', { name:'Send', exact:true }).click()
-    await page.waitForFunction(() => !document.querySelector('#librarian-live').shadowRoot.textContent.includes('Thinking…'))
+    // The answer has begun: the pending ring (LabWait, "Thinking…" for screen readers) is gone and the turn carries words.
+    await page.waitForFunction(() => {
+      const root = document.querySelector('#librarian-live').shadowRoot
+      const turn = [...root.querySelectorAll('.library-chat-turn.is-assistant')].pop()
+      return !!turn && !turn.querySelector('[data-testid="library-chat-pending"]') && !root.textContent.includes('Thinking…') && turn.textContent.trim().length > 'Tinct'.length
+    })
     // The Worker builds the prompt: the client sends the open book and the reader's shelf.
     assert.equal(requestedLibrary?.contextBookId, 'frankenstein')
     assert.deepEqual(Object.keys(requestedLibrary?.shelf ?? {}).sort(), ['finished', 'reading', 'saved'])

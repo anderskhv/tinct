@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
+import { LabWait } from './LabWait'
 import { useReaderWindow } from './useReaderWindow'
 import { LAB_COPY } from './labCopy'
 import type { LabAskTurn, LabConversationState } from './labAsk'
@@ -427,14 +428,16 @@ export function LabAskPane({
   // opens scrolled to its end, so a line at its top is the one thing the
   // reader cannot see. No empty-state copy: an empty thread is a caret.
   const syncingNode = syncing && !empty && (
-    <p className="tc-status" data-testid="lab-ask-syncing" role="status">{LAB_COPY.askHistorySyncing}</p>
+    <p className="tc-status" data-testid="lab-ask-syncing"><LabWait label={LAB_COPY.askHistorySyncing} size={14} /></p>
   )
   const noticeNode = (notice || localError) && (
     <p className="tc-status" data-testid="lab-ask-notice">{notice || localError}{onRetry && !typedLoading && <button type="button" onClick={onRetry}>Try again</button>}</p>
   )
   const dictationNode = dictationState !== 'idle' && (
     <p className="tc-status" role="status" data-testid="lab-dictation-status">
-      {dictationState === 'starting' ? 'Starting microphone…' : dictationState === 'transcribing' ? 'Writing down what you said…' : 'Listening — tap stop to finish'}
+      {dictationState === 'starting' ? <LabWait label="Starting microphone…" size={14} live={false} />
+        : dictationState === 'transcribing' ? <LabWait label="Writing down what you said…" size={14} live={false} />
+        : 'Listening — tap stop to finish'}
     </p>
   )
   const statusNode = conversationState !== 'idle' && (

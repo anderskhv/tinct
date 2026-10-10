@@ -137,8 +137,9 @@ describe('every removal path uses the motion', () => {
     // Shelf motion and cover shape (20261009cover) are unchanged since; one shelf truth
     // (20261009owncover) changed the reading table, My shelf, covers and titles above them;
     // own-book covers and the account cards both changed app.js. Recognising scanned PDFs
-    // (20261010flash) then changed add-to-tinct.js, styles.css and the reading/add bundles, and
-    // every module above them on the way to index.html; cover-assets.js stays under 20261009owncover.
+    // (20261010libperf) then changed add-to-tinct.js, styles.css and the reading/add bundles, and
+    // every module above them on the way to index.html; the wait ring (20261010flash, wait-ring.js)
+    // changed add-to-tinct.js, app.js and styles.css again; cover-assets.js stays under 20261009owncover.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261010flash'
     expect(lib('index.html')).toContain(`app.js?v=${ocr}`)
     expect(lib('index.html')).toContain(`styles.css?v=${ocr}`)
