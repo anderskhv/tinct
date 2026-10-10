@@ -42,8 +42,9 @@ afterEach(() => vi.unstubAllGlobals())
 describe('configuration', () => {
   // The guard against an accidental flip. Turning the allowance on means
   // changing src/aiAllowanceSwitch.ts and this expectation together.
-  it('ships with the allowance switched off', () => {
-    expect(AI_ALLOWANCE_ENFORCED).toBe(false)
+  // Switched on 2026-10-10 (Anders: "I want credits on now").
+  it('ships with the allowance switched on', () => {
+    expect(AI_ALLOWANCE_ENFORCED).toBe(true)
     expect(createAllowanceGate({}).enforced).toBe(AI_ALLOWANCE_ENFORCED)
   })
 
