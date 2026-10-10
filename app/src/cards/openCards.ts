@@ -17,7 +17,7 @@ import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo, premiumOfferIntervals } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
-import { fetchBoard, fetchFind, fetchOwnProfile, fetchRank, loadReading } from './cardsApi'
+import { fetchBoard, fetchFind, fetchOwnProfile, loadReading } from './cardsApi'
 import { followBackCount } from './cardsRules'
 import { rankOf } from './cardsFormat'
 import { CARD_PARAM, isCardName, type CardName } from './cardRoutes'
@@ -135,9 +135,15 @@ function load(env: CardsEnv, social: boolean): void {
   })
   void loadReading(token, userId).then(reading => set(reading ? { reading, loading: settled('reading') } : { loading: settled('reading') }))
   if (social) {
-    void fetchRank(token).then(rank => { if (rank) set({ rank: rankOf(rank.rank, rank.total) }) })
-    // The Friends board now, so Leaderboard opens without a wait (kept in memory only).
-    void fetchBoard(token, 'friends').then(board => { if (board) { env.data.board = board; if (cached?.userId === userId) cached.data = env.data } })
+    // The Friends board now: the You row's rank comes from it (one request, not
+    // /api/social/rank as well, which computes the same board again: 1-2 s each,
+    // 10 Oct 2026), and Leaderboard opens without a wait. Kept in memory only.
+    void fetchBoard(token, 'friends').then(board => {
+      if (!board) return
+      env.data.board = board
+      const me = board.entries.find(entry => entry.me) ?? board.me
+      set({ rank: rankOf(me?.rank, board.total) })
+    })
     loadFind(env, set)
   }
   void fetchAiAllowance(token).then(allowance => set({ allowance }))

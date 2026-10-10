@@ -80,7 +80,7 @@ function api() {
     }
     if (url.startsWith('/api/social/follow')) return Response.json({ relation: 'friend', followsYou: true })
     if (url.startsWith('/api/social/profile/')) return readerProfile ? Response.json({ profile: readerProfile }) : Response.json({ error: 'Not found' }, { status: 404 })
-    if (url.startsWith('/api/social/board')) return Response.json({ tab: 'friends', total: 1, meShown: true, me: null, entries: [{ rank: 1, name: 'Anders', picture: pic('A'), seconds: 3600, duration: '1 h', me: true }] })
+    if (url.startsWith('/api/social/board')) return Response.json({ tab: 'friends', total: 5, meShown: true, me: null, entries: [{ rank: 3, name: 'Anders', picture: pic('A'), seconds: 3600, duration: '1 h', me: true }] })
     if (url.startsWith('/api/account/delete')) return Response.json(deleteAnswer.body, { status: deleteAnswer.status })
     if (url.startsWith('/api/subscription-info')) return Response.json(subscription)
     return Response.json({}, { status: 404 })
@@ -236,6 +236,60 @@ describe('Settings', () => {
     scrim.click()
     expect(top().querySelector('[data-testid="card-tip"]')).toBeNull()
     expect(top().dataset.card).toBe('settings')
+  })
+})
+
+describe('pull-down to close (phone)', () => {
+  const touch = (target: Element, type: string, y: number, x = 100) => {
+    const event = new Event(type, { bubbles: true, cancelable: true })
+    Object.defineProperty(event, 'touches', { value: type === 'touchend' ? [] : [{ clientY: y, clientX: x }] })
+    target.dispatchEvent(event)
+    return event
+  }
+
+  it('a downward drag anywhere on a card at its top pulls it down and closes it past 90px (Anders, iPhone, 10 Oct 2026)', async () => {
+    const onClose = vi.fn()
+    await open('you', onClose)
+    const card = top()
+    const row = byTest('you-reading')!
+    touch(row, 'touchstart', 300)
+    const move = touch(row, 'touchmove', 420)
+    // The sheet follows the finger instead of the scroller rubber-banding.
+    expect(move.defaultPrevented).toBe(true)
+    expect(card.style.transform).toBe('translateY(120px)')
+    touch(row, 'touchend', 420)
+    await flush()
+    expect(accountCardsOpen()).toBe(false)
+    expect(onClose).toHaveBeenCalled()
+  })
+
+  it('a short pull springs back; a sideways or upward start leaves the scroller alone', async () => {
+    await open('you')
+    const card = top()
+    const row = byTest('you-reading')!
+    touch(row, 'touchstart', 300)
+    touch(row, 'touchmove', 340)
+    touch(row, 'touchend', 340)
+    await flush()
+    expect(accountCardsOpen()).toBe(true)
+    expect(card.style.transform).toBe('')
+    touch(row, 'touchstart', 300)
+    expect(touch(row, 'touchmove', 320, 160).defaultPrevented).toBe(false)
+    touch(row, 'touchend', 320)
+    touch(row, 'touchstart', 300)
+    expect(touch(row, 'touchmove', 200).defaultPrevented).toBe(false)
+    expect(accountCardsOpen()).toBe(true)
+  })
+
+  it('a card scrolled down scrolls; it does not pull', async () => {
+    await open('settings')
+    const card = top()
+    Object.defineProperty(card, 'scrollTop', { value: 80, configurable: true })
+    const row = card.querySelector('.tc-r')!
+    touch(row, 'touchstart', 300)
+    expect(touch(row, 'touchmove', 500).defaultPrevented).toBe(false)
+    expect(card.style.transform).toBe('')
+    expect(accountCardsOpen()).toBe(true)
   })
 })
 
@@ -477,7 +531,7 @@ describe('first paint (Anders, 10 October 2026)', () => {
     expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 5')
   })
 
-  it('asks for the profile, the reading time and the rank at once', async () => {
+  it('asks for the profile, the reading time and the Friends board at once; the rank comes from the board, not a second call', async () => {
     const userId = '66666666-6666-4666-8666-666666666666'
     const calls: string[] = []
     vi.stubGlobal('fetch', vi.fn((input: RequestInfo | URL) => { calls.push(String(input)); return new Promise<Response>(() => {}) }))
@@ -485,7 +539,8 @@ describe('first paint (Anders, 10 October 2026)', () => {
     await flush()
     expect(calls.some(url => url.startsWith('/api/profile'))).toBe(true)
     expect(calls.some(url => url.startsWith('/api/reading-time'))).toBe(true)
-    expect(calls.some(url => url.startsWith('/api/social/rank'))).toBe(true)
+    expect(calls.some(url => url.startsWith('/api/social/board'))).toBe(true)
+    expect(calls.some(url => url.startsWith('/api/social/rank'))).toBe(false)
   })
 
   it('keeps the cache per account and lets sign-out wipe it', () => {

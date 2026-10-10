@@ -176,15 +176,72 @@ interface Env {
   ASSETS: { fetch: (request: Request) => Promise<Response> }
 }
 
+/**
+ * A token verified with Supabase is remembered for a minute per isolate, so
+ * the several requests a page makes at once (the account cards make seven)
+ * do not each pay a Supabase round trip (300-700 ms, 10 Oct 2026 measurement)
+ * before their own work. Only successful answers are kept, never past the
+ * token's own expiry, and at most a few hundred at a time. Account deletion
+ * forgets the token at once (forgetVerifiedUser).
+ */
+const VERIFIED_TTL_MS = 60_000
+const VERIFIED_MAX = 500
+const verifiedUsers = new Map<string, { until: number; user: { id: string; email: string } }>()
+/** Verifications under way, so requests arriving together share one Supabase call. */
+const verifying = new Map<string, Promise<{ id: string; email: string } | null>>()
+
+/** The JWT's own expiry in ms, or null when unreadable. */
+function tokenExpiry(token: string): number | null {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))) as { exp?: unknown }
+    return typeof payload.exp === 'number' ? payload.exp * 1000 : null
+  } catch {
+    return null
+  }
+}
+
+export function forgetVerifiedUser(request: Request): void {
+  const authHeader = request.headers.get('authorization') || ''
+  for (const key of verifiedUsers.keys()) if (key.endsWith('|' + authHeader.slice(7))) verifiedUsers.delete(key)
+}
+
+export function resetVerifiedUsersForTest(): void {
+  verifiedUsers.clear()
+  verifying.clear()
+}
+
 async function verifyUser(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
   const authHeader = request.headers.get('authorization')
   if (!authHeader?.startsWith('Bearer ') || !env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
   const token = authHeader.slice(7)
-  const res = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
-    headers: { 'Authorization': `Bearer ${token}`, 'apikey': env.SUPABASE_SERVICE_ROLE_KEY },
-  })
-  if (!res.ok) return null
-  return res.json() as Promise<{ id: string; email: string }>
+  const key = `${env.SUPABASE_URL}|${token}`
+  const now = Date.now()
+  const known = verifiedUsers.get(key)
+  if (known && known.until > now) return known.user
+  verifiedUsers.delete(key)
+  const underWay = verifying.get(key)
+  if (underWay) return underWay
+  const check = (async () => {
+    const res = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
+      headers: { 'Authorization': `Bearer ${token}`, 'apikey': env.SUPABASE_SERVICE_ROLE_KEY },
+    })
+    if (!res.ok) return null
+    const user = await res.json() as { id: string; email: string }
+    if (user && typeof user.id === 'string') {
+      const until = Math.min(now + VERIFIED_TTL_MS, tokenExpiry(token) ?? Infinity)
+      if (until > now) {
+        if (verifiedUsers.size >= VERIFIED_MAX) verifiedUsers.delete(verifiedUsers.keys().next().value!)
+        verifiedUsers.set(key, { until, user })
+      }
+    }
+    return user
+  })()
+  verifying.set(key, check)
+  try {
+    return await check
+  } finally {
+    verifying.delete(key)
+  }
 }
 
 /** Ledger attribution for routes that accept signed-out callers: resolved in the background write only. */
@@ -395,7 +452,12 @@ export default {
       case '/api/admin/export-user': return handleAdminExportUser(request, env, verifySiteAdmin)
       case '/api/admin/delete-user': return handleAdminDeleteUser(request, env, verifySiteAdmin)
       // The reader's own Delete account (Settings → Account): the same erasure, for the caller's own account.
-      case ACCOUNT_DELETE_PATH: return handleAccountDelete(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
+      case ACCOUNT_DELETE_PATH: {
+        const response = await handleAccountDelete(request, env, { verifyUser: req => verifyUser(env, req), checkRateLimit })
+        // The deleted account's token is not remembered as verified on this isolate.
+        forgetVerifiedUser(request)
+        return response
+      }
       case '/api/admin/announce-email': if (env.LIFECYCLE_EMAILS === '1') return handleAdminAnnounceEmail(request, env, verifySiteAdmin)
         break
       case '/api/fixes-count': return handleFixesCount(request, env, verifyUser)
