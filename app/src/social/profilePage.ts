@@ -187,19 +187,51 @@ function wire() {
   })
 }
 
+/**
+ * The visitor's sign-in: the session Supabase keeps in this browser when its
+ * token is still good (read directly: no lock, no network), else Supabase's
+ * own answer, waited for at most 4 s. getSession() can wait indefinitely
+ * behind a token refresh on iPhone Safari, which left a signed-in visitor on
+ * the blank loading page (10 Oct 2026); past the wait the page shows as to a
+ * signed-out visitor.
+ */
+async function visitorToken(): Promise<string | null> {
+  if (!supabase || !socialFriendsOn()) return null
+  try {
+    const key = (supabase.auth as unknown as { storageKey?: unknown }).storageKey
+    const raw = typeof key === 'string' ? localStorage.getItem(key) : null
+    if (raw) {
+      const parsed = JSON.parse(raw) as { access_token?: unknown; expires_at?: unknown; currentSession?: { access_token?: unknown; expires_at?: unknown } }
+      const stored = parsed.currentSession ?? parsed
+      if (typeof stored.access_token === 'string' && typeof stored.expires_at === 'number' && stored.expires_at * 1000 > Date.now() + 30_000) return stored.access_token
+    }
+  } catch { /* storage blocked or unreadable: ask Supabase */ }
+  const session = await Promise.race([
+    supabase.auth.getSession().then(result => result.data.session).catch(() => null),
+    new Promise<null>(resolve => setTimeout(() => resolve(null), 4000)),
+  ])
+  return session?.access_token ?? null
+}
+
 async function initialize() {
   if (!root || !main) return
   const back = root.querySelector<HTMLAnchorElement>('[data-back]')
   if (back && document.referrer && new URL(document.referrer).origin === location.origin) back.href = new URL(document.referrer).pathname + new URL(document.referrer).search
   wire()
-  const session = supabase && socialFriendsOn() ? (await supabase.auth.getSession().catch(() => null))?.data.session ?? null : null
-  token = session?.access_token ?? null
+  token = await visitorToken()
   if (token || root.dataset.state === 'loading') {
-    const fresh = await fetchProfile(token, handle)
-    data = fresh?.profile ?? null
-    // A reader the visitor blocked answers like a missing one: look them up to offer Unblock.
-    if (!data && token && wellFormed(handle)) blockedId = await blockedReaderId(token, handle)
+    let failed = false
+    try {
+      const fresh = await fetchProfile(token, handle)
+      data = fresh?.profile ?? null
+      // A reader the visitor blocked answers like a missing one: look them up to offer Unblock.
+      if (!data && token && wellFormed(handle)) blockedId = await blockedReaderId(token, handle)
+    } catch {
+      failed = true
+    }
+    // Always leave the loading page, whatever the network did.
     render()
+    if (failed) status('That did not work. Please try again.')
   } else {
     // Signed out: the Worker's page stands; only private images need nothing.
     const actions = main.querySelector('[data-actions]')
