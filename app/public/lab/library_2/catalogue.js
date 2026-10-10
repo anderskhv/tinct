@@ -2,8 +2,8 @@ import { loadReviewedIntroduction } from './reviewed-introductions.js?v=20260930
 // The production catalogue behind the library_2 design: every discoverable
 // book, its introduction data, and a hand-off into the production reader that
 // never loses a reader's place.
-import { coverAsset } from './cover-assets.js?v=20261009owncover';
-import { withPublicBooks } from './add-to-tinct.js?v=20261010libperf';
+import { coverAsset, coverSources } from './cover-assets.js?v=20261009owncover';
+import { withPublicBooks } from './add-to-tinct.js?v=20261010desk';
 import { coverToneFor } from './spine.js?v=20261009rel10';
 const CATALOGUE_URL = '/lab/catalogue.json';
 
@@ -51,6 +51,7 @@ export function libraryBook(entry) {
     title: entry.title,
     author: entry.author,
     cover: coverAsset(entry.id, entry.art?.src || null),
+    coverSources: coverSources(entry.id, entry.art),
     // An added book's paper cover opens on paper boards, not a dark binding.
     coverTone: coverToneFor(entry),
     summary: entry.summary || entry.blurb || '',
@@ -64,6 +65,7 @@ export function libraryBook(entry) {
 
 /** Attach the catalogue facts the reader hand-off needs to any library_2 book. */
 export function attachCatalogue(book, entry) {
+  book.coverSources = coverSources(entry.id, entry.art);
   book.editions = entry.editions || [];
   book.defaultEditionKey = entry.defaultEditionKey || null;
   book.defaultCompareEditionKey = entry.defaultCompareEditionKey || null;
@@ -91,7 +93,7 @@ export async function loadIntroduction(book) {
 /** The production reading engine (device + cloud places, recaps), loaded once on demand. */
 let readingApiPromise = null;
 export function readingApi() {
-  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261010libperf').then(() => {
+  if (!readingApiPromise) readingApiPromise = import('/lab/library-2-reading.js?v=20261010desk').then(() => {
     if (!window.__tinctLibraryTwoReading) throw new Error('reading engine unavailable');
     return window.__tinctLibraryTwoReading;
   });

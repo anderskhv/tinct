@@ -11,7 +11,10 @@ export interface BookCoverInput {
 }
 export const PAINTED_COVER_IDS: readonly string[]
 export const PAINTED_WIDTHS: Readonly<{ full: number; thumb: number }>
+export const PAINTED_SIZES: Readonly<Record<string, Readonly<{ widths: readonly number[]; full: number }>>>
 export function paintedCover(bookId: string | null | undefined): string | null
+export function paintedCoverSources(bookId: string | null | undefined): Array<{ src: string; width: number }> | null
+export function paintedCoverAt(bookId: string | null | undefined, pixels?: number | null): string | null
 export function ownCoverImage(cover: unknown): string | null
 export function resolveBookCover(input?: BookCoverInput): BookCover | null
 export function bookCoverSrc(input?: BookCoverInput): string | null

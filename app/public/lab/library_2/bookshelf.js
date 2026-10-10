@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261010libperf';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261010desk';
 import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261010libperf';
-import { createBookshelf } from './bookshelf-view.js?v=20261010libperf';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261010desk';
+import { createBookshelf } from './bookshelf-view.js?v=20261010desk';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 import { bookCoverSrc } from '../book-cover.js?v=20261009owncover';
 
@@ -52,7 +52,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   const returning=table.mode==='returning'||saved.length>0;
   const mode=visitMode(returning,override,table.reading.length);
   const showReturning=mode==='shelf'&&(shelfStudy||table.reading.length);
-  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelector('.reading-table')?.setAttribute('hidden','');settle();if(!cached&&readVisit()?.mode!=='discovery')rememberVisit({mode:'discovery',auto:true});}
+  if(showReturning)show();else{html.classList.remove('returning');root.hidden=true;hero.querySelectorAll('.reading-table').forEach(t=>t.classList.contains('is-placeholder')?t.remove():t.setAttribute('hidden',''));settle();if(!cached&&readVisit()?.mode!=='discovery')rememberVisit({mode:'discovery',auto:true});}
   window.__library2Reading=table;
   dispatchEvent(new Event('resize'));
   dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:showReturning?'returning':'new'}}));
@@ -80,7 +80,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    // two minutes) before showing the error.
    if(!view&&!sample&&window.__library2Boot?.hint&&staleReload()){setTimeout(()=>location.reload(),2500);return;}
    if(view){settle();notice('Showing your saved shelf. It will refresh when you reconnect.');}
-   else if(window.__library2Boot?.hint){html.classList.remove('returning-pending');loading.hidden=false;loading.replaceChildren();const message=document.createElement('p');message.textContent='Your shelves could not load. Your reading place is safe.';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>location.reload();const browse=document.createElement('button');browse.textContent='Browse books';browse.onclick=()=>{rememberVisit({mode:'discovery',auto:false});settle();html.classList.remove('returning');};loading.append(message,retry,browse);if(new URLSearchParams(location.search).has('debug')){const detail=document.createElement('pre');detail.style.cssText='white-space:pre-wrap;font:11px/1.4 monospace;text-align:left;max-width:100%;overflow:auto;opacity:.8';detail.textContent=window.__library2LoadError;loading.append(detail);}}
+   else if(window.__library2Boot?.hint){html.classList.remove('returning-pending');hero.querySelectorAll('.reading-table.is-placeholder').forEach(t=>t.remove());loading.hidden=false;loading.replaceChildren();const message=document.createElement('p');message.textContent='Your shelves could not load. Your reading place is safe.';const retry=document.createElement('button');retry.textContent='Try again';retry.onclick=()=>location.reload();const browse=document.createElement('button');browse.textContent='Browse books';browse.onclick=()=>{rememberVisit({mode:'discovery',auto:false});settle();html.classList.remove('returning');};loading.append(message,retry,browse);if(new URLSearchParams(location.search).has('debug')){const detail=document.createElement('pre');detail.style.cssText='white-space:pre-wrap;font:11px/1.4 monospace;text-align:left;max-width:100%;overflow:auto;opacity:.8';detail.textContent=window.__library2LoadError;loading.append(detail);}}
    else settle();
   }finally{loadingNow=false;}
  }
