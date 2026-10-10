@@ -276,9 +276,15 @@ export const LAB_VVH_VAR = '--lab-vvh'
 export function labVisualViewportHeightPx(
   viewportHeight?: number,
   innerHeight?: number,
+  context?: { textEntryFocused?: boolean; scale?: number },
 ): number {
   const vv = typeof viewportHeight === 'number' && viewportHeight > 0 ? viewportHeight : 0
   const inner = typeof innerHeight === 'number' && innerHeight > 0 ? innerHeight : 0
+  // A visual viewport shorter than the window with nothing to type into and
+  // no pinch-zoom is a stale figure, not a keyboard: iOS kept one after a
+  // Stripe round trip (10 Oct 2026) and the page came back short. The window
+  // is the height then.
+  if (context && vv > 0 && inner > 0 && vv < inner && !context.textEntryFocused && (context.scale ?? 1) <= 1.01) return Math.round(inner)
   return Math.round(vv || inner)
 }
 
@@ -339,12 +345,13 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   const apply = () => {
     if (typeof window === 'undefined') return
     const viewport = window.visualViewport
-    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight)
+    const textEntryFocused = labTextEntryFocused(typeof document !== 'undefined' ? document.activeElement : null)
+    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight, { textEntryFocused, scale: viewport?.scale })
     if (px > 0) host.style.setProperty(LAB_VVH_VAR, `${px}px`)
     const panned = labShouldResetViewportPan({
       offsetTop: viewport?.offsetTop,
       scrollY: window.scrollY,
-      textEntryFocused: labTextEntryFocused(typeof document !== 'undefined' ? document.activeElement : null),
+      textEntryFocused,
     })
     if (panned) window.scrollTo(0, 0)
   }
@@ -352,17 +359,27 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   const viewport = typeof window !== 'undefined' ? window.visualViewport : null
   viewport?.addEventListener('resize', apply)
   viewport?.addEventListener('scroll', apply)
+  // Measured again when the page comes back to the front (another app, a
+  // checkout, the tab switcher): iOS does not always send a resize for the
+  // height it then has.
+  const returned = () => { if (typeof document === 'undefined' || document.visibilityState !== 'hidden') apply() }
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', apply)
     window.addEventListener('orientationchange', apply)
+    window.addEventListener('pageshow', returned)
+    window.addEventListener('focus', returned)
   }
+  if (typeof document !== 'undefined') document.addEventListener('visibilitychange', returned)
   return () => {
     viewport?.removeEventListener('resize', apply)
     viewport?.removeEventListener('scroll', apply)
     if (typeof window !== 'undefined') {
       window.removeEventListener('resize', apply)
       window.removeEventListener('orientationchange', apply)
+      window.removeEventListener('pageshow', returned)
+      window.removeEventListener('focus', returned)
     }
+    if (typeof document !== 'undefined') document.removeEventListener('visibilitychange', returned)
     host.style.removeProperty(LAB_VVH_VAR)
   }
 }

@@ -2575,6 +2575,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         // resize (including device emulation/orientation) must invalidate them.
         pagesStableRef.current = false
         settledPageGeometryRef.current = null
+        // The words-per-page figure was measured in the old box; the new
+        // pages set it afresh (a page that came back short after a Stripe
+        // round trip kept the short figure, 10 Oct 2026).
+        wordsPerPageRef.current = null
         didBudgetPageRef.current = false
         unmeasuredTriesRef.current = 0
         workingPagesRef.current = readingPagesRef.current
