@@ -34,12 +34,12 @@
     // Recognising the text of scanned own PDFs (src/worker/lib/ownOcr.ts, xAI vision), Premium only.
     // "1" turns it on, only after supabase/migrations/20261009_ai_usage_ocr.sql has run and
     // privacy.html says so. Off: every /api/user-books/ocr/ route answers 404.
-    "OWN_PDF_OCR": "0",
+    "OWN_PDF_OCR": "1",
     // Pages one account may have recognised per UTC month; a trial account has the smaller ceiling.
     "OWN_PDF_OCR_MONTHLY_PAGES": "1500",
     "OWN_PDF_OCR_TRIAL_MONTHLY_PAGES": "300",
     // Dollar backstops per UTC month: one account, and all accounts together.
-    "OWN_PDF_OCR_MONTHLY_USD": "2",
+    "OWN_PDF_OCR_MONTHLY_USD": "6",
     "OWN_PDF_OCR_GLOBAL_MONTHLY_USD": "75",
     // The most pages one PDF may send for recognition.
     "OCR_MAX_PAGES": "1000",

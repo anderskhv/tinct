@@ -90,9 +90,10 @@ function setup(options: { vars?: Record<string, string | undefined>; tier?: (id:
 afterEach(() => { vi.restoreAllMocks() })
 
 describe('/api/user-books/ocr with the switch off', () => {
-  it('ships dark: wrangler.jsonc has OWN_PDF_OCR "0", its limits, the coordinator binding and migration', () => {
+  // Switched on 2026-10-10 with a $6 account backstop (Anders, DECISIONS): 1,500 pages reachable at real prices.
+  it('wrangler.jsonc has OWN_PDF_OCR "1", its limits, the coordinator binding and migration', () => {
     const config = readFileSync(new URL('../wrangler.jsonc', import.meta.url), 'utf8')
-    for (const [name, value] of [['OWN_PDF_OCR', '0'], ['OWN_PDF_OCR_MONTHLY_PAGES', '1500'], ['OWN_PDF_OCR_TRIAL_MONTHLY_PAGES', '300'], ['OWN_PDF_OCR_MONTHLY_USD', '2'], ['OWN_PDF_OCR_GLOBAL_MONTHLY_USD', '75'], ['OCR_MAX_PAGES', '1000']]) {
+    for (const [name, value] of [['OWN_PDF_OCR', '1'], ['OWN_PDF_OCR_MONTHLY_PAGES', '1500'], ['OWN_PDF_OCR_TRIAL_MONTHLY_PAGES', '300'], ['OWN_PDF_OCR_MONTHLY_USD', '6'], ['OWN_PDF_OCR_GLOBAL_MONTHLY_USD', '75'], ['OCR_MAX_PAGES', '1000']]) {
       expect(config).toContain(`"${name}": "${value}"`)
     }
     expect(config).toContain('{ "name": "OWN_OCR", "class_name": "OwnOcrCoordinator" }')
