@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261010danish';
+import {mountBookshelf} from './bookshelf.js?v=20261010libperf';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261010danish';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261010libperf';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261010danish';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261010libperf';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
@@ -79,9 +79,17 @@ function ensureCover(book){if(book.paper&&!coverReady.has(book.id)){textures.set
 function paperFallback(book){if(textures.has(book.id))return;try{textures.set(book.id,paperCover(book.title,book.author));}catch{return;}all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}
 // Each canvas keeps the book it was made for, so a book not (yet) in searchPool() still paints.
 // rootMargin reaches only the viewport; scrollMargin also loads the covers just past a reel's edge.
+// A returning reader's desk is being prepared: the shelves' covers (the paintings are 450-760 KB
+// each, and the Featured row asks for eight at once) wait until the desk has been revealed, so its
+// own cover and spines have the connection (2026-10-10). The wait ends with the desk, with a first
+// visit's scene, or after a few seconds, so an error state never leaves the shelves blank.
+const deskPending=()=>typeof window!=='undefined'&&!!window.__library2Boot?.hint&&/\breturning-(scene-)?pending\b/.test(document.documentElement.className);
+const deskRevealed=new Promise(resolve=>{if(!deskPending())return resolve();const done=()=>{observer.disconnect();clearTimeout(timer);resolve();};const observer=new MutationObserver(()=>{if(!deskPending())done();});observer.observe(document.documentElement,{attributes:true,attributeFilter:['class']});const timer=setTimeout(done,6000);});
 const coverBooks=new WeakMap();
-const coverObserver=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const book=coverBooks.get(entry.target)||bookById(entry.target.dataset.book);if(!book)return;coverObserver.unobserve(entry.target);ensureCover(book).catch(()=>{});}),{rootMargin:'400px',scrollMargin:'400px'});
-function observeCover(c,book){paintCover(c,book.id);coverBooks.set(c,book);if(coverObserver)coverObserver.observe(c);else ensureCover(book).catch(()=>{});}
+const coverObserver=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const book=coverBooks.get(entry.target)||bookById(entry.target.dataset.book);if(!book)return;coverObserver.unobserve(entry.target);shelfCover(book);}),{rootMargin:'400px',scrollMargin:'400px'});
+// A shelf cover nearing the screen; the desk's own covers (prepareCover) never wait.
+function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book)):ensureCover(book)).catch(()=>{});}
+function observeCover(c,book){paintCover(c,book.id);coverBooks.set(c,book);if(coverObserver)coverObserver.observe(c);else shelfCover(book);}
 // The first cover has priority; shelves and other scenes load as they approach view.
 if(!window.__library2Boot?.hint)ensureCover(books[0]).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}

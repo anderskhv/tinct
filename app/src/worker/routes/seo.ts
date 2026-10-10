@@ -5,6 +5,7 @@ import { isLabPath, legacyLabPageRedirect } from '../../lab/labRoute'
 import { htmlEscape } from '../lib/html'
 import { isPublicBookId } from '../../../public/lab/public-books.js'
 import { composeBookLibraryPage, prefillLibraryHero, readGeneratedBookPage, type GeneratedBookPage } from '../lib/bookLibraryPage'
+import { withStaticCache } from '../lib/staticCache'
 
 export type SeoEnv = {
   INDEXNOW_KEY?: string
@@ -514,7 +515,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       if ((response.headers.get('Content-Type') || '').includes('text/html')) {
         result.headers.set('Cache-Control', 'no-store')
       }
-      return result
+      // Tagged scripts, styles and the paintings are kept by the browser (lib/staticCache.ts).
+      return withStaticCache(url, result)
     }
 
     // The catalogue-backed library, sign-in and featured preview pages are
@@ -532,7 +534,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // Return the binding response as-is, including conditional 304s. Treating
       // a 304 as a miss makes a warm browser fall through to the Lab reader SPA,
       // caching HTML under a JavaScript URL and breaking every later navigation.
-      return env.ASSETS.fetch(request)
+      // A 200 for a tagged file gets the browser cache policy (lib/staticCache.ts); a 304 passes untouched.
+      return withStaticCache(url, await env.ASSETS.fetch(request))
     }
 
     // Private reading-chrome demo. Always noindex, including /lab/*.
@@ -716,7 +719,8 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       }
       return newResponse
     }
-    return response
+    // Content-hashed bundles and cover images are kept by the browser (lib/staticCache.ts).
+    return withStaticCache(url, response)
 
 }
 

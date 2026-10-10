@@ -71,7 +71,9 @@
 .bookshelf .selection #bs-remove-saved{grid-column:1;justify-self:start;margin:0}
 html.returning[data-returning-view=shelf] #hero{display:none!important}
 html.returning #library #shelves{margin:25px 0 0;padding-top:0}
-html.returning-pending #hero{visibility:hidden}
+html.returning-pending #hero>:not(.reading-table){visibility:hidden}
+html.returning-scene-pending[data-returning-view=table] #hero{background:#10150f var(--initial-scene) center/cover}
+html[data-returning-view=table] .bookshelf-loading:not(:has(p)){background:transparent}
 .bookshelf-loading{position:absolute;inset:0 0 auto;min-height:90svh;background:#10150f;display:grid;place-content:center;text-align:center;padding:100px 24px;color:#b7bda7;font:16px/1.6 Georgia;z-index:4}
 .bookshelf-loading button{border:1px solid #6d7352;border-radius:30px;margin-top:20px;padding:12px}
 .preview-modes{position:relative;z-index:5;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;padding:20px;font:12px system-ui;color:#b8bea9;border-top:1px solid #eee7d025}
