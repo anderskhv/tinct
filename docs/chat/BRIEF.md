@@ -4,6 +4,14 @@ Anders approved this on 9 October 2026. It changes what is inside the chat, not 
 
 **The design:** `docs/chat/mockup.html` (open in a browser; Paper/Night switch at the top). Its section "The thread, measured" carries every value. Where this brief and the mockup differ, the mockup wins.
 
+## Overrides after Anders's iPhone test (10 October 2026)
+These replace the matching rules below and in the mockup.
+- **Order:** the thread is ordered by each message's own time, newest at the bottom. A refresh (the tab coming back) never reorders, drops or re-pins it.
+- **Caret (rules 5, 9, 10):** no drawn 2px bar. The composer uses the system's own thin caret, tinted with the muted ink (`caret-color: var(--tc-muted)`). An empty, unfocused composer shows just the hairline.
+- **Streaming (rule 6):** no cursor anywhere. Before the first word, three small faint dots breathe slowly; then new words fade in. Static under `prefers-reduced-motion`.
+- **Scrolling while answering:** on send the thread scrolls once so the question sits near the top, with a little of the previous answer above it. The answer grows downward under it; the view does not follow. If it runs past the bottom, the Latest pill shows (no jump). A reader's own scroll is never undone, and nothing moves when the answer finishes. The previous answer keeps its copy mark until the new one finishes (rule 3), so nothing above the question shifts as the answer begins.
+- **Type (rule 11):** answers 18px (17px desktop), bubbles 17px (16px desktop); line-heights keep their ratios (1.5, 1.4).
+
 ## Two homes, one component
 - **Book reader, desktop:** the floating box over the right page stays exactly where it is (`.lab-ask`: width `min(30rem, 38vw)`, 24px from the right, 24px corners, the `›` collapse tab). Only its contents change.
 - **PDF reader (own books), desktop:** the docked panel stays as it is (`.byob-dock`: fixed, 14px from the right, 380px wide, full height below the bar, 16px corners; the page area narrows while open). Only its contents change.
