@@ -81,12 +81,20 @@ describe('configuration', () => {
       expect(sql).toContain('create or replace function public.ai_spend_micros(p_user uuid, p_since timestamptz, p_until timestamptz default null)')
       return /e\.feature not in \(([^)]*)\)/.exec(sql)?.[1].split(',').map(name => name.trim().replace(/'/g, '')) ?? []
     }
-    // The latest definition of ai_spend_micros (Modern English, 2026-10-10) is the one in force.
-    expect([...excludedIn('20261010_ai_usage_modern_edition.sql')].sort()).toEqual([...NEVER_CHARGED_AI_FEATURES].sort())
+    // The latest definition of ai_spend_micros (speculative Explain, 2026-10-11) is the one in force.
+    expect([...excludedIn('20261011_ai_usage_explain_speculative.sql')].sort()).toEqual([...NEVER_CHARGED_AI_FEATURES].sort())
+    expect([...excludedIn('20261010_ai_usage_modern_edition.sql')].sort()).toEqual(['dictation', 'modern_edition', 'narration_generate', 'narration_listen', 'ocr'])
     expect([...excludedIn('20261009_ai_usage_ocr.sql')].sort()).toEqual(['dictation', 'narration_generate', 'narration_listen', 'ocr'])
     expect(NEVER_CHARGED_AI_FEATURES).toEqual(expect.arrayContaining(['narration_listen', 'narration_generate', 'dictation']))
     // The earlier one excluded every never-charged feature that existed then.
     expect([...excludedIn('20261007_ai_allowance_never_charged.sql')].sort()).toEqual(['dictation', 'narration_generate', 'narration_listen'])
+  })
+
+  it('allows the explain_speculative feature in the ledger constraint, keeping every earlier one', () => {
+    const sql = readFileSync(new URL('../../../supabase/migrations/20261011_ai_usage_explain_speculative.sql', import.meta.url), 'utf8')
+    const allowed = /feature in \(([^)]*)\)/.exec(sql)?.[1].split(',').map(name => name.trim().replace(/'/g, '')) ?? []
+    expect(allowed).toEqual(['chat', 'explain', 'librarian', 'recap', 'chapter_notes', 'catch_up', 'lab_chat', 'talk', 'narration_generate', 'narration_listen', 'source_search', 'dictation', 'ocr', 'modern_edition', 'explain_speculative'])
+    expect(sql).toContain("filter (where e.feature = 'explain_speculative'), 0) as explain_speculative_usd")
   })
 
   it('allows the modern_edition feature in the ledger constraint, keeping every earlier one', () => {
@@ -303,9 +311,10 @@ describe('gate', () => {
     expect(NEVER_CHARGED_AI_FEATURES).toContain('dictation')
   })
 
-  it('charges neither narration, dictation nor OCR, but does count Explain', () => {
-    expect([...NEVER_CHARGED_AI_FEATURES].sort()).toEqual(['dictation', 'modern_edition', 'narration_generate', 'narration_listen', 'ocr'])
+  it('charges neither narration, dictation, OCR nor a speculative Explain, but does count a tapped Explain', () => {
+    expect([...NEVER_CHARGED_AI_FEATURES].sort()).toEqual(['dictation', 'explain_speculative', 'modern_edition', 'narration_generate', 'narration_listen', 'ocr'])
     expect(isPaidAiFeature('ocr')).toBe(false)
+    expect(isPaidAiFeature('explain_speculative')).toBe(false)
     expect(NEVER_CHARGED_AI_FEATURES).not.toContain('explain')
   })
 

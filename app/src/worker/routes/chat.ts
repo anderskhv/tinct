@@ -912,7 +912,10 @@ export async function handleChat(
 
     // One ledger row per Anthropic call (and per source search), attributed to
     // the reader, or to the hashed IP key when signed out. Metadata only.
-    const feature: AiFeature = lookup ? 'explain'
+    // A speculative Explain (fetched as a selection settles, before any tap) is
+    // Tinct's cost, never the reader's: 124 of them in a day read as 18% of an
+    // allowance the reader had barely used (11 Oct 2026).
+    const feature: AiFeature = lookup ? (companion?.speculative ? 'explain_speculative' : 'explain')
       : companion?.intent === 'library' ? 'librarian'
       : allowLabGuest ? 'lab_chat' : 'chat'
     if (userId && !allowsAiFeature(allowanceGate.enforced, feature, await allowancePromise)) {

@@ -299,7 +299,7 @@ export type GatedAiFeature = AiFeature | 'dictation'
  * exactly these (ai_spend_micros in 20261010_ai_usage_modern_edition.sql; a
  * test keeps the two equal).
  */
-export const NEVER_CHARGED_AI_FEATURES: readonly GatedAiFeature[] = Object.freeze(['narration_listen', 'narration_generate', 'dictation', 'ocr', 'modern_edition'] as const)
+export const NEVER_CHARGED_AI_FEATURES: readonly GatedAiFeature[] = Object.freeze(['narration_listen', 'narration_generate', 'dictation', 'ocr', 'modern_edition', 'explain_speculative'] as const)
 
 /**
  * Never blocked: the never-charged features, plus Explain and Define (metered
