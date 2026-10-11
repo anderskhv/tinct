@@ -327,9 +327,9 @@
   hyphens: auto;
   -webkit-hyphenate-limit-before: 2;
   -webkit-hyphenate-limit-after: 3;
-  -webkit-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-lines: 3;
   hyphenate-limit-chars: 7 2 3;
-  hyphenate-limit-lines: 2;
+  hyphenate-limit-lines: 3;
 }
 
 .lab-hearing {
@@ -4936,8 +4936,8 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
    (Compare, a book without patterns). A block property: on the word spans
    (above) it never applied. */
 .lab .lab-hearing-line {
-  -webkit-hyphenate-limit-lines: 2;
-  hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-lines: 3;
+  hyphenate-limit-lines: 3;
 }
 
 /* Planned hyphenation (labHyphenPlan): a paragraph with a plan breaks words
