@@ -354,7 +354,7 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
     const card = await screen.findByTestId('lab-chapter-notes')
-    expect(card.textContent).toMatch(/in brief/)
+    expect(card.textContent).toMatch(/Recap · /)
     await waitFor(() => expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-chapter-notes'))).toBe(true))
     const bodies = fetchMock.mock.calls.filter(call => String(call[0]).includes('/api/lab-chapter-notes')).map(call => JSON.parse(String(call[1]?.body)))
     expect(bodies.every(body => body.kind === 'end')).toBe(true)

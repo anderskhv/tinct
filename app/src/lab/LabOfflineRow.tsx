@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { LabWait } from './LabWait'
 import {
   offlineBookSaved,
   offlineBookSupported,
@@ -67,7 +68,8 @@ export function LabOfflineRow({ bookId, editionKeys, hasVerseLines }: {
       data-offline-state={state.kind} aria-busy={state.kind === 'saving'} onClick={save}>
       <span className="lab-v2-row-label" aria-live="polite">
         {state.kind === 'saving'
-          ? (state.total ? `Saving… ${state.done} of ${state.total}` : 'Saving…')
+          // The reader's ring in the row (the label is the live region); the count stays for screen readers.
+          ? <LabWait label={state.total ? `Saving… ${state.done} of ${state.total}` : 'Saving…'} size={16} live={false} testId="lab-v2-offline-wait" />
           : 'Make available offline'}
       </span>
     </button>

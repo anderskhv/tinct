@@ -11,6 +11,7 @@
  */
 import { useEffect, useState } from 'react'
 import { LabApp } from '../LabApp'
+import { LabWait } from '../LabWait'
 import { ownBookOpenUrl, USER_BOOKS_SHELF_URL } from './userBookId'
 import { registerUserBook } from './userBookSource'
 import { openUserBook, type LoadedUserBook, type UserBookOpenResult } from './userBookStore'
@@ -86,10 +87,18 @@ export function UserBookReader({ hex, owner, open = openUserBook, forward = repl
   if (state.status === 'ready') return <LabApp userBook={state.book} />
   return (
     <div className="lab is-desktop" data-testid="user-book-status" style={{ minHeight: '100vh' }}>
-      <div className="lab-reader-load-error" role={state.status === 'failed' ? 'alert' : 'status'}>
-        <p>{state.status === 'failed' ? state.message : 'Opening…'}</p>
-        {state.status === 'failed' && <a href={USER_BOOKS_SHELF_URL}>Return to your books</a>}
-      </div>
+      {state.status === 'failed' ? (
+        <div className="lab-reader-load-error" role="alert">
+          <p>{state.message}</p>
+          <a href={USER_BOOKS_SHELF_URL}>Return to your books</a>
+        </div>
+      ) : (
+        // The whole page is what is loading: the reader's ring on the paper, no card (Anders, 10 Oct:
+        // no pop-up saying "Opening…"); the wording stays for screen readers (LabWait).
+        <div className="lab-reader-load-wait">
+          <LabWait label="Opening…" testId="user-book-opening" />
+        </div>
+      )}
     </div>
   )
 }

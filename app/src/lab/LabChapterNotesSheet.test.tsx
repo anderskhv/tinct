@@ -12,7 +12,7 @@ const beats = [
   { title: 'Storerooms Staffed', text: 'Men are set over the storerooms. The singers are paid daily.' },
 ]
 const expected = [
-  'Nehemiah 12 in brief',
+  'Recap · Nehemiah 12',
   'Two Choirs on the Wall\nTwo choirs walk the wall in opposite directions. The joy is heard far off.',
   'Storerooms Staffed\nMen are set over the storerooms. The singers are paid daily.',
 ].join('\n\n')
@@ -22,7 +22,7 @@ function store() {
 }
 
 function renderSheet() {
-  return render(<LabChapterNotesSheet request={request} title="Nehemiah 12 in brief" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
+  return render(<LabChapterNotesSheet request={request} title="Recap · Nehemiah 12" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
 }
 
 describe('LabChapterNotesSheet Copy', () => {
@@ -30,7 +30,7 @@ describe('LabChapterNotesSheet Copy', () => {
   afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals() })
 
   it('formats the card as plain text: title, then each beat title and text, separated by blank lines', () => {
-    expect(chapterNotesPlainText('Nehemiah 12 in brief', beats)).toBe(expected)
+    expect(chapterNotesPlainText('Recap · Nehemiah 12', beats)).toBe(expected)
   })
 
   it('writes the card to the clipboard inside the tap and confirms with "Copied"', async () => {

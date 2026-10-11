@@ -17,6 +17,8 @@ import {
   type CatalogueWork,
 } from '../public/lab/public-books.js'
 import { INTERNAL_KEY } from '../public/lab/internal-traffic.js'
+// The page's head script: the wait ring the Add buttons and the own-file pop-up draw (TinctWait).
+import '../public/lab/wait-ring.js'
 // @ts-expect-error -- plain browser module of the library page
 import * as addToTinct from '../public/lab/library_2/add-to-tinct.js'
 import worker from './worker'
@@ -273,9 +275,12 @@ describe('library search panel with the flag', () => {
     addToTinct.setAddBusy(button, 'start')
     expect(button.disabled).toBe(true)
     expect(button.getAttribute('aria-busy')).toBe('true')
-    expect(button.querySelector('svg.add-spinner')).not.toBeNull()
-    // No new visible words: the spinner replaces "Add", the existing "Adding…" is for screen readers only.
-    expect(button.querySelector('.sr-only')?.textContent).toBe('Adding…')
+    // The reader's ring (wait-ring.js) after its moment, never a flash for quick work; before it "Add" stays.
+    expect(button.querySelector('svg.tinct-wait-ring')).toBeNull()
+    expect(button.textContent).toBe('Add')
+    await vi.waitFor(() => expect(button.querySelector('svg.tinct-wait-ring')).not.toBeNull())
+    // No new visible words: the ring replaces "Add", the existing "Adding…" is for screen readers only.
+    expect(button.querySelector('.tinct-wait-label')?.textContent).toBe('Adding…')
     expect(button.getAttribute('aria-label')).toBe('Add Persuasion to Tinct')
     expect(row.classList.contains('is-adding')).toBe(true)
     expect(row.getAttribute('aria-busy')).toBe('true')
@@ -812,7 +817,10 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(keep).not.toHaveBeenCalled()
     // The progress is shown in the pop-up while it works.
     expect(dialog()!.querySelector('.own-file-progress')?.getAttribute('data-value')).toBe('1')
-    expect(dialog()!.textContent).toContain('Opening…')
+    // The wait is the reader's ring in the pop-up's own line (wait-ring.js); "Opening…" stays for screen readers only.
+    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-status svg.tinct-wait-ring')).not.toBeNull())
+    expect(dialog()!.querySelector('.own-file-status .tinct-wait-label')?.textContent).toBe('Opening…')
+    expect(dialog()!.querySelector('.own-file-status .tinct-wait')?.getAttribute('role')).toBe('status')
   })
 
   it('adds a PDF in place and opens it in Add a book’s PDF reader by its key; a confirmed account is not asked again', async () => {
