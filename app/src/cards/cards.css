@@ -75,7 +75,7 @@
 
 /* Profile header */
 .tc-hero { position: relative; flex: none; height: 168px; }
-.tc-hero-bg { position: absolute; inset: 0 0 62px; background: var(--bgimg, none) center 45% / cover; background-color: #3a3a3a; border-radius: var(--tc-radius) var(--tc-radius) 0 0; overflow: hidden; }
+.tc-hero-bg { position: absolute; inset: 0 0 62px; background: var(--bgimg, none) center 70% / cover; background-color: #3a3a3a; border-radius: var(--tc-radius) var(--tc-radius) 0 0; overflow: hidden; }
 .tc-hero-bg::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, rgba(0,0,0,.25), transparent 50%); }
 .tc-hero .tc-disc { position: absolute; top: 16px; background: rgba(255,255,255,.9); color: #0a0a0a; }
 .tc-hero .tc-disc.is-x { right: 16px; }
