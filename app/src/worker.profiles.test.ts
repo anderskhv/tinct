@@ -477,13 +477,18 @@ describe('uploads', () => {
     expect(profile.uploads).toBe(true)
     expect((await (await call(store, '/api/profile', { as: A }, env)).json() as { profile: { uploads: boolean } }).profile.uploads).toBe(true)
     expect([...objects.values()][0].length).toBeLessThan(jpegWithExif().length)
-    expect((await call(store, profile.picture.url, { as: A }, env)).status).toBe(200)
+    const own = await call(store, profile.picture.url, { as: A }, env)
+    expect(own.status).toBe(200)
+    // The address names this upload, so the owner's browser keeps it; others' copies last five minutes.
+    expect(own.headers.get('Cache-Control')).toBe('private, max-age=31536000, immutable')
     expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(404)
     expect((await call(store, profile.picture.url, {}, env)).status).toBe(404)
     const seen = await (await call(store, '/api/profiles/reader4780', { as: D }, env)).json() as { profile: { picture: { kind: string } } }
     expect(seen.profile.picture.kind).toBe('initial')
     store.profiles.get(A)!.picture_review = 'approved'
-    expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(200)
+    const theirs = await call(store, profile.picture.url, { as: D }, env)
+    expect(theirs.status).toBe(200)
+    expect(theirs.headers.get('Cache-Control')).toBe('private, max-age=300')
     // Choosing a set removes the stored photo.
     await post(store, A, { picture: { kind: 'set', value: 'stoic' } }, env)
     expect(objects.size).toBe(0)

@@ -725,11 +725,16 @@ async function serveImage(request: Request, url: URL, env: ProfilesEnv, store: P
   if (!shown) return notFound(request)
   const object = await env.USER_BOOKS.get(imageKey(owner, slot, token))
   if (!object) return notFound(request)
+  // The address names one upload (`v=` changes with every new picture), so the owner's own
+  // browser may keep it: the library header otherwise fetched it again after five minutes,
+  // behind a token check and two reads. Another viewer's copy still lasts five minutes:
+  // what they may see can change (approval, Only me).
+  const cacheControl = viewer === owner ? 'private, max-age=31536000, immutable' : 'private, max-age=300'
   return new Response(object.body, {
     headers: {
       ...corsHeaders(request),
       'Content-Type': object.httpMetadata?.contentType || 'image/jpeg',
-      'Cache-Control': 'private, max-age=300',
+      'Cache-Control': cacheControl,
       'X-Content-Type-Options': 'nosniff',
       'X-Robots-Tag': 'noindex, noarchive',
     },
