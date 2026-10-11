@@ -935,7 +935,7 @@ export function backgroundCard(env: CardsEnv): CardSpec {
       const current = env.data.profile?.background
       const grid = el('div', { className: 'tc-grid4 is-scenes', role: 'radiogroup', 'aria-label': CARDS_COPY.chooseBackground, dataset: { testid: 'background-grid' } })
       const choices: Array<{ kind: BackgroundKind; value: string | null; src: string }> = [
-        ...PICTURE_SETS.map(set => ({ kind: 'set' as BackgroundKind, value: set.id, src: set.scene })),
+        ...PICTURE_SETS.map(set => ({ kind: 'set' as BackgroundKind, value: set.id, src: set.room })),
         { kind: 'library', value: null, src: LIBRARY_BACKGROUND },
       ]
       for (const choice of choices) {

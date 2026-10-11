@@ -812,7 +812,7 @@ describe('the public profile page', () => {
     expect(page.headers.get('X-Robots-Tag')).toContain('noindex')
     const html = await page.text()
     expect(html).toContain('<meta name="robots" content="noindex, nofollow, noarchive">')
-    expect(html).toContain('scene-meditations-phone.jpg')
+    expect(html).toContain('room-meditations-phone.jpg')
     expect(html).toContain('Bea')
     expect(html).toContain('tinct.app/@bea')
     expect(html).toContain('1 h 10 m')
