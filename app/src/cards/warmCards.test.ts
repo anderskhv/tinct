@@ -60,6 +60,15 @@ describe('warmAccountCards', () => {
     expect(cache?.reading?.stats).toBeTruthy()
   })
 
+  it('does nothing once a navigation has started (beforeunload), before pagehide', async () => {
+    store(3600)
+    const { warmAccountCards } = await import('./warmCards')
+    warmAccountCards()
+    window.dispatchEvent(new Event('beforeunload'))
+    await flush()
+    expect(calls).toEqual([])
+  })
+
   it('does nothing with an expired stored session (never a token refresh), on Save Data, or signed out', async () => {
     store(-60)
     const { warmAccountCards } = await import('./warmCards')

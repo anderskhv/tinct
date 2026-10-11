@@ -15,6 +15,7 @@
  * it with what the loaders really fetch. Keep imports import-free modules.
  */
 import { editionPatchesPath, editionShardManifestUrl, editionShardPath, editionShardUrl, editionWholeUrl } from '../data/editionUrls'
+import { LAB_PHONE_QUERY, isLabPhoneSurface } from './labChrome'
 
 export const READER_BOOT_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 export const READER_BOOT_PREFS_KEY = 'tinct-lab-prefs'
@@ -141,13 +142,24 @@ function storedAppearances(raw: string | null): Array<{ theme: StoredTheme; font
  * the app's layout decision), the prefs are unreadable, or the device uses
  * the e-ink profile, which paints its own white.
  */
-export function readerBootTheme(rawPrefs: string | null, systemDark: boolean, eink: boolean): LabResolvedTheme | null {
+export function readerBootTheme(rawPrefs: string | null, systemDark: boolean, eink: boolean, profile?: 'phone' | 'desktop'): LabResolvedTheme | null {
   if (eink) return null
   const appearances = storedAppearances(rawPrefs)
   if (!appearances) return null
-  const resolved = new Set(appearances.map(({ theme }) => theme === 'system' ? (systemDark ? 'dark' : 'light') : theme))
+  // Version 2 keeps a phone and a desktop appearance; with the layout known
+  // (readerBootProfile, the app's own rule), that one's theme is the answer.
+  // Without it, both must agree (10 Oct 2026: a dark phone and a light desktop
+  // left the first frame white, and the library's leave veil light paper).
+  const chosen = profile && appearances.length === 2 ? [appearances[profile === 'phone' ? 0 : 1]] : appearances
+  const resolved = new Set(chosen.map(({ theme }) => theme === 'system' ? (systemDark ? 'dark' : 'light') : theme))
   return resolved.size === 1 ? [...resolved][0] : null
 }
+
+/** The appearance profile the app will use, by its own surface rule (labChrome.isLabPhoneSurface); the layout override is the app's. */
+export function readerBootProfile(input: { userAgent?: string; innerWidth?: number; maxTouchPoints?: number; screenWidth?: number; matchMediaPhone?: boolean }): 'phone' | 'desktop' {
+  return isLabPhoneSurface(input) ? 'phone' : 'desktop'
+}
+export { LAB_PHONE_QUERY }
 
 /** Whether every profile reads in the default face (never chose, or chose Literata). */
 export function readerBootUsesDefaultFace(rawPrefs: string | null): boolean {
