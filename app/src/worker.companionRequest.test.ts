@@ -48,6 +48,10 @@ describe('structured companion requests', () => {
     expect(parsed.context!.personalHistory).toHaveLength(8_000)
     const explain = parseCompanionRequest({ intent: 'explain', context, selection: 'Athena spoke.' })!
     expect(explain.context!.lookups).toBe(false)
+    // Speculation is a flag the reader's app sets; anything else is a tapped Explain.
+    expect(explain).not.toHaveProperty('speculative')
+    expect(parseCompanionRequest({ intent: 'explain', context, selection: 'Athena spoke.', speculative: true })!.speculative).toBe(true)
+    expect(parseCompanionRequest({ intent: 'define', context, selection: 'Athena', speculative: 'yes' })).not.toHaveProperty('speculative')
   })
 
   it('builds the same instructions the reader used to send', () => {

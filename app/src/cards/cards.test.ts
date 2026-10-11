@@ -523,12 +523,15 @@ describe('first paint (Anders, 10 October 2026)', () => {
   it('from the cached profile and figures at once, before any answer', async () => {
     const userId = '55555555-5555-4555-8555-555555555555'
     const cachedStats = readingTimeStats([{ day: today(), bookId: 'frankenstein', read: 22_200, listen: 0 }], today())
-    writeCardsCache(userId, { profile: ownProfile({ name: 'Anders H' }) as never, reading: { stats: cachedStats, readingNow: [], finished: [] }, rank: '3rd of 5', plan: 'premium', billing: false })
+    writeCardsCache(userId, { profile: ownProfile({ name: 'Anders H' }) as never, reading: { stats: cachedStats, readingNow: [], finished: [] }, rank: '3rd of 5', plan: 'premium', billing: false,
+      allowance: { usedFraction: 0.29, monthUsedFraction: 0.29, topUpLeftFraction: null, state: 'ok', resetsAt: '2026-11-10T00:00:00Z', hasTopUp: false, topUps: [] } })
     vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(() => {})))
     expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false })).toBe(true)
     expect(top().querySelector('.tc-nm')?.textContent).toBe('Anders HPremium')
     expect(byTest('you-reading')?.textContent).toContain('6 h 10 m')
     expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 5')
+    // The credits meter paints from the cache as well: the card no longer grows when the allowance arrives (11 Oct 2026).
+    expect(top().querySelector('.tc-meter')?.textContent).toContain('71%')
   })
 
   it('asks for the profile, the reading time and the Friends board at once; the rank comes from the board, not a second call', async () => {

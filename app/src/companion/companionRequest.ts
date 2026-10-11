@@ -21,6 +21,8 @@ export interface CompanionRequest {
   context?: LabAskContext
   /** The selected passage (explain) or word (define). */
   selection?: string
+  /** Explain fetched ahead of a tap (the reader may never ask): metered as `explain_speculative`, never against an allowance. */
+  speculative?: boolean
   /** Chapter action; `target` carries the next chapter's paragraphs for `prepare`. */
   chapter?: {
     action: ChapterChatAction
@@ -194,7 +196,7 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (intent === 'explain' || intent === 'define') {
     const selection = text(r.selection, SELECTION_CHARS)
     if (!selection) return null
-    return { intent, context: { ...context, lookups: false }, selection }
+    return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}) }
   }
   if (intent === 'chapter') {
     const chapter = r.chapter && typeof r.chapter === 'object' ? r.chapter as Record<string, unknown> : null

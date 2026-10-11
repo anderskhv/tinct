@@ -9,6 +9,7 @@ import './labContentsV2.css'
 import type { LabFigure } from './labFigures'
 import { LabFigureThumb } from './LabFigure'
 import { ChatIcon, HighlightIcon } from './LabReaderIcons'
+import { LabWait } from './LabWait'
 
 import { contentsTree, flattenContents, contentsPercent, type ContentsNode } from './labContentsTree'
 
@@ -210,10 +211,12 @@ export function LabContentsV2(props: Props) {
     <p className="excerpt"><Match text={contentsExcerpt((view === 'search' && query.trim() ? chat.messages.find(m => m.content.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))?.content : null) || chat.messages.find(m => m.role === 'assistant')?.content || chat.summary || '', query)} query={view === 'search' ? query : ''} /></p>
   </button>
   const highlightRow = (h: LabHighlight) => <button className="result" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
-    <small>{chapterTitle(h.chapterNumber)}</small><p>{quote(h) || h.note || (loadError ? 'Passage unavailable' : 'Loading highlighted passage…')}</p>{h.note && <p className="excerpt">{h.note}</p>}
+    <small>{chapterTitle(h.chapterNumber)}</small><p>{quote(h) || h.note || (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>{h.note && <p className="excerpt">{h.note}</p>}
   </button>
   const more = (count: number) => count > limit && <button className="more" onClick={() => setLimit(n => n + 30)}>Show more · {count - limit} remaining</button>
-  const textStatus = needsText && !data && <p className="status" role="status">{loadError ? <>Text could not be loaded. <button onClick={() => setRetry(n => n + 1)}>Retry</button></> : 'Loading passage text…'}</p>
+  const textStatus = needsText && !data && (loadError
+    ? <p className="status" role="status">Text could not be loaded. <button onClick={() => setRetry(n => n + 1)}>Retry</button></p>
+    : <p className="status"><LabWait label="Loading passage text…" size={18} /></p>)
   const historyStatus = props.historyStatus !== 'ready' && <p className="status" role="status">{props.historyStatus === 'loading' ? 'Loading saved conversations…' : 'Showing conversations saved on this device. Cloud history is unavailable.'}</p>
   const shownResults = (scope !== 'chats' ? results.chapters.length + results.passages.length : 0) + (scope !== 'book' ? results.chats.length : 0)
   if (!open) return null
@@ -241,7 +244,7 @@ export function LabContentsV2(props: Props) {
       </div> : <>
       {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => locate(node.id)}>{node.label}</button></span>)}</nav>}
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} inert={view ? true : undefined}>
-        {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status" role="status">Loading contents…</p>}
+        {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status"><LabWait label="Loading contents…" size={18} testId="lab-contents-loading" /></p>}
         {historyStatus}
       </div>
       </>}

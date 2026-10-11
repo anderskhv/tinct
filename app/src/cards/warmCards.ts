@@ -4,12 +4,13 @@
  * paint from the device cache first and refresh behind; a first open on a
  * device had nothing to paint). The same reads the cards make on open,
  * written to the same cache (cardsCache.ts): the reader's own profile,
- * reading figures, Friends rank, plan. Nothing new is collected or kept.
+ * reading figures, Friends rank, plan, AI credits. Nothing new is collected or kept.
  *
  * Only with a stored session whose token is still good (never a token
  * refresh), only when the network is spare, and only once the reader has
  * settled (whenReaderSettled). Low priority: one round, no retries.
  */
+import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
 import { currentBookHint } from '../social/socialClient'
@@ -36,7 +37,8 @@ export function warmAccountCards(): void {
       loadReading(token, userId).catch(() => null),
       social ? fetchBoard(token, 'friends').catch(() => null) : Promise.resolve(null),
       fetchSubscriptionInfo(token).catch(() => null),
-    ]).then(([profile, reading, board, info]) => {
+      fetchAiAllowance(token).catch(() => null),
+    ]).then(([profile, reading, board, info, allowance]) => {
       if (stopped) return
       const known = readCardsCache(userId)
       const me = board ? (board.entries.find(entry => entry.me) ?? board.me) : null
@@ -49,6 +51,7 @@ export function warmAccountCards(): void {
         rank: board ? rankOf(me?.rank, board.total) : known?.rank ?? null,
         plan: info ? (paying ? 'premium' : 'free') : known?.plan ?? null,
         billing: info ? Boolean(info.stripe) : known?.billing ?? false,
+        allowance: allowance ?? known?.allowance ?? null,
       })
     })
   }, () => stopped)

@@ -137,10 +137,15 @@ describe('Design 1 contents', () => {
     fireEvent.click(screen.getByRole('button',{name:'Open passage'}))
     expect(p.onOpenPassage).toHaveBeenCalledWith({chapterNumber:44,paragraphIndex:1,wordIndex:0})
   })
-  it('waits for the real chapter manifest and resets ancestry when the book changes', () => {
+  it('waits for the real chapter manifest and resets ancestry when the book changes', async () => {
     const p = props()
     const {rerender} = render(<LabContentsV2 {...p} chaptersReady={false} />)
-    expect(screen.getByText('Loading contents…')).toBeTruthy()
+    // The wait is the reader's ring (LabWait, after its moment); "Loading contents…" stays for screen readers only.
+    const loading = screen.getByTestId('lab-contents-loading')
+    expect(loading.getAttribute('role')).toBe('status')
+    await waitFor(() => expect(screen.getByText('Loading contents…')).toBeTruthy())
+    expect(screen.getByText('Loading contents…').className).toBe('lab-visually-hidden')
+    expect(loading.querySelector('svg.lab-audio-spinner')).not.toBeNull()
     expect(screen.queryByTestId('lab-tree-chapter-44')).toBeNull()
     rerender(<LabContentsV2 {...p} />)
     expect(screen.getByTestId('lab-tree-chapter-44')).toBeTruthy()

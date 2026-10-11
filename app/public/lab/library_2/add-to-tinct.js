@@ -179,7 +179,8 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  const progress=value=>{
   box.dataset.busy='1';
   if(box.dataset.step!=='progress'){
-   const status=make('p','tui-dialog__body own-file-status');status.setAttribute('role','status');status.append(make('span','tui-spinner'),make('span','',OWN_BOOK_COPY.opening));
+   // The reader's ring in the pop-up's own line (wait-ring.js); "Opening…" stays for screen readers only.
+   const status=make('p','tui-dialog__body own-file-status');status.append(globalThis.TinctWait.waitRing(OWN_BOOK_COPY.opening,{size:18}));
    const bar=make('span','own-file-progress');bar.setAttribute('aria-hidden','true');bar.append(make('i'));
    step('progress',status,bar,make('p','tui-dialog__fine own-file-note'));
   }
@@ -727,29 +728,24 @@ export function renderSearchGroups(box,{query,tinct,tinctBooks,renderTinct,el,on
 export const ADD_STEPS=['start','download','convert','publish'];
 /** How far along a step is, for the hairline under the row (never 0 or 1 while it runs). */
 export const addProgress=stage=>[.08,.34,.67,.9][Math.max(0,ADD_STEPS.indexOf(stage))];
-const SVG='http://www.w3.org/2000/svg';
-function spinner(){
- const svg=document.createElementNS(SVG,'svg');svg.setAttribute('class','add-spinner');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('width','15');svg.setAttribute('height','15');svg.setAttribute('fill','none');svg.setAttribute('aria-hidden','true');
- // The reader's loading arc (LoadingIcon in src/lab/LabReaderIcons.tsx).
- const arc=document.createElementNS(SVG,'path');arc.setAttribute('d','M12 3a9 9 0 1 1-8.1 5.1');arc.setAttribute('stroke','currentColor');arc.setAttribute('stroke-width','2.4');arc.setAttribute('stroke-linecap','round');svg.append(arc);return svg;
-}
+/** Each busy Add's wait (wait-ring.js waitOn), restored when its import ends. */
+const addWaits=new WeakMap();
 /**
  * One Add while its import runs (`stage` one of ADD_STEPS), or back to "Add" (`stage` null).
- * Busy: a spinner in the button's own size, aria-busy, disabled, the row dimmed, and a hairline
- * across the row's foot for the step it is on.
+ * Busy: the reader's ring in the button's own size after a moment (the existing "Adding…" for
+ * screen readers only), aria-busy, disabled, the row dimmed, and a hairline across the row's
+ * foot for the step it is on.
  */
 export function setAddBusy(button,stage){
  if(!button)return;
  const row=button.closest('.free-row');
  if(stage===null||stage===undefined){
-  button.disabled=false;button.removeAttribute('aria-busy');button.classList.remove('is-busy');button.style.removeProperty('width');button.textContent='Add';
+  button.disabled=false;button.classList.remove('is-busy');addWaits.get(button)?.();addWaits.delete(button);button.removeAttribute('aria-busy');
   if(row){row.classList.remove('is-adding');row.removeAttribute('aria-busy');row.querySelector(':scope > .free-progress')?.remove();}
   return;
  }
  if(!button.classList.contains('is-busy')){
-  const width=button.offsetWidth;if(width)button.style.width=width+'px';
-  const label=document.createElement('span');label.className='sr-only';label.textContent='Adding…';
-  button.replaceChildren(spinner(),label);button.classList.add('is-busy');
+  addWaits.set(button,globalThis.TinctWait.waitOn(button,'Adding…',{size:15}));button.classList.add('is-busy');
  }
  button.disabled=true;button.setAttribute('aria-busy','true');
  if(!row)return;

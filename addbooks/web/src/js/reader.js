@@ -179,11 +179,19 @@ async function accountCopySent() {
 // this browser's copy and converts it to Tinct's own pages. Here: refuse what it cannot
 // open (DRM, not an EPUB), name the book on the shelf, and send the account copy before
 // leaving the page (bounded: a slow upload finishes on the next open).
+// A wait in the column: the reader's ring in the status block's own box (wait-ring.js, after its
+// moment), the wording ("Opening…") for screen readers only. Errors keep their text (role="alert").
+function waitStatus(label) {
+  const box = document.createElement('div'); box.className = 'pdf-status';
+  box.append(TinctWait.waitRing(label, { size: 21 }));
+  $('column').replaceChildren(box);
+  return box;
+}
 async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
   const token = ++state.token;
   showReader();
   closeAllPopups();
-  $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
+  waitStatus('Opening…');
   let opened;
   try { opened = await engine.prepareEpub(bytes, name, key, upload, { quiet, notify: toast }) }
   catch (e) { if (token === state.token) $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e.message)}</div>`; return }
@@ -225,7 +233,7 @@ addEventListener('pageshow', () => { leavingToShelf = false });
 async function openFromUrl(hex) {
   if (needsAccount()) return false;
   showReader();
-  $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
+  waitStatus('Opening…');
   for (const kind of ['pdf', 'epub']) if (await library.get(kind + ':' + hex)) return openStored(kind + ':' + hex);
   await cloud.refresh();
   for (const kind of ['pdf', 'epub']) if (cloud.get(kind + ':' + hex)) return openStored(kind + ':' + hex);
@@ -273,9 +281,9 @@ window.TinctReader = { chooseFile, openStored, openFromUrl, urlHex, close: close
 async function openEpub(bytes, name, key) {
   const token = ++state.token;
   closeAllPopups();
-  $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
+  waitStatus('Opening…');
   let book;
-  try { book = await TinctEpub.parse(bytes, { fallbackTitle: name.replace(/\.epub$/i, ''), onProgress: f => { const s = $('column').querySelector('.pdf-status'); if (s) s.textContent = `Opening… ${Math.round(f * 100)}%` } }) }
+  try { book = await TinctEpub.parse(bytes, { fallbackTitle: name.replace(/\.epub$/i, ''), onProgress: f => { $('column').querySelector('.pdf-status .tinct-wait')?.setLabel(`Opening… ${Math.round(f * 100)}%`) } }) }
   catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
   state.pdf?.destroy?.(); state.observer?.disconnect();
@@ -320,7 +328,7 @@ $('column').addEventListener('click', e => {
 async function openPdf(bytes, name, key) {
   const token = ++state.token;
   closeAllPopups();
-  $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>';
+  waitStatus('Opening…');
   // Asked while the file opens: a place read later on another device of the account.
   const synced = placeSync.reconcile(key);
   let pdf;
@@ -1710,7 +1718,7 @@ async function explain(pop) {
   pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-label', 'Explain this passage'); pop.dataset.readerWindow = 'true';
   pop.innerHTML = `<section class="lab-contextual-explain" aria-label="Explanation">
     <header class="lab-reader-window-head"><span class="lab-reader-window-title" aria-hidden="true"></span><button type="button" class="lab-window-control" aria-label="Close explanation">×</button></header>
-    <div class="lab-contextual-explain-scroll"><div role="status" aria-live="polite" aria-busy="true"><p class="lab-ask-pending">Thinking…</p></div></div>
+    <div class="lab-contextual-explain-scroll"><div role="status" aria-live="polite" aria-busy="true"><p class="lab-ask-pending"></p></div></div>
     <footer>
       <button class="lab-contextual-explain-tool" type="button" data-t="chat" aria-label="Chat about this explanation" disabled>${ICON.chat}</button>
     </footer></section>`;
@@ -1718,6 +1726,8 @@ async function explain(pop) {
   makeWindow(pop, pop.querySelector('.lab-reader-window-head'), 'explain');
   pop.querySelector('.lab-window-control').onclick = () => { hideSelection(); getSelection().removeAllRanges() };
   const out = pop.querySelector('[role="status"]');
+  // The reader's ring while the answer has not begun (the status block is the live region); "Thinking…" for screen readers only.
+  out.firstElementChild.append(TinctWait.waitRing('Thinking…', { size: 18, live: false }));
   const s = await ai();
   if (!s) { out.innerHTML = `<p class="byob-ai-off">${AI_OFF}</p>`; out.setAttribute('aria-busy', 'false'); return }
   const ctl = new AbortController(); pop._ctl = ctl;
@@ -2633,6 +2643,6 @@ if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => {};
 if (window.TinctAI) TinctAI.onSignedOut = () => toast('Your Tinct sign-in has expired, so this answer used the guest allowance. Sign in again to use your own.');
 document.body.dataset.view = 'start';
 // A book's own address opens straight into the reader (start.js boot opens the book).
-if (urlHex()) { $('start').hidden = true; showReader(); $('column').innerHTML = '<div class="pdf-status" role="status">Opening…</div>' }
+if (urlHex()) { $('start').hidden = true; showReader(); waitStatus('Opening…') }
 if (location.hash === '#read') history.replaceState(null, '', location.pathname + location.search);
 window.dispatchEvent(new Event('tinct-reader-ready'));

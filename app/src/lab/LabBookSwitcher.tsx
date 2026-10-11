@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import type { QuickBookRow } from '../preReader/quickBookSwitcher'
+import { LabWait } from './LabWait'
 import { paperCoverUrl } from '../../public/lab/book-cover.js'
 import { shortTitle } from '../../public/lab/book-title.js'
 
@@ -94,7 +95,7 @@ export function LabBookSwitcher({ current, rows, loading, error, onClose, onSele
             {isActive && <span className="lab-book-switcher-check" aria-hidden="true">✓</span>}
           </button>
         })}
-        {loading && ordered.length === 0 && <p className="lab-book-switcher-status">Loading your books…</p>}
+        {loading && ordered.length === 0 && <p className="lab-book-switcher-status"><LabWait label="Loading your books…" size={18} testId="lab-book-switcher-loading" /></p>}
         {error && <p className="lab-book-switcher-status" role="status">{error}</p>}
       </div>
       <button type="button" className="lab-book-switcher-library" onClick={onLibrary}><svg className="lab-book-switcher-library-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16 5l3-1 4 15-3 1z" /></svg><span>Library</span><span className="lab-book-switcher-library-arrow" aria-hidden="true">→</span></button>
