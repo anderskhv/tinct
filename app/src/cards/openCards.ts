@@ -123,8 +123,8 @@ function load(env: CardsEnv, social: boolean): void {
   const set = (patch: Partial<CardsData>) => {
     Object.assign(env.data, patch)
     if (cached?.userId === userId) cached.data = env.data
-    const { profile, reading, rank, plan, billing } = env.data
-    writeCardsCache(userId, { profile, reading, rank, plan, billing: billing === true })
+    const { profile, reading, rank, plan, billing, allowance } = env.data
+    writeCardsCache(userId, { profile, reading, rank, plan, billing: billing === true, allowance: allowance ?? null })
     env.changed()
   }
   const settled = (part: 'profile' | 'reading') => ({ ...env.data.loading, [part]: false })

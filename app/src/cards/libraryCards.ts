@@ -29,15 +29,20 @@ function signedIn(): boolean {
 }
 
 let opening = false
+let openingTimer: number | null = null
+/** No tap is ever swallowed for good: an open that never settles stops counting as in progress after this. */
+const OPENING_MS = 8000
 
 function open(start: CardName = 'you'): void {
   if (opening) return
   opening = true
+  if (openingTimer) window.clearTimeout(openingTimer)
+  openingTimer = window.setTimeout(() => { opening = false }, OPENING_MS)
   void openAccountCards({ start, dark: true, deskTop: 68 }).then(opened => {
     if (!opened) location.assign(`/sign-in?returnTo=${encodeURIComponent(cardUrl(start))}`)
   }).catch(error => {
     console.error('account cards: could not open', error)
-  }).finally(() => { opening = false })
+  }).finally(() => { opening = false; if (openingTimer) { window.clearTimeout(openingTimer); openingTimer = null } })
 }
 
 /**
