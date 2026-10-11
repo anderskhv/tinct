@@ -3,6 +3,10 @@
 /* Audio preparation stays inside the existing Play button. */
 .lab-audio-spinner { flex: none; animation: lab-narration-spin .9s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .lab-audio-spinner { animation: none; } }
+/* The one wait indicator (LabWait.tsx): the Play button's ring, in the area that is loading. It holds
+   the ring's box from the start so nothing jumps when the ring appears after its delay. */
+.lab-wait { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; min-width: var(--lab-wait-size, 21px); min-height: max(var(--lab-wait-size, 21px), 1.4em); color: inherit; }
+.lab-wait .lab-audio-spinner { display: block; width: var(--lab-wait-size, 21px); height: var(--lab-wait-size, 21px); }
 .lab-narration-inline { pointer-events: auto; display: flex; justify-content: center; align-items: center; gap: 8px; padding: 4px 16px; color: var(--lab-ink-muted); font: 13px/1.35 system-ui, sans-serif; }
 .lab-narration-inline span { min-width: 0; }
 .lab-narration-inline button { flex: none; border: 0; padding: 8px 4px; background: transparent; color: var(--lab-ink); font: inherit; text-decoration: underline; cursor: pointer; }
@@ -4349,6 +4353,14 @@
   cursor: pointer;
 }
 html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
+
+/* An own book opening: the page is what loads, so the ring sits on the paper alone (UserBookReader). */
+.lab-reader-load-wait {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  color: var(--lab-ink-muted, #6a6256);
+}
 
 .lab-reader-load-error {
   position: absolute;

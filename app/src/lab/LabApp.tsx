@@ -18,6 +18,7 @@ import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
 import { LabFootnote, type OpenFootnote } from './LabFootnote'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
+import { LabWait } from './LabWait'
 import { LabChapterEnd } from './LabChapterEnd'
 import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
@@ -5501,7 +5502,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {listen.narration.status === 'loading' && listen.narration.waiting && listen.pending && <div className="lab-narration-inline" role="status" data-testid="lab-narration-preparing">
-        <span>{LAB_COPY.preparingNarration}</span>
+        {/* The ring the Play button shows, in the row; "Preparing narration…" stays for screen readers. */}
+        <LabWait label={LAB_COPY.preparingNarration} size={18} live={false} testId="lab-narration-preparing-wait" />
         <button type="button" data-testid="lab-narration-cancel" onClick={listen.pause}>Cancel</button>
       </div>}
       {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && listen.narration.reason !== 'own_book_premium' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">

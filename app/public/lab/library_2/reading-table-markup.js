@@ -5,7 +5,7 @@ import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { ownCoverImage, paperCoverUrl, paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 import { shortTitle } from '../book-title.js?v=20261009owncover';
 import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel10';
-import { depthRatio } from './table-layout.js?v=20261010flash';
+import { depthRatio } from './table-layout.js?v=20261011wait';
 
 export const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
