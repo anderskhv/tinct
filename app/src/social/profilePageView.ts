@@ -139,7 +139,7 @@ export const PROFILE_PAGE_CSS = `
 @media (prefers-color-scheme:dark){:root{--ground:#000;--cell:#1c1c1c;--ink:#f5f5f5;--sec:#8d8d8d;--ter:#5a5a5a;--sep:#2c2c2c;--track:#333;--fill:#f5f5f5;color-scheme:dark}}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--ground);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
 .profile{max-width:440px;margin:0 auto;padding-bottom:calc(32px + env(safe-area-inset-bottom));position:relative;overflow:hidden}
-.banner{position:relative;height:106px;background:var(--scene,none) center 45%/cover;background-color:#3a3a3a}
+.banner{position:relative;height:106px;background:var(--scene,none) center 70%/cover;background-color:#3a3a3a}
 .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 50%)}
 .top{position:absolute;top:calc(16px + env(safe-area-inset-top));left:16px;z-index:2}
 .top .back{width:32px;height:32px;border-radius:50%;background:var(--disc);color:#0a0a0a;display:grid;place-items:center;text-decoration:none}

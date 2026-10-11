@@ -246,17 +246,17 @@ export interface PictureSet {
   /** The cover the round picture is cut from, and the detail shown. */
   cover: string
   pos: string
-  /** The library scene used as the profile banner. */
-  scene: string
+  /** The profile background: the room of the library scene, cut above its table (10 Oct 2026). */
+  room: string
 }
 
 /** Sets pair a picture and a background from the same book (flows.html). */
 export const PICTURE_SETS: readonly PictureSet[] = [
-  { id: 'stoic', label: 'Stoic', bookId: 'meditations', cover: `${ASSETS}/meditations.jpg`, pos: '50% 34%', scene: `${ASSETS}/scene-meditations-phone.jpg` },
-  { id: 'at-sea', label: 'At sea', bookId: 'odyssey', cover: `${ASSETS}/odyssey.jpg`, pos: '30% 60%', scene: `${ASSETS}/scene-odyssey-phone.jpg` },
-  { id: 'florence', label: 'Florence', bookId: 'the-prince', cover: `${ASSETS}/the-prince.jpg`, pos: '40% 55%', scene: `${ASSETS}/scene-the-prince-phone.jpg` },
-  { id: 'petersburg', label: 'Petersburg', bookId: 'crime-and-punishment', cover: `${ASSETS}/crime-and-punishment.jpg`, pos: '50% 38%', scene: `${ASSETS}/scene-crime-and-punishment-phone.jpg` },
-  { id: 'longbourn', label: 'Longbourn', bookId: 'pride-and-prejudice', cover: `${ASSETS}/pride-and-prejudice.jpg`, pos: '50% 32%', scene: `${ASSETS}/scene-pride-and-prejudice-phone.jpg` },
+  { id: 'stoic', label: 'Stoic', bookId: 'meditations', cover: `${ASSETS}/meditations.jpg`, pos: '50% 34%', room: `${ASSETS}/room-meditations-phone.jpg` },
+  { id: 'at-sea', label: 'At sea', bookId: 'odyssey', cover: `${ASSETS}/odyssey.jpg`, pos: '30% 60%', room: `${ASSETS}/room-odyssey-phone.jpg` },
+  { id: 'florence', label: 'Florence', bookId: 'the-prince', cover: `${ASSETS}/the-prince.jpg`, pos: '40% 55%', room: `${ASSETS}/room-the-prince-phone.jpg` },
+  { id: 'petersburg', label: 'Petersburg', bookId: 'crime-and-punishment', cover: `${ASSETS}/crime-and-punishment.jpg`, pos: '50% 38%', room: `${ASSETS}/room-crime-and-punishment-phone.jpg` },
+  { id: 'longbourn', label: 'Longbourn', bookId: 'pride-and-prejudice', cover: `${ASSETS}/pride-and-prejudice.jpg`, pos: '50% 32%', room: `${ASSETS}/room-pride-and-prejudice-phone.jpg` },
 ]
 
 /** Library covers a picture can be cut from (a cover detail). */
@@ -266,7 +266,7 @@ export const COVER_BOOK_IDS: readonly string[] = [
   'pride-and-prejudice', 'the-awakening', 'the-prince', 'the-republic', 'to-the-lighthouse',
 ]
 
-export const LIBRARY_BACKGROUND = `${ASSETS}/table-night-phone.jpg`
+export const LIBRARY_BACKGROUND = `${ASSETS}/room-library-night.jpg`
 
 export function pictureSet(id: unknown): PictureSet | null {
   return PICTURE_SETS.find(set => set.id === id) ?? null
@@ -311,7 +311,7 @@ export function pictureView(kind: PictureKind, value: string | null, name: strin
 export function backgroundView(kind: BackgroundKind, value: string | null, imageUrl?: string | null): { src: string; private?: boolean } {
   if (kind === 'set') {
     const set = pictureSet(value)
-    if (set) return { src: set.scene }
+    if (set) return { src: set.room }
   }
   if (kind === 'upload' && imageUrl) return { src: imageUrl, private: true }
   return { src: LIBRARY_BACKGROUND }
