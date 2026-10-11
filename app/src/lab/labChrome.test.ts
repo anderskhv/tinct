@@ -94,6 +94,11 @@ describe('lab visual viewport height', () => {
     expect(labVisualViewportHeightPx(undefined, 844)).toBe(844)
     expect(labVisualViewportHeightPx(0, 390)).toBe(390)
     expect(labVisualViewportHeightPx()).toBe(0)
+    // A shorter visual viewport with nothing to type into and no zoom is stale (iOS after a checkout): the window's height wins.
+    expect(labVisualViewportHeightPx(600, 844, { textEntryFocused: false, scale: 1 })).toBe(844)
+    expect(labVisualViewportHeightPx(600, 844, { textEntryFocused: true, scale: 1 })).toBe(600)
+    expect(labVisualViewportHeightPx(600, 844, { textEntryFocused: false, scale: 1.8 })).toBe(600)
+    expect(labVisualViewportHeightPx(844, 844, { textEntryFocused: false, scale: 1 })).toBe(844)
   })
 })
 
@@ -121,6 +126,31 @@ describe('lab keyboard pan reset', () => {
     expect(labShouldResetViewportPan({ textEntryFocused: true })).toBe(false)
   })
 
+  it('measures the height again when the page comes back to the front, and takes the window over a stale shorter visual viewport', () => {
+    document.body.innerHTML = '<div id="host"></div>'
+    const host = document.getElementById('host') as HTMLElement
+    const viewport = { height: 600, offsetTop: 0, scale: 1, addEventListener: vi.fn(), removeEventListener: vi.fn() }
+    const original = window.visualViewport
+    const innerHeight = Object.getOwnPropertyDescriptor(window, 'innerHeight')
+    Object.defineProperty(window, 'visualViewport', { configurable: true, value: viewport })
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 600 })
+    try {
+      const unbind = bindLabVisualViewportHeight(host)
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('600px')
+      // Back from a checkout: the window is tall again, the visual viewport still says 600 and no resize came.
+      Object.defineProperty(window, 'innerHeight', { configurable: true, value: 844 })
+      document.dispatchEvent(new Event('visibilitychange'))
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('844px')
+      unbind()
+      document.dispatchEvent(new Event('visibilitychange'))
+      expect(host.style.getPropertyValue('--lab-vvh')).toBe('')
+    } finally {
+      Object.defineProperty(window, 'visualViewport', { configurable: true, value: original })
+      if (innerHeight) Object.defineProperty(window, 'innerHeight', innerHeight)
+      else Reflect.deleteProperty(window, 'innerHeight')
+    }
+  })
+
   it('scrolls the window back to the top when Safari pans the focused composer under the URL bar', () => {
     document.body.innerHTML = '<div id="host"></div><input id="ask" type="text">'
     const host = document.getElementById('host') as HTMLElement
@@ -128,6 +158,7 @@ describe('lab keyboard pan reset', () => {
     const viewport = {
       height: 400,
       offsetTop: 444,
+      scale: 1.9, // pinch-zoomed: the shorter visual viewport is real
       addEventListener: (type: string, fn: () => void) => { listeners.set(type, fn) },
       removeEventListener: (type: string) => { listeners.delete(type) },
     }
