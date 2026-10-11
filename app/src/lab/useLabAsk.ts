@@ -1003,7 +1003,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         // The Worker builds the prompt and the question from this context.
         body: JSON.stringify({
           stream: true,
-          companion: { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text } satisfies CompanionRequest,
+          companion: { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
         }),
       })
       if (!response.ok) throw new LabChatError(await labChatErrorType(response))

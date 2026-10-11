@@ -3454,9 +3454,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     return () => observer.disconnect()
   }, [selectionPopup?.x, selectionPopup?.y, selectionPopup?.showBelow, popupMode, noteInput])
 
-  // Explain is fetched on speculation the moment a selection settles under
-  // the finger, so the opener is usually there before Explain is tapped. It
-  // is never charged; the tap is. A dismissed popup drops the fetch.
+  // Explain is fetched on speculation once a selection has settled under the
+  // finger for a moment, so the opener is usually there before Explain is
+  // tapped. The Worker meters it as explain_speculative, outside every
+  // allowance (11 Oct 2026); a dismissed popup drops the fetch.
   const speculateExplanation = useCallback((text: string, paragraphIndex: number, comparison: boolean, context?: { chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) => {
     if (text.trim().split(/\s+/).length < 2) return
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
@@ -3475,14 +3476,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     selectingTimerRef.current = window.setTimeout(() => {
       selectingTimerRef.current = null
       speculateExplanation(range.text, range.paragraphIndex, mobileCompareActive)
-    }, 400)
+    }, 700)
   }, [mobileCompareActive, phoneAskOpen, speculateExplanation])
   useEffect(() => () => { if (selectingTimerRef.current) window.clearTimeout(selectingTimerRef.current) }, [])
   useEffect(() => {
     // Desktop native selection never reports in progress; the popup opening is its settle.
     if (!selectionPopup || selectionPopup.existingHighlightId) return
     const editionKey = selectionPopup.editionKey || readerEditionKey
-    const timer = window.setTimeout(() => speculateExplanation(selectionPopup.text, selectionPopup.paragraphIndex, editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition, selectionPopup), 180)
+    const timer = window.setTimeout(() => speculateExplanation(selectionPopup.text, selectionPopup.paragraphIndex, editionKey === prefs.compareEdition && editionKey !== prefs.primaryEdition, selectionPopup), 500)
     return () => window.clearTimeout(timer)
   }, [selectionPopup, readerEditionKey, prefs.compareEdition, prefs.primaryEdition, speculateExplanation])
 
