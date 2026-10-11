@@ -1,6 +1,6 @@
 import { rowFor, pageItems } from './shelf-study/shelves.js?v=3';
 import { bookshelfMarkup } from './bookshelf-template.js?v=20260928f';
-import { bindingFor } from './reading-table.js?v=20261011crop';
+import { bindingFor } from './reading-table.js?v=20261011owntable';
 import { bookCoverSrc, ownCoverImage, paperCoverUrl } from '../book-cover.js?v=20261009owncover';
 import { shortTitle } from '../book-title.js?v=20261009owncover';
 import { recordRects, playFlip } from './shelf-motion.js?v=20261009cover';
