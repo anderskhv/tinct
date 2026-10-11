@@ -13,6 +13,9 @@ vi.mock('../services/supabase', () => ({
   supabase: { auth: { storageKey: 'sb-test-auth-token', getSession: () => getSession(), signOut: vi.fn() } },
 }))
 
+const tracked: Array<[string, Record<string, unknown> | undefined]> = []
+vi.mock('../utils/funnel', () => ({ trackFunnel: (name: string, props?: Record<string, unknown>) => { tracked.push([name, props]) } }))
+
 const USER = '11111111-1111-4111-8111-111111111111'
 
 function storeSession(expiresInSeconds: number) {
@@ -24,6 +27,7 @@ function storeSession(expiresInSeconds: number) {
 
 beforeEach(() => {
   localStorage.clear()
+  tracked.length = 0
   document.documentElement.className = ''
   document.body.innerHTML = '<header id="header"><nav><button id="search-toggle"></button><button id="sign-in" class="sign-in">Account</button></nav></header>'
   vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(() => {})))
@@ -95,6 +99,48 @@ describe('the library picture', () => {
     await new Promise(resolve => setTimeout(resolve, 0))
     expect(document.querySelector('.tc-card[data-card="you"]')).toBeTruthy()
     expect(libraryHandler).toBe(0)
+  })
+
+  it('reports an open that cannot settle, and never sends a browser that holds a session to sign in', async () => {
+    vi.useFakeTimers()
+    try {
+      vi.resetModules()
+      // A session this browser holds but the cards cannot read (malformed), and a getSession that never answers.
+      localStorage.setItem('sb-test-auth-token', '{broken')
+      document.documentElement.classList.add('signed-in')
+      const assign = vi.fn()
+      vi.stubGlobal('location', { ...location, assign, href: 'https://tinct.app/library', search: '', pathname: '/library', origin: 'https://tinct.app' })
+      const { accountButtonTap } = await import('./libraryCards')
+      expect(accountButtonTap(new MouseEvent('click'))).toBe(false)
+      document.querySelector('nav')!.innerHTML = '<button id="sign-in" class="sign-in cards-you"><span class="tinct-avatar"></span></button>'
+      document.querySelector<HTMLElement>('#sign-in .tinct-avatar')!.click()
+      await vi.advanceTimersByTimeAsync(2600)
+      // (Each import in this file binds its own document listener, so one tap may open more than once here.)
+      const phases = () => [...new Set(tracked.map(([name, props]) => `${name}:${String(props?.phase)}`))]
+      expect(phases()).toEqual(['cards_open_stuck:await'])
+      await vi.advanceTimersByTimeAsync(4100)
+      expect(phases()).toEqual(['cards_open_stuck:await', 'cards_open_stuck:no-session'])
+      expect(tracked.find(([, props]) => props?.phase === 'no-session')?.[1]).toMatchObject({ key: true, raw: true, parsed: false, fresh: false, native: false })
+      expect(assign).not.toHaveBeenCalled()
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
+  it('finds the session under the default key when the client does not name one', async () => {
+    vi.resetModules()
+    const { supabase } = await import('../services/supabase')
+    const auth = supabase!.auth as unknown as { storageKey?: string }
+    const key = auth.storageKey
+    delete auth.storageKey
+    try {
+      localStorage.setItem('sb-abc123-auth-token', JSON.stringify({ access_token: 't', expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: USER, email: 'a@example.com' } }))
+      const { storedSession, sessionStorageState } = await import('./openCards')
+      expect(storedSession()?.session.userId).toBe(USER)
+      expect(sessionStorageState()).toEqual({ key: true, raw: true, parsed: true, fresh: true, native: false })
+    } finally {
+      auth.storageKey = key
+    }
   })
 
   it('signed out, the tap is the library\'s (sign in)', async () => {
