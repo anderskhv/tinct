@@ -10,7 +10,8 @@ import type { OwnProfile } from '../social/socialClient'
 import type { ReadingLoad } from './cardsApi'
 
 export const CARDS_CACHE_PREFIX = 'tinct:account-cards:'
-const VERSION = 1
+// 2: the allowance joined the cache (11 Oct 2026); older entries are dropped rather than trusted.
+const VERSION = 2
 
 export interface CardsCache {
   profile: OwnProfile | null
@@ -46,6 +47,12 @@ export function readCardsCache(userId: string | null): CardsCache | null {
   } catch {
     return null
   }
+}
+
+/** Forget this account's cached cards (a cache the cards could not paint from is dropped, not kept). */
+export function clearCardsCache(userId: string | null): void {
+  if (!userId) return
+  try { storage()?.removeItem(CARDS_CACHE_PREFIX + userId) } catch { /* nothing to drop */ }
 }
 
 export function writeCardsCache(userId: string | null, data: CardsCache): void {

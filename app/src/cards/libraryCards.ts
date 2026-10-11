@@ -12,7 +12,7 @@ import { supabase } from '../services/supabase'
 import { fetchOwnProfile, ownPictureView, paintAvatar, saveProfile, currentBookHint } from '../social/socialClient'
 import { cardUrl } from './cardRoutes'
 import { consumeCardParam, openAccountCards, storedSession, type CardName } from './openCards'
-import { readCardsCache } from './cardsCache'
+import { clearCardsCache, readCardsCache } from './cardsCache'
 
 const STYLE = `
 #sign-in.cards-you{display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;padding:0;border-radius:50%;background:transparent;border:0}
@@ -38,11 +38,16 @@ function open(start: CardName = 'you'): void {
   opening = true
   if (openingTimer) window.clearTimeout(openingTimer)
   openingTimer = window.setTimeout(() => { opening = false }, OPENING_MS)
-  void openAccountCards({ start, dark: true, deskTop: 68 }).then(opened => {
+  const attempt = (retrying: boolean): Promise<void> => openAccountCards({ start, dark: true, deskTop: 68 }).then(opened => {
     if (!opened) location.assign(`/sign-in?returnTo=${encodeURIComponent(cardUrl(start))}`)
   }).catch(error => {
     console.error('account cards: could not open', error)
-  }).finally(() => { opening = false; if (openingTimer) { window.clearTimeout(openingTimer); openingTimer = null } })
+    // A device cache the cards cannot paint from is dropped, and the open is tried once more without it.
+    if (retrying) return
+    clearCardsCache(storedSession()?.session.userId ?? null)
+    return attempt(true)
+  })
+  void attempt(false).finally(() => { opening = false; if (openingTimer) { window.clearTimeout(openingTimer); openingTimer = null } })
 }
 
 /**
