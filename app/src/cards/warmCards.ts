@@ -22,7 +22,10 @@ import { storedSession } from './openCards'
 export function warmAccountCards(): void {
   if (!networkSpare()) return
   let stopped = false
-  window.addEventListener('pagehide', () => { stopped = true }, { once: true })
+  // Ends at navigation start (beforeunload), before WebKit refuses new requests (see libraryPreviewWarmup).
+  const stop = () => { stopped = true }
+  window.addEventListener('beforeunload', stop, { once: true })
+  window.addEventListener('pagehide', stop, { once: true })
   whenReaderSettled(() => {
     const stored = storedSession()
     if (!stored?.fresh || stopped) return

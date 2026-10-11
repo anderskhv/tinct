@@ -45,7 +45,7 @@ describe('library first paint: the module graph is fetched with the page', () =>
     const css = read('lab/library_2/bookshelf.css')
     expect(css).not.toContain('html.returning-pending #hero{visibility:hidden}')
     expect(css).toContain('html.returning-pending #hero>:not(.reading-table){visibility:hidden}')
-    expect(css).toContain('html.returning-scene-pending[data-returning-view=table] #hero,html.returning-pending[data-returning-view=table] #hero,html.returning[data-returning-view=table] #hero{background:#10150f var(--initial-scene) var(--initial-scene-position,center)/var(--initial-scene-size,cover) no-repeat}')
+    expect(css).toContain('html.returning-scene-pending[data-returning-view=table] #hero,html.returning-pending[data-returning-view=table] #hero,html.returning[data-returning-view=table] #hero{background:var(--initial-scene-colour,#10150f) var(--initial-scene) var(--initial-scene-position,center)/var(--initial-scene-size,cover) no-repeat}')
     expect(css).toContain('html[data-returning-view=table] .bookshelf-loading:not(:has(p)){background:transparent}')
   })
   it('shelf covers wait for the desk while it is pending, and never wait forever', () => {
@@ -78,6 +78,16 @@ describe('library first paint: boot.js preloads the shown book', () => {
     expect(localStorage.setItem).not.toHaveBeenCalled()
     return { appended, images: appended.filter(el => el.rel === 'preload' && el.as === 'image').map(el => el.href), document }
   }
+
+  it('gives the pending hero the room\'s own colour under the painting (returning reader), never for a book link or the shelf', () => {
+    const hour = new Date().getHours()
+    const room = hour >= 6 && hour < 12 ? 'morning' : hour >= 12 && hour < 17 ? 'afternoon' : hour >= 17 && hour < 21 ? 'evening' : 'night'
+    const colour = { morning: '#352619', afternoon: '#2d1e15', evening: '#2d1709', night: '#21150f' }[room]
+    const set = (calls: unknown[][]) => calls.find(([name]) => name === '--initial-scene-colour')?.[1]
+    expect(set(boot({ signedCookie: true }).document.documentElement.style.setProperty.mock.calls)).toBe(colour)
+    expect(set(boot({ signedCookie: true, view: 'shelf' }).document.documentElement.style.setProperty.mock.calls)).toBeUndefined()
+    expect(set(boot({ signedCookie: false, user: null }).document.documentElement.style.setProperty.mock.calls)).toBeUndefined()
+  })
   const record = { v: 1, owner: 'reader-a', bookId: 'frankenstein', cover: '/lab/library_2/assets/frankenstein.jpg', spine: 'green' }
 
   it('fetches the shown book\'s cover and spine texture with the page for the same account', () => {
@@ -250,7 +260,7 @@ describe('library first paint: the desk model is the table the device will paint
     expect(css).toContain('.reading-table.is-ready .rt-remove{animation:table-arrive .24s ease-out backwards}')
     expect(css).toContain('html.library-ready #librarian{animation:orb-arrive .3s ease-out backwards}')
     const shelf = read('lab/library_2/bookshelf.css')
-    expect(shelf).toContain('html.returning[data-returning-view=table] #hero{background:#10150f var(--initial-scene) var(--initial-scene-position,center)/var(--initial-scene-size,cover) no-repeat}')
+    expect(shelf).toContain('html.returning[data-returning-view=table] #hero{background:var(--initial-scene-colour,#10150f) var(--initial-scene) var(--initial-scene-position,center)/var(--initial-scene-size,cover) no-repeat}')
     expect(shelf).toContain('html.returning-pending[data-returning-view=table] #library #shelves{margin:25px 0 0;padding-top:0}')
     // The scene crop reads whichever stage stands, the placeholder's or the table's.
     expect(read('lab/library_2/app.js')).toContain("const stage=document.querySelector('.rt-stage'),hero=$('hero')")
