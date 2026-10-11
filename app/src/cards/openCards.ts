@@ -63,15 +63,42 @@ function toCardsSession(session: StoredAuthSession | null | undefined): CardsSes
   return { token: session.access_token, userId: typeof session.user?.id === 'string' ? session.user.id : null, email: typeof session.user?.email === 'string' ? session.user.email : null, accountName: named }
 }
 
-/** Supabase's own answer. It can wait a long time (or for ever) behind a token refresh stuck in its lock, e.g. on iPhone Safari after the page was suspended. */
+/** How long Supabase's own answer is waited for before the open gives up (its lock can hold for ever on iPhone Safari). */
+export const LIVE_SESSION_WAIT_MS = 4000
+
+/** Supabase's own answer, or null once LIVE_SESSION_WAIT_MS has passed: it can wait a long time (or for ever) behind a token refresh stuck in its lock, e.g. on iPhone Safari after the page was suspended. */
 async function readSession(): Promise<CardsSession | null> {
   if (!supabase) return null
   try {
-    const { data } = await supabase.auth.getSession()
-    return toCardsSession(data.session as StoredAuthSession | null)
+    const answer = supabase.auth.getSession().then(({ data }) => toCardsSession(data.session as StoredAuthSession | null))
+    const late = new Promise<null>(resolve => setTimeout(() => resolve(null), LIVE_SESSION_WAIT_MS))
+    return await Promise.race([answer, late])
   } catch {
     return null
   }
+}
+
+/** The configured session key, else the default `sb-<ref>-auth-token` this browser holds, if any. */
+function sessionStorageKey(): string | null {
+  const key = (supabase?.auth as unknown as { storageKey?: unknown })?.storageKey
+  if (typeof key === 'string' && key) return key
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const name = localStorage.key(i)
+      if (name && /^sb-[a-z0-9]+-auth-token$/.test(name)) return name
+    }
+  } catch { /* storage blocked */ }
+  return null
+}
+
+/** What the open path can see of the session in this browser, as booleans only (for the funnel; never the token). */
+export function sessionStorageState(): { key: boolean; raw: boolean; parsed: boolean; fresh: boolean; native: boolean } {
+  const native = isNativeCapacitor()
+  const key = sessionStorageKey()
+  let raw: string | null = null
+  try { raw = key ? localStorage.getItem(key) : null } catch { raw = null }
+  const stored = storedSession()
+  return { key: Boolean(key), raw: Boolean(raw), parsed: stored !== null, fresh: Boolean(stored?.fresh), native }
 }
 
 /**
@@ -83,8 +110,8 @@ async function readSession(): Promise<CardsSession | null> {
 export function storedSession(): { session: CardsSession; fresh: boolean } | null {
   if (!supabase || isNativeCapacitor()) return null
   try {
-    const key = (supabase.auth as unknown as { storageKey?: unknown }).storageKey
-    if (typeof key !== 'string') return null
+    const key = sessionStorageKey()
+    if (!key) return null
     const raw = localStorage.getItem(key)
     if (!raw) return null
     const parsed = JSON.parse(raw) as StoredAuthSession & { currentSession?: StoredAuthSession }
