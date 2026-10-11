@@ -148,6 +148,23 @@ test('aborts active downloads and stops further batches after leaving the page',
   expect(requests).toHaveBeenCalledTimes(2)
 })
 
+test('stops as a navigation starts (beforeunload), before pagehide: WebKit refuses and logs every request issued between the two', async () => {
+  setup()
+  let release!: () => void
+  const body = new Promise<string>(resolve => { release = () => resolve(INDEX) })
+  const requests = vi.fn(async (_url: string, _options: RequestInit) => ({ text: () => body, arrayBuffer: () => body }))
+  vi.stubGlobal('fetch', requests)
+  warmLibraryPreview()
+  await started()
+  expect(requests).toHaveBeenCalledTimes(2)
+  window.dispatchEvent(new Event('beforeunload'))
+  expect(requests.mock.calls[0][1].signal?.aborted).toBe(true)
+  release()
+  await new Promise(resolve => setTimeout(resolve, 0))
+  await new Promise(resolve => setTimeout(resolve, 0))
+  expect(requests).toHaveBeenCalledTimes(2)
+})
+
 test('stops when a request rejects before pagehide, as WebKit does at navigation start', async () => {
   setup()
   let reject!: (reason: Error) => void

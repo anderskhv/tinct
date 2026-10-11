@@ -86,13 +86,20 @@ export function warmLibraryPreview() {
       if (visit) sessionStorage.setItem('tinct:library-2-visit', JSON.stringify({ ...visit, at: Date.now() }))
     } catch { /* Storage is optional. */ }
   }
-  window.addEventListener('pagehide', () => {
+  // The warm-up ends the moment a navigation starts (beforeunload), not at
+  // pagehide: between the two, WebKit refuses every new request "due to
+  // access control checks" and logs each as a page error (10 Oct 2026: the
+  // deploy's Omarchy acceptance saw the next batch start as it left the
+  // reader, and rolled production back). Nothing is enqueued into a
+  // departing document; what is in flight is cancelled quietly.
+  const stop = () => {
     stopped = true
     controller.abort()
     keepVisit()
-  }, { once: true })
-  // Any failure ends this optional warm-up; never enqueue into a departing document.
-  // WebKit rejects requests as a navigation starts, before pagehide fires.
+  }
+  window.addEventListener('beforeunload', stop, { once: true })
+  window.addEventListener('pagehide', stop, { once: true })
+  // Any failure ends this optional warm-up as well.
   const get = (url: string) => fetch(url, { priority: 'low', signal: controller.signal } as RequestInit)
   const warm = () => {
     if (stopped) return
