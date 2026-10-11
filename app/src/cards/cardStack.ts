@@ -8,7 +8,23 @@
  * or a pull down on the grabber) closes them all. The page behind is never
  * touched: closing removes only the stack's own element.
  */
-import './cards.css'
+import cardsCss from './cards.css?inline'
+
+/**
+ * The cards carry their own stylesheet, added once per document. They open on
+ * pages Vite does not build (the library's static index.html, the Worker's
+ * profile page): there the entry's emitted stylesheet (assets/openCards-*.css)
+ * was never linked, so the cards rendered unstyled at the foot of the page,
+ * off screen. A tap on the library's picture "did nothing" (Anders, iPhone and
+ * desktop, 10–11 Oct 2026).
+ */
+export function ensureCardsStyle(doc: Document = document): void {
+  if (doc.head.querySelector('style[data-tinct-cards]')) return
+  const style = doc.createElement('style')
+  style.dataset.tinctCards = ''
+  style.textContent = cardsCss
+  doc.head.append(style)
+}
 
 export const ICONS = {
   x: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg>',
@@ -79,6 +95,7 @@ export class CardStack {
   private readonly onMedia = () => this.layout()
 
   constructor(options: CardStackOptions) {
+    ensureCardsStyle()
     this.options = options
     const doc = options.doc ?? document
     this.root = el('div', { className: `tcards${options.dark ? ' is-dark' : ''}`, dataset: { testid: 'account-cards' } })
