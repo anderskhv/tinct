@@ -93,7 +93,7 @@ export function linkedPublicBook(){
 }
 
 // ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261011crop';let engine=null;
+const ENGINE='/lab/library-add.js?v=20261011owntable';let engine=null;
 export function addEngine(){
  if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
  engine.catch(()=>{engine=null;});
@@ -119,7 +119,7 @@ export function resetAddAccess(){access=null;}
 // Add a book's PDF reader. Nothing goes through Add a book's page.
 const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',search:'Add a book',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
 const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261011crop'];
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261011owntable'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */

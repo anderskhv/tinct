@@ -7,7 +7,7 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261011crop';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261011owntable';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 
@@ -15,10 +15,10 @@ import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { COVER_ASPECT } from './table-window.js?v=20261009cover';
-import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261011crop';
-import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261011crop';
+import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261011owntable';
+import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261011owntable';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
-import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261011crop';
+import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261011owntable';
 
 const $ = id => document.getElementById(id);
 const CACHE_KEY = 'tinct-library-2-reading-table';
@@ -103,6 +103,29 @@ function prepareArtwork(book) {
     readyArtwork.set(key, ready);
   }
   return readyArtwork.get(key);
+}
+
+// An own book's cover is kept up to 900 px wide for its reader (ownShelf.ts OWN_COVER_MAX_WIDTH);
+// the table draws it at the desk's size like Tinct's covers (DESK_COVER_PX), drawn once per
+// picture. The full picture, on the face and again on the reflection, was four times the bytes
+// of a Tinct cover and made the row step slowly onto that book (Anders, 2026-10-11).
+const tableCovers = new Map();
+function tableCover(src) {
+  if (typeof src !== 'string' || !src.startsWith('data:image/')) return Promise.resolve(src);
+  if (!tableCovers.has(src)) tableCovers.set(src, (async () => {
+    const img = new Image(); img.decoding = 'async'; img.src = src;
+    try { await img.decode(); } catch { return src; }
+    if (!img.naturalWidth || img.naturalWidth <= DESK_COVER_PX) return src;
+    const canvas = document.createElement('canvas');
+    canvas.width = DESK_COVER_PX; canvas.height = Math.max(1, Math.round(img.naturalHeight * DESK_COVER_PX / img.naturalWidth));
+    try { canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height); return canvas.toDataURL('image/jpeg', .88); } catch { return src; }
+  })());
+  return tableCovers.get(src);
+}
+// The book's face and reflection take one picture.
+function wearCover(box, img, cover) {
+  if (!cover || img.getAttribute('src') === cover) return;
+  img.src = cover; box.style.setProperty('--cover', `url('${cover}')`);
 }
 
 const monthName = at => (at ? new Date(at).toLocaleString('en', { month: 'long' }) : null);
@@ -211,7 +234,7 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
    next.reading.forEach((b,i)=>{
     // An own book's cover arrives with the fresh read (the fast-paint snapshot keeps none).
     const before=bookCover(currentTable.reading[i]);Object.assign(currentTable.reading[i],b);const after=bookCover(currentTable.reading[i]);
-    if(after&&after!==before){const box=view.querySelector(`.rt-b[data-i="${i}"]`),img=box?.querySelector('.rt-front img');if(img){img.src=after;box.style.setProperty('--cover',`url('${after}')`);}}
+    if(after&&after!==before){const shown=view;tableCover(after).then(cover=>{if(view!==shown)return;const box=shown.querySelector(`.rt-b[data-i="${i}"]`),img=box?.querySelector('.rt-front img');if(img)wearCover(box,img,cover);});}
    });view.refresh();return;
   }
   const selected=view?.dataset.current||initial?.bookId;
@@ -473,6 +496,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     const entry = table.reading[i];
     const img = book.querySelector('.rt-front img');
     if(options.prepareCover&&!entry.own){const canvas=document.createElement('canvas');try{await options.prepareCover(entry.bookId,canvas);const cover=canvas.toDataURL('image/jpeg',.88);img.src=cover;book.style.setProperty('--cover',`url('${cover}')`);}catch{}}
+    else if(entry.own){try{wearCover(book,img,await tableCover(deskCover(entry)));}catch{}}
     const [{ name, colour }] = await Promise.all([
       prepareArtwork(entry),
       img.decode().catch(() => {}),
