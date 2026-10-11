@@ -10,6 +10,7 @@ import {
   readerBootHandoff,
   readerBootPreloads,
   readerBootTheme,
+  readerBootProfile,
   readerBootUsesDefaultFace,
 } from './readerBoot'
 
@@ -168,6 +169,23 @@ describe('readerBootTheme', () => {
   it('reads the version 1 flat shape', () => {
     expect(readerBootTheme(JSON.stringify({ darkMode: true }), false, false)).toBe('dark')
     expect(readerBootTheme(JSON.stringify({ theme: 'book' }), true, false)).toBe('book')
+  })
+
+  it('with the layout known, takes that profile\'s theme (a dark phone and a light desktop no longer leave the first frame white)', () => {
+    expect(readerBootTheme(v2('dark', 'light'), false, false, 'phone')).toBe('dark')
+    expect(readerBootTheme(v2('dark', 'light'), false, false, 'desktop')).toBe('light')
+    expect(readerBootTheme(v2('system', 'book'), true, false, 'phone')).toBe('dark')
+    expect(readerBootTheme(v2('system', 'book'), true, false, 'desktop')).toBe('book')
+    // Version 1 has one appearance: the profile changes nothing.
+    expect(readerBootTheme(JSON.stringify({ theme: 'book' }), true, false, 'phone')).toBe('book')
+    expect(readerBootTheme(v2('dark', 'light'), false, true, 'phone')).toBeNull()
+  })
+
+  it('picks the profile by the app\'s own surface rule', () => {
+    expect(readerBootProfile({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)', innerWidth: 980 })).toBe('phone')
+    expect(readerBootProfile({ innerWidth: 390, maxTouchPoints: 5, screenWidth: 390 })).toBe('phone')
+    expect(readerBootProfile({ innerWidth: 1440, maxTouchPoints: 0, screenWidth: 1440, matchMediaPhone: false })).toBe('desktop')
+    expect(readerBootProfile({ innerWidth: 800, matchMediaPhone: true })).toBe('phone')
   })
 
   it('leaves the page alone when the answer depends on the layout, the prefs are unreadable, or on e-ink', () => {
