@@ -60,7 +60,11 @@ function open(start: CardName = 'you'): void {
 export function accountButtonTap(event: Event): boolean {
   const target = event.target as Element | null
   const button = target?.closest?.('#sign-in')
-  if (!button || !signedIn()) return false
+  // Signed in by the page's class, or by the session this browser still holds:
+  // a transient null from Supabase (a stalled refresh, a lock held by another
+  // tab) can clear the class while the picture is still up, and the tap then
+  // went to the sign-in page and straight back (nothing, to the reader; 11 Oct 2026).
+  if (!button || !(signedIn() || storedSession() !== null)) return false
   event.preventDefault()
   event.stopPropagation()
   open()

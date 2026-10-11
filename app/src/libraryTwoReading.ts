@@ -20,6 +20,7 @@ import { editionHold, isEditionLanguageOffered } from './data/editionAvailabilit
  * that book's own reader. Session summaries are not generated here.
  */
 import { supabase } from './services/supabase'
+import { libraryAuthSignedIn } from './libraryAuth'
 import { completedBookIdsIn } from './preReader/libraryCompletion'
 import { createSupabaseReadingMemoryCloud } from './readingMemory/cloud'
 import { readDeviceReadingMemory } from './readingMemory/deviceStore'
@@ -653,9 +654,19 @@ export function syncLibraryAuth(signedIn: boolean, doc: Document = document): bo
   doc.defaultView?.dispatchEvent(new CustomEvent('library2:auth', { detail: { signedIn } }))
   return true
 }
+/** Whether this browser still holds a Supabase session (read directly: no lock, no network). */
+function hasStoredSession(): boolean {
+  try {
+    const key = (supabase?.auth as unknown as { storageKey?: unknown })?.storageKey
+    return typeof key === 'string' && Boolean(localStorage.getItem(key))
+  } catch { return false }
+}
 if (supabase && typeof document !== 'undefined') {
   try {
-    supabase.auth.onAuthStateChange?.((_event, session) => { syncLibraryAuth(Boolean(session?.user)) })
+    supabase.auth.onAuthStateChange?.((event, session) => {
+      const signedIn = libraryAuthSignedIn(event, session, hasStoredSession())
+      if (signedIn !== null) syncLibraryAuth(signedIn)
+    })
   } catch { /* the boot-time class stays */ }
 }
 
