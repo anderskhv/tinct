@@ -221,14 +221,15 @@ test.describe('library search', () => {
     await add.click()
     await expect(add).toHaveAttribute('aria-busy', 'true')
     await expect(add).toBeDisabled()
-    await expect(add.locator('svg.add-spinner')).toBeVisible()
+    // The reader's ring (wait-ring.js), after its moment.
+    await expect(add.locator('svg.tinct-wait-ring')).toBeVisible()
     await expect(add).toHaveAttribute('aria-label', label!)
     await expect(row).toHaveClass(/is-adding/)
     // The button keeps its size; no new words appear on screen.
     const busyBox = await add.boundingBox()
     expect(Math.abs(busyBox!.width - box!.width)).toBeLessThan(1.5)
     // "Adding…" (the existing copy) is there for screen readers only.
-    const spoken = add.locator('.sr-only')
+    const spoken = add.locator('.tinct-wait-label')
     await expect(spoken).toHaveText('Adding…')
     expect((await spoken.boundingBox())!.width).toBeLessThanOrEqual(1)
     const progress = row.locator('.free-progress')

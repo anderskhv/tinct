@@ -18,6 +18,7 @@ import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
 import { LabFootnote, type OpenFootnote } from './LabFootnote'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
+import { LabWait } from './LabWait'
 import { LabChapterEnd } from './LabChapterEnd'
 import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
@@ -2575,6 +2576,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         // resize (including device emulation/orientation) must invalidate them.
         pagesStableRef.current = false
         settledPageGeometryRef.current = null
+        // The words-per-page figure was measured in the old box; the new
+        // pages set it afresh (a page that came back short after a Stripe
+        // round trip kept the short figure, 10 Oct 2026).
+        wordsPerPageRef.current = null
         didBudgetPageRef.current = false
         unmeasuredTriesRef.current = 0
         workingPagesRef.current = readingPagesRef.current
@@ -4734,7 +4739,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     }
     const chapter = book.chapters.find(item => item.number === chapterNumber)
     const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
-    const title = kind === 'primer' ? `Before ${label}` : kind === 'end' ? `${label} in brief` : `${label} so far`
+    // The sheets carry the names the page uses for them: the heading's ✧ Primer, the chapter end's ✧ Recap (Anders, 10 Oct 2026).
+    const title = kind === 'primer' ? `Primer · ${label}` : kind === 'end' ? `Recap · ${label}` : `Recap · ${label} so far`
     dictation.stop()
     setSuperMenuOpen(false)
     setChapterNotes({
@@ -5497,7 +5503,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {listen.narration.status === 'loading' && listen.narration.waiting && listen.pending && <div className="lab-narration-inline" role="status" data-testid="lab-narration-preparing">
-        <span>{LAB_COPY.preparingNarration}</span>
+        {/* The ring the Play button shows, in the row; "Preparing narration…" stays for screen readers. */}
+        <LabWait label={LAB_COPY.preparingNarration} size={18} live={false} testId="lab-narration-preparing-wait" />
         <button type="button" data-testid="lab-narration-cancel" onClick={listen.pause}>Cancel</button>
       </div>}
       {listen.narration.status === 'error' && listen.narration.reason !== 'unauthenticated' && listen.narration.reason !== 'own_book_premium' && <div className="lab-narration-inline" role="status" data-testid="lab-narration-error">
