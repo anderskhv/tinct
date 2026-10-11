@@ -83,6 +83,20 @@ describe('the library picture', () => {
     expect(libraryHandler).toBe(0)
   })
 
+  it('the tap still opens the cards when the page lost its signed-in class but this browser holds the session', async () => {
+    vi.resetModules()
+    storeSession(3600)
+    await import('./libraryCards')
+    document.documentElement.classList.remove('signed-in')
+    document.querySelector('nav')!.innerHTML = '<button id="sign-in" class="sign-in cards-you"><span class="tinct-avatar"></span></button>'
+    let libraryHandler = 0
+    document.getElementById('sign-in')!.onclick = () => { libraryHandler += 1 }
+    document.querySelector<HTMLElement>('#sign-in .tinct-avatar')!.click()
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(document.querySelector('.tc-card[data-card="you"]')).toBeTruthy()
+    expect(libraryHandler).toBe(0)
+  })
+
   it('signed out, the tap is the library\'s (sign in)', async () => {
     const { accountButtonTap } = await import('./libraryCards')
     let libraryHandler = 0
