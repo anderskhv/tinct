@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261010flash';
+import {mountBookshelf} from './bookshelf.js?v=20261011crop';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261010flash';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261011crop';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261010flash';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261011crop';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
@@ -156,7 +156,14 @@ const SCENE_FADE=700;
 // Match each portrait painting's table horizon to the book's base, leaving
 // a little depth behind it on the table, including on shorter phone screens.
 const phoneTableY={'pride-and-prejudice':675,odyssey:775,'crime-and-punishment':745,'the-prince':675,meditations:730};
-function cropForScene(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=document.querySelector('.rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.3,Math.min(h*.8,edge)));}
+// A table scene's crop is settled once per scene and canvas size: the placeholder's own crop when boot.js
+// painted one (same scene, same box), else the first one computed. The hero's text grows as the title,
+// the kicker and the place arrive, which moves the table stage; re-cropping on each of those re-framed
+// the room three times on the way back from the reader (Anders, iPhone, 11 Oct 2026).
+const tableCrops=new Map();
+function cropForScene(id,w,h,img,wide){if(id.startsWith('table-')){const key=`${id}|${w}x${h}|${img.naturalWidth}x${img.naturalHeight}`;let c=tableCrops.get(key);if(!c){const b=window.__library2Boot?.crop;c=b&&b.id===id&&b.w===w&&b.h===h?{x:b.x,y:b.y,w:b.cw,h:b.ch,scale:b.scale}:tableCropNow(id,w,h,img,wide);tableCrops.set(key,c);}return c;}return cropForSceneNow(id,w,h,img,wide);}
+function tableCropNow(id,w,h,img,wide){return cropForSceneNow(id,w,h,img,wide);}
+function cropForSceneNow(id,w,h,img,wide){if(!id.startsWith('table-')){if(!wide&&phoneTableY[id]){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return tableCrop(w,h,img.naturalWidth,img.naturalHeight,phoneTableY[id],book.bottom-hero.top-book.height*.13);}return sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);}const stage=document.querySelector('.rt-stage'),hero=$('hero');const r=stage?.getBoundingClientRect();const height=parseFloat(document.querySelector('.reading-table')?.style.getPropertyValue('--bh'))||260;const edge=r?r.bottom-hero.getBoundingClientRect().top-height*.22:h*.6;return tableCrop(w,h,img.naturalWidth,img.naturalHeight,img.naturalHeight*(wide?.64:.51),Math.max(h*.3,Math.min(h*.8,edge)));}
 let returningScene=window.__library2Boot?.scene?.startsWith('table-')?window.__library2Boot.scene:'table-'+readingRoom();
 if(!window.__library2Boot?.hint)loadScene(sceneTo).catch(()=>notice('The scene could not load. Please refresh to try again.'));
 addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(linkedState==='pending'?linkedBook:featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
