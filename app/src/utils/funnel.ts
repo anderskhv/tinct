@@ -27,6 +27,8 @@ export type FunnelEventName =
   | 'book_intro_viewed' | 'audio_failed' | 'audio_slow_start' | 'talk_failed'
   // Social (ship 3): sent by the Friends page, a profile page and the reader.
   | 'leaderboard_opened' | 'profile_viewed' | 'reading_card_shared'
+  // The library's picture tap that opened nothing (11 Oct 2026): what the open path saw, booleans only.
+  | 'cards_open_failed' | 'cards_open_stuck'
 
 type Wire = FunnelEventName | 'pageview' | 'page_duration'
 type Props = Record<string, string | number | boolean | null | undefined>

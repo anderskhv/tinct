@@ -11,8 +11,9 @@
 import { supabase } from '../services/supabase'
 import { fetchOwnProfile, ownPictureView, paintAvatar, saveProfile, currentBookHint } from '../social/socialClient'
 import { cardUrl } from './cardRoutes'
-import { consumeCardParam, openAccountCards, storedSession, type CardName } from './openCards'
+import { consumeCardParam, openAccountCards, sessionStorageState, storedSession, type CardName } from './openCards'
 import { clearCardsCache, readCardsCache } from './cardsCache'
+import { trackFunnel } from '../utils/funnel'
 
 const STYLE = `
 #sign-in.cards-you{display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;padding:0;border-radius:50%;background:transparent;border:0}
@@ -33,21 +34,31 @@ let openingTimer: number | null = null
 /** No tap is ever swallowed for good: an open that never settles stops counting as in progress after this. */
 const OPENING_MS = 8000
 
+/** An open still unsettled after this is reported (the funnel), with what the open path saw. */
+const STUCK_MS = 2500
+
 function open(start: CardName = 'you'): void {
   if (opening) return
   opening = true
   if (openingTimer) window.clearTimeout(openingTimer)
   openingTimer = window.setTimeout(() => { opening = false }, OPENING_MS)
+  const stuck = window.setTimeout(() => trackFunnel('cards_open_stuck', { ...sessionStorageState(), phase: 'await' }), STUCK_MS)
   const attempt = (retrying: boolean): Promise<void> => openAccountCards({ start, dark: true, deskTop: 68 }).then(opened => {
-    if (!opened) location.assign(`/sign-in?returnTo=${encodeURIComponent(cardUrl(start))}`)
+    if (opened) return
+    // Nothing to open with. A browser that still holds a session is not sent to sign in
+    // (that page bounces straight back, and with ?card= would loop); the tap is reported.
+    const state = sessionStorageState()
+    if (state.raw) { trackFunnel('cards_open_stuck', { ...state, phase: 'no-session' }); return }
+    location.assign(`/sign-in?returnTo=${encodeURIComponent(cardUrl(start))}`)
   }).catch(error => {
     console.error('account cards: could not open', error)
+    trackFunnel('cards_open_failed', { ...sessionStorageState(), retrying })
     // A device cache the cards cannot paint from is dropped, and the open is tried once more without it.
     if (retrying) return
     clearCardsCache(storedSession()?.session.userId ?? null)
     return attempt(true)
   })
-  void attempt(false).finally(() => { opening = false; if (openingTimer) { window.clearTimeout(openingTimer); openingTimer = null } })
+  void attempt(false).finally(() => { window.clearTimeout(stuck); opening = false; if (openingTimer) { window.clearTimeout(openingTimer); openingTimer = null } })
 }
 
 /**
