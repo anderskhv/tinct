@@ -15,6 +15,8 @@ import {
   readerBootPositionToken,
   readerBootPreloads,
   readerBootTheme,
+  readerBootProfile,
+  LAB_PHONE_QUERY,
   readerBootUsesDefaultFace,
 } from './readerBoot'
 
@@ -45,6 +47,13 @@ try {
       prefs,
       typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches,
       readerBootEink(location.search, read(() => localStorage, 'tinct:display-profile')),
+      readerBootProfile({
+        userAgent: navigator.userAgent,
+        innerWidth: window.innerWidth,
+        maxTouchPoints: navigator.maxTouchPoints,
+        screenWidth: typeof screen !== 'undefined' ? screen.width : undefined,
+        matchMediaPhone: typeof matchMedia === 'function' && matchMedia(LAB_PHONE_QUERY).matches,
+      }),
     )
     if (theme) {
       // The same attributes LabApp sets on mount, set before the first paint.
