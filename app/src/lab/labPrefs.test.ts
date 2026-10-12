@@ -592,3 +592,18 @@ describe('librarian tab prefs, removed 2026-10-08', () => {
     expect(stored.phone.margins).toBe('wide')
   })
 })
+
+describe('words per page is measured on prose only', async () => {
+  const { proseChapter, readStoredWordsPerPage, storeWordsPerPage, MIN_WORDS_PER_PAGE } = await import('./labPrefs')
+  it('a printed contents or a list of dates is not prose (Memoirs of Victor Hugo read 25,134 pages)', () => {
+    expect(proseChapter(['By Victor Hugo', 'October 8, 1844.', '1845.', 'AN ELECTION SESSION.', 'March 16, 1847.'])).toBe(false)
+    expect(proseChapter(['It was at Rheims that I heard the name of Shakespeare for the first time, spoken by Charles Nodier.'])).toBe(true)
+    expect(proseChapter([])).toBe(false)
+  })
+  it('a stored figure below the floor is not read back', () => {
+    storeWordsPerPage('layout-a', 3)
+    expect(readStoredWordsPerPage('layout-a')).toBeNull()
+    storeWordsPerPage('layout-a', MIN_WORDS_PER_PAGE + 100)
+    expect(readStoredWordsPerPage('layout-a')).toBe(MIN_WORDS_PER_PAGE + 100)
+  })
+})

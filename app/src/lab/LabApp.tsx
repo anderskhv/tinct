@@ -123,6 +123,8 @@ import {
   labPageFolio,
   labReaderProgressLabel,
   readStoredWordsPerPage,
+  proseChapter,
+  MIN_WORDS_PER_PAGE,
   storeWordsPerPage,
   defaultReaderProgressMode,
   readStoredReaderProgressMode,
@@ -3249,10 +3251,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // the figure and every later chapter reuses it, until the type size or the
   // window changes and it is measured afresh. (A one-page Psalm has no full
   // page of its own to measure, which is the other reason not to ask it.)
+  // Only a chapter of prose measures it (proseChapter): a printed contents or a list of dates
+  // holds a few words a page.
+  const phoneMedian = fullPageWordCounts.length > 0 && proseChapter(book.paragraphs) ? fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)] : 0
   const freshCapacity: { wordsPerPage: number; leafHeight: number } | null = desktopPaging && desktopLeafCapacity !== null
     ? desktopLeafCapacity
-    : fullPageWordCounts.length > 0
-      ? { wordsPerPage: fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)], leafHeight: 0 }
+    : phoneMedian >= MIN_WORDS_PER_PAGE
+      ? { wordsPerPage: phoneMedian, leafHeight: 0 }
       : null
   const held = wordsPerPageRef.current
   const capacityKey = `${readerLayoutKey}|${typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : ''}`

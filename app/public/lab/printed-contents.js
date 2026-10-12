@@ -124,7 +124,7 @@ function lineKind(text, names, underHeading) {
  * chapter's own title is a contents heading. (`names`, from dropPrintedContents: the
  * whole book's titles indexed once, as this chapter sees them.)
  */
-export function printedContentsRange(paragraphs, { titles = [], heading = false, names: indexed = null } = {}) {
+export function printedContentsRange(paragraphs, { titles = [], heading = false, names: indexed = null, front = false } = {}) {
   if (!Array.isArray(paragraphs) || !paragraphs.length) return null
   const names = indexed || othersOf(titleIndex(titles), null)
   const scan = (from, underHeading, skipLead) => {
@@ -158,7 +158,7 @@ export function printedContentsRange(paragraphs, { titles = [], heading = false,
     if (entries >= 3 && entries / (entries + others) >= 0.6) return endRange(paragraphs, at, last)
   }
   // No heading: a list of the book's own chapters and nothing else.
-  if (titleCount(names) >= 3 && paragraphs.length >= 5 && paragraphs.length <= 600) {
+  const listed = titleCount(names) >= 3 && paragraphs.length >= 5 && paragraphs.length <= 600 && (() => {
     let entries = 0, named = 0, counted = 0
     const allowed = Math.floor(paragraphs.length * 0.1)
     for (const text of paragraphs) {
@@ -171,7 +171,21 @@ export function printedContentsRange(paragraphs, { titles = [], heading = false,
       else if (counted - entries > allowed) return null
       if (namesChapter(plainText(text), names)) named++
     }
-    if (counted >= 5 && entries / counted >= 0.9 && named >= 5 && named / counted >= 0.6) return [0, paragraphs.length]
+    return counted >= 5 && entries / counted >= 0.9 && named >= 5 && named / counted >= 0.6
+  })()
+  if (listed) return [0, paragraphs.length]
+  // The book's opening chapter, a title page over its contents without a heading (Memoirs of
+  // Victor Hugo, 2026-10-12: "By Victor Hugo", then 84 lines of parts and dates, 48 of them the
+  // book's own chapter titles): short lines only, and many of them name the book's chapters.
+  if (front && titleCount(names) >= 10 && paragraphs.length >= 10 && paragraphs.length <= 600) {
+    let counted = 0, named = 0
+    for (const text of paragraphs) {
+      if (typeof text !== 'string' || words(plainText(text)) > 12) return null
+      if (lineKind(text, names, false) === 'header') continue
+      counted++
+      if (namesChapter(plainText(text), names)) named++
+    }
+    if (counted >= 10 && named >= 10 && named / counted >= 0.4) return [0, paragraphs.length]
   }
   return null
 }
@@ -204,7 +218,7 @@ export function dropPrintedContents(chapters) {
   chapters.forEach((chapter, index) => {
     if (!chapter || !Array.isArray(chapter.paragraphs)) { out.push(chapter); return }
     const heading = isContentsHeading(chapter.title)
-    const range = printedContentsRange(chapter.paragraphs, { names: othersOf(book, index), heading })
+    const range = printedContentsRange(chapter.paragraphs, { names: othersOf(book, index), heading, front: index === 0 })
     if (!range) { out.push(chapter); return }
     changed = true
     const [start, end] = range

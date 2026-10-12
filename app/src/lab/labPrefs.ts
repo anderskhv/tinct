@@ -570,10 +570,25 @@ const READER_WORDS_PER_PAGE_KEY = 'tinct:reader-words-per-page'
 /** Words per full page last measured on this device for one layout and window
  * size, so a reader who opens straight onto a one-page chapter still gets a
  * book page count that a full page produced. */
+/**
+ * Whether a chapter can measure words per page: prose, its paragraphs averaging twelve words or
+ * more. A printed contents, a list of dates or a title page (three words a line) measured a few
+ * words a page and read 25,134 pages for a 76,000-word book (Memoirs of Victor Hugo, 2026-10-12).
+ */
+export function proseChapter(paragraphs: readonly unknown[]): boolean {
+  const texts = paragraphs.filter((text): text is string => typeof text === 'string' && text.trim().length > 0)
+  if (!texts.length) return false
+  const words = texts.reduce((total, text) => total + (text.match(/\S+/g)?.length ?? 0), 0)
+  return words / texts.length >= 12
+}
+
+/** Fewer words than this on a full page is a mis-measure (see proseChapter), never kept or read back. */
+export const MIN_WORDS_PER_PAGE = 20
+
 export function readStoredWordsPerPage(layout: string): number | null {
   try {
     const stored = JSON.parse(localStorage.getItem(READER_WORDS_PER_PAGE_KEY) || 'null')
-    return stored?.layout === layout && Number.isFinite(stored.wordsPerPage) && stored.wordsPerPage > 0 ? stored.wordsPerPage : null
+    return stored?.layout === layout && Number.isFinite(stored.wordsPerPage) && stored.wordsPerPage >= MIN_WORDS_PER_PAGE ? stored.wordsPerPage : null
   } catch {
     return null
   }
