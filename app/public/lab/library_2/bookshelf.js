@@ -29,16 +29,18 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    summaryFor:sample?null:(id,options)=>api.summaryFor(id,options),onError:notice,
    onRemoveReading:async id=>{
     if(sample){table={...table,reading:table.reading.filter(b=>b.bookId!==id)};present();return;}
-    // The book leaves at once, as an app does on iOS; the account is told meanwhile. Should that
-    // fail, the account's table is read again (the book returns) and the error is shown.
+    // The book leaves the table at once, as an app does on iOS, while the removal is written;
+    // the desk's own state follows only once it is kept (a last book leaves the desk then). Should
+    // the write fail, the account's table is read again (the book returns) and the error is shown.
     const reading=table.reading.filter(b=>b.bookId!==id);
-    table={...table,reading,shelfReading:reading};
-    present();
+    if(reading.length&&view&&enabled())view.update({...table,reading,shelfReading:reading},saved,catalogue);
     try{
      await resumeReady;
      await api.hideFromReadingNow(id);
      const retained=await api.loadSavedBooks();saved=retained.ids;onSaved(saved);
     }catch(error){ready=load(true);throw error;}
+    table={...table,reading,shelfReading:reading};
+    present();
     ready=load(true);
    },
    onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(desk(),saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
