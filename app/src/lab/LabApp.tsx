@@ -4800,7 +4800,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       else if (id === 'settings') setSuperSheet('reading')
       else if (id === 'account') setSuperSheet('account')
       else if (id === 'editions' && ownPdf) setSuperSheet('editions')
-      else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary(USER_BOOKS_SHELF_URL)
+      // Back to the library from an own book lands on the reading table, as from Tinct's (Anders, 2026-10-12).
+      else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary('/library')
       return
     }
     if (id === 'talk') { handleTalk(); return }
@@ -5062,7 +5063,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             type="button"
             className="lab-v2-library-back"
             data-testid="lab-library-back"
-            aria-label={privateBook ? 'Back to your books' : 'Back to library'}
+            aria-label="Back to library"
             title={privateBook ? 'Your books' : 'Library'}
             onClick={() => handleSuperMenuSelect('library')}
           >

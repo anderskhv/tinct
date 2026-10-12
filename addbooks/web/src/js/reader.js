@@ -217,15 +217,17 @@ async function openBook(kind, bytes, name, key) {
 const hexOf = key => String(key).slice(String(key).indexOf(':') + 1);
 const bookUrl = key => '/lab/addbook/?userBook=' + encodeURIComponent(hexOf(key));
 const urlHex = () => { const v = new URLSearchParams(location.search).get('userBook'); return /^[0-9a-f]{8,64}$/.test(v || '') ? v : null };
-// The library's My shelf, where the reader's own books are (the back arrow of every own book).
+// The library's My shelf, where the reader's own books are (a book no longer here points there).
 const SHELF_URL = '/library#my-shelf';
+// The back arrow of every own book: the library's reading table, as from Tinct's books (Anders, 2026-10-12).
+const LIBRARY_URL = '/library';
 let leavingToShelf = false;
 async function leaveToShelf() {
   if (leavingToShelf) return;
   leavingToShelf = true;
   leavePlace(); stopNarration();
   await accountCopySent();
-  location.assign(SHELF_URL);
+  location.assign(LIBRARY_URL);
 }
 // Back on this page from My shelf (restored as it was left): the way back works again.
 addEventListener('pageshow', () => { leavingToShelf = false });
