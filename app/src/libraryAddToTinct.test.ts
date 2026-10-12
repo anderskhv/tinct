@@ -998,7 +998,7 @@ describe('Modern English, asked right after an add', () => {
     const layer = document.querySelector('[data-testid="modern-ask"]') as HTMLElement
     expect(layer.querySelector('[role="dialog"]')?.getAttribute('aria-modal')).toBe('true')
     expect(layer.querySelector('h2')?.textContent).toBe('Also get it in Modern English?')
-    expect(layer.querySelector('.modern-ask-body')?.textContent).toBe('A Modern English edition is written for you chapter by chapter, and anyone who adds this book later reads it too.')
+    expect(layer.querySelector('.modern-ask-body')?.textContent).toBe('A Modern English edition is written for you chapter by chapter.')
     expect([...layer.querySelectorAll('button')].map(b => b.textContent)).toEqual(['Not now', 'Get Modern English · $4.99'])
     // Not now has the focus (Anders, 2026-10-09: Enter must never start a checkout); was the Get button.
     expect(document.activeElement).toBe(layer.querySelector('.modern-ask-later'))

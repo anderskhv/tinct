@@ -21,16 +21,19 @@ export function keepShownOrder(shown, next) {
 /**
  * What boot.js needs to fetch the shown book's cover and spine texture with the page:
  * public image URLs and this account's id, nothing about the reading. An own book's cover
- * (a data: URL kept on this device) is never written here.
+ * (kept on this device) is never written here: its record names the book with no cover.
  */
 export const FIRST_PAINT_KEY = 'tinct:library-2-first-paint';
 export function firstPaintRecord(table, view, owner, coverOf = book => book.cover) {
   const index = Number(view.querySelector('.rt-b.is-current')?.dataset.i ?? 0);
   const book = table.reading[index];
-  if (!book || book.own || !owner) return null;
-  const cover = coverOf(book);
+  if (!book || !owner) return null;
   const spine = view.querySelector(`.rt-b[data-i="${index}"] .rt-spine`)?.dataset.binding || null;
-  if (!cover || /^data:/.test(cover)) return null;
+  // An own book facing the reader: the desk is still recorded, without its cover (boot.js
+  // draws the small copy this device keeps, reading-table.js OWN_THUMB_KEY), 2026-10-12.
+  if (book.own) return { v: 1, owner, bookId: book.bookId, cover: null, spine: spine && spine !== 'paper' ? spine : null };
+  const cover = coverOf(book);
+  if (!cover || /^(data|blob):/.test(cover)) return null;
   return { v: 1, owner, bookId: book.bookId, cover, spine: spine && spine !== 'paper' ? spine : null };
 }
 
@@ -61,7 +64,7 @@ export function deskRecord(table, view, owner, coverOf = book => book.cover, her
     // The cover's own shape (naturalWidth / naturalHeight, as the table measured it), not the drawn box's rounded one.
     const img = box.querySelector('.rt-front img');
     const aspect = img?.naturalWidth > 0 && img?.naturalHeight > 0 ? img.naturalWidth / img.naturalHeight : bw / bh;
-    art[book.bookId] = { t: em.textContent, b: binding, c: colour, a: Number(aspect.toFixed(6)), u: cover && !/^data:/.test(cover) ? cover : null };
+    art[book.bookId] = { t: em.textContent, b: binding, c: colour, a: Number(aspect.toFixed(6)), u: cover && !/^(data|blob):/.test(cover) ? cover : null };
   }
   return { ...base, v: 2, hero: { w, h }, art };
 }

@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261011owntable';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261012tablecover';
 import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261011owntable';
-import { createBookshelf } from './bookshelf-view.js?v=20261011owntable';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261012tablecover';
+import { createBookshelf } from './bookshelf-view.js?v=20261012tablecover';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 import { bookCoverSrc } from '../book-cover.js?v=20261009owncover';
 
@@ -29,13 +29,18 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    summaryFor:sample?null:(id,options)=>api.summaryFor(id,options),onError:notice,
    onRemoveReading:async id=>{
     if(sample){table={...table,reading:table.reading.filter(b=>b.bookId!==id)};present();return;}
-    await resumeReady;
-    await api.hideFromReadingNow(id);
-    const retained=await api.loadSavedBooks();saved=retained.ids;onSaved(saved);
+    // The book leaves the table at once, as an app does on iOS, while the removal is written;
+    // the desk's own state follows only once it is kept (a last book leaves the desk then). Should
+    // the write fail, the account's table is read again (the book returns) and the error is shown.
     const reading=table.reading.filter(b=>b.bookId!==id);
+    if(reading.length&&view&&enabled())view.update({...table,reading,shelfReading:reading},saved,catalogue);
+    try{
+     await resumeReady;
+     await api.hideFromReadingNow(id);
+     const retained=await api.loadSavedBooks();saved=retained.ids;onSaved(saved);
+    }catch(error){ready=load(true);throw error;}
     table={...table,reading,shelfReading:reading};
     present();
-    // Hide synchronously from the current view, then reconcile account data.
     ready=load(true);
    },
    onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(desk(),saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
@@ -58,7 +63,10 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   dispatchEvent(new CustomEvent('library2:reading',{detail:{...table,mode:showReturning?'returning':'new'}}));
  }
  // Hold a cached desk that cannot show the linked book yet; the full load follows.
- if(!sample)onCachedTable((cached,engine)=>{api=engine;table=cached;if(linked&&!desk().reading.some(b=>b.bookId===linked))return;present(true);});
+ // The device's snapshot paints only until the account's table has been shown: a later reload
+ // (after a removal) passes it again, and that older row would drop books then rebuild the desk.
+ let freshShown=false;
+ if(!sample)onCachedTable((cached,engine)=>{api=engine;if(freshShown)return;table=cached;if(linked&&!desk().reading.some(b=>b.bookId===linked))return;present(true);});
  async function load(refresh=false){
   if(loadingNow)return;loadingNow=true;
   try{
@@ -69,6 +77,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    api=result.api;await catalogueReady;
    if(sample){saved=['candide','jane-eyre'];table={...DEMO,reading:DEMO.reading.map(b=>({...b,author:catalogue.find(c=>c.id===b.bookId)?.author||'',displayYear:catalogue.find(c=>c.id===b.bookId)?.displayYear||'',wordCount:catalogue.find(c=>c.id===b.bookId)?.wordCount??b.wordCount}))};}
    else table=result.table;
+   freshShown=true;
    // A cloud shelf sync is independent of painting the books already on device.
    present();
    const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view){if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;}}
