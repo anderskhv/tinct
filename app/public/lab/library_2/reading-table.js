@@ -7,7 +7,7 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261012shadows';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261012nodiag';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 
@@ -15,11 +15,10 @@ import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { COVER_ASPECT } from './table-window.js?v=20261009cover';
-import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261012shadows';
-import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, tableUrl, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261012shadows';
+import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261012nodiag';
+import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, tableUrl, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261012nodiag';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
-import { diagLog, diagTime, diagState, diagOn } from './table-diag.js?v=20261012shadows';
-import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261012shadows';
+import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261012nodiag';
 
 const $ = id => document.getElementById(id);
 const CACHE_KEY = 'tinct-library-2-reading-table';
@@ -113,8 +112,7 @@ const tableCovers = new Map();
 function tableCover(src) {
   if (typeof src !== 'string' || !/^(data:image\/|blob:)/.test(src)) return Promise.resolve(src);
   if (!tableCovers.has(src)) tableCovers.set(src, (async () => {
-    const started = performance.now();
-    const full = diagTime('own cover: to blob', () => tableUrl(src), true);
+    const full = tableUrl(src);
     const img = new Image(); img.decoding = 'async'; img.src = full;
     try { await img.decode(); } catch { return full; }
     if (!img.naturalWidth || img.naturalWidth <= DESK_COVER_PX) return full;
@@ -123,7 +121,6 @@ function tableCover(src) {
     try { canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height); } catch { return full; }
     const blob = await new Promise(resolve => { try { canvas.toBlob(resolve, 'image/jpeg', .88); } catch { resolve(null); } });
     keepOwnThumb(src, img);
-    diagLog(`own cover: ${img.naturalWidth}x${img.naturalHeight} -> ${canvas.width}x${canvas.height} in ${(performance.now() - started).toFixed(0)}ms`);
     return blob ? URL.createObjectURL(blob) : full;
   })());
   return tableCovers.get(src);
@@ -239,7 +236,6 @@ function rememberFirstPaintSoon(view, table) {
 export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summaryFor,onSelection,onRemoveReading,initial,enabled}) {
  let view=null,currentTable=null;
  function render(next,{instant=false}={}){
-  diagLog(`render ${next.reading.length} books${currentTable?` (shown ${currentTable.reading.length})`:''}`);
   // A book (or more) taken off the table: it fades away and the others glide into place,
   // with the same table, never a fresh one that starts again at the first book.
   if(currentTable&&view?.removeBooks&&next.reading.length&&next.reading.length<currentTable.reading.length){
@@ -256,12 +252,12 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
     // An own book's cover arrives with the fresh read (the fast-paint snapshot keeps none).
     const before=bookCover(currentTable.reading[i]);Object.assign(currentTable.reading[i],b);const after=bookCover(currentTable.reading[i]);
     if(after&&after!==before){const shown=view;tableCover(after).then(cover=>{if(view!==shown)return;const box=shown.querySelector(`.rt-b[data-i="${i}"]`),img=box?.querySelector('.rt-front img');if(img)wearCover(box,img,cover);});}
-   });diagLog('render: same books, refreshed in place');view.refresh();return;
+   });view.refresh();return;
   }
   const selected=view?.dataset.current||initial?.bookId;
   // Another table (a book added): prepared behind the one shown, which leaves in the
   // frame the new one is revealed, so the desk never blinks to bare boxes (2026-10-10).
-  diagLog('render: a new table is prepared');currentTable={...next,reading:next.reading.map(b=>({...b}))};
+  currentTable={...next,reading:next.reading.map(b=>({...b}))};
   view=document.createElement('div');view.className='reading-table is-preparing';view.innerHTML=markup(currentTable);hero.append(view);
   view.api=summaryFor?{summaryFor}:null;
   const active=view;wire(active,currentTable,false,selected,{prepareCover,onOpen,onError,onSelection,onRemoveReading,onLayout:()=>rememberFirstPaintSoon(active,currentTable)}).then(()=>{
@@ -313,8 +309,7 @@ function wire(view, table, demo, keepBookId, options={}) {
       const aspect = img.naturalWidth / img.naturalHeight;
       if (Math.abs(aspect - aspects[i]) < 1e-3) return;
       aspects[i] = aspect;
-      diagLog(`cover ${i} measured ${img.naturalWidth}x${img.naturalHeight}`);
-      if (H) diagTime(`layout after cover ${i}`, () => layout(shown === -1 || view.classList.contains('is-preparing')));
+      if (H) layout(shown === -1 || view.classList.contains('is-preparing'));
     };
     img.addEventListener('load', measure);
     if (img.complete) measure();
@@ -397,19 +392,18 @@ function wire(view, table, demo, keepBookId, options={}) {
 
   function select(index, byUser) {
     index = Math.max(0, Math.min(books.length - 1, index));
-    if (diagOn) diagLog(`select ${index}${table.reading[index]?.own ? ' (own)' : ''}${byUser ? ' by touch' : ''}${index === current && shown !== -1 ? ' = already shown' : ''}`);
     if (index === current && shown !== -1) return;
     if (byUser) turn = -turn;
     current = index;
-    diagTime('layout', () => layout(shown === -1));
-    diagTime('show', () => show(index));
+    layout(shown === -1);
+    show(index);
   }
 
   function show(index) {
     const b = table.reading[index], firstShow = shown === -1;
     shown = index;
     view.dataset.current = b.bookId;
-    diagTime('onSelection', () => options.onSelection?.({bookId:b.bookId}));
+    options.onSelection?.({bookId:b.bookId});
     // Public artwork only: the reader can warm the selected cover first without
     // loading another library, reading private caches, or touching positions.
     try { sessionStorage.setItem('tinct:library-2-artwork',JSON.stringify([b,...table.reading.filter(book=>book!==b)].filter(book=>!book.own).slice(0,13).map(deskCover).filter(Boolean))); } catch {}
@@ -437,7 +431,7 @@ function wire(view, table, demo, keepBookId, options={}) {
     if (!b.recap && view.api) {
       // The "so far" summary follows the production rules; passing a book only reads the cache.
       const apply = r => { if (view.isConnected && r?.text && current === index) setRecap(r.text); };
-      const asked = (request) => { const at = performance.now(); return view.api.summaryFor(b.bookId, { request }).then(r => { if (diagOn) diagLog(`summary ${request ? 'request' : 'cache'} ${(performance.now() - at).toFixed(0)}ms ${r?.status || ''}`); return r; }); };
+      const asked = (request) => view.api.summaryFor(b.bookId, { request });
       asked(false).then(apply, () => {});
       summaryTimer = setTimeout(() => view.api && asked(true).then(apply, () => {}), 900);
     }
@@ -487,7 +481,6 @@ function wire(view, table, demo, keepBookId, options={}) {
     const dx = e.clientX - startX, dy = e.clientY - startY;
     startX = startY = null;
     const swipe = Math.abs(dx) >= 30 && Math.abs(dx) > Math.abs(dy) * 1.2;
-    if (diagOn) diagLog(`swipe dx ${Math.round(dx)} dy ${Math.round(dy)}${swipe ? ' -> one book' : ' (not a swipe)'}`);
     if (swipe) select(current + (dx < 0 ? 1 : -1), true);
     setTimeout(() => { dragged = false; }, 0);
   });
@@ -540,14 +533,13 @@ function wire(view, table, demo, keepBookId, options={}) {
   });
   const observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(fit):null;
   if(observer)observer.observe(stage);else addEventListener('resize',fit);
-  if (diagOn) diagState(() => `table: ${books.length} books, current ${current}${table.reading[current]?.own ? ' (own)' : ''}, shown ${shown}, moving ${moveTimer ? 'yes' : 'no'}, H ${Math.round(H)} | covers ${books.map((b, i) => { const src = b.querySelector('.rt-front img')?.getAttribute('src') || ''; return `${i}${table.reading[i]?.own ? 'o' : ''}:${src.startsWith('blob:') ? 'blob' : src.startsWith('data:') ? 'data ' + Math.round(src.length / 1024) + 'K' : src ? 'url' : '-'}`; }).join(' ')}`);
   fit();select(current,false);
   // The title now set (its lines change the stage), measure again at once: the table is revealed in
   // its final geometry, not a frame before the ResizeObserver's refit (visible over the placeholder).
   fit();
   // Fresh data for the same books. While books are gliding after a removal the row is
   // left to finish; laying it out at once would snap them to their places.
-  view.refresh=()=>{if(moveTimer){diagLog('refresh skipped: books moving');return;}shown=-1;select(current,false);};
+  view.refresh=()=>{if(moveTimer)return;shown=-1;select(current,false);};
   /**
    * Take books off the table in place (2026-10-09): each leaving book fades and
    * shrinks (LEAVE_MS), then the rest glide to their new places (MOVE_MS, ease-out).
@@ -556,7 +548,6 @@ function wire(view, table, demo, keepBookId, options={}) {
    * second removal, a tap or a refresh mid-motion always meets the true row.
    */
   view.removeBooks=(ids,{instant=false}={})=>{
-    diagLog(`remove ${ids.length} book(s)${instant?' instantly':''}`);
     const gone=new Set(ids);if(!table.reading.some(b=>gone.has(b.bookId)))return;
     let keepId=table.reading[current]?.bookId;
     if(gone.has(keepId)){
