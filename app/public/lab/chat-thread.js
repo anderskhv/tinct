@@ -208,6 +208,35 @@ export function isBelow(node, slack = 12) {
 }
 
 /**
+ * When the "Latest" pill shows (Anders, 12 Oct 2026): only after the reader
+ * has scrolled up from where the thread last put the view, and something new
+ * has arrived below since. Never right after a send (the question is placed
+ * near the top and its answer grows under it), never while the reader follows
+ * the answer down. It goes once the reader is back at the newest line or
+ * below where the view was put.
+ */
+export function latestPill() {
+  let placedTop = null
+  let end = 0
+  let arrived = false
+  return {
+    /** The thread put the view where it is now (opened, pinned to the end, a question held near the top). */
+    placed(node) { placedTop = node.scrollTop; end = contentEnd(node); arrived = false },
+    /** Older messages were added above: the same place, `by` pixels further down. */
+    shift(by) { if (placedTop !== null) placedTop += by; end += by },
+    /** `readerScrolled`: the reader has scrolled since the view was placed. */
+    shows(node, readerScrolled) {
+      const now = contentEnd(node)
+      const up = readerScrolled && placedTop !== null && node.scrollTop < placedTop - 1
+      if (!up || !isBelow(node)) arrived = false
+      else if (now > end + 1) arrived = true
+      end = now
+      return arrived
+    },
+  }
+}
+
+/**
  * After a question is sent the thread scrolls once, so the question sits near
  * the top with a little of the previous answer above it (Anders, 10 Oct
  * 2026); the answer then grows downward under it and nothing moves. At most

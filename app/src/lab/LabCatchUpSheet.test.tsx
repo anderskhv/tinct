@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 vi.setConfig({ testTimeout: 30_000 })
 const slow = { timeout: 8_000 }
 import { LabCatchUpSheet } from './LabCatchUpSheet'
-import { CATCH_UP_CONCURRENCY, nextCatchUpKeys, resetCatchUpMemory } from './labCatchUp'
+import { CATCH_UP_CONCURRENCY, catchUpContextText, nextCatchUpKeys, resetCatchUpMemory } from './labCatchUp'
 import { CATCH_UP_ROUTE } from '../catchUp'
 import { LAB_RECAP_ROUTE } from '../recapSummary'
 import { LAB_COPY } from './labCopy'
@@ -36,7 +36,7 @@ function renderSheet(overrides: Partial<Parameters<typeof LabCatchUpSheet>[0]> =
   const props = {
     bookId: 'plain', editionKey, bookTitle: 'Plain', chapters,
     chapterNumber: 61, paragraphIndex: 4, completed: false,
-    onClose: vi.fn(), onDiscuss: vi.fn(), ...overrides,
+    onClose: vi.fn(), onChat: vi.fn(), onTalk: vi.fn(), ...overrides,
   }
   render(<LabCatchUpSheet {...props} />)
   return props
@@ -175,12 +175,23 @@ describe('LabCatchUpSheet', () => {
     expect(calls.map(call => call.body.unitId)).toEqual(['chs-1-5', 'ch-6', 'ch-7'])
   })
 
-  it('Discuss hands over to chapter chat; close and Escape close; a reopen is served from memory', async () => {
+  it('Chat and Talk (the Explain icons, no Discuss) carry what the sheet showed; close and Escape close; a reopen is served from memory', async () => {
     const calls = stubFetch(okBodies)
     const props = renderSheet()
     await waitFor(() => expect(screen.getAllByTestId('lab-catch-up-entry').filter(node => node.getAttribute('data-state') === 'ok')).toHaveLength(3), slow)
-    fireEvent.click(screen.getByTestId('lab-catch-up-discuss'))
-    expect(props.onDiscuss).toHaveBeenCalledOnce()
+    expect(screen.queryByTestId('lab-catch-up-discuss')).toBeNull()
+    expect(screen.queryByText('Discuss')).toBeNull()
+    const chat = screen.getByTestId('lab-catch-up-chat')
+    const talk = screen.getByTestId('lab-catch-up-talk')
+    expect(chat.getAttribute('aria-label')).toBe('Chat')
+    expect(chat.querySelector('svg[data-icon="chat"]')).toBeTruthy()
+    expect(talk.getAttribute('aria-label')).toBe('Talk')
+    expect(talk.querySelectorAll('svg rect')).toHaveLength(3)
+    const shown = 'Chapter 1 – Chapter 58: Recap of chs-1-58.\nChapter 59: Recap of ch-59.\nChapter 60: Recap of ch-60.'
+    fireEvent.click(chat)
+    expect(props.onChat).toHaveBeenCalledWith(shown)
+    fireEvent.click(talk)
+    expect(props.onTalk).toHaveBeenCalledWith(shown)
     fireEvent.click(screen.getByTestId('lab-catch-up-close'))
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(props.onClose).toHaveBeenCalledTimes(2)
@@ -200,5 +211,25 @@ describe('nextCatchUpKeys', () => {
     expect(nextCatchUpKeys({ keys, states: { a: 'ok', b: 'error' }, wanted: new Set(keys), concurrency: 2 })).toEqual(['c', 'd'])
     expect(nextCatchUpKeys({ keys, states: {}, wanted: new Set(['a']), concurrency: 2 })).toEqual(['a'])
     expect(nextCatchUpKeys({ keys, states: { a: 'loading', b: 'loading' }, wanted: new Set(keys), concurrency: 2 })).toEqual([])
+  })
+})
+
+describe('catchUpContextText', () => {
+  it('lists loaded entries as "Title: recap" in reading order and skips the rest', () => {
+    expect(catchUpContextText([
+      { title: 'Chapter 1', summary: 'One  happens.\n' },
+      { title: 'Chapter 2' },
+      { title: 'Chapter 3', summary: 'Three happens.' },
+    ])).toBe('Chapter 1: One happens.\nChapter 3: Three happens.')
+    expect(catchUpContextText([{ title: 'Chapter 1' }])).toBe('')
+  })
+
+  it('past the bound drops the oldest entries, keeping the part nearest "You are here"', () => {
+    const text = catchUpContextText([
+      { title: 'Old', summary: 'x'.repeat(30) },
+      { title: 'Mid', summary: 'y'.repeat(10) },
+      { title: 'New', summary: 'z'.repeat(10) },
+    ], 40)
+    expect(text).toBe(`Mid: ${'y'.repeat(10)}\nNew: ${'z'.repeat(10)}`)
   })
 })

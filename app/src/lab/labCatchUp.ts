@@ -130,3 +130,27 @@ export function nextCatchUpKeys(input: {
   }
   return next
 }
+
+/** What a shown explanation may carry into chat (companionRequest SHOWN_TEXT_CHARS). */
+export const CATCH_UP_CONTEXT_MAX = 4_000
+
+/**
+ * The catch-up as Chat and Talk receive it: each loaded entry as
+ * "Title: recap", in reading order. Past the bound the oldest entries are
+ * dropped, so the part nearest "You are here" always travels.
+ */
+export function catchUpContextText(items: ReadonlyArray<{ title: string; summary?: string | null }>, max = CATCH_UP_CONTEXT_MAX): string {
+  const lines = items
+    .map(item => ({ title: item.title.trim(), summary: item.summary?.replace(/\s+/g, ' ').trim() ?? '' }))
+    .filter(item => item.summary)
+    .map(item => item.title ? `${item.title}: ${item.summary}` : item.summary)
+  const kept: string[] = []
+  let length = 0
+  for (let index = lines.length - 1; index >= 0; index--) {
+    const added = lines[index].length + (kept.length ? 1 : 0)
+    if (kept.length && length + added > max) break
+    kept.unshift(lines[index])
+    length += added
+  }
+  return kept.join('\n')
+}

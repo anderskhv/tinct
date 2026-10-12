@@ -1786,7 +1786,7 @@ function dockGrip(el) {
 }
 
 /* ---------- Chat (and Talk) in Tinct's companion pane ---------- */
-const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [], live: null, fresh: false, anchor: null, placeAnchor: false, pinTop: null };
+const chat = { el: null, turns: [], talk: false, ctl: null, passage: null, attach: [], live: null, fresh: false, anchor: null, placeAnchor: false, pinTop: null, pill: null };
 function loadTurns() { chat.turns = (store.get('chat:' + state.key) || []).filter(t => t && t.content) }
 /* ---------- Images in chat: attach, paste, drop, or snip from the page ---------- */
 let imageLimits = null;
@@ -2152,7 +2152,7 @@ function saveTurns() { store.set('chat:' + state.key, chat.turns.slice(-40)) }
    docs/chat/mockup.html): no header, the reader's words in a bubble, answers as
    plain text, one divider when the page or the day changes, copy and time on hover
    or press, a hairline-and-caret composer. */
-const CHAT_THREAD = '/lab/chat-thread.js?v=20261010chat';
+const CHAT_THREAD = '/lab/chat-thread.js?v=20261012latest';
 let TC = null;
 const tcReady = import(CHAT_THREAD).then(m => (TC = m)).catch(() => null);
 function openChat(opts = {}) {
@@ -2198,7 +2198,7 @@ function openChat(opts = {}) {
     // a held question stays where it was put (the keyboard closing after send), unless the reader scrolled.
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(() => {
       if (holdQuestion(chat.pinTop != null)) return;
-      const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) thread.scrollTop = thread.scrollHeight
+      const space = thread.querySelector('.tc-spacer'); if (!space || !chat.fresh) return; const atEnd = thread.scrollHeight - thread.scrollTop - thread.clientHeight < 8; space.style.height = thread.clientHeight + 'px'; if (atEnd) { thread.scrollTop = thread.scrollHeight; latestPill().placed(thread) }
     }).observe(thread);
     el.querySelector('#attachBtn').onclick = () => el.querySelector('#attachInput').click();
     el.querySelector('#attachInput').onchange = e => { addAttachments([...e.target.files]); e.target.value = '' };
@@ -2254,8 +2254,9 @@ function renderAttached() {
 }
 /* After a question is sent the thread scrolls once, so the question sits near the top
    with a little of the previous answer above it; the answer then grows downward under
-   it and nothing follows it (Anders, 10 Oct 2026). The "Latest" pill shows when the
-   answer runs past the foot. A scroll the reader makes is never undone. */
+   it and nothing follows it (Anders, 10 Oct 2026). The "Latest" pill shows only once the
+   reader scrolled up and more arrived below (TC.latestPill, Anders, 12 Oct 2026), never
+   right after a send. A scroll the reader makes is never undone. */
 function heldRow() {
   const thread = chat.el?.querySelector('#thread');
   return chat.anchor == null || !thread ? null : thread.querySelector(`[data-turn="${chat.anchor}"]`);
@@ -2266,13 +2267,15 @@ function holdQuestion(place) {
   const thread = chat.el.querySelector('#thread');
   const top = TC.questionTop(thread, row);
   TC.fitSpacer(thread, top);
-  if (place) { thread.scrollTop = top; chat.pinTop = thread.scrollTop }
+  if (place) { thread.scrollTop = top; chat.pinTop = thread.scrollTop; latestPill().placed(thread) }
   latestState();
   return true;
 }
+function latestPill() { return chat.pill || (chat.pill = TC.latestPill()) }
 function latestState() {
   const thread = chat.el?.querySelector('#thread'); if (!thread) return;
-  chat.el.querySelector('#latest').hidden = !(chat.anchor != null ? TC.isBelow(thread) : TC.isAway(thread));
+  // Under a held question, the reader has scrolled once its place was let go (pinTop).
+  chat.el.querySelector('#latest').hidden = !latestPill().shows(thread, chat.anchor == null || chat.pinTop == null);
 }
 function renderThread() {
   const el = chat.el, thread = el.querySelector('#thread');
@@ -2300,6 +2303,7 @@ function renderThread() {
     return;
   }
   thread.scrollTop = thread.scrollHeight;
+  latestPill().placed(thread);
   el.querySelector('#latest').hidden = true;
 }
 /** An answer arriving: its text so far, the new words fading in; the view does not follow it. */
@@ -2311,8 +2315,8 @@ function liveText(text) {
   const kept = thread.scrollTop;
   md_.innerHTML = md(text); thread.querySelector('.tc-a.is-streaming .tc-wait')?.remove();
   TC.fadeInWords(md_, chat.live.seen || (chat.live.seen = []));
-  if (!holdQuestion(false) && !TC.isAway(thread)) thread.scrollTop = thread.scrollHeight;
-  else thread.scrollTop = kept;
+  if (!holdQuestion(false) && !TC.isAway(thread)) { thread.scrollTop = thread.scrollHeight; latestPill().placed(thread) }
+  else { thread.scrollTop = kept; latestState() }
 }
 async function ask(question, display) {
   const s = await ai();

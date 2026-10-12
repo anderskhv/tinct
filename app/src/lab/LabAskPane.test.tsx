@@ -582,11 +582,12 @@ describe('calm answer: the question is brought near the top once, then nothing m
       expect(thread.scrollTop).toBe(questionAt)
     }
     expect(latest().hidden).toBe(true)
-    // It grows past the foot of the window: the Latest pill shows; still no jump.
+    // It grows past the foot of the window: still no jump, and no Latest pill
+    // over the answer being read (Anders, 12 Oct 2026: prompt and answer, not the pill).
     rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(20))]} />)
     expect(thread.scrollTop).toBe(questionAt)
     expect(spacerOf(thread)).toBe(0)
-    expect(latest().hidden).toBe(false)
+    expect(latest().hidden).toBe(true)
     // Finished: no jump either.
     rerender(<LabAskPane {...props} typedLoading={false} turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(20))]} />)
     expect(thread.scrollTop).toBe(questionAt)
@@ -606,6 +607,49 @@ describe('calm answer: the question is brought near the top once, then nothing m
     }
     rerender(<LabAskPane {...props} typedLoading={false} turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(20))]} />)
     expect(thread.scrollTop).toBe(900)
+  })
+
+  it('the Latest pill shows only once the reader scrolled up and more arrived below; following the answer down never shows it', () => {
+    const history = turnsOf(20)
+    const long = (n: number) => reply('Phinehas is the model of zeal for the law. '.repeat(n))
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask]} />)
+    const questionAt = thread.scrollTop
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, long(20)]} />)
+    expect(latest().hidden).toBe(true)
+    // Reading down into the answer as it arrives: no pill.
+    thread.scrollTop = questionAt + 200
+    fireEvent.scroll(thread)
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, long(30)]} />)
+    expect(thread.scrollTop).toBe(questionAt + 200)
+    expect(latest().hidden).toBe(true)
+    // Scrolled up, above where the question was put: nothing new yet, no pill.
+    thread.scrollTop = 900
+    fireEvent.scroll(thread)
+    expect(latest().hidden).toBe(true)
+    // More arrives below while they read up there: the pill, and they stay put.
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, long(40)]} />)
+    expect(thread.scrollTop).toBe(900)
+    expect(latest().hidden).toBe(false)
+    // Back at the newest line: gone.
+    thread.scrollTop = thread.scrollHeight - thread.clientHeight
+    fireEvent.scroll(thread)
+    expect(latest().hidden).toBe(true)
+  })
+
+  it('the first question in an empty chat is held too: it stays in view above its answer, no pill', () => {
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={[]} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading turns={[ask]} />)
+    const questionAt = thread.scrollTop
+    for (const n of [1, 10, 40]) {
+      rerender(<LabAskPane {...props} typedLoading turns={[ask, reply('Phinehas is the model of zeal for the law. '.repeat(n))]} />)
+      expect(thread.scrollTop).toBe(questionAt)
+      expect(latest().hidden).toBe(true)
+    }
+    // The question row is still on screen (it starts at the top of the thread).
+    expect(questionAt).toBe(0)
   })
 
   it('an Explain (question and answer together) holds the question too', () => {

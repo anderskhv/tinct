@@ -9,7 +9,7 @@ import { LabMarkdown } from './LabMarkdown'
 // keys, press-and-hold and look live in public/lab/chat-thread.{js,css}, which
 // the PDF reader for a reader's own books loads too.
 import {
-  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, HINT_TEXT, ICONS, isAway, isBelow, keptCopyIndex, lastQuestion,
+  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, HINT_TEXT, ICONS, keptCopyIndex, lastQuestion, latestPill,
   questionTop, scrollToLatest, takeHint, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
 } from '../../public/lab/chat-thread.js'
 import '../../public/lab/chat-thread.css'
@@ -143,8 +143,10 @@ export function LabAskPane({
     try { storage = window.sessionStorage } catch { /* blocked */ }
     if (takeHint(storage)) setHint(true)
   }, [])
-  // More than a screen above the newest line: the "Latest" pill.
+  // The "Latest" pill: the reader scrolled up and something new arrived below (latestPill).
   const [away, setAway] = useState(false)
+  const latestRef = useRef<ReturnType<typeof latestPill> | null>(null)
+  latestRef.current ??= latestPill()
   const copyTurn = async (turn: LabAskTurn) => {
     try {
       await navigator.clipboard.writeText(turn.content)
@@ -226,15 +228,16 @@ export function LabAskPane({
     return Array.from(node.querySelectorAll<HTMLElement>('[data-turn-id]')).find(row => row.dataset.turnId === id) ?? null
   }
 
-  /** The Latest pill: under a held question, whenever the answer runs past the foot; otherwise more than a screen up. */
+  /** The Latest pill: never where the thread put the view (after a send, on open); only once the reader scrolled up and more arrived below. */
   const measureAway = useCallback((node: HTMLDivElement) => {
-    setAway(anchorIdRef.current ? isBelow(node) : isAway(node))
+    setAway(latestRef.current!.shows(node, pinnedScrollTopRef.current === null))
   }, [])
 
   const pinToBottom = useCallback((node: HTMLDivElement) => {
     node.scrollTop = node.scrollHeight
     pinnedScrollTopRef.current = node.scrollTop
     nearBottomRef.current = true
+    latestRef.current!.placed(node)
   }, [])
 
   /**
@@ -250,6 +253,7 @@ export function LabAskPane({
       node.scrollTop = top
       pinnedScrollTopRef.current = node.scrollTop
       nearBottomRef.current = false
+      latestRef.current!.placed(node)
     }
   }, [])
 
@@ -265,14 +269,16 @@ export function LabAskPane({
   const onThreadScroll = useCallback(() => {
     const node = threadRef.current
     if (!node) return
-    measureAway(node)
     if (hidden > 0 && node.scrollTop <= LAB_ASK_LOAD_MORE_PX && revealAnchorRef.current === null) {
+      measureAway(node)
       revealOlder()
       return
     }
-    if (samePlace(node.scrollTop, pinnedScrollTopRef.current)) return
-    pinnedScrollTopRef.current = null
-    nearBottomRef.current = isNearBottom(node)
+    if (!samePlace(node.scrollTop, pinnedScrollTopRef.current)) {
+      pinnedScrollTopRef.current = null
+      nearBottomRef.current = isNearBottom(node)
+    }
+    measureAway(node)
   }, [hidden, measureAway, revealOlder])
 
   // Older turns were prepended: keep the reader's line still.
@@ -283,6 +289,7 @@ export function LabAskPane({
     revealAnchorRef.current = null
     const grown = node.scrollHeight - anchor.scrollHeight
     node.scrollTop = Math.max(0, anchor.scrollTop + grown)
+    latestRef.current!.shift(grown)
     pinnedScrollTopRef.current = null
     nearBottomRef.current = isNearBottom(node)
   }, [hidden])
@@ -309,8 +316,9 @@ export function LabAskPane({
     }
     // The reader's own question among the turns added since the last render
     // (with an Explain, the question and its answer arrive together).
+    // An empty thread counts too: its first question is held like any other.
     const before = lastTurnIdRef.current ? turns.findIndex(turn => turn.id === lastTurnIdRef.current) : -1
-    const asked = newTurn && !justOpened && before >= 0
+    const asked = newTurn && !justOpened && (before >= 0 || lastTurnIdRef.current === null)
       ? [...turns.slice(before + 1)].reverse().find(turn => turn.role === 'user' && turn.source !== 'voice')
       : undefined
     if (asked) {
@@ -361,6 +369,7 @@ export function LabAskPane({
     body.scrollTop = Math.max(0, row.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop)
     nearBottomRef.current = false
     pinnedScrollTopRef.current = null
+    latestRef.current!.placed(body)
     focusedTurnRef.current = focusTurnId
   }, [focusTurnId, hidden, turns])
 
