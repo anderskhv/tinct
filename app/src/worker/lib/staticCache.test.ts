@@ -12,8 +12,8 @@ describe('static asset caching (worker/lib/staticCache)', () => {
   })
   it('reuses a cache-tagged library or lab file for a day and refreshes it in the background for a week', () => {
     const day = 'public, max-age=86400, stale-while-revalidate=604800'
-    expect(staticCacheControl(at('/lab/library_2/app.js?v=20261012tablecover'), 200, js)).toBe(day)
-    expect(staticCacheControl(at('/lab/library_2/styles.css?v=20261012tablecover'), 200, 'text/css')).toBe(day)
+    expect(staticCacheControl(at('/lab/library_2/app.js?v=20261012tablediag'), 200, js)).toBe(day)
+    expect(staticCacheControl(at('/lab/library_2/styles.css?v=20261012tablediag'), 200, 'text/css')).toBe(day)
     expect(staticCacheControl(at('/lab/book-cover.js?v=20261009owncover'), 200, js)).toBe(day)
     expect(staticCacheControl(at('/lab/addbook/js/search.js?v=20261009rel10'), 200, js)).toBe(day)
     expect(staticCacheControl(at('/omarchy/experience.js?v=20261005h1'), 200, js)).toBe(day)
