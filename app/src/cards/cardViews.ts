@@ -362,12 +362,13 @@ function fileField(): HTMLInputElement {
 
 function creditsGroup(env: CardsEnv, card: CardHandle): HTMLElement {
   const allowance = env.data.allowance!
-  const left = Math.max(0, Math.min(100, Math.round((1 - (allowance.monthUsedFraction ?? allowance.usedFraction)) * 100)))
-  const meter = (label: string, leftPercent: number, words: string, light: boolean, testid: string) => {
-    const track = el('div', { className: 'tc-tr', role: 'meter', 'aria-label': label, 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(leftPercent) }, el('i'))
-    ;(track.firstChild as HTMLElement).style.width = `${leftPercent}%`
+  // The bars fill as the allowance is used, toward 100% (Anders, 2026-10-12, as Claude and ChatGPT show it).
+  const used = Math.max(0, Math.min(100, Math.round((allowance.monthUsedFraction ?? allowance.usedFraction) * 100)))
+  const meter = (label: string, usedPercent: number, words: string, light: boolean, testid: string) => {
+    const track = el('div', { className: 'tc-tr', role: 'meter', 'aria-label': label, 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(usedPercent) }, el('i'))
+    ;(track.firstChild as HTMLElement).style.width = `${usedPercent}%`
     return el('div', { className: `tc-r tc-meter${light ? ' is-light' : ''}`, dataset: { testid } },
-      el('div', { className: 'tc-top' }, el('span', { text: label }), el('span', { className: 'tc-v' }, el('b', { text: `${leftPercent}%` }), ` ${words}`)), track)
+      el('div', { className: 'tc-top' }, el('span', { text: label }), el('span', { className: 'tc-v' }, el('b', { text: `${usedPercent}%` }), ` ${words}`)), track)
   }
   // The lighter top-up bar only once a top-up was bought this period.
   const topUpLeft = allowance.topUpLeftFraction
@@ -395,8 +396,8 @@ function creditsGroup(env: CardsEnv, card: CardHandle): HTMLElement {
     },
   }) : null
   return group(
-    meter(CARDS_COPY.aiCredits, left, CARDS_COPY.leftThisMonth, false, 'you-ai-credits'),
-    topUpLeft !== null ? meter(CARDS_COPY.topUpBar, Math.round(Math.max(0, Math.min(1, topUpLeft)) * 100), CARDS_COPY.left, true, 'you-top-up-bar') : null,
+    meter(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth, false, 'you-ai-credits'),
+    topUpLeft !== null ? meter(CARDS_COPY.topUpBar, Math.round((1 - Math.max(0, Math.min(1, topUpLeft))) * 100), CARDS_COPY.used, true, 'you-top-up-bar') : null,
     topUpRow,
   )!
 }

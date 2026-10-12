@@ -534,7 +534,9 @@ describe('first paint (Anders, 10 October 2026)', () => {
     expect(byTest('you-reading')?.textContent).toContain('6 h 10 m')
     expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 5')
     // The credits meter paints from the cache as well: the card no longer grows when the allowance arrives (11 Oct 2026).
-    expect(top().querySelector('.tc-meter')?.textContent).toContain('71%')
+    expect(top().querySelector('.tc-meter')?.textContent).toContain('29% used this month')
+    // The bar fills toward 100% as the allowance is used (Anders, 12 Oct).
+    expect((top().querySelector('.tc-meter .tc-tr i') as HTMLElement).style.width).toBe('29%')
   })
 
   it('asks for the profile, the reading time and the Friends board at once; the rank comes from the board, not a second call', async () => {
