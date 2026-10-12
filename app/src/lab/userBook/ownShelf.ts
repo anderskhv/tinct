@@ -112,6 +112,15 @@ export function placePercent(chapters: readonly UserBookChapter[], place: { chap
  * has none. Without the text on this device (a book read on another device of
  * the account), the progress is the percent that device kept with the place.
  */
+/**
+ * When an own book was taken off Currently reading (its place kept), or null: My shelf lists it
+ * under Saved for later, as it does Tinct's books (Anders, 2026-10-12). This device's record.
+ */
+export function ownSavedAt(hex: string, read: (key: string) => unknown = readJson): number | null {
+  const at = Number(read(OWN_TABLE_HIDDEN_PREFIX + hex))
+  return Number.isFinite(at) && at > 0 ? at : null
+}
+
 export function ownReading(hex: string, chapters: UserBookChapter[] | null, openedAt: number, read: (key: string) => unknown = readJson): OwnShelfReading | null {
   const raw = read(PLACE_PREFIX + hex) as RawPlace | null
   if (!raw || typeof raw !== 'object') return null

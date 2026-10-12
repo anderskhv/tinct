@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261012tablediag';
+import {mountBookshelf} from './bookshelf.js?v=20261012ownshelf';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261012tablediag';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261012ownshelf';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261012tablediag';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261012ownshelf';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
@@ -551,7 +551,7 @@ function dropFromReading(id){
 /** An own book's × under Currently reading: off Currently reading, as the desk's × does (its place is kept; it stays in My private uploads). */
 async function removeOwnFromReading(book){
  const id=ownTableId(book.key),leave=leaveShelf(['own-reading:'+book.key]);
- try{const api=await readingApi();await Promise.all([api.hideFromReadingNow(id),leave.faded]);leave.done();dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null}:own));}
+ try{const api=await readingApi();await Promise.all([api.hideFromReadingNow(id),leave.faded]);leave.done();dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null,savedAt:Date.now()}:own));}
  catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
 }
 /** An own book's × under My private uploads: confirmed, then Add a book's own delete (this device and the account). */
@@ -617,7 +617,10 @@ function drawMyBooks(){
  // Tinct's books and the reader's own together, as the desk and the reader's book switcher list them.
  const showOwn=addEnabled();
  const readingCards=reading.map(row=>row.own?(showOwn?ownReadingCard(row,ownShelf):null):byId(row.bookId)?{book:byId(row.bookId)}:readingRowCard(row)).filter(Boolean);
- const groups=[['Currently reading',readingCards,'reading'],['Saved for later',books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean).map(book=>({book})),'finished']];
+ // An own book taken off Currently reading (its place kept) is saved for later, as Tinct's are
+ // (Anders, 2026-10-12); it stays under My private uploads too, where its × deletes it.
+ const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{progress:true});card.dataset.shelfGroup='want';return card;}):[];
+ const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean).map(book=>({book})),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
@@ -655,7 +658,9 @@ function drawMyBooks(){
 }
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
 // Back from a book (the page restored as it was left): its cover or place may have changed since.
-addEventListener('pageshow',event=>{if(event.persisted){ownShelf=null;ownShelfLoading=null;}});
+// Back to the library always lands on the reading table, never on My shelf as the page was left
+// (Anders, 2026-10-12: the back gesture from a book opened from My shelf restored My shelf).
+addEventListener('pageshow',event=>{if(event.persisted){ownShelf=null;ownShelfLoading=null;if(collectionChoice!=='home'&&location.hash!=='#my-shelf')selectCollection('home');}});
 // Signed in or out on this page (the reading bridge's library2:auth): Add to Tinct appears or goes without a reload.
 addEventListener('library2:auth',()=>{syncAccountButton();resetAddAccess();syncSearchAddFile($('search-add-file'));syncLibraryAdd($('library-add'));ownShelf=null;ownShelfLoading=null;if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice==='saved')renderMyBooks();});
 function collectionCard(book){

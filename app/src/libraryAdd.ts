@@ -16,7 +16,7 @@
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
-import type { OwnShelfBook } from './lab/userBook/ownShelf'
+import { ownSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
 import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
 import { userBookId } from './lab/userBook/userBookId'
 import { bookCoverSrc } from '../public/lab/book-cover.js'
@@ -137,6 +137,8 @@ export interface OwnBook {
   at: number
   /** The reader has a saved place in it (on this device, or read on another device of the account): it is being read. */
   readingAt: number | null
+  /** Taken off Currently reading, its place kept (when): listed under Saved for later. Null otherwise. */
+  savedAt: number | null
   /** How far through it the reader is (0–100), when known. */
   percent: number | null
   href: string
@@ -147,7 +149,7 @@ export interface OwnBook {
 const ownBook = (book: OwnShelfBook): OwnBook => ({
   // This device's picture, else the account's stored copy of it (book-cover.js).
   key: book.key, kind: book.kind, title: book.title, author: book.author, cover: bookCoverSrc({ bookId: userBookId(book.hex), ownCover: book.cover, storedCover: book.storedCover }), at: book.at,
-  readingAt: book.reading?.lastActiveAt ?? null, percent: book.reading?.percent ?? null, href: book.href,
+  readingAt: book.reading?.lastActiveAt ?? null, savedAt: book.reading ? null : ownSavedAt(book.hex), percent: book.reading?.percent ?? null, href: book.href,
 })
 
 /**

@@ -208,12 +208,12 @@ describe('a user book in the Tinct reader', () => {
     expect(body.messages[body.messages.length - 1].content).toContain('Recap this chapter.')
   })
 
-  it('goes back to My shelf in the library, where its private uploads are', () => {
+  it('goes back to the library\'s reading table, as from Tinct\'s books (Anders, 12 Oct)', () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
     const back = screen.getByTestId('lab-library-back')
-    expect(back.getAttribute('aria-label')).toBe('Back to your books')
+    expect(back.getAttribute('aria-label')).toBe('Back to library')
     fireEvent.click(back)
-    expect(leave).toHaveBeenCalledWith('/library#my-shelf')
+    expect(leave).toHaveBeenCalledWith('/library')
   })
 
   it('names its chapters and text only from this device', async () => {
