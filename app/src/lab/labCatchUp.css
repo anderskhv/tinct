@@ -1,5 +1,5 @@
 /* "Catch me up": a V2 sheet (same surface as the other super-menu layers)
-   holding a vertical timeline. Playfair titles, EB Garamond recaps, Plex Mono
+   holding a vertical timeline. Playfair titles, EB Garamond recaps, system UI
    chrome. The timeline mirrors the menu icon: small filled dots for what has
    been read, an open ring for "You are here". */
 
@@ -132,7 +132,7 @@
   border: 0;
   background: none;
   color: var(--lab-v2-quiet);
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-size: 11px;
   letter-spacing: 0.04em;
   text-decoration: underline;
@@ -142,7 +142,7 @@
 
 .lab[data-chrome-version="v2"] .lab-catch-up-here {
   padding: 0 0 2px 22px;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -176,7 +176,7 @@
   border-radius: 999px;
   background: var(--lab-ink);
   color: var(--lab-paper);
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-size: 12px;
   letter-spacing: 0.04em;
   cursor: pointer;
@@ -235,7 +235,7 @@
 /* An own book's recap is built a chapter at a time: a quiet count under the placeholder. */
 .lab[data-chrome-version="v2"] .lab-catch-up-progress {
   margin: 6px 0 0;
-  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-size: 11px;
   letter-spacing: 0.04em;
   color: var(--lab-v2-quiet);
