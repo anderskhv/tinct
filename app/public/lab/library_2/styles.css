@@ -490,3 +490,9 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
 
 /* A scan whose text is being recognised (add-to-tinct.js ownBookCard): "Recognising text…". */
 .collection-card p.own-ocr{font:italic 14px/1.35 'EB Garamond',Georgia,serif;margin:-8px 0 12px}
+/* The table's shadows without filter:blur (2026-10-12): each book's contact shadow and cast
+   shadow were blurred planes turned in 3D, redrawn on every move of the row; on iPhone a swipe
+   onto the Bible (the thickest book, the largest shadows) held the screen for 0.8-4.9 s while the
+   page itself was idle (?diag=table). Softer gradients give the same edge without the filter. */
+.reading-table .rt-shadow{filter:none;background:radial-gradient(closest-side,#010301e6,#01030199 40%,#01030133 75%,#01030100)}
+.reading-table .rt-cast{filter:none;background:radial-gradient(ellipse at 50% 50%,#02040399,#02040350 30%,#02040320 55%,#02040300 75%)}
