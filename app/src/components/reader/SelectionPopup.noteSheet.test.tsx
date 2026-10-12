@@ -36,7 +36,7 @@ it('keeps a typed but unsaved note when the reader taps outside', () => {
   expect(screen.getByText('closed')).toBeTruthy()
 })
 
-it('keeps the draft on Escape too; Back discards it and an untouched note is not rewritten', () => {
+it('keeps the draft on Escape too; closing the note (the +) discards it and an untouched note is not rewritten', () => {
   const save = vi.fn()
   const { unmount } = render(<Harness save={save} />)
   fireEvent.click(screen.getByRole('button', { name: 'Add note' }))
@@ -49,7 +49,7 @@ it('keeps the draft on Escape too; Back discards it and an untouched note is not
   render(<><button>page</button><Harness save={save} existingNote="Already saved" /></>)
   fireEvent.click(screen.getByRole('button', { name: 'Edit note' }))
   fireEvent.change(screen.getByRole('textbox', { name: 'Highlight note' }), { target: { value: 'Changed my mind' } })
-  fireEvent.click(screen.getByRole('button', { name: 'Back' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Close note' }))
   fireEvent.pointerDown(screen.getByRole('button', { name: 'page' }))
   fireEvent.click(screen.getByRole('button', { name: 'page' }))
   expect(save).not.toHaveBeenCalled()
@@ -69,7 +69,9 @@ it('phone: the note editor is a sheet docked on the keyboard (visualViewport), a
   // The colour row and the actions stay.
   expect(screen.getByRole('button', { name: 'Close note' })).toBeTruthy()
   expect(screen.getByRole('button', { name: 'Save note' })).toBeTruthy()
-  expect(screen.getByRole('button', { name: 'Back' })).toBeTruthy()
+  // Approved mockup (12 Oct): Remove highlight on the left, Save note on the right; no Back.
+  expect(screen.getByRole('button', { name: 'Remove highlight' })).toBeTruthy()
+  expect(screen.queryByRole('button', { name: 'Back' })).toBeNull()
   // The keyboard grows: the sheet follows it.
   ;(window.visualViewport as unknown as { height: number }).height = 400
   window.visualViewport!.dispatchEvent(new Event('resize'))

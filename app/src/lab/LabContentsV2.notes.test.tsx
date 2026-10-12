@@ -49,6 +49,12 @@ it('shows each note in full under its passage, in ink, and filters to Notes only
   expect(row.querySelector('.excerpt')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Notes only' }))
   expect(rows()).toEqual([`contents-highlight-hl-${T + 1}-daughter`, `contents-chapter-note-hl-${T + 4}-cn`])
+  // Approved mockup (12 Oct): under Notes only the note leads and its passage follows, quoted.
+  const first = screen.getByTestId(`contents-highlight-hl-${T + 1}-daughter`)
+  expect(first.querySelector('.note-lead')?.textContent).toBe('Youngest, and so the indulged one.\nSee her father.')
+  expect(first.querySelector('.note-source')?.textContent).toMatch(/^“.*youngest daughter\.”$/)
+  expect(first.querySelector('.note-lead')!.compareDocumentPosition(first.querySelector('.note-source')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(document.querySelector('.note-count')?.textContent).toMatch(/^2 notes in /)
   fireEvent.click(screen.getByRole('button', { name: 'All', exact: true }))
   expect(rows()).toHaveLength(4)
 })

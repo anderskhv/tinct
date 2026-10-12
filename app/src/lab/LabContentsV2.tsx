@@ -223,9 +223,15 @@ export function LabContentsV2(props: Props) {
   </button>
   // The note is the reader's own words, shown whole beneath the book's.
   const noteText = (h: LabHighlight) => h.note?.trim() ? <p className="note">{h.note.trim()}</p> : null
+  // Notes only (approved mockup, 12 Oct): the reader's takeaway leads, the passage it came from beneath it.
+  const noteLead = (h: LabHighlight) => <p className="note-lead">{h.note?.trim()}</p>
   const highlightRow = (h: LabHighlight) => isLabChapterNote(h)
     ? <button className="result is-chapter-note" key={h.id} data-testid={'contents-chapter-note-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
-      <small>{chapterTitle(h.chapterNumber)} · Chapter note</small>{noteText(h)}
+      <small>{chapterTitle(h.chapterNumber)} · Chapter note</small>{notesFilter ? noteLead(h) : noteText(h)}
+    </button>
+    : notesFilter && h.note?.trim()
+    ? <button className="result is-note-first" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
+      <small>{chapterTitle(h.chapterNumber)}</small>{noteLead(h)}<p className="note-source">{quote(h) ? `“${quote(h)}”` : (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>
     </button>
     : <button className="result" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
       <small>{chapterTitle(h.chapterNumber)}</small><p>{quote(h) || (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>{noteText(h)}
@@ -285,7 +291,7 @@ export function LabContentsV2(props: Props) {
             {(scope === 'chats' || data) && (scope === 'book' || props.historyStatus === 'ready') && !shownResults && <p className="status">No matches.</p>}
           </>)}
           {view === 'chats' && <>{relevantChats.slice(0,limit).map(chatRow)}{more(relevantChats.length)}{!relevantChats.length && props.historyStatus === 'ready' && <p className="status">No saved conversations.</p>}</>}
-          {view === 'highlights' && <>{relevantHighlights.slice(0,limit).map(highlightRow)}{more(relevantHighlights.length)}{!relevantHighlights.length && <p className="status">{notesFilter ? 'No notes saved for this edition.' : 'No highlights saved for this edition.'}</p>}{props.unassignedHighlights.length > 0 && <button className="more" onClick={() => setView('older')}>Older highlights · book not recorded</button>}</>}
+          {view === 'highlights' && <>{relevantHighlights.slice(0,limit).map(highlightRow)}{more(relevantHighlights.length)}{notesFilter && relevantHighlights.length > 0 && <p className="status note-count">{relevantHighlights.length === 1 ? '1 note' : `${relevantHighlights.length} notes`} in {title}</p>}{!relevantHighlights.length && <p className="status">{notesFilter ? 'No notes saved for this edition.' : 'No highlights saved for this edition.'}</p>}{props.unassignedHighlights.length > 0 && <button className="more" onClick={() => setView('older')}>Older highlights · book not recorded</button>}</>}
           {view === 'older' && <><p className="status">These older marks have no saved book or edition. They are preserved here; their quotations cannot be identified safely.</p>{props.unassignedHighlights.map(h => <article className="result" key={h.id}><small>Chapter {h.chapterNumber} · paragraph {h.paragraphIndex + 1}</small><p>{h.note || 'Highlighted passage'}</p></article>)}</>}
           {view === 'highlight' && selection && (isLabChapterNote(selection)
             ? <article className="result is-chapter-note"><small>{chapterTitle(selection.chapterNumber)}</small>{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: 0, wordIndex: 0 })}>Open chapter<Icon name="next" /></button></article>

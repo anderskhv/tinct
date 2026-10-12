@@ -4678,6 +4678,9 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 .lab .selection-popup.is-lab.is-compact.is-keyboard-docked{background:var(--lab-paper);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 -6px 24px rgba(30,25,18,.14)}
 .lab .selection-popup.is-lab.is-keyboard-docked .popup-highlight-note .popup-textarea:focus{outline:none;border-color:var(--lab-ink-muted)}
+/* The passage the note belongs to, named on the keyboard sheet only (approved mockup, 12 Oct). */
+.lab .selection-popup .popup-note-quote{display:none}
+.lab .selection-popup.is-lab.is-keyboard-docked .popup-note-quote{display:block;margin:0 0 8px;font:italic 400 15px/1.3 'EB Garamond',Georgia,serif;color:var(--lab-ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* The chapter note on the desktop: the highlight note's card, without the colour row to set its width. */
 .lab .selection-popup.is-lab.lab-chapter-note-editor[data-popup-mode="note"]:not(.is-keyboard-docked){width:min(340px, calc(100vw - 24px))!important}
 .lab .selection-popup.is-lab.is-compact.lab-chapter-note-editor[data-edge="above"]:not(.is-keyboard-docked){top:auto!important;bottom:var(--chapter-note-bottom,96px)!important}

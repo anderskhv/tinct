@@ -480,6 +480,8 @@ export function SelectionPopup({
           {/* Same markup as the compact palette, so opening a note does not
               resize or shift the dots: the row stays put and the note grows
               out beneath it. */}
+          {/* On the phone's keyboard sheet the passage is named above the colours (approved mockup, 12 Oct). */}
+          {contextualExplain && selection.text && <p className="popup-note-quote">“{selection.text}”</p>}
           {contextualExplain && <div className="popup-highlight-palette" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => { onColorClick(c.key); setLastColor(c.key) }} />)}
             {/* The same "+" the palette carries, so the row is the same width
                 and the pill does not narrow or re-centre; pressed, it folds
@@ -502,10 +504,14 @@ export function SelectionPopup({
               autoFocus={!contextualExplain || (typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches === true)}
             />
             <div className="popup-note-actions">
-              <button className="popup-button" onClick={() => {
-                if (contextualExplain) setNoteInput(selection.existingNote || '')
-                setPopupMode(homeMode)
-              }}>{contextualExplain ? 'Back' : 'Cancel'}</button>
+              {/* The reader's note sheet (approved mockup, 12 Oct): Remove highlight on the left,
+                  Save note on the right; a tap outside keeps the draft. */}
+              {contextualExplain && selection.existingHighlightId
+                ? <button className="popup-button popup-note-remove" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>
+                : <button className="popup-button" onClick={() => {
+                  if (contextualExplain) setNoteInput(selection.existingNote || '')
+                  setPopupMode(homeMode)
+                }}>{contextualExplain ? 'Back' : 'Cancel'}</button>}
               <button
                 className="popup-button popup-button-primary"
                 // An empty new note is never saved; clearing an existing one is.
@@ -519,7 +525,6 @@ export function SelectionPopup({
                 }}
               >{contextualExplain ? 'Save note' : 'Save'}</button>
             </div>
-            {contextualExplain && selection.existingHighlightId && <button className="popup-button" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>}
           </div>
         </div>
       )}
