@@ -171,3 +171,22 @@ describe('a book of many chapters', () => {
     expect(printedContentsRange(own.paragraphs, { titles: [...titles(rest), own.title] })).toEqual([0, 6])
   })
 })
+
+describe('a title page over its contents, as a book\'s opening chapter (Memoirs of Victor Hugo, 12 Oct)', () => {
+  const titles = ['Preface', 'At Rheims. 1823-1838', 'Recounted by Eye-Witnesses', 'March 16, 1847.', 'April 22, 1847.', 'October 4, 1847.', 'December 29, 1848. Friday.', 'March 26, 1850. Tuesday.', 'An Election Session. March 28, 1850.', 'Love in Prison', 'At the Tuileries. 1844-1848', 'September 5, 1844.', 'February 26, 1844.']
+  const front = ['By Victor Hugo', 'October 8, 1844.', '1845.', 'AN ELECTION SESSION.', 'March 16, 1847.', 'April 22, 1847.', 'October 4, 1847.', 'December 29, 1848. Friday.', 'March 26, 1850. Tuesday.', 'AN ELECTION SESSION. March 28, 1850.', 'LOVE IN PRISON.', 'I.', 'II.', 'AT THE TUILERIES. 1844-1848.', 'September 5, 1844.', 'February 26, 1844.']
+  const chapter = (number: number, title: string, paragraphs: string[]) => ({ number, title, paragraphs })
+  const prose = 'It was at Rheims that I heard the name of Shakespeare for the first time, spoken by Charles Nodier one evening.'
+  it('drops the opening chapter when its short lines are mostly the book\'s own chapter titles', () => {
+    const book = [chapter(1, 'The Memoirs of Victor Hugo', front), ...titles.map((title, i) => chapter(i + 2, title, [prose]))]
+    const out = dropPrintedContents(book)
+    expect(out.length).toBe(book.length - 1)
+    expect(out[0]).toMatchObject({ number: 1, title: 'Preface' })
+  })
+  it('keeps a later chapter of short lines, and an opening chapter of prose', () => {
+    const later = [chapter(1, 'Preface', [prose]), chapter(2, 'The Memoirs of Victor Hugo', front), ...titles.slice(1).map((title, i) => chapter(i + 3, title, [prose]))]
+    expect(dropPrintedContents(later)).toBe(later)
+    const opening = [chapter(1, 'The Memoirs of Victor Hugo', [prose, prose]), ...titles.map((title, i) => chapter(i + 2, title, [prose]))]
+    expect(dropPrintedContents(opening)).toBe(opening)
+  })
+})

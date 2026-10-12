@@ -485,9 +485,23 @@ async function serveIndex(request: Request, bucket: R2Bucket): Promise<Response>
   return reply({ books: index?.books ?? [] }, 200, request, 'public, max-age=60')
 }
 
+/**
+ * An added book's original, paired with its Modern English (2026-10-12). The import publishes the
+ * original alone and unaligned; the Modern English is then written paragraph by paragraph from
+ * that original (publicBookModern.ts), so once it exists the two line up and Compare pairs them.
+ * Read-time, so books added before this rule pair too.
+ */
+export function pairedWithModern<T extends { book: { editions: Array<{ key: string; style?: string; aligned?: boolean }> }; entry: { editions?: Array<{ key: string; group?: string; style?: string; aligned?: boolean }> } }>(meta: T): T {
+  if (!meta.book.editions.some(edition => edition.key === 'modern-en')) return meta
+  const pair = <E extends { key: string; style?: string; group?: string; aligned?: boolean }>(edition: E): E =>
+    edition.key !== 'modern-en' && (edition.style === 'original' || edition.group === 'original') && edition.aligned === false ? { ...edition, aligned: true } : edition
+  return { ...meta, book: { ...meta.book, editions: meta.book.editions.map(pair) }, entry: { ...meta.entry, ...(meta.entry.editions ? { editions: meta.entry.editions.map(pair) } : {}) } }
+}
+
 async function serveBook(request: Request, bucket: R2Bucket, bookId: string): Promise<Response> {
-  const meta = await readJson<StoredMeta>(bucket, metaKey(bookId))
-  if (!meta) return reply({ error: 'Not found' }, 404, request)
+  const stored = await readJson<StoredMeta>(bucket, metaKey(bookId))
+  if (!stored) return reply({ error: 'Not found' }, 404, request)
+  const meta = pairedWithModern(stored)
   return reply({ book: meta.book, entry: meta.entry }, 200, request, 'public, max-age=60')
 }
 
