@@ -5,8 +5,10 @@ import type { LabChapter } from './labSource'
 import { useReaderWindow } from './useReaderWindow'
 import { LabBalanceEmptyLine } from './LabAiUsageBar'
 import { LAB_COPY } from './labCopy'
+import { RowIcon } from './LabSuperMenu.tsx'
 import {
   CATCH_UP_COOLDOWN_MS,
+  catchUpContextText,
   CATCH_UP_INITIAL_WANTED,
   catchUpShouldCoolDown,
   fetchCatchUpEntry,
@@ -35,7 +37,9 @@ export interface LabCatchUpSheetProps {
   form?: string | null
   readToken?: () => Promise<string | null>
   onClose: () => void
-  onDiscuss: () => void
+  /** Chat and Talk carry what the sheet has shown (`catchUpContextText`), as Explain does. */
+  onChat: (text: string) => void
+  onTalk: (text: string) => void
   /** Opens where the reader can top up (the account sheet); links the balance line shown at zero. */
   onTopUp?: () => void
 }
@@ -53,7 +57,7 @@ interface EntryState { state: CatchUpLoadState; summary?: string; allowanceUsed?
  * move the reader.
  */
 export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
-  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onDiscuss, onTopUp } = props
+  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onChat, onTalk, onTopUp } = props
   // The place is captured once, when the sheet opens.
   const [entries] = useState<CatchUpEntry[]>(() => catchUpPlan({
     bookId, editionKey, bookTitle,
@@ -152,6 +156,11 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     }
   }, [coolUntil, entries, keys, load, states, wanted])
 
+  const shownText = () => catchUpContextText(entries.map(entry => ({
+    title: entry.title,
+    summary: states[entry.key]?.state === 'ok' ? states[entry.key]?.summary : undefined,
+  })))
+
   return (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
       <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
@@ -198,8 +207,9 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
             </li>
           </ol>
         </div>
-        <div className="lab-catch-up-foot">
-          <button type="button" className="lab-catch-up-discuss" data-testid="lab-catch-up-discuss" onClick={onDiscuss}>Discuss</button>
+        <div className="lab-catch-up-foot lab-chapter-notes-foot">
+          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
+          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
         </div>
       </section>
     </div>

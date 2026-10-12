@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useReaderWindow } from '../useReaderWindow'
 import { LabBalanceEmptyLine } from '../LabAiUsageBar'
-import { CATCH_UP_COOLDOWN_MS, catchUpShouldCoolDown } from '../labCatchUp'
+import { CATCH_UP_COOLDOWN_MS, catchUpContextText, catchUpShouldCoolDown } from '../labCatchUp'
+import { RowIcon } from '../LabSuperMenu.tsx'
 import { CATCH_UP_TITLE } from '../LabCatchUpSheet'
 import { buildOwnCatchUp, ownCatchUpPlan } from './ownCatchUp'
 import type { UserBookChapter } from './userEdition'
@@ -20,7 +21,9 @@ export interface LabOwnCatchUpSheetProps {
   completed: boolean
   readToken: () => Promise<string | null>
   onClose: () => void
-  onDiscuss: () => void
+  /** Chat and Talk carry the recap shown (`catchUpContextText`), as Explain does. */
+  onChat: (text: string) => void
+  onTalk: (text: string) => void
   onTopUp?: () => void
 }
 
@@ -37,7 +40,7 @@ type State =
  * at open, and never writes one.
  */
 export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
-  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onDiscuss, onTopUp } = props
+  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp } = props
   const [steps] = useState(() => ownCatchUpPlan({ chapters, chapterNumber, paragraphIndex, completed }))
   const [status, setStatus] = useState<State>({ state: 'loading', done: 0, total: steps.length })
   const [attempt, setAttempt] = useState(0)
@@ -82,6 +85,7 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
   }, [status])
 
   const retry = useCallback(() => setAttempt(n => n + 1), [])
+  const shownText = () => catchUpContextText([{ title: OWN_CATCH_UP_ENTRY_TITLE, summary: status.state === 'ok' ? status.recap : undefined }])
 
   return (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
@@ -119,8 +123,9 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
             </li>
           </ol>
         </div>
-        <div className="lab-catch-up-foot">
-          <button type="button" className="lab-catch-up-discuss" data-testid="lab-catch-up-discuss" onClick={onDiscuss}>Discuss</button>
+        <div className="lab-catch-up-foot lab-chapter-notes-foot">
+          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
+          <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
         </div>
       </section>
     </div>

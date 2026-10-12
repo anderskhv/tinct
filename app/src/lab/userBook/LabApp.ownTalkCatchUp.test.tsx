@@ -136,6 +136,31 @@ describe('Catch me up on a reader’s own book', () => {
     expect(screen.getByTestId('lab-catch-up-here')).toBeTruthy()
   })
 
+  it('Chat carries what Catch me up said into the chat, as Explain does', async () => {
+    render(<LabApp pathname="/lab/desktop" authToken="token-a" userBook={loaded({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 0 })} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-catchup'))
+    await waitFor(() => expect(screen.getByTestId('lab-catch-up-entry').textContent).toContain('then leaves for the city.'))
+    expect(screen.queryByTestId('lab-catch-up-discuss')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-catch-up-chat'))
+    await waitFor(() => expect(screen.queryByTestId('lab-catch-up')).toBeNull())
+    await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
+    const answer = await screen.findByText('So far: Mara waits by the lamp, then leaves for the city.')
+    expect(answer.closest('[data-testid="lab-ask-turn-assistant"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-ask-history-passage').textContent).toBe('Catch me up')
+  })
+
+  it('Talk starts with what Catch me up said in its reference', async () => {
+    render(<LabApp pathname="/lab/phone" authToken="token-a" userBook={loaded({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 0 })} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-catchup'))
+    await waitFor(() => expect(screen.getByTestId('lab-catch-up-entry').textContent).toContain('then leaves for the city.'))
+    fireEvent.click(screen.getByTestId('lab-catch-up-talk'))
+    await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
+    expect(screen.queryByTestId('lab-catch-up')).toBeNull()
+    await waitFor(() => expect(captured.options?.reference ?? '').toContain('Mara waits by the lamp, then leaves for the city.'))
+  })
+
   it('signed out: asks for an account instead of sending anything', () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 0 })} />)
     fireEvent.click(screen.getByTestId('lab-super'))

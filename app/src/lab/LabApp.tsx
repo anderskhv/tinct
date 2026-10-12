@@ -93,7 +93,7 @@ import { useLabReadingYear } from './useLabReadingYear'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
-import { LabCatchUpSheet } from './LabCatchUpSheet'
+import { CATCH_UP_TITLE, LabCatchUpSheet } from './LabCatchUpSheet'
 import { LabOwnCatchUpSheet } from './userBook/LabOwnCatchUpSheet'
 import { getLibraryMeta } from '../data/libraryTaxonomy'
 import { LabFigureCard } from './LabFigure'
@@ -4766,6 +4766,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     else requestAnimationFrame(() => handleTalk())
   }, [ask, chapterNotes, handleChat, handleTalk])
 
+  // Catch me up hands what it showed to Chat or Talk the way Explain and
+  // chapter notes do: kept as a shown explanation, then the companion opens.
+  // The sheet never moved the reader, so the place is the one it opened at.
+  const continueCatchUp = useCallback((mode: 'chat' | 'talk', text: string) => {
+    setSuperSheet(null)
+    if (text) ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })
+    if (mode === 'chat') handleChat()
+    else requestAnimationFrame(() => handleTalk())
+  }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
+
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
@@ -5164,7 +5174,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           completed={finishedChapters.has(book.chapterNumber)}
           readToken={ownCatchUpToken}
           onClose={() => setSuperSheet(null)}
-          onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
+          onChat={text => continueCatchUp('chat', text)}
+          onTalk={text => continueCatchUp('talk', text)}
           onTopUp={() => setSuperSheet('account')}
         />
       )}
@@ -5178,7 +5189,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           form={getLibraryMeta(book.bookId || 'bible')?.form ?? null}
           readToken={readSupabaseAccessToken}
           onClose={() => setSuperSheet(null)}
-          onDiscuss={() => { setSuperSheet(null); handleChapterChat('discuss') }}
+          onChat={text => continueCatchUp('chat', text)}
+          onTalk={text => continueCatchUp('talk', text)}
           onTopUp={() => setSuperSheet('account')}
         />
       )}
