@@ -4,11 +4,11 @@ import { afterEach, expect, it, vi } from 'vitest'
 import { LabChapterEnd } from './LabChapterEnd'
 import { LabChapterHeading } from './LabChapterHeading'
 afterEach(cleanup)
-it('offers only recap at the book end, with no automatic action or end heading', () => {
+it('offers recap and the chapter note at the book end, with no automatic action or end heading', () => {
   const onContinue = vi.fn(), onDiscuss = vi.fn()
   render(<LabChapterEnd hasNext={false} onContinue={onContinue} onDiscuss={onDiscuss} />)
   expect(screen.queryByRole('heading')).toBeNull()
-  expect(screen.getAllByRole('button')).toHaveLength(1)
+  expect(screen.getAllByRole('button').map(button => button.getAttribute('aria-label'))).toEqual(['Recap this chapter', 'Chapter note'])
   expect(onContinue).not.toHaveBeenCalled()
   expect(onDiscuss).not.toHaveBeenCalled()
   fireEvent.click(screen.getByRole('button', { name: 'Recap this chapter' }))

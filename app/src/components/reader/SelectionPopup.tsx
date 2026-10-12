@@ -11,6 +11,8 @@ import { useReaderWindow } from '../../lab/useReaderWindow'
 import { ContextualExplainCard } from './ContextualExplainCard'
 import { useReaderSelectionCopy } from './useReaderSelectionCopy'
 import { ChatIcon, HighlightIcon } from '../../lab/LabReaderIcons'
+import { useLabKeyboardDock } from '../../lab/useLabKeyboardDock'
+import { LAB_KEYBOARD_SHEET_ATTR } from '../../lab/labChrome'
 
 export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'character' | 'gallery' | 'explain'
 
@@ -74,6 +76,8 @@ export interface SelectionPopupProps {
   onDeleteHighlight?: (id: string) => void
   dismissPopup: () => void
   lab?: boolean
+  /** Phone: the note editor opens as a sheet docked on the software keyboard, not beside the passage. */
+  keyboardDock?: boolean
 }
 
 function homeModeFor(selection: SelectionInfo): SelectionPopupHomeMode {
@@ -161,6 +165,7 @@ export function SelectionPopup({
   onShareHighlight,
   dismissPopup,
   lab = false,
+  keyboardDock = false,
 }: SelectionPopupProps) {
   const windowRef = useReaderWindow<HTMLDivElement>(popupMode === 'define' ? 'define' : 'explain', lab && (popupMode === 'explain' || popupMode === 'define'))
   const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
@@ -293,8 +298,20 @@ export function SelectionPopup({
     flushSync(() => onRequestNote(color))
     noteFieldRef.current?.focus({ preventScroll: true })
   }
+  const docked = lab && keyboardDock && popupMode === 'note'
+  useLabKeyboardDock(popupRef, docked)
+  /**
+   * A note typed but not saved is kept, not lost, when the popup goes away
+   * other than by Back (a tap outside, Escape): it is saved as typed.
+   */
+  const keepDraftRef = useRef(() => {})
+  keepDraftRef.current = () => {
+    if (popupMode !== 'note' || !selection.existingHighlightId) return
+    const draft = noteInput.trim()
+    if (draft && draft !== (selection.existingNote || '').trim()) onUpdateHighlightNote?.(selection.existingHighlightId, draft)
+  }
   const dismissRef = useRef(dismissPopup)
-  dismissRef.current = dismissPopup
+  dismissRef.current = () => { keepDraftRef.current(); dismissPopup() }
   useEffect(() => {
     const outside = (event: PointerEvent) => {
       if (popupRef.current?.contains(event.target as Node)) return
@@ -325,7 +342,7 @@ export function SelectionPopup({
       aria-label={popupMode === 'explain' ? 'Explain this passage' : character ? 'People at this passage' : undefined}
       onKeyDown={event => {
         event.stopPropagation()
-        if (event.key === 'Escape') { event.preventDefault(); dismissPopup() }
+        if (event.key === 'Escape') { event.preventDefault(); dismissRef.current() }
         if (event.key === 'Tab') {
           const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('button, input, textarea, [tabindex="0"]')).filter(el => !el.hasAttribute('disabled'))
           const index = controls.indexOf(document.activeElement as HTMLElement)
@@ -334,7 +351,8 @@ export function SelectionPopup({
           }
         }
       }}
-      className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+      {...(docked ? { [LAB_KEYBOARD_SHEET_ATTR]: '' } : {})}
+      className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''}${docked ? ' is-keyboard-docked' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-explain-edge={explainPlacement.edge}
       data-explain-side={selection.x < window.innerWidth / 2 ? 'right' : 'left'}
       data-explain-origin={selection.x < window.innerWidth / 2 ? 'left' : 'right'}
@@ -454,7 +472,7 @@ export function SelectionPopup({
 
       {contextualExplain && popupMode === 'colors' && <div className="popup-highlight-palette" aria-label="Highlight colour">
         {HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => pickColor(c.key)} />)}
-        <button type="button" className="popup-add-note" aria-label={selection.existingNote ? 'Edit note' : 'Add note'} onClick={() => requestNote(lastColor)}>+</button>
+        <button type="button" className="popup-add-note" aria-label={selection.existingNote ? 'Edit note' : 'Add note'} onClick={() => requestNote(lastColor)}><span aria-hidden="true">+</span></button>
       </div>}
 
       {popupMode === 'note' && (
@@ -462,11 +480,13 @@ export function SelectionPopup({
           {/* Same markup as the compact palette, so opening a note does not
               resize or shift the dots: the row stays put and the note grows
               out beneath it. */}
+          {/* On the phone's keyboard sheet the passage is named above the colours (approved mockup, 12 Oct). */}
+          {contextualExplain && selection.text && <p className="popup-note-quote">“{selection.text}”</p>}
           {contextualExplain && <div className="popup-highlight-palette" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => { onColorClick(c.key); setLastColor(c.key) }} />)}
             {/* The same "+" the palette carries, so the row is the same width
                 and the pill does not narrow or re-centre; pressed, it folds
                 the note away again. */}
-            <button type="button" className="popup-add-note is-pressed" aria-label="Close note" aria-pressed="true" onClick={() => { setNoteInput(selection.existingNote || ''); setPopupMode(homeMode) }}>+</button>
+            <button type="button" className="popup-add-note is-pressed" aria-label="Close note" aria-pressed="true" onClick={() => { setNoteInput(selection.existingNote || ''); setPopupMode(homeMode) }}><span aria-hidden="true">+</span></button>
           </div>}
           <div className={contextualExplain ? 'popup-note-body' : undefined}>
             <textarea
@@ -484,10 +504,14 @@ export function SelectionPopup({
               autoFocus={!contextualExplain || (typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches === true)}
             />
             <div className="popup-note-actions">
-              <button className="popup-button" onClick={() => {
-                if (contextualExplain) setNoteInput(selection.existingNote || '')
-                setPopupMode(homeMode)
-              }}>{contextualExplain ? 'Back' : 'Cancel'}</button>
+              {/* The reader's note sheet (approved mockup, 12 Oct): Remove highlight on the left,
+                  Save note on the right; a tap outside keeps the draft. */}
+              {contextualExplain && selection.existingHighlightId
+                ? <button className="popup-button popup-note-remove" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>
+                : <button className="popup-button" onClick={() => {
+                  if (contextualExplain) setNoteInput(selection.existingNote || '')
+                  setPopupMode(homeMode)
+                }}>{contextualExplain ? 'Back' : 'Cancel'}</button>}
               <button
                 className="popup-button popup-button-primary"
                 // An empty new note is never saved; clearing an existing one is.
@@ -501,7 +525,6 @@ export function SelectionPopup({
                 }}
               >{contextualExplain ? 'Save note' : 'Save'}</button>
             </div>
-            {contextualExplain && selection.existingHighlightId && <button className="popup-button" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}>Remove highlight</button>}
           </div>
         </div>
       )}

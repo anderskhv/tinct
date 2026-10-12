@@ -2,7 +2,8 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { ChatConversation, EditionData, Section } from '../types'
 import { loadEdition } from '../data/editionLoader'
 import type { LabChapter } from './labSource'
-import type { LabHighlight } from './labHighlights'
+import { isLabChapterNote, type LabHighlight } from './labHighlights'
+import { labNotesOnly, orderLabHighlights, type LabHighlightOrder } from './labHighlightOrder'
 import type { LabChapterStatus } from './labChapterStatus'
 import { contentsExcerpt, contentsQuestion, contentsQuote, searchContents, type ContentsPlace } from './labContents'
 import './labContentsV2.css'
@@ -22,6 +23,8 @@ interface Props {
   /** The book's figures; with any, a Figures tab sits beside Chapters. */
   figures?: LabFigure[]
   statuses: Map<number, LabChapterStatus>; conversations: ChatConversation[]; highlights: LabHighlight[]; unassignedHighlights: LabHighlight[]
+  /** Notes on whole chapters (no passage), listed at their chapter's place after its highlights. */
+  chapterNotes?: LabHighlight[]
   historyStatus: 'loading' | 'ready' | 'unavailable'
   /** While an added book's Modern English edition is being written: each chapter's state (labModernEdition.ts). */
   modernStates?: Record<string, 'ready' | 'preparing' | 'queued'>
@@ -68,6 +71,8 @@ export function LabContentsV2(props: Props) {
   const [selection, setSelection] = useState<LabHighlight | null>(null)
   const [crumbs, setCrumbs] = useState<ContentsNode[]>([])
   const [limit, setLimit] = useState(30)
+  const [order, setOrder] = useState<LabHighlightOrder>('book')
+  const [notesFilter, setNotesFilter] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
   const returnFocus = useRef<HTMLElement | null>(null)
@@ -79,6 +84,11 @@ export function LabContentsV2(props: Props) {
   const [retry, setRetry] = useState(0)
   const chats = useMemo(() => props.conversations.filter(chat => chat.bookId === bookId), [props.conversations, bookId])
   const highlights = props.highlights.filter(h => h.bookId === bookId && h.editionKey === editionKey)
+  const chapterNotes = (props.chapterNotes ?? []).filter(h => h.bookId === bookId)
+  const chapterPlace = useMemo(() => {
+    const places = new Map(chapters.map((chapter, index) => [chapter.number, index]))
+    return (n: number) => places.get(n) ?? chapters.length + n
+  }, [chapters])
   const results = useMemo(() => searchContents(query, chapters, data, chats, highlights), [query, chapters, data, chats, props.highlights])
   const needsText = open && (view === 'search' || view === 'highlights' || view === 'highlight')
   const chapterTitle = (n: number) => chapters.find(ch => ch.number === n)?.title || 'Chapter ' + n
@@ -179,7 +189,7 @@ export function LabContentsV2(props: Props) {
     {list.map(node => {
       const reading = node.chapter === currentChapter
       const percent = node.chapter == null ? null : contentsPercent(statuses.get(node.chapter), reading, props.currentPercent)
-      const cs = chats.filter(chat => chat.chapterNumber === node.chapter), hs = highlights.filter(h => h.chapterNumber === node.chapter)
+      const cs = chats.filter(chat => chat.chapterNumber === node.chapter), hs = [...highlights, ...chapterNotes].filter(h => h.chapterNumber === node.chapter)
       const branch = !!node.children, unfolded = expanded.has(node.id)
       const label = node.chapter == null ? node.label : chapterTitle(node.chapter)
       const status = percent != null ? percent + '% read' : statuses.get(node.chapter!)?.kind === 'in-progress' ? 'In progress' : statuses.get(node.chapter!)?.kind === 'visited' ? 'Visited' : 'unread'
@@ -195,7 +205,7 @@ export function LabContentsV2(props: Props) {
             {branch ? <Icon name="next" /> : percent != null && percent > 0 ? <ProgressPie percent={percent} /> : null}
           </button>
           {(cs.length > 0 || hs.length > 0) && <span className="tags">
-            {hs.length > 0 && <button aria-label={hs.length + ' highlights in ' + label} onClick={() => showOverlay('highlights', node.chapter!)}><HighlightIcon size={16} />{hs.length}</button>}
+            {hs.length > 0 && <button aria-label={hs.length + (hs.some(isLabChapterNote) ? ' highlights and notes in ' : ' highlights in ') + label} onClick={() => showOverlay('highlights', node.chapter!)}><HighlightIcon size={16} />{hs.length}</button>}
             {cs.length > 0 && <button aria-label={cs.length + ' chats in ' + label} onClick={() => showOverlay('chats', node.chapter!)}><ChatIcon size={16} />{cs.length}</button>}
           </span>}
         </div>
@@ -205,14 +215,27 @@ export function LabContentsV2(props: Props) {
     {parent && list.some(n => n.chapter === currentChapter || onPath.has(n.id)) && <span className="gold-branch" />}
   </ul>
   const relevantChats = chats.filter(chat => chapterFilter == null || chat.chapterNumber === chapterFilter).sort((a,b) => b.endTimestamp - a.endTimestamp)
-  const relevantHighlights = highlights.filter(h => chapterFilter == null || h.chapterNumber === chapterFilter)
+  const listed = [...highlights, ...chapterNotes].filter(h => chapterFilter == null || h.chapterNumber === chapterFilter)
+  const relevantHighlights = orderLabHighlights(notesFilter ? labNotesOnly(listed) : listed, order, chapterPlace)
   const chatRow = (chat: ChatConversation) => <button className="result" key={chat.id} data-testid={'contents-chat-' + chat.id} onClick={() => props.onContinueConversation(chat)}>
     <small>{chapterTitle(chat.chapterNumber)} · {date(chat.startTimestamp)}</small><p><Match text={contentsExcerpt(contentsQuestion(chat), query)} query={view === 'search' ? query : ''} /></p>
     <p className="excerpt"><Match text={contentsExcerpt((view === 'search' && query.trim() ? chat.messages.find(m => m.content.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))?.content : null) || chat.messages.find(m => m.role === 'assistant')?.content || chat.summary || '', query)} query={view === 'search' ? query : ''} /></p>
   </button>
-  const highlightRow = (h: LabHighlight) => <button className="result" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
-    <small>{chapterTitle(h.chapterNumber)}</small><p>{quote(h) || h.note || (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>{h.note && <p className="excerpt">{h.note}</p>}
-  </button>
+  // The note is the reader's own words, shown whole beneath the book's.
+  const noteText = (h: LabHighlight) => h.note?.trim() ? <p className="note">{h.note.trim()}</p> : null
+  // Notes only (approved mockup, 12 Oct): the reader's takeaway leads, the passage it came from beneath it.
+  const noteLead = (h: LabHighlight) => <p className="note-lead">{h.note?.trim()}</p>
+  const highlightRow = (h: LabHighlight) => isLabChapterNote(h)
+    ? <button className="result is-chapter-note" key={h.id} data-testid={'contents-chapter-note-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
+      <small>{chapterTitle(h.chapterNumber)} · Chapter note</small>{notesFilter ? noteLead(h) : noteText(h)}
+    </button>
+    : notesFilter && h.note?.trim()
+    ? <button className="result is-note-first" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
+      <small>{chapterTitle(h.chapterNumber)}</small>{noteLead(h)}<p className="note-source">{quote(h) ? `“${quote(h)}”` : (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>
+    </button>
+    : <button className="result" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
+      <small>{chapterTitle(h.chapterNumber)}</small><p>{quote(h) || (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>{noteText(h)}
+    </button>
   const more = (count: number) => count > limit && <button className="more" onClick={() => setLimit(n => n + 30)}>Show more · {count - limit} remaining</button>
   const textStatus = needsText && !data && (loadError
     ? <p className="status" role="status">Text could not be loaded. <button onClick={() => setRetry(n => n + 1)}>Retry</button></p>
@@ -248,11 +271,16 @@ export function LabContentsV2(props: Props) {
         {historyStatus}
       </div>
       </>}
-      {view && <section className="overlay" aria-label={view === 'search' ? 'Search book and chats' : view === 'chats' ? 'Chats' : 'Highlights'}>
+      {view && <section className="overlay" aria-label={view === 'search' ? 'Search book and chats' : view === 'chats' ? 'Chats' : 'Highlights & notes'}>
         <div className="overlay-head">
-          {view === 'search' ? <><Icon name="search" /><input type="search" aria-label={'Search ' + title} placeholder="Search book or chats…" value={query} onChange={event => setQuery(event.target.value)} /></> : <span className="overlay-title">{view === 'chats' ? 'Chats' : view === 'highlight' ? 'Highlight' : 'Highlights'}</span>}
+          {view === 'search' ? <><Icon name="search" /><input type="search" aria-label={'Search ' + title} placeholder="Search book or chats…" value={query} onChange={event => setQuery(event.target.value)} /></> : <span className="overlay-title">{view === 'chats' ? 'Chats' : view === 'highlight' ? (selection && isLabChapterNote(selection) ? 'Chapter note' : 'Highlight') : 'Highlights & notes'}</span>}
           <button data-close aria-label="Close overlay" onClick={() => closeAction.current()}><Icon name="close" /></button>
         </div>
+        {view === 'highlights' && <nav className="scopes" aria-label="Highlights shown">
+          <button aria-pressed={!notesFilter} onClick={() => setNotesFilter(false)}>All</button>
+          <button aria-pressed={notesFilter} onClick={() => setNotesFilter(true)}>Notes only</button>
+          <button className="order" aria-pressed={order === 'newest'} onClick={() => setOrder(value => value === 'newest' ? 'book' : 'newest')}>Newest first</button>
+        </nav>}
         {view === 'search' && <nav className="scopes" aria-label="Search scope">{(['all','book','chats'] as Scope[]).map(value => <button key={value} aria-pressed={scope === value} onClick={() => setScope(value)}>{value[0].toUpperCase() + value.slice(1)}</button>)}</nav>}
         <div className="results" aria-live="polite">
           {historyStatus}{textStatus}
@@ -263,9 +291,11 @@ export function LabContentsV2(props: Props) {
             {(scope === 'chats' || data) && (scope === 'book' || props.historyStatus === 'ready') && !shownResults && <p className="status">No matches.</p>}
           </>)}
           {view === 'chats' && <>{relevantChats.slice(0,limit).map(chatRow)}{more(relevantChats.length)}{!relevantChats.length && props.historyStatus === 'ready' && <p className="status">No saved conversations.</p>}</>}
-          {view === 'highlights' && <>{relevantHighlights.slice(0,limit).map(highlightRow)}{more(relevantHighlights.length)}{!relevantHighlights.length && <p className="status">No highlights saved for this edition.</p>}{props.unassignedHighlights.length > 0 && <button className="more" onClick={() => setView('older')}>Older highlights · book not recorded</button>}</>}
+          {view === 'highlights' && <>{relevantHighlights.slice(0,limit).map(highlightRow)}{more(relevantHighlights.length)}{notesFilter && relevantHighlights.length > 0 && <p className="status note-count">{relevantHighlights.length === 1 ? '1 note' : `${relevantHighlights.length} notes`} in {title}</p>}{!relevantHighlights.length && <p className="status">{notesFilter ? 'No notes saved for this edition.' : 'No highlights saved for this edition.'}</p>}{props.unassignedHighlights.length > 0 && <button className="more" onClick={() => setView('older')}>Older highlights · book not recorded</button>}</>}
           {view === 'older' && <><p className="status">These older marks have no saved book or edition. They are preserved here; their quotations cannot be identified safely.</p>{props.unassignedHighlights.map(h => <article className="result" key={h.id}><small>Chapter {h.chapterNumber} · paragraph {h.paragraphIndex + 1}</small><p>{h.note || 'Highlighted passage'}</p></article>)}</>}
-          {view === 'highlight' && selection && <article className="result"><small>{chapterTitle(selection.chapterNumber)} · {editionLabel}</small><p>{quote(selection)}</p>{selection.note && <p className="excerpt">{selection.note}</p>}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: selection.paragraphIndex, wordIndex: selection.fromWord })}>Open passage<Icon name="next" /></button></article>}
+          {view === 'highlight' && selection && (isLabChapterNote(selection)
+            ? <article className="result is-chapter-note"><small>{chapterTitle(selection.chapterNumber)}</small>{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: 0, wordIndex: 0 })}>Open chapter<Icon name="next" /></button></article>
+            : <article className="result"><small>{chapterTitle(selection.chapterNumber)} · {editionLabel}</small><p>{quote(selection)}</p>{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: selection.paragraphIndex, wordIndex: selection.fromWord })}>Open passage<Icon name="next" /></button></article>)}
         </div>
       </section>}
     </div>

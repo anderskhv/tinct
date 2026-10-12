@@ -80,6 +80,13 @@
 .lab-contents-v2 .overlay-head,.lab-contents-v2 .scopes { flex:none; }
 .lab-contents-v2 .results { flex:1; overscroll-behavior:contain; }
 .lab-contents-v2 .result .excerpt { margin-top:6px; color:var(--muted); }
+/* A note is the reader's own words: whole, in ink, set off from the book's by a quiet rule. */
+.lab-contents-v2 .result .note { margin:6px 0 0; padding-left:10px; border-left:2px solid var(--line); color:var(--ink); font:italic 400 17px/1.4 'EB Garamond',Georgia,serif; white-space:pre-wrap; overflow-wrap:anywhere; }
+.lab-contents-v2 .result.is-chapter-note .note { margin-top:2px; }
+.lab-contents-v2 .result .note-lead { margin:6px 0 0; color:var(--ink); font:400 19px/1.35 'EB Garamond',Georgia,serif; white-space:pre-wrap; overflow-wrap:anywhere; }
+.lab-contents-v2 .result .note-source { margin:6px 0 0; color:var(--muted); font:italic 400 15px/1.35 'EB Garamond',Georgia,serif; }
+.lab-contents-v2 .note-count { margin-top:6px; }
+.lab-contents-v2 .scopes .order { margin-left:auto; }
 .lab-contents-v2 .status { margin:8px 0; font:inherit; color:var(--muted); }
 .lab-contents-v2 .status button,.lab-contents-v2 .more { color:var(--gold); }
 .lab-contents-v2 .more { display:flex; align-items:center; gap:8px; min-height:36px; padding:8px 0; }
