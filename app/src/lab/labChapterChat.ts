@@ -4,6 +4,7 @@ import type { LabAskContext, LabAskTurn } from './labAsk'
 export { CHAPTER_CHAT_INSTRUCTIONS, buildChapterChatInstructions, parseChapterChatAction } from '../companion/chapterChatPrompt'
 import { loadEditionWindow } from '../data/editionLoader'
 import { chapterAuthorship, withAuthorship } from '../companion/authorship'
+import { buildHighlightRange, isLabChapterNote, type LabHighlight } from './labHighlights'
 
 export const CHAPTER_CHAT_MESSAGES = {
   discuss: 'Recap this chapter.',
@@ -30,6 +31,21 @@ export function createChapterChatRequest(kind: ChapterChatAction['kind'], contex
     // In a collection the action names the writer of the chapter it is about (the next one, for preparation).
     context: { ...context, ...withAuthorship(chapterAuthorship({ collection: !!context.authorship }, target)), chapterLabel: current.title, paragraphs: [...context.paragraphs] },
   }
+}
+
+/**
+ * The chapter's last three highlighted passages, as the recap's reader
+ * activity. Only the book's own wording goes: a note is the reader's private
+ * takeaway and never reaches the AI, and a chapter note has no passage.
+ */
+export function recapHighlightPassages(marks: LabHighlight[], scope: { bookId?: string; chapterNumber: number; editionKey: string; paragraphs: string[] }): string[] {
+  return marks
+    .filter(mark => !isLabChapterNote(mark) && mark.bookId === scope.bookId && mark.chapterNumber === scope.chapterNumber && mark.editionKey === scope.editionKey)
+    .slice(-3)
+    .flatMap(mark => {
+      const range = buildHighlightRange(scope.paragraphs, { paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }, { paragraphIndex: mark.endParagraphIndex, wordIndex: mark.toWord - 1 })
+      return range ? [range.text] : []
+    })
 }
 
 export function chapterChatHistoryContent(turn: Pick<LabAskTurn, 'content' | 'chapterAction'>): string {

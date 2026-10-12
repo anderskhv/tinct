@@ -20,8 +20,9 @@ import { resolveCharacter, wordSelectionOffsets } from '../services/characters/c
 import { LabBookSwitcher } from './LabBookSwitcher'
 import { LabWait } from './LabWait'
 import { LabChapterEnd } from './LabChapterEnd'
+import { LabChapterNoteEditor } from './LabChapterNoteEditor'
 import { useFinishedCard } from '../social/useFinishedCard'
-import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest } from './labChapterChat'
+import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest, recapHighlightPassages } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { sourceAuthorship, withAuthorship } from '../companion/authorship'
@@ -2065,6 +2066,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [])
   const define = useDefine()
   const [crossSelecting, setCrossSelecting] = useState<ChapterSelectionPart[] | null>(null)
+  /** The chapter-end Note pill's editor: a private note on the whole chapter. */
+  const [chapterNoteEditor, setChapterNoteEditor] = useState<{ bookId: string; chapterNumber: number; left: number; top: number; bottom: number } | null>(null)
+  const openChapterNoteRef = useRef<(chapterNumber: number, pill: DOMRect) => void>(() => {})
   const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
@@ -3500,6 +3504,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     ask.discardSpeculativeExplanation()
   }, [ask.discardSpeculativeExplanation, define])
 
+  // Rendered inside the pill's tap (flushSync), so the editor's field takes
+  // focus within the gesture and iOS raises the keyboard.
+  openChapterNoteRef.current = (chapterNumber: number, pill: DOMRect) => {
+    if (initialResolving) return
+    dismissSelectionPopup()
+    flushSync(() => setChapterNoteEditor({ bookId: book.bookId || 'bible', chapterNumber, left: pill.left, top: pill.top, bottom: pill.bottom }))
+  }
+  useLayoutEffect(() => { setChapterNoteEditor(current => (current && current.bookId !== (book.bookId || 'bible') ? null : current)) }, [book.bookId])
+
 
   // A new passage/view invalidates a frozen card, including while edition data loads.
   useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
@@ -3945,7 +3958,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
         folio: bookPageEstimate.page, onPrimer: privateBook ? undefined : () => openChapterNotes('primer', endedChapter),
         chapterEnd: <LabChapterEnd docked={desktopEndInFooter} hasNext recap={!privateBook}
-          onContinue={() => goNextRef.current()} busy={false} onDiscuss={privateBook ? undefined : () => openChapterNotes('end', endedChapter)} />,
+          onContinue={() => goNextRef.current()} busy={false} onDiscuss={privateBook ? undefined : () => openChapterNotes('end', endedChapter)}
+          onNote={pill => openChapterNoteRef.current(endedChapter, pill)} />,
       })
     } else setCarriedEnding(null)
     void goToChapter(next, 'start', true)
@@ -4133,7 +4147,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
   // overlays keep their keys; the chapter cover handles its own arrows and
   // marks the event handled, so it never double-turns here.
-  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null
+  const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null || chapterNoteEditor != null
   useEffect(() => {
     if (keyboardPageTurnsBlocked || desktopAskOpen || callOpen || bookSwitcherOpen || superMenuOpen || superSheet !== null || accountPrompt !== null) return
     const onKey = (event: KeyboardEvent) => {
@@ -4716,10 +4730,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     if (!request) return
     if (kind === 'discuss') request.activity = {
       questions: ask.turns.filter(turn => turn.role === 'user' && turn.chapterNumber === book.chapterNumber && (!turn.bookId || turn.bookId === book.bookId) && !turn.chapterAction).map(turn => turn.content).slice(-3),
-      highlights: highlightsApi.allHighlights.filter(mark => mark.bookId === book.bookId && mark.chapterNumber === book.chapterNumber && mark.editionKey === readerEditionKey).slice(-3).flatMap(mark => {
-        const range = buildHighlightRange(readerParagraphs, { paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }, { paragraphIndex: mark.endParagraphIndex, wordIndex: mark.toWord - 1 })
-        return range ? [range.text] : []
-      }),
+      highlights: recapHighlightPassages(highlightsApi.allHighlights, { bookId: book.bookId, chapterNumber: book.chapterNumber, editionKey: readerEditionKey, paragraphs: readerParagraphs }),
     }
     dictation.stop()
     interruptHearForAsk()
@@ -5282,6 +5293,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
               busy={false} onDiscuss={() => openChapterNotes('end')}
+              onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
               finishedCard={finishedCard}
             /> : undefined}
             desktopSpread={desktopSpread}
@@ -5843,6 +5855,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         historyStatus={ask.historyStatus}
         highlights={highlightsApi.highlights}
         unassignedHighlights={highlightsApi.unassignedHighlights}
+        chapterNotes={highlightsApi.chapterNotes}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
@@ -5975,6 +5988,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           }}
           dismissPopup={dismissSelectionPopup}
           lab
+          keyboardDock={isPhone || showPhoneChrome}
+        />
+      )}
+
+      {chapterNoteEditor && (
+        <LabChapterNoteEditor
+          key={chapterNoteEditor.bookId + ':' + chapterNoteEditor.chapterNumber}
+          initialNote={highlightsApi.chapterNotes.find(note => note.chapterNumber === chapterNoteEditor.chapterNumber)?.note ?? ''}
+          keyboardDock={isPhone || showPhoneChrome}
+          anchor={chapterNoteEditor}
+          onSave={note => highlightsApi.setChapterNote(chapterNoteEditor.chapterNumber, note)}
+          onClose={() => setChapterNoteEditor(null)}
         />
       )}
 

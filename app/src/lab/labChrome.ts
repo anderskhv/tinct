@@ -317,6 +317,33 @@ export function labTextEntryFocused(active: Element | null | undefined): boolean
   return (active as HTMLElement).isContentEditable === true
 }
 
+/** A note sheet that docks itself above the software keyboard (useLabKeyboardDock.ts). */
+export const LAB_KEYBOARD_SHEET_ATTR = 'data-lab-keyboard-sheet'
+
+/**
+ * Typing in a keyboard-docked sheet: the sheet rides on the keyboard, so the
+ * shell keeps its height and the reader's page does not reflow or move.
+ */
+export function labKeyboardSheetFocused(active: Element | null | undefined): boolean {
+  return labTextEntryFocused(active) && !!active?.closest?.(`[${LAB_KEYBOARD_SHEET_ATTR}]`)
+}
+
+/**
+ * How far the software keyboard (or anything else hiding the bottom of the
+ * window) reaches up from the layout bottom: what a `position: fixed` sheet
+ * adds to `bottom` to sit directly above it.
+ */
+export function labKeyboardInsetPx(
+  viewport?: { height?: number; offsetTop?: number } | null,
+  innerHeight?: number,
+): number {
+  const height = typeof viewport?.height === 'number' && viewport.height > 0 ? viewport.height : 0
+  const inner = typeof innerHeight === 'number' && innerHeight > 0 ? innerHeight : 0
+  if (!height || !inner) return 0
+  const offset = typeof viewport?.offsetTop === 'number' && viewport.offsetTop > 0 ? viewport.offsetTop : 0
+  return Math.max(0, Math.round(inner - height - offset))
+}
+
 /**
  * iOS Safari answers a focused composer by shrinking the visual viewport and
  * panning it down the (unchanged) layout viewport. The shell is already
@@ -345,8 +372,10 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   const apply = () => {
     if (typeof window === 'undefined') return
     const viewport = window.visualViewport
-    const textEntryFocused = labTextEntryFocused(typeof document !== 'undefined' ? document.activeElement : null)
-    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight, { textEntryFocused, scale: viewport?.scale })
+    const active = typeof document !== 'undefined' ? document.activeElement : null
+    const textEntryFocused = labTextEntryFocused(active)
+    // A keyboard-docked note sheet keeps the shell (and so the page) as it is.
+    const px = labVisualViewportHeightPx(viewport?.height, window.innerHeight, { textEntryFocused: textEntryFocused && !labKeyboardSheetFocused(active), scale: viewport?.scale })
     if (px > 0) host.style.setProperty(LAB_VVH_VAR, `${px}px`)
     const panned = labShouldResetViewportPan({
       offsetTop: viewport?.offsetTop,

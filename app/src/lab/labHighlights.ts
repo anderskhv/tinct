@@ -39,6 +39,12 @@ export interface LabHighlight {
   kept?: boolean
   /** Last change (ms). Missing on older marks; sync falls back to the id's creation time. */
   updatedAt?: number
+  /**
+   * 'chapter': a note on the whole chapter, with no passage. Its range is the
+   * empty 0..0 (no word falls inside it, so nothing is ever painted), and it
+   * lives in the same list, storage and cloud rows as passage highlights.
+   */
+  kind?: 'chapter'
 }
 
 const STORAGE_KEY = 'tinct-lab-highlights'
@@ -102,6 +108,27 @@ export function createLabHighlight(
     endParagraphIndex: range.endParagraphIndex,
     toWord: range.toWord,
     color,
+    updatedAt: now,
+  }
+}
+
+/** A note on the chapter itself (no passage); see `LabHighlight.kind`. */
+export function isLabChapterNote(highlight: Pick<LabHighlight, 'kind'>): boolean {
+  return highlight.kind === 'chapter'
+}
+
+export function createLabChapterNote(chapterNumber: number, note: string): LabHighlight {
+  const now = Date.now()
+  return {
+    id: `hl-${now}-${Math.random().toString(36).slice(2, 8)}`,
+    kind: 'chapter',
+    chapterNumber,
+    paragraphIndex: 0,
+    fromWord: 0,
+    endParagraphIndex: 0,
+    toWord: 0,
+    color: 'gold',
+    note,
     updatedAt: now,
   }
 }

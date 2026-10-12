@@ -2,7 +2,7 @@ import { editionHold } from '../data/editionAvailability'
 import { currentContentRevision, loadCoordinateMigration, writtenBeforeRelease } from '../data/editionContentRevisions'
 import { loadChapterText } from '../readingMemory'
 import { migrateLabHighlight, type MigratableHighlight } from './labHighlightMigration'
-import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
+import { isLabChapterNote, readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
 
 /**
  * Highlights and notes across an accepted structural edition release
@@ -19,6 +19,8 @@ export function highlightWrittenAt(highlight: Pick<LabHighlight, 'id'>): number 
 }
 
 export function highlightNeedsMigration(highlight: MigratableHighlight): boolean {
+  // A chapter note has no passage whose coordinates a release could move.
+  if (isLabChapterNote(highlight)) return false
   if (highlight.contentMigrationStatus === 'unresolved' && highlight.contentRecovery) return false
   // A held edition keeps every saved byte; its highlights move when the hold lifts.
   if (editionHold(highlight.bookId, highlight.editionKey)) return false
@@ -27,6 +29,7 @@ export function highlightNeedsMigration(highlight: MigratableHighlight): boolean
 
 /** Not to be painted against the current text: awaiting its move, or unresolved. */
 export function highlightOffCurrentText(highlight: MigratableHighlight): boolean {
+  if (isLabChapterNote(highlight)) return false
   return highlight.contentMigrationStatus === 'unresolved'
     || writtenBeforeRelease(highlight.bookId, highlight.editionKey, highlight.contentRevision, highlightWrittenAt(highlight))
 }

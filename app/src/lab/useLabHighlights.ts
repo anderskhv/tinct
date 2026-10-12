@@ -7,8 +7,10 @@ import { currentContentRevision } from '../data/editionContentRevisions'
 import { highlightOffCurrentText } from './labHighlightContentMigration'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
+  createLabChapterNote,
   createLabHighlight,
   highlightContainsRange,
+  isLabChapterNote,
   mergeLabHighlight,
   readLabHighlights,
   sameHighlightRange,
@@ -75,6 +77,8 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     const target = editionKey === scope.editionKey ? scope.paragraphs : editionKey === scope.compareEditionKey ? scope.compareParagraphs : undefined
     return highlightsRef.current.flatMap(h => {
       if (h.bookId !== scope.bookId) return []
+      // A chapter note has no passage to paint or project (chapterNotes below).
+      if (isLabChapterNote(h)) return []
       // Kept, but its coordinates are in text a structural release has replaced.
       if (highlightOffCurrentText(h)) return []
       if (h.editionKey === editionKey) return [h]
@@ -147,6 +151,17 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     }
   }, [cloudWriter, bookId])
 
+  // Notes on whole chapters of this book. They belong to the chapter, so they
+  // show in every edition of it (a Bible edition whose chapters do not carry
+  // highlights across keeps its own).
+  const chapterNotes = useMemo(() => (scope ? highlights.filter(h => (
+    isLabChapterNote(h)
+    && h.bookId === scope.bookId
+    && (!h.editionKey || h.editionKey === scope.editionKey || scope.bookId !== 'bible' || bibleHighlightsCarryAcross(h.editionKey, scope.editionKey, h.chapterNumber))
+  )) : []), [highlights, scope?.bookId, scope?.editionKey])
+  const chapterNotesRef = useRef(chapterNotes)
+  chapterNotesRef.current = chapterNotes
+
   const shared = scope?.shared && scope.shared.bookId === scope.bookId && scope.shared.editionKey === scope.editionKey ? scope.shared : null
   const shownHighlights = useMemo(
     () => (shared && !visibleHighlights.some(h => h.id === shared.id) ? [...visibleHighlights, shared] : visibleHighlights),
@@ -158,7 +173,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   )
 
   const addOrReuse = useCallback((range: LabHighlightRange, color: LabHighlightColor = 'gold', editionKey = scope?.editionKey, targetChapter = chapterNumber) => {
-    const list = highlightsRef.current.filter(h => inScope(h, editionKey) && !highlightOffCurrentText(h))
+    const list = highlightsRef.current.filter(h => inScope(h, editionKey) && !highlightOffCurrentText(h) && !isLabChapterNote(h))
     const existing = list.find(h => sameHighlightRange(h, range, targetChapter))
     if (existing) return existing
     if (
@@ -212,6 +227,32 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;const updatedAt=Date.now();return current.map(h=>h.id===id || group && h.groupId===group ? {...h,note,updatedAt}:h)})
   }, [])
 
+  /**
+   * The note on a whole chapter (one per chapter): saved as an entry with no
+   * passage in the same list, so it syncs through the same versioned rows.
+   * Clearing its text removes it.
+   */
+  const setChapterNote = useCallback((targetChapter: number, note: string) => {
+    const text = note.trim()
+    const existing = chapterNotesRef.current.find(h => h.chapterNumber === targetChapter)
+    if (existing) {
+      if (!text) {
+        recordLabHighlightDeletions([existing])
+        setHighlights(current => current.filter(h => h.id !== existing.id))
+        return null
+      }
+      if (existing.note === text) return existing
+      const updated = { ...existing, note: text, updatedAt: Date.now() }
+      setHighlights(current => mergeLabHighlight(current, updated))
+      return updated
+    }
+    if (!text) return null
+    const created = createLabChapterNote(targetChapter, text)
+    if (scope) Object.assign(created, { bookId: scope.bookId, editionKey: scope.editionKey })
+    setHighlights(current => mergeLabHighlight(current, created))
+    return created
+  }, [scope?.bookId, scope?.editionKey])
+
   const keep = useCallback((id: string) => {
     setHighlights(current => { const group = current.find(h => h.id === id)?.groupId; const updatedAt = Date.now(); return current.map(h => h.id === id || group && h.groupId === group ? { ...h, kept: true, updatedAt } : h) })
   }, [])
@@ -227,8 +268,10 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     highlights: shownHighlights,
     allHighlights: highlights,
     compareHighlights: projected(scope?.compareEditionKey).filter(h => h.chapterNumber === chapterNumber),
-    unassignedHighlights: highlights.filter(h => !h.bookId || !h.editionKey),
+    unassignedHighlights: highlights.filter(h => (!h.bookId || !h.editionKey) && !isLabChapterNote(h)),
     chapterHighlights,
+    chapterNotes,
+    setChapterNote,
     findRange,
     findContainingRange,
     addOrReuse,

@@ -4,7 +4,7 @@ import { storage } from '../services/storage'
 import type { BookReadingLog } from '../types'
 import { readDeviceReadingMemory, visibleToViewer, loadChapterText } from '../readingMemory'
 import { readAllLabBookChats } from './labChatHistory'
-import { readLabHighlights } from './labHighlights'
+import { isLabChapterNote, readLabHighlights } from './labHighlights'
 import { isUserBookId } from './userBook/userBookId'
 import { ALL_BOOKS, getBook } from '../data/bookRegistry'
 import { readLabPositionLocal } from './labPositionStore'
@@ -105,7 +105,9 @@ export async function personalHistoryEvidence(query: string, viewer: string | nu
       records.push({ at: message.timestamp, text: `Chat: ${conversation.bookId}, ${label(conversation.bookId, message.chapterNumber ?? conversation.chapterNumber)}; ${message.role}: ${message.content.slice(0, 1600)}${message.highlightedText ? `; passage: ${message.highlightedText.slice(0, 600)}` : ''}` })
     }
   }
-  const marks = readLabHighlights().filter(mark => !isUserBookId(mark.bookId))
+  // Notes are the reader's private takeaways and never reach the AI: a passage
+  // highlight goes as its passage only, and a chapter note (no passage) not at all.
+  const marks = readLabHighlights().filter(mark => !isUserBookId(mark.bookId) && !isLabChapterNote(mark))
   const restored = new Map<string, string>()
   await Promise.race([Promise.all(marks.filter(mark => !mark.text && mark.bookId && mark.editionKey).slice(-24).map(async mark => {
     const chapter = await loadChapterText({ bookId: mark.bookId!, editionKey: mark.editionKey!, chapterNumber: mark.chapterNumber }).catch(() => null)
@@ -116,7 +118,7 @@ export async function personalHistoryEvidence(query: string, viewer: string | nu
   })), new Promise(resolve => setTimeout(resolve, 1200))])
   for (const mark of marks) {
     if (!mark.bookId) continue
-    records.push({ at: 0, text: `Highlight: ${mark.bookId}, ${label(mark.bookId, mark.chapterNumber)}, edition ${mark.editionKey}; ${mark.note || ''}; ${mark.text || restored.get(mark.id) || 'Source text unavailable'}; paragraphs ${mark.paragraphIndex + 1}–${mark.endParagraphIndex + 1}` })
+    records.push({ at: 0, text: `Highlight: ${mark.bookId}, ${label(mark.bookId, mark.chapterNumber)}, edition ${mark.editionKey}; ${mark.text || restored.get(mark.id) || 'Source text unavailable'}; paragraphs ${mark.paragraphIndex + 1}–${mark.endParagraphIndex + 1}` })
   }
   const ranked = records.map(record => ({ ...record, score: terms.filter(term => record.text.toLowerCase().includes(term)).length }))
     .filter(record => terms.length === 0 || record.score > 0)
