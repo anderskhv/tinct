@@ -88,6 +88,17 @@ export function dayMonthShortDate(value: string | null | undefined): string {
   return match && month ? `${Number(match[3])} ${month}` : ''
 }
 
+/** A Monday-to-Sunday week from its Monday: "5–11 Oct", "29 Sep – 5 Oct"; '' when unreadable. */
+export function weekRange(start: string | null | undefined): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(start || ''))
+  if (!match) return ''
+  const end = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]) + 6))
+  const first = dayMonthShortDate(start)
+  const last = dayMonthShortDate(end.toISOString().slice(0, 10))
+  if (!first || !last) return ''
+  return end.getUTCMonth() === Number(match[2]) - 1 ? `${Number(match[3])}–${last}` : `${first} – ${last}`
+}
+
 /** "6 days", "1 day". */
 export function streakText(days: number): string {
   const n = Math.max(0, Math.floor(days || 0))

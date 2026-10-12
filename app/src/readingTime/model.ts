@@ -279,6 +279,27 @@ export function readingTimeStats(rows: LedgerRow[], today: string): ReadingTimeS
 }
 
 /**
+ * Seconds per book in each of `starts` (Mondays, as readingTimeStats' weeks
+ * hold them), by the same rows and rules as those weeks: pre-ledger time and
+ * empty rows are left out, so a week's books add up to its bar. An own book
+ * counts under the private bucket (ledgerBookId), as the Worker records it.
+ * Most time first; weeks with no reading map to an empty list.
+ */
+export function weekBooks(rows: LedgerRow[], starts: readonly string[]): Map<string, Array<{ bookId: string; seconds: number }>> {
+  const byWeek = new Map(starts.map(start => [start, new Map<string, number>()]))
+  for (const row of rows) {
+    if (row.bookId === EARLIER_BOOK_ID || !isDay(row.day)) continue
+    const total = seconds(row.read) + seconds(row.listen)
+    const week = total > 0 ? byWeek.get(weekStart(row.day)) : undefined
+    const bookId = ledgerBookId(row.bookId)
+    if (week) week.set(bookId, (week.get(bookId) ?? 0) + total)
+  }
+  return new Map([...byWeek].map(([start, books]) => [start, [...books]
+    .map(([bookId, total]) => ({ bookId, seconds: total }))
+    .sort((a, b) => b.seconds - a.seconds || a.bookId.localeCompare(b.bookId))]))
+}
+
+/**
  * Books the position record's finished chapters say are finished, by the
  * shared rule (preReader/bookFinished.ts): every chapter, or the last chapter
  * plus 90% of them. Finishing only the last chapter is not finishing the book.
