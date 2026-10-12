@@ -22,12 +22,12 @@ describe('wait-ring.js: the library’s and Add a book’s wait indicator (the r
     const lib = readFileSync(resolve(__dirname, '../public/lab/library_2/index.html'), 'utf8')
     const addbook = readFileSync(resolve(__dirname, '../public/lab/addbook/index.html'), 'utf8')
     const mirror = readFileSync(resolve(__dirname, '../../addbooks/web/src/index.html'), 'utf8')
-    expect(lib).toContain('<script src="/lab/wait-ring.js?v=20261011owntable"></script>')
+    expect(lib).toContain('<script src="/lab/wait-ring.js?v=20261012tablecover"></script>')
     // Before the library's own modules (boot.js is the other head script; display-profile.js precedes both).
     expect(lib.indexOf('wait-ring.js')).toBeGreaterThan(lib.indexOf('src="boot.js'))
     expect(lib.indexOf('wait-ring.js')).toBeLessThan(lib.indexOf('src="app.js'))
     for (const html of [addbook, mirror]) {
-      expect(html).toContain('<script src="/lab/wait-ring.js?v=20261011owntable"></script>\n<script src="js/reader.js?v=20261011owntable"></script>')
+      expect(html).toContain('<script src="/lab/wait-ring.js?v=20261012tablecover"></script>\n<script src="js/reader.js?v=20261012tablecover"></script>')
     }
     expect(api().DELAY_MS).toBe(150)
   })

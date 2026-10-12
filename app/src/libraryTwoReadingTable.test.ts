@@ -45,10 +45,15 @@ describe('reading table: the record boot.js preloads the shown book from', () =>
     expect(firstPaintRecord(table, view(0, 'paper'), 'reader-a')?.spine).toBeNull()
     expect(firstPaintRecord(table, view(0, null), 'reader-a')?.spine).toBeNull()
   })
-  it('writes nothing for a signed-out device or a reader\'s own book, whose cover stays on this device', () => {
+  it('writes nothing for a signed-out device; a reader\'s own book is recorded without its cover, which stays on this device', () => {
+    expect(firstPaintRecord({ reading: [row('userbook-abc', { own: true })] }, view(0, 'green'), null)).toBeNull()
     expect(firstPaintRecord({ reading: [row('frankenstein')] }, view(0, 'green'), null)).toBeNull()
     const own = { reading: [row('userbook-abc', { own: true, cover: 'data:image/jpeg;base64,AAAA' })] }
-    expect(firstPaintRecord(own, view(0, 'green'), 'reader-a')).toBeNull()
+    const record = firstPaintRecord(own, view(0, 'green'), 'reader-a')
+    expect(record).toEqual({ v: 1, owner: 'reader-a', bookId: 'userbook-abc', cover: null, spine: 'green' })
+    expect(JSON.stringify(record)).not.toMatch(/data:|blob:/)
+    // A Tinct book whose cover is only a local picture is not recorded either.
+    expect(firstPaintRecord({ reading: [row('frankenstein', { cover: 'blob:https://tinct.app/x' })] }, view(0, 'green'), 'reader-a', b => b.cover)).toBeNull()
   })
 })
 

@@ -7,7 +7,7 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261011owntable';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261012tablecover';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 
@@ -15,10 +15,10 @@ import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { COVER_ASPECT } from './table-window.js?v=20261009cover';
-import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261011owntable';
-import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261011owntable';
+import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261012tablecover';
+import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, tableUrl, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261012tablecover';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
-import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261011owntable';
+import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261012tablecover';
 
 const $ = id => document.getElementById(id);
 const CACHE_KEY = 'tinct-library-2-reading-table';
@@ -106,21 +106,38 @@ function prepareArtwork(book) {
 }
 
 // An own book's cover is kept up to 900 px wide for its reader (ownShelf.ts OWN_COVER_MAX_WIDTH);
-// the table draws it at the desk's size like Tinct's covers (DESK_COVER_PX), drawn once per
-// picture. The full picture, on the face and again on the reflection, was four times the bytes
-// of a Tinct cover and made the row step slowly onto that book (Anders, 2026-10-11).
+// the table draws it at the desk's size like Tinct's covers (DESK_COVER_PX), once per picture,
+// as a blob: URL (reading-table-markup.js tableUrl): never the picture's text in the book's style.
 const tableCovers = new Map();
 function tableCover(src) {
-  if (typeof src !== 'string' || !src.startsWith('data:image/')) return Promise.resolve(src);
+  if (typeof src !== 'string' || !/^(data:image\/|blob:)/.test(src)) return Promise.resolve(src);
   if (!tableCovers.has(src)) tableCovers.set(src, (async () => {
-    const img = new Image(); img.decoding = 'async'; img.src = src;
-    try { await img.decode(); } catch { return src; }
-    if (!img.naturalWidth || img.naturalWidth <= DESK_COVER_PX) return src;
+    const full = tableUrl(src);
+    const img = new Image(); img.decoding = 'async'; img.src = full;
+    try { await img.decode(); } catch { return full; }
+    if (!img.naturalWidth || img.naturalWidth <= DESK_COVER_PX) return full;
     const canvas = document.createElement('canvas');
     canvas.width = DESK_COVER_PX; canvas.height = Math.max(1, Math.round(img.naturalHeight * DESK_COVER_PX / img.naturalWidth));
-    try { canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height); return canvas.toDataURL('image/jpeg', .88); } catch { return src; }
+    try { canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height); } catch { return full; }
+    const blob = await new Promise(resolve => { try { canvas.toBlob(resolve, 'image/jpeg', .88); } catch { resolve(null); } });
+    keepOwnThumb(src, img);
+    return blob ? URL.createObjectURL(blob) : full;
   })());
   return tableCovers.get(src);
+}
+// The small copy the next visit's first paint (boot.js ownThumb) draws: 120 px wide, a few
+// kilobytes, on this device only (cleared with the rest of tinct:* at sign-out).
+const OWN_THUMB_KEY = 'tinct:library-2-own-thumb:';
+const thumbFor = new Map();
+function keepOwnThumb(src, img) {
+  const bookId = thumbFor.get(src);
+  if (!bookId || !img.naturalWidth) return;
+  try {
+    const c = document.createElement('canvas'); c.width = 120; c.height = Math.max(1, Math.round(img.naturalHeight * 120 / img.naturalWidth));
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    const thumb = c.toDataURL('image/jpeg', .7);
+    if (thumb.length < 40000) localStorage.setItem(OWN_THUMB_KEY + bookId, thumb);
+  } catch { /* private mode, storage full */ }
 }
 // The book's face and reflection take one picture.
 function wearCover(box, img, cover) {
@@ -328,7 +345,9 @@ function wire(view, table, demo, keepBookId, options={}) {
   dialog.addEventListener('close',()=>remove.focus({preventScroll:true}));
   view.querySelector('#rt-remove-confirm').onclick=async e=>{
     const button=e.currentTarget;button.disabled=true;
-    try{await options.onRemoveReading(dialog.dataset.book);if(dialog.open)dialog.close();requestAnimationFrame(()=>(document.querySelector('.reading-table:not([hidden]) #rt-continue')||document.querySelector('#read-featured'))?.focus({preventScroll:true}));}
+    // Closed first: the book leaves the table at once, in view.
+    const removing=options.onRemoveReading(dialog.dataset.book);if(dialog.open)dialog.close();
+    try{await removing;requestAnimationFrame(()=>(document.querySelector('.reading-table:not([hidden]) #rt-continue')||document.querySelector('#read-featured'))?.focus({preventScroll:true}));}
     catch{dialog.close();options.onError?.('Could not remove this book. Please try again.');}
     finally{button.disabled=false;}
   };
@@ -495,8 +514,8 @@ function wire(view, table, demo, keepBookId, options={}) {
     // Its own entry, held: a removal mid-preparation renumbers the row.
     const entry = table.reading[i];
     const img = book.querySelector('.rt-front img');
-    if(options.prepareCover&&!entry.own){const canvas=document.createElement('canvas');try{await options.prepareCover(entry.bookId,canvas);const cover=canvas.toDataURL('image/jpeg',.88);img.src=cover;book.style.setProperty('--cover',`url('${cover}')`);}catch{}}
-    else if(entry.own){try{wearCover(book,img,await tableCover(deskCover(entry)));}catch{}}
+    if(options.prepareCover&&!entry.own){const canvas=document.createElement('canvas');try{await options.prepareCover(entry.bookId,canvas);const blob=await new Promise(resolve=>{try{canvas.toBlob(resolve,'image/jpeg',.88);}catch{resolve(null);}});wearCover(book,img,blob?URL.createObjectURL(blob):canvas.toDataURL('image/jpeg',.88));}catch{}}
+    else if(entry.own){try{const src=deskCover(entry);if(!tableCovers.has(src))thumbFor.set(src,entry.bookId);wearCover(book,img,await tableCover(src));}catch{}}
     const [{ name, colour }] = await Promise.all([
       prepareArtwork(entry),
       img.decode().catch(() => {}),

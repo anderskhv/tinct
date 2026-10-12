@@ -5,7 +5,7 @@ import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { ownCoverImage, paperCoverUrl, paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 import { shortTitle } from '../book-title.js?v=20261009owncover';
 import { PAPER_SPINE, hasPaperSpine } from './spine.js?v=20261009rel10';
-import { depthRatio } from './table-layout.js?v=20261011owntable';
+import { depthRatio } from './table-layout.js?v=20261012tablecover';
 
 export const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
@@ -61,13 +61,36 @@ export function bookCover(b) {
 }
 
 /**
+ * An own book's picture as the table wears it (2026-10-12): the same image as a blob: URL, made
+ * once per picture. As a data: URL the whole picture sat in the book's style (--cover, inherited
+ * by every face) and in its <img>, twice per book; WebKit on iPhone froze swiping onto such a
+ * book and the page was killed (Anders, The Beginning of Infinity). A blob: URL is a short
+ * address for one decoded image. Anything else (a painting's URL, no picture) is returned as is.
+ */
+const tableUrls = new Map();
+export function tableUrl(src) {
+  if (typeof src !== 'string' || !src.startsWith('data:image/') || typeof URL?.createObjectURL !== 'function') return src;
+  if (!tableUrls.has(src)) {
+    let url = src;
+    try {
+      const comma = src.indexOf(','), type = src.slice(5, src.indexOf(';'));
+      const binary = atob(src.slice(comma + 1)), bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      url = URL.createObjectURL(new Blob([bytes], { type }));
+    } catch { url = src; }
+    tableUrls.set(src, url);
+  }
+  return tableUrls.get(src);
+}
+
+/**
  * The same cover at the size the desk draws it (2026-10-10): a book stands at most 235 CSS px wide
  * (table-layout.js), at most 2× in the canvas, so a painting's 480 px copy (book-cover.js
  * paintedCoverAt); an own book's picture and catalogue art as they are.
  */
 export const DESK_COVER_PX = 480;
 export function deskCover(b) {
-  return b.own ? bookCover(b) : paintedCoverAt(b.bookId, DESK_COVER_PX) ?? coverAsset(b.bookId, b.cover);
+  return b.own ? tableUrl(bookCover(b)) : paintedCoverAt(b.bookId, DESK_COVER_PX) ?? coverAsset(b.bookId, b.cover);
 }
 
 /**
