@@ -8,7 +8,7 @@
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
-import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights } from './cardsFormat'
+import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
 import {
   blockedReaderId,
   deleteOwnAccount,
@@ -403,6 +403,8 @@ function creditsGroup(env: CardsEnv, card: CardHandle): HTMLElement {
 
 /** 2 · Your reading */
 export function readingCard(env: CardsEnv): CardSpec {
+  /** The week (its Monday) whose books show under the chart; null: none. Kept across refreshes. */
+  let picked: string | null = null
   return {
     id: 'reading',
     label: CARDS_COPY.yourReading,
@@ -417,21 +419,49 @@ export function readingCard(env: CardsEnv): CardSpec {
         const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
         for (const [n, unit] of figures.total) figure.append(n, el('small', { text: unit }))
         // One bar per week (Monday to Sunday), from the first reading week;
-        // the dates under the first and last bar say what a bar is.
+        // the dates under the first and last bar say what a bar is. A bar
+        // opens that week's books under the chart; tapping it again closes them.
         const weeks = chartWeeks(stats.weeks, stats.firstDay)
-        const bars = el('div', { className: 'tc-bars', 'aria-hidden': 'true', dataset: { testid: 'reading-weeks' } })
+        if (picked && !weeks.some(week => week.start === picked)) picked = null
+        const booksOf = new Map((reading.weeks ?? []).map(week => [week.start, week.books]))
+        const detail = el('div', { className: 'tc-week', id: 'tc-week-books', dataset: { testid: 'reading-week' } })
+        const bars = el('div', { className: 'tc-bars', dataset: { testid: 'reading-weeks' } })
         bars.style.setProperty('--tc-weeks', String(weeks.length))
-        for (const height of weekHeights(weeks)) {
+        const buttons = weekHeights(weeks).map((height, index) => {
+          const week = weeks[index]
           const bar = el('i')
           bar.style.height = `${height}%`
-          bars.append(bar)
+          return el('button', {
+            type: 'button',
+            'aria-label': `${weekRange(week.start)}, ${durationShort(week.seconds)}`,
+            'aria-controls': detail.id,
+            dataset: { week: week.start },
+            onclick: () => { picked = picked === week.start ? null : week.start; paint() },
+          }, bar)
+        })
+        bars.append(...buttons)
+        const paint = () => {
+          bars.classList.toggle('is-picked', picked !== null)
+          for (const button of buttons) {
+            const on = button.dataset.week === picked
+            button.setAttribute('aria-pressed', String(on))
+            button.setAttribute('aria-expanded', String(on))
+          }
+          const week = weeks.find(item => item.start === picked)
+          detail.hidden = !week
+          detail.replaceChildren(...(week ? [
+            row({ label: weekRange(week.start), value: durationShort(week.seconds), className: 'is-head' }),
+            ...(booksOf.get(week.start) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row')),
+          ] : []))
         }
+        paint()
         const axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
           el('span', { text: weeks.length > 1 ? dayMonthShortDate(weeks[0].start) : '' }),
           el('span', { text: CARDS_COPY.thisWeek }))
         const since = dayMonth(stats.firstDay)
         body.append(el('div', { className: 'tc-g' },
           el('div', { className: 'tc-sum' }, figure, since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null, bars, axis),
+          detail,
           factsRow([
             { value: figures.last7, label: CARDS_COPY.last7 },
             { value: String(reading.finished.length), label: CARDS_COPY.finished },

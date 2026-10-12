@@ -21,7 +21,8 @@ import { LAB_CATALOGUE_URL } from '../../public/lab/library-model.js'
 import { accountLabPositionRecord, type LabPositionState } from '../lab/labPosition'
 import { fetchLabPositionCloud, readLabPositionLocal } from '../lab/labPositionStore'
 import { fetchReadingTime, readPending, withPending } from '../lab/labReadingTime'
-import { localDay, readingTimeStats, type ReadingTimeStats } from '../readingTime/model'
+import { localDay, readingTimeStats, weekBooks, type ReadingTimeStats } from '../readingTime/model'
+import { PRIVATE_BOOK_LABEL, isPrivateBucket } from '../readingTime/privateBook'
 import type { CatalogueEntry } from '../readingTime/yourReading'
 import { completedBookIdsIn } from '../preReader/libraryCompletion'
 import { productionPlaces, withProductionPlaces } from '../preReader/productionPositions'
@@ -45,10 +46,18 @@ export interface ReadingBook {
 }
 
 /** Your reading: the ledger's figures, and the books exactly as the library lists them. */
+/** One week of the chart: each book read that week and its time, most time first. */
+export interface ReadingWeek {
+  start: string
+  books: Array<{ bookId: string; title: string; seconds: number }>
+}
+
 export interface ReadingLoad {
   stats: ReadingTimeStats
   readingNow: ReadingBook[]
   finished: ReadingBook[]
+  /** The books behind each of stats.weeks (absent in a cache written before 12 Oct 2026). */
+  weeks?: ReadingWeek[]
 }
 
 async function loadCatalogue(fetchImpl: typeof fetch): Promise<Map<string, CatalogueEntry>> {
@@ -80,7 +89,8 @@ export async function loadReading(token: string, userId: string | null, fetchImp
     loadPositions(token, userId),
   ])
   if (!summary) return null
-  const stats = readingTimeStats(withPending(summary.rows, readPending(userId)), localDay())
+  const rows = withPending(summary.rows, readPending(userId))
+  const stats = readingTimeStats(rows, localDay())
   const local = (() => { try { return localStorage } catch { return null } })()
   const places = positions ? withProductionPlaces(positions, productionPlaces({ bookIds: catalogue.keys(), read: key => local?.getItem(key) ?? null })) : null
   const books = new Map<string, LibraryBookInfo>([...catalogue.values()].map(book => [book.id, {
@@ -104,8 +114,15 @@ export async function loadReading(token: string, userId: string | null, fetchImp
     const index = chapters.findIndex(chapter => chapter.number === chapterNumber)
     return index >= 0 && chapters.length > 0 ? (index + 1) / chapters.length : null
   }
+  // An own book is only ever "a private book"; a book the catalogue does not name is left out, as in Reading now.
+  const weekTitle = (bookId: string) => isPrivateBucket(bookId) ? PRIVATE_BOOK_LABEL.replace(/^./, c => c.toUpperCase()) : title(bookId)
+  const perWeek = weekBooks(rows, stats.weeks.map(week => week.start))
   return {
     stats,
+    weeks: stats.weeks.map(week => ({
+      start: week.start,
+      books: (perWeek.get(week.start) ?? []).flatMap(book => { const name = weekTitle(book.bookId); return name ? [{ bookId: book.bookId, title: name, seconds: book.seconds }] : [] }),
+    })),
     readingNow: list.readingNow.flatMap(row => { const name = title(row.bookId); return name ? [{ bookId: row.bookId, title: name, fraction: fraction(row.bookId, row.target.chapterNumber) }] : [] }),
     finished: list.finished.flatMap(row => { const name = title(row.bookId); return name ? [{ bookId: row.bookId, title: name, fraction: null }] : [] }),
   }
