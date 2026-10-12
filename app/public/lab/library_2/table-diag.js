@@ -61,5 +61,34 @@ if (on) {
       diagLog(`${type} ${Math.round(e.clientX)},${Math.round(e.clientY)} ${name}${e.defaultPrevented ? ' (prevented)' : ''}`);
     }, { capture: true, passive: true });
   }
+  // Every image the page loads, with its size and how long the load took (12 Oct: a 4.9 s pause
+  // swiping onto the Bible, with touches still answered, points at an image being drawn).
+  try {
+    new PerformanceObserver(list => {
+      for (const e of list.getEntries()) {
+        if (!['img', 'css', 'other', 'fetch'].includes(e.initiatorType) || !/\.(jpe?g|png|webp|avif|gif)(\?|$)|\/cover/.test(e.name)) continue;
+        const name = e.name.replace(/^https?:\/\/[^/]+/, '').split('?')[0].split('/').slice(-2).join('/');
+        diagLog(`image ${name} ${Math.round((e.transferSize || e.encodedBodySize || 0) / 1024)}K in ${e.duration.toFixed(0)}ms`);
+      }
+    }).observe({ type: 'resource', buffered: false });
+  } catch { /* no resource timing */ }
+  // Each image element as it finishes loading: its pixel size (decoding cost grows with it).
+  document.addEventListener('load', e => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement)) return;
+    const src = img.currentSrc || img.src || '';
+    const kind = src.startsWith('blob:') ? 'blob' : src.startsWith('data:') ? `data ${Math.round(src.length / 1024)}K` : src.split('?')[0].split('/').slice(-2).join('/');
+    const where = img.closest('.rt-b') ? `book ${img.closest('.rt-b').dataset.i ?? '?'}` : img.closest('#hero') ? 'hero' : 'page';
+    diagLog(`img loaded ${img.naturalWidth}x${img.naturalHeight} ${kind} (${where})`);
+  }, { capture: true });
+  // The room scene behind the table and the page's state classes, as they change.
+  let scene = document.documentElement.dataset.scene || '';
+  new MutationObserver(() => {
+    const next = document.documentElement.dataset.scene || '';
+    if (next !== scene) { diagLog(`scene ${scene || '-'} -> ${next}`); scene = next; }
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-scene'] });
+  // A heartbeat on a timer: when frames stop but these keep coming, the page is drawing, not stuck.
+  let beat = performance.now();
+  setInterval(() => { const now = performance.now(); if (now - beat > 600) diagLog(`timer late ${(now - beat - 250).toFixed(0)}ms (page busy)`); beat = now; }, 250);
   setInterval(paint, 500);
 }
