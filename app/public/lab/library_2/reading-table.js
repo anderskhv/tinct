@@ -7,7 +7,7 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261012tablediag';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261012ownshelf';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 
@@ -15,11 +15,11 @@ import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { COVER_ASPECT } from './table-window.js?v=20261009cover';
-import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261012tablediag';
-import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, tableUrl, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261012tablediag';
+import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261012ownshelf';
+import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, tableUrl, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261012ownshelf';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
-import { diagLog, diagTime, diagState, diagOn } from './table-diag.js?v=20261012tablediag';
-import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261012tablediag';
+import { diagLog, diagTime, diagState, diagOn } from './table-diag.js?v=20261012ownshelf';
+import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261012ownshelf';
 
 const $ = id => document.getElementById(id);
 const CACHE_KEY = 'tinct-library-2-reading-table';
