@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261012nodiag';
+import {mountBookshelf} from './bookshelf.js?v=20261013orbmid';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261012nodiag';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261013orbmid';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookFrame,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261009rel10';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261012nodiag';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261013orbmid';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
@@ -482,7 +482,10 @@ snapTuck();refreshAmbient();
 let movedLibrarian=false;
 // Phone landing height is frozen per width so collapsing browser bars do not shift the hero.
 // iPhone browsers float the bottom toolbar over the page; cover tops start at its top edge.
-function fitHero(){window.__library2Layout();const b=$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();const y=document.documentElement.classList.contains('returning')?innerHeight*.68+26:r.top+scrollY+r.height/2;dock={side:'right',y:tuckRestY(y,innerHeight)};snapTuck();}}
+// On the reading table the librarian rests level with the middle of the books: the row
+// stands --bh tall on the stage, lifted 5% of --bh off its floor (styles.css .rt-row).
+function tableBooksMidY(){const table=document.querySelector('.reading-table:not([hidden])'),stage=table?.querySelector('.rt-stage'),bh=parseFloat(table?.style.getPropertyValue('--bh'));if(!stage||!bh)return null;const r=stage.getBoundingClientRect();return r.height?r.bottom+scrollY-bh*.55:null;}
+function fitHero(){window.__library2Layout();const b=$('hero-book');if(!movedLibrarian&&mode==='minimized'&&!activeBook){const r=b.getBoundingClientRect();const y=document.documentElement.classList.contains('returning')?tableBooksMidY()??innerHeight*.68+26:r.top+scrollY+r.height/2;dock={side:'right',y:tuckRestY(y,innerHeight)};snapTuck();}}
 if(typeof ResizeObserver!=='undefined'){const observer=new ResizeObserver(fitHero);observer.observe(document.querySelector('.hero-copy'));observer.observe($('hero'));}fitHero();
 addEventListener('resize',()=>{wallWidth=0;fitHero();syncLibrarianAway();dock.y=tuckRestY(dock.y,innerHeight);if(mode==='minimized')snapTuck();else if(mode==='welcome')requestAnimationFrame(()=>moveOrbTo(orbTarget()));if(activeBook){if(bookProgress===1)drawBook(1);else{sourceRect=rectOf(sourceCanvas);drawBook(bookProgress);}}drawScene(performance.now());});
 addEventListener('keydown',e=>{if(e.defaultPrevented||document.documentElement.dataset.tinctCommandsOpen==='true')return;if(e.key==='Tab')document.documentElement.classList.add('keyboard-nav');if(e.key==='Escape'){if(mode!=='minimized')minimize();else if(activeBook){if(reading)$('reader-back').click();else closeBook();}else if(searchOpen)setSearch(false);else if(menuOpen)setMenu(false);}if(e.key==='Tab'){const modal=mode!=='minimized'?$('librarian-panel'):activeBook&&bookProgress===1?(destination(innerWidth,innerHeight).tour&&tourProgress===0?$('book-overlay'):reading?$('reader'):$('intro')):searchOpen?$('search-panel'):menuOpen?$('library-menu'):null;if(!modal)return;const items=[...modal.querySelectorAll('button,input,select,[tabindex="0"]')].filter(x=>!x.hidden&&!x.disabled&&!x.closest('[aria-hidden="true"]')&&x.getClientRects().length);if(!items.length)return;const i=items.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();items.at(-1).focus();}else if(!e.shiftKey&&i===items.length-1){e.preventDefault();items[0].focus();}}});
