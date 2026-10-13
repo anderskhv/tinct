@@ -22,6 +22,8 @@ interface LabAskPaneProps {
   onStopVoice?: () => void
   voiceActive: boolean
   typedLoading: boolean
+  /** What the companion is looking up before the answer begins, e.g. "Reading Jeremiah 32…". */
+  typedStatus?: string | null
   turns: LabAskTurn[]
   draft: string
   attachment?: { text: string; kind?: 'highlight' | 'figure' } | null
@@ -98,6 +100,7 @@ export function LabAskPane({
   onStopVoice,
   voiceActive: _voiceActive,
   typedLoading,
+  typedStatus = null,
   turns,
   draft,
   attachment,
@@ -653,8 +656,13 @@ export function LabAskPane({
             )
           })}
           {typedLoading && !streaming && (
-            // The answer has not begun: three faint dots breathing slowly, no "thinking" line.
-            <div className="tc-pending tc-a is-streaming" data-testid="lab-ask-pending"><div className="tc-answer" dangerouslySetInnerHTML={{ __html: WAIT_HTML }} /></div>
+            // The answer has not begun: three faint dots breathing slowly, no
+            // "thinking" line. During a book or source lookup a quiet line
+            // says what is being read; the answer replaces it.
+            <div className="tc-pending tc-a is-streaming" data-testid="lab-ask-pending">
+              <div className="tc-answer" dangerouslySetInnerHTML={{ __html: WAIT_HTML }} />
+              {typedStatus && <p className="tc-lookup" data-testid="lab-ask-lookup" aria-live="polite">{typedStatus}</p>}
+            </div>
           )}
           <div className="tc-spacer" data-testid="lab-ask-thread-spacer" ref={spacerRef} aria-hidden="true" />
         </div>

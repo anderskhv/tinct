@@ -333,9 +333,18 @@ export function extractAnthropicSseDelta(line: string): string {
   return ''
 }
 
+/** The Worker's `tinct_status` SSE event: what the companion is looking up ("Reading Jeremiah 32…"). */
+export const TINCT_STATUS_EVENT = 'tinct_status'
+
+export interface AnthropicStreamOptions {
+  /** A lookup started; the text is a short reader-facing status line. Readers without it ignore the event. */
+  onStatus?: (text: string) => void
+}
+
 export async function readAnthropicStream(
   response: { ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> },
   onDelta?: (text: string) => void,
+  options: AnthropicStreamOptions = {},
 ): Promise<AnthropicStreamResult> {
   const contentType = response.headers?.get?.('content-type') || ''
   const body = response.body
@@ -357,9 +366,10 @@ export async function readAnthropicStream(
         const payload = line.trim().slice(5).trim()
         if (payload === '[DONE]') { finished = true; sawStop = true }
         else {
-          let event: { type?: string; error?: { type?: string } } | undefined
+          let event: { type?: string; error?: { type?: string }; text?: unknown } | undefined
           try { event = JSON.parse(payload) } catch { /* Ignore non-JSON SSE data. */ }
           if (event?.type === 'message_stop') { finished = true; sawStop = true }
+          if (event?.type === TINCT_STATUS_EVENT && typeof event.text === 'string' && event.text.trim()) options.onStatus?.(event.text.trim())
           if (event?.type === 'error') throw new LabChatError(event.error?.type)
         }
       }
@@ -394,8 +404,9 @@ export async function readAnthropicStream(
 export async function readAnthropicResponse(
   response: { ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> },
   onDelta?: (text: string) => void,
+  options: AnthropicStreamOptions = {},
 ): Promise<string> {
-  const result = await readAnthropicStream(response, onDelta)
+  const result = await readAnthropicStream(response, onDelta, options)
   if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()) throw result.error ?? new LabChatError()
   return result.text
 }

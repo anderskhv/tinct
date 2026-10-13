@@ -144,6 +144,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const chatBookId = options.bookId || ''
   const privateBook = isUserBookId(chatBookId)
   const [typedLoading, setTypedLoading] = useState(false)
+  /** What the companion is looking up before its answer begins ("Reading Jeremiah 32…"), or null. */
+  const [typedStatus, setTypedStatus] = useState<string | null>(null)
   const [historyStatus, setHistoryStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading')
   // `conversations` is this book's stored history (classic shape, for the
   // chapter picker); `turns` is the displayed thread: the stored history on
@@ -645,6 +647,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     gatedChapterRef.current = undefined
     sendingRef.current = true
     setTypedLoading(true)
+    setTypedStatus(null)
     setFailedTyped(null)
 
     const userTurn: LabAskTurn = retry?.userTurn ?? {
@@ -798,6 +801,7 @@ export function useLabAsk(options: UseLabAskOptions) {
             accumulated = next
             const content = next.trim()
             if (!content || !stillHere()) return
+            setTypedStatus(null)
             setTurns(current => {
               if (!stillHere()) return current
               // By id, not "the last turn": a refresh may have added turns meanwhile.
@@ -819,7 +823,7 @@ export function useLabAsk(options: UseLabAskOptions) {
               dumpLabTalkTurns(nextTurns)
               return nextTurns
             })
-          })
+          }, { onStatus: status => { if (stillHere() && !accumulated.trim()) setTypedStatus(status) } })
           if (attempt === 2 && firstFailureType) void trackEvent('chat_request_recovered', {
             book_id: requestBookId,
             chapter_number: requestChapter,
@@ -910,6 +914,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     } finally {
       sendingRef.current = false
       setTypedLoading(false)
+      setTypedStatus(null)
     }
   }, [askContextNow, gateAiAction, options.authToken, options.conversationId, options.chapterNumber, options.paragraphIndex, readTrail, recordTurn, sessionToken, turns, conversations, viewerId])
 
@@ -1037,6 +1042,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     notice,
     dismissNotice,
     typedLoading,
+    typedStatus,
     conversationState: isVoiceV2
       ? labConversationStateV2({ activity: voice.activity, starting })
       : labConversationState({

@@ -1057,3 +1057,42 @@ it('does not label Live transcript fragments as failed questions', () => {
   expect(labAskTurnUnanswered(turns, 0, false)).toBe(false)
   expect(labAskTurnUnanswered(turns, 1, false)).toBe(false)
 })
+
+describe('lookup status in the pending row', () => {
+  const props = {
+    conversationState: 'idle' as const,
+    voiceActive: false,
+    draft: '',
+    onDraftChange: () => { /* unused */ },
+    onSubmit: () => { /* unused */ },
+    onMic: () => { /* unused */ },
+    onVoiceMode: () => { /* unused */ },
+  }
+  const question = { id: 'u1', role: 'user' as const, content: 'Why buy a field?', source: 'typed' as const }
+
+  it('shows bare dots until a lookup starts, then a quiet line saying what is read', () => {
+    const { rerender } = render(<LabAskPane {...props} typedLoading turns={[question]} />)
+    expect(screen.getByTestId('lab-ask-pending').querySelector('.tc-wait')).not.toBeNull()
+    expect(screen.queryByTestId('lab-ask-lookup')).toBeNull()
+    rerender(<LabAskPane {...props} typedLoading typedStatus="Reading Jeremiah 32…" turns={[question]} />)
+    expect(screen.getByTestId('lab-ask-lookup').textContent).toBe('Reading Jeremiah 32…')
+    expect(screen.getByTestId('lab-ask-pending').querySelector('.tc-wait')).not.toBeNull()
+  })
+
+  it('gives way to the answer once its text arrives', () => {
+    render(<LabAskPane {...props} typedLoading typedStatus="Reading Jeremiah 32…" turns={[
+      question, { id: 'a1', role: 'assistant', content: 'It is a pledge.', source: 'typed' },
+    ]} />)
+    expect(screen.queryByTestId('lab-ask-pending')).toBeNull()
+    expect(screen.queryByTestId('lab-ask-lookup')).toBeNull()
+  })
+
+  it('styles the line in the system UI font, small and muted, never mono', () => {
+    const css = readFileSync(resolve(__dirname, '../../public/lab/chat-thread.css'), 'utf8')
+    const rule = /\.tc \.tc-lookup \{([^}]*)\}/.exec(css)?.[1] ?? ''
+    expect(rule).toContain('var(--tc-sans)')
+    expect(rule).toContain('var(--tc-muted)')
+    expect(rule).toMatch(/13px/)
+    expect(rule).not.toMatch(/mono/i)
+  })
+})

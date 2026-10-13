@@ -584,17 +584,80 @@ function focusedSourceQuery(messages: SafeMessage[], book?: BookRef): string {
   return `${prefix}${userTurns.join('\n').slice(-(1000 - prefix.length))}`
 }
 
-/** Held text longer than this in a lookup-capable round is an answer, not a process note. */
-export const HELD_TEXT_RELEASE_CHARS = 240
+/**
+ * Held text this long in a lookup-capable round is released even without a
+ * sentence end: process notes are a sentence at most.
+ */
+export const HELD_TEXT_RELEASE_CHARS = 120
+
+/**
+ * A lookup-capable round's held text is the answer once it shows the end of a
+ * first full sentence (., ? or ! followed by whitespace, after any closing
+ * quote or bracket), a line break after text, or HELD_TEXT_RELEASE_CHARS.
+ * A sentence end at the very end of the held text does not count yet: a
+ * one-sentence process note ("Let me check.") followed by a tool call stays
+ * private, as before.
+ */
+export function heldTextReadyToRelease(text: string): boolean {
+  if (text.length >= HELD_TEXT_RELEASE_CHARS) return true
+  return /[.?!]["'\u201d\u2019)\]]*\s/.test(text) || /\S[^\S\n]*\n/.test(text)
+}
+
+/** Custom SSE event: what the companion is looking up. Readers that do not know it ignore it. */
+export const TINCT_STATUS_EVENT = 'tinct_status'
+
+const STATUS_LABEL_MAX = 60
+
+function statusLabel(value: string): string {
+  const label = value.replace(/\s+/g, ' ').trim()
+  return label.length > STATUS_LABEL_MAX ? `${label.slice(0, STATUS_LABEL_MAX - 1).trimEnd()}\u2026` : label
+}
+
+/** "Zechariah 1" through "Zechariah 7" reads as "Zechariah 1\u20137". */
+export function chapterRangeLabel(from: string, to: string | null): string {
+  if (!to || to === from) return from
+  const head = /^(.*\S)\s+(\d+)$/
+  const a = head.exec(from)
+  const b = head.exec(to)
+  if (a && b && a[1] === b[1]) return `${a[1]} ${a[2]}\u2013${b[2]}`
+  return `${from} \u2013 ${to}`
+}
+
+/** The reader-facing status line for a lookup, e.g. "Reading Jeremiah 32\u2026". */
+export async function toolStatusText(call: { name: string; input: unknown }, retrieval: Pick<BookRetrieval, 'editionIndex'>): Promise<string> {
+  if (call.name === 'search_reading_sources') return 'Checking sources\u2026'
+  if (call.name === 'find_in_book') return 'Searching the book\u2026'
+  if (call.name !== 'read_chapter') return 'Looking this up\u2026'
+  const input = (call.input && typeof call.input === 'object' ? call.input : {}) as { chapter?: unknown; through?: unknown }
+  const raw = (value: unknown): string | null => {
+    if (typeof value === 'number' && Number.isInteger(value)) return String(value)
+    return typeof value === 'string' && value.trim() ? value.trim() : null
+  }
+  const from = raw(input.chapter)
+  const through = raw(input.through)
+  if (!from) return 'Reading the book\u2026'
+  let titles: Map<number, string> | null = null
+  if (/^\d+$/.test(from) || (through && /^\d+$/.test(through))) {
+    try {
+      const index = await retrieval.editionIndex()
+      titles = index ? new Map(index.chapters.map(entry => [entry.number, entry.title])) : null
+    } catch { titles = null }
+  }
+  const label = (value: string): string | null => /^\d+$/.test(value) ? titles?.get(Number(value)) ?? null : statusLabel(value)
+  const start = label(from)
+  if (!start) return 'Reading the book\u2026'
+  const end = through ? label(through) : null
+  return `Reading ${statusLabel(chapterRangeLabel(start, end))}\u2026`
+}
 
 function isToolUseStart(data: Record<string, unknown>): boolean {
   const block = data.content_block as { type?: string } | undefined
   return data.type === 'content_block_start' && block?.type === 'tool_use'
 }
 
-function textDeltaLength(data: Record<string, unknown>): number {
+function textDelta(data: Record<string, unknown>): string {
   const delta = data.delta as { type?: string; text?: string } | undefined
-  return data.type === 'content_block_delta' && delta?.type === 'text_delta' ? (delta.text?.length ?? 0) : 0
+  return data.type === 'content_block_delta' && delta?.type === 'text_delta' ? (delta.text ?? '') : ''
 }
 
 /**
@@ -602,8 +665,26 @@ function textDeltaLength(data: Record<string, unknown>): number {
  * server-side for up to MAX_TOOL_ROUNDS rounds, then one forced-text round.
  * `sink` receives the client-facing SSE stream when streaming.
  */
-async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstResponse?: Response): Promise<RoundOutcome> {
+async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, firstResponse?: Response): Promise<RoundOutcome> {
   const system = cacheableSystem(input.system)
+  // Text already shown in a round that then called a tool stays; the client
+  // joins every text delta into one answer, so the next round's text starts
+  // a new paragraph instead of running on from the last word.
+  let textShown = false
+  let breakBeforeNextText = false
+  const sink: ClientSink | null = outerSink ? {
+    write(event, data) {
+      if (textDelta(data)) {
+        if (breakBeforeNextText) {
+          breakBeforeNextText = false
+          outerSink.write('content_block_delta', { type: 'content_block_delta', index: data.index, delta: { type: 'text_delta', text: '\n\n' } })
+        }
+        textShown = true
+      }
+      outerSink.write(event, data)
+    },
+  } : null
+  const writeStatus = (text: string) => sink?.write(TINCT_STATUS_EVENT, { type: TINCT_STATUS_EVENT, text })
   const messages: unknown[] = [...input.messages]
   let firstTextSeen = false
   const noteText = () => {
@@ -611,6 +692,7 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
     firstTextSeen = true
     input.onFirstText()
   }
+  if (input.prefetchSource) writeStatus(await toolStatusText({ name: 'search_reading_sources', input: null }, input.retrieval))
   const prefetchedSource = input.prefetchSource ? await input.prefetchSource() : null
   let sourceSearchAttempted = Boolean(prefetchedSource)
   if (prefetchedSource) {
@@ -659,19 +741,21 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
     // A tool-eligible round may contain a provisional answer before asking
     // for evidence. Keep it private until we know this is the final answer.
     // Forced answer rounds still stream immediately.
-    // Process notes are a sentence at most, so once a round's text passes
-    // HELD_TEXT_RELEASE_CHARS with no tool call it is the answer: release
-    // what was held and stream the rest as it is written.
+    // Process notes are a sentence at most, so once a round's held text
+    // completes a first sentence (heldTextReadyToRelease) with no tool call
+    // it is the answer: release what was held and stream the rest as it is
+    // written. A tool call that starts first keeps it private.
     const held: Array<{ event: string; data: Record<string, unknown> }> = []
-    let heldChars = 0
+    let heldText = ''
+    let toolStarted = false
     let released = false
     const roundSink: ClientSink | null = sink && !forceText ? {
       write(event, data) {
         if (released || data.type === 'message_start' || data.type === 'ping') { sink.write(event, data); return }
-        if (isToolUseStart(data)) heldChars = -Infinity
+        if (isToolUseStart(data)) toolStarted = true
         held.push({ event, data })
-        heldChars += textDeltaLength(data)
-        if (heldChars >= HELD_TEXT_RELEASE_CHARS) {
+        heldText += textDelta(data)
+        if (!toolStarted && heldText.trim() && heldTextReadyToRelease(heldText)) {
           released = true
           noteText()
           for (const item of held.splice(0)) sink.write(item.event, item.data)
@@ -702,7 +786,14 @@ async function runToolLoop(input: ToolLoopInput, sink: ClientSink | null, firstR
       return outcome
     }
     const toolStartedAt = Date.now()
-    const results = await executeToolCalls(input.retrieval, calls, input.research)
+    const pendingResults = executeToolCalls(input.retrieval, calls, input.research)
+    if (sink) {
+      // The pending row says what is being looked up; the first call names it.
+      const status = await toolStatusText(calls[0], input.retrieval).catch(() => 'Looking this up\u2026')
+      writeStatus(status)
+    }
+    const results = await pendingResults
+    if (textShown) breakBeforeNextText = true
     input.timing.toolRounds += 1
     if (calls.some(call => call.name === 'read_chapter' || call.name === 'find_in_book')) {
       input.timing.bookToolMs += Date.now() - toolStartedAt
