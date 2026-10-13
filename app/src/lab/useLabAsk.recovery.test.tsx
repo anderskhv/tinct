@@ -431,3 +431,28 @@ it('shows the calm resting message when the AI ceiling or a provider limit is re
   expect(isAiRestingError(caught)).toBe(true)
   expect((caught as Error).message).toBe(LAB_COPY.aiResting)
 })
+
+it('exposes the lookup status while the answer has not begun and clears it once text arrives', async () => {
+  const encoder = new TextEncoder()
+  let provider!: ReadableStreamDefaultController<Uint8Array>
+  const body = new ReadableStream<Uint8Array>({ start(controller) { provider = controller } })
+  const event = (name: string, data: unknown) => encoder.encode(`event: ${name}\ndata: ${JSON.stringify(data)}\n\n`)
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(body, { headers: { 'Content-Type': 'text/event-stream' } })))
+  const { result } = renderHook(() => useLabAsk(base))
+
+  let sent!: Promise<void>
+  act(() => { sent = result.current.sendTyped('why buy a field?') })
+  await vi.waitFor(() => expect(provider).toBeTruthy())
+  expect(result.current.typedStatus).toBeNull()
+  await act(async () => { provider.enqueue(event('tinct_status', { type: 'tinct_status', text: 'Reading Jeremiah 32…' })) })
+  await vi.waitFor(() => expect(result.current.typedStatus).toBe('Reading Jeremiah 32…'))
+  await act(async () => { provider.enqueue(event('content_block_delta', { type: 'content_block_delta', index: 0, delta: { type: 'text_delta', text: 'It is a pledge.' } })) })
+  await vi.waitFor(() => expect(result.current.typedStatus).toBeNull())
+  await act(async () => {
+    provider.enqueue(event('message_stop', { type: 'message_stop' }))
+    provider.close()
+    await sent
+  })
+  expect(result.current.typedStatus).toBeNull()
+  expect(result.current.turns.some(turn => turn.role === 'assistant' && turn.content === 'It is a pledge.')).toBe(true)
+})

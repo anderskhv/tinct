@@ -47,6 +47,8 @@ export function numberedLabChapter(paragraphs: string[], start = 0): string {
 
 /** Text retrieval adds precision; it is not a prerequisite for knowing the book. */
 export const LAB_ASK_BOOK_TOOLS_RULE = `Use your reliable general knowledge of the book directly for familiar chapter summaries, explanations, themes, comparisons, and background. Supplied excerpts and reading history help with the exact edition and current position; they do not restrict what you may know or answer. Do not make a lookup a prerequisite for an answer you already know. Use read_chapter or find_in_book when exact wording, edition-specific details, genuine uncertainty, or the reader's request to verify makes checking useful. Never say you cannot see earlier chapters. Never claim to have looked without calling a tool. Cite the chapter you used ('In chapter 37, verse 21…'). When retrieving a chapter range, use read_chapter with chapter and through labels in one call and continue truncated text at the returned start_paragraph and start_offset. For a chapter-by-chapter summary, cover every requested chapter separately using your knowledge, supplemented by retrieval where useful. Do not substitute vague guesses or "likely" merely because a chapter was not supplied. A failed lookup does not erase what you know: answer from reliable knowledge without a routine disclaimer about missing context; disclose uncertainty only when the claim itself is uncertain, and do not fabricate exact quotations. Do not narrate lookups.`
+/** Held text is released at its first sentence, so lookups must come before the answer begins. */
+export const LAB_LOOKUP_BEFORE_TEXT_RULE = 'Make any lookup tool calls before you write any reader-facing text. Once you start writing the answer, do not call a tool.'
 
 /** Struck everywhere, typed and spoken. */
 /** The bracketed paragraph numbers in the prompt are for finding text; readers never see them. */
@@ -171,7 +173,7 @@ export function buildLabAskInstructions(input: LabAskContext, options: { nearby?
   const lines = [
     LAB_ASK_POLICY,
   ]
-  if (toolsAvailable) lines.push(LAB_ASK_BOOK_TOOLS_RULE)
+  if (toolsAvailable) lines.push(LAB_ASK_BOOK_TOOLS_RULE, LAB_LOOKUP_BEFORE_TEXT_RULE)
   lines.push(
     `[Current state: authoritative for this turn. Older conversation locations are historical, even within the Bible. In the Bible, "this book" means the current biblical book unless the reader explicitly says otherwise.]`,
     `Right now reading: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,

@@ -5497,6 +5497,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             conversationState={ask.conversationState}
             voiceActive={ask.voiceActive}
             typedLoading={ask.typedLoading}
+            typedStatus={ask.typedStatus}
             turns={ask.turns}
             historyStatus={ask.historyStatus}
             draft={draft}

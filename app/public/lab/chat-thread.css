@@ -123,6 +123,8 @@
 .tc .tc-wait i:nth-child(2) { animation-delay: .4s; }
 .tc .tc-wait i:nth-child(3) { animation-delay: .8s; }
 @keyframes tc-breathe { 0%, 100% { opacity: .2; } 50% { opacity: .6; } }
+/* During a lookup only: one quiet line under the dots saying what is read. */
+.tc .tc-lookup { margin: 2px 0 0; color: var(--tc-muted); font: 400 13px/1.4 var(--tc-sans); letter-spacing: 0; }
 .tc .tc-a.is-streaming .tc-w { animation: tc-word-in .42s ease-out both; }
 @keyframes tc-word-in { from { opacity: 0; } to { opacity: 1; } }
 

@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL } from './companionModel'
-import { handleChat, handleLabChat as handleLabChatRoute, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS } from './worker/routes/chat'
+import { chapterRangeLabel, handleChat, handleLabChat as handleLabChatRoute, HELD_TEXT_RELEASE_CHARS, heldTextReadyToRelease, MAX_SYSTEM_PROMPT_LENGTH, MAX_TOOL_ROUNDS, toolStatusText } from './worker/routes/chat'
 import { CHAT_STREAM_IDLE_MS } from './worker/lib/chatUpstream'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 
@@ -942,5 +942,209 @@ describe('chat failure diagnostics and interrupted answers', () => {
     expect(text).not.toContain('Let me check.')
     expect(text).toContain('overloaded_error')
     expect(fetchMock).toHaveBeenCalledTimes(3)
+  })
+})
+
+/** The client's view of the stream: answer text joined as readAnthropicStream joins it, plus status lines. */
+function clientView(raw: string): { text: string; statuses: string[]; order: string[] } {
+  let text = ''
+  const statuses: string[] = []
+  const order: string[] = []
+  for (const block of raw.split(/\n\n/)) {
+    const event = /^event: (.*)$/m.exec(block)?.[1] ?? ''
+    const data = /^data: (.*)$/m.exec(block)?.[1]
+    if (!data) continue
+    const parsed = JSON.parse(data) as { type?: string; text?: string; delta?: { type?: string; text?: string } }
+    if (event === 'tinct_status') { statuses.push(parsed.text ?? ''); order.push('status'); continue }
+    if (parsed.type === 'content_block_delta' && parsed.delta?.type === 'text_delta') { text += parsed.delta.text ?? ''; order.push('text') }
+  }
+  return { text, statuses, order }
+}
+
+describe('streaming text release and lookup status', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('releases held text at the end of its first full sentence, not at a fixed length', () => {
+    expect(HELD_TEXT_RELEASE_CHARS).toBe(120)
+    expect(heldTextReadyToRelease('Jeremiah buys a field')).toBe(false)
+    // A sentence end with nothing after it yet may be a one-line process note.
+    expect(heldTextReadyToRelease('Let me check.')).toBe(false)
+    expect(heldTextReadyToRelease('Jeremiah buys a field. ')).toBe(true)
+    expect(heldTextReadyToRelease('Why a field? He')).toBe(true)
+    expect(heldTextReadyToRelease('It is a pledge! The')).toBe(true)
+    expect(heldTextReadyToRelease('He says “buy my field.” Then')).toBe(true)
+    expect(heldTextReadyToRelease('**Jeremiah 32**\nThe')).toBe(true)
+    expect(heldTextReadyToRelease('\n\n')).toBe(false)
+    expect(heldTextReadyToRelease('a'.repeat(HELD_TEXT_RELEASE_CHARS - 1))).toBe(false)
+    expect(heldTextReadyToRelease('a'.repeat(HELD_TEXT_RELEASE_CHARS))).toBe(true)
+  })
+
+  it('names the chapter a lookup reads', async () => {
+    const retrieval = { editionIndex: async () => ({ editionKey: 'kjv-en', chapters: [
+      { number: 777, title: 'Jeremiah 32', path: 'ch0777.json' },
+      { number: 782, title: 'Jeremiah 37', path: 'ch0782.json' },
+    ] }) }
+    expect(chapterRangeLabel('Zechariah 1', 'Zechariah 7')).toBe('Zechariah 1–7')
+    expect(chapterRangeLabel('Book I', 'Book III')).toBe('Book I – Book III')
+    expect(chapterRangeLabel('Jeremiah 32', null)).toBe('Jeremiah 32')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: 'Jeremiah 32' } }, retrieval)).toBe('Reading Jeremiah 32…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '782' } }, retrieval)).toBe('Reading Jeremiah 37…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: 'Zechariah 1', through: 'Zechariah 7' } }, retrieval)).toBe('Reading Zechariah 1–7…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '777', through: '782' } }, retrieval)).toBe('Reading Jeremiah 32–37…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '99999' } }, retrieval)).toBe('Reading the book…')
+    expect(await toolStatusText({ name: 'read_chapter', input: { chapter: '782' } }, { editionIndex: async () => { throw new Error('down') } })).toBe('Reading the book…')
+    expect(await toolStatusText({ name: 'find_in_book', input: { query: 'Zedekiah' } }, retrieval)).toBe('Searching the book…')
+    expect(await toolStatusText({ name: 'search_reading_sources', input: { query: 'x' } }, retrieval)).toBe('Checking sources…')
+  })
+
+  it('emits a status event while a book lookup runs, before any answer text', async () => {
+    let round = 0
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      round += 1
+      if (round === 1) return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 't1', name: 'read_chapter', input: {} } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"chapter":"782"}' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'tool_use' } }),
+        sse('message_stop', {}),
+      ])
+      return sseResponse([
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Zedekiah moved him to the court of the prison.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+        sse('message_stop', {}),
+      ])
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(labChatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'Where is Jeremiah held?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH, { total: 1189 }).assets }, ctx, async () => true)
+    const raw = await readAll(response)
+    await Promise.all(pending)
+    expect(raw).toContain('event: tinct_status\ndata: {"type":"tinct_status","text":"Reading Jeremiah 37…"}')
+    const view = clientView(raw)
+    expect(view.statuses).toEqual(['Reading Jeremiah 37…'])
+    expect(view.order).toEqual(['status', 'text'])
+    expect(view.text).toBe('Zedekiah moved him to the court of the prison.')
+  })
+
+  it('streams the first sentence of a lookup-capable round before the round ends', async () => {
+    const encoder = new TextEncoder()
+    let provider!: ReadableStreamDefaultController<Uint8Array>
+    const body = new ReadableStream<Uint8Array>({ start(controller) { provider = controller } })
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(body, { headers: { 'content-type': 'text/event-stream' } })))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(labChatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'Why buy a field?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    provider.enqueue(encoder.encode([
+      sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'It is a pledge.' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: ' Jerusalem will' } }),
+    ].join('')))
+    const reader = response.body!.getReader()
+    const decoder = new TextDecoder()
+    let seen = ''
+    // The provider has not finished the round; the sentence must already be out.
+    while (!clientView(seen).text.includes('Jerusalem will')) {
+      const { done, value } = await reader.read()
+      if (done) break
+      seen += decoder.decode(value, { stream: true })
+    }
+    expect(clientView(seen).text).toBe('It is a pledge. Jerusalem will')
+    provider.enqueue(encoder.encode([
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: ' be resettled.' } }),
+      sse('content_block_stop', { index: 0 }),
+      sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+      sse('message_stop', {}),
+    ].join('')))
+    provider.close()
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      seen += decoder.decode(value, { stream: true })
+    }
+    await Promise.all(pending)
+    expect(clientView(seen).text).toBe('It is a pledge. Jerusalem will be resettled.')
+    expect((seen.match(/^event: message_stop$/gm) || []).length).toBe(1)
+  })
+
+  it('keeps released text when a tool call follows and starts the continuation on a new paragraph', async () => {
+    let round = 0
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      round += 1
+      if (round === 1) return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Jeremiah buys the field at Anathoth.' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: ' It is a pledge.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('content_block_start', { index: 1, content_block: { type: 'tool_use', id: 't1', name: 'read_chapter', input: {} } }),
+        sse('content_block_delta', { index: 1, delta: { type: 'input_json_delta', partial_json: '{"chapter":"Jeremiah 32"}' } }),
+        sse('content_block_stop', { index: 1 }),
+        sse('message_delta', { delta: { stop_reason: 'tool_use' } }),
+        sse('message_stop', {}),
+      ])
+      return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 7 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Verse 2 places him in the court of the prison.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+        sse('message_stop', {}),
+      ])
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleLabChat(labChatRequest({ stream: true,
+      messages: [{ role: 'user', content: 'Why buy a field?' }], book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+    }), { ANTHROPIC_API_KEY: 'key', ASSETS: bibleAssets(JEREMIAH).assets }, ctx, async () => true)
+    const raw = await readAll(response)
+    await Promise.all(pending)
+    const view = clientView(raw)
+    expect(view.text).toBe('Jeremiah buys the field at Anathoth. It is a pledge.\n\nVerse 2 places him in the court of the prison.')
+    expect(view.statuses).toEqual(['Reading Jeremiah 32…'])
+    expect((raw.match(/^event: message_start$/gm) || []).length).toBe(1)
+    expect((raw.match(/^event: message_stop$/gm) || []).length).toBe(1)
+    expect(raw).not.toContain('tool_use')
+  })
+
+  it('says it is checking sources while an explicitly requested source search runs', async () => {
+    const { assets } = bibleAssets(JEREMIAH, { total: 3 })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 0, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
+      if (url === 'https://api.openai.com/v1/responses') return Response.json({ error: { type: 'server_error' } }, { status: 500 })
+      if (url === 'https://api.anthropic.com/v1/messages') return sseResponse([
+        sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'I could not verify specific sources just now.' } }),
+        sse('content_block_stop', { index: 0 }),
+        sse('message_delta', { delta: { stop_reason: 'end_turn' } }),
+        sse('message_stop', {}),
+      ])
+      return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleChat(
+      chatRequest({ stream: true,
+        messages: [{ role: 'user', content: 'Please check specific sources for this claim.' }],
+        book: { bookId: 'imitation-of-christ', editionKey: 'original-en', chapterNumber: 1 },
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets }, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    const view = clientView(await readAll(response))
+    await Promise.all(pending)
+    expect(view.statuses).toEqual(['Checking sources…'])
+    expect(view.order[0]).toBe('status')
+    expect(view.text).toBe('I could not verify specific sources just now.')
   })
 })
