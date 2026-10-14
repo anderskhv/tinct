@@ -181,7 +181,20 @@ export interface LabAskInstructionParts {
   volatile: string
 }
 
-export function buildLabAskInstructionParts(input: LabAskContext, options: { nearby?: number; shownExplanations?: ShownExplanation[] } = {}): LabAskInstructionParts {
+/**
+ * `rules`: extra standing rules after the shared policy, in the cached part
+ * (the PDF citation rule). `task`: the one action this request asks for,
+ * last in the moving part (the margin reader's passage actions). Book
+ * requests pass neither, so their prompt is unchanged.
+ */
+export interface LabAskInstructionOptions {
+  nearby?: number
+  shownExplanations?: ShownExplanation[]
+  rules?: string[]
+  task?: string[]
+}
+
+export function buildLabAskInstructionParts(input: LabAskContext, options: LabAskInstructionOptions = {}): LabAskInstructionParts {
   const last = Math.max(0, input.paragraphs.length - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
   // Quoted in full up to a bound, so one enormous paragraph cannot crowd the chapter out of the prompt cap.
@@ -192,6 +205,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: { nea
     LAB_ASK_POLICY,
   ]
   if (toolsAvailable) stable.push(LAB_ASK_BOOK_TOOLS_RULE, LAB_LOOKUP_BEFORE_TEXT_RULE)
+  for (const rule of options.rules ?? []) if (rule) stable.push(rule)
   stable.push(
     `[Current state: authoritative for this turn. Older conversation locations are historical, even within the Bible. In the Bible, "this book" means the current biblical book unless the reader explicitly says otherwise.]`,
     `Right now reading: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,
@@ -223,6 +237,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: { nea
     const start = Math.max(0, idx - options.nearby)
     const nearby = numberedLabChapter(input.paragraphs.slice(start, idx + options.nearby + 1), start)
     if (nearby) volatile.push(`Nearby paragraphs of the current chapter, numbered as in the chapter:\n${nearby}`)
+    for (const line of options.task ?? []) if (line) volatile.push(line)
     return { stable: stable.join('\n\n'), volatile: volatile.join('\n\n') }
   }
   const chapter = numberedLabChapter(input.paragraphs)
@@ -237,6 +252,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: { nea
       : chapter
     stable.push(`${lead}${capped}`)
   }
+  for (const line of options.task ?? []) if (line) volatile.push(line)
 
   return { stable: stable.join('\n\n'), volatile: volatile.join('\n\n') }
 }
@@ -247,7 +263,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: { nea
  * the volatile part (the reader's place and what moves with it).
  * Production AudioStrip still uses buildVoiceInstructions.
  */
-export function buildLabAskInstructions(input: LabAskContext, options: { nearby?: number; shownExplanations?: ShownExplanation[] } = {}): string {
+export function buildLabAskInstructions(input: LabAskContext, options: LabAskInstructionOptions = {}): string {
   const parts = buildLabAskInstructionParts(input, options)
   return [parts.stable, parts.volatile].filter(Boolean).join('\n\n')
 }

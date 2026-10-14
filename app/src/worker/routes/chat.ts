@@ -16,14 +16,21 @@ import { supabaseRpc, type SupabaseEnv } from '../lib/supabase'
 import { searchReadingSources } from './voiceResearch'
 import {
   COMPANION_INTENT_EFFORT,
-  COMPANION_LOOKUP_MODEL,
+  COMPANION_LOOKUP_INTENTS,
   buildCompanionSystem,
   buildCompanionSystemParts,
+  companionAllowance,
   companionBookRef,
   companionMaxTokens,
+  companionModelFor,
   companionSelectionMessage,
+  companionTakesPassageImage,
+  companionToday,
   companionTrailChapters,
+  companionUsesSourceSearch,
+  factcheckSourceQuery,
   parseCompanionRequest,
+  type CompanionBuildExtras,
   type CompanionRequest,
 } from '../../companion/companionRequest'
 import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/libraryLibrarian'
@@ -113,7 +120,7 @@ type ChatRequestTiming = {
   requestId: string
   startedAt: number
   audience: 'guest' | 'signed'
-  path: 'book_grounded' | 'plain'
+  path: 'book_grounded' | 'source_checked' | 'plain'
   authAccessMs: number
   contextReadyMs: number
   providerRounds: number
@@ -960,6 +967,23 @@ export async function handleChat(
         companion = parseCompanionRequest(body.companion)
         if (!companion) return jsonResponse({ error: 'Invalid companion request' }, 400, request)
       }
+      // The latest user turn as sent. A passage action (Simplify, Fact-check,
+      // Counterpoint, Quiz me) keeps only its image blocks: the Worker writes
+      // the turn's text. An image anywhere else in it is validated below.
+      const rawMessages: unknown[] = Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
+      const rawLatest = rawMessages[rawMessages.length - 1] as { role?: unknown; content?: unknown } | undefined
+      const latestImage = Boolean(rawLatest && rawLatest.role === 'user' && contentHasImage(rawLatest.content))
+      const passageImages = companion && companionTakesPassageImage(companion) && latestImage
+        ? (rawLatest!.content as unknown[]).filter(block => typeof block === 'object' && block !== null && (block as { type?: unknown }).type === 'image')
+        : []
+      // Fact-check searches public sources only for a signed-in reader with
+      // the search key; otherwise it answers without, saying "Can't check."
+      const sourceSearch = Boolean(companion && companionUsesSourceSearch(companion) && userId && env.OPENAI_API_KEY)
+      const buildExtras: CompanionBuildExtras = {
+        image: companion?.intent === 'ask' ? latestImage : passageImages.length > 0,
+        sourceSearch,
+        today: companionToday(),
+      }
       let system: AnthropicSystemParam
       // Ask / Explain / Define: the part of the prompt that is the same for
       // every question in the chapter, and the part that moves with the reader.
@@ -976,7 +1000,7 @@ export async function handleChat(
             ...(parts.tail ? [{ type: 'text' as const, text: parts.tail.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }] : []),
           ]
         } else {
-          const parts = buildCompanionSystemParts(companion)
+          const parts = buildCompanionSystemParts(companion, buildExtras)
           if (parts) {
             // Each part is held to the cap on its own: the chapter is trimmed
             // against the stable part, so trimming the joined prompt would
@@ -984,7 +1008,7 @@ export async function handleChat(
             companionParts = { stable: parts.stable.slice(0, MAX_SYSTEM_PROMPT_LENGTH), volatile: parts.volatile.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }
             system = [companionParts.stable, companionParts.volatile].filter(Boolean).join('\n\n')
           } else {
-            system = buildCompanionSystem(companion).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
+            system = buildCompanionSystem(companion, buildExtras).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
           }
         }
       } else {
@@ -994,15 +1018,16 @@ export async function handleChat(
       }
       const selectionMessage = companion ? companionSelectionMessage(companion) : null
       const messages = selectionMessage !== null
-        ? [{ role: 'user', content: selectionMessage }]
-        : Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
+        ? [{ role: 'user', content: passageImages.length ? [...passageImages, { type: 'text', text: selectionMessage }] : selectionMessage }]
+        : rawMessages
       const maxTokens = companion
         ? companionMaxTokens(companion)
         : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
       const stream = body.stream === true
-      // Explain and Define go to the smaller model, which takes no effort setting.
-      const lookup = companion?.intent === 'explain' || companion?.intent === 'define'
-      const model = lookup ? COMPANION_LOOKUP_MODEL : CHAT_MODEL
+      // Explain, Define, Simplify, define_sense and quiz_check go to the
+      // smaller model, which takes no effort setting.
+      const lookup = Boolean(companion && COMPANION_LOOKUP_INTENTS.has(companion.intent))
+      const model = companion ? companionModelFor(companion.intent) : CHAT_MODEL
       const effort = lookup ? null : companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
 
       // Validate message structure and truncate per-message to the cap.
@@ -1046,8 +1071,12 @@ export async function handleChat(
       // A speculative Explain (fetched as a selection settles, before any tap) is
       // Tinct's cost, never the reader's: 124 of them in a day read as 18% of an
       // allowance the reader had barely used (11 Oct 2026).
-      const feature: AiFeature = lookup ? (companion?.speculative ? 'explain_speculative' : 'explain')
-        : companion?.intent === 'library' ? 'librarian'
+      // define_sense and quiz_check are never charged (explain_speculative);
+      // Simplify counts like Explain; Fact-check, Counterpoint and a quiz like Ask.
+      const allowance = companion ? companionAllowance(companion) : 'chat'
+      const feature: AiFeature = allowance === 'free' ? 'explain_speculative'
+        : allowance === 'explain' ? 'explain'
+        : allowance === 'librarian' ? 'librarian'
         : allowLabGuest ? 'lab_chat' : 'chat'
       if (userId && !allowsAiFeature(allowanceGate.enforced, feature, await allowancePromise)) {
         return jsonResponse(allowanceUsedBody(), 402, request)
@@ -1071,7 +1100,7 @@ export async function handleChat(
         const estimate = estimateAiCostMicros({
           inputChars: systemChars + safeMessages.reduce((sum, message) => sum + messageText(message.content).length, 0),
           maxTokens,
-          tools: Boolean(book && env.ASSETS),
+          tools: Boolean((book && env.ASSETS) || sourceSearch),
           imageTokens,
         })
         if (guestRate && holdGuestSpend) {
@@ -1086,6 +1115,22 @@ export async function handleChat(
           const reserved = options?.reserveGuestSpend ? await options.reserveGuestSpend(estimate) : false
           if (!reserved) return jsonResponse(aiRestingBody(), 503, request)
         }
+      }
+
+      // Fact-check with a source search: the tool loop with only
+      // search_reading_sources, prefetched with a query from the passage.
+      if (sourceSearch && companion) {
+        timing.path = 'source_checked'
+        timing.contextReadyMs = Date.now() - timing.startedAt
+        return await handleBookGroundedChat({
+          request, env, ctx, apiKey, book: null, system, safeMessages, maxTokens, stream, effort, charge,
+          timing,
+          meter,
+          trailChapters: [],
+          researchKey: env.OPENAI_API_KEY,
+          researchGate: () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6),
+          sourceQuery: factcheckSourceQuery(companion),
+        })
       }
 
       if (book && env.ASSETS) {
@@ -1172,7 +1217,8 @@ async function handleBookGroundedChat(input: {
   env: ChatEnv
   ctx: ExecutionContext
   apiKey: string
-  book: BookRef
+  /** Null for Fact-check on a user's PDF: no book tools, only the source search. */
+  book: BookRef | null
   trailChapters: number[]
   system: AnthropicSystemParam
   safeMessages: SafeMessage[]
@@ -1184,14 +1230,18 @@ async function handleBookGroundedChat(input: {
   meter: AiMeter
   researchKey?: string
   researchGate?: () => Promise<boolean>
+  /** Always prefetch the source search with this query (Fact-check). */
+  sourceQuery?: string
 }): Promise<Response> {
   const { request, env, ctx } = input
-  const retrieval = createBookRetrieval({
-    assets: bookAssets(env),
-    origin: new URL(request.url).origin,
-    book: input.book,
-    trailChapters: input.trailChapters,
-  })
+  const retrieval = input.book
+    ? createBookRetrieval({
+        assets: bookAssets(env),
+        origin: new URL(request.url).origin,
+        book: input.book,
+        trailChapters: input.trailChapters,
+      })
+    : NO_BOOK_RETRIEVAL
   let charged = false
   const chargeOnce = () => {
     if (charged) return
@@ -1206,7 +1256,7 @@ async function handleBookGroundedChat(input: {
     stream: input.stream,
     effort: input.effort,
     retrieval,
-    tools: input.researchKey ? [...BOOK_TOOLS, SOURCE_SEARCH_TOOL] : BOOK_TOOLS,
+    tools: !input.book ? [SOURCE_SEARCH_TOOL] : input.researchKey ? [...BOOK_TOOLS, SOURCE_SEARCH_TOOL] : BOOK_TOOLS,
     onFirstText: () => { markFirstChatText(input.timing); chargeOnce() },
     timing: input.timing,
     meter: input.meter,
@@ -1231,8 +1281,8 @@ async function handleBookGroundedChat(input: {
         : { content: 'The public-source lookup failed. Answer only what can be stated reliably without it, and do not claim that sources were checked.', isError: true }
     }
     loopInput.research = research
-    if (explicitlyRequestsSourceSearch(input.safeMessages)) {
-      const query = focusedSourceQuery(input.safeMessages, input.book)
+    if (input.sourceQuery || explicitlyRequestsSourceSearch(input.safeMessages)) {
+      const query = input.sourceQuery || focusedSourceQuery(input.safeMessages, input.book ?? undefined)
       loopInput.prefetchedSourceQuery = query
       loopInput.prefetchSource = () => research({ query })
     }
@@ -1282,6 +1332,15 @@ async function handleBookGroundedChat(input: {
     logChatRequestTiming(input.timing, outcome.ok ? 'completed' : 'failed', input.timing.firstTextMs !== null)
     if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
   }, { 'X-Tinct-Chat-Request-Id': input.timing.requestId })
+}
+
+/** No open book (Fact-check on a user's PDF): the book tools are not offered, so these never run. */
+const NO_BOOK_RETRIEVAL: BookRetrieval = {
+  readChapter: async () => ({ content: 'No book is open for lookups.', isError: true }),
+  findInBook: async () => ({ content: 'No book is open for lookups.', isError: true }),
+  chapterText: async () => null,
+  editionIndex: async () => null,
+  chaptersText: async numbers => numbers.map(() => null),
 }
 
 /** Both reader paths report sanitized errors, including after the first text token. */
