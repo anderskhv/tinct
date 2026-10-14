@@ -19,11 +19,13 @@ export type ChapterNotesKind = 'sofar' | 'end' | 'primer'
  * tested prompt on Sonnet; `primer` v2 is two beats on Sonnet (no "And").
  * 2026-10-08: `primer` v3 prepares the reader (why the chapter is interesting,
  * what to expect, what to watch for), at most one line on what came before.
+ * 2026-10-14: every kind bumped once: a beat longer than the old 320-character
+ * cap was cut mid-word ("muttered self-a"); those cached notes are rewritten.
  */
 export const CHAPTER_NOTES_PROMPT_VERSIONS: Readonly<Record<ChapterNotesKind, string>> = Object.freeze({
-  sofar: 'notes-v1',
-  end: 'notes-v3',
-  primer: 'notes-v3',
+  sofar: 'notes-v2',
+  end: 'notes-v4',
+  primer: 'notes-v4',
 })
 export interface ChapterNotesBeat { title: string; text: string }
 
@@ -48,7 +50,19 @@ export interface ChapterNotesResponse {
 
 const MAX_BEATS = 4
 const MAX_TITLE = 60
-const MAX_TEXT = 320
+// The prompts ask for 35–45 words; this only guards against a runaway answer.
+const MAX_TEXT = 700
+
+/** Text within `max` characters, never cut mid-word: at the last sentence end, else the last word. */
+export function clipBeatText(text: string, max = MAX_TEXT): string {
+  if (text.length <= max) return text
+  const head = text.slice(0, max)
+  let end = -1
+  for (const match of head.matchAll(/[.!?]["'”’)]?(?=\s)/g)) end = match.index + match[0].length
+  if (end > max / 2) return head.slice(0, end)
+  const word = head.lastIndexOf(' ')
+  return `${(word > 0 ? head.slice(0, word) : head).replace(/[\s,;:—–-]+$/, '')}…`
+}
 
 /** Accepts `{beats:[{title,text}]}` with 1–4 non-empty beats; anything else is null. */
 export function parseChapterNotesBeats(raw: unknown): ChapterNotesBeat[] | null {
@@ -59,7 +73,7 @@ export function parseChapterNotesBeats(raw: unknown): ChapterNotesBeat[] | null 
     const { title, text } = item as Record<string, unknown>
     if (typeof title !== 'string' || typeof text !== 'string') return []
     const t = title.replace(/\s+/g, ' ').trim().slice(0, MAX_TITLE)
-    const x = text.replace(/\s+/g, ' ').trim().slice(0, MAX_TEXT)
+    const x = clipBeatText(text.replace(/\s+/g, ' ').trim())
     return t && x ? [{ title: t, text: x }] : []
   }).slice(0, MAX_BEATS)
   return beats.length ? beats : null

@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
-import { CHAPTER_NOTES_PROMPT_VERSIONS, chapterNotesCacheKey, parseChapterNotesBeats } from './chapterNotes'
+import { CHAPTER_NOTES_PROMPT_VERSIONS, chapterNotesCacheKey, clipBeatText, parseChapterNotesBeats } from './chapterNotes'
 import { resetBookRetrievalCache, type ChapterText } from './worker/lib/bookRetrieval'
 import { CHAPTER_NOTES_MAX_TOKENS, CHAPTER_NOTES_MODEL, CHAPTER_NOTES_SYSTEM, handleLabChapterNotes, parseChapterNotesRequest } from './worker/routes/labChapterNotes'
 import type { RecapCache } from './worker/routes/labRecap'
@@ -140,13 +140,25 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(CHAPTER_NOTES_MAX_TOKENS.end).toBeGreaterThanOrEqual(CHAPTER_NOTES_MAX_TOKENS.sofar)
   })
 
+  it('never cuts a beat mid-word: a long beat keeps whole sentences (the Primer read "muttered self-a", 14 Oct)', () => {
+    const primer = "A nameless young man slips past his landlady and walks through stifling Petersburg heat toward a destination he keeps circling in his thoughts. The chapter follows him on foot and into a pawnbroker's apartment, ending in a tavern where he tries to steady himself. It is a close, interior chapter, full of muttered self-accusation and calculation."
+    expect(parseChapterNotesBeats({ beats: [{ title: 'A Young Man\'s Fearful Errand', text: primer }] })![0].text).toBe(primer)
+    const long = `${'One full sentence here. '.repeat(40)}The last one is cut`
+    const clipped = clipBeatText(long)
+    expect(clipped.length).toBeLessThanOrEqual(700)
+    expect(clipped.endsWith('here.')).toBe(true)
+    const noStops = 'word '.repeat(200).trim()
+    expect(clipBeatText(noStops)).toMatch(/word…$/)
+    expect(clipBeatText('Short and whole.')).toBe('Short and whole.')
+  })
+
   it('new prompts are new cache versions: old In brief and three-beat primers are never served', async () => {
-    expect(CHAPTER_NOTES_PROMPT_VERSIONS).toEqual({ sofar: 'notes-v1', end: 'notes-v3', primer: 'notes-v3' })
+    expect(CHAPTER_NOTES_PROMPT_VERSIONS).toEqual({ sofar: 'notes-v2', end: 'notes-v4', primer: 'notes-v4' })
     const base = { bookId: 'bible', editionKey: 'original-en', chapterNumber: 12 }
-    expect(chapterNotesCacheKey({ ...base, kind: 'end' })).toBe('notes-v3/bible/original-en/12/end/all')
-    expect(chapterNotesCacheKey({ ...base, kind: 'primer' })).toBe('notes-v3/bible/original-en/12/primer/all')
+    expect(chapterNotesCacheKey({ ...base, kind: 'end' })).toBe('notes-v4/bible/original-en/12/end/all')
+    expect(chapterNotesCacheKey({ ...base, kind: 'primer' })).toBe('notes-v4/bible/original-en/12/primer/all')
     const threeBeatPrimer = JSON.stringify({ beats: [{ title: 'Where we are', text: 'a' }, { title: 'Watch for', text: 'b' }, { title: 'And', text: 'c' }] })
-    for (const [kind, old] of [['end', ['notes-v1', 'notes-v2']], ['primer', ['notes-v1', 'notes-v2']]] as const) {
+    for (const [kind, old] of [['end', ['notes-v1', 'notes-v2', 'notes-v3']], ['primer', ['notes-v1', 'notes-v2', 'notes-v3']]] as const) {
       const cache = fakeCache(); const fetchAnthropic = anthropic(); const { ctx: c, pending } = ctx()
       for (const version of old) cache.entries.set(`https://tinct.app/__lab-chapter-notes/${version}/frank/original-en/2/${kind}/all`, kind === 'primer' ? threeBeatPrimer : beatsJson)
       const response = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind }), env, c, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
