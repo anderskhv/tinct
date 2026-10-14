@@ -1,0 +1,161 @@
+/* Margin reader: reference stylesheet.
+   Every value here is binding and comes from docs/margin/mockup.html.
+   Class names are suggestions; rename them to fit the codebase, but keep the values.
+   Fonts: EB Garamond for reading words (cards, quotes, answers, definitions);
+   the system face for controls, tags, status lines and keys. Never monospace,
+   never uppercase labels, no accent colour (teal) anywhere in these components. */
+
+/* ---------- tokens per look ---------- */
+.mr {
+  /* Paper */
+  --mr-room: #e4ddcd;          /* behind the PDF page and the margin column */
+  --mr-ink: #0b0b0b;
+  --mr-muted: #6a6256;         /* labels, quotes, secondary text */
+  --mr-faint: #9a9183;         /* icons, hints, keys */
+  --mr-card: #f6f2ea;          /* open card, primer, trigger */
+  --mr-bubble: #dfd5bf;        /* the reader's question */
+  --mr-hair: rgba(32, 26, 19, .14);
+  --mr-wash: rgba(32, 26, 19, .07);   /* citation tags, stack row, quiz row */
+  --mr-lead: rgba(32, 26, 19, .38);   /* leader lines and underline */
+  --mr-bar: #1d1a17;           /* selection bar, More menu, Define card */
+  --mr-bar-ink: #f1ece2;
+  --mr-bar-soft: #a59c8e;
+  --mr-bar-sep: rgba(241, 236, 226, .16);
+  --mr-sel: rgba(31, 74, 92, .20);    /* selected text */
+  --mr-card-shadow: 0 0 0 1px var(--mr-hair), 0 14px 34px rgba(0, 0, 0, .10);
+  --mr-bar-shadow: 0 10px 28px rgba(0, 0, 0, .25);
+  --mr-gara: "EB Garamond", Georgia, serif;
+  --mr-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+.lab.is-book-theme .mr {
+  /* Book: the reader's Book papers, same structure */
+  --mr-room: #e7dcc7; --mr-ink: #201a13; --mr-muted: #675b4b; --mr-card: #efe6d3; --mr-bubble: #dacdb3;
+}
+.lab.is-night .mr {
+  /* Night */
+  --mr-room: #100e0c; --mr-ink: #d6ccbf; --mr-muted: #9a9083; --mr-faint: #6f675d;
+  --mr-card: #1f1b17; --mr-bubble: #2a241e;
+  --mr-hair: rgba(214, 204, 191, .14); --mr-wash: rgba(214, 204, 191, .08); --mr-lead: rgba(214, 204, 191, .34);
+  --mr-bar: #2c2721; --mr-bar-ink: #e9e1d4; --mr-bar-soft: #9a9083; --mr-bar-sep: rgba(233, 225, 212, .14);
+  --mr-sel: rgba(120, 170, 189, .26);
+  --mr-card-shadow: 0 0 0 1px var(--mr-hair), 0 14px 34px rgba(0, 0, 0, .4);
+}
+/* e-ink: no fills or shadows except the bar; 1px ink outlines instead. */
+html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
+  --mr-room: #fff; --mr-ink: #111; --mr-muted: #444; --mr-faint: #666; --mr-card: #fff; --mr-bubble: #fff;
+  --mr-hair: #777; --mr-wash: transparent; --mr-lead: #111; --mr-bar: #111; --mr-bar-ink: #fff; --mr-bar-soft: #ccc;
+  --mr-card-shadow: 0 0 0 1px #111; --mr-bar-shadow: none;
+}
+
+/* ---------- selection bar (desktop) ---------- */
+.mr-bar { position: absolute; display: flex; align-items: center; height: 44px; padding: 0 6px; border-radius: 12px;
+  background: var(--mr-bar); color: var(--mr-bar-ink); font: 400 14px var(--mr-ui); box-shadow: var(--mr-bar-shadow); white-space: nowrap; }
+.mr-bar::after { /* the tip, 12px square rotated, centred on the selection's first word */
+  content: ""; position: absolute; left: var(--tip, 50%); bottom: -6px; width: 12px; height: 12px;
+  background: var(--mr-bar); transform: translateX(-50%) rotate(45deg); border-radius: 2px; }
+.mr-bar.is-below::after { bottom: auto; top: -6px; }
+.mr-bar__item { display: flex; align-items: center; gap: 7px; height: 34px; padding: 0 10px; border-radius: 8px; }
+.mr-bar__item:hover, .mr-bar__item[aria-expanded="true"] { background: rgba(255, 255, 255, .10); }
+.mr-bar__item.is-text { padding: 0 11px; }               /* Explain, Simplify: words, no icon */
+.mr-bar__sep { width: 1px; height: 20px; background: var(--mr-bar-sep); margin: 0 4px; }
+.mr-bar__caret { width: 1.5px; height: 17px; background: var(--mr-bar-ink); }   /* after "Ask", blinking 1s */
+.mr-bar svg { width: 16px; height: 16px; fill: none; stroke: var(--mr-bar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mr-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--hl-current); box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, .18); }
+.mr-swatch { width: 20px; height: 20px; border-radius: 50%; margin: 0 5px; }
+.mr-swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--mr-bar), 0 0 0 3.5px var(--mr-bar-ink); }
+/* Asking state: the bar holds the question; min-width 330px, grows to 520px then wraps to 3 lines */
+.mr-bar__send { width: 26px; height: 26px; border-radius: 50%; background: var(--mr-bar-ink); display: grid; place-items: center; }
+.mr-bar__send svg { stroke: var(--mr-bar); width: 14px; height: 14px; }
+
+/* ---------- More menu (desktop) ---------- */
+.mr-more { width: 300px; padding: 8px; border-radius: 14px; background: var(--mr-bar); color: var(--mr-bar-ink);
+  font-family: var(--mr-ui); box-shadow: 0 16px 40px rgba(0, 0, 0, .3); }
+.mr-more__row { padding: 8px 12px; border-radius: 8px; }
+.mr-more__row:hover, .mr-more__row:focus-visible { background: rgba(255, 255, 255, .08); }
+.mr-more__row b { display: block; font-weight: 500; font-size: 14px; }
+.mr-more__row span { font-size: 12.5px; line-height: 1.35; color: var(--mr-bar-soft); }
+.mr-more hr { border: 0; border-top: 1px solid var(--mr-bar-sep); margin: 6px 10px; }
+
+/* ---------- Define card (single word) ---------- */
+.mr-define { width: 360px; border-radius: 14px; background: var(--mr-bar); color: var(--mr-bar-ink); box-shadow: 0 16px 40px rgba(0, 0, 0, .3); overflow: hidden; }
+.mr-define__body { padding: 14px 16px 12px; font-family: var(--mr-gara); }
+.mr-define__word { display: flex; align-items: baseline; font-size: 21px; }
+.mr-define__pos { font-style: italic; font-size: 15px; color: var(--mr-bar-soft); margin-left: 8px; }
+.mr-define__src { margin-left: auto; font: 11.5px var(--mr-ui); color: var(--mr-bar-soft); }   /* "Dictionary" */
+.mr-define__senses { margin: 8px 0 0; padding-left: 18px; font-size: 15.5px; line-height: 1.42; color: var(--mr-bar-soft); display: flex; flex-direction: column; gap: 4px; }
+.mr-define__senses li.is-fit { color: var(--mr-bar-ink); }          /* the sense that fits, first */
+.mr-define__foot { display: flex; align-items: center; padding: 4px 6px; border-top: 1px solid var(--mr-bar-sep); font: 14px var(--mr-ui); }
+
+/* ---------- margin column ---------- */
+.mr-col { position: absolute; width: 380px; }            /* left = page right edge + 56px */
+.mr-card { position: absolute; left: 0; right: 0; font-family: var(--mr-gara); color: var(--mr-ink); }
+.mr-card__label { display: flex; gap: 8px; align-items: baseline; font-size: 15px; font-style: italic; color: var(--mr-muted); }
+.mr-card__close { margin-left: auto; font: 13px var(--mr-ui); font-style: normal; color: var(--mr-faint); }
+.mr-card__count { margin-left: auto; font: 12px var(--mr-ui); font-style: normal; color: var(--mr-faint); }   /* "1 of 3" */
+/* folded */
+.mr-card.is-folded { padding: 2px 0 2px 14px; box-shadow: inset 1.5px 0 0 var(--mr-hair); }
+.mr-card.is-folded .mr-card__text { margin-top: 2px; font-size: 16px; line-height: 1.4; color: var(--mr-muted);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.mr-card.is-note.is-folded { box-shadow: inset 2px 0 0 var(--hl-color); }   /* the note's highlight colour */
+.mr-card.is-note .mr-card__text { font-style: italic; }
+/* open */
+.mr-card.is-open { display: flex; flex-direction: column; gap: 10px; padding: 14px 18px 12px; border-radius: 14px; background: var(--mr-card); box-shadow: var(--mr-card-shadow); }
+.mr-quote { position: relative; padding-left: 12px; font-size: 14px; font-style: italic; line-height: 1.4; color: var(--mr-muted); }   /* cut at 120 chars with … */
+.mr-quote::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; border-radius: 1px; background: var(--mr-hair); }
+.mr-you { align-self: flex-end; max-width: 86%; padding: 7px 13px; border-radius: 16px 16px 4px 16px; background: var(--mr-bubble); font-size: 15px; line-height: 1.4; }
+.mr-answer { font-size: 16px; line-height: 1.5; }
+.mr-answer p { margin: 0 0 .55em; }
+.mr-answer p:last-child { margin: 0; }
+.mr-answer .is-bottom-line { font-weight: 600; }        /* first sentence of the first paragraph */
+.mr-verdict { font-style: italic; color: var(--mr-muted); }   /* Fact-check: Holds. Partly holds. … */
+.mr-question { font-size: 18px; line-height: 1.45; }    /* Quiz me */
+.mr-sources { display: flex; flex-wrap: wrap; gap: 4px 12px; font: 12px var(--mr-ui); color: var(--mr-muted); }
+.mr-sources a { color: inherit; text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; }
+.mr-status { font: 12px var(--mr-ui); color: var(--mr-faint); }   /* "Checking sources…" */
+.mr-cite { padding: 1px 5px; border-radius: 5px; background: var(--mr-wash); font: 11px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; vertical-align: 1px; cursor: pointer; }
+.mr-card__acts { display: flex; gap: 16px; align-items: center; color: var(--mr-faint); }   /* copy only */
+.mr-card__acts svg, .mr-follow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.mr-follow { display: flex; align-items: center; gap: 12px; margin-top: 2px; padding-top: 10px; border-top: 1px solid var(--mr-hair); color: var(--mr-faint); }
+.mr-follow__link { font: 13px var(--mr-ui); color: var(--mr-muted); }   /* "Show answer", "Next question →" */
+.mr-caret { width: 2px; height: 18px; background: var(--mr-ink); }      /* blinking 1s; no placeholder text */
+/* leader lines (one SVG over page + column) */
+.mr-leads path { fill: none; stroke: var(--mr-lead); stroke-width: 1; }
+.mr-leads circle { fill: var(--mr-lead); }               /* r = 2.6px, 8px right of the page edge */
+.mr-leads .is-folded { stroke-opacity: .45; fill-opacity: .45; }
+.mr-underline { text-decoration: underline; text-decoration-color: var(--mr-lead); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+/* crowding */
+.mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-muted); }
+/* column foot: whole-PDF ask */
+.mr-foot { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; align-items: center; gap: 14px; padding-top: 12px; border-top: 1px solid var(--mr-hair); color: var(--mr-faint); }
+.mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-faint); }
+.mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-faint); }   /* "[/] the whole PDF" */
+
+/* ---------- primer ---------- */
+.mr-trigger { padding: 12px 16px; border-radius: 12px; background: var(--mr-card); box-shadow: 0 0 0 1px var(--mr-hair); font-family: var(--mr-gara); }
+.mr-trigger__title { display: flex; align-items: baseline; font-size: 18px; }
+.mr-trigger__sub { font-size: 15px; color: var(--mr-muted); }
+.mr-primer { display: flex; flex-direction: column; gap: 12px; padding: 18px 22px; border-radius: 14px; background: var(--mr-card); box-shadow: var(--mr-card-shadow); font-family: var(--mr-gara); overflow: auto; }
+.mr-primer h4 { display: flex; align-items: baseline; margin: 0; font-weight: 500; font-size: 21px; }
+.mr-primer__gist { margin: 0; font-size: 16px; line-height: 1.5; }
+.mr-primer__head { margin: 0 0 4px; font-size: 15px; font-style: italic; color: var(--mr-muted); }
+.mr-primer ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.mr-primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; }   /* number in --mr-faint 14px */
+.mr-primer__keep { margin: 0; padding-left: 12px; list-style: none; font-size: 15px; line-height: 1.42; box-shadow: inset 2px 0 0 var(--mr-hair); }
+.mr-map__row { display: grid; grid-template-columns: 18px 1fr auto; padding: 5px 0; border-top: 1px solid var(--mr-hair); font-size: 15px; }
+.mr-map__pages { font: 12px var(--mr-ui); color: var(--mr-muted); }
+.mr-quiz-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--mr-wash); font-size: 16px; }
+.mr-primer__foot { display: flex; justify-content: space-between; margin-top: auto; font: 11.5px var(--mr-ui); color: var(--mr-faint); }
+
+/* ---------- phone ---------- */
+.mr-pbar { position: absolute; left: 10px; right: 10px; height: 48px; display: flex; align-items: center; padding: 0 6px; border-radius: 14px;
+  background: var(--mr-bar); color: var(--mr-bar-ink); font: 14px var(--mr-ui); box-shadow: 0 10px 30px rgba(0, 0, 0, .3); }
+/* sits 12px below the selection's last line, tip pointing up; if that would leave the screen, 12px above the first line, tip down */
+.mr-pbar .mr-bar__item { padding: 0 8px; height: 40px; }
+.mr-pmore { position: absolute; width: 210px; padding: 6px; border-radius: 14px; background: var(--mr-bar); color: var(--mr-bar-ink); font: 15px var(--mr-ui); box-shadow: 0 14px 34px rgba(0, 0, 0, .3); }
+.mr-pmore > div { padding: 10px 12px; }                  /* names only */
+.mr-sheet { position: fixed; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 10px;
+  padding: 10px 20px calc(16px + env(safe-area-inset-bottom)); border-radius: 22px 22px 0 0; background: var(--mr-card);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, .18); font-family: var(--mr-gara); }
+.mr-sheet__grab { width: 36px; height: 5px; margin: 0 auto 4px; border-radius: 3px; background: var(--mr-hair); }
+.mr-sheet .mr-answer { font-size: 17px; }
+.mr-sheet .mr-you { font-size: 16px; padding: 8px 14px; }

@@ -14,7 +14,7 @@
   --gara: "EB Garamond", Georgia, serif; --play: "Playfair Display", Georgia, serif; --sans: Inter, -apple-system, system-ui, sans-serif; --tex: "STIX Two Text", "Times New Roman", serif;
   color-scheme: dark;
 }
-.night .dk, .night .ph, .night .strip-frame {
+.night .dk, .night .ph, .night .strip-frame, .night .cardbg {
   --paper: #171411; --room: #100e0c; --ink: #d6ccbf; --muted: #9a9083; --faint: #6f675d; --card: #1f1b17; --bubble: #2a241e;
   --hair: rgba(214,204,191,.14); --wash: rgba(214,204,191,.08); --lead: rgba(214,204,191,.34); --bar: #2c2721; --bar-ink: #e9e1d4; --bar-soft: #9a9083; --bar-sep: rgba(233,225,212,.14);
   --sel: rgba(120,170,189,.26); --hl-gold: rgba(214,186,112,.30);
@@ -216,6 +216,19 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .psheet .div { display: flex; align-items: center; gap: 10px; color: var(--faint); font-style: italic; font-size: 13px; white-space: nowrap; }
 .psheet .div::before, .psheet .div::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
 
+
+.cardrow { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+.cardbg { width: 424px; padding: 22px; background: var(--room); border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 20px 40px rgba(0,0,0,.45); color: var(--ink); }
+.cardbg .mc { position: static; }
+.mc .verdict { font-style: italic; color: var(--muted); }
+.mc .claims { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 15.5px; line-height: 1.45; }
+.mc .srcs { font: 12px var(--sans); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.mc .srcs span { text-decoration: underline; text-decoration-color: var(--hair); text-underline-offset: 3px; }
+.mc .status { font: 12px var(--sans); color: var(--faint); }
+.mc .qn { font-size: 18px; line-height: 1.45; }
+.mc .fu .link { font: 13px var(--sans); color: var(--muted); }
+.mc .lab .of { font-family: var(--sans); font-style: normal; font-size: 12px; color: var(--faint); margin-left: auto; }
+
 @media (max-width: 700px) { .intro h1 { font-size: 1.9rem; } }
 </style>
 
@@ -324,6 +337,24 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
         <span class="cap"><b>A card along the bottom,</b> the passage still underlined above it. Swipe up for the full thread.</span></div>
       <div class="step"><span class="num">D · Chat</span><div class="ph" data-ph="d"></div>
         <span class="cap"><b>Chat as a card too,</b> instead of taking the whole screen. The page stays in view; swipe up when the conversation grows.</span></div>
+    </div></div>
+  </section>
+
+
+  <section class="sec">
+    <h2>6. The new answers</h2>
+    <p>Every action opens the same card in the margin (a bottom card on the phone). What changes is what sits under the quote. Each answer starts with a bottom line in medium weight.</p>
+    <div class="scroll"><div class="cardrow">
+      <div class="step"><span class="num">Simplify</span><div class="cardbg"><div class="mc open"><div class="lab">Simplify · p. 12<span class="x">×</span></div><div class="q">These results are easiest to obtain by noting that r is the sum of N independent random variables…</div><div class="ans"><p><span class="bl">Think of the count of heads as ten tiny counts added up, one per toss.</span> Each toss adds 0 or 1. Because the tosses do not affect each other, their spreads simply add, so the total spread is N times the spread of one toss.</p></div><div class="acts" data-i="copy"></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>No question bubble:</b> the action is the question. The rewrite keeps every claim and its order.</span></div>
+      <div class="step"><span class="num">Fact-check</span><div class="cardbg"><div class="mc open"><div class="lab">Fact-check · p. 12<span class="x">×</span></div><div class="q">x! ≃ x<sup>x</sup> e<sup>−x</sup> √(2πx)</div><div class="ans"><p><span class="bl">Holds. This is the standard form of Stirling’s approximation.</span></p></div><ul class="claims"><li><span class="verdict">Holds.</span> The relative error falls below 1% from x = 9 and keeps shrinking as x grows.</li><li><span class="verdict">Note.</span> Many texts write the cruder x! ≃ x<sup>x</sup> e<sup>−x</sup>; this page includes the √(2πx) term, which matters for small x.</li></ul><div class="srcs"><span>NIST DLMF §5.11</span><span>Wikipedia: Stirling’s approximation</span></div><div class="acts" data-i="copy"></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>Verdict words, not colours:</b> Holds, Partly holds, Outdated, Disputed, Can’t check, and Note for context. Sources as plain links. While searching, the card says “Checking sources…”.</span></div>
+      <div class="step"><span class="num">Counterpoint</span><div class="cardbg"><div class="mc open"><div class="lab">Counterpoint · p. 12<span class="x">×</span></div><div class="q">Each toss has mean f and variance f(1 − f).</div><div class="ans"><p><span class="bl">The model assumes every toss has the same f, and real data rarely does.</span> If f drifts from toss to toss, or tosses influence each other, the spread of r is wider than Nf(1 − f), and the binomial understates the uncertainty.</p><p>The author could answer that the binomial is a model to be tested against data, not a claim about every coin.</p></div><div class="acts" data-i="copy"></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>The strongest objection, then the author’s best reply.</b> For a story rather than an argument, it gives the strongest other reading.</span></div>
+      <div class="step"><span class="num">Quiz me · a question</span><div class="cardbg"><div class="mc open"><div class="lab">Quiz me · p. 12<span class="of">1 of 3</span><span class="x" style="margin-left:12px">×</span></div><div class="qn">Ten fair coins are tossed. What is the variance of the number of heads?</div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="link">Show answer</span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>One question at a time.</b> Type or say the answer in the line at the foot.</span></div>
+      <div class="step"><span class="num">Quiz me · answered</span><div class="cardbg"><div class="mc open"><div class="lab">Quiz me · p. 12<span class="of">1 of 3</span><span class="x" style="margin-left:12px">×</span></div><div class="qn">Ten fair coins are tossed. What is the variance of the number of heads?</div><div class="you">2.5</div><div class="ans"><p><span class="bl">Right.</span> Nf(1 − f) = 10 × ½ × ½ = 2.5 <span class="cite">eq. 1.2</span>.</p></div><div class="fu"><span class="sp"></span><span class="link">Next question →</span></div></div></div>
+        <span class="cap"><b>Right, Nearly or Not yet,</b> with the reason and where it is on the page. After the third: “2 of 3” and the one to reread.</span></div>
     </div></div>
   </section>
 
@@ -461,6 +492,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
   var pd = document.querySelector('[data-ph="d"]'); phonePdf(pd, '[data-a="eq1"]', '', 150);
   pd.insertAdjacentHTML('beforeend', '<div class="psheet"><div class="grab"></div><div class="div">Chapter 1 · Today</div><div class="you">What do I need to remember from chapter 1 for the exam?</div><div class="ans"><p><span class="bl">Two things: the binomial formula with its mean and variance, and Stirling’s approximation.</span> Expect to use them together, approximating a binomial coefficient with ln x! ≃ x ln x − x <span class="cite">(1.3)</span>.</p></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib">' + icon('mic') + '</span><span class="ib">' + icon('talk') + '</span></div></div>');
 
+  document.querySelectorAll('[data-i]').forEach(function (el) { el.innerHTML = icon(el.dataset.i); });
   var btns = document.querySelectorAll('.mode button');
   function set(m) { document.body.classList.toggle('night', m === 'night'); btns.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.m === m ? 'true' : 'false'); }); }
   btns.forEach(function (x) { x.addEventListener('click', function () { set(x.dataset.m); }); });
