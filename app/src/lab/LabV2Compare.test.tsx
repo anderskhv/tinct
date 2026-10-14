@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 import { labSwipeCompareSwap, labSwipePageDirection } from './labChrome'
-import { LAB_PREFS_KEY } from './labPrefs'
+import { LAB_PREFS_KEY, storeCompareView } from './labPrefs'
 import { labSuperMenuRows } from './labSuperMenu'
 import { bibleEditions, editionLabelFor } from './labPrefs'
 import { LAB_V2_VERSION_PILL_MS } from './labV2Sheet'
@@ -19,7 +19,11 @@ afterEach(() => {
   resetLabChapterTextCache()
 })
 
-/** A reader who has a compare edition switched on. */
+/**
+ * A reader who has a compare edition switched on and reads the main version.
+ * A new book opens on a phone with Compare's view on (Anders, 2026-10-14), so
+ * these swap tests start from a reader who turned it off for the book.
+ */
 function withCompare() {
   localStorage.setItem(LAB_PREFS_KEY, JSON.stringify({
     version: 2,
@@ -28,6 +32,7 @@ function withCompare() {
     desktop: {},
     seenOnce: {},
   }))
+  storeCompareView('phone', 'bible', false)
 }
 
 /** A reader who chose None for Compare (Compare is on by default since 2026-10-06). */

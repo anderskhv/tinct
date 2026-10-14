@@ -33,6 +33,8 @@ async function boot(page, scenario) {
     }
     const appearance = { alignment: s.alignment, alignmentExplicit: s.explicit, fontSize: s.size, fontSizeExplicit: true, shakespeareLayout: s.layout, theme: s.theme || 'book' }
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: s.edition, compareOpen: true, compareEdition: s.edition === 'original-en' ? 'modern-en' : 'original-en' }, phone: appearance, desktop: appearance }))
+    // Reads the main version first: a new book on a phone opens with Compare's view on (2026-10-14).
+    localStorage.setItem('tinct:reader-compare-view', JSON.stringify({ ['phone:' + s.book]: false, ['desktop:' + s.book]: false }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: s.edition, compareEditionKey: s.edition === 'original-en' ? 'modern-en' : 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
   await page.goto(origin + '/reader?qaLayoutTrace=1', { waitUntil: 'domcontentloaded' })
