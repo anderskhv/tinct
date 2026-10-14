@@ -5,8 +5,7 @@ import { createReaderHandoffIntent, PRE_READER_CATALOGUE, type ReaderHandoffInte
 import { clearPendingPurchase, markPendingPurchase, modernReturnFromParams, pendingPurchase, type ModernReturn } from './labModernEditionApi'
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
-import { isPublicBookId } from '../../public/lab/public-books.js'
-import { resumePlace, type LabBookPlace, type LabPositionState } from './labPosition'
+import { libraryResumePlace, resumePlace, type LabBookPlace, type LabPositionState } from './labPosition'
 import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
 
@@ -57,14 +56,6 @@ function localPlace(bookId: string): LabBookPlace | null {
   }
 }
 
-/** The library book a saved place belongs to: a registry book, else (a biblical book's pin) the Bible. */
-function libraryBookIdForPlace(place: LabBookPlace): string | null {
-  const registered = getBook(place.bookId)
-  if (registered) return registered.id
-  // An added book (`pd-…`) not registered yet is never a biblical pin.
-  return isPublicBookId(place.bookId) ? null : 'bible'
-}
-
 /**
  * Where a library book resumes, from a position record: its settled place when
  * the reader last settled in it, else its newest one. For the Bible that is one
@@ -72,11 +63,7 @@ function libraryBookIdForPlace(place: LabBookPlace): string | null {
  */
 export function resumePlaceForLibrary(state: LabPositionState, libraryBookId?: string): LabBookPlace | null {
   if (!libraryBookId) return resumePlace(state)
-  const settled = resumePlace(state)
-  if (settled && libraryBookIdForPlace(settled) === libraryBookId) return settled
-  return Object.values(state.books)
-    .filter(place => libraryBookIdForPlace(place) === libraryBookId)
-    .sort((a, b) => b.updatedAt - a.updatedAt || b.rev - a.rev)[0] ?? null
+  return libraryResumePlace(state, libraryBookId, bookId => getBook(bookId)?.id)
 }
 
 /**

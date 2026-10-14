@@ -873,6 +873,15 @@ it('library Continue selects the newest Bible pin instead of a stale local chapt
   expect(resumePlaceForLibrary(state, 'crito')?.bookId).toBe('crito')
 })
 
+it('an added (pd-) or own (userbook-) book\'s pin is never a Bible pin', () => {
+  const hebrews = settledHebrewsCloud()
+  const added = { ...proverbs17({ updatedAt: hebrews.books.hebrews.updatedAt + 60_000 }), bookId: 'pd-gut-the-time-machine', headerBook: 'The Time Machine', sequentialChapter: 2 }
+  const own = { ...added, bookId: 'userbook-0123456789abcdef01234567', headerBook: 'My book' }
+  const state = { ...hebrews, lastSettledBookId: own.bookId, books: { ...hebrews.books, [added.bookId]: added, [own.bookId]: own } }
+  expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
+  expect(resumePlaceForLibrary({ ...state, books: { [added.bookId]: added, [own.bookId]: own } }, 'bible')).toBeNull()
+})
+
 it('library Continue keeps the settled Bible book over a newer short peek, as the library\'s own Continue does', () => {
   const hebrews = settledHebrewsCloud()
   const state = { ...hebrews, lastSettledBookId: 'hebrews', books: {

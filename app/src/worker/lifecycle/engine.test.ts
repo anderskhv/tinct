@@ -25,6 +25,8 @@ const CATALOGUE = new Map<string, CatalogueEntry>([
   ['beowulf', { id: 'beowulf', title: 'Beowulf', author: 'Anonymous', readingStructure: chapters(3) }],
   // On the whole-book hold list (src/data/editionAvailability.json), even if a catalogue says otherwise.
   ['gilgamesh', { id: 'gilgamesh', title: 'Gilgamesh', author: 'Anonymous', readingStructure: chapters(12) }],
+  // As catalogue.json lists it: no reading structure; places are kept per biblical book.
+  ['bible', { id: 'bible', title: 'The Bible', author: 'Various' }],
 ])
 
 function json(file: string): unknown {
@@ -39,6 +41,19 @@ function positionWith(books: Record<string, number>, finished: Record<string, nu
   const state = emptyLabPositionState('d')
   for (const [bookId, at] of Object.entries(books)) state.books[bookId] = place(bookId, at)
   state.finished = finished
+  return state
+}
+
+/** A Bible pin as the reader keeps it: per biblical book, with the sequential chapter (Psalms 23 = 501). */
+function biblePin(bookId: string, headerBook: string, chapterNumber: number, sequentialChapter: number, paragraphIndex: number, updatedAt: number) {
+  return { bookId, headerBook, chapterNumber, sequentialChapter, paragraphIndex, wordIndex: 4, primaryEditionKey: 'kjv-en', updatedAt, deviceId: 'd', rev: 1 }
+}
+
+function biblePosition(settled: string | null, extra: Record<string, number> = {}): LabPositionState {
+  const state = positionWith(extra)
+  state.books.genesis = biblePin('genesis', 'Genesis', 1, 1, 13, NOW - 6 * DAY)
+  state.books.psalms = biblePin('psalms', 'Psalms', 23, 501, 3, NOW - 5 * DAY)
+  if (settled) { state.lastSettledBookId = settled; state.lastSettledAt = state.books[settled].updatedAt }
   return state
 }
 
@@ -205,6 +220,56 @@ describe('lifecycle sweep', () => {
     expect(outbox).toHaveLength(0)
   })
 
+  it('a Bible reader gets keep-reading for The Bible, with the book link that resumes their latest Bible place', async () => {
+    const asked: string[] = []
+    const { deps, outbox, log } = harness({
+      positions: { [UID]: biblePosition('genesis') },
+      preparedRecap: async (_user, bookId) => { asked.push(bookId); return { summary: 'The Lord is my shepherd.', chapterNumber: 1, paragraphIndex: 2 } },
+    })
+    const result = await runLifecycleSweep(deps, [profile()])
+    expect(result.sent).toEqual([{ userId: UID, template: 'keep-reading', bookId: 'bible' }])
+    expect(asked).toEqual(['bible'])
+    const email = outbox[0]
+    expect(email.subject).toBe('The Bible')
+    // Book-only link: the reader resumes the account's latest Bible place, so an old email never sends them back.
+    expect(email.text).toContain('Keep reading: https://tinct.app/reader?book=bible\n')
+    expect(email.html).toContain('href="https://tinct.app/reader?book=bible"')
+    expect(email.html).not.toContain('chapter=')
+    expect(email.html).toContain('https://tinct.app/email-art/bible.jpg')
+    expect(log[0]).toMatchObject({ template: 'keep-reading', book_id: 'bible', dedupe_key: `keep-reading:bible:${NOW - 5 * DAY}:1` })
+  })
+
+  it('without a settled Bible pin the Bible link goes to the newest biblical pin', async () => {
+    const state = biblePosition(null, { frankenstein: NOW - 30 * DAY })
+    state.lastSettledBookId = 'frankenstein'
+    const { deps, outbox } = harness({ positions: { [UID]: state }, recap: { summary: 'David sings.', chapterNumber: 501, paragraphIndex: 1 } })
+    await runLifecycleSweep(deps, [profile()])
+    expect(outbox.map(email => email.subject)).toEqual(['The Bible'])
+    expect(outbox[0].text).toContain('Keep reading: https://tinct.app/reader?book=bible\n')
+  })
+
+  it('a reader of the Bible and another book: keep-reading goes to whichever was read last', async () => {
+    const recap = { summary: 'So far.', chapterNumber: 1, paragraphIndex: 0 }
+    const bibleLast = harness({ positions: { [UID]: biblePosition('psalms', { frankenstein: NOW - 9 * DAY }) }, recap })
+    expect((await runLifecycleSweep(bibleLast.deps, [profile()])).sent).toEqual([{ userId: UID, template: 'keep-reading', bookId: 'bible' }])
+    expect(bibleLast.outbox[0].text).toContain('https://tinct.app/reader?book=bible')
+
+    const otherLast = harness({ positions: { [UID]: biblePosition('psalms', { frankenstein: NOW - 4 * DAY }) }, recap })
+    expect((await runLifecycleSweep(otherLast.deps, [profile()])).sent).toEqual([{ userId: UID, template: 'keep-reading', bookId: 'frankenstein' }])
+    // Other books keep their book-only link, which resumes the reader's latest place.
+    expect(otherLast.outbox[0].text).toContain('Keep reading: https://tinct.app/reader?book=frankenstein\n')
+  })
+
+  it('never takes an added (pd-) or own (userbook-) book\'s pin for a Bible pin', async () => {
+    const state = positionWith({})
+    state.books['pd-gut-the-time-machine'] = place('pd-gut-the-time-machine', NOW - 4 * DAY)
+    state.books['userbook-0123456789abcdef01234567'] = place('userbook-0123456789abcdef01234567', NOW - 4 * DAY)
+    state.lastSettledBookId = 'pd-gut-the-time-machine'
+    const { deps, outbox } = harness({ positions: { [UID]: state } })
+    expect((await runLifecycleSweep(deps, [profile()])).skipped['none-due']).toBe(1)
+    expect(outbox).toHaveLength(0)
+  })
+
   it('frees the reservation when Brevo refuses, so the email is tried again', async () => {
     const { deps, log } = harness({ positions: { [UID]: positionWith({ frankenstein: NOW - 4 * DAY }) }, send: async () => false })
     await runLifecycleSweep(deps, [profile()])
@@ -228,6 +293,21 @@ describe('welcome', () => {
     const confirm = email.text.match(/Confirm my email: (\S+)/)?.[1]
     expect(await verifyLink(SECRET, new URL(confirm!).searchParams.get('t'), 'c', NOW)).toMatchObject({ u: UID })
     expect(email.headers).toBeUndefined()
+  })
+
+  it('the last book can be the Bible, with its link to the Bible place', async () => {
+    const state = positionWith({ frankenstein: NOW - 40 * 60 * 1000 })
+    state.books.psalms = biblePin('psalms', 'Psalms', 23, 501, 3, NOW - 20 * 60 * 1000)
+    state.lastSettledBookId = 'psalms'
+    const { deps, outbox, log } = harness({ positions: { [UID]: state }, provider: 'google' })
+    const row = fresh()
+    delete row.email_confirmed_at
+    await runWelcomeSweep(deps, [row])
+    expect(outbox).toHaveLength(1)
+    expect(outbox[0].html).toContain('Your place in <em>The Bible</em> is saved')
+    expect(outbox[0].text).toContain('Continue The Bible: https://tinct.app/reader?book=bible\n')
+    expect(outbox[0].html).toContain('https://tinct.app/email-art/bible.jpg')
+    expect(log[0]).toMatchObject({ template: 'welcome-google', book_id: 'bible' })
   })
 
   it('confirmed or Google sign-up: welcome-google; without a book: the library hero and no book lines', async () => {
