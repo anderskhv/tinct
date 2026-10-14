@@ -571,6 +571,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const resumeInCompare = !readerHandoff && boot.resume?.readerMode === 'compare'
   const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
   const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
+  // Read by the text load (not one of its triggers): until the first page is
+  // up, a Compare view that is not on screen gets its edition after it.
+  const firstPageShownRef = useRef(false)
+  const compareOnScreenRef = useRef(resumeInCompare)
+  compareOnScreenRef.current = mobileCompareActive || desktopCompareActive
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
   const [bookSwitcherOpen, setBookSwitcherOpen] = useState(false)
   const [bookSwitcherRows, setBookSwitcherRows] = useState<QuickBookRow[]>([])
@@ -1819,6 +1824,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       chapterNumber: wanted,
       primaryEditionKey,
       compareEditionKey,
+      compareAfterFirstPage: !firstPageShownRef.current && !compareOnScreenRef.current,
       audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
     }).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded).then((loaded) => {
       if (cancelled || navigation !== chapterNavigationRef.current) return
@@ -1857,10 +1863,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [])
 
   useEffect(() => {
-    if (!book.supplement) return
+    const pending = book.supplement
+    if (!pending) return
     let cancelled = false
-    void book.supplement.then(supporting => {
-      if (!cancelled) setBook(current => current === book ? { ...current, ...supporting, supplement: undefined } : current)
+    // Keyed by the load's own promise, not the book object: the Compare
+    // edition (below) may land first and replace the object, same load.
+    void pending.then(supporting => {
+      if (!cancelled) setBook(current => current.supplement === pending ? { ...current, ...supporting, supplement: undefined } : current)
     }).catch(() => {})
     return () => { cancelled = true }
   }, [book])
@@ -2058,6 +2067,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // need (character cards, neighbouring chapters) waits for it rather than
   // sharing the network and main thread with the reader's first text.
   const [firstPageShown, setFirstPageShown] = useState(false)
+  // The Compare edition of a cold open, once the first page is up. Only the
+  // load that asked for it receives it; a newer load has its own.
+  useEffect(() => {
+    const pending = book.compareLater
+    if (!pending || !firstPageShown) return
+    let cancelled = false
+    void pending.then(paragraphs => {
+      if (!cancelled) setBook(current => current.compareLater === pending ? { ...current, compareParagraphs: paragraphs, compareLater: undefined } : current)
+    })
+    return () => { cancelled = true }
+  }, [book.compareLater, firstPageShown])
   const primaryCharacters = useCharacterCards(firstPageShown && !privateBook ? book.bookId : undefined, prefs.primaryEdition)
   // Verifying cards downloads their complete source edition. Do not fetch an
   // unused second book alongside the chapter when Compare is disabled.
@@ -4635,6 +4655,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const firstReveal = readerReady && !firstRevealDone
   useEffect(() => {
     if (!readerReady) return
+    firstPageShownRef.current = true
     setFirstPageShown(true)
     const timer = window.setTimeout(() => setFirstRevealDone(true), LAB_FIRST_REVEAL_MS)
     return () => window.clearTimeout(timer)

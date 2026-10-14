@@ -30,9 +30,10 @@ describe('Library 2 published reading structures', () => {
     // Sharded: the manifest exists and the runtime may fetch it.
     expect(shards('bible', 'kjv-en')).toBe(true)
     expect(shards('war-and-peace', 'original-en')).toBe(true)
+    expect(shards('odyssey', 'modern-en')).toBe(true)
     // Whole-book JSON: fetching a manifest here is exactly the 404 we removed.
-    expect(shards('odyssey', 'original-en')).toBe(false)
-    expect(shards('odyssey', 'modern-en')).toBe(false)
+    expect(shards('iliad', 'original-en')).toBe(false)
+    expect(shards('iliad', 'modern-en')).toBe(false)
     expect(shards('the-republic', 'original-en')).toBe(false)
     expect(shards('pride-and-prejudice', 'modern-en')).toBe(false)
   })

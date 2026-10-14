@@ -111,6 +111,46 @@ describe('loadLabSource', () => {
     expect(requested.some(url => url.includes('path=odyssey%2Foriginal-en%2Fch2'))).toBe(true)
   })
 
+  it('on a cold open, fetches the Compare edition only after the main text and hands it over as compareLater', async () => {
+    vi.stubGlobal('__BUILD_VERSION__', 'dev')
+    const requested: string[] = []
+    let releaseCompare: () => void = () => {}
+    const compareGate = new Promise<void>(resolve => { releaseCompare = resolve })
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      requested.push(url)
+      if (url.includes('/api/edition-patches')) return new Response('[]', { status: 200 })
+      if (url.includes('the-awakening-modern-en.json')) {
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Chapter 1', paragraphs: ['A green and yellow parrot hung in a cage.'] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('the-awakening-original-en.json')) {
+        await compareGate
+        return new Response(JSON.stringify({ chapters: [
+          { number: 1, title: 'Chapter 1', paragraphs: ['A Compare Heading', 'A green and yellow parrot, which hung in a cage outside the door.'], kinds: ['heading', null] },
+        ] }), { status: 200 })
+      }
+      if (url.includes('-threads.json')) return new Response('{"characters":[]}', { status: 200 })
+      return new Response('{}', { status: 404 })
+    }))
+    const source = await loadLabBookSource({
+      bookId: 'the-awakening', primaryEditionKey: 'modern-en', compareEditionKey: 'original-en',
+      chapterNumber: 1, readingFirst: true, compareAfterFirstPage: true,
+    })
+    // The page can be laid out while the Compare edition is still on its way.
+    expect(source.paragraphs).toEqual(['A green and yellow parrot hung in a cage.'])
+    expect(source.compareParagraphs).toEqual([])
+    const main = requested.findIndex(url => url.includes('the-awakening-modern-en.json'))
+    const compare = requested.findIndex(url => url.includes('the-awakening-original-en.json'))
+    expect(main).toBeGreaterThanOrEqual(0)
+    expect(compare).toBeGreaterThan(main)
+    releaseCompare()
+    expect(await source.compareLater).toEqual(['A Compare Heading', 'A green and yellow parrot, which hung in a cage outside the door.'])
+    // Prepared like a paired load: the chapter's recorded structure is registered.
+    expect(paragraphKind('A Compare Heading')).toBe('heading')
+  })
+
   it('registers the subheadings, list items and links a built-in chapter records, as for a reader’s own book', async () => {
     vi.stubGlobal('__BUILD_VERSION__', 'dev')
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {

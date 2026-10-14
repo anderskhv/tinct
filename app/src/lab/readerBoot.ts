@@ -20,6 +20,8 @@ import { LAB_PHONE_QUERY, isLabPhoneSurface } from './labChrome'
 export const READER_BOOT_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 export const READER_BOOT_PREFS_KEY = 'tinct-lab-prefs'
 export const READER_BOOT_BIBLE_ID = 'bible'
+/** The Bible versions a deep link may name (`edition=`). */
+export const READER_BOOT_BIBLE_EDITIONS: readonly string[] = ['bsb-en', 'kjv-en', 'web-en', 'webc-en']
 
 /** Paper colours per resolved theme; LabApp paints the same values. */
 export const LAB_THEME_PAPER = {
@@ -63,6 +65,46 @@ export function readerBootHandoff(raw: string | null): ReaderBootHandoff | null 
   } catch {
     return null
   }
+}
+
+/**
+ * The book, edition and chapter a public deep link opens
+ * (`/reader?book=<id>&chapter=<n>[&edition=<key>]`, see
+ * `readerHandoffFromUrlParams`), for the boot preload; null when the boot
+ * cannot know it exactly and the app is left to ask. `primaryExceptions` is
+ * the build's table of books whose new-reader default is not Modern English
+ * (`readerBootPrimaryExceptions`, computed from `defaultPrimaryEditionKey`);
+ * an empty value means nothing is offered to open. A link without a chapter
+ * resumes the reader's own place, so it is the app's to resolve.
+ */
+export function readerBootDeepLink(search: string, primaryExceptions: Readonly<Record<string, string>>): ReaderBootHandoff | null {
+  let params: URLSearchParams
+  try {
+    params = new URLSearchParams(search)
+  } catch {
+    return null
+  }
+  const bookId = params.get('book')
+  const chapterText = params.get('chapter')
+  if (!bookId || !ID.test(bookId) || bookId.startsWith('pd-') || !chapterText || !/^\d{1,5}$/.test(chapterText)) return null
+  // Held books, Checkout returns and a reader's own books open by their own rules.
+  if (['heldBook', 'modern', 'userBook'].some(key => params.has(key))) return null
+  const chapterNumber = Number(chapterText)
+  if (chapterNumber < 1) return null
+  const named = params.get('edition')
+  const exception = Object.prototype.hasOwnProperty.call(primaryExceptions, bookId)
+  // A named edition is taken only where the boot knows the book has it: the
+  // two English editions of a book whose default is Modern English, and the
+  // Bible's four versions. Any other name may be missing or withdrawn, and the
+  // app falls back; guess nothing.
+  const knownByName = bookId === READER_BOOT_BIBLE_ID
+    ? READER_BOOT_BIBLE_EDITIONS.includes(named ?? '')
+    : !exception && (named === 'modern-en' || named === 'original-en')
+  const primaryEditionKey = named === null
+    ? (exception ? primaryExceptions[bookId] : 'modern-en')
+    : (knownByName ? named : '')
+  if (!primaryEditionKey || !ID.test(primaryEditionKey)) return null
+  return { bookId, primaryEditionKey, chapterNumber }
 }
 
 export interface ReaderBootPreloadOptions {

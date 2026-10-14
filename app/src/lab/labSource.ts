@@ -93,6 +93,12 @@ export interface LabSource {
   modernWritten?: Array<[number, number]>
   /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
   supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
+  /**
+   * With `compareAfterFirstPage`: the Compare edition's paragraphs for this
+   * chapter, still on their way (`compareParagraphs` is empty until then).
+   * Resolves to an empty list when that edition cannot be read.
+   */
+  compareLater?: Promise<string[]>
 }
 
 const ODYSSEY_PARAGRAPHS = [
@@ -482,6 +488,15 @@ export interface LabBookSourceSelection {
   audioEditionKey?: string
   chapterNumber?: number
   readingFirst?: boolean
+  /**
+   * A cold open whose Compare view is not on screen: the main edition is
+   * fetched alone and the Compare edition after it, so the first page does
+   * not share the network with a second whole book (cold-open measurement,
+   * 14 Oct 2026). Its paragraphs arrive as `compareLater`. Only the plain
+   * registry path takes it; plays, verse-lined books and a reader's or an
+   * added book load both editions together as before.
+   */
+  compareAfterFirstPage?: boolean
 }
 
 /**
@@ -585,9 +600,13 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   const loadText = (key: string) => isPublicBookId(registryBook.id) && key === MODERN_EDITION_KEY
     ? loadPublicModernEdition(registryBook.id)
     : loadEditionWindow(registryBook.id, key, requestedChapter)
+  const compareLater = !!(selection.compareAfterFirstPage && compareEdition
+    && registryBook.author !== 'William Shakespeare'
+    && !registryBook.editions.some(edition => edition.hasVerseLines)
+    && !isPublicBookId(registryBook.id))
   const [primaryData, compareData] = await Promise.all([
     loadText(primaryEdition.key),
-    compareEdition
+    compareEdition && !compareLater
       ? loadText(compareEdition.key).catch(() => null)
       : Promise.resolve(null),
   ])
@@ -598,6 +617,20 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   }
   const compareChapter = compareData?.chapters.find(chapter => chapter.number === entry.number)
   const compareParagraphs = compareChapter?.paragraphs ?? []
+  // Requested once the main edition's text is in, with the same window and
+  // the same per-chapter preparation the paired load gives it below.
+  const pendingCompare = compareLater && compareEdition
+    ? loadText(compareEdition.key).catch(() => null).then((later) => {
+      const chapter = later?.chapters.find(item => item.number === entry.number)
+      const paragraphs = chapter?.paragraphs ?? []
+      registerChapterStructure(chapter)
+      if (primaryData.speakers || later?.speakers) {
+        registerShakespeareSpeakers(entry.paragraphs)
+        registerShakespeareSpeakers(paragraphs)
+      }
+      return paragraphs
+    })
+    : undefined
   // Subheadings, list items and links travel beside the text, as in a reader's own book.
   registerChapterStructure(entry)
   registerChapterStructure(compareChapter)
@@ -640,9 +673,10 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     chapters: primaryData.chapters.map(chapter => ({
       number: chapter.number,
       title: chapter.title,
+      // A chapter outside the loaded window counts as its manifest records it.
       wordCount: chapter.paragraphs.length
         ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
-        : undefined,
+        : chapter.wordCount,
       paragraphCount: chapter.paragraphCount ?? chapter.paragraphs.length,
       ...(chapter.author ? { author: chapter.author } : {}),
     })),
@@ -650,6 +684,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     cast: supporting.cast,
     ...(modernChapterPending(primaryData, entry.number) ? { modernPending: true, modernWritten: modernChapterWritten(primaryData, entry.number) } : {}),
     ...(selection.readingFirst ? { supplement } : {}),
+    ...(pendingCompare ? { compareLater: pendingCompare } : {}),
   }, primaryEdition.language)
 }
 

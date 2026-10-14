@@ -87,6 +87,8 @@ export interface Chapter {
   section?: string
   /** Known paragraph total when a chapter's text is not loaded yet. */
   paragraphCount?: number
+  /** Known word total when a chapter's text is not loaded yet (from a chapter manifest that records it). */
+  wordCount?: number
   /**
    * Who wrote this chapter, when it names a writer other than the book's
    * credit: an essay collection's or anthology's byline ("by David Deutsch"
