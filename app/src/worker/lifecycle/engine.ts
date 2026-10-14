@@ -10,7 +10,7 @@
  * address that fails isLifecycleTestRecipient.
  */
 import { isBookFinished } from '../../preReader/bookFinished'
-import { finishedChaptersFor, type LabPositionState } from '../../lab/labPosition'
+import { finishedChaptersFor, libraryBookIdForPlace, libraryResumePlace, type LabPositionState } from '../../lab/labPosition'
 import { EMAIL_ART_BOOK_IDS } from './emailArt.generated'
 import { chooseNextBook, type Acclaim, type CatalogueBook } from './nextBook'
 import { renderEmail, TemplateFillError, type EmailVars, type RenderedEmail } from './render'
@@ -130,17 +130,34 @@ export function readerFacts(profile: Profile, position: LabPositionState | null,
   const opened = new Set<string>()
   let lastReadAt: number | null = null
   if (position) {
-    for (const [bookId, place] of Object.entries(position.books ?? {})) {
-      opened.add(bookId)
-      const entry: ReaderPlace = { bookId, updatedAt: place.updatedAt, sequentialChapter: place.sequentialChapter, paragraphIndex: place.paragraphIndex }
+    // Places are keyed by library book, except the Bible's, which are kept per
+    // biblical book (genesis, psalms): those count as the catalogue's `bible`,
+    // at the place the reader's Bible link resumes (libraryResumePlace).
+    const registeredId = (bookId: string) => catalogue.has(bookId) ? bookId : null
+    const touched = new Map<string, number>()
+    for (const [key, place] of Object.entries(position.books ?? {})) {
       lastReadAt = Math.max(lastReadAt ?? 0, place.updatedAt)
+      const bookId = libraryBookIdForPlace(key, registeredId)
+      opened.add(key)
+      if (!bookId) continue
+      opened.add(bookId)
+      touched.set(bookId, Math.max(touched.get(bookId) ?? 0, place.updatedAt))
+    }
+    for (const [bookId, updatedAt] of touched) {
+      const place = libraryResumePlace(position, bookId, registeredId)
+      if (!place) continue
+      const entry: ReaderPlace = { bookId, updatedAt, sequentialChapter: place.sequentialChapter, paragraphIndex: place.paragraphIndex }
       // The shared finished rule (preReader/bookFinished.ts), as the library shows it.
       const chapters = (catalogue.get(bookId)?.readingStructure?.chapters ?? []).map(chapter => Number(chapter.number))
       if (isBookFinished({ chapterNumbers: chapters, finishedChapters: finishedChaptersFor(position, bookId) })) finished.push(entry)
-      else if (!((position.hidden?.[bookId] ?? 0) >= place.updatedAt) && catalogue.has(bookId)) places.push(entry)
+      else if (!((position.hidden?.[bookId] ?? 0) >= updatedAt) && catalogue.has(bookId)) places.push(entry)
     }
     for (const bookId of Object.keys(position.finished ?? {})) opened.add(bookId)
-    for (const bookId of Object.keys(position.recentChapters ?? {})) opened.add(bookId)
+    for (const bookId of Object.keys(position.recentChapters ?? {})) {
+      opened.add(bookId)
+      const library = libraryBookIdForPlace(bookId, registeredId)
+      if (library) opened.add(library)
+    }
     if (position.lastSettledAt) lastReadAt = Math.max(lastReadAt ?? 0, position.lastSettledAt)
   }
   places.sort((a, b) => b.updatedAt - a.updatedAt)
@@ -163,6 +180,17 @@ export function readerFacts(profile: Profile, position: LabPositionState | null,
 
 // ------------------------------------------------------------- variables ----
 
+/**
+ * The reader link for a book. A book's own link (`/reader?book=<id>`) resumes
+ * the reader's latest place in it. The Bible's link names its place: the
+ * sequential chapter (Genesis 1 = 1, as the reader's deep links number it) and
+ * paragraph, so it opens there on a device that has no saved Bible place yet.
+ */
+/**
+ * The book-only link: the reader resumes the account's latest place for the
+ * book (the Bible's chosen by libraryResumePlace, #433), so an old email never
+ * sends a reader back to where they were when it was written.
+ */
 export function readerUrl(bookId: string): string {
   return `${EMAIL_ORIGIN}/reader?book=${encodeURIComponent(bookId)}`
 }
@@ -371,8 +399,8 @@ export async function runWelcomeSweep(deps: LifecycleDeps, profiles: Profile[]):
 
     catalogue ??= await deps.catalogue()
     const facts = readerFacts(profile, await deps.position(profile.id), catalogue, log)
-    const lastBookId = [...facts.places, ...facts.finished].sort((a, b) => b.updatedAt - a.updatedAt)[0]?.bookId ?? null
-    const book = lastBookId ? catalogue.get(lastBookId) ?? null : null
+    const last = [...facts.places, ...facts.finished].sort((a, b) => b.updatedAt - a.updatedAt)[0] ?? null
+    const book = last ? catalogue.get(last.bookId) ?? null : null
     const firstName = user?.firstName ?? (typeof profile.display_name === 'string' ? profile.display_name.split(/\s+/)[0] : '') ?? ''
     const vars: EmailVars = {
       subject: 'Welcome to Tinct',

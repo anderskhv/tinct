@@ -147,3 +147,15 @@ it('a /reader?book=odyssey link resumes the saved Odyssey place, not its first c
   expect(root.getAttribute('data-place')).toBe('6:2')
   expect(readLabPositionLocal().books.odyssey).toMatchObject({ sequentialChapter: 3, paragraphIndex: 6, wordIndex: 2 })
 })
+
+// The lifecycle emails link the Bible as /reader?book=bible&chapter=<sequential>&paragraph=<n>
+// (worker/lifecycle/engine.ts readerUrl), so a device with no saved Bible place opens it there.
+it('the Bible link in a reading email lands on its chapter and paragraph on a device without the place', async () => {
+  window.history.replaceState(null, '', '/reader?book=bible&chapter=501&paragraph=3')
+  render(<LabApp pathname="/reader" authToken={null} />)
+  const root = screen.getByTestId('lab-root')
+  await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+  await waitFor(() => expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Chapter 501 paragraph 3'))
+  expect(root.getAttribute('data-place')).toMatch(/^3:/)
+  expect(readLabPositionLocal().books.genesis).toBeUndefined()
+})
