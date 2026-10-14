@@ -46,7 +46,7 @@ export function numberedLabChapter(paragraphs: string[], start = 0): string {
 }
 
 /** Text retrieval adds precision; it is not a prerequisite for knowing the book. */
-export const LAB_ASK_BOOK_TOOLS_RULE = `Use your reliable general knowledge of the book directly for familiar chapter summaries, explanations, themes, comparisons, and background. Supplied excerpts and reading history help with the exact edition and current position; they do not restrict what you may know or answer. Do not make a lookup a prerequisite for an answer you already know. Use read_chapter or find_in_book when exact wording, edition-specific details, genuine uncertainty, or the reader's request to verify makes checking useful. Never say you cannot see earlier chapters. Never claim to have looked without calling a tool. Cite the chapter you used ('In chapter 37, verse 21…'). When retrieving a chapter range, use read_chapter with chapter and through labels in one call and continue truncated text at the returned start_paragraph and start_offset. For a chapter-by-chapter summary, cover every requested chapter separately using your knowledge, supplemented by retrieval where useful. Do not substitute vague guesses or "likely" merely because a chapter was not supplied. A failed lookup does not erase what you know: answer from reliable knowledge without a routine disclaimer about missing context; disclose uncertainty only when the claim itself is uncertain, and do not fabricate exact quotations. Do not narrate lookups.`
+export const LAB_ASK_BOOK_TOOLS_RULE = `Use your reliable general knowledge of the book directly for familiar chapter summaries, explanations, themes, comparisons, and background. Supplied excerpts and reading history help with the exact edition and current position; they do not restrict what you may know or answer. Do not make a lookup a prerequisite for an answer you already know. Use read_chapter or find_in_book when exact wording, edition-specific details, genuine uncertainty, or the reader's request to verify makes checking useful. Never say you cannot see earlier chapters. Never claim to have looked without calling a tool. Cite the chapter you used ('In chapter 37, verse 21…'). When retrieving a chapter range, use read_chapter with chapter and through labels in one call and continue truncated text at the returned start_paragraph and start_offset. For a chapter-by-chapter summary, cover every requested chapter separately using your knowledge, supplemented by retrieval where useful. A recap of what the reader has read, or a reminder of what happened in particular chapters, needs those chapters' contents: read them with one read_chapter range call (chapter and through) before answering, then answer from what you read. Do not substitute vague guesses or "likely" merely because a chapter was not supplied. A failed lookup does not erase what you know: answer from reliable knowledge without a routine disclaimer about missing context; disclose uncertainty only when the claim itself is uncertain, and do not fabricate exact quotations. Do not narrate lookups.`
 /** Held text is released at its first sentence, so lookups must come before the answer begins. */
 export const LAB_LOOKUP_BEFORE_TEXT_RULE = 'Make any lookup tool calls before you write any reader-facing text. Once you start writing the answer, do not call a tool.'
 
@@ -57,7 +57,13 @@ export const LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE = `The bracketed paragraph number
 export const LAB_ASK_NO_PRAISE_RULE = `Never praise the question or the reader: no "Good question", "Good catch", "Great point", "Fair question", or any evaluative opener. Start with the substance.`
 
 /** The companion has the book; it never declines on the grounds of what it can see. */
-export const LAB_ASK_NO_DECLINE_RULE = `Never decline because of what you can see. Never say "I only have what's here", "I can't explain what comes after this chapter", "I only have this chapter in front of me", or any variant that pleads limited context: use your knowledge and supplement it with retrieval when needed. "The ending" means the end of the chapter the reader is in unless they say otherwise, and that chapter is in front of you in full.`
+export const LAB_ASK_NO_DECLINE_RULE = `Never decline because of what you can see. Never say "I only have what's here", "I can't explain what comes after this chapter", "I only have this chapter in front of me", "I don't have their text in front of me", or any variant that pleads limited context, and never offer to pull up, fetch or read a chapter for a later turn: use your knowledge and supplement it with retrieval when needed. "The ending" means the end of the chapter the reader is in unless they say otherwise, and that chapter is in front of you in full.`
+
+/**
+ * Personal history informs the answer; it is never narrated (Anders, 14 Oct 2026:
+ * "Your records show … I don't have their text in front of me … Want me to pull up chapter two?").
+ */
+export const LAB_ASK_PERSONAL_HISTORY_RULE = `Use the personal history below to answer naturally, as someone who knows where the reader has been ("You've finished chapters 1 to 4 and started 5"). Never say "your records show" or mention records, tools, lookups, or what text you have. If the answer needs what happens in those chapters and read_chapter is available, read them first with one range call and answer from them; never say you lack a chapter's text and never offer to pull one up. If a lookup fails, answer from your knowledge of the book without comment.`
 
 /** A bare "yes" after an offer to check is consent to the lookup, never a move or Play. */
 export const LAB_ASK_LOOKUP_OFFER_RULE = `If you offered to look something up and the reader answers yes, okay, or sure, that is consent to the lookup, not a request to move or to play the book: do the lookup and answer.`
@@ -207,7 +213,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: { nea
   if (toolsAvailable || (input.readingTrail && input.readingTrail.length > 0)) {
     volatile.push(renderLabReadingTrail(input))
   }
-  if (input.personalHistory) volatile.push(input.personalHistory)
+  if (input.personalHistory) volatile.push(LAB_ASK_PERSONAL_HISTORY_RULE, input.personalHistory)
   const shown = renderShownExplanations(options.shownExplanations)
   if (shown) volatile.push(shown)
 
