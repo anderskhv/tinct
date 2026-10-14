@@ -295,8 +295,7 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
-    // A new book on a phone opens with Compare's view on (Anders, 2026-10-14).
-    expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('true')
+    expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
   })
 
   it('opens the reading settings sheet from its row', () => {

@@ -46,8 +46,8 @@ const showCompareSwitch = () => {
 }
 
 describe('Compare view default (Anders, 2026-10-14)', () => {
-  it('is on for a phone and off for a desktop, in a book this device has no place for', () => {
-    expect(initialLabCompareView({ profile: 'phone', stored: null, savedMode: null })).toBe(true)
+  it('is off in every layout in a book this device has no place for (option B)', () => {
+    expect(initialLabCompareView({ profile: 'phone', stored: null, savedMode: null })).toBe(false)
     expect(initialLabCompareView({ profile: 'desktop', stored: null, savedMode: null })).toBe(false)
   })
 
@@ -62,13 +62,17 @@ describe('Compare view default (Anders, 2026-10-14)', () => {
     expect(initialLabCompareView({ profile: 'desktop', stored: null, savedMode: 'compare' })).toBe(true)
   })
 
-  it('opens a new book on a phone with Show compare on, the place still the main version’s', () => {
+  it('opens a new book on a phone on its main version, the compare edition chosen and one swipe away', () => {
     withCompareEdition()
     renderLayout('phone')
-    expect(compareActive()).toBe('true')
+    expect(compareActive()).toBe('false')
     expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('0:0')
+    expect(screen.getByTestId('lab-root').getAttribute('data-reader-edition')).toBe('kjv-en')
+    expect(showCompareSwitch().getAttribute('aria-checked')).toBe('false')
+    fireEvent.click(showCompareSwitch())
+    expect(compareActive()).toBe('true')
     expect(screen.getByTestId('lab-root').getAttribute('data-reader-edition')).toBe('web-en')
-    expect(showCompareSwitch().getAttribute('aria-checked')).toBe('true')
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('0:0')
   })
 
   it('opens a new book on a desktop with Show compare off', () => {
@@ -78,16 +82,16 @@ describe('Compare view default (Anders, 2026-10-14)', () => {
     expect(showCompareSwitch().getAttribute('aria-checked')).toBe('false')
   })
 
-  it('remembers a phone reader turning it off for the book, and opens the book that way again', () => {
+  it('remembers a phone reader turning it on for the book, and opens the book that way again', () => {
     withCompareEdition()
     const first = renderLayout('phone')
     fireEvent.click(showCompareSwitch())
-    expect(compareActive()).toBe('false')
-    expect(readStoredCompareView('phone', 'bible')).toBe(false)
+    expect(compareActive()).toBe('true')
+    expect(readStoredCompareView('phone', 'bible')).toBe(true)
     first.unmount()
     renderLayout('phone')
-    expect(compareActive()).toBe('false')
-    expect(showCompareSwitch().getAttribute('aria-checked')).toBe('false')
+    expect(compareActive()).toBe('true')
+    expect(showCompareSwitch().getAttribute('aria-checked')).toBe('true')
   })
 
   it('remembers a desktop reader turning it on for the book', () => {

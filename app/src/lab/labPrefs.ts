@@ -627,10 +627,11 @@ export function storeCompareView(profile: LabAppearanceProfile, bookId: string, 
 }
 
 /**
- * Whether a book opens with Compare's view on (Anders, 2026-10-14): on for a
- * phone, off for a desktop, in a book this device has no place for. The
- * reader's own toggle for the book wins; a book already read keeps the view
- * its saved place was left in.
+ * Whether a book opens with Compare's view on (Anders, 2026-10-14, option B):
+ * a book this device has no place for opens on its main edition in every
+ * layout, with the compare edition chosen and, on a phone, one swipe away.
+ * The reader's own toggle for the book wins; a book already read keeps the
+ * view its saved place was left in.
  */
 export function initialLabCompareView(args: {
   profile: LabAppearanceProfile
@@ -639,7 +640,7 @@ export function initialLabCompareView(args: {
 }): boolean {
   if (args.stored !== null) return args.stored
   if (args.savedMode) return args.savedMode === 'compare'
-  return args.profile === 'phone'
+  return false
 }
 
 function labPageNumber(value: number): string {
