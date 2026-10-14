@@ -640,9 +640,10 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     chapters: primaryData.chapters.map(chapter => ({
       number: chapter.number,
       title: chapter.title,
+      // A chapter outside the loaded window counts as its manifest records it.
       wordCount: chapter.paragraphs.length
         ? chapter.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length
-        : undefined,
+        : chapter.wordCount,
       paragraphCount: chapter.paragraphCount ?? chapter.paragraphs.length,
       ...(chapter.author ? { author: chapter.author } : {}),
     })),

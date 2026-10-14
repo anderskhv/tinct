@@ -49,6 +49,8 @@ interface ChapterShardManifest {
     section?: string
     path: string
     paragraphCount?: number
+    /** Recorded by scripts/split-edition-chapters.cjs since 14 Oct 2026; older manifests omit it. */
+    wordCount?: number
   }>
   sections?: EditionData['sections']
 }
@@ -262,6 +264,7 @@ export async function loadEditionWindow(
         title: entry.title,
         section: entry.section,
         paragraphCount: entry.paragraphCount,
+        ...(typeof entry.wordCount === 'number' ? { wordCount: entry.wordCount } : {}),
         ...(paragraphsByChapter.get(entry.number) ?? { paragraphs: [] }),
       })),
       sections: manifestData.sections,

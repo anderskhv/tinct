@@ -95,6 +95,10 @@ for (const id of uniqueTargets) {
         ...(ch.section ? { section: ch.section } : {}),
         path: file,
         paragraphCount: Array.isArray(ch.paragraphs) ? ch.paragraphs.length : 0,
+        // The reader's book-page estimate weighs chapters by words; a chapter
+        // window loads only nearby text, so the manifest carries every count
+        // (counted as labSource counts a loaded chapter).
+        wordCount: Array.isArray(ch.paragraphs) ? ch.paragraphs.join(' ').trim().split(/\s+/).filter(Boolean).length : 0,
       }
     }),
     ...(data.sections ? { sections: data.sections } : {}),

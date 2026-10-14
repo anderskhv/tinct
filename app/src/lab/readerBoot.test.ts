@@ -97,10 +97,10 @@ describe('readerBootPreloads matches the loader byte for byte', () => {
   )
 
   it('a whole-book edition: the edition JSON and its patches', async () => {
-    expect(CHAPTER_SHARDED_EDITION_IDS).not.toContain('frankenstein-modern-en')
-    const expected = preloads('frankenstein', 'modern-en', 3)
+    expect(CHAPTER_SHARDED_EDITION_IDS).not.toContain('the-awakening-modern-en')
+    const expected = preloads('the-awakening', 'modern-en', 3)
     expect(expected).toHaveLength(2)
-    expect((await loaderRequests('frankenstein', 'modern-en', 3)).sort()).toEqual([...expected].sort())
+    expect((await loaderRequests('the-awakening', 'modern-en', 3)).sort()).toEqual([...expected].sort())
   })
 
   it('a chapter-sharded edition: the manifest, the chapter window and patches', async () => {

@@ -23,9 +23,9 @@ describe('offline book download list', () => {
   })
 
   it('asks for an unsharded edition (or a reader who turned shards off) by its whole-book JSON', () => {
-    expect(offlineEditionEntry('frankenstein', 'original-en', 'b1')).toEqual({
+    expect(offlineEditionEntry('the-awakening', 'original-en', 'b1')).toEqual({
       editionKey: 'original-en',
-      wholeUrl: editionWholeUrl('frankenstein', 'original-en', 'b1'),
+      wholeUrl: editionWholeUrl('the-awakening', 'original-en', 'b1'),
     })
     expect(offlineEditionEntry('anna-karenina', 'original-en', 'b1', true).wholeUrl).toBe('/data/editions/anna-karenina-original-en.json?v=b1')
   })
