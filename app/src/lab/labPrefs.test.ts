@@ -2,7 +2,7 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import {
-  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance, labDesktopDefaultFontSize,
+  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance, labDesktopDefaultFontSize, labReadingFontSize, LAB_PHONE_DEFAULT_FONT_SIZE, LAB_FONT_SIZES,
   labCompactFootProgress,
   readStoredWordsPerPage,
   storeWordsPerPage,
@@ -324,6 +324,29 @@ describe('lab prefs', () => {
     writeLabPrefs({ ...readLabPrefs('desktop'), fontSize: 1.1, fontSizeExplicit: false, theme: 'dark' }, 'desktop')
     expect(readLabPrefs('desktop')).toMatchObject({ fontSizeExplicit: false, theme: 'dark' })
     expect(restoreLabAppearance({ ...DEFAULT_LAB_PREFS, fontSize: 1.8, fontSizeExplicit: true }).fontSizeExplicit).toBe(false)
+  })
+
+  it('reads the phone at 1.0 until the reader sets a size (Anders, 14 Oct 2026)', () => {
+    expect(LAB_PHONE_DEFAULT_FONT_SIZE).toBe(1)
+    expect(DEFAULT_LAB_PREFS.fontSize).toBe(1)
+    expect(LAB_FONT_SIZES).toContain(LAB_PHONE_DEFAULT_FONT_SIZE)
+    // A new phone reader.
+    expect(labReadingFontSize(parseLabPrefs(null, 'phone'), 'phone', 1.2)).toBe(1)
+    // A phone reader whose record stored the old default without choosing it.
+    const legacy = parseLabPrefs({ fontSize: 1.3 }, 'phone')
+    expect(legacy.fontSizeExplicit).toBe(false)
+    expect(labReadingFontSize(legacy, 'phone', 1.2)).toBe(1)
+    expect(labReadingFontSize({ fontSize: 1.3, fontSizeExplicit: false }, 'phone', 1.2)).toBe(1)
+    // Sizes the reader chose are kept, including the old default and 1.0 itself.
+    expect(labReadingFontSize({ fontSize: 1.3, fontSizeExplicit: true }, 'phone', 1.2)).toBe(1.3)
+    expect(labReadingFontSize(parseLabPrefs({ fontSize: 1.5 }, 'phone'), 'phone', 1.2)).toBe(1.5)
+    expect(parseLabPrefs({ fontSize: 1 }, 'phone').fontSizeExplicit).toBe(true)
+    // The desktop keeps its window size.
+    expect(labReadingFontSize(parseLabPrefs(null, 'desktop'), 'desktop', 1.2)).toBe(1.2)
+    expect(labReadingFontSize({ fontSize: 1.8, fontSizeExplicit: true }, 'desktop', 1.2)).toBe(1.8)
+    // A write without the flag at either default is not a choice.
+    writeLabPrefs({ ...parseLabPrefs(null, 'phone'), fontSize: 1, fontSizeExplicit: undefined }, 'phone')
+    expect(readLabPrefs('phone').fontSizeExplicit).toBe(false)
   })
 
   it('offers a genuinely smaller size and clamps imported preferences', () => {

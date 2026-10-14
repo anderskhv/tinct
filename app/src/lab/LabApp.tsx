@@ -119,6 +119,7 @@ import {
   labFontFamilyCss,
   labReadingFont,
   labDesktopDefaultFontSize,
+  labReadingFontSize,
   labFootProgress,
   labBookPageEstimate,
   labPageFolio,
@@ -571,10 +572,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const phoneShakespeare = isPhone && isShakespeare && isShakespearePhone()
   const flowingShakespeare = phoneShakespeare && prefs.shakespeareLayout === 'flowing'
   const readingAlignment = prefs.alignmentExplicit === false ? (isShakespeare ? 'left' : 'justify') : prefs.alignment
-  // A desktop reader who never set a size reads at the size for their window
-  // (labDesktopDefaultFontSize); a size they chose is kept exactly.
+  // A reader who never set a size reads at the size for their window on the
+  // desktop (labDesktopDefaultFontSize) and at the phone default on a phone;
+  // a size they chose is kept exactly (labReadingFontSize).
   const [desktopDefaultFontSize, setDesktopDefaultFontSize] = useState(() => labDesktopDefaultFontSize(typeof window === 'undefined' ? 0 : window.innerWidth))
-  const readingFontSize = appearanceProfile === 'desktop' && !prefs.fontSizeExplicit ? desktopDefaultFontSize : prefs.fontSize
+  const readingFontSize = labReadingFontSize(prefs, appearanceProfile, desktopDefaultFontSize)
   const displayPrefs = { ...prefs, alignment: readingAlignment, fontSize: readingFontSize }
   const readingFont = labReadingFont(prefs.fontFamily)
   const [systemDark, setSystemDark] = useState(() => typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches)

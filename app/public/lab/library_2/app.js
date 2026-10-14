@@ -4,17 +4,17 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261014bookopen';
+import {mountBookshelf} from './bookshelf.js?v=20261014talkwake';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261014bookopen';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261014talkwake';
 import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
-import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014bookopen';
+import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014bookopen';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {isPublicBookId} from '../public-books.js?v=20261009rel10';
@@ -407,7 +407,7 @@ function updateLibrarianContext(){$('librarian-question').textContent=activeBook
 let panelLastRect={x:20,y:80};
 function setMode(next){const previous=mode;if(previous!=='minimized'){const r=$('librarian-panel').getBoundingClientRect();panelLastRect={x:r.x,y:r.y};}mode=next;$('librarian-welcome').hidden=next!=='welcome';$('librarian-live').hidden=next!=='chat'&&next!=='talk';$('librarian-panel').hidden=next==='minimized';$('librarian').hidden=next==='chat'||next==='talk';$('librarian').tabIndex=next==='minimized'?0:-1;const b=$('librarian');if(next!=='minimized'){if(b.classList.contains('tuck')){stopTuck();drag=null;const s=Math.min(tuck.w,tuck.h);b.classList.remove('tuck');placeOrb({x:tuck.x-s/2,y:tuck.y-s/2,size:s});}b.classList.remove('returning');b.classList.add('expanded');b.dataset.edge='none';}syncLock();if(next==='minimized'&&!b.classList.contains('tuck')){b.classList.add('returning');b.dataset.edge='none';const finish=()=>{b.classList.remove('expanded','returning');enterTuck();};if(previous==='chat'||previous==='talk'){placeOrb({x:clamp(panelLastRect.x+24,0,innerWidth-52),y:clamp(panelLastRect.y+65,0,innerHeight-52),size:52});}moveOrb(tuckReturnTarget(),finish);}else if(next==='welcome'){requestAnimationFrame(()=>moveOrbTo(orbTarget()));}updateLibrarianContext();}
 let assistant=null,assistantLoading=null;
-const ASSISTANT_MODULE='/lab/library-2-assistant.js?v=20261001shelf';
+const ASSISTANT_MODULE='/lab/library-2-assistant.js?v=20261014talkwake';
 // Fetch the librarian's code while the page is idle, so Chat and Talk open without that wait.
 setTimeout(()=>(window.requestIdleCallback||setTimeout)(()=>import(ASSISTANT_MODULE).catch(()=>{}),{timeout:3000}),3000);
 async function loadAssistant(){

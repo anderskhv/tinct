@@ -31,6 +31,16 @@ export const LAB_PREFS_KEY = 'tinct-lab-prefs'
 export const LAB_MIN_FONT_SIZE = 0.8
 export const LAB_MAX_FONT_SIZE = 2.2
 export const LAB_FONT_SIZES = [LAB_MIN_FONT_SIZE, 1.0, 1.2, 1.5, 1.8, LAB_MAX_FONT_SIZE] as const
+/**
+ * The phone's text size for a reader who never set one (Anders, 14 Oct 2026:
+ * "Phone text 1.0"): about 19.5px Literata. 1.3 set ~25px, five words a line.
+ */
+export const LAB_PHONE_DEFAULT_FONT_SIZE = 1.0
+/**
+ * The default every record stored before 14 Oct 2026. A stored size without
+ * `fontSizeExplicit` that equals it was never chosen by the reader.
+ */
+export const LAB_LEGACY_DEFAULT_FONT_SIZE = 1.3
 export const LAB_FONT_FAMILIES: FontFamily[] = ['garamond', 'baskerville', 'sourceserif']
 
 /**
@@ -80,8 +90,9 @@ export interface LabAppearancePrefs {
   fontSize: number
   /**
    * True once the reader set the text size themselves. Until then the
-   * desktop reads at `labDesktopDefaultFontSize` for its window rather than
-   * at `fontSize`; the phone reads at `fontSize` either way.
+   * desktop reads at `labDesktopDefaultFontSize` for its window and the
+   * phone at `LAB_PHONE_DEFAULT_FONT_SIZE`, rather than at `fontSize` (see
+   * `labReadingFontSize`).
    */
   fontSizeExplicit?: boolean
   alignment: LabTextAlignment
@@ -205,7 +216,7 @@ export const DEFAULT_LAB_PREFS: LabPrefs = {
   darkMode: false,
   theme: 'system',
   fontFamily: null,
-  fontSize: 1.3,
+  fontSize: LAB_PHONE_DEFAULT_FONT_SIZE,
   fontSizeExplicit: false,
   alignment: 'justify',
   alignmentExplicit: false,
@@ -336,7 +347,7 @@ function parseAppearance(
     fontSize,
     // Older records stored the size on every write. The old default (1.3) is
     // read as never chosen; any other stored size was the reader's own.
-    fontSizeExplicit: typeof src.fontSizeExplicit === 'boolean' ? src.fontSizeExplicit : typeof src.fontSize === 'number' && src.fontSize !== DEFAULT_LAB_PREFS.fontSize,
+    fontSizeExplicit: typeof src.fontSizeExplicit === 'boolean' ? src.fontSizeExplicit : typeof src.fontSize === 'number' && src.fontSize !== LAB_LEGACY_DEFAULT_FONT_SIZE,
     alignment: src.alignment === 'left' || src.alignment === 'justify' ? src.alignment : fallback.alignment,
     // Old records did not distinguish automatic writes from user choices.
     // Preserve their alignment rather than risk erasing an explicit choice.
@@ -483,7 +494,7 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       theme: prefs.theme,
       fontFamily: prefs.fontFamily,
       fontSize: prefs.fontSize,
-      fontSizeExplicit: prefs.fontSizeExplicit ?? prefs.fontSize !== DEFAULT_LAB_PREFS.fontSize,
+      fontSizeExplicit: prefs.fontSizeExplicit ?? (prefs.fontSize !== DEFAULT_LAB_PREFS.fontSize && prefs.fontSize !== LAB_LEGACY_DEFAULT_FONT_SIZE),
       alignment: prefs.alignment,
       alignmentExplicit: prefs.alignmentExplicit ?? true,
       shakespeareLayout: prefs.shakespeareLayout ?? 'verse',
@@ -829,6 +840,16 @@ export function labDesktopDefaultFontSize(viewportWidth: number): number {
   if (!(viewportWidth > 0)) return DEFAULT_LAB_PREFS.fontSize
   const size = Math.round(viewportWidth * 0.00077 * 10) / 10
   return Math.max(LAB_DESKTOP_FONT_SIZE_RANGE[0], Math.min(LAB_DESKTOP_FONT_SIZE_RANGE[1], size))
+}
+
+/**
+ * The size the reader reads at: their own once chosen; until then the
+ * window's size on the desktop and `LAB_PHONE_DEFAULT_FONT_SIZE` on the phone,
+ * whatever an older record stored as `fontSize`.
+ */
+export function labReadingFontSize(prefs: Pick<LabPrefs, 'fontSize' | 'fontSizeExplicit'>, profile: LabAppearanceProfile, desktopDefault: number): number {
+  if (prefs.fontSizeExplicit) return prefs.fontSize
+  return profile === 'desktop' ? desktopDefault : LAB_PHONE_DEFAULT_FONT_SIZE
 }
 
 /** Numeric layout controls preserve the existing named presets on read. */
