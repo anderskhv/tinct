@@ -449,11 +449,20 @@ describe('book-grounded lab chat', () => {
     expect(bodies).toHaveLength(2)
     const tools = (bodies[0].tools as Array<{ name: string }>).map(tool => tool.name)
     expect(tools).toEqual(['read_chapter', 'find_in_book'])
-    const system = bodies[0].system as Array<{ type: string; text: string; cache_control: unknown }>
-    expect(system).toHaveLength(1)
+    // Two blocks (14 Oct 2026): the cached prefix is the instructions and
+    // the chapter; the reader's place (paragraph, trail with its "Now:" line)
+    // follows the breakpoint uncached, so a page turn keeps the cache.
+    const system = bodies[0].system as Array<{ type: string; text: string; cache_control?: unknown }>
+    expect(system).toHaveLength(2)
     expect(system[0].text).toContain("You are Tinct's reading companion")
+    expect(system[0].text).toContain('Full current chapter with numbered paragraphs')
     expect(system[0].text).not.toContain('You are the companion.')
+    expect(system[0].text).not.toContain('The reader is on paragraph')
     expect(system[0].cache_control).toEqual({ type: 'ephemeral' })
+    expect(system[1].text).toMatch(/^The reader is on paragraph 1 of 1\./)
+    expect(system[1].text).toContain('- Jeremiah 32 (chapter 777)')
+    expect(system[1].cache_control).toBeUndefined()
+    expect(bodies[1].system).toEqual(bodies[0].system)
     const second = bodies[1].messages as Array<{ role: string; content: unknown }>
     expect(second).toHaveLength(3)
     expect(second[1]).toEqual({ role: 'assistant', content: [{ type: 'tool_use', id: 'toolu_1', name: 'read_chapter', input: { chapter: 'Jeremiah 32' } }] })

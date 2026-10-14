@@ -11,7 +11,7 @@ import { libraryAssistantSystem, type LibraryCatalogue, type LibraryShelf } from
 import type { ChapterChatAction } from '../types'
 import { parseAuthorship } from './authorship'
 import { buildChapterChatInstructions, parseChapterChatAction } from './chapterChatPrompt'
-import { buildLabAskInstructions, type LabAskContext, type ShownExplanation } from './labAskPrompt'
+import { buildLabAskInstructionParts, buildLabAskInstructions, type LabAskContext, type LabAskInstructionParts, type ShownExplanation } from './labAskPrompt'
 
 export type CompanionIntent = 'ask' | 'explain' | 'define' | 'chapter' | 'library'
 
@@ -233,6 +233,25 @@ export function buildCompanionSystem(request: CompanionRequest, extras: { catalo
       return buildLabAskInstructions(request.context!, { nearby: COMPANION_NEARBY_PARAGRAPHS })
     default:
       return buildLabAskInstructions(request.context!, { shownExplanations: request.shownExplanations })
+  }
+}
+
+/**
+ * Ask, Explain and Define split into a part that is the same for every
+ * question in the chapter (cached by the Worker) and the part that moves with
+ * the reader (labAskPrompt.buildLabAskInstructionParts). `null` for intents
+ * built in one piece (library, chapter actions). Joined, the parts are
+ * exactly buildCompanionSystem.
+ */
+export function buildCompanionSystemParts(request: CompanionRequest): LabAskInstructionParts | null {
+  switch (request.intent) {
+    case 'explain':
+    case 'define':
+      return buildLabAskInstructionParts(request.context!, { nearby: COMPANION_NEARBY_PARAGRAPHS })
+    case 'ask':
+      return buildLabAskInstructionParts(request.context!, { shownExplanations: request.shownExplanations })
+    default:
+      return null
   }
 }
 

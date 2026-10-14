@@ -159,64 +159,89 @@ export function renderShownExplanations(list: ShownExplanation[] | undefined): s
 }
 
 /**
- * Lab typed + voice instructions. Full current chapter, numbered, trimmed so
- * the whole prompt stays under the worker's system cap.
- * Production AudioStrip still uses buildVoiceInstructions.
+ * The companion prompt in two parts, for prompt caching (Anders, 14 Oct 2026).
+ * `stable` is the instructions, the book and chapter and the full numbered
+ * chapter: the same for every question in this chapter, so the Worker marks
+ * it as the cached prefix. `volatile` is everything that moves with the
+ * reader or the question: the paragraph they are on and its text, the
+ * reading trail (whose "Now:" line carries page and paragraph), personal
+ * history, explanations they were shown, and for Explain / Define the
+ * paragraphs around the place. It follows the cache breakpoint, so a page
+ * turn no longer invalidates the chapter. The chapter is trimmed against the
+ * stable part only, so the cached prefix is the same whatever follows it.
  */
-export function buildLabAskInstructions(input: LabAskContext, options: { nearby?: number; shownExplanations?: ShownExplanation[] } = {}): string {
+export interface LabAskInstructionParts {
+  stable: string
+  volatile: string
+}
+
+export function buildLabAskInstructionParts(input: LabAskContext, options: { nearby?: number; shownExplanations?: ShownExplanation[] } = {}): LabAskInstructionParts {
   const last = Math.max(0, input.paragraphs.length - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
   // Quoted in full up to a bound, so one enormous paragraph cannot crowd the chapter out of the prompt cap.
   const current = (input.paragraphs[idx] || '').replace(/\s+/g, ' ').trim().slice(0, 4_000)
   const toolsAvailable = Boolean(input.bookId && input.editionKey) && input.lookups !== false
 
-  const lines = [
+  const stable = [
     LAB_ASK_POLICY,
   ]
-  if (toolsAvailable) lines.push(LAB_ASK_BOOK_TOOLS_RULE, LAB_LOOKUP_BEFORE_TEXT_RULE)
-  lines.push(
+  if (toolsAvailable) stable.push(LAB_ASK_BOOK_TOOLS_RULE, LAB_LOOKUP_BEFORE_TEXT_RULE)
+  stable.push(
     `[Current state: authoritative for this turn. Older conversation locations are historical, even within the Bible. In the Bible, "this book" means the current biblical book unless the reader explicitly says otherwise.]`,
     `Right now reading: ${bookByline(input.bookTitle, input.bookAuthor, input.authorship)} — ${input.chapterLabel} (${input.editionLabel || 'Butler'}).`,
-    `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}.`,
   )
   const authorship = authorshipNote(input.bookAuthor, input.authorship)
-  if (authorship) lines.push(authorship)
+  if (authorship) stable.push(authorship)
   const numberingNote = editionNumberingNote(input.bookId, input.editionKey)
-  if (numberingNote) lines.push(numberingNote)
-
+  if (numberingNote) stable.push(numberingNote)
   if (input.readingAngle) {
-    lines.push(`Reading angle: ${input.readingAngle}`)
+    stable.push(`Reading angle: ${input.readingAngle}`)
   }
+
+  const volatile = [
+    `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}.`,
+  ]
   if (current) {
-    lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
+    volatile.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   }
   if (toolsAvailable || (input.readingTrail && input.readingTrail.length > 0)) {
-    lines.push(renderLabReadingTrail(input))
+    volatile.push(renderLabReadingTrail(input))
   }
-
-  if (input.personalHistory) lines.push(input.personalHistory)
+  if (input.personalHistory) volatile.push(input.personalHistory)
   const shown = renderShownExplanations(options.shownExplanations)
-  if (shown) lines.push(shown)
+  if (shown) volatile.push(shown)
+
   if (options.nearby !== undefined) {
     // Explain and Define answer about one passage: the paragraphs around it
     // ground the answer at a fraction of the whole chapter's input.
     const start = Math.max(0, idx - options.nearby)
     const nearby = numberedLabChapter(input.paragraphs.slice(start, idx + options.nearby + 1), start)
-    if (nearby) lines.push(`Nearby paragraphs of the current chapter, numbered as in the chapter:\n${nearby}`)
-    return lines.join('\n\n')
+    if (nearby) volatile.push(`Nearby paragraphs of the current chapter, numbered as in the chapter:\n${nearby}`)
+    return { stable: stable.join('\n\n'), volatile: volatile.join('\n\n') }
   }
   const chapter = numberedLabChapter(input.paragraphs)
   if (chapter) {
     const lead = `Full current chapter with numbered paragraphs. This is the authoritative text. If they ask for the second paragraph, read [2]. If they ask for a paragraph that is here, read it.\n`
     const budget = Math.min(
       LAB_CHAPTER_CAP,
-      Math.max(4_000, LAB_ASK_SYSTEM_CAP - LAB_ASK_SYSTEM_MARGIN - lines.join('\n\n').length - lead.length),
+      Math.max(4_000, LAB_ASK_SYSTEM_CAP - LAB_ASK_SYSTEM_MARGIN - stable.join('\n\n').length - lead.length),
     )
     const capped = chapter.length > budget
       ? `${chapter.slice(0, budget).trim()}\n\n[…chapter continues]`
       : chapter
-    lines.push(`${lead}${capped}`)
+    stable.push(`${lead}${capped}`)
   }
 
-  return lines.join('\n\n')
+  return { stable: stable.join('\n\n'), volatile: volatile.join('\n\n') }
+}
+
+/**
+ * Lab typed + voice instructions as one string: the stable part (instructions
+ * and the full numbered chapter, trimmed under the worker's system cap), then
+ * the volatile part (the reader's place and what moves with it).
+ * Production AudioStrip still uses buildVoiceInstructions.
+ */
+export function buildLabAskInstructions(input: LabAskContext, options: { nearby?: number; shownExplanations?: ShownExplanation[] } = {}): string {
+  const parts = buildLabAskInstructionParts(input, options)
+  return [parts.stable, parts.volatile].filter(Boolean).join('\n\n')
 }

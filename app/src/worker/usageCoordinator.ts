@@ -43,6 +43,12 @@ export class UsageCoordinator extends DurableObject {
     })
   }
 
+  /** Give back `units` reserved on `day` for a request that never ran. Never below zero. */
+  release(day: string, units: number): void {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !Number.isSafeInteger(units) || units <= 0) return
+    this.ctx.storage.sql.exec('UPDATE spend SET units=MAX(0, units-?) WHERE day=?', units, day)
+  }
+
   usage(): { day: string; units: number }[] {
     return this.ctx.storage.sql.exec<{ day: string; units: number }>('SELECT day, units FROM spend ORDER BY day').toArray()
   }

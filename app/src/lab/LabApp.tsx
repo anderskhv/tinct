@@ -3062,6 +3062,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setPageFreeze({ content: readerParagraphs, layoutKey: layoutKeyFor(readerEditionKey), pages: pages.slice(0, current + 1) })
   // eslint-disable-next-line react-hooks/exhaustive-deps -- fires on Chat opening only; reads the page map as it is then
   }, [phoneAsk])
+  // Chat on screen: warm the companion's reading trail (read-only) so the
+  // first question is not held back loading earlier chapters' opening lines.
+  const askPaneShown = (!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || phoneAsk
+  const warmAskTrail = ask.warmTrail
+  useEffect(() => {
+    if (askPaneShown) warmAskTrail()
+  }, [askPaneShown, warmAskTrail, book.bookId, book.chapterNumber, readerEditionKey])
   // A new chapter, edition or typography lays the whole chapter out afresh.
   const nativeLayoutKey = layoutKeyFor(readerEditionKey)
   useEffect(() => { setPageFreeze(null) }, [readerParagraphs, nativeLayoutKey])

@@ -39,21 +39,43 @@ function logCeiling(reason: string): void {
   console.warn(JSON.stringify({ event: 'guest_ai_ceiling', reason }))
 }
 
-/** Fails closed: no binding, a coordinator error, or a full day all refuse. */
-export function createGuestSpendReserver(env: GuestAiSpendEnv, now: () => number = Date.now): ReserveGuestSpend {
+/** A reservation that can be given back when the request it was made for never runs. */
+export type GuestSpendHold = { release: () => Promise<void> }
+/** Reserve like ReserveGuestSpend; a granted reservation comes back as a hold, a refusal as null. */
+export type HoldGuestSpend = (microDollars: number) => Promise<GuestSpendHold | null>
+
+/**
+ * Fails closed: no binding, a coordinator error, or a full day all refuse.
+ * The hold releases the same units on the same day's row, so a request that
+ * reserved alongside its rate-limit check and was then refused by the limiter
+ * leaves the budget as it found it.
+ */
+export function createGuestSpendHolder(env: GuestAiSpendEnv, now: () => number = Date.now): HoldGuestSpend {
   return async (microDollars) => {
     const namespace = env.USAGE_COORDINATOR
-    if (!namespace) { logCeiling('binding_missing'); return false }
+    if (!namespace) { logCeiling('binding_missing'); return null }
     const day = new Date(now()).toISOString().slice(0, 10)
+    const units = Math.ceil(microDollars)
+    const name = `spend:guest-ai:${day.slice(0, 7)}`
     try {
-      const ok = await namespace.getByName(`spend:guest-ai:${day.slice(0, 7)}`).reserve(day, Math.ceil(microDollars), guestAiDailyMicros(env))
-      if (!ok) logCeiling('ceiling_reached')
-      return ok
+      const ok = await namespace.getByName(name).reserve(day, units, guestAiDailyMicros(env))
+      if (!ok) { logCeiling('ceiling_reached'); return null }
+      return {
+        release: async () => {
+          try { await namespace.getByName(name).release(day, units) } catch { logCeiling('release_error') }
+        },
+      }
     } catch {
       logCeiling('coordinator_error')
-      return false
+      return null
     }
   }
+}
+
+/** Fails closed: no binding, a coordinator error, or a full day all refuse. */
+export function createGuestSpendReserver(env: GuestAiSpendEnv, now: () => number = Date.now): ReserveGuestSpend {
+  const hold = createGuestSpendHolder(env, now)
+  return async (microDollars) => (await hold(microDollars)) !== null
 }
 
 /** One calm, structured answer for a ceiling or a provider budget/limit error. */
