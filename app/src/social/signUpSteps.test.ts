@@ -96,7 +96,7 @@ describe('sign-up with profiles off', () => {
 })
 
 describe('sign-up with profiles on', () => {
-  it('step 1: one password field with show/hide, the new consent line under the button', async () => {
+  it('step 1: one password field with show/hide, the new consent line above the button', async () => {
     mount(true)
     await import('../labSignIn')
     await flush()
@@ -104,7 +104,9 @@ describe('sign-up with profiles on', () => {
     expect(document.querySelector('[data-mode-copy="create"] h1')!.textContent).toBe('Create your account')
     expect(document.querySelector('[data-email-optin-field] span')!.textContent).toBe(EMAIL_CONSENT_TEXT)
     expect((document.querySelector('[name=emailOptIn]') as HTMLInputElement).checked).toBe(false)
-    expect(document.querySelector('[data-auth-submit]')!.nextElementSibling).toBe(document.querySelector('[data-email-optin-field]'))
+    // Above the button since 14 October 2026 (Anders): seen before the account is created.
+    expect(document.querySelector('[data-auth-submit]')!.previousElementSibling).toBe(document.querySelector('[data-email-optin-field]'))
+    expect(document.querySelector('[data-mode-copy="create"].auth-fine')!.textContent).toBe('I already have an account')
     expect(document.querySelector<HTMLElement>('[data-confirm-field]')!.hidden).toBe(true)
     const toggle = document.querySelector<HTMLButtonElement>('.social-pw-toggle')!
     toggle.click()

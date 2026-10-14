@@ -4,7 +4,7 @@
  * (SOCIAL_PROFILES on); otherwise the sign-in page is exactly as before.
  *
  * Step 1 (create account): "1 of 3", one password field with show/hide, the
- *   new consent line under the button, stored with its wording version.
+ *   new consent line above the button, stored with its wording version.
  * Step 2 (your profile): picture (a set or the initial; no uploads at launch), name
  *   (prefilled), who can see your reading (Friends preselected). Continue, or
  *   Skip (Only me).
@@ -123,13 +123,11 @@ export function enhanceSignInPage(root: HTMLElement | null): boolean {
     wrap.append(toggle)
   }
 
-  // The consent line: Anders's wording, under the button, unticked.
+  // The consent line: Anders's wording, unticked, above the button so it is
+  // seen before the account is created (Anders, 14 October 2026).
   const consent = root.querySelector<HTMLElement>('[data-email-optin-field]')
   const consentText = consent?.querySelector('span')
-  if (consent && consentText) {
-    consentText.textContent = EMAIL_CONSENT_TEXT
-    root.querySelector('[data-auth-submit]')?.after(consent)
-  }
+  if (consent && consentText) consentText.textContent = EMAIL_CONSENT_TEXT
 
   return true
 }
