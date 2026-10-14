@@ -368,6 +368,8 @@ async function openPdf(bytes, name, key) {
   noteSession();
   buildContents();
   keepPdfCover(pdf, key, token);
+  marksSync.open();
+  warmDictionary();
   if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
   // The account answered after the book opened: its newer place is shown if the reader is still where it opened.
@@ -477,7 +479,8 @@ async function renderPage(p) {
   if (p.source && p.source !== canvas) p.source.width = 0;
   p.pg.prepend(shown); p.canvas = shown; p.source = shown === canvas ? null : canvas; p.renderedWidth = width; p.dark = dark;
   const { items } = await pageText(p.n);
-  if (token !== state.token || p.canvas !== canvas) return;
+  // (In Dark the page shown is its recoloured copy: the text layer goes over that one too.)
+  if (token !== state.token || p.canvas !== shown) return;
   buildTextLayer(p, items, page.getViewport({ scale: cssScale }));
   if (!state.figs.has(p.n)) setTimeout(() => detectFigures(p), 0); else p.figures = state.figs.get(p.n);
   if (narr.active && narr.page === p.n) paintNarration();
@@ -663,7 +666,7 @@ function layerOf(p, cls) { let l = p.pg.querySelector(':scope > .' + cls); if (!
 function paintSelection() {
   document.querySelectorAll('.sel-layer').forEach(l => l.replaceChildren());
   const s = getSelection();
-  if (!s || s.isCollapsed || !s.rangeCount || !s.anchorNode?.parentElement?.closest('.text-layer')) return;
+  if (!s || s.isCollapsed || !s.rangeCount || !s.anchorNode?.parentElement?.closest('.text-layer')) { paintHeld(); return }
   for (const bar of selectionShapes(s.getRangeAt(0))) {
     const p = pageForPoint((bar.left + bar.right) / 2, (bar.top + bar.bottom) / 2); if (!p) continue;
     const r = p.pg.getBoundingClientRect(), i = document.createElement('i');
@@ -672,13 +675,24 @@ function paintSelection() {
   }
 }
 document.addEventListener('selectionchange', paintSelection);
+// A passage the margin holds (Ask typed, the bar's menus) stays marked as selected until the margin lets go.
+function paintHeld() {
+  if (!mr?.anchor || mr.ids.length || !(mr.held || mr.mode === 'asking')) return;
+  for (const a of mr.anchor) {
+    const p = state.pages[a.n - 1]; if (!p) continue;
+    const i = document.createElement('i');
+    Object.assign(i.style, { left: a.x * 100 + '%', top: a.y * 100 + '%', width: a.w * 100 + '%', height: a.h * 100 + '%' });
+    layerOf(p, 'sel-layer').appendChild(i);
+  }
+}
 const highlights = () => store.get('hl:' + state.key) || [];
 const HL_COLORS = [['gold', 'Gold', 'rgba(232,196,92,.42)', '#e9cf86'], ['rose', 'Rose', 'rgba(232,118,128,.30)', '#eba7ad'], ['sage', 'Sage', 'rgba(108,178,108,.32)', '#a9d0a3'], ['sky', 'Sky', 'rgba(96,148,226,.30)', '#a6c2ee'], ['lavender', 'Lavender', 'rgba(156,116,222,.30)', '#c6b0ee']];
 const hlFill = c => (HL_COLORS.find(x => x[0] === c) || HL_COLORS[0])[2];
 function recolorHighlight(id, color) {
   const list = highlights(), h = list.find(x => x.id === id); if (!h) return;
   h.color = color; prefs.hlColor = color; savePrefs();
-  store.set('hl:' + state.key, list); renderHighlights(state.pages[h.page - 1]);
+  if (state.kind === 'pdf') h.u = Date.now();
+  putHighlights(list); renderHighlights(state.pages[h.page - 1]);
 }
 function paletteHtml(current) { return `<div class="popup-highlight-palette byob-palette" aria-label="Highlight colour">${HL_COLORS.map(([k, label, , dot]) => `<button type="button" class="popup-color-dot highlight-${k}${k === current ? ' is-selected' : ''}" style="background:${dot};color:${dot}" data-color="${k}" title="${label}" aria-label="Highlight ${label}" aria-pressed="${k === current}"></button>`).join('')}</div>` }
 // After highlighting, the popup turns into Tinct's colour row for that highlight.
@@ -702,11 +716,11 @@ function renderHighlights(p) {
     layer.appendChild(i);
   }
 }
-function addHighlight(info) {
-  const s = getSelection(); if (!s.rangeCount) return;
+function addHighlight(info, { range, color } = {}) {
+  const s = getSelection(); if (!range && !s.rangeCount) return;
   if (isEpub()) return addEpubHighlight(info, s.getRangeAt(0));
   const byPage = new Map();
-  for (const bar of selectionShapes(s.getRangeAt(0))) {
+  for (const bar of selectionShapes(range || s.getRangeAt(0))) {
     const p = pageForPoint((bar.left + bar.right) / 2, (bar.top + bar.bottom) / 2); if (!p) continue;
     const r = p.pg.getBoundingClientRect();
     if (!byPage.has(p.n)) byPage.set(p.n, []);
@@ -714,15 +728,22 @@ function addHighlight(info) {
   }
   const list = highlights();
   const ids = [];
-  for (const [page, rects] of byPage) { const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6); ids.push(id); list.push({ id, page, rects, text: info.text.slice(0, 2000), color: prefs.hlColor || 'gold', at: Date.now() }) }
-  store.set('hl:' + state.key, list);
+  for (const [page, rects] of byPage) { const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6), at = Date.now(); ids.push(id); list.push({ id, page, rects, text: info.text.slice(0, 2000), color: color || prefs.hlColor || 'gold', at, u: at }) }
+  putHighlights(list);
   for (const page of byPage.keys()) renderHighlights(state.pages[page - 1]);
   return ids;
 }
 function removeHighlight(id) {
   const h = highlights().find(x => x.id === id);
-  store.set('hl:' + state.key, highlights().filter(x => x.id !== id));
+  // A PDF remembers the removal (a tombstone), so the account's copy and other devices lose it too.
+  if (h && state.kind === 'pdf') store.set('hl-gone:' + state.key, TinctMargin.mergeMarks(store.get('hl-gone:' + state.key) || [], [TinctMargin.tombstone(id)]));
+  putHighlights(highlights().filter(x => x.id !== id));
   if (h) renderHighlights(state.pages[h.page - 1]);
+}
+// Saved highlights of the open book; a PDF's go to the account too when signed in (marksSync).
+function putHighlights(list) {
+  store.set('hl:' + state.key, list);
+  if (state.kind === 'pdf') marksSync.changed();
 }
 function highlightAt(x, y) {
   if (isEpub()) return epubHighlightAt(x, y);
@@ -1004,7 +1025,7 @@ function ocrShow(status, token) {
 }
 
 // Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
-function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush() }
+function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush(); marksSync.push({ keepalive: true }) }
 addEventListener('pagehide', leavePlace);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leavePlace() });
 
@@ -1030,6 +1051,79 @@ const placeSync = {
     return { adopted: adopted === true, late: adopted === null ? late : Promise.resolve(false) };
   },
 };
+/* ---------- A PDF's highlights and notes on the reader's other devices ----------
+   Signed in, a PDF's highlights and their notes are kept privately with the book in the account
+   (/api/user-books/marks/{bookHex}, Worker routes/userBooks.ts), as its place is. This browser's
+   copy comes first (localStorage 'hl:' + key, removals in 'hl-gone:' + key) and works offline;
+   the account copy is versioned (`rev`): a write naming an older revision is refused with the
+   stored set, the two are merged (TinctMargin.mergeMarks: a union by id, the newer edit wins,
+   removals are kept as tombstones) and written again, so nothing is lost on a conflict. Signed
+   out, or for a book not in the account, they stay in this browser as before. EPUBs never sync here. */
+const MARKS_SYNC_MS = 1500;
+const marksSync = {
+  timer: null, running: null, key: '',
+  hex: () => hexOf(state.key),
+  usable() { return state.kind === 'pdf' && !!window.TinctAI?.session?.().token && /^[0-9a-f]{24}$/.test(this.hex()) },
+  local() { return TinctMargin.mergeMarks(highlights(), store.get('hl-gone:' + state.key) || []) },
+  apply(merged) {
+    const before = JSON.stringify(this.local());
+    const { live, gone } = TinctMargin.splitMarks(merged);
+    store.set('hl:' + state.key, live); store.set('hl-gone:' + state.key, gone);
+    if (JSON.stringify(this.local()) !== before) for (const p of state.pages) if (p.layer) renderHighlights(p);
+  },
+  async call(method, body, { keepalive = false } = {}) {
+    const token = window.TinctAI?.session?.().token;
+    if (!token) throw Object.assign(new Error('signed_out'), { status: 401 });
+    const r = await fetch('/api/user-books/marks/' + this.hex(), { method, keepalive, credentials: 'same-origin', cache: 'no-store', headers: { Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
+    const json = await r.json().catch(() => ({}));
+    return { status: r.status, json };
+  },
+  // Opened: the account's set, merged with this browser's; the merge goes back when it differs.
+  async open() {
+    if (!this.usable()) return;
+    const key = state.key; this.key = key;
+    try {
+      const { status, json } = await this.call('GET');
+      if (state.key !== key || status !== 200) return;
+      store.set('hl-rev:' + key, json.rev || 0);
+      const merged = TinctMargin.mergeMarks(this.local(), json.marks || []);
+      this.apply(merged);
+      if (store.get('hl-dirty:' + key) || !TinctMargin.sameMarks(merged, json.marks || [])) this.push();
+    } catch { /* offline: this browser's copy stands, sent when back online */ }
+  },
+  changed() {
+    if (state.kind !== 'pdf') return;
+    store.set('hl-dirty:' + state.key, true);
+    clearTimeout(this.timer); this.timer = setTimeout(() => this.push(), MARKS_SYNC_MS);
+  },
+  push({ keepalive = false } = {}) {
+    clearTimeout(this.timer); this.timer = null;
+    if (!this.usable() || !store.get('hl-dirty:' + state.key)) return Promise.resolve();
+    if (this.running) return this.running.then(() => this.push({ keepalive }));
+    const key = state.key;
+    this.running = (async () => {
+      try {
+        for (let tries = 0; tries < 3 && state.key === key; tries++) {
+          const marks = this.local(), rev = store.get('hl-rev:' + key) || 0;
+          const { status, json } = await this.call('PUT', { marks, rev }, { keepalive });
+          if (state.key !== key) return;
+          if (status === 200) {
+            store.set('hl-rev:' + key, json.rev);
+            // Edited while it was on its way: send again.
+            if (TinctMargin.sameMarks(marks, this.local())) store.del('hl-dirty:' + key); else this.changed();
+            return;
+          }
+          if (status !== 409) return;   // not in the account (404), signed out, too large: kept here
+          store.set('hl-rev:' + key, json.rev || 0);
+          this.apply(TinctMargin.mergeMarks(this.local(), json.marks || []));
+        }
+      } catch { /* offline: kept dirty, sent when back online */ }
+      finally { this.running = null }
+    })();
+    return this.running;
+  },
+};
+addEventListener('online', () => { if (hasBook()) marksSync.push() });
 $('scroll').addEventListener('scroll', onScroll, { passive: true });
 function noteSession() {
   // Catch me up starts from the page the previous visit ended on.
@@ -1649,12 +1743,14 @@ function selectionInfo() {
   const rects = selectionShapes(range);
   if (!rects.length) return null;
   const box = rects.reduce((a, r) => ({ left: Math.min(a.left, r.left), top: Math.min(a.top, r.top), right: Math.max(a.right, r.right), bottom: Math.max(a.bottom, r.bottom) }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
-  return { text, page: Number(sheetEl.dataset.page), box };
+  return { text, page: Number(sheetEl.dataset.page), box, rects, range: range.cloneRange() };
 }
 let selTimer;
 document.addEventListener('selectionchange', () => {
   clearTimeout(selTimer);
   selTimer = setTimeout(() => {
+    // A PDF's selection opens the margin's bar or Define card (below); an EPUB keeps this popup.
+    if (state.kind === 'pdf') return marginSelection();
     const info = selectionInfo();
     const pop = document.querySelector('.selection-popup');
     if (!info) { if (pop && pop.dataset.popupMode === 'main') hideSelection(); return }
@@ -1691,7 +1787,7 @@ function showSelection(existing) {
   pop.querySelector('[data-a="explain"]').onclick = () => {
     if (isPhone()) return explain(pop);
     const s = sel; hideSelection(); getSelection().removeAllRanges();
-    openChat({ passage: s, prompt: 'Explain the passage I selected: what it says, what it means here, and any notation or terms, in plain language. Two to four short paragraphs.', display: 'Explain this passage.' });
+    openChat({ passage: s, prompt: EXPLAIN_ASK, display: 'Explain this passage.' });
   };
   pop.querySelector('[data-a="ask"]').onclick = () => { const s = sel; hideSelection(); getSelection().removeAllRanges(); openChat({ passage: s }) };
   pop.querySelector('[data-a="highlight"]')?.addEventListener('click', () => { const box = sel.box, ids = addHighlight(sel); getSelection().removeAllRanges(); if (ids?.length) showPalette(ids, box); else hideSelection() });
@@ -1702,7 +1798,7 @@ function showSelection(existing) {
     hideSelection();
   };
 }
-function hideSelection() { document.querySelectorAll('.selection-popup').forEach(p => { p._ctl?.abort(); p.remove() }); clearRegion() }
+function hideSelection() { document.querySelectorAll('.selection-popup').forEach(p => { p._ctl?.abort(); p.remove() }); clearRegion(); marginClose() }
 function selectionRegion(info) {
   const p = state.pages[info.page - 1];
   if (!p?.canvas) return null;
@@ -1752,6 +1848,404 @@ async function explain(pop) {
     out.querySelector('.lab-contextual-explain-link').onclick = () => { sel = info; explain(pop) };
   }
 }
+
+// The offline dictionary (about 3 MB, once per device) is fetched into the offline cache a while
+// after a PDF opens, so Define has every word with the network off; not on a data-saving connection.
+function warmDictionary() {
+  if (store.get('dict-warm') || navigator.connection?.saveData) return;
+  setTimeout(() => (window.requestIdleCallback || setTimeout)(() => TinctDictionary.warm().then(ok => { if (ok) store.set('dict-warm', Date.now()) })), 8000);
+}
+/* ---------- The margin: selection bar, More, Define and notes (PDF only) ----------
+   docs/margin/BRIEF.md, PR 1a. A PDF's selection opens the bar (Ask, Explain, More, the highlight
+   dot, note), a one-word selection the Define card; an EPUB keeps the popup above. Markup and
+   placement are TinctMargin's (js/margin.js), styled by css/margin.css (the mockup's values).
+   Until PR 1b, Explain opens today's Explain and Ask today's chat, both in the docked chat. */
+const MH = TinctMargin.html;
+const EXPLAIN_ASK = 'Explain the passage I selected: what it says, what it means here, and any notation or terms, in plain language. Two to four short paragraphs.';
+let mr = null;
+const noteDrafts = new Map();
+// The reader's area: below the top bar, left of the docked chat.
+function mrFrame() {
+  const r = $('scroll').getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect();
+  const f = { left: Math.max(0, r.left), top: Math.max(0, r.top, hdr.bottom), right: Math.min(innerWidth, r.right), bottom: Math.min(innerHeight, r.bottom) };
+  if (!isPhone() && chat.el?.isConnected && !chat.el.hidden) { const d = chat.el.getBoundingClientRect(); if (d.left > f.left + 240 && d.left < f.right) f.right = d.left }
+  return f;
+}
+// The passage, kept in page fractions so the bar follows it while the pages scroll.
+function anchorOf(rects) {
+  return rects.map(r => {
+    const p = pageForPoint((r.left + r.right) / 2, (r.top + r.bottom) / 2); if (!p) return null;
+    const b = p.pg.getBoundingClientRect();
+    return { n: p.n, x: (r.left - b.left) / b.width, y: (r.top - b.top) / b.height, w: (r.right - r.left) / b.width, h: (r.bottom - r.top) / b.height };
+  }).filter(Boolean);
+}
+function anchorRects(anchor) {
+  return (anchor || []).map(a => {
+    const p = state.pages[a.n - 1]; if (!p) return null;
+    const b = p.pg.getBoundingClientRect();
+    return { left: b.left + a.x * b.width, top: b.top + a.y * b.height, right: b.left + (a.x + a.w) * b.width, bottom: b.top + (a.y + a.h) * b.height };
+  }).filter(Boolean);
+}
+function firstLast(rects) {
+  const sorted = [...rects].sort((a, b) => a.top - b.top || a.left - b.left);
+  return { first: sorted[0], last: sorted.reduce((a, r) => (r.bottom > a.bottom ? r : a), sorted[0]) };
+}
+const boxOf = rects => rects.reduce((a, r) => ({ left: Math.min(a.left, r.left), top: Math.min(a.top, r.top), right: Math.max(a.right, r.right), bottom: Math.max(a.bottom, r.bottom) }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
+// The words before the selection on its page: a capitalised word mid-sentence is a name.
+function textBefore(range) {
+  try {
+    const layer = range.startContainer.parentElement?.closest('.text-layer'); if (!layer) return '';
+    const r = document.createRange(); r.setStart(layer, 0); r.setEnd(range.startContainer, range.startOffset);
+    return r.toString().slice(-80);
+  } catch { return '' }
+}
+const mrNote = () => (mr?.ids?.length ? highlights().find(h => h.id === mr.ids[0])?.note || '' : '');
+function mrColor() {
+  const own = mr?.ids?.length ? highlights().find(h => h.id === mr.ids[0])?.color : null;
+  return own || TinctMargin.defaultColor(prefs, HL_COLORS);
+}
+const mrOpts = extra => Object.assign({ colors: HL_COLORS, current: mrColor(), phone: isPhone(), noted: !!mrNote() }, extra);
+
+function marginSelection() {
+  const info = selectionInfo();
+  if (!info) { if (mr && !mr.held && mr.mode === 'menu') marginClose(); return }
+  if (mr && !mr.held && mr.info.text === info.text && mr.info.page === info.page) return;
+  marginOpen(info);
+}
+function marginOpen(info, { existing = null, asking = false } = {}) {
+  hideSelection();
+  const word = !existing && TinctMargin.oneWord(info.text);
+  const anchor = existing ? existing.rects.map(([x, y, w, h]) => ({ n: existing.page, x, y, w, h })) : anchorOf(info.rects || [info.box]);
+  mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, mode: null, el: null, moreEl: null, before: word && info.range ? textBefore(info.range) : '' };
+  sel = info;
+  if (word && !asking) { mrDefine(word); return }
+  mrShow('menu');
+}
+function marginClose() {
+  if (!mr) return;
+  const m = mr;
+  clearTimeout(m.press); dictation.stop();
+  const field = m.el?.querySelector('.mr-note__field');
+  if (field && m.ids[0] && field.value.trim() !== (highlights().find(h => h.id === m.ids[0])?.note || '')) noteDrafts.set(m.ids[0], field.value);
+  m.el?.remove(); m.moreEl?.remove();
+  mr = null;
+  paintSelection();
+}
+function mrPiece() {
+  const el = document.createElement('div');
+  el.addEventListener('mousedown', e => { if (!e.target.closest('textarea')) e.preventDefault() });
+  el.addEventListener('click', e => {
+    const b = e.target.closest('[data-m], [data-color]'); if (!b || b.disabled || !mr) return;
+    if (b.dataset.color) mrPick(b.dataset.color); else mrAction(b.dataset.m);
+  });
+  // Press and hold the dot: the colours.
+  el.addEventListener('pointerdown', e => {
+    if (!mr || !e.target.closest('[data-m="dot"]')) return;
+    clearTimeout(mr.press); mr.pressed = false;
+    mr.press = setTimeout(() => { if (mr) { mr.pressed = true; mrShow('colors') } }, 450);
+  });
+  for (const t of ['pointerup', 'pointerleave', 'pointercancel']) el.addEventListener(t, () => clearTimeout(mr?.press));
+  el.addEventListener('input', e => {
+    if (e.target.matches('.mr-ask')) fitAsk();
+    if (e.target.matches('.mr-note__field')) el.querySelector('[data-m="save"]').disabled = !e.target.value.trim() && !mrNote();
+  });
+  el.addEventListener('keydown', e => {
+    if (e.target.matches('.mr-ask') && e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); mrSend() }
+  });
+  root.appendChild(el);
+  return el;
+}
+/** Draws the bar ('menu' | 'colors' | 'asking'), the Define card ('define') or the note editor ('note'). */
+function mrShow(mode, { question = '' } = {}) {
+  if (!mr) return;
+  closeMore();
+  mr.mode = mode;
+  const phone = isPhone(), el = mr.el || (mr.el = mrPiece());
+  el.removeAttribute('style');
+  if (mode === 'define') {
+    el.className = `mr mr-float mr-define${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Define ' + mr.word);
+    el.innerHTML = MH.defineHtml(mr.def, mrOpts());
+    el.querySelector('.mr-define__wait')?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
+  } else if (mode === 'note') {
+    el.className = `mr mr-float mr-note${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Note');
+    const draft = noteDrafts.get(mr.ids[0]) ?? mrNote();
+    el.innerHTML = MH.noteHtml({ quote: mr.info.text, note: draft });
+    el.querySelector('[data-m="save"]').disabled = !draft.trim() && !mrNote();
+  } else {
+    el.className = `mr mr-float ${phone ? 'mr-pbar is-phone' : 'mr-bar'}${mode === 'asking' ? ' is-asking' : ''}`; el.setAttribute('role', 'toolbar'); el.setAttribute('aria-label', 'Selection');
+    el.innerHTML = MH.barHtml(mode, mrOpts({ question }));
+  }
+  mrPlace();
+  if (mode === 'asking') { const t = el.querySelector('.mr-ask'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length); fitAsk() }
+  if (mode === 'note') { const t = el.querySelector('.mr-note__field'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length) }
+  paintSelection();
+}
+function mrPlace() {
+  if (!mr?.el) return;
+  const rects = anchorRects(mr.anchor); if (!rects.length) return;
+  const { first, last } = firstLast(rects), frame = mrFrame(), el = mr.el, phone = isPhone();
+  let pos;
+  if (mr.mode === 'define' || mr.mode === 'note') {
+    if (phone) el.style.width = (frame.right - frame.left - TinctMargin.PHONE.edge * 2) + 'px';
+    pos = TinctMargin.placeCard({ first, last, frame, w: 360, h: el.offsetHeight, phone });
+  } else {
+    if (phone) el.style.width = (frame.right - frame.left - TinctMargin.PHONE.edge * 2) + 'px';
+    pos = TinctMargin.placeBar({ first, last, frame, w: el.offsetWidth, h: el.offsetHeight, phone });
+  }
+  el.style.left = pos.left + 'px'; el.style.top = pos.top + 'px';
+  el.classList.toggle('is-below', !!pos.below);
+  if (pos.tip != null) el.style.setProperty('--tip', pos.tip + 'px');
+  mr.below = !!pos.below;
+  mr.info.box = boxOf(rects);
+  if (mr.moreEl) placeMoreEl();
+}
+let mrFrameReq = 0;
+$('scroll').addEventListener('scroll', () => { if (!mr || mrFrameReq) return; mrFrameReq = requestAnimationFrame(() => { mrFrameReq = 0; mrPlace() }) }, { passive: true });
+addEventListener('resize', () => { if (mr && mr.mode !== 'asking' && mr.mode !== 'note') marginClose() });
+function mrAction(m) {
+  if (m === 'ask') return mrShow('asking');
+  if (m === 'explain') return mrExplain();
+  if (m === 'more') return mr.moreEl ? closeMore() : openMore();
+  if (m === 'dot') {
+    if (mr.pressed) { mr.pressed = false; return }
+    if (mr.ids.length) return mrShow('colors');
+    mrHighlight();
+    return mrShow(mr.mode === 'define' ? 'define' : 'menu');
+  }
+  if (m === 'note') return mrNoteOpen();
+  if (m === 'mic') { const t = mr.el.querySelector('.mr-ask'); if (t) dictation.toggle(t); return }
+  if (m === 'send') return mrSend();
+  if (m === 'save') return mrSaveNote();
+  if (m === 'remove') { for (const id of mr.ids) { removeHighlight(id); noteDrafts.delete(id) } marginClose(); return }
+  if (m === 'define') { closeMore(); const t = mr.info.text; return mrDefine(TinctMargin.oneWord(t) || t) }
+  if (m === 'copy') return mrCopy();
+}
+// One tap: the passage highlighted in the default colour (or `color`), kept on the page.
+function mrHighlight(color) {
+  if (mr.ids.length) return mr.ids;
+  // The page's text layer may have been drawn again since (zoom, the chat opening): then the passage's kept shapes.
+  const live = mr.info.range?.startContainer?.isConnected && mr.info.range.endContainer?.isConnected;
+  const ids = (live ? addHighlight(mr.info, { range: mr.info.range, color }) : highlightAnchor(mr.info, mr.anchor, color)) || [];
+  mr.ids = ids; mr.held = true;
+  getSelection().removeAllRanges();
+  return ids;
+}
+function highlightAnchor(info, anchor, color) {
+  const byPage = new Map(), r = v => Math.round(v * 10000) / 10000;
+  for (const a of anchor || []) { if (!byPage.has(a.n)) byPage.set(a.n, []); byPage.get(a.n).push([r(a.x), r(a.y), r(a.w), r(a.h)]) }
+  const list = highlights(), ids = [];
+  for (const [page, rects] of byPage) { const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6), at = Date.now(); ids.push(id); list.push({ id, page, rects, text: info.text.slice(0, 2000), color: color || prefs.hlColor || 'gold', at, u: at }) }
+  putHighlights(list);
+  for (const page of byPage.keys()) renderHighlights(state.pages[page - 1]);
+  return ids;
+}
+function mrPick(color) {
+  Object.assign(prefs, TinctMargin.chooseColor(prefs, color)); savePrefs();
+  if (!mr.ids.length) mrHighlight(color); else for (const id of mr.ids) recolorHighlight(id, color);
+  mrShow('colors');
+}
+function mrNoteOpen() {
+  mrHighlight();
+  if (!mr.ids.length) return;
+  mrShow('note');
+}
+function mrSaveNote() {
+  const t = mr.el.querySelector('.mr-note__field'), id = mr.ids[0];
+  const list = highlights(), h = list.find(x => x.id === id); if (!h) return marginClose();
+  const v = t.value.trim();
+  if (v) h.note = v.slice(0, 4000); else delete h.note;
+  h.u = Date.now();
+  putHighlights(list); noteDrafts.delete(id);
+  marginClose();
+}
+function mrExplain() {
+  const info = mr.info;
+  marginClose(); getSelection().removeAllRanges();
+  if (isPhone()) {
+    // The phone keeps today's Explain window.
+    sel = info;
+    const pop = document.createElement('div');
+    pop.tabIndex = -1; pop.className = 'selection-popup is-compact is-lab selection-popup-below';
+    root.appendChild(pop); pop.addEventListener('mousedown', e => e.preventDefault());
+    explain(pop);
+    return;
+  }
+  openChat({ passage: info, prompt: EXPLAIN_ASK, display: 'Explain this passage.' });
+}
+function mrSend() {
+  const t = mr?.el?.querySelector('.mr-ask'); if (!t) return;
+  const q = t.value.trim(); if (!q) return;
+  const info = mr.info;
+  marginClose(); getSelection().removeAllRanges();
+  openChat({ passage: info, prompt: q });
+}
+async function mrCopy() {
+  const text = TinctMargin.copyQuote({ text: mr.info.text, title: state.title, page: mr.info.page });
+  marginClose();
+  try { await navigator.clipboard.writeText(text); toast('Copied.') } catch { toast('Copy did not work here. Use your device’s copy instead.') }
+}
+function openMore() {
+  const phone = isPhone(), m = document.createElement('div');
+  m.className = `mr mr-float ${phone ? 'mr-pmore is-phone' : 'mr-more'}`; m.setAttribute('role', 'menu'); m.setAttribute('aria-label', 'More');
+  m.innerHTML = MH.moreHtml({ phone });
+  m.addEventListener('mousedown', e => e.preventDefault());
+  m.addEventListener('click', e => { const b = e.target.closest('[data-m]'); if (b && mr) mrAction(b.dataset.m) });
+  root.appendChild(m); mr.moreEl = m;
+  mr.el.querySelector('[data-m="more"]')?.setAttribute('aria-expanded', 'true');
+  placeMoreEl();
+}
+function placeMoreEl() {
+  const m = mr.moreEl, dotsEl = mr.el.querySelector('[data-m="more"]'); if (!m || !dotsEl) return;
+  const b = mr.el.getBoundingClientRect();
+  const pos = TinctMargin.placeMore({ bar: { left: b.left, top: b.top, right: b.right, bottom: b.bottom, below: mr.below }, dots: dotsEl.getBoundingClientRect(), frame: mrFrame(), w: m.offsetWidth, h: m.offsetHeight, phone: isPhone() });
+  m.style.left = pos.left + 'px'; m.style.top = pos.top + 'px';
+}
+function closeMore() {
+  if (!mr?.moreEl) return;
+  mr.moreEl.remove(); mr.moreEl = null;
+  mr.el?.querySelector('[data-m="more"]')?.setAttribute('aria-expanded', 'false');
+}
+function fitAsk() {
+  const el = mr?.el, t = el?.querySelector('.mr-ask'); if (!t) return;
+  el.querySelector('[data-m="send"]').disabled = !t.value.trim();
+  const frame = mrFrame();
+  TinctMargin.sizeAsk(el, { phone: isPhone(), room: frame.right - frame.left - 32 });
+  mrPlace();
+}
+/* Define: the offline dictionary first (js/dictionary.js); a name, or a word it lacks, from the
+   companion's contextual `define` when online; offline, "Not in the offline dictionary." */
+async function mrDefine(word) {
+  mr.word = word; mr.held = true; mr.def = { word, source: '', wait: true };
+  const token = mr.defToken = {};
+  mrShow('define');
+  let hit = null;
+  try { hit = await TinctDictionary.lookup(word) } catch {}
+  if (mr?.defToken !== token) return;
+  if (hit && !TinctMargin.nameMidSentence(word, mr.before)) {
+    mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
+    return mrShow('define');
+  }
+  if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
+  try {
+    const found = await defineByCompanion(word, mr.info);
+    if (mr?.defToken !== token) return;
+    mr.def = found ? { word: found.word || word, pos: found.pos || '', line: found.line } : { word, line: errorCopy(null) };
+  } catch (e) {
+    if (mr?.defToken !== token) return;
+    mr.def = { word, line: e?.code === 'offline' ? 'Not in the offline dictionary.' : errorCopy(e) };
+  }
+  mrShow('define');
+}
+// The companion's existing contextual `define` intent (CONTEXTUAL_LOOKUP_PROMPT, built by the Worker).
+async function defineByCompanion(word, info) {
+  const pageCtx = await contextText(info.page, info.page, 9000);
+  const req = TinctAI.toRequest([{ role: 'user', content: pageCtx || ' ' }, { role: 'user', content: word }], aiBook());
+  req.stream = false; req.max_tokens = 450;
+  req.companion.intent = 'define'; req.companion.selection = word.slice(0, 300);
+  const s = TinctAI.session();
+  let internal = false; try { internal = localStorage.getItem('tinct:internal') === '1' } catch {}
+  let r;
+  try { r = await fetch(s.token ? '/api/chat' : '/api/lab-chat', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', ...(internal ? { 'x-tinct-check': '1' } : {}), ...(s.token ? { Authorization: 'Bearer ' + s.token } : {}) }, body: JSON.stringify(req) }) }
+  catch { throw Object.assign(new Error('offline'), { code: 'offline' }) }
+  if (!r.ok) throw Object.assign(new Error('failed'), { code: { 401: 'session_expired', 402: 'quota', 403: 'not_granted', 429: 'rate_limited', 503: 'busy' }[r.status] || 'failed' });
+  const json = await r.json().catch(() => ({}));
+  return TinctMargin.parseLookup((json.content || []).map(c => c.text || '').join(''), word);
+}
+// Typing with a selection opens Ask with that key; Escape steps back one piece at a time.
+addEventListener('keydown', e => {
+  if (state.kind !== 'pdf' || !readerShown()) return;
+  if (e.key === 'Escape' && mr) {
+    e.preventDefault(); e.stopImmediatePropagation();
+    if (mr.moreEl) return closeMore();
+    if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') { if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) } dictation.stop(); return mrShow(mr.def ? 'define' : 'menu') }
+    marginClose(); getSelection().removeAllRanges();
+    return;
+  }
+  const ch = TinctMargin.typedChar(e, { inField: !!e.target.closest?.('input, textarea, select, [contenteditable="true"]') });
+  if (!ch) return;
+  if (document.querySelector('.lab-super-layer, .lab-v2-sheet-layer, .lab-contents-v2, .byob-sheet-host, .byob-snip, .byob-jumpbox, .byob-switcher')) return;
+  if (!mr) { const info = selectionInfo(); if (!info) return; marginOpen(info, { asking: true }) }
+  else if (!['menu', 'colors', 'define'].includes(mr.mode)) return;
+  e.preventDefault();
+  mrShow('asking', { question: ch });
+}, true);
+// A tap or click outside lets go of a passage the margin holds (a new selection opens its own).
+document.addEventListener('pointerdown', e => { if (mr && !e.target.closest?.('.mr-float') && (mr.held || mr.mode !== 'menu')) marginClose() }, true);
+
+/* Dictation into the question, as the book reader's chat does (src/lab/useLabDictation.ts):
+   signed in, one clip recorded while the mic is on and turned into text by /api/dictation;
+   signed out, the browser's own speech recognition. It never sends the question or starts Talk. */
+const DICTATION_COPY = {
+  unavailable: 'Dictation is unavailable in this browser. Use your keyboard microphone or type your question.',
+  denied: 'Microphone access was denied. Allow it in your browser to dictate.',
+  noSpeech: 'No speech heard. Tap the microphone to try again.',
+  stopped: 'Dictation stopped. Tap the microphone to try again.',
+  noStart: 'The microphone could not start. Please try again.',
+  failed: 'Dictation could not be turned into text. Tap the microphone to try again.',
+};
+const dictation = {
+  rec: null, clip: null, session: 0,
+  pressed(on) { mr?.el?.querySelector('[data-m="mic"]')?.setAttribute('aria-pressed', String(on)) },
+  write(field, prefix, text) { field.value = [prefix, text].filter(Boolean).join(' '); field.dispatchEvent(new Event('input', { bubbles: true })) },
+  stop() {
+    this.session++;
+    const r = this.rec; this.rec = null;
+    if (r) { r.onresult = r.onerror = r.onend = null; try { r.stop() } catch {} }
+    const c = this.clip; this.clip = null;
+    if (c) { clearTimeout(c.timer); c.recorder.onstop = null; try { if (c.recorder.state !== 'inactive') c.recorder.stop() } catch {} c.stream.getTracks().forEach(t => t.stop()); c.abort.abort() }
+    this.pressed(false);
+  },
+  toggle(field) {
+    if (this.rec) return this.stop();
+    if (this.clip) { if (this.clip.recorder.state === 'recording') { clearTimeout(this.clip.timer); this.clip.recorder.stop() } return }
+    const prefix = field.value.trim(), token = window.TinctAI?.session?.().token;
+    if (token && typeof MediaRecorder !== 'undefined' && navigator.mediaDevices?.getUserMedia) this.record(field, prefix); else this.recognise(field, prefix);
+  },
+  async record(field, prefix) {
+    const session = ++this.session;
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }) }
+    catch (e) { if (session === this.session) toast(e?.name === 'NotAllowedError' || e?.name === 'SecurityError' ? DICTATION_COPY.denied : DICTATION_COPY.noStart); return }
+    if (session !== this.session) { stream.getTracks().forEach(t => t.stop()); return }
+    let recorder;
+    try {
+      const type = ['audio/webm;codecs=opus', 'audio/mp4', 'audio/webm', 'audio/ogg;codecs=opus'].find(t => { try { return MediaRecorder.isTypeSupported(t) } catch { return false } });
+      recorder = new MediaRecorder(stream, { ...(type ? { mimeType: type } : {}), audioBitsPerSecond: 32000 });
+    } catch { stream.getTracks().forEach(t => t.stop()); toast(DICTATION_COPY.noStart); return }
+    const clip = this.clip = { recorder, stream, chunks: [], abort: new AbortController(), timer: null };
+    recorder.ondataavailable = ev => { if (ev.data?.size) clip.chunks.push(ev.data) };
+    recorder.onstop = async () => {
+      stream.getTracks().forEach(t => t.stop());
+      if (session !== this.session) return;
+      this.clip = null; this.pressed(false);
+      const blob = new Blob(clip.chunks, { type: recorder.mimeType || 'audio/webm' });
+      if (!blob.size) { toast(DICTATION_COPY.noSpeech); return }
+      try {
+        const token = window.TinctAI?.session?.().token; if (!token) { toast(DICTATION_COPY.failed); return }
+        const form = new FormData(); form.append('language', 'en'); form.append('bookId', 'userbook-' + hexOf(state.key)); form.append('audio', blob, 'dictation');
+        const r = await fetch('/api/dictation', { method: 'POST', body: form, headers: { Authorization: 'Bearer ' + token }, signal: clip.abort.signal });
+        const data = await r.json().catch(() => ({}));
+        if (session !== this.session) return;
+        if (!r.ok || typeof data.text !== 'string') { toast(DICTATION_COPY.failed); return }
+        if (!data.text.trim()) { toast(DICTATION_COPY.noSpeech); return }
+        this.write(field, prefix, data.text.trim());
+      } catch { if (session === this.session) toast(DICTATION_COPY.failed) }
+    };
+    clip.timer = setTimeout(() => { if (this.clip === clip && recorder.state === 'recording') recorder.stop() }, 60000);
+    try { recorder.start(); this.pressed(true) } catch { this.stop(); toast(DICTATION_COPY.noStart) }
+  },
+  recognise(field, prefix) {
+    const R = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!R) { toast(DICTATION_COPY.unavailable); return }
+    this.session++;
+    const rec = this.rec = new R();
+    rec.continuous = true; rec.interimResults = true; rec.lang = navigator.language || 'en-US';
+    rec.onresult = ev => { if (this.rec === rec) this.write(field, prefix, [...ev.results].map(x => x[0].transcript.trim()).filter(Boolean).join(' ')) };
+    rec.onerror = ev => { if (this.rec !== rec) return; toast(ev.error === 'not-allowed' || ev.error === 'service-not-allowed' ? DICTATION_COPY.denied : ev.error === 'no-speech' ? DICTATION_COPY.noSpeech : DICTATION_COPY.stopped); this.stop() };
+    rec.onend = () => { if (this.rec === rec) this.stop() };
+    try { rec.start(); this.pressed(true) } catch { this.stop(); toast(DICTATION_COPY.noStart) }
+  },
+};
 
 /* ---------- Docked chat: a fixed room on the right (desktop) ---------- */
 const dock = { state: 'closed', byZoom: false };
@@ -1924,8 +2418,8 @@ async function regionAction(a, item) {
   if (a === 'highlight') {
     hideSelection(); const f = item.frac, r = v => Math.round(v * 10000) / 10000;
     const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-    const list = highlights(); list.push({ id, page: item.page, rects: [[r(f.x), r(f.y), r(f.w), r(f.h)]], text: item.text || '', box: true, kind: item.kind, color: prefs.hlColor || 'gold', at: Date.now() });
-    store.set('hl:' + state.key, list); renderHighlights(state.pages[item.page - 1]);
+    const at = Date.now(), list = highlights(); list.push({ id, page: item.page, rects: [[r(f.x), r(f.y), r(f.w), r(f.h)]], text: item.text || '', box: true, kind: item.kind, color: prefs.hlColor || 'gold', at, u: at });
+    putHighlights(list); renderHighlights(state.pages[item.page - 1]);
     const pg = state.pages[item.page - 1]?.pg.getBoundingClientRect(); if (pg) showPalette([id], { left: pg.left + f.x * pg.width, top: pg.top + f.y * pg.height, right: pg.left + (f.x + f.w) * pg.width, bottom: pg.top + (f.y + f.h) * pg.height }); return;
   }
   if (a === 'copy') { hideSelection(); copyImage(item) }
@@ -2133,7 +2627,7 @@ async function exportNotes() {
   let out = `# ${title}\n\nNotes exported from Tinct on ${new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}.\n`;
   if (hl.length) {
     out += `\n## Highlights\n`; let last = '';
-    for (const h of hl) { const ch = chapterAt(h.page)?.label || ''; if (ch && ch !== last) { out += `\n### ${ch}\n`; last = ch } out += h.box ? `\n_[${KIND[h.kind] || 'Figure'} on p. ${h.page}]_${h.kind === 'formula' && h.text ? '\n' + quote(h.text) : ''}\n` : `\n${quote(h.text)}\n— p. ${h.page}\n` }
+    for (const h of hl) { const ch = chapterAt(h.page)?.label || ''; if (ch && ch !== last) { out += `\n### ${ch}\n`; last = ch } out += h.box ? `\n_[${KIND[h.kind] || 'Figure'} on p. ${h.page}]_${h.kind === 'formula' && h.text ? '\n' + quote(h.text) : ''}\n` : `\n${quote(h.text)}\n— p. ${h.page}\n`; if (h.note) out += `\n${h.note.trim()}\n` }
   }
   if (turns.length) {
     out += `\n## Conversations\n`;
@@ -2338,7 +2832,7 @@ async function ask(question, display) {
   const image = blobs.length ? null : await pageImage(focusPage, passage ? selectionRegion(passage) : null);
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';
   const snipText = attached.map(a => [a.caption ? 'Caption: ' + a.caption : '', a.text ? 'Labels and text inside it: ' + a.text : '', !blobs.length && a.sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + a.sketch + '\n```' : ''].filter(Boolean).join('\n')).filter(Boolean).join('\n\n');
-  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? ' The attached image shows the printed page or passage; trust it over the extracted text for equations.' : ''}${snipNote}\n\nText around the reader's place (extracted, may garble maths):\n${ctx}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
+  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}\n\nText around the reader's place (extracted, may garble maths):\n${ctx}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
   const history = chat.turns.slice(-11, -1).map(t => ({ role: t.role, content: t.role === 'assistant' ? t.content.replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, '') : (t.role === 'user' && t.passage ? `About this passage: "${t.passage.slice(0, 600)}"\n` : '') + (t.imgs?.length ? `[Earlier I attached ${t.imgs.length > 1 ? 'images' : 'an image'}; it is not re-sent.${t.snipText ? ' Its text: ' + t.snipText.slice(0, 400) : ''}]\n` : '') + t.content }));
   const input = [{ role: 'user', content: rules }, ...history, { role: 'user', content: question }];
   const ctl = new AbortController(); chat.ctl = ctl;
@@ -2610,7 +3104,9 @@ async function seekChapter(frac) {
 $('playBtn').onclick = togglePlay;
 // Clicking a saved highlight offers Explain, Chat, Remove highlight and Copy.
 document.addEventListener('click', e => {
-  if (!getSelection().isCollapsed || narr.active || e.target.closest('.selection-popup, .lab-ask, .lab-header')) return;
+  if (!getSelection().isCollapsed || narr.active || e.target.closest('.selection-popup, .lab-ask, .lab-header, .mr-float')) return;
+  // A PDF's highlight opens the margin's bar for it: its colour, its note.
+  if (state.kind === 'pdf') { const h = highlightAt(e.clientX, e.clientY), rec = h && highlights().find(x => x.id === h.id); if (rec?.rects) marginOpen({ text: h.text, page: h.page, box: h.box }, { existing: rec }); return }
   const h = highlightAt(e.clientX, e.clientY), open = document.querySelector('.selection-popup[data-popup-mode="highlight"]');
   if (!h) { open && hideSelection(); return }
   sel = { text: h.text, page: h.page, box: h.box }; showSelection(h);

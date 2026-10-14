@@ -18,7 +18,7 @@ import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
-import { listOwnCovers, listOwnPlaces, listOwnPrimers, listUserBooks, purgeUserBooks } from './userBooks'
+import { listOwnCovers, listOwnMarks, listOwnPlaces, listOwnPrimers, listUserBooks, purgeUserBooks } from './userBooks'
 import { listProfileImages, purgeProfileImages } from './profiles'
 import type { OwnOcrCoordinator } from '../ownOcrCoordinator'
 import { listOwnOcrJobs, ocrCoordinatorName, ocrPagesName, ocrUserName, ownOcrBooks } from '../lib/ownOcr'
@@ -29,7 +29,7 @@ export type AdminAccountsEnv = SupabaseEnv & {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
-  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/ the small images of their covers under u/{userId}/covers/ and Before you start primers of own PDFs under u/{userId}/primers/ (routes/userBooks.ts). */
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/, PDF highlights and notes under u/{userId}/marks/, the small images of their covers under u/{userId}/covers/ and Before you start primers of own PDFs under u/{userId}/primers/ (routes/userBooks.ts). */
   USER_BOOKS?: R2Bucket
   /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
   NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
@@ -372,6 +372,10 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     // The reader's place in each own book (by the book's hex; chapter, paragraph, word, when, percent).
     ownBookPlaces: env.USER_BOOKS
       ? await attempt('r2 own-book places', () => listOwnPlaces(env.USER_BOOKS!, account.userId))
+      : null,
+    // The highlights and notes in each own PDF (by the book's hex): the reader's own words and passages, in full; removals counted.
+    ownBookMarks: env.USER_BOOKS
+      ? await attempt('r2 own-book marks', () => listOwnMarks(env.USER_BOOKS!, account.userId))
       : null,
     // The small image of each own book's cover, kept with the file (by the book's hex): listed, never the bytes, like the files.
     ownBookCovers: env.USER_BOOKS

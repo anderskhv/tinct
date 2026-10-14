@@ -632,3 +632,60 @@ describe('/api/user-books/primers', () => {
     expect((await call(path(hex), { token: 'token-a' })).status).toBe(404)
   })
 })
+
+// A PDF's highlights and notes (Add a book's PDF reader, margin PR 1a): one versioned set per owned PDF.
+describe('/api/user-books/marks', () => {
+  const put = (call: ReturnType<typeof setup>['call'], token: string, hex: string, body: unknown) =>
+    call(`/api/user-books/marks/${hex}`, { method: 'PUT', token, body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } })
+  const mark = (id: string, extra: Record<string, unknown> = {}) => ({ id, page: 3, rects: [[0.1, 0.2, 0.5, 0.02]], text: 'the passage', color: 'gold', at: 1_000, u: 1_000, ...extra })
+  async function withPdf() {
+    const env = setup()
+    const { book } = await (await env.upload('token-a', pdfBytes('marks'), { Title: 'Private title' })).json() as { book: UserBook }
+    return { ...env, book, hex: book.sha256.slice(0, 24) }
+  }
+
+  it('keeps one versioned set per owned PDF in the owner\'s prefix; a stale write gets 409 and the stored set', async () => {
+    const { r2, call, hex } = await withPdf()
+    expect(await (await call(`/api/user-books/marks/${hex}`, { token: 'token-a' })).json()).toEqual({ marks: [], rev: 0 })
+    const first = await put(call, 'token-a', hex, { marks: [mark('abcd1', { note: 'Try it with x = 10.' })], rev: 0 })
+    expect(first.status).toBe(200)
+    expect(await first.json()).toEqual({ rev: 1 })
+    // Another device, still at revision 0: refused with what is stored, to merge.
+    const stale = await put(call, 'token-a', hex, { marks: [mark('efgh2')], rev: 0 })
+    expect(stale.status).toBe(409)
+    expect(await stale.json()).toEqual({ error: 'conflict', marks: [mark('abcd1', { note: 'Try it with x = 10.' })], rev: 1 })
+    const merged = await put(call, 'token-a', hex, { marks: [mark('abcd1', { note: 'Try it with x = 10.' }), mark('efgh2'), { id: 'gone3', gone: true, u: 2_000 }], rev: 1 })
+    expect(await merged.json()).toEqual({ rev: 2 })
+    expect(await (await call(`/api/user-books/marks/${hex}`, { token: 'token-a' })).json()).toEqual({ marks: [mark('abcd1', { note: 'Try it with x = 10.' }), mark('efgh2'), { id: 'gone3', gone: true, u: 2_000 }], rev: 2 })
+    const stored = r2.objects.get(`u/${A}/marks/${hex}`)!
+    expect(stored.customMetadata.rev).toBe('2')
+    expect(new TextDecoder().decode(stored.bytes)).not.toContain('Private title')
+    // Another account sees nothing of it, and cannot write it.
+    expect((await call(`/api/user-books/marks/${hex}`, { token: 'token-b' })).status).toBe(404)
+    expect((await put(call, 'token-b', hex, { marks: [], rev: 0 })).status).toBe(404)
+    expect((await call(`/api/user-books/marks/${hex}`)).status).toBe(401)
+  })
+
+  it('refuses marks out of shape, an EPUB, and an unknown book', async () => {
+    const { call, upload, hex } = await withPdf()
+    for (const bad of [
+      [mark('ab')], [mark('abcd1'), mark('abcd1')], [mark('abcd1', { color: 'teal' })], [mark('abcd1', { rects: [[0, 0, 1]] })],
+      [mark('abcd1', { note: 'x'.repeat(4001) })], [mark('abcd1', { page: 0 })], [{ id: 'abcd1', gone: true }], 'nope',
+    ]) expect((await put(call, 'token-a', hex, { marks: bad, rev: 0 })).status, JSON.stringify(bad).slice(0, 60)).toBe(400)
+    expect((await put(call, 'token-a', hex, { marks: [mark('abcd1')] })).status).toBe(400)
+    expect((await call(`/api/user-books/marks/${hex}`, { method: 'PUT', token: 'token-a', body: '{' })).status).toBe(400)
+    expect((await call(`/api/user-books/marks/${hex}`, { method: 'POST', token: 'token-a' })).status).toBe(405)
+    expect((await call(`/api/user-books/marks/${'0'.repeat(24)}`, { token: 'token-a' })).status).toBe(404)
+    expect((await call('/api/user-books/marks/not-hex', { token: 'token-a' })).status).toBe(404)
+    const { book } = await (await upload('token-a', epubBytes(), { Title: 'An EPUB' })).json() as { book: UserBook }
+    expect((await call(`/api/user-books/marks/${book.sha256.slice(0, 24)}`, { token: 'token-a' })).status).toBe(404)
+  })
+
+  it('deletes the marks with the book', async () => {
+    const { r2, call, book, hex } = await withPdf()
+    await put(call, 'token-a', hex, { marks: [mark('abcd1')], rev: 0 })
+    expect(r2.objects.has(`u/${A}/marks/${hex}`)).toBe(true)
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect(r2.objects.has(`u/${A}/marks/${hex}`)).toBe(false)
+  })
+})
