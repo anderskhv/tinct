@@ -3,9 +3,12 @@ import path from 'path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { CHAPTER_SHARDED_EDITION_IDS } from '../data/editionShardRegistry'
 import { editionShardPath } from '../data/editionUrls'
+import { BOOKS } from '../data/bookRegistry'
+import { readerBootPrimaryExceptions } from '../../scripts/readerBootScript'
 import {
   LAB_THEME_PAPER,
   READER_BOOT_DEFAULT_FACE_URL,
+  readerBootDeepLink,
   readerBootEink,
   readerBootHandoff,
   readerBootPreloads,
@@ -148,6 +151,48 @@ describe('readerBootPreloads matches the loader byte for byte', () => {
       const manifest = JSON.parse(fs.readFileSync(file, 'utf8')) as { chapters: Array<{ number: number; path: string }> }
       for (const chapter of manifest.chapters) expect(chapter.path, `${directory} ${chapter.number}`).toBe(editionShardPath(chapter.number))
     }
+  })
+})
+
+describe('readerBootDeepLink', () => {
+  const exceptions = readerBootPrimaryExceptions()
+
+  it('opens what the app opens for every published book\'s chapter link, or guesses nothing', async () => {
+    const { readerHandoffFromUrlParams } = await import('./labReaderHandoff')
+    let resolved = 0
+    for (const book of BOOKS) {
+      for (const search of [`?book=${book.id}&chapter=2`, `?book=${book.id}&edition=original-en&chapter=1`]) {
+        const boot = readerBootDeepLink(search, exceptions)
+        if (!boot) continue
+        const app = readerHandoffFromUrlParams(new URLSearchParams(search))
+        expect(app, search).not.toBeNull()
+        expect({ bookId: boot.bookId, primaryEditionKey: boot.primaryEditionKey, chapterNumber: boot.chapterNumber }, search)
+          .toEqual({ bookId: app!.bookId, primaryEditionKey: app!.primaryEditionKey, chapterNumber: app!.savedPlace?.chapterNumber })
+        resolved += 1
+      }
+    }
+    for (const key of ['bsb-en', 'kjv-en', 'web-en', 'webc-en']) {
+      const search = `?book=bible&edition=${key}&chapter=3`
+      const boot = readerBootDeepLink(search, exceptions)
+      const app = readerHandoffFromUrlParams(new URLSearchParams(search))
+      expect(boot, search).toEqual({ bookId: 'bible', primaryEditionKey: app!.primaryEditionKey, chapterNumber: 3 })
+    }
+    // Nearly every book's default is Modern English; the table names the rest.
+    expect(resolved).toBeGreaterThan(BOOKS.length)
+    expect(exceptions.bible).toBe('bsb-en')
+    expect(Object.keys(exceptions).length).toBeLessThan(BOOKS.length / 4)
+  })
+
+  it('leaves to the app what it cannot know exactly', () => {
+    expect(readerBootDeepLink('?book=odyssey&chapter=3', exceptions)).toEqual({ bookId: 'odyssey', primaryEditionKey: 'modern-en', chapterNumber: 3 })
+    expect(readerBootDeepLink('?book=odyssey', exceptions)).toBeNull() // resumes the reader's own place
+    expect(readerBootDeepLink('?book=odyssey&chapter=0', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=odyssey&chapter=x', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=odyssey&edition=modern-da&chapter=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=odyssey&chapter=1&modern=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?heldBook=gilgamesh&book=gilgamesh&chapter=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=pd-abc&chapter=1', exceptions)).toBeNull()
+    expect(readerBootDeepLink('?book=../x&chapter=1', exceptions)).toBeNull()
   })
 })
 
