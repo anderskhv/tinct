@@ -27,6 +27,9 @@
  *   sequential chapter numbers) so they survive devices and reloads like the
  *   pin does. A finish is monotonic: merges union, never regress.
  */
+import { isPublicBookId } from '../../public/lab/public-books.js'
+import { USER_BOOK_PREFIX } from './userBook/userBookId'
+
 export const LAB_POSITION_STORAGE_KEY = 'tinct-lab-position'
 export const LAB_POSITION_DEVICE_KEY = 'tinct-lab-device-id'
 /** Set when a cloud PUT failed or was skipped offline; cleared once a PUT lands. */
@@ -399,6 +402,34 @@ export function withHiddenFromReadingNow(state: LabPositionState, bookId: string
 export function resumePlace(state: LabPositionState): LabBookPlace | null {
   if (!state.lastSettledBookId) return null
   return state.books[state.lastSettledBookId] ?? null
+}
+
+/**
+ * The library book a saved place belongs to. `registeredId` answers for the
+ * reader's books (the registry in the app, catalogue.json in the Worker). Any
+ * other pin is a biblical book's (genesis, psalms), so the Bible, except an
+ * added book (`pd-…`) not registered yet or a reader's own book
+ * (`userbook-…`), which are never biblical pins.
+ */
+export function libraryBookIdForPlace(placeBookId: string, registeredId: (bookId: string) => string | null | undefined): string | null {
+  const registered = registeredId(placeBookId)
+  if (registered) return registered
+  if (placeBookId.startsWith(USER_BOOK_PREFIX) || isPublicBookId(placeBookId)) return null
+  return 'bible'
+}
+
+/**
+ * Where a library book resumes, from a position record: its settled place when
+ * the reader last settled in it, else its newest one. For the Bible that is one
+ * of the per-biblical-book pins, never a stale chapter of another book. Shared
+ * by the reader's book links (labReaderHandoff) and the lifecycle emails.
+ */
+export function libraryResumePlace(state: LabPositionState, libraryBookId: string, registeredId: (bookId: string) => string | null | undefined): LabBookPlace | null {
+  const settled = resumePlace(state)
+  if (settled && libraryBookIdForPlace(settled.bookId, registeredId) === libraryBookId) return settled
+  return Object.values(state.books)
+    .filter(place => libraryBookIdForPlace(place.bookId, registeredId) === libraryBookId)
+    .sort((a, b) => b.updatedAt - a.updatedAt || b.rev - a.rev)[0] ?? null
 }
 
 /**
