@@ -53,20 +53,23 @@ describe('audio transport type and handle', () => {
     expect(rules.join('\n')).toMatch(/font-variant-numeric: tabular-nums/)
   })
 
-  it('the grab handle is a 36x4 pill inside the player, in a 72x14 strip above the controls', () => {
+  it('the grab handle is a 32x3 pill in a 72x9 strip inside the player, which keeps the playing bar\'s box', () => {
     const rules = rulesFor('lab-audio-handle').join('\n')
-    expect(rules).toMatch(/top: 0;/)
+    expect(rules).toMatch(/top: -1px;/)
     expect(rules).toMatch(/width: 72px/)
-    expect(rules).toMatch(/height: 14px/)
-    expect(rules).toMatch(/padding: 5px 0 0/)
-    expect(rules).toMatch(/width: 36px/)
-    expect(rules).toMatch(/height: 4px/)
+    expect(rules).toMatch(/height: 9px/)
+    expect(rules).toMatch(/padding: 3px 0 0/)
+    expect(rules).toMatch(/width: 32px/)
+    expect(rules).toMatch(/height: 3px/)
     expect(rules).toMatch(/background: var\(--lab-ink-faint\)/)
     expect(rules).not.toMatch(/bottom: (100%|calc)/)
     expect(rules).not.toMatch(/box-shadow/)
-    // The paused player makes room for the strip with its own top padding.
+    // No extra padding on the paused player: the room comes from the controls.
     const bar = rulesFor('is-swipe-closable').join('\n')
-    expect(bar).toMatch(/padding-top: calc\(0\.2rem \+ 11px\)/)
+    expect(bar).not.toMatch(/padding/)
+    expect(bar).toMatch(/margin-top: 5px/)
+    // Each control keeps a 44px target: 39px painted plus 5px into the foot.
+    expect(bar).toMatch(/inset: 0 0 -5px/)
   })
 
   it('the corner close is gone from the phone player', () => {

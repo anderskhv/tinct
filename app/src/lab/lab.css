@@ -6637,19 +6637,31 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   position: absolute;
   inset: -6px;
 }
-/* The paused player's grab handle, inside the player like a sheet grabber:
-   a 36x4 pill 5px below the player's top edge, in a 72x14 strip that the
-   player's extra top padding keeps clear of Play, speed and skip. The player
-   is laid over the page, so the padding moves no reading text. A tap on the
-   strip closes the player; so does a swipe down anywhere on it. */
-.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-phone-bar.is-swipe-closable,
-.lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-phone-bar.is-swipe-closable {
-  padding-top: calc(0.2rem + 11px);
-  touch-action: none;
+/* The paused player's grab handle, inside the player like a sheet grabber.
+   The player keeps exactly the playing bar's box — nothing grows over the
+   page. A 32x3 pill sits 3px below its top edge, in a 72x9 tap strip across
+   the top. To make room, the controls' painted boxes start 5px lower
+   (39px tall); each control's 44px touch target runs from its painted top
+   down into the bar's foot, so the strip covers no control's target. A tap
+   on the strip closes the player; so does a swipe down anywhere on it. */
+.lab[data-chrome-version="v2"] .lab-phone-bar.is-swipe-closable { touch-action: none; }
+.lab[data-chrome-version="v2"].is-phone .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat {
+  position: relative;
+  align-self: end;
+  min-height: 0;
+  height: calc(2.75rem - 5px);
+  margin-top: 5px;
+}
+.lab[data-chrome-version="v2"].is-phone .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat::after,
+.lab[data-chrome-version="v2"].has-phone-chrome .lab-phone-bar.is-swipe-closable .lab-phone-bar-row .lab-phone-fat::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 -5px;
 }
 .lab[data-chrome-version="v2"] .lab-audio-handle {
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 50%;
   z-index: 2;
   pointer-events: auto;
@@ -6658,11 +6670,11 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   justify-content: center;
   box-sizing: border-box;
   width: 72px;
-  height: 14px;
+  height: 9px;
   margin: 0 0 0 -36px;
-  padding: 5px 0 0;
+  padding: 3px 0 0;
   border: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 6px 6px;
   background: transparent;
   cursor: pointer;
   touch-action: none;
@@ -6671,9 +6683,9 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab[data-chrome-version="v2"] .lab-audio-handle::before {
   content: '';
   display: block;
-  width: 36px;
-  height: 4px;
-  border-radius: 2px;
+  width: 32px;
+  height: 3px;
+  border-radius: 1.5px;
   background: var(--lab-ink-faint);
 }
 .lab[data-chrome-version="v2"].is-night .lab-audio-handle::before { background: var(--lab-ink-muted); }

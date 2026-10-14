@@ -6,7 +6,8 @@
 // Narration is mocked (no provider, no spend) and the player is a silent
 // stand-in, so nothing is audible. While the player is open, the paused
 // player's grab handle must sit centred inside its top edge, clear of every
-// control, and the progress line must be gone (the page
+// control's 44px touch target, the paused player must keep the playing
+// player's exact box, and the progress line must be gone (the page
 // keeps its words where they are, so the player may cover its last line); closing the player brings the
 // progress line back and keeps the reader on the same page. The opening case
 // closes with a tap on the handle, the mid-letter case with a real touch swipe
@@ -58,6 +59,16 @@ function measure(page) {
       bar: shown(bar) ? box(bar) : null,
       dismiss: shown(dismiss) ? box(dismiss) : null,
       controls: [...document.querySelectorAll('[data-testid="lab-phone-bar"] .lab-phone-bar-row button')].map(box),
+      // Each control's touch target, probed with elementFromPoint down its centre line.
+      targets: [...document.querySelectorAll('[data-testid="lab-phone-bar"] .lab-phone-bar-row button')].map(el => {
+        const r = el.getBoundingClientRect(), x = r.x + r.width / 2
+        let top = null, bottom = null
+        for (let y = Math.floor(r.y - 12); y <= Math.ceil(r.bottom + 12); y += 0.5) {
+          const hit = document.elementFromPoint(x, y)
+          if (hit && (hit === el || el.contains(hit))) { if (top === null) top = y; bottom = y }
+        }
+        return { label: el.getAttribute('aria-label'), top, bottom, height: top === null ? 0 : bottom - top + 0.5 }
+      }),
       progress: shown(progress) && shown(progressText) && progressText.textContent.trim() ? { ...box(progressText), text: progressText.textContent.trim() } : null,
       wrap: box(wrap),
       clip,
@@ -172,13 +183,22 @@ try {
   }
   check(!!paused.dismiss, 'paused: the grab handle shows')
   check(!playing.dismiss, 'playing: no grab handle')
+  if (paused.bar && playing.bar) {
+    check(Math.abs(paused.bar.y - playing.bar.y) < 0.01 && Math.abs(paused.bar.height - playing.bar.height) < 0.01,
+      `paused: the player keeps the playing player's exact box (playing ${JSON.stringify(playing.bar)}, paused ${JSON.stringify(paused.bar)})`)
+  }
   if (paused.dismiss && paused.bar) {
     const d = paused.dismiss, b = paused.bar
-    check(d.y >= b.y - 0.5 && d.bottom <= b.y + 20 && d.height >= 14 && d.width >= 72 && Math.abs((d.x + d.width / 2) - (b.x + b.width / 2)) < 1,
+    check(d.y >= b.y - 0.5 && d.bottom <= b.y + 10.5 && d.width >= 72 && Math.abs((d.x + d.width / 2) - (b.x + b.width / 2)) < 1,
       `paused: the handle strip sits centred inside the player's top edge (handle ${JSON.stringify(d)}, player ${JSON.stringify(b)})`)
     const hit = paused.controls.filter(c => c.x < d.right - 0.5 && c.right > d.x + 0.5 && c.y < d.bottom - 0.5 && c.bottom > d.y + 0.5)
     check(hit.length === 0, `paused: the handle strip covers no control (${JSON.stringify(hit)})`)
-    check(paused.last?.p === playing.last?.p && paused.last?.w === playing.last?.w, `paused: the room for the handle moves no reading text (last word ${JSON.stringify(playing.last)} → ${JSON.stringify(paused.last)})`)
+    for (const t of paused.targets) {
+      check(t.height >= 44, `paused: ${t.label} keeps a 44px touch target (${JSON.stringify(t)})`)
+    }
+    const play = paused.targets.find(t => /Resume/.test(t.label ?? ''))
+    check(!!play && play.top >= d.bottom - 0.5, `paused: Play's target starts below the handle strip (${JSON.stringify(play)}, strip bottom ${d.bottom})`)
+    check(paused.last?.p === playing.last?.p && paused.last?.w === playing.last?.w, `paused: no reading text moves (last word ${JSON.stringify(playing.last)} → ${JSON.stringify(paused.last)})`)
   }
   if (name === 'opening') {
     await page.getByRole('button', { name: 'Close audio controls' }).click()
