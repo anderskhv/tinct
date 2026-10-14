@@ -373,6 +373,12 @@ export function useLabPositionSync(args: {
     return () => window.removeEventListener('online', onOnline)
   }, [liveToken])
 
+  // A reader going away writes its last debounced note now. Left on its
+  // timer, the note was written a second later by a reader no longer there,
+  // carrying that reader's whole record (finished chapters included) into
+  // whatever the device had stored since.
+  useEffect(() => () => { controllerRef.current?.flushPending() }, [])
+
   // Bounded wait: the local place paints after this even if the cloud (or the
   // manifest it is validated against) has not answered.
   useEffect(() => {

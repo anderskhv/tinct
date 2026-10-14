@@ -661,6 +661,12 @@ export interface LabPositionController {
   applyCloud(cloud: LabPositionState, chapters: LabChapterRef[], libraryBookId?: string, options?: LabPositionMergeOptions): LabPositionState
   resume(): LabBookPlace | null
   flush(reason?: LabPlaceReason): LabPositionState
+  /**
+   * Write a still-debounced note now, exactly as its timer would have, and
+   * drop the timer. Nothing pending: no write. For a reader going away, so a
+   * dead reader's timer never writes its record later over a newer one.
+   */
+  flushPending(): LabPositionState
 }
 
 /**
@@ -687,6 +693,7 @@ export function createLabPositionController(opts: {
   /** Any note other than `hide` inside the visited book: a page turn, Play, a next chapter. */
   let visitActivity = false
   let cancelDebounce: (() => void) | null = null
+  let pendingReason: LabPlaceReason | null = null
   let cancelDwell: (() => void) | null = null
 
   const persist = (cause: LabPersistCause, reason?: LabPlaceReason) => {
@@ -700,8 +707,10 @@ export function createLabPositionController(opts: {
       return
     }
     persist('local', reason)
+    pendingReason = reason
     cancelDebounce = opts.schedule(() => {
       cancelDebounce = null
+      pendingReason = null
       persist('debounce', reason)
     }, debounceMs)
   }
@@ -819,7 +828,17 @@ export function createLabPositionController(opts: {
     flush(reason) {
       cancelDebounce?.()
       cancelDebounce = null
+      pendingReason = null
       persist('immediate', reason)
+      return state
+    },
+    flushPending() {
+      if (!cancelDebounce) return state
+      const reason = pendingReason ?? undefined
+      cancelDebounce()
+      cancelDebounce = null
+      pendingReason = null
+      persist('debounce', reason)
       return state
     },
   }

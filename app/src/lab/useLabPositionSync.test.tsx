@@ -4,6 +4,7 @@ import { act, cleanup, render, waitFor } from '@testing-library/react'
 import type { MutableRefObject } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
+  LAB_POSITION_DEBOUNCE_MS,
   LAB_POSITION_DEVICE_KEY,
   LAB_POSITION_STORAGE_KEY,
   emptyLabPositionState,
@@ -521,6 +522,31 @@ describe('writes from the reader', () => {
     expect(stored.books.proverbs?.rev).toBe(4)
     expect(stored.lastSettledBookId).toBe('proverbs')
     expect(api.puts()).toHaveLength(0)
+  })
+
+  it('writes a still-debounced page turn when the reader unmounts, never later from the dead reader', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(settledProverbsLocal()))
+    const api = stubPositionApi(Promise.resolve(null))
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    const { unmount } = render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={() => {}} />)
+    await settle()
+    act(() => { harness.markChapterFinished!(644) })
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 5, wordIndex: 0 }) })
+    await settle()
+    const putsBefore = api.puts().length
+    // The page turn is waiting on its debounce: the cloud has not had it yet.
+    unmount()
+    await settle()
+    expect(api.puts()).toHaveLength(putsBefore + 1)
+    expect(JSON.parse(String(api.puts()[putsBefore]!.init?.body)).books.proverbs).toMatchObject({ paragraphIndex: 5, wordIndex: 0 })
+    // Whatever the device stores next (here: nothing, a cleared record) is
+    // never overwritten by the gone reader's timer.
+    clearLabPositionLocal()
+    await act(async () => { vi.advanceTimersByTime(LAB_POSITION_DEBOUNCE_MS * 2) })
+    await settle()
+    expect(localStorage.getItem(LAB_POSITION_STORAGE_KEY)).toBeNull()
+    expect(api.puts()).toHaveLength(putsBefore + 1)
   })
 
   it('PUTs with keepalive on hide and flushes a dirty record when back online', async () => {
