@@ -17,10 +17,10 @@ import { searchReadingSources } from './voiceResearch'
 import {
   COMPANION_INTENT_EFFORT,
   COMPANION_LOOKUP_MODEL,
-  COMPANION_MAX_TOKENS,
   buildCompanionSystem,
   buildCompanionSystemParts,
   companionBookRef,
+  companionMaxTokens,
   companionSelectionMessage,
   companionTrailChapters,
   parseCompanionRequest,
@@ -997,7 +997,7 @@ export async function handleChat(
         ? [{ role: 'user', content: selectionMessage }]
         : Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
       const maxTokens = companion
-        ? COMPANION_MAX_TOKENS[companion.intent]
+        ? companionMaxTokens(companion)
         : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
       const stream = body.stream === true
       // Explain and Define go to the smaller model, which takes no effort setting.

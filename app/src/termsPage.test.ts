@@ -99,6 +99,12 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('the PDF and EPUB files you added and any audio, recaps and recognised text made from them')
   })
 
+  // Before you start on an own PDF (margin reader primer, 14 Oct 2026): what is sent, where the overview is kept, when it goes.
+  it('privacy: Before you start sends the unit\'s text, keeps the overview with the book, and deletes it with the book and the account', () => {
+    expect(privacyText).toContain('For Before you start on a PDF you added, the text of the chapter or section you open it on (or of the whole file if it has no contents list) is sent the same way, and the overview is kept with the book so it is not made again: if the book is in your account, privately in your account, only for you, until you redo it or remove the book.')
+    expect(privacyText).toContain('the PDF and EPUB files you added and any audio, recaps and recognised text made from them, the Before you start overviews made of them, analytics and usage records')
+  })
+
   it('terms §4: own books are processed on the reader’s instruction; the compensation follows Danish law (v3.1)', () => {
     const section4 = published.slice(published.indexOf('4. Your content and your responsibility for it'), published.indexOf('Reporting and removal'))
     expect(section4).toContain('If you add your own books, the AI features process their text on your instruction and only for you. Keep a lawful copy of any book you add.')

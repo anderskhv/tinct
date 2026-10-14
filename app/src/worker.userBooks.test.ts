@@ -9,6 +9,9 @@ import {
   MAX_ACCOUNT_BYTES,
   MAX_ACCOUNT_FILES,
   MAX_FILE_BYTES,
+  MAX_PRIMER_BYTES,
+  MAX_PRIMERS_PER_BOOK,
+  PRIMER_WRITES_PER_MINUTE,
   UPLOADS_PER_MINUTE,
   encodeMeta,
   handleUserBooks,
@@ -499,5 +502,133 @@ describe('/api/user-books/covers', () => {
     expect(r2.objects.has(`u/${A}/covers/${hex}`)).toBe(false)
     expect(r2.objects.has(`u/${A}/covers/${otherHex}`)).toBe(true)
     expect((await call(`/api/user-books/covers/${hex}`, { token: 'token-a' })).status).toBe(404)
+  })
+})
+
+describe('/api/user-books/primers', () => {
+  const primer = {
+    gist: 'The chapter sets up rate laws. Everything after uses them.',
+    claims: [{ text: 'Rates depend on concentration.', cite: '{p. 12}' }, { text: 'Order is measured.', cite: '{p. 13}' }, { text: 'Half-life is constant.', cite: '{eq. 1.2}' }],
+    keepInMind: ['Units of k change with order.'],
+    map: [{ title: '1.1 Rates', pages: 'pp. 9–10' }, { title: '1.2 Order', pages: 'pp. 11–14' }, { title: '1.3 Half-life', pages: 'p. 15' }],
+  }
+  const path = (hex: string, unit = 'outline-0') => `/api/user-books/primers/${hex}?unit=${encodeURIComponent(unit)}`
+  const putPrimer = (call: ReturnType<typeof setup>['call'], token: string | undefined, hex: string, body: unknown, unit?: string) =>
+    call(path(hex, unit), { method: 'PUT', token, body: typeof body === 'string' ? body : JSON.stringify(body), headers: { 'Content-Type': 'application/json' } })
+
+  async function withPdf() {
+    const env = setup()
+    const { book } = await (await env.upload('token-a', pdfBytes('primer'), { Title: 'Kinetics' })).json() as { book: UserBook }
+    return { ...env, book, hex: book.sha256.slice(0, 24) }
+  }
+
+  it('stores a primer per unit of an owned PDF, stamps when and which unit, and serves it back to the owner', async () => {
+    const { r2, call, hex } = await withPdf()
+    expect((await call(path(hex), { token: 'token-a' })).status).toBe(404)
+    const before = Date.now()
+    const res = await putPrimer(call, 'token-a', hex, { primer: { ...primer, madeAt: '1999-01-01T00:00:00Z', unitKey: 'forged', extra: 'dropped' } })
+    expect(res.status).toBe(200)
+    expect(res.headers.get('Cache-Control')).toBe('no-store')
+    const { primer: stored } = await res.json() as { primer: Record<string, unknown> }
+    expect(stored).toEqual({ ...primer, madeAt: stored.madeAt, unitKey: 'outline-0' })
+    expect(Date.parse(String(stored.madeAt))).toBeGreaterThanOrEqual(before - 1000)
+    const key = `u/${A}/primers/${hex}/outline-0`
+    expect(r2.objects.has(key)).toBe(true)
+    expect(r2.objects.get(key)!.httpMetadata?.contentType).toBe('application/json')
+    expect(new TextDecoder().decode(r2.objects.get(key)!.bytes)).not.toContain('Kinetics')
+    const got = await call(path(hex), { token: 'token-a' })
+    expect(got.status).toBe(200)
+    expect(await got.json()).toEqual({ primer: stored })
+    // Each unit is its own; the whole file is "all". A primer is not a book.
+    expect((await call(path(hex, 'all'), { token: 'token-a' })).status).toBe(404)
+    expect((await putPrimer(call, 'token-a', hex, { primer }, 'all')).status).toBe(200)
+    const list = await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }
+    expect(list.books).toHaveLength(1)
+  })
+
+  it('Redo replaces the stored primer for that unit', async () => {
+    const { call, hex } = await withPdf()
+    await putPrimer(call, 'token-a', hex, { primer })
+    const redo = { ...primer, gist: 'A different gist.' }
+    expect((await putPrimer(call, 'token-a', hex, { primer: redo })).status).toBe(200)
+    const { primer: got } = await (await call(path(hex), { token: 'token-a' })).json() as { primer: { gist: string } }
+    expect(got.gist).toBe('A different gist.')
+  })
+
+  it('is owner-only: signed out is 401, another account and a book not kept are 404, an EPUB has none', async () => {
+    const { r2, call, upload, hex } = await withPdf()
+    expect((await putPrimer(call, undefined, hex, { primer })).status).toBe(401)
+    expect((await call(path(hex))).status).toBe(401)
+    expect((await putPrimer(call, 'token-b', hex, { primer })).status).toBe(404)
+    expect((await putPrimer(call, 'token-a', hex, { primer })).status).toBe(200)
+    const other = await call(path(hex), { token: 'token-b' })
+    expect(other.status).toBe(404)
+    expect(other.headers.get('Cache-Control')).toBe('no-store')
+    expect([...r2.objects.keys()].some(key => key.startsWith(`u/${B}/`))).toBe(false)
+    expect((await putPrimer(call, 'token-a', 'f'.repeat(24), { primer })).status).toBe(404)
+    expect((await putPrimer(call, 'token-a', 'nope', { primer })).status).toBe(404)
+    const { book: epub } = await (await upload('token-a', epubBytes(), { Title: 'Novel' })).json() as { book: UserBook }
+    const epubPut = await putPrimer(call, 'token-a', epub.sha256.slice(0, 24), { primer })
+    expect(epubPut.status).toBe(400)
+    expect(await epubPut.json()).toEqual({ error: 'pdf_only' })
+    expect((await call(path(hex), { method: 'DELETE', token: 'token-a' })).status).toBe(405)
+  })
+
+  it('needs a valid unit key and a primer in shape', async () => {
+    const { r2, call, hex } = await withPdf()
+    for (const unit of ['', '../x', 'a/b', 'a'.repeat(65)]) {
+      const res = await putPrimer(call, 'token-a', hex, { primer }, unit)
+      expect(res.status, unit).toBe(400)
+      expect(await res.json()).toEqual({ error: 'bad_unit' })
+    }
+    expect((await call(`/api/user-books/primers/${hex}`, { token: 'token-a' })).status).toBe(400)
+    for (const body of ['not json', [], {}, { primer: null }, { primer: { ...primer, claims: primer.claims.slice(0, 2) } }, { primer: { ...primer, keepInMind: [] } }, { primer: { ...primer, map: primer.map.slice(0, 2) } }, { primer: { ...primer, gist: '' } }]) {
+      const res = await putPrimer(call, 'token-a', hex, body)
+      expect(res.status, JSON.stringify(body)).toBe(400)
+      expect(await res.json()).toEqual({ error: 'invalid_primer' })
+    }
+    // Too many items are trimmed to the counts, not refused.
+    const trimmed = await putPrimer(call, 'token-a', hex, { primer: { ...primer, claims: [...primer.claims, ...primer.claims, ...primer.claims], map: Array(12).fill(primer.map[0]) } })
+    const { primer: kept } = await trimmed.json() as { primer: { claims: unknown[]; map: unknown[] } }
+    expect(kept.claims).toHaveLength(5)
+    expect(kept.map).toHaveLength(8)
+    // A stored object out of shape is not served.
+    r2.objects.get(`u/${A}/primers/${hex}/outline-0`)!.bytes = new TextEncoder().encode('{"gist":1}')
+    expect((await call(path(hex), { token: 'token-a' })).status).toBe(404)
+  })
+
+  it('caps the body (declared or streamed), rate-limits writes and the number of units per book', async () => {
+    const { r2, call, hex } = await withPdf()
+    const big = JSON.stringify({ primer, pad: 'x'.repeat(MAX_PRIMER_BYTES) })
+    const declared = await putPrimer(call, 'token-a', hex, big)
+    expect(declared.status).toBe(413)
+    expect(await declared.json()).toEqual({ error: 'primer_too_large', maxBytes: 32 * 1024 })
+    const bytes = new TextEncoder().encode(big)
+    const streamed = new ReadableStream<Uint8Array>({ start(c) { c.enqueue(bytes.subarray(0, 20_000)); c.enqueue(bytes.subarray(20_000)); c.close() } })
+    expect((await call(path(hex), { method: 'PUT', token: 'token-a', body: streamed, duplex: 'half' } as RequestInit)).status).toBe(413)
+
+    // Units per book: a new unit past the cap is refused; an existing one can still be redone.
+    for (let i = 0; i < MAX_PRIMERS_PER_BOOK; i++) r2.objects.set(`u/${A}/primers/${hex}/u${i}`, { key: `u/${A}/primers/${hex}/u${i}`, bytes: new Uint8Array(2), uploaded: new Date(), customMetadata: {} })
+    const full = await putPrimer(call, 'token-a', hex, { primer }, 'one-more')
+    expect(full.status).toBe(409)
+    expect(await full.json()).toEqual({ error: 'too_many_primers', max: MAX_PRIMERS_PER_BOOK })
+    expect((await putPrimer(call, 'token-a', hex, { primer }, 'u0')).status).toBe(200)
+
+    let last = 200
+    for (let i = 0; i < PRIMER_WRITES_PER_MINUTE + 1; i++) last = (await putPrimer(call, 'token-a', hex, { primer }, 'u1')).status
+    expect(last).toBe(429)
+  })
+
+  it('deletes every primer with the book, and only that book\'s', async () => {
+    const { r2, call, upload, book, hex } = await withPdf()
+    const { book: other } = await (await upload('token-a', pdfBytes('other'), { Title: 'Other' })).json() as { book: UserBook }
+    const otherHex = other.sha256.slice(0, 24)
+    await putPrimer(call, 'token-a', hex, { primer }, 'outline-0')
+    await putPrimer(call, 'token-a', hex, { primer }, 'outline-1')
+    await putPrimer(call, 'token-a', otherHex, { primer }, 'all')
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect([...r2.objects.keys()].filter(key => key.startsWith(`u/${A}/primers/${hex}/`))).toEqual([])
+    expect(r2.objects.has(`u/${A}/primers/${otherHex}/all`)).toBe(true)
+    expect((await call(path(hex), { token: 'token-a' })).status).toBe(404)
   })
 })

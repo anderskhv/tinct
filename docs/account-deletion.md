@@ -116,9 +116,12 @@ for the chapter in progress, per book, routes/ownCatchUp.ts), never the text.
 the account copy (`u/<id>/covers/<bookHex>`: book hex, size, when stored;
 JPEG or WebP, at most 64 KB), without the bytes; the reader sees each one on
 My shelf while signed in.
+`r2.ownBookPrimers` counts the Before you start primers of own PDFs (AI text
+about one unit of the reader's file, `u/<id>/primers/<bookHex>/<unitKey>`,
+JSON, at most 32 KB each): units and bytes per book hex, never the text.
 Deleting one book from Your books (`DELETE /api/user-books/<fileId>`) deletes
-that book's narration, recaps, place and cover (`u/<id>/narration/<bookHex>/`,
-`u/<id>/recaps/<bookHex>/`, `u/<id>/places/<bookHex>`,
+that book's narration, recaps, primers, place and cover (`u/<id>/narration/<bookHex>/`,
+`u/<id>/recaps/<bookHex>/`, `u/<id>/primers/<bookHex>/`, `u/<id>/places/<bookHex>`,
 `u/<id>/covers/<bookHex>`) with the file.
 
 `r2.ownOcr` lists the reader's requests to recognise the text of a scanned own
@@ -145,7 +148,7 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    private `tinct-user-books` bucket (the reader's own PDF/EPUB files, their
    narration under `u/<id>/narration/`, their Catch me up recaps under
    `u/<id>/recaps/`, places under `u/<id>/places/`, cover images under
-   `u/<id>/covers/` and text recognised from scanned PDFs under `u/<id>/ocr/`,
+   `u/<id>/covers/`, Before you start primers under `u/<id>/primers/` and text recognised from scanned PDFs under `u/<id>/ocr/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
    none remain; then every object under `profile/<id>/` in the same bucket
    (profile pictures and backgrounds, `app/src/worker/routes/profiles.ts`).
