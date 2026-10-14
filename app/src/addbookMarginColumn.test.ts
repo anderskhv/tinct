@@ -1,0 +1,251 @@
+/**
+ * The PDF reader's margin, PR 2 (docs/margin/BRIEF.md §3, §4, §6): the pure rules in
+ * public/lab/addbook/js/margin.js for the column (card placement and its invariants, leader
+ * lines, the column's place), citation tags and where they scroll to, the card store (a view
+ * over the kept answers and noted highlights, merged across devices) and the cards' markup.
+ * No network and no AI.
+ */
+import { createRequire } from 'node:module'
+import { resolve } from 'node:path'
+import { beforeAll, describe, expect, it } from 'vitest'
+import * as P from '../public/lab/margin/margin-parse.js'
+
+const require = createRequire(import.meta.url)
+const ROOT = resolve(__dirname, '../..') + '/'
+type Card = { id: string; kind: string; page: number; rects: number[][]; text: string; turns?: Array<{ role: string; content: string }>; data?: Record<string, unknown>; at: number; u?: number; gone?: boolean; note?: string }
+type Placed = { positions: Array<{ id: string; top: number; height: number }>; gathered: string[]; stack: { top: number; height: number } | null }
+type Token = { type: 'cite'; kind: string; label: string; to?: string; raw: string }
+interface MarginApi {
+  COL: Record<string, number>
+  COLUMN_RESERVE: number
+  placeCards(passages: Array<{ id: string; top: number }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number }): Placed
+  leadPath(x0: number, y0: number, x1: number, y1: number): string
+  columnBox(width: number, pageRight: number): { left: number; width: number } | null
+  citeTarget(token: Token, o: { labels?: string[] | null; count?: number; texts?: Map<number, string> | null }): { page: number; needle: string } | null
+  cardView(cards: Card[], marks: Array<Record<string, unknown>>): Card[]
+  mergeCards(...sets: Card[][]): Card[]
+  newCard(o: Record<string, unknown>): Card
+  quizScore(q: Record<string, unknown>): number
+  quizReread(q: Record<string, unknown>): number
+  html: {
+    cardHtml(card: Card, o: Record<string, unknown>): string
+    answerHtml(text: string, p: typeof P, o?: Record<string, unknown>): string
+    factcheckHtml(text: string, p: typeof P, o?: Record<string, unknown>): { answer: string; sources: string }
+    stackHtml(cards: Array<{ kind: string }>, max?: number): string
+    foldText(card: Card, p: typeof P): string
+    threadHtml(rows: unknown[], turns: unknown[], o: Record<string, unknown>): string
+  }
+}
+let M: MarginApi
+beforeAll(() => {
+  require(ROOT + 'app/public/lab/addbook/js/margin.js')
+  M = (globalThis as unknown as { TinctMargin: MarginApi }).TinctMargin
+})
+
+/* ---------- Placement: (passages, cardHeights, columnHeight) -> positions + gathered ---------- */
+function rng(seed: number) { return () => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff } }
+function invariants(passages: Array<{ id: string; top: number }>, heights: number[], H: number, out: Placed, open: string | null) {
+  const boxes = out.positions.map(p => ({ ...p, bottom: p.top + p.height }))
+  // Order follows the page.
+  const order = passages.map(p => p.id)
+  for (let i = 1; i < boxes.length; i++) expect(order.indexOf(boxes[i].id)).toBeGreaterThan(order.indexOf(boxes[i - 1].id))
+  // No two boxes intersect, and every gap is at least 14px (the "more" row included).
+  const all = [...boxes, ...(out.stack ? [{ id: 'stack', top: out.stack.top, bottom: out.stack.top + out.stack.height }] : [])]
+  for (let i = 1; i < all.length; i++) expect(all[i].top - all[i - 1].bottom).toBeGreaterThanOrEqual(14 - 1e-9)
+  // Nothing ends within 46px of the foot; the row ends by the foot; nothing above the column.
+  for (const b of boxes) { expect(b.bottom).toBeLessThanOrEqual(H - 46 + 1e-9); expect(b.top).toBeGreaterThanOrEqual(0) }
+  if (out.stack) expect(out.stack.top + out.stack.height).toBeLessThanOrEqual(H + 1e-9)
+  // The open card is never gathered; every card is placed or gathered, once.
+  if (open) { expect(out.gathered).not.toContain(open); expect(boxes.some(b => b.id === open)).toBe(true) }
+  expect([...boxes.map(b => b.id), ...out.gathered].sort()).toEqual([...order].sort())
+  // A gathered card leaves no stack-less gathering, and the row says how many.
+  expect(!!out.stack).toBe(out.gathered.length > 0)
+  // Heights are kept (the open card's at most the room there is).
+  for (const b of boxes) expect(b.height).toBe(Math.min(heights[order.indexOf(b.id)], H - 48))
+}
+
+describe('card placement', () => {
+  it('a card sits at its passage’s first line less 4px; a collision moves it 14px below the card before', () => {
+    const out = M.placeCards([{ id: 'a', top: 100 }, { id: 'b', top: 120 }, { id: 'c', top: 400 }], [60, 60, 60], 700)
+    expect(out.positions).toEqual([{ id: 'a', top: 96, height: 60 }, { id: 'b', top: 170, height: 60 }, { id: 'c', top: 396, height: 60 }])
+    expect(out.gathered).toEqual([])
+    expect(out.stack).toBeNull()
+  })
+  it('two passages on the same line keep the page’s order and do not overlap', () => {
+    const out = M.placeCards([{ id: 'left', top: 200 }, { id: 'right', top: 200 }], [50, 50], 700)
+    expect(out.positions.map(p => [p.id, p.top])).toEqual([['left', 196], ['right', 260]])
+  })
+  it('a card that would end within 46px of the foot gathers into the "more" row, and every card after it', () => {
+    const out = M.placeCards([{ id: 'a', top: 100 }, { id: 'b', top: 500 }, { id: 'c', top: 520 }, { id: 'd', top: 300 }], [80, 160, 40, 40], 700, { stackHeight: 34 })
+    expect(out.positions.map(p => p.id)).toEqual(['a'])
+    expect(out.gathered).toEqual(['b', 'c', 'd'])
+    expect(out.stack).toEqual({ top: 96 + 80 + 14, height: 34 })
+  })
+  it('the open card is never gathered: it keeps its place or moves up, and the cards before it make room', () => {
+    const out = M.placeCards([{ id: 'a', top: 300 }, { id: 'b', top: 320 }, { id: 'open', top: 600 }], [60, 60, 300], 700, { open: 'open' })
+    const open = out.positions.find(p => p.id === 'open')!
+    expect(open.top + open.height).toBeLessThanOrEqual(700 - 48)
+    invariants([{ id: 'a', top: 300 }, { id: 'b', top: 320 }, { id: 'open', top: 600 }], [60, 60, 300], 700, out, 'open')
+    // A passage at the very bottom of the screen: its open card stays inside the column.
+    const low = M.placeCards([{ id: 'x', top: 690 }], [200], 700, { open: 'x' })
+    expect(low.positions[0].top + 200).toBeLessThanOrEqual(700 - 46)
+    // At the very top: none sits above the column (under the top bar).
+    expect(M.placeCards([{ id: 'y', top: -30 }], [80], 700).positions[0].top).toBe(0)
+  })
+  it('an open card taller than the column keeps the room there is (its body scrolls)', () => {
+    const out = M.placeCards([{ id: 'long', top: 50 }], [2400], 700, { open: 'long' })
+    expect(out.positions).toEqual([{ id: 'long', top: 0, height: 700 - 48 }])
+  })
+  it('ten cards on one page, with any heights, any open card: the invariants always hold', () => {
+    const r = rng(7)
+    for (let run = 0; run < 400; run++) {
+      const n = 1 + Math.floor(r() * 10), H = 300 + Math.floor(r() * 700)
+      const tops = Array.from({ length: n }, () => Math.floor(r() * (H + 100)) - 50).sort((a, b) => a - b)
+      const passages = tops.map((top, i) => ({ id: 'c' + i, top }))
+      const heights = passages.map(() => 30 + Math.floor(r() * (r() < 0.2 ? 900 : 160)))
+      const open = r() < 0.6 ? passages[Math.floor(r() * n)].id : null
+      invariants(passages, heights, H, M.placeCards(passages, heights, H, { open, stackHeight: 34 }), open)
+    }
+  })
+})
+
+describe('the column and its leader lines', () => {
+  it('380px, 56px right of the page, at least 24px from the window; hidden below 1180px (marks instead)', () => {
+    expect(M.columnBox(1440, 980)).toEqual({ left: 1036, width: 380 })
+    expect(M.columnBox(1440, 1200)).toEqual({ left: 1440 - 24 - 380, width: 380 })
+    expect(M.columnBox(1181, 700)).toEqual({ left: 756, width: 380 })
+    expect(M.columnBox(1179, 700)).toBeNull()
+    // The page area leaves room for the gap, the column and its margin (the docked chat's --dock-w).
+    expect(M.COLUMN_RESERVE + 14 + 16).toBe(56 + 380 + 24)
+  })
+  it('a line from the dot (8px right of the page) curves to the card’s label line, as the mockup draws it', () => {
+    expect(M.leadPath(752, 330, 794, 360)).toBe('M752 330 C 776 330 772 360 794 360')
+    expect(M.COL.dot).toBe(8)
+    expect(M.COL.r).toBe(2.6)
+  })
+})
+
+describe('citation tags', () => {
+  const tok = (text: string) => P.citationTokens(text)[0] as Token
+  const texts = new Map([[3, 'Section text (1.1) more'], [4, 'Figure 1.3. The bars\n2.4 Results follow'], [5, 'Table 2: values and Eq. 7']])
+  it('a page citation scrolls to the page with that printed label, else that page number when the PDF has no labels', () => {
+    const labels = ['i', 'ii', '1', '2', '3']
+    expect(M.citeTarget(tok('{p. 3}'), { labels, count: 5 })).toEqual({ page: 5, needle: '' })
+    expect(M.citeTarget(tok('{p. ii}'), { labels, count: 5 })).toEqual({ page: 2, needle: '' })
+    expect(M.citeTarget(tok('{pp. 1–2}'), { labels, count: 5 })).toEqual({ page: 3, needle: '' })
+    expect(M.citeTarget(tok('{p. 9}'), { labels, count: 5 })).toBeNull()
+    expect(M.citeTarget(tok('{p. 4}'), { labels: null, count: 5 })).toEqual({ page: 4, needle: '' })
+    expect(M.citeTarget(tok('{p. 6}'), { labels: null, count: 5 })).toBeNull()
+  })
+  it('equations, figures, tables and sections scroll to the page that prints them; unknown ones resolve to nothing', () => {
+    expect(M.citeTarget(tok('{eq. 1.1}'), { count: 5, texts })).toEqual({ page: 3, needle: '(1.1)' })
+    expect(M.citeTarget(tok('{eq. 7}'), { count: 5, texts })).toEqual({ page: 5, needle: 'Eq. 7' })
+    expect(M.citeTarget(tok('{fig. 1.3}'), { count: 5, texts })).toEqual({ page: 4, needle: 'Figure 1.3' })
+    expect(M.citeTarget(tok('{table 2}'), { count: 5, texts })).toEqual({ page: 5, needle: 'Table 2' })
+    expect(M.citeTarget(tok('{sec. 2.4}'), { count: 5, texts })?.page).toBe(4)
+    expect(M.citeTarget(tok('{fig. 1.4}'), { count: 5, texts })).toBeNull()
+    expect(M.citeTarget(tok('{eq. 1.1}'), { count: 5, texts: null })).toBeNull()
+  })
+  it('a resolvable token renders as a tag carrying its page; an unresolvable one stays text', () => {
+    const resolveTag = (t: Token) => M.citeTarget(t, { labels: null, count: 5, texts })
+    const html = M.html.answerHtml('It holds {p. 4}. See {fig. 9.9} and {eq. 1.1}.', P, { resolve: resolveTag })
+    expect(html).toContain('<button type="button" class="mr-cite" data-page="4">p. 4</button>')
+    expect(html).toContain('{fig. 9.9}')
+    expect(html).toContain('<button type="button" class="mr-cite" data-page="3" data-needle="(1.1)">eq. 1.1</button>')
+    expect(M.html.answerHtml('No tags here {p. 4}.', P)).toContain('{p. 4}')
+  })
+})
+
+describe('the answer in a card', () => {
+  it('the first sentence of the first paragraph is the bottom line, in weight 600; Markdown bold is never parsed', () => {
+    const html = M.html.answerHtml('Because the tosses are independent. So the variances add.\n\nA second paragraph.', P)
+    expect(html).toBe('<p><span class="is-bottom-line">Because the tosses are independent.</span> So the variances add.</p><p>A second paragraph.</p>')
+    const bold = M.html.answerHtml('The **first** words. More.', P)
+    expect(bold).toBe('<p><span class="is-bottom-line">The first words.</span> More.</p>')
+    expect(bold).not.toContain('<strong>')
+  })
+  it('a wide equation in a code fence is its own block (it scrolls sideways inside the answer)', () => {
+    expect(M.html.answerHtml('The bottom line.\n\n```\nx = a + b + c + d\n```', P)).toContain('<pre>x = a + b + c + d</pre>')
+  })
+  it('Fact-check: the verdict line, each claim’s verdict word in italic secondary, sources as plain links', () => {
+    const f = M.html.factcheckHtml('Holds. The standard form.\n\nHolds. Below 1% from x = 9.\n\nNote. Context.\n\nSources: [NIST](https://dlmf.nist.gov/5.11) · [Wikipedia](https://en.wikipedia.org/wiki/S)', P)
+    expect(f.answer).toContain('<span class="is-bottom-line">Holds. The standard form.</span>')
+    expect(f.answer).toContain('<p><span class="mr-verdict">Holds.</span> Below 1% from x = 9.</p>')
+    expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> Context.</p>')
+    expect(f.sources).toBe('<div class="mr-sources"><a href="https://dlmf.nist.gov/5.11" target="_blank" rel="noopener noreferrer">NIST</a><a href="https://en.wikipedia.org/wiki/S" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>')
+  })
+  it('open cards: label and close, the passage quoted (cut at 120), the bubble for Ask only, copy, the follow-up line', () => {
+    const base = { id: 'c1', page: 12, rects: [[12, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'x'.repeat(200) }
+    const ask = M.html.cardHtml({ ...base, kind: 'ask', turns: [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'Because. More.' }] }, { open: true, P, pageLabel: '12' })
+    expect(ask).toContain('<span class="mr-card__name">Ask · p. 12</span>')
+    expect(ask).toContain('class="mr-card__close"')
+    expect(ask).toContain('<div class="mr-you">Why?</div>')
+    expect(ask).toMatch(/<div class="mr-quote">x{119}…<\/div>/)
+    expect(ask).toContain('data-c="copy"')
+    expect(ask).toContain('class="mr-follow"')
+    const simplify = M.html.cardHtml({ ...base, kind: 'simplify', turns: [{ role: 'assistant', content: 'Plainly. Words.' }] }, { open: true, P, pageLabel: '12' })
+    expect(simplify).not.toContain('mr-you')
+    // While Fact-check searches: the status line, no copy yet.
+    const checking = M.html.cardHtml({ ...base, kind: 'factcheck', turns: [] }, { open: true, P, pageLabel: '12', live: '', status: 'Checking sources…' })
+    expect(checking).toContain('<p class="mr-status" role="status">Checking sources…</p>')
+    expect(checking).not.toContain('data-c="copy"')
+    // Folded: the label and two lines' words, no tags.
+    const folded = M.html.cardHtml({ ...base, kind: 'explain', turns: [{ role: 'assistant', content: 'Each bar {p. 12} is a chance.' }] }, { open: false, P, pageLabel: '12' })
+    expect(folded).toBe('<button type="button" class="mr-card__label" data-c="open">Explain · p. 12</button><div class="mr-card__text">Each bar is a chance.</div>')
+  })
+  it('Quiz me: "1 of 3", the question, Show answer; marked: the bubble, Right./Nearly./Not yet., the cite, Next question →; then the score and the one to reread', () => {
+    const questions = [{ q: 'Q one?', answer: '2.5', why: 'Because.', cite: '{p. 12}' }, { q: 'Q two?', answer: 'B', why: '', cite: '' }, { q: 'Q three?', answer: 'C', why: '', cite: '{eq. 1.2}' }]
+    const quiz = (data: Record<string, unknown>) => ({ id: 'q', kind: 'quiz', page: 12, rects: [[12, 0, 0, 1, 0.02]], text: 'p', at: 1, data: { questions, i: 0, results: [], ...data } })
+    const resolveTag = () => ({ page: 12, needle: '' })
+    const ask = M.html.cardHtml(quiz({}), { open: true, P, pageLabel: '12', resolve: resolveTag })
+    expect(ask).toContain('<span class="mr-card__count">1 of 3</span>')
+    expect(ask).toContain('<div class="mr-question">Q one?</div>')
+    expect(ask).toContain('data-c="show">Show answer</button>')
+    const marked = M.html.cardHtml(quiz({ results: [{ answer: '2.5', verdict: 'right', feedback: 'Yes.' }] }), { open: true, P, pageLabel: '12', resolve: resolveTag })
+    expect(marked).toContain('<div class="mr-you">2.5</div><div class="mr-answer"><p><span class="is-bottom-line">Right.</span> Yes. <button type="button" class="mr-cite" data-page="12">p. 12</button></p></div>')
+    expect(marked).toContain('Next question →')
+    expect(marked).not.toContain('Show answer')
+    const shown = M.html.cardHtml(quiz({ results: [{ shown: true }] }), { open: true, P, pageLabel: '12' })
+    expect(shown).toContain('<span class="is-bottom-line">2.5</span> Because.')
+    const done = { questions, i: 2, done: true, results: [{ answer: 'a', verdict: 'right' }, { answer: 'b', verdict: 'nearly' }, { answer: 'c', verdict: 'right' }] }
+    expect(M.quizScore(done)).toBe(2)
+    expect(M.quizReread(done)).toBe(1)
+    expect(M.quizReread({ questions, results: [{ verdict: 'nearly' }, { verdict: 'not_yet' }, { shown: true }] })).toBe(1)
+    expect(M.quizReread({ questions, results: [{ verdict: 'right' }, { verdict: 'right' }, { verdict: 'right' }] })).toBe(-1)
+    const doneHtml = M.html.cardHtml(quiz(done), { open: true, P, pageLabel: '12' })
+    expect(doneHtml).toContain('<span class="is-bottom-line">2 of 3</span>')
+    expect(doneHtml).toContain('<p>Q two?</p>')
+    expect(doneHtml).not.toContain('mr-follow')
+  })
+  it('the "more" row: "{n} more on this page" and the kinds that fit', () => {
+    expect(M.html.stackHtml([{ kind: 'note' }, { kind: 'counterpoint' }, { kind: 'note' }])).toBe('<span>3 more on this page</span><span>Your note · Counterpoint</span>')
+    expect(M.html.stackHtml([{ kind: 'note' }, { kind: 'counterpoint' }], 1)).toBe('<span>2 more on this page</span><span>Your note</span>')
+  })
+})
+
+describe('the card store', () => {
+  const card = (id: string, u: number, extra: Partial<Card> = {}): Card => ({ id, kind: 'explain', page: 2, rects: [[2, 0.1, 0.3, 0.5, 0.02]], text: 't', turns: [], at: 1, u, ...extra })
+  it('merges two devices’ cards as the highlights merge: a union by id, the newer edit wins, a removal is a tombstone', () => {
+    const a = [card('c1', 5, { turns: [{ role: 'assistant', content: 'old' }] }), card('c2', 5)]
+    const b = [card('c1', 9, { turns: [{ role: 'assistant', content: 'new' }] }), { id: 'c2', gone: true, u: 7 } as Card, card('c3', 3)]
+    const merged = M.mergeCards(a, b)
+    expect(merged.find(c => c.id === 'c1')?.turns?.[0].content).toBe('new')
+    expect(merged.find(c => c.id === 'c2')?.gone).toBe(true)
+    expect(merged.map(c => c.id).sort()).toEqual(['c1', 'c2', 'c3'])
+    expect(M.mergeCards(b, a)).toEqual(merged)
+  })
+  it('the view: kept answers not removed, and every highlight with a note, in page order (line, then left to right)', () => {
+    const cards = [card('late', 1, { rects: [[3, 0.1, 0.1, 0.2, 0.02]] }), card('right', 1, { rects: [[2, 0.6, 0.5, 0.2, 0.02]] }), card('left', 1, { rects: [[2, 0.1, 0.501, 0.2, 0.02]] }), { id: 'g', gone: true, u: 1 } as Card]
+    const marks = [{ id: 'm1', page: 2, rects: [[0.1, 0.2, 0.4, 0.02]], text: 'p', color: 'gold', note: 'Mine.', at: 1 }, { id: 'm2', page: 2, rects: [[0.1, 0.3, 0.4, 0.02]], text: 'p', color: 'sky', at: 1 }]
+    const view = M.cardView(cards, marks)
+    expect(view.map(c => c.id)).toEqual(['n-m1', 'left', 'right', 'late'])
+    expect(view[0]).toMatchObject({ kind: 'note', note: 'Mine.', rects: [[2, 0.1, 0.2, 0.4, 0.02]] })
+  })
+  it('a new card keeps its passage in page fractions and bounds its words', () => {
+    const c = M.newCard({ kind: 'simplify', page: 4, anchor: [{ n: 4, x: 0.123456, y: 0.5, w: 0.2, h: 0.01 }], text: 'y'.repeat(3000), at: 1000 })
+    expect(c).toMatchObject({ kind: 'simplify', page: 4, rects: [[4, 0.1235, 0.5, 0.2, 0.01]], at: 1000, u: 1000, turns: [] })
+    expect(c.text).toHaveLength(2000)
+    expect(c.id).toMatch(/^[0-9a-z]{4,32}$/)
+  })
+})
+

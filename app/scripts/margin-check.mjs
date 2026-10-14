@@ -9,6 +9,10 @@
 //   node scripts/margin-check.mjs behaviour         the bar's actions, highlight default, notes and their sync on two devices,
 //                                                     Define offline and online, Copy quote (all AI mocked)
 //   node scripts/margin-check.mjs pairs               fixture pieces beside the same mockup frames, Paper and Night
+//   node scripts/margin-check.mjs column [pdf ...]    PR 2: the column, cards, marks and the bottom card across the
+//                                                     brief's stress matrix (7 viewports × 4 looks × 100%/125% zoom)
+//                                                     with its content cases (crowding, edges, long answers, …)
+//   node scripts/margin-check.mjs resize [pdf ...]    PR 2: resizing across 1180px with a card open
 //
 // Every problem list must be empty: the script exits 1 otherwise. OUT (default ./artifacts/margin)
 // receives the screenshots and results.json. CHROMIUM_PATH picks the browser (default
@@ -37,15 +41,23 @@ const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/pr
 export const SELECTORS = {
   ...DEFAULT_SELECTORS,
   menu: '.mr-more, .mr-pmore, .mr-define, .mr-note',
-  text: DEFAULT_SELECTORS.text + ', .mr-note *',
-  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item',
+  text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *',
+  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark',
+}
+// A long answer scrolls inside its open card (BRIEF.md, "A 600-word answer": the card scrolls, its
+// label and follow-up line stay). Lines scrolled out of that body are not cut off by a container
+// edge, so "clipped" inside the card's own scrolling body (or the thread's) is not a problem; every
+// other check, and "clipped" everywhere else, stands.
+const scrolledAway = p => p.kind === 'clipped' && /^\.mr-card__body\b/.test(p.in || '')
+export async function checkMargin(page, selectors = SELECTORS) {
+  return (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p))
 }
 const LOOKS = (process.env.LOOKS || 'paper,book,night,eink').split(',')
 const VIEWPORTS = (process.env.VIEWPORTS || '1440x900,1280x800,1024x768,390x844,360x740').split(',').map(v => v.split('x').map(Number))
 
 /* ---------- A local stand-in for the site ---------- */
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.woff2': 'font/woff2', '.woff': 'font/woff', '.svg': 'image/svg+xml', '.png': 'image/png', '.gz': 'application/gzip', '.pdf': 'application/pdf' }
-const account = { books: [], marks: new Map(), requests: [] }
+const account = { books: [], marks: new Map(), cards: new Map(), requests: [] }
 function addBook(file) {
   const bytes = readFileSync(file), sha256 = createHash('sha256').update(bytes).digest('hex')
   if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: basename(file), title: basename(file, '.pdf'), author: '', type: 'pdf', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
@@ -53,12 +65,30 @@ function addBook(file) {
 }
 const json = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) }
 const readBody = req => new Promise(r => { const parts = []; req.on('data', c => parts.push(c)); req.on('end', () => r(Buffer.concat(parts))) })
-// A mocked companion: a definition for `define`, a short answer otherwise, streamed as the Worker relays it.
-function mockChat(body, res) {
-  const define = body?.companion?.intent === 'define'
-  const text = define ? JSON.stringify({ kind: 'definition', definition: `Noun. A mocked meaning of “${body.companion.selection}” here.` }) : 'MOCK ANSWER. The bottom line comes first.\n\nThen a short paragraph.'
+// A mocked companion, per intent, streamed as the Worker relays it: a definition for `define`, the
+// sense number for `define_sense`, Quiz me's JSON and its marking, Fact-check with its "Checking
+// sources…" status before the answer, and an answer with a bottom line and a citation otherwise.
+// `mock.next` (set by a check) replaces the next answer's text, for the long and odd answers.
+export const mock = { next: null, delay: 0 }
+function mockText(body) {
+  const c = body?.companion || {}, intent = c.intent
+  if (mock.next != null) { const t = mock.next; mock.next = null; return t }
+  if (intent === 'define') return JSON.stringify({ kind: 'definition', definition: `Noun. A mocked meaning of “${c.selection}” here.` })
+  if (intent === 'define_sense') return JSON.stringify({ sense: 2 })
+  if (intent === 'quiz') return JSON.stringify({ questions: [
+    { q: 'MOCK Q1. What does the passage name first?', answer: 'Ideas', why: 'The first kind is named first.', cite: '{p. 1}' },
+    { q: 'MOCK Q2. Why are the two kinds kept apart?', answer: 'They are known differently', why: 'One is certain, one is not.', cite: '{p. 1}' },
+    { q: 'MOCK Q3. Where would a new case go?', answer: 'Matters of fact', why: 'It depends on experience.', cite: '{p. 2}' } ] })
+  if (intent === 'quiz_check') { const a = String(c.quiz?.answer || '').toLowerCase(); return JSON.stringify(a.includes(String(c.quiz?.expected || '').toLowerCase().split(' ')[0]) ? { verdict: 'right', feedback: 'MOCK: that is the key step.' } : { verdict: 'not_yet', feedback: 'MOCK: reread how the two kinds differ.' }) }
+  if (intent === 'factcheck') return 'Holds. MOCK verdict line for the passage.\n\nHolds. The first claim stands as written.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)'
+  return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
+}
+async function mockChat(body, res) {
+  const text = mockText(body)
   if (!body?.stream) return json(res, 200, { content: [{ type: 'text', text }] })
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
+  if (body?.companion?.intent === 'factcheck') { res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`); await new Promise(r => setTimeout(r, mock.delay || 400)) }
+  else if (mock.delay) await new Promise(r => setTimeout(r, mock.delay))
   res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\n`)
   res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
 }
@@ -68,18 +98,18 @@ function start(port) {
     const p = url.pathname
     if (req.method === 'POST' && (p === '/api/chat' || p === '/api/lab-chat')) {
       const body = JSON.parse((await readBody(req)).toString() || '{}'); account.requests.push({ path: p, body })
-      return mockChat(body, res)
+      return await mockChat(body, res)
     }
     if (p === '/api/user-books') return json(res, 200, { books: account.books.map(({ bytes, ...b }) => b) })
     if (p === '/api/user-books/places') return json(res, 200, { places: {} })
     if (p.startsWith('/api/user-books/places/') || p.startsWith('/api/user-books/covers/')) { await readBody(req); return json(res, 200, { place: null, cover: null }) }
-    if (p.startsWith('/api/user-books/marks/')) {
+    for (const [kind, field] of [['marks', 'marks'], ['cards', 'cards']]) if (p.startsWith(`/api/user-books/${kind}/`)) {
       // As the Worker: one versioned set per book; a stale revision gets 409 and the stored set.
-      const hex = p.slice('/api/user-books/marks/'.length), have = account.marks.get(hex) || { marks: [], rev: 0 }
+      const hex = p.slice(`/api/user-books/${kind}/`.length), have = account[kind].get(hex) || { [field]: [], rev: 0 }
       if (req.method === 'GET') return json(res, 200, have)
       const body = JSON.parse((await readBody(req)).toString() || '{}')
       if (body.rev !== have.rev) return json(res, 409, { error: 'conflict', ...have })
-      account.marks.set(hex, { marks: body.marks, rev: have.rev + 1 }); return json(res, 200, { rev: have.rev + 1 })
+      account[kind].set(hex, { [field]: body[field], rev: have.rev + 1 }); return json(res, 200, { rev: have.rev + 1 })
     }
     if (p.startsWith('/api/user-books/')) { const b = account.books.find(x => x.id === p.slice('/api/user-books/'.length)); if (!b) return json(res, 404, { error: 'Not found' }); res.writeHead(200, { 'Content-Type': 'application/pdf' }); return res.end(b.bytes) }
     if (p.startsWith('/api/')) return json(res, 404, { error: 'Not found' })
@@ -95,9 +125,10 @@ function start(port) {
 
 /* ---------- The reader, signed in, with a PDF from the account ---------- */
 const SESSION = { access_token: 'test-token', refresh_token: 'x', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: '00000000-0000-4000-8000-000000000001', email: 'reader@example.com', user_metadata: {} } }
-async function readerPage(browser, origin, hex, { width, height, look, startPage = 1 }) {
+async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1 }) {
+  // Browser zoom: the CSS viewport shrinks by the zoom and each CSS pixel takes `zoom` device pixels.
   const phone = width < 700
-  const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: phone, isMobile: false })
+  const ctx = await browser.newContext({ viewport: { width: Math.round(width / zoom), height: Math.round(height / zoom) }, deviceScaleFactor: zoom, hasTouch: phone, isMobile: false })
   await ctx.addInitScript(([session, look, hex]) => {
     try {
       localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
@@ -194,7 +225,7 @@ async function fixtureRows(browser, origin) {
     const page = await ctx.newPage()
     await page.goto(`${origin}/lab/addbook/margin-fixture.html?look=${look}`)
     await page.waitForFunction(() => document.documentElement.dataset.ready === 'true')
-    const list = await checkLayout(page, { selectors: { ...SELECTORS, frame: '.strip-frame, .ph' } })
+    const list = await checkMargin(page, { ...SELECTORS, frame: '.strip-frame, .ph, .dk, .cardbg' })
     rows.push({ fixture: 'margin-fixture.html', look, problems: list.length, details: list, screenshot: await shot(page, `fixture-${look}`) })
     console.log(`fixture ${look}: ${list.length} problem(s)`)
     await ctx.close()
@@ -205,7 +236,12 @@ async function fixtureRows(browser, origin) {
 // Each fixture frame beside the mockup's same frame, at the same pixel size. The mockup sets its
 // controls in Inter (the stand-in it uses for the Apple system face); the fixture is given the same
 // face here so the pair compares spacing, size, weight and colour rather than this machine's fonts.
-const PAIRS = [['bar', '[data-strip="a"]'], ['asking', '[data-strip="b"]'], ['more', '[data-strip="c"]'], ['highlight', '[data-strip="d"]'], ['define', '[data-strip="e"]'], ['phone-bar', '[data-ph="a"]'], ['phone-more', '[data-ph="b"]']]
+const PAIRS = [['bar', '[data-strip="a"]'], ['asking', '[data-strip="b"]'], ['more', '[data-strip="c"]'], ['highlight', '[data-strip="d"]'], ['define', '[data-strip="e"]'], ['phone-bar', '[data-ph="a"]'], ['phone-more', '[data-ph="b"]'],
+  // PR 2: the column (mockup section 2), crowding (3), the phone's answer and chat cards (5 C, D) and the new answers (6).
+  ['column', '[data-desk="margin"]'], ['crowded', '[data-desk="overlap"]'], ['phone-answer', '[data-ph="c"]'], ['phone-chat', '[data-ph="d"]'],
+  ...['simplify', 'factcheck', 'counterpoint', 'quiz', 'quiz-answered'].map((k, i) => [`card-${k}`, `.cardrow .step:nth-child(${i + 1}) .cardbg`, `[data-cards="mockup"] [data-card="${k}"]`])]
+// Composed from existing pieces (no mockup frame): each state shown on its own.
+const COMPOSED = [['note', '[data-strip="f"]'], ['phone-define', '[data-ph="e"]'], ['phone-note', '[data-ph="f"]'], ['marks', '[data-desk="marks"]'], ...['factcheck-checking', 'factcheck-six', 'quiz-shown', 'quiz-marking', 'quiz-done', 'explain', 'define', 'note', 'whole', 'folded'].map(k => [`card-${k}`, `[data-card="${k}"]`])]
 async function pairs(browser, origin) {
   const out = []
   for (const look of ['paper', 'night']) {
@@ -222,11 +258,11 @@ async function pairs(browser, origin) {
     // A blinking caret is caught on or off; both sides show it on.
     for (const pg of [mock, fix]) await pg.addStyleTag({ content: '*, *::after { animation: none !important; }' })
     const comp = await ctx.newPage()
-    for (const [name, sel] of [...PAIRS, ['note', '[data-strip="f"]'], ['phone-define', '[data-ph="e"]'], ['phone-note', '[data-ph="f"]']]) {
+    for (const [name, sel, fixSel] of [...PAIRS, ...COMPOSED]) {
       const a = join(OUT, `pair-${name}-${look}-mockup.png`), b = join(OUT, `pair-${name}-${look}-fixture.png`)
       const inMock = PAIRS.some(p => p[0] === name)
       if (inMock) await mock.locator(sel).first().screenshot({ path: a })
-      await fix.locator(`${sel}:not([data-pr])`).first().screenshot({ path: b })
+      await fix.locator(fixSel || `${sel}:not([data-pr])`).first().screenshot({ path: b })
       const side = join(OUT, `pair-${name}-${look}.png`)
       const img = f => `data:image/png;base64,${readFileSync(f).toString('base64')}`
       await comp.setContent(`<body style="margin:0;background:#141414"><div id="pair" style="display:inline-flex;gap:24px;padding:16px;color:#ddd;font:13px sans-serif">${inMock ? `<figure style="margin:0"><figcaption>mockup · ${name} · ${look}</figcaption><img src="${img(a)}"></figure>` : ''}<figure style="margin:0"><figcaption>fixture · ${name} · ${look}${inMock ? '' : ' (no mockup frame: composed from existing pieces)'}</figcaption><img src="${img(b)}"></figure></div></body>`)
@@ -262,13 +298,61 @@ async function behaviour(browser, origin) {
   await a.keyboard.press('Q'); await a.keyboard.type('uestion?'); const before = account.requests.length; await a.keyboard.press('Enter')
   await a.waitForFunction(n => true, null); await a.waitForTimeout(1500)
   const asked = account.requests.slice(before).find(r => /Question\?/.test(JSON.stringify(r.body.messages)))
-  ok('Return sends the question with the passage (today\'s ask, in the docked chat)', asked && JSON.stringify(asked.body).includes(text.replace(/\s+/g, ' ').trim().slice(0, 20)) && await a.isVisible('.byob-dock'), { text, asked: !!asked })
+  ok('Return sends the question with the passage, as an Ask card in the margin (PR 2)', asked && JSON.stringify(asked.body).includes(text.replace(/\s+/g, ' ').trim().slice(0, 20)) && await a.isVisible('.mr-col .mr-card.is-open .mr-you') && !(await a.$('.byob-dock')), { text, asked: !!asked })
+  ok('every PDF request sends kind "pdf" and its pages with their labels', asked?.body?.companion?.context?.kind === 'pdf' && Array.isArray(asked.body.companion.context.pages) && asked.body.companion.context.pages.every(p => p.n != null && typeof p.text === 'string'), asked?.body?.companion?.context)
   await fresh(a)
   // Explain: today's Explain request in the docked chat.
   await selectText(a); await a.waitForSelector('.mr-bar'); const n2 = account.requests.length
   await a.click('.mr-bar [data-m="explain"]'); await a.waitForTimeout(1500)
-  ok('Explain sends today\'s Explain request', account.requests.slice(n2).some(r => /Explain the passage I selected/.test(JSON.stringify(r.body))))
-  ok('PR 1a: no Simplify in the bar', !(await a.$('.mr-float [data-m="simplify"]')))
+  const ex = account.requests.slice(n2).find(r => /Explain the passage they selected/.test(JSON.stringify(r.body)))
+  const P = await import(pathToFileURL(join(PUBLIC, 'lab/margin/margin-parse.js')).href)
+  ok('Explain sends today\'s Explain request with the PDF wording (a bottom line first) and the PDF\'s pages', ex && JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT) && !JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT_BEFORE) && ex.body.companion.context.kind === 'pdf', ex?.body?.messages)
+  ok('Explain opens as a card, its first sentence in weight 600', await a.isVisible('.mr-col .mr-card.is-open .is-bottom-line') && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600')
+  // A citation tag scrolls the PDF to its page.
+  const tag = await a.evaluate(() => [...document.querySelectorAll('.mr-card.is-open .mr-cite')].map(b => [b.textContent, b.dataset.page]))
+  await a.click('.mr-card.is-open .mr-cite >> nth=1').catch(() => {}); await a.waitForTimeout(900)
+  ok('citation tags ({p. 3}) show as tags and scroll the PDF to that page', JSON.stringify(tag) === JSON.stringify([['p. 1', '1'], ['p. 3', '3']]) && (await a.evaluate(() => currentPlace().page)) === 3, { tag, page: await a.evaluate(() => currentPlace().page) })
+  await fresh(a)
+  // Simplify in the bar; Fact-check, Counterpoint and Quiz me in More: each a Worker intent on the passage, kind "pdf".
+  for (const [intent, from] of [['simplify', 'bar'], ['counterpoint', 'more'], ['factcheck', 'more'], ['quiz', 'more']]) {
+    await a.evaluate(() => { goTo({ page: 1, frac: 0 }); col.open = null }); await a.waitForTimeout(300)
+    await selectText(a); await a.waitForSelector('.mr-bar'); const k = account.requests.length
+    if (intent === 'factcheck') mock.delay = 1500
+    if (from === 'more') { await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click(`.mr-more [data-m="${intent}"]`) } else await a.click(`.mr-bar [data-m="${intent}"]`)
+    if (intent === 'factcheck') { await a.waitForTimeout(700); ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(await a.innerText('.mr-card.is-open'))) }
+    await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
+    const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
+    ok(`${intent}: the Worker intent with the selection and the PDF's pages`, req && req.body.companion.selection && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length >= 1 && !req.body.system, req?.body?.companion && { ...req.body.companion, context: undefined })
+    const label = await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')
+    ok(`${intent}: its answer opens as a card labelled with the action`, label.startsWith({ simplify: 'Simplify', counterpoint: 'Counterpoint', factcheck: 'Fact-check', quiz: 'Quiz me' }[intent]), label)
+    await fresh(a)
+  }
+  const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ verdict: getComputedStyle(document.querySelector('.mr-card.is-open .mr-verdict')).fontStyle, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize })))
+  ok('Fact-check: verdict words in italic, the sources as plain links in 12px', fcText.verdict === 'italic' && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px', fcText)
+  // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
+  await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
+  ok('Quiz me shows "1 of 3" and the question at 18px', (await a.innerText('.mr-card.is-open .mr-card__count')) === '1 of 3' && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .mr-question')).fontSize)) === '18px')
+  const q0 = account.requests.length
+  await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('Ideas'); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
+  const check = account.requests.slice(q0).find(r => r.body?.companion?.intent === 'quiz_check')
+  ok('an answer is marked by quiz_check: the bubble, then "Right." and the cite', check?.body?.companion?.quiz?.answer === 'Ideas' && /Ideas[\s\S]*Right\./.test(await a.innerText('.mr-card.is-open')) && !!(await a.$('.mr-card.is-open [data-c="next"]')), check?.body?.companion?.quiz)
+  await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
+  const q1 = account.requests.length
+  await a.click('.mr-card.is-open [data-c="show"]'); await a.waitForTimeout(300)
+  ok('Show answer shows the answer without a call', account.requests.length === q1 && /They are known differently/.test(await a.innerText('.mr-card.is-open')))
+  await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
+  await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('no idea'); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
+  await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
+  const score = await a.innerText('.mr-card.is-open')
+  // Q1 right, Q2 shown, Q3 not yet: one right, and Q3 ("not yet" first) to reread.
+  ok('after question 3: the score as the bottom line and the question to reread', /^Quiz me · p\. \d+\s*×\s*1 of 3\s*MOCK Q3/.test(score) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
+  await fresh(a)
+  // The whole PDF: "/" focuses the column's foot; its answer opens as the "Whole PDF" card at the top.
+  await a.evaluate(() => getSelection().removeAllRanges()); const w0 = account.requests.length
+  await a.keyboard.press('/'); await a.keyboard.type('What is this about?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1000)
+  const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
+  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => document.querySelector('.mr-col .mr-card.is-whole').offsetTop)) === 0)
+  await fresh(a)
   await fresh(a)
   // The dot: one tap highlights in the default colour; a second tap opens the colours; picking sets the default.
   await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-bar')
@@ -310,6 +394,9 @@ async function behaviour(browser, origin) {
   await B.page.waitForTimeout(1200)
   const onB = await hl(B.page)
   ok('another device opens with the same highlights and note', onB.length === 3 && onB.some(h => h.note === 'Try it with x = 10 before the exercises.'), onB)
+  const cardsA = await a.evaluate(() => keptCards().filter(c => !c.gone).length), cardsB = await B.page.evaluate(() => keptCards().filter(c => !c.gone).length)
+  ok('signed in, the margin\'s cards reach the account (/api/user-books/cards) and the other device', cardsA >= 6 && account.cards.get(hex)?.cards?.length === cardsA && cardsB === cardsA, { cardsA, cardsB, stored: account.cards.get(hex)?.cards?.length })
+  ok('the note is a card in the margin on the other device', await B.page.evaluate(() => TinctMargin.cardView(keptCards(), highlights()).some(c => c.kind === 'note')))
   // Removed on B (the note editor's Remove highlight), gone on A after its next open.
   await B.page.evaluate(id => { const rec = JSON.parse(localStorage.getItem('tinct-addbook:hl:pdf:' + location.search.slice(10, 34))).find(h => h.id === id); marginOpen({ text: rec.text, page: rec.page, box: { left: 0, top: 0, right: 0, bottom: 0 } }, { existing: rec }) }, noted.id)
   await B.page.click('.mr-float [data-m="note"]'); await B.page.waitForSelector('.mr-note')
@@ -331,7 +418,7 @@ async function behaviour(browser, origin) {
   await selectText(a); await a.waitForSelector('.mr-bar'); const sel = (await a.evaluate(() => getSelection().toString())).replace(/\s+/g, ' ').trim()
   await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   const moreText = (await a.innerText('.mr-more')).replace(/\s+/g, ' ').trim()
-  ok('More shows Define and Copy quote only (PR 1a), with their lines', moreText === 'Define The word, as this text uses it Copy quote With the title and page number', moreText)
+  ok('More shows Define, Fact-check, Counterpoint and Quiz me, then Copy quote, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy quote With the title and page number', moreText)
   await a.click('.mr-more [data-m="copy"]'); await a.waitForTimeout(300)
   const clip = await a.evaluate(() => navigator.clipboard.readText())
   ok('Copy quote copies the passage with the title and page', /^“.+”\n— .+, p\. \d+$/s.test(clip) && clip.includes(sel.slice(0, 15)), clip)
@@ -342,7 +429,13 @@ async function behaviour(browser, origin) {
   const C = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' }).catch(() => null)
   if (C) {
     await C.page.evaluate(() => { goTo({ page: 3, frac: 0 }); return TinctDictionary.warm() }); await C.page.waitForTimeout(800); await C.ctx.setOffline(true)
-    const word = await selectText(C.page, { oneWord: true }); await C.page.waitForSelector('.mr-define .mr-define__senses li', { timeout: 8000 }).catch(() => {})
+    // A word the dictionary has (the page's first few words may be ones it leaves out, such as "which").
+    let word = ''
+    for (const near of ['middle', 'top', 'bottom']) {
+      word = await selectText(C.page, { oneWord: true, near }); await C.page.waitForSelector('.mr-define .mr-define__senses li', { timeout: 3000 }).catch(() => {})
+      if (await C.page.$('.mr-define__senses li')) break
+      await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    }
     ok('one word opens Define with dictionary senses, network off', (await C.page.$$('.mr-define__senses li')).length >= 1 && (await C.page.textContent('.mr-define__src')) === 'Dictionary', { word, card: await C.page.evaluate(() => document.querySelector('.mr-float')?.innerText) })
     await C.page.evaluate(() => mrDefine('Qzxwvk')); await C.page.waitForTimeout(800)
     ok('offline, a word the dictionary lacks: “Not in the offline dictionary.” with Ask beneath', (await C.page.textContent('.mr-define__body p')) === 'Not in the offline dictionary.' && await C.page.isVisible('.mr-define__foot [data-m="ask"]'))
@@ -351,11 +444,214 @@ async function behaviour(browser, origin) {
     await C.page.evaluate(() => mrDefine('Qzxwvk')); await C.page.waitForTimeout(1500)
     const req = account.requests.slice(n3).find(r => r.body?.companion?.intent === 'define')
     ok('online, a word the dictionary lacks goes to the existing contextual define', req && req.body.companion.selection === 'Qzxwvk' && /mocked meaning/.test(await C.page.textContent('.mr-define__body p')), req?.body?.companion)
+    // Online with dictionary senses: define_sense moves the fitting sense to the top in full ink (mocked: sense 2).
+    await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    let senses = []
+    for (let tries = 0; tries < 6 && senses.length < 2; tries++) {
+      const n4 = account.requests.length
+      await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(1900)
+      senses = await C.page.$$eval('.mr-define__senses li', l => l.map(x => ({ text: x.textContent, fit: x.classList.contains('is-fit') })))
+      const ds = account.requests.slice(n4).find(r => r.body?.companion?.intent === 'define_sense')
+      if (senses.length >= 2) ok('define_sense picks the fitting sense: first, in full ink; the others secondary', ds && senses[0].fit && !senses[1].fit && senses[0].text === ds.body.companion.senses[1] && ds.body.companion.context.kind === 'pdf', { senses, sent: ds?.body?.companion?.senses })
+      await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    }
+    ok('a defined word is kept as a Define card in the margin', await C.page.evaluate(() => keptCards().some(c => c.kind === 'define')))
     await C.ctx.close()
   }
+  // The phone: an answer opens as a card along the bottom with the passage underlined above it; tapping the page closes it.
+  const Ph = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  await Ph.page.evaluate(() => goTo({ page: 2, frac: 0.05 })); await Ph.page.waitForTimeout(800)
+  await selectText(Ph.page); await Ph.page.waitForSelector('.mr-pbar'); await Ph.page.click('.mr-pbar [data-m="explain"]'); await Ph.page.waitForTimeout(1200)
+  const sheet = await Ph.page.evaluate(() => { const s = document.querySelector('.mr-sheet'); if (!s) return null; const r = s.getBoundingClientRect(), u = [...document.querySelectorAll('.mr-ul-layer i')].map(i => i.getBoundingClientRect()); return { top: r.top, h: r.height, under: u.length, above: u.every(x => x.bottom <= r.top) } })
+  ok('phone: the answer opens as a bottom card about half the screen high, the passage underlined just above it', sheet && sheet.h <= 844 / 2 + 2 && sheet.under > 0 && sheet.above, sheet)
+  await Ph.page.evaluate(() => { const g = document.querySelector('.mr-sheet__grab'); g?.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, clientY: 500 })); g?.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, clientY: 400 })) })
+  ok('phone: a swipe up gives the card the full height', await Ph.page.evaluate(() => !!document.querySelector('.mr-sheet.is-full')))
+  const gapY = await Ph.page.evaluate(() => ($('hdr').getBoundingClientRect().bottom + document.querySelector('.mr-sheet').getBoundingClientRect().top) / 2)
+  await Ph.page.mouse.click(195, gapY); await Ph.page.waitForTimeout(300)
+  ok('phone: tapping the page closes the card', !(await Ph.page.$('.mr-sheet')))
+  await Ph.page.evaluate(() => openChat()); await Ph.page.waitForTimeout(400)
+  ok('phone: the chat opens as the same bottom card, not the whole screen', await Ph.page.evaluate(() => { const s = document.querySelector('.mr-sheet'); return !!s && s.getBoundingClientRect().height <= innerHeight / 2 + 2 && !document.querySelector('.byob-phone-chat') }))
+  ok('phone: no page errors', !Ph.problems.length, Ph.problems)
+  await Ph.ctx.close()
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
   return results
+}
+
+
+/* ---------- PR 2: the margin column, cards, marks and the bottom card, across the brief's stress matrix ----------
+   docs/margin/BRIEF.md "Layout QA": every viewport × look × browser zoom (desktop), each with the
+   content cases below; each state must return no problems from docs/margin/layout-check.mjs, and
+   the case's own conditions must hold. Cards are put in the reader's store directly (no AI). */
+const COLUMN_VIEWPORTS = (process.env.COLUMN_VIEWPORTS || '1440x900,1280x800,1181x800,1024x768,430x932,390x844,360x740').split(',').map(v => v.split('x').map(Number))
+const ZOOMS = (process.env.ZOOMS || '1,1.25').split(',').map(Number)
+const LONG = Array.from({ length: 60 }, (_, i) => `Sentence ${i + 1} of a long answer runs on with several more words in it.`).join(' ').split(' ').slice(0, 600).join(' ')
+const WORD60 = 'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'
+const LONG_URL = 'https://example.org/a-very-long-path/without-any-breaks/stirling-approximation-error-bounds-for-small-x-values'
+// In the page: cards on the lines in view (`lines` of them, two passages per line when `pairs`),
+// built from the text layer's own spans, in the reader's store, one of them open.
+function seedCards({ lines = 5, pairs = true, open = 3, where = 'middle', kinds = null, answer = null, question = null, extra = null } = {}) {
+  const hdr = document.getElementById('hdr').getBoundingClientRect().bottom
+  const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => {
+    const r = s.getBoundingClientRect(); return r.width > 40 && r.top > hdr + 4 && r.bottom < innerHeight - 4 && (s.textContent || '').trim().length > 8
+  })
+  const byLine = []
+  for (const s of spans) { const r = s.getBoundingClientRect(); if (!byLine.some(l => Math.abs(l.top - r.top) < 4)) byLine.push({ top: r.top, s, r }) }
+  byLine.sort((a, b) => a.top - b.top)
+  const pick = where === 'top' ? byLine.slice(0, lines) : where === 'bottom' ? byLine.slice(-lines) : byLine.slice(Math.max(0, Math.floor(byLine.length / 3)), Math.max(0, Math.floor(byLine.length / 3)) + lines)
+  const K = kinds || ['explain', 'simplify', 'ask', 'counterpoint', 'factcheck', 'define', 'quiz']
+  const list = []
+  pick.forEach((l, i) => {
+    const halves = pairs ? [[l.r.left, l.r.left + l.r.width / 2 - 2], [l.r.left + l.r.width / 2 + 2, l.r.right]] : [[l.r.left, l.r.right]]
+    halves.forEach(([a, b], k) => {
+      const anchor = anchorOf([{ left: a, right: b, top: l.r.top, bottom: l.r.bottom }])
+      const kind = K[(list.length) % K.length]
+      const text = (l.s.textContent || '').trim()
+      const data = kind === 'define' ? { word: 'variance', senses: [{ text: 'In statistics, how widely values spread around their mean.' }, { text: 'The fact of being different.' }] }
+        : kind === 'quiz' ? { questions: [{ q: 'MOCK Q1. What does the passage name first?', answer: 'Ideas', why: 'It is named first.', cite: '{p. 1}' }, { q: 'Q2?', answer: 'B', why: '', cite: '' }, { q: 'Q3?', answer: 'C', why: '', cite: '' }], i: 0, results: [] } : null
+      const turns = kind === 'define' || kind === 'quiz' ? [] : [...(kind === 'ask' ? [{ role: 'user', content: question || 'Why does this hold here?' }] : []), { role: 'assistant', content: answer && list.length === open ? answer : `MOCK ${kind}. The bottom line of card ${list.length + 1} comes first {p. 1}. Then a second sentence fills the second line of the folded card.` }]
+      list.push(TinctMargin.newCard({ kind, page: anchor[0].n, anchor, text, turns, data, at: Date.now() + list.length }))
+    })
+  })
+  if (extra && list[open]) Object.assign(list[open], extra)
+  store.set('cards:' + state.key, list)
+  col.view = null
+  openCard(open != null && list[open] ? list[open].id : null)
+  return list.length
+}
+// Settled: the pages have stopped scrolling (a card opened off screen scrolls its passage into view) and the margin has drawn.
+const settle = page => page.evaluate(() => new Promise(r => {
+  let last = -1, still = 0, n = 0
+  const tick = () => { const y = $('scroll').scrollTop; still = y === last ? still + 1 : 0; last = y; if (still >= 4 || ++n > 120) setTimeout(r, 120); else requestAnimationFrame(tick) }
+  requestAnimationFrame(tick)
+}))
+// The leader lines are attached: each dot is level with a passage in view and every card's label line has its line.
+function leadersAttached() {
+  if (col.mode !== 'column') return { ok: true }
+  const vis = visibleCards(), want = vis.map(v => (v.line.top + v.line.bottom) / 2)
+  const dots = [...document.querySelectorAll('svg.mr-leads circle')].map(c => Number(c.getAttribute('cy')))
+  const loose = dots.filter(y => !want.some(w => Math.abs(w - y) < 1.5))
+  const shown = [...document.querySelectorAll('.mr-col .mr-card:not([hidden]):not(.is-whole)')].length
+  const lines = document.querySelectorAll('svg.mr-leads path:not(.is-folded)').length
+  return { ok: !loose.length && dots.length >= shown && (!col.open || col.open === 'whole' || lines === 1 || !vis.some(v => v.card.id === col.open)), loose, dots: dots.length, shown, lines }
+}
+async function columnMatrix(browser, origin) {
+  const rows = []
+  for (const pdf of PDFS) {
+    const hex = addBook(pdf), label = basename(pdf, '.pdf')
+    for (const [width, height] of COLUMN_VIEWPORTS) for (const look of LOOKS) for (const zoom of width < 700 ? [1] : ZOOMS) {
+      const tag = `${label}-${width}x${height}-${look}-z${Math.round(zoom * 100)}`
+      const found = [], shots = {}
+      let opened
+      try { opened = await readerPage(browser, origin, hex, { width, height, look, zoom, startPage: 2 }) }
+      catch (e) { rows.push({ pdf: label, viewport: `${width}×${height}`, look, zoom, problems: 1, details: [{ kind: 'error', el: String(e.message || e).slice(0, 200) }] }); continue }
+      const { ctx, page, problems } = opened
+      const keep = (width === 1440 && height === 900 || width === 390 && height === 844) && zoom === 1 && (look === 'paper' || look === 'night')
+      const state = async (name, cond) => {
+        await settle(page)
+        const list = await checkMargin(page)
+        found.push(...list.map(p => ({ state: name, ...p })))
+        if (cond) { const r = await page.evaluate(cond); if (!r || r.ok === false) found.push({ state: name, kind: 'condition', el: JSON.stringify(r).slice(0, 300) }) }
+        const att = await page.evaluate(leadersAttached)
+        if (!att.ok) found.push({ state: name, kind: 'leaders', el: JSON.stringify(att) })
+        if (keep) { const path = join(OUT, `col-${tag}-${name}.jpg`); await page.screenshot({ path, type: 'jpeg', quality: 60 }); shots[name] = path }
+      }
+      try {
+        const mode = await page.evaluate(() => col.mode)
+        // Ten cards, two passages on each of five lines, one open: no overlap, the rest gather, lines to the right cards.
+        await page.evaluate(seedCards, { lines: 5, pairs: true, open: 3 })
+        await state('cards10', () => ({ ok: col.mode !== 'column' || document.querySelectorAll('.mr-col .mr-card:not([hidden])').length >= 1, mode: col.mode, gathered: document.querySelector('.mr-stack:not([hidden])')?.innerText }))
+        if (mode === 'column') {
+          // Clicking the "more" row opens the first gathered card and folds the others.
+          const stacked = await page.$('.mr-stack:not([hidden])')
+          if (stacked) { await stacked.click(); await state('more-opened', () => ({ ok: document.querySelectorAll('.mr-col .mr-card.is-open').length === 1 })) }
+          // Scrolling with a card open: cards stay level with their passages, the lines stay attached.
+          await page.evaluate(() => { $('scroll').scrollBy(0, 90) }); await state('scrolled')
+        }
+        // Passages at the very top and the very bottom of the screen.
+        await page.evaluate(seedCards, { lines: 2, pairs: false, open: 0, where: 'top' }); await state('top')
+        await page.evaluate(seedCards, { lines: 2, pairs: false, open: 1, where: 'bottom' }); await state('bottom')
+        // A 600-word answer: the open card scrolls inside; its label and follow-up line stay in view.
+        await settle(page); await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['explain'], answer: LONG })
+        await state('long', () => {
+          const el = document.querySelector('.mr-card.is-open, .mr-sheet'); if (!el) return { ok: false, why: 'no open card' }
+          const b = el.querySelector('.mr-card__body'), lab = (el.querySelector('.mr-card__label') || el.querySelector('.mr-sheet__grab')).getBoundingClientRect(), fu = el.querySelector('.mr-follow').getBoundingClientRect()
+          return { ok: b.scrollHeight > b.clientHeight + 20 && lab.top >= 0 && fu.bottom <= innerHeight + 1, body: [b.scrollHeight, b.clientHeight], lab: lab.top, fu: fu.bottom }
+        })
+        // A 60-character word and a long URL in the question, the answer and the sources; six sources wrap.
+        const odd = `The bottom line holds ${WORD60}. See ${LONG_URL} for more.`
+        await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['ask'], answer: odd, question: `Why ${WORD60} and ${LONG_URL}?` }); await state('long-word')
+        const six = 'Holds. The bottom line.\n\nHolds. A claim.\n\nSources: ' + ['NIST DLMF §5.11', 'Wikipedia: Stirling’s approximation', 'MathWorld: Stirling’s Approximation', 'Feller, An Introduction to Probability Theory', 'Robbins (1955), A Remark on Stirling’s Formula', LONG_URL].map((t, i) => `[${t}](https://example.org/s${i})`).join(' · ')
+        await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['factcheck'], answer: six })
+        await state('six-sources', () => { const s = document.querySelector('.mr-sources'); return { ok: !!s && s.getBoundingClientRect().height > 20 && s.querySelectorAll('a').length === 6, h: s?.getBoundingClientRect().height } })
+        // A wide display equation scrolls sideways inside the answer only.
+        await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['explain'], answer: 'The bottom line.\n\n```\nP(r | f, N) = (N choose r) f^r (1 - f)^(N - r) = N! / (r! (N - r)!) f^r (1 - f)^(N - r) summed over every r from 0 to N\n```\n\nAfter the equation.' })
+        await state('equation', () => { const pre = document.querySelector('.mr-card.is-open pre, .mr-sheet pre'), card = pre?.closest('.mr-card, .mr-sheet'); return { ok: !!pre && pre.scrollWidth > pre.clientWidth && card.scrollWidth <= card.clientWidth + 1 && getComputedStyle(pre).overflowX === 'auto' && !/mono/i.test(getComputedStyle(pre).fontFamily) } })
+        // Quiz me and Fact-check while it searches.
+        await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['quiz'] }); await state('quiz')
+        await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['factcheck'] })
+        await page.evaluate(() => { const c = cardById(col.open); c.turns = []; store.set('cards:' + state.key, [c]); col.live.set(c.id, { text: '', status: 'Checking sources…' }); marginLayout({ fresh: true }) })
+        await state('checking', () => ({ ok: /Checking sources…/.test(document.querySelector('.mr-card.is-open, .mr-sheet')?.innerText || '') }))
+        // The whole-PDF card at the top of the column (or the phone's chat card).
+        await page.evaluate(() => { col.live.clear(); chat.turns = [{ role: 'user', content: 'What is this PDF about?', page: 2, at: Date.now() }, { role: 'assistant', content: 'MOCK. The bottom line about the whole PDF {p. 1}.\n\nMore.', at: Date.now() }]; openWhole({ quiet: true }) })
+        await state('whole')
+        await page.evaluate(() => { chat.turns = []; closeChat() })
+        if (mode === 'phone') {
+          // The bottom card with the keyboard open: its follow-up line above the keyboard, the passage in view.
+          await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['ask'] })
+          await page.evaluate(() => { const vv = window.visualViewport, h = innerHeight - 300; Object.defineProperty(vv, 'height', { configurable: true, get: () => h }); vv.dispatchEvent(new Event('resize')) })
+          await state('keyboard', () => {
+            const el = col.sheet; if (!el) return { ok: false, why: 'no card' }
+            const fu = el.querySelector('.mr-follow').getBoundingClientRect(), top = el.getBoundingClientRect().top
+            const rects = anchorRects(TinctMargin.anchorOfCard(cardById(col.open)))
+            const passage = Math.max(...rects.map(r => r.bottom)), hdr = $('hdr').getBoundingClientRect().bottom
+            return { ok: fu.bottom <= innerHeight - 300 + 1 && rects.some(r => r.bottom <= top && r.top >= hdr - 1), fu: fu.bottom, top, passage }
+          })
+        }
+        if (mode === 'marks') {
+          // A mark opens its card floating beside it.
+          await page.evaluate(seedCards, { lines: 3, pairs: false, open: null })
+          await page.click('.mr-mark'); await state('mark-open', () => ({ ok: !!document.querySelector('.mr-card.is-floating.is-open') }))
+        }
+      } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e).replace(/\u001b\[\d+m/g, '').slice(-700) }) }
+      const n = found.length + problems.length
+      rows.push({ pdf: label, viewport: `${width}×${height}`, look, zoom, problems: n, details: [...found, ...problems], screenshots: shots })
+      console.log(`${tag}: ${n} problem(s)`, n ? JSON.stringify([...found, ...problems]).slice(0, 600) : '')
+      // One screenshot for the combination: its last state.
+      if (!keep) { const path = join(OUT, `col-${tag}.jpg`); await page.screenshot({ path, type: 'jpeg', quality: 45 }).catch(() => {}); rows.at(-1).screenshot = path }
+      await ctx.close()
+    }
+  }
+  return rows
+}
+// Resizing across 1180px with a card open: column -> marks -> column, without moving the reading place or losing the lines.
+async function resizeRun(browser, origin) {
+  const out = []
+  for (const pdf of PDFS) {
+    const hex = addBook(pdf), label = basename(pdf, '.pdf')
+    for (const look of LOOKS) {
+      const { ctx, page, problems } = await readerPage(browser, origin, hex, { width: 1300, height: 820, look, startPage: 2 })
+      const found = []
+      await page.evaluate(seedCards, { lines: 3, pairs: true, open: 2 }); await settle(page)
+      const place0 = await page.evaluate(() => currentPlace())
+      for (const w of [1179, 1100, 1181, 1300, 1024, 1440]) {
+        await page.setViewportSize({ width: w, height: 820 }); await page.waitForTimeout(450); await settle(page)
+        const mode = await page.evaluate(() => col.mode)
+        if (mode !== (w >= 1180 ? 'column' : 'marks')) found.push({ w, kind: 'mode', el: mode })
+        found.push(...(await checkMargin(page)).map(p => ({ w, ...p })))
+        const att = await page.evaluate(leadersAttached); if (!att.ok) found.push({ w, kind: 'leaders', el: JSON.stringify(att) })
+        const place = await page.evaluate(() => currentPlace())
+        if (place.page !== place0.page || Math.abs(place.frac - place0.frac) > 0.03) found.push({ w, kind: 'place moved', el: JSON.stringify([place0, place]) })
+        if (w >= 1180) { const lines = await page.evaluate(() => document.querySelectorAll('svg.mr-leads path:not(.is-folded)').length); if (lines !== 1) found.push({ w, kind: 'open line', el: String(lines) }) }
+        else { const marks = await page.evaluate(() => document.querySelectorAll('.mr-mark').length); if (!marks) found.push({ w, kind: 'marks', el: '0' }) }
+      }
+      const path = join(OUT, `resize-${label}-${look}.jpg`); await page.screenshot({ path, type: 'jpeg', quality: 50 })
+      out.push({ pdf: label, look, case: 'resize across 1180px with a card open', problems: found.length + problems.length, details: [...found, ...problems], screenshot: path })
+      console.log(`resize ${label} ${look}: ${found.length + problems.length} problem(s)`, found.length ? JSON.stringify(found).slice(0, 400) : '')
+      await ctx.close()
+    }
+  }
+  return out
 }
 
 const server = await start(Number(process.env.PORT || 4791))
@@ -367,6 +663,8 @@ try {
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

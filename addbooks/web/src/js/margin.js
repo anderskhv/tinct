@@ -194,8 +194,8 @@
     mic: svg('<rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5"/><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5"/>'),
     up: svg('<path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/>'),
   };
-  // In PR 1a, the actions whose Worker intents ship in 1b stay out of the reader (the fixture shows them).
-  const LATER = { simplify: true, factcheck: true, counterpoint: true, quiz: true, share: true };
+  // Share as image stays out of the PDF reader for now (the fixture shows it); every other action is in.
+  const LATER = { share: true };
   const shown = (id, all) => all || !LATER[id];
   const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
   const MORE_ROWS_2 = [['copy', 'Copy quote', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
@@ -281,7 +281,300 @@
     t.style.height = 'auto';
     t.style.height = Math.min(t.scrollHeight, 60) + 'px';
   }
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml };
+  /* ---------- PR 2: the margin column, its cards, leader lines, marks and the phone's bottom card ----------
+     docs/margin/BRIEF.md §3, §4 and §6. Every distance is the brief's or margin-reference.css's. */
+  const COL = { width: 380, gap: 56, cardGap: 14, foot: 46, lift: 4, dot: 8, r: 2.6, narrow: 1180, right: 24, mark: 8 };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, placeBar, placeMore, placeCard, typedChar, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf };
+  /**
+   * Where the cards sit in the column. `passages` are the cards' passages in page order, each
+   * { id, top } with `top` the passage's first line measured from the column's top; `cardHeights`
+   * the cards' heights in the same order; `columnHeight` the room from the column's top to its
+   * foot. Each card's top is its passage's first line less 4px, at least 14px below the card
+   * before it. A card that would end within 46px of the foot (or leave no room for the "more"
+   * row) gathers into that row, and every card after it too; the open card (`open`, an id) is
+   * never gathered: it keeps its height (at most the room there is) and the cards before it move
+   * up to make room, gathering when they no longer fit.
+   * -> { positions: [{ id, top, height }], gathered: [id], stack: { top, height } | null }
+   */
+  function placeCards(passages, cardHeights, columnHeight, { open = null, stackHeight = 34, gap = COL.cardGap, foot = COL.foot, lift = COL.lift } = {}) {
+    const limit = columnHeight - Math.max(foot, stackHeight + gap);
+    const placed = [], gathered = [];
+    let gathering = false;
+    passages.forEach((p, i) => {
+      const h = Math.max(0, Math.min(Number(cardHeights[i]) || 0, limit));
+      const prev = placed[placed.length - 1], floor = prev ? prev.top + prev.height + gap : 0;
+      const want = Math.max(Number(p.top) - lift, floor, 0);
+      if (open != null && p.id === open) { placed.push({ i, id: p.id, top: Math.max(0, Math.min(want, limit - h)), height: h, open: true }); return }
+      if (gathering || want + h > limit) { gathering = true; gathered.push(i); return }
+      placed.push({ i, id: p.id, top: want, height: h });
+    });
+    // The open card may have moved up: the cards before it move up too, and gather when they run out of room.
+    const oi = placed.findIndex(c => c.open);
+    for (let k = oi - 1; k >= 0; k--) {
+      const bound = placed[k + 1].top - gap;
+      if (placed[k].top + placed[k].height > bound) placed[k].top = bound - placed[k].height;
+    }
+    while (placed.length && placed[0].top < 0 && !placed[0].open) gathered.push(placed.shift().i);
+    gathered.sort((a, b) => a - b);
+    const last = placed[placed.length - 1];
+    const stack = gathered.length ? { top: last ? last.top + last.height + gap : 0, height: stackHeight } : null;
+    return { positions: placed.map(({ id, top, height }) => ({ id, top, height })), gathered: gathered.map(i => passages[i].id), stack };
+  }
+
+  /** A leader line: from the dot beside the passage (x0, y0) curving to the card's label line (x1, y1), as the mockup draws it. */
+  function leadPath(x0, y0, x1, y1) {
+    const f = v => Math.round(v * 10) / 10;
+    return `M${f(x0)} ${f(y0)} C ${f(x0 + 24)} ${f(y0)} ${f(x1 - 22)} ${f(y1)} ${f(x1)} ${f(y1)}`;
+  }
+
+  /**
+   * Where the column goes in a reader `width` wide with the page's visible right edge at
+   * `pageRight`: 56px right of the page, 380px wide, at least 24px from the window's edge.
+   * Below 1180px the column hides and cards become marks at the page's edge. -> { left, width } | null
+   */
+  function columnBox(width, pageRight) {
+    if (width < COL.narrow) return null;
+    return { left: Math.round(Math.min(pageRight + COL.gap, width - COL.right - COL.width)), width: COL.width };
+  }
+  /**
+   * The room the page area leaves on its right for the column (the docked chat's --dock-w; the
+   * area's edge is 14px further left, and the pages keep 16px of padding inside it): the page's
+   * edge then sits 56px left of the column, which ends 24px from the window's edge.
+   */
+  const COLUMN_RESERVE = COL.gap + COL.width + COL.right - 16 - 14;
+
+  /* ---------- Citation tags: {p. 12} -> a tag that scrolls the PDF there ---------- */
+  /** What a tag shows: the citation as printed, without its braces. */
+  function citeText(token) {
+    if (token.kind === 'pp') return `pp. ${token.label}–${token.to}`;
+    return `${token.kind}. ${token.label}`;
+  }
+  const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  /**
+   * The place a citation points to, or null when this PDF has no such place (the tag stays text).
+   * `labels`: the PDF's printed page labels (pdf.js getPageLabels(), or null); `count`: its pages;
+   * `texts`: page number -> that page's extracted text, for the pages known so far.
+   * Pages: the printed label, else the page index when the PDF has no labels. Equations, figures,
+   * tables and sections: the first known page whose text prints that number.
+   * -> { page, needle } (needle: the printed words to find on the page, or '')
+   */
+  function citeTarget(token, { labels = null, count = 0, texts = null } = {}) {
+    if (!token || token.type !== 'cite') return null;
+    const label = String(token.label || '');
+    if (token.kind === 'p' || token.kind === 'pp') {
+      if (Array.isArray(labels) && labels.length) {
+        const i = labels.findIndex(l => String(l ?? '').trim().toLowerCase() === label.toLowerCase());
+        return i >= 0 && i < (count || labels.length) ? { page: i + 1, needle: '' } : null;
+      }
+      const n = /^\d+$/.test(label) ? Number(label) : 0;
+      return n >= 1 && n <= count ? { page: n, needle: '' } : null;
+    }
+    const L = escRe(label);
+    const re = {
+      eq: [new RegExp(`\\(\\s*${L}\\s*\\)`), new RegExp(`\\bEq(?:uation)?s?\\.?\\s*\\(?${L}(?![\\d.])`, 'i')],
+      fig: [new RegExp(`\\bFig(?:ure|\\.)?\\s*${L}(?!\\d)`, 'i')],
+      table: [new RegExp(`\\bTable\\s*${L}(?!\\d)`, 'i')],
+      sec: [new RegExp(`(?:^|\\n)\\s*${L}\\.?\\s+\\p{Lu}`, 'u'), new RegExp(`\\bSection\\s*${L}(?!\\d)`, 'i')],
+    }[token.kind];
+    if (!re || !texts) return null;
+    const entries = (texts instanceof Map ? [...texts.entries()] : Object.entries(texts).map(([k, v]) => [Number(k), v])).sort((a, b) => a[0] - b[0]);
+    for (const pattern of re) for (const [n, t] of entries) {
+      const m = pattern.exec(typeof t === 'string' ? t : t?.text || '');
+      if (m) return { page: n, needle: m[0].trim() };
+    }
+    return null;
+  }
+
+  /* ---------- The cards: a view over the kept results and the noted highlights ---------- */
+  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF' };
+  const CARD_KINDS = ['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz'];
+  /** A card's passage ([[page, x, y, w, h]] in page fractions) as the reader's anchor list. */
+  const anchorOfCard = card => (card.rects || []).map(([n, x, y, w, h]) => ({ n, x, y, w, h }));
+  /** A card's first line: [page, x, y, w, h] (lines within half a percent of a page count as one). */
+  function firstRect(card) {
+    return (card.rects || []).reduce((a, r) => (!a || r[0] < a[0] || (r[0] === a[0] && (r[2] < a[2] - 0.005 || (Math.abs(r[2] - a[2]) <= 0.005 && r[1] < a[1]))) ? r : a), null);
+  }
+  /** The cards to show: every kept result (not removed) and every highlight with a note, in page order. */
+  function cardView(cards, marks) {
+    const out = [];
+    for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length) out.push(c);
+    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at });
+    return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
+  }
+  /** Two devices' cards: the same rules as the highlights (a union by id, the newer edit wins, a removal is a tombstone). */
+  const mergeCards = (...sets) => mergeMarks(...sets);
+  const CARD_LIMITS = { text: 2000, turns: 40, content: 12000 };
+  /** A new kept card for a passage (`anchor`: the reader's page-fraction boxes). */
+  function newCard({ kind, page, anchor, text, turns = [], data = null, at = Date.now() }) {
+    const r = v => Math.round(v * 10000) / 10000;
+    const id = 'c' + at.toString(36) + Math.random().toString(36).slice(2, 6);
+    return { id, kind, page, rects: (anchor || []).slice(0, 400).map(a => [a.n, r(a.x), r(a.y), r(a.w), r(a.h)]), text: String(text || '').slice(0, CARD_LIMITS.text), turns, ...(data ? { data } : {}), at, u: at };
+  }
+
+  /* ---------- Answers: the bottom line, citation tags, verdicts and sources ----------
+     `P` is the margin's parsers (/lab/margin/margin-parse.js); `resolve(token)` -> its target or
+     null. A tag that resolves is a button carrying its page; one that does not stays text. */
+  function citeHtml(token, resolve) {
+    const target = resolve ? resolve(token) : null;
+    if (!target) return esc(token.raw);
+    return `<button type="button" class="mr-cite" data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}>${esc(citeText(token))}</button>`;
+  }
+  function inlineHtml(text, P, resolve) {
+    // Markdown bold is never parsed: its stars are only dropped, so they do not show.
+    const plain = String(text || '').replace(/\*\*(?=\S)([^*]+?)\*\*/g, '$1');
+    return P.parseCitations(plain).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : esc(part.text).replace(/\n/g, '<br>'))).join('');
+  }
+  const blocksOf = text => String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => b.replace(/^\n+|\s+$/g, '')).filter(b => b.trim());
+  function blockHtml(b, P, resolve) {
+    const fence = /^\s*```[^\n]*\n([\s\S]*?)\n?```\s*$/.exec(b);
+    return fence ? `<pre>${esc(fence[1])}</pre>` : `<p>${inlineHtml(b.trim(), P, resolve)}</p>`;
+  }
+  /** An answer with its bottom line (the first sentence of the first paragraph) in weight 600; the rest of that paragraph runs on. */
+  function answerHtml(text, P, { resolve = null, prefixes } = {}) {
+    const blocks = blocksOf(text);
+    if (!blocks.length) return '';
+    if (/^\s*```/.test(blocks[0])) return blocks.map(b => blockHtml(b, P, resolve)).join('');
+    const first = blocks[0].trim();
+    const { lead } = P.splitBottomLine(first, prefixes ? { prefixes } : undefined);
+    const tail = first.slice(lead.length).trim();
+    return `<p><span class="is-bottom-line">${inlineHtml(lead, P, resolve)}</span>${tail ? ' ' + inlineHtml(tail, P, resolve) : ''}</p>` + blocks.slice(1).map(b => blockHtml(b, P, resolve)).join('');
+  }
+  /** Fact-check: the verdict line, one paragraph per claim with its verdict word in italic, the sources as plain links. */
+  function factcheckHtml(text, P, { resolve = null } = {}) {
+    const f = P.parseFactcheck(text);
+    if (!f.lead) return { answer: '', sources: '' };
+    const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
+    const sources = f.sources.length ? `<div class="mr-sources">${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
+    return { answer: `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>${claims}`, sources };
+  }
+  /** The words a folded card shows (two lines of them): plain, no tags. */
+  function foldText(card, P) {
+    const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
+    if (card.kind === 'note') return plain(card.note);
+    if (card.kind === 'define') { const d = card.data || {}; return plain((d.senses || [])[0]?.text || d.line || '') }
+    if (card.kind === 'quiz') {
+      const q = card.data || {}, n = q.questions?.length || 0;
+      if (q.done) return `${quizScore(q)} of ${n}`;
+      return plain(q.questions?.[q.i || 0]?.q || '');
+    }
+    const answer = (card.turns || []).find(t => t.role === 'assistant');
+    return plain(answer?.content || '');
+  }
+  const quizScore = q => (q.results || []).filter(r => r && r.verdict === 'right' && !r.shown).length;
+  /** The question to reread after a quiz: "not yet" first, then "nearly", then one whose answer was shown; -1 when all were right. */
+  function quizReread(q) {
+    const rs = q.results || [];
+    const rank = r => (!r ? 3 : r.shown ? 2 : r.verdict === 'not_yet' ? 0 : r.verdict === 'nearly' ? 1 : 9);
+    let best = -1;
+    (q.questions || []).forEach((_, i) => { if (rank(rs[i]) < 9 && (best < 0 || rank(rs[i]) < rank(rs[best]))) best = i });
+    return best;
+  }
+  /** A card's label: its action and page ("Ask · p. 12"); Define names its word; a note is "Your note". */
+  function cardLabel(card, pageLabel) {
+    if (card.kind === 'note' || card.kind === 'whole') return KINDS[card.kind];
+    if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
+    return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · p. ${pageLabel}` : ''}`;
+  }
+  const CARD_ICONS = {
+    copy: svg('<rect x="6" y="6" width="9" height="9" rx="1.8"/><path d="M12 6V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v6A1.5 1.5 0 0 0 4.5 12H6"/>'),
+    mic: ICONS.mic,
+  };
+  /** The follow-up line: a field with a blinking caret and no placeholder, an optional link ("Show answer"), the mic. */
+  function followHtml({ link = '', field = true, mic = true, label = 'Follow up' } = {}) {
+    return `<div class="mr-follow">${field ? `<span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" aria-label="${esc(label)}"></textarea><span class="mr-caret" aria-hidden="true"></span></span>` : ''}<span class="mr-follow__sp"></span>${link}${mic ? `<button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>` : ''}</div>`;
+  }
+  /**
+   * A card. Folded: its label and two lines. Open: the label and close, the passage quote, the
+   * question bubble (Ask), the answer, the action's own parts, copy, and the follow-up line.
+   * o: { open, P (parsers), resolve (citation -> target), pageLabel, status (a status line such as
+   * "Checking sources…"), live (an answer on its way), pending (a quiz answer being marked) }.
+   */
+  function cardHtml(card, o) {
+    const P = o.P, label = esc(cardLabel(card, o.pageLabel));
+    if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
+    const q = card.data || {};
+    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${q.questions.length}</span>` : '';
+    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`;
+    const copy = `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>`;
+    const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
+    if (card.kind === 'quiz') {
+      const qs = q.questions || [];
+      let body = '', foot = followHtml({ field: false, mic: false });
+      if (!qs.length) body = status;
+      else if (q.done) {
+        const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
+        body = `<div class="mr-answer"><p><span class="is-bottom-line">${quizScore(q)} of ${qs.length}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
+        foot = '';
+      } else {
+        const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
+        const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
+        body = `<div class="mr-question">${esc(item.q)}</div>`;
+        if (r) {
+          body += r.shown
+            ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
+            : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
+          foot = followHtml({ field: false, mic: false, link: '<button type="button" class="mr-follow__link" data-c="next">Next question →</button>' });
+        } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
+        else foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' });
+      }
+      return head + `<div class="mr-card__body">${body}</div>` + foot;
+    }
+    let body = card.text && card.kind !== 'define' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : '';
+    if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
+    else if (card.kind === 'define') {
+      const senses = q.senses || [];
+      body += senses.length
+        ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
+        : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
+    }
+    const turns = [...(card.turns || [])];
+    if (o.live != null) turns.push({ role: 'assistant', content: o.live });
+    let answered = card.kind === 'note' || card.kind === 'define';
+    turns.forEach((t, k) => {
+      if (t.role === 'user') { if (card.kind === 'ask' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
+      answered = true;
+      if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve }); body += f.answer + f.sources }
+      else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
+    });
+    body += status;
+    return head + `<div class="mr-card__body">${body}${answered && !o.status && o.live == null ? copy : ''}</div>` + followHtml();
+  }
+  /** The "more" row: "{n} more on this page", their kinds on the right. */
+  function stackHtml(cards, maxKinds = Infinity) {
+    const all = [...new Set(cards.map(c => KINDS[c.kind]))];
+    const kinds = all.slice(0, maxKinds).join(' · ');
+    return `<span>${cards.length} more on this page</span><span>${esc(kinds)}</span>`;
+  }
+  /** The column foot: a hairline, a caret, "[/] the whole PDF" and the mic. */
+  function footHtml() {
+    return `<span class="mr-follow__field"><textarea class="mr-follow__input mr-foot__input" rows="1" enterkeyhint="send" aria-label="Ask about the whole PDF"></textarea><span class="mr-caret" aria-hidden="true"></span></span><span class="mr-follow__sp"></span><span class="mr-foot__hint"><span class="mr-key">/</span> the whole PDF</span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>`;
+  }
+
+  /** A card's own classes: open or folded, a note (its rule in the highlight colour). */
+  const cardClass = (card, open) => `mr-card ${open ? 'is-open' : 'is-folded'}${card.kind === 'note' ? ' is-note' : ''}`;
+  /**
+   * The whole-PDF thread (the existing chat thread's turns, as chat-thread.js threadRows orders
+   * them with a divider when the page or the day changes), drawn in the card's own pieces.
+   * rows: [{ type: 'divider', label } | { type: 'turn', index }]; turns: [{ role, text, quote, note }].
+   */
+  function threadHtml(rows, turns, o) {
+    return rows.map(row => {
+      if (row.type === 'divider') return `<p class="mr-divider">${esc(row.label)}</p>`;
+      const t = turns[row.index]; if (!t) return '';
+      if (t.role === 'user') return (t.quote ? `<div class="mr-quote">${esc(cut(t.quote))}</div>` : '') + (t.extra || '') + `<div class="mr-you">${esc(t.text)}</div>` + (t.note ? `<p class="mr-status">${esc(t.note)}</p>` : '');
+      return t.text ? `<div class="mr-answer">${answerHtml(t.text, o.P, { resolve: o.resolve })}</div>` : '';
+    }).join('');
+  }
+  /** The whole-PDF card: "Whole PDF", the thread, the attachments waiting to go, the follow-up line. */
+  // On the phone the chat's card has no label (mockup 5D): swipe down or tap the page to close it.
+  function wholeHtml(body, { open = true, fold = '', tray = '', label = true } = {}) {
+    if (!open) return `<button type="button" class="mr-card__label" data-c="open">${KINDS.whole}</button><div class="mr-card__text">${esc(fold)}</div>`;
+    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.whole}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: 'Ask about the whole PDF' });
+  }
+  /** The phone's bottom card: the grab handle, then a card's open contents. */
+  const sheetHtml = inner => `<button type="button" class="mr-sheet__grab" data-c="grab" aria-label="Full height"></button>${inner}`;
+
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS };
+
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf };
 });

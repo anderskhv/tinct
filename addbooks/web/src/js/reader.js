@@ -255,7 +255,7 @@ const readerShown = () => document.body.dataset.view === 'reader';
 function showReader() { document.body.dataset.view = 'reader'; $('root').hidden = false; window.TinctStart?.hide(); applyLayout() }
 async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   const hadBook = hasBook();
-  closeChat(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop();
+  closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
   Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
@@ -369,8 +369,13 @@ async function openPdf(bytes, name, key) {
   buildContents();
   keepPdfCover(pdf, key, token);
   marksSync.open();
+  cardsSync.open();
   warmDictionary();
-  if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
+  // The PDF's printed page labels ("xii", "12"), for citations: what the companion is shown and cites.
+  state.labels = null;
+  pdf.getPageLabels?.().then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }) } }).catch(() => {});
+  // The margin replaces the docked chat (docs/margin/BRIEF.md §3): its column, or marks in a narrow window.
+  marginStart();
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
   // The account answered after the book opened: its newer place is shown if the reader is still where it opened.
   late.then(adopted => {
@@ -1025,7 +1030,7 @@ function ocrShow(status, token) {
 }
 
 // Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
-function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush(); marksSync.push({ keepalive: true }) }
+function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush(); marksSync.push({ keepalive: true }); cardsSync.push({ keepalive: true }) }
 addEventListener('pagehide', leavePlace);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leavePlace() });
 
@@ -1060,70 +1065,86 @@ const placeSync = {
    removals are kept as tombstones) and written again, so nothing is lost on a conflict. Signed
    out, or for a book not in the account, they stay in this browser as before. EPUBs never sync here. */
 const MARKS_SYNC_MS = 1500;
-const marksSync = {
-  timer: null, running: null, key: '',
-  hex: () => hexOf(state.key),
-  usable() { return state.kind === 'pdf' && !!window.TinctAI?.session?.().token && /^[0-9a-f]{24}$/.test(this.hex()) },
-  local() { return TinctMargin.mergeMarks(highlights(), store.get('hl-gone:' + state.key) || []) },
+/* The same versioned set for the margin's cards (/api/user-books/cards/{bookHex}, 'cards:' + key here):
+   one record per kept result, the same merge (TinctMargin.mergeCards). */
+function setSync({ path, field, prefix, local, apply }) {
+  return {
+    timer: null, running: null, key: '',
+    hex: () => hexOf(state.key),
+    usable() { return state.kind === 'pdf' && !!window.TinctAI?.session?.().token && /^[0-9a-f]{24}$/.test(this.hex()) },
+    local, apply,
+    async call(method, body, { keepalive = false } = {}) {
+      const token = window.TinctAI?.session?.().token;
+      if (!token) throw Object.assign(new Error('signed_out'), { status: 401 });
+      const r = await fetch(`/api/user-books/${path}/` + this.hex(), { method, keepalive, credentials: 'same-origin', cache: 'no-store', headers: { Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
+      const json = await r.json().catch(() => ({}));
+      return { status: r.status, json };
+    },
+    // Opened: the account's set, merged with this browser's; the merge goes back when it differs.
+    async open() {
+      if (!this.usable()) return;
+      const key = state.key; this.key = key;
+      try {
+        const { status, json } = await this.call('GET');
+        if (state.key !== key || status !== 200) return;
+        store.set(prefix + '-rev:' + key, json.rev || 0);
+        const merged = TinctMargin.mergeMarks(this.local(), json[field] || []);
+        this.apply(merged);
+        if (store.get(prefix + '-dirty:' + key) || !TinctMargin.sameMarks(merged, json[field] || [])) this.push();
+      } catch { /* offline: this browser's copy stands, sent when back online */ }
+    },
+    changed() {
+      if (state.kind !== 'pdf') return;
+      store.set(prefix + '-dirty:' + state.key, true);
+      clearTimeout(this.timer); this.timer = setTimeout(() => this.push(), MARKS_SYNC_MS);
+    },
+    push({ keepalive = false } = {}) {
+      clearTimeout(this.timer); this.timer = null;
+      if (!this.usable() || !store.get(prefix + '-dirty:' + state.key)) return Promise.resolve();
+      if (this.running) return this.running.then(() => this.push({ keepalive }));
+      const key = state.key;
+      this.running = (async () => {
+        try {
+          for (let tries = 0; tries < 3 && state.key === key; tries++) {
+            const list = this.local(), rev = store.get(prefix + '-rev:' + key) || 0;
+            const { status, json } = await this.call('PUT', { [field]: list, rev }, { keepalive });
+            if (state.key !== key) return;
+            if (status === 200) {
+              store.set(prefix + '-rev:' + key, json.rev);
+              // Edited while it was on its way: send again.
+              if (TinctMargin.sameMarks(list, this.local())) store.del(prefix + '-dirty:' + key); else this.changed();
+              return;
+            }
+            if (status !== 409) return;   // not in the account (404), signed out, too large: kept here
+            store.set(prefix + '-rev:' + key, json.rev || 0);
+            this.apply(TinctMargin.mergeMarks(this.local(), json[field] || []));
+          }
+        } catch { /* offline: kept dirty, sent when back online */ }
+        finally { this.running = null }
+      })();
+      return this.running;
+    },
+  };
+}
+const marksSync = setSync({
+  path: 'marks', field: 'marks', prefix: 'hl',
+  local: () => TinctMargin.mergeMarks(highlights(), store.get('hl-gone:' + state.key) || []),
   apply(merged) {
     const before = JSON.stringify(this.local());
     const { live, gone } = TinctMargin.splitMarks(merged);
     store.set('hl:' + state.key, live); store.set('hl-gone:' + state.key, gone);
-    if (JSON.stringify(this.local()) !== before) for (const p of state.pages) if (p.layer) renderHighlights(p);
+    if (JSON.stringify(this.local()) !== before) { for (const p of state.pages) if (p.layer) renderHighlights(p); marginLayout() }
   },
-  async call(method, body, { keepalive = false } = {}) {
-    const token = window.TinctAI?.session?.().token;
-    if (!token) throw Object.assign(new Error('signed_out'), { status: 401 });
-    const r = await fetch('/api/user-books/marks/' + this.hex(), { method, keepalive, credentials: 'same-origin', cache: 'no-store', headers: { Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
-    const json = await r.json().catch(() => ({}));
-    return { status: r.status, json };
+});
+const cardsSync = setSync({
+  path: 'cards', field: 'cards', prefix: 'cards',
+  local: () => keptCards(),
+  apply(merged) {
+    if (JSON.stringify(merged) === JSON.stringify(keptCards())) return;
+    store.set('cards:' + state.key, merged); marginLayout({ fresh: true });
   },
-  // Opened: the account's set, merged with this browser's; the merge goes back when it differs.
-  async open() {
-    if (!this.usable()) return;
-    const key = state.key; this.key = key;
-    try {
-      const { status, json } = await this.call('GET');
-      if (state.key !== key || status !== 200) return;
-      store.set('hl-rev:' + key, json.rev || 0);
-      const merged = TinctMargin.mergeMarks(this.local(), json.marks || []);
-      this.apply(merged);
-      if (store.get('hl-dirty:' + key) || !TinctMargin.sameMarks(merged, json.marks || [])) this.push();
-    } catch { /* offline: this browser's copy stands, sent when back online */ }
-  },
-  changed() {
-    if (state.kind !== 'pdf') return;
-    store.set('hl-dirty:' + state.key, true);
-    clearTimeout(this.timer); this.timer = setTimeout(() => this.push(), MARKS_SYNC_MS);
-  },
-  push({ keepalive = false } = {}) {
-    clearTimeout(this.timer); this.timer = null;
-    if (!this.usable() || !store.get('hl-dirty:' + state.key)) return Promise.resolve();
-    if (this.running) return this.running.then(() => this.push({ keepalive }));
-    const key = state.key;
-    this.running = (async () => {
-      try {
-        for (let tries = 0; tries < 3 && state.key === key; tries++) {
-          const marks = this.local(), rev = store.get('hl-rev:' + key) || 0;
-          const { status, json } = await this.call('PUT', { marks, rev }, { keepalive });
-          if (state.key !== key) return;
-          if (status === 200) {
-            store.set('hl-rev:' + key, json.rev);
-            // Edited while it was on its way: send again.
-            if (TinctMargin.sameMarks(marks, this.local())) store.del('hl-dirty:' + key); else this.changed();
-            return;
-          }
-          if (status !== 409) return;   // not in the account (404), signed out, too large: kept here
-          store.set('hl-rev:' + key, json.rev || 0);
-          this.apply(TinctMargin.mergeMarks(this.local(), json.marks || []));
-        }
-      } catch { /* offline: kept dirty, sent when back online */ }
-      finally { this.running = null }
-    })();
-    return this.running;
-  },
-};
-addEventListener('online', () => { if (hasBook()) marksSync.push() });
+});
+addEventListener('online', () => { if (hasBook()) { marksSync.push(); cardsSync.push() } });
 $('scroll').addEventListener('scroll', onScroll, { passive: true });
 function noteSession() {
   // Catch me up starts from the page the previous visit ended on.
@@ -1677,8 +1698,10 @@ function aiBook() {
 async function ai() {
   if (sample) return sample;
   if (!window.TinctAI) return null;
-  const f = (input, opts = {}) => TinctAI.ask(input, { ...opts, book: aiBook() });
-  f.json = (input, opts = {}) => TinctAI.askJson(input, { ...opts, book: aiBook() });
+  // A PDF's text goes as its pages with their printed labels (`opts.pdf`, from pdfPages).
+  const bookOf = opts => ({ ...aiBook(), ...(opts.pdf ? { pdf: opts.pdf } : {}) });
+  const f = (input, opts = {}) => TinctAI.ask(input, { ...opts, book: bookOf(opts) });
+  f.json = (input, opts = {}) => TinctAI.askJson(input, { ...opts, book: bookOf(opts) });
   f.limits = async () => ({ maxPromptBytes: 200000, images: TinctAI.imageLimits });
   sample = f;
   return f;
@@ -2004,7 +2027,8 @@ $('scroll').addEventListener('scroll', () => { if (!mr || mrFrameReq) return; mr
 addEventListener('resize', () => { if (mr && mr.mode !== 'asking' && mr.mode !== 'note') marginClose() });
 function mrAction(m) {
   if (m === 'ask') return mrShow('asking');
-  if (m === 'explain') return mrExplain();
+  // Explain, Simplify, Fact-check, Counterpoint and Quiz me answer as cards (the margin, PR 2).
+  if (m === 'explain' || m === 'simplify' || m === 'factcheck' || m === 'counterpoint' || m === 'quiz') { closeMore(); return cardAction(m) }
   if (m === 'more') return mr.moreEl ? closeMore() : openMore();
   if (m === 'dot') {
     if (mr.pressed) { mr.pressed = false; return }
@@ -2013,7 +2037,7 @@ function mrAction(m) {
     return mrShow(mr.mode === 'define' ? 'define' : 'menu');
   }
   if (m === 'note') return mrNoteOpen();
-  if (m === 'mic') { const t = mr.el.querySelector('.mr-ask'); if (t) dictation.toggle(t); return }
+  if (m === 'mic') { const t = mr.el.querySelector('.mr-ask'); if (t) { dictation.target = null; dictation.toggle(t) } return }
   if (m === 'send') return mrSend();
   if (m === 'save') return mrSaveNote();
   if (m === 'remove') { for (const id of mr.ids) { removeHighlight(id); noteDrafts.delete(id) } marginClose(); return }
@@ -2058,26 +2082,11 @@ function mrSaveNote() {
   putHighlights(list); noteDrafts.delete(id);
   marginClose();
 }
-function mrExplain() {
-  const info = mr.info;
-  marginClose(); getSelection().removeAllRanges();
-  if (isPhone()) {
-    // The phone keeps today's Explain window.
-    sel = info;
-    const pop = document.createElement('div');
-    pop.tabIndex = -1; pop.className = 'selection-popup is-compact is-lab selection-popup-below';
-    root.appendChild(pop); pop.addEventListener('mousedown', e => e.preventDefault());
-    explain(pop);
-    return;
-  }
-  openChat({ passage: info, prompt: EXPLAIN_ASK, display: 'Explain this passage.' });
-}
 function mrSend() {
   const t = mr?.el?.querySelector('.mr-ask'); if (!t) return;
   const q = t.value.trim(); if (!q) return;
-  const info = mr.info;
-  marginClose(); getSelection().removeAllRanges();
-  openChat({ passage: info, prompt: q });
+  // A question from the bar is an Ask card on the passage (its thread continues in the card).
+  cardAction('ask', { question: q });
 }
 async function mrCopy() {
   const text = TinctMargin.copyQuote({ text: mr.info.text, title: state.title, page: mr.info.page });
@@ -2123,13 +2132,21 @@ async function mrDefine(word) {
   if (mr?.defToken !== token) return;
   if (hit && !TinctMargin.nameMidSentence(word, mr.before)) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
-    return mrShow('define');
+    mrShow('define');
+    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most 1.5 s).
+    const info = mr.info, anchor = mr.anchor, def = mr.def;
+    const n = await fittingSense(hit.word, def.senses.map(x => x.text), info);
+    if (n > 0) def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
+    keepDefine(def, info, anchor);
+    if (mr?.defToken === token && n > 0) mrShow('define');
+    return;
   }
   if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
   try {
     const found = await defineByCompanion(word, mr.info);
     if (mr?.defToken !== token) return;
     mr.def = found ? { word: found.word || word, pos: found.pos || '', line: found.line } : { word, line: errorCopy(null) };
+    if (found) keepDefine(mr.def, mr.info, mr.anchor);
   } catch (e) {
     if (mr?.defToken !== token) return;
     mr.def = { word, line: e?.code === 'offline' ? 'Not in the offline dictionary.' : errorCopy(e) };
@@ -2138,8 +2155,9 @@ async function mrDefine(word) {
 }
 // The companion's existing contextual `define` intent (CONTEXTUAL_LOOKUP_PROMPT, built by the Worker).
 async function defineByCompanion(word, info) {
-  const pageCtx = await contextText(info.page, info.page, 9000);
-  const req = TinctAI.toRequest([{ role: 'user', content: pageCtx || ' ' }, { role: 'user', content: word }], aiBook());
+  // A PDF's page goes as its page (kind 'pdf', printed label), as every PDF request does.
+  const pdf = await pdfPages(info.page, { before: 0, after: 0 });
+  const req = TinctAI.toRequest([{ role: 'user', content: ' ' }, { role: 'user', content: word }], { ...aiBook(), pdf });
   req.stream = false; req.max_tokens = 450;
   req.companion.intent = 'define'; req.companion.selection = word.slice(0, 300);
   const s = TinctAI.session();
@@ -2185,7 +2203,8 @@ const DICTATION_COPY = {
 };
 const dictation = {
   rec: null, clip: null, session: 0,
-  pressed(on) { mr?.el?.querySelector('[data-m="mic"]')?.setAttribute('aria-pressed', String(on)) },
+  target: null,
+  pressed(on) { (this.target || mr?.el?.querySelector('[data-m="mic"]'))?.setAttribute('aria-pressed', String(on)) },
   write(field, prefix, text) { field.value = [prefix, text].filter(Boolean).join(' '); field.dispatchEvent(new Event('input', { bubbles: true })) },
   stop() {
     this.session++;
@@ -2246,6 +2265,621 @@ const dictation = {
     try { rec.start(); this.pressed(true) } catch { this.stop(); toast(DICTATION_COPY.noStart) }
   },
 };
+
+/* ---------- The margin column: cards, leader lines, the "more" row, marks, the bottom card (PDF only) ----------
+   docs/margin/BRIEF.md §3, §4 and §6 (PR 2). Every kept result with a passage is a card: Ask threads,
+   Explain, Simplify, Define, Fact-check, Counterpoint and Quiz me, kept in 'cards:' + key (synced as
+   the highlights are, cardsSync), and every highlight with a note. On a wide desktop the cards sit in a
+   380px column 56px right of the page, which replaces the docked chat; below 1180px they are marks at
+   the page's edge that open a floating card; on the phone a card opens along the bottom. The whole-PDF
+   chat (the existing thread, chat.turns) is the "Whole PDF" card at the top of the column and the
+   column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
+const MP = { P: null };
+const mpReady = import('/lab/margin/margin-parse.js').then(m => (MP.P = m)).catch(() => null);
+const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), ctl: new Map(), raf: 0, view: null, whole: { away: false } };
+const marginOn = () => state.kind === 'pdf';
+const keptCards = () => store.get('cards:' + state.key) || [];
+const cardById = id => keptCards().find(c => c.id === id && !c.gone) || null;
+function saveCard(card) {
+  card.u = Date.now();
+  if (card.turns) card.turns = card.turns.slice(-TinctMargin.CARD_LIMITS.turns).map(t => ({ ...t, content: String(t.content || '').slice(0, TinctMargin.CARD_LIMITS.content) }));
+  store.set('cards:' + state.key, [...keptCards().filter(c => c.id !== card.id), card]);
+  cardsSync.changed();
+  marginLayout({ fresh: true });
+}
+// A PDF's printed page label (the companion is shown these and cites them), else its page number.
+const LABEL_RE = /^[\p{L}\p{N}](?:[\p{L}\p{N}.\-–]{0,14}[\p{L}\p{N}])?$/u;
+function pageLabel(n) { const l = String(state.labels?.[n - 1] ?? '').trim(); return LABEL_RE.test(l) ? l : String(n) }
+/** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. */
+async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
+  const from = Math.max(1, focus - before), to = Math.min(state.pages.length || focus, focus + after);
+  const pages = []; let at = 0, used = 0;
+  for (let n = from; n <= to && used < budget * (to - from + 1); n++) {
+    const text = (await pageText(n)).text.slice(0, budget);
+    if (n === focus) at = pages.length;
+    pages.push({ n: pageLabel(n), text: text || ' ' }); used += text.length;
+  }
+  return { pages, at };
+}
+/** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. */
+function citeResolve(token) {
+  const texts = new Map([...state.texts.entries()].map(([n, v]) => [n, v.text]));
+  return TinctMargin.citeTarget(token, { labels: state.labels, count: state.pages.length, texts });
+}
+/** Scroll the PDF to a citation's page, and to its printed words on it when they are found. */
+function goToCite(page, needle) {
+  const p = state.pages[page - 1]; if (!p) return;
+  const find = () => {
+    if (!needle || !p.layer) return null;
+    const span = [...p.layer.querySelectorAll('span')].find(sp => (sp.textContent || '').includes(needle) || needle.includes((sp.textContent || '').trim()) && (sp.textContent || '').trim().length > 2);
+    if (!span) return null;
+    const r = span.getBoundingClientRect(), b = p.pg.getBoundingClientRect();
+    return Math.max(0, (r.top - b.top) / b.height - 0.04);
+  };
+  const frac = find();
+  goTo({ page, frac: frac ?? 0 }, true);
+  if (frac == null && needle) setTimeout(() => { const f = find(); if (f != null) goTo({ page, frac: f }, true) }, 700);
+}
+
+/* -- Which surface: the column (wide desktop), marks (narrow), the bottom card (phone) -- */
+function marginMode() {
+  if (!marginOn() || !readerShown() || !state.pages.length) return null;
+  if (isPhone()) return 'phone';
+  return innerWidth >= TinctMargin.COL.narrow ? 'column' : 'marks';
+}
+function marginStart() {
+  if (!marginOn()) return;
+  chat.el?.remove(); chat.el = null;
+  document.querySelector('.byob-dock-tab')?.remove();
+  if (!col.el) {
+    const el = col.el = document.createElement('div');
+    el.className = 'mr mr-col is-reader'; el.setAttribute('aria-label', 'Margin');
+    el.innerHTML = '<button type="button" class="mr-stack" data-c="stack" hidden></button><div class="mr-foot"></div>';
+    col.stack = el.querySelector('.mr-stack'); col.foot = el.querySelector('.mr-foot');
+    col.foot.innerHTML = TinctMargin.html.footHtml();
+    bindCardEvents(el);
+    col.leads = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    col.leads.setAttribute('class', 'mr mr-leads'); col.leads.setAttribute('aria-hidden', 'true');
+    col.marks = document.createElement('div'); col.marks.className = 'mr mr-marks';
+    col.marks.addEventListener('click', e => {
+      const m = e.target.closest('.mr-mark'); if (!m) return;
+      const ids = (m.dataset.ids || m.dataset.id).split(' '), at = ids.indexOf(col.open);
+      openCard(at < 0 ? ids[0] : at + 1 < ids.length ? ids[at + 1] : null);
+    });
+  }
+  for (const n of [col.el, col.leads, col.marks]) if (!n.isConnected) root.appendChild(n);
+  col.mode = null; col.open = null;
+  marginLayout({ fresh: true });
+}
+function marginStop() {
+  for (const c of col.ctl.values()) c.abort();
+  col.ctl.clear(); col.live.clear(); col.pending.clear();
+  closeFloat(); closeSheet2();
+  col.el?.remove(); col.leads?.remove(); col.marks?.remove();
+  col.els.forEach(e => e.remove()); col.els.clear();
+  document.querySelectorAll('.mr-ul-layer').forEach(l => l.replaceChildren());
+  if (root.classList.contains('margin-open')) { root.classList.remove('margin-open', 'dock-open'); root.style.removeProperty('--dock-w') }
+  col.mode = null; col.open = null;
+}
+/** Wide desktop: the page area narrows for the column, as it did for the docked chat; the place stays. */
+function reserveColumn(on) {
+  if (root.classList.contains('margin-open') === on) return;
+  root.classList.toggle('margin-open', on); root.classList.toggle('dock-open', on);
+  if (on) root.style.setProperty('--dock-w', TinctMargin.COLUMN_RESERVE + 'px'); else root.style.removeProperty('--dock-w');
+  if (state.pages.length) setZoom(state.zoom);
+}
+
+/* -- Layout, once a frame while the pages scroll -- */
+function marginLayout({ fresh = false } = {}) {
+  if (fresh) col.view = null;
+  if (col.raf) return;
+  col.raf = requestAnimationFrame(() => { col.raf = 0; try { layoutNow() } catch (e) { console.error(e) } });
+}
+function viewCards() {
+  if (!col.view) col.view = TinctMargin.cardView(keptCards(), highlights());
+  return col.view;
+}
+/** The cards whose passages are in view, with their first line's box on screen. */
+function visibleCards() {
+  const sr = $('scroll').getBoundingClientRect(), top = Math.max(sr.top, $('hdr').getBoundingClientRect().bottom), bottom = sr.bottom;
+  const out = [];
+  for (const card of viewCards()) {
+    const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1]; if (!p) continue;
+    const b = p.pg.getBoundingClientRect();
+    const line = { top: b.top + f[2] * b.height, bottom: b.top + (f[2] + f[4]) * b.height, left: b.left + f[1] * b.width };
+    const all = TinctMargin.anchorOfCard(card).map(a => { const q = state.pages[a.n - 1]?.pg.getBoundingClientRect(); return q ? q.top + (a.y + a.h) * q.height : line.bottom });
+    const last = Math.max(line.bottom, ...all);
+    const inView = line.top >= top && line.top < bottom - 8;
+    if (inView || (card.id === col.open && last > top && line.top < bottom)) out.push({ card, line, last, pageRight: Math.min(b.right, sr.left + $('scroll').clientWidth) });
+  }
+  return out;
+}
+const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0]);
+function cardOpts(card, open) {
+  const live = col.live.get(card.id);
+  return { open, P: MP.P, resolve: citeResolve, pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id) };
+}
+/** Draw a card into `el` when what it shows changed; true when it was drawn again. */
+function drawCard(el, card, open) {
+  const sig = cardSig(card, open);
+  if (el.dataset.sig === sig) return false;
+  el.dataset.sig = sig; el.dataset.id = card.id;
+  el.className = 'mr ' + TinctMargin.html.cardClass(card, open) + (el.classList.contains('is-floating') ? ' is-floating' : '');
+  if (card.kind === 'note') el.style.setProperty('--hl-color', (HL_COLORS.find(c => c[0] === card.color) || HL_COLORS[0])[3]);
+  const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
+  el.innerHTML = TinctMargin.html.cardHtml(card, cardOpts(card, open));
+  const live = col.live.get(card.id);
+  if (open && ((live && !live.text && !live.status) || col.pending.has(card.id))) {
+    const ring = TinctWait.waitRing('Thinking…', { size: 18 }), slot = el.querySelector('.mr-wait');
+    if (slot) slot.append(ring); else el.querySelector('.mr-card__body')?.append(ring);
+  }
+  const f = el.querySelector('.mr-follow__input');
+  if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
+  if (f && focused) f.focus({ preventScroll: true });
+  return true;
+}
+function layoutNow() {
+  if (!col.el) return;
+  const mode = marginMode();
+  if (mode !== col.mode) {
+    col.mode = mode;
+    reserveColumn(mode === 'column');
+    if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren() }
+    if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
+    if (mode !== 'phone') closeSheet2();
+    if (col.el) col.el.hidden = mode !== 'column';
+    if (mode === 'phone' && col.open) { const o = col.open; col.open = null; openCard(o) }
+  }
+  if (!mode) return;
+  if (!MP.P || !window.TinctWait) { mpReady.then(() => marginLayout()); return }
+  const vis = visibleCards();
+  underline(vis.find(v => v.card.id === col.open) || null);
+  if (mode === 'column') return layoutColumn(vis);
+  // Marks: at the page's right edge, level with each passage's first line. Passages closer than a
+  // mark's 28px target share one mark, which opens each of their cards in turn.
+  const hdr = $('hdr').getBoundingClientRect().bottom, seen = new Set(), groups = [];
+  for (const v of vis) {
+    const y = (v.line.top + v.line.bottom) / 2, g = groups[groups.length - 1];
+    if (g && y - g.y < 28) g.cards.push(v); else groups.push({ y, cards: [v] });
+  }
+  for (const g of groups) {
+    const v = g.cards[0], id = v.card.id;
+    seen.add(id);
+    let m = col.marks.querySelector(`[data-id="${CSS.escape(id)}"]`);
+    if (!m) { m = document.createElement('button'); m.type = 'button'; m.className = 'mr-mark'; m.dataset.id = id; col.marks.appendChild(m) }
+    m.dataset.ids = g.cards.map(c => c.card.id).join(' ');
+    m.setAttribute('aria-label', g.cards.map(c => TinctMargin.html.cardLabel(c.card, pageLabel(c.card.page))).join(', '));
+    m.style.left = Math.min(innerWidth - 14, v.pageRight + TinctMargin.COL.dot) + 'px';
+    m.style.top = (g.y - hdr) + 'px';
+    m.setAttribute('aria-expanded', String(g.cards.some(c => c.card.id === col.open)));
+  }
+  col.marks.querySelectorAll('.mr-mark').forEach(m => { if (!seen.has(m.dataset.id)) m.remove() });
+  if (mode === 'marks') placeFloat(vis.find(v => v.card.id === col.open));
+  else if (col.sheet) drawSheet();
+}
+function layoutColumn(vis) {
+  const C = TinctMargin.COL, sr = $('scroll').getBoundingClientRect();
+  const pageRight = vis[0]?.pageRight ?? (() => { const p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > sr.top) || state.pages[0]; return Math.min(p.pg.getBoundingClientRect().right, sr.left + $('scroll').clientWidth) })();
+  const box = TinctMargin.columnBox(innerWidth, pageRight);
+  if (!box) return;
+  col.el.style.left = box.left + 'px';
+  const colTop = col.el.getBoundingClientRect().top, colH = col.el.clientHeight, footTop = col.foot.offsetTop;
+  col.el.style.setProperty('--mr-col-height', colH + 'px');
+  col.el.style.setProperty('--mr-foot-height', (colH - footTop + 18) + 'px');
+  // The whole-PDF card (when the thread has turns) sits first, at the top.
+  const items = [];
+  if (chat.turns.length || chat.live) items.push({ id: 'whole', card: { id: 'whole', kind: 'whole' }, top: 0 });
+  for (const v of vis) items.push({ id: v.card.id, card: v.card, v, top: v.line.top - colTop });
+  const keep = new Set(items.map(i => i.id));
+  for (const [id, el] of col.els) if (!keep.has(id)) { el.remove(); col.els.delete(id) }
+  for (const it of items) {
+    let el = col.els.get(it.id);
+    if (!el) { el = document.createElement('div'); col.els.set(it.id, el); col.el.insertBefore(el, col.stack) }
+    el.hidden = false;
+    if (it.id === 'whole') drawWhole(el); else drawCard(el, it.card, col.open === it.id);
+  }
+  // The row's height on one line ("1 more on this page"), measured once.
+  if (!col.stackH) { const was = col.stack.hidden; col.stack.hidden = false; col.stack.innerHTML = TinctMargin.html.stackHtml([{ kind: 'note' }]); col.stackH = col.stack.offsetHeight || 34; col.stack.hidden = was }
+  const stackH = col.stackH;
+  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top })), items.map(i => col.els.get(i.id).offsetHeight), footTop, { open: col.open, stackHeight: stackH });
+  const at = new Map(out.positions.map(p => [p.id, p]));
+  const x1 = box.left - 6, lines = [];
+  for (const it of items) {
+    const el = col.els.get(it.id), p = at.get(it.id);
+    if (!p) { el.hidden = true; continue }
+    el.style.top = p.top + 'px';
+    if (!it.v) continue;
+    const lab = el.querySelector('.mr-card__label').getBoundingClientRect();
+    const ey = (it.v.line.top + it.v.line.bottom) / 2, cy = (lab.top + lab.bottom) / 2, x0 = it.v.pageRight + C.dot;
+    lines.push({ x0, ey, cy, open: it.id === col.open });
+  }
+  const gathered = out.gathered.map(id => items.find(i => i.id === id)).filter(Boolean);
+  col.stack.hidden = !out.stack;
+  if (out.stack) {
+    // One line: as many of the kinds as fit.
+    const kinds = new Set(gathered.map(g => g.card.kind)).size;
+    for (let k = kinds; k >= 1; k--) { col.stack.innerHTML = TinctMargin.html.stackHtml(gathered.map(g => g.card), k); if (col.stack.offsetHeight <= stackH + 1) break }
+    col.stack.dataset.first = gathered[0]?.id || '';
+    col.stack.style.top = out.stack.top + 'px';
+    const cy = colTop + out.stack.top + col.stack.offsetHeight / 2;
+    for (const g of gathered) if (g.v) lines.push({ x0: g.v.pageRight + C.dot, ey: (g.v.line.top + g.v.line.bottom) / 2, cy, open: false });
+  }
+  col.leads.innerHTML = lines.map(l => { const f = l.open ? '' : ' class="is-folded"'; return `<circle${f} cx="${l.x0.toFixed(1)}" cy="${l.ey.toFixed(1)}" r="${C.r}"/><path${f} d="${TinctMargin.leadPath(l.x0, l.ey, x1, l.cy)}"/>` }).join('');
+}
+/** The open card's passage: a 1.5px underline in the lead colour, on the page. */
+function underline(v) {
+  document.querySelectorAll('.mr-ul-layer').forEach(l => { if (!v || l.dataset.id !== v.card.id) { l.replaceChildren(); delete l.dataset.id } });
+  if (!v) return;
+  for (const a of TinctMargin.anchorOfCard(v.card)) {
+    const p = state.pages[a.n - 1]; if (!p) continue;
+    const layer = layerOf(p, 'mr-ul-layer'); layer.classList.add('mr');
+    if (layer.dataset.id === v.card.id) continue;
+    layer.dataset.id = v.card.id;
+    for (const r of v.card.rects.filter(r => r[0] === a.n)) { const i = document.createElement('i'); Object.assign(i.style, { left: r[1] * 100 + '%', top: (r[2] + r[4]) * 100 + '%', width: r[3] * 100 + '%' }); layer.appendChild(i) }
+  }
+}
+
+/* -- Opening and folding: one card open at a time -- */
+function openCard(id, { focus = false } = {}) {
+  const mode = marginMode();
+  col.open = id || null;
+  if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
+  if (mode === 'marks' && !id) closeFloat();
+  // A card whose passage is out of view brings it into view.
+  if (id && id !== 'whole') {
+    const card = viewCards().find(c => c.id === id) || cardById(id);
+    if (card && mode !== 'phone') {
+      const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1], sr = $('scroll').getBoundingClientRect();
+      if (p) { const b = p.pg.getBoundingClientRect(), y = b.top + f[2] * b.height; if (y < sr.top + 40 || y > sr.bottom - 120) goTo({ page: f[0], frac: Math.max(0, f[2] - 0.08) }, true) }
+    }
+  }
+  marginLayout();
+  if (focus) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector('.mr-follow__input')?.focus({ preventScroll: true })));
+}
+const openCardEl = () => (col.sheet && col.sheet.isConnected ? col.sheet : col.float && col.float.isConnected ? col.float : col.els.get(col.open)) || null;
+function placeFloat(v) {
+  const card = col.open === 'whole' ? null : v?.card;
+  if (!col.open || (!card && col.open !== 'whole')) { closeFloat(); return }
+  if (!col.float) { col.float = document.createElement('div'); bindCardEvents(col.float); root.appendChild(col.float) }
+  const el = col.float;
+  el.classList.add('is-floating');
+  if (card) drawCard(el, card, true); else { el.className = 'mr mr-card is-open is-floating is-whole'; drawWhole(el) }
+  const hdr = $('hdr').getBoundingClientRect().bottom, room = innerHeight - hdr - 32;
+  el.style.setProperty('--mr-col-height', room + 28 + 'px'); el.style.setProperty('--mr-foot-height', '0px');
+  const x = v ? v.pageRight + TinctMargin.COL.dot : innerWidth - 16;
+  const left = x + 14 + 380 <= innerWidth - 16 ? x + 14 : Math.max(16, x - 14 - 380);
+  el.style.left = left + 'px';
+  // Beside the mark and clear of the passage: below its last line when there is room, else above its first.
+  const h = el.offsetHeight;
+  let want = hdr + 16;
+  if (v) want = v.last + 12 + h <= innerHeight - 16 ? v.last + 12 : v.line.top - 12 - h >= hdr + 16 ? v.line.top - 12 - h : v.line.top - TinctMargin.COL.lift;
+  el.style.top = Math.max(hdr + 16, Math.min(want, innerHeight - 16 - h)) + 'px';
+}
+function closeFloat() { col.float?.remove(); col.float = null }
+
+/* -- The phone's bottom card -- */
+function openSheet2(id) {
+  if (!col.sheet) {
+    const el = col.sheet = document.createElement('div');
+    el.className = 'mr mr-sheet'; el.setAttribute('role', 'dialog');
+    bindCardEvents(el); sheetSwipe(el);
+  }
+  col.sheet.classList.remove('is-full');
+  col.sheet.dataset.id = id; delete col.sheet.dataset.sig;
+  if (!col.sheet.isConnected) root.appendChild(col.sheet);
+  drawSheet();
+  fitKeyboard();
+  requestAnimationFrame(passageAboveSheet);
+}
+// The page scrolls so the passage sits just above the bottom card, still underlined.
+function passageAboveSheet() {
+  const id = col.sheet?.dataset.id;
+  const card = id && id !== 'whole' && (viewCards().find(c => c.id === id) || cardById(id)); if (!card) return;
+  const rects = anchorRects(TinctMargin.anchorOfCard(card)); if (!rects.length) return;
+  const top = Math.min(...rects.map(r => r.top)), bottom = Math.max(...rects.map(r => r.bottom));
+  const sheetTop = col.sheet.getBoundingClientRect().top, hdr = $('hdr').getBoundingClientRect().bottom;
+  const want = Math.max(hdr + 12, sheetTop - 16 - (bottom - top));
+  if (Math.abs(top - want) > 4) $('scroll').scrollBy({ top: top - want });
+  marginLayout();
+}
+function drawSheet() {
+  const el = col.sheet; if (!el) return;
+  const id = el.dataset.id;
+  if (id === 'whole') { el.setAttribute('aria-label', 'Chat'); drawWhole(el, { sheet: true }); return }
+  const card = viewCards().find(c => c.id === id) || cardById(id); if (!card) { closeSheet2(); return }
+  el.setAttribute('aria-label', TinctMargin.html.cardLabel(card, pageLabel(card.page)));
+  const sig = cardSig(card, true);
+  if (el.dataset.sig === sig) return;
+  const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
+  el.dataset.sig = sig;
+  el.innerHTML = TinctMargin.html.sheetHtml(TinctMargin.html.cardHtml(card, cardOpts(card, true)));
+  const live = col.live.get(card.id);
+  if ((live && !live.text && !live.status) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
+  const f = el.querySelector('.mr-follow__input');
+  if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
+  if (f && focused) f.focus({ preventScroll: true });
+  // The card grew (its answer arrived): the passage moves up to stay just above it.
+  const h = el.offsetHeight;
+  if (h !== Number(el.dataset.h || 0)) { el.dataset.h = h; requestAnimationFrame(passageAboveSheet) }
+}
+function closeSheet2() {
+  if (!col.sheet) return;
+  col.sheet.remove(); col.sheet = null;
+  if (marginMode() === 'phone') { col.open = null; marginLayout() }
+}
+function sheetSwipe(el) {
+  let y0 = null, full = false;
+  el.addEventListener('pointerdown', e => { if (e.target.closest('textarea, a, .mr-card__body button, .mr-follow')) return; y0 = e.clientY; full = el.classList.contains('is-full') });
+  el.addEventListener('pointerup', e => {
+    if (y0 == null) return;
+    const dy = e.clientY - y0; y0 = null;
+    if (dy < -40) el.classList.add('is-full');
+    else if (dy > 60) { if (full) el.classList.remove('is-full'); else closeSheet2() }
+  });
+  el.addEventListener('pointercancel', () => { y0 = null });
+  // A touch swipe on the card's body keeps its own scroll; on the grab and the label it moves the card.
+  el.addEventListener('touchstart', e => { if (e.target.closest('.mr-sheet__grab, .mr-card__label, .mr-divider')) { y0 = e.touches[0].clientY; full = el.classList.contains('is-full') } }, { passive: true });
+  el.addEventListener('touchend', e => {
+    if (y0 == null) return;
+    const dy = (e.changedTouches[0]?.clientY ?? y0) - y0; y0 = null;
+    if (dy < -40) el.classList.add('is-full'); else if (dy > 60) { if (full) el.classList.remove('is-full'); else closeSheet2() }
+  });
+}
+// The keyboard: the bottom card rides above it, so the follow-up line stays in view.
+// With the keyboard open the card leaves room above it for the passage (a few lines under the top bar).
+function fitKeyboard() {
+  const vv = window.visualViewport, el = col.sheet; if (!el) return;
+  const kb = vv ? Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)) : 0;
+  el.style.setProperty('--mr-kb', kb + 'px'); el.classList.toggle('is-kb', kb > 0);
+  el.style.maxHeight = kb > 0 ? Math.max(160, Math.round(vv.height + vv.offsetTop - $('hdr').getBoundingClientRect().bottom - 72)) + 'px' : '';
+}
+window.visualViewport?.addEventListener('resize', () => { if (!col.sheet) return; fitKeyboard(); requestAnimationFrame(passageAboveSheet) });
+
+/* -- The whole-PDF thread, in its card or the phone's card -- */
+function wholeTurns() {
+  const turns = chat.turns.map(t => ({ role: t.role, text: t.role === 'user' ? (t.display || t.content) : String(t.content || '').replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, ''), at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined, note: t.failed ? `No answer — ${t.failed}` : undefined }));
+  if (chat.live) turns.push({ role: 'assistant', text: chat.live.text, at: Date.now(), place: turns.at(-1)?.place });
+  return turns;
+}
+function drawWhole(el, { sheet = false } = {}) {
+  const open = sheet || col.open === 'whole', turns = wholeTurns();
+  const body = TC ? TinctMargin.html.threadHtml(TC.threadRows(turns), turns, { P: MP.P, resolve: citeResolve }) : '';
+  const tray = chat.attach.length ? `<div class="byob-tray">${trayChips()}</div>` : '';
+  const sig = JSON.stringify([open, sheet, body.length, body.slice(-200), tray.length, !!chat.live, col.whole.status || '']);
+  if (el.dataset.sig === sig) return;
+  el.dataset.sig = sig; el.dataset.id = 'whole';
+  if (!sheet) el.className = `mr mr-card ${open ? 'is-open' : 'is-folded'} is-whole${el.classList.contains('is-floating') ? ' is-floating' : ''}`;
+  const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
+  const old = el.querySelector('.mr-card__body'), kept = old ? { top: old.scrollTop, end: old.scrollHeight - old.scrollTop - old.clientHeight < 8 } : null;
+  const last = [...chat.turns].reverse().find(t => t.role === 'assistant');
+  const inner = TinctMargin.html.wholeHtml(body, { open, tray, label: !sheet, fold: last ? TinctMargin.html.foldText({ kind: 'explain', turns: [last] }, MP.P) : '' });
+  el.innerHTML = sheet ? TinctMargin.html.sheetHtml(inner) : inner;
+  const b = el.querySelector('.mr-card__body');
+  if (b) {
+    if (chat.live && !chat.live.text) b.append(TinctWait.waitRing('Thinking…', { size: 18 }));
+    // The thread opens at its end; while an answer arrives it stays where the reader put it.
+    b.scrollTop = !kept || kept.end ? b.scrollHeight : kept.top;
+  }
+  el.querySelectorAll('[data-rm]').forEach(x => x.onclick = () => { chat.attach.splice(Number(x.dataset.rm), 1); marginLayout() });
+  const f = el.querySelector('.mr-follow__input');
+  if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
+  if (f && focused) f.focus({ preventScroll: true });
+}
+function trayChips() { return chat.attach.map((a, i) => `<span class="byob-chip">${a.thumb ? `<img src="${a.thumb}" alt="">` : '<i>Snip</i>'}<span class="byob-chip-label">${a.snip ? `${KIND[a.kind] || 'Snip'} · p. ${a.page}` : 'Image'}</span><button type="button" aria-label="Remove image" data-rm="${i}">×</button></span>`).join('') }
+/** Whole-file chat (the column's foot, the slash key, the menu's chat): its card opens; a question goes to today's ask. */
+function openWhole(opts = {}) {
+  loadTurns();
+  if (opts.passage) chat.passage = opts.passage;
+  if (opts.explanation) {
+    chat.turns.push({ role: 'user', content: 'Explain this passage.', passage: opts.passage.text, page: opts.passage.page, at: Date.now() });
+    chat.turns.push({ role: 'assistant', content: opts.explanation, at: Date.now() });
+    saveTurns();
+  }
+  if (marginMode() === 'phone') { col.open = 'whole'; openSheet2('whole') }
+  else openCard('whole');
+  if (opts.prompt) ask(opts.prompt, opts.display);
+  else if (!opts.quiet) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector('.mr-follow__input')?.focus({ preventScroll: true })));
+}
+
+/* -- What a card does: open, close, copy, follow up, quiz, citations, dictation -- */
+function bindCardEvents(host) {
+  host.addEventListener('mousedown', e => { if (e.target.closest('.mr-cite, [data-c]') && !e.target.closest('textarea')) e.preventDefault() });
+  host.addEventListener('click', e => {
+    const cite = e.target.closest('.mr-cite');
+    if (cite) { goToCite(Number(cite.dataset.page), cite.dataset.needle || ''); return }
+    const card = e.target.closest('.mr-card, .mr-sheet'), b = e.target.closest('[data-c]');
+    const id = card?.dataset.id || host.dataset?.id;
+    if (!b) { if (card?.classList.contains('is-folded')) openCard(card.dataset.id); return }
+    const c = b.dataset.c;
+    if (c === 'stack') return openCard(b.dataset.first || null);
+    if (c === 'open') return openCard(id);
+    if (c === 'close') { if (host === col.sheet) closeSheet2(); else openCard(null); return }
+    if (c === 'grab') { col.sheet?.classList.toggle('is-full'); return }
+    if (c === 'mic') { const f = b.closest('.mr-follow, .mr-foot')?.querySelector('.mr-follow__input'); if (f) { dictation.target = b; dictation.toggle(f) } return }
+    if (c === 'copy') return copyCard(id);
+    if (c === 'show' || c === 'next') return quizStep(id, c);
+  });
+  host.addEventListener('input', e => { if (e.target.matches('.mr-follow__input')) { e.target.classList.toggle('has-text', !!e.target.value); fitFollow(e.target) } });
+  host.addEventListener('keydown', e => {
+    if (!e.target.matches('.mr-follow__input')) return;
+    if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); if (e.target.closest('.mr-foot')) return; openCard(null); return }
+    if (e.key !== 'Enter' || e.shiftKey || e.isComposing) return;
+    e.preventDefault();
+    const text = e.target.value.trim(); if (!text) return;
+    const id = e.target.closest('.mr-foot') ? 'foot' : e.target.closest('[data-id]')?.dataset.id;
+    e.target.value = ''; e.target.classList.remove('has-text'); fitFollow(e.target); dictation.stop();
+    // From the foot, the conversation goes on in the Whole PDF card; the foot lets go of the keys.
+    if (id === 'foot') e.target.blur();
+    followUp(id, text);
+  });
+}
+function fitFollow(t) { t.style.height = '18px'; t.style.height = Math.min(t.scrollHeight, 54) + 'px' }
+function followUp(id, text) {
+  if (id === 'foot' || id === 'whole') { openWhole({ quiet: true }); ask(text); return }
+  const card = cardById(id); if (!card) return;
+  if (card.kind === 'quiz') return quizCheck(card, text);
+  if (card.kind === 'note' || id.startsWith('n-')) {
+    // A follow-up on a note asks about its passage: an Ask card for it.
+    const v = viewCards().find(c => c.id === id); if (!v) return;
+    const ask_ = TinctMargin.newCard({ kind: 'ask', page: v.page, anchor: TinctMargin.anchorOfCard(v), text: v.text, turns: [{ role: 'user', content: text, at: Date.now() }] });
+    saveCard(ask_); openCard(ask_.id); runCard(ask_.id, text); return;
+  }
+  card.turns = [...(card.turns || []), { role: 'user', content: text, at: Date.now() }];
+  saveCard(card); runCard(card.id, text);
+}
+async function copyCard(id) {
+  const card = id === 'whole' ? null : viewCards().find(c => c.id === id);
+  const plain = t => String(t || '').replace(/\n{3,}/g, '\n\n').trim();
+  let text = '';
+  if (!card) text = plain([...chat.turns].reverse().find(t => t.role === 'assistant')?.content);
+  else if (card.kind === 'note') text = plain(card.note);
+  else if (card.kind === 'define') text = (card.data?.senses || []).map((s, i) => `${i + 1}. ${s.text}`).join('\n') || plain(card.data?.line);
+  else text = (card.turns || []).filter(t => t.role === 'assistant').map(t => plain(t.content)).join('\n\n');
+  try { await navigator.clipboard.writeText(text); toast('Copied.') } catch { toast('Copy did not work here. Use your device’s copy instead.') }
+}
+
+/* -- The actions: each answer becomes a card -- */
+// Explain on a PDF (docs/margin/PROMPTS.md): today's request, opening with a bottom line.
+function explainPrompt(card, image) {
+  return `You are Tinct's reading companion. ${bookLine()}\n\nExplain the passage they selected on page ${pageLabel(card.page)}: what it says, what it means here, and any notation or terms, in plain language for a careful reader. ${MP.P.PDF_EXPLAIN_FORMAT} Write any maths inline in plain notation.${image ? '\n' + MP.P.PASSAGE_IMAGE_LINE : ''}\n\nSelected passage (extracted text):\n${card.text.slice(0, 3000)}`;
+}
+// A card's thread as today's ask: the passage, what the card said, and the follow-up questions.
+function cardTurns(card, image) {
+  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${pageLabel(card.page)} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. Plain prose; simple bullet lists only when they help.${image ? ' ' + MP.P.PASSAGE_IMAGE_LINE : ''}\n\nThe passage they selected on page ${pageLabel(card.page)}:\n${card.text.slice(0, 3000)}`;
+  const lead = { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.' }[card.kind];
+  const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
+  if (lead && turns[0]?.role === 'assistant') turns.unshift({ role: 'user', content: lead });
+  return [{ role: 'user', content: rules }, ...turns];
+}
+const passageRegion = card => { const rects = anchorRects(TinctMargin.anchorOfCard(card)); return rects.length ? selectionRegion({ page: card.page, box: boxOf(rects) }) : null };
+function setLive(id, patch) {
+  if (patch === null) col.live.delete(id); else col.live.set(id, { ...(col.live.get(id) || { text: '', status: '' }), ...patch });
+  marginLayout();
+}
+/** Run a card's request: its action the first time, today's ask for a follow-up (`question`). */
+async function runCard(id, question = null) {
+  await mpReady;
+  let card = cardById(id); if (!card || !MP.P) return;
+  col.ctl.get(id)?.abort();
+  const ctl = new AbortController(); col.ctl.set(id, ctl);
+  setLive(id, { text: '', status: '' });
+  const s = await ai();
+  if (!s) { setLive(id, { status: AI_OFF }); return }
+  const pdf = await pdfPages(card.page);
+  const image = await pageImage(card.page, passageRegion(card));
+  const book = { ...aiBook(), pdf };
+  const onText = ({ text }) => { if (!ctl.signal.aborted) setLive(id, { text, status: '' }) };
+  const onStatus = status => { if (!ctl.signal.aborted) setLive(id, { status }) };
+  const call = async imgs => {
+    const images = imgs ? [imgs] : undefined;
+    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, onText, signal: ctl.signal });
+    if (card.kind === 'explain') return TinctAI.ask(explainPrompt(card, imgs), { book, images, onText, signal: ctl.signal });
+    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, selection: card.text, images, stream: false, signal: ctl.signal });
+    return TinctAI.companion(card.kind, { book, pdf, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
+  };
+  try {
+    let res;
+    try { res = await call(image) }
+    catch (e) { if (!image || (e?.code !== 'images_unavailable' && e?.code !== 'image_rejected')) throw e; if (e.code === 'images_unavailable') sampleImages = false; res = await call(null) }
+    card = cardById(id); if (!card || ctl.signal.aborted) return;
+    if (card.kind === 'quiz' && question == null) {
+      const quiz = MP.P.parseQuiz(res.text);
+      if (!quiz) throw Object.assign(new Error('failed'), { code: 'failed' });
+      card.data = { questions: quiz.questions, i: 0, results: [] };
+    } else card.turns = [...(card.turns || []), { role: 'assistant', content: res.text, at: Date.now() }];
+    col.live.delete(id); col.ctl.delete(id);
+    saveCard(card);
+  } catch (e) {
+    if (e?.code === 'cancelled' || ctl.signal.aborted) return;
+    col.ctl.delete(id);
+    const c = cardById(id);
+    if (c && e?.text && c.kind !== 'quiz') { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
+    setLive(id, { text: null, status: errorCopy(e) });
+  }
+}
+/** An action from the bar or More on the held passage: a new card, opened, its answer on the way. */
+function cardAction(kind, { question = '' } = {}) {
+  if (!mr) return;
+  const info = mr.info, anchor = mr.anchor;
+  marginClose(); getSelection().removeAllRanges();
+  const card = TinctMargin.newCard({ kind, page: info.page, anchor, text: info.text, turns: kind === 'ask' ? [{ role: 'user', content: question, at: Date.now() }] : [], data: kind === 'quiz' ? { questions: [], i: 0, results: [] } : null });
+  store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed();
+  col.view = null;
+  openCard(card.id);
+  runCard(card.id);
+}
+// Quiz me: "Show answer" (no call), "Next question →", and marking an answer (quiz_check).
+function quizStep(id, step) {
+  const card = cardById(id); if (!card?.data?.questions?.length) return;
+  const q = card.data, i = q.i || 0;
+  q.results = q.results || [];
+  if (step === 'show') q.results[i] = { shown: true };
+  else if (i + 1 >= q.questions.length) q.done = true;
+  else q.i = i + 1;
+  saveCard(card);
+  if (step === 'next') openCard(id, { focus: !q.done });
+}
+async function quizCheck(card, answer) {
+  await mpReady;
+  const q = card.data, i = q.i || 0, item = q.questions?.[i]; if (!item || q.results?.[i]) return;
+  col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
+  try {
+    const pdf = await pdfPages(card.page);
+    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
+    const mark = MP.P.parseQuizCheck(res.text);
+    if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
+    const c = cardById(card.id); if (!c) return;
+    c.data.results = c.data.results || []; c.data.results[i] = { answer, verdict: mark.verdict, feedback: mark.feedback };
+    col.pending.delete(card.id); saveCard(c);
+  } catch (e) {
+    col.pending.delete(card.id); col.live.set(card.id, { text: null, status: errorCopy(e) }); marginLayout();
+  }
+}
+/** define_sense: the sense that fits this passage, within 1.5 s; else the dictionary's order stands. -> 1-based, or 0 */
+async function fittingSense(word, senses, info) {
+  if (navigator.onLine === false || senses.length < 2 || !window.TinctAI?.companion) return 0;
+  await mpReady; if (!MP.P) return 0;
+  const ctl = new AbortController();
+  const timer = new Promise(r => setTimeout(() => { ctl.abort(); r(null) }, 1500));
+  try {
+    const pdf = await pdfPages(info.page, { before: 0, after: 0 });
+    const res = await Promise.race([TinctAI.companion('define_sense', { book: { ...aiBook(), pdf }, pdf, selection: word, senses, signal: ctl.signal }), timer]);
+    return res ? MP.P.parseDefineSense(res.text, senses.length) || 0 : 0;
+  } catch { return 0 }
+}
+/** The Define card's result kept as a card (one per word and passage). */
+function keepDefine(def, info, anchor) {
+  if (!marginOn() || !def || (!def.senses?.length && !def.line)) return;
+  const existing = keptCards().find(c => c.kind === 'define' && !c.gone && c.page === info.page && c.text === info.text.slice(0, 2000));
+  const data = { word: def.word, pos: def.pos || '', senses: (def.senses || []).map(s => ({ text: s.text })), ...(def.line ? { line: def.line } : {}) };
+  const card = existing || TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text });
+  if (existing && JSON.stringify(existing.data) === JSON.stringify(data)) return;
+  card.data = data;
+  saveCard(card);
+}
+/** A card at a point on the page (its passage), for a click on a passage. */
+function cardAt(x, y) {
+  const p = pageForPoint(x, y); if (!p) return null;
+  const r = p.pg.getBoundingClientRect(), fx = (x - r.left) / r.width, fy = (y - r.top) / r.height;
+  return viewCards().find(c => c.kind !== 'note' && c.rects.some(([n, a, b, w, h]) => n === p.n && fx >= a && fx <= a + w && fy >= b && fy <= b + h)) || null;
+}
+// The pages scroll: cards move with them; a resize moves the column, marks or bottom card.
+$('scroll').addEventListener('scroll', () => { if (col.mode) marginLayout() }, { passive: true });
+addEventListener('resize', () => { if (marginOn()) marginLayout({ fresh: true }) });
+// Tapping the page closes the phone's bottom card.
+document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() === 'phone' && !e.target.closest?.('.mr-sheet, .mr-float, .lab-header, .byob-toast')) closeSheet2() }, true);
+// "/" asks about the whole PDF; Escape folds the open card (after the bar and its menus).
+addEventListener('keydown', e => {
+  if (!marginOn() || !readerShown() || e.defaultPrevented) return;
+  const inField = !!e.target.closest?.('input, textarea, select, [contenteditable="true"]');
+  if (e.key === '/' && !inField && !e.metaKey && !e.ctrlKey && !e.altKey && !mr) {
+    if (document.querySelector('.lab-super-layer, .lab-v2-sheet-layer, .lab-contents-v2, .byob-sheet-host, .byob-snip, .byob-jumpbox, .byob-switcher')) return;
+    e.preventDefault();
+    if (col.mode === 'column') col.foot.querySelector('.mr-follow__input')?.focus({ preventScroll: true }); else openWhole();
+    return;
+  }
+  if (e.key === 'Escape' && !mr && col.open && !inField) { e.preventDefault(); e.stopImmediatePropagation(); if (col.sheet) closeSheet2(); else openCard(null) }
+}, true);
 
 /* ---------- Docked chat: a fixed room on the right (desktop) ---------- */
 const dock = { state: 'closed', byZoom: false };
@@ -2311,6 +2945,7 @@ async function addAttachments(files, meta = {}) {
   const t = chat.el?.querySelector('textarea'); if (t) { t.dispatchEvent(new Event('input')); t.focus({ preventScroll: true }) }
 }
 function renderTray() {
+  if (marginOn()) { marginLayout(); return }
   const tray = chat.el?.querySelector('#tray'); if (!tray) return;
   tray.hidden = !chat.attach.length;
   tray.innerHTML = chat.attach.map((a, i) => `<span class="byob-chip">${a.thumb ? `<img src="${a.thumb}" alt="">` : '<i>Snip</i>'}<span class="byob-chip-label">${a.snip ? `${KIND[a.kind] || 'Snip'} · p. ${a.page}` : 'Image'}</span><button type="button" aria-label="Remove image" data-rm="${i}">×</button></span>`).join('');
@@ -2636,7 +3271,18 @@ async function exportNotes() {
       else out += `\n**Tinct:**\n\n${t.content.trim()}\n`;
     }
   }
-  if (!hl.length && !turns.length) { toast('Nothing to export yet. Highlight a passage or ask a question first.'); return }
+  // The margin's cards: each kept answer with its passage.
+  const cards = state.kind === 'pdf' ? TinctMargin.cardView(keptCards(), []) : [];
+  if (cards.length) {
+    out += `\n## Margin\n`;
+    for (const c of cards) {
+      out += `\n### ${TinctMargin.html.cardLabel(c, pageLabel(c.page))}\n\n${quote(c.text || '')}\n`;
+      if (c.kind === 'define') out += '\n' + ((c.data?.senses || []).map((x, i) => `${i + 1}. ${x.text}`).join('\n') || c.data?.line || '') + '\n';
+      else if (c.kind === 'quiz') for (const q of c.data?.questions || []) out += `\n**${q.q}** ${q.answer}\n`;
+      for (const t of c.turns || []) out += t.role === 'user' ? `\n**You:** ${t.content}\n` : `\n${t.content.trim()}\n`;
+    }
+  }
+  if (!hl.length && !turns.length && !cards.length) { toast('Nothing to export yet. Highlight a passage or ask a question first.'); return }
   const name = (title.replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-').slice(0, 60) || 'book') + '-notes.md';
   if (saveFile(name, new Blob([out], { type: 'text/markdown;charset=utf-8' }))) { toast(`Saved ${name}.`); return }
   try { await navigator.clipboard.writeText(out); toast(`Copied ${hl.length} highlight${hl.length === 1 ? '' : 's'} and ${turns.filter(t => t.role === 'user').length} question${turns.filter(t => t.role === 'user').length === 1 ? '' : 's'} as Markdown. Paste into your notes.`) }
@@ -2654,6 +3300,8 @@ const tcReady = import(CHAT_THREAD).then(m => (TC = m)).catch(() => null);
 function openChat(opts = {}) {
   if (!TC) { tcReady.then(m => { if (m) openChat(opts) }); return }
   closeAllPopups();
+  // A PDF: the whole-file chat is the margin's "Whole PDF" card (or the phone's bottom card).
+  if (marginOn()) return openWhole(opts);
   loadTurns();
   if (!chat.el) {
     const el = document.createElement('aside');
@@ -2732,7 +3380,9 @@ function openChat(opts = {}) {
   if (opts.prompt) ask(opts.prompt, opts.display);
   else if (!opts.quiet) setTimeout(() => { const t = el.querySelector('textarea'); t.focus({ preventScroll: true }); t.dispatchEvent(new Event('input')) }, 50);
 }
-function closeChat() { chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+function closeChat() {
+  if (marginOn()) { if (col.open === 'whole') { if (col.sheet) closeSheet2(); else openCard(null) } return }
+  chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
 function setTalk(on) {
   chat.talk = on;
   if (!chat.el) return;
@@ -2744,6 +3394,7 @@ function setTalk(on) {
 }
 function placeOf(t) { return t.page ? (isEpub() ? (toc.entries.find(e => e.page === t.page)?.label || 'Section ' + t.page) : 'Page ' + t.page) : null }
 function renderAttached() {
+  if (marginOn()) return;
   const box = chat.el?.querySelector('#attached'); if (!box) return;
   box.hidden = !chat.passage;
   box.querySelector('#attachedText').textContent = chat.passage ? TC.cutQuote(chat.passage.text) : '';
@@ -2774,6 +3425,7 @@ function latestState() {
   chat.el.querySelector('#latest').hidden = !latestPill().shows(thread, chat.anchor == null || chat.pinTop == null);
 }
 function renderThread() {
+  if (marginOn()) { marginLayout(); if (col.sheet?.dataset.id === 'whole') drawWhole(col.sheet, { sheet: true }); return }
   const el = chat.el, thread = el.querySelector('#thread');
   const kept = thread.scrollTop;
   el.classList.toggle('is-empty', !chat.turns.length && !chat.live); el.classList.toggle('has-thread', !!chat.turns.length || !!chat.live);
@@ -2804,6 +3456,7 @@ function renderThread() {
 }
 /** An answer arriving: its text so far, the new words fading in; the view does not follow it. */
 function liveText(text) {
+  if (chat.live && marginOn()) { chat.live.text = text; renderThread(); return }
   if (!chat.live || !chat.el) return;
   chat.live.text = text;
   const thread = chat.el.querySelector('#thread'), md_ = thread.querySelector('.tc-a.is-streaming .tc-md');
@@ -2827,17 +3480,19 @@ async function ask(question, display) {
   if (!s) { chat.turns[chat.turns.length - 1].failed = 'Claude is not available on this page.'; renderThread(); toast(AI_OFF); return }
   chat.live = { text: '' }; renderThread();
   const focusPage = passage?.page || attached[0]?.page || page;
-  const ctx = await contextText(Math.max(1, focusPage - 1), Math.min(state.pages.length, focusPage + 1), 9000);
+  // A PDF's pages go as pages with their printed labels (kind 'pdf'); an EPUB's as today's text.
+  const pdf = marginOn() ? await pdfPages(focusPage) : null;
+  const ctx = pdf ? '' : await contextText(Math.max(1, focusPage - 1), Math.min(state.pages.length, focusPage + 1), 9000);
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
   const image = blobs.length ? null : await pageImage(focusPage, passage ? selectionRegion(passage) : null);
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';
   const snipText = attached.map(a => [a.caption ? 'Caption: ' + a.caption : '', a.text ? 'Labels and text inside it: ' + a.text : '', !blobs.length && a.sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + a.sketch + '\n```' : ''].filter(Boolean).join('\n')).filter(Boolean).join('\n\n');
-  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}\n\nText around the reader's place (extracted, may garble maths):\n${ctx}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
+  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
   const history = chat.turns.slice(-11, -1).map(t => ({ role: t.role, content: t.role === 'assistant' ? t.content.replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, '') : (t.role === 'user' && t.passage ? `About this passage: "${t.passage.slice(0, 600)}"\n` : '') + (t.imgs?.length ? `[Earlier I attached ${t.imgs.length > 1 ? 'images' : 'an image'}; it is not re-sent.${t.snipText ? ' Its text: ' + t.snipText.slice(0, 400) : ''}]\n` : '') + t.content }));
   const input = [{ role: 'user', content: rules }, ...history, { role: 'user', content: question }];
   const ctl = new AbortController(); chat.ctl = ctl;
   try {
-    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, onText: ({ text }) => liveText(text) });
+    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, pdf, onText: ({ text }) => liveText(text) });
     const imgs = blobs.length ? blobs : image ? [image] : null;
     let res, note = !blobs.length && attached.some(a => a.blob) ? (snipText ? (attached.some(a => a.snip) ? '\n\n*Claude can’t receive pictures in this viewer, so this answer works from the caption, labels and a rough sketch of the area.*' : '\n\n*Claude can’t receive pictures in this viewer, so this answer is based on the text inside your snip.*') : '\n\n*Claude can’t receive pictures in this viewer, so it could not see your image.*') : '';
     try { res = await call(imgs) }
@@ -2885,11 +3540,13 @@ async function summarize() {
   const s = await ai();
   openChat();
   if (!s) { toast(AI_OFF); return }
-  const text = await contextText(from, to, 120000);
   chat.passage = null;
-  askSummary(`Summarize ${what}.`, `Summarize ${ch ? 'the chapter "' + ch.label + '"' : 'these pages'} (pages ${from} to ${to}) for someone reading along: the main ideas and how they connect, key terms or results, in a short paragraph and then 3 to 6 bullets. Use only this text:\n${text}`);
+  const ask_ = `Summarize ${ch ? 'the chapter "' + ch.label + '"' : 'these pages'} (pages ${from} to ${to}) for someone reading along: the main ideas and how they connect, key terms or results, in a short paragraph and then 3 to 6 bullets. Use only this text`;
+  // A PDF's pages go as pages (kind 'pdf'); an EPUB's text in the request as today.
+  if (marginOn()) askSummary(`Summarize ${what}.`, ask_ + '.', await pdfPages(from, { before: 0, after: to - from, budget: Math.floor(120000 / (to - from + 1)) }));
+  else askSummary(`Summarize ${what}.`, `${ask_}:\n${await contextText(from, to, 120000)}`);
 }
-async function askSummary(display, prompt) {
+async function askSummary(display, prompt, pdf = null) {
   const s = await ai();
   chat.fresh = false;
   chat.turns.push({ role: 'user', content: display, page: currentPlace().page, at: Date.now() });
@@ -2897,7 +3554,7 @@ async function askSummary(display, prompt) {
   chat.live = { text: '' }; renderThread();
   const ctl = new AbortController(); chat.ctl = ctl;
   try {
-    const res = await s(`You are Tinct's reading companion. ${bookLine()}\n\n${prompt}`, { signal: ctl.signal, cache: { gcTime: 86400000 }, onText: ({ text }) => liveText(text) });
+    const res = await s(`You are Tinct's reading companion. ${bookLine()}\n\n${prompt}`, { signal: ctl.signal, cache: { gcTime: 86400000 }, ...(pdf ? { pdf } : {}), onText: ({ text }) => liveText(text) });
     chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text, at: Date.now() }); saveTurns(); renderThread();
     if (chat.talk) speak(res.text);
@@ -2936,8 +3593,9 @@ async function catchUp() {
     const cached = !b.partial && store.get(cacheKey);
     if (cached) return show(cached);
     try {
-      const text = await contextText(b.from, b.to, 70000);
-      const r = await s.json(`You are Tinct's reading companion. ${bookLine()}\nSummarize pages ${b.from} to ${b.to} for a reader catching up: reply with only JSON {"title": "3 to 6 word name for this stretch", "summary": "2 to 3 plain sentences on what happens or is argued"}.\n\n${text}`, { cache: { gcTime: 86400000 } });
+      const pdf = marginOn() ? await pdfPages(b.from, { before: 0, after: b.to - b.from, budget: Math.floor(70000 / (b.to - b.from + 1)) }) : null;
+      const text = pdf ? '' : await contextText(b.from, b.to, 70000);
+      const r = await s.json(`You are Tinct's reading companion. ${bookLine()}\nSummarize pages ${b.from} to ${b.to} for a reader catching up: reply with only JSON {"title": "3 to 6 word name for this stretch", "summary": "2 to 3 plain sentences on what happens or is argued"}.${text ? '\n\n' + text : ''}`, { cache: { gcTime: 86400000 }, ...(pdf ? { pdf } : {}) });
       const rec = { title: String(r?.title || '').slice(0, 80), summary: String(r?.summary || '').slice(0, 900) };
       if (!b.partial) store.set(cacheKey, rec);
       show(rec);
@@ -3106,7 +3764,15 @@ $('playBtn').onclick = togglePlay;
 document.addEventListener('click', e => {
   if (!getSelection().isCollapsed || narr.active || e.target.closest('.selection-popup, .lab-ask, .lab-header, .mr-float')) return;
   // A PDF's highlight opens the margin's bar for it: its colour, its note.
-  if (state.kind === 'pdf') { const h = highlightAt(e.clientX, e.clientY), rec = h && highlights().find(x => x.id === h.id); if (rec?.rects) marginOpen({ text: h.text, page: h.page, box: h.box }, { existing: rec }); return }
+  // A passage with a card opens that card (and folds the others); a highlight's note opens its note card.
+  if (state.kind === 'pdf') {
+    if (e.target.closest('.mr-col, .mr-marks, .mr-sheet, .mr-card')) return;
+    const h = highlightAt(e.clientX, e.clientY), rec = h && highlights().find(x => x.id === h.id);
+    const card = cardAt(e.clientX, e.clientY);
+    if (card && !rec) { openCard(card.id); return }
+    if (rec?.rects) { marginOpen({ text: h.text, page: h.page, box: h.box }, { existing: rec }); if (rec.note && marginMode() !== 'phone') openCard('n-' + rec.id) }
+    return;
+  }
   const h = highlightAt(e.clientX, e.clientY), open = document.querySelector('.selection-popup[data-popup-mode="highlight"]');
   if (!h) { open && hideSelection(); return }
   sel = { text: h.text, page: h.page, box: h.box }; showSelection(h);

@@ -37,11 +37,43 @@
   const chunks = (text, size) => { const out = []; for (let i = 0; i < text.length && out.join('').length < CONTEXT; i += size) out.push(text.slice(i, i + size)); return out };
   const err = (code, message, extra) => Object.assign(new Error(message || code), { code }, extra || {});
 
+  // A user's PDF sends its text as pages with their printed labels (`book.pdf`: { pages: [{ n, text }],
+  // at: the index of the reader's page among them }), so the companion can cite them ({p. 12}); the
+  // Worker marks each page's boundary as <page n="12">. -> the context's PDF fields, or null.
+  function pdfContext(pdf) {
+    if (!pdf || !Array.isArray(pdf.pages) || !pdf.pages.length) return null;
+    let total = 0;
+    const pages = [];
+    for (const page of pdf.pages.slice(0, 200)) {
+      if (total >= CONTEXT) break;
+      const text = String(page?.text || '').slice(0, Math.min(PARAGRAPH, CONTEXT - total));
+      total += text.length;
+      pages.push({ n: typeof page?.n === 'number' ? page.n : String(page?.n ?? pages.length + 1).slice(0, 16), text: text || ' ' });
+    }
+    const at = Number.isInteger(pdf.at) ? Math.max(0, Math.min(pages.length - 1, pdf.at)) : 0;
+    return { kind: 'pdf', pages, paragraphIndex: at };
+  }
+  function bookContext(book) {
+    return {
+      bookTitle: (book?.title || 'Your book').slice(0, 300),
+      bookAuthor: (book?.author || '').slice(0, 300),
+      chapterLabel: (book?.chapter || book?.title || 'Your book').slice(0, 300),
+      pageNumber: book?.page && book.page <= 100000 ? book.page : undefined,
+      totalPages: book?.pages && book.pages <= 100000 ? book.pages : undefined,
+    };
+  }
+
   // `input` is a prompt string, or turns [{role, content}] whose first turn carries the
-  // instructions and book context (the shape the reader builds).
+  // instructions and book context (the shape the reader builds). For a PDF (`book.pdf`) the
+  // book's text travels as its pages, so the first turn's instructions go before the question.
   function toRequest(input, book) {
     let paragraphs, messages;
-    if (typeof input === 'string') {
+    const pdf = pdfContext(book?.pdf);
+    if (pdf && typeof input !== 'string') {
+      const [first, ...rest] = input;
+      paragraphs = [];
+      messages = [{ role: 'user', content: String(first?.content || '') }, ...(rest.length ? rest : [{ role: 'user', content: 'Please answer.' }])];
+    } else if (typeof input === 'string') {
       paragraphs = input.length > MESSAGE ? chunks(input, PARAGRAPH) : [];
       messages = [{ role: 'user', content: input.length > MESSAGE ? input.slice(0, MESSAGE - 200) + '\n\n[The full text continues in the reading context above.]' : input }];
     } else {
@@ -64,19 +96,30 @@
     return {
       stream: true, max_tokens: 1600,
       messages: trimmed.length ? trimmed : [{ role: 'user', content: 'Please answer.' }],
-      companion: { intent: 'ask', context: {
-        bookTitle: (book?.title || 'Your book').slice(0, 300),
-        bookAuthor: (book?.author || '').slice(0, 300),
-        chapterLabel: (book?.chapter || book?.title || 'Your book').slice(0, 300),
-        pageNumber: book?.page && book.page <= 100000 ? book.page : undefined,
-        totalPages: book?.pages && book.pages <= 100000 ? book.pages : undefined,
-        paragraphs: paragraphs.length ? paragraphs : [' '],
-        lookups: false,
-      } },
+      companion: { intent: 'ask', context: pdf
+        ? { ...bookContext(book), ...pdf, lookups: false }
+        : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false } },
     };
   }
+  const PASSAGE_INTENTS = new Set(['simplify', 'factcheck', 'counterpoint', 'quiz']);
 
-  async function readStream(response, onText, signal) {
+  /**
+   * One of the margin's actions as a structured request (docs/margin/PROMPTS.md): the Worker
+   * builds the prompt from `intent`, the PDF's pages and the selection; the client never sends
+   * one. o: { book, pdf: { pages, at }, selection, senses (define_sense), quiz: { question,
+   * expected, why, answer } (quiz_check), images (passage actions), stream }.
+   */
+  function companionRequest(intent, o = {}) {
+    const pdf = pdfContext(o.pdf) || { kind: 'pdf', pages: [{ n: 1, text: ' ' }], paragraphIndex: 0 };
+    const companion = { intent, context: { ...bookContext(o.book), ...pdf, lookups: false } };
+    if (o.selection != null) companion.selection = String(o.selection).slice(0, intent === 'define_sense' ? 200 : 6000);
+    if (intent === 'define_sense') companion.senses = (o.senses || []).slice(0, 3).map(s => String(s).slice(0, 500));
+    if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000) };
+    // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
+    return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
+  }
+
+  async function readStream(response, onText, signal, onStatus) {
     const reader = response.body.getReader(), dec = new TextDecoder();
     let buf = '', text = '';
     for (;;) {
@@ -92,6 +135,8 @@
         if (!data) continue;
         let msg; try { msg = JSON.parse(data) } catch { continue }
         if (event === 'error' || msg.type === 'error') throw err(msg.error?.type === 'overloaded_error' ? 'busy' : 'failed', msg.error?.message || 'The answer stopped.', text ? { text } : undefined);
+        // What the companion is looking up ("Checking sources…"), from the Worker's tinct_status event.
+        if (event === 'tinct_status' || msg.type === 'tinct_status') { if (typeof msg.text === 'string') onStatus?.(msg.text); continue }
         if (msg.type === 'content_block_delta' && msg.delta?.type === 'text_delta') { text += msg.delta.text; onText?.({ text, delta: msg.delta.text }) }
       }
     }
@@ -147,12 +192,18 @@
 
   const STATUS = { 400: 'bad_request', 401: 'session_expired', 402: 'quota', 403: 'not_granted', 413: 'prompt_too_large', 429: 'rate_limited', 503: 'busy' };
 
-  // ask(input, { onText, signal, images, book }) -> { text }
+  // ask(input, { onText, onStatus, signal, images, book }) -> { text }
   async function ask(input, opts = {}) {
+    return send(toRequest(input, opts.book), opts);
+  }
+  // companion(intent, { book, pdf, selection, senses, quiz, images, stream, onText, onStatus, signal }) -> { text }
+  async function companion(intent, opts = {}) {
+    return send(companionRequest(intent, opts), opts);
+  }
+  async function send(request, opts) {
     const images = opts.images ? [].concat(opts.images).filter(Boolean) : [];
     let s = session();
     if (images.length && !s.token) throw err('images_unavailable', 'Sign in to send pictures to the companion.');
-    const request = toRequest(input, opts.book);
     const body = JSON.stringify(images.length ? await withImages(request, images) : request);
     const attempt = async token => fetch(token ? '/api/chat' : '/api/lab-chat', {
       method: 'POST', signal: opts.signal, credentials: 'same-origin',
@@ -174,7 +225,7 @@
     }
     const type = response.headers.get('content-type') || '';
     if (type.includes('text/event-stream')) {
-      try { return { text: await readStream(response, opts.onText, opts.signal) } }
+      try { return { text: await readStream(response, opts.onText, opts.signal, opts.onStatus) } }
       catch (e) { if (e?.name === 'AbortError') throw err('cancelled'); throw e }
     }
     const json = await response.json();
@@ -236,6 +287,6 @@
 
   // What the reader may attach: anything the browser decodes; it is redrawn before sending.
   const imageLimits = { maxCount: MAX_IMAGES, maxInputBytes: 40 * 1024 * 1024, mediaTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/bmp', 'image/avif'] };
-  const api = { session, ask, askJson, toRequest, imageLimits, books, onSignedOut: null };
+  const api = { session, ask, askJson, companion, toRequest, companionRequest, imageLimits, books, onSignedOut: null };
   window.TinctAI = api;
 })();

@@ -246,3 +246,78 @@ html[data-pdf-theme="eink"] .mr-float .mr-bar__item:hover { background: transpar
 .mr-pbar, .mr-float.is-phone.mr-define, .mr-float.is-phone.mr-note { max-width: calc(100% - 20px); }
 .mr-pmore { max-width: calc(100% - 20px); }
 .mr-pmore > button { padding: 10px 12px; }
+
+/* ---------- PR 2: the margin column, cards, leader lines, marks and the phone's bottom card ----------
+   docs/margin/BRIEF.md §3, §4, §6; values from the reference above and the mockup's .mc, .colfoot,
+   .stackrow, .claims and .psheet. Cards are a view of the kept results (reader.js). */
+:where(.mr-col, .mr-card, .mr-sheet, .mr-marks) button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+:where(.mr-col, .mr-card, .mr-sheet, .mr-marks) button:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 2px; border-radius: 4px; }
+.mr-col, .mr-col *, .mr-col *::before, .mr-col *::after, .mr-card, .mr-card *, .mr-sheet, .mr-sheet *, .mr-sheet *::before, .mr-sheet *::after { box-sizing: border-box; }
+.mr-col svg, .mr-card svg, .mr-sheet svg { display: block; flex: none; }
+.mr-col [hidden], .mr-sheet [hidden], .mr-card[hidden] { display: none !important; }
+/* The column: fixed beside the page, below the top bar; the reader sets its left edge (page edge + 56px). */
+.mr-col.is-reader { position: fixed; top: var(--pdf-top, 56px); bottom: 0; z-index: 30; }
+/* Folded: the label is the card's handle. */
+.mr-card.is-folded .mr-card__label { width: 100%; }
+.mr-card.is-folded { cursor: pointer; }
+/* Open: label, a body that scrolls when it must, the follow-up line (margin-reference.css guards). */
+.mr-card.is-open .mr-card__body { display: flex; flex-direction: column; gap: 10px; flex: 0 1 auto; }
+.mr-card.is-open > .mr-card__label, .mr-card.is-open > .mr-follow { flex: none; }
+.mr-card__name { min-width: 0; overflow-wrap: anywhere; }
+.mr-card__count + .mr-card__close { margin-left: 12px; }
+.mr-quote, .mr-claims p { margin: 0; }
+.mr-answer pre { margin: 0 0 .55em; font: inherit; white-space: pre; }
+.mr-answer pre:last-child { margin: 0; }
+/* Fact-check's claims (mockup .claims). */
+.mr-claims { display: flex; flex-direction: column; gap: 8px; font-size: 15.5px; line-height: 1.45; overflow-wrap: anywhere; min-width: 0; }
+.mr-status { margin: 0; }
+.mr-cite { border: 0; margin: 0; line-height: normal; }
+.mr-card__acts button, .mr-follow__mic { position: relative; display: grid; place-items: center; width: 16px; height: 16px; color: var(--mr-faint); }
+.mr-follow__mic[aria-pressed="true"] { color: var(--mr-ink); }
+.mr-card__acts svg { stroke-linecap: round; stroke-linejoin: round; }
+.mr-follow svg, .mr-foot svg { stroke-linecap: round; stroke-linejoin: round; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+/* The follow-up field: the caret blinks where the words will go; no placeholder. */
+.mr-follow__field { position: relative; display: flex; flex: 1 1 auto; min-width: 0; align-self: center; }
+.mr-follow__sp { flex: 1 1 auto; }
+.mr-follow__field + .mr-follow__sp { flex: none; }
+.mr-follow__input { display: block; width: 100%; height: 18px; max-height: 54px; margin: 0; padding: 0; border: 0; outline: 0; resize: none; overflow-y: auto; background: transparent; color: var(--mr-ink); caret-color: var(--mr-ink); font: 400 16px/18px var(--mr-gara); overflow-wrap: anywhere; }
+.mr .mr-follow__input:focus, .mr .mr-follow__input:focus-visible { outline: 0 !important; box-shadow: none; }   /* the caret is the focus */
+.mr-follow__field .mr-caret { position: absolute; left: 0; top: 0; pointer-events: none; animation: mr-blink 1s step-end infinite; }
+.mr-follow__input:focus + .mr-caret, .mr-follow__input.has-text + .mr-caret { display: none; }
+@media (prefers-reduced-motion: reduce) { .mr-follow__field .mr-caret { animation: none; } }
+.mr-follow__link { white-space: nowrap; }
+/* The "more" row and the column foot. */
+.mr-stack { width: 100%; text-align: left; cursor: pointer; }
+.mr-stack span:first-child { flex: none; }
+.mr-stack span:last-child { margin-left: 12px; text-align: right; }
+.mr-foot { font-family: var(--mr-gara); }
+.mr-foot__hint { white-space: nowrap; }
+/* Leader lines: one SVG over the page and the column, below the top bar. */
+svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 31; overflow: visible; clip-path: inset(var(--pdf-top, 56px) 0 0 0); }
+/* The open card's passage: a 1.5px underline in the lead colour (drawn on the page, so it moves with it). */
+.mr-ul-layer { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.mr-ul-layer i { position: absolute; height: 1.5px; margin-top: 3px; background: var(--mr-lead); }
+/* Narrow windows: 8px marks at the page's right edge in the lead colour; a 28px target round each. */
+.mr-marks { position: fixed; inset: var(--pdf-top, 56px) 0 0 0; pointer-events: none; z-index: 31; overflow: hidden; }
+.mr-mark { position: absolute; width: 28px; height: 28px; min-width: 0; min-height: 0; margin: -14px 0 0 -14px; pointer-events: auto; }
+.mr-mark::before { content: ""; position: absolute; left: 10px; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--mr-lead); }
+.mr-mark[aria-expanded="true"]::before { background: var(--mr-ink); }
+/* A card opened from a mark floats beside it. */
+.mr-card.is-floating { position: fixed; left: auto; right: auto; width: 380px; z-index: 40; }
+/* The phone's bottom card: about half the screen, full height on a swipe up, above the keyboard. */
+.mr-sheet { z-index: 60; bottom: var(--mr-kb, 0px); max-height: min(50dvh, calc(100dvh - 120px)); color: var(--mr-ink); touch-action: pan-y; }
+.mr-sheet.is-full { max-height: calc(100dvh - 120px - var(--mr-kb, 0px)); height: calc(100dvh - 120px - var(--mr-kb, 0px)); }
+.mr-sheet.is-kb { max-height: calc(100dvh - 120px - var(--mr-kb, 0px)); }
+.mr-sheet__grab { display: block; flex: none; position: relative; }
+.mr-sheet > .mr-card__label, .mr-sheet > .mr-follow { flex: none; }
+.mr-sheet .mr-card__close { font-size: 14px; }
+.mr-sheet .mr-card__body { display: flex; flex-direction: column; gap: 10px; flex: 0 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.mr-sheet.is-full .mr-card__body { flex: 1 1 auto; }
+.mr-sheet .mr-quote { font-size: 15px; }
+.mr-sheet .mr-card__acts { display: none; }   /* the phone's card has no copy row (mockup 5C) */
+.mr-sheet .mr-follow { gap: 14px; padding-top: 12px; margin-top: 0; }
+.mr-sheet .mr-follow__input { font-size: 17px; line-height: 18px; }
+/* The whole-PDF thread in a card or the phone's card: the day or page changing (mockup .psheet .div). */
+.mr-divider { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--mr-faint); font-style: italic; font-size: 13px; white-space: nowrap; }
+.mr-divider::before, .mr-divider::after { content: ""; flex: 1; height: 1px; background: var(--mr-hair); }
+.mr-card .byob-tray, .mr-sheet .byob-tray { display: flex; flex-wrap: wrap; gap: 6px; }

@@ -11,7 +11,7 @@
      with docs/margin/mockup.html (app/scripts/margin-check.mjs). Not linked from anywhere.
      ?night=1 for Night; ?look=book|eink for the other looks. -->
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
-<link rel="stylesheet" href="css/margin.css?v=20261014margin1a">
+<link rel="stylesheet" href="css/margin.css?v=20261015margin2">
 <style>
 /* The mockup's stage, page and frames (docs/margin/mockup.html), unchanged, so the pieces sit on the same page. */
 :root {
@@ -58,6 +58,29 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .ph .pdf { position: absolute; left: 10px; right: 10px; top: 100px; padding: 26px 24px; font-size: 11.4px; line-height: 1.5; }
 .ph .pdf h3 { font-size: 14.5px; } .ph .pdf .eq { font-size: 12.5px; } .ph .pdf .rh { font-size: 9.5px; margin-bottom: 16px; }
 .ph .home { position: absolute; left: 50%; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--ink); opacity: .3; transform: translateX(-50%); z-index: 9; }
+/* The mockup's desktop frame (section 2, 3), its card row (section 6) and phone frames, unchanged. */
+.dk { width: 1280px; height: 800px; border-radius: 14px; overflow: hidden; position: relative; background: var(--room); color: var(--ink); box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 60px rgba(0,0,0,.55); isolation: isolate; }
+.dk .top { position: absolute; inset: 0 0 auto 0; height: 56px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 26px; background: var(--room); z-index: 4; font-family: var(--sans); font-size: 14px; color: var(--muted); }
+.dk .top .ttl { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+.dk .top .ttl b { font-family: var(--gara); font-weight: 500; font-size: 19px; }
+.dk .top .pg { font-family: var(--gara); font-style: italic; font-size: 16px; color: var(--muted); }
+.dk .top .rt { justify-self: end; display: flex; gap: 22px; align-items: center; }
+.dk .top .rt span { font-family: var(--gara); font-size: 19px; }
+.dk .top .rt .t { font-family: var(--play); font-style: italic; font-weight: 700; color: var(--ink); }
+.dk .sheetwrap { position: absolute; left: 104px; top: 72px; width: 640px; }
+.dk .pdf { min-height: 1000px; }
+.dk .mr-col { position: absolute; left: 800px; top: 56px; bottom: 0; width: 380px; }
+.dk svg.mr-leads { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; overflow: visible; clip-path: none; }
+.dk.narrow { width: 1024px; height: 768px; }
+.dk.narrow .sheetwrap { left: 40px; width: 920px; }
+.dk .mr-marks { position: absolute; inset: 56px 0 0 0; }
+.dk .mr-card.is-floating { position: absolute; }
+.cardrow { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+.cardbg { width: 424px; padding: 22px; background: var(--room); border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 20px 40px rgba(0,0,0,.45); color: var(--ink); }
+.night .cardbg { --paper: #171411; --room: #100e0c; --ink: #d6ccbf; }
+.cardbg .mr-card { position: static; }
+.ph .mr-sheet { position: absolute; z-index: 7; max-height: 422px; }   /* half the phone frame (the page's dvh is the fixture's) */
+.ph .mr-ul-layer, .dk .mr-ul-layer { display: none; }
 .wrap { display: flex; flex-direction: column; gap: 40px; }
 .row { display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; }
 .step { display: flex; flex-direction: column; gap: 10px; }
@@ -113,6 +136,38 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
     <div class="step"><span class="num">C1 · More, PR 1a</span><div class="strip-frame tall" data-strip="c" data-pr="1a"></div></div>
   </div>
   <div class="row">
+    <div class="step"><span class="num">2 · The margin</span><div class="dk" data-desk="margin"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">3 · Crowded</span><div class="dk" data-desk="overlap"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">Narrow · marks, one opened</span><div class="dk narrow" data-desk="marks"></div></div>
+  </div>
+  <div class="cardrow" data-cards="mockup">
+    <div class="step"><span class="num">Simplify</span><div class="cardbg" data-card="simplify"></div></div>
+    <div class="step"><span class="num">Fact-check</span><div class="cardbg" data-card="factcheck"></div></div>
+    <div class="step"><span class="num">Counterpoint</span><div class="cardbg" data-card="counterpoint"></div></div>
+    <div class="step"><span class="num">Quiz me · a question</span><div class="cardbg" data-card="quiz"></div></div>
+    <div class="step"><span class="num">Quiz me · answered</span><div class="cardbg" data-card="quiz-answered"></div></div>
+  </div>
+  <div class="cardrow" data-cards="composed">
+    <div class="step"><span class="num">Fact-check · checking</span><div class="cardbg" data-card="factcheck-checking"></div></div>
+    <div class="step"><span class="num">Fact-check · six sources</span><div class="cardbg" data-card="factcheck-six"></div></div>
+    <div class="step"><span class="num">Quiz me · shown</span><div class="cardbg" data-card="quiz-shown"></div></div>
+    <div class="step"><span class="num">Quiz me · marking</span><div class="cardbg" data-card="quiz-marking"></div></div>
+    <div class="step"><span class="num">Quiz me · score</span><div class="cardbg" data-card="quiz-done"></div></div>
+    <div class="step"><span class="num">Explain</span><div class="cardbg" data-card="explain"></div></div>
+    <div class="step"><span class="num">Define</span><div class="cardbg" data-card="define"></div></div>
+    <div class="step"><span class="num">Your note</span><div class="cardbg" data-card="note"></div></div>
+    <div class="step"><span class="num">Whole PDF</span><div class="cardbg" data-card="whole"></div></div>
+    <div class="step"><span class="num">Folded</span><div class="cardbg" data-card="folded"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">Phone C · An answer</span><div class="ph" data-ph="c"></div></div>
+    <div class="step"><span class="num">Phone D · Chat</span><div class="ph" data-ph="d"></div></div>
+  </div>
+  <div class="row">
     <div class="step"><span class="num">Phone A · Selected</span><div class="ph" data-ph="a"></div></div>
     <div class="step"><span class="num">Phone B · More</span><div class="ph" data-ph="b"></div></div>
     <div class="step"><span class="num">Phone E · A single word</span><div class="ph" data-ph="e"></div></div>
@@ -120,7 +175,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
   </div>
 </div>
 </div>
-<script src="js/margin.js?v=20261014margin1a"></script>
-<script src="js/margin-fixture.js?v=20261014margin1a"></script>
+<script src="js/margin.js?v=20261015margin2"></script>
+<script src="js/margin-fixture.js?v=20261015margin2"></script>
 </body>
 </html>

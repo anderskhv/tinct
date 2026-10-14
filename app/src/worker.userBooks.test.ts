@@ -689,3 +689,51 @@ describe('/api/user-books/marks', () => {
     expect(r2.objects.has(`u/${A}/marks/${hex}`)).toBe(false)
   })
 })
+
+// The margin's cards in a PDF (Add a book's PDF reader, margin PR 2): a sibling set of the marks, the same versioning.
+describe('/api/user-books/cards', () => {
+  const put = (call: ReturnType<typeof setup>['call'], token: string, hex: string, body: unknown) =>
+    call(`/api/user-books/cards/${hex}`, { method: 'PUT', token, body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } })
+  const card = (id: string, extra: Record<string, unknown> = {}) => ({ id, kind: 'explain', page: 3, rects: [[3, 0.1, 0.2, 0.5, 0.02]], text: 'the passage', turns: [{ role: 'assistant', content: 'The bottom line. Then more.', at: 1_000 }], at: 1_000, u: 1_000, ...extra })
+  async function withPdf() {
+    const env = setup()
+    const { book } = await (await env.upload('token-a', pdfBytes('cards'), { Title: 'Private title' })).json() as { book: UserBook }
+    return { ...env, book, hex: book.sha256.slice(0, 24) }
+  }
+
+  it('keeps one versioned set of cards per owned PDF; a stale write gets 409 and the stored set', async () => {
+    const { r2, call, hex } = await withPdf()
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toEqual({ cards: [], rev: 0 })
+    const quiz = card('quiz2', { kind: 'quiz', turns: [], data: { questions: [{ q: 'Why?', answer: 'Because.', why: '', cite: '{p. 3}' }], i: 0, results: [{ answer: 'Because', verdict: 'right', feedback: 'Yes.' }] } })
+    expect((await put(call, 'token-a', hex, { cards: [card('abcd1'), quiz], rev: 0 })).status).toBe(200)
+    const stale = await put(call, 'token-a', hex, { cards: [card('efgh3', { kind: 'ask', turns: [{ role: 'user', content: 'Why?' }] })], rev: 0 })
+    expect(stale.status).toBe(409)
+    expect(await stale.json()).toEqual({ error: 'conflict', cards: [card('abcd1'), quiz], rev: 1 })
+    expect(await (await put(call, 'token-a', hex, { cards: [card('abcd1'), quiz, { id: 'gone4', gone: true, u: 2_000 }], rev: 1 })).json()).toEqual({ rev: 2 })
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toEqual({ cards: [card('abcd1'), quiz, { id: 'gone4', gone: true, u: 2_000 }], rev: 2 })
+    expect(r2.objects.get(`u/${A}/cards/${hex}`)!.customMetadata.rev).toBe('2')
+    // The marks are a separate set.
+    expect(await (await call(`/api/user-books/marks/${hex}`, { token: 'token-a' })).json()).toEqual({ marks: [], rev: 0 })
+    expect((await call(`/api/user-books/cards/${hex}`, { token: 'token-b' })).status).toBe(404)
+    expect((await call(`/api/user-books/cards/${hex}`)).status).toBe(401)
+  })
+
+  it('refuses cards out of shape', async () => {
+    const { call, hex } = await withPdf()
+    for (const bad of [
+      [card('ab')], [card('abcd1'), card('abcd1')], [card('abcd1', { kind: 'chat' })], [card('abcd1', { rects: [[0.1, 0.2, 0.5, 0.02]] })],
+      [card('abcd1', { rects: [] })], [card('abcd1', { page: 0 })], [card('abcd1', { text: 'x'.repeat(2001) })],
+      [card('abcd1', { turns: [{ role: 'system', content: 'x' }] })], [card('abcd1', { turns: [{ role: 'user', content: 'x'.repeat(12_001) }] })],
+      [card('abcd1', { data: 'x' })], [card('abcd1', { data: { big: 'x'.repeat(16_001) } })], [{ id: 'abcd1', gone: true }], 'nope',
+    ]) expect((await put(call, 'token-a', hex, { cards: bad, rev: 0 })).status, JSON.stringify(bad).slice(0, 60)).toBe(400)
+    expect((await put(call, 'token-a', hex, { marks: [card('abcd1')], rev: 0 })).status).toBe(400)
+  })
+
+  it('deletes the cards with the book', async () => {
+    const { r2, call, book, hex } = await withPdf()
+    await put(call, 'token-a', hex, { cards: [card('abcd1')], rev: 0 })
+    expect(r2.objects.has(`u/${A}/cards/${hex}`)).toBe(true)
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect(r2.objects.has(`u/${A}/cards/${hex}`)).toBe(false)
+  })
+})
