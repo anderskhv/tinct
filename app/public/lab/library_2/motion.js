@@ -5,7 +5,17 @@ export const mix=(a,b,t)=>a+(b-a)*t;
 // the compact tour: the author flap first, then the introduction full screen.
 export function destination(w,h){const tour=w<1100||h<600;const width=tour?w:Math.min(660,(w-96)/2);const top=tour?0:76;return {x:tour?w:w/2,y:top,w:width,h:tour?h:h-top-28,spread:true,tour};}
 // The cover and paper share one uniformly scaled parent throughout the motion.
-export function bookFrame(source,target,t){t=clamp(t,0,1);const open=ease(clamp(t/.48,0,1));const zoom=ease(clamp((t-.48)/.52,0,1));const width=mix(source.w,target.w,zoom);return {x:mix(source.x,target.x,zoom),y:mix(source.y,target.y,zoom),w:width,h:mix(source.h,target.h,zoom),angle:-180*open,scale:width/target.w,opacity:1};}
+// While the cover turns, the book slides half a cover to the right, so the open spread
+// is centred where the closed book stood and both pages stay on a screen viewWidth wide
+// (a phone's centred hero cover otherwise swung its flap half off the left edge).
+export function bookFrame(source,target,t,viewWidth=Infinity){t=clamp(t,0,1);const open=ease(clamp(t/.48,0,1));const zoom=ease(clamp((t-.48)/.52,0,1));const width=mix(source.w,target.w,zoom);const spine=clamp(source.x+source.w/2,source.w,Math.max(source.w,viewWidth-source.w));return {x:mix(mix(source.x,spine,open),target.x,zoom),y:mix(source.y,target.y,zoom),w:width,h:mix(source.h,target.h,zoom),angle:-180*open,scale:width/target.w,opacity:1};}
+// Both halves of the opening book in screen pixels: the paper (right page) and the turned
+// cover's back (left page, the author flap). Each is laid out at the destination's width
+// and the frame's height inside the one scaled parent, so the two stay one size from the
+// cover to the spread. A flap held at its final height shrank with the scale while the
+// paper grew, whenever the cover's shape differs from the page's (iPhone QA, 2026-10-14).
+// Opened, the flap keeps at least its own height (the compact tour, #173).
+export function bookPages(source,target,t,flap=target,viewWidth=Infinity){const f=bookFrame(source,target,t,viewWidth);const height=f.h/f.scale;const backHeight=clamp(t,0,1)===1?Math.max(flap.h,height):height;return {frame:f,height,backHeight,paper:{x:f.x,y:f.y,w:target.w*f.scale,h:f.h},back:{x:f.x-flap.w*f.scale,y:f.y,w:flap.w*f.scale,h:backHeight*f.scale}};}
 export function orbFrame(a,b,t){const p=ease(clamp(t,0,1));return {x:mix(a.x,b.x,p),y:mix(a.y,b.y,p),size:mix(a.size,b.size,p)};}
 export function sceneCrop(w,h,iw,ih,focus=.5){const scale=Math.max(w/iw,h/ih);const sw=w/scale,sh=h/scale;return {x:clamp((iw-sw)*focus,0,iw-sw),y:0,w:sw,h:sh,scale};}
 export function panelBounds(rect,w,h){const width=clamp(rect.w,Math.min(320,w-24),w-24),height=clamp(rect.h,Math.min(440,h-24),h-24);return {x:clamp(rect.x,12,w-width-12),y:clamp(rect.y,12,h-height-12),w:width,h:height};}

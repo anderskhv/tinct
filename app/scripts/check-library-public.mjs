@@ -80,6 +80,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  const b=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})}));
  // Book links: the linked book is in the hero from the first paint, nothing opens by itself.
  for(const [bw,bh,mobile] of engine===chromium?[[1440,900,false],[390,844,true]]:[[390,844,true]])await checkBookLinks(b,engine.name(),bw,bh,mobile,engine===chromium&&!mobile);
+ for(const [bw,bh,mobile] of engine===chromium?[[1440,900,false],[390,664,true]]:[[390,664,true],[390,844,true]]){stage(`book opening ${engine.name()} ${bw}x${bh}`);await checkBookOpening(b,engine.name(),bw,bh,mobile);}
  if(engine===chromium){stage('search chromium');await checkSearch(b,engine.name(),1440,900);}
  // The film checks get a browser of their own: one that wedges after a film
  // (CI, 5-6 Oct) cannot stall the checks that follow on \`b\`.
@@ -193,6 +194,35 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('tinct-lab-position'));s.owner='public-check';localStorage.setItem('tinct-lab-position',JSON.stringify(s));localStorage.setItem('sb-public-check-auth-token',JSON.stringify({user:{id:'public-check'}}));});
  await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.waitForURL('**/reader');assert.deepEqual(errors,[]);console.log({engine:engine.name(),live,publicNew:true,back:true,returningTable:true,exactResume:true,homeResume:true,metadata:true,removePreservesPlace:true,errors});await c.close();await b.close();stage('next engine');
 }})().then(()=>process.exit(0),e=>{console.error(e);process.exit(1)});
+
+// ---- Opening the hero book (iPhone QA, 14 Oct) ----
+// The page clock is held and stepped, so the opening is measured at set points after the
+// cover has turned: the flap (left page) and the paper (right page) are one size, level,
+// and the flap stays on screen. A flap held at its final height stayed at the cover's
+// size, high and off the left edge, on a 390x664 iPhone for five days (#372).
+async function checkBookOpening(b,engine,w,h,mobile){
+ const label=`${engine}-${w}x${h}`,c=await b.newContext({serviceWorkers:'block',viewport:{width:w,height:h},...(mobile?{isMobile:engine==='chromium',hasTouch:true}:{})});
+ await c.addInitScript(()=>{const real=performance.now.bind(performance),raf=requestAnimationFrame.bind(window);let held=null;window.__openClock={hold:()=>held=real(),set:t=>held=t,now:()=>held};const now=()=>held??real();performance.now=now;window.requestAnimationFrame=cb=>raf(()=>cb(now()));});
+ const p=await c.newPage(),errors=[];p.setDefaultTimeout(45000);p.on('pageerror',e=>errors.push(e.message));
+ if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());if(u.pathname==='/api/public-books')return r.fulfill({contentType:'application/json',body:'{"books":[]}'});const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
+ await p.goto('https://tinct.app/',{waitUntil:'domcontentloaded'});await p.locator('#hero-book canvas').waitFor();
+ await p.evaluate(()=>window.__openClock.hold());await p.locator('#hero-book').click();
+ await p.waitForFunction(()=>!document.getElementById('book-overlay').hidden);await p.waitForTimeout(150);
+ const start=await p.evaluate(()=>window.__openClock.now()),frames=[];
+ for(const t of [.5,.625,.75,.875,1]){
+  await p.evaluate(at=>window.__openClock.set(at),start+t*1500);await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await p.waitForTimeout(100);
+  const f=await p.evaluate(()=>{const r=s=>{const b=document.querySelector(s).getBoundingClientRect();return {x:Math.round(b.x),y:Math.round(b.y),w:Math.round(b.width),h:Math.round(b.height)};};return {back:r('.cover-back'),paper:r('#paper')};});
+  frames.push({t,...f});
+  const {back,paper}=f,where=`${label} opening at ${t}: ${JSON.stringify(f)}`;
+  assert(Math.abs(back.w-paper.w)<=3&&Math.abs(back.h-paper.h)<=3,where+': both pages one size');
+  assert(Math.abs(back.y-paper.y)<=3&&Math.abs(back.x+back.w-paper.x)<=3,where+': the pages meet level at the spine');
+  assert(back.x>=-1&&back.y>=-1,where+': the left page stays on screen');
+ }
+ await p.screenshot({path:`${out}/${label}-book-opened.png`});
+ assert.deepEqual(errors,[],label+' opening: no page errors');
+ console.log('BOOK_OPENING '+JSON.stringify({label,frames:frames.map(f=>({t:f.t,back:f.back,paper:f.paper}))}));
+ await c.close();
+}
 
 // ---- Book links: /library?book=<id> and the shared /read/<id>/ (approved 6 Oct) ----
 async function checkBookLinks(b,engine,w,h,mobile,extended){
