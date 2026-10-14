@@ -55,6 +55,8 @@ describe('offline book download list', () => {
   it('adds the cast, and verse lines only for a book that has them', () => {
     expect(offlineBookExtraUrls('hamlet', 'b 1', true)).toEqual(['/data/editions/hamlet-threads.json?v=b%201', '/data/editions/hamlet-lines.json?v=b%201'])
     expect(offlineBookExtraUrls('frankenstein', 'b1', false)).toEqual(['/data/editions/frankenstein-threads.json?v=b1'])
+    expect(offlineBookExtraUrls('confessions', 'b1', false)).toEqual([])
+    expect(offlineBookExtraUrls('pd-ws-en-q30055204-12ry0ne', 'b1', false)).toEqual([])
   })
 
   it('saves the main edition, plus compare when it differs', () => {

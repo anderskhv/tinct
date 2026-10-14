@@ -7,7 +7,7 @@
 // turned to face the reader; the others stand spine-out beside it. Changing
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261013orbmid';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261014qafix';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 
@@ -15,10 +15,10 @@ import {renderBookMetadata} from './book-metadata.js?v=20261009rel10';
 import { hasPaperSpine, hasStoredSpineTone } from './spine.js?v=20261009rel10';
 import { fitHeroTitle } from './hero-title.js?v=20261009rel10';
 import { COVER_ASPECT } from './table-window.js?v=20261009cover';
-import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261013orbmid';
-import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, tableUrl, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261013orbmid';
+import { depthRatio, tableFit, tableLayout, bookStyle } from './table-layout.js?v=20261014qafix';
+import { SPINE_TEXTURES, bindingFor, percentLabel, bookCover, deskCover, tableUrl, DESK_COVER_PX, markup, esc } from './reading-table-markup.js?v=20261014qafix';
 import { LEAVE_MS, MOVE_MS, MOVE_EASE, fadeOut } from './shelf-motion.js?v=20261009cover';
-import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261013orbmid';
+import { FIRST_PAINT_KEY, deskRecord, keepShownOrder, sameOrder, PLACEHOLDER_CLASS } from './reading-table-first-paint.js?v=20261014qafix';
 
 const $ = id => document.getElementById(id);
 const CACHE_KEY = 'tinct-library-2-reading-table';
@@ -183,6 +183,7 @@ export async function mountReadingTable({ hero, shelves, el }) {
     // followed by late artwork. The leaf faces fade without flattening the 3D row.
     view.classList.replace('is-preparing', 'is-ready');
     document.documentElement.classList.remove('returning-scene-pending');
+    dispatchEvent(new Event('library2:table-fit'));
     view.removeAttribute('aria-busy');
   };
 
@@ -270,7 +271,7 @@ export function createReadingTable(hero,{table,prepareCover,onOpen,onError,summa
     if(other.classList.contains(PLACEHOLDER_CLASS)){setTimeout(()=>other.remove(),matchMedia('(prefers-reduced-motion: reduce)').matches?0:320);continue;}
     other.dispose?.();other.remove();
    }
-   active.classList.replace('is-preparing','is-ready');document.documentElement.classList.remove('returning-scene-pending');
+   active.classList.replace('is-preparing','is-ready');document.documentElement.classList.remove('returning-scene-pending');dispatchEvent(new Event('library2:table-fit'));
    rememberFirstPaint(active,currentTable);
   });
  }
@@ -531,8 +532,12 @@ function wire(view, table, demo, keepBookId, options={}) {
     book.querySelector('.rt-spine').style.background = `linear-gradient(90deg,#0009,#0000 16%,#ffffff14 44%,#0000 64%,#0009),${tex}${colour}`;
     book.querySelector('.rt-refl-spine').style.background = `${tex}${colour}`;
   });
-  const observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(fit):null;
-  if(observer)observer.observe(stage);else addEventListener('resize',fit);
+  // The stage settles after the first fit (the title refits, a recap arrives, the info block
+  // grows or shrinks): the page re-places what rests on the books (app.js, the docked librarian).
+  const settled=()=>{if(!view.classList.contains('is-preparing'))dispatchEvent(new Event('library2:table-fit'));};
+  const refit=()=>{fit();settled();};
+  const observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(refit):null;
+  if(observer)observer.observe(stage);else addEventListener('resize',refit);
   fit();select(current,false);
   // The title now set (its lines change the stage), measure again at once: the table is revealed in
   // its final geometry, not a frame before the ResizeObserver's refit (visible over the placeholder).

@@ -59,6 +59,17 @@ export function paragraphKind(text: string | undefined): LabParagraphKind | null
   return kinds.get(text) ?? (isSeparatedList(text) ? 'index' : null)
 }
 
+/**
+ * Whether a paragraph is set apart from running prose: ragged-right and never
+ * hyphenated (a heading, label, subtitle, byline, line of verse or address, an
+ * index line). A list item is book text like a paragraph: justified,
+ * hyphenated, and its last line on a page it continues past filled (lab.css).
+ */
+export function paragraphSetRagged(text: string | undefined): boolean {
+  const kind = paragraphKind(text)
+  return !!kind && kind !== 'item'
+}
+
 /** Separators between items of a keyword or index line. */
 const LIST_SEPARATOR = /\s•\s/g
 

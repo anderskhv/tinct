@@ -4727,17 +4727,20 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
    edition's chapter records them (`kinds`, for built-in and own books alike),
    and an index line of " • "-separated items in any book (`index`). Each is a
    whole paragraph's block, painted and measured alike (the paginators put the
-   same classes on their measured blocks), and none is ever justified. Sizes
+   same classes on their measured blocks), and none but a list item is ever
+   justified: a list item is book text, justified and hyphenated like a
+   paragraph, and its last line on a page it continues past is filled
+   (`.is-continued[data-tail-full]`; nightly QA, New Life notes). Sizes
    stay the body size so line metrics stay the reader's; small capitals and
    italics carry the distinction. */
-.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-item, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index)[class][class] {
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index)[class][class] {
   text-align: left;
   text-align-last: auto;
 }
 /* Important: the phone and desktop reading rules set `hyphens: auto` on the
    same elements with higher or equal specificity. */
-.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-item, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index),
-.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-item, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index) * {
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index),
+.lab .lab-hearing-line:is(.is-kind-heading, .is-kind-label, .is-kind-subtitle, .is-kind-byline, .is-kind-line, .is-kind-index) * {
   -webkit-hyphens: manual !important;
   hyphens: manual !important;
 }

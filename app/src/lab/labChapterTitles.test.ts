@@ -136,7 +136,9 @@ describe('normalizeChapterTitle: never ALL CAPS, never Roman numerals', () => {
       }
     }
     expect(mixed).toBeGreaterThan(10000)
-  })
+    // Reads every published edition file (~5 s locally, and it grows with each book):
+    // the default 5 s limit timed out on a busy CI runner (deploy of #422, 14 Oct).
+  }, 60_000)
 
   it('leaves no built-in edition title in ALL CAPS or with a Roman label number', () => {
     const dir = join(process.cwd(), 'public/data/editions')

@@ -32,7 +32,7 @@
  */
 import { hyphenationBreaks, hyphenatorReady, type HyphenLang } from './labHyphenate'
 import { tokenizeHearingWords, isLabVerseMarker } from './labHearing'
-import { paragraphKind, wordLink } from './labParagraphStyle'
+import { paragraphSetRagged, wordLink } from './labParagraphStyle'
 import { presentationLineRanges } from './labVerseLines'
 
 /**
@@ -125,9 +125,9 @@ export function setHyphenPlanForTest(text: string, plan: Map<number, number>): v
   active.words.set(text, tokenizeHearingWords(text).map(word => word.text))
 }
 
-/** Prose a plan can be made for: no kind (an index line is one), no verse lineation. */
+/** Prose a plan can be made for (a list item is prose): not set apart (an index line is), no verse lineation. */
 export function plannable(text: string, words: Array<{ text: string }>): boolean {
-  if (!text || words.length < 2 || paragraphKind(text)) return false
+  if (!text || words.length < 2 || paragraphSetRagged(text)) return false
   return !presentationLineRanges(text, 0, words.length)
 }
 

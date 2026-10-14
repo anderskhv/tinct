@@ -183,3 +183,19 @@ describe('reading table: the first paint\'s placeholder is the table\'s own stru
     expect(placeholder.querySelector('[id]')).toBeNull()
   })
 })
+
+describe('the docked librarian follows the table once it settles (nightly QA: phone, orb 23px above the books)', () => {
+  const lib = (file: string) => readFileSync(resolve(process.cwd(), 'public/lab/library_2', file), 'utf8')
+  it('the table announces every stage refit and its reveal, never while it is still being prepared', () => {
+    const table = lib('reading-table.js')
+    expect(table).toMatch(/const settled=\(\)=>\{if\(!view\.classList\.contains\('is-preparing'\)\)dispatchEvent\(new Event\('library2:table-fit'\)\);\};/)
+    expect(table).toContain('new ResizeObserver(refit)')
+    expect(table).toMatch(/view\.classList\.replace\('is-preparing', 'is-ready'\);\s*document\.documentElement\.classList\.remove\('returning-scene-pending'\);\s*dispatchEvent\(new Event\('library2:table-fit'\)\);/)
+    expect(table).toContain("active.classList.replace('is-preparing','is-ready');document.documentElement.classList.remove('returning-scene-pending');dispatchEvent(new Event('library2:table-fit'));")
+  })
+  it('the page re-places the librarian from the settled table (fitHero keeps a dragged librarian and an open panel where they are)', () => {
+    const app = lib('app.js')
+    expect(app).toContain("addEventListener('library2:table-fit',()=>{cancelAnimationFrame(tableFitFrame);tableFitFrame=requestAnimationFrame(fitHero);});")
+    expect(app).toMatch(/function fitHero\(\)\{[^\n]*if\(!movedLibrarian&&mode==='minimized'&&!activeBook\)/)
+  })
+})

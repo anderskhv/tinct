@@ -7,6 +7,7 @@
  * worker on request (CACHE_APP_SHELL in public/sw.js).
  */
 import { CHAPTER_SHARDED_EDITION_IDS } from '../data/editionShardRegistry'
+import { bookHasThreads } from '../data/threadsAvailability'
 import { editionShardManifestUrl, editionShardPath, editionShardUrl, editionWholeUrl } from '../data/editionUrls'
 
 /** The service worker's edition/audio cache (CACHE_NAME in public/sw.js). */
@@ -52,7 +53,7 @@ export function offlineChapterUrls(bookId: string, editionKey: string, version: 
 export function offlineBookExtraUrls(bookId: string, version: string, hasVerseLines: boolean): string[] {
   const v = `?v=${encodeURIComponent(version)}`
   return [
-    `/data/editions/${bookId}-threads.json${v}`,
+    ...(bookHasThreads(bookId) ? [`/data/editions/${bookId}-threads.json${v}`] : []),
     ...(hasVerseLines ? [`/data/editions/${bookId}-lines.json${v}`] : []),
   ]
 }
