@@ -522,6 +522,37 @@ describe('finished chapters in the position record', () => {
   })
 })
 
+describe('flushPending', () => {
+  it('writes a debounced note now, as its timer would, cancels the timer, and is a no-op with nothing pending', () => {
+    const writes: { cause: string; reason?: string }[] = []
+    let timer: (() => void) | null = null
+    let cancelled = 0
+    const controller = createLabPositionController({
+      deviceId: DEVICE,
+      persist: (_state, cause, reason) => { writes.push({ cause, reason }) },
+      schedule: (fn) => { timer = fn; return () => { cancelled += 1; timer = null } },
+    })
+    controller.replace({
+      ...emptyLabPositionState(DEVICE),
+      books: { romans: romans() },
+      lastSettledBookId: 'romans',
+      lastSettledAt: 5_000,
+      updatedAt: 5_000,
+    })
+    expect(controller.flushPending()).toBe(controller.state())
+    expect(writes).toEqual([])
+    controller.note({ place: genesis({ paragraphIndex: 2, wordIndex: 1 }), reason: 'page-turn', now: 20_000 })
+    expect(writes).toEqual([{ cause: 'local', reason: 'page-turn' }])
+    const pendingTimer = timer
+    expect(pendingTimer).toBeTruthy()
+    controller.flushPending()
+    expect(writes).toEqual([{ cause: 'local', reason: 'page-turn' }, { cause: 'debounce', reason: 'page-turn' }])
+    expect(cancelled).toBeGreaterThan(0)
+    controller.flushPending()
+    expect(writes).toHaveLength(2)
+  })
+})
+
 describe('taking a book off the Reading-now list', () => {
   const readAt = (at: number) => ({
     ...emptyLabPositionState(DEVICE),
