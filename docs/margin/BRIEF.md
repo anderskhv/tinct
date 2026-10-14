@@ -44,7 +44,7 @@ In PR 1, before the margin exists, results open in the PDF reader's existing cha
 
 **Typing:** with text selected, any printable key opens Ask with that character, so the reader never has to click first. The bar becomes the question field: min 330px wide, grows to 520px, then wraps to three lines. A mic sits left of the send disc. Return sends, Shift-Return breaks a line, and Escape returns to the menu. The mic dictates into the field using the same speech input as the chat composer, and does not start Talk.
 
-**Explain and Simplify** answer in one tap, opening a card (PR 2) or today's Explain surface (PR 1, book reader).
+**Explain and Simplify** answer in one tap. In PR 1 they open in the PDF reader's chat dock; from PR 2 they open as margin cards.
 
 **Highlight dot:** shows the current default colour. One tap highlights in it. A second tap, or a long press, replaces the bar's middle with the four colours (`HIGHLIGHT_COLORS`, unchanged). Picking one highlights and makes it the default. The default persists through the storage layer as today.
 
