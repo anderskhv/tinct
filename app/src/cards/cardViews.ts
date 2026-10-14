@@ -267,6 +267,8 @@ export function cardSpec(id: CardId, env: CardsEnv): CardSpec {
 /** 1 · You */
 export function youCard(env: CardsEnv): CardSpec {
   let status = ''
+  /** The AI credits row's reset line, open or not; kept across refreshes. */
+  const credits = { resets: false }
   // One file field per slot for the card's life, so a re-render while the
   // system picker is open never drops the reader's choice.
   const files = { picture: fileField(), background: fileField() }
@@ -349,7 +351,7 @@ export function youCard(env: CardsEnv): CardSpec {
         env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
-      body.append(...[readingGroup, data.allowance ? creditsGroup(env, card) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
+      body.append(...[readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
       status = ''
       return [hero, body]
     },
@@ -360,23 +362,49 @@ function fileField(): HTMLInputElement {
   return el('input', { type: 'file', accept: 'image/*', className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
 }
 
-function creditsGroup(env: CardsEnv, card: CardHandle): HTMLElement {
+/** At or above this share of the month's credits used, the Top up (or Get Premium) row shows (Anders, 14 Oct 2026). */
+export const TOP_UP_ROW_FROM_PERCENT = 90
+
+function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }): HTMLElement {
   const allowance = env.data.allowance!
   // The bars fill as the allowance is used, toward 100% (Anders, 2026-10-12, as Claude and ChatGPT show it).
   const used = Math.max(0, Math.min(100, Math.round((allowance.monthUsedFraction ?? allowance.usedFraction) * 100)))
-  const meter = (label: string, usedPercent: number, words: string, light: boolean, testid: string) => {
-    const track = el('div', { className: 'tc-tr', role: 'meter', 'aria-label': label, 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(usedPercent) }, el('i'))
-    ;(track.firstChild as HTMLElement).style.width = `${usedPercent}%`
-    return el('div', { className: `tc-r tc-meter${light ? ' is-light' : ''}`, dataset: { testid } },
-      el('div', { className: 'tc-top' }, el('span', { text: label }), el('span', { className: 'tc-v' }, el('b', { text: `${usedPercent}%` }), ` ${words}`)), track)
+  const resets = dayMonthShort(allowance.resetsAt)
+  const track = (label: string, usedPercent: number) => {
+    const node = el('span', { className: 'tc-tr', role: 'meter', 'aria-label': label, 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(usedPercent) }, el('i'))
+    ;(node.firstChild as HTMLElement).style.width = `${usedPercent}%`
+    return node
   }
+  const top = (label: string, usedPercent: number, words: string) =>
+    el('span', { className: 'tc-top' }, el('span', { text: label }), el('span', { className: 'tc-v' }, el('b', { text: `${usedPercent}%` }), ` ${words}`))
+  const meter = (label: string, usedPercent: number, words: string, light: boolean, testid: string) =>
+    el('div', { className: `tc-r tc-meter${light ? ' is-light' : ''}`, dataset: { testid } }, top(label, usedPercent, words), track(label, usedPercent))
+  // The reset date without hover: the AI credits row is a toggle that shows
+  // "Resets 13 Nov" under the bar (Anders, 14 Oct 2026). Toggled in place, so focus stays.
+  const creditsRow = resets
+    ? (() => {
+      const line = el('span', { className: 'tc-reset', text: CARDS_COPY.resets(resets), hidden: !open.resets, dataset: { testid: 'you-ai-resets' } })
+      const button = el('button', {
+        type: 'button', className: 'tc-r tc-meter', 'aria-expanded': String(open.resets), dataset: { testid: 'you-ai-credits' },
+        onclick: () => {
+          open.resets = !open.resets
+          button.setAttribute('aria-expanded', String(open.resets))
+          line.hidden = !open.resets
+        },
+      }, top(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth), track(CARDS_COPY.aiCredits, used), line)
+      return button
+    })()
+    : meter(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth, false, 'you-ai-credits')
   // The lighter top-up bar only once a top-up was bought this period.
   const topUpLeft = allowance.topUpLeftFraction
-  const renews = dayMonthShort(allowance.resetsAt)
   const packs = allowance.topUps
-  const topUpRow = packs.length ? row({
+  // Top up only when the month's credits are nearly gone (at least 90% used).
+  // Top-ups are for Premium readers; a free reader is offered Premium, on the
+  // Account card where Settings → Account offers it (Anders, 14 Oct 2026).
+  const nearlyGone = used >= TOP_UP_ROW_FROM_PERCENT
+  const topUpRow = nearlyGone && env.data.plan === 'premium' && packs.length ? row({
     label: CARDS_COPY.topUp,
-    value: renews ? CARDS_COPY.renews(renews) : null,
+    value: resets ? CARDS_COPY.orWaitUntil(resets) : null,
     chevron: true,
     testid: 'you-top-up',
     onClick: () => {
@@ -394,9 +422,14 @@ function creditsGroup(env: CardsEnv, card: CardHandle): HTMLElement {
         ...(packs.includes('top_up_10') ? [{ label: CARDS_COPY.buyTopUpMore, run: buy('top_up_10'), testid: 'menu-top-up-more' }] : []),
       ])
     },
+  }) : nearlyGone && env.data.plan === 'free' && env.data.intervals.length ? row({
+    label: CARDS_COPY.getPremium,
+    chevron: true,
+    testid: 'you-get-premium',
+    onClick: () => card.stack.push(accountCard(env)),
   }) : null
   return group(
-    meter(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth, false, 'you-ai-credits'),
+    creditsRow,
     topUpLeft !== null ? meter(CARDS_COPY.topUpBar, Math.round((1 - Math.max(0, Math.min(1, topUpLeft))) * 100), CARDS_COPY.used, true, 'you-top-up-bar') : null,
     topUpRow,
   )!

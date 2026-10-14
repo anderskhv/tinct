@@ -137,6 +137,9 @@ button.tc-av { padding: 0; }
 .tc-tr { height: 5px; border-radius: 3px; background: var(--tc-track); overflow: hidden; }
 .tc-tr i { display: block; height: 100%; background: var(--tc-fill); border-radius: 3px; }
 .tc-meter.is-light .tc-tr i { background: var(--tc-bar); }
+/* The AI credits row as a toggle: its reset date, quiet, under the bar (14 Oct 2026). */
+.tc-meter .tc-tr { display: block; }
+.tc-reset { display: block; font-size: 13px; color: var(--tc-sec); line-height: 1.45; margin-top: -4px; }
 .tc-badge { min-width: 22px; height: 22px; border-radius: 11px; background: var(--tc-fill); color: var(--tc-cell); font-size: 13px; font-weight: 600; display: grid; place-items: center; padding: 0 7px; letter-spacing: normal; }
 .tc-dim { opacity: .4; }
 .tc-foot { font-size: 13px; color: var(--tc-sec); line-height: 1.45; margin: -22px 16px 0; }

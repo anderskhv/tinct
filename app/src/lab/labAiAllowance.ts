@@ -7,10 +7,10 @@
 import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 import { apiUrl } from '../utils/apiUrl'
 
-// Wording: Anders, 2026-10-07 (price pills).
+// Wording: Anders, 2026-10-07 (price pills). Credits reset, never renew (Anders, 2026-10-14).
 export const AI_USAGE_COPY = {
   label: 'AI use',
-  resets: (date: string) => `Renews ${date}`,
+  resets: (date: string) => `Resets ${date}`,
   low: 'Running low.',
   usedUp: 'AI features are paused. Reading and listening carry on.',
   usedUpUntil: (date: string) => `AI features are paused until ${date}. Reading and listening carry on.`,

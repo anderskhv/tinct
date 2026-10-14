@@ -9,7 +9,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import cardsCss from './cards.css?raw'
 import { accountCardsOpen, closeAccountCards, openAccountCards } from './openCards'
 import { CardStack } from './cardStack'
-import { accountCard, settingsCard, type CardsEnv } from './cardViews'
+import { accountCard, settingsCard, youCard, type CardsEnv } from './cardViews'
 import { CARDS_COPY } from './cardsCopy'
 import { ACCOUNT_DELETE_CONFIRM, ACCOUNT_DELETE_PATH } from '../worker/routes/accountDelete'
 import { readingFigures } from './cardsFormat'
@@ -650,5 +650,91 @@ describe('Account and Change password (Anders, 10 October 2026)', () => {
     env.changed()
     expect(byTest('settings-password-status')?.textContent).toBe(CARDS_COPY.resetSent)
     stack.closeAll()
+  })
+})
+
+describe('AI credits (Anders, 14 October 2026)', () => {
+  const allowance = (used: number, fields: Record<string, unknown> = {}) => ({
+    usedFraction: used, monthUsedFraction: used, topUpLeftFraction: null, state: used >= 1 ? 'used_up' : used >= 0.8 ? 'low' : 'ok',
+    resetsAt: '2026-11-13T12:00:00.000Z', hasTopUp: false, topUps: ['chat_pack_200', 'top_up_10'], ...fields,
+  }) as CardsEnv['data']['allowance']
+
+  /** The You card alone, with the allowance and plan given. */
+  function youOnly(data: Partial<CardsEnv['data']>) {
+    let stack: CardStack | null = null
+    const env: CardsEnv = {
+      session, social: true, changed: () => stack?.refreshLive(), reloadFind: () => {}, signOut: async () => {}, resetPassword: async () => '', navigate: vi.fn(),
+      data: { profile: null, reading: null, allowance: null, plan: 'premium', intervals: [], rank: null, find: null, findBadge: 0, ...data },
+    }
+    stack = new CardStack({ dark: false })
+    stack.push(youCard(env))
+    return { env, stack }
+  }
+
+  it('below 90% used: only AI credits, its percentage and bar; no Top up row', () => {
+    for (const used of [0, 0.5, 0.89]) {
+      const { stack } = youOnly({ allowance: allowance(used) })
+      expect(byTest('you-ai-credits')?.textContent).toContain(`${Math.round(used * 100)}% ${CARDS_COPY.usedThisMonth}`)
+      expect(byTest('you-top-up')).toBeNull()
+      expect(byTest('you-get-premium')).toBeNull()
+      expect(top().textContent).not.toMatch(/Renews|Top up|or wait/)
+      stack.closeAll()
+    }
+  })
+
+  it('at 90% and at 100%: Top up, "or wait until" the reset date, and the existing top-up menu', () => {
+    for (const used of [0.9, 1]) {
+      const { stack } = youOnly({ allowance: allowance(used) })
+      const topUp = byTest('you-top-up')!
+      expect(topUp.textContent).toBe(`${CARDS_COPY.topUp}${CARDS_COPY.orWaitUntil('13 Nov')}`)
+      expect(topUp.textContent).toContain('or wait until 13 Nov')
+      click(topUp)
+      expect(byTest('menu-top-up')?.textContent).toBe(CARDS_COPY.buyTopUp)
+      expect(byTest('menu-top-up-more')?.textContent).toBe(CARDS_COPY.buyTopUpMore)
+      stack.closeAll()
+    }
+  })
+
+  it('a free reader, who cannot top up, gets Get Premium instead, which opens the Premium offer on Account', () => {
+    const { stack } = youOnly({ plan: 'free', intervals: ['month', 'year'], allowance: allowance(0.92) })
+    expect(byTest('you-top-up')).toBeNull()
+    const premium = byTest('you-get-premium')!
+    expect(premium.textContent).toBe(CARDS_COPY.getPremium)
+    click(premium)
+    expect(top().dataset.card).toBe('account')
+    expect(byTest('account-plan-month')).toBeTruthy()
+    expect(byTest('account-plan-year')).toBeTruthy()
+    stack.closeAll()
+    // Below 90%, a free reader sees no row either.
+    const quiet = youOnly({ plan: 'free', intervals: ['month', 'year'], allowance: allowance(0.5) })
+    expect(byTest('you-get-premium')).toBeNull()
+    quiet.stack.closeAll()
+  })
+
+  it('tapping AI credits shows "Resets 13 Nov" under the bar, and tapping again hides it; kept through refreshes', () => {
+    const { env, stack } = youOnly({ allowance: allowance(0.29) })
+    const row = byTest('you-ai-credits') as HTMLButtonElement
+    expect(row.tagName).toBe('BUTTON')
+    expect(row.getAttribute('aria-expanded')).toBe('false')
+    expect(byTest('you-ai-resets')?.hidden).toBe(true)
+    row.click()
+    expect(row.getAttribute('aria-expanded')).toBe('true')
+    expect(byTest('you-ai-resets')?.hidden).toBe(false)
+    expect(byTest('you-ai-resets')?.textContent).toBe(CARDS_COPY.resets('13 Nov'))
+    expect(byTest('you-ai-resets')?.textContent).toBe('Resets 13 Nov')
+    env.changed()
+    expect(byTest('you-ai-credits')?.getAttribute('aria-expanded')).toBe('true')
+    expect(byTest('you-ai-resets')?.hidden).toBe(false)
+    ;(byTest('you-ai-credits') as HTMLButtonElement).click()
+    expect(byTest('you-ai-credits')?.getAttribute('aria-expanded')).toBe('false')
+    expect(byTest('you-ai-resets')?.hidden).toBe(true)
+    // A native button: Enter and Space work from the keyboard, and it takes focus.
+    expect((byTest('you-ai-credits') as HTMLButtonElement).type).toBe('button')
+    stack.closeAll()
+  })
+
+  it('credits never say Renews', () => {
+    expect(CARDS_COPY.resets('13 Nov')).toBe('Resets 13 Nov')
+    expect(Object.keys(CARDS_COPY)).not.toContain('renews')
   })
 })
