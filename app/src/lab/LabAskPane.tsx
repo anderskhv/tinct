@@ -277,12 +277,24 @@ export function LabAskPane({
       revealOlder()
       return
     }
-    if (!samePlace(node.scrollTop, pinnedScrollTopRef.current)) {
+    // Under a held question, a view pulled up to the thread's new end is the
+    // browser clamping, not the reader: the phone keyboard closing on send
+    // makes the thread taller than its writing space for a moment, and WebKit
+    // reports that scroll before the resize observer refits the space. Put
+    // the question back near the top (14 Oct 2026: it sat at the foot with
+    // the Latest pill over its answer).
+    const held = anchorRow(node)
+    const pinned = pinnedScrollTopRef.current
+    if (held && pinned !== null && node.scrollTop < pinned - 1 && node.scrollTop >= node.scrollHeight - node.clientHeight - 1) {
+      holdQuestion(node, held, true)
+    } else if (!samePlace(node.scrollTop, pinned)) {
       pinnedScrollTopRef.current = null
       nearBottomRef.current = isNearBottom(node)
     }
     measureAway(node)
-  }, [hidden, measureAway, revealOlder])
+    // anchorRow reads refs only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hidden, holdQuestion, measureAway, revealOlder])
 
   // Older turns were prepended: keep the reader's line still.
   useLayoutEffect(() => {
