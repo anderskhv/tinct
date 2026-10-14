@@ -30,6 +30,15 @@ describe('stamp-library-bridge-preloads', () => {
       '/assets/authCookie-BLkU2oHV.js', '/assets/cloud-DKJncyOw.js', '/assets/labAuth-Dv0hYOe9.js', '/assets/shared-index-DEwtTf7j.js', '/assets/supabase-uUM7RQ8s.js',
     ])
   })
+  it('ignores import-like text inside strings: bare specifiers and paths that are not built files are never preloaded', () => {
+    // supabase-js carries a help message "import ws from \"ws\"" in a template string; it once stamped "/assets/ws" (404 on every library load).
+    const withHelp: Record<string, string> = {
+      '/lab/library-2-reading.js': 'import{s}from"../assets/supabase-uUM7RQ8s.js";',
+      '/assets/supabase-uUM7RQ8s.js': 'const m=`install "ws":\nimport ws from "ws"\nnew RealtimeClient()`;const n=`see import x from "./not-built.js"`;export const s=3',
+    }
+    expect(staticImports(withHelp['/assets/supabase-uUM7RQ8s.js'], '/assets/supabase-uUM7RQ8s.js')).toEqual(['/assets/not-built.js'])
+    expect(bridgeDependencies(url => withHelp[url] ?? null)).toEqual(['/assets/supabase-uUM7RQ8s.js'])
+  })
   it('replaces the marker in boot.js with the list and refuses a boot.js without it', () => {
     const boot = `for(const dep of ${MARKER}){preload(dep)}`
     expect(stampBoot(boot, ['/assets/a-12345678.js'])).toBe('for(const dep of ["/assets/a-12345678.js"]){preload(dep)}')

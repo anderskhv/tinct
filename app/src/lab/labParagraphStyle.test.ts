@@ -8,6 +8,7 @@ import {
   paragraphKeepsWithNext,
   paragraphKind,
   paragraphKindClass,
+  paragraphSetRagged,
   registerBookOpening,
   registerParagraphKinds,
   registerParagraphLinks,
@@ -51,6 +52,27 @@ describe('paragraph kinds', () => {
     // A kind the book records wins.
     registerParagraphKinds([index], ['item'])
     expect(paragraphKind(index)).toBe('item')
+  })
+
+  it('sets a list item like a paragraph: justified, hyphenated, its continued last line filled (New Life notes, nightly QA)', async () => {
+    registerParagraphKinds(['Transcript', 'A listed note that runs on for a while.', 'Address line', 'Label'], ['heading', 'item', 'line', 'label'])
+    expect(paragraphSetRagged('A listed note that runs on for a while.')).toBe(false)
+    expect(paragraphSetRagged('Plain prose, as ever.')).toBe(false)
+    expect(paragraphSetRagged('Transcript')).toBe(true)
+    expect(paragraphSetRagged('Address line')).toBe(true)
+    expect(paragraphSetRagged('Label')).toBe(true)
+    expect(paragraphSetRagged('explanatory knowledge • genetic knowledge • universality • unforeseeable problems')).toBe(true)
+    const item = 'A listed note that runs on for a while.'
+    expect(plannable(item, tokenizeHearingWords(item))).toBe(true)
+    // The ragged, unhyphenated rules name every set-apart kind but never the list item.
+    const { readFileSync } = await import('node:fs')
+    const css = readFileSync(new URL('./lab.css', import.meta.url), 'utf8')
+    const ragged = css.match(/\.lab \.lab-hearing-line:is\(([^)]*)\)\[class\]\[class\] \{\s*text-align: left;\s*text-align-last: auto;/)
+    expect(ragged?.[1]).toContain('.is-kind-heading')
+    expect(ragged?.[1]).not.toContain('.is-kind-item')
+    const manual = css.match(/\.lab \.lab-hearing-line:is\(([^)]*)\) \* \{\s*-webkit-hyphens: manual !important;/)
+    expect(manual?.[1]).toContain('.is-kind-index')
+    expect(manual?.[1]).not.toContain('.is-kind-item')
   })
 
   it('treats the same text registered as two kinds as prose', () => {

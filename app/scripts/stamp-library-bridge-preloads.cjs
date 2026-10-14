@@ -20,12 +20,17 @@ const BRIDGE_URL = '/lab/library-2-reading.js'
 const MARKER = '/*__BRIDGE_DEPS__*/[]'
 const IMPORT_RE = /\bimport\s*(?:[^'";]*?\bfrom\s*)?["']([^"']+)["']|\bexport\s*(?:\*|\{[^}]*\})\s*from\s*["']([^"']+)["']/g
 
-/** Static import specifiers of one module's source, resolved to site paths. */
+/**
+ * Static import specifiers of one module's source, resolved to site paths.
+ * Only relative or absolute paths count: a built module never imports a bare
+ * specifier, so `import ws from "ws"` is text (supabase-js's help message
+ * inside a template string), not an import.
+ */
 function staticImports(source, moduleUrl) {
   const found = []
   for (const match of source.matchAll(IMPORT_RE)) {
     const spec = match[1] || match[2]
-    if (!spec || /^(?:https?:)?\/\//.test(spec)) continue
+    if (!spec || !/^\.{0,2}\//.test(spec) || /^\/\//.test(spec)) continue
     const resolved = new URL(spec, 'https://tinct.app' + moduleUrl).pathname
     if (!found.includes(resolved)) found.push(resolved)
   }
@@ -34,20 +39,22 @@ function staticImports(source, moduleUrl) {
 
 /**
  * Every module the bridge imports, transitively, as site paths (sorted). `read`
- * returns a module's source for a site path, or null when it is not a built file.
+ * returns a module's source for a site path, or null when it is not a built file;
+ * a path that is not a built file is never listed (it would preload a 404).
  */
 function bridgeDependencies(read, entry = BRIDGE_URL) {
   const seen = new Set()
-  const visit = url => {
-    const source = read(url)
-    if (source == null) return
+  const visit = (url, source) => {
     for (const dep of staticImports(source, url)) {
       if (seen.has(dep) || dep === entry) continue
+      const depSource = read(dep)
+      if (depSource == null) continue
       seen.add(dep)
-      visit(dep)
+      visit(dep, depSource)
     }
   }
-  visit(entry)
+  const entrySource = read(entry)
+  if (entrySource != null) visit(entry, entrySource)
   return [...seen].sort()
 }
 

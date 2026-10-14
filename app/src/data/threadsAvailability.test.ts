@@ -18,6 +18,10 @@ describe('Cast (threads) availability', () => {
     expect(bookHasThreads('confessions')).toBe(false)
     expect(bookHasThreads('frankenstein')).toBe(true)
   })
+  it('never asks for a Cast file for an added public book (they have none; it was a 404 on every open)', () => {
+    expect(bookHasThreads('pd-ws-en-q30055204-12ry0ne')).toBe(false)
+    expect(bookHasThreads('pd-gb-en-1342')).toBe(false)
+  })
 })
 
 describe('recorded audio availability', () => {
