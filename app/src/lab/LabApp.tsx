@@ -45,6 +45,7 @@ import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
 import { apiUrl } from '../utils/apiUrl'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
+import { useSwipeDownClose } from './useSwipeDownClose'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { leaveForLibrary } from './labLeaveForLibrary'
@@ -3122,6 +3123,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // transport for as long as audio plays. The space the bar took goes to the
   // page.
   const showPhoneBar = phoneBarPossible && audioBarActive
+  // The paused phone player puts itself away from its grab handle or a swipe
+  // down; while audio plays it stays.
+  const phonePausedCloseAllowed = audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk
+  const closePausedTransport = useCallback(() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }, [])
+  const phoneBarSwipe = useSwipeDownClose<HTMLElement>(phonePausedCloseAllowed, reducedMotion, closePausedTransport)
   useEffect(() => {
     if (showPhoneChrome ? !audioBarActive : !desktopAudioBarActive) setSpeedPopoverOpen(false)
   }, [audioBarActive, desktopAudioBarActive, showPhoneChrome])
@@ -5781,7 +5787,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         </aside>
       )}
       {showPhoneBar && (
-        <footer className="lab-phone-bar" data-testid="lab-phone-bar">
+        <footer className={`lab-phone-bar${phonePausedCloseAllowed ? ' is-swipe-closable' : ''}`} data-testid="lab-phone-bar" ref={phoneBarSwipe.ref} {...phoneBarSwipe.handlers}>
           <div className={`lab-phone-bar-row ${audioBarActive ? 'is-audio has-5' : `is-read ${mobileCompareEnabled ? 'has-4' : 'has-3'}`}`}>
             {audioBarActive ? (
               // Speed · back · pause · forward · Talk, with the pause where a
@@ -5879,12 +5885,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               </>
             )}
           </div>
-          {/* The paused player's own close, on its top-right corner, as the
-              desktop dock carries its dismiss inside the dock. */}
-          {audioBarActive && !listen.playing && !listen.pending && listen.narration.status !== 'error' && !phoneAsk && <button
-            type="button" className="lab-audio-dismiss" aria-label="Close audio controls"
-            onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}
-          ><svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg></button>}
+          {/* The paused player's grab handle, centred above it: a tap closes
+              it, as does a swipe down on the bar. */}
+          {phonePausedCloseAllowed && <button
+            type="button" className="lab-audio-handle" data-testid="lab-audio-handle" aria-label="Close audio controls"
+            onClick={closePausedTransport}
+          />}
         </footer>
       )}
       </div>}

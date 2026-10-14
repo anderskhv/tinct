@@ -3346,6 +3346,8 @@
 
 .lab.is-phone .lab-phone-bar-row .lab-audio-speed,
 .lab.has-phone-chrome .lab-phone-bar-row .lab-audio-speed {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-weight: 600;
 }
 
@@ -3379,7 +3381,8 @@
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 0.58rem;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 0.68rem;
   letter-spacing: 0.025em;
 }
@@ -3404,7 +3407,8 @@
   justify-content: space-between;
   margin-top: 0.08rem;
   color: rgba(63, 58, 50, 0.68);
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 0.56rem;
   letter-spacing: 0.02em;
 }
@@ -4000,7 +4004,8 @@
 .lab-desktop-audio-dock > button.lab-desktop-audio-speed {
   width: 54px;
   border-radius: 16px;
-  font: 600 13px/1 'IBM Plex Mono', ui-monospace, monospace;
+  font: 600 13px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
 }
 
 .lab-desktop-audio-track {
@@ -4027,7 +4032,8 @@
 .lab-desktop-audio-track span {
   justify-self: end;
   color: #766d60;
-  font: 10px/1.2 'IBM Plex Mono', ui-monospace, monospace;
+  font: 10px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
 }
 
 .lab-desktop-audio-track i {
@@ -6631,26 +6637,45 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   position: absolute;
   inset: -6px;
 }
-/* The paused player's close sits on the player itself: a small disc in its
-   top-right corner, clear of the Talk glyph, with a 44px target. */
-.lab[data-chrome-version="v2"] .lab-audio-dismiss {
+/* The paused player's grab handle: a short pill centred just above the
+   player, inside a 44px-tall target that ends just above the player's 1px
+   border so it never overlaps Play. A paper margin keeps the pill clear of a
+   last line of text behind it. A tap closes the player; so does a swipe down. */
+.lab[data-chrome-version="v2"] .lab-audio-handle {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  bottom: calc(100% + 1px);
+  left: 50%;
   z-index: 2;
   pointer-events: auto;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   box-sizing: border-box;
-  width: 22px;
-  height: 22px;
-  padding: 0;
-  border: 1px solid var(--lab-border);
-  border-radius: 50%;
-  color: var(--lab-ink);
-  background: var(--lab-paper);
+  width: 72px;
+  height: 44px;
+  margin: 0 0 0 -36px;
+  padding: 0 0 7px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
   cursor: pointer;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
 }
+.lab[data-chrome-version="v2"] .lab-audio-handle::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--lab-ink-faint);
+  box-shadow: 0 0 0 4px var(--lab-paper);
+}
+html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before { background: var(--lab-ink); }
+.lab[data-chrome-version="v2"] .lab-audio-handle:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -6px; }
+/* A press on the paused player may become a swipe down, so the browser does
+   not take it as a scroll or zoom. */
+.lab[data-chrome-version="v2"] .lab-phone-bar.is-swipe-closable { touch-action: none; }
 .lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .lab-passage,
 .lab[data-chrome-version="v2"].has-phone-chrome:not(.has-phone-ask) .lab-passage { padding-top: .4rem; }
 .lab[data-chrome-version="v2"].is-phone .lab-passage-header,
@@ -6661,10 +6686,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab[data-chrome-version="v2"].is-phone .lab-passage,
 .lab[data-chrome-version="v2"].has-phone-chrome .lab-passage {
   padding-bottom: .5rem;
-}
-
-.lab[data-chrome-version="v2"] .lab-audio-dismiss::before {
-  content: ''; position: absolute; inset: -11px;
 }
 
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-icon svg { width: 20px; height: 20px; }
@@ -6817,7 +6838,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   box-shadow: 0 8px 30px #0002; z-index: 250; pointer-events: auto;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-speed-popover input { pointer-events: auto; }
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-dismiss { right: calc(50% - 365px); bottom: 32px; z-index: 251; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-body { height: 100%; flex: 1 1 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-page-wrap { height: 100%; min-height: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover { position: absolute; inset: 0; min-height: 0; overflow: hidden; }

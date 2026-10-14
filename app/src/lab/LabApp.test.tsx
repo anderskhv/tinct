@@ -1865,6 +1865,112 @@ it('V2 plays from the new visible page after pausing and browsing, without repla
 })
 
 
+describe('paused phone player: grab handle and swipe down (14 Oct 2026)', () => {
+  const transport = () => document.querySelector('[data-chrome-version="v2"]')?.getAttribute('data-transport')
+  const firstWord = () => screen.getByTestId('lab-book').querySelector<HTMLElement>('[data-testid="lab-word"]')!.dataset.wordIndex
+  async function pausedPlayer() {
+    const audio = new FakeAudio()
+    vi.stubGlobal('Audio', class { constructor() { return audio } })
+    render(<LabApp pathname="/lab/phone" source={sourceWithManyWords()} />)
+    fireEvent.click(screen.getByTestId('lab-v2-play'))
+    await waitFor(() => expect(audio.paused).toBe(false))
+    return audio
+  }
+  const drag = (target: Element, points: Array<[number, number]>) => {
+    const [[x0, y0], ...rest] = points
+    fireEvent.pointerDown(target, { pointerId: 7, pointerType: 'touch', isPrimary: true, button: 0, clientX: x0, clientY: y0 })
+    for (const [x, y] of rest) fireEvent.pointerMove(target, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: x, clientY: y })
+    const [x, y] = rest[rest.length - 1] ?? [x0, y0]
+    fireEvent.pointerUp(target, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: x, clientY: y })
+  }
+
+  it('shows the handle, not a corner ×, only while paused; a tap on it closes without moving the page', async () => {
+    const audio = await pausedPlayer()
+    expect(screen.queryByTestId('lab-audio-handle')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.paused).toBe(true)
+    const handle = screen.getByTestId('lab-audio-handle')
+    expect(handle.tagName).toBe('BUTTON')
+    expect(handle.getAttribute('aria-label')).toBe('Close audio controls')
+    expect(screen.getByTestId('lab-phone-bar').contains(handle)).toBe(true)
+    expect(document.querySelector('.lab-audio-dismiss')).toBeNull()
+    const before = firstWord()
+    fireEvent.click(handle)
+    expect(transport()).toBe('closed')
+    expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
+    expect(firstWord()).toBe(before)
+    expect(audio.paused).toBe(true)
+  })
+
+  it('a swipe down on the paused bar closes it, the same close as the handle', async () => {
+    const audio = await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const before = firstWord()
+    drag(screen.getByTestId('lab-hearing-back'), [[100, 700], [101, 712], [102, 730], [102, 760]])
+    await waitFor(() => expect(transport()).toBe('closed'))
+    expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
+    expect(firstWord()).toBe(before)
+    expect(audio.paused).toBe(true)
+  })
+
+  it('with reduced motion the bar does not follow the finger; the swipe just closes it', async () => {
+    vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('prefers-reduced-motion'), media: query, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, onchange: null, dispatchEvent: () => false }))
+    await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const bar = screen.getByTestId('lab-phone-bar')
+    fireEvent.pointerDown(bar, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: 100, clientY: 700 })
+    fireEvent.pointerMove(bar, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: 100, clientY: 760 })
+    expect(bar.style.transform).toBe('')
+    fireEvent.pointerUp(bar, { pointerId: 7, pointerType: 'touch', isPrimary: true, clientX: 100, clientY: 760 })
+    expect(transport()).toBe('closed')
+  })
+
+  it('a sideways or upward drag, a short drag, or a swipe while playing leaves the bar open', async () => {
+    const audio = await pausedPlayer()
+    // Playing: the bar does not close by swipe and offers no handle.
+    drag(screen.getByTestId('lab-phone-bar'), [[100, 700], [100, 720], [100, 780]])
+    await new Promise(resolve => setTimeout(resolve, 250))
+    expect(transport()).toBe('open')
+    expect(audio.paused).toBe(false)
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const bar = screen.getByTestId('lab-phone-bar')
+    drag(bar, [[100, 700], [130, 704], [190, 712]])
+    drag(bar, [[100, 700], [100, 680], [100, 640]])
+    drag(bar, [[100, 700], [100, 710], [100, 714]])
+    await new Promise(resolve => setTimeout(resolve, 250))
+    expect(transport()).toBe('open')
+    expect(screen.getByTestId('lab-audio-handle')).toBeTruthy()
+  })
+
+  it('a tap on a bar button still works while the bar can be swiped', async () => {
+    const audio = await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    expect(audio.paused).toBe(true)
+    const speed = screen.getByTestId('lab-hearing-speed')
+    drag(speed, [[40, 700], [42, 702]])
+    fireEvent.click(speed)
+    expect(screen.getByTestId('lab-audio-speed-popover')).toBeTruthy()
+    expect(transport()).toBe('open')
+    const back = screen.getByTestId('lab-hearing-back')
+    drag(back, [[90, 700], [91, 703]])
+    fireEvent.click(back)
+    const resume = screen.getByTestId('lab-listen')
+    drag(resume, [[195, 700], [196, 702]])
+    fireEvent.click(resume)
+    await waitFor(() => expect(audio.paused).toBe(false))
+  })
+
+  it('the click that ends a swipe is swallowed, so letting go over Play does not resume', async () => {
+    const audio = await pausedPlayer()
+    fireEvent.click(screen.getByTestId('lab-listen'))
+    const resume = screen.getByTestId('lab-listen')
+    drag(resume, [[195, 700], [195, 712], [195, 724]])
+    fireEvent.click(resume)
+    expect(audio.paused).toBe(true)
+    expect(transport()).toBe('open')
+  })
+})
+
 it('returns from V2 audio browsing without seeking or restarting playback', async () => {
   const audio = new FakeAudio()
   vi.stubGlobal('Audio', class { constructor() { return audio } })
