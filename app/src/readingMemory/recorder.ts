@@ -170,7 +170,8 @@ export function createReadingMemoryRecorder(options: ReadingMemoryRecorderOption
  * Completion is the reader's durable finished-chapter transition. Merely
  * opening the final page does not prove it was read: the page can contain a
  * substantial final passage. The reader creates the transition only when the
- * user advances past the end (or audio reaches the end).
+ * user advances past the end, leaves the chapter from a last page reached by
+ * reading on (or audio reaches the end).
  */
 export function detectCompletionSignal(input: {
   pageIndex: number

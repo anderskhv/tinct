@@ -510,6 +510,8 @@ describe('calm answer: the question is brought near the top once, then nothing m
   // A small layout model: each turn is 100px plus 30px per 40 characters,
   // stacked from the top of the thread; the spacer adds its own height.
   const CLIENT = 600
+  // The thread's height: the phone keyboard closing on send makes it taller.
+  let client = CLIENT
   const heightOf = (node: Element) => 100 + Math.floor((node.textContent || '').length / 40) * 30
   const descriptors = {
     scrollHeight: Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight'),
@@ -521,11 +523,12 @@ describe('calm answer: the question is brought near the top once, then nothing m
   const spacerOf = (thread: Element) => parseFloat((thread.querySelector('.tc-spacer') as HTMLElement | null)?.style.height || '0') || 0
 
   beforeEach(() => {
+    client = CLIENT
     Object.defineProperty(HTMLElement.prototype, 'scrollHeight', { configurable: true, get(this: HTMLElement) {
       if (!isThread(this)) return 0
       return rows(this).reduce((sum, row) => sum + heightOf(row), 0) + spacerOf(this)
     } })
-    Object.defineProperty(HTMLElement.prototype, 'clientHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? CLIENT : 0 } })
+    Object.defineProperty(HTMLElement.prototype, 'clientHeight', { configurable: true, get(this: HTMLElement) { return isThread(this) ? client : 0 } })
     HTMLElement.prototype.getBoundingClientRect = function (this: HTMLElement) {
       const thread = this.closest('[data-testid="lab-ask-thread"]') as HTMLElement | null
       let top = 0
@@ -591,6 +594,38 @@ describe('calm answer: the question is brought near the top once, then nothing m
     // Finished: no jump either.
     rerender(<LabAskPane {...props} typedLoading={false} turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(20))]} />)
     expect(thread.scrollTop).toBe(questionAt)
+  })
+
+  it('the keyboard closing on send (the thread grows, WebKit clamps the view and reports the scroll first) keeps the question near the top, no pill (14 Oct 2026)', () => {
+    const history = turnsOf(20)
+    client = 300
+    const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask]} />)
+    const sentAt = thread.scrollTop
+    expect(thread.scrollHeight - thread.clientHeight).toBe(sentAt)
+    // The keyboard goes: the thread is twice as tall, its writing space is not
+    // yet refitted, and the browser pulls the view up to the new end.
+    client = 600
+    thread.scrollTop = thread.scrollHeight - thread.clientHeight
+    expect(thread.scrollTop).toBeLessThan(sentAt - 200)
+    fireEvent.scroll(thread)
+    // Not the reader: the question goes back near the top of the taller window.
+    const questionAt = 20 * 100 - Math.min(QUESTION_PEEK, CLIENT * 0.2)
+    expect(thread.scrollTop).toBe(questionAt)
+    expect(thread.scrollHeight - thread.clientHeight).toBe(questionAt)
+    // The answer arrives and grows past the foot: no jump and no Latest pill over it.
+    for (const n of [1, 4, 20]) {
+      rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(n))]} />)
+      expect(thread.scrollTop).toBe(questionAt)
+      expect(latest().hidden).toBe(true)
+    }
+    // The reader scrolling up from there is still the reader: the pill comes back for them.
+    thread.scrollTop = questionAt - 300
+    fireEvent.scroll(thread)
+    rerender(<LabAskPane {...props} typedLoading turns={[...history, ask, reply('Phinehas is the model of zeal for the law. '.repeat(30))]} />)
+    expect(thread.scrollTop).toBe(questionAt - 300)
+    expect(latest().hidden).toBe(false)
   })
 
   it('a reader who scrolls while the answer arrives is never moved', () => {
