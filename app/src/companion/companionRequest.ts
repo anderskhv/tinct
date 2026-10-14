@@ -6,14 +6,47 @@
  * Pure: no browser or Worker APIs.
  */
 import { CONTEXTUAL_LOOKUP_PROMPT } from '../components/reader/contextualLookup'
-import { COMPANION_EFFORT_TYPED, COMPANION_EFFORT_VOICE, type CompanionEffort } from '../companionModel'
+import { COMPANION_EFFORT_TYPED, COMPANION_EFFORT_VOICE, COMPANION_MODEL, type CompanionEffort } from '../companionModel'
 import { libraryAssistantSystem, type LibraryCatalogue, type LibraryShelf } from '../lab/libraryLibrarian'
 import type { ChapterChatAction } from '../types'
 import { parseAuthorship } from './authorship'
 import { buildChapterChatInstructions, parseChapterChatAction } from './chapterChatPrompt'
-import { buildLabAskInstructionParts, buildLabAskInstructions, type LabAskContext, type LabAskInstructionParts, type ShownExplanation } from './labAskPrompt'
+import { buildLabAskInstructionParts, type LabAskContext, type LabAskInstructionOptions, type LabAskInstructionParts, type ShownExplanation } from './labAskPrompt'
+import {
+  COUNTERPOINT_PROMPT,
+  DEFINE_SENSE_PROMPT,
+  FACTCHECK_NO_SEARCH_NOTE,
+  PASSAGE_IMAGE_LINE,
+  PDF_CITATION_RULE,
+  PDF_CONTEXTUAL_LOOKUP_PROMPT,
+  QUIZ_CHECK_PROMPT,
+  SIMPLIFY_PROMPT,
+  factcheckPrompt,
+  quizPrompt,
+} from './marginPrompts'
 
-export type CompanionIntent = 'ask' | 'explain' | 'define' | 'chapter' | 'library'
+/**
+ * `simplify` … `quiz_check` are the margin reader's actions (docs/margin/PROMPTS.md),
+ * sent by the PDF reader only for now; the book reader never calls them.
+ */
+export type CompanionIntent =
+  | 'ask' | 'explain' | 'define' | 'chapter' | 'library'
+  | 'simplify' | 'define_sense' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check'
+
+/** Actions on a selected passage: they take the passage image and, for a PDF, the citation rule. */
+export type PassageIntent = 'simplify' | 'factcheck' | 'counterpoint' | 'quiz'
+export const PASSAGE_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['simplify', 'factcheck', 'counterpoint', 'quiz'])
+
+/** Answered by COMPANION_LOOKUP_MODEL (which takes no effort setting); everything else by COMPANION_MODEL. */
+export const COMPANION_LOOKUP_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['explain', 'define', 'simplify', 'define_sense', 'quiz_check'])
+
+export interface QuizCheck {
+  question: string
+  expected: string
+  why?: string
+  /** What the reader typed or dictated. */
+  answer: string
+}
 
 export interface CompanionRequest {
   intent: CompanionIntent
@@ -33,6 +66,15 @@ export interface CompanionRequest {
   library?: { contextBookId?: string | null; shelf?: LibraryShelf | null }
   /** Ask only: quick-model explanations the reader was shown, framed as unverified context. */
   shownExplanations?: ShownExplanation[]
+  /**
+   * The context is a user's own PDF (context.kind === 'pdf', no registry
+   * bookId): adds the PDF citation rule. Never set for a registered book.
+   */
+  pdf?: true
+  /** define_sense: the dictionary's senses, in dictionary order (numbered from 1 in the prompt). */
+  senses?: string[]
+  /** quiz_check: the question, its expected answer and the reader's answer. */
+  quizCheck?: QuizCheck
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -52,6 +94,12 @@ export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = O
   define: 450,
   chapter: 1024,
   library: 900,
+  simplify: 450,
+  define_sense: 60,
+  factcheck: 900,
+  counterpoint: 600,
+  quiz: 700,
+  quiz_check: 150,
 })
 
 /** Paragraphs on each side of the reader's place sent with Explain and Define. */
@@ -67,9 +115,44 @@ export const COMPANION_INTENT_EFFORT: Readonly<Record<CompanionIntent, Companion
   chapter: COMPANION_EFFORT_TYPED,
   // Short recommendations from a supplied list: start answering sooner.
   library: COMPANION_EFFORT_VOICE,
+  // The lookup-model intents send no effort (Haiku takes none); listed for completeness.
+  simplify: COMPANION_EFFORT_VOICE,
+  define_sense: COMPANION_EFFORT_VOICE,
+  quiz_check: COMPANION_EFFORT_VOICE,
+  factcheck: COMPANION_EFFORT_TYPED,
+  counterpoint: COMPANION_EFFORT_TYPED,
+  quiz: COMPANION_EFFORT_TYPED,
 })
 
-const INTENTS = new Set<CompanionIntent>(['ask', 'explain', 'define', 'chapter', 'library'])
+export function companionModelFor(intent: CompanionIntent): string {
+  return COMPANION_LOOKUP_INTENTS.has(intent) ? COMPANION_LOOKUP_MODEL : COMPANION_MODEL
+}
+
+/**
+ * How a request counts against the reader's AI allowance (worker/routes/chat.ts
+ * maps it to an AiFeature): `explain` is never blocked but counts toward the
+ * bar; `free` is never charged (metered as explain_speculative); `chat` is
+ * charged like Ask; `librarian` is its own feature.
+ */
+export type CompanionAllowance = 'explain' | 'free' | 'chat' | 'librarian'
+export function companionAllowance(request: CompanionRequest): CompanionAllowance {
+  switch (request.intent) {
+    case 'explain':
+    case 'define':
+    case 'simplify':
+      return request.speculative ? 'free' : 'explain'
+    case 'define_sense':
+    case 'quiz_check':
+      return 'free'
+    case 'library':
+      return 'librarian'
+    default:
+      // ask, chapter, factcheck, counterpoint, and quiz (one request writes the whole quiz).
+      return 'chat'
+  }
+}
+
+const INTENTS = new Set<CompanionIntent>(['ask', 'explain', 'define', 'chapter', 'library', 'simplify', 'define_sense', 'factcheck', 'counterpoint', 'quiz', 'quiz_check'])
 const ID_RE = /^[a-z0-9][a-z0-9-]{0,99}$/i
 const LABEL_CHARS = 300
 const ANGLE_CHARS = 1_000
@@ -81,6 +164,11 @@ const MAX_PARAGRAPHS = 5_000
 const CHAPTER_CHARS = 200_000
 const MAX_TRAIL = 20
 const ACTIVITY_ITEMS = 10
+const WORD_CHARS = 200
+const MAX_SENSES = 5
+const SENSE_CHARS = 500
+const QUIZ_FIELD_CHARS = 1_000
+const QUIZ_ANSWER_CHARS = 2_000
 
 function text(value: unknown, max: number): string | undefined {
   if (typeof value !== 'string') return undefined
@@ -106,15 +194,68 @@ function paragraphList(value: unknown): string[] | null {
   return out
 }
 
-function parseContext(raw: unknown): LabAskContext | null {
+/** A page of a user's PDF in the excerpt: its printed label when the PDF has one, else its page index. */
+export interface PdfExcerptPage {
+  /** Printed page label ("xii", "12", "A-3") or the 1-based page index. */
+  n: string | number
+  text: string
+}
+
+/** Printed labels are short words of letters, digits, dots and dashes; anything else is not trusted into the prompt. */
+const PAGE_LABEL_RE = /^[\p{L}\p{N}](?:[\p{L}\p{N}.\-\u2013]{0,14}[\p{L}\p{N}])?$/u
+
+/** A safe page label, or null. */
+export function pdfPageLabel(value: unknown): string | null {
+  if (typeof value === 'number') return Number.isInteger(value) && value >= 1 && value <= 100_000 ? String(value) : null
+  if (typeof value !== 'string') return null
+  const label = value.trim()
+  return PAGE_LABEL_RE.test(label) ? label : null
+}
+
+/** One page of the excerpt with its boundary marked, as the PDF citation rule expects. */
+export function formatPdfPage(label: string, pageText: string): string {
+  return `<page n="${label}">\n${pageText.trim()}\n</page>`
+}
+
+/**
+ * The excerpt with `<page n="…">` boundaries, one entry per page, in order.
+ * A page with an unusable label takes its place in the excerpt (1-based) as
+ * its label. Bounded like chapter paragraphs. Null when malformed.
+ */
+export function pdfPageParagraphs(value: unknown): string[] | null {
+  if (!Array.isArray(value) || value.length === 0) return null
+  const out: string[] = []
+  let total = 0
+  for (const [index, item] of value.slice(0, MAX_PARAGRAPHS).entries()) {
+    if (!item || typeof item !== 'object') return null
+    const page = item as Record<string, unknown>
+    if (typeof page.text !== 'string') return null
+    if (total >= CHAPTER_CHARS) break
+    const clipped = page.text.slice(0, Math.min(PARAGRAPH_CHARS, CHAPTER_CHARS - total))
+    total += clipped.length
+    out.push(formatPdfPage(pdfPageLabel(page.n) ?? String(index + 1), clipped))
+  }
+  return out
+}
+
+/** The same excerpt as one text, for a client that wants to show or log what is sent. */
+export function formatPdfExcerpt(pages: readonly PdfExcerptPage[]): string {
+  return (pdfPageParagraphs(pages) ?? []).join('\n\n')
+}
+
+interface ParsedContext { context: LabAskContext; pdf: boolean }
+
+function parseContext(raw: unknown): ParsedContext | null {
   if (!raw || typeof raw !== 'object') return null
   const c = raw as Record<string, unknown>
-  const paragraphs = paragraphList(c.paragraphs)
+  const bookId = typeof c.bookId === 'string' && ID_RE.test(c.bookId) ? c.bookId : undefined
+  // A user's PDF, never a registered book: the PDF reader sends kind 'pdf' and no bookId.
+  const pdf = c.kind === 'pdf' && !bookId
+  const paragraphs = pdf && c.pages !== undefined ? pdfPageParagraphs(c.pages) : paragraphList(c.paragraphs)
   const bookTitle = text(c.bookTitle, LABEL_CHARS)
   const chapterLabel = text(c.chapterLabel, LABEL_CHARS)
   if (!paragraphs || !bookTitle || !chapterLabel) return null
   const authorship = parseAuthorship(c.authorship)
-  const bookId = typeof c.bookId === 'string' && ID_RE.test(c.bookId) ? c.bookId : undefined
   const editionKey = typeof c.editionKey === 'string' && ID_RE.test(c.editionKey) ? c.editionKey : undefined
   const trail = Array.isArray(c.readingTrail)
     ? c.readingTrail.slice(-MAX_TRAIL).flatMap(entry => {
@@ -126,7 +267,7 @@ function parseContext(raw: unknown): LabAskContext | null {
         return [{ chapterNumber, label, openingLine: text(e.openingLine, LABEL_CHARS), recap: text(e.recap, ANGLE_CHARS) }]
       })
     : undefined
-  return {
+  const context: LabAskContext = {
     bookTitle,
     bookAuthor: text(c.bookAuthor, LABEL_CHARS) ?? '',
     ...(authorship ? { authorship } : {}),
@@ -145,6 +286,7 @@ function parseContext(raw: unknown): LabAskContext | null {
     readingTrail: trail && trail.length ? trail : undefined,
     personalHistory: text(c.personalHistory, PERSONAL_HISTORY_CHARS),
   }
+  return { context, pdf }
 }
 
 const SHOWN_EXPLANATIONS = 3
@@ -191,12 +333,41 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     const contextBookId = typeof lib.contextBookId === 'string' && ID_RE.test(lib.contextBookId) ? lib.contextBookId : null
     return { intent, library: { contextBookId, shelf: parseShelf(lib.shelf) } }
   }
-  const context = parseContext(r.context)
-  if (!context) return null
-  if (intent === 'explain' || intent === 'define') {
+  const parsed = parseContext(r.context)
+  if (!parsed) return null
+  const { context } = parsed
+  const pdf = parsed.pdf ? { pdf: true as const } : {}
+  if (intent === 'explain' || intent === 'define' || intent === 'simplify') {
     const selection = text(r.selection, SELECTION_CHARS)
     if (!selection) return null
-    return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}) }
+    return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}), ...pdf }
+  }
+  if (intent === 'factcheck' || intent === 'counterpoint') {
+    const selection = text(r.selection, SELECTION_CHARS)
+    if (!selection) return null
+    return { intent, context: { ...context, lookups: false }, selection, ...pdf }
+  }
+  if (intent === 'quiz') {
+    // No selection: a quiz on the whole supplied chapter (or PDF unit).
+    const selection = text(r.selection, SELECTION_CHARS)
+    return { intent, context: { ...context, lookups: false }, ...(selection ? { selection } : {}), ...pdf }
+  }
+  if (intent === 'define_sense') {
+    const selection = text(r.selection, WORD_CHARS)
+    const senses = Array.isArray(r.senses)
+      ? r.senses.slice(0, 20).map(item => text(item, SENSE_CHARS)).filter((item): item is string => Boolean(item)).slice(0, MAX_SENSES)
+      : []
+    if (!selection || senses.length === 0) return null
+    return { intent, context: { ...context, lookups: false }, selection, senses, ...pdf }
+  }
+  if (intent === 'quiz_check') {
+    const q = r.quiz && typeof r.quiz === 'object' ? r.quiz as Record<string, unknown> : null
+    const question = q ? text(q.question, QUIZ_FIELD_CHARS) : undefined
+    const expected = q ? text(q.expected, QUIZ_FIELD_CHARS) : undefined
+    const answer = q ? text(q.answer, QUIZ_ANSWER_CHARS) : undefined
+    if (!question || !expected || !answer) return null
+    const why = text(q!.why, QUIZ_FIELD_CHARS)
+    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer }, ...pdf }
   }
   if (intent === 'chapter') {
     const chapter = r.chapter && typeof r.chapter === 'object' ? r.chapter as Record<string, unknown> : null
@@ -214,11 +385,65 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     return { intent, context, chapter: { action, ...(target ? { target } : {}), ...(activity ? { activity } : {}) } }
   }
   const shownExplanations = parseShownExplanations(r.shownExplanations)
-  return { intent, context, ...(shownExplanations ? { shownExplanations } : {}) }
+  return { intent, context, ...(shownExplanations ? { shownExplanations } : {}), ...pdf }
+}
+
+/**
+ * What the Worker knows about a request beyond its body: whether the latest
+ * user turn carries the passage image, whether a source search can run
+ * (factcheck), and today's date (factcheck; ISO, filled server-side).
+ */
+export interface CompanionBuildExtras {
+  catalogue?: LibraryCatalogue | null
+  image?: boolean
+  sourceSearch?: boolean
+  today?: string
+}
+
+/** Today's date as the Worker states it to Fact-check: YYYY-MM-DD, UTC. */
+export function companionToday(now: Date = new Date()): string {
+  return now.toISOString().slice(0, 10)
+}
+
+/** The action text, last in the prompt, for the margin reader's intents. */
+function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): string[] {
+  const image = extras.image ? [PASSAGE_IMAGE_LINE] : []
+  switch (request.intent) {
+    case 'simplify': return [SIMPLIFY_PROMPT, ...image]
+    case 'counterpoint': return [COUNTERPOINT_PROMPT, ...image]
+    case 'quiz': return [quizPrompt(request.selection ? 'passage' : 'chapter'), ...image]
+    case 'factcheck': return [
+      factcheckPrompt(extras.today || companionToday()),
+      ...(extras.sourceSearch ? [] : [FACTCHECK_NO_SEARCH_NOTE]),
+      ...image,
+    ]
+    case 'define_sense': return [DEFINE_SENSE_PROMPT]
+    case 'quiz_check': return [QUIZ_CHECK_PROMPT]
+    // A question from the bar on a PDF passage: the image line, as Explain has it.
+    case 'ask': return request.pdf && extras.image ? [PASSAGE_IMAGE_LINE] : []
+    default: return []
+  }
+}
+
+/** Options for the shared builder: the passage window, the PDF citation rule, the action text. */
+function instructionOptions(request: CompanionRequest, extras: CompanionBuildExtras): LabAskInstructionOptions {
+  const citations = request.pdf && (request.intent === 'ask' || PASSAGE_INTENTS.has(request.intent)) ? [PDF_CITATION_RULE] : []
+  switch (request.intent) {
+    case 'explain':
+    case 'define':
+      return { nearby: COMPANION_NEARBY_PARAGRAPHS }
+    case 'ask':
+      return { shownExplanations: request.shownExplanations, rules: citations, task: marginTask(request, extras) }
+    case 'quiz':
+      // A chapter quiz needs the whole chapter; a passage quiz, the passage's neighbourhood.
+      return { ...(request.selection ? { nearby: COMPANION_NEARBY_PARAGRAPHS } : {}), rules: citations, task: marginTask(request, extras) }
+    default:
+      return { nearby: COMPANION_NEARBY_PARAGRAPHS, rules: citations, task: marginTask(request, extras) }
+  }
 }
 
 /** The system prompt for a parsed request. `catalogue` is required for `library`. */
-export function buildCompanionSystem(request: CompanionRequest, extras: { catalogue?: LibraryCatalogue | null } = {}): string {
+export function buildCompanionSystem(request: CompanionRequest, extras: CompanionBuildExtras = {}): string {
   switch (request.intent) {
     case 'library':
       return libraryAssistantSystem(extras.catalogue ?? null, request.library?.contextBookId ?? null, request.library?.shelf ?? null)
@@ -228,38 +453,79 @@ export function buildCompanionSystem(request: CompanionRequest, extras: { catalo
       const target = chapter.action.kind === 'prepare' ? chapter.target ?? [] : context.paragraphs
       return buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)
     }
-    case 'explain':
-    case 'define':
-      return buildLabAskInstructions(request.context!, { nearby: COMPANION_NEARBY_PARAGRAPHS })
-    default:
-      return buildLabAskInstructions(request.context!, { shownExplanations: request.shownExplanations })
+    default: {
+      const parts = buildCompanionSystemParts(request, extras)!
+      return [parts.stable, parts.volatile].filter(Boolean).join('\n\n')
+    }
   }
 }
 
 /**
- * Ask, Explain and Define split into a part that is the same for every
- * question in the chapter (cached by the Worker) and the part that moves with
- * the reader (labAskPrompt.buildLabAskInstructionParts). `null` for intents
- * built in one piece (library, chapter actions). Joined, the parts are
- * exactly buildCompanionSystem.
+ * Ask, Explain, Define and the margin actions split into a part that is the
+ * same for every question in the chapter (cached by the Worker) and the part
+ * that moves with the reader (labAskPrompt.buildLabAskInstructionParts); the
+ * action text goes last, in the moving part. `null` for intents built in one
+ * piece (library, chapter actions). Joined, the parts are exactly
+ * buildCompanionSystem.
  */
-export function buildCompanionSystemParts(request: CompanionRequest): LabAskInstructionParts | null {
+export function buildCompanionSystemParts(request: CompanionRequest, extras: CompanionBuildExtras = {}): LabAskInstructionParts | null {
+  if (request.intent === 'library' || request.intent === 'chapter') return null
+  return buildLabAskInstructionParts(request.context!, instructionOptions(request, extras))
+}
+
+/** The reader's data inside our own wrapper tags cannot close or open one of them. */
+function tagData(value: string): string {
+  return value.replace(/<\/?(?:selected_passage|word|senses|question|expected|why|reader_answer)\s*>/gi, '')
+}
+
+/** Explain, Define and the margin actions carry no conversation: the one user turn is built here. */
+export function companionSelectionMessage(request: CompanionRequest): string | null {
   switch (request.intent) {
-    case 'explain':
     case 'define':
-      return buildLabAskInstructionParts(request.context!, { nearby: COMPANION_NEARBY_PARAGRAPHS })
-    case 'ask':
-      return buildLabAskInstructionParts(request.context!, { shownExplanations: request.shownExplanations })
+      return `${request.pdf ? PDF_CONTEXTUAL_LOOKUP_PROMPT : CONTEXTUAL_LOOKUP_PROMPT}\n<word>${request.selection}</word>`
+    case 'explain':
+      return `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>`
+    case 'simplify':
+    case 'factcheck':
+    case 'counterpoint':
+      return `<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
+    case 'quiz':
+      return request.selection
+        ? `<selected_passage>\n${tagData(request.selection)}\n</selected_passage>`
+        : `Quiz me on ${request.context!.chapterLabel}.`
+    case 'define_sense': {
+      const senses = (request.senses ?? []).map((sense, index) => `${index + 1}. ${tagData(sense).replace(/\s+/g, ' ').trim()}`).join('\n')
+      return `<word>${tagData(request.selection!)}</word>\n<senses>\n${senses}\n</senses>`
+    }
+    case 'quiz_check': {
+      const q = request.quizCheck!
+      return `<question>${tagData(q.question)}</question>\n<expected>${tagData(q.expected)}</expected>\n<why>${tagData(q.why ?? '')}</why>\n<reader_answer>${tagData(q.answer)}</reader_answer>`
+    }
     default:
       return null
   }
 }
 
-/** Explain and define carry no conversation: the one user turn is built here. */
-export function companionSelectionMessage(request: CompanionRequest): string | null {
-  if (request.intent === 'define') return `${CONTEXTUAL_LOOKUP_PROMPT}\n<word>${request.selection}</word>`
-  if (request.intent === 'explain') return `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>`
-  return null
+/** Passage actions take the passage image in their one user turn. */
+export function companionTakesPassageImage(request: CompanionRequest): boolean {
+  return PASSAGE_INTENTS.has(request.intent)
+}
+
+/** Fact-check is the only action that searches the web. */
+export function companionUsesSourceSearch(request: CompanionRequest): boolean {
+  return request.intent === 'factcheck'
+}
+
+const SOURCE_QUERY_CHARS = 1_000
+
+/** The prefetched source search for Fact-check: the passage, with the document it comes from. */
+export function factcheckSourceQuery(request: CompanionRequest): string {
+  const context = request.context!
+  const from = `From "${context.bookTitle}"${context.bookAuthor ? ` by ${context.bookAuthor}` : ''}.`
+  const head = 'Check the factual claims in this passage against reliable current sources: '
+  const room = SOURCE_QUERY_CHARS - head.length - from.length - 1
+  const passage = (request.selection ?? '').replace(/\s+/g, ' ').trim().slice(0, Math.max(0, room))
+  return `${head}${passage}\n${from}`
 }
 
 /** Book lookups (read_chapter / find_in_book) are offered to typed chat and chapter actions only. */
