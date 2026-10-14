@@ -53,13 +53,20 @@ describe('audio transport type and handle', () => {
     expect(rules.join('\n')).toMatch(/font-variant-numeric: tabular-nums/)
   })
 
-  it('the grab handle is a 36x4 pill from the theme tokens inside a 44px target', () => {
+  it('the grab handle is a 36x4 pill inside the player, in a 72x14 strip above the controls', () => {
     const rules = rulesFor('lab-audio-handle').join('\n')
-    expect(rules).toMatch(/height: 44px/)
+    expect(rules).toMatch(/top: 0;/)
+    expect(rules).toMatch(/width: 72px/)
+    expect(rules).toMatch(/height: 14px/)
+    expect(rules).toMatch(/padding: 5px 0 0/)
     expect(rules).toMatch(/width: 36px/)
     expect(rules).toMatch(/height: 4px/)
     expect(rules).toMatch(/background: var\(--lab-ink-faint\)/)
-    expect(rules).toMatch(/bottom: calc\(100% \+ 1px\)/)
+    expect(rules).not.toMatch(/bottom: (100%|calc)/)
+    expect(rules).not.toMatch(/box-shadow/)
+    // The paused player makes room for the strip with its own top padding.
+    const bar = rulesFor('is-swipe-closable').join('\n')
+    expect(bar).toMatch(/padding-top: calc\(0\.2rem \+ 11px\)/)
   })
 
   it('the corner close is gone from the phone player', () => {

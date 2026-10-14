@@ -5,8 +5,8 @@
 //
 // Narration is mocked (no provider, no spend) and the player is a silent
 // stand-in, so nothing is audible. While the player is open, the paused
-// player's grab handle must sit centred just above it and the progress line
-// must be gone (the page
+// player's grab handle must sit centred inside its top edge, clear of every
+// control, and the progress line must be gone (the page
 // keeps its words where they are, so the player may cover its last line); closing the player brings the
 // progress line back and keeps the reader on the same page. The opening case
 // closes with a tap on the handle, the mid-letter case with a real touch swipe
@@ -57,6 +57,7 @@ function measure(page) {
       transport: document.querySelector('[data-testid="lab-root"]')?.dataset.transport,
       bar: shown(bar) ? box(bar) : null,
       dismiss: shown(dismiss) ? box(dismiss) : null,
+      controls: [...document.querySelectorAll('[data-testid="lab-phone-bar"] .lab-phone-bar-row button')].map(box),
       progress: shown(progress) && shown(progressText) && progressText.textContent.trim() ? { ...box(progressText), text: progressText.textContent.trim() } : null,
       wrap: box(wrap),
       clip,
@@ -173,10 +174,12 @@ try {
   check(!playing.dismiss, 'playing: no grab handle')
   if (paused.dismiss && paused.bar) {
     const d = paused.dismiss, b = paused.bar
-    check(d.bottom <= b.y + 0.5 && d.height >= 44 && Math.abs((d.x + d.width / 2) - (b.x + b.width / 2)) < 1,
-      `paused: the handle's 44px target sits centred just above the player (handle ${JSON.stringify(d)}, player ${JSON.stringify(b)})`)
+    check(d.y >= b.y - 0.5 && d.bottom <= b.y + 20 && d.height >= 14 && d.width >= 72 && Math.abs((d.x + d.width / 2) - (b.x + b.width / 2)) < 1,
+      `paused: the handle strip sits centred inside the player's top edge (handle ${JSON.stringify(d)}, player ${JSON.stringify(b)})`)
+    const hit = paused.controls.filter(c => c.x < d.right - 0.5 && c.right > d.x + 0.5 && c.y < d.bottom - 0.5 && c.bottom > d.y + 0.5)
+    check(hit.length === 0, `paused: the handle strip covers no control (${JSON.stringify(hit)})`)
+    check(paused.last?.p === playing.last?.p && paused.last?.w === playing.last?.w, `paused: the room for the handle moves no reading text (last word ${JSON.stringify(playing.last)} → ${JSON.stringify(paused.last)})`)
   }
-
   if (name === 'opening') {
     await page.getByRole('button', { name: 'Close audio controls' }).click()
   } else {
