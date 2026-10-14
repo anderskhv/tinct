@@ -1,0 +1,502 @@
+<title>Tinct Margin Reader</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap">
+<style>
+/* Layout: a dark stage presenting real-size frames. Desktop: the PDF page stays as the PDF (left), a margin column of cards replaces the docked chat (right), leader lines tie each card to its passage. Phone: the bar docks at the thumb, answers open as a short sheet under the passage. Reader chrome is Tinct's: EB Garamond for reading words, the system face for controls, the PDF in its own face. */
+:root {
+  --stage: #141414; --stage-ink: #ededed; --stage-soft: #9a9a9a;
+  --paper: #ece7db; --room: #e4ddcd; --ink: #0b0b0b; --muted: #6a6256; --faint: #9a9183; --card: #f6f2ea; --bubble: #dfd5bf;
+  --hair: rgba(32,26,19,.14); --wash: rgba(32,26,19,.07); --lead: rgba(32,26,19,.38); --bar: #1d1a17; --bar-ink: #f1ece2; --bar-soft: #a59c8e; --bar-sep: rgba(241,236,226,.16);
+  --sel: rgba(31,74,92,.20); --gold: #e5c463; --sage: #9cc17c; --sky: #8db2e2; --rose: #e59c9c; --hl-gold: rgba(229,196,99,.42);
+  --sheet: #f3efe6; --sheet-ink: #1a1714; --pdf-shadow: 0 1px 2px rgba(40,34,20,.12), 0 6px 18px rgba(40,34,20,.10);
+  --gara: "EB Garamond", Georgia, serif; --play: "Playfair Display", Georgia, serif; --sans: Inter, -apple-system, system-ui, sans-serif; --tex: "STIX Two Text", "Times New Roman", serif;
+  color-scheme: dark;
+}
+.night .dk, .night .ph, .night .strip-frame, .night .cardbg {
+  --paper: #171411; --room: #100e0c; --ink: #d6ccbf; --muted: #9a9083; --faint: #6f675d; --card: #1f1b17; --bubble: #2a241e;
+  --hair: rgba(214,204,191,.14); --wash: rgba(214,204,191,.08); --lead: rgba(214,204,191,.34); --bar: #2c2721; --bar-ink: #e9e1d4; --bar-soft: #9a9083; --bar-sep: rgba(233,225,212,.14);
+  --sel: rgba(120,170,189,.26); --hl-gold: rgba(214,186,112,.30);
+  --sheet: #1b1815; --sheet-ink: #c9bfb2; --pdf-shadow: 0 0 0 1px #2a251f, 0 8px 24px rgba(0,0,0,.35);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family: var(--sans); padding-block: 36px 100px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1360px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px; }
+.intro { display: flex; flex-direction: column; gap: 14px; max-width: 76ch; }
+.intro h1 { font-family: var(--play); font-weight: 700; font-size: 2.4rem; margin: 0; letter-spacing: -.01em; }
+.intro p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: var(--stage-soft); }
+.mode { display: inline-flex; gap: 2px; background: #262626; border-radius: 10px; padding: 3px; align-self: flex-start; }
+.mode button { font: 500 .88rem var(--sans); color: #9a9a9a; background: none; border: 0; border-radius: 8px; padding: 7px 18px; cursor: pointer; }
+.mode button[aria-pressed="true"] { background: #ededed; color: #141414; }
+.mode button:focus-visible { outline: 2px solid #ededed; outline-offset: 2px; }
+.sec { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.sec > h2 { font-family: var(--play); font-weight: 700; font-size: 1.5rem; margin: 0; }
+.sec > p { margin: 0; color: var(--stage-soft); line-height: 1.55; max-width: 92ch; }
+.scroll { overflow-x: auto; padding: 24px 0 10px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 640px); gap: 36px 32px; }
+.step { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.step .num { font-size: .9rem; color: #d6d6d6; font-weight: 500; }
+.cap { font-size: .95rem; line-height: 1.5; color: var(--stage-soft); max-width: 640px; }
+.cap b { color: var(--stage-ink); font-weight: 500; }
+.phones { display: flex; gap: 32px; }
+.phones .step { width: 390px; flex: none; }
+
+/* ---------- the PDF page (the PDF's own type, tinted to the reader's paper) ---------- */
+.pdf { background: var(--paper); color: var(--sheet-ink); box-shadow: var(--pdf-shadow); font-family: var(--tex); font-size: 15px; line-height: 1.5; padding: 54px 62px; position: relative; }
+.night .pdf { color: var(--sheet-ink); }
+.pdf .rh { display: flex; justify-content: space-between; font-size: 12px; font-style: italic; margin-bottom: 26px; opacity: .8; }
+.pdf h3 { font-family: var(--tex); font-weight: 600; font-size: 19px; margin: 0 0 12px; }
+.pdf p { margin: 0 0 11px; text-align: justify; hyphens: auto; }
+.pdf .eq { display: flex; justify-content: center; position: relative; margin: 10px 0 12px; font-size: 16px; }
+.pdf .eq .n { position: absolute; right: 0; }
+.pdf i { font-style: italic; }
+.pdf .frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: 13px; line-height: 1.15; margin: 0 2px; }
+.pdf .binom { display: inline-flex; align-items: center; } .pdf .binom .p { font-size: 26px; font-weight: 300; line-height: 1; }
+.pdf figure { margin: 6px 0 14px; display: grid; grid-template-columns: 1fr 150px; gap: 18px; align-items: end; }
+.pdf figcaption { font-size: 12px; line-height: 1.4; }
+.pdf svg.chart { width: 100%; height: auto; display: block; }
+.chart rect { fill: currentColor; } .chart text { fill: currentColor; font: 10px var(--tex); } .chart line { stroke: currentColor; stroke-width: .8; }
+.mark-ul { text-decoration: underline; text-decoration-color: var(--lead); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.mark-hl { background: var(--hl-gold); border-radius: 2px; }
+.mark-sel { background: var(--sel); }
+.dot-end { display: inline-block; width: 0; height: 0; }
+
+/* ---------- desktop frame ---------- */
+.dk { width: 1280px; height: 800px; border-radius: 14px; overflow: hidden; position: relative; background: var(--room); color: var(--ink); box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 60px rgba(0,0,0,.55); isolation: isolate; }
+.dk .top { position: absolute; inset: 0 0 auto 0; height: 56px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 26px; background: var(--room); z-index: 4; font-family: var(--sans); font-size: 14px; color: var(--muted); }
+.dk .top .ttl { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+.dk .top .ttl b { font-family: var(--gara); font-weight: 500; font-size: 19px; }
+.dk .top .pg { font-family: var(--gara); font-style: italic; font-size: 16px; color: var(--muted); }
+.dk .top .rt { justify-self: end; display: flex; gap: 22px; align-items: center; }
+.dk .top .rt span { font-family: var(--gara); font-size: 19px; }
+.dk .top .rt .t { font-family: var(--play); font-style: italic; font-weight: 700; color: var(--ink); }
+.dk .sheetwrap { position: absolute; left: 104px; top: 72px; width: 640px; }
+.dk .pdf { min-height: 1000px; }
+.dk .col { position: absolute; left: 800px; top: 56px; bottom: 0; width: 380px; }
+.dk svg.leads { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; overflow: visible; }
+.leads path { fill: none; stroke: var(--lead); stroke-width: 1; } .leads circle { fill: var(--lead); }
+
+/* margin cards */
+.mc { position: absolute; left: 0; right: 0; font-family: var(--gara); color: var(--ink); }
+.mc .lab { font-size: 15px; font-style: italic; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+.mc.open .lab { min-height: 28px; margin: -4px 0 -4px; }
+.mc .lab .x { margin: 0 0 0 auto; min-width: 28px; min-height: 28px; display: grid; place-items: center; font-style: normal; color: var(--faint); font-family: var(--sans); font-size: 13px; }
+.mc.closed { padding: 2px 0 2px 14px; box-shadow: inset 1.5px 0 0 var(--hair); }
+.mc.closed .one { font-size: 16px; line-height: 1.4; color: var(--muted); margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.mc.note.closed { box-shadow: inset 2px 0 0 var(--gold); }
+.mc.note .one { font-style: italic; }
+.mc.open { background: var(--card); border-radius: 14px; box-shadow: 0 0 0 1px var(--hair), 0 14px 34px rgba(0,0,0,.10); padding: 14px 18px 12px; display: flex; flex-direction: column; gap: 10px; }
+.night .mc.open { box-shadow: 0 0 0 1px var(--hair), 0 14px 34px rgba(0,0,0,.4); }
+.mc .q { position: relative; font-style: italic; font-size: 14px; line-height: 1.4; color: var(--muted); padding-left: 12px; }
+.mc .q::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; background: var(--hair); border-radius: 1px; }
+.mc .you { align-self: flex-end; max-width: 86%; background: var(--bubble); border-radius: 16px 16px 4px 16px; padding: 7px 13px; font-size: 15px; line-height: 1.4; }
+.mc .ans { font-size: 16px; line-height: 1.5; }
+.mc .ans p { margin: 0 0 .55em; } .mc .ans p:last-child { margin: 0; }
+.mc .ans .bl { font-weight: 600; }
+.cite { font-family: var(--sans); font-size: 11px; color: var(--muted); background: var(--wash); border-radius: 5px; padding: 1px 5px; white-space: nowrap; vertical-align: 1px; }
+.mc .acts { display: flex; gap: 16px; color: var(--faint); align-items: center; }
+.mc .acts svg, .ic { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.mc .fu { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--hair); padding-top: 10px; margin-top: 2px; }
+.caret { display: inline-block; width: 2px; height: 18px; background: var(--ink); vertical-align: -3px; }
+.mc .fu .sp { flex: 1; } .mc .fu .ib { color: var(--faint); }
+.colfoot { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--hair); padding-top: 12px; font-family: var(--gara); }
+.colfoot .k { font-family: var(--sans); font-size: 11px; color: var(--faint); border: 1px solid var(--hair); border-radius: 4px; padding: 0 5px; }
+.colfoot .sp { flex: 1; } .colfoot .ib { color: var(--faint); }
+
+/* ---------- selection bar ---------- */
+.sbar { position: absolute; display: flex; align-items: center; height: 44px; background: var(--bar); color: var(--bar-ink); border-radius: 12px; padding: 0 6px; font: 400 14px var(--sans); box-shadow: 0 10px 28px rgba(0,0,0,.25); z-index: 5; white-space: nowrap; }
+.sbar::after { content: ""; position: absolute; left: var(--tip, 50%); bottom: -6px; width: 12px; height: 12px; background: var(--bar); transform: translateX(-50%) rotate(45deg); border-radius: 2px; }
+.sbar.below::after { bottom: auto; top: -6px; }
+.sbar .it { display: flex; align-items: center; gap: 7px; height: 34px; padding: 0 10px; border-radius: 8px; color: var(--bar-ink); }
+.sbar .it .ic { width: 16px; height: 16px; color: var(--bar-soft); }
+.sbar .it.on { background: rgba(255,255,255,.10); }
+.sbar .sep { width: 1px; height: 20px; background: var(--bar-sep); margin: 0 4px; }
+.sbar .ask { color: var(--bar-ink); gap: 4px; }
+.sbar .ask .c { width: 1.5px; height: 17px; background: var(--bar-ink); opacity: .9; }
+.sbar .typed { min-width: 330px; justify-content: space-between; }
+.sbar .typed .send { width: 26px; height: 26px; border-radius: 50%; background: var(--bar-ink); color: var(--bar); display: grid; place-items: center; }
+.sbar .typed .send .ic { color: var(--bar); width: 14px; height: 14px; }
+.hlp { position: relative; } .hlp .d { position: absolute; right: 6px; bottom: 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 1.5px var(--bar); }
+.sw { width: 20px; height: 20px; border-radius: 50%; margin: 0 5px; flex: none; }
+.sw.sel { box-shadow: 0 0 0 2px var(--bar), 0 0 0 3.5px var(--bar-ink); }
+.menu { position: absolute; width: 300px; background: var(--bar); color: var(--bar-ink); border-radius: 14px; padding: 8px; font-family: var(--sans); box-shadow: 0 16px 40px rgba(0,0,0,.3); z-index: 6; }
+.menu .row { display: grid; grid-template-columns: 22px 1fr; gap: 12px; padding: 8px 10px; border-radius: 8px; }
+.menu .row.hov { background: rgba(255,255,255,.08); }
+.menu .row b { font-weight: 500; font-size: 14px; display: block; } .menu .row span { font-size: 12.5px; color: var(--bar-soft); line-height: 1.35; }
+.menu .row .ic { color: var(--bar-soft); margin-top: 2px; }
+.menu hr { border: 0; border-top: 1px solid var(--bar-sep); margin: 6px 10px; }
+.menu .new { font-size: 10.5px; color: var(--bar-ink); background: rgba(255,255,255,.12); border-radius: 4px; padding: 0 5px; margin-left: 6px; vertical-align: 1px; font-weight: 500; }
+
+/* strips for the menu states */
+.strip-frame { width: 640px; height: 290px; border-radius: 12px; overflow: hidden; position: relative; background: var(--room); box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 20px 40px rgba(0,0,0,.45); }
+.strip-frame .pdf { position: absolute; left: 40px; right: 40px; top: 0; bottom: 0; padding: 30px 46px; box-shadow: var(--pdf-shadow); }
+.strip-frame.tall { height: 540px; }
+
+/* primer */
+.primer { gap: 12px; position: absolute; left: 0; right: 0; top: 16px; bottom: 70px; background: var(--card); border-radius: 14px; box-shadow: 0 0 0 1px var(--hair), 0 14px 34px rgba(0,0,0,.10); padding: 18px 22px; font-family: var(--gara); overflow: hidden; display: flex; flex-direction: column; gap: 14px; }
+.night .primer { box-shadow: 0 0 0 1px var(--hair), 0 14px 34px rgba(0,0,0,.4); }
+.primer h4 { font-family: var(--gara); font-weight: 500; font-size: 21px; margin: 0; display: flex; align-items: baseline; gap: 10px; }
+.primer h4 .x { margin-left: auto; font: 13px var(--sans); color: var(--faint); }
+.primer .gist { font-size: 16px; line-height: 1.5; margin: 0; }
+.primer .h { font-style: italic; color: var(--muted); font-size: 15px; margin: 0 0 4px; }
+.primer ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; counter-reset: c; }
+.primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; counter-increment: c; }
+.primer ol li::before { content: counter(c); color: var(--faint); font-size: 14px; }
+.primer ul.kim { margin: 0; padding: 0 0 0 12px; list-style: none; font-size: 15px; line-height: 1.42; box-shadow: inset 2px 0 0 var(--hair); display: flex; flex-direction: column; gap: 5px; }
+.map { display: flex; flex-direction: column; }
+.map div { display: grid; grid-template-columns: 18px 1fr auto; font-size: 15px; padding: 5px 0; border-top: 1px solid var(--hair); }
+.map div span:first-child { color: var(--faint); font-size: 14px; } .map div span:last-child { font-family: var(--sans); font-size: 12px; color: var(--muted); }
+.quiz { display: flex; align-items: center; justify-content: space-between; font-size: 16px; padding: 10px 14px; border-radius: 10px; background: var(--wash); }
+.quiz small { font: 12px var(--sans); color: var(--muted); }
+.pfoot { font: 11.5px var(--sans); color: var(--faint); display: flex; justify-content: space-between; margin-top: auto; }
+
+/* ---------- phone ---------- */
+.ph { width: 390px; height: 844px; border-radius: 48px; overflow: hidden; position: relative; background: var(--room); color: var(--ink); box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 30px 60px rgba(0,0,0,.55); isolation: isolate; }
+.ph .ptop { position: absolute; inset: 0 0 auto 0; height: 96px; padding: 54px 20px 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--gara); z-index: 3; background: var(--room); }
+.ph .ptop b { font-weight: 500; font-size: 17px; } .ph .ptop i { color: var(--muted); font-size: 15px; }
+.ph .pdf { position: absolute; left: 10px; right: 10px; top: 100px; padding: 26px 24px; font-size: 11.4px; line-height: 1.5; }
+.ph .pdf h3 { font-size: 14.5px; } .ph .pdf .eq { font-size: 12.5px; } .ph .pdf .rh { font-size: 9.5px; margin-bottom: 16px; }
+.ph .pbar { position: absolute; left: 10px; right: 10px; bottom: 30px; height: 52px; background: var(--bar); border-radius: 16px; display: flex; align-items: center; padding: 0 6px; font: 14px var(--sans); color: var(--bar-ink); z-index: 6; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+.ph .pbar .it { display: flex; align-items: center; gap: 4px; padding: 0 9px; height: 40px; }
+.ph .pbar .it .ic { color: var(--bar-soft); width: 18px; height: 18px; }
+.ph .pbar .sep { width: 1px; height: 22px; background: var(--bar-sep); }
+.ph .pbar .grow { flex: 1; }
+.ph .home { position: absolute; left: 50%; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: var(--ink); opacity: .3; transform: translateX(-50%); z-index: 9; }
+.ph .shade { position: absolute; inset: 0; background: rgba(0,0,0,.18); z-index: 5; }
+.psheet { position: absolute; left: 0; right: 0; bottom: 0; background: var(--card); border-radius: 22px 22px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,.18); z-index: 7; padding: 10px 20px 34px; font-family: var(--gara); color: var(--ink); display: flex; flex-direction: column; gap: 10px; }
+.psheet .grab { width: 36px; height: 5px; border-radius: 3px; background: var(--hair); margin: 0 auto 4px; }
+.psheet.dark { background: var(--bar); color: var(--bar-ink); padding: 10px 10px 34px; gap: 0; font-family: var(--sans); }
+.psheet.dark .grab { background: var(--bar-sep); }
+.psheet.dark .row { display: grid; grid-template-columns: 24px 1fr; gap: 14px; padding: 11px 12px; }
+.psheet.dark .row b { font-weight: 500; font-size: 16px; display: block; } .psheet.dark .row span { font-size: 13.5px; color: var(--bar-soft); }
+.psheet.dark .row .ic { color: var(--bar-soft); width: 20px; height: 20px; margin-top: 2px; }
+.psheet.dark hr { border: 0; border-top: 1px solid var(--bar-sep); margin: 4px 12px; }
+.psheet .lab { font-style: italic; color: var(--muted); font-size: 15px; display: flex; } .psheet .lab .x { margin-left: auto; font: 14px var(--sans); color: var(--faint); font-style: normal; }
+.psheet .q { position: relative; font-style: italic; font-size: 15px; color: var(--muted); padding-left: 12px; line-height: 1.4; } .psheet .q::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; background: var(--hair); }
+.psheet .you { max-width: 86%; align-self: flex-end; background: var(--bubble); border-radius: 16px 16px 4px 16px; padding: 8px 14px; font-size: 16px; }
+.psheet .ans { font-size: 17px; line-height: 1.5; } .psheet .ans p { margin: 0 0 .5em; } .psheet .ans .bl { font-weight: 600; }
+.psheet .fu { display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--hair); padding-top: 12px; }
+.psheet .fu .sp { flex: 1; } .psheet .fu .ib { color: var(--faint); }
+
+/* spec table */
+.spec { border-collapse: collapse; font-size: .95rem; line-height: 1.5; color: var(--stage-soft); width: 100%; max-width: 1100px; }
+.spec td { padding: 12px 14px 12px 0; vertical-align: top; border-top: 1px solid #2a2a2a; }
+.spec td:first-child { color: var(--stage-ink); font-weight: 500; width: 190px; }
+
+/* v2 additions */
+.sw-ic { width: 16px; height: 16px; border-radius: 50%; background: var(--gold); box-shadow: inset 0 0 0 1.5px rgba(0,0,0,.18); display: block; }
+.sbar .it.txt { padding: 0 11px; }
+.sbar .mic .ic { color: var(--bar-ink); }
+.menu.plain .row { grid-template-columns: 1fr; padding: 8px 12px; }
+.defc { position: absolute; width: 360px; background: var(--bar); color: var(--bar-ink); border-radius: 14px; box-shadow: 0 16px 40px rgba(0,0,0,.3); z-index: 6; overflow: hidden; }
+.defc .body { padding: 14px 16px 12px; font-family: var(--gara); }
+.defc .w { font-size: 21px; } .defc .w i { font-size: 15px; color: var(--bar-soft); margin-left: 8px; }
+.defc p { margin: 6px 0 0; font-size: 16px; line-height: 1.45; }
+.defc .w { display: flex; align-items: baseline; } .defc .w .src { margin-left: auto; font: 11.5px var(--sans); color: var(--bar-soft); }
+.defc .senses { margin: 8px 0 0; padding: 0 0 0 18px; font-size: 15.5px; line-height: 1.42; display: flex; flex-direction: column; gap: 4px; color: var(--bar-soft); }
+.defc .senses li.on { color: var(--bar-ink); }
+.defc .senses li::marker { font-size: 13px; }
+.defc .foot { display: flex; align-items: center; border-top: 1px solid var(--bar-sep); padding: 4px 6px; font: 14px var(--sans); }
+.defc .foot .it { display: flex; align-items: center; height: 34px; padding: 0 10px; border-radius: 8px; gap: 6px; }
+.defc .foot .sep { width: 1px; height: 20px; background: var(--bar-sep); margin: 0 4px; }
+.defc .foot .ic { color: var(--bar-soft); }
+.defc::after { content: ""; position: absolute; }
+.mc .lab .k, .trig .k { font-family: var(--sans); font-style: normal; font-size: 11px; color: var(--faint); border: 1px solid var(--hair); border-radius: 4px; padding: 0 5px; margin-left: auto; }
+.mc.dim { opacity: .9; }
+.stackrow { position: absolute; left: 0; right: 0; font: 13px var(--sans); color: var(--muted); padding: 9px 14px; border-radius: 10px; background: var(--wash); display: flex; justify-content: space-between; }
+.leads path.faint { stroke-opacity: .45; } .leads circle.faint { fill-opacity: .45; }
+.dk.short { height: 400px; }
+.trig { position: absolute; left: 0; right: 0; top: 16px; padding: 12px 16px; border-radius: 12px; background: var(--card); box-shadow: 0 0 0 1px var(--hair); font-family: var(--gara); display: flex; flex-direction: column; gap: 2px; }
+.trig .t { font-size: 18px; display: flex; align-items: baseline; } .trig .s { font-size: 15px; color: var(--muted); }
+.ph .pbar.near { bottom: auto; border-radius: 14px; height: 48px; }
+.ph .pbar.near::after { content: ""; position: absolute; left: var(--tip, 50%); top: -6px; width: 12px; height: 12px; background: var(--bar); transform: translateX(-50%) rotate(45deg); border-radius: 2px; }
+.ph .pbar .it.txt { padding: 0 8px; font-size: 14px; }
+.pmenu { position: absolute; right: 10px; width: 210px; background: var(--bar); color: var(--bar-ink); border-radius: 14px; padding: 6px; font: 15px var(--sans); z-index: 7; box-shadow: 0 14px 34px rgba(0,0,0,.3); }
+.pmenu div { padding: 10px 12px; } .pmenu hr { border: 0; border-top: 1px solid var(--bar-sep); margin: 4px 10px; }
+.psheet .div { display: flex; align-items: center; gap: 10px; color: var(--faint); font-style: italic; font-size: 13px; white-space: nowrap; }
+.psheet .div::before, .psheet .div::after { content: ""; flex: 1; height: 1px; background: var(--hair); }
+
+
+.cardrow { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+.cardbg { width: 424px; padding: 22px; background: var(--room); border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 20px 40px rgba(0,0,0,.45); color: var(--ink); }
+.cardbg .mc { position: static; }
+.mc .verdict { font-style: italic; color: var(--muted); }
+.mc .claims { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 15.5px; line-height: 1.45; }
+.mc .srcs { font: 12px var(--sans); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.mc .srcs span { text-decoration: underline; text-decoration-color: var(--hair); text-underline-offset: 3px; }
+.mc .status { font: 12px var(--sans); color: var(--faint); }
+.mc .qn { font-size: 18px; line-height: 1.45; }
+.mc .fu .link { font: 13px var(--sans); color: var(--muted); }
+.mc .lab .of { font-family: var(--sans); font-style: normal; font-size: 12px; color: var(--faint); margin-left: auto; }
+
+@media (max-width: 700px) { .intro h1 { font-size: 1.9rem; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="bulb" viewBox="0 0 18 18"><path d="M6.5 13.5h5M7.3 16h3.4M9 2.5a4.6 4.6 0 0 0-2.8 8.3c.5.4.8 1 .8 1.7v1h4v-1c0-.7.3-1.3.8-1.7A4.6 4.6 0 0 0 9 2.5z"/></symbol>
+  <symbol id="feather" viewBox="0 0 18 18"><path d="M15 3c-4.5 0-9 3.2-9 8.5V15M6 15l-2.5 1.5M6 11.5h4.5M7.5 8.5h5"/><path d="M15 3c0 5-2.8 9.5-9 9"/></symbol>
+  <symbol id="talk" viewBox="0 0 18 18"><path d="M4 7v4M7 4.5v9M10 6.5v5M13 3.5v11M16 8v2"/></symbol>
+  <symbol id="mic" viewBox="0 0 18 18"><rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5"/><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5"/></symbol>
+  <symbol id="more" viewBox="0 0 18 18"><circle cx="4" cy="9" r=".9"/><circle cx="9" cy="9" r=".9"/><circle cx="14" cy="9" r=".9"/></symbol>
+  <symbol id="hl" viewBox="0 0 18 18"><path d="M3.5 14.5h6M5 12l6.8-6.8a1.6 1.6 0 0 1 2.3 2.3L7.3 14.3H5z"/></symbol>
+  <symbol id="pen" viewBox="0 0 18 18"><path d="M3 15h12M4.5 12.5l8-8 2 2-8 8H4.5z"/></symbol>
+  <symbol id="book" viewBox="0 0 18 18"><rect x="3.5" y="2.5" width="11" height="13" rx="1.5"/><path d="M6.5 6h5M6.5 9h5"/></symbol>
+  <symbol id="check" viewBox="0 0 18 18"><path d="M9 2.5l1.8 1.3 2.2-.1.7 2.1 1.8 1.3-.7 2.1.7 2.1-1.8 1.3-.7 2.1-2.2-.1L9 15.5l-1.8-1.3-2.2.1-.7-2.1-1.8-1.3.7-2.1-.7-2.1L4.3 5.4 5 3.7l2.2.1z"/><path d="M6.5 9l1.7 1.7 3.3-3.4"/></symbol>
+  <symbol id="link" viewBox="0 0 18 18"><circle cx="4.5" cy="5" r="1.7"/><circle cx="13.5" cy="13" r="1.7"/><path d="M6.2 5H11a2.5 2.5 0 0 1 0 5H7a2.5 2.5 0 0 0 0 5h4.8"/></symbol>
+  <symbol id="scale" viewBox="0 0 18 18"><path d="M9 2.5v13M5.5 15.5h7M3.5 5h11M3.5 5L1.8 10a2 2 0 0 0 3.4 0zM14.5 5l-1.7 5a2 2 0 0 0 3.4 0z"/></symbol>
+  <symbol id="quiz" viewBox="0 0 18 18"><circle cx="9" cy="9" r="6.5"/><path d="M7 7.2a2 2 0 1 1 2.7 1.9c-.5.2-.7.6-.7 1.1v.4M9 12.7v.1"/></symbol>
+  <symbol id="copy" viewBox="0 0 18 18"><rect x="6" y="6" width="9" height="9" rx="1.8"/><path d="M12 6V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v6A1.5 1.5 0 0 0 4.5 12H6"/></symbol>
+  <symbol id="share" viewBox="0 0 18 18"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M6 11.5l2.2-2.5 1.6 1.6L12 8"/></symbol>
+  <symbol id="note" viewBox="0 0 18 18"><path d="M4 2.8h7.2L14.5 6v9.2H4z"/><path d="M11 2.8V6h3.5M6.6 9.2h5M6.6 12h3.4"/></symbol>
+  <symbol id="up" viewBox="0 0 18 18"><path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/></symbol>
+</defs></svg>
+
+<template id="pdfpage">
+  <div class="rh"><span>1.2: Two distributions you will need</span><span>12</span></div>
+  <h3>The binomial distribution</h3>
+  <p><span data-a="ex">Example 1.1. A coin lands heads with probability <i>f</i>. It is tossed <i>N</i> times. What is the probability distribution of the number of heads, <i>r</i>? What are its mean and variance?</span></p>
+  <p>Solution. The number of heads has a binomial distribution,</p>
+  <div class="eq"><span data-a="eq1"><i>P</i>(<i>r</i> | <i>f</i>, <i>N</i>) = <span class="binom"><span class="p">(</span><span class="frac"><i>N</i><i>r</i></span><span class="p">)</span></span> <i>f</i><sup><i>r</i></sup> (1 − <i>f</i>)<sup><i>N</i>−<i>r</i></sup>.</span><span class="n">(1.1)</span></div>
+  <p>The mean and <span data-a="word">variance</span> of <i>r</i> follow from the definitions,</p>
+  <div class="eq"><span>E[<i>r</i>] = <i>Nf</i>,&nbsp;&nbsp;&nbsp; var[<i>r</i>] = <i>Nf</i>(1 − <i>f</i>).</span><span class="n">(1.2)</span></div>
+  <figure>
+    <svg class="chart" viewBox="0 0 330 120" role="img" aria-label="Bar chart of the binomial distribution for f = 0.3 and N = 10, peaking at r = 3">
+      <line x1="22" y1="100" x2="326" y2="100"/>
+      <g>
+        <rect x="27" y="96.4" width="18" height="3.6"/><rect x="55" y="84.5" width="18" height="15.5"/><rect x="83" y="70.1" width="18" height="29.9"/><rect x="111" y="65.8" width="18" height="34.2"/><rect x="139" y="74.4" width="18" height="25.6"/><rect x="167" y="86.8" width="18" height="13.2"/><rect x="195" y="95.3" width="18" height="4.7"/><rect x="223" y="98.8" width="18" height="1.2"/><rect x="251" y="99.6" width="18" height=".4"/>
+      </g>
+      <text x="32" y="113">0</text><text x="88" y="113">2</text><text x="144" y="113">4</text><text x="200" y="113">6</text><text x="256" y="113">8</text><text x="310" y="113">10</text>
+      <line x1="22" y1="100" x2="22" y2="20"/><text x="0" y="68">.2</text><line x1="19" y1="64.4" x2="22" y2="64.4"/><text x="0" y="36">.4</text><line x1="19" y1="28.8" x2="22" y2="28.8"/>
+    </svg>
+    <figcaption><span data-a="fig">Figure 1.3.</span> The binomial distribution <i>P</i>(<i>r</i> | <i>f</i> = 0.3, <i>N</i> = 10).</figcaption>
+  </figure>
+  <p>These results are easiest to obtain by noting that <span data-a="ask">r is the sum of N independent random variables, one for each toss, and that the variances of independent variables add.</span><span class="dot-end" data-e="ask"></span> Each toss has mean <i>f</i> and variance <i>f</i>(1 − <i>f</i>).</p>
+  <h3 style="margin-top:18px"><span data-a="stir">Stirling’s approximation</span></h3>
+  <p>To solve the exercises you will need <span data-a="note">an approximation for the factorial function, <i>x</i>! ≃ <i>x<sup>x</sup> e</i><sup>−<i>x</i></sup> √(2π<i>x</i>),</span> and the ability to apply it to binomial coefficients.</p>
+  <div class="eq"><span>ln <i>x</i>! ≃ <i>x</i> ln <i>x</i> − <i>x</i> + ½ ln 2π<i>x</i>.</span><span class="n">(1.3)</span></div>
+  <p><span data-a="app">Unfamiliar notation? See Appendix A, p. 598.</span></p>
+</template>
+
+<div class="wrap">
+  <section class="intro">
+    <h1>Reading in the margin</h1>
+    <p>Second pass. The PDF stays exactly as published, with its figures and equations. Around it: a shorter selection menu, a definition when you pick a single word, answers and notes as cards in the margin, a primer you open from the margin, and cards that sit near the text on the phone.</p>
+    <div class="mode" role="group" aria-label="Look"><button type="button" data-m="paper" aria-pressed="true">Paper</button><button type="button" data-m="night" aria-pressed="false">Night</button></div>
+  </section>
+
+  <section class="sec">
+    <h2>1. The selection menu</h2>
+    <p>Ask, Explain, Simplify, more, highlight, note. Explain and Simplify are words, not icons. Highlight is a dot in your current colour; the note is a folded page, so the two never look alike.</p>
+    <div class="scroll"><div class="grid2">
+      <div class="step"><span class="num">A · Selected</span>
+        <div class="strip-frame" data-strip="a"></div>
+        <span class="cap"><b>Six items, no Talk.</b> Start typing and the words go straight into Ask.</span></div>
+      <div class="step"><span class="num">B · Asking</span>
+        <div class="strip-frame" data-strip="b"></div>
+        <span class="cap"><b>The bar becomes the question, with a mic</b> to say it instead of typing it. Return sends; the answer opens as a card in the margin.</span></div>
+      <div class="step"><span class="num">C · More</span>
+        <div class="strip-frame tall" data-strip="c"></div>
+        <span class="cap"><b>Define, Fact-check, Counterpoint, Quiz me,</b> then Copy quote and Share as image. Related is gone. One line each on desktop.</span></div>
+      <div class="step"><span class="num">D · Highlight</span>
+        <div class="strip-frame" data-strip="d"></div>
+        <span class="cap"><b>One tap on the dot highlights in your colour.</b> Press and hold, or tap it again, to choose another; the choice becomes the new default.</span></div>
+      <div class="step"><span class="num">E · A single word</span>
+        <div class="strip-frame" data-strip="e"></div>
+        <span class="cap"><b>Pick one word and you get the dictionary first,</b> so it works offline. The sense that fits this text comes first and is set darker. The menu sits along the bottom, for when you wanted something else.</span></div>
+    </div></div>
+  </section>
+
+  <section class="sec">
+    <h2>2. The PDF reader, with a margin</h2>
+    <p>The page keeps its place on the left. Answers, explanations and notes become cards in the margin, each tied to its passage by a thin line. One card is open at a time; the rest fold to a line or two.</p>
+    <div class="scroll"><div class="dk" data-desk="margin"></div></div>
+  </section>
+
+  <section class="sec">
+    <h2>3. When cards crowd together</h2>
+    <p>Five cards on one stretch of page. Cards keep the order of their passages and push down rather than overlap. The open card keeps its full height. When the column runs out of room, the rest gather into one row at the bottom; clicking a passage brings its card up.</p>
+    <div class="scroll"><div class="dk" data-desk="overlap"></div></div>
+    <p class="cap" style="max-width:92ch"><b>The line to the open card is full strength;</b> lines to folded cards are fainter, so your eye finds the conversation you are in.</p>
+  </section>
+
+  <section class="sec">
+    <h2>4. Before you start</h2>
+    <p>At the start of a file or a chapter, the margin offers one folded card: “Before you start”. Click it, or press B, and it opens into the primer in the same place. Close it and it folds back.</p>
+    <div class="scroll" style="display:flex;flex-direction:column;gap:28px"><div class="dk short" data-desk="trigger"></div><div class="dk" data-desk="primer"></div></div>
+  </section>
+
+  <section class="sec">
+    <h2>5. On the phone</h2>
+    <p>The menu now sits next to the text, below the selection so it clears the phone’s own copy menu above it. More is a short list of names. Answers and the chat itself open as a card along the bottom.</p>
+    <div class="scroll"><div class="phones">
+      <div class="step"><span class="num">A · Selected</span><div class="ph" data-ph="a"></div>
+        <span class="cap"><b>Right under the selection,</b> with the same six items as desktop.</span></div>
+      <div class="step"><span class="num">B · More</span><div class="ph" data-ph="b"></div>
+        <span class="cap"><b>Names only, no explanations,</b> opening beside the bar.</span></div>
+      <div class="step"><span class="num">C · An answer</span><div class="ph" data-ph="c"></div>
+        <span class="cap"><b>A card along the bottom,</b> the passage still underlined above it. Swipe up for the full thread.</span></div>
+      <div class="step"><span class="num">D · Chat</span><div class="ph" data-ph="d"></div>
+        <span class="cap"><b>Chat as a card too,</b> instead of taking the whole screen. The page stays in view; swipe up when the conversation grows.</span></div>
+    </div></div>
+  </section>
+
+
+  <section class="sec">
+    <h2>6. The new answers</h2>
+    <p>Every action opens the same card in the margin (a bottom card on the phone). What changes is what sits under the quote. Each answer starts with a bottom line in medium weight.</p>
+    <div class="scroll"><div class="cardrow">
+      <div class="step"><span class="num">Simplify</span><div class="cardbg"><div class="mc open"><div class="lab">Simplify · p. 12<span class="x">×</span></div><div class="q">These results are easiest to obtain by noting that r is the sum of N independent random variables…</div><div class="ans"><p><span class="bl">Think of the count of heads as ten tiny counts added up, one per toss.</span> Each toss adds 0 or 1. Because the tosses do not affect each other, their spreads simply add, so the total spread is N times the spread of one toss.</p></div><div class="acts" data-i="copy"></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>No question bubble:</b> the action is the question. The rewrite keeps every claim and its order.</span></div>
+      <div class="step"><span class="num">Fact-check</span><div class="cardbg"><div class="mc open"><div class="lab">Fact-check · p. 12<span class="x">×</span></div><div class="q">x! ≃ x<sup>x</sup> e<sup>−x</sup> √(2πx)</div><div class="ans"><p><span class="bl">Holds. This is the standard form of Stirling’s approximation.</span></p></div><ul class="claims"><li><span class="verdict">Holds.</span> The relative error falls below 1% from x = 9 and keeps shrinking as x grows.</li><li><span class="verdict">Note.</span> Many texts write the cruder x! ≃ x<sup>x</sup> e<sup>−x</sup>; this page includes the √(2πx) term, which matters for small x.</li></ul><div class="srcs"><span>NIST DLMF §5.11</span><span>Wikipedia: Stirling’s approximation</span></div><div class="acts" data-i="copy"></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>Verdict words, not colours:</b> Holds, Partly holds, Outdated, Disputed, Can’t check, and Note for context. Sources as plain links. While searching, the card says “Checking sources…”.</span></div>
+      <div class="step"><span class="num">Counterpoint</span><div class="cardbg"><div class="mc open"><div class="lab">Counterpoint · p. 12<span class="x">×</span></div><div class="q">Each toss has mean f and variance f(1 − f).</div><div class="ans"><p><span class="bl">The model assumes every toss has the same f, and real data rarely does.</span> If f drifts from toss to toss, or tosses influence each other, the spread of r is wider than Nf(1 − f), and the binomial understates the uncertainty.</p><p>The author could answer that the binomial is a model to be tested against data, not a claim about every coin.</p></div><div class="acts" data-i="copy"></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>The strongest objection, then the author’s best reply.</b> For a story rather than an argument, it gives the strongest other reading.</span></div>
+      <div class="step"><span class="num">Quiz me · a question</span><div class="cardbg"><div class="mc open"><div class="lab">Quiz me · p. 12<span class="of">1 of 3</span><span class="x" style="margin-left:12px">×</span></div><div class="qn">Ten fair coins are tossed. What is the variance of the number of heads?</div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="link">Show answer</span><span class="ib" data-i="mic"></span></div></div></div>
+        <span class="cap"><b>One question at a time.</b> Type or say the answer in the line at the foot.</span></div>
+      <div class="step"><span class="num">Quiz me · answered</span><div class="cardbg"><div class="mc open"><div class="lab">Quiz me · p. 12<span class="of">1 of 3</span><span class="x" style="margin-left:12px">×</span></div><div class="qn">Ten fair coins are tossed. What is the variance of the number of heads?</div><div class="you">2.5</div><div class="ans"><p><span class="bl">Right.</span> Nf(1 − f) = 10 × ½ × ½ = 2.5 <span class="cite">eq. 1.2</span>.</p></div><div class="fu"><span class="sp"></span><span class="link">Next question →</span></div></div></div>
+        <span class="cap"><b>Right, Nearly or Not yet,</b> with the reason and where it is on the page. After the third: “2 of 3” and the one to reread.</span></div>
+    </div></div>
+  </section>
+
+  <section class="sec">
+    <h2>The rules</h2>
+    <table class="spec">
+      <tr><td>The PDF</td><td>Always the original pages, tinted to the reader’s look as today. No re-flowing, so figures, equations and layout survive. Selection uses the PDF’s own text layer.</td></tr>
+      <tr><td>Selection menu</td><td>44px bar, 12px corners, ink fill in every look, system font 14px. Ask with a caret, Explain, Simplify, more, a dot in the current highlight colour, note. Typing with text selected goes into Ask. Ask shows a mic for speaking the question. No Talk in the bar.</td></tr>
+      <tr><td>Single word</td><td>A one-word selection (double-click, or tap on the phone) opens Define first, from Tinct’s offline dictionary: the word, its part of speech and up to three senses. When online, the sense that fits the passage is moved to the top and set in full ink; offline, the dictionary’s order stands. Names and words the dictionary lacks fall back to an AI meaning when online. The menu runs along the card’s foot.</td></tr>
+      <tr><td>More</td><td>Define, Fact-check, Counterpoint, Quiz me, then Copy quote and Share as image. Desktop shows a one-line explanation under each; the phone shows names only. Define on a longer selection looks up its key term in the dictionary.</td></tr>
+      <tr><td>Highlight</td><td>A tap highlights in the last colour used. A second tap or a long press opens the four colours; the one chosen becomes the default.</td></tr>
+      <tr><td>Margin column</td><td>380px right of the page, 56px gap. Cards line up with their passage, keep the page’s order, and push down instead of overlapping, 14px apart. One open card at a time; opening another folds the last.</td></tr>
+      <tr><td>Crowding</td><td>If the cards no longer fit above the column foot, the remaining ones gather into a single row, “2 more on this page”. Clicking a passage, or the row, brings its card up and folds the others.</td></tr>
+      <tr><td>Open card</td><td>The shared chat thread inside a card: the passage as a small italic quote, the question as a bubble, the answer plain with its first sentence in medium weight. Page and equation tags are clickable. Copy and close only; a follow-up line at the foot with a mic.</td></tr>
+      <tr><td>Leader line</td><td>1px from a 3px dot at the page’s edge, beside the passage, to the card. Full strength for the open card, about half for folded ones.</td></tr>
+      <tr><td>Primer</td><td>Offered as one folded card at the top of the margin at the start of a file or chapter, and with B anywhere. Opens in place; made once and kept with the file.</td></tr>
+      <tr><td>Phone</td><td>The bar opens just below the selection, with its tip pointing up at it. More is a list of names beside the bar. Answers and chat open as a bottom card at about half height; swipe up for full height.</td></tr>
+      <tr><td>Narrow windows</td><td>Below about 1180px the column hides. Cards become marks at the page’s right edge and open as a floating card.</td></tr>
+      <tr><td>Never</td><td>No re-rendered text in place of the PDF, no monospace, no capitals-only labels, no colour beyond the highlight colours. Icons are our own: no bulb, feather or highlighter-pen shapes.</td></tr>
+    </table>
+  </section>
+</div>
+
+<script>
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(function () {
+  var tpl = document.getElementById('pdfpage').innerHTML;
+  function icon(id) { return '<svg class="ic"><use href="#' + id + '"/></svg>'; }
+  var dotI = '<span class="it hlp"><span class="sw-ic"></span></span>';
+  var noteI = '<span class="it">' + icon('note') + '</span>';
+  function bar(state) {
+    if (state === 'b') return '<span class="it ask typed">Why can I just add the variances?<span class="c"></span><span style="flex:1"></span><span class="it mic" style="padding:0 6px">' + icon('mic') + '</span><span class="send">' + icon('up') + '</span></span>';
+    if (state === 'd') return '<span class="it">' + icon('more') + '</span><span class="sep"></span><span class="sw sel" style="background:var(--gold)"></span><span class="sw" style="background:var(--sage)"></span><span class="sw" style="background:var(--sky)"></span><span class="sw" style="background:var(--rose)"></span><span class="sep"></span>' + noteI;
+    return '<span class="it ask">Ask<span class="c"></span></span><span class="sep"></span><span class="it txt">Explain</span><span class="it txt">Simplify</span><span class="it' + (state === 'c' ? ' on' : '') + '">' + icon('more') + '</span><span class="sep"></span>' + dotI + noteI;
+  }
+  var rows = [['Define','The word, as this text uses it'],['Fact-check','Does it still hold? Searches the web'],['Counterpoint','The strongest objection to it'],['Quiz me','Three questions to check you have it']];
+  var rows2 = [['Copy quote','With the title and page number'],['Share as image','The quote as a card to post']];
+  function menuHtml() { var r = function (m, i) { return '<div class="row' + (i === 3 ? ' hov' : '') + '"><div><b>' + m[0] + '</b><span>' + m[1] + '</span></div></div>'; }; return rows.map(r).join('') + '<hr>' + rows2.map(function (m) { return r(m, 9); }).join(''); }
+
+  document.querySelectorAll('[data-strip]').forEach(function (f) {
+    var s = f.dataset.strip;
+    f.innerHTML = '<div class="pdf">' + tpl + '</div>';
+    var pdf = f.querySelector('.pdf');
+    var a = pdf.querySelector(s === 'e' ? '[data-a="word"]' : '[data-a="ask"]'); a.classList.add('mark-sel');
+    var off = s === 'c' ? 400 : s === 'e' ? 236 : 180;
+    pdf.style.top = (off - a.offsetTop) + 'px'; pdf.style.bottom = 'auto';
+    var fr = f.getBoundingClientRect(), ar = a.getClientRects()[0];
+    if (s === 'e') {
+      var d = document.createElement('div'); d.className = 'defc';
+      d.innerHTML = '<div class="body"><div class="w">variance<i>noun</i><span class="src">Dictionary</span></div><ol class="senses"><li class="on">In statistics, the square of the standard deviation: how widely values spread around their mean.</li><li>The fact of being different or inconsistent.</li><li>Official permission to depart from a rule.</li></ol></div><div class="foot"><span class="it">Ask</span><span class="sep"></span><span class="it">Explain</span><span class="it">Simplify</span><span class="it">' + icon('more') + '</span><span class="sep"></span>' + dotI.replace('it hlp','it') + noteI + '</div>';
+      f.appendChild(d);
+      d.style.left = Math.max(16, ar.left - fr.left - 60) + 'px'; d.style.top = (ar.top - fr.top - d.offsetHeight - 12) + 'px';
+      return;
+    }
+    var b = document.createElement('div'); b.className = 'sbar'; b.innerHTML = bar(s); f.appendChild(b);
+    var left = Math.max(16, Math.min(ar.left - fr.left - 20, fr.width - b.offsetWidth - 16));
+    b.style.left = left + 'px'; b.style.top = (ar.top - fr.top - 56) + 'px';
+    b.style.setProperty('--tip', Math.max(24, ar.left - fr.left + 40 - left) + 'px');
+    if (s === 'c') { var m = document.createElement('div'); m.className = 'menu plain'; m.innerHTML = menuHtml(); f.appendChild(m); var mo = b.querySelector('.it.on'); m.style.left = Math.min(left + mo.offsetLeft - 120, fr.width - m.offsetWidth - 16) + 'px'; m.style.top = (ar.top - fr.top - 56 - m.offsetHeight - 8) + 'px'; }
+  });
+
+  function topbar(page) { return '<div class="top"><span>←</span><span class="ttl"><b>Probability and Inference</b><span class="pg">p. ' + page + '</span></span><span class="rt"><span>Aa</span><span class="t">t</span></span></div>'; }
+  var fu = '<div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib">' + icon('mic') + '</span></div>';
+  var C = {
+    ask: '<div class="mc open"><div class="lab">Ask · p. 12<span class="x">×</span></div><div class="q">r is the sum of N independent random variables…</div><div class="you">Why can I just add the variances?</div><div class="ans"><p><span class="bl">Because the tosses are independent, so the cross terms vanish.</span> var[a + b] = var[a] + var[b] + 2 cov[a, b], and independence makes the covariance zero. Each toss adds f(1 − f), giving Nf(1 − f) <span class="cite">p. 12 · (1.2)</span>.</p></div><div class="acts">' + icon('copy') + '</div>' + fu + '</div>',
+    fig: '<div class="mc closed"><div class="lab">Explain · Figure 1.3</div><div class="one">Each bar is the chance of that many heads in ten tosses. Three is the most likely, matching the mean Nf = 3.</div></div>',
+    note: '<div class="mc closed note"><div class="lab">Your note</div><div class="one">Try it with x = 10 before the exercises. How close is it?</div></div>',
+    eq1: '<div class="mc closed"><div class="lab">Simplify · (1.1)</div><div class="one">Ways to pick which r tosses are heads, times the chance of any one such sequence.</div></div>',
+    word: '<div class="mc closed"><div class="lab">Define · variance</div><div class="one">In statistics, how widely values spread around their mean.</div></div>',
+    stir: '<div class="mc closed"><div class="lab">Counterpoint</div><div class="one">For small x the approximation is off by several percent.</div></div>',
+    app: '<div class="mc closed note"><div class="lab">Your note</div><div class="one">Appendix A before Thursday.</div></div>'
+  };
+  var foot = '<div class="colfoot"><span class="caret"></span><span class="sp"></span><span style="font:11.5px var(--sans);color:var(--faint)"><span class="k">/</span> the whole PDF</span><span class="ib">' + icon('mic') + '</span></div>';
+  var primer = '<div class="primer"><h4>Before you start<span class="x">×</span></h4>' +
+    '<p class="gist">The chapter sets up the two tools the rest of the book leans on: the binomial distribution for counting outcomes, and Stirling’s approximation for handling the factorials it produces.</p>' +
+    '<div><p class="h">Key claims</p><ol><li><span>The number of heads in N tosses is binomial, with mean Nf and variance Nf(1 − f). <span class="cite">p. 12</span></span></li><li><span>Variances add because the tosses are independent. <span class="cite">p. 12</span></span></li><li><span>ln x! is close to x ln x − x, and the error shrinks fast as x grows. <span class="cite">p. 13</span></span></li></ol></div>' +
+    '<div><p class="h">Keep in mind</p><ul class="kim"><li>The exercises use natural logs throughout, but later chapters switch to base 2.</li></ul></div>' +
+    '<div><p class="h">Map</p><div class="map"><div><span>1</span><span>Why probability first</span><span>pp. 9–10</span></div><div><span>2</span><span>Two distributions you will need</span><span>pp. 11–13</span></div><div><span>3</span><span>Entropy, informally</span><span>pp. 14–18</span></div><div><span>4</span><span>Exercises</span><span>pp. 19–21</span></div></div></div>' +
+    '<div class="quiz"><span>Quiz me on this chapter</span><small>3 questions →</small></div>' +
+    '<div class="pfoot"><span>Made when you opened the file</span><span>Redo</span></div></div>';
+  var trig = '<div class="trig"><div class="t">Before you start<span class="k">B</span></div><div class="s">The gist, the key claims and a map of chapter 1.</div></div>';
+  var plans = {
+    margin: { top: -185, cards: ['fig', 'ask', 'note'], open: 'ask' },
+    overlap: { top: -110, cards: ['eq1', 'word', 'fig', 'ask', 'note', 'stir', 'app'], open: 'ask' }
+  };
+  document.querySelectorAll('[data-desk]').forEach(function (d) {
+    var kind = d.dataset.desk;
+    d.innerHTML = topbar(12) + '<div class="sheetwrap"><div class="pdf">' + tpl + '</div></div><div class="col"></div><svg class="leads"></svg>';
+    var pdf = d.querySelector('.pdf'), col = d.querySelector('.col'), svg = d.querySelector('svg.leads');
+    if (kind === 'primer') { col.innerHTML = primer + foot; return; }
+    if (kind === 'trigger') { col.innerHTML = trig; return; }
+    var plan = plans[kind];
+    d.querySelector('.sheetwrap').style.top = plan.top + 'px';
+    var dr = d.getBoundingClientRect(), colTop = 56, limit = 800 - 56 - 70, placed = [], gap = 14, rest = [];
+    plan.cards.forEach(function (k) {
+      var src = pdf.querySelector('[data-a="' + k + '"]');
+      if (k === 'ask') src.classList.add('mark-ul');
+      if (k === 'note' || k === 'app') src.classList.add('mark-hl');
+      if (k === 'word') src.classList.add('mark-ul');
+      var r = src.getClientRects()[0], sb = r.bottom - dr.top;
+      if (rest.length) { rest.push([k, sb]); return; }
+      col.insertAdjacentHTML('beforeend', C[k]); var card = col.lastElementChild;
+      var last = placed[placed.length - 1], want = Math.max(sb - colTop - 4, last ? last.top + last.h + gap : 0);
+      if (want + card.offsetHeight > limit - 46 && kind === 'overlap' && k !== plan.open) { card.remove(); rest.push([k, sb]); return; }
+      card.style.top = want + 'px'; placed.push({ top: want, h: card.offsetHeight });
+      var faint = k === plan.open ? '' : ' class="faint"', ey = sb + 12, cy = colTop + want + 11;
+      svg.insertAdjacentHTML('beforeend', '<circle' + faint + ' cx="752" cy="' + ey + '" r="2.6"/><path' + faint + ' d="M752 ' + ey + ' C 776 ' + ey + ' 772 ' + cy + ' 794 ' + cy + '"/>');
+    });
+    if (rest.length) {
+      var last = placed[placed.length - 1], top = last.top + last.h + gap;
+      col.insertAdjacentHTML('beforeend', '<div class="stackrow" style="top:' + top + 'px"><span>' + rest.length + ' more on this page</span><span>Your note · Counterpoint</span></div>');
+      rest.forEach(function (x) { var ey = x[1] + 12, cy = colTop + top + 17; svg.insertAdjacentHTML('beforeend', '<circle class="faint" cx="752" cy="' + ey + '" r="2.6"/><path class="faint" d="M752 ' + ey + ' C 776 ' + ey + ' 772 ' + cy + ' 794 ' + cy + '"/>'); });
+    }
+    col.insertAdjacentHTML('beforeend', foot);
+  });
+
+  // phones
+  function phonePdf(ph, sel, mark, top) {
+    ph.insertAdjacentHTML('beforeend', '<div class="ptop"><b>Probability and Inference</b><i>p. 12</i></div><div class="pdf">' + tpl + '</div><div class="home"></div>');
+    var pdf = ph.querySelector('.pdf'), a = pdf.querySelector(sel); if (mark) a.classList.add(mark);
+    pdf.style.top = (top - a.offsetTop) + 'px'; return a;
+  }
+  function nearBar(ph, a) {
+    ph.insertAdjacentHTML('beforeend', '<div class="pbar near"><span class="it">Ask<span style="width:1.5px;height:17px;background:var(--bar-ink);margin-left:3px;display:inline-block"></span></span><span class="sep"></span><span class="it txt">Explain</span><span class="it txt">Simplify</span><span class="it">' + icon('more') + '</span><span class="grow"></span><span class="sep"></span><span class="it"><span class="sw-ic"></span></span><span class="it">' + icon('note') + '</span></div>');
+    var b = ph.lastElementChild, pr = ph.getBoundingClientRect(), rs = a.getClientRects(), lr = rs[rs.length - 1];
+    b.style.top = (lr.bottom - pr.top + 12) + 'px'; b.style.setProperty('--tip', '60px');
+    b.classList.add('below'); return b;
+  }
+  var pa = document.querySelector('[data-ph="a"]'); var aa = phonePdf(pa, '[data-a="ask"]', 'mark-sel', 380); nearBar(pa, aa);
+  var pb = document.querySelector('[data-ph="b"]'); var ab = phonePdf(pb, '[data-a="ask"]', 'mark-sel', 300); var bb = nearBar(pb, ab);
+  bb.querySelectorAll('.it')[3].style.background = 'rgba(255,255,255,.12)'; bb.querySelectorAll('.it')[3].style.borderRadius = '8px';
+  pb.insertAdjacentHTML('beforeend', '<div class="pmenu"><div>Define</div><div>Fact-check</div><div>Counterpoint</div><div>Quiz me</div><hr><div>Copy quote</div><div>Share as image</div></div>');
+  var pm = pb.lastElementChild; pm.style.top = (parseFloat(bb.style.top) + 56) + 'px'; pm.style.right = '90px';
+  var pc = document.querySelector('[data-ph="c"]'); phonePdf(pc, '[data-a="ask"]', 'mark-ul', 236);
+  pc.insertAdjacentHTML('beforeend', '<div class="psheet"><div class="grab"></div><div class="lab">Ask · p. 12<span class="x">×</span></div><div class="q">r is the sum of N independent random variables…</div><div class="you">Why can I just add the variances?</div><div class="ans"><p><span class="bl">Because the tosses are independent, so the cross terms vanish.</span> var[a + b] = var[a] + var[b] + 2 cov[a, b], and independence makes the covariance zero.</p><p>N tosses of variance f(1 − f) give Nf(1 − f) <span class="cite">(1.2)</span>.</p></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib">' + icon('mic') + '</span></div></div>');
+  var pd = document.querySelector('[data-ph="d"]'); phonePdf(pd, '[data-a="eq1"]', '', 150);
+  pd.insertAdjacentHTML('beforeend', '<div class="psheet"><div class="grab"></div><div class="div">Chapter 1 · Today</div><div class="you">What do I need to remember from chapter 1 for the exam?</div><div class="ans"><p><span class="bl">Two things: the binomial formula with its mean and variance, and Stirling’s approximation.</span> Expect to use them together, approximating a binomial coefficient with ln x! ≃ x ln x − x <span class="cite">(1.3)</span>.</p></div><div class="fu"><span class="caret"></span><span class="sp"></span><span class="ib">' + icon('mic') + '</span><span class="ib">' + icon('talk') + '</span></div></div>');
+
+  document.querySelectorAll('[data-i]').forEach(function (el) { el.innerHTML = icon(el.dataset.i); });
+  var btns = document.querySelectorAll('.mode button');
+  function set(m) { document.body.classList.toggle('night', m === 'night'); btns.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.m === m ? 'true' : 'false'); }); }
+  btns.forEach(function (x) { x.addEventListener('click', function () { set(x.dataset.m); }); });
+  if (location.hash === '#night') set('night');
+});
+</script>
