@@ -8,7 +8,7 @@ vi.mock('cloudflare:workers', () => ({
 }))
 import { UsageCoordinator } from './usageCoordinator'
 import { createRateLimiter } from './lib/rateLimit'
-import { createGuestSpendReserver, estimateAiCostMicros, guestAiDailyMicros } from './lib/aiSpend'
+import { createGuestSpendHolder, createGuestSpendReserver, estimateAiCostMicros, guestAiDailyMicros } from './lib/aiSpend'
 
 const { DatabaseSync } = createRequire(import.meta.url)('node:sqlite') as { DatabaseSync: new (path: string) => any }
 
@@ -59,6 +59,18 @@ describe('usage coordinator', () => {
     expect(c.usage()).toEqual([{ day: '2026-09-30', units: 1_000 }, { day: '2026-10-01', units: 600 }])
   })
 
+  it('gives back a released reservation on its own day, never below zero', () => {
+    const c = coordinator()
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(true)
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(false)
+    c.release('2026-09-30', 600)
+    expect(c.reserve('2026-09-30', 600, 1_000)).toBe(true)
+    c.release('2026-09-30', 5_000)
+    c.release('2026-10-01', 10)
+    c.release('not-a-day', 10)
+    expect(c.usage()).toEqual([{ day: '2026-09-30', units: 0 }])
+  })
+
   it('clears an idle request window', async () => {
     const store = storage()
     const c = coordinator(store)
@@ -101,6 +113,22 @@ describe('rate limiter and ceiling fail closed', () => {
     expect(await reserver(1234.2)).toBe(true)
     expect(reserve).toHaveBeenCalledWith('2026-09-30', 1235, 2_500_000)
     expect(names).toEqual(['rl:lab-chat:1.2.3.4', 'spend:guest-ai:2026-09'])
+  })
+
+  it('a guest spend hold releases the units it reserved, on the day it reserved them', async () => {
+    let at = Date.parse('2026-09-30T23:59:59.900Z')
+    const c = coordinator()
+    const names: string[] = []
+    const namespace = { getByName: (name: string) => { names.push(name); return c } }
+    const hold = createGuestSpendHolder({ USAGE_COORDINATOR: namespace as any, GUEST_AI_DAILY_CENTS: '1' }, () => at)
+    const held = await hold(6_000.4)
+    expect(held).not.toBeNull()
+    expect(await hold(6_000)).toBeNull()
+    at = Date.parse('2026-10-01T00:00:00.100Z')
+    await held!.release()
+    expect(c.usage()).toEqual([{ day: '2026-09-30', units: 0 }])
+    expect(names).toEqual(['spend:guest-ai:2026-09', 'spend:guest-ai:2026-09', 'spend:guest-ai:2026-09'])
+    expect(await createGuestSpendHolder({})(100)).toBeNull()
   })
 
   it('defaults the ceiling and estimates cost from characters and output bound', () => {

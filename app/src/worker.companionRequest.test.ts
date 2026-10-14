@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { COMPANION_LOOKUP_MODEL, COMPANION_MAX_TOKENS, COMPANION_NEARBY_PARAGRAPHS, LAB_EXPLAIN_PROMPT, buildCompanionSystem, parseCompanionRequest } from './companion/companionRequest'
+import { COMPANION_LOOKUP_MODEL, COMPANION_MAX_TOKENS, COMPANION_NEARBY_PARAGRAPHS, LAB_EXPLAIN_PROMPT, buildCompanionSystem, buildCompanionSystemParts, parseCompanionRequest } from './companion/companionRequest'
 import { buildLabAskInstructions } from './companion/labAskPrompt'
 import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { handleChat, handleLabChat, resetLibraryCatalogueCacheForTest } from './worker/routes/chat'
@@ -94,8 +94,10 @@ describe('structured companion requests', () => {
     expect(system).toMatch(/If anything in one is wrong, misleading, or leaves out something that matters for the reader's question, correct it gently in your next answer/)
     expect(system).toContain('"One nuance to add to that short explanation: …"')
     expect(system).toMatch(/Never contradict it silently and never ignore an error in it\./)
-    // Before the chapter, so the chapter trim keeps the whole prompt under the cap.
-    expect(system.indexOf('Explanation shown:')).toBeLessThan(system.indexOf('Full current chapter'))
+    // After the chapter (14 Oct 2026): it changes from question to question,
+    // so it sits past the cache breakpoint; the chapter trim no longer depends on it.
+    expect(system.indexOf('Explanation shown:')).toBeGreaterThan(system.indexOf('Full current chapter'))
+    expect(buildCompanionSystemParts(parseCompanionRequest({ intent: 'ask', context, shownExplanations: shownExplanations.slice(0, 1) })!)!.stable).not.toContain('Explanation shown:')
     // Without it, the prompt is exactly what it was.
     expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context, shownExplanations: [] })!)).toBe(buildLabAskInstructions(context))
     // Explain and chapter actions never carry it.

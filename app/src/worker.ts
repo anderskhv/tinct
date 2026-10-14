@@ -10,7 +10,7 @@ import { handleVoiceResearch } from './worker/routes/voiceResearch'
 
 import { handleOptions, jsonResponse } from './worker/lib/responses'
 import { createRateLimiter } from './worker/lib/rateLimit'
-import { createGuestSpendReserver } from './worker/lib/aiSpend'
+import { createGuestSpendHolder, createGuestSpendReserver } from './worker/lib/aiSpend'
 import { createAllowanceGate, loadPremiumAccess, loadPremiumTier, requestAllowsAiFeature } from './worker/lib/aiAllowance'
 import { handleAiAllowance } from './worker/routes/aiAllowance'
 import type { UsageCoordinator } from './worker/usageCoordinator'
@@ -307,6 +307,7 @@ export default {
     // Atomic and fail-closed (see lib/rateLimit.ts).
     const checkRateLimit = createRateLimiter(env)
     const reserveGuestSpend = createGuestSpendReserver(env)
+    const holdGuestSpend = createGuestSpendHolder(env)
     // The AI allowance (lib/aiAllowance.ts); with the switch off it reads nothing.
     const allowanceGate = createAllowanceGate(env)
     const allowsAi = (feature: 'recap' | 'chapter_notes' | 'catch_up') => (req: Request) => requestAllowsAiFeature(allowanceGate, ledgerUser(env), req, feature)
@@ -409,7 +410,7 @@ export default {
     switch (url.pathname) {
       case '/api/featured-preview': return handleFeaturedPreview(request, env, verifySiteAdmin)
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit, { allowanceGate })
-      case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit, reserveGuestSpend)
+      case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit, reserveGuestSpend, holdGuestSpend)
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit, ctx, allowanceGate)
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit, allowanceGate)
       case '/api/events': return handleEvents(request, env, ctx, verifyUser, checkRateLimit)

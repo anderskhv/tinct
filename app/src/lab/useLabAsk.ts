@@ -244,6 +244,13 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
   }, [viewerId])
 
+  /**
+   * Warm the trail's opening-line cache when the chat pane opens, so the
+   * first question's trail is usually ready at once. Read-only; the send
+   * still builds its own trail from the state at that moment.
+   */
+  const warmTrail = useCallback(() => { void readTrail() }, [readTrail])
+
   // A reader's own book sends a window around the place, or the (capped)
   // chapter for a question about the whole chapter (userBook/userBookContext.ts).
   const wholeChapterRef = useRef(false)
@@ -698,6 +705,16 @@ export function useLabAsk(options: UseLabAskOptions) {
         had_partial_answer: detail.partial === true,
       }, viewerId)
     }
+    // The reading trail and any personal-history evidence are read-only and do
+    // not depend on the account token or the chapter target, so they start
+    // now, alongside those steps, instead of after them: the question no
+    // longer waits for the trail's opening-line deadline in series.
+    const trailPromise = chapterRequest ? undefined : readTrail()
+    const personalPromise = !chapterRequest && requestsPersonalHistory(text)
+      ? personalHistoryEvidence(text, viewerId ?? null, { openBookId: optionsRef.current.bookId })
+      : undefined
+    // Awaited below; a send that ends early must not leave an unhandled rejection.
+    personalPromise?.catch(() => {})
     try {
       let chapterTarget: string[] | undefined
       if (chapterRequest) {
@@ -737,8 +754,8 @@ export function useLabAsk(options: UseLabAskOptions) {
         ...internalTrafficHeaders(),
       }
       if (authToken) headers.Authorization = `Bearer ${authToken}`
-      const context = { ...requestContext, readingTrail: chapterRequest ? undefined : await readTrail() }
-      const personalEvidence = !chapterRequest && requestsPersonalHistory(text) ? await personalHistoryEvidence(text, viewerId ?? null, { openBookId: optionsRef.current.bookId }) : ''
+      const context = { ...requestContext, readingTrail: trailPromise ? await trailPromise : undefined }
+      const personalEvidence = personalPromise ? await personalPromise : ''
       if (!stillHere()) return
       let assistantId = nextId()
       // Structured context only: the Worker builds the prompt from it.
@@ -1068,6 +1085,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     failStart,
     toggleInChatVoice,
     sendTyped,
+    warmTrail,
     explainSelection,
     keepExplanation,
     retryTyped: failedTyped && failedTyped.userTurn.bookId === chatBookId ? () => {

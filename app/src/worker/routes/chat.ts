@@ -19,6 +19,7 @@ import {
   COMPANION_LOOKUP_MODEL,
   COMPANION_MAX_TOKENS,
   buildCompanionSystem,
+  buildCompanionSystemParts,
   companionBookRef,
   companionSelectionMessage,
   companionTrailChapters,
@@ -26,7 +27,7 @@ import {
   type CompanionRequest,
 } from '../../companion/companionRequest'
 import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/libraryLibrarian'
-import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
+import { aiRestingBody, estimateAiCostMicros, type GuestSpendHold, type HoldGuestSpend, type ReserveGuestSpend } from '../lib/aiSpend'
 import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
@@ -824,8 +825,9 @@ export async function handleLabChat(
   ctx: ExecutionContext,
   checkRateLimit: CheckRateLimit,
   reserveGuestSpend?: ReserveGuestSpend,
+  holdGuestSpend?: HoldGuestSpend,
 ): Promise<Response> {
-  return handleChat(request, env, ctx, async () => null, checkRateLimit, { allowLabGuest: true, reserveGuestSpend })
+  return handleChat(request, env, ctx, async () => null, checkRateLimit, { allowLabGuest: true, reserveGuestSpend, holdGuestSpend })
 }
 
 const CATALOGUE_PATH = '/lab/catalogue.json'
@@ -857,7 +859,13 @@ export async function handleChat(
   ctx: ExecutionContext,
   verifyUser: VerifyUser,
   checkRateLimit: CheckRateLimit,
-  options?: { allowLabGuest?: boolean; reserveGuestSpend?: ReserveGuestSpend; allowanceGate?: AllowanceGate },
+  options?: {
+    allowLabGuest?: boolean
+    reserveGuestSpend?: ReserveGuestSpend
+    /** Releasable guest reservations: with one, the reservation runs alongside the rate-limit check. */
+    holdGuestSpend?: HoldGuestSpend
+    allowanceGate?: AllowanceGate
+  },
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
 
@@ -905,199 +913,248 @@ export async function handleChat(
   const allowancePromise: Promise<AllowanceView | null> = userId && allowanceGate.enforced
     ? allowanceGate.load(userId)
     : Promise.resolve(null)
+  const rateLimited = () => jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+  // Signed out with a releasable reservation, the rate-limit check (one
+  // Durable Object call) runs while the body is read and its spend is
+  // reserved (another), instead of before both. The reader sees the same
+  // answers in the same order: rate-limited wins over everything after it,
+  // and a reservation made for a rate-limited request is given back.
+  const holdGuestSpend = allowLabGuest ? options?.holdGuestSpend : undefined
+  let guestRate: Promise<boolean> | null = null
   if (allowLabGuest) {
-    const rateAllowed = await checkRateLimit(`lab-chat:${labGuestIp(request)}`, env.RATE_LIMIT)
-    if (!rateAllowed) {
-      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+    const rateCheck = checkRateLimit(`lab-chat:${labGuestIp(request)}`, env.RATE_LIMIT)
+    if (holdGuestSpend) {
+      // The limiter fails closed itself; a rejection here is a refusal too.
+      guestRate = rateCheck.catch(() => false)
+    } else if (!await rateCheck) {
+      return rateLimited()
     }
   } else {
     const rateAllowed = await checkRateLimit(`chat:${userId}`, env.RATE_LIMIT)
-    if (!rateAllowed) {
-      return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
-    }
+    if (!rateAllowed) return rateLimited()
   }
-  timing.authAccessMs = Date.now() - authStartedAt
+  if (!guestRate) timing.authAccessMs = Date.now() - authStartedAt
 
-  try {
-    const parsedBody = await bodyPromise
-    if ('error' in parsedBody) return jsonResponse({ error: parsedBody.error }, parsedBody.status, request)
-    const body = parsedBody.body
-    if (typeof body !== 'object' || body === null) return jsonResponse({ error: 'Invalid request body' }, 400, request)
+  const answer = async (): Promise<Response> => {
+    try {
+      const parsedBody = await bodyPromise
+      if ('error' in parsedBody) return jsonResponse({ error: parsedBody.error }, parsedBody.status, request)
+      const body = parsedBody.body
+      if (typeof body !== 'object' || body === null) return jsonResponse({ error: 'Invalid request body' }, 400, request)
 
-    // Structured requests: the Worker builds the prompt, the output bound and
-    // the effort. Signed-out callers may send nothing else. A signed-in
-    // caller may still send a validated system prompt (recap summaries).
-    let companion: CompanionRequest | null = null
-    if (body.companion !== undefined || allowLabGuest) {
-      companion = parseCompanionRequest(body.companion)
-      if (!companion) return jsonResponse({ error: 'Invalid companion request' }, 400, request)
-    }
-    let system: AnthropicSystemParam
-    if (companion) {
-      if (companion.intent === 'library') {
-        const catalogue: LibraryCatalogue | null = await libraryCatalogue
-        if (!catalogue) return jsonResponse({ error: 'Service unavailable' }, 503, request)
-        // Worker-built, so not held to the client-prompt cap. The catalogue is the
-        // same for every reader: cache it; the open book and shelf follow uncached.
-        const parts = libraryAssistantSystemParts(catalogue, companion.library?.contextBookId ?? null, companion.library?.shelf ?? null)
-        system = [
-          { type: 'text' as const, text: parts.catalogue.slice(0, LIBRARY_CATALOGUE_PROMPT_MAX), cache_control: { type: 'ephemeral' as const } },
-          ...(parts.tail ? [{ type: 'text' as const, text: parts.tail.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }] : []),
-        ]
-      } else {
-        system = buildCompanionSystem(companion).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
+      // Structured requests: the Worker builds the prompt, the output bound and
+      // the effort. Signed-out callers may send nothing else. A signed-in
+      // caller may still send a validated system prompt (recap summaries).
+      let companion: CompanionRequest | null = null
+      if (body.companion !== undefined || allowLabGuest) {
+        companion = parseCompanionRequest(body.companion)
+        if (!companion) return jsonResponse({ error: 'Invalid companion request' }, 400, request)
       }
-    } else {
-      const systemResult = validateSystemParam(body.system)
-      if (systemResult.error) return jsonResponse({ error: systemResult.error }, 400, request)
-      system = systemResult.system
-    }
-    const selectionMessage = companion ? companionSelectionMessage(companion) : null
-    const messages = selectionMessage !== null
-      ? [{ role: 'user', content: selectionMessage }]
-      : Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
-    const maxTokens = companion
-      ? COMPANION_MAX_TOKENS[companion.intent]
-      : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
-    const stream = body.stream === true
-    // Explain and Define go to the smaller model, which takes no effort setting.
-    const lookup = companion?.intent === 'explain' || companion?.intent === 'define'
-    const model = lookup ? COMPANION_LOOKUP_MODEL : CHAT_MODEL
-    const effort = lookup ? null : companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
-
-    // Validate message structure and truncate per-message to the cap.
-    // Long histories accumulate over a session; rather than reject the whole
-    // request, trim each turn so the conversation can keep going.
-    // Only the latest user turn of a signed-in request may be an array of
-    // text and image blocks (chatImages.ts); everything else stays a string.
-    const safeMessages: SafeMessage[] = []
-    let imageCount = 0
-    let imageTokens = 0
-    for (const [index, msg] of messages.entries()) {
-      if (typeof msg !== 'object' || msg === null) return jsonResponse({ error: 'Invalid message format' }, 400, request)
-      const m = msg as Record<string, unknown>
-      if (m.role !== 'user' && m.role !== 'assistant') return jsonResponse({ error: 'Invalid message role' }, 400, request)
-      if (Array.isArray(m.content) && m.role === 'user' && index === messages.length - 1) {
-        if (allowLabGuest) {
-          return jsonResponse({ error: contentHasImage(m.content) ? 'images_unavailable' : 'Invalid message content' }, 400, request)
+      let system: AnthropicSystemParam
+      // Ask / Explain / Define: the part of the prompt that is the same for
+      // every question in the chapter, and the part that moves with the reader.
+      let companionParts: { stable: string; volatile: string } | null = null
+      if (companion) {
+        if (companion.intent === 'library') {
+          const catalogue: LibraryCatalogue | null = await libraryCatalogue
+          if (!catalogue) return jsonResponse({ error: 'Service unavailable' }, 503, request)
+          // Worker-built, so not held to the client-prompt cap. The catalogue is the
+          // same for every reader: cache it; the open book and shelf follow uncached.
+          const parts = libraryAssistantSystemParts(catalogue, companion.library?.contextBookId ?? null, companion.library?.shelf ?? null)
+          system = [
+            { type: 'text' as const, text: parts.catalogue.slice(0, LIBRARY_CATALOGUE_PROMPT_MAX), cache_control: { type: 'ephemeral' as const } },
+            ...(parts.tail ? [{ type: 'text' as const, text: parts.tail.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }] : []),
+          ]
+        } else {
+          const parts = buildCompanionSystemParts(companion)
+          if (parts) {
+            // Each part is held to the cap on its own: the chapter is trimmed
+            // against the stable part, so trimming the joined prompt would
+            // cut the reader's place off its end.
+            companionParts = { stable: parts.stable.slice(0, MAX_SYSTEM_PROMPT_LENGTH), volatile: parts.volatile.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }
+            system = [companionParts.stable, companionParts.volatile].filter(Boolean).join('\n\n')
+          } else {
+            system = buildCompanionSystem(companion).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
+          }
         }
-        const parsed = parseUserBlocks(m.content, MAX_MESSAGE_LENGTH)
-        if (!parsed.ok) return jsonResponse({ error: parsed.error === 'image_rejected' ? 'image_rejected' : 'Invalid message content' }, 400, request)
-        imageCount += parsed.imageCount
-        imageTokens += parsed.imageTokens
-        safeMessages.push({ role: 'user', content: parsed.blocks })
-        continue
+      } else {
+        const systemResult = validateSystemParam(body.system)
+        if (systemResult.error) return jsonResponse({ error: systemResult.error }, 400, request)
+        system = systemResult.system
       }
-      if (typeof m.content !== 'string') {
-        if (allowLabGuest && contentHasImage(m.content)) return jsonResponse({ error: 'images_unavailable' }, 400, request)
-        return jsonResponse({ error: 'Invalid message content' }, 400, request)
+      const selectionMessage = companion ? companionSelectionMessage(companion) : null
+      const messages = selectionMessage !== null
+        ? [{ role: 'user', content: selectionMessage }]
+        : Array.isArray(body.messages) ? body.messages.slice(0, MAX_MESSAGES) : []
+      const maxTokens = companion
+        ? COMPANION_MAX_TOKENS[companion.intent]
+        : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
+      const stream = body.stream === true
+      // Explain and Define go to the smaller model, which takes no effort setting.
+      const lookup = companion?.intent === 'explain' || companion?.intent === 'define'
+      const model = lookup ? COMPANION_LOOKUP_MODEL : CHAT_MODEL
+      const effort = lookup ? null : companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
+
+      // Validate message structure and truncate per-message to the cap.
+      // Long histories accumulate over a session; rather than reject the whole
+      // request, trim each turn so the conversation can keep going.
+      // Only the latest user turn of a signed-in request may be an array of
+      // text and image blocks (chatImages.ts); everything else stays a string.
+      const safeMessages: SafeMessage[] = []
+      let imageCount = 0
+      let imageTokens = 0
+      for (const [index, msg] of messages.entries()) {
+        if (typeof msg !== 'object' || msg === null) return jsonResponse({ error: 'Invalid message format' }, 400, request)
+        const m = msg as Record<string, unknown>
+        if (m.role !== 'user' && m.role !== 'assistant') return jsonResponse({ error: 'Invalid message role' }, 400, request)
+        if (Array.isArray(m.content) && m.role === 'user' && index === messages.length - 1) {
+          if (allowLabGuest) {
+            return jsonResponse({ error: contentHasImage(m.content) ? 'images_unavailable' : 'Invalid message content' }, 400, request)
+          }
+          const parsed = parseUserBlocks(m.content, MAX_MESSAGE_LENGTH)
+          if (!parsed.ok) return jsonResponse({ error: parsed.error === 'image_rejected' ? 'image_rejected' : 'Invalid message content' }, 400, request)
+          imageCount += parsed.imageCount
+          imageTokens += parsed.imageTokens
+          safeMessages.push({ role: 'user', content: parsed.blocks })
+          continue
+        }
+        if (typeof m.content !== 'string') {
+          if (allowLabGuest && contentHasImage(m.content)) return jsonResponse({ error: 'images_unavailable' }, 400, request)
+          return jsonResponse({ error: 'Invalid message content' }, 400, request)
+        }
+        const content = m.content.length > MAX_MESSAGE_LENGTH ? m.content.slice(0, MAX_MESSAGE_LENGTH) : m.content
+        safeMessages.push({ role: m.role, content })
       }
-      const content = m.content.length > MAX_MESSAGE_LENGTH ? m.content.slice(0, MAX_MESSAGE_LENGTH) : m.content
-      safeMessages.push({ role: m.role, content })
-    }
-    if (imageCount === 0 && parsedBody.bytes > MAX_REQUEST_BODY_BYTES) {
-      return jsonResponse({ error: 'Request too large' }, 413, request)
-    }
-    timing.images = imageCount
-    timing.imageTokens = imageTokens
-
-    // One ledger row per Anthropic call (and per source search), attributed to
-    // the reader, or to the hashed IP key when signed out. Metadata only.
-    // A speculative Explain (fetched as a selection settles, before any tap) is
-    // Tinct's cost, never the reader's: 124 of them in a day read as 18% of an
-    // allowance the reader had barely used (11 Oct 2026).
-    const feature: AiFeature = lookup ? (companion?.speculative ? 'explain_speculative' : 'explain')
-      : companion?.intent === 'library' ? 'librarian'
-      : allowLabGuest ? 'lab_chat' : 'chat'
-    if (userId && !allowsAiFeature(allowanceGate.enforced, feature, await allowancePromise)) {
-      return jsonResponse(allowanceUsedBody(), 402, request)
-    }
-    const meterBook = parseBookRef(companion ? companionBookRef(companion) : body.book)
-    const meter = createAiMeter(env, ctx, { userId, guest: ledgerGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
-
-    const charge = () => {
-      if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-        ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
+      if (imageCount === 0 && parsedBody.bytes > MAX_REQUEST_BODY_BYTES) {
+        return jsonResponse({ error: 'Request too large' }, 413, request)
       }
-    }
+      timing.images = imageCount
+      timing.imageTokens = imageTokens
 
-    // Book-grounded path: the open book is named, so the model may read
-    // other chapters. Structured requests derive it from their context.
-    const book: BookRef | null = parseBookRef(companion ? companionBookRef(companion) : body.book)
-    const trailChapters = companion ? companionTrailChapters(companion) : parseReadingTrailChapters(body.readingTrail)
+      // One ledger row per Anthropic call (and per source search), attributed to
+      // the reader, or to the hashed IP key when signed out. Metadata only.
+      // A speculative Explain (fetched as a selection settles, before any tap) is
+      // Tinct's cost, never the reader's: 124 of them in a day read as 18% of an
+      // allowance the reader had barely used (11 Oct 2026).
+      const feature: AiFeature = lookup ? (companion?.speculative ? 'explain_speculative' : 'explain')
+        : companion?.intent === 'library' ? 'librarian'
+        : allowLabGuest ? 'lab_chat' : 'chat'
+      if (userId && !allowsAiFeature(allowanceGate.enforced, feature, await allowancePromise)) {
+        return jsonResponse(allowanceUsedBody(), 402, request)
+      }
+      const meterBook = parseBookRef(companion ? companionBookRef(companion) : body.book)
+      const meter = createAiMeter(env, ctx, { userId, guest: ledgerGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
 
-    if (allowLabGuest) {
-      const systemChars = typeof system === 'string' ? system.length : system.reduce((sum, block) => sum + block.text.length, 0)
-      const estimate = estimateAiCostMicros({
-        inputChars: systemChars + safeMessages.reduce((sum, message) => sum + messageText(message.content).length, 0),
-        maxTokens,
-        tools: Boolean(book && env.ASSETS),
-        imageTokens,
-      })
-      const reserved = options?.reserveGuestSpend ? await options.reserveGuestSpend(estimate) : false
-      if (!reserved) return jsonResponse(aiRestingBody(), 503, request)
-    }
+      const charge = () => {
+        if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+          ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
+        }
+      }
 
-    if (book && env.ASSETS) {
-      timing.path = 'book_grounded'
+      // Book-grounded path: the open book is named, so the model may read
+      // other chapters. Structured requests derive it from their context.
+      const book: BookRef | null = parseBookRef(companion ? companionBookRef(companion) : body.book)
+      const trailChapters = companion ? companionTrailChapters(companion) : parseReadingTrailChapters(body.readingTrail)
+
+      if (allowLabGuest) {
+        const systemChars = typeof system === 'string' ? system.length : system.reduce((sum, block) => sum + block.text.length, 0)
+        const estimate = estimateAiCostMicros({
+          inputChars: systemChars + safeMessages.reduce((sum, message) => sum + messageText(message.content).length, 0),
+          maxTokens,
+          tools: Boolean(book && env.ASSETS),
+          imageTokens,
+        })
+        if (guestRate && holdGuestSpend) {
+          const [rateAllowed, hold] = await Promise.all([guestRate, holdGuestSpend(estimate).catch((): GuestSpendHold | null => null)])
+          timing.authAccessMs = Date.now() - authStartedAt
+          if (!rateAllowed) {
+            if (hold) ctx.waitUntil(hold.release())
+            return rateLimited()
+          }
+          if (!hold) return jsonResponse(aiRestingBody(), 503, request)
+        } else {
+          const reserved = options?.reserveGuestSpend ? await options.reserveGuestSpend(estimate) : false
+          if (!reserved) return jsonResponse(aiRestingBody(), 503, request)
+        }
+      }
+
+      if (book && env.ASSETS) {
+        timing.path = 'book_grounded'
+        timing.contextReadyMs = Date.now() - timing.startedAt
+        // The tool loop caches the system prompt. A companion prompt is sent
+        // as two blocks with the breakpoint after the stable one (instructions
+        // and chapter), so moving to another paragraph or page reuses the
+        // cached chapter; the reader's place follows uncached.
+        const groundedSystem: AnthropicSystemParam = companionParts?.volatile
+          ? [
+              { type: 'text' as const, text: companionParts.stable, cache_control: { type: 'ephemeral' as const } },
+              { type: 'text' as const, text: companionParts.volatile },
+            ]
+          : system
+        return await handleBookGroundedChat({
+          request, env, ctx, apiKey, book, system: groundedSystem, safeMessages, maxTokens, stream, effort, charge,
+          timing,
+          meter,
+          trailChapters,
+          researchKey: userId ? env.OPENAI_API_KEY : undefined,
+          researchGate: userId && env.OPENAI_API_KEY
+            ? () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6)
+            : undefined,
+        })
+      }
+
       timing.contextReadyMs = Date.now() - timing.startedAt
-      return await handleBookGroundedChat({
-        request, env, ctx, apiKey, book, system, safeMessages, maxTokens, stream, effort, charge,
-        timing,
-        meter,
-        trailChapters,
-        researchKey: userId ? env.OPENAI_API_KEY : undefined,
-        researchGate: userId && env.OPENAI_API_KEY
-          ? () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6)
-          : undefined,
+      const providerStartedAt = Date.now()
+      const response = await fetchAnthropic(apiKey, {
+        model,
+        max_tokens: maxTokens,
+        system,
+        messages: safeMessages,
+        ...effortConfig(effort),
+        ...(stream ? { stream: true } : {}),
       })
-    }
+      timing.providerRounds += 1
+      timing.providerHeadersMs += Date.now() - providerStartedAt
 
-    timing.contextReadyMs = Date.now() - timing.startedAt
-    const providerStartedAt = Date.now()
-    const response = await fetchAnthropic(apiKey, {
-      model,
-      max_tokens: maxTokens,
-      system,
-      messages: safeMessages,
-      ...effortConfig(effort),
-      ...(stream ? { stream: true } : {}),
-    })
-    timing.providerRounds += 1
-    timing.providerHeadersMs += Date.now() - providerStartedAt
-
-    if (stream) {
-      if (!response.ok) {
-        logChatRequestTiming(timing, 'failed', false)
-        const data = await response.json().catch(() => ({ error: 'Chat request failed' }))
-        return jsonResponse(data, response.status, request)
+      if (stream) {
+        if (!response.ok) {
+          logChatRequestTiming(timing, 'failed', false)
+          const data = await response.json().catch(() => ({ error: 'Chat request failed' }))
+          return jsonResponse(data, response.status, request)
+        }
+        return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter)
       }
-      return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter)
+
+      const data = await response.json() as { usage?: AnthropicUsage }
+      logAnthropicCacheUsage('chat', data.usage)
+      meter.anthropic(data.usage)
+
+      const hasAnswer = Array.isArray((data as { content?: Array<{ text?: string }> }).content)
+        && (data as { content: Array<{ text?: string }> }).content.some(block => Boolean(block.text?.trim()))
+      if (response.ok && !hasAnswer) {
+        logChatRequestTiming(timing, 'failed', false)
+        return jsonResponse(safeChatError('empty_stream'), 502, request)
+      }
+
+      // Deduct message on success. Lab guest testers are not billed.
+      if (response.ok) charge()
+      if (response.ok && hasAnswer) markFirstChatText(timing)
+      logChatRequestTiming(timing, response.ok ? 'completed' : 'failed', timing.firstTextMs !== null)
+      const result = jsonResponse(data, response.status, request)
+      result.headers.set('X-Tinct-Chat-Request-Id', timing.requestId)
+      return result
+    } catch (error) {
+      if (!(error instanceof ChatUpstreamError)) logChatFailure('route', 'upstream_error')
+      logChatRequestTiming(timing, 'failed', timing.firstTextMs !== null)
+      return jsonResponse(safeChatError(error instanceof ChatUpstreamError ? error.errorType : 'upstream_error'), error instanceof ChatUpstreamError ? error.status : 502, request)
     }
-
-    const data = await response.json() as { usage?: AnthropicUsage }
-    logAnthropicCacheUsage('chat', data.usage)
-    meter.anthropic(data.usage)
-
-    const hasAnswer = Array.isArray((data as { content?: Array<{ text?: string }> }).content)
-      && (data as { content: Array<{ text?: string }> }).content.some(block => Boolean(block.text?.trim()))
-    if (response.ok && !hasAnswer) {
-      logChatRequestTiming(timing, 'failed', false)
-      return jsonResponse(safeChatError('empty_stream'), 502, request)
-    }
-
-    // Deduct message on success. Lab guest testers are not billed.
-    if (response.ok) charge()
-    if (response.ok && hasAnswer) markFirstChatText(timing)
-    logChatRequestTiming(timing, response.ok ? 'completed' : 'failed', timing.firstTextMs !== null)
-    const result = jsonResponse(data, response.status, request)
-    result.headers.set('X-Tinct-Chat-Request-Id', timing.requestId)
-    return result
-  } catch (error) {
-    if (!(error instanceof ChatUpstreamError)) logChatFailure('route', 'upstream_error')
-    logChatRequestTiming(timing, 'failed', timing.firstTextMs !== null)
-    return jsonResponse(safeChatError(error instanceof ChatUpstreamError ? error.errorType : 'upstream_error'), error instanceof ChatUpstreamError ? error.status : 502, request)
   }
+
+  const response = await answer()
+  // A request refused before its reservation (bad body, too large…) still
+  // answers 429 first when it was rate-limited, as when the check ran first.
+  if (guestRate && !await guestRate) return rateLimited()
+  return response
 }
 
 async function handleBookGroundedChat(input: {

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { VOICE_TOOLS } from '../voice/context'
+import { buildLabAskInstructionParts } from '../companion/labAskPrompt'
 import {
   affirmativeAnswersLookupOffer,
   applyLabVoiceTurn,
@@ -407,7 +408,9 @@ describe('lab ask reading trail and in-book retrieval', () => {
     expect(instructions).toContain('- Jeremiah 32 (chapter 777) — opens "The word that came to Jeremiah from the LORD in the tenth year of Zedekiah" — recap: Jeremiah buys a field while shut up in the court of the prison.')
     expect(instructions).toContain('- Jeremiah 36 (chapter 781) — opens "And it came to pass in the fourth year of Jehoiakim"')
     expect(instructions).toContain('Now: Jeremiah 37 (chapter 782 of 1189), page 2 of 3, paragraph 2 of 2.')
-    expect(instructions.indexOf('[What the reader has read recently — a limited sample, not complete history]')).toBeLessThan(instructions.indexOf('Full current chapter'))
+    // After the chapter (14 Oct 2026): the trail's "Now:" line moves with the
+    // reader, so it follows the cached instructions-and-chapter prefix.
+    expect(instructions.indexOf('[What the reader has read recently — a limited sample, not complete history]')).toBeGreaterThan(instructions.indexOf('Full current chapter'))
     expect(instructions).toContain(LAB_ASK_LOOKUP_OFFER_RULE)
     expect(instructions).toContain('never offer to "go back and have a look"')
   })
@@ -419,12 +422,35 @@ describe('lab ask reading trail and in-book retrieval', () => {
     expect(renderLabReadingTrail({ ...base, readingTrail: [] })).toContain('No earlier chapters are included in this limited recent trail')
   })
 
-  it('keeps the whole prompt under the worker cap even for a huge chapter', () => {
+  it('keeps the cached instructions-and-chapter part under the worker cap even for a huge chapter', () => {
     const huge = Array.from({ length: 900 }, (_, i) => `Paragraph ${i + 1}. ${'Word '.repeat(20)}`)
-    const instructions = buildLabAskInstructions({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })
-    expect(instructions.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
-    expect(instructions).toContain('[…chapter continues]')
-    expect(instructions).toContain('[What the reader has read recently — a limited sample, not complete history]')
+    const parts = buildLabAskInstructionParts({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })
+    // The worker caps each part on its own (routes/chat.ts); the chapter is
+    // trimmed against the stable part only, so the reader's place, which
+    // follows it, is never what the cap cuts.
+    expect(parts.stable.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
+    expect(parts.stable).toContain('[…chapter continues]')
+    expect(parts.volatile).toContain('[What the reader has read recently — a limited sample, not complete history]')
+    expect(parts.volatile.length).toBeLessThanOrEqual(LAB_ASK_SYSTEM_CAP)
+    expect(buildLabAskInstructions({ ...base, paragraphs: huge, bookId: 'bible', editionKey: 'kjv-en' })).toBe(`${parts.stable}\n\n${parts.volatile}`)
+  })
+
+  it('keeps the cached part identical across paragraphs, pages, trail and shown explanations in one chapter', () => {
+    const paragraphs = Array.from({ length: 900 }, (_, i) => `Paragraph ${i + 1}. ${'Word '.repeat(20)}`)
+    const book = { ...base, paragraphs, bookId: 'bible', editionKey: 'kjv-en' }
+    const first = buildLabAskInstructionParts({ ...book, paragraphIndex: 0, pageNumber: 1 })
+    const later = buildLabAskInstructionParts(
+      { ...book, paragraphIndex: 412, pageNumber: 30, readingTrail: [], personalHistory: 'Read Jeremiah 30 yesterday.' },
+      { shownExplanations: [{ passage: 'Paragraph 413.', text: 'x'.repeat(4_000) }] },
+    )
+    expect(later.stable).toBe(first.stable)
+    expect(first.volatile).toContain('The reader is on paragraph 1 of 900.')
+    expect(later.volatile).toContain('The reader is on paragraph 413 of 900.')
+    expect(later.volatile).toContain('Current paragraph [413]:')
+    expect(later.volatile).toContain('page 30 of 3, paragraph 413 of 900')
+    expect(later.volatile).toContain('Read Jeremiah 30 yesterday.')
+    expect(later.volatile).toContain('Explanation shown:')
+    expect(first.stable).not.toMatch(/The reader is on paragraph|Current paragraph \[|Now: /)
   })
 })
 
