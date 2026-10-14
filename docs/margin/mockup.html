@@ -192,6 +192,10 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .defc .body { padding: 14px 16px 12px; font-family: var(--gara); }
 .defc .w { font-size: 21px; } .defc .w i { font-size: 15px; color: var(--bar-soft); margin-left: 8px; }
 .defc p { margin: 6px 0 0; font-size: 16px; line-height: 1.45; }
+.defc .w { display: flex; align-items: baseline; } .defc .w .src { margin-left: auto; font: 11.5px var(--sans); color: var(--bar-soft); }
+.defc .senses { margin: 8px 0 0; padding: 0 0 0 18px; font-size: 15.5px; line-height: 1.42; display: flex; flex-direction: column; gap: 4px; color: var(--bar-soft); }
+.defc .senses li.on { color: var(--bar-ink); }
+.defc .senses li::marker { font-size: 13px; }
 .defc .foot { display: flex; align-items: center; border-top: 1px solid var(--bar-sep); padding: 4px 6px; font: 14px var(--sans); }
 .defc .foot .it { display: flex; align-items: center; height: 34px; padding: 0 10px; border-radius: 8px; gap: 6px; }
 .defc .foot .sep { width: 1px; height: 20px; background: var(--bar-sep); margin: 0 4px; }
@@ -285,7 +289,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
         <span class="cap"><b>One tap on the dot highlights in your colour.</b> Press and hold, or tap it again, to choose another; the choice becomes the new default.</span></div>
       <div class="step"><span class="num">E · A single word</span>
         <div class="strip-frame" data-strip="e"></div>
-        <span class="cap"><b>Pick one word and you get its meaning first,</b> as this text uses it. The menu sits along the bottom of the card, for when you wanted something else.</span></div>
+        <span class="cap"><b>Pick one word and you get the dictionary first,</b> so it works offline. The sense that fits this text comes first and is set darker. The menu sits along the bottom, for when you wanted something else.</span></div>
     </div></div>
   </section>
 
@@ -328,8 +332,8 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
     <table class="spec">
       <tr><td>The PDF</td><td>Always the original pages, tinted to the reader’s look as today. No re-flowing, so figures, equations and layout survive. Selection uses the PDF’s own text layer.</td></tr>
       <tr><td>Selection menu</td><td>44px bar, 12px corners, ink fill in every look, system font 14px. Ask with a caret, Explain, Simplify, more, a dot in the current highlight colour, note. Typing with text selected goes into Ask. Ask shows a mic for speaking the question. No Talk in the bar.</td></tr>
-      <tr><td>Single word</td><td>A one-word selection (double-click, or tap on the phone) opens Define first: the word, its part of speech, and its meaning in this text. The menu runs along the card’s foot.</td></tr>
-      <tr><td>More</td><td>Define, Fact-check, Counterpoint, Quiz me, then Copy quote and Share as image. Desktop shows a one-line explanation under each; the phone shows names only.</td></tr>
+      <tr><td>Single word</td><td>A one-word selection (double-click, or tap on the phone) opens Define first, from Tinct’s offline dictionary: the word, its part of speech and up to three senses. When online, the sense that fits the passage is moved to the top and set in full ink; offline, the dictionary’s order stands. Names and words the dictionary lacks fall back to an AI meaning when online. The menu runs along the card’s foot.</td></tr>
+      <tr><td>More</td><td>Define, Fact-check, Counterpoint, Quiz me, then Copy quote and Share as image. Desktop shows a one-line explanation under each; the phone shows names only. Define on a longer selection looks up its key term in the dictionary.</td></tr>
       <tr><td>Highlight</td><td>A tap highlights in the last colour used. A second tap or a long press opens the four colours; the one chosen becomes the default.</td></tr>
       <tr><td>Margin column</td><td>380px right of the page, 56px gap. Cards line up with their passage, keep the page’s order, and push down instead of overlapping, 14px apart. One open card at a time; opening another folds the last.</td></tr>
       <tr><td>Crowding</td><td>If the cards no longer fit above the column foot, the remaining ones gather into a single row, “2 more on this page”. Clicking a passage, or the row, brings its card up and folds the others.</td></tr>
@@ -368,7 +372,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
     var fr = f.getBoundingClientRect(), ar = a.getClientRects()[0];
     if (s === 'e') {
       var d = document.createElement('div'); d.className = 'defc';
-      d.innerHTML = '<div class="body"><div class="w">variance<i>noun, as used here</i></div><p>How widely r spreads around its mean: the average squared distance from Nf. Large when the count of heads is hard to predict.</p></div><div class="foot"><span class="it">Ask</span><span class="sep"></span><span class="it">Explain</span><span class="it">Simplify</span><span class="it">' + icon('more') + '</span><span class="sep"></span>' + dotI.replace('it hlp','it') + noteI + '</div>';
+      d.innerHTML = '<div class="body"><div class="w">variance<i>noun</i><span class="src">Dictionary</span></div><ol class="senses"><li class="on">In statistics, the square of the standard deviation: how widely values spread around their mean.</li><li>The fact of being different or inconsistent.</li><li>Official permission to depart from a rule.</li></ol></div><div class="foot"><span class="it">Ask</span><span class="sep"></span><span class="it">Explain</span><span class="it">Simplify</span><span class="it">' + icon('more') + '</span><span class="sep"></span>' + dotI.replace('it hlp','it') + noteI + '</div>';
       f.appendChild(d);
       d.style.left = Math.max(16, ar.left - fr.left - 60) + 'px'; d.style.top = (ar.top - fr.top - d.offsetHeight - 12) + 'px';
       return;
@@ -387,7 +391,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
     fig: '<div class="mc closed"><div class="lab">Explain · Figure 1.3</div><div class="one">Each bar is the chance of that many heads in ten tosses. Three is the most likely, matching the mean Nf = 3.</div></div>',
     note: '<div class="mc closed note"><div class="lab">Your note</div><div class="one">Try it with x = 10 before the exercises. How close is it?</div></div>',
     eq1: '<div class="mc closed"><div class="lab">Simplify · (1.1)</div><div class="one">Ways to pick which r tosses are heads, times the chance of any one such sequence.</div></div>',
-    word: '<div class="mc closed"><div class="lab">Define · variance</div><div class="one">How widely r spreads around its mean.</div></div>',
+    word: '<div class="mc closed"><div class="lab">Define · variance</div><div class="one">In statistics, how widely values spread around their mean.</div></div>',
     stir: '<div class="mc closed"><div class="lab">Counterpoint</div><div class="one">For small x the approximation is off by several percent.</div></div>',
     app: '<div class="mc closed note"><div class="lab">Your note</div><div class="one">Appendix A before Thursday.</div></div>'
   };
