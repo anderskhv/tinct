@@ -78,10 +78,15 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 10 October 2026')
+    expect(privacy).toContain('Last updated: 14 October 2026')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
     expect(privacy).toContain('If you upload a picture or a background, we store it with Cloudflare, with its location and camera details removed.')
     expect(privacy).toContain('A person at Tinct looks at each uploaded photo before other readers can see it')
+  })
+
+  // Highlights and notes in an own PDF kept with the book in the account (margin reader PR 1a, 14 Oct 2026).
+  it('privacy: says a PDF\'s highlights and notes are kept with the book in the account and deleted with it', () => {
+    expect(privacyText).toContain('The highlights and notes you make in a PDF you added (the passage, where it is on the page, its colour and your note) are kept in your browser and, if you are signed in and the book is in your account, privately with it in your account with Cloudflare (R2), so they show on your other devices; they are deleted with the book.')
   })
 
   // Own-book covers stored with the account copy (2026-10-09).

@@ -11,6 +11,10 @@
  *   PUT    /api/user-books/places/{bookHex}
  *                                     save one place: versioned (`rev`), a stale
  *                                     write gets 409 and the stored place back
+ *   GET    /api/user-books/marks/{bookHex}
+ *   PUT    /api/user-books/marks/{bookHex}
+ *                                     a PDF's highlights and notes, versioned the
+ *                                     same way (the reader merges on a 409)
  *
  * Storage is the private R2 bucket USER_BOOKS (never AUDIO_BUCKET, which is
  * public). Every key is `u/{userId}/{fileId}`: the user id comes from the
@@ -43,6 +47,17 @@
  * revision it read; an older one is refused with the stored place (and the
  * put itself is conditional on the object's etag), so devices never
  * overwrite a newer place blindly. Deleting the book deletes its place.
+ *
+ * The highlights and notes the reader made in an own PDF (Add a book's PDF
+ * reader) are one JSON object per book, `u/{userId}/marks/{bookHex}`: each
+ * highlight's id, page, its boxes on the page, the passage text, colour,
+ * when it was made and changed, and the reader's note; a removed highlight
+ * stays as a tombstone (id and when) so every device loses it. The revision
+ * is in customMetadata; a write naming an older revision is refused (409)
+ * with the stored set, which the reader merges with its own (a union by id,
+ * the newer edit winning) and writes again, so nothing is lost. Only a PDF
+ * this account keeps has marks; deleting the book deletes them, and account
+ * deletion takes the whole `u/{userId}/` prefix (account export lists them).
  *
  * Catch me up on an own book (routes/ownCatchUp.ts) keeps its cumulative
  * recap the same way, under `u/{userId}/recaps/{bookHex}/`: deleted with the
@@ -148,6 +163,11 @@ export function ownRecapPrefix(userId: string, bookHex: string): string {
 /** Where the reader's place in one own book lives: inside the owner's private prefix only. */
 export function ownPlaceKey(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}places/${bookHex}`
+}
+
+/** Where the highlights and notes of one own PDF live: inside the owner's private prefix only. */
+export function ownMarksKey(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}marks/${bookHex}`
 }
 
 /** Where the small image of one own book's cover lives: inside the owner's private prefix only. */
@@ -441,7 +461,7 @@ async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, use
     const bookHex = sha256.slice(0, USER_BOOK_HEX_LENGTH)
     await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
     await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
-    await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex)])
+    await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex), ownMarksKey(userId, bookHex)])
     // An OCR job stops and gives back what it held (with job.json gone it would stop on its own too).
     if (env.OWN_OCR) await env.OWN_OCR.getByName(await ocrCoordinatorName(userId, bookHex)).cancel().catch(() => null)
     await purgePrefix(bucket, ownOcrPrefix(userId, bookHex))
@@ -710,6 +730,136 @@ async function handlePlaces(
   return savePlace(request, bucket, user.id, bookHex, deps.checkRateLimit)
 }
 
+// ===== Highlights and notes in an own PDF =====
+
+/** A highlight in an own PDF as stored: its boxes are fractions of the page ([x, y, w, h]). */
+export type OwnMark = {
+  id: string; page: number; rects: number[][]; text: string; color: string; at: number; u?: number
+  note?: string; box?: true; kind?: 'figure' | 'formula' | 'snip'
+}
+/** A highlight the reader removed: kept so the removal reaches every device. */
+export type OwnMarkGone = { id: string; gone: true; u: number }
+/** Mark writes per account per rate-limit window (the reader sends a change after a pause of 1.5 s). */
+export const MARK_WRITES_PER_MINUTE = 30
+/** Highlights and removals per book. */
+export const MAX_MARKS = 5000
+/** The stored set's size limit, in bytes of JSON. */
+export const MAX_MARKS_BYTES = 2 * 1024 * 1024
+const MARK_ID = /^[0-9a-z]{4,32}$/
+const MARK_COLORS = new Set(['gold', 'rose', 'sage', 'sky', 'lavender'])
+const MARK_KINDS = new Set(['figure', 'formula', 'snip'])
+const MARK_TEXT = 2000
+const MARK_NOTE = 4000
+const MARK_RECTS = 400
+
+/** A set of marks from a request body or the store, normalised to the stored shape; null when any is out of shape. */
+export function readMarks(value: unknown): Array<OwnMark | OwnMarkGone> | null {
+  if (!Array.isArray(value) || value.length > MAX_MARKS) return null
+  const out: Array<OwnMark | OwnMarkGone> = []
+  const seen = new Set<string>()
+  const time = (v: unknown) => wholeNumber(v, Number.MAX_SAFE_INTEGER) && v > 0
+  for (const item of value) {
+    if (!item || typeof item !== 'object') return null
+    const m = item as Record<string, unknown>
+    if (typeof m.id !== 'string' || !MARK_ID.test(m.id) || seen.has(m.id)) return null
+    seen.add(m.id)
+    if (m.gone === true) {
+      if (!time(m.u)) return null
+      out.push({ id: m.id, gone: true, u: m.u as number })
+      continue
+    }
+    if (!wholeNumber(m.page) || (m.page as number) < 1 || !time(m.at)) return null
+    if (m.u !== undefined && !time(m.u)) return null
+    if (!Array.isArray(m.rects) || !m.rects.length || m.rects.length > MARK_RECTS) return null
+    const rects: number[][] = []
+    for (const r of m.rects) {
+      if (!Array.isArray(r) || r.length !== 4 || !r.every(n => typeof n === 'number' && Number.isFinite(n) && n >= -1 && n <= 2)) return null
+      rects.push(r.map(n => Math.round(n * 10_000) / 10_000))
+    }
+    if (typeof m.text !== 'string' || m.text.length > MARK_TEXT) return null
+    if (typeof m.color !== 'string' || !MARK_COLORS.has(m.color)) return null
+    if (m.note !== undefined && (typeof m.note !== 'string' || m.note.length > MARK_NOTE)) return null
+    if (m.kind !== undefined && (typeof m.kind !== 'string' || !MARK_KINDS.has(m.kind))) return null
+    const mark: OwnMark = { id: m.id, page: m.page as number, rects, text: m.text, color: m.color, at: m.at as number }
+    if (m.u !== undefined) mark.u = m.u as number
+    if (m.note) mark.note = m.note as string
+    if (m.box === true) mark.box = true
+    if (m.kind !== undefined) mark.kind = m.kind as OwnMark['kind']
+    out.push(mark)
+  }
+  return out
+}
+
+async function storedMarks(bucket: R2Bucket, key: string): Promise<{ marks: Array<OwnMark | OwnMarkGone>; rev: number; etag: string | null }> {
+  const object = await bucket.get(key)
+  if (!object) return { marks: [], rev: 0, etag: null }
+  const rev = Number(object.customMetadata?.rev)
+  let marks: Array<OwnMark | OwnMarkGone> | null = null
+  try { marks = readMarks(await object.json()) } catch { marks = null }
+  return { marks: marks ?? [], rev: Number.isInteger(rev) && rev > 0 ? rev : 0, etag: object.etag }
+}
+
+/** Every own PDF's marks, by book hex (account export). */
+export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Record<string, { highlights: OwnMark[]; removed: number; rev: number }>> {
+  const prefix = ownMarksKey(userId, '')
+  const out: Record<string, { highlights: OwnMark[]; removed: number; rev: number }> = {}
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000 })
+    for (const object of page.objects) {
+      const hex = object.key.slice(prefix.length)
+      if (!BOOK_HEX.test(hex)) continue
+      const { marks, rev } = await storedMarks(bucket, object.key)
+      out[hex] = { highlights: marks.filter((m): m is OwnMark => !('gone' in m)), removed: marks.filter(m => 'gone' in m).length, rev }
+    }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return out
+}
+
+/** `/api/user-books/marks/{bookHex}`: GET the stored set and its revision; PUT `{ marks, rev }`. */
+async function handleMarks(
+  request: Request,
+  env: UserBooksEnv,
+  deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
+  bookHex: string,
+): Promise<Response> {
+  if (!['GET', 'PUT'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
+  const user = await deps.verifyUser(request)
+  if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
+  if (!BOOK_HEX.test(bookHex)) return notFound(request)
+  const bucket = env.USER_BOOKS
+  if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  let body = null as { marks?: unknown; rev?: unknown } | null
+  if (request.method === 'PUT') {
+    const lengthHeader = request.headers.get('content-length')
+    const declared = lengthHeader !== null && /^\d+$/.test(lengthHeader.trim()) ? Number(lengthHeader) : null
+    if (declared !== null && declared > MAX_MARKS_BYTES) return reply({ error: 'too_large', maxBytes: MAX_MARKS_BYTES }, 413, request)
+    if (!await deps.checkRateLimit(`user-books-marks:${user.id}`, undefined, MARK_WRITES_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+    const bytes = await readCapped(request.body, MAX_MARKS_BYTES, declared)
+    if (!bytes) return reply({ error: 'too_large', maxBytes: MAX_MARKS_BYTES }, 413, request)
+    try { body = JSON.parse(new TextDecoder().decode(bytes)) as typeof body } catch { return reply({ error: 'bad_request' }, 400, request) }
+  }
+  // Only a PDF this account keeps has marks.
+  const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
+  if (!book || book.type !== 'pdf') return notFound(request)
+  const key = ownMarksKey(user.id, bookHex)
+  const current = await storedMarks(bucket, key)
+  if (request.method === 'GET') return reply({ marks: current.marks, rev: current.rev }, 200, request)
+  const marks = readMarks(body?.marks)
+  const expected = body?.rev
+  if (!marks || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
+  if (current.rev !== expected) return reply({ error: 'conflict', marks: current.marks, rev: current.rev }, 409, request)
+  const rev = current.rev + 1
+  // Conditional on the object read above: a write that landed in between wins, and this one is told.
+  const stored = await bucket.put(key, JSON.stringify(marks), { httpMetadata: { contentType: 'application/json' }, customMetadata: { rev: String(rev) }, ...(current.etag ? { onlyIf: { etagMatches: current.etag } } : {}) })
+  if (!stored) {
+    const latest = await storedMarks(bucket, key)
+    return reply({ error: 'conflict', marks: latest.marks, rev: latest.rev }, 409, request)
+  }
+  return reply({ rev }, 200, request)
+}
+
 // ===== Covers =====
 
 /** The stored image's type from its bytes alone: JPEG or WebP (what the browser draws), else null. */
@@ -806,6 +956,7 @@ export async function handleUserBooks(
   if (rest === '/ocr' || rest.startsWith('/ocr/')) return handleOcr(request, env, deps, rest.slice('/ocr/'.length))
   const placeHex = rest === '/places' ? '' : rest.startsWith('/places/') ? rest.slice('/places/'.length) : null
   if (placeHex !== null) return handlePlaces(request, env, deps, placeHex)
+  if (rest.startsWith('/marks/')) return handleMarks(request, env, deps, rest.slice('/marks/'.length))
   if (rest === '/covers' || rest.startsWith('/covers/')) return handleCover(request, env, deps, rest.slice('/covers/'.length))
   const fileId = rest === '' || rest === '/' ? null : rest.slice(1)
   const allowed = fileId === null ? ['GET', 'POST'] : ['GET', 'DELETE']
