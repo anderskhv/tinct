@@ -116,10 +116,15 @@ for the chapter in progress, per book, routes/ownCatchUp.ts), never the text.
 the account copy (`u/<id>/covers/<bookHex>`: book hex, size, when stored;
 JPEG or WebP, at most 64 KB), without the bytes; the reader sees each one on
 My shelf while signed in.
+`r2.ownBookMarks` gives, per own PDF (by book hex), the highlights and notes
+the reader made in Add a book's PDF reader (`u/<id>/marks/<bookHex>`: each
+highlight's page, boxes, passage, colour, times and note, in full) with the
+count of removals kept as tombstones and the set's revision.
 Deleting one book from Your books (`DELETE /api/user-books/<fileId>`) deletes
-that book's narration, recaps, place and cover (`u/<id>/narration/<bookHex>/`,
-`u/<id>/recaps/<bookHex>/`, `u/<id>/places/<bookHex>`,
-`u/<id>/covers/<bookHex>`) with the file.
+that book's narration, recaps, place, cover and PDF highlights and notes
+(`u/<id>/narration/<bookHex>/`, `u/<id>/recaps/<bookHex>/`,
+`u/<id>/places/<bookHex>`, `u/<id>/covers/<bookHex>`, `u/<id>/marks/<bookHex>`)
+with the file.
 
 `r2.ownOcr` lists the reader's requests to recognise the text of a scanned own
 PDF (dark until `OWN_PDF_OCR` is "1"; `app/src/worker/lib/ownOcr.ts`): per book
@@ -144,7 +149,8 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    **R2:** every object under `u/<id>/` in the
    private `tinct-user-books` bucket (the reader's own PDF/EPUB files, their
    narration under `u/<id>/narration/`, their Catch me up recaps under
-   `u/<id>/recaps/`, places under `u/<id>/places/`, cover images under
+   `u/<id>/recaps/`, places under `u/<id>/places/`, PDF highlights and notes under
+   `u/<id>/marks/`, cover images under
    `u/<id>/covers/` and text recognised from scanned PDFs under `u/<id>/ocr/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
    none remain; then every object under `profile/<id>/` in the same bucket

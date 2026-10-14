@@ -22,6 +22,7 @@
     "android:open": "npx cap open android",
     "android:run": "npm run build:android && npx cap run android",
     "preview": "vite preview",
+    "check:margin": "node scripts/margin-check.mjs fixture && node scripts/margin-check.mjs reader && node scripts/margin-check.mjs behaviour",
     "test": "vitest run",
     "test:watch": "vitest"
   },
