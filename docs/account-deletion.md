@@ -120,11 +120,14 @@ My shelf while signed in.
 the reader made in Add a book's PDF reader (`u/<id>/marks/<bookHex>`: each
 highlight's page, boxes, passage, colour, times and note, in full) with the
 count of removals kept as tombstones and the set's revision.
+`r2.ownBookPrimers` counts the Before you start primers of own PDFs (AI text
+about one unit of the reader's file, `u/<id>/primers/<bookHex>/<unitKey>`,
+JSON, at most 32 KB each): units and bytes per book hex, never the text.
 Deleting one book from Your books (`DELETE /api/user-books/<fileId>`) deletes
-that book's narration, recaps, place, cover and PDF highlights and notes
+that book's narration, recaps, primers, place, cover and PDF highlights and notes
 (`u/<id>/narration/<bookHex>/`, `u/<id>/recaps/<bookHex>/`,
-`u/<id>/places/<bookHex>`, `u/<id>/covers/<bookHex>`, `u/<id>/marks/<bookHex>`)
-with the file.
+`u/<id>/primers/<bookHex>/`, `u/<id>/places/<bookHex>`,
+`u/<id>/covers/<bookHex>`, `u/<id>/marks/<bookHex>`) with the file.
 
 `r2.ownOcr` lists the reader's requests to recognise the text of a scanned own
 PDF (dark until `OWN_PDF_OCR` is "1"; `app/src/worker/lib/ownOcr.ts`): per book
@@ -150,8 +153,8 @@ Each step reports `ok`, `failed` or `skipped`. Every step is idempotent.
    private `tinct-user-books` bucket (the reader's own PDF/EPUB files, their
    narration under `u/<id>/narration/`, their Catch me up recaps under
    `u/<id>/recaps/`, places under `u/<id>/places/`, PDF highlights and notes under
-   `u/<id>/marks/`, cover images under
-   `u/<id>/covers/` and text recognised from scanned PDFs under `u/<id>/ocr/`,
+   `u/<id>/marks/`, cover images under `u/<id>/covers/`, Before you start
+   primers under `u/<id>/primers/` and text recognised from scanned PDFs under `u/<id>/ocr/`,
    `app/src/worker/routes/userBooks.ts`), listed and deleted page by page until
    none remain; then every object under `profile/<id>/` in the same bucket
    (profile pictures and backgrounds, `app/src/worker/routes/profiles.ts`).

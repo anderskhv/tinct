@@ -17,11 +17,11 @@ import { searchReadingSources } from './voiceResearch'
 import {
   COMPANION_INTENT_EFFORT,
   COMPANION_LOOKUP_INTENTS,
-  COMPANION_MAX_TOKENS,
   buildCompanionSystem,
   buildCompanionSystemParts,
   companionAllowance,
   companionBookRef,
+  companionMaxTokens,
   companionModelFor,
   companionSelectionMessage,
   companionTakesPassageImage,
@@ -1021,7 +1021,7 @@ export async function handleChat(
         ? [{ role: 'user', content: passageImages.length ? [...passageImages, { type: 'text', text: selectionMessage }] : selectionMessage }]
         : rawMessages
       const maxTokens = companion
-        ? COMPANION_MAX_TOKENS[companion.intent]
+        ? companionMaxTokens(companion)
         : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
       const stream = body.stream === true
       // Explain, Define, Simplify, define_sense and quiz_check go to the

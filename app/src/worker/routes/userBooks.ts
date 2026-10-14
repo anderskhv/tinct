@@ -75,6 +75,21 @@
  * Deleting the book deletes its cover; account deletion takes it with the
  * whole `u/{userId}/` prefix, and account export lists it.
  *
+ * Before you start (the margin reader's primer on an own PDF: a gist, key
+ * claims, cautions and a map of one unit, made by the companion's `primer`
+ * chapter action) is stored with the file once made, so reopening never
+ * makes it again; Redo stores a new one over it. One small JSON object per
+ * unit, `u/{userId}/primers/{bookHex}/{unitKey}`:
+ *
+ *   GET    /api/user-books/primers/{bookHex}?unit={unitKey}   the stored primer, to its owner only (404 when none)
+ *   PUT    /api/user-books/primers/{bookHex}?unit={unitKey}   store `{ primer: { gist, claims, keepInMind, map } }`
+ *                                                            (an owned PDF only; at most MAX_PRIMER_BYTES)
+ *
+ * The Worker validates the shape (companion/primerParse.ts) and stamps
+ * `madeAt` and `unitKey` itself. Deleting the book deletes its primers;
+ * account deletion takes them with the whole `u/{userId}/` prefix, and
+ * account export counts them.
+ *
  * Recognising the text of a scanned own PDF (Premium; dark until the Worker
  * var OWN_PDF_OCR is "1", and every route below answers 404 while it is not):
  *
@@ -108,6 +123,7 @@ import {
   type OwnOcrEnv,
 } from '../lib/ownOcr'
 import type { OwnOcrCoordinator } from '../ownOcrCoordinator'
+import { PRIMER_UNIT_KEY_RE, normalizePrimer, normalizeStoredPrimer, type StoredPrimer } from '../../companion/primerParse'
 
 export const MAX_FILE_BYTES = 50 * 1024 * 1024
 export const MAX_ACCOUNT_BYTES = 2 * 1024 * 1024 * 1024
@@ -173,6 +189,11 @@ export function ownMarksKey(userId: string, bookHex: string): string {
 /** Where the small image of one own book's cover lives: inside the owner's private prefix only. */
 export function ownCoverKey(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}covers/${bookHex}`
+}
+
+/** Where one own book's Before you start primers live, one object per unit: inside the owner's private prefix only. */
+export function ownPrimerPrefix(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}primers/${bookHex}/`
 }
 
 /** Every object under `prefix`, deleted page by page. Returns how many went. */
@@ -455,12 +476,13 @@ async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, use
   const head = await bucket.head(key)
   if (!head) return notFound(request)
   await bucket.delete(key)
-  // Its narration, Catch me up recap and recognised text go with it (the same file is stored once per account).
+  // Its narration, Catch me up recap, primers and recognised text go with it (the same file is stored once per account).
   const sha256 = head.customMetadata?.sha256 ?? ''
   if (/^[0-9a-f]{64}$/.test(sha256)) {
     const bookHex = sha256.slice(0, USER_BOOK_HEX_LENGTH)
     await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
     await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
+    await purgePrefix(bucket, ownPrimerPrefix(userId, bookHex))
     await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex), ownMarksKey(userId, bookHex)])
     // An OCR job stops and gives back what it held (with job.json gone it would stop on its own too).
     if (env.OWN_OCR) await env.OWN_OCR.getByName(await ocrCoordinatorName(userId, bookHex)).cancel().catch(() => null)
@@ -939,6 +961,97 @@ async function handleCover(
   return reply({ cover: coverUrl(bookHex, stored.uploaded) }, 200, request)
 }
 
+// ===== Before you start (primers) =====
+
+/** A stored primer is at most this many bytes of JSON (a full one is about 5 KB). */
+export const MAX_PRIMER_BYTES = 32 * 1024
+/** Primers kept per book: one per top-level outline entry, and a PDF has rarely more than a few dozen. */
+export const MAX_PRIMERS_PER_BOOK = 200
+/** Primer writes per account per rate-limit window (one per unit the reader opens, or a Redo). */
+export const PRIMER_WRITES_PER_MINUTE = 30
+
+async function countPrimers(bucket: R2Bucket, prefix: string): Promise<number> {
+  let count = 0
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000 })
+    count += page.objects.length
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return count
+}
+
+/** `/api/user-books/primers/{bookHex}?unit={unitKey}`: GET serves the stored primer to its owner, PUT stores one for an owned PDF. */
+async function handlePrimer(
+  request: Request,
+  env: UserBooksEnv,
+  deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
+  bookHex: string,
+): Promise<Response> {
+  if (!['GET', 'PUT'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
+  const user = await deps.verifyUser(request)
+  if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
+  if (!BOOK_HEX.test(bookHex)) return notFound(request)
+  const unitKey = new URL(request.url).searchParams.get('unit') ?? ''
+  if (!PRIMER_UNIT_KEY_RE.test(unitKey)) return reply({ error: 'bad_unit' }, 400, request)
+  const bucket = env.USER_BOOKS
+  if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  const prefix = ownPrimerPrefix(user.id, bookHex)
+  const key = `${prefix}${unitKey}`
+
+  if (request.method === 'GET') {
+    // Under the caller's own prefix, so only its owner can reach it; it goes with the book.
+    const object = await bucket.get(key)
+    if (!object) return notFound(request)
+    let primer: StoredPrimer | null = null
+    try { primer = normalizeStoredPrimer(await object.json()) } catch { primer = null }
+    return primer ? reply({ primer }, 200, request) : notFound(request)
+  }
+
+  const lengthHeader = request.headers.get('content-length')
+  const declared = lengthHeader !== null && /^\d+$/.test(lengthHeader.trim()) ? Number(lengthHeader) : null
+  if (declared !== null && declared > MAX_PRIMER_BYTES) return reply({ error: 'primer_too_large', maxBytes: MAX_PRIMER_BYTES }, 413, request)
+  if (!await deps.checkRateLimit(`user-books-primer:${user.id}`, undefined, PRIMER_WRITES_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+  const bytes = await readCapped(request.body, MAX_PRIMER_BYTES, declared)
+  if (!bytes) return reply({ error: 'primer_too_large', maxBytes: MAX_PRIMER_BYTES }, 413, request)
+  let body: unknown = null
+  try { body = JSON.parse(new TextDecoder().decode(bytes)) } catch { body = null }
+  const content = body && typeof body === 'object' ? normalizePrimer((body as { primer?: unknown }).primer) : null
+  if (!content) return reply({ error: 'invalid_primer' }, 400, request)
+  // Only a PDF this account keeps has primers (the same rule as its place and cover).
+  const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
+  if (!book) return notFound(request)
+  if (book.type !== 'pdf') return reply({ error: 'pdf_only' }, 400, request)
+  if (!await bucket.head(key) && await countPrimers(bucket, prefix) >= MAX_PRIMERS_PER_BOOK) {
+    return reply({ error: 'too_many_primers', max: MAX_PRIMERS_PER_BOOK }, 409, request)
+  }
+  const primer: StoredPrimer = { ...content, madeAt: new Date().toISOString(), unitKey }
+  const json = JSON.stringify(primer)
+  if (new TextEncoder().encode(json).byteLength > MAX_PRIMER_BYTES) return reply({ error: 'primer_too_large', maxBytes: MAX_PRIMER_BYTES }, 413, request)
+  await bucket.put(key, json, { httpMetadata: { contentType: 'application/json' } })
+  return reply({ primer }, 200, request)
+}
+
+/** Every stored primer of one account, counted by book (account export lists these, never the text). */
+export async function listOwnPrimers(bucket: R2Bucket, userId: string): Promise<Array<{ bookHex: string; units: number; bytes: number }>> {
+  const prefix = `${userBooksPrefix(userId)}primers/`
+  const byBook = new Map<string, { units: number; bytes: number }>()
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000 })
+    for (const object of page.objects) {
+      const bookHex = object.key.slice(prefix.length).split('/')[0]
+      if (!BOOK_HEX.test(bookHex)) continue
+      const entry = byBook.get(bookHex) ?? { units: 0, bytes: 0 }
+      entry.units += 1
+      entry.bytes += object.size
+      byBook.set(bookHex, entry)
+    }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return [...byBook].map(([bookHex, entry]) => ({ bookHex, ...entry }))
+}
+
 export async function handleUserBooks(
   request: Request,
   env: UserBooksEnv,
@@ -958,6 +1071,7 @@ export async function handleUserBooks(
   if (placeHex !== null) return handlePlaces(request, env, deps, placeHex)
   if (rest.startsWith('/marks/')) return handleMarks(request, env, deps, rest.slice('/marks/'.length))
   if (rest === '/covers' || rest.startsWith('/covers/')) return handleCover(request, env, deps, rest.slice('/covers/'.length))
+  if (rest === '/primers' || rest.startsWith('/primers/')) return handlePrimer(request, env, deps, rest.slice('/primers/'.length))
   const fileId = rest === '' || rest === '/' ? null : rest.slice(1)
   const allowed = fileId === null ? ['GET', 'POST'] : ['GET', 'DELETE']
   if (!allowed.includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)

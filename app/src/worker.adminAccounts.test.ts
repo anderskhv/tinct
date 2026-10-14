@@ -450,6 +450,26 @@ describe('admin account routes', () => {
     expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${otherUser}/recaps/`))).toHaveLength(1)
   })
 
+  it('exports a count of own-PDF Before you start primers (never their text) and deletes them with the account', async () => {
+    const w = world()
+    const primer = (owner: string, hex: string, unit: string, size: number) => w.userBooks.objects.set(`u/${owner}/primers/${hex}/${unit}`, {
+      key: `u/${owner}/primers/${hex}/${unit}`, bytes: new Uint8Array(size), uploaded: new Date('2026-10-14T00:00:00Z'), customMetadata: {},
+    })
+    primer(userId, 'ab'.repeat(12), 'outline-0', 3000)
+    primer(userId, 'ab'.repeat(12), 'outline-1', 2000)
+    primer(userId, 'cd'.repeat(12), 'all', 1000)
+    primer(otherUser, 'ab'.repeat(12), 'all', 1000)
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.r2.ownBookPrimers).toEqual([{ bookHex: 'ab'.repeat(12), units: 2, bytes: 5000 }, { bookHex: 'cd'.repeat(12), units: 1, bytes: 1000 }])
+    // Primers are not books.
+    expect(exported.r2.userBooks).toHaveLength(3)
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/`))).toEqual([])
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${otherUser}/primers/`))).toHaveLength(1)
+  })
+
   it('exports a PDF\'s page place with the EPUB places and deletes both with the account', async () => {
     const w = world()
     const place = (owner: string, hex: string, customMetadata: Record<string, string>) => w.userBooks.objects.set(`u/${owner}/places/${hex}`, {
