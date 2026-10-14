@@ -1,6 +1,6 @@
 # Margin reader: the prompts
 
-Binding text for every new action. Each one is a **Worker-built companion intent** in `app/src/companion/companionRequest.ts`, the same pattern as `explain` and `define` today: the reader sends `{ intent, context, selection }`, the Worker builds the system prompt and the one user turn, and the client never sends a prompt. Reuse the existing shared rules exactly as `buildLabAskInstructions` does (no praise, data-not-instructions, spoiler boundary, authorship note). Only the action text below is new.
+Binding text for every new action, for the **PDF reader only** for now; the book reader does not change. Each one is a **Worker-built companion intent** in `app/src/companion/companionRequest.ts`, the same pattern as `explain` and `define` today: the reader sends `{ intent, context, selection }`, the Worker builds the system prompt and the one user turn, and the client never sends a prompt. Reuse the existing shared rules exactly as `buildLabAskInstructions` does (no praise, data-not-instructions, spoiler boundary, authorship note). Only the action text below is new.
 
 ## Shared additions
 
@@ -16,9 +16,21 @@ The client renders each `{…}` as a citation tag (system font 11px, wash fill, 
 
 **Format.** Plain prose. No headings, no bullet characters, no Markdown except where a prompt asks for JSON.
 
-## Explain (unchanged)
+## Explain
 
-Keep `LAB_EXPLAIN_PROMPT`. Its first paragraph is already "one sentence, at most 25 words", which becomes the bottom line. Add only the PDF citation rule.
+The PDF reader keeps its own Explain request in `reader.js`: the passage image, the page context, and "trust the image over the extracted text". Change only its wording so that it opens with a bottom line. Replace "2 to 4 short paragraphs, no preamble, no headings." with:
+
+```
+First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs: what it says, what it means here, and any notation or terms. No preamble, no headings.
+```
+
+Add the PDF citation rule. Do not change the book reader's `LAB_EXPLAIN_PROMPT`.
+
+**Images for every passage action.** Simplify, Fact-check, Counterpoint, Quiz me and bar Ask send the passage image the way Explain does. Each of their prompts adds this line when an image is attached:
+
+```
+The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.
+```
 
 ## Simplify — new intent `simplify`
 

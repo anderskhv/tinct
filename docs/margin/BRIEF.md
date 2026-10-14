@@ -19,20 +19,26 @@ Where these differ from older docs, these win. The shared chat thread from #376 
 
 ## Scope and order
 
+**PDF reader only.** Anders decided on 14 October to ship this in the PDF reader first, to reduce risk. Do not change the book reader: not `SelectionPopup.tsx`, not `LabApp.tsx`, and not the book reader's chat, menu or Explain. The PDF reader's menu lives in `public/lab/addbook/js/reader.js` (the "Selection: Explain / Chat / Copy" block); change it there. The new Worker intents are additive, and books never call them.
+
 Ship in four PRs, each deployable on its own and each reported to Anders with screenshots.
 
-| PR | Contents | Readers |
-|---|---|---|
-| 1 | Selection menu, phone bar, More, Define card with the dictionary, highlight default, the new actions and their prompts | Book reader and PDF reader. In the book reader, results open where Explain opens today until the book layout gets its margin. |
-| 2 | Margin column: cards, leader lines, crowding, whole-PDF foot, narrow-window marks; phone bottom cards for answers and chat | PDF reader |
-| 3 | Before you start: trigger, primer, Quiz me from the primer | PDF reader |
-| 4 | Polish pass against the mockup, e-ink, keyboard, accessibility audit | PDF reader |
+| PR | Contents |
+|---|---|
+| 1 | Selection menu, phone bar, More, Define card with the dictionary, highlight default, the new actions and their Worker intents |
+| 2 | Margin column: cards, leader lines, crowding, whole-PDF foot, narrow-window marks; phone bottom cards for answers and chat |
+| 3 | Before you start: trigger, primer, Quiz me from the primer |
+| 4 | Polish pass against the mockup, e-ink, keyboard, accessibility audit |
 
-The book reader's own margin layout, with Two page and Compare as alternatives, is a later brief. Do not start it.
+In PR 1, before the margin exists, results open in the PDF reader's existing chat dock, as Explain does today. The book reader gets these changes in a later brief, together with its margin layout. Do not start it.
+
+**Keep the passage picture.** The PDF reader's Explain sends an image of the selected passage, because extracted PDF text garbles equations. Every new action that works on a passage (Simplify, Fact-check, Counterpoint, Quiz me, Ask from the bar) sends the same image and the same "trust the image over the extracted text" note.
+
+**Define in the PDF reader.** The PDF reader is a static page. It can read the same dictionary files the app uses (`/data/dict/{letter}.json` and `archaic.json`) through a small loader that mirrors `services/dictionary.ts`, with the same normalisation and the same caching for offline use.
 
 ## 1. Selection menu
 
-**Items, in order:** Ask (with a blinking caret), separator, Explain, Simplify, More (three dots), separator, highlight dot, note (folded-page icon). Explain and Simplify are words without icons. There is no Talk item. This replaces today's Explain, Chat, Highlight, Copy, Share row in `SelectionPopup.tsx`.
+**Items, in order:** Ask (with a blinking caret), separator, Explain, Simplify, More (three dots), separator, highlight dot, note (folded-page icon). Explain and Simplify are words without icons. There is no Talk item. This replaces the PDF reader's Explain, Chat, Highlight, Copy row in `reader.js`.
 
 **Placement on desktop:** 56px above the selection's first line, left edge aligned 20px left of the selection start, clamped 16px inside the reader. The tip points at the selection. If there is less than 64px above the selection, show the bar 12px below the last line with the tip up.
 
@@ -168,7 +174,8 @@ It has been run against `mockup.html` in Paper and Night: zero problems. It catc
 
 ## Must not change
 
-- **Reading position:** it survives every action, card and resize; follow the position invariants in CLAUDE.md. Opening or closing the column must not move the reader's place on the page.
+- **Reading position:** it survives every action, card and resize; follow the position invariants in CLAUDE.md.
+- **The book reader:** no file under `src/lab/` or `src/components/reader/` changes, except shared Worker and companion code that books do not call. Opening or closing the column must not move the reader's place on the page.
 - **The PDF stays the PDF:** it is never re-rendered as text. Selection comes from the PDF text layer.
 - **Visual rules:** no monospace, no capitals-only labels, and no teal accent in any of these components.
 
@@ -176,7 +183,8 @@ It has been run against `mockup.html` in Paper and Night: zero problems. It catc
 
 - **Layout check:** `layout-check.mjs` returns no problems for every combination in the stress matrix, in CI.
 - **Fixture pairs:** fixture screenshots beside the mockup frames, Paper and Night, for every component in the "mandatory" list, attached to each PR.
-- **Real readers:** screenshots in a real book and a real technical PDF, at 1440×900 and 390×844, in Paper, Book, Night and e-ink.
+- **Real readers:** screenshots in a real technical PDF and a text-heavy PDF, at 1440×900 and 390×844, in Paper, Book, Night and e-ink.
+- **Books untouched:** a screenshot of the book reader's selection menu before and after each PR shows no change, and its tests are unchanged.
 - **Desktop selection:**
   - Typing with a selection opens Ask without a click.
   - One-word selections open Define with dictionary senses, offline too, as checked with the network off.
