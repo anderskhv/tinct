@@ -4,6 +4,7 @@ import { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
 import { IDLE_VOICE_SNAPSHOT, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/session'
 import type { AssistantPace } from '../lab/labAsk'
 import { nearbyParagraphWindow } from '../voice/context'
+import { holdScreenWakeLock } from '../lab/wakeLock'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
 
 let voiceMessageId = 0
@@ -127,6 +128,14 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       controllerRef.current = null
     }
   }, [])
+
+  // The phone must not auto-lock during Talk: iOS stops a web page's microphone
+  // while locked. Held for exactly as long as the session is active.
+  useEffect(() => {
+    if (!ui.isActive) return
+    const hold = holdScreenWakeLock()
+    return () => hold.release()
+  }, [ui.isActive])
 
   const buildContext = useCallback((): VoiceReaderContext => {
     const opts = optionsRef.current
