@@ -54,6 +54,26 @@ describe('reader boot script', () => {
     expect(sessionStorage.getItem('tinct:lab-reader-handoff')).toBe(HANDOFF)
   })
 
+  it('preloads a chapter deep link’s opening text, as the app will open it', () => {
+    page('/reader?book=odyssey&chapter=3')
+    runBootScript()
+    const expected = readerBootPreloads({ bookId: 'odyssey', primaryEditionKey: 'modern-en', chapterNumber: 3 }, { version: 'v-test', shardedEditionIds: CHAPTER_SHARDED_EDITION_IDS })
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(expected)
+    page('/reader?book=bible&chapter=1')
+    runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(
+      readerBootPreloads({ bookId: 'bible', primaryEditionKey: 'bsb-en', chapterNumber: 1 }, { version: 'v-test', shardedEditionIds: CHAPTER_SHARDED_EDITION_IDS }),
+    )
+  })
+
+  it('a library handoff wins over the address', () => {
+    page('/reader?book=odyssey&chapter=3')
+    sessionStorage.setItem('tinct:lab-reader-handoff', HANDOFF)
+    runBootScript()
+    const expected = readerBootPreloads(readerBootHandoff(HANDOFF)!, { version: 'v-test', shardedEditionIds: CHAPTER_SHARDED_EDITION_IDS })
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(expected)
+  })
+
   it('preloads the default reading face', () => {
     runBootScript()
     const font = preloads().find(link => link.as === 'font')

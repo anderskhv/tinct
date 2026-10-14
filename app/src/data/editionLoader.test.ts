@@ -41,7 +41,7 @@ describe('editionLoader chapter shards', () => {
             { number: 1, title: 'One', path: 'ch0001.json', paragraphCount: 1 },
             { number: 2, title: 'Two', path: 'ch0002.json', paragraphCount: 1 },
             { number: 3, title: 'Three', path: 'ch0003.json', paragraphCount: 1 },
-            { number: 4, title: 'Four', path: 'ch0004.json', paragraphCount: 1 },
+            { number: 4, title: 'Four', path: 'ch0004.json', paragraphCount: 1, wordCount: 57 },
           ],
         })
       }
@@ -67,6 +67,9 @@ describe('editionLoader chapter shards', () => {
     ])
     expect(data.chapters[1]).toMatchObject({ kinds: ['heading'], links: [[0, 0, 1, 'https://example.org/']] })
     expect(data.chapters[0].kinds).toBeUndefined()
+    // A chapter outside the window keeps the word count its manifest records (the book-page estimate weighs by it).
+    expect(data.chapters[3].wordCount).toBe(57)
+    expect(data.chapters[0].wordCount).toBeUndefined()
     expect(requested.some(url => url.includes('/data/editions/anna-karenina-modern-en.json'))).toBe(false)
   })
 

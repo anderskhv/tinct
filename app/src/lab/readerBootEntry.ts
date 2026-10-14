@@ -11,6 +11,7 @@ import {
   READER_BOOT_HANDOFF_KEY,
   READER_BOOT_PREFS_KEY,
   readerBootEink,
+  readerBootDeepLink,
   readerBootHandoff,
   readerBootPositionToken,
   readerBootPreloads,
@@ -19,6 +20,9 @@ import {
   LAB_PHONE_QUERY,
   readerBootUsesDefaultFace,
 } from './readerBoot'
+
+/** Inlined by scripts/readerBootScript.ts: books whose deep-link default is not modern-en. */
+declare const __READER_BOOT_PRIMARY_EXCEPTIONS__: Readonly<Record<string, string>>
 
 function read(storage: () => Storage, key: string): string | null {
   try {
@@ -61,7 +65,9 @@ try {
       root.style.colorScheme = theme === 'dark' ? 'dark' : 'light'
       root.style.backgroundColor = LAB_THEME_PAPER[theme]
     }
+    // A library handoff wins over the address, as in the app (consumeLabReaderHandoffForPage).
     const handoff = readerBootHandoff(read(() => sessionStorage, READER_BOOT_HANDOFF_KEY))
+      ?? readerBootDeepLink(location.search, __READER_BOOT_PRIMARY_EXCEPTIONS__)
     if (handoff) {
       for (const href of readerBootPreloads(handoff, {
         version: __BUILD_VERSION__,

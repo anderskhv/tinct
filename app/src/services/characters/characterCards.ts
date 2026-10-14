@@ -1,3 +1,5 @@
+import { editionWholeUrl } from '../../data/editionUrls'
+import { CHAPTER_SHARDED_EDITION_IDS } from '../../data/editionShardRegistry'
 export interface PassagePoint { chapterNumber: number; paragraphIndex: number; offset: number }
 interface Snapshot { availableAt: PassagePoint; name: string; subtitle: string; body: string }
 interface Character { id: string; kind: string; storyRole: string; roleVisibleAt: PassagePoint; firstMention: PassagePoint; snapshots: Snapshot[] }
@@ -168,14 +170,42 @@ export async function verifyCharacters(asset: CharacterAsset, bookId: string, ed
   return { edition, paragraphs }
 }
 const loads = new Map<string, Promise<VerifiedCharacters | null>>()
+/** One request per package URL: a book whose package covers both editions is asked for once, not once per edition. */
+const assetLoads = new Map<string, Promise<CharacterAsset | null>>()
+function loadAsset(url: string): Promise<CharacterAsset | null> {
+  if (!assetLoads.has(url)) {
+    const pending = fetch(url).then(response => (response.ok ? response.json() as Promise<CharacterAsset> : null)).catch(() => null)
+    assetLoads.set(url, pending)
+    // A failed request is asked again by the next reader of the package.
+    void pending.then(asset => { if (!asset) assetLoads.delete(url) })
+  }
+  return assetLoads.get(url)!
+}
+/**
+ * The whole edition the package is checked against. For an edition the reader
+ * itself reads whole, this is the reader's own URL (editionUrls.ts, with the
+ * build version the edition loader appends), so the copy it already
+ * downloaded serves the check from the browser cache instead of a second
+ * download under another tag. A chapter-sharded edition (the Bible, the long
+ * novels) is read by chapter, so its whole file is fetched only here, under
+ * the package's release revision, which stays cached across app releases.
+ * Either tag changes when the text can, so neither is an immutable old copy.
+ */
+const SHARDED = new Set<string>(CHAPTER_SHARDED_EDITION_IDS)
+function editionTextUrl(bookId: string, editionKey: string): string {
+  const version = bookId === 'bible' || SHARDED.has(`${bookId}-${editionKey}`)
+    ? characterReleases[bookId].revision
+    : typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : 'dev'
+  return editionWholeUrl(bookId, editionKey, version)
+}
 export function loadCharacters(bookId?: string, editionKey?: string): Promise<VerifiedCharacters | null> {
   if (!bookId || !editionKey || !supportedEditions(bookId)?.includes(editionKey)) return Promise.resolve(null)
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`${characterAssetPath(bookId, editionKey)}?v=${characterReleases[bookId].revision}`), fetch(`/data/editions/${bookId}-${editionKey}.json?v=${characterReleases[bookId].revision}`)])
-      if (!asset.ok || !source.ok) return null
-      return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
+      const [asset, source] = await Promise.all([loadAsset(`${characterAssetPath(bookId, editionKey)}?v=${characterReleases[bookId].revision}`), fetch(editionTextUrl(bookId, editionKey))])
+      if (!asset || !source.ok) return null
+      return await verifyCharacters(asset, bookId, editionKey, await source.arrayBuffer())
     } catch { return null }
   })())
   return loads.get(key)!
