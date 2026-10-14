@@ -15,6 +15,10 @@
  *   PUT    /api/user-books/marks/{bookHex}
  *                                     a PDF's highlights and notes, versioned the
  *                                     same way (the reader merges on a 409)
+ *   GET    /api/user-books/cards/{bookHex}
+ *   PUT    /api/user-books/cards/{bookHex}
+ *                                     the margin's kept answers in a PDF (cards),
+ *                                     versioned the same way
  *
  * Storage is the private R2 bucket USER_BOOKS (never AUDIO_BUCKET, which is
  * public). Every key is `u/{userId}/{fileId}`: the user id comes from the
@@ -58,6 +62,14 @@
  * the newer edit winning) and writes again, so nothing is lost. Only a PDF
  * this account keeps has marks; deleting the book deletes them, and account
  * deletion takes the whole `u/{userId}/` prefix (account export lists them).
+ *
+ * The margin's cards in an own PDF (docs/margin/BRIEF.md §3: the answers the
+ * reader kept beside a passage: Explain, Simplify, Ask threads, Define,
+ * Fact-check, Counterpoint and Quiz me) are kept the same way, one JSON object
+ * per book at `u/{userId}/cards/{bookHex}`: each card's id, kind, page, its
+ * passage's boxes and text, its turns (the reader's questions and the answers)
+ * and the action's own data (a quiz's questions and marks, a definition's
+ * senses); removals as tombstones. Deleted with the book and with the account.
  *
  * Catch me up on an own book (routes/ownCatchUp.ts) keeps its cumulative
  * recap the same way, under `u/{userId}/recaps/{bookHex}/`: deleted with the
@@ -168,6 +180,11 @@ export function ownPlaceKey(userId: string, bookHex: string): string {
 /** Where the highlights and notes of one own PDF live: inside the owner's private prefix only. */
 export function ownMarksKey(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}marks/${bookHex}`
+}
+
+/** Where the margin's cards of one own PDF live: inside the owner's private prefix only. */
+export function ownCardsKey(userId: string, bookHex: string): string {
+  return `${userBooksPrefix(userId)}cards/${bookHex}`
 }
 
 /** Where the small image of one own book's cover lives: inside the owner's private prefix only. */
@@ -461,7 +478,7 @@ async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, use
     const bookHex = sha256.slice(0, USER_BOOK_HEX_LENGTH)
     await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
     await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
-    await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex), ownMarksKey(userId, bookHex)])
+    await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex), ownMarksKey(userId, bookHex), ownCardsKey(userId, bookHex)])
     // An OCR job stops and gives back what it held (with job.json gone it would stop on its own too).
     if (env.OWN_OCR) await env.OWN_OCR.getByName(await ocrCoordinatorName(userId, bookHex)).cancel().catch(() => null)
     await purgePrefix(bucket, ownOcrPrefix(userId, bookHex))
@@ -790,13 +807,113 @@ export function readMarks(value: unknown): Array<OwnMark | OwnMarkGone> | null {
   return out
 }
 
-async function storedMarks(bucket: R2Bucket, key: string): Promise<{ marks: Array<OwnMark | OwnMarkGone>; rev: number; etag: string | null }> {
+/** A kept answer in the margin (a card): its passage, its turns and its action's data. */
+export type OwnCard = {
+  id: string
+  kind: OwnCardKind
+  page: number
+  rects: number[][]
+  text: string
+  turns: Array<{ role: 'user' | 'assistant'; content: string; at?: number; display?: string }>
+  data?: Record<string, unknown>
+  at: number
+  u?: number
+}
+export type OwnCardKind = 'explain' | 'simplify' | 'ask' | 'define' | 'factcheck' | 'counterpoint' | 'quiz'
+/** Cards and removals per book. */
+export const MAX_CARDS = 2000
+const CARD_KINDS = new Set<string>(['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz'])
+const CARD_TURNS = 40
+const CARD_CONTENT = 12_000
+const CARD_DATA_BYTES = 16_000
+
+/** A set of cards from a request body or the store, normalised to the stored shape; null when any is out of shape. */
+export function readCards(value: unknown): Array<OwnCard | OwnMarkGone> | null {
+  if (!Array.isArray(value) || value.length > MAX_CARDS) return null
+  const out: Array<OwnCard | OwnMarkGone> = []
+  const seen = new Set<string>()
+  const time = (v: unknown) => wholeNumber(v, Number.MAX_SAFE_INTEGER) && v > 0
+  for (const item of value) {
+    if (!item || typeof item !== 'object') return null
+    const c = item as Record<string, unknown>
+    if (typeof c.id !== 'string' || !MARK_ID.test(c.id) || seen.has(c.id)) return null
+    seen.add(c.id)
+    if (c.gone === true) {
+      if (!time(c.u)) return null
+      out.push({ id: c.id, gone: true, u: c.u as number })
+      continue
+    }
+    if (typeof c.kind !== 'string' || !CARD_KINDS.has(c.kind)) return null
+    if (!wholeNumber(c.page) || (c.page as number) < 1 || !time(c.at)) return null
+    if (c.u !== undefined && !time(c.u)) return null
+    if (!Array.isArray(c.rects) || !c.rects.length || c.rects.length > MARK_RECTS) return null
+    const rects: number[][] = []
+    for (const r of c.rects) {
+      if (!Array.isArray(r) || r.length !== 5 || !wholeNumber(r[0]) || r[0] < 1) return null
+      const box = r.slice(1)
+      if (!box.every(n => typeof n === 'number' && Number.isFinite(n) && n >= -1 && n <= 2)) return null
+      rects.push([r[0], ...box.map((n: number) => Math.round(n * 10_000) / 10_000)])
+    }
+    if (typeof c.text !== 'string' || c.text.length > MARK_TEXT) return null
+    const turns: OwnCard['turns'] = []
+    if (c.turns !== undefined) {
+      if (!Array.isArray(c.turns) || c.turns.length > CARD_TURNS) return null
+      for (const t of c.turns) {
+        if (!t || typeof t !== 'object') return null
+        const turn = t as Record<string, unknown>
+        if ((turn.role !== 'user' && turn.role !== 'assistant') || typeof turn.content !== 'string' || turn.content.length > CARD_CONTENT) return null
+        if (turn.at !== undefined && !time(turn.at)) return null
+        if (turn.display !== undefined && (typeof turn.display !== 'string' || turn.display.length > MARK_TEXT)) return null
+        turns.push({ role: turn.role, content: turn.content, ...(turn.at !== undefined ? { at: turn.at as number } : {}), ...(turn.display !== undefined ? { display: turn.display as string } : {}) })
+      }
+    }
+    const card: OwnCard = { id: c.id, kind: c.kind as OwnCardKind, page: c.page as number, rects, text: c.text, turns, at: c.at as number }
+    if (c.u !== undefined) card.u = c.u as number
+    if (c.data !== undefined) {
+      if (!c.data || typeof c.data !== 'object' || Array.isArray(c.data)) return null
+      const json = JSON.stringify(c.data)
+      if (json.length > CARD_DATA_BYTES) return null
+      card.data = JSON.parse(json) as Record<string, unknown>
+    }
+    out.push(card)
+  }
+  return out
+}
+
+/** One versioned set per book: the highlights (marks) or the margin's cards. */
+interface OwnSet<T> { key: (userId: string, bookHex: string) => string; read: (value: unknown) => T[] | null; field: 'marks' | 'cards' }
+const MARKS_SET: OwnSet<OwnMark | OwnMarkGone> = { key: ownMarksKey, read: readMarks, field: 'marks' }
+const CARDS_SET: OwnSet<OwnCard | OwnMarkGone> = { key: ownCardsKey, read: readCards, field: 'cards' }
+
+async function storedSet<T>(bucket: R2Bucket, key: string, read: (value: unknown) => T[] | null): Promise<{ list: T[]; rev: number; etag: string | null }> {
   const object = await bucket.get(key)
-  if (!object) return { marks: [], rev: 0, etag: null }
+  if (!object) return { list: [], rev: 0, etag: null }
   const rev = Number(object.customMetadata?.rev)
-  let marks: Array<OwnMark | OwnMarkGone> | null = null
-  try { marks = readMarks(await object.json()) } catch { marks = null }
-  return { marks: marks ?? [], rev: Number.isInteger(rev) && rev > 0 ? rev : 0, etag: object.etag }
+  let list: T[] | null = null
+  try { list = read(await object.json()) } catch { list = null }
+  return { list: list ?? [], rev: Number.isInteger(rev) && rev > 0 ? rev : 0, etag: object.etag }
+}
+async function storedMarks(bucket: R2Bucket, key: string): Promise<{ marks: Array<OwnMark | OwnMarkGone>; rev: number; etag: string | null }> {
+  const { list, rev, etag } = await storedSet(bucket, key, readMarks)
+  return { marks: list, rev, etag }
+}
+
+/** Every own PDF's cards, by book hex (account export): the kept answers in full; removals counted. */
+export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Record<string, { cards: OwnCard[]; removed: number; rev: number }>> {
+  const prefix = ownCardsKey(userId, '')
+  const out: Record<string, { cards: OwnCard[]; removed: number; rev: number }> = {}
+  let cursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix, cursor, limit: 1000 })
+    for (const object of page.objects) {
+      const hex = object.key.slice(prefix.length)
+      if (!BOOK_HEX.test(hex)) continue
+      const { list, rev } = await storedSet(bucket, object.key, readCards)
+      out[hex] = { cards: list.filter((c): c is OwnCard => !('gone' in c)), removed: list.filter(c => 'gone' in c).length, rev }
+    }
+    cursor = page.truncated ? page.cursor : undefined
+  } while (cursor)
+  return out
 }
 
 /** Every own PDF's marks, by book hex (account export). */
@@ -817,12 +934,13 @@ export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Re
   return out
 }
 
-/** `/api/user-books/marks/{bookHex}`: GET the stored set and its revision; PUT `{ marks, rev }`. */
-async function handleMarks(
+/** `/api/user-books/marks/{bookHex}` and `/cards/{bookHex}`: GET the stored set and its revision; PUT `{ marks | cards, rev }`. */
+async function handleMarks<T>(
   request: Request,
   env: UserBooksEnv,
   deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
   bookHex: string,
+  set: OwnSet<T>,
 ): Promise<Response> {
   if (!['GET', 'PUT'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
   const user = await deps.verifyUser(request)
@@ -830,32 +948,32 @@ async function handleMarks(
   if (!BOOK_HEX.test(bookHex)) return notFound(request)
   const bucket = env.USER_BOOKS
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
-  let body = null as { marks?: unknown; rev?: unknown } | null
+  let body = null as { marks?: unknown; cards?: unknown; rev?: unknown } | null
   if (request.method === 'PUT') {
     const lengthHeader = request.headers.get('content-length')
     const declared = lengthHeader !== null && /^\d+$/.test(lengthHeader.trim()) ? Number(lengthHeader) : null
     if (declared !== null && declared > MAX_MARKS_BYTES) return reply({ error: 'too_large', maxBytes: MAX_MARKS_BYTES }, 413, request)
-    if (!await deps.checkRateLimit(`user-books-marks:${user.id}`, undefined, MARK_WRITES_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+    if (!await deps.checkRateLimit(`user-books-${set.field}:${user.id}`, undefined, MARK_WRITES_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
     const bytes = await readCapped(request.body, MAX_MARKS_BYTES, declared)
     if (!bytes) return reply({ error: 'too_large', maxBytes: MAX_MARKS_BYTES }, 413, request)
     try { body = JSON.parse(new TextDecoder().decode(bytes)) as typeof body } catch { return reply({ error: 'bad_request' }, 400, request) }
   }
-  // Only a PDF this account keeps has marks.
+  // Only a PDF this account keeps has marks and cards.
   const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
   if (!book || book.type !== 'pdf') return notFound(request)
-  const key = ownMarksKey(user.id, bookHex)
-  const current = await storedMarks(bucket, key)
-  if (request.method === 'GET') return reply({ marks: current.marks, rev: current.rev }, 200, request)
-  const marks = readMarks(body?.marks)
+  const key = set.key(user.id, bookHex)
+  const current = await storedSet(bucket, key, set.read)
+  if (request.method === 'GET') return reply({ [set.field]: current.list, rev: current.rev }, 200, request)
+  const list = set.read(body?.[set.field])
   const expected = body?.rev
-  if (!marks || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
-  if (current.rev !== expected) return reply({ error: 'conflict', marks: current.marks, rev: current.rev }, 409, request)
+  if (!list || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
+  if (current.rev !== expected) return reply({ error: 'conflict', [set.field]: current.list, rev: current.rev }, 409, request)
   const rev = current.rev + 1
   // Conditional on the object read above: a write that landed in between wins, and this one is told.
-  const stored = await bucket.put(key, JSON.stringify(marks), { httpMetadata: { contentType: 'application/json' }, customMetadata: { rev: String(rev) }, ...(current.etag ? { onlyIf: { etagMatches: current.etag } } : {}) })
+  const stored = await bucket.put(key, JSON.stringify(list), { httpMetadata: { contentType: 'application/json' }, customMetadata: { rev: String(rev) }, ...(current.etag ? { onlyIf: { etagMatches: current.etag } } : {}) })
   if (!stored) {
-    const latest = await storedMarks(bucket, key)
-    return reply({ error: 'conflict', marks: latest.marks, rev: latest.rev }, 409, request)
+    const latest = await storedSet(bucket, key, set.read)
+    return reply({ error: 'conflict', [set.field]: latest.list, rev: latest.rev }, 409, request)
   }
   return reply({ rev }, 200, request)
 }
@@ -956,7 +1074,8 @@ export async function handleUserBooks(
   if (rest === '/ocr' || rest.startsWith('/ocr/')) return handleOcr(request, env, deps, rest.slice('/ocr/'.length))
   const placeHex = rest === '/places' ? '' : rest.startsWith('/places/') ? rest.slice('/places/'.length) : null
   if (placeHex !== null) return handlePlaces(request, env, deps, placeHex)
-  if (rest.startsWith('/marks/')) return handleMarks(request, env, deps, rest.slice('/marks/'.length))
+  if (rest.startsWith('/marks/')) return handleMarks(request, env, deps, rest.slice('/marks/'.length), MARKS_SET)
+  if (rest.startsWith('/cards/')) return handleMarks(request, env, deps, rest.slice('/cards/'.length), CARDS_SET)
   if (rest === '/covers' || rest.startsWith('/covers/')) return handleCover(request, env, deps, rest.slice('/covers/'.length))
   const fileId = rest === '' || rest === '/' ? null : rest.slice(1)
   const allowed = fileId === null ? ['GET', 'POST'] : ['GET', 'DELETE']
