@@ -10,7 +10,7 @@ import { COMPANION_EFFORT_TYPED, COMPANION_EFFORT_VOICE, COMPANION_MODEL, type C
 import { libraryAssistantSystem, type LibraryCatalogue, type LibraryShelf } from '../lab/libraryLibrarian'
 import type { ChapterChatAction } from '../types'
 import { parseAuthorship } from './authorship'
-import { buildChapterChatInstructions, parseChapterChatAction } from './chapterChatPrompt'
+import { buildChapterChatInstructions, parseChapterChatAction, type PrimerChapterAction } from './chapterChatPrompt'
 import { buildLabAskInstructionParts, type LabAskContext, type LabAskInstructionOptions, type LabAskInstructionParts, type ShownExplanation } from './labAskPrompt'
 import {
   COUNTERPOINT_PROMPT,
@@ -24,6 +24,7 @@ import {
   factcheckPrompt,
   quizPrompt,
 } from './marginPrompts'
+import { PRIMER_MAX_TOKENS, buildPrimerInstructions, primerPages, primerUserTurn } from './primerPrompt'
 
 /**
  * `simplify` … `quiz_check` are the margin reader's actions (docs/margin/PROMPTS.md),
@@ -56,9 +57,12 @@ export interface CompanionRequest {
   selection?: string
   /** Explain fetched ahead of a tap (the reader may never ask): metered as `explain_speculative`, never against an allowance. */
   speculative?: boolean
-  /** Chapter action; `target` carries the next chapter's paragraphs for `prepare`. */
+  /**
+   * Chapter action; `target` carries the next chapter's paragraphs for `prepare`.
+   * `primer` (Before you start) is a user's own PDF only: see parsePrimerRequest.
+   */
   chapter?: {
-    action: ChapterChatAction
+    action: ChapterChatAction | PrimerChapterAction
     target?: string[]
     activity?: { questions: string[]; highlights: string[] }
   }
@@ -101,6 +105,16 @@ export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = O
   quiz: 700,
   quiz_check: 150,
 })
+
+/** Before you start: the request is a primer on a user's own PDF. */
+export function isPrimerRequest(request: CompanionRequest): request is CompanionRequest & { chapter: { action: PrimerChapterAction } } {
+  return request.intent === 'chapter' && request.chapter?.action.kind === 'primer'
+}
+
+/** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's. */
+export function companionMaxTokens(request: CompanionRequest): number {
+  return isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent]
+}
 
 /** Paragraphs on each side of the reader's place sent with Explain and Define. */
 export const COMPANION_NEARBY_PARAGRAPHS = 3
@@ -322,6 +336,23 @@ function parseShelf(raw: unknown): LibraryShelf | null {
   return { reading: ids(r.reading), saved: ids(r.saved), finished: ids(r.finished) }
 }
 
+/**
+ * Before you start on a user's own PDF: the context says `kind: 'pdf'` and
+ * carries no bookId at all (a registered book never asks for a primer, so
+ * one that does is refused), and the unit's text comes as
+ * `pages: [{ n, text }]`, marked page by page for citations. The unit title
+ * stands in for the chapter label when none is sent.
+ */
+function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, unknown>): CompanionRequest | null {
+  const c = r.context && typeof r.context === 'object' ? r.context as Record<string, unknown> : null
+  if (!c || c.kind !== 'pdf' || c.bookId !== undefined || !Array.isArray(c.pages)) return null
+  const action = parseChapterChatAction(chapter.action, null)
+  if (!action) return null
+  const parsed = parseContext({ ...c, chapterLabel: c.chapterLabel ?? action.unitTitle, pages: primerPages(c.pages), paragraphs: undefined })
+  if (!parsed?.pdf || !parsed.context.paragraphs.some(page => /^<page n="[^"]*">\n\S/.test(page))) return null
+  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true }
+}
+
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
 export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (!raw || typeof raw !== 'object') return null
@@ -332,6 +363,9 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     const lib = r.library && typeof r.library === 'object' ? r.library as Record<string, unknown> : {}
     const contextBookId = typeof lib.contextBookId === 'string' && ID_RE.test(lib.contextBookId) ? lib.contextBookId : null
     return { intent, library: { contextBookId, shelf: parseShelf(lib.shelf) } }
+  }
+  if (intent === 'chapter' && r.chapter && typeof r.chapter === 'object' && (r.chapter as { action?: { kind?: unknown } }).action?.kind === 'primer') {
+    return parsePrimerRequest(r, r.chapter as Record<string, unknown>)
   }
   const parsed = parseContext(r.context)
   if (!parsed) return null
@@ -450,6 +484,8 @@ export function buildCompanionSystem(request: CompanionRequest, extras: Companio
     case 'chapter': {
       const chapter = request.chapter!
       const context = request.context!
+      // Before you start (a user's PDF only): its own builder, so a book's chapter actions are untouched.
+      if (chapter.action.kind === 'primer') return buildPrimerInstructions(chapter.action, context)
       const target = chapter.action.kind === 'prepare' ? chapter.target ?? [] : context.paragraphs
       return buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)
     }
@@ -480,6 +516,7 @@ function tagData(value: string): string {
 
 /** Explain, Define and the margin actions carry no conversation: the one user turn is built here. */
 export function companionSelectionMessage(request: CompanionRequest): string | null {
+  if (isPrimerRequest(request)) return primerUserTurn(request.chapter.action)
   switch (request.intent) {
     case 'define':
       return `${request.pdf ? PDF_CONTEXTUAL_LOOKUP_PROMPT : CONTEXTUAL_LOOKUP_PROMPT}\n<word>${request.selection}</word>`

@@ -18,7 +18,7 @@ import { isValidUUID } from '../lib/security'
 import { supabaseAuthAdminUser, supabaseDelete, supabaseGet, type SupabaseEnv } from '../lib/supabase'
 import { kvKey as chatHistoryKvKey } from './labChatHistory'
 import { kvKey as positionKvKey } from './labPosition'
-import { listOwnCards, listOwnCovers, listOwnMarks, listOwnPlaces, listUserBooks, purgeUserBooks } from './userBooks'
+import { listOwnCards, listOwnCovers, listOwnMarks, listOwnPlaces, listOwnPrimers, listUserBooks, purgeUserBooks } from './userBooks'
 import { listProfileImages, purgeProfileImages } from './profiles'
 import type { OwnOcrCoordinator } from '../ownOcrCoordinator'
 import { listOwnOcrJobs, ocrCoordinatorName, ocrPagesName, ocrUserName, ownOcrBooks } from '../lib/ownOcr'
@@ -29,7 +29,7 @@ export type AdminAccountsEnv = SupabaseEnv & {
   READER_POSITION?: DurableObjectNamespace<ReaderPositionCoordinator>
   RECAP_PREPARATION?: DurableObjectNamespace<RecapPreparationCoordinator>
   SHARE_STORE?: DurableObjectNamespace<ShareStore>
-  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/, PDF highlights and notes under u/{userId}/marks/ and the small images of their covers under u/{userId}/covers/ (routes/userBooks.ts). */
+  /** Readers' own PDF/EPUB files, keys u/{userId}/{fileId}, their narration under u/{userId}/narration/, Catch me up recaps under u/{userId}/recaps/ and reading places under u/{userId}/places/, PDF highlights and notes under u/{userId}/marks/, the margin's cards (kept answers) under u/{userId}/cards/, the small images of their covers under u/{userId}/covers/ and Before you start primers of own PDFs under u/{userId}/primers/ (routes/userBooks.ts). */
   USER_BOOKS?: R2Bucket
   /** Own-book narration keeps one spend object per account, `own-user:{userId}` (routes/ownBookNarration.ts). */
   NARRATION_COORDINATOR?: DurableObjectNamespace<NarrationCoordinator>
@@ -388,6 +388,10 @@ export async function handleAdminExportUser(request: Request, env: AdminAccounts
     // Catch me up recaps of own books (one object per finished chapter, one for the chapter in progress): counted, never the text.
     ownBookRecaps: env.USER_BOOKS
       ? await attempt('r2 own-book recaps', () => prefixSummary(env.USER_BOOKS!, `u/${account.userId}/recaps/`))
+      : null,
+    // Before you start primers of own PDFs (AI text about the reader's own file): counted per book, never the text.
+    ownBookPrimers: env.USER_BOOKS
+      ? await attempt('r2 own-book primers', () => listOwnPrimers(env.USER_BOOKS!, account.userId))
       : null,
     // Text recognised from scanned own PDFs: each job's book hex, page count, state and dates, never the text or images.
     ownOcr: env.USER_BOOKS
