@@ -121,6 +121,51 @@ The card layouts are in mockup section 6. The prompts are in PROMPTS.md.
 | Up/Down in More | Move between rows |
 | Return in More | Choose the row |
 
+## Layout QA (mandatory, every PR)
+
+Overflow, clipped text and overlapping cards are failures, not polish. Every PR must pass an automated check, then a stress matrix.
+
+**The check.** `docs/margin/layout-check.mjs` is a Playwright helper that reports five problems, per frame:
+- **overflow:** content wider or taller than its box.
+- **clipped:** text cut off at a container edge.
+- **offscreen:** a bar, menu, card or sheet sticking out of the reader.
+- **overlap:** two cards intersecting, or a card intersecting the "more" row or the column foot.
+- **squeezed:** a tap target under 28px.
+
+It has been run against `mockup.html` in Paper and Night: zero problems. It catches deliberately injected overlap, offscreen and overflow faults. Add it to the e2e suite as a test that must return an empty list.
+
+**The guards.** Keep the "guards" block at the end of `margin-reference.css`. It makes long words wrap and wide maths scroll inside its own box. It stops an open card from running past the column foot, keeps menus inside the reader, and keeps the phone card clear of the passage and the keyboard.
+
+**Placement logic.** Card placement is a pure function, `(passages, cardHeights, columnHeight) → positions + gathered`, with unit tests. Its invariants:
+- No two boxes intersect.
+- Order follows the page.
+- Every gap is at least 14px.
+- Nothing ends within 46px of the foot.
+- The open card is never gathered.
+
+**The stress matrix.** Run the check, and take a screenshot, for every combination below. Attach a summary table to the PR: combination, problems found (must be 0), screenshot link.
+
+| Dimension | Values |
+|---|---|
+| Viewport | 1440×900, 1280×800, 1181×800 (just wide enough for the column), 1024×768 (marks), 430×932, 390×844, 360×740 |
+| Look | Paper, Book, Night, e-ink |
+| Reader text size | smallest and largest setting |
+| Browser zoom (desktop) | 100%, 125% |
+
+| Content case | What must hold |
+|---|---|
+| 10 cards on one page, two passages on the same line | No overlap; the extra cards gather into the "more" row; leader lines go to the right cards. |
+| Passages at the very top and very bottom of a page | Cards stay inside the column; none sits under the top bar. |
+| A 600-word answer | The open card scrolls inside; the label and follow-up line stay visible. |
+| A 60-character word or a long URL in the question, answer or sources | It wraps; nothing widens. |
+| A wide display equation in an answer | It scrolls sideways inside the answer only. |
+| Fact-check with six sources | The source row wraps onto more lines. |
+| Selection touching each screen edge (top, bottom, left, right) | The bar and More stay inside the reader, flipping above or below as needed. |
+| A selection spanning two PDF pages | One bar, placed at the first line. |
+| Define on the last line of the screen | The card flips above the word. |
+| Phone: bottom card with the keyboard open | The follow-up line stays above the keyboard; the passage stays visible. |
+| Scrolling while a card is open, and resizing across 1180px | Leader lines stay attached; cards turn into marks and back without jumping. |
+
 ## Must not change
 
 - **Reading position:** it survives every action, card and resize; follow the position invariants in CLAUDE.md. Opening or closing the column must not move the reader's place on the page.
@@ -129,6 +174,7 @@ The card layouts are in mockup section 6. The prompts are in PROMPTS.md.
 
 ## Acceptance
 
+- **Layout check:** `layout-check.mjs` returns no problems for every combination in the stress matrix, in CI.
 - **Fixture pairs:** fixture screenshots beside the mockup frames, Paper and Night, for every component in the "mandatory" list, attached to each PR.
 - **Real readers:** screenshots in a real book and a real technical PDF, at 1440×900 and 390×844, in Paper, Book, Night and e-ink.
 - **Desktop selection:**

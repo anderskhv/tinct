@@ -89,8 +89,9 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 /* ---------- margin column ---------- */
 .mr-col { position: absolute; width: 380px; }            /* left = page right edge + 56px */
 .mr-card { position: absolute; left: 0; right: 0; font-family: var(--mr-gara); color: var(--mr-ink); }
-.mr-card__label { display: flex; gap: 8px; align-items: baseline; font-size: 15px; font-style: italic; color: var(--mr-muted); }
-.mr-card__close { margin-left: auto; font: 13px var(--mr-ui); font-style: normal; color: var(--mr-faint); }
+.mr-card__label { display: flex; gap: 8px; align-items: center; font-size: 15px; font-style: italic; color: var(--mr-muted); }
+.mr-card.is-open .mr-card__label { min-height: 28px; margin: -4px 0; }   /* room for the 28px close target */
+.mr-card__close { margin-left: auto; min-width: 28px; min-height: 28px; display: grid; place-items: center; font: 13px var(--mr-ui); font-style: normal; color: var(--mr-faint); }   /* 28px hit area, 13px glyph */
 .mr-card__count { margin-left: auto; font: 12px var(--mr-ui); font-style: normal; color: var(--mr-faint); }   /* "1 of 3" */
 /* folded */
 .mr-card.is-folded { padding: 2px 0 2px 14px; box-shadow: inset 1.5px 0 0 var(--mr-hair); }
@@ -159,3 +160,22 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-sheet__grab { width: 36px; height: 5px; margin: 0 auto 4px; border-radius: 3px; background: var(--mr-hair); }
 .mr-sheet .mr-answer { font-size: 17px; }
 .mr-sheet .mr-you { font-size: 16px; padding: 8px 14px; }
+
+/* ---------- guards: these prevent the common breakages; keep them ---------- */
+/* Long words, URLs and formulas wrap instead of pushing the card wider. */
+.mr-answer, .mr-you, .mr-question, .mr-quote, .mr-card__text, .mr-primer, .mr-define__senses, .mr-sources { overflow-wrap: anywhere; min-width: 0; }
+/* Display maths, code and tables scroll sideways inside their own box, never the card. */
+.mr-answer :is(pre, table, .katex-display, math[display="block"]) { display: block; max-width: 100%; overflow-x: auto; }
+/* An open card never runs past the column foot: its body scrolls, the label and follow-up line stay put.
+   Structure of an open card: label, .mr-card__body (quote, bubble, answer, extras, copy), follow-up line.
+   --mr-col-height and --mr-foot-height are set on .mr-col by the layout code from the measured column. */
+.mr-card.is-open { max-height: calc(var(--mr-col-height) - var(--mr-foot-height) - 28px); }
+.mr-card.is-open .mr-card__body { overflow-y: auto; overscroll-behavior: contain; min-height: 0; }
+/* The bar and menus never leave the reader: clamp in JS to 16px inside the frame (10px on phone) and flip
+   above/below when there is no room. Width never exceeds the frame. */
+.mr-bar, .mr-pbar, .mr-more, .mr-pmore, .mr-define { max-width: calc(100% - 32px); }
+.mr-bar__item.is-text, .mr-more__row b { white-space: nowrap; }
+/* The question field wraps instead of growing past 520px. */
+.mr-bar.is-asking { max-width: min(520px, calc(100% - 32px)); white-space: normal; }
+/* The bottom sheet never covers the passage it answers, and respects the keyboard. */
+.mr-sheet { max-height: calc(100dvh - 120px); }
