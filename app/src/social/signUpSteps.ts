@@ -5,7 +5,8 @@
  *
  * Step 1 (create account): "1 of 3", one password field with show/hide, the
  *   new consent line above the button, stored with its wording version.
- * Step 2 (your profile): picture (a set or the initial; no uploads at launch), name
+ * Step 2 (your profile): picture (a set, a cover detail or the initial, and
+ *   an uploaded picture or background while the Worker accepts uploads), name
  *   (prefilled), who can see your reading (Friends preselected). Continue, or
  *   Skip (Only me).
  * Step 3: "Modern English or human translations?" sets New books open in.
@@ -29,14 +30,24 @@ import {
 import {
   currentBookHint,
   fetchOwnProfile,
+  ownPictureView,
   paintAvatar,
   rememberNewBooksOpenIn,
+  resizePhoto,
   saveProfile,
   socialProfilesOn,
+  uploadProfileImage,
   type OwnProfile,
 } from './socialClient'
+import { CARDS_COPY } from '../cards/cardsCopy'
 
 export const SIGNUP_CONSENT_KEY = 'tinct:signup-consent'
+
+/** Stock pictures of women among the choices (Anders, 14 October 2026): Longbourn's reader and The Awakening's cover. */
+export const SIGNUP_WOMEN_PICTURES: readonly { kind: PictureKind; value: string; label: string }[] = [
+  { kind: 'set', value: 'longbourn', label: 'Longbourn' },
+  { kind: 'cover', value: 'the-awakening', label: 'The Awakening' },
+]
 
 const STYLE = `
 .auth-page.is-social[data-mode=create] .auth-eyebrow{display:none}
@@ -66,6 +77,10 @@ const STYLE = `
 .social-tick[aria-checked=true] .social-check{visibility:visible}
 .social-note{margin:10px 0 0;color:#6b645a;font-size:12px;line-height:1.45}
 .social-note[hidden]{display:none}
+.social-uploads{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;margin-top:6px}
+.social-uploads button{min-height:40px;padding:0;border:0;background:transparent;color:#625b52;font-size:12px;text-decoration:underline;cursor:pointer}
+.social-uploads button:disabled{opacity:.55;cursor:default}
+.social-uploads input{display:none}
 .social-skip{display:block;width:100%;min-height:40px;margin-top:6px;border:0;background:transparent;color:#625b52;font-size:13px;cursor:pointer}
 `
 
@@ -226,9 +241,51 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   }
   const nameInput = el('input', { name: 'profileName', type: 'text', value: profile.name, maxLength: 40, autocomplete: 'name' })
   for (const set of sets) addPicture(`Picture: ${set.label}`, { kind: 'set', value: set.id })
+  for (const woman of SIGNUP_WOMEN_PICTURES) {
+    if (!sets.some(set => woman.kind === 'set' && set.id === woman.value)) addPicture(`Picture: ${woman.label}`, { kind: woman.kind, value: woman.value })
+  }
   const initial = addPicture('Picture: your initial', { kind: 'initial', value: null })
   nameInput.addEventListener('input', () => paintAvatar(initial.avatar, pictureView('initial', null, nameInput.value || profile.name), token))
-  // No photo uploads at launch (8 Oct 2026): a set, a cover detail or the initial.
+
+  // Uploads, as on the You card, only while the Worker accepts them
+  // (SOCIAL_PHOTO_UPLOADS): saved at once, shown to others after review.
+  let uploadedPicture: { button: HTMLButtonElement; avatar: HTMLElement } | null = null
+  let backgroundUploaded = false
+  const uploads = profile.uploads === true ? el('div', { className: 'social-uploads', dataset: { socialUploads: '' } }) : null
+  if (uploads) {
+    for (const slot of ['picture', 'background'] as const) {
+      const field = el('input', { type: 'file', accept: 'image/*', tabIndex: -1 })
+      field.setAttribute('aria-hidden', 'true')
+      const label = slot === 'picture' ? CARDS_COPY.uploadPicture : CARDS_COPY.uploadBackground
+      const trigger = el('button', { type: 'button', dataset: { socialUpload: slot } }, label)
+      trigger.addEventListener('click', () => field.click())
+      field.addEventListener('change', async () => {
+        const chosen = field.files?.[0]
+        field.value = ''
+        if (!chosen) return
+        trigger.disabled = true
+        hooks.setStatus()
+        const image = await resizePhoto(chosen, slot)
+        const saved = image ? await uploadProfileImage(token, slot, image) : null
+        trigger.disabled = false
+        if (!saved?.ok) { hooks.setStatus((saved && !saved.ok && saved.message) || CARDS_COPY.saveFailed, 'error'); return }
+        profile = saved.profile
+        if (slot === 'background') { backgroundUploaded = true; return }
+        // The reader's own picture joins the choices, chosen; it is already saved.
+        if (!uploadedPicture) {
+          const avatar = el('span')
+          const button = el('button', { type: 'button', ariaLabel: CARDS_COPY.uploadPicture }, avatar)
+          button.addEventListener('click', () => choosePicture(button, { kind: 'upload', value: null }))
+          pictureButtons.push(button)
+          pictures.prepend(button)
+          uploadedPicture = { button, avatar }
+        }
+        paintAvatar(uploadedPicture.avatar, ownPictureView(profile), token)
+        choosePicture(uploadedPicture.button, { kind: 'upload', value: null })
+      })
+      uploads.append(trigger, field)
+    }
+  }
 
   const everyoneNote = el('p', { className: 'social-note', hidden: true }, 'Everyone starts once you confirm your email. Until then, friends can see you.')
   const visibilityList = tickList<Visibility>('Who can see your reading', [
@@ -244,7 +301,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const skipButton = el('button', { type: 'button', className: 'social-skip', dataset: { socialSkip: '' } }, 'Skip')
   const step2 = el('div', { className: 'social-step', dataset: { modeCopy: 'profile' }, hidden: true },
     el('h1', {}, 'Your profile'),
-    el('span', { className: 'social-label' }, 'Picture'), pictures,
+    el('span', { className: 'social-label' }, 'Picture'), pictures, ...(uploads ? [uploads] : []),
     el('label', { className: 'auth-field' }, 'Name', nameInput),
     el('span', { className: 'social-label' }, 'Who can see your reading'), visibilityList, everyoneNote,
     continueButton, skipButton)
@@ -268,9 +325,10 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     busy(true)
     hooks.setStatus()
     const body: Record<string, unknown> = { ...consentBody, name: nameInput.value, visibility, setUp: true }
-    body.picture = picture
-    // A set brings its background with it.
-    if (picture.kind === 'set') body.background = { kind: 'set', value: picture.value }
+    // An uploaded picture is saved already; any other choice is saved now.
+    if (picture.kind !== 'upload') body.picture = picture
+    // A set brings its background with it, unless the reader uploaded their own.
+    if (picture.kind === 'set' && !backgroundUploaded) body.background = { kind: 'set', value: picture.value }
     const saved = await saveProfile(token, body)
     busy(false)
     if (!saved.ok) {
