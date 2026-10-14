@@ -298,6 +298,80 @@ describe('lab bible book', () => {
     expect(line()).toContain('heavens and the earth were finished')
   })
 
+  describe('leaving a chapter read to its last page', () => {
+    const genesis1 = [
+      ['In the beginning God created the heaven and the earth.', ...Array.from({ length: 79 }, (_, i) => `g1a${i}`)].join(' '),
+      Array.from({ length: 80 }, (_, i) => `g1b${i}`).join(' '),
+      'And God made two great lights; the greater light to rule the day. ' + Array.from({ length: 70 }, (_, i) => `g1c${i}`).join(' '),
+    ]
+    const genesis2 = ['Thus the heavens and the earth were finished.', 'And on the seventh day God ended his work.']
+    const renderGenesis = () => {
+      vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input)
+        if (url.includes('bible-kjv-en/manifest.json')) return { ok: true, json: async () => ({ format: 'tinct-edition-chapters-v1', bookId: 'bible', editionKey: 'kjv-en', chapters: [{ number: 1, title: 'Genesis 1', path: 'ch0001.json' }, { number: 2, title: 'Genesis 2', path: 'ch0002.json' }] }) }
+        if (url.includes('bible-kjv-en/ch0001.json')) return { ok: true, json: async () => ({ number: 1, title: 'Genesis 1', paragraphs: genesis1 }) }
+        if (url.includes('bible-kjv-en/ch0002.json')) return { ok: true, json: async () => ({ number: 2, title: 'Genesis 2', paragraphs: genesis2 }) }
+        if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
+        return { ok: false, json: async () => ({}) }
+      }))
+      render(<LabApp pathname="/lab/phone" source={{
+        ...bibleFallbackSource(),
+        paragraphs: genesis1,
+        followParagraphs: genesis1.map((text, index) => ({ index, text })),
+        chapters: [{ number: 1, title: 'Genesis 1', path: 'ch0001.json' }, { number: 2, title: 'Genesis 2', path: 'ch0002.json' }],
+        // The full chapter list is known, so Contents lists its rows.
+        chaptersProvisional: false,
+      }} />)
+    }
+    const progress = () => screen.getByTestId('lab-chapter-progress').textContent || ''
+    const onLast = () => /^(\d+) \/ \1 of chapter/.test(progress())
+    // One turn at a time, so a slow render never turns past the end.
+    const readToLastPage = async () => {
+      for (let i = 0; i < 8 && !onLast(); i++) {
+        const before = progress()
+        fireEvent.click(screen.getByTestId('lab-page-next'))
+        await waitFor(() => expect(progress()).not.toBe(before))
+      }
+      expect(onLast()).toBe(true)
+    }
+    const jumpToGenesis2 = async () => {
+      // A turn puts the chrome away; the first press on the pill brings it back.
+      fireEvent.click(screen.getByTestId('lab-header-chapter'))
+      if (!screen.queryByTestId('lab-contents-v2')) fireEvent.click(screen.getByTestId('lab-header-chapter'))
+      fireEvent.click(await screen.findByTestId('lab-tree-chapter-2'))
+      await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+    }
+
+    it('finishes it when the reader jumps elsewhere from Contents instead of turning past the end', async () => {
+      renderGenesis()
+      await readToLastPage()
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+      await jumpToGenesis2()
+      expect(readLabPositionLocal().finished.bible).toEqual([1])
+    })
+
+    it('leaves it unfinished when the reader jumps away before its last page', async () => {
+      renderGenesis()
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+      await waitFor(() => expect(progress()).toMatch(/^2 \//))
+      expect(onLast()).toBe(false)
+      await jumpToGenesis2()
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+    })
+
+    it('leaves it unfinished when the reader turned back off the last page before jumping', async () => {
+      renderGenesis()
+      await readToLastPage()
+      fireEvent.click(screen.getByTestId('lab-page-prev'))
+      await waitFor(() => expect(onLast()).toBe(false))
+      expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('1')
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+      await jumpToGenesis2()
+      expect(readLabPositionLocal().finished.bible ?? []).toEqual([])
+    })
+  })
+
   it('labels Proverbs 16 with the biblical name, never the linear index', () => {
     // Book-wide numbering is what this checks; the Bible opens on chapter progress.
     localStorage.setItem('tinct:reader-progress-mode', JSON.stringify({ bible: 'book' }))

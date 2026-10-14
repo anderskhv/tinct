@@ -723,6 +723,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [layoutOverride])
   // The chapter the reader last entered by reading on from the one before it.
   const enteredForwardRef = useRef<number | null>(null)
+  // The chapter whose last page the reader reached by reading forward. Leaving
+  // it from there for another chapter (Contents, a highlight, a chat) finishes
+  // it, the same as turning past that page.
+  const readToEndRef = useRef<number | null>(null)
   const [pageTurn, setPageTurn] = useState<{
     direction: 'next' | 'previous'
     nonce: number
@@ -4497,6 +4501,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
     const chapter = book.chapters.find(ch => ch.number === place.chapterNumber)!
     const remembered = chapterOnly ? recentChapterPlace(readPositionState(), bookId, chapter, prefs.primaryEdition) : null
+    if (place.chapterNumber !== book.chapterNumber && readToEndRef.current === book.chapterNumber && !temporaryHold) markChapterFinished(book.chapterNumber)
     setTocOpen(false)
     setPhoneAskOpen(false)
     setDesktopAskOpen(false)
@@ -4513,7 +4518,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       }
     }
     setRecentChapterReturn(remembered ? { ...remembered, libraryBookId: bookId } : null)
-  }, [book.bookId, book.chapterNumber, book.chapters, browseToChapter, goToChapter, handleMobileCompare, interruptHearForAsk, listen.playing, mobileCompareActive, readPositionState, prefs.primaryEdition])
+  }, [book.bookId, book.chapterNumber, book.chapters, browseToChapter, goToChapter, handleMobileCompare, interruptHearForAsk, listen.playing, markChapterFinished, mobileCompareActive, readPositionState, prefs.primaryEdition, temporaryHold])
 
   useEffect(() => {
     if (!contentsTarget || tocOpen || initialResolving) return
@@ -4869,6 +4874,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   useEffect(() => {
     if (finalPageReached && !temporaryHold && !finishedChapters.has(book.chapterNumber)) markChapterFinished(book.chapterNumber)
   }, [finalPageReached, temporaryHold, finishedChapters, book.chapterNumber, markChapterFinished])
+  // Reaching a chapter's last page by reading on arms readToEndRef; turning
+  // back off it, or arriving anywhere else, disarms it. Browsing to the end
+  // (Contents, a search) never arms it.
+  const onLastPage = !initialResolving && !book.chaptersProvisional && progressMeasured && readingPages.length > 0
+    && readingPageIndex + (desktopSpread && !openingOnRight ? 1 : 0) >= readingPages.length - 1
+  useEffect(() => {
+    if (onLastPage && (pageTurn?.direction === 'next' || (enteredForwardRef.current === book.chapterNumber && readingPageIndex === 0))) readToEndRef.current = book.chapterNumber
+    else if (readToEndRef.current !== book.chapterNumber || (!onLastPage && pageTurn?.direction === 'previous')) readToEndRef.current = null
+  }, [onLastPage, pageTurn, book.chapterNumber, readingPageIndex])
   // Social ship 3: the "Finished {book}" reading card at the end of a book (nothing while SOCIAL_FRIENDS is off).
   const finishedCard = useFinishedCard({ bookId: book.bookId || 'bible', title: book.bookTitle || 'the book', signedIn, privateBook })
 
