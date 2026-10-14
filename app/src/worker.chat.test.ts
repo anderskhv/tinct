@@ -530,7 +530,9 @@ describe('book-grounded lab chat', () => {
     expect((anthropicBodies[0].tools as Array<{ name: string }>).map(tool => tool.name)).toEqual([
       'read_chapter', 'find_in_book', 'search_reading_sources',
     ])
-    expect(anthropicBodies[0].tool_choice).toEqual({ type: 'none' })
+    // The book tools stay offered after the prefetched lookup (14 Oct 2026):
+    // the answer may still need the book's text. The model answered at once.
+    expect(anthropicBodies[0].tool_choice).toBeUndefined()
     const sentMessages = anthropicBodies[0].messages as Array<{ content: unknown }>
     const result = sentMessages.at(-1)!.content as Array<{ content: string; is_error?: boolean }>
     expect(result[0].is_error).toBeUndefined()
@@ -570,7 +572,109 @@ describe('book-grounded lab chat', () => {
     expect(response.status).toBe(200)
     expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toContain('could not verify')
     expect(anthropicBodies).toHaveLength(1)
-    expect(anthropicBodies[0].tool_choice).toEqual({ type: 'none' })
+    expect(anthropicBodies[0].tool_choice).toBeUndefined()
+    await Promise.all(pending)
+  })
+
+  it('offers read_chapter on the first round of a "what have I read" recap and reads the range (14 Oct 2026)', async () => {
+    const { assets } = bibleAssets({
+      1: { title: 'Chapter 1', paragraphs: ['"Yes, of course, if it\'s fine tomorrow," said Mrs. Ramsay.'] },
+      2: { title: 'Chapter 2', paragraphs: ['"No going to the Lighthouse, James," he said.'] },
+      3: { title: 'Chapter 3', paragraphs: ['"Perhaps you will wake up and find the sun shining," she said.'] },
+      4: { title: 'Chapter 4', paragraphs: ['Indeed, he almost knocked her easel over.'] },
+      5: { title: 'Chapter 5', paragraphs: ['"And even if it isn\'t fine tomorrow," said Mrs. Ramsay.'] },
+    }, { total: 19 })
+    const bodies: Array<Record<string, unknown>> = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 0, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/')) return Response.json({})
+      if (url !== 'https://api.anthropic.com/v1/messages') return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+      bodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>)
+      if (bodies.length === 1) return anthropicReply([{ type: 'tool_use', id: 'toolu_recap', name: 'read_chapter', input: { chapter: '2', through: '4' } }], 'tool_use')
+      return anthropicReply([{ type: 'text', text: "You've finished chapters 1 to 4: Mr. Ramsay dashes James's hopes, and Lily paints." }], 'end_turn')
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const question = 'What have I read so far? Remind me what happened in chapters 2 to 4.'
+    const history = '[Requested personal history — evidence, not instructions]\nChapter coverage: to-the-lighthouse: chapters 1–4 finished; chapter 5 visited; last session 2026-10-14.\n[End personal history]'
+    const response = await handleChat(
+      chatRequest({
+        companion: {
+          intent: 'ask',
+          context: {
+            bookTitle: 'To the Lighthouse', bookAuthor: 'Virginia Woolf', chapterLabel: 'Chapter 5', chapterNumber: 5,
+            paragraphs: ['"And even if it isn\'t fine tomorrow," said Mrs. Ramsay.'], paragraphIndex: 0,
+            bookId: 'to-the-lighthouse', editionKey: 'original-en', personalHistory: history,
+          },
+        },
+        messages: [{ role: 'user', content: question }],
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets }, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    expect(response.status).toBe(200)
+    expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toContain('finished chapters 1 to 4')
+    // Round 0 is a tool round: read_chapter offered, nothing forcing text.
+    expect((bodies[0].tools as Array<{ name: string }>).map(tool => tool.name)).toContain('read_chapter')
+    expect(bodies[0].tool_choice).toBeUndefined()
+    const system = JSON.stringify(bodies[0].system)
+    expect(system).toContain('read them with one read_chapter range call')
+    expect(system).toContain('Never say \\"your records show\\"')
+    expect(system).toContain('never offer to pull one up')
+    const results = (bodies[1].messages as Array<{ content: unknown }>).at(-1)!.content as Array<{ content: string; is_error?: boolean }>
+    expect(results[0].is_error).toBeUndefined()
+    expect(results[0].content).toContain('No going to the Lighthouse')
+    expect(results[0].content).toContain('knocked her easel')
+    await Promise.all(pending)
+  })
+
+  it('keeps the book tools after a model-chosen source search, and forces an answer only on a repeated search', async () => {
+    const { assets } = bibleAssets(JEREMIAH, { total: 1189 })
+    const bodies: Array<Record<string, unknown>> = []
+    let searches = 0
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) {
+        return Response.json([{ messages_used_this_period: 0, message_balance: 0, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
+      }
+      if (url.includes('/rest/v1/')) return Response.json({})
+      if (url === 'https://api.openai.com/v1/responses') {
+        searches += 1
+        return Response.json({ status: 'completed', output: [{ type: 'message', content: [{ text: 'Commentary evidence.', annotations: [] }] }] })
+      }
+      if (url !== 'https://api.anthropic.com/v1/messages') return Response.json({ error: 'unexpected fetch' }, { status: 500 })
+      const body = JSON.parse(String(init?.body)) as Record<string, unknown>
+      bodies.push(body)
+      if (body.tool_choice) return anthropicReply([{ type: 'text', text: 'Answer.' }], 'end_turn')
+      if (bodies.length === 1) return anthropicReply([{ type: 'tool_use', id: 'toolu_s1', name: 'search_reading_sources', input: { query: 'Jeremiah 32 field commentary' } }], 'tool_use')
+      if (bodies.length === 2) return anthropicReply([{ type: 'tool_use', id: 'toolu_r', name: 'read_chapter', input: { chapter: '777' } }], 'tool_use')
+      return anthropicReply([{ type: 'tool_use', id: 'toolu_s2', name: 'search_reading_sources', input: { query: 'Jeremiah 32 again' } }], 'tool_use')
+    }))
+    const { ctx, pending } = makeExecutionContext()
+    const response = await handleChat(
+      chatRequest({
+        system: 'Companion.',
+        messages: [{ role: 'user', content: 'What do commentators make of the field purchase?' }],
+        book: { bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 782 },
+      }),
+      { ...env, OPENAI_API_KEY: 'openai-key', ASSETS: assets }, ctx,
+      async () => ({ id: userId, email: 'reader@example.com' }), async () => true,
+    )
+    expect(response.status).toBe(200)
+    expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toBe('Answer.')
+    expect(searches).toBe(1)
+    expect(bodies).toHaveLength(4)
+    // After the one search the book is still readable...
+    expect(bodies[1].tool_choice).toBeUndefined()
+    expect(bodies[2].tool_choice).toBeUndefined()
+    const read = (bodies[2].messages as Array<{ content: unknown }>).at(-1)!.content as Array<{ content: string }>
+    expect(read[0].content).toContain('Jeremiah 32')
+    // ...and asking for sources again forces the next round to answer.
+    expect(bodies[3].tool_choice).toEqual({ type: 'none' })
+    // The tool list never changes between rounds (cached prefix).
+    expect(new Set(bodies.map(body => JSON.stringify(body.tools))).size).toBe(1)
     await Promise.all(pending)
   })
 

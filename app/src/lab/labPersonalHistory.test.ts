@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { beforeEach, expect, it, vi } from 'vitest'
-import { personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
+import { LAB_VOICE_HISTORY_INSTRUCTIONS, personalHistoryEvidence, requestsPersonalHistory } from './labPersonalHistory'
 import { writeLabBookChat } from './labChatHistory'
 vi.mock('../data/editionLoader', () => ({ loadEditionChapterList: async () => [{ number: 777, title: 'Jeremiah 32' }] }))
 // The Bible manifest's chapter titles and biblical-book sections (Ezra and Nehemiah only).
@@ -51,4 +51,12 @@ it('lists named and open books without records, and never a private book', async
  const result = await personalHistoryEvidence('Did I finish Nehemiah?', null, { openBookId: 'userbook-0123456789abcdef01234567' })
  expect(result).toContain('The Bible, Nehemiah: no chapter records (13 chapters).')
  expect(result).not.toContain('userbook-')
+})
+
+it('tells Talk to answer history naturally and read the chapters, never narrate records or offer to pull one up (14 Oct 2026)', () => {
+  expect(requestsPersonalHistory('What have I read? Remind me what happened in chapters 2 to 4.')).toBe(true)
+  expect(LAB_VOICE_HISTORY_INSTRUCTIONS).toMatch(/Never say "your records show"/)
+  expect(LAB_VOICE_HISTORY_INSTRUCTIONS).toMatch(/one get_book_passage call \(chapter_number with through_chapter_number\)/)
+  expect(LAB_VOICE_HISTORY_INSTRUCTIONS).toMatch(/never offer to pull one up/)
+  expect(LAB_VOICE_HISTORY_INSTRUCTIONS).not.toMatch(/State limits honestly/)
 })

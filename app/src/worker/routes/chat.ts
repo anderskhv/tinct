@@ -696,6 +696,10 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
   if (input.prefetchSource) writeStatus(await toolStatusText({ name: 'search_reading_sources', input: null }, input.retrieval))
   const prefetchedSource = input.prefetchSource ? await input.prefetchSource() : null
   let sourceSearchAttempted = Boolean(prefetchedSource)
+  // A second source-search call after the one allowed lookup forces the next
+  // round to answer (see the loop). The first search alone does not: the
+  // answer may still need the book itself (Anders, 14 Oct 2026).
+  let sourceSearchRepeated = false
   if (prefetchedSource) {
     messages.push({
       role: 'assistant',
@@ -712,11 +716,14 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
   }
 
   for (let round = 0; round <= MAX_TOOL_ROUNDS; round++) {
-    // Public-source lookup is deliberately bounded to one attempt. Once its
-    // result (including a failure) is in the conversation, force the next
-    // round to answer. Advertising the same unavailable tool again let the
-    // model loop on it until the stream ended with no reader-facing answer.
-    const forceText = round === MAX_TOOL_ROUNDS || sourceSearchAttempted
+    // Public-source lookup is deliberately bounded to one attempt (research()
+    // refuses a second). Book tools stay available after it, so a question
+    // that also needs the book's text can still read chapters. If the model
+    // asks for sources again anyway, the next round is forced to answer: the
+    // same unavailable tool once looped until the stream ended with no
+    // reader-facing answer. The tool list itself never changes between
+    // rounds, which keeps the cached prefix and earlier rounds valid.
+    const forceText = round === MAX_TOOL_ROUNDS || sourceSearchRepeated
     let outcome: RoundOutcome
     let response: Response
     if (round === 0 && firstResponse) {
@@ -799,7 +806,10 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
     if (calls.some(call => call.name === 'read_chapter' || call.name === 'find_in_book')) {
       input.timing.bookToolMs += Date.now() - toolStartedAt
     }
-    if (calls.some(call => call.name === 'search_reading_sources')) sourceSearchAttempted = true
+    if (calls.some(call => call.name === 'search_reading_sources')) {
+      if (sourceSearchAttempted) sourceSearchRepeated = true
+      sourceSearchAttempted = true
+    }
     messages.push({ role: 'assistant', content: outcome.content })
     messages.push({ role: 'user', content: results })
   }

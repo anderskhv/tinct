@@ -1,5 +1,5 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest'
-import { SHOWN_EXPLANATION_LABEL, buildLabTalkReference, retrieveVoicePassage } from './labDirectVoice'
+import { BOOK_PASSAGE_TOOL, SHOWN_EXPLANATION_LABEL, VOICE_PASSAGE_CHAR_BUDGET, buildLabTalkReference, retrieveVoicePassage } from './labDirectVoice'
 import { loadEditionWindow } from '../data/editionLoader'
 vi.mock('../data/editionLoader', () => ({ loadEditionWindow: vi.fn() }))
 const context = { bookId:'bible', editionKey:'kjv-en', bookTitle:'The Bible', bookAuthor:'Various', chapterLabel:'Genesis 2', chapterNumber:2, paragraphIndex:0, paragraphs:['The heavens and the earth were finished.'], readingAngle:'' }
@@ -61,5 +61,30 @@ describe('direct voice reference', () => {
       expect(instructions).toMatch(/Never mention the lookup/)
       expect(instructions).not.toMatch(/Explain .*could not be retrieved/)
     }
+  })
+  it('reads a range of earlier chapters in one call for a recap, never past the reader (14 Oct 2026)', async () => {
+    const lighthouse = { ...context, bookId: 'to-the-lighthouse', editionKey: 'original-en', chapterLabel: 'Chapter 5', chapterNumber: 5 }
+    const chapters = [1, 2, 3, 4, 5].map(number => ({ number, title: `Chapter ${number}`, paragraphs: Array.from({ length: 20 }, (_, i) => `Chapter ${number} paragraph ${i}.`) }))
+    vi.mocked(loadEditionWindow).mockResolvedValue({ chapters } as never)
+    const result = await retrieveVoicePassage(lighthouse, { chapter_number: 2, through_chapter_number: 4 })
+    const output = result.output as { ok: boolean; chapters: Array<{ chapter_number: number; paragraphs: Array<{ text: string }> }> }
+    expect(output.ok).toBe(true)
+    expect(output.chapters.map(chapter => chapter.chapter_number)).toEqual([2, 3, 4])
+    // Whole short chapters, not a six-paragraph opening.
+    expect(output.chapters.every(chapter => chapter.paragraphs.length === 20)).toBe(true)
+    expect(result.responseInstructions).toMatch(/never offer to pull up or read a chapter/)
+    expect(result.responseInstructions).toMatch(/Never tell the reader what text you have or lack/)
+    expect((await retrieveVoicePassage(lighthouse, { chapter_number: 2, through_chapter_number: 9 })).output).toMatchObject({ ok: false, reason: 'later_chapter_spoiler_boundary' })
+    expect(BOOK_PASSAGE_TOOL.parameters.properties).toHaveProperty('through_chapter_number')
+    expect(BOOK_PASSAGE_TOOL.description).toMatch(/pass chapter_number and through_chapter_number together/)
+    expect(BOOK_PASSAGE_TOOL.description).toMatch(/never tell the reader what text you have or offer to pull a chapter up/)
+  })
+  it('returns a whole chapter up to the budget with a continuation, not six paragraphs', async () => {
+    const long = Array.from({ length: 400 }, (_, i) => `Paragraph ${i} ${'word '.repeat(40)}`)
+    vi.mocked(loadEditionWindow).mockResolvedValue({ chapters: [{ number: 1, title: 'Genesis 1', paragraphs: long }, { number: 2, title: 'Genesis 2', paragraphs: context.paragraphs }] } as never)
+    const output = (await retrieveVoicePassage(context, { chapter_number: 1 })).output as { paragraphs: Array<{ index: number; text: string }>; next_from_paragraph?: number }
+    expect(output.paragraphs.length).toBeGreaterThan(6)
+    expect(output.paragraphs.reduce((sum, p) => sum + p.text.length, 0)).toBeLessThanOrEqual(VOICE_PASSAGE_CHAR_BUDGET)
+    expect(output.next_from_paragraph).toBe(output.paragraphs.length)
   })
 })
