@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261014qafix';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261014bookopen';
 import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
-import { readingApi, loadCatalogueData } from './catalogue.js?v=20261014qafix';
-import { createBookshelf } from './bookshelf-view.js?v=20261014qafix';
+import { readingApi, loadCatalogueData } from './catalogue.js?v=20261014bookopen';
+import { createBookshelf } from './bookshelf-view.js?v=20261014bookopen';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 import { bookCoverSrc } from '../book-cover.js?v=20261009owncover';
 
