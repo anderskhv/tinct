@@ -60,8 +60,11 @@ export const CARDS_COPY = {
   thisYear: 'this year',
   tipProfile: ['Who can see you.', ' Only me: nobody else sees your profile or reading. Friends: people you follow who follow you back. Everyone: anyone with your link, and the Everyone board.'],
   tipLeaderboard: ['Leaderboard.', ' You appear on the boards of the people who can see you.'],
+  // The AI credits row (Anders, 14 October 2026): credits reset; only the subscription renews.
+  resets: (date: string) => `Resets ${date}`,
+  orWaitUntil: (date: string) => `or wait until ${date}`,
+  getPremium: 'Get Premium',
   // labAiAllowance.ts AI_USAGE_COPY
-  renews: (date: string) => `Renews ${date}`,
   buyTopUp: 'Buy a $5 top-up',
   buyTopUpMore: 'Buy a $10 top-up',
   topUpFailed: 'Could not open checkout. Try again.',
