@@ -220,7 +220,7 @@ describe('lifecycle sweep', () => {
     expect(outbox).toHaveLength(0)
   })
 
-  it('a Bible reader gets keep-reading for The Bible, linked to the chapter and paragraph the Bible resumes at', async () => {
+  it('a Bible reader gets keep-reading for The Bible, with the book link that resumes their latest Bible place', async () => {
     const asked: string[] = []
     const { deps, outbox, log } = harness({
       positions: { [UID]: biblePosition('genesis') },
@@ -231,9 +231,10 @@ describe('lifecycle sweep', () => {
     expect(asked).toEqual(['bible'])
     const email = outbox[0]
     expect(email.subject).toBe('The Bible')
-    // The settled Bible pin (Genesis 1, paragraph 13), not the newer Psalms peek; recency is the Bible's newest pin.
-    expect(email.text).toContain('Keep reading: https://tinct.app/reader?book=bible&chapter=1&paragraph=13\n')
-    expect(email.html).toContain('href="https://tinct.app/reader?book=bible&amp;chapter=1&amp;paragraph=13"')
+    // Book-only link: the reader resumes the account's latest Bible place, so an old email never sends them back.
+    expect(email.text).toContain('Keep reading: https://tinct.app/reader?book=bible\n')
+    expect(email.html).toContain('href="https://tinct.app/reader?book=bible"')
+    expect(email.html).not.toContain('chapter=')
     expect(email.html).toContain('https://tinct.app/email-art/bible.jpg')
     expect(log[0]).toMatchObject({ template: 'keep-reading', book_id: 'bible', dedupe_key: `keep-reading:bible:${NOW - 5 * DAY}:1` })
   })
@@ -244,14 +245,14 @@ describe('lifecycle sweep', () => {
     const { deps, outbox } = harness({ positions: { [UID]: state }, recap: { summary: 'David sings.', chapterNumber: 501, paragraphIndex: 1 } })
     await runLifecycleSweep(deps, [profile()])
     expect(outbox.map(email => email.subject)).toEqual(['The Bible'])
-    expect(outbox[0].text).toContain('Keep reading: https://tinct.app/reader?book=bible&chapter=501&paragraph=3\n')
+    expect(outbox[0].text).toContain('Keep reading: https://tinct.app/reader?book=bible\n')
   })
 
   it('a reader of the Bible and another book: keep-reading goes to whichever was read last', async () => {
     const recap = { summary: 'So far.', chapterNumber: 1, paragraphIndex: 0 }
     const bibleLast = harness({ positions: { [UID]: biblePosition('psalms', { frankenstein: NOW - 9 * DAY }) }, recap })
     expect((await runLifecycleSweep(bibleLast.deps, [profile()])).sent).toEqual([{ userId: UID, template: 'keep-reading', bookId: 'bible' }])
-    expect(bibleLast.outbox[0].text).toContain('https://tinct.app/reader?book=bible&chapter=501&paragraph=3')
+    expect(bibleLast.outbox[0].text).toContain('https://tinct.app/reader?book=bible')
 
     const otherLast = harness({ positions: { [UID]: biblePosition('psalms', { frankenstein: NOW - 4 * DAY }) }, recap })
     expect((await runLifecycleSweep(otherLast.deps, [profile()])).sent).toEqual([{ userId: UID, template: 'keep-reading', bookId: 'frankenstein' }])
@@ -304,7 +305,7 @@ describe('welcome', () => {
     await runWelcomeSweep(deps, [row])
     expect(outbox).toHaveLength(1)
     expect(outbox[0].html).toContain('Your place in <em>The Bible</em> is saved')
-    expect(outbox[0].text).toContain('Continue The Bible: https://tinct.app/reader?book=bible&chapter=501&paragraph=3\n')
+    expect(outbox[0].text).toContain('Continue The Bible: https://tinct.app/reader?book=bible\n')
     expect(outbox[0].html).toContain('https://tinct.app/email-art/bible.jpg')
     expect(log[0]).toMatchObject({ template: 'welcome-google', book_id: 'bible' })
   })

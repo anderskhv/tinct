@@ -186,11 +186,13 @@ export function readerFacts(profile: Profile, position: LabPositionState | null,
  * sequential chapter (Genesis 1 = 1, as the reader's deep links number it) and
  * paragraph, so it opens there on a device that has no saved Bible place yet.
  */
-export function readerUrl(bookId: string, place?: Pick<ReaderPlace, 'sequentialChapter' | 'paragraphIndex'> | null): string {
-  const url = `${EMAIL_ORIGIN}/reader?book=${encodeURIComponent(bookId)}`
-  if (bookId !== 'bible' || !place || !Number.isInteger(place.sequentialChapter) || place.sequentialChapter < 1) return url
-  const paragraph = Number.isInteger(place.paragraphIndex) && place.paragraphIndex > 0 ? `&paragraph=${place.paragraphIndex}` : ''
-  return `${url}&chapter=${place.sequentialChapter}${paragraph}`
+/**
+ * The book-only link: the reader resumes the account's latest place for the
+ * book (the Bible's chosen by libraryResumePlace, #433), so an old email never
+ * sends a reader back to where they were when it was written.
+ */
+export function readerUrl(bookId: string): string {
+  return `${EMAIL_ORIGIN}/reader?book=${encodeURIComponent(bookId)}`
 }
 
 export function bookArt(bookId: string | null, title: string | null): { art_url: string; art_alt: string } {
@@ -303,7 +305,7 @@ async function sendReadingPlan(deps: LifecycleDeps, facts: ReaderFacts, plan: Re
       subject: book.title,
       book_title: book.title,
       recap,
-      continue_url: readerUrl(book.id, plan.place),
+      continue_url: readerUrl(book.id),
       ...bookArt(book.id, book.title),
     }, { book_id: book.id, dedupe_key: plan.dedupeKey, meta: { place_at: plan.place.updatedAt } }, result)
   }
@@ -404,7 +406,7 @@ export async function runWelcomeSweep(deps: LifecycleDeps, profiles: Profile[]):
       subject: 'Welcome to Tinct',
       first_name: firstName,
       book_title: book?.title ?? '',
-      continue_url: book ? readerUrl(book.id, last) : '',
+      continue_url: book ? readerUrl(book.id) : '',
       ...bookArt(book?.id ?? null, book?.title ?? null),
     }
     if (template === 'welcome') vars.confirm_url = await confirmUrl(deps.linkSecret!, profile.id, profile.email, now)
