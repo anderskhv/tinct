@@ -96,7 +96,7 @@ describe('sign-up with profiles off', () => {
 })
 
 describe('sign-up with profiles on', () => {
-  it('step 1: one password field with show/hide, the new consent line under the button', async () => {
+  it('step 1: one password field with show/hide, the new consent line above the button', async () => {
     mount(true)
     await import('../labSignIn')
     await flush()
@@ -104,7 +104,9 @@ describe('sign-up with profiles on', () => {
     expect(document.querySelector('[data-mode-copy="create"] h1')!.textContent).toBe('Create your account')
     expect(document.querySelector('[data-email-optin-field] span')!.textContent).toBe(EMAIL_CONSENT_TEXT)
     expect((document.querySelector('[name=emailOptIn]') as HTMLInputElement).checked).toBe(false)
-    expect(document.querySelector('[data-auth-submit]')!.nextElementSibling).toBe(document.querySelector('[data-email-optin-field]'))
+    // Above the button since 14 October 2026 (Anders): seen before the account is created.
+    expect(document.querySelector('[data-auth-submit]')!.previousElementSibling).toBe(document.querySelector('[data-email-optin-field]'))
+    expect(document.querySelector('[data-mode-copy="create"].auth-fine')!.textContent).toBe('I already have an account')
     expect(document.querySelector<HTMLElement>('[data-confirm-field]')!.hidden).toBe(true)
     const toggle = document.querySelector<HTMLButtonElement>('.social-pw-toggle')!
     toggle.click()
@@ -120,11 +122,12 @@ describe('sign-up with profiles on', () => {
     expect(mode()).toBe('profile')
     expect(document.querySelector('[data-social-steps]')!.textContent).toBe('2 of 3')
     expect(document.querySelector<HTMLInputElement>('[name=profileName]')!.value).toBe('New')
-    // No photo uploads at launch: sets and the initial only.
-    expect(document.querySelector('[aria-label="Upload your own picture"]')).toBeNull()
+    // No uploads while the Worker does not accept them (no profile.uploads): stock pictures and the initial.
+    expect(document.querySelector('[data-social-uploads]')).toBeNull()
     expect(document.querySelector('.social-step input[type=file]')).toBeNull()
     expect(document.querySelector('[data-mode-copy="profile"]')!.textContent).not.toMatch(/upload/i)
-    expect(document.querySelectorAll('.social-pictures button').length).toBe(4)
+    // Three sets, two pictures of women (Longbourn, The Awakening; 14 October 2026) and the initial.
+    expect(document.querySelectorAll('.social-pictures button').length).toBe(6)
     // Only me is preselected: a new profile is Only me until the reader changes it (privacy notice).
     expect(document.querySelector('.social-tick[data-value="only_me"]')!.getAttribute('aria-checked')).toBe('true')
     expect(document.querySelector('.social-tick[data-value="friends"]')!.getAttribute('aria-checked')).toBe('false')
@@ -164,6 +167,97 @@ describe('sign-up with profiles on', () => {
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
     expect(posts[0]).toMatchObject({ visibility: 'friends', setUp: true })
+  })
+
+  it('offers two stock pictures of women, saved as any other choice', async () => {
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    const labels = [...document.querySelectorAll('.social-pictures button')].map(button => button.getAttribute('aria-label'))
+    expect(labels).toEqual(expect.arrayContaining(['Picture: Longbourn', 'Picture: The Awakening']))
+    document.querySelector<HTMLButtonElement>('[aria-label="Picture: The Awakening"]')!.click()
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    expect(posts[0]).toMatchObject({ picture: { kind: 'cover', value: 'the-awakening' } })
+    expect(posts[0]).not.toHaveProperty('background')
+  })
+
+  it('offers Upload a picture and Upload a background while the Worker accepts uploads', async () => {
+    const images: string[] = []
+    const uploaded = { ...profile, uploads: true }
+    api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/profile/image/')) return new Response(new Blob(['x']))
+      if (url.startsWith('/api/profile/image')) {
+        const slot = new URL(url, 'https://tinct.app').searchParams.get('slot')!
+        images.push(slot)
+        return Response.json({ enabled: true, available: true, profile: { ...uploaded, [slot]: { kind: 'upload', value: null, url: `/api/profile/image/${slot}`, review: 'pending' } } })
+      }
+      if (url.startsWith('/api/profile') && init?.method === 'POST') { posts.push(JSON.parse(String(init.body))); return Response.json({ enabled: true, available: true, profile: uploaded }) }
+      if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile: uploaded })
+      return new Response(new Blob(['x']))
+    })
+    vi.doMock('./socialClient', async () => ({
+      ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
+      resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+    }))
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    const uploadButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-social-uploads] button')]
+    expect(uploadButtons.map(button => button.textContent)).toEqual(['Upload a picture', 'Upload a background'])
+    const fields = [...document.querySelectorAll<HTMLInputElement>('[data-social-uploads] input[type=file]')]
+    expect(fields).toHaveLength(2)
+    const choose = (field: HTMLInputElement) => {
+      Object.defineProperty(field, 'files', { configurable: true, value: [new File(['x'], 'me.jpg', { type: 'image/jpeg' })] })
+      field.dispatchEvent(new Event('change'))
+    }
+    choose(fields[1])
+    await flush()
+    choose(fields[0])
+    await flush()
+    expect(images).toEqual(['background', 'picture'])
+    // The reader's own picture joins the choices, chosen.
+    const own = document.querySelector<HTMLButtonElement>('.social-pictures button[aria-label="Upload a picture"]')!
+    expect(own.getAttribute('aria-pressed')).toBe('true')
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    // Both are saved already (pending review): Continue sends neither.
+    expect(posts[0]).toMatchObject({ visibility: 'only_me', setUp: true })
+    expect(posts[0]).not.toHaveProperty('picture')
+    expect(posts[0]).not.toHaveProperty('background')
+    vi.doUnmock('./socialClient')
+  })
+
+  it('keeps an uploaded background when a stock set is chosen after it', async () => {
+    const uploaded = { ...profile, uploads: true }
+    api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/profile/image')) return Response.json({ enabled: true, available: true, profile: { ...uploaded, background: { kind: 'upload', value: null, url: '/api/profile/image/background', review: 'pending' } } })
+      if (url.startsWith('/api/profile') && init?.method === 'POST') { posts.push(JSON.parse(String(init.body))); return Response.json({ enabled: true, available: true, profile: uploaded }) }
+      if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile: uploaded })
+      return Response.json({})
+    })
+    vi.doMock('./socialClient', async () => ({
+      ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
+      resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+    }))
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    const field = document.querySelectorAll<HTMLInputElement>('[data-social-uploads] input[type=file]')[1]
+    Object.defineProperty(field, 'files', { configurable: true, value: [new File(['x'], 'bg.jpg', { type: 'image/jpeg' })] })
+    field.dispatchEvent(new Event('change'))
+    await flush()
+    document.querySelector<HTMLButtonElement>('[aria-label="Picture: Longbourn"]')!.click()
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    expect(posts[0]).toMatchObject({ picture: { kind: 'set', value: 'longbourn' } })
+    expect(posts[0]).not.toHaveProperty('background')
+    vi.doUnmock('./socialClient')
   })
 
   it('falls back to today’s welcome when profiles are unavailable', async () => {

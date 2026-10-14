@@ -130,6 +130,9 @@ import {
   defaultReaderProgressMode,
   readStoredReaderProgressMode,
   storeReaderProgressMode,
+  initialLabCompareView,
+  readStoredCompareView,
+  storeCompareView,
   LAB_PROGRESS_HOLD_MS,
   editionLabelFor,
   readLabPrefs,
@@ -195,7 +198,7 @@ import type { VoiceTinctView } from '../voice/tinctTools'
 import { isShakespearePhone } from './labShakespeare'
 import { BOOKS, getBook } from '../data/bookRegistry'
 import { useLabReadingMemory } from '../readingMemory/useLabReadingMemory'
-import { ownBookOpenUrl, USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
+import { isUserBookId, ownBookOpenUrl, USER_BOOKS_SHELF_URL, userBookHex } from './userBook/userBookId'
 import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { userBookLangAttribute } from './userBook/userBookLanguage'
 import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
@@ -451,6 +454,16 @@ function currentSwitcherCover(bookId: string, ownBook: { cover?: string | null; 
 /** Desktop commands that do not apply to a user book: one edition; Listen only when own-book narration is on. */
 const USER_BOOK_HIDDEN_COMMANDS = new Set(['listen', 'editions', 'original', 'modern', 'compare'])
 
+/** The view (Read or Compare) this device's latest place in the book was left in; null when it keeps none. */
+function labBookSavedReaderMode(bookId: string): 'read' | 'compare' | null {
+  const latest = Object.values(readLabPositionLocal().books)
+    .filter(place => bookId === 'bible'
+      ? place.bookId === 'bible' || (!getBook(place.bookId) && !isUserBookId(place.bookId))
+      : place.bookId === bookId)
+    .sort((a, b) => b.updatedAt - a.updatedAt)[0]
+  return latest ? latest.readerMode ?? 'read' : null
+}
+
 /** A user book reads in its one edition; the reader's edition choices for other books are left as they are. */
 function userBookPrefs(prefs: LabPrefs, editionKey: string): LabPrefs {
   if (prefs.primaryEdition === editionKey && prefs.compareEdition === editionKey && prefs.audioEdition === editionKey && !prefs.compareOpen) return prefs
@@ -568,13 +581,23 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const desktopAppearance = useDesktopAppearance()
   const resolvedDarkMode = desktopAppearance?.dark ?? (prefs.theme === 'dark' || (prefs.theme === 'system' && systemDark))
   const resolvedTheme = desktopAppearance ? (desktopAppearance.dark ? 'dark' : 'light') : prefs.theme === 'system' ? (systemDark ? 'dark' : 'light') : prefs.theme
-  const resumeInCompare = !readerHandoff && boot.resume?.readerMode === 'compare'
-  const [mobileCompareActive, setMobileCompareActive] = useState(resumeInCompare)
-  const [desktopCompareActive, setDesktopCompareActive] = useState(resumeInCompare)
+  const compareViewBookId = book.bookId || 'bible'
+  const [compareViewSavedMode] = useState(() => userBook ? null : labBookSavedReaderMode(compareViewBookId))
+  const initialCompareView = (profile: LabAppearanceProfile) => !userBook && initialLabCompareView({
+    profile,
+    stored: readStoredCompareView(profile, compareViewBookId),
+    savedMode: compareViewSavedMode,
+  })
+  const [mobileCompareActive, setMobileCompareActive] = useState(() => initialCompareView('phone'))
+  const [desktopCompareActive, setDesktopCompareActive] = useState(() => initialCompareView('desktop'))
+  /** The reader's own Compare toggle: remembered for this book in this layout. */
+  const rememberCompareView = useCallback((on: boolean) => {
+    if (!userBook) storeCompareView(appearanceProfile, compareViewBookId, on)
+  }, [appearanceProfile, compareViewBookId, userBook])
   // Read by the text load (not one of its triggers): until the first page is
   // up, a Compare view that is not on screen gets its edition after it.
   const firstPageShownRef = useRef(false)
-  const compareOnScreenRef = useRef(resumeInCompare)
+  const compareOnScreenRef = useRef(mobileCompareActive || desktopCompareActive)
   compareOnScreenRef.current = mobileCompareActive || desktopCompareActive
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
   const [bookSwitcherOpen, setBookSwitcherOpen] = useState(false)
@@ -950,7 +973,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     pageIndex: readingPageIndex,
     primaryEditionKey: prefs.primaryEdition,
     compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
-    readerMode: resumeInCompare ? 'compare' : 'read',
+    readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   })
   readerStateRef.current = {
     pageIndex: readingPageIndex,
@@ -3816,6 +3839,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setDesktopCompareActive(nextActive)
     notePlace('mode-change')
   }, [desktopCompareActive, desktopCompareEnabled, notePlace])
+  // The reader's own toggles (the Show compare switch, the swipe, the bar,
+  // the commands) are remembered for the book; a jump that leaves Compare is not.
+  const toggleMobileCompareByReader = useCallback(() => {
+    if (!mobileCompareEnabled) return
+    rememberCompareView(!mobileCompareActive)
+    handleMobileCompare()
+  }, [handleMobileCompare, mobileCompareActive, mobileCompareEnabled, rememberCompareView])
+  const toggleDesktopCompareByReader = useCallback(() => {
+    if (!desktopCompareEnabled) return
+    rememberCompareView(!desktopCompareActive)
+    handleDesktopCompare()
+  }, [desktopCompareActive, desktopCompareEnabled, handleDesktopCompare, rememberCompareView])
 
   const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end', continuation?: { paragraphIndex: number; wordIndex: number }) => {
     setRecentChapterReturn(null)
@@ -4607,7 +4642,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       return
     }
     if (mobileCompareActive) {
-      handleMobileCompare()
+      toggleMobileCompareByReader()
       return
     }
     if (chrome === 'hearing') {
@@ -4622,7 +4657,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       return
     }
     startHearing()
-  }, [chrome, handleMobileCompare, listen, mobileCompareActive, phoneAskOpen, resumeListenAfterAsk, startHearing])
+  }, [chrome, listen, mobileCompareActive, phoneAskOpen, resumeListenAfterAsk, startHearing, toggleMobileCompareByReader])
 
   // ── Chrome V2 ────────────────────────────────────────────────────────
   const accountId = authUser?.id ?? null
@@ -4963,7 +4998,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'chat', label: 'Chat about this book', key: 'c', enabled: canReadCommand, run: () => { handleChat(); requestAnimationFrame(() => askInputRef.current?.focus({ preventScroll: true })) } },
       { id: 'talk', label: callOpen || ask.voiceActive ? 'End voice conversation' : 'Talk about this book', key: 't', enabled: canReadCommand, run: () => { if (callOpen) endCall(); else if (ask.voiceActive) closePhoneAsk(); else handleTalk() } },
       { id: 'listen', label: listen.playing ? 'Pause narration' : 'Listen to this page', key: 'p', enabled: () => canReadCommand() && !callOpen && !ask.voiceActive, run: handleBarListen },
-      { id: 'read', label: 'Return to reading', key: 'r', run: () => { if(callOpen || phoneAskOpen || desktopAskOpen) closePhoneAsk(); else if(showPhoneChrome ? mobileCompareActive : desktopCompareActive) (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } },
+      { id: 'read', label: 'Return to reading', key: 'r', run: () => { if(callOpen || phoneAskOpen || desktopAskOpen) closePhoneAsk(); else if(showPhoneChrome ? mobileCompareActive : desktopCompareActive) (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } },
       { id: 'next', label: 'Next page', key: 'j', enabled: canTurnCommand, run: goNext },
       { id: 'previous', label: 'Previous page', key: 'k', enabled: canTurnCommand, run: goPrev },
       { id: 'next-chapter', label: 'Next chapter', key: ']', enabled: () => canTurnCommand() && nextLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=nextLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
@@ -4972,7 +5007,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'editions', label: 'Book editions', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
       { id: 'original', label: 'Read original English', key: 'o', enabled: () => canReadCommand() && !!editionCommand('original'), run: () => { const e=editionCommand('original');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'modern', label: 'Read modern English', key: 'm', enabled: () => canReadCommand() && !!editionCommand('modern'), run: () => { const e=editionCommand('modern');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
-      { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() },
+      { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() },
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
@@ -5206,7 +5241,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
-            ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } }
+            ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } }
             : null}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
@@ -5437,7 +5472,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
                 }
               : undefined}
             onCompareSwap={showPhoneChrome && mobileCompareEnabled && !phoneAsk && !selectionPopup
-              ? handleMobileCompare
+              ? toggleMobileCompareByReader
               : undefined}
             onToggleControls={showPhoneChrome && !phoneAsk && !selectionPopup
               ? () => setReaderControlsVisible(visible => !visible)
@@ -5812,7 +5847,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
                   <button
                     type="button"
                     className={`lab-phone-fat ${mobileCompareActive ? 'is-active' : ''}`}
-                    onClick={handleMobileCompare}
+                    onClick={toggleMobileCompareByReader}
                     aria-label={mobileCompareActive ? `Return to ${primaryEditionLabel}` : `Compare with ${compareEditionLabel}`}
                     aria-pressed={mobileCompareActive}
                     data-testid="lab-phone-compare"

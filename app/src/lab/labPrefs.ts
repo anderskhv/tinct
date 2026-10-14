@@ -607,6 +607,42 @@ export function storeReaderProgressMode(bookId: string, mode: LabReaderProgressM
   } catch { /* a device preference only */ }
 }
 
+const READER_COMPARE_VIEW_KEY = 'tinct:reader-compare-view'
+
+/** Whether the reader last turned Compare's view on or off for this book in this layout, if they ever did. */
+export function readStoredCompareView(profile: LabAppearanceProfile, bookId: string): boolean | null {
+  try {
+    const on = JSON.parse(localStorage.getItem(READER_COMPARE_VIEW_KEY) || '{}')?.[`${profile}:${bookId}`]
+    return typeof on === 'boolean' ? on : null
+  } catch {
+    return null
+  }
+}
+
+export function storeCompareView(profile: LabAppearanceProfile, bookId: string, on: boolean): void {
+  try {
+    const views = JSON.parse(localStorage.getItem(READER_COMPARE_VIEW_KEY) || '{}')
+    localStorage.setItem(READER_COMPARE_VIEW_KEY, JSON.stringify({ ...(views && typeof views === 'object' ? views : {}), [`${profile}:${bookId}`]: on }))
+  } catch { /* a device preference only */ }
+}
+
+/**
+ * Whether a book opens with Compare's view on (Anders, 2026-10-14, option B):
+ * a book this device has no place for opens on its main edition in every
+ * layout, with the compare edition chosen and, on a phone, one swipe away.
+ * The reader's own toggle for the book wins; a book already read keeps the
+ * view its saved place was left in.
+ */
+export function initialLabCompareView(args: {
+  profile: LabAppearanceProfile
+  stored: boolean | null
+  savedMode: 'read' | 'compare' | null
+}): boolean {
+  if (args.stored !== null) return args.stored
+  if (args.savedMode) return args.savedMode === 'compare'
+  return false
+}
+
 function labPageNumber(value: number): string {
   return Math.max(0, Math.round(value)).toLocaleString('en-US')
 }
