@@ -872,3 +872,13 @@ it('library Continue selects the newest Bible pin instead of a stale local chapt
   expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
   expect(resumePlaceForLibrary(state, 'crito')?.bookId).toBe('crito')
 })
+
+it('library Continue keeps the settled Bible book over a newer short peek, as the library\'s own Continue does', () => {
+  const hebrews = settledHebrewsCloud()
+  const state = { ...hebrews, lastSettledBookId: 'hebrews', books: {
+    ...hebrews.books,
+    romans: { ...proverbs17({ updatedAt: hebrews.books.hebrews.updatedAt + 60_000 }), bookId: 'romans', headerBook: 'Romans', chapterNumber: 8, sequentialChapter: 1054 },
+  } }
+  expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
+  expect(resumePlaceForLibrary({ ...state, lastSettledBookId: 'crito' }, 'bible')?.bookId).toBe('romans')
+})

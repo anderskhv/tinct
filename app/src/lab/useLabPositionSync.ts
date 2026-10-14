@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 import { bibleFallbackSource, loadLabChapterList, type LabSource } from './labSource'
 import { getBook } from '../data/bookRegistry'
 import { bibleEditions, syncLabAudioEdition, type LabPrefs } from './labPrefs'
-import { prefsFromLabResumePlace } from './labReaderHandoff'
+import { prefsFromLabResumePlace, resumePlaceForLibrary } from './labReaderHandoff'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import {
   LAB_INITIAL_CLOUD_WAIT_MS,
@@ -129,13 +129,8 @@ export function remoteResumeSelection(place: LabBookPlace, current: { libraryBoo
   return { bookId, primaryEditionKey, compareEditionKey, prefs }
 }
 
-/** A library Continue chooses a book, not that device's stale chapter. */
-export function resumePlaceForLibrary(state: LabPositionState, libraryBookId?: string): LabBookPlace | null {
-  if (!libraryBookId) return resumePlace(state)
-  return Object.values(state.books)
-    .filter(place => (getBook(place.bookId)?.id ?? 'bible') === libraryBookId)
-    .sort((a, b) => b.updatedAt - a.updatedAt || b.rev - a.rev)[0] ?? null
-}
+/** Shared with the book-only link (labReaderHandoff.ts), so its first paint and this resolution agree. */
+export { resumePlaceForLibrary }
 
 export function bootLabReading(source?: LabSource): {
   book: LabSource

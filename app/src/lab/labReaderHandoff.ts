@@ -5,7 +5,8 @@ import { createReaderHandoffIntent, PRE_READER_CATALOGUE, type ReaderHandoffInte
 import { clearPendingPurchase, markPendingPurchase, modernReturnFromParams, pendingPurchase, type ModernReturn } from './labModernEditionApi'
 import type { LabPrefs } from './labPrefs'
 import { syncLabAudioEdition } from './labPrefs'
-import type { LabBookPlace } from './labPosition'
+import { isPublicBookId } from '../../public/lab/public-books.js'
+import { resumePlace, type LabBookPlace, type LabPositionState } from './labPosition'
 import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
 
@@ -31,8 +32,9 @@ export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null 
   if (!book) return null
   const primaryEditionKey = defaultPrimaryEditionKey(bookId, book.editions) ?? 'original-en'
   // The place this device saved in the book (the cloud record still reconciles it once
-  // signed in), like the library's own hand-off; else the first chapter.
-  const saved = bookId === 'bible' ? null : localPlace(bookId)
+  // signed in), like the library's own hand-off; else the first chapter. The Bible's
+  // places are kept per biblical book (genesis, psalms), never under `bible`.
+  const saved = localPlace(bookId)
   if (saved) {
     const place = { bookId, chapterNumber: saved.sequentialChapter, paragraphIndex: saved.paragraphIndex, wordIndex: saved.wordIndex, page: saved.pageIndex ?? 0 }
     const edition = saved.primaryEditionKey && saved.primaryEditionKey !== primaryEditionKey
@@ -48,11 +50,33 @@ export function modernReturnHandoff(bookId: string): ReaderHandoffIntent | null 
 
 function localPlace(bookId: string): LabBookPlace | null {
   try {
-    const place = readLabPositionLocal().books[bookId]
-    return place?.bookId === bookId && Number.isInteger(place.sequentialChapter) && place.sequentialChapter >= 1 ? place : null
+    const place = resumePlaceForLibrary(readLabPositionLocal(), bookId)
+    return place && Number.isInteger(place.sequentialChapter) && place.sequentialChapter >= 1 ? place : null
   } catch {
     return null
   }
+}
+
+/** The library book a saved place belongs to: a registry book, else (a biblical book's pin) the Bible. */
+function libraryBookIdForPlace(place: LabBookPlace): string | null {
+  const registered = getBook(place.bookId)
+  if (registered) return registered.id
+  // An added book (`pd-…`) not registered yet is never a biblical pin.
+  return isPublicBookId(place.bookId) ? null : 'bible'
+}
+
+/**
+ * Where a library book resumes, from a position record: its settled place when
+ * the reader last settled in it, else its newest one. For the Bible that is one
+ * of the per-biblical-book pins, never a stale chapter of another book.
+ */
+export function resumePlaceForLibrary(state: LabPositionState, libraryBookId?: string): LabBookPlace | null {
+  if (!libraryBookId) return resumePlace(state)
+  const settled = resumePlace(state)
+  if (settled && libraryBookIdForPlace(settled) === libraryBookId) return settled
+  return Object.values(state.books)
+    .filter(place => libraryBookIdForPlace(place) === libraryBookId)
+    .sort((a, b) => b.updatedAt - a.updatedAt || b.rev - a.rev)[0] ?? null
 }
 
 /**
@@ -111,7 +135,9 @@ export function consumeLabReaderHandoff(storage?: HandoffStorage | null): Reader
  * (`/reader?book=<id>`, the lifecycle emails' "keep reading") opens that book
  * at the reader's latest place in it, else its first chapter, so the reader's
  * own saved position is never overridden; before, it opened whatever book was
- * read last, or the Bible (QA 2026-10-09). Book and edition are validated against the registry, and an
+ * read last, or the Bible (QA 2026-10-09). For the Bible that place is one of
+ * its per-biblical-book pins (`resumePlaceForLibrary`); `book=bible` opened
+ * Genesis 1 at its start and wrote that over the reader's place (QA 2026-10-14). Book and edition are validated against the registry, and an
  * unknown book yields null (the normal reader entry); an unavailable edition falls back to original-en.
  * A link without an edition opens the new-reader default: the default edition
  * with its default Compare edition beside it.
