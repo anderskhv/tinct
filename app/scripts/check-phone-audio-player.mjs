@@ -4,10 +4,14 @@
 //   SKIP_ENV_CHECK=1 npm run build && node scripts/check-phone-audio-player.mjs
 //
 // Narration is mocked (no provider, no spend) and the player is a silent
-// stand-in, so nothing is audible. While the player is open, the round close
-// button must sit on the player and the progress line must be gone (the page
+// stand-in, so nothing is audible. While the player is open, the paused
+// player's grab handle must sit centred inside its top edge, clear of every
+// control's 44px touch target, the paused player must keep the playing
+// player's exact box, and the progress line must be gone (the page
 // keeps its words where they are, so the player may cover its last line); closing the player brings the
-// progress line back and keeps the reader on the same page.
+// progress line back and keeps the reader on the same page. The opening case
+// closes with a tap on the handle, the mid-letter case with a real touch swipe
+// down on the bar (after a sideways swipe that must leave it open).
 import { chromium } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { build } from 'esbuild'
@@ -25,6 +29,8 @@ const bundled = await build({ stdin: { contents: "export { chunkNarrationText, n
   bundle: true, platform: 'node', format: 'esm', write: false })
 const { chunkNarrationText, narrationTextForParagraph, sha256Hex } = await import('data:text/javascript;base64,' + Buffer.from(bundled.outputFiles[0].text).toString('base64'))
 const EDITION = 'modern-en'
+// PHONE_PLAYER_THEME=dark runs the same checks in the night theme.
+const THEME = process.env.PHONE_PLAYER_THEME || 'light'
 const edition = JSON.parse(await fs.readFile(`public/data/editions/frankenstein-${EDITION}.json`, 'utf8'))
 
 const failures = []
@@ -52,6 +58,17 @@ function measure(page) {
       transport: document.querySelector('[data-testid="lab-root"]')?.dataset.transport,
       bar: shown(bar) ? box(bar) : null,
       dismiss: shown(dismiss) ? box(dismiss) : null,
+      controls: [...document.querySelectorAll('[data-testid="lab-phone-bar"] .lab-phone-bar-row button')].map(box),
+      // Each control's touch target, probed with elementFromPoint down its centre line.
+      targets: [...document.querySelectorAll('[data-testid="lab-phone-bar"] .lab-phone-bar-row button')].map(el => {
+        const r = el.getBoundingClientRect(), x = r.x + r.width / 2
+        let top = null, bottom = null
+        for (let y = Math.floor(r.y - 12); y <= Math.ceil(r.bottom + 12); y += 0.5) {
+          const hit = document.elementFromPoint(x, y)
+          if (hit && (hit === el || el.contains(hit))) { if (top === null) top = y; bottom = y }
+        }
+        return { label: el.getAttribute('aria-label'), top, bottom, height: top === null ? 0 : bottom - top + 0.5 }
+      }),
       progress: shown(progress) && shown(progressText) && progressText.textContent.trim() ? { ...box(progressText), text: progressText.textContent.trim() } : null,
       wrap: box(wrap),
       clip,
@@ -110,8 +127,8 @@ try {
     if (url.origin !== origin && !/fonts\.(googleapis|gstatic)\.com$/.test(url.hostname)) return route.abort()
     return route.continue()
   })
-  await page.addInitScript(({ edition, place }) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: edition, theme: 'light', voicePersona: 'male', voicePersonaChosen: true }))
+  await page.addInitScript(({ edition, place, theme }) => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: edition, theme, voicePersona: 'male', voicePersonaChosen: true }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein', primaryEditionKey: edition, savedPlace: { bookId: 'frankenstein', chapterNumber: 1, ...place, page: 0 } }))
     class SilentAudio extends EventTarget {
       src = ''; currentTime = 0; duration = 30; paused = true; ended = false; playbackRate = 1; autoplay = false; muted = true
@@ -125,7 +142,7 @@ try {
     window.Audio = SilentAudio
     HTMLMediaElement.prototype.play = async function () { this.muted = true; throw Error('Unexpected native audio') }
     if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia = async () => { throw Error('Microphone disabled') }
-  }, { edition: EDITION, place })
+  }, { edition: EDITION, place, theme: THEME })
 
   await page.goto(origin + '/reader?layout=phone', { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
@@ -164,14 +181,47 @@ try {
     check(cut.length === 0, `${label}: no line is cut by the page edge (${cut.length} words, e.g. "${cut.slice(0, 6).map(w => w.text).join(' ')}")`)
     check(state.first?.p === closed.first?.p && state.first?.w === closed.first?.w, `${label}: same page as before the player opened (first word ${JSON.stringify(closed.first)} → ${JSON.stringify(state.first)})`)
   }
-  check(!!paused.dismiss, 'paused: the close button shows')
+  check(!!paused.dismiss, 'paused: the grab handle shows')
+  check(!playing.dismiss, 'playing: no grab handle')
+  if (paused.bar && playing.bar) {
+    check(Math.abs(paused.bar.y - playing.bar.y) < 0.01 && Math.abs(paused.bar.height - playing.bar.height) < 0.01,
+      `paused: the player keeps the playing player's exact box (playing ${JSON.stringify(playing.bar)}, paused ${JSON.stringify(paused.bar)})`)
+  }
   if (paused.dismiss && paused.bar) {
     const d = paused.dismiss, b = paused.bar
-    check(d.x >= b.x - 0.5 && d.right <= b.right + 0.5 && d.y >= b.y - 0.5 && d.bottom <= b.bottom + 0.5,
-      `paused: the close button sits within the player's box (button ${JSON.stringify(d)}, player ${JSON.stringify(b)})`)
+    check(d.y >= b.y - 0.5 && d.bottom <= b.y + 10.5 && d.width >= 72 && Math.abs((d.x + d.width / 2) - (b.x + b.width / 2)) < 1,
+      `paused: the handle strip sits centred inside the player's top edge (handle ${JSON.stringify(d)}, player ${JSON.stringify(b)})`)
+    const hit = paused.controls.filter(c => c.x < d.right - 0.5 && c.right > d.x + 0.5 && c.y < d.bottom - 0.5 && c.bottom > d.y + 0.5)
+    check(hit.length === 0, `paused: the handle strip covers no control (${JSON.stringify(hit)})`)
+    for (const t of paused.targets) {
+      check(t.height >= 44, `paused: ${t.label} keeps a 44px touch target (${JSON.stringify(t)})`)
+    }
+    const play = paused.targets.find(t => /Resume/.test(t.label ?? ''))
+    check(!!play && play.top >= d.bottom - 0.5, `paused: Play's target starts below the handle strip (${JSON.stringify(play)}, strip bottom ${d.bottom})`)
+    check(paused.last?.p === playing.last?.p && paused.last?.w === playing.last?.w, `paused: no reading text moves (last word ${JSON.stringify(playing.last)} → ${JSON.stringify(paused.last)})`)
   }
-
-  await page.getByRole('button', { name: 'Close audio controls' }).click()
+  if (name === 'opening') {
+    await page.getByRole('button', { name: 'Close audio controls' }).click()
+  } else {
+    const cdp = await context.newCDPSession(page)
+    const bar = paused.bar
+    const touch = async (type, x, y) => cdp.send('Input.dispatchTouchEvent', { type, touchPoints: type === 'touchEnd' ? [] : [{ x, y, id: 1 }] })
+    const swipe = async (points, shotAt) => {
+      await touch('touchStart', ...points[0])
+      for (const [i, point] of points.slice(1).entries()) {
+        await touch('touchMove', ...point)
+        await page.waitForTimeout(16)
+        if (shotAt === i) await page.screenshot({ path: `${output}/${name}-3c-swiping.png` })
+      }
+      await touch('touchEnd')
+      await page.waitForTimeout(400)
+    }
+    const x0 = bar.x + bar.width * 0.3, y0 = bar.y + bar.height / 2
+    // Sideways: not a close.
+    await swipe([[x0, y0], [x0 + 20, y0 + 2], [x0 + 60, y0 + 4], [x0 + 100, y0 + 6]])
+    check((await measure(page)).transport === 'open', 'a sideways swipe on the paused bar leaves it open')
+    await swipe([[x0, y0], [x0, y0 + 10], [x0 + 1, y0 + 24], [x0 + 1, y0 + 40], [x0 + 2, y0 + 56], [x0 + 2, y0 + 70]], 2)
+  }
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.transport === 'closed')
   await page.waitForTimeout(500)
   const after = await measure(page)
