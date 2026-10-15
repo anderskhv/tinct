@@ -4,7 +4,7 @@
 // transport is stubbed: getUserMedia hangs or the token route fails, so no
 // provider session is ever opened here.
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, expect, it, vi } from 'vitest'
+import { beforeAll, afterEach, expect, it, vi } from 'vitest'
 import type { useVoiceSession } from '../hooks/useVoiceSession'
 import { GROK_VOICE_INSTRUCTIONS } from '../voice/grokConfig'
 import { LabApp } from './LabApp'
@@ -19,6 +19,14 @@ vi.mock('../hooks/useVoiceSession', async importOriginal => {
     captured.options = options
     return original.useVoiceSession(options)
   } }
+})
+
+// Talk's session code and the account cards load on demand in the reader
+// (first use). Loaded here up front so a busy machine's first transform of
+// those modules is not counted against a waitFor below.
+beforeAll(async () => {
+  await import('../voice/GrokVoiceSessionController')
+  await import('../cards/openCards')
 })
 
 afterEach(() => {

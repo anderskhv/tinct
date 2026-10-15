@@ -148,7 +148,8 @@ import {
   type LabReaderProgressMode,
   labSignInUrl,
 } from './labPrefs'
-import { closeAccountCards, consumeCardParam, openAccountCards, type CardName } from '../cards/openCards'
+import { consumeCardParam } from '../cards/cardsBoot'
+import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labLayoutOverride } from './labRoute'
@@ -247,8 +248,28 @@ function phoneSurfaceInput(layoutOverride: ReturnType<typeof labLayoutOverride>)
 
 /** How long the first page's fade-in class stays; the animation itself is shorter (lab.css). */
 const LAB_FIRST_REVEAL_MS = 400
+/** Longest a page turn waits for the rest of a head-first chapter map before using the one it has. */
+const LAB_HEAD_FIRST_HOLD_MS = 3000
+/** Whether the map on screen is a head-first map whose rest is still being laid out (LabNativePaginator `headFirst`). */
+function headFirstPending(since: number): boolean {
+  return since > 0 && performance.now() - since < LAB_HEAD_FIRST_HOLD_MS
+}
 /** Longest the first text waits for hyphenation patterns before paging without them. */
 const LAB_HYPHENATION_WAIT_MS = 300
+
+/** The account cards' code (views, styles), fetched the first time a card opens. */
+let accountCardsModule: Promise<typeof import('../cards/openCards')> | null = null
+function loadAccountCards(): Promise<typeof import('../cards/openCards')> {
+  accountCardsModule ??= import('../cards/openCards').catch((error) => {
+    accountCardsModule = null
+    throw error
+  })
+  return accountCardsModule
+}
+/** Close the cards if they were ever opened in this page (never loads them to close). */
+function closeLoadedAccountCards(): void {
+  void accountCardsModule?.then(cards => cards.closeAccountCards(), () => {})
+}
 
 function readPhoneSurface(layoutOverride: ReturnType<typeof labLayoutOverride>): boolean {
   if (typeof window === 'undefined') return layoutOverride === 'phone'
@@ -600,6 +621,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // Read by the text load (not one of its triggers): until the first page is
   // up, a Compare view that is not on screen gets its edition after it.
   const firstPageShownRef = useRef(false)
+  // Set once the first page is on screen. Work the opening page does not
+  // need (character cards, neighbouring chapters, Talk's session code) waits
+  // for it rather than sharing the network and main thread with the reader's
+  // first text.
+  const [firstPageShown, setFirstPageShown] = useState(false)
   const compareOnScreenRef = useRef(mobileCompareActive || desktopCompareActive)
   compareOnScreenRef.current = mobileCompareActive || desktopCompareActive
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
@@ -792,25 +818,28 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [])
   const accountCardsWanted = superSheet === 'account'
   useEffect(() => {
-    if (!accountCardsWanted) { closeAccountCards(); return }
+    if (!accountCardsWanted) { closeLoadedAccountCards(); return }
     const start = accountCardRef.current ?? 'you'
     accountCardRef.current = null
     let live = true
-    void openAccountCards({
+    void loadAccountCards().then(cards => cards.openAccountCards({
       start,
       dark: resolvedDarkMode,
       deskTop: 76,
       onClose: () => setSuperSheet(layer => (layer === 'account' ? null : layer)),
-    }).then(opened => {
+    })).then(opened => {
       if (opened || !live) return
       // Signed out: the account lives behind sign-in.
       setSuperSheet(null)
       window.location.assign(labSignInUrl(labCurrentPath()))
+    }, () => {
+      // The cards' code could not load (offline before first use): nothing opened.
+      if (live) setSuperSheet(layer => (layer === 'account' ? null : layer))
     })
     return () => { live = false }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- opened once per 'account'; the theme is read at open
   }, [accountCardsWanted])
-  useEffect(() => () => closeAccountCards(), [])
+  useEffect(() => () => closeLoadedAccountCards(), [])
   useBackCloses(bookSwitcherOpen, () => setBookSwitcherOpen(false))
   useBackCloses(chapterNotes !== null, () => setChapterNotes(null))
   useBackCloses(inTheBookOpen, () => { setInTheBookOpen(false); setPeekBook(false) })
@@ -969,7 +998,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   )
   const [nativePagesRevision, setNativePagesRevision] = useState(0)
   const [nativeMeasuredContent, setNativeMeasuredContent] = useState<string[] | null>(null)
-  useLayoutEffect(() => { setNativeMeasuredContent(null) }, [desktopPaging])
+  // A head-first map (LabNativePaginator `headFirst`): its opening page is
+  // laid out, the rest of the chapter follows a moment later. The page is
+  // shown; nothing turns onto, counts or verifies the rest until it is in.
+  const [nativeHeadContent, setNativeHeadContent] = useState<string[] | null>(null)
+  // When the head-first map on screen arrived (0: none). Page turns wait for
+  // the full map, never for long (LAB_HEAD_FIRST_HOLD_MS).
+  const nativeHeadOnlyRef = useRef(0)
+  // A forward turn asked for while that map was on screen, taken once the
+  // full map is in. (Back from its opening page never reads the rest.)
+  const headFirstTurnRef = useRef(false)
+  useLayoutEffect(() => { setNativeMeasuredContent(null); setNativeHeadContent(null); nativeHeadOnlyRef.current = 0 }, [desktopPaging])
   const nativeContentRef = useRef(readerParagraphs)
   nativeContentRef.current = readerParagraphs
   const readerStateRef = useRef<LabReaderStateSnapshot>({
@@ -1241,6 +1280,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     ? (chapterNumber: number | undefined) => sourceAuthorship(book, chapterNumber)
     : undefined, [book])
   const ask = useLabAsk({
+    voiceWarm: firstPageShown,
     bookTitle: book.bookTitle,
     bookAuthor: book.bookAuthor,
     authorshipOf,
@@ -1467,7 +1507,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       restorePageRef.current = null
-      if (pagesStableRef.current && readingPagesRef.current.length > 0) {
+      // On a head-first map the full map restores it (applyNativePages).
+      if (pagesStableRef.current && readingPagesRef.current.length > 0 && !headFirstPending(nativeHeadOnlyRef.current)) {
         const idx = pageIndexForPlace(readingPagesRef.current, place.paragraphIndex, place.wordIndex)
         restorePlaceRef.current = null
         pageAnchorRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
@@ -1890,15 +1931,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   useEffect(() => {
     const pending = book.supplement
-    if (!pending) return
+    // Audio timings and the cast are not on the opening page: they are asked
+    // for once it is on screen.
+    if (!pending || !firstPageShown) return
     let cancelled = false
-    // Keyed by the load's own promise, not the book object: the Compare
+    // Keyed by the load's own request, not the book object: the Compare
     // edition (below) may land first and replace the object, same load.
-    void pending.then(supporting => {
+    void pending().then(supporting => {
       if (!cancelled) setBook(current => current.supplement === pending ? { ...current, ...supporting, supplement: undefined } : current)
     }).catch(() => {})
     return () => { cancelled = true }
-  }, [book])
+  }, [book, firstPageShown])
 
   const openAtEndRef = useRef(false)
 
@@ -2089,10 +2132,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [])
   const [shareTarget, setShareTarget] = useState<LabShareTarget | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber, { shared: sharedHighlight, bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
-  // Set once the first page is on screen. Work the opening page does not
-  // need (character cards, neighbouring chapters) waits for it rather than
-  // sharing the network and main thread with the reader's first text.
-  const [firstPageShown, setFirstPageShown] = useState(false)
   // The Compare edition of a cold open, once the first page is up. Only the
   // load that asked for it receives it; a newer load has its own.
   useEffect(() => {
@@ -2144,7 +2183,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const listenStartRef = useRef(listen.start)
   listenStartRef.current = listen.start
 
-  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[]) => {
+  const applyNativePages = useCallback((incoming: ChapterHearingPage[], measuredContent?: string[], partial = false) => {
     if (measuredContent && measuredContent !== nativeContentRef.current) return
     // Every session, a deep link's included, adopts the measured map verbatim.
     const next = withComparePassage(incoming, nativeContentRef.current)
@@ -2159,7 +2198,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       !measuredPaging
       || next.length === 0
     ) return
-    setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
+    if (partial) {
+      // A head-first map shows its opening page only. Any other place to
+      // land on (a saved word, a page, the chapter's end, the word being
+      // spoken) waits for the full map, so the reader never lands on a
+      // stand-in page and never moves when the rest arrives.
+      const wanted = restorePlaceRef.current ?? (playing ? placeRef.current : null) ?? mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current
+      const atOpening = !wanted || pageIndexForPlace(next, wanted.paragraphIndex, wanted.wordIndex) === 0
+      if (!atOpening || (restorePageRef.current ?? 0) > 0 || chapterLandingRef.current === 'end' || openAtEndRef.current) return
+    }
+    nativeHeadOnlyRef.current = partial ? performance.now() : 0
+    if (partial) setNativeHeadContent(measuredContent ?? nativeContentRef.current)
+    else {
+      setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
+      setNativeHeadContent(null)
+      if (headFirstTurnRef.current) {
+        headFirstTurnRef.current = false
+        window.setTimeout(() => goNextRef.current(), 0)
+      }
+    }
     mapTransportOpenRef.current = transportOpenRef.current
     if (new URLSearchParams(location.search).has('qaLayoutTrace')) console.log('NATIVE_MAP', JSON.stringify({layout: readerStateRef.current, incoming: incoming.slice(0,5), next: next.slice(0,5), current:readingPagesRef.current.slice(0,5), keep:pageAnchorRef.current}))
     const current = readingPagesRef.current
@@ -3319,7 +3376,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // page of its own to measure, which is the other reason not to ask it.)
   // Only a chapter of prose measures it (proseChapter): a printed contents or a list of dates
   // holds a few words a page.
-  const phoneMedian = fullPageWordCounts.length > 0 && proseChapter(book.paragraphs) ? fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)] : 0
+  // A head-first map's pages after its first are stand-ins: words per page waits for the full map.
+  const headFirstOnScreen = measuredPaging && nativeHeadContent === readerParagraphs && nativeMeasuredContent !== readerParagraphs
+  const phoneMedian = fullPageWordCounts.length > 0 && proseChapter(book.paragraphs) && !headFirstOnScreen ? fullPageWordCounts[Math.floor(fullPageWordCounts.length / 2)] : 0
   const freshCapacity: { wordsPerPage: number; leafHeight: number } | null = desktopPaging && desktopLeafCapacity !== null
     ? desktopLeafCapacity
     : phoneMedian >= MIN_WORDS_PER_PAGE
@@ -3393,7 +3452,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const desktopProgressLabel = shownProgressLabels.book
   // No figure until the chapter list is real and the place is resolved: the
   // boot list has two chapters and would read "1 / 2 of book" for a moment.
+  // Nor while a head-first map's rest is still being laid out: its page count is a stand-in.
   const footProgressLabel = initialResolving || (book.chaptersProvisional && book.paragraphs.length === 0)
+    || headFirstOnScreen
     ? ''
     : showPhoneChrome
       ? phoneProgressLabel
@@ -4123,6 +4184,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const goNext = useCallback(() => {
     // A page still being written in Modern English is covered: the reader waits there, never turning on into text they cannot see.
     if (modernBlocksNextRef.current) return
+    // The opening page of a head-first map is up and the rest is a moment
+    // away: the turn waits for it rather than landing on a stand-in page.
+    if (headFirstPending(nativeHeadOnlyRef.current)) { headFirstTurnRef.current = true; return }
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       if (book.paragraphs.length === 0) return
@@ -4691,7 +4755,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // sign-in meant it replayed at the wrong moments and then never again.)
   const readerLaidOut = book.paragraphs.length > 0 && !initialResolving
   const readerReady = readerLaidOut
-    && (!measuredPaging || nativeMeasuredContent === readerParagraphs)
+    && (!measuredPaging || nativeMeasuredContent === readerParagraphs || nativeHeadContent === readerParagraphs)
     && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey)
   // The first page fades in once, in the render that makes it visible.
   const [firstRevealDone, setFirstRevealDone] = useState(false)
@@ -5389,7 +5453,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             />
           ) : <LabPassage
             plannedHyphens={measuredPaging && !desktopPaging}
-            pendingLayout={measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
+            pendingLayout={measuredPaging && ((nativeMeasuredContent !== readerParagraphs && nativeHeadContent !== readerParagraphs) || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
             onPreviewChapter={privateBook ? undefined : () => openChapterNotes('primer')}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
@@ -5499,6 +5563,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               editionKey={readerEditionKey}
               layoutKey={layoutKeyFor(readerEditionKey)}
               keepPages={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.pages : undefined}
+              // The reader's first page of this visit: shown before the rest
+              // of its chapter is laid out (applyNativePages takes it only
+              // when that page is where the reader lands).
+              headFirst={!firstPageShown && !mobileCompareActive}
               onPages={applyNativePages}
             />
           )}
@@ -5520,7 +5588,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
               looking at it. It writes a ref and touches no state, so it can
               never paint; the swap reads it and commits the incoming page in
               one go instead of showing an estimate and correcting it. */}
-          {!chapterCoverTitle && measuredPaging && mobileCompareEnabled && standbyParagraphs.length > 0 && (
+          {/* After the reader's own map is whole: a head-first chapter lays its rest out first. */}
+          {!chapterCoverTitle && measuredPaging && mobileCompareEnabled && standbyParagraphs.length > 0 && !headFirstOnScreen && (
             <LabNativePaginator
               fillPages
               chapterActions hasNextChapter={canNextChapter}

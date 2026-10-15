@@ -1,4 +1,3 @@
-import symposiumMap from './symposiumCoordinateMap.json'
 import type { CoordinateMigration } from './editionCoordinateMigration'
 
 /**
@@ -397,8 +396,27 @@ export function writtenBeforeRelease(
 export type MigrationKind = 'positions' | 'highlights'
 
 const loaded: Record<MigrationKind, Map<string, CoordinateMigration>> = { positions: new Map(), highlights: new Map() }
-// Symposium's map is bundled: migration must precede structure validation even offline.
-for (const kind of ['positions', 'highlights'] as const) loaded[kind].set('symposium', symposiumMap as unknown as CoordinateMigration)
+/**
+ * Symposium's map ships with the app (one map for places and highlights), so
+ * its migration never depends on the network, even offline: the service
+ * worker installs it with the reader shell (scripts/stamp-sw-app-shell.cjs).
+ * It is its own bundle, loaded only for a reader holding Symposium data that
+ * needs it (the reader waits for that before its first read, main.tsx); every
+ * other reader's first page never downloads its 130 KB.
+ */
+let symposiumMap: Promise<CoordinateMigration> | null = null
+function loadSymposiumMap(): Promise<CoordinateMigration | null> {
+  symposiumMap ??= import('./symposiumCoordinateMap.json')
+    .then(module => ((module as { default?: unknown }).default ?? module) as CoordinateMigration)
+  return symposiumMap.then((map) => {
+    for (const kind of ['positions', 'highlights'] as const) loaded[kind].set('symposium', map)
+    return map
+  }, () => {
+    // Offline before the shell installed it: nothing is moved, nothing is lost; the next start asks again.
+    symposiumMap = null
+    return null
+  })
+}
 const pending = new Map<string, Promise<CoordinateMigration | null>>()
 
 /** Maps already in memory, for the synchronous read paths. */
@@ -421,6 +439,7 @@ export function loadCoordinateMigration(kind: MigrationKind, bookId: string): Pr
   if (!release) return Promise.resolve(null)
   const ready = loaded[kind].get(bookId)
   if (ready) return Promise.resolve(ready)
+  if (bookId === 'symposium') return loadSymposiumMap()
   const key = `${kind}:${bookId}`
   const inFlight = pending.get(key)
   if (inFlight) return inFlight

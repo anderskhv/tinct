@@ -117,6 +117,8 @@ export function* measuredDesktopPageSteps(
   start?: LabPaginationStart,
   lineStarts?: LineStartLookup,
   tailGap?: TailGapLookup,
+  /** Sees the pages closed so far each time one closes (before the pause); never change them. */
+  onClosed?: (pages: readonly ChapterHearingPage[]) => void,
 ): Generator<number, ChapterHearingPage[], void> {
   const pages: ChapterHearingPage[] = []
   let segments: ChapterPageSegment[] = []
@@ -171,6 +173,7 @@ export function* measuredDesktopPageSteps(
         }
         commit()
         segments = [...segments, ...carried]
+        onClosed?.(pages)
         yield pages.length
         continue
       }
@@ -245,6 +248,7 @@ export function* measuredDesktopPageSteps(
       }
       if (to > from) segments.push(segment(to, tailFragment))
       commit()
+      onClosed?.(pages)
       yield pages.length
       if (to === from) continue
       // Whatever this page showed of the next word, that page resumes after.

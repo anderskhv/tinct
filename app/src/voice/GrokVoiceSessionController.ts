@@ -252,6 +252,22 @@ export class GrokVoiceSessionController {
     if (this.context.state !== 'running' && this.context.state !== 'closed') void this.context.resume().catch(() => {})
   }
 
+  /**
+   * An AudioContext the hook created and resumed in the reader's tap before
+   * this controller's code had loaded (useVoiceSession loads it lazily). It
+   * takes the place `unlockLabAudioContext` would have made in that tap.
+   */
+  adoptLabAudioContext(context: AudioContext): void {
+    if (this.context && this.context.state !== 'closed') {
+      if (context !== this.context) void context.close().catch(() => {})
+      return
+    }
+    this.captureModule = null
+    this.outputGain = null
+    this.analyser = null
+    this.context = context
+  }
+
   getAssistantLevel(): number | null {
     if (!this.analyser) return null
     const data = new Uint8Array(this.analyser.fftSize)

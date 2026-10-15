@@ -48,6 +48,17 @@ if (fs.existsSync(fontCssPath)) {
   }
 }
 
+// Bundles the reader imports on demand that it must still have offline,
+// installed with the shell (in the background, never with the first page):
+// Symposium's coordinate map moves a reader's old places and highlights before
+// the first read (src/data/editionContentRevisions.ts); the account cards open
+// offline from the device cache (src/cards/openCards.ts, loaded on first open).
+const OFFLINE_REQUIRED_BUNDLE = /^(?:symposiumCoordinateMap|openCards|cardsCopy)-[\w-]+\.js$/
+const builtAssets = path.join(dist, 'assets')
+if (fs.existsSync(builtAssets)) {
+  for (const name of fs.readdirSync(builtAssets)) if (OFFLINE_REQUIRED_BUNDLE.test(name)) urls.add(`/assets/${name}`)
+}
+
 const sortedUrls = [...urls].sort()
 // Every other bundle in assets/: imported on demand (the voice call, a PDF,
 // collections), cached by sw.js on first use or when a book is made available
