@@ -1671,7 +1671,7 @@ async function toggleFullscreen() {
 function setTrim(on) { prefs.trim = state.trim = on; savePrefs(); if (state.pages.length) setZoom(state.zoom); else applyCrop() }
 
 /* ---------- Chapters: from the scan (js/pdf-scan.js), kept with the book ---------- */
-const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages', task: null };
+const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages', task: null, soon: null, early: null };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
@@ -1680,10 +1680,26 @@ function chapterTitleStyle() {
 }
 async function buildContents() {
   const token = state.token, key = state.key, pdf = state.pdf;
-  toc.ready = false; toc.entries = [];
+  toc.ready = false; toc.entries = []; toc.early = null;
   // Resolved when the contents are known (a long file's margin requests send them: docRange).
   let built; toc.task = new Promise(r => { built = r });
-  try { await buildContentsNow(token, key, pdf) } finally { built() }
+  // Resolved as soon as the chapters are known (contentsSoon): from a stored scan at once, from a new
+  // scan's outline or printed contents before its other pages are read, else when the scan ends.
+  let soon; toc.soon = new Promise(r => { soon = r });
+  toc.hear = early => { if (token === state.token && !toc.early) { toc.early = early; soon(early) } };
+  try { await buildContentsNow(token, key, pdf) } finally { built(); if (token === state.token) toc.hear(contentsNow()) }
+}
+// The chapters as the scan gives them (sorted by page, house-styled, no stray marks), and whether the file is known to have text.
+const contentsNow = () => ({ entries: toc.entries, nav: toc.nav, text: state.scan ? !hasNoText() : null });
+const contentsSorted = list => (TinctPdfScan.usableEntries ? TinctPdfScan.usableEntries(list) : list).slice().sort((a, b) => a.page - b.page);
+/**
+ * The chapters for the margin's document and Before you start's units, as soon as they are known: the same
+ * entries the contents show once the scan ends (a new scan hears them early, scan's onEntries), so a long
+ * book's units and its document's contents never wait for the whole scan (MacKay: 13 s; round 1, 15 Oct).
+ * -> { entries, nav, text } (text: true when the file has text, null while not known).
+ */
+function contentsSoon() {
+  return toc.soon || Promise.resolve(contentsNow());
 }
 async function buildContentsNow(token, key, pdf) {
   let scan = state.scan;
@@ -1693,11 +1709,14 @@ async function buildContentsNow(token, key, pdf) {
     state.titleReady = new Promise(r => { heard = r });
     // A new scan: run at the first open (and again when SCAN_VERSION moves on), then kept on
     // the book's record with the title, author and page count the library shows.
+    // Chapters heard before the scan ends are styled as the finished scan's will be (same entries, same language).
+    const housed = chapterTitleStyle();
     scan = await TinctPdfScan.scan(pdf, {
       fileName: state.name,
       items: async n => (await pageText(n)).items,
       live: () => token === state.token,
       onTitle: t => { if (token === state.token) setBookTitle(t.title, t.author); heard() },
+      onEntries: e => { housed.then(house => toc.hear?.({ entries: contentsSorted(e.entries.map(x => ({ ...x, label: house(x.label, e.language) }))), nav: e.nav, text: e.text })) },
     }).catch(() => null);
     heard();
     if (token !== state.token) return;
@@ -1718,7 +1737,7 @@ async function buildContentsNow(token, key, pdf) {
   if (fresh && sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
   showEditions();
   if (isScan()) ocrOpen();
-  toc.entries = scan.entries.slice().sort((a, b) => a.page - b.page);
+  toc.entries = contentsSorted(scan.entries);
   toc.nav = toc.entries.length ? scan.nav : 'pages';
   toc.ready = true;
   onScroll();
@@ -2614,7 +2633,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015retestg').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015round2').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -2713,6 +2732,11 @@ async function pageLabels(pdf, key, token) {
   const ocr = state.ocrPages ? state.ocrPages.size : 0;
   const kept = store.get('printed:' + key);
   if (kept?.v === PRINTED_V && kept.pages === pdf.numPages && (kept.ocr || 0) === ocr) { if (Array.isArray(kept.labels) && kept.labels.length === pdf.numPages) use(kept.labels); return }
+  // A long file: the scan's chapters first (Before you start's units wait for them; contentsSoon), then the whole book.
+  if (pdf.numPages >= TinctMargin.PRIMER.units) {
+    await Promise.race([contentsSoon(), new Promise(r => setTimeout(r, 5000))]);
+    if (token !== state.token) return;
+  }
   const read = await readBook();
   if (!read || token !== state.token) return;
   const labels = TinctPrintedPages.labels(read.numbers);
@@ -2749,6 +2773,7 @@ function readDocument() {
  */
 async function marginDocument(page) {
   if (!marginOn() || !state.pages.length) return null;
+  const key = state.key;
   const read = await readDocument(); if (!read) return null;
   if (read.pages) return { kind: docKind(), units: read.pages };
   if (isEpub()) {
@@ -2756,19 +2781,26 @@ async function marginDocument(page) {
     const text = (await pageText(page)).text || '';
     return { kind: 'epub', units: [{ n: pageLabel(page), text: text.slice(0, read.limit) }], part: { toc: toc.entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length } };
   }
-  const r = await docRange(page);
+  const [r, contents] = await Promise.all([docRange(page), contentsSoon()]);
+  if (state.key !== key) return null;
   const units = []; let chars = 0;
   for (let n = r.from; n <= r.to; n++) { const text = book.texts[n - 1] || ''; if ((chars += text.length) > read.limit) break; units.push({ n: pageLabel(n), text }) }
-  return { kind: 'pdf', units, part: { toc: toc.entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length }, range: { from: r.from, to: r.from + units.length - 1 } };
+  return { kind: 'pdf', units, part: { toc: contents.entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length }, range: { from: r.from, to: r.from + units.length - 1 } };
 }
-/** A long file's part for `page`: Before you start's unit (the real chapter, so both share one cached prefix), else the contents' chapter, else a fixed 40-page block. */
+/**
+ * A long file's part for `page`, a function of the document alone so every request in the part sends the
+ * same bytes (the cached prefix): the unit of Before you start the page lies in (its pages, by the outline
+ * or the contents; the same part its primer sends), else a fixed 40-page block. It waits for the units,
+ * never racing a timer: on MacKay the part was sometimes the 40-page block, sometimes the contents' chapter
+ * and sometimes the unit, so the cache was written again and again (round 1, 15 Oct). The units come from
+ * the contents as soon as the scan finds them (contentsSoon); a minute is only a guard against a stall.
+ */
 async function docRange(page) {
-  await Promise.race([Promise.all([primer.unitsTask, toc.task]), new Promise(r => setTimeout(r, 5000))]);
-  const unit = primer.units && primer.units[0]?.key !== 'all' ? TinctMargin.primerUnitAt(primer.units, page) : null;
+  await Promise.race([primer.unitsTask, new Promise(r => setTimeout(r, 60000))]);
+  const unit = primer.units && primer.units[0]?.key !== 'all' ? TinctMargin.unitAt(primer.units, page) : null;
   if (unit) return { from: unit.from, to: unit.to };
-  const ch = toc.ready ? chapterAt(page) : null;
   const block = Math.floor((page - 1) / 40) * 40 + 1;
-  return ch ? chapterRange(ch) : { from: block, to: Math.min(state.pages.length, block + 39) };
+  return { from: block, to: Math.min(state.pages.length, block + 39) };
 }
 /**
  * For a question on a long file (FIXES-2026-10-15, long books, item 8): the few passages beyond its
@@ -3889,10 +3921,12 @@ async function loadUnitsNow() {
   // one unit, "the whole PDF", and its primer blended the preface with chapters 1 and 2; Anders, 15 Oct).
   const count = state.pages.length || pdf.numPages;
   // (A PDF under 40 pages is one unit whatever it has: nothing to wait for.)
+  // The chapters are heard as soon as the scan finds them (contentsSoon), not when it ends: MacKay's trigger
+  // took 15 s on its first open (round 1, 15 Oct).
   if (!entries.some(e => Number.isInteger(e.page)) && count >= TinctMargin.PRIMER.units) {
-    await toc.task;
+    const soon = await contentsSoon();
     if (token !== state.token) return;
-    entries = scanUnitEntries();
+    entries = TinctMargin.scanEntries(soon.entries, soon.nav, count);
   }
   let units = TinctMargin.primerUnits(entries, count);
   // Still one unit, and too long to send whole: blocks of pages, never "the whole PDF".
@@ -3901,24 +3935,24 @@ async function loadUnitsNow() {
     if (token !== state.token) return;
     if (read && !read.pages) units = TinctMargin.primerBlocks(count);
   }
-  for (const u of units.length > 1 ? units.slice(0, 80) : []) {
-    if (u.matter || u.pages) continue;
-    const kind = TinctMargin.pageMatter((await pageText(u.start)).text) || (u.start < u.to ? TinctMargin.pageMatter((await pageText(u.start + 1)).text) : null);
-    if (token !== state.token) return;
-    if (kind) u.matter = kind === 'contents' ? 'front' : 'back';
-  }
+  // Read side by side, not one after another (80 units took about 2 s in turn).
+  const kinds = await Promise.all((units.length > 1 ? units.slice(0, 80) : []).map(async u => {
+    if (u.matter || u.pages) return null;
+    return TinctMargin.pageMatter((await pageText(u.start)).text) || (u.start < u.to ? TinctMargin.pageMatter((await pageText(u.start + 1)).text) : null);
+  }));
+  if (token !== state.token) return;
+  kinds.forEach((kind, i) => { if (kind) units[i].matter = kind === 'contents' ? 'front' : 'back' });
   primer.units = units;
   marginLayout();
 }
-// The scan's chapters as primer entries (TinctMargin.scanEntries).
-const scanUnitEntries = () => TinctMargin.scanEntries(toc.entries, state.scan?.nav, state.pages.length);
 const placePage = () => (state.pages.length ? currentPlace().page : 1);
 // The chapter the reader is in when they open Before you start; on front or back matter, the nearest real chapter.
 const currentUnit = () => (primer.units ? TinctMargin.primerUnitAt(primer.units, placePage()) : null);
 // A scan with no text (yet) has nothing to make a primer from: no trigger and no B until its text is
 // recognised (ocrAdopt), never a primer of blank pages that fails after 80 s (the scans test, 15 Oct 2026).
 // Until the file's scan says whether it has text, nothing is offered either.
-const primerHasText = () => !!state.scan && !hasNoText();
+// A new scan's chapters can tell earlier that the file has text (contentsSoon): the trigger need not wait for the whole scan.
+const primerHasText = () => (state.scan ? !hasNoText() : toc.early?.text === true);
 /** The unit whose trigger shows now, or null. */
 function triggerUnit() {
   if (!primer.units || primer.open || !primerHasText()) return null;

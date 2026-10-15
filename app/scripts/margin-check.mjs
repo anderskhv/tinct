@@ -2359,6 +2359,26 @@ async function longBooks(browser, origin) {
     }
     await A.ctx.close()
   }
+  // Round 1, 15 Oct (MacKay: no outline, a printed contents): Before you start offered nothing on chapter 4 within 5 s of its
+  // first open, and the cached prefix changed between requests in one chapter. Opened fresh (no stored scan) at chapter 4.
+  {
+    const bare = addBook(BARE_BOOK), m = BARE.meta, ch4 = m.chapters.find(c => c.title.startsWith('4 ')), ch16 = m.chapters.find(c => c.title.startsWith('16 '))
+    const tag = 'long_book_no_outline-1440x900-paper'
+    const A = await readerPage(browser, origin, bare, { width: 1440, height: 900, look: 'paper', at: ch4.from, minSpans: 5 })
+    const a = A.page
+    const shown = Date.now()
+    await a.waitForFunction(() => !!document.querySelector('.mr-trigger'), null, { timeout: 30000 }).catch(() => {})
+    const wait = Date.now() - shown
+    const when = await a.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), unit: primer.units && TinctMargin.primerUnitAt(primer.units, currentPlace().page)?.title, scanDone: toc.ready }))
+    ok(`${tag}: Before you start's trigger shows on chapter 4 within 5 s of its first text, from the contents the scan finds first (${wait} ms; the scan done: ${when.scanDone})`, when.trigger && wait <= 5000 && /^4 /.test(when.unit || ''), { wait, ...when })
+    // The margin's document, a function of the book alone: the same bytes on two pages of chapter 4, the same contents on chapter 16.
+    const docs = await a.evaluate(async ([p1, p2, p3]) => { const out = []; for (const n of [p1, p2, p3]) out.push(JSON.stringify(await marginDocument(n))); return out }, [ch4.from + 1, ch4.to - 1, ch16.from + 1])
+    const [d1, d2, d3] = docs.map(d => JSON.parse(d))
+    const unit = await a.evaluate(n => { const u = TinctMargin.unitAt(primer.units, n); return { from: u.from, to: u.to } }, ch4.from + 1)
+    ok(`${tag}: two pages of chapter 4 send the same document byte for byte, the chapter's unit (pages ${unit.from}-${unit.to}); chapter 16 the same contents`, docs[0] === docs[1] && d1.range.from === unit.from && d1.range.to === unit.to && JSON.stringify(d3.part.toc) === JSON.stringify(d1.part.toc) && d1.part.toc.length > 17 && d3.range.from !== d1.range.from, { r1: d1?.range, r2: d2?.range, r3: d3?.range, toc: d1?.part?.toc?.length })
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems.slice(0, 3))
+    await A.ctx.close()
+  }
   return results
 }
 

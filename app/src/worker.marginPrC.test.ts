@@ -281,6 +281,8 @@ describe('docs/margin/PROMPTS.md is in step with the prompts', () => {
       ...SIMPLIFY_PROMPT.split('\n'), ...COUNTERPOINT_PROMPT.split('\n'), ...RELATED_PROMPT.split('\n'),
       ...factcheckPrompt('{today}').split('\n'),
       PICTURE_RULE, NO_EXTRACTION_TALK_RULE, PASSAGE_IMAGE_LINE, FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND, ...QUIZ_CHECK_PROMPT.split('\n'),
+      // Round 1 (15 Oct, night): the PDF reader's Define eponym line and its policy lines without the document.
+      marginPromptText.DEFINE_EPONYM_LINE, marginPromptText.MARGIN_CONTEXT_PARAGRAPH, marginPromptText.MARGIN_READ_LINE, marginPromptText.MARGIN_CHECKED_WORDS,
     ]
     for (const line of lines) expect(doc, line).toContain(line)
   })
@@ -305,8 +307,9 @@ describe('no pipeline wording in any margin prompt', () => {
       ['primer task, unit', buildPrimerTask({ kind: 'primer', unitKey: 'outline-1', unitTitle: 'T' }, context, null)],
       ['primer instructions', buildPrimerInstructions({ kind: 'primer', unitKey: 'all', unitTitle: 'T' }, context)],
     ]
-    // The PDF contextual lookup keeps the shared Define prompt word for word (PROMPTS.md: "nothing else changes").
-    for (const [name, text] of texts) if (name !== 'PDF_CONTEXTUAL_LOOKUP_PROMPT') for (const leak of LEAKS) expect(text, name).not.toMatch(leak)
+    // Round 1 (15 Oct, night): the PDF reader's Define prompt and its policy without the document are held to it too.
+    for (const [name, text] of texts) for (const leak of LEAKS) expect(text, name).not.toMatch(leak)
+    expect(texts.map(([name]) => name)).toEqual(expect.arrayContaining(['PDF_CONTEXTUAL_LOOKUP_PROMPT', 'MARGIN_LAB_ASK_POLICY']))
     const blocks = readFileSync(resolve(__dirname, '../../docs/margin/PROMPTS.md'), 'utf8').match(/```[\s\S]*?```/g) ?? []
     expect(blocks.length).toBeGreaterThan(5)
     for (const block of blocks) for (const leak of LEAKS) expect(block).not.toMatch(leak)
@@ -346,7 +349,7 @@ describe('Related (A5, approved 15 Oct)', () => {
     expect(companionSelectionMessage(request)).toBe('<selected_passage>\nSelf-attention\n</selected_passage>')
     expect(RELATED_PROMPT).toContain('Find where else the document takes up the idea in the selected passage')
     expect(RELATED_PROMPT).toContain('Then two to five places, in the document\'s order.')
-    expect(RELATED_PROMPT).toContain('Do not list the selected passage itself.')
+    expect(RELATED_PROMPT).toContain('leave the selected passage itself out, and never say what is or is not listed.')
 
     const { anthropic, openai, charges, rows } = stubFetch(() => ({ stream: streamed('Self-attention runs through the model.\n\n{p. 3} The encoder stacks it.') }))
     const { status, text } = await send({ ...withImage(margin('related', 2, { selection: 'Self-attention' })), stream: true })

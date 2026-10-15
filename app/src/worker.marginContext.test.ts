@@ -263,8 +263,11 @@ describe('the cached prefix', () => {
     const part = { kind: 'pdf', units: [{ n: 3, text: PAPER[2] }], part: { toc: [{ title: '2 Background', n: 3 }], total: 400 } }
     await send({ companion: { intent: 'explain', context: pdfContext(3), document: part, selection: 'Self-attention' } })
     const system = anthropic[0].system as SystemBlock[]
-    expect(system[0].text).toContain('This document is too long to include whole (400 pages). Below are its table of contents and the full text of page 3, the part the reader is in.')
+    expect(system[0].text).toContain('This document is too long to include whole (400 pages). Below are its table of contents and then the full text of the part the reader is in.')
     expect(system[0].text).toContain('<contents>\n2 Background (page 3)\n</contents>')
+    // Which part it is opens the part's own cached block (round 1, 15 Oct: the first block is the same on every page).
+    expect(system[1].text.startsWith('The part the reader is in: page 3.\n\n<document>')).toBe(true)
+    expect(system[1].cache_control).toEqual({ type: 'ephemeral' })
   })
 
   it('takes a document request over the usual body cap, and nothing else', async () => {

@@ -188,6 +188,8 @@ export interface LabAskInstructionParts {
  * requests pass neither, so their prompt is unchanged.
  */
 export interface LabAskInstructionOptions {
+  /** The policy that opens the prompt, in place of LAB_ASK_POLICY (the PDF reader's margin: MARGIN_LAB_ASK_POLICY). */
+  policy?: string
   nearby?: number
   shownExplanations?: ShownExplanation[]
   rules?: string[]
@@ -202,7 +204,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: LabAs
   const toolsAvailable = Boolean(input.bookId && input.editionKey) && input.lookups !== false
 
   const stable = [
-    LAB_ASK_POLICY,
+    options.policy ?? LAB_ASK_POLICY,
   ]
   if (toolsAvailable) stable.push(LAB_ASK_BOOK_TOOLS_RULE, LAB_LOOKUP_BEFORE_TEXT_RULE)
   for (const rule of options.rules ?? []) if (rule) stable.push(rule)

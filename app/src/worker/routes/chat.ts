@@ -43,7 +43,7 @@ import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, passageImageWithinCap, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
 import { primerFailure } from '../../companion/primerParse'
-import { FACTCHECK_OPENING_ROUTE, type MarginThinking } from '../../companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, factcheckVerdictEffort, type MarginThinking } from '../../companion/marginRoutes'
 import { FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND } from '../../companion/marginPrompts'
 
 export type ChatEnv = SupabaseEnv & {
@@ -742,6 +742,8 @@ interface ToolLoopInput {
 export interface FactcheckOpening {
   system: AnthropicSystemParam
   verdictSystem: AnthropicSystemParam
+  /** The verdict rounds' effort (marginRoutes.ts factcheckVerdictEffort: the route's, unless its speed trial is on). */
+  verdictEffort?: CompanionEffort
   maxTokens: number
   effort: CompanionEffort
   thinking?: MarginThinking
@@ -906,6 +908,7 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
   void pendingSource?.then(() => { searchDone = true }, () => { searchDone = true })
   let openingText = ''
   let openingRan = false
+  let roundEffort = input.effort
   if (pendingSource && input.opening && input.stream && sink) {
     openingRan = true
     const opening = input.opening
@@ -941,6 +944,7 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
     if (openingText) {
       breakBeforeNextText = true
       system = cacheableSystem(opening.verdictSystem)
+      roundEffort = opening.verdictEffort ?? roundEffort
     }
     if (!searchDone) writeStatus(await searchStatus())
   } else if (pendingSource) {
@@ -993,7 +997,7 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
         maxTokens: input.maxTokens,
         stream: input.stream,
         forceText,
-        effort: input.effort,
+        effort: roundEffort,
         tools: input.tools,
         thinking: input.thinking,
       // A margin round that fails before it starts (a 5xx, 529 or short 429) is retried once even
@@ -1296,9 +1300,11 @@ export async function handleChat(
         } else if (companion.document) {
           // The margin's whole document: the cached prefix first, its breakpoint
           // at its end; everything that changes per request after it.
+          // A long document's part is a second cached block, so the first (rules and contents) is the same on every page.
           const parts = buildMarginSystemParts(companion, buildExtras)!
           system = [
             { type: 'text' as const, text: parts.stable, cache_control: { type: 'ephemeral' as const } },
+            ...(parts.part ? [{ type: 'text' as const, text: parts.part, cache_control: { type: 'ephemeral' as const } }] : []),
             ...(parts.volatile ? [{ type: 'text' as const, text: parts.volatile.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }] : []),
           ]
         } else {
@@ -1443,6 +1449,7 @@ export async function handleChat(
           ...(marginRoute && stream ? { opening: {
             system: withVolatileLine(system, FACTCHECK_OPENING_ROUND),
             verdictSystem: withVolatileLine(system, FACTCHECK_VERDICT_ROUND),
+            verdictEffort: factcheckVerdictEffort(),
             maxTokens: FACTCHECK_OPENING_ROUTE.maxTokens,
             effort: FACTCHECK_OPENING_ROUTE.effort,
             ...(FACTCHECK_OPENING_ROUTE.thinking ? { thinking: FACTCHECK_OPENING_ROUTE.thinking } : {}),

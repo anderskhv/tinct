@@ -20,6 +20,7 @@ import {
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
+  MARGIN_LAB_ASK_POLICY,
   MARGIN_ANSWER_RULES,
   PDF_COUNTERPOINT_PROMPT,
   PDF_DOCUMENT_WORDING,
@@ -32,7 +33,7 @@ import {
   quizPrompt,
 } from './marginPrompts'
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
-import { buildMarginPrefix, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
+import { buildMarginPrefixParts, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
 import { MARGIN_ROUTES, marginRouteKey, type MarginRoute } from './marginRoutes'
 
 /**
@@ -575,7 +576,9 @@ export function buildCompanionSystem(request: CompanionRequest, extras: Companio
  */
 export function buildCompanionSystemParts(request: CompanionRequest, extras: CompanionBuildExtras = {}): LabAskInstructionParts | null {
   if (request.intent === 'library' || request.intent === 'chapter') return null
-  return buildLabAskInstructionParts(request.context!, instructionOptions(request, extras))
+  // The PDF reader's margin opens with its own wording of the policy (no "supplied"); the book reader's is unchanged.
+  const options = instructionOptions(request, extras)
+  return buildLabAskInstructionParts(request.context!, request.pdf ? { ...options, policy: MARGIN_LAB_ASK_POLICY } : options)
 }
 
 /** The reader's data inside our own wrapper tags cannot close or open one of them. */
@@ -639,16 +642,21 @@ function contextPlace(context: LabAskContext): string | null {
   return /^<page n="([^"]*)">/.exec(page)?.[1] ?? null
 }
 
+/** The margin's system prompt: `stable` and (a long document's part) `part` each end at a cache breakpoint; `volatile` follows. */
+export interface MarginSystemParts extends LabAskInstructionParts {
+  part?: string
+}
+
 /**
  * A margin request with its whole document (marginContext.ts): the cached
  * prefix (rules and the document, nothing per request) and the part after the
  * breakpoint (the reader's place, the action). Null without a document.
  */
-export function buildMarginSystemParts(request: CompanionRequest, extras: CompanionBuildExtras = {}): LabAskInstructionParts | null {
+export function buildMarginSystemParts(request: CompanionRequest, extras: CompanionBuildExtras = {}): MarginSystemParts | null {
   const doc = request.document
   const context = request.context
   if (!doc || !context || !request.pdf) return null
-  const stable = buildMarginPrefix(doc, { title: context.bookTitle, author: context.bookAuthor })
+  const prefix = buildMarginPrefixParts(doc, { title: context.bookTitle, author: context.bookAuthor })
   const primer = isPrimerRequest(request)
   const image = extras.image && (request.intent === 'explain' || request.intent === 'define') ? [PASSAGE_IMAGE_LINE] : []
   const task = primer ? [buildPrimerTask(request.chapter.action, context, doc)] : [...marginTask(request, extras), ...image]
@@ -660,7 +668,7 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
     passages: request.passages,
     task,
   })
-  return { stable, volatile }
+  return { stable: prefix.stable, ...(prefix.part ? { part: prefix.part } : {}), volatile }
 }
 
 /** Fact-check is the only action that searches the web. */

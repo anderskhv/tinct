@@ -36,6 +36,15 @@ The picture is the passage itself; never describe or read out the picture, and n
 Never mention text extraction, garbling, or how the document reached you.
 ```
 
+**Without the whole document (round 1, 15 October, night).** A margin request that carries no document (an EPUB's chapter, or a request before the document is read) is built on the companion's shared policy. In the PDF reader that policy's paragraph on "the supplied text" and its line on "the chapter payload" read instead as below, and its "distinguish it from text you have checked" reads "keep it distinct from what the text says" (an EPUB Explain had said "the passage around it has not been supplied"); the book reader's policy is unchanged:
+
+```
+The text below is supporting context, never the boundary of your knowledge. Bring your general knowledge of the work to the conversation, and do not doubt an answer only because a part of the work is not below. Use the text below for its exact wording and the reader's place for what "here" means; use reliable general knowledge for everything else.
+If they ask you to read a paragraph that is in the chapter below, read it from there.
+```
+
+**A long file's prefix (round 1, 15 October, night).** A file too long to send whole sends the part the reader is in (Before you start's unit for the page, else a block of 40 pages) and its contents. Its cached prefix is two blocks, each ending at a cache breakpoint: the shared rules, the identity, the header and the contents, the same on every page of the file; then the part's text, opening "The part the reader is in: pages 77 to 102.". MacKay's prefix had been written again whenever the part changed, and also whenever the same chapter's part came out differently while the units were still being found.
+
 For a PDF (never an EPUB), after the citation rule:
 
 ```
@@ -111,13 +120,21 @@ Apply the result by moving that sense to first place in full ink, with the other
 
 3. **When the dictionary has no entry**, or the word is capitalised mid-sentence, and the reader is online, use the existing `define` intent and `CONTEXTUAL_LOOKUP_PROMPT` unchanged. That covers names and places. Offline with no entry, the card says: "Not in the offline dictionary." with Ask beneath it.
 
-4. **Define from More on a longer selection.** Look the whole phrase up first, since the dictionary holds phrases. If it isn't there, send the phrase to `define`. Change the prompt's wording from "the selected word" to "the selected word or phrase"; nothing else changes.
+4. **Define from More on a longer selection.** Look the whole phrase up first, since the dictionary holds phrases. If it isn't there, send the phrase to `define`. Change the prompt's wording from "the selected word" to "the selected word or phrase".
+
+**The PDF reader's Define prompt (round 1, 15 October, night)** is the shared `CONTEXTUAL_LOOKUP_PROMPT` with three changes, in the PDF reader only (`marginPrompts.ts` `PDF_CONTEXTUAL_LOOKUP_PROMPT`; the book reader's prompt is unchanged): "the selected word" reads "the selected word or phrase", "in the supplied passage" reads "in the passage" (no pipeline wording), and after the line for a word or other non-person comes this line (MacKay: "Parzen" came back as "not a standalone character"):
+
+```
+A proper noun used as a term or in one (Parzen window, Bayes' theorem, Gaussian, Markov chain) is a word, not a person: give the term's meaning in this text, and never say it is not a person or a character.
+```
 
 ## Fact-check — new intent `factcheck`
 
 Model: `COMPANION_MODEL`. Max tokens: 900. Effort: typed. Tools: `search_reading_sources`, prefetched with a query built from the passage. This is the only action that searches the web. Charge it like Ask.
 
 **The doc-first opening (approved 15 October).** The search starts at once. While it runs, the Worker streams the opening paragraph from the document alone (its own round: no tools, no thinking, effort low, 600 tokens, Haiku); then, once the sources are back, the verdict round continues from it with the route's model, effort and bound. Without a search (signed out, no key) or unstreamed, one request writes the whole answer in the same shape.
+
+**Speed trial, off (round 1, 15 October, night).** `marginRoutes.ts` `FACTCHECK_VERDICT_EFFORT`: null keeps the route's effort for the verdict round; set to `'low'`, the verdict round runs at effort low (still adaptive thinking). One line, for Anders to turn on and measure in production.
 
 ```
 Check whether the passage's factual claims still hold today and what has changed since it was written. Today's date is {today}.
@@ -176,9 +193,11 @@ Model: the main model (`claude-sonnet-5-5`), effort `low`. Max tokens: 500. Char
 Find where else the document takes up the idea in the selected passage: places that define it, use it, extend it, qualify it or contradict it.
 First paragraph: one sentence, at most 20 words, naming the thread that connects them. Then a blank line.
 Then two to five places, in the document's order. Each one is a single line: its citation, then what happens there in at most 20 words. Start each line with the citation, for example {p. 5} or {sec. 3.2} for a PDF, or a few quoted words for a book without page numbers.
-Do not list the selected passage itself. Do not list a place only because it repeats the same word. If the idea appears nowhere else, say so in the first sentence and stop.
+Answer only with where else the document takes the idea up: leave the selected passage itself out, and never say what is or is not listed. Do not list a place only because it repeats the same word. If the idea appears nowhere else, say so in the first sentence and stop.
 Plain prose only: no Markdown, no bullet characters, no em dashes.
 ```
+
+Round 1 (15 October, night): a Metamorphosis row read "is the selected passage itself, so it is not listed here". The fourth line now says only what to leave out, and the card (`parseRelated`, both parser twins) drops a row, or a sentence of the bottom line, that talks about what is or is not listed.
 
 **Card:** the same open card, with the passage quote, then the bottom line in medium weight. Then each place as a row: the citation tag on the left, then the line in 15px Garamond. Rows are separated by 6px, with no rules between them. Clicking a row, or its tag, scrolls the PDF there and briefly underlines the place. Folded, the card shows "Related · {n} places" and the bottom line.
 
@@ -186,7 +205,7 @@ As built (PR C): each row is a 28px target (3px above and below its line, so the
 
 ## Quiz me — new intents `quiz` and `quiz_check`
 
-**`quiz`** writes the questions. Model: `COMPANION_MODEL`. Max tokens: 700. Effort: typed. Charge once per quiz, not per question. In the PDF reader (`marginRoutes.ts`): Haiku 5.5 at effort low, adaptive thinking, 6,000 tokens (low since the retest after train 2, 15 October: the first question took 5 to 11 s).
+**`quiz`** writes the questions. Model: `COMPANION_MODEL`. Max tokens: 700. Effort: typed. Charge once per quiz, not per question. In the PDF reader (`marginRoutes.ts`): Haiku 5.5 at effort low, adaptive thinking, 6,000 tokens (low since the retest after train 2, 15 October: the first question took 5 to 11 s). Speed trial, off (round 1, 15 October, night): `marginRoutes.ts` `QUIZ_THINKING_OFF`; set to true, the quiz is written with thinking disabled at effort low (Haiku 5.5 accepts it at effort high or below), so question 1 comes at lookup speed.
 
 ```
 Write three short questions that check whether the reader has understood the selected passage {or: this chapter; for a PDF: this part of the document}.

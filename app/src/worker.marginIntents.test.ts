@@ -38,6 +38,7 @@ import {
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
+  DEFINE_EPONYM_LINE,
   QUIZ_CHECK_PROMPT,
   SIMPLIFY_PROMPT,
   WHOLE_PDF_PROMPT,
@@ -383,11 +384,12 @@ describe('the prompts the Worker builds', () => {
     expect(companionSelectionMessage(define)).toBe(`${CONTEXTUAL_LOOKUP_PROMPT}\n<word>Athena</word>`)
   })
 
-  it('Define on a PDF says "the selected word or phrase", and nothing else changes', () => {
+  it('Define on a PDF says "the selected word or phrase" and "the passage", and adds the eponym line (round 1, 15 Oct)', () => {
     const define = parseCompanionRequest({ intent: 'define', context: pdfContext, selection: 'partition function' })!
     expect(companionSelectionMessage(define)).toBe(`${PDF_CONTEXTUAL_LOOKUP_PROMPT}\n<word>partition function</word>`)
-    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).toContain('Identify what the selected word or phrase denotes in the supplied passage')
-    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT.split('the selected word or phrase').join('the selected word')).toBe(CONTEXTUAL_LOOKUP_PROMPT)
+    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).toContain('Identify what the selected word or phrase denotes in the passage')
+    // Those three changes and nothing else: undone, it is the shared prompt word for word.
+    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT.split(`\n${DEFINE_EPONYM_LINE}`).join('').split('in the passage before').join('in the supplied passage before').split('the selected word or phrase').join('the selected word')).toBe(CONTEXTUAL_LOOKUP_PROMPT)
     // Explain and Define on a PDF keep their prompts otherwise (the PDF reader's Explain is its own request).
     expect(buildCompanionSystem(define)).not.toContain(PDF_CITATION_RULE)
   })
