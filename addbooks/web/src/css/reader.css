@@ -124,8 +124,18 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-phone .lab-header-brand { min-width: 0; }
 .lab.byob.is-phone .lab-header-work { flex: 0 1 auto; min-width: 0; max-width: none; }
 .lab.byob.is-phone .lab-header-book, .lab.byob.is-phone .lab-header-book > span:first-child { display: block; min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.lab.byob.is-phone .lab-header-chapter { flex: 0 12 auto; min-width: 2.6em; }
+/* The page pill takes the width its label needs: reader.js fitPill shortens the label to the page (and then
+   drops the chevron) while the title would be cut, so the pill is never empty (the PM's battery, 15 Oct 2026). */
+.lab.byob.is-phone .lab-header-chapter { flex: 0 0 auto; min-width: 0; }
 .lab.byob.is-phone .lab-header-chapter-label { min-width: 0; }
+.lab.byob.is-phone .lab-header-chapter[data-chevron="off"] { padding: 3px 9px; }
+.lab.byob.is-phone .lab-header-chapter[data-chevron="off"] .lab-header-chevron { display: none; }
+/* The pill's own fill sets it apart from the title, so the phone has no dot between them; and the bar's right
+   edge is the t button's own room (its glyph sits 12px inside it), as the back arrow's left is. */
+.lab.byob.is-phone .lab-title-sep { display: none; }
+.lab.byob.is-phone .lab-header { padding-right: 12px; }
+/* Pages zoomed on a phone (the text column fit, or a pinch) have no side padding, so a pan stays inside the page. */
+.lab.byob.is-phone.is-page-zoomed .pdf-column { padding-left: 0; padding-right: 0; }
 /* The rights sheet over the start page */
 .lab.byob.byob-sheet-host { position: fixed; inset: 0; z-index: 90; min-height: 0; height: auto; background: transparent; }
 /* A short sheet (the rights question) is as tall as its content; a centred dialog on desktop */
