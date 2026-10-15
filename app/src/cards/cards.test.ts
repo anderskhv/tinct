@@ -14,7 +14,8 @@ import { CardStack } from './cardStack'
 import { AVATAR_480_IDS, accountCard, leaderboardCard, settingsCard, smallAvatarSrc, youCard, type CardsEnv } from './cardViews'
 import { CARDS_COPY } from './cardsCopy'
 import { ACCOUNT_DELETE_CONFIRM, ACCOUNT_DELETE_PATH } from '../worker/routes/accountDelete'
-import { readingFigures } from './cardsFormat'
+import { dayMonthShort, readingFigures } from './cardsFormat'
+import { allowanceView, billingPeriod } from '../worker/lib/aiAllowance'
 import { CARDS_CACHE_PREFIX, readCardsCache, writeCardsCache } from './cardsCache'
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { forgetBoards } from './boardMemory'
@@ -708,6 +709,22 @@ describe('AI credits (Anders, 14 October 2026)', () => {
       expect(byTest('menu-top-up-more')?.textContent).toBe(CARDS_COPY.buyTopUpMore)
       stack.closeAll()
     }
+  })
+
+  it('a free account from before the trial reset shows a fresh month: 0% used and "Resets 14 Nov" (15 Oct 2026)', () => {
+    const profile = { subscription_status: null, subscription_period_end: null, created_at: '2026-09-01T10:00:00Z' }
+    const period = billingPeriod(profile, new Date('2026-10-20T12:00:00Z'))
+    const view = allowanceView({ allowanceMicros: period.allowanceMicros, spendMicros: 0, creditMicros: 0, drawnMicros: 0 }, period.end)
+    const { stack } = youOnly({ plan: 'free', intervals: ['month', 'year'], allowance: { ...view, topUps: ['chat_pack_200', 'top_up_10'] } as CardsEnv['data']['allowance'] })
+    const row = byTest('you-ai-credits') as HTMLButtonElement
+    expect(row.tagName).toBe('BUTTON')
+    expect(row.textContent).toContain('0%')
+    row.click()
+    const resets = byTest('you-ai-resets')!
+    expect(resets.textContent).toBe(CARDS_COPY.resets(dayMonthShort(view.resetsAt)))
+    if (new Date(view.resetsAt!).getTimezoneOffset() <= 0) expect(resets.textContent).toBe('Resets 14 Nov')
+    expect(byTest('you-get-premium')).toBeNull()
+    stack.closeAll()
   })
 
   it('a free reader, who cannot top up, gets Get Premium instead, which opens the Premium offer on Account', () => {

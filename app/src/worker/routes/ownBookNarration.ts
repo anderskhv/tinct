@@ -34,7 +34,7 @@
  *
  * Premium only (Anders, 2026-10-07): audiobooks are a Premium feature, and a
  * reader in the 30-day trial counts as Premium. A signed-in owner who is
- * neither subscribed (isSubscribed) nor before trialEndsAt gets 402
+ * neither subscribed nor in the trial (hasPremiumAccess) gets 402
  * `{ reason: 'premium_required' }`; the reader opens its account sheet, where
  * the existing Premium offer lives.
  *
@@ -45,7 +45,7 @@
  */
 import { ledgerGuestKey, narrationCostUsd, recordAiUsage, AI_PRICING, type LedgerEnv } from '../lib/aiUsage'
 import { corsHeaders, jsonResponse } from '../lib/responses'
-import { isSubscribed, trialEndsAt, type AllowanceProfile } from '../lib/aiAllowance'
+import { hasPremiumAccess, type AllowanceProfile } from '../lib/aiAllowance'
 import { supabaseGet } from '../lib/supabase'
 import { isValidUUID } from '../lib/security'
 import {
@@ -257,9 +257,8 @@ async function premiumAccess(env: OwnBookNarrationEnv, userId: string, now: numb
     if (!res.ok) return null
     const profile = ((await res.json()) as AllowanceProfile[])?.[0]
     if (!profile) return false
-    const at = new Date(now)
-    const trialEnd = trialEndsAt(profile)
-    return isSubscribed(profile, at) || (trialEnd !== null && at.getTime() < trialEnd.getTime())
+    // The shared rule, so the trial reset (TRIAL_RESET_AT) applies here too.
+    return hasPremiumAccess(profile, new Date(now))
   } catch {
     return null
   }
