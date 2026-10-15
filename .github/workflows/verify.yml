@@ -144,7 +144,13 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - run: npx playwright install --with-deps chromium
       - name: Check the margin's layout, keys and actions (sample of the stress matrix, AI mocked)
-        run: npm run check:margin
+        # Failing rows also become annotations, readable from the check run without the log.
+        run: |
+          set +e
+          npm run check:margin 2>&1 | tee margin-check.log
+          status=${PIPESTATUS[0]}
+          grep -E '^FAIL|[1-9][0-9]* problem\(s\)|Error' margin-check.log | head -20 | cut -c1-1600 | sed 's/^/::error title=margin-layout::/'
+          exit $status
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()

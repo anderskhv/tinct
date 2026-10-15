@@ -1,0 +1,136 @@
+import { createHash } from 'node:crypto'
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
+import { tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
+import { afterEach, describe, expect, it } from 'vitest'
+
+const require = createRequire(import.meta.url)
+type Files = Record<string, string>
+const { stampTags, staleTags } = require('../scripts/stamp-lab-entry-tags.cjs') as {
+  stampTags: (files: Files, entries: string[]) => { files: Files; tags: Record<string, string> }
+  staleTags: (files: Files, entries: string[]) => Array<{ file: string; ref: string; tag: string; expected: string }>
+}
+const { moduleReferences, missingImports, checkDist } = require('../scripts/check-lab-bundle.cjs') as {
+  moduleReferences: (file: string, source: string) => string[]
+  missingImports: (modules: Files, exists: (path: string) => boolean) => Array<{ file: string; missing: string }>
+  checkDist: (dist: string, publicDir: string) => string[]
+}
+
+const sha10 = (text: string) => createHash('sha256').update(text).digest('hex').slice(0, 10)
+const ENGINE = 'import{o}from"../assets/ownSwitcher-NEW00001.js";const q=()=>import("../assets/quickBookSwitcher-NEW00002.js");export{o,q}'
+
+// A small dist as the build leaves it: the source tags copied from public/.
+const dist = (): Files => ({
+  'lab/library-add.js': ENGINE,
+  'lab/library-2-reading.js': 'export const r=1',
+  'lab/library_2/add-to-tinct.js': "const ENGINE='/lab/library-add.js?v=20261014talkwake';// /lab/library-add.js (comment)\nimport('./catalogue.js?v=20261014talkwake')",
+  'lab/library_2/catalogue.js': "import'./add-to-tinct.js?v=20261014talkwake';const p=import('/lab/library-2-reading.js?v=20261014talkwake');const n=()=>import('/lab/native-books.js')",
+  'lab/library_2/app.js': "import'./catalogue.js?v=20261014talkwake';import'./funnel.js?v=20261006internal'",
+  'lab/library_2/funnel.js': 'export const f=1',
+  'lab/library_2/index.html': '<base href="/lab/library_2/"><link rel="modulepreload" href="add-to-tinct.js?v=20261014talkwake"><script type="module" src="app.js?v=20261014talkwake"></script><script src="funnel.js?v=20261006internal"></script><script type="module" src="/lab/account-cards.js"></script>',
+  'lab/addbook/js/reader.js': "const SWITCHER_ENGINE = '/lab/library-add.js?v=20261014talkwake';import('/lab/chat-thread.js?v=20261012thread')",
+  'lab/addbook/index.html': '<script src="js/reader.js?v=20261015escape"></script>',
+  'lab/chat-thread.js': 'export const c=1',
+})
+const ENTRIES = ['lab/library-add.js', 'lab/library-2-reading.js']
+
+describe('stamp-lab-entry-tags', () => {
+  it('tags each reference to a built entry with the hash of the emitted file', () => {
+    const { files, tags } = stampTags(dist(), ENTRIES)
+    expect(tags['lab/library-add.js']).toBe(sha10(ENGINE))
+    expect(files['lab/library_2/add-to-tinct.js']).toContain(`'/lab/library-add.js?v=${sha10(ENGINE)}'`)
+    expect(files['lab/addbook/js/reader.js']).toContain(`'/lab/library-add.js?v=${sha10(ENGINE)}'`)
+    expect(files['lab/library_2/catalogue.js']).toContain(`'/lab/library-2-reading.js?v=${sha10('export const r=1')}'`)
+    // The built entries themselves are unchanged.
+    expect(files['lab/library-add.js']).toBe(ENGINE)
+  })
+
+  it('re-tags the cached files on the way to an entry from their new content, and the pages that load them', () => {
+    const { files, tags } = stampTags(dist(), ENTRIES)
+    expect(tags['lab/addbook/js/reader.js']).toBe(sha10(files['lab/addbook/js/reader.js']))
+    expect(files['lab/addbook/index.html']).toBe(`<script src="js/reader.js?v=${tags['lab/addbook/js/reader.js']}"></script>`)
+    // add-to-tinct.js and catalogue.js import each other: one tag for both, everywhere.
+    expect(tags['lab/library_2/add-to-tinct.js']).toBe(tags['lab/library_2/catalogue.js'])
+    expect(files['lab/library_2/app.js']).toContain(`'./catalogue.js?v=${tags['lab/library_2/catalogue.js']}'`)
+    expect(files['lab/library_2/index.html']).toContain(`href="add-to-tinct.js?v=${tags['lab/library_2/add-to-tinct.js']}"`)
+    expect(files['lab/library_2/index.html']).toContain(`src="app.js?v=${tags['lab/library_2/app.js']}"`)
+  })
+
+  it('leaves untagged references, comments and files off the chain as they are', () => {
+    const { files, tags } = stampTags(dist(), ENTRIES)
+    expect(files['lab/library_2/add-to-tinct.js']).toContain('// /lab/library-add.js (comment)')
+    expect(files['lab/library_2/catalogue.js']).toContain("import('/lab/native-books.js')")
+    expect(files['lab/library_2/index.html']).toContain('src="/lab/account-cards.js"')
+    expect(files['lab/library_2/index.html']).toContain('src="funnel.js?v=20261006internal"')
+    expect(files['lab/library_2/app.js']).toContain("'./funnel.js?v=20261006internal'")
+    expect(files['lab/addbook/js/reader.js']).toContain("'/lab/chat-thread.js?v=20261012thread'")
+    expect(tags).not.toHaveProperty('lab/library_2/funnel.js')
+  })
+
+  it('changes every tag on the chain when the entry is rebuilt, and is stable when it is not', () => {
+    const first = stampTags(dist(), ENTRIES)
+    expect(stampTags(first.files, ENTRIES).files).toEqual(first.files)
+    const rebuilt = { ...dist(), 'lab/library-add.js': ENGINE.replace('NEW00001', 'NEW00003') }
+    const second = stampTags(rebuilt, ENTRIES)
+    for (const file of ['lab/library-add.js', 'lab/library_2/add-to-tinct.js', 'lab/library_2/catalogue.js', 'lab/library_2/app.js', 'lab/addbook/js/reader.js']) {
+      expect(second.tags[file]).not.toBe(first.tags[file])
+    }
+    expect(second.tags['lab/library-2-reading.js']).toBe(first.tags['lab/library-2-reading.js'])
+  })
+})
+
+describe('check-lab-bundle', () => {
+  it('reads static, side-effect, dynamic, URL and preload-list imports, resolved against the module', () => {
+    const source = 'import{a}from"../assets/a-1.js";import"../assets/b-2.js";import("./c.js?v=1");new URL("../assets/w-3.mjs",import.meta.url);'
+      + 'const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/d-4.js","assets/e-5.css"])))=>i.map(i=>d[i]);const t="see from \\"ws\\""'
+    expect(moduleReferences('lab/x.js', source)).toEqual(['assets/a-1.js', 'assets/b-2.js', 'assets/d-4.js', 'assets/e-5.css', 'assets/w-3.mjs', 'lab/c.js'])
+  })
+
+  it('names a module whose imported chunk is not in dist', () => {
+    const present = new Set(['assets/ownSwitcher-NEW00001.js'])
+    expect(missingImports({ 'lab/library-add.js': ENGINE }, file => present.has(file))).toEqual([
+      { file: 'lab/library-add.js', missing: 'assets/quickBookSwitcher-NEW00002.js' },
+    ])
+  })
+
+  it('names every reference whose tag does not match the built file, and nothing after the stamp', () => {
+    const stale = staleTags(dist(), ENTRIES)
+    expect(stale).toContainEqual({ file: 'lab/library_2/add-to-tinct.js', ref: '/lab/library-add.js', tag: '20261014talkwake', expected: sha10(ENGINE) })
+    expect(stale).toContainEqual({ file: 'lab/addbook/js/reader.js', ref: '/lab/library-add.js', tag: '20261014talkwake', expected: sha10(ENGINE) })
+    expect(staleTags(stampTags(dist(), ENTRIES).files, ENTRIES)).toEqual([])
+  })
+
+  describe('on a dist directory', () => {
+    let root = ''
+    afterEach(() => { if (root) rmSync(root, { recursive: true, force: true }) })
+    const write = (files: Files) => {
+      root = mkdtempSync(join(tmpdir(), 'lab-bundle-'))
+      for (const [file, text] of Object.entries(files)) {
+        mkdirSync(dirname(join(root, 'dist', file)), { recursive: true })
+        writeFileSync(join(root, 'dist', file), text)
+      }
+      // public/ holds the static files; the built entries have no source there.
+      for (const file of Object.keys(files).filter(f => f.startsWith('lab/') && !ENTRIES.includes(f))) {
+        mkdirSync(dirname(join(root, 'public', file)), { recursive: true })
+        writeFileSync(join(root, 'public', file), '')
+      }
+      return checkDist(join(root, 'dist'), join(root, 'public'))
+    }
+    const chunks = { 'lab/native-books.js': 'export const n=1', 'assets/ownSwitcher-NEW00001.js': 'export const o=1', 'assets/quickBookSwitcher-NEW00002.js': 'export const q=1' }
+
+    it('passes a stamped build with every chunk present', () => {
+      expect(write({ ...stampTags(dist(), ENTRIES).files, ...chunks })).toEqual([])
+    })
+    it('fails on a missing chunk', () => {
+      const { 'assets/quickBookSwitcher-NEW00002.js': _removed, ...kept } = chunks
+      expect(write({ ...stampTags(dist(), ENTRIES).files, ...kept }))
+        .toEqual(['/lab/library-add.js imports /assets/quickBookSwitcher-NEW00002.js, which is not in dist'])
+    })
+    it('fails on a hand-kept tag that does not match the built entry', () => {
+      const problems = write({ ...dist(), ...chunks })
+      expect(problems).toContain(`/lab/library_2/add-to-tinct.js references /lab/library-add.js?v=20261014talkwake; the built file's tag is ${sha10(ENGINE)}`)
+      expect(problems).toContain(`/lab/addbook/js/reader.js references /lab/library-add.js?v=20261014talkwake; the built file's tag is ${sha10(ENGINE)}`)
+    })
+  })
+})

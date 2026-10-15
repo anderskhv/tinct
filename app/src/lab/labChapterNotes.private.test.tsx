@@ -39,7 +39,7 @@ vi.mock('./labSource', () => ({ loadLabBibleOutline: async () => null, loadLabCh
 
 import { useLabHighlights } from './useLabHighlights'
 import { createLabChapterNote, highlightAt, readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
-import { labNotesOnly, orderLabHighlights } from './labHighlightOrder'
+import { compareHighlightsInBookOrder, labNotesOnly, orderLabHighlights } from './labHighlightOrder'
 import { labHighlightRowValue, parseLabHighlightRow } from './labHighlightSync'
 import { highlightNeedsMigration, highlightOffCurrentText } from './labHighlightContentMigration'
 import { personalHistoryEvidence } from './labPersonalHistory'
@@ -65,14 +65,24 @@ describe('Highlights & notes order', () => {
     mark(`hl-${T + 2}-c1p0w1`, { chapterNumber: 1, paragraphIndex: 0, fromWord: 1 }),
     mark(`hl-${T + 3}-c2early`, { chapterNumber: 2, paragraphIndex: 0, fromWord: 9 }),
   ]
-  it('lists in book order: chapter, then place in the chapter, the chapter note after its passages', () => {
-    expect(orderLabHighlights(list, 'book').map(h => h.id)).toEqual([
+  it('lists oldest first by creation time when Newest first is off (Anders, 15 Oct)', () => {
+    expect(orderLabHighlights(list, 'oldest').map(h => h.id)).toEqual([
+      `hl-${T + 1}-c1p3`, `hl-${T + 2}-c1p0w1`, `hl-${T + 3}-c2early`, `hl-${T + 4}-c2late`, `hl-${T + 7}-c1p0w4`, `hl-${T + 9}-note1`,
+    ])
+  })
+  it('breaks a creation-time tie by book order, the same way in both directions', () => {
+    const tied = [mark(`hl-${T}-b`, { chapterNumber: 2 }), mark(`hl-${T}-a`, { chapterNumber: 1, paragraphIndex: 4 }), mark(`hl-${T}-c`, { chapterNumber: 1 })]
+    expect(orderLabHighlights(tied, 'oldest').map(h => h.id)).toEqual([`hl-${T}-c`, `hl-${T}-a`, `hl-${T}-b`])
+    expect(orderLabHighlights(tied, 'newest').map(h => h.id)).toEqual([`hl-${T}-c`, `hl-${T}-a`, `hl-${T}-b`])
+  })
+  it('the book-order tie-break: chapter, then place in the chapter, the chapter note after its passages', () => {
+    expect([...list].sort(compareHighlightsInBookOrder()).map(h => h.id)).toEqual([
       `hl-${T + 2}-c1p0w1`, `hl-${T + 7}-c1p0w4`, `hl-${T + 1}-c1p3`, `hl-${T + 9}-note1`, `hl-${T + 3}-c2early`, `hl-${T + 4}-c2late`,
     ])
   })
   it('follows the book’s chapter order where chapter numbers are not in reading order', () => {
     const place = (n: number) => (n === 2 ? 0 : 1)
-    expect(orderLabHighlights(list, 'book', place).map(h => h.chapterNumber)).toEqual([2, 2, 1, 1, 1, 1])
+    expect([...list].sort(compareHighlightsInBookOrder(place)).map(h => h.chapterNumber)).toEqual([2, 2, 1, 1, 1, 1])
   })
   it('switches to newest first by creation time', () => {
     expect(orderLabHighlights(list, 'newest').map(h => h.id)).toEqual([

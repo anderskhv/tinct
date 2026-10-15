@@ -14,6 +14,7 @@
 //                                                     with its content cases (crowding, edges, long answers, …)
 //   node scripts/margin-check.mjs resize [pdf ...]    PR 2: resizing across 1180px with a card open
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
+//   node scripts/margin-check.mjs primer-reliability  Before you start made 10 of 10 times against mocked replies (cut off, empty, odd shapes, slow)
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
 //   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
@@ -41,6 +42,10 @@ mkdirSync(OUT, { recursive: true })
 const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined)
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
+// A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
+const { proseBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
+writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 
 // The class names of css/margin.css, as the check's selectors (the phone More's rows are buttons).
 export const SELECTORS = {
@@ -65,7 +70,28 @@ export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sh
 export async function checkMargin(page, selectors = SELECTORS) {
   const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
   const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 23.5 || r.height < 23.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
-  return [...list, ...small]
+  return [...list, ...small, ...await page.evaluate(stripProblems)]
+}
+// The position strip (js/strip.js) in the PDF reader: shown at 700px and up, beside the pages and under
+// the top bar, never over either (its box, window marker, lines and dots); absent below 700px.
+export function stripProblems() {
+  if (document.body.dataset.view !== 'reader' || !document.querySelector('.lab.is-pdf .pdf-sheet')) return []
+  const el = document.querySelector('.pdf-strip')
+  const shown = !!el && !el.hidden && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().height > 0
+  if (innerWidth < 700) return shown ? [{ kind: 'strip', el: `.pdf-strip shown at ${innerWidth}px` }] : []
+  if (!shown) return [{ kind: 'strip', el: `.pdf-strip missing at ${innerWidth}px` }]
+  const out = [], hit = (a, b) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > 0.5 && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 0.5
+  const hdr = document.getElementById('hdr').getBoundingClientRect()
+  const sheets = [...document.querySelectorAll('.pdf-sheet')].map(s => ({ n: s.dataset.page, r: s.getBoundingClientRect() })).filter(s => s.r.bottom > hdr.bottom && s.r.top < innerHeight)
+  const parts = [el, ...el.querySelectorAll('.pdf-strip__win, line, circle')]
+  for (const part of parts) {
+    const r = part.getBoundingClientRect(), name = part === el ? '.pdf-strip' : `.pdf-strip ${part.getAttribute('class') || part.tagName}`
+    if (hit(r, hdr)) { out.push({ kind: 'overlap', a: name, b: '.lab-header' }); break }
+    const s = sheets.find(s => hit(r, s.r)); if (s) { out.push({ kind: 'overlap', a: name, b: `.pdf-sheet p. ${s.n}` }); break }
+  }
+  const r = el.getBoundingClientRect()
+  if (r.left < 0 || r.right > innerWidth || r.top < hdr.bottom || r.bottom > innerHeight) out.push({ kind: 'offscreen', el: '.pdf-strip', rect: [r.left, r.top, r.right, r.bottom].map(Math.round) })
+  return out
 }
 const LOOKS = (process.env.LOOKS || 'paper,book,night,eink').split(',')
 // `sample` (npm run check:margin, in CI): each viewport once, each look and both zooms at least once, both
@@ -89,7 +115,11 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // sense number for `define_sense`, Quiz me's JSON and its marking, Fact-check with its "Checking
 // sources…" status before the answer, and an answer with a bottom line and a citation otherwise.
 // `mock.next` (set by a check) replaces the next answer's text, for the long and odd answers.
-export const mock = { next: null, delay: 0, primer: null }
+// `mock.primers`: the next primer replies, in order, each { text } | { status, body } with an optional
+// `delay` (ms), for the primer's reliability runs (cut-off, empty, slow, odd shapes).
+// `mock.chunks` (set by a check) streams the next answer in pieces: [{ text, wait }], then an
+// error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one).
+export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false }
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
@@ -106,11 +136,25 @@ function mockText(body) {
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
 async function mockChat(body, res) {
+  const c = body?.companion || {}
+  if (c.intent === 'chapter' && c.chapter?.action?.kind === 'primer' && mock.primers.length) {
+    const item = mock.primers.shift()
+    if (item.delay) await new Promise(r => setTimeout(r, item.delay))
+    if (res.destroyed || res.socket?.destroyed) return
+    if (item.status) return json(res, item.status, item.body || {})
+    return json(res, 200, { content: [{ type: 'text', text: item.text }], stop_reason: item.stop || 'end_turn' })
+  }
   const text = mockText(body)
   if (!body?.stream) return json(res, 200, { content: [{ type: 'text', text }] })
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
   if (body?.companion?.intent === 'factcheck') { res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`); await new Promise(r => setTimeout(r, mock.delay || 400)) }
   else if (mock.delay) await new Promise(r => setTimeout(r, mock.delay))
+  if (mock.chunks) {
+    const chunks = mock.chunks, fail = mock.chunksFail; mock.chunks = null; mock.chunksFail = false
+    for (const c of chunks) { await new Promise(r => setTimeout(r, c.wait || 0)); res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: c.text } })}\n\n`) }
+    if (fail) return res.end(`event: error\ndata: ${JSON.stringify({ type: 'error', error: { type: 'upstream_error', message: 'The reply was interrupted. Please try again.' } })}\n\n`)
+    return res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
+  }
   res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\n`)
   res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
 }
@@ -233,7 +277,13 @@ async function readerMatrix(browser, origin) {
         await check('more', '.mr-more, .mr-pmore')
         await page.keyboard.press('Escape')
         // Typing opens Ask with that letter (desktop keyboards).
-        if (width >= 700) { await page.keyboard.press('W'); await check('ask', '.mr-bar.is-asking'); await page.keyboard.press('Escape') }
+        if (width >= 700) {
+          await page.keyboard.press('W'); await check('ask', '.mr-bar.is-asking'); await page.keyboard.press('Escape')
+          // Escape steps back to the bar, which stays even when a late selectionchange arrives
+          // (a slow machine's debounce fired after Escape and closed it).
+          await page.evaluate(() => document.dispatchEvent(new Event('selectionchange'))); await page.waitForTimeout(450)
+          if (!await page.$('.mr-float.mr-bar [data-m="note"]')) throw new Error('the bar closed after Escape from Ask')
+        }
         // The note editor.
         await page.click('.mr-float [data-m="note"]')
         await check('note', '.mr-note')
@@ -244,7 +294,8 @@ async function readerMatrix(browser, origin) {
         await check('define', '.mr-define .mr-define__senses, .mr-define .mr-define__body p:not(.mr-define__wait)')
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e) }) }
       rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: found.length + problems.length, details: [...found, ...problems], screenshots: states })
-      console.log(`${tag}: ${found.length + problems.length} problem(s)`, process.env.VERBOSE ? JSON.stringify([...found, ...problems]) : '')
+      const all = [...found, ...problems]
+      console.log(`${tag}: ${all.length} problem(s)`, process.env.VERBOSE ? JSON.stringify(all) : all.length ? JSON.stringify(all).slice(0, 1500) : '')
       await ctx.close()
     }
   }
@@ -341,9 +392,18 @@ async function behaviour(browser, origin) {
   // Explain: today's Explain request in the docked chat.
   await selectText(a); await a.waitForSelector('.mr-bar'); const n2 = account.requests.length
   await a.click('.mr-bar [data-m="explain"]'); await a.waitForTimeout(1500)
-  const ex = account.requests.slice(n2).find(r => /Explain the passage they selected/.test(JSON.stringify(r.body)))
+  const ex = account.requests.slice(n2).find(r => r.body?.companion?.intent === 'explain')
   const P = await import(pathToFileURL(join(PUBLIC, 'lab/margin/margin-parse.js')).href)
-  ok('Explain sends today\'s Explain request with the PDF wording (a bottom line first) and the PDF\'s pages', ex && JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT) && !JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT_BEFORE) && ex.body.companion.context.kind === 'pdf', ex?.body?.messages)
+  // FIXES-2026-10-15 A2: the Worker's explain intent (it writes the PDF wording), streamed, never today's ask.
+  ok('Explain sends the explain intent with the selection and the PDF\'s pages, streamed, writing no prompt itself', ex && ex.body.stream === true && ex.body.companion.selection && ex.body.companion.context.kind === 'pdf' && !JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT_BEFORE) && !account.requests.slice(n2).some(r => /Explain the passage they selected/.test(JSON.stringify(r.body))), ex?.body?.companion && { ...ex.body.companion, context: undefined, document: undefined })
+  // FIXES-2026-10-15 A1: the whole file rides on every margin request, the same bytes each time.
+  const pages = await a.evaluate(() => state.pages.length)
+  const docs = account.requests.filter(r => r.body?.companion?.document).map(r => JSON.stringify(r.body.companion.document))
+  ok('every margin request so far carries the whole PDF, page by page, byte for byte the same', ex?.body?.companion?.document?.kind === 'pdf' && ex.body.companion.document.units.length === pages && !ex.body.companion.document.part && docs.length >= 2 && docs.every(d => d === docs[0]), { pages, units: ex?.body?.companion?.document?.units?.length, sent: docs.length, same: new Set(docs).size })
+  // FIXES-2026-10-15 A4: one picture of the passage, cropped to it, at most 1568 px.
+  const pic = (ex?.body?.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image') || []
+  const side = pic[0] ? await a.evaluate(async src => { const img = new Image(); img.src = `data:${src.media_type};base64,${src.data}`; await img.decode().catch(() => {}); return Math.max(img.naturalWidth, img.naturalHeight) }, pic[0].source) : 0
+  ok('Explain sends one picture of the passage, cropped (not the whole page), at most 1568 px', pic.length === 1 && side > 0 && side <= 1568 && pic[0].source.data.length < 1_500_000, { images: pic.length, side })
   ok('Explain opens as a card, its first sentence in weight 600', await a.isVisible('.mr-col .mr-card.is-open .is-bottom-line') && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600')
   // A citation tag scrolls the PDF to its page.
   const tag = await a.evaluate(() => [...document.querySelectorAll('.mr-card.is-open .mr-cite')].map(b => [b.textContent, b.dataset.page]))
@@ -384,12 +444,65 @@ async function behaviour(browser, origin) {
   // Q1 right, Q2 shown, Q3 not yet: one right, and Q3 ("not yet" first) to reread.
   ok('after question 3: the score as the bottom line and the question to reread', /^Quiz me · p\. \d+\s*×\s*1 of 3\s*MOCK Q3/.test(score) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
   await fresh(a)
+  // FIXES-2026-10-15 A7: Quiz me streams. Question 1 shows before the stream ends; answering ahead shows
+  // "Writing the next question…" at the same card height, no ring; the quiz is saved once, when it ends.
+  {
+    const Q = [1, 2, 3].map(n => ({ q: `MOCK streamed Q${n}?`, answer: n === 1 ? 'Ideas' : `A${n}`, why: 'Because.', cite: '{p. 1}' }))
+    const j = JSON.stringify({ questions: Q }), cut1 = j.indexOf('{"q":"MOCK streamed Q2'), cut2 = j.indexOf('{"q":"MOCK streamed Q3')
+    const run = async (chunks, fail) => {
+      await selectText(a); await a.waitForSelector('.mr-bar'); mock.chunks = chunks; mock.chunksFail = fail
+      await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click('.mr-more [data-m="quiz"]')
+      await a.waitForFunction(() => /MOCK streamed Q1/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 4000 }).catch(() => {})
+    }
+    const saved = () => a.evaluate(() => keptCards().filter(c => c.kind === 'quiz').map(c => ({ id: c.id, n: c.data?.questions?.length || 0, ended: !!c.data?.ended, done: !!c.data?.done })))
+    const before = (await saved()).length
+    await run([{ text: j.slice(0, cut1), wait: 100 }, { text: j.slice(cut1, cut2), wait: 2500 }, { text: j.slice(cut2), wait: 800 }], false)
+    const shown = await a.innerText('.mr-card.is-open').catch(() => '')
+    const mid = (await saved()).slice(before)
+    ok('Quiz me (streamed): question 1 shows, "1 of 3", while the rest is written; nothing saved yet', /MOCK streamed Q1/.test(shown) && /1 of 3/.test(shown) && mid.length === 1 && mid[0].n === 0, { shown, mid })
+    // While it streams it never folds to a row or gathers, even folded among other cards (B's crowding).
+    const streaming = await a.evaluate(() => {
+      const id = [...col.quiz.keys()][0]; if (!id) return null
+      openCard(null); layoutNow()
+      const el = col.els.get(id), r = { folded: el?.classList.contains('is-folded'), row: el?.classList.contains('is-row'), hidden: !el || el.hidden, gathered: (document.querySelector('.mr-stack:not([hidden])')?.dataset.first || '') === id }
+      openCard(id); layoutNow(); return r
+    })
+    ok('a quiz still streaming never folds to a row or gathers', streaming && !streaming.row && !streaming.hidden && !streaming.gathered, streaming)
+    await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('Ideas'); await a.keyboard.press('Enter'); await a.waitForTimeout(700)
+    const h0 = await a.evaluate(() => document.querySelector('.mr-card.is-open').getBoundingClientRect().height)
+    await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(200)
+    const wait = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { text: el.innerText, h: el.getBoundingClientRect().height, ring: !!el.querySelector('.tinct-wait-ring') } })
+    ok('answering ahead: "Writing the next question…", the card keeps its height, no ring', /Writing the next question…/.test(wait.text) && Math.abs(wait.h - h0) <= 1 && !wait.ring, { h0, wait })
+    await a.waitForFunction(() => /MOCK streamed Q2/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 5000 }).catch(() => {})
+    ok('question 2 takes its place when it arrives, "2 of 3"', /MOCK streamed Q2/.test(await a.innerText('.mr-card.is-open')) && /2 of 3/.test(await a.innerText('.mr-card.is-open')))
+    await a.waitForTimeout(1300)
+    const end = (await saved()).slice(before)
+    ok('the quiz is saved once the stream ends: three questions and the answer given meanwhile', end.length === 1 && end[0].n === 3 && await a.evaluate(id => keptCards().find(c => c.id === id).data.results[0]?.verdict === 'right', end[0].id), end)
+    await fresh(a)
+    // A stream that stops after question 1: it stays, and the quiz ends there with the score.
+    await run([{ text: j.slice(0, cut1), wait: 100 }, { text: j.slice(cut1, cut1 + 20), wait: 300 }], true)
+    await a.waitForTimeout(700)
+    const cut = (await saved()).slice(before + 1)
+    const txt = await a.innerText('.mr-card.is-open').catch(() => '')
+    ok('stopped after question 1: it stays, "1 of 1", "See your score", no error; saved with one question', cut.length === 1 && cut[0].n === 1 && cut[0].ended && /MOCK streamed Q1/.test(txt) && /1 of 1/.test(txt) && !/could not be loaded/.test(txt), { cut, txt })
+    await a.click('.mr-card.is-open [data-c="show"]').catch(() => {}); await a.waitForTimeout(200)
+    ok('"See your score" on the last question that arrived', /See your score/.test(await a.innerText('.mr-card.is-open')))
+    await a.click('.mr-card.is-open [data-c="next"]').catch(() => {}); await a.waitForTimeout(300)
+    ok('the score covers what was answered: "0 of 1"', /0 of 1/.test(await a.innerText('.mr-card.is-open')))
+    await fresh(a)
+  }
   // The whole PDF: "/" focuses the column's foot; its answer opens as the "Whole PDF" card at the top.
   await a.evaluate(() => getSelection().removeAllRanges()); const w0 = account.requests.length
   await a.keyboard.press('/'); await a.keyboard.type('What is this about?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1000)
   const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
-  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column (first, below the primer\'s trigger when it shows)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); return document.querySelector('.mr-col .mr-card.is-whole').offsetTop === (t ? TinctMargin.PRIMER.top + t.offsetHeight + TinctMargin.COL.cardGap : 0) })))
+  const pageCount = await a.evaluate(() => state.pages.length)
+  ok('"/" sends the whole-file question: scope "whole" with every page of the PDF (the whole document, PR A), never the page alone', whole?.body?.companion?.scope === 'whole' && whole.body.companion.document?.units?.length === pageCount && !/say when something is not on these pages/.test(JSON.stringify(whole.body.messages)), { scope: whole?.body?.companion?.scope, units: whole?.body?.companion?.document?.units?.length, pageCount })
+  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
   await fresh(a)
+  // Reopened, the Whole PDF card shows its earlier conversation at once (the same task, no frame later).
+  await a.evaluate(() => { openCard(null) }); await a.waitForTimeout(300)
+  const atOnce = await a.evaluate(() => { openWhole({ quiet: true }); return document.querySelector('.mr-col .mr-card.is-whole.is-open')?.innerText || '' })
+  ok('the Whole PDF card shows its earlier conversation the moment it opens', /What is this about\?/.test(atOnce) && /MOCK ANSWER/.test(atOnce), atOnce.slice(0, 200))
   await fresh(a)
   // The dot: one tap highlights in the default colour; a second tap opens the colours; picking sets the default.
   await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-bar')
@@ -473,7 +586,7 @@ async function behaviour(browser, origin) {
       if (await C.page.$('.mr-define__senses li')) break
       await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     }
-    ok('one word opens Define with dictionary senses, network off', (await C.page.$$('.mr-define__senses li')).length >= 1 && (await C.page.textContent('.mr-define__src')) === 'Dictionary', { word, card: await C.page.evaluate(() => document.querySelector('.mr-float')?.innerText) })
+    ok('one word opens Define with dictionary senses, network off (the dictionary alone: no "In this text")', (await C.page.$$('.mr-define__senses li')).length >= 1 && (await C.page.textContent('.mr-define__src')) === 'Dictionary' && !(await C.page.$('.mr-define__in')), { word, card: await C.page.evaluate(() => document.querySelector('.mr-float')?.innerText) })
     await C.page.evaluate(() => mrDefine('Qzxwvk')); await C.page.waitForTimeout(800)
     ok('offline, a word the dictionary lacks: “Not in the offline dictionary.” with Ask beneath', (await C.page.textContent('.mr-define__body p')) === 'Not in the offline dictionary.' && await C.page.isVisible('.mr-define__foot [data-m="ask"]'))
     await C.ctx.setOffline(false)
@@ -493,6 +606,32 @@ async function behaviour(browser, origin) {
       await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     }
     ok('a defined word is kept as a Define card in the margin', await C.page.evaluate(() => keptCards().some(c => c.kind === 'define')))
+    // No dictionary sense fits (define_sense answers 0, as for "attention" in a paper): the companion's
+    // meaning in this text comes first, under "In this text", the dictionary's senses below it.
+    let inText = null
+    for (let tries = 0; tries < 6 && !inText; tries++) {
+      mock.next = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
+      await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2200)
+      const asked = account.requests.slice(n5).map(r => r.body?.companion?.intent)
+      inText = asked.includes('define_sense') ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, senses: d.querySelectorAll('.mr-define__senses li').length, first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING, kept: keptCards().some(c => c.kind === 'define' && /mocked meaning/.test(c.data?.inText || '')) } }) : null
+      mock.next = null
+      if (inText) ok('no sense fits: the companion\'s define asked, "In this text" first with its meaning, the dictionary\'s senses below; kept on the card', asked.includes('define') && inText.label === 'In this text' && /mocked meaning/.test(inText.text) && inText.senses >= 1 && !!inText.first && inText.kept, { asked, inText })
+      await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    }
+    if (!inText) ok('no sense fits: "In this text" first', false, 'no dictionary word found to select')
+    // Double-click on half of a hyphenated word selects all of it ("auto-regressive" was looked up as "regressive").
+    const hy = await C.page.evaluate(() => {
+      const span = [...document.querySelectorAll('.pdf-sheet .text-layer span')].find(s => { const r = s.getBoundingClientRect(); return /\bself-evident\b/.test(s.textContent) && r.top > 80 && r.bottom < innerHeight - 20 })
+      if (!span) return null
+      const node = span.firstChild, at = node.textContent.indexOf('self-evident') + 5, range = document.createRange(); range.setStart(node, at); range.setEnd(node, at + 7)
+      const r = range.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }
+    })
+    if (hy) {
+      await C.page.mouse.dblclick(hy.x, hy.y); await C.page.waitForTimeout(150)
+      const got = await C.page.evaluate(() => getSelection().toString())
+      ok('double-click on part of a hyphenated word selects the whole word ("self-evident", not "evident")', got === 'self-evident', got)
+    } else ok('double-click on a hyphenated word', false, 'no "self-evident" in view')
+    await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     await C.ctx.close()
   }
   // The phone: an answer opens as a card along the bottom with the passage underlined above it; tapping the page closes it.
@@ -520,19 +659,29 @@ async function behaviour(browser, origin) {
 async function primerBehaviour(browser, origin) {
   const results = []
   const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 300)}`) }
-  const hex = addBook(PDFS[0]), hex2 = addBook(PDFS[1])
+  // Units come from the outline only for a PDF of 40 pages or more: the long book (45 pages) has them.
+  const hex = addBook(LONG_BOOK), hex2 = addBook(PDFS[1]), hexShort = addBook(PDFS[0])
   const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
   const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
   const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
   const a = A.page
   await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  const units = await a.evaluate(() => primer.units)
+  const unitPages = u => u.to - u.from + 1
   const r0 = chats().length
-  const trig = await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); return t && { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, key: !!t.querySelector('.mr-key') } })
-  ok('at the PDF\'s start the trigger is the column\'s first folded card: "Before you start", [B], the unit named', trig && trig.text === 'Before you start B The gist, the key claims and a map of chapter 1.' && trig.top === 16 && trig.key, trig)
+  const trig = await a.evaluate(() => {
+    const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return null
+    const cs = getComputedStyle(t), title = getComputedStyle(t.querySelector('.mr-trigger__title')), sub = getComputedStyle(t.querySelector('.mr-trigger__sub'))
+    // Its page's first line of text, measured in the column.
+    const p = state.pages[currentPlace().page - 1], spans = [...p.layer.querySelectorAll('span')].filter(s => s.textContent.trim()).map(s => s.getBoundingClientRect().top)
+    const line = Math.min(...spans) - document.querySelector('.mr-col').getBoundingClientRect().top
+    return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
+  })
+  ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist, the key claims and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
   ok('nothing is made when the file opens (only when the reader opens the trigger)', primers(0).length === 0)
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
   const req = primers(r0)[0]
-  ok('B opens the primer in place: one chapter request, action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === 4 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
+  ok('B opens the primer in place: one chapter request, action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
   const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
   ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, alone in the column', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && shown.top === 16 && shown.bottom === 70 && !shown.trigger, shown)
   await a.waitForTimeout(600)
@@ -565,13 +714,13 @@ async function primerBehaviour(browser, origin) {
   await a.click('.mr-col .mr-quiz-row'); await a.waitForTimeout(1200)
   const q = chats().slice(r2).find(r => r.body?.companion?.intent === 'quiz')
   const quizCard = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-open'); return c && { label: c.querySelector('.mr-card__label').innerText.replace(/\s+/g, ' '), unit: c.classList.contains('is-unit'), primer: !!document.querySelector('.mr-col .mr-primer') } })
-  ok('"Quiz me on this chapter": quiz on the whole unit (no selection, its pages), opening as a quiz card; the primer folds', q && q.body.companion.selection === undefined && q.body.companion.context.pages.length === 4 && quizCard?.label.startsWith('Quiz me · chapter 1') && /1 of 3/.test(quizCard.label) && quizCard.unit && !quizCard.primer, { q: q?.body?.companion && { sel: q.body.companion.selection, pages: q.body.companion.context.pages.length }, quizCard })
+  ok('"Quiz me on this chapter": quiz on the whole unit (no selection, its pages), opening as a quiz card; the primer folds', q && q.body.companion.selection === undefined && q.body.companion.context.pages.length === unitPages(units[0]) && quizCard?.label.startsWith('Quiz me · chapter 1') && /1 of 3/.test(quizCard.label) && quizCard.unit && !quizCard.primer, { q: q?.body?.companion && { sel: q.body.companion.selection, pages: q.body.companion.context.pages.length }, quizCard })
   ok('the chapter quiz is kept with the cards (synced) and has no leader line', await a.evaluate(() => keptCards().some(c => c.data?.unit?.key === 'outline-0' && c.rects.length === 1) && !document.querySelector('svg.mr-leads path:not(.is-folded)')))
   await a.keyboard.press('Escape')
   // The next unit's start offers its own trigger; the middle of a unit offers none.
-  await a.evaluate(() => goTo({ page: 5, frac: 0 })); await a.waitForTimeout(700)
+  await a.evaluate(n => goTo({ page: n, frac: 0 }), units[1].start); await a.waitForTimeout(700)
   const t5 = await a.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
-  await a.evaluate(() => goTo({ page: 6, frac: 0.3 })); await a.waitForTimeout(700)
+  await a.evaluate(n => goTo({ page: n, frac: 0.3 }), units[1].start + 1); await a.waitForTimeout(700)
   const t6 = await a.evaluate(() => !!document.querySelector('.mr-col .mr-trigger'))
   ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
   const r3 = chats().length
@@ -581,6 +730,15 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('Escape')
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
+  // A PDF under 40 pages is one unit, "all", even with an outline (the prose book, 21 pages, has one).
+  const S = await readerPage(browser, origin, hexShort, { width: 1440, height: 900, look: 'paper' })
+  await S.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '), units: primer.units.map(u => u.key), pages: state.pages.length }))
+  const rs = chats().length
+  await S.page.keyboard.press('b'); await S.page.waitForTimeout(1000)
+  const reqs = primers(rs)[0]
+  ok('a PDF under 40 pages is one unit ("all"), its outline notwithstanding: the whole file goes', /map of the whole PDF\.$/.test(ts.trig || '') && ts.units.join() === 'all' && reqs?.body?.companion?.chapter?.action?.unitKey === 'all' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
+  await S.ctx.close()
   // A PDF without an outline is one unit, "all".
   const B = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'night' })
   await B.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
@@ -614,6 +772,89 @@ async function primerBehaviour(browser, origin) {
   ok('phone: tapping the page closes the trigger, and it stays closed at this unit', !(await Ph.page.$('.mr-sheet')))
   ok('phone: no page errors', !Ph.problems.length, Ph.problems)
   await Ph.ctx.close()
+  return results
+}
+
+/* ---------- Before you start, reliability (FIXES-2026-10-15, B1): ten runs of the reader's flow against
+   mocked replies of realistic size and shape (bare, fenced, prose around it, braces in the prose, cut
+   off by the output limit, empty, wrong shape, slow), closing it or opening another card meanwhile;
+   each must end with the primer shown and kept. Then a reply that never comes: 45 s, then "taking too long". ---------- */
+async function primerReliability(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 300)}`) }
+  const hex = addBook(PDFS[1])
+  const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
+  // A primer of the size the paper's real one had: five claims, three cautions, eight map rows of the paper's own headings.
+  const real = { gist: 'The paper introduces the Transformer, a sequence model built on attention alone, and shows it trains faster and translates better than recurrent and convolutional models.',
+    claims: ['Recurrence precludes parallel training within a sequence.', 'Attention alone can draw global dependencies in a constant number of steps.', 'Scaled dot-product attention divides by the square root of the key size.', 'Multi-head attention attends to several subspaces at once.', 'The big model reaches 28.4 BLEU on English-to-German.'].map((text, i) => ({ text, cite: `{p. ${i + 2}}` })),
+    keepInMind: ['The prose and Table 2 give different English-to-French BLEU.', 'Training costs are estimates from GPU time.', 'Positional encodings are one of two variants tried.'],
+    map: ['Abstract', '1 Introduction', '2 Background', '3 Model Architecture', '4 Why Self-Attention', '5 Training', '6 Results', '7 Conclusion'].map((title, i) => ({ title, pages: `p. ${i + 1}` })) }
+  const good = JSON.stringify(real), pretty = JSON.stringify(real, null, 2)
+  const cases = [
+    ['a bare JSON reply', [{ text: good, delay: 300 }]],
+    ['a reply in a ```json fence', [{ text: '```json\n' + pretty + '\n```' }]],
+    ['prose before and after the JSON', [{ text: 'Here is the orientation.\n' + pretty + '\nI hope it helps.' }]],
+    ['prose with braces of its own before the JSON', [{ text: 'Citations are written {p. n} as asked.\n' + good }]],
+    ['a reply cut off by the output limit, then a whole one (one retry)', [{ text: pretty.slice(0, Math.floor(pretty.length * 0.6)), stop: 'max_tokens' }, { text: good }]],
+    ['an empty reply (502), then a whole one (one retry)', [{ status: 502, body: { error: 'The answer stopped.' } }, { text: good }]],
+    ['a reply of the wrong shape, then a whole one (one retry)', [{ text: JSON.stringify({ gist: real.gist, claims: real.claims }) }, { text: good }]],
+    ['a slow reply (4 s)', [{ text: good, delay: 4000 }]],
+    ['closed while it was made: kept, and reopening shows it without a new request', [{ text: good, delay: 1500 }], 'close'],
+    ['another card opened while it was made: kept, and reopening shows it without a new request', [{ text: good, delay: 1500 }], 'card'],
+  ]
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const a = A.page
+  let passed = 0
+  for (const [name, replies, interrupt] of cases) {
+    await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); openCard(null) })
+    account.primers.clear(); mock.primers = replies.map(r => ({ ...r })); const r0 = chats().length
+    await a.evaluate(() => openPrimer(currentUnit()))
+    if (interrupt) {
+      await a.waitForTimeout(400)
+      if (interrupt === 'close') await a.evaluate(() => closePrimer())
+      else await a.evaluate(() => { const c = TinctMargin.newCard({ kind: 'explain', page: 1, anchor: [{ n: 1, x: 0.1, y: 0.3, w: 0.3, h: 0.02 }], text: 'A passage.', turns: [{ role: 'assistant', content: 'MOCK. An answer.' }] }); store.set('cards:' + state.key, [c]); col.view = null; openCard(c.id) })
+      await a.waitForTimeout(2200)
+      const kept = await a.evaluate(() => !!store.get(primerKey(currentUnit())))
+      const r1 = chats().length
+      await a.evaluate(() => { openCard(null); openPrimer(currentUnit()) })
+      await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 6000 }).catch(() => {})
+      const shown = await a.evaluate(() => document.querySelector('.mr-col .mr-primer')?.innerText || '')
+      const pass = kept && primers(r1).length === 0 && /Transformer/.test(shown) && account.primers.size === 1
+      passed += pass ? 1 : 0
+      ok(`primer run: ${name}`, pass, { kept, requests: primers(r1).length, stored: account.primers.size })
+      continue
+    }
+    await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 15000 }).catch(() => {})
+    const got = await a.evaluate(() => ({ text: document.querySelector('.mr-col .mr-primer')?.innerText || '', rows: [...document.querySelectorAll('.mr-col .mr-map__row')].map(r => r.innerText.replace(/\s+/g, ' ').trim()) }))
+    await a.waitForTimeout(300)
+    const pass = /Transformer/.test(got.text) && primers(r0).length === replies.length && account.primers.size === 1 && got.rows[1] === '1 Introduction p. 2'
+    passed += pass ? 1 : 0
+    ok(`primer run: ${name}`, pass, { requests: primers(r0).length, want: replies.length, stored: account.primers.size, rows: got.rows.slice(0, 2), text: got.text.slice(0, 80) })
+  }
+  ok(`the primer was made in ${passed} of ${cases.length} runs (all must succeed)`, passed === cases.length, passed)
+  // Two bad replies: the second is not retried; the reader sees why and can Redo.
+  await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer() }); account.primers.clear()
+  mock.primers = [{ text: 'Not a primer.' }, { text: 'Still not.' }]; const r2 = chats().length
+  await a.evaluate(() => openPrimer(currentUnit())); await a.waitForSelector('.mr-col .mr-primer [data-c="redo"]', { timeout: 8000 }).catch(() => {})
+  ok('two bad replies: asked twice, never a third time; the reason and Redo show', primers(r2).length === 2 && /could not be loaded/.test(await a.innerText('.mr-col .mr-primer').catch(() => '')), { requests: primers(r2).length })
+  mock.primers = []
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // A reply that never comes: after 45 s, "Before you start is taking too long. Try again." (the page's clock is run forward).
+  const B = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const b = B.page
+  await b.clock.install()
+  mock.primers = [{ text: good, delay: 20000 }]; const r3 = chats().length
+  await b.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); openPrimer(currentUnit()) })
+  await b.waitForTimeout(800)
+  await b.clock.runFor(30000); await b.waitForTimeout(200)
+  const waiting = await b.evaluate(() => !!document.querySelector('.mr-col .mr-primer .mr-wait'))
+  await b.clock.runFor(16000); await b.waitForTimeout(400); await b.clock.runFor(100)
+  const status = await b.evaluate(() => document.querySelector('.mr-col .mr-primer .mr-status')?.innerText || '')
+  ok('a reply that never comes: still waiting at 30 s; at 45 s "Before you start is taking too long. Try again.", one request, nothing retried', waiting && status === 'Before you start is taking too long. Try again.' && primers(r3).length === 1, { waiting, status, requests: primers(r3).length })
+  mock.primers = []
+  await B.ctx.close()
   return results
 }
 
@@ -774,6 +1015,14 @@ const settle = page => page.evaluate(() => new Promise(r => {
   const tick = () => { const y = $('scroll').scrollTop; still = y === last ? still + 1 : 0; last = y; if (still >= 4 || ++n > 120) setTimeout(r, 120); else requestAnimationFrame(tick) }
   requestAnimationFrame(tick)
 }))
+// Crowding: every card whose passage is in view shows in the column (as a card or a one-line row), none in a "more" row.
+function crowding(want = null) {
+  const stack = document.querySelector('.mr-stack:not([hidden])')?.innerText || null
+  const cards = document.querySelectorAll('.mr-col .mr-card:not([hidden])').length, rows = document.querySelectorAll('.mr-col .mr-card.is-row:not([hidden])').length
+  const inView = visibleCards().length
+  // `want`: at least this many in view (cards synced from earlier rows of the matrix may add to the seeded ones).
+  return { ok: col.mode !== 'column' || (!stack && cards === inView && (want == null || inView >= want)), mode: col.mode, stack, cards, rows, inView }
+}
 // The leader lines are attached: each dot is level with a passage in view and every card's label line has its line.
 function leadersAttached() {
   if (col.mode !== 'column') return { ok: true }
@@ -804,7 +1053,8 @@ async function columnMatrix(browser, origin) {
         await settle(page)
         const list = await checkMargin(page)
         found.push(...list.map(p => ({ state: name, ...p })))
-        if (cond) { const r = await page.evaluate(cond); if (!r || r.ok === false) found.push({ state: name, kind: 'condition', el: JSON.stringify(r).slice(0, 300) }) }
+        // `cond`: a function run in the page, or [function, its argument].
+        if (cond) { const r = await page.evaluate(...[].concat(cond)); if (!r || r.ok === false) found.push({ state: name, kind: 'condition', el: JSON.stringify(r).slice(0, 300) }) }
         const att = await page.evaluate(leadersAttached)
         if (!att.ok) found.push({ state: name, kind: 'leaders', el: JSON.stringify(att) })
         if (keep) { const path = join(OUT, `col-${tag}-${name}.jpg`); await page.screenshot({ path, type: 'jpeg', quality: 60 }); shots[name] = path }
@@ -824,6 +1074,39 @@ async function columnMatrix(browser, origin) {
         // Passages at the very top and the very bottom of the screen.
         await page.evaluate(seedCards, { lines: 2, pairs: false, open: 0, where: 'top' }); await state('top')
         await page.evaluate(seedCards, { lines: 2, pairs: false, open: 1, where: 'bottom' }); await state('bottom')
+        // Crowding (the Gloss test, 15 Oct): passages in the lower half of the screen use the room above
+        // them, and older cards fold to one-line rows before anything gathers into "N more".
+        // From the seeded cards alone: notes and cards synced from the matrix's earlier rows are cleared first.
+        account.cards.delete(hex); account.marks.delete(hex)
+        await page.evaluate(() => { store.set('hl:' + state.key, []); for (const p of state.pages) if (p.layer) renderHighlights(p) })
+        await page.evaluate(seedCards, { lines: 4, pairs: false, open: null, where: 'bottom' })
+        await state('lower-half', crowding)
+        // None open: opening one low on the screen scrolls its passage up and the others out of view.
+        await page.evaluate(seedCards, { lines: 4, pairs: true, open: null, where: 'bottom' })
+        await state('eight', [crowding, 8])
+        // A note on a crowded page: its card opens where the reader sees it, with the focus (never gathered, never lost).
+        await page.evaluate(seedCards, { lines: 5, pairs: true, open: 0, where: 'middle' }); await settle(page)
+        await page.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await settle(page)
+        if (await selectText(page, { near: 'top' })) {
+          await page.waitForSelector('.mr-float [data-m="note"]', { timeout: 4000 })
+          // As on a crowded page: another note's highlight under the bar. The click on the bar's note
+          // must open the editor, never the highlight beneath (the Gloss test's lost note, 15 Oct).
+          await page.evaluate(() => {
+            const bar = document.querySelector('.mr-float').getBoundingClientRect(), btn = document.querySelector('.mr-float [data-m="note"]').getBoundingClientRect()
+            const p = pageForPoint(btn.left + btn.width / 2, btn.top + btn.height / 2); if (!p) return
+            const r = p.pg.getBoundingClientRect(), at = Date.now()
+            store.set('hl:' + state.key, [...highlights(), { id: 'under' + at.toString(36), page: p.n, rects: [[(bar.left - r.left) / r.width, (bar.top - r.top) / r.height, (bar.right - bar.left) / r.width, (bar.bottom - bar.top) / r.height]], text: 'An earlier passage.', color: 'sky', note: 'An earlier note.', at, u: at }])
+            for (const q of state.pages) if (q.layer) renderHighlights(q)
+          })
+          await page.click('.mr-float [data-m="note"]'); await page.waitForSelector('.mr-note .mr-note__field', { timeout: 4000 })
+          await page.keyboard.type('A note on a crowded page.')
+          await page.click('.mr-note [data-m="save"]')
+          await state('crowded-note', () => {
+            const el = document.querySelector('.mr-sheet, .mr-card.is-floating.is-open, .mr-col .mr-card.is-open:not([hidden])')
+            const r = el?.getBoundingClientRect()
+            return { ok: String(col.open || '').startsWith('n-') && !!el && /A note on a crowded page\./.test(el.innerText) && r.top >= 0 && r.bottom <= innerHeight + 1 && el.contains(document.activeElement), open: col.open, focus: document.activeElement?.className }
+          })
+        } else found.push({ state: 'crowded-note', kind: 'error', el: 'no text to select' })
         // A 600-word answer: the open card scrolls inside; its label and follow-up line stay in view.
         await settle(page); await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['explain'], answer: LONG })
         await state('long', () => {
@@ -925,6 +1208,7 @@ const RUNS = {
   resize: [resizeRun, rows => rows.some(r => r.problems)],
   behaviour: [behaviour, rows => rows.some(r => !r.pass)],
   primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
+  'primer-reliability': [primerReliability, rows => rows.some(r => !r.pass)],
   keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
 }
 try {
@@ -948,6 +1232,7 @@ try {
   else if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
+  else if (mode === 'primer-reliability') { const rows = await primerReliability(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-reliability-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }

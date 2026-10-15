@@ -145,8 +145,9 @@ function setParagraph(text, { x = 72, indent = 18, width = 86, indentChars = 4, 
 // 5. A book of prose: a title page, five chapters (each on a new page, in the outline), first
 //    lines indented, running heads and page numbers, words broken at line ends, paragraphs
 //    running over page breaks, and a footnote at the foot of chapter 2's first page.
-//    proseBook({ text: true }) also returns each chapter's paragraphs as written.
-export function proseBook({ text = false } = {}) {
+//    proseBook({ text: true }) also returns each chapter's paragraphs as written; `paragraphs`
+//    sets chapter 1's length (each later chapter has two more), so a longer book can be made.
+export function proseBook({ text = false, paragraphs = 18 } = {}) {
   breaks = 0;
   const written = [];
   const titles = ['Chapter 1. Of Ideas', 'Chapter 2. Of Impressions', 'Chapter 3. Of Custom', 'Chapter 4. Of Belief', 'Chapter 5. Of Necessity'];
@@ -163,7 +164,7 @@ export function proseBook({ text = false } = {}) {
     let y = 640;
     const opening = () => page.lines[0]?.text === title;
     written.push({ title, paragraphs: [] });
-    for (let k = 0; k < 18 + c * 2; k++) {
+    for (let k = 0; k < paragraphs + c * 2; k++) {
       const words = paragraphText(para, 45 + ((para * 37) % 70));
       written.at(-1).paragraphs.push(words);
       for (const l of setParagraph(words)) {

@@ -127,6 +127,24 @@ function parseImage(raw: Record<string, unknown>): { block: ChatImageBlock; toke
   }
 }
 
+/** The PDF reader's passage picture: at most this many pixels on its long side (tinct-api.js IMAGE_SIDE). */
+export const PASSAGE_IMAGE_SIDE = 1568
+
+/**
+ * A margin passage picture as sent (before parseUserBlocks): a base64 image
+ * whose header gives a size within PASSAGE_IMAGE_SIDE. A picture whose size
+ * cannot be read is left to parseUserBlocks, which checks its type and bytes.
+ */
+export function passageImageWithinCap(raw: unknown): boolean {
+  if (!isRecord(raw) || !isRecord(raw.source)) return false
+  const { data, media_type: mediaType } = raw.source
+  if (typeof data !== 'string' || typeof mediaType !== 'string' || !(IMAGE_MEDIA_TYPES as readonly string[]).includes(mediaType)) return false
+  let head: Uint8Array
+  try { head = decodeHead(data.slice(0, HEADER_BASE64_CHARS - (HEADER_BASE64_CHARS % 4))) } catch { return false }
+  const size = imageDimensions(head, mediaType as ImageMediaType)
+  return !size || Math.max(size.width, size.height) <= PASSAGE_IMAGE_SIDE
+}
+
 /** True when a message's content is an array holding at least one image block. */
 export function contentHasImage(content: unknown): boolean {
   return Array.isArray(content) && content.some(block => isRecord(block) && block.type === 'image')

@@ -268,18 +268,40 @@ describe('friends and the Friends board', () => {
     expect(rank).toEqual({ rank: 2, total: 2, seconds: 0 })
   })
 
-  it('a row carries only name, picture and reading time (privacy notice), and `me` for your own; no handle, id or book', async () => {
+  it('a row carries only name, picture and reading time (privacy notice), and `me` for your own; no id or book; another reader\'s row their handle, for a profile the viewer can already open', async () => {
     const world = everyoneWorld()
     world.befriend(A, B); world.befriend(A, C)
     world.profiles.get(C)!.show_reading = false
     world.read(B, 0, 60, 'meditations'); world.read(B, -1, 10, 'frankenstein'); world.read(C, 0, 30, 'frankenstein')
     for (const tab of ['friends', 'everyone'] as const) {
       const data = await board(world, A, tab)
-      for (const entry of [...data.entries, data.me]) expect(Object.keys(entry).sort()).toEqual(['duration', 'me', 'name', 'picture', 'rank', 'seconds'])
-      expect(data.entries.map((e: { name: string; me: boolean }) => [e.name, e.me])).toEqual([['Bea', false], ['Carl', false], ['You', true]])
+      for (const entry of [...data.entries, data.me]) {
+        expect(Object.keys(entry).sort()).toEqual(entry.me ? ['duration', 'me', 'name', 'picture', 'rank', 'seconds'] : ['duration', 'handle', 'me', 'name', 'picture', 'rank', 'seconds'])
+      }
+      expect(data.entries.map((e: { name: string; me: boolean; handle?: string }) => [e.name, e.me, e.handle])).toEqual([['Bea', false, 'bea'], ['Carl', false, 'carl'], ['You', true, undefined]])
       const text = JSON.stringify(data)
-      for (const leak of ['"handle"', 'bea', 'carl', B, C, 'Meditations', 'Frankenstein', '"book"']) expect(text).not.toContain(leak)
+      for (const leak of ['"handle":"anders"', B, C, A, 'Meditations', 'Frankenstein', '"book"', '"id"']) expect(text).not.toContain(leak)
     }
+  })
+
+  it('every reader on a board is one whose profile that viewer can already open; the profile keeps its own rules', async () => {
+    // Friends board: friends with a Friends or Everyone profile (Everyone unconfirmed counts as Friends).
+    const world = new World()
+    world.add(A); world.add(B, { visibility: 'friends' }); world.add(C, {}, false); world.add(D, { show_reading: false }); world.add(E)
+    world.befriend(A, B); world.befriend(A, C); world.befriend(A, D)
+    for (const id of [B, C, D, E]) world.read(id, 0, 60)
+    for (const [viewer, tab] of [[A, 'friends'], [A, 'everyone'], [E, 'everyone'], [E, 'friends']] as const) {
+      const data = await board(world, viewer, tab)
+      for (const entry of data.entries.filter((e: { me: boolean }) => !e.me)) {
+        const response = await api(world, `/api/social/profile/${entry.handle}`, viewer)
+        expect(response.status, `${tab} ${entry.name} for ${NAMES[viewer]}`).toBe(200)
+        expect((await json(response)).profile.limited, `${tab} ${entry.name}`).toBe(false)
+      }
+    }
+    // A stranger's Everyone board never lists the Friends profile or the unconfirmed one.
+    expect(names(await board(world, E, 'everyone')).sort()).toEqual(['Dora', 'You'])
+    // Show what I'm reading off: the profile opened from the board shows no books, as from a link.
+    expect((await json(await api(world, '/api/social/profile/dora', A))).profile.readingNow).toBeNull()
   })
 })
 
@@ -668,10 +690,9 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
   const strict = { everyoneMinReaders: undefined }
   const get = (world: World, path: string, as: string, init: RequestInit = {}) => api(world, path, as, init, strict)
 
-  it('9 real readers: no Everyone board and no tab; the 10th opens it on its own (no release)', async () => {
+  it('no real readers: no Everyone board and no tab; the first opens it on its own (no release)', async () => {
     const world = new World()
     world.add(A, { on_leaderboard: false })
-    addReaders(world, 1, 9)
     const closed = await get(world, '/api/social/board?tab=everyone', A)
     expect(closed.status).toBe(404)
     expect(await closed.json()).toEqual({ error: 'Not found', everyoneOpen: false })
@@ -679,7 +700,7 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect(friends.everyoneOpen).toBe(false)
     expect((await json(await get(world, '/api/social/find', A))).everyoneOpen).toBe(false)
 
-    addReaders(world, 10, 1)
+    addReaders(world, 1, 1)
     // The count is reused briefly, then asked again (and the hourly rebuild has run).
     world.now = NOW + 6 * 60_000
     world.refreshedAt = null
@@ -687,14 +708,13 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect(open.status).toBe(200)
     const data = await open.json() as Record<string, any>
     expect(data.everyoneOpen).toBe(true)
-    expect(data.entries).toHaveLength(11)
+    expect(data.entries).toHaveLength(2)
     expect((await json(await get(world, '/api/social/board?tab=friends', A))).everyoneOpen).toBe(true)
   })
 
-  it('internal and test accounts never count toward the 10', async () => {
+  it('internal and test accounts never count toward the threshold', async () => {
     const world = new World()
     world.add(A, { on_leaderboard: false })
-    addReaders(world, 1, 9)
     addReaders(world, 100, 5, true)
     expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
     // Readers who would not appear on Everyone do not count either.
@@ -723,6 +743,8 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
 
   it('the Friends board is unaffected below the threshold', async () => {
     const world = everyoneWorld()
+    // Below the threshold: nobody shows on Everyone (all Friends profiles).
+    for (const id of [A, B, C, D, E]) world.profiles.get(id)!.visibility = 'friends'
     world.befriend(A, B); world.befriend(A, C)
     world.read(B, 0, 90); world.read(C, 0, 30); world.read(A, 0, 60)
     const response = await get(world, '/api/social/board?tab=friends', A)
@@ -849,5 +871,50 @@ describe('the reading card', () => {
     world.profiles.get(A)!.visibility = 'only_me'
     const book = await api(world, '/api/social/card', A, { method: 'POST', body: JSON.stringify({ bookId: 'frankenstein' }) }, { renderCard, ...finished })
     expect(book.headers.get('X-Card-Link')).toBe('https://tinct.app/read/frankenstein')
+  })
+})
+
+describe('the leaderboard answers fast (Anders, 15 Oct 2026: "takes too long to load")', () => {
+  /** Every store read waits `ms`, like a Supabase round trip from the Worker. */
+  function slow(world: World, ms: number, calls: string[]): World {
+    return new Proxy(world, {
+      get(target, key, receiver) {
+        const value = Reflect.get(target, key, receiver)
+        if (typeof value !== 'function' || ['add', 'read', 'befriend', 'card', 'cards'].includes(String(key))) return value
+        return async (...args: unknown[]) => {
+          calls.push(String(key))
+          await new Promise(resolve => setTimeout(resolve, ms))
+          return value.apply(target, args)
+        }
+      },
+    })
+  }
+
+  it('the Friends board is two store round trips after sign-in (was six), with the same rows', async () => {
+    const ms = Number(process.env.BOARD_RTT_MS) || 40
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 60); world.read(C, 0, 30); world.read(A, 0, 10)
+    await world.refreshBoard()
+    const expected = await board(world, A, 'friends')
+    const calls: string[] = []
+    const store = slow(world, ms, calls)
+    const started = Date.now()
+    const response = await handleSocial(new Request('https://tinct.app/api/social/board?tab=friends', { headers: { authorization: `Bearer ${A}` } }), on as never, { ...deps(world), profiles: store, social: store })
+    const elapsed = Date.now() - started
+    if (process.env.BOARD_RTT_MS) process.stderr.write(`board: ${elapsed} ms at ${ms} ms per store round trip; reads: ${calls.join(', ')}\n`)
+    expect(await response.json()).toEqual(expected)
+    // The Everyone count (cached per isolate) runs beside the board; at most three waits in a row.
+    expect(elapsed).toBeLessThan(ms * 3.5)
+  })
+
+  it('a stale board is rebuilt before its seconds are read, as before', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B)
+    world.read(B, 0, 60)
+    expect(world.refreshedAt).toBeNull()
+    const data = await board(world, A, 'friends')
+    expect(world.refreshes).toBe(1)
+    expect(data.entries.map((entry: { name: string; seconds: number }) => [entry.name, entry.seconds])).toEqual([['Bea', 3600], ['You', 0]])
   })
 })

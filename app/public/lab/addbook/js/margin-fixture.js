@@ -160,6 +160,7 @@
     plan.cards.forEach((k, i) => {
       const p = at.get(k), el = els[i];
       if (!p) { el.hidden = true; return }
+      el.classList.toggle('is-row', !!p.row);
       el.style.top = p.top + 'px';
       const f = firstLine(k), lab = el.querySelector('.mr-card__label').getBoundingClientRect();
       const ey = (f.top + f.bottom) / 2, cy = (lab.top + lab.bottom) / 2 - dr.top, x0 = pageRight + M.COL.dot, x1 = 800 - 6;
@@ -220,9 +221,16 @@
   }
   function triggerEl(o = {}) {
     const el = document.createElement('button');
-    el.type = 'button'; el.className = 'mr mr-trigger'; el.setAttribute('aria-expanded', 'false');
+    el.type = 'button'; el.className = 'mr mr-trigger'; el.setAttribute('aria-expanded', 'false'); el.title = 'Before you start (B)';
     el.innerHTML = H.triggerHtml(UNIT, o);
     return el;
+  }
+  // The page's first line of text, from the frame's top (the trigger sits there less 4px, as a card does).
+  function firstTextTop(pdf, top) {
+    const walk = document.createTreeWalker(pdf, NodeFilter.SHOW_TEXT, { acceptNode: n => (n.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP) });
+    const node = walk.nextNode(); if (!node) return 0;
+    const range = document.createRange(); range.selectNodeContents(node);
+    return range.getClientRects()[0].top - top;
   }
   function primerDesk(d) {
     const kind = d.dataset.desk;
@@ -238,7 +246,7 @@
       return;
     }
     const col = document.createElement('div'); col.className = 'mr mr-col'; d.appendChild(col);
-    if (kind === 'trigger') { col.appendChild(triggerEl()); return }
+    if (kind === 'trigger') { const t = triggerEl(); col.appendChild(t); t.style.top = Math.max(0, firstTextTop(d.querySelector('.pdf'), dr.top) - 56 - M.COL.lift) + 'px'; return }
     const foot = document.createElement('div'); foot.className = 'mr-foot'; foot.innerHTML = H.footHtml(); col.appendChild(foot);
     if (kind === 'primer') { col.insertBefore(primerEl(PRIMER), foot); return }
     if (kind === 'primer-long') { col.insertBefore(primerEl(LONG_PRIMER), foot); return }
@@ -247,7 +255,7 @@
       el.querySelector('.mr-wait').append(window.TinctWait.waitRing('Thinking…', { size: 18, delayMs: 0, live: false }));
       return;
     }
-    // The trigger at the top; the page's cards placed below it (TinctMargin.placeCards with `top`).
+    // The trigger placed with the page's cards, at its page's first line (here scrolled above the column: its top).
     const trig = triggerEl(); col.insertBefore(trig, foot);
     const pdf = d.querySelector('.pdf'); sheet.style.top = '-185px';
     const plan = ['fig', 'ask', 'note'], open = 'fig';
@@ -256,11 +264,12 @@
     col.style.setProperty('--mr-col-height', colH + 'px'); col.style.setProperty('--mr-foot-height', (colH - footTop + 18) + 'px');
     const els = plan.map(k => { const el = cardEl(CARDS[k], k === open); col.insertBefore(el, foot); return el });
     const firstLine = k => { const r = pdf.querySelector('[data-a="' + k + '"]').getClientRects()[0]; return { top: r.top - dr.top, bottom: r.bottom - dr.top } };
-    const reserve = M.PRIMER.top + trig.offsetHeight + M.COL.cardGap;
-    const out = M.placeCards(plan.map(k => ({ id: k, top: firstLine(k).top - colTop })), els.map(e => e.offsetHeight), footTop, { open, top: reserve });
+    const out = M.placeCards([{ id: 'trigger', top: firstTextTop(pdf, dr.top) - colTop, fold: false, keep: true }, ...plan.map(k => ({ id: k, top: firstLine(k).top - colTop }))], [trig.offsetHeight, ...els.map(e => e.offsetHeight)], footTop, { open });
+    trig.style.top = out.positions.find(p => p.id === 'trigger').top + 'px';
     const at = new Map(out.positions.map(p => [p.id, p]));
     plan.forEach((k, i) => {
       const p = at.get(k), el = els[i]; if (!p) { el.hidden = true; return }
+      el.classList.toggle('is-row', !!p.row);
       el.style.top = p.top + 'px';
       const f = firstLine(k), lab = el.querySelector('.mr-card__label').getBoundingClientRect();
       const ey = (f.top + f.bottom) / 2, cy = (lab.top + lab.bottom) / 2 - dr.top, x0 = pageRight + M.COL.dot;

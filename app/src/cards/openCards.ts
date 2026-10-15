@@ -17,7 +17,8 @@ import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo, premiumOfferIntervals } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
-import { fetchBoard, fetchFind, fetchOwnProfile, loadReading } from './cardsApi'
+import { fetchFind, fetchOwnProfile, loadReading } from './cardsApi'
+import { forgetBoards, knownDefaultBoard, loadDefaultBoard } from './boardMemory'
 import { followBackCount } from './cardsRules'
 import { rankOf } from './cardsFormat'
 import type { CardName } from './cardRoutes'
@@ -96,6 +97,8 @@ function firstData(session: CardsSession): CardsData {
   const stored = readCardsCache(session.userId)
   const data = emptyData()
   if (stored) Object.assign(data, stored)
+  // The board the idle warm-up read on this page, if any (memory only).
+  data.board = knownDefaultBoard(session.userId)
   data.loading = { profile: !data.profile, reading: !data.reading }
   return data
 }
@@ -118,10 +121,11 @@ function load(env: CardsEnv, social: boolean): void {
   })
   void loadReading(token, userId).then(reading => set(reading ? { reading, loading: settled('reading') } : { loading: settled('reading') }))
   if (social) {
-    // The Friends board now: the You row's rank comes from it (one request, not
+    // The leaderboard now: the You row's rank comes from it (one request, not
     // /api/social/rank as well, which computes the same board again: 1-2 s each,
     // 10 Oct 2026), and Leaderboard opens without a wait. Kept in memory only.
-    void fetchBoard(token, 'friends').then(board => {
+    // The board the Leaderboard opens on (Everyone while open, else Friends), so its rank is the one shown.
+    void loadDefaultBoard(token, userId).then(board => {
       if (!board) return
       env.data.board = board
       const me = board.entries.find(entry => entry.me) ?? board.me
@@ -179,6 +183,7 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
       // The next person on this device must not inherit this reader's data.
       wipeLabDeviceUserData()
       cached = null
+      forgetBoards()
       location.assign(landing)
     },
     // The sign-in page's reset flow (labSignIn.ts 'forgot'): the same email, the same return link.

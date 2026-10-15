@@ -92,4 +92,40 @@ describe('the requests the PDF reader sends (fetch mocked)', () => {
     expect(res.text).toBe('Holds. Yes.')
     expect(texts).toEqual(['Holds. Yes.'])
   })
+  // FIXES-2026-10-15 A1: the whole file rides on every margin request, exactly as given, for the cached prefix.
+  it('every margin request and the whole-PDF ask carry the document unchanged; the Worker reads it', async () => {
+    const document = { kind: 'pdf', units: [{ n: 'xi', text: 'Page xi.' }, { n: 12, text: 'Page 12.' }] }
+    const bodies: string[] = []
+    for (const intent of ['explain', 'simplify', 'define_sense', 'quiz_check', 'chapter']) {
+      const sent = capture('MOCK.')
+      await A.companion(intent, { book, pdf, document, selection: 'w', senses: ['a', 'b'], quiz: { question: 'q', expected: 'e', answer: 'a' }, chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'T' } } })
+      expect((sent[0].body.companion as Record<string, unknown>).document, intent).toEqual(document)
+      bodies.push(JSON.stringify((sent[0].body.companion as Record<string, unknown>).document))
+    }
+    const sent = capture('MOCK.')
+    await A.ask([{ role: 'user', content: 'Rules.' }, { role: 'user', content: 'Why?' }], { book: { ...book, pdf }, document })
+    bodies.push(JSON.stringify((sent[0].body.companion as Record<string, unknown>).document))
+    expect(new Set(bodies).size).toBe(1)
+    expect(parseCompanionRequest(sent[0].body.companion)!.document).toEqual({ kind: 'pdf', units: [{ label: 'xi', text: 'Page xi.' }, { label: '12', text: 'Page 12.' }], cut: false })
+  })
+  it('keeps the document within its bound, and sends none without one', async () => {
+    const api = A as unknown as { DOCUMENT_CHARS: number; documentContext(d: unknown): { units: unknown[] } | null }
+    const big = { kind: 'pdf', units: Array.from({ length: 200 }, (_, i) => ({ n: i + 1, text: 'x'.repeat(5_000) })) }
+    expect(api.documentContext(big)!.units.length).toBe(Math.floor(api.DOCUMENT_CHARS / 5_000))
+    expect(api.documentContext({ kind: 'pdf', units: [] })).toBeNull()
+    const sent = capture('MOCK.')
+    await A.companion('simplify', { book, pdf, selection: 's' })
+    expect(sent[0].body.companion).not.toHaveProperty('document')
+  })
+  it('a refusal is the card’s error (code refused), without the words already shown', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(
+      'event: content_block_delta\ndata: {"type":"content_block_delta","delta":{"type":"text_delta","text":"Begun"}}\n\n' +
+      'event: error\ndata: {"type":"error","error":{"type":"refusal","message":"The reply was interrupted. Please try again."}}\n\n', { headers: { 'Content-Type': 'text/event-stream' } })))
+    const streamed = await A.companion('counterpoint', { book, pdf, selection: 'x', stream: true }).catch(e => e)
+    expect(streamed.code).toBe('refused')
+    expect(streamed.text).toBeUndefined()
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ type: 'error', error: { type: 'refusal', message: 'x' } }), { status: 502, headers: { 'Content-Type': 'application/json' } })))
+    const plain = await A.companion('quiz', { book, pdf, selection: 'x' }).catch(e => e)
+    expect(plain.code).toBe('refused')
+  })
 })
