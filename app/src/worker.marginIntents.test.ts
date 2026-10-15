@@ -36,6 +36,7 @@ import {
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
   QUIZ_CHECK_PROMPT,
   SIMPLIFY_PROMPT,
+  WHOLE_PDF_PROMPT,
   factcheckPrompt,
   quizPrompt,
 } from './companion/marginPrompts'
@@ -330,6 +331,23 @@ describe('the prompts the Worker builds', () => {
     expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context: pdfContext })!, { image: true })).toContain(PASSAGE_IMAGE_LINE)
     // The book reader's Ask never gets it.
     expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context: bookContext })!, { image: true })).not.toContain(PASSAGE_IMAGE_LINE)
+  })
+
+  it('the whole-PDF question (scope "whole") is told to answer from the whole document and end without offers; a PDF only', () => {
+    expect(WHOLE_PDF_PROMPT).toContain('Never answer from "this page" alone')
+    expect(WHOLE_PDF_PROMPT).toContain('no offer of further help and no follow-up question')
+    const whole = parseCompanionRequest({ intent: 'ask', context: pdfContext, scope: 'whole' })!
+    expect(whole.whole).toBe(true)
+    const parts = buildCompanionSystemParts(whole)!
+    // The action text sits after the cache breakpoint, in the moving part, as every action's does.
+    expect(parts.volatile).toContain(WHOLE_PDF_PROMPT)
+    expect(parts.stable).not.toContain(WHOLE_PDF_PROMPT)
+    // A passage question on a PDF, a registered book (even one marked "pdf") and any other intent never get it.
+    expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context: pdfContext })!)).not.toContain(WHOLE_PDF_PROMPT)
+    expect(parseCompanionRequest({ intent: 'ask', context: bookContext, scope: 'whole' })!.whole).toBeUndefined()
+    expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context: bookContext, scope: 'whole' })!)).toBe(buildLabAskInstructions(bookContext))
+    expect(buildCompanionSystem(parseCompanionRequest({ intent: 'ask', context: { ...bookContext, kind: 'pdf' }, scope: 'whole' })!)).not.toContain(WHOLE_PDF_PROMPT)
+    expect(parseCompanionRequest({ intent: 'explain', context: pdfContext, selection: PASSAGE, scope: 'whole' })!.whole).toBeUndefined()
   })
 
   it("leaves the book reader's Ask, Explain and Define prompts exactly as they were", () => {

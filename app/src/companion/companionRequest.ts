@@ -21,6 +21,7 @@ import {
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
   QUIZ_CHECK_PROMPT,
   SIMPLIFY_PROMPT,
+  WHOLE_PDF_PROMPT,
   factcheckPrompt,
   quizPrompt,
 } from './marginPrompts'
@@ -75,6 +76,8 @@ export interface CompanionRequest {
    * bookId): adds the PDF citation rule. Never set for a registered book.
    */
   pdf?: true
+  /** Ask on a user's PDF about the whole file (the column's foot): adds WHOLE_PDF_PROMPT. Never set for a registered book. */
+  whole?: true
   /** define_sense: the dictionary's senses, in dictionary order (numbered from 1 in the prompt). */
   senses?: string[]
   /** quiz_check: the question, its expected answer and the reader's answer. */
@@ -419,7 +422,8 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     return { intent, context, chapter: { action, ...(target ? { target } : {}), ...(activity ? { activity } : {}) } }
   }
   const shownExplanations = parseShownExplanations(r.shownExplanations)
-  return { intent, context, ...(shownExplanations ? { shownExplanations } : {}), ...pdf }
+  const whole = intent === 'ask' && parsed.pdf && r.scope === 'whole' ? { whole: true as const } : {}
+  return { intent, context, ...(shownExplanations ? { shownExplanations } : {}), ...pdf, ...whole }
 }
 
 /**
@@ -453,8 +457,8 @@ function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): st
     ]
     case 'define_sense': return [DEFINE_SENSE_PROMPT]
     case 'quiz_check': return [QUIZ_CHECK_PROMPT]
-    // A question from the bar on a PDF passage: the image line, as Explain has it.
-    case 'ask': return request.pdf && extras.image ? [PASSAGE_IMAGE_LINE] : []
+    // A question from the bar on a PDF passage: the image line, as Explain has it. About the whole PDF: its own rules.
+    case 'ask': return [...(request.pdf && request.whole ? [WHOLE_PDF_PROMPT] : []), ...(request.pdf && extras.image ? [PASSAGE_IMAGE_LINE] : [])]
     default: return []
   }
 }

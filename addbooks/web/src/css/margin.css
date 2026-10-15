@@ -131,9 +131,9 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-faint); }   /* "[/] the whole PDF" */
 
 /* ---------- primer ---------- */
-.mr-trigger { padding: 12px 16px; border-radius: 12px; background: var(--mr-card); box-shadow: 0 0 0 1px var(--mr-hair); font-family: var(--mr-gara); }
-.mr-trigger__title { display: flex; align-items: baseline; font-size: 18px; }
-.mr-trigger__sub { font-size: 15px; color: var(--mr-muted); }
+.mr-trigger { padding: 2px 0 2px 14px; box-shadow: inset 1.5px 0 0 var(--mr-lead); font-family: var(--mr-gara); color: var(--mr-ink); }   /* a folded card, its rule in the lead colour, its words in ink */
+.mr-trigger__title { display: block; font-size: 15px; font-style: italic; }
+.mr-trigger__sub { display: block; margin-top: 2px; font-size: 16px; line-height: 1.4; }
 .mr-primer { display: flex; flex-direction: column; gap: 12px; padding: 18px 22px; border-radius: 14px; background: var(--mr-card); box-shadow: var(--mr-card-shadow); font-family: var(--mr-gara); overflow: auto; }
 .mr-primer h4 { display: flex; align-items: baseline; margin: 0; font-weight: 500; font-size: 21px; }
 .mr-primer__gist { margin: 0; font-size: 16px; line-height: 1.5; }
@@ -260,6 +260,11 @@ html[data-pdf-theme="eink"] .mr-float .mr-bar__item:hover { background: transpar
 /* Folded: the label is the card's handle. */
 .mr-card.is-folded .mr-card__label { width: 100%; }
 .mr-card.is-folded { cursor: pointer; }
+/* Crowded: an older folded card as one line, its label then its first words (the folded card's own
+   type and rule, cut to one line); 28px high, the least tap target. */
+.mr-card.is-folded.is-row { display: flex; align-items: center; gap: 8px; min-height: 28px; padding-top: 0; padding-bottom: 0; }
+.mr-card.is-folded.is-row .mr-card__label { width: auto; flex: none; white-space: nowrap; }
+.mr-card.is-folded.is-row .mr-card__text { display: block; flex: 1 1 auto; min-width: 0; margin-top: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* Open: label, a body that scrolls when it must, the follow-up line (margin-reference.css guards). */
 .mr-card.is-open .mr-card__body { display: flex; flex-direction: column; gap: 10px; flex: 0 1 auto; }
 .mr-card.is-open > .mr-card__label, .mr-card.is-open > .mr-follow { flex: none; }
@@ -327,12 +332,12 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
    above are the reference's, and these add only what the mockup's own rules add to them. */
 :where(.mr-trigger, .mr-primer) button, button:where(.mr-trigger) { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 :where(.mr-trigger, .mr-primer) button:focus-visible, button.mr-trigger:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 2px; border-radius: 4px; }
-button.mr-trigger:focus-visible { border-radius: 12px; }
 .mr-trigger, .mr-primer, .mr-primer * { box-sizing: border-box; }
 /* The trigger (mockup .trig): its title with the [B] key at the right, then the line about the unit. */
-.mr-trigger { display: flex; flex-direction: column; gap: 2px; width: 100%; color: var(--mr-ink); text-align: left; }
-.mr-trigger__title .mr-key { margin-left: auto; font-style: normal; }
-.mr-col .mr-trigger, .mr-col .mr-primer { position: absolute; left: 0; right: 0; top: 16px; }
+.mr-trigger { display: block; width: 100%; color: var(--mr-ink); text-align: left; }
+.mr-col .mr-primer { position: absolute; left: 0; right: 0; top: 16px; }
+/* The trigger sits level with its page's first line of text, as a card does with its passage (reader.js sets its top). */
+.mr-col .mr-trigger { position: absolute; left: 0; right: 0; top: 16px; }
 .mr-col .mr-primer { bottom: 70px; }
 /* The primer (mockup .primer): it declares its gap twice, and the 14px it renders is the one kept. */
 .mr-primer { gap: 14px; color: var(--mr-ink); overscroll-behavior: contain; }
@@ -347,6 +352,8 @@ button.mr-trigger:focus-visible { border-radius: 12px; }
 .mr-map { display: flex; flex-direction: column; }
 .mr-map__row { width: 100%; text-align: left; color: inherit; }
 .mr-map__title { min-width: 0; overflow-wrap: anywhere; }
+/* The document's own numbered headings: the number is in the title, so no count column. */
+.mr-map__row.is-own { grid-template-columns: 1fr auto; }
 .mr-map__pages { white-space: nowrap; padding-left: 12px; }
 button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; }
 .mr-quiz-row { width: 100%; color: inherit; text-align: left; }
@@ -359,7 +366,8 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 /* Narrow windows: the trigger is a mark; the primer floats beside it, as a card from a mark does. */
 .mr-primer.is-floating { position: fixed; width: 380px; z-index: 40; }
 /* The phone: the trigger and the primer open in the bottom card, without a second card's fill. */
-.mr-sheet .mr-trigger { padding: 0 0 4px; border-radius: 0; background: none; box-shadow: none; }
+.mr-sheet .mr-trigger { padding: 2px 0 2px 14px; }
+.mr-sheet .mr-trigger__sub { font-size: 17px; }
 .mr-sheet .mr-primer { flex: 0 1 auto; min-height: 0; padding: 0 0 2px; border-radius: 0; background: none; box-shadow: none; overflow-y: auto; }
 .mr-sheet.is-full .mr-primer { flex: 1 1 auto; }
 /* Words for screen readers only: the margin's live region (a finished answer, the primer made). */
@@ -374,8 +382,8 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
    without moving anything. */
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-card.is-open, .mr-primer, .mr-sheet) { outline: 1px solid var(--mr-ink); outline-offset: -1px; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-sheet .mr-primer { outline: 0; }
-:is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-trigger, .mr-quiz-row, .mr-stack) { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
-:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-sheet .mr-trigger { outline: 0; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-quiz-row, .mr-stack) { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-trigger { box-shadow: none; background: linear-gradient(var(--mr-lead), var(--mr-lead)) left top / 1.5px 100% no-repeat; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-cite { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-card.is-folded { background: linear-gradient(var(--mr-hair), var(--mr-hair)) left top / 1.5px 100% no-repeat; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-card.is-note.is-folded { background: linear-gradient(var(--hl-color), var(--hl-color)) left top / 2px 100% no-repeat; }

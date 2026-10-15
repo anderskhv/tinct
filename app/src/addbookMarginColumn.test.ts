@@ -13,12 +13,12 @@ import * as P from '../public/lab/margin/margin-parse.js'
 const require = createRequire(import.meta.url)
 const ROOT = resolve(__dirname, '../..') + '/'
 type Card = { id: string; kind: string; page: number; rects: number[][]; text: string; turns?: Array<{ role: string; content: string }>; data?: Record<string, unknown>; at: number; u?: number; gone?: boolean; note?: string }
-type Placed = { positions: Array<{ id: string; top: number; height: number }>; gathered: string[]; stack: { top: number; height: number } | null }
+type Placed = { positions: Array<{ id: string; top: number; height: number; row?: boolean }>; gathered: string[]; stack: { top: number; height: number } | null }
 type Token = { type: 'cite'; kind: string; label: string; to?: string; raw: string }
 interface MarginApi {
   COL: Record<string, number>
   COLUMN_RESERVE: number
-  placeCards(passages: Array<{ id: string; top: number }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number }): Placed
+  placeCards(passages: Array<{ id: string; top: number; at?: number; fold?: boolean }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number; top?: number; rowHeight?: number }): Placed
   leadPath(x0: number, y0: number, x1: number, y1: number): string
   columnBox(width: number, pageRight: number): { left: number; width: number } | null
   citeTarget(token: Token, o: { labels?: string[] | null; count?: number; texts?: Map<number, string> | null }): { page: number; needle: string } | null
@@ -60,8 +60,11 @@ function invariants(passages: Array<{ id: string; top: number }>, heights: numbe
   expect([...boxes.map(b => b.id), ...out.gathered].sort()).toEqual([...order].sort())
   // A gathered card leaves no stack-less gathering, and the row says how many.
   expect(!!out.stack).toBe(out.gathered.length > 0)
-  // Heights are kept (the open card's at most the room there is).
-  for (const b of boxes) expect(b.height).toBe(Math.min(heights[order.indexOf(b.id)], H - 48))
+  // Heights are kept (the open card's at most the room there is); a card folded to a row is 28px high, never the open one.
+  for (const b of boxes) expect(b.height).toBe(b.row ? 28 : Math.min(heights[order.indexOf(b.id)], H - 48))
+  if (open) expect(boxes.find(b => b.id === open)!.row).toBeUndefined()
+  // Gathering comes last: while cards gather, every other card but the open one is a row.
+  if (out.gathered.length) for (const b of boxes) if (b.id !== open && heights[order.indexOf(b.id)] > 28) expect(b.row).toBe(true)
 }
 
 describe('card placement', () => {
@@ -75,11 +78,44 @@ describe('card placement', () => {
     const out = M.placeCards([{ id: 'left', top: 200 }, { id: 'right', top: 200 }], [50, 50], 700)
     expect(out.positions.map(p => [p.id, p.top])).toEqual([['left', 196], ['right', 260]])
   })
-  it('a card that would end within 46px of the foot gathers into the "more" row, and every card after it', () => {
-    const out = M.placeCards([{ id: 'a', top: 100 }, { id: 'b', top: 500 }, { id: 'c', top: 520 }, { id: 'd', top: 300 }], [80, 160, 40, 40], 700, { stackHeight: 34 })
-    expect(out.positions.map(p => p.id)).toEqual(['a'])
-    expect(out.gathered).toEqual(['b', 'c', 'd'])
-    expect(out.stack).toEqual({ top: 96 + 80 + 14, height: 34 })
+  it('cards that would run past the foot move up into the room above their passages, rather than gathering', () => {
+    // Passages in the lower half of the screen (the Gloss test, 15 Oct: four cards gathered while 550px stood empty above).
+    const passages = [{ id: 'a', top: 100 }, { id: 'b', top: 500 }, { id: 'c', top: 520 }, { id: 'd', top: 540 }]
+    const out = M.placeCards(passages, [80, 160, 40, 40], 700, { stackHeight: 34 })
+    expect(out.gathered).toEqual([])
+    expect(out.stack).toBeNull()
+    expect(out.positions.map(p => [p.id, p.top, p.row])).toEqual([['a', 96, undefined], ['b', 652 - 40 - 14 - 40 - 14 - 160, undefined], ['c', 652 - 40 - 14 - 40, undefined], ['d', 652 - 40, undefined]])
+    invariants(passages, [80, 160, 40, 40], 700, out, null)
+    // Nothing moves up when there is room below.
+    expect(M.placeCards([{ id: 'x', top: 300 }], [80], 700).positions[0].top).toBe(296)
+  })
+  it('when moving up is not enough, the oldest cards fold to one-line rows first; the newest stay as they were', () => {
+    const passages = [400, 420, 440, 460, 480, 500].map((top, i) => ({ id: 'c' + i, top, at: [5, 1, 6, 2, 4, 3][i] }))
+    const out = M.placeCards(passages, [120, 120, 120, 120, 120, 120], 700, { stackHeight: 34 })
+    expect(out.gathered).toEqual([])
+    const rows = out.positions.filter(p => p.row).map(p => p.id)
+    // c1 (made first) folds first, then c3: only as many as it takes (six cards of 120px need two rows in 652px).
+    expect(rows).toEqual(['c1', 'c3'])
+    invariants(passages, Array(6).fill(120), 700, out, null)
+  })
+  it('the open card never folds; the others gather into the "more" row only when even one-line rows no longer fit', () => {
+    const n = 20, passages = Array.from({ length: n }, (_, i) => ({ id: 'c' + i, top: 300 + i * 10, at: i }))
+    const heights = Array(n).fill(90)
+    const out = M.placeCards(passages, heights, 600, { stackHeight: 34, open: 'c4' })
+    expect(out.positions.find(p => p.id === 'c4')!.row).toBeUndefined()
+    expect(out.gathered.length).toBeGreaterThan(0)
+    // The last on the page gather; everything placed is a row except the open card.
+    expect(out.gathered).toEqual(passages.slice(n - out.gathered.length).map(p => p.id))
+    invariants(passages, heights, 600, out, 'c4')
+  })
+  it('eight cards on one page fit as cards and rows, with no "more" row', () => {
+    for (const H of [652, 760, 854]) {
+      const passages = Array.from({ length: 8 }, (_, i) => ({ id: 'c' + i, top: 120 + i * 60, at: i }))
+      const heights = Array(8).fill(64)
+      const out = M.placeCards(passages, heights, H, { stackHeight: 34, open: 'c7' })
+      expect(out.gathered).toEqual([])
+      invariants(passages, heights, H, out, 'c7')
+    }
   })
   it('the open card is never gathered: it keeps its place or moves up, and the cards before it make room', () => {
     const out = M.placeCards([{ id: 'a', top: 300 }, { id: 'b', top: 320 }, { id: 'open', top: 600 }], [60, 60, 300], 700, { open: 'open' })
@@ -96,7 +132,7 @@ describe('card placement', () => {
     const out = M.placeCards([{ id: 'long', top: 50 }], [2400], 700, { open: 'long' })
     expect(out.positions).toEqual([{ id: 'long', top: 0, height: 700 - 48 }])
   })
-  it('ten cards on one page, with any heights, any open card: the invariants always hold', () => {
+  it('up to ten cards on one page, with any heights, ages and open card: the invariants always hold', () => {
     const r = rng(7)
     for (let run = 0; run < 400; run++) {
       const n = 1 + Math.floor(r() * 10), H = 300 + Math.floor(r() * 700)
@@ -105,6 +141,13 @@ describe('card placement', () => {
       const heights = passages.map(() => 30 + Math.floor(r() * (r() < 0.2 ? 900 : 160)))
       const open = r() < 0.6 ? passages[Math.floor(r() * n)].id : null
       invariants(passages, heights, H, M.placeCards(passages, heights, H, { open, stackHeight: 34 }), open)
+      // With ages: the same invariants, and a row is never newer than a card that kept its height.
+      const aged = passages.map(p => ({ ...p, at: Math.floor(r() * 1000) }))
+      const out = M.placeCards(aged, heights, H, { open, stackHeight: 34 })
+      invariants(aged, heights, H, out, open)
+      const age = (id: string) => aged.find(p => p.id === id)!.at
+      const kept = out.positions.filter(p => !p.row && p.id !== open && heights[aged.findIndex(a => a.id === p.id)] > 28)
+      for (const row of out.positions.filter(p => p.row)) for (const k of kept) expect(age(row.id)).toBeLessThanOrEqual(age(k.id))
     }
   })
 })

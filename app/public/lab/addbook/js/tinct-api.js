@@ -66,7 +66,8 @@
   // `input` is a prompt string, or turns [{role, content}] whose first turn carries the
   // instructions and book context (the shape the reader builds). For a PDF (`book.pdf`) the
   // book's text travels as its pages, so the first turn's instructions go before the question.
-  function toRequest(input, book) {
+  // `o.whole`: a PDF question about the whole file (the margin's foot), sent as `scope: 'whole'`.
+  function toRequest(input, book, o = {}) {
     let paragraphs, messages;
     const pdf = pdfContext(book?.pdf);
     if (pdf && typeof input !== 'string') {
@@ -98,7 +99,7 @@
       messages: trimmed.length ? trimmed : [{ role: 'user', content: 'Please answer.' }],
       companion: { intent: 'ask', context: pdf
         ? { ...bookContext(book), ...pdf, lookups: false }
-        : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false } },
+        : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false }, ...(pdf && o.whole ? { scope: 'whole' } : {}) },
     };
   }
   const PASSAGE_INTENTS = new Set(['simplify', 'factcheck', 'counterpoint', 'quiz']);
@@ -195,9 +196,9 @@
 
   const STATUS = { 400: 'bad_request', 401: 'session_expired', 402: 'quota', 403: 'not_granted', 413: 'prompt_too_large', 429: 'rate_limited', 503: 'busy' };
 
-  // ask(input, { onText, onStatus, signal, images, book }) -> { text }
+  // ask(input, { onText, onStatus, signal, images, book, whole }) -> { text }
   async function ask(input, opts = {}) {
-    return send(toRequest(input, opts.book), opts);
+    return send(toRequest(input, opts.book, opts), opts);
   }
   // companion(intent, { book, pdf, selection, senses, quiz, images, stream, onText, onStatus, signal }) -> { text }
   async function companion(intent, opts = {}) {
