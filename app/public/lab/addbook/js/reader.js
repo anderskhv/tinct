@@ -1584,6 +1584,8 @@ async function buildContents() {
   toc.nav = toc.entries.length ? scan.nav : 'pages';
   toc.ready = true;
   onScroll();
+  // The primer's trigger waits for the scan (primerHasText).
+  marginLayout();
 }
 // The document's language (the scan's), for read-aloud's voice and the pages' text; English when unknown.
 const bookLang = () => (isEpub() ? state.epub?.language : state.scan?.language) || 'en';
@@ -3289,9 +3291,13 @@ async function loadUnits() {
 }
 const placePage = () => (state.pages.length ? currentPlace().page : 1);
 const currentUnit = () => (primer.units ? TinctMargin.unitAt(primer.units, placePage()) : null);
+// A scan with no text (yet) has nothing to make a primer from: no trigger and no B until its text is
+// recognised (ocrAdopt), never a primer of blank pages that fails after 80 s (the scans test, 15 Oct 2026).
+// Until the file's scan says whether it has text, nothing is offered either.
+const primerHasText = () => !!state.scan && !hasNoText();
 /** The unit whose trigger shows now, or null. */
 function triggerUnit() {
-  if (!primer.units || primer.open) return null;
+  if (!primer.units || primer.open || !primerHasText()) return null;
   const unit = currentUnit();
   return unit && TinctMargin.atUnitStart(unit, placePage()) ? unit : null;
 }
@@ -3402,7 +3408,7 @@ async function loadPrimer(unit, { redo = false } = {}) {
 /** Open the primer in place of its trigger (B, or a click on the trigger). */
 function openPrimer(unit = currentUnit(), { keyboard = false } = {}) {
   const mode = marginMode();
-  if (!unit || !mode) return;
+  if (!unit || !mode || !primerHasText()) return;
   if (col.open && col.sheet) closeSheet2();
   col.open = null; closeFloat();
   primer.open = true; primer.unit = unit; primer.keyed = keyboard;

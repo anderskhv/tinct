@@ -1334,6 +1334,13 @@ async function scanChecks(browser, origin) {
   const first = scanMock.log.find(([m, part, h]) => m === 'GET' && part === 'job' && h === hex)
   ok('a scan added now: recognition is offered at once, while its account copy is still on its way (status "none", stored: false)', offered !== null && first?.[3] === false && offered < scanMock.uploadDelay + 2000, { offered, first })
   ok('the "can\'t be read aloud" line is never shown while recognition is on', !await noText(page))
+  // Before its text is recognised, a scan offers no "Before you start": no trigger, and B makes nothing
+  // (it once made a primer of blank pages that failed after 80 s).
+  await page.mouse.click(1200, 600); await page.waitForTimeout(300)
+  const q0 = chats().length
+  await page.keyboard.press('b'); await page.waitForTimeout(800)
+  const noPrimer = await page.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), primer: !!document.querySelector('.mr-primer'), marks: document.querySelectorAll('.mr-mark.is-trigger, [data-trigger]').length }))
+  ok('a scan with no text yet: no "Before you start" trigger, and B opens and asks nothing', !noPrimer.trigger && !noPrimer.primer && !noPrimer.marks && !chats().slice(q0).some(r => r.body?.companion?.intent === 'chapter'), { noPrimer, asked: chats().slice(q0).map(r => r.body?.companion?.intent) })
   await shot(page, 'scan-1440x900-offer')
   // Started before the copy is stored: it waits for it, then sends the pages.
   await page.click('.byob-ocr [data-ocr="start"]')
