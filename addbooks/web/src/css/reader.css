@@ -99,7 +99,9 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
    its label in sentence case (the reader's group label is small caps; no all-caps labels here). */
 .lab.byob .byob-aa-panel .lab-v2-head { justify-content: flex-end; padding-bottom: 0; }
 .lab.byob .byob-aa-panel .lab-v2-group-label { margin: 0 0 2px; font: 600 13px/1.4 var(--pdf-ui); letter-spacing: 0; text-transform: none; color: var(--lab-ink-muted, var(--pdf-muted)); }
-.lab.byob .byob-aa-panel .byob-aa-layout { margin: 0 4px 14px; }
+/* Calm sections, as Gloss's own panels keep them: a hairline and 16px under Layout, as under the size;
+   no fills, no headings beyond Layout. */
+.lab.byob .byob-aa-panel .byob-aa-layout { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--pdf-line); }
 .lab.byob .byob-aa-panel .byob-aa-layout[hidden], .lab.byob .byob-aa-panel .lab-v2-row[hidden] { display: none; }
 .lab.byob .byob-aa-panel .lab-v2-edition-option { min-height: 44px; padding: 8px 0; }
 .lab.byob .byob-aa-panel .lab-v2-edition-option + .lab-v2-edition-option { border-top: 1px solid var(--pdf-line); }
