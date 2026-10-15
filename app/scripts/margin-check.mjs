@@ -65,7 +65,28 @@ export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sh
 export async function checkMargin(page, selectors = SELECTORS) {
   const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
   const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 23.5 || r.height < 23.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
-  return [...list, ...small]
+  return [...list, ...small, ...await page.evaluate(stripProblems)]
+}
+// The position strip (js/strip.js) in the PDF reader: shown at 700px and up, beside the pages and under
+// the top bar, never over either (its box, window marker, lines and dots); absent below 700px.
+export function stripProblems() {
+  if (document.body.dataset.view !== 'reader' || !document.querySelector('.lab.is-pdf .pdf-sheet')) return []
+  const el = document.querySelector('.pdf-strip')
+  const shown = !!el && !el.hidden && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().height > 0
+  if (innerWidth < 700) return shown ? [{ kind: 'strip', el: `.pdf-strip shown at ${innerWidth}px` }] : []
+  if (!shown) return [{ kind: 'strip', el: `.pdf-strip missing at ${innerWidth}px` }]
+  const out = [], hit = (a, b) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > 0.5 && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 0.5
+  const hdr = document.getElementById('hdr').getBoundingClientRect()
+  const sheets = [...document.querySelectorAll('.pdf-sheet')].map(s => ({ n: s.dataset.page, r: s.getBoundingClientRect() })).filter(s => s.r.bottom > hdr.bottom && s.r.top < innerHeight)
+  const parts = [el, ...el.querySelectorAll('.pdf-strip__win, line, circle')]
+  for (const part of parts) {
+    const r = part.getBoundingClientRect(), name = part === el ? '.pdf-strip' : `.pdf-strip ${part.getAttribute('class') || part.tagName}`
+    if (hit(r, hdr)) { out.push({ kind: 'overlap', a: name, b: '.lab-header' }); break }
+    const s = sheets.find(s => hit(r, s.r)); if (s) { out.push({ kind: 'overlap', a: name, b: `.pdf-sheet p. ${s.n}` }); break }
+  }
+  const r = el.getBoundingClientRect()
+  if (r.left < 0 || r.right > innerWidth || r.top < hdr.bottom || r.bottom > innerHeight) out.push({ kind: 'offscreen', el: '.pdf-strip', rect: [r.left, r.top, r.right, r.bottom].map(Math.round) })
+  return out
 }
 const LOOKS = (process.env.LOOKS || 'paper,book,night,eink').split(',')
 // `sample` (npm run check:margin, in CI): each viewport once, each look and both zooms at least once, both
