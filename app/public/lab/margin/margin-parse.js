@@ -276,6 +276,34 @@ export function parseQuiz(text) {
   return questions.length ? { questions } : null;
 }
 
+/**
+ * Quiz me while its reply streams (FIXES-2026-10-15 A7): the questions that are already
+ * complete, in order, up to three. Reads the `"questions": [` array of PROMPTS.md's JSON
+ * object by object, so question 1 shows as soon as its closing brace arrives; an object
+ * still being written, and anything after the array, wait. Each complete object is kept or
+ * dropped as parseQuiz would. -> [{ q, answer, why, cite }], possibly empty.
+ */
+export function parseQuizPartial(text) {
+  const s = String(text ?? '');
+  const key = /"questions"\s*:\s*\[/.exec(s);
+  if (!key) return [];
+  const out = [];
+  let i = key.index + key[0].length;
+  while (out.length < 3) {
+    while (i < s.length && /[\s,]/.test(s[i])) i++;
+    if (s[i] !== '{') break;
+    const end = balancedEnd(s, i);
+    if (end < 0) break;
+    let item;
+    try { item = JSON.parse(s.slice(i, end + 1)) } catch { break }
+    i = end + 1;
+    if (!item || typeof item !== 'object') continue;
+    const q = field(item.q, 600), answer = field(item.answer, 600);
+    if (q && answer) out.push({ q, answer, why: field(item.why, 600), cite: citeField(item.cite) });
+  }
+  return out;
+}
+
 /** The three marks a quiz answer can get, and how the card shows each as its bottom line. */
 export const QUIZ_VERDICTS = ['right', 'nearly', 'not_yet'];
 export const QUIZ_VERDICT_LINE = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not yet.' };

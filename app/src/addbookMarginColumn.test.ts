@@ -5,6 +5,7 @@
  * over the kept answers and noted highlights, merged across devices) and the cards' markup.
  * No network and no AI.
  */
+// @vitest-environment jsdom
 import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
@@ -13,13 +14,14 @@ import * as P from '../public/lab/margin/margin-parse.js'
 const require = createRequire(import.meta.url)
 const ROOT = resolve(__dirname, '../..') + '/'
 type Card = { id: string; kind: string; page: number; rects: number[][]; text: string; turns?: Array<{ role: string; content: string }>; data?: Record<string, unknown>; at: number; u?: number; gone?: boolean; note?: string }
-type Placed = { positions: Array<{ id: string; top: number; height: number }>; gathered: string[]; stack: { top: number; height: number } | null }
+type Placed = { positions: Array<{ id: string; top: number; height: number; row?: boolean }>; gathered: string[]; stack: { top: number; height: number } | null }
 type Token = { type: 'cite'; kind: string; label: string; to?: string; raw: string }
 interface MarginApi {
   COL: Record<string, number>
   COLUMN_RESERVE: number
-  placeCards(passages: Array<{ id: string; top: number }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number }): Placed
+  placeCards(passages: Array<{ id: string; top: number; at?: number; fold?: boolean; keep?: boolean }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number; top?: number; rowHeight?: number }): Placed
   leadPath(x0: number, y0: number, x1: number, y1: number): string
+  hyphenWord(text: string, start: number, end: number): [number, number] | null
   columnBox(width: number, pageRight: number): { left: number; width: number } | null
   citeTarget(token: Token, o: { labels?: string[] | null; count?: number; texts?: Map<number, string> | null }): { page: number; needle: string } | null
   cardView(cards: Card[], marks: Array<Record<string, unknown>>): Card[]
@@ -33,6 +35,7 @@ interface MarginApi {
     factcheckHtml(text: string, p: typeof P, o?: Record<string, unknown>): { answer: string; sources: string }
     stackHtml(cards: Array<{ kind: string }>, max?: number): string
     foldText(card: Card, p: typeof P): string
+    defineHtml(d: Record<string, unknown>, o: Record<string, unknown>): string
     threadHtml(rows: unknown[], turns: unknown[], o: Record<string, unknown>): string
   }
 }
@@ -60,8 +63,11 @@ function invariants(passages: Array<{ id: string; top: number }>, heights: numbe
   expect([...boxes.map(b => b.id), ...out.gathered].sort()).toEqual([...order].sort())
   // A gathered card leaves no stack-less gathering, and the row says how many.
   expect(!!out.stack).toBe(out.gathered.length > 0)
-  // Heights are kept (the open card's at most the room there is).
-  for (const b of boxes) expect(b.height).toBe(Math.min(heights[order.indexOf(b.id)], H - 48))
+  // Heights are kept (the open card's at most the room there is); a card folded to a row is 28px high, never the open one.
+  for (const b of boxes) expect(b.height).toBe(b.row ? 28 : Math.min(heights[order.indexOf(b.id)], H - 48))
+  if (open) expect(boxes.find(b => b.id === open)!.row).toBeUndefined()
+  // Gathering comes last: while cards gather, every other card but the open one is a row.
+  if (out.gathered.length) for (const b of boxes) if (b.id !== open && heights[order.indexOf(b.id)] > 28) expect(b.row).toBe(true)
 }
 
 describe('card placement', () => {
@@ -75,11 +81,54 @@ describe('card placement', () => {
     const out = M.placeCards([{ id: 'left', top: 200 }, { id: 'right', top: 200 }], [50, 50], 700)
     expect(out.positions.map(p => [p.id, p.top])).toEqual([['left', 196], ['right', 260]])
   })
-  it('a card that would end within 46px of the foot gathers into the "more" row, and every card after it', () => {
-    const out = M.placeCards([{ id: 'a', top: 100 }, { id: 'b', top: 500 }, { id: 'c', top: 520 }, { id: 'd', top: 300 }], [80, 160, 40, 40], 700, { stackHeight: 34 })
-    expect(out.positions.map(p => p.id)).toEqual(['a'])
-    expect(out.gathered).toEqual(['b', 'c', 'd'])
-    expect(out.stack).toEqual({ top: 96 + 80 + 14, height: 34 })
+  it('cards that would run past the foot move up into the room above their passages, rather than gathering', () => {
+    // Passages in the lower half of the screen (the Gloss test, 15 Oct: four cards gathered while 550px stood empty above).
+    const passages = [{ id: 'a', top: 100 }, { id: 'b', top: 500 }, { id: 'c', top: 520 }, { id: 'd', top: 540 }]
+    const out = M.placeCards(passages, [80, 160, 40, 40], 700, { stackHeight: 34 })
+    expect(out.gathered).toEqual([])
+    expect(out.stack).toBeNull()
+    expect(out.positions.map(p => [p.id, p.top, p.row])).toEqual([['a', 96, undefined], ['b', 652 - 40 - 14 - 40 - 14 - 160, undefined], ['c', 652 - 40 - 14 - 40, undefined], ['d', 652 - 40, undefined]])
+    invariants(passages, [80, 160, 40, 40], 700, out, null)
+    // Nothing moves up when there is room below.
+    expect(M.placeCards([{ id: 'x', top: 300 }], [80], 700).positions[0].top).toBe(296)
+  })
+  it('when moving up is not enough, the oldest cards fold to one-line rows first; the newest stay as they were', () => {
+    const passages = [400, 420, 440, 460, 480, 500].map((top, i) => ({ id: 'c' + i, top, at: [5, 1, 6, 2, 4, 3][i] }))
+    const out = M.placeCards(passages, [120, 120, 120, 120, 120, 120], 700, { stackHeight: 34 })
+    expect(out.gathered).toEqual([])
+    const rows = out.positions.filter(p => p.row).map(p => p.id)
+    // c1 (made first) folds first, then c3: only as many as it takes (six cards of 120px need two rows in 652px).
+    expect(rows).toEqual(['c1', 'c3'])
+    invariants(passages, Array(6).fill(120), 700, out, null)
+  })
+  it('the open card never folds; the others gather into the "more" row only when even one-line rows no longer fit', () => {
+    const n = 20, passages = Array.from({ length: n }, (_, i) => ({ id: 'c' + i, top: 300 + i * 10, at: i }))
+    const heights = Array(n).fill(90)
+    const out = M.placeCards(passages, heights, 600, { stackHeight: 34, open: 'c4' })
+    expect(out.positions.find(p => p.id === 'c4')!.row).toBeUndefined()
+    expect(out.gathered.length).toBeGreaterThan(0)
+    // The last on the page gather; everything placed is a row except the open card.
+    expect(out.gathered).toEqual(passages.slice(n - out.gathered.length).map(p => p.id))
+    invariants(passages, heights, 600, out, 'c4')
+  })
+  it('a card kept whole (a quiz still streaming: keep, fold false) never folds or gathers, however crowded', () => {
+    const passages = Array.from({ length: 20 }, (_, i) => ({ id: 'c' + i, top: 200 + i * 10, at: i, ...(i === 2 ? { keep: true, fold: false } : {}) }))
+    const heights = Array(20).fill(90)
+    const out = M.placeCards(passages, heights, 600, { stackHeight: 34, open: 'c9' })
+    const quiz = out.positions.find(p => p.id === 'c2')!
+    expect(quiz.row).toBeUndefined()
+    expect(quiz.height).toBe(90)
+    expect(out.gathered).not.toContain('c2')
+    expect(out.gathered.length).toBeGreaterThan(0)
+  })
+  it('eight cards on one page fit as cards and rows, with no "more" row', () => {
+    for (const H of [652, 760, 854]) {
+      const passages = Array.from({ length: 8 }, (_, i) => ({ id: 'c' + i, top: 120 + i * 60, at: i }))
+      const heights = Array(8).fill(64)
+      const out = M.placeCards(passages, heights, H, { stackHeight: 34, open: 'c7' })
+      expect(out.gathered).toEqual([])
+      invariants(passages, heights, H, out, 'c7')
+    }
   })
   it('the open card is never gathered: it keeps its place or moves up, and the cards before it make room', () => {
     const out = M.placeCards([{ id: 'a', top: 300 }, { id: 'b', top: 320 }, { id: 'open', top: 600 }], [60, 60, 300], 700, { open: 'open' })
@@ -96,7 +145,7 @@ describe('card placement', () => {
     const out = M.placeCards([{ id: 'long', top: 50 }], [2400], 700, { open: 'long' })
     expect(out.positions).toEqual([{ id: 'long', top: 0, height: 700 - 48 }])
   })
-  it('ten cards on one page, with any heights, any open card: the invariants always hold', () => {
+  it('up to ten cards on one page, with any heights, ages and open card: the invariants always hold', () => {
     const r = rng(7)
     for (let run = 0; run < 400; run++) {
       const n = 1 + Math.floor(r() * 10), H = 300 + Math.floor(r() * 700)
@@ -105,6 +154,13 @@ describe('card placement', () => {
       const heights = passages.map(() => 30 + Math.floor(r() * (r() < 0.2 ? 900 : 160)))
       const open = r() < 0.6 ? passages[Math.floor(r() * n)].id : null
       invariants(passages, heights, H, M.placeCards(passages, heights, H, { open, stackHeight: 34 }), open)
+      // With ages: the same invariants, and a row is never newer than a card that kept its height.
+      const aged = passages.map(p => ({ ...p, at: Math.floor(r() * 1000) }))
+      const out = M.placeCards(aged, heights, H, { open, stackHeight: 34 })
+      invariants(aged, heights, H, out, open)
+      const age = (id: string) => aged.find(p => p.id === id)!.at
+      const kept = out.positions.filter(p => !p.row && p.id !== open && heights[aged.findIndex(a => a.id === p.id)] > 28)
+      for (const row of out.positions.filter(p => p.row)) for (const k of kept) expect(age(row.id)).toBeLessThanOrEqual(age(k.id))
     }
   })
 })
@@ -251,3 +307,34 @@ describe('the card store', () => {
   })
 })
 
+describe('Define and the hyphenated word (the deep test, 15 Oct)', () => {
+  it('a double-click on part of a hyphenated word widens to the whole word', () => {
+    const t = 'an auto-regressive model, self-evident; not - this'
+    const at = (w: string, from = 0) => { const i = t.indexOf(w, from); return [i, i + w.length] as const }
+    expect(M.hyphenWord(t, ...at('regressive'))).toEqual(at('auto-regressive'))
+    expect(M.hyphenWord(t, ...at('auto'))).toEqual(at('auto-regressive'))
+    expect(M.hyphenWord(t, ...at('evident'))).toEqual(at('self-evident'))
+    // A trailing space from the double-click is dropped; plain words and a spaced dash stay as they are.
+    const [s0, e0] = at('regressive'); expect(M.hyphenWord(t, s0, e0 + 1)).toEqual(at('auto-regressive'))
+    expect(M.hyphenWord(t, ...at('model'))).toBeNull()
+    expect(M.hyphenWord(t, ...at('this'))).toBeNull()
+    expect(M.hyphenWord('state‑of‑the‑art', 6, 8)).toEqual([0, 16])
+  })
+  it('when no dictionary sense fits: "In this text" and its meaning first, the dictionary senses below; the part of speech when known', () => {
+    const div = document.createElement('div')
+    div.innerHTML = M.html.defineHtml({ word: 'attention', pos: 'noun', source: 'Dictionary', inText: 'A mechanism that weighs every position of a sequence against the others.', senses: [{ text: 'the work of providing treatment' }, { text: 'a courteous act' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold' })
+    const inText = div.querySelector('.mr-define__in')!
+    expect(inText.querySelector('.mr-define__label')?.textContent).toBe('In this text')
+    expect(inText.textContent).toBe('In this textA mechanism that weighs every position of a sequence against the others.')
+    expect(inText.compareDocumentPosition(div.querySelector('.mr-define__senses')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(div.querySelector('.mr-define__pos')?.textContent).toBe('noun')
+    // The dictionary alone (offline, or a sense fits): no "In this text".
+    div.innerHTML = M.html.defineHtml({ word: 'attention', source: 'Dictionary', senses: [{ text: 'the work of providing treatment' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold' })
+    expect(div.querySelector('.mr-define__in')).toBeNull()
+    // The kept card: "In this text" first, folded to its meaning.
+    const card = M.newCard({ kind: 'define', page: 3, anchor: [{ n: 3, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }], text: 'attention', data: { word: 'attention', senses: [{ text: 'a courteous act' }], inText: 'A mechanism that weighs positions.' } })
+    div.innerHTML = M.html.cardHtml(card, { open: true, P, pageLabel: '3' })
+    expect([...div.querySelectorAll('.mr-answer p')].map(p => p.textContent)).toEqual(['In this text', 'A mechanism that weighs positions.', 'a courteous act'])
+    expect(M.html.foldText(card, P)).toBe('A mechanism that weighs positions.')
+  })
+})

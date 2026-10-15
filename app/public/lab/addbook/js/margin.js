@@ -120,6 +120,20 @@
     const t = String(text || '').trim().replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '');
     return t.length >= 2 && t.length <= 40 && WORD.test(t) ? t : null;
   }
+  /**
+   * Double-click on a word that is part of a hyphenated compound ("auto-regressive"): the browser
+   * selects only "regressive". -> the compound's [start, end) in `text` around the selected
+   * [start, end), or null when the word is not joined by a hyphen to another (FIXES, deep test).
+   */
+  function hyphenWord(text, start, end) {
+    const t = String(text || ''), L = /[\p{L}\p{M}\p{N}]/u, H = /[-\u2010\u2011]/;
+    while (end > start && /\s/.test(t[end - 1])) end--;
+    if (end <= start || !/^[\p{L}\p{M}\p{N}]+$/u.test(t.slice(start, end))) return null;
+    let s = start, e = end;
+    for (;;) { if (s >= 2 && H.test(t[s - 1]) && L.test(t[s - 2])) { s -= 1; while (s > 0 && L.test(t[s - 1])) s--; } else break }
+    for (;;) { if (e + 1 < t.length && H.test(t[e]) && L.test(t[e + 1])) { e += 1; while (e < t.length && L.test(t[e])) e++; } else break }
+    return s === start && e === end ? null : [s, e];
+  }
   /** A capitalised word that does not start a sentence: a name, so Define asks the companion. */
   function nameMidSentence(word, before) {
     if (!/^\p{Lu}/u.test(word || '') || /^\p{Lu}+$/u.test(word)) return false;
@@ -264,11 +278,17 @@
    * The Define card. d: { word, pos, source ('Dictionary' or ''), senses: [{ text, fit }], line
    * (one paragraph instead of senses), wait (true while the companion answers) }.
    */
+  /**
+   * The Define card. `d.inText`: the meaning in this passage from the companion's `define`, shown
+   * first under "In this text" when the dictionary has no sense that fits (or lacks the word), with
+   * the dictionary's senses below it; offline, the dictionary alone.
+   */
   function defineHtml(d, o) {
     const senses = (d.senses || []).slice(0, 3);
+    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${esc(d.inText)}</p>` : '';
     const body = d.wait ? '<p class="mr-define__wait"></p>'
-      : senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
-        : d.line ? `<p>${esc(d.line)}</p>` : '';
+      : inText + (senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
+        : d.line ? `<p>${esc(d.line)}</p>` : '');
     return `<div class="mr-define__body"><div class="mr-define__word">${esc(d.word)}<i class="mr-define__pos">${esc(d.pos || '')}</i><span class="mr-define__src">${esc(d.source || '')}</span></div>${body}</div>`
       + `<div class="mr-define__foot">${middleHtml({ ...o, caret: false })}<span class="mr-bar__sep" aria-hidden="true"></span>${dotHtml(o.colors, o.current, o)}</div>`;
   }
@@ -305,44 +325,69 @@
   }
   /* ---------- PR 2: the margin column, its cards, leader lines, marks and the phone's bottom card ----------
      docs/margin/BRIEF.md §3, §4 and §6. Every distance is the brief's or margin-reference.css's. */
-  const COL = { width: 380, gap: 56, cardGap: 14, foot: 46, lift: 4, dot: 8, r: 2.6, narrow: 1180, right: 24, mark: 8 };
+  const COL = { width: 380, gap: 56, cardGap: 14, foot: 46, lift: 4, dot: 8, r: 2.6, narrow: 1180, right: 24, mark: 8, row: 28 };
 
   /**
    * Where the cards sit in the column. `passages` are the cards' passages in page order, each
-   * { id, top } with `top` the passage's first line measured from the column's top; `cardHeights`
-   * the cards' heights in the same order; `columnHeight` the room from the column's top to its
-   * foot. Each card's top is its passage's first line less 4px, at least 14px below the card
-   * before it. A card that would end within 46px of the foot (or leave no room for the "more"
-   * row) gathers into that row, and every card after it too; the open card (`open`, an id) is
-   * never gathered: it keeps its height (at most the room there is) and the cards before it move
-   * up to make room, gathering when they no longer fit. `top` keeps the column's first `top` px
-   * for something above every card (the primer's trigger, PR 3): no card starts above it.
-   * -> { positions: [{ id, top, height }], gathered: [id], stack: { top, height } | null }
+   * { id, top, at?, fold?, keep? } with `top` the passage's first line measured from the column's top,
+   * `at` when the card was made (older cards fold first; without it, page order), `fold: false`
+   * for a card that never folds to a row and `keep: true` for one that never gathers either (the
+   * primer's trigger); `cardHeights` the cards' heights in the same order;
+   * `columnHeight` the room from the column's top to its foot. No card ends within 46px of the foot
+   * (nor leaves no room for the "more" row) and none starts above `top`, the room kept for something
+   * above every card (the primer's trigger, PR 3).
+   * Each card's top is its passage's first line less 4px, at least 14px below the card before it.
+   * When the cards run past the foot they move up, into the room above their passages, as far as
+   * the column's top allows. When even that is not enough, the oldest cards fold to one-line rows
+   * (`rowHeight`: their label and first words), one at a time, until the rest fit. Only when every
+   * card but the open one is a row and they still do not fit do the last ones gather into the
+   * "more" row. The open card (`open`, an id) never folds or gathers: it keeps its height (at most
+   * the room there is).
+   * -> { positions: [{ id, top, height, row? }], gathered: [id], stack: { top, height } | null }
    */
-  function placeCards(passages, cardHeights, columnHeight, { open = null, stackHeight = 34, gap = COL.cardGap, foot = COL.foot, lift = COL.lift, top = 0 } = {}) {
+  function placeCards(passages, cardHeights, columnHeight, { open = null, stackHeight = 34, gap = COL.cardGap, foot = COL.foot, lift = COL.lift, top = 0, rowHeight = COL.row } = {}) {
     const limit = columnHeight - Math.max(foot, stackHeight + gap);
     const room = Math.max(0, limit - top);
-    const placed = [], gathered = [];
-    let gathering = false;
-    passages.forEach((p, i) => {
-      const h = Math.max(0, Math.min(Number(cardHeights[i]) || 0, room));
-      const prev = placed[placed.length - 1], floor = prev ? prev.top + prev.height + gap : top;
-      const want = Math.max(Number(p.top) - lift, floor, top);
-      if (open != null && p.id === open) { placed.push({ i, id: p.id, top: Math.max(top, Math.min(want, limit - h)), height: h, open: true }); return }
-      if (gathering || want + h > limit) { gathering = true; gathered.push(i); return }
-      placed.push({ i, id: p.id, top: want, height: h });
-    });
-    // The open card may have moved up: the cards before it move up too, and gather when they run out of room.
-    const oi = placed.findIndex(c => c.open);
-    for (let k = oi - 1; k >= 0; k--) {
-      const bound = placed[k + 1].top - gap;
-      if (placed[k].top + placed[k].height > bound) placed[k].top = bound - placed[k].height;
+    const items = passages.map((p, i) => ({
+      i, id: p.id, open: open != null && p.id === open, keep: p.keep === true,
+      want: Math.max(Number(p.top) - lift, top),
+      full: Math.max(0, Math.min(Number(cardHeights[i]) || 0, room)),
+      age: Number.isFinite(p.at) ? p.at : i,
+      foldable: p.fold !== false,
+    }));
+    // Down from each passage, then up from the foot: the cards' tops, or null when they do not fit.
+    const lay = (list, rows) => {
+      const out = [];
+      for (const it of list) {
+        const height = rows.has(it.i) ? Math.min(rowHeight, it.full) : it.full;
+        const prev = out[out.length - 1];
+        out.push({ it, height, top: Math.max(it.want, prev ? prev.top + prev.height + gap : top) });
+      }
+      for (let k = out.length - 1; k >= 0; k--) {
+        const bound = k === out.length - 1 ? limit : out[k + 1].top - gap;
+        if (out[k].top + out[k].height > bound) out[k].top = bound - out[k].height;
+      }
+      return out.length && out[0].top < top - 1e-9 ? null : out;
+    };
+    const rows = new Set(), gathered = new Set();
+    const shown = () => items.filter(it => !gathered.has(it.i));
+    let placed = lay(shown(), rows);
+    // The oldest fold first (never the open card); then the last on the page gather.
+    const folds = items.filter(it => !it.open && it.foldable && it.full > rowHeight).sort((a, b) => a.age - b.age || a.i - b.i);
+    for (const it of folds) { if (placed) break; rows.add(it.i); placed = lay(shown(), rows) }
+    for (let k = items.length - 1; k >= 0 && !placed; k--) {
+      if (items[k].open || items[k].keep) continue;
+      gathered.add(items[k].i); placed = lay(shown(), rows);
     }
-    while (placed.length && placed[0].top < top && !placed[0].open) gathered.push(placed.shift().i);
-    gathered.sort((a, b) => a - b);
+    // Only the open card is left, as tall as the room: it takes the room there is.
+    if (!placed) placed = shown().map(it => ({ it, height: it.full, top }));
     const last = placed[placed.length - 1];
-    const stack = gathered.length ? { top: last ? last.top + last.height + gap : top, height: stackHeight } : null;
-    return { positions: placed.map(({ id, top, height }) => ({ id, top, height })), gathered: gathered.map(i => passages[i].id), stack };
+    const stack = gathered.size ? { top: last ? last.top + last.height + gap : top, height: stackHeight } : null;
+    return {
+      positions: placed.map(({ it, top, height }) => ({ id: it.id, top, height, ...(rows.has(it.i) && height < it.full ? { row: true } : {}) })),
+      gathered: items.filter(it => gathered.has(it.i)).map(it => it.id),
+      stack,
+    };
   }
 
   /** A leader line: from the dot beside the passage (x0, y0) curving to the card's label line (x1, y1), as the mockup draws it. */
@@ -485,7 +530,7 @@
   function foldText(card, P) {
     const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/(^|[^\w*])\*(?=[^\s*])([^*\n]{0,200}?[^\s*])\*(?![\w*])/g, '$1$2').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
     if (card.kind === 'note') return plain(card.note);
-    if (card.kind === 'define') { const d = card.data || {}; return plain((d.senses || [])[0]?.text || d.line || '') }
+    if (card.kind === 'define') { const d = card.data || {}; return plain(d.inText || (d.senses || [])[0]?.text || d.line || '') }
     if (card.kind === 'quiz') {
       const q = card.data || {};
       if (q.done) return quizLine(q);
@@ -564,13 +609,14 @@
    * A card. Folded: its label and two lines. Open: the label and close, the passage quote, the
    * question bubble (Ask), the answer, the action's own parts, copy, and the follow-up line.
    * o: { open, P (parsers), resolve (citation -> target), pageLabel, status (a status line such as
-   * "Checking sources…"), live (an answer on its way), pending (a quiz answer being marked) }.
+   * "Checking sources…"), live (an answer on its way), pending (a quiz answer being marked),
+   * writing (Quiz me's questions are still arriving: there will be three) }.
    */
   function cardHtml(card, o) {
     const P = o.P, label = esc(cardLabel(card, o.pageLabel, o.where));
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
-    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${q.questions.length}</span>` : '';
+    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
     const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`;
     const copy = `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>`;
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
@@ -583,6 +629,10 @@
         body = `<div class="mr-answer"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
         // The end card offers another quiz on the same passage (or unit).
         foot = followHtml({ field: false, mic: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
+      } else if (!qs[q.i || 0]) {
+        // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
+        body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
+        foot = followHtml({ field: false, mic: false });
       } else {
         const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
@@ -591,7 +641,8 @@
           body += r.shown
             ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
             : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
-          const last = i + 1 >= qs.length;
+          // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
+          const last = i + 1 >= qs.length && (q.ended || !o.writing);
           foot = followHtml({ field: false, mic: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
@@ -603,9 +654,11 @@
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
-      body += senses.length
-        ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
-        : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
+      body += q.inText
+        ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
+        : senses.length
+          ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
+          : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
     }
     const turns = [...(card.turns || [])];
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
@@ -661,13 +714,16 @@
      A PDF's units are its top-level outline entries as page ranges (the whole file when it has no
      outline). At a unit's start the margin offers one folded card, the trigger; it opens into the
      primer in place. Made once per unit and kept with the file (PROMPTS.md, chapter action `primer`). */
-  const PRIMER = { top: 16, bottom: 70 };   // the mockup's .trig / .primer: 16px below the column's top, 70px above its bottom
+  // The mockup's .trig / .primer: 16px below the column's top, 70px above its bottom. A PDF shorter
+  // than `units` pages is one unit, outline or not (a paper's primer covers the whole paper).
+  const PRIMER = { top: 16, bottom: 70, units: 40 };
   /**
    * The units: `entries` are the outline's top-level items in outline order, each { title, page }
    * with `page` its 1-based page (null when it does not resolve). Entries are kept in page order;
    * a second entry on the same page as the one before is left out. The first unit also takes any
    * pages before its entry (a title page), so the PDF's start offers it too. Each unit's key is
-   * "outline-{i}" (its index in the outline), "all" for a PDF without an outline.
+   * "outline-{i}" (its index in the outline), "all" for the whole file: a PDF without an outline,
+   * or one of fewer than 40 pages (FIXES-2026-10-15, B2).
    * -> [{ key, title, from, start, to }] (start: the entry's own page; the trigger shows from `from` to `start`)
    */
   function primerUnits(entries, count) {
@@ -676,18 +732,27 @@
       .filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
       .sort((a, b) => a.page - b.page || a.i - b.i)
       .filter((e, k, all) => k === 0 || e.page !== all[k - 1].page);
-    if (!list.length) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
+    if (!list.length || n < PRIMER.units) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
     return list.map((e, k) => ({ key: 'outline-' + e.i, title: e.title, from: k === 0 ? 1 : e.page, start: e.page, to: k + 1 < list.length ? list[k + 1].page - 1 : n }));
   }
   /** The unit a page is in. */
   const unitAt = (units, page) => (units || []).find(u => page >= u.from && page <= u.to) || (units || [])[0] || null;
   /** True on the pages where the trigger is offered: the unit's start (and any pages before it). */
   const atUnitStart = (unit, page) => !!unit && page >= unit.from && page <= unit.start;
-  /** How the trigger names its unit ("a map of chapter 1."): a numbered chapter, part or section as "chapter 1", the whole file as "the whole PDF", else its title. */
+  /**
+   * How the trigger names its unit ("a map of chapter 1."): a numbered chapter, part or section as
+   * "chapter 1", the whole file as "the whole PDF", any other heading as a phrase with "the", its
+   * own number dropped and its capitalised words lowercased ("1 Introduction" -> "the introduction";
+   * acronyms such as "BLEU" stay as printed).
+   */
   function unitPhrase(unit) {
     if (!unit || unit.key === 'all' || !unit.title) return 'the whole PDF';
     const m = /^(chapter|part|section|lecture|unit|book|appendix)\s+([\p{L}\p{N}]+(?:\.\d+)*)(?=$|[\s.:,;—–-])/iu.exec(unit.title);
-    return m ? `${m[1].toLowerCase()} ${m[2]}` : unit.title.replace(/[.:;,]+$/, '');
+    if (m) return `${m[1].toLowerCase()} ${m[2]}`;
+    const words = unit.title.replace(/[.:;,]+$/, '').replace(/^\s*(?:\d+(?:\.\d+)*\.?|[IVXLC]+\.|[A-Z]\.)\s+(?=\S)/u, '').trim()
+      .split(/\s+/).map(w => (/^\p{Lu}[\p{Ll}'’-]*$/u.test(w) ? w.toLowerCase() : w));
+    if (/^(the|a|an)$/i.test(words[0] || '')) words[0] = words[0].toLowerCase();
+    return (/^(the|a|an)$/.test(words[0]) ? '' : 'the ') + words.join(' ');
   }
   /** A map row's printed page range ("pp. 9–10", "p. 12", "9-10") as a citation token, or null. */
   function mapPages(text) {
@@ -695,9 +760,14 @@
     if (!m) return null;
     return m[2] ? { type: 'cite', kind: 'pp', label: m[1], to: m[2], raw: String(text) } : { type: 'cite', kind: 'p', label: m[1], raw: String(text) };
   }
-  /** The trigger's words: "Before you start" with its [B] key (not on the phone), then "The gist, the key claims and a map of {unit}." */
-  function triggerHtml(unit, { key = true } = {}) {
-    return `<span class="mr-trigger__title">Before you start${key ? '<span class="mr-key" aria-hidden="true">B</span>' : ''}</span><span class="mr-trigger__sub">The gist, the key claims and a map of ${esc(unitPhrase(unit))}.</span>`;
+  /** A heading with its own number: "1 Introduction", "3.2 Attention", "A.1 Proofs", "IV. Results", "Chapter 2 …". */
+  const OWN_NUMBER = /^\s*(?:\d+(?:\.\d+)*\.?|[A-Z](?:\.\d+)+\.?|[A-Z]\.|[IVXLC]+\.|(?:chapter|part|section|appendix|lecture|unit)\s+[\p{L}\p{N}]+(?:\.\d+)*[.:]?)\s+\S/iu;
+  /**
+   * The trigger's words, a folded margin card's (Anders, 15 Oct): the italic label "Before you start",
+   * then "The gist, the key claims and a map of {unit}." The B key is in its title, not a keycap.
+   */
+  function triggerHtml(unit) {
+    return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">The gist, the key claims and a map of ${esc(unitPhrase(unit))}.</span>`;
   }
   /**
    * The primer. p: { gist, claims: [{ text, cite }], keepInMind: [..], map: [{ title, pages }] }, or
@@ -714,10 +784,13 @@
     const tag = cite => (cite ? ' ' + inlineHtml(cite, o.P, o.resolve) : '');
     const claims = (p.claims || []).map((c, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${inlineHtml(c.text, o.P, o.resolve)}${tag(c.cite)}</span></li>`).join('');
     const keep = (p.keepInMind || []).map(k => `<li>${inlineHtml(k, o.P, o.resolve)}</li>`).join('');
+    // A map that uses the document's own numbered headings ("1 Introduction") shows each number once: no count beside it.
+    const own = (p.map || []).some(r => OWN_NUMBER.test(r.title || ''));
     const rows = (p.map || []).map((r, i) => {
       const token = mapPages(r.pages), target = token && o.resolve ? o.resolve(token) : null;
-      const inner = `<span class="mr-map__n" aria-hidden="true">${i + 1}</span><span class="mr-map__title">${esc(r.title)}</span><span class="mr-map__pages">${esc(r.pages || '')}</span>`;
-      return target ? `<button type="button" class="mr-map__row" data-page="${target.page}">${inner}</button>` : `<div class="mr-map__row">${inner}</div>`;
+      const inner = `${own ? '' : `<span class="mr-map__n" aria-hidden="true">${i + 1}</span>`}<span class="mr-map__title">${esc(r.title)}</span><span class="mr-map__pages">${esc(r.pages || '')}</span>`;
+      const cls = 'mr-map__row' + (own ? ' is-own' : '');
+      return target ? `<button type="button" class="${cls}" data-page="${target.page}">${inner}</button>` : `<div class="${cls}">${inner}</div>`;
     }).join('');
     return head
       + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
@@ -730,5 +803,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName };
 });

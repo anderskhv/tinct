@@ -42,7 +42,10 @@ export function readCardsCache(userId: string | null): CardsCache | null {
       rank: typeof data.rank === 'string' ? data.rank : null,
       plan: data.plan === 'premium' || data.plan === 'free' ? data.plan : null,
       billing: data.billing === true,
-      allowance: data.allowance && typeof data.allowance.usedFraction === 'number' && Array.isArray(data.allowance.topUps) ? data.allowance : null,
+      allowance: data.allowance && typeof data.allowance.usedFraction === 'number' && Array.isArray(data.allowance.topUps)
+        // Cached before hasAllowance existed: a period with no reset date has no allowance (labAiAllowance.parseAiAllowance).
+        ? { ...data.allowance, hasAllowance: typeof data.allowance.hasAllowance === 'boolean' ? data.allowance.hasAllowance : Boolean(data.allowance.resetsAt) }
+        : null,
     }
   } catch {
     return null

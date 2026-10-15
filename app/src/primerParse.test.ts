@@ -35,6 +35,22 @@ describe.each(copies)('primer parser (%s)', (_name, m) => {
     expect(m.parsePrimer('Here is the orientation:\n' + JSON.stringify(answer) + '\nHope it helps.')).toEqual(answer)
   })
 
+  it('reads an answer after prose with braces of its own', () => {
+    expect(m.parsePrimer('The map uses {p. 9} tags as asked. ' + JSON.stringify(answer))).toEqual(answer)
+    expect(m.parsePrimer('{"note": 1} then ' + JSON.stringify(answer))).toBeNull()
+  })
+
+  it('names why an answer is not a primer, for the log: empty, no JSON, cut off, wrong shape', () => {
+    expect(m.primerFailure(JSON.stringify(answer))).toBeNull()
+    expect(m.primerFailure('')).toBe('empty')
+    expect(m.primerFailure('   ')).toBe('empty')
+    expect(m.primerFailure('I cannot see the document.')).toBe('no_json')
+    // A reply cut off by the output limit, at any point.
+    const whole = JSON.stringify(answer, null, 2)
+    for (const at of [1, 40, Math.floor(whole.length / 2), whole.length - 2]) expect(m.primerFailure(whole.slice(0, at)), String(at)).toBe('invalid_json')
+    expect(m.primerFailure(JSON.stringify({ gist: 'Only a gist.' }))).toBe('shape')
+  })
+
   it('is null for anything that is not a primer', () => {
     for (const text of ['', 'No JSON here.', '{not json}', '[1,2,3]', 'null', JSON.stringify({ gist: 'Only a gist.' })]) {
       expect(m.parsePrimer(text), text).toBeNull()

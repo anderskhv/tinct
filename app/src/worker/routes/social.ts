@@ -301,7 +301,13 @@ async function freshBoard(ctx: Context): Promise<string | null> {
  * One leaderboard row. The privacy notice: on the leaderboard other readers
  * see only your name, picture and reading time over the last 7 days. So a row
  * carries exactly that (the time as seconds and as a plain duration, and the
- * rank it gives) plus `me` for the viewer's own row: no handle, id or book.
+ * rank it gives) plus `me` for the viewer's own row; no id or book. Another
+ * reader's row also carries their handle, so a tap opens their profile
+ * (15 Oct 2026): every reader on a viewer's board is one whose profile that
+ * viewer can already open (a friend whose profile is Friends or Everyone, or an
+ * Everyone reader with a confirmed email; public_profile_cards and
+ * appearsOnBoard), and the profile page applies its own rules (show what I'm
+ * reading, blocks) as it does from Find readers or a link.
  */
 export interface BoardEntry {
   rank: number
@@ -310,20 +316,41 @@ export interface BoardEntry {
   seconds: number
   duration: string
   me: boolean
+  /** Another reader's handle, for their profile; never on your own row. */
+  handle?: string
 }
 
 export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; everyoneOpen: boolean; entries: BoardEntry[] }> {
-  const circle = await circleOf(ctx, viewerId)
-  const refreshedAt = await freshBoard(ctx)
-  const pool = tab === 'friends' ? await ctx.social.cardsByIds([...circle.friends]) : await ctx.social.everyoneBoardCards(EVERYONE_POOL)
+  // Two round trips to the database, not six (Anders, 15 Oct 2026: the board
+  // took too long). First, at once: who the viewer's friends are, their own
+  // profile, when the 7-day cache was built, and (Everyone) the pool.
+  const [circle, own, builtAt, everyonePool] = await Promise.all([
+    circleOf(ctx, viewerId),
+    ctx.profiles.getOwn(viewerId),
+    ctx.social.boardRefreshedAt(),
+    tab === 'everyone' ? ctx.social.everyoneBoardCards(EVERYONE_POOL) : Promise.resolve(null),
+  ])
+  // Then the cards (the viewer's own among them) and the seconds of everyone
+  // who could be on this board; a reader filtered out below is simply not read from the map.
+  const candidates = tab === 'friends' ? [...circle.friends] : (everyonePool ?? []).map(card => card.id)
+  const stale = !(builtAt && ctx.now - Date.parse(builtAt) < LEADERBOARD_STALE_MS)
+  const [cards, freshSeconds] = await Promise.all([
+    ctx.social.cardsByIds(tab === 'friends' ? [...candidates, viewerId] : [viewerId]).catch(error => {
+      if (tab === 'friends') throw error
+      return [] as BoardCard[]
+    }),
+    stale ? Promise.resolve(null) : ctx.social.boardSeconds([viewerId, ...candidates]),
+  ])
+  // A stale cache is rebuilt before its seconds are read, as before (rare: the hourly cron rebuilds it).
+  const refreshedAt = stale ? await freshBoard(ctx) : builtAt
+  const seconds = freshSeconds ?? await ctx.social.boardSeconds([viewerId, ...candidates])
+  const pool = tab === 'friends' ? cards : everyonePool ?? []
   const others = pool.filter(card => card.id !== viewerId && appearsOnBoard(card, tab, circle))
-  const own = await ctx.profiles.getOwn(viewerId)
-  const seconds = await ctx.social.boardSeconds([viewerId, ...others.map(card => card.id)])
-  type Row = { name: string; picture: ProfilePicture; seconds: number; me: boolean }
+  type Row = { name: string; picture: ProfilePicture; seconds: number; me: boolean; handle?: string }
   const rows: Row[] = others
     // Everyone lists readers with time this week; Friends lists every friend on the board.
     .filter(card => tab === 'friends' || (seconds.get(card.id) ?? 0) > 0)
-    .map(card => ({ name: card.display_name, picture: cardPicture(card), seconds: seconds.get(card.id) ?? 0, me: false }))
+    .map(card => ({ name: card.display_name, picture: cardPicture(card), seconds: seconds.get(card.id) ?? 0, me: false, handle: card.handle }))
   if (own) {
     rows.push({
       name: own.display_name,
@@ -337,10 +364,11 @@ export async function buildBoard(ctx: Context, viewerId: string, tab: Board, ope
   const entry = (item: typeof ranked[number]): BoardEntry => ({
     rank: item.rank, name: item.row.me ? 'You' : item.row.name, picture: item.row.picture,
     seconds: item.seconds, duration: formatDuration(item.seconds), me: item.row.me,
+    ...(!item.row.me && item.row.handle ? { handle: item.row.handle } : {}),
   })
   const window = leaderboardWindow(ctx.now)
   // Whether others see the viewer on this board (the page explains when they do not).
-  const ownCard = own ? (await ctx.social.cardsByIds([viewerId]).catch(() => []))[0] ?? null : null
+  const ownCard = own ? cards.find(card => card.id === viewerId) ?? null : null
   const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && ownCard.internal !== true && (tab === 'friends' || ownCard.visibility === 'everyone'))
   return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, everyoneOpen: open, entries: shown.map(entry) }
 }
@@ -759,10 +787,11 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
 
     if (path === '/api/social/board' && request.method === 'GET') {
       const tab: Board = url.searchParams.get('tab') === 'everyone' ? 'everyone' : 'friends'
-      const open = await everyoneOpen(ctx)
+      // The board is read beside the Everyone count, not after it.
+      const [open, data] = await Promise.all([everyoneOpen(ctx), buildBoard(ctx, viewerId, tab)])
       // Below the threshold there is no Everyone board at all.
       if (tab === 'everyone' && !open) return reply({ error: 'Not found', everyoneOpen: false }, 404, request)
-      return reply(await buildBoard(ctx, viewerId, tab, open), 200, request)
+      return reply({ ...data, everyoneOpen: open }, 200, request)
     }
     if (path === '/api/social/rank' && request.method === 'GET') {
       const board = await buildBoard(ctx, viewerId, 'friends')

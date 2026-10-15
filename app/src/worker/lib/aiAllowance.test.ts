@@ -34,8 +34,8 @@ import type { AiFeature } from './aiUsage'
 const require = createRequire(import.meta.url)
 const now = new Date('2026-10-05T12:00:00Z')
 const iso = (value: string) => new Date(value).toISOString()
-const usedUp: AllowanceView = { usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: null, hasTopUp: false }
-const ok: AllowanceView = { usedFraction: 0.2, monthUsedFraction: 0.2, topUpLeftFraction: null, state: 'ok', resetsAt: null, hasTopUp: false }
+const usedUp: AllowanceView = { usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: null, hasTopUp: false, hasAllowance: false }
+const ok: AllowanceView = { usedFraction: 0.2, monthUsedFraction: 0.2, topUpLeftFraction: null, state: 'ok', resetsAt: null, hasTopUp: false, hasAllowance: true }
 
 afterEach(() => vi.unstubAllGlobals())
 
@@ -232,7 +232,7 @@ describe('state', () => {
     allowanceView({ allowanceMicros: allowance, spendMicros: spend, creditMicros: credit, drawnMicros: drawn }, resets)
 
   it('is ok below 80% used', () => {
-    expect(view(0)).toEqual({ usedFraction: 0, monthUsedFraction: 0, topUpLeftFraction: null, state: 'ok', resetsAt: resets.toISOString(), hasTopUp: false })
+    expect(view(0)).toEqual({ usedFraction: 0, monthUsedFraction: 0, topUpLeftFraction: null, state: 'ok', resetsAt: resets.toISOString(), hasTopUp: false, hasAllowance: true })
     expect(view(2_390_000).state).toBe('ok')
   })
 
@@ -255,7 +255,7 @@ describe('state', () => {
 
   it('has nothing to use on a standard account without credit', () => {
     expect(allowanceView({ allowanceMicros: 0, spendMicros: 0, creditMicros: 0, drawnMicros: 0 }, null))
-      .toEqual({ usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: null, hasTopUp: false })
+      .toEqual({ usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: null, hasTopUp: false, hasAllowance: false })
   })
 
   it('splits the bar: this month\'s allowance and the top-up, as fractions only', () => {
@@ -267,8 +267,16 @@ describe('state', () => {
     expect(topped.topUpLeftFraction).toBe(0.524)
     // A top-up bought, nothing drawn yet: all of it left.
     expect(view(600_000, 2_000_000, 0)).toMatchObject({ monthUsedFraction: 0.2, topUpLeftFraction: 1 })
-    // A top-up fully drawn this period: still shown, empty.
-    expect(view(3_500_000, 0, 500_000)).toMatchObject({ monthUsedFraction: 1, topUpLeftFraction: 0 })
+    // No credit left: no top-up bar. The ledger's drawn also counts overflow
+    // forgiven with no credit to draw, so 0 left cannot tell a spent top-up
+    // from one never bought (15 Oct 2026: "Top-up 100% used" with none bought).
+    expect(view(3_500_000, 0, 500_000)).toMatchObject({ monthUsedFraction: 1, topUpLeftFraction: null, hasTopUp: false })
+  })
+
+  it('a free account after its trial, no top-up bought, Explain used: no allowance, no top-up bar (the card showed 100% and 100%)', () => {
+    // Settlement moved the forgiven Explain cost into drawn (ai_allowance_settle), with no credit to draw from.
+    expect(allowanceView({ allowanceMicros: 0, spendMicros: 40_000, creditMicros: 0, drawnMicros: 40_000 }, null))
+      .toMatchObject({ hasAllowance: false, topUpLeftFraction: null, hasTopUp: false, resetsAt: null })
   })
 
   it('counts a standard account\'s month as used and its top-up on its own bar', () => {
@@ -388,7 +396,7 @@ describe('loadAllowanceView', () => {
     }))
     const view = await loadAllowanceView(env, userId, now)
     expect(settleBody).toEqual({ p_user: userId, p_period_start: iso('2026-09-20T00:00:00Z'), p_allowance_micros: 3_000_000 })
-    expect(view).toEqual({ usedFraction: 0.9, monthUsedFraction: 0.9, topUpLeftFraction: null, state: 'low', resetsAt: iso('2026-10-20T00:00:00Z'), hasTopUp: false })
+    expect(view).toEqual({ usedFraction: 0.9, monthUsedFraction: 0.9, topUpLeftFraction: null, state: 'low', resetsAt: iso('2026-10-20T00:00:00Z'), hasTopUp: false, hasAllowance: true })
   })
 
   it('returns null when the settlement fails (fail open)', async () => {

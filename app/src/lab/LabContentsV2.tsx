@@ -71,7 +71,7 @@ export function LabContentsV2(props: Props) {
   const [selection, setSelection] = useState<LabHighlight | null>(null)
   const [crumbs, setCrumbs] = useState<ContentsNode[]>([])
   const [limit, setLimit] = useState(30)
-  const [order, setOrder] = useState<LabHighlightOrder>('book')
+  const [order, setOrder] = useState<LabHighlightOrder>('oldest')
   const [notesFilter, setNotesFilter] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
@@ -279,7 +279,7 @@ export function LabContentsV2(props: Props) {
         {view === 'highlights' && <nav className="scopes" aria-label="Highlights shown">
           <button aria-pressed={!notesFilter} onClick={() => setNotesFilter(false)}>All</button>
           <button aria-pressed={notesFilter} onClick={() => setNotesFilter(true)}>Notes only</button>
-          <button className="order" aria-pressed={order === 'newest'} onClick={() => setOrder(value => value === 'newest' ? 'book' : 'newest')}>Newest first</button>
+          <button className="order" aria-pressed={order === 'newest'} onClick={() => setOrder(value => value === 'newest' ? 'oldest' : 'newest')}>Newest first</button>
         </nav>}
         {view === 'search' && <nav className="scopes" aria-label="Search scope">{(['all','book','chats'] as Scope[]).map(value => <button key={value} aria-pressed={scope === value} onClick={() => setScope(value)}>{value[0].toUpperCase() + value.slice(1)}</button>)}</nav>}
         <div className="results" aria-live="polite">

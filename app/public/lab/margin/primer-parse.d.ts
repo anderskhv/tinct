@@ -31,3 +31,5 @@ export declare function normalizePrimer(value: unknown): Primer | null;
 export declare function parsePrimer(text: unknown): Primer | null;
 /** A stored primer: its content plus when it was made (ISO, UTC) and its unit's key. Null when out of shape. */
 export declare function normalizeStoredPrimer(value: unknown): StoredPrimer | null;
+/** Why an answer is not a primer (for the Worker's log, never the text): null when it is one. */
+export declare function primerFailure(text: unknown): 'empty' | 'no_json' | 'invalid_json' | 'shape' | null;

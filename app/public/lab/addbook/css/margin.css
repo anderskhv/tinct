@@ -10,7 +10,8 @@
   --mr-room: #e4ddcd;          /* behind the PDF page and the margin column */
   --mr-ink: #0b0b0b;
   --mr-muted: #6a6256;         /* labels, quotes, secondary text */
-  --mr-faint: #9a9183;         /* icons, hints, keys */
+  --mr-faint: #9a9183;         /* icons */
+  --mr-hint: #5f574b;          /* small status text, hints, keys, primer numbers: at least 4.5:1 on room and card */
   --mr-card: #f6f2ea;          /* open card, primer, trigger */
   --mr-bubble: #dfd5bf;        /* the reader's question */
   --mr-hair: rgba(32, 26, 19, .14);
@@ -29,10 +30,11 @@
 .lab.is-book-theme .mr {
   /* Book: the reader's Book papers, same structure */
   --mr-room: #e7dcc7; --mr-ink: #201a13; --mr-muted: #675b4b; --mr-card: #efe6d3; --mr-bubble: #dacdb3;
+  --mr-hint: #5c5143;
 }
 .lab.is-night .mr {
   /* Night */
-  --mr-room: #100e0c; --mr-ink: #d6ccbf; --mr-muted: #9a9083; --mr-faint: #6f675d;
+  --mr-room: #100e0c; --mr-ink: #d6ccbf; --mr-muted: #9a9083; --mr-faint: #6f675d; --mr-hint: #9a9083;
   --mr-card: #1f1b17; --mr-bubble: #2a241e;
   --mr-hair: rgba(214, 204, 191, .14); --mr-wash: rgba(214, 204, 191, .08); --mr-lead: rgba(214, 204, 191, .34);
   --mr-bar: #2c2721; --mr-bar-ink: #e9e1d4; --mr-bar-soft: #9a9083; --mr-bar-sep: rgba(233, 225, 212, .14);
@@ -41,7 +43,7 @@
 }
 /* e-ink: no fills or shadows except the bar; 1px ink outlines instead. */
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
-  --mr-room: #fff; --mr-ink: #111; --mr-muted: #444; --mr-faint: #666; --mr-card: #fff; --mr-bubble: #fff;
+  --mr-room: #fff; --mr-ink: #111; --mr-muted: #444; --mr-faint: #666; --mr-hint: #444; --mr-card: #fff; --mr-bubble: #fff;
   --mr-hair: #777; --mr-wash: transparent; --mr-lead: #111; --mr-bar: #111; --mr-bar-ink: #fff; --mr-bar-soft: #ccc;
   --mr-card-shadow: 0 0 0 1px #111; --mr-bar-shadow: none;
 }
@@ -111,7 +113,7 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-question { font-size: 18px; line-height: 1.45; }    /* Quiz me */
 .mr-sources { display: flex; flex-wrap: wrap; gap: 4px 12px; font: 12px var(--mr-ui); color: var(--mr-muted); }
 .mr-sources a { color: inherit; text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; }
-.mr-status { font: 12px var(--mr-ui); color: var(--mr-faint); }   /* "Checking sources…" */
+.mr-status { font: 12px var(--mr-ui); color: var(--mr-hint); }   /* "Checking sources…" */
 .mr-cite { padding: 1px 5px; border-radius: 5px; background: var(--mr-wash); font: 11px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; vertical-align: 1px; cursor: pointer; }
 .mr-card__acts { display: flex; gap: 16px; align-items: center; color: var(--mr-faint); }   /* copy only */
 .mr-card__acts svg, .mr-follow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
@@ -127,24 +129,24 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-muted); }
 /* column foot: whole-PDF ask */
 .mr-foot { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; align-items: center; gap: 14px; padding-top: 12px; border-top: 1px solid var(--mr-hair); color: var(--mr-faint); }
-.mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-faint); }
-.mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-faint); }   /* "[/] the whole PDF" */
+.mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-hint); }
+.mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-hint); }   /* "[/] the whole PDF" */
 
 /* ---------- primer ---------- */
-.mr-trigger { padding: 12px 16px; border-radius: 12px; background: var(--mr-card); box-shadow: 0 0 0 1px var(--mr-hair); font-family: var(--mr-gara); }
-.mr-trigger__title { display: flex; align-items: baseline; font-size: 18px; }
-.mr-trigger__sub { font-size: 15px; color: var(--mr-muted); }
+.mr-trigger { padding: 2px 0 2px 14px; box-shadow: inset 1.5px 0 0 var(--mr-lead); font-family: var(--mr-gara); color: var(--mr-ink); }   /* a folded card, its rule in the lead colour, its words in ink */
+.mr-trigger__title { display: block; font-size: 15px; font-style: italic; }
+.mr-trigger__sub { display: block; margin-top: 2px; font-size: 16px; line-height: 1.4; }
 .mr-primer { display: flex; flex-direction: column; gap: 12px; padding: 18px 22px; border-radius: 14px; background: var(--mr-card); box-shadow: var(--mr-card-shadow); font-family: var(--mr-gara); overflow: auto; }
 .mr-primer h4 { display: flex; align-items: baseline; margin: 0; font-weight: 500; font-size: 21px; }
 .mr-primer__gist { margin: 0; font-size: 16px; line-height: 1.5; }
 .mr-primer__head { margin: 0 0 4px; font-size: 15px; font-style: italic; color: var(--mr-muted); }
 .mr-primer ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.mr-primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; }   /* number in --mr-faint 14px */
+.mr-primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; }   /* number in --mr-hint 14px */
 .mr-primer__keep { margin: 0; padding-left: 12px; list-style: none; font-size: 15px; line-height: 1.42; box-shadow: inset 2px 0 0 var(--mr-hair); }
 .mr-map__row { display: grid; grid-template-columns: 18px 1fr auto; padding: 5px 0; border-top: 1px solid var(--mr-hair); font-size: 15px; }
 .mr-map__pages { font: 12px var(--mr-ui); color: var(--mr-muted); }
 .mr-quiz-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--mr-wash); font-size: 16px; }
-.mr-primer__foot { display: flex; justify-content: space-between; margin-top: auto; font: 11.5px var(--mr-ui); color: var(--mr-faint); }
+.mr-primer__foot { display: flex; justify-content: space-between; margin-top: auto; font: 11.5px var(--mr-ui); color: var(--mr-hint); }
 
 /* ---------- phone ---------- */
 .mr-pbar { position: absolute; left: 10px; right: 10px; height: 48px; display: flex; align-items: center; padding: 0 6px; border-radius: 14px;
@@ -225,6 +227,11 @@ button.mr-swatch { padding: 0; }
 .mr-define__body p { margin: 6px 0 0; font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
 .mr-define__body .tinct-wait { margin-top: 8px; }
 .mr-define__senses { list-style: decimal; }
+/* "In this text": the meaning in this passage (the companion's), first; the dictionary's senses below it. */
+.mr-define__in { margin: 6px 0 0; font-size: 16px; line-height: 1.45; color: var(--mr-bar-ink); }
+.mr-define__label { display: block; font: 12px var(--mr-ui); color: var(--mr-bar-soft); }
+.mr-card .mr-define__label { margin: 0 0 2px; color: var(--mr-muted); }
+.mr-card .mr-define__sense { color: var(--mr-muted); }
 .mr-define__senses li::marker { font-size: 13px; }
 .mr-define__foot .mr-bar__item { height: 34px; }
 .mr-define__foot svg { width: 16px; height: 16px; fill: none; stroke: var(--mr-bar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -260,6 +267,11 @@ html[data-pdf-theme="eink"] .mr-float .mr-bar__item:hover { background: transpar
 /* Folded: the label is the card's handle. */
 .mr-card.is-folded .mr-card__label { width: 100%; }
 .mr-card.is-folded { cursor: pointer; }
+/* Crowded: an older folded card as one line, its label then its first words (the folded card's own
+   type and rule, cut to one line); 28px high, the least tap target. */
+.mr-card.is-folded.is-row { display: flex; align-items: center; gap: 8px; min-height: 28px; padding-top: 0; padding-bottom: 0; }
+.mr-card.is-folded.is-row .mr-card__label { width: auto; flex: none; white-space: nowrap; }
+.mr-card.is-folded.is-row .mr-card__text { display: block; flex: 1 1 auto; min-width: 0; margin-top: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* Open: label, a body that scrolls when it must, the follow-up line (margin-reference.css guards). */
 .mr-card.is-open .mr-card__body { display: flex; flex-direction: column; gap: 10px; flex: 0 1 auto; }
 .mr-card.is-open > .mr-card__label, .mr-card.is-open > .mr-follow { flex: none; }
@@ -327,12 +339,12 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
    above are the reference's, and these add only what the mockup's own rules add to them. */
 :where(.mr-trigger, .mr-primer) button, button:where(.mr-trigger) { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 :where(.mr-trigger, .mr-primer) button:focus-visible, button.mr-trigger:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 2px; border-radius: 4px; }
-button.mr-trigger:focus-visible { border-radius: 12px; }
 .mr-trigger, .mr-primer, .mr-primer * { box-sizing: border-box; }
 /* The trigger (mockup .trig): its title with the [B] key at the right, then the line about the unit. */
-.mr-trigger { display: flex; flex-direction: column; gap: 2px; width: 100%; color: var(--mr-ink); text-align: left; }
-.mr-trigger__title .mr-key { margin-left: auto; font-style: normal; }
-.mr-col .mr-trigger, .mr-col .mr-primer { position: absolute; left: 0; right: 0; top: 16px; }
+.mr-trigger { display: block; width: 100%; color: var(--mr-ink); text-align: left; }
+.mr-col .mr-primer { position: absolute; left: 0; right: 0; top: 16px; }
+/* The trigger sits level with its page's first line of text, as a card does with its passage (reader.js sets its top). */
+.mr-col .mr-trigger { position: absolute; left: 0; right: 0; top: 16px; }
 .mr-col .mr-primer { bottom: 70px; }
 /* The primer (mockup .primer): it declares its gap twice, and the 14px it renders is the one kept. */
 .mr-primer { gap: 14px; color: var(--mr-ink); overscroll-behavior: contain; }
@@ -342,11 +354,13 @@ button.mr-trigger:focus-visible { border-radius: 12px; }
    primer's padding so the glyph sits where the mockup's does. */
 .mr-primer h4 { margin-right: -8px; }
 .mr-primer .mr-primer__close { flex: none; align-self: center; margin: -1px 0 -1px auto; }
-.mr-primer__n, .mr-map__n { color: var(--mr-faint); font-size: 14px; }
+.mr-primer__n, .mr-map__n { color: var(--mr-hint); font-size: 14px; }
 .mr-primer__keep { display: flex; flex-direction: column; gap: 5px; }
 .mr-map { display: flex; flex-direction: column; }
 .mr-map__row { width: 100%; text-align: left; color: inherit; }
 .mr-map__title { min-width: 0; overflow-wrap: anywhere; }
+/* The document's own numbered headings: the number is in the title, so no count column. */
+.mr-map__row.is-own { grid-template-columns: 1fr auto; }
 .mr-map__pages { white-space: nowrap; padding-left: 12px; }
 button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; }
 .mr-quiz-row { width: 100%; color: inherit; text-align: left; }
@@ -359,7 +373,8 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 /* Narrow windows: the trigger is a mark; the primer floats beside it, as a card from a mark does. */
 .mr-primer.is-floating { position: fixed; width: 380px; z-index: 40; }
 /* The phone: the trigger and the primer open in the bottom card, without a second card's fill. */
-.mr-sheet .mr-trigger { padding: 0 0 4px; border-radius: 0; background: none; box-shadow: none; }
+.mr-sheet .mr-trigger { padding: 2px 0 2px 14px; }
+.mr-sheet .mr-trigger__sub { font-size: 17px; }
 .mr-sheet .mr-primer { flex: 0 1 auto; min-height: 0; padding: 0 0 2px; border-radius: 0; background: none; box-shadow: none; overflow-y: auto; }
 .mr-sheet.is-full .mr-primer { flex: 1 1 auto; }
 /* Words for screen readers only: the margin's live region (a finished answer, the primer made). */
@@ -374,8 +389,8 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
    without moving anything. */
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-card.is-open, .mr-primer, .mr-sheet) { outline: 1px solid var(--mr-ink); outline-offset: -1px; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-sheet .mr-primer { outline: 0; }
-:is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-trigger, .mr-quiz-row, .mr-stack) { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
-:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-sheet .mr-trigger { outline: 0; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-quiz-row, .mr-stack) { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-trigger { box-shadow: none; background: linear-gradient(var(--mr-lead), var(--mr-lead)) left top / 1.5px 100% no-repeat; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-cite { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-card.is-folded { background: linear-gradient(var(--mr-hair), var(--mr-hair)) left top / 1.5px 100% no-repeat; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-card.is-note.is-folded { background: linear-gradient(var(--hl-color), var(--hl-color)) left top / 2px 100% no-repeat; }

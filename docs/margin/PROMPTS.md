@@ -34,7 +34,7 @@ Call this file the document, or the paper when it is one; never the chapter.
 
 The client shows a stray `*word*` in italics and never shows the stars.
 
-**EPUBs (PR C).** An EPUB read in this reader has the margin too. Its document is sent as `<chapter n="…">` units; it gets no page citation rule and no passage image, and points to a place by naming the chapter and quoting a few words.
+**EPUBs (PR C, built but switched off: `EPUB_MARGIN = false`, Anders 15 Oct, "Keep it pdf for now").** With the switch on, an EPUB read in this reader has the margin too. Its document is sent as `<chapter n="…">` units; it gets no page citation rule and no passage image, and points to a place by naming the chapter and quoting a few words.
 
 ## Explain
 

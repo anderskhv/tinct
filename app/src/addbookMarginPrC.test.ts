@@ -5,6 +5,7 @@
  * back by the Worker's parser. fetch is mocked: no network and no AI.
  */
 // @vitest-environment jsdom
+import { readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
@@ -174,6 +175,17 @@ describe('Copy quote and the margin\'s words for an EPUB', () => {
     expect(parsed.epub).toBe(true)
     expect(parsed.document?.kind).toBe('epub')
     expect(companionTakesPassageImage(parsed)).toBe(false)
+  })
+})
+
+describe('the EPUB margin switch (Anders, 15 Oct: "Keep it pdf for now")', () => {
+  it('is off by default, and marginOn() consults it: an EPUB keeps the popup and the docked chat', () => {
+    const reader = readFileSync(ROOT + 'app/public/lab/addbook/js/reader.js', 'utf8')
+    expect(reader).toContain('const EPUB_MARGIN = false;')
+    expect(reader).toContain("const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));")
+    expect(reader).toContain("const epubMargin = () => EPUB_MARGIN || window.TinctEpubMargin === true;")
+    // The mirror ships the same switch.
+    expect(readFileSync(ROOT + 'addbooks/web/src/js/reader.js', 'utf8')).toContain('const EPUB_MARGIN = false;')
   })
 })
 

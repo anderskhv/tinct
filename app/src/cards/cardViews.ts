@@ -12,7 +12,6 @@ import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, 
 import {
   blockedReaderId,
   deleteOwnAccount,
-  fetchBoard,
   fetchFind,
   fetchProfile,
   openBillingPortal,
@@ -32,6 +31,7 @@ import { chapterFraction, followBackCount, followButton, leaderboardAllowed, pri
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
 import { privateImageUrl, rememberNewBooksOpenIn, resizePhoto, uploadProfileImage } from '../social/socialClient'
+import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
 
@@ -133,9 +133,34 @@ function paintBanner(node: HTMLElement, view: { src: string; private?: boolean }
   }
 }
 
+/**
+ * Paintings with a 480px copy (the library's cover derivatives, the same
+ * image at the same 2:3 shape): a 36px row avatar shows about a 94px-wide
+ * detail, so the 480px copy is plenty, against 0.5–0.75 MB for the original.
+ */
+export const AVATAR_480_IDS: readonly string[] = [
+  'candide', 'confessions', 'crime-and-punishment', 'frankenstein', 'iliad', 'jane-eyre', 'jekyll-and-hyde', 'julius-caesar',
+  'meditations', 'nicomachean-ethics', 'odyssey', 'pride-and-prejudice', 'the-prince', 'the-republic', 'to-the-lighthouse',
+]
+
+/** A row avatar's painting at the size it is shown (the original when there is no smaller copy). */
+export function smallAvatarSrc(src: string): string {
+  const match = /^\/lab\/library_2\/assets\/([a-z0-9-]+)\.jpg$/.exec(src)
+  return match && AVATAR_480_IDS.includes(match[1]) ? `/lab/library_2/assets/covers/${match[1]}-480.webp` : src
+}
+
+/** A small row avatar (Leaderboard, Find readers): the small copy, painted once it scrolls near view. */
 function avatar(picture: CardPicture | null | undefined, name: string, token: string): HTMLElement {
   const node = el('span', { className: 'tc-av is-s', 'aria-hidden': 'true' })
-  paintPicture(node, picture, name, token)
+  const small = picture?.src ? { ...picture, src: smallAvatarSrc(picture.src) } : picture
+  const paint = () => paintPicture(node, small, name, token)
+  if (!small?.src || typeof IntersectionObserver === 'undefined') { paint(); return node }
+  const seen = new IntersectionObserver(entries => {
+    if (!entries.some(entry => entry.isIntersecting)) return
+    seen.disconnect()
+    paint()
+  }, { rootMargin: '200px' })
+  seen.observe(node)
   return node
 }
 
@@ -269,6 +294,8 @@ export function youCard(env: CardsEnv): CardSpec {
   let status = ''
   /** The AI credits row's reset line, open or not; kept across refreshes. */
   const credits = { resets: false }
+  /** Editing the name in place (tap the name); the draft survives refreshes. */
+  const naming = { open: false, draft: '', saving: false }
   // One file field per slot for the card's life, so a re-render while the
   // system picker is open never drops the reader's choice.
   const files = { picture: fileField(), background: fileField() }
@@ -334,7 +361,7 @@ export function youCard(env: CardsEnv): CardSpec {
       }
       const nameNode = waitingProfile
         ? el('span', { className: 'tc-nm', dataset: { testid: 'you-name-skeleton' } }, el('i', { className: 'tc-skel is-name', 'aria-hidden': 'true' }))
-        : el('span', { className: 'tc-nm' }, el('b', { text: name }), el('span', { text: planWord(env) }))
+        : el('span', { className: 'tc-nm' }, profile ? nameField(env, card, naming, name, text => { status = text }) : el('b', { text: name }), el('span', { text: planWord(env) }))
       const hero = el('div', { className: 'tc-hero' }, bg, bgButton, heroClose(card), el('div', { className: 'tc-who' }, pic, nameNode))
 
       const stats = data.reading?.stats
@@ -358,6 +385,61 @@ export function youCard(env: CardsEnv): CardSpec {
   }
 }
 
+/**
+ * The You card's name: tap it to change it in place. Saved through the
+ * profile save path (POST /api/profile { name }), so the rules are the
+ * sign-up profile step's: at most 40 characters, and the Worker's
+ * cleanDisplayName decides, its message shown when it refuses. Enter or
+ * leaving the field saves; Escape keeps the old name.
+ */
+function nameField(env: CardsEnv, card: CardHandle, naming: { open: boolean; draft: string; saving: boolean }, name: string, say: (text: string) => void): HTMLElement {
+  if (!naming.open) {
+    return el('button', {
+      type: 'button', className: 'tc-nm-b', 'aria-label': CARDS_COPY.changeName, dataset: { testid: 'you-name' },
+      onclick: () => {
+        naming.open = true
+        naming.draft = name
+        env.changed()
+        const field = card.element.querySelector<HTMLInputElement>('[data-testid="you-name-input"]')
+        field?.focus()
+        field?.select()
+      },
+    }, el('b', { text: name }))
+  }
+  const input = el('input', {
+    type: 'text', className: 'tc-nm-in', name: 'profileName', value: naming.draft, maxLength: '40', autocomplete: 'name', enterkeyhint: 'done',
+    'aria-label': CARDS_COPY.nameLabel, dataset: { testid: 'you-name-input', ownEscape: '' },
+  }) as HTMLInputElement
+  input.value = naming.draft
+  const close = () => { naming.open = false; env.changed() }
+  const commit = async () => {
+    if (!naming.open || naming.saving) return
+    const next = naming.draft
+    if (next.trim() === name) { close(); return }
+    naming.saving = true
+    input.disabled = true
+    const saved = await saveProfile(env.session.token, { name: next })
+    naming.saving = false
+    if (saved.ok) {
+      env.data.profile = saved.profile
+      naming.open = false
+    } else {
+      say(saved.message || CARDS_COPY.saveFailed)
+    }
+    env.changed()
+    if (naming.open) card.element.querySelector<HTMLInputElement>('[data-testid="you-name-input"]')?.focus()
+  }
+  input.addEventListener('input', () => { naming.draft = input.value })
+  input.addEventListener('click', event => event.stopPropagation())
+  input.addEventListener('keydown', event => {
+    if (event.key === 'Enter') { event.preventDefault(); void commit() }
+    else if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); close() }
+  })
+  // Leaving the field saves; a re-render that replaced it does not.
+  input.addEventListener('blur', () => { setTimeout(() => { if (input.isConnected) void commit() }, 0) })
+  return input
+}
+
 function fileField(): HTMLInputElement {
   return el('input', { type: 'file', accept: 'image/*', className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
 }
@@ -367,9 +449,12 @@ export const TOP_UP_ROW_FROM_PERCENT = 90
 
 function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }): HTMLElement {
   const allowance = env.data.allowance!
+  // A free account after its trial has no allowance this month: nothing was
+  // used, so no bar and no percentage, only the row and Get Premium (15 Oct 2026).
+  const noAllowance = allowance.hasAllowance === false
   // The bars fill as the allowance is used, toward 100% (Anders, 2026-10-12, as Claude and ChatGPT show it).
   const used = Math.max(0, Math.min(100, Math.round((allowance.monthUsedFraction ?? allowance.usedFraction) * 100)))
-  const resets = dayMonthShort(allowance.resetsAt)
+  const resets = noAllowance ? null : dayMonthShort(allowance.resetsAt)
   const track = (label: string, usedPercent: number) => {
     const node = el('span', { className: 'tc-tr', role: 'meter', 'aria-label': label, 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': String(usedPercent) }, el('i'))
     ;(node.firstChild as HTMLElement).style.width = `${usedPercent}%`
@@ -381,27 +466,31 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }
     el('div', { className: `tc-r tc-meter${light ? ' is-light' : ''}`, dataset: { testid } }, top(label, usedPercent, words), track(label, usedPercent))
   // The reset date without hover: the AI credits row is a toggle that shows
   // "Resets 13 Nov" under the bar (Anders, 14 Oct 2026). Toggled in place, so focus stays.
-  const creditsRow = resets
-    ? (() => {
-      const line = el('span', { className: 'tc-reset', text: CARDS_COPY.resets(resets), hidden: !open.resets, dataset: { testid: 'you-ai-resets' } })
-      const button = el('button', {
-        type: 'button', className: 'tc-r tc-meter', 'aria-expanded': String(open.resets), dataset: { testid: 'you-ai-credits' },
-        onclick: () => {
-          open.resets = !open.resets
-          button.setAttribute('aria-expanded', String(open.resets))
-          line.hidden = !open.resets
-        },
-      }, top(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth), track(CARDS_COPY.aiCredits, used), line)
-      return button
-    })()
-    : meter(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth, false, 'you-ai-credits')
-  // The lighter top-up bar only once a top-up was bought this period.
-  const topUpLeft = allowance.topUpLeftFraction
+  const creditsRow = noAllowance
+    ? row({ label: CARDS_COPY.aiCredits, value: CARDS_COPY.noCredits, testid: 'you-ai-credits' })
+    : resets
+      ? (() => {
+        const line = el('span', { className: 'tc-reset', text: CARDS_COPY.resets(resets), hidden: !open.resets, dataset: { testid: 'you-ai-resets' } })
+        const button = el('button', {
+          type: 'button', className: 'tc-r tc-meter', 'aria-expanded': String(open.resets), dataset: { testid: 'you-ai-credits' },
+          onclick: () => {
+            open.resets = !open.resets
+            button.setAttribute('aria-expanded', String(open.resets))
+            line.hidden = !open.resets
+          },
+        }, top(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth), track(CARDS_COPY.aiCredits, used), line)
+        return button
+      })()
+      : meter(CARDS_COPY.aiCredits, used, CARDS_COPY.usedThisMonth, false, 'you-ai-credits')
+  // The lighter top-up bar only while a bought top-up has credit left: never
+  // for a reader who bought none, never 0 of 0 shown as 100% (15 Oct 2026).
+  const topUpLeft = allowance.hasTopUp ? allowance.topUpLeftFraction : null
   const packs = allowance.topUps
   // Top up only when the month's credits are nearly gone (at least 90% used).
   // Top-ups are for Premium readers; a free reader is offered Premium, on the
-  // Account card where Settings → Account offers it (Anders, 14 Oct 2026).
-  const nearlyGone = used >= TOP_UP_ROW_FROM_PERCENT
+  // Account card where Settings → Account offers it (Anders, 14 Oct 2026),
+  // and always once the trial's allowance is over.
+  const nearlyGone = !noAllowance && used >= TOP_UP_ROW_FROM_PERCENT
   const topUpRow = nearlyGone && env.data.plan === 'premium' && packs.length ? row({
     label: CARDS_COPY.topUp,
     value: resets ? CARDS_COPY.orWaitUntil(resets) : null,
@@ -422,7 +511,7 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }
         ...(packs.includes('top_up_10') ? [{ label: CARDS_COPY.buyTopUpMore, run: buy('top_up_10'), testid: 'menu-top-up-more' }] : []),
       ])
     },
-  }) : nearlyGone && env.data.plan === 'free' && env.data.intervals.length ? row({
+  }) : (nearlyGone || noAllowance) && env.data.plan === 'free' && env.data.intervals.length ? row({
     label: CARDS_COPY.getPremium,
     chevron: true,
     testid: 'you-get-premium',
@@ -520,44 +609,72 @@ export function readingCard(env: CardsEnv): CardSpec {
   }
 }
 
-/** 3 · Leaderboard (Friends | Everyone; rows carry no link, by the privacy notice). */
+/** A Friends board read this recently is shown without asking again. */
+const BOARD_FRESH_MS = 15_000
+
+/**
+ * 3 · Leaderboard (Friends | Everyone). A row opens that reader's profile, as
+ * Find readers does (everyone on your board is someone whose profile you can
+ * already open; social.ts BoardEntry); your own row opens the You card.
+ */
 export function leaderboardCard(env: CardsEnv): CardSpec {
-  let tab: 'friends' | 'everyone' = 'friends'
+  const userId = env.session.userId
+  const tabOf = (data: BoardData | null | undefined): BoardTab => (data?.tab === 'everyone' ? 'everyone' : 'friends')
+  // Opens on the board the cards read on open: Everyone while it is open
+  // (Anders, 15 Oct 2026: "a global leaderboard"), else Friends.
+  const first = env.data.board ?? knownDefaultBoard(userId)
+  let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
-  let everyoneOpen = false
+  let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : false
   return {
     id: 'leaderboard',
     label: CARDS_COPY.leaderboard,
     render: card => {
-      // Friends: paint the board the cards fetched on open, and refresh it once behind.
-      if (board === undefined && tab === 'friends' && env.data.board) {
-        board = env.data.board
-        if (env.data.board.everyoneOpen !== undefined) everyoneOpen = env.data.board.everyoneOpen === true
-        void fetchBoard(env.session.token, 'friends').then(result => {
-          if (tab !== 'friends' || !result) return
-          board = result
-          env.data.board = result
-          if (result.everyoneOpen !== undefined) everyoneOpen = result.everyoneOpen === true
-          if (!card.stack.isClosed) card.refresh()
-        })
-      }
-      if (board === undefined) {
+      // Nothing read yet: the board the cards open on (sharing the request the
+      // cards made on open), so the tab is known before anything is asked twice.
+      if (board === undefined && !first) {
         board = 'loading'
-        const asked = tab
-        void fetchBoard(env.session.token, asked).then(result => {
-          if (asked !== tab) return
+        void loadDefaultBoard(env.session.token, userId).then(result => {
+          if (board !== 'loading') return
           board = result ?? null
-          if (result?.everyoneOpen !== undefined) everyoneOpen = result.everyoneOpen === true
-          // No Everyone board (any more): the Friends board.
-          if (!result && asked === 'everyone') { tab = 'friends'; everyoneOpen = false; board = undefined }
-          if (result && asked === 'friends') {
+          if (result) {
+            tab = tabOf(result)
+            everyoneOpen = result.everyoneOpen === true || tab === 'everyone'
             env.data.board = result
             const me = result.entries.find(entry => entry.me) ?? result.me
             env.data.rank = rankOf(me?.rank, result.total)
           }
           if (!card.stack.isClosed) card.refresh()
         })
+      }
+      if (board === undefined) {
+        // The last rows this page read for this tab paint at once; a fresh read
+        // follows unless they are a few seconds old, sharing a request already on its way.
+        const known = knownBoard(userId, tab) ?? (env.data.board && tabOf(env.data.board) === tab ? env.data.board : null)
+        board = known ?? 'loading'
+        if (known?.everyoneOpen !== undefined) everyoneOpen = known.everyoneOpen === true || tab === 'everyone'
+        if (!known || knownBoardAge(userId, tab) > BOARD_FRESH_MS) {
+          const asked = tab
+          void loadBoard(env.session.token, userId, asked).then(result => {
+            if (asked !== tab) return
+            if (!result) {
+              // No Everyone board (any more): the Friends board. A failed refresh keeps the rows shown.
+              if (asked === 'everyone') { tab = 'friends'; everyoneOpen = false; board = undefined }
+              else if (!known) board = null
+            } else {
+              board = result
+              if (result.everyoneOpen !== undefined) everyoneOpen = result.everyoneOpen === true || asked === 'everyone'
+              // The board the cards open on gives the You card's rank.
+              if (asked === 'everyone' || !everyoneOpen) {
+                env.data.board = result
+                const me = result.entries.find(entry => entry.me) ?? result.me
+                env.data.rank = rankOf(me?.rank, result.total)
+              }
+            }
+            if (!card.stack.isClosed) card.refresh()
+          })
+        }
       }
       const body = el('div', { className: 'tc-body is-tight' })
       if (everyoneOpen) {
@@ -572,7 +689,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         // Your own row and rank always show.
         if (board.me && !rows.some(entry => entry.me)) rows.push(board.me)
         body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }))
-        const list = group(...rows.map(entry => boardRow(env, entry)))
+        const list = group(...rows.map(entry => boardRow(env, card, entry)))
         if (list) { list.dataset.testid = 'board-rows'; body.append(list) }
       } else if (board === null) {
         body.append(el('p', { className: 'tc-foot', style: { margin: '0 16px' }, text: CARDS_COPY.boardUnavailable }))
@@ -583,8 +700,13 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   }
 }
 
-function boardRow(env: CardsEnv, entry: BoardEntry): HTMLElement {
-  const node = row({ label: entry.me ? CARDS_COPY.me : entry.name, value: durationShort(entry.seconds), className: `is-av${entry.me ? ' is-me' : ''}`, testid: entry.me ? 'board-me' : 'board-row' })
+function boardRow(env: CardsEnv, card: CardHandle, entry: BoardEntry): HTMLElement {
+  const handle = entry.handle
+  // Yours: back to the You card when the board was opened from it, else the You card on top.
+  const onClick = entry.me
+    ? () => { const ids = card.stack.ids; if (ids[ids.length - 2] === 'you') card.stack.back(); else card.stack.push(youCard(env)) }
+    : handle ? () => card.stack.push(profileCard(env, handle, entry.name, entry.picture)) : undefined
+  const node = row({ label: entry.me ? CARDS_COPY.me : entry.name, value: durationShort(entry.seconds), className: `is-av${entry.me ? ' is-me' : ''}`, testid: entry.me ? 'board-me' : 'board-row', onClick })
   node.prepend(el('span', { className: 'tc-rank', text: String(entry.rank) }), avatar(entry.picture, entry.name, env.session.token))
   return node
 }
@@ -630,7 +752,11 @@ export function findCard(env: CardsEnv): CardSpec {
         return node
       }
 
-      const input = el('input', { type: 'search', placeholder: CARDS_COPY.searchPlaceholder, 'aria-label': CARDS_COPY.searchPlaceholder, autocomplete: 'off', spellcheck: 'false', enterkeyhint: 'search' }) as HTMLInputElement
+      // A search, not a contact field: iOS offered "AutoFill Contact" on it (15 Oct 2026).
+      const input = el('input', {
+        type: 'search', name: 'tc-reader-search', id: 'tc-reader-search', inputmode: 'search', placeholder: CARDS_COPY.searchPlaceholder, 'aria-label': CARDS_COPY.searchPlaceholder,
+        autocomplete: 'off', autocorrect: 'off', autocapitalize: 'none', spellcheck: 'false', enterkeyhint: 'search', 'data-1p-ignore': 'true', 'data-lpignore': 'true',
+      }) as HTMLInputElement
       input.value = query
       const resultsBox = el('div', { dataset: { testid: 'find-results' }, style: { display: 'contents' } })
       const browse = el('div', { style: { display: 'contents' } })

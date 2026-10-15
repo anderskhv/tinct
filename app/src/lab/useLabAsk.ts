@@ -76,6 +76,12 @@ import { chapterWindow, passageWindow } from './userBook/userBookContext'
 let labAskId = 0
 /** Visible + focus fire together on a tab switch; one refresh serves both. */
 export const LAB_CHAT_REFRESH_DEBOUNCE_MS = 400
+/**
+ * Explain gives up after this long without progress (response headers or new
+ * text). A normal answer starts within a few seconds; the Worker bounds its
+ * own upstream waits at 30 s, which is too long to stare at a skeleton.
+ */
+export const EXPLAIN_STALL_MS = 20_000
 
 function nextId() {
   return `lab_ask_${Date.now()}_${++labAskId}`
@@ -997,7 +1003,18 @@ export function useLabAsk(options: UseLabAskOptions) {
     if (explanationRef.current?.speculative) explanationRef.current.abort.abort()
     const entry = { key, time: Date.now(), text: '', promise: Promise.resolve(''), listeners: new Set([onDelta]), speculative: !!input.speculative, abort: new AbortController() }
     explanationRef.current = entry
-    entry.promise = (async () => {
+    // A request that stops making progress (no headers, no new text) is
+    // given up: aborted and rejected, so the card shows Try again and the
+    // retry fetches afresh instead of joining the stalled one (15 Oct 2026).
+    let stallTimer: ReturnType<typeof setTimeout> | undefined
+    let stalled: (error: LabChatError) => void = () => {}
+    const stall = new Promise<never>((_, reject) => { stalled = reject })
+    const progress = () => {
+      clearTimeout(stallTimer)
+      stallTimer = setTimeout(() => { stalled(new LabChatError('timeout')); entry.abort.abort() }, EXPLAIN_STALL_MS)
+    }
+    progress()
+    const work = (async () => {
       const context: LabAskContext = {
         ...askContextNow([]),
         // A passage from another chapter of a collection is by that chapter's writer.
@@ -1028,12 +1045,15 @@ export function useLabAsk(options: UseLabAskOptions) {
           companion: { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
         }),
       })
+      progress()
       if (!response.ok) throw new LabChatError(await labChatErrorType(response))
-      const answer = await readAnthropicResponse(response, value => { entry.text = value; entry.listeners.forEach(listener => listener(value)) })
+      const answer = await readAnthropicResponse(response, value => { progress(); entry.text = value; entry.listeners.forEach(listener => listener(value)) })
       // Reject before caching so Try again makes a fresh request.
       if (input.intent === 'define' && !parseContextualLookup(answer)) throw new LabChatError('unavailable')
       return answer
     })()
+    work.catch(() => { /* settled through the race below */ })
+    entry.promise = Promise.race([work, stall]).finally(() => clearTimeout(stallTimer))
     try {
       return await entry.promise
     } catch (error) {

@@ -27,6 +27,7 @@ import {
   QUIZ_CHECK_PROMPT,
   RELATED_PROMPT,
   SIMPLIFY_PROMPT,
+  WHOLE_PDF_PROMPT,
   factcheckPrompt,
   quizPrompt,
 } from './marginPrompts'
@@ -86,6 +87,8 @@ export interface CompanionRequest {
   pdf?: true
   /** With `pdf`: the file is an EPUB (chapters, no page numbers, never a passage image). */
   epub?: true
+  /** Ask on a user's PDF about the whole file (the column's foot): adds WHOLE_PDF_PROMPT. Never set for a registered book. */
+  whole?: true
   /** define_sense: the dictionary's senses, in dictionary order (numbered from 1 in the prompt). */
   senses?: string[]
   /** quiz_check: the question, its expected answer and the reader's answer. */
@@ -467,7 +470,8 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     return { intent, context, chapter: { action, ...(target ? { target } : {}), ...(activity ? { activity } : {}) } }
   }
   const shownExplanations = parseShownExplanations(r.shownExplanations)
-  return { intent, context, ...(shownExplanations ? { shownExplanations } : {}), ...pdf }
+  const whole = intent === 'ask' && parsed.pdf && r.scope === 'whole' ? { whole: true as const } : {}
+  return { intent, context, ...(shownExplanations ? { shownExplanations } : {}), ...pdf, ...whole }
 }
 
 /**
@@ -507,7 +511,8 @@ function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): st
     case 'define_sense': return [DEFINE_SENSE_PROMPT]
     case 'quiz_check': return [QUIZ_CHECK_PROMPT]
     // A question in the PDF reader's margin: the document before our own explanation; on a PDF passage, the image line, as Explain has it.
-    case 'ask': return request.pdf ? [ASK_DOCUMENT_LINE, ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
+    // About the whole PDF: its own rules too (WHOLE_PDF_PROMPT).
+    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
     default: return []
   }
 }

@@ -93,7 +93,28 @@ export function normalizePrimer(value: unknown): Primer | null {
   return { gist, claims, keepInMind, map }
 }
 
-/** The first JSON object in the model's text: bare, in a ``` fence, or with prose around it. */
+/** The object that starts at `start` (a "{"), to its matching "}", strings and escapes respected; '' when it never closes. */
+function balanced(source: string, start: number): string {
+  let depth = 0, inString = false, escaped = false
+  for (let i = start; i < source.length; i++) {
+    const ch = source[i]
+    if (inString) {
+      if (escaped) escaped = false
+      else if (ch === '\\') escaped = true
+      else if (ch === '"') inString = false
+      continue
+    }
+    if (ch === '"') inString = true
+    else if (ch === '{') depth++
+    else if (ch === '}' && --depth === 0) return source.slice(start, i + 1)
+  }
+  return ''
+}
+
+/**
+ * The first JSON object in the model's text: bare, in a ``` fence, or with prose around it (even
+ * prose with braces of its own). Null when there is none, or when it never closes (a cut-off reply).
+ */
 function jsonObject(text: unknown): unknown {
   const source = String(text ?? '').trim()
   const fenced = /```(?:json|JSON)?\s*([\s\S]*?)```/.exec(source)
@@ -101,6 +122,7 @@ function jsonObject(text: unknown): unknown {
   const start = source.indexOf('{')
   const end = source.lastIndexOf('}')
   if (start >= 0 && end > start) candidates.push(source.slice(start, end + 1))
+  for (let at = start, n = 0; at >= 0 && n < 20; at = source.indexOf('{', at + 1), n++) candidates.push(balanced(source, at))
   for (const candidate of candidates) {
     if (!candidate || candidate[0] !== '{') continue
     try {
@@ -114,6 +136,21 @@ function jsonObject(text: unknown): unknown {
 /** The model's answer as a primer, or null when it is not one. */
 export function parsePrimer(text: unknown): Primer | null {
   return normalizePrimer(jsonObject(text))
+}
+
+/**
+ * Why an answer is not a primer, for the Worker's log (never the text itself): 'empty', 'no_json'
+ * (no object at all), 'invalid_json' (an object that does not parse or never closes: cut off) or
+ * 'shape' (an object missing parts, or with too few of them). Null when it is a primer.
+ */
+export function primerFailure(text: unknown): 'empty' | 'no_json' | 'invalid_json' | 'shape' | null {
+  const source = String(text ?? '').trim()
+  if (!source) return 'empty'
+  if (!source.includes('{')) return 'no_json'
+  // The answer's object starts at its first brace: when that never closes, the reply was cut off.
+  const value = balanced(source, source.indexOf('{')) ? jsonObject(source) : null
+  if (!value) return 'invalid_json'
+  return normalizePrimer(value) ? null : 'shape'
 }
 
 /** A stored primer: its content plus when it was made (ISO, UTC) and its unit's key. Null when out of shape. */

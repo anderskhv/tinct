@@ -20,9 +20,10 @@ import {
   type ChapterNotesResponse,
 } from '../../chapterNotes'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
-import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
+import { AI_RESTING_TYPE, aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
+import { fetchChatUpstream } from '../lib/chatUpstream'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import type { RecapCache } from './labRecap'
 import { bookAssets } from './publicBooks'
@@ -170,12 +171,27 @@ function chapterBody(chapter: ChapterText, through?: number, maxChars = CHAPTER_
   return `${chapter.title}\n\n${sample(paragraphs.map(cleanParagraph).filter(Boolean).join('\n\n'), maxChars)}`
 }
 
+/**
+ * Through the chat upstream: one retry on a transient provider error
+ * (429/5xx/529 with a short Retry-After), bounded header waits, and a
+ * metadata-only log line on every failure. A bare fetch here turned one
+ * passing provider blip into a silent 502 for Summarize (QA, 15 Oct 2026,
+ * 02:04Z: 502 in 0.5 s, nothing logged; the reader's retry worked).
+ */
 async function defaultFetchAnthropic(payload: Record<string, unknown>, apiKey: string): Promise<Response> {
-  return fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
-    body: JSON.stringify(payload),
-  })
+  return fetchChatUpstream(apiKey, payload)
+}
+
+/** Why a card was not written; no prompt, text or reader data. */
+function logChapterNotesFailure(reason: 'upstream' | 'unparseable' | 'exception', kind: ChapterNotesKind, status?: number): void {
+  console.warn(JSON.stringify({ event: 'chapter_notes_failed', reason, kind, status: status ?? null }))
+}
+
+async function isRestingResponse(response: Response): Promise<boolean> {
+  if (response.status === 402 || response.status === 429) return true
+  if (response.status !== 503) return false
+  const body = await response.clone().json().catch(() => null) as { error?: { type?: unknown } } | null
+  return body?.error?.type === AI_RESTING_TYPE
 }
 
 function defaultCache(): RecapCache | null {
@@ -270,7 +286,8 @@ export async function handleLabChapterNotes(
       ...(model === RECAP_FAST_MODEL ? {} : { output_config: { effort: 'low' as const } }),
     }, apiKey)
     if (!response.ok) {
-      if (response.status === 402 || response.status === 429) return jsonResponse(aiRestingBody(), 503, request)
+      if (await isRestingResponse(response)) return jsonResponse(aiRestingBody(), 503, request)
+      logChapterNotesFailure('upstream', parsed.kind, response.status)
       return jsonResponse({ error: 'Notes unavailable' }, 502, request)
     }
     const message = await response.json() as AnthropicMessage
@@ -279,13 +296,17 @@ export async function handleLabChapterNotes(
     const json = text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1)
     let beats: ChapterNotesResponse['beats'] | null = null
     try { beats = parseChapterNotesBeats(JSON.parse(json)) } catch { beats = null }
-    if (!beats) return jsonResponse({ error: 'Notes unavailable' }, 502, request)
+    if (!beats) {
+      logChapterNotesFailure('unparseable', parsed.kind)
+      return jsonResponse({ error: 'Notes unavailable' }, 502, request)
+    }
     if (cache) {
       const stored = new Response(JSON.stringify({ beats }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${CHAPTER_NOTES_CACHE_TTL_SECONDS}` } })
       ctx.waitUntil(cache.put(cacheKey, stored).catch(() => {}))
     }
     return respond(beats, 'model')
   } catch {
+    logChapterNotesFailure('exception', parsed.kind)
     return jsonResponse({ error: 'Notes unavailable' }, 502, request)
   }
 }

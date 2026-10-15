@@ -171,6 +171,22 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
       { q: 'Apply it to a pendulum.', answer: 'Height trades for speed.', why: 'Potential becomes kinetic.', cite: '' },
     ] }
 
+    it('while streaming, gives each question as soon as its object is complete', () => {
+      const full = JSON.stringify(quiz)
+      const at = (needle: string) => full.indexOf(needle)
+      expect(m.parseQuizPartial('')).toEqual([])
+      expect(m.parseQuizPartial(full.slice(0, at('"why"')))).toEqual([])
+      const firstEnd = at('{"q":"Why')
+      expect(m.parseQuizPartial(full.slice(0, firstEnd))).toEqual([quiz.questions[0]])
+      expect(m.parseQuizPartial(full.slice(0, firstEnd + 12))).toEqual([quiz.questions[0]])
+      expect(m.parseQuizPartial(full.slice(0, at('{"q":"Apply')))).toEqual(quiz.questions.slice(0, 2))
+      expect(m.parseQuizPartial(full)).toEqual(quiz.questions)
+      // In a code fence, with braces inside strings, and with an invalid object skipped.
+      expect(m.parseQuizPartial('```json\n{"questions": [{"q":"A {b}?","answer":"c"}, {"q":"","answer":"x"}, {"q":"D?","answer":"e"')).toEqual([{ q: 'A {b}?', answer: 'c', why: '', cite: '' }])
+      // Every streamed prefix agrees with the final parse.
+      for (let n = 0; n <= full.length; n += 7) expect(quiz.questions.slice(0, m.parseQuizPartial(full.slice(0, n)).length)).toEqual(m.parseQuizPartial(full.slice(0, n)))
+    })
+
     it('reads three questions from bare JSON, a code fence or stray text', () => {
       expect(m.parseQuiz(JSON.stringify(quiz))).toEqual(quiz)
       expect(m.parseQuiz('```json\n' + JSON.stringify(quiz, null, 2) + '\n```')).toEqual(quiz)

@@ -120,7 +120,7 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .byob-dock-grip { position: absolute; left: -2px; top: 0; bottom: 0; width: 9px; cursor: col-resize; z-index: 5; touch-action: none; }
 .byob-dock-grip::after { content: ''; position: absolute; left: 3px; top: 16px; bottom: 16px; width: 2px; border-radius: 2px; background: transparent; transition: background .15s; }
 .byob-dock-grip:hover::after, .is-resizing .byob-dock-grip::after { background: rgba(31,74,92,.35); }
-.byob-dock-grip:focus { outline: none; }
+.byob-dock-grip:focus { }
 .byob-dock-grip:focus-visible::after { background: rgba(31,74,92,.5); }
 .byob-pg { font: 12px var(--pdf-ui); font-variant-numeric: tabular-nums; color: var(--lab-ink-muted, var(--pdf-muted)); margin-left: 8px; white-space: nowrap; }
 .lab.is-phone.byob .byob-pg { display: none; }
@@ -204,3 +204,28 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob .byob-ocr-link:disabled { opacity: .55; cursor: default; }
 /* Beside the docked chat: centred over the pages. */
 .lab.byob.dock-open .byob-ocr { left: calc((100vw - var(--dock-w) - 14px) / 2); width: min(calc(100vw - var(--dock-w) - 46px), 560px); }
+
+/* ---------- Position strip (js/strip.js): PDFs, desktop 700px and up ----------
+   The pages' left gutter widens to 56px for a 34px lane at x 14–48 (columnPad() reads it). Colours
+   come from the margin's tokens (css/margin.css .mr, per look); the lines' are the ink at .22/.42
+   (Paper, Book) and .20/.40 (Night); e-ink is ink on white, no tints. Hidden on the phone layout. */
+@media (min-width: 700px) { .lab.byob.is-pdf .pdf-column { padding-left: 56px; } }
+.pdf-strip { --st-line: rgba(32, 26, 19, .22); --st-line-on: rgba(32, 26, 19, .42); --st-ring: rgba(0, 0, 0, .18); --st-win-line: var(--mr-hair);
+  --st-tip-shadow: 0 0 0 1px var(--mr-hair), 0 4px 12px rgba(0, 0, 0, .08);
+  position: fixed; left: 14px; width: 34px; z-index: 30; cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; }
+.lab.is-night .pdf-strip { --st-line: rgba(214, 204, 191, .20); --st-line-on: rgba(214, 204, 191, .40); --st-ring: rgba(0, 0, 0, .35); --st-tip-shadow: 0 0 0 1px var(--mr-hair), 0 6px 16px rgba(0, 0, 0, .4); }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .pdf-strip { --st-line: rgba(17, 17, 17, .35); --st-line-on: rgba(17, 17, 17, .8); --st-ring: #111; --st-win-line: var(--mr-ink); --st-tip-shadow: none; }
+.pdf-strip[hidden], .pdf-strip__tip[hidden], .lab.is-phone .pdf-strip { display: none; }
+@media (max-width: 699px) { .pdf-strip { display: none; } }
+.pdf-strip__lane { position: absolute; left: 0; top: 0; overflow: visible; display: block; }
+.pdf-strip__lane line { stroke: var(--st-line); stroke-width: 1; shape-rendering: crispEdges; }
+.pdf-strip__lane line.is-on { stroke: var(--st-line-on); }
+.pdf-strip__win { fill: var(--mr-wash); stroke: var(--st-win-line); stroke-width: 1; }
+.pdf-strip__ghost { fill: none; stroke: var(--mr-lead); stroke-width: 1; }
+.pdf-strip__dot { stroke: var(--st-ring); stroke-width: 1; }
+.pdf-strip__card { fill: var(--mr-lead); }
+.pdf-strip__tip { position: absolute; left: 40px; transform: translateY(-50%); padding: 3px 8px; border-radius: 6px; background: var(--mr-card); box-shadow: var(--st-tip-shadow);
+  font: 12px/16px var(--mr-ui); font-variant-numeric: tabular-nums; color: var(--mr-muted); white-space: nowrap; pointer-events: none; z-index: 1; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .pdf-strip__tip { outline: 1px solid var(--mr-ink); outline-offset: -1px; }
+.pdf-strip:focus-visible .pdf-strip__win { stroke: var(--mr-ink); }
+/* ---------- end position strip ---------- */

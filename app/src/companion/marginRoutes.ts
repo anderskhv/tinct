@@ -49,7 +49,8 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
   factcheck: route(MARGIN_HAIKU_MODEL, 'medium', 1600),
   counterpoint: route(MARGIN_HAIKU_MODEL, 'medium', 1200),
   quiz: route(MARGIN_HAIKU_MODEL, 'medium', 1400),
-  primer: route(MARGIN_SONNET_MODEL, 'medium', 2000),
+  // A primer's JSON runs to about 1,700 tokens; thinking at medium effort needs the rest (2 failures in 3 at 1200, 15 Oct).
+  primer: route(MARGIN_SONNET_MODEL, 'medium', 8000),
   ask: route(MARGIN_SONNET_MODEL, 'medium', 1800),
 })
 

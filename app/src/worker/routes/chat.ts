@@ -30,6 +30,7 @@ import {
   companionTrailChapters,
   companionUsesSourceSearch,
   factcheckSourceQuery,
+  isPrimerRequest,
   marginRequestRoute,
   parseCompanionRequest,
   type CompanionBuildExtras,
@@ -40,6 +41,7 @@ import { aiRestingBody, estimateAiCostMicros, type GuestSpendHold, type HoldGues
 import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, passageImageWithinCap, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
+import { primerFailure } from '../../companion/primerParse'
 
 export type ChatEnv = SupabaseEnv & {
   ANTHROPIC_API_KEY?: string
@@ -519,6 +521,19 @@ async function consumeStreamedRoundInner(
     return { ok: false, status: 502, body: safeChatError() }
   }
   return { ok: true, content: blocks.filter(Boolean), stopReason, message }
+}
+
+/**
+ * Why a primer reply is not a primer, for the log: 'truncated' when the output limit cut it off,
+ * else primerFailure's reason; its length in characters and the stop reason. Null when it parses.
+ */
+export function primerReplyFault(data: unknown): { failure: string; reply_chars: number; stop_reason: string | null; output_tokens: number | null } | null {
+  const d = (data && typeof data === 'object' ? data : {}) as { content?: unknown; stop_reason?: unknown; usage?: { output_tokens?: unknown } }
+  const text = Array.isArray(d.content) ? d.content.map(block => (block && typeof block === 'object' && (block as { type?: unknown }).type === 'text' ? String((block as { text?: unknown }).text ?? '') : '')).join('') : ''
+  const failure = primerFailure(text)
+  if (!failure) return null
+  const stop = typeof d.stop_reason === 'string' ? d.stop_reason : null
+  return { failure: stop === 'max_tokens' ? 'truncated' : failure, reply_chars: text.length, stop_reason: stop, output_tokens: typeof d.usage?.output_tokens === 'number' ? d.usage.output_tokens : null }
 }
 
 function effortConfig(effort: CompanionEffort | null): Record<string, unknown> {
@@ -1274,7 +1289,11 @@ export async function handleChat(
       // A margin request checks the stop reason before it reads the content:
       // a refusal is an error the reader can retry, never charged.
       const refused = Boolean(marginLabel) && response.ok && data.stop_reason === 'refusal'
-      meter.anthropic(data.usage, undefined, refused ? { neverCharged: true } : undefined)
+      // Before you start: a reply that is not a primer is logged (why, and how long; never the
+      // text) and not charged, so the reader's retry does not pay twice.
+      const primerFault = !refused && response.ok && companion && isPrimerRequest(companion) ? primerReplyFault(data) : null
+      if (primerFault) console.warn(JSON.stringify({ event: 'primer_parse_failure', ...primerFault }))
+      meter.anthropic(data.usage, undefined, refused || primerFault ? { neverCharged: true } : undefined)
       if (refused) {
         logChatFailure('http', 'refusal')
         logChatRequestTiming(timing, 'failed', false)
@@ -1289,7 +1308,7 @@ export async function handleChat(
       }
 
       // Deduct message on success. Lab guest testers are not billed.
-      if (response.ok) charge()
+      if (response.ok && !primerFault) charge()
       if (response.ok && hasAnswer) markFirstChatText(timing)
       logChatRequestTiming(timing, response.ok ? 'completed' : 'failed', timing.firstTextMs !== null)
       const result = jsonResponse(data, response.status, request)
