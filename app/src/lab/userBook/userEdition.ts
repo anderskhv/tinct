@@ -39,13 +39,17 @@ export type UserEditionSource = 'epub' | 'pdf' | 'ocr'
  * and a place records the number it was read under, like an EPUB's.
  */
 export const PDF_TEXT_CONVERTER = 1
-/** The format of a recognised (OCR) edition assembled in the account (§3 of the PDF editions plan). */
-export const OCR_EDITION_FORMAT = 1
+/**
+ * The format of a recognised (OCR) edition assembled in the account (§3 of the PDF editions plan).
+ * 2 (15 Oct 2026): captions and algorithm boxes kept, a paper's numbered sections as chapters.
+ * Editions assembled under 1 stay readable as they are.
+ */
+export const OCR_EDITION_FORMAT = 2
 /** The rule sets each source's stored editions may have been made with. */
 export const EDITION_CONVERTERS: Readonly<Record<UserEditionSource, readonly number[]>> = {
   epub: USER_EDITION_CONVERTERS,
   pdf: [PDF_TEXT_CONVERTER],
-  ocr: [OCR_EDITION_FORMAT],
+  ocr: [1, OCR_EDITION_FORMAT],
 }
 /** The rules a new conversion from each source uses. */
 export const CURRENT_CONVERTER: Readonly<Record<UserEditionSource, number>> = { epub: USER_EDITION_CONVERTER, pdf: PDF_TEXT_CONVERTER, ocr: OCR_EDITION_FORMAT }

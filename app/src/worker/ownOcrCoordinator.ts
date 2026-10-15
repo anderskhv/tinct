@@ -287,6 +287,24 @@ export class OwnOcrCoordinator extends DurableObject<OwnOcrEnv> {
   }
 
   /**
+   * The pages recognised so far, as stored (`page/{n}.json`: blocks, with their boxes when the
+   * model gave them), with the blank and failed ones marked; null without a job. The PDF reader
+   * lays these over the page images as a text layer (routes/userBooks.ts GET …/pages).
+   */
+  async recognised(): Promise<OcrPage[] | null> {
+    if (!this.job()) return null
+    const out: OcrPage[] = []
+    for (const row of this.pages()) {
+      if (row.state === 'blank') out.push({ page: row.n, blocks: [], blank: true })
+      else if (row.state === 'failed') out.push({ page: row.n, blocks: [], failed: true })
+      else if (row.state === 'done' && row.reply) {
+        try { out.push({ ...(JSON.parse(row.reply) as OcrPage), page: row.n }) } catch { out.push({ page: row.n, blocks: [], failed: true }) }
+      }
+    }
+    return out
+  }
+
+  /**
    * Stops the job and forgets it: page reservations not yet used are given
    * back, then everything this object holds is deleted. The caller deletes the
    * R2 prefix (cancel, book removal, account deletion).

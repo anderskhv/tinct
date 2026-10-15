@@ -15,7 +15,7 @@
  * to the coordinator. Nothing here logs; the page's text never leaves this
  * function except as its return value.
  */
-import { OCR_BLOCK_TYPES, type OcrBlock, type OcrBlockType, type OcrPage } from '../../lab/userBook/ocrEdition'
+import { OCR_BLOCK_TYPES, type OcrBlock, type OcrBlockType, type OcrBox, type OcrPage } from '../../lab/userBook/ocrEdition'
 import { retryAfterMs } from './modernEdition'
 
 export const OCR_DEFAULT_MODEL = 'grok-4-fast-non-reasoning'
@@ -64,17 +64,20 @@ const RULES = [
   'Read columns left to right, each column top to bottom.',
   'Join words hyphenated across line ends. Keep the original spelling, punctuation and capitalisation: never correct, modernise, summarise or translate.',
   'Write [illegible] for a word you cannot read. A blank page, or one with only a picture, has no blocks.',
+  'Transcribe every caption of a figure or table, every algorithm or code box and every footnote, each as a block of its own where it stands. Leave out only the short labels inside a plot or diagram.',
   'Leave out dot leaders (the rows of dots between an entry and its page number).',
   'The line at the very top of a page that repeats the book, part or chapter title, with or without the page number, is a running head (head), never h1 or h2.',
   'Tables: one row per line, cells separated by " | ". Equations as plain text or LaTeX.',
-  'Block types: h1 chapter title, h2 section heading, p paragraph, fn footnote, cap caption, tbl table, eq equation, head running head, foot running footer, num page number.',
+  'A numbered section heading ("1 Introduction", "2. Related work", "3.1 Training") is h2 unless it is a chapter title.',
+  'Block types: h1 chapter title, h2 section heading, p paragraph, fn footnote, cap caption, alg algorithm or code box (one line per line), tbl table, eq equation, head running head, foot running footer, num page number.',
 ].join('\n')
 
 export const OCR_SYSTEM_PROMPT = `${RULES}
-Reply with JSON only: {"printed_page": string or null, "columns": number, "starts_mid_paragraph": boolean, "ends_mid_paragraph": boolean, "blocks": [{"t": block type, "x": text}]}.`
+Give each block its box "b": [left, top, right, bottom] around its printed text, in whole numbers from 0 to 1000 of the page's width and height, measured from the top-left corner.
+Reply with JSON only: {"printed_page": string or null, "columns": number, "starts_mid_paragraph": boolean, "ends_mid_paragraph": boolean, "blocks": [{"t": block type, "x": text, "b": [left, top, right, bottom]}]}.`
 
 export const OCR_TEXT_SYSTEM_PROMPT = `${RULES}
-Reply with the page's text only, no JSON and no commentary: "# " before a chapter title, "## " before a section heading, "[fn] " before a footnote, a blank line between paragraphs. Leave out running heads, footers and page numbers.`
+Reply with the page's text only, no JSON and no commentary: "# " before a chapter title, "## " before a section heading, "[fn] " before a footnote, "[cap] " before a caption, "[alg] " before an algorithm or code box, a blank line between paragraphs. Leave out running heads, footers and page numbers.`
 
 export function ocrUserText(page: number, context: string): string {
   const tail = context.trim().slice(-OCR_CONTEXT_CHARS)
@@ -98,6 +101,13 @@ export function invalidOcrContent(content: string): OcrInvalid | null {
 
 const bool = (value: unknown) => (typeof value === 'boolean' ? value : undefined)
 
+/** A block's box as the model gave it, rounded and clamped to 0..1000; undefined unless it is four numbers enclosing an area. */
+export function parseOcrBox(value: unknown): OcrBox | undefined {
+  if (!Array.isArray(value) || value.length !== 4 || !value.every(n => typeof n === 'number' && Number.isFinite(n))) return undefined
+  const [l, t, r, b] = (value as number[]).map(n => Math.max(0, Math.min(1000, Math.round(n))))
+  return r > l && b > t ? [l, t, r, b] : undefined
+}
+
 /** A JSON-mode reply as a page; null unless it is the asked-for object. Unknown block types and empty text are dropped. */
 export function parseOcrJson(content: string): OcrReply | null {
   let data: unknown
@@ -108,9 +118,10 @@ export function parseOcrJson(content: string): OcrReply | null {
   const blocks: OcrBlock[] = []
   for (const item of raw.blocks) {
     if (!item || typeof item !== 'object') continue
-    const { t, x } = item as { t?: unknown; x?: unknown }
+    const { t, x, b } = item as { t?: unknown; x?: unknown; b?: unknown }
     if (typeof t !== 'string' || !OCR_BLOCK_TYPES.includes(t as OcrBlockType) || typeof x !== 'string' || !x.trim()) continue
-    blocks.push({ t: t as OcrBlockType, x })
+    const box = parseOcrBox(b)
+    blocks.push(box ? { t: t as OcrBlockType, x, b: box } : { t: t as OcrBlockType, x })
   }
   const printed = raw.printed_page
   const columns = Number(raw.columns)
@@ -123,7 +134,7 @@ export function parseOcrJson(content: string): OcrReply | null {
   }
 }
 
-/** A text-mode reply as a page: paragraphs by blank lines, "# " h1, "## " h2, "[fn] " footnote. */
+/** A text-mode reply as a page: paragraphs by blank lines, "# " h1, "## " h2, "[fn] " footnote, "[cap] " caption, "[alg] " algorithm box. */
 export function parseOcrText(content: string): OcrReply | null {
   const text = content.replace(/\r\n?/g, '\n').trim()
   const blocks: OcrBlock[] = []
@@ -133,6 +144,8 @@ export function parseOcrText(content: string): OcrReply | null {
     if (part.startsWith('## ')) blocks.push({ t: 'h2', x: part.slice(3) })
     else if (part.startsWith('# ')) blocks.push({ t: 'h1', x: part.slice(2) })
     else if (/^\[fn\]\s*/i.test(part)) blocks.push({ t: 'fn', x: part.replace(/^\[fn\]\s*/i, '') })
+    else if (/^\[cap\]\s*/i.test(part)) blocks.push({ t: 'cap', x: part.replace(/^\[cap\]\s*/i, '') })
+    else if (/^\[alg\]\s*/i.test(part)) blocks.push({ t: 'alg', x: part.replace(/^\[alg\]\s*/i, '') })
     else blocks.push({ t: 'p', x: part })
   }
   return { printed_page: null, blocks }

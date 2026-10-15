@@ -4,9 +4,11 @@
  * `edition.json` with it) and by the reader alike.
  *
  * Input is one recognised page per PDF page, as the vision model returned its
- * blocks (worker/lib/ocrVision.ts). The rules (OCR_EDITION_FORMAT 1):
+ * blocks (worker/lib/ocrVision.ts). The rules (OCR_EDITION_FORMAT 2):
  *  - running heads, footers and page numbers ('head', 'foot', 'num') are
- *    dropped, and so are captions ('cap'), as figures are left out of the text;
+ *    dropped; captions ('cap') stay, each a paragraph of its own (format 1
+ *    dropped them: the edge test of 15 Oct 2026 recovered 85% of a paper's
+ *    words, against 96% for Gloss);
  *  - a paragraph runs on across a page when the model says so
  *    (`ends_mid_paragraph` / `starts_mid_paragraph`), when the next page starts
  *    in lower case, or when the page's last paragraph has no closing
@@ -16,7 +18,11 @@
  *    ("well-known"); soft hyphens are dropped;
  *  - h1 starts a chapter (consecutive h1s make one title); without any h1 the
  *    outline does, else every 20 pages ("Pages 1–20");
- *  - h2 is a heading paragraph, each line of a table or equation a 'line';
+ *  - a paper (at most one h1, its title) with two or more numbered section
+ *    headings ("1 Introduction", "2. Related work", h1 or h2) starts a chapter
+ *    at every one of them; subsections ("3.1 …") stay headings;
+ *  - h2 is a heading paragraph, each line of a table, equation or algorithm
+ *    box ('alg') a 'line';
  *  - footnotes ('fn') are gathered at the end of their chapter under "Notes";
  *  - every paragraph records the PDF page it starts on (`pages`) and a page
  *    that begins inside a paragraph is a `pageBreaks` entry [paragraph, word, page],
@@ -28,10 +34,18 @@
 import type { UserBookParagraphKind } from './userEdition'
 import { OCR_EDITION_FORMAT, USER_EDITION_FORMAT, type UserBookChapter, type UserBookEdition } from './userEdition'
 
-export type OcrBlockType = 'h1' | 'h2' | 'p' | 'fn' | 'cap' | 'tbl' | 'eq' | 'head' | 'foot' | 'num'
-export const OCR_BLOCK_TYPES: readonly OcrBlockType[] = ['h1', 'h2', 'p', 'fn', 'cap', 'tbl', 'eq', 'head', 'foot', 'num']
+export type OcrBlockType = 'h1' | 'h2' | 'p' | 'fn' | 'cap' | 'alg' | 'tbl' | 'eq' | 'head' | 'foot' | 'num'
+export const OCR_BLOCK_TYPES: readonly OcrBlockType[] = ['h1', 'h2', 'p', 'fn', 'cap', 'alg', 'tbl', 'eq', 'head', 'foot', 'num']
 
-export interface OcrBlock { t: OcrBlockType; x: string }
+/**
+ * Where a block stands on the page image: [left, top, right, bottom], whole
+ * numbers from 0 to 1000 of the page's width and height from its top-left
+ * corner. Optional: pages recognised before 15 Oct 2026 have none, and the
+ * PDF reader then places the text by the page's ink alone (pdf-ocr.js layer).
+ */
+export type OcrBox = [number, number, number, number]
+
+export interface OcrBlock { t: OcrBlockType; x: string; b?: OcrBox }
 
 /** One recognised PDF page (1-based `page`), as stored in `page/{n}.json`. */
 export interface OcrPage {
@@ -64,7 +78,9 @@ export function ocrFailedPageText(page: number): string {
   return `Page ${page} could not be recognised. It is in Original pages.`
 }
 
-const DROPPED: ReadonlySet<OcrBlockType> = new Set(['head', 'foot', 'num', 'cap'])
+const DROPPED: ReadonlySet<OcrBlockType> = new Set(['head', 'foot', 'num'])
+/** A top-level numbered section heading ("1 Introduction", "2. Related work", "IV. Results"), not a subsection ("3.1 …"). */
+export const NUMBERED_SECTION = /^(?:\d{1,2}|[IVX]{1,5})\.?\s+(?=[\p{Lu}\p{Lt}])/u
 /** Closing punctuation, allowing a footnote marker after it ("a claim.1", "said.*"). */
 const TERMINAL = /[.?!:;"”’»)\]…][\d*†‡§¹²³⁴⁵⁶⁷⁸⁹⁰]*$/u
 const LINE_HYPHEN = /(\p{L}+)-[ \t]*\n[ \t]*(\p{Ll}\p{L}*)/gu
@@ -100,7 +116,11 @@ interface Unit { title?: string; items: Item[]; notes: Item[]; page: number }
 export function assembleOcrEdition(input: OcrAssembleInput): UserBookEdition {
   const pages = [...input.pages].filter(page => Number.isInteger(page.page) && page.page >= 1).sort((a, b) => a.page - b.page)
   const known = knownCompounds(pages)
-  const hasH1 = pages.some(page => !page.failed && page.blocks.some(block => block.t === 'h1' && block.x.trim()))
+  const headings = (types: OcrBlockType[]) => pages.flatMap(page => (page.failed ? [] : page.blocks.filter(block => types.includes(block.t) && block.x.trim())))
+  // A paper: its title the one h1 at most, its numbered sections the chapters.
+  const sections = headings(['h1']).length <= 1 && headings(['h1', 'h2']).filter(block => NUMBERED_SECTION.test(block.x.trim())).length >= 2
+  const startsSection = (block: OcrBlock) => sections && (block.t === 'h1' || block.t === 'h2') && NUMBERED_SECTION.test(block.x.trim())
+  const hasH1 = sections || headings(['h1']).length > 0
 
   // One stream of body items and their footnotes, with chapter marks where an h1 stands.
   const units: Unit[] = [{ items: [], notes: [], page: pages[0]?.page ?? 1 }]
@@ -126,6 +146,16 @@ export function assembleOcrEdition(input: OcrAssembleInput): UserBookEdition {
         if (text) current().notes.push({ text, kind: null, page: page.page, breaks: [] })
         continue
       }
+      if (startsSection(block)) {
+        const title = clean(block.x, known)
+        if (!title) continue
+        if (current().items.length === 0 && current().notes.length === 0 && current().title === undefined) { current().title = title; current().page = page.page }
+        else units.push({ title, items: [], notes: [], page: page.page })
+        titleOpen = false
+        first = false
+        last = null
+        continue
+      }
       if (block.t === 'h1') {
         const title = clean(block.x, known)
         if (!title) continue
@@ -138,7 +168,7 @@ export function assembleOcrEdition(input: OcrAssembleInput): UserBookEdition {
         continue
       }
       titleOpen = false
-      if (block.t === 'tbl' || block.t === 'eq') {
+      if (block.t === 'tbl' || block.t === 'eq' || block.t === 'alg') {
         for (const line of block.x.split('\n')) {
           const text = clean(line, known)
           if (text) current().items.push({ text, kind: 'line', page: page.page, breaks: [] })
@@ -149,6 +179,13 @@ export function assembleOcrEdition(input: OcrAssembleInput): UserBookEdition {
       }
       const raw = block.x.replace(/­/g, '').trim()
       if (!raw) continue
+      // A caption: a paragraph of its own where it stands, never run on into the body.
+      if (block.t === 'cap') {
+        current().items.push({ text: clean(raw, known), kind: null, page: page.page, breaks: [] })
+        first = false
+        last = null
+        continue
+      }
       if (block.t === 'h2') {
         current().items.push({ text: clean(raw, known), kind: 'heading', page: page.page, breaks: [] })
         first = false

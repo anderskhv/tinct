@@ -28,7 +28,7 @@ interface OcrApi {
   greyInk: (data: Uint8ClampedArray) => number
   faintInk: (data: Uint8ClampedArray, width?: number) => number
   isBlank: (data: Uint8ClampedArray, width?: number) => boolean
-  api: (options: Record<string, unknown>) => { status: (hex: string) => Promise<Status | null>; put: (hex: string, n: number, blob: Blob) => Promise<string> }
+  api: (options: Record<string, unknown>) => { status: (hex: string) => Promise<Status | null | undefined>; put: (hex: string, n: number, blob: Blob) => Promise<string>; pages: (hex: string) => Promise<unknown[] | null> }
 }
 
 let ocr: OcrApi
@@ -76,9 +76,29 @@ describe('the offer: Premium and the trial are asked once; a free account gets o
     expect(ocr.view(null, {}, 250)).toBeNull()
     const off = ocr.api({ token: () => 'token-1', fetch: vi.fn(async () => new Response('{"error":"Not found"}', { status: 404 })) })
     expect(await off.status('ab'.repeat(12))).toBeNull()
+    // Not asked (offline, busy): undefined, told from the switch being off, so the reader never says the
+    // scan "can't be read aloud" while recognition may well be on (the first-open race, 15 Oct 2026).
     const offline = ocr.api({ token: () => 'token-1', fetch: vi.fn(async () => { throw new TypeError('offline') }) })
-    expect(await offline.status('ab'.repeat(12))).toBeNull()
+    expect(await offline.status('ab'.repeat(12))).toBeUndefined()
+    const busy = ocr.api({ token: () => 'token-1', fetch: vi.fn(async () => new Response('{}', { status: 503 })) })
+    expect(await busy.status('ab'.repeat(12))).toBeUndefined()
     expect(ocr.view(await off.status('ab'.repeat(12)), {}, 250)).toBeNull()
+    expect(ocr.view(await offline.status('ab'.repeat(12)), {}, 250)).toBeNull()
+  })
+})
+
+describe('the recognised pages, for the text layer (PR D)', () => {
+  it('reads GET …/ocr/{hex}/pages with the reader\'s token; null when there are none or the account cannot be asked', async () => {
+    const pages = [{ page: 1, blocks: [{ t: 'p', x: 'Words.', b: [100, 100, 900, 130] }] }]
+    const fetch = vi.fn(async (url: string, init: RequestInit) => new Response(JSON.stringify({ pages }), { status: 200, headers: { 'X-Url': url, 'X-Auth': String((init.headers as Record<string, string>).Authorization) } }))
+    expect(await ocr.api({ token: () => 'token-1', fetch }).pages('ab'.repeat(12))).toEqual(pages)
+    expect(fetch.mock.calls[0][0]).toBe('/api/user-books/ocr/' + 'ab'.repeat(12) + '/pages')
+    expect((fetch.mock.calls[0][1] as RequestInit & { headers: Record<string, string> }).headers.Authorization).toBe('Bearer token-1')
+    expect(await ocr.api({ token: () => 'token-1', fetch: vi.fn(async () => new Response('{}', { status: 404 })) }).pages('ab'.repeat(12))).toBeNull()
+    expect(await ocr.api({ token: () => 'token-1', fetch: vi.fn(async () => { throw new TypeError('offline') }) }).pages('ab'.repeat(12))).toBeNull()
+  })
+  it('a book not stored yet is offered like any other ({ state: "none", stored: false })', () => {
+    expect(ocr.view(status('none', { pages: 0, stored: false }), {}, 9)).toMatchObject({ kind: 'offer', action: 'start' })
   })
 })
 

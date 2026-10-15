@@ -21,6 +21,9 @@
 //                                                     a zoom, a note and Copy quote, at every viewport. The EPUB margin is off in
 //                                                     the reader (EPUB_MARGIN = false): this mode turns it on for its pages; in
 //                                                     `sample`/`full` it runs only with EPUB_MARGIN=1.
+//   node scripts/margin-check.mjs scans               PR D: a scanned PDF added, offered recognition at once (the first-open race),
+//                                                     recognised (mocked), its words laid over the pages; the bar, a whole-PDF
+//                                                     question and the primer on it, desktop and phone; a scan recognised without boxes
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -47,7 +50,7 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 
@@ -191,6 +194,36 @@ async function mockChat(body, res) {
   res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\n`)
   res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
 }
+/* ---------- Recognising a scan's text, mocked (routes/userBooks.ts /api/user-books/ocr) ----------
+   As the Worker after PR D: a book not stored yet has status { state: 'none', stored: false } (with
+   `scanMock.legacy` set, the 404 it answered before); pages sent are recognised at the next status
+   call, from `scanMock.recognised` (hex -> the recognised pages); the edition and the pages follow. */
+export const scanMock = { uploadDelay: 0, legacy: false, recognised: new Map(), jobs: new Map(), log: [] }
+async function ocrRoute(req, res, [, hex, part, n]) {
+  const book = account.books.find(b => b.sha256.startsWith(hex)), month = { used: 12, limit: 1500 }
+  const job = scanMock.jobs.get(hex), method = req.method
+  if (method === 'PUT' || method === 'POST') await readBody(req)
+  scanMock.log.push([method, part || 'job', hex, !!book])
+  if (!book) return !part && method === 'GET' && !scanMock.legacy ? json(res, 200, { state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month, stored: false, tier: 'premium' }) : json(res, 404, { error: 'Not found' })
+  const status = () => {
+    if (!job) return { state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month, tier: 'premium' }
+    for (const k of job.ready) job.done.add(k); job.ready.clear()
+    const missing = [...job.missing].sort((a, b) => a - b)
+    return { state: missing.length ? 'uploading' : 'done', pages: job.pages, uploaded: job.done.size, done: job.done.size, failed: 0, blank: 0, ...(missing.length ? { missing } : {}), month, tier: 'premium' }
+  }
+  const pages = () => (scanMock.recognised.get(hex) || []).filter(pg => job?.done.has(pg.page))
+  if (!part && method === 'GET') return json(res, 200, status())
+  if (!part && method === 'POST') {
+    if (!job) scanMock.jobs.set(hex, { pages: (scanMock.recognised.get(hex) || []).length, missing: new Set((scanMock.recognised.get(hex) || []).map(pg => pg.page)), ready: new Set(), done: new Set() })
+    return json(res, 202, status())
+  }
+  if (part === 'pages' && n && method === 'PUT') { if (!job?.missing.delete(Number(n))) return json(res, 409, { error: 'not_expected' }); job.ready.add(Number(n)); return json(res, 200, { ok: true }) }
+  if (!job || status().state !== 'done') return json(res, 404, { error: 'Not found' })
+  if (part === 'pages') return json(res, 200, { pages: pages() })
+  const text = pg => pg.blocks.filter(b => !['head', 'foot', 'num'].includes(b.t)).map(b => b.x)
+  return json(res, 200, { format: 'tinct-user-edition-v1', converter: 2, source: 'ocr', title: book.title, author: '', language: 'en', droppedImages: 0, ocrLayout: { pages: pages().length, columns: 0, equations: 0 },
+    chapters: [{ number: 1, title: book.title, paragraphs: pages().flatMap(text), pages: pages().flatMap(pg => text(pg).map(() => pg.page)) }] })
+}
 function start(port) {
   const server = createServer(async (req, res) => {
     const url = new URL(req.url, 'http://x')
@@ -200,7 +233,18 @@ function start(port) {
       return await mockChat(body, res)
     }
     if (p === '/__margin/anthology.epub') { res.writeHead(200, { 'Content-Type': 'application/epub+zip', 'Cache-Control': 'no-store' }); return res.end(EPUB) }
+    if (p === '/api/user-books' && req.method === 'POST') {
+      // An upload (Add a book's account copy), stored after `scanMock.uploadDelay` ms: the first-open race.
+      const bytes = await readBody(req), sha256 = createHash('sha256').update(bytes).digest('hex')
+      if (scanMock.uploadDelay) await new Promise(r => setTimeout(r, scanMock.uploadDelay))
+      const name = decodeURIComponent(req.headers['x-book-name'] || 'scan.pdf')
+      if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name, title: name.replace(/\.pdf$/i, ''), author: '', type: 'pdf', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
+      const { bytes: _b, ...book } = account.books.find(b => b.sha256 === sha256)
+      return json(res, 200, { book })
+    }
     if (p === '/api/user-books') return json(res, 200, { books: account.books.map(({ bytes, ...b }) => b) })
+    const ocrPath = /^\/api\/user-books\/ocr\/([0-9a-f]{24})(?:\/(edition|pages)(?:\/(\d+))?)?$/.exec(p)
+    if (ocrPath) return ocrRoute(req, res, ocrPath)
     if (p === '/api/user-books/places') return json(res, 200, { places: {} })
     if (p.startsWith('/api/user-books/places/') || p.startsWith('/api/user-books/covers/')) { await readBody(req); return json(res, 200, { place: null, cover: null }) }
     for (const [kind, field] of [['marks', 'marks'], ['cards', 'cards']]) if (p.startsWith(`/api/user-books/${kind}/`)) {
@@ -236,7 +280,7 @@ function start(port) {
 
 /* ---------- The reader, signed in, with a PDF from the account ---------- */
 const SESSION = { access_token: 'test-token', refresh_token: 'x', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: '00000000-0000-4000-8000-000000000001', email: 'reader@example.com', user_metadata: {} } }
-async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1 }) {
+async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1, minSpans = 20 }) {
   // Browser zoom: the CSS viewport shrinks by the zoom and each CSS pixel takes `zoom` device pixels.
   const phone = width < 700
   const ctx = await browser.newContext({ viewport: { width: Math.round(width / zoom), height: Math.round(height / zoom) }, deviceScaleFactor: zoom, hasTouch: phone, isMobile: false })
@@ -254,7 +298,7 @@ async function readerPage(browser, origin, hex, { width, height, look, startPage
   const problems = []
   page.on('pageerror', e => problems.push('pageerror: ' + e.message))
   await page.goto(`${origin}/lab/addbook/?userBook=${hex}${look === 'eink' ? '&eink=1' : ''}`)
-  await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 })
+  await page.waitForFunction(n => document.querySelectorAll('.pdf-sheet .text-layer span').length > n, minSpans, { timeout: 30000 })
   await page.evaluate(() => document.fonts.ready)
   // The docked chat opens by itself on the desktop; the margin pieces sit left of it. Past a title page, to running text.
   await page.waitForTimeout(600)
@@ -1408,6 +1452,209 @@ async function epubCheck(browser, origin) {
   return rows
 }
 
+/* ---------- Scans (PR D; docs/margin/gloss-test/edge.html, 15 Oct 2026) ----------
+   A scan is made here from a text fixture (scan_0042.pdf, drawn at 144 dpi in grey and stored as page
+   pictures only, no text), and the mocked recognition returns that fixture's own lines as blocks with
+   their boxes, so where the text layer lands can be checked against where the words are printed.
+   IMG_20240512_scan.pdf (pictures only) is the scan recognised before boxes existed. */
+async function makeScan(browser, origin, file) {
+  const ctx = await browser.newContext(), page = await ctx.newPage()
+  await page.goto(`${origin}/library`)
+  await page.addScriptTag({ url: '/lab/addbook/vendor/pdfjs/pdf.min.js' })
+  const pages = await page.evaluate(async b64 => {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/lab/addbook/vendor/pdfjs/pdf.worker.min.js'
+    const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0))
+    const pdf = await pdfjsLib.getDocument({ data: bytes }).promise, out = []
+    for (let n = 1; n <= pdf.numPages; n++) {
+      const pg = await pdf.getPage(n), vp = pg.getViewport({ scale: 2 }), unit = pg.getViewport({ scale: 1 })
+      const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height)
+      const g = c.getContext('2d'); g.fillStyle = '#f4f1ea'; g.fillRect(0, 0, c.width, c.height)
+      await pg.render({ canvasContext: g, viewport: vp }).promise
+      const d = g.getImageData(0, 0, c.width, c.height).data, grey = new Uint8Array(c.width * c.height)
+      for (let i = 0; i < grey.length; i++) grey[i] = Math.round(d[i * 4] * 0.299 + d[i * 4 + 1] * 0.587 + d[i * 4 + 2] * 0.114)
+      let bin = ''; for (let i = 0; i < grey.length; i += 0x8000) bin += String.fromCharCode(...grey.subarray(i, i + 0x8000))
+      // Its lines as recognition would give them: one block a line, its box in thousandths of the page.
+      const items = (await pg.getTextContent()).items.filter(it => it.str.trim())
+      const blocks = items.map(it => {
+        const tx = pdfjsLib.Util.transform(unit.transform, it.transform), size = Math.hypot(tx[2], tx[3])
+        const b = [tx[4] / unit.width, (tx[5] - size * 0.8) / unit.height, (tx[4] + it.width) / unit.width, (tx[5] + size * 0.25) / unit.height].map(v => Math.round(v * 1000))
+        return { t: size >= 18 ? 'h1' : /^\d+$/.test(it.str.trim()) ? 'num' : 'p', x: it.str.trim(), b }
+      })
+      out.push({ w: c.width, h: c.height, grey: btoa(bin), blocks })
+    }
+    return out
+  }, readFileSync(file).toString('base64'))
+  await ctx.close()
+  const pdf = makePdf({ pages: pages.map(pg => ({ images: [{ x: 0, y: 0, w: 612, h: 792, pw: pg.w, ph: pg.h, data: Buffer.from(pg.grey, 'base64') }] })) })
+  return { pdf, recognised: pages.map((pg, i) => ({ page: i + 1, printed_page: null, columns: 1, blocks: pg.blocks })) }
+}
+async function scanChecks(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const made = await makeScan(browser, origin, join(REPO, 'addbooks/web/test/pdf-fixtures/scan_0042.pdf'))
+  const SCAN = join(OUT, 'scan_0042-scanned.pdf'); writeFileSync(SCAN, made.pdf)
+  const hex = createHash('sha256').update(made.pdf).digest('hex').slice(0, 24)
+  scanMock.recognised.set(hex, made.recognised)
+  const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const spans = (page, n = 1) => page.evaluate(k => document.querySelectorAll(`.pdf-sheet[data-page="${k}"] .text-layer span`).length, n)
+  const fresh = async ({ width, height, legacy }) => {
+    const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700 })
+    await ctx.addInitScript(([session]) => {
+      try {
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-addbook:rights:' + session.user.id, JSON.stringify({ at: new Date().toISOString(), v: '2026-10-08.2' }))
+      } catch {}
+      // Every line the toast says, as it says it (a later one replaces it on screen).
+      window.__toasts = []
+      new MutationObserver(() => { const t = document.querySelector('.byob-toast'); if (t && !t.hidden && t.textContent && window.__toasts.at(-1) !== t.textContent) window.__toasts.push(t.textContent) })
+        .observe(document, { subtree: true, childList: true, characterData: true, attributes: true })
+    }, [SESSION])
+    const page = await ctx.newPage(), problems = []
+    page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+    scanMock.legacy = !!legacy; scanMock.uploadDelay = 2500; scanMock.log.length = 0
+    // Added on My shelf a moment ago (add-engine keepFile): kept on this device, not yet in the account.
+    await page.goto(`${origin}/library`)
+    await page.evaluate(async ([b64, hex, owner]) => {
+      const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0))
+      const db = await new Promise((resolve, reject) => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error) })
+      await new Promise((resolve, reject) => { const tx = db.transaction('books', 'readwrite'); tx.objectStore('books').put({ key: 'pdf:' + hex, kind: 'pdf', name: 'scan_0042-scanned.pdf', title: 'scan_0042-scanned', author: '', owner, size: bytes.length, addedAt: Date.now(), openedAt: Date.now(), bytes: bytes.buffer }); tx.oncomplete = resolve; tx.onerror = () => reject(tx.error) })
+      db.close()
+    }, [made.pdf.toString('base64'), hex, SESSION.user.id])
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    return { ctx, page, problems }
+  }
+  const noText = page => page.evaluate(() => (window.__toasts || []).some(t => /scan without text/.test(t)))
+
+  // 1. The first-open race against an account that answers 404 until the copy is stored (the Worker before
+  //    PR D): asked again once the copy is in, and the offer comes; the "can't be read aloud" line never shows.
+  {
+    const removeAll = () => { account.books = account.books.filter(b => !b.sha256.startsWith(hex)); scanMock.jobs.delete(hex) }
+    removeAll()
+    const { ctx, page, problems } = await fresh({ width: 1440, height: 900, legacy: true })
+    const offer = await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).then(() => true).catch(() => false)
+    const asks = scanMock.log.filter(([m, part, h]) => m === 'GET' && part === 'job' && h === hex)
+    ok('an account that answers 404 until the copy is stored: the scan is asked about again once it is saved, and recognition is offered', offer && asks.length >= 2 && asks[0][3] === false && asks.at(-1)[3] === true, { offer, asks })
+    ok('...and "This PDF is a scan without text" never shows meanwhile', !await noText(page) && !problems.length, { toasts: await page.evaluate(() => window.__toasts), problems })
+    await ctx.close()
+    removeAll()
+  }
+  // 2. The same against PR D's Worker ({ state: 'none', stored: false }), then recognised, on the desktop.
+  const { ctx, page, problems } = await fresh({ width: 1440, height: 900 })
+  const t0 = Date.now()
+  const offered = await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).then(() => Date.now() - t0).catch(() => null)
+  const first = scanMock.log.find(([m, part, h]) => m === 'GET' && part === 'job' && h === hex)
+  ok('a scan added now: recognition is offered at once, while its account copy is still on its way (status "none", stored: false)', offered !== null && first?.[3] === false && offered < scanMock.uploadDelay + 2000, { offered, first })
+  ok('the "can\'t be read aloud" line is never shown while recognition is on', !await noText(page))
+  // Before its text is recognised, a scan offers no "Before you start": no trigger, and B makes nothing
+  // (it once made a primer of blank pages that failed after 80 s).
+  await page.mouse.click(1200, 600); await page.waitForTimeout(300)
+  const q0 = chats().length
+  await page.keyboard.press('b'); await page.waitForTimeout(800)
+  const noPrimer = await page.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), primer: !!document.querySelector('.mr-primer'), marks: document.querySelectorAll('.mr-mark.is-trigger, [data-trigger]').length }))
+  ok('a scan with no text yet: no "Before you start" trigger, and B opens and asks nothing', !noPrimer.trigger && !noPrimer.primer && !noPrimer.marks && !chats().slice(q0).some(r => r.body?.companion?.intent === 'chapter'), { noPrimer, asked: chats().slice(q0).map(r => r.body?.companion?.intent) })
+  await shot(page, 'scan-1440x900-offer')
+  // Started before the copy is stored: it waits for it, then sends the pages.
+  await page.click('.byob-ocr [data-ocr="start"]')
+  const layered = await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 60000 }).then(() => true).catch(() => false)
+  ok('recognised (mocked): the scan stays in the PDF reader, never the book reader, and its words are laid over page 1', layered && new URL(page.url()).pathname === '/lab/addbook/' && (await spans(page)) > 10, { url: page.url(), spans: await spans(page) })
+  const puts = scanMock.log.filter(([m, part]) => m === 'PUT' && part === 'pages')
+  ok('the pages were sent after the account copy was stored, every one', puts.length === made.recognised.length && puts.every(([, , , stored]) => stored), puts)
+  // Placement: each line's span over its printed words (the fixture's own boxes), within 1% of the page.
+  const placed = await page.evaluate(lines => {
+    const pg = document.querySelector('.pdf-sheet[data-page="1"] .pg').getBoundingClientRect()
+    const list = [...document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span')], seen = new Map()
+    return lines.map(L => {
+      // The same line of text can be printed twice on a page: the nth time, the nth span.
+      const t = L.x.replace(/\s+/g, ' '), k = seen.get(t) || 0; seen.set(t, k + 1)
+      const sp = list.filter(s => s.textContent.replace(/\s+/g, ' ').trim() === t)[k]; if (!sp) return { x: L.x, missing: true }
+      const r = sp.getBoundingClientRect()
+      return { x: L.x.slice(0, 30), dl: Math.abs((r.left - pg.left) / pg.width - L.b[0] / 1000), dt: Math.abs((r.top - pg.top) / pg.height - L.b[1] / 1000), dr: Math.abs((r.right - pg.left) / pg.width - L.b[2] / 1000) }
+    })
+  }, made.recognised[0].blocks.filter(b => b.t === 'p'))
+  const off = placed.filter(q => q.missing || q.dl > 0.01 || q.dt > 0.012 || q.dr > 0.015)
+  ok('every recognised line of page 1 sits over its printed words: left, top and right within about 1% of the page', placed.length > 10 && !off.length, off.slice(0, 5))
+  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is one tap away', await page.evaluate(() => !document.getElementById('playBtn').disabled && !hasNoText() && !document.getElementById('textBtn').hidden))
+  // Selection on the scan opens the margin's bar.
+  const selected = await selectText(page)
+  const bar = await page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
+  await page.waitForTimeout(250)
+  const barProblems = await checkMargin(page)
+  ok('selecting words on the scan opens the margin bar, laid out cleanly', !!selected && bar && !barProblems.length, { selected, barProblems })
+  await shot(page, 'scan-1440x900-bar')
+  // Explain from the bar: the passage and the whole document are the recognised text.
+  const c0 = chats().length
+  await page.click('.mr-bar [data-m="explain"]').catch(() => {})
+  await page.waitForTimeout(1500)
+  const explain = chats().slice(c0).find(r => r.body?.companion?.intent === 'explain')
+  const units = explain?.body?.companion?.document?.units || []
+  const p2 = made.recognised[1].blocks.find(b => b.t === 'p').x
+  ok('Explain on the scan sends the selected words, and the whole document as its recognised text, page by page', explain && explain.body.companion.selection?.length > 10 && selected.includes(explain.body.companion.selection.slice(0, 12)) && units.length === made.recognised.length && units[1].text.includes(p2), { selection: explain?.body?.companion?.selection, units: units.map(u => u.text.slice(0, 40)) })
+  await page.waitForTimeout(400)
+  const cardProblems = await checkMargin(page)
+  ok('the answer card beside the scan is laid out cleanly', !cardProblems.length, cardProblems)
+  await shot(page, 'scan-1440x900-card')
+  // A whole-PDF question.
+  await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
+  const w0 = chats().length
+  await page.keyboard.press('/'); await page.keyboard.type('What does this report say?'); await page.keyboard.press('Enter'); await page.waitForTimeout(1500)
+  const whole = chats().slice(w0).find(r => /What does this report say\?/.test(JSON.stringify(r.body.messages)))
+  ok('a whole-PDF question on the scan carries every page\'s recognised text, never a blank page', whole?.body?.companion?.scope === 'whole' && whole.body.companion.document?.units?.length === made.recognised.length && whole.body.companion.document.units.every(u => u.text.trim().length > 20), { units: whole?.body?.companion?.document?.units?.map(u => u.text.length) })
+  // The primer (B): the unit's pages are the recognised text.
+  await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
+  await page.evaluate(() => goTo({ page: 1, frac: 0 })); await page.waitForTimeout(600)
+  const b0 = chats().length
+  await page.keyboard.press('b')
+  const primed = await page.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 10000 }).then(() => true).catch(() => false)
+  const pr = chats().slice(b0).find(r => r.body?.companion?.intent === 'chapter')
+  ok('the primer on the scan is made from its recognised text and shows in the column', primed && pr?.body?.companion?.context?.pages?.every(pg => pg.text.trim().length > 20) && pr.body.companion.document?.units?.length === made.recognised.length, { primed, pages: pr?.body?.companion?.context?.pages?.map(pg => pg.text.length) })
+  await page.waitForTimeout(300)
+  const primerProblems = await checkMargin(page)
+  ok('the primer beside the scan is laid out cleanly', !primerProblems.length, primerProblems)
+  await shot(page, 'scan-1440x900-primer')
+  ok('no page errors on the desktop', !problems.length, problems)
+  await ctx.close()
+
+  // 3. The phone, opening the recognised scan from the account (its recognised pages fetched again).
+  {
+    const ph = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' }).catch(e => ({ error: String(e.message || e) }))
+    if (ph.error) ok('phone: the recognised scan opens with its text layer', false, ph.error)
+    else {
+      const sel = await selectText(ph.page)
+      const pbar = await ph.page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
+      await ph.page.waitForTimeout(250)
+      const list = await checkMargin(ph.page)
+      ok('phone: the recognised scan opens in the PDF reader with its words over the page; a selection opens the bar, laid out cleanly', new URL(ph.page.url()).pathname === '/lab/addbook/' && !!sel && pbar && !list.length && !ph.problems.length, { sel, pbar, list, problems: ph.problems })
+      await shot(ph.page, 'scan-390x844-bar')
+      await ph.page.click('.mr-float [data-m="explain"], .mr-pbar [data-m="explain"]').catch(() => {})
+      await ph.page.waitForTimeout(1500)
+      const cardList = await checkMargin(ph.page)
+      ok('phone: the answer card over the scan is laid out cleanly', !cardList.length, cardList)
+      await shot(ph.page, 'scan-390x844-card')
+      await ph.ctx.close()
+    }
+  }
+  // 4. A scan recognised before boxes existed (IMG_20240512_scan.pdf, pictures only): laid out by its ink alone, in Night.
+  {
+    const old = addBook(join(REPO, 'addbooks/web/test/pdf-fixtures/IMG_20240512_scan.pdf'))
+    const say = n => `Page ${n} of the old letter tells of the harbour and the long winter that followed, as the letters go on.`
+    scanMock.recognised.set(old, [1, 2].map(n => ({ page: n, printed_page: null, blocks: [{ t: 'h2', x: `Letter ${n}` }, { t: 'p', x: say(n) }, { t: 'p', x: say(n).replace('old', 'second') }] })))
+    scanMock.jobs.set(old, { pages: 2, missing: new Set(), ready: new Set(), done: new Set([1, 2]) })
+    const O = await readerPage(browser, origin, old, { width: 1024, height: 768, look: 'night', minSpans: 4 }).catch(e => ({ error: String(e.message || e) }))
+    if (O.error) ok('a scan recognised without boxes opens with its text layer', false, O.error)
+    else {
+      const text = await O.page.evaluate(() => [...document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span')].map(s => s.textContent).join(''))
+      const sel = await selectText(O.page)
+      const b = await O.page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
+      await O.page.waitForTimeout(250)
+      const list = await checkMargin(O.page)
+      ok('a scan recognised without boxes (all picture): its words are on the page in order, selectable, the bar laid out cleanly', /Letter 1\s+Page 1 of the old letter/.test(text) && !!sel && b && !list.length && !O.problems.length, { text: text.slice(0, 80), sel, b, list, problems: O.problems })
+      await O.ctx.close()
+    }
+  }
+  scanMock.uploadDelay = 0; scanMock.legacy = false
+  return results
+}
+
 const server = await start(Number(process.env.PORT || 4791))
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio'] })
@@ -1425,6 +1672,7 @@ const RUNS = {
   // The EPUB margin is off in the reader for now (reader.js EPUB_MARGIN = false): its check runs in
   // `sample` and `full` only with EPUB_MARGIN=1 (or on its own: `node scripts/margin-check.mjs epub`).
   ...(process.env.EPUB_MARGIN === '1' ? { epub: [epubCheck, rows => rows.some(r => r.problems)] } : {}),
+  scans: [scanChecks, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -1453,6 +1701,7 @@ try {
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'epub') { const rows = await epubCheck(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'epub-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'scans') { const rows = await scanChecks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'scans-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
