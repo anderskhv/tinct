@@ -2196,7 +2196,7 @@ function mrShow(mode, { question = '' } = {}) {
   el.removeAttribute('style');
   if (mode === 'define') {
     el.className = `mr mr-float mr-define${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Define ' + mr.word);
-    el.innerHTML = MH.defineHtml(mr.def, mrOpts());
+    el.innerHTML = MH.defineHtml(mr.def, { ...mrOpts(), P: MP.P, resolve: citeResolve });
     el.querySelector('.mr-define__wait')?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
   } else if (mode === 'note') {
     el.className = `mr mr-float mr-note${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Note');
@@ -2348,21 +2348,24 @@ async function mrDefine(word) {
   if (hit && (!TinctMargin.nameMidSentence(word, mr.before) || navigator.onLine === false)) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
     mrShow('define');
-    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most
-    // FIT_SENSE_MS; the dictionary's order shows meanwhile).
+    // Online, two asks at once (15 Oct, evening): the meaning in this text from the companion's
+    // `define`, shown first under "In this text" whenever it arrives, even when a dictionary sense
+    // "fits" ("perplexity" read "confusion"); and define_sense, which moves the fitting sense to the
+    // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
     const info = mr.info, anchor = mr.anchor, def = mr.def;
-    const n = await fittingSense(hit.word, def.senses.map(x => x.text), info);
-    if (n > 0) def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
-    // None fits (a technical term the dictionary knows only in its everyday senses): the meaning in
-    // this text from the companion's `define` comes first, the dictionary's senses below it.
-    if (n === 0) {
-      try {
-        const found = await defineByCompanion(word, info);
-        if (found?.line) { def.inText = found.line; if (found.pos) def.pos = found.pos }
-      } catch { /* the dictionary alone */ }
-    }
+    const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
+    const inText = navigator.onLine === false ? null : defineByCompanion(word, info).then(found => {
+      if (!found?.line) return;
+      def.inText = found.line; if (found.pos) def.pos = found.pos;
+      redraw();
+    }).catch(() => { /* the dictionary alone */ });
+    const sense = fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
+      if (!(n > 0)) return;
+      def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
+      redraw();
+    });
+    await Promise.all([inText, sense]);
     keepDefine(def, info, anchor, key);
-    if (mr?.defToken === token && (n > 0 || def.inText)) mrShow('define');
     return;
   }
   if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
@@ -2524,7 +2527,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015train2').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015speed').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 /* The margin for EPUBs read here (FIXES-2026-10-15 PR C) is built but OFF (Anders, 15 Oct 2026: "Keep it
    pdf for now. Later the margin reader will be available for all books."). Off, an EPUB behaves exactly as

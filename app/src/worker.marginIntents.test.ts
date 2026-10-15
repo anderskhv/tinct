@@ -33,6 +33,8 @@ import {
   DEFINE_SENSE_PROMPT,
   PDF_COUNTERPOINT_PROMPT,
   FACTCHECK_NO_SEARCH_NOTE,
+  FACTCHECK_OPENING_ROUND,
+  FACTCHECK_VERDICT_ROUND,
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
@@ -46,7 +48,7 @@ import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { createAllowanceGate, type AllowanceGate, type AllowanceView } from './worker/lib/aiAllowance'
 import type { AiUsageRow } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
-import { MARGIN_ROUTES } from './companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, MARGIN_ROUTES } from './companion/marginRoutes'
 import { marginRequestRoute } from './companion/companionRequest'
 
 const userId = '11111111-1111-4111-8111-111111111111'
@@ -276,8 +278,9 @@ describe('the prompts the Worker builds', () => {
   it("Fact-check: today's date filled in, the verdict words, and Can't check. when no search can run", () => {
     const request = parseCompanionRequest({ intent: 'factcheck', context: pdfContext, selection: PASSAGE })!
     const searched = buildCompanionSystem(request, { today: '2026-10-14', sourceSearch: true })
-    expect(searched).toContain("Check whether the passage's factual claims still hold today and what has changed since it was written. Never treat the document itself as confirmation of its own claims. Today's date is 2026-10-14.")
-    expect(searched).toContain('starting with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check. Then a blank line.')
+    expect(searched).toContain("Check whether the passage's factual claims still hold today and what has changed since it was written. Today's date is 2026-10-14.")
+    expect(searched).toContain('Never treat the document itself as confirmation of its own claims')
+    expect(searched).toContain('Then the verdict paragraph: start it with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
     expect(searched).toContain('End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".')
     expect(searched).not.toContain('{today}')
     expect(searched).not.toContain(FACTCHECK_NO_SEARCH_NOTE)
@@ -541,29 +544,118 @@ describe('Fact-check and the source search', () => {
     expect(rows.map(row => row.feature).sort()).toEqual(['chat', 'source_search'])
   })
 
-  it('says it is checking sources while the search runs (streamed)', async () => {
-    stubFetch({ search: evidence })
-    // A streamed provider round: one text delta.
-    const sse = (type: string, data: Record<string, unknown>) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
+  /**
+   * The doc-first opening (approved 15 Oct 2026). A mocked search that resolves only when the test
+   * says so, and a mocked model whose two rounds each take `modelMs`: the opening streams before the
+   * search resolves, then "Checking sources…", then the verdict and the sources.
+   */
+  const OPENING = 'The passage claims S = k log W; the document offers it as its definition {p. 2}.'
+  const VERDICT = 'Holds. It is the standard definition.\n\nSources: [Entropy - Wikipedia](https://en.wikipedia.org/wiki/Entropy)'
+  function docFirstStub({ searchMs = null as number | null, modelMs = 0 } = {}) {
+    let release: () => void = () => {}
+    const gate = searchMs === null ? new Promise<void>(r => { release = r }) : new Promise<void>(r => setTimeout(r, searchMs))
+    const stub = stubFetch({ search: evidence })
     const inner = vi.mocked(fetch).getMockImplementation()!
+    const sse = (type: string, data: Record<string, unknown>) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
+    const round = (text: string) => [
+      sse('message_start', { message: { usage: { input_tokens: 5, cache_read_input_tokens: 100 } } }),
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text } }),
+      sse('content_block_stop', { index: 0 }),
+      sse('message_delta', { delta: { stop_reason: 'end_turn' }, usage: { output_tokens: 3 } }),
+      sse('message_stop', {}),
+    ].join('')
+    let searchResolvedAt = 0
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
-      if (String(input) !== 'https://api.anthropic.com/v1/messages') return inner(input, init)
-      return new Response([
-        sse('message_start', { message: { usage: { input_tokens: 5 } } }),
-        sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
-        sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Holds. It is standard.\n\nSources:' } }),
-        sse('content_block_stop', { index: 0 }),
-        sse('message_delta', { delta: { stop_reason: 'end_turn' }, usage: { output_tokens: 3 } }),
-        sse('message_stop', {}),
-      ].join(''), { headers: { 'content-type': 'text/event-stream' } })
+      const url = String(input)
+      if (url === 'https://api.openai.com/v1/responses') { await gate; searchResolvedAt = Date.now(); return inner(input, init) }
+      if (url !== 'https://api.anthropic.com/v1/messages') return inner(input, init)
+      stub.anthropic.push(JSON.parse(String(init?.body)))
+      const n = stub.anthropic.length
+      if (modelMs) await new Promise(r => setTimeout(r, modelMs))
+      return new Response(round(n === 1 ? OPENING : VERDICT), { headers: { 'content-type': 'text/event-stream' } })
     }))
+    return { ...stub, release: () => release(), searchResolvedAt: () => searchResolvedAt }
+  }
+  /** Read the stream, noting when each needle first appears (ms after the request). */
+  async function readTimed(response: Response, needles: string[], onSeen?: (needle: string) => void, started = Date.now()) {
+    const seen: Record<string, number> = {}
+    const reader = response.body!.getReader()
+    const dec = new TextDecoder()
+    let body = ''
+    for (;;) {
+      const { done, value } = await reader.read()
+      if (done) break
+      body += dec.decode(value, { stream: true })
+      for (const needle of needles) if (!(needle in seen) && body.includes(needle)) { seen[needle] = Date.now() - started; onSeen?.(needle) }
+    }
+    return { body, seen }
+  }
+
+  it('streams its opening from the document before the search resolves, then the status, the verdict and the sources', async () => {
+    const stub = docFirstStub()
     const { ctx, pending } = context()
     const response = await handleChat(post('/api/chat', { stream: true, companion: { intent: 'factcheck', context: pdfContext, selection: PASSAGE } }), { ...env, OPENAI_API_KEY: 'openai-key' }, ctx, reader, allow, gateOff)
-    const body = await response.text()
+    expect(response.status).toBe(200)
+    // The search is held until the opening has reached the reader: had the Worker waited on it, this would never finish.
+    const { body } = await readTimed(response, ['S = k log W'], () => stub.release())
     await Promise.all(pending)
-    const status = body.indexOf('Checking sources…')
-    expect(status).toBeGreaterThan(-1)
-    expect(body.indexOf('Holds. It is standard.')).toBeGreaterThan(status)
+    const opening = body.indexOf('S = k log W'), status = body.indexOf('Checking sources…'), verdict = body.indexOf('Holds. It is the standard definition.'), sources = body.indexOf('Sources: [Entropy')
+    expect(opening).toBeGreaterThan(-1)
+    expect(status).toBeGreaterThan(opening)
+    expect(verdict).toBeGreaterThan(status)
+    expect(sources).toBeGreaterThan(verdict)
+    // The verdict starts a new paragraph after the opening, and the opening's own stop events never reach the reader.
+    expect(body.slice(opening, verdict)).toContain('\\n\\n')
+    expect(body.slice(0, verdict).match(/"stop_reason":"end_turn"/g)).toBeNull()
+    expect(body.match(/event: message_start/g)).toHaveLength(1)
+    // Round 1: the opening, from the document alone: no tools, no thinking, effort low, its own line after the prompt.
+    const [first, second] = stub.anthropic
+    expect(stub.anthropic).toHaveLength(2)
+    expect(first).not.toHaveProperty('tools')
+    expect(first.thinking).toEqual({ type: 'disabled' })
+    expect(first.output_config).toEqual({ effort: FACTCHECK_OPENING_ROUTE.effort })
+    expect(first.max_tokens).toBe(FACTCHECK_OPENING_ROUTE.maxTokens)
+    expect(first.model).toBe(MARGIN_ROUTES.factcheck.model)
+    expect(JSON.stringify(first.system)).toContain(FACTCHECK_OPENING_ROUND)
+    expect(JSON.stringify(first.system)).not.toContain(FACTCHECK_VERDICT_ROUND)
+    expect(first.messages).toEqual([{ role: 'user', content: `<selected_passage>\n${PASSAGE}\n</selected_passage>` }])
+    // Round 2: the verdict, on the route as before, its assistant turn starting with the opening the reader saw.
+    expect(second.max_tokens).toBe(MARGIN_ROUTES.factcheck.maxTokens)
+    expect(second.output_config).toEqual({ effort: MARGIN_ROUTES.factcheck.effort })
+    expect(second).not.toHaveProperty('thinking')
+    expect((second.tools as Array<{ name: string }>).map(tool => tool.name)).toEqual(['search_reading_sources'])
+    expect(JSON.stringify(second.system)).toContain(FACTCHECK_VERDICT_ROUND)
+    expect(JSON.stringify(second.system)).not.toContain(FACTCHECK_OPENING_ROUND)
+    const messages = second.messages as Array<{ role: string; content: Array<Record<string, unknown>> }>
+    expect(messages[1].role).toBe('assistant')
+    expect(messages[1].content[0]).toEqual({ type: 'text', text: OPENING })
+    expect(messages[1].content[1]).toMatchObject({ type: 'tool_use', name: 'search_reading_sources' })
+    expect(JSON.stringify(messages[2].content)).toContain('https://en.wikipedia.org/wiki/Entropy')
+    expect(messages).toHaveLength(3)
+  })
+
+  it('first words do not wait for a slow search (mocked: search 1500 ms, each model round 150 ms)', async () => {
+    const stub = docFirstStub({ searchMs: 1500, modelMs: 150 })
+    const { ctx, pending } = context()
+    const startedAt = Date.now()
+    const response = await handleChat(post('/api/chat', { stream: true, companion: { intent: 'factcheck', context: pdfContext, selection: PASSAGE } }), { ...env, OPENAI_API_KEY: 'openai-key' }, ctx, reader, allow, gateOff)
+    const { seen } = await readTimed(response, ['S = k log W', 'Holds. It is the standard definition.'], undefined, startedAt)
+    await Promise.all(pending)
+    const firstWords = seen['S = k log W'], verdict = seen['Holds. It is the standard definition.'], searchDone = stub.searchResolvedAt() - startedAt
+    if (process.env.DOC_FIRST_TIMING) process.stderr.write(`[doc-first, mocked] first words ${firstWords} ms, verdict ${verdict} ms, search resolved ${searchDone} ms\n`)
+    expect(firstWords).toBeLessThan(600)
+    expect(firstWords).toBeLessThan(searchDone)
+    expect(verdict).toBeGreaterThanOrEqual(searchDone)
+  })
+
+  it('unstreamed, it is one request after the search, as before (no opening round)', async () => {
+    const { anthropic } = stubFetch({ search: evidence, reply: VERDICT })
+    const response = await handleChat(post('/api/chat', { companion: { intent: 'factcheck', context: pdfContext, selection: PASSAGE } }), { ...env, OPENAI_API_KEY: 'openai-key' }, context().ctx, reader, allow, gateOff)
+    expect(response.status).toBe(200)
+    expect(anthropic).toHaveLength(1)
+    expect(JSON.stringify(anthropic[0].system)).not.toContain(FACTCHECK_OPENING_ROUND)
+    expect(JSON.stringify(anthropic[0].system)).not.toContain(FACTCHECK_VERDICT_ROUND)
   })
 
   it("answers without a search, saying Can't check., when there is no search key", async () => {

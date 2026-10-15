@@ -43,7 +43,8 @@ import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, passageImageWithinCap, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
 import { primerFailure } from '../../companion/primerParse'
-import type { MarginThinking } from '../../companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, type MarginThinking } from '../../companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND } from '../../companion/marginPrompts'
 
 export type ChatEnv = SupabaseEnv & {
   ANTHROPIC_API_KEY?: string
@@ -660,6 +661,39 @@ interface ToolLoopInput {
   prefetchSource?: () => Promise<ToolOutcome>
   prefetchedSourceQuery?: string
   meter?: AiMeter
+  /**
+   * Fact-check's doc-first opening (streamed only, approved 15 Oct 2026): a first round with no
+   * tools writes the opening from the document while the prefetched search runs; the rounds after
+   * it use `verdictSystem`, with the opening as the start of the assistant turn.
+   */
+  opening?: FactcheckOpening
+}
+
+export interface FactcheckOpening {
+  system: AnthropicSystemParam
+  verdictSystem: AnthropicSystemParam
+  maxTokens: number
+  effort: CompanionEffort
+  thinking?: MarginThinking
+}
+
+/** A line added after a margin system prompt's breakpoint (the cached prefix stays byte for byte). */
+export function withVolatileLine(system: AnthropicSystemParam, line: string): AnthropicSystemParam {
+  if (typeof system === 'string') return system ? `${system}\n\n${line}` : line
+  if (!system.length) return [{ type: 'text', text: line }]
+  const last = system[system.length - 1]
+  if (last.cache_control) return [...system, { type: 'text', text: line }]
+  return [...system.slice(0, -1), { ...last, text: `${last.text}\n\n${line}` }]
+}
+
+/** The opening round's stream reaches the reader as text only: its stop events would end the answer early. */
+function openingSink(sink: ClientSink): ClientSink {
+  return {
+    write(event, data) {
+      if (data.type === 'message_delta' || data.type === 'message_stop') return
+      sink.write(event, data)
+    },
+  }
 }
 
 /**
@@ -763,7 +797,7 @@ function textDelta(data: Record<string, unknown>): string {
  * `sink` receives the client-facing SSE stream when streaming.
  */
 async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, firstResponse?: Response): Promise<RoundOutcome> {
-  const system = cacheableSystem(input.system)
+  let system = cacheableSystem(input.system)
   // Text already shown in a round that then called a tool stays; the client
   // joins every text delta into one answer, so the next round's text starts
   // a new paragraph instead of running on from the last word.
@@ -789,8 +823,60 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
     firstTextSeen = true
     input.onFirstText()
   }
-  if (input.prefetchSource) writeStatus(await toolStatusText({ name: 'search_reading_sources', input: null }, input.retrieval))
-  const prefetchedSource = input.prefetchSource ? await input.prefetchSource() : null
+  const searchStatus = () => toolStatusText({ name: 'search_reading_sources', input: null }, input.retrieval)
+  // The search starts at once. Fact-check's doc-first opening is written meanwhile, from the
+  // document alone, and streams as it is written; the status shows only while the search is
+  // still running after it.
+  let searchDone = false
+  const started = input.prefetchSource ? input.prefetchSource() : null
+  // With the opening running alongside, a search that throws is a failed lookup, never an unhandled rejection.
+  const pendingSource = started && input.opening
+    ? started.catch((): ToolOutcome => ({ content: 'The public-source lookup failed. Answer only what can be stated reliably without it, and do not claim that sources were checked.', isError: true }))
+    : started
+  void pendingSource?.then(() => { searchDone = true }, () => { searchDone = true })
+  let openingText = ''
+  let openingRan = false
+  if (pendingSource && input.opening && input.stream && sink) {
+    openingRan = true
+    const opening = input.opening
+    const providerStartedAt = Date.now()
+    const response = await fetchAnthropic(input.apiKey, {
+      model: input.model ?? CHAT_MODEL,
+      max_tokens: opening.maxTokens,
+      ...thinkingConfig(opening.thinking),
+      system: cacheableSystem(opening.system),
+      messages,
+      ...effortConfig(opening.effort),
+      stream: true,
+    })
+    input.timing.providerRounds += 1
+    input.timing.providerHeadersMs += Date.now() - providerStartedAt
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({ error: 'Chat request failed' }))
+      return { ok: false, status: response.status, body }
+    }
+    const outcome = await consumeStreamedRound(response, openingSink(input.margin ? refusalHoldingSink(sink) : sink), {
+      firstRound: true,
+      cacheLog: input.margin,
+      onText: noteText,
+      onUsage: (usage, stopReason) => input.meter?.anthropic(usage, undefined, input.margin && marginStopError(stopReason) ? { neverCharged: true } : undefined),
+    })
+    if (!outcome.ok) return outcome
+    const stopError = input.margin ? marginStopError(outcome.stopReason) : null
+    if (stopError) {
+      logChatFailure('stream', stopError)
+      return { ok: false, status: 502, body: safeChatError(stopError) }
+    }
+    openingText = textOf(outcome.content)
+    if (openingText) {
+      breakBeforeNextText = true
+      system = cacheableSystem(opening.verdictSystem)
+    }
+    if (!searchDone) writeStatus(await searchStatus())
+  } else if (pendingSource) {
+    writeStatus(await searchStatus())
+  }
+  const prefetchedSource = pendingSource ? await pendingSource : null
   let sourceSearchAttempted = Boolean(prefetchedSource)
   // A second source-search call after the one allowed lookup forces the next
   // round to answer (see the loop). The first search alone does not: the
@@ -799,7 +885,11 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
   if (prefetchedSource) {
     messages.push({
       role: 'assistant',
-      content: [{ type: 'tool_use', id: 'toolu_prefetched_sources', name: 'search_reading_sources', input: { query: input.prefetchedSourceQuery || focusedSourceQuery(input.messages) } }],
+      content: [
+        // The opening the reader has already seen begins the assistant turn the verdict continues.
+        ...(openingText ? [{ type: 'text', text: openingText }] : []),
+        { type: 'tool_use', id: 'toolu_prefetched_sources', name: 'search_reading_sources', input: { query: input.prefetchedSourceQuery || focusedSourceQuery(input.messages) } },
+      ],
     })
     messages.push({
       role: 'user',
@@ -870,7 +960,8 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
     } : sink
     if (input.stream) {
       outcome = await consumeStreamedRound(response, roundSink && input.margin ? refusalHoldingSink(roundSink) : roundSink, {
-        firstRound: round === 0,
+        // After the opening, the reader's stream has already had its message_start.
+        firstRound: round === 0 && !openingRan,
         cacheLog: input.margin,
         onText: forceText ? noteText : () => {},
         onUsage: (usage, stopReason) => input.meter?.anthropic(usage, undefined, input.margin && marginStopError(stopReason) ? { neverCharged: true } : undefined),
@@ -1271,6 +1362,14 @@ export async function handleChat(
           researchKey: env.OPENAI_API_KEY,
           researchGate: () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6),
           sourceQuery: factcheckSourceQuery(companion),
+          // The PDF reader's streamed Fact-check opens from the document while the search runs.
+          ...(marginRoute && stream ? { opening: {
+            system: withVolatileLine(system, FACTCHECK_OPENING_ROUND),
+            verdictSystem: withVolatileLine(system, FACTCHECK_VERDICT_ROUND),
+            maxTokens: FACTCHECK_OPENING_ROUTE.maxTokens,
+            effort: FACTCHECK_OPENING_ROUTE.effort,
+            ...(FACTCHECK_OPENING_ROUTE.thinking ? { thinking: FACTCHECK_OPENING_ROUTE.thinking } : {}),
+          } } : {}),
         })
       }
 
@@ -1390,6 +1489,8 @@ async function handleBookGroundedChat(input: {
   model?: string
   margin?: CacheLogLabel
   thinking?: MarginThinking
+  /** Fact-check's doc-first opening (ToolLoopInput.opening). */
+  opening?: FactcheckOpening
 }): Promise<Response> {
   const { request, env, ctx } = input
   const retrieval = input.book
@@ -1421,6 +1522,7 @@ async function handleBookGroundedChat(input: {
     onFirstText: () => { markFirstChatText(input.timing); if (!input.margin) chargeOnce() },
     timing: input.timing,
     meter: input.meter,
+    ...(input.opening ? { opening: input.opening } : {}),
   }
   if (input.researchKey) {
     let used = false
