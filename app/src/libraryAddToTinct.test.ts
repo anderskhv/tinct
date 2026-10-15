@@ -882,17 +882,21 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(dialog()).toBeNull()
   })
 
-  it('closes on Cancel and Escape', async () => {
+  it('closes on its × and Escape; only the file button, no Cancel (Anders, 15 Oct)', async () => {
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
-    ;(dialog()!.querySelector('.own-file-cancel') as HTMLButtonElement).click()
+    expect(dialog()!.querySelector('.own-file-cancel')).toBeNull()
+    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(['tui-btn tui-btn--primary own-file-choose'])
+    const close = dialog()!.querySelector('.tui-dialog__head .own-file-close') as HTMLButtonElement
+    expect(close.getAttribute('aria-label')).toBe('Close')
+    close.click()
     expect(dialog()).toBeNull()
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
     expect(dialog()).toBeNull()
   })
 
-  it('the top bar + opens this pop-up (not the search), with "Add a book" for the library search; shown only where Add to Tinct is on', async () => {
+  it('the top bar + opens this pop-up (not the search), with no "Add a book" button any more; shown only where Add to Tinct is on', async () => {
     const button = document.createElement('button')
     document.body.append(button)
     const search = vi.fn()
@@ -906,10 +910,9 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     await vi.waitFor(() => expect(dialog()).not.toBeNull())
     expect(search).not.toHaveBeenCalled()
     expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
-    const add = dialog()!.querySelector('.own-file-search') as HTMLButtonElement
-    expect(add.textContent).toBe('Add a book')
-    add.click()
-    expect(search).toHaveBeenCalledTimes(1)
+    expect(dialog()!.querySelector('.own-file-search')).toBeNull()
+    ;(dialog()!.querySelector('.own-file-close') as HTMLButtonElement).click()
+    expect(search).not.toHaveBeenCalled()
     expect(dialog()).toBeNull()
     // Re-synced on sign-in/out without binding twice.
     addToTinct.syncLibraryAdd(button, search)
@@ -933,7 +936,8 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(add.previousElementSibling?.textContent).toBe('My shelf')
     add.click()
     await vi.waitFor(() => expect(dialog()).not.toBeNull())
-    expect(dialog()!.querySelector('.own-file-search')?.textContent).toBe('Add a book')
+    expect(dialog()!.querySelector('.own-file-search')).toBeNull()
+    expect(dialog()!.querySelector('.own-file-close')).not.toBeNull()
   })
 })
 
