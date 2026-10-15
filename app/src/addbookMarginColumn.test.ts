@@ -231,6 +231,28 @@ describe('the answer in a card', () => {
     expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> Context.</p>')
     expect(f.sources).toBe('<div class="mr-sources"><a href="https://dlmf.nist.gov/5.11" target="_blank" rel="noopener noreferrer">NIST</a><a href="https://en.wikipedia.org/wiki/S" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>')
   })
+  it('Fact-check, doc-first (15 Oct): the opening in plain text, then the verdict as the bottom line, then a note and the sources; folded, the verdict line', () => {
+    const text = 'The passage claims 28.4 BLEU; the paper offers Table 2.\n\nPartly holds. The score stands, but later systems beat it.\n\nNote. A landmark.\n\nSources: [NLP-progress](https://nlpprogress.com/)'
+    const f = M.html.factcheckHtml(text, P)
+    expect(f.answer.indexOf('<div class="mr-answer mr-opening"><p>The passage claims 28.4 BLEU; the paper offers Table 2.</p></div>')).toBe(0)
+    expect(f.answer).toContain('<span class="is-bottom-line">Partly holds. The score stands, but later systems beat it.</span>')
+    expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> A landmark.</p>')
+    expect(f.answer).not.toMatch(/is-bottom-line">The passage/)
+    expect(f.sources).toContain('NLP-progress')
+    // Streaming, before the verdict: the opening alone, never bolded as a bottom line.
+    const live = M.html.factcheckHtml('The passage claims 28.4 BLEU; the paper offers Table 2.', P, { live: true })
+    expect(live.answer).toBe('<div class="mr-answer mr-opening"><p>The passage claims 28.4 BLEU; the paper offers Table 2.</p></div>')
+    const base = { id: 'f1', page: 1, rects: [[1, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'Our model achieves 28.4 BLEU.' }
+    const streaming = M.html.cardHtml({ ...base, kind: 'factcheck', turns: [] }, { open: true, P, pageLabel: '1', live: 'The passage claims 28.4 BLEU.', status: 'Checking sources…' })
+    expect(streaming).toContain('<p>The passage claims 28.4 BLEU.</p>')
+    expect(streaming.indexOf('Checking sources…')).toBeGreaterThan(streaming.indexOf('The passage claims'))
+    expect(streaming).not.toContain('is-bottom-line')
+    // Folded: the verdict line, not the opening.
+    expect(M.html.foldText({ ...base, kind: 'factcheck', turns: [{ role: 'assistant', content: text }] }, P)).toBe('Partly holds. The score stands, but later systems beat it. Note. A landmark.')
+    // An answer written before 15 Oct (verdict first) reads as it did.
+    const old = M.html.factcheckHtml('Holds. The standard form.\n\nNote. Context.', P)
+    expect(old.answer.startsWith('<div class="mr-answer"><p><span class="is-bottom-line">Holds. The standard form.</span>')).toBe(true)
+  })
   it('open cards: label and close, the passage quoted (cut at 120), the bubble for Ask only, copy, the follow-up line', () => {
     const base = { id: 'c1', page: 12, rects: [[12, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'x'.repeat(200) }
     const ask = M.html.cardHtml({ ...base, kind: 'ask', turns: [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'Because. More.' }] }, { open: true, P, pageLabel: '12' })
@@ -360,5 +382,18 @@ describe('Define and the hyphenated word (the deep test, 15 Oct)', () => {
     div.innerHTML = M.html.cardHtml(card, { open: true, P, pageLabel: '3' })
     expect([...div.querySelectorAll('.mr-answer p')].map(p => p.textContent)).toEqual(['In this text', 'A mechanism that weighs positions.', 'a courteous act'])
     expect(M.html.foldText(card, P)).toBe('A mechanism that weighs positions.')
+  })
+  it('the "In this text" line shows its {p. N} citations as tags, in the Define card and the kept card, folded without them', () => {
+    const resolve = (t: Token) => (t.label === '3' ? { page: 3, needle: '' } : null)
+    const div = document.createElement('div')
+    div.innerHTML = M.html.defineHtml({ word: 'transduction', source: 'Dictionary', inText: 'Turning one sequence into another {p. 3}.', senses: [{ text: 'the action of transducing' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold', P, resolve })
+    const tag = div.querySelector('.mr-define__in .mr-cite') as HTMLElement
+    expect(tag?.textContent).toBe('p. 3')
+    expect(tag?.dataset.page).toBe('3')
+    expect(div.querySelector('.mr-define__in')!.textContent).not.toContain('{p. 3}')
+    const card = M.newCard({ kind: 'define', page: 3, anchor: [{ n: 3, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }], text: 'transduction', data: { word: 'transduction', senses: [], inText: 'Turning one sequence into another {p. 3}.' } })
+    div.innerHTML = M.html.cardHtml(card, { open: true, P, pageLabel: '3', resolve })
+    expect((div.querySelector('.mr-answer .is-bottom-line .mr-cite') as HTMLElement)?.dataset.page).toBe('3')
+    expect(M.html.foldText(card, P)).toBe('Turning one sequence into another.')
   })
 })

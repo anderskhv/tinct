@@ -159,9 +159,14 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.chunks` (set by a check) streams the next answer in pieces: [{ text, wait }], then an
 // error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one); a string
 // names the error's type (`cut_off`: the Worker's answer stopped by its output bound, max_tokens).
-export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+// `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
+// unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
+export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+/** The mocked Fact-check's opening, streamed before "Checking sources…" as the Worker streams it while the search runs. */
+export const FACTCHECK_OPENING = 'MOCK opening: the passage claims what it says, and the document offers its own table {p. 1}.'
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
+  if (mock.nextFor[intent] != null) { const t = mock.nextFor[intent]; delete mock.nextFor[intent]; return t }
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
   if (intent === 'define') return JSON.stringify({ kind: 'definition', definition: `Noun. A mocked meaning of “${c.selection}” here.` })
   if (intent === 'define_sense') return JSON.stringify({ sense: 2 })
@@ -176,13 +181,16 @@ function mockText(body) {
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
     : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
-  if (intent === 'factcheck') return 'Holds. MOCK verdict line for the passage.\n\nHolds. The first claim stands as written.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)'
+  // Fact-check, doc-first (15 Oct): the opening from the document, then the verdict once, a note and the sources.
+  if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
 async function mockChat(body, res) {
   // A check may make one intent fail (PR C: a failed quiz marking keeps the reader's answer).
   if (mock.fail && body?.companion?.intent === mock.fail) return json(res, 500, { error: { type: 'api_error', message: 'mock failure' } })
   if (mock.delay && !body?.stream) await new Promise(r => setTimeout(r, mock.delay))
+  const own = mock.delayFor[body?.companion?.intent]
+  if (own && !body?.stream) await new Promise(r => setTimeout(r, own))
   const c = body?.companion || {}
   if (c.intent === 'chapter' && c.chapter?.action?.kind === 'primer' && mock.primers.length) {
     const item = mock.primers.shift()
@@ -194,6 +202,14 @@ async function mockChat(body, res) {
   const text = mockText(body)
   if (!body?.stream) return json(res, 200, { content: [{ type: 'text', text }] })
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
+  // Fact-check, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
+  if (body?.companion?.intent === 'factcheck' && !mock.chunks && text.startsWith(FACTCHECK_OPENING)) {
+    res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: FACTCHECK_OPENING } })}\n\n`)
+    res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`)
+    await new Promise(r => setTimeout(r, mock.delay || 400))
+    res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: text.slice(FACTCHECK_OPENING.length) } })}\n\n`)
+    return res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
+  }
   if (body?.companion?.intent === 'factcheck') { res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`); await new Promise(r => setTimeout(r, mock.delay || 400)) }
   else if (mock.delay) await new Promise(r => setTimeout(r, mock.delay))
   if (mock.chunks) {
@@ -240,8 +256,8 @@ function start(port) {
     const url = new URL(req.url, 'http://x')
     const p = url.pathname
     if (req.method === 'POST' && (p === '/api/chat' || p === '/api/lab-chat')) {
-      const body = JSON.parse((await readBody(req)).toString() || '{}'); account.requests.push({ path: p, body })
-      return await mockChat(body, res)
+      const body = JSON.parse((await readBody(req)).toString() || '{}'), entry = { path: p, body, at: Date.now(), done: 0 }; account.requests.push(entry)
+      await mockChat(body, res); entry.done = Date.now(); return
     }
     if (p === '/__margin/anthology.epub') { res.writeHead(200, { 'Content-Type': 'application/epub+zip', 'Cache-Control': 'no-store' }); return res.end(EPUB) }
     if (p === '/api/user-books' && req.method === 'POST') {
@@ -508,7 +524,13 @@ async function behaviour(browser, origin) {
     await selectText(a); await a.waitForSelector('.mr-bar'); const k = account.requests.length
     if (intent === 'factcheck') mock.delay = 1500
     if (from === 'more') { await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click(`.mr-more [data-m="${intent}"]`) } else await a.click(`.mr-bar [data-m="${intent}"]`)
-    if (intent === 'factcheck') { await a.waitForTimeout(700); ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(await a.innerText('.mr-card.is-open'))) }
+    if (intent === 'factcheck') {
+      await a.waitForTimeout(700)
+      const during = await a.innerText('.mr-card.is-open')
+      ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
+      // Doc-first (15 Oct): the opening from the document is already there, above the status, and no verdict yet.
+      ok('Fact-check: the opening from the document shows while the search runs, above "Checking sources…", before any verdict', during.indexOf('MOCK opening') > -1 && during.indexOf('MOCK opening') < during.indexOf('Checking sources…') && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')), during)
+    }
     await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
     ok(`${intent}: the Worker intent with the selection and the PDF's pages`, req && req.body.companion.selection && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length >= 1 && !req.body.system, req?.body?.companion && { ...req.body.companion, context: undefined })
@@ -530,6 +552,8 @@ async function behaviour(browser, origin) {
   }
   const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ verdict: getComputedStyle(document.querySelector('.mr-card.is-open .mr-verdict')).fontStyle, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize })))
   ok('Fact-check: verdict words in italic, the sources as plain links in 12px', fcText.verdict === 'italic' && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px', fcText)
+  const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { opening: t.indexOf('MOCK opening'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length, tag: !!c.querySelector('.mr-opening .mr-cite') } })
+  ok('Fact-check: the opening first, then the verdict once as the bottom line, then the sources; the opening\'s tag is a tag', fcOrder.opening > -1 && fcOrder.opening < fcOrder.verdict && fcOrder.verdict < fcOrder.sources && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1 && fcOrder.tag, fcOrder)
   // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
   await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
   ok('Quiz me shows "1 of 3" and the question at 18px', (await a.innerText('.mr-card.is-open .mr-card__count')) === '1 of 3' && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .mr-question')).fontSize)) === '18px')
@@ -760,15 +784,32 @@ async function behaviour(browser, origin) {
     // meaning in this text comes first, under "In this text", the dictionary's senses below it.
     let inText = null
     for (let tries = 0; tries < 6 && !inText; tries++) {
-      mock.next = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
+      mock.nextFor.define_sense = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
       await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2200)
       const asked = account.requests.slice(n5).map(r => r.body?.companion?.intent)
       inText = asked.includes('define_sense') ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, senses: d.querySelectorAll('.mr-define__senses li').length, first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING, kept: keptCards().some(c => c.kind === 'define' && /mocked meaning/.test(c.data?.inText || '')) } }) : null
-      mock.next = null
+      delete mock.nextFor.define_sense
       if (inText) ok('no sense fits: the companion\'s define asked, "In this text" first with its meaning, the dictionary\'s senses below; kept on the card', asked.includes('define') && inText.label === 'In this text' && /mocked meaning/.test(inText.text) && inText.senses >= 1 && !!inText.first && inText.kept, { asked, inText })
       await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     }
     if (!inText) ok('no sense fits: "In this text" first', false, 'no dictionary word found to select')
+    // 15 Oct, evening: online, define and define_sense go out together, and "In this text" shows first even when a
+    // dictionary sense fits ("perplexity" read "confusion"); its {p. N} is a citation tag.
+    let both = null
+    for (let tries = 0; tries < 6 && !both; tries++) {
+      mock.delayFor.define_sense = 900; mock.nextFor.define = JSON.stringify({ kind: 'definition', definition: 'Noun. MOCK in-text meaning, as the document uses it {p. 3}.' }); const n6 = account.requests.length
+      await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2400)
+      const reqs = account.requests.slice(n6), ds = reqs.find(r => r.body?.companion?.intent === 'define_sense'), df = reqs.find(r => r.body?.companion?.intent === 'define')
+      both = ds ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, tag: d.querySelector('.mr-define__in .mr-cite')?.textContent, tagPage: d.querySelector('.mr-define__in .mr-cite')?.dataset.page, raw: /\{p\. 3\}/.test(d.innerText), fit: d.querySelector('.mr-define__senses li')?.classList.contains('is-fit'), first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING } }) : null
+      if (both) {
+        ok('Define online: define and define_sense are sent together (define before define_sense has answered)', !!df && df.at < ds.done && Math.abs(df.at - ds.at) < 500, { define: df && df.at - ds.at, senseDone: ds.done - ds.at })
+        ok('Define online: "In this text" first even when a dictionary sense fits (mocked sense 2), the fitting sense first below it', both.label === 'In this text' && /MOCK in-text meaning/.test(both.text) && both.fit === true && !!both.first, both)
+        ok('Define: the in-text line\'s {p. 3} shows as a citation tag', both.tag === 'p. 3' && both.tagPage === '3' && !both.raw, both)
+      }
+      delete mock.delayFor.define_sense; delete mock.nextFor.define
+      await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    }
+    if (!both) ok('Define online: define and define_sense together', false, 'no dictionary word found to select')
     // Double-click on half of a hyphenated word selects all of it ("auto-regressive" was looked up as "regressive").
     const hy = await C.page.evaluate(() => {
       const span = [...document.querySelectorAll('.pdf-sheet .text-layer span')].find(s => { const r = s.getBoundingClientRect(); return /\bself-evident\b/.test(s.textContent) && r.top > 80 && r.bottom < innerHeight - 20 })

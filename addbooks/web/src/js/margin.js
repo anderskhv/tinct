@@ -285,7 +285,8 @@
    */
   function defineHtml(d, o) {
     const senses = (d.senses || []).slice(0, 3);
-    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${esc(d.inText)}</p>` : '';
+    // Its {p. N} citations are tags, as in cards (o.P, o.resolve); without the parsers, plain text.
+    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${o?.P ? inlineHtml(d.inText, o.P, o.resolve) : esc(d.inText)}</p>` : '';
     const body = d.wait ? '<p class="mr-define__wait"></p>'
       : inText + (senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
         : d.line ? `<p>${esc(d.line)}</p>` : '');
@@ -531,13 +532,25 @@
     const tail = first.slice(lead.length).trim();
     return `<p><span class="is-bottom-line">${inlineHtml(lead, P, resolve)}</span>${tail ? ' ' + inlineHtml(tail, P, resolve) : ''}</p>` + blocks.slice(1).map(b => blockHtml(b, P, resolve)).join('');
   }
-  /** Fact-check: the verdict line, one paragraph per claim with its verdict word in italic, the sources as plain links. */
-  function factcheckHtml(text, P, { resolve = null } = {}) {
+  /**
+   * Fact-check: the opening (what the passage claims and what the document offers, streamed while
+   * the search runs) in plain text, then the verdict line as the bottom line, one paragraph per
+   * claim or note with its word in italic, the sources as plain links. `live`: still streaming, so
+   * text with no verdict yet is the opening, never bolded as one.
+   */
+  function factcheckHtml(text, P, { resolve = null, live = false } = {}) {
     const f = P.parseFactcheck(text);
-    if (!f.lead) return { answer: '', sources: '' };
+    const opening = f.opening || [];
+    if (live && !f.verdict && !opening.length) {
+      const blocks = blocksOf(text).filter(b => !/^\s*[*_]{0,2}sources[*_]{0,2}\s*:/i.test(b));
+      return { answer: blocks.length ? `<div class="mr-answer mr-opening">${blocks.map(b => `<p>${inlineHtml(b.trim(), P, resolve)}</p>`).join('')}</div>` : '', sources: '' };
+    }
+    if (!f.lead && !opening.length) return { answer: '', sources: '' };
+    const open = opening.length ? `<div class="mr-answer mr-opening">${opening.map(b => `<p>${inlineHtml(b, P, resolve)}</p>`).join('')}</div>` : '';
     const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
     const sources = f.sources.length ? `<div class="mr-sources">${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
-    return { answer: `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>${claims}`, sources };
+    const verdict = f.lead ? `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>` : '';
+    return { answer: open + verdict + claims, sources };
   }
   /** The words a folded card shows (two lines of them): plain, no tags. */
   function foldText(card, P) {
@@ -552,6 +565,8 @@
     const answer = (card.turns || []).find(t => t.role === 'assistant');
     // Related, folded: its bottom line (the label says how many places).
     if (card.kind === 'related' && answer && P.parseRelated) return plain(P.parseRelated(answer.content).lead);
+    // Fact-check, folded: its verdict line (the opening before it is context).
+    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     return plain(answer?.content || '');
   }
@@ -673,7 +688,7 @@
     else if (card.kind === 'define') {
       const senses = q.senses || [];
       body += q.inText
-        ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
+        ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${P ? inlineHtml(q.inText, P, o.resolve) : esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
         : senses.length
           ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
           : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
@@ -684,7 +699,7 @@
     turns.forEach((t, k) => {
       if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
       answered = true;
-      if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve }); body += f.answer + f.sources }
+      if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve, live: o.live != null && k === turns.length - 1 }); body += f.answer + f.sources }
       else if (card.kind === 'related' && k === 0 && P.parseRelated) body += relatedHtml(t.content, P, { resolve: o.resolve, place: o.place });
       else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
     });
