@@ -1088,8 +1088,9 @@ async function keysAndAccess(browser, origin) {
   return results
 }
 // Text contrast of every margin colour pair, per look (WCAG 2 ratio of the text's colour on the colour behind it). A report: the colours are the mockup's.
-// Small text that must reach 4.5:1 in every look: "Checking sources…", "/ the whole PDF", the primer's numbers and footer.
-const HINT_TEXT = ['status line', 'foot hint', 'primer numbers', 'primer footer']
+// Small text that must reach 4.5:1 in every look: "Checking sources…", "/ the whole PDF", the primer's numbers and footer,
+// and the "N more on this page" row (release train 2: 3.89:1 in Paper and 4.28:1 in Book before).
+const HINT_TEXT = ['status line', 'foot hint', 'primer numbers', 'primer footer', 'stack row']
 async function contrast(browser, origin) {
   const rows = []
   for (const look of ['paper', 'book', 'night', 'eink']) {
@@ -1148,8 +1149,11 @@ function seedCards({ lines = 5, pairs = true, open = 3, where = 'middle', kinds 
       const kind = K[(list.length) % K.length]
       const text = (l.s.textContent || '').trim()
       const data = kind === 'define' ? { word: 'variance', senses: [{ text: 'In statistics, how widely values spread around their mean.' }, { text: 'The fact of being different.' }] }
-        : kind === 'quiz' ? { questions: [{ q: 'MOCK Q1. What does the passage name first?', answer: 'Ideas', why: 'It is named first.', cite: '{p. 1}' }, { q: 'Q2?', answer: 'B', why: '', cite: '' }, { q: 'Q3?', answer: 'C', why: '', cite: '' }], i: 0, results: [] } : null
-      const turns = kind === 'define' || kind === 'quiz' ? [] : [...(kind === 'ask' ? [{ role: 'user', content: question || 'Why does this hold here?' }] : []), { role: 'assistant', content: answer && list.length === open ? answer : `MOCK ${kind}. The bottom line of card ${list.length + 1} comes first {p. 1}. Then a second sentence fills the second line of the folded card.` }]
+        : kind === 'quiz' ? { questions: [{ q: 'MOCK Q1. What does the passage name first?', answer: 'Ideas', why: 'It is named first.', cite: '{p. 1}' }, { q: 'Q2?', answer: 'B', why: '', cite: '' }, { q: 'Q3?', answer: 'C', why: '', cite: '' }], i: 0, results: [] }
+        : kind === 'figure' ? { label: `Figure ${list.length + 1}`, region: 'figure' } : null
+      // Related (PR C) answers with its bottom line, then its places; a figure's card (PR E) is one thread.
+      const mock = kind === 'related' ? `MOCK related. Card ${list.length + 1}'s idea comes back twice {p. 1}.\n{p. 1} Where it first comes up.\n{p. 2} Where it returns.` : `MOCK ${kind}. The bottom line of card ${list.length + 1} comes first {p. 1}. Then a second sentence fills the second line of the folded card.`
+      const turns = kind === 'define' || kind === 'quiz' ? [] : [...(kind === 'ask' ? [{ role: 'user', content: question || 'Why does this hold here?' }] : []), { role: 'assistant', content: answer && list.length === open ? answer : mock }]
       list.push(TinctMargin.newCard({ kind, page: anchor[0].n, anchor, text, turns, data, at: Date.now() + list.length }))
     })
   })
@@ -1172,6 +1176,38 @@ function crowding(want = null) {
   const inView = visibleCards().length
   // `want`: at least this many in view (cards synced from earlier rows of the matrix may add to the seeded ones).
   return { ok: col.mode !== 'column' || (!stack && cards === inView && (want == null || inView >= want)), mode: col.mode, stack, cards, rows, inView }
+}
+// Release train 2: PR E's figure detection and PR F's reading order agree on page n. Every text item
+// F keeps out of the body (a figure's labels and caption, in the text layer's .fig-col) lies in a figure
+// or caption E found, and no body line lies inside a figure E found (both in page fractions, 1% slack).
+// `labels`: the captions E must have found on the page.
+function figureOrderAgrees([n, labels]) {
+  const p = state.pages[n - 1], f = state.figs.get(n)
+  if (!p?.layer || !f) return { ok: false, why: 'not drawn or not detected', n }
+  const b = p.pg.getBoundingClientRect(), slack = 0.01
+  const box = el => { const r = el.getBoundingClientRect(); return { x: (r.left - b.left) / b.width, y: (r.top - b.top) / b.height, w: r.width / b.width, h: r.height / b.height } }
+  const inside = (q, o) => q.x >= o.x - slack && q.y >= o.y - slack && q.x + q.w <= o.x + o.w + slack && q.y + q.h <= o.y + o.h + slack
+  const overlaps = (q, o) => Math.min(q.x + q.w, o.x + o.w) - Math.max(q.x, o.x) > slack && Math.min(q.y + q.h, o.y + o.h) - Math.max(q.y, o.y) > slack
+  const areas = [...f.figures, ...f.captions.map(c => c.box)]
+  const out = [...p.layer.querySelectorAll('.fig-col span')].filter(sp => sp.textContent.trim()), body = [...p.layer.querySelectorAll('span')].filter(sp => !sp.closest('.side-col') && sp.textContent.trim())
+  const stray = out.filter(sp => !areas.some(o => inside(box(sp), o))).map(sp => sp.textContent.trim())
+  const crossed = body.filter(sp => f.figures.some(o => overlaps(box(sp), o))).map(sp => sp.textContent.trim().slice(0, 40))
+  const missing = labels.filter(l => !f.captions.some(c => c.label === l && c.fig != null))
+  return { ok: !stray.length && !crossed.length && !missing.length && out.length > 0, n, kept: out.length, stray, crossed, missing }
+}
+// Related and figure cards on a crowded page: each kind has a card folded to a one-line row or gathered into
+// "N more" (B's crowding), the open card stays open, and a gathered kind is named in the "more" row.
+function foldedKinds() {
+  if (col.mode !== 'column') return { ok: true, mode: col.mode }
+  const cards = store.get('cards:' + state.key) || [], stack = document.querySelector('.mr-stack:not([hidden])')
+  // Every seeded passage is in view, so a hidden card beside a "more" row is a gathered one.
+  const how = id => { const el = col.els.get(id); return !el || el.hidden ? (stack ? 'gathered' : 'hidden') : el.classList.contains('is-row') ? 'row' : el.classList.contains('is-open') ? 'open' : 'card' }
+  const by = {}
+  for (const c of cards) (by[c.kind] = by[c.kind] || []).push(how(c.id))
+  const stackText = stack?.innerText || ''
+  const named = kind => !by[kind]?.includes('gathered') || stackText.includes({ related: 'Related', figure: 'Figure' }[kind])
+  const ok = ['related', 'figure'].every(k => (by[k] || []).some(h => h === 'row' || h === 'gathered') && named(k)) && !!col.open && how(col.open) === 'open'
+  return { ok, by, stack: stackText.replace(/\s+/g, ' ').slice(0, 80) }
 }
 // The leader lines are attached: each dot is level with a passage in view and every card's label line has its line.
 function leadersAttached() {
@@ -1234,6 +1270,10 @@ async function columnMatrix(browser, origin) {
         // None open: opening one low on the screen scrolls its passage up and the others out of view.
         await page.evaluate(seedCards, { lines: 4, pairs: true, open: null, where: 'bottom' })
         await state('eight', [crowding, 8])
+        // Release train 2: C's Related and E's figure cards fold and gather under B's crowding rules like
+        // every other card: ten of them on five lines, one open, the oldest fold to rows, the last gather.
+        await page.evaluate(seedCards, { lines: 5, pairs: true, open: 4, where: 'middle', kinds: ['related', 'figure', 'explain'] })
+        await state('related-figure', foldedKinds)
         // A note on a crowded page: its card opens where the reader sees it, with the focus (never gathered, never lost).
         await page.evaluate(seedCards, { lines: 5, pairs: true, open: 0, where: 'middle' }); await settle(page)
         await page.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await settle(page)
@@ -1508,6 +1548,8 @@ async function figureMatrix(browser, origin) {
       // Detection: the labelled diagram (no row of circles is a figure alone), the block diagram beside text,
       // and the caption fallback for the table and for a figure larger than half the page.
       for (const n of [1, 2, 3, 4]) await show(n)
+      // Release train 2: on every page of the figure paper, PR F's reading order keeps out of the body only what PR E's detection holds as a figure or its caption.
+      for (const [n, labels] of [[1, ['Figure 1']], [2, ['Figure 2']], [3, ['Table 1']], [4, ['Figure 3']]]) { await show(n); await check(`order-${n}`, [figureOrderAgrees, [n, labels]]) }
       await check('detected', () => {
         const f = n => state.figs.get(n), cap = (n, label) => f(n).captions.find(c => c.label === label), fig = (n, label) => { const c = cap(n, label); return c && f(n).figures[c.fig] }
         const net = fig(1, 'Figure 1'), block = fig(2, 'Figure 2'), table = fig(3, 'Table 1'), big = fig(4, 'Figure 3')
@@ -1818,6 +1860,10 @@ async function longBooks(browser, origin) {
     const order = await a.evaluate(n => { const p = state.pages[n - 1]; const r = document.createRange(); r.selectNodeContents(p.layer); getSelection().removeAllRanges(); getSelection().addRange(r); const t = getSelection().toString().replace(/\s+/g, ' '); getSelection().removeAllRanges(); return t }, m.figurePage)
     const body = order.indexOf('a total of 198 input units that encode the backgammon position, a layer of hidden units, and one output unit that estimates the probability of winning from that position.')
     ok(`${tag}: reading order round a figure: the body reads straight through, the labels and caption after it`, body >= 0 && order.indexOf('predicted probability') > body + 200 && order.indexOf('Figure 16.1') > body && !/position with the (?:TD error|hidden units)/.test(order), order.slice(0, 400))
+    // Release train 2: E's figure detection finds Figure 16.1 where F's reading order took its labels and caption out of the body.
+    await a.waitForFunction(n => state.figs.has(n), m.figurePage, { timeout: 15000 }).catch(() => {})
+    const agree = await a.evaluate(figureOrderAgrees, [m.figurePage, ['Figure 16.1']])
+    ok(`${tag}: figure detection (PR E) and reading order (PR F) agree on the figure page: its labels and caption inside the figure found, no body line in it`, agree.ok, agree)
     // Copy quote names the printed page.
     await a.evaluate(() => getSelection().removeAllRanges())
     const picked = await selectText(a)

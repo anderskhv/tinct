@@ -127,7 +127,7 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-leads .is-folded { stroke-opacity: .45; fill-opacity: .45; }
 .mr-underline { text-decoration: underline; text-decoration-color: var(--mr-lead); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 /* crowding */
-.mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-muted); }
+.mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-hint); }   /* "N more on this page": at least 4.5:1 on the wash */
 /* column foot: whole-PDF ask */
 .mr-foot { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; align-items: center; gap: 14px; padding-top: 12px; border-top: 1px solid var(--mr-hair); color: var(--mr-faint); }
 .mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-hint); }

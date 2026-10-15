@@ -260,6 +260,28 @@
     return blocksOf(page).filter(b => !FURNITURE.has(b.t)).map(b => LINED.has(b.t) ? b.x.split('\n').map(l => l.trim()).filter(Boolean).join('\n') : b.x.replace(/\s+/g, ' ').trim()).join('\n\n');
   }
 
+  /**
+   * A recognised page's printed edges as pdf.js-like text items in a 1000×1000 page (FURNITURE_VIEW),
+   * for the printed page numbers (printed-pages.js candidates): every block with its box where it was
+   * printed; a running head, footer or page number without a box at the page's top or foot; and the
+   * number recognition read as the page's own (`printed_page`), at its foot. Neighbouring pages must
+   * still agree before any of them is a label.
+   */
+  const FURNITURE_VIEW = [0, 0, 1000, 1000];
+  function furnitureItems(page) {
+    const out = [];
+    for (const b of blocksOf(page)) {
+      const box = Array.isArray(b.b) && b.b.length === 4 && b.b.every(Number.isFinite) ? b.b : null;
+      if (!box && !FURNITURE.has(b.t)) continue;
+      const [x0, y0, , y1] = box || (b.t === 'head' ? [100, 15, 900, 30] : [450, 970, 550, 985]);
+      const size = Math.max(1, y1 - y0);
+      for (const line of b.x.split('\n').map(l => l.trim()).filter(Boolean).slice(0, 4)) out.push({ str: line, transform: [size, 0, 0, size, x0, 1000 - y1], width: 0, height: size, hasEOL: true });
+    }
+    const own = typeof page?.printed_page === 'string' ? page.printed_page.trim() : '';
+    if (own && !out.some(it => it.str === own)) out.push({ str: own, transform: [12, 0, 0, 12, 480, 20], width: 0, height: 12, hasEOL: true });
+    return out;
+  }
+
   /** Ink of a page image (RGBA): 1 where a pixel is well darker than the paper (its median grey). */
   function inkMask(data, w, h) {
     const n = w * h, grey = new Uint8Array(n), counts = new Uint32Array(256);
@@ -485,6 +507,6 @@
     RENDER_EDGE, JPEG_QUALITY, BLANK_INK, INK_LEVEL, PARALLEL, POLL_MS,
     FREE_LINE, READY, SHELF, LATER,
     view, shelfLine, toSend, upload, run, defaultEdition, greyInk, faintInk, isBlank, renderPage, api, canStart,
-    pageText, inkMask, findLines, layoutPage, textItems,
+    pageText, inkMask, findLines, layoutPage, textItems, furnitureItems, FURNITURE_VIEW,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

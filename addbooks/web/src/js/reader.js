@@ -1124,6 +1124,8 @@ function ocrAdopt(list) {
   state.ocrPages = pages;
   for (const n of pages.keys()) state.texts.delete(n);
   docCache.key = null; docCache.task = null;
+  // The whole-book read (search, printed numbers) starts again from the recognised text (readBook).
+  if (state.pdf) state.labelsTask = pageLabels(state.pdf, state.key, state.token).catch(() => {});
   // Drawn pages get their text layer now (drawn again, with it).
   for (const p of state.pages) if (p.canvas && pages.has(p.n)) { p.renderedWidth = 0; renderPage(p) }
   applyBookLanguage();
@@ -2522,7 +2524,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015marginc2').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015train2').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 /* The margin for EPUBs read here (FIXES-2026-10-15 PR C) is built but OFF (Anders, 15 Oct 2026: "Keep it
    pdf for now. Later the margin reader will be available for all books."). Off, an EPUB behaves exactly as
@@ -2577,20 +2579,23 @@ async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
    (js/printed-pages.js), what kind of page it is (an index, a reference list, a contents page) and a
    search index over the text (js/doc-search.js). Only text is kept, not the pages' items, so a
    500-page book stays light. */
-const book = { key: null, pdf: null, task: null, texts: [], numbers: [], matter: [], index: null };
+// A recognised scan (PR D) is read from its recognised pages: their text is what is searched and sent,
+// and the heads and feet recognition found give its printed numbers (TinctPdfOcr.furnitureItems).
+const book = { key: null, pdf: null, ocr: null, task: null, texts: [], numbers: [], matter: [], index: null };
 function readBook() {
-  if (book.key === state.key && book.pdf === state.pdf && book.task) return book.task;
-  const key = state.key, pdf = state.pdf;
+  if (book.key === state.key && book.pdf === state.pdf && book.ocr === (state.ocrPages || null) && book.task) return book.task;
+  const key = state.key, pdf = state.pdf, ocr = state.ocrPages || null;
   if (!pdf || isEpub()) return Promise.resolve(null);
-  Object.assign(book, { key, pdf, texts: [], numbers: [], matter: [], index: window.TinctDocSearch ? TinctDocSearch.create() : null });
+  Object.assign(book, { key, pdf, ocr, texts: [], numbers: [], matter: [], index: window.TinctDocSearch ? TinctDocSearch.create() : null });
   const task = (async () => {
     for (let n = 1; n <= pdf.numPages; n++) {
-      if (state.pdf !== pdf) return null;
-      const have = state.texts.get(n), page = await pdf.getPage(n);
-      const items = have ? have.items : (await page.getTextContent()).items;
-      const text = have ? have.text : textOf(items, page.view).text;
+      if (state.pdf !== pdf || (state.ocrPages || null) !== ocr) return null;
+      const recognised = ocr?.get(n) && window.TinctPdfOcr ? ocr.get(n) : null;
+      const have = recognised ? null : state.texts.get(n), page = recognised ? null : await pdf.getPage(n);
+      const items = recognised ? TinctPdfOcr.furnitureItems(recognised) : have ? have.items : (await page.getTextContent()).items;
+      const text = recognised ? TinctPdfOcr.pageText(recognised) : have ? have.text : textOf(items, page.view).text;
       book.texts[n - 1] = text;
-      book.numbers[n - 1] = window.TinctPrintedPages ? TinctPrintedPages.candidates(items, page.view) : [];
+      book.numbers[n - 1] = window.TinctPrintedPages ? TinctPrintedPages.candidates(items, recognised ? TinctPdfOcr.FURNITURE_VIEW : page.view) : [];
       book.matter[n - 1] = TinctMargin.pageMatter(text);
       book.index?.add(n, text);
     }
@@ -2610,12 +2615,14 @@ async function pageLabels(pdf, key, token) {
   if (token !== state.token) return;
   if (Array.isArray(own) && own.length === pdf.numPages) return use(own);
   if (!window.TinctPrintedPages) return;
+  // A recognised scan's numbers are found again once its text is recognised (`ocr`, the pages recognised).
+  const ocr = state.ocrPages ? state.ocrPages.size : 0;
   const kept = store.get('printed:' + key);
-  if (kept?.v === PRINTED_V && kept.pages === pdf.numPages) { if (Array.isArray(kept.labels) && kept.labels.length === pdf.numPages) use(kept.labels); return }
+  if (kept?.v === PRINTED_V && kept.pages === pdf.numPages && (kept.ocr || 0) === ocr) { if (Array.isArray(kept.labels) && kept.labels.length === pdf.numPages) use(kept.labels); return }
   const read = await readBook();
   if (!read || token !== state.token) return;
   const labels = TinctPrintedPages.labels(read.numbers);
-  store.set('printed:' + key, { v: PRINTED_V, pages: pdf.numPages, labels });
+  store.set('printed:' + key, { v: PRINTED_V, pages: pdf.numPages, labels, ...(ocr ? { ocr } : {}) });
   if (labels) use(labels);
 }
 /* The whole file as the margin's companion reads it (docs/margin/FIXES-2026-10-15.md A1): every page's

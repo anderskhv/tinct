@@ -137,7 +137,10 @@
     // Labels beside wrapped text: anything inside a wrap zone that is not the body's own line.
     const zones = wrapZones(cols, size);
     const inZone = s => zones.some(z => (s.x + s.x2) / 2 >= z.x0 && (s.x + s.x2) / 2 <= z.x1 && s.y >= z.y0 && s.y <= z.y1);
-    for (const s of segs) if (!s.role && !edge(s) && inZone(s) && !atColumn(s)) mark(s, 'figure');
+    // A label of smaller type can stand at a column's left edge inside the zone (ResNet's "relu" under
+    // its boxes, in the figure paper): a figure's label as PR E's detection takes it, never body text.
+    const label = s => s.size < size * 0.88 && s.chars <= 40;
+    for (const s of segs) if (!s.role && !edge(s) && inZone(s) && (!atColumn(s) || label(s))) mark(s, 'figure');
     // On a page with a caption: short lines of smaller type standing on their own (a diagram's labels, a plot's ticks).
     if (captioned) for (const s of segs) {
       if (s.role || edge(s) || atColumn(s) || s.size >= size * 0.88 || s.chars > 40) continue;

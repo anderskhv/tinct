@@ -291,7 +291,7 @@
     ph.appendChild(el);
   }
   async function pr2() {
-    [P, TC] = await Promise.all([import('/lab/margin/margin-parse.js?v=20261015marginc2'), import('/lab/chat-thread.js')]);
+    [P, TC] = await Promise.all([import('/lab/margin/margin-parse.js?v=20261015train2'), import('/lab/chat-thread.js')]);
     document.querySelectorAll('[data-desk="trigger"], [data-desk="primer"], [data-desk="trigger-cards"], [data-desk^="primer-"]').forEach(primerDesk);
     document.querySelectorAll('[data-ph="g"], [data-ph="h"], [data-ph="i"]').forEach(primerPhone);
     document.querySelectorAll('[data-desk="margin"], [data-desk="overlap"], [data-desk="marks"]').forEach(desk);

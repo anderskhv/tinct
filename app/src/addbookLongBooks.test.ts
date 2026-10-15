@@ -23,7 +23,7 @@ const VENDOR = ROOT + 'app/public/lab/addbook/vendor/pdfjs/'
 type Item = { str: string; transform: number[]; width: number; height: number; hasEOL: boolean }
 type Unit = { key: string; title: string; from: number; start: number; to: number; matter?: string }
 interface Search { create(): { add(page: number, text: string): void; search(q: string, o?: { limit?: number; skip?: Set<number> | null }): Array<{ page: number; text: string; score: number }>; size: number }; queryTerms(q: string): string[]; stem(w: string): string }
-interface Order { roles(items: Item[], view?: number[] | null): Array<string | null>; pageText(items: Item[], roles?: Array<string | null>): string }
+interface Order { roles(items: Item[], view?: number[] | null): Array<string | null>; pageText(items: Item[], roles?: Array<string | null>): string; CAPTION: RegExp }
 interface Printed { candidates(items: Item[], view: number[]): Array<{ value: number; roman: boolean }>; labels(perPage: Array<Array<{ value: number; roman: boolean }>>): string[] | null }
 interface Margin {
   primerUnits(entries: unknown[], count: number): Unit[]
@@ -31,13 +31,16 @@ interface Margin {
   unitAt(units: Unit[], page: number): Unit | null
   pageMatter(text: string): string | null
   matterOf(title: string): string | null
+  captionOf(text: string): { kind: string; n: string; label: string } | null
 }
 interface Meta { offset: number; pages: number; sarsaPage: number; figurePage: number; chapters: Array<{ title: string; from: number; to: number }>; refsFrom: number; indexFrom: number }
 type Pdf = { numPages: number; getPage(n: number): Promise<{ view: number[]; getTextContent(): Promise<{ items: Item[] }> }>; getOutline(): Promise<Array<{ title: string; dest: unknown; items: unknown[] }>>; getDestination(d: string): Promise<unknown[]>; getPageIndex(ref: unknown): Promise<number>; getPageLabels(): Promise<string[] | null>; destroy(): Promise<void> }
 
-let S: Search, R: Order, P: Printed, M: Margin
+type OcrPage = { page: number; printed_page?: string | null; blocks: Array<{ t: string; x: string; b?: number[] }> }
+interface Ocr { furnitureItems(page: OcrPage): Item[]; FURNITURE_VIEW: number[]; pageText(page: OcrPage): string }
+let S: Search, R: Order, P: Printed, M: Margin, O: Ocr
 let pdfjs: { getDocument(o: unknown): { promise: Promise<Pdf> } }
-let maker: { longBook(o: { meta: true }): { bytes: Buffer; meta: Meta }; pdfFixtures(): Record<string, Buffer>; proseBook(o?: unknown): Buffer }
+let maker: { longBook(o: { meta: true }): { bytes: Buffer; meta: Meta }; pdfFixtures(): Record<string, Buffer>; proseBook(o?: unknown): Buffer; figurePaper(): Buffer }
 let book: { meta: Meta; pdf: Pdf; pages: Array<{ items: Item[]; view: number[] }> }
 
 const open = (bytes: Buffer) => pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true, verbosity: 0 }).promise
@@ -57,9 +60,9 @@ beforeAll(async () => {
   console.log = quiet
   pdfjs = (globalThis as unknown as { pdfjsLib: typeof pdfjs }).pdfjsLib
   ;(globalThis as unknown as { window: unknown }).window = globalThis
-  for (const f of ['doc-search.js', 'reading-order.js', 'printed-pages.js', 'margin.js']) require(ROOT + 'app/public/lab/addbook/js/' + f)
-  const g = globalThis as unknown as { TinctDocSearch: Search; TinctReadingOrder: Order; TinctPrintedPages: Printed; TinctMargin: Margin }
-  S = g.TinctDocSearch; R = g.TinctReadingOrder; P = g.TinctPrintedPages; M = g.TinctMargin
+  for (const f of ['doc-search.js', 'reading-order.js', 'printed-pages.js', 'margin.js', 'pdf-ocr.js']) require(ROOT + 'app/public/lab/addbook/js/' + f)
+  const g = globalThis as unknown as { TinctDocSearch: Search; TinctReadingOrder: Order; TinctPrintedPages: Printed; TinctMargin: Margin; TinctPdfOcr: Ocr }
+  S = g.TinctDocSearch; R = g.TinctReadingOrder; P = g.TinctPrintedPages; M = g.TinctMargin; O = g.TinctPdfOcr
   maker = await import(/* @vite-ignore */ pathToFileURL(ROOT + 'addbooks/web/test/make-pdf.mjs').href)
   const made = maker.longBook({ meta: true })
   const pdf = await open(made.bytes)
@@ -269,5 +272,72 @@ describe('reading order round a figure (js/reading-order.js)', () => {
     const line = (str: string, y: number, x = 72): Item => ({ str, transform: [11, 0, 0, 11, x, y], width: str.length * 5, height: 11, hasEOL: true })
     const items = Array.from({ length: 12 }, (_, k) => line(k === 5 ? 'Figure 3 shows the return rate for every chapter of the book we read.' : `Body line ${k} of running text that fills the column to its right edge.`, 700 - k * 14))
     expect(R.roles(items, view).every(r => r === 'body')).toBe(true)
+  })
+})
+
+describe('a recognised scan in the whole-book read (PR D with PR F)', () => {
+  // Twelve recognised pages of an essay printed from page 41: the body, a running head on even pages,
+  // the page number at the foot (with its box, as recognition gives it since 15 Oct 2026).
+  const scan = (opts: { boxes?: boolean; printedOnly?: boolean; offset?: number } = {}): OcrPage[] => Array.from({ length: 12 }, (_, i) => {
+    const n = i + 1, printed = String(n + (opts.offset ?? 40)), box = (b: number[]) => (opts.boxes === false ? {} : { b })
+    const blocks: OcrPage['blocks'] = [{ t: 'p', x: `Page ${n} of the essay on ${n === 7 ? 'eligibility traces and their decay' : 'reading and return'}.`, ...box([100, 120, 900, 860]) }]
+    if (opts.printedOnly) return { page: n, printed_page: printed, blocks }
+    if (n % 2 === 0) blocks.unshift({ t: 'head', x: `${printed} The Essay`, ...box([100, 40, 600, 58]) })
+    blocks.push({ t: 'num', x: printed, ...box([480, 950, 520, 966]) })
+    return { page: n, printed_page: null, blocks }
+  })
+  const labelsOf = (pages: OcrPage[]) => P.labels(pages.map(pg => P.candidates(O.furnitureItems(pg), O.FURNITURE_VIEW)))
+  it('its heads and feet give printed page numbers, with boxes, without them, or from the page number recognition read', () => {
+    const want = Array.from({ length: 12 }, (_, i) => String(i + 41))
+    expect(labelsOf(scan())).toEqual(want)
+    expect(labelsOf(scan({ boxes: false }))).toEqual(want)
+    expect(labelsOf(scan({ printedOnly: true }))).toEqual(want)
+  })
+  it('a scan that prints its file page numbers gets no labels, as a PDF with text does', () => {
+    expect(labelsOf(scan({ offset: 0 }))).toBeNull()
+  })
+  it('its recognised text is what the whole-book search finds, without the heads and feet', () => {
+    const pages = scan(), index = S.create()
+    pages.forEach(pg => index.add(pg.page, O.pageText(pg)))
+    const hits = index.search('where are eligibility traces discussed?', { limit: 3 })
+    expect(hits[0].page).toBe(7)
+    expect(O.pageText(pages[1])).not.toContain('The Essay')
+  })
+})
+
+describe('one notion of a figure: PR E\'s detection and PR F\'s reading order', () => {
+  // E finds figures from the page's ink (in the browser: margin-check `figures` and `long` compare the
+  // two on the drawn pages); here, the text both read: the same caption lines, and the labels F keeps
+  // out of the body are the figure paper's labels, the ones E's detection keeps inside its figures.
+  const figurePages = async () => readAll(await open(maker.figurePaper()))
+  const captionLines = (items: Item[], roles: Array<string | null>) => ({
+    e: items.filter(it => M.captionOf(it.str)).map(it => it.str),
+    f: items.filter((it, i) => roles[i] === 'caption' && R.CAPTION.test(it.str.trim())).map(it => it.str),
+  })
+  it('the same lines start a caption on the figure paper and on the long book\'s figure page', async () => {
+    const pages = [...(await figurePages()), book.pages[book.meta.figurePage - 1]]
+    for (const [i, { items, view }] of pages.entries()) {
+      const { e, f } = captionLines(items, R.roles(items, view))
+      expect(f, `page ${i + 1}`).toEqual(e)
+      expect(e.length, `page ${i + 1}`).toBe(1)
+    }
+  })
+  it('the labels F keeps out of the body are the diagrams\' own labels, and no running text', async () => {
+    const pages = await figurePages()
+    const moved = pages.map(({ items, view }) => { const roles = R.roles(items, view); return items.filter((_, i) => roles[i] === 'figure').map(it => it.str) })
+    expect(moved[0]).toEqual(['predicted probability of winning', 'hidden units (40-80)', 'backgammon position (198 input units)'])
+    // ResNet's block diagram at the page's left edge: "relu" stands at the body's left edge, under the boxes.
+    expect(moved[1]).toEqual(['weight layer', 'weight layer', 'relu', 'relu', 'x', 'F(x) + x'])
+    expect(moved[3]).toEqual([])
+  })
+  it('running text that names a figure starts no caption for either', () => {
+    for (const t of ['Figure 3 shows the return rate for every chapter.', 'Table 2 lists the runs we kept.', 'Fig. 4 is drawn to scale.']) {
+      expect(M.captionOf(t), t).toBeNull()
+      expect(R.CAPTION.test(t), t).toBe(false)
+    }
+    for (const t of ['Figure 16.1: The TD-Gammon neural', 'Fig. 3. The block', 'Table 1. Error rates', 'Figure 2: Residual learning']) {
+      expect(M.captionOf(t), t).not.toBeNull()
+      expect(R.CAPTION.test(t), t).toBe(true)
+    }
   })
 })
