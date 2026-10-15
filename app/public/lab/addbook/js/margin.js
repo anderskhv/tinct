@@ -113,6 +113,20 @@
     const t = String(text || '').trim().replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '');
     return t.length >= 2 && t.length <= 40 && WORD.test(t) ? t : null;
   }
+  /**
+   * Double-click on a word that is part of a hyphenated compound ("auto-regressive"): the browser
+   * selects only "regressive". -> the compound's [start, end) in `text` around the selected
+   * [start, end), or null when the word is not joined by a hyphen to another (FIXES, deep test).
+   */
+  function hyphenWord(text, start, end) {
+    const t = String(text || ''), L = /[\p{L}\p{M}\p{N}]/u, H = /[-\u2010\u2011]/;
+    while (end > start && /\s/.test(t[end - 1])) end--;
+    if (end <= start || !/^[\p{L}\p{M}\p{N}]+$/u.test(t.slice(start, end))) return null;
+    let s = start, e = end;
+    for (;;) { if (s >= 2 && H.test(t[s - 1]) && L.test(t[s - 2])) { s -= 1; while (s > 0 && L.test(t[s - 1])) s--; } else break }
+    for (;;) { if (e + 1 < t.length && H.test(t[e]) && L.test(t[e + 1])) { e += 1; while (e < t.length && L.test(t[e])) e++; } else break }
+    return s === start && e === end ? null : [s, e];
+  }
   /** A capitalised word that does not start a sentence: a name, so Define asks the companion. */
   function nameMidSentence(word, before) {
     if (!/^\p{Lu}/u.test(word || '') || /^\p{Lu}+$/u.test(word)) return false;
@@ -253,11 +267,17 @@
    * The Define card. d: { word, pos, source ('Dictionary' or ''), senses: [{ text, fit }], line
    * (one paragraph instead of senses), wait (true while the companion answers) }.
    */
+  /**
+   * The Define card. `d.inText`: the meaning in this passage from the companion's `define`, shown
+   * first under "In this text" when the dictionary has no sense that fits (or lacks the word), with
+   * the dictionary's senses below it; offline, the dictionary alone.
+   */
   function defineHtml(d, o) {
     const senses = (d.senses || []).slice(0, 3);
+    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${esc(d.inText)}</p>` : '';
     const body = d.wait ? '<p class="mr-define__wait"></p>'
-      : senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
-        : d.line ? `<p>${esc(d.line)}</p>` : '';
+      : inText + (senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
+        : d.line ? `<p>${esc(d.line)}</p>` : '');
     return `<div class="mr-define__body"><div class="mr-define__word">${esc(d.word)}<i class="mr-define__pos">${esc(d.pos || '')}</i><span class="mr-define__src">${esc(d.source || '')}</span></div>${body}</div>`
       + `<div class="mr-define__foot">${middleHtml({ ...o, caret: false })}<span class="mr-bar__sep" aria-hidden="true"></span>${dotHtml(o.colors, o.current, o)}</div>`;
   }
@@ -490,7 +510,7 @@
   function foldText(card, P) {
     const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
     if (card.kind === 'note') return plain(card.note);
-    if (card.kind === 'define') { const d = card.data || {}; return plain((d.senses || [])[0]?.text || d.line || '') }
+    if (card.kind === 'define') { const d = card.data || {}; return plain(d.inText || (d.senses || [])[0]?.text || d.line || '') }
     if (card.kind === 'quiz') {
       const q = card.data || {}, n = q.questions?.length || 0;
       if (q.done) return `${quizScore(q)} of ${n}`;
@@ -563,9 +583,11 @@
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
-      body += senses.length
-        ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
-        : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
+      body += q.inText
+        ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
+        : senses.length
+          ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
+          : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
     }
     const turns = [...(card.turns || [])];
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
@@ -707,5 +729,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, selectionKey, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
 });

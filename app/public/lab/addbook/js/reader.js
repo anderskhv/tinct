@@ -633,6 +633,15 @@ function selectionShapes(range) {
   const inBox = r => boxes.some(b => { const cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2; return cx >= b.left && cx <= b.right && cy >= b.top && cy <= b.bottom });
   return [...lineBars(rects.filter(r => !inBox(r))), ...boxes];
 }
+// Double-click on part of a hyphenated word ("auto-regressive") selects the whole word, in a PDF's
+// text layer and an EPUB's text alike (the browser stops at the hyphen).
+document.addEventListener('dblclick', () => {
+  const s = getSelection(); if (!s.rangeCount) return;
+  const r = s.getRangeAt(0), node = r.startContainer;
+  if (node.nodeType !== 3 || r.endContainer !== node || !node.parentElement?.closest('.text-layer, .epub-pg')) return;
+  const span = TinctMargin.hyphenWord(node.textContent, r.startOffset, r.endOffset); if (!span) return;
+  s.setBaseAndExtent(node, span[0], node, span[1]);
+});
 // Double-click a formula to select all of it.
 document.addEventListener('dblclick', e => {
   const p = pageForPoint(e.clientX, e.clientY); if (!p?.blocks?.length || !p.layer) return;
@@ -2146,15 +2155,23 @@ async function mrDefine(word) {
     const info = mr.info, anchor = mr.anchor, def = mr.def;
     const n = await fittingSense(hit.word, def.senses.map(x => x.text), info);
     if (n > 0) def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
+    // None fits (a technical term the dictionary knows only in its everyday senses): the meaning in
+    // this text from the companion's `define` comes first, the dictionary's senses below it.
+    if (n === 0) {
+      try {
+        const found = await defineByCompanion(word, info);
+        if (found?.line) { def.inText = found.line; if (found.pos) def.pos = found.pos }
+      } catch { /* the dictionary alone */ }
+    }
     keepDefine(def, info, anchor);
-    if (mr?.defToken === token && n > 0) mrShow('define');
+    if (mr?.defToken === token && (n > 0 || def.inText)) mrShow('define');
     return;
   }
   if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
   try {
     const found = await defineByCompanion(word, mr.info);
     if (mr?.defToken !== token) return;
-    mr.def = found ? { word: found.word || word, pos: found.pos || '', line: found.line } : { word, line: errorCopy(null) };
+    mr.def = found ? { word: found.word || word, pos: found.pos || '', inText: found.line } : { word, line: errorCopy(null) };
     if (found) keepDefine(mr.def, mr.info, mr.anchor);
   } catch (e) {
     if (mr?.defToken !== token) return;
@@ -2734,7 +2751,10 @@ function wholeTurns() {
 }
 function drawWhole(el, { sheet = false } = {}) {
   const open = sheet || col.open === 'whole', turns = wholeTurns();
-  const body = TC ? TinctMargin.html.threadHtml(TC.threadRows(turns), turns, { P: MP.P, resolve: citeResolve }) : '';
+  // Before the shared thread module has loaded, the turns in order (no dividers); it redraws with them.
+  const rows = TC ? TC.threadRows(turns) : turns.map((_, index) => ({ type: 'turn', index }));
+  if (!TC) tcReady.then(() => marginLayout());
+  const body = MP.P ? TinctMargin.html.threadHtml(rows, turns, { P: MP.P, resolve: citeResolve }) : '';
   const tray = chat.attach.length ? `<div class="byob-tray">${trayChips()}</div>` : '';
   const sig = JSON.stringify([open, sheet, body.length, body.slice(-200), tray.length, !!chat.live, col.whole.status || '']);
   if (el.dataset.sig === sig) return;
@@ -2767,7 +2787,12 @@ function openWhole(opts = {}) {
     saveTurns();
   }
   if (marginMode() === 'phone') { col.open = 'whole'; openSheet2('whole') }
-  else openCard('whole');
+  else {
+    openCard('whole');
+    // The earlier conversation shows at once, drawn now from this browser's copy, not a frame later.
+    if (col.raf) { cancelAnimationFrame(col.raf); col.raf = 0 }
+    try { layoutNow() } catch (e) { console.error(e) }
+  }
   if (opts.prompt) ask(opts.prompt, opts.display);
   else if (!opts.quiet) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector('.mr-follow__input')?.focus({ preventScroll: true })));
 }
@@ -2947,22 +2972,25 @@ async function quizCheck(card, answer) {
   }
 }
 /** define_sense: the sense that fits this passage, within 1.5 s; else the dictionary's order stands. -> 1-based, or 0 */
+/** The dictionary sense that fits the passage (1-based), 0 when the companion says none does, or null when it was not asked or did not answer (offline, one sense, too slow). */
 async function fittingSense(word, senses, info) {
-  if (navigator.onLine === false || senses.length < 2 || !window.TinctAI?.companion) return 0;
-  await mpReady; if (!MP.P) return 0;
+  if (navigator.onLine === false || !senses.length || !window.TinctAI?.companion) return null;
+  await mpReady; if (!MP.P) return null;
   const ctl = new AbortController();
   const timer = new Promise(r => setTimeout(() => { ctl.abort(); r(null) }, 1500));
   try {
     const pdf = await pdfPages(info.page, { before: 0, after: 0 });
     const res = await Promise.race([TinctAI.companion('define_sense', { book: { ...aiBook(), pdf }, pdf, selection: word, senses, signal: ctl.signal }), timer]);
-    return res ? MP.P.parseDefineSense(res.text, senses.length) || 0 : 0;
-  } catch { return 0 }
+    if (!res) return null;
+    const n = MP.P.parseDefineSense(res.text, senses.length);
+    return Number.isInteger(n) ? n : null;
+  } catch { return null }
 }
 /** The Define card's result kept as a card (one per word and passage). */
 function keepDefine(def, info, anchor) {
-  if (!marginOn() || !def || (!def.senses?.length && !def.line)) return;
+  if (!marginOn() || !def || (!def.senses?.length && !def.line && !def.inText)) return;
   const existing = keptCards().find(c => c.kind === 'define' && !c.gone && c.page === info.page && c.text === info.text.slice(0, 2000));
-  const data = { word: def.word, pos: def.pos || '', senses: (def.senses || []).map(s => ({ text: s.text })), ...(def.line ? { line: def.line } : {}) };
+  const data = { word: def.word, pos: def.pos || '', senses: (def.senses || []).map(s => ({ text: s.text })), ...(def.line ? { line: def.line } : {}), ...(def.inText ? { inText: def.inText } : {}) };
   const card = existing || TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text });
   if (existing && JSON.stringify(existing.data) === JSON.stringify(data)) return;
   card.data = data;

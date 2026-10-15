@@ -225,6 +225,11 @@ button.mr-swatch { padding: 0; }
 .mr-define__body p { margin: 6px 0 0; font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
 .mr-define__body .tinct-wait { margin-top: 8px; }
 .mr-define__senses { list-style: decimal; }
+/* "In this text": the meaning in this passage (the companion's), first; the dictionary's senses below it. */
+.mr-define__in { margin: 6px 0 0; font-size: 16px; line-height: 1.45; color: var(--mr-bar-ink); }
+.mr-define__label { display: block; font: 12px var(--mr-ui); color: var(--mr-bar-soft); }
+.mr-card .mr-define__label { margin: 0 0 2px; color: var(--mr-muted); }
+.mr-card .mr-define__sense { color: var(--mr-muted); }
 .mr-define__senses li::marker { font-size: 13px; }
 .mr-define__foot .mr-bar__item { height: 34px; }
 .mr-define__foot svg { width: 16px; height: 16px; fill: none; stroke: var(--mr-bar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }

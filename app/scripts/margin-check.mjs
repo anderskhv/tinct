@@ -408,6 +408,10 @@ async function behaviour(browser, origin) {
   ok('"/" sends the whole-file question: scope "whole", every page of the PDF, never the page alone', whole?.body?.companion?.scope === 'whole' && whole.body.companion.context.pages.length === pageCount && !/say when something is not on these pages/.test(JSON.stringify(whole.body.messages)), { scope: whole?.body?.companion?.scope, pages: whole?.body?.companion?.context?.pages?.length, pageCount })
   ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
   await fresh(a)
+  // Reopened, the Whole PDF card shows its earlier conversation at once (the same task, no frame later).
+  await a.evaluate(() => { openCard(null) }); await a.waitForTimeout(300)
+  const atOnce = await a.evaluate(() => { openWhole({ quiet: true }); return document.querySelector('.mr-col .mr-card.is-whole.is-open')?.innerText || '' })
+  ok('the Whole PDF card shows its earlier conversation the moment it opens', /What is this about\?/.test(atOnce) && /MOCK ANSWER/.test(atOnce), atOnce.slice(0, 200))
   await fresh(a)
   // The dot: one tap highlights in the default colour; a second tap opens the colours; picking sets the default.
   await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-bar')
@@ -491,7 +495,7 @@ async function behaviour(browser, origin) {
       if (await C.page.$('.mr-define__senses li')) break
       await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     }
-    ok('one word opens Define with dictionary senses, network off', (await C.page.$$('.mr-define__senses li')).length >= 1 && (await C.page.textContent('.mr-define__src')) === 'Dictionary', { word, card: await C.page.evaluate(() => document.querySelector('.mr-float')?.innerText) })
+    ok('one word opens Define with dictionary senses, network off (the dictionary alone: no "In this text")', (await C.page.$$('.mr-define__senses li')).length >= 1 && (await C.page.textContent('.mr-define__src')) === 'Dictionary' && !(await C.page.$('.mr-define__in')), { word, card: await C.page.evaluate(() => document.querySelector('.mr-float')?.innerText) })
     await C.page.evaluate(() => mrDefine('Qzxwvk')); await C.page.waitForTimeout(800)
     ok('offline, a word the dictionary lacks: “Not in the offline dictionary.” with Ask beneath', (await C.page.textContent('.mr-define__body p')) === 'Not in the offline dictionary.' && await C.page.isVisible('.mr-define__foot [data-m="ask"]'))
     await C.ctx.setOffline(false)
@@ -511,6 +515,32 @@ async function behaviour(browser, origin) {
       await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     }
     ok('a defined word is kept as a Define card in the margin', await C.page.evaluate(() => keptCards().some(c => c.kind === 'define')))
+    // No dictionary sense fits (define_sense answers 0, as for "attention" in a paper): the companion's
+    // meaning in this text comes first, under "In this text", the dictionary's senses below it.
+    let inText = null
+    for (let tries = 0; tries < 6 && !inText; tries++) {
+      mock.next = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
+      await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2200)
+      const asked = account.requests.slice(n5).map(r => r.body?.companion?.intent)
+      inText = asked.includes('define_sense') ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, senses: d.querySelectorAll('.mr-define__senses li').length, first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING, kept: keptCards().some(c => c.kind === 'define' && /mocked meaning/.test(c.data?.inText || '')) } }) : null
+      mock.next = null
+      if (inText) ok('no sense fits: the companion\'s define asked, "In this text" first with its meaning, the dictionary\'s senses below; kept on the card', asked.includes('define') && inText.label === 'In this text' && /mocked meaning/.test(inText.text) && inText.senses >= 1 && !!inText.first && inText.kept, { asked, inText })
+      await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    }
+    if (!inText) ok('no sense fits: "In this text" first', false, 'no dictionary word found to select')
+    // Double-click on half of a hyphenated word selects all of it ("auto-regressive" was looked up as "regressive").
+    const hy = await C.page.evaluate(() => {
+      const span = [...document.querySelectorAll('.pdf-sheet .text-layer span')].find(s => { const r = s.getBoundingClientRect(); return /\bself-evident\b/.test(s.textContent) && r.top > 80 && r.bottom < innerHeight - 20 })
+      if (!span) return null
+      const node = span.firstChild, at = node.textContent.indexOf('self-evident') + 5, range = document.createRange(); range.setStart(node, at); range.setEnd(node, at + 7)
+      const r = range.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }
+    })
+    if (hy) {
+      await C.page.mouse.dblclick(hy.x, hy.y); await C.page.waitForTimeout(150)
+      const got = await C.page.evaluate(() => getSelection().toString())
+      ok('double-click on part of a hyphenated word selects the whole word ("self-evident", not "evident")', got === 'self-evident', got)
+    } else ok('double-click on a hyphenated word', false, 'no "self-evident" in view')
+    await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     await C.ctx.close()
   }
   // The phone: an answer opens as a card along the bottom with the passage underlined above it; tapping the page closes it.

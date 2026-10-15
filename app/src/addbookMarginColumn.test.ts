@@ -5,6 +5,7 @@
  * over the kept answers and noted highlights, merged across devices) and the cards' markup.
  * No network and no AI.
  */
+// @vitest-environment jsdom
 import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
@@ -20,6 +21,7 @@ interface MarginApi {
   COLUMN_RESERVE: number
   placeCards(passages: Array<{ id: string; top: number; at?: number; fold?: boolean }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number; top?: number; rowHeight?: number }): Placed
   leadPath(x0: number, y0: number, x1: number, y1: number): string
+  hyphenWord(text: string, start: number, end: number): [number, number] | null
   columnBox(width: number, pageRight: number): { left: number; width: number } | null
   citeTarget(token: Token, o: { labels?: string[] | null; count?: number; texts?: Map<number, string> | null }): { page: number; needle: string } | null
   cardView(cards: Card[], marks: Array<Record<string, unknown>>): Card[]
@@ -33,6 +35,7 @@ interface MarginApi {
     factcheckHtml(text: string, p: typeof P, o?: Record<string, unknown>): { answer: string; sources: string }
     stackHtml(cards: Array<{ kind: string }>, max?: number): string
     foldText(card: Card, p: typeof P): string
+    defineHtml(d: Record<string, unknown>, o: Record<string, unknown>): string
     threadHtml(rows: unknown[], turns: unknown[], o: Record<string, unknown>): string
   }
 }
@@ -292,3 +295,34 @@ describe('the card store', () => {
   })
 })
 
+describe('Define and the hyphenated word (the deep test, 15 Oct)', () => {
+  it('a double-click on part of a hyphenated word widens to the whole word', () => {
+    const t = 'an auto-regressive model, self-evident; not - this'
+    const at = (w: string, from = 0) => { const i = t.indexOf(w, from); return [i, i + w.length] as const }
+    expect(M.hyphenWord(t, ...at('regressive'))).toEqual(at('auto-regressive'))
+    expect(M.hyphenWord(t, ...at('auto'))).toEqual(at('auto-regressive'))
+    expect(M.hyphenWord(t, ...at('evident'))).toEqual(at('self-evident'))
+    // A trailing space from the double-click is dropped; plain words and a spaced dash stay as they are.
+    const [s0, e0] = at('regressive'); expect(M.hyphenWord(t, s0, e0 + 1)).toEqual(at('auto-regressive'))
+    expect(M.hyphenWord(t, ...at('model'))).toBeNull()
+    expect(M.hyphenWord(t, ...at('this'))).toBeNull()
+    expect(M.hyphenWord('state‑of‑the‑art', 6, 8)).toEqual([0, 16])
+  })
+  it('when no dictionary sense fits: "In this text" and its meaning first, the dictionary senses below; the part of speech when known', () => {
+    const div = document.createElement('div')
+    div.innerHTML = M.html.defineHtml({ word: 'attention', pos: 'noun', source: 'Dictionary', inText: 'A mechanism that weighs every position of a sequence against the others.', senses: [{ text: 'the work of providing treatment' }, { text: 'a courteous act' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold' })
+    const inText = div.querySelector('.mr-define__in')!
+    expect(inText.querySelector('.mr-define__label')?.textContent).toBe('In this text')
+    expect(inText.textContent).toBe('In this textA mechanism that weighs every position of a sequence against the others.')
+    expect(inText.compareDocumentPosition(div.querySelector('.mr-define__senses')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(div.querySelector('.mr-define__pos')?.textContent).toBe('noun')
+    // The dictionary alone (offline, or a sense fits): no "In this text".
+    div.innerHTML = M.html.defineHtml({ word: 'attention', source: 'Dictionary', senses: [{ text: 'the work of providing treatment' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold' })
+    expect(div.querySelector('.mr-define__in')).toBeNull()
+    // The kept card: "In this text" first, folded to its meaning.
+    const card = M.newCard({ kind: 'define', page: 3, anchor: [{ n: 3, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }], text: 'attention', data: { word: 'attention', senses: [{ text: 'a courteous act' }], inText: 'A mechanism that weighs positions.' } })
+    div.innerHTML = M.html.cardHtml(card, { open: true, P, pageLabel: '3' })
+    expect([...div.querySelectorAll('.mr-answer p')].map(p => p.textContent)).toEqual(['In this text', 'A mechanism that weighs positions.', 'a courteous act'])
+    expect(M.html.foldText(card, P)).toBe('A mechanism that weighs positions.')
+  })
+})
