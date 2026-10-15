@@ -13,6 +13,8 @@
 //                                                     brief's stress matrix (7 viewports × 4 looks × 100%/125% zoom)
 //                                                     with its content cases (crowding, edges, long answers, …)
 //   node scripts/margin-check.mjs resize [pdf ...]    PR 2: resizing across 1180px with a card open
+//   node scripts/margin-check.mjs layout [pdf ...]    the Aa panel: Margin view and Focus view (the page centred, cards in a pop-up
+//                                                     window inside the screen, the place kept, the choice kept on reload)
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
 //   node scripts/margin-check.mjs primer-reliability  Before you start made 10 of 10 times against mocked replies (cut off, empty, odd shapes, slow)
 //   node scripts/margin-check.mjs primer-kinds        Before you start per kind (paper, textbook, narrative, practical, other; mocked replies), a
@@ -1989,7 +1991,8 @@ async function scanChecks(browser, origin) {
   }, made.recognised[0].blocks.filter(b => b.t === 'p'))
   const off = placed.filter(q => q.missing || q.dl > 0.01 || q.dt > 0.012 || q.dr > 0.015)
   ok('every recognised line of page 1 sits over its printed words: left, top and right within about 1% of the page', placed.length > 10 && !off.length, off.slice(0, 5))
-  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is one tap away', await page.evaluate(() => !document.getElementById('playBtn').disabled && !hasNoText() && !document.getElementById('textBtn').hidden))
+  // Tinct text is offered in the Aa panel (under Layout, or its own row: TinctReaderLayout.TINCT_TEXT).
+  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is in the Aa panel', await page.evaluate(() => { openDisplay(); const offered = !!document.querySelector('.byob-aa-panel [data-layout="text"], .byob-aa-panel [data-t="text"]:not([hidden])'); closeDisplay(); return !document.getElementById('playBtn').disabled && !hasNoText() && offered }))
   // Selection on the scan opens the margin's bar.
   const selected = await selectText(page)
   const bar = await page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
@@ -2363,11 +2366,137 @@ const server = await start(Number(process.env.PORT || 4791))
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio'] })
 let failed = false
+/* ---------- Layouts (the Aa panel, 15 Oct): Margin view and Focus view ----------
+   The Aa panel opens from the top bar inside the screen, Layout first. Focus view, chosen there: the
+   page in the middle at Margin view's width, no column or marks, every card in a pop-up window inside
+   the screen and clear of its passage (or of the top bar, when it must cover the page); an Explain from
+   the bar answers in that window; a long answer scrolls inside it; the whole-PDF chat opens in it. The
+   reading place stays across both switches; the cards come back in Margin view; the choice is kept on
+   this device (prefs) and holds after a reload. Each state passes the layout check. */
+// Focus view's measures, in the page: the page's sheet in view, the pop-up window, the column.
+function focusState() {
+  const hdr = document.getElementById('hdr').getBoundingClientRect().bottom
+  const sheet = [...document.querySelectorAll('.pdf-sheet')].map(s => s.getBoundingClientRect()).find(r => r.bottom > hdr + 40) || null
+  const pop = document.querySelector('.mr-card.is-popup.is-open, .mr-primer.is-popup')
+  const pr = pop?.getBoundingClientRect()
+  const colShown = !!document.querySelector('.mr-col:not([hidden])') && getComputedStyle(document.querySelector('.mr-col')).display !== 'none'
+  const marks = document.querySelectorAll('.mr-mark:not([data-primer])').length
+  let prefs = null; try { prefs = JSON.parse(localStorage.getItem('tinct-addbook:prefs')) } catch {}
+  const card = pop && pop.dataset.id && cardById(pop.dataset.id)
+  const passage = card ? anchorRects(TinctMargin.anchorOfCard(card)).filter(r => r.bottom > hdr && r.top < innerHeight) : []
+  const covers = pr ? passage.some(r => Math.min(r.right, pr.right) - Math.max(r.left, pr.left) > 1 && Math.min(r.bottom, pr.bottom) - Math.max(r.top, pr.top) > 1) : false
+  return {
+    mode: col.mode, layout: root.dataset.readerLayout, stored: prefs?.layout ?? null, colShown, marks,
+    gaps: sheet ? [Math.round(sheet.left), Math.round(innerWidth - sheet.right)] : null, width: sheet ? Math.round(sheet.width) : null,
+    pop: pr ? { left: pr.left, top: pr.top, right: pr.right, bottom: pr.bottom, side: pop.dataset.side || '' } : null,
+    inside: pr ? pr.left >= -0.5 && pr.right <= innerWidth + 0.5 && pr.top >= hdr - 0.5 && pr.bottom <= innerHeight + 0.5 : null,
+    covers, side: pop?.dataset.side || '', place: currentPlace(), open: col.open,
+  }
+}
+async function focusMatrix(browser, origin) {
+  const rows = []
+  for (const pdf of PDFS) {
+    const hex = addBook(pdf), label = basename(pdf, '.pdf'), pi = PDFS.indexOf(pdf)
+    const combos = SAMPLE ? COLUMN_VIEWPORTS.map(([w, h], i) => [w, h, rotate(LOOKS, i + pi)]) : COLUMN_VIEWPORTS.flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+    for (const [width, height, look] of combos) {
+      const tag = `${label}-${width}x${height}-${look}`
+      const found = [], shots = {}
+      let opened
+      try { opened = await readerPage(browser, origin, hex, { width, height, look, startPage: 2 }) }
+      catch (e) { rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: 1, details: [{ kind: 'error', el: String(e.message || e).slice(0, 200) }] }); continue }
+      const { ctx, page, problems } = opened
+      const keep = (width === 1280 && height === 800 || width === 390 && height === 844) && (look === 'paper' || look === 'night')
+      const snap = async name => { if (keep) { const path = join(OUT, `layout-${tag}-${name}.png`); await page.screenshot({ path }); shots[name] = path } }
+      const check = async (name, cond) => {
+        await settle(page)
+        found.push(...(await checkMargin(page)).map(p => ({ state: name, ...p })))
+        // `cond`: a function run in the page, or [function, its argument].
+        const r = await page.evaluate(...[].concat(cond))
+        if (!r || r.ok === false) found.push({ state: name, kind: 'condition', el: JSON.stringify(r).slice(0, 400) })
+        await snap(name)
+        return r
+      }
+      const near = (a, b) => a.page === b.page && Math.abs(a.frac - b.frac) <= 0.02
+      // focusState runs in the page (each condition calls it): installed there, again after the reload.
+      const install = () => page.evaluate(src => { window.focusState = (0, eval)('(' + src + ')') }, focusState.toString())
+      try {
+        await install()
+        account.cards.delete(hex)
+        await page.evaluate(seedCards, { lines: 3, pairs: false, open: 1 }); await settle(page)
+        const margin0 = await page.evaluate(focusState)
+        await snap('margin')
+        // The Aa panel: inside the screen, Layout first with the two PDF layouts, Margin view chosen.
+        await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="focus"]', { timeout: 4000 })
+        await check('panel', () => {
+          const s = document.querySelector('.byob-aa-panel .lab-v2-sheet').getBoundingClientRect(), body = document.querySelector('.byob-aa-panel .lab-v2-sheet-body')
+          const names = [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => b.querySelector('.lab-v2-edition-name').textContent)
+          const first = body.firstElementChild.dataset.aa
+          const on = document.querySelector('.byob-aa-panel [data-layout][aria-pressed="true"]')?.dataset.layout
+          return { ok: s.left >= 0 && s.right <= innerWidth + 0.5 && s.top >= 0 && s.bottom <= innerHeight + 0.5 && first === 'layout' && names[0] === 'Margin view (default)' && names[1] === 'Focus view' && on === 'margin' && !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-themes"]'), names, first, on }
+        })
+        const place0 = await page.evaluate(() => currentPlace())
+        await page.click('.byob-aa-panel [data-layout="focus"]'); await page.waitForTimeout(250)
+        await page.click('.byob-aa-panel .lab-v2-dismiss')
+        // On the phone a tap outside the bottom card (here, in the panel) closes it, as it always has: the card opens again.
+        await page.evaluate(() => { if (!col.open) openCard((store.get('cards:' + state.key) || [])[1]?.id) })
+        // Focus view: centred, as wide as in Margin view, nothing beside it, the open card in the pop-up, the place kept.
+        const phone = width < 700
+        await check('focus', [s => {
+          const f = focusState(), g = f.gaps
+          const centred = !!g && Math.abs(g[0] - g[1]) <= (innerWidth < 700 ? 2 : 42)
+          return { ok: f.mode === 'focus' && f.layout === 'focus' && f.stored === 'focus' && !f.colShown && f.marks === 0 && centred && (!s.wide || Math.abs(f.width - s.width) <= 2) && !!f.pop && f.inside && (!f.covers || f.side === 'over'), ...f, before: s.width }
+        }, { width: margin0.width, wide: !phone }])
+        const placeF = await page.evaluate(() => currentPlace())
+        if (!near(place0, placeF)) found.push({ state: 'focus', kind: 'place moved', el: JSON.stringify([place0, placeF]) })
+        // Explain from the bar: the answer (mocked) arrives in the pop-up window.
+        await page.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await settle(page)
+        if (await selectText(page, { near: 'top' })) {
+          await page.waitForSelector('.mr-float [data-m="explain"]', { timeout: 4000 })
+          await page.click('.mr-float [data-m="explain"]')
+          await page.waitForFunction(() => /MOCK ANSWER/.test(document.querySelector('.mr-card.is-popup.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
+          await check('explain', () => { const f = focusState(), pop = document.querySelector('.mr-card.is-popup.is-open'); return { ok: !!pop && /MOCK ANSWER/.test(pop.innerText) && !document.querySelector('.mr-col .mr-card:not([hidden])') && f.inside && (!f.covers || f.side === 'over'), ...f } })
+        } else found.push({ state: 'explain', kind: 'error', el: 'no text to select' })
+        // A 600-word answer scrolls inside the window; its label and follow-up line stay in view.
+        await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['explain'], answer: LONG })
+        await check('long', () => {
+          const el = document.querySelector('.mr-card.is-popup.is-open'); if (!el) return { ok: false, why: 'no pop-up' }
+          const b = el.querySelector('.mr-card__body'), lab = el.querySelector('.mr-card__label').getBoundingClientRect(), fu = el.querySelector('.mr-follow').getBoundingClientRect(), f = focusState()
+          return { ok: b.scrollHeight > b.clientHeight + 20 && lab.top >= f.pop.top - 0.5 && fu.bottom <= f.pop.bottom + 0.5 && f.inside, body: [b.scrollHeight, b.clientHeight] }
+        })
+        // The whole-PDF chat opens in the window too.
+        await page.evaluate(() => { col.live.clear(); chat.turns = [{ role: 'user', content: 'What is this PDF about?', page: 2, at: Date.now() }, { role: 'assistant', content: 'MOCK. The bottom line about the whole PDF {p. 1}.\n\nMore.', at: Date.now() }]; openWhole({ quiet: true }) })
+        await check('whole', () => { const f = focusState(), pop = document.querySelector('.mr-card.is-popup.is-open.is-whole'); return { ok: !!pop && f.inside, ...f } })
+        await page.evaluate(() => { chat.turns = []; closeChat(); openCard(null) }); await settle(page)
+        // Kept on this device: a reload opens in Focus view, at the same place.
+        const placeR = await page.evaluate(() => { savePlaceNow(); return currentPlace() })
+        await page.reload(); await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }); await page.waitForTimeout(600); await install()
+        await check('reload', () => { const f = focusState(); return { ok: f.mode === 'focus' && f.stored === 'focus' && !f.colShown, ...f } })
+        const placeR2 = await page.evaluate(() => currentPlace())
+        if (!near(placeR, placeR2)) found.push({ state: 'reload', kind: 'place moved', el: JSON.stringify([placeR, placeR2]) })
+        // Back to Margin view: the place stays, the cards are there again, the default is stored as no choice.
+        const place1 = await page.evaluate(() => currentPlace())
+        await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="margin"]', { timeout: 4000 })
+        await page.click('.byob-aa-panel [data-layout="margin"]'); await page.waitForTimeout(250)
+        await page.click('.byob-aa-panel .lab-v2-dismiss')
+        await check('margin-again', () => { const f = focusState(), cards = (store.get('cards:' + state.key) || []).length; return { ok: f.mode !== 'focus' && f.layout === 'margin' && f.stored === null && cards > 0 && (f.mode !== 'column' || (f.colShown && visibleCards().length > 0)), cards, ...f } })
+        const place2 = await page.evaluate(() => currentPlace())
+        if (!near(place1, place2)) found.push({ state: 'margin-again', kind: 'place moved', el: JSON.stringify([place1, place2]) })
+      } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e).replace(/\u001b\[\d+m/g, '').slice(-700) }) }
+      const n = found.length + problems.length
+      rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: n, details: [...found, ...problems], screenshots: shots })
+      console.log(`layout ${tag}: ${n} problem(s)`, n ? JSON.stringify([...found, ...problems]).slice(0, 900) : '')
+      await ctx.close()
+    }
+  }
+  return rows
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
   column: [columnMatrix, rows => rows.some(r => r.problems)],
   resize: [resizeRun, rows => rows.some(r => r.problems)],
+  layout: [focusMatrix, rows => rows.some(r => r.problems)],
   behaviour: [behaviour, rows => rows.some(r => !r.pass)],
   primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
   'primer-reliability': [primerReliability, rows => rows.some(r => !r.pass)],
@@ -2409,6 +2538,7 @@ try {
   else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'layout') { const rows = await focusMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'layout-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'epub') { const rows = await epubCheck(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'epub-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'scans') { const rows = await scanChecks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'scans-results.json'), JSON.stringify(rows, null, 2)) }
