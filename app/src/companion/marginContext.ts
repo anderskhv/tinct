@@ -175,7 +175,7 @@ export function formatMarginDocument(doc: MarginDocument): string {
     const first = doc.units[0].label
     const last = doc.units[doc.units.length - 1].label
     const span = first === last ? `${name} ${first}` : `${name}s ${first} to ${last}`
-    lines.push(`This document is too long to supply whole (${doc.part.total} ${name}s). Below are its table of contents and the full text of ${span}, the part the reader is in. For other parts, rely on the table of contents and on the passages found by searching the document, when a question comes with them, and say so when an answer would need text that is not supplied. ${GENERAL_KNOWLEDGE_RULE}`)
+    lines.push(`This document is too long to supply whole (${doc.part.total} ${name}s). Below are its table of contents and the full text of ${span}, the part the reader is in. For other parts, rely on the table of contents and on the passages found by searching the document, when a question comes with them. ${GENERAL_KNOWLEDGE_RULE}`)
     if (doc.part.toc.length) lines.push(`<contents>\n${doc.part.toc.map(entry => `${entry.title} (${name} ${entry.label})`).join('\n')}\n</contents>`)
   } else {
     lines.push(doc.cut

@@ -28,7 +28,6 @@ interface MarginApi {
     answerHtml(text: string, p: typeof P, o?: Record<string, unknown>): string
     foldText(card: Card, p: typeof P): string
     stackHtml(cards: Array<{ kind: string }>, max?: number, o?: Record<string, unknown>): string
-    footHtml(o?: Record<string, unknown>): string
     wholeHtml(body: string, o?: Record<string, unknown>): string
   }
 }
@@ -156,9 +155,11 @@ describe('Copy quote and the margin\'s words for an EPUB', () => {
     expect(M.html.cardLabel(card, '3')).toBe('Explain · p. 3')
     expect(M.html.cardLabel({ ...card, kind: 'whole' }, '3', { doc: 'epub' })).toBe('Whole book')
     expect(M.html.stackHtml([{ kind: 'note' }], Infinity, { doc: 'epub' })).toBe('<span>1 more in this chapter</span><span>Your note</span>')
-    expect(M.html.footHtml({ doc: 'epub' })).toContain('<span class="mr-key">/</span> the whole book</span>')
-    expect(M.html.footHtml()).toContain('<span class="mr-key">/</span> the whole PDF</span>')
-    expect(M.html.wholeHtml('', { doc: 'epub' })).toContain('<span class="mr-card__name">Whole book</span>')
+    // No foot line since 15 Oct (Anders): the whole file's conversation is Chat, which still names the file in its field's label.
+    expect(M.html).not.toHaveProperty('footHtml')
+    expect(M.html.wholeHtml('', { doc: 'epub' })).toContain('<span class="mr-card__name">Chat</span>')
+    expect(M.html.wholeHtml('', { doc: 'epub' })).toContain('aria-label="Ask about the whole book"')
+    expect(M.html.wholeHtml('')).toContain('aria-label="Ask about the whole PDF"')
   })
 
   it('an EPUB\'s requests say kind "epub": the Worker reads them as the PDF reader\'s, with chapters and no picture', async () => {

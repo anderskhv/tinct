@@ -124,9 +124,14 @@ export const PLAIN_PROSE_RULE = 'Plain prose only: no Markdown, no asterisks, no
 /** Shared by every margin action (FIXES-2026-10-15, second paper): one answer corrected itself halfway; another credited the abstract with a term it never uses. */
 export const WORK_FIRST_RULE = 'Work out numbers and facts before you write. Never correct yourself mid-answer.'
 export const ATTRIBUTION_RULE = 'Never attribute to the document something it does not say.'
+/**
+ * Shared by every margin action (Anders, 15 Oct): a whole-PDF answer opened "Only the titles and
+ * placement of these chapters are supplied, not their text…". An answer never talks about its input.
+ */
+export const NO_META_RULE = 'Never mention what text you were or were not given; say plainly when the document doesn\'t cover something, and say "from general knowledge" when you go beyond it.'
 
 /** The margin's shared answer rules, in order (marginContext.ts MARGIN_RULES; the fallback without the document too). */
-export const MARGIN_ANSWER_RULES: readonly string[] = Object.freeze([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE])
+export const MARGIN_ANSWER_RULES: readonly string[] = Object.freeze([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE])
 
 /** A PDF is a document or a paper, never "the chapter" ("across the chapter" appeared on a paper). */
 export const PDF_DOCUMENT_WORDING = 'Call this file the document, or the paper when it is one; never the chapter.'
@@ -142,7 +147,7 @@ export const QUIZ_CHECK_PROMPT = [
 ].join('\n')
 
 /**
- * The whole-PDF question (the column's foot, or "/"): `ask` with `scope: 'whole'`, a user's PDF
+ * The whole-PDF question (Chat in the margin: the t menu's Chat, or "/"): `ask` with `scope: 'whole'`, a user's PDF
  * only. The Gloss test (15 Oct 2026) found it answering "On this page…" and ending with an offer.
  */
 export const WHOLE_PDF_PROMPT = [

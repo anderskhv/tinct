@@ -12,6 +12,7 @@ import {
   ASK_DOCUMENT_LINE,
   ATTRIBUTION_RULE,
   MARGIN_ANSWER_RULES,
+  NO_META_RULE,
   PDF_DOCUMENT_WORDING,
   WORK_FIRST_RULE,
   COUNTERPOINT_PROMPT,
@@ -149,7 +150,7 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
   })
 
   it('the shared rules: work things out first, never attribute to the document what it does not say; a PDF is the document, one page per tag', async () => {
-    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE])
+    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE])
     expect(WORK_FIRST_RULE).toBe('Work out numbers and facts before you write. Never correct yourself mid-answer.')
     expect(ATTRIBUTION_RULE).toBe('Never attribute to the document something it does not say.')
     for (const rule of MARGIN_ANSWER_RULES) expect(MARGIN_RULES).toContain(rule)
