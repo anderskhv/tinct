@@ -244,7 +244,8 @@ async function readerMatrix(browser, origin) {
         await check('define', '.mr-define .mr-define__senses, .mr-define .mr-define__body p:not(.mr-define__wait)')
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e) }) }
       rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: found.length + problems.length, details: [...found, ...problems], screenshots: states })
-      console.log(`${tag}: ${found.length + problems.length} problem(s)`, process.env.VERBOSE ? JSON.stringify([...found, ...problems]) : '')
+      const all = [...found, ...problems]
+      console.log(`${tag}: ${all.length} problem(s)`, process.env.VERBOSE ? JSON.stringify(all) : all.length ? JSON.stringify(all).slice(0, 300) : '')
       await ctx.close()
     }
   }
