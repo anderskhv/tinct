@@ -18,6 +18,7 @@
   const IMAGE_BYTES = 1200000;  // server limit 1.5 MB decoded per image; 4 of them stay under 8 MB as base64
   const MAX_IMAGES = 4;         // server limit 4 per request
   const DOCUMENT_CHARS = 560000; // the margin's whole document, about 150k tokens (server: MARGIN_DOCUMENT_CHARS)
+  const PASSAGES = 6, PASSAGE_CHARS = 1200; // a long file's search results (server: MARGIN_PASSAGES)
 
   // The session tinct.app keeps in this browser (supabase-js, localStorage).
   function session() {
@@ -82,6 +83,17 @@
       ? { toc: doc.part.toc.slice(0, 400).map(e => ({ title: String(e?.title || '').slice(0, 200), n: typeof e?.n === 'number' ? e.n : String(e?.n ?? '').slice(0, 16) })), total: Number(doc.part.total) || units.length }
       : null;
     return { kind: doc.kind, units, ...(part ? { part } : {}) };
+  }
+
+  // A long file's passages found by searching it for the question (FIXES-2026-10-15, long books, item 8):
+  // [{ n: printed page label, text }], at most 6 of at most 1,200 characters (server: MARGIN_PASSAGES).
+  function passagesContext(list) {
+    if (!Array.isArray(list)) return null;
+    const out = list.slice(0, PASSAGES).flatMap(p => {
+      const text = String(p?.text || '').replace(/\s+/g, ' ').trim().slice(0, PASSAGE_CHARS);
+      return text ? [{ n: typeof p?.n === 'number' ? p.n : String(p?.n ?? '').slice(0, 16), text }] : [];
+    });
+    return out.length ? out : null;
   }
 
   // `input` is a prompt string, or turns [{role, content}] whose first turn carries the
@@ -231,6 +243,9 @@
     const images = opts.images ? [].concat(opts.images).filter(Boolean) : [];
     const doc = request.companion ? documentContext(opts.document) : null;
     if (doc) request.companion.document = doc;
+    // A long file's search results for the question (reader.js searchPassages): after the cached prefix, so never with a whole file.
+    const found = doc?.part ? passagesContext(opts.passages) : null;
+    if (found) request.companion.passages = found;
     let s = session();
     if (images.length && !s.token) throw err('images_unavailable', 'Sign in to send pictures to the companion.');
     const body = JSON.stringify(images.length ? await withImages(request, images) : request);
@@ -317,6 +332,6 @@
 
   // What the reader may attach: anything the browser decodes; it is redrawn before sending.
   const imageLimits = { maxCount: MAX_IMAGES, maxInputBytes: 40 * 1024 * 1024, mediaTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/bmp', 'image/avif'] };
-  const api = { session, ask, askJson, companion, toRequest, companionRequest, documentContext, DOCUMENT_CHARS, imageLimits, books, onSignedOut: null };
+  const api = { session, ask, askJson, companion, toRequest, companionRequest, documentContext, passagesContext, DOCUMENT_CHARS, imageLimits, books, onSignedOut: null };
   window.TinctAI = api;
 })();

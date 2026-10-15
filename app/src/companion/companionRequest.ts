@@ -32,7 +32,7 @@ import {
   quizPrompt,
 } from './marginPrompts'
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
-import { buildMarginPrefix, buildMarginVolatile, parseMarginDocument, type MarginDocument } from './marginContext'
+import { buildMarginPrefix, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
 import { MARGIN_ROUTES, marginRouteKey, type MarginRoute } from './marginRoutes'
 
 /**
@@ -99,6 +99,12 @@ export interface CompanionRequest {
    * for a registered book.
    */
   document?: MarginDocument
+  /**
+   * A question on a long document (`document.part`): the passages the reader's
+   * device found by searching the whole book for it, after the cached prefix
+   * (FIXES-2026-10-15, long books, item 8). Never set otherwise.
+   */
+  passages?: MarginPassage[]
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -406,7 +412,9 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   // An EPUB's document is its chapters; a PDF's, its pages.
   const document = parsed.pdf ? parseMarginDocument(r.document) : null
   const epub = parsed.epub || document?.kind === 'epub'
-  const pdf = parsed.pdf ? { pdf: true as const, ...(epub ? { epub: true as const } : {}), ...(document ? { document } : {}) } : {}
+  // A long document's search results: only with a part of a document, and only for a question.
+  const passages = document?.part && intent === 'ask' ? parseMarginPassages(r.passages) : null
+  const pdf = parsed.pdf ? { pdf: true as const, ...(epub ? { epub: true as const } : {}), ...(document ? { document } : {}), ...(passages ? { passages } : {}) } : {}
   // Related is the PDF reader's margin only.
   if (intent === 'related' && !parsed.pdf) return null
   // Simplify is never fetched ahead of a tap (FIXES-2026-10-15 PR C, cost).
@@ -649,6 +657,7 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
     place: primer ? null : contextPlace(context),
     total: context.totalPages,
     shown: request.intent === 'ask' ? request.shownExplanations : undefined,
+    passages: request.passages,
     task,
   })
   return { stable, volatile }
