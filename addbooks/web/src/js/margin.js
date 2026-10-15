@@ -96,6 +96,17 @@
     return k;
   }
 
+  /**
+   * A key over a selection (BRIEF.md "Keys (desktop)", decided in PR 4): N (either case) is the note
+   * on the selection; every other printable key opens Ask with that character. Like typedChar, only
+   * without Cmd, Ctrl or Alt and never while a field has the keys, so once the question field has
+   * focus an N is simply typed. -> { action: 'note' } | { action: 'ask', ch } | null
+   */
+  function selectionKey(e, o) {
+    const ch = typedChar(e, o);
+    if (!ch) return null;
+    return ch === 'n' || ch === 'N' ? { action: 'note' } : { action: 'ask', ch };
+  }
   /** One word (letters, with an inner apostrophe or hyphen), which opens Define instead of the bar. */
   const WORD = /^[\p{L}\p{M}]+(?:['’\-][\p{L}\p{M}]+)*$/u;
   function oneWord(text) {
@@ -651,5 +662,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, selectionKey, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
 });

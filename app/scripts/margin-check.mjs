@@ -14,6 +14,10 @@
 //                                                     with its content cases (crowding, edges, long answers, …)
 //   node scripts/margin-check.mjs resize [pdf ...]    PR 2: resizing across 1180px with a card open
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
+//   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
+//   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
+//   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
+//   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
 // Every problem list must be empty: the script exits 1 otherwise. OUT (default ./artifacts/margin)
 // receives the screenshots and results.json. CHROMIUM_PATH picks the browser (default
@@ -55,10 +59,19 @@ export const SELECTORS = {
 const scrolledAway = p => p.kind === 'clipped' && /^\.(?:mr-card__body|(?:mr\.)?mr-primer)(?:\.|\s|$)/.test(p.in || '')
 // The wait ring's label is for screen readers only (visually hidden on purpose, lab/wait-ring.js), so its box is not text spilling out.
 const srOnly = p => p.kind === 'overflow' && /^\.tinct-wait(?:-label)?(?:\.|\s|$)/.test(p.el || '')
+// PR 4: where the mockup draws a 16px icon or a 20px colour (copy, the mics, the colours, the bottom
+// card's handle, the quiz links), the target round it is at least 24px each way; everything else stays 28px (`tap`).
+export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link'
 export async function checkMargin(page, selectors = SELECTORS) {
-  return (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
+  const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
+  const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 23.5 || r.height < 23.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
+  return [...list, ...small]
 }
 const LOOKS = (process.env.LOOKS || 'paper,book,night,eink').split(',')
+// `sample` (npm run check:margin, in CI): each viewport once, each look and both zooms at least once, both
+// PDFs, with every content case; `full` (npm run check:margin:full): the whole matrix. Looks rotate per PDF.
+let SAMPLE = false
+const rotate = (list, i) => list[i % list.length]
 const VIEWPORTS = (process.env.VIEWPORTS || '1440x900,1280x800,1024x768,390x844,360x740').split(',').map(v => v.split('x').map(Number))
 
 /* ---------- A local stand-in for the site ---------- */
@@ -191,7 +204,9 @@ async function readerMatrix(browser, origin) {
   const rows = []
   for (const pdf of PDFS) {
     const hex = addBook(pdf), label = basename(pdf, '.pdf')
-    for (const [width, height] of VIEWPORTS) for (const look of LOOKS) {
+    const pi = PDFS.indexOf(pdf)
+    const combos = SAMPLE ? VIEWPORTS.map(([w, h], i) => [w, h, rotate(LOOKS, i + pi)]) : VIEWPORTS.flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+    for (const [width, height, look] of combos) {
       const tag = `${label}-${width}x${height}-${look}`
       let opened
       try { opened = await readerPage(browser, origin, hex, { width, height, look }) }
@@ -202,7 +217,7 @@ async function readerMatrix(browser, origin) {
       const check = async (state, ready) => {
         await page.waitForSelector(ready, { timeout: 8000 })
         await page.waitForTimeout(250)
-        const list = await checkLayout(page, { selectors: SELECTORS })
+        const list = await checkMargin(page)
         found.push(...list.map(p => ({ state, ...p })))
         const keep = (width === 1440 && height === 900) || (width === 390 && height === 844)
         states[state] = keep ? await shot(page, `${tag}-${state}`) : null
@@ -601,6 +616,110 @@ async function primerBehaviour(browser, origin) {
   return results
 }
 
+/* ---------- PR 4: keys, focus, labels and the live region (BRIEF.md "Keys (desktop)"; DECISIONS.md 2026-10-15) ---------- */
+async function keysAndAccess(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 300)}`) }
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  const fresh = async () => { for (let i = 0; i < 4; i++) await a.keyboard.press('Escape'); await a.evaluate(() => { getSelection().removeAllRanges(); document.activeElement?.blur?.() }); await a.waitForTimeout(250) }
+  const focusRing = () => a.evaluate(() => { const el = document.activeElement, cs = el && getComputedStyle(el); return el ? { cls: String(el.className), outline: cs.outlineStyle, width: parseFloat(cs.outlineWidth) } : null })
+  const hl = () => a.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:hl:pdf:' + h) || '[]').length, hex)
+  // N: the note on the selection; any other key: Ask with it.
+  await selectText(a); await a.waitForSelector('.mr-bar'); const h0 = await hl()
+  await a.keyboard.press('n'); await a.waitForTimeout(300)
+  ok('with a selection, N opens the note on it (highlighted in the default colour), not Ask', await a.isVisible('.mr-note .mr-note__field') && !(await a.$('.mr-bar.is-asking')) && (await hl()) === h0 + 1)
+  await fresh()
+  await selectText(a); await a.waitForSelector('.mr-bar')
+  await a.keyboard.press('W'); await a.keyboard.type('hy not now?'); await a.waitForTimeout(150)
+  ok('N never steals a typed question: once Ask has the keys, N is typed', (await a.inputValue('.mr-ask')) === 'Why not now?' && !(await a.$('.mr-note')))
+  await fresh()
+  await selectText(a); await a.waitForSelector('.mr-bar')
+  await a.keyboard.press('Control+n'); await a.keyboard.press('Alt+n'); await a.waitForTimeout(200)
+  ok('with Cmd, Ctrl or Alt, N does nothing in the margin', !(await a.$('.mr-note')) && !(await a.$('.mr-bar.is-asking')))
+  await a.keyboard.press('b'); await a.waitForTimeout(200)
+  ok('with a selection, B goes to Ask like any other letter (the primer waits)', (await a.inputValue('.mr-ask').catch(() => '')) === 'b' && !(await a.$('.mr-primer')))
+  await fresh()
+  // B and "/" without a selection.
+  await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer', { timeout: 6000 }).catch(() => {}); await a.waitForTimeout(400)
+  ok('without a selection, B opens the primer; the keys bring the focus to it (its close), with a visible ring', await a.isVisible('.mr-col .mr-primer') && /mr-primer__close/.test((await focusRing())?.cls || '') && (await focusRing()).outline !== 'none' && (await focusRing()).width >= 2, await focusRing())
+  await a.keyboard.press('Escape'); await a.waitForTimeout(200)
+  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')))
+  await a.keyboard.press('/'); await a.waitForTimeout(150)
+  ok('"/" focuses the whole-PDF line at the column\'s foot', await a.evaluate(() => document.activeElement?.classList.contains('mr-foot__input')))
+  await a.keyboard.type('n b'); await a.waitForTimeout(100)
+  ok('typing in a field never triggers a key (N, B)', (await a.inputValue('.mr-foot__input')) === 'n b' && !(await a.$('.mr-note, .mr-col .mr-primer')))
+  await a.evaluate(() => { const f = document.querySelector('.mr-foot__input'); f.value = ''; f.blur() })
+  await fresh()
+  // The bar from the keyboard: Tab into it, Left/Right along it, Return on the dots opens More with its first row focused, Up/Down move, Return chooses.
+  await selectText(a); await a.waitForSelector('.mr-bar')
+  await a.keyboard.press('Tab'); const first = await focusRing()
+  ok('Tab from the page moves into the bar (Ask first), with a visible focus ring', /is-ask/.test(first?.cls || '') && first.outline !== 'none', first)
+  await a.keyboard.press('ArrowRight'); await a.keyboard.press('ArrowRight'); await a.keyboard.press('ArrowRight')
+  ok('Left and Right move along the bar', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
+  await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.waitForTimeout(100)
+  ok('Return on the dots opens More with its first row focused', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'define' && (await a.getAttribute('.mr-bar [data-m="more"]', 'aria-expanded')) === 'true')
+  await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
+  const at = await a.evaluate(() => document.activeElement?.dataset.m)
+  await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp')
+  ok('Up and Down move between the rows, round from the first to the last', at === 'counterpoint' && (await a.evaluate(() => document.activeElement?.dataset.m)) === 'copy')
+  await a.keyboard.press('Escape'); await a.waitForTimeout(100)
+  ok('Escape closes More first, the focus back on its dots; the bar stays', !(await a.$('.mr-more')) && await a.isVisible('.mr-bar') && (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
+  await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
+  const n0 = account.requests.length
+  await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
+  ok('Return chooses the row (Counterpoint: its card opens)', account.requests.slice(n0).some(r => r.body?.companion?.intent === 'counterpoint') && /^Counterpoint/.test(await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')))
+  ok('the finished answer is announced once in a polite live region', await a.evaluate(() => { const l = document.getElementById('mr-live'); return !!l && l.getAttribute('aria-live') === 'polite' && /^Counterpoint · p\. \d+\. MOCK ANSWER/.test(l.textContent) }), await a.evaluate(() => document.getElementById('mr-live')?.textContent))
+  // Escape one step at a time: the open card folds after the bar has gone.
+  await selectText(a); await a.waitForSelector('.mr-bar'); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
+  await a.keyboard.press('Escape'); const s1 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
+  await a.keyboard.press('Escape'); const s2 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
+  await a.keyboard.press('Escape'); await a.waitForTimeout(150); const s3 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
+  ok('Escape steps back one piece at a time: More, then the bar, then the open card', JSON.stringify([s1, s2, s3]) === JSON.stringify([[false, true, true], [false, false, true], [false, false, false]]), [s1, s2, s3])
+  // A folded card from the keyboard: Return opens it with the focus on its close; Return on close folds it, the focus back on its label.
+  await a.evaluate(() => document.querySelector('.mr-col .mr-card.is-folded .mr-card__label')?.focus())
+  const label = await focusRing()
+  await a.keyboard.press('Enter'); await a.waitForTimeout(250)
+  const closeF = await focusRing()
+  await a.keyboard.press('Enter'); await a.waitForTimeout(250)
+  ok('a folded card from the keyboard: Return opens it (focus on its close), Return on close folds it (focus back on its label), rings visible', /mr-card__label/.test(label?.cls || '') && label.outline !== 'none' && /mr-card__close/.test(closeF?.cls || '') && /mr-card__label/.test((await focusRing())?.cls || ''), { label, closeF, after: await focusRing() })
+  // Labels and roles.
+  const roles = await a.evaluate(() => {
+    const col = document.querySelector('.mr-col'); openCard(keptCards()[0].id)
+    return { col: [col.getAttribute('role'), col.getAttribute('aria-label')] }
+  })
+  await a.waitForTimeout(250)
+  const roles2 = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open'); return { card: [c.getAttribute('role'), c.getAttribute('aria-label')], unlabeled: [...document.querySelectorAll('.mr-col button, .mr-col textarea, .mr-marks button')].filter(b => !(b.getAttribute('aria-label') || b.textContent.trim())).map(b => b.className) } })
+  await selectText(a); await a.waitForSelector('.mr-bar'); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
+  const roles3 = await a.evaluate(() => ({ bar: [document.querySelector('.mr-bar').getAttribute('role'), document.querySelector('.mr-bar').getAttribute('aria-label')], more: document.querySelector('.mr-more').getAttribute('role'), items: [...document.querySelectorAll('.mr-more [data-m]')].every(b => b.getAttribute('role') === 'menuitem'), unlabeled: [...document.querySelectorAll('.mr-float button, .mr-float textarea')].filter(b => !(b.getAttribute('aria-label') || b.textContent.trim())).map(b => b.className) }))
+  ok('roles and names: the column (complementary, "Margin"), the open card (a region named by its label), the bar (toolbar), More (menu of menuitems); no control without a name', roles.col.join() === 'complementary,Margin' && roles2.card[0] === 'region' && /^Counterpoint|^Explain|^Ask|^Simplify|^Quiz/.test(roles2.card[1] || '') && !roles2.unlabeled.length && roles3.bar.join() === 'toolbar,Selection' && roles3.more === 'menu' && roles3.items && !roles3.unlabeled.length, { roles, roles2, roles3 })
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+// Text contrast of every margin colour pair, per look (WCAG 2 ratio of the text's colour on the colour behind it). A report: the colours are the mockup's.
+async function contrast(browser, origin) {
+  const rows = []
+  for (const look of ['paper', 'book', 'night', 'eink']) {
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 3600 } }), page = await ctx.newPage()
+    await page.goto(`${origin}/lab/addbook/margin-fixture.html?look=${look}`); await page.waitForFunction(() => document.documentElement.dataset.ready === 'true')
+    const found = await page.evaluate(() => {
+      const parse = c => { const m = c.match(/[\d.]+/g)?.map(Number) || [0, 0, 0, 0]; return { r: m[0], g: m[1], b: m[2], a: m.length > 3 ? m[3] : 1 } }
+      const over = (top, under) => ({ r: top.r * top.a + under.r * (1 - top.a), g: top.g * top.a + under.g * (1 - top.a), b: top.b * top.a + under.b * (1 - top.a), a: 1 })
+      const bg = el => { const layers = []; for (let e = el; e; e = e.parentElement) { const c = parse(getComputedStyle(e).backgroundColor); if (c.a > 0) { layers.push(c); if (c.a >= 1) break } } return layers.reverse().reduce((u, t) => over(t, u), { r: 255, g: 255, b: 255, a: 1 }) }
+      const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4 }; return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b) }
+      const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05) }
+      const cases = [['bar words', '[data-strip="a"] .mr-bar .is-ask'], ['More line', '[data-strip="c"] .mr-more__row span'], ['Define senses (secondary)', '[data-strip="e"] .mr-define__senses li:not(.is-fit)'], ['card label', '.cardbg .mr-card.is-open .mr-card__label'], ['quote', '.cardbg .mr-quote'], ['answer', '.cardbg .mr-answer p'], ['citation tag', '.cardbg .mr-cite'], ['status line', '[data-card="factcheck-checking"] .mr-status'], ['sources', '.cardbg .mr-sources a'], ['folded text', '[data-desk="margin"] .mr-card.is-folded .mr-card__text'], ['stack row', '[data-desk="overlap"] .mr-stack span'], ['foot hint', '[data-desk="margin"] .mr-foot__hint'], ['trigger line', '[data-desk="trigger"] .mr-trigger__sub'], ['primer heading', '[data-desk="primer"] .mr-primer__head'], ['primer numbers', '[data-desk="primer"] .mr-primer__n'], ['map pages', '[data-desk="primer"] .mr-map__pages'], ['primer footer', '[data-desk="primer"] .mr-primer__foot span'], ['quiz link', '[data-card="quiz"] .mr-follow__link']]
+      return cases.map(([name, sel]) => { const el = document.querySelector(sel); if (!el) return { name, missing: true }; const cs = getComputedStyle(el); const fg = over(parse(cs.color), bg(el)); return { name, ratio: Math.round(ratio(fg, bg(el)) * 100) / 100, size: cs.fontSize } })
+    })
+    for (const f of found) rows.push({ look, ...f })
+    await ctx.close()
+  }
+  for (const r of rows) console.log(`${r.look.padEnd(6)} ${r.name.padEnd(28)} ${r.missing ? 'missing' : r.ratio + ':1 at ' + r.size}`)
+  return rows
+}
+
 /* ---------- PR 2: the margin column, cards, marks and the bottom card, across the brief's stress matrix ----------
    docs/margin/BRIEF.md "Layout QA": every viewport × look × browser zoom (desktop), each with the
    content cases below; each state must return no problems from docs/margin/layout-check.mjs, and
@@ -668,7 +787,11 @@ async function columnMatrix(browser, origin) {
   const rows = []
   for (const pdf of PDFS) {
     const hex = addBook(pdf), label = basename(pdf, '.pdf')
-    for (const [width, height] of COLUMN_VIEWPORTS) for (const look of LOOKS) for (const zoom of width < 700 ? [1] : ZOOMS) {
+    const pi = PDFS.indexOf(pdf)
+    const combos = SAMPLE
+      ? COLUMN_VIEWPORTS.map(([w, h], i) => [w, h, rotate(LOOKS, i + pi), w < 700 ? 1 : rotate(ZOOMS, i + pi)])
+      : COLUMN_VIEWPORTS.flatMap(([w, h]) => LOOKS.flatMap(l => (w < 700 ? [1] : ZOOMS).map(z => [w, h, l, z])))
+    for (const [width, height, look, zoom] of combos) {
       const tag = `${label}-${width}x${height}-${look}-z${Math.round(zoom * 100)}`
       const found = [], shots = {}
       let opened
@@ -765,7 +888,7 @@ async function resizeRun(browser, origin) {
   const out = []
   for (const pdf of PDFS) {
     const hex = addBook(pdf), label = basename(pdf, '.pdf')
-    for (const look of LOOKS) {
+    for (const look of SAMPLE ? [rotate(LOOKS, PDFS.indexOf(pdf) * 2)] : LOOKS) {
       const { ctx, page, problems } = await readerPage(browser, origin, hex, { width: 1300, height: 820, look, startPage: 2 })
       const found = []
       await page.evaluate(seedCards, { lines: 3, pairs: true, open: 2 }); await settle(page)
@@ -794,8 +917,34 @@ const server = await start(Number(process.env.PORT || 4791))
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio'] })
 let failed = false
+const RUNS = {
+  fixture: [fixtureRows, rows => rows.some(r => r.problems)],
+  reader: [readerMatrix, rows => rows.some(r => r.problems)],
+  column: [columnMatrix, rows => rows.some(r => r.problems)],
+  resize: [resizeRun, rows => rows.some(r => r.problems)],
+  behaviour: [behaviour, rows => rows.some(r => !r.pass)],
+  primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
+  keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
+}
 try {
-  if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
+  if (mode === 'sample' || mode === 'full') {
+    // Every check in one run; each writes {name}-results.json. A failure in one does not stop the rest.
+    SAMPLE = mode === 'sample'
+    const started = Date.now(), summary = []
+    for (const [name, [run, bad]] of Object.entries(RUNS)) {
+      // Each check starts from an empty account, as it does when run on its own.
+      account.marks.clear(); account.cards.clear(); account.primers.clear(); account.requests.length = 0
+      const t = Date.now(), rows = await run(browser, origin), fail = bad(rows)
+      writeFileSync(join(OUT, `${name}-results.json`), JSON.stringify(rows, null, 2))
+      summary.push({ check: name, rows: rows.length, failed: fail, seconds: Math.round((Date.now() - t) / 1000) })
+      console.log(`== ${name}: ${rows.length} row(s), ${fail ? 'FAILED' : 'clean'}, ${Math.round((Date.now() - t) / 1000)}s`)
+      failed ||= fail
+    }
+    writeFileSync(join(OUT, `${mode}-summary.json`), JSON.stringify({ mode, seconds: Math.round((Date.now() - started) / 1000), summary }, null, 2))
+  }
+  else if (mode === 'contrast') { const rows = await contrast(browser, origin); writeFileSync(join(OUT, 'contrast-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'keys') { const rows = await keysAndAccess(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'keys-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
   else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }

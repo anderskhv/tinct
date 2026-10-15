@@ -1962,6 +1962,8 @@ function mrPiece() {
   el.addEventListener('click', e => {
     const b = e.target.closest('[data-m], [data-color]'); if (!b || b.disabled || !mr) return;
     if (b.dataset.color) mrPick(b.dataset.color); else mrAction(b.dataset.m);
+    // Opened from the keyboard (Return or Space on the dots): the first row has the focus.
+    if (b.dataset.m === 'more' && e.detail === 0 && mr?.moreEl) mr.moreEl.querySelector('[data-m]')?.focus({ preventScroll: true });
   });
   // Press and hold the dot: the colours.
   el.addEventListener('pointerdown', e => {
@@ -2176,18 +2178,34 @@ addEventListener('keydown', e => {
   if (state.kind !== 'pdf' || !readerShown()) return;
   if (e.key === 'Escape' && mr) {
     e.preventDefault(); e.stopImmediatePropagation();
-    if (mr.moreEl) return closeMore();
+    if (mr.moreEl) { const had = mr.moreEl.contains(document.activeElement); closeMore(); if (had) mr.el.querySelector('[data-m="more"]')?.focus({ preventScroll: true }); return }
     if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') { if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) } dictation.stop(); return mrShow(mr.def ? 'define' : 'menu') }
     marginClose(); getSelection().removeAllRanges();
     return;
   }
-  const ch = TinctMargin.typedChar(e, { inField: !!e.target.closest?.('input, textarea, select, [contenteditable="true"]') });
-  if (!ch) return;
+  // More: Up and Down move between its rows (Return chooses, as on any button).
+  if (mr?.moreEl && (e.key === 'ArrowDown' || e.key === 'ArrowUp') && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    e.preventDefault(); e.stopImmediatePropagation();
+    const rows = [...mr.moreEl.querySelectorAll('[data-m]')], at = rows.indexOf(document.activeElement), down = e.key === 'ArrowDown';
+    rows[at < 0 ? (down ? 0 : rows.length - 1) : (at + (down ? 1 : -1) + rows.length) % rows.length]?.focus({ preventScroll: true });
+    return;
+  }
+  // The bar is a toolbar: Tab from the page moves into it; Left and Right move along it.
+  if (mr?.el && !mr.moreEl && ['menu', 'colors', 'define'].includes(mr.mode) && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    const items = [...mr.el.querySelectorAll('button:not([disabled])')], at = items.indexOf(document.activeElement);
+    if (e.key === 'Tab' && !e.shiftKey && at < 0 && !e.target.closest?.('input, textarea, select, [contenteditable="true"], .mr-col, .mr-sheet, .mr-card')) { e.preventDefault(); e.stopImmediatePropagation(); items[0]?.focus({ preventScroll: true }); return }
+    if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && at >= 0) { e.preventDefault(); e.stopImmediatePropagation(); items[(at + (e.key === 'ArrowRight' ? 1 : -1) + items.length) % items.length].focus({ preventScroll: true }); return }
+  }
+  // With a selection, N opens the note on it and any other printable key opens Ask with that character
+  // (keys act only when no field has focus and without Cmd, Ctrl or Alt; TinctMargin.selectionKey).
+  const key = TinctMargin.selectionKey(e, { inField: !!e.target.closest?.('input, textarea, select, [contenteditable="true"]') });
+  if (!key) return;
   if (document.querySelector('.lab-super-layer, .lab-v2-sheet-layer, .lab-contents-v2, .byob-sheet-host, .byob-snip, .byob-jumpbox, .byob-switcher')) return;
-  if (!mr) { const info = selectionInfo(); if (!info) return; marginOpen(info, { asking: true }) }
+  if (!mr) { const info = selectionInfo(); if (!info) return; marginOpen(info, { asking: key.action === 'ask' }) }
   else if (!['menu', 'colors', 'define'].includes(mr.mode)) return;
-  e.preventDefault();
-  mrShow('asking', { question: ch });
+  e.preventDefault(); e.stopImmediatePropagation();
+  if (key.action === 'note') { mr.defToken = {}; mr.def = null; return mrNoteOpen() }
+  mrShow('asking', { question: key.ch });
 }, true);
 // A tap or click outside lets go of a passage the margin holds (a new selection opens its own).
 document.addEventListener('pointerdown', e => { if (mr && !e.target.closest?.('.mr-float') && (mr.held || mr.mode !== 'menu')) marginClose() }, true);
@@ -2335,7 +2353,7 @@ function marginStart() {
   document.querySelector('.byob-dock-tab')?.remove();
   if (!col.el) {
     const el = col.el = document.createElement('div');
-    el.className = 'mr mr-col is-reader'; el.setAttribute('aria-label', 'Margin');
+    el.className = 'mr mr-col is-reader'; el.setAttribute('role', 'complementary'); el.setAttribute('aria-label', 'Margin');
     el.innerHTML = '<button type="button" class="mr-stack" data-c="stack" hidden></button><div class="mr-foot"></div>';
     col.stack = el.querySelector('.mr-stack'); col.foot = el.querySelector('.mr-foot');
     col.foot.innerHTML = TinctMargin.html.footHtml();
@@ -2412,6 +2430,7 @@ function drawCard(el, card, open) {
   if (card.kind === 'note') el.style.setProperty('--hl-color', (HL_COLORS.find(c => c[0] === card.color) || HL_COLORS[0])[3]);
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   el.innerHTML = TinctMargin.html.cardHtml(card, cardOpts(card, open));
+  if (open) { el.setAttribute('role', 'region'); el.setAttribute('aria-label', TinctMargin.html.cardLabel(card, pageLabel(card.page))) } else { el.removeAttribute('role'); el.removeAttribute('aria-label') }
   const live = col.live.get(card.id);
   if (open && live && !live.status) el.setAttribute('aria-busy', 'true'); else el.removeAttribute('aria-busy');
   if (open && ((live && !live.text && !live.status) || col.pending.has(card.id))) {
@@ -2751,8 +2770,10 @@ function bindCardEvents(host) {
     if (!b) { if (card?.classList.contains('is-folded')) openCard(card.dataset.id); return }
     const c = b.dataset.c;
     if (c === 'stack') return openCard(b.dataset.first || null);
-    if (c === 'open') return openCard(id);
-    if (c === 'close') { if (host === col.sheet) closeSheet2(); else openCard(null); return }
+    // From the keyboard (no pointer: detail 0) the focus follows: into the opened card, back to the folded one.
+    const keyed = e.detail === 0, refocus = sel => requestAnimationFrame(() => requestAnimationFrame(() => document.querySelector(sel)?.focus({ preventScroll: true })));
+    if (c === 'open') { openCard(id); if (keyed) refocus(`.mr-card.is-open[data-id="${CSS.escape(id)}"] .mr-card__close`); return }
+    if (c === 'close') { if (host === col.sheet) closeSheet2(); else { openCard(null); if (keyed && id) refocus(`.mr-col .mr-card[data-id="${CSS.escape(id)}"] .mr-card__label`) } return }
     if (c === 'grab') { col.sheet?.classList.toggle('is-full'); return }
     if (c === 'mic') { const f = b.closest('.mr-follow, .mr-foot')?.querySelector('.mr-follow__input'); if (f) { dictation.target = b; dictation.toggle(f) } return }
     if (c === 'copy') return copyCard(id);
@@ -3089,11 +3110,13 @@ function drawPrimer(el, { sheet = false } = {}) {
   const sig = JSON.stringify([primer.unit?.key, primer.data?.madeAt, primer.wait, primer.status, !!MP.P, state.labels ? 1 : 0, sheet]);
   if (el.dataset.sig === sig) return;
   el.dataset.sig = sig;
+  // The focus stays on the primer while it is drawn again (made, Redo); from the keys it starts on its close.
+  if (el.contains(document.activeElement)) primer.keyed = true;
   const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title' });
   if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
   else el.innerHTML = inner;
   if (primer.wait) el.querySelector('.mr-wait')?.append(TinctWait.waitRing('Thinking…', { size: 18, live: false }));
-  if (primer.keyed) { primer.keyed = false; requestAnimationFrame(() => el.querySelector('.mr-primer__close')?.focus({ preventScroll: true })) }
+  if (primer.keyed) { primer.keyed = false; const close = el.querySelector('.mr-primer__close'); close?.focus({ preventScroll: true }); requestAnimationFrame(() => { if (close?.isConnected && !el.contains(document.activeElement)) close.focus({ preventScroll: true }) }) }
 }
 function primerEl() {
   if (!primer.el) {

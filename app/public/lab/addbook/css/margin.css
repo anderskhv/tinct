@@ -336,6 +336,7 @@ button.mr-trigger:focus-visible { border-radius: 12px; }
 .mr-col .mr-primer { bottom: 70px; }
 /* The primer (mockup .primer): it declares its gap twice, and the 14px it renders is the one kept. */
 .mr-primer { gap: 14px; color: var(--mr-ink); overscroll-behavior: contain; }
+.mr-primer > * { flex-shrink: 0; }   /* a long primer scrolls; its parts never squeeze */
 .mr-primer h4 { gap: 10px; }
 /* Close: a 28px target round the 13px glyph at the title's right; the title reaches 8px into the
    primer's padding so the glyph sits where the mockup's does. */
@@ -365,3 +366,40 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 .mr-sr { position: fixed; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
 /* The guard's own rule, less the room the trigger keeps at the column's top (--mr-reserve, set by the layout). */
 .mr-col.is-reader .mr-card.is-open { max-height: calc(var(--mr-col-height) - var(--mr-foot-height) - 28px - var(--mr-reserve, 0px)); }
+
+/* ---------- PR 4: e-ink ----------
+   The reference's e-ink look: no fills or shadows except the bar, 1px ink outlines instead. The shared
+   e-ink profile (lab/display-profile.css) removes every box-shadow, which also took the margin's
+   outlines and rules; here they are drawn with outlines and background lines, which it keeps,
+   without moving anything. */
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-card.is-open, .mr-primer, .mr-sheet) { outline: 1px solid var(--mr-ink); outline-offset: -1px; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-sheet .mr-primer { outline: 0; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-trigger, .mr-quiz-row, .mr-stack) { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-sheet .mr-trigger { outline: 0; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-cite { outline: 1px solid var(--mr-hair); outline-offset: -1px; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-card.is-folded { background: linear-gradient(var(--mr-hair), var(--mr-hair)) left top / 1.5px 100% no-repeat; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-card.is-note.is-folded { background: linear-gradient(var(--hl-color), var(--hl-color)) left top / 2px 100% no-repeat; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-primer__keep { background: linear-gradient(var(--mr-hair), var(--mr-hair)) left top / 2px 100% no-repeat; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-swatch[aria-pressed="true"] { outline: 1.5px solid var(--mr-bar-ink); outline-offset: 0; }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-more, .mr-pmore, .mr-define, .mr-note, .mr-bar, .mr-pbar) { outline: 1px solid var(--mr-bar); }
+
+/* ---------- PR 4: targets ----------
+   Controls are 28px; where the mockup draws a 16px icon (copy, mic) or a 20px colour, the target is
+   24px round it, set so nothing on screen moves. */
+/* The colours: a 24px button, the 20px colour inside it, the chosen one ringed as before (2px of bar, 1.5px of ink). */
+button.mr-swatch { width: 24px; height: 24px; margin: 0 3px; padding: 2px; background-clip: content-box !important; }
+.mr-swatch[aria-pressed="true"] { box-shadow: 0 0 0 1.5px var(--mr-bar-ink); }
+/* Copy and the mic: 24px round the 16px icon; the copy row keeps its 16px line (the target reaches 5px above and 3px below it). */
+.mr-card__acts button { width: 24px; height: 24px; margin: -5px -4px -3px; }
+.mr-card__acts button svg { transform: translateY(1px); }
+.mr-follow__mic, .mr-foot .mr-follow__mic { flex: none; width: 24px; height: 24px; margin: -3px 0 -3px -8px; place-items: center end; }
+/* "Show answer" and "Next question →": 24px tall round their 16px line, which the follow-up line keeps. */
+.mr-follow__link { display: inline-flex; align-items: center; min-height: 24px; margin: -5px 0 -3px; padding-top: 2px; }
+/* The bottom card's handle: a 56 × 25px target round the 36 × 5px bar, in its place. */
+.mr-sheet__grab { width: 56px; height: 25px; margin: -10px auto -6px; background: none; }
+.mr-sheet__grab::before { content: ""; position: absolute; left: 10px; top: 10px; width: 36px; height: 5px; border-radius: 3px; background: var(--mr-hair); }
+/* The app's e-ink sheet makes every button at least 40px tall (tinct-app.css "[data-eink] button"); the
+   margin's controls keep their own sizes (28px, or 24px round an icon) so nothing moves in e-ink. */
+[data-eink] :where(.mr-float, .mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-primer) button, [data-eink] button:where(.mr-trigger, .mr-mark, .mr-swatch) { min-height: var(--mr-min, auto); }
+:where(.mr-card__close, .mr-primer__foot button) { --mr-min: 28px; }
+:where(.mr-follow__link) { --mr-min: 24px; }
