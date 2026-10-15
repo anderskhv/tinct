@@ -159,8 +159,9 @@
         for (const line of block.split('\n')) { if (line.startsWith('event:')) event = line.slice(6).trim(); else if (line.startsWith('data:')) data += line.slice(5).trim() }
         if (!data) continue;
         let msg; try { msg = JSON.parse(data) } catch { continue }
-        // A refusal (the Worker's `refusal` error) is the card's error state, without the words already shown.
-        if (event === 'error' || msg.type === 'error') throw err(msg.error?.type === 'overloaded_error' ? 'busy' : msg.error?.type === 'refusal' ? 'refused' : 'failed', msg.error?.message || 'The answer stopped.', text && msg.error?.type !== 'refusal' ? { text } : undefined);
+        // A refusal or a cut-off answer (the Worker's `refusal` and `cut_off` errors) is the card's error
+        // state, without the words already shown: they are never kept as an answer.
+        if (event === 'error' || msg.type === 'error') { const t = msg.error?.type, whole = t === 'refusal' || t === 'cut_off'; throw err(t === 'overloaded_error' ? 'busy' : t === 'refusal' ? 'refused' : t === 'cut_off' ? 'cut_off' : 'failed', msg.error?.message || 'The answer stopped.', text && !whole ? { text } : undefined) }
         // What the companion is looking up ("Checking sources…"), from the Worker's tinct_status event.
         if (event === 'tinct_status' || msg.type === 'tinct_status') { if (typeof msg.text === 'string') onStatus?.(msg.text); continue }
         if (msg.type === 'content_block_delta' && msg.delta?.type === 'text_delta') { text += msg.delta.text; onText?.({ text, delta: msg.delta.text }) }
@@ -249,6 +250,7 @@
     if (!response.ok) {
       let detail = ''; try { detail = (await response.json())?.error || '' } catch {}
       if (detail?.type === 'refusal') throw err('refused', 'refused');
+      if (detail?.type === 'cut_off') throw err('cut_off', 'cut_off');
       if (response.status === 400 && (detail === 'images_unavailable' || detail === 'image_rejected')) throw err(detail, detail);
       throw err(STATUS[response.status] || 'failed', detail || 'HTTP ' + response.status);
     }

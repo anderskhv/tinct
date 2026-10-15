@@ -42,6 +42,7 @@ import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, passageImageWithinCap, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
 import { primerFailure } from '../../companion/primerParse'
+import type { MarginThinking } from '../../companion/marginRoutes'
 
 export type ChatEnv = SupabaseEnv & {
   ANTHROPIC_API_KEY?: string
@@ -299,16 +300,17 @@ function streamAnthropicResponse(response: Response, request: Request, env: Chat
     const outcome = await consumeStreamedRound(response, margin ? refusalHoldingSink(sink) : sink, {
       firstRound: true,
       cacheLog: margin,
-      onUsage: (usage, stopReason) => meter?.anthropic(usage, undefined, margin && stopReason === 'refusal' ? { neverCharged: true } : undefined),
+      onUsage: (usage, stopReason) => meter?.anthropic(usage, undefined, margin && marginStopError(stopReason) ? { neverCharged: true } : undefined),
       onText: () => {
         markFirstChatText(timing)
         if (!margin) charge()
       },
     })
-    if (margin && outcome.ok && outcome.stopReason === 'refusal') {
-      logChatFailure('stream', 'refusal')
+    const stopError = margin && outcome.ok ? marginStopError(outcome.stopReason) : null
+    if (stopError) {
+      logChatFailure('stream', stopError)
       logChatRequestTiming(timing, 'failed', timing.firstTextMs !== null)
-      sink.write('error', safeChatError('refusal'))
+      sink.write('error', safeChatError(stopError))
       return
     }
     if (margin && outcome.ok && timing.firstTextMs !== null) charge()
@@ -318,14 +320,24 @@ function streamAnthropicResponse(response: Response, request: Request, env: Chat
 }
 
 /**
- * A margin answer that ends in a refusal never reaches the reader as a
- * finished answer: its closing stop reason is not forwarded, and an error
- * event (type `refusal`) follows instead.
+ * A margin answer that is not a whole answer: refused (`refusal`), or cut off
+ * by its output bound (`cut_off`, stop reason `max_tokens`: thinking counts
+ * toward the bound, and an empty or half-written card was saved on 15 Oct
+ * 2026). Either is an error the card shows with its retry, never charged.
+ */
+export function marginStopError(stopReason: string | null | undefined): 'refusal' | 'cut_off' | null {
+  return stopReason === 'refusal' ? 'refusal' : stopReason === 'max_tokens' ? 'cut_off' : null
+}
+
+/**
+ * A margin answer that ends in a refusal or is cut off never reaches the
+ * reader as a finished answer: its closing stop reason is not forwarded, and
+ * an error event (type `refusal` or `cut_off`) follows instead.
  */
 function refusalHoldingSink(sink: ClientSink): ClientSink {
   return {
     write(event, data) {
-      if (data.type === 'message_delta' && (data.delta as { stop_reason?: unknown } | undefined)?.stop_reason === 'refusal') return
+      if (data.type === 'message_delta' && marginStopError((data.delta as { stop_reason?: string | null } | undefined)?.stop_reason)) return
       sink.write(event, data)
     },
   }
@@ -529,14 +541,20 @@ async function consumeStreamedRoundInner(
 export function primerReplyFault(data: unknown): { failure: string; reply_chars: number; stop_reason: string | null; output_tokens: number | null } | null {
   const d = (data && typeof data === 'object' ? data : {}) as { content?: unknown; stop_reason?: unknown; usage?: { output_tokens?: unknown } }
   const text = Array.isArray(d.content) ? d.content.map(block => (block && typeof block === 'object' && (block as { type?: unknown }).type === 'text' ? String((block as { text?: unknown }).text ?? '') : '')).join('') : ''
-  const failure = primerFailure(text)
-  if (!failure) return null
   const stop = typeof d.stop_reason === 'string' ? d.stop_reason : null
-  return { failure: stop === 'max_tokens' ? 'truncated' : failure, reply_chars: text.length, stop_reason: stop, output_tokens: typeof d.usage?.output_tokens === 'number' ? d.usage.output_tokens : null }
+  // Cut off by the output bound: never a primer, even when what came parses.
+  const failure = stop === 'max_tokens' ? 'truncated' : primerFailure(text)
+  if (!failure) return null
+  return { failure, reply_chars: text.length, stop_reason: stop, output_tokens: typeof d.usage?.output_tokens === 'number' ? d.usage.output_tokens : null }
 }
 
 function effortConfig(effort: CompanionEffort | null): Record<string, unknown> {
   return effort ? { output_config: { effort } } : {}
+}
+
+/** Only a margin route that sets `thinking` sends the field; every other request is as before. */
+function thinkingConfig(thinking: MarginThinking | undefined): Record<string, unknown> {
+  return thinking ? { thinking } : {}
 }
 
 function roundPayload(input: {
@@ -549,10 +567,13 @@ function roundPayload(input: {
   forceText: boolean
   effort: CompanionEffort | null
   tools: readonly AnthropicToolDefinition[]
+  /** A margin route's thinking setting (marginRoutes.ts); unset sends no field. */
+  thinking?: MarginThinking
 }): Record<string, unknown> {
   return {
     model: input.model ?? CHAT_MODEL,
     max_tokens: input.maxTokens,
+    ...thinkingConfig(input.thinking),
     system: input.system,
     messages: input.messages,
     tools: input.tools,
@@ -616,8 +637,10 @@ interface ToolLoopInput {
   apiKey: string
   /** The book reader: CHAT_MODEL (unset). A margin Fact-check: its route's model. */
   model?: string
-  /** A margin request: refusals end the loop as an error, and the cache log names it. */
+  /** A margin request: refusals and cut-off answers end the loop as an error, and the cache log names it. */
   margin?: CacheLogLabel
+  /** A margin route's thinking setting; unset sends no field. */
+  thinking?: MarginThinking
   system: AnthropicSystemParam
   messages: SafeMessage[]
   maxTokens: number
@@ -806,6 +829,7 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
         forceText,
         effort: input.effort,
         tools: input.tools,
+        thinking: input.thinking,
       }), !firstTextSeen)
       input.timing.providerRounds += 1
       input.timing.providerHeadersMs += Date.now() - providerStartedAt
@@ -843,19 +867,20 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
         firstRound: round === 0,
         cacheLog: input.margin,
         onText: forceText ? noteText : () => {},
-        onUsage: (usage, stopReason) => input.meter?.anthropic(usage, undefined, input.margin && stopReason === 'refusal' ? { neverCharged: true } : undefined),
+        onUsage: (usage, stopReason) => input.meter?.anthropic(usage, undefined, input.margin && marginStopError(stopReason) ? { neverCharged: true } : undefined),
       })
     } else {
       const data = await response.json() as { content?: ContentBlock[]; stop_reason?: string | null; usage?: AnthropicUsage }
       logAnthropicCacheUsage(round === 0 ? 'chat' : 'chat_tool_round', data.usage, input.margin)
-      input.meter?.anthropic(data.usage, undefined, input.margin && data.stop_reason === 'refusal' ? { neverCharged: true } : undefined)
+      input.meter?.anthropic(data.usage, undefined, input.margin && marginStopError(data.stop_reason) ? { neverCharged: true } : undefined)
       outcome = { ok: true, content: Array.isArray(data.content) ? data.content : [], stopReason: data.stop_reason ?? null, message: data as Record<string, unknown> }
     }
     if (!outcome.ok) return outcome
     // A margin request checks the stop reason before reading any content.
-    if (input.margin && outcome.stopReason === 'refusal') {
-      logChatFailure('stream', 'refusal')
-      return { ok: false, status: 502, body: safeChatError('refusal') }
+    const stopError = input.margin ? marginStopError(outcome.stopReason) : null
+    if (stopError) {
+      logChatFailure('stream', stopError)
+      return { ok: false, status: 502, body: safeChatError(stopError) }
     }
     const calls = toolUseBlocks(outcome.content)
     if (outcome.stopReason !== 'tool_use' || calls.length === 0 || forceText) {
@@ -1225,7 +1250,7 @@ export async function handleChat(
           request, env, ctx, apiKey, book: null, system, safeMessages, maxTokens, stream, effort, charge,
           timing,
           meter,
-          ...(marginRoute ? { model, margin: marginLabel } : {}),
+          ...(marginRoute ? { model, margin: marginLabel, ...(marginRoute.thinking ? { thinking: marginRoute.thinking } : {}) } : {}),
           trailChapters: [],
           researchKey: env.OPENAI_API_KEY,
           researchGate: () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6),
@@ -1263,6 +1288,7 @@ export async function handleChat(
       const response = await fetchAnthropic(apiKey, {
         model,
         max_tokens: maxTokens,
+        ...thinkingConfig(marginRoute?.thinking),
         system,
         messages: safeMessages,
         ...effortConfig(effort),
@@ -1283,17 +1309,17 @@ export async function handleChat(
       const data = await response.json() as { usage?: AnthropicUsage; stop_reason?: string | null }
       logAnthropicCacheUsage('chat', data.usage, marginLabel)
       // A margin request checks the stop reason before it reads the content:
-      // a refusal is an error the reader can retry, never charged.
-      const refused = Boolean(marginLabel) && response.ok && data.stop_reason === 'refusal'
-      // Before you start: a reply that is not a primer is logged (why, and how long; never the
-      // text) and not charged, so the reader's retry does not pay twice.
-      const primerFault = !refused && response.ok && companion && isPrimerRequest(companion) ? primerReplyFault(data) : null
+      // a refusal or a cut-off answer is an error the reader can retry, never charged.
+      const stopError = marginLabel && response.ok ? marginStopError(data.stop_reason) : null
+      // Before you start: a reply that is not a primer (cut off included) is logged (why, and
+      // how long; never the text) and not charged, so the reader's retry does not pay twice.
+      const primerFault = stopError !== 'refusal' && response.ok && companion && isPrimerRequest(companion) ? primerReplyFault(data) : null
       if (primerFault) console.warn(JSON.stringify({ event: 'primer_parse_failure', ...primerFault }))
-      meter.anthropic(data.usage, undefined, refused || primerFault ? { neverCharged: true } : undefined)
-      if (refused) {
-        logChatFailure('http', 'refusal')
+      meter.anthropic(data.usage, undefined, stopError || primerFault ? { neverCharged: true } : undefined)
+      if (stopError) {
+        logChatFailure('http', stopError)
         logChatRequestTiming(timing, 'failed', false)
-        return jsonResponse(safeChatError('refusal'), 502, request)
+        return jsonResponse(safeChatError(stopError), 502, request)
       }
 
       const hasAnswer = Array.isArray((data as { content?: Array<{ text?: string }> }).content)
@@ -1344,9 +1370,10 @@ async function handleBookGroundedChat(input: {
   researchGate?: () => Promise<boolean>
   /** Always prefetch the source search with this query (Fact-check). */
   sourceQuery?: string
-  /** A margin Fact-check: its route's model; charged only once it finished without a refusal. */
+  /** A margin Fact-check: its route's model; charged only once it finished without a refusal or a cut-off. */
   model?: string
   margin?: CacheLogLabel
+  thinking?: MarginThinking
 }): Promise<Response> {
   const { request, env, ctx } = input
   const retrieval = input.book
@@ -1367,6 +1394,7 @@ async function handleBookGroundedChat(input: {
     apiKey: input.apiKey,
     ...(input.model ? { model: input.model } : {}),
     ...(input.margin ? { margin: input.margin } : {}),
+    ...(input.thinking ? { thinking: input.thinking } : {}),
     system: input.system,
     messages: input.safeMessages,
     maxTokens: input.maxTokens,
@@ -1441,6 +1469,7 @@ async function handleBookGroundedChat(input: {
     forceText: false,
     effort: input.effort,
     tools: loopInput.tools,
+    thinking: input.thinking,
   }))
   input.timing.providerRounds += 1
   input.timing.providerHeadersMs += Date.now() - providerStartedAt

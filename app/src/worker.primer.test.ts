@@ -211,7 +211,9 @@ describe('primer: the chat route', () => {
         warn.mockClear()
         const { charges } = mockProviders(reply)
         const response = await signedIn({ companion: primerBody() })
-        expect(response.status).toBe(200)
+        // Cut off by the bound: an error the reader's retry handles (cut_off), as a reply that does not parse.
+        if (failure === 'truncated') expect(((await response.json()) as { error: { type: string } }).error.type).toBe('cut_off')
+        expect(response.status).toBe(failure === 'truncated' ? 502 : 200)
         const logged = warn.mock.calls.map(call => String(call[0])).filter(line => line.includes('primer_parse_failure'))
         expect(logged).toHaveLength(1)
         expect(JSON.parse(logged[0])).toMatchObject({ event: 'primer_parse_failure', failure, reply_chars: reply.text.length })
