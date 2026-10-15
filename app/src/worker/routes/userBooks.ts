@@ -87,14 +87,14 @@
  * Deleting the book deletes its cover; account deletion takes it with the
  * whole `u/{userId}/` prefix, and account export lists it.
  *
- * Before you start (the margin reader's primer on an own PDF: a gist, key
- * claims, cautions and a map of one unit, made by the companion's `primer`
+ * Before you start (the margin reader's primer on an own PDF: its kind, a
+ * gist, that kind's sections and a map of one unit, made by the companion's `primer`
  * chapter action) is stored with the file once made, so reopening never
  * makes it again; Redo stores a new one over it. One small JSON object per
  * unit, `u/{userId}/primers/{bookHex}/{unitKey}`:
  *
  *   GET    /api/user-books/primers/{bookHex}?unit={unitKey}   the stored primer, to its owner only (`primer: null` when none yet; 404 for a book not kept)
- *   PUT    /api/user-books/primers/{bookHex}?unit={unitKey}   store `{ primer: { gist, claims, keepInMind, map } }`
+ *   PUT    /api/user-books/primers/{bookHex}?unit={unitKey}   store `{ primer: { kind, gist, sections, map } }` (or the shape before kinds)
  *                                                            (an owned PDF only; at most MAX_PRIMER_BYTES)
  *
  * The Worker validates the shape (companion/primerParse.ts) and stamps

@@ -196,12 +196,16 @@ export function parseSourcesLine(line: unknown): Source[] {
 }
 
 /**
- * A Fact-check answer: the overall verdict and its sentence (the bottom line), one entry per
- * paragraph after it with its verdict word (or Note., or none), and the sources.
- * -> { verdict, lead, claims: [{ verdict, text }], sources: [{ title, url }] }
+ * A Fact-check answer: the opening (what the passage claims and what the document offers, written
+ * from the document while the source search runs), then the overall verdict and its sentence (the
+ * bottom line), one entry per paragraph after it with its verdict word (or Note., or none), and the
+ * sources. An answer that opens on its verdict (written before 15 Oct 2026) has no opening; one with
+ * no verdict paragraph at all reads as before, its first sentence the bottom line.
+ * -> { opening: [paragraph], verdict, lead, claims: [{ verdict, text }], sources: [{ title, url }] }
  * `verdict` is one of VERDICTS or null; a claim's is one of VERDICTS, NOTE or null.
  */
-export interface Factcheck { verdict: Verdict | null; lead: string; claims: Array<{ verdict: Verdict | typeof NOTE | null; text: string }>; sources: Source[] }
+export interface Factcheck { opening: string[]; verdict: Verdict | null; lead: string; claims: Array<{ verdict: Verdict | typeof NOTE | null; text: string }>; sources: Source[] }
+const VERDICT_START_RE = /^[*_]{0,2}(?:holds|partly holds|outdated|disputed|can['’]t check)\b/i
 export function parseFactcheck(text: unknown): Factcheck {
   const lines = String(text ?? '').replace(/\r\n?/g, '\n').split('\n')
   let sources: Source[] = []
@@ -212,15 +216,19 @@ export function parseFactcheck(text: unknown): Factcheck {
       break
     }
   }
-  const paras = paragraphsOf(lines.join('\n'))
-  if (!paras.length) return { verdict: null, lead: '', claims: [], sources }
+  const all = paragraphsOf(lines.join('\n'))
+  if (!all.length) return { opening: [], verdict: null, lead: '', claims: [], sources }
+  // A first paragraph that opens on a verdict word, even as "Partly holds:" (answers before 15 Oct), has no opening before it.
+  const at = VERDICT_START_RE.test(all[0]) ? 0 : all.findIndex(p => leadingWord(p, VERDICTS))
+  const opening = at > 0 ? all.slice(0, at) : []
+  const paras = at > 0 ? all.slice(at) : all
   const head = leadingWord(paras[0], VERDICTS)
   const { lead, rest } = splitBottomLine(paras[0], { prefixes: VERDICTS })
   const claims = [...(rest ? [rest] : []), ...paras.slice(1)].map(p => {
     const w = leadingWord<Verdict | typeof NOTE>(p, [...VERDICTS, NOTE])
     return w ? { verdict: w.word, text: p.slice(w.length).trim() } : { verdict: null, text: p }
   })
-  return { verdict: head ? head.word : null, lead, claims, sources }
+  return { opening, verdict: head ? head.word : null, lead, claims, sources }
 }
 
 /**

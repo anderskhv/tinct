@@ -64,12 +64,20 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
   related: route(MARGIN_HAIKU_MODEL, 'low', 800, NO_THINKING),
   // Adaptive thinking at medium effort: 1200-1600 left 4 in 5 cut off (15 Oct 2026), so room to think as well.
   factcheck: route(MARGIN_HAIKU_MODEL, 'medium', 8000),
-  counterpoint: route(MARGIN_HAIKU_MODEL, 'medium', 6000),
+  // Low effort, still adaptive (15 Oct evening: 7-12 s at medium, almost all of it thinking); awaiting Anders's confirmation.
+  counterpoint: route(MARGIN_HAIKU_MODEL, 'low', 6000),
   quiz: route(MARGIN_HAIKU_MODEL, 'medium', 6000),
   // A primer's JSON runs to about 1,700 tokens; thinking at medium effort needs the rest (2 failures in 3 at 1200, 15 Oct).
   primer: route(MARGIN_SONNET_MODEL, 'medium', 8000),
   ask: route(MARGIN_SONNET_MODEL, 'medium', 1800),
 })
+
+/**
+ * Fact-check's opening (the doc-first opening, approved 15 Oct 2026): the first paragraph, written
+ * from the cached document while the source search runs. No tools and no thinking, so its words
+ * start at lookup speed; the verdict round after it keeps MARGIN_ROUTES.factcheck.
+ */
+export const FACTCHECK_OPENING_ROUTE: MarginRoute = route(MARGIN_HAIKU_MODEL, 'low', 600, NO_THINKING)
 
 /** The route for a PDF reader request, by intent; a chapter request is a primer (the only chapter action a PDF has). */
 export function marginRouteKey(intent: string, chapterAction?: string): MarginRouteKey | null {

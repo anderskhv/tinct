@@ -6,7 +6,7 @@
  */
 import { createHash } from 'node:crypto'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
@@ -111,7 +111,7 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
       quiz_check: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 500, thinking: { type: 'disabled' } },
       related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 8000 },
-      counterpoint: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 6000 },
+      counterpoint: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
       quiz: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 6000 },
       primer: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       ask: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 1800 },
@@ -120,6 +120,10 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     for (const [key, route] of Object.entries(MARGIN_ROUTES)) {
       if (route.model === MARGIN_SONNET_MODEL || ['factcheck', 'counterpoint', 'quiz'].includes(key)) expect(route, key).not.toHaveProperty('thinking')
     }
+  })
+
+  it("Fact-check's doc-first opening is its own small round: Haiku, effort low, no thinking, 600 tokens", () => {
+    expect(FACTCHECK_OPENING_ROUTE).toEqual({ model: 'claude-haiku-5-5', effort: 'low', maxTokens: 600, thinking: { type: 'disabled' } })
   })
 
   it.each([
@@ -175,6 +179,40 @@ describe('the cached prefix', () => {
     expect(system[1].text).toContain('The reader is on page 1 of 4.')
     const messages = anthropic[0].messages as Array<{ role: string; content: unknown }>
     expect(messages[0]).toEqual({ role: 'user', content: `<selected_passage>\n${selection}\n</selected_passage>` })
+  })
+
+  it("Fact-check's doc-first opening reads Explain's cached prefix; its verdict round, Fact-check's own; both rounds' lines come after the breakpoint", async () => {
+    const round = (text: string) => ({ stream: [
+      sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text } }),
+      sse('content_block_stop', { index: 0 }),
+      sse('message_delta', { delta: { stop_reason: 'end_turn' }, usage: { output_tokens: 3 } }),
+      sse('message_stop', {}),
+    ].join('') })
+    let n = 0
+    const { anthropic } = stubFetch(() => (n++ === 1 ? round('The passage claims 28.4 BLEU {p. 1}.') : n === 3 ? round('Partly holds. Later systems beat it.\n\nSources:') : {}))
+    await send(margin('explain', 1, { selection: 'dispensing with recurrence' }))
+    const { ctx, pending } = context()
+    const response = await handleChat(post('/api/chat', { stream: true, ...margin('factcheck', 1, { selection: 'Our model achieves 28.4 BLEU.' }) }), { ...env, OPENAI_API_KEY: 'openai-key' }, ctx, reader, allow, gateOff)
+    const text = await response.text()
+    await Promise.all(pending)
+    expect(text).toContain('The passage claims 28.4 BLEU')
+    expect(text).toContain('Partly holds.')
+    const [explain, opening, verdict] = anthropic
+    expect(anthropic).toHaveLength(3)
+    expect(prefixBytes(opening)).toBe(prefixBytes(explain))
+    // An unstreamed Fact-check (one request, after the search) has the same prefix as the verdict round.
+    await handleChat(post('/api/chat', margin('factcheck', 2, { selection: 'Another claim.' })), { ...env, OPENAI_API_KEY: 'openai-key' }, context().ctx, reader, allow, gateOff)
+    expect(prefixBytes(verdict)).toBe(prefixBytes(anthropic[3]))
+    for (const body of [opening, verdict]) {
+      const system = body.system as SystemBlock[]
+      expect(system).toHaveLength(2)
+      expect(system[0].text).not.toContain('Write only the first paragraph now')
+      expect(system[0].text).not.toContain('Your first paragraph is written')
+    }
+    expect((opening.system as SystemBlock[])[1].text).toContain('Write only the first paragraph now')
+    expect((verdict.system as SystemBlock[])[1].text).toContain('Your first paragraph is written')
   })
 
   it('sends byte-identical bytes up to the breakpoint for different intents and selections on the same file and model', async () => {
@@ -452,8 +490,18 @@ describe('cut off by the output bound (stop_reason max_tokens, 15 Oct 2026)', ()
   })
 
   it('Fact-check (the tool loop, plain and streamed): cut off is an error and never charged; its body thinks adaptively with room', async () => {
+    const opening = { stream: [
+      sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'The passage claims 28.4 BLEU.' } }),
+      sse('content_block_stop', { index: 0 }),
+      sse('message_delta', { delta: { stop_reason: 'end_turn' }, usage: { output_tokens: 8 } }),
+      sse('message_stop', {}),
+    ].join('') }
     for (const stream of [false, true]) {
-      const { anthropic, charges, rows } = stubFetch(() => (stream ? cutStream('Mostly right:') : cutJson))
+      // Streamed, the opening round comes first and finishes; the verdict round is the one cut off.
+      let calls = 0
+      const { anthropic, charges, rows } = stubFetch(() => (stream ? (calls++ === 0 ? opening : cutStream('Mostly right:')) : cutJson))
       const { ctx, pending } = context()
       const response = await handleChat(post('/api/chat', { ...(stream ? { stream: true } : {}), ...margin('factcheck', 1, { selection: 'Our model achieves 28.4 BLEU.' }) }), { ...env, OPENAI_API_KEY: 'openai-key' }, ctx, reader, allow, gateOff)
       const text = await response.text()
@@ -462,10 +510,17 @@ describe('cut off by the output bound (stop_reason max_tokens, 15 Oct 2026)', ()
       expect(text).toContain('"type":"cut_off"')
       expect(text).not.toContain('"stop_reason":"max_tokens"')
       expect(charges).toHaveLength(0)
-      expect(rows.filter(row => row.feature !== 'source_search').map(row => row.feature)).toEqual(['explain_speculative'])
-      expect(anthropic[0].max_tokens).toBe(8000)
-      expect(anthropic[0]).not.toHaveProperty('thinking')
-      expect(anthropic[0].tools).toEqual([expect.objectContaining({ name: 'search_reading_sources' })])
+      // Streamed, the finished opening round is metered as its own row (as an earlier tool round is); the reader is still never charged.
+      expect(rows.filter(row => row.feature !== 'source_search').map(row => row.feature)).toEqual(stream ? ['chat', 'explain_speculative'] : ['explain_speculative'])
+      const body = anthropic[stream ? 1 : 0]
+      expect(body.max_tokens).toBe(8000)
+      expect(body).not.toHaveProperty('thinking')
+      expect(body.tools).toEqual([expect.objectContaining({ name: 'search_reading_sources' })])
+      if (stream) {
+        expect(anthropic[0].max_tokens).toBe(600)
+        expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
+        expect(anthropic[0]).not.toHaveProperty('tools')
+      }
       vi.unstubAllGlobals()
     }
   })

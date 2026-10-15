@@ -135,6 +135,21 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
       ])
     })
 
+    it('the doc-first opening (15 Oct): paragraphs before the verdict are the opening; the verdict is still the bottom line', () => {
+      const parsed = m.parseFactcheck('The passage claims 28.4 BLEU; the paper offers Table 2 {p. 8}.\n\nPartly holds. The score stands, but later systems beat it.\n\nNote. A landmark result.\n\nSources: [NLP-progress](https://nlpprogress.com/)')
+      expect(parsed.opening).toEqual(['The passage claims 28.4 BLEU; the paper offers Table 2 {p. 8}.'])
+      expect(parsed.verdict).toBe('Partly holds.')
+      expect(parsed.lead).toBe('Partly holds. The score stands, but later systems beat it.')
+      expect(parsed.claims).toEqual([{ verdict: 'Note.', text: 'A landmark result.' }])
+      expect(parsed.sources).toEqual([{ title: 'NLP-progress', url: 'https://nlpprogress.com/' }])
+      // An answer written before the opening (verdict first) has none.
+      expect(m.parseFactcheck(answer).opening).toEqual([])
+      // Nor one whose overall verdict is followed by a colon (production, 15 Oct): it stays the bottom line.
+      const colon = m.parseFactcheck('Partly holds: the score was right in 2017.\n\nHolds. The paper reports 28.4 BLEU.')
+      expect(colon.opening).toEqual([])
+      expect(colon.lead).toBe('Partly holds: the score was right in 2017.')
+    })
+
     it("accepts Can't check. with either apostrophe, and verdict words wrapped in emphasis", () => {
       expect(m.parseFactcheck('Can’t check. Nothing reliable covers this.\n\nSources:').verdict).toBe("Can't check.")
       expect(m.parseFactcheck('*Disputed.* Economists disagree.').verdict).toBe('Disputed.')
@@ -143,10 +158,10 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
 
     it('copes with no verdict, no sources line, an empty sources line and a claim without a verdict word', () => {
       const parsed = m.parseFactcheck('This is opinion, not a factual claim.\n\nThe author argues for it.')
-      expect(parsed).toEqual({ verdict: null, lead: 'This is opinion, not a factual claim.', claims: [{ verdict: null, text: 'The author argues for it.' }], sources: [] })
+      expect(parsed).toEqual({ opening: [], verdict: null, lead: 'This is opinion, not a factual claim.', claims: [{ verdict: null, text: 'The author argues for it.' }], sources: [] })
       expect(m.parseFactcheck('Holds. Yes.\nSources:').sources).toEqual([])
       expect(m.parseFactcheck('Holds. Yes.\nSources: none').sources).toEqual([])
-      expect(m.parseFactcheck('')).toEqual({ verdict: null, lead: '', claims: [], sources: [] })
+      expect(m.parseFactcheck('')).toEqual({ opening: [], verdict: null, lead: '', claims: [], sources: [] })
       // A verdict-looking word that is not one stays text.
       expect(m.parseFactcheck('Holds up well. It does.').verdict).toBeNull()
     })

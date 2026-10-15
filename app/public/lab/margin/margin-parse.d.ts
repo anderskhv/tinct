@@ -48,10 +48,12 @@ export declare function parseSourcesLine(line: unknown): Source[];
 /**
  * A Fact-check answer: the overall verdict and its sentence (the bottom line), one entry per
  * paragraph after it with its verdict word (or Note., or none), and the sources.
- * -> { verdict, lead, claims: [{ verdict, text }], sources: [{ title, url }] }
+ * -> { opening: [paragraph], verdict, lead, claims: [{ verdict, text }], sources: [{ title, url }] }
  * `verdict` is one of VERDICTS or null; a claim's is one of VERDICTS, NOTE or null.
  */
 export interface Factcheck {
+    /** The opening paragraphs before the verdict (written from the document while the search runs); empty on an older answer. */
+    opening: string[];
     verdict: Verdict | null;
     lead: string;
     claims: Array<{

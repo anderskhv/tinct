@@ -506,12 +506,21 @@ describe('/api/user-books/covers', () => {
 })
 
 describe('/api/user-books/primers', () => {
+  const map = [{ title: '1.1 Rates', pages: 'pp. 9–10' }, { title: '1.2 Order', pages: 'pp. 11–14' }, { title: '1.3 Half-life', pages: 'p. 15' }]
+  const claims = [{ text: 'Rates depend on concentration.', cite: '{p. 12}' }, { text: 'Order is measured.', cite: '{p. 13}' }, { text: 'Half-life is constant.', cite: '{eq. 1.2}' }]
+  // A textbook's primer (Anders, 15 Oct: the kind first, then its sections).
   const primer = {
+    kind: 'textbook',
     gist: 'The chapter sets up rate laws. Everything after uses them.',
-    claims: [{ text: 'Rates depend on concentration.', cite: '{p. 12}' }, { text: 'Order is measured.', cite: '{p. 13}' }, { text: 'Half-life is constant.', cite: '{eq. 1.2}' }],
-    keepInMind: ['Units of k change with order.'],
-    map: [{ title: '1.1 Rates', pages: 'pp. 9–10' }, { title: '1.2 Order', pages: 'pp. 11–14' }, { title: '1.3 Half-life', pages: 'p. 15' }],
+    sections: [
+      { title: 'What you’ll learn', items: claims },
+      { title: 'Ideas to hold onto', items: [{ text: 'Units of k change with order.', cite: '' }] },
+      { title: 'Terms', items: [{ term: 'Rate constant', meaning: 'The k in a rate law.' }] },
+    ],
+    map,
   }
+  // One made before kinds, as some readers have stored.
+  const oldPrimer = { gist: primer.gist, claims, keepInMind: ['Units of k change with order.'], map }
   const path = (hex: string, unit = 'outline-0') => `/api/user-books/primers/${hex}?unit=${encodeURIComponent(unit)}`
   const putPrimer = (call: ReturnType<typeof setup>['call'], token: string | undefined, hex: string, body: unknown, unit?: string) =>
     call(path(hex, unit), { method: 'PUT', token, body: typeof body === 'string' ? body : JSON.stringify(body), headers: { 'Content-Type': 'application/json' } })
@@ -545,6 +554,13 @@ describe('/api/user-books/primers', () => {
     // Each unit is its own; the whole file is "all". A primer is not a book.
     expect(await (await call(path(hex, 'all'), { token: 'token-a' })).json()).toEqual({ primer: null })
     expect((await putPrimer(call, 'token-a', hex, { primer }, 'all')).status).toBe(200)
+    // A primer of the shape before kinds is still taken, stored as a paper's (Key claims, Keep in mind).
+    const old = await putPrimer(call, 'token-a', hex, { primer: oldPrimer }, 'outline-1')
+    expect(old.status).toBe(200)
+    expect(((await old.json()) as { primer: Record<string, unknown> }).primer).toMatchObject({ kind: 'paper', sections: [{ title: 'Key claims', items: claims }, { title: 'Keep in mind', items: [{ text: 'Units of k change with order.', cite: '' }] }], map })
+    // And one stored in that shape (before this change) is served, as a paper's.
+    r2.objects.get(`u/${A}/primers/${hex}/all`)!.bytes = new TextEncoder().encode(JSON.stringify({ ...oldPrimer, madeAt: '2026-10-14T09:30:00.000Z', unitKey: 'all' }))
+    expect(((await (await call(path(hex, 'all'), { token: 'token-a' })).json()) as { primer: { kind: string; sections: Array<{ title: string }> } }).primer.sections.map(x => x.title)).toEqual(['Key claims', 'Keep in mind'])
     const list = await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }
     expect(list.books).toHaveLength(1)
   })
@@ -585,15 +601,16 @@ describe('/api/user-books/primers', () => {
       expect(await res.json()).toEqual({ error: 'bad_unit' })
     }
     expect((await call(`/api/user-books/primers/${hex}`, { token: 'token-a' })).status).toBe(400)
-    for (const body of ['not json', [], {}, { primer: null }, { primer: { ...primer, claims: primer.claims.slice(0, 2) } }, { primer: { ...primer, keepInMind: [] } }, { primer: { ...primer, map: primer.map.slice(0, 2) } }, { primer: { ...primer, gist: '' } }]) {
+    for (const body of ['not json', [], {}, { primer: null }, { primer: { ...primer, sections: [] } }, { primer: { ...primer, sections: [{ title: 'Terms', items: [] }] } }, { primer: { ...oldPrimer, claims: claims.slice(0, 2) } }, { primer: { ...oldPrimer, keepInMind: [] } }, { primer: { ...primer, map: primer.map.slice(0, 2) } }, { primer: { ...primer, gist: '' } }]) {
       const res = await putPrimer(call, 'token-a', hex, body)
       expect(res.status, JSON.stringify(body)).toBe(400)
       expect(await res.json()).toEqual({ error: 'invalid_primer' })
     }
     // Too many items are trimmed to the counts, not refused.
-    const trimmed = await putPrimer(call, 'token-a', hex, { primer: { ...primer, claims: [...primer.claims, ...primer.claims, ...primer.claims], map: Array(12).fill(primer.map[0]) } })
-    const { primer: kept } = await trimmed.json() as { primer: { claims: unknown[]; map: unknown[] } }
-    expect(kept.claims).toHaveLength(5)
+    const trimmed = await putPrimer(call, 'token-a', hex, { primer: { ...primer, sections: [...primer.sections, ...primer.sections].map(x => ({ ...x, items: [...x.items, ...x.items, ...x.items, ...x.items] })), map: Array(12).fill(primer.map[0]) } })
+    const { primer: kept } = await trimmed.json() as { primer: { sections: Array<{ items: unknown[] }>; map: unknown[] } }
+    expect(kept.sections).toHaveLength(4)
+    expect(kept.sections[0].items).toHaveLength(8)
     expect(kept.map).toHaveLength(8)
     // A stored object out of shape is not served.
     r2.objects.get(`u/${A}/primers/${hex}/outline-0`)!.bytes = new TextEncoder().encode('{"gist":1}')

@@ -2255,7 +2255,7 @@ function mrShow(mode, { question = '' } = {}) {
   el.removeAttribute('style');
   if (mode === 'define') {
     el.className = `mr mr-float mr-define${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Define ' + mr.word);
-    el.innerHTML = MH.defineHtml(mr.def, mrOpts());
+    el.innerHTML = MH.defineHtml(mr.def, { ...mrOpts(), P: MP.P, resolve: citeResolve });
     el.querySelector('.mr-define__wait')?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
   } else if (mode === 'note') {
     el.className = `mr mr-float mr-note${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Note');
@@ -2410,21 +2410,24 @@ async function mrDefine(word) {
   if (hit && (!TinctMargin.nameMidSentence(word, mr.before) || navigator.onLine === false)) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
     mrShow('define');
-    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most
-    // FIT_SENSE_MS; the dictionary's order shows meanwhile).
+    // Online, two asks at once (15 Oct, evening): the meaning in this text from the companion's
+    // `define`, shown first under "In this text" whenever it arrives, even when a dictionary sense
+    // "fits" ("perplexity" read "confusion"); and define_sense, which moves the fitting sense to the
+    // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
     const info = mr.info, anchor = mr.anchor, def = mr.def;
-    const n = await fittingSense(hit.word, def.senses.map(x => x.text), info);
-    if (n > 0) def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
-    // None fits (a technical term the dictionary knows only in its everyday senses): the meaning in
-    // this text from the companion's `define` comes first, the dictionary's senses below it.
-    if (n === 0) {
-      try {
-        const found = await defineByCompanion(word, info);
-        if (found?.line) { def.inText = found.line; if (found.pos) def.pos = found.pos }
-      } catch { /* the dictionary alone */ }
-    }
+    const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
+    const inText = navigator.onLine === false ? null : defineByCompanion(word, info).then(found => {
+      if (!found?.line) return;
+      def.inText = found.line; if (found.pos) def.pos = found.pos;
+      redraw();
+    }).catch(() => { /* the dictionary alone */ });
+    const sense = fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
+      if (!(n > 0)) return;
+      def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
+      redraw();
+    });
+    await Promise.all([inText, sense]);
     keepDefine(def, info, anchor, key);
-    if (mr?.defToken === token && (n > 0 || def.inText)) mrShow('define');
     return;
   }
   if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
@@ -2586,7 +2589,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015train2').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015speed').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -3815,7 +3818,7 @@ addEventListener('keydown', e => {
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
 const primer = { units: null, unitsTask: null, open: false, from: null, box: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
-const ppReady = import('/lab/margin/primer-parse.js').catch(() => null);
+const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
 function primerReset() {
   primer.token++;
   Object.assign(primer, { units: null, open: false, unit: null, data: null, wait: false, status: '' });
@@ -3850,9 +3853,25 @@ async function loadUnitsNow() {
   if (token !== state.token) return;
   // A recognised scan has no outline: its chapters (a paper's numbered sections) are its units.
   if (!entries.some(e => Number.isInteger(e.page)) && state.textEdition?.source === 'ocr') entries = state.textEdition.chapters.map(c => ({ title: c.title, page: Array.isArray(c.pages) ? c.pages[0] : null }));
-  const units = TinctMargin.primerUnits(entries, state.pages.length || pdf.numPages);
+  // Any other PDF without an outline: the chapters the scan found, from its printed contents or its
+  // headings (MacKay's 640-page book has no bookmarks, only a printed contents: without this it was
+  // one unit, "the whole PDF", and its primer blended the preface with chapters 1 and 2; Anders, 15 Oct).
+  const count = state.pages.length || pdf.numPages;
+  // (A PDF under 40 pages is one unit whatever it has: nothing to wait for.)
+  if (!entries.some(e => Number.isInteger(e.page)) && count >= TinctMargin.PRIMER.units) {
+    await toc.task;
+    if (token !== state.token) return;
+    entries = scanUnitEntries();
+  }
+  let units = TinctMargin.primerUnits(entries, count);
+  // Still one unit, and too long to send whole: blocks of pages, never "the whole PDF".
+  if (units.length === 1 && units[0].key === 'all' && count >= TinctMargin.PRIMER.units) {
+    const read = await readDocument();
+    if (token !== state.token) return;
+    if (read && !read.pages) units = TinctMargin.primerBlocks(count);
+  }
   for (const u of units.length > 1 ? units.slice(0, 80) : []) {
-    if (u.matter) continue;
+    if (u.matter || u.pages) continue;
     const kind = TinctMargin.pageMatter((await pageText(u.start)).text) || (u.start < u.to ? TinctMargin.pageMatter((await pageText(u.start + 1)).text) : null);
     if (token !== state.token) return;
     if (kind) u.matter = kind === 'contents' ? 'front' : 'back';
@@ -3860,6 +3879,8 @@ async function loadUnitsNow() {
   primer.units = units;
   marginLayout();
 }
+// The scan's chapters as primer entries (TinctMargin.scanEntries).
+const scanUnitEntries = () => TinctMargin.scanEntries(toc.entries, state.scan?.nav, state.pages.length);
 const placePage = () => (state.pages.length ? currentPlace().page : 1);
 // The chapter the reader is in when they open Before you start; on front or back matter, the nearest real chapter.
 const currentUnit = () => (primer.units ? TinctMargin.primerUnitAt(primer.units, placePage()) : null);
@@ -3873,11 +3894,16 @@ function triggerUnit() {
   const unit = currentUnit();
   return unit && TinctMargin.atUnitStart(unit, placePage()) ? unit : null;
 }
-const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : unit.title);
-/** The unit's pages as the companion receives a PDF (the Worker samples a long unit). */
+// The unit's name as the companion and the primer give it: "Chapter 1: Introduction to Information Theory".
+const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : unit.label || unit.title);
+/**
+ * The unit's pages as the companion receives a PDF (the Worker samples a long unit): from its own
+ * first page, not the pages before it that only offer its trigger (a title page, or a contents and
+ * preface no unit of their own covers), so a chapter's primer is that chapter's alone.
+ */
 async function unitPages(unit) {
-  const pages = [], to = Math.min(unit.to, unit.from + 199);
-  for (let n = unit.from; n <= to; n++) pages.push({ n: pageLabel(n), text: ((await pageText(n)).text || ' ').slice(0, 6000) });
+  const pages = [], from = Math.max(unit.from, Math.min(unit.start || unit.from, unit.to)), to = Math.min(unit.to, from + 199);
+  for (let n = from; n <= to; n++) pages.push({ n: pageLabel(n), text: ((await pageText(n)).text || ' ').slice(0, 6000) });
   return { pages, at: 0 };
 }
 const primerUsable = () => state.kind === 'pdf' && !!window.TinctAI?.session?.().token && /^[0-9a-f]{24}$/.test(hexOf(state.key));
@@ -3889,7 +3915,8 @@ async function primerRemote(method, unit, content = null) {
     const r = await fetch(`/api/user-books/primers/${hexOf(state.key)}?unit=${encodeURIComponent(unit.key)}`, {
       method, credentials: 'same-origin', cache: 'no-store',
       headers: { Authorization: 'Bearer ' + TinctAI.session().token, ...(content ? { 'Content-Type': 'application/json' } : {}) },
-      body: content ? JSON.stringify({ primer: { gist: content.gist, claims: content.claims, keepInMind: content.keepInMind, map: content.map } }) : undefined,
+      // Its content only (a primer kept here before kinds has claims and keepInMind; the Worker reads both shapes).
+      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
     });
     if (!r.ok) return null;
     return PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
@@ -4010,7 +4037,8 @@ function drawPrimer(el, { sheet = false } = {}) {
   el.dataset.sig = sig;
   // The focus stays on the primer while it is drawn again (made, Redo); from the keys it starts on its close.
   if (el.contains(document.activeElement)) primer.keyed = true;
-  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title' });
+  const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
+  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title', unit });
   if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
   else el.innerHTML = inner;
   if (primer.wait) el.querySelector('.mr-wait')?.append(TinctWait.waitRing('Thinking…', { size: 18, live: false }));
@@ -4076,7 +4104,7 @@ function triggerInColumn(colTop) {
     b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false'); b.title = 'Before you start (B)';
   }
   const b = primer.trig;
-  if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: the gist, the key claims and a map of ${TinctMargin.unitPhrase(unit)}. Key B.`) }
+  if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: ${TinctMargin.triggerLine(unit)} Key B.`) }
   if (b.parentElement !== col.el) col.el.insertBefore(b, col.el.firstChild);
   // The first line of text on the page the reader is on (the unit's first pages: a title page, its start);
   // before the text layer is drawn, that page's top.

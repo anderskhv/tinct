@@ -17,6 +17,8 @@
 //                                                     window inside the screen, the place kept, the choice kept on reload)
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
 //   node scripts/margin-check.mjs primer-reliability  Before you start made 10 of 10 times against mocked replies (cut off, empty, odd shapes, slow)
+//   node scripts/margin-check.mjs primer-kinds        Before you start per kind (paper, textbook, narrative, practical, other; mocked replies), a
+//                                                     primer stored before kinds, and a long book without an outline (MacKay's case): chapter 1, labelled
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
 //   node scripts/margin-check.mjs figures           FIXES items 4–7: figure detection, the chip kept on screen, the figure's card beside it, figure questions
 //   node scripts/margin-check.mjs long                PR F: a 585-page book: printed page numbers, the whole-book search with a question,
@@ -67,6 +69,10 @@ writeFileSync(FIGURE_PAPER, figurePaper())
 const BOOK = longBook({ meta: true })
 const BIG_BOOK = join(OUT, 'long_book.pdf')
 writeFileSync(BIG_BOOK, BOOK.bytes)
+// The same book without bookmarks, only its printed Contents (MacKay's 640 pages have no outline; Anders, 15 Oct).
+const BARE = longBook({ meta: true, bookmarks: false })
+const BARE_BOOK = join(OUT, 'long_book_no_outline.pdf')
+writeFileSync(BARE_BOOK, BARE.bytes)
 
 // The class names of css/margin.css, as the check's selectors (the phone More's rows are buttons).
 export const SELECTORS = {
@@ -164,9 +170,14 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.chunks` (set by a check) streams the next answer in pieces: [{ text, wait }], then an
 // error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one); a string
 // names the error's type (`cut_off`: the Worker's answer stopped by its output bound, max_tokens).
-export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+// `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
+// unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
+export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+/** The mocked Fact-check's opening, streamed before "Checking sources…" as the Worker streams it while the search runs. */
+export const FACTCHECK_OPENING = 'MOCK opening: the passage claims what it says, and the document offers its own table {p. 1}.'
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
+  if (mock.nextFor[intent] != null) { const t = mock.nextFor[intent]; delete mock.nextFor[intent]; return t }
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
   if (intent === 'define') return JSON.stringify({ kind: 'definition', definition: `Noun. A mocked meaning of “${c.selection}” here.` })
   if (intent === 'define_sense') return JSON.stringify({ sense: 2 })
@@ -181,13 +192,16 @@ function mockText(body) {
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
     : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
-  if (intent === 'factcheck') return 'Holds. MOCK verdict line for the passage.\n\nHolds. The first claim stands as written.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)'
+  // Fact-check, doc-first (15 Oct): the opening from the document, then the verdict once, a note and the sources.
+  if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
 async function mockChat(body, res) {
   // A check may make one intent fail (PR C: a failed quiz marking keeps the reader's answer).
   if (mock.fail && body?.companion?.intent === mock.fail) return json(res, 500, { error: { type: 'api_error', message: 'mock failure' } })
   if (mock.delay && !body?.stream) await new Promise(r => setTimeout(r, mock.delay))
+  const own = mock.delayFor[body?.companion?.intent]
+  if (own && !body?.stream) await new Promise(r => setTimeout(r, own))
   const c = body?.companion || {}
   if (c.intent === 'chapter' && c.chapter?.action?.kind === 'primer' && mock.primers.length) {
     const item = mock.primers.shift()
@@ -199,6 +213,14 @@ async function mockChat(body, res) {
   const text = mockText(body)
   if (!body?.stream) return json(res, 200, { content: [{ type: 'text', text }] })
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
+  // Fact-check, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
+  if (body?.companion?.intent === 'factcheck' && !mock.chunks && text.startsWith(FACTCHECK_OPENING)) {
+    res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: FACTCHECK_OPENING } })}\n\n`)
+    res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`)
+    await new Promise(r => setTimeout(r, mock.delay || 400))
+    res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: text.slice(FACTCHECK_OPENING.length) } })}\n\n`)
+    return res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
+  }
   if (body?.companion?.intent === 'factcheck') { res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`); await new Promise(r => setTimeout(r, mock.delay || 400)) }
   else if (mock.delay) await new Promise(r => setTimeout(r, mock.delay))
   if (mock.chunks) {
@@ -245,8 +267,8 @@ function start(port) {
     const url = new URL(req.url, 'http://x')
     const p = url.pathname
     if (req.method === 'POST' && (p === '/api/chat' || p === '/api/lab-chat')) {
-      const body = JSON.parse((await readBody(req)).toString() || '{}'); account.requests.push({ path: p, body })
-      return await mockChat(body, res)
+      const body = JSON.parse((await readBody(req)).toString() || '{}'), entry = { path: p, body, at: Date.now(), done: 0 }; account.requests.push(entry)
+      await mockChat(body, res); entry.done = Date.now(); return
     }
     if (p === '/__margin/anthology.epub') { res.writeHead(200, { 'Content-Type': 'application/epub+zip', 'Cache-Control': 'no-store' }); return res.end(EPUB) }
     if (p === '/api/user-books' && req.method === 'POST') {
@@ -513,7 +535,13 @@ async function behaviour(browser, origin) {
     await selectText(a); await a.waitForSelector('.mr-bar'); const k = account.requests.length
     if (intent === 'factcheck') mock.delay = 1500
     if (from === 'more') { await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click(`.mr-more [data-m="${intent}"]`) } else await a.click(`.mr-bar [data-m="${intent}"]`)
-    if (intent === 'factcheck') { await a.waitForTimeout(700); ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(await a.innerText('.mr-card.is-open'))) }
+    if (intent === 'factcheck') {
+      await a.waitForTimeout(700)
+      const during = await a.innerText('.mr-card.is-open')
+      ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
+      // Doc-first (15 Oct): the opening from the document is already there, above the status, and no verdict yet.
+      ok('Fact-check: the opening from the document shows while the search runs, above "Checking sources…", before any verdict', during.indexOf('MOCK opening') > -1 && during.indexOf('MOCK opening') < during.indexOf('Checking sources…') && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')), during)
+    }
     await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
     ok(`${intent}: the Worker intent with the selection and the PDF's pages`, req && req.body.companion.selection && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length >= 1 && !req.body.system, req?.body?.companion && { ...req.body.companion, context: undefined })
@@ -535,6 +563,8 @@ async function behaviour(browser, origin) {
   }
   const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ verdict: getComputedStyle(document.querySelector('.mr-card.is-open .mr-verdict')).fontStyle, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize })))
   ok('Fact-check: verdict words in italic, the sources as plain links in 12px', fcText.verdict === 'italic' && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px', fcText)
+  const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { opening: t.indexOf('MOCK opening'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length, tag: !!c.querySelector('.mr-opening .mr-cite') } })
+  ok('Fact-check: the opening first, then the verdict once as the bottom line, then the sources; the opening\'s tag is a tag', fcOrder.opening > -1 && fcOrder.opening < fcOrder.verdict && fcOrder.verdict < fcOrder.sources && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1 && fcOrder.tag, fcOrder)
   // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
   await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
   ok('Quiz me shows "1 of 3" and the question at 18px', (await a.innerText('.mr-card.is-open .mr-card__count')) === '1 of 3' && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .mr-question')).fontSize)) === '18px')
@@ -765,15 +795,32 @@ async function behaviour(browser, origin) {
     // meaning in this text comes first, under "In this text", the dictionary's senses below it.
     let inText = null
     for (let tries = 0; tries < 6 && !inText; tries++) {
-      mock.next = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
+      mock.nextFor.define_sense = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
       await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2200)
       const asked = account.requests.slice(n5).map(r => r.body?.companion?.intent)
       inText = asked.includes('define_sense') ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, senses: d.querySelectorAll('.mr-define__senses li').length, first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING, kept: keptCards().some(c => c.kind === 'define' && /mocked meaning/.test(c.data?.inText || '')) } }) : null
-      mock.next = null
+      delete mock.nextFor.define_sense
       if (inText) ok('no sense fits: the companion\'s define asked, "In this text" first with its meaning, the dictionary\'s senses below; kept on the card', asked.includes('define') && inText.label === 'In this text' && /mocked meaning/.test(inText.text) && inText.senses >= 1 && !!inText.first && inText.kept, { asked, inText })
       await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     }
     if (!inText) ok('no sense fits: "In this text" first', false, 'no dictionary word found to select')
+    // 15 Oct, evening: online, define and define_sense go out together, and "In this text" shows first even when a
+    // dictionary sense fits ("perplexity" read "confusion"); its {p. N} is a citation tag.
+    let both = null
+    for (let tries = 0; tries < 6 && !both; tries++) {
+      mock.delayFor.define_sense = 900; mock.nextFor.define = JSON.stringify({ kind: 'definition', definition: 'Noun. MOCK in-text meaning, as the document uses it {p. 3}.' }); const n6 = account.requests.length
+      await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2400)
+      const reqs = account.requests.slice(n6), ds = reqs.find(r => r.body?.companion?.intent === 'define_sense'), df = reqs.find(r => r.body?.companion?.intent === 'define')
+      both = ds ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, tag: d.querySelector('.mr-define__in .mr-cite')?.textContent, tagPage: d.querySelector('.mr-define__in .mr-cite')?.dataset.page, raw: /\{p\. 3\}/.test(d.innerText), fit: d.querySelector('.mr-define__senses li')?.classList.contains('is-fit'), first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING } }) : null
+      if (both) {
+        ok('Define online: define and define_sense are sent together (define before define_sense has answered)', !!df && df.at < ds.done && Math.abs(df.at - ds.at) < 500, { define: df && df.at - ds.at, senseDone: ds.done - ds.at })
+        ok('Define online: "In this text" first even when a dictionary sense fits (mocked sense 2), the fitting sense first below it', both.label === 'In this text' && /MOCK in-text meaning/.test(both.text) && both.fit === true && !!both.first, both)
+        ok('Define: the in-text line\'s {p. 3} shows as a citation tag', both.tag === 'p. 3' && both.tagPage === '3' && !both.raw, both)
+      }
+      delete mock.delayFor.define_sense; delete mock.nextFor.define
+      await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    }
+    if (!both) ok('Define online: define and define_sense together', false, 'no dictionary word found to select')
     // Double-click on half of a hyphenated word selects all of it ("auto-regressive" was looked up as "regressive").
     const hy = await C.page.evaluate(() => {
       const span = [...document.querySelectorAll('.pdf-sheet .text-layer span')].find(s => { const r = s.getBoundingClientRect(); return /\bself-evident\b/.test(s.textContent) && r.top > 80 && r.bottom < innerHeight - 20 })
@@ -844,7 +891,8 @@ async function primerBehaviour(browser, origin) {
   const a = A.page
   await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
   const units = await a.evaluate(() => primer.units)
-  const unitPages = u => u.to - u.from + 1
+  // The unit's own pages, from its entry's page (not the title page before it, which only offers the trigger).
+  const unitPages = u => u.to - u.start + 1
   const r0 = chats().length
   const trig = await a.evaluate(() => {
     const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return null
@@ -854,7 +902,7 @@ async function primerBehaviour(browser, origin) {
     const line = Math.min(...spans) - document.querySelector('.mr-col').getBoundingClientRect().top
     return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, height: t.offsetHeight, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
   })
-  ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist, the key claims and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
+  ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
   ok('nothing is made when the file opens (only when the reader opens the trigger)', primers(0).length === 0)
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
   const req = primers(r0)[0]
@@ -952,6 +1000,108 @@ async function primerBehaviour(browser, origin) {
   ok('phone: tapping the page closes the trigger, and it stays closed at this unit', !(await Ph.page.$('.mr-sheet')))
   ok('phone: no page errors', !Ph.problems.length, Ph.problems)
   await Ph.ctx.close()
+  return results
+}
+
+/* ---------- Before you start per kind (Anders, 15 Oct, option A): the model names the document's kind
+   and writes that kind's sections; a primer stored before kinds still shows; and on a long book without
+   an outline, the chapter (MacKay's 640 pages: "a map of the whole PDF", chapters 1 and 2 blended). ---------- */
+const KIND_PRIMERS = {
+  paper: { kind: 'paper', gist: 'MOCK paper gist. The paper argues one thing and tests it.', sections: [
+    { title: 'Key claims', items: [1, 2, 3, 4].map(i => ({ text: `MOCK claim ${i}: a result the paper states and supports in its own words.`, cite: `{p. ${i}}` })) },
+    { title: 'Keep in mind', items: [{ text: 'MOCK caution: the second experiment uses a different baseline.', cite: '' }, { text: 'MOCK caution: costs are estimated.', cite: '' }] }] },
+  textbook: { kind: 'textbook', gist: 'MOCK textbook gist. The chapter sets up the tools the rest of the book leans on.', sections: [
+    { title: 'What you’ll learn', items: [1, 2, 3].map(i => ({ text: `MOCK outcome ${i}: what the reader can explain after the chapter.`, cite: `{p. ${i}}` })) },
+    { title: 'Ideas to hold onto', items: [{ text: 'MOCK idea: redundancy buys reliability at the cost of rate.', cite: '{p. 2}' }, { text: 'MOCK idea: the best rate has a limit.', cite: '{p. 3}' }] },
+    { title: 'Terms', items: [{ term: 'Rate', meaning: 'Bits of message per bit sent.' }, { term: 'Capacity', meaning: 'The highest rate at which error can be made vanishingly small.' }, { term: 'Repetition code', meaning: 'Each bit sent several times and decoded by majority vote.' }] }] },
+  narrative: { kind: 'narrative', gist: 'MOCK narrative gist. The chapter opens on a quiet house before a storm.', sections: [
+    { title: 'Where we are', items: [{ text: 'MOCK: an estate in winter, the night of a party.', cite: '{p. 1}' }] },
+    { title: 'People', items: [{ term: 'Ann', meaning: 'The host, newly widowed.' }, { term: 'Bo', meaning: 'Her brother, back after years abroad.' }] },
+    { title: 'Threads to watch', items: [{ text: 'MOCK: why Bo came back now.', cite: '' }, { text: 'MOCK: the locked study.', cite: '{p. 2}' }] }] },
+  practical: { kind: 'practical', gist: 'MOCK practical gist. The guide sets up the meter and takes a first reading.', sections: [
+    { title: 'What it covers', items: [{ text: 'MOCK: setting up and calibrating the meter.', cite: '{p. 1}' }, { text: 'MOCK: taking and logging a reading.', cite: '{p. 2}' }] },
+    { title: 'Steps or topics', items: ['Unpack and charge', 'Calibrate against the reference', 'Take a reading', 'Log it'].map((t, i) => ({ text: `MOCK step: ${t}.`, cite: `{p. ${i + 1}}` })) }] },
+  other: { kind: 'other', gist: 'MOCK other gist. The document sets out an agenda and its background.', sections: [
+    { title: 'Key points', items: [1, 2, 3].map(i => ({ text: `MOCK point ${i}.`, cite: `{p. ${i}}` })) },
+    { title: 'Keep in mind', items: [{ text: 'MOCK caution: the dates are provisional.', cite: '' }] }] },
+}
+async function primerKinds(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const hex = addBook(LONG_BOOK)
+  const chats = from => account.requests.slice(from).filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const views = SAMPLE ? [[1440, 900, 'paper'], [390, 844, 'paper']] : [[1440, 900, 'paper'], [1440, 900, 'night'], [1024, 768, 'eink'], [390, 844, 'paper'], [390, 844, 'night'], [360, 740, 'book']]
+  for (const [width, height, look] of views) {
+    const phone = width < 700, tag = `primer_kinds-${width}x${height}-${look}`, where = phone ? '.mr-sheet .mr-primer' : (width < 1180 ? '.mr-primer.is-floating' : '.mr-col .mr-primer')
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    // The primer is offered once the file's scan says it has text (primerHasText).
+    await a.waitForFunction(() => primer.units && primerHasText(), null, { timeout: 30000 }).catch(() => {})
+    const open = async () => {
+      await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); openCard(null) })
+      await a.evaluate(() => openPrimer(currentUnit()))
+      await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 8000 }).catch(() => {})
+      await a.waitForTimeout(300)
+      return a.evaluate(sel => { const p = document.querySelector(sel); return p && { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), unit: p.querySelector('.mr-primer__unit')?.textContent || null, first: p.querySelector('.mr-primer__gist')?.previousElementSibling?.className, numbered: p.querySelectorAll('ol.mr-primer__claims').length, terms: [...p.querySelectorAll('.mr-primer__keep li')].map(li => li.textContent).filter(t => t.includes(' — ')), quiz: !!p.querySelector('.mr-quiz-row') } }, where)
+    }
+    for (const [kind, reply] of Object.entries(KIND_PRIMERS)) {
+      account.primers.clear()
+      mock.primer = { ...reply, map: [1, 2, 3, 4].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${i}` })) }
+      const r0 = account.requests.length
+      const shown = await open()
+      mock.primer = null
+      const req = chats(r0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
+      const want = [...reply.sections.map(x => x.title), 'Map']
+      const terms = reply.sections.flatMap(x => x.items).filter(i => i.term).map(i => `${i.term} — ${i.meaning}`)
+      ok(`${tag}: a ${kind}'s primer: the gist first (under the unit's name), then ${want.join(' · ')}, Quiz me${terms.length ? '; terms as "term — meaning"' : ''}`, req && shown && JSON.stringify(shown.heads) === JSON.stringify(want) && shown.unit === 'Chapter 1. Of Ideas' && shown.first === 'mr-primer__unit' && JSON.stringify(shown.terms) === JSON.stringify(terms) && shown.quiz && shown.numbered === (kind === 'narrative' ? 0 : 1), shown)
+      const stored = account.primers.get(hex + '?outline-0')
+      ok(`${tag}: a ${kind}'s primer is stored with its kind and sections`, stored?.kind === kind && stored.sections?.length === reply.sections.length, stored && { kind: stored.kind, sections: stored.sections?.length })
+      const problems = await checkMargin(a)
+      ok(`${tag}: a ${kind}'s primer has no layout problems`, problems.length === 0, problems.slice(0, 5))
+      if (look === 'paper' || !SAMPLE) await shot(a, `${tag}-${kind}`)
+    }
+    // A primer made before kinds, in this browser and in the account: shown as it was (Key claims, Keep in mind).
+    const old = { gist: 'MOCK old gist. Made before kinds.', claims: [1, 2, 3].map(i => ({ text: `MOCK old claim ${i}.`, cite: `{p. ${i}}` })), keepInMind: ['MOCK old caution.'], map: [1, 2, 3].map(i => ({ title: `Old section ${i}`, pages: `p. ${i}` })) }
+    await a.evaluate(o => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); store.set(primerKey(currentUnit()), { ...o, madeAt: '2026-10-14T09:30:00.000Z', unitKey: currentUnit().key }) }, old)
+    account.primers.set(hex + '?outline-0', { ...old, madeAt: '2026-10-14T09:30:00.000Z', unitKey: 'outline-0' })
+    const r1 = account.requests.length
+    await a.evaluate(() => openPrimer(currentUnit())); await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 8000 }).catch(() => {}); await a.waitForTimeout(500)
+    const oldShown = await a.evaluate(sel => { const p = document.querySelector(sel); return p && { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), text: p.innerText } }, where)
+    ok(`${tag}: a primer stored before kinds still shows, as Key claims and Keep in mind, and is not made again`, oldShown && JSON.stringify(oldShown.heads) === '["Key claims","Keep in mind","Map"]' && /MOCK old claim 3/.test(oldShown.text) && /MOCK old caution/.test(oldShown.text) && !chats(r1).some(r => r.body?.companion?.chapter), oldShown?.heads)
+    ok(`${tag}: no layout problems with the old primer`, (await checkMargin(a)).length === 0, await checkMargin(a))
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // MacKay's case: a long book with no outline, only its printed Contents. Its units are the contents'
+  // chapters; from the front matter, B makes chapter 1's primer alone, named as chapter 1; the trigger
+  // never says "the whole PDF".
+  const bare = addBook(BARE_BOOK), m = BARE.meta, ch1 = m.chapters[0]
+  for (const [width, height] of [[1440, 900], [390, 844]]) {
+    const phone = width < 700, tag = `primer_no_outline-${width}x${height}`, where = phone ? '.mr-sheet .mr-primer' : '.mr-col .mr-primer'
+    const A = await readerPage(browser, origin, bare, { width, height, look: 'paper', at: 8 })
+    const a = A.page
+    await a.waitForFunction(() => primer.units && primerHasText(), null, { timeout: 30000 }).catch(() => {})
+    const units = await a.evaluate(() => primer.units.map(u => ({ key: u.key, title: u.title, label: u.label || null, from: u.from, start: u.start, to: u.to, matter: u.matter || null })))
+    ok(`${tag}: no outline: the units are the printed contents' chapters, not one unit for the whole PDF`, units.length >= 17 && units.every(u => u.key !== 'all') && units.some(u => u.label === 'Chapter 1: Introduction' && u.start === ch1.from && u.to === ch1.to), units.slice(0, 3))
+    const lines = await a.evaluate(n => { const out = []; for (let p = 1; p <= n; p += 9) out.push(TinctMargin.triggerLine(TinctMargin.primerUnitAt(primer.units, p))); return out }, m.pages)
+    ok(`${tag}: the trigger names its chapter on every page, never "the whole PDF"`, lines.every(l => /^The gist and a map of chapter \d+\.$/.test(l)), [...new Set(lines)].slice(0, 6))
+    await a.evaluate(() => { goTo({ page: 8, frac: 0.1 }); onScroll() }); await a.waitForTimeout(600)
+    // Made fresh on each device here (the account's copy from the desktop run is cleared). The phone has no B key: the same call.
+    account.primers.clear()
+    const r0 = account.requests.length
+    if (phone) await a.evaluate(() => openPrimer()); else await a.keyboard.press('b')
+    await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 15000 }).catch(() => {}); await a.waitForTimeout(400)
+    const req = chats(r0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
+    const c = req?.body?.companion
+    const sent = c && { title: c.chapter.action.unitTitle, key: c.chapter.action.unitKey, pages: c.context.pages.length, doc: c.document && { first: c.document.units[0]?.n, last: c.document.units.at(-1)?.n, part: !!c.document.part } }
+    ok(`${tag}: ${phone ? 'opened' : 'B'} on the preface makes chapter 1's primer alone ("Chapter 1: Introduction", its ${ch1.to - ch1.from + 1} pages; the document part is that chapter)`, sent?.title === 'Chapter 1: Introduction' && sent.pages === ch1.to - ch1.from + 1 && sent.doc?.part, sent)
+    const label = await a.evaluate(sel => document.querySelector(`${sel} .mr-primer__unit`)?.textContent || null, where)
+    ok(`${tag}: the primer is labelled as that chapter`, label === 'Chapter 1: Introduction', label)
+    ok(`${tag}: no layout problems`, (await checkMargin(a)).length === 0, await checkMargin(a))
+    await shot(a, tag)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
   return results
 }
 
@@ -2093,7 +2243,9 @@ async function longBooks(browser, origin) {
       // Made once per unit (later views read the account's copy): the request when there is one, else the unit opened.
       const req = chats(p0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
       const unit = await a.evaluate(() => primer.unit?.title)
-      ok(`${tag}: Before you start on ${where} is the primer of ${want}`, unit === want && (!req || req.body.companion.chapter.action.unitTitle === want), { unit, asked: req?.body?.companion?.chapter?.action })
+      // Sent as the chapter it is ("Chapter 16: Applications and Case Studies"; Anders, 15 Oct).
+      const named = want.replace(/^(\d+) (.*)$/, 'Chapter $1: $2')
+      ok(`${tag}: Before you start on ${where} is the primer of ${want}, named "${named}"`, unit === want && (!req || req.body.companion.chapter.action.unitTitle === named), { unit, asked: req?.body?.companion?.chapter?.action })
       if (where === 'the index') await layout('primer')
       await a.evaluate(() => closePrimer())
     }
@@ -2258,6 +2410,7 @@ const RUNS = {
   behaviour: [behaviour, rows => rows.some(r => !r.pass)],
   primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
   'primer-reliability': [primerReliability, rows => rows.some(r => !r.pass)],
+  'primer-kinds': [primerKinds, rows => rows.some(r => !r.pass)],
   keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
   contrast: [contrast, rows => rows.some(r => r.required && !r.pass)],
   // The EPUB margin is off in the reader for now (reader.js EPUB_MARGIN = false): its check runs in
@@ -2290,6 +2443,7 @@ try {
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
   else if (mode === 'primer-reliability') { const rows = await primerReliability(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-reliability-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'primer-kinds') { const rows = await primerKinds(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-kinds-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }

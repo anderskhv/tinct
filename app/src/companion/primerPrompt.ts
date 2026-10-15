@@ -16,6 +16,7 @@ import { CHAPTER_CHAT_INSTRUCTIONS, type PrimerChapterAction } from './chapterCh
 // Called only at request time, so the import cycle with companionRequest.ts is harmless.
 import { formatPdfPage } from './companionRequest'
 import { PDF_CITATION_RULE } from './marginPrompts'
+import type { MarginDocument } from './marginContext'
 
 /**
  * Output bound for a primer. The model thinks before it answers (adaptive thinking, effort
@@ -109,7 +110,7 @@ function primerScope(action: PrimerChapterAction): string {
   const whole = action.unitKey === 'all'
   return `${whole
     ? 'The supplied text is the whole document, every page of it; here "the chapter" means the whole document.'
-    : 'The supplied text is the whole of one part of the reader\'s own document, the unit named below; here "the chapter" means that part.'} Keep in mind is about the document itself (its conventions, assumptions, notation and claims to check), never about which text was supplied.`
+    : 'The supplied text is the whole of one part of the reader\'s own document, the unit named below; here "the chapter" means that part.'} Cautions (Keep in mind) are about the document itself (its conventions, assumptions, notation and claims to check), never about which text was supplied.`
 }
 
 /** The system prompt for a primer: the shared chapter-action rules, the binding primer text, the citation rule, the unit. */
@@ -131,14 +132,21 @@ Document and unit identity (data): ${JSON.stringify({ title: context.bookTitle, 
  * pages (or without an outline) is one unit, "all": the whole document. Never
  * "an excerpt" (FIXES B2).
  */
-export function buildPrimerTask(action: PrimerChapterAction, context: LabAskContext): string {
+export function buildPrimerTask(action: PrimerChapterAction, context: LabAskContext, doc?: Pick<MarginDocument, 'units' | 'part' | 'cut'> | null): string {
   const authorship = authorshipNote(context.bookAuthor, context.authorship, 'this chapter')
   const labels = context.paragraphs.map(page => splitPage(page).label).filter(Boolean)
   const pages = labels.length ? (labels[0] === labels[labels.length - 1] ? labels[0] : `${labels[0]}–${labels[labels.length - 1]}`) : ''
-  return `${CHAPTER_CHAT_INSTRUCTIONS.primer}
-${action.unitKey === 'all'
+  // "The whole document" only when the whole document was supplied: a long file's document block is
+  // one part of it (marginContext.ts), and the primer then covers exactly that part, by its pages.
+  const whole = action.unitKey === 'all' && !doc?.part && !doc?.cut
+  const supplied = doc?.units.length ? (doc.units[0].label === doc.units[doc.units.length - 1].label ? doc.units[0].label : `${doc.units[0].label}–${doc.units[doc.units.length - 1].label}`) : pages
+  const scope = whole
     ? 'Here "the chapter" means the whole document above, every page of it.'
-    : `Here "the chapter" means one part of the reader's own document, the unit named here; its text is in the document above${pages ? `, on the pages labelled ${pages}` : ''}. Use the rest of the document only to place the unit.`} Keep in mind is about the document itself (its conventions, assumptions, notation and claims to check), never about which text was supplied.
+    : action.unitKey === 'all'
+      ? `Here "the chapter" means only the part of the document supplied above${supplied ? `, the pages labelled ${supplied}` : ''}; never call it the whole document. Use the contents only to place it.`
+      : `Here "the chapter" means one part of the reader's own document, the unit named here and only it; its text is in the document above${pages ? `, on the pages labelled ${pages}` : ''}. Use the rest of the document only to place the unit; never blend it with a neighbouring chapter.`
+  return `${CHAPTER_CHAT_INSTRUCTIONS.primer}
+${scope} Cautions (Keep in mind) are about the document itself (its conventions, assumptions, notation and claims to check), never about which text was supplied.
 Unit (data): ${JSON.stringify({ unit: action.unitTitle, ...(pages ? { pages } : {}), author: promptAuthor(context.bookAuthor, context.authorship) })}${authorship ? `\n${authorship}` : ''}`
 }
 
