@@ -1,6 +1,6 @@
 import { ChatUpstreamError, fetchChatUpstream as fetchAnthropic, logChatFailure, providerErrorType, readChatChunk, safeChatError } from '../lib/chatUpstream'
 import { COMPANION_MODEL, parseCompanionEffort, type CompanionEffort } from '../../companionModel'
-import { NEVER_CHARGED_AI_FEATURES, allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate, type AllowanceView } from '../lib/aiAllowance'
+import { NEVER_CHARGED_AI_FEATURES, allowanceUsedBody, allowsAiFeature, createAllowanceGate, loadInternalAccount, type AllowanceGate, type AllowanceView } from '../lib/aiAllowance'
 import {
   createBookRetrieval,
   parseBookRef,
@@ -36,6 +36,7 @@ import {
   type CompanionBuildExtras,
   type CompanionRequest,
 } from '../../companion/companionRequest'
+import { CHAT_RATE_LIMIT_PER_MINUTE } from '../lib/rateLimit'
 import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/libraryLibrarian'
 import { aiRestingBody, estimateAiCostMicros, type GuestSpendHold, type HoldGuestSpend, type ReserveGuestSpend } from '../lib/aiSpend'
 import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
@@ -58,6 +59,10 @@ export type ChatEnv = SupabaseEnv & {
 type VerifiedUser = { id: string; email: string }
 type VerifyUser = (env: ChatEnv, request: Request) => Promise<VerifiedUser | null>
 type CheckRateLimit = (key: string, kv?: KVNamespace, maxRequests?: number) => Promise<boolean>
+
+/** Not counted toward a reader's chat limit: Explain, Define and the never-charged checks. */
+const UNCOUNTED_RATE_INTENTS: ReadonlySet<CompanionRequest['intent']> = new Set<CompanionRequest['intent']>(['explain', 'define', 'define_sense', 'quiz_check'])
+export const RATE_LIMITED_COPY = 'Give it a few seconds.'
 
 const CHAT_MODEL = COMPANION_MODEL
 const MAX_TOKENS_CAP = 2048
@@ -979,6 +984,8 @@ export async function handleChat(
     /** Releasable guest reservations: with one, the reservation runs alongside the rate-limit check. */
     holdGuestSpend?: HoldGuestSpend
     allowanceGate?: AllowanceGate
+    /** Tinct's own internal or test account (loadInternalAccount by default). */
+    isInternalAccount?: (userId: string) => Promise<boolean>
   },
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
@@ -1034,7 +1041,9 @@ export async function handleChat(
   const allowancePromise: Promise<AllowanceView | null> = userId && allowanceGate.enforced
     ? allowanceGate.load(userId)
     : Promise.resolve(null)
-  const rateLimited = () => jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+  // Internal and test accounts skip the per-reader limit; read only when it refuses.
+  const isInternal = (id: string) => (options?.isInternalAccount ?? (uid => loadInternalAccount(env, uid)))(id).catch(() => false)
+  const rateLimited = () => jsonResponse({ error: RATE_LIMITED_COPY }, 429, request)
   // Signed out with a releasable reservation, the rate-limit check (one
   // Durable Object call) runs while the body is read and its spend is
   // reserved (another), instead of before both. The reader sees the same
@@ -1050,9 +1059,6 @@ export async function handleChat(
     } else if (!await rateCheck) {
       return rateLimited()
     }
-  } else {
-    const rateAllowed = await checkRateLimit(`chat:${userId}`, env.RATE_LIMIT)
-    if (!rateAllowed) return rateLimited()
   }
   if (!guestRate) timing.authAccessMs = Date.now() - authStartedAt
 
@@ -1071,6 +1077,12 @@ export async function handleChat(
         companion = parseCompanionRequest(body.companion)
         if (!companion) return jsonResponse({ error: 'Invalid companion request' }, 400, request)
       }
+      // Signed in: CHAT_RATE_LIMIT_PER_MINUTE per reader (Anders, 15 Oct 2026).
+      // Explain, Define and the never-charged checks don't count; internal and
+      // test accounts are never limited (their spend is still logged).
+      if (userId && !(companion && UNCOUNTED_RATE_INTENTS.has(companion.intent))
+        && !(await checkRateLimit(`chat:${userId}`, env.RATE_LIMIT, CHAT_RATE_LIMIT_PER_MINUTE))
+        && !(await isInternal(userId))) return rateLimited()
       // The latest user turn as sent. A passage action (Simplify, Fact-check,
       // Counterpoint, Quiz me) keeps only its image blocks: the Worker writes
       // the turn's text. An image anywhere else in it is validated below.

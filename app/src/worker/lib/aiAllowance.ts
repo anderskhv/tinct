@@ -271,6 +271,8 @@ export interface AllowanceView {
   hasTopUp: boolean
   /** This period includes an allowance (Premium, or the trial); false for a standard account, whose month is not "used". */
   hasAllowance: boolean
+  /** Tinct's own internal or test account (loadInternalAccount): never gated. Never sent to the client. */
+  internal?: boolean
 }
 
 export interface AllowanceLedger {
@@ -343,11 +345,12 @@ export function isPaidAiFeature(feature: GatedAiFeature): boolean {
 }
 
 /**
- * Switch off: always allowed. On: paid features are refused at zero. An
- * unreadable allowance (null) fails open, like the message model did.
+ * Switch off: always allowed. On: paid features are refused at zero, except
+ * for an internal or test account. An unreadable allowance (null) fails open,
+ * like the message model did.
  */
 export function allowsAiFeature(enforced: boolean, feature: GatedAiFeature, view: AllowanceView | null): boolean {
-  if (!enforced || !isPaidAiFeature(feature) || !view) return true
+  if (!enforced || !isPaidAiFeature(feature) || !view || view.internal) return true
   return view.state !== 'used_up'
 }
 
@@ -360,6 +363,39 @@ export interface AllowanceGate {
 }
 
 type SettleRow = { spend_micros: number | string; credit_micros: number | string; drawn_micros: number | string }
+
+// ===== Internal and test accounts =====
+
+const INTERNAL_CACHE_MS = 5 * 60_000
+const internalCache = new Map<string, { at: number; internal: boolean }>()
+
+/**
+ * Tinct's own internal and test accounts (reader_profiles.internal; see
+ * 20261009_leaderboard_internal.sql) are never gated by the allowance or the
+ * per-reader chat rate limit (Anders, 15 Oct 2026). Their spend is still
+ * logged. Read only when a check would refuse. Cached per isolate for five minutes; an unreadable flag (no profile
+ * row, the column missing, an error) is false and is not cached.
+ */
+export async function loadInternalAccount(env: SupabaseEnv, userId: string, now: number = Date.now()): Promise<boolean> {
+  const hit = internalCache.get(userId)
+  if (hit && now - hit.at < INTERNAL_CACHE_MS) return hit.internal
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return false
+  try {
+    const res = await supabaseGet(env, `reader_profiles?id=eq.${userId}&select=internal`)
+    if (!res.ok) return false
+    const internal = ((await res.json()) as { internal?: unknown }[])?.[0]?.internal === true
+    if (internalCache.size > 5_000) internalCache.clear()
+    internalCache.set(userId, { at: now, internal })
+    return internal
+  } catch {
+    return false
+  }
+}
+
+/** For tests. */
+export function clearInternalAccountCache(): void {
+  internalCache.clear()
+}
 
 export async function loadAllowanceView(env: SupabaseEnv, userId: string, now: Date = new Date()): Promise<AllowanceView | null> {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
@@ -377,12 +413,14 @@ export async function loadAllowanceView(env: SupabaseEnv, userId: string, now: D
     if (!settleRes.ok) return null
     const row = ((await settleRes.json()) as SettleRow[])?.[0]
     if (!row) return null
-    return allowanceView({
+    const view = allowanceView({
       allowanceMicros: period.allowanceMicros,
       spendMicros: Number(row.spend_micros),
       creditMicros: Number(row.credit_micros),
       drawnMicros: Number(row.drawn_micros),
     }, period.allowanceMicros > 0 ? period.end : null)
+    // Read only when it would matter: a used-up allowance.
+    return view.state === 'used_up' && await loadInternalAccount(env, userId, now.getTime()) ? { ...view, internal: true } : view
   } catch {
     return null
   }

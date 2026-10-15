@@ -117,7 +117,7 @@ export function resetAddAccess(){access=null;}
 // confirmation asked once per account (the same recorded confirmation), kept in this browser,
 // saved privately to the account, then the book opens: an EPUB in the Tinct reader, a PDF in
 // Add a book's PDF reader. Nothing goes through Add a book's page.
-const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. Only the passages you ask about go to Tinct’s reading companion. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',search:'Add a book',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
+const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. When you ask Tinct’s reading companion about it, its text is sent to answer. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
 const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
 const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261014talkwake'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
@@ -138,8 +138,8 @@ export function closeFileDialog(){
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
 const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return b;};
 /**
- * The "Your own book" pop-up. `onSearch` (the top bar's and My shelf's +) adds "Add a book",
- * which opens the library search; the search field's own entries leave it out. A chosen file
+ * The "Your own book" pop-up: one button for the file and a × to close (Anders, 15 Oct 2026);
+ * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file
  * is added in the pop-up, with its progress there; `go` then opens the book.
  */
 export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
@@ -149,6 +149,10 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
  const title=make('h2','tui-dialog__title',OWN_BOOK_COPY.title);title.id='own-file-title';
  const head=make('div','tui-dialog__head');head.append(title);
+ // Closed with the × (Tinct UI's .tui-close), not a Cancel button (Anders, 15 Oct 2026).
+ const close=button('tui-close own-file-close','');close.setAttribute('aria-label',OWN_BOOK_COPY.close);
+ close.innerHTML='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="m3 3 8 8M11 3l-8 8"/></svg>';
+ close.onclick=()=>{if(!box.dataset.busy)closeFileDialog();};head.append(close);
  const input=make('input');input.type='file';input.accept=FILE_ACCEPT;input.hidden=true;input.className='own-file-input';
  const content=make('div','own-file-content');
  box.append(head,content,input);layer.append(box);document.body.append(layer);
@@ -162,15 +166,13 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  api().catch(()=>{});
  const step=(name,...children)=>{box.dataset.step=name;content.replaceChildren(...children);};
  const actions=(...list)=>{const row=make('div','tui-dialog__actions own-file-actions');row.append(...list);return row;};
- const cancel=()=>{const b=button('tui-btn tui-btn--secondary own-file-cancel',OWN_BOOK_COPY.cancel);b.onclick=()=>closeFileDialog();return b;};
  const chooseStep=(message='')=>{
   delete box.dataset.busy;
   const choose=button('tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);
   // The picker opens on this tap (browsers allow a file picker only from a user's own click).
   choose.onclick=()=>input.click();
-  const row=actions(cancel());
-  if(onSearch){const search=button('tui-btn tui-btn--secondary own-file-search',OWN_BOOK_COPY.search);search.onclick=()=>{closeFileDialog();onSearch();};row.append(search);}
-  row.append(choose);
+  // Only the file button; the × in the head closes (Anders, 15 Oct 2026).
+  const row=actions(choose);
   const parts=[make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine)];
   if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.unshift(alert);}
   step('choose',...parts,row);

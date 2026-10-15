@@ -1908,7 +1908,7 @@ const AI_OFF = 'The reading companion could not be reached. Check your connectio
 function errorCopy(e) {
   switch (e?.code) {
     case 'session_expired': return 'Your Tinct sign-in has expired. Sign in again on tinct.app, then try again.';
-    case 'rate_limited': return 'That was a lot of questions in a short time. Wait a minute, then try again.';
+    case 'rate_limited': return 'Give it a few seconds.';
     case 'quota': return 'You have used this month’s companion allowance.';
     case 'busy': return 'The companion is busy, or today’s guest allowance is used up. Sign in to Tinct, or try again later.';
     case 'prompt_too_large': return 'That is too much text at once. Select less, or summarize a shorter part.';
