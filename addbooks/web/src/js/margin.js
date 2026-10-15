@@ -293,18 +293,20 @@
    * before it. A card that would end within 46px of the foot (or leave no room for the "more"
    * row) gathers into that row, and every card after it too; the open card (`open`, an id) is
    * never gathered: it keeps its height (at most the room there is) and the cards before it move
-   * up to make room, gathering when they no longer fit.
+   * up to make room, gathering when they no longer fit. `top` keeps the column's first `top` px
+   * for something above every card (the primer's trigger, PR 3): no card starts above it.
    * -> { positions: [{ id, top, height }], gathered: [id], stack: { top, height } | null }
    */
-  function placeCards(passages, cardHeights, columnHeight, { open = null, stackHeight = 34, gap = COL.cardGap, foot = COL.foot, lift = COL.lift } = {}) {
+  function placeCards(passages, cardHeights, columnHeight, { open = null, stackHeight = 34, gap = COL.cardGap, foot = COL.foot, lift = COL.lift, top = 0 } = {}) {
     const limit = columnHeight - Math.max(foot, stackHeight + gap);
+    const room = Math.max(0, limit - top);
     const placed = [], gathered = [];
     let gathering = false;
     passages.forEach((p, i) => {
-      const h = Math.max(0, Math.min(Number(cardHeights[i]) || 0, limit));
-      const prev = placed[placed.length - 1], floor = prev ? prev.top + prev.height + gap : 0;
-      const want = Math.max(Number(p.top) - lift, floor, 0);
-      if (open != null && p.id === open) { placed.push({ i, id: p.id, top: Math.max(0, Math.min(want, limit - h)), height: h, open: true }); return }
+      const h = Math.max(0, Math.min(Number(cardHeights[i]) || 0, room));
+      const prev = placed[placed.length - 1], floor = prev ? prev.top + prev.height + gap : top;
+      const want = Math.max(Number(p.top) - lift, floor, top);
+      if (open != null && p.id === open) { placed.push({ i, id: p.id, top: Math.max(top, Math.min(want, limit - h)), height: h, open: true }); return }
       if (gathering || want + h > limit) { gathering = true; gathered.push(i); return }
       placed.push({ i, id: p.id, top: want, height: h });
     });
@@ -314,10 +316,10 @@
       const bound = placed[k + 1].top - gap;
       if (placed[k].top + placed[k].height > bound) placed[k].top = bound - placed[k].height;
     }
-    while (placed.length && placed[0].top < 0 && !placed[0].open) gathered.push(placed.shift().i);
+    while (placed.length && placed[0].top < top && !placed[0].open) gathered.push(placed.shift().i);
     gathered.sort((a, b) => a - b);
     const last = placed[placed.length - 1];
-    const stack = gathered.length ? { top: last ? last.top + last.height + gap : 0, height: stackHeight } : null;
+    const stack = gathered.length ? { top: last ? last.top + last.height + gap : top, height: stackHeight } : null;
     return { positions: placed.map(({ id, top, height }) => ({ id, top, height })), gathered: gathered.map(i => passages[i].id), stack };
   }
 
@@ -397,7 +399,8 @@
   /** The cards to show: every kept result (not removed) and every highlight with a note, in page order. */
   function cardView(cards, marks) {
     const out = [];
-    for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length) out.push(c);
+    // A unit's quiz (Quiz me on this chapter, from the primer) has no passage: it sits at the column's top instead.
+    for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit) out.push(c);
     for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at });
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
   }
@@ -473,6 +476,7 @@
   function cardLabel(card, pageLabel) {
     if (card.kind === 'note' || card.kind === 'whole') return KINDS[card.kind];
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
+    if (card.data?.unit) return `${KINDS[card.kind]} · ${card.data.unit.label || KINDS.whole}`;
     return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · p. ${pageLabel}` : ''}`;
   }
   const CARD_ICONS = {
@@ -574,7 +578,78 @@
   /** The phone's bottom card: the grab handle, then a card's open contents. */
   const sheetHtml = inner => `<button type="button" class="mr-sheet__grab" data-c="grab" aria-label="Full height"></button>${inner}`;
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS };
+  /* ---------- PR 3: Before you start (docs/margin/BRIEF.md §5, mockup section 4) ----------
+     A PDF's units are its top-level outline entries as page ranges (the whole file when it has no
+     outline). At a unit's start the margin offers one folded card, the trigger; it opens into the
+     primer in place. Made once per unit and kept with the file (PROMPTS.md, chapter action `primer`). */
+  const PRIMER = { top: 16, bottom: 70 };   // the mockup's .trig / .primer: 16px below the column's top, 70px above its bottom
+  /**
+   * The units: `entries` are the outline's top-level items in outline order, each { title, page }
+   * with `page` its 1-based page (null when it does not resolve). Entries are kept in page order;
+   * a second entry on the same page as the one before is left out. The first unit also takes any
+   * pages before its entry (a title page), so the PDF's start offers it too. Each unit's key is
+   * "outline-{i}" (its index in the outline), "all" for a PDF without an outline.
+   * -> [{ key, title, from, start, to }] (start: the entry's own page; the trigger shows from `from` to `start`)
+   */
+  function primerUnits(entries, count) {
+    const n = Math.max(1, Number(count) || 1);
+    const list = (entries || []).map((e, i) => ({ i, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page }))
+      .filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
+      .sort((a, b) => a.page - b.page || a.i - b.i)
+      .filter((e, k, all) => k === 0 || e.page !== all[k - 1].page);
+    if (!list.length) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
+    return list.map((e, k) => ({ key: 'outline-' + e.i, title: e.title, from: k === 0 ? 1 : e.page, start: e.page, to: k + 1 < list.length ? list[k + 1].page - 1 : n }));
+  }
+  /** The unit a page is in. */
+  const unitAt = (units, page) => (units || []).find(u => page >= u.from && page <= u.to) || (units || [])[0] || null;
+  /** True on the pages where the trigger is offered: the unit's start (and any pages before it). */
+  const atUnitStart = (unit, page) => !!unit && page >= unit.from && page <= unit.start;
+  /** How the trigger names its unit ("a map of chapter 1."): a numbered chapter, part or section as "chapter 1", the whole file as "the whole PDF", else its title. */
+  function unitPhrase(unit) {
+    if (!unit || unit.key === 'all' || !unit.title) return 'the whole PDF';
+    const m = /^(chapter|part|section|lecture|unit|book|appendix)\s+([\p{L}\p{N}]+(?:\.\d+)*)(?=$|[\s.:,;—–-])/iu.exec(unit.title);
+    return m ? `${m[1].toLowerCase()} ${m[2]}` : unit.title.replace(/[.:;,]+$/, '');
+  }
+  /** A map row's printed page range ("pp. 9–10", "p. 12", "9-10") as a citation token, or null. */
+  function mapPages(text) {
+    const m = /^\s*(?:pp?\.?\s*)?([\p{L}\p{N}]{1,12})(?:\s*[–—-]\s*([\p{L}\p{N}]{1,12}))?\s*$/u.exec(String(text || ''));
+    if (!m) return null;
+    return m[2] ? { type: 'cite', kind: 'pp', label: m[1], to: m[2], raw: String(text) } : { type: 'cite', kind: 'p', label: m[1], raw: String(text) };
+  }
+  /** The trigger's words: "Before you start" with its [B] key (not on the phone), then "The gist, the key claims and a map of {unit}." */
+  function triggerHtml(unit, { key = true } = {}) {
+    return `<span class="mr-trigger__title">Before you start${key ? '<span class="mr-key" aria-hidden="true">B</span>' : ''}</span><span class="mr-trigger__sub">The gist, the key claims and a map of ${esc(unitPhrase(unit))}.</span>`;
+  }
+  /**
+   * The primer. p: { gist, claims: [{ text, cite }], keepInMind: [..], map: [{ title, pages }] }, or
+   * null while it is made (`wait`) or when it could not be (`status`, then Redo).
+   * o: { P (parsers), resolve (citation -> target), status, wait, close (the close button; default true), id (the title's id) }.
+   */
+  function primerHtml(p, o = {}) {
+    const close = o.close === false ? '' : '<button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Close">×</button>';
+    const head = `<h4 class="mr-primer__title"${o.id ? ` id="${esc(o.id)}"` : ''}>Before you start${close}</h4>`;
+    if (!p) {
+      if (o.wait) return head + '<p class="mr-status mr-wait" role="status"></p>';
+      return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><span></span><button type="button" data-c="redo">Redo</button></div>`;
+    }
+    const tag = cite => (cite ? ' ' + inlineHtml(cite, o.P, o.resolve) : '');
+    const claims = (p.claims || []).map((c, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${inlineHtml(c.text, o.P, o.resolve)}${tag(c.cite)}</span></li>`).join('');
+    const keep = (p.keepInMind || []).map(k => `<li>${inlineHtml(k, o.P, o.resolve)}</li>`).join('');
+    const rows = (p.map || []).map((r, i) => {
+      const token = mapPages(r.pages), target = token && o.resolve ? o.resolve(token) : null;
+      const inner = `<span class="mr-map__n" aria-hidden="true">${i + 1}</span><span class="mr-map__title">${esc(r.title)}</span><span class="mr-map__pages">${esc(r.pages || '')}</span>`;
+      return target ? `<button type="button" class="mr-map__row" data-page="${target.page}">${inner}</button>` : `<div class="mr-map__row">${inner}</div>`;
+    }).join('');
+    return head
+      + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
+      + `<div><p class="mr-primer__head">Key claims</p><ol class="mr-primer__claims">${claims}</ol></div>`
+      + `<div><p class="mr-primer__head">Keep in mind</p><ul class="mr-primer__keep">${keep}</ul></div>`
+      + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
+      + '<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>3 questions →</small></button>'
+      + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
+  }
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf };
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
+
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
 });

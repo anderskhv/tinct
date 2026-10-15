@@ -13,6 +13,7 @@
 //                                                     brief's stress matrix (7 viewports × 4 looks × 100%/125% zoom)
 //                                                     with its content cases (crowding, edges, long answers, …)
 //   node scripts/margin-check.mjs resize [pdf ...]    PR 2: resizing across 1180px with a card open
+//   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
 //
 // Every problem list must be empty: the script exits 1 otherwise. OUT (default ./artifacts/margin)
 // receives the screenshots and results.json. CHROMIUM_PATH picks the browser (default
@@ -41,23 +42,29 @@ const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/pr
 export const SELECTORS = {
   ...DEFAULT_SELECTORS,
   menu: '.mr-more, .mr-pmore, .mr-define, .mr-note',
-  text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *',
-  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark',
+  // PR 3: the primer's trigger and the primer are blocks of the column, as cards are (no overlap, never off screen).
+  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer',
+  text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *, .mr-trigger',
+  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
 }
 // A long answer scrolls inside its open card (BRIEF.md, "A 600-word answer": the card scrolls, its
 // label and follow-up line stay). Lines scrolled out of that body are not cut off by a container
 // edge, so "clipped" inside the card's own scrolling body (or the thread's) is not a problem; every
 // other check, and "clipped" everywhere else, stands.
-const scrolledAway = p => p.kind === 'clipped' && /^\.mr-card__body\b/.test(p.in || '')
+// The same for a long primer, which scrolls inside itself (margin-reference.css .mr-primer, overflow: auto).
+const scrolledAway = p => p.kind === 'clipped' && /^\.(?:mr-card__body|(?:mr\.)?mr-primer)(?:\.|\s|$)/.test(p.in || '')
+// The wait ring's label is for screen readers only (visually hidden on purpose, lab/wait-ring.js), so its box is not text spilling out.
+const srOnly = p => p.kind === 'overflow' && /^\.tinct-wait(?:-label)?(?:\.|\s|$)/.test(p.el || '')
 export async function checkMargin(page, selectors = SELECTORS) {
-  return (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p))
+  return (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
 }
 const LOOKS = (process.env.LOOKS || 'paper,book,night,eink').split(',')
 const VIEWPORTS = (process.env.VIEWPORTS || '1440x900,1280x800,1024x768,390x844,360x740').split(',').map(v => v.split('x').map(Number))
 
 /* ---------- A local stand-in for the site ---------- */
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.woff2': 'font/woff2', '.woff': 'font/woff', '.svg': 'image/svg+xml', '.png': 'image/png', '.gz': 'application/gzip', '.pdf': 'application/pdf' }
-const account = { books: [], marks: new Map(), cards: new Map(), requests: [] }
+const account = { books: [], marks: new Map(), cards: new Map(), primers: new Map(), requests: [] }
+const PRIMER_PARSE = await import(pathToFileURL(join(PUBLIC, 'lab/margin/primer-parse.js')).href)
 function addBook(file) {
   const bytes = readFileSync(file), sha256 = createHash('sha256').update(bytes).digest('hex')
   if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: basename(file), title: basename(file, '.pdf'), author: '', type: 'pdf', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
@@ -69,7 +76,7 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // sense number for `define_sense`, Quiz me's JSON and its marking, Fact-check with its "Checking
 // sources…" status before the answer, and an answer with a bottom line and a citation otherwise.
 // `mock.next` (set by a check) replaces the next answer's text, for the long and odd answers.
-export const mock = { next: null, delay: 0 }
+export const mock = { next: null, delay: 0, primer: null }
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
@@ -80,6 +87,8 @@ function mockText(body) {
     { q: 'MOCK Q2. Why are the two kinds kept apart?', answer: 'They are known differently', why: 'One is certain, one is not.', cite: '{p. 1}' },
     { q: 'MOCK Q3. Where would a new case go?', answer: 'Matters of fact', why: 'It depends on experience.', cite: '{p. 2}' } ] })
   if (intent === 'quiz_check') { const a = String(c.quiz?.answer || '').toLowerCase(); return JSON.stringify(a.includes(String(c.quiz?.expected || '').toLowerCase().split(' ')[0]) ? { verdict: 'right', feedback: 'MOCK: that is the key step.' } : { verdict: 'not_yet', feedback: 'MOCK: reread how the two kinds differ.' }) }
+  // Before you start (chapter action `primer`): the primer's JSON, with citations to the unit's first page.
+  if (intent === 'chapter' && c.chapter?.action?.kind === 'primer') { const n = c.context?.pages?.[0]?.n ?? 1; return JSON.stringify(mock.primer || { gist: `MOCK gist of ${c.chapter.action.unitTitle}. It says what the unit sets out to do.`, claims: [1, 2, 3].map(i => ({ text: `MOCK claim ${i} of the unit.`, cite: `{p. ${n}}` })), keepInMind: ['MOCK caution: a convention that changes later.'], map: [1, 2, 3].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${n}` })) }) }
   if (intent === 'factcheck') return 'Holds. MOCK verdict line for the passage.\n\nHolds. The first claim stands as written.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)'
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
@@ -110,6 +119,15 @@ function start(port) {
       const body = JSON.parse((await readBody(req)).toString() || '{}')
       if (body.rev !== have.rev) return json(res, 409, { error: 'conflict', ...have })
       account[kind].set(hex, { [field]: body[field], rev: have.rev + 1 }); return json(res, 200, { rev: have.rev + 1 })
+    }
+    if (p.startsWith('/api/user-books/primers/')) {
+      // As the Worker: one stored primer per book and unit, the owner's only; 404 when none; PUT validates and stamps.
+      const key = p.slice('/api/user-books/primers/'.length) + '?' + url.searchParams.get('unit')
+      if (req.method === 'GET') { const have = account.primers.get(key); return have ? json(res, 200, { primer: have }) : json(res, 404, { error: 'Not found' }) }
+      const body = JSON.parse((await readBody(req)).toString() || '{}'), content = PRIMER_PARSE.normalizePrimer(body.primer)
+      if (!content) return json(res, 400, { error: 'invalid_primer' })
+      const primer = { ...content, madeAt: new Date().toISOString(), unitKey: url.searchParams.get('unit') }
+      account.primers.set(key, primer); return json(res, 200, { primer })
     }
     if (p.startsWith('/api/user-books/')) { const b = account.books.find(x => x.id === p.slice('/api/user-books/'.length)); if (!b) return json(res, 404, { error: 'Not found' }); res.writeHead(200, { 'Content-Type': 'application/pdf' }); return res.end(b.bytes) }
     if (p.startsWith('/api/')) return json(res, 404, { error: 'Not found' })
@@ -239,9 +257,12 @@ async function fixtureRows(browser, origin) {
 const PAIRS = [['bar', '[data-strip="a"]'], ['asking', '[data-strip="b"]'], ['more', '[data-strip="c"]'], ['highlight', '[data-strip="d"]'], ['define', '[data-strip="e"]'], ['phone-bar', '[data-ph="a"]'], ['phone-more', '[data-ph="b"]'],
   // PR 2: the column (mockup section 2), crowding (3), the phone's answer and chat cards (5 C, D) and the new answers (6).
   ['column', '[data-desk="margin"]'], ['crowded', '[data-desk="overlap"]'], ['phone-answer', '[data-ph="c"]'], ['phone-chat', '[data-ph="d"]'],
+  // PR 3: Before you start (mockup section 4).
+  ['trigger', '[data-desk="trigger"]'], ['primer', '[data-desk="primer"]'],
   ...['simplify', 'factcheck', 'counterpoint', 'quiz', 'quiz-answered'].map((k, i) => [`card-${k}`, `.cardrow .step:nth-child(${i + 1}) .cardbg`, `[data-cards="mockup"] [data-card="${k}"]`])]
 // Composed from existing pieces (no mockup frame): each state shown on its own.
-const COMPOSED = [['note', '[data-strip="f"]'], ['phone-define', '[data-ph="e"]'], ['phone-note', '[data-ph="f"]'], ['marks', '[data-desk="marks"]'], ...['factcheck-checking', 'factcheck-six', 'quiz-shown', 'quiz-marking', 'quiz-done', 'explain', 'define', 'note', 'whole', 'folded'].map(k => [`card-${k}`, `[data-card="${k}"]`])]
+const COMPOSED = [['note', '[data-strip="f"]'], ['phone-define', '[data-ph="e"]'], ['phone-note', '[data-ph="f"]'], ['marks', '[data-desk="marks"]'],
+  ['trigger-cards', '[data-desk="trigger-cards"]'], ['primer-long', '[data-desk="primer-long"]'], ['primer-wait', '[data-desk="primer-wait"]'], ['primer-narrow', '[data-desk="primer-narrow"]'], ['phone-trigger', '[data-ph="g"]'], ['phone-primer', '[data-ph="h"]'], ['phone-primer-full', '[data-ph="i"]'], ...['factcheck-checking', 'factcheck-six', 'quiz-shown', 'quiz-marking', 'quiz-done', 'explain', 'define', 'note', 'whole', 'folded'].map(k => [`card-${k}`, `[data-card="${k}"]`])]
 async function pairs(browser, origin) {
   const out = []
   for (const look of ['paper', 'night']) {
@@ -258,7 +279,8 @@ async function pairs(browser, origin) {
     // A blinking caret is caught on or off; both sides show it on.
     for (const pg of [mock, fix]) await pg.addStyleTag({ content: '*, *::after { animation: none !important; }' })
     const comp = await ctx.newPage()
-    for (const [name, sel, fixSel] of [...PAIRS, ...COMPOSED]) {
+    const only = process.env.PAIRS_ONLY ? process.env.PAIRS_ONLY.split(',') : null
+    for (const [name, sel, fixSel] of [...PAIRS, ...COMPOSED].filter(p => !only || only.includes(p[0]))) {
       const a = join(OUT, `pair-${name}-${look}-mockup.png`), b = join(OUT, `pair-${name}-${look}-fixture.png`)
       const inMock = PAIRS.some(p => p[0] === name)
       if (inMock) await mock.locator(sel).first().screenshot({ path: a })
@@ -351,7 +373,7 @@ async function behaviour(browser, origin) {
   await a.evaluate(() => getSelection().removeAllRanges()); const w0 = account.requests.length
   await a.keyboard.press('/'); await a.keyboard.type('What is this about?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1000)
   const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
-  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => document.querySelector('.mr-col .mr-card.is-whole').offsetTop)) === 0)
+  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column (first, below the primer\'s trigger when it shows)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); return document.querySelector('.mr-col .mr-card.is-whole').offsetTop === (t ? TinctMargin.PRIMER.top + t.offsetHeight + TinctMargin.COL.cardGap : 0) })))
   await fresh(a)
   await fresh(a)
   // The dot: one tap highlights in the default colour; a second tap opens the colours; picking sets the default.
@@ -479,6 +501,106 @@ async function behaviour(browser, origin) {
 }
 
 
+/* ---------- PR 3: Before you start (BRIEF.md §5): trigger, primer, storage, Redo, the map and Quiz me on the chapter ---------- */
+async function primerBehaviour(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 300)}`) }
+  const hex = addBook(PDFS[0]), hex2 = addBook(PDFS[1])
+  const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const a = A.page
+  await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  const r0 = chats().length
+  const trig = await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); return t && { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, key: !!t.querySelector('.mr-key') } })
+  ok('at the PDF\'s start the trigger is the column\'s first folded card: "Before you start", [B], the unit named', trig && trig.text === 'Before you start B The gist, the key claims and a map of chapter 1.' && trig.top === 16 && trig.key, trig)
+  ok('nothing is made when the file opens (only when the reader opens the trigger)', primers(0).length === 0)
+  await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
+  const req = primers(r0)[0]
+  ok('B opens the primer in place: one chapter request, action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === 4 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
+  const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
+  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, alone in the column', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && shown.top === 16 && shown.bottom === 70 && !shown.trigger, shown)
+  await a.waitForTimeout(600)
+  const stored = account.primers.get(hex + '?outline-0')
+  ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
+  await a.click('.mr-col .mr-primer .mr-primer__close'); await a.waitForTimeout(250)
+  ok('its close folds it back to the trigger', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
+  await a.click('.mr-col .mr-trigger'); await a.waitForTimeout(400)
+  ok('clicking the trigger opens it again, and reopening never makes it again', await a.isVisible('.mr-col .mr-primer .mr-primer__gist') && primers(r0).length === 1)
+  await a.keyboard.press('Escape'); await a.waitForTimeout(200)
+  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
+  // Another device (this browser's copy gone): the account's primer, not a new one.
+  await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
+  await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(900)
+  const r1 = chats().length
+  await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
+  ok('on another device the account\'s primer opens; nothing is made again', primers(r1).length === 0 && /MOCK gist/.test(await a.innerText('.mr-col .mr-primer')))
+  // Redo: a new one, stored again.
+  mock.primer = { gist: 'MOCK redone gist. Second sentence.', claims: [1, 2, 3, 4, 5].map(i => ({ text: `Redone claim ${i}.`, cite: '{p. 2}' })), keepInMind: ['One', 'Two'], map: [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ title: `Redone section ${i}`, pages: `p. ${i + 1}` })) }
+  await a.click('.mr-col .mr-primer [data-c="redo"]'); await a.waitForTimeout(1200); mock.primer = null
+  ok('Redo makes a new one (one request) and stores it with the book', primers(r1).length === 1 && /redone gist/.test(await a.innerText('.mr-col .mr-primer')) && /redone gist/.test(account.primers.get(hex + '?outline-0')?.gist || ''))
+  ok('a long primer (five claims, eight map rows) has no layout problems in the column', (await checkMargin(a)).length === 0, await checkMargin(a))
+  // A map row scrolls the PDF to its page.
+  await a.click('.mr-col .mr-map__row[data-page="6"]'); await a.waitForTimeout(900)
+  ok('a map row scrolls the PDF to its page', (await a.evaluate(() => currentPlace().page)) === 6, await a.evaluate(() => currentPlace()))
+  await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(500)
+  // Quiz me on this chapter: `quiz` with no selection and the unit's pages; a quiz card at the column's top.
+  const r2 = chats().length
+  await a.click('.mr-col .mr-quiz-row'); await a.waitForTimeout(1200)
+  const q = chats().slice(r2).find(r => r.body?.companion?.intent === 'quiz')
+  const quizCard = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-open'); return c && { label: c.querySelector('.mr-card__label').innerText.replace(/\s+/g, ' '), unit: c.classList.contains('is-unit'), primer: !!document.querySelector('.mr-col .mr-primer') } })
+  ok('"Quiz me on this chapter": quiz on the whole unit (no selection, its pages), opening as a quiz card; the primer folds', q && q.body.companion.selection === undefined && q.body.companion.context.pages.length === 4 && quizCard?.label.startsWith('Quiz me · chapter 1') && /1 of 3/.test(quizCard.label) && quizCard.unit && !quizCard.primer, { q: q?.body?.companion && { sel: q.body.companion.selection, pages: q.body.companion.context.pages.length }, quizCard })
+  ok('the chapter quiz is kept with the cards (synced) and has no leader line', await a.evaluate(() => keptCards().some(c => c.data?.unit?.key === 'outline-0' && c.rects.length === 1) && !document.querySelector('svg.mr-leads path:not(.is-folded)')))
+  await a.keyboard.press('Escape')
+  // The next unit's start offers its own trigger; the middle of a unit offers none.
+  await a.evaluate(() => goTo({ page: 5, frac: 0 })); await a.waitForTimeout(700)
+  const t5 = await a.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  await a.evaluate(() => goTo({ page: 6, frac: 0.3 })); await a.waitForTimeout(700)
+  const t6 = await a.evaluate(() => !!document.querySelector('.mr-col .mr-trigger'))
+  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
+  const r3 = chats().length
+  await a.keyboard.press('b'); await a.waitForTimeout(1000)
+  const req3 = primers(r3)[0]
+  ok('B anywhere opens the primer of the unit the reader is in', req3?.body?.companion?.chapter?.action?.unitKey === 'outline-1', req3?.body?.companion?.chapter)
+  await a.keyboard.press('Escape')
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // A PDF without an outline is one unit, "all".
+  const B = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'night' })
+  await B.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  const rb = chats().length
+  await B.page.keyboard.press('b'); await B.page.waitForTimeout(1000)
+  const reqb = primers(rb)[0]
+  ok('a PDF without an outline: one unit ("all"), the whole PDF', /map of the whole PDF\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === 'all' && reqb.body.companion.context.pages.length === 8, { tb, action: reqb?.body?.companion?.chapter })
+  // Not in the account (signed out): kept in this browser only; reopening uses it.
+  await B.ctx.close()
+  const C = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'paper' })
+  await C.page.evaluate(() => { localStorage.removeItem('sb-local-auth-token') })
+  await C.page.reload(); await C.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await C.page.waitForTimeout(900)
+  // The page's PDF came from the account; signed out, it is this browser's copy now.
+  const rc = chats().length, putsBefore = account.primers.size
+  await C.page.keyboard.press('b'); await C.page.waitForTimeout(1000)
+  await C.page.keyboard.press('Escape'); await C.page.keyboard.press('b'); await C.page.waitForTimeout(600)
+  ok('signed out: kept in this browser (reopened without a new request), nothing sent to the account', primers(rc).length <= 1 && account.primers.size === putsBefore && await C.page.evaluate(() => Object.keys(localStorage).some(k => k.includes(':primer:'))), { requests: primers(rc).length })
+  await C.ctx.close()
+  // The phone: the trigger is the bottom card; tapping it opens the primer in the bottom card.
+  const Ph = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  await Ph.page.waitForSelector('.mr-sheet .mr-trigger', { timeout: 8000 }).catch(() => {})
+  ok('phone: at a unit\'s start the trigger is the bottom card (no key shown)', await Ph.page.isVisible('.mr-sheet .mr-trigger') && !(await Ph.page.$('.mr-sheet .mr-key')))
+  await Ph.page.click('.mr-sheet .mr-trigger'); await Ph.page.waitForSelector('.mr-sheet .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
+  const sh = await Ph.page.evaluate(() => { const s = document.querySelector('.mr-sheet'); return s && { h: s.getBoundingClientRect().height, primer: !!s.querySelector('.mr-primer .mr-map') } })
+  ok('phone: the primer opens in the bottom card, about half the screen high', sh?.primer && sh.h <= 844 / 2 + 2, sh)
+  ok('phone: no layout problems with the primer open', (await checkMargin(Ph.page)).length === 0, await checkMargin(Ph.page))
+  await Ph.page.click('.mr-sheet .mr-primer__close'); await Ph.page.waitForTimeout(300)
+  ok('phone: closing folds it back to the trigger', await Ph.page.isVisible('.mr-sheet .mr-trigger'))
+  await Ph.page.mouse.click(195, 300); await Ph.page.waitForTimeout(300)
+  ok('phone: tapping the page closes the trigger, and it stays closed at this unit', !(await Ph.page.$('.mr-sheet')))
+  ok('phone: no page errors', !Ph.problems.length, Ph.problems)
+  await Ph.ctx.close()
+  return results
+}
+
 /* ---------- PR 2: the margin column, cards, marks and the bottom card, across the brief's stress matrix ----------
    docs/margin/BRIEF.md "Layout QA": every viewport × look × browser zoom (desktop), each with the
    content cases below; each state must return no problems from docs/margin/layout-check.mjs, and
@@ -487,6 +609,13 @@ const COLUMN_VIEWPORTS = (process.env.COLUMN_VIEWPORTS || '1440x900,1280x800,118
 const ZOOMS = (process.env.ZOOMS || '1,1.25').split(',').map(Number)
 const LONG = Array.from({ length: 60 }, (_, i) => `Sentence ${i + 1} of a long answer runs on with several more words in it.`).join(' ').split(' ').slice(0, 600).join(' ')
 const WORD60 = 'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'
+// The longest primer PROMPTS.md allows: a 45-word gist, five 25-word claims, three cautions (one a 60-character word), eight map rows.
+const LONG_PRIMER = {
+  gist: 'The chapter sets up the two tools the rest of the book leans on, the binomial distribution for counting outcomes and Stirling’s approximation for the factorials it produces, and shows why both return in every later chapter on inference and coding.',
+  claims: Array.from({ length: 5 }, (_, i) => ({ text: `Claim ${i + 1} runs to its full length of twenty-five words so that the primer is as long as a primer can be, with its page.`, cite: '{p. 1}' })),
+  keepInMind: ['The exercises use natural logs throughout, but later chapters switch to base 2.', 'The text writes f for a probability where many courses write p.', `${'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'}: long words still wrap.`],
+  map: Array.from({ length: 8 }, (_, i) => ({ title: i === 6 ? 'Further reading and a note on the notation used in the later chapters of the book' : `Section ${i + 1}`, pages: `pp. ${i + 1}–${i + 2}` })),
+}
 const LONG_URL = 'https://example.org/a-very-long-path/without-any-breaks/stirling-approximation-error-bounds-for-small-x-values'
 // In the page: cards on the lines in view (`lines` of them, two passages per line when `pairs`),
 // built from the text layer's own spans, in the reader's store, one of them open.
@@ -596,6 +725,13 @@ async function columnMatrix(browser, origin) {
         await page.evaluate(() => { col.live.clear(); chat.turns = [{ role: 'user', content: 'What is this PDF about?', page: 2, at: Date.now() }, { role: 'assistant', content: 'MOCK. The bottom line about the whole PDF {p. 1}.\n\nMore.', at: Date.now() }]; openWhole({ quiet: true }) })
         await state('whole')
         await page.evaluate(() => { chat.turns = []; closeChat() })
+        // PR 3: at a unit's start, the trigger with the page's cards below it; then the longest primer, open.
+        await page.evaluate(() => { openCard(null); goTo({ page: TinctMargin.unitAt(primer.units, currentPlace().page).start, frac: 0 }) }); await settle(page)
+        await page.evaluate(seedCards, { lines: 4, pairs: true, open: 2, where: 'top' })
+        await state('trigger', () => ({ ok: col.mode !== 'column' || !!document.querySelector('.mr-col .mr-trigger:not([hidden])'), mode: col.mode }))
+        await page.evaluate(LONG => { openCard(null); const u = currentUnit(); store.set(primerKey(u), { ...LONG, madeAt: new Date().toISOString(), unitKey: u.key }); openPrimer(u) }, LONG_PRIMER)
+        await state('primer', () => { const el = document.querySelector('.mr-primer'); return { ok: !!el?.querySelector('.mr-map') && el.querySelectorAll('.mr-map__row').length === 8 && (col.mode !== 'column' || !document.querySelector('.mr-col .mr-card:not([hidden])')) } })
+        await page.evaluate(() => closePrimer())
         if (mode === 'phone') {
           // The bottom card with the keyboard open: its follow-up line above the keyboard, the passage in view.
           await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['ask'] })
@@ -611,7 +747,7 @@ async function columnMatrix(browser, origin) {
         if (mode === 'marks') {
           // A mark opens its card floating beside it.
           await page.evaluate(seedCards, { lines: 3, pairs: false, open: null })
-          await page.click('.mr-mark'); await state('mark-open', () => ({ ok: !!document.querySelector('.mr-card.is-floating.is-open') }))
+          await page.click('.mr-mark:not([data-primer])'); await state('mark-open', () => ({ ok: !!document.querySelector('.mr-card.is-floating.is-open') }))
         }
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e).replace(/\u001b\[\d+m/g, '').slice(-700) }) }
       const n = found.length + problems.length
@@ -662,6 +798,7 @@ try {
   if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
+  else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }

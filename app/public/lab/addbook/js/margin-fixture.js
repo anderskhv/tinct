@@ -58,7 +58,7 @@
       }
     });
     // Phones: the mockup's page at its phone size, the passage at the mockup's offsets.
-    document.querySelectorAll('[data-ph]:not([data-ph="c"]):not([data-ph="d"])').forEach(ph => {
+    document.querySelectorAll('[data-ph]:not([data-ph="c"]):not([data-ph="d"]):not([data-ph="g"]):not([data-ph="h"]):not([data-ph="i"])').forEach(ph => {
       const s = ph.dataset.ph;
       ph.innerHTML = '<div class="ptop"><b>Probability and Inference</b><i>p. 12</i></div><div class="pdf">' + tpl + '</div><div class="home"></div>';
       const pdf = ph.querySelector('.pdf'), a = pdf.querySelector(s === 'e' ? '[data-a="word"]' : s === 'f' ? '[data-a="note"]' : '[data-a="ask"]');
@@ -191,9 +191,101 @@
     }
     ph.appendChild(el);
   }
+  /* ---------- PR 3: Before you start (mockup section 4): the trigger, the primer, and their composed states ---------- */
+  const PRIMER = {
+    gist: 'The chapter sets up the two tools the rest of the book leans on: the binomial distribution for counting outcomes, and Stirling’s approximation for handling the factorials it produces.',
+    claims: [{ text: 'The number of heads in N tosses is binomial, with mean Nf and variance Nf(1 − f).', cite: '{p. 12}' }, { text: 'Variances add because the tosses are independent.', cite: '{p. 12}' }, { text: 'ln x! is close to x ln x − x, and the error shrinks fast as x grows.', cite: '{p. 13}' }],
+    keepInMind: ['The exercises use natural logs throughout, but later chapters switch to base 2.'],
+    map: [{ title: 'Why probability first', pages: 'pp. 9–10' }, { title: 'Two distributions you will need', pages: 'pp. 11–13' }, { title: 'Entropy, informally', pages: 'pp. 14–18' }, { title: 'Exercises', pages: 'pp. 19–21' }],
+  };
+  // The longest a primer can be (PROMPTS.md): a 45-word gist, five claims of 25 words, three cautions, eight map rows.
+  const LONG_PRIMER = {
+    gist: 'The chapter sets up the two tools the rest of the book leans on, the binomial distribution for counting outcomes and Stirling’s approximation for the factorials it produces, and shows why both return in every later chapter on inference and coding.',
+    claims: [
+      { text: 'The number of heads in N independent tosses is binomial, with mean Nf and variance Nf(1 − f), whatever the value of f between zero and one.', cite: '{p. 12}' },
+      { text: 'Variances add because the tosses are independent, so the covariance terms vanish and each toss contributes the same spread f(1 − f) to the total.', cite: '{p. 12}' },
+      { text: 'ln x! is close to x ln x − x, and the error of that approximation shrinks quickly as x grows, so it is safe for the large counts used later.', cite: '{p. 13}' },
+      { text: 'Binomial coefficients can be approximated with the same formula, which turns products of factorials into sums of logarithms that are easy to handle.', cite: '{pp. 13–14}' },
+      { text: 'The entropy of a binary variable appears naturally inside that approximation, which is the first sign of the link between counting and information.', cite: '{p. 14}' },
+    ],
+    keepInMind: ['The exercises use natural logs throughout, but later chapters switch to base 2.', 'The text writes f for a probability where many courses write p.', 'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond: long words still wrap.'],
+    map: ['Why probability first', 'Two distributions you will need', 'The binomial distribution', 'Stirling’s approximation', 'Binomial coefficients, approximated', 'Entropy, informally', 'Further reading and a note on the notation used in later chapters', 'Exercises'].map((title, i) => ({ title, pages: `pp. ${9 + i * 2}–${10 + i * 2}` })),
+  };
+  const UNIT = { key: 'outline-0', title: 'Chapter 1. Introduction to Information Theory', from: 1, start: 9, to: 21 };
+  function primerEl(p, o = {}) {
+    const el = document.createElement('div');
+    el.className = 'mr mr-primer'; el.setAttribute('role', 'region'); el.setAttribute('aria-label', 'Before you start');
+    el.innerHTML = H.primerHtml(p, { P, resolve, ...o });
+    return el;
+  }
+  function triggerEl(o = {}) {
+    const el = document.createElement('button');
+    el.type = 'button'; el.className = 'mr mr-trigger'; el.setAttribute('aria-expanded', 'false');
+    el.innerHTML = H.triggerHtml(UNIT, o);
+    return el;
+  }
+  function primerDesk(d) {
+    const kind = d.dataset.desk;
+    d.innerHTML = '<div class="top"><span>←</span><span class="ttl"><b>Probability and Inference</b><span class="pg">p. 12</span></span><span class="rt"><span>Aa</span><span class="t">t</span></span></div><div class="sheetwrap"><div class="pdf">' + tpl + '</div></div>';
+    const dr = d.getBoundingClientRect(), sheet = d.querySelector('.sheetwrap'), pageRight = sheet.getBoundingClientRect().right - dr.left;
+    if (kind === 'primer-narrow') {
+      // Below 1180px: the trigger is a mark at the page's edge, level with its top; the primer floats beside it.
+      const marks = document.createElement('div'); marks.className = 'mr mr-marks'; d.appendChild(marks);
+      const m = document.createElement('button'); m.type = 'button'; m.className = 'mr-mark'; m.setAttribute('aria-label', 'Before you start'); m.setAttribute('aria-expanded', 'true');
+      m.style.left = (pageRight + M.COL.dot) + 'px'; m.style.top = '40px'; marks.appendChild(m);
+      const el = primerEl(LONG_PRIMER); el.classList.add('is-floating'); el.style.position = 'absolute'; d.appendChild(el);
+      el.style.left = (pageRight + M.COL.dot - 14 - 380) + 'px'; el.style.top = (56 + 16) + 'px'; el.style.maxHeight = (dr.height - 56 - 32) + 'px';
+      return;
+    }
+    const col = document.createElement('div'); col.className = 'mr mr-col'; d.appendChild(col);
+    if (kind === 'trigger') { col.appendChild(triggerEl()); return }
+    const foot = document.createElement('div'); foot.className = 'mr-foot'; foot.innerHTML = H.footHtml(); col.appendChild(foot);
+    if (kind === 'primer') { col.insertBefore(primerEl(PRIMER), foot); return }
+    if (kind === 'primer-long') { col.insertBefore(primerEl(LONG_PRIMER), foot); return }
+    if (kind === 'primer-wait') {
+      const el = primerEl(null, { wait: true }); col.insertBefore(el, foot);
+      el.querySelector('.mr-wait').append(window.TinctWait.waitRing('Thinking…', { size: 18, delayMs: 0, live: false }));
+      return;
+    }
+    // The trigger at the top; the page's cards placed below it (TinctMargin.placeCards with `top`).
+    const trig = triggerEl(); col.insertBefore(trig, foot);
+    const pdf = d.querySelector('.pdf'); sheet.style.top = '-185px';
+    const plan = ['fig', 'ask', 'note'], open = 'fig';
+    const svgNS = 'http://www.w3.org/2000/svg', leads = document.createElementNS(svgNS, 'svg'); leads.setAttribute('class', 'mr mr-leads'); d.appendChild(leads);
+    const colTop = 56, colH = dr.height - colTop, footTop = colH - 22 - foot.offsetHeight;
+    col.style.setProperty('--mr-col-height', colH + 'px'); col.style.setProperty('--mr-foot-height', (colH - footTop + 18) + 'px');
+    const els = plan.map(k => { const el = cardEl(CARDS[k], k === open); col.insertBefore(el, foot); return el });
+    const firstLine = k => { const r = pdf.querySelector('[data-a="' + k + '"]').getClientRects()[0]; return { top: r.top - dr.top, bottom: r.bottom - dr.top } };
+    const reserve = M.PRIMER.top + trig.offsetHeight + M.COL.cardGap;
+    const out = M.placeCards(plan.map(k => ({ id: k, top: firstLine(k).top - colTop })), els.map(e => e.offsetHeight), footTop, { open, top: reserve });
+    const at = new Map(out.positions.map(p => [p.id, p]));
+    plan.forEach((k, i) => {
+      const p = at.get(k), el = els[i]; if (!p) { el.hidden = true; return }
+      el.style.top = p.top + 'px';
+      const f = firstLine(k), lab = el.querySelector('.mr-card__label').getBoundingClientRect();
+      const ey = (f.top + f.bottom) / 2, cy = (lab.top + lab.bottom) / 2 - dr.top, x0 = pageRight + M.COL.dot;
+      const faint = k === open ? '' : ' class="is-folded"';
+      leads.insertAdjacentHTML('beforeend', `<circle${faint} cx="${x0}" cy="${ey}" r="${M.COL.r}"/><path${faint} d="${M.leadPath(x0, ey, 800 - 6, cy)}"/>`);
+      if (k === 'note') pdf.querySelector('[data-a="note"]').classList.add('mark-hl');
+    });
+  }
+  function primerPhone(ph) {
+    const s = ph.dataset.ph;
+    ph.innerHTML = '<div class="ptop"><b>Probability and Inference</b><i>p. 12</i></div><div class="pdf">' + tpl + '</div><div class="home"></div>';
+    ph.querySelector('.pdf').style.top = '100px';
+    const el = document.createElement('div'); el.className = 'mr mr-sheet' + (s === 'i' ? ' is-full' : '');
+    if (s === 'g') {
+      el.innerHTML = H.sheetHtml(`<button type="button" class="mr-trigger" aria-expanded="false">${H.triggerHtml(UNIT, { key: false })}</button>`);
+    } else {
+      el.innerHTML = H.sheetHtml(`<div class="mr-primer" role="region" aria-label="Before you start">${H.primerHtml(s === 'i' ? LONG_PRIMER : PRIMER, { P, resolve })}</div>`);
+    }
+    ph.appendChild(el);
+  }
   async function pr2() {
     [P, TC] = await Promise.all([import('/lab/margin/margin-parse.js'), import('/lab/chat-thread.js')]);
-    document.querySelectorAll('[data-desk]').forEach(desk);
+    document.querySelectorAll('[data-desk="trigger"], [data-desk="primer"], [data-desk="trigger-cards"], [data-desk^="primer-"]').forEach(primerDesk);
+    document.querySelectorAll('[data-ph="g"], [data-ph="h"], [data-ph="i"]').forEach(primerPhone);
+    document.querySelectorAll('[data-desk="margin"], [data-desk="overlap"], [data-desk="marks"]').forEach(desk);
     document.querySelectorAll('[data-card]').forEach(bg => {
       const k = bg.dataset.card;
       bg.innerHTML = '';

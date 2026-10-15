@@ -321,3 +321,47 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 .mr-divider { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--mr-faint); font-style: italic; font-size: 13px; white-space: nowrap; }
 .mr-divider::before, .mr-divider::after { content: ""; flex: 1; height: 1px; background: var(--mr-hair); }
 .mr-card .byob-tray, .mr-sheet .byob-tray { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ---------- PR 3: Before you start (docs/margin/BRIEF.md §5) ----------
+   The trigger and the primer, as the mockup's .trig and .primer (section 4) draw them; the values
+   above are the reference's, and these add only what the mockup's own rules add to them. */
+:where(.mr-trigger, .mr-primer) button, button:where(.mr-trigger) { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+:where(.mr-trigger, .mr-primer) button:focus-visible, button.mr-trigger:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 2px; border-radius: 4px; }
+button.mr-trigger:focus-visible { border-radius: 12px; }
+.mr-trigger, .mr-primer, .mr-primer * { box-sizing: border-box; }
+/* The trigger (mockup .trig): its title with the [B] key at the right, then the line about the unit. */
+.mr-trigger { display: flex; flex-direction: column; gap: 2px; width: 100%; color: var(--mr-ink); text-align: left; }
+.mr-trigger__title .mr-key { margin-left: auto; font-style: normal; }
+.mr-col .mr-trigger, .mr-col .mr-primer { position: absolute; left: 0; right: 0; top: 16px; }
+.mr-col .mr-primer { bottom: 70px; }
+/* The primer (mockup .primer): it declares its gap twice, and the 14px it renders is the one kept. */
+.mr-primer { gap: 14px; color: var(--mr-ink); overscroll-behavior: contain; }
+.mr-primer h4 { gap: 10px; }
+/* Close: a 28px target round the 13px glyph at the title's right; the title reaches 8px into the
+   primer's padding so the glyph sits where the mockup's does. */
+.mr-primer h4 { margin-right: -8px; }
+.mr-primer .mr-primer__close { flex: none; align-self: center; margin: -1px 0 -1px auto; }
+.mr-primer__n, .mr-map__n { color: var(--mr-faint); font-size: 14px; }
+.mr-primer__keep { display: flex; flex-direction: column; gap: 5px; }
+.mr-map { display: flex; flex-direction: column; }
+.mr-map__row { width: 100%; text-align: left; color: inherit; }
+.mr-map__title { min-width: 0; overflow-wrap: anywhere; }
+.mr-map__pages { white-space: nowrap; padding-left: 12px; }
+button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; }
+.mr-quiz-row { width: 100%; color: inherit; text-align: left; }
+.mr-quiz-row small { font: 12px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; margin-left: 12px; }
+/* Redo: the footer's 11.5px word with a 28px target; the footer reaches 7px into the primer's
+   padding so its words sit where the mockup's do. */
+.mr-primer__foot { min-height: 28px; align-items: center; margin-bottom: -7px; }
+.mr-primer__foot button { min-height: 28px; padding: 0 0 0 12px; }
+.mr-primer .mr-status { margin: 0; }
+/* Narrow windows: the trigger is a mark; the primer floats beside it, as a card from a mark does. */
+.mr-primer.is-floating { position: fixed; width: 380px; z-index: 40; }
+/* The phone: the trigger and the primer open in the bottom card, without a second card's fill. */
+.mr-sheet .mr-trigger { padding: 0 0 4px; border-radius: 0; background: none; box-shadow: none; }
+.mr-sheet .mr-primer { flex: 0 1 auto; min-height: 0; padding: 0 0 2px; border-radius: 0; background: none; box-shadow: none; overflow-y: auto; }
+.mr-sheet.is-full .mr-primer { flex: 1 1 auto; }
+/* Words for screen readers only: the margin's live region (a finished answer, the primer made). */
+.mr-sr { position: fixed; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+/* The guard's own rule, less the room the trigger keeps at the column's top (--mr-reserve, set by the layout). */
+.mr-col.is-reader .mr-card.is-open { max-height: calc(var(--mr-col-height) - var(--mr-foot-height) - 28px - var(--mr-reserve, 0px)); }

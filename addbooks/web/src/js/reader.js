@@ -371,6 +371,8 @@ async function openPdf(bytes, name, key) {
   marksSync.open();
   cardsSync.open();
   warmDictionary();
+  // Before you start: the PDF's units, from its outline (PR 3).
+  primerReset(); loadUnits();
   // The PDF's printed page labels ("xii", "12"), for citations: what the companion is shown and cites.
   state.labels = null;
   pdf.getPageLabels?.().then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }) } }).catch(() => {});
@@ -2343,6 +2345,7 @@ function marginStart() {
     col.marks = document.createElement('div'); col.marks.className = 'mr mr-marks';
     col.marks.addEventListener('click', e => {
       const m = e.target.closest('.mr-mark'); if (!m) return;
+      if (m.dataset.primer) return togglePrimer();
       const ids = (m.dataset.ids || m.dataset.id).split(' '), at = ids.indexOf(col.open);
       openCard(at < 0 ? ids[0] : at + 1 < ids.length ? ids[at + 1] : null);
     });
@@ -2360,6 +2363,7 @@ function marginStop() {
   document.querySelectorAll('.mr-ul-layer').forEach(l => l.replaceChildren());
   if (root.classList.contains('margin-open')) { root.classList.remove('margin-open', 'dock-open'); root.style.removeProperty('--dock-w') }
   col.mode = null; col.open = null;
+  primerReset();
 }
 /** Wide desktop: the page area narrows for the column, as it did for the docked chat; the place stays. */
 function reserveColumn(on) {
@@ -2404,11 +2408,12 @@ function drawCard(el, card, open) {
   const sig = cardSig(card, open);
   if (el.dataset.sig === sig) return false;
   el.dataset.sig = sig; el.dataset.id = card.id;
-  el.className = 'mr ' + TinctMargin.html.cardClass(card, open) + (el.classList.contains('is-floating') ? ' is-floating' : '');
+  el.className = 'mr ' + TinctMargin.html.cardClass(card, open) + (el.classList.contains('is-floating') ? ' is-floating' : '') + (card.data?.unit ? ' is-unit' : '');
   if (card.kind === 'note') el.style.setProperty('--hl-color', (HL_COLORS.find(c => c[0] === card.color) || HL_COLORS[0])[3]);
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   el.innerHTML = TinctMargin.html.cardHtml(card, cardOpts(card, open));
   const live = col.live.get(card.id);
+  if (open && live && !live.status) el.setAttribute('aria-busy', 'true'); else el.removeAttribute('aria-busy');
   if (open && ((live && !live.text && !live.status) || col.pending.has(card.id))) {
     const ring = TinctWait.waitRing('Thinking…', { size: 18 }), slot = el.querySelector('.mr-wait');
     if (slot) slot.append(ring); else el.querySelector('.mr-card__body')?.append(ring);
@@ -2427,6 +2432,9 @@ function layoutNow() {
     if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren() }
     if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
     if (mode !== 'phone') closeSheet2();
+    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null }
+    if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
+    if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
     if (mode === 'phone' && col.open) { const o = col.open; col.open = null; openCard(o) }
   }
@@ -2453,22 +2461,44 @@ function layoutNow() {
     m.style.top = (g.y - hdr) + 'px';
     m.setAttribute('aria-expanded', String(g.cards.some(c => c.card.id === col.open)));
   }
-  col.marks.querySelectorAll('.mr-mark').forEach(m => { if (!seen.has(m.dataset.id)) m.remove() });
-  if (mode === 'marks') placeFloat(vis.find(v => v.card.id === col.open));
-  else if (col.sheet) drawSheet();
+  col.marks.querySelectorAll('.mr-mark:not([data-primer])').forEach(m => { if (!seen.has(m.dataset.id)) m.remove() });
+  if (mode === 'marks') { placeFloat(vis.find(v => v.card.id === col.open)); const pr = pageRightNow(); primerMark(pr); placePrimerFloat(pr); return }
+  col.marks.querySelector('.mr-mark[data-primer]')?.remove();
+  // The phone: the trigger is the bottom card at a unit's start, until the reader closes it there or selects text.
+  const trig = triggerUnit(), sheetId = col.sheet?.dataset.id;
+  if (sheetId === 'trigger' && (!trig || mr || primer.away.has(trig.key))) { col.sheet.remove(); col.sheet = null }
+  else if (!col.sheet && trig && !mr && !col.open && !primer.away.has(trig.key)) openSheet2('trigger');
+  if (col.sheet) drawSheet();
+}
+/** The page's visible right edge (the first page in view). */
+function pageRightNow() {
+  const sr = $('scroll').getBoundingClientRect(), p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > sr.top) || state.pages[0];
+  return Math.min(p.pg.getBoundingClientRect().right, sr.left + $('scroll').clientWidth);
 }
 function layoutColumn(vis) {
   const C = TinctMargin.COL, sr = $('scroll').getBoundingClientRect();
-  const pageRight = vis[0]?.pageRight ?? (() => { const p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > sr.top) || state.pages[0]; return Math.min(p.pg.getBoundingClientRect().right, sr.left + $('scroll').clientWidth) })();
+  const pageRight = vis[0]?.pageRight ?? pageRightNow();
   const box = TinctMargin.columnBox(innerWidth, pageRight);
   if (!box) return;
   col.el.style.left = box.left + 'px';
   const colTop = col.el.getBoundingClientRect().top, colH = col.el.clientHeight, footTop = col.foot.offsetTop;
   col.el.style.setProperty('--mr-col-height', colH + 'px');
   col.el.style.setProperty('--mr-foot-height', (colH - footTop + 18) + 'px');
-  // The whole-PDF card (when the thread has turns) sits first, at the top.
+  // The primer, open, has the column to itself (mockup section 4); its trigger keeps the column's top.
+  if (primerInColumn()) {
+    primer.trig?.remove(); primer.trig = null;
+    col.els.forEach(e => { e.hidden = true }); col.stack.hidden = true; col.leads.replaceChildren();
+    return;
+  }
+  const reserve = triggerInColumn();
+  // An open card below the trigger stops at the column's foot as the guard says, less the trigger's room.
+  col.el.style.setProperty('--mr-reserve', reserve + 'px');
+  // The whole-PDF card (when the thread has turns) sits first, at the top; then a unit's quiz, when open or at the unit's start.
   const items = [];
   if (chat.turns.length || chat.live) items.push({ id: 'whole', card: { id: 'whole', kind: 'whole' }, top: 0 });
+  const openUnit = col.open && cardById(col.open)?.data?.unit ? cardById(col.open) : null, trigUnit = triggerUnit();
+  const uq = openUnit || (trigUnit && unitQuiz(trigUnit));
+  if (uq) items.push({ id: uq.id, card: uq, top: 0 });
   for (const v of vis) items.push({ id: v.card.id, card: v.card, v, top: v.line.top - colTop });
   const keep = new Set(items.map(i => i.id));
   for (const [id, el] of col.els) if (!keep.has(id)) { el.remove(); col.els.delete(id) }
@@ -2481,7 +2511,7 @@ function layoutColumn(vis) {
   // The row's height on one line ("1 more on this page"), measured once.
   if (!col.stackH) { const was = col.stack.hidden; col.stack.hidden = false; col.stack.innerHTML = TinctMargin.html.stackHtml([{ kind: 'note' }]); col.stackH = col.stack.offsetHeight || 34; col.stack.hidden = was }
   const stackH = col.stackH;
-  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top })), items.map(i => col.els.get(i.id).offsetHeight), footTop, { open: col.open, stackHeight: stackH });
+  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top })), items.map(i => col.els.get(i.id).offsetHeight), footTop, { open: col.open, stackHeight: stackH, top: reserve });
   const at = new Map(out.positions.map(p => [p.id, p]));
   const x1 = box.left - 6, lines = [];
   for (const it of items) {
@@ -2522,13 +2552,15 @@ function underline(v) {
 /* -- Opening and folding: one card open at a time -- */
 function openCard(id, { focus = false } = {}) {
   const mode = marginMode();
+  // One open at a time: a card opening folds the primer back to its trigger.
+  if (id && primer.open) { primer.open = false; primer.token++; primer.el?.remove(); primer.el = null }
   col.open = id || null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
   if (mode === 'marks' && !id) closeFloat();
   // A card whose passage is out of view brings it into view.
   if (id && id !== 'whole') {
     const card = viewCards().find(c => c.id === id) || cardById(id);
-    if (card && mode !== 'phone') {
+    if (card && mode !== 'phone' && !card.data?.unit) {
       const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1], sr = $('scroll').getBoundingClientRect();
       if (p) { const b = p.pg.getBoundingClientRect(), y = b.top + f[2] * b.height; if (y < sr.top + 40 || y > sr.bottom - 120) goTo({ page: f[0], frac: Math.max(0, f[2] - 0.08) }, true) }
     }
@@ -2538,7 +2570,9 @@ function openCard(id, { focus = false } = {}) {
 }
 const openCardEl = () => (col.sheet && col.sheet.isConnected ? col.sheet : col.float && col.float.isConnected ? col.float : col.els.get(col.open)) || null;
 function placeFloat(v) {
-  const card = col.open === 'whole' ? null : v?.card;
+  // A unit's quiz (from the primer) has no passage in view: it floats at the top, as the whole-PDF card does.
+  const unitCard = !v && col.open && col.open !== 'whole' ? cardById(col.open) : null;
+  const card = col.open === 'whole' ? null : v?.card || (unitCard?.data?.unit ? unitCard : null);
   if (!col.open || (!card && col.open !== 'whole')) { closeFloat(); return }
   if (!col.float) { col.float = document.createElement('div'); bindCardEvents(col.float); root.appendChild(col.float) }
   const el = col.float;
@@ -2574,7 +2608,7 @@ function openSheet2(id) {
 // The page scrolls so the passage sits just above the bottom card, still underlined.
 function passageAboveSheet() {
   const id = col.sheet?.dataset.id;
-  const card = id && id !== 'whole' && (viewCards().find(c => c.id === id) || cardById(id)); if (!card) return;
+  const card = id && id !== 'whole' && (viewCards().find(c => c.id === id) || cardById(id)); if (!card || card.data?.unit) return;
   const rects = anchorRects(TinctMargin.anchorOfCard(card)); if (!rects.length) return;
   const top = Math.min(...rects.map(r => r.top)), bottom = Math.max(...rects.map(r => r.bottom));
   const sheetTop = col.sheet.getBoundingClientRect().top, hdr = $('hdr').getBoundingClientRect().bottom;
@@ -2586,6 +2620,15 @@ function drawSheet() {
   const el = col.sheet; if (!el) return;
   const id = el.dataset.id;
   if (id === 'whole') { el.setAttribute('aria-label', 'Chat'); drawWhole(el, { sheet: true }); return }
+  if (id === 'primer') { el.setAttribute('aria-label', 'Before you start'); drawPrimer(el, { sheet: true }); return }
+  if (id === 'trigger') {
+    const unit = triggerUnit(); if (!unit) return;
+    el.setAttribute('aria-label', 'Before you start');
+    if (el.dataset.sig === 'trigger:' + unit.key) return;
+    el.dataset.sig = 'trigger:' + unit.key;
+    el.innerHTML = TinctMargin.html.sheetHtml(`<button type="button" class="mr-trigger" data-c="primer" aria-expanded="false">${TinctMargin.html.triggerHtml(unit, { key: false })}</button>`);
+    return;
+  }
   const card = viewCards().find(c => c.id === id) || cardById(id); if (!card) { closeSheet2(); return }
   el.setAttribute('aria-label', TinctMargin.html.cardLabel(card, pageLabel(card.page)));
   const sig = cardSig(card, true);
@@ -2604,6 +2647,10 @@ function drawSheet() {
 }
 function closeSheet2() {
   if (!col.sheet) return;
+  const id = col.sheet.dataset.id;
+  // The primer folds back to its trigger; the trigger, closed, stays away at this unit's start.
+  if (id === 'primer') { primer.open = false; primer.token++ }
+  if (id === 'trigger') { const u = currentUnit(); if (u) primer.away.add(u.key) }
   col.sheet.remove(); col.sheet = null;
   if (marginMode() === 'phone') { col.open = null; marginLayout() }
 }
@@ -2685,6 +2732,18 @@ function openWhole(opts = {}) {
 function bindCardEvents(host) {
   host.addEventListener('mousedown', e => { if (e.target.closest('.mr-cite, [data-c]') && !e.target.closest('textarea')) e.preventDefault() });
   host.addEventListener('click', e => {
+    // A host inside another (the primer in the column) handles its click once.
+    if (e.mrDone) return; e.mrDone = true;
+    const row = e.target.closest('.mr-map__row[data-page]');
+    if (row) { goToCite(Number(row.dataset.page), ''); return }
+    const pb = e.target.closest('.mr-primer [data-c], .mr-trigger');
+    if (pb) {
+      const c = pb.dataset.c;
+      if (c === 'close') { if (host === col.sheet) closeSheet2(); else closePrimer(); return }
+      if (c === 'redo') { if (primer.unit) loadPrimer(primer.unit, { redo: true }); return }
+      if (c === 'quiz') return quizUnit();
+      if (pb.classList.contains('mr-trigger')) return openPrimer(triggerUnit() || currentUnit());
+    }
     const cite = e.target.closest('.mr-cite');
     if (cite) { goToCite(Number(cite.dataset.page), cite.dataset.needle || ''); return }
     const card = e.target.closest('.mr-card, .mr-sheet'), b = e.target.closest('[data-c]');
@@ -2765,8 +2824,10 @@ async function runCard(id, question = null) {
   setLive(id, { text: '', status: '' });
   const s = await ai();
   if (!s) { setLive(id, { status: AI_OFF }); return }
-  const pdf = await pdfPages(card.page);
-  const image = await pageImage(card.page, passageRegion(card));
+  // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
+  const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
+  const pdf = unit ? await unitPages(unit) : await pdfPages(card.page);
+  const image = unit ? null : await pageImage(card.page, passageRegion(card));
   const book = { ...aiBook(), pdf };
   const onText = ({ text }) => { if (!ctl.signal.aborted) setLive(id, { text, status: '' }) };
   const onStatus = status => { if (!ctl.signal.aborted) setLive(id, { status }) };
@@ -2774,7 +2835,7 @@ async function runCard(id, question = null) {
     const images = imgs ? [imgs] : undefined;
     if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, onText, signal: ctl.signal });
     if (card.kind === 'explain') return TinctAI.ask(explainPrompt(card, imgs), { book, images, onText, signal: ctl.signal });
-    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, selection: card.text, images, stream: false, signal: ctl.signal });
+    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, ...(unit ? {} : { selection: card.text }), images, stream: false, signal: ctl.signal });
     return TinctAI.companion(card.kind, { book, pdf, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
   };
   try {
@@ -2785,10 +2846,13 @@ async function runCard(id, question = null) {
     if (card.kind === 'quiz' && question == null) {
       const quiz = MP.P.parseQuiz(res.text);
       if (!quiz) throw Object.assign(new Error('failed'), { code: 'failed' });
-      card.data = { questions: quiz.questions, i: 0, results: [] };
+      card.data = { ...(card.data?.unit ? { unit: card.data.unit } : {}), questions: quiz.questions, i: 0, results: [] };
     } else card.turns = [...(card.turns || []), { role: 'assistant', content: res.text, at: Date.now() }];
     col.live.delete(id); col.ctl.delete(id);
     saveCard(card);
+    // Screen readers hear the finished answer once (the card itself is redrawn as it streams).
+    const said = card.kind === 'quiz' && question == null ? card.data.questions?.[0]?.q : res.text;
+    announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${String(said || '').replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
   } catch (e) {
     if (e?.code === 'cancelled' || ctl.signal.aborted) return;
     col.ctl.delete(id);
@@ -2867,7 +2931,7 @@ function cardAt(x, y) {
 $('scroll').addEventListener('scroll', () => { if (col.mode) marginLayout() }, { passive: true });
 addEventListener('resize', () => { if (marginOn()) marginLayout({ fresh: true }) });
 // Tapping the page closes the phone's bottom card.
-document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() === 'phone' && !e.target.closest?.('.mr-sheet, .mr-float, .lab-header, .byob-toast')) closeSheet2() }, true);
+document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() === 'phone' && !e.target.closest?.('.mr-sheet, .mr-float, .lab-header, .byob-toast')) { const u = currentUnit(); if (u) primer.away.add(u.key); closeSheet2() } }, true);
 // "/" asks about the whole PDF; Escape folds the open card (after the bar and its menus).
 addEventListener('keydown', e => {
   if (!marginOn() || !readerShown() || e.defaultPrevented) return;
@@ -2878,8 +2942,235 @@ addEventListener('keydown', e => {
     if (col.mode === 'column') col.foot.querySelector('.mr-follow__input')?.focus({ preventScroll: true }); else openWhole();
     return;
   }
+  // B: Before you start, open or folded back (not while typing, not with Cmd, Ctrl or Alt; with a selection, letters go to Ask).
+  if ((e.key === 'b' || e.key === 'B') && !inField && !e.metaKey && !e.ctrlKey && !e.altKey && !mr && col.mode) {
+    if (document.querySelector('.lab-super-layer, .lab-v2-sheet-layer, .lab-contents-v2, .byob-sheet-host, .byob-snip, .byob-jumpbox, .byob-switcher')) return;
+    e.preventDefault(); togglePrimer({ keyboard: true }); return;
+  }
+  if (e.key === 'Escape' && !mr && primer.open && (!inField || primer.el?.contains(e.target))) { e.preventDefault(); e.stopImmediatePropagation(); if (col.sheet?.dataset.id === 'primer') closeSheet2(); else closePrimer(); return }
   if (e.key === 'Escape' && !mr && col.open && !inField) { e.preventDefault(); e.stopImmediatePropagation(); if (col.sheet) closeSheet2(); else openCard(null) }
 }, true);
+
+/* ---------- Before you start (PDF only; docs/margin/BRIEF.md §5, PR 3) ----------
+   A PDF's units are its top-level outline entries (pdf.js getOutline()) as page ranges, or the
+   whole file without an outline (TinctMargin.primerUnits). At a unit's start the margin offers
+   the trigger: the column's first folded card (desktop), a mark at the page's edge (narrow
+   windows), the bottom card (phone). Clicking it, or B, opens the primer in its place; closing
+   folds it back. The primer is made only when the reader opens it (chapter action `primer`), kept
+   in this browser ('primer:{key}:{unit}') and, signed in with the book in the account, with the
+   book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
+   a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
+const primer = { units: null, open: false, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
+const ppReady = import('/lab/margin/primer-parse.js').catch(() => null);
+function primerReset() {
+  primer.token++;
+  Object.assign(primer, { units: null, open: false, unit: null, data: null, wait: false, status: '' });
+  primer.away.clear();
+  primer.el?.remove(); primer.trig?.remove(); primer.el = null; primer.trig = null;
+}
+/** The units, from the outline (each top-level entry resolved to its page). */
+async function loadUnits() {
+  const token = state.token, pdf = state.pdf;
+  let entries = [];
+  try {
+    const outline = await pdf.getOutline();
+    entries = await Promise.all((outline || []).map(async item => {
+      try {
+        let dest = item.dest;
+        if (typeof dest === 'string') dest = await pdf.getDestination(dest);
+        const ref = Array.isArray(dest) ? dest[0] : null;
+        const page = ref && typeof ref === 'object' ? await pdf.getPageIndex(ref) + 1 : Number.isInteger(ref) ? ref + 1 : null;
+        return { title: item.title, page };
+      } catch { return { title: item.title, page: null } }
+    }));
+  } catch { entries = [] }
+  if (token !== state.token) return;
+  primer.units = TinctMargin.primerUnits(entries, state.pages.length || pdf.numPages);
+  marginLayout();
+}
+const placePage = () => (state.pages.length ? currentPlace().page : 1);
+const currentUnit = () => (primer.units ? TinctMargin.unitAt(primer.units, placePage()) : null);
+/** The unit whose trigger shows now, or null. */
+function triggerUnit() {
+  if (!primer.units || primer.open) return null;
+  const unit = currentUnit();
+  return unit && TinctMargin.atUnitStart(unit, placePage()) ? unit : null;
+}
+const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : unit.title);
+/** The unit's pages as the companion receives a PDF (the Worker samples a long unit). */
+async function unitPages(unit) {
+  const pages = [], to = Math.min(unit.to, unit.from + 199);
+  for (let n = unit.from; n <= to; n++) pages.push({ n: pageLabel(n), text: ((await pageText(n)).text || ' ').slice(0, 6000) });
+  return { pages, at: 0 };
+}
+const primerUsable = () => state.kind === 'pdf' && !!window.TinctAI?.session?.().token && /^[0-9a-f]{24}$/.test(hexOf(state.key));
+/** The account's copy: GET the stored primer, or PUT a new one. -> the stored primer, or null (none, signed out, not in the account, offline). */
+async function primerRemote(method, unit, content = null) {
+  if (!primerUsable()) return null;
+  const PP = await ppReady; if (!PP) return null;
+  try {
+    const r = await fetch(`/api/user-books/primers/${hexOf(state.key)}?unit=${encodeURIComponent(unit.key)}`, {
+      method, credentials: 'same-origin', cache: 'no-store',
+      headers: { Authorization: 'Bearer ' + TinctAI.session().token, ...(content ? { 'Content-Type': 'application/json' } : {}) },
+      body: content ? JSON.stringify({ primer: { gist: content.gist, claims: content.claims, keepInMind: content.keepInMind, map: content.map } }) : undefined,
+    });
+    if (!r.ok) return null;
+    return PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
+  } catch { return null }
+}
+const primerKey = unit => 'primer:' + state.key + ':' + unit.key;
+/** The primer for `unit`: kept here, else the account's, else made now (only when opened). Redo makes a new one. */
+async function loadPrimer(unit, { redo = false } = {}) {
+  const token = ++primer.token, key = state.key;
+  const live = () => token === primer.token && state.key === key && primer.open && primer.unit?.key === unit.key;
+  const before = store.get(primerKey(unit));
+  const show = patch => { Object.assign(primer, { data: null, wait: false, status: '' }, patch); marginLayout() };
+  if (!redo) {
+    if (before) {
+      show({ data: before });
+      // Made here before the book reached the account (or offline): the account gets it; a newer one there wins.
+      primerRemote('GET', unit).then(async remote => {
+        if (!live()) return;
+        if (!remote) { const put = await primerRemote('PUT', unit, before); if (put && live()) { store.set(primerKey(unit), put); show({ data: put }) } return }
+        if (remote.madeAt !== before.madeAt && Date.parse(remote.madeAt) > Date.parse(before.madeAt || 0)) { store.set(primerKey(unit), remote); show({ data: remote }) }
+      });
+      return;
+    }
+    show({ wait: true });
+    const remote = await primerRemote('GET', unit);
+    if (!live()) return;
+    if (remote) { store.set(primerKey(unit), remote); return show({ data: remote }) }
+  }
+  show({ wait: true });
+  try {
+    const PP = await ppReady;
+    if (!PP || !window.TinctAI?.companion) throw Object.assign(new Error('offline'), { code: 'offline' });
+    const pdf = await unitPages(unit), title = unitTitle(unit);
+    const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false });
+    const made = PP.parsePrimer(res.text);
+    if (!made) throw Object.assign(new Error('failed'), { code: 'failed' });
+    if (!live()) return;
+    const kept = { ...made, madeAt: new Date().toISOString(), unitKey: unit.key };
+    store.set(primerKey(unit), kept); show({ data: kept });
+    announce('Before you start is ready.');
+    const put = await primerRemote('PUT', unit, made);
+    if (put && live()) { store.set(primerKey(unit), put); show({ data: put }) }
+  } catch (e) {
+    if (!live()) return;
+    // Redo that could not be done keeps the primer there was.
+    if (redo && before) { show({ data: before }); toast(errorCopy(e)); return }
+    show({ status: errorCopy(e) });
+  }
+}
+/** Open the primer in place of its trigger (B, or a click on the trigger). */
+function openPrimer(unit = currentUnit(), { keyboard = false } = {}) {
+  const mode = marginMode();
+  if (!unit || !mode) return;
+  if (col.open && col.sheet) closeSheet2();
+  col.open = null; closeFloat();
+  primer.open = true; primer.unit = unit; primer.keyed = keyboard;
+  if (mode === 'phone') openSheet2('primer');
+  loadPrimer(unit);
+  marginLayout();
+}
+/** Fold the primer back to its trigger. */
+function closePrimer() {
+  if (!primer.open) return;
+  const had = !!primer.el?.contains(document.activeElement);
+  primer.open = false; primer.token++;
+  primer.el?.remove(); primer.el = null;
+  if (col.sheet?.dataset.id === 'primer') { col.sheet.remove(); col.sheet = null }
+  marginLayout();
+  if (had) requestAnimationFrame(() => (primer.trig?.isConnected ? primer.trig : $('scroll')).focus?.({ preventScroll: true }));
+}
+const togglePrimer = opts => (primer.open ? closePrimer() : openPrimer(undefined, opts));
+/** Draw the primer into `el` (the column's, the floating one, or the phone's card). */
+function drawPrimer(el, { sheet = false } = {}) {
+  const sig = JSON.stringify([primer.unit?.key, primer.data?.madeAt, primer.wait, primer.status, !!MP.P, state.labels ? 1 : 0, sheet]);
+  if (el.dataset.sig === sig) return;
+  el.dataset.sig = sig;
+  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title' });
+  if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
+  else el.innerHTML = inner;
+  if (primer.wait) el.querySelector('.mr-wait')?.append(TinctWait.waitRing('Thinking…', { size: 18, live: false }));
+  if (primer.keyed) { primer.keyed = false; requestAnimationFrame(() => el.querySelector('.mr-primer__close')?.focus({ preventScroll: true })) }
+}
+function primerEl() {
+  if (!primer.el) {
+    const el = primer.el = document.createElement('div');
+    el.className = 'mr mr-primer'; el.setAttribute('role', 'region'); el.setAttribute('aria-labelledby', 'mr-primer-title');
+    bindCardEvents(el);
+  }
+  return primer.el;
+}
+/** The column: the primer from 16px below its top to 70px above its foot, in place of the cards. -> true when it is open */
+function primerInColumn() {
+  if (!primer.open) { primer.el?.remove(); primer.el = null; return false }
+  const el = primerEl();
+  el.classList.remove('is-floating'); el.removeAttribute('style');
+  if (el.parentElement !== col.el) col.el.insertBefore(el, col.el.firstChild);
+  drawPrimer(el);
+  return true;
+}
+/** The column's trigger at the unit's start. -> the room it keeps at the column's top (px) */
+function triggerInColumn() {
+  const unit = triggerUnit();
+  if (!unit) { primer.trig?.remove(); primer.trig = null; return 0 }
+  if (!primer.trig) {
+    const b = primer.trig = document.createElement('button');
+    b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false');
+  }
+  const b = primer.trig;
+  if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: the gist, the key claims and a map of ${TinctMargin.unitPhrase(unit)}. Key B.`) }
+  if (b.parentElement !== col.el) col.el.insertBefore(b, col.el.firstChild);
+  return TinctMargin.PRIMER.top + b.offsetHeight + TinctMargin.COL.cardGap;
+}
+/** Narrow windows: the primer floats beside the page, as a card opened from a mark does. */
+function placePrimerFloat(pageRight) {
+  if (!primer.open) { if (primer.el?.classList.contains('is-floating')) { primer.el.remove(); primer.el = null } return }
+  const el = primerEl();
+  if (el.parentElement !== root) root.appendChild(el);
+  el.classList.add('is-floating');
+  drawPrimer(el);
+  const hdr = $('hdr').getBoundingClientRect().bottom, x = pageRight + TinctMargin.COL.dot;
+  el.style.left = (x + 14 + 380 <= innerWidth - 16 ? x + 14 : Math.max(16, x - 14 - 380)) + 'px';
+  el.style.top = hdr + 16 + 'px';
+  el.style.maxHeight = Math.max(160, innerHeight - hdr - 32) + 'px';
+}
+/** Narrow windows: the trigger is a mark level with the unit's first page's top. -> the mark, or null */
+function primerMark(pageRight) {
+  let m = col.marks.querySelector('.mr-mark[data-primer]');
+  const unit = primer.open ? primer.unit : triggerUnit();
+  const p = unit && state.pages[unit.start - 1];
+  const hdr = $('hdr').getBoundingClientRect().bottom;
+  const y = p ? p.pg.getBoundingClientRect().top + 28 : -1;
+  if (!unit || !p || y < hdr + 8 || y > innerHeight - 8) { m?.remove(); return null }
+  if (!m) { m = document.createElement('button'); m.type = 'button'; m.className = 'mr-mark'; m.dataset.primer = '1'; col.marks.appendChild(m) }
+  m.setAttribute('aria-label', 'Before you start'); m.setAttribute('aria-expanded', String(primer.open));
+  m.style.left = Math.min(innerWidth - 14, pageRight + TinctMargin.COL.dot) + 'px';
+  m.style.top = (y - hdr) + 'px';
+  return m;
+}
+/** The unit quiz card ("Quiz me on this chapter"): Quiz me on the whole unit, at the column's top. */
+function unitQuiz(unit) { return keptCards().filter(c => !c.gone && c.kind === 'quiz' && c.data?.unit?.key === unit.key).sort((a, b) => (b.at || 0) - (a.at || 0))[0] || null }
+function quizUnit() {
+  const unit = primer.unit || currentUnit(); if (!unit) return;
+  let card = unitQuiz(unit);
+  if (!card || card.data.done) {
+    // A passage-less card: its "passage" is a zero box at the unit's start (the stored cards' shape needs one); the view leaves it out.
+    card = TinctMargin.newCard({ kind: 'quiz', page: unit.start, anchor: [{ n: unit.start, x: 0, y: 0, w: 0, h: 0 }], text: '', data: { unit: { key: unit.key, label: unit.key === 'all' ? TinctMargin.KINDS.whole : TinctMargin.unitPhrase(unit) }, questions: [], i: 0, results: [] } });
+    store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed();
+    closePrimer(); openCard(card.id); runCard(card.id);
+    return;
+  }
+  closePrimer(); openCard(card.id, { focus: true });
+}
+// A visually hidden live region: finished answers and the primer are announced once, not word by word.
+function announce(text) {
+  let el = document.getElementById('mr-live');
+  if (!el) { el = document.createElement('div'); el.id = 'mr-live'; el.className = 'mr-sr'; el.setAttribute('aria-live', 'polite'); el.setAttribute('role', 'status'); document.body.appendChild(el) }
+  el.textContent = ''; setTimeout(() => { el.textContent = String(text || '').slice(0, 600) }, 60);
+}
 
 /* ---------- Docked chat: a fixed room on the right (desktop) ---------- */
 const dock = { state: 'closed', byZoom: false };

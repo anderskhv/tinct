@@ -107,13 +107,16 @@
    * One of the margin's actions as a structured request (docs/margin/PROMPTS.md): the Worker
    * builds the prompt from `intent`, the PDF's pages and the selection; the client never sends
    * one. o: { book, pdf: { pages, at }, selection, senses (define_sense), quiz: { question,
-   * expected, why, answer } (quiz_check), images (passage actions), stream }.
+   * expected, why, answer } (quiz_check), chapter: { action: { kind: 'primer', unitKey, unitTitle } }
+   * (Before you start), images (passage actions), stream }. Quiz me on a whole unit is `quiz` without a selection.
    */
   function companionRequest(intent, o = {}) {
     const pdf = pdfContext(o.pdf) || { kind: 'pdf', pages: [{ n: 1, text: ' ' }], paragraphIndex: 0 };
     const companion = { intent, context: { ...bookContext(o.book), ...pdf, lookups: false } };
     if (o.selection != null) companion.selection = String(o.selection).slice(0, intent === 'define_sense' ? 200 : 6000);
     if (intent === 'define_sense') companion.senses = (o.senses || []).slice(0, 3).map(s => String(s).slice(0, 500));
+    // Before you start (PROMPTS.md, chapter action `primer`): the unit's pages as context, its key and title as the action.
+    if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300) } };
     if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000) };
     // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
     return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
