@@ -19,6 +19,7 @@ import {
   COMPANION_LOOKUP_INTENTS,
   buildCompanionSystem,
   buildCompanionSystemParts,
+  buildMarginSystemParts,
   companionAllowance,
   companionBookRef,
   companionMaxTokens,
@@ -29,6 +30,7 @@ import {
   companionTrailChapters,
   companionUsesSourceSearch,
   factcheckSourceQuery,
+  marginRequestRoute,
   parseCompanionRequest,
   type CompanionBuildExtras,
   type CompanionRequest,
@@ -36,7 +38,7 @@ import {
 import { libraryAssistantSystemParts, type LibraryCatalogue } from '../../lab/libraryLibrarian'
 import { aiRestingBody, estimateAiCostMicros, type GuestSpendHold, type HoldGuestSpend, type ReserveGuestSpend } from '../lib/aiSpend'
 import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../lib/aiUsage'
-import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, type ChatUserBlock } from '../lib/chatImages'
+import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, passageImageWithinCap, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
 
 export type ChatEnv = SupabaseEnv & {
@@ -62,6 +64,12 @@ const MAX_TOKENS_CAP = 2048
 // the system prompt + JSON envelope. A signed-in request whose latest turn
 // carries pictures may use up to MAX_IMAGE_REQUEST_BODY_BYTES (chatImages.ts).
 const MAX_REQUEST_BODY_BYTES = 500_000
+/**
+ * The margin's whole document (companion.document, at most
+ * MARGIN_DOCUMENT_CHARS characters) may add this much to a request. Only a
+ * request that carries one may use it; every other request keeps its cap.
+ */
+export const MARGIN_DOCUMENT_BODY_BYTES = 2_000_000
 // Raised from 4000 (2026-05-08) when the client started injecting the
 // full current-chapter text into the system prompt — necessary so the
 // model grounds chapter-level questions in the actual prose instead of
@@ -229,11 +237,15 @@ type RoundOutcome =
   | { ok: true; content: ContentBlock[]; stopReason: string | null; message: Record<string, unknown> | null }
   | { ok: false; status: number; body: unknown }
 
-function logAnthropicCacheUsage(route: string, usage: AnthropicUsage | undefined): void {
+/** A margin request's labels for the cache log: numbers and names only, never content. */
+type CacheLogLabel = { intent: string; model: string }
+
+function logAnthropicCacheUsage(route: string, usage: AnthropicUsage | undefined, label?: CacheLogLabel): void {
   if (!usage) return
   console.log(JSON.stringify({
     event: 'anthropic_cache_usage',
     route,
+    ...(label ? { margin_intent: label.intent, model: label.model } : {}),
     input_tokens: usage.input_tokens || 0,
     output_tokens: usage.output_tokens || 0,
     cache_creation_input_tokens: usage.cache_creation_input_tokens || 0,
@@ -270,24 +282,51 @@ function validateSystemParam(value: unknown): { system: AnthropicSystemParam; er
   return { system: blocks }
 }
 
-function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null, timing: ChatRequestTiming, meter?: AiMeter): Response {
+function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null, timing: ChatRequestTiming, meter?: AiMeter, margin?: CacheLogLabel): Response {
   let charged = false
+  const charge = () => {
+    if (charged) return
+    charged = true
+    if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+      ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
+    }
+  }
   return chatEventStream(request, ctx, async sink => {
-    const outcome = await consumeStreamedRound(response, sink, {
+    // A margin request is charged once it has finished without a refusal; a
+    // book request, as before, at its first words.
+    const outcome = await consumeStreamedRound(response, margin ? refusalHoldingSink(sink) : sink, {
       firstRound: true,
-      onUsage: usage => meter?.anthropic(usage),
+      cacheLog: margin,
+      onUsage: (usage, stopReason) => meter?.anthropic(usage, undefined, margin && stopReason === 'refusal' ? { neverCharged: true } : undefined),
       onText: () => {
         markFirstChatText(timing)
-        if (charged) return
-        charged = true
-        if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-          ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
-        }
+        if (!margin) charge()
       },
     })
+    if (margin && outcome.ok && outcome.stopReason === 'refusal') {
+      logChatFailure('stream', 'refusal')
+      logChatRequestTiming(timing, 'failed', timing.firstTextMs !== null)
+      sink.write('error', safeChatError('refusal'))
+      return
+    }
+    if (margin && outcome.ok && timing.firstTextMs !== null) charge()
     logChatRequestTiming(timing, outcome.ok ? 'completed' : 'failed', timing.firstTextMs !== null)
     if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
   }, { 'X-Tinct-Chat-Request-Id': timing.requestId })
+}
+
+/**
+ * A margin answer that ends in a refusal never reaches the reader as a
+ * finished answer: its closing stop reason is not forwarded, and an error
+ * event (type `refusal`) follows instead.
+ */
+function refusalHoldingSink(sink: ClientSink): ClientSink {
+  return {
+    write(event, data) {
+      if (data.type === 'message_delta' && (data.delta as { stop_reason?: unknown } | undefined)?.stop_reason === 'refusal') return
+      sink.write(event, data)
+    },
+  }
 }
 
 // ===== Book-grounded chat: server-side tool loop =====
@@ -351,21 +390,21 @@ interface ClientSink {
 async function consumeStreamedRound(
   response: Response,
   sink: ClientSink | null,
-  options: { firstRound: boolean; onText: () => void; onUsage?: (usage: AnthropicUsage) => void },
+  options: { firstRound: boolean; onText: () => void; onUsage?: (usage: AnthropicUsage, stopReason: string | null) => void; cacheLog?: CacheLogLabel },
 ): Promise<RoundOutcome> {
-  const seen: { usage: AnthropicUsage | null } = { usage: null }
+  const seen: { usage: AnthropicUsage | null; stopReason: string | null } = { usage: null, stopReason: null }
   try {
     return await consumeStreamedRoundInner(response, sink, options, seen)
   } finally {
-    if (seen.usage) { try { options.onUsage?.(seen.usage) } catch { /* the ledger never fails a round */ } }
+    if (seen.usage) { try { options.onUsage?.(seen.usage, seen.stopReason) } catch { /* the ledger never fails a round */ } }
   }
 }
 
 async function consumeStreamedRoundInner(
   response: Response,
   sink: ClientSink | null,
-  options: { firstRound: boolean; onText: () => void },
-  seen: { usage: AnthropicUsage | null },
+  options: { firstRound: boolean; onText: () => void; cacheLog?: CacheLogLabel },
+  seen: { usage: AnthropicUsage | null; stopReason: string | null },
 ): Promise<RoundOutcome> {
   if (!response.body) {
     logChatFailure('stream', 'empty_stream', response)
@@ -395,7 +434,7 @@ async function consumeStreamedRoundInner(
         case 'message_start': {
           message = (data.message as Record<string, unknown> | undefined) ?? null
           mergeUsage(message?.usage)
-          logAnthropicCacheUsage(options.firstRound ? 'chat_stream_start' : 'chat_tool_round', (message?.usage as AnthropicUsage | undefined))
+          logAnthropicCacheUsage(options.firstRound ? 'chat_stream_start' : 'chat_tool_round', (message?.usage as AnthropicUsage | undefined), options.cacheLog)
           if (sink && options.firstRound) sink.write(event, data)
           break
         }
@@ -449,7 +488,7 @@ async function consumeStreamedRoundInner(
         case 'message_delta': {
           const delta = (data.delta as { stop_reason?: string | null } | undefined) ?? {}
           mergeUsage(data.usage)
-          if (typeof delta.stop_reason === 'string') stopReason = delta.stop_reason
+          if (typeof delta.stop_reason === 'string') { stopReason = delta.stop_reason; seen.stopReason = stopReason }
           if (sink && stopReason !== 'tool_use') sink.write(event, data)
           break
         }
@@ -486,6 +525,8 @@ function effortConfig(effort: CompanionEffort | null): Record<string, unknown> {
 }
 
 function roundPayload(input: {
+  /** The book reader's tool loop: CHAT_MODEL. A margin Fact-check: its route's model. */
+  model?: string
   system: AnthropicSystemParam
   messages: unknown[]
   maxTokens: number
@@ -495,7 +536,7 @@ function roundPayload(input: {
   tools: readonly AnthropicToolDefinition[]
 }): Record<string, unknown> {
   return {
-    model: CHAT_MODEL,
+    model: input.model ?? CHAT_MODEL,
     max_tokens: input.maxTokens,
     system: input.system,
     messages: input.messages,
@@ -558,6 +599,10 @@ function textOf(content: ContentBlock[]): string {
 
 interface ToolLoopInput {
   apiKey: string
+  /** The book reader: CHAT_MODEL (unset). A margin Fact-check: its route's model. */
+  model?: string
+  /** A margin request: refusals end the loop as an error, and the cache log names it. */
+  margin?: CacheLogLabel
   system: AnthropicSystemParam
   messages: SafeMessage[]
   maxTokens: number
@@ -738,6 +783,7 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
     } else {
       const providerStartedAt = Date.now()
       response = await fetchAnthropic(input.apiKey, roundPayload({
+        model: input.model,
         system,
         messages,
         maxTokens: input.maxTokens,
@@ -778,14 +824,24 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
       },
     } : sink
     if (input.stream) {
-      outcome = await consumeStreamedRound(response, roundSink, { firstRound: round === 0, onText: forceText ? noteText : () => {}, onUsage: usage => input.meter?.anthropic(usage) })
+      outcome = await consumeStreamedRound(response, roundSink && input.margin ? refusalHoldingSink(roundSink) : roundSink, {
+        firstRound: round === 0,
+        cacheLog: input.margin,
+        onText: forceText ? noteText : () => {},
+        onUsage: (usage, stopReason) => input.meter?.anthropic(usage, undefined, input.margin && stopReason === 'refusal' ? { neverCharged: true } : undefined),
+      })
     } else {
       const data = await response.json() as { content?: ContentBlock[]; stop_reason?: string | null; usage?: AnthropicUsage }
-      logAnthropicCacheUsage(round === 0 ? 'chat' : 'chat_tool_round', data.usage)
-      input.meter?.anthropic(data.usage)
+      logAnthropicCacheUsage(round === 0 ? 'chat' : 'chat_tool_round', data.usage, input.margin)
+      input.meter?.anthropic(data.usage, undefined, input.margin && data.stop_reason === 'refusal' ? { neverCharged: true } : undefined)
       outcome = { ok: true, content: Array.isArray(data.content) ? data.content : [], stopReason: data.stop_reason ?? null, message: data as Record<string, unknown> }
     }
     if (!outcome.ok) return outcome
+    // A margin request checks the stop reason before reading any content.
+    if (input.margin && outcome.stopReason === 'refusal') {
+      logChatFailure('stream', 'refusal')
+      return { ok: false, status: 502, body: safeChatError('refusal') }
+    }
     const calls = toolUseBlocks(outcome.content)
     if (outcome.stopReason !== 'tool_use' || calls.length === 0 || forceText) {
       if (!input.stream) {
@@ -892,7 +948,9 @@ export async function handleChat(
   const allowLabGuest = options?.allowLabGuest === true
   // Request size check. Signed-in requests with pictures may be larger; the
   // text-only cap is applied again once the body shows whether it has any.
-  const bodyLimit = allowLabGuest ? MAX_REQUEST_BODY_BYTES : MAX_IMAGE_REQUEST_BODY_BYTES
+  // A margin request with its whole document may be larger again; that room is
+  // checked against the parsed body below, so no other request gains it.
+  const bodyLimit = (allowLabGuest ? MAX_REQUEST_BODY_BYTES : MAX_IMAGE_REQUEST_BODY_BYTES) + MARGIN_DOCUMENT_BODY_BYTES
   const contentLength = parseInt(request.headers.get('content-length') || '0', 10)
   if (contentLength > bodyLimit) {
     return jsonResponse({ error: 'Request too large' }, 413, request)
@@ -902,11 +960,16 @@ export async function handleChat(
     .then((raw) => {
       const bytes = raw.length * 3 > MAX_REQUEST_BODY_BYTES ? new TextEncoder().encode(raw).byteLength : raw.length
       if (bytes > bodyLimit) return { error: 'Request too large', status: 413 }
+      let body: ParsedChatBody
       try {
-        return { body: JSON.parse(raw) as ParsedChatBody, bytes }
+        body = JSON.parse(raw) as ParsedChatBody
       } catch {
-        return { error: 'Invalid JSON', status: 400 }
+        return bytes > bodyLimit - MARGIN_DOCUMENT_BODY_BYTES ? { error: 'Request too large', status: 413 } : { error: 'Invalid JSON', status: 400 }
       }
+      // Only a request carrying the margin's document may use the extra room.
+      const document = (body as { companion?: { document?: unknown } } | null)?.companion?.document
+      if (bytes > bodyLimit - MARGIN_DOCUMENT_BODY_BYTES && !document) return { error: 'Request too large', status: 413 }
+      return { body, bytes }
     })
     .catch(() => ({ error: 'Invalid JSON', status: 400 }))
 
@@ -976,6 +1039,16 @@ export async function handleChat(
       const passageImages = companion && companionTakesPassageImage(companion) && latestImage
         ? (rawLatest!.content as unknown[]).filter(block => typeof block === 'object' && block !== null && (block as { type?: unknown }).type === 'image')
         : []
+      // The PDF reader's margin: model, effort and bound from one table (marginRoutes.ts).
+      const marginRoute = companion ? marginRequestRoute(companion) : null
+      const marginLabel: CacheLogLabel | undefined = companion && marginRoute
+        ? { intent: companion.intent === 'chapter' ? 'primer' : companion.intent, model: marginRoute.model }
+        : undefined
+      // A margin passage action sends one picture of the passage, at most 1568 px on its long side.
+      if (marginRoute && passageImages.length) {
+        passageImages.splice(1)
+        if (!passageImageWithinCap(passageImages[0])) return jsonResponse({ error: 'image_rejected' }, 400, request)
+      }
       // Fact-check searches public sources only for a signed-in reader with
       // the search key; otherwise it answers without, saying "Can't check."
       const sourceSearch = Boolean(companion && companionUsesSourceSearch(companion) && userId && env.OPENAI_API_KEY)
@@ -999,6 +1072,14 @@ export async function handleChat(
             { type: 'text' as const, text: parts.catalogue.slice(0, LIBRARY_CATALOGUE_PROMPT_MAX), cache_control: { type: 'ephemeral' as const } },
             ...(parts.tail ? [{ type: 'text' as const, text: parts.tail.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }] : []),
           ]
+        } else if (companion.document) {
+          // The margin's whole document: the cached prefix first, its breakpoint
+          // at its end; everything that changes per request after it.
+          const parts = buildMarginSystemParts(companion, buildExtras)!
+          system = [
+            { type: 'text' as const, text: parts.stable, cache_control: { type: 'ephemeral' as const } },
+            ...(parts.volatile ? [{ type: 'text' as const, text: parts.volatile.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }] : []),
+          ]
         } else {
           const parts = buildCompanionSystemParts(companion, buildExtras)
           if (parts) {
@@ -1020,15 +1101,18 @@ export async function handleChat(
       const messages = selectionMessage !== null
         ? [{ role: 'user', content: passageImages.length ? [...passageImages, { type: 'text', text: selectionMessage }] : selectionMessage }]
         : rawMessages
-      const maxTokens = companion
+      const maxTokens = marginRoute
+        ? marginRoute.maxTokens
+        : companion
         ? companionMaxTokens(companion)
         : Math.min(Math.max(1, body.max_tokens || 1024), MAX_TOKENS_CAP)
       const stream = body.stream === true
       // Explain, Define, Simplify, define_sense and quiz_check go to the
       // smaller model, which takes no effort setting.
+      // The PDF reader's margin sends both models an explicit effort (marginRoutes.ts).
       const lookup = Boolean(companion && COMPANION_LOOKUP_INTENTS.has(companion.intent))
-      const model = companion ? companionModelFor(companion.intent) : CHAT_MODEL
-      const effort = lookup ? null : companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
+      const model = marginRoute ? marginRoute.model : companion ? companionModelFor(companion.intent) : CHAT_MODEL
+      const effort = marginRoute ? marginRoute.effort : lookup ? null : companion ? COMPANION_INTENT_EFFORT[companion.intent] : parseCompanionEffort(body.effort)
 
       // Validate message structure and truncate per-message to the cap.
       // Long histories accumulate over a session; rather than reject the whole
@@ -1060,7 +1144,7 @@ export async function handleChat(
         const content = m.content.length > MAX_MESSAGE_LENGTH ? m.content.slice(0, MAX_MESSAGE_LENGTH) : m.content
         safeMessages.push({ role: m.role, content })
       }
-      if (imageCount === 0 && parsedBody.bytes > MAX_REQUEST_BODY_BYTES) {
+      if (parsedBody.bytes > (imageCount === 0 ? MAX_REQUEST_BODY_BYTES : MAX_IMAGE_REQUEST_BODY_BYTES) + (companion?.document ? MARGIN_DOCUMENT_BODY_BYTES : 0)) {
         return jsonResponse({ error: 'Request too large' }, 413, request)
       }
       timing.images = imageCount
@@ -1126,6 +1210,7 @@ export async function handleChat(
           request, env, ctx, apiKey, book: null, system, safeMessages, maxTokens, stream, effort, charge,
           timing,
           meter,
+          ...(marginRoute ? { model, margin: marginLabel } : {}),
           trailChapters: [],
           researchKey: env.OPENAI_API_KEY,
           researchGate: () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6),
@@ -1177,12 +1262,20 @@ export async function handleChat(
           const data = await response.json().catch(() => ({ error: 'Chat request failed' }))
           return jsonResponse(data, response.status, request)
         }
-        return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter)
+        return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter, marginLabel)
       }
 
-      const data = await response.json() as { usage?: AnthropicUsage }
-      logAnthropicCacheUsage('chat', data.usage)
-      meter.anthropic(data.usage)
+      const data = await response.json() as { usage?: AnthropicUsage; stop_reason?: string | null }
+      logAnthropicCacheUsage('chat', data.usage, marginLabel)
+      // A margin request checks the stop reason before it reads the content:
+      // a refusal is an error the reader can retry, never charged.
+      const refused = Boolean(marginLabel) && response.ok && data.stop_reason === 'refusal'
+      meter.anthropic(data.usage, undefined, refused ? { neverCharged: true } : undefined)
+      if (refused) {
+        logChatFailure('http', 'refusal')
+        logChatRequestTiming(timing, 'failed', false)
+        return jsonResponse(safeChatError('refusal'), 502, request)
+      }
 
       const hasAnswer = Array.isArray((data as { content?: Array<{ text?: string }> }).content)
         && (data as { content: Array<{ text?: string }> }).content.some(block => Boolean(block.text?.trim()))
@@ -1232,6 +1325,9 @@ async function handleBookGroundedChat(input: {
   researchGate?: () => Promise<boolean>
   /** Always prefetch the source search with this query (Fact-check). */
   sourceQuery?: string
+  /** A margin Fact-check: its route's model; charged only once it finished without a refusal. */
+  model?: string
+  margin?: CacheLogLabel
 }): Promise<Response> {
   const { request, env, ctx } = input
   const retrieval = input.book
@@ -1250,6 +1346,8 @@ async function handleBookGroundedChat(input: {
   }
   const loopInput: ToolLoopInput = {
     apiKey: input.apiKey,
+    ...(input.model ? { model: input.model } : {}),
+    ...(input.margin ? { margin: input.margin } : {}),
     system: input.system,
     messages: input.safeMessages,
     maxTokens: input.maxTokens,
@@ -1257,7 +1355,7 @@ async function handleBookGroundedChat(input: {
     effort: input.effort,
     retrieval,
     tools: !input.book ? [SOURCE_SEARCH_TOOL] : input.researchKey ? [...BOOK_TOOLS, SOURCE_SEARCH_TOOL] : BOOK_TOOLS,
-    onFirstText: () => { markFirstChatText(input.timing); chargeOnce() },
+    onFirstText: () => { markFirstChatText(input.timing); if (!input.margin) chargeOnce() },
     timing: input.timing,
     meter: input.meter,
   }
@@ -1288,9 +1386,13 @@ async function handleBookGroundedChat(input: {
     }
   }
 
+  const settle = (outcome: RoundOutcome) => {
+    if (input.margin && outcome.ok && input.timing.firstTextMs !== null) chargeOnce()
+    logChatRequestTiming(input.timing, outcome.ok ? 'completed' : 'failed', input.timing.firstTextMs !== null)
+  }
   if (!input.stream) {
     const outcome = await runToolLoop(loopInput, null)
-    logChatRequestTiming(input.timing, outcome.ok ? 'completed' : 'failed', input.timing.firstTextMs !== null)
+    settle(outcome)
     if (!outcome.ok) return jsonResponse(outcome.body, outcome.status, request)
     const response = jsonResponse(outcome.message ?? { content: outcome.content }, 200, request)
     response.headers.set('X-Tinct-Chat-Request-Id', input.timing.requestId)
@@ -1303,7 +1405,7 @@ async function handleBookGroundedChat(input: {
   if (loopInput.prefetchSource) {
     return chatEventStream(request, ctx, async sink => {
       const outcome = await runToolLoop(loopInput, sink)
-      logChatRequestTiming(input.timing, outcome.ok ? 'completed' : 'failed', input.timing.firstTextMs !== null)
+      settle(outcome)
       if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
     }, { 'X-Tinct-Chat-Request-Id': input.timing.requestId })
   }
@@ -1312,6 +1414,7 @@ async function handleBookGroundedChat(input: {
   // arrive as JSON with their status, exactly as on the plain path.
   const providerStartedAt = Date.now()
   const first = await fetchAnthropic(input.apiKey, roundPayload({
+    model: input.model,
     system: cacheableSystem(input.system),
     messages: input.safeMessages,
     maxTokens: input.maxTokens,
@@ -1329,7 +1432,7 @@ async function handleBookGroundedChat(input: {
   }
   return chatEventStream(request, ctx, async sink => {
     const outcome = await runToolLoop(loopInput, sink, first)
-    logChatRequestTiming(input.timing, outcome.ok ? 'completed' : 'failed', input.timing.firstTextMs !== null)
+    settle(outcome)
     if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
   }, { 'X-Tinct-Chat-Request-Id': input.timing.requestId })
 }

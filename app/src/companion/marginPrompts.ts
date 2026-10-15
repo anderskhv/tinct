@@ -13,13 +13,19 @@ export const PDF_CITATION_RULE = 'The reader sees printed page numbers and the d
 export const PASSAGE_IMAGE_LINE = 'The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.'
 
 /**
- * The PDF reader's own Explain request lives in public/lab/addbook/js/reader.js
- * (client). Its wording change is for the client PR: replace
- * PDF_EXPLAIN_FORMAT_BEFORE with PDF_EXPLAIN_FORMAT there. Kept here so the
- * client and its tests share one copy.
+ * The words of the PDF reader's Explain format, before and after the margin
+ * (PDF_EXPLAIN_PROMPT below now carries them; the client keeps a copy for its
+ * checks, margin-parse.js).
  */
 export const PDF_EXPLAIN_FORMAT_BEFORE = '2 to 4 short paragraphs, no preamble, no headings.'
 export const PDF_EXPLAIN_FORMAT = 'First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs: what it says, what it means here, and any notation or terms. No preamble, no headings.'
+
+/**
+ * Explain on a PDF through the `explain` intent (FIXES-2026-10-15 A2): the
+ * request the PDF reader used to write itself, now built by the Worker, in
+ * the one user turn before the passage.
+ */
+export const PDF_EXPLAIN_PROMPT = `Explain the passage the reader selected: what it says, what it means here, and any notation or terms, in plain language for a careful reader. ${PDF_EXPLAIN_FORMAT} Write any maths inline in plain notation.`
 
 export const SIMPLIFY_PROMPT = [
   'Rewrite the selected passage in plain, modern English for a reader meeting it for the first time.',

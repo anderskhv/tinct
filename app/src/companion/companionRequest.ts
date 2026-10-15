@@ -19,12 +19,15 @@ import {
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
+  PDF_EXPLAIN_PROMPT,
   QUIZ_CHECK_PROMPT,
   SIMPLIFY_PROMPT,
   factcheckPrompt,
   quizPrompt,
 } from './marginPrompts'
-import { PRIMER_MAX_TOKENS, buildPrimerInstructions, primerPages, primerUserTurn } from './primerPrompt'
+import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
+import { buildMarginPrefix, buildMarginVolatile, parseMarginDocument, type MarginDocument } from './marginContext'
+import { MARGIN_ROUTES, marginRouteKey, type MarginRoute } from './marginRoutes'
 
 /**
  * `simplify` … `quiz_check` are the margin reader's actions (docs/margin/PROMPTS.md),
@@ -79,6 +82,12 @@ export interface CompanionRequest {
   senses?: string[]
   /** quiz_check: the question, its expected answer and the reader's answer. */
   quizCheck?: QuizCheck
+  /**
+   * The PDF reader's margin only (`pdf`): the reader's whole file as text,
+   * the cached prefix of every margin prompt (marginContext.ts). Never set
+   * for a registered book.
+   */
+  document?: MarginDocument
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -350,7 +359,8 @@ function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, 
   if (!action) return null
   const parsed = parseContext({ ...c, chapterLabel: c.chapterLabel ?? action.unitTitle, pages: primerPages(c.pages), paragraphs: undefined })
   if (!parsed?.pdf || !parsed.context.paragraphs.some(page => /^<page n="[^"]*">\n\S/.test(page))) return null
-  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true }
+  const document = parseMarginDocument(r.document)
+  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(document ? { document } : {}) }
 }
 
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
@@ -370,7 +380,9 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   const parsed = parseContext(r.context)
   if (!parsed) return null
   const { context } = parsed
-  const pdf = parsed.pdf ? { pdf: true as const } : {}
+  // The margin's whole document rides only on a user's own file, never on a registered book.
+  const document = parsed.pdf ? parseMarginDocument(r.document) : null
+  const pdf = parsed.pdf ? { pdf: true as const, ...(document ? { document } : {}) } : {}
   if (intent === 'explain' || intent === 'define' || intent === 'simplify') {
     const selection = text(r.selection, SELECTION_CHARS)
     if (!selection) return null
@@ -521,7 +533,10 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
     case 'define':
       return `${request.pdf ? PDF_CONTEXTUAL_LOOKUP_PROMPT : CONTEXTUAL_LOOKUP_PROMPT}\n<word>${request.selection}</word>`
     case 'explain':
-      return `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>`
+      // The PDF reader's Explain (FIXES-2026-10-15 A2); the book reader's is unchanged.
+      return request.pdf
+        ? `${PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
+        : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>`
     case 'simplify':
     case 'factcheck':
     case 'counterpoint':
@@ -543,9 +558,50 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
   }
 }
 
-/** Passage actions take the passage image in their one user turn. */
+/**
+ * Passage actions take the passage image in their one user turn; on a PDF so
+ * do Explain and Define on a phrase (FIXES-2026-10-15 A4). An EPUB sends none.
+ */
 export function companionTakesPassageImage(request: CompanionRequest): boolean {
-  return PASSAGE_INTENTS.has(request.intent)
+  if (request.document?.kind === 'epub') return false
+  if (PASSAGE_INTENTS.has(request.intent)) return true
+  return Boolean(request.pdf) && (request.intent === 'explain' || (request.intent === 'define' && /\s/.test(request.selection ?? '')))
+}
+
+/** The PDF reader's model, effort and output bound (marginRoutes.ts); null for every other request. */
+export function marginRequestRoute(request: CompanionRequest): MarginRoute | null {
+  if (!request.pdf) return null
+  const key = marginRouteKey(request.intent, request.chapter?.action.kind)
+  return key ? MARGIN_ROUTES[key] : null
+}
+
+/** The page label a PDF context's place is on: the marker of the page at paragraphIndex. */
+function contextPlace(context: LabAskContext): string | null {
+  const page = context.paragraphs[Math.max(0, Math.min(context.paragraphs.length - 1, context.paragraphIndex))] ?? ''
+  return /^<page n="([^"]*)">/.exec(page)?.[1] ?? null
+}
+
+/**
+ * A margin request with its whole document (marginContext.ts): the cached
+ * prefix (rules and the document, nothing per request) and the part after the
+ * breakpoint (the reader's place, the action). Null without a document.
+ */
+export function buildMarginSystemParts(request: CompanionRequest, extras: CompanionBuildExtras = {}): LabAskInstructionParts | null {
+  const doc = request.document
+  const context = request.context
+  if (!doc || !context || !request.pdf) return null
+  const stable = buildMarginPrefix(doc, { title: context.bookTitle, author: context.bookAuthor })
+  const primer = isPrimerRequest(request)
+  const image = extras.image && (request.intent === 'explain' || request.intent === 'define') ? [PASSAGE_IMAGE_LINE] : []
+  const task = primer ? [buildPrimerTask(request.chapter.action, context)] : [...marginTask(request, extras), ...image]
+  const volatile = buildMarginVolatile({
+    kind: doc.kind,
+    place: primer ? null : contextPlace(context),
+    total: context.totalPages,
+    shown: request.intent === 'ask' ? request.shownExplanations : undefined,
+    task,
+  })
+  return { stable, volatile }
 }
 
 /** Fact-check is the only action that searches the web. */

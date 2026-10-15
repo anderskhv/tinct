@@ -375,7 +375,10 @@ async function openPdf(bytes, name, key) {
   primerReset(); loadUnits();
   // The PDF's printed page labels ("xii", "12"), for citations: what the companion is shown and cites.
   state.labels = null;
-  pdf.getPageLabels?.().then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }) } }).catch(() => {});
+  // The margin's document (marginDocument) waits for the labels, so its text is the same on every request.
+  state.labelsTask = Promise.resolve(pdf.getPageLabels?.()).then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }) } }).catch(() => {});
+  // The whole file's text, read once while the reader settles in, for the margin's companion.
+  setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
   // The margin replaces the docked chat (docs/margin/BRIEF.md §3): its column, or marks in a narrow window.
   marginStart();
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
@@ -1733,7 +1736,7 @@ function md(text) {
 async function pageImage(n, region) {
   // A picture of the printed page (or a region of it), so maths survives.
   const p = state.pages[n - 1];
-  if (!PAGE_IMAGES || sampleImages === false || !p) return null;
+  if (!PAGE_IMAGES || sampleImages === false || !p || isEpub()) return null;
   let src = drawn(p);
   if (!src) {
     const page = await state.pdf.getPage(n);
@@ -2137,7 +2140,8 @@ async function mrDefine(word) {
   if (hit && !TinctMargin.nameMidSentence(word, mr.before)) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
     mrShow('define');
-    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most 1.5 s).
+    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most
+    // FIT_SENSE_MS; the dictionary's order shows meanwhile).
     const info = mr.info, anchor = mr.anchor, def = mr.def;
     const n = await fittingSense(hit.word, def.senses.map(x => x.text), info);
     if (n > 0) def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
@@ -2160,18 +2164,15 @@ async function mrDefine(word) {
 // The companion's existing contextual `define` intent (CONTEXTUAL_LOOKUP_PROMPT, built by the Worker).
 async function defineByCompanion(word, info) {
   // A PDF's page goes as its page (kind 'pdf', printed label), as every PDF request does.
-  const pdf = await pdfPages(info.page, { before: 0, after: 0 });
-  const req = TinctAI.toRequest([{ role: 'user', content: ' ' }, { role: 'user', content: word }], { ...aiBook(), pdf });
-  req.stream = false; req.max_tokens = 450;
-  req.companion.intent = 'define'; req.companion.selection = word.slice(0, 300);
-  const s = TinctAI.session();
-  let internal = false; try { internal = localStorage.getItem('tinct:internal') === '1' } catch {}
-  let r;
-  try { r = await fetch(s.token ? '/api/chat' : '/api/lab-chat', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', ...(internal ? { 'x-tinct-check': '1' } : {}), ...(s.token ? { Authorization: 'Bearer ' + s.token } : {}) }, body: JSON.stringify(req) }) }
-  catch { throw Object.assign(new Error('offline'), { code: 'offline' }) }
-  if (!r.ok) throw Object.assign(new Error('failed'), { code: { 401: 'session_expired', 402: 'quota', 403: 'not_granted', 429: 'rate_limited', 503: 'busy' }[r.status] || 'failed' });
-  const json = await r.json().catch(() => ({}));
-  return TinctMargin.parseLookup((json.content || []).map(c => c.text || '').join(''), word);
+  const pdf = await pdfPages(info.page, { before: 0, after: 0 }), wholeDoc = await marginDocument(info.page);
+  // Define on a phrase sends the passage picture too (FIXES-2026-10-15 A4); a single word does not.
+  const region = /\s/.test(word.trim()) ? selectionRegion(info) : null;
+  const image = region ? await pageImage(info.page, region) : null;
+  const call = imgs => TinctAI.companion('define', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, selection: word.slice(0, 300), images: imgs, stream: false });
+  let res;
+  try { res = await call(image ? [image] : undefined) }
+  catch (e) { if (!image || (e?.code !== 'images_unavailable' && e?.code !== 'image_rejected')) throw e; if (e.code === 'images_unavailable') sampleImages = false; res = await call(undefined) }
+  return TinctMargin.parseLookup(res.text, word);
 }
 // Typing with a selection opens Ask with that key; Escape steps back one piece at a time.
 addEventListener('keydown', e => {
@@ -2320,6 +2321,40 @@ async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
     pages.push({ n: pageLabel(n), text: text || ' ' }); used += text.length;
   }
   return { pages, at };
+}
+/* The whole file as the margin's companion reads it (docs/margin/FIXES-2026-10-15.md A1): every page's
+   text with its printed label, read once per book and kept, so each request sends the same text and the
+   Worker's cached prefix is read, not rewritten. A file longer than TinctAI.DOCUMENT_CHARS sends the
+   part the reader is in (its chapter, else a fixed 40-page block) with the contents list instead. */
+const docCache = { key: null, task: null };
+function readDocument() {
+  if (docCache.key === state.key && docCache.task) return docCache.task;
+  const key = state.key, limit = window.TinctAI?.DOCUMENT_CHARS || 560000;
+  docCache.key = key;
+  docCache.task = (async () => {
+    await state.labelsTask;
+    const pages = []; let chars = 0;
+    for (let n = 1; n <= state.pages.length; n++) {
+      if (state.key !== key) return null;
+      const text = (await pageText(n)).text || '';
+      if ((chars += text.length) > limit) return { pages: null, limit };
+      pages.push({ n: pageLabel(n), text });
+    }
+    return { pages, limit };
+  })().catch(() => { if (docCache.key === key) docCache.task = null; return null });
+  return docCache.task;
+}
+/** The margin request's `document` for the reader on `page`, or null (not a PDF, or not readable). */
+async function marginDocument(page) {
+  if (!marginOn() || !state.pages.length) return null;
+  const read = await readDocument(); if (!read) return null;
+  if (read.pages) return { kind: 'pdf', units: read.pages };
+  const ch = toc.ready ? chapterAt(page) : null;
+  const block = Math.floor((page - 1) / 40) * 40 + 1;
+  const r = ch ? chapterRange(ch) : { from: block, to: Math.min(state.pages.length, block + 39) };
+  const units = []; let chars = 0;
+  for (let n = r.from; n <= r.to; n++) { const text = (await pageText(n)).text || ''; if ((chars += text.length) > read.limit) break; units.push({ n: pageLabel(n), text }) }
+  return { kind: 'pdf', units, part: { toc: leafEntries().map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length } };
 }
 /** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. */
 function citeResolve(token) {
@@ -2819,10 +2854,6 @@ async function copyCard(id) {
 }
 
 /* -- The actions: each answer becomes a card -- */
-// Explain on a PDF (docs/margin/PROMPTS.md): today's request, opening with a bottom line.
-function explainPrompt(card, image) {
-  return `You are Tinct's reading companion. ${bookLine()}\n\nExplain the passage they selected on page ${pageLabel(card.page)}: what it says, what it means here, and any notation or terms, in plain language for a careful reader. ${MP.P.PDF_EXPLAIN_FORMAT} Write any maths inline in plain notation.${image ? '\n' + MP.P.PASSAGE_IMAGE_LINE : ''}\n\nSelected passage (extracted text):\n${card.text.slice(0, 3000)}`;
-}
 // A card's thread as today's ask: the passage, what the card said, and the follow-up questions.
 function cardTurns(card, image) {
   const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${pageLabel(card.page)} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. Plain prose; simple bullet lists only when they help.${image ? ' ' + MP.P.PASSAGE_IMAGE_LINE : ''}\n\nThe passage they selected on page ${pageLabel(card.page)}:\n${card.text.slice(0, 3000)}`;
@@ -2848,16 +2879,19 @@ async function runCard(id, question = null) {
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
   const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
   const pdf = unit ? await unitPages(unit) : await pdfPages(card.page);
-  const image = unit ? null : await pageImage(card.page, passageRegion(card));
+  // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
+  const region = unit ? null : passageRegion(card);
+  const image = region ? await pageImage(card.page, region) : null;
+  const wholeDoc = await marginDocument(unit ? unit.from : card.page);
   const book = { ...aiBook(), pdf };
   const onText = ({ text }) => { if (!ctl.signal.aborted) setLive(id, { text, status: '' }) };
   const onStatus = status => { if (!ctl.signal.aborted) setLive(id, { status }) };
   const call = async imgs => {
     const images = imgs ? [imgs] : undefined;
-    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, onText, signal: ctl.signal });
-    if (card.kind === 'explain') return TinctAI.ask(explainPrompt(card, imgs), { book, images, onText, signal: ctl.signal });
-    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, ...(unit ? {} : { selection: card.text }), images, stream: false, signal: ctl.signal });
-    return TinctAI.companion(card.kind, { book, pdf, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
+    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, document: wholeDoc, onText, signal: ctl.signal });
+    // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
+    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: false, signal: ctl.signal });
+    return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
   };
   try {
     let res;
@@ -2878,7 +2912,7 @@ async function runCard(id, question = null) {
     if (e?.code === 'cancelled' || ctl.signal.aborted) return;
     col.ctl.delete(id);
     const c = cardById(id);
-    if (c && e?.text && c.kind !== 'quiz') { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
+    if (c && e?.text && c.kind !== 'quiz' && e.code !== 'refused') { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
     setLive(id, { text: null, status: errorCopy(e) });
   }
 }
@@ -2909,8 +2943,8 @@ async function quizCheck(card, answer) {
   const q = card.data, i = q.i || 0, item = q.questions?.[i]; if (!item || q.results?.[i]) return;
   col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
   try {
-    const pdf = await pdfPages(card.page);
-    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
+    const pdf = await pdfPages(card.page), wholeDoc = await marginDocument(card.page);
+    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
     const mark = MP.P.parseQuizCheck(res.text);
     if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
     const c = cardById(card.id); if (!c) return;
@@ -2920,15 +2954,20 @@ async function quizCheck(card, answer) {
     col.pending.delete(card.id); col.live.set(card.id, { text: null, status: errorCopy(e) }); marginLayout();
   }
 }
-/** define_sense: the sense that fits this passage, within 1.5 s; else the dictionary's order stands. -> 1-based, or 0 */
+/* 1.5 s aborted most first requests on production (15 Oct: a cold cache write of the whole document
+   comes first); with Haiku 5.5 and the cached document a reply takes about a second, a cold one longer. */
+const FIT_SENSE_MS = 4000;
+/** define_sense: the sense that fits this passage, within FIT_SENSE_MS; else the dictionary's order stands. -> 1-based, or 0 */
 async function fittingSense(word, senses, info) {
   if (navigator.onLine === false || senses.length < 2 || !window.TinctAI?.companion) return 0;
   await mpReady; if (!MP.P) return 0;
   const ctl = new AbortController();
-  const timer = new Promise(r => setTimeout(() => { ctl.abort(); r(null) }, 1500));
+  const timer = new Promise(r => setTimeout(() => { ctl.abort(); r(null) }, FIT_SENSE_MS));
   try {
     const pdf = await pdfPages(info.page, { before: 0, after: 0 });
-    const res = await Promise.race([TinctAI.companion('define_sense', { book: { ...aiBook(), pdf }, pdf, selection: word, senses, signal: ctl.signal }), timer]);
+    // The document is usually read by now; if not, define_sense goes without it rather than wait.
+    const wholeDoc = await Promise.race([marginDocument(info.page), new Promise(r => setTimeout(() => r(null), 300))]);
+    const res = await Promise.race([TinctAI.companion('define_sense', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, selection: word, senses, signal: ctl.signal }), timer]);
     return res ? MP.P.parseDefineSense(res.text, senses.length) || 0 : 0;
   } catch { return 0 }
 }
@@ -3066,8 +3105,8 @@ async function loadPrimer(unit, { redo = false } = {}) {
   try {
     const PP = await ppReady;
     if (!PP || !window.TinctAI?.companion) throw Object.assign(new Error('offline'), { code: 'offline' });
-    const pdf = await unitPages(unit), title = unitTitle(unit);
-    const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false });
+    const pdf = await unitPages(unit), title = unitTitle(unit), wholeDoc = await marginDocument(unit.from);
+    const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false });
     const made = PP.parsePrimer(res.text);
     if (!made) throw Object.assign(new Error('failed'), { code: 'failed' });
     if (!live()) return;
@@ -3796,9 +3835,12 @@ async function ask(question, display) {
   const focusPage = passage?.page || attached[0]?.page || page;
   // A PDF's pages go as pages with their printed labels (kind 'pdf'); an EPUB's as today's text.
   const pdf = marginOn() ? await pdfPages(focusPage) : null;
+  const wholeDoc = pdf ? await marginDocument(focusPage) : null;
   const ctx = pdf ? '' : await contextText(Math.max(1, focusPage - 1), Math.min(state.pages.length, focusPage + 1), 9000);
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
-  const image = blobs.length ? null : await pageImage(focusPage, passage ? selectionRegion(passage) : null);
+  // A picture goes only with a passage, cropped to it (FIXES-2026-10-15 A4); never a whole page.
+  const region = passage ? selectionRegion(passage) : null;
+  const image = blobs.length || !region ? null : await pageImage(focusPage, region);
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';
   const snipText = attached.map(a => [a.caption ? 'Caption: ' + a.caption : '', a.text ? 'Labels and text inside it: ' + a.text : '', !blobs.length && a.sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + a.sketch + '\n```' : ''].filter(Boolean).join('\n')).filter(Boolean).join('\n\n');
   const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
@@ -3806,7 +3848,7 @@ async function ask(question, display) {
   const input = [{ role: 'user', content: rules }, ...history, { role: 'user', content: question }];
   const ctl = new AbortController(); chat.ctl = ctl;
   try {
-    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, pdf, onText: ({ text }) => liveText(text) });
+    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, pdf, document: wholeDoc, onText: ({ text }) => liveText(text) });
     const imgs = blobs.length ? blobs : image ? [image] : null;
     let res, note = !blobs.length && attached.some(a => a.blob) ? (snipText ? (attached.some(a => a.snip) ? '\n\n*Claude can’t receive pictures in this viewer, so this answer works from the caption, labels and a rough sketch of the area.*' : '\n\n*Claude can’t receive pictures in this viewer, so this answer is based on the text inside your snip.*') : '\n\n*Claude can’t receive pictures in this viewer, so it could not see your image.*') : '';
     try { res = await call(imgs) }
@@ -4101,9 +4143,10 @@ document.addEventListener('click', e => {
 });
 
 /* ---------- Files out ---------- */
-// A picture of the page with every PDF Explain/Ask is not part of release 1: only what the
-// reader attaches or snips is sent.
-const PAGE_IMAGES = false;
+// A picture of the selected passage goes with every passage action on a PDF (Anders, 15 Oct 2026;
+// docs/margin/FIXES-2026-10-15.md A4): cropped to the selection plus a small margin, redrawn by
+// tinct-api.js at most 1568 px on its long side. EPUBs send none. Signed out, none at all.
+const PAGE_IMAGES = true;
 const IMAGES_ENABLED = true; // signed-in /api/chat takes pictures; guests fall back to text (see DEPLOY.md, "Images")
 function saveFile(name, blob) {
   try {

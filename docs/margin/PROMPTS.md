@@ -92,6 +92,20 @@ If the passage tells a story rather than making an argument, give the strongest 
 At most 150 words in all. No straw men, and no "on the other hand" filler. Do not draw on later chapters.
 ```
 
+## Related — new intent `related` (added 15 October)
+
+Model: the main model (`claude-sonnet-5-5`), effort `low`. Max tokens: 500. Charged like Ask. No web search. It needs the whole document in context (FIXES-2026-10-15, item A1).
+
+```
+Find where else the document takes up the idea in the selected passage: places that define it, use it, extend it, qualify it or contradict it.
+First paragraph: one sentence, at most 20 words, naming the thread that connects them. Then a blank line.
+Then two to five places, in the document's order. Each one is a single line: its citation, then what happens there in at most 20 words. Start each line with the citation, for example {p. 5} or {sec. 3.2} for a PDF, or a few quoted words for a book without page numbers.
+Do not list the selected passage itself. Do not list a place only because it repeats the same word. If the idea appears nowhere else, say so in the first sentence and stop.
+Plain prose only: no Markdown, no bullet characters, no em dashes.
+```
+
+**Card:** the same open card, with the passage quote, then the bottom line in medium weight. Then each place as a row: the citation tag on the left, then the line in 15px Garamond. Rows are separated by 6px, with no rules between them. Clicking a row, or its tag, scrolls the PDF there and briefly underlines the place. Folded, the card shows "Related · {n} places" and the bottom line.
+
 ## Quiz me — new intents `quiz` and `quiz_check`
 
 **`quiz`** writes the questions. Model: `COMPANION_MODEL`. Max tokens: 700. Effort: typed. Charge once per quiz, not per question.
@@ -149,6 +163,7 @@ There are no new prompts here. A question typed into the selection bar is today'
 | counterpoint | companion | 600 | like Ask |
 | quiz | companion | 700 | like Ask, once per quiz |
 | quiz_check | lookup | 150 | not charged |
+| related | main (effort low) | 500 | like Ask |
 | primer (chapter action) | companion | 1200 | like Ask, once per unit |
 
 Add each new intent to `INTENTS`, `COMPANION_MAX_TOKENS` and `COMPANION_INTENT_EFFORT`, and to the `AiFeature` metering in `worker/routes/chat.ts`. Write unit tests for each builder in the style of the existing companion tests, with the model mocked. Zero real API calls in development or tests.
