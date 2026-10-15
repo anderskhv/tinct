@@ -50,7 +50,8 @@ describe('the stylesheet’s PR 4 rules', () => {
   it('the colours keep their 20px dot and its ring inside a 28px target; copy, the mics, the quiz links and the handle are 28px', () => {
     expect(css).toContain('button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; background-clip: content-box !important; }')
     expect(css).toContain('.mr-card__acts button { width: 28px; height: 28px;')
-    expect(css).toMatch(/\.mr-follow__mic, \.mr-foot \.mr-follow__mic \{[^}]*width: 28px; height: 28px;/)
+    // The column's foot (and its mic) is gone since 15 Oct; the follow-up line's mic keeps its 28px target.
+    expect(css).toMatch(/\.mr-follow__mic \{[^}]*width: 28px; height: 28px;/)
     expect(css).toMatch(/\.mr-follow__link \{[^}]*min-height: 28px;/)
     expect(css).toMatch(/\.mr-sheet__grab \{ width: 56px; height: 28px;/)
     expect(css).toMatch(/\.mr-related__row \{[^}]*min-height: 28px;/)
