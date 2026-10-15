@@ -17,7 +17,7 @@ const ROOT = resolve(__dirname, '../..') + '/'
 type Unit = { key: string; title: string; from: number; start: number; to: number }
 type Token = { type: 'cite'; kind: string; label: string; to?: string; raw: string }
 interface MarginApi {
-  PRIMER: { top: number; bottom: number }
+  PRIMER: { top: number; bottom: number; units: number }
   COL: Record<string, number>
   primerUnits(entries: Array<{ title: string; page: number | null }>, count: number): Unit[]
   unitAt(units: Unit[], page: number): Unit | null
@@ -25,10 +25,10 @@ interface MarginApi {
   unitPhrase(unit: Unit | null): string
   mapPages(text: string): Token | null
   citeTarget(token: Token, o: { labels?: string[] | null; count?: number }): { page: number } | null
-  placeCards(passages: Array<{ id: string; top: number }>, heights: number[], columnHeight: number, o?: Record<string, unknown>): { positions: Array<{ id: string; top: number; height: number }>; gathered: string[]; stack: { top: number } | null }
+  placeCards(passages: Array<{ id: string; top: number; at?: number; fold?: boolean; keep?: boolean }>, heights: number[], columnHeight: number, o?: Record<string, unknown>): { positions: Array<{ id: string; top: number; height: number; row?: boolean }>; gathered: string[]; stack: { top: number } | null }
   cardView(cards: Array<Record<string, unknown>>, marks: unknown[]): Array<{ id: string }>
   html: {
-    triggerHtml(unit: Unit, o?: { key?: boolean }): string
+    triggerHtml(unit: Unit): string
     primerHtml(p: unknown, o: Record<string, unknown>): string
     cardLabel(card: Record<string, unknown>, page: string): string
   }
@@ -45,36 +45,47 @@ beforeAll(() => {
 
 describe('a PDF’s units (the top-level outline entries as page ranges)', () => {
   it('each entry runs to the page before the next; the first also takes the pages before it; keys name the outline index', () => {
-    const units = M.primerUnits([{ title: 'Chapter 1. Of Ideas', page: 2 }, { title: 'Chapter 2. Of Impressions', page: 5 }, { title: 'Chapter 3', page: 9 }], 21)
+    const units = M.primerUnits([{ title: 'Chapter 1. Of Ideas', page: 2 }, { title: 'Chapter 2. Of Impressions', page: 5 }, { title: 'Chapter 3', page: 9 }], 45)
     expect(units).toEqual([
       { key: 'outline-0', title: 'Chapter 1. Of Ideas', from: 1, start: 2, to: 4 },
       { key: 'outline-1', title: 'Chapter 2. Of Impressions', from: 5, start: 5, to: 8 },
-      { key: 'outline-2', title: 'Chapter 3', from: 9, start: 9, to: 21 },
+      { key: 'outline-2', title: 'Chapter 3', from: 9, start: 9, to: 45 },
     ])
+  })
+  it('a PDF of fewer than 40 pages is one unit, "all", outline or not (a paper\'s primer covers the whole paper)', () => {
+    const outline = [{ title: 'Abstract', page: 1 }, { title: '1 Introduction', page: 2 }, { title: '2 Background', page: 2 }, { title: '3 Model Architecture', page: 2 }, { title: 'References', page: 10 }]
+    expect(M.primerUnits(outline, 15)).toEqual([{ key: 'all', title: '', from: 1, start: 1, to: 15 }])
+    expect(M.primerUnits(outline, 39)).toEqual([{ key: 'all', title: '', from: 1, start: 1, to: 39 }])
+    expect(M.primerUnits(outline, 40).map(u => u.key)).toEqual(['outline-0', 'outline-1', 'outline-4'])
   })
   it('a PDF without an outline (or none that resolves) is one unit, "all"', () => {
     expect(M.primerUnits([], 8)).toEqual([{ key: 'all', title: '', from: 1, start: 1, to: 8 }])
     expect(M.primerUnits([{ title: 'Lost', page: null }, { title: '', page: 3 }, { title: 'Past the end', page: 99 }], 8)).toEqual([{ key: 'all', title: '', from: 1, start: 1, to: 8 }])
   })
   it('entries out of order are put in page order; a second entry on the same page is left out; keys stay the outline’s', () => {
-    const units = M.primerUnits([{ title: 'B', page: 6 }, { title: 'A', page: 1 }, { title: 'A again', page: 1 }], 10)
-    expect(units.map(u => [u.key, u.from, u.to])).toEqual([['outline-1', 1, 5], ['outline-0', 6, 10]])
+    const units = M.primerUnits([{ title: 'B', page: 6 }, { title: 'A', page: 1 }, { title: 'A again', page: 1 }], 50)
+    expect(units.map(u => [u.key, u.from, u.to])).toEqual([['outline-1', 1, 5], ['outline-0', 6, 50]])
     // Every key is one the Worker's storage accepts.
     for (const u of units) expect(u.key).toMatch(/^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/)
   })
   it('the unit a page is in, and where the trigger is offered (the unit’s start, and a title page before the first)', () => {
-    const units = M.primerUnits([{ title: 'Chapter 1', page: 2 }, { title: 'Chapter 2', page: 5 }], 10)
+    const units = M.primerUnits([{ title: 'Chapter 1', page: 2 }, { title: 'Chapter 2', page: 5 }], 40)
     expect(M.unitAt(units, 1)?.key).toBe('outline-0')
     expect(M.unitAt(units, 7)?.key).toBe('outline-1')
     expect([1, 2, 3, 4, 5, 6].map(n => M.atUnitStart(M.unitAt(units, n), n))).toEqual([true, true, false, false, true, false])
     expect(M.atUnitStart(null, 1)).toBe(false)
   })
-  it('names its unit as the mockup does ("chapter 1"), else by its title; the whole file is "the whole PDF"', () => {
+  it('names its unit as the mockup does ("chapter 1"), else as "the" and its heading; the whole file is "the whole PDF"', () => {
     const u = (title: string): Unit => ({ key: 'outline-0', title, from: 1, start: 1, to: 2 })
     expect(M.unitPhrase(u('Chapter 1. Of Ideas'))).toBe('chapter 1')
     expect(M.unitPhrase(u('CHAPTER 12: Rates'))).toBe('chapter 12')
     expect(M.unitPhrase(u('Section 2.4 Order'))).toBe('section 2.4')
-    expect(M.unitPhrase(u('Introduction.'))).toBe('Introduction')
+    // A heading without a chapter number: "the" and its words in lower case, its own number dropped; acronyms kept.
+    expect(M.unitPhrase(u('Introduction.'))).toBe('the introduction')
+    expect(M.unitPhrase(u('1 Introduction'))).toBe('the introduction')
+    expect(M.unitPhrase(u('3 Model Architecture'))).toBe('the model architecture')
+    expect(M.unitPhrase(u('The Problem'))).toBe('the problem')
+    expect(M.unitPhrase(u('BLEU Results'))).toBe('the BLEU results')
     expect(M.unitPhrase({ key: 'all', title: '', from: 1, start: 1, to: 9 })).toBe('the whole PDF')
   })
 })
@@ -87,14 +98,15 @@ describe('the trigger and the primer’s markup', () => {
     keepInMind: ['Natural logs, then base 2.'],
     map: [{ title: 'Why probability first', pages: 'pp. 9–10' }, { title: 'Exercises', pages: 'p. 19' }, { title: 'Unprinted', pages: '' }],
   }
-  it('the trigger: "Before you start", its [B] key (not on the phone), and the line about the unit', () => {
+  it('the trigger, a folded card: the label "Before you start", then the line about the unit; no keycap (the key is in its title)', () => {
     const unit = { key: 'outline-0', title: 'Chapter 1. Of Ideas', from: 1, start: 2, to: 4 }
     const div = document.createElement('div')
     div.innerHTML = M.html.triggerHtml(unit)
-    expect(div.textContent).toBe('Before you startBThe gist, the key claims and a map of chapter 1.')
-    expect(div.querySelector('.mr-key')?.getAttribute('aria-hidden')).toBe('true')
-    div.innerHTML = M.html.triggerHtml(unit, { key: false })
+    expect(div.querySelector('.mr-trigger__title')?.textContent).toBe('Before you start')
+    expect(div.querySelector('.mr-trigger__sub')?.textContent).toBe('The gist, the key claims and a map of chapter 1.')
     expect(div.querySelector('.mr-key')).toBeNull()
+    div.innerHTML = M.html.triggerHtml({ key: 'all', title: '', from: 1, start: 1, to: 15 })
+    expect(div.textContent).toBe('Before you startThe gist, the key claims and a map of the whole PDF.')
   })
   it('the primer: title and close, gist, numbered Key claims with cite tags, Keep in mind, Map rows that scroll, the quiz row, the footer', () => {
     const div = document.createElement('div')
@@ -118,6 +130,17 @@ describe('the trigger and the primer’s markup', () => {
     div.innerHTML = M.html.primerHtml(null, { status: 'No connection. Check your internet and try again.' })
     expect(div.querySelector('.mr-status')?.textContent).toBe('No connection. Check your internet and try again.')
     expect(div.querySelector('[data-c="redo"]')?.textContent).toBe('Redo')
+  })
+  it('a map of the document\'s own numbered headings shows each heading once: "1 Introduction", never "1 · 1 Introduction"', () => {
+    const div = document.createElement('div')
+    const map = [{ title: 'Abstract', pages: 'p. 1' }, { title: '1 Introduction', pages: 'p. 2' }, { title: '3.2 Attention', pages: 'pp. 3–5' }, { title: 'A. Appendix', pages: 'p. 13' }]
+    div.innerHTML = M.html.primerHtml({ ...primer, map }, { P, resolve: resolveCite })
+    expect([...div.querySelectorAll('.mr-map__row')].map(r => r.textContent)).toEqual(['Abstractp. 1', '1 Introductionp. 2', '3.2 Attentionpp. 3–5', 'A. Appendixp. 13'])
+    expect(div.querySelector('.mr-map__n')).toBeNull()
+    expect([...div.querySelectorAll('.mr-map__row')].every(r => r.classList.contains('is-own'))).toBe(true)
+    // Headings without numbers keep the count.
+    div.innerHTML = M.html.primerHtml({ ...primer, map: [{ title: 'Why probability first', pages: 'pp. 9–10' }, { title: 'Exercises', pages: 'p. 11' }] }, { P, resolve: resolveCite })
+    expect([...div.querySelectorAll('.mr-map__n')].map(n => n.textContent)).toEqual(['1', '2'])
   })
   it('text from the model is escaped, never markup', () => {
     const div = document.createElement('div')
@@ -147,8 +170,21 @@ describe('placement with the trigger above the cards', () => {
     for (let i = 1; i < all.length; i++) expect(all[i].top).toBeGreaterThanOrEqual(all[i - 1].top + all[i - 1].height + 14)
     expect(M.placeCards(passages, [60, 60, 60], 700)).toEqual(M.placeCards(passages, [60, 60, 60], 700, { top: 0 }))
   })
+  it('the trigger placed with the cards (keep): at its page’s first line less 4px, never folded or gathered, the cards after it in page order', () => {
+    const passages = [{ id: 'trigger', top: 120, fold: false, keep: true }, ...Array.from({ length: 14 }, (_, i) => ({ id: 'c' + i, top: 140 + i * 20, at: i }))]
+    const heights = [50, ...Array(14).fill(70)]
+    const out = M.placeCards(passages, heights, 600, { stackHeight: 34 })
+    const trig = out.positions.find(p => p.id === 'trigger')!
+    expect(trig.row).toBeUndefined()
+    expect(trig.height).toBe(50)
+    expect(out.gathered).not.toContain('trigger')
+    expect(out.gathered.length).toBeGreaterThan(0)
+    expect(out.positions[0].id).toBe('trigger')
+    // With room, it sits at its line less 4px.
+    expect(M.placeCards(passages.slice(0, 2), heights.slice(0, 2), 600).positions[0].top).toBe(116)
+  })
   it('the trigger and the primer keep the mockup’s distances: 16px from the column’s top, 70px from its bottom', () => {
-    expect(M.PRIMER).toEqual({ top: 16, bottom: 70 })
+    expect(M.PRIMER).toEqual({ top: 16, bottom: 70, units: 40 })
   })
 })
 

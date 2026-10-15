@@ -17,6 +17,7 @@
   const IMAGE_SIDE = 1568;      // Anthropic's recommended long side
   const IMAGE_BYTES = 1200000;  // server limit 1.5 MB decoded per image; 4 of them stay under 8 MB as base64
   const MAX_IMAGES = 4;         // server limit 4 per request
+  const DOCUMENT_CHARS = 560000; // the margin's whole document, about 150k tokens (server: MARGIN_DOCUMENT_CHARS)
 
   // The session tinct.app keeps in this browser (supabase-js, localStorage).
   function session() {
@@ -63,10 +64,30 @@
     };
   }
 
+  // The margin's whole file (docs/margin/FIXES-2026-10-15.md A1): { kind: 'pdf' | 'epub', units: [{ n, text }],
+  // part?: { toc: [{ title, n }], total } }, sent as it is with every margin request so the Worker's cached
+  // prefix stays byte for byte the same. -> the request's `document`, or null.
+  function documentContext(doc) {
+    if (!doc || (doc.kind !== 'pdf' && doc.kind !== 'epub') || !Array.isArray(doc.units) || !doc.units.length) return null;
+    let total = 0;
+    const units = [];
+    for (const unit of doc.units) {
+      const text = String(unit?.text || '');
+      if ((total += text.length) > DOCUMENT_CHARS) break;
+      units.push({ n: typeof unit?.n === 'number' ? unit.n : String(unit?.n ?? units.length + 1).slice(0, 16), text });
+    }
+    if (!units.length) return null;
+    const part = doc.part && Array.isArray(doc.part.toc)
+      ? { toc: doc.part.toc.slice(0, 400).map(e => ({ title: String(e?.title || '').slice(0, 200), n: typeof e?.n === 'number' ? e.n : String(e?.n ?? '').slice(0, 16) })), total: Number(doc.part.total) || units.length }
+      : null;
+    return { kind: doc.kind, units, ...(part ? { part } : {}) };
+  }
+
   // `input` is a prompt string, or turns [{role, content}] whose first turn carries the
   // instructions and book context (the shape the reader builds). For a PDF (`book.pdf`) the
   // book's text travels as its pages, so the first turn's instructions go before the question.
-  function toRequest(input, book) {
+  // `o.whole`: a PDF question about the whole file (the margin's foot), sent as `scope: 'whole'`.
+  function toRequest(input, book, o = {}) {
     let paragraphs, messages;
     const pdf = pdfContext(book?.pdf);
     if (pdf && typeof input !== 'string') {
@@ -98,7 +119,7 @@
       messages: trimmed.length ? trimmed : [{ role: 'user', content: 'Please answer.' }],
       companion: { intent: 'ask', context: pdf
         ? { ...bookContext(book), ...pdf, lookups: false }
-        : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false } },
+        : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false }, ...(pdf && o.whole ? { scope: 'whole' } : {}) },
     };
   }
   const PASSAGE_INTENTS = new Set(['simplify', 'factcheck', 'counterpoint', 'quiz']);
@@ -108,7 +129,8 @@
    * builds the prompt from `intent`, the PDF's pages and the selection; the client never sends
    * one. o: { book, pdf: { pages, at }, selection, senses (define_sense), quiz: { question,
    * expected, why, answer } (quiz_check), chapter: { action: { kind: 'primer', unitKey, unitTitle } }
-   * (Before you start), images (passage actions), stream }. Quiz me on a whole unit is `quiz` without a selection.
+   * (Before you start), images (passage actions), document (the whole file; added in send()), stream }.
+   * Quiz me on a whole unit is `quiz` without a selection.
    */
   function companionRequest(intent, o = {}) {
     const pdf = pdfContext(o.pdf) || { kind: 'pdf', pages: [{ n: 1, text: ' ' }], paragraphIndex: 0 };
@@ -137,7 +159,8 @@
         for (const line of block.split('\n')) { if (line.startsWith('event:')) event = line.slice(6).trim(); else if (line.startsWith('data:')) data += line.slice(5).trim() }
         if (!data) continue;
         let msg; try { msg = JSON.parse(data) } catch { continue }
-        if (event === 'error' || msg.type === 'error') throw err(msg.error?.type === 'overloaded_error' ? 'busy' : 'failed', msg.error?.message || 'The answer stopped.', text ? { text } : undefined);
+        // A refusal (the Worker's `refusal` error) is the card's error state, without the words already shown.
+        if (event === 'error' || msg.type === 'error') throw err(msg.error?.type === 'overloaded_error' ? 'busy' : msg.error?.type === 'refusal' ? 'refused' : 'failed', msg.error?.message || 'The answer stopped.', text && msg.error?.type !== 'refusal' ? { text } : undefined);
         // What the companion is looking up ("Checking sources…"), from the Worker's tinct_status event.
         if (event === 'tinct_status' || msg.type === 'tinct_status') { if (typeof msg.text === 'string') onStatus?.(msg.text); continue }
         if (msg.type === 'content_block_delta' && msg.delta?.type === 'text_delta') { text += msg.delta.text; onText?.({ text, delta: msg.delta.text }) }
@@ -195,9 +218,9 @@
 
   const STATUS = { 400: 'bad_request', 401: 'session_expired', 402: 'quota', 403: 'not_granted', 413: 'prompt_too_large', 429: 'rate_limited', 503: 'busy' };
 
-  // ask(input, { onText, onStatus, signal, images, book }) -> { text }
+  // ask(input, { onText, onStatus, signal, images, book, whole }) -> { text }
   async function ask(input, opts = {}) {
-    return send(toRequest(input, opts.book), opts);
+    return send(toRequest(input, opts.book, opts), opts);
   }
   // companion(intent, { book, pdf, selection, senses, quiz, images, stream, onText, onStatus, signal }) -> { text }
   async function companion(intent, opts = {}) {
@@ -205,6 +228,8 @@
   }
   async function send(request, opts) {
     const images = opts.images ? [].concat(opts.images).filter(Boolean) : [];
+    const doc = request.companion ? documentContext(opts.document) : null;
+    if (doc) request.companion.document = doc;
     let s = session();
     if (images.length && !s.token) throw err('images_unavailable', 'Sign in to send pictures to the companion.');
     const body = JSON.stringify(images.length ? await withImages(request, images) : request);
@@ -223,6 +248,7 @@
     }
     if (!response.ok) {
       let detail = ''; try { detail = (await response.json())?.error || '' } catch {}
+      if (detail?.type === 'refusal') throw err('refused', 'refused');
       if (response.status === 400 && (detail === 'images_unavailable' || detail === 'image_rejected')) throw err(detail, detail);
       throw err(STATUS[response.status] || 'failed', detail || 'HTTP ' + response.status);
     }
@@ -290,6 +316,6 @@
 
   // What the reader may attach: anything the browser decodes; it is redrawn before sending.
   const imageLimits = { maxCount: MAX_IMAGES, maxInputBytes: 40 * 1024 * 1024, mediaTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/bmp', 'image/avif'] };
-  const api = { session, ask, askJson, companion, toRequest, companionRequest, imageLimits, books, onSignedOut: null };
+  const api = { session, ask, askJson, companion, toRequest, companionRequest, documentContext, DOCUMENT_CHARS, imageLimits, books, onSignedOut: null };
   window.TinctAI = api;
 })();

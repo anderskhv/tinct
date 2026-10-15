@@ -377,7 +377,10 @@ async function openPdf(bytes, name, key) {
   primerReset(); loadUnits();
   // The PDF's printed page labels ("xii", "12"), for citations: what the companion is shown and cites.
   state.labels = null;
-  pdf.getPageLabels?.().then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged() } }).catch(() => {});
+  // The margin's document (marginDocument) waits for the labels, so its text is the same on every request.
+  state.labelsTask = Promise.resolve(pdf.getPageLabels?.()).then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged() } }).catch(() => {});
+  // The whole file's text, read once while the reader settles in, for the margin's companion.
+  setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
   // The margin replaces the docked chat (docs/margin/BRIEF.md §3): its column, or marks in a narrow window.
   marginStart();
   requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
@@ -559,6 +562,8 @@ function buildTextLayer(p, items, vp) {
   if (side.childNodes.length) layer.appendChild(side);
   p.pg.appendChild(layer); p.layer = layer; p.spans = spans;
   renderHighlights(p);
+  // The primer's trigger sits at a page's first line of text, known once its text layer is drawn.
+  if (col.mode === 'column' && primer.trig) marginLayout();
 }
 
 /* Displayed formulas: TeX sets an equation as many small fragments (fractions, sums, sub- and
@@ -639,6 +644,15 @@ function selectionShapes(range) {
   const inBox = r => boxes.some(b => { const cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2; return cx >= b.left && cx <= b.right && cy >= b.top && cy <= b.bottom });
   return [...lineBars(rects.filter(r => !inBox(r))), ...boxes];
 }
+// Double-click on part of a hyphenated word ("auto-regressive") selects the whole word, in a PDF's
+// text layer and an EPUB's text alike (the browser stops at the hyphen).
+document.addEventListener('dblclick', () => {
+  const s = getSelection(); if (!s.rangeCount) return;
+  const r = s.getRangeAt(0), node = r.startContainer;
+  if (node.nodeType !== 3 || r.endContainer !== node || !node.parentElement?.closest('.text-layer, .epub-pg')) return;
+  const span = TinctMargin.hyphenWord(node.textContent, r.startOffset, r.endOffset); if (!span) return;
+  s.setBaseAndExtent(node, span[0], node, span[1]);
+});
 // Double-click a formula to select all of it.
 document.addEventListener('dblclick', e => {
   const p = pageForPoint(e.clientX, e.clientY); if (!p?.blocks?.length || !p.layer) return;
@@ -758,7 +772,8 @@ function removeHighlight(id) {
 // Saved highlights of the open book; a PDF's go to the account too when signed in (marksSync).
 function putHighlights(list) {
   store.set('hl:' + state.key, list);
-  if (state.kind === 'pdf') marksSync.changed();
+  // A note is a card: the margin's view of the cards is made again.
+  if (state.kind === 'pdf') { marksSync.changed(); marginLayout({ fresh: true }) }
 }
 function highlightAt(x, y) {
   if (isEpub()) return epubHighlightAt(x, y);
@@ -1761,7 +1776,7 @@ function md(text) {
 async function pageImage(n, region) {
   // A picture of the printed page (or a region of it), so maths survives.
   const p = state.pages[n - 1];
-  if (!PAGE_IMAGES || sampleImages === false || !p) return null;
+  if (!PAGE_IMAGES || sampleImages === false || !p || isEpub()) return null;
   let src = drawn(p);
   if (!src) {
     const page = await state.pdf.getPage(n);
@@ -2113,6 +2128,8 @@ function mrSaveNote() {
   h.u = Date.now();
   putHighlights(list); noteDrafts.delete(id);
   marginClose();
+  // The note's card opens where the reader can see it (never gathered into "N more"), with the focus.
+  if (v && marginMode()) openCard('n-' + id, { focus: 'card' });
 }
 function mrSend() {
   const t = mr?.el?.querySelector('.mr-ask'); if (!t) return;
@@ -2165,19 +2182,28 @@ async function mrDefine(word) {
   if (hit && !TinctMargin.nameMidSentence(word, mr.before)) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
     mrShow('define');
-    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most 1.5 s).
+    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most
+    // FIT_SENSE_MS; the dictionary's order shows meanwhile).
     const info = mr.info, anchor = mr.anchor, def = mr.def;
     const n = await fittingSense(hit.word, def.senses.map(x => x.text), info);
     if (n > 0) def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
+    // None fits (a technical term the dictionary knows only in its everyday senses): the meaning in
+    // this text from the companion's `define` comes first, the dictionary's senses below it.
+    if (n === 0) {
+      try {
+        const found = await defineByCompanion(word, info);
+        if (found?.line) { def.inText = found.line; if (found.pos) def.pos = found.pos }
+      } catch { /* the dictionary alone */ }
+    }
     keepDefine(def, info, anchor);
-    if (mr?.defToken === token && n > 0) mrShow('define');
+    if (mr?.defToken === token && (n > 0 || def.inText)) mrShow('define');
     return;
   }
   if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
   try {
     const found = await defineByCompanion(word, mr.info);
     if (mr?.defToken !== token) return;
-    mr.def = found ? { word: found.word || word, pos: found.pos || '', line: found.line } : { word, line: errorCopy(null) };
+    mr.def = found ? { word: found.word || word, pos: found.pos || '', inText: found.line } : { word, line: errorCopy(null) };
     if (found) keepDefine(mr.def, mr.info, mr.anchor);
   } catch (e) {
     if (mr?.defToken !== token) return;
@@ -2188,18 +2214,15 @@ async function mrDefine(word) {
 // The companion's existing contextual `define` intent (CONTEXTUAL_LOOKUP_PROMPT, built by the Worker).
 async function defineByCompanion(word, info) {
   // A PDF's page goes as its page (kind 'pdf', printed label), as every PDF request does.
-  const pdf = await pdfPages(info.page, { before: 0, after: 0 });
-  const req = TinctAI.toRequest([{ role: 'user', content: ' ' }, { role: 'user', content: word }], { ...aiBook(), pdf });
-  req.stream = false; req.max_tokens = 450;
-  req.companion.intent = 'define'; req.companion.selection = word.slice(0, 300);
-  const s = TinctAI.session();
-  let internal = false; try { internal = localStorage.getItem('tinct:internal') === '1' } catch {}
-  let r;
-  try { r = await fetch(s.token ? '/api/chat' : '/api/lab-chat', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', ...(internal ? { 'x-tinct-check': '1' } : {}), ...(s.token ? { Authorization: 'Bearer ' + s.token } : {}) }, body: JSON.stringify(req) }) }
-  catch { throw Object.assign(new Error('offline'), { code: 'offline' }) }
-  if (!r.ok) throw Object.assign(new Error('failed'), { code: { 401: 'session_expired', 402: 'quota', 403: 'not_granted', 429: 'rate_limited', 503: 'busy' }[r.status] || 'failed' });
-  const json = await r.json().catch(() => ({}));
-  return TinctMargin.parseLookup((json.content || []).map(c => c.text || '').join(''), word);
+  const pdf = await pdfPages(info.page, { before: 0, after: 0 }), wholeDoc = await marginDocument(info.page);
+  // Define on a phrase sends the passage picture too (FIXES-2026-10-15 A4); a single word does not.
+  const region = /\s/.test(word.trim()) ? selectionRegion(info) : null;
+  const image = region ? await pageImage(info.page, region) : null;
+  const call = imgs => TinctAI.companion('define', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, selection: word.slice(0, 300), images: imgs, stream: false });
+  let res;
+  try { res = await call(image ? [image] : undefined) }
+  catch (e) { if (!image || (e?.code !== 'images_unavailable' && e?.code !== 'image_rejected')) throw e; if (e.code === 'images_unavailable') sampleImages = false; res = await call(undefined) }
+  return TinctMargin.parseLookup(res.text, word);
 }
 // Typing with a selection opens Ask with that key; Escape steps back one piece at a time.
 addEventListener('keydown', e => {
@@ -2330,8 +2353,9 @@ const dictation = {
    chat (the existing thread, chat.turns) is the "Whole PDF" card at the top of the column and the
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
-const mpReady = import('/lab/margin/margin-parse.js').then(m => (MP.P = m)).catch(() => null);
-const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), ctl: new Map(), raf: 0, view: null, whole: { away: false } };
+// Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015margintrain').then(m => (MP.P = m)).catch(() => null);
+const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, whole: { away: false } };
 const marginOn = () => state.kind === 'pdf';
 const keptCards = () => store.get('cards:' + state.key) || [];
 const cardById = id => keptCards().find(c => c.id === id && !c.gone) || null;
@@ -2355,6 +2379,40 @@ async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
     pages.push({ n: pageLabel(n), text: text || ' ' }); used += text.length;
   }
   return { pages, at };
+}
+/* The whole file as the margin's companion reads it (docs/margin/FIXES-2026-10-15.md A1): every page's
+   text with its printed label, read once per book and kept, so each request sends the same text and the
+   Worker's cached prefix is read, not rewritten. A file longer than TinctAI.DOCUMENT_CHARS sends the
+   part the reader is in (its chapter, else a fixed 40-page block) with the contents list instead. */
+const docCache = { key: null, task: null };
+function readDocument() {
+  if (docCache.key === state.key && docCache.task) return docCache.task;
+  const key = state.key, limit = window.TinctAI?.DOCUMENT_CHARS || 560000;
+  docCache.key = key;
+  docCache.task = (async () => {
+    await state.labelsTask;
+    const pages = []; let chars = 0;
+    for (let n = 1; n <= state.pages.length; n++) {
+      if (state.key !== key) return null;
+      const text = (await pageText(n)).text || '';
+      if ((chars += text.length) > limit) return { pages: null, limit };
+      pages.push({ n: pageLabel(n), text });
+    }
+    return { pages, limit };
+  })().catch(() => { if (docCache.key === key) docCache.task = null; return null });
+  return docCache.task;
+}
+/** The margin request's `document` for the reader on `page`, or null (not a PDF, or not readable). */
+async function marginDocument(page) {
+  if (!marginOn() || !state.pages.length) return null;
+  const read = await readDocument(); if (!read) return null;
+  if (read.pages) return { kind: 'pdf', units: read.pages };
+  const ch = toc.ready ? chapterAt(page) : null;
+  const block = Math.floor((page - 1) / 40) * 40 + 1;
+  const r = ch ? chapterRange(ch) : { from: block, to: Math.min(state.pages.length, block + 39) };
+  const units = []; let chars = 0;
+  for (let n = r.from; n <= r.to; n++) { const text = (await pageText(n)).text || ''; if ((chars += text.length) > read.limit) break; units.push({ n: pageLabel(n), text }) }
+  return { kind: 'pdf', units, part: { toc: leafEntries().map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length } };
 }
 /** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. */
 function citeResolve(token) {
@@ -2409,7 +2467,7 @@ function marginStart() {
 }
 function marginStop() {
   for (const c of col.ctl.values()) c.abort();
-  col.ctl.clear(); col.live.clear(); col.pending.clear();
+  col.ctl.clear(); col.live.clear(); col.pending.clear(); col.quiz.clear();
   closeFloat(); closeSheet2();
   col.el?.remove(); col.leads?.remove(); col.marks?.remove();
   col.els.forEach(e => e.remove()); col.els.clear();
@@ -2451,20 +2509,35 @@ function visibleCards() {
   }
   return out;
 }
-const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0]);
+/**
+ * Quiz me while its questions stream in (FIXES-2026-10-15 A7): the questions so far and the
+ * reader's progress live in col.quiz, in memory, until the stream ends; the card is saved once then.
+ */
+const quizLive = card => { const d = col.quiz.get(card.id); return d ? { ...card, data: d } : card };
+const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id)]);
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
-  return { open, P: MP.P, resolve: citeResolve, pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id) };
+  return { open, P: MP.P, resolve: citeResolve, pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id) };
+}
+/** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
+function holdQuizHeight(el, before) {
+  if (el.querySelector('.mr-writing')) el.style.minHeight = Math.max(before, parseFloat(el.style.minHeight) || 0) + 'px';
+  else el.style.removeProperty('min-height');
 }
 /** Draw a card into `el` when what it shows changed; true when it was drawn again. */
 function drawCard(el, card, open) {
+  card = quizLive(card);
   const sig = cardSig(card, open);
   if (el.dataset.sig === sig) return false;
   el.dataset.sig = sig; el.dataset.id = card.id;
   el.className = 'mr ' + TinctMargin.html.cardClass(card, open) + (el.classList.contains('is-floating') ? ' is-floating' : '') + (card.data?.unit ? ' is-unit' : '');
   if (card.kind === 'note') el.style.setProperty('--hl-color', (HL_COLORS.find(c => c[0] === card.color) || HL_COLORS[0])[3]);
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
+  const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
+  const before = card.kind === 'quiz' && open ? el.offsetHeight : 0;
   el.innerHTML = TinctMargin.html.cardHtml(card, cardOpts(card, open));
+  if (card.kind === 'quiz') holdQuizHeight(el, before);
+  if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   if (open) { el.setAttribute('role', 'region'); el.setAttribute('aria-label', TinctMargin.html.cardLabel(card, pageLabel(card.page))) } else { el.removeAttribute('role'); el.removeAttribute('aria-label') }
   const live = col.live.get(card.id);
   if (open && live && !live.status) el.setAttribute('aria-busy', 'true'); else el.removeAttribute('aria-busy');
@@ -2544,40 +2617,56 @@ function layoutColumn(vis) {
     col.els.forEach(e => { e.hidden = true }); col.stack.hidden = true; col.leads.replaceChildren();
     return;
   }
-  const reserve = triggerInColumn();
-  // An open card below the trigger stops at the column's foot as the guard says, less the trigger's room.
-  col.el.style.setProperty('--mr-reserve', reserve + 'px');
+  // The trigger is placed with the cards, level with its page's first line of text (less 4px, as a card).
+  const trig = triggerInColumn(colTop);
+  // An open card stops at the column's foot as the guard says, less the trigger's room.
+  col.el.style.setProperty('--mr-reserve', (trig ? trig.height + TinctMargin.COL.cardGap : 0) + 'px');
   // The whole-PDF card (when the thread has turns) sits first, at the top; then a unit's quiz, when open or at the unit's start.
   const items = [];
-  if (chat.turns.length || chat.live) items.push({ id: 'whole', card: { id: 'whole', kind: 'whole' }, top: 0 });
+  if (chat.turns.length || chat.live) items.push({ id: 'whole', card: { id: 'whole', kind: 'whole' }, top: 0, fold: false });
   const openUnit = col.open && cardById(col.open)?.data?.unit ? cardById(col.open) : null, trigUnit = triggerUnit();
   const uq = openUnit || (trigUnit && unitQuiz(trigUnit));
-  if (uq) items.push({ id: uq.id, card: uq, top: 0 });
+  if (uq) items.push({ id: uq.id, card: uq, top: 0, fold: false });
   for (const v of vis) items.push({ id: v.card.id, card: v.card, v, top: v.line.top - colTop });
+  // In page order among the cards: after the ones pinned to the top, before the first passage below its line.
+  if (trig) { const k = items.findIndex(it => it.v && it.top > trig.top); items.splice(k < 0 ? items.length : k, 0, { id: 'trigger', trigger: true, top: trig.top, fold: false }) }
   const keep = new Set(items.map(i => i.id));
   for (const [id, el] of col.els) if (!keep.has(id)) { el.remove(); col.els.delete(id) }
   for (const it of items) {
+    if (it.trigger) continue;
     let el = col.els.get(it.id);
     if (!el) { el = document.createElement('div'); col.els.set(it.id, el); col.el.insertBefore(el, col.stack) }
     el.hidden = false;
     if (it.id === 'whole') drawWhole(el); else drawCard(el, it.card, col.open === it.id);
+    // Measured as a folded card; placement says which become one-line rows.
+    el.classList.remove('is-row');
   }
   // The row's height on one line ("1 more on this page"), measured once.
   if (!col.stackH) { const was = col.stack.hidden; col.stack.hidden = false; col.stack.innerHTML = TinctMargin.html.stackHtml([{ kind: 'note' }]); col.stackH = col.stack.offsetHeight || 34; col.stack.hidden = was }
   const stackH = col.stackH;
-  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top })), items.map(i => col.els.get(i.id).offsetHeight), footTop, { open: col.open, stackHeight: stackH, top: reserve });
+  // A one-line row's height (crowded pages), measured once.
+  if (!col.rowH) {
+    const r = document.createElement('div'); r.className = 'mr mr-card is-folded is-row'; r.style.visibility = 'hidden';
+    r.innerHTML = TinctMargin.html.cardHtml({ id: 'row', kind: 'note', note: 'A row', text: '' }, { open: false, P: MP.P });
+    col.el.appendChild(r); col.rowH = r.offsetHeight || TinctMargin.COL.row; r.remove();
+  }
+  const elOf = it => (it.trigger ? primer.trig : col.els.get(it.id));
+  // A quiz whose questions are still streaming in (col.quiz) never folds or gathers; once saved it does, like any card.
+  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top, at: i.card?.at, fold: i.fold !== false && col.open !== i.id && !col.quiz.has(i.id), keep: !!i.trigger || col.quiz.has(i.id) })), items.map(i => elOf(i).offsetHeight), footTop, { open: col.open, stackHeight: stackH, rowHeight: col.rowH });
   const at = new Map(out.positions.map(p => [p.id, p]));
   const x1 = box.left - 6, lines = [];
   for (const it of items) {
-    const el = col.els.get(it.id), p = at.get(it.id);
+    const el = elOf(it), p = at.get(it.id);
+    if (it.trigger) { el.style.top = (p ? p.top : 0) + 'px'; continue }
     if (!p) { el.hidden = true; continue }
+    el.classList.toggle('is-row', !!p.row);
     el.style.top = p.top + 'px';
     if (!it.v) continue;
     const lab = el.querySelector('.mr-card__label').getBoundingClientRect();
     const ey = (it.v.line.top + it.v.line.bottom) / 2, cy = (lab.top + lab.bottom) / 2, x0 = it.v.pageRight + C.dot;
     lines.push({ x0, ey, cy, open: it.id === col.open });
   }
-  const gathered = out.gathered.map(id => items.find(i => i.id === id)).filter(Boolean);
+  const gathered = out.gathered.map(id => items.find(i => i.id === id && !i.trigger)).filter(Boolean);
   col.stack.hidden = !out.stack;
   if (out.stack) {
     // One line: as many of the kinds as fit.
@@ -2620,7 +2709,8 @@ function openCard(id, { focus = false } = {}) {
     }
   }
   marginLayout();
-  if (focus) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector('.mr-follow__input')?.focus({ preventScroll: true })));
+  // focus: true puts it in the follow-up line; 'card' on the card itself (its close, or the bottom card's handle), no keyboard.
+  if (focus) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector(focus === 'card' ? '.mr-card__close, .mr-sheet__grab' : '.mr-follow__input')?.focus({ preventScroll: true })));
 }
 const openCardEl = () => (col.sheet && col.sheet.isConnected ? col.sheet : col.float && col.float.isConnected ? col.float : col.els.get(col.open)) || null;
 function placeFloat(v) {
@@ -2683,13 +2773,18 @@ function drawSheet() {
     el.innerHTML = TinctMargin.html.sheetHtml(`<button type="button" class="mr-trigger" data-c="primer" aria-expanded="false">${TinctMargin.html.triggerHtml(unit, { key: false })}</button>`);
     return;
   }
-  const card = viewCards().find(c => c.id === id) || cardById(id); if (!card) { closeSheet2(); return }
+  const kept = viewCards().find(c => c.id === id) || cardById(id); if (!kept) { closeSheet2(); return }
+  const card = quizLive(kept);
   el.setAttribute('aria-label', TinctMargin.html.cardLabel(card, pageLabel(card.page)));
   const sig = cardSig(card, true);
   if (el.dataset.sig === sig) return;
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
+  const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
   el.dataset.sig = sig;
+  const before = card.kind === 'quiz' ? el.offsetHeight : 0;
   el.innerHTML = TinctMargin.html.sheetHtml(TinctMargin.html.cardHtml(card, cardOpts(card, true)));
+  if (card.kind === 'quiz') holdQuizHeight(el, before);
+  if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   const live = col.live.get(card.id);
   if ((live && !live.text && !live.status) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
   const f = el.querySelector('.mr-follow__input');
@@ -2744,7 +2839,10 @@ function wholeTurns() {
 }
 function drawWhole(el, { sheet = false } = {}) {
   const open = sheet || col.open === 'whole', turns = wholeTurns();
-  const body = TC ? TinctMargin.html.threadHtml(TC.threadRows(turns), turns, { P: MP.P, resolve: citeResolve }) : '';
+  // Before the shared thread module has loaded, the turns in order (no dividers); it redraws with them.
+  const rows = TC ? TC.threadRows(turns) : turns.map((_, index) => ({ type: 'turn', index }));
+  if (!TC) tcReady.then(() => marginLayout());
+  const body = MP.P ? TinctMargin.html.threadHtml(rows, turns, { P: MP.P, resolve: citeResolve }) : '';
   const tray = chat.attach.length ? `<div class="byob-tray">${trayChips()}</div>` : '';
   const sig = JSON.stringify([open, sheet, body.length, body.slice(-200), tray.length, !!chat.live, col.whole.status || '']);
   if (el.dataset.sig === sig) return;
@@ -2777,7 +2875,12 @@ function openWhole(opts = {}) {
     saveTurns();
   }
   if (marginMode() === 'phone') { col.open = 'whole'; openSheet2('whole') }
-  else openCard('whole');
+  else {
+    openCard('whole');
+    // The earlier conversation shows at once, drawn now from this browser's copy, not a frame later.
+    if (col.raf) { cancelAnimationFrame(col.raf); col.raf = 0 }
+    try { layoutNow() } catch (e) { console.error(e) }
+  }
   if (opts.prompt) ask(opts.prompt, opts.display);
   else if (!opts.quiet) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector('.mr-follow__input')?.focus({ preventScroll: true })));
 }
@@ -2854,10 +2957,6 @@ async function copyCard(id) {
 }
 
 /* -- The actions: each answer becomes a card -- */
-// Explain on a PDF (docs/margin/PROMPTS.md): today's request, opening with a bottom line.
-function explainPrompt(card, image) {
-  return `You are Tinct's reading companion. ${bookLine()}\n\nExplain the passage they selected on page ${pageLabel(card.page)}: what it says, what it means here, and any notation or terms, in plain language for a careful reader. ${MP.P.PDF_EXPLAIN_FORMAT} Write any maths inline in plain notation.${image ? '\n' + MP.P.PASSAGE_IMAGE_LINE : ''}\n\nSelected passage (extracted text):\n${card.text.slice(0, 3000)}`;
-}
 // A card's thread as today's ask: the passage, what the card said, and the follow-up questions.
 function cardTurns(card, image) {
   const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${pageLabel(card.page)} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. Plain prose; simple bullet lists only when they help.${image ? ' ' + MP.P.PASSAGE_IMAGE_LINE : ''}\n\nThe passage they selected on page ${pageLabel(card.page)}:\n${card.text.slice(0, 3000)}`;
@@ -2883,39 +2982,74 @@ async function runCard(id, question = null) {
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
   const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
   const pdf = unit ? await unitPages(unit) : await pdfPages(card.page);
-  const image = unit ? null : await pageImage(card.page, passageRegion(card));
+  // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
+  const region = unit ? null : passageRegion(card);
+  const image = region ? await pageImage(card.page, region) : null;
+  const wholeDoc = await marginDocument(unit ? unit.from : card.page);
   const book = { ...aiBook(), pdf };
   const onText = ({ text }) => { if (!ctl.signal.aborted) setLive(id, { text, status: '' }) };
   const onStatus = status => { if (!ctl.signal.aborted) setLive(id, { status }) };
+  // Quiz me streams (FIXES-2026-10-15 A7): each question shows as soon as it is complete; the reader can
+  // answer question 1 while 2 and 3 are written. Nothing is saved until the stream ends.
+  const quizRun = card.kind === 'quiz' && question == null;
+  const live = quizRun ? { ...(card.data?.unit ? { unit: card.data.unit } : {}), questions: [], i: 0, results: [] } : null;
+  if (live) col.quiz.set(id, live);
+  const onQuizText = ({ text }) => {
+    if (ctl.signal.aborted || col.quiz.get(id) !== live) return;
+    const got = MP.P.parseQuizPartial?.(text) || [];
+    if (got.length <= live.questions.length) return;
+    const first = !live.questions.length, waiting = live.i >= live.questions.length;
+    live.questions = got;
+    if (first) { col.live.delete(id); announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${got[0].q.replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`) }
+    marginLayout();
+    // The reader was waiting on "Writing the next question…": the answer line takes the focus.
+    if (!first && waiting && col.open === id) openCard(id, { focus: true });
+  };
   const call = async imgs => {
     const images = imgs ? [imgs] : undefined;
-    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, onText, signal: ctl.signal });
-    if (card.kind === 'explain') return TinctAI.ask(explainPrompt(card, imgs), { book, images, onText, signal: ctl.signal });
-    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, ...(unit ? {} : { selection: card.text }), images, stream: false, signal: ctl.signal });
-    return TinctAI.companion(card.kind, { book, pdf, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
+    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, document: wholeDoc, onText, signal: ctl.signal });
+    // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
+    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: true, onText: onQuizText, signal: ctl.signal });
+    return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
   };
   try {
     let res;
     try { res = await call(image) }
     catch (e) { if (!image || (e?.code !== 'images_unavailable' && e?.code !== 'image_rejected')) throw e; if (e.code === 'images_unavailable') sampleImages = false; res = await call(null) }
-    card = cardById(id); if (!card || ctl.signal.aborted) return;
-    if (card.kind === 'quiz' && question == null) {
-      const quiz = MP.P.parseQuiz(res.text);
-      if (!quiz) throw Object.assign(new Error('failed'), { code: 'failed' });
-      card.data = { ...(card.data?.unit ? { unit: card.data.unit } : {}), questions: quiz.questions, i: 0, results: [] };
-    } else card.turns = [...(card.turns || []), { role: 'assistant', content: res.text, at: Date.now() }];
+    card = cardById(id); if (!card || ctl.signal.aborted) { if (col.quiz.get(id) === live) col.quiz.delete(id); return }
+    if (quizRun) {
+      // The whole reply is the authority; what streamed stands when it does not parse.
+      const questions = MP.P.parseQuiz(res.text)?.questions || live.questions;
+      if (!questions.length) throw Object.assign(new Error('failed'), { code: 'failed' });
+      col.quiz.delete(id); col.live.delete(id); col.ctl.delete(id);
+      card.data = quizEnded(live, questions, false);
+      saveCard(card);
+      if (!live.questions.length) announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${questions[0].q.replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
+      return;
+    }
+    card.turns = [...(card.turns || []), { role: 'assistant', content: res.text, at: Date.now() }];
     col.live.delete(id); col.ctl.delete(id);
     saveCard(card);
     // Screen readers hear the finished answer once (the card itself is redrawn as it streams).
-    const said = card.kind === 'quiz' && question == null ? card.data.questions?.[0]?.q : res.text;
-    announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${String(said || '').replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
+    announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${String(res.text || '').replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
   } catch (e) {
-    if (e?.code === 'cancelled' || ctl.signal.aborted) return;
+    if (e?.code === 'cancelled' || ctl.signal.aborted) { if (live && col.quiz.get(id) === live) col.quiz.delete(id); return }
     col.ctl.delete(id);
+    if (live && col.quiz.get(id) === live) {
+      col.quiz.delete(id);
+      // Stopped after some questions (never a refusal): keep them and end the quiz there, saved once.
+      const c = cardById(id);
+      if (c && live.questions.length && e?.code !== 'refused') { col.live.delete(id); c.data = quizEnded(live, live.questions, true); saveCard(c); return }
+    }
     const c = cardById(id);
-    if (c && e?.text && c.kind !== 'quiz') { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
+    if (c && e?.text && c.kind !== 'quiz' && e.code !== 'refused') { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
     setLive(id, { text: null, status: errorCopy(e) });
   }
+}
+/** The quiz as it is saved when its stream ends: the questions that arrived and how far the reader got. */
+function quizEnded(live, questions, stopped) {
+  const i = Math.min(live.i || 0, questions.length);
+  return { ...(live.unit ? { unit: live.unit } : {}), questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < 3 ? { ended: true } : {}) };
 }
 /** An action from the bar or More on the held passage: a new card, opened, its answer on the way. */
 function cardAction(kind, { question = '' } = {}) {
@@ -2925,53 +3059,67 @@ function cardAction(kind, { question = '' } = {}) {
   const card = TinctMargin.newCard({ kind, page: info.page, anchor, text: info.text, turns: kind === 'ask' ? [{ role: 'user', content: question, at: Date.now() }] : [], data: kind === 'quiz' ? { questions: [], i: 0, results: [] } : null });
   store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed();
   col.view = null;
-  openCard(card.id);
+  // A new card is always the open one: never folded to a row or gathered into "N more", and it has the focus.
+  openCard(card.id, { focus: 'card' });
   runCard(card.id);
 }
 // Quiz me: "Show answer" (no call), "Next question →", and marking an answer (quiz_check).
 function quizStep(id, step) {
-  const card = cardById(id); if (!card?.data?.questions?.length) return;
-  const q = card.data, i = q.i || 0;
+  // While the questions stream, the reader's steps stay in memory (saved with the quiz when it ends).
+  const live = col.quiz.get(id), card = cardById(id);
+  const q = live || card?.data; if (!q?.questions?.length || !card) return;
+  const i = q.i || 0;
   q.results = q.results || [];
   if (step === 'show') q.results[i] = { shown: true };
-  else if (i + 1 >= q.questions.length) q.done = true;
+  else if (i + 1 >= (live ? 3 : q.questions.length)) q.done = true;
   else q.i = i + 1;
-  saveCard(card);
-  if (step === 'next') openCard(id, { focus: !q.done });
+  if (live) marginLayout(); else saveCard(card);
+  if (step === 'next') openCard(id, { focus: !q.done && !!q.questions[q.i || 0] });
 }
 async function quizCheck(card, answer) {
   await mpReady;
-  const q = card.data, i = q.i || 0, item = q.questions?.[i]; if (!item || q.results?.[i]) return;
+  const q = col.quiz.get(card.id) || card.data, i = q.i || 0, item = q.questions?.[i]; if (!item || q.results?.[i]) return;
   col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
   try {
-    const pdf = await pdfPages(card.page);
-    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
+    const pdf = await pdfPages(card.page), wholeDoc = await marginDocument(card.page);
+    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
     const mark = MP.P.parseQuizCheck(res.text);
     if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
+    const result = { answer, verdict: mark.verdict, feedback: mark.feedback };
+    // Still streaming: the mark joins the quiz in memory; else the saved card takes it.
+    const live = col.quiz.get(card.id);
+    if (live) { live.results[i] = result; col.pending.delete(card.id); marginLayout(); return }
     const c = cardById(card.id); if (!c) return;
-    c.data.results = c.data.results || []; c.data.results[i] = { answer, verdict: mark.verdict, feedback: mark.feedback };
+    c.data.results = c.data.results || []; c.data.results[i] = result;
     col.pending.delete(card.id); saveCard(c);
   } catch (e) {
     col.pending.delete(card.id); col.live.set(card.id, { text: null, status: errorCopy(e) }); marginLayout();
   }
 }
-/** define_sense: the sense that fits this passage, within 1.5 s; else the dictionary's order stands. -> 1-based, or 0 */
+/* 1.5 s aborted most first requests on production (15 Oct: a cold cache write of the whole document
+   comes first); with Haiku 5.5 and the cached document a reply takes about a second, a cold one longer. */
+const FIT_SENSE_MS = 4000;
+/** define_sense within FIT_SENSE_MS: the sense that fits the passage (1-based), 0 when the companion says none does, or null when it was not asked or did not answer (offline, too slow). */
 async function fittingSense(word, senses, info) {
-  if (navigator.onLine === false || senses.length < 2 || !window.TinctAI?.companion) return 0;
-  await mpReady; if (!MP.P) return 0;
+  if (navigator.onLine === false || !senses.length || !window.TinctAI?.companion) return null;
+  await mpReady; if (!MP.P) return null;
   const ctl = new AbortController();
-  const timer = new Promise(r => setTimeout(() => { ctl.abort(); r(null) }, 1500));
+  const timer = new Promise(r => setTimeout(() => { ctl.abort(); r(null) }, FIT_SENSE_MS));
   try {
     const pdf = await pdfPages(info.page, { before: 0, after: 0 });
-    const res = await Promise.race([TinctAI.companion('define_sense', { book: { ...aiBook(), pdf }, pdf, selection: word, senses, signal: ctl.signal }), timer]);
-    return res ? MP.P.parseDefineSense(res.text, senses.length) || 0 : 0;
-  } catch { return 0 }
+    // The document is usually read by now; if not, define_sense goes without it rather than wait.
+    const wholeDoc = await Promise.race([marginDocument(info.page), new Promise(r => setTimeout(() => r(null), 300))]);
+    const res = await Promise.race([TinctAI.companion('define_sense', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, selection: word, senses, signal: ctl.signal }), timer]);
+    if (!res) return null;
+    const n = MP.P.parseDefineSense(res.text, senses.length);
+    return Number.isInteger(n) ? n : null;
+  } catch { return null }
 }
 /** The Define card's result kept as a card (one per word and passage). */
 function keepDefine(def, info, anchor) {
-  if (!marginOn() || !def || (!def.senses?.length && !def.line)) return;
+  if (!marginOn() || !def || (!def.senses?.length && !def.line && !def.inText)) return;
   const existing = keptCards().find(c => c.kind === 'define' && !c.gone && c.page === info.page && c.text === info.text.slice(0, 2000));
-  const data = { word: def.word, pos: def.pos || '', senses: (def.senses || []).map(s => ({ text: s.text })), ...(def.line ? { line: def.line } : {}) };
+  const data = { word: def.word, pos: def.pos || '', senses: (def.senses || []).map(s => ({ text: s.text })), ...(def.line ? { line: def.line } : {}), ...(def.inText ? { inText: def.inText } : {}) };
   const card = existing || TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text });
   if (existing && JSON.stringify(existing.data) === JSON.stringify(data)) return;
   card.data = data;
@@ -3075,6 +3223,51 @@ async function primerRemote(method, unit, content = null) {
   } catch { return null }
 }
 const primerKey = unit => 'primer:' + state.key + ':' + unit.key;
+/* Making a primer (the Gloss test, 15 Oct 2026: 2 failures in 3). One request per unit at a time:
+   reopening while it is made waits for the same one. A reply that does not parse, or a failed
+   one, is asked for once more. It gives up after 45 s in all ("taking too long"). What it makes is
+   kept here and with the book even when the reader has closed it or opened another card meanwhile,
+   so it is never made (or charged) twice. */
+const PRIMER_WAIT_MS = 45000;
+const PRIMER_SLOW = 'Before you start is taking too long. Try again.';
+const primerMaking = new Map();
+const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed']);
+function makePrimer(unit) {
+  const id = primerKey(unit);
+  if (primerMaking.has(id)) return primerMaking.get(id);
+  const key = state.key;
+  const made = (async () => {
+    const PP = await ppReady;
+    if (!PP || !window.TinctAI?.companion) throw Object.assign(new Error('offline'), { code: 'offline' });
+    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), PRIMER_WAIT_MS);
+    const pdf = await unitPages(unit), title = unitTitle(unit), wholeDoc = await marginDocument(unit.from);
+    try {
+      for (let attempt = 0; ; attempt++) {
+        try {
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal });
+          const content = PP.parsePrimer(res.text);
+          if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
+          return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
+        } catch (e) {
+          if (ctl.signal.aborted) throw Object.assign(new Error('slow'), { code: 'slow' });
+          if (attempt > 0 || !PRIMER_RETRY.has(e?.code)) throw e;
+        }
+      }
+    } finally { clearTimeout(timer) }
+  })().then(({ content, kept }) => {
+    if (state.key !== key) return kept;
+    store.set(id, kept);
+    // With the book in the account: stored there too; its stamp replaces this browser's.
+    primerRemote('PUT', unit, content).then(put => {
+      if (!put || state.key !== key) return;
+      store.set(id, put);
+      if (primer.open && primer.unit?.key === unit.key && primer.data?.madeAt === kept.madeAt) { primer.data = put; marginLayout() }
+    });
+    return kept;
+  }).finally(() => primerMaking.delete(id));
+  primerMaking.set(id, made);
+  return made;
+}
 /** The primer for `unit`: kept here, else the account's, else made now (only when opened). Redo makes a new one. */
 async function loadPrimer(unit, { redo = false } = {}) {
   const token = ++primer.token, key = state.key;
@@ -3093,29 +3286,22 @@ async function loadPrimer(unit, { redo = false } = {}) {
       return;
     }
     show({ wait: true });
-    const remote = await primerRemote('GET', unit);
+    const remote = primerMaking.has(primerKey(unit)) ? null : await primerRemote('GET', unit);
     if (!live()) return;
     if (remote) { store.set(primerKey(unit), remote); return show({ data: remote }) }
   }
   show({ wait: true });
   try {
-    const PP = await ppReady;
-    if (!PP || !window.TinctAI?.companion) throw Object.assign(new Error('offline'), { code: 'offline' });
-    const pdf = await unitPages(unit), title = unitTitle(unit);
-    const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false });
-    const made = PP.parsePrimer(res.text);
-    if (!made) throw Object.assign(new Error('failed'), { code: 'failed' });
+    const kept = await makePrimer(unit);
     if (!live()) return;
-    const kept = { ...made, madeAt: new Date().toISOString(), unitKey: unit.key };
-    store.set(primerKey(unit), kept); show({ data: kept });
+    show({ data: store.get(primerKey(unit)) || kept });
     announce('Before you start is ready.');
-    const put = await primerRemote('PUT', unit, made);
-    if (put && live()) { store.set(primerKey(unit), put); show({ data: put }) }
   } catch (e) {
     if (!live()) return;
+    const copy = e?.code === 'slow' ? PRIMER_SLOW : errorCopy(e);
     // Redo that could not be done keeps the primer there was.
-    if (redo && before) { show({ data: before }); toast(errorCopy(e)); return }
-    show({ status: errorCopy(e) });
+    if (redo && before) { show({ data: before }); toast(copy); return }
+    show({ status: copy });
   }
 }
 /** Open the primer in place of its trigger (B, or a click on the trigger). */
@@ -3170,18 +3356,34 @@ function primerInColumn() {
   drawPrimer(el);
   return true;
 }
-/** The column's trigger at the unit's start. -> the room it keeps at the column's top (px) */
-function triggerInColumn() {
+/** The first line of text on a page, as a fraction of its height (from its text layer), kept once found. */
+const firstLineFrac = new Map();
+function pageFirstLine(p) {
+  const key = state.key + ':' + p.n;
+  if (firstLineFrac.has(key)) return firstLineFrac.get(key);
+  const b = p.pg.getBoundingClientRect();
+  const tops = [...(p.layer?.querySelectorAll('span') || [])].filter(sp => (sp.textContent || '').trim()).map(sp => sp.getBoundingClientRect()).filter(r => r.height > 0).map(r => r.top);
+  if (!tops.length || !b.height) return null;
+  const frac = (Math.min(...tops) - b.top) / b.height;
+  firstLineFrac.set(key, frac);
+  return frac;
+}
+/** The column's trigger at the unit's start, a folded card at its page's first line. -> { top (that line, from the column's top), height }, or null */
+function triggerInColumn(colTop) {
   const unit = triggerUnit();
-  if (!unit) { primer.trig?.remove(); primer.trig = null; return 0 }
+  if (!unit) { primer.trig?.remove(); primer.trig = null; return null }
   if (!primer.trig) {
     const b = primer.trig = document.createElement('button');
-    b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false');
+    b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false'); b.title = 'Before you start (B)';
   }
   const b = primer.trig;
   if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: the gist, the key claims and a map of ${TinctMargin.unitPhrase(unit)}. Key B.`) }
   if (b.parentElement !== col.el) col.el.insertBefore(b, col.el.firstChild);
-  return TinctMargin.PRIMER.top + b.offsetHeight + TinctMargin.COL.cardGap;
+  // The first line of text on the page the reader is on (the unit's first pages: a title page, its start);
+  // before the text layer is drawn, that page's top.
+  const p = state.pages[Math.max(unit.from, Math.min(unit.start, placePage())) - 1], pr = p?.pg.getBoundingClientRect(), frac = p ? pageFirstLine(p) : null;
+  const line = pr ? pr.top + (frac == null ? 0 : frac * pr.height) : colTop;
+  return { top: line - colTop, height: b.offsetHeight };
 }
 /** Narrow windows: the primer floats beside the page, as a card opened from a mark does. */
 function placePrimerFloat(pageRight) {
@@ -3204,7 +3406,7 @@ function primerMark(pageRight) {
   const y = p ? p.pg.getBoundingClientRect().top + 28 : -1;
   if (!unit || !p || y < hdr + 8 || y > innerHeight - 8) { m?.remove(); return null }
   if (!m) { m = document.createElement('button'); m.type = 'button'; m.className = 'mr-mark'; m.dataset.primer = '1'; col.marks.appendChild(m) }
-  m.setAttribute('aria-label', 'Before you start'); m.setAttribute('aria-expanded', String(primer.open));
+  m.setAttribute('aria-label', 'Before you start'); m.title = 'Before you start (B)'; m.setAttribute('aria-expanded', String(primer.open));
   m.style.left = Math.min(innerWidth - 14, pageRight + TinctMargin.COL.dot) + 'px';
   m.style.top = (y - hdr) + 'px';
   return m;
@@ -3830,18 +4032,23 @@ async function ask(question, display) {
   chat.live = { text: '' }; renderThread();
   const focusPage = passage?.page || attached[0]?.page || page;
   // A PDF's pages go as pages with their printed labels (kind 'pdf'); an EPUB's as today's text.
-  const pdf = marginOn() ? await pdfPages(focusPage) : null;
+  // The margin's chat is about the whole PDF: the whole document goes with it (marginDocument, the
+  // cached prefix) and the pages around the reader's place; without it, every page as pages.
+  const wholeDoc = marginOn() ? await marginDocument(focusPage) : null;
+  const pdf = marginOn() ? await (wholeDoc ? pdfPages(focusPage) : pdfPages(focusPage, { before: focusPage - 1, after: state.pages.length - focusPage, budget: Math.min(9000, Math.floor(180000 / Math.max(1, state.pages.length))) })) : null;
   const ctx = pdf ? '' : await contextText(Math.max(1, focusPage - 1), Math.min(state.pages.length, focusPage + 1), 9000);
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
-  const image = blobs.length ? null : await pageImage(focusPage, passage ? selectionRegion(passage) : null);
+  // A picture goes only with a passage, cropped to it (FIXES-2026-10-15 A4); never a whole page.
+  const region = passage ? selectionRegion(passage) : null;
+  const image = blobs.length || !region ? null : await pageImage(focusPage, region);
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';
   const snipText = attached.map(a => [a.caption ? 'Caption: ' + a.caption : '', a.text ? 'Labels and text inside it: ' + a.text : '', !blobs.length && a.sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + a.sketch + '\n```' : ''].filter(Boolean).join('\n')).filter(Boolean).join('\n\n');
-  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
+  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). ${pdf ? 'Ground answers in the whole document.' : 'Ground answers in the text; say when something is not on these pages.'} ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
   const history = chat.turns.slice(-11, -1).map(t => ({ role: t.role, content: t.role === 'assistant' ? t.content.replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, '') : (t.role === 'user' && t.passage ? `About this passage: "${t.passage.slice(0, 600)}"\n` : '') + (t.imgs?.length ? `[Earlier I attached ${t.imgs.length > 1 ? 'images' : 'an image'}; it is not re-sent.${t.snipText ? ' Its text: ' + t.snipText.slice(0, 400) : ''}]\n` : '') + t.content }));
   const input = [{ role: 'user', content: rules }, ...history, { role: 'user', content: question }];
   const ctl = new AbortController(); chat.ctl = ctl;
   try {
-    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, pdf, onText: ({ text }) => liveText(text) });
+    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, pdf, document: wholeDoc, whole: !!pdf, onText: ({ text }) => liveText(text) });
     const imgs = blobs.length ? blobs : image ? [image] : null;
     let res, note = !blobs.length && attached.some(a => a.blob) ? (snipText ? (attached.some(a => a.snip) ? '\n\n*Claude can’t receive pictures in this viewer, so this answer works from the caption, labels and a rough sketch of the area.*' : '\n\n*Claude can’t receive pictures in this viewer, so this answer is based on the text inside your snip.*') : '\n\n*Claude can’t receive pictures in this viewer, so it could not see your image.*') : '';
     try { res = await call(imgs) }
@@ -4110,12 +4317,17 @@ async function seekChapter(frac) {
 }
 $('playBtn').onclick = togglePlay;
 // Clicking a saved highlight offers Explain, Chat, Remove highlight and Copy.
+// Where the click began, not where its target is now: a click on the bar's note redraws the bar as
+// the note editor, so by the time the click reaches here its button has left the page. Read from
+// the target, it looked like a click on the page beneath, which opened the highlight or card there
+// and closed the editor (notes lost on crowded pages, the Gloss test, 15 Oct 2026).
+const clickedIn = (e, sel) => e.composedPath().some(n => n instanceof Element && n.matches(sel));
 document.addEventListener('click', e => {
-  if (!getSelection().isCollapsed || narr.active || e.target.closest('.selection-popup, .lab-ask, .lab-header, .mr-float')) return;
+  if (!getSelection().isCollapsed || narr.active || clickedIn(e, '.selection-popup, .lab-ask, .lab-header, .mr-float')) return;
   // A PDF's highlight opens the margin's bar for it: its colour, its note.
   // A passage with a card opens that card (and folds the others); a highlight's note opens its note card.
   if (state.kind === 'pdf') {
-    if (e.target.closest('.mr-col, .mr-marks, .mr-sheet, .mr-card')) return;
+    if (clickedIn(e, '.mr-col, .mr-marks, .mr-sheet, .mr-card')) return;
     const h = highlightAt(e.clientX, e.clientY), rec = h && highlights().find(x => x.id === h.id);
     const card = cardAt(e.clientX, e.clientY);
     if (card && !rec) { openCard(card.id); return }
@@ -4136,9 +4348,10 @@ document.addEventListener('click', e => {
 });
 
 /* ---------- Files out ---------- */
-// A picture of the page with every PDF Explain/Ask is not part of release 1: only what the
-// reader attaches or snips is sent.
-const PAGE_IMAGES = false;
+// A picture of the selected passage goes with every passage action on a PDF (Anders, 15 Oct 2026;
+// docs/margin/FIXES-2026-10-15.md A4): cropped to the selection plus a small margin, redrawn by
+// tinct-api.js at most 1568 px on its long side. EPUBs send none. Signed out, none at all.
+const PAGE_IMAGES = true;
 const IMAGES_ENABLED = true; // signed-in /api/chat takes pictures; guests fall back to text (see DEPLOY.md, "Images")
 function saveFile(name, blob) {
   try {
