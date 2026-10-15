@@ -503,9 +503,30 @@ async function pageText(n) {
   if (recognised) { const value = { text: TinctPdfOcr.pageText(recognised), items: [], ocr: true }; state.texts.set(n, value); return value }
   const page = await state.pdf.getPage(n);
   const content = await page.getTextContent();
-  const value = { items: content.items, ...textOf(content.items, page.view) };
+  const items = await shownItems(page, content.items);
+  const value = { items, ...textOf(items, page.view) };
   state.texts.set(n, value);
   return value;
+}
+/* Text a placed figure carries clipped out of sight (TD-Gammon's figure holds a page of an earlier draft) is no
+   text of the page: on a page whose lines lie on top of each other, the page is drawn small and the text it
+   does not show is dropped (TinctReadingOrder.hidden), for the text layer, selections and the companion alike.
+   Other pages are untouched. -> the items, the unseen ones emptied (indexes kept) */
+async function shownItems(page, items) {
+  const RO = window.TinctReadingOrder;
+  if (!RO?.hidden || !RO.suspect(items)) return items;
+  try {
+    const base = page.getViewport({ scale: 1 }), vp = page.getViewport({ scale: 480 / base.width });
+    const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+    const g = c.getContext('2d', { alpha: false }); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: g, viewport: vp }).promise;
+    const W = 240, H = Math.max(1, Math.round(W * c.height / c.width)), small = document.createElement('canvas'); small.width = W; small.height = H;
+    const x = small.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
+    const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H);
+    for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
+    const gone = RO.hidden(items, page.view, ink, W, H);
+    return gone.size ? items.map((it, i) => (gone.has(i) ? { ...it, str: '', hasEOL: false } : it)) : items;  // (empty items in the run lose their line ends too)
+  } catch { return items }
 }
 async function renderPage(p) {
   const width = sheetWidth(), dark = pageTheme === 'dark';
@@ -2664,7 +2685,7 @@ function readBook() {
       if (state.pdf !== pdf || (state.ocrPages || null) !== ocr) return null;
       const recognised = ocr?.get(n) && window.TinctPdfOcr ? ocr.get(n) : null;
       const have = recognised ? null : state.texts.get(n), page = recognised ? null : await pdf.getPage(n);
-      const items = recognised ? TinctPdfOcr.furnitureItems(recognised) : have ? have.items : (await page.getTextContent()).items;
+      const items = recognised ? TinctPdfOcr.furnitureItems(recognised) : have ? have.items : await shownItems(page, (await page.getTextContent()).items);
       const text = recognised ? TinctPdfOcr.pageText(recognised) : have ? have.text : textOf(items, page.view).text;
       book.texts[n - 1] = text;
       book.numbers[n - 1] = window.TinctPrintedPages ? TinctPrintedPages.candidates(items, recognised ? TinctPdfOcr.FURNITURE_VIEW : page.view) : [];

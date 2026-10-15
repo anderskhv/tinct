@@ -7,6 +7,7 @@
 //   roles(items, view)  -> one role per text item: 'body', 'caption' or 'figure' (null for empty ones)
 //   pageText(items, roles) -> the page's text: the body in the PDF's order, then each caption and the
 //                             figure's labels after it, as their own paragraphs
+//   suspect(items), hidden(items, view, ink, W, H) -> text a placed figure carries clipped out of sight
 // Pure: positioned pdf.js text items in, plain values out (the tests run it in Node). Figure
 // detection itself (the chip, PR E) is separate; this only orders text.
 (function (global) {
@@ -170,5 +171,86 @@
     return parts.filter(Boolean).join('\n\n');
   }
 
-  global.TinctReadingOrder = { roles, pageText, CAPTION };
+  /* ---------- Text the page does not show (gloss-test/retest.html and full-battery.html: "wrapped text is scrambled") ----------
+     A figure placed from another PDF can carry that PDF's whole page of text, clipped to the figure's box
+     (TD-Gammon's network in Sutton and Barto's book carries a page of an earlier draft). pdf.js returns the
+     clipped text too, so it interleaved with the page's own lines in selections and in the companion's text.
+     Such text is drawn in one go (one run of items in the PDF's order), lies on top of the page's own lines,
+     and, where it runs over blank paper, leaves no ink. */
+  /** Item boxes in PDF units, upright items only. */
+  const boxOf = it => { const h = sizeOf(it); return { x0: it.transform[4], x1: it.transform[4] + (it.width || 0), y0: it.transform[5] - h * 0.2, y1: it.transform[5] + h * 0.8, h } };
+  function overlapping(items) {
+    const list = [];
+    items.forEach((it, i) => { if (it && typeof it.str === 'string' && it.str.trim().length >= 6 && it.transform && !rotated(it) && (it.width || 0) > 0) list.push({ i, b: boxOf(it), s: it.str.trim() }) });
+    list.sort((a, b) => a.b.y0 - b.b.y0);
+    const pairs = [];
+    for (let k = 0; k < list.length; k++) {
+      const a = list[k];
+      for (let j = k + 1; j < list.length && list[j].b.y0 < a.b.y1; j++) {
+        const b = list[j], w = Math.min(a.b.x1, b.b.x1) - Math.max(a.b.x0, b.b.x0), h = Math.min(a.b.y1, b.b.y1) - Math.max(a.b.y0, b.b.y0);
+        if (w <= 0 || h <= 0 || a.s === b.s || Math.abs(a.b.y0 - b.b.y0) < Math.min(a.b.h, b.b.h) * 0.2) continue;
+        const small = Math.min((a.b.x1 - a.b.x0) * (a.b.y1 - a.b.y0), (b.b.x1 - b.b.x0) * (b.b.y1 - b.b.y0));
+        if (w * h > small * 0.3) pairs.push([a.i, b.i]);
+      }
+    }
+    return pairs;
+  }
+  /** Whether a page may carry text it does not show (lines of text on top of each other): only then is it drawn to look. */
+  const suspect = items => overlapping(Array.isArray(items) ? items : []).length >= 3;
+  /**
+   * The items the page does not show. `ink`: the drawn page, W×H (1 where there is ink); `view`: the page's box.
+   * An item of 8 characters or more over blank paper is unseen; the run of items between the first and the last
+   * unseen one is the hidden text's, and in it an item that lies on top of the page's own text, or leaves almost
+   * no ink, is unseen too. Fewer than three unseen items: nothing is. -> Set of item indexes
+   */
+  function hidden(items, view, ink, W, H) {
+    const list = Array.isArray(items) ? items : [], out = new Set();
+    if (!suspect(list) || !ink || !view) return out;
+    const vw = view[2] - view[0], vh = view[3] - view[1];
+    const look = it => {
+      const b = boxOf(it), l = Math.max(0, Math.round(((b.x0 - view[0]) / vw) * W)), r = Math.min(W - 1, Math.round(((b.x1 - view[0]) / vw) * W) - 1);
+      const t = Math.max(0, Math.round(((view[3] - (b.y1 - b.h * 0.25)) / vh) * H)), bt = Math.min(H - 1, Math.round(((view[3] - (b.y0 + b.h * 0.2)) / vh) * H));
+      if (r - l < 4 || bt < t) return null;
+      let cols = 0, run = 0, gap = 0;
+      for (let x = l; x <= r; x++) { let any = 0; for (let y = t; y <= bt && !any; y++) any = ink[y * W + x]; if (any) { cols++; run = 0 } else if (++run > gap) gap = run }
+      return { cover: cols / (r - l + 1), gap, h: (b.h / vh) * H };
+    };
+    const blank = [];
+    list.forEach((it, i) => {
+      const str = it && typeof it.str === 'string' ? it.str.replace(/\s+/g, '') : '';
+      if (str.length < 8 || !it.transform || rotated(it)) return;
+      const m = look(it);
+      if (m && (m.cover < 0.35 || m.gap > Math.max(10, m.h * 2))) blank.push(i);
+    });
+    if (blank.length < 3) return out;
+    const lo = Math.min(...blank), hi = Math.max(...blank);
+    // Lying on top of the page's own text (items outside the hidden run), by any amount of a third of the smaller box.
+    const upright = i => list[i] && typeof list[i].str === 'string' && list[i].str.trim() && list[i].transform && !rotated(list[i]) && (list[i].width || 0) > 0;
+    const onTop = i => {
+      if (!upright(i)) return false;
+      const a = boxOf(list[i]), aa = (a.x1 - a.x0) * (a.y1 - a.y0);
+      for (let j = 0; j < list.length; j++) {
+        if (j >= lo && j <= hi || !upright(j)) continue;
+        const b = boxOf(list[j]), w = Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0), h = Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0);
+        if (w > 0 && h > 0 && w * h > Math.min(aa, (b.x1 - b.x0) * (b.y1 - b.y0)) * 0.3 && Math.abs(a.y0 - b.y0) >= Math.min(a.h, b.h) * 0.2) return true;
+      }
+      return false;
+    };
+    // In the run, text right against the page's own lines (on them, or between two of them) is the hidden page's;
+    // a figure's labels stand apart, over the figure's ink.
+    const nearText = i => {
+      const a = boxOf(list[i]);
+      for (let j = 0; j < list.length; j++) {
+        if (j >= lo && j <= hi || !upright(j)) continue;
+        const b = boxOf(list[j]);
+        if (Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0) > 0 && Math.max(b.y0 - a.y1, a.y0 - b.y1) < Math.min(a.h, b.h) * 0.6) return true;
+      }
+      return false;
+    };
+    const gone = i => { if (!upright(i)) return null; if (onTop(i) || nearText(i)) return true; const m = look(list[i]); return !m || m.cover < 0.35 };
+    for (let i = lo; i <= hi; i++) if (blank.includes(i) || gone(i) !== false) out.add(i);
+    return out;
+  }
+
+  global.TinctReadingOrder = { roles, pageText, CAPTION, suspect, hidden };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -23,7 +23,7 @@ const VENDOR = ROOT + 'app/public/lab/addbook/vendor/pdfjs/'
 type Item = { str: string; transform: number[]; width: number; height: number; hasEOL: boolean }
 type Unit = { key: string; title: string; from: number; start: number; to: number; matter?: string; chapter?: string; label?: string; pages?: boolean }
 interface Search { create(): { add(page: number, text: string): void; search(q: string, o?: { limit?: number; skip?: Set<number> | null }): Array<{ page: number; text: string; score: number }>; size: number }; queryTerms(q: string): string[]; stem(w: string): string }
-interface Order { roles(items: Item[], view?: number[] | null): Array<string | null>; pageText(items: Item[], roles?: Array<string | null>): string; CAPTION: RegExp }
+interface Order { roles(items: Item[], view?: number[] | null): Array<string | null>; pageText(items: Item[], roles?: Array<string | null>): string; CAPTION: RegExp; suspect(items: Item[]): boolean; hidden(items: Item[], view: number[], ink: Uint8Array, W: number, H: number): Set<number> }
 interface Printed { candidates(items: Item[], view: number[]): Array<{ value: number; roman: boolean }>; labels(perPage: Array<Array<{ value: number; roman: boolean }>>): string[] | null }
 interface Margin {
   primerUnits(entries: unknown[], count: number): Unit[]
@@ -475,5 +475,46 @@ describe('after the retest (15 Oct): a search hit\'s whole section, and "Go to p
     expect(R.CAPTION.test('Figure 1.18 shows the performance of repetition codes')).toBe(false)
     expect(R.CAPTION.test('Figure 1.4 . The binary symmetric channel.')).toBe(true)
     expect(R.CAPTION.test('Figure 16.1: The TD-Gammon ANN')).toBe(true)
+  })
+})
+
+describe('text a placed figure carries out of sight (full battery, 15 Oct: "text wrapped beside a figure is scrambled")', () => {
+  // A 600×800 page drawn at 240×320 (2.5 units a pixel): body lines on the left, a figure on the right, and the
+  // figure's hidden page of text (an earlier draft) right across it, over blank paper and on top of the body.
+  const view = [0, 0, 600, 800], W = 240, H = 320
+  const item = (str: string, x: number, y: number, width: number, size = 10): Item => ({ str, transform: [size, 0, 0, size, x, y], width, height: size, hasEOL: true })
+  const page = () => {
+    const ink = new Uint8Array(W * H), items: Item[] = []
+    const paint = (x: number, y: number, w: number, size = 10) => { const l = Math.round(x / 2.5), r = Math.round((x + w) / 2.5), t = Math.round((800 - y - size * 0.7) / 2.5), b = Math.round((800 - y) / 2.5); for (let yy = t; yy <= b; yy++) for (let xx = l; xx <= r; xx++) ink[yy * W + xx] = 1 }
+    // The figure, as the PDF draws it first: its label (drawn), then the hidden draft's lines.
+    items.push(item('predicted probability', 380, 700, 120)); paint(380, 700, 120)
+    for (let k = 0; k < 12; k++) items.push(item(`hidden draft line ${k} of an earlier page of the book`, 60 + (k % 2) * 200, 745 - k * 12.5, 260))
+    // The page's own lines (drawn), the wrapped body beside the figure.
+    for (let k = 0; k < 12; k++) { items.push(item(`network had two additional units in its line ${k}`, 60, 740 - k * 12.5, 230)); paint(60, 740 - k * 12.5, 230) }
+    // The figure's ink, round its label.
+    for (let yy = 40; yy < 110; yy++) for (let xx = 150; xx < 220; xx += 6) ink[yy * W + xx] = 1
+    return { items, ink }
+  }
+  it('the hidden lines go, the page\'s own lines and the figure\'s label stay; reading order then reads the body straight', () => {
+    const { items, ink } = page()
+    expect(R.suspect(items)).toBe(true)
+    const gone = R.hidden(items, view, ink, W, H)
+    const kept = items.filter((_, i) => !gone.has(i)).map(it => it.str)
+    expect(kept.filter(s => /hidden draft/.test(s))).toEqual([])
+    expect(kept).toContain('predicted probability')
+    expect(kept.filter(s => /^network had/.test(s))).toHaveLength(12)
+    const shown = items.map((it, i) => (gone.has(i) ? { ...it, str: '', hasEOL: false } : it))
+    const text = R.pageText(shown, R.roles(shown, view))
+    expect(text).toMatch(/in its line 0\s+network had two additional units in its line 1\s+network had/)
+    expect(text).not.toMatch(/hidden draft/)
+  })
+  it('a page whose lines never lie on each other is left alone (nothing drawn, nothing dropped)', () => {
+    const items = Array.from({ length: 30 }, (_, k) => item(`An ordinary line of running text number ${k}`, 60, 740 - k * 14, 300))
+    expect(R.suspect(items)).toBe(false)
+    expect(R.hidden(items, view, new Uint8Array(W * H), W, H).size).toBe(0)
+  })
+  it('lines on top of each other, all of them drawn (no blank paper under any): nothing is dropped', () => {
+    const { items } = page(), ink = new Uint8Array(W * H).fill(1)
+    expect(R.hidden(items, view, ink, W, H).size).toBe(0)
   })
 })
