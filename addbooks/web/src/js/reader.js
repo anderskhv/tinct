@@ -2296,8 +2296,9 @@ const dictation = {
    chat (the existing thread, chat.turns) is the "Whole PDF" card at the top of the column and the
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
-const mpReady = import('/lab/margin/margin-parse.js').then(m => (MP.P = m)).catch(() => null);
-const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), ctl: new Map(), raf: 0, view: null, whole: { away: false } };
+// Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015quizstream').then(m => (MP.P = m)).catch(() => null);
+const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, whole: { away: false } };
 const marginOn = () => state.kind === 'pdf';
 const keptCards = () => store.get('cards:' + state.key) || [];
 const cardById = id => keptCards().find(c => c.id === id && !c.gone) || null;
@@ -2409,7 +2410,7 @@ function marginStart() {
 }
 function marginStop() {
   for (const c of col.ctl.values()) c.abort();
-  col.ctl.clear(); col.live.clear(); col.pending.clear();
+  col.ctl.clear(); col.live.clear(); col.pending.clear(); col.quiz.clear();
   closeFloat(); closeSheet2();
   col.el?.remove(); col.leads?.remove(); col.marks?.remove();
   col.els.forEach(e => e.remove()); col.els.clear();
@@ -2451,20 +2452,33 @@ function visibleCards() {
   }
   return out;
 }
-const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0]);
+/**
+ * Quiz me while its questions stream in (FIXES-2026-10-15 A7): the questions so far and the
+ * reader's progress live in col.quiz, in memory, until the stream ends; the card is saved once then.
+ */
+const quizLive = card => { const d = col.quiz.get(card.id); return d ? { ...card, data: d } : card };
+const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id)]);
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
-  return { open, P: MP.P, resolve: citeResolve, pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id) };
+  return { open, P: MP.P, resolve: citeResolve, pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id) };
+}
+/** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
+function holdQuizHeight(el, before) {
+  if (el.querySelector('.mr-writing')) el.style.minHeight = Math.max(before, parseFloat(el.style.minHeight) || 0) + 'px';
+  else el.style.removeProperty('min-height');
 }
 /** Draw a card into `el` when what it shows changed; true when it was drawn again. */
 function drawCard(el, card, open) {
+  card = quizLive(card);
   const sig = cardSig(card, open);
   if (el.dataset.sig === sig) return false;
   el.dataset.sig = sig; el.dataset.id = card.id;
   el.className = 'mr ' + TinctMargin.html.cardClass(card, open) + (el.classList.contains('is-floating') ? ' is-floating' : '') + (card.data?.unit ? ' is-unit' : '');
   if (card.kind === 'note') el.style.setProperty('--hl-color', (HL_COLORS.find(c => c[0] === card.color) || HL_COLORS[0])[3]);
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
+  const before = card.kind === 'quiz' && open ? el.offsetHeight : 0;
   el.innerHTML = TinctMargin.html.cardHtml(card, cardOpts(card, open));
+  if (card.kind === 'quiz') holdQuizHeight(el, before);
   if (open) { el.setAttribute('role', 'region'); el.setAttribute('aria-label', TinctMargin.html.cardLabel(card, pageLabel(card.page))) } else { el.removeAttribute('role'); el.removeAttribute('aria-label') }
   const live = col.live.get(card.id);
   if (open && live && !live.status) el.setAttribute('aria-busy', 'true'); else el.removeAttribute('aria-busy');
@@ -2683,13 +2697,16 @@ function drawSheet() {
     el.innerHTML = TinctMargin.html.sheetHtml(`<button type="button" class="mr-trigger" data-c="primer" aria-expanded="false">${TinctMargin.html.triggerHtml(unit, { key: false })}</button>`);
     return;
   }
-  const card = viewCards().find(c => c.id === id) || cardById(id); if (!card) { closeSheet2(); return }
+  const kept = viewCards().find(c => c.id === id) || cardById(id); if (!kept) { closeSheet2(); return }
+  const card = quizLive(kept);
   el.setAttribute('aria-label', TinctMargin.html.cardLabel(card, pageLabel(card.page)));
   const sig = cardSig(card, true);
   if (el.dataset.sig === sig) return;
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   el.dataset.sig = sig;
+  const before = card.kind === 'quiz' ? el.offsetHeight : 0;
   el.innerHTML = TinctMargin.html.sheetHtml(TinctMargin.html.cardHtml(card, cardOpts(card, true)));
+  if (card.kind === 'quiz') holdQuizHeight(el, before);
   const live = col.live.get(card.id);
   if ((live && !live.text && !live.status) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
   const f = el.querySelector('.mr-follow__input');
@@ -2886,35 +2903,67 @@ async function runCard(id, question = null) {
   const book = { ...aiBook(), pdf };
   const onText = ({ text }) => { if (!ctl.signal.aborted) setLive(id, { text, status: '' }) };
   const onStatus = status => { if (!ctl.signal.aborted) setLive(id, { status }) };
+  // Quiz me streams (FIXES-2026-10-15 A7): each question shows as soon as it is complete; the reader can
+  // answer question 1 while 2 and 3 are written. Nothing is saved until the stream ends.
+  const quizRun = card.kind === 'quiz' && question == null;
+  const live = quizRun ? { ...(card.data?.unit ? { unit: card.data.unit } : {}), questions: [], i: 0, results: [] } : null;
+  if (live) col.quiz.set(id, live);
+  const onQuizText = ({ text }) => {
+    if (ctl.signal.aborted || col.quiz.get(id) !== live) return;
+    const got = MP.P.parseQuizPartial?.(text) || [];
+    if (got.length <= live.questions.length) return;
+    const first = !live.questions.length, waiting = live.i >= live.questions.length;
+    live.questions = got;
+    if (first) { col.live.delete(id); announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${got[0].q.replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`) }
+    marginLayout();
+    // The reader was waiting on "Writing the next question…": the answer line takes the focus.
+    if (!first && waiting && col.open === id) openCard(id, { focus: true });
+  };
   const call = async imgs => {
     const images = imgs ? [imgs] : undefined;
     if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, document: wholeDoc, onText, signal: ctl.signal });
     // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
-    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: false, signal: ctl.signal });
+    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: true, onText: onQuizText, signal: ctl.signal });
     return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
   };
   try {
     let res;
     try { res = await call(image) }
     catch (e) { if (!image || (e?.code !== 'images_unavailable' && e?.code !== 'image_rejected')) throw e; if (e.code === 'images_unavailable') sampleImages = false; res = await call(null) }
-    card = cardById(id); if (!card || ctl.signal.aborted) return;
-    if (card.kind === 'quiz' && question == null) {
-      const quiz = MP.P.parseQuiz(res.text);
-      if (!quiz) throw Object.assign(new Error('failed'), { code: 'failed' });
-      card.data = { ...(card.data?.unit ? { unit: card.data.unit } : {}), questions: quiz.questions, i: 0, results: [] };
-    } else card.turns = [...(card.turns || []), { role: 'assistant', content: res.text, at: Date.now() }];
+    card = cardById(id); if (!card || ctl.signal.aborted) { if (col.quiz.get(id) === live) col.quiz.delete(id); return }
+    if (quizRun) {
+      // The whole reply is the authority; what streamed stands when it does not parse.
+      const questions = MP.P.parseQuiz(res.text)?.questions || live.questions;
+      if (!questions.length) throw Object.assign(new Error('failed'), { code: 'failed' });
+      col.quiz.delete(id); col.live.delete(id); col.ctl.delete(id);
+      card.data = quizEnded(live, questions, false);
+      saveCard(card);
+      if (!live.questions.length) announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${questions[0].q.replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
+      return;
+    }
+    card.turns = [...(card.turns || []), { role: 'assistant', content: res.text, at: Date.now() }];
     col.live.delete(id); col.ctl.delete(id);
     saveCard(card);
     // Screen readers hear the finished answer once (the card itself is redrawn as it streams).
-    const said = card.kind === 'quiz' && question == null ? card.data.questions?.[0]?.q : res.text;
-    announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${String(said || '').replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
+    announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${String(res.text || '').replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
   } catch (e) {
-    if (e?.code === 'cancelled' || ctl.signal.aborted) return;
+    if (e?.code === 'cancelled' || ctl.signal.aborted) { if (live && col.quiz.get(id) === live) col.quiz.delete(id); return }
     col.ctl.delete(id);
+    if (live && col.quiz.get(id) === live) {
+      col.quiz.delete(id);
+      // Stopped after some questions (never a refusal): keep them and end the quiz there, saved once.
+      const c = cardById(id);
+      if (c && live.questions.length && e?.code !== 'refused') { col.live.delete(id); c.data = quizEnded(live, live.questions, true); saveCard(c); return }
+    }
     const c = cardById(id);
     if (c && e?.text && c.kind !== 'quiz' && e.code !== 'refused') { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
     setLive(id, { text: null, status: errorCopy(e) });
   }
+}
+/** The quiz as it is saved when its stream ends: the questions that arrived and how far the reader got. */
+function quizEnded(live, questions, stopped) {
+  const i = Math.min(live.i || 0, questions.length);
+  return { ...(live.unit ? { unit: live.unit } : {}), questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < 3 ? { ended: true } : {}) };
 }
 /** An action from the bar or More on the held passage: a new card, opened, its answer on the way. */
 function cardAction(kind, { question = '' } = {}) {
@@ -2929,26 +2978,32 @@ function cardAction(kind, { question = '' } = {}) {
 }
 // Quiz me: "Show answer" (no call), "Next question →", and marking an answer (quiz_check).
 function quizStep(id, step) {
-  const card = cardById(id); if (!card?.data?.questions?.length) return;
-  const q = card.data, i = q.i || 0;
+  // While the questions stream, the reader's steps stay in memory (saved with the quiz when it ends).
+  const live = col.quiz.get(id), card = cardById(id);
+  const q = live || card?.data; if (!q?.questions?.length || !card) return;
+  const i = q.i || 0;
   q.results = q.results || [];
   if (step === 'show') q.results[i] = { shown: true };
-  else if (i + 1 >= q.questions.length) q.done = true;
+  else if (i + 1 >= (live ? 3 : q.questions.length)) q.done = true;
   else q.i = i + 1;
-  saveCard(card);
-  if (step === 'next') openCard(id, { focus: !q.done });
+  if (live) marginLayout(); else saveCard(card);
+  if (step === 'next') openCard(id, { focus: !q.done && !!q.questions[q.i || 0] });
 }
 async function quizCheck(card, answer) {
   await mpReady;
-  const q = card.data, i = q.i || 0, item = q.questions?.[i]; if (!item || q.results?.[i]) return;
+  const q = col.quiz.get(card.id) || card.data, i = q.i || 0, item = q.questions?.[i]; if (!item || q.results?.[i]) return;
   col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
   try {
     const pdf = await pdfPages(card.page), wholeDoc = await marginDocument(card.page);
     const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
     const mark = MP.P.parseQuizCheck(res.text);
     if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
+    const result = { answer, verdict: mark.verdict, feedback: mark.feedback };
+    // Still streaming: the mark joins the quiz in memory; else the saved card takes it.
+    const live = col.quiz.get(card.id);
+    if (live) { live.results[i] = result; col.pending.delete(card.id); marginLayout(); return }
     const c = cardById(card.id); if (!c) return;
-    c.data.results = c.data.results || []; c.data.results[i] = { answer, verdict: mark.verdict, feedback: mark.feedback };
+    c.data.results = c.data.results || []; c.data.results[i] = result;
     col.pending.delete(card.id); saveCard(c);
   } catch (e) {
     col.pending.delete(card.id); col.live.set(card.id, { text: null, status: errorCopy(e) }); marginLayout();

@@ -502,13 +502,14 @@
    * A card. Folded: its label and two lines. Open: the label and close, the passage quote, the
    * question bubble (Ask), the answer, the action's own parts, copy, and the follow-up line.
    * o: { open, P (parsers), resolve (citation -> target), pageLabel, status (a status line such as
-   * "Checking sources…"), live (an answer on its way), pending (a quiz answer being marked) }.
+   * "Checking sources…"), live (an answer on its way), pending (a quiz answer being marked),
+   * writing (Quiz me's questions are still arriving: there will be three) }.
    */
   function cardHtml(card, o) {
     const P = o.P, label = esc(cardLabel(card, o.pageLabel));
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
-    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${q.questions.length}</span>` : '';
+    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
     const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`;
     const copy = `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>`;
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
@@ -520,6 +521,10 @@
         const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
         body = `<div class="mr-answer"><p><span class="is-bottom-line">${quizScore(q)} of ${qs.length}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
         foot = '';
+      } else if (!qs[q.i || 0]) {
+        // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
+        body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
+        foot = followHtml({ field: false, mic: false });
       } else {
         const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
@@ -528,7 +533,9 @@
           body += r.shown
             ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
             : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
-          foot = followHtml({ field: false, mic: false, link: '<button type="button" class="mr-follow__link" data-c="next">Next question →</button>' });
+          // A quiz whose writing stopped early ends with the questions it has (FIXES-2026-10-15 A7).
+          const last = q.ended && i + 1 >= qs.length;
+          foot = followHtml({ field: false, mic: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question →'}</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         else foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' });
       }

@@ -348,6 +348,39 @@ describe('refusals', () => {
     expect(rows.map(row => row.feature)).toEqual(['chat'])
   })
 
+  it('Quiz me streams its JSON as written, and is charged once, when it ends (FIXES A7)', async () => {
+    const q = (n: number) => JSON.stringify({ q: `Q${n}?`, answer: `A${n}`, why: 'w', cite: '{p. 1}' })
+    const pieces = ['{"questions":[' + q(1), ',' + q(2), ',' + q(3) + ']}']
+    const { anthropic, charges } = stubFetch(() => ({ stream: [
+      sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      ...pieces.map(text => sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text } })),
+      sse('content_block_stop', { index: 0 }),
+      sse('message_delta', { delta: { stop_reason: 'end_turn' }, usage: { output_tokens: 30 } }),
+      sse('message_stop', {}),
+    ].join('') }))
+    const { status, text } = await send({ stream: true, ...margin('quiz', 2, { selection: 'Self-attention' }) })
+    expect(status).toBe(200)
+    expect(anthropic[0].stream).toBe(true)
+    // Each piece reaches the reader as its own delta, in order: question 1 can show before the end.
+    const deltas = text.split('\n\n').filter(block => block.includes('text_delta')).map(block => JSON.parse(block.split('data: ')[1]).delta.text)
+    expect(deltas).toEqual(pieces)
+    expect(charges).toHaveLength(1)
+  })
+
+  it('a refused Quiz me stream is an error event and never charged', async () => {
+    const { charges } = stubFetch(() => ({ stream: [
+      sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+      sse('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 0, delta: { type: 'text_delta', text: '{"questions":[{"q":"Q1?","answer":"A1"}' } }),
+      sse('message_delta', { delta: { stop_reason: 'refusal' }, usage: { output_tokens: 1 } }),
+      sse('message_stop', {}),
+    ].join('') }))
+    const { text } = await send({ stream: true, ...margin('quiz', 2, { selection: 'Self-attention' }) })
+    expect(text).toContain('"type":"refusal"')
+    expect(charges).toHaveLength(0)
+  })
+
   it('a refused Fact-check (tool loop) is an error and never charged', async () => {
     const { charges } = stubFetch(() => refusalJson)
     const { ctx, pending } = context()
