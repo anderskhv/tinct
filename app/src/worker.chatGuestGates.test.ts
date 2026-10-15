@@ -63,7 +63,7 @@ describe('signed-out chat: rate limit and spend reservation', () => {
     const holder = hold(true)
     const response = await handleLabChat(ask(), { ANTHROPIC_API_KEY: 'k' }, ctx, async () => false, undefined, holder)
     expect(response.status).toBe(429)
-    expect(await response.json()).toEqual({ error: 'Rate limit exceeded. Try again in a minute.' })
+    expect(await response.json()).toEqual({ error: 'Give it a few seconds.' })
     await Promise.all(pending)
     expect(release).toHaveBeenCalledTimes(1)
     expect(provider).not.toHaveBeenCalled()
