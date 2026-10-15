@@ -16,6 +16,8 @@
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
 //   node scripts/margin-check.mjs primer-reliability  Before you start made 10 of 10 times against mocked replies (cut off, empty, odd shapes, slow)
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
+//   node scripts/margin-check.mjs long                PR F: a 585-page book: printed page numbers, the whole-book search with a question,
+//                                                     the primer's chapter (never the index), reading order round a figure, the reopen
 //   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
@@ -43,9 +45,13 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, longBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
+// PR F: a book-length PDF (the Sutton and Barto stand-in, gloss-test/edge.html): parts, chapters, an index, printed numbers 22 behind the file's.
+const BOOK = longBook({ meta: true })
+const BIG_BOOK = join(OUT, 'long_book.pdf')
+writeFileSync(BIG_BOOK, BOOK.bytes)
 
 // The class names of css/margin.css, as the check's selectors (the phone More's rows are buttons).
 export const SELECTORS = {
@@ -200,7 +206,8 @@ function start(port) {
 
 /* ---------- The reader, signed in, with a PDF from the account ---------- */
 const SESSION = { access_token: 'test-token', refresh_token: 'x', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: '00000000-0000-4000-8000-000000000001', email: 'reader@example.com', user_metadata: {} } }
-async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1 }) {
+// `at`: open the PDF at that page (the reader's ?page= link), for a book whose first pages carry little text.
+async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1, at = 0 }) {
   // Browser zoom: the CSS viewport shrinks by the zoom and each CSS pixel takes `zoom` device pixels.
   const phone = width < 700
   const ctx = await browser.newContext({ viewport: { width: Math.round(width / zoom), height: Math.round(height / zoom) }, deviceScaleFactor: zoom, hasTouch: phone, isMobile: false })
@@ -217,7 +224,7 @@ async function readerPage(browser, origin, hex, { width, height, look, startPage
   const page = await ctx.newPage()
   const problems = []
   page.on('pageerror', e => problems.push('pageerror: ' + e.message))
-  await page.goto(`${origin}/lab/addbook/?userBook=${hex}${look === 'eink' ? '&eink=1' : ''}`)
+  await page.goto(`${origin}/lab/addbook/?userBook=${hex}${look === 'eink' ? '&eink=1' : ''}${at ? '&page=' + at : ''}`)
   await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 })
   await page.evaluate(() => document.fonts.ready)
   // The docked chat opens by itself on the desktop; the margin pieces sit left of it. Past a title page, to running text.
@@ -1197,6 +1204,117 @@ async function resizeRun(browser, origin) {
   return out
 }
 
+/* ---------- PR F: long books (FIXES-2026-10-15, items 8 to 12) ---------- */
+// Every read and write of the stored books (IndexedDB 'books') and when the first page is drawn, for the reopen row.
+function watchStore() {
+  window.__books = []
+  for (const op of ['get', 'put', 'getAll']) {
+    const f = IDBObjectStore.prototype[op]
+    IDBObjectStore.prototype[op] = function (...a) { if (this.name === 'books') window.__books.push([op, performance.now()]); return f.apply(this, a) }
+  }
+  const watch = () => { if (document.querySelector('.pdf-sheet canvas')) window.__drawn = performance.now(); else requestAnimationFrame(watch) }
+  requestAnimationFrame(watch)
+}
+async function longBooks(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const hex = addBook(BIG_BOOK), m = BOOK.meta, printed = n => String(n - m.offset)
+  const chats = from => account.requests.slice(from).filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const views = SAMPLE ? [[1440, 900, 'paper'], [390, 844, rotate(LOOKS, 2)]] : [[1440, 900, 'paper'], [1440, 900, 'night'], [1280, 800, 'book'], [390, 844, 'paper'], [390, 844, 'eink']]
+  for (const [width, height, look] of views) {
+    const tag = `long_book-${width}x${height}-${look}`, phone = width < 700
+    const A = await readerPage(browser, origin, hex, { width, height, look, at: m.figurePage })
+    const a = A.page
+    await A.ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin })
+    const problems = []
+    const layout = async state => { await a.waitForTimeout(300); problems.push(...(await checkMargin(a)).map(p => ({ state, ...p }))) }
+    // Item 10: the numbers the pages print, with no page labels in the file.
+    await a.waitForFunction(() => state.labels?.length > 400, null, { timeout: 60000 }).catch(() => {})
+    const labels = await a.evaluate(n => [state.labels?.[0], state.labels?.[2], state.labels?.[n], state.labels?.[444], pageLabel(currentPlace().page)], m.offset)
+    ok(`${tag}: printed page numbers stand for the file's (file page 445 is p. 423; front matter in roman; no page labels in the file)`, JSON.stringify(labels) === JSON.stringify(['i', 'iii', '1', '423', printed(m.figurePage)]), labels)
+    if (!phone) {
+      const strip = await a.evaluate(() => document.querySelector('.pdf-strip [aria-valuetext]')?.getAttribute('aria-valuetext') || document.querySelector('.pdf-strip')?.getAttribute('aria-valuetext'))
+      // (The strip names the first page of its window: the page above the reader's, or theirs.)
+      ok(`${tag}: the strip names the printed page`, [0, 1, 2].some(k => strip === `p. ${printed(m.figurePage - k)} of ${m.pages}`), strip)
+    }
+    // Item 11: a drag through text wrapped beside the figure keeps the figure's labels and caption out of the body.
+    const order = await a.evaluate(n => { const p = state.pages[n - 1]; const r = document.createRange(); r.selectNodeContents(p.layer); getSelection().removeAllRanges(); getSelection().addRange(r); const t = getSelection().toString().replace(/\s+/g, ' '); getSelection().removeAllRanges(); return t }, m.figurePage)
+    const body = order.indexOf('a total of 198 input units that encode the backgammon position, a layer of hidden units, and one output unit that estimates the probability of winning from that position.')
+    ok(`${tag}: reading order round a figure: the body reads straight through, the labels and caption after it`, body >= 0 && order.indexOf('predicted probability') > body + 200 && order.indexOf('Figure 16.1') > body && !/position with the (?:TD error|hidden units)/.test(order), order.slice(0, 400))
+    // Copy quote names the printed page.
+    await a.evaluate(() => getSelection().removeAllRanges())
+    const picked = await selectText(a)
+    if (picked) {
+      await a.waitForSelector('.mr-bar, .mr-pbar')
+      await layout('bar')
+      if (look === 'paper') await shot(a, `${tag}-bar`)
+      await a.click('.mr-float [data-m="more"]'); await a.waitForSelector('.mr-more, .mr-pmore')
+      await a.click('.mr-float [data-m="copy"]').catch(() => {}); await a.waitForTimeout(400)
+      const copied = await a.evaluate(() => navigator.clipboard.readText().catch(() => ''))
+      ok(`${tag}: Copy quote names the printed page`, new RegExp(`— Learning from Reward, p\\. ${printed(m.figurePage)}$`).test(copied), copied.slice(-80))
+    } else ok(`${tag}: text to select on the figure page`, false, null)
+    if (!phone) {
+      // Item 8: a question about another chapter: this chapter and the contents before the breakpoint, the search's passages after it.
+      await a.evaluate(() => getSelection().removeAllRanges()); await a.mouse.click(5, height - 5)
+      const q0 = account.requests.length
+      await a.keyboard.press('/'); await a.keyboard.type('Where is Sarsa introduced?'); await a.keyboard.press('Enter')
+      await a.waitForTimeout(1500)
+      const ask = chats(q0).find(r => /Sarsa introduced/.test(JSON.stringify(r.body.messages)))
+      const doc = ask?.body?.companion?.document, found = ask?.body?.companion?.passages || []
+      const chapter = m.chapters.find(c => c.title.startsWith('16 '))
+      ok(`${tag}: the question goes with chapter 16 whole and the contents with printed pages (the long-file part)`, doc?.part?.total === m.pages && doc.units[0].n === printed(chapter.from) && doc.units.at(-1).n === printed(chapter.to) && doc.part.toc.some(e => e.title === '6.4 Sarsa: On-policy TD Control' && e.n === printed(m.sarsaPage)), doc && { first: doc.units[0].n, last: doc.units.at(-1).n, toc: doc.part?.toc?.length })
+      ok(`${tag}: "where is Sarsa introduced" carries the page that introduces it, first, from the search of the whole book`, found[0]?.n === printed(m.sarsaPage) && /name Sarsa/.test(found[0].text) && found.length <= 6 && !found.some(f => Number(f.n) >= Number(printed(chapter.from)) && Number(f.n) <= Number(printed(chapter.to))), found.map(f => f.n))
+      await layout('whole')
+      if (look === 'paper') await shot(a, `${tag}-whole`)
+      const q1 = account.requests.length
+      await a.keyboard.press('/'); await a.keyboard.type('What did TD-Gammon learn from?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
+      const ask2 = chats(q1).find(r => /TD-Gammon learn/.test(JSON.stringify(r.body.messages)))
+      ok(`${tag}: a second question in the chapter sends the same document, byte for byte (the cached prefix), with its own passages`, ask2 && JSON.stringify(ask2.body.companion.document) === JSON.stringify(doc) && JSON.stringify(ask2.body.companion.passages || null) !== JSON.stringify(found), { same: ask2 && JSON.stringify(ask2.body.companion.document) === JSON.stringify(doc) })
+      // A passage action carries the document but no search.
+      await a.keyboard.press('Escape'); await a.evaluate(() => { col.open = null; getSelection().removeAllRanges() })
+      await selectText(a); await a.waitForSelector('.mr-bar'); const e0 = account.requests.length
+      await a.click('.mr-bar [data-m="explain"]'); await a.waitForTimeout(1200)
+      const ex = chats(e0).find(r => r.body?.companion?.intent === 'explain')
+      ok(`${tag}: Explain sends the chapter's document and no search passages`, ex && JSON.stringify(ex.body.companion.document) === JSON.stringify(doc) && !ex.body.companion.passages, ex && { passages: !!ex.body.companion.passages })
+      await layout('explain card')
+      await a.keyboard.press('Escape'); await a.evaluate(() => { col.open = null; getSelection().removeAllRanges() })
+    }
+    // Item 9: Before you start is about the chapter the reader is in, never a part, the index or the references.
+    for (const [where, page, want] of [['the figure page (chapter 16)', m.figurePage, '16 Applications and Case Studies'], ['the index', m.indexFrom + 3, '17 Frontiers'], ['the references', m.refsFrom + 1, '17 Frontiers'], ['the preface', 8, '1 Introduction']]) {
+      if (phone && where !== 'the index') continue
+      await a.evaluate(n => { closePrimer(); goTo({ page: n, frac: 0.1 }); onScroll() }, page); await a.waitForTimeout(700)
+      const p0 = account.requests.length
+      await a.evaluate(() => openPrimer()); await a.waitForTimeout(1500)
+      // Made once per unit (later views read the account's copy): the request when there is one, else the unit opened.
+      const req = chats(p0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
+      const unit = await a.evaluate(() => primer.unit?.title)
+      ok(`${tag}: Before you start on ${where} is the primer of ${want}`, unit === want && (!req || req.body.companion.chapter.action.unitTitle === want), { unit, asked: req?.body?.companion?.chapter?.action })
+      if (where === 'the index') await layout('primer')
+      await a.evaluate(() => closePrimer())
+    }
+    ok(`${tag}: layout (bar, whole-PDF card, Explain card, primer): no problems`, !problems.length && !A.problems.length, [...problems, ...A.problems].slice(0, 5))
+    // Item 12: reopening from this device reads the stored file once and writes nothing before the first page is drawn.
+    if (width === 1440 && look === 'paper') {
+      await a.waitForTimeout(1500)
+      const B = await A.ctx.newPage()
+      await B.addInitScript(watchStore)
+      const t = Date.now()
+      await B.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+      await B.waitForFunction(() => window.__drawn, null, { timeout: 30000 })
+      const ms = Date.now() - t
+      const store = await B.evaluate(() => ({ before: window.__books.filter(([, at]) => at <= window.__drawn).map(([op]) => op), drawn: Math.round(window.__drawn) }))
+      ok(`${tag}: reopening reads the stored file once and writes nothing before the first page is drawn (${ms} ms)`, JSON.stringify(store.before) === '["get"]', store)
+      await B.waitForTimeout(3200)
+      const later = await B.evaluate(() => window.__books.map(([op]) => op))
+      ok(`${tag}: when it was opened is written once, after the page is shown`, later.filter(op => op === 'put').length <= 1 && later.length <= 3, later)
+      results.at(-1).reopenMs = ms
+      await B.close()
+    }
+    await A.ctx.close()
+  }
+  return results
+}
+
 const server = await start(Number(process.env.PORT || 4791))
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio'] })
@@ -1210,6 +1328,7 @@ const RUNS = {
   primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
   'primer-reliability': [primerReliability, rows => rows.some(r => !r.pass)],
   keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
+  long: [longBooks, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -1237,6 +1356,7 @@ try {
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

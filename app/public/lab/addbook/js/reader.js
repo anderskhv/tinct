@@ -127,9 +127,10 @@ async function chooseFile(file) {
   await openBook(kind, bytes, file.name, key);
   sendAccountCopy(key, file, { kind, name: file.name });
 }
-async function openStored(key) {
+// `known`: the record already read from this device (openFromUrl), so a large file is read once (FIXES item 12).
+async function openStored(key, known = null) {
   if (needsAccount()) return false;
-  let rec = await library.get(key);
+  let rec = known || await library.get(key);
   if (!rec) {
     // On the account but not on this device yet: download it, then keep it here too.
     const remote = cloud.get(key);
@@ -144,11 +145,15 @@ async function openStored(key) {
     const now = Date.now();
     rec = { key, kind: remote.type, name: remote.name || remote.title, size: bytes.byteLength, title: remote.title || remote.name, author: remote.author || '', owner: owner(), addedAt: Date.parse(remote.createdAt) || now, openedAt: now, cloudId: remote.id, bytes: bytes.buffer };
     if (!await library.put(rec)) toast('This browser could not keep a copy, so you will need to open the file again next time.');
-  } else await library.touch(key, { openedAt: Date.now() });
+  } else {
+    // When it was opened goes on the record after the page is shown: writing the record rewrites the
+    // whole file (a 73 MB book took 6.8 s to reopen, gloss-test/edge.html), so it waits (openBook).
+    rec = { ...rec, opened: Date.now() };
+  }
   // Opened before it reached the account (offline, or the sign-in had lapsed): save it now.
   const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
-  if (rec.kind === 'epub' && await library.get(key)) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
-  await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key);
+  if (rec.kind === 'epub' && (rec.opened ? (await library.touch(key, { openedAt: rec.opened }), true) : await library.get(key))) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
+  await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key, rec);
   if (!pending) return true;
   // A PDF just added on My shelf (add-engine preparePdf) reaches the account here, named like a
   // file chosen on this page: by the document's own title, once the scan has read it (briefly).
@@ -203,11 +208,14 @@ async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
 // Back from the reader may restore this page as it was left ("Opening…"): show Your books.
 let leftForTinct = false;
 addEventListener('pageshow', e => { if (e.persisted && leftForTinct) { leftForTinct = false; closeBook({ toShelf: true }) } });
-async function openBook(kind, bytes, name, key) {
+/** `rec`: the book's record as read for this open, when there is one (openStored): not read again. */
+async function openBook(kind, bytes, name, key, rec = null) {
   showReader();
-  if (kind === 'epub') await openEpub(bytes, name, key); else await openPdf(bytes, name, key);
+  if (kind === 'epub') await openEpub(bytes, name, key); else await openPdf(bytes, name, key, rec);
   if (hasBook()) {
-    library.touch(key, { title: state.title, author: state.author || '' });
+    // One write, after the page is drawn, and none when nothing changed: each write rewrites the whole file.
+    const patch = { ...(rec?.opened ? { openedAt: rec.opened } : {}), ...(!rec || rec.title !== state.title || (rec.author || '') !== (state.author || '') ? { title: state.title, author: state.author || '' } : {}) };
+    if (Object.keys(patch).length) setTimeout(() => library.touch(key, patch), rec ? 2500 : 0);
     // A PDF is a book with its own address (/lab/addbook/?userBook=<hex>): a reload, the
     // library and the book switcher open it again at its place.
     const url = kind === 'pdf' ? bookUrl(key) : null;
@@ -237,7 +245,7 @@ async function openFromUrl(hex) {
   if (needsAccount()) return false;
   showReader();
   waitStatus('Opening…');
-  for (const kind of ['pdf', 'epub']) if (await library.get(kind + ':' + hex)) return openStored(kind + ':' + hex);
+  for (const kind of ['pdf', 'epub']) { const rec = await library.get(kind + ':' + hex); if (rec) return openStored(kind + ':' + hex, rec) }
   await cloud.refresh();
   for (const kind of ['pdf', 'epub']) if (cloud.get(kind + ':' + hex)) return openStored(kind + ':' + hex);
   $('column').innerHTML = `<div class="pdf-status" role="alert">That book is no longer on this device or in your account. <a href="${SHELF_URL}">Go to My shelf</a></div>`;
@@ -260,6 +268,7 @@ async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
   Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
+  Object.assign(book, { key: null, pdf: null, task: null, texts: [], numbers: [], matter: [], index: null });
   $('textBtn').hidden = true;
   if (window.CSS?.highlights) for (const [k] of HL_COLORS) CSS.highlights.delete('tinct-hl-' + k);
   chat.turns = []; chat.passage = null; chat.attach = [];
@@ -328,7 +337,7 @@ $('column').addEventListener('click', e => {
 });
 
 /* ---------- PDF ---------- */
-async function openPdf(bytes, name, key) {
+async function openPdf(bytes, name, key, known = null) {
   const token = ++state.token;
   closeAllPopups();
   waitStatus('Opening…');
@@ -342,7 +351,7 @@ async function openPdf(bytes, name, key) {
   furniture.clear();
   // The scan (js/pdf-scan.js) kept with the book is used while it is of the current version;
   // until a new scan has read the title, the book's stored name stands in.
-  const rec = await library.get(key);
+  const rec = known || await library.get(key);
   const scan = TinctPdfScan.current(rec?.scan) ? rec.scan : null;
   // The PDF's Tinct text when this device has converted it (the Tinct reader keeps it on the
   // record): a place here also names the same spot in it (textSpot).
@@ -369,16 +378,17 @@ async function openPdf(bytes, name, key) {
   strip?.open();
   noteSession();
   buildContents();
-  keepPdfCover(pdf, key, token);
+  keepPdfCover(pdf, key, token, rec);
   marksSync.open();
   cardsSync.open();
   warmDictionary();
   // Before you start: the PDF's units, from its outline (PR 3).
   primerReset(); loadUnits();
   // The PDF's printed page labels ("xii", "12"), for citations: what the companion is shown and cites.
+  // Without labels, the numbers the pages print (pageLabels).
   state.labels = null;
   // The margin's document (marginDocument) waits for the labels, so its text is the same on every request.
-  state.labelsTask = Promise.resolve(pdf.getPageLabels?.()).then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged() } }).catch(() => {});
+  state.labelsTask = pageLabels(pdf, key, token).catch(() => {});
   // The whole file's text, read once while the reader settles in, for the margin's companion.
   setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
   // The margin replaces the docked chat (docs/margin/BRIEF.md §3): its column, or marks in a narrow window.
@@ -402,11 +412,12 @@ function setBookTitle(title, author) {
 // A PDF's cover is its first page, drawn once (coverV 2) at the size Your books and the
 // library show it, after the page is open so it never delays reading.
 const PDF_COVER_WIDTH = 900;
-function keepPdfCover(pdf, key, token) {
+function keepPdfCover(pdf, key, token, known = null) {
   setTimeout(async () => {
     try {
       if (token !== state.token || state.pdf !== pdf) return;
-      const rec = await library.get(key);
+      // Drawn already (the record read for this open says so): not read again.
+      const rec = known && known.coverV >= 2 && known.coverW >= PDF_COVER_WIDTH ? known : await library.get(key);
       // Drawn already: its small copy goes to an account copy that has none (copies saved before covers were kept).
       if (!rec || (rec.coverV >= 2 && rec.coverW >= PDF_COVER_WIDTH)) { if (rec) await engine.covers?.save(key); return; }
       const page = await pdf.getPage(1);
@@ -454,12 +465,21 @@ function buildSheets(count) {
   }, { root: $('scroll'), rootMargin: '150% 0px' });
   state.pages.forEach(p => state.observer.observe(p.sheet));
 }
+/* A page's text, as everything the companion reads and a selection takes it: the body in the PDF's
+   order, with a figure's labels and caption kept out of its flow (js/reading-order.js, FIXES long
+   books item 11). `roles` says which items are body, caption or figure, for the text layer. */
+function textOf(items, view) {
+  const RO = window.TinctReadingOrder;
+  if (!RO) return { roles: null, text: items.map(i => i.str + (i.hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ').trim() };
+  const roles = RO.roles(items, view);
+  return { roles, text: RO.pageText(items, roles) };
+}
 async function pageText(n) {
   if (state.texts.has(n)) return state.texts.get(n);
   if (isEpub()) return { text: '', items: [] };
   const page = await state.pdf.getPage(n);
   const content = await page.getTextContent();
-  const value = { items: content.items, text: content.items.map(i => i.str + (i.hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ').trim() };
+  const value = { items: content.items, ...textOf(content.items, page.view) };
   state.texts.set(n, value);
   return value;
 }
@@ -496,10 +516,10 @@ async function renderPage(p) {
   p.canvas?.remove(); p.layer?.remove();
   if (p.source && p.source !== canvas) p.source.width = 0;
   p.pg.prepend(shown); p.canvas = shown; p.source = shown === canvas ? null : canvas; p.renderedWidth = width; p.dark = dark;
-  const { items } = await pageText(p.n);
+  const { items, roles } = await pageText(p.n);
   // (In Dark the page shown is its recoloured copy: the text layer goes over that one too.)
   if (token !== state.token || p.canvas !== shown) return;
-  buildTextLayer(p, items, page.getViewport({ scale: cssScale }));
+  buildTextLayer(p, items, page.getViewport({ scale: cssScale }), roles);
   if (!state.figs.has(p.n)) setTimeout(() => detectFigures(p), 0); else p.figures = state.figs.get(p.n);
   if (narr.active && narr.page === p.n) paintNarration();
 }
@@ -520,7 +540,7 @@ async function darkCopy(page, canvas, viewport) {
   } catch { return null }
 }
 const measureCtx = document.createElement('canvas').getContext('2d');
-function buildTextLayer(p, items, vp) {
+function buildTextLayer(p, items, vp, roles = null) {
   const layer = document.createElement('div');
   layer.className = 'text-layer';
   layer.setAttribute('aria-label', `Text of page ${p.n}`);
@@ -534,6 +554,9 @@ function buildTextLayer(p, items, vp) {
   const bodyEnds = longs.filter(it => Math.abs(it.transform[4] - bodyLeft) < fs(it) * 4).map(it => it.transform[4] + it.width).sort((a, b) => a - b);
   const bodyRight = bodyEnds.length >= 4 ? bodyEnds[Math.floor(bodyEnds.length * 0.9)] : Infinity;
   const side = document.createElement('div'); side.className = 'side-col';
+  // A figure's labels and caption (js/reading-order.js) come after everything else, so a drag
+  // through text wrapped beside a figure never runs through them.
+  const fig = document.createElement('div'); fig.className = 'side-col fig-col';
   const body = [];
   items.forEach((item, i) => {
     if (!item.str.trim()) { spans.push(null); return }
@@ -553,13 +576,15 @@ function buildTextLayer(p, items, vp) {
     const sx = natural > 0 && target > 0 ? target / natural : 1;
     span.style.transform = `${angle ? `rotate(${angle}rad) ` : ''}scaleX(${sx})`;
     spans.push(span);
-    if (item.transform[4] > bodyRight + 2) side.appendChild(span);
+    if (roles && (roles[i] === 'figure' || roles[i] === 'caption')) fig.appendChild(span);
+    else if (item.transform[4] > bodyRight + 2) side.appendChild(span);
     else body.push({ span, x: tx[4], base: tx[5], size, w: target, str: item.str });
   });
   const lay = layoutBody(body, vp); p.blocks = lay.blocks; p.prose = lay.prose;
   for (const b of body) frag.appendChild(b.span);
   layer.appendChild(frag);
   if (side.childNodes.length) layer.appendChild(side);
+  if (fig.childNodes.length) layer.appendChild(fig);
   p.pg.appendChild(layer); p.layer = layer; p.spans = spans;
   renderHighlights(p);
   // The primer's trigger sits at a page's first line of text, known once its text layer is drawn.
@@ -1447,7 +1472,7 @@ async function toggleFullscreen() {
 function setTrim(on) { prefs.trim = state.trim = on; savePrefs(); if (state.pages.length) setZoom(state.zoom); else applyCrop() }
 
 /* ---------- Chapters: from the scan (js/pdf-scan.js), kept with the book ---------- */
-const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages' };
+const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages', task: null };
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
@@ -1457,6 +1482,11 @@ function chapterTitleStyle() {
 async function buildContents() {
   const token = state.token, key = state.key, pdf = state.pdf;
   toc.ready = false; toc.entries = [];
+  // Resolved when the contents are known (a long file's margin requests send them: docRange).
+  let built; toc.task = new Promise(r => { built = r });
+  try { await buildContentsNow(token, key, pdf) } finally { built() }
+}
+async function buildContentsNow(token, key, pdf) {
   let scan = state.scan;
   const fresh = !scan;
   if (!scan) {
@@ -2138,7 +2168,7 @@ function mrSend() {
   cardAction('ask', { question: q });
 }
 async function mrCopy() {
-  const text = TinctMargin.copyQuote({ text: mr.info.text, title: state.title, page: mr.info.page });
+  const text = TinctMargin.copyQuote({ text: mr.info.text, title: state.title, page: pageLabel(mr.info.page) });
   marginClose();
   try { await navigator.clipboard.writeText(text); toast('Copied.') } catch { toast('Copy did not work here. Use your device’s copy instead.') }
 }
@@ -2380,10 +2410,56 @@ async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
   }
   return { pages, at };
 }
+/* The whole book, read once per open in the background (FIXES-2026-10-15, long books, items 8 and 10):
+   each page's text as the companion reads it (textOf), the numbers printed at its top and bottom
+   (js/printed-pages.js), what kind of page it is (an index, a reference list, a contents page) and a
+   search index over the text (js/doc-search.js). Only text is kept, not the pages' items, so a
+   500-page book stays light. */
+const book = { key: null, pdf: null, task: null, texts: [], numbers: [], matter: [], index: null };
+function readBook() {
+  if (book.key === state.key && book.pdf === state.pdf && book.task) return book.task;
+  const key = state.key, pdf = state.pdf;
+  if (!pdf || isEpub()) return Promise.resolve(null);
+  Object.assign(book, { key, pdf, texts: [], numbers: [], matter: [], index: window.TinctDocSearch ? TinctDocSearch.create() : null });
+  const task = (async () => {
+    for (let n = 1; n <= pdf.numPages; n++) {
+      if (state.pdf !== pdf) return null;
+      const have = state.texts.get(n), page = await pdf.getPage(n);
+      const items = have ? have.items : (await page.getTextContent()).items;
+      const text = have ? have.text : textOf(items, page.view).text;
+      book.texts[n - 1] = text;
+      book.numbers[n - 1] = window.TinctPrintedPages ? TinctPrintedPages.candidates(items, page.view) : [];
+      book.matter[n - 1] = TinctMargin.pageMatter(text);
+      book.index?.add(n, text);
+    }
+    return book;
+  })().catch(() => { if (book.task === task) book.task = null; return null });
+  book.task = task;
+  return task;
+}
+/* Printed page numbers for a PDF without page labels (FIXES-2026-10-15, long books, item 10): the
+   numbers its pages print in their heads and feet, where neighbouring pages agree (the test's book
+   prints 423 on file page 445). Found once per device and kept ('printed:' + key); they are the
+   labels everywhere labels are used: citations, the strip, card labels, Copy quote. */
+const PRINTED_V = 1;
+async function pageLabels(pdf, key, token) {
+  const use = labels => { if (token !== state.token) return; state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged() };
+  const own = await Promise.resolve(pdf.getPageLabels?.()).catch(() => null);
+  if (token !== state.token) return;
+  if (Array.isArray(own) && own.length === pdf.numPages) return use(own);
+  if (!window.TinctPrintedPages) return;
+  const kept = store.get('printed:' + key);
+  if (kept?.v === PRINTED_V && kept.pages === pdf.numPages) { if (Array.isArray(kept.labels) && kept.labels.length === pdf.numPages) use(kept.labels); return }
+  const read = await readBook();
+  if (!read || token !== state.token) return;
+  const labels = TinctPrintedPages.labels(read.numbers);
+  store.set('printed:' + key, { v: PRINTED_V, pages: pdf.numPages, labels });
+  if (labels) use(labels);
+}
 /* The whole file as the margin's companion reads it (docs/margin/FIXES-2026-10-15.md A1): every page's
    text with its printed label, read once per book and kept, so each request sends the same text and the
    Worker's cached prefix is read, not rewritten. A file longer than TinctAI.DOCUMENT_CHARS sends the
-   part the reader is in (its chapter, else a fixed 40-page block) with the contents list instead. */
+   chapter the reader is in with the contents list instead, and a search of the rest for a question. */
 const docCache = { key: null, task: null };
 function readDocument() {
   if (docCache.key === state.key && docCache.task) return docCache.task;
@@ -2391,10 +2467,11 @@ function readDocument() {
   docCache.key = key;
   docCache.task = (async () => {
     await state.labelsTask;
+    const read = await readBook();
+    if (!read || state.key !== key) return null;
     const pages = []; let chars = 0;
     for (let n = 1; n <= state.pages.length; n++) {
-      if (state.key !== key) return null;
-      const text = (await pageText(n)).text || '';
+      const text = read.texts[n - 1] || '';
       if ((chars += text.length) > limit) return { pages: null, limit };
       pages.push({ n: pageLabel(n), text });
     }
@@ -2402,17 +2479,45 @@ function readDocument() {
   })().catch(() => { if (docCache.key === key) docCache.task = null; return null });
   return docCache.task;
 }
-/** The margin request's `document` for the reader on `page`, or null (not a PDF, or not readable). */
+/**
+ * The margin request's `document` for the reader on `page`, or null (not a PDF, or not readable).
+ * A long file's is its part: the chapter the reader is in and the contents with their printed pages,
+ * the same for every request in that chapter (the cached prefix); `range` (file pages) stays here.
+ */
 async function marginDocument(page) {
   if (!marginOn() || !state.pages.length) return null;
   const read = await readDocument(); if (!read) return null;
   if (read.pages) return { kind: 'pdf', units: read.pages };
+  const r = await docRange(page);
+  const units = []; let chars = 0;
+  for (let n = r.from; n <= r.to; n++) { const text = book.texts[n - 1] || ''; if ((chars += text.length) > read.limit) break; units.push({ n: pageLabel(n), text }) }
+  return { kind: 'pdf', units, part: { toc: toc.entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length }, range: { from: r.from, to: r.from + units.length - 1 } };
+}
+/** A long file's part for `page`: Before you start's unit (the real chapter, so both share one cached prefix), else the contents' chapter, else a fixed 40-page block. */
+async function docRange(page) {
+  await Promise.race([Promise.all([primer.unitsTask, toc.task]), new Promise(r => setTimeout(r, 5000))]);
+  const unit = primer.units && primer.units[0]?.key !== 'all' ? TinctMargin.primerUnitAt(primer.units, page) : null;
+  if (unit) return { from: unit.from, to: unit.to };
   const ch = toc.ready ? chapterAt(page) : null;
   const block = Math.floor((page - 1) / 40) * 40 + 1;
-  const r = ch ? chapterRange(ch) : { from: block, to: Math.min(state.pages.length, block + 39) };
-  const units = []; let chars = 0;
-  for (let n = r.from; n <= r.to; n++) { const text = (await pageText(n)).text || ''; if ((chars += text.length) > read.limit) break; units.push({ n: pageLabel(n), text }) }
-  return { kind: 'pdf', units, part: { toc: leafEntries().map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length } };
+  return ch ? chapterRange(ch) : { from: block, to: Math.min(state.pages.length, block + 39) };
+}
+/**
+ * For a question on a long file (FIXES-2026-10-15, long books, item 8): the few passages beyond its
+ * chapter that a search of the whole book for the question's terms finds best, with their printed
+ * pages ("where is Sarsa introduced" -> the page that introduces it). Not the pages the request
+ * carries already, and not an index, a reference list or the contents, which match any term.
+ * -> [{ n, text }] for the request's `passages`, or null (a file sent whole, no question).
+ */
+async function searchPassages(question, doc) {
+  if (!doc?.part || !doc.range || !String(question || '').trim()) return null;
+  const read = await readBook(); if (!read?.index) return null;
+  const skip = new Set();
+  for (let n = doc.range.from; n <= doc.range.to; n++) skip.add(n);
+  for (const u of primer.units || []) if (u.matter) for (let n = u.from; n <= u.to; n++) skip.add(n);
+  read.matter.forEach((m, i) => { if (m) skip.add(i + 1) });
+  const found = read.index.search(question, { limit: 5, skip }).map(hit => ({ n: pageLabel(hit.page), text: hit.text }));
+  return found.length ? found : null;
 }
 /** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. */
 function citeResolve(token) {
@@ -2986,6 +3091,9 @@ async function runCard(id, question = null) {
   const region = unit ? null : passageRegion(card);
   const image = region ? await pageImage(card.page, region) : null;
   const wholeDoc = await marginDocument(unit ? unit.from : card.page);
+  // A question on a long file: what a search of the rest of the book finds for it (searchPassages).
+  const asked = question ?? (card.kind === 'ask' ? [...(card.turns || [])].reverse().find(t => t.role === 'user')?.content : null);
+  const found = asked ? await searchPassages(asked, wholeDoc) : null;
   const book = { ...aiBook(), pdf };
   const onText = ({ text }) => { if (!ctl.signal.aborted) setLive(id, { text, status: '' }) };
   const onStatus = status => { if (!ctl.signal.aborted) setLive(id, { status }) };
@@ -3007,7 +3115,7 @@ async function runCard(id, question = null) {
   };
   const call = async imgs => {
     const images = imgs ? [imgs] : undefined;
-    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, document: wholeDoc, onText, signal: ctl.signal });
+    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, document: wholeDoc, passages: found, onText, signal: ctl.signal });
     // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
     if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: true, onText: onQuizText, signal: ctl.signal });
     return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
@@ -3164,7 +3272,7 @@ addEventListener('keydown', e => {
    in this browser ('primer:{key}:{unit}') and, signed in with the book in the account, with the
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
-const primer = { units: null, open: false, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
+const primer = { units: null, unitsTask: null, open: false, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
 const ppReady = import('/lab/margin/primer-parse.js').catch(() => null);
 function primerReset() {
   primer.token++;
@@ -3172,28 +3280,45 @@ function primerReset() {
   primer.away.clear();
   primer.el?.remove(); primer.trig?.remove(); primer.el = null; primer.trig = null;
 }
-/** The units, from the outline (each top-level entry resolved to its page). */
-async function loadUnits() {
+/**
+ * The units, from the outline: each top-level entry resolved to its page, with a part's own entries
+ * (TinctMargin.primerUnits makes a part's chapters the units). A unit whose title does not say it is
+ * front or back matter but whose first page reads as an index, a reference list or a contents page
+ * (TinctMargin.pageMatter) is marked as such, so Before you start never makes a primer of it.
+ */
+function loadUnits() {
+  primer.unitsTask = loadUnitsNow().catch(() => {});
+  return primer.unitsTask;
+}
+async function loadUnitsNow() {
   const token = state.token, pdf = state.pdf;
+  const resolve = async item => {
+    try {
+      let dest = item.dest;
+      if (typeof dest === 'string') dest = await pdf.getDestination(dest);
+      const ref = Array.isArray(dest) ? dest[0] : null;
+      return ref && typeof ref === 'object' ? await pdf.getPageIndex(ref) + 1 : Number.isInteger(ref) ? ref + 1 : null;
+    } catch { return null }
+  };
   let entries = [];
   try {
     const outline = await pdf.getOutline();
-    entries = await Promise.all((outline || []).map(async item => {
-      try {
-        let dest = item.dest;
-        if (typeof dest === 'string') dest = await pdf.getDestination(dest);
-        const ref = Array.isArray(dest) ? dest[0] : null;
-        const page = ref && typeof ref === 'object' ? await pdf.getPageIndex(ref) + 1 : Number.isInteger(ref) ? ref + 1 : null;
-        return { title: item.title, page };
-      } catch { return { title: item.title, page: null } }
-    }));
+    entries = await Promise.all((outline || []).map(async item => ({ title: item.title, page: await resolve(item), items: await Promise.all((item.items || []).slice(0, 60).map(async kid => ({ title: kid.title, page: await resolve(kid) }))) })));
   } catch { entries = [] }
   if (token !== state.token) return;
-  primer.units = TinctMargin.primerUnits(entries, state.pages.length || pdf.numPages);
+  const units = TinctMargin.primerUnits(entries, state.pages.length || pdf.numPages);
+  for (const u of units.length > 1 ? units.slice(0, 80) : []) {
+    if (u.matter) continue;
+    const kind = TinctMargin.pageMatter((await pageText(u.start)).text) || (u.start < u.to ? TinctMargin.pageMatter((await pageText(u.start + 1)).text) : null);
+    if (token !== state.token) return;
+    if (kind) u.matter = kind === 'contents' ? 'front' : 'back';
+  }
+  primer.units = units;
   marginLayout();
 }
 const placePage = () => (state.pages.length ? currentPlace().page : 1);
-const currentUnit = () => (primer.units ? TinctMargin.unitAt(primer.units, placePage()) : null);
+// The chapter the reader is in when they open Before you start; on front or back matter, the nearest real chapter.
+const currentUnit = () => (primer.units ? TinctMargin.primerUnitAt(primer.units, placePage()) : null);
 /** The unit whose trigger shows now, or null. */
 function triggerUnit() {
   if (!primer.units || primer.open) return null;
@@ -4035,6 +4160,8 @@ async function ask(question, display) {
   // The margin's chat is about the whole PDF: the whole document goes with it (marginDocument, the
   // cached prefix) and the pages around the reader's place; without it, every page as pages.
   const wholeDoc = marginOn() ? await marginDocument(focusPage) : null;
+  // A long file: the passages a search of the whole book finds for the question (searchPassages).
+  const found = wholeDoc ? await searchPassages(question, wholeDoc) : null;
   const pdf = marginOn() ? await (wholeDoc ? pdfPages(focusPage) : pdfPages(focusPage, { before: focusPage - 1, after: state.pages.length - focusPage, budget: Math.min(9000, Math.floor(180000 / Math.max(1, state.pages.length))) })) : null;
   const ctx = pdf ? '' : await contextText(Math.max(1, focusPage - 1), Math.min(state.pages.length, focusPage + 1), 9000);
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
@@ -4043,12 +4170,12 @@ async function ask(question, display) {
   const image = blobs.length || !region ? null : await pageImage(focusPage, region);
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';
   const snipText = attached.map(a => [a.caption ? 'Caption: ' + a.caption : '', a.text ? 'Labels and text inside it: ' + a.text : '', !blobs.length && a.sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + a.sketch + '\n```' : ''].filter(Boolean).join('\n')).filter(Boolean).join('\n\n');
-  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). ${pdf ? 'Ground answers in the whole document.' : 'Ground answers in the text; say when something is not on these pages.'} ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
+  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${pageLabel(page)} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). ${pdf ? 'Ground answers in the whole document.' : 'Ground answers in the text; say when something is not on these pages.'} ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${pageLabel(passage.page)}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
   const history = chat.turns.slice(-11, -1).map(t => ({ role: t.role, content: t.role === 'assistant' ? t.content.replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, '') : (t.role === 'user' && t.passage ? `About this passage: "${t.passage.slice(0, 600)}"\n` : '') + (t.imgs?.length ? `[Earlier I attached ${t.imgs.length > 1 ? 'images' : 'an image'}; it is not re-sent.${t.snipText ? ' Its text: ' + t.snipText.slice(0, 400) : ''}]\n` : '') + t.content }));
   const input = [{ role: 'user', content: rules }, ...history, { role: 'user', content: question }];
   const ctl = new AbortController(); chat.ctl = ctl;
   try {
-    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, pdf, document: wholeDoc, whole: !!pdf, onText: ({ text }) => liveText(text) });
+    const call = imgs => s(input, { cache: false, signal: ctl.signal, images: imgs?.length ? imgs : undefined, pdf, document: wholeDoc, passages: found, whole: !!pdf, onText: ({ text }) => liveText(text) });
     const imgs = blobs.length ? blobs : image ? [image] : null;
     let res, note = !blobs.length && attached.some(a => a.blob) ? (snipText ? (attached.some(a => a.snip) ? '\n\n*Claude can’t receive pictures in this viewer, so this answer works from the caption, labels and a rough sketch of the area.*' : '\n\n*Claude can’t receive pictures in this viewer, so this answer is based on the text inside your snip.*') : '\n\n*Claude can’t receive pictures in this viewer, so it could not see your image.*') : '';
     try { res = await call(imgs) }

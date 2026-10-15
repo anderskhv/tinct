@@ -38,7 +38,9 @@ export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
     (pg.images || []).forEach((im, i) => {
       const iw = im.pw || 48, ih = im.ph || 48;
       const px = Buffer.alloc(iw * ih);
-      for (let y = 0; y < ih; y++) for (let x = 0; x < iw; x++) px[y * iw + x] = 90 + ((x * 7 + y * 13) % 120);
+      // `noise`: pseudo-random grey (seeded), so a large file stays large (the long book's 73 MB stand-in).
+      if (im.noise) { let r = im.noise >>> 0 || 1; for (let k = 0; k < px.length; k++) { r = (Math.imul(r, 1664525) + 1013904223) >>> 0; px[k] = 60 + (r >>> 25) } }
+      else for (let y = 0; y < ih; y++) for (let x = 0; x < iw; x++) px[y * iw + x] = 90 + ((x * 7 + y * 13) % 120);
       const id = add(Buffer.concat([Buffer.from(`<< /Type /XObject /Subtype /Image /Width ${iw} /Height ${ih} /ColorSpace /DeviceGray /BitsPerComponent 8 /Length ${px.length} >>\nstream\n`, 'latin1'), px, Buffer.from('\nendstream', 'latin1')]));
       xobjs.push(`/Im${i + 1} ${id} 0 R`);
       ops += `q ${im.w} 0 0 ${im.h} ${im.x} ${im.y} cm /Im${i + 1} Do Q\n`;
@@ -245,6 +247,132 @@ export function twoColumnPaper() {
   ] });
   pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
   return makePdf({ info: { Title: 'Attention and Return in Long-Form Reading' }, pages });
+}
+
+// 7. A long book, the stand-in for Sutton and Barto's "Reinforcement Learning" (docs/margin/gloss-test/
+//    edge.html): about 590 pages with an outline of parts, chapters and sections (as that book's: the
+//    top-level entries are the front matter, chapter 1, three parts and the back matter); front matter
+//    (title, Contents, Preface, Summary of Notation) numbered in roman; chapters printed from 1 at file
+//    page 23, so the printed number is the file page less 22; running heads that carry the printed
+//    number at the top, and the number at the foot of each chapter's first page; no page labels.
+//    Chapter 6 introduces Sarsa (section 6.4; later chapters name it again), chapter 16 has the
+//    TD-Gammon figure with text wrapped beside it (labels inside, a caption); then References and an
+//    Index. longBook({ meta: true }) also returns where things are; `bigImages` adds that many
+//    one-megabyte pictures (70 make a file of about 73 MB, as the test's book) for the reopen timing.
+export const LONG_BOOK_OFFSET = 22
+export function longBook({ bigImages = 0, meta = false } = {}) {
+  breaks = 0;
+  const TOP = 700, FOOT = 90, PITCH = 15;
+  const parts = [
+    { title: null, chapters: ['Introduction'] },
+    { title: 'I Tabular Solution Methods', chapters: ['Multi-armed Bandits', 'Finite Markov Decision Processes', 'Dynamic Programming', 'Monte Carlo Methods', 'Temporal-Difference Learning', 'n-step Bootstrapping', 'Planning and Learning with Tabular Methods'] },
+    { title: 'II Approximate Solution Methods', chapters: ['On-policy Prediction with Approximation', 'On-policy Control with Approximation', 'Off-policy Methods with Approximation', 'Eligibility Traces', 'Policy Gradient Methods'] },
+    { title: 'III Looking Deeper', chapters: ['Psychology', 'Neuroscience', 'Applications and Case Studies', 'Frontiers'] },
+  ];
+  const SPECIAL = { '6.4': 'Sarsa: On-policy TD Control', '6.5': 'Q-learning: Off-policy TD Control', '10.1': 'Episodic Semi-gradient Control', '12.7': 'Sarsa(lambda)', '16.1': 'TD-Gammon' };
+  const TOPIC = { '6.4': 'We turn now to the use of TD prediction methods for the control problem. The first step is to learn an action-value function rather than a state-value function. Each transition is from one state-action pair to the next, and the update uses every element of the quintuple of events, state, action, reward, next state, next action, that make up a transition. This quintuple gives rise to the name Sarsa for the algorithm, which we introduce here.',
+    '10.1': 'The extension of the semi-gradient prediction methods to action values is straightforward. The example of episodic semi-gradient Sarsa on the mountain car task shows the control version of the method introduced in the tabular case.',
+    '12.7': 'How can eligibility traces be used not just for prediction but for control? The answer is Sarsa(lambda), the action-value form of the TD(lambda) method, which reuses the Sarsa update of the tabular chapters with a trace on each pair.',
+    '16.1': 'One of the most impressive applications of reinforcement learning is the backgammon program TD-Gammon. It learned to play the game at the level of the best human players from self-play alone, and TD-Gammon 0.0 matched the best earlier programs.' };
+  const pages = [];
+  const page = () => { const pg = { lines: [], images: [], head: null, foot: null }; pages.push(pg); return pg };
+  // Front matter: title page (file 1), a blank (2), Contents (3-6), Preface (7-14), Notation (15-18), blanks to 22.
+  page().lines.push({ x: 150, y: 560, size: 24, font: 'Times-Bold', text: 'Learning from Reward' }, { x: 220, y: 520, size: 14, font: 'Times-Roman', text: 'Ann Example and Bo Sample' });
+  page();
+  const roman = n => ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii'][n - 1];
+  const frontPage = (title, from) => { const pg = page(); pg.foot = roman(pages.length); if (title) pg.lines.push({ x: 72, y: 680, size: 18, font: 'Times-Bold', text: title }); let y = title ? 640 : TOP, k = from; while (y > FOOT) { for (const l of setParagraph(paragraphText(k++, 60))) { if (y <= FOOT) break; pg.lines.push({ ...l, y }); y -= PITCH } } return pg };
+  const contentsPages = [page(), page(), page(), page()];
+  contentsPages.forEach(pg => { pg.foot = roman(pages.indexOf(pg) + 1) });
+  for (let i = 0; i < 8; i++) frontPage(i ? null : 'Preface', 5000 + i * 30);
+  for (let i = 0; i < 4; i++) frontPage(i ? null : 'Summary of Notation', 6000 + i * 30);
+  while (pages.length < LONG_BOOK_OFFSET) page();
+  const outline = [{ title: 'Contents', page: 3 }, { title: 'Preface', page: 7 }, { title: 'Summary of Notation', page: 15 }];
+  const chapters = [];
+  let para = 0, number = 0, sarsaPage = 0, figurePage = 0;
+  const body = (pg, y, k) => { for (const l of setParagraph(paragraphText(k, 50 + ((k * 37) % 60)))) { if (y <= FOOT) return { y, done: false }; pg.lines.push({ ...l, y }); y -= PITCH } return { y, done: true } };
+  const fill = (pg, y, lead = null, width = 86) => {
+    if (lead) for (const l of setParagraph(lead, { width })) { pg.lines.push({ ...l, y }); y -= PITCH }
+    while (y > FOOT + PITCH) { const r = body(pg, y, para++); y = r.y - 4 }
+  };
+  for (const part of parts) {
+    const entry = part.title ? { title: part.title, page: pages.length + 1, children: [] } : null;
+    if (entry) outline.push(entry);
+    for (const name of part.chapters) {
+      number++;
+      const title = `${number} ${name}`;
+      const opener = page(); opener.foot = String(pages.length - LONG_BOOK_OFFSET); opener.chapter = number;
+      opener.lines.push({ x: 72, y: 660, size: 11, font: 'Times-Roman', text: `Chapter ${number}` }, { x: 72, y: 630, size: 20, font: 'Times-Bold', text: name });
+      fill(opener, 590, `This chapter takes up ${name.toLowerCase()}, the subject of the sections that follow.`);
+      const ch = { title, page: pages.indexOf(opener) + 1, children: [] };
+      (entry ? entry.children : outline).push(ch);
+      for (let k = 1; k <= 5; k++) {
+        const id = `${number}.${k}`, sec = `${id} ${SPECIAL[id] || `${name}, part ${k}`}`;
+        for (let n = 0; n < 6; n++) {
+          const pg = page(); pg.chapter = number; pg.section = sec;
+          if (n === 0) { ch.children.push({ title: sec, page: pages.length }); pg.lines.push({ x: 72, y: 690, size: 13, font: 'Times-Bold', text: sec }) }
+          if (id === '6.4' && n === 0) sarsaPage = pages.length;
+          if (id === '16.1' && n === 1) {
+            // Text wrapped beside a figure: narrow body lines on the left, the figure's labels and caption on the right.
+            figurePage = pages.length;
+            pg.images.push({ x: 360, y: 430, w: 180, h: 230, pw: 36, ph: 46 });
+            let y = TOP;
+            const wrapped = 'The network has a total of 198 input units that encode the backgammon position, a layer of hidden units, and one output unit that estimates the probability of winning from that position. The weights were set to small random values at the start, and each move was chosen by evaluating every possible next position with the network and taking the best one. TD-Gammon learned by playing against itself, updating the weights after every move by the TD error between successive predictions.';
+            for (const l of setParagraph(wrapped, { width: 48, indent: 0, indentChars: 0 })) { pg.lines.push({ ...l, y }); y -= PITCH }
+            while (y > 400) { for (const l of setParagraph(paragraphText(para++, 40), { width: 48, indent: 0, indentChars: 0 })) { if (y <= 400) break; pg.lines.push({ ...l, y }); y -= PITCH } }
+            pg.lines.push(
+              { x: 380, y: 650, size: 8, font: 'Helvetica', text: 'predicted probability' }, { x: 398, y: 640, size: 8, font: 'Helvetica', text: 'of winning' },
+              { x: 470, y: 600, size: 8, font: 'Helvetica', text: 'TD error' },
+              { x: 372, y: 560, size: 8, font: 'Helvetica', text: 'hidden units (40-80)' },
+              { x: 380, y: 470, size: 8, font: 'Helvetica', text: 'backgammon position' }, { x: 384, y: 460, size: 8, font: 'Helvetica', text: '(198 input units)' },
+              { x: 360, y: 412, size: 8, font: 'Times-Italic', text: 'Figure 16.1: The TD-Gammon neural' }, { x: 360, y: 402, size: 8, font: 'Times-Italic', text: 'network.' });
+            fill(pg, 380);
+            // In the order a typesetter's figure often lands in the content stream: the labels between the body lines.
+            pg.lines.sort((a, b) => b.y - a.y);
+            continue;
+          }
+          fill(pg, n === 0 ? 660 : TOP, n === 0 ? (TOPIC[id] || `This section takes up ${(SPECIAL[id] || name).toLowerCase()} in more detail.`) : null);
+        }
+      }
+      chapters.push({ title, from: ch.page, to: pages.length });
+    }
+  }
+  const refsFrom = pages.length + 1;
+  outline.push({ title: 'References', page: refsFrom });
+  for (let i = 0; i < 20; i++) {
+    const pg = page(); pg.section = 'REFERENCES'; let y = i ? TOP : 660;
+    if (!i) pg.lines.push({ x: 72, y: 690, size: 18, font: 'Times-Bold', text: 'References' });
+    for (let r = 0; y > FOOT; r++, y -= 26) {
+      const k = i * 24 + r;
+      pg.lines.push({ x: 72, y, size: 9, font: 'Times-Roman', text: `${['Barto', 'Sutton', 'Watkins', 'Tesauro', 'Samuel', 'Bellman', 'Howard', 'Minsky', 'Klopf', 'Dayan'][k % 10]}, A. B., Writer, C. (${1950 + (k % 70)}). On learning from reward, study ${k + 1}. Journal of Learning, ${k % 40}:${10 + k}-${20 + k}.` });
+    }
+  }
+  const indexFrom = pages.length + 1;
+  outline.push({ title: 'Index', page: indexFrom });
+  const TERMS = ['action-value function', 'actor-critic', 'backgammon', 'bandit problem', 'Bellman equation', 'bootstrapping', 'discounting', 'dynamic programming', 'eligibility trace', 'exploration', 'function approximation', 'greedy policy', 'Markov property', 'Monte Carlo', 'policy gradient', 'Q-learning', 'reward signal', 'Sarsa', 'semi-gradient', 'TD error', 'TD-Gammon', 'value function'];
+  for (let i = 0; i < 16; i++) {
+    const pg = page(); pg.section = 'INDEX'; let y = i ? TOP : 660;
+    if (!i) pg.lines.push({ x: 72, y: 690, size: 18, font: 'Times-Bold', text: 'Index' });
+    for (let r = 0; y > FOOT; r++, y -= 13) { const k = i * 46 + r; pg.lines.push({ x: 72, y, size: 9, font: 'Times-Roman', text: `${TERMS[k % TERMS.length]}${k >= TERMS.length ? `, case ${Math.floor(k / TERMS.length)}` : ''}, ${(k * 7) % 500 + 1}, ${(k * 11) % 500 + 3}` }) }
+  }
+  // The Contents pages: every chapter with its printed page.
+  const rows = outline.flatMap(e => e.children ? [{ title: e.title, page: e.page }, ...e.children] : [e]).filter(e => e.page > LONG_BOOK_OFFSET);
+  rows.forEach((e, i) => { const pg = contentsPages[Math.floor(i / 6)] || contentsPages[3]; const y = 680 - (i % 6) * 40; pg.lines.push({ x: 72, y, size: 11, font: 'Times-Roman', text: `${e.title} . . . . . . . . ${e.page - LONG_BOOK_OFFSET}` }) });
+  contentsPages[0].lines.push({ x: 72, y: 720, size: 18, font: 'Times-Bold', text: 'Contents' });
+  // Running heads with the printed number (even pages: number left; odd: right), the foot's number on openers and front matter.
+  pages.forEach((pg, i) => {
+    const file = i + 1, printed = file - LONG_BOOK_OFFSET;
+    if (pg.foot) pg.lines.push({ x: 300, y: 50, size: 9, font: 'Times-Roman', text: pg.foot });
+    else if (printed >= 1 && (pg.chapter || pg.section)) {
+      const head = pg.section && !pg.chapter ? pg.section : file % 2 ? (pg.section || '').toUpperCase() : `CHAPTER ${pg.chapter}. ${parts.flatMap(p => p.chapters)[pg.chapter - 1].toUpperCase()}`;
+      if (file % 2) pg.lines.push({ x: 300, y: 750, size: 9, font: 'Times-Roman', text: head }, { x: 520, y: 750, size: 9, font: 'Times-Roman', text: String(printed) });
+      else pg.lines.push({ x: 72, y: 750, size: 9, font: 'Times-Roman', text: String(printed) }, { x: 110, y: 750, size: 9, font: 'Times-Roman', text: head });
+    }
+  });
+  // Large pictures for a large file, spread over the chapters' pages (drawn under their text).
+  const spots = pages.map((pg, i) => i).filter(i => pages[i].chapter && i + 1 !== figurePage);
+  for (let k = 0; k < bigImages; k++) pages[spots[Math.floor(k * spots.length / bigImages)]].images.push({ x: 72, y: 100, w: 468, h: 60, pw: 1024, ph: 1024, noise: k + 1 });
+  const bytes = makePdf({ info: { Title: 'Learning from Reward', Author: 'Ann Example and Bo Sample' }, outline, pages: pages.map(pg => ({ lines: pg.lines, images: pg.images })) });
+  return meta ? { bytes, meta: { offset: LONG_BOOK_OFFSET, pages: pages.length, sarsaPage, figurePage, chapters, refsFrom, indexFrom } } : bytes;
 }
 
 export function pdfFixtures() {

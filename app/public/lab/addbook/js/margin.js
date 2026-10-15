@@ -652,21 +652,80 @@
   const PRIMER = { top: 16, bottom: 70, units: 40 };
   /**
    * The units: `entries` are the outline's top-level items in outline order, each { title, page }
-   * with `page` its 1-based page (null when it does not resolve). Entries are kept in page order;
-   * a second entry on the same page as the one before is left out. The first unit also takes any
-   * pages before its entry (a title page), so the PDF's start offers it too. Each unit's key is
-   * "outline-{i}" (its index in the outline), "all" for the whole file: a PDF without an outline,
-   * or one of fewer than 40 pages (FIXES-2026-10-15, B2).
-   * -> [{ key, title, from, start, to }] (start: the entry's own page; the trigger shows from `from` to `start`)
+   * with `page` its 1-based page (null when it does not resolve), and optionally `items`, its own
+   * entries in the same shape. A part whose entries are chapters ("I Tabular Solution Methods" over
+   * "2 Multi-armed Bandits", …) gives its chapters as units, so a book's unit is the chapter the reader
+   * is in, never a part of five chapters (FIXES-2026-10-15, long books, item 9). Entries are kept in
+   * page order; a second entry on the same page as the one before is left out. The first unit also
+   * takes any pages before its entry (a title page), so the PDF's start offers it too. Each unit's key
+   * is "outline-{i}" (its index in the outline; "outline-{i}.{j}" for a part's chapter j), "all" for
+   * the whole file: a PDF without an outline, or one of fewer than 40 pages (FIXES-2026-10-15, B2).
+   * Front and back matter (Contents, Preface, References, Index, …) carry `matter: 'front' | 'back'`.
+   * -> [{ key, title, from, start, to, matter? }] (start: the entry's own page; the trigger shows from `from` to `start`)
    */
   function primerUnits(entries, count) {
     const n = Math.max(1, Number(count) || 1);
-    const list = (entries || []).map((e, i) => ({ i, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page }))
-      .filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
+    const clean = (e, key) => ({ key, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page });
+    const flat = [];
+    (entries || []).forEach((e, i) => {
+      const kids = Array.isArray(e?.items) ? e.items.map((c, j) => clean(c, `${i}.${j}`)).filter(c => c.title && Number.isInteger(c.page)) : [];
+      if (isPart(clean(e, ''), kids)) {
+        // The part's own pages before its first chapter (its title page) go with that chapter.
+        kids.forEach((c, j) => flat.push({ ...c, i: flat.length, page: j === 0 && Number.isInteger(e.page) ? Math.min(e.page, c.page) : c.page, start: c.page }));
+      } else flat.push({ ...clean(e, String(i)), i: flat.length });
+    });
+    const list = flat.filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
       .sort((a, b) => a.page - b.page || a.i - b.i)
       .filter((e, k, all) => k === 0 || e.page !== all[k - 1].page);
     if (!list.length || n < PRIMER.units) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
-    return list.map((e, k) => ({ key: 'outline-' + e.i, title: e.title, from: k === 0 ? 1 : e.page, start: e.page, to: k + 1 < list.length ? list[k + 1].page - 1 : n }));
+    return list.map((e, k) => {
+      const matter = matterOf(e.title);
+      const start = Number.isInteger(e.start) && e.start <= n ? e.start : e.page;
+      return { key: 'outline-' + e.key, title: e.title, from: k === 0 ? 1 : e.page, start, to: k + 1 < list.length ? list[k + 1].page - 1 : n, ...(matter ? { matter } : {}) };
+    });
+  }
+  // A part's own entries are chapters: numbered "2 …" or "Chapter 2 …" (not sections such as "2.1 …").
+  const CHAPTER_TITLE = /^(?:(?:chapter|lecture)\s+[\p{L}\p{N}]+[.:]?|\d{1,3}\.?)\s+\S/iu;
+  const PART_TITLE = /^(?:(?:part|book|volume)\s+[\p{L}\p{N}]+|[IVXLC]{1,6}\.?)(?=$|[\s.:—–-])/u;
+  function isPart(entry, kids) {
+    if (kids.length < 2) return false;
+    const chapters = kids.filter(c => CHAPTER_TITLE.test(c.title) && !/^\d+\.\d/.test(c.title)).length;
+    return chapters >= Math.ceil(kids.length * 0.6) || (PART_TITLE.test(entry.title) && /^(?:[Pp]art\b|[IVXLC]{1,6}\.?\s)/.test(entry.title));
+  }
+  // Front and back matter, by title: never the subject of a primer (an index's primer, the Gloss test of 15 Oct).
+  const FRONT_MATTER = /^(?:contents|table of contents|brief contents|preface|foreword|prologue|acknowledge?ments?|dedication|(?:summary of |list of )?notations?|list of (?:figures|tables|symbols|abbreviations|illustrations)|abbreviations|about (?:the|this) (?:author|authors|book|edition)|copyright|title page|half[- ]title|frontispiece|epigraph|cover|praise for)\b/i;
+  const BACK_MATTER = /^(?:(?:subject |author |name |general )?index|references|bibliography|works cited|literature cited|further reading|sources|glossary|notes|endnotes|colophon|about the authors?)\b/i;
+  function matterOf(title) {
+    const t = String(title || '').replace(/^\s*(?:\d+(?:\.\d+)*\.?|[IVXLC]+\.)\s+/, '').trim();
+    return FRONT_MATTER.test(t) ? 'front' : BACK_MATTER.test(t) ? 'back' : null;
+  }
+  /**
+   * What a page's own text says it is, for units whose title does not: an index (most lines end in
+   * page numbers: "Sarsa, 129, 131–133"), a reference list (most lines carry a year and read as
+   * citations) or a contents page (most lines end in dot leaders and a number). -> 'index' |
+   * 'references' | 'contents' | null
+   */
+  function pageMatter(text) {
+    const lines = String(text || '').split(/\n+/).map(l => l.trim()).filter(l => l.length > 2);
+    if (lines.length < 8) return null;
+    const share = re => lines.filter(l => re.test(l)).length / lines.length;
+    if (share(/(?:\.\s*){3,}\s*(?:\d{1,4}|[ivxlc]{1,6})$/i) >= 0.5) return 'contents';
+    if (share(/^[^\d].{1,80}?,\s*\d{1,4}(?:\s*[–-]\s*\d{1,4})?(?:,\s*\d{1,4}(?:\s*[–-]\s*\d{1,4})?)*\.?$/) >= 0.55) return 'index';
+    if (share(/(?:\(\s*(?:1[6-9]|20)\d\d[a-z]?\s*\)|\b(?:1[6-9]|20)\d\d[a-z]?\.)/) >= 0.4 && share(/^(?:\[\d+\]|\p{Lu}[\p{L}'’-]+,\s+\p{Lu}\.)/u) >= 0.3) return 'references';
+    return null;
+  }
+  /**
+   * The unit Before you start is about on `page`: the unit the page is in, unless that is front or
+   * back matter (by title, or `matter` set from its text); then the nearest real unit, the earlier
+   * one when two are as near. A PDF of one unit, or one that is all matter, keeps unitAt's unit.
+   */
+  function primerUnitAt(units, page) {
+    const here = unitAt(units, page);
+    if (!here || !here.matter) return here;
+    const real = (units || []).filter(u => !u.matter);
+    if (!real.length) return here;
+    const gap = u => (page < u.from ? u.from - page : page > u.to ? page - u.to : 0);
+    return real.reduce((best, u) => (gap(u) < gap(best) ? u : best));
   }
   /** The unit a page is in. */
   const unitAt = (units, page) => (units || []).find(u => page >= u.from && page <= u.to) || (units || [])[0] || null;
@@ -736,5 +795,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, matterOf, pageMatter, primerUnitAt };
 });
