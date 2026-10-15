@@ -129,12 +129,13 @@ describe('chat route', () => {
         expect(key).toBe(`chat:${userId}`)
         return false
       },
-      // The allowance switch off, whatever src/aiAllowanceSwitch.ts ships with.
-      { allowanceGate: createAllowanceGate(env, false) },
+      // The allowance switch off, whatever src/aiAllowanceSwitch.ts ships with. A
+      // refusal asks whether the reader is an internal account (worker.chatRateLimit.test.ts).
+      { allowanceGate: createAllowanceGate(env, false), isInternalAccount: async () => false },
     )
 
     expect(response.status).toBe(429)
-    expect(await response.json()).toEqual({ error: 'Rate limit exceeded. Try again in a minute.' })
+    expect(await response.json()).toEqual({ error: 'Give it a few seconds.' })
     // The AI allowance switch is off: no account read happens at all.
     expect(fetchMock).not.toHaveBeenCalled()
   })
