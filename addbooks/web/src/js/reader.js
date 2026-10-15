@@ -2354,7 +2354,8 @@ async function mrDefine(word) {
   try { hit = await TinctDictionary.lookup(word) } catch {}
   if (mr?.defToken !== token) return;
   // Offline, a capitalised word the dictionary has shows its entry (a name mid-sentence asks the companion only when it can).
-  if (hit && (!TinctMargin.nameMidSentence(word, mr.before) || navigator.onLine === false)) {
+  const asks = TinctMargin.defineAsks(hit, { word, before: mr.before, online: navigator.onLine !== false });
+  if (asks.dictionary) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
     mrShow('define');
     // Online, two asks at once (15 Oct, evening): the meaning in this text from the companion's
@@ -2363,12 +2364,12 @@ async function mrDefine(word) {
     // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
     const info = mr.info, anchor = mr.anchor, def = mr.def;
     const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
-    const inText = navigator.onLine === false ? null : defineByCompanion(word, info).then(found => {
+    const inText = !asks.inText ? null : defineByCompanion(word, info).then(found => {
       if (!found?.line) return;
       def.inText = found.line; if (found.pos) def.pos = found.pos;
       redraw();
     }).catch(() => { /* the dictionary alone */ });
-    const sense = fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
+    const sense = !asks.sense ? null : fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
       if (!(n > 0)) return;
       def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
       redraw();
@@ -2536,7 +2537,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015speed').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015retestg').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -3856,7 +3857,7 @@ function makePrimer(unit) {
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal, retry: false });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };

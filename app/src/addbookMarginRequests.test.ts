@@ -149,3 +149,84 @@ describe('the requests the PDF reader sends (fetch mocked)', () => {
     expect(other).toMatchObject({ code: 'failed', text: 'Begun' })
   })
 })
+
+/* ---------- Reliability (retest after train 2): one automatic retry, only before any words are shown ---------- */
+describe('one retry on a 502 or a dropped stream (fetch mocked)', () => {
+  afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers(); localStorage.clear() })
+  const pdf = { pages: [{ n: 1, text: 'Page one.' }], at: 0 }
+  const book = { title: 'GAN', author: 'G.', chapter: 'Page 1', page: 1, pages: 9 }
+  const SSE = { headers: { 'Content-Type': 'text/event-stream' } }
+  const delta = (text: string) => `event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\n`
+  const stop = 'event: message_stop\ndata: {"type":"message_stop"}\n\n'
+  const error = (type: string) => `event: error\ndata: ${JSON.stringify({ type: 'error', error: { type, message: 'x' } })}\n\n`
+  const bad = (status: number, type = 'upstream_error') => new Response(JSON.stringify({ type: 'error', error: { type, message: 'x' } }), { status, headers: { 'Content-Type': 'application/json' } })
+  /** Answers each request in turn with the next reply; records each request's retry header. */
+  function replies(...list: Array<() => Response>) {
+    const retry: Array<string | null> = []
+    vi.stubGlobal('fetch', vi.fn(async (_url: string, init: RequestInit) => {
+      retry.push(new Headers(init.headers).get('x-tinct-retry'))
+      const next = list.shift()
+      if (!next) throw new Error('no more replies')
+      return next()
+    }))
+    return retry
+  }
+  it('a 502 is asked once more, marked as the retry, and its answer is the card\'s', async () => {
+    const retry = replies(() => bad(502), () => new Response(delta('Plainly put.') + stop, SSE))
+    const texts: string[] = []
+    const res = await A.companion('simplify', { book, pdf, selection: 'x', stream: true, onText: ({ text }: { text: string }) => texts.push(text) })
+    expect(res.text).toBe('Plainly put.')
+    expect(texts).toEqual(['Plainly put.'])
+    expect(retry).toEqual([null, '1'])
+  })
+  it('only once: a second 502 is the card\'s error', async () => {
+    const retry = replies(() => bad(502), () => bad(502))
+    const e = await A.companion('define', { book, pdf, selection: 'minimax' }).catch(x => x)
+    expect(e.code).toBe('failed')
+    expect(retry).toHaveLength(2)
+  })
+  it('a stream that fails or drops before any words is asked once more', async () => {
+    for (const first of [error('upstream_error'), error('overloaded_error'), '', 'event: message_start\ndata: {"type":"message_start"}\n\n']) {
+      const retry = replies(() => new Response(first, SSE), () => new Response(delta('Holds.') + stop, SSE))
+      const res = await A.companion('factcheck', { book, pdf, selection: 'x', stream: true })
+      expect(res.text, first).toBe('Holds.')
+      expect(retry, first).toEqual([null, '1'])
+    }
+    // The connection breaks mid-read.
+    const broken = new ReadableStream({ pull(c) { c.error(new TypeError('network error')) } })
+    const retry = replies(() => new Response(broken, SSE), () => new Response(delta('Asked again.') + stop, SSE))
+    expect((await A.ask([{ role: 'user', content: 'Rules.' }, { role: 'user', content: 'Why?' }], { book: { ...book, pdf } })).text).toBe('Asked again.')
+    expect(retry).toEqual([null, '1'])
+  })
+  it('never once words are shown: the error keeps them, and a stream that stops early is never taken for a whole answer', async () => {
+    let retry = replies(() => new Response(delta('Begun') + error('upstream_error'), SSE))
+    expect(await A.companion('counterpoint', { book, pdf, selection: 'x', stream: true }).catch(x => x)).toMatchObject({ code: 'failed', text: 'Begun' })
+    expect(retry).toHaveLength(1)
+    retry = replies(() => new Response(delta('Half an ans'), SSE))
+    expect(await A.companion('simplify', { book, pdf, selection: 'x', stream: true }).catch(x => x)).toMatchObject({ code: 'dropped', text: 'Half an ans' })
+    expect(retry).toHaveLength(1)
+  })
+  it('never for a refusal, a cut-off, a limit, a sign-in, a bad request, or when the caller turns it off', async () => {
+    const cases: Array<[() => Response, string]> = [
+      [() => bad(502, 'refusal'), 'refused'], [() => bad(502, 'cut_off'), 'cut_off'],
+      [() => new Response(error('refusal'), SSE), 'refused'], [() => new Response(error('cut_off'), SSE), 'cut_off'],
+      [() => bad(429), 'rate_limited'], [() => bad(503), 'busy'], [() => bad(402), 'quota'], [() => bad(400), 'bad_request'], [() => bad(413), 'prompt_too_large'],
+    ]
+    for (const [reply, code] of cases) {
+      const retry = replies(reply, () => new Response(delta('Wrong.') + stop, SSE))
+      const e = await A.companion('counterpoint', { book, pdf, selection: 'x', stream: true }).catch(x => x)
+      expect(e.code, code).toBe(code)
+      expect(retry, code).toHaveLength(1)
+    }
+    const retry = replies(() => bad(502), () => new Response(JSON.stringify({ content: [{ type: 'text', text: '{}' }] })))
+    expect((await A.companion('chapter', { book, pdf, retry: false, chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'All' } } }).catch(x => x)).code).toBe('failed')
+    expect(retry).toHaveLength(1)
+  })
+  it('a card closed while it waits to retry is cancelled, not asked again', async () => {
+    const ctl = new AbortController()
+    const retry = replies(() => { setTimeout(() => ctl.abort(), 50); return bad(502) }, () => new Response(delta('Too late.') + stop, SSE))
+    const e = await A.companion('simplify', { book, pdf, selection: 'x', stream: true, signal: ctl.signal }).catch(x => x)
+    expect(e.code).toBe('cancelled')
+    expect(retry).toHaveLength(1)
+  })
+})

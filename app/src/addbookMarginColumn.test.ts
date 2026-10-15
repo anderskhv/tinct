@@ -30,6 +30,8 @@ interface MarginApi {
   newCard(o: Record<string, unknown>): Card
   quizScore(q: Record<string, unknown>): number
   quizReread(q: Record<string, unknown>): number
+  defineAsks(hit: unknown, o: { word: string; before?: string; online: boolean }): { dictionary: boolean; inText: boolean; sense: boolean }
+  parseLookup(raw: string, word: string): { word: string; pos: string; line: string } | null
   html: {
     cardHtml(card: Card, o: Record<string, unknown>): string
     answerHtml(text: string, p: typeof P, o?: Record<string, unknown>): string
@@ -203,13 +205,17 @@ describe('citation tags', () => {
     expect(M.citeTarget(tok('{fig. 1.4}'), { count: 5, texts })).toBeNull()
     expect(M.citeTarget(tok('{eq. 1.1}'), { count: 5, texts: null })).toBeNull()
   })
-  it('a resolvable token renders as a tag carrying its page; an unresolvable one stays text', () => {
+  // Retest after train 2: an unresolvable one used to stay as written, braces and all ("{p. 1}"); it now shows without them.
+  it('a resolvable token renders as a tag carrying its page; an unresolvable one stays text, without its braces', () => {
     const resolveTag = (t: Token) => M.citeTarget(t, { labels: null, count: 5, texts })
     const html = M.html.answerHtml('It holds {p. 4}. See {fig. 9.9} and {eq. 1.1}.', P, { resolve: resolveTag })
     expect(html).toContain('<button type="button" class="mr-cite" data-page="4">p. 4</button>')
-    expect(html).toContain('{fig. 9.9}')
+    expect(html).toContain('See fig. 9.9 and')
+    expect(html).not.toContain('{fig. 9.9}')
     expect(html).toContain('<button type="button" class="mr-cite" data-page="3" data-needle="(1.1)">eq. 1.1</button>')
-    expect(M.html.answerHtml('No tags here {p. 4}.', P)).toContain('{p. 4}')
+    expect(M.html.answerHtml('No tags here {p. 4}.', P)).toContain('No tags here p. 4.')
+    // Not a citation at all: as written.
+    expect(M.html.answerHtml('A set {x} here.', P)).toContain('A set {x} here.')
   })
 })
 
@@ -397,3 +403,78 @@ describe('Define and the hyphenated word (the deep test, 15 Oct)', () => {
     expect(M.html.foldText(card, P)).toBe('Turning one sequence into another.')
   })
 })
+
+/* ---------- Retest after train 2 (15 Oct, evening) ---------- */
+describe('Define: "In this text" for dictionary words too (ensemble, perplexity, saturate)', () => {
+  // The offline dictionary over the repo's own files (public/data/dict), as the PDF reader loads them.
+  const { readFile } = require('node:fs/promises') as typeof import('node:fs/promises')
+  require(ROOT + 'app/public/lab/addbook/js/dictionary.js')
+  const D = (globalThis as unknown as { TinctDictionary: unknown }).TinctDictionary as { createDictionary(o: { fetchImpl: (url: string) => Promise<Response> }): { lookup(w: string): Promise<{ word: string; definitions: string[] } | null> } }
+  const dict = D.createDictionary({ fetchImpl: async url => new Response(await readFile(ROOT + 'app/public' + url, 'utf8')) })
+  const cases: Array<[string, string, string]> = [
+    // [selected word, the dictionary's headword, the companion's mocked in-text meaning]
+    ['ensembles', 'ensemble', 'Noun. A set of separately trained models whose predictions are combined {p. 1}.'],
+    ['perplexity', 'perplexity', 'Noun. A measure of how well a language model predicts text; lower is better {pp. 8}.'],
+    ['saturates', 'saturate', 'Verb. Of a unit: to reach the flat part of its curve, where the gradient vanishes (p. 3).'],
+  ]
+  it.each(cases)('%s: the dictionary has it, and online the in-text meaning is still asked and shown first, its citation a tag', async (word, head, reply) => {
+    const hit = await dict.lookup(word)
+    expect(hit?.word).toBe(head)
+    expect(hit!.definitions.length).toBeGreaterThan(0)
+    expect(M.defineAsks(hit, { word, before: 'the model ', online: true })).toEqual({ dictionary: true, inText: true, sense: true })
+    // Offline: the dictionary alone.
+    expect(M.defineAsks(hit, { word, before: 'the model ', online: false })).toEqual({ dictionary: true, inText: false, sense: false })
+    const found = M.parseLookup(JSON.stringify({ kind: 'definition', definition: reply }), word)!
+    const resolve = (t: Token) => (['1', '3', '8'].includes(t.label) ? { page: Number(t.label), needle: '' } : null)
+    const div = document.createElement('div')
+    div.innerHTML = M.html.defineHtml({ word: hit!.word, pos: found.pos, source: 'Dictionary', inText: found.line, senses: hit!.definitions.slice(0, 3).map(text => ({ text })) }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold', P, resolve })
+    const inText = div.querySelector('.mr-define__in')!
+    expect(inText.querySelector('.mr-define__label')?.textContent).toBe('In this text')
+    expect(inText.compareDocumentPosition(div.querySelector('.mr-define__senses')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(inText.querySelectorAll('.mr-cite')).toHaveLength(1)
+    expect(inText.textContent).not.toMatch(/[{}]|\(p\./)
+  })
+  it('a name mid-sentence asks the companion only, as before', () => {
+    expect(M.defineAsks({ word: 'parzen', definitions: ['x'] }, { word: 'Parzen', before: 'a Gaussian ', online: true })).toEqual({ dictionary: false, inText: true, sense: false })
+    expect(M.defineAsks(null, { word: 'maxout', online: true })).toEqual({ dictionary: false, inText: true, sense: false })
+  })
+})
+
+describe('citation tags in every card, live and kept (retest: "{pp. 5}", "(p. 2)", "p. 5p. 6")', () => {
+  const resolve = (t: Token) => (Number(t.label) <= 9 ? { page: Number(t.label), needle: '' } : null)
+  const reply = 'It is fitted by cross validation {p. 5}{p. 6}. The proof uses it {pp. 5}, as the decoder does (p. 2). Nothing on {p. 99}.'
+  const tags = (div: HTMLElement) => [...div.querySelectorAll('.mr-cite')].map(t => (t as HTMLElement).textContent)
+  for (const kind of ['explain', 'ask', 'counterpoint']) {
+    it(`${kind}: every form is a tag, two tags never run together, a place this PDF lacks loses its braces`, () => {
+      const div = document.createElement('div')
+      const kept = M.newCard({ kind, page: 5, anchor: [{ n: 5, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }], text: 'a passage', turns: kind === 'ask' ? [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: reply }] : [{ role: 'assistant', content: reply }] })
+      for (const o of [{}, { live: reply }]) {
+        const card = 'live' in o ? { ...kept, turns: kind === 'ask' ? [kept.turns![0]] : [] } : kept
+        div.innerHTML = M.html.cardHtml(card, { open: true, P, pageLabel: '5', resolve, ...o })
+        expect(tags(div)).toEqual(['p. 5', 'p. 6', 'p. 5', 'p. 2'])
+        const text = div.querySelector('.mr-card__body')!.textContent!
+        expect(text).toContain('p. 5, p. 6')
+        expect(text).not.toMatch(/p\. 5p\. 6|[{}]/)
+        expect(text).toContain('Nothing on p. 99.')
+      }
+    })
+  }
+})
+
+describe('Simplify cards: never the passage again, no note about the rewrite', () => {
+  const passage = 'procedure for G is to maximize the probability of D making a mistake'
+  const card = (content: string) => M.newCard({ kind: 'simplify', page: 1, anchor: [{ n: 1, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }], text: passage, turns: [{ role: 'assistant', content }] })
+  const answer = (c: Card, o: Record<string, unknown> = {}) => { const div = document.createElement('div'); div.innerHTML = M.html.cardHtml(c, { open: true, P, pageLabel: '1', ...o }); return [...div.querySelectorAll('.mr-answer p')].map(p => p.textContent) }
+  it('drops a copy of the passage and a closing note, kept and folded', () => {
+    const c = card('The training procedure for G is to maximize the probability of D making a mistake.\n\nThe generator is trained to make the discriminator wrong as often as it can.\n\nThe rewrite is a restatement of the selected sentence.')
+    expect(answer(c)).toEqual(['The generator is trained to make the discriminator wrong as often as it can.'])
+    expect(M.html.foldText(c, P)).toBe('The generator is trained to make the discriminator wrong as often as it can.')
+  })
+  it('says so in one short line when only the passage came back; while it streams, shows what has come', () => {
+    const c = card('The training procedure for G is to maximize the probability of D making a mistake.')
+    expect(answer(c)).toEqual(['This passage is already in plain words.'])
+    expect(M.html.foldText(c, P)).toBe('This passage is already in plain words.')
+    expect(answer({ ...c, turns: [] }, { live: 'The training procedure for G is to maximize the probability of D making a mistake.' })).toEqual(['The training procedure for G is to maximize the probability of D making a mistake.'])
+  })
+})
+

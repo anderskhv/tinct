@@ -112,7 +112,7 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
       related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 8000 },
       counterpoint: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
-      quiz: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 6000 },
+      quiz: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
       primer: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       ask: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 1800 },
     })
@@ -263,7 +263,7 @@ describe('the cached prefix', () => {
     const part = { kind: 'pdf', units: [{ n: 3, text: PAPER[2] }], part: { toc: [{ title: '2 Background', n: 3 }], total: 400 } }
     await send({ companion: { intent: 'explain', context: pdfContext(3), document: part, selection: 'Self-attention' } })
     const system = anthropic[0].system as SystemBlock[]
-    expect(system[0].text).toContain('This document is too long to supply whole (400 pages). Below are its table of contents and the full text of page 3, the part the reader is in.')
+    expect(system[0].text).toContain('This document is too long to include whole (400 pages). Below are its table of contents and the full text of page 3, the part the reader is in.')
     expect(system[0].text).toContain('<contents>\n2 Background (page 3)\n</contents>')
   })
 

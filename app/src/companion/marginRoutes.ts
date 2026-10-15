@@ -66,7 +66,8 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
   factcheck: route(MARGIN_HAIKU_MODEL, 'medium', 8000),
   // Low effort, still adaptive (15 Oct evening: 7-12 s at medium, almost all of it thinking); awaiting Anders's confirmation.
   counterpoint: route(MARGIN_HAIKU_MODEL, 'low', 6000),
-  quiz: route(MARGIN_HAIKU_MODEL, 'medium', 6000),
+  // Low effort as Counterpoint (retest after train 2: first question 5-11 s against a target under 5), still adaptive, same bound.
+  quiz: route(MARGIN_HAIKU_MODEL, 'low', 6000),
   // A primer's JSON runs to about 1,700 tokens; thinking at medium effort needs the rest (2 failures in 3 at 1200, 15 Oct).
   primer: route(MARGIN_SONNET_MODEL, 'medium', 8000),
   ask: route(MARGIN_SONNET_MODEL, 'medium', 1800),

@@ -143,6 +143,18 @@
   }
 
   /**
+   * What Define asks for a word (`hit`: the offline dictionary's entry, or null). The dictionary's
+   * senses show unless the word is a name mid-sentence (offline, they show anyway). Online, the
+   * companion's in-text meaning is always asked, dictionary word or not, and shown first under
+   * "In this text" (15 Oct: "perplexity" read "confusion", "ensembles" musicians, "saturates" a
+   * chemical sense); define_sense orders the senses below it. -> { dictionary, inText, sense }
+   */
+  function defineAsks(hit, { word, before, online }) {
+    const dictionary = !!hit && (!nameMidSentence(word, before) || !online);
+    return { dictionary, inText: !!online, sense: dictionary && !!online };
+  }
+
+  /**
    * Copy quote: the passage, then the title and page. `page` is the page as printed (its label,
    * "xii" or "12"); `place` names a place that is not a page (an EPUB's chapter) and wins over it.
    */
@@ -528,7 +540,8 @@
      null. A tag that resolves is a button carrying its page; one that does not stays text. */
   function citeHtml(token, resolve) {
     const target = resolve ? resolve(token) : null;
-    if (!target) return esc(token.raw);
+    // A tag this PDF has no place for is shown without its braces ("p. 1"), never as "{p. 1}"; one written in parentheses stays as written.
+    if (!target) return esc(token.raw.startsWith('(') ? token.raw : citeText(token));
     return `<button type="button" class="mr-cite" data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}>${esc(citeText(token))}</button>`;
   }
   /**
@@ -592,8 +605,11 @@
     // Fact-check, folded: its verdict line (the opening before it is context).
     if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
+    if (card.kind === 'simplify' && answer && P.simplifyAnswer) { const s = P.simplifyAnswer(answer.content, card.text); return s.unchanged ? SIMPLIFY_UNCHANGED : plain(s.text) }
     return plain(answer?.content || '');
   }
+  /** What a Simplify card says when the answer was only the passage again. */
+  const SIMPLIFY_UNCHANGED = 'This passage is already in plain words.';
   const quizScore = q => (q.results || []).filter(r => r && r.verdict === 'right' && !r.shown).length;
   /**
    * The end card's line: right answers of the questions answered. "Show answer" questions are not
@@ -732,6 +748,13 @@
       answered = true;
       if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve, live: o.live != null && k === turns.length - 1 }); body += f.answer + f.sources }
       else if (card.kind === 'related' && k === 0 && P.parseRelated) body += relatedHtml(t.content, P, { resolve: o.resolve, place: o.place });
+      else if (card.kind === 'simplify' && k === 0 && P.simplifyAnswer) {
+        // Never the passage again, never a note about the rewrite (retest after train 2): when nothing else came back, say so.
+        // While it streams, a first paragraph that is the passage so far shows as written (the rewrite may follow).
+        const s = P.simplifyAnswer(t.content, card.text);
+        if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
+        else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
+      }
       else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
     });
     body += status;
@@ -1262,5 +1285,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

@@ -157,12 +157,17 @@
     return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
   }
 
+  // A stream that ends without its message_stop, or whose connection breaks, was dropped
+  // (code 'dropped', with the words already shown as `text`): never taken for a whole answer.
   async function readStream(response, onText, signal, onStatus) {
     const reader = response.body.getReader(), dec = new TextDecoder();
-    let buf = '', text = '';
+    let buf = '', text = '', stopped = false;
     for (;;) {
       if (signal?.aborted) { reader.cancel().catch(() => {}); throw err('cancelled') }
-      const { done, value } = await reader.read();
+      let chunk;
+      try { chunk = await reader.read() }
+      catch (e) { if (signal?.aborted || e?.name === 'AbortError') throw err('cancelled'); throw err('dropped', 'The answer stopped.', text ? { text } : undefined) }
+      const { done, value } = chunk;
       if (done) break;
       buf += dec.decode(value, { stream: true });
       let cut;
@@ -178,8 +183,10 @@
         // What the companion is looking up ("Checking sources…"), from the Worker's tinct_status event.
         if (event === 'tinct_status' || msg.type === 'tinct_status') { if (typeof msg.text === 'string') onStatus?.(msg.text); continue }
         if (msg.type === 'content_block_delta' && msg.delta?.type === 'text_delta') { text += msg.delta.text; onText?.({ text, delta: msg.delta.text }) }
+        if (msg.type === 'message_stop') stopped = true;
       }
     }
+    if (!stopped) throw err('dropped', 'The answer stopped.', text ? { text } : undefined);
     return text;
   }
 
@@ -240,7 +247,29 @@
   async function companion(intent, opts = {}) {
     return send(companionRequest(intent, opts), opts);
   }
+  // One automatic retry (retest after train 2: 7 of about 70 actions showed "could not be loaded",
+  // 502 /api/chat): on a 502, or a stream that failed or dropped, and only while nothing of the
+  // answer has been shown. The retry carries x-tinct-retry so the Worker's failure log can tell.
+  // A failed or cut-off answer is never charged, so a retry never charges twice; refusals, cut-offs,
+  // limits, sign-in and bad requests are never retried. `opts.retry: false` turns it off (the primer
+  // keeps its own retry).
+  const RETRY_DELAY_MS = 400;
+  const RETRY_STATUS = new Set([502]);
+  const RETRY_STREAM = new Set(['failed', 'busy', 'dropped']);
   async function send(request, opts) {
+    let shown = false;
+    const onText = opts.onText ? (e => { if (e?.text) shown = true; opts.onText(e) }) : (e => { if (e?.text) shown = true });
+    const once = retried => sendOnce(request, { ...opts, onText }, retried);
+    try { return await once(false) }
+    catch (e) {
+      const again = opts.retry !== false && !shown && !opts.signal?.aborted && (e?.retryable || (e?.streamed && RETRY_STREAM.has(e.code)));
+      if (!again) throw e;
+      await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
+      if (opts.signal?.aborted) throw err('cancelled');
+      return once(true);
+    }
+  }
+  async function sendOnce(request, opts, retried) {
     const images = opts.images ? [].concat(opts.images).filter(Boolean) : [];
     const doc = request.companion ? documentContext(opts.document) : null;
     if (doc) request.companion.document = doc;
@@ -252,7 +281,7 @@
     const body = JSON.stringify(images.length ? await withImages(request, images) : request);
     const attempt = async token => fetch(token ? '/api/chat' : '/api/lab-chat', {
       method: 'POST', signal: opts.signal, credentials: 'same-origin',
-      headers: Object.assign({ 'Content-Type': 'application/json' }, internalHeaders(), token ? { Authorization: 'Bearer ' + token } : {}),
+      headers: Object.assign({ 'Content-Type': 'application/json' }, internalHeaders(), token ? { Authorization: 'Bearer ' + token } : {}, retried ? { 'x-tinct-retry': '1' } : {}),
       body,
     });
     let response;
@@ -268,14 +297,15 @@
       if (detail?.type === 'refusal') throw err('refused', 'refused');
       if (detail?.type === 'cut_off') throw err('cut_off', 'cut_off');
       if (response.status === 400 && (detail === 'images_unavailable' || detail === 'image_rejected')) throw err(detail, detail);
-      throw err(STATUS[response.status] || 'failed', detail || 'HTTP ' + response.status);
+      throw err(STATUS[response.status] || 'failed', detail || 'HTTP ' + response.status, RETRY_STATUS.has(response.status) ? { retryable: true } : undefined);
     }
     const type = response.headers.get('content-type') || '';
     if (type.includes('text/event-stream')) {
       try { return { text: await readStream(response, opts.onText, opts.signal, opts.onStatus) } }
-      catch (e) { if (e?.name === 'AbortError') throw err('cancelled'); throw e }
+      catch (e) { if (e?.name === 'AbortError') throw err('cancelled'); if (e && typeof e === 'object') e.streamed = true; throw e }
     }
-    const json = await response.json();
+    let json;
+    try { json = await response.json() } catch { throw err('dropped', 'The answer stopped.', { retryable: true }) }
     const text = (json.content || []).map(c => c.text || '').join('');
     opts.onText?.({ text, delta: text });
     return { text };

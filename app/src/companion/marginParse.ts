@@ -17,7 +17,9 @@ export interface TextPart { type: 'text'; text: string }
 export type CitationPart = TextPart | CitationToken
 
 const LABEL = '[\\p{L}\\p{N}](?:[\\p{L}\\p{N}.\\-]{0,14}[\\p{L}\\p{N}])?'
-const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}`, 'giu')
+// A page in parentheses, as the answers sometimes write it: (p. 2), (pp. 5–6). Digits or roman numerals only.
+const PAREN_LABEL = '(?:\\d{1,5}|[ivxlcdm]{1,8})'
+const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}|\\(\\s*(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?\\s*\\)`, 'giu')
 
 const LIST_ITEM_RE = new RegExp(`^(?:(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+))?(${LABEL}(?:\\s*[\\u2013\\u2014-]\\s*${LABEL})?)$`, 'iu')
 
@@ -45,7 +47,9 @@ function splitCitationLists(source: string): string {
 /**
  * Text split into text and citation parts, in order. A `{…}` that is not a citation, or one
  * `resolve(token)` turns down (the page or equation is not in this PDF), stays text exactly
- * as written. A range is only for pages ({pp. 12–13}); {p. 12–13} is read as the same range.
+ * as written. A range is only for pages ({pp. 12–13}); {p. 12–13} is read as the same range,
+ * and {pp. 12} as one page. A page in parentheses, (p. 2) or (pp. 5–6), is a tag too. Two tags
+ * with nothing between them never run together ("p. 5p. 6"): they are parted by ", ".
  * -> [{ type: 'text', text } | { type: 'cite', kind, label, to?, raw }]
  */
 export function parseCitations(text: unknown, resolve?: (token: CitationToken) => boolean): CitationPart[] {
@@ -60,17 +64,15 @@ export function parseCitations(text: unknown, resolve?: (token: CitationToken) =
   }
   CITATION_RE.lastIndex = 0
   for (let m: RegExpExecArray | null; (m = CITATION_RE.exec(source));) {
-    let kind = m[1].toLowerCase() as CitationKind
-    let to: string | undefined = m[3]
+    let kind = (m[1] || m[4]).toLowerCase() as CitationKind
+    let to: string | undefined = m[3] || m[6]
     if (to && kind !== 'p' && kind !== 'pp') continue // {eq. 1–2} is not a citation
-    let label = m[2]
+    let label = m[2] || m[5]
     if (to) kind = 'pp'
     else if (kind === 'pp') {
-      // {pp. 12-13} with a hyphen reads as one label; split it. {pp. 12} names no range.
+      // {pp. 12-13} with a hyphen reads as one label; split it. {pp. 12} is one page.
       const split = /^(.+)-(.+)$/.exec(label)
-      if (!split) continue
-      label = split[1]
-      to = split[2]
+      if (split) { label = split[1]; to = split[2] } else kind = 'p'
     } else if (kind === 'p') {
       // {p. 12-13} with a plain hyphen is a page range too; a printed label such as "A-3" stays one page.
       const split = /^(\d+)-(\d+)$/.exec(label) || /^([ivxlcdm]+)-([ivxlcdm]+)$/i.exec(label)
@@ -78,7 +80,8 @@ export function parseCitations(text: unknown, resolve?: (token: CitationToken) =
     }
     const token: CitationToken = { type: 'cite', kind, label, ...(to ? { to } : {}), raw: m[0] }
     if (typeof resolve === 'function' && !resolve(token)) continue
-    pushText(source.slice(last, m.index))
+    const gap = source.slice(last, m.index)
+    pushText(out.length && out[out.length - 1].type === 'cite' && !gap.trim() ? ', ' : gap)
     out.push(token)
     last = m.index + m[0].length
   }
@@ -89,6 +92,59 @@ export function parseCitations(text: unknown, resolve?: (token: CitationToken) =
 /** The citation tokens alone (no text), for a cite field or a quick count. */
 export function citationTokens(text: unknown): CitationToken[] {
   return parseCitations(text).filter((part): part is CitationToken => part.type === 'cite')
+}
+
+/* ---------- Simplify: never the passage again, never a note about the rewrite ---------- */
+
+/** A closing paragraph that talks about the rewrite rather than being it ("The rewrite is a restatement of…"). */
+const SIMPLIFY_META_RE = /^(?:note[:.]?\s+)?(?:(?:the|this|my)\s+(?:rewrite|rewritten (?:version|passage|text)|simplified (?:version|passage|text)|simplification|plain(?:er)? version|restatement|paraphrase)\b|i(?:'ve| have)?\s+(?:kept|rewritten|simplified|restated|stayed)\b)/i
+/** The words of a text, for comparing: lower case, no citation tags, no punctuation. */
+function wordsOf(text: unknown): string[] {
+  return String(text ?? '').replace(/\{[^{}\n]{1,40}\}/g, ' ').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}\s]+/gu, ' ').split(/\s+/).filter(Boolean)
+}
+/** How alike two texts are, word by word: 1 minus their word edit distance over the longer length (0 to 1). */
+export function wordSimilarity(a: unknown, b: unknown): number {
+  const x = wordsOf(a), y = wordsOf(b)
+  if (!x.length || !y.length) return x.length === y.length ? 1 : 0
+  let prev = Array.from({ length: y.length + 1 }, (_, j) => j)
+  for (let i = 1; i <= x.length; i++) {
+    const row = [i]
+    for (let j = 1; j <= y.length; j++) row[j] = Math.min(prev[j] + 1, row[j - 1] + 1, prev[j - 1] + (x[i - 1] === y[j - 1] ? 0 : 1))
+    prev = row
+  }
+  return 1 - prev[y.length] / Math.max(x.length, y.length)
+}
+/** A paragraph this alike to the passage is the passage again, not a rewrite. */
+export const SIMPLIFY_SAME = 0.85
+/** A selection of this many words or fewer gets one short restatement: the first paragraph only. */
+export const SIMPLIFY_SHORT = 6
+/** A paragraph without any sentence that quotes the passage back ("The passage's own words are: \"…\" {p. 5}"). */
+function withoutQuotedPassage(block: string, passage: unknown): string {
+  let out = block
+  for (const m of block.matchAll(/["\u201c]([^"\u201d\n]{12,})["\u201d]/g)) {
+    if (wordSimilarity(m[1], passage) < SIMPLIFY_SAME) continue
+    const at = m.index ?? 0
+    const from = Math.max(block.lastIndexOf('. ', at), block.lastIndexOf('? ', at), block.lastIndexOf('! ', at))
+    const tail = /^\s*(?:\{[^{}\n]{1,40}\})?\s*[.;]?/.exec(block.slice(at + m[0].length))
+    out = out.replace(block.slice(from < 0 ? 0 : from + 2, at + m[0].length + (tail ? tail[0].length : 0)), '')
+  }
+  return out.replace(/\s{2,}/g, ' ').trim()
+}
+/**
+ * A Simplify answer as the card shows it: a paragraph that is the passage again (wordSimilarity at
+ * least SIMPLIFY_SAME) is dropped while a real rewrite remains, a sentence that quotes the passage
+ * back is dropped, a closing note about the rewrite is dropped, and a selection of at most
+ * SIMPLIFY_SHORT words keeps only its first paragraph (the re-run after train 3: four words got two
+ * paragraphs repeating the whole sentence). -> { text, unchanged }: `unchanged` when nothing but
+ * the passage came back (`text` '').
+ */
+export function simplifyAnswer(text: unknown, passage: unknown): { text: string; unchanged: boolean } {
+  let blocks = String(text ?? '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => withoutQuotedPassage(b.trim(), passage)).filter(Boolean)
+  if (blocks.length > 1 && SIMPLIFY_META_RE.test(blocks[blocks.length - 1])) blocks = blocks.slice(0, -1)
+  const same = (b: string) => wordSimilarity(b, passage) >= SIMPLIFY_SAME
+  const kept = blocks.filter(b => !same(b))
+  if (blocks.length && !kept.length) return { text: '', unchanged: true }
+  return { text: (wordsOf(passage).length <= SIMPLIFY_SHORT ? kept.slice(0, 1) : kept).join('\n\n'), unchanged: false }
 }
 
 // Words that end in a dot without ending the sentence.
