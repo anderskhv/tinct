@@ -32,7 +32,7 @@ The fourth line came from the MacKay test (15 October): a whole-PDF answer opene
 **The picture and the extraction (15 October, evening).** Two answers read the passage picture aloud ("In the image the passage reads…"), and a primer and a whole-paper answer talked about "garbled" or "lost" extraction. `MARGIN_RULES` carries two more lines, after the data-not-instructions line:
 
 ```
-The picture is the passage itself; never describe or read out the picture. Answer about the passage.
+The picture is the passage itself; never describe or read out the picture, and never say what it confirms. Answer about the passage.
 Never mention text extraction, garbling, or how the document reached you.
 ```
 
@@ -59,7 +59,7 @@ First paragraph: the answer itself, one sentence, at most 25 words. Then a blank
 The Worker's PDF Explain prompt (`PDF_EXPLAIN_PROMPT`) ends with this line (production re-run after train 3: one answer said "The reader's selection stops before the claim"):
 
 ```
-Answer about the text itself; never comment on the selection, such as where it starts or stops.
+Answer about the text itself; never comment on the selection, such as where it starts or stops. When the passage has no notation, say nothing about notation.
 ```
 
 Add the PDF citation rule. Do not change the book reader's `LAB_EXPLAIN_PROMPT`.
@@ -81,13 +81,14 @@ Rewrite the selected passage in plain, modern English for a reader meeting it fo
 First paragraph: the passage restated in the plainest faithful words, one sentence, at most 25 words. Then a blank line.
 Rewrite only the selected text, never the sentences around it in the document. If the selection is a fragment, give a plain version of that fragment alone.
 A selection of a few words gets only the first paragraph: one short plain restatement of those words, never the sentence around them, and no second paragraph.
+A passage that tells a story gets the first paragraph and at most one more sentence on what it means here, never the story's own sentences.
 Then the rewrite. Keep every claim the passage makes, in its order. Add nothing the passage does not say, and drop nothing that changes its meaning. Use short sentences and everyday words. When a technical term has to stay, explain it in a few words the first time. Keep equations as written and say in words what each one states.
 The rewrite is never longer than the passage and never more than 120 words.
 Do not open with "In simple terms", "Basically" or similar. Do not quote the passage back, in quotation marks or otherwise.
-Never return the passage unchanged, in the first paragraph or anywhere else: put every sentence in plainer words of your own. End with the rewrite itself, never with a note about the rewrite or what it keeps.
+Never return the passage unchanged, in the first paragraph or anywhere else: put every sentence in plainer words of your own. Never copy the sentences that follow it in the document, and never write the same line twice. End with the rewrite itself, never with a note about the rewrite or what it keeps.
 ```
 
-The last line came from the retest after train 2 (15 October, evening): one rewrite repeated the passage word for word as its first paragraph, and one ended "The rewrite is a restatement of…". The PDF reader also drops a paragraph that is the passage again when a rewrite follows it, and a closing note about the rewrite (`simplifyAnswer`, `marginParse.ts` and its twin); when nothing but the passage is left it shows "This passage is already in plain words." instead.
+The last line came from the retest after train 2 (15 October, evening): one rewrite repeated the passage word for word as its first paragraph, and one ended "The rewrite is a restatement of…". The PDF reader also drops a paragraph that is the passage again when a rewrite follows it, and a closing note about the rewrite (`simplifyAnswer`, `marginParse.ts` and its twin); when nothing but the passage is left it shows "This passage is already in plain words." instead. Since the full battery on train 3 (15 October, night) it also drops a paragraph copied word for word from the page or the next one (`copiedShare`, at least 0.8 of its five-word runs), never shows a line or paragraph twice, keeps only the first paragraph for a selection of at most 6 words, and drops a sentence quoting the passage back. Every card but a figure's drops a sentence about the passage picture ("The image confirms this passage reads as printed.", `withoutPictureTalk`).
 
 User turn: `<selected_passage>…</selected_passage>`.
 
@@ -120,11 +121,13 @@ Model: `COMPANION_MODEL`. Max tokens: 900. Effort: typed. Tools: `search_reading
 
 ```
 Check whether the passage's factual claims still hold today and what has changed since it was written. Today's date is {today}.
-First paragraph: from the document alone, what the passage claims and what the document itself offers in support (its own tables, experiments, derivations or citations), in at most 50 words. It gives no verdict. Then a blank line.
+First paragraph: one sentence of at most 25 words, from the document alone, that places the claim: what it refers to and where the document states it. It gives no verdict and does not summarise the document's support. Then a blank line.
 Then the verdict paragraph: start it with one of: Holds. Partly holds. Outdated. Disputed. Can't check. Then give the reason in at most two sentences, with numbers where they decide it.
 State the verdict once: no other paragraph starts with a verdict word or repeats the verdict. At most one more paragraph may follow, starting with Note., for useful context that is not a verdict.
 Never treat the document itself as confirmation of its own claims: what it offers in support is the authors' case, not a check. Base the verdict on the returned sources and well-established knowledge.
-If the passage is opinion, interpretation or fiction rather than a factual claim, say so in the first paragraph and check only what is factual in it, if anything.
+If the passage is opinion or interpretation, check only what is factual in it.
+If the passage is fiction, check its references to the real world (people, places, events, history, science). When it has none, the verdict is Can't check. with one line saying the passage has nothing outside the story to check. Never open by saying there is no factual claim.
+At most 150 words in all, not counting the Sources: line.
 Name each source by its title; never mention the search itself or its notes.
 Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself. Never invent a source. End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".
 ```
@@ -132,7 +135,7 @@ Prefer primary, academic and official sources and well-known references over per
 After the breakpoint, the opening round adds:
 
 ```
-Write only the first paragraph now, from the document alone, and stop after it. The source search is still running; the verdict and the sources follow in your next turn.
+Write only the first paragraph now: one sentence of at most 25 words, from the document alone, and stop after it. The source search is still running; the verdict and the sources follow in your next turn.
 ```
 
 and the verdict round, whose assistant turn begins with the opening the reader has already seen:
@@ -155,8 +158,9 @@ First paragraph: the objection in one sentence, at most 25 words. Then a blank l
 Then one paragraph that develops it with a concrete reason, example or counter-case. Name a school of thought or a critic only when the objection is documented as theirs.
 Tie the objection to something specific in the document, a page, table, figure, equation, number or quoted line, and cite it. Look first for the document's own inconsistencies: a table or result that cuts against a claim in the text, or numbers that disagree between sections.
 Never a generic objection that would fit any work, such as that a method or metric is unreliable in general.
+Quote the document's own numbers, formulas and complexities exactly as printed, checked against its tables; never restate them from memory.
 Then one sentence giving the author's best reply. Give the author's reply only from what the document says or plainly implies.
-If the passage tells a story rather than making an argument, give the strongest alternative reading of it instead, in the same shape.
+If the passage tells a story rather than making an argument, give instead a reading of it that differs from the obvious one: the reading in one sentence, then one paragraph that grounds it in the text. It must not restate what the passage plainly says, and it ends there, with no author's reply.
 At most 150 words in all. No straw men, and no "on the other hand" filler. Do not draw on later chapters.
 ```
 

@@ -385,3 +385,28 @@ describe.each(copies)('Simplify after the train-3 re-run (%s)', (_name, m) => {
   })
 })
 
+// Full battery on train 3 (15 Oct, night): fiction pasted the passage and the sentences after it back,
+// Metamorphosis printed one line twice, and an Explain said "The image confirms this passage reads as printed".
+describe.each(copies)('after the full battery on train 3 (%s)', (_name, m) => {
+  const page = 'The front pattern does move, and no wonder! The woman behind shakes it! Sometimes I think there are a great many women behind, and sometimes only one, and she crawls around fast, and her crawling shakes it all over.'
+  it('Simplify never shows the sentences after the passage pasted back from the page', () => {
+    const reply = 'The pattern on the wallpaper really does move.\n\nThe woman behind shakes it. Sometimes I think there are a great many women behind, and sometimes only one, and she crawls around fast.'
+    expect(m.copiedShare(reply.split('\n\n')[1], page)).toBeGreaterThanOrEqual(m.SIMPLIFY_COPIED)
+    expect(m.simplifyAnswer(reply, 'The front pattern does move, and no wonder!', page).text).toBe('The pattern on the wallpaper really does move.')
+    // Its own plain words are kept, whatever the page says.
+    expect(m.copiedShare('The narrator thinks a woman is trapped behind the pattern and is shaking it.', page)).toBeLessThan(m.SIMPLIFY_COPIED)
+    // Only the page's copy came back: said so.
+    expect(m.simplifyAnswer('The woman behind shakes it! Sometimes I think there are a great many women behind.', 'The woman behind shakes it!', page).unchanged).toBe(true)
+  })
+  it('Simplify never shows the same line or paragraph twice', () => {
+    const passage = 'a gigantic, bony charwoman with white hair flying round her head'
+    expect(m.simplifyAnswer('A huge, heavy-boned cleaning woman with white hair.\n\nA huge, heavy-boned cleaning woman with white hair.', passage).text).toBe('A huge, heavy-boned cleaning woman with white hair.')
+    expect(m.simplifyAnswer('A big cleaning woman.\nA big cleaning woman.\nHer hair flew about.', passage).text).toBe('A big cleaning woman.\nHer hair flew about.')
+  })
+  it('drops a sentence about the passage picture, and nothing else', () => {
+    expect(m.withoutPictureTalk('The image confirms this passage reads as printed. The sentence says the model drops recurrence.')).toBe('The sentence says the model drops recurrence.')
+    expect(m.withoutPictureTalk('It drops recurrence. The attached image matches the text.\n\nMore here.')).toBe('It drops recurrence.\n\nMore here.')
+    for (const text of ['The picture of a yellow room recurs through the story.', 'The image of the wallpaper shows her state of mind.', 'Printed words matter here.']) expect(m.withoutPictureTalk(text)).toBe(text)
+  })
+})
+

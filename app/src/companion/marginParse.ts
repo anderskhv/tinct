@@ -94,6 +94,15 @@ export function citationTokens(text: unknown): CitationToken[] {
   return parseCitations(text).filter((part): part is CitationToken => part.type === 'cite')
 }
 
+/**
+ * An answer without a sentence about the passage picture ("The image confirms this passage reads as
+ * printed.", full battery on train 3): a sentence led by the image or picture that confirms, matches
+ * or reads it as printed. Not for a figure's card, whose picture is the subject.
+ */
+export function withoutPictureTalk(text: unknown): string {
+  return String(text ?? '').replace(/(^|[.!?]["\u201d)]?[ \t]+|\n)(?:the |this )?(?:attached |passage )?(?:image|picture)\b[^.!?\n]*\b(?:confirm\w*|match\w*|as printed|reads? the same)\b[^.!?\n]*[.!?][ \t]*/gi, (_m, lead: string) => lead.replace(/[ \t]+$/, ' ')).replace(/ +\n/g, '\n').trim()
+}
+
 /* ---------- Simplify: never the passage again, never a note about the rewrite ---------- */
 
 /** A closing paragraph that talks about the rewrite rather than being it ("The rewrite is a restatement of…"). */
@@ -130,18 +139,34 @@ function withoutQuotedPassage(block: string, passage: unknown): string {
   }
   return out.replace(/\s{2,}/g, ' ').trim()
 }
+/** The share of a text's five-word runs found word for word in `source` (0 to 1); a text under 8 words is 0. */
+export function copiedShare(text: unknown, source: unknown): number {
+  const words = wordsOf(text)
+  if (words.length < 8 || !source) return 0
+  const hay = ` ${wordsOf(source).join(' ')} `
+  let found = 0, runs = 0
+  for (let i = 0; i + 5 <= words.length; i++) { runs++; if (hay.includes(` ${words.slice(i, i + 5).join(' ')} `)) found++ }
+  return runs ? found / runs : 0
+}
+/** A paragraph copied this much from the page is the document pasted back, not a rewrite. */
+export const SIMPLIFY_COPIED = 0.8
 /**
  * A Simplify answer as the card shows it: a paragraph that is the passage again (wordSimilarity at
  * least SIMPLIFY_SAME) is dropped while a real rewrite remains, a sentence that quotes the passage
  * back is dropped, a closing note about the rewrite is dropped, and a selection of at most
  * SIMPLIFY_SHORT words keeps only its first paragraph (the re-run after train 3: four words got two
  * paragraphs repeating the whole sentence). -> { text, unchanged }: `unchanged` when nothing but
- * the passage came back (`text` '').
+ * the passage came back (`text` ''). Given `source` (the page's text and the next page's), a paragraph
+ * copied from it word for word (copiedShare at least SIMPLIFY_COPIED) is dropped too, and a line or
+ * paragraph never shows twice (full battery on train 3).
  */
-export function simplifyAnswer(text: unknown, passage: unknown): { text: string; unchanged: boolean } {
+export function simplifyAnswer(text: unknown, passage: unknown, source?: unknown): { text: string; unchanged: boolean } {
   let blocks = String(text ?? '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => withoutQuotedPassage(b.trim(), passage)).filter(Boolean)
   if (blocks.length > 1 && SIMPLIFY_META_RE.test(blocks[blocks.length - 1])) blocks = blocks.slice(0, -1)
-  const same = (b: string) => wordSimilarity(b, passage) >= SIMPLIFY_SAME
+  // A line or paragraph never shows twice (Metamorphosis printed one line twice).
+  blocks = blocks.map(b => b.split('\n').filter((line, i, all) => !line.trim() || all.findIndex(x => x.trim() === line.trim()) === i).join('\n'))
+  blocks = blocks.filter((b, i) => !blocks.slice(0, i).some(a => wordSimilarity(a, b) >= 0.95))
+  const same = (b: string) => wordSimilarity(b, passage) >= SIMPLIFY_SAME || copiedShare(b, source) >= SIMPLIFY_COPIED
   const kept = blocks.filter(b => !same(b))
   if (blocks.length && !kept.length) return { text: '', unchanged: true }
   return { text: (wordsOf(passage).length <= SIMPLIFY_SHORT ? kept.slice(0, 1) : kept).join('\n\n'), unchanged: false }

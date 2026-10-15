@@ -2983,7 +2983,9 @@ const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
   const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
-  return { open, P: MP.P, resolve: citeResolve, place: quotePlace, where: where(), pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
+  // Simplify compares its answer with the page and the next (simplifyAnswer): the document pasted back is never shown.
+  const source = card.kind === 'simplify' ? [card.page, card.page + 1].map(n => state.texts.get(n)?.text || '').join('\n') : '';
+  return { open, P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
 }
 /** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
 function holdQuizHeight(el, before) {

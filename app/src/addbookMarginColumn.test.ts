@@ -478,3 +478,33 @@ describe('Simplify cards: never the passage again, no note about the rewrite', (
   })
 })
 
+describe('after the full battery on train 3', () => {
+  it('a section run on after a sentence (text extracted without line breaks) is a tag: "sec. 3"', () => {
+    const texts = new Map([[3, 'recurrence and convolutions entirely. 3 Model Architecture Most competitive neural sequence transduction models']])
+    const tok = (raw: string) => P.citationTokens(raw)[0] as Token
+    expect(M.citeTarget(tok('{sec. 3}'), { count: 9, texts })).toEqual({ page: 3, needle: '3 Model' })
+    expect(M.citeTarget(tok('{sec. 4}'), { count: 9, texts })).toBeNull()
+    const resolve = (t: Token) => M.citeTarget(t, { count: 9, texts })
+    const div = document.createElement('div')
+    div.innerHTML = M.html.defineHtml({ word: 'auto-regressive', source: 'Dictionary', inText: 'Generating one symbol at a time {sec. 3}.', senses: [] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold', P, resolve })
+    expect((div.querySelector('.mr-define__in .mr-cite') as HTMLElement)?.dataset.page).toBe('3')
+  })
+  it('no card shows a sentence about the passage picture; a figure\'s card keeps its picture talk', () => {
+    const a = [{ n: 1, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }]
+    const div = document.createElement('div')
+    div.innerHTML = M.html.cardHtml(M.newCard({ kind: 'explain', page: 1, anchor: a, text: 'x', turns: [{ role: 'assistant', content: 'The image confirms this passage reads as printed. It drops recurrence.' }] }), { open: true, P, pageLabel: '1' })
+    expect(div.querySelector('.mr-card__body')!.textContent).not.toContain('image confirms')
+    expect(div.querySelector('.mr-card__body')!.textContent).toContain('It drops recurrence.')
+    div.innerHTML = M.html.cardHtml(M.newCard({ kind: 'figure', page: 1, anchor: a, text: 'Figure 1', turns: [{ role: 'user', content: 'What is it?' }, { role: 'assistant', content: 'The image matches the caption: a stack of six layers.' }] }), { open: true, P, pageLabel: '1' })
+    expect(div.querySelector('.mr-card__body')!.textContent).toContain('The image matches the caption')
+  })
+  it('a Simplify card leaves out what was pasted from the page (o.source)', () => {
+    const a = [{ n: 1, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }]
+    const source = 'It is always the same shape, only very numerous. And it is like a woman stooping down and creeping about behind that pattern.'
+    const c = M.newCard({ kind: 'simplify', page: 1, anchor: a, text: 'It is always the same shape, only very numerous', turns: [{ role: 'assistant', content: 'The shape never changes; there are just very many of them.\n\nAnd it is like a woman stooping down and creeping about behind that pattern.' }] })
+    const div = document.createElement('div')
+    div.innerHTML = M.html.cardHtml(c, { open: true, P, pageLabel: '1', source })
+    expect([...div.querySelectorAll('.mr-answer p')].map(p => p.textContent)).toEqual(['The shape never changes; there are just very many of them.'])
+  })
+})
+

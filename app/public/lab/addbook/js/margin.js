@@ -460,13 +460,14 @@
       eq: [new RegExp(`\\(\\s*${L}\\s*\\)`), new RegExp(`\\bEq(?:uation)?s?\\.?\\s*\\(?${L}(?![\\d.])`, 'i')],
       fig: [new RegExp(`\\bFig(?:ure|\\.)?\\s*${L}(?!\\d)`, 'i')],
       table: [new RegExp(`\\bTable\\s*${L}(?!\\d)`, 'i')],
-      sec: [new RegExp(`(?:^|\\n)\\s*${L}\\.?\\s+\\p{Lu}`, 'u'), new RegExp(`\\bSection\\s*${L}(?!\\d)`, 'i')],
+      // A heading on its own line, "Section 3", or (text extracted without line breaks) a heading run on after a sentence: "… entirely. 3 Model Architecture".
+      sec: [new RegExp(`(?:^|\\n)\\s*${L}\\.?\\s+\\p{Lu}`, 'u'), new RegExp(`\\bSection\\s*${L}(?!\\d)`, 'i'), new RegExp(`(?:[.:!?]\\s+|\\s{2,})${L}\\.?\\s+\\p{Lu}\\p{Ll}{2,}`, 'u')],
     }[token.kind];
     if (!re || !texts) return null;
     const entries = (texts instanceof Map ? [...texts.entries()] : Object.entries(texts).map(([k, v]) => [Number(k), v])).sort((a, b) => a[0] - b[0]);
     for (const pattern of re) for (const [n, t] of entries) {
       const m = pattern.exec(typeof t === 'string' ? t : t?.text || '');
-      if (m) return { page: n, needle: m[0].trim() };
+      if (m) return { page: n, needle: m[0].replace(/^[.:!?\s]+/, '').trim() };
     }
     return null;
   }
@@ -743,7 +744,10 @@
     const turns = [...(card.turns || [])];
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
     let answered = card.kind === 'note' || card.kind === 'define';
-    turns.forEach((t, k) => {
+    // Never a sentence about the passage picture (full battery on train 3), except in a figure's card, whose picture is its subject.
+    const clean = text => (card.kind !== 'figure' && P?.withoutPictureTalk ? P.withoutPictureTalk(text) : text);
+    turns.forEach((t0, k) => {
+      const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content) };
       if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
       answered = true;
       if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve, live: o.live != null && k === turns.length - 1 }); body += f.answer + f.sources }
@@ -751,7 +755,7 @@
       else if (card.kind === 'simplify' && k === 0 && P.simplifyAnswer) {
         // Never the passage again, never a note about the rewrite (retest after train 2): when nothing else came back, say so.
         // While it streams, a first paragraph that is the passage so far shows as written (the rewrite may follow).
-        const s = P.simplifyAnswer(t.content, card.text);
+        const s = P.simplifyAnswer(t.content, card.text, o.source);
         if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
         else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }

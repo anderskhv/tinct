@@ -227,7 +227,7 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
 
 describe('answer rules from the deep test after train 2 (15 Oct, evening)', () => {
   it('every margin request carries the picture rule and the no-extraction rule in the cached prefix; the book reader never does', async () => {
-    expect(PICTURE_RULE).toBe('The picture is the passage itself; never describe or read out the picture. Answer about the passage.')
+    expect(PICTURE_RULE).toBe('The picture is the passage itself; never describe or read out the picture, and never say what it confirms. Answer about the passage.')
     expect(NO_EXTRACTION_TALK_RULE).toBe('Never mention text extraction, garbling, or how the document reached you.')
     expect(MARGIN_RULES).toContain(PICTURE_RULE)
     expect(MARGIN_RULES).toContain(NO_EXTRACTION_TALK_RULE)
@@ -258,11 +258,17 @@ describe('answer rules from the deep test after train 2 (15 Oct, evening)', () =
 
   it('Fact-check: the opening from the document first, then the verdict once', () => {
     const prompt = factcheckPrompt('2026-10-15')
-    expect(prompt).toContain('First paragraph: from the document alone, what the passage claims and what the document itself offers in support')
-    expect(prompt).toContain('It gives no verdict.')
+    // Full battery on train 3: the opening is one placing sentence of at most 25 words, no summary of the document's support; at most 150 words in all.
+    expect(prompt).toContain('First paragraph: one sentence of at most 25 words, from the document alone, that places the claim')
+    expect(prompt).not.toContain('what the document itself offers in support')
+    expect(prompt).toContain('It gives no verdict and does not summarise the document\'s support.')
+    expect(prompt).toContain('At most 150 words in all, not counting the Sources: line.')
+    // Fiction: real-world references, never "there is no factual claim".
+    expect(prompt).toContain('If the passage is fiction, check its references to the real world')
+    expect(prompt).toContain('Never open by saying there is no factual claim.')
     expect(prompt).toContain('State the verdict once: no other paragraph starts with a verdict word or repeats the verdict.')
     expect(prompt).not.toContain('Then one short paragraph for each checkable claim')
-    expect(FACTCHECK_OPENING_ROUND).toContain('Write only the first paragraph now, from the document alone')
+    expect(FACTCHECK_OPENING_ROUND).toContain('Write only the first paragraph now: one sentence of at most 25 words, from the document alone')
     expect(FACTCHECK_VERDICT_ROUND).toContain('Do not repeat or restate the first paragraph.')
   })
 })
@@ -315,6 +321,14 @@ describe('no pipeline wording in any margin prompt', () => {
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Look first for the document\'s own inconsistencies')
     expect(marginPromptText.PDF_COUNTERPOINT_PROMPT).toContain('Never a generic objection that would fit any work')
     expect(marginPromptText.SIMPLIFY_PROMPT).toContain('A selection of a few words gets only the first paragraph')
+    // Full battery on train 3 (fiction, accuracy, leaks).
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('never the story\'s own sentences')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Never copy the sentences that follow it in the document, and never write the same line twice.')
+    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('a reading of it that differs from the obvious one')
+    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('with no author\'s reply')
+    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Quote the document\'s own numbers, formulas and complexities exactly as printed')
+    expect(marginPromptText.PDF_EXPLAIN_TEXT_RULE).toContain('When the passage has no notation, say nothing about notation.')
+    expect(marginPromptText.PICTURE_RULE).toContain('never say what it confirms')
     for (const line of [marginPromptText.PDF_EXPLAIN_TEXT_RULE, ...marginPromptText.SIMPLIFY_PROMPT.split('\n'), ...marginPromptText.COUNTERPOINT_PROMPT.split('\n'), ...marginPromptText.factcheckPrompt('{today}').split('\n'), ...marginPromptText.DEFINE_SENSE_PROMPT.split('\n'), ...CHAPTER_CHAT_INSTRUCTIONS.primer.split('\n')]) expect(doc, line).toContain(line)
   })
 })
