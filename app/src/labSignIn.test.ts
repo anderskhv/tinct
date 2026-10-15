@@ -53,6 +53,29 @@ afterEach(() => {
 })
 
 describe('lab sign-in runtime', () => {
+  it('is not ready until the e-ink stylesheet has loaded', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    history.replaceState(null, '', '/sign-in?eink=1')
+    mountSignInShell()
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = '/lab/display-profile.css'
+    link.dataset.displayProfile = ''
+    document.head.append(link)
+    try {
+      await import('./labSignIn')
+      await flush()
+      const root = document.querySelector<HTMLElement>('#tinct-lab-sign-in')!
+      expect(root.dataset.mode).toBe('signin')
+      expect(root.dataset.ready).toBe('false')
+      link.dispatchEvent(new Event('load'))
+      await flush()
+      expect(root.dataset.ready).toBe('true')
+    } finally {
+      link.remove()
+    }
+  })
+
   it('sends a signed-in reader on the old account link to the Account card over the page they came from', async () => {
     history.replaceState(null, '', '/sign-in?mode=account&returnTo=%2Freader%3Fvoice%3Dv2')
     mountSignInShell()

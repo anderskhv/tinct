@@ -15,6 +15,7 @@ import {
   LAB_AUTH_CALLBACK_PATH,
 } from './lab/labSignInProviders'
 import { reconcileLabDeviceIdentity } from './lab/labDeviceIdentity'
+import { displayProfileStylesReady } from './lab/displayProfileStyles'
 import { supabase } from './services/supabase'
 import { funnel, setFunnelToken, trackFunnel } from './utils/funnel'
 import { setSignedInCookie } from './utils/authCookie'
@@ -341,6 +342,8 @@ async function initialize() {
     setMode('signin')
     setStatus(messageOf(error) || 'Sign in could not finish. Please try again.', 'error')
   } finally {
+    // Ready means the page is painted as it will be read, e-ink rules included.
+    await displayProfileStylesReady()
     if (root) root.dataset.ready = 'true'
   }
 }
