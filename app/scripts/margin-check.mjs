@@ -233,7 +233,13 @@ async function readerMatrix(browser, origin) {
         await check('more', '.mr-more, .mr-pmore')
         await page.keyboard.press('Escape')
         // Typing opens Ask with that letter (desktop keyboards).
-        if (width >= 700) { await page.keyboard.press('W'); await check('ask', '.mr-bar.is-asking'); await page.keyboard.press('Escape') }
+        if (width >= 700) {
+          await page.keyboard.press('W'); await check('ask', '.mr-bar.is-asking'); await page.keyboard.press('Escape')
+          // Escape steps back to the bar, which stays even when a late selectionchange arrives
+          // (a slow machine's debounce fired after Escape and closed it).
+          await page.evaluate(() => document.dispatchEvent(new Event('selectionchange'))); await page.waitForTimeout(450)
+          if (!await page.$('.mr-float.mr-bar [data-m="note"]')) throw new Error('the bar closed after Escape from Ask')
+        }
         // The note editor.
         await page.click('.mr-float [data-m="note"]')
         await check('note', '.mr-note')
@@ -244,7 +250,8 @@ async function readerMatrix(browser, origin) {
         await check('define', '.mr-define .mr-define__senses, .mr-define .mr-define__body p:not(.mr-define__wait)')
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e) }) }
       rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: found.length + problems.length, details: [...found, ...problems], screenshots: states })
-      console.log(`${tag}: ${found.length + problems.length} problem(s)`, process.env.VERBOSE ? JSON.stringify([...found, ...problems]) : '')
+      const all = [...found, ...problems]
+      console.log(`${tag}: ${all.length} problem(s)`, process.env.VERBOSE ? JSON.stringify(all) : all.length ? JSON.stringify(all).slice(0, 300) : '')
       await ctx.close()
     }
   }

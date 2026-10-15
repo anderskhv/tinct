@@ -27,10 +27,10 @@ describe('socialRules', () => {
     expect(appearsOnBoard(card(), 'everyone', { friends: new Set(['b']), blocked: new Set(['b']) })).toBe(false)
   })
 
-  it('the Everyone board opens at 10 real readers; unknown keeps it closed', () => {
-    expect(EVERYONE_BOARD_MIN_READERS).toBe(10)
+  it('the Everyone board opens at 1 real reader; unknown keeps it closed', () => {
+    expect(EVERYONE_BOARD_MIN_READERS).toBe(1)
     expect(everyoneBoardOpen(0)).toBe(false)
-    expect(everyoneBoardOpen(9)).toBe(false)
+    expect(everyoneBoardOpen(1)).toBe(true)
     expect(everyoneBoardOpen(10)).toBe(true)
     expect(everyoneBoardOpen(250)).toBe(true)
     expect(everyoneBoardOpen(null)).toBe(false)

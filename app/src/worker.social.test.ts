@@ -690,10 +690,9 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
   const strict = { everyoneMinReaders: undefined }
   const get = (world: World, path: string, as: string, init: RequestInit = {}) => api(world, path, as, init, strict)
 
-  it('9 real readers: no Everyone board and no tab; the 10th opens it on its own (no release)', async () => {
+  it('no real readers: no Everyone board and no tab; the first opens it on its own (no release)', async () => {
     const world = new World()
     world.add(A, { on_leaderboard: false })
-    addReaders(world, 1, 9)
     const closed = await get(world, '/api/social/board?tab=everyone', A)
     expect(closed.status).toBe(404)
     expect(await closed.json()).toEqual({ error: 'Not found', everyoneOpen: false })
@@ -701,7 +700,7 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect(friends.everyoneOpen).toBe(false)
     expect((await json(await get(world, '/api/social/find', A))).everyoneOpen).toBe(false)
 
-    addReaders(world, 10, 1)
+    addReaders(world, 1, 1)
     // The count is reused briefly, then asked again (and the hourly rebuild has run).
     world.now = NOW + 6 * 60_000
     world.refreshedAt = null
@@ -709,14 +708,13 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect(open.status).toBe(200)
     const data = await open.json() as Record<string, any>
     expect(data.everyoneOpen).toBe(true)
-    expect(data.entries).toHaveLength(11)
+    expect(data.entries).toHaveLength(2)
     expect((await json(await get(world, '/api/social/board?tab=friends', A))).everyoneOpen).toBe(true)
   })
 
-  it('internal and test accounts never count toward the 10', async () => {
+  it('internal and test accounts never count toward the threshold', async () => {
     const world = new World()
     world.add(A, { on_leaderboard: false })
-    addReaders(world, 1, 9)
     addReaders(world, 100, 5, true)
     expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
     // Readers who would not appear on Everyone do not count either.
@@ -745,6 +743,8 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
 
   it('the Friends board is unaffected below the threshold', async () => {
     const world = everyoneWorld()
+    // Below the threshold: nobody shows on Everyone (all Friends profiles).
+    for (const id of [A, B, C, D, E]) world.profiles.get(id)!.visibility = 'friends'
     world.befriend(A, B); world.befriend(A, C)
     world.read(B, 0, 90); world.read(C, 0, 30); world.read(A, 0, 60)
     const response = await get(world, '/api/social/board?tab=friends', A)

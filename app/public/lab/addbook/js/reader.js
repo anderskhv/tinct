@@ -2179,7 +2179,14 @@ addEventListener('keydown', e => {
   if (e.key === 'Escape' && mr) {
     e.preventDefault(); e.stopImmediatePropagation();
     if (mr.moreEl) { const had = mr.moreEl.contains(document.activeElement); closeMore(); if (had) mr.el.querySelector('[data-m="more"]')?.focus({ preventScroll: true }); return }
-    if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') { if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) } dictation.stop(); return mrShow(mr.def ? 'define' : 'menu') }
+    if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') {
+      if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
+      dictation.stop(); mrShow(mr.def ? 'define' : 'menu')
+      // Ask and the note took the focus, and with it the page's selection: select the passage again,
+      // so a late selectionchange finds it and the bar stays (it closed the bar on a slow machine).
+      if (!mr.held && mr.info.range) { const s = getSelection(); s.removeAllRanges(); s.addRange(mr.info.range) }
+      return
+    }
     marginClose(); getSelection().removeAllRanges();
     return;
   }
