@@ -152,7 +152,9 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 
 ## Test accounts — never blocked (Anders, 2026-10-15)
 
-Test accounts (tinct3@fastmail.com and any other account Anders gives for testing; never write their passwords into files) must never be stopped by the AI allowance or the per-minute rate limit. Resetting a test account's allowance or limits is pre-authorized: whenever testing hits "You have used this month's companion allowance" or "That was a lot of questions in a short time", reset it and carry on; do not stop to ask. A session without admin or database access hands the reset to Coder (or Anders) at once, with the account email, and resumes testing when it is done. The lasting fix is that internal and test accounts are exempt from both limits.
+Test accounts (tinct3@fastmail.com and any other account Anders gives for testing; never write their passwords into files) must never be stopped by the AI allowance or the per-minute rate limit. Resetting a test account's allowance or limits is pre-authorized: whenever testing hits "You have used this month's companion allowance" or "That was a lot of questions in a short time", reset it and carry on; do not stop to ask. A session without admin or database access hands the reset to Coder (or Anders) at once, with the account email, and resumes testing when it is done. The lasting fix is that internal and test accounts are exempt from both limits (shipped in #456).
+
+**How:** while signed in as the test account, open any tinct.app page with `?internal=1` in the test browser. The device then sends `x-tinct-check: 1`, the account is flagged internal (`reader_profiles.internal`), and neither the allowance nor the chat limit refuses it any more. Its spend is still logged. Do this at the start of every test session, in every browser profile used.
 
 ## Pre-Deploy Checklist (MANDATORY)
 
