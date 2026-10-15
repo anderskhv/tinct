@@ -503,9 +503,30 @@ async function pageText(n) {
   if (recognised) { const value = { text: TinctPdfOcr.pageText(recognised), items: [], ocr: true }; state.texts.set(n, value); return value }
   const page = await state.pdf.getPage(n);
   const content = await page.getTextContent();
-  const value = { items: content.items, ...textOf(content.items, page.view) };
+  const items = await shownItems(page, content.items);
+  const value = { items, ...textOf(items, page.view) };
   state.texts.set(n, value);
   return value;
+}
+/* Text a placed figure carries clipped out of sight (TD-Gammon's figure holds a page of an earlier draft) is no
+   text of the page: on a page whose lines lie on top of each other, the page is drawn small and the text it
+   does not show is dropped (TinctReadingOrder.hidden), for the text layer, selections and the companion alike.
+   Other pages are untouched. -> the items, the unseen ones emptied (indexes kept) */
+async function shownItems(page, items) {
+  const RO = window.TinctReadingOrder;
+  if (!RO?.hidden || !RO.suspect(items)) return items;
+  try {
+    const base = page.getViewport({ scale: 1 }), vp = page.getViewport({ scale: 480 / base.width });
+    const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+    const g = c.getContext('2d', { alpha: false }); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: g, viewport: vp }).promise;
+    const W = 240, H = Math.max(1, Math.round(W * c.height / c.width)), small = document.createElement('canvas'); small.width = W; small.height = H;
+    const x = small.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
+    const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H);
+    for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
+    const gone = RO.hidden(items, page.view, ink, W, H);
+    return gone.size ? items.map((it, i) => (gone.has(i) ? { ...it, str: '', hasEOL: false } : it)) : items;  // (empty items in the run lose their line ends too)
+  } catch { return items }
 }
 async function renderPage(p) {
   const width = sheetWidth(), dark = pageTheme === 'dark';
@@ -1739,6 +1760,8 @@ function openContents() {
   if (!hasBook()) return;
   closeAllPopups();
   const page = currentPlace().page, cur = chapterAt(page);
+  // Printed page labels where there are any: the reader types the number they see on the page ("423", "xii").
+  const lettered = (state.labels || []).some(l => /\p{L}/u.test(String(l ?? '')));
   if (cur?.parent) toc.expanded.add(cur.parent);
   const layer = document.createElement('div');
   layer.className = 'lab-contents-v2'; layer.dataset.testid = 'lab-toc';
@@ -1758,14 +1781,15 @@ function openContents() {
     <div class="menu" role="dialog" aria-modal="true" aria-label="Contents">
       <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>
       <div class="viewport">
-        <form class="byob-jump byob-toc-jump"${isEpub() ? ' hidden' : ''}><label for="jumpInput">Go to page</label><input id="jumpInput" inputmode="numeric" value="${page}"><span>of ${state.pages.length}</span><button type="submit">Go</button></form>
+        <form class="byob-jump byob-toc-jump"${isEpub() ? ' hidden' : ''}><label for="jumpInput">Go to page</label><input id="jumpInput" inputmode="${lettered ? 'text' : 'numeric'}" autocapitalize="off" autocomplete="off" spellcheck="false" value="${esc(pageLabel(page))}"><span>of ${esc(lastLabel())}</span><button type="submit">Go</button></form>
         ${toc.ready ? (tops.length ? `<nav class="tree" aria-label="Chapters"><ul>${tops.map(node).join('')}</ul></nav>` : isEpub() ? '<p class="status">This book has no table of contents.</p>' : pageList(page)) : '<p class="status" role="status">Reading the book’s contents…</p>'}
       </div></div>`;
   const close = () => layer.remove();
   layer.querySelector('.lc-scrim').onclick = close;
   layer.querySelector('[data-close]').onclick = close;
   layer.querySelector('.title').onclick = close;
-  layer.querySelector('form').onsubmit = ev => { ev.preventDefault(); const n = parseInt(layer.querySelector('#jumpInput').value, 10); if (n) goTo({ page: n, frac: 0 }); close() };
+  // The page the reader types as printed ("423", "viii"); the file's page where no page prints it (pageOfLabel).
+  layer.querySelector('form').onsubmit = ev => { ev.preventDefault(); const n = pageOfLabel(layer.querySelector('#jumpInput').value); if (n) goTo({ page: n, frac: 0 }); close() };
   layer.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
     const e = toc.entries.find(x => x.id === b.dataset.go);
     if (toc.entries.some(c => c.parent === e.id)) { toc.expanded.has(e.id) ? toc.expanded.delete(e.id) : toc.expanded.add(e.id); close(); openContents(); return }
@@ -2627,11 +2651,10 @@ function pageLabel(n) { const l = String(state.labels?.[n - 1] ?? '').trim(); re
 const lastLabel = () => (state.labels ? pageLabel(state.pages.length) : String(state.pages.length));
 /** The page a typed page label names: a printed label (any case: "xii", "423"), else, without labels, a page number. -> page or 0 */
 function pageOfLabel(value) {
-  const v = String(value || '').trim().toLowerCase(), count = state.pages.length;
-  if (!v) return 0;
-  if (state.labels) { for (let n = 1; n <= count; n++) if (pageLabel(n).toLowerCase() === v) return n }
-  const n = /^\d+$/.test(v) ? Number(v) : 0;
-  return !state.labels && n >= 1 && n <= count ? n : 0;
+  const count = state.pages.length, labels = state.labels ? Array.from({ length: count }, (_, i) => pageLabel(i + 1)) : null;
+  if (window.TinctPrintedPages?.pageOf) return TinctPrintedPages.pageOf(value, labels, { count, near: currentPlace().page });
+  const n = /^\d+$/.test(String(value || '').trim()) ? Number(String(value).trim()) : 0;
+  return n >= 1 && n <= count ? n : 0;
 }
 /** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. */
 async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
@@ -2663,7 +2686,7 @@ function readBook() {
       if (state.pdf !== pdf || (state.ocrPages || null) !== ocr) return null;
       const recognised = ocr?.get(n) && window.TinctPdfOcr ? ocr.get(n) : null;
       const have = recognised ? null : state.texts.get(n), page = recognised ? null : await pdf.getPage(n);
-      const items = recognised ? TinctPdfOcr.furnitureItems(recognised) : have ? have.items : (await page.getTextContent()).items;
+      const items = recognised ? TinctPdfOcr.furnitureItems(recognised) : have ? have.items : await shownItems(page, (await page.getTextContent()).items);
       const text = recognised ? TinctPdfOcr.pageText(recognised) : have ? have.text : textOf(items, page.view).text;
       book.texts[n - 1] = text;
       book.numbers[n - 1] = window.TinctPrintedPages ? TinctPrintedPages.candidates(items, recognised ? TinctPdfOcr.FURNITURE_VIEW : page.view) : [];
@@ -2768,7 +2791,12 @@ async function searchPassages(question, doc) {
   const opening = named.map(u => ({ n: pageLabel(u.page), text: openingText(read, u.page) })).filter(o => o.text);
   for (const u of named) skip.add(u.page);
   const query = named.length ? [TinctMargin.withoutRefs(question), ...named.map(u => u.title)].join(' ') : question;
-  const found = read.index.search(query, { limit: 5, skip }).map(hit => ({ n: pageLabel(hit.page), text: hit.text }));
+  // Each hit as the whole section it falls in (from the contents: outline, printed contents or headings), in the
+  // search's order, within the request's budget for passages (TinctAI.PASSAGES_BUDGET); a hit outside any section keeps its lines.
+  const hits = read.index.search(query, { limit: 5, skip });
+  const budget = (window.TinctAI?.PASSAGES_BUDGET || 40000) - opening.reduce((a, o) => a + o.text.length, 0);
+  const found = TinctDocSearch.sections ? TinctDocSearch.sections(hits, { entries: contentsEntries(), texts: read.texts, label: pageLabel, cap: window.TinctAI?.PASSAGE_CHARS || 16000, budget })
+    : hits.map(hit => ({ n: pageLabel(hit.page), text: hit.text }));
   const all = [...opening, ...found].slice(0, 6);
   return all.length ? all : null;
 }
@@ -3612,7 +3640,7 @@ async function runCard(id, question = null) {
   // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
   const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;
   const asked = question ?? (card.kind === 'ask' ? [...(card.turns || [])].reverse().find(t => t.role === 'user')?.content || '' : '');
-  const named = unit || figBox ? null : figureNamed(card.page, card.text, asked);
+  const named = unit || figBox ? null : figureNamed(card.page, card.text, asked) || (asked ? await figureElsewhere(asked, card.page) : null);
   const region = unit || figBox || named ? null : passageRegion(card);
   let image = null;
   if (figBox) { image = figBlobs.get(id) || await figureImage(card.page, figBox); figBlobs.delete(id) }
@@ -4327,7 +4355,9 @@ async function regionItem(p, f, kind, noImage) {
   const r = p.pg.getBoundingClientRect(), L = r.left + f.x * r.width, T = r.top + f.y * r.height, R = L + f.w * r.width, Bm = T + f.h * r.height;
   const text = [...p.pg.querySelectorAll('.text-layer span')].filter(sp => { const q = sp.getBoundingClientRect(), cx = (q.left + q.right) / 2, cy = (q.top + q.bottom) / 2; return cx >= L && cx <= R && cy >= T && cy <= Bm }).map(sp => sp.textContent).join(' ').replace(/\s+/g, ' ').trim();
   const frac = { x: f.x, y: f.y, w: f.w, h: f.h };
-  return { blob: noImage ? null : await snipImage(p.n, f), page: p.n, text, frac, kind, label: f.label || '', caption: f.caption || captionNear(p, f), sketch: sketchOf(p, f) };
+  // A formula has no caption: the nearest "Figure N" beside it is another figure's (MacKay's (1.2) took Figure 1.1's).
+  const caption = kind === 'formula' ? '' : f.caption || captionNear(p, f);
+  return { blob: noImage ? null : await snipImage(p.n, f), page: p.n, text, frac, kind, label: f.label || '', caption, sketch: sketchOf(p, f) };
 }
 /* -- A figure's card (FIXES-2026-10-15 item 4): beside the figure in the margin, its thumbnail at the
    top, one thread per figure, kept and synced as every card is. Never the whole-PDF thread. -- */
@@ -4374,13 +4404,72 @@ function figureNamed(page, selection, question) {
   const c = TinctMargin.figureFor({ selection, question, captions: p.captions });
   return c && p.figures?.[c.fig] ? { page, f: p.figures[c.fig], label: c.label } : null;
 }
-/** For a whole-PDF question: a selected caption, else a figure the question names on the reader's page or the pages in view. */
-function figureAsked(question, passage, page) {
+/** For a whole-PDF question: a selected caption, else a figure the question names on the reader's page or the pages in view, else anywhere in the file (figureElsewhere). */
+async function figureAsked(question, passage, page) {
   if (passage) { const hit = figureNamed(passage.page, passage.text, question); if (hit) return hit }
   const sr = $('scroll').getBoundingClientRect();
   const inView = state.pages.filter(q => { const r = q.pg.getBoundingClientRect(); return r.bottom > sr.top && r.top < sr.bottom }).map(q => q.n);
   for (const n of [page, ...inView.filter(n => n !== page)]) { const hit = figureNamed(n, '', question); if (hit) return hit }
+  return figureElsewhere(question, page);
+}
+/* A figure a question names on another page (retest 15 Oct: "what does Figure 3 show" from page 1 sent no
+   picture): found by its caption, on a page already looked at, else on the nearest pages whose text starts a
+   line with that caption; that page is drawn small off screen and its figures found as a drawn page's are
+   (without its displayed formulas). -> { page, f, label } or null. */
+const offFigs = new Map();
+async function figureElsewhere(question, page) {
+  const want = TinctMargin.figureRef(question);
+  if (!want || !state.pdf || isEpub()) return null;
+  const match = (n, found) => {
+    const c = (found?.captions || []).find(x => x.kind === want.kind && String(x.n).toLowerCase() === String(want.n).toLowerCase() && found.figures?.[x.fig]);
+    return c ? { page: n, f: found.figures[c.fig], label: c.label } : null;
+  };
+  const byNear = list => list.sort((a, b) => Math.abs(a - page) - Math.abs(b - page));
+  for (const n of byNear([...state.figs.keys()])) { const hit = match(n, state.figs.get(n)); if (hit) return hit }
+  // Pages whose text has the caption ("Table 8." or "Figure 16.1:", not "Table 8 shows"): the whole-book read, else the pages read so far.
+  const read = await Promise.race([readBook(), new Promise(r => setTimeout(() => r(null), 3000))]);
+  let texts = read?.texts?.length ? read.texts.map((t, i) => [i + 1, t]) : [...state.texts.entries()].map(([n, v]) => [n, v.text]);
+  // A long book still being read: "Figure 16.1" is in chapter 16, whose pages (from the contents) are read now.
+  const chapter = !read && /^(\d+)[.\-–]\d/.exec(String(want.n));
+  if (chapter) {
+    await Promise.race([toc.task, new Promise(r => setTimeout(r, 3000))]);
+    const entries = toc.entries || [], e = entries.find(x => new RegExp(`^(?:chapter\\s+)?${chapter[1]}(?![\\d.])`, 'i').test(String(x.label || '').trim()));
+    if (e) {
+      const next = entries.filter(x => x.parent === e.parent && x.page > e.page).sort((a, b) => a.page - b.page)[0];
+      const from = e.page, to = Math.min(state.pages.length, (next?.page || state.pages.length + 1) - 1, from + 80);
+      for (let p = from; p <= to; p++) if (!texts.some(([q]) => q === p)) texts.push([p, (await pageText(p)).text]);
+    }
+  }
+  const num = String(want.n).replace(/[.\-–]/g, '\\$&'), words = want.kind === 'table' ? 'Table|TABLE' : 'Figure|FIGURE|Fig\\.?|FIG\\.?';
+  const label = new RegExp(`(?:^|[\\s(])(?:${words})\\s*${num}\\s*(?::|\\.(?!\\d))`);
+  const pages = byNear(texts.filter(([, t]) => label.test(String(t || ''))).map(([p]) => p)).slice(0, 4);
+  for (const n of pages) { const hit = match(n, await figuresOff(n)); if (hit) return hit }
   return null;
+}
+/** A page's figures found off screen: drawn 480px wide, its text as spans (page fractions). */
+async function figuresOff(n) {
+  if (state.figs.has(n)) return state.figs.get(n);
+  const key = state.key + ':' + n;
+  if (offFigs.has(key)) return offFigs.get(key);
+  const task = (async () => {
+    const page = await state.pdf.getPage(n), base = page.getViewport({ scale: 1 }), vp = page.getViewport({ scale: 480 / base.width });
+    const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+    const g = c.getContext('2d', { alpha: false }); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: g, viewport: vp }).promise;
+    const W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
+    const small = document.createElement('canvas'); small.width = W; small.height = H;
+    const x = small.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
+    const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H);
+    for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
+    const items = (await pageText(n)).items || [];
+    const spans = items.filter(it => it.str && it.str.trim()).map(it => {
+      const tx = pdfjsLib.Util.transform(vp.transform, it.transform), size = Math.hypot(tx[2], tx[3]);
+      return { x: tx[4] / vp.width, y: (tx[5] - size * 0.86) / vp.height, w: (it.width * vp.scale) / vp.width, h: (size * 1.1) / vp.height, text: it.str };
+    });
+    return TinctMargin.findFigures({ ink, W, H, spans, formulas: [] });
+  })().catch(() => null);
+  offFigs.set(key, task);
+  return task;
 }
 async function regionAction(a, item) {
   const what = item.kind === 'formula' ? 'formula' : 'figure';
@@ -4439,7 +4528,9 @@ function regionAt(x, y) {
   const p = pageForPoint(x, y); if (!p || !p.layer) return null;
   const r = p.pg.getBoundingClientRect(), fx = (x - r.left) / r.width, fy = (y - r.top) / r.height;
   const inside = f => fx >= f.x && fx <= f.x + f.w && fy >= f.y && fy <= f.y + f.h;
-  const fi = (p.figures || []).findIndex(inside); if (fi >= 0) return { p, f: p.figures[fi], kind: 'figure', key: p.n + 'f' + fi };
+  // The smallest figure under the pointer (a figure inside another's box is its own).
+  const fi = (p.figures || []).reduce((best, f, i) => (inside(f) && (best < 0 || f.w * f.h < p.figures[best].w * p.figures[best].h) ? i : best), -1);
+  if (fi >= 0) return { p, f: p.figures[fi], kind: 'figure', key: p.n + 'f' + fi };
   // The fallback (item 5): over a "Figure N" or "Table N" caption, its figure is offered.
   const cap = (p.captions || []).find(c => inside(c.box) && p.figures?.[c.fig]); if (cap) return { p, f: p.figures[cap.fig], kind: 'figure', key: p.n + 'f' + cap.fig };
   const bi = (p.blocks || []).findIndex(inside); if (bi >= 0) return { p, f: p.blocks[bi], kind: 'formula', key: p.n + 'm' + bi };
@@ -4530,6 +4621,17 @@ function caretAt(x, y, col) {
   if (before) return { node: before.sp.firstChild, offset: before.sp.firstChild.length };
   return { node: row[0].sp.firstChild, offset: 0 };
 }
+/** A press between letters (on the layer, not a word): its column is the nearest word's. A caption or a figure's
+    labels sit in their own column (reading order), so a drag over a caption selects the caption, not the body. */
+function nearestIsSide(p, x, y) {
+  let best = null, bd = Infinity;
+  for (const sp of p.layer.querySelectorAll('span')) {
+    if (!sp.firstChild) continue;
+    const r = sp.getBoundingClientRect(), dx = Math.max(r.left - x, 0, x - r.right), dy = Math.max(r.top - y, 0, y - r.bottom), d = dx * dx + dy * dy * 4;
+    if (d < bd) { bd = d; best = sp }
+  }
+  return !!best?.closest('.side-col');
+}
 function extendTo(x, y) {
   const f = caretAt(x, y, drag.col); if (!f || !drag.a) return;
   try { getSelection().setBaseAndExtent(drag.a.node, drag.a.offset, f.node, f.offset) } catch {}
@@ -4538,7 +4640,7 @@ document.addEventListener('mousedown', e => {
   if (e.button !== 0 || Date.now() - drag.touchAt < 1000 || root.classList.contains('is-snipping')) return;
   const t = e.target; if (!t.closest?.('.pdf-sheet') || t.closest('.byob-hot-chip, button')) return;
   const p = pageForPoint(e.clientX, e.clientY); if (!p?.layer) return;
-  const onSide = !!(t.closest('.side-col') || (document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.side-col')));
+  const onSide = !!(t.closest('.side-col') || (document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.side-col'))) || nearestIsSide(p, e.clientX, e.clientY);
   const col = onSide ? 'side' : 'body';
   const a = caretAt(e.clientX, e.clientY, col); if (!a) return;
   e.preventDefault();
@@ -4814,7 +4916,7 @@ async function ask(question, display) {
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
   // A picture goes only with a passage, cropped to it (FIXES-2026-10-15 A4); never a whole page.
   // A selected caption, or a question naming "Figure N" on the reader's page, sends that figure instead (FIXES-2026-10-15 item 7).
-  const named = marginOn() && !blobs.length ? figureAsked(question, passage, page) : null;
+  const named = marginOn() && !blobs.length ? await figureAsked(question, passage, page) : null;
   const region = passage && !named ? selectionRegion(passage) : null;
   const image = blobs.length ? null : named ? await figureImage(named.page, named.f) : region ? await pageImage(focusPage, region) : null;
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';

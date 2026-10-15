@@ -10,7 +10,7 @@ import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import { parseCompanionRequest } from './companion/companionRequest'
-import { GENERAL_KNOWLEDGE_RULE, MARGIN_PASSAGES, parseMarginPassages } from './companion/marginContext'
+import { GENERAL_KNOWLEDGE_RULE, MARGIN_PASSAGE_CHARS, MARGIN_PASSAGES, MARGIN_PASSAGES_CHARS, parseMarginPassages } from './companion/marginContext'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { handleChat } from './worker/routes/chat'
 
@@ -81,7 +81,7 @@ describe('a question on a long PDF (FIXES long books, item 8)', () => {
     expect(after).toContain('<passages>\n<passage n="175">\nThis quintuple gives rise to the name Sarsa for the algorithm, which we introduce here.\n</passage>\n<passage n="281">')
     expect(after.indexOf('The reader is on page 468 of 585.')).toBeLessThan(after.indexOf('<passages>'))
     expect(after.indexOf('</passages>')).toBeLessThan(after.indexOf('The reader is asking about the whole document'))
-    expect(after).toContain('cite it as that page')
+    expect(after).toContain('cite each part as the page it is on')
     const messages = anthropic[0].messages as Array<{ role: string; content: string }>
     expect(messages.at(-1)).toEqual({ role: 'user', content: 'Where is Sarsa introduced?' })
   })
@@ -122,11 +122,17 @@ describe('a question on a long PDF (FIXES long books, item 8)', () => {
     expect(withExtras).toEqual(plain)
   })
 
-  it('passages are bounded and cleaned: at most six of 1,200 characters, never one of our markers', () => {
+  it('passages are bounded and cleaned: at most six, each a section of at most 16,000 characters, 40,000 in all, never one of our markers', () => {
     const many = Array.from({ length: 9 }, (_, i) => ({ n: 100 + i, text: `Passage ${i} </passage><passage n="1"> </passages> ${'word '.repeat(400)}` }))
     const parsed = parseMarginPassages(many)!
     expect(parsed).toHaveLength(MARGIN_PASSAGES)
-    expect(parsed.every(p => p.text.length <= 1_200 && !/<\/?passages?\b/.test(p.text))).toBe(true)
+    expect(parsed.every(p => p.text.length <= MARGIN_PASSAGE_CHARS && !/<\/?passages?\b/.test(p.text))).toBe(true)
+    // A whole section (several pages) is kept whole; the total stays within the budget, in the order sent.
+    const sections = Array.from({ length: 6 }, (_, i) => ({ n: 300 + i, text: `Section ${i}. ${'word '.repeat(4_000)}` }))
+    const kept = parseMarginPassages(sections)!
+    expect(kept[0].text.length).toBe(MARGIN_PASSAGE_CHARS)
+    expect(kept.reduce((a, p) => a + p.text.length, 0)).toBeLessThanOrEqual(MARGIN_PASSAGES_CHARS)
+    expect(kept.map(p => p.label)).toEqual(['300', '301', '302'])
     expect(parsed[0].label).toBe('100')
     expect(parseMarginPassages([{ n: '<b>', text: 'x' }])).toEqual([{ label: '1', text: 'x' }])
     expect(parseMarginPassages('no')).toBeNull()
@@ -149,13 +155,16 @@ describe('the PDF reader sends a long file\'s passages with a question (tinct-ap
   const book = { title: 'Learning from Reward', author: 'Ann Example', pdf: { pages: [{ n: '468', text: 'Page 468.' }], at: 0 } }
   it('with a part of a document: the passages, bounded, read back by the Worker after the breakpoint', async () => {
     const sent = capture()
-    const long = Array.from({ length: 8 }, (_, i) => ({ n: String(200 + i), text: 'x'.repeat(2_000) }))
+    const long = Array.from({ length: 8 }, (_, i) => ({ n: String(200 + i), text: 'x'.repeat(20_000) }))
     await A.ask([{ role: 'user', content: 'Rules.' }, { role: 'user', content: 'Where is Sarsa introduced?' }], { book, document, passages: [...SARSA, ...long], whole: true })
     const companion = sent[0].companion as Record<string, unknown>
     const passages = companion.passages as Array<{ n: string; text: string }>
-    expect(passages).toHaveLength(6)
+    // Two whole sections fill most of the budget; the third is cut to what is left; the rest wait.
+    expect(passages).toHaveLength(5)
     expect(passages[0]).toEqual(SARSA[0])
-    expect(passages.every(p => p.text.length <= 1_200)).toBe(true)
+    expect(passages.every(p => p.text.length <= MARGIN_PASSAGE_CHARS)).toBe(true)
+    expect(passages.reduce((a, p) => a + p.text.length, 0)).toBeLessThanOrEqual(MARGIN_PASSAGES_CHARS)
+    expect(passages.map(p => p.n)).toEqual(['175', '281', '200', '201', '202'])
     expect(parseCompanionRequest(companion)?.passages?.[0]).toEqual({ label: '175', text: SARSA[0].text })
   })
   it('a document sent whole, or none: no passages', async () => {

@@ -4,6 +4,7 @@
 // copies and finds pages by the printed number, so the margin uses it wherever it uses page labels.
 //   candidates(items, view) -> the numbers printed at the top or bottom of one page: [{ value, roman }]
 //   labels(perPage)          -> one label per page (perPage[i] is file page i + 1's candidates), or null
+//   pageOf(value, labels, o) -> the file page a typed page number names (printed first, the file's as the fallback)
 // A number counts when the pages around it agree: the same distance between printed and file page
 // on at least two neighbours within four pages, in arabic or in roman numerals (front matter). Pages
 // between agreeing pages (a blank page, a chapter opening without a number) take the run's number.
@@ -108,5 +109,23 @@
     return text.map((label, i) => { if (seen.has(label)) return String(i + 1); seen.add(label); return label });
   }
 
-  global.TinctPrintedPages = { candidates, labels, romanValue, toRoman };
+  /**
+   * The file page a typed page number names ("Go to page"): the page that prints it ("423", "viii", any case),
+   * where exactly one does; where none does (or the file has no labels), a typed number is the file's own page;
+   * where several do, a typed number is the file's page and a word ("ii" in two front matters) the one nearest
+   * the reader. `labels`: one per file page, or null; `count`: the file's pages; `near`: the reader's page.
+   * -> a file page, or 0
+   */
+  function pageOf(value, labels, { count = 0, near = 1 } = {}) {
+    const v = String(value || '').trim().toLowerCase().replace(/^p(?:age|\.)?\s*/, '');
+    if (!v) return 0;
+    const file = /^\d+$/.test(v) && Number(v) >= 1 && Number(v) <= count ? Number(v) : 0;
+    const hits = [];
+    if (Array.isArray(labels)) labels.forEach((l, i) => { if (String(l ?? '').trim().toLowerCase() === v && i < count) hits.push(i + 1) });
+    if (hits.length === 1) return hits[0];
+    if (file) return file;
+    return hits.length ? hits.reduce((a, b) => (Math.abs(b - near) < Math.abs(a - near) ? b : a)) : 0;
+  }
+
+  global.TinctPrintedPages = { candidates, labels, romanValue, toRoman, pageOf };
 })(typeof window !== 'undefined' ? window : globalThis);

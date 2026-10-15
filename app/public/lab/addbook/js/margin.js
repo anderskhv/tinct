@@ -1077,7 +1077,7 @@
      Detection reads a small grey copy of the drawn page (`ink`: 1 where there is ink, W×H pixels,
      square) and the text layer's spans and displayed formulas (page fractions). */
   // A caption starts a line: "Figure 2.", "Fig. 3 The …", "Table 1:", "Figure 16.1: …" (not "Figure 2 shows …").
-  const CAPTION_RE = /^(Figure|FIGURE|Fig\.?|FIG\.?|Table|TABLE)\s*(\d+(?:[.\-–]\d+)*[a-z]?|[A-Z](?:\.\d+)*)(?=\s*[.:—–|]|\s+\p{Lu}|\s*$)/u;
+  const CAPTION_RE = /^(Figure|FIGURE|Fig\.?|FIG\.?|Table|TABLE)\s*(\d+(?:[.\-–]\d+)*[a-z]?|[A-Z](?:\.\d+)*)(?=\s*(?:[:—–|]|\.(?!\d))|\s+\p{Lu}|\s*$)/u;
   const REF_RE = /\b(Figure|Fig\.?|Table)\s*(\d+(?:\.\d+)*[a-z]?)(?![\d.]*\d)/i;
   const figKind = w => (/^t/i.test(w) ? 'table' : 'figure');
   const figLabel = (kind, n) => `${kind === 'table' ? 'Table' : 'Figure'} ${n}`;
@@ -1155,14 +1155,39 @@
     return out;
   }
   /**
+   * Text the page does not show: a span whose middle has a long run of paper where its letters
+   * should be. A figure placed from another document can carry that document's text, clipped out of
+   * sight (TD-Gammon's network in Sutton and Barto's book carries a page of an earlier draft); taken
+   * for running text, it blanked the diagram. Short spans and spans over ink of their own stay.
+   */
+  function unseen(s, ink, W, H) {
+    const str = String(s.text || '').replace(/\s+/g, '');
+    if (str.length < 3) return false;
+    const l = Math.max(0, Math.round(s.x * W)), r = Math.min(W - 1, Math.round((s.x + s.w) * W) - 1);
+    const t = Math.max(0, Math.round((s.y + s.h * 0.25) * H)), b = Math.min(H - 1, Math.round((s.y + s.h * 0.8) * H));
+    if (r - l < 4 || b < t) return false;
+    let cols = 0, run = 0, gap = 0;
+    for (let x = l; x <= r; x++) {
+      let any = 0; for (let y = t; y <= b && !any; y++) any = ink[y * W + x];
+      if (any) { cols++; run = 0 } else if (++run > gap) gap = run;
+    }
+    const cover = cols / (r - l + 1);
+    return cover < 0.35 || (str.length >= 8 && gap > Math.max(10, (s.h * H) * 2));
+  }
+  /**
    * The figures on a page (item 5): areas of ink that are not running text. Running text (lines
    * of more than 48 characters or 7 words), captions and displayed formulas are blanked out. Short
    * label text ("hidden units") inside an area of ink stays, joining the pieces of a diagram, but
    * only ink that is not label text counts towards a figure. Lines are split where a gap is wider
-   * than the line is tall, so text beside a figure never bridges it. Each caption ("Figure 2.",
-   * "Table 1:") is matched to the figure just above it, beside it, or (a table) below it; one found
-   * only in part grows to the ink between the caption and the text above it; with no figure found,
-   * that ink is the caption's figure (the fallback).
+   * than the line is tall, so text beside a figure never bridges it; text the page does not show
+   * (`unseen`) is left out. Each caption ("Figure 2.", "Table 1:") is matched to the figure just
+   * above it, beside it (a caption in the margin, as MacKay sets them), around it, or (a table)
+   * below it; one found only in part grows to the ink between the caption and the text above it,
+   * never past another caption or into another figure. Pieces side by side join into one figure
+   * unless each has its own caption. A displayed formula inside a figure, or between it and its
+   * caption (ResNet's "F(x) + x" under Figure 2), is part of it; a caption with nothing else beside
+   * or above it takes the formula there. With no figure found, the ink beside, above or below the
+   * caption is its figure (the fallback).
    * `spans`: [{ x, y, w, h, text }]; `formulas`: [{ x, y, w, h }]; all page fractions.
    * -> { figures: [{ x, y, w, h, label?, caption? }], captions: [{ kind, n, label, text, fig, box }] }
    */
@@ -1170,8 +1195,10 @@
     const N = W * H;
     const px = q => ({ l: Math.max(0, Math.floor(q.x * W) - 1), t: Math.max(0, Math.floor(q.y * H)), r: Math.min(W - 1, Math.ceil((q.x + q.w) * W)), b: Math.min(H - 1, Math.ceil((q.y + q.h) * H)) });
     const fill = (a, q, v) => { for (let y = q.t; y <= q.b; y++) a.fill(v, y * W + q.l, y * W + q.r + 1) };
+    const union = (a, o) => ({ l: Math.min(a.l, o.l), t: Math.min(a.t, o.t), r: Math.max(a.r, o.r), b: Math.max(a.b, o.b), n: (a.n || 0) + (o.n || 0) });
+    const meets = (a, o, gap = 0) => a.l <= o.r + gap && a.r >= o.l - gap && a.t <= o.b + gap && a.b >= o.t - gap;
     // Lines, then segments: a line split where the gap is wider than its text is tall.
-    const items = (spans || []).filter(s => s && s.w > 0 && s.h > 0 && String(s.text || '').trim()).map(s => ({ ...s, cy: s.y + s.h / 2 })).sort((a, b) => a.cy - b.cy);
+    const items = (spans || []).filter(s => s && s.w > 0 && s.h > 0 && String(s.text || '').trim() && !unseen(s, ink, W, H)).map(s => ({ ...s, cy: s.y + s.h / 2 })).sort((a, b) => a.cy - b.cy);
     const lines = [];
     for (const s of items) { const L = lines[lines.length - 1]; if (L && Math.abs(s.cy - L.cy) < Math.min(s.h, L.h) * 0.5) L.items.push(s); else lines.push({ cy: s.cy, h: s.h, items: [s] }) }
     const segs = [];
@@ -1187,93 +1214,178 @@
     for (const s of segs) {
       s.text = s.parts.join(' ').replace(/\s+/g, ' ').trim();
       s.q = px(s); s.caption = captionOf(s.text);
-      s.running = s.text.length > 48 || s.text.split(' ').length > 7;
-      if (s.running) s.line.running = true;
+      // An algorithm's or a plate's caption is no figure's, but it ends the figure above it.
+      s.stop = !!s.caption || /^(Algorithm|Exhibit|Plate|Listing)\s*\d+(?:[.\-–]\d+)*\s*[.:]/.test(s.text);
+      // A row of figures or braces ("t 000 000 111", "︷ ︸︸ ︷") is a table's, not running text.
+      const chars = s.text.replace(/\s/g, '').length, cells = (s.text.match(/[\d︷︸⏞⏟]/g) || []).length;
+      s.running = (s.text.length > 48 || s.text.split(' ').length > 7) && cells < chars * 0.5;
     }
+    // Text wrapped beside a figure runs in short lines: three or more lines of words, one under the other, starting and
+    // ending together, are running text too (Sutton and Barto's backgammon board).
+    for (const s of segs) {
+      const chars = s.text.replace(/\s/g, '').length, letters = (s.text.match(/\p{L}/gu) || []).length;
+      if (s.running || s.text.length < 25 || s.text.split(' ').length < 4 || letters < chars * 0.7) continue;
+      const lh = s.q.b - s.q.t + 3, same = o => o !== s && o.text.length >= 15 && Math.abs(o.q.l - s.q.l) <= 2 && Math.abs(o.q.r - s.q.r) <= 4;
+      const near = segs.filter(o => same(o) && Math.abs(o.q.t - s.q.t) <= lh * 2.5);
+      if (near.length >= 2 || (near.length === 1 && segs.some(o => o !== near[0] && same(o) && Math.abs(o.q.t - near[0].q.t) <= lh * 1.5 && Math.abs(o.q.t - s.q.t) > lh * 0.5))) s.wrapped = true;
+    }
+    for (const s of segs) { if (s.wrapped) s.running = true; if (s.running) s.line.running = true }
+    // Captions: a caption's first line and those just below it, in its column, that start no other caption.
+    const captions = [];
+    segs.forEach((s, i) => {
+      if (!s.caption) return;
+      const box = { ...s.q }, lh = Math.max(1, s.q.b - s.q.t), parts = [s.text], own = captions.length;
+      s.capOf = own;
+      for (let k = i + 1; k < segs.length && parts.length < 8; k++) {
+        const o = segs[k];
+        if (o.q.t - box.b > lh * 0.9) break;
+        if (o.caption || o.q.t < box.b - lh * 0.5 || o.q.l > box.r || o.q.r < box.l) continue;
+        // A caption's next line starts where it starts, or is centred under it and no wider (a table's cells, and the
+        // running text under a short centred caption, are neither).
+        const aligned = Math.abs(o.q.l - s.q.l) <= lh * 1.5, centred = Math.abs((o.q.l + o.q.r) - (s.q.l + s.q.r)) / 2 <= lh * 1.5 && o.q.r - o.q.l <= s.q.r - s.q.l + lh;
+        if (!aligned && !centred) break;
+        o.inCaption = true; o.capOf = own; parts.push(o.text);
+        box.l = Math.min(box.l, o.q.l); box.r = Math.max(box.r, o.q.r); box.b = Math.max(box.b, o.q.b);
+      }
+      captions.push({ ...s.caption, q: box, lh, text: parts.join(' ').slice(0, 600) });
+    });
     // Areas of ink with every text blanked: where labels sit (in one, or within 3px of it: a label under a diagram's last row).
     const bare = Uint8Array.from(ink);
     for (const s of segs) fill(bare, s.q, 0);
     for (const f of formulas || []) fill(bare, px(f), 0);
     const areas = areasOf(bare, W, H, 8).filter(o => o.n >= 12);
-    const inArea = q => areas.some(o => q.l <= o.r + 3 && q.r >= o.l - 3 && q.t <= o.b + 3 && q.b >= o.t - 3);
+    const inArea = q => areas.some(o => meets(q, o, 3));
     const kept = Uint8Array.from(ink), label = new Uint8Array(N);
     for (const s of segs) {
-      if (!s.running && !s.caption && inArea(s.q)) { fill(label, s.q, 1); continue }
+      if (!s.running && !s.caption && !s.inCaption && inArea(s.q)) { fill(label, s.q, 1); continue }
       // Short text on a line of running text (inline maths, a footnote mark) goes with it, as words do.
-      if (s.running || s.caption || s.line.running || (s.text.length >= 4 && /[A-Za-z]{3}/.test(s.text))) fill(kept, s.q, 0);
+      if (s.running || s.caption || s.inCaption || s.line.running || (s.word = s.text.length >= 4 && /[A-Za-z]{3}/.test(s.text))) fill(kept, s.q, 0);
     }
-    for (const f of formulas || []) fill(kept, px(f), 0);
+    const maths = (formulas || []).map(f => ({ ...px(f), n: 0, formula: true }));
+    for (const f of maths) fill(kept, f, 0);
     // For the caption fallback: only running text and captions blanked (a table's cells are short text, often taken for formulas).
     const loose = Uint8Array.from(ink);
-    for (const s of segs) if (s.running || s.caption) fill(loose, s.q, 0);
+    for (const s of segs) if (s.running || s.caption || s.inCaption) fill(loose, s.q, 0);
     const boxes = areasOf(kept, W, H, 3, label).filter(o => (o.r - o.l) >= W * 0.07 && (o.b - o.t) >= H * 0.04 && o.n >= 30 && (o.r - o.l) * (o.b - o.t) < N * 0.5);
-    // Side-by-side pieces of one figure (an image, an arrow diagram, an image) become one box.
+    // A caption's own piece: one it lies against (just below, above for a table, or beside), in its columns.
+    const nextTo = (c, o) => {
+      const q = c.q, across = Math.min(o.r, q.r) - Math.max(o.l, q.l) > 0;
+      return (across && o.b <= q.t + 2 && q.t - o.b <= H * 0.08) || (c.kind === 'table' && across && o.t >= q.b - 2 && o.t - q.b <= H * 0.08);
+    };
+    // Side-by-side pieces of one figure (an image, an arrow diagram, an image) become one box; two pieces each
+    // with a caption of its own are two figures (ResNet's Figure 7 and Table 8, side by side in two columns).
     for (let merged = true; merged;) {
       merged = false;
       outer: for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
         const a = boxes[i], b = boxes[j], ov = Math.min(a.b, b.b) - Math.max(a.t, b.t), gap = Math.max(a.l, b.l) - Math.min(a.r, b.r);
-        if (ov > 0.6 * Math.min(a.b - a.t, b.b - b.t) && gap < W * 0.18) { boxes[i] = { l: Math.min(a.l, b.l), t: Math.min(a.t, b.t), r: Math.max(a.r, b.r), b: Math.max(a.b, b.b), n: a.n + b.n }; boxes.splice(j, 1); merged = true; break outer }
+        if (!(ov > 0.6 * Math.min(a.b - a.t, b.b - b.t) && gap < W * 0.18)) continue;
+        if (captions.some(c => nextTo(c, a) && !nextTo(c, b)) && captions.some(c => nextTo(c, b) && !nextTo(c, a))) continue;
+        boxes[i] = union(a, b); boxes.splice(j, 1); merged = true; break outer;
       }
     }
-    // The ink between a caption and the running text above it (dir -1) or below it (+1), in its column.
-    // Two columns when no running line crosses the page's middle: a caption then keeps to its column.
-    const twoColumns = !segs.some(s => s.running && s.q.l < W * 0.4 && s.q.r > W * 0.6);
-    const bandOf = (cap, dir, from = kept) => {
-      const half = W / 2, narrow = twoColumns && cap.r - cap.l < W * 0.55;
-      const [x0, x1] = narrow && cap.r <= half + W * 0.04 ? [0, Math.floor(half)] : narrow && cap.l >= half - W * 0.04 ? [Math.ceil(half), W - 1] : [0, W - 1];
+    // Two columns when no running line but a caption crosses the page's middle: a caption then keeps to its column.
+    const twoColumns = !segs.some(s => s.running && !s.caption && !s.inCaption && s.q.l < W * 0.4 && s.q.r > W * 0.6);
+    // The ink between a caption and the running text (or another caption) above it (dir -1) or below it (+1), in its column.
+    const bandOf = (c, dir, from = kept, near = null) => {
+      const cap = c.q, half = W / 2, narrow = twoColumns && cap.r - cap.l < W * 0.55;
+      let [x0, x1] = narrow && cap.r <= half + W * 0.04 ? [0, Math.floor(half)] : narrow && cap.l >= half - W * 0.04 ? [Math.ceil(half), W - 1] : [0, W - 1];
+      // Growing a figure found in part: only round it, so text beside it (wrapped round a diagram) is no edge.
+      if (near) { x0 = Math.max(x0, near.l - 16); x1 = Math.min(x1, near.r + 16) }
       let edge = dir < 0 ? 0 : H - 1;
       for (const s of segs) {
-        if (!s.running || s.caption || s.inCaption || s.q.r < x0 || s.q.l > x1) continue;
+        if (s.capOf === captions.indexOf(c) || !(s.running || s.stop || s.inCaption || (near && s.word)) || s.q.r < x0 || s.q.l > x1) continue;
         if (dir < 0 && s.q.b < cap.t && s.q.b + 1 > edge) edge = s.q.b + 1;
         if (dir > 0 && s.q.t > cap.b && s.q.t - 1 < edge) edge = s.q.t - 1;
       }
       const [y0, y1] = dir < 0 ? [edge, cap.t - 1] : [cap.b + 1, edge];
-      if (y1 - y0 < 2) return null;
+      return inkIn(from, x0, x1, y0, y1);
+    };
+    // The ink beside a caption set in the margin (MacKay's Figure 1.10, a table of digits): from the caption's top
+    // down to the next running text, on the side away from the page's edge.
+    const besideOf = c => {
+      const cap = c.q, right = cap.l >= W * 0.55, left = cap.r <= W * 0.45;
+      if (!(right || left) || cap.r - cap.l > W * 0.35) return null;
+      const [x0, x1] = right ? [0, cap.l - 3] : [cap.r + 3, W - 1];
+      let edge = H - 1;
+      for (const s of segs) if (s.capOf !== captions.indexOf(c) && (s.running || s.stop) && s.q.t > cap.t + c.lh && s.q.r >= x0 && s.q.l <= x1 && s.q.t - 1 < edge) edge = s.q.t - 1;
+      return inkIn(loose, x0, x1, cap.t - 1, edge);
+    };
+    function inkIn(from, x0, x1, y0, y1) {
+      if (y1 - y0 < 2 || x1 - x0 < 2) return null;
       const part = new Uint8Array(N);
       for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) part[y * W + x] = from[y * W + x];
       const pieces = areasOf(part, W, H, 3).filter(o => o.n >= 16);
-      if (!pieces.length) return null;
-      return pieces.reduce((a, o) => ({ l: Math.min(a.l, o.l), t: Math.min(a.t, o.t), r: Math.max(a.r, o.r), b: Math.max(a.b, o.b), n: a.n + o.n }));
+      return pieces.length ? pieces.reduce(union) : null;
+    }
+    // Which piece a caption lies against: just above it, (a table) just below it, beside it, or around it.
+    const how = (c, f) => {
+      const box = c.q, overlapX = Math.min(f.r, box.r) - Math.max(f.l, box.l) > 0;
+      if (overlapX && f.b <= box.t + 2 && box.t - f.b <= H * 0.08) return { d: box.t - f.b, h: 'above' };
+      if (c.kind === 'table' && overlapX && f.t >= box.b - 2 && f.t - box.b <= H * 0.08) return { d: f.t - box.b, h: 'below' };
+      if (box.t >= f.t - (box.b - box.t) && box.t <= f.b) {
+        const side = box.l >= f.r - 2 ? box.l - f.r : f.l >= box.r - 2 ? f.l - box.r : Infinity;
+        // In the margin, a little further off, with nothing running between them.
+        const clear = side <= W * 0.25 && !segs.some(s => s.running && s.capOf == null && s.q.b >= box.t && s.q.t <= box.b && (box.l >= f.r ? s.q.l < box.l && s.q.r > f.r : s.q.r > box.r && s.q.l < f.l));
+        if (side <= W * 0.06 || clear) return { d: Math.abs(box.t - f.t) + 1 + side * 0.1, h: 'beside' };
+      }
+      if (meets(f, box) && box.t > f.t && box.b < f.b) return { d: 0.5, h: 'inside' };
+      return null;
     };
-    const captions = [];
-    segs.forEach((s, i) => {
-      if (!s.caption) return;
-      // The caption's lines: this one and those just below it, in its column, that start no other caption.
-      const box = { ...s.q }, lh = Math.max(1, s.q.b - s.q.t), parts = [s.text];
-      for (let k = i + 1; k < segs.length && parts.length < 8; k++) {
-        const o = segs[k];
-        if (o.q.t - box.b > lh * 0.9) break;
-        if (o.caption || o.q.t < box.b - lh * 0.5 || o.q.l > box.r || o.q.r < box.l) continue;
-        // A caption's next line starts where it starts, or is centred under it (a table's cells are neither).
-        if (Math.abs(o.q.l - s.q.l) > lh * 1.5 && Math.abs((o.q.l + o.q.r) - (s.q.l + s.q.r)) / 2 > lh * 1.5) break;
-        o.inCaption = true; parts.push(o.text);
-        box.l = Math.min(box.l, o.q.l); box.r = Math.max(box.r, o.q.r); box.b = Math.max(box.b, o.q.b);
-      }
-      captions.push({ ...s.caption, q: box, text: parts.join(' ').slice(0, 600) });
-    });
-    const taken = new Set();
+    // Each caption takes the piece it lies closest against, closest pairs first (a table's caption below the
+    // table it ends, ahead of the next table below it: ResNet's Tables 7 and 8).
+    const taken = new Set(), pairs = [];
+    captions.forEach((c, i) => boxes.forEach((f, j) => { const m = how(c, f); if (m) pairs.push({ i, j, d: Math.max(0, m.d) + (m.h === 'below' ? 2 : 0), h: m.h }) }));
+    pairs.sort((a, b) => a.d - b.d || a.i - b.i);
+    for (const { i, j, h } of pairs) if (captions[i].fig == null && !taken.has(j)) { captions[i].fig = j; captions[i].rel = h; taken.add(j) }
     for (const c of captions) {
-      const box = c.q, overlapX = f => Math.min(f.r, box.r) - Math.max(f.l, box.l) > 0;
-      let best = -1, bd = Infinity, how = '';
-      boxes.forEach((f, j) => {
-        if (taken.has(j)) return;
-        let d = Infinity, h = '';
-        if (overlapX(f) && f.b <= box.t + 2 && box.t - f.b <= H * 0.08) { d = box.t - f.b; h = 'above' }
-        else if (c.kind === 'table' && overlapX(f) && f.t >= box.b - 2 && f.t - box.b <= H * 0.08) { d = f.t - box.b; h = 'below' }
-        else if (box.t >= f.t - (box.b - box.t) && box.t <= f.b) { const side = box.l >= f.r - 2 ? box.l - f.r : f.l >= box.r - 2 ? f.l - box.r : Infinity; if (side <= W * 0.06) { d = Math.abs(box.t - f.t) + 1; h = 'beside' } }
-        if (d < bd) { bd = d; best = j; how = h }
-      });
-      if (best >= 0) {
-        const f = boxes[best]; taken.add(best);
-        // Found only in part (a diagram's upper half apart from its lower): the ink up to the text above.
-        if (how === 'above') { const band = bandOf(box, -1); if (band && band.b >= f.t) Object.assign(f, { l: Math.min(f.l, band.l), t: Math.min(f.t, band.t), r: Math.max(f.r, band.r), b: Math.max(f.b, band.b) }) }
-        c.fig = best; continue;
+      if (c.fig != null) {
+        const f = boxes[c.fig];
+        // Beside a figure in the margin, the next caption down beside the same ink starts the next figure (MacKay's Figures 3.1 and 3.2, stacked).
+        if (c.rel === 'beside') for (const o of captions) if (o !== c && o.q.t > c.q.t + c.lh && o.q.t < f.b && (o.q.l >= f.r - 2 || o.q.r <= f.l + 2) && o.q.t - 2 > f.t) f.b = Math.min(f.b, o.q.t - 2);
+        // Found only in part (a diagram's upper half apart from its lower): the ink up to the text above, unless that runs into another figure.
+        if (c.rel === 'above') {
+          const band = bandOf(c, -1, kept, f);
+          if (band && band.b >= f.t) { const grown = union(f, band); if (!boxes.some((o, j) => j !== c.fig && meets(grown, o, -1) && !meets(f, o, -1))) Object.assign(f, grown) }
+        }
+        continue;
       }
-      // The fallback: no figure was found for this caption; the ink above it (a table's: below) is its figure.
-      for (const dir of c.kind === 'table' ? [1, -1] : [-1, 1]) {
-        const band = bandOf(box, dir, loose);
-        if (band && band.r - band.l >= W * 0.05 && band.b - band.t >= H * 0.03 && band.n >= 30) { boxes.push(band); c.fig = boxes.length - 1; taken.add(c.fig); break }
+      // The fallback: no figure was found for this caption. The ink beside it when it is set in the margin (MacKay's
+      // Figure 1.10, a table of digits), else a displayed formula above or beside it in no other figure (a channel
+      // drawn with its equations), else the ink above it (a table's: below).
+      const big = band => band && band.r - band.l >= W * 0.05 && band.b - band.t >= H * 0.03 && band.n >= 30;
+      const add = o => { boxes.push(o); c.fig = boxes.length - 1; taken.add(c.fig) };
+      const side = besideOf(c);
+      if (big(side)) { add(side); continue }
+      let fm = null, fd = Infinity;
+      for (const f of maths) { if (f.used || boxes.some(o => meets(f, o, -1))) continue; const m = how(c, f); if (m && m.h !== 'inside' && m.d < fd) { fd = m.d; fm = f } }
+      if (fm) { fm.used = true; add({ l: fm.l, t: fm.t, r: fm.r, b: fm.b, n: 0 }); continue }
+      for (const dir of c.kind === 'table' ? [1, -1] : [-1, 1]) { const band = bandOf(c, dir, loose); if (big(band)) { add(band); break } }
+    }
+    // A displayed formula inside a figure, or between it and its caption, is part of it (and its chip is the figure's).
+    for (const c of captions) {
+      if (c.fig == null) continue;
+      const f = boxes[c.fig];
+      for (const m of maths) {
+        const inside = meets(m, f, 2), between = m.t >= f.b - 2 && m.b <= c.q.t + 2 && Math.min(m.r, f.r) - Math.max(m.l, f.l) > 0;
+        if (!m.used && (inside || between)) { m.used = true; Object.assign(f, union(f, m), { n: f.n }) }
       }
+    }
+    // One area, one figure: an uncaptioned piece mostly inside captioned figures goes; a captioned figure mostly
+    // inside an uncaptioned area that holds no other captioned figure takes the whole area (MacKay's Figure 1.17).
+    const owned = new Set(captions.filter(c => c.fig != null).map(c => c.fig)), area = o => Math.max(1, (o.r - o.l) * (o.b - o.t));
+    const inter = (a, o) => Math.max(0, Math.min(a.r, o.r) - Math.max(a.l, o.l)) * Math.max(0, Math.min(a.b, o.b) - Math.max(a.t, o.t));
+    const drop = new Set();
+    boxes.forEach((o, j) => {
+      if (owned.has(j)) return;
+      const inside = [...owned].filter(k => inter(o, boxes[k]) > 0.6 * Math.min(area(o), area(boxes[k])));
+      if (inside.length === 1 && area(o) > area(boxes[inside[0]]) && ![...owned].some(k => k !== inside[0] && inter(o, boxes[k]) > 0)) { Object.assign(boxes[inside[0]], union(boxes[inside[0]], o)); drop.add(j) }
+      else if (inside.length && [...owned].reduce((a, k) => a + inter(o, boxes[k]), 0) > 0.6 * area(o)) drop.add(j);
+    });
+    if (drop.size) {
+      const map = [], kept = [];
+      boxes.forEach((o, j) => { if (!drop.has(j)) { map[j] = kept.length; kept.push(o) } });
+      for (const c of captions) if (c.fig != null) c.fig = map[c.fig];
+      boxes.length = 0; boxes.push(...kept);
     }
     const pad = 1.5;
     const figures = boxes.map(o => ({ x: Math.max(0, (o.l - pad) / W), y: Math.max(0, (o.t - pad) / H), w: Math.min(1, (o.r - o.l + pad * 2) / W), h: Math.min(1, (o.b - o.t + pad * 2) / H) }));

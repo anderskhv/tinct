@@ -18,7 +18,8 @@
   const IMAGE_BYTES = 1200000;  // server limit 1.5 MB decoded per image; 4 of them stay under 8 MB as base64
   const MAX_IMAGES = 4;         // server limit 4 per request
   const DOCUMENT_CHARS = 560000; // the margin's whole document, about 150k tokens (server: MARGIN_DOCUMENT_CHARS)
-  const PASSAGES = 6, PASSAGE_CHARS = 1200; // a long file's search results (server: MARGIN_PASSAGES)
+  // A long file's search results, each the section a hit falls in (server: MARGIN_PASSAGES, MARGIN_PASSAGE_CHARS, MARGIN_PASSAGES_CHARS).
+  const PASSAGES = 6, PASSAGE_CHARS = 16000, PASSAGES_BUDGET = 40000;
 
   // The session tinct.app keeps in this browser (supabase-js, localStorage).
   function session() {
@@ -86,11 +87,13 @@
   }
 
   // A long file's passages found by searching it for the question (FIXES-2026-10-15, long books, item 8):
-  // [{ n: printed page label, text }], at most 6 of at most 1,200 characters (server: MARGIN_PASSAGES).
+  // [{ n: printed page label, text }], at most 6 of at most 16,000 characters and 40,000 in all (server: MARGIN_PASSAGES).
   function passagesContext(list) {
     if (!Array.isArray(list)) return null;
+    let used = 0;
     const out = list.slice(0, PASSAGES).flatMap(p => {
-      const text = String(p?.text || '').replace(/\s+/g, ' ').trim().slice(0, PASSAGE_CHARS);
+      const text = String(p?.text || '').replace(/\s+/g, ' ').trim().slice(0, Math.min(PASSAGE_CHARS, PASSAGES_BUDGET - used));
+      used += text.length;
       return text ? [{ n: typeof p?.n === 'number' ? p.n : String(p?.n ?? '').slice(0, 16), text }] : [];
     });
     return out.length ? out : null;
@@ -364,6 +367,6 @@
 
   // What the reader may attach: anything the browser decodes; it is redrawn before sending.
   const imageLimits = { maxCount: MAX_IMAGES, maxInputBytes: 40 * 1024 * 1024, mediaTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/bmp', 'image/avif'] };
-  const api = { session, ask, askJson, companion, toRequest, companionRequest, documentContext, passagesContext, DOCUMENT_CHARS, imageLimits, books, onSignedOut: null };
+  const api = { session, ask, askJson, companion, toRequest, companionRequest, documentContext, passagesContext, DOCUMENT_CHARS, PASSAGE_CHARS, PASSAGES_BUDGET, imageLimits, books, onSignedOut: null };
   window.TinctAI = api;
 })();

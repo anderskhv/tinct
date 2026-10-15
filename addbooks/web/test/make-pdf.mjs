@@ -301,6 +301,36 @@ export function figurePaper() {
   return makePdf({ info: { Title: 'Figures in the Margin' }, pages });
 }
 
+// 7b. Margin figures, as MacKay sets them (Anders, 15 Oct; retest of 15 Oct): a text column with captions in a
+//     wide right margin. A small plot in the margin with its caption under it (MacKay's Figure 1.1, which got
+//     no chip), a drawing in the text column with its caption well to its right in the margin (Figure 1.5's
+//     layout), and a table of digits with its caption level with its top (Figure 1.10). Text beside the plot
+//     stands where a displayed formula would (a formula's card took Figure 1.1's caption).
+export function marginPaper() {
+  breaks = 0;
+  const cap = (y, a, b) => [{ x: 430, y, size: 8, font: 'Helvetica', text: a }, { x: 430, y: y - 10, size: 8, font: 'Times-Roman', text: b }];
+  const bars = [0, 1, 2, 3, 4, 5, 6, 7].map(i => `${450 + i * 10} 560 m ${450 + i * 10} ${560 + [4, 12, 22, 30, 26, 16, 8, 3][i]} l S`).join(' ');
+  const digits = ['s 0 0 1 0 1 1 0', 't 000 000 111 000 111 111 000', 'n 000 001 000 000 101 000 000', 'r 000 001 111 000 010 111 000'];
+  const pages = [
+    { draw: `0.8 w 440 555 m 540 555 l S 440 555 m 440 605 l S ${bars} 1 w 120 330 210 90 re S 140 350 m 310 400 l S 140 400 m 310 350 l S ${circle(225, 375, 18)} 150 255 m 330 255 l S`, lines: [
+      { x: 72, y: 720, size: 15, font: 'Times-Bold', text: 'About Chapter 1' },
+      ...prose(690, 6, { width: 62, from: 3 }),
+      { x: 120, y: 585, size: 11, font: 'Times-Italic', text: 'The mean of r is the sum of the probabilities' },
+      { x: 120, y: 570, size: 11, font: 'Times-Italic', text: 'of each count of heads, weighted by the count.' },
+      { x: 446, y: 545, size: 6, font: 'Helvetica', text: '0 1 2 3 4 5 6 7' },
+      ...cap(530, 'Figure 1.1. The binomial', 'distribution, f = 0.3, N = 10.'),
+      ...prose(520, 6, { width: 62, from: 40 }),
+      ...cap(420, 'Figure 1.2. A binary data', 'sequence of length 10 000.'),
+      ...prose(310, 3, { width: 62, from: 90 }),
+      ...digits.map((t, i) => ({ x: 160, y: 262 - i * 14, size: 10, font: 'Times-Roman', text: t })),
+      ...cap(262, 'Figure 1.3. Decoding the', 'received vector.'),
+      ...prose(190, 6, { width: 62, from: 120 }),
+    ] },
+  ];
+  pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
+  return makePdf({ info: { Title: 'Margin Figures' }, pages });
+}
+
 // 8. A long book, the stand-in for Sutton and Barto's "Reinforcement Learning" (docs/margin/gloss-test/
 //    edge.html): about 590 pages with an outline of parts, chapters and sections (as that book's: the
 //    top-level entries are the front matter, chapter 1, three parts and the back matter); front matter

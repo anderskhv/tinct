@@ -153,6 +153,113 @@ describe('finding figures on a page (item 5)', () => {
   })
 })
 
+describe('figures after the retest (15 Oct): regions, pairing and diagrams', () => {
+  it('a formula between a figure and its caption is part of the figure (ResNet Figure 2: "F(x) + x" and the relu under it)', () => {
+    const pg = page()
+    pg.body(20, 20, 4, 200)
+    pg.outline(40, 50, 90, 58); pg.outline(40, 66, 90, 74); pg.fill(64, 44, 64, 80)
+    pg.text(46, 53, 'weight layer'); pg.text(46, 69, 'weight layer')
+    // The adder and the relu under it, set as a displayed formula.
+    pg.outline(58, 84, 70, 92); pg.fill(64, 92, 64, 98)
+    const formula = { x: 40 / W, y: 83 / H, w: 40 / W, h: 16 / H }
+    pg.text(30, 104, 'Figure 2. Residual learning: a building block.')
+    pg.body(20, 118, 8, 200)
+    const { figures, captions } = pg.find([formula])
+    expect(captions.map(c => c.label)).toEqual(['Figure 2'])
+    const f = px(figures[captions[0].fig])
+    expect(f.t).toBeLessThanOrEqual(45); expect(f.b).toBeGreaterThanOrEqual(98)
+  })
+  it('a centred caption never runs on into the wider line of text under it', () => {
+    const pg = page()
+    pg.body(20, 20, 4, 200)
+    pg.fill(60, 50, 160, 90)
+    pg.text(70, 96, 'Figure 2. Residual learning: a building block.')
+    pg.body(20, 103, 6, 200)
+    expect(pg.find().captions[0].text).toBe('Figure 2. Residual learning: a building block.')
+  })
+  it('"Figure 1.18 shows …" in running text is no caption (it read as "Figure 1")', () => {
+    expect(M.captionOf('Figure 1.18 shows the performance of repetition codes')).toBeNull()
+    expect(M.captionOf('Figure 1.4 . The binary symmetric channel.')).toMatchObject({ label: 'Figure 1.4' })
+    expect(M.captionOf('Table 8. Object detection mAP')).toMatchObject({ label: 'Table 8' })
+  })
+  it('two columns, a figure and a table side by side, each with its caption: never one region, never grown over the figure above (ResNet Figure 7 and Table 8)', () => {
+    const pg = page()
+    // A full-width figure and its full-width caption at the top.
+    pg.fill(30, 10, 210, 50)
+    pg.text(20, 56, 'Figure 6. Training on CIFAR-10. Dashed lines denote training error, and bold lines denote testing error.')
+    // Left: two plots, then Figure 7's caption; right: a table above Table 7's caption, then another table above Table 8's.
+    pg.fill(24, 70, 108, 96); pg.fill(24, 104, 108, 128); pg.fill(24, 96, 24, 104)
+    pg.text(18, 134, 'Figure 7. Standard deviations of layer responses.')
+    const cells = (y: number) => [['metric', 'mAP@.5', 'mAP@[.5,.95]'], ['VGG-16', '41.5', '21.2']].forEach((r, i) => r.forEach((c, k) => pg.text(134 + k * 26, y + i * 6, c)))
+    cells(72); pg.outline(130, 70, 205, 84)
+    pg.text(122, 90, 'Table 7. Object detection mAP on the PASCAL VOC test sets.')
+    cells(104); pg.outline(130, 102, 205, 116)
+    pg.text(122, 121, 'Table 8. Object detection mAP on the COCO validation set.')
+    pg.body(20, 150, 10, 90); pg.body(122, 150, 10, 90)
+    const { figures, captions } = pg.find()
+    const of = (label: string) => px(figures[captions.find(c => c.label === label)!.fig])
+    expect(captions.map(c => c.label).sort()).toEqual(['Figure 6', 'Figure 7', 'Table 7', 'Table 8'])
+    // Figure 7 keeps to the left column, under Figure 6's caption.
+    expect(of('Figure 7').r).toBeLessThan(120); expect(of('Figure 7').t).toBeGreaterThan(60)
+    // Each table caption takes the table above it.
+    expect(of('Table 7').b).toBeLessThan(90); expect(of('Table 8').t).toBeGreaterThan(95); expect(of('Table 8').b).toBeLessThan(121)
+    // Figure 6 is the top figure only.
+    expect(of('Figure 6').b).toBeLessThan(56)
+  })
+  it('a caption set in the margin, well beside its figure, is that figure\'s; stacked figures with a caption each stay apart (MacKay)', () => {
+    const pg = page()
+    pg.body(25, 10, 4, 135)
+    // Two plots stacked in the text column, captions in the right margin, each level with its plot's top.
+    pg.outline(56, 40, 116, 82); pg.fill(60, 60, 110, 62)
+    pg.outline(56, 86, 116, 126); pg.fill(60, 100, 110, 102)
+    pg.text(165, 42, 'Figure 3.1. The probability'); pg.text(165, 48, 'density P(x | λ).')
+    pg.text(165, 88, 'Figure 3.2. The probability'); pg.text(165, 94, 'density, three values.')
+    pg.body(25, 140, 8, 135)
+    const { figures, captions } = pg.find()
+    const of = (label: string) => px(figures[captions.find(c => c.label === label)!.fig])
+    expect(of('Figure 3.1').t).toBeLessThanOrEqual(41); expect(of('Figure 3.1').b).toBeLessThan(87)
+    expect(of('Figure 3.2').t).toBeGreaterThanOrEqual(84); expect(of('Figure 3.2').b).toBeGreaterThanOrEqual(125)
+  })
+  it('a table of digits beside a margin caption is its figure (MacKay Figure 1.10)', () => {
+    const pg = page()
+    pg.body(25, 10, 6, 135)
+    const rows = ['s 0 0 1 0 1 1 0', 't 000 000 111 000 111 111 000', 'n 000 001 000 000 101 000 000', 'r 000 001 111 000 010 111 000']
+    rows.forEach((r, i) => pg.text(66, 50 + i * 6, r))
+    pg.text(165, 50, 'Figure 1.10. Decoding the received'); pg.text(165, 56, 'vector from figure 1.8.')
+    pg.body(25, 90, 8, 135)
+    const { figures, captions } = pg.find()
+    expect(captions.map(c => c.label)).toEqual(['Figure 1.10'])
+    const f = px(figures[captions[0].fig])
+    expect(f.l).toBeLessThanOrEqual(67); expect(f.t).toBeLessThanOrEqual(51); expect(f.b).toBeGreaterThanOrEqual(70); expect(f.r).toBeLessThan(165)
+  })
+  it('text the page does not show is left out: a labelled diagram under a clipped page of hidden text is found (TD-Gammon, Figure 16.1)', () => {
+    const pg = page()
+    pg.body(20, 10, 3, 200)
+    row(pg, 1, 40, 150, 150); pg.text(140, 32, 'predicted probability')
+    row(pg, 5, 56, 125, 185); pg.text(190, 58, 'hidden units')
+    row(pg, 9, 76, 120, 195); pg.text(130, 84, 'backgammon position (198 input units)')
+    for (let x = 122; x < 196; x += 6) pg.fill(x, 44, x, 76)
+    // Hidden lines of another page, clipped out of sight, across the diagram: no ink of their own.
+    for (let k = 0; k < 8; k++) pg.spans.push({ x: 118 / W, y: (38 + k * 6) / H, w: 110 / W, h: 4 / H, text: 'is the vector of all modifiable parameters (in this case, the weights of the network)' })
+    pg.text(130, 94, 'Figure 16.1: The TD-Gammon ANN')
+    pg.body(20, 104, 8, 200)
+    const { figures, captions } = pg.find()
+    expect(captions.map(c => c.label)).toEqual(['Figure 16.1'])
+    const f = px(figures[captions[0].fig])
+    expect(f.t).toBeLessThanOrEqual(41); expect(f.b).toBeGreaterThanOrEqual(80); expect(f.l).toBeLessThanOrEqual(121)
+  })
+  it('text wrapped beside a figure, in short lines, is never part of it (the backgammon board)', () => {
+    const pg = page()
+    // Eight short lines of prose on the left, the board on the right.
+    for (let k = 0; k < 8; k++) pg.body(20, 30 + k * 6, 1, 80, 'each other going in different directions')
+    pg.outline(110, 30, 200, 76); pg.fill(120, 36, 190, 70)
+    pg.body(20, 90, 6, 200)
+    const { figures } = pg.find()
+    expect(figures).toHaveLength(1)
+    expect(px(figures[0]).l).toBeGreaterThan(102)
+  })
+})
+
 describe('captions and the figures questions name (items 5, 7)', () => {
   it('reads a caption’s own label at the start of a line, not a reference in running text', () => {
     expect(M.captionOf('Figure 2. Residual learning: a building block.')).toEqual({ kind: 'figure', n: '2', label: 'Figure 2' })
