@@ -357,9 +357,18 @@ async function behaviour(browser, origin) {
   // Explain: today's Explain request in the docked chat.
   await selectText(a); await a.waitForSelector('.mr-bar'); const n2 = account.requests.length
   await a.click('.mr-bar [data-m="explain"]'); await a.waitForTimeout(1500)
-  const ex = account.requests.slice(n2).find(r => /Explain the passage they selected/.test(JSON.stringify(r.body)))
+  const ex = account.requests.slice(n2).find(r => r.body?.companion?.intent === 'explain')
   const P = await import(pathToFileURL(join(PUBLIC, 'lab/margin/margin-parse.js')).href)
-  ok('Explain sends today\'s Explain request with the PDF wording (a bottom line first) and the PDF\'s pages', ex && JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT) && !JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT_BEFORE) && ex.body.companion.context.kind === 'pdf', ex?.body?.messages)
+  // FIXES-2026-10-15 A2: the Worker's explain intent (it writes the PDF wording), streamed, never today's ask.
+  ok('Explain sends the explain intent with the selection and the PDF\'s pages, streamed, writing no prompt itself', ex && ex.body.stream === true && ex.body.companion.selection && ex.body.companion.context.kind === 'pdf' && !JSON.stringify(ex.body).includes(P.PDF_EXPLAIN_FORMAT_BEFORE) && !account.requests.slice(n2).some(r => /Explain the passage they selected/.test(JSON.stringify(r.body))), ex?.body?.companion && { ...ex.body.companion, context: undefined, document: undefined })
+  // FIXES-2026-10-15 A1: the whole file rides on every margin request, the same bytes each time.
+  const pages = await a.evaluate(() => state.pages.length)
+  const docs = account.requests.filter(r => r.body?.companion?.document).map(r => JSON.stringify(r.body.companion.document))
+  ok('every margin request so far carries the whole PDF, page by page, byte for byte the same', ex?.body?.companion?.document?.kind === 'pdf' && ex.body.companion.document.units.length === pages && !ex.body.companion.document.part && docs.length >= 2 && docs.every(d => d === docs[0]), { pages, units: ex?.body?.companion?.document?.units?.length, sent: docs.length, same: new Set(docs).size })
+  // FIXES-2026-10-15 A4: one picture of the passage, cropped to it, at most 1568 px.
+  const pic = (ex?.body?.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image') || []
+  const side = pic[0] ? await a.evaluate(async src => { const img = new Image(); img.src = `data:${src.media_type};base64,${src.data}`; await img.decode().catch(() => {}); return Math.max(img.naturalWidth, img.naturalHeight) }, pic[0].source) : 0
+  ok('Explain sends one picture of the passage, cropped (not the whole page), at most 1568 px', pic.length === 1 && side > 0 && side <= 1568 && pic[0].source.data.length < 1_500_000, { images: pic.length, side })
   ok('Explain opens as a card, its first sentence in weight 600', await a.isVisible('.mr-col .mr-card.is-open .is-bottom-line') && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600')
   // A citation tag scrolls the PDF to its page.
   const tag = await a.evaluate(() => [...document.querySelectorAll('.mr-card.is-open .mr-cite')].map(b => [b.textContent, b.dataset.page]))
@@ -405,7 +414,7 @@ async function behaviour(browser, origin) {
   await a.keyboard.press('/'); await a.keyboard.type('What is this about?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1000)
   const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
   const pageCount = await a.evaluate(() => state.pages.length)
-  ok('"/" sends the whole-file question: scope "whole", every page of the PDF, never the page alone', whole?.body?.companion?.scope === 'whole' && whole.body.companion.context.pages.length === pageCount && !/say when something is not on these pages/.test(JSON.stringify(whole.body.messages)), { scope: whole?.body?.companion?.scope, pages: whole?.body?.companion?.context?.pages?.length, pageCount })
+  ok('"/" sends the whole-file question: scope "whole" with every page of the PDF (the whole document, PR A), never the page alone', whole?.body?.companion?.scope === 'whole' && whole.body.companion.document?.units?.length === pageCount && !/say when something is not on these pages/.test(JSON.stringify(whole.body.messages)), { scope: whole?.body?.companion?.scope, units: whole?.body?.companion?.document?.units?.length, pageCount })
   ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
   await fresh(a)
   // Reopened, the Whole PDF card shows its earlier conversation at once (the same task, no frame later).

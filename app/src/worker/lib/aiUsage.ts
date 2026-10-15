@@ -48,19 +48,36 @@ import { supabaseInsertMinimal, type SupabaseEnv } from './supabase'
  *    Each call is settled from the reply's `cost_in_usd_ticks` when xAI sends
  *    it; these rates are the fallback.
  */
-export const AI_PRICING_VERSION = '2026-10-10'
+/*
+ * Version 2026-10-15 adds the PDF reader's margin models (claude-api skill's
+ * model table, cached 2026-10-06; re-check the live pricing page before any
+ * invoice):
+ *  - claude-sonnet-5-5: $2/MTok input, $10/MTok output, cache read $0.20,
+ *    5-minute cache write 1.25x ($2.50): the same as Sonnet 5. (The earlier
+ *    'claude-sonnet-5.5' key was not a model id; kept so old rows reprice the same.)
+ *  - claude-haiku-5-5: two rate cards by prompt length (input + cache read +
+ *    cache write): up to 100K tokens $0.10 input / $0.50 output, above it
+ *    $0.50 / $2.50; cache reads 0.1x input, 5-minute writes 1.25x.
+ */
+export const AI_PRICING_VERSION = '2026-10-15'
 
 export interface AnthropicRates { inputPerMTok: number; outputPerMTok: number; cacheReadPerMTok: number; cacheWritePerMTok: number }
 
 const SONNET_5: AnthropicRates = { inputPerMTok: 2, outputPerMTok: 10, cacheReadPerMTok: 0.2, cacheWritePerMTok: 2.5 }
 /** Haiku 4.5 list price ($1 / $5 per MTok); Catch me up's recaps. Not re-checked against the live pricing page. */
 const HAIKU_4_5: AnthropicRates = { inputPerMTok: 1, outputPerMTok: 5, cacheReadPerMTok: 0.1, cacheWritePerMTok: 1.25 }
+/** Haiku 5.5, prompts of up to HAIKU_5_5_LONG_PROMPT_TOKENS tokens; above that, HAIKU_5_5_LONG. */
+const HAIKU_5_5: AnthropicRates = { inputPerMTok: 0.1, outputPerMTok: 0.5, cacheReadPerMTok: 0.01, cacheWritePerMTok: 0.125 }
+const HAIKU_5_5_LONG: AnthropicRates = { inputPerMTok: 0.5, outputPerMTok: 2.5, cacheReadPerMTok: 0.05, cacheWritePerMTok: 0.625 }
+export const HAIKU_5_5_LONG_PROMPT_TOKENS = 100_000
 
 export const AI_PRICING = {
   version: AI_PRICING_VERSION,
   anthropic: {
     'claude-sonnet-5': SONNET_5,
     'claude-sonnet-5.5': SONNET_5,
+    'claude-sonnet-5-5': SONNET_5,
+    'claude-haiku-5-5': HAIKU_5_5,
     'claude-haiku-4-5-20251001': HAIKU_4_5,
     'claude-haiku-4-5': HAIKU_4_5,
   } as Record<string, AnthropicRates>,
@@ -98,8 +115,17 @@ export interface AnthropicUsage {
 const round5 = (value: number) => Math.round(value * 100_000) / 100_000
 const count = (value: unknown) => (typeof value === 'number' && Number.isFinite(value) && value > 0 ? Math.floor(value) : 0)
 
+/** The rates for one call: Haiku 5.5's long-prompt card applies when the whole prompt is over 100K tokens. */
+function anthropicRates(model: string, usage: AnthropicUsage): AnthropicRates {
+  if (model === 'claude-haiku-5-5') {
+    const prompt = count(usage.input_tokens) + count(usage.cache_read_input_tokens) + count(usage.cache_creation_input_tokens)
+    if (prompt > HAIKU_5_5_LONG_PROMPT_TOKENS) return HAIKU_5_5_LONG
+  }
+  return AI_PRICING.anthropic[model] ?? AI_PRICING.anthropicFallback
+}
+
 export function anthropicCostUsd(model: string, usage: AnthropicUsage): number {
-  const rates = AI_PRICING.anthropic[model] ?? AI_PRICING.anthropicFallback
+  const rates = anthropicRates(model, usage)
   return round5((
     count(usage.input_tokens) * rates.inputPerMTok
     + count(usage.output_tokens) * rates.outputPerMTok
@@ -255,16 +281,22 @@ export function recordAiUsage(env: LedgerEnv, ctx: WaitUntil | undefined, identi
 
 /** A per-request recorder bound to one identity, feature and book. */
 export interface AiMeter {
-  anthropic(usage: AnthropicUsage | null | undefined, model?: string): void
+  /**
+   * `neverCharged`: a call the reader is not charged for (a margin answer that
+   * ended in a refusal): its cost is recorded as Tinct's own, under a
+   * never-charged feature (NEVER_CHARGED_AI_FEATURES), so it stays out of the
+   * reader's allowance.
+   */
+  anthropic(usage: AnthropicUsage | null | undefined, model?: string, options?: { neverCharged?: boolean }): void
   sourceSearch(usage: OpenAiUsage | undefined, searches: number): void
 }
 
 export function createAiMeter(env: LedgerEnv, ctx: WaitUntil | undefined, identity: AiIdentity, options: { feature: AiFeature; bookId?: string | null; model: string }): AiMeter {
   return {
-    anthropic(usage, model = options.model) {
+    anthropic(usage, model = options.model, call) {
       if (!usage) return
       recordAiUsage(env, ctx, identity, {
-        feature: options.feature, provider: 'anthropic', model, book_id: options.bookId ?? null,
+        feature: call?.neverCharged ? 'explain_speculative' : options.feature, provider: 'anthropic', model, book_id: options.bookId ?? null,
         input_tokens: usage.input_tokens ?? 0, output_tokens: usage.output_tokens ?? 0,
         cache_read_tokens: usage.cache_read_input_tokens ?? 0, cache_write_tokens: usage.cache_creation_input_tokens ?? 0,
         cost_usd: anthropicCostUsd(model, usage),

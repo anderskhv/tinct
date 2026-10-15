@@ -124,6 +124,24 @@ Document and unit identity (data): ${JSON.stringify({ title: context.bookTitle, 
   return `${rules}${note}\n\n<chapter_source_data>\n${excerpt.text}\n</chapter_source_data>`
 }
 
+/**
+ * The primer's task when the whole document is already in the cached prefix
+ * (marginContext.ts, FIXES-2026-10-15 A1): the same rules and binding text,
+ * naming the unit and its pages instead of repeating its text. A PDF under 40
+ * pages (or without an outline) is one unit, "all": the whole document. Never
+ * "an excerpt" (FIXES B2).
+ */
+export function buildPrimerTask(action: PrimerChapterAction, context: LabAskContext): string {
+  const authorship = authorshipNote(context.bookAuthor, context.authorship, 'this chapter')
+  const labels = context.paragraphs.map(page => splitPage(page).label).filter(Boolean)
+  const pages = labels.length ? (labels[0] === labels[labels.length - 1] ? labels[0] : `${labels[0]}–${labels[labels.length - 1]}`) : ''
+  return `${CHAPTER_CHAT_INSTRUCTIONS.primer}
+${action.unitKey === 'all'
+    ? 'Here "the chapter" means the whole document above, every page of it.'
+    : `Here "the chapter" means one part of the reader's own document, the unit named here; its text is in the document above${pages ? `, on the pages labelled ${pages}` : ''}. Use the rest of the document only to place the unit.`} Keep in mind is about the document itself (its conventions, assumptions, notation and claims to check), never about which text was supplied.
+Unit (data): ${JSON.stringify({ unit: action.unitTitle, ...(pages ? { pages } : {}), author: promptAuthor(context.bookAuthor, context.authorship) })}${authorship ? `\n${authorship}` : ''}`
+}
+
 /** The one user turn: the Worker writes it, the client sends none. */
 export function primerUserTurn(action: PrimerChapterAction): string {
   return `Before I start: ${action.unitTitle.replace(/<\/?[a-z_]+[^>]*>/gi, '')}.`

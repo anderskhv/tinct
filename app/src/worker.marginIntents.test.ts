@@ -13,6 +13,7 @@ import {
   COMPANION_NEARBY_PARAGRAPHS,
   buildCompanionSystem,
   buildCompanionSystemParts,
+  buildMarginSystemParts,
   companionAllowance,
   companionModelFor,
   companionSelectionMessage,
@@ -44,6 +45,8 @@ import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { createAllowanceGate, type AllowanceGate, type AllowanceView } from './worker/lib/aiAllowance'
 import type { AiUsageRow } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
+import { MARGIN_ROUTES } from './companion/marginRoutes'
+import { marginRequestRoute } from './companion/companionRequest'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const reader = async () => ({ id: userId, email: 'reader@example.com' })
@@ -188,16 +191,18 @@ describe('parsing the margin intents', () => {
 })
 
 describe('models, output bounds, effort and allowance per PROMPTS.md', () => {
-  const table: Array<[CompanionIntent, string, number, 'free' | 'explain' | 'chat']> = [
-    ['simplify', COMPANION_LOOKUP_MODEL, 450, 'explain'],
-    ['define_sense', COMPANION_LOOKUP_MODEL, 60, 'free'],
-    ['factcheck', COMPANION_MODEL, 900, 'chat'],
-    ['counterpoint', COMPANION_MODEL, 600, 'chat'],
-    ['quiz', COMPANION_MODEL, 700, 'chat'],
-    ['quiz_check', COMPANION_LOOKUP_MODEL, 150, 'free'],
+  // The PDF reader's model, effort and bound come from MARGIN_ROUTES (FIXES-2026-10-15 A3,
+  // asserted exactly in marginRoutes.test.ts); PROMPTS.md's answer bounds stay in COMPANION_MAX_TOKENS.
+  const table: Array<[CompanionIntent, number, 'free' | 'explain' | 'chat']> = [
+    ['simplify', 450, 'explain'],
+    ['define_sense', 60, 'free'],
+    ['factcheck', 900, 'chat'],
+    ['counterpoint', 600, 'chat'],
+    ['quiz', 700, 'chat'],
+    ['quiz_check', 150, 'free'],
   ]
-  it.each(table)('%s: %s, %i tokens, allowance %s', (intent, model, maxTokens, allowance) => {
-    expect(companionModelFor(intent)).toBe(model)
+  it.each(table)('%s: routed by the margin table, %i answer tokens, allowance %s', (intent, maxTokens, allowance) => {
+    expect(marginRequestRoute({ intent, pdf: true })).toBe(MARGIN_ROUTES[intent as keyof typeof MARGIN_ROUTES])
     expect(COMPANION_MAX_TOKENS[intent]).toBe(maxTokens)
     expect(companionAllowance({ intent })).toBe(allowance)
   })
@@ -350,6 +355,17 @@ describe('the prompts the Worker builds', () => {
     expect(parseCompanionRequest({ intent: 'explain', context: pdfContext, selection: PASSAGE, scope: 'whole' })!.whole).toBeUndefined()
   })
 
+  it('with the whole document (PR A), the whole-PDF rules sit after the cache breakpoint and the document comes once, in the prefix', () => {
+    const document = { kind: 'pdf', units: [{ n: 1, text: 'Page one text.' }, { n: 2, text: 'Page two text.' }] }
+    const whole = parseCompanionRequest({ intent: 'ask', context: pdfContext, scope: 'whole', document })!
+    const parts = buildMarginSystemParts(whole)!
+    expect(parts.stable).toContain('<page n="2">\nPage two text.\n</page>')
+    expect(parts.stable).not.toContain(WHOLE_PDF_PROMPT)
+    expect(parts.volatile).toContain(WHOLE_PDF_PROMPT)
+    // The same file gives the same prefix whether or not the question is about the whole PDF.
+    expect(buildMarginSystemParts(parseCompanionRequest({ intent: 'ask', context: pdfContext, document })!)!.stable).toBe(parts.stable)
+  })
+
   it("leaves the book reader's Ask, Explain and Define prompts exactly as they were", () => {
     const ask = parseCompanionRequest({ intent: 'ask', context: bookContext })!
     expect(buildCompanionSystem(ask, { image: true, today: '2026-10-14' })).toBe(buildLabAskInstructions(bookContext))
@@ -371,19 +387,21 @@ describe('the prompts the Worker builds', () => {
 
 describe('/api/chat with the margin intents (provider mocked)', () => {
   it.each([
-    ['simplify', { selection: PASSAGE }, COMPANION_LOOKUP_MODEL, 450, false],
-    ['counterpoint', { selection: PASSAGE }, COMPANION_MODEL, 600, true],
-    ['quiz', { selection: PASSAGE }, COMPANION_MODEL, 700, true],
-    ['define_sense', { selection: 'state', senses: ['A condition.', 'A nation.'] }, COMPANION_LOOKUP_MODEL, 60, false],
-    ['quiz_check', { quiz: { question: 'Q?', expected: 'A.', answer: 'a' } }, COMPANION_LOOKUP_MODEL, 150, false],
-  ] as const)('%s goes to the right model with its own bound, ignoring caller bounds', async (intent, fields, model, maxTokens, typed) => {
+    ['simplify', { selection: PASSAGE }],
+    ['counterpoint', { selection: PASSAGE }],
+    ['quiz', { selection: PASSAGE }],
+    ['define_sense', { selection: 'state', senses: ['A condition.', 'A nation.'] }],
+    ['quiz_check', { quiz: { question: 'Q?', expected: 'A.', answer: 'a' } }],
+  ] as const)('%s goes to the right model with its own bound, ignoring caller bounds', async (intent, fields) => {
     const { anthropic } = stubFetch()
     const response = await handleChat(post('/api/chat', { max_tokens: 2000, effort: 'high', system: 'ignored', companion: { intent, context: pdfContext, ...fields } }), env, context().ctx, reader, allow, gateOff)
     expect(response.status).toBe(200)
     expect(anthropic).toHaveLength(1)
-    expect(anthropic[0].model).toBe(model)
-    expect(anthropic[0].max_tokens).toBe(maxTokens)
-    expect(anthropic[0].output_config).toEqual(typed ? { effort: 'medium' } : undefined)
+    const route = MARGIN_ROUTES[intent]
+    expect(anthropic[0].model).toBe(route.model)
+    expect(anthropic[0].max_tokens).toBe(route.maxTokens)
+    expect(anthropic[0].output_config).toEqual({ effort: route.effort })
+    expect(anthropic[0]).not.toHaveProperty('thinking')
     expect(anthropic[0].tools).toBeUndefined()
     expect(String(anthropic[0].system)).not.toContain('ignored')
     const messages = anthropic[0].messages as Array<{ role: string; content: unknown }>
@@ -476,7 +494,7 @@ describe('/api/chat with the margin intents (provider mocked)', () => {
     const response = await handleLabChat(post('/api/lab-chat', { companion: { intent: 'counterpoint', context: pdfContext, selection: PASSAGE } }), env, ctx, allow, async () => true)
     expect(response.status).toBe(200)
     await Promise.all(pending)
-    expect(anthropic[0].model).toBe(COMPANION_MODEL)
+    expect(anthropic[0].model).toBe(MARGIN_ROUTES.counterpoint.model)
     expect(rows.map(row => row.feature)).toEqual(['lab_chat'])
   })
 })
@@ -498,9 +516,9 @@ describe('Fact-check and the source search', () => {
     expect(String(openai[0].input)).toContain(PASSAGE)
     expect(String(openai[0].input)).toContain('Thermal Physics')
     expect(anthropic).toHaveLength(1)
-    expect(anthropic[0].model).toBe(COMPANION_MODEL)
-    expect(anthropic[0].max_tokens).toBe(900)
-    expect(anthropic[0].output_config).toEqual({ effort: 'medium' })
+    expect(anthropic[0].model).toBe(MARGIN_ROUTES.factcheck.model)
+    expect(anthropic[0].max_tokens).toBe(MARGIN_ROUTES.factcheck.maxTokens)
+    expect(anthropic[0].output_config).toEqual({ effort: MARGIN_ROUTES.factcheck.effort })
     expect((anthropic[0].tools as Array<{ name: string }>).map(tool => tool.name)).toEqual(['search_reading_sources'])
     const system = JSON.stringify(anthropic[0].system)
     expect(system).toContain("Today's date is 2026-10-14;")
