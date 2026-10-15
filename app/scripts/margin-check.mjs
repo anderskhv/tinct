@@ -96,7 +96,9 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.next` (set by a check) replaces the next answer's text, for the long and odd answers.
 // `mock.primers`: the next primer replies, in order, each { text } | { status, body } with an optional
 // `delay` (ms), for the primer's reliability runs (cut-off, empty, slow, odd shapes).
-export const mock = { next: null, delay: 0, primer: null, primers: [] }
+// `mock.chunks` (set by a check) streams the next answer in pieces: [{ text, wait }], then an
+// error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one).
+export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false }
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
@@ -126,6 +128,12 @@ async function mockChat(body, res) {
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
   if (body?.companion?.intent === 'factcheck') { res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`); await new Promise(r => setTimeout(r, mock.delay || 400)) }
   else if (mock.delay) await new Promise(r => setTimeout(r, mock.delay))
+  if (mock.chunks) {
+    const chunks = mock.chunks, fail = mock.chunksFail; mock.chunks = null; mock.chunksFail = false
+    for (const c of chunks) { await new Promise(r => setTimeout(r, c.wait || 0)); res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: c.text } })}\n\n`) }
+    if (fail) return res.end(`event: error\ndata: ${JSON.stringify({ type: 'error', error: { type: 'upstream_error', message: 'The reply was interrupted. Please try again.' } })}\n\n`)
+    return res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
+  }
   res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\n`)
   res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
 }
@@ -409,6 +417,53 @@ async function behaviour(browser, origin) {
   // Q1 right, Q2 shown, Q3 not yet: one right, and Q3 ("not yet" first) to reread.
   ok('after question 3: the score as the bottom line and the question to reread', /^Quiz me · p\. \d+\s*×\s*1 of 3\s*MOCK Q3/.test(score) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
   await fresh(a)
+  // FIXES-2026-10-15 A7: Quiz me streams. Question 1 shows before the stream ends; answering ahead shows
+  // "Writing the next question…" at the same card height, no ring; the quiz is saved once, when it ends.
+  {
+    const Q = [1, 2, 3].map(n => ({ q: `MOCK streamed Q${n}?`, answer: n === 1 ? 'Ideas' : `A${n}`, why: 'Because.', cite: '{p. 1}' }))
+    const j = JSON.stringify({ questions: Q }), cut1 = j.indexOf('{"q":"MOCK streamed Q2'), cut2 = j.indexOf('{"q":"MOCK streamed Q3')
+    const run = async (chunks, fail) => {
+      await selectText(a); await a.waitForSelector('.mr-bar'); mock.chunks = chunks; mock.chunksFail = fail
+      await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click('.mr-more [data-m="quiz"]')
+      await a.waitForFunction(() => /MOCK streamed Q1/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 4000 }).catch(() => {})
+    }
+    const saved = () => a.evaluate(() => keptCards().filter(c => c.kind === 'quiz').map(c => ({ id: c.id, n: c.data?.questions?.length || 0, ended: !!c.data?.ended, done: !!c.data?.done })))
+    const before = (await saved()).length
+    await run([{ text: j.slice(0, cut1), wait: 100 }, { text: j.slice(cut1, cut2), wait: 2500 }, { text: j.slice(cut2), wait: 800 }], false)
+    const shown = await a.innerText('.mr-card.is-open').catch(() => '')
+    const mid = (await saved()).slice(before)
+    ok('Quiz me (streamed): question 1 shows, "1 of 3", while the rest is written; nothing saved yet', /MOCK streamed Q1/.test(shown) && /1 of 3/.test(shown) && mid.length === 1 && mid[0].n === 0, { shown, mid })
+    // While it streams it never folds to a row or gathers, even folded among other cards (B's crowding).
+    const streaming = await a.evaluate(() => {
+      const id = [...col.quiz.keys()][0]; if (!id) return null
+      openCard(null); layoutNow()
+      const el = col.els.get(id), r = { folded: el?.classList.contains('is-folded'), row: el?.classList.contains('is-row'), hidden: !el || el.hidden, gathered: (document.querySelector('.mr-stack:not([hidden])')?.dataset.first || '') === id }
+      openCard(id); layoutNow(); return r
+    })
+    ok('a quiz still streaming never folds to a row or gathers', streaming && !streaming.row && !streaming.hidden && !streaming.gathered, streaming)
+    await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('Ideas'); await a.keyboard.press('Enter'); await a.waitForTimeout(700)
+    const h0 = await a.evaluate(() => document.querySelector('.mr-card.is-open').getBoundingClientRect().height)
+    await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(200)
+    const wait = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { text: el.innerText, h: el.getBoundingClientRect().height, ring: !!el.querySelector('.tinct-wait-ring') } })
+    ok('answering ahead: "Writing the next question…", the card keeps its height, no ring', /Writing the next question…/.test(wait.text) && Math.abs(wait.h - h0) <= 1 && !wait.ring, { h0, wait })
+    await a.waitForFunction(() => /MOCK streamed Q2/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 5000 }).catch(() => {})
+    ok('question 2 takes its place when it arrives, "2 of 3"', /MOCK streamed Q2/.test(await a.innerText('.mr-card.is-open')) && /2 of 3/.test(await a.innerText('.mr-card.is-open')))
+    await a.waitForTimeout(1300)
+    const end = (await saved()).slice(before)
+    ok('the quiz is saved once the stream ends: three questions and the answer given meanwhile', end.length === 1 && end[0].n === 3 && await a.evaluate(id => keptCards().find(c => c.id === id).data.results[0]?.verdict === 'right', end[0].id), end)
+    await fresh(a)
+    // A stream that stops after question 1: it stays, and the quiz ends there with the score.
+    await run([{ text: j.slice(0, cut1), wait: 100 }, { text: j.slice(cut1, cut1 + 20), wait: 300 }], true)
+    await a.waitForTimeout(700)
+    const cut = (await saved()).slice(before + 1)
+    const txt = await a.innerText('.mr-card.is-open').catch(() => '')
+    ok('stopped after question 1: it stays, "1 of 1", "See your score", no error; saved with one question', cut.length === 1 && cut[0].n === 1 && cut[0].ended && /MOCK streamed Q1/.test(txt) && /1 of 1/.test(txt) && !/could not be loaded/.test(txt), { cut, txt })
+    await a.click('.mr-card.is-open [data-c="show"]').catch(() => {}); await a.waitForTimeout(200)
+    ok('"See your score" on the last question that arrived', /See your score/.test(await a.innerText('.mr-card.is-open')))
+    await a.click('.mr-card.is-open [data-c="next"]').catch(() => {}); await a.waitForTimeout(300)
+    ok('the score covers what was answered: "0 of 1"', /0 of 1/.test(await a.innerText('.mr-card.is-open')))
+    await fresh(a)
+  }
   // The whole PDF: "/" focuses the column's foot; its answer opens as the "Whole PDF" card at the top.
   await a.evaluate(() => getSelection().removeAllRanges()); const w0 = account.requests.length
   await a.keyboard.press('/'); await a.keyboard.type('What is this about?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1000)

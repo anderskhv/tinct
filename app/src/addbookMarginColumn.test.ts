@@ -19,7 +19,7 @@ type Token = { type: 'cite'; kind: string; label: string; to?: string; raw: stri
 interface MarginApi {
   COL: Record<string, number>
   COLUMN_RESERVE: number
-  placeCards(passages: Array<{ id: string; top: number; at?: number; fold?: boolean }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number; top?: number; rowHeight?: number }): Placed
+  placeCards(passages: Array<{ id: string; top: number; at?: number; fold?: boolean; keep?: boolean }>, heights: number[], columnHeight: number, o?: { open?: string | null; stackHeight?: number; top?: number; rowHeight?: number }): Placed
   leadPath(x0: number, y0: number, x1: number, y1: number): string
   hyphenWord(text: string, start: number, end: number): [number, number] | null
   columnBox(width: number, pageRight: number): { left: number; width: number } | null
@@ -110,6 +110,16 @@ describe('card placement', () => {
     // The last on the page gather; everything placed is a row except the open card.
     expect(out.gathered).toEqual(passages.slice(n - out.gathered.length).map(p => p.id))
     invariants(passages, heights, 600, out, 'c4')
+  })
+  it('a card kept whole (a quiz still streaming: keep, fold false) never folds or gathers, however crowded', () => {
+    const passages = Array.from({ length: 20 }, (_, i) => ({ id: 'c' + i, top: 200 + i * 10, at: i, ...(i === 2 ? { keep: true, fold: false } : {}) }))
+    const heights = Array(20).fill(90)
+    const out = M.placeCards(passages, heights, 600, { stackHeight: 34, open: 'c9' })
+    const quiz = out.positions.find(p => p.id === 'c2')!
+    expect(quiz.row).toBeUndefined()
+    expect(quiz.height).toBe(90)
+    expect(out.gathered).not.toContain('c2')
+    expect(out.gathered.length).toBeGreaterThan(0)
   })
   it('eight cards on one page fit as cards and rows, with no "more" row', () => {
     for (const H of [652, 760, 854]) {

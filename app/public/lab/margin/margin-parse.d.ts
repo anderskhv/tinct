@@ -84,6 +84,8 @@ export declare const QUIZ_VERDICTS: readonly ["right", "nearly", "not_yet"];
 export type QuizVerdict = typeof QUIZ_VERDICTS[number];
 export declare const QUIZ_VERDICT_LINE: Readonly<Record<QuizVerdict, string>>;
 /** quiz_check's mark. -> { verdict: 'right' | 'nearly' | 'not_yet', feedback } or null. */
+/** Quiz me while it streams: the complete questions so far, up to three. */
+export declare function parseQuizPartial(text: unknown): Array<{ q: string; answer: string; why: string; cite: string }>;
 export declare function parseQuizCheck(text: unknown): {
     verdict: QuizVerdict;
     feedback: string;
