@@ -24,6 +24,8 @@ export interface BoardEntry {
   seconds: number
   duration: string
   me: boolean
+  /** Another reader's handle (their profile); absent on your own row. */
+  handle?: string
 }
 
 export interface BoardData {

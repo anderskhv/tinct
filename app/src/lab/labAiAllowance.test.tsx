@@ -29,7 +29,15 @@ describe('parseAiAllowance', () => {
 
   it('reads the fields and clamps the fraction', () => {
     expect(parseAiAllowance({ enabled: true, usedFraction: 1.4, state: 'used_up', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: false, topUps: ['top_up_10', 'chat_pack_200'] }))
-      .toEqual({ usedFraction: 1, monthUsedFraction: null, topUpLeftFraction: null, state: 'used_up', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: false, topUps: ['chat_pack_200', 'top_up_10'] })
+      .toEqual({ usedFraction: 1, monthUsedFraction: null, topUpLeftFraction: null, state: 'used_up', resetsAt: '2026-10-20T00:00:00.000Z', hasTopUp: false, hasAllowance: true, topUps: ['chat_pack_200', 'top_up_10'] })
+  })
+
+  it('reads hasAllowance; a response without it has an allowance when it has a reset date', () => {
+    const base = { enabled: true, usedFraction: 1, monthUsedFraction: 1, state: 'used_up' }
+    expect(parseAiAllowance({ ...base, hasAllowance: false, resetsAt: '2026-10-20T00:00:00.000Z' })?.hasAllowance).toBe(false)
+    expect(parseAiAllowance({ ...base, hasAllowance: true, resetsAt: null })?.hasAllowance).toBe(true)
+    expect(parseAiAllowance({ ...base, resetsAt: null })?.hasAllowance).toBe(false)
+    expect(parseAiAllowance({ ...base, resetsAt: '2026-10-20T00:00:00.000Z' })?.hasAllowance).toBe(true)
   })
 
   it('keeps only the known top-ups, $5 first', () => {
@@ -40,7 +48,7 @@ describe('parseAiAllowance', () => {
 })
 
 describe('aiUsageNote', () => {
-  const view = (fields: Partial<Parameters<typeof aiUsageNote>[0]>) => ({ usedFraction: 1, monthUsedFraction: null, topUpLeftFraction: null, state: 'used_up' as const, resetsAt: null, hasTopUp: false, topUps: [], ...fields })
+  const view = (fields: Partial<Parameters<typeof aiUsageNote>[0]>) => ({ usedFraction: 1, monthUsedFraction: null, topUpLeftFraction: null, state: 'used_up' as const, resetsAt: null, hasTopUp: false, hasAllowance: false, topUps: [], ...fields })
 
   it('names the renewal date and says reading carries on at zero', () => {
     expect(aiUsageNote(view({ resetsAt: '2026-10-20T12:00:00.000Z' }))).toBe(AI_USAGE_COPY.usedUpUntil('Oct 20'))
@@ -66,8 +74,8 @@ describe('aiUsageNote', () => {
 
 describe('requests', () => {
   it('sends the session token and parses the response', async () => {
-    const fetchImpl = vi.fn(async () => Response.json({ enabled: true, usedFraction: 0.1, state: 'ok', resetsAt: null, hasTopUp: false, topUps: ['chat_pack_200'] }))
-    expect(await fetchAiAllowance('tok', fetchImpl)).toEqual({ usedFraction: 0.1, monthUsedFraction: null, topUpLeftFraction: null, state: 'ok', resetsAt: null, hasTopUp: false, topUps: ['chat_pack_200'] })
+    const fetchImpl = vi.fn(async () => Response.json({ enabled: true, usedFraction: 0.1, state: 'ok', resetsAt: null, hasTopUp: false, hasAllowance: false, topUps: ['chat_pack_200'] }))
+    expect(await fetchAiAllowance('tok', fetchImpl)).toEqual({ usedFraction: 0.1, monthUsedFraction: null, topUpLeftFraction: null, state: 'ok', resetsAt: null, hasTopUp: false, hasAllowance: false, topUps: ['chat_pack_200'] })
     expect(fetchImpl).toHaveBeenCalledWith('/api/ai-allowance', expect.objectContaining({ headers: { Authorization: 'Bearer tok' } }))
   })
 

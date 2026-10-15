@@ -9,6 +9,7 @@
  * touched: closing removes only the stack's own element.
  */
 import cardsCss from './cards.css?inline'
+import { labKeyboardInsetPx } from '../lab/labChrome'
 
 /**
  * The cards carry their own stylesheet, added once per document. They open on
@@ -35,6 +36,9 @@ export const ICONS = {
 } as const
 
 export const DESKTOP_QUERY = '(min-width: 700px)'
+
+/** A visible-area gap at least this tall is the software keyboard. */
+const KEYBOARD_MIN_PX = 120
 
 export interface CardSpec {
   /** For tests and the redirect parameter. */
@@ -88,11 +92,20 @@ export class CardStack {
   private closed = false
   private readonly onKey = (event: KeyboardEvent) => {
     if (event.key !== 'Escape') return
+    // A field that handles Escape itself (the You card's name: Escape keeps the old name).
+    if ((event.target as Element | null)?.closest?.('[data-own-escape]')) return
     event.preventDefault()
     event.stopPropagation()
     this.closeAll()
   }
   private readonly onMedia = () => this.layout()
+  /**
+   * Phone: the cards fill the visible part of the window (visualViewport), so
+   * with the iPhone keyboard up the sheet sits on the keyboard instead of
+   * behind it, its field in view (as the reader's Ask pane does,
+   * useLabKeyboardDock). Below this, a smaller gap is the browser's own bars.
+   */
+  private readonly onViewport = () => this.fitViewport()
 
   constructor(options: CardStackOptions) {
     ensureCardsStyle()
@@ -108,6 +121,28 @@ export class CardStack {
     this.layout()
     doc.body.append(this.root)
     doc.addEventListener('keydown', this.onKey, true)
+    const viewport = typeof window !== 'undefined' ? window.visualViewport : null
+    viewport?.addEventListener('resize', this.onViewport)
+    viewport?.addEventListener('scroll', this.onViewport)
+    if (typeof window !== 'undefined') window.addEventListener('resize', this.onViewport)
+    this.fitViewport()
+  }
+
+  private fitViewport() {
+    const viewport = typeof window !== 'undefined' ? window.visualViewport : null
+    const style = this.root.style
+    // Pinch zoom also shrinks the visual viewport: the cards keep the window then.
+    if (this.desktop || !viewport || !(viewport.height > 0) || (viewport.scale ?? 1) > 1.01) {
+      style.removeProperty('top'); style.removeProperty('height'); style.removeProperty('bottom'); style.removeProperty('--tc-vh')
+      this.root.classList.remove('has-kb')
+      return
+    }
+    const inset = labKeyboardInsetPx(viewport, window.innerHeight)
+    style.top = `${Math.max(0, Math.round(viewport.offsetTop))}px`
+    style.height = `${Math.round(viewport.height)}px`
+    style.bottom = 'auto'
+    style.setProperty('--tc-vh', `${Math.round(viewport.height)}px`)
+    this.root.classList.toggle('has-kb', inset > KEYBOARD_MIN_PX)
   }
 
   get desktop(): boolean {
@@ -129,6 +164,7 @@ export class CardStack {
   private layout() {
     this.root.classList.toggle('is-desk', this.desktop)
     this.root.classList.toggle('is-phone', !this.desktop)
+    this.fitViewport()
   }
 
   push(spec: CardSpec): CardHandle {
@@ -250,6 +286,10 @@ export class CardStack {
     const doc = this.options.doc ?? document
     doc.removeEventListener('keydown', this.onKey, true)
     this.media?.removeEventListener?.('change', this.onMedia)
+    const viewport = typeof window !== 'undefined' ? window.visualViewport : null
+    viewport?.removeEventListener('resize', this.onViewport)
+    viewport?.removeEventListener('scroll', this.onViewport)
+    if (typeof window !== 'undefined') window.removeEventListener('resize', this.onViewport)
     this.entries.length = 0
     this.root.remove()
     this.options.onClosed?.()
