@@ -32,7 +32,7 @@ Ship in four PRs, each deployable on its own and each reported to Anders with sc
 
 In PR 1, before the margin exists, results open in the PDF reader's existing chat dock, as Explain does today. The book reader gets these changes in a later brief, together with its margin layout. Do not start it.
 
-**Keep the passage picture.** The PDF reader's Explain sends an image of the selected passage, because extracted PDF text garbles equations. Every new action that works on a passage (Simplify, Fact-check, Counterpoint, Quiz me, Ask from the bar) sends the same image and the same "trust the image over the extracted text" note.
+**Keep the passage picture.** The PDF reader's Explain sends an image of the selected passage, because extracted PDF text garbles equations. Every new action that works on a passage (Simplify, Fact-check, Related, Counterpoint, Quiz me, Ask from the bar) sends the same image and the same "trust the image over the extracted text" note.
 
 **Define in the PDF reader.** The PDF reader is a static page. It can read the same dictionary files the app uses (`/data/dict/{letter}.json` and `archaic.json`) through a small loader that mirrors `services/dictionary.ts`, with the same normalisation and the same caching for offline use.
 
@@ -53,6 +53,7 @@ In PR 1, before the margin exists, results open in the PDF reader's existing cha
 **More (desktop):** a 300px menu above the bar, aligned to the dots. Rows, each with a one-line description exactly as in the mockup:
 - Define
 - Fact-check
+- Related (added back 15 October: "Where else the text takes this up")
 - Counterpoint
 - Quiz me
 - a separator
@@ -74,7 +75,7 @@ A one-word selection (double-click, or a word tap on the phone) opens the Define
 ## 3. Margin column (PDF reader, desktop)
 
 - **Placement:** the page keeps its place. The column is 380px wide, starting 56px right of the page's right edge, and replaces the docked chat (`.byob-dock`). The page area narrows as it does today when the dock is open.
-- **What becomes a card:** every kept result with a passage. That means Ask threads with a passage, Explain, Simplify, Define, Fact-check, Counterpoint, Quiz and highlights with notes. Highlights without notes do not get cards. Cards are a view of what is already stored; add new kinds to the store that holds kept explanations, with a `kind` field.
+- **What becomes a card:** every kept result with a passage. That means Ask threads with a passage, Explain, Simplify, Define, Fact-check, Related, Counterpoint, Quiz and highlights with notes. Highlights without notes do not get cards. Cards are a view of what is already stored; add new kinds to the store that holds kept explanations, with a `kind` field.
 - **Alignment:** each card's top aligns with its passage's first line minus 4px. Cards keep the page's order and never overlap: a card that would collide moves down to 14px below the previous one.
 - **One card open at a time.** Opening one folds the previous. A folded card shows its label and two lines, with a 1.5px rule on its left, or a 2px rule in the highlight colour for notes.
 - **Open card contents:** label, close, the passage quote (italic 14px, cut at 120 characters), the question bubble (Ask only), and the answer with its first sentence in weight 600. Then the action-specific parts (verdicts, sources, quiz), the copy icon, and a follow-up line with caret and mic. A follow-up continues that card's thread.
