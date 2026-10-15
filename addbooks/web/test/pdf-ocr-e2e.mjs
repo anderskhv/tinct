@@ -73,7 +73,7 @@ async function mockWorker(ctx, account) {
   await ctx.route(url => new URL(url).pathname.startsWith('/api/'), async route => {
     const req = route.request(), url = new URL(req.url()), path = url.pathname;
     const authed = req.headers().authorization === 'Bearer test-token';
-    const ocr = path.match(/^\/api\/user-books\/ocr\/([0-9a-f]{24})(\/edition|\/pages\/(\d+))?$/);
+    const ocr = path.match(/^\/api\/user-books\/ocr\/([0-9a-f]{24})(\/edition|\/pages\/(\d+)|\/pages)?$/);
     if (ocr) {
       if (!account.on) return json(route, 404, { error: 'Not found' });
       if (!authed) return json(route, 401, { error: 'Unauthorized' });
@@ -81,6 +81,8 @@ async function mockWorker(ctx, account) {
       if (!bookOf) return json(route, 404, { error: 'Not found' });
       let job = account.jobs.get(hex);
       if (ocr[2] === '/edition') return job && statusOf(account, hex).state === 'done' ? json(route, 200, editionOf(job, bookOf.title)) : json(route, 404, { error: 'Not found' });
+      // The recognised pages (blocks without boxes, as pages recognised before 15 Oct 2026), for the viewer's text layer.
+      if (ocr[2] === '/pages') return job ? json(route, 200, { pages: [...job.done].sort((a, b) => a - b).map(n => ({ page: n, blocks: [{ t: 'p', x: `The recognised letter on page ${n} begins here and goes on for a while, as letters do.` }] })) }) : json(route, 404, { error: 'Not found' });
       if (ocr[3]) {
         const n = Number(ocr[3]);
         account.log.push(['put', hex, n]);
@@ -242,7 +244,8 @@ try {
   check('then "Tinct text is ready", and the "Tinct text" control appears', /Tinct text is ready/.test(ready) && await A2.isVisible('#textBtn'), ready);
   const rec = await recordOf(A2, SCAN.hex);
   check('the recognised text is kept with the book on this device', rec?.edition?.source === 'ocr', rec);
-  check('after OCR the book opens as Tinct text by default', await A2.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:edition:' + h)), SCAN.hex) === 'text');
+  // PR D (15 Oct 2026): a recognised scan stays in the PDF reader with the margin, its words laid over its pages.
+  check('after OCR the scan stays here, in its pages, with its recognised words over them', await A2.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:edition:' + h)), SCAN.hex) === 'pages' && /\/lab\/addbook\//.test(A2.url()) && await A2.waitForFunction(() => /The recognised letter on page 1/.test(document.querySelector('.pdf-sheet[data-page="1"] .text-layer')?.textContent || ''), null, { timeout: 15000 }).then(() => true).catch(() => false));
   await shot(A2, '05-premium-ready');
 
   /* ---- Read in Tinct text, switch to a page and back ---- */
@@ -306,11 +309,11 @@ try {
   check('at the shared pool’s limit: "Continues later"', await banner(L.p, 'paused') === 'Continues later');
 
   limited.jobs.set(RETRY.hex, { pages: PAGES, missing: new Set(), ready: new Set(), done: new Set([1, 2, 4, 6, 8, 9, 10, 11, 12]), failed: new Set([3, 7]), blank: new Set([BLANK]), failOnce: new Set(), paused: null });
-  // Recognised on another device, two pages not: opened here it goes to its Tinct text (each such page
-  // reads "Page 3 could not be recognised. It is in Original pages."); in Original pages, the offer to try again.
+  // Recognised on another device, two pages not: opened here it stays in its pages (PR D), its recognised
+  // words over them; the offer to try the two again.
   await L.p.goto(viewer(RETRY.hex));
-  await inReader(L.p, RETRY.hex);
-  check('recognised elsewhere: the scan opens as its Tinct text', /The recognised letter/.test(await L.p.$$eval('.lab-page-wrap [data-testid="lab-word"]', ws => ws.map(w => w.textContent).join(' '))));
+  await inViewer(L.p, RETRY.hex);
+  check('recognised elsewhere: the scan opens here, in its pages, with its recognised words over them', await L.p.waitForFunction(() => /The recognised letter on page 1/.test(document.querySelector('.pdf-sheet[data-page="1"] .text-layer')?.textContent || ''), null, { timeout: 15000 }).then(() => true).catch(() => false) && /\/lab\/addbook\//.test(L.p.url()));
   await L.p.goto(viewer(RETRY.hex) + '&pages=1');
   await inViewer(L.p, RETRY.hex);
   const failedLine = await banner(L.p, 'failed');

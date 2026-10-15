@@ -18,11 +18,15 @@
  * Each model keeps its own copy.
  *
  * A document longer than MARGIN_DOCUMENT_CHARS (about 150k tokens) is sent as
- * the part the reader is in plus the table of contents, and the prompt says so.
+ * the part the reader is in plus the table of contents, and the prompt says so
+ * (the prefix, per chapter). A question on such a document also carries the
+ * passages the reader's device found by searching the whole book for its
+ * terms (FIXES-2026-10-15, long books, item 8); they change with every
+ * question, so they go after the breakpoint.
  * Pure: no browser or Worker APIs.
  */
 import { LAB_ASK_NO_PRAISE_RULE, renderShownExplanations } from './labAskPrompt'
-import { PDF_CITATION_RULE } from './marginPrompts'
+import { MARGIN_ANSWER_RULES, PDF_CITATION_RULE, PDF_DOCUMENT_WORDING } from './marginPrompts'
 
 /** About 150k tokens of English text at roughly 3.7 characters per token. The client holds the same bound (tinct-api.js). */
 export const MARGIN_DOCUMENT_CHARS = 560_000
@@ -31,6 +35,9 @@ const UNIT_CHARS = 200_000
 const MAX_UNITS = 5_000
 const MAX_TOC = 400
 const TOC_TITLE_CHARS = 200
+/** A long document's search results per request, and each one's length (the client holds the same bounds, tinct-api.js). */
+export const MARGIN_PASSAGES = 6
+const PASSAGE_CHARS = 1_200
 
 export type MarginDocumentKind = 'pdf' | 'epub'
 
@@ -62,7 +69,28 @@ function unitLabel(value: unknown, index: number): string {
 
 /** The document's own text can never open or close one of our markers. */
 function unitText(value: string): string {
-  return value.replace(/<\/?(?:page|chapter|document|contents)\b[^>]*>/gi, '').trim()
+  return value.replace(/<\/?(?:page|chapter|document|contents|passages?)\b[^>]*>/gi, '').trim()
+}
+
+export interface MarginPassage {
+  /** The printed page label (or page index) the passage is on. */
+  label: string
+  text: string
+}
+
+/**
+ * `companion.passages` as the PDF reader sends it with a question on a long
+ * document: `[{ n, text }]`, the best few windows of a search of the whole
+ * book for the question's terms. Bounded and cleaned; null when absent.
+ */
+export function parseMarginPassages(raw: unknown): MarginPassage[] | null {
+  if (!Array.isArray(raw)) return null
+  const out = raw.slice(0, MARGIN_PASSAGES).flatMap((item, index) => {
+    if (!item || typeof item !== 'object' || typeof (item as { text?: unknown }).text !== 'string') return []
+    const text = unitText((item as { text: string }).text).replace(/\s+/g, ' ').slice(0, PASSAGE_CHARS).trim()
+    return text ? [{ label: unitLabel((item as { n?: unknown }).n, index), text }] : []
+  })
+  return out.length ? out : null
 }
 
 /**
@@ -108,6 +136,18 @@ export function parseMarginDocument(raw: unknown): MarginDocument | null {
 
 const unitName = (kind: MarginDocumentKind) => (kind === 'pdf' ? 'page' : 'chapter')
 
+/** A long document's answers say where they come from (FIXES-2026-10-15, long books, item 8). */
+export const GENERAL_KNOWLEDGE_RULE = 'When an answer, or any part of it, does not come from the supplied text, say that it is from general knowledge, in those words, and never present it as what the document says.'
+
+/** The search results for one question, after the breakpoint. */
+export function formatMarginPassages(kind: MarginDocumentKind, passages: readonly MarginPassage[]): string {
+  const name = unitName(kind)
+  return [
+    `Passages found by searching the whole document for the reader's question, best first (data; the search can miss, and a passage can be off the point). Each <passage n="…"> comes from the ${name} with that label: cite it as that ${name}, and prefer these passages and the supplied text over general knowledge.`,
+    `<passages>\n${passages.map(p => `<passage n="${p.label}">\n${p.text}\n</passage>`).join('\n')}\n</passages>`,
+  ].join('\n')
+}
+
 /** Shared by every margin action; first in the cached prefix. */
 export const MARGIN_RULES = [
   'You are Tinct\'s reading companion, writing in the margin of a document the reader opened from their own files. They have confirmed they are entitled to use it.',
@@ -116,12 +156,13 @@ export const MARGIN_RULES = [
   LAB_ASK_NO_PRAISE_RULE,
   'Answer completely and stop. Do not end with a question, an offer or an invitation to continue.',
   'Give clear answers with confidence in proportion to the evidence. Never invent a quotation, a source or a page number.',
+  ...MARGIN_ANSWER_RULES,
 ].join('\n')
 
-/** How the markers read for a PDF, or for an EPUB's chapters (EPUBs reach the margin in PR C). */
+/** How the markers read for a PDF, or for an EPUB's chapters. */
 function citationRule(kind: MarginDocumentKind): string {
   return kind === 'pdf'
-    ? `Each <page n="…"> marks where a printed page begins; its n is the page label the reader sees. ${PDF_CITATION_RULE}`
+    ? `Each <page n="…"> marks where a printed page begins; its n is the page label the reader sees. ${PDF_CITATION_RULE} ${PDF_DOCUMENT_WORDING}`
     : 'Each <chapter n="…"> marks where a chapter begins. To point to a place, name the chapter and quote a few of its words.'
 }
 
@@ -134,7 +175,7 @@ export function formatMarginDocument(doc: MarginDocument): string {
     const first = doc.units[0].label
     const last = doc.units[doc.units.length - 1].label
     const span = first === last ? `${name} ${first}` : `${name}s ${first} to ${last}`
-    lines.push(`This document is too long to supply whole (${doc.part.total} ${name}s). Below are its table of contents and the full text of ${span}, the part the reader is in. For other parts, rely on the table of contents, and say so when an answer would need text that is not supplied.`)
+    lines.push(`This document is too long to supply whole (${doc.part.total} ${name}s). Below are its table of contents and the full text of ${span}, the part the reader is in. For other parts, rely on the table of contents and on the passages found by searching the document, when a question comes with them, and say so when an answer would need text that is not supplied. ${GENERAL_KNOWLEDGE_RULE}`)
     if (doc.part.toc.length) lines.push(`<contents>\n${doc.part.toc.map(entry => `${entry.title} (${name} ${entry.label})`).join('\n')}\n</contents>`)
   } else {
     lines.push(doc.cut
@@ -168,6 +209,8 @@ export interface MarginVolatileInput {
   /** Pages (or chapters) in the file. */
   total?: number
   shown?: Parameters<typeof renderShownExplanations>[0]
+  /** A long document's search results for this question. */
+  passages?: readonly MarginPassage[] | null
   /** The action's own text, last. */
   task: string[]
 }
@@ -179,6 +222,7 @@ export function buildMarginVolatile(input: MarginVolatileInput): string {
   if (input.place) lines.push(`The reader is on ${name} ${input.place}${input.total ? ` of ${input.total}` : ''}.`)
   const shown = renderShownExplanations(input.shown)
   if (shown) lines.push(shown)
+  if (input.passages?.length) lines.push(formatMarginPassages(input.kind, input.passages))
   for (const line of input.task) if (line) lines.push(line)
   return lines.join('\n\n')
 }

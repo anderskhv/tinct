@@ -293,6 +293,22 @@ describe('Explain on a PDF and the passage picture', () => {
     expect(JSON.stringify(anthropic[1].messages)).not.toContain('"type":"image"')
   })
 
+  it('a figure’s card asks with the figure’s picture: one image, in the user turn after the breakpoint (FIXES items 4, 7)', async () => {
+    const { anthropic } = stubFetch()
+    const rules = 'You are Tinct\'s reading companion. This conversation is about one figure on page 3 (Figure 1). The attached image is that figure as printed.'
+    const { status } = await send({ companion: { intent: 'ask', context: pdfContext(3), document }, messages: [{ role: 'user', content: [image(1568, 900), { type: 'text', text: rules + '\n\nExplain this figure.' }] }] })
+    expect(status).toBe(200)
+    const system = anthropic[0].system as SystemBlock[]
+    const end = system.findIndex(block => block.cache_control)
+    expect(end).toBeGreaterThanOrEqual(0)
+    expect(JSON.stringify(system.slice(0, end + 1))).not.toContain('"image"')
+    const turns = anthropic[0].messages as Array<{ role: string; content: Array<{ type: string; text?: string }> }>
+    const last = turns.at(-1)!
+    expect(last.content.filter(block => block.type === 'image')).toHaveLength(1)
+    expect(last.content[0].type).toBe('image')
+    expect(JSON.stringify(last.content)).toContain('Explain this figure.')
+  })
+
   it('refuses a picture over 1568 px on its long side', async () => {
     const { anthropic } = stubFetch()
     const { status, text } = await send(withImages(margin('explain', 1, { selection: 'a passage' }), [image(1569, 300)]))

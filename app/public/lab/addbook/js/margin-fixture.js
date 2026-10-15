@@ -31,7 +31,7 @@
       const pdf = f.querySelector('.pdf');
       const a = pdf.querySelector(s === 'e' ? '[data-a="word"]' : s === 'f' ? '[data-a="note"]' : '[data-a="ask"]');
       a.classList.add(s === 'f' ? 'mark-hl' : 'mark-sel');
-      const off = s === 'c' ? 400 : s === 'e' ? 236 : s === 'f' ? 250 : 180;
+      const off = s === 'c' ? 470 : s === 'e' ? 236 : s === 'f' ? 250 : 180;
       pdf.style.top = (off - a.offsetTop) + 'px'; pdf.style.bottom = 'auto';
       const fr = f.getBoundingClientRect(), rs = [...a.getClientRects()].map(r => rel(r, fr));
       const frame = { left: 0, top: 0, right: fr.width, bottom: fr.height };
@@ -291,7 +291,7 @@
     ph.appendChild(el);
   }
   async function pr2() {
-    [P, TC] = await Promise.all([import('/lab/margin/margin-parse.js'), import('/lab/chat-thread.js')]);
+    [P, TC] = await Promise.all([import('/lab/margin/margin-parse.js?v=20261015train2'), import('/lab/chat-thread.js')]);
     document.querySelectorAll('[data-desk="trigger"], [data-desk="primer"], [data-desk="trigger-cards"], [data-desk^="primer-"]').forEach(primerDesk);
     document.querySelectorAll('[data-ph="g"], [data-ph="h"], [data-ph="i"]').forEach(primerPhone);
     document.querySelectorAll('[data-desk="margin"], [data-desk="overlap"], [data-desk="marks"]').forEach(desk);

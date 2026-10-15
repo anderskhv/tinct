@@ -13,34 +13,39 @@ import { parseAuthorship } from './authorship'
 import { buildChapterChatInstructions, parseChapterChatAction, type PrimerChapterAction } from './chapterChatPrompt'
 import { buildLabAskInstructionParts, type LabAskContext, type LabAskInstructionOptions, type LabAskInstructionParts, type ShownExplanation } from './labAskPrompt'
 import {
+  ASK_DOCUMENT_LINE,
   COUNTERPOINT_PROMPT,
   DEFINE_SENSE_PROMPT,
   FACTCHECK_NO_SEARCH_NOTE,
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
+  MARGIN_ANSWER_RULES,
+  PDF_COUNTERPOINT_PROMPT,
+  PDF_DOCUMENT_WORDING,
   PDF_EXPLAIN_PROMPT,
   QUIZ_CHECK_PROMPT,
+  RELATED_PROMPT,
   SIMPLIFY_PROMPT,
   WHOLE_PDF_PROMPT,
   factcheckPrompt,
   quizPrompt,
 } from './marginPrompts'
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
-import { buildMarginPrefix, buildMarginVolatile, parseMarginDocument, type MarginDocument } from './marginContext'
+import { buildMarginPrefix, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
 import { MARGIN_ROUTES, marginRouteKey, type MarginRoute } from './marginRoutes'
 
 /**
- * `simplify` … `quiz_check` are the margin reader's actions (docs/margin/PROMPTS.md),
+ * `simplify` … `related` are the margin reader's actions (docs/margin/PROMPTS.md),
  * sent by the PDF reader only for now; the book reader never calls them.
  */
 export type CompanionIntent =
   | 'ask' | 'explain' | 'define' | 'chapter' | 'library'
-  | 'simplify' | 'define_sense' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check'
+  | 'simplify' | 'define_sense' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check' | 'related'
 
 /** Actions on a selected passage: they take the passage image and, for a PDF, the citation rule. */
-export type PassageIntent = 'simplify' | 'factcheck' | 'counterpoint' | 'quiz'
-export const PASSAGE_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['simplify', 'factcheck', 'counterpoint', 'quiz'])
+export type PassageIntent = 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' | 'related'
+export const PASSAGE_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['simplify', 'factcheck', 'counterpoint', 'quiz', 'related'])
 
 /** Answered by COMPANION_LOOKUP_MODEL (which takes no effort setting); everything else by COMPANION_MODEL. */
 export const COMPANION_LOOKUP_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['explain', 'define', 'simplify', 'define_sense', 'quiz_check'])
@@ -75,10 +80,13 @@ export interface CompanionRequest {
   /** Ask only: quick-model explanations the reader was shown, framed as unverified context. */
   shownExplanations?: ShownExplanation[]
   /**
-   * The context is a user's own PDF (context.kind === 'pdf', no registry
-   * bookId): adds the PDF citation rule. Never set for a registered book.
+   * The context is a user's own file in the PDF reader (context.kind 'pdf'
+   * or 'epub', no registry bookId): the margin's routes, rules and, for a
+   * PDF, the citation rule. Never set for a registered book.
    */
   pdf?: true
+  /** With `pdf`: the file is an EPUB (chapters, no page numbers, never a passage image). */
+  epub?: true
   /** Ask on a user's PDF about the whole file (the column's foot): adds WHOLE_PDF_PROMPT. Never set for a registered book. */
   whole?: true
   /** define_sense: the dictionary's senses, in dictionary order (numbered from 1 in the prompt). */
@@ -91,6 +99,12 @@ export interface CompanionRequest {
    * for a registered book.
    */
   document?: MarginDocument
+  /**
+   * A question on a long document (`document.part`): the passages the reader's
+   * device found by searching the whole book for it, after the cached prefix
+   * (FIXES-2026-10-15, long books, item 8). Never set otherwise.
+   */
+  passages?: MarginPassage[]
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -116,6 +130,7 @@ export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = O
   counterpoint: 600,
   quiz: 700,
   quiz_check: 150,
+  related: 500,
 })
 
 /** Before you start: the request is a primer on a user's own PDF. */
@@ -148,6 +163,7 @@ export const COMPANION_INTENT_EFFORT: Readonly<Record<CompanionIntent, Companion
   factcheck: COMPANION_EFFORT_TYPED,
   counterpoint: COMPANION_EFFORT_TYPED,
   quiz: COMPANION_EFFORT_TYPED,
+  related: COMPANION_EFFORT_TYPED,
 })
 
 export function companionModelFor(intent: CompanionIntent): string {
@@ -173,12 +189,12 @@ export function companionAllowance(request: CompanionRequest): CompanionAllowanc
     case 'library':
       return 'librarian'
     default:
-      // ask, chapter, factcheck, counterpoint, and quiz (one request writes the whole quiz).
+      // ask, chapter, factcheck, counterpoint, related, and quiz (one request writes the whole quiz).
       return 'chat'
   }
 }
 
-const INTENTS = new Set<CompanionIntent>(['ask', 'explain', 'define', 'chapter', 'library', 'simplify', 'define_sense', 'factcheck', 'counterpoint', 'quiz', 'quiz_check'])
+const INTENTS = new Set<CompanionIntent>(['ask', 'explain', 'define', 'chapter', 'library', 'simplify', 'define_sense', 'factcheck', 'counterpoint', 'quiz', 'quiz_check', 'related'])
 const ID_RE = /^[a-z0-9][a-z0-9-]{0,99}$/i
 const LABEL_CHARS = 300
 const ANGLE_CHARS = 1_000
@@ -195,6 +211,14 @@ const MAX_SENSES = 5
 const SENSE_CHARS = 500
 const QUIZ_FIELD_CHARS = 1_000
 const QUIZ_ANSWER_CHARS = 2_000
+/**
+ * define_sense and quiz_check: the cached document plus at most this much of
+ * their own input (FIXES-2026-10-15 PR C, cost). Enforced here, whatever the
+ * client sends: the word and its senses, or the question, expected answer,
+ * reason and the reader's answer, together.
+ */
+export const OWN_INPUT_CHARS = 2_000
+const QUIZ_CHECK_BUDGET = { question: 500, expected: 400, why: 300 } as const
 
 function text(value: unknown, max: number): string | undefined {
   if (typeof value !== 'string') return undefined
@@ -269,14 +293,15 @@ export function formatPdfExcerpt(pages: readonly PdfExcerptPage[]): string {
   return (pdfPageParagraphs(pages) ?? []).join('\n\n')
 }
 
-interface ParsedContext { context: LabAskContext; pdf: boolean }
+interface ParsedContext { context: LabAskContext; pdf: boolean; epub: boolean }
 
 function parseContext(raw: unknown): ParsedContext | null {
   if (!raw || typeof raw !== 'object') return null
   const c = raw as Record<string, unknown>
   const bookId = typeof c.bookId === 'string' && ID_RE.test(c.bookId) ? c.bookId : undefined
-  // A user's PDF, never a registered book: the PDF reader sends kind 'pdf' and no bookId.
-  const pdf = c.kind === 'pdf' && !bookId
+  // A user's own file in the PDF reader, never a registered book: kind 'pdf' (or 'epub') and no bookId.
+  const epub = c.kind === 'epub' && !bookId
+  const pdf = (c.kind === 'pdf' || epub) && !bookId
   const paragraphs = pdf && c.pages !== undefined ? pdfPageParagraphs(c.pages) : paragraphList(c.paragraphs)
   const bookTitle = text(c.bookTitle, LABEL_CHARS)
   const chapterLabel = text(c.chapterLabel, LABEL_CHARS)
@@ -312,7 +337,7 @@ function parseContext(raw: unknown): ParsedContext | null {
     readingTrail: trail && trail.length ? trail : undefined,
     personalHistory: text(c.personalHistory, PERSONAL_HISTORY_CHARS),
   }
-  return { context, pdf }
+  return { context, pdf, epub }
 }
 
 const SHOWN_EXPLANATIONS = 3
@@ -384,14 +409,22 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (!parsed) return null
   const { context } = parsed
   // The margin's whole document rides only on a user's own file, never on a registered book.
+  // An EPUB's document is its chapters; a PDF's, its pages.
   const document = parsed.pdf ? parseMarginDocument(r.document) : null
-  const pdf = parsed.pdf ? { pdf: true as const, ...(document ? { document } : {}) } : {}
+  const epub = parsed.epub || document?.kind === 'epub'
+  // A long document's search results: only with a part of a document, and only for a question.
+  const passages = document?.part && intent === 'ask' ? parseMarginPassages(r.passages) : null
+  const pdf = parsed.pdf ? { pdf: true as const, ...(epub ? { epub: true as const } : {}), ...(document ? { document } : {}), ...(passages ? { passages } : {}) } : {}
+  // Related is the PDF reader's margin only.
+  if (intent === 'related' && !parsed.pdf) return null
+  // Simplify is never fetched ahead of a tap (FIXES-2026-10-15 PR C, cost).
+  if (intent === 'simplify' && r.speculative === true) return null
   if (intent === 'explain' || intent === 'define' || intent === 'simplify') {
     const selection = text(r.selection, SELECTION_CHARS)
     if (!selection) return null
     return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}), ...pdf }
   }
-  if (intent === 'factcheck' || intent === 'counterpoint') {
+  if (intent === 'factcheck' || intent === 'counterpoint' || intent === 'related') {
     const selection = text(r.selection, SELECTION_CHARS)
     if (!selection) return null
     return { intent, context: { ...context, lookups: false }, selection, ...pdf }
@@ -403,19 +436,30 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   }
   if (intent === 'define_sense') {
     const selection = text(r.selection, WORD_CHARS)
-    const senses = Array.isArray(r.senses)
+    const all = Array.isArray(r.senses)
       ? r.senses.slice(0, 20).map(item => text(item, SENSE_CHARS)).filter((item): item is string => Boolean(item)).slice(0, MAX_SENSES)
       : []
-    if (!selection || senses.length === 0) return null
+    if (!selection || all.length === 0) return null
+    // The word and its senses together stay within OWN_INPUT_CHARS: later senses are cut, then dropped.
+    const senses: string[] = []
+    let room = OWN_INPUT_CHARS - selection.length
+    for (const sense of all) {
+      if (room <= 0) break
+      senses.push(sense.slice(0, room))
+      room -= senses[senses.length - 1].length
+    }
+    if (senses.length === 0) return null
     return { intent, context: { ...context, lookups: false }, selection, senses, ...pdf }
   }
   if (intent === 'quiz_check') {
     const q = r.quiz && typeof r.quiz === 'object' ? r.quiz as Record<string, unknown> : null
-    const question = q ? text(q.question, QUIZ_FIELD_CHARS) : undefined
-    const expected = q ? text(q.expected, QUIZ_FIELD_CHARS) : undefined
-    const answer = q ? text(q.answer, QUIZ_ANSWER_CHARS) : undefined
-    if (!question || !expected || !answer) return null
-    const why = text(q!.why, QUIZ_FIELD_CHARS)
+    // Within OWN_INPUT_CHARS in all: the question, expected answer and reason in their budgets, the reader's answer the rest.
+    const question = q ? text(q.question, QUIZ_CHECK_BUDGET.question) : undefined
+    const expected = q ? text(q.expected, QUIZ_CHECK_BUDGET.expected) : undefined
+    if (!question || !expected) return null
+    const why = text(q!.why, QUIZ_CHECK_BUDGET.why)
+    const answer = text(q!.answer, Math.min(QUIZ_ANSWER_CHARS, OWN_INPUT_CHARS - question.length - expected.length - (why?.length ?? 0)))
+    if (!answer) return null
     return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer }, ...pdf }
   }
   if (intent === 'chapter') {
@@ -455,13 +499,18 @@ export function companionToday(now: Date = new Date()): string {
   return now.toISOString().slice(0, 10)
 }
 
+/** A user's own PDF (not an EPUB, not a registered book). */
+const isPdfFile = (request: CompanionRequest) => Boolean(request.pdf && !request.epub)
+
 /** The action text, last in the prompt, for the margin reader's intents. */
 function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): string[] {
   const image = extras.image ? [PASSAGE_IMAGE_LINE] : []
   switch (request.intent) {
     case 'simplify': return [SIMPLIFY_PROMPT, ...image]
-    case 'counterpoint': return [COUNTERPOINT_PROMPT, ...image]
-    case 'quiz': return [quizPrompt(request.selection ? 'passage' : 'chapter'), ...image]
+    // A PDF is a document, never a chapter (FIXES-2026-10-15, second paper); an EPUB keeps its chapters.
+    case 'counterpoint': return [isPdfFile(request) ? PDF_COUNTERPOINT_PROMPT : COUNTERPOINT_PROMPT, ...image]
+    case 'related': return [RELATED_PROMPT, ...image]
+    case 'quiz': return [quizPrompt(request.selection ? 'passage' : 'chapter', { pdf: isPdfFile(request) }), ...image]
     case 'factcheck': return [
       factcheckPrompt(extras.today || companionToday()),
       ...(extras.sourceSearch ? [] : [FACTCHECK_NO_SEARCH_NOTE]),
@@ -469,19 +518,23 @@ function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): st
     ]
     case 'define_sense': return [DEFINE_SENSE_PROMPT]
     case 'quiz_check': return [QUIZ_CHECK_PROMPT]
-    // A question from the bar on a PDF passage: the image line, as Explain has it. About the whole PDF: its own rules.
-    case 'ask': return [...(request.pdf && request.whole ? [WHOLE_PDF_PROMPT] : []), ...(request.pdf && extras.image ? [PASSAGE_IMAGE_LINE] : [])]
+    // A question in the PDF reader's margin: the document before our own explanation; on a PDF passage, the image line, as Explain has it.
+    // About the whole PDF: its own rules too (WHOLE_PDF_PROMPT).
+    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
     default: return []
   }
 }
 
 /** Options for the shared builder: the passage window, the PDF citation rule, the action text. */
 function instructionOptions(request: CompanionRequest, extras: CompanionBuildExtras): LabAskInstructionOptions {
-  const citations = request.pdf && (request.intent === 'ask' || PASSAGE_INTENTS.has(request.intent)) ? [PDF_CITATION_RULE] : []
+  // The PDF reader's rules: the shared answer rules for every margin intent, a PDF's wording, and the page
+  // citation rule for a PDF (an EPUB has no page numbers).
+  const plain = request.pdf ? [...MARGIN_ANSWER_RULES, ...(isPdfFile(request) ? [PDF_DOCUMENT_WORDING] : [])] : []
+  const citations = [...(isPdfFile(request) && (request.intent === 'ask' || PASSAGE_INTENTS.has(request.intent)) ? [PDF_CITATION_RULE] : []), ...plain]
   switch (request.intent) {
     case 'explain':
     case 'define':
-      return { nearby: COMPANION_NEARBY_PARAGRAPHS }
+      return { nearby: COMPANION_NEARBY_PARAGRAPHS, ...(plain.length ? { rules: plain } : {}) }
     case 'ask':
       return { shownExplanations: request.shownExplanations, rules: citations, task: marginTask(request, extras) }
     case 'quiz':
@@ -544,6 +597,7 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
     case 'simplify':
     case 'factcheck':
     case 'counterpoint':
+    case 'related':
       return `<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
     case 'quiz':
       return request.selection
@@ -567,7 +621,7 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
  * do Explain and Define on a phrase (FIXES-2026-10-15 A4). An EPUB sends none.
  */
 export function companionTakesPassageImage(request: CompanionRequest): boolean {
-  if (request.document?.kind === 'epub') return false
+  if (request.epub || request.document?.kind === 'epub') return false
   if (PASSAGE_INTENTS.has(request.intent)) return true
   return Boolean(request.pdf) && (request.intent === 'explain' || (request.intent === 'define' && /\s/.test(request.selection ?? '')))
 }
@@ -603,6 +657,7 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
     place: primer ? null : contextPlace(context),
     total: context.totalPages,
     shown: request.intent === 'ask' ? request.shownExplanations : undefined,
+    passages: request.passages,
     task,
   })
   return { stable, volatile }

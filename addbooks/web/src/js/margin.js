@@ -57,6 +57,13 @@
     const centre = (dots.left + dots.right) / 2;
     const left = clamp(phone ? centre - w / 2 : dots.left - 120, frame.left + inset, frame.right - inset - w);
     const fitsAbove = bar.top - gap - h >= frame.top + inset, fitsBelow = bar.bottom + gap + h <= frame.bottom - inset;
+    // Desktop, no room above or below (a short window, the bar mid-screen): beside the bar, right of
+    // it or else left, level with it as far as the frame allows. It may cover page text, never the bar.
+    if (!phone && !fitsAbove && !fitsBelow) {
+      const right = bar.right + gap, leftOf = bar.left - gap - w;
+      const x = right + w <= frame.right - inset ? right : leftOf >= frame.left + inset ? leftOf : null;
+      if (x != null) return { left: x, top: clamp((bar.top + bar.bottom) / 2 - h / 2, frame.top + inset, frame.bottom - inset - h), below: false, beside: true };
+    }
     let below = phone ? fitsBelow || !fitsAbove : bar.below ? fitsBelow || !fitsAbove : !fitsAbove && fitsBelow;
     const top = clamp(below ? bar.bottom + gap : bar.top - gap - h, frame.top + inset, frame.bottom - inset - h);
     return { left, top, below };
@@ -135,10 +142,13 @@
     return !/[.!?:;"“”‘(\[]$/.test(b);
   }
 
-  /** Copy quote: the passage, then the title and page. */
-  function copyQuote({ text, title, page }) {
+  /**
+   * Copy quote: the passage, then the title and page. `page` is the page as printed (its label,
+   * "xii" or "12"); `place` names a place that is not a page (an EPUB's chapter) and wins over it.
+   */
+  function copyQuote({ text, title, page, place }) {
     const quote = String(text || '').replace(/\s+/g, ' ').trim();
-    const where = [String(title || '').trim(), page ? 'p. ' + page : ''].filter(Boolean).join(', ');
+    const where = [String(title || '').trim(), place ? String(place).trim() : page ? 'p. ' + page : ''].filter(Boolean).join(', ');
     return `“${quote}”` + (where ? `\n— ${where}` : '');
   }
 
@@ -222,7 +232,8 @@
   // Share as image stays out of the PDF reader for now (the fixture shows it); every other action is in.
   const LATER = { share: true };
   const shown = (id, all) => all || !LATER[id];
-  const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
+  // Related (FIXES-2026-10-15 A5): between Fact-check and Counterpoint.
+  const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['related', 'Related', 'Where else the text takes this up'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
   const MORE_ROWS_2 = [['copy', 'Copy quote', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
   const colorOf = (colors, key) => { const c = colors.find(x => x[0] === key) || colors[0]; return { key: c[0], label: c[1], dot: c[3] } };
   function dotHtml(colors, current, { noted = false } = {}) {
@@ -444,8 +455,11 @@
   }
 
   /* ---------- The cards: a view over the kept results and the noted highlights ---------- */
-  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF' };
-  const CARD_KINDS = ['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz'];
+  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', related: 'Related', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF', figure: 'Figure', formula: 'Formula', snip: 'Snip' };
+  // A figure's card (FIXES-2026-10-15 item 4) holds one thread about one figure, formula or snip: its box is the card's passage.
+  const CARD_KINDS = ['explain', 'simplify', 'ask', 'define', 'factcheck', 'related', 'counterpoint', 'quiz', 'figure'];
+  /** The whole file's card is "Whole PDF", or "Whole book" for an EPUB. */
+  const wholeName = doc => (doc === 'epub' ? 'Whole book' : KINDS.whole);
   /** A card's passage ([[page, x, y, w, h]] in page fractions) as the reader's anchor list. */
   const anchorOfCard = card => (card.rects || []).map(([n, x, y, w, h]) => ({ n, x, y, w, h }));
   /** A card's first line: [page, x, y, w, h] (lines within half a percent of a page count as one). */
@@ -453,8 +467,8 @@
     return (card.rects || []).reduce((a, r) => (!a || r[0] < a[0] || (r[0] === a[0] && (r[2] < a[2] - 0.005 || (Math.abs(r[2] - a[2]) <= 0.005 && r[1] < a[1]))) ? r : a), null);
   }
   /** The kinds whose card is the companion's answer: without one it is an empty card. Ask and Define keep the reader's own words. */
-  const ANSWER_KINDS = ['explain', 'simplify', 'factcheck', 'counterpoint', 'quiz'];
-  /** Whether a kept card has what it is for: an answer with words in it, or a quiz's questions. */
+  const ANSWER_KINDS = ['explain', 'simplify', 'factcheck', 'related', 'counterpoint', 'quiz'];
+  /** Whether a kept card has what it is for: an answer with words in it, or a quiz's questions. Related is an answer; a figure's card is a thread, kept as Ask is. */
   function cardAnswered(card) {
     if (!ANSWER_KINDS.includes(card?.kind)) return true;
     if (card.kind === 'quiz') return !!card.data?.questions?.length;
@@ -475,6 +489,8 @@
   /** Two devices' cards: the same rules as the highlights (a union by id, the newer edit wins, a removal is a tombstone). */
   const mergeCards = (...sets) => mergeMarks(...sets);
   const CARD_LIMITS = { text: 2000, turns: 40, content: 12000 };
+  /** A quiz answer the reader types is kept to this many characters (the Worker marks at most this much). */
+  const QUIZ_ANSWER_CHARS = 2000;
   /** A new kept card for a passage (`anchor`: the reader's page-fraction boxes). */
   function newCard({ kind, page, anchor, text, turns = [], data = null, at = Date.now() }) {
     const r = v => Math.round(v * 10000) / 10000;
@@ -490,10 +506,15 @@
     if (!target) return esc(token.raw);
     return `<button type="button" class="mr-cite" data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}>${esc(citeText(token))}</button>`;
   }
+  /**
+   * A stray *word* (the prompts ask for plain prose) shows as italics; a lone star, a product (2*3)
+   * or a footnote mark (text*) stays as written. Runs on escaped text.
+   */
+  const italics = html => html.replace(/(^|[^\w*])\*(?=[^\s*])([^*\n]{0,200}?[^\s*])\*(?![\w*])/g, '$1<em>$2</em>');
   function inlineHtml(text, P, resolve) {
     // Markdown bold is never parsed: its stars are only dropped, so they do not show.
     const plain = String(text || '').replace(/\*\*(?=\S)([^*]+?)\*\*/g, '$1');
-    return P.parseCitations(plain).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : esc(part.text).replace(/\n/g, '<br>'))).join('');
+    return P.parseCitations(plain).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
   }
   const blocksOf = text => String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => b.replace(/^\n+|\s+$/g, '')).filter(b => b.trim());
   function blockHtml(b, P, resolve) {
@@ -520,18 +541,30 @@
   }
   /** The words a folded card shows (two lines of them): plain, no tags. */
   function foldText(card, P) {
-    const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
+    const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/(^|[^\w*])\*(?=[^\s*])([^*\n]{0,200}?[^\s*])\*(?![\w*])/g, '$1$2').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
     if (card.kind === 'note') return plain(card.note);
     if (card.kind === 'define') { const d = card.data || {}; return plain(d.inText || (d.senses || [])[0]?.text || d.line || '') }
     if (card.kind === 'quiz') {
-      const q = card.data || {}, n = q.questions?.length || 0;
-      if (q.done) return `${quizScore(q)} of ${n}`;
+      const q = card.data || {};
+      if (q.done) return quizLine(q);
       return plain(q.questions?.[q.i || 0]?.q || '');
     }
     const answer = (card.turns || []).find(t => t.role === 'assistant');
+    // Related, folded: its bottom line (the label says how many places).
+    if (card.kind === 'related' && answer && P.parseRelated) return plain(P.parseRelated(answer.content).lead);
+    if (card.kind === 'figure' && !answer) return plain(card.text);
     return plain(answer?.content || '');
   }
   const quizScore = q => (q.results || []).filter(r => r && r.verdict === 'right' && !r.shown).length;
+  /**
+   * The end card's line: right answers of the questions answered. "Show answer" questions are not
+   * scored (FIXES-2026-10-15, deep test): "2 of 3", or "1 of 2 answered, 1 shown".
+   */
+  function quizLine(q) {
+    const n = q.questions?.length || 0, shown = (q.results || []).slice(0, n).filter(r => r && r.shown).length;
+    if (!shown) return `${quizScore(q)} of ${n}`;
+    return shown < n ? `${quizScore(q)} of ${n - shown} answered, ${shown} shown` : `${shown} of ${n} shown`;
+  }
   /** The question to reread after a quiz: "not yet" first, then "nearly", then one whose answer was shown; -1 when all were right. */
   function quizReread(q) {
     const rs = q.results || [];
@@ -540,12 +573,45 @@
     (q.questions || []).forEach((_, i) => { if (rank(rs[i]) < 9 && (best < 0 || rank(rs[i]) < rank(rs[best]))) best = i });
     return best;
   }
-  /** A card's label: its action and page ("Ask · p. 12"); Define names its word; a note is "Your note". */
-  function cardLabel(card, pageLabel) {
-    if (card.kind === 'note' || card.kind === 'whole') return KINDS[card.kind];
+  /**
+   * A card's label: its action and page ("Ask · p. 12"); Define names its word; a note is "Your note".
+   * `unit` names the place for a file without pages ("ch." for an EPUB's chapter).
+   */
+  function cardLabel(card, pageLabel, { unit = 'p.', doc = 'pdf' } = {}) {
+    if (card.kind === 'whole') return wholeName(doc);
+    if (card.kind === 'note') return KINDS.note;
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
-    if (card.data?.unit) return `${KINDS[card.kind]} · ${card.data.unit.label || KINDS.whole}`;
-    return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · p. ${pageLabel}` : ''}`;
+    if (card.data?.unit) return `${KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
+    // A figure's card: its caption's own label ("Figure 2 · p. 3"), else what it is.
+    if (card.kind === 'figure') return `${card.data?.label || KINDS[card.data?.region] || KINDS.figure}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
+    return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
+  }
+  /** Related, folded: "Related · 3 places" (PROMPTS.md); null while it has no answer. */
+  function relatedFoldLabel(card, P) {
+    const answer = (card.turns || []).find(t => t.role === 'assistant');
+    if (!answer || !P.parseRelated) return null;
+    const n = P.parseRelated(answer.content).rows.length;
+    return n ? `${KINDS.related} · ${n} ${n === 1 ? 'place' : 'places'}` : null;
+  }
+  /**
+   * Related's places (PROMPTS.md): one row each, its citation tag on the left, then its line. A row
+   * whose place resolves is a button (data-page, data-needle; an EPUB's quoted words in data-quote);
+   * one that does not is plain text with its citation as written.
+   */
+  function relatedHtml(text, P, { resolve = null, place = null } = {}) {
+    const r = P.parseRelated(text);
+    if (!r.lead) return '';
+    const rows = r.rows.map(row => {
+      const target = row.cite ? (resolve ? resolve(row.cite) : null) : row.quote && place ? place(row.quote) : null;
+      // A book's place is its quoted words, in italics at the line's start (they wrap with it); a PDF's, its tag.
+      const lead = row.cite ? `<span class="mr-cite mr-related__tag">${esc(citeText(row.cite))}</span>` : row.quote ? `<span class="mr-related__quote">“${esc(cut(row.quote, 60))}”</span> ` : '';
+      const inner = `${lead}<span class="mr-related__line">${inlineHtml(row.text, P, resolve)}</span>`;
+      const cls = `mr-related__row${row.quote ? ' is-quote' : ''}`;
+      if (!target) return `<div class="${cls}">${inner}</div>`;
+      const attrs = target.page ? ` data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}` : '';
+      return `<button type="button" class="${cls}"${attrs}${row.quote ? ` data-quote="${esc(row.quote)}"` : ''}>${inner}</button>`;
+    }).join('');
+    return `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(r.lead, P, resolve)}</span></p></div>` + (rows ? `<div class="mr-related">${rows}</div>` : '');
   }
   const CARD_ICONS = {
     copy: svg('<rect x="6" y="6" width="9" height="9" rx="1.8"/><path d="M12 6V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v6A1.5 1.5 0 0 0 4.5 12H6"/>'),
@@ -563,8 +629,8 @@
    * writing (Quiz me's questions are still arriving: there will be three) }.
    */
   function cardHtml(card, o) {
-    const P = o.P, label = esc(cardLabel(card, o.pageLabel));
-    if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
+    const P = o.P, label = esc(cardLabel(card, o.pageLabel, o.where));
+    if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
     const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`;
@@ -576,8 +642,9 @@
       if (!qs.length) body = status;
       else if (q.done) {
         const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
-        body = `<div class="mr-answer"><p><span class="is-bottom-line">${quizScore(q)} of ${qs.length}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
-        foot = '';
+        body = `<div class="mr-answer"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
+        // The end card offers another quiz on the same passage (or unit).
+        foot = followHtml({ field: false, mic: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
       } else if (!qs[q.i || 0]) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
@@ -590,15 +657,18 @@
           body += r.shown
             ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
             : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
-          // A quiz whose writing stopped early ends with the questions it has (FIXES-2026-10-15 A7).
-          const last = q.ended && i + 1 >= qs.length;
-          foot = followHtml({ field: false, mic: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question →'}</button>` });
+          // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
+          const last = i + 1 >= qs.length && (q.ended || !o.writing);
+          foot = followHtml({ field: false, mic: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
-        else foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' });
+        // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
+        else { body += status; foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
       return head + `<div class="mr-card__body">${body}</div>` + foot;
     }
-    let body = card.text && card.kind !== 'define' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : '';
+    // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
+    const thumb = card.kind === 'figure' ? `<div class="mr-thumb"${o.thumbRatio ? ` style="aspect-ratio:${Number(o.thumbRatio).toFixed(3)}"` : ''}>${o.thumb ? `<img src="${esc(o.thumb)}" alt="${label}">` : ''}</div>` : '';
+    let body = thumb + (card.text && card.kind !== 'define' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : '');
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
@@ -612,23 +682,26 @@
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
     let answered = card.kind === 'note' || card.kind === 'define';
     turns.forEach((t, k) => {
-      if (t.role === 'user') { if (card.kind === 'ask' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
+      if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
       answered = true;
       if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve }); body += f.answer + f.sources }
+      else if (card.kind === 'related' && k === 0 && P.parseRelated) body += relatedHtml(t.content, P, { resolve: o.resolve, place: o.place });
       else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
     });
     body += status;
     return head + `<div class="mr-card__body">${body}${answered && !o.status && o.live == null ? copy : ''}</div>` + followHtml();
   }
-  /** The "more" row: "{n} more on this page", their kinds on the right. */
-  function stackHtml(cards, maxKinds = Infinity) {
+  /** The "more" row: "{n} more on this page" (an EPUB: "in this chapter"), their kinds on the right. */
+  function stackHtml(cards, maxKinds = Infinity, { doc = 'pdf' } = {}) {
     const all = [...new Set(cards.map(c => KINDS[c.kind]))];
     const kinds = all.slice(0, maxKinds).join(' · ');
-    return `<span>${cards.length} more on this page</span><span>${esc(kinds)}</span>`;
+    return `<span>${cards.length} more ${doc === 'epub' ? 'in this chapter' : 'on this page'}</span><span>${esc(kinds)}</span>`;
   }
+  /** What the whole file is called at the column's foot: "the whole PDF", or "the whole book" for an EPUB. */
+  const wholeWords = doc => (doc === 'epub' ? 'the whole book' : 'the whole PDF');
   /** The column foot: a hairline, a caret, "[/] the whole PDF" and the mic. */
-  function footHtml() {
-    return `<span class="mr-follow__field"><textarea class="mr-follow__input mr-foot__input" rows="1" enterkeyhint="send" aria-label="Ask about the whole PDF"></textarea><span class="mr-caret" aria-hidden="true"></span></span><span class="mr-follow__sp"></span><span class="mr-foot__hint"><span class="mr-key">/</span> the whole PDF</span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>`;
+  function footHtml({ doc = 'pdf' } = {}) {
+    return `<span class="mr-follow__field"><textarea class="mr-follow__input mr-foot__input" rows="1" enterkeyhint="send" aria-label="Ask about ${wholeWords(doc)}"></textarea><span class="mr-caret" aria-hidden="true"></span></span><span class="mr-follow__sp"></span><span class="mr-foot__hint"><span class="mr-key">/</span> ${wholeWords(doc)}</span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>`;
   }
 
   /** A card's own classes: open or folded, a note (its rule in the highlight colour). */
@@ -648,9 +721,9 @@
   }
   /** The whole-PDF card: "Whole PDF", the thread, the attachments waiting to go, the follow-up line. */
   // On the phone the chat's card has no label (mockup 5D): swipe down or tap the page to close it.
-  function wholeHtml(body, { open = true, fold = '', tray = '', label = true } = {}) {
-    if (!open) return `<button type="button" class="mr-card__label" data-c="open">${KINDS.whole}</button><div class="mr-card__text">${esc(fold)}</div>`;
-    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.whole}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: 'Ask about the whole PDF' });
+  function wholeHtml(body, { open = true, fold = '', tray = '', label = true, doc = 'pdf' } = {}) {
+    if (!open) return `<button type="button" class="mr-card__label" data-c="open">${wholeName(doc)}</button><div class="mr-card__text">${esc(fold)}</div>`;
+    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${wholeName(doc)}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}` });
   }
   /** The phone's bottom card: the grab handle, then a card's open contents. */
   const sheetHtml = inner => `<button type="button" class="mr-sheet__grab" data-c="grab" aria-label="Full height"></button>${inner}`;
@@ -664,21 +737,80 @@
   const PRIMER = { top: 16, bottom: 70, units: 40 };
   /**
    * The units: `entries` are the outline's top-level items in outline order, each { title, page }
-   * with `page` its 1-based page (null when it does not resolve). Entries are kept in page order;
-   * a second entry on the same page as the one before is left out. The first unit also takes any
-   * pages before its entry (a title page), so the PDF's start offers it too. Each unit's key is
-   * "outline-{i}" (its index in the outline), "all" for the whole file: a PDF without an outline,
-   * or one of fewer than 40 pages (FIXES-2026-10-15, B2).
-   * -> [{ key, title, from, start, to }] (start: the entry's own page; the trigger shows from `from` to `start`)
+   * with `page` its 1-based page (null when it does not resolve), and optionally `items`, its own
+   * entries in the same shape. A part whose entries are chapters ("I Tabular Solution Methods" over
+   * "2 Multi-armed Bandits", …) gives its chapters as units, so a book's unit is the chapter the reader
+   * is in, never a part of five chapters (FIXES-2026-10-15, long books, item 9). Entries are kept in
+   * page order; a second entry on the same page as the one before is left out. The first unit also
+   * takes any pages before its entry (a title page), so the PDF's start offers it too. Each unit's key
+   * is "outline-{i}" (its index in the outline; "outline-{i}.{j}" for a part's chapter j), "all" for
+   * the whole file: a PDF without an outline, or one of fewer than 40 pages (FIXES-2026-10-15, B2).
+   * Front and back matter (Contents, Preface, References, Index, …) carry `matter: 'front' | 'back'`.
+   * -> [{ key, title, from, start, to, matter? }] (start: the entry's own page; the trigger shows from `from` to `start`)
    */
   function primerUnits(entries, count) {
     const n = Math.max(1, Number(count) || 1);
-    const list = (entries || []).map((e, i) => ({ i, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page }))
-      .filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
+    const clean = (e, key) => ({ key, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page });
+    const flat = [];
+    (entries || []).forEach((e, i) => {
+      const kids = Array.isArray(e?.items) ? e.items.map((c, j) => clean(c, `${i}.${j}`)).filter(c => c.title && Number.isInteger(c.page)) : [];
+      if (isPart(clean(e, ''), kids)) {
+        // The part's own pages before its first chapter (its title page) go with that chapter.
+        kids.forEach((c, j) => flat.push({ ...c, i: flat.length, page: j === 0 && Number.isInteger(e.page) ? Math.min(e.page, c.page) : c.page, start: c.page }));
+      } else flat.push({ ...clean(e, String(i)), i: flat.length });
+    });
+    const list = flat.filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
       .sort((a, b) => a.page - b.page || a.i - b.i)
       .filter((e, k, all) => k === 0 || e.page !== all[k - 1].page);
     if (!list.length || n < PRIMER.units) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
-    return list.map((e, k) => ({ key: 'outline-' + e.i, title: e.title, from: k === 0 ? 1 : e.page, start: e.page, to: k + 1 < list.length ? list[k + 1].page - 1 : n }));
+    return list.map((e, k) => {
+      const matter = matterOf(e.title);
+      const start = Number.isInteger(e.start) && e.start <= n ? e.start : e.page;
+      return { key: 'outline-' + e.key, title: e.title, from: k === 0 ? 1 : e.page, start, to: k + 1 < list.length ? list[k + 1].page - 1 : n, ...(matter ? { matter } : {}) };
+    });
+  }
+  // A part's own entries are chapters: numbered "2 …" or "Chapter 2 …" (not sections such as "2.1 …").
+  const CHAPTER_TITLE = /^(?:(?:chapter|lecture)\s+[\p{L}\p{N}]+[.:]?|\d{1,3}\.?)\s+\S/iu;
+  const PART_TITLE = /^(?:(?:part|book|volume)\s+[\p{L}\p{N}]+|[IVXLC]{1,6}\.?)(?=$|[\s.:—–-])/u;
+  function isPart(entry, kids) {
+    if (kids.length < 2) return false;
+    const chapters = kids.filter(c => CHAPTER_TITLE.test(c.title) && !/^\d+\.\d/.test(c.title)).length;
+    return chapters >= Math.ceil(kids.length * 0.6) || (PART_TITLE.test(entry.title) && /^(?:[Pp]art\b|[IVXLC]{1,6}\.?\s)/.test(entry.title));
+  }
+  // Front and back matter, by title: never the subject of a primer (an index's primer, the Gloss test of 15 Oct).
+  const FRONT_MATTER = /^(?:contents|table of contents|brief contents|preface|foreword|prologue|acknowledge?ments?|dedication|(?:summary of |list of )?notations?|list of (?:figures|tables|symbols|abbreviations|illustrations)|abbreviations|about (?:the|this) (?:author|authors|book|edition)|copyright|title page|half[- ]title|frontispiece|epigraph|cover|praise for)\b/i;
+  const BACK_MATTER = /^(?:(?:subject |author |name |general )?index|references|bibliography|works cited|literature cited|further reading|sources|glossary|notes|endnotes|colophon|about the authors?)\b/i;
+  function matterOf(title) {
+    const t = String(title || '').replace(/^\s*(?:\d+(?:\.\d+)*\.?|[IVXLC]+\.)\s+/, '').trim();
+    return FRONT_MATTER.test(t) ? 'front' : BACK_MATTER.test(t) ? 'back' : null;
+  }
+  /**
+   * What a page's own text says it is, for units whose title does not: an index (most lines end in
+   * page numbers: "Sarsa, 129, 131–133"), a reference list (most lines carry a year and read as
+   * citations) or a contents page (most lines end in dot leaders and a number). -> 'index' |
+   * 'references' | 'contents' | null
+   */
+  function pageMatter(text) {
+    const lines = String(text || '').split(/\n+/).map(l => l.trim()).filter(l => l.length > 2);
+    if (lines.length < 8) return null;
+    const share = re => lines.filter(l => re.test(l)).length / lines.length;
+    if (share(/(?:\.\s*){3,}\s*(?:\d{1,4}|[ivxlc]{1,6})$/i) >= 0.5) return 'contents';
+    if (share(/^[^\d].{1,80}?,\s*\d{1,4}(?:\s*[–-]\s*\d{1,4})?(?:,\s*\d{1,4}(?:\s*[–-]\s*\d{1,4})?)*\.?$/) >= 0.55) return 'index';
+    if (share(/(?:\(\s*(?:1[6-9]|20)\d\d[a-z]?\s*\)|\b(?:1[6-9]|20)\d\d[a-z]?\.)/) >= 0.4 && share(/^(?:\[\d+\]|\p{Lu}[\p{L}'’-]+,\s+\p{Lu}\.)/u) >= 0.3) return 'references';
+    return null;
+  }
+  /**
+   * The unit Before you start is about on `page`: the unit the page is in, unless that is front or
+   * back matter (by title, or `matter` set from its text); then the nearest real unit, the earlier
+   * one when two are as near. A PDF of one unit, or one that is all matter, keeps unitAt's unit.
+   */
+  function primerUnitAt(units, page) {
+    const here = unitAt(units, page);
+    if (!here || !here.matter) return here;
+    const real = (units || []).filter(u => !u.matter);
+    if (!real.length) return here;
+    const gap = u => (page < u.from ? u.from - page : page > u.to ? page - u.to : 0);
+    return real.reduce((best, u) => (gap(u) < gap(best) ? u : best));
   }
   /** The unit a page is in. */
   const unitAt = (units, page) => (units || []).find(u => page >= u.from && page <= u.to) || (units || [])[0] || null;
@@ -746,7 +878,221 @@
       + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
+  /* ---------- Figures (FIXES-2026-10-15, items 4–7): detection, captions, the chip and the figure's card ----------
+     Detection reads a small grey copy of the drawn page (`ink`: 1 where there is ink, W×H pixels,
+     square) and the text layer's spans and displayed formulas (page fractions). */
+  // A caption starts a line: "Figure 2.", "Fig. 3 The …", "Table 1:", "Figure 16.1: …" (not "Figure 2 shows …").
+  const CAPTION_RE = /^(Figure|FIGURE|Fig\.?|FIG\.?|Table|TABLE)\s*(\d+(?:[.\-–]\d+)*[a-z]?|[A-Z](?:\.\d+)*)(?=\s*[.:—–|]|\s+\p{Lu}|\s*$)/u;
+  const REF_RE = /\b(Figure|Fig\.?|Table)\s*(\d+(?:\.\d+)*[a-z]?)(?![\d.]*\d)/i;
+  const figKind = w => (/^t/i.test(w) ? 'table' : 'figure');
+  const figLabel = (kind, n) => `${kind === 'table' ? 'Table' : 'Figure'} ${n}`;
+  /** A caption's own label, when `text` starts with one. -> { kind: 'figure' | 'table', n, label } | null */
+  function captionOf(text) {
+    const m = CAPTION_RE.exec(String(text || '').replace(/^\s+/, ''));
+    return m ? { kind: figKind(m[1]), n: m[2], label: figLabel(figKind(m[1]), m[2]) } : null;
+  }
+  /** The first figure or table a question names ("Figure 2", "Fig. 2", "fig 3.1", "Table 1"). -> { kind, n, label } | null */
+  function figureRef(text) {
+    const m = REF_RE.exec(String(text || ''));
+    return m ? { kind: figKind(m[1]), n: m[2], label: figLabel(figKind(m[1]), m[2]) } : null;
+  }
+  /**
+   * Which figure goes with a question (item 7): the one the question names, else the one whose
+   * caption is the selection; only one whose caption is among `captions` (those on the page, each
+   * { kind, n, fig }). -> that caption, or null (then the passage crop goes, as before).
+   */
+  function figureFor({ selection = '', question = '', captions = [] } = {}) {
+    const find = want => (want && (captions || []).find(c => c && c.fig != null && c.kind === want.kind && String(c.n).toLowerCase() === String(want.n).toLowerCase())) || null;
+    return find(figureRef(question)) || find(captionOf(selection)) || null;
+  }
+  /** How much two boxes ({ x, y, w, h }) overlap: their intersection over their union. */
+  function overlapOf(a, b) {
+    const w = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x), h = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y);
+    if (w <= 0 || h <= 0) return 0;
+    return (w * h) / (a.w * a.h + b.w * b.h - w * h);
+  }
+  /** A figure's card (one thread per figure): the kept card for the figure at `box` on `page`, or null. */
+  function figureCardFor(cards, page, box) {
+    return (cards || []).find(c => c && !c.gone && c.kind === 'figure' && c.page === page && c.rects?.[0] && overlapOf({ x: c.rects[0][1], y: c.rects[0][2], w: c.rects[0][3], h: c.rects[0][4] }, box) > 0.5) || null;
+  }
+  /**
+   * The figure chip (item 6): right-aligned with the figure, 4px above it, kept `inset` inside
+   * `bounds` (the page as far as it is on screen, below the top bar; `outer`, the screen, when the
+   * chip is wider than that). Above when it fits, else below the figure, else just inside its top.
+   * All in screen pixels. -> { left, top, side }
+   */
+  function placeChip({ box, w, h, bounds, outer = bounds, gap = 4, inset = 8 }) {
+    // Wider than the page on screen (a narrow phone page): inside the screen (`outer`) instead.
+    const room = (bounds.right - bounds.left) - inset * 2 >= w ? bounds : outer;
+    const left = clamp(box.right - w, room.left + inset, Math.max(room.left + inset, room.right - inset - w));
+    const above = box.top - gap - h, below = box.bottom + gap;
+    if (above >= bounds.top + inset) return { left, top: above, side: 'above' };
+    if (below + h <= bounds.bottom - inset) return { left, top: below, side: 'below' };
+    return { left, top: clamp(Math.max(box.top, bounds.top) + gap, bounds.top + inset, Math.max(bounds.top + inset, bounds.bottom - inset - h)), side: 'inside' };
+  }
+  /** Ink grown by R pixels each way (a square), in two passes. */
+  function grow(ink, W, H, R) {
+    const across = new Uint8Array(W * H), out = new Uint8Array(W * H);
+    for (let y = 0; y < H; y++) {
+      let last = -Infinity; for (let x = 0; x < W; x++) { if (ink[y * W + x]) last = x; if (x - last <= R) across[y * W + x] = 1 }
+      last = Infinity; for (let x = W - 1; x >= 0; x--) { if (ink[y * W + x]) last = x; if (last - x <= R) across[y * W + x] = 1 }
+    }
+    for (let x = 0; x < W; x++) {
+      let last = -Infinity; for (let y = 0; y < H; y++) { if (across[y * W + x]) last = y; if (y - last <= R) out[y * W + x] = 1 }
+      last = Infinity; for (let y = H - 1; y >= 0; y--) { if (across[y * W + x]) last = y; if (last - y <= R) out[y * W + x] = 1 }
+    }
+    return out;
+  }
+  /** Connected areas of ink grown by R: their boxes (shrunk back by R) and `n`, the ink in each that `skip` does not mark. */
+  function areasOf(ink, W, H, R, skip = null) {
+    const grown = grow(ink, W, H, R), seen = new Uint8Array(W * H), out = [];
+    for (let i = 0; i < W * H; i++) {
+      if (!grown[i] || seen[i]) continue;
+      let l = W, t = H, r = 0, b = 0, n = 0; const st = [i]; seen[i] = 1;
+      while (st.length) {
+        const j = st.pop(), y = (j / W) | 0, x = j % W;
+        if (ink[j] && !(skip && skip[j])) n++;
+        if (x < l) l = x; if (x > r) r = x; if (y < t) t = y; if (y > b) b = y;
+        for (const k of [j - 1, j + 1, j - W, j + W]) if (k >= 0 && k < W * H && !seen[k] && grown[k] && Math.abs((k % W) - x) <= 1) { seen[k] = 1; st.push(k) }
+      }
+      out.push({ l: l + R, t: t + R, r: r - R, b: b - R, n });
+    }
+    return out;
+  }
+  /**
+   * The figures on a page (item 5): areas of ink that are not running text. Running text (lines
+   * of more than 48 characters or 7 words), captions and displayed formulas are blanked out. Short
+   * label text ("hidden units") inside an area of ink stays, joining the pieces of a diagram, but
+   * only ink that is not label text counts towards a figure. Lines are split where a gap is wider
+   * than the line is tall, so text beside a figure never bridges it. Each caption ("Figure 2.",
+   * "Table 1:") is matched to the figure just above it, beside it, or (a table) below it; one found
+   * only in part grows to the ink between the caption and the text above it; with no figure found,
+   * that ink is the caption's figure (the fallback).
+   * `spans`: [{ x, y, w, h, text }]; `formulas`: [{ x, y, w, h }]; all page fractions.
+   * -> { figures: [{ x, y, w, h, label?, caption? }], captions: [{ kind, n, label, text, fig, box }] }
+   */
+  function findFigures({ ink, W, H, spans = [], formulas = [] } = {}) {
+    const N = W * H;
+    const px = q => ({ l: Math.max(0, Math.floor(q.x * W) - 1), t: Math.max(0, Math.floor(q.y * H)), r: Math.min(W - 1, Math.ceil((q.x + q.w) * W)), b: Math.min(H - 1, Math.ceil((q.y + q.h) * H)) });
+    const fill = (a, q, v) => { for (let y = q.t; y <= q.b; y++) a.fill(v, y * W + q.l, y * W + q.r + 1) };
+    // Lines, then segments: a line split where the gap is wider than its text is tall.
+    const items = (spans || []).filter(s => s && s.w > 0 && s.h > 0 && String(s.text || '').trim()).map(s => ({ ...s, cy: s.y + s.h / 2 })).sort((a, b) => a.cy - b.cy);
+    const lines = [];
+    for (const s of items) { const L = lines[lines.length - 1]; if (L && Math.abs(s.cy - L.cy) < Math.min(s.h, L.h) * 0.5) L.items.push(s); else lines.push({ cy: s.cy, h: s.h, items: [s] }) }
+    const segs = [];
+    for (const L of lines) {
+      let cur = null;
+      for (const s of L.items.sort((a, b) => a.x - b.x)) {
+        if (cur && (s.x - (cur.x + cur.w)) * W <= s.h * H * 1.2) {
+          const right = Math.max(cur.x + cur.w, s.x + s.w), bottom = Math.max(cur.y + cur.h, s.y + s.h);
+          cur.y = Math.min(cur.y, s.y); cur.w = right - cur.x; cur.h = bottom - cur.y; cur.parts.push(s.text);
+        } else { cur = { x: s.x, y: s.y, w: s.w, h: s.h, parts: [s.text], line: L }; segs.push(cur) }
+      }
+    }
+    for (const s of segs) {
+      s.text = s.parts.join(' ').replace(/\s+/g, ' ').trim();
+      s.q = px(s); s.caption = captionOf(s.text);
+      s.running = s.text.length > 48 || s.text.split(' ').length > 7;
+      if (s.running) s.line.running = true;
+    }
+    // Areas of ink with every text blanked: where labels sit (in one, or within 3px of it: a label under a diagram's last row).
+    const bare = Uint8Array.from(ink);
+    for (const s of segs) fill(bare, s.q, 0);
+    for (const f of formulas || []) fill(bare, px(f), 0);
+    const areas = areasOf(bare, W, H, 8).filter(o => o.n >= 12);
+    const inArea = q => areas.some(o => q.l <= o.r + 3 && q.r >= o.l - 3 && q.t <= o.b + 3 && q.b >= o.t - 3);
+    const kept = Uint8Array.from(ink), label = new Uint8Array(N);
+    for (const s of segs) {
+      if (!s.running && !s.caption && inArea(s.q)) { fill(label, s.q, 1); continue }
+      // Short text on a line of running text (inline maths, a footnote mark) goes with it, as words do.
+      if (s.running || s.caption || s.line.running || (s.text.length >= 4 && /[A-Za-z]{3}/.test(s.text))) fill(kept, s.q, 0);
+    }
+    for (const f of formulas || []) fill(kept, px(f), 0);
+    // For the caption fallback: only running text and captions blanked (a table's cells are short text, often taken for formulas).
+    const loose = Uint8Array.from(ink);
+    for (const s of segs) if (s.running || s.caption) fill(loose, s.q, 0);
+    const boxes = areasOf(kept, W, H, 3, label).filter(o => (o.r - o.l) >= W * 0.07 && (o.b - o.t) >= H * 0.04 && o.n >= 30 && (o.r - o.l) * (o.b - o.t) < N * 0.5);
+    // Side-by-side pieces of one figure (an image, an arrow diagram, an image) become one box.
+    for (let merged = true; merged;) {
+      merged = false;
+      outer: for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
+        const a = boxes[i], b = boxes[j], ov = Math.min(a.b, b.b) - Math.max(a.t, b.t), gap = Math.max(a.l, b.l) - Math.min(a.r, b.r);
+        if (ov > 0.6 * Math.min(a.b - a.t, b.b - b.t) && gap < W * 0.18) { boxes[i] = { l: Math.min(a.l, b.l), t: Math.min(a.t, b.t), r: Math.max(a.r, b.r), b: Math.max(a.b, b.b), n: a.n + b.n }; boxes.splice(j, 1); merged = true; break outer }
+      }
+    }
+    // The ink between a caption and the running text above it (dir -1) or below it (+1), in its column.
+    // Two columns when no running line crosses the page's middle: a caption then keeps to its column.
+    const twoColumns = !segs.some(s => s.running && s.q.l < W * 0.4 && s.q.r > W * 0.6);
+    const bandOf = (cap, dir, from = kept) => {
+      const half = W / 2, narrow = twoColumns && cap.r - cap.l < W * 0.55;
+      const [x0, x1] = narrow && cap.r <= half + W * 0.04 ? [0, Math.floor(half)] : narrow && cap.l >= half - W * 0.04 ? [Math.ceil(half), W - 1] : [0, W - 1];
+      let edge = dir < 0 ? 0 : H - 1;
+      for (const s of segs) {
+        if (!s.running || s.caption || s.inCaption || s.q.r < x0 || s.q.l > x1) continue;
+        if (dir < 0 && s.q.b < cap.t && s.q.b + 1 > edge) edge = s.q.b + 1;
+        if (dir > 0 && s.q.t > cap.b && s.q.t - 1 < edge) edge = s.q.t - 1;
+      }
+      const [y0, y1] = dir < 0 ? [edge, cap.t - 1] : [cap.b + 1, edge];
+      if (y1 - y0 < 2) return null;
+      const part = new Uint8Array(N);
+      for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) part[y * W + x] = from[y * W + x];
+      const pieces = areasOf(part, W, H, 3).filter(o => o.n >= 16);
+      if (!pieces.length) return null;
+      return pieces.reduce((a, o) => ({ l: Math.min(a.l, o.l), t: Math.min(a.t, o.t), r: Math.max(a.r, o.r), b: Math.max(a.b, o.b), n: a.n + o.n }));
+    };
+    const captions = [];
+    segs.forEach((s, i) => {
+      if (!s.caption) return;
+      // The caption's lines: this one and those just below it, in its column, that start no other caption.
+      const box = { ...s.q }, lh = Math.max(1, s.q.b - s.q.t), parts = [s.text];
+      for (let k = i + 1; k < segs.length && parts.length < 8; k++) {
+        const o = segs[k];
+        if (o.q.t - box.b > lh * 0.9) break;
+        if (o.caption || o.q.t < box.b - lh * 0.5 || o.q.l > box.r || o.q.r < box.l) continue;
+        // A caption's next line starts where it starts, or is centred under it (a table's cells are neither).
+        if (Math.abs(o.q.l - s.q.l) > lh * 1.5 && Math.abs((o.q.l + o.q.r) - (s.q.l + s.q.r)) / 2 > lh * 1.5) break;
+        o.inCaption = true; parts.push(o.text);
+        box.l = Math.min(box.l, o.q.l); box.r = Math.max(box.r, o.q.r); box.b = Math.max(box.b, o.q.b);
+      }
+      captions.push({ ...s.caption, q: box, text: parts.join(' ').slice(0, 600) });
+    });
+    const taken = new Set();
+    for (const c of captions) {
+      const box = c.q, overlapX = f => Math.min(f.r, box.r) - Math.max(f.l, box.l) > 0;
+      let best = -1, bd = Infinity, how = '';
+      boxes.forEach((f, j) => {
+        if (taken.has(j)) return;
+        let d = Infinity, h = '';
+        if (overlapX(f) && f.b <= box.t + 2 && box.t - f.b <= H * 0.08) { d = box.t - f.b; h = 'above' }
+        else if (c.kind === 'table' && overlapX(f) && f.t >= box.b - 2 && f.t - box.b <= H * 0.08) { d = f.t - box.b; h = 'below' }
+        else if (box.t >= f.t - (box.b - box.t) && box.t <= f.b) { const side = box.l >= f.r - 2 ? box.l - f.r : f.l >= box.r - 2 ? f.l - box.r : Infinity; if (side <= W * 0.06) { d = Math.abs(box.t - f.t) + 1; h = 'beside' } }
+        if (d < bd) { bd = d; best = j; how = h }
+      });
+      if (best >= 0) {
+        const f = boxes[best]; taken.add(best);
+        // Found only in part (a diagram's upper half apart from its lower): the ink up to the text above.
+        if (how === 'above') { const band = bandOf(box, -1); if (band && band.b >= f.t) Object.assign(f, { l: Math.min(f.l, band.l), t: Math.min(f.t, band.t), r: Math.max(f.r, band.r), b: Math.max(f.b, band.b) }) }
+        c.fig = best; continue;
+      }
+      // The fallback: no figure was found for this caption; the ink above it (a table's: below) is its figure.
+      for (const dir of c.kind === 'table' ? [1, -1] : [-1, 1]) {
+        const band = bandOf(box, dir, loose);
+        if (band && band.r - band.l >= W * 0.05 && band.b - band.t >= H * 0.03 && band.n >= 30) { boxes.push(band); c.fig = boxes.length - 1; taken.add(c.fig); break }
+      }
+    }
+    const pad = 1.5;
+    const figures = boxes.map(o => ({ x: Math.max(0, (o.l - pad) / W), y: Math.max(0, (o.t - pad) / H), w: Math.min(1, (o.r - o.l + pad * 2) / W), h: Math.min(1, (o.b - o.t + pad * 2) / H) }));
+    const out = [];
+    for (const c of captions) {
+      if (c.fig == null) continue;
+      const f = figures[c.fig];
+      if (!f.label) { f.label = c.label; f.caption = c.text }
+      out.push({ kind: c.kind, n: c.n, label: c.label, text: c.text, fig: c.fig, box: { x: c.q.l / W, y: c.q.t / H, w: (c.q.r - c.q.l + 1) / W, h: (c.q.b - c.q.t + 1) / H } });
+    }
+    return { figures, captions: out };
+  }
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
+
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt };
 });

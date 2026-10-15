@@ -10,7 +10,8 @@
   --mr-room: #e4ddcd;          /* behind the PDF page and the margin column */
   --mr-ink: #0b0b0b;
   --mr-muted: #6a6256;         /* labels, quotes, secondary text */
-  --mr-faint: #9a9183;         /* icons, hints, keys */
+  --mr-faint: #9a9183;         /* icons */
+  --mr-hint: #5f574b;          /* small status text, hints, keys, primer numbers: at least 4.5:1 on room and card */
   --mr-card: #f6f2ea;          /* open card, primer, trigger */
   --mr-bubble: #dfd5bf;        /* the reader's question */
   --mr-hair: rgba(32, 26, 19, .14);
@@ -29,10 +30,11 @@
 .lab.is-book-theme .mr {
   /* Book: the reader's Book papers, same structure */
   --mr-room: #e7dcc7; --mr-ink: #201a13; --mr-muted: #675b4b; --mr-card: #efe6d3; --mr-bubble: #dacdb3;
+  --mr-hint: #5c5143;
 }
 .lab.is-night .mr {
   /* Night */
-  --mr-room: #100e0c; --mr-ink: #d6ccbf; --mr-muted: #9a9083; --mr-faint: #6f675d;
+  --mr-room: #100e0c; --mr-ink: #d6ccbf; --mr-muted: #9a9083; --mr-faint: #6f675d; --mr-hint: #9a9083;
   --mr-card: #1f1b17; --mr-bubble: #2a241e;
   --mr-hair: rgba(214, 204, 191, .14); --mr-wash: rgba(214, 204, 191, .08); --mr-lead: rgba(214, 204, 191, .34);
   --mr-bar: #2c2721; --mr-bar-ink: #e9e1d4; --mr-bar-soft: #9a9083; --mr-bar-sep: rgba(233, 225, 212, .14);
@@ -41,7 +43,7 @@
 }
 /* e-ink: no fills or shadows except the bar; 1px ink outlines instead. */
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
-  --mr-room: #fff; --mr-ink: #111; --mr-muted: #444; --mr-faint: #666; --mr-card: #fff; --mr-bubble: #fff;
+  --mr-room: #fff; --mr-ink: #111; --mr-muted: #444; --mr-faint: #666; --mr-hint: #444; --mr-card: #fff; --mr-bubble: #fff;
   --mr-hair: #777; --mr-wash: transparent; --mr-lead: #111; --mr-bar: #111; --mr-bar-ink: #fff; --mr-bar-soft: #ccc;
   --mr-card-shadow: 0 0 0 1px #111; --mr-bar-shadow: none;
 }
@@ -111,7 +113,7 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-question { font-size: 18px; line-height: 1.45; }    /* Quiz me */
 .mr-sources { display: flex; flex-wrap: wrap; gap: 4px 12px; font: 12px var(--mr-ui); color: var(--mr-muted); }
 .mr-sources a { color: inherit; text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; }
-.mr-status { font: 12px var(--mr-ui); color: var(--mr-faint); }   /* "Checking sources…" */
+.mr-status { font: 12px var(--mr-ui); color: var(--mr-hint); }   /* "Checking sources…" */
 .mr-cite { padding: 1px 5px; border-radius: 5px; background: var(--mr-wash); font: 11px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; vertical-align: 1px; cursor: pointer; }
 .mr-card__acts { display: flex; gap: 16px; align-items: center; color: var(--mr-faint); }   /* copy only */
 .mr-card__acts svg, .mr-follow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
@@ -124,11 +126,11 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-leads .is-folded { stroke-opacity: .45; fill-opacity: .45; }
 .mr-underline { text-decoration: underline; text-decoration-color: var(--mr-lead); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 /* crowding */
-.mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-muted); }
+.mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-hint); }   /* "N more on this page": at least 4.5:1 on the wash */
 /* column foot: whole-PDF ask */
 .mr-foot { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; align-items: center; gap: 14px; padding-top: 12px; border-top: 1px solid var(--mr-hair); color: var(--mr-faint); }
-.mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-faint); }
-.mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-faint); }   /* "[/] the whole PDF" */
+.mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-hint); }
+.mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-hint); }   /* "[/] the whole PDF" */
 
 /* ---------- primer ---------- */
 .mr-trigger { padding: 2px 0 2px 14px; box-shadow: inset 1.5px 0 0 var(--mr-lead); font-family: var(--mr-gara); color: var(--mr-ink); }   /* a folded card, its rule in the lead colour, its words in ink */
@@ -139,12 +141,12 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-primer__gist { margin: 0; font-size: 16px; line-height: 1.5; }
 .mr-primer__head { margin: 0 0 4px; font-size: 15px; font-style: italic; color: var(--mr-muted); }
 .mr-primer ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.mr-primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; }   /* number in --mr-faint 14px */
+.mr-primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; }   /* number in --mr-hint 14px */
 .mr-primer__keep { margin: 0; padding-left: 12px; list-style: none; font-size: 15px; line-height: 1.42; box-shadow: inset 2px 0 0 var(--mr-hair); }
 .mr-map__row { display: grid; grid-template-columns: 18px 1fr auto; padding: 5px 0; border-top: 1px solid var(--mr-hair); font-size: 15px; }
 .mr-map__pages { font: 12px var(--mr-ui); color: var(--mr-muted); }
 .mr-quiz-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--mr-wash); font-size: 16px; }
-.mr-primer__foot { display: flex; justify-content: space-between; margin-top: auto; font: 11.5px var(--mr-ui); color: var(--mr-faint); }
+.mr-primer__foot { display: flex; justify-content: space-between; margin-top: auto; font: 11.5px var(--mr-ui); color: var(--mr-hint); }
 
 /* ---------- phone ---------- */
 .mr-pbar { position: absolute; left: 10px; right: 10px; height: 48px; display: flex; align-items: center; padding: 0 6px; border-radius: 14px;
@@ -307,6 +309,12 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 /* The open card's passage: a 1.5px underline in the lead colour (drawn on the page, so it moves with it). */
 .mr-ul-layer { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
 .mr-ul-layer i { position: absolute; height: 1.5px; margin-top: 3px; background: var(--mr-lead); }
+/* A figure's open card rings its figure (FIXES-2026-10-15 item 4) instead of underlining a passage. */
+.mr-ul-layer i.is-box { height: auto; margin: 0; background: none; border: 1.5px solid var(--mr-lead); border-radius: 4px; }
+/* A figure's card: the figure's thumbnail at the top, its room kept while it is drawn. */
+.mr-thumb { flex: none; width: 100%; max-height: 140px; border-radius: 8px; background: var(--mr-hair); overflow: hidden; }
+.mr-thumb img { display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.lab.is-night .mr-thumb img { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }   /* as the night page's own fallback */
 /* Narrow windows: 8px marks at the page's right edge in the lead colour; a 28px target round each. */
 .mr-marks { position: fixed; inset: var(--pdf-top, 56px) 0 0 0; pointer-events: none; z-index: 31; overflow: hidden; }
 .mr-mark { position: absolute; width: 28px; height: 28px; min-width: 0; min-height: 0; margin: -14px 0 0 -14px; pointer-events: auto; }
@@ -352,7 +360,7 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
    primer's padding so the glyph sits where the mockup's does. */
 .mr-primer h4 { margin-right: -8px; }
 .mr-primer .mr-primer__close { flex: none; align-self: center; margin: -1px 0 -1px auto; }
-.mr-primer__n, .mr-map__n { color: var(--mr-faint); font-size: 14px; }
+.mr-primer__n, .mr-map__n { color: var(--mr-hint); font-size: 14px; }
 .mr-primer__keep { display: flex; flex-direction: column; gap: 5px; }
 .mr-map { display: flex; flex-direction: column; }
 .mr-map__row { width: 100%; text-align: left; color: inherit; }
@@ -396,23 +404,52 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-swatch[aria-pressed="true"] { outline: 1.5px solid var(--mr-bar-ink); outline-offset: 0; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-more, .mr-pmore, .mr-define, .mr-note, .mr-bar, .mr-pbar) { outline: 1px solid var(--mr-bar); }
 
-/* ---------- PR 4: targets ----------
-   Controls are 28px; where the mockup draws a 16px icon (copy, mic) or a 20px colour, the target is
-   24px round it, set so nothing on screen moves. */
-/* The colours: a 24px button, the 20px colour inside it, the chosen one ringed as before (2px of bar, 1.5px of ink). */
-button.mr-swatch { width: 24px; height: 24px; margin: 0 3px; padding: 2px; background-clip: content-box !important; }
+/* ---------- PR 4: targets (28px since PR C, FIXES-2026-10-15) ----------
+   Every control is at least 28px each way. Where the mockup draws a 16px icon (copy, mic) or a 20px
+   colour, the 28px target is set round it with negative margins, so nothing on screen moves. */
+/* The colours: a 28px button, the 20px colour inside it, the chosen one ringed as before (2px of bar, 1.5px of ink). */
+button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; background-clip: content-box !important; }
 .mr-swatch[aria-pressed="true"] { box-shadow: 0 0 0 1.5px var(--mr-bar-ink); }
-/* Copy and the mic: 24px round the 16px icon; the copy row keeps its 16px line (the target reaches 5px above and 3px below it). */
-.mr-card__acts button { width: 24px; height: 24px; margin: -5px -4px -3px; }
-.mr-card__acts button svg { transform: translateY(1px); }
-.mr-follow__mic, .mr-foot .mr-follow__mic { flex: none; width: 24px; height: 24px; margin: -3px 0 -3px -8px; place-items: center end; }
-/* "Show answer" and "Next question →": 24px tall round their 16px line, which the follow-up line keeps. */
-.mr-follow__link { display: inline-flex; align-items: center; min-height: 24px; margin: -5px 0 -3px; padding-top: 2px; }
-/* The bottom card's handle: a 56 × 25px target round the 36 × 5px bar, in its place. */
-.mr-sheet__grab { width: 56px; height: 25px; margin: -10px auto -6px; background: none; }
-.mr-sheet__grab::before { content: ""; position: absolute; left: 10px; top: 10px; width: 36px; height: 5px; border-radius: 3px; background: var(--mr-hair); }
+/* Copy and the mic: 28px round the 16px icon; their rows keep their lines (the target reaches 9px above
+   and 3px below, the icon moved down 3px to stay where it was). */
+.mr-card__acts button { width: 28px; height: 28px; margin: -9px -6px -3px; }
+.mr-card__acts button svg { transform: translateY(3px); }
+.mr-follow__mic, .mr-foot .mr-follow__mic { flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -12px; place-items: center end; }
+.mr-follow__mic svg { transform: translateY(3px); }
+/* "Show answer", "Next question →", "See your score →", "Try another quiz": 28px tall round their 16px line, which the follow-up line keeps. */
+.mr-follow__link { display: inline-flex; align-items: center; min-height: 28px; margin: -9px 0 -3px; padding-top: 6px; }
+/* The bottom card's handle: a 56 × 28px target round the 36 × 5px bar, in its place. */
+.mr-sheet__grab { width: 56px; height: 28px; margin: -11px auto -8px; background: none; }
+.mr-sheet__grab::before { content: ""; position: absolute; left: 10px; top: 11px; width: 36px; height: 5px; border-radius: 3px; background: var(--mr-hair); }
 /* The app's e-ink sheet makes every button at least 40px tall (tinct-app.css "[data-eink] button"); the
-   margin's controls keep their own sizes (28px, or 24px round an icon) so nothing moves in e-ink. */
+   margin's controls keep their own sizes (28px) so nothing moves in e-ink. */
 [data-eink] :where(.mr-float, .mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-primer) button, [data-eink] button:where(.mr-trigger, .mr-mark, .mr-swatch) { min-height: var(--mr-min, auto); }
 :where(.mr-card__close, .mr-primer__foot button) { --mr-min: 28px; }
-:where(.mr-follow__link) { --mr-min: 24px; }
+:where(.mr-follow__link) { --mr-min: 28px; }
+
+/* ---------- PR C: Related (docs/margin/PROMPTS.md) ----------
+   After the bottom line, one row per place: the citation tag on the left, then the line in 15px
+   Garamond. Rows read 6px apart with no rules between them; each row is a 28px target (3px above
+   and below its 22px line). A row that scrolls to its place is a button. */
+.mr-related { display: flex; flex-direction: column; margin: -3px 0; }
+.mr-related__row { display: flex; align-items: baseline; gap: 8px; width: 100%; min-height: 28px; box-sizing: border-box; margin: 0; padding: 3px 0; border: 0; background: none; color: var(--mr-ink); font: 15px/1.45 var(--mr-gara); text-align: left; }
+.mr-related__tag { flex: none; cursor: inherit; }
+.mr-related__line { min-width: 0; overflow-wrap: anywhere; }
+.mr-related__row.is-quote { display: block; }
+.mr-related__quote { font-style: italic; color: var(--mr-muted); }
+button.mr-related__row { cursor: pointer; }
+button.mr-related__row:hover .mr-related__line { text-decoration: underline; text-decoration-color: var(--mr-lead); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.mr-sheet .mr-related__row { font-size: 16px; }
+/* The place a row scrolls to, underlined for a moment in the lead colour (as the open card's passage). */
+.mr-flash-layer { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.mr-flash-layer i { position: absolute; height: 1.5px; margin-top: 3px; background: var(--mr-lead); animation: mr-flash 1.8s ease-out forwards; }
+@keyframes mr-flash { 0%, 60% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mr-flash-layer i { animation: none; } }
+/* A stray *word* in an answer shows in italics (the prompts ask for plain prose). */
+.mr-answer em, .mr-claims em, .mr-related em { font-style: italic; }
+/* The wait ring turns its arc inside its own box, not the whole box: a turning square reaches 4px past
+   an 18px line at 45 degrees, which made "Thinking…" overflow its status line now and then (the layout
+   check's primer-wait frame, intermittently). It looks the same. */
+.mr .tinct-wait .tinct-wait-ring { animation: none; }
+.mr .tinct-wait .tinct-wait-ring path { transform-box: view-box; transform-origin: 12px 12px; animation: tinct-wait-spin .9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .mr .tinct-wait .tinct-wait-ring path { animation: none; } }

@@ -11,7 +11,8 @@
   --mr-room: #e4ddcd;          /* behind the PDF page and the margin column */
   --mr-ink: #0b0b0b;
   --mr-muted: #6a6256;         /* labels, quotes, secondary text */
-  --mr-faint: #9a9183;         /* icons, hints, keys */
+  --mr-faint: #9a9183;         /* icons */
+  --mr-hint: #5f574b;          /* small status text, hints, keys, primer numbers: at least 4.5:1 on room and card */
   --mr-card: #f6f2ea;          /* open card, primer, trigger */
   --mr-bubble: #dfd5bf;        /* the reader's question */
   --mr-hair: rgba(32, 26, 19, .14);
@@ -30,10 +31,11 @@
 .lab.is-book-theme .mr {
   /* Book: the reader's Book papers, same structure */
   --mr-room: #e7dcc7; --mr-ink: #201a13; --mr-muted: #675b4b; --mr-card: #efe6d3; --mr-bubble: #dacdb3;
+  --mr-hint: #5c5143;
 }
 .lab.is-night .mr {
   /* Night */
-  --mr-room: #100e0c; --mr-ink: #d6ccbf; --mr-muted: #9a9083; --mr-faint: #6f675d;
+  --mr-room: #100e0c; --mr-ink: #d6ccbf; --mr-muted: #9a9083; --mr-faint: #6f675d; --mr-hint: #9a9083;
   --mr-card: #1f1b17; --mr-bubble: #2a241e;
   --mr-hair: rgba(214, 204, 191, .14); --mr-wash: rgba(214, 204, 191, .08); --mr-lead: rgba(214, 204, 191, .34);
   --mr-bar: #2c2721; --mr-bar-ink: #e9e1d4; --mr-bar-soft: #9a9083; --mr-bar-sep: rgba(233, 225, 212, .14);
@@ -42,7 +44,7 @@
 }
 /* e-ink: no fills or shadows except the bar; 1px ink outlines instead. */
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
-  --mr-room: #fff; --mr-ink: #111; --mr-muted: #444; --mr-faint: #666; --mr-card: #fff; --mr-bubble: #fff;
+  --mr-room: #fff; --mr-ink: #111; --mr-muted: #444; --mr-faint: #666; --mr-hint: #444; --mr-card: #fff; --mr-bubble: #fff;
   --mr-hair: #777; --mr-wash: transparent; --mr-lead: #111; --mr-bar: #111; --mr-bar-ink: #fff; --mr-bar-soft: #ccc;
   --mr-card-shadow: 0 0 0 1px #111; --mr-bar-shadow: none;
 }
@@ -112,7 +114,7 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-question { font-size: 18px; line-height: 1.45; }    /* Quiz me */
 .mr-sources { display: flex; flex-wrap: wrap; gap: 4px 12px; font: 12px var(--mr-ui); color: var(--mr-muted); }
 .mr-sources a { color: inherit; text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; }
-.mr-status { font: 12px var(--mr-ui); color: var(--mr-faint); }   /* "Checking sources…" */
+.mr-status { font: 12px var(--mr-ui); color: var(--mr-hint); }   /* "Checking sources…" */
 .mr-cite { padding: 1px 5px; border-radius: 5px; background: var(--mr-wash); font: 11px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; vertical-align: 1px; cursor: pointer; }
 .mr-card__acts { display: flex; gap: 16px; align-items: center; color: var(--mr-faint); }   /* copy only */
 .mr-card__acts svg, .mr-follow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
@@ -125,11 +127,11 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-leads .is-folded { stroke-opacity: .45; fill-opacity: .45; }
 .mr-underline { text-decoration: underline; text-decoration-color: var(--mr-lead); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 /* crowding */
-.mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-muted); }
+.mr-stack { position: absolute; left: 0; right: 0; display: flex; justify-content: space-between; padding: 9px 14px; border-radius: 10px; background: var(--mr-wash); font: 13px var(--mr-ui); color: var(--mr-hint); }   /* "N more on this page": at least 4.5:1 on the wash */
 /* column foot: whole-PDF ask */
 .mr-foot { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; align-items: center; gap: 14px; padding-top: 12px; border-top: 1px solid var(--mr-hair); color: var(--mr-faint); }
-.mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-faint); }
-.mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-faint); }   /* "[/] the whole PDF" */
+.mr-key { padding: 0 5px; border: 1px solid var(--mr-hair); border-radius: 4px; font: 11px var(--mr-ui); color: var(--mr-hint); }
+.mr-foot__hint { font: 11.5px var(--mr-ui); color: var(--mr-hint); }   /* "[/] the whole PDF" */
 
 /* ---------- primer ---------- */
 .mr-trigger { padding: 2px 0 2px 14px; box-shadow: inset 1.5px 0 0 var(--mr-lead); font-family: var(--mr-gara); color: var(--mr-ink); }   /* a folded card, its rule in the lead colour, its words in ink */
@@ -140,12 +142,12 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-primer__gist { margin: 0; font-size: 16px; line-height: 1.5; }
 .mr-primer__head { margin: 0 0 4px; font-size: 15px; font-style: italic; color: var(--mr-muted); }
 .mr-primer ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.mr-primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; }   /* number in --mr-faint 14px */
+.mr-primer ol li { display: grid; grid-template-columns: 18px 1fr; font-size: 15px; line-height: 1.42; }   /* number in --mr-hint 14px */
 .mr-primer__keep { margin: 0; padding-left: 12px; list-style: none; font-size: 15px; line-height: 1.42; box-shadow: inset 2px 0 0 var(--mr-hair); }
 .mr-map__row { display: grid; grid-template-columns: 18px 1fr auto; padding: 5px 0; border-top: 1px solid var(--mr-hair); font-size: 15px; }
 .mr-map__pages { font: 12px var(--mr-ui); color: var(--mr-muted); }
 .mr-quiz-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--mr-wash); font-size: 16px; }
-.mr-primer__foot { display: flex; justify-content: space-between; margin-top: auto; font: 11.5px var(--mr-ui); color: var(--mr-faint); }
+.mr-primer__foot { display: flex; justify-content: space-between; margin-top: auto; font: 11.5px var(--mr-ui); color: var(--mr-hint); }
 
 /* ---------- phone ---------- */
 .mr-pbar { position: absolute; left: 10px; right: 10px; height: 48px; display: flex; align-items: center; padding: 0 6px; border-radius: 14px;

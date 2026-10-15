@@ -19,6 +19,29 @@ export type CitationPart = TextPart | CitationToken
 const LABEL = '[\\p{L}\\p{N}](?:[\\p{L}\\p{N}.\\-]{0,14}[\\p{L}\\p{N}])?'
 const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}`, 'giu')
 
+const LIST_ITEM_RE = new RegExp(`^(?:(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+))?(${LABEL}(?:\\s*[\\u2013\\u2014-]\\s*${LABEL})?)$`, 'iu')
+
+/**
+ * A list in one pair of braces ({p. 4, p. 5}, {pp. 4, 6}, {fig. 2 and fig. 3}) as one tag per
+ * item: "{p. 4}, {p. 5}". An item without its kind takes the one before it. A brace that is not
+ * wholly a list of citations stays as written.
+ */
+function splitCitationLists(source: string): string {
+  return source.replace(/\{([^{}\n]{3,120})\}/g, (whole, inner: string) => {
+    const items = inner.split(/\s*(?:,|;|\band\b|&)\s*/i).filter(Boolean)
+    if (items.length < 2) return whole
+    let kind = ''
+    const out: string[] = []
+    for (const item of items) {
+      const m = LIST_ITEM_RE.exec(item.trim())
+      if (!m || (!m[1] && !kind)) return whole
+      kind = m[1] ? m[1].toLowerCase() : kind
+      out.push(`{${kind === 'pp' && !/[\u2013\u2014-]/.test(m[2]) ? 'p' : kind}${kind === 'table' ? ' ' : '. '}${m[2]}}`)
+    }
+    return out.join(', ')
+  })
+}
+
 /**
  * Text split into text and citation parts, in order. A `{…}` that is not a citation, or one
  * `resolve(token)` turns down (the page or equation is not in this PDF), stays text exactly
@@ -26,7 +49,7 @@ const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)($
  * -> [{ type: 'text', text } | { type: 'cite', kind, label, to?, raw }]
  */
 export function parseCitations(text: unknown, resolve?: (token: CitationToken) => boolean): CitationPart[] {
-  const source = String(text ?? '')
+  const source = splitCitationLists(String(text ?? ''))
   const out: CitationPart[] = []
   let last = 0
   const pushText = (value: string) => {
@@ -48,6 +71,10 @@ export function parseCitations(text: unknown, resolve?: (token: CitationToken) =
       if (!split) continue
       label = split[1]
       to = split[2]
+    } else if (kind === 'p') {
+      // {p. 12-13} with a plain hyphen is a page range too; a printed label such as "A-3" stays one page.
+      const split = /^(\d+)-(\d+)$/.exec(label) || /^([ivxlcdm]+)-([ivxlcdm]+)$/i.exec(label)
+      if (split) { kind = 'pp'; label = split[1]; to = split[2] }
     }
     const token: CitationToken = { type: 'cite', kind, label, ...(to ? { to } : {}), raw: m[0] }
     if (typeof resolve === 'function' && !resolve(token)) continue
@@ -317,4 +344,53 @@ export function parseDefineSense(text: unknown, count?: number): number | null {
   if (!Number.isInteger(n) || n < 0) return null
   if (typeof count === 'number' && Number.isInteger(count) && n > count) return null
   return n
+}
+
+/** One of Related's places: a citation or a few quoted words (or neither), then what happens there. */
+export interface RelatedRow { cite: CitationToken | null; quote: string | null; text: string }
+
+/**
+ * Related (PROMPTS.md): the bottom line naming the thread, then one row per place: a citation
+ * ({p. 5}, {sec. 3.2}) or, for a book without page numbers, a few quoted words, then what happens
+ * there. A line without either is a row with no tag. Bullets and numbering the prompt forbids are
+ * dropped. -> { lead, rows } (at most 8 rows)
+ */
+export function parseRelated(text: unknown): { lead: string; rows: RelatedRow[] } {
+  const paras = paragraphsOf(text)
+  if (!paras.length) return { lead: '', rows: [] }
+  const clean = (block: string) => block.split('\n').map(l => l.replace(/^\s*(?:[-•*·]|\d{1,2}[.)])\s+/, '').trim()).filter(Boolean)
+  const lines = paras.flatMap(clean)
+  const startsRow = (line: string) => Boolean(leadingCite(line) || leadingQuote(line))
+  const first = clean(paras[0])
+  let lead = ''
+  let from = 0
+  if (!startsRow(first[0])) {
+    const at = first.findIndex(l => startsRow(l))
+    const head = at < 0 ? first : first.slice(0, at)
+    lead = head.join(' ')
+    from = head.length
+  }
+  const rows: RelatedRow[] = []
+  for (const line of lines.slice(from)) {
+    const cite = leadingCite(line)
+    const quote = cite ? null : leadingQuote(line)
+    const rest = cite ? cite.rest : quote ? quote.rest : line
+    const body = rest.replace(/^\s*[:–—-]\s*/, '').trim()
+    if (!body && !cite && !quote) continue
+    rows.push({ cite: cite ? cite.token : null, quote: quote ? quote.quote : null, text: body })
+    if (rows.length >= 8) break
+  }
+  return { lead, rows }
+}
+
+function leadingCite(line: string): { token: CitationToken; rest: string } | null {
+  const m = /^\{[^{}\n]{1,40}\}/.exec(line)
+  if (!m) return null
+  const parts = parseCitations(m[0])
+  return parts.length === 1 && parts[0].type === 'cite' ? { token: parts[0], rest: line.slice(m[0].length) } : null
+}
+
+function leadingQuote(line: string): { quote: string; rest: string } | null {
+  const m = /^(?:“([^”\n]{2,160})”|"([^"\n]{2,160})")/.exec(line)
+  return m ? { quote: (m[1] || m[2]).replace(/^[\s.…]+|[\s.…,;:]+$/g, '').trim(), rest: line.slice(m[0].length) } : null
 }

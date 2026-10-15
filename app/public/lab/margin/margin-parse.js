@@ -12,6 +12,29 @@ export const CITATION_KINDS = ['p', 'pp', 'eq', 'fig', 'table', 'sec'];
 const LABEL = '[\\p{L}\\p{N}](?:[\\p{L}\\p{N}.\\-]{0,14}[\\p{L}\\p{N}])?';
 const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}`, 'giu');
 
+const LIST_ITEM_RE = new RegExp(`^(?:(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+))?(${LABEL}(?:\\s*[\\u2013\\u2014-]\\s*${LABEL})?)$`, 'iu');
+
+/**
+ * A list in one pair of braces ({p. 4, p. 5}, {pp. 4, 6}, {fig. 2 and fig. 3}) as one tag per
+ * item: "{p. 4}, {p. 5}". An item without its kind takes the one before it. A brace that is not
+ * wholly a list of citations stays as written.
+ */
+function splitCitationLists(source) {
+  return source.replace(/\{([^{}\n]{3,120})\}/g, (whole, inner) => {
+    const items = inner.split(/\s*(?:,|;|\band\b|&)\s*/i).filter(Boolean);
+    if (items.length < 2) return whole;
+    let kind = '';
+    const out = [];
+    for (const item of items) {
+      const m = LIST_ITEM_RE.exec(item.trim());
+      if (!m || (!m[1] && !kind)) return whole;
+      kind = m[1] ? m[1].toLowerCase() : kind;
+      out.push(`{${kind === 'pp' && !/[\u2013\u2014-]/.test(m[2]) ? 'p' : kind}${kind === 'table' ? ' ' : '. '}${m[2]}}`);
+    }
+    return out.join(', ');
+  });
+}
+
 /**
  * Text split into text and citation parts, in order. A `{…}` that is not a citation, or one
  * `resolve(token)` turns down (the page or equation is not in this PDF), stays text exactly
@@ -19,7 +42,7 @@ const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)($
  * -> [{ type: 'text', text } | { type: 'cite', kind, label, to?, raw }]
  */
 export function parseCitations(text, resolve) {
-  const source = String(text ?? '');
+  const source = splitCitationLists(String(text ?? ''));
   const out = [];
   let last = 0;
   const pushText = value => {
@@ -41,6 +64,10 @@ export function parseCitations(text, resolve) {
       if (!split) continue;
       label = split[1];
       to = split[2];
+    } else if (kind === 'p') {
+      // {p. 12-13} with a plain hyphen is a page range too; a printed label such as "A-3" stays one page.
+      const split = /^(\d+)-(\d+)$/.exec(label) || /^([ivxlcdm]+)-([ivxlcdm]+)$/i.exec(label);
+      if (split) { kind = 'pp'; label = split[1]; to = split[2]; }
     }
     const token = { type: 'cite', kind, label, ...(to ? { to } : {}), raw: m[0] };
     if (typeof resolve === 'function' && !resolve(token)) continue;
@@ -305,11 +332,53 @@ export function parseDefineSense(text, count) {
   return n;
 }
 
+/**
+ * Related (PROMPTS.md): the bottom line naming the thread, then one row per place: a citation
+ * ({p. 5}, {sec. 3.2}) or, for a book without page numbers, a few quoted words, then what happens
+ * there. A line without either is a row with no tag. Bullets and numbering the prompt forbids are
+ * dropped. -> { lead, rows: [{ cite: token | null, quote: string | null, text }] } (at most 8 rows)
+ */
+export function parseRelated(text) {
+  const paras = paragraphsOf(text);
+  if (!paras.length) return { lead: '', rows: [] };
+  const clean = block => block.split('\n').map(l => l.replace(/^\s*(?:[-•*·]|\d{1,2}[.)])\s+/, '').trim()).filter(Boolean);
+  const lines = paras.flatMap(clean);
+  const startsRow = line => leadingCite(line) || leadingQuote(line);
+  const first = clean(paras[0]);
+  let lead = '', from = 0;
+  if (!startsRow(first[0])) {
+    const at = first.findIndex(l => startsRow(l));
+    const head = at < 0 ? first : first.slice(0, at);
+    lead = head.join(' ');
+    from = head.length;
+  }
+  const rows = [];
+  for (const line of lines.slice(from)) {
+    const cite = leadingCite(line), quote = cite ? null : leadingQuote(line);
+    const rest = cite ? cite.rest : quote ? quote.rest : line;
+    const body = rest.replace(/^\s*[:–—-]\s*/, '').trim();
+    if (!body && !cite && !quote) continue;
+    rows.push({ cite: cite ? cite.token : null, quote: quote ? quote.quote : null, text: body });
+    if (rows.length >= 8) break;
+  }
+  return { lead, rows };
+}
+function leadingCite(line) {
+  const m = /^\{[^{}\n]{1,40}\}/.exec(line);
+  if (!m) return null;
+  const parts = parseCitations(m[0]);
+  return parts.length === 1 && parts[0].type === 'cite' ? { token: parts[0], rest: line.slice(m[0].length) } : null;
+}
+function leadingQuote(line) {
+  const m = /^(?:“([^”\n]{2,160})”|"([^"\n]{2,160})")/.exec(line);
+  return m ? { quote: (m[1] || m[2]).replace(/^[\s.…]+|[\s.…,;:]+$/g, '').trim(), rest: line.slice(m[0].length) } : null;
+}
+
 // ---- Wording the PDF reader's own Explain request uses (reader.js builds that prompt itself).
 // The same text as src/companion/marginPrompts.ts; a test keeps them equal.
 /** The words Explain's request says today, to be replaced by PDF_EXPLAIN_FORMAT. */
 export const PDF_EXPLAIN_FORMAT_BEFORE = '2 to 4 short paragraphs, no preamble, no headings.';
 /** Explain opens with a bottom line. */
-export const PDF_EXPLAIN_FORMAT = 'First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs: what it says, what it means here, and any notation or terms. No preamble, no headings.';
+export const PDF_EXPLAIN_FORMAT = 'First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs on what it says and what it means here, explaining any notation or terms where they come up, never in a paragraph of their own. About 120 words or fewer in all. No preamble, no headings.';
 /** The line every passage action carries when the passage image is attached (the Worker adds it for the new intents). */
 export const PASSAGE_IMAGE_LINE = 'The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.';

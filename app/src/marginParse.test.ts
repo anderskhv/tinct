@@ -35,6 +35,30 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
       expect(m.citationTokens('{Table 2}')[0]).toMatchObject({ kind: 'table', label: '2' })
     })
 
+    // FIXES-2026-10-15 PR C: {p. 12-13} with a plain hyphen is a page range; a printed label with a hyphen is one page.
+    it('reads {p. 12-13} with a plain hyphen as a page range, and keeps a label such as A-3 one page', () => {
+      expect(m.citationTokens('{p. 12-13}')).toEqual([{ type: 'cite', kind: 'pp', label: '12', to: '13', raw: '{p. 12-13}' }])
+      expect(m.citationTokens('{p. xii-xiv}')[0]).toMatchObject({ kind: 'pp', label: 'xii', to: 'xiv' })
+      expect(m.citationTokens('{p. A-3}')).toEqual([{ type: 'cite', kind: 'p', label: 'A-3', raw: '{p. A-3}' }])
+    })
+
+    // FIXES-2026-10-15, second paper: "{p. 4, p. 5}" leaked raw.
+    it('reads a list in one pair of braces as one tag per item, the kind carried over', () => {
+      expect(m.parseCitations('See {p. 4, p. 5}.')).toEqual([
+        { type: 'text', text: 'See ' },
+        { type: 'cite', kind: 'p', label: '4', raw: '{p. 4}' },
+        { type: 'text', text: ', ' },
+        { type: 'cite', kind: 'p', label: '5', raw: '{p. 5}' },
+        { type: 'text', text: '.' },
+      ])
+      expect(m.citationTokens('{pp. 4, 6}').map(t => [t.kind, t.label, t.to])).toEqual([['p', '4', undefined], ['p', '6', undefined]])
+      expect(m.citationTokens('{pp. 12–13; 15}').map(t => [t.kind, t.label, t.to])).toEqual([['pp', '12', '13'], ['p', '15', undefined]])
+      expect(m.citationTokens('{eq. 1.2 and eq. 1.3}').map(t => [t.kind, t.label])).toEqual([['eq', '1.2'], ['eq', '1.3']])
+      expect(m.citationTokens('{table 2, 3}').map(t => [t.kind, t.label])).toEqual([['table', '2'], ['table', '3']])
+      // Not wholly a list of citations: as written.
+      for (const text of ['{a, b}', '{p. 12, which shows}', '{x, p. 3}']) expect(m.parseCitations(text)).toEqual([{ type: 'text', text }])
+    })
+
     it('leaves anything else in braces as text, exactly as written', () => {
       for (const text of ['\\frac{a}{b}', '{x}', '{p.}', '{pp. 12}', '{eq. 1–2}', '{page 12}', '{p. 12', 'p. 12}', '{p. "12"}', '{p. <b>1</b>}', '{}', '{p. 1234567890123456789}']) {
         const parts = m.parseCitations(text)
@@ -223,6 +247,38 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
         expect(m.parseDefineSense(text, 3)).toBeNull()
       }
     })
+  })
+})
+
+describe.each(copies)('Related (%s)', (_name, m) => {
+  it('reads the bottom line, then one row per place with its citation and line', () => {
+    const r = m.parseRelated('Self-attention is the thread that runs through the model.\n\n{p. 2} Background defines it against recurrence.\n{sec. 3.2} The encoder stacks it in six layers.\n{pp. 6-7}: Table 1 compares its cost per layer.')
+    expect(r.lead).toBe('Self-attention is the thread that runs through the model.')
+    expect(r.rows.map(row => [row.cite?.kind, row.cite?.label, row.text])).toEqual([
+      ['p', '2', 'Background defines it against recurrence.'],
+      ['sec', '3.2', 'The encoder stacks it in six layers.'],
+      ['pp', '6', 'Table 1 compares its cost per layer.'],
+    ])
+    expect(r.rows.every(row => row.quote === null)).toBe(true)
+  })
+
+  it('takes quoted words as a book\'s place, drops bullets, and keeps a line without either as a row', () => {
+    const r = m.parseRelated('The vow returns twice.\n- “I will not marry” Emma repeats it to Harriet.\n2. "a very few weeks" Mr. Knightley doubts it.\nAt the end she breaks it.')
+    expect(r.lead).toBe('The vow returns twice.')
+    expect(r.rows).toEqual([
+      { cite: null, quote: 'I will not marry', text: 'Emma repeats it to Harriet.' },
+      { cite: null, quote: 'a very few weeks', text: 'Mr. Knightley doubts it.' },
+      { cite: null, quote: null, text: 'At the end she breaks it.' },
+    ])
+  })
+
+  it('is only the bottom line when the idea appears nowhere else, and nothing for an empty answer', () => {
+    expect(m.parseRelated('The idea appears nowhere else in the document.')).toEqual({ lead: 'The idea appears nowhere else in the document.', rows: [] })
+    expect(m.parseRelated('')).toEqual({ lead: '', rows: [] })
+    // Rows with no bottom line still read as rows; at most eight.
+    const many = m.parseRelated(Array.from({ length: 10 }, (_, i) => `{p. ${i + 1}} Place ${i + 1}.`).join('\n'))
+    expect(many.lead).toBe('')
+    expect(many.rows).toHaveLength(8)
   })
 })
 

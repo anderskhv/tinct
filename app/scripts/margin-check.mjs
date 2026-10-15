@@ -16,7 +16,17 @@
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
 //   node scripts/margin-check.mjs primer-reliability  Before you start made 10 of 10 times against mocked replies (cut off, empty, odd shapes, slow)
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
+//   node scripts/margin-check.mjs figures           FIXES items 4–7: figure detection, the chip kept on screen, the figure's card beside it, figure questions
+//   node scripts/margin-check.mjs long                PR F: a 585-page book: printed page numbers, the whole-book search with a question,
+//                                                     the primer's chapter (never the index), reading order round a figure, the reopen
 //   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
+//   node scripts/margin-check.mjs epub                PR C: an EPUB in the PDF reader: the bar, More, Related, Explain, crowding,
+//                                                     a zoom, a note and Copy quote, at every viewport. The EPUB margin is off in
+//                                                     the reader (EPUB_MARGIN = false): this mode turns it on for its pages; in
+//                                                     `sample`/`full` it runs only with EPUB_MARGIN=1.
+//   node scripts/margin-check.mjs scans               PR D: a scanned PDF added, offered recognition at once (the first-open race),
+//                                                     recognised (mocked), its words laid over the pages; the bar, a whole-PDF
+//                                                     question and the primer on it, desktop and phone; a scan recognised without boxes
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -43,9 +53,16 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf, figurePaper, longBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
+// FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
+const FIGURE_PAPER = join(OUT, 'figure_paper.pdf')
+writeFileSync(FIGURE_PAPER, figurePaper())
+// PR F: a book-length PDF (the Sutton and Barto stand-in, gloss-test/edge.html): parts, chapters, an index, printed numbers 22 behind the file's.
+const BOOK = longBook({ meta: true })
+const BIG_BOOK = join(OUT, 'long_book.pdf')
+writeFileSync(BIG_BOOK, BOOK.bytes)
 
 // The class names of css/margin.css, as the check's selectors (the phone More's rows are buttons).
 export const SELECTORS = {
@@ -64,12 +81,12 @@ export const SELECTORS = {
 const scrolledAway = p => p.kind === 'clipped' && /^\.(?:mr-card__body|(?:mr\.)?mr-primer)(?:\.|\s|$)/.test(p.in || '')
 // The wait ring's label is for screen readers only (visually hidden on purpose, lab/wait-ring.js), so its box is not text spilling out.
 const srOnly = p => p.kind === 'overflow' && /^\.tinct-wait(?:-label)?(?:\.|\s|$)/.test(p.el || '')
-// PR 4: where the mockup draws a 16px icon or a 20px colour (copy, the mics, the colours, the bottom
-// card's handle, the quiz links), the target round it is at least 24px each way; everything else stays 28px (`tap`).
-export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link'
+// PR C (FIXES-2026-10-15): every target is at least 28px each way, including where the mockup draws a
+// 16px icon or a 20px colour (copy, the mics, the colours, the bottom card's handle, the quiz links).
+export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link, button.mr-related__row'
 export async function checkMargin(page, selectors = SELECTORS) {
   const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
-  const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 23.5 || r.height < 23.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
+  const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 27.5 || r.height < 27.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
   return [...list, ...small, ...await page.evaluate(stripProblems)]
 }
 // The position strip (js/strip.js) in the PDF reader: shown at 700px and up, beside the pages and under
@@ -109,6 +126,28 @@ function addBook(file) {
   if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: basename(file), title: basename(file, '.pdf'), author: '', type: 'pdf', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
   return sha256.slice(0, 24)
 }
+/* PR C: an EPUB in the PDF reader. A small anthology made here (invented text, no book's words): a
+   cover, a contents page, a preface and two essays of running prose, the shape readers bring. */
+const { zip } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-epub.mjs')).href)
+function anthologyEpub() {
+  const x = body => `<?xml version="1.0" encoding="utf-8"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>x</title></head><body><section epub:type="chapter">${body}</section></body></html>`
+  const para = 'Lamplight has always posed questions about the nature of the evening, and about how the observable illumination of ordinary rooms relates to the unobservable machinery underneath it. Philosophers, engineers and unaffiliated enthusiasts have offered incompatible explanations for centuries, and the disagreement continues.'
+  const docs = [
+    ['contents', '<p><strong>Contents</strong></p><p><a href="preface.xhtml">Preface</a></p><p><a href="e1.xhtml">1 The Fate of Lamps</a></p><p><a href="e2.xhtml">2 Candles Considered</a></p>'],
+    ['preface', `<h1>Preface</h1><p>If we really do live in a lamplit household, then where does electricity fit into that picture? How does incandescence solve the problem of twilight? How can the evening be truly local, despite illumination’s notoriously unpredictable properties? ${para}</p><p>${para}</p><p>${para}</p>`],
+    ['e1', `<h1>1 The Fate of Lamps</h1><p>Modern lamps consist of two pillars, namely the filament, which explains brightness and the mutual interaction between current and glass; and the shade, which explains practically everything else. Each of them separately is superbly explanatory. ${para}</p><p>${para} ${para}</p><p>${para}</p><p>${para}</p>`],
+    ['e2', `<h1>2 Candles Considered</h1><h2>Wax, Wick and the Long Evening</h2><p>${para}</p><p>${para} ${para}</p><p>${para}</p>`],
+  ]
+  const nav = `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><body><nav epub:type="toc"><ol><li><a href="contents.xhtml">Contents</a></li><li><a href="preface.xhtml">Preface</a></li><li><a href="e1.xhtml">1 The Fate of Lamps</a></li><li><a href="e2.xhtml">2 Candles Considered</a></li></ol></nav></body></html>`
+  return zip([
+    ['mimetype', 'application/epub+zip'],
+    ['META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'],
+    ['OEBPS/content.opf', `<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">anthology</dc:identifier><dc:title>Lamplight Essays</dc:title><dc:creator>Ed Itor</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>${docs.map(([id]) => `<item id="${id}" href="${id}.xhtml" media-type="application/xhtml+xml"/>`).join('')}</manifest><spine>${docs.map(([id]) => `<itemref idref="${id}"/>`).join('')}</spine></package>`],
+    ['OEBPS/nav.xhtml', nav],
+    ...docs.map(([id, body]) => [`OEBPS/${id}.xhtml`, x(body)]),
+  ])
+}
+const EPUB = anthologyEpub()
 const json = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) }
 const readBody = req => new Promise(r => { const parts = []; req.on('data', c => parts.push(c)); req.on('end', () => r(Buffer.concat(parts))) })
 // A mocked companion, per intent, streamed as the Worker relays it: a definition for `define`, the
@@ -120,7 +159,7 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.chunks` (set by a check) streams the next answer in pieces: [{ text, wait }], then an
 // error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one); a string
 // names the error's type (`cut_off`: the Worker's answer stopped by its output bound, max_tokens).
-export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false }
+export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
@@ -133,10 +172,17 @@ function mockText(body) {
   if (intent === 'quiz_check') { const a = String(c.quiz?.answer || '').toLowerCase(); return JSON.stringify(a.includes(String(c.quiz?.expected || '').toLowerCase().split(' ')[0]) ? { verdict: 'right', feedback: 'MOCK: that is the key step.' } : { verdict: 'not_yet', feedback: 'MOCK: reread how the two kinds differ.' }) }
   // Before you start (chapter action `primer`): the primer's JSON, with citations to the unit's first page.
   if (intent === 'chapter' && c.chapter?.action?.kind === 'primer') { const n = c.context?.pages?.[0]?.n ?? 1; return JSON.stringify(mock.primer || { gist: `MOCK gist of ${c.chapter.action.unitTitle}. It says what the unit sets out to do.`, claims: [1, 2, 3].map(i => ({ text: `MOCK claim ${i} of the unit.`, cite: `{p. ${n}}` })), keepInMind: ['MOCK caution: a convention that changes later.'], map: [1, 2, 3].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${n}` })) }) }
+  // Related: the thread, then its places (a PDF cites pages; an EPUB quotes a few words of the fixture's chapters).
+  if (intent === 'related') return c.document?.kind === 'epub'
+    ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
+    : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
   if (intent === 'factcheck') return 'Holds. MOCK verdict line for the passage.\n\nHolds. The first claim stands as written.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)'
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
 async function mockChat(body, res) {
+  // A check may make one intent fail (PR C: a failed quiz marking keeps the reader's answer).
+  if (mock.fail && body?.companion?.intent === mock.fail) return json(res, 500, { error: { type: 'api_error', message: 'mock failure' } })
+  if (mock.delay && !body?.stream) await new Promise(r => setTimeout(r, mock.delay))
   const c = body?.companion || {}
   if (c.intent === 'chapter' && c.chapter?.action?.kind === 'primer' && mock.primers.length) {
     const item = mock.primers.shift()
@@ -159,6 +205,36 @@ async function mockChat(body, res) {
   res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\n`)
   res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
 }
+/* ---------- Recognising a scan's text, mocked (routes/userBooks.ts /api/user-books/ocr) ----------
+   As the Worker after PR D: a book not stored yet has status { state: 'none', stored: false } (with
+   `scanMock.legacy` set, the 404 it answered before); pages sent are recognised at the next status
+   call, from `scanMock.recognised` (hex -> the recognised pages); the edition and the pages follow. */
+export const scanMock = { uploadDelay: 0, legacy: false, recognised: new Map(), jobs: new Map(), log: [] }
+async function ocrRoute(req, res, [, hex, part, n]) {
+  const book = account.books.find(b => b.sha256.startsWith(hex)), month = { used: 12, limit: 1500 }
+  const job = scanMock.jobs.get(hex), method = req.method
+  if (method === 'PUT' || method === 'POST') await readBody(req)
+  scanMock.log.push([method, part || 'job', hex, !!book])
+  if (!book) return !part && method === 'GET' && !scanMock.legacy ? json(res, 200, { state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month, stored: false, tier: 'premium' }) : json(res, 404, { error: 'Not found' })
+  const status = () => {
+    if (!job) return { state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month, tier: 'premium' }
+    for (const k of job.ready) job.done.add(k); job.ready.clear()
+    const missing = [...job.missing].sort((a, b) => a - b)
+    return { state: missing.length ? 'uploading' : 'done', pages: job.pages, uploaded: job.done.size, done: job.done.size, failed: 0, blank: 0, ...(missing.length ? { missing } : {}), month, tier: 'premium' }
+  }
+  const pages = () => (scanMock.recognised.get(hex) || []).filter(pg => job?.done.has(pg.page))
+  if (!part && method === 'GET') return json(res, 200, status())
+  if (!part && method === 'POST') {
+    if (!job) scanMock.jobs.set(hex, { pages: (scanMock.recognised.get(hex) || []).length, missing: new Set((scanMock.recognised.get(hex) || []).map(pg => pg.page)), ready: new Set(), done: new Set() })
+    return json(res, 202, status())
+  }
+  if (part === 'pages' && n && method === 'PUT') { if (!job?.missing.delete(Number(n))) return json(res, 409, { error: 'not_expected' }); job.ready.add(Number(n)); return json(res, 200, { ok: true }) }
+  if (!job || status().state !== 'done') return json(res, 404, { error: 'Not found' })
+  if (part === 'pages') return json(res, 200, { pages: pages() })
+  const text = pg => pg.blocks.filter(b => !['head', 'foot', 'num'].includes(b.t)).map(b => b.x)
+  return json(res, 200, { format: 'tinct-user-edition-v1', converter: 2, source: 'ocr', title: book.title, author: '', language: 'en', droppedImages: 0, ocrLayout: { pages: pages().length, columns: 0, equations: 0 },
+    chapters: [{ number: 1, title: book.title, paragraphs: pages().flatMap(text), pages: pages().flatMap(pg => text(pg).map(() => pg.page)) }] })
+}
 function start(port) {
   const server = createServer(async (req, res) => {
     const url = new URL(req.url, 'http://x')
@@ -167,7 +243,19 @@ function start(port) {
       const body = JSON.parse((await readBody(req)).toString() || '{}'); account.requests.push({ path: p, body })
       return await mockChat(body, res)
     }
+    if (p === '/__margin/anthology.epub') { res.writeHead(200, { 'Content-Type': 'application/epub+zip', 'Cache-Control': 'no-store' }); return res.end(EPUB) }
+    if (p === '/api/user-books' && req.method === 'POST') {
+      // An upload (Add a book's account copy), stored after `scanMock.uploadDelay` ms: the first-open race.
+      const bytes = await readBody(req), sha256 = createHash('sha256').update(bytes).digest('hex')
+      if (scanMock.uploadDelay) await new Promise(r => setTimeout(r, scanMock.uploadDelay))
+      const name = decodeURIComponent(req.headers['x-book-name'] || 'scan.pdf')
+      if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name, title: name.replace(/\.pdf$/i, ''), author: '', type: 'pdf', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
+      const { bytes: _b, ...book } = account.books.find(b => b.sha256 === sha256)
+      return json(res, 200, { book })
+    }
     if (p === '/api/user-books') return json(res, 200, { books: account.books.map(({ bytes, ...b }) => b) })
+    const ocrPath = /^\/api\/user-books\/ocr\/([0-9a-f]{24})(?:\/(edition|pages)(?:\/(\d+))?)?$/.exec(p)
+    if (ocrPath) return ocrRoute(req, res, ocrPath)
     if (p === '/api/user-books/places') return json(res, 200, { places: {} })
     if (p.startsWith('/api/user-books/places/') || p.startsWith('/api/user-books/covers/')) { await readBody(req); return json(res, 200, { place: null, cover: null }) }
     for (const [kind, field] of [['marks', 'marks'], ['cards', 'cards']]) if (p.startsWith(`/api/user-books/${kind}/`)) {
@@ -175,13 +263,15 @@ function start(port) {
       const hex = p.slice(`/api/user-books/${kind}/`.length), have = account[kind].get(hex) || { [field]: [], rev: 0 }
       if (req.method === 'GET') return json(res, 200, have)
       const body = JSON.parse((await readBody(req)).toString() || '{}')
+      // A check may make the account fail (PR C: the reader is told when sync fails for any reason but a conflict).
+      if (account.fail === kind) return json(res, 500, { error: 'Service unavailable' })
       if (body.rev !== have.rev) return json(res, 409, { error: 'conflict', ...have })
       account[kind].set(hex, { [field]: body[field], rev: have.rev + 1 }); return json(res, 200, { rev: have.rev + 1 })
     }
     if (p.startsWith('/api/user-books/primers/')) {
-      // As the Worker: one stored primer per book and unit, the owner's only; 404 when none; PUT validates and stamps.
+      // As the Worker: one stored primer per book and unit, the owner's only; `primer: null` when none (PR C); PUT validates and stamps.
       const key = p.slice('/api/user-books/primers/'.length) + '?' + url.searchParams.get('unit')
-      if (req.method === 'GET') { const have = account.primers.get(key); return have ? json(res, 200, { primer: have }) : json(res, 404, { error: 'Not found' }) }
+      if (req.method === 'GET') return json(res, 200, { primer: account.primers.get(key) || null })
       const body = JSON.parse((await readBody(req)).toString() || '{}'), content = PRIMER_PARSE.normalizePrimer(body.primer)
       if (!content) return json(res, 400, { error: 'invalid_primer' })
       const primer = { ...content, madeAt: new Date().toISOString(), unitKey: url.searchParams.get('unit') }
@@ -201,7 +291,8 @@ function start(port) {
 
 /* ---------- The reader, signed in, with a PDF from the account ---------- */
 const SESSION = { access_token: 'test-token', refresh_token: 'x', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: '00000000-0000-4000-8000-000000000001', email: 'reader@example.com', user_metadata: {} } }
-async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1 }) {
+// `at`: open the PDF at that page (the reader's ?page= link), for a book whose first pages carry little text.
+async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1, minSpans = 20, at = 0 }) {
   // Browser zoom: the CSS viewport shrinks by the zoom and each CSS pixel takes `zoom` device pixels.
   const phone = width < 700
   const ctx = await browser.newContext({ viewport: { width: Math.round(width / zoom), height: Math.round(height / zoom) }, deviceScaleFactor: zoom, hasTouch: phone, isMobile: false })
@@ -218,8 +309,8 @@ async function readerPage(browser, origin, hex, { width, height, look, startPage
   const page = await ctx.newPage()
   const problems = []
   page.on('pageerror', e => problems.push('pageerror: ' + e.message))
-  await page.goto(`${origin}/lab/addbook/?userBook=${hex}${look === 'eink' ? '&eink=1' : ''}`)
-  await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 })
+  await page.goto(`${origin}/lab/addbook/?userBook=${hex}${look === 'eink' ? '&eink=1' : ''}${at ? '&page=' + at : ''}`)
+  await page.waitForFunction(n => document.querySelectorAll('.pdf-sheet .text-layer span').length > n, minSpans, { timeout: 30000 })
   await page.evaluate(() => document.fonts.ready)
   // The docked chat opens by itself on the desktop; the margin pieces sit left of it. Past a title page, to running text.
   await page.waitForTimeout(600)
@@ -412,7 +503,7 @@ async function behaviour(browser, origin) {
   ok('citation tags ({p. 3}) show as tags and scroll the PDF to that page', JSON.stringify(tag) === JSON.stringify([['p. 1', '1'], ['p. 3', '3']]) && (await a.evaluate(() => currentPlace().page)) === 3, { tag, page: await a.evaluate(() => currentPlace().page) })
   await fresh(a)
   // Simplify in the bar; Fact-check, Counterpoint and Quiz me in More: each a Worker intent on the passage, kind "pdf".
-  for (const [intent, from] of [['simplify', 'bar'], ['counterpoint', 'more'], ['factcheck', 'more'], ['quiz', 'more']]) {
+  for (const [intent, from] of [['simplify', 'bar'], ['counterpoint', 'more'], ['factcheck', 'more'], ['related', 'more'], ['quiz', 'more']]) {
     await a.evaluate(() => { goTo({ page: 1, frac: 0 }); col.open = null }); await a.waitForTimeout(300)
     await selectText(a); await a.waitForSelector('.mr-bar'); const k = account.requests.length
     if (intent === 'factcheck') mock.delay = 1500
@@ -422,7 +513,19 @@ async function behaviour(browser, origin) {
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
     ok(`${intent}: the Worker intent with the selection and the PDF's pages`, req && req.body.companion.selection && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length >= 1 && !req.body.system, req?.body?.companion && { ...req.body.companion, context: undefined })
     const label = await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')
-    ok(`${intent}: its answer opens as a card labelled with the action`, label.startsWith({ simplify: 'Simplify', counterpoint: 'Counterpoint', factcheck: 'Fact-check', quiz: 'Quiz me' }[intent]), label)
+    ok(`${intent}: its answer opens as a card labelled with the action`, label.startsWith({ simplify: 'Simplify', counterpoint: 'Counterpoint', factcheck: 'Fact-check', related: 'Related', quiz: 'Quiz me' }[intent]), label)
+    if (intent === 'related') {
+      // PR C, Related (A5): no web search, the whole document, a passage picture; rows that scroll there and underline the place.
+      const rows = await a.evaluate(() => [...document.querySelectorAll('.mr-card.is-open .mr-related__row')].map(r => [r.tagName, r.dataset.page, r.querySelector('.mr-related__tag')?.textContent, r.querySelector('.mr-related__line')?.textContent]))
+      ok('Related: the bottom line, then one row per place, its tag on the left and its line', rows.length === 3 && rows.every(r => r[0] === 'BUTTON') && rows.map(r => r[2]).join('|') === 'p. 1|p. 2|p. 3' && req?.body?.companion?.document?.kind === 'pdf' && (req.body.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image').length === 1, { rows, intent: req?.body?.companion?.intent })
+      const gap = await a.evaluate(() => { const r = [...document.querySelectorAll('.mr-card.is-open .mr-related__line')].map(x => x.getBoundingClientRect()); return [r[1].top - r[0].bottom, getComputedStyle(document.querySelector('.mr-related__line')).fontSize] })
+      ok('Related: rows read 6px apart, the line in 15px', Math.abs(gap[0] - 6) <= 1.5 && gap[1] === '15px', gap)
+      await a.click('.mr-card.is-open .mr-related__row[data-page="3"]'); await a.waitForTimeout(1300)
+      ok('Related: a row scrolls the PDF to its place and underlines it for a moment', (await a.evaluate(() => currentPlace().page)) === 3 && await a.evaluate(() => document.querySelectorAll('.mr-flash-layer i').length > 0), await a.evaluate(() => [currentPlace(), document.querySelectorAll('.mr-flash-layer i').length]))
+      await a.evaluate(() => { openCard(null); const c = keptCards().find(x => x.kind === 'related'); const f = TinctMargin.firstRect(c); goTo({ page: f[0], frac: Math.max(0, f[2] - 0.1) }) }); await a.waitForTimeout(700)
+      const folded = await a.evaluate(() => [...document.querySelectorAll('.mr-col .mr-card.is-folded .mr-card__label')].map(l => l.textContent).find(t => t.startsWith('Related')))
+      ok('Related, folded, reads "Related · 3 places"', folded === 'Related · 3 places', folded)
+    }
     await fresh(a)
   }
   const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ verdict: getComputedStyle(document.querySelector('.mr-card.is-open .mr-verdict')).fontStyle, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize })))
@@ -439,11 +542,21 @@ async function behaviour(browser, origin) {
   await a.click('.mr-card.is-open [data-c="show"]'); await a.waitForTimeout(300)
   ok('Show answer shows the answer without a call', account.requests.length === q1 && /They are known differently/.test(await a.innerText('.mr-card.is-open')))
   await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
-  await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('no idea'); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
+  // PR C: a marking that fails shows its error and keeps the reader's answer in the field.
+  mock.fail = 'quiz_check'
+  await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('a failed try'); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
+  mock.fail = null
+  ok('a failed marking shows its error and keeps the typed answer', /could not be loaded/.test(await a.innerText('.mr-card.is-open')) && (await a.inputValue('.mr-card.is-open .mr-follow__input')) === 'a failed try', { card: await a.innerText('.mr-card.is-open'), field: await a.inputValue('.mr-card.is-open .mr-follow__input').catch(() => null) })
+  await a.fill('.mr-card.is-open .mr-follow__input', ''); await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('no idea'); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
+  ok('the last question\'s link reads "See your score →"', (await a.innerText('.mr-card.is-open [data-c="next"]')) === 'See your score →')
   await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
   const score = await a.innerText('.mr-card.is-open')
-  // Q1 right, Q2 shown, Q3 not yet: one right, and Q3 ("not yet" first) to reread.
-  ok('after question 3: the score as the bottom line and the question to reread', /^Quiz me · p\. \d+\s*×\s*1 of 3\s*MOCK Q3/.test(score) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
+  // Q1 right, Q2 shown, Q3 not yet: one right of the two answered, one shown, and Q3 ("not yet" first) to reread.
+  ok('after question 3: the score, leaving out the shown answer ("1 of 2 answered, 1 shown"), and the question to reread', /^Quiz me · p\. \S+\s*×\s*1 of 2 answered, 1 shown\s*MOCK Q3/.test(score) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
+  if (!process.env.NO_SHOTS) await shot(a, 'prc-quiz-end-1440x900')
+  const q2 = account.requests.length
+  await a.click('.mr-card.is-open [data-c="again"]'); await a.waitForTimeout(1200)
+  ok('"Try another quiz" writes new questions on the same passage, in the same card', account.requests.slice(q2).some(r => r.body?.companion?.intent === 'quiz' && r.body.companion.selection) && (await a.innerText('.mr-card.is-open .mr-card__count')) === '1 of 3')
   await fresh(a)
   // FIXES-2026-10-15 A7: Quiz me streams. Question 1 shows before the stream ends; answering ahead shows
   // "Writing the next question…" at the same card height, no ring; the quiz is saved once, when it ends.
@@ -489,7 +602,8 @@ async function behaviour(browser, origin) {
     await a.click('.mr-card.is-open [data-c="show"]').catch(() => {}); await a.waitForTimeout(200)
     ok('"See your score" on the last question that arrived', /See your score/.test(await a.innerText('.mr-card.is-open')))
     await a.click('.mr-card.is-open [data-c="next"]').catch(() => {}); await a.waitForTimeout(300)
-    ok('the score covers what was answered: "0 of 1"', /0 of 1/.test(await a.innerText('.mr-card.is-open')))
+    // PR C: a "Show answer" question is not scored, and the end card says so.
+    ok('the score covers what was answered, a shown answer left out: "1 of 1 shown", and "Try another quiz"', /1 of 1 shown/.test(await a.innerText('.mr-card.is-open')) && !!(await a.$('.mr-card.is-open [data-c="again"]')), await a.innerText('.mr-card.is-open'))
     await fresh(a)
   }
   // Cut off by the output bound (15 Oct 2026: max_tokens left empty and half-written cards): the Worker's
@@ -573,6 +687,12 @@ async function behaviour(browser, origin) {
   const cardsA = await a.evaluate(() => keptCards().filter(c => !c.gone).length), cardsB = await B.page.evaluate(() => keptCards().filter(c => !c.gone).length)
   ok('signed in, the margin\'s cards reach the account (/api/user-books/cards) and the other device', cardsA >= 6 && account.cards.get(hex)?.cards?.length === cardsA && cardsB === cardsA, { cardsA, cardsB, stored: account.cards.get(hex)?.cards?.length })
   ok('the note is a card in the margin on the other device', await B.page.evaluate(() => TinctMargin.cardView(keptCards(), highlights()).some(c => c.kind === 'note')))
+  // PR C: a sync that fails for any reason but a conflict is said, once; the cards stay on this device.
+  account.fail = 'cards'
+  await B.page.evaluate(() => { const c = keptCards().find(x => !x.gone && x.kind !== 'quiz'); c.turns = [...(c.turns || []), { role: 'user', content: 'A follow-up while the account fails.', at: Date.now() }]; saveCard(c) })
+  await B.page.waitForTimeout(2600)
+  account.fail = null
+  ok('a card sync that fails (not a conflict) tells the reader, and the card stays on the device', /could not be saved to your account/.test(await B.page.evaluate(() => [...document.querySelectorAll('.byob-toast, [role="status"], .toast')].map(t => t.textContent).join(' '))) && await B.page.evaluate(() => keptCards().some(c => (c.turns || []).some(t => /account fails/.test(t.content)))), await B.page.evaluate(() => [...document.querySelectorAll('.byob-toast, [role="status"]')].map(t => t.textContent).join(' | ')))
   // Removed on B (the note editor's Remove highlight), gone on A after its next open.
   await B.page.evaluate(id => { const rec = JSON.parse(localStorage.getItem('tinct-addbook:hl:pdf:' + location.search.slice(10, 34))).find(h => h.id === id); marginOpen({ text: rec.text, page: rec.page, box: { left: 0, top: 0, right: 0, bottom: 0 } }, { existing: rec }) }, noted.id)
   await B.page.click('.mr-float [data-m="note"]'); await B.page.waitForSelector('.mr-note')
@@ -594,10 +714,11 @@ async function behaviour(browser, origin) {
   await selectText(a); await a.waitForSelector('.mr-bar'); const sel = (await a.evaluate(() => getSelection().toString())).replace(/\s+/g, ' ').trim()
   await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   const moreText = (await a.innerText('.mr-more')).replace(/\s+/g, ' ').trim()
-  ok('More shows Define, Fact-check, Counterpoint and Quiz me, then Copy quote, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy quote With the title and page number', moreText)
+  ok('More shows Define, Fact-check, Related, Counterpoint and Quiz me, then Copy quote, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy quote With the title and page number', moreText)
   await a.click('.mr-more [data-m="copy"]'); await a.waitForTimeout(300)
   const clip = await a.evaluate(() => navigator.clipboard.readText())
-  ok('Copy quote copies the passage with the title and page', /^“.+”\n— .+, p\. \d+$/s.test(clip) && clip.includes(sel.slice(0, 15)), clip)
+  const printed = await a.evaluate(() => pageLabel(mr?.info?.page || currentPlace().page))
+  ok('Copy quote copies the passage with the title and the printed page label', /^“.+”\n— .+, p\. \S+$/s.test(clip) && clip.includes(sel.slice(0, 15)) && clip.endsWith('p. ' + printed), { clip, printed })
   // Define: dictionary senses with the network off (after the one-time download to the offline cache).
   ok('the dictionary is kept for offline use', await a.evaluate(() => TinctDictionary.warm()))
   await A.ctx.setOffline(true)
@@ -615,6 +736,9 @@ async function behaviour(browser, origin) {
     ok('one word opens Define with dictionary senses, network off (the dictionary alone: no "In this text")', (await C.page.$$('.mr-define__senses li')).length >= 1 && (await C.page.textContent('.mr-define__src')) === 'Dictionary' && !(await C.page.$('.mr-define__in')), { word, card: await C.page.evaluate(() => document.querySelector('.mr-float')?.innerText) })
     await C.page.evaluate(() => mrDefine('Qzxwvk')); await C.page.waitForTimeout(800)
     ok('offline, a word the dictionary lacks: “Not in the offline dictionary.” with Ask beneath', (await C.page.textContent('.mr-define__body p')) === 'Not in the offline dictionary.' && await C.page.isVisible('.mr-define__foot [data-m="ask"]'))
+    // PR C: offline, a capitalised word mid-sentence that the dictionary has shows its entry (online it would ask the companion).
+    await C.page.evaluate(() => { mr.before = 'which the'; return mrDefine('Reason') }); await C.page.waitForTimeout(800)
+    ok('offline, a capitalised word the dictionary has (mid-sentence) shows its entry', (await C.page.$$('.mr-define__senses li')).length >= 1 && (await C.page.textContent('.mr-define__src')) === 'Dictionary', await C.page.evaluate(() => document.querySelector('.mr-float')?.innerText))
     await C.ctx.setOffline(false)
     const n3 = account.requests.length
     await C.page.evaluate(() => mrDefine('Qzxwvk')); await C.page.waitForTimeout(1500)
@@ -658,6 +782,15 @@ async function behaviour(browser, origin) {
       ok('double-click on part of a hyphenated word selects the whole word ("self-evident", not "evident")', got === 'self-evident', got)
     } else ok('double-click on a hyphenated word', false, 'no "self-evident" in view')
     await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    // PR C: a Define that answers after the reader opened another PDF is kept in its own file, never the new one.
+    const hex2 = addBook(PDFS[1]); mock.delay = 1500
+    const before = await C.page.evaluate(() => state.key)
+    await selectText(C.page, { oneWord: true }); await C.page.waitForSelector('.mr-define', { timeout: 3000 }).catch(() => {}); await C.page.waitForTimeout(2000)
+    await C.page.evaluate(() => { mrDefine('Qzxwvk') }); await C.page.waitForTimeout(200)
+    await C.page.evaluate(h => openFromUrl(h), hex2); await C.page.waitForTimeout(2600); mock.delay = 0
+    const after = await C.page.evaluate(() => state.key)
+    const kept = await C.page.evaluate(([a, b]) => ({ newFile: (JSON.parse(localStorage.getItem('tinct-addbook:cards:' + b) || '[]')).filter(c => c.kind === 'define' && c.data?.word === 'Qzxwvk').length, ownFile: (JSON.parse(localStorage.getItem('tinct-addbook:cards:' + a) || '[]')).filter(c => c.kind === 'define' && c.data?.word === 'Qzxwvk').length }), [before, after])
+    ok('a Define started before switching PDFs is kept in its own PDF, never in the new one', before !== after && kept.newFile === 0 && kept.ownFile >= 1, { before, after, kept })
     await C.ctx.close()
   }
   // The phone: an answer opens as a card along the bottom with the passage underlined above it; tapping the page closes it.
@@ -673,8 +806,21 @@ async function behaviour(browser, origin) {
   ok('phone: tapping the page closes the card', !(await Ph.page.$('.mr-sheet')))
   await Ph.page.evaluate(() => openChat()); await Ph.page.waitForTimeout(400)
   ok('phone: the chat opens as the same bottom card, not the whole screen', await Ph.page.evaluate(() => { const s = document.querySelector('.mr-sheet'); return !!s && s.getBoundingClientRect().height <= innerHeight / 2 + 2 && !document.querySelector('.byob-phone-chat') }))
+  // PR C: the phone's title keeps its room (it collapsed to "A."), cut with an ellipsis; the page pill gives way first.
+  const title = await Ph.page.evaluate(() => { document.getElementById('bookTitle').textContent = 'Attention Is All You Need: a Long Title for the Phone'; const t = document.getElementById('bookTitle'), r = t.getBoundingClientRect(), cs = getComputedStyle(t); return { w: Math.round(r.width), cut: t.scrollWidth > t.clientWidth, ellipsis: cs.textOverflow, pill: Math.round(document.getElementById('pageBtn').getBoundingClientRect().width) } })
+  ok('phone: the title has priority, at least 75px wide (not "A."), cut with an ellipsis', title.w >= 75 && title.cut && title.ellipsis === 'ellipsis' && title.pill >= 30, title)
+  if (!process.env.NO_SHOTS) await Ph.page.screenshot({ path: join(OUT, 'prc-phone-title-390x844.png'), clip: { x: 0, y: 0, width: 390, height: 120 } })
   ok('phone: no page errors', !Ph.problems.length, Ph.problems)
   await Ph.ctx.close()
+  // EPUB_MARGIN is off: an EPUB read here behaves as before (the selection popup, no margin).
+  {
+    const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
+    await E.page.evaluate(() => goTo({ page: 3, frac: 0.02 })); await E.page.waitForTimeout(500)
+    await E.page.evaluate(selectEpub, { ch: 3, nth: 1 }); await E.page.waitForTimeout(700)
+    const off = await E.page.evaluate(() => ({ on: marginOn(), col: !!document.querySelector('.mr-col:not([hidden])'), bar: !!document.querySelector('.mr-bar'), popup: !!document.querySelector('.selection-popup') }))
+    ok('EPUB_MARGIN off: an EPUB has no margin and keeps the selection popup', !off.on && !off.col && !off.bar && off.popup, off)
+    await E.ctx.close()
+  }
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
   return results
@@ -928,13 +1074,14 @@ async function keysAndAccess(browser, origin) {
   ok('Left and Right move along the bar', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
   await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.waitForTimeout(100)
   ok('Return on the dots opens More with its first row focused', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'define' && (await a.getAttribute('.mr-bar [data-m="more"]', 'aria-expanded')) === 'true')
-  await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
+  // Define, Fact-check, Related (PR C), Counterpoint.
+  await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
   const at = await a.evaluate(() => document.activeElement?.dataset.m)
-  await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp')
+  await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp')
   ok('Up and Down move between the rows, round from the first to the last', at === 'counterpoint' && (await a.evaluate(() => document.activeElement?.dataset.m)) === 'copy')
   await a.keyboard.press('Escape'); await a.waitForTimeout(100)
   ok('Escape closes More first, the focus back on its dots; the bar stays', !(await a.$('.mr-more')) && await a.isVisible('.mr-bar') && (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
-  await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
+  await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
   const n0 = account.requests.length
   await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
   ok('Return chooses the row (Counterpoint: its card opens)', account.requests.slice(n0).some(r => r.body?.companion?.intent === 'counterpoint') && /^Counterpoint/.test(await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')))
@@ -967,6 +1114,9 @@ async function keysAndAccess(browser, origin) {
   return results
 }
 // Text contrast of every margin colour pair, per look (WCAG 2 ratio of the text's colour on the colour behind it). A report: the colours are the mockup's.
+// Small text that must reach 4.5:1 in every look: "Checking sources…", "/ the whole PDF", the primer's numbers and footer,
+// and the "N more on this page" row (release train 2: 3.89:1 in Paper and 4.28:1 in Book before).
+const HINT_TEXT = ['status line', 'foot hint', 'primer numbers', 'primer footer', 'stack row']
 async function contrast(browser, origin) {
   const rows = []
   for (const look of ['paper', 'book', 'night', 'eink']) {
@@ -981,10 +1131,11 @@ async function contrast(browser, origin) {
       const cases = [['bar words', '[data-strip="a"] .mr-bar .is-ask'], ['More line', '[data-strip="c"] .mr-more__row span'], ['Define senses (secondary)', '[data-strip="e"] .mr-define__senses li:not(.is-fit)'], ['card label', '.cardbg .mr-card.is-open .mr-card__label'], ['quote', '.cardbg .mr-quote'], ['answer', '.cardbg .mr-answer p'], ['citation tag', '.cardbg .mr-cite'], ['status line', '[data-card="factcheck-checking"] .mr-status'], ['sources', '.cardbg .mr-sources a'], ['folded text', '[data-desk="margin"] .mr-card.is-folded .mr-card__text'], ['stack row', '[data-desk="overlap"] .mr-stack span'], ['foot hint', '[data-desk="margin"] .mr-foot__hint'], ['trigger line', '[data-desk="trigger"] .mr-trigger__sub'], ['primer heading', '[data-desk="primer"] .mr-primer__head'], ['primer numbers', '[data-desk="primer"] .mr-primer__n'], ['map pages', '[data-desk="primer"] .mr-map__pages'], ['primer footer', '[data-desk="primer"] .mr-primer__foot span'], ['quiz link', '[data-card="quiz"] .mr-follow__link']]
       return cases.map(([name, sel]) => { const el = document.querySelector(sel); if (!el) return { name, missing: true }; const cs = getComputedStyle(el); const fg = over(parse(cs.color), bg(el)); return { name, ratio: Math.round(ratio(fg, bg(el)) * 100) / 100, size: cs.fontSize } })
     })
-    for (const f of found) rows.push({ look, ...f })
+    // PR C (Anders, 15 Oct): the mockup's faint small text now reads at least 4.5:1 (the --mr-hint token).
+    for (const f of found) rows.push({ look, ...f, ...(HINT_TEXT.includes(f.name) ? { required: 4.5, pass: !f.missing && f.ratio >= 4.5 } : {}) })
     await ctx.close()
   }
-  for (const r of rows) console.log(`${r.look.padEnd(6)} ${r.name.padEnd(28)} ${r.missing ? 'missing' : r.ratio + ':1 at ' + r.size}`)
+  for (const r of rows) console.log(`${r.look.padEnd(6)} ${r.name.padEnd(28)} ${r.missing ? 'missing' : r.ratio + ':1 at ' + r.size}${r.required ? (r.pass ? '  ok (4.5:1)' : '  FAIL: under 4.5:1') : ''}`)
   return rows
 }
 
@@ -1024,8 +1175,11 @@ function seedCards({ lines = 5, pairs = true, open = 3, where = 'middle', kinds 
       const kind = K[(list.length) % K.length]
       const text = (l.s.textContent || '').trim()
       const data = kind === 'define' ? { word: 'variance', senses: [{ text: 'In statistics, how widely values spread around their mean.' }, { text: 'The fact of being different.' }] }
-        : kind === 'quiz' ? { questions: [{ q: 'MOCK Q1. What does the passage name first?', answer: 'Ideas', why: 'It is named first.', cite: '{p. 1}' }, { q: 'Q2?', answer: 'B', why: '', cite: '' }, { q: 'Q3?', answer: 'C', why: '', cite: '' }], i: 0, results: [] } : null
-      const turns = kind === 'define' || kind === 'quiz' ? [] : [...(kind === 'ask' ? [{ role: 'user', content: question || 'Why does this hold here?' }] : []), { role: 'assistant', content: answer && list.length === open ? answer : `MOCK ${kind}. The bottom line of card ${list.length + 1} comes first {p. 1}. Then a second sentence fills the second line of the folded card.` }]
+        : kind === 'quiz' ? { questions: [{ q: 'MOCK Q1. What does the passage name first?', answer: 'Ideas', why: 'It is named first.', cite: '{p. 1}' }, { q: 'Q2?', answer: 'B', why: '', cite: '' }, { q: 'Q3?', answer: 'C', why: '', cite: '' }], i: 0, results: [] }
+        : kind === 'figure' ? { label: `Figure ${list.length + 1}`, region: 'figure' } : null
+      // Related (PR C) answers with its bottom line, then its places; a figure's card (PR E) is one thread.
+      const mock = kind === 'related' ? `MOCK related. Card ${list.length + 1}'s idea comes back twice {p. 1}.\n{p. 1} Where it first comes up.\n{p. 2} Where it returns.` : `MOCK ${kind}. The bottom line of card ${list.length + 1} comes first {p. 1}. Then a second sentence fills the second line of the folded card.`
+      const turns = kind === 'define' || kind === 'quiz' ? [] : [...(kind === 'ask' ? [{ role: 'user', content: question || 'Why does this hold here?' }] : []), { role: 'assistant', content: answer && list.length === open ? answer : mock }]
       list.push(TinctMargin.newCard({ kind, page: anchor[0].n, anchor, text, turns, data, at: Date.now() + list.length }))
     })
   })
@@ -1048,6 +1202,38 @@ function crowding(want = null) {
   const inView = visibleCards().length
   // `want`: at least this many in view (cards synced from earlier rows of the matrix may add to the seeded ones).
   return { ok: col.mode !== 'column' || (!stack && cards === inView && (want == null || inView >= want)), mode: col.mode, stack, cards, rows, inView }
+}
+// Release train 2: PR E's figure detection and PR F's reading order agree on page n. Every text item
+// F keeps out of the body (a figure's labels and caption, in the text layer's .fig-col) lies in a figure
+// or caption E found, and no body line lies inside a figure E found (both in page fractions, 1% slack).
+// `labels`: the captions E must have found on the page.
+function figureOrderAgrees([n, labels]) {
+  const p = state.pages[n - 1], f = state.figs.get(n)
+  if (!p?.layer || !f) return { ok: false, why: 'not drawn or not detected', n }
+  const b = p.pg.getBoundingClientRect(), slack = 0.01
+  const box = el => { const r = el.getBoundingClientRect(); return { x: (r.left - b.left) / b.width, y: (r.top - b.top) / b.height, w: r.width / b.width, h: r.height / b.height } }
+  const inside = (q, o) => q.x >= o.x - slack && q.y >= o.y - slack && q.x + q.w <= o.x + o.w + slack && q.y + q.h <= o.y + o.h + slack
+  const overlaps = (q, o) => Math.min(q.x + q.w, o.x + o.w) - Math.max(q.x, o.x) > slack && Math.min(q.y + q.h, o.y + o.h) - Math.max(q.y, o.y) > slack
+  const areas = [...f.figures, ...f.captions.map(c => c.box)]
+  const out = [...p.layer.querySelectorAll('.fig-col span')].filter(sp => sp.textContent.trim()), body = [...p.layer.querySelectorAll('span')].filter(sp => !sp.closest('.side-col') && sp.textContent.trim())
+  const stray = out.filter(sp => !areas.some(o => inside(box(sp), o))).map(sp => sp.textContent.trim())
+  const crossed = body.filter(sp => f.figures.some(o => overlaps(box(sp), o))).map(sp => sp.textContent.trim().slice(0, 40))
+  const missing = labels.filter(l => !f.captions.some(c => c.label === l && c.fig != null))
+  return { ok: !stray.length && !crossed.length && !missing.length && out.length > 0, n, kept: out.length, stray, crossed, missing }
+}
+// Related and figure cards on a crowded page: each kind has a card folded to a one-line row or gathered into
+// "N more" (B's crowding), the open card stays open, and a gathered kind is named in the "more" row.
+function foldedKinds() {
+  if (col.mode !== 'column') return { ok: true, mode: col.mode }
+  const cards = store.get('cards:' + state.key) || [], stack = document.querySelector('.mr-stack:not([hidden])')
+  // Every seeded passage is in view, so a hidden card beside a "more" row is a gathered one.
+  const how = id => { const el = col.els.get(id); return !el || el.hidden ? (stack ? 'gathered' : 'hidden') : el.classList.contains('is-row') ? 'row' : el.classList.contains('is-open') ? 'open' : 'card' }
+  const by = {}
+  for (const c of cards) (by[c.kind] = by[c.kind] || []).push(how(c.id))
+  const stackText = stack?.innerText || ''
+  const named = kind => !by[kind]?.includes('gathered') || stackText.includes({ related: 'Related', figure: 'Figure' }[kind])
+  const ok = ['related', 'figure'].every(k => (by[k] || []).some(h => h === 'row' || h === 'gathered') && named(k)) && !!col.open && how(col.open) === 'open'
+  return { ok, by, stack: stackText.replace(/\s+/g, ' ').slice(0, 80) }
 }
 // The leader lines are attached: each dot is level with a passage in view and every card's label line has its line.
 function leadersAttached() {
@@ -1110,6 +1296,10 @@ async function columnMatrix(browser, origin) {
         // None open: opening one low on the screen scrolls its passage up and the others out of view.
         await page.evaluate(seedCards, { lines: 4, pairs: true, open: null, where: 'bottom' })
         await state('eight', [crowding, 8])
+        // Release train 2: C's Related and E's figure cards fold and gather under B's crowding rules like
+        // every other card: ten of them on five lines, one open, the oldest fold to rows, the last gather.
+        await page.evaluate(seedCards, { lines: 5, pairs: true, open: 4, where: 'middle', kinds: ['related', 'figure', 'explain'] })
+        await state('related-figure', foldedKinds)
         // A note on a crowded page: its card opens where the reader sees it, with the focus (never gathered, never lost).
         await page.evaluate(seedCards, { lines: 5, pairs: true, open: 0, where: 'middle' }); await settle(page)
         await page.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await settle(page)
@@ -1223,6 +1413,557 @@ async function resizeRun(browser, origin) {
   return out
 }
 
+/* ---------- PR C: an EPUB in the PDF reader (FIXES-2026-10-15 "EPUBs") ----------
+   The margin on an EPUB read here: the bar, More with Related, Explain and Related as cards, places
+   named by quoted words, no passage pictures, the document as chapters, a note, crowding, a zoom
+   that reflows the text, Copy quote naming the chapter. Each state must pass the layout check. The
+   EPUB is the anthology made above (no AI: every answer is mocked). */
+async function openEpubHere(browser, origin, { width, height, look, margin = true }) {
+  const hex = addBook(PDFS[0])
+  const opened = await readerPage(browser, origin, hex, { width, height, look })
+  // The EPUB margin is off in the reader (EPUB_MARGIN = false, Anders 15 Oct); this check turns it on for its page.
+  if (margin) await opened.page.evaluate(() => { window.TinctEpubMargin = true })
+  await opened.page.evaluate(async () => { const b = new Uint8Array(await (await fetch('/__margin/anthology.epub')).arrayBuffer()); await openBook('epub', b, 'anthology.epub', 'epub:' + 'ab'.repeat(12)) })
+  await opened.page.waitForSelector('.epub-pg'); await opened.page.waitForTimeout(900)
+  return opened
+}
+// Select `chars` characters of the `nth` paragraph of chapter `ch` (1-based), as a reader would.
+function selectEpub({ ch = 3, nth = 1, chars = 110 } = {}) {
+  const p = state.pages[ch - 1].pg.querySelectorAll('p')[nth], t = p.firstChild
+  getSelection().setBaseAndExtent(t, 0, t, Math.min(chars, t.textContent.length))
+  return getSelection().toString()
+}
+// Cards on the first lines of the paragraphs in view, kept as offsets (span) as the reader keeps them.
+function seedEpubCards({ count = 6, open = 1 } = {}) {
+  const hdr = $('hdr').getBoundingClientRect().bottom, list = []
+  for (const p of state.pages) for (const para of p.pg.querySelectorAll('p')) {
+    const r = para.getBoundingClientRect(); if (r.top < hdr + 10 || r.top > innerHeight - 60 || list.length >= count) continue
+    const t = para.firstChild; if (!t || t.textContent.length < 40) continue
+    const range = document.createRange(); range.setStart(t, 0); range.setEnd(t, 40)
+    const info = { text: range.toString(), page: p.n, range }
+    const kind = ['explain', 'related', 'simplify', 'counterpoint', 'ask', 'factcheck'][list.length % 6]
+    const turns = kind === 'related' ? [{ role: 'assistant', content: 'MOCK thread.\n\n“Modern lamps consist of two pillars” The second essay opens on it.' }] : [...(kind === 'ask' ? [{ role: 'user', content: 'Why here?' }] : []), { role: 'assistant', content: `MOCK ${kind}. The bottom line of card ${list.length + 1}. Then a second sentence.` }]
+    list.push(withSpan(TinctMargin.newCard({ kind, page: p.n, anchor: anchorOf(selectionShapes(range)), text: info.text, turns, at: Date.now() + list.length }), info))
+  }
+  store.set('cards:' + state.key, list); col.view = null
+  openCard(list[open]?.id || null)
+  return list.length
+}
+async function epubCheck(browser, origin) {
+  const rows = []
+  const combos = SAMPLE ? VIEWPORTS.map(([w, h], i) => [w, h, rotate(LOOKS, i + 1)]) : VIEWPORTS.flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+  for (const [width, height, look] of combos) {
+    const tag = `epub-${width}x${height}-${look}`, found = [], shots = {}
+    const keep = (width === 1440 && height === 900) || (width === 390 && height === 844) || !!process.env.KEEP_ALL
+    let opened
+    try { opened = await openEpubHere(browser, origin, { width, height, look }) }
+    catch (e) { rows.push({ viewport: `${width}×${height}`, look, problems: 1, details: [{ kind: 'error', el: String(e.message || e).slice(0, 200) }] }); continue }
+    const { ctx, page, problems } = opened
+    const cond = (name, pass, detail) => { if (!pass) found.push({ state: name, kind: 'condition', el: JSON.stringify(detail ?? null).slice(0, 300) }) }
+    const check = async (name, test) => {
+      await settle(page)
+      found.push(...(await checkMargin(page)).map(p => ({ state: name, ...p })))
+      if (test) { const r = await page.evaluate(test); if (!r || r.ok === false) found.push({ state: name, kind: 'condition', el: JSON.stringify(r).slice(0, 300) }) }
+      if (keep) { const path = join(OUT, `${tag}-${name}.png`); await page.screenshot({ path }); shots[name] = path }
+    }
+    const openCardSel = width < 700 ? '.mr-sheet' : '.mr-card.is-open'
+    try {
+      const mode = await page.evaluate(() => col.mode)
+      cond('open', ['column', 'marks', 'phone'].includes(mode) && await page.evaluate(() => marginOn() && !document.querySelector('.byob-dock')), { mode })
+      await page.evaluate(() => goTo({ page: 3, frac: 0.02 })); await page.waitForTimeout(600)
+      await page.evaluate(selectEpub, { ch: 3, nth: 1 }); await page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 5000 })
+      await check('bar')
+      await page.click('.mr-float [data-m="more"]'); await page.waitForSelector('.mr-more, .mr-pmore')
+      await check('more', () => ({ ok: !!document.querySelector('.mr-float [data-m="related"]') }))
+      const r0 = account.requests.length
+      await page.click('.mr-float [data-m="related"]'); await page.waitForTimeout(1300)
+      const rel = account.requests.slice(r0).find(r => r.body?.companion?.intent === 'related')
+      const chapters = await page.evaluate(() => state.pages.length)
+      cond('related-request', rel && rel.body.companion.context.kind === 'epub' && rel.body.companion.document?.kind === 'epub' && rel.body.companion.document.units.length === chapters && !JSON.stringify(rel.body.messages).includes('"type":"image"'), rel?.body?.companion && { context: rel.body.companion.context.kind, doc: rel.body.companion.document?.kind, units: rel.body.companion.document?.units?.length })
+      await check('related', () => ({ ok: document.querySelectorAll('button.mr-related__row.is-quote').length === 2 && /Related · ch\. 3/.test(document.querySelector('.mr-card.is-open, .mr-sheet')?.innerText || ''), rows: document.querySelectorAll('.mr-related__row').length }))
+      await page.click(`${openCardSel} button.mr-related__row >> nth=1`)
+      await page.waitForTimeout(1300)
+      cond('related-click', await page.evaluate(() => currentPlace().page === 4 && document.querySelectorAll('.mr-flash-layer i').length > 0), await page.evaluate(() => [currentPlace(), document.querySelectorAll('.mr-flash-layer i').length]))
+      await page.evaluate(() => { if (col.sheet) closeSheet2(); openCard(null); goTo({ page: 3, frac: 0.02 }) }); await page.waitForTimeout(500)
+      // Explain: a card in the margin, the chapter in its label, the passage underlined, no picture.
+      await page.evaluate(selectEpub, { ch: 3, nth: 2 }); await page.waitForSelector('.mr-bar, .mr-pbar')
+      const r1 = account.requests.length
+      await page.click('.mr-float [data-m="explain"]'); await page.waitForTimeout(1200)
+      const ex = account.requests.slice(r1).find(r => r.body?.companion?.intent === 'explain')
+      cond('explain-request', ex && ex.body.companion.context.kind === 'epub' && !JSON.stringify(ex.body.messages).includes('"type":"image"'), ex?.body?.companion?.context?.kind)
+      await check('explain', () => ({ ok: /Explain · ch\. 3/.test(document.querySelector('.mr-card.is-open, .mr-sheet')?.innerText || '') && document.querySelectorAll('.mr-ul-layer i').length > 0 }))
+      // Six cards on the lines in view, one open: no overlap, the rest gather; then a zoom reflows the text and the cards follow it.
+      if (width >= 700) {
+        await page.evaluate(() => { openCard(null); getSelection().removeAllRanges() })
+        await page.evaluate(seedEpubCards, { count: 6, open: 1 })
+        await check('cards6', () => ({ ok: document.querySelectorAll('.mr-card, .mr-mark').length >= 1 }))
+        await page.evaluate(() => setZoom(1.2)); await page.waitForTimeout(700)
+        await check('zoomed', () => {
+          const c = cardById(col.open); if (!c?.span) return { ok: false, why: 'no open card' }
+          const p = state.pages[c.span[0] - 1], r = [...rangeFromOffsets(p.pg, c.span[1], c.span[2]).getClientRects()].find(q => q.width > 0.5)
+          const v = visibleCards().find(x => x.card.id === c.id)
+          return { ok: !!v && Math.abs(v.line.top - r.top) < 4, line: v?.line.top, range: r.top }
+        })
+        await page.evaluate(() => setZoom(1)); await page.waitForTimeout(500)
+      }
+      // A highlight and its note: offsets in the chapter; the note is a card in the margin.
+      await page.evaluate(() => { if (col.sheet) closeSheet2(); openCard(null); store.set('cards:' + state.key, []); col.view = null; goTo({ page: 3, frac: 0.02 }) }); await page.waitForTimeout(400)
+      await page.evaluate(selectEpub, { ch: 3, nth: 3, chars: 60 }); await page.waitForSelector('.mr-bar, .mr-pbar')
+      await page.click('.mr-float [data-m="note"]'); await page.waitForSelector('.mr-note .mr-note__field')
+      await page.fill('.mr-note__field', 'A note on an EPUB passage.'); await page.click('.mr-note [data-m="save"]'); await page.waitForTimeout(400)
+      const hl = await page.evaluate(() => highlights())
+      cond('note', hl.length === 1 && hl[0].start != null && hl[0].note === 'A note on an EPUB passage.' && await page.evaluate(() => viewCards().some(c => c.kind === 'note')), hl)
+      await check('note')
+      // Copy quote names the chapter.
+      await ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin })
+      await page.evaluate(selectEpub, { ch: 3, nth: 1, chars: 50 }); await page.waitForSelector('.mr-bar, .mr-pbar')
+      await page.click('.mr-float [data-m="more"]'); await page.click('.mr-float [data-m="copy"]'); await page.waitForTimeout(300)
+      const clip = await page.evaluate(() => navigator.clipboard.readText()).catch(() => '')
+      cond('copy', /\n— Lamplight Essays, ch\. 3$/.test(clip), clip)
+    } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e).replace(/\u001b\[\d+m/g, '').slice(-500) }) }
+    const n = found.length + problems.length
+    rows.push({ viewport: `${width}×${height}`, look, problems: n, details: [...found, ...problems], screenshots: shots })
+    console.log(`${tag}: ${n} problem(s)`, n ? JSON.stringify([...found, ...problems]).slice(0, 600) : '')
+    await ctx.close()
+  }
+  return rows
+}
+
+/* ---------- Figures (FIXES-2026-10-15 items 4–7), on the figure paper ----------
+   Detection (the labelled diagram, the figure beside text, the caption fallback), the chip inside the
+   page and the screen (a figure at the page's left edge, a figure just under the top bar), the figure's
+   card beside its figure with its thumbnail and its own thread, and figure questions sending the figure. */
+const FIGURE_VIEWPORTS = (process.env.FIGURE_VIEWPORTS || '1440x900,1280x800,1181x800,1024x768,390x844,360x740').split(',').map(v => v.split('x').map(Number))
+// The chip and the figure's card: inside the page and the screen, below the top bar.
+const FIG_SELECTORS = { ...SELECTORS, bar: SELECTORS.bar + ', .byob-hot-chip' }
+function chipInside() {
+  const chip = document.querySelector('.byob-hot-chip'); if (!chip) return { ok: false, why: 'no chip' }
+  const r = chip.getBoundingClientRect(), pg = chip.closest('.pdf-sheet').getBoundingClientRect(), hdr = document.getElementById('hdr').getBoundingClientRect().bottom
+  const sr = document.getElementById('scroll').getBoundingClientRect(), right = Math.min(innerWidth, sr.left + document.getElementById('scroll').clientWidth)
+  const inPage = r.left >= pg.left - 0.5 && r.right <= pg.right + 0.5, inView = r.left >= -0.5 && r.right <= right + 0.5 && r.top >= hdr - 0.5 && r.bottom <= innerHeight + 0.5
+  const wide = r.width > pg.width - 16
+  return { ok: (inPage || wide) && inView, rect: [r.left, r.top, r.right, r.bottom].map(Math.round), page: [pg.left, pg.right].map(Math.round), hdr: Math.round(hdr) }
+}
+async function figureMatrix(browser, origin) {
+  const rows = [], hex = addBook(FIGURE_PAPER)
+  const combos = SAMPLE ? FIGURE_VIEWPORTS.filter(([w]) => [1440, 1024, 390].includes(w)).map(([w, h], i) => [w, h, rotate(LOOKS, i)]) : FIGURE_VIEWPORTS.flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+  for (const [width, height, look] of combos) {
+    const tag = `figures-${width}x${height}-${look}`, found = [], shots = {}
+    let opened
+    try { opened = await readerPage(browser, origin, hex, { width, height, look }) }
+    catch (e) { rows.push({ pdf: 'figure_paper', viewport: `${width}×${height}`, look, pass: false, problems: 1, details: [{ kind: 'error', el: String(e.message || e).slice(0, 200) }] }); continue }
+    const { ctx, page, problems } = opened
+    const keep = (width === 1440 || width === 390) && (look === 'paper' || look === 'night')
+    const check = async (name, cond) => {
+      await settle(page)
+      found.push(...(await checkMargin(page, FIG_SELECTORS)).map(p => ({ state: name, ...p })))
+      if (cond) { const r = await page.evaluate(...[].concat(cond)); if (!r || r.ok === false) found.push({ state: name, kind: 'condition', el: JSON.stringify(r).slice(0, 400) }) }
+      const att = await page.evaluate(leadersAttached); if (!att.ok) found.push({ state: name, kind: 'leaders', el: JSON.stringify(att) })
+      if (keep) { const path = join(OUT, `${tag}-${name}.png`); await page.screenshot({ path }); shots[name] = path }
+    }
+    // A page in view (its figure `fy` of the way down the page at `at` of the screen), drawn and its figures found.
+    const show = async (n, fy = 0, at = 0.25) => {
+      await page.evaluate(([n, fy, at]) => { const p = state.pages[n - 1], sr = $('scroll').getBoundingClientRect(), b = p.pg.getBoundingClientRect(); $('scroll').scrollTop += b.top + fy * b.height - (sr.top + at * sr.height) }, [n, fy, at])
+      await page.waitForFunction(n => state.figs.has(n) && state.pages[n - 1].figures, n, { timeout: 15000 }); await settle(page)
+    }
+    // Hover (desktop) or tap (phone) at a point of page n given in page fractions.
+    const point = (n, fx, fy) => page.evaluate(([n, fx, fy]) => { const b = state.pages[n - 1].pg.getBoundingClientRect(); return { x: b.left + fx * b.width, y: b.top + fy * b.height } }, [n, fx, fy])
+    const offer = async (n, fx, fy) => { await hideAll(); const { x, y } = await point(n, fx, fy); if (width < 700) await page.mouse.click(x, y); else { await page.mouse.move(x - 40, y - 40); await page.mouse.move(x, y, { steps: 4 }) } await page.waitForSelector('.byob-hot-chip', { timeout: 4000 }) }
+    const hideAll = () => page.evaluate(() => { hideHot(); openCard(null); getSelection().removeAllRanges() })
+    try {
+      // Detection: the labelled diagram (no row of circles is a figure alone), the block diagram beside text,
+      // and the caption fallback for the table and for a figure larger than half the page.
+      for (const n of [1, 2, 3, 4]) await show(n)
+      // Release train 2: on every page of the figure paper, PR F's reading order keeps out of the body only what PR E's detection holds as a figure or its caption.
+      for (const [n, labels] of [[1, ['Figure 1']], [2, ['Figure 2']], [3, ['Table 1']], [4, ['Figure 3']]]) { await show(n); await check(`order-${n}`, [figureOrderAgrees, [n, labels]]) }
+      await check('detected', () => {
+        const f = n => state.figs.get(n), cap = (n, label) => f(n).captions.find(c => c.label === label), fig = (n, label) => { const c = cap(n, label); return c && f(n).figures[c.fig] }
+        const net = fig(1, 'Figure 1'), block = fig(2, 'Figure 2'), table = fig(3, 'Table 1'), big = fig(4, 'Figure 3')
+        // In page fractions: the diagram's rows run from y 0.30 to 0.42; the block diagram's left edge is 12pt in; the table under its caption; the large figure is 0.66 of the page tall.
+        const ok = !!net && net.y < 0.32 && net.y + net.h > 0.4 && f(1).figures.length === 1 && !!block && block.x < 0.03 && block.x + block.w < 0.29 && !!table && table.y > 0.24 && !!big && big.h > 0.6
+        return { ok, net, block, table, big, counts: [1, 2, 3, 4].map(n => f(n).figures.length) }
+      })
+      // A figure at the page's left edge: the chip is kept inside the page and the screen.
+      await show(2, 0.25, 0.4); await offer(2, 0.1, 0.3)
+      await check('fig-left', chipInside)
+      // A figure just under the top bar: no room above it, so the chip goes below or inside it, never under the bar.
+      await show(1, 0.29, 0.005); await offer(1, 0.5, 0.36)
+      await check('fig-top', chipInside)
+      // The fallback: over a caption, its figure is offered (the large figure has no other way in).
+      await show(4, 0.5, 0.5)
+      const capAt = await page.evaluate(() => { const c = state.figs.get(4).captions.find(c => c.label === 'Figure 3'); return { fx: c.box.x + 0.05, fy: c.box.y + c.box.h / 2 } })
+      await offer(4, capAt.fx, capAt.fy)
+      await check('caption', () => { const hot = document.querySelector('.byob-hot'), pg = hot?.closest('.pdf-sheet').getBoundingClientRect(), r = hot?.getBoundingClientRect(); return { ok: !!hot && r.height / pg.height > 0.6, h: r && r.height / pg.height } })
+      // The figure's card: Explain on the diagram opens a card beside it (thumbnail, leader line), with the figure's picture and its own thread.
+      await show(1, 0.3, 0.3); await offer(1, 0.5, 0.36)
+      const before = account.requests.length, wholeBefore = await page.evaluate(() => chat.turns.length)
+      await page.click('.byob-hot-chip [data-a="explain"]')
+      await page.waitForFunction(() => { const c = cardById(col.open); return c && c.kind === 'figure' && c.turns.length === 1 }, null, { timeout: 8000 })
+      await page.waitForFunction(() => !!document.querySelector('.mr-card.is-open .mr-thumb img, .mr-sheet .mr-thumb img'), null, { timeout: 8000 })
+      const sent = account.requests.slice(before).find(r => r.path === '/api/chat')
+      const pics = (sent?.body?.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image') || []
+      const rules = JSON.stringify(sent?.body?.messages?.[0] || '')
+      await check('fig-card', [whole => {
+        const card = cardById(col.open), el = document.querySelector('.mr-sheet') || document.querySelector('.mr-card.is-open'), f = state.pages[0].pg.getBoundingClientRect(), box = TinctMargin.anchorOfCard(card)[0]
+        const figTop = f.top + box.y * f.height, r = el?.getBoundingClientRect()
+        // Beside: in the column the card starts level with the figure's top (less the 4px lift), unless the column moved it up to fit; marks float it beside the mark; the phone's bottom card sits below the figure.
+        const beside = col.mode === 'column' ? Math.abs(r.top - (figTop - 4)) < 3 || r.bottom <= f.top + (box.y + box.h) * f.height + 2 : col.mode === 'marks' ? !!el?.classList.contains('is-floating') : r.top >= figTop
+        const label = el?.querySelector('.mr-card__name')?.textContent || el?.getAttribute('aria-label')
+        return { ok: beside && /^Figure 1 · p\. 1$/.test(label || '') && !!el.querySelector('.mr-thumb img')?.naturalWidth && chat.turns.length === whole && keptCards().filter(c => c.kind === 'figure' && !c.gone).length === 1, mode: col.mode, beside, label, top: r && Math.round(r.top), figTop: Math.round(figTop) }
+      }, wholeBefore])
+      if (!(pics.length === 1 && /This conversation is about one figure on page 1 \(Figure 1\)/.test(rules) && /attached image is that figure/.test(rules) && sent.body.companion?.document)) found.push({ state: 'fig-card', kind: 'request', el: JSON.stringify({ images: pics.length, rules: rules.slice(0, 200), document: !!sent?.body?.companion?.document }) })
+      // A follow-up stays in the figure's thread; Explain on the same figure again opens the same card.
+      await page.evaluate(() => followUp(col.open, 'What do the rows stand for?'))
+      await page.waitForFunction(() => cardById(col.open)?.turns.length === 3, null, { timeout: 8000 })
+      await page.evaluate(() => openCard(null)); await settle(page); await offer(1, 0.5, 0.36); await page.click('.byob-hot-chip [data-a="explain"]'); await settle(page)
+      await check('fig-thread', () => { const all = keptCards().filter(c => c.kind === 'figure' && !c.gone), c = cardById(col.open); return { ok: all.length === 1 && c?.id === all[0].id && c.turns.length === 3 && chat.turns.length === 0, cards: all.length, turns: c?.turns.length } })
+      // Item 7: a whole-PDF question naming "Figure 1" on the reader's page sends that figure's picture.
+      const n0 = account.requests.length
+      await page.evaluate(() => { openCard(null); openWhole({ prompt: 'What does Figure 1 show?' }) })
+      await page.waitForFunction(() => chat.turns.some(t => t.role === 'assistant'), null, { timeout: 8000 })
+      const asked = account.requests.slice(n0).find(r => /What does Figure 1 show\?/.test(JSON.stringify(r.body.messages || '')))
+      const askPics = (asked?.body?.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image') || []
+      if (!(askPics.length === 1 && /attached image is Figure 1 on page 1/.test(JSON.stringify(asked.body.messages[0])))) found.push({ state: 'fig-ask', kind: 'request', el: JSON.stringify({ asked: !!asked, images: askPics.length }) })
+      await page.evaluate(() => { chat.turns = []; closeChat() })
+    } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e).replace(/\u001b\[\d+m/g, '').slice(-700) }) }
+    const n = found.length + problems.length
+    rows.push({ pdf: 'figure_paper', viewport: `${width}×${height}`, look, pass: !n, problems: n, details: [...found, ...problems], screenshots: shots })
+    console.log(`${tag}: ${n} problem(s)`, n ? JSON.stringify([...found, ...problems]).slice(0, 900) : '')
+    await ctx.close()
+  }
+  return rows
+}
+
+/* ---------- Scans (PR D; docs/margin/gloss-test/edge.html, 15 Oct 2026) ----------
+   A scan is made here from a text fixture (scan_0042.pdf, drawn at 144 dpi in grey and stored as page
+   pictures only, no text), and the mocked recognition returns that fixture's own lines as blocks with
+   their boxes, so where the text layer lands can be checked against where the words are printed.
+   IMG_20240512_scan.pdf (pictures only) is the scan recognised before boxes existed. */
+async function makeScan(browser, origin, file) {
+  const ctx = await browser.newContext(), page = await ctx.newPage()
+  await page.goto(`${origin}/library`)
+  await page.addScriptTag({ url: '/lab/addbook/vendor/pdfjs/pdf.min.js' })
+  const pages = await page.evaluate(async b64 => {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/lab/addbook/vendor/pdfjs/pdf.worker.min.js'
+    const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0))
+    const pdf = await pdfjsLib.getDocument({ data: bytes }).promise, out = []
+    for (let n = 1; n <= pdf.numPages; n++) {
+      const pg = await pdf.getPage(n), vp = pg.getViewport({ scale: 2 }), unit = pg.getViewport({ scale: 1 })
+      const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height)
+      const g = c.getContext('2d'); g.fillStyle = '#f4f1ea'; g.fillRect(0, 0, c.width, c.height)
+      await pg.render({ canvasContext: g, viewport: vp }).promise
+      const d = g.getImageData(0, 0, c.width, c.height).data, grey = new Uint8Array(c.width * c.height)
+      for (let i = 0; i < grey.length; i++) grey[i] = Math.round(d[i * 4] * 0.299 + d[i * 4 + 1] * 0.587 + d[i * 4 + 2] * 0.114)
+      let bin = ''; for (let i = 0; i < grey.length; i += 0x8000) bin += String.fromCharCode(...grey.subarray(i, i + 0x8000))
+      // Its lines as recognition would give them: one block a line, its box in thousandths of the page.
+      const items = (await pg.getTextContent()).items.filter(it => it.str.trim())
+      const blocks = items.map(it => {
+        const tx = pdfjsLib.Util.transform(unit.transform, it.transform), size = Math.hypot(tx[2], tx[3])
+        const b = [tx[4] / unit.width, (tx[5] - size * 0.8) / unit.height, (tx[4] + it.width) / unit.width, (tx[5] + size * 0.25) / unit.height].map(v => Math.round(v * 1000))
+        return { t: size >= 18 ? 'h1' : /^\d+$/.test(it.str.trim()) ? 'num' : 'p', x: it.str.trim(), b }
+      })
+      out.push({ w: c.width, h: c.height, grey: btoa(bin), blocks })
+    }
+    return out
+  }, readFileSync(file).toString('base64'))
+  await ctx.close()
+  const pdf = makePdf({ pages: pages.map(pg => ({ images: [{ x: 0, y: 0, w: 612, h: 792, pw: pg.w, ph: pg.h, data: Buffer.from(pg.grey, 'base64') }] })) })
+  return { pdf, recognised: pages.map((pg, i) => ({ page: i + 1, printed_page: null, columns: 1, blocks: pg.blocks })) }
+}
+async function scanChecks(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const made = await makeScan(browser, origin, join(REPO, 'addbooks/web/test/pdf-fixtures/scan_0042.pdf'))
+  const SCAN = join(OUT, 'scan_0042-scanned.pdf'); writeFileSync(SCAN, made.pdf)
+  const hex = createHash('sha256').update(made.pdf).digest('hex').slice(0, 24)
+  scanMock.recognised.set(hex, made.recognised)
+  const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const spans = (page, n = 1) => page.evaluate(k => document.querySelectorAll(`.pdf-sheet[data-page="${k}"] .text-layer span`).length, n)
+  const fresh = async ({ width, height, legacy }) => {
+    const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700 })
+    await ctx.addInitScript(([session]) => {
+      try {
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-addbook:rights:' + session.user.id, JSON.stringify({ at: new Date().toISOString(), v: '2026-10-08.2' }))
+      } catch {}
+      // Every line the toast says, as it says it (a later one replaces it on screen).
+      window.__toasts = []
+      new MutationObserver(() => { const t = document.querySelector('.byob-toast'); if (t && !t.hidden && t.textContent && window.__toasts.at(-1) !== t.textContent) window.__toasts.push(t.textContent) })
+        .observe(document, { subtree: true, childList: true, characterData: true, attributes: true })
+    }, [SESSION])
+    const page = await ctx.newPage(), problems = []
+    page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+    scanMock.legacy = !!legacy; scanMock.uploadDelay = 2500; scanMock.log.length = 0
+    // Added on My shelf a moment ago (add-engine keepFile): kept on this device, not yet in the account.
+    await page.goto(`${origin}/library`)
+    await page.evaluate(async ([b64, hex, owner]) => {
+      const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0))
+      const db = await new Promise((resolve, reject) => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error) })
+      await new Promise((resolve, reject) => { const tx = db.transaction('books', 'readwrite'); tx.objectStore('books').put({ key: 'pdf:' + hex, kind: 'pdf', name: 'scan_0042-scanned.pdf', title: 'scan_0042-scanned', author: '', owner, size: bytes.length, addedAt: Date.now(), openedAt: Date.now(), bytes: bytes.buffer }); tx.oncomplete = resolve; tx.onerror = () => reject(tx.error) })
+      db.close()
+    }, [made.pdf.toString('base64'), hex, SESSION.user.id])
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    return { ctx, page, problems }
+  }
+  const noText = page => page.evaluate(() => (window.__toasts || []).some(t => /scan without text/.test(t)))
+
+  // 1. The first-open race against an account that answers 404 until the copy is stored (the Worker before
+  //    PR D): asked again once the copy is in, and the offer comes; the "can't be read aloud" line never shows.
+  {
+    const removeAll = () => { account.books = account.books.filter(b => !b.sha256.startsWith(hex)); scanMock.jobs.delete(hex) }
+    removeAll()
+    const { ctx, page, problems } = await fresh({ width: 1440, height: 900, legacy: true })
+    const offer = await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).then(() => true).catch(() => false)
+    const asks = scanMock.log.filter(([m, part, h]) => m === 'GET' && part === 'job' && h === hex)
+    ok('an account that answers 404 until the copy is stored: the scan is asked about again once it is saved, and recognition is offered', offer && asks.length >= 2 && asks[0][3] === false && asks.at(-1)[3] === true, { offer, asks })
+    ok('...and "This PDF is a scan without text" never shows meanwhile', !await noText(page) && !problems.length, { toasts: await page.evaluate(() => window.__toasts), problems })
+    await ctx.close()
+    removeAll()
+  }
+  // 2. The same against PR D's Worker ({ state: 'none', stored: false }), then recognised, on the desktop.
+  const { ctx, page, problems } = await fresh({ width: 1440, height: 900 })
+  const t0 = Date.now()
+  const offered = await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).then(() => Date.now() - t0).catch(() => null)
+  const first = scanMock.log.find(([m, part, h]) => m === 'GET' && part === 'job' && h === hex)
+  ok('a scan added now: recognition is offered at once, while its account copy is still on its way (status "none", stored: false)', offered !== null && first?.[3] === false && offered < scanMock.uploadDelay + 2000, { offered, first })
+  ok('the "can\'t be read aloud" line is never shown while recognition is on', !await noText(page))
+  // Before its text is recognised, a scan offers no "Before you start": no trigger, and B makes nothing
+  // (it once made a primer of blank pages that failed after 80 s).
+  await page.mouse.click(1200, 600); await page.waitForTimeout(300)
+  const q0 = chats().length
+  await page.keyboard.press('b'); await page.waitForTimeout(800)
+  const noPrimer = await page.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), primer: !!document.querySelector('.mr-primer'), marks: document.querySelectorAll('.mr-mark.is-trigger, [data-trigger]').length }))
+  ok('a scan with no text yet: no "Before you start" trigger, and B opens and asks nothing', !noPrimer.trigger && !noPrimer.primer && !noPrimer.marks && !chats().slice(q0).some(r => r.body?.companion?.intent === 'chapter'), { noPrimer, asked: chats().slice(q0).map(r => r.body?.companion?.intent) })
+  await shot(page, 'scan-1440x900-offer')
+  // Started before the copy is stored: it waits for it, then sends the pages.
+  await page.click('.byob-ocr [data-ocr="start"]')
+  const layered = await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 60000 }).then(() => true).catch(() => false)
+  ok('recognised (mocked): the scan stays in the PDF reader, never the book reader, and its words are laid over page 1', layered && new URL(page.url()).pathname === '/lab/addbook/' && (await spans(page)) > 10, { url: page.url(), spans: await spans(page) })
+  const puts = scanMock.log.filter(([m, part]) => m === 'PUT' && part === 'pages')
+  ok('the pages were sent after the account copy was stored, every one', puts.length === made.recognised.length && puts.every(([, , , stored]) => stored), puts)
+  // Placement: each line's span over its printed words (the fixture's own boxes), within 1% of the page.
+  const placed = await page.evaluate(lines => {
+    const pg = document.querySelector('.pdf-sheet[data-page="1"] .pg').getBoundingClientRect()
+    const list = [...document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span')], seen = new Map()
+    return lines.map(L => {
+      // The same line of text can be printed twice on a page: the nth time, the nth span.
+      const t = L.x.replace(/\s+/g, ' '), k = seen.get(t) || 0; seen.set(t, k + 1)
+      const sp = list.filter(s => s.textContent.replace(/\s+/g, ' ').trim() === t)[k]; if (!sp) return { x: L.x, missing: true }
+      const r = sp.getBoundingClientRect()
+      return { x: L.x.slice(0, 30), dl: Math.abs((r.left - pg.left) / pg.width - L.b[0] / 1000), dt: Math.abs((r.top - pg.top) / pg.height - L.b[1] / 1000), dr: Math.abs((r.right - pg.left) / pg.width - L.b[2] / 1000) }
+    })
+  }, made.recognised[0].blocks.filter(b => b.t === 'p'))
+  const off = placed.filter(q => q.missing || q.dl > 0.01 || q.dt > 0.012 || q.dr > 0.015)
+  ok('every recognised line of page 1 sits over its printed words: left, top and right within about 1% of the page', placed.length > 10 && !off.length, off.slice(0, 5))
+  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is one tap away', await page.evaluate(() => !document.getElementById('playBtn').disabled && !hasNoText() && !document.getElementById('textBtn').hidden))
+  // Selection on the scan opens the margin's bar.
+  const selected = await selectText(page)
+  const bar = await page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
+  await page.waitForTimeout(250)
+  const barProblems = await checkMargin(page)
+  ok('selecting words on the scan opens the margin bar, laid out cleanly', !!selected && bar && !barProblems.length, { selected, barProblems })
+  await shot(page, 'scan-1440x900-bar')
+  // Explain from the bar: the passage and the whole document are the recognised text.
+  const c0 = chats().length
+  await page.click('.mr-bar [data-m="explain"]').catch(() => {})
+  await page.waitForTimeout(1500)
+  const explain = chats().slice(c0).find(r => r.body?.companion?.intent === 'explain')
+  const units = explain?.body?.companion?.document?.units || []
+  const p2 = made.recognised[1].blocks.find(b => b.t === 'p').x
+  ok('Explain on the scan sends the selected words, and the whole document as its recognised text, page by page', explain && explain.body.companion.selection?.length > 10 && selected.includes(explain.body.companion.selection.slice(0, 12)) && units.length === made.recognised.length && units[1].text.includes(p2), { selection: explain?.body?.companion?.selection, units: units.map(u => u.text.slice(0, 40)) })
+  await page.waitForTimeout(400)
+  const cardProblems = await checkMargin(page)
+  ok('the answer card beside the scan is laid out cleanly', !cardProblems.length, cardProblems)
+  await shot(page, 'scan-1440x900-card')
+  // A whole-PDF question.
+  await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
+  const w0 = chats().length
+  await page.keyboard.press('/'); await page.keyboard.type('What does this report say?'); await page.keyboard.press('Enter'); await page.waitForTimeout(1500)
+  const whole = chats().slice(w0).find(r => /What does this report say\?/.test(JSON.stringify(r.body.messages)))
+  ok('a whole-PDF question on the scan carries every page\'s recognised text, never a blank page', whole?.body?.companion?.scope === 'whole' && whole.body.companion.document?.units?.length === made.recognised.length && whole.body.companion.document.units.every(u => u.text.trim().length > 20), { units: whole?.body?.companion?.document?.units?.map(u => u.text.length) })
+  // The primer (B): the unit's pages are the recognised text.
+  await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
+  await page.evaluate(() => goTo({ page: 1, frac: 0 })); await page.waitForTimeout(600)
+  const b0 = chats().length
+  await page.keyboard.press('b')
+  const primed = await page.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 10000 }).then(() => true).catch(() => false)
+  const pr = chats().slice(b0).find(r => r.body?.companion?.intent === 'chapter')
+  ok('the primer on the scan is made from its recognised text and shows in the column', primed && pr?.body?.companion?.context?.pages?.every(pg => pg.text.trim().length > 20) && pr.body.companion.document?.units?.length === made.recognised.length, { primed, pages: pr?.body?.companion?.context?.pages?.map(pg => pg.text.length) })
+  await page.waitForTimeout(300)
+  const primerProblems = await checkMargin(page)
+  ok('the primer beside the scan is laid out cleanly', !primerProblems.length, primerProblems)
+  await shot(page, 'scan-1440x900-primer')
+  ok('no page errors on the desktop', !problems.length, problems)
+  await ctx.close()
+
+  // 3. The phone, opening the recognised scan from the account (its recognised pages fetched again).
+  {
+    const ph = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' }).catch(e => ({ error: String(e.message || e) }))
+    if (ph.error) ok('phone: the recognised scan opens with its text layer', false, ph.error)
+    else {
+      const sel = await selectText(ph.page)
+      const pbar = await ph.page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
+      await ph.page.waitForTimeout(250)
+      const list = await checkMargin(ph.page)
+      ok('phone: the recognised scan opens in the PDF reader with its words over the page; a selection opens the bar, laid out cleanly', new URL(ph.page.url()).pathname === '/lab/addbook/' && !!sel && pbar && !list.length && !ph.problems.length, { sel, pbar, list, problems: ph.problems })
+      await shot(ph.page, 'scan-390x844-bar')
+      await ph.page.click('.mr-float [data-m="explain"], .mr-pbar [data-m="explain"]').catch(() => {})
+      await ph.page.waitForTimeout(1500)
+      const cardList = await checkMargin(ph.page)
+      ok('phone: the answer card over the scan is laid out cleanly', !cardList.length, cardList)
+      await shot(ph.page, 'scan-390x844-card')
+      await ph.ctx.close()
+    }
+  }
+  // 4. A scan recognised before boxes existed (IMG_20240512_scan.pdf, pictures only): laid out by its ink alone, in Night.
+  {
+    const old = addBook(join(REPO, 'addbooks/web/test/pdf-fixtures/IMG_20240512_scan.pdf'))
+    const say = n => `Page ${n} of the old letter tells of the harbour and the long winter that followed, as the letters go on.`
+    scanMock.recognised.set(old, [1, 2].map(n => ({ page: n, printed_page: null, blocks: [{ t: 'h2', x: `Letter ${n}` }, { t: 'p', x: say(n) }, { t: 'p', x: say(n).replace('old', 'second') }] })))
+    scanMock.jobs.set(old, { pages: 2, missing: new Set(), ready: new Set(), done: new Set([1, 2]) })
+    const O = await readerPage(browser, origin, old, { width: 1024, height: 768, look: 'night', minSpans: 4 }).catch(e => ({ error: String(e.message || e) }))
+    if (O.error) ok('a scan recognised without boxes opens with its text layer', false, O.error)
+    else {
+      const text = await O.page.evaluate(() => [...document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span')].map(s => s.textContent).join(''))
+      const sel = await selectText(O.page)
+      const b = await O.page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
+      await O.page.waitForTimeout(250)
+      const list = await checkMargin(O.page)
+      ok('a scan recognised without boxes (all picture): its words are on the page in order, selectable, the bar laid out cleanly', /Letter 1\s+Page 1 of the old letter/.test(text) && !!sel && b && !list.length && !O.problems.length, { text: text.slice(0, 80), sel, b, list, problems: O.problems })
+      await O.ctx.close()
+    }
+  }
+  scanMock.uploadDelay = 0; scanMock.legacy = false
+  return results
+}
+
+/* ---------- PR F: long books (FIXES-2026-10-15, items 8 to 12) ---------- */
+// Every read and write of the stored books (IndexedDB 'books') and when the first page is drawn, for the reopen row.
+function watchStore() {
+  window.__books = []
+  for (const op of ['get', 'put', 'getAll']) {
+    const f = IDBObjectStore.prototype[op]
+    IDBObjectStore.prototype[op] = function (...a) { if (this.name === 'books') window.__books.push([op, performance.now()]); return f.apply(this, a) }
+  }
+  const watch = () => { if (document.querySelector('.pdf-sheet canvas')) window.__drawn = performance.now(); else requestAnimationFrame(watch) }
+  requestAnimationFrame(watch)
+}
+async function longBooks(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const hex = addBook(BIG_BOOK), m = BOOK.meta, printed = n => String(n - m.offset)
+  const chats = from => account.requests.slice(from).filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const views = SAMPLE ? [[1440, 900, 'paper'], [390, 844, rotate(LOOKS, 2)]] : [[1440, 900, 'paper'], [1440, 900, 'night'], [1280, 800, 'book'], [390, 844, 'paper'], [390, 844, 'eink']]
+  for (const [width, height, look] of views) {
+    const tag = `long_book-${width}x${height}-${look}`, phone = width < 700
+    const A = await readerPage(browser, origin, hex, { width, height, look, at: m.figurePage })
+    const a = A.page
+    await A.ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin })
+    const problems = []
+    const layout = async state => { await a.waitForTimeout(300); problems.push(...(await checkMargin(a)).map(p => ({ state, ...p }))) }
+    // Item 10: the numbers the pages print, with no page labels in the file.
+    await a.waitForFunction(() => state.labels?.length > 400, null, { timeout: 60000 }).catch(() => {})
+    const labels = await a.evaluate(n => [state.labels?.[0], state.labels?.[2], state.labels?.[n], state.labels?.[444], pageLabel(currentPlace().page)], m.offset)
+    ok(`${tag}: printed page numbers stand for the file's (file page 445 is p. 423; front matter in roman; no page labels in the file)`, JSON.stringify(labels) === JSON.stringify(['i', 'iii', '1', '423', printed(m.figurePage)]), labels)
+    // The top bar and the page jump use the printed numbers too (Anders, 15 Oct): "p. 468 · 84%", a jump to "175" or "iii".
+    const bar = await a.evaluate(() => ({ pill: document.getElementById('pageLabel').textContent, progress: document.getElementById('progress').textContent, aria: document.getElementById('pageBtn').getAttribute('aria-label') }))
+    await a.evaluate(() => openJump()); await a.waitForSelector('.byob-jumpbox input')
+    const jump = await a.evaluate(() => ({ value: document.querySelector('.byob-jumpbox input').value, of: document.querySelector('.byob-jumpbox span').textContent }))
+    await a.fill('.byob-jumpbox input', printed(m.sarsaPage)); await a.press('.byob-jumpbox input', 'Enter'); await a.waitForTimeout(700)
+    const toSarsa = await a.evaluate(() => currentPlace().page)
+    await a.evaluate(() => openJump()); await a.waitForSelector('.byob-jumpbox input')
+    await a.fill('.byob-jumpbox input', 'III'); await a.press('.byob-jumpbox input', 'Enter'); await a.waitForTimeout(700)
+    const toRoman = await a.evaluate(() => currentPlace().page)
+    await a.evaluate(n => { goTo({ page: n, frac: 0 }); onScroll() }, m.figurePage); await a.waitForTimeout(700)
+    const last = printed(m.pages)
+    ok(`${tag}: the top bar and the page jump show printed numbers ("of ${last}"), and a jump takes a printed number or a roman one`, bar.progress.startsWith(`p. ${printed(m.figurePage)} · `) && bar.aria.includes(`page ${printed(m.figurePage)} of ${last}`) && jump.value === printed(m.figurePage) && jump.of === `of ${last}` && toSarsa === m.sarsaPage && toRoman === 3, { bar, jump, toSarsa, toRoman })
+    if (!phone) {
+      const strip = await a.evaluate(() => document.querySelector('.pdf-strip [aria-valuetext]')?.getAttribute('aria-valuetext') || document.querySelector('.pdf-strip')?.getAttribute('aria-valuetext'))
+      // (The strip names the first page of its window: the page above the reader's, or theirs.)
+      ok(`${tag}: the strip names the printed page`, [0, 1, 2].some(k => strip === `p. ${printed(m.figurePage - k)} of ${m.pages}`), strip)
+    }
+    // Item 11: a drag through text wrapped beside the figure keeps the figure's labels and caption out of the body.
+    const order = await a.evaluate(n => { const p = state.pages[n - 1]; const r = document.createRange(); r.selectNodeContents(p.layer); getSelection().removeAllRanges(); getSelection().addRange(r); const t = getSelection().toString().replace(/\s+/g, ' '); getSelection().removeAllRanges(); return t }, m.figurePage)
+    const body = order.indexOf('a total of 198 input units that encode the backgammon position, a layer of hidden units, and one output unit that estimates the probability of winning from that position.')
+    ok(`${tag}: reading order round a figure: the body reads straight through, the labels and caption after it`, body >= 0 && order.indexOf('predicted probability') > body + 200 && order.indexOf('Figure 16.1') > body && !/position with the (?:TD error|hidden units)/.test(order), order.slice(0, 400))
+    // Release train 2: E's figure detection finds Figure 16.1 where F's reading order took its labels and caption out of the body.
+    await a.waitForFunction(n => state.figs.has(n), m.figurePage, { timeout: 15000 }).catch(() => {})
+    const agree = await a.evaluate(figureOrderAgrees, [m.figurePage, ['Figure 16.1']])
+    ok(`${tag}: figure detection (PR E) and reading order (PR F) agree on the figure page: its labels and caption inside the figure found, no body line in it`, agree.ok, agree)
+    // Copy quote names the printed page.
+    await a.evaluate(() => getSelection().removeAllRanges())
+    const picked = await selectText(a)
+    if (picked) {
+      await a.waitForSelector('.mr-bar, .mr-pbar')
+      await layout('bar')
+      if (look === 'paper') await shot(a, `${tag}-bar`)
+      await a.click('.mr-float [data-m="more"]'); await a.waitForSelector('.mr-more, .mr-pmore')
+      await a.click('.mr-float [data-m="copy"]').catch(() => {}); await a.waitForTimeout(400)
+      const copied = await a.evaluate(() => navigator.clipboard.readText().catch(() => ''))
+      ok(`${tag}: Copy quote names the printed page`, new RegExp(`— Learning from Reward, p\\. ${printed(m.figurePage)}$`).test(copied), copied.slice(-80))
+    } else ok(`${tag}: text to select on the figure page`, false, null)
+    if (!phone) {
+      // Item 8: a question about another chapter: this chapter and the contents before the breakpoint, the search's passages after it.
+      await a.evaluate(() => getSelection().removeAllRanges()); await a.mouse.click(5, height - 5)
+      const q0 = account.requests.length
+      await a.keyboard.press('/'); await a.keyboard.type('Where is Sarsa introduced?'); await a.keyboard.press('Enter')
+      await a.waitForTimeout(1500)
+      const ask = chats(q0).find(r => /Sarsa introduced/.test(JSON.stringify(r.body.messages)))
+      const doc = ask?.body?.companion?.document, found = ask?.body?.companion?.passages || []
+      const chapter = m.chapters.find(c => c.title.startsWith('16 '))
+      ok(`${tag}: the question goes with chapter 16 whole and the contents with printed pages (the long-file part)`, doc?.part?.total === m.pages && doc.units[0].n === printed(chapter.from) && doc.units.at(-1).n === printed(chapter.to) && doc.part.toc.some(e => e.title === '6.4 Sarsa: On-policy TD Control' && e.n === printed(m.sarsaPage)), doc && { first: doc.units[0].n, last: doc.units.at(-1).n, toc: doc.part?.toc?.length })
+      ok(`${tag}: "where is Sarsa introduced" carries the page that introduces it, first, from the search of the whole book`, found[0]?.n === printed(m.sarsaPage) && /name Sarsa/.test(found[0].text) && found.length <= 6 && !found.some(f => Number(f.n) >= Number(printed(chapter.from)) && Number(f.n) <= Number(printed(chapter.to))), found.map(f => f.n))
+      await layout('whole')
+      if (look === 'paper') await shot(a, `${tag}-whole`)
+      const q1 = account.requests.length
+      await a.keyboard.press('/'); await a.keyboard.type('What did TD-Gammon learn from?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
+      const ask2 = chats(q1).find(r => /TD-Gammon learn/.test(JSON.stringify(r.body.messages)))
+      ok(`${tag}: a second question in the chapter sends the same document, byte for byte (the cached prefix), with its own passages`, ask2 && JSON.stringify(ask2.body.companion.document) === JSON.stringify(doc) && JSON.stringify(ask2.body.companion.passages || null) !== JSON.stringify(found), { same: ask2 && JSON.stringify(ask2.body.companion.document) === JSON.stringify(doc) })
+      // A passage action carries the document but no search.
+      await a.keyboard.press('Escape'); await a.evaluate(() => { col.open = null; getSelection().removeAllRanges() })
+      await selectText(a); await a.waitForSelector('.mr-bar'); const e0 = account.requests.length
+      await a.click('.mr-bar [data-m="explain"]'); await a.waitForTimeout(1200)
+      const ex = chats(e0).find(r => r.body?.companion?.intent === 'explain')
+      ok(`${tag}: Explain sends the chapter's document and no search passages`, ex && JSON.stringify(ex.body.companion.document) === JSON.stringify(doc) && !ex.body.companion.passages, ex && { passages: !!ex.body.companion.passages })
+      await layout('explain card')
+      await a.keyboard.press('Escape'); await a.evaluate(() => { col.open = null; getSelection().removeAllRanges() })
+    }
+    // Item 9: Before you start is about the chapter the reader is in, never a part, the index or the references.
+    for (const [where, page, want] of [['the figure page (chapter 16)', m.figurePage, '16 Applications and Case Studies'], ['the index', m.indexFrom + 3, '17 Frontiers'], ['the references', m.refsFrom + 1, '17 Frontiers'], ['the preface', 8, '1 Introduction']]) {
+      if (phone && where !== 'the index') continue
+      await a.evaluate(n => { closePrimer(); goTo({ page: n, frac: 0.1 }); onScroll() }, page); await a.waitForTimeout(700)
+      const p0 = account.requests.length
+      await a.evaluate(() => openPrimer()); await a.waitForTimeout(1500)
+      // Made once per unit (later views read the account's copy): the request when there is one, else the unit opened.
+      const req = chats(p0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
+      const unit = await a.evaluate(() => primer.unit?.title)
+      ok(`${tag}: Before you start on ${where} is the primer of ${want}`, unit === want && (!req || req.body.companion.chapter.action.unitTitle === want), { unit, asked: req?.body?.companion?.chapter?.action })
+      if (where === 'the index') await layout('primer')
+      await a.evaluate(() => closePrimer())
+    }
+    ok(`${tag}: layout (bar, whole-PDF card, Explain card, primer): no problems`, !problems.length && !A.problems.length, [...problems, ...A.problems].slice(0, 5))
+    // Item 12: reopening from this device reads the stored file once and writes nothing before the first page is drawn.
+    if (width === 1440 && look === 'paper') {
+      await a.waitForTimeout(1500)
+      const B = await A.ctx.newPage()
+      await B.addInitScript(watchStore)
+      const t = Date.now()
+      await B.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+      await B.waitForFunction(() => window.__drawn, null, { timeout: 30000 })
+      const ms = Date.now() - t
+      const store = await B.evaluate(() => ({ before: window.__books.filter(([, at]) => at <= window.__drawn).map(([op]) => op), drawn: Math.round(window.__drawn) }))
+      ok(`${tag}: reopening reads the stored file once and writes nothing before the first page is drawn (${ms} ms)`, JSON.stringify(store.before) === '["get"]', store)
+      await B.waitForTimeout(3200)
+      const later = await B.evaluate(() => window.__books.map(([op]) => op))
+      ok(`${tag}: when it was opened is written once, after the page is shown`, later.filter(op => op === 'put').length <= 1 && later.length <= 3, later)
+      results.at(-1).reopenMs = ms
+      await B.close()
+    }
+    await A.ctx.close()
+  }
+  return results
+}
+
 const server = await start(Number(process.env.PORT || 4791))
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio'] })
@@ -1236,6 +1977,13 @@ const RUNS = {
   primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
   'primer-reliability': [primerReliability, rows => rows.some(r => !r.pass)],
   keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
+  contrast: [contrast, rows => rows.some(r => r.required && !r.pass)],
+  // The EPUB margin is off in the reader for now (reader.js EPUB_MARGIN = false): its check runs in
+  // `sample` and `full` only with EPUB_MARGIN=1 (or on its own: `node scripts/margin-check.mjs epub`).
+  ...(process.env.EPUB_MARGIN === '1' ? { epub: [epubCheck, rows => rows.some(r => r.problems)] } : {}),
+  scans: [scanChecks, rows => rows.some(r => !r.pass)],
+  figures: [figureMatrix, rows => rows.some(r => !r.pass)],
+  long: [longBooks, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -1253,7 +2001,7 @@ try {
     }
     writeFileSync(join(OUT, `${mode}-summary.json`), JSON.stringify({ mode, seconds: Math.round((Date.now() - started) / 1000), summary }, null, 2))
   }
-  else if (mode === 'contrast') { const rows = await contrast(browser, origin); writeFileSync(join(OUT, 'contrast-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'contrast') { const rows = await contrast(browser, origin); failed = rows.some(r => r.required && !r.pass); writeFileSync(join(OUT, 'contrast-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'keys') { const rows = await keysAndAccess(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'keys-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
@@ -1263,6 +2011,10 @@ try {
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'epub') { const rows = await epubCheck(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'epub-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'scans') { const rows = await scanChecks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'scans-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'figures') { const rows = await figureMatrix(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figures-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

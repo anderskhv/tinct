@@ -272,7 +272,9 @@ describe('the answer in a card', () => {
     const doneHtml = M.html.cardHtml(quiz(done), { open: true, P, pageLabel: '12' })
     expect(doneHtml).toContain('<span class="is-bottom-line">2 of 3</span>')
     expect(doneHtml).toContain('<p>Q two?</p>')
-    expect(doneHtml).not.toContain('mr-follow')
+    // FIXES-2026-10-15 PR C: the end card offers another quiz; no answer field.
+    expect(doneHtml).toContain('<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>')
+    expect(doneHtml).not.toContain('mr-follow__input')
   })
   it('the "more" row: "{n} more on this page" and the kinds that fit', () => {
     expect(M.html.stackHtml([{ kind: 'note' }, { kind: 'counterpoint' }, { kind: 'note' }])).toBe('<span>3 more on this page</span><span>Your note · Counterpoint</span>')
@@ -316,6 +318,10 @@ describe('the card store', () => {
     // Made at or after this visit began: its answer may still be on the way.
     expect(M.cardView(cards, marks, { since: 50 }).map(c => c.id)).toEqual(['ok', 'ask', 'define', 'fresh', 'n-m1'])
     expect(cards.map(c => M.cardAnswered(c))).toEqual([false, false, false, false, false, true, true, true])
+     // Release train 2: Related (PR C) is an answer, so an empty one is hidden; a figure's card (PR E) is a thread, kept as Ask is.
+    expect(M.cardAnswered(card('rel', 1, { ...at(8), kind: 'related', turns: [] }))).toBe(false)
+    expect(M.cardAnswered(card('rel2', 1, { ...at(9), kind: 'related', turns: [{ role: 'assistant', content: 'It returns {p. 4}.' }] }))).toBe(true)
+    expect(M.cardAnswered(card('fig', 1, { ...at(10), kind: 'figure', turns: [] }))).toBe(true)
   })
   it('a new card keeps its passage in page fractions and bounds its words', () => {
     const c = M.newCard({ kind: 'simplify', page: 4, anchor: [{ n: 4, x: 0.123456, y: 0.5, w: 0.2, h: 0.01 }], text: 'y'.repeat(3000), at: 1000 })

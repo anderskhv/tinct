@@ -469,6 +469,36 @@ describe('xaiOcrRecognizer', () => {
     expect(body.messages[0].content).toContain('is a running head (head), never h1 or h2')
   })
 
+  // The scans test (15 Oct 2026): captions, Algorithm 1 and footnotes were lost (85% of words), and the PDF
+  // reader had no geometry to lay the words over the page with.
+  it('asks for captions, algorithm boxes and footnotes as their own blocks, and each block\'s box; keeps a valid box, drops a bad one', async () => {
+    const fetchImpl = vi.fn(async () => reply(JSON.stringify({ printed_page: null, blocks: [
+      { t: 'p', x: 'Body.', b: [80.4, 100, 920, 180.6] },
+      { t: 'alg', x: 'Algorithm 1\nfor k steps do', b: [90, 200, 900, 260] },
+      { t: 'cap', x: 'Figure 1: losses.', b: [900, 300, 100, 340] },
+      { t: 'fn', x: '1 A note.', b: [0, 950, 1200, 990] },
+      { t: 'p', x: 'No box.', b: 'top' },
+    ] })))
+    const result = await xaiOcrRecognizer('k', { fetchImpl: fetchImpl as unknown as typeof fetch })({ image: JPEG, page: 1, context: '', format: 'json' })
+    expect(result.reply?.blocks).toEqual([
+      { t: 'p', x: 'Body.', b: [80, 100, 920, 181] },
+      { t: 'alg', x: 'Algorithm 1\nfor k steps do', b: [90, 200, 900, 260] },
+      { t: 'cap', x: 'Figure 1: losses.' },
+      { t: 'fn', x: '1 A note.', b: [0, 950, 1000, 990] },
+      { t: 'p', x: 'No box.' },
+    ])
+    const system = JSON.parse((fetchImpl.mock.calls[0] as unknown as [string, RequestInit])[1].body as string).messages[0].content as string
+    expect(system).toContain('Transcribe every caption of a figure or table, every algorithm or code box and every footnote')
+    expect(system).toContain('alg algorithm or code box')
+    expect(system).toContain('"b": [left, top, right, bottom]')
+  })
+
+  it('reads [cap] and [alg] in text mode', async () => {
+    const fetchImpl = vi.fn(async () => reply('Body.\n\n[cap] Table 1: scores.\n\n[alg] Algorithm 1\nrepeat'))
+    const result = await xaiOcrRecognizer('k', { fetchImpl: fetchImpl as unknown as typeof fetch })({ image: JPEG, page: 1, context: '', format: 'text' })
+    expect(result.reply?.blocks).toEqual([{ t: 'p', x: 'Body.' }, { t: 'cap', x: 'Table 1: scores.' }, { t: 'alg', x: 'Algorithm 1\nrepeat' }])
+  })
+
   it('reads what the call cost from xAI\'s cost_in_usd_ticks (1e-10 USD) when it is there', async () => {
     const content = JSON.stringify({ printed_page: null, blocks: [{ t: 'p', x: 'Hi.' }] })
     const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ choices: [{ message: { content } }], usage: { prompt_tokens: 2039, completion_tokens: 444, cost_in_usd_ticks: 35243500 } })))

@@ -46,9 +46,14 @@ describe('the stylesheet’s PR 4 rules', () => {
     expect(css).toMatch(/:is\(html\[data-eink="true"\], html\[data-pdf-theme="eink"\]\) :is\(\.mr-card\.is-open, \.mr-primer, \.mr-sheet\) \{ outline: 1px solid var\(--mr-ink\)/)
     expect(css).toMatch(/\.mr-card\.is-folded \{ background: linear-gradient\(var\(--mr-hair\), var\(--mr-hair\)\) left top \/ 1\.5px 100% no-repeat; \}/)
   })
-  it('the colours keep their 20px dot and its ring inside a 24px target; copy and the mics are 24px round their 16px icons', () => {
-    expect(css).toContain('button.mr-swatch { width: 24px; height: 24px; margin: 0 3px; padding: 2px; background-clip: content-box !important; }')
-    expect(css).toContain('.mr-card__acts button { width: 24px; height: 24px;')
-    expect(css).toMatch(/\.mr-follow__mic, \.mr-foot \.mr-follow__mic \{[^}]*width: 24px; height: 24px;/)
+  // FIXES-2026-10-15 PR C: every target at least 28px (it was 24px round an icon).
+  it('the colours keep their 20px dot and its ring inside a 28px target; copy, the mics, the quiz links and the handle are 28px', () => {
+    expect(css).toContain('button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; background-clip: content-box !important; }')
+    expect(css).toContain('.mr-card__acts button { width: 28px; height: 28px;')
+    expect(css).toMatch(/\.mr-follow__mic, \.mr-foot \.mr-follow__mic \{[^}]*width: 28px; height: 28px;/)
+    expect(css).toMatch(/\.mr-follow__link \{[^}]*min-height: 28px;/)
+    expect(css).toMatch(/\.mr-sheet__grab \{ width: 56px; height: 28px;/)
+    expect(css).toMatch(/\.mr-related__row \{[^}]*min-height: 28px;/)
+    expect(css).not.toMatch(/(?:width|height): 24px/)
   })
 })

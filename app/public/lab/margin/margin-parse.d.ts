@@ -96,6 +96,17 @@ export declare function parseQuizCheck(text: unknown): {
  * dictionary order), as is anything unreadable.
  */
 export declare function parseDefineSense(text: unknown, count?: number): number | null;
+/** One of Related's places: a citation or a few quoted words (or neither), then what happens there. */
+export interface RelatedRow {
+    cite: CitationToken | null;
+    quote: string | null;
+    text: string;
+}
+/** Related's bottom line and its places. */
+export declare function parseRelated(text: unknown): {
+    lead: string;
+    rows: RelatedRow[];
+};
 export declare const PDF_EXPLAIN_FORMAT_BEFORE: string;
 export declare const PDF_EXPLAIN_FORMAT: string;
 export declare const PASSAGE_IMAGE_LINE: string;

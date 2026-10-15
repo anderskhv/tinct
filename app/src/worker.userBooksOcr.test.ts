@@ -128,7 +128,12 @@ describe('/api/user-books/ocr', () => {
     const s = setup()
     const theirs = await s.addBook('token-b', pdfBytes('theirs'))
     expect((await s.start(theirs.hex)).status).toBe(404)
-    expect((await s.call(`/api/user-books/ocr/${theirs.hex}`, { token: 'token-a' })).status).toBe(404)
+    // The status of a book this account has not stored (yet) is "none" (the first-open race, 15 Oct 2026),
+    // the same whoever else may have it: nothing about another account's book is told.
+    const unstored = await s.call(`/api/user-books/ocr/${theirs.hex}`, { token: 'token-a' })
+    expect(unstored.status).toBe(200)
+    expect(await unstored.json()).toMatchObject({ state: 'none', stored: false, pages: 0 })
+    expect((await s.call(`/api/user-books/ocr/${theirs.hex}/pages`, { token: 'token-a' })).status).toBe(404)
     expect((await s.put(theirs.hex, 1)).status).toBe(404)
     expect((await s.call(`/api/user-books/ocr/${theirs.hex}/edition`, { token: 'token-a' })).status).toBe(404)
     expect((await s.call(`/api/user-books/ocr/${theirs.hex}`, { method: 'DELETE', token: 'token-a' })).status).toBe(404)
@@ -226,6 +231,43 @@ describe('/api/user-books/ocr', () => {
     const trial = setup({ tier: () => 'trial' })
     const book = await trial.addBook('token-a')
     expect(await (await trial.call(`/api/user-books/ocr/${book.hex}`, { token: 'token-a' })).json()).toMatchObject({ state: 'none', tier: 'trial', month: { used: 0, limit: 300 } })
+  })
+
+  it('a scan whose account copy is not stored yet: status "none" with the tier and month, never 404, and nothing started; stored, the same status as any', async () => {
+    const s = setup({ tier: () => 'trial' })
+    const bytes = pdfBytes('fresh scan')
+    const hex = (await crypto.subtle.digest('SHA-256', bytes).then(d => [...new Uint8Array(d)].map(b => b.toString(16).padStart(2, '0')).join(''))).slice(0, 24)
+    const before = await s.call(`/api/user-books/ocr/${hex}`, { token: 'token-a' })
+    expect(before.status).toBe(200)
+    expect(await before.json()).toEqual({ state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month: { used: 0, limit: 300 }, stored: false, tier: 'trial' })
+    expect(s.ocr.instances.size).toBe(0)
+    // Starting still waits for the stored copy.
+    expect((await s.start(hex)).status).toBe(404)
+    await s.addBook('token-a', bytes)
+    const after = await (await s.call(`/api/user-books/ocr/${hex}`, { token: 'token-a' })).json() as Record<string, unknown>
+    expect(after).toMatchObject({ state: 'none', tier: 'trial', month: { used: 0, limit: 300 } })
+    expect(after.stored).toBeUndefined()
+    // Switched off, it is 404 as before.
+    const off = setup({ vars: { OWN_PDF_OCR: '0' } })
+    expect((await off.call(`/api/user-books/ocr/${hex}`, { token: 'token-a' })).status).toBe(404)
+  })
+
+  it('GET …/pages gives the recognised pages with their block boxes, blank and failed pages marked, the owner\'s only', async () => {
+    const s = setup()
+    const { hex } = await s.addBook('token-a')
+    expect((await s.call(`/api/user-books/ocr/${hex}/pages`, { token: 'token-a' })).status).toBe(404)
+    await s.start(hex, { pages: 3, blank: [2] })
+    await s.put(hex, 1); await s.put(hex, 3)
+    await s.runJob(A, hex)
+    const res = await s.call(`/api/user-books/ocr/${hex}/pages`, { token: 'token-a' })
+    expect(res.status).toBe(200)
+    expect(res.headers.get('Cache-Control')).toBe('no-store')
+    const { pages } = await res.json() as { pages: Array<{ page: number; blocks: unknown[]; blank?: true }> }
+    expect(pages.map(p => p.page)).toEqual([1, 2, 3])
+    expect(pages[1]).toEqual({ page: 2, blocks: [], blank: true })
+    expect(pages[0].blocks).toEqual([{ t: 'p', x: `${SECRET_TEXT} 1.` }])
+    expect((await s.call(`/api/user-books/ocr/${hex}/pages`, { token: 'token-b' })).status).toBe(404)
+    expect((await s.call(`/api/user-books/ocr/${hex}/pages`, { method: 'POST', token: 'token-a' })).status).toBe(405)
   })
 
   it('shows a trial account the trial ceiling', async () => {
