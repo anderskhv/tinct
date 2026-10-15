@@ -71,7 +71,7 @@ blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 
         <tr><td>Define (one word)</td><td><span class="s b">2</span></td><td class="n">under 3 s</td><td><span class="s g">4.5</span></td><td class="n">1.4 s</td><td>“transduction”: our dictionary gave the energy and genetics senses only. The AI found no fitting sense, so the reader got the wrong meaning. Gloss: “converting one sequence into another… as in machine translation ¶2”.</td></tr>
         <tr><td>Fact-check</td><td><span class="s m">2.5</span></td><td class="n">14.8 s</td><td><span class="s g">4.5</span></td><td class="n">2.1 s</td><td>Ours: “Holds… matches both the original paper and the current arXiv version”. That checks the paper against itself, and one source is an individual’s blog post. Gloss: still correct as reported but no longer the best result, since Transformer Big reached 29.3 in 2018. It gave five sources, including NLP-progress.</td></tr>
         <tr><td>Counterpoint</td><td><span class="s g">4</span></td><td class="n">6.9 s</td><td><span class="s g">4</span></td><td class="n">1.4 s</td><td>Both make the “hardware-shaped win” argument and give the authors’ reply. Ours is richer but shows a literal “*modeling*”. Gloss is tighter and cites Table 1.</td></tr>
-        <tr><td>Quiz me</td><td><span class="s m">3</span></td><td class="n">5–8 s</td><td><span class="s x">—</span></td><td class="n">—</td><td>Ours alone. The marking is good: it gave a hint, not the answer. But both quizzes on the self-attention sentence asked about ConvS2S, from the paragraph above, and the feedback showed “*cost*”.</td></tr>
+        <tr><td>Quiz me</td><td><span class="s m">3</span></td><td class="n">5 s to Q1, 2 s to mark</td><td><span class="s x">—</span></td><td class="n">—</td><td>Only Tinct has it. The flow works end to end: one question at a time, “1 of 3”, typed answers marked in about 2 s, “Show answer”, and a score at the end. Marking is good: wrong answers get a pointer to what to reread, never the answer. The big problem: across four quizzes, none of the questions were about the selected passage. A quiz on the definition of an attention function asked about encoder layers, decoder masking and encoder-decoder attention. The feedback also shows literal asterisks.</td></tr>
         <tr><td>Related</td><td><span class="s x">—</span></td><td class="n">—</td><td><span class="s g">4</span></td><td class="n">2.3 s</td><td>We cut it on purpose. Gloss’s version listed ¶7, ¶32, ¶33 and ¶46 with one line each. It is genuinely useful in a technical paper.</td></tr>
         <tr><td>Ask (typed on a passage)</td><td><span class="s g">4</span></td><td class="n">6.2 s</td><td><span class="s g">4.5</span></td><td class="n">0.6 s</td><td>Both are right. Ours is longer and shows literal asterisks. Gloss’s is shorter, with exact ¶ references.</td></tr>
         <tr><td>Ask about the whole PDF</td><td><span class="s b">2</span></td><td class="n">8.7 s</td><td><span class="s g">5</span></td><td class="n">1.6 s</td><td>Ours began “On this page they don’t dwell on limitations”, guessed at the rest, and ended with an offer. Gloss named three acknowledged limits with ¶39, ¶49, ¶50, ¶7 and ¶45.</td></tr>
@@ -80,6 +80,26 @@ blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 
         <tr><td>Note</td><td><span class="s b">2</span></td><td class="n">—</td><td><span class="s g">4</span></td><td class="n">—</td><td>On page 1, where cards were gathered into “3 more”, the note button highlighted the text but no editor opened, and the typed note was lost. On page 2 it worked. Gloss’s note shows as a margin card with a gold rule.</td></tr>
         <tr><td>Margin cards and crowding</td><td><span class="s m">3</span></td><td class="n">—</td><td><span class="s g">4.5</span></td><td class="n">—</td><td>Our leader lines look good. But with passages low on screen, four cards were bundled into “3 more on this page” while 550 px of the column above stood empty. Gloss folds older cards to one-line rows and keeps using the whole column.</td></tr>
         <tr><td>Phone</td><td><span class="s m">3</span></td><td class="n">4.0 s</td><td><span class="s m">3.5</span></td><td class="n">—</td><td>Our bottom card is good. But the title collapses to “A.” and the PDF text is too small to read without zoom (Tinct text helps). Gloss re-flows the text so it is readable, but an onboarding toast covers the primer.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+
+  <section>
+    <h2>What I tested</h2>
+    <p>I tested every action in the menu and the margin, plus the keys and the narrow-window layout. Two things I could not verify: clicking a page tag (no tag was on screen at the time), and the Night and e-ink looks.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Area</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Quiz me, full run</td><td>Three questions. The first answer was wrong on purpose: marked “Not yet” in 2.0 s, with a hint. The second used “Show answer”, which reveals the answer and the reason without a model call. The third answered “I am not sure”: marked in 1.6 s, with a hint. The end card shows “0 of 3” and names the question to reread. Two small gaps: the last link still says “Next question →” rather than “See your score”, and the end card offers no way to try again.</td></tr>
+        <tr><td>Quiz me from the primer</td><td>Works. The first question appears in 5.1 s and is about the chapter, which is right here.</td></tr>
+        <tr><td>Follow-up inside a card</td><td>Works. It answers in 6.7 s and keeps the thread, with a good answer on decoder-only models today.</td></tr>
+        <tr><td>Copy quote</td><td>Works: “Most competitive neural sequence transduction models” — Attention Is All You Need, p. 2.</td></tr>
+        <tr><td>More menu</td><td>Define, Fact-check, Counterpoint, Quiz me, Copy quote. Share as image is hidden for now, and Related is coming back.</td></tr>
+        <tr><td>Keys</td><td>B opens the primer, N opens a note with focus, and / asks about the whole PDF. Typing with a selection goes straight into Ask.</td></tr>
+        <tr><td>Narrow window (1100 px)</td><td>The column hides and cards become marks beside the page (3 marks), as designed.</td></tr>
+        <tr><td>Phone</td><td>Selection bar, Simplify and the bottom card were tested. More and Define on the phone were not.</td></tr>
+        <tr><td>Not tested</td><td>Clicking a page tag, Night and e-ink, EPUBs (no margin yet), sync to a second device, offline Define, primer Redo, and the mic and dictation.</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -126,7 +146,7 @@ blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; box-shadow: inset 2px 0 
       <li><span class="sev maj">Major</span><b>Markdown leaks into answers</b> as literal asterisks: “*modeling*”, “*cost*”, “*within the same sequence*”. Either render emphasis as italics or tell the model plain prose only.</li>
       <li><span class="sev maj">Major</span><b>Define has no fallback when the dictionary is wrong.</b> When <code>define_sense</code> finds no fitting sense, show the in-context meaning from the AI above the dictionary entry. Technical PDFs will hit this constantly. Code review: offline, a capitalised word that is in the dictionary is reported as missing.</li>
       <li><span class="sev maj">Major</span><b>The primer covers only the first outline section</b>, and its “Keep in mind” describes our excerpt rather than the paper. For papers and short PDFs, make the unit the whole file, and remove the “excerpt” framing from the prompt’s view.</li>
-      <li><span class="sev min">Minor</span><b>Quiz questions drift off the selection.</b> Twice, a quiz on the self-attention sentence asked about ConvS2S, from the paragraph above. Question 1 should be about the selected passage.</li>
+      <li><span class="sev maj">Major</span><b>Quiz questions ignore the selection.</b> In four quizzes on three different passages, no question was about the selected text; all came from the surrounding page. Question 1, at least, must be about the selected passage.</li>
       <li><span class="sev min">Minor</span><b>Fact-check checks the paper against itself.</b> “Matches the original paper” is not a fact-check. The prompt should ask whether the claim still holds today and what has changed since, which is what Gloss answered.</li>
       <li><span class="sev min">Minor</span><b>Explain is too long for a card.</b> Four paragraphs, over 200 words. The book reader’s 25-word opener and three short paragraphs are not being kept to on the PDF path.</li>
     </ul>
