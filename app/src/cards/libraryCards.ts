@@ -6,7 +6,9 @@
  * /library?card=<name> and opens that card.
  *
  * Accounts from before profiles get one gentle prompt to set theirs up, here
- * in the library (never inside a book), once.
+ * in the library (never inside a book), once. One that still carries the
+ * neutral name and was never set up gets the sign-up profile step itself
+ * instead (name, picture, background; signUpSteps.ts), once (15 Oct 2026).
  */
 import { supabase } from '../services/supabase'
 import { fetchOwnProfile, ownPictureView, paintAvatar, saveProfile, currentBookHint } from '../social/socialClient'
@@ -14,6 +16,34 @@ import { cardUrl } from './cardRoutes'
 import { consumeCardParam, openAccountCards, sessionStorageState, storedSession, type CardName } from './openCards'
 import { clearCardsCache, readCardsCache } from './cardsCache'
 import { trackFunnel } from '../utils/funnel'
+import { NEUTRAL_READER_NAME } from './cardsCopy'
+import type { OwnProfile } from '../social/socialClient'
+
+/** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
+export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
+
+/**
+ * An account from before profiles that never chose anything and still has the
+ * neutral name gets the profile step new sign-ups get: once, never in a book.
+ * Choosing Continue or Skip there marks the profile set up, so it never comes
+ * back; the device mark covers leaving the step without either.
+ */
+export function legacyProfileStepDue(profile: Pick<OwnProfile, 'needsSetup' | 'name'>, userId: string | null): boolean {
+  if (!profile.needsSetup || profile.name !== NEUTRAL_READER_NAME || !userId) return false
+  try { return localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + userId) === null } catch { return false }
+}
+
+/** The sign-up profile step (/sign-in?mode=profile), back to `returnTo` when done. */
+export function legacyProfileStepUrl(returnTo: string): string {
+  return `/sign-in?mode=profile&returnTo=${encodeURIComponent(returnTo)}`
+}
+
+function offerLegacyProfileStep(token: string, userId: string, returnTo: string): void {
+  try { localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + userId, '1') } catch { return }
+  // The gentle prompt is not shown as well.
+  void saveProfile(token, { prompted: true })
+  location.assign(legacyProfileStepUrl(returnTo))
+}
 
 const STYLE = `
 #sign-in.cards-you{display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;padding:0;border-radius:50%;background:transparent;border:0}
@@ -119,6 +149,11 @@ async function start(pending: CardName | null): Promise<void> {
   const result = await fetchOwnProfile(token, currentBookHint())
   if (!result.ok) return
   paintAvatar(avatar, ownPictureView(result.profile), token)
+  const userId = stored?.session.userId ?? (await supabase.auth.getSession()).data.session?.user.id ?? null
+  if (userId && legacyProfileStepDue(result.profile, userId)) {
+    offerLegacyProfileStep(token, userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
+    return
+  }
   if (result.profile.shouldPrompt) showPrompt(token)
 }
 

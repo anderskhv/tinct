@@ -3,7 +3,7 @@
  *
  * Switch off: `{ enabled: false }` and nothing is read, so the client shows
  * no bar. On: `{ enabled: true, usedFraction, monthUsedFraction,
- * topUpLeftFraction, state, resetsAt, hasTopUp, topUps }`, where topUps names the top-ups checkout can sell now ($5 first,
+ * topUpLeftFraction, state, resetsAt, hasTopUp, hasAllowance, topUps }`, where topUps names the top-ups checkout can sell now ($5 first,
  * then $10 once its price is set). Never a currency or an amount.
  */
 import { createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
@@ -35,6 +35,7 @@ export async function handleAiAllowance<E extends SupabaseEnv & BillingEnv>(
     state: view.state,
     resetsAt: view.resetsAt,
     hasTopUp: view.hasTopUp,
+    hasAllowance: view.hasAllowance,
     topUps: availableTopUps(env),
   }, 200, request))
 }

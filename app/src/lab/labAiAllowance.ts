@@ -34,6 +34,12 @@ export interface AiAllowance {
   state: AiAllowanceState
   resetsAt: string | null
   hasTopUp: boolean
+  /**
+   * This period includes an allowance (Premium or the trial). False for a free
+   * account after its trial: there is no month to be "used". An older Worker
+   * (or cache) without the field: a period with no reset date has none.
+   */
+  hasAllowance: boolean
   /** The top-ups on sale now. */
   topUps: TopUpPack[]
 }
@@ -66,6 +72,7 @@ export function parseAiAllowance(data: unknown): AiAllowance | null {
     state: value.state as AiAllowanceState,
     resetsAt,
     hasTopUp: value.hasTopUp === true,
+    hasAllowance: typeof value.hasAllowance === 'boolean' ? value.hasAllowance : resetsAt !== null,
     topUps: parseTopUps(value.topUps),
   }
 }

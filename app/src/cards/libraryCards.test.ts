@@ -181,3 +181,27 @@ describe('the library picture', () => {
     expect(getSession).not.toHaveBeenCalled()
   })
 })
+
+describe('the profile step for an older account (Anders, 15 October 2026)', () => {
+  it('once, for a profile never set up that still has the neutral name', async () => {
+    const { legacyProfileStepDue, legacyProfileStepUrl, LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
+    expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, USER)).toBe(true)
+    // A name the reader has, a profile already set up, or no account: never.
+    expect(legacyProfileStepDue({ needsSetup: true, name: 'Mette' }, USER)).toBe(false)
+    expect(legacyProfileStepDue({ needsSetup: false, name: 'Reader' }, USER)).toBe(false)
+    expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, null)).toBe(false)
+    // Offered on this device already: not again.
+    localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + USER, '1')
+    expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, USER)).toBe(false)
+    // The sign-up profile step itself, back where the reader was.
+    expect(legacyProfileStepUrl('/library?card=you')).toBe('/sign-in?mode=profile&returnTo=%2Flibrary%3Fcard%3Dyou')
+  })
+
+  it('the device mark is reader data: sign-out wipes it with the rest', async () => {
+    const { LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
+    const { clearLocalUserData } = await import('../services/storage')
+    localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + USER, '1')
+    clearLocalUserData()
+    expect(localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + USER)).toBeNull()
+  })
+})

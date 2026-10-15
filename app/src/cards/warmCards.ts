@@ -4,7 +4,7 @@
  * paint from the device cache first and refresh behind; a first open on a
  * device had nothing to paint). The same reads the cards make on open,
  * written to the same cache (cardsCache.ts): the reader's own profile,
- * reading figures, Friends rank, plan, AI credits. Nothing new is collected or kept.
+ * reading figures, leaderboard rank, plan, AI credits. Nothing new is collected or kept.
  *
  * Only with a stored session whose token is still good (never a token
  * refresh), only when the network is spare, and only once the reader has
@@ -15,7 +15,8 @@ import { fetchSubscriptionInfo } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
 import { currentBookHint } from '../social/socialClient'
 import { networkSpare, whenReaderSettled } from '../utils/libraryPreviewWarmup'
-import { fetchBoard, fetchOwnProfile, loadReading } from './cardsApi'
+import { fetchOwnProfile, loadReading } from './cardsApi'
+import { loadDefaultBoard } from './boardMemory'
 import { readCardsCache, writeCardsCache } from './cardsCache'
 import { rankOf } from './cardsFormat'
 import { storedSession } from './openCards'
@@ -35,7 +36,8 @@ export function warmAccountCards(): void {
     void Promise.all([
       fetchOwnProfile(token, currentBookHint()).catch(() => null),
       loadReading(token, userId).catch(() => null),
-      social ? fetchBoard(token, 'friends').catch(() => null) : Promise.resolve(null),
+      // Kept in memory for the Leaderboard card (boardMemory.ts), never in the device cache.
+      social ? loadDefaultBoard(token, userId) : Promise.resolve(null),
       fetchSubscriptionInfo(token).catch(() => null),
       fetchAiAllowance(token).catch(() => null),
     ]).then(([profile, reading, board, info, allowance]) => {
