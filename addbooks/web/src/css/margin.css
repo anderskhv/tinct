@@ -447,3 +447,9 @@ button.mr-related__row:hover .mr-related__line { text-decoration: underline; tex
 @media (prefers-reduced-motion: reduce) { .mr-flash-layer i { animation: none; } }
 /* A stray *word* in an answer shows in italics (the prompts ask for plain prose). */
 .mr-answer em, .mr-claims em, .mr-related em { font-style: italic; }
+/* The wait ring turns its arc inside its own box, not the whole box: a turning square reaches 4px past
+   an 18px line at 45 degrees, which made "Thinking…" overflow its status line now and then (the layout
+   check's primer-wait frame, intermittently). It looks the same. */
+.mr .tinct-wait .tinct-wait-ring { animation: none; }
+.mr .tinct-wait .tinct-wait-ring path { transform-box: view-box; transform-origin: 12px 12px; animation: tinct-wait-spin .9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .mr .tinct-wait .tinct-wait-ring path { animation: none; } }
