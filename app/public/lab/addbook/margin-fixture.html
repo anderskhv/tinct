@@ -11,7 +11,7 @@
      with docs/margin/mockup.html (app/scripts/margin-check.mjs). Not linked from anywhere.
      ?night=1 for Night; ?look=book|eink for the other looks. -->
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
-<link rel="stylesheet" href="css/margin.css?v=20261015margin2">
+<link rel="stylesheet" href="css/margin.css?v=20261015margin34">
 <style>
 /* The mockup's stage, page and frames (docs/margin/mockup.html), unchanged, so the pieces sit on the same page. */
 :root {
@@ -71,6 +71,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .dk .pdf { min-height: 1000px; }
 .dk .mr-col { position: absolute; left: 800px; top: 56px; bottom: 0; width: 380px; }
 .dk svg.mr-leads { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; overflow: visible; clip-path: none; }
+.dk.short { height: 400px; }
 .dk.narrow { width: 1024px; height: 768px; }
 .dk.narrow .sheetwrap { left: 40px; width: 920px; }
 .dk .mr-marks { position: absolute; inset: 56px 0 0 0; }
@@ -80,6 +81,7 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
 .night .cardbg { --paper: #171411; --room: #100e0c; --ink: #d6ccbf; }
 .cardbg .mr-card { position: static; }
 .ph .mr-sheet { position: absolute; z-index: 7; max-height: 422px; }   /* half the phone frame (the page's dvh is the fixture's) */
+.ph .mr-sheet.is-full { height: 724px; max-height: 724px; }   /* the phone frame less 120px */
 .ph .mr-ul-layer, .dk .mr-ul-layer { display: none; }
 .wrap { display: flex; flex-direction: column; gap: 40px; }
 .row { display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; }
@@ -144,6 +146,29 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
   <div class="row">
     <div class="step"><span class="num">Narrow · marks, one opened</span><div class="dk narrow" data-desk="marks"></div></div>
   </div>
+  <div class="row">
+    <div class="step"><span class="num">4 · Before you start</span><div class="dk short" data-desk="trigger"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">4 · The primer</span><div class="dk" data-desk="primer"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">Trigger, with the page's cards below it</span><div class="dk" data-desk="trigger-cards"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">Primer · a long one (gist at its longest, five claims, eight map rows)</span><div class="dk" data-desk="primer-long"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">Primer · being made</span><div class="dk short" data-desk="primer-wait"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">Narrow · the primer from its mark</span><div class="dk narrow" data-desk="primer-narrow"></div></div>
+  </div>
+  <div class="row">
+    <div class="step"><span class="num">Phone G · Before you start</span><div class="ph" data-ph="g"></div></div>
+    <div class="step"><span class="num">Phone H · The primer</span><div class="ph" data-ph="h"></div></div>
+    <div class="step"><span class="num">Phone I · A long primer, full height</span><div class="ph" data-ph="i"></div></div>
+  </div>
   <div class="cardrow" data-cards="mockup">
     <div class="step"><span class="num">Simplify</span><div class="cardbg" data-card="simplify"></div></div>
     <div class="step"><span class="num">Fact-check</span><div class="cardbg" data-card="factcheck"></div></div>
@@ -175,7 +200,8 @@ body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family
   </div>
 </div>
 </div>
-<script src="js/margin.js?v=20261015margin2"></script>
-<script src="js/margin-fixture.js?v=20261015margin2"></script>
+<script src="js/margin.js?v=20261015margin34"></script>
+<script src="/lab/wait-ring.js?v=20261014talkwake"></script>
+<script src="js/margin-fixture.js?v=20261015margin34"></script>
 </body>
 </html>

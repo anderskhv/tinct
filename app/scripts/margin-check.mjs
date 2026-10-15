@@ -13,6 +13,11 @@
 //                                                     brief's stress matrix (7 viewports × 4 looks × 100%/125% zoom)
 //                                                     with its content cases (crowding, edges, long answers, …)
 //   node scripts/margin-check.mjs resize [pdf ...]    PR 2: resizing across 1180px with a card open
+//   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
+//   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
+//   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
+//   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
+//   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
 // Every problem list must be empty: the script exits 1 otherwise. OUT (default ./artifacts/margin)
 // receives the screenshots and results.json. CHROMIUM_PATH picks the browser (default
@@ -41,23 +46,38 @@ const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/pr
 export const SELECTORS = {
   ...DEFAULT_SELECTORS,
   menu: '.mr-more, .mr-pmore, .mr-define, .mr-note',
-  text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *',
-  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark',
+  // PR 3: the primer's trigger and the primer are blocks of the column, as cards are (no overlap, never off screen).
+  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer',
+  text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *, .mr-trigger',
+  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
 }
 // A long answer scrolls inside its open card (BRIEF.md, "A 600-word answer": the card scrolls, its
 // label and follow-up line stay). Lines scrolled out of that body are not cut off by a container
 // edge, so "clipped" inside the card's own scrolling body (or the thread's) is not a problem; every
 // other check, and "clipped" everywhere else, stands.
-const scrolledAway = p => p.kind === 'clipped' && /^\.mr-card__body\b/.test(p.in || '')
+// The same for a long primer, which scrolls inside itself (margin-reference.css .mr-primer, overflow: auto).
+const scrolledAway = p => p.kind === 'clipped' && /^\.(?:mr-card__body|(?:mr\.)?mr-primer)(?:\.|\s|$)/.test(p.in || '')
+// The wait ring's label is for screen readers only (visually hidden on purpose, lab/wait-ring.js), so its box is not text spilling out.
+const srOnly = p => p.kind === 'overflow' && /^\.tinct-wait(?:-label)?(?:\.|\s|$)/.test(p.el || '')
+// PR 4: where the mockup draws a 16px icon or a 20px colour (copy, the mics, the colours, the bottom
+// card's handle, the quiz links), the target round it is at least 24px each way; everything else stays 28px (`tap`).
+export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link'
 export async function checkMargin(page, selectors = SELECTORS) {
-  return (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p))
+  const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
+  const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 23.5 || r.height < 23.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
+  return [...list, ...small]
 }
 const LOOKS = (process.env.LOOKS || 'paper,book,night,eink').split(',')
+// `sample` (npm run check:margin, in CI): each viewport once, each look and both zooms at least once, both
+// PDFs, with every content case; `full` (npm run check:margin:full): the whole matrix. Looks rotate per PDF.
+let SAMPLE = false
+const rotate = (list, i) => list[i % list.length]
 const VIEWPORTS = (process.env.VIEWPORTS || '1440x900,1280x800,1024x768,390x844,360x740').split(',').map(v => v.split('x').map(Number))
 
 /* ---------- A local stand-in for the site ---------- */
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.woff2': 'font/woff2', '.woff': 'font/woff', '.svg': 'image/svg+xml', '.png': 'image/png', '.gz': 'application/gzip', '.pdf': 'application/pdf' }
-const account = { books: [], marks: new Map(), cards: new Map(), requests: [] }
+const account = { books: [], marks: new Map(), cards: new Map(), primers: new Map(), requests: [] }
+const PRIMER_PARSE = await import(pathToFileURL(join(PUBLIC, 'lab/margin/primer-parse.js')).href)
 function addBook(file) {
   const bytes = readFileSync(file), sha256 = createHash('sha256').update(bytes).digest('hex')
   if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: basename(file), title: basename(file, '.pdf'), author: '', type: 'pdf', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
@@ -69,7 +89,7 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // sense number for `define_sense`, Quiz me's JSON and its marking, Fact-check with its "Checking
 // sources…" status before the answer, and an answer with a bottom line and a citation otherwise.
 // `mock.next` (set by a check) replaces the next answer's text, for the long and odd answers.
-export const mock = { next: null, delay: 0 }
+export const mock = { next: null, delay: 0, primer: null }
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
@@ -80,6 +100,8 @@ function mockText(body) {
     { q: 'MOCK Q2. Why are the two kinds kept apart?', answer: 'They are known differently', why: 'One is certain, one is not.', cite: '{p. 1}' },
     { q: 'MOCK Q3. Where would a new case go?', answer: 'Matters of fact', why: 'It depends on experience.', cite: '{p. 2}' } ] })
   if (intent === 'quiz_check') { const a = String(c.quiz?.answer || '').toLowerCase(); return JSON.stringify(a.includes(String(c.quiz?.expected || '').toLowerCase().split(' ')[0]) ? { verdict: 'right', feedback: 'MOCK: that is the key step.' } : { verdict: 'not_yet', feedback: 'MOCK: reread how the two kinds differ.' }) }
+  // Before you start (chapter action `primer`): the primer's JSON, with citations to the unit's first page.
+  if (intent === 'chapter' && c.chapter?.action?.kind === 'primer') { const n = c.context?.pages?.[0]?.n ?? 1; return JSON.stringify(mock.primer || { gist: `MOCK gist of ${c.chapter.action.unitTitle}. It says what the unit sets out to do.`, claims: [1, 2, 3].map(i => ({ text: `MOCK claim ${i} of the unit.`, cite: `{p. ${n}}` })), keepInMind: ['MOCK caution: a convention that changes later.'], map: [1, 2, 3].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${n}` })) }) }
   if (intent === 'factcheck') return 'Holds. MOCK verdict line for the passage.\n\nHolds. The first claim stands as written.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)'
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
@@ -110,6 +132,15 @@ function start(port) {
       const body = JSON.parse((await readBody(req)).toString() || '{}')
       if (body.rev !== have.rev) return json(res, 409, { error: 'conflict', ...have })
       account[kind].set(hex, { [field]: body[field], rev: have.rev + 1 }); return json(res, 200, { rev: have.rev + 1 })
+    }
+    if (p.startsWith('/api/user-books/primers/')) {
+      // As the Worker: one stored primer per book and unit, the owner's only; 404 when none; PUT validates and stamps.
+      const key = p.slice('/api/user-books/primers/'.length) + '?' + url.searchParams.get('unit')
+      if (req.method === 'GET') { const have = account.primers.get(key); return have ? json(res, 200, { primer: have }) : json(res, 404, { error: 'Not found' }) }
+      const body = JSON.parse((await readBody(req)).toString() || '{}'), content = PRIMER_PARSE.normalizePrimer(body.primer)
+      if (!content) return json(res, 400, { error: 'invalid_primer' })
+      const primer = { ...content, madeAt: new Date().toISOString(), unitKey: url.searchParams.get('unit') }
+      account.primers.set(key, primer); return json(res, 200, { primer })
     }
     if (p.startsWith('/api/user-books/')) { const b = account.books.find(x => x.id === p.slice('/api/user-books/'.length)); if (!b) return json(res, 404, { error: 'Not found' }); res.writeHead(200, { 'Content-Type': 'application/pdf' }); return res.end(b.bytes) }
     if (p.startsWith('/api/')) return json(res, 404, { error: 'Not found' })
@@ -173,7 +204,9 @@ async function readerMatrix(browser, origin) {
   const rows = []
   for (const pdf of PDFS) {
     const hex = addBook(pdf), label = basename(pdf, '.pdf')
-    for (const [width, height] of VIEWPORTS) for (const look of LOOKS) {
+    const pi = PDFS.indexOf(pdf)
+    const combos = SAMPLE ? VIEWPORTS.map(([w, h], i) => [w, h, rotate(LOOKS, i + pi)]) : VIEWPORTS.flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+    for (const [width, height, look] of combos) {
       const tag = `${label}-${width}x${height}-${look}`
       let opened
       try { opened = await readerPage(browser, origin, hex, { width, height, look }) }
@@ -184,7 +217,7 @@ async function readerMatrix(browser, origin) {
       const check = async (state, ready) => {
         await page.waitForSelector(ready, { timeout: 8000 })
         await page.waitForTimeout(250)
-        const list = await checkLayout(page, { selectors: SELECTORS })
+        const list = await checkMargin(page)
         found.push(...list.map(p => ({ state, ...p })))
         const keep = (width === 1440 && height === 900) || (width === 390 && height === 844)
         states[state] = keep ? await shot(page, `${tag}-${state}`) : null
@@ -239,9 +272,12 @@ async function fixtureRows(browser, origin) {
 const PAIRS = [['bar', '[data-strip="a"]'], ['asking', '[data-strip="b"]'], ['more', '[data-strip="c"]'], ['highlight', '[data-strip="d"]'], ['define', '[data-strip="e"]'], ['phone-bar', '[data-ph="a"]'], ['phone-more', '[data-ph="b"]'],
   // PR 2: the column (mockup section 2), crowding (3), the phone's answer and chat cards (5 C, D) and the new answers (6).
   ['column', '[data-desk="margin"]'], ['crowded', '[data-desk="overlap"]'], ['phone-answer', '[data-ph="c"]'], ['phone-chat', '[data-ph="d"]'],
+  // PR 3: Before you start (mockup section 4).
+  ['trigger', '[data-desk="trigger"]'], ['primer', '[data-desk="primer"]'],
   ...['simplify', 'factcheck', 'counterpoint', 'quiz', 'quiz-answered'].map((k, i) => [`card-${k}`, `.cardrow .step:nth-child(${i + 1}) .cardbg`, `[data-cards="mockup"] [data-card="${k}"]`])]
 // Composed from existing pieces (no mockup frame): each state shown on its own.
-const COMPOSED = [['note', '[data-strip="f"]'], ['phone-define', '[data-ph="e"]'], ['phone-note', '[data-ph="f"]'], ['marks', '[data-desk="marks"]'], ...['factcheck-checking', 'factcheck-six', 'quiz-shown', 'quiz-marking', 'quiz-done', 'explain', 'define', 'note', 'whole', 'folded'].map(k => [`card-${k}`, `[data-card="${k}"]`])]
+const COMPOSED = [['note', '[data-strip="f"]'], ['phone-define', '[data-ph="e"]'], ['phone-note', '[data-ph="f"]'], ['marks', '[data-desk="marks"]'],
+  ['trigger-cards', '[data-desk="trigger-cards"]'], ['primer-long', '[data-desk="primer-long"]'], ['primer-wait', '[data-desk="primer-wait"]'], ['primer-narrow', '[data-desk="primer-narrow"]'], ['phone-trigger', '[data-ph="g"]'], ['phone-primer', '[data-ph="h"]'], ['phone-primer-full', '[data-ph="i"]'], ...['factcheck-checking', 'factcheck-six', 'quiz-shown', 'quiz-marking', 'quiz-done', 'explain', 'define', 'note', 'whole', 'folded'].map(k => [`card-${k}`, `[data-card="${k}"]`])]
 async function pairs(browser, origin) {
   const out = []
   for (const look of ['paper', 'night']) {
@@ -258,7 +294,8 @@ async function pairs(browser, origin) {
     // A blinking caret is caught on or off; both sides show it on.
     for (const pg of [mock, fix]) await pg.addStyleTag({ content: '*, *::after { animation: none !important; }' })
     const comp = await ctx.newPage()
-    for (const [name, sel, fixSel] of [...PAIRS, ...COMPOSED]) {
+    const only = process.env.PAIRS_ONLY ? process.env.PAIRS_ONLY.split(',') : null
+    for (const [name, sel, fixSel] of [...PAIRS, ...COMPOSED].filter(p => !only || only.includes(p[0]))) {
       const a = join(OUT, `pair-${name}-${look}-mockup.png`), b = join(OUT, `pair-${name}-${look}-fixture.png`)
       const inMock = PAIRS.some(p => p[0] === name)
       if (inMock) await mock.locator(sel).first().screenshot({ path: a })
@@ -351,7 +388,7 @@ async function behaviour(browser, origin) {
   await a.evaluate(() => getSelection().removeAllRanges()); const w0 = account.requests.length
   await a.keyboard.press('/'); await a.keyboard.type('What is this about?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1000)
   const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
-  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => document.querySelector('.mr-col .mr-card.is-whole').offsetTop)) === 0)
+  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column (first, below the primer\'s trigger when it shows)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); return document.querySelector('.mr-col .mr-card.is-whole').offsetTop === (t ? TinctMargin.PRIMER.top + t.offsetHeight + TinctMargin.COL.cardGap : 0) })))
   await fresh(a)
   await fresh(a)
   // The dot: one tap highlights in the default colour; a second tap opens the colours; picking sets the default.
@@ -479,6 +516,211 @@ async function behaviour(browser, origin) {
 }
 
 
+/* ---------- PR 3: Before you start (BRIEF.md §5): trigger, primer, storage, Redo, the map and Quiz me on the chapter ---------- */
+async function primerBehaviour(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 300)}`) }
+  const hex = addBook(PDFS[0]), hex2 = addBook(PDFS[1])
+  const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const a = A.page
+  await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  const r0 = chats().length
+  const trig = await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); return t && { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, key: !!t.querySelector('.mr-key') } })
+  ok('at the PDF\'s start the trigger is the column\'s first folded card: "Before you start", [B], the unit named', trig && trig.text === 'Before you start B The gist, the key claims and a map of chapter 1.' && trig.top === 16 && trig.key, trig)
+  ok('nothing is made when the file opens (only when the reader opens the trigger)', primers(0).length === 0)
+  await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
+  const req = primers(r0)[0]
+  ok('B opens the primer in place: one chapter request, action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === 4 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
+  const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
+  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, alone in the column', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && shown.top === 16 && shown.bottom === 70 && !shown.trigger, shown)
+  await a.waitForTimeout(600)
+  const stored = account.primers.get(hex + '?outline-0')
+  ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
+  await a.click('.mr-col .mr-primer .mr-primer__close'); await a.waitForTimeout(250)
+  ok('its close folds it back to the trigger', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
+  await a.click('.mr-col .mr-trigger'); await a.waitForTimeout(400)
+  ok('clicking the trigger opens it again, and reopening never makes it again', await a.isVisible('.mr-col .mr-primer .mr-primer__gist') && primers(r0).length === 1)
+  await a.keyboard.press('Escape'); await a.waitForTimeout(200)
+  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
+  // Another device (this browser's copy gone): the account's primer, not a new one.
+  await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
+  await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(900)
+  const r1 = chats().length
+  await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
+  ok('on another device the account\'s primer opens; nothing is made again', primers(r1).length === 0 && /MOCK gist/.test(await a.innerText('.mr-col .mr-primer')))
+  // Redo: a new one, stored again.
+  mock.primer = { gist: 'MOCK redone gist. Second sentence.', claims: [1, 2, 3, 4, 5].map(i => ({ text: `Redone claim ${i}.`, cite: '{p. 2}' })), keepInMind: ['One', 'Two'], map: [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ title: `Redone section ${i}`, pages: `p. ${i + 1}` })) }
+  await a.click('.mr-col .mr-primer [data-c="redo"]'); await a.waitForTimeout(1200); mock.primer = null
+  ok('Redo makes a new one (one request) and stores it with the book', primers(r1).length === 1 && /redone gist/.test(await a.innerText('.mr-col .mr-primer')) && /redone gist/.test(account.primers.get(hex + '?outline-0')?.gist || ''))
+  ok('a long primer (five claims, eight map rows) has no layout problems in the column', (await checkMargin(a)).length === 0, await checkMargin(a))
+  // A map row scrolls the PDF to its page.
+  // The scroll is smooth; newer Chromium takes about 1.2 s, so wait for it to settle, then check where it landed.
+  await a.click('.mr-col .mr-map__row[data-page="6"]'); await a.waitForFunction(() => { const s = document.getElementById('scroll'), t = s.scrollTop, settled = window.__mrLastTop === t; window.__mrLastTop = t; return settled }, null, { polling: 300, timeout: 5000 }).catch(() => {})
+  ok('a map row scrolls the PDF to its page', (await a.evaluate(() => currentPlace().page)) === 6, await a.evaluate(() => currentPlace()))
+  await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(500)
+  // Quiz me on this chapter: `quiz` with no selection and the unit's pages; a quiz card at the column's top.
+  const r2 = chats().length
+  await a.click('.mr-col .mr-quiz-row'); await a.waitForTimeout(1200)
+  const q = chats().slice(r2).find(r => r.body?.companion?.intent === 'quiz')
+  const quizCard = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-open'); return c && { label: c.querySelector('.mr-card__label').innerText.replace(/\s+/g, ' '), unit: c.classList.contains('is-unit'), primer: !!document.querySelector('.mr-col .mr-primer') } })
+  ok('"Quiz me on this chapter": quiz on the whole unit (no selection, its pages), opening as a quiz card; the primer folds', q && q.body.companion.selection === undefined && q.body.companion.context.pages.length === 4 && quizCard?.label.startsWith('Quiz me · chapter 1') && /1 of 3/.test(quizCard.label) && quizCard.unit && !quizCard.primer, { q: q?.body?.companion && { sel: q.body.companion.selection, pages: q.body.companion.context.pages.length }, quizCard })
+  ok('the chapter quiz is kept with the cards (synced) and has no leader line', await a.evaluate(() => keptCards().some(c => c.data?.unit?.key === 'outline-0' && c.rects.length === 1) && !document.querySelector('svg.mr-leads path:not(.is-folded)')))
+  await a.keyboard.press('Escape')
+  // The next unit's start offers its own trigger; the middle of a unit offers none.
+  await a.evaluate(() => goTo({ page: 5, frac: 0 })); await a.waitForTimeout(700)
+  const t5 = await a.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  await a.evaluate(() => goTo({ page: 6, frac: 0.3 })); await a.waitForTimeout(700)
+  const t6 = await a.evaluate(() => !!document.querySelector('.mr-col .mr-trigger'))
+  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
+  const r3 = chats().length
+  await a.keyboard.press('b'); await a.waitForTimeout(1000)
+  const req3 = primers(r3)[0]
+  ok('B anywhere opens the primer of the unit the reader is in', req3?.body?.companion?.chapter?.action?.unitKey === 'outline-1', req3?.body?.companion?.chapter)
+  await a.keyboard.press('Escape')
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // A PDF without an outline is one unit, "all".
+  const B = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'night' })
+  await B.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  const rb = chats().length
+  await B.page.keyboard.press('b'); await B.page.waitForTimeout(1000)
+  const reqb = primers(rb)[0]
+  ok('a PDF without an outline: one unit ("all"), the whole PDF', /map of the whole PDF\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === 'all' && reqb.body.companion.context.pages.length === 8, { tb, action: reqb?.body?.companion?.chapter })
+  // Not in the account (signed out): kept in this browser only; reopening uses it.
+  await B.ctx.close()
+  const C = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'paper' })
+  await C.page.evaluate(() => { localStorage.removeItem('sb-local-auth-token') })
+  await C.page.reload(); await C.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await C.page.waitForTimeout(900)
+  // The page's PDF came from the account; signed out, it is this browser's copy now.
+  const rc = chats().length, putsBefore = account.primers.size
+  await C.page.keyboard.press('b'); await C.page.waitForTimeout(1000)
+  await C.page.keyboard.press('Escape'); await C.page.keyboard.press('b'); await C.page.waitForTimeout(600)
+  ok('signed out: kept in this browser (reopened without a new request), nothing sent to the account', primers(rc).length <= 1 && account.primers.size === putsBefore && await C.page.evaluate(() => Object.keys(localStorage).some(k => k.includes(':primer:'))), { requests: primers(rc).length })
+  await C.ctx.close()
+  // The phone: the trigger is the bottom card; tapping it opens the primer in the bottom card.
+  const Ph = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  await Ph.page.waitForSelector('.mr-sheet .mr-trigger', { timeout: 8000 }).catch(() => {})
+  ok('phone: at a unit\'s start the trigger is the bottom card (no key shown)', await Ph.page.isVisible('.mr-sheet .mr-trigger') && !(await Ph.page.$('.mr-sheet .mr-key')))
+  await Ph.page.click('.mr-sheet .mr-trigger'); await Ph.page.waitForSelector('.mr-sheet .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
+  const sh = await Ph.page.evaluate(() => { const s = document.querySelector('.mr-sheet'); return s && { h: s.getBoundingClientRect().height, primer: !!s.querySelector('.mr-primer .mr-map') } })
+  ok('phone: the primer opens in the bottom card, about half the screen high', sh?.primer && sh.h <= 844 / 2 + 2, sh)
+  ok('phone: no layout problems with the primer open', (await checkMargin(Ph.page)).length === 0, await checkMargin(Ph.page))
+  await Ph.page.click('.mr-sheet .mr-primer__close'); await Ph.page.waitForTimeout(300)
+  ok('phone: closing folds it back to the trigger', await Ph.page.isVisible('.mr-sheet .mr-trigger'))
+  await Ph.page.mouse.click(195, 300); await Ph.page.waitForTimeout(300)
+  ok('phone: tapping the page closes the trigger, and it stays closed at this unit', !(await Ph.page.$('.mr-sheet')))
+  ok('phone: no page errors', !Ph.problems.length, Ph.problems)
+  await Ph.ctx.close()
+  return results
+}
+
+/* ---------- PR 4: keys, focus, labels and the live region (BRIEF.md "Keys (desktop)"; DECISIONS.md 2026-10-15) ---------- */
+async function keysAndAccess(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 300)}`) }
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  const fresh = async () => { for (let i = 0; i < 4; i++) await a.keyboard.press('Escape'); await a.evaluate(() => { getSelection().removeAllRanges(); document.activeElement?.blur?.() }); await a.waitForTimeout(250) }
+  const focusRing = () => a.evaluate(() => { const el = document.activeElement, cs = el && getComputedStyle(el); return el ? { cls: String(el.className), outline: cs.outlineStyle, width: parseFloat(cs.outlineWidth) } : null })
+  const hl = () => a.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:hl:pdf:' + h) || '[]').length, hex)
+  // N: the note on the selection; any other key: Ask with it.
+  await selectText(a); await a.waitForSelector('.mr-bar'); const h0 = await hl()
+  await a.keyboard.press('n'); await a.waitForTimeout(300)
+  ok('with a selection, N opens the note on it (highlighted in the default colour), not Ask', await a.isVisible('.mr-note .mr-note__field') && !(await a.$('.mr-bar.is-asking')) && (await hl()) === h0 + 1)
+  await fresh()
+  await selectText(a); await a.waitForSelector('.mr-bar')
+  await a.keyboard.press('W'); await a.keyboard.type('hy not now?'); await a.waitForTimeout(150)
+  ok('N never steals a typed question: once Ask has the keys, N is typed', (await a.inputValue('.mr-ask')) === 'Why not now?' && !(await a.$('.mr-note')))
+  await fresh()
+  await selectText(a); await a.waitForSelector('.mr-bar')
+  await a.keyboard.press('Control+n'); await a.keyboard.press('Alt+n'); await a.waitForTimeout(200)
+  ok('with Cmd, Ctrl or Alt, N does nothing in the margin', !(await a.$('.mr-note')) && !(await a.$('.mr-bar.is-asking')))
+  await a.keyboard.press('b'); await a.waitForTimeout(200)
+  ok('with a selection, B goes to Ask like any other letter (the primer waits)', (await a.inputValue('.mr-ask').catch(() => '')) === 'b' && !(await a.$('.mr-primer')))
+  await fresh()
+  // B and "/" without a selection.
+  await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer', { timeout: 6000 }).catch(() => {}); await a.waitForTimeout(400)
+  ok('without a selection, B opens the primer; the keys bring the focus to it (its close), with a visible ring', await a.isVisible('.mr-col .mr-primer') && /mr-primer__close/.test((await focusRing())?.cls || '') && (await focusRing()).outline !== 'none' && (await focusRing()).width >= 2, await focusRing())
+  await a.keyboard.press('Escape'); await a.waitForTimeout(200)
+  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')))
+  await a.keyboard.press('/'); await a.waitForTimeout(150)
+  ok('"/" focuses the whole-PDF line at the column\'s foot', await a.evaluate(() => document.activeElement?.classList.contains('mr-foot__input')))
+  await a.keyboard.type('n b'); await a.waitForTimeout(100)
+  ok('typing in a field never triggers a key (N, B)', (await a.inputValue('.mr-foot__input')) === 'n b' && !(await a.$('.mr-note, .mr-col .mr-primer')))
+  await a.evaluate(() => { const f = document.querySelector('.mr-foot__input'); f.value = ''; f.blur() })
+  await fresh()
+  // The bar from the keyboard: Tab into it, Left/Right along it, Return on the dots opens More with its first row focused, Up/Down move, Return chooses.
+  await selectText(a); await a.waitForSelector('.mr-bar')
+  await a.keyboard.press('Tab'); const first = await focusRing()
+  ok('Tab from the page moves into the bar (Ask first), with a visible focus ring', /is-ask/.test(first?.cls || '') && first.outline !== 'none', first)
+  await a.keyboard.press('ArrowRight'); await a.keyboard.press('ArrowRight'); await a.keyboard.press('ArrowRight')
+  ok('Left and Right move along the bar', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
+  await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.waitForTimeout(100)
+  ok('Return on the dots opens More with its first row focused', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'define' && (await a.getAttribute('.mr-bar [data-m="more"]', 'aria-expanded')) === 'true')
+  await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
+  const at = await a.evaluate(() => document.activeElement?.dataset.m)
+  await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp')
+  ok('Up and Down move between the rows, round from the first to the last', at === 'counterpoint' && (await a.evaluate(() => document.activeElement?.dataset.m)) === 'copy')
+  await a.keyboard.press('Escape'); await a.waitForTimeout(100)
+  ok('Escape closes More first, the focus back on its dots; the bar stays', !(await a.$('.mr-more')) && await a.isVisible('.mr-bar') && (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
+  await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
+  const n0 = account.requests.length
+  await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
+  ok('Return chooses the row (Counterpoint: its card opens)', account.requests.slice(n0).some(r => r.body?.companion?.intent === 'counterpoint') && /^Counterpoint/.test(await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')))
+  ok('the finished answer is announced once in a polite live region', await a.evaluate(() => { const l = document.getElementById('mr-live'); return !!l && l.getAttribute('aria-live') === 'polite' && /^Counterpoint · p\. \d+\. MOCK ANSWER/.test(l.textContent) }), await a.evaluate(() => document.getElementById('mr-live')?.textContent))
+  // Escape one step at a time: the open card folds after the bar has gone.
+  await selectText(a); await a.waitForSelector('.mr-bar'); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
+  await a.keyboard.press('Escape'); const s1 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
+  await a.keyboard.press('Escape'); const s2 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
+  await a.keyboard.press('Escape'); await a.waitForTimeout(150); const s3 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
+  ok('Escape steps back one piece at a time: More, then the bar, then the open card', JSON.stringify([s1, s2, s3]) === JSON.stringify([[false, true, true], [false, false, true], [false, false, false]]), [s1, s2, s3])
+  // A folded card from the keyboard: Return opens it with the focus on its close; Return on close folds it, the focus back on its label.
+  await a.evaluate(() => document.querySelector('.mr-col .mr-card.is-folded .mr-card__label')?.focus())
+  const label = await focusRing()
+  await a.keyboard.press('Enter'); await a.waitForTimeout(250)
+  const closeF = await focusRing()
+  await a.keyboard.press('Enter'); await a.waitForTimeout(250)
+  ok('a folded card from the keyboard: Return opens it (focus on its close), Return on close folds it (focus back on its label), rings visible', /mr-card__label/.test(label?.cls || '') && label.outline !== 'none' && /mr-card__close/.test(closeF?.cls || '') && /mr-card__label/.test((await focusRing())?.cls || ''), { label, closeF, after: await focusRing() })
+  // Labels and roles.
+  const roles = await a.evaluate(() => {
+    const col = document.querySelector('.mr-col'); openCard(keptCards()[0].id)
+    return { col: [col.getAttribute('role'), col.getAttribute('aria-label')] }
+  })
+  await a.waitForTimeout(250)
+  const roles2 = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open'); return { card: [c.getAttribute('role'), c.getAttribute('aria-label')], unlabeled: [...document.querySelectorAll('.mr-col button, .mr-col textarea, .mr-marks button')].filter(b => !(b.getAttribute('aria-label') || b.textContent.trim())).map(b => b.className) } })
+  await selectText(a); await a.waitForSelector('.mr-bar'); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
+  const roles3 = await a.evaluate(() => ({ bar: [document.querySelector('.mr-bar').getAttribute('role'), document.querySelector('.mr-bar').getAttribute('aria-label')], more: document.querySelector('.mr-more').getAttribute('role'), items: [...document.querySelectorAll('.mr-more [data-m]')].every(b => b.getAttribute('role') === 'menuitem'), unlabeled: [...document.querySelectorAll('.mr-float button, .mr-float textarea')].filter(b => !(b.getAttribute('aria-label') || b.textContent.trim())).map(b => b.className) }))
+  ok('roles and names: the column (complementary, "Margin"), the open card (a region named by its label), the bar (toolbar), More (menu of menuitems); no control without a name', roles.col.join() === 'complementary,Margin' && roles2.card[0] === 'region' && /^Counterpoint|^Explain|^Ask|^Simplify|^Quiz/.test(roles2.card[1] || '') && !roles2.unlabeled.length && roles3.bar.join() === 'toolbar,Selection' && roles3.more === 'menu' && roles3.items && !roles3.unlabeled.length, { roles, roles2, roles3 })
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+// Text contrast of every margin colour pair, per look (WCAG 2 ratio of the text's colour on the colour behind it). A report: the colours are the mockup's.
+async function contrast(browser, origin) {
+  const rows = []
+  for (const look of ['paper', 'book', 'night', 'eink']) {
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 3600 } }), page = await ctx.newPage()
+    await page.goto(`${origin}/lab/addbook/margin-fixture.html?look=${look}`); await page.waitForFunction(() => document.documentElement.dataset.ready === 'true')
+    const found = await page.evaluate(() => {
+      const parse = c => { const m = c.match(/[\d.]+/g)?.map(Number) || [0, 0, 0, 0]; return { r: m[0], g: m[1], b: m[2], a: m.length > 3 ? m[3] : 1 } }
+      const over = (top, under) => ({ r: top.r * top.a + under.r * (1 - top.a), g: top.g * top.a + under.g * (1 - top.a), b: top.b * top.a + under.b * (1 - top.a), a: 1 })
+      const bg = el => { const layers = []; for (let e = el; e; e = e.parentElement) { const c = parse(getComputedStyle(e).backgroundColor); if (c.a > 0) { layers.push(c); if (c.a >= 1) break } } return layers.reverse().reduce((u, t) => over(t, u), { r: 255, g: 255, b: 255, a: 1 }) }
+      const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4 }; return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b) }
+      const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05) }
+      const cases = [['bar words', '[data-strip="a"] .mr-bar .is-ask'], ['More line', '[data-strip="c"] .mr-more__row span'], ['Define senses (secondary)', '[data-strip="e"] .mr-define__senses li:not(.is-fit)'], ['card label', '.cardbg .mr-card.is-open .mr-card__label'], ['quote', '.cardbg .mr-quote'], ['answer', '.cardbg .mr-answer p'], ['citation tag', '.cardbg .mr-cite'], ['status line', '[data-card="factcheck-checking"] .mr-status'], ['sources', '.cardbg .mr-sources a'], ['folded text', '[data-desk="margin"] .mr-card.is-folded .mr-card__text'], ['stack row', '[data-desk="overlap"] .mr-stack span'], ['foot hint', '[data-desk="margin"] .mr-foot__hint'], ['trigger line', '[data-desk="trigger"] .mr-trigger__sub'], ['primer heading', '[data-desk="primer"] .mr-primer__head'], ['primer numbers', '[data-desk="primer"] .mr-primer__n'], ['map pages', '[data-desk="primer"] .mr-map__pages'], ['primer footer', '[data-desk="primer"] .mr-primer__foot span'], ['quiz link', '[data-card="quiz"] .mr-follow__link']]
+      return cases.map(([name, sel]) => { const el = document.querySelector(sel); if (!el) return { name, missing: true }; const cs = getComputedStyle(el); const fg = over(parse(cs.color), bg(el)); return { name, ratio: Math.round(ratio(fg, bg(el)) * 100) / 100, size: cs.fontSize } })
+    })
+    for (const f of found) rows.push({ look, ...f })
+    await ctx.close()
+  }
+  for (const r of rows) console.log(`${r.look.padEnd(6)} ${r.name.padEnd(28)} ${r.missing ? 'missing' : r.ratio + ':1 at ' + r.size}`)
+  return rows
+}
+
 /* ---------- PR 2: the margin column, cards, marks and the bottom card, across the brief's stress matrix ----------
    docs/margin/BRIEF.md "Layout QA": every viewport × look × browser zoom (desktop), each with the
    content cases below; each state must return no problems from docs/margin/layout-check.mjs, and
@@ -487,6 +729,13 @@ const COLUMN_VIEWPORTS = (process.env.COLUMN_VIEWPORTS || '1440x900,1280x800,118
 const ZOOMS = (process.env.ZOOMS || '1,1.25').split(',').map(Number)
 const LONG = Array.from({ length: 60 }, (_, i) => `Sentence ${i + 1} of a long answer runs on with several more words in it.`).join(' ').split(' ').slice(0, 600).join(' ')
 const WORD60 = 'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'
+// The longest primer PROMPTS.md allows: a 45-word gist, five 25-word claims, three cautions (one a 60-character word), eight map rows.
+const LONG_PRIMER = {
+  gist: 'The chapter sets up the two tools the rest of the book leans on, the binomial distribution for counting outcomes and Stirling’s approximation for the factorials it produces, and shows why both return in every later chapter on inference and coding.',
+  claims: Array.from({ length: 5 }, (_, i) => ({ text: `Claim ${i + 1} runs to its full length of twenty-five words so that the primer is as long as a primer can be, with its page.`, cite: '{p. 1}' })),
+  keepInMind: ['The exercises use natural logs throughout, but later chapters switch to base 2.', 'The text writes f for a probability where many courses write p.', `${'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'}: long words still wrap.`],
+  map: Array.from({ length: 8 }, (_, i) => ({ title: i === 6 ? 'Further reading and a note on the notation used in the later chapters of the book' : `Section ${i + 1}`, pages: `pp. ${i + 1}–${i + 2}` })),
+}
 const LONG_URL = 'https://example.org/a-very-long-path/without-any-breaks/stirling-approximation-error-bounds-for-small-x-values'
 // In the page: cards on the lines in view (`lines` of them, two passages per line when `pairs`),
 // built from the text layer's own spans, in the reader's store, one of them open.
@@ -539,7 +788,11 @@ async function columnMatrix(browser, origin) {
   const rows = []
   for (const pdf of PDFS) {
     const hex = addBook(pdf), label = basename(pdf, '.pdf')
-    for (const [width, height] of COLUMN_VIEWPORTS) for (const look of LOOKS) for (const zoom of width < 700 ? [1] : ZOOMS) {
+    const pi = PDFS.indexOf(pdf)
+    const combos = SAMPLE
+      ? COLUMN_VIEWPORTS.map(([w, h], i) => [w, h, rotate(LOOKS, i + pi), w < 700 ? 1 : rotate(ZOOMS, i + pi)])
+      : COLUMN_VIEWPORTS.flatMap(([w, h]) => LOOKS.flatMap(l => (w < 700 ? [1] : ZOOMS).map(z => [w, h, l, z])))
+    for (const [width, height, look, zoom] of combos) {
       const tag = `${label}-${width}x${height}-${look}-z${Math.round(zoom * 100)}`
       const found = [], shots = {}
       let opened
@@ -596,6 +849,13 @@ async function columnMatrix(browser, origin) {
         await page.evaluate(() => { col.live.clear(); chat.turns = [{ role: 'user', content: 'What is this PDF about?', page: 2, at: Date.now() }, { role: 'assistant', content: 'MOCK. The bottom line about the whole PDF {p. 1}.\n\nMore.', at: Date.now() }]; openWhole({ quiet: true }) })
         await state('whole')
         await page.evaluate(() => { chat.turns = []; closeChat() })
+        // PR 3: at a unit's start, the trigger with the page's cards below it; then the longest primer, open.
+        await page.evaluate(() => { openCard(null); goTo({ page: TinctMargin.unitAt(primer.units, currentPlace().page).start, frac: 0 }) }); await settle(page)
+        await page.evaluate(seedCards, { lines: 4, pairs: true, open: 2, where: 'top' })
+        await state('trigger', () => ({ ok: col.mode !== 'column' || !!document.querySelector('.mr-col .mr-trigger:not([hidden])'), mode: col.mode }))
+        await page.evaluate(LONG => { openCard(null); const u = currentUnit(); store.set(primerKey(u), { ...LONG, madeAt: new Date().toISOString(), unitKey: u.key }); openPrimer(u) }, LONG_PRIMER)
+        await state('primer', () => { const el = document.querySelector('.mr-primer'); return { ok: !!el?.querySelector('.mr-map') && el.querySelectorAll('.mr-map__row').length === 8 && (col.mode !== 'column' || !document.querySelector('.mr-col .mr-card:not([hidden])')) } })
+        await page.evaluate(() => closePrimer())
         if (mode === 'phone') {
           // The bottom card with the keyboard open: its follow-up line above the keyboard, the passage in view.
           await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['ask'] })
@@ -611,7 +871,7 @@ async function columnMatrix(browser, origin) {
         if (mode === 'marks') {
           // A mark opens its card floating beside it.
           await page.evaluate(seedCards, { lines: 3, pairs: false, open: null })
-          await page.click('.mr-mark'); await state('mark-open', () => ({ ok: !!document.querySelector('.mr-card.is-floating.is-open') }))
+          await page.click('.mr-mark:not([data-primer])'); await state('mark-open', () => ({ ok: !!document.querySelector('.mr-card.is-floating.is-open') }))
         }
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e).replace(/\u001b\[\d+m/g, '').slice(-700) }) }
       const n = found.length + problems.length
@@ -629,7 +889,7 @@ async function resizeRun(browser, origin) {
   const out = []
   for (const pdf of PDFS) {
     const hex = addBook(pdf), label = basename(pdf, '.pdf')
-    for (const look of LOOKS) {
+    for (const look of SAMPLE ? [rotate(LOOKS, PDFS.indexOf(pdf) * 2)] : LOOKS) {
       const { ctx, page, problems } = await readerPage(browser, origin, hex, { width: 1300, height: 820, look, startPage: 2 })
       const found = []
       await page.evaluate(seedCards, { lines: 3, pairs: true, open: 2 }); await settle(page)
@@ -658,10 +918,37 @@ const server = await start(Number(process.env.PORT || 4791))
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio'] })
 let failed = false
+const RUNS = {
+  fixture: [fixtureRows, rows => rows.some(r => r.problems)],
+  reader: [readerMatrix, rows => rows.some(r => r.problems)],
+  column: [columnMatrix, rows => rows.some(r => r.problems)],
+  resize: [resizeRun, rows => rows.some(r => r.problems)],
+  behaviour: [behaviour, rows => rows.some(r => !r.pass)],
+  primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
+  keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
+}
 try {
-  if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
+  if (mode === 'sample' || mode === 'full') {
+    // Every check in one run; each writes {name}-results.json. A failure in one does not stop the rest.
+    SAMPLE = mode === 'sample'
+    const started = Date.now(), summary = []
+    for (const [name, [run, bad]] of Object.entries(RUNS)) {
+      // Each check starts from an empty account, as it does when run on its own.
+      account.marks.clear(); account.cards.clear(); account.primers.clear(); account.requests.length = 0
+      const t = Date.now(), rows = await run(browser, origin), fail = bad(rows)
+      writeFileSync(join(OUT, `${name}-results.json`), JSON.stringify(rows, null, 2))
+      summary.push({ check: name, rows: rows.length, failed: fail, seconds: Math.round((Date.now() - t) / 1000) })
+      console.log(`== ${name}: ${rows.length} row(s), ${fail ? 'FAILED' : 'clean'}, ${Math.round((Date.now() - t) / 1000)}s`)
+      failed ||= fail
+    }
+    writeFileSync(join(OUT, `${mode}-summary.json`), JSON.stringify({ mode, seconds: Math.round((Date.now() - started) / 1000), summary }, null, 2))
+  }
+  else if (mode === 'contrast') { const rows = await contrast(browser, origin); writeFileSync(join(OUT, 'contrast-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'keys') { const rows = await keysAndAccess(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'keys-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
+  else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
