@@ -86,13 +86,32 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* Back to library: icon-only arrow at the left of the top bar, as in Tinct's reader */
 .lab.byob .lab-v2-library-back { flex: 0 0 34px; width: 34px; height: 34px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 999px; background: transparent; box-shadow: none; color: inherit; cursor: pointer; }
 .lab.byob .lab-v2-library-back:hover { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
-/* "Tinct text": a text PDF's other edition, in the reader's book face (never the UI's mono) */
-.lab.byob .lab-header-edition { flex: 0 0 auto; height: 30px; padding: 0 12px; border: 1px solid color-mix(in srgb, var(--pdf-ink) 22%, transparent); border-radius: 999px; background: transparent; color: inherit; font-family: 'EB Garamond', Georgia, serif; font-size: 15px; letter-spacing: 0; line-height: 1; cursor: pointer; white-space: nowrap; }
-.lab.byob .lab-header-edition:hover { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
-.lab.byob .lab-header-edition[hidden] { display: none; }
-.lab.byob.is-phone .lab-header-edition { height: 26px; padding: 0 9px; font-size: 13.5px; }
-/* On the phone the controls are one narrow column; with "Tinct text" they take the width they need, in one row. */
-.lab.byob.is-phone .lab-header-controls:has(.lab-header-edition:not([hidden])) { width: auto; min-width: 0; flex-wrap: nowrap; gap: .35rem; }
+/* Aa: the panel of every setting for the look (layout, themes, size). The button is the top bar's icon
+   button (as Play and the t menu: .lab-v2-play, .lab-super); its "Aa" is the reader's theme swatch face
+   (src/lab/LabV2Sheet.tsx .lab-v2-theme-face: EB Garamond), never the UI's mono. */
+.lab.byob .byob-aa { flex: 0 0 34px; width: 34px; height: 34px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 999px; background: transparent; box-shadow: none; color: inherit; font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; font-size: 19px; line-height: 1; letter-spacing: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lab.byob .byob-aa:hover, .lab.byob .byob-aa[aria-expanded="true"] { background: color-mix(in srgb, var(--pdf-ink) 7%, transparent); }
+.lab.byob .byob-aa:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.lab.byob.is-phone .byob-aa { flex-basis: 32px; width: 32px; height: 44px; font-size: 19px; }
+/* On the phone the controls are one narrow column; with Aa they take the width they need, in one row. */
+.lab.byob.is-phone .lab-header-controls:has(.byob-aa) { width: auto; min-width: 0; flex-wrap: nowrap; gap: 0; }
+/* The Aa panel: Layout first (the reader's edition choices, src/lab/LabV2Sheet.tsx .lab-v2-edition-option),
+   its label in sentence case (the reader's group label is small caps; no all-caps labels here). */
+.lab.byob .byob-aa-panel .lab-v2-head { justify-content: flex-end; padding-bottom: 0; }
+.lab.byob .byob-aa-panel .lab-v2-group-label { margin: 0 0 2px; font: 600 13px/1.4 var(--pdf-ui); letter-spacing: 0; text-transform: none; color: var(--lab-ink-muted, var(--pdf-muted)); }
+/* Calm sections, as Gloss's own panels keep them: a hairline and 16px under Layout, as under the size;
+   no fills, no headings beyond Layout. */
+.lab.byob .byob-aa-panel .byob-aa-layout { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--pdf-line); }
+.lab.byob .byob-aa-panel .byob-aa-layout[hidden], .lab.byob .byob-aa-panel .lab-v2-row[hidden] { display: none; }
+.lab.byob .byob-aa-panel .lab-v2-edition-option { min-height: 44px; padding: 8px 0; }
+.lab.byob .byob-aa-panel .lab-v2-edition-option + .lab-v2-edition-option { border-top: 1px solid var(--pdf-line); }
+.lab.byob .byob-aa-panel .lab-v2-edition-check { margin-left: auto; }
+/* Focus view (TinctReaderLayout): a card opens in a pop-up window with the book reader's Explain
+   window's look (src/lab/lab.css .selection-popup.is-lab.is-contextual-explain: its fill, rule, 18px
+   corners, shadow and blur); reader.js places it (placePopupEl). */
+.lab.byob .mr-card.is-popup.is-open, .lab.byob .mr-primer.is-popup { position: fixed; z-index: 45; box-sizing: border-box; border: 1px solid #c8c0ae; border-radius: 18px; background: rgba(248, 243, 232, .96); box-shadow: 0 14px 38px rgba(44, 36, 25, .18), inset 0 1px rgba(255, 255, 255, .88); backdrop-filter: blur(22px) saturate(1.08); -webkit-backdrop-filter: blur(22px) saturate(1.08); overscroll-behavior: contain; }
+.lab.byob.is-night .mr-card.is-popup.is-open, .lab.byob.is-night .mr-primer.is-popup { border-color: rgba(204, 181, 146, .28); background: rgba(36, 31, 26, .96); box-shadow: 0 16px 40px rgba(0, 0, 0, .44), inset 0 1px rgba(255, 241, 218, .12); }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .lab.byob :is(.mr-card.is-popup.is-open, .mr-primer.is-popup) { border-color: #111; background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
 /* Off for a scan without text (read aloud, Summarize, Catch me up): dimmed as Tinct's buttons are (tinct-ui.css .tui-btn:disabled) */
 .lab.byob .lab-v2-play:disabled, .lab.byob .lab-super-row:disabled { opacity: .45; cursor: default; }
 /* The phone has the back arrow too, whatever the PDF shows (a scanned page fills the screen):
