@@ -149,9 +149,10 @@
     }
     const col = document.createElement('div'); col.className = 'mr mr-col'; d.appendChild(col);
     const svgNS = 'http://www.w3.org/2000/svg', leads = document.createElementNS(svgNS, 'svg'); leads.setAttribute('class', 'mr mr-leads'); d.appendChild(leads);
-    const foot = document.createElement('div'); foot.className = 'mr-foot'; foot.innerHTML = H.footHtml(); col.appendChild(foot);
-    const colTop = 56, colH = dr.height - colTop, footTop = colH - 22 - foot.offsetHeight;
-    col.style.setProperty('--mr-col-height', colH + 'px'); col.style.setProperty('--mr-foot-height', (colH - footTop + 18) + 'px');
+    // No foot (15 Oct): an empty end marker the cards go before; they keep COL.foot clear of the column's end, as the reader's do.
+    const foot = document.createElement('div'); foot.className = 'mr-col__end'; col.appendChild(foot);
+    const colTop = 56, colH = dr.height - colTop, footTop = colH;
+    col.style.setProperty('--mr-col-height', colH + 'px'); col.style.setProperty('--mr-foot-height', M.COL.foot + 'px');
     const els = plan.cards.map(k => { const el = cardEl(CARDS[k], k === plan.open); col.insertBefore(el, foot); return el });
     const stackEl = document.createElement('button'); stackEl.type = 'button'; stackEl.className = 'mr-stack'; stackEl.innerHTML = H.stackHtml([CARDS.note]); col.insertBefore(stackEl, foot);
     const stackH = stackEl.offsetHeight;
@@ -247,7 +248,7 @@
     }
     const col = document.createElement('div'); col.className = 'mr mr-col'; d.appendChild(col);
     if (kind === 'trigger') { const t = triggerEl(); col.appendChild(t); t.style.top = Math.max(0, firstTextTop(d.querySelector('.pdf'), dr.top) - 56 - M.COL.lift) + 'px'; return }
-    const foot = document.createElement('div'); foot.className = 'mr-foot'; foot.innerHTML = H.footHtml(); col.appendChild(foot);
+    const foot = document.createElement('div'); foot.className = 'mr-col__end'; col.appendChild(foot);
     if (kind === 'primer') { col.insertBefore(primerEl(PRIMER), foot); return }
     if (kind === 'primer-long') { col.insertBefore(primerEl(LONG_PRIMER), foot); return }
     if (kind === 'primer-wait') {
@@ -260,8 +261,8 @@
     const pdf = d.querySelector('.pdf'); sheet.style.top = '-185px';
     const plan = ['fig', 'ask', 'note'], open = 'fig';
     const svgNS = 'http://www.w3.org/2000/svg', leads = document.createElementNS(svgNS, 'svg'); leads.setAttribute('class', 'mr mr-leads'); d.appendChild(leads);
-    const colTop = 56, colH = dr.height - colTop, footTop = colH - 22 - foot.offsetHeight;
-    col.style.setProperty('--mr-col-height', colH + 'px'); col.style.setProperty('--mr-foot-height', (colH - footTop + 18) + 'px');
+    const colTop = 56, colH = dr.height - colTop, footTop = colH;
+    col.style.setProperty('--mr-col-height', colH + 'px'); col.style.setProperty('--mr-foot-height', M.COL.foot + 'px');
     const els = plan.map(k => { const el = cardEl(CARDS[k], k === open); col.insertBefore(el, foot); return el });
     const firstLine = k => { const r = pdf.querySelector('[data-a="' + k + '"]').getClientRects()[0]; return { top: r.top - dr.top, bottom: r.bottom - dr.top } };
     const out = M.placeCards([{ id: 'trigger', top: firstTextTop(pdf, dr.top) - colTop, fold: false, keep: true }, ...plan.map(k => ({ id: k, top: firstLine(k).top - colTop }))], [trig.offsetHeight, ...els.map(e => e.offsetHeight)], footTop, { open });

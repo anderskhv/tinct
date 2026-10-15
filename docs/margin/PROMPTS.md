@@ -18,13 +18,16 @@ The client renders each `{…}` as a citation tag (system font 11px, wash fill, 
 
 **Format.** Plain prose. No headings, no bullet characters, no Markdown except where a prompt asks for JSON.
 
-**Shared answer rules (PR C, 15 October).** With the whole document (FIXES-2026-10-15 A1) every margin prompt opens with the shared margin rules (`marginContext.ts` `MARGIN_RULES`). They end with these three lines, which a request without the document carries too:
+**Shared answer rules (PR C, 15 October; the fourth line Anders's, 15 October evening).** With the whole document (FIXES-2026-10-15 A1) every margin prompt opens with the shared margin rules (`marginContext.ts` `MARGIN_RULES`). They end with these four lines, which a request without the document carries too:
 
 ```
 Plain prose only: no Markdown, no asterisks, no bullet characters, no em dashes.
 Work out numbers and facts before you write. Never correct yourself mid-answer.
 Never attribute to the document something it does not say.
+Never mention what text you were or were not given; say plainly when the document doesn't cover something, and say "from general knowledge" when you go beyond it.
 ```
+
+The fourth line came from the MacKay test (15 October): a whole-PDF answer opened "Only the titles and placement of these chapters are supplied, not their text…". A long file's header no longer asks the answer to say when text "is not supplied"; it keeps the general-knowledge rule.
 
 **The picture and the extraction (15 October, evening).** Two answers read the passage picture aloud ("In the image the passage reads…"), and a primer and a whole-paper answer talked about "garbled" or "lost" extraction. `MARGIN_RULES` carries two more lines, after the data-not-instructions line:
 
@@ -236,7 +239,7 @@ The primer's last row, "Quiz me on this chapter", calls `quiz` with the whole ch
 
 ## Ask, follow-ups and the whole PDF
 
-There are no new prompts here. A question typed into the selection bar is today's `ask` with the passage attached. A follow-up typed in a card continues that card's thread. The column foot, or the slash key, is today's chat about the whole file. Add the PDF citation rule to `ask` for PDFs.
+There are no new prompts here. A question typed into the selection bar is today's `ask` with the passage attached. A follow-up typed in a card continues that card's thread. Chat (the t menu, or the slash key) is today's chat about the whole file; the column's foot line is gone (Anders, 15 October). For a long file, a question that names a chapter or section ("chapter 7") also sends that chapter's opening text, from the contents, with the search's passages. Add the PDF citation rule to `ask` for PDFs.
 
 Every `ask` in the margin (PR C) carries, after the cache breakpoint:
 
