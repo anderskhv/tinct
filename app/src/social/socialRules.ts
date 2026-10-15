@@ -15,9 +15,10 @@
  *   only Everyone readers who show what they read.
  * - Blocked readers never see each other; Only me and hidden profiles never
  *   appear anywhere (public_profile_cards leaves them out).
- * - Leaderboard threshold (Anders, 8 October 2026): Friends is there from day
- *   one; Everyone is not offered at all (no tab, no board from the API) until
- *   at least EVERYONE_BOARD_MIN_READERS real readers would appear on it.
+ * - Leaderboard threshold (Anders, 8 October 2026; lowered to 1 on 15 October
+ *   2026, "let's just make a global leaderboard now"): Friends is there from
+ *   day one; Everyone is not offered at all (no tab, no board from the API)
+ *   until at least EVERYONE_BOARD_MIN_READERS real readers would appear on it.
  *   Tinct's own internal and test accounts never appear on any board and
  *   never count (isInternalAccount; reader_profiles.internal).
  */
@@ -109,7 +110,7 @@ export function appearsOnBoard(card: BoardCard, board: Board, viewer: { friends:
 // ===== Internal accounts and the Everyone threshold =====
 
 /** The Everyone board appears once this many real readers would appear on it. */
-export const EVERYONE_BOARD_MIN_READERS = 10
+export const EVERYONE_BOARD_MIN_READERS = 1
 
 /** How long the Worker reuses the count of Everyone readers before asking again. */
 export const EVERYONE_COUNT_TTL_MS = 5 * 60_000
