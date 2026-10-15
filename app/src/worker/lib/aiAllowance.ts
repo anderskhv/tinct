@@ -235,12 +235,20 @@ export interface AllowanceView {
   usedFraction: number
   /** This period's allowance alone: min(spend, allowance) / allowance (1 when there is no allowance). */
   monthUsedFraction: number
-  /** The top-up credit left of the credit there was this period (left + drawn); null when there was none. */
+  /**
+   * The top-up credit left of the credit there was this period (left + drawn);
+   * null unless top-up credit is left now. The ledger's "drawn" also counts
+   * overflow that was forgiven because there was no credit to draw (a free
+   * account's Explain after its trial), so with no credit left it cannot tell a
+   * spent top-up from one never bought: no bar then (15 Oct 2026).
+   */
   topUpLeftFraction: number | null
   state: AllowanceState
   /** When this period's allowance renews; null for a standard account, which has none. */
   resetsAt: string | null
   hasTopUp: boolean
+  /** This period includes an allowance (Premium, or the trial); false for a standard account, whose month is not "used". */
+  hasAllowance: boolean
 }
 
 export interface AllowanceLedger {
@@ -274,10 +282,11 @@ export function allowanceView(ledger: AllowanceLedger, resetsAt: Date | null): A
   return {
     usedFraction: round(usedFraction),
     monthUsedFraction: allowance > 0 ? round(Math.min(spend, allowance) / allowance) : 1,
-    topUpLeftFraction: topUpTotal > 0 ? round(credit / topUpTotal) : null,
+    topUpLeftFraction: credit > 0 && topUpTotal > 0 ? round(credit / topUpTotal) : null,
     state,
     resetsAt: resetsAt ? resetsAt.toISOString() : null,
     hasTopUp: credit > 0,
+    hasAllowance: allowance > 0,
   }
 }
 

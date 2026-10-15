@@ -64,6 +64,11 @@ export const CARDS_COPY = {
   resets: (date: string) => `Resets ${date}`,
   orWaitUntil: (date: string) => `or wait until ${date}`,
   getPremium: 'Get Premium',
+  // A free account after its trial: no allowance this month (15 Oct 2026).
+  noCredits: 'None',
+  // The You card's name, changed in place (15 Oct 2026); "Name" is the sign-up profile step's label.
+  changeName: 'Change name',
+  nameLabel: 'Name',
   // labAiAllowance.ts AI_USAGE_COPY
   buyTopUp: 'Buy a $5 top-up',
   buyTopUpMore: 'Buy a $10 top-up',

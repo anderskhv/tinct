@@ -30,6 +30,7 @@ function applyLayout() {
   root.dataset.labLayout = phone ? 'phone' : 'desktop';
   document.documentElement.style.setProperty('--pdf-top', Math.ceil($('hdr').getBoundingClientRect().bottom) + 'px');
   applyTheme();
+  strip?.update();
 }
 const isPhone = () => root.classList.contains('is-phone');
 
@@ -255,7 +256,7 @@ const readerShown = () => document.body.dataset.view === 'reader';
 function showReader() { document.body.dataset.view = 'reader'; $('root').hidden = false; window.TinctStart?.hide(); applyLayout() }
 async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   const hadBook = hasBook();
-  closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop();
+  closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop(); strip?.close();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
   Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
@@ -365,6 +366,7 @@ async function openPdf(bytes, name, key) {
   state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
   setBookTitle(state.title, state.author);
   buildSheets(pdf.numPages);
+  strip?.open();
   noteSession();
   buildContents();
   keepPdfCover(pdf, key, token);
@@ -376,7 +378,7 @@ async function openPdf(bytes, name, key) {
   // The PDF's printed page labels ("xii", "12"), for citations: what the companion is shown and cites.
   state.labels = null;
   // The margin's document (marginDocument) waits for the labels, so its text is the same on every request.
-  state.labelsTask = Promise.resolve(pdf.getPageLabels?.()).then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }) } }).catch(() => {});
+  state.labelsTask = Promise.resolve(pdf.getPageLabels?.()).then(labels => { if (token === state.token && Array.isArray(labels) && labels.length === pdf.numPages) { state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged() } }).catch(() => {});
   // The whole file's text, read once while the reader settles in, for the margin's companion.
   setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
   // The margin replaces the docked chat (docs/margin/BRIEF.md §3): its column, or marks in a narrow window.
@@ -480,6 +482,12 @@ async function renderPage(p) {
   p.task = task;
   try { await task.promise } catch { return }
   if (token !== state.token || p.task !== task) return;
+  // Page 1: arXiv's side stamp is painted out in white, which the theme then turns into the paper (js/strip.js).
+  if (p.n === 1 && window.TinctStrip) {
+    const stamp = TinctStrip.findStamp((await pageText(1)).items, 1);
+    if (token !== state.token || p.task !== task) return;
+    if (stamp) TinctStrip.maskStamp(canvas.getContext('2d', { alpha: false }), viewport.transform, TinctStrip.stampBox(stamp));
+  }
   // Dark: the page as shown is a recoloured copy; the page as drawn stays for snips, figures
   // and sketches. Without a copy (out of memory), a CSS filter darkens the page instead.
   const shown = dark ? (await darkCopy(page, canvas, viewport)) || canvas : canvas;
@@ -865,6 +873,7 @@ function goTo(place, smooth) {
 let saveTimer;
 function onScroll() {
   if (!state.pages.length) return;
+  strip?.update();
   const place = currentPlace(), n = state.pages.length;
   const ch = toc.ready ? chapterAt(place.page) : null;
   if (isEpub()) {
@@ -882,6 +891,24 @@ function onScroll() {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(savePlaceNow, 250);
 }
+/* The position strip at the pages' left (desktop, PDFs; js/strip.js): the whole PDF, its window, highlights and cards. */
+const strip = window.TinctStrip ? TinctStrip.create({
+  root, scroll: $('scroll'), header: $('hdr'),
+  enabled: () => state.kind === 'pdf' && readerShown() && !isPhone(),
+  count: () => state.pages.length,
+  sheet: n => state.pages[n - 1].sheet,
+  // Text content the reader has read already, else read for the strip only (not kept).
+  async text(n) {
+    const pdf = state.pdf, page = await pdf.getPage(n), vp = page.getViewport({ scale: 1 });
+    const items = state.texts.get(n)?.items || (await page.getTextContent()).items;
+    return { items, view: { width: vp.width, height: vp.height, transform: vp.transform } };
+  },
+  highlights: () => highlights(),
+  cards: () => keptCards().filter(c => !c.gone && c.rects?.length && !c.data?.unit),
+  cardLabel: card => TinctMargin.html.cardLabel(card, pageLabel(card.page)),
+  label: n => pageLabel(n),
+  goTo: place => { goTo(place); onScroll() },
+}) : null;
 // The place on this device (localStorage tinct-addbook:pos:<key>): page, position on it,
 // zoom, the page count and when, so the library lists the book as being read. Only a move
 // is a new place (more than 2% of a page from where the book opened or was last kept):
@@ -1112,6 +1139,7 @@ function setSync({ path, field, prefix, local, apply }) {
     },
     changed() {
       if (state.kind !== 'pdf') return;
+      strip?.marksChanged();
       store.set(prefix + '-dirty:' + state.key, true);
       clearTimeout(this.timer); this.timer = setTimeout(() => this.push(), MARKS_SYNC_MS);
     },
@@ -1150,7 +1178,7 @@ const marksSync = setSync({
     const before = JSON.stringify(this.local());
     const { live, gone } = TinctMargin.splitMarks(merged);
     store.set('hl:' + state.key, live); store.set('hl-gone:' + state.key, gone);
-    if (JSON.stringify(this.local()) !== before) { for (const p of state.pages) if (p.layer) renderHighlights(p); marginLayout() }
+    if (JSON.stringify(this.local()) !== before) { for (const p of state.pages) if (p.layer) renderHighlights(p); marginLayout(); strip?.marksChanged() }
   },
 });
 const cardsSync = setSync({
@@ -1158,7 +1186,7 @@ const cardsSync = setSync({
   local: () => keptCards(),
   apply(merged) {
     if (JSON.stringify(merged) === JSON.stringify(keptCards())) return;
-    store.set('cards:' + state.key, merged); marginLayout({ fresh: true });
+    store.set('cards:' + state.key, merged); marginLayout({ fresh: true }); strip?.marksChanged();
   },
 });
 addEventListener('online', () => { if (hasBook()) { marksSync.push(); cardsSync.push() } });
@@ -2202,7 +2230,14 @@ addEventListener('keydown', e => {
   if (e.key === 'Escape' && mr) {
     e.preventDefault(); e.stopImmediatePropagation();
     if (mr.moreEl) { const had = mr.moreEl.contains(document.activeElement); closeMore(); if (had) mr.el.querySelector('[data-m="more"]')?.focus({ preventScroll: true }); return }
-    if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') { if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) } dictation.stop(); return mrShow(mr.def ? 'define' : 'menu') }
+    if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') {
+      if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
+      dictation.stop(); mrShow(mr.def ? 'define' : 'menu')
+      // Ask and the note took the focus, and with it the page's selection: select the passage again,
+      // so a late selectionchange finds it and the bar stays (it closed the bar on a slow machine).
+      if (!mr.held && mr.info.range) { const s = getSelection(); s.removeAllRanges(); s.addRange(mr.info.range) }
+      return
+    }
     marginClose(); getSelection().removeAllRanges();
     return;
   }
@@ -2319,7 +2354,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015marginab').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015margintrain').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, whole: { away: false } };
 const marginOn = () => state.kind === 'pdf';
 const keptCards = () => store.get('cards:' + state.key) || [];

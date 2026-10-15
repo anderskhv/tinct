@@ -6,15 +6,18 @@
  * rules; and the brief's type rules hold (no monospace, no capitals-only).
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { existsSync } from 'node:fs'
+import { resolve } from 'node:path'
 import cardsCss from './cards.css?raw'
 import { accountCardsOpen, closeAccountCards, openAccountCards } from './openCards'
 import { CardStack } from './cardStack'
-import { accountCard, settingsCard, youCard, type CardsEnv } from './cardViews'
+import { AVATAR_480_IDS, accountCard, leaderboardCard, settingsCard, smallAvatarSrc, youCard, type CardsEnv } from './cardViews'
 import { CARDS_COPY } from './cardsCopy'
 import { ACCOUNT_DELETE_CONFIRM, ACCOUNT_DELETE_PATH } from '../worker/routes/accountDelete'
 import { readingFigures } from './cardsFormat'
 import { CARDS_CACHE_PREFIX, readCardsCache, writeCardsCache } from './cardsCache'
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
+import { forgetBoards } from './boardMemory'
 import { readingTimeStats } from '../readingTime/model'
 
 // The photo resize needs a real canvas; the cards' upload path is what is tested here.
@@ -50,6 +53,10 @@ let subscription: Record<string, unknown> = { subscription_status: 'active' }
 /** Held until released: the profile answer (to see the first paint). */
 let profileGate: Promise<void> | null = null
 let uploads: Array<{ url: string; type: string | null }> = []
+const FRIENDS_BOARD = { tab: 'friends', total: 5, meShown: true, me: null, entries: [{ rank: 3, name: 'Anders', picture: pic('A'), seconds: 3600, duration: '1 h', me: true }] }
+/** The board answers by tab; null: 404 (Everyone closed). */
+let boards: Record<'friends' | 'everyone', Record<string, unknown> | null> = { friends: FRIENDS_BOARD, everyone: null }
+let boardCalls: string[] = []
 
 function api() {
   return vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -80,7 +87,12 @@ function api() {
     }
     if (url.startsWith('/api/social/follow')) return Response.json({ relation: 'friend', followsYou: true })
     if (url.startsWith('/api/social/profile/')) return readerProfile ? Response.json({ profile: readerProfile }) : Response.json({ error: 'Not found' }, { status: 404 })
-    if (url.startsWith('/api/social/board')) return Response.json({ tab: 'friends', total: 5, meShown: true, me: null, entries: [{ rank: 3, name: 'Anders', picture: pic('A'), seconds: 3600, duration: '1 h', me: true }] })
+    if (url.startsWith('/api/social/board')) {
+      const tab = new URL(url, 'https://tinct.app').searchParams.get('tab') === 'everyone' ? 'everyone' : 'friends'
+      boardCalls.push(tab)
+      const answer = boards[tab]
+      return answer ? Response.json(answer) : Response.json({ error: 'Not found', everyoneOpen: false }, { status: 404 })
+    }
     if (url.startsWith('/api/account/delete')) return Response.json(deleteAnswer.body, { status: deleteAnswer.status })
     if (url.startsWith('/api/subscription-info')) return Response.json(subscription)
     return Response.json({}, { status: 404 })
@@ -109,6 +121,9 @@ beforeEach(() => {
   subscription = { subscription_status: 'active' }
   profileGate = null
   uploads = []
+  boards = { friends: FRIENDS_BOARD, everyone: null }
+  boardCalls = []
+  forgetBoards()
   localStorage.clear()
   document.body.innerHTML = '<main id="page"><p id="place">Chapter 14, page 3</p></main>'
   vi.stubGlobal('fetch', api())
@@ -524,7 +539,7 @@ describe('first paint (Anders, 10 October 2026)', () => {
     const userId = '55555555-5555-4555-8555-555555555555'
     const cachedStats = readingTimeStats([{ day: today(), bookId: 'frankenstein', read: 22_200, listen: 0 }], today())
     writeCardsCache(userId, { profile: ownProfile({ name: 'Anders H' }) as never, reading: { stats: cachedStats, readingNow: [], finished: [] }, rank: '3rd of 5', plan: 'premium', billing: false,
-      allowance: { usedFraction: 0.29, monthUsedFraction: 0.29, topUpLeftFraction: null, state: 'ok', resetsAt: '2026-11-10T00:00:00Z', hasTopUp: false, topUps: [] } })
+      allowance: { usedFraction: 0.29, monthUsedFraction: 0.29, topUpLeftFraction: null, state: 'ok', resetsAt: '2026-11-10T00:00:00Z', hasTopUp: false, hasAllowance: true, topUps: [] } })
     vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(() => {})))
     expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false })).toBe(true)
     expect(top().querySelector('.tc-nm')?.textContent).toBe('Anders HPremium')
@@ -656,7 +671,7 @@ describe('Account and Change password (Anders, 10 October 2026)', () => {
 describe('AI credits (Anders, 14 October 2026)', () => {
   const allowance = (used: number, fields: Record<string, unknown> = {}) => ({
     usedFraction: used, monthUsedFraction: used, topUpLeftFraction: null, state: used >= 1 ? 'used_up' : used >= 0.8 ? 'low' : 'ok',
-    resetsAt: '2026-11-13T12:00:00.000Z', hasTopUp: false, topUps: ['chat_pack_200', 'top_up_10'], ...fields,
+    resetsAt: '2026-11-13T12:00:00.000Z', hasTopUp: false, hasAllowance: true, topUps: ['chat_pack_200', 'top_up_10'], ...fields,
   }) as CardsEnv['data']['allowance']
 
   /** The You card alone, with the allowance and plan given. */
@@ -736,5 +751,219 @@ describe('AI credits (Anders, 14 October 2026)', () => {
   it('credits never say Renews', () => {
     expect(CARDS_COPY.resets('13 Nov')).toBe('Resets 13 Nov')
     expect(Object.keys(CARDS_COPY)).not.toContain('renews')
+  })
+})
+
+describe('AI credits: only what happened (Anders, 15 October 2026)', () => {
+  const allowance = (fields: Record<string, unknown>) => ({
+    usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: null, state: 'used_up', resetsAt: null, hasTopUp: false, hasAllowance: false,
+    topUps: ['chat_pack_200', 'top_up_10'], ...fields,
+  }) as CardsEnv['data']['allowance']
+  function youOnly(data: Partial<CardsEnv['data']>) {
+    let stack: CardStack | null = null
+    const env: CardsEnv = {
+      session, social: true, changed: () => stack?.refreshLive(), reloadFind: () => {}, signOut: async () => {}, resetPassword: async () => '', navigate: vi.fn(),
+      data: { profile: null, reading: null, allowance: null, plan: 'premium', intervals: [], rank: null, find: null, findBadge: 0, ...data },
+    }
+    stack = new CardStack({ dark: false })
+    stack.push(youCard(env))
+    return { env, stack }
+  }
+
+  it('a free account after its trial: AI credits without a bar or a percentage, and Get Premium; no top-up row', () => {
+    const { stack } = youOnly({ plan: 'free', intervals: ['month', 'year'], allowance: allowance({}) })
+    const credits = byTest('you-ai-credits')!
+    expect(credits.textContent).toBe(`${CARDS_COPY.aiCredits}${CARDS_COPY.noCredits}`)
+    expect(credits.textContent).not.toMatch(/%|used/)
+    expect(top().querySelector('[role="meter"]')).toBeNull()
+    expect(byTest('you-top-up-bar')).toBeNull()
+    expect(byTest('you-top-up')).toBeNull()
+    expect(byTest('you-get-premium')?.textContent).toBe(CARDS_COPY.getPremium)
+    stack.closeAll()
+  })
+
+  it('no top-up bought: no Top-up bar, whatever the ledger says was drawn (never 0 of 0 as 100%)', () => {
+    for (const plan of ['free', 'premium'] as const) {
+      // A Worker from before the fix sent 0 left for a top-up never bought.
+      const { stack } = youOnly({ plan, intervals: ['month'], allowance: allowance({ hasAllowance: true, monthUsedFraction: 0.01, usedFraction: 0.01, state: 'ok', resetsAt: '2026-11-13T12:00:00.000Z', topUpLeftFraction: 0 }) })
+      expect(byTest('you-ai-credits')?.textContent).toContain(`1% ${CARDS_COPY.usedThisMonth}`)
+      expect(byTest('you-top-up-bar')).toBeNull()
+      expect(byTest('you-get-premium')).toBeNull()
+      stack.closeAll()
+    }
+  })
+
+  it('a bought top-up with credit left: its bar shows what was used of it', () => {
+    const { stack } = youOnly({ allowance: allowance({ hasAllowance: true, monthUsedFraction: 1, state: 'ok', resetsAt: '2026-11-13T12:00:00.000Z', hasTopUp: true, topUpLeftFraction: 0.6 }) })
+    expect(byTest('you-top-up-bar')?.textContent).toContain(`40% ${CARDS_COPY.used}`)
+    stack.closeAll()
+  })
+
+  it('an allowance cached before hasAllowance existed: no reset date means none', () => {
+    const old = { usedFraction: 1, monthUsedFraction: 1, topUpLeftFraction: 0, state: 'used_up', resetsAt: null, hasTopUp: false, topUps: [] }
+    writeCardsCache(session.userId, { profile: null, reading: null, rank: null, plan: 'free', billing: false, allowance: old as never })
+    expect(readCardsCache(session.userId)?.allowance?.hasAllowance).toBe(false)
+    writeCardsCache(session.userId, { profile: null, reading: null, rank: null, plan: 'free', billing: false, allowance: { ...old, resetsAt: '2026-11-13T12:00:00.000Z' } as never })
+    expect(readCardsCache(session.userId)?.allowance?.hasAllowance).toBe(true)
+  })
+})
+
+describe('the name, changed on the You card (Anders, 15 October 2026)', () => {
+  it('tap the name, type, Enter: saved through the profile save path; the card shows it', async () => {
+    profile = ownProfile({ name: 'Reader' })
+    await open('you')
+    const name = byTest('you-name')!
+    expect(name.tagName).toBe('BUTTON')
+    expect(name.getAttribute('aria-label')).toBe(CARDS_COPY.changeName)
+    click(name)
+    const input = byTest('you-name-input') as HTMLInputElement
+    expect(input.value).toBe('Reader')
+    // The sign-up profile step's rule: at most 40 characters.
+    expect(input.maxLength).toBe(40)
+    expect(input.getAttribute('autocomplete')).toBe('name')
+    input.value = 'Mette'
+    input.dispatchEvent(new Event('input'))
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }))
+    await flush()
+    expect(posts.find(post => post.url === '/api/profile')?.body).toEqual({ name: 'Mette' })
+    expect(byTest('you-name-input')).toBeNull()
+    expect(byTest('you-name')?.textContent).toBe('Mette')
+  })
+
+  it('Escape keeps the old name, sends nothing and leaves the cards open', async () => {
+    await open('you')
+    click(byTest('you-name'))
+    const input = byTest('you-name-input') as HTMLInputElement
+    input.focus()
+    input.value = 'Someone else'
+    input.dispatchEvent(new Event('input'))
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))
+    await flush()
+    expect(accountCardsOpen()).toBe(true)
+    expect(byTest('you-name')?.textContent).toBe('Anders')
+    expect(posts.some(post => post.url === '/api/profile' && 'name' in post.body)).toBe(false)
+  })
+
+  it('a name the Worker refuses: its message, and the field stays open with what was typed', async () => {
+    await open('you')
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith('/api/profile') && init?.method === 'POST') return Response.json({ error: 'Please choose another name.', field: 'name' }, { status: 422 })
+      return Response.json({}, { status: 404 })
+    }))
+    click(byTest('you-name'))
+    const input = byTest('you-name-input') as HTMLInputElement
+    input.value = ' '
+    input.dispatchEvent(new Event('input'))
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }))
+    await flush()
+    expect(top().querySelector('.tc-status')?.textContent).toBe('Please choose another name.')
+    expect((byTest('you-name-input') as HTMLInputElement).value).toBe(' ')
+  })
+})
+
+describe('Leaderboard rows open profiles; Everyone first while open (Anders, 15 October 2026)', () => {
+  const entry = (rank: number, name: string, seconds: number, me = false, handle?: string) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(handle ? { handle } : {}) })
+  const everyone = { tab: 'everyone', total: 2, meShown: true, everyoneOpen: true, me: null, entries: [entry(1, 'You', 19020, true), entry(2, 'Mette', 60, false, 'mette')] }
+
+  it('tapping a reader opens their profile (what they are reading); tapping You goes back to the You card', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, everyoneOpen: false, entries: [entry(1, 'You', 19020, true), entry(2, 'Mette', 60, false, 'mette')] }, everyone: null }
+    readerProfile = { handle: 'mette', name: 'Mette', link: 'tinct.app/@mette', picture: pic('M'), banner: { src: '/b.jpg', private: false }, relation: 'friend', followsYou: true, limited: false, time: '1 m this week', readingNow: [{ title: 'Persuasion', progress: 'Chapter 2 of 24', hours: null }], finished: null }
+    await open('you')
+    click(byTest('you-leaderboard'))
+    await flush()
+    const rows = top().querySelectorAll<HTMLElement>('[data-testid="board-row"]')
+    expect(rows).toHaveLength(1)
+    expect(rows[0].tagName).toBe('BUTTON')
+    click(rows[0])
+    await flush()
+    expect(top().dataset.card).toBe('profile')
+    expect(byTest('profile-now-row')?.textContent).toContain('Persuasion')
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    await flush()
+    click(byTest('board-me'))
+    await flush()
+    expect(top().dataset.card).toBe('you')
+  })
+
+  it('opens on Everyone when it is open, with Friends beside it; the You row ranks on Everyone; one board request on open', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, everyoneOpen: true }, everyone }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    expect(boardCalls).toEqual(['everyone'])
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 2')
+    click(byTest('you-leaderboard'))
+    // Painted from the board read on open, at once, and not asked again.
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
+    expect(top().querySelectorAll('[data-testid="board-row"]')).toHaveLength(1)
+    await flush()
+    expect(boardCalls).toEqual(['everyone'])
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="friends"]'))
+    await flush()
+    expect(boardCalls).toEqual(['everyone', 'friends'])
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.friends)
+  })
+
+  it('Everyone closed: the Friends board, its rank, no tabs', async () => {
+    await open('you')
+    expect(boardCalls).toEqual(['everyone', 'friends'])
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 5')
+    click(byTest('you-leaderboard'))
+    expect(top().querySelector('[data-testid="board-tabs"]')).toBeNull()
+    expect(byTest('board-me')).toBeTruthy()
+  })
+
+  it('a reader\'s own leaderboard card from elsewhere: tapping You puts the You card on top', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, entries: [entry(1, 'You', 60, true)] }, everyone: null }
+    let stack: CardStack | null = null
+    const env: CardsEnv = {
+      session, social: true, changed: () => stack?.refreshLive(), reloadFind: () => {}, signOut: async () => {}, resetPassword: async () => '', navigate: vi.fn(),
+      data: { profile: ownProfile() as never, reading: null, allowance: null, plan: 'premium', intervals: [], rank: null, find: null, findBadge: 0 },
+    }
+    stack = new CardStack({ dark: false })
+    stack.push(leaderboardCard(env))
+    await flush()
+    click(byTest('board-me'))
+    expect(stack.ids).toEqual(['leaderboard', 'you'])
+    stack.closeAll()
+  })
+})
+
+describe('row avatars at their size (15 October 2026)', () => {
+  it('a painting with a 480px copy uses it; others keep the original', () => {
+    for (const id of AVATAR_480_IDS) {
+      expect(existsSync(resolve(__dirname, `../../public/lab/library_2/assets/covers/${id}-480.webp`)), id).toBe(true)
+      expect(smallAvatarSrc(`/lab/library_2/assets/${id}.jpg`)).toBe(`/lab/library_2/assets/covers/${id}-480.webp`)
+    }
+    expect(smallAvatarSrc('/lab/library_2/assets/the-awakening.jpg')).toBe('/lab/library_2/assets/the-awakening.jpg')
+    expect(smallAvatarSrc('/api/profile/image?user=u&slot=picture&v=1')).toBe('/api/profile/image?user=u&slot=picture&v=1')
+  })
+})
+
+describe('Find readers above the iPhone keyboard (15 October 2026)', () => {
+  it('the search is a search field, not a contact field', async () => {
+    await open('find')
+    const input = top().querySelector<HTMLInputElement>('[data-testid="find-search"] input')!
+    expect(input.type).toBe('search')
+    expect(input.getAttribute('autocomplete')).toBe('off')
+    expect(input.name).toBe('tc-reader-search')
+    expect(input.name).not.toMatch(/name|contact|email|tel/i)
+  })
+
+  it('on a phone the cards fill the visible area; with the keyboard up they stand on it', () => {
+    const listeners: Record<string, () => void> = {}
+    const viewport = { height: 844, offsetTop: 0, scale: 1, addEventListener: (type: string, fn: () => void) => { listeners[type] = fn }, removeEventListener: () => {} }
+    vi.stubGlobal('visualViewport', viewport)
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 844 })
+    const stack = new CardStack({ dark: false })
+    const root = document.querySelector<HTMLElement>('[data-testid="account-cards"]')!
+    expect(root.classList.contains('has-kb')).toBe(false)
+    expect(root.style.height).toBe('844px')
+    Object.assign(viewport, { height: 508, offsetTop: 40 })
+    listeners.resize()
+    expect(root.classList.contains('has-kb')).toBe(true)
+    expect(root.style.top).toBe('40px')
+    expect(root.style.height).toBe('508px')
+    expect(root.style.getPropertyValue('--tc-vh')).toBe('508px')
+    stack.closeAll()
   })
 })

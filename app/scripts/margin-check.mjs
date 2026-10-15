@@ -70,7 +70,28 @@ export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sh
 export async function checkMargin(page, selectors = SELECTORS) {
   const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
   const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 23.5 || r.height < 23.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
-  return [...list, ...small]
+  return [...list, ...small, ...await page.evaluate(stripProblems)]
+}
+// The position strip (js/strip.js) in the PDF reader: shown at 700px and up, beside the pages and under
+// the top bar, never over either (its box, window marker, lines and dots); absent below 700px.
+export function stripProblems() {
+  if (document.body.dataset.view !== 'reader' || !document.querySelector('.lab.is-pdf .pdf-sheet')) return []
+  const el = document.querySelector('.pdf-strip')
+  const shown = !!el && !el.hidden && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().height > 0
+  if (innerWidth < 700) return shown ? [{ kind: 'strip', el: `.pdf-strip shown at ${innerWidth}px` }] : []
+  if (!shown) return [{ kind: 'strip', el: `.pdf-strip missing at ${innerWidth}px` }]
+  const out = [], hit = (a, b) => Math.min(a.right, b.right) - Math.max(a.left, b.left) > 0.5 && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 0.5
+  const hdr = document.getElementById('hdr').getBoundingClientRect()
+  const sheets = [...document.querySelectorAll('.pdf-sheet')].map(s => ({ n: s.dataset.page, r: s.getBoundingClientRect() })).filter(s => s.r.bottom > hdr.bottom && s.r.top < innerHeight)
+  const parts = [el, ...el.querySelectorAll('.pdf-strip__win, line, circle')]
+  for (const part of parts) {
+    const r = part.getBoundingClientRect(), name = part === el ? '.pdf-strip' : `.pdf-strip ${part.getAttribute('class') || part.tagName}`
+    if (hit(r, hdr)) { out.push({ kind: 'overlap', a: name, b: '.lab-header' }); break }
+    const s = sheets.find(s => hit(r, s.r)); if (s) { out.push({ kind: 'overlap', a: name, b: `.pdf-sheet p. ${s.n}` }); break }
+  }
+  const r = el.getBoundingClientRect()
+  if (r.left < 0 || r.right > innerWidth || r.top < hdr.bottom || r.bottom > innerHeight) out.push({ kind: 'offscreen', el: '.pdf-strip', rect: [r.left, r.top, r.right, r.bottom].map(Math.round) })
+  return out
 }
 const LOOKS = (process.env.LOOKS || 'paper,book,night,eink').split(',')
 // `sample` (npm run check:margin, in CI): each viewport once, each look and both zooms at least once, both
@@ -256,7 +277,13 @@ async function readerMatrix(browser, origin) {
         await check('more', '.mr-more, .mr-pmore')
         await page.keyboard.press('Escape')
         // Typing opens Ask with that letter (desktop keyboards).
-        if (width >= 700) { await page.keyboard.press('W'); await check('ask', '.mr-bar.is-asking'); await page.keyboard.press('Escape') }
+        if (width >= 700) {
+          await page.keyboard.press('W'); await check('ask', '.mr-bar.is-asking'); await page.keyboard.press('Escape')
+          // Escape steps back to the bar, which stays even when a late selectionchange arrives
+          // (a slow machine's debounce fired after Escape and closed it).
+          await page.evaluate(() => document.dispatchEvent(new Event('selectionchange'))); await page.waitForTimeout(450)
+          if (!await page.$('.mr-float.mr-bar [data-m="note"]')) throw new Error('the bar closed after Escape from Ask')
+        }
         // The note editor.
         await page.click('.mr-float [data-m="note"]')
         await check('note', '.mr-note')
@@ -268,7 +295,7 @@ async function readerMatrix(browser, origin) {
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e) }) }
       rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: found.length + problems.length, details: [...found, ...problems], screenshots: states })
       const all = [...found, ...problems]
-      console.log(`${tag}: ${all.length} problem(s)`, process.env.VERBOSE ? JSON.stringify(all) : all.length ? JSON.stringify(all).slice(0, 300) : '')
+      console.log(`${tag}: ${all.length} problem(s)`, process.env.VERBOSE ? JSON.stringify(all) : all.length ? JSON.stringify(all).slice(0, 1500) : '')
       await ctx.close()
     }
   }
@@ -1054,7 +1081,8 @@ async function columnMatrix(browser, origin) {
         await page.evaluate(() => { store.set('hl:' + state.key, []); for (const p of state.pages) if (p.layer) renderHighlights(p) })
         await page.evaluate(seedCards, { lines: 4, pairs: false, open: null, where: 'bottom' })
         await state('lower-half', crowding)
-        await page.evaluate(seedCards, { lines: 4, pairs: true, open: 7, where: 'bottom' })
+        // None open: opening one low on the screen scrolls its passage up and the others out of view.
+        await page.evaluate(seedCards, { lines: 4, pairs: true, open: null, where: 'bottom' })
         await state('eight', [crowding, 8])
         // A note on a crowded page: its card opens where the reader sees it, with the focus (never gathered, never lost).
         await page.evaluate(seedCards, { lines: 5, pairs: true, open: 0, where: 'middle' }); await settle(page)
