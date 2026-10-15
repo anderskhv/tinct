@@ -718,6 +718,13 @@ describe('/api/user-books/cards', () => {
     expect((await call(`/api/user-books/cards/${hex}`)).status).toBe(401)
   })
 
+  it('keeps a figure’s card (its box as the passage, its own thread), as every card', async () => {
+    const { call, hex } = await withPdf()
+    const figure = card('fig12', { kind: 'figure', rects: [[3, 0.08, 0.1, 0.4, 0.3]], text: 'Figure 2. Residual learning: a building block.', turns: [{ role: 'user', content: 'What follows the addition?', at: 1_000 }, { role: 'assistant', content: 'A ReLU.', at: 1_100 }], data: { region: 'figure', label: 'Figure 2', labels: 'weight layer relu' } })
+    expect((await put(call, 'token-a', hex, { cards: [figure], rev: 0 })).status).toBe(200)
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toEqual({ cards: [figure], rev: 1 })
+  })
+
   it('refuses cards out of shape', async () => {
     const { call, hex } = await withPdf()
     for (const bad of [

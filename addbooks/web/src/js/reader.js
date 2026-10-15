@@ -500,7 +500,7 @@ async function renderPage(p) {
   // (In Dark the page shown is its recoloured copy: the text layer goes over that one too.)
   if (token !== state.token || p.canvas !== shown) return;
   buildTextLayer(p, items, page.getViewport({ scale: cssScale }));
-  if (!state.figs.has(p.n)) setTimeout(() => detectFigures(p), 0); else p.figures = state.figs.get(p.n);
+  if (!state.figs.has(p.n)) setTimeout(() => detectFigures(p), 0); else { const f = state.figs.get(p.n); p.figures = f.figures; p.captions = f.captions }
   if (narr.active && narr.page === p.n) paintNarration();
 }
 // The drawn page, as printed: what snips, figure detection and sketches read.
@@ -2501,7 +2501,8 @@ function visibleCards() {
   for (const card of viewCards()) {
     const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1]; if (!p) continue;
     const b = p.pg.getBoundingClientRect();
-    const line = { top: b.top + f[2] * b.height, bottom: b.top + (f[2] + f[4]) * b.height, left: b.left + f[1] * b.width };
+    // A figure's card is level with the figure's top (its dot and leader line there), not its middle.
+    const line = { top: b.top + f[2] * b.height, bottom: b.top + (f[2] + (card.kind === 'figure' ? Math.min(f[4], 22 / b.height) : f[4])) * b.height, left: b.left + f[1] * b.width };
     const all = TinctMargin.anchorOfCard(card).map(a => { const q = state.pages[a.n - 1]?.pg.getBoundingClientRect(); return q ? q.top + (a.y + a.h) * q.height : line.bottom });
     const last = Math.max(line.bottom, ...all);
     const inView = line.top >= top && line.top < bottom - 8;
@@ -2514,10 +2515,11 @@ function visibleCards() {
  * reader's progress live in col.quiz, in memory, until the stream ends; the card is saved once then.
  */
 const quizLive = card => { const d = col.quiz.get(card.id); return d ? { ...card, data: d } : card };
-const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id)]);
+const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id), card.kind === 'figure' && figThumbs.has(card.id)]);
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
-  return { open, P: MP.P, resolve: citeResolve, pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id) };
+  const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
+  return { open, P: MP.P, resolve: citeResolve, pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
 }
 /** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
 function holdQuizHeight(el, before) {
@@ -2688,7 +2690,8 @@ function underline(v) {
     const layer = layerOf(p, 'mr-ul-layer'); layer.classList.add('mr');
     if (layer.dataset.id === v.card.id) continue;
     layer.dataset.id = v.card.id;
-    for (const r of v.card.rects.filter(r => r[0] === a.n)) { const i = document.createElement('i'); Object.assign(i.style, { left: r[1] * 100 + '%', top: (r[2] + r[4]) * 100 + '%', width: r[3] * 100 + '%' }); layer.appendChild(i) }
+    // A figure's open card rings its figure instead of underlining it.
+    for (const r of v.card.rects.filter(r => r[0] === a.n)) { const i = document.createElement('i'); if (v.card.kind === 'figure') { i.className = 'is-box'; Object.assign(i.style, { left: r[1] * 100 + '%', top: r[2] * 100 + '%', width: r[3] * 100 + '%', height: r[4] * 100 + '%' }) } else Object.assign(i.style, { left: r[1] * 100 + '%', top: (r[2] + r[4]) * 100 + '%', width: r[3] * 100 + '%' }); layer.appendChild(i) }
   }
 }
 
@@ -2697,6 +2700,7 @@ function openCard(id, { focus = false } = {}) {
   const mode = marginMode();
   // One open at a time: a card opening folds the primer back to its trigger.
   if (id && primer.open) { primer.open = false; primer.token++; primer.el?.remove(); primer.el = null }
+  if (col.open && col.open !== id) dropEmptyFigure(col.open);
   col.open = id || null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
   if (mode === 'marks' && !id) closeFloat();
@@ -2801,7 +2805,7 @@ function closeSheet2() {
   if (id === 'primer') { primer.open = false; primer.token++ }
   if (id === 'trigger') { const u = currentUnit(); if (u) primer.away.add(u.key) }
   col.sheet.remove(); col.sheet = null;
-  if (marginMode() === 'phone') { col.open = null; marginLayout() }
+  if (marginMode() === 'phone') { dropEmptyFigure(col.open); col.open = null; marginLayout() }
 }
 function sheetSwipe(el) {
   let y0 = null, full = false;
@@ -2958,12 +2962,24 @@ async function copyCard(id) {
 
 /* -- The actions: each answer becomes a card -- */
 // A card's thread as today's ask: the passage, what the card said, and the follow-up questions.
-function cardTurns(card, image) {
-  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${pageLabel(card.page)} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. Plain prose; simple bullet lists only when they help.${image ? ' ' + MP.P.PASSAGE_IMAGE_LINE : ''}\n\nThe passage they selected on page ${pageLabel(card.page)}:\n${card.text.slice(0, 3000)}`;
-  const lead = { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.' }[card.kind];
+// `fig`: { named } when the picture is a figure the passage or question names (item 7); { sketch } for a figure's card without its picture.
+function cardTurns(card, image, fig = {}) {
+  const imageLine = !image ? '' : fig.named ? ` The attached image is ${fig.named.label} on page ${pageLabel(fig.named.page)}, as printed, which the passage or question refers to: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the text for context.` : ' ' + MP.P.PASSAGE_IMAGE_LINE;
+  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on page ${pageLabel(card.page)} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not on these pages. Plain prose; simple bullet lists only when they help.${imageLine}\n\nThe passage they selected on page ${pageLabel(card.page)}:\n${card.text.slice(0, 3000)}`;
+  const what = card.data?.region === 'formula' ? 'formula' : 'figure';
+  const lead = { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
   const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
-  if (lead && turns[0]?.role === 'assistant') turns.unshift({ role: 'user', content: lead });
+  if (lead && (turns[0]?.role === 'assistant' || (card.kind === 'figure' && !turns.length))) turns.unshift({ role: 'user', content: lead });
   return [{ role: 'user', content: rules }, ...turns];
+}
+/** A figure's card: its thread is about this one figure (item 4), seen in its picture, else from its caption, labels and a sketch. */
+function figureRules(card, image, sketch) {
+  const d = card.data || {}, what = d.region === 'formula' ? 'formula' : 'figure', at = pageLabel(card.page);
+  const seen = image
+    ? `The attached image is that ${what} as printed: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the document for context.`
+    : `You cannot see it. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain it from these and from where the text refers to it. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows; do not guess.`;
+  const parts = [card.text ? 'Caption: ' + card.text.slice(0, 600) : '', d.labels ? 'Labels and text inside it: ' + String(d.labels).slice(0, 600) : '', !image && sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + sketch + '\n```' : ''].filter(Boolean).join('\n');
+  return `You are Tinct's reading companion. ${bookLine()} They are on page ${at} of ${state.pages.length}.\nThis conversation is about one ${what} on page ${at}${d.label ? ` (${d.label})` : ''}. ${seen} Only this ${what} has been asked about in this conversation: never say another figure was asked about earlier.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the document; say when something is not in it. Plain prose; simple bullet lists only when they help.${parts ? '\n\n' + parts : ''}`;
 }
 const passageRegion = card => { const rects = anchorRects(TinctMargin.anchorOfCard(card)); return rects.length ? selectionRegion({ page: card.page, box: boxOf(rects) }) : null };
 function setLive(id, patch) {
@@ -2983,8 +2999,16 @@ async function runCard(id, question = null) {
   const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
   const pdf = unit ? await unitPages(unit) : await pdfPages(card.page);
   // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
-  const region = unit ? null : passageRegion(card);
-  const image = region ? await pageImage(card.page, region) : null;
+  // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
+  const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;
+  const asked = question ?? (card.kind === 'ask' ? [...(card.turns || [])].reverse().find(t => t.role === 'user')?.content || '' : '');
+  const named = unit || figBox ? null : figureNamed(card.page, card.text, asked);
+  const region = unit || figBox || named ? null : passageRegion(card);
+  let image = null;
+  if (figBox) { image = figBlobs.get(id) || await figureImage(card.page, figBox); figBlobs.delete(id) }
+  else if (named) image = await figureImage(named.page, named.f);
+  else if (region) image = await pageImage(card.page, region);
+  const fig = figBox ? { sketch: state.pages[card.page - 1]?.canvas ? sketchOf(state.pages[card.page - 1], figBox) : '' } : named ? { named } : {};
   const wholeDoc = await marginDocument(unit ? unit.from : card.page);
   const book = { ...aiBook(), pdf };
   const onText = ({ text }) => { if (!ctl.signal.aborted) setLive(id, { text, status: '' }) };
@@ -3007,7 +3031,7 @@ async function runCard(id, question = null) {
   };
   const call = async imgs => {
     const images = imgs ? [imgs] : undefined;
-    if (question != null || card.kind === 'ask') return TinctAI.ask(cardTurns(card, imgs), { book, images, document: wholeDoc, onText, signal: ctl.signal });
+    if (question != null || card.kind === 'ask' || card.kind === 'figure') return TinctAI.ask(cardTurns(card, imgs, fig), { book, images, document: wholeDoc, onText, signal: ctl.signal });
     // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
     if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: true, onText: onQuizText, signal: ctl.signal });
     return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
@@ -3596,10 +3620,65 @@ function captionNear(p, f) {
 async function regionItem(p, f, kind, noImage) {
   const r = p.pg.getBoundingClientRect(), L = r.left + f.x * r.width, T = r.top + f.y * r.height, R = L + f.w * r.width, Bm = T + f.h * r.height;
   const text = [...p.pg.querySelectorAll('.text-layer span')].filter(sp => { const q = sp.getBoundingClientRect(), cx = (q.left + q.right) / 2, cy = (q.top + q.bottom) / 2; return cx >= L && cx <= R && cy >= T && cy <= Bm }).map(sp => sp.textContent).join(' ').replace(/\s+/g, ' ').trim();
-  return { blob: noImage ? null : await snipImage(p.n, f), page: p.n, text, frac: f, kind, caption: captionNear(p, f), sketch: sketchOf(p, f) };
+  const frac = { x: f.x, y: f.y, w: f.w, h: f.h };
+  return { blob: noImage ? null : await snipImage(p.n, f), page: p.n, text, frac, kind, label: f.label || '', caption: f.caption || captionNear(p, f), sketch: sketchOf(p, f) };
+}
+/* -- A figure's card (FIXES-2026-10-15 item 4): beside the figure in the margin, its thumbnail at the
+   top, one thread per figure, kept and synced as every card is. Never the whole-PDF thread. -- */
+const figThumbs = new Map(), figBlobs = new Map(), thumbWork = new Set();
+/** The figure's picture for the companion: re-drawn sharp from the PDF; tinct-api.js sends it at most 1568 px. EPUBs and refused pictures: none. */
+async function figureImage(n, f) {
+  if (!PAGE_IMAGES || sampleImages === false || isEpub() || !state.pdf) return null;
+  return snipImage(n, f);
+}
+/** An open figure card's thumbnail ({ url, ratio }): drawn once, the card redrawn when it arrives. */
+function figThumb(card) {
+  const f = TinctMargin.anchorOfCard(card)[0]; if (!f) return null;
+  const pg = state.pages[card.page - 1]?.pg, pw = pg?.offsetWidth || state.base.w, ph = pg?.offsetHeight || state.base.h;
+  const ratio = Math.max(0.4, Math.min(6, (f.w * pw) / Math.max(1e-6, f.h * ph)));
+  if (!figThumbs.has(card.id) && !thumbWork.has(card.id) && state.pdf) {
+    thumbWork.add(card.id);
+    snipImage(card.page, f).then(b => (b ? thumbOf(b) : '')).then(url => { thumbWork.delete(card.id); if (url) { figThumbs.set(card.id, url); marginLayout() } });
+  }
+  return { url: figThumbs.get(card.id) || '', ratio };
+}
+/** Explain or Chat on a figure: its card (made once per figure), opened beside it; Explain asks once. */
+function figureAction(a, item) {
+  hideSelection();
+  let card = TinctMargin.figureCardFor(keptCards(), item.page, item.frac);
+  if (!card) {
+    card = TinctMargin.newCard({ kind: 'figure', page: item.page, anchor: [{ n: item.page, ...item.frac }], text: item.caption || '', data: { region: item.kind, ...(item.label ? { label: item.label } : {}), ...(item.text ? { labels: item.text.slice(0, 600) } : {}) } });
+    store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed(); col.view = null;
+  }
+  if (item.blob) { figBlobs.set(card.id, item.blob); if (!figThumbs.has(card.id)) thumbOf(item.blob).then(u => { if (u) { figThumbs.set(card.id, u); marginLayout() } }) }
+  const asked = (card.turns || []).length || col.ctl.has(card.id);
+  openCard(card.id, { focus: a === 'ask' ? true : 'card' });
+  // Explain asks once; again, it opens the thread. Chat keeps the picture for the first question.
+  if (a === 'explain') { if (!asked) runCard(card.id); else figBlobs.delete(card.id) }
+}
+/** A figure card left without a question (Chat, then closed) goes: a removal, synced as every card's. */
+function dropEmptyFigure(id) {
+  const card = id && cardById(id);
+  if (!card || card.kind !== 'figure' || (card.turns || []).length || col.ctl.has(id) || col.live.has(id)) return;
+  store.set('cards:' + state.key, keptCards().map(c => (c.id === id ? TinctMargin.tombstone(id) : c))); cardsSync.changed(); col.view = null;
+}
+/** The figure a question or a selected caption names on `page` (item 7): { page, f, label }, or null. */
+function figureNamed(page, selection, question) {
+  const p = state.pages[page - 1]; if (!p?.captions?.length) return null;
+  const c = TinctMargin.figureFor({ selection, question, captions: p.captions });
+  return c && p.figures?.[c.fig] ? { page, f: p.figures[c.fig], label: c.label } : null;
+}
+/** For a whole-PDF question: a selected caption, else a figure the question names on the reader's page or the pages in view. */
+function figureAsked(question, passage, page) {
+  if (passage) { const hit = figureNamed(passage.page, passage.text, question); if (hit) return hit }
+  const sr = $('scroll').getBoundingClientRect();
+  const inView = state.pages.filter(q => { const r = q.pg.getBoundingClientRect(); return r.bottom > sr.top && r.top < sr.bottom }).map(q => q.n);
+  for (const n of [page, ...inView.filter(n => n !== page)]) { const hit = figureNamed(n, '', question); if (hit) return hit }
+  return null;
 }
 async function regionAction(a, item) {
   const what = item.kind === 'formula' ? 'formula' : 'figure';
+  if ((a === 'explain' || a === 'ask') && marginOn()) return figureAction(a, item);
   if (a === 'explain' || a === 'ask') { hideSelection(); openChat({ quiet: a === 'explain' }); await addAttachments([item], { snip: true }); if (a === 'explain') ask(`Explain this ${what}.`); return }
   if (a === 'highlight') {
     hideSelection(); const f = item.frac, r = v => Math.round(v * 10000) / 10000;
@@ -3636,7 +3715,7 @@ async function regionPopup(box, item) {
   pop.querySelectorAll('[data-a]').forEach(b => b.onclick = () => regionAction(b.dataset.a, item));
 }
 
-/* ---------- Figures: areas with ink but no running text get a hover chip ---------- */
+/* ---------- Figures: areas with ink but no running text get a hover chip (TinctMargin.findFigures) ---------- */
 function detectFigures(p) {
   if (!p.canvas || !p.layer || state.figs.has(p.n)) return;
   const c = drawn(p), W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
@@ -3644,36 +3723,10 @@ function detectFigures(p) {
   const x = g.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
   const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H);
   for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
-  // Blank out running text, prose lines and formulas (they have their own handling).
   const pr = p.pg.getBoundingClientRect();
-  const clear = (fx, fy, fw, fh) => { const x0 = Math.max(0, Math.floor(fx * W) - 1), x1 = Math.min(W - 1, Math.ceil((fx + fw) * W)), y0 = Math.max(0, Math.floor(fy * H)), y1 = Math.min(H - 1, Math.ceil((fy + fh) * H)); for (let y = y0; y <= y1; y++) ink.fill(0, y * W + x0, y * W + x1 + 1) };
-  for (const b of [...(p.prose || []), ...(p.blocks || [])]) clear(b.x, b.y, b.w, b.h);
-  for (const sp of p.layer.querySelectorAll('span')) {
-    const t = sp.textContent.trim(); if (!(t.length >= 4 && /[A-Za-z]{3}/.test(t))) continue;
-    const q = sp.getBoundingClientRect(); clear((q.left - pr.left) / pr.width, (q.top - pr.top) / pr.height, q.width / pr.width, q.height / pr.height);
-  }
-  // Grow ink a little so strokes and their labels join, then take connected areas.
-  const grown = new Uint8Array(W * H), R = 3;
-  for (let y = 0; y < H; y++) for (let x2 = 0; x2 < W; x2++) if (ink[y * W + x2]) for (let dy = -R; dy <= R; dy++) for (let dx = -R; dx <= R; dx++) { const yy = y + dy, xx = x2 + dx; if (yy >= 0 && yy < H && xx >= 0 && xx < W) grown[yy * W + xx] = 1 }
-  const seen = new Uint8Array(W * H); let boxes = [];
-  for (let i = 0; i < W * H; i++) {
-    if (!grown[i] || seen[i]) continue;
-    let l = W, t = H, r = 0, b = 0, n = 0; const st = [i]; seen[i] = 1;
-    while (st.length) { const j = st.pop(), y = (j / W) | 0, x3 = j % W; if (ink[j]) n++; l = Math.min(l, x3); r = Math.max(r, x3); t = Math.min(t, y); b = Math.max(b, y);
-      for (const k of [j - 1, j + 1, j - W, j + W]) if (k >= 0 && k < W * H && !seen[k] && grown[k] && Math.abs((k % W) - x3) <= 1) { seen[k] = 1; st.push(k) } }
-    boxes.push({ l: l + R, t: t + R, r: r - R, b: b - R, n });
-  }
-  boxes = boxes.filter(o => (o.r - o.l) >= W * 0.07 && (o.b - o.t) >= H * 0.04 && o.n >= 30 && (o.r - o.l) * (o.b - o.t) < W * H * 0.5);
-  // Side-by-side pieces of one figure (an image, an arrow diagram, an image) become one box.
-  for (let merged = true; merged;) {
-    merged = false;
-    outer: for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
-      const a = boxes[i], b = boxes[j], ov = Math.min(a.b, b.b) - Math.max(a.t, b.t), gap = Math.max(a.l, b.l) - Math.min(a.r, b.r);
-      if (ov > 0.6 * Math.min(a.b - a.t, b.b - b.t) && gap < W * 0.18) { boxes[i] = { l: Math.min(a.l, b.l), t: Math.min(a.t, b.t), r: Math.max(a.r, b.r), b: Math.max(a.b, b.b), n: a.n + b.n }; boxes.splice(j, 1); merged = true; break outer }
-    }
-  }
-  const figs = boxes.map(o => { const pad = 1.5; return { x: Math.max(0, (o.l - pad) / W), y: Math.max(0, (o.t - pad) / H), w: Math.min(1, (o.r - o.l + pad * 2) / W), h: Math.min(1, (o.b - o.t + pad * 2) / H) } });
-  state.figs.set(p.n, figs); p.figures = figs;
+  const spans = [...p.layer.querySelectorAll('span')].map(sp => { const q = sp.getBoundingClientRect(); return { x: (q.left - pr.left) / pr.width, y: (q.top - pr.top) / pr.height, w: q.width / pr.width, h: q.height / pr.height, text: sp.textContent } });
+  const found = TinctMargin.findFigures({ ink, W, H, spans, formulas: p.blocks || [] });
+  state.figs.set(p.n, found); p.figures = found.figures; p.captions = found.captions;
 }
 const hot = { el: null, key: '', sticky: false, raf: 0, timer: 0, over: false };
 function regionAt(x, y) {
@@ -3681,6 +3734,8 @@ function regionAt(x, y) {
   const r = p.pg.getBoundingClientRect(), fx = (x - r.left) / r.width, fy = (y - r.top) / r.height;
   const inside = f => fx >= f.x && fx <= f.x + f.w && fy >= f.y && fy <= f.y + f.h;
   const fi = (p.figures || []).findIndex(inside); if (fi >= 0) return { p, f: p.figures[fi], kind: 'figure', key: p.n + 'f' + fi };
+  // The fallback (item 5): over a "Figure N" or "Table N" caption, its figure is offered.
+  const cap = (p.captions || []).find(c => inside(c.box) && p.figures?.[c.fig]); if (cap) return { p, f: p.figures[cap.fig], kind: 'figure', key: p.n + 'f' + cap.fig };
   const bi = (p.blocks || []).findIndex(inside); if (bi >= 0) return { p, f: p.blocks[bi], kind: 'formula', key: p.n + 'm' + bi };
   return null;
 }
@@ -3704,6 +3759,17 @@ function showHot(reg, sticky) {
   chip.addEventListener('mouseleave', () => { hot.over = false; hideHotSoon() });
   el.querySelectorAll('[data-a]').forEach(b => b.onclick = async e => { e.stopPropagation(); const a = b.dataset.a; hideHot(); markRegion(reg.p, reg.f, true); const item = await regionItem(reg.p, reg.f, reg.kind, a === 'highlight'); if (a !== 'highlight' && a !== 'copy') setTimeout(clearRegion, 900); else clearRegion(); regionAction(a, item) });
   reg.p.pg.appendChild(el); hot.el = el; hot.key = reg.key; hot.sticky = sticky;
+  placeHot();
+}
+/** The chip stays inside the page and the screen (item 6): TinctMargin.placeChip, in the box's own coordinates. */
+function placeHot() {
+  const el = hot.el, chip = el?.querySelector('.byob-hot-chip'); if (!chip || !el.isConnected) return;
+  const box = el.getBoundingClientRect(), pg = el.parentElement.getBoundingClientRect(), sr = $('scroll').getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect().bottom;
+  const view = { left: Math.max(0, sr.left), right: Math.min(innerWidth, sr.left + $('scroll').clientWidth), top: Math.max(sr.top, hdr, 0), bottom: Math.min(sr.bottom, innerHeight) };
+  const bounds = { left: Math.max(pg.left, view.left), right: Math.min(pg.right, view.right), top: Math.max(pg.top, view.top), bottom: Math.min(pg.bottom, view.bottom) };
+  const at = TinctMargin.placeChip({ box, w: chip.offsetWidth, h: chip.offsetHeight, bounds, outer: view });
+  Object.assign(chip.style, { left: at.left - box.left + 'px', top: at.top - box.top + 'px', right: 'auto', transform: 'none' });
+  chip.classList.toggle('is-below', at.side !== 'above');
 }
 document.addEventListener('mousemove', e => {
   if (hot.raf) return;
@@ -3723,7 +3789,7 @@ document.addEventListener('click', e => {
   const reg = regionAt(e.clientX, e.clientY);
   if (reg) showHot(reg, true); else hideHot();
 });
-$('scroll').addEventListener('scroll', () => { if (!hot.sticky) hideHot() }, { passive: true });
+$('scroll').addEventListener('scroll', () => { if (!hot.sticky) hideHot(); else placeHot() }, { passive: true });
 
 /* ---------- Mouse selection by hand: a drag that starts or passes over empty space snaps to the
    nearest line, instead of the browser jumping to the start of the page. Touch keeps the native one. ---------- */
@@ -4039,11 +4105,13 @@ async function ask(question, display) {
   const ctx = pdf ? '' : await contextText(Math.max(1, focusPage - 1), Math.min(state.pages.length, focusPage + 1), 9000);
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
   // A picture goes only with a passage, cropped to it (FIXES-2026-10-15 A4); never a whole page.
-  const region = passage ? selectionRegion(passage) : null;
-  const image = blobs.length || !region ? null : await pageImage(focusPage, region);
+  // A selected caption, or a question naming "Figure N" on the reader's page, sends that figure instead (FIXES-2026-10-15 item 7).
+  const named = marginOn() && !blobs.length ? figureAsked(question, passage, page) : null;
+  const region = passage && !named ? selectionRegion(passage) : null;
+  const image = blobs.length ? null : named ? await figureImage(named.page, named.f) : region ? await pageImage(focusPage, region) : null;
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';
   const snipText = attached.map(a => [a.caption ? 'Caption: ' + a.caption : '', a.text ? 'Labels and text inside it: ' + a.text : '', !blobs.length && a.sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + a.sketch + '\n```' : ''].filter(Boolean).join('\n')).filter(Boolean).join('\n\n');
-  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). ${pdf ? 'Ground answers in the whole document.' : 'Ground answers in the text; say when something is not on these pages.'} ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
+  const rules = `You are Tinct's reading companion. ${bookLine()} They are on page ${page} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). ${pdf ? 'Ground answers in the whole document.' : 'Ground answers in the text; say when something is not on these pages.'} ${chat.talk ? 'Your answer will be read aloud: no lists, no symbols that read badly, short sentences.' : 'Plain prose; simple bullet lists only when they help.'}${image && named ? ` The attached image is ${named.label} on page ${pageLabel(named.page)}, as printed: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the document for context.` : image ? (passage ? ' The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.' : ' The attached image shows the printed page or passage; trust it over the extracted text for equations.') : ''}${snipNote}${ctx ? `\n\nText around the reader's place (extracted, may garble maths):\n${ctx}` : ''}${passage ? `\n\nThe passage they selected on page ${passage.page}:\n${passage.text.slice(0, 3000)}` : ''}${snipText ? `\n\nWhat the reader attached:\n${snipText.slice(0, 5000)}` : ''}`;
   const history = chat.turns.slice(-11, -1).map(t => ({ role: t.role, content: t.role === 'assistant' ? t.content.replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, '') : (t.role === 'user' && t.passage ? `About this passage: "${t.passage.slice(0, 600)}"\n` : '') + (t.imgs?.length ? `[Earlier I attached ${t.imgs.length > 1 ? 'images' : 'an image'}; it is not re-sent.${t.snipText ? ' Its text: ' + t.snipText.slice(0, 400) : ''}]\n` : '') + t.content }));
   const input = [{ role: 'user', content: rules }, ...history, { role: 'user', content: question }];
   const ctl = new AbortController(); chat.ctl = ctl;
@@ -4323,7 +4391,7 @@ $('playBtn').onclick = togglePlay;
 // and closed the editor (notes lost on crowded pages, the Gloss test, 15 Oct 2026).
 const clickedIn = (e, sel) => e.composedPath().some(n => n instanceof Element && n.matches(sel));
 document.addEventListener('click', e => {
-  if (!getSelection().isCollapsed || narr.active || clickedIn(e, '.selection-popup, .lab-ask, .lab-header, .mr-float')) return;
+  if (!getSelection().isCollapsed || narr.active || clickedIn(e, '.selection-popup, .lab-ask, .lab-header, .mr-float, .byob-hot-chip')) return;
   // A PDF's highlight opens the margin's bar for it: its colour, its note.
   // A passage with a card opens that card (and folds the others); a highlight's note opens its note card.
   if (state.kind === 'pdf') {

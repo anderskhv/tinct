@@ -16,6 +16,7 @@
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
 //   node scripts/margin-check.mjs primer-reliability  Before you start made 10 of 10 times against mocked replies (cut off, empty, odd shapes, slow)
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
+//   node scripts/margin-check.mjs figures           FIXES items 4–7: figure detection, the chip kept on screen, the figure's card beside it, figure questions
 //   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
@@ -43,9 +44,12 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, figurePaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
+// FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
+const FIGURE_PAPER = join(OUT, 'figure_paper.pdf')
+writeFileSync(FIGURE_PAPER, figurePaper())
 
 // The class names of css/margin.css, as the check's selectors (the phone More's rows are buttons).
 export const SELECTORS = {
@@ -1197,6 +1201,109 @@ async function resizeRun(browser, origin) {
   return out
 }
 
+/* ---------- Figures (FIXES-2026-10-15 items 4–7), on the figure paper ----------
+   Detection (the labelled diagram, the figure beside text, the caption fallback), the chip inside the
+   page and the screen (a figure at the page's left edge, a figure just under the top bar), the figure's
+   card beside its figure with its thumbnail and its own thread, and figure questions sending the figure. */
+const FIGURE_VIEWPORTS = (process.env.FIGURE_VIEWPORTS || '1440x900,1280x800,1181x800,1024x768,390x844,360x740').split(',').map(v => v.split('x').map(Number))
+// The chip and the figure's card: inside the page and the screen, below the top bar.
+const FIG_SELECTORS = { ...SELECTORS, bar: SELECTORS.bar + ', .byob-hot-chip' }
+function chipInside() {
+  const chip = document.querySelector('.byob-hot-chip'); if (!chip) return { ok: false, why: 'no chip' }
+  const r = chip.getBoundingClientRect(), pg = chip.closest('.pdf-sheet').getBoundingClientRect(), hdr = document.getElementById('hdr').getBoundingClientRect().bottom
+  const sr = document.getElementById('scroll').getBoundingClientRect(), right = Math.min(innerWidth, sr.left + document.getElementById('scroll').clientWidth)
+  const inPage = r.left >= pg.left - 0.5 && r.right <= pg.right + 0.5, inView = r.left >= -0.5 && r.right <= right + 0.5 && r.top >= hdr - 0.5 && r.bottom <= innerHeight + 0.5
+  const wide = r.width > pg.width - 16
+  return { ok: (inPage || wide) && inView, rect: [r.left, r.top, r.right, r.bottom].map(Math.round), page: [pg.left, pg.right].map(Math.round), hdr: Math.round(hdr) }
+}
+async function figureMatrix(browser, origin) {
+  const rows = [], hex = addBook(FIGURE_PAPER)
+  const combos = SAMPLE ? FIGURE_VIEWPORTS.filter(([w]) => [1440, 1024, 390].includes(w)).map(([w, h], i) => [w, h, rotate(LOOKS, i)]) : FIGURE_VIEWPORTS.flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+  for (const [width, height, look] of combos) {
+    const tag = `figures-${width}x${height}-${look}`, found = [], shots = {}
+    let opened
+    try { opened = await readerPage(browser, origin, hex, { width, height, look }) }
+    catch (e) { rows.push({ pdf: 'figure_paper', viewport: `${width}×${height}`, look, pass: false, problems: 1, details: [{ kind: 'error', el: String(e.message || e).slice(0, 200) }] }); continue }
+    const { ctx, page, problems } = opened
+    const keep = (width === 1440 || width === 390) && (look === 'paper' || look === 'night')
+    const check = async (name, cond) => {
+      await settle(page)
+      found.push(...(await checkMargin(page, FIG_SELECTORS)).map(p => ({ state: name, ...p })))
+      if (cond) { const r = await page.evaluate(...[].concat(cond)); if (!r || r.ok === false) found.push({ state: name, kind: 'condition', el: JSON.stringify(r).slice(0, 400) }) }
+      const att = await page.evaluate(leadersAttached); if (!att.ok) found.push({ state: name, kind: 'leaders', el: JSON.stringify(att) })
+      if (keep) { const path = join(OUT, `${tag}-${name}.png`); await page.screenshot({ path }); shots[name] = path }
+    }
+    // A page in view (its figure `fy` of the way down the page at `at` of the screen), drawn and its figures found.
+    const show = async (n, fy = 0, at = 0.25) => {
+      await page.evaluate(([n, fy, at]) => { const p = state.pages[n - 1], sr = $('scroll').getBoundingClientRect(), b = p.pg.getBoundingClientRect(); $('scroll').scrollTop += b.top + fy * b.height - (sr.top + at * sr.height) }, [n, fy, at])
+      await page.waitForFunction(n => state.figs.has(n) && state.pages[n - 1].figures, n, { timeout: 15000 }); await settle(page)
+    }
+    // Hover (desktop) or tap (phone) at a point of page n given in page fractions.
+    const point = (n, fx, fy) => page.evaluate(([n, fx, fy]) => { const b = state.pages[n - 1].pg.getBoundingClientRect(); return { x: b.left + fx * b.width, y: b.top + fy * b.height } }, [n, fx, fy])
+    const offer = async (n, fx, fy) => { await hideAll(); const { x, y } = await point(n, fx, fy); if (width < 700) await page.mouse.click(x, y); else { await page.mouse.move(x - 40, y - 40); await page.mouse.move(x, y, { steps: 4 }) } await page.waitForSelector('.byob-hot-chip', { timeout: 4000 }) }
+    const hideAll = () => page.evaluate(() => { hideHot(); openCard(null); getSelection().removeAllRanges() })
+    try {
+      // Detection: the labelled diagram (no row of circles is a figure alone), the block diagram beside text,
+      // and the caption fallback for the table and for a figure larger than half the page.
+      for (const n of [1, 2, 3, 4]) await show(n)
+      await check('detected', () => {
+        const f = n => state.figs.get(n), cap = (n, label) => f(n).captions.find(c => c.label === label), fig = (n, label) => { const c = cap(n, label); return c && f(n).figures[c.fig] }
+        const net = fig(1, 'Figure 1'), block = fig(2, 'Figure 2'), table = fig(3, 'Table 1'), big = fig(4, 'Figure 3')
+        // In page fractions: the diagram's rows run from y 0.30 to 0.42; the block diagram's left edge is 12pt in; the table under its caption; the large figure is 0.66 of the page tall.
+        const ok = !!net && net.y < 0.32 && net.y + net.h > 0.4 && f(1).figures.length === 1 && !!block && block.x < 0.03 && block.x + block.w < 0.29 && !!table && table.y > 0.24 && !!big && big.h > 0.6
+        return { ok, net, block, table, big, counts: [1, 2, 3, 4].map(n => f(n).figures.length) }
+      })
+      // A figure at the page's left edge: the chip is kept inside the page and the screen.
+      await show(2, 0.25, 0.4); await offer(2, 0.1, 0.3)
+      await check('fig-left', chipInside)
+      // A figure just under the top bar: no room above it, so the chip goes below or inside it, never under the bar.
+      await show(1, 0.29, 0.005); await offer(1, 0.5, 0.36)
+      await check('fig-top', chipInside)
+      // The fallback: over a caption, its figure is offered (the large figure has no other way in).
+      await show(4, 0.5, 0.5)
+      const capAt = await page.evaluate(() => { const c = state.figs.get(4).captions.find(c => c.label === 'Figure 3'); return { fx: c.box.x + 0.05, fy: c.box.y + c.box.h / 2 } })
+      await offer(4, capAt.fx, capAt.fy)
+      await check('caption', () => { const hot = document.querySelector('.byob-hot'), pg = hot?.closest('.pdf-sheet').getBoundingClientRect(), r = hot?.getBoundingClientRect(); return { ok: !!hot && r.height / pg.height > 0.6, h: r && r.height / pg.height } })
+      // The figure's card: Explain on the diagram opens a card beside it (thumbnail, leader line), with the figure's picture and its own thread.
+      await show(1, 0.3, 0.3); await offer(1, 0.5, 0.36)
+      const before = account.requests.length, wholeBefore = await page.evaluate(() => chat.turns.length)
+      await page.click('.byob-hot-chip [data-a="explain"]')
+      await page.waitForFunction(() => { const c = cardById(col.open); return c && c.kind === 'figure' && c.turns.length === 1 }, null, { timeout: 8000 })
+      await page.waitForFunction(() => !!document.querySelector('.mr-card.is-open .mr-thumb img, .mr-sheet .mr-thumb img'), null, { timeout: 8000 })
+      const sent = account.requests.slice(before).find(r => r.path === '/api/chat')
+      const pics = (sent?.body?.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image') || []
+      const rules = JSON.stringify(sent?.body?.messages?.[0] || '')
+      await check('fig-card', [whole => {
+        const card = cardById(col.open), el = document.querySelector('.mr-sheet') || document.querySelector('.mr-card.is-open'), f = state.pages[0].pg.getBoundingClientRect(), box = TinctMargin.anchorOfCard(card)[0]
+        const figTop = f.top + box.y * f.height, r = el?.getBoundingClientRect()
+        // Beside: in the column the card starts level with the figure's top (less the 4px lift), unless the column moved it up to fit; marks float it beside the mark; the phone's bottom card sits below the figure.
+        const beside = col.mode === 'column' ? Math.abs(r.top - (figTop - 4)) < 3 || r.bottom <= f.top + (box.y + box.h) * f.height + 2 : col.mode === 'marks' ? !!el?.classList.contains('is-floating') : r.top >= figTop
+        const label = el?.querySelector('.mr-card__name')?.textContent || el?.getAttribute('aria-label')
+        return { ok: beside && /^Figure 1 · p\. 1$/.test(label || '') && !!el.querySelector('.mr-thumb img')?.naturalWidth && chat.turns.length === whole && keptCards().filter(c => c.kind === 'figure' && !c.gone).length === 1, mode: col.mode, beside, label, top: r && Math.round(r.top), figTop: Math.round(figTop) }
+      }, wholeBefore])
+      if (!(pics.length === 1 && /This conversation is about one figure on page 1 \(Figure 1\)/.test(rules) && /attached image is that figure/.test(rules) && sent.body.companion?.document)) found.push({ state: 'fig-card', kind: 'request', el: JSON.stringify({ images: pics.length, rules: rules.slice(0, 200), document: !!sent?.body?.companion?.document }) })
+      // A follow-up stays in the figure's thread; Explain on the same figure again opens the same card.
+      await page.evaluate(() => followUp(col.open, 'What do the rows stand for?'))
+      await page.waitForFunction(() => cardById(col.open)?.turns.length === 3, null, { timeout: 8000 })
+      await page.evaluate(() => openCard(null)); await settle(page); await offer(1, 0.5, 0.36); await page.click('.byob-hot-chip [data-a="explain"]'); await settle(page)
+      await check('fig-thread', () => { const all = keptCards().filter(c => c.kind === 'figure' && !c.gone), c = cardById(col.open); return { ok: all.length === 1 && c?.id === all[0].id && c.turns.length === 3 && chat.turns.length === 0, cards: all.length, turns: c?.turns.length } })
+      // Item 7: a whole-PDF question naming "Figure 1" on the reader's page sends that figure's picture.
+      const n0 = account.requests.length
+      await page.evaluate(() => { openCard(null); openWhole({ prompt: 'What does Figure 1 show?' }) })
+      await page.waitForFunction(() => chat.turns.some(t => t.role === 'assistant'), null, { timeout: 8000 })
+      const asked = account.requests.slice(n0).find(r => /What does Figure 1 show\?/.test(JSON.stringify(r.body.messages || '')))
+      const askPics = (asked?.body?.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image') || []
+      if (!(askPics.length === 1 && /attached image is Figure 1 on page 1/.test(JSON.stringify(asked.body.messages[0])))) found.push({ state: 'fig-ask', kind: 'request', el: JSON.stringify({ asked: !!asked, images: askPics.length }) })
+      await page.evaluate(() => { chat.turns = []; closeChat() })
+    } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e).replace(/\u001b\[\d+m/g, '').slice(-700) }) }
+    const n = found.length + problems.length
+    rows.push({ pdf: 'figure_paper', viewport: `${width}×${height}`, look, pass: !n, problems: n, details: [...found, ...problems], screenshots: shots })
+    console.log(`${tag}: ${n} problem(s)`, n ? JSON.stringify([...found, ...problems]).slice(0, 900) : '')
+    await ctx.close()
+  }
+  return rows
+}
+
 const server = await start(Number(process.env.PORT || 4791))
 const origin = `http://127.0.0.1:${server.address().port}`
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio'] })
@@ -1210,6 +1317,7 @@ const RUNS = {
   primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
   'primer-reliability': [primerReliability, rows => rows.some(r => !r.pass)],
   keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
+  figures: [figureMatrix, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -1237,6 +1345,7 @@ try {
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'figures') { const rows = await figureMatrix(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figures-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

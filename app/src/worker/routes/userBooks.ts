@@ -841,10 +841,11 @@ export type OwnCard = {
   at: number
   u?: number
 }
-export type OwnCardKind = 'explain' | 'simplify' | 'ask' | 'define' | 'factcheck' | 'counterpoint' | 'quiz'
+export type OwnCardKind = 'explain' | 'simplify' | 'ask' | 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'figure'
 /** Cards and removals per book. */
 export const MAX_CARDS = 2000
-const CARD_KINDS = new Set<string>(['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz'])
+// 'figure': a figure's own thread, its box the card's passage (FIXES-2026-10-15 item 4).
+const CARD_KINDS = new Set<string>(['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'figure'])
 const CARD_TURNS = 40
 const CARD_CONTENT = 12_000
 const CARD_DATA_BYTES = 16_000

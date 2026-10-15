@@ -1,6 +1,7 @@
 // Writes small PDFs for tests, with no dependencies: text in the standard fonts (WinAnsi),
 // optional document info (Title, Author), an outline (bookmarks) and grey raster images.
-//   makePdf({ info, pages: [{ size, lines: [{ x, y, size, font, text }], images: [{ x, y, w, h }] }], outline })
+//   makePdf({ info, pages: [{ size, lines: [{ x, y, size, font, text }], images: [{ x, y, w, h }], draw }], outline })
+// `draw`: raw PDF content operators for vector figures (see figurePaper).
 // Fonts: Helvetica, Helvetica-Bold, Helvetica-Oblique, Times-Roman, Times-Bold, Times-Italic,
 // and Symbol (its own encoding: '\xe5' is ∑, '\xf2' ∫, '\xb6' ∂), added only to a PDF that uses it.
 // Outline items: { title, page (1-based), children? }.
@@ -43,6 +44,8 @@ export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
       xobjs.push(`/Im${i + 1} ${id} 0 R`);
       ops += `q ${im.w} 0 0 ${im.h} ${im.x} ${im.y} cm /Im${i + 1} Do Q\n`;
     });
+    // Vector drawing (`draw`: raw content operators, such as lines, boxes and circles), under the text.
+    if (pg.draw) ops += pg.draw + '\n';
     for (const l of pg.lines || []) {
       const f = fonts.indexOf(l.font || 'Times-Roman') + 1;
       if (f < 1) throw new Error('unknown font ' + l.font);
@@ -245,6 +248,49 @@ export function twoColumnPaper() {
   ] });
   pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
   return makePdf({ info: { Title: 'Attention and Return in Long-Form Reading' }, pages });
+}
+
+// 7. A paper of figures (FIXES-2026-10-15 items 4–7), for the margin's figure checks:
+//    p. 1 a network diagram of three rows of small circles joined only by their labels (TD-Gammon's
+//    Figure 16.1: no row is a figure by itself), its caption below; p. 2 a block diagram at the page's
+//    left edge with labels inside its boxes and body text beside it (ResNet's Figure 2); p. 3 a table
+//    of bare cells under its caption; p. 4 a figure larger than half the page, under running text.
+const circle = (x, y, r) => { const k = r * 0.5523; return `${x + r} ${y} m ${x + r} ${y + k} ${x + k} ${y + r} ${x} ${y + r} c ${x - k} ${y + r} ${x - r} ${y + k} ${x - r} ${y} c ${x - r} ${y - k} ${x - k} ${y - r} ${x} ${y - r} c ${x + k} ${y - r} ${x + r} ${y - k} ${x + r} ${y} c S` };
+export function figurePaper() {
+  breaks = 0;
+  const label = (x, y, text) => ({ x, y, size: 8, font: 'Helvetica', text });
+  const row = (n, y, x0, x1) => Array.from({ length: n }, (_, i) => circle(Math.round(x0 + (n > 1 ? (i * (x1 - x0)) / (n - 1) : (x1 - x0) / 2)), y, 5)).join(' ');
+  const pages = [
+    { draw: `0.8 w ${row(3, 545, 286, 326)} ${row(8, 509, 236, 376)} ${row(14, 473, 206, 406)}`, lines: [
+      { x: 72, y: 720, size: 15, font: 'Times-Bold', text: 'Figures in the Margin' },
+      ...prose(690, 6, { from: 3 }),
+      label(246, 527, 'predicted probability of winning'), label(262, 491, 'hidden units (40-80)'), label(230, 455, 'backgammon position (198 input units)'),
+      { x: 160, y: 425, size: 9, font: 'Times-Italic', text: 'Figure 1. A network of three layers of units that rates a position.' },
+      ...prose(395, 22, { from: 40 }),
+    ] },
+    { draw: '0.9 w 12 600 110 20 re S 12 548 110 20 re S 67 640 m 67 620 l S 67 600 m 67 568 l S 67 548 m 67 520 l S ' + circle(67, 512, 7) + ' 67 505 m 67 482 l S 122 610 m 145 610 l 145 512 l 74 512 l S', lines: [
+      ...prose(720, 5, { from: 11 }),
+      label(36, 606, 'weight layer'), label(36, 554, 'weight layer'), label(72, 580, 'relu'), label(72, 488, 'relu'), label(130, 560, 'x'), label(100, 530, 'F(x) + x'),
+      ...prose(640, 14, { x: 178, width: 62, from: 60 }),
+      { x: 12, y: 466, size: 8, font: 'Times-Italic', text: 'Figure 2. Residual learning:' },
+      { x: 12, y: 456, size: 8, font: 'Times-Italic', text: 'a building block.' },
+      ...prose(430, 24, { from: 90 }),
+    ] },
+    { lines: [
+      ...prose(720, 8, { from: 120 }),
+      { x: 72, y: 600, size: 9, font: 'Times-Italic', text: 'Table 1. Error rates on the test set, by depth of the network.' },
+      ...[['Depth', 'Plain', 'Residual'], ['18', '27.94', '27.88'], ['34', '28.54', '25.03'], ['50', '-', '22.85'], ['101', '-', '21.75'], ['152', '-', '21.43']]
+        .flatMap((r, i) => r.map((cell, k) => ({ x: 190 + k * 90, y: 580 - i * 16, size: 9, font: 'Times-Roman', text: cell }))),
+      ...prose(470, 24, { from: 150 }),
+    ] },
+    { images: [{ x: 60, y: 170, w: 492, h: 520, pw: 60, ph: 64 }], lines: [
+      ...prose(730, 2, { from: 180 }),
+      { x: 60, y: 150, size: 9, font: 'Times-Italic', text: 'Figure 3. Training on ImageNet: thin curves are training error, bold curves validation error.' },
+      ...prose(125, 3, { from: 200 }),
+    ] },
+  ];
+  pages.forEach((pg, i) => pg.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(i + 1) }));
+  return makePdf({ info: { Title: 'Figures in the Margin' }, pages });
 }
 
 export function pdfFixtures() {

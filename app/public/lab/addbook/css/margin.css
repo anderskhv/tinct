@@ -307,6 +307,12 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 /* The open card's passage: a 1.5px underline in the lead colour (drawn on the page, so it moves with it). */
 .mr-ul-layer { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
 .mr-ul-layer i { position: absolute; height: 1.5px; margin-top: 3px; background: var(--mr-lead); }
+/* A figure's open card rings its figure (FIXES-2026-10-15 item 4) instead of underlining a passage. */
+.mr-ul-layer i.is-box { height: auto; margin: 0; background: none; border: 1.5px solid var(--mr-lead); border-radius: 4px; }
+/* A figure's card: the figure's thumbnail at the top, its room kept while it is drawn. */
+.mr-thumb { flex: none; width: 100%; max-height: 140px; border-radius: 8px; background: var(--mr-hair); overflow: hidden; }
+.mr-thumb img { display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.lab.is-night .mr-thumb img { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }   /* as the night page's own fallback */
 /* Narrow windows: 8px marks at the page's right edge in the lead colour; a 28px target round each. */
 .mr-marks { position: fixed; inset: var(--pdf-top, 56px) 0 0 0; pointer-events: none; z-index: 31; overflow: hidden; }
 .mr-mark { position: absolute; width: 28px; height: 28px; min-width: 0; min-height: 0; margin: -14px 0 0 -14px; pointer-events: auto; }
