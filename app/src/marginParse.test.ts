@@ -410,3 +410,18 @@ describe.each(copies)('after the full battery on train 3 (%s)', (_name, m) => {
   })
 })
 
+// Night smoke run (15 Oct): a Simplify answer ended with a bare "p. 1." (no braces). Both copies.
+describe.each(copies)('a bare page at the end of a line or an answer (%s)', (_name, m) => {
+  it('is a tag; the same words mid-sentence stay text', () => {
+    expect(m.parseCitations('G tries to make D get things wrong p. 1.')).toEqual([
+      { type: 'text', text: 'G tries to make D get things wrong ' },
+      { type: 'cite', kind: 'p', label: '1', raw: 'p. 1' },
+      { type: 'text', text: '.' },
+    ])
+    expect(m.citationTokens('One line p. 2\nThe next.').map(t => t.label)).toEqual(['2'])
+    expect(m.citationTokens('Ends p.12')[0]).toMatchObject({ kind: 'p', label: '12' })
+    expect(m.citationTokens('Ends pp. 5–6.')[0]).toMatchObject({ kind: 'pp', label: '5', to: '6' })
+    for (const text of ['See p. 3 for more.', 'pp. 5–6.', 'a p. value of 0.05', 'p. 1']) expect(m.parseCitations(text).every(part => part.type === 'text')).toBe(true)
+  })
+})
+

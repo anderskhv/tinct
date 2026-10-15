@@ -18,8 +18,9 @@ export type CitationPart = TextPart | CitationToken
 
 const LABEL = '[\\p{L}\\p{N}](?:[\\p{L}\\p{N}.\\-]{0,14}[\\p{L}\\p{N}])?'
 // A page in parentheses, as the answers sometimes write it: (p. 2), (pp. 5–6). Digits or roman numerals only.
+// And a bare page at the very end of a line or an answer, after a space: "… mistake p. 1." (night smoke run, 15 Oct).
 const PAREN_LABEL = '(?:\\d{1,5}|[ivxlcdm]{1,8})'
-const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}|\\(\\s*(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?\\s*\\)`, 'giu')
+const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}|\\(\\s*(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?\\s*\\)|(?<=\\s)(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?(?=\\.?[ \\t]*(?:\\n|$))`, 'giu')
 
 const LIST_ITEM_RE = new RegExp(`^(?:(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+))?(${LABEL}(?:\\s*[\\u2013\\u2014-]\\s*${LABEL})?)$`, 'iu')
 
@@ -48,7 +49,8 @@ function splitCitationLists(source: string): string {
  * Text split into text and citation parts, in order. A `{…}` that is not a citation, or one
  * `resolve(token)` turns down (the page or equation is not in this PDF), stays text exactly
  * as written. A range is only for pages ({pp. 12–13}); {p. 12–13} is read as the same range,
- * and {pp. 12} as one page. A page in parentheses, (p. 2) or (pp. 5–6), is a tag too. Two tags
+ * and {pp. 12} as one page. A page in parentheses, (p. 2) or (pp. 5–6), is a tag too, and so is a
+ * bare page that ends a line or the answer ("… a mistake p. 1."). Two tags
  * with nothing between them never run together ("p. 5p. 6"): they are parted by ", ".
  * -> [{ type: 'text', text } | { type: 'cite', kind, label, to?, raw }]
  */
@@ -64,10 +66,10 @@ export function parseCitations(text: unknown, resolve?: (token: CitationToken) =
   }
   CITATION_RE.lastIndex = 0
   for (let m: RegExpExecArray | null; (m = CITATION_RE.exec(source));) {
-    let kind = (m[1] || m[4]).toLowerCase() as CitationKind
-    let to: string | undefined = m[3] || m[6]
+    let kind = (m[1] || m[4] || m[7]).toLowerCase() as CitationKind
+    let to: string | undefined = m[3] || m[6] || m[9]
     if (to && kind !== 'p' && kind !== 'pp') continue // {eq. 1–2} is not a citation
-    let label = m[2] || m[5]
+    let label = m[2] || m[5] || m[8]
     if (to) kind = 'pp'
     else if (kind === 'pp') {
       // {pp. 12-13} with a hyphen reads as one label; split it. {pp. 12} is one page.

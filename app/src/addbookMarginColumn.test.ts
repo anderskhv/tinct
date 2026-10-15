@@ -508,3 +508,18 @@ describe('after the full battery on train 3', () => {
   })
 })
 
+describe('a bare trailing page in a card (night smoke run)', () => {
+  it('shows as a tag, live and kept', () => {
+    const a = [{ n: 1, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }]
+    const resolve = (t: Token) => (t.label === '1' ? { page: 1, needle: '' } : null)
+    const content = 'The generator is trained to make the discriminator get things wrong as often as it can p. 1.'
+    const c = M.newCard({ kind: 'simplify', page: 1, anchor: a, text: 'procedure for G is to maximize the probability of D making a mistake', turns: [{ role: 'assistant', content }] })
+    const div = document.createElement('div')
+    for (const o of [{}, { live: content }]) {
+      div.innerHTML = M.html.cardHtml('live' in o ? { ...c, turns: [] } : c, { open: true, P, pageLabel: '1', resolve, ...o })
+      expect((div.querySelector('.mr-answer .mr-cite') as HTMLElement)?.dataset.page).toBe('1')
+      expect(div.querySelector('.mr-answer')!.textContent).toBe('The generator is trained to make the discriminator get things wrong as often as it can p. 1.')
+    }
+  })
+})
+
