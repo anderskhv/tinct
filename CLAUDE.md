@@ -150,6 +150,10 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 
 ---
 
+## Test accounts — never blocked (Anders, 2026-10-15)
+
+Test accounts (tinct3@fastmail.com and any other account Anders gives for testing; never write their passwords into files) must never be stopped by the AI allowance or the per-minute rate limit. Resetting a test account's allowance or limits is pre-authorized: whenever testing hits "You have used this month's companion allowance" or "That was a lot of questions in a short time", reset it and carry on; do not stop to ask. A session without admin or database access hands the reset to Coder (or Anders) at once, with the account email, and resumes testing when it is done. The lasting fix is that internal and test accounts are exempt from both limits.
+
 ## Pre-Deploy Checklist (MANDATORY)
 
 1. `npm run dev` — open localhost:3001, manually verify the change.
