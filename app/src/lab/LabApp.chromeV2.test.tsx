@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { beforeAll, afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 import { DEFAULT_LAB_PREFS, writeLabPrefs } from './labPrefs'
@@ -22,6 +22,13 @@ vi.mock('./labNarration', async importOriginal => ({
   initialNarrationPilotInfo: () => ({ enabled:false, provider:'google', voices:[] }),
   fetchNarrationPilotInfo: async () => ({ enabled:false, provider:'google', voices:[] }),
 }))
+
+// Talk's session code and the account cards load on demand in the reader
+// (first use). Loaded here up front so a busy machine's first transform of
+// those modules is not counted against a waitFor below.
+beforeAll(async () => {
+  await import('../cards/openCards')
+})
 
 afterEach(() => {
   cleanup()
