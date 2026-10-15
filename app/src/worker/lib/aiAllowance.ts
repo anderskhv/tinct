@@ -139,9 +139,30 @@ export function isSubscribed(profile: AllowanceProfile, now: Date): boolean {
   return profile.subscription_status === 'canceled' && !!end && end.getTime() > now.getTime()
 }
 
-export function trialEndsAt(profile: AllowanceProfile): Date | null {
+/**
+ * The trial reset (Anders, 15 Oct 2026: "reset all accounts with a free
+ * account"). From this moment every free account's trial starts at
+ * max(created_at, TRIAL_RESET_AT): an account created earlier gets a fresh
+ * 30-day trial with the trial allowance from here, and its spend before it no
+ * longer counts (the period start moves, and the settlement sums only from the
+ * start). Accounts created after it are unchanged. Before this moment the trial
+ * runs from created_at, exactly as it did. UTC midnight on the day of the
+ * decision, so the fresh month is whole and starts on a date Anders can read.
+ * Subscribed accounts never use the trial window (billingPeriod).
+ */
+export const TRIAL_RESET_AT = new Date('2026-10-15T00:00:00Z')
+
+/** When the account's trial starts: sign-up, or the reset for an older account once the reset has come. */
+export function trialStartsAt(profile: AllowanceProfile, now: Date): Date | null {
   const created = validDate(profile.created_at)
-  return created ? new Date(created.getTime() + TRIAL_DAYS * DAY_MS) : null
+  if (!created) return null
+  const resetReached = now.getTime() >= TRIAL_RESET_AT.getTime()
+  return resetReached && created.getTime() < TRIAL_RESET_AT.getTime() ? TRIAL_RESET_AT : created
+}
+
+export function trialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
+  const start = trialStartsAt(profile, now)
+  return start ? new Date(start.getTime() + TRIAL_DAYS * DAY_MS) : null
 }
 
 /**
@@ -151,7 +172,7 @@ export function trialEndsAt(profile: AllowanceProfile): Date | null {
  */
 export function hasPremiumAccess(profile: AllowanceProfile, now: Date): boolean {
   if (isSubscribed(profile, now)) return true
-  const end = trialEndsAt(profile)
+  const end = trialEndsAt(profile, now)
   return !!end && now.getTime() < end.getTime()
 }
 
@@ -177,7 +198,7 @@ export type PremiumTier = 'premium' | 'trial' | 'none'
 
 export function premiumTier(profile: AllowanceProfile, now: Date): PremiumTier {
   if (isSubscribed(profile, now)) return 'premium'
-  const end = trialEndsAt(profile)
+  const end = trialEndsAt(profile, now)
   return end && now.getTime() < end.getTime() ? 'trial' : 'none'
 }
 
@@ -203,8 +224,9 @@ export async function loadPremiumTier(env: SupabaseEnv, userId: string, now: Dat
  *    the billing period, and a yearly plan resets every month (Anders,
  *    2026-10-06) instead of once a year. An active subscription whose stored
  *    end has passed (a missed webhook) keeps rolling forward month by month.
- *  - Trial (the first 30 days of an account): one window from created_at, so a
- *    trial never spans two allowances.
+ *  - Trial (30 days from trialStartsAt: sign-up, or TRIAL_RESET_AT for an
+ *    older account): one window, so a trial never spans two allowances. The
+ *    subscription branch above reads created_at directly, never the reset.
  *  - Standard: monthly windows from the trial's end, with no allowance; only
  *    top-up credit can pay for paid features.
  */
@@ -217,10 +239,10 @@ export function billingPeriod(profile: AllowanceProfile, now: Date, allowanceUsd
     const anchor = validDate(profile.created_at) ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
     return { kind: 'subscription', ...monthlyWindow(anchor, now), allowanceMicros }
   }
-  const created = validDate(profile.created_at)
-  const trialEnd = trialEndsAt(profile)
-  if (created && trialEnd && now.getTime() < trialEnd.getTime()) {
-    return { kind: 'trial', start: created, end: trialEnd, allowanceMicros }
+  const trialStart = trialStartsAt(profile, now)
+  const trialEnd = trialEndsAt(profile, now)
+  if (trialStart && trialEnd && now.getTime() < trialEnd.getTime()) {
+    return { kind: 'trial', start: trialStart, end: trialEnd, allowanceMicros }
   }
   const anchor = trialEnd ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
   return { kind: 'standard', ...monthlyWindow(anchor, now), allowanceMicros: 0 }

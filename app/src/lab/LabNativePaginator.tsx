@@ -24,7 +24,7 @@ import {
   type ChapterPageSegment,
 } from './labHearing'
 import { labPageFitsPaint, nextPaintShrinkTo } from './labChrome'
-import { measuredDesktopPages, type LabPaginationStart } from './LabDesktopPaginator'
+import { measuredDesktopPages, measuredDesktopPageSteps, type LabPaginationStart } from './LabDesktopPaginator'
 import { paragraphKindClass, paragraphSetRagged, wordLink } from './labParagraphStyle'
 import { planHyphenation } from './labHyphenPlan'
 import { figureFor, setFigureLayout } from './labFigures'
@@ -341,6 +341,35 @@ function nativeVerseLines(text: string, rendered: Array<{ at: number; node: Reac
   })
 }
 
+/**
+ * The column flow's pages for the words from `start` on, as stand-ins: a
+ * head-first map (`headFirst` below) has its opening page exactly laid out and
+ * these after it only until the rest of the chapter is, a moment later. They
+ * are never shown: the reader does not turn onto a page of a head-first map.
+ */
+export function provisionalPagesAfter(preflight: ChapterHearingPage[], start: LabPaginationStart): ChapterHearingPage[] {
+  const pages: ChapterHearingPage[] = []
+  for (const page of preflight) {
+    const kept: ChapterPageSegment[] = []
+    for (const segment of chapterPageSegments(page)) {
+      if (segment.paragraphIndex < start.paragraphIndex) continue
+      if (segment.paragraphIndex === start.paragraphIndex && segment.to <= start.wordIndex) continue
+      const from = segment.paragraphIndex === start.paragraphIndex ? Math.max(segment.from, start.wordIndex) : segment.from
+      kept.push({
+        paragraphIndex: segment.paragraphIndex,
+        from,
+        to: segment.to,
+        ...(segment.paragraphIndex === start.paragraphIndex && from === start.wordIndex && start.headBreak != null ? { headBreak: start.headBreak } : {}),
+      })
+    }
+    if (kept.length) pages.push({ ...kept[0], segments: kept })
+  }
+  return pages
+}
+
+/** A head-first map needs at least this many pages: the chapter's end fitting (fitChapterEnd) only ever changes its last page. */
+const HEAD_FIRST_MIN_PAGES = 3
+
 /** Layouts whose chapter map a paginator keeps, per paragraph list. */
 const MEASURED_LAYOUTS = 4
 
@@ -360,6 +389,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   hasNextChapter = false,
   editionKey,
   keepPages,
+  headFirst = false,
   onPages,
 }: {
   chapterTitle: string
@@ -376,7 +406,16 @@ export const LabNativePaginator = memo(function LabNativePaginator({
    * remainder is laid out at the new height. Ignored if the width changes.
    */
   keepPages?: ChapterHearingPage[]
-  onPages: (pages: ChapterHearingPage[], paragraphs?: string[]) => void
+  /**
+   * The reader opens at this chapter's first page (a new reader, a chapter
+   * start). The first map is then published as soon as its opening page is
+   * laid out (`partial`), and the rest of the chapter is laid out right after
+   * that page has painted, with the same layout, and published in full. The
+   * opening page is the same in both: it is the first page of one layout.
+   * Read when the chapter is measured, not one of its triggers.
+   */
+  headFirst?: boolean
+  onPages: (pages: ChapterHearingPage[], paragraphs?: string[], partial?: boolean) => void
 }) {
   const hostRef = useRef<HTMLDivElement | null>(null)
   const generationRef = useRef(0)
@@ -384,6 +423,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   // Going back to a layout (Compare off, the other edition back on standby)
   // takes its map instead of laying the whole chapter out again.
   const measuredRef = useRef(new WeakMap<string[], Map<string, ChapterHearingPage[]>>())
+  const headFirstRef = useRef(headFirst)
+  headFirstRef.current = headFirst
   const hyphenLang = hyphenLangForEdition(editionKey)
   // Patterns arrive after the first layout. Re-measuring once they do is the
   // whole point: the first pass breaks between words, the second fills the
@@ -403,9 +444,19 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     let firstFrame = 0
     let secondFrame = 0
     let publishedPages: ChapterHearingPage[] | null = null
+    // The published map is a head-first one: its full map is always published, even if equal.
+    let publishedPartial = false
     // The kept pages were laid out at this width; a different width (a
     // rotation) invalidates them and the whole chapter is laid out again.
     let keepWidth: number | null = null
+    // The rest of a head-first map, waiting for its opening page to paint.
+    let rest: { frame: number; timer: number } | null = null
+    const cancelRest = () => {
+      if (!rest) return
+      cancelAnimationFrame(rest.frame)
+      window.clearTimeout(rest.timer)
+      rest = null
+    }
 
     const measure = () => {
       if (cancelled) return
@@ -532,7 +583,49 @@ export const LabNativePaginator = memo(function LabNativePaginator({
             pages = known
             measured.delete(layout)
           } else {
-            pages = measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, undefined, lineStarts, tailGap)
+            const preflight = pages
+            const opening: { page: ChapterHearingPage | null } = { page: null }
+            const steps = measuredDesktopPageSteps(lengths, fits, wordBreaks, Infinity, paragraphs, undefined, lineStarts, tailGap, closed => {
+              if (!opening.page && closed.length) opening.page = closed[0]
+            })
+            const headOnly = headFirstRef.current && !publishedPages && preflight.length >= HEAD_FIRST_MIN_PAGES
+            let step = steps.next()
+            while (!step.done && !(headOnly && opening.page)) step = steps.next()
+            const start = !step.done && opening.page ? labResumeAfterPage(opening.page, lengths) : null
+            const head = start && opening.page ? [opening.page, ...provisionalPagesAfter(preflight, start)] : null
+            if (head && placements.length === wordNodes.length && chapterPagesCover(paragraphs, head)) {
+              publishedPages = head
+              publishedPartial = true
+              onPages(head, paragraphs, true)
+              const layoutMap = measured
+              // The same layout carries on from the page it closed, on the
+              // same stage, once that page has painted (two frames, then a task).
+              const finish = () => {
+                rest = null
+                if (cancelled) return
+                let next = steps.next()
+                while (!next.done) next = steps.next()
+                let full = next.value
+                if (fitEnd) full = fitEnd(full)
+                layoutMap.set(layout, full)
+                while (layoutMap.size > MEASURED_LAYOUTS) layoutMap.delete(layoutMap.keys().next().value!)
+                if (end) end.hidden = true
+                stage.replaceChildren()
+                if (chapterPagesCover(paragraphs, full)) {
+                  publishedPages = full
+                  publishedPartial = false
+                  onPages(full, paragraphs)
+                }
+              }
+              const pending = { frame: 0, timer: 0 }
+              pending.frame = requestAnimationFrame(() => {
+                pending.frame = requestAnimationFrame(() => { pending.timer = window.setTimeout(finish, 0) })
+              })
+              rest = pending
+              return
+            }
+            while (!step.done) step = steps.next()
+            pages = step.value
             if (fitEnd) pages = fitEnd(pages)
           }
           measured.set(layout, pages)
@@ -542,17 +635,20 @@ export const LabNativePaginator = memo(function LabNativePaginator({
         stage.replaceChildren()
       }
       if (placements.length === wordNodes.length && chapterPagesCover(paragraphs, pages)
-        && (!publishedPages || !sameChapterPages(publishedPages, pages))) {
+        && (!publishedPages || publishedPartial || !sameChapterPages(publishedPages, pages))) {
         // loadingdone also fires for toolbar fonts. Re-publishing an unchanged
         // preflight map would erase the visible-page rounding corrections and
         // move the reader backwards. A changed reading font/layout still emits
         // its genuinely different map, and a new effect always publishes once.
         publishedPages = pages
+        publishedPartial = false
         onPages(pages, paragraphs)
       }
     }
 
     const schedule = () => {
+      // A newer measurement replaces the rest still to come.
+      cancelRest()
       const generation = ++generationRef.current
       if (firstFrame) cancelAnimationFrame(firstFrame)
       if (secondFrame) cancelAnimationFrame(secondFrame)
@@ -575,6 +671,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
     document.fonts?.addEventListener?.('loadingdone', schedule)
     return () => {
       cancelled = true
+      cancelRest()
       generationRef.current += 1
       if (firstFrame) cancelAnimationFrame(firstFrame)
       if (secondFrame) cancelAnimationFrame(secondFrame)

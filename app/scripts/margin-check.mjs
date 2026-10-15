@@ -157,7 +157,8 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.primers`: the next primer replies, in order, each { text } | { status, body } with an optional
 // `delay` (ms), for the primer's reliability runs (cut-off, empty, slow, odd shapes).
 // `mock.chunks` (set by a check) streams the next answer in pieces: [{ text, wait }], then an
-// error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one).
+// error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one); a string
+// names the error's type (`cut_off`: the Worker's answer stopped by its output bound, max_tokens).
 export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
@@ -198,7 +199,7 @@ async function mockChat(body, res) {
   if (mock.chunks) {
     const chunks = mock.chunks, fail = mock.chunksFail; mock.chunks = null; mock.chunksFail = false
     for (const c of chunks) { await new Promise(r => setTimeout(r, c.wait || 0)); res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: c.text } })}\n\n`) }
-    if (fail) return res.end(`event: error\ndata: ${JSON.stringify({ type: 'error', error: { type: 'upstream_error', message: 'The reply was interrupted. Please try again.' } })}\n\n`)
+    if (fail) return res.end(`event: error\ndata: ${JSON.stringify({ type: 'error', error: { type: typeof fail === 'string' ? fail : 'upstream_error', message: 'The reply was interrupted. Please try again.' } })}\n\n`)
     return res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
   }
   res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\n`)
@@ -603,6 +604,31 @@ async function behaviour(browser, origin) {
     await a.click('.mr-card.is-open [data-c="next"]').catch(() => {}); await a.waitForTimeout(300)
     // PR C: a "Show answer" question is not scored, and the end card says so.
     ok('the score covers what was answered, a shown answer left out: "1 of 1 shown", and "Try another quiz"', /1 of 1 shown/.test(await a.innerText('.mr-card.is-open')) && !!(await a.$('.mr-card.is-open [data-c="again"]')), await a.innerText('.mr-card.is-open'))
+    await fresh(a)
+  }
+  // Cut off by the output bound (15 Oct 2026: max_tokens left empty and half-written cards): the Worker's
+  // cut_off error. The words already streamed are cleared, the card shows its error, and nothing is kept.
+  {
+    const answers = () => a.evaluate(() => keptCards().filter(c => c.kind === 'counterpoint').map(c => ({ id: c.id, answers: (c.turns || []).filter(t => t.role === 'assistant').map(t => t.content) })))
+    const before = (await answers()).length
+    await a.evaluate(() => { goTo({ page: 1, frac: 0 }); col.open = null }); await a.waitForTimeout(300)
+    await selectText(a); await a.waitForSelector('.mr-bar')
+    mock.chunks = [{ text: 'MOCK CUT. The strongest objection is', wait: 100 }, { text: ' that the', wait: 1200 }]; mock.chunksFail = 'cut_off'
+    await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click('.mr-more [data-m="counterpoint"]')
+    await a.waitForFunction(() => /MOCK CUT/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 4000 }).catch(() => {})
+    const streaming = await a.innerText('.mr-card.is-open').catch(() => '')
+    await a.waitForTimeout(1800)
+    const shown = await a.innerText('.mr-card.is-open').catch(() => '')
+    const kept = (await answers()).slice(before)
+    ok('a cut-off answer (cut_off): the streamed words are cleared, the card shows its error, no answer is kept', /MOCK CUT/.test(streaming) && !/MOCK CUT/.test(shown) && /could not be loaded\. Try again\./.test(shown) && kept.length === 1 && kept[0].answers.length === 0, { streaming, shown, kept })
+    // On the next visit a kept card without its answer is not shown; one with an answer is.
+    const view = await a.evaluate(id => {
+      const all = keptCards(), c = all.find(x => x.id === id)
+      const old = { ...c, at: CARDS_SINCE - 60000, turns: [{ role: 'assistant', content: '' }] }
+      const ids = TinctMargin.cardView([...all.filter(x => x.id !== id), old], [], { since: CARDS_SINCE }).map(x => x.id)
+      return { hidden: !ids.includes(id), shownNow: TinctMargin.cardView(all, [], { since: CARDS_SINCE }).some(x => x.id === id), others: ids.length }
+    }, kept[0]?.id)
+    ok('a kept card without its answer from before this visit is not shown; this visit\'s still is (its error on it)', view.hidden && view.shownNow && view.others > 0, view)
     await fresh(a)
   }
   // The whole PDF: "/" focuses the column's foot; its answer opens as the "Whole PDF" card at the top.

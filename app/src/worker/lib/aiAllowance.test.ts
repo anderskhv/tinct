@@ -10,6 +10,7 @@ import {
   TOP_UPS,
   TOP_UP_CREDIT_USD,
   TOP_UP_TYPES,
+  TRIAL_RESET_AT,
   addMonthsUtc,
   monthWindowAround,
   allowanceUsedBody,
@@ -26,6 +27,8 @@ import {
   loadAllowanceView,
   requestAllowsAiFeature,
   topUpCreditMicros,
+  trialEndsAt,
+  trialStartsAt,
   type AllowanceGate,
   type AllowanceView,
 } from './aiAllowance'
@@ -419,5 +422,100 @@ describe('premium tier (trial told from paid Premium)', () => {
 
   it('is null when the profile cannot be read', async () => {
     expect(await loadPremiumTier({}, 'u', now)).toBeNull()
+  })
+})
+
+describe('trial reset (Anders, 15 Oct 2026: every free account gets a fresh month)', () => {
+  const free = (created_at: string) => ({ subscription_status: null, subscription_period_end: null, created_at })
+  const after = new Date('2026-10-20T12:00:00Z')
+  const resetEnd = '2026-11-14T00:00:00.000Z'
+  const env = { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' }
+  const userId = '11111111-1111-4111-8111-111111111111'
+  const settleWith = (profile: object, spend_micros = 0, credit_micros = 0, drawn_micros = 0) => {
+    const bodies: Record<string, unknown>[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.includes('/rest/v1/profiles')) return Response.json([profile])
+      if (url.endsWith('/rpc/ai_allowance_settle')) {
+        bodies.push(JSON.parse(String(init?.body)))
+        return Response.json([{ spend_micros, credit_micros, drawn_micros }])
+      }
+      return Response.json({}, { status: 500 })
+    }))
+    return bodies
+  }
+
+  it('is UTC midnight on 15 October 2026', () => {
+    expect(TRIAL_RESET_AT.toISOString()).toBe('2026-10-15T00:00:00.000Z')
+  })
+
+  it('gives an account created 2026-09-01 a trial from the reset until reset + 30 days', () => {
+    const profile = free('2026-09-01T10:00:00Z')
+    expect(trialStartsAt(profile, after)?.toISOString()).toBe('2026-10-15T00:00:00.000Z')
+    expect(trialEndsAt(profile, after)?.toISOString()).toBe(resetEnd)
+    expect(billingPeriod(profile, after)).toMatchObject({ kind: 'trial', start: TRIAL_RESET_AT, end: new Date(resetEnd), allowanceMicros: 3_000_000 })
+    expect(hasPremiumAccess(profile, after)).toBe(true)
+    expect(premiumTier(profile, after)).toBe('trial')
+    // The last instant of the fresh month, then standard with no allowance, windows from its end.
+    expect(billingPeriod(profile, new Date('2026-11-13T23:59:59Z')).kind).toBe('trial')
+    const later = billingPeriod(profile, new Date('2026-11-14T00:00:00Z'))
+    expect(later).toMatchObject({ kind: 'standard', start: new Date(resetEnd), allowanceMicros: 0 })
+    expect(hasPremiumAccess(profile, new Date('2026-11-14T00:00:00Z'))).toBe(false)
+  })
+
+  it('does not count usage before the reset: the settlement sums from the reset', async () => {
+    const bodies = settleWith(free('2026-09-01T10:00:00Z'), 600_000)
+    const view = await loadAllowanceView(env, userId, after)
+    expect(bodies).toEqual([{ p_user: userId, p_period_start: '2026-10-15T00:00:00.000Z', p_allowance_micros: 3_000_000 }])
+    expect(view).toMatchObject({ state: 'ok', usedFraction: 0.2, hasAllowance: true, resetsAt: resetEnd })
+  })
+
+  it('uses the trial allowance first, then top-up credit, for a free account with a top-up', async () => {
+    // $3.50 bought; $4 spent since the reset: $3 from the allowance, $1 drawn from the top-up.
+    settleWith(free('2026-08-01T00:00:00Z'), 4_000_000, 2_500_000, 1_000_000)
+    const view = await loadAllowanceView(env, userId, after)
+    expect(view).toMatchObject({ state: 'ok', monthUsedFraction: 1, hasTopUp: true, topUpLeftFraction: 0.714, hasAllowance: true, resetsAt: resetEnd })
+  })
+
+  it('moves an account created 2026-10-14 (still in its trial) onto the reset: one more day, and its 14 October use not counted', () => {
+    const profile = free('2026-10-14T09:00:00Z')
+    // Before the reset it ran from sign-up, as it always did.
+    expect(billingPeriod(profile, new Date('2026-10-14T20:00:00Z'))).toMatchObject({ kind: 'trial', start: new Date('2026-10-14T09:00:00Z'), end: new Date('2026-11-13T09:00:00Z') })
+    expect(billingPeriod(profile, after)).toMatchObject({ kind: 'trial', start: TRIAL_RESET_AT, end: new Date(resetEnd), allowanceMicros: 3_000_000 })
+  })
+
+  it('leaves an account created at or after the reset unchanged', () => {
+    for (const created of ['2026-10-15T00:00:00Z', '2026-10-15T08:30:00Z', '2026-10-18T09:00:00Z']) {
+      const profile = free(created)
+      const start = new Date(created)
+      const end = new Date(start.getTime() + 30 * 86_400_000)
+      expect(billingPeriod(profile, after)).toMatchObject({ kind: 'trial', start, end, allowanceMicros: 3_000_000 })
+      expect(trialEndsAt(profile, after)?.getTime()).toBe(end.getTime())
+    }
+  })
+
+  it('changes nothing before the reset', () => {
+    const before = new Date('2026-10-14T23:59:59Z')
+    expect(billingPeriod(free('2026-09-01T10:00:00Z'), before)).toMatchObject({ kind: 'standard', allowanceMicros: 0 })
+    expect(hasPremiumAccess(free('2026-09-01T10:00:00Z'), before)).toBe(false)
+    expect(billingPeriod(free('2026-09-20T09:00:00Z'), before)).toMatchObject({ kind: 'trial', start: new Date('2026-09-20T09:00:00Z') })
+  })
+
+  it('leaves Premium on its Stripe period, or on created_at for Premium without one, never the reset', () => {
+    const monthly = { subscription_status: 'active', subscription_period_end: '2026-11-03T08:00:00Z', created_at: '2026-09-01T00:00:00Z' }
+    expect(billingPeriod(monthly, after)).toMatchObject({ kind: 'subscription', start: new Date('2026-10-03T08:00:00Z'), end: new Date('2026-11-03T08:00:00Z') })
+    const granted = { subscription_status: 'active', subscription_period_end: null, created_at: '2026-03-12T10:00:00Z' }
+    expect(billingPeriod(granted, after)).toMatchObject({ kind: 'subscription', start: new Date('2026-10-12T10:00:00Z'), end: new Date('2026-11-12T10:00:00Z') })
+    const paidThrough = { subscription_status: 'canceled', subscription_period_end: '2026-10-28T00:00:00Z', created_at: '2026-01-01T00:00:00Z' }
+    expect(billingPeriod(paidThrough, after)).toMatchObject({ kind: 'subscription', start: new Date('2026-09-28T00:00:00Z'), end: new Date('2026-10-28T00:00:00Z') })
+    expect(premiumTier(monthly, after)).toBe('premium')
+  })
+
+  it('sends the credits card the end of the fresh month as its reset date', async () => {
+    settleWith(free('2026-09-01T10:00:00Z'), 0)
+    expect((await loadAllowanceView(env, userId, after))?.resetsAt).toBe(resetEnd)
+    // Before the reset this account had no allowance, so no date.
+    settleWith(free('2026-09-01T10:00:00Z'), 0)
+    expect((await loadAllowanceView(env, userId, new Date('2026-10-14T12:00:00Z')))?.resetsAt).toBeNull()
   })
 })

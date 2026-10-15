@@ -7,7 +7,6 @@ import { registerReaderOffline } from './utils/registerReaderOffline'
 import { readEinkProfile } from '../public/lab/display-profile.js'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import AdminApp from './AdminApp'
 import { LabApp } from './lab/LabApp'
 import { userBookFromSearch } from './lab/userBook/userBookId'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
@@ -46,7 +45,10 @@ const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
 const nativeDestination = nativeEntryDestination(isCapacitor, pathname, window.location.search, window.location.hash)
 // The reader is the only public app surface; /admin/metrics is the private
 // dashboard. The Worker serves this bundle at no other path.
-const Root = pathname === '/admin/metrics' ? AdminApp : LabApp
+// The dashboard's code loads only on its own page, never with the reader.
+const AdminApp = React.lazy(() => import('./AdminApp'))
+const isAdmin = pathname === '/admin/metrics'
+const Root = isAdmin ? AdminApp : LabApp
 // A reader's own EPUB from Add a book: /reader?userBook=<hex> (lab/userBook/),
 // loaded only on that page.
 const userBookHex = pathname === '/reader' ? userBookFromSearch(window.location.search) : null
@@ -63,7 +65,7 @@ if (pathname === '/reader') {
 
 const render = () => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} /></React.Suspense> : <Root />}
+    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : <LabApp />}
   </React.StrictMode>,
 )
 

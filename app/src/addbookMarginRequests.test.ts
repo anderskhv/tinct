@@ -128,4 +128,24 @@ describe('the requests the PDF reader sends (fetch mocked)', () => {
     const plain = await A.companion('quiz', { book, pdf, selection: 'x' }).catch(e => e)
     expect(plain.code).toBe('refused')
   })
+  it('a cut-off answer (the Worker\'s cut_off) is the card\'s error (code cut_off), without the words already shown', async () => {
+    const shown: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(
+      'event: content_block_delta\ndata: {"type":"content_block_delta","delta":{"type":"text_delta","text":"The strongest objection is"}}\n\n' +
+      'event: message_stop\ndata: {"type":"message_stop"}\n\n' +
+      'event: error\ndata: {"type":"error","error":{"type":"cut_off","message":"The reply was interrupted. Please try again."}}\n\n', { headers: { 'Content-Type': 'text/event-stream' } })))
+    const streamed = await A.companion('counterpoint', { book, pdf, selection: 'x', stream: true, onText: ({ text }: { text: string }) => shown.push(text) }).catch(e => e)
+    expect(shown).toEqual(['The strongest objection is'])
+    expect(streamed.code).toBe('cut_off')
+    expect(streamed.text).toBeUndefined()
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ type: 'error', error: { type: 'cut_off', message: 'x' } }), { status: 502, headers: { 'Content-Type': 'application/json' } })))
+    const plain = await A.companion('chapter', { book, pdf, chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'All' } } }).catch(e => e)
+    expect(plain.code).toBe('cut_off')
+    // Any other interrupted stream keeps its words (the card shows them with the error), as before.
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(
+      'event: content_block_delta\ndata: {"type":"content_block_delta","delta":{"type":"text_delta","text":"Begun"}}\n\n' +
+      'event: error\ndata: {"type":"error","error":{"type":"upstream_error","message":"x"}}\n\n', { headers: { 'Content-Type': 'text/event-stream' } })))
+    const other = await A.companion('counterpoint', { book, pdf, selection: 'x', stream: true }).catch(e => e)
+    expect(other).toMatchObject({ code: 'failed', text: 'Begun' })
+  })
 })

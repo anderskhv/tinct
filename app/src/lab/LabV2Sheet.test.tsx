@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { beforeAll, afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 const accountCards = vi.hoisted(() => ({ open: vi.fn(async (_options: { start?: string }) => true) }))
 vi.mock('../cards/openCards', async importOriginal => ({ ...await importOriginal<typeof import('../cards/openCards')>(), openAccountCards: accountCards.open }))
@@ -18,6 +18,13 @@ import {
   labStepAt,
   labStepIndex,
 } from './labV2Sheet'
+
+// Talk's session code and the account cards load on demand in the reader
+// (first use). Loaded here up front so a busy machine's first transform of
+// those modules is not counted against a waitFor below.
+beforeAll(async () => {
+  await import('../cards/openCards')
+})
 
 afterEach(() => {
   cleanup()

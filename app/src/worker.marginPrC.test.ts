@@ -251,7 +251,9 @@ describe('Related (A5, approved 15 Oct)', () => {
     expect(body.output_config).toEqual({ effort: MARGIN_ROUTES.related.effort })
     expect(body.max_tokens).toBe(MARGIN_ROUTES.related.maxTokens)
     expect(body).not.toHaveProperty('tools')
-    expect(body).not.toHaveProperty('thinking')
+    // A Haiku lookup: thinking off (the max_tokens hotfix, #453).
+    expect(body.thinking).toEqual(MARGIN_ROUTES.related.thinking)
+    expect(MARGIN_ROUTES.related.thinking).toEqual({ type: 'disabled' })
     expect(openai).toHaveLength(0)
     const system = body.system as SystemBlock[]
     expect(system[0].text).toContain('<page n="4">')

@@ -103,18 +103,23 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     expect(MARGIN_HAIKU_MODEL).toBe('claude-haiku-5-5')
     expect(MARGIN_SONNET_MODEL).toBe('claude-sonnet-5-5')
     expect(MARGIN_ROUTES).toEqual({
-      explain: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800 },
-      simplify: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800 },
-      define: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800 },
-      define_sense: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 400 },
-      quiz_check: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 500 },
-      related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800 },
-      factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 1600 },
-      counterpoint: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 1200 },
-      quiz: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 1400 },
+      // Haiku's lookups think not at all; the rest think adaptively with room for it (cut off 4 in 5, 15 Oct).
+      explain: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
+      simplify: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
+      define: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
+      define_sense: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 400, thinking: { type: 'disabled' } },
+      quiz_check: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 500, thinking: { type: 'disabled' } },
+      related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
+      factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 8000 },
+      counterpoint: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 6000 },
+      quiz: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 6000 },
       primer: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       ask: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 1800 },
     })
+    // Every route that thinks adaptively has a key with no thinking field at all, and Sonnet never turns it off.
+    for (const [key, route] of Object.entries(MARGIN_ROUTES)) {
+      if (route.model === MARGIN_SONNET_MODEL || ['factcheck', 'counterpoint', 'quiz'].includes(key)) expect(route, key).not.toHaveProperty('thinking')
+    }
   })
 
   it.each([
@@ -128,7 +133,7 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     ['quiz', { selection: 'a passage' }],
     ['ask', {}],
     ['chapter', { chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'Attention Is All You Need' } } }],
-  ] as const)('%s is sent with its route: model, explicit effort, bound, and no thinking setting', async (intent, fields) => {
+  ] as const)('%s is sent with its route: model, explicit effort, bound, and its thinking setting', async (intent, fields) => {
     const { anthropic } = stubFetch()
     const { status } = await send({ max_tokens: 5, effort: 'high', messages: [{ role: 'user', content: 'What is this about?' }], ...margin(intent, 1, fields) })
     expect(status).toBe(200)
@@ -136,7 +141,9 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     expect(anthropic[0].model).toBe(route.model)
     expect(anthropic[0].output_config).toEqual({ effort: route.effort })
     expect(anthropic[0].max_tokens).toBe(route.maxTokens)
-    expect(anthropic[0]).not.toHaveProperty('thinking')
+    // Haiku's lookups: thinking off. Fact-check, Counterpoint, Quiz me and Sonnet's primer and Ask: no thinking field.
+    if (['explain', 'define', 'simplify', 'define_sense', 'quiz_check'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
+    else expect(anthropic[0]).not.toHaveProperty('thinking')
     expect(JSON.stringify(anthropic[0])).not.toContain('budget_tokens')
   })
 })
@@ -406,6 +413,78 @@ describe('refusals', () => {
     expect(response.status).toBe(502)
     expect(body.error.type).toBe('refusal')
     expect(charges).toHaveLength(0)
+  })
+})
+
+describe('cut off by the output bound (stop_reason max_tokens, 15 Oct 2026)', () => {
+  const cutJson = { json: { content: [{ type: 'text', text: 'The passage claims that' }], stop_reason: 'max_tokens', usage: { input_tokens: 10, output_tokens: 800 } } }
+  const cutStream = (text: string) => ({ stream: [
+    sse('message_start', { message: { usage: { input_tokens: 5 } } }),
+    sse('content_block_start', { index: 0, content_block: { type: 'thinking', thinking: '' } }),
+    sse('content_block_delta', { index: 0, delta: { type: 'thinking_delta', thinking: 'Long thought.' } }),
+    sse('content_block_stop', { index: 0 }),
+    ...(text ? [
+      sse('content_block_start', { index: 1, content_block: { type: 'text', text: '' } }),
+      sse('content_block_delta', { index: 1, delta: { type: 'text_delta', text } }),
+      sse('content_block_stop', { index: 1 }),
+    ] : []),
+    sse('message_delta', { delta: { stop_reason: 'max_tokens' }, usage: { output_tokens: 6000 } }),
+    sse('message_stop', {}),
+  ].join('') })
+
+  it.each(['simplify', 'counterpoint', 'quiz'])('%s: a cut-off answer is an error (cut_off), never the answer, never charged', async intent => {
+    const { rows, charges } = stubFetch(() => cutJson)
+    const { status, text } = await send(margin(intent, 1, { selection: 'a passage' }))
+    expect(status).toBe(502)
+    expect(JSON.parse(text).error.type).toBe('cut_off')
+    expect(text).not.toContain('The passage claims')
+    expect(charges).toHaveLength(0)
+    expect(rows.map(row => row.feature)).toEqual(['explain_speculative'])
+  })
+
+  it.each([['counterpoint', 'The strongest objection is'], ['simplify', ''], ['quiz', '{"questions":[{"q":"Q1?"']] as const)('%s streamed: ends in a cut_off error event, its stop reason held back, never charged', async (intent, partial) => {
+    const { rows, charges } = stubFetch(() => cutStream(partial))
+    const { text } = await send({ stream: true, ...margin(intent, 1, { selection: 'a passage' }) })
+    expect(text).toContain('"type":"cut_off"')
+    expect(text).not.toContain('"stop_reason":"max_tokens"')
+    expect(charges).toHaveLength(0)
+    expect(rows.map(row => row.feature)).toEqual(['explain_speculative'])
+  })
+
+  it('Fact-check (the tool loop, plain and streamed): cut off is an error and never charged; its body thinks adaptively with room', async () => {
+    for (const stream of [false, true]) {
+      const { anthropic, charges, rows } = stubFetch(() => (stream ? cutStream('Mostly right:') : cutJson))
+      const { ctx, pending } = context()
+      const response = await handleChat(post('/api/chat', { ...(stream ? { stream: true } : {}), ...margin('factcheck', 1, { selection: 'Our model achieves 28.4 BLEU.' }) }), { ...env, OPENAI_API_KEY: 'openai-key' }, ctx, reader, allow, gateOff)
+      const text = await response.text()
+      await Promise.all(pending)
+      if (!stream) expect(response.status).toBe(502)
+      expect(text).toContain('"type":"cut_off"')
+      expect(text).not.toContain('"stop_reason":"max_tokens"')
+      expect(charges).toHaveLength(0)
+      expect(rows.filter(row => row.feature !== 'source_search').map(row => row.feature)).toEqual(['explain_speculative'])
+      expect(anthropic[0].max_tokens).toBe(8000)
+      expect(anthropic[0]).not.toHaveProperty('thinking')
+      expect(anthropic[0].tools).toEqual([expect.objectContaining({ name: 'search_reading_sources' })])
+      vi.unstubAllGlobals()
+    }
+  })
+
+  it('Ask on the PDF (Sonnet): cut off is cut_off too, and sends no thinking field', async () => {
+    const { anthropic, charges } = stubFetch(() => cutJson)
+    const { status, text } = await send({ messages: [{ role: 'user', content: 'Why?' }], ...margin('ask', 1) })
+    expect(status).toBe(502)
+    expect(JSON.parse(text).error.type).toBe('cut_off')
+    expect(charges).toHaveLength(0)
+    expect(anthropic[0]).not.toHaveProperty('thinking')
+  })
+
+  it('the book reader is left as it was: a max_tokens reply is still its answer, charged', async () => {
+    const { charges } = stubFetch(() => cutJson)
+    const { status, text } = await send({ companion: { intent: 'explain', context: { bookTitle: 'The Odyssey', bookAuthor: 'Homer', chapterLabel: 'Book 1', chapterNumber: 1, editionLabel: 'Butler', paragraphs: ['Tell me, O muse.'], paragraphIndex: 0 }, selection: 'muse' } })
+    expect(status).toBe(200)
+    expect(text).toContain('The passage claims that')
+    expect(charges).toHaveLength(1)
   })
 })
 

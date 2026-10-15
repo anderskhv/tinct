@@ -4,6 +4,8 @@
  * every trigger and suppression rule is testable without a database.
  */
 
+import { TRIAL_RESET_AT } from '../lib/aiAllowance'
+
 export const HOUR = 3600 * 1000
 export const DAY = 24 * HOUR
 
@@ -121,8 +123,20 @@ export function trialEndsAt(facts: Pick<ReaderFacts, 'createdAt'>): number {
 
 export type TrialPlan = { template: 'trial-ending' | 'trial-ended'; dedupeKey: string }
 
+/**
+ * From the trial reset (lib/aiAllowance.ts TRIAL_RESET_AT, 15 Oct 2026),
+ * accounts created before it get no trial notices: their trial no longer runs from sign-up,
+ * so the sign-up schedule would be wrong, and counting from the reset would
+ * send every one of them the same notice on the same day.
+ */
+export function trialResetAccount(facts: Pick<ReaderFacts, 'createdAt'>, now: number): boolean {
+  const reset = TRIAL_RESET_AT.getTime()
+  return now >= reset && !(facts.createdAt >= reset)
+}
+
 export function planTrialNotice(facts: ReaderFacts, now: number): TrialPlan | null {
   if (facts.subscribed) return null
+  if (trialResetAccount(facts, now)) return null
   const day = (now - facts.createdAt) / DAY
   if (day >= TRIAL_DAYS && day < TRIAL_ENDED_LAST_DAY + 1) {
     return alreadySent(facts.log, 'trial-ended:-') ? null : { template: 'trial-ended', dedupeKey: 'trial-ended:-' }

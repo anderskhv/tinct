@@ -19,7 +19,7 @@ import { fetchOwnProfile, loadReading } from './cardsApi'
 import { loadDefaultBoard } from './boardMemory'
 import { readCardsCache, writeCardsCache } from './cardsCache'
 import { rankOf } from './cardsFormat'
-import { storedSession } from './openCards'
+import { storedSession } from './cardsBoot'
 
 export function warmAccountCards(): void {
   if (!networkSpare()) return

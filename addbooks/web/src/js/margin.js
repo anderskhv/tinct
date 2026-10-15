@@ -466,11 +466,23 @@
   function firstRect(card) {
     return (card.rects || []).reduce((a, r) => (!a || r[0] < a[0] || (r[0] === a[0] && (r[2] < a[2] - 0.005 || (Math.abs(r[2] - a[2]) <= 0.005 && r[1] < a[1]))) ? r : a), null);
   }
-  /** The cards to show: every kept result (not removed) and every highlight with a note, in page order. */
-  function cardView(cards, marks) {
+  /** The kinds whose card is the companion's answer: without one it is an empty card. Ask and Define keep the reader's own words. */
+  const ANSWER_KINDS = ['explain', 'simplify', 'factcheck', 'related', 'counterpoint', 'quiz'];
+  /** Whether a kept card has what it is for: an answer with words in it, or a quiz's questions. Related is an answer; a figure's card is a thread, kept as Ask is. */
+  function cardAnswered(card) {
+    if (!ANSWER_KINDS.includes(card?.kind)) return true;
+    if (card.kind === 'quiz') return !!card.data?.questions?.length;
+    return (card.turns || []).some(t => t?.role === 'assistant' && String(t.content || '').trim());
+  }
+  /**
+   * The cards to show: every kept result (not removed) and every highlight with a note, in page order.
+   * A result kept without its answer (cut off before it was written, 15 Oct 2026) is not shown, unless
+   * it was made at or after `since` (this visit: its answer may still be on the way, or its error shown).
+   */
+  function cardView(cards, marks, { since = Infinity } = {}) {
     const out = [];
     // A unit's quiz (Quiz me on this chapter, from the primer) has no passage: it sits at the column's top instead.
-    for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit) out.push(c);
+    for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit && (cardAnswered(c) || (c.at || 0) >= since)) out.push(c);
     for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at });
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
   }
@@ -1082,5 +1094,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt };
 });
