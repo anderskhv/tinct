@@ -30,6 +30,7 @@ interface MarginApi {
   html: {
     triggerHtml(unit: Unit): string
     primerHtml(p: unknown, o: Record<string, unknown>): string
+    primerSections(p: unknown): Array<{ title: string; items: unknown[] }>
     cardLabel(card: Record<string, unknown>, page: string): string
   }
 }
@@ -98,17 +99,17 @@ describe('the trigger and the primer’s markup', () => {
     keepInMind: ['Natural logs, then base 2.'],
     map: [{ title: 'Why probability first', pages: 'pp. 9–10' }, { title: 'Exercises', pages: 'p. 19' }, { title: 'Unprinted', pages: '' }],
   }
-  it('the trigger, a folded card: the label "Before you start", then the line about the unit; no keycap (the key is in its title)', () => {
+  it('the trigger, a folded card: the label "Before you start", then the line about the unit, naming no section (the kind is known only once made); no keycap', () => {
     const unit = { key: 'outline-0', title: 'Chapter 1. Of Ideas', from: 1, start: 2, to: 4 }
     const div = document.createElement('div')
     div.innerHTML = M.html.triggerHtml(unit)
     expect(div.querySelector('.mr-trigger__title')?.textContent).toBe('Before you start')
-    expect(div.querySelector('.mr-trigger__sub')?.textContent).toBe('The gist, the key claims and a map of chapter 1.')
+    expect(div.querySelector('.mr-trigger__sub')?.textContent).toBe('The gist and a map of chapter 1.')
     expect(div.querySelector('.mr-key')).toBeNull()
     div.innerHTML = M.html.triggerHtml({ key: 'all', title: '', from: 1, start: 1, to: 15 })
-    expect(div.textContent).toBe('Before you startThe gist, the key claims and a map of the whole PDF.')
+    expect(div.textContent).toBe('Before you startThe gist and a map of the whole PDF.')
   })
-  it('the primer: title and close, gist, numbered Key claims with cite tags, Keep in mind, Map rows that scroll, the quiz row, the footer', () => {
+  it('a primer stored before kinds still renders as it did: title and close, gist, numbered Key claims with cite tags, Keep in mind, Map rows, the quiz row, the footer', () => {
     const div = document.createElement('div')
     div.innerHTML = M.html.primerHtml(primer, { P, resolve: resolveCite })
     expect(div.querySelector('h4')?.textContent).toBe('Before you start×')
@@ -121,6 +122,46 @@ describe('the trigger and the primer’s markup', () => {
     expect(rows.map(r => [r.tagName, (r as HTMLElement).dataset.page ?? null])).toEqual([['BUTTON', '9'], ['BUTTON', '19'], ['DIV', null]])
     expect(div.querySelector('.mr-quiz-row')?.textContent).toBe('Quiz me on this chapter3 questions →')
     expect(div.querySelector('.mr-primer__foot')?.textContent).toBe('Made when you opened the fileRedo')
+  })
+  // Each kind's sections (PROMPTS.md, chapter action `primer`), as the parser gives them.
+  const map = primer.map
+  const kinds = {
+    paper: [{ title: 'Key claims', items: [{ text: 'Variances add.', cite: '{p. 12}' }, { text: 'Stirling holds.', cite: '{p. 13}' }] }, { title: 'Keep in mind', items: [{ text: 'Natural logs, then base 2.', cite: '' }] }],
+    textbook: [{ title: 'What you’ll learn', items: [{ text: 'Why codes trade rate for error.', cite: '{p. 12}' }, { text: 'What capacity means.', cite: '{p. 14}' }] }, { title: 'Ideas to hold onto', items: [{ text: 'Redundancy buys reliability.', cite: '{p. 13}' }] }, { title: 'Terms', items: [{ term: 'Rate', meaning: 'Bits of message per bit sent.' }, { term: 'Capacity', meaning: 'The best rate with vanishing error.' }] }],
+    narrative: [{ title: 'Where we are', items: [{ text: 'A ship becalmed off Ithaca.', cite: '{p. 9}' }] }, { title: 'People', items: [{ term: 'Telemachus', meaning: 'Odysseus’s son, not yet grown.' }] }, { title: 'Threads to watch', items: [{ text: 'Whether the suitors will act.', cite: '' }] }],
+    practical: [{ title: 'What it covers', items: [{ text: 'Setting up the meter.', cite: '{p. 9}' }] }, { title: 'Steps or topics', items: [{ text: 'Calibrate.', cite: '{p. 10}' }, { text: 'Measure.', cite: '{p. 11}' }] }],
+    other: [{ title: 'Key points', items: [{ text: 'A draft agenda.', cite: '{p. 9}' }, { text: 'Two votes.', cite: '{p. 10}' }] }, { title: 'Keep in mind', items: [{ text: 'Dates may move.', cite: '' }] }],
+  }
+  it('each kind: the gist first, its sections under their italic labels, the map, Quiz me; terms as "term — meaning"; the unit named under the title', () => {
+    const div = document.createElement('div')
+    for (const [kind, sections] of Object.entries(kinds)) {
+      div.innerHTML = M.html.primerHtml({ kind, gist: 'The gist.', sections, map }, { P, resolve: resolveCite, unit: 'Chapter 1: Introduction to Information Theory' })
+      expect([...div.querySelectorAll('.mr-primer__head')].map(h => h.textContent), kind).toEqual([...sections.map(x => x.title), 'Map'])
+      // The order: title, the unit's name, the gist, the sections, the map, the quiz row, the footer.
+      expect([...div.children].map(c => c.className || c.tagName).slice(0, 3), kind).toEqual(['mr-primer__title', 'mr-primer__unit', 'mr-primer__gist'])
+      expect(div.querySelector('.mr-primer__unit')?.textContent).toBe('Chapter 1: Introduction to Information Theory')
+      expect(div.querySelector('.mr-quiz-row')?.textContent, kind).toBe('Quiz me on this chapter3 questions →')
+      // A paper's, a textbook's or other's first section is numbered, as Key claims always was; a story's situation and a guide's scope are not; steps are.
+      expect([...div.querySelectorAll('ol.mr-primer__claims')].map(ol => ol.querySelectorAll('li').length), kind).toEqual({ paper: [2], textbook: [2], narrative: [], practical: [2], other: [2] }[kind])
+    }
+    div.innerHTML = M.html.primerHtml({ kind: 'textbook', gist: 'The gist.', sections: kinds.textbook, map }, { P, resolve: resolveCite })
+    expect(div.querySelector('.mr-primer__unit')).toBeNull()
+    const terms = [...div.querySelectorAll('.mr-primer__keep')].at(-1)!
+    expect([...terms.querySelectorAll('li')].map(li => li.textContent)).toEqual(['Rate — Bits of message per bit sent.', 'Capacity — The best rate with vanishing error.'])
+    expect(div.querySelector('ol.mr-primer__claims .mr-cite')?.getAttribute('data-page')).toBe('12')
+    // Steps are numbered; a guide's scope is not; a single point is never numbered.
+    div.innerHTML = M.html.primerHtml({ kind: 'practical', gist: 'The gist.', sections: kinds.practical, map }, { P, resolve: resolveCite })
+    expect([...div.querySelectorAll('ol.mr-primer__claims')].map(ol => ol.previousElementSibling?.textContent)).toEqual(['Steps or topics'])
+    div.innerHTML = M.html.primerHtml({ kind: 'paper', gist: 'The gist.', sections: [{ title: 'Key claims', items: [{ text: 'One.', cite: '' }] }], map }, { P, resolve: resolveCite })
+    expect(div.querySelector('ol')).toBeNull()
+    // Terms are escaped like everything else.
+    div.innerHTML = M.html.primerHtml({ kind: 'textbook', gist: 'g', sections: [{ title: '<b>T</b>', items: [{ term: '<i>x</i>', meaning: 'y' }] }], map }, { P, resolve: resolveCite, unit: '<b>u</b>' })
+    expect(div.querySelector('b, i')).toBeNull()
+  })
+  it('primerSections reads both shapes: its own sections, or claims and cautions as Key claims and Keep in mind', () => {
+    expect(M.html.primerSections(primer).map((x: { title: string }) => x.title)).toEqual(['Key claims', 'Keep in mind'])
+    expect(M.html.primerSections({ ...primer, keepInMind: [] }).map((x: { title: string }) => x.title)).toEqual(['Key claims'])
+    expect(M.html.primerSections({ kind: 'narrative', gist: 'g', sections: kinds.narrative, map })).toEqual(kinds.narrative)
   })
   it('while it is made: the title and a status line for the wait ring; when it could not be: the reason and Redo', () => {
     const div = document.createElement('div')

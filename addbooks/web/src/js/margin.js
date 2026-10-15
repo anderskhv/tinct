@@ -225,7 +225,10 @@
   const svg = body => `<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">${body}</svg>`;
   const ICONS = {
     more: svg('<circle cx="4" cy="9" r=".9"/><circle cx="9" cy="9" r=".9"/><circle cx="14" cy="9" r=".9"/>'),
-    note: svg('<path d="M4 2.8h7.2L14.5 6v9.2H4z"/><path d="M11 2.8V6h3.5M6.6 9.2h5M6.6 12h3.4"/>'),
+    // The note: a pencil over a short rule (Anders, 15 Oct: in the style of Gloss's bar, drawn as our own).
+    note: svg('<path d="M11.6 3.4l2.9 2.9-7.6 7.6-3.6.8.8-3.6z"/><path d="M10.1 4.9l2.9 2.9M10.5 15.3h4.6"/>'),
+    // The highlight: a chisel-tipped highlighter, its colour as a small dot at its foot (dotHtml).
+    highlight: svg('<path d="M12.3 2.8l2.9 2.9-6.6 6.6-2.9-2.9z"/><path d="M5.7 9.4l-1.2 4 4-1.2M3.4 15.4h3.4"/>'),
     mic: svg('<rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5"/><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5"/>'),
     up: svg('<path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/>'),
   };
@@ -238,7 +241,8 @@
   const colorOf = (colors, key) => { const c = colors.find(x => x[0] === key) || colors[0]; return { key: c[0], label: c[1], dot: c[3] } };
   function dotHtml(colors, current, { noted = false } = {}) {
     const c = colorOf(colors, current);
-    return `<button type="button" class="mr-bar__item" data-m="dot" aria-label="Highlight in ${esc(c.label)}"><span class="mr-dot" style="--hl-current:${esc(c.dot)}"></span></button>`
+    // The highlighter with the current colour as a small dot at its foot (one tap highlights in it).
+    return `<button type="button" class="mr-bar__item is-hl" data-m="dot" aria-label="Highlight in ${esc(c.label)}"><span class="mr-hl">${ICONS.highlight}<span class="mr-dot" style="--hl-current:${esc(c.dot)}"></span></span></button>`
       + `<button type="button" class="mr-bar__item" data-m="note" aria-label="${noted ? 'Edit note' : 'Add note'}">${ICONS.note}</button>`;
   }
   function middleHtml({ all = false, moreOpen = false, caret = true } = {}) {
@@ -285,7 +289,8 @@
    */
   function defineHtml(d, o) {
     const senses = (d.senses || []).slice(0, 3);
-    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${esc(d.inText)}</p>` : '';
+    // Its {p. N} citations are tags, as in cards (o.P, o.resolve); without the parsers, plain text.
+    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${o?.P ? inlineHtml(d.inText, o.P, o.resolve) : esc(d.inText)}</p>` : '';
     const body = d.wait ? '<p class="mr-define__wait"></p>'
       : inText + (senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
         : d.line ? `<p>${esc(d.line)}</p>` : '');
@@ -455,7 +460,7 @@
   }
 
   /* ---------- The cards: a view over the kept results and the noted highlights ---------- */
-  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', related: 'Related', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF', figure: 'Figure', formula: 'Formula', snip: 'Snip' };
+  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', related: 'Related', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF', chat: 'Chat', figure: 'Figure', formula: 'Formula', snip: 'Snip' };
   // A figure's card (FIXES-2026-10-15 item 4) holds one thread about one figure, formula or snip: its box is the card's passage.
   const CARD_KINDS = ['explain', 'simplify', 'ask', 'define', 'factcheck', 'related', 'counterpoint', 'quiz', 'figure'];
   /** The whole file's card is "Whole PDF", or "Whole book" for an EPUB. */
@@ -485,6 +490,26 @@
     for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit && (cardAnswered(c) || (c.at || 0) >= since)) out.push(c);
     for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at });
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
+  }
+  /**
+   * Deleting a card (Anders, 15 Oct): what goes. A card becomes a tombstone (synced as every card's
+   * removal). A note's card is its highlight's note: the note goes, and the highlight with it when the
+   * note made it (`withNote`), else the highlight stays. Any other card takes with it a highlight made on
+   * its passage after it (never one that predates the card, nor one carrying a note of its own).
+   * `marks`: the file's highlights. -> { card: id | null, removeMarks: [id], clearNote: id | null }
+   */
+  function deletePlan(card, marks = []) {
+    const live = (marks || []).filter(m => m && !m.gone);
+    if (card?.kind === 'note') {
+      const m = live.find(x => x.id === card.mark);
+      if (!m) return { card: null, removeMarks: [], clearNote: null };
+      return m.withNote ? { card: null, removeMarks: [m.id], clearNote: null } : { card: null, removeMarks: [], clearNote: m.id };
+    }
+    const at = Number(card?.at) || 0;
+    const boxes = (card?.rects || []).map(([n, x, y, w, h]) => ({ n, x, y, w, h }));
+    const covered = m => (m.rects || []).some(([x, y, w, h]) => boxes.some(b => b.n === m.page && overlapOf({ x, y, w, h }, b) > 0.3));
+    const removeMarks = live.filter(m => !m.note && (Number(m.at) || 0) >= at && covered(m)).map(m => m.id);
+    return { card: card?.id || null, removeMarks, clearNote: null };
   }
   /** Two devices' cards: the same rules as the highlights (a union by id, the newer edit wins, a removal is a tombstone). */
   const mergeCards = (...sets) => mergeMarks(...sets);
@@ -531,13 +556,25 @@
     const tail = first.slice(lead.length).trim();
     return `<p><span class="is-bottom-line">${inlineHtml(lead, P, resolve)}</span>${tail ? ' ' + inlineHtml(tail, P, resolve) : ''}</p>` + blocks.slice(1).map(b => blockHtml(b, P, resolve)).join('');
   }
-  /** Fact-check: the verdict line, one paragraph per claim with its verdict word in italic, the sources as plain links. */
-  function factcheckHtml(text, P, { resolve = null } = {}) {
+  /**
+   * Fact-check: the opening (what the passage claims and what the document offers, streamed while
+   * the search runs) in plain text, then the verdict line as the bottom line, one paragraph per
+   * claim or note with its word in italic, the sources as plain links. `live`: still streaming, so
+   * text with no verdict yet is the opening, never bolded as one.
+   */
+  function factcheckHtml(text, P, { resolve = null, live = false } = {}) {
     const f = P.parseFactcheck(text);
-    if (!f.lead) return { answer: '', sources: '' };
+    const opening = f.opening || [];
+    if (live && !f.verdict && !opening.length) {
+      const blocks = blocksOf(text).filter(b => !/^\s*[*_]{0,2}sources[*_]{0,2}\s*:/i.test(b));
+      return { answer: blocks.length ? `<div class="mr-answer mr-opening">${blocks.map(b => `<p>${inlineHtml(b.trim(), P, resolve)}</p>`).join('')}</div>` : '', sources: '' };
+    }
+    if (!f.lead && !opening.length) return { answer: '', sources: '' };
+    const open = opening.length ? `<div class="mr-answer mr-opening">${opening.map(b => `<p>${inlineHtml(b, P, resolve)}</p>`).join('')}</div>` : '';
     const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
     const sources = f.sources.length ? `<div class="mr-sources">${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
-    return { answer: `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>${claims}`, sources };
+    const verdict = f.lead ? `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>` : '';
+    return { answer: open + verdict + claims, sources };
   }
   /** The words a folded card shows (two lines of them): plain, no tags. */
   function foldText(card, P) {
@@ -552,6 +589,8 @@
     const answer = (card.turns || []).find(t => t.role === 'assistant');
     // Related, folded: its bottom line (the label says how many places).
     if (card.kind === 'related' && answer && P.parseRelated) return plain(P.parseRelated(answer.content).lead);
+    // Fact-check, folded: its verdict line (the opening before it is context).
+    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     return plain(answer?.content || '');
   }
@@ -616,10 +655,15 @@
   const CARD_ICONS = {
     copy: svg('<rect x="6" y="6" width="9" height="9" rx="1.8"/><path d="M12 6V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v6A1.5 1.5 0 0 0 4.5 12H6"/>'),
     mic: ICONS.mic,
+    // Delete: a bin, in the copy icon's stroke (Anders, 15 Oct: every margin item can be deleted).
+    trash: svg('<path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4"/>'),
   };
-  /** The follow-up line: a field with a blinking caret and no placeholder, an optional link ("Show answer"), the mic. */
+  /**
+   * The follow-up line: a field with no placeholder (its caret shows only when it has the focus,
+   * Anders, 15 Oct: no caret blinking in every open card), an optional link ("Show answer"), the mic.
+   */
   function followHtml({ link = '', field = true, mic = true, label = 'Follow up' } = {}) {
-    return `<div class="mr-follow">${field ? `<span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" aria-label="${esc(label)}"></textarea><span class="mr-caret" aria-hidden="true"></span></span>` : ''}<span class="mr-follow__sp"></span>${link}${mic ? `<button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>` : ''}</div>`;
+    return `<div class="mr-follow">${field ? `<span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" aria-label="${esc(label)}"></textarea></span>` : ''}<span class="mr-follow__sp"></span>${link}${mic ? `<button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>` : ''}</div>`;
   }
   /**
    * A card. Folded: its label and two lines. Open: the label and close, the passage quote, the
@@ -634,7 +678,8 @@
     const q = card.data || {};
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
     const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`;
-    const copy = `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>`;
+    // The action row: copy (once there is something to copy) and delete, which every card has.
+    const acts = withCopy => `<div class="mr-card__acts">${withCopy ? `<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button>` : ''}${deleteHtml(card)}</div>`;
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
@@ -664,7 +709,8 @@
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
         else { body += status; foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
-      return head + `<div class="mr-card__body">${body}</div>` + foot;
+      // A quiz has nothing to copy; its row holds delete, unless an answer is being marked.
+      return head + `<div class="mr-card__body">${body}${o.pending != null ? '' : acts(false)}</div>` + foot;
     }
     // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
     const thumb = card.kind === 'figure' ? `<div class="mr-thumb"${o.thumbRatio ? ` style="aspect-ratio:${Number(o.thumbRatio).toFixed(3)}"` : ''}>${o.thumb ? `<img src="${esc(o.thumb)}" alt="${label}">` : ''}</div>` : '';
@@ -673,7 +719,7 @@
     else if (card.kind === 'define') {
       const senses = q.senses || [];
       body += q.inText
-        ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
+        ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${P ? inlineHtml(q.inText, P, o.resolve) : esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
         : senses.length
           ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
           : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
@@ -684,12 +730,12 @@
     turns.forEach((t, k) => {
       if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
       answered = true;
-      if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve }); body += f.answer + f.sources }
+      if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve, live: o.live != null && k === turns.length - 1 }); body += f.answer + f.sources }
       else if (card.kind === 'related' && k === 0 && P.parseRelated) body += relatedHtml(t.content, P, { resolve: o.resolve, place: o.place });
       else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
     });
     body += status;
-    return head + `<div class="mr-card__body">${body}${answered && !o.status && o.live == null ? copy : ''}</div>` + followHtml();
+    return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml();
   }
   /** The "more" row: "{n} more on this page" (an EPUB: "in this chapter"), their kinds on the right. */
   function stackHtml(cards, maxKinds = Infinity, { doc = 'pdf' } = {}) {
@@ -697,12 +743,10 @@
     const kinds = all.slice(0, maxKinds).join(' · ');
     return `<span>${cards.length} more ${doc === 'epub' ? 'in this chapter' : 'on this page'}</span><span>${esc(kinds)}</span>`;
   }
-  /** What the whole file is called at the column's foot: "the whole PDF", or "the whole book" for an EPUB. */
+  /** What the whole file is called: "the whole PDF", or "the whole book" for an EPUB. */
   const wholeWords = doc => (doc === 'epub' ? 'the whole book' : 'the whole PDF');
-  /** The column foot: a hairline, a caret, "[/] the whole PDF" and the mic. */
-  function footHtml({ doc = 'pdf' } = {}) {
-    return `<span class="mr-follow__field"><textarea class="mr-follow__input mr-foot__input" rows="1" enterkeyhint="send" aria-label="Ask about ${wholeWords(doc)}"></textarea><span class="mr-caret" aria-hidden="true"></span></span><span class="mr-follow__sp"></span><span class="mr-foot__hint"><span class="mr-key">/</span> ${wholeWords(doc)}</span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>`;
-  }
+  /** A card's delete: a bin beside copy (no confirm; the reader can undo for a few seconds). */
+  const deleteHtml = card => `<button type="button" class="mr-card__delete" data-c="delete" aria-label="${card.kind === 'note' ? 'Delete note' : 'Delete'}">${CARD_ICONS.trash}</button>`;
 
   /** A card's own classes: open or folded, a note (its rule in the highlight colour). */
   const cardClass = (card, open) => `mr-card ${open ? 'is-open' : 'is-folded'}${card.kind === 'note' ? ' is-note' : ''}`;
@@ -719,11 +763,15 @@
       return t.text ? `<div class="mr-answer">${answerHtml(t.text, o.P, { resolve: o.resolve })}</div>` : '';
     }).join('');
   }
-  /** The whole-PDF card: "Whole PDF", the thread, the attachments waiting to go, the follow-up line. */
+  /**
+   * Chat: the conversation about the whole file (the t menu's Chat, or "/"), the thread, the
+   * attachments waiting to go, the follow-up line. It is the margin's Chat card (Anders, 15 Oct: the
+   * column's whole-PDF line is gone; questions about the whole document go through Chat).
+   */
   // On the phone the chat's card has no label (mockup 5D): swipe down or tap the page to close it.
   function wholeHtml(body, { open = true, fold = '', tray = '', label = true, doc = 'pdf' } = {}) {
-    if (!open) return `<button type="button" class="mr-card__label" data-c="open">${wholeName(doc)}</button><div class="mr-card__text">${esc(fold)}</div>`;
-    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${wholeName(doc)}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}` });
+    if (!open) return `<button type="button" class="mr-card__label" data-c="open">${KINDS.chat}</button><div class="mr-card__text">${esc(fold)}</div>`;
+    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.chat}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}` });
   }
   /** The phone's bottom card: the grab handle, then a card's open contents. */
   const sheetHtml = inner => `<button type="button" class="mr-sheet__grab" data-c="grab" aria-label="Full height"></button>${inner}`;
@@ -746,17 +794,22 @@
    * is "outline-{i}" (its index in the outline; "outline-{i}.{j}" for a part's chapter j), "all" for
    * the whole file: a PDF without an outline, or one of fewer than 40 pages (FIXES-2026-10-15, B2).
    * Front and back matter (Contents, Preface, References, Index, …) carry `matter: 'front' | 'back'`.
-   * -> [{ key, title, from, start, to, matter? }] (start: the entry's own page; the trigger shows from `from` to `start`)
+   * A chapter whose title is only its number and name ("1 Introduction to Information Theory", "1 ·
+   * Introduction …") carries `chapter` (its number) and `label` ("Chapter 1: Introduction to
+   * Information Theory"), so it is named as that chapter (Anders, 15 Oct, MacKay): a part's chapters,
+   * an entry marked `kind: 'chapter'` (a printed contents' chapters, js/pdf-scan.js), or any such
+   * entry in a book of 100 pages or more.
+   * -> [{ key, title, from, start, to, matter?, chapter?, label? }] (start: the entry's own page; the trigger shows from `from` to `start`)
    */
   function primerUnits(entries, count) {
     const n = Math.max(1, Number(count) || 1);
-    const clean = (e, key) => ({ key, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page });
+    const clean = (e, key) => ({ key, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page, ...(e?.kind === 'chapter' ? { chapter: true } : {}) });
     const flat = [];
     (entries || []).forEach((e, i) => {
       const kids = Array.isArray(e?.items) ? e.items.map((c, j) => clean(c, `${i}.${j}`)).filter(c => c.title && Number.isInteger(c.page)) : [];
       if (isPart(clean(e, ''), kids)) {
         // The part's own pages before its first chapter (its title page) go with that chapter.
-        kids.forEach((c, j) => flat.push({ ...c, i: flat.length, page: j === 0 && Number.isInteger(e.page) ? Math.min(e.page, c.page) : c.page, start: c.page }));
+        kids.forEach((c, j) => flat.push({ ...c, chapter: true, i: flat.length, page: j === 0 && Number.isInteger(e.page) ? Math.min(e.page, c.page) : c.page, start: c.page }));
       } else flat.push({ ...clean(e, String(i)), i: flat.length });
     });
     const list = flat.filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
@@ -766,8 +819,41 @@
     return list.map((e, k) => {
       const matter = matterOf(e.title);
       const start = Number.isInteger(e.start) && e.start <= n ? e.start : e.page;
-      return { key: 'outline-' + e.key, title: e.title, from: k === 0 ? 1 : e.page, start, to: k + 1 < list.length ? list[k + 1].page - 1 : n, ...(matter ? { matter } : {}) };
+      const named = !matter && (e.chapter || n >= 100) ? numberedChapter(e.title) : null;
+      return { key: 'outline-' + e.key, title: e.title, from: k === 0 ? 1 : e.page, start, to: k + 1 < list.length ? list[k + 1].page - 1 : n, ...(matter ? { matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}` } : {}) };
     });
+  }
+  /**
+   * For a PDF without an outline: the chapters its scan found (js/pdf-scan.js entries, `nav` how they
+   * were found) as primerUnits' entries: the top-level ones, a part with its chapters as items, each
+   * chapter marked as one. From the printed contents always; from headings found by size only when
+   * they are chapter-sized (five pages each or more on average), never a book's every section.
+   * -> [{ title, page, kind?, items }]
+   */
+  function scanEntries(list, nav, count) {
+    list = Array.isArray(list) ? list : [];
+    if (!list.length || (nav !== 'contents' && nav !== 'headings')) return [];
+    if (nav === 'headings' && (Number(count) || 0) / list.length < 5) return [];
+    const entry = e => ({ title: e.label, page: e.page, ...(e.kind === 'chapter' ? { kind: 'chapter' } : {}) });
+    return list.filter(e => !e.parent).map(e => ({ ...entry(e), items: list.filter(c => c.parent === e.id).slice(0, 60).map(entry) }));
+  }
+  /** A chapter's title that is its number and its name: "1 Introduction", "12. Rates", "3 · Inference" -> { n, name }; else null. */
+  function numberedChapter(title) {
+    const m = /^(\d{1,3})(?:\s*[.:·—–-]\s*|\s+)(\S.*)$/u.exec(String(title || '').trim());
+    return m && !/^\d/.test(m[2]) ? { n: m[1], name: m[2].trim() } : null;
+  }
+  /**
+   * A long PDF with no chapters to go by (no outline, no printed contents) and too long to send
+   * whole: blocks of `size` pages, each its own unit ("pages 1–40"), the same blocks the margin's
+   * document uses (reader.js docRange), so a primer never claims to cover the whole PDF.
+   */
+  function primerBlocks(count, size = PRIMER.units) {
+    const n = Math.max(1, Number(count) || 1), out = [];
+    for (let from = 1; from <= n; from += size) {
+      const to = Math.min(n, from + size - 1);
+      out.push({ key: `pages-${from}`, title: `Pages ${from}–${to}`, from, start: from, to, pages: true });
+    }
+    return out;
   }
   // A part's own entries are chapters: numbered "2 …" or "Chapter 2 …" (not sections such as "2.1 …").
   const CHAPTER_TITLE = /^(?:(?:chapter|lecture)\s+[\p{L}\p{N}]+[.:]?|\d{1,3}\.?)\s+\S/iu;
@@ -818,18 +904,76 @@
   const atUnitStart = (unit, page) => !!unit && page >= unit.from && page <= unit.start;
   /**
    * How the trigger names its unit ("a map of chapter 1."): a numbered chapter, part or section as
-   * "chapter 1", the whole file as "the whole PDF", any other heading as a phrase with "the", its
+   * "chapter 1" (a unit primerUnits found to be a chapter, too: "1 Introduction …" in a book), a block
+   * of a long file without chapters as "pages 41–80", the whole file as "the whole PDF", any other heading as a phrase with "the", its
    * own number dropped and its capitalised words lowercased ("1 Introduction" -> "the introduction";
    * acronyms such as "BLEU" stay as printed).
    */
   function unitPhrase(unit) {
     if (!unit || unit.key === 'all' || !unit.title) return 'the whole PDF';
+    if (unit.chapter) return `chapter ${unit.chapter}`;
+    if (unit.pages) return `pages ${unit.from}–${unit.to}`;
     const m = /^(chapter|part|section|lecture|unit|book|appendix)\s+([\p{L}\p{N}]+(?:\.\d+)*)(?=$|[\s.:,;—–-])/iu.exec(unit.title);
     if (m) return `${m[1].toLowerCase()} ${m[2]}`;
     const words = unit.title.replace(/[.:;,]+$/, '').replace(/^\s*(?:\d+(?:\.\d+)*\.?|[IVXLC]+\.|[A-Z]\.)\s+(?=\S)/u, '').trim()
       .split(/\s+/).map(w => (/^\p{Lu}[\p{Ll}'’-]*$/u.test(w) ? w.toLowerCase() : w));
     if (/^(the|a|an)$/i.test(words[0] || '')) words[0] = words[0].toLowerCase();
     return (/^(the|a|an)$/.test(words[0]) ? '' : 'the ') + words.join(' ');
+  }
+  /**
+   * The chapters, sections, parts or appendices a question names ("chapters 7 and 10", "section 3.2",
+   * "Part II", "appendix A"), in order, at most four. -> [{ kind, n }] (n as written, lowercased)
+   */
+  const REF_WORD = { chapter: 'chapter', chapters: 'chapter', ch: 'chapter', chs: 'chapter', section: 'section', sections: 'section', sec: 'section', secs: 'section', '§': 'section', part: 'part', parts: 'part', appendix: 'appendix', appendices: 'appendix', lecture: 'lecture', lectures: 'lecture' };
+  const UNIT_REF = /(^|[^\p{L}])(chapters?|chs?\.?|sections?|secs?\.?|§|parts?|appendix|appendices|lectures?)\s*((?:\d+(?:\.\d+)*|[ivxlc]{1,6}|[a-z])(?![\p{L}\p{N}])(?:\s*(?:,|and|&|or|to|–|-)\s*(?:\d+(?:\.\d+)*|[ivxlc]{1,6}|[a-z])(?![\p{L}\p{N}]))*)/giu;
+  function chapterRefs(question) {
+    const out = [];
+    for (const m of String(question || '').matchAll(UNIT_REF)) {
+      const kind = REF_WORD[m[2].toLowerCase().replace(/\.$/, '')];
+      for (const n of m[3].split(/\s*(?:,|and|&|or|to|–|-)\s*/i)) {
+        const v = n.trim().toLowerCase();
+        // A number, a roman numeral or (appendix, part) one letter; never a word ("chapter about").
+        if (!v || !(/^\d+(?:\.\d+)*$/.test(v) || /^[ivxlc]{1,6}$/.test(v) || (/^[a-z]$/.test(v) && (kind === 'appendix' || kind === 'part')))) continue;
+        if (!out.some(r => r.kind === kind && r.n === v)) out.push({ kind, n: v });
+        if (out.length >= 4) return out;
+      }
+    }
+    return out;
+  }
+  /**
+   * The contents entries a question names (chapterRefs): `entries` are [{ title, page }] (the contents,
+   * the outline). "chapter 7" is the entry titled "Chapter 7 …" or "7 …" (not "7.1 …"); "section 3.2"
+   * the one titled "3.2 …"; "part II" "Part II …" or "II …"; "appendix A" "Appendix A …" or "A …".
+   * -> [{ title, page, kind, n }], one per reference that is found, in the question's order.
+   */
+  function namedUnits(question, entries) {
+    const list = (entries || []).filter(e => e && e.title && Number.isInteger(e.page));
+    const esc_ = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const out = [];
+    for (const r of chapterRefs(question)) {
+      const n = esc_(r.n), word = r.kind === 'section' ? '(?:section|sec\\.?|§)' : r.kind;
+      const own = new RegExp(`^\\s*${word}\\s+${n}(?![\\p{L}\\p{N}]|\\.\\d)`, 'iu');
+      const bare = r.kind === 'chapter' || r.kind === 'section' || r.kind === 'part' || r.kind === 'appendix' ? new RegExp(`^\\s*${n}(?:[.:]|\\s)(?!\\d)\\s*\\S`, 'iu') : null;
+      const hit = list.find(e => own.test(e.title)) || (bare && list.find(e => bare.test(e.title)));
+      if (hit && !out.some(o => o.page === hit.page)) out.push({ title: hit.title, page: hit.page, kind: r.kind, n: r.n });
+    }
+    return out;
+  }
+  /** The question without the references it names ("What do chapters 7 and 10 say?" -> "What do say?"), for the search. */
+  const withoutRefs = question => String(question || '').replace(UNIT_REF, '$1').replace(/\s+/g, ' ').replace(/\s+([?.!,;:])/g, '$1').trim();
+  /**
+   * Before you start opening in place (Anders, 15 Oct: "it should just expand"): the open primer starts
+   * where its trigger is (`from`: the trigger's top and height in the column, or null when it is not
+   * shown) and grows down to PRIMER.bottom above the column's foot. With less than `min` room below the
+   * trigger it starts higher, as little as needed, never above PRIMER.top (nor above the trigger: it only
+   * grows). Without a trigger it opens where it always did, PRIMER.top. -> { start: { top, height } | null, top, height }
+   */
+  function primerBox(from, columnHeight, { min = 360, lift = 14 } = {}) {
+    const end = Math.max(0, columnHeight - PRIMER.bottom);
+    if (!from) return { start: null, top: PRIMER.top, height: Math.max(0, end - PRIMER.top) };
+    const want = Math.max(0, from.top - lift);
+    const top = Math.max(Math.min(PRIMER.top, want), Math.min(want, end - min));
+    return { start: { top: Math.max(0, from.top - lift), height: Math.max(0, from.height + lift) }, top, height: Math.max(0, end - top) };
   }
   /** A map row's printed page range ("pp. 9–10", "p. 12", "9-10") as a citation token, or null. */
   function mapPages(text) {
@@ -841,15 +985,32 @@
   const OWN_NUMBER = /^\s*(?:\d+(?:\.\d+)*\.?|[A-Z](?:\.\d+)+\.?|[A-Z]\.|[IVXLC]+\.|(?:chapter|part|section|appendix|lecture|unit)\s+[\p{L}\p{N}]+(?:\.\d+)*[.:]?)\s+\S/iu;
   /**
    * The trigger's words, a folded margin card's (Anders, 15 Oct): the italic label "Before you start",
-   * then "The gist, the key claims and a map of {unit}." The B key is in its title, not a keycap.
+   * then "The gist and a map of {unit}." It names no other section: what follows the gist depends
+   * on the document's kind, known only once the primer is made. The B key is in its title, not a keycap.
    */
   function triggerHtml(unit) {
-    return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">The gist, the key claims and a map of ${esc(unitPhrase(unit))}.</span>`;
+    return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">${esc(triggerLine(unit))}</span>`;
+  }
+  /** The trigger's line, also its accessible name: "The gist and a map of chapter 1." */
+  const triggerLine = unit => `The gist and a map of ${unitPhrase(unit)}.`;
+  /**
+   * A primer's sections after the gist: its own, or, for a primer stored before kinds (Anders, 15
+   * Oct), its claims and cautions as Key claims and Keep in mind. -> [{ title, items: [{ text, cite } | { term, meaning }] }]
+   */
+  function primerSections(p) {
+    if (Array.isArray(p?.sections)) return p.sections.filter(s => s && s.title && Array.isArray(s.items) && s.items.length);
+    const claims = (p?.claims || []).map(c => (typeof c === 'string' ? { text: c, cite: '' } : c)).filter(c => c?.text);
+    const keep = (p?.keepInMind || []).filter(k => typeof k === 'string' && k).map(text => ({ text, cite: '' }));
+    return [claims.length ? { title: 'Key claims', items: claims } : null, keep.length ? { title: 'Keep in mind', items: keep } : null].filter(Boolean);
   }
   /**
-   * The primer. p: { gist, claims: [{ text, cite }], keepInMind: [..], map: [{ title, pages }] }, or
-   * null while it is made (`wait`) or when it could not be (`status`, then Redo).
-   * o: { P (parsers), resolve (citation -> target), status, wait, close (the close button; default true), id (the title's id) }.
+   * The primer. p: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
+   * stored before kinds: { gist, claims, keepInMind, map }), or null while it is made (`wait`) or when
+   * it could not be (`status`, then Redo). The gist first, then each section under its italic label:
+   * a paper's, a textbook's or other's first section and any steps numbered, as Key claims always
+   * were; the others, and terms ("term — meaning"), as Keep in mind was; then the map, Quiz me and the footer.
+   * o: { P (parsers), resolve (citation -> target), status, wait, close (the close button; default true), id (the title's id),
+   *      unit (the unit's name, "Chapter 1: Introduction to Information Theory", shown under the title) }.
    */
   function primerHtml(p, o = {}) {
     const close = o.close === false ? '' : '<button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Close">×</button>';
@@ -859,8 +1020,15 @@
       return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><span></span><button type="button" data-c="redo">Redo</button></div>`;
     }
     const tag = cite => (cite ? ' ' + inlineHtml(cite, o.P, o.resolve) : '');
-    const claims = (p.claims || []).map((c, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${inlineHtml(c.text, o.P, o.resolve)}${tag(c.cite)}</span></li>`).join('');
-    const keep = (p.keepInMind || []).map(k => `<li>${inlineHtml(k, o.P, o.resolve)}</li>`).join('');
+    const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
+    const sections = primerSections(p).map((sec, k) => {
+      // Numbered: a paper's claims, a textbook's outcomes, other's points (the first section, as Key claims was) and steps; a story's situation and a guide's scope are not a sequence.
+      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b/i.test(sec.title) || (k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
+      const list = numbered
+        ? `<ol class="mr-primer__claims">${sec.items.map((it, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${line(it)}</span></li>`).join('')}</ol>`
+        : `<ul class="mr-primer__keep">${sec.items.map(it => `<li>${line(it)}</li>`).join('')}</ul>`;
+      return `<div><p class="mr-primer__head">${esc(sec.title)}</p>${list}</div>`;
+    }).join('');
     // A map that uses the document's own numbered headings ("1 Introduction") shows each number once: no count beside it.
     const own = (p.map || []).some(r => OWN_NUMBER.test(r.title || ''));
     const rows = (p.map || []).map((r, i) => {
@@ -870,9 +1038,9 @@
       return target ? `<button type="button" class="${cls}" data-page="${target.page}">${inner}</button>` : `<div class="${cls}">${inner}</div>`;
     }).join('');
     return head
+      + (o.unit ? `<p class="mr-primer__unit">${esc(o.unit)}</p>` : '')
       + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
-      + `<div><p class="mr-primer__head">Key claims</p><ol class="mr-primer__claims">${claims}</ol></div>`
-      + `<div><p class="mr-primer__head">Keep in mind</p><ul class="mr-primer__keep">${keep}</ul></div>`
+      + sections
       + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
       + '<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>3 questions →</small></button>'
       + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
@@ -1092,7 +1260,7 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

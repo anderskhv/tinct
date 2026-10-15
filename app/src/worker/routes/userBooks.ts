@@ -87,14 +87,14 @@
  * Deleting the book deletes its cover; account deletion takes it with the
  * whole `u/{userId}/` prefix, and account export lists it.
  *
- * Before you start (the margin reader's primer on an own PDF: a gist, key
- * claims, cautions and a map of one unit, made by the companion's `primer`
+ * Before you start (the margin reader's primer on an own PDF: its kind, a
+ * gist, that kind's sections and a map of one unit, made by the companion's `primer`
  * chapter action) is stored with the file once made, so reopening never
  * makes it again; Redo stores a new one over it. One small JSON object per
  * unit, `u/{userId}/primers/{bookHex}/{unitKey}`:
  *
  *   GET    /api/user-books/primers/{bookHex}?unit={unitKey}   the stored primer, to its owner only (`primer: null` when none yet; 404 for a book not kept)
- *   PUT    /api/user-books/primers/{bookHex}?unit={unitKey}   store `{ primer: { gist, claims, keepInMind, map } }`
+ *   PUT    /api/user-books/primers/{bookHex}?unit={unitKey}   store `{ primer: { kind, gist, sections, map } }` (or the shape before kinds)
  *                                                            (an owned PDF only; at most MAX_PRIMER_BYTES)
  *
  * The Worker validates the shape (companion/primerParse.ts) and stamps
@@ -795,6 +795,8 @@ async function handlePlaces(
 export type OwnMark = {
   id: string; page: number; rects: number[][]; text: string; color: string; at: number; u?: number
   note?: string; box?: true; kind?: 'figure' | 'formula' | 'snip'
+  /** The note made this highlight (the margin's note action), so deleting the note's card removes it too. */
+  withNote?: true
 }
 /** A highlight the reader removed: kept so the removal reaches every device. */
 export type OwnMarkGone = { id: string; gone: true; u: number }
@@ -839,11 +841,13 @@ export function readMarks(value: unknown): Array<OwnMark | OwnMarkGone> | null {
     if (typeof m.color !== 'string' || !MARK_COLORS.has(m.color)) return null
     if (m.note !== undefined && (typeof m.note !== 'string' || m.note.length > MARK_NOTE)) return null
     if (m.kind !== undefined && (typeof m.kind !== 'string' || !MARK_KINDS.has(m.kind))) return null
+    if (m.withNote !== undefined && m.withNote !== true) return null
     const mark: OwnMark = { id: m.id, page: m.page as number, rects, text: m.text, color: m.color, at: m.at as number }
     if (m.u !== undefined) mark.u = m.u as number
     if (m.note) mark.note = m.note as string
     if (m.box === true) mark.box = true
     if (m.kind !== undefined) mark.kind = m.kind as OwnMark['kind']
+    if (m.withNote === true && mark.note) mark.withNote = true
     out.push(mark)
   }
   return out

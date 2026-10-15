@@ -187,11 +187,15 @@ export function parseSourcesLine(line) {
 }
 
 /**
- * A Fact-check answer: the overall verdict and its sentence (the bottom line), one entry per
- * paragraph after it with its verdict word (or Note., or none), and the sources.
- * -> { verdict, lead, claims: [{ verdict, text }], sources: [{ title, url }] }
+ * A Fact-check answer: the opening (what the passage claims and what the document offers, written
+ * from the document while the source search runs), then the overall verdict and its sentence (the
+ * bottom line), one entry per paragraph after it with its verdict word (or Note., or none), and the
+ * sources. An answer that opens on its verdict (written before 15 Oct 2026) has no opening; one with
+ * no verdict paragraph at all reads as before, its first sentence the bottom line.
+ * -> { opening: [paragraph], verdict, lead, claims: [{ verdict, text }], sources: [{ title, url }] }
  * `verdict` is one of VERDICTS or null; a claim's is one of VERDICTS, NOTE or null.
  */
+const VERDICT_START_RE = /^[*_]{0,2}(?:holds|partly holds|outdated|disputed|can['’]t check)\b/i;
 export function parseFactcheck(text) {
   const lines = String(text ?? '').replace(/\r\n?/g, '\n').split('\n');
   let sources = [];
@@ -202,15 +206,19 @@ export function parseFactcheck(text) {
       break;
     }
   }
-  const paras = paragraphsOf(lines.join('\n'));
-  if (!paras.length) return { verdict: null, lead: '', claims: [], sources };
+  const all = paragraphsOf(lines.join('\n'));
+  if (!all.length) return { opening: [], verdict: null, lead: '', claims: [], sources };
+  // A first paragraph that opens on a verdict word, even as "Partly holds:" (answers before 15 Oct), has no opening before it.
+  const at = VERDICT_START_RE.test(all[0]) ? 0 : all.findIndex(p => leadingWord(p, VERDICTS));
+  const opening = at > 0 ? all.slice(0, at) : [];
+  const paras = at > 0 ? all.slice(at) : all;
   const head = leadingWord(paras[0], VERDICTS);
   const { lead, rest } = splitBottomLine(paras[0], { prefixes: VERDICTS });
   const claims = [...(rest ? [rest] : []), ...paras.slice(1)].map(p => {
     const w = leadingWord(p, [...VERDICTS, NOTE]);
     return w ? { verdict: w.word, text: p.slice(w.length).trim() } : { verdict: null, text: p };
   });
-  return { verdict: head ? head.word : null, lead, claims, sources };
+  return { opening, verdict: head ? head.word : null, lead, claims, sources };
 }
 
 /**
@@ -381,4 +389,4 @@ export const PDF_EXPLAIN_FORMAT_BEFORE = '2 to 4 short paragraphs, no preamble, 
 /** Explain opens with a bottom line. */
 export const PDF_EXPLAIN_FORMAT = 'First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs on what it says and what it means here, explaining any notation or terms where they come up, never in a paragraph of their own. About 120 words or fewer in all. No preamble, no headings.';
 /** The line every passage action carries when the passage image is attached (the Worker adds it for the new intents). */
-export const PASSAGE_IMAGE_LINE = 'The attached image shows the passage exactly as printed. Text extracted from PDFs often garbles equations and symbols, so trust the image over the extracted text.';
+export const PASSAGE_IMAGE_LINE = 'The attached image shows the passage exactly as printed. Where its equations or symbols differ from the supplied text, trust the image.';

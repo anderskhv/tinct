@@ -87,7 +87,7 @@ export interface CompanionRequest {
   pdf?: true
   /** With `pdf`: the file is an EPUB (chapters, no page numbers, never a passage image). */
   epub?: true
-  /** Ask on a user's PDF about the whole file (the column's foot): adds WHOLE_PDF_PROMPT. Never set for a registered book. */
+  /** Ask on a user's PDF about the whole file (the margin's Chat): adds WHOLE_PDF_PROMPT. Never set for a registered book. */
   whole?: true
   /** define_sense: the dictionary's senses, in dictionary order (numbered from 1 in the prompt). */
   senses?: string[]
@@ -651,7 +651,7 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
   const stable = buildMarginPrefix(doc, { title: context.bookTitle, author: context.bookAuthor })
   const primer = isPrimerRequest(request)
   const image = extras.image && (request.intent === 'explain' || request.intent === 'define') ? [PASSAGE_IMAGE_LINE] : []
-  const task = primer ? [buildPrimerTask(request.chapter.action, context)] : [...marginTask(request, extras), ...image]
+  const task = primer ? [buildPrimerTask(request.chapter.action, context, doc)] : [...marginTask(request, extras), ...image]
   const volatile = buildMarginVolatile({
     kind: doc.kind,
     place: primer ? null : contextPlace(context),

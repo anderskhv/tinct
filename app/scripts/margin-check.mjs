@@ -15,6 +15,8 @@
 //   node scripts/margin-check.mjs resize [pdf ...]    PR 2: resizing across 1180px with a card open
 //   node scripts/margin-check.mjs primer              PR 3: Before you start: trigger, primer, storage, Redo, map, quiz, phone
 //   node scripts/margin-check.mjs primer-reliability  Before you start made 10 of 10 times against mocked replies (cut off, empty, odd shapes, slow)
+//   node scripts/margin-check.mjs primer-kinds        Before you start per kind (paper, textbook, narrative, practical, other; mocked replies), a
+//                                                     primer stored before kinds, and a long book without an outline (MacKay's case): chapter 1, labelled
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
 //   node scripts/margin-check.mjs figures           FIXES items 4–7: figure detection, the chip kept on screen, the figure's card beside it, figure questions
 //   node scripts/margin-check.mjs long                PR F: a 585-page book: printed page numbers, the whole-book search with a question,
@@ -27,6 +29,8 @@
 //   node scripts/margin-check.mjs scans               PR D: a scanned PDF added, offered recognition at once (the first-open race),
 //                                                     recognised (mocked), its words laid over the pages; the bar, a whole-PDF
 //                                                     question and the primer on it, desktop and phone; a scan recognised without boxes
+//   node scripts/margin-check.mjs polish              Anders's feedback of 15 Oct: no foot line (Chat), the caret, the highlighter and
+//                                                     pencil, delete with Undo, one scroll surface, the primer opening in place
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -63,13 +67,18 @@ writeFileSync(FIGURE_PAPER, figurePaper())
 const BOOK = longBook({ meta: true })
 const BIG_BOOK = join(OUT, 'long_book.pdf')
 writeFileSync(BIG_BOOK, BOOK.bytes)
+// The same book without bookmarks, only its printed Contents (MacKay's 640 pages have no outline; Anders, 15 Oct).
+const BARE = longBook({ meta: true, bookmarks: false })
+const BARE_BOOK = join(OUT, 'long_book_no_outline.pdf')
+writeFileSync(BARE_BOOK, BARE.bytes)
 
 // The class names of css/margin.css, as the check's selectors (the phone More's rows are buttons).
 export const SELECTORS = {
   ...DEFAULT_SELECTORS,
   menu: '.mr-more, .mr-pmore, .mr-define, .mr-note',
   // PR 3: the primer's trigger and the primer are blocks of the column, as cards are (no overlap, never off screen).
-  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer',
+  // Since 15 Oct the "Deleted · Undo" line keeps a deleted card's place in the column: a block, as the cards are.
+  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer, .mr-col .mr-undo',
   text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *, .mr-trigger',
   tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
 }
@@ -83,7 +92,7 @@ const scrolledAway = p => p.kind === 'clipped' && /^\.(?:mr-card__body|(?:mr\.)?
 const srOnly = p => p.kind === 'overflow' && /^\.tinct-wait(?:-label)?(?:\.|\s|$)/.test(p.el || '')
 // PR C (FIXES-2026-10-15): every target is at least 28px each way, including where the mockup draws a
 // 16px icon or a 20px colour (copy, the mics, the colours, the bottom card's handle, the quiz links).
-export const ICON_TARGETS = '.mr-card__copy, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link, button.mr-related__row'
+export const ICON_TARGETS = '.mr-card__copy, .mr-card__delete, .mr-undo button, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link, button.mr-related__row'
 export async function checkMargin(page, selectors = SELECTORS) {
   const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
   const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 27.5 || r.height < 27.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
@@ -159,9 +168,14 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.chunks` (set by a check) streams the next answer in pieces: [{ text, wait }], then an
 // error event when `mock.chunksFail` is set (Quiz me's questions arriving one by one); a string
 // names the error's type (`cut_off`: the Worker's answer stopped by its output bound, max_tokens).
-export const mock = { next: null, delay: 0, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+// `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
+// unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
+export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+/** The mocked Fact-check's opening, streamed before "Checking sources…" as the Worker streams it while the search runs. */
+export const FACTCHECK_OPENING = 'MOCK opening: the passage claims what it says, and the document offers its own table {p. 1}.'
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
+  if (mock.nextFor[intent] != null) { const t = mock.nextFor[intent]; delete mock.nextFor[intent]; return t }
   if (mock.next != null) { const t = mock.next; mock.next = null; return t }
   if (intent === 'define') return JSON.stringify({ kind: 'definition', definition: `Noun. A mocked meaning of “${c.selection}” here.` })
   if (intent === 'define_sense') return JSON.stringify({ sense: 2 })
@@ -176,13 +190,16 @@ function mockText(body) {
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
     : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
-  if (intent === 'factcheck') return 'Holds. MOCK verdict line for the passage.\n\nHolds. The first claim stands as written.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)'
+  // Fact-check, doc-first (15 Oct): the opening from the document, then the verdict once, a note and the sources.
+  if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
 async function mockChat(body, res) {
   // A check may make one intent fail (PR C: a failed quiz marking keeps the reader's answer).
   if (mock.fail && body?.companion?.intent === mock.fail) return json(res, 500, { error: { type: 'api_error', message: 'mock failure' } })
   if (mock.delay && !body?.stream) await new Promise(r => setTimeout(r, mock.delay))
+  const own = mock.delayFor[body?.companion?.intent]
+  if (own && !body?.stream) await new Promise(r => setTimeout(r, own))
   const c = body?.companion || {}
   if (c.intent === 'chapter' && c.chapter?.action?.kind === 'primer' && mock.primers.length) {
     const item = mock.primers.shift()
@@ -194,6 +211,14 @@ async function mockChat(body, res) {
   const text = mockText(body)
   if (!body?.stream) return json(res, 200, { content: [{ type: 'text', text }] })
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
+  // Fact-check, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
+  if (body?.companion?.intent === 'factcheck' && !mock.chunks && text.startsWith(FACTCHECK_OPENING)) {
+    res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: FACTCHECK_OPENING } })}\n\n`)
+    res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`)
+    await new Promise(r => setTimeout(r, mock.delay || 400))
+    res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: text.slice(FACTCHECK_OPENING.length) } })}\n\n`)
+    return res.end('event: message_stop\ndata: {"type":"message_stop"}\n\n')
+  }
   if (body?.companion?.intent === 'factcheck') { res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`); await new Promise(r => setTimeout(r, mock.delay || 400)) }
   else if (mock.delay) await new Promise(r => setTimeout(r, mock.delay))
   if (mock.chunks) {
@@ -240,8 +265,8 @@ function start(port) {
     const url = new URL(req.url, 'http://x')
     const p = url.pathname
     if (req.method === 'POST' && (p === '/api/chat' || p === '/api/lab-chat')) {
-      const body = JSON.parse((await readBody(req)).toString() || '{}'); account.requests.push({ path: p, body })
-      return await mockChat(body, res)
+      const body = JSON.parse((await readBody(req)).toString() || '{}'), entry = { path: p, body, at: Date.now(), done: 0 }; account.requests.push(entry)
+      await mockChat(body, res); entry.done = Date.now(); return
     }
     if (p === '/__margin/anthology.epub') { res.writeHead(200, { 'Content-Type': 'application/epub+zip', 'Cache-Control': 'no-store' }); return res.end(EPUB) }
     if (p === '/api/user-books' && req.method === 'POST') {
@@ -508,7 +533,13 @@ async function behaviour(browser, origin) {
     await selectText(a); await a.waitForSelector('.mr-bar'); const k = account.requests.length
     if (intent === 'factcheck') mock.delay = 1500
     if (from === 'more') { await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click(`.mr-more [data-m="${intent}"]`) } else await a.click(`.mr-bar [data-m="${intent}"]`)
-    if (intent === 'factcheck') { await a.waitForTimeout(700); ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(await a.innerText('.mr-card.is-open'))) }
+    if (intent === 'factcheck') {
+      await a.waitForTimeout(700)
+      const during = await a.innerText('.mr-card.is-open')
+      ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
+      // Doc-first (15 Oct): the opening from the document is already there, above the status, and no verdict yet.
+      ok('Fact-check: the opening from the document shows while the search runs, above "Checking sources…", before any verdict', during.indexOf('MOCK opening') > -1 && during.indexOf('MOCK opening') < during.indexOf('Checking sources…') && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')), during)
+    }
     await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
     ok(`${intent}: the Worker intent with the selection and the PDF's pages`, req && req.body.companion.selection && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length >= 1 && !req.body.system, req?.body?.companion && { ...req.body.companion, context: undefined })
@@ -530,6 +561,8 @@ async function behaviour(browser, origin) {
   }
   const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ verdict: getComputedStyle(document.querySelector('.mr-card.is-open .mr-verdict')).fontStyle, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize })))
   ok('Fact-check: verdict words in italic, the sources as plain links in 12px', fcText.verdict === 'italic' && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px', fcText)
+  const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { opening: t.indexOf('MOCK opening'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length, tag: !!c.querySelector('.mr-opening .mr-cite') } })
+  ok('Fact-check: the opening first, then the verdict once as the bottom line, then the sources; the opening\'s tag is a tag', fcOrder.opening > -1 && fcOrder.opening < fcOrder.verdict && fcOrder.verdict < fcOrder.sources && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1 && fcOrder.tag, fcOrder)
   // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
   await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
   ok('Quiz me shows "1 of 3" and the question at 18px', (await a.innerText('.mr-card.is-open .mr-card__count')) === '1 of 3' && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .mr-question')).fontSize)) === '18px')
@@ -631,18 +664,18 @@ async function behaviour(browser, origin) {
     ok('a kept card without its answer from before this visit is not shown; this visit\'s still is (its error on it)', view.hidden && view.shownNow && view.others > 0, view)
     await fresh(a)
   }
-  // The whole PDF: "/" focuses the column's foot; its answer opens as the "Whole PDF" card at the top.
+  // The whole PDF: "/" opens Chat, its field ready (no foot line since 15 Oct); its answer is in the Chat card at the top.
   await a.evaluate(() => getSelection().removeAllRanges()); const w0 = account.requests.length
   await a.keyboard.press('/'); await a.keyboard.type('What is this about?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1000)
   const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
   const pageCount = await a.evaluate(() => state.pages.length)
   ok('"/" sends the whole-file question: scope "whole" with every page of the PDF (the whole document, PR A), never the page alone', whole?.body?.companion?.scope === 'whole' && whole.body.companion.document?.units?.length === pageCount && !/say when something is not on these pages/.test(JSON.stringify(whole.body.messages)), { scope: whole?.body?.companion?.scope, units: whole?.body?.companion?.document?.units?.length, pageCount })
-  ok('"/" asks about the whole PDF; the answer opens as the Whole PDF card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Whole PDF') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
+  ok('"/" asks about the whole PDF; the answer opens in the Chat card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Chat') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
   await fresh(a)
   // Reopened, the Whole PDF card shows its earlier conversation at once (the same task, no frame later).
   await a.evaluate(() => { openCard(null) }); await a.waitForTimeout(300)
   const atOnce = await a.evaluate(() => { openWhole({ quiet: true }); return document.querySelector('.mr-col .mr-card.is-whole.is-open')?.innerText || '' })
-  ok('the Whole PDF card shows its earlier conversation the moment it opens', /What is this about\?/.test(atOnce) && /MOCK ANSWER/.test(atOnce), atOnce.slice(0, 200))
+  ok('Chat shows its earlier conversation the moment it opens', /What is this about\?/.test(atOnce) && /MOCK ANSWER/.test(atOnce), atOnce.slice(0, 200))
   await fresh(a)
   // The dot: one tap highlights in the default colour; a second tap opens the colours; picking sets the default.
   await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-bar')
@@ -760,15 +793,32 @@ async function behaviour(browser, origin) {
     // meaning in this text comes first, under "In this text", the dictionary's senses below it.
     let inText = null
     for (let tries = 0; tries < 6 && !inText; tries++) {
-      mock.next = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
+      mock.nextFor.define_sense = JSON.stringify({ sense: 0 }); const n5 = account.requests.length
       await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2200)
       const asked = account.requests.slice(n5).map(r => r.body?.companion?.intent)
       inText = asked.includes('define_sense') ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, senses: d.querySelectorAll('.mr-define__senses li').length, first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING, kept: keptCards().some(c => c.kind === 'define' && /mocked meaning/.test(c.data?.inText || '')) } }) : null
-      mock.next = null
+      delete mock.nextFor.define_sense
       if (inText) ok('no sense fits: the companion\'s define asked, "In this text" first with its meaning, the dictionary\'s senses below; kept on the card', asked.includes('define') && inText.label === 'In this text' && /mocked meaning/.test(inText.text) && inText.senses >= 1 && !!inText.first && inText.kept, { asked, inText })
       await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
     }
     if (!inText) ok('no sense fits: "In this text" first', false, 'no dictionary word found to select')
+    // 15 Oct, evening: online, define and define_sense go out together, and "In this text" shows first even when a
+    // dictionary sense fits ("perplexity" read "confusion"); its {p. N} is a citation tag.
+    let both = null
+    for (let tries = 0; tries < 6 && !both; tries++) {
+      mock.delayFor.define_sense = 900; mock.nextFor.define = JSON.stringify({ kind: 'definition', definition: 'Noun. MOCK in-text meaning, as the document uses it {p. 3}.' }); const n6 = account.requests.length
+      await selectText(C.page, { oneWord: true, near: ['middle', 'top', 'bottom'][tries % 3] }); await C.page.waitForTimeout(2400)
+      const reqs = account.requests.slice(n6), ds = reqs.find(r => r.body?.companion?.intent === 'define_sense'), df = reqs.find(r => r.body?.companion?.intent === 'define')
+      both = ds ? await C.page.evaluate(() => { const d = document.querySelector('.mr-define'); return d && { label: d.querySelector('.mr-define__in .mr-define__label')?.textContent, text: d.querySelector('.mr-define__in')?.textContent, tag: d.querySelector('.mr-define__in .mr-cite')?.textContent, tagPage: d.querySelector('.mr-define__in .mr-cite')?.dataset.page, raw: /\{p\. 3\}/.test(d.innerText), fit: d.querySelector('.mr-define__senses li')?.classList.contains('is-fit'), first: d.querySelector('.mr-define__in')?.compareDocumentPosition(d.querySelector('.mr-define__senses')) & Node.DOCUMENT_POSITION_FOLLOWING } }) : null
+      if (both) {
+        ok('Define online: define and define_sense are sent together (define before define_sense has answered)', !!df && df.at < ds.done && Math.abs(df.at - ds.at) < 500, { define: df && df.at - ds.at, senseDone: ds.done - ds.at })
+        ok('Define online: "In this text" first even when a dictionary sense fits (mocked sense 2), the fitting sense first below it', both.label === 'In this text' && /MOCK in-text meaning/.test(both.text) && both.fit === true && !!both.first, both)
+        ok('Define: the in-text line\'s {p. 3} shows as a citation tag', both.tag === 'p. 3' && both.tagPage === '3' && !both.raw, both)
+      }
+      delete mock.delayFor.define_sense; delete mock.nextFor.define
+      await C.page.keyboard.press('Escape'); await C.page.evaluate(() => getSelection().removeAllRanges())
+    }
+    if (!both) ok('Define online: define and define_sense together', false, 'no dictionary word found to select')
     // Double-click on half of a hyphenated word selects all of it ("auto-regressive" was looked up as "regressive").
     const hy = await C.page.evaluate(() => {
       const span = [...document.querySelectorAll('.pdf-sheet .text-layer span')].find(s => { const r = s.getBoundingClientRect(); return /\bself-evident\b/.test(s.textContent) && r.top > 80 && r.bottom < innerHeight - 20 })
@@ -839,7 +889,8 @@ async function primerBehaviour(browser, origin) {
   const a = A.page
   await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
   const units = await a.evaluate(() => primer.units)
-  const unitPages = u => u.to - u.from + 1
+  // The unit's own pages, from its entry's page (not the title page before it, which only offers the trigger).
+  const unitPages = u => u.to - u.start + 1
   const r0 = chats().length
   const trig = await a.evaluate(() => {
     const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return null
@@ -847,15 +898,18 @@ async function primerBehaviour(browser, origin) {
     // Its page's first line of text, measured in the column.
     const p = state.pages[currentPlace().page - 1], spans = [...p.layer.querySelectorAll('span')].filter(s => s.textContent.trim()).map(s => s.getBoundingClientRect().top)
     const line = Math.min(...spans) - document.querySelector('.mr-col').getBoundingClientRect().top
-    return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
+    return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, height: t.offsetHeight, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
   })
-  ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist, the key claims and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
+  ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
   ok('nothing is made when the file opens (only when the reader opens the trigger)', primers(0).length === 0)
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
   const req = primers(r0)[0]
+  // It opens in place (Anders, 15 Oct): from its trigger's place, growing down; measured once it has grown.
+  await a.waitForTimeout(450)
+  const placeWant = await a.evaluate(t => TinctMargin.primerBox({ top: t.top, height: t.height }, document.querySelector('.mr-col').clientHeight).top, { top: trig?.top ?? 0, height: trig?.height ?? 0 })
   ok('B opens the primer in place: one chapter request, action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
   const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
-  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, alone in the column', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && shown.top === 16 && shown.bottom === 70 && !shown.trigger, shown)
+  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, alone in the column', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && Math.abs(shown.top - placeWant) <= 1 && shown.top >= Math.min(16, (trig?.top ?? 0) - 14) - 1 && shown.bottom === 70 && !shown.trigger, { ...shown, placeWant })
   await a.waitForTimeout(600)
   const stored = account.primers.get(hex + '?outline-0')
   ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
@@ -944,6 +998,108 @@ async function primerBehaviour(browser, origin) {
   ok('phone: tapping the page closes the trigger, and it stays closed at this unit', !(await Ph.page.$('.mr-sheet')))
   ok('phone: no page errors', !Ph.problems.length, Ph.problems)
   await Ph.ctx.close()
+  return results
+}
+
+/* ---------- Before you start per kind (Anders, 15 Oct, option A): the model names the document's kind
+   and writes that kind's sections; a primer stored before kinds still shows; and on a long book without
+   an outline, the chapter (MacKay's 640 pages: "a map of the whole PDF", chapters 1 and 2 blended). ---------- */
+const KIND_PRIMERS = {
+  paper: { kind: 'paper', gist: 'MOCK paper gist. The paper argues one thing and tests it.', sections: [
+    { title: 'Key claims', items: [1, 2, 3, 4].map(i => ({ text: `MOCK claim ${i}: a result the paper states and supports in its own words.`, cite: `{p. ${i}}` })) },
+    { title: 'Keep in mind', items: [{ text: 'MOCK caution: the second experiment uses a different baseline.', cite: '' }, { text: 'MOCK caution: costs are estimated.', cite: '' }] }] },
+  textbook: { kind: 'textbook', gist: 'MOCK textbook gist. The chapter sets up the tools the rest of the book leans on.', sections: [
+    { title: 'What you’ll learn', items: [1, 2, 3].map(i => ({ text: `MOCK outcome ${i}: what the reader can explain after the chapter.`, cite: `{p. ${i}}` })) },
+    { title: 'Ideas to hold onto', items: [{ text: 'MOCK idea: redundancy buys reliability at the cost of rate.', cite: '{p. 2}' }, { text: 'MOCK idea: the best rate has a limit.', cite: '{p. 3}' }] },
+    { title: 'Terms', items: [{ term: 'Rate', meaning: 'Bits of message per bit sent.' }, { term: 'Capacity', meaning: 'The highest rate at which error can be made vanishingly small.' }, { term: 'Repetition code', meaning: 'Each bit sent several times and decoded by majority vote.' }] }] },
+  narrative: { kind: 'narrative', gist: 'MOCK narrative gist. The chapter opens on a quiet house before a storm.', sections: [
+    { title: 'Where we are', items: [{ text: 'MOCK: an estate in winter, the night of a party.', cite: '{p. 1}' }] },
+    { title: 'People', items: [{ term: 'Ann', meaning: 'The host, newly widowed.' }, { term: 'Bo', meaning: 'Her brother, back after years abroad.' }] },
+    { title: 'Threads to watch', items: [{ text: 'MOCK: why Bo came back now.', cite: '' }, { text: 'MOCK: the locked study.', cite: '{p. 2}' }] }] },
+  practical: { kind: 'practical', gist: 'MOCK practical gist. The guide sets up the meter and takes a first reading.', sections: [
+    { title: 'What it covers', items: [{ text: 'MOCK: setting up and calibrating the meter.', cite: '{p. 1}' }, { text: 'MOCK: taking and logging a reading.', cite: '{p. 2}' }] },
+    { title: 'Steps or topics', items: ['Unpack and charge', 'Calibrate against the reference', 'Take a reading', 'Log it'].map((t, i) => ({ text: `MOCK step: ${t}.`, cite: `{p. ${i + 1}}` })) }] },
+  other: { kind: 'other', gist: 'MOCK other gist. The document sets out an agenda and its background.', sections: [
+    { title: 'Key points', items: [1, 2, 3].map(i => ({ text: `MOCK point ${i}.`, cite: `{p. ${i}}` })) },
+    { title: 'Keep in mind', items: [{ text: 'MOCK caution: the dates are provisional.', cite: '' }] }] },
+}
+async function primerKinds(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const hex = addBook(LONG_BOOK)
+  const chats = from => account.requests.slice(from).filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+  const views = SAMPLE ? [[1440, 900, 'paper'], [390, 844, 'paper']] : [[1440, 900, 'paper'], [1440, 900, 'night'], [1024, 768, 'eink'], [390, 844, 'paper'], [390, 844, 'night'], [360, 740, 'book']]
+  for (const [width, height, look] of views) {
+    const phone = width < 700, tag = `primer_kinds-${width}x${height}-${look}`, where = phone ? '.mr-sheet .mr-primer' : (width < 1180 ? '.mr-primer.is-floating' : '.mr-col .mr-primer')
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    // The primer is offered once the file's scan says it has text (primerHasText).
+    await a.waitForFunction(() => primer.units && primerHasText(), null, { timeout: 30000 }).catch(() => {})
+    const open = async () => {
+      await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); openCard(null) })
+      await a.evaluate(() => openPrimer(currentUnit()))
+      await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 8000 }).catch(() => {})
+      await a.waitForTimeout(300)
+      return a.evaluate(sel => { const p = document.querySelector(sel); return p && { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), unit: p.querySelector('.mr-primer__unit')?.textContent || null, first: p.querySelector('.mr-primer__gist')?.previousElementSibling?.className, numbered: p.querySelectorAll('ol.mr-primer__claims').length, terms: [...p.querySelectorAll('.mr-primer__keep li')].map(li => li.textContent).filter(t => t.includes(' — ')), quiz: !!p.querySelector('.mr-quiz-row') } }, where)
+    }
+    for (const [kind, reply] of Object.entries(KIND_PRIMERS)) {
+      account.primers.clear()
+      mock.primer = { ...reply, map: [1, 2, 3, 4].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${i}` })) }
+      const r0 = account.requests.length
+      const shown = await open()
+      mock.primer = null
+      const req = chats(r0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
+      const want = [...reply.sections.map(x => x.title), 'Map']
+      const terms = reply.sections.flatMap(x => x.items).filter(i => i.term).map(i => `${i.term} — ${i.meaning}`)
+      ok(`${tag}: a ${kind}'s primer: the gist first (under the unit's name), then ${want.join(' · ')}, Quiz me${terms.length ? '; terms as "term — meaning"' : ''}`, req && shown && JSON.stringify(shown.heads) === JSON.stringify(want) && shown.unit === 'Chapter 1. Of Ideas' && shown.first === 'mr-primer__unit' && JSON.stringify(shown.terms) === JSON.stringify(terms) && shown.quiz && shown.numbered === (kind === 'narrative' ? 0 : 1), shown)
+      const stored = account.primers.get(hex + '?outline-0')
+      ok(`${tag}: a ${kind}'s primer is stored with its kind and sections`, stored?.kind === kind && stored.sections?.length === reply.sections.length, stored && { kind: stored.kind, sections: stored.sections?.length })
+      const problems = await checkMargin(a)
+      ok(`${tag}: a ${kind}'s primer has no layout problems`, problems.length === 0, problems.slice(0, 5))
+      if (look === 'paper' || !SAMPLE) await shot(a, `${tag}-${kind}`)
+    }
+    // A primer made before kinds, in this browser and in the account: shown as it was (Key claims, Keep in mind).
+    const old = { gist: 'MOCK old gist. Made before kinds.', claims: [1, 2, 3].map(i => ({ text: `MOCK old claim ${i}.`, cite: `{p. ${i}}` })), keepInMind: ['MOCK old caution.'], map: [1, 2, 3].map(i => ({ title: `Old section ${i}`, pages: `p. ${i}` })) }
+    await a.evaluate(o => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); store.set(primerKey(currentUnit()), { ...o, madeAt: '2026-10-14T09:30:00.000Z', unitKey: currentUnit().key }) }, old)
+    account.primers.set(hex + '?outline-0', { ...old, madeAt: '2026-10-14T09:30:00.000Z', unitKey: 'outline-0' })
+    const r1 = account.requests.length
+    await a.evaluate(() => openPrimer(currentUnit())); await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 8000 }).catch(() => {}); await a.waitForTimeout(500)
+    const oldShown = await a.evaluate(sel => { const p = document.querySelector(sel); return p && { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), text: p.innerText } }, where)
+    ok(`${tag}: a primer stored before kinds still shows, as Key claims and Keep in mind, and is not made again`, oldShown && JSON.stringify(oldShown.heads) === '["Key claims","Keep in mind","Map"]' && /MOCK old claim 3/.test(oldShown.text) && /MOCK old caution/.test(oldShown.text) && !chats(r1).some(r => r.body?.companion?.chapter), oldShown?.heads)
+    ok(`${tag}: no layout problems with the old primer`, (await checkMargin(a)).length === 0, await checkMargin(a))
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // MacKay's case: a long book with no outline, only its printed Contents. Its units are the contents'
+  // chapters; from the front matter, B makes chapter 1's primer alone, named as chapter 1; the trigger
+  // never says "the whole PDF".
+  const bare = addBook(BARE_BOOK), m = BARE.meta, ch1 = m.chapters[0]
+  for (const [width, height] of [[1440, 900], [390, 844]]) {
+    const phone = width < 700, tag = `primer_no_outline-${width}x${height}`, where = phone ? '.mr-sheet .mr-primer' : '.mr-col .mr-primer'
+    const A = await readerPage(browser, origin, bare, { width, height, look: 'paper', at: 8 })
+    const a = A.page
+    await a.waitForFunction(() => primer.units && primerHasText(), null, { timeout: 30000 }).catch(() => {})
+    const units = await a.evaluate(() => primer.units.map(u => ({ key: u.key, title: u.title, label: u.label || null, from: u.from, start: u.start, to: u.to, matter: u.matter || null })))
+    ok(`${tag}: no outline: the units are the printed contents' chapters, not one unit for the whole PDF`, units.length >= 17 && units.every(u => u.key !== 'all') && units.some(u => u.label === 'Chapter 1: Introduction' && u.start === ch1.from && u.to === ch1.to), units.slice(0, 3))
+    const lines = await a.evaluate(n => { const out = []; for (let p = 1; p <= n; p += 9) out.push(TinctMargin.triggerLine(TinctMargin.primerUnitAt(primer.units, p))); return out }, m.pages)
+    ok(`${tag}: the trigger names its chapter on every page, never "the whole PDF"`, lines.every(l => /^The gist and a map of chapter \d+\.$/.test(l)), [...new Set(lines)].slice(0, 6))
+    await a.evaluate(() => { goTo({ page: 8, frac: 0.1 }); onScroll() }); await a.waitForTimeout(600)
+    // Made fresh on each device here (the account's copy from the desktop run is cleared). The phone has no B key: the same call.
+    account.primers.clear()
+    const r0 = account.requests.length
+    if (phone) await a.evaluate(() => openPrimer()); else await a.keyboard.press('b')
+    await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 15000 }).catch(() => {}); await a.waitForTimeout(400)
+    const req = chats(r0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
+    const c = req?.body?.companion
+    const sent = c && { title: c.chapter.action.unitTitle, key: c.chapter.action.unitKey, pages: c.context.pages.length, doc: c.document && { first: c.document.units[0]?.n, last: c.document.units.at(-1)?.n, part: !!c.document.part } }
+    ok(`${tag}: ${phone ? 'opened' : 'B'} on the preface makes chapter 1's primer alone ("Chapter 1: Introduction", its ${ch1.to - ch1.from + 1} pages; the document part is that chapter)`, sent?.title === 'Chapter 1: Introduction' && sent.pages === ch1.to - ch1.from + 1 && sent.doc?.part, sent)
+    const label = await a.evaluate(sel => document.querySelector(`${sel} .mr-primer__unit`)?.textContent || null, where)
+    ok(`${tag}: the primer is labelled as that chapter`, label === 'Chapter 1: Introduction', label)
+    ok(`${tag}: no layout problems`, (await checkMargin(a)).length === 0, await checkMargin(a))
+    await shot(a, tag)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
   return results
 }
 
@@ -1061,10 +1217,10 @@ async function keysAndAccess(browser, origin) {
   await a.keyboard.press('Escape'); await a.waitForTimeout(200)
   ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')))
   await a.keyboard.press('/'); await a.waitForTimeout(150)
-  ok('"/" focuses the whole-PDF line at the column\'s foot', await a.evaluate(() => document.activeElement?.classList.contains('mr-foot__input')))
+  ok('"/" opens Chat with the focus in its field (no foot line)', await a.evaluate(() => !document.querySelector('.mr-foot') && !!document.activeElement?.closest('.mr-card.is-whole.is-open') && document.activeElement.classList.contains('mr-follow__input')))
   await a.keyboard.type('n b'); await a.waitForTimeout(100)
-  ok('typing in a field never triggers a key (N, B)', (await a.inputValue('.mr-foot__input')) === 'n b' && !(await a.$('.mr-note, .mr-col .mr-primer')))
-  await a.evaluate(() => { const f = document.querySelector('.mr-foot__input'); f.value = ''; f.blur() })
+  ok('typing in a field never triggers a key (N, B)', (await a.inputValue('.mr-card.is-whole .mr-follow__input')) === 'n b' && !(await a.$('.mr-note, .mr-col .mr-primer')))
+  await a.evaluate(() => { const f = document.querySelector('.mr-card.is-whole .mr-follow__input'); f.value = ''; f.blur(); openCard(null) })
   await fresh()
   // The bar from the keyboard: Tab into it, Left/Right along it, Return on the dots opens More with its first row focused, Up/Down move, Return chooses.
   await selectText(a); await a.waitForSelector('.mr-bar')
@@ -1114,9 +1270,10 @@ async function keysAndAccess(browser, origin) {
   return results
 }
 // Text contrast of every margin colour pair, per look (WCAG 2 ratio of the text's colour on the colour behind it). A report: the colours are the mockup's.
-// Small text that must reach 4.5:1 in every look: "Checking sources…", "/ the whole PDF", the primer's numbers and footer,
+// Small text that must reach 4.5:1 in every look: "Checking sources…", the primer's numbers and footer (the "/ the whole PDF"
+// foot line is gone since 15 Oct),
 // and the "N more on this page" row (release train 2: 3.89:1 in Paper and 4.28:1 in Book before).
-const HINT_TEXT = ['status line', 'foot hint', 'primer numbers', 'primer footer', 'stack row']
+const HINT_TEXT = ['status line', 'primer numbers', 'primer footer', 'stack row']
 async function contrast(browser, origin) {
   const rows = []
   for (const look of ['paper', 'book', 'night', 'eink']) {
@@ -1128,7 +1285,7 @@ async function contrast(browser, origin) {
       const bg = el => { const layers = []; for (let e = el; e; e = e.parentElement) { const c = parse(getComputedStyle(e).backgroundColor); if (c.a > 0) { layers.push(c); if (c.a >= 1) break } } return layers.reverse().reduce((u, t) => over(t, u), { r: 255, g: 255, b: 255, a: 1 }) }
       const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4 }; return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b) }
       const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05) }
-      const cases = [['bar words', '[data-strip="a"] .mr-bar .is-ask'], ['More line', '[data-strip="c"] .mr-more__row span'], ['Define senses (secondary)', '[data-strip="e"] .mr-define__senses li:not(.is-fit)'], ['card label', '.cardbg .mr-card.is-open .mr-card__label'], ['quote', '.cardbg .mr-quote'], ['answer', '.cardbg .mr-answer p'], ['citation tag', '.cardbg .mr-cite'], ['status line', '[data-card="factcheck-checking"] .mr-status'], ['sources', '.cardbg .mr-sources a'], ['folded text', '[data-desk="margin"] .mr-card.is-folded .mr-card__text'], ['stack row', '[data-desk="overlap"] .mr-stack span'], ['foot hint', '[data-desk="margin"] .mr-foot__hint'], ['trigger line', '[data-desk="trigger"] .mr-trigger__sub'], ['primer heading', '[data-desk="primer"] .mr-primer__head'], ['primer numbers', '[data-desk="primer"] .mr-primer__n'], ['map pages', '[data-desk="primer"] .mr-map__pages'], ['primer footer', '[data-desk="primer"] .mr-primer__foot span'], ['quiz link', '[data-card="quiz"] .mr-follow__link']]
+      const cases = [['bar words', '[data-strip="a"] .mr-bar .is-ask'], ['More line', '[data-strip="c"] .mr-more__row span'], ['Define senses (secondary)', '[data-strip="e"] .mr-define__senses li:not(.is-fit)'], ['card label', '.cardbg .mr-card.is-open .mr-card__label'], ['quote', '.cardbg .mr-quote'], ['answer', '.cardbg .mr-answer p'], ['citation tag', '.cardbg .mr-cite'], ['status line', '[data-card="factcheck-checking"] .mr-status'], ['sources', '.cardbg .mr-sources a'], ['folded text', '[data-desk="margin"] .mr-card.is-folded .mr-card__text'], ['stack row', '[data-desk="overlap"] .mr-stack span'], ['trigger line', '[data-desk="trigger"] .mr-trigger__sub'], ['primer heading', '[data-desk="primer"] .mr-primer__head'], ['primer numbers', '[data-desk="primer"] .mr-primer__n'], ['map pages', '[data-desk="primer"] .mr-map__pages'], ['primer footer', '[data-desk="primer"] .mr-primer__foot span'], ['quiz link', '[data-card="quiz"] .mr-follow__link']]
       return cases.map(([name, sel]) => { const el = document.querySelector(sel); if (!el) return { name, missing: true }; const cs = getComputedStyle(el); const fg = over(parse(cs.color), bg(el)); return { name, ratio: Math.round(ratio(fg, bg(el)) * 100) / 100, size: cs.fontSize } })
     })
     // PR C (Anders, 15 Oct): the mockup's faint small text now reads at least 4.5:1 (the --mr-hint token).
@@ -1848,6 +2005,145 @@ function watchStore() {
   const watch = () => { if (document.querySelector('.pdf-sheet canvas')) window.__drawn = performance.now(); else requestAnimationFrame(watch) }
   requestAnimationFrame(watch)
 }
+/* ---------- The margin polish (Anders's hands-on feedback, 15 Oct; screenshots 133–141) ----------
+   No foot line (Chat instead), no blinking caret, the highlighter and pencil, delete with Undo, one
+   scroll surface with its scrollbar at the window's right edge, Before you start opening in place,
+   and Chat folding once the reader moves on. Every AI call is mocked. */
+async function polish(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const hex = addBook(LONG_BOOK)
+  const views = SAMPLE ? [[1440, 900, 'paper'], [390, 844, rotate(LOOKS, 2)]] : [[1440, 900, 'paper'], [1440, 900, 'night'], [1280, 800, 'book'], [1024, 768, 'eink'], [390, 844, 'paper'], [360, 740, 'night']]
+  for (const [width, height, look] of views) {
+    const tag = `polish-${width}x${height}-${look}`, phone = width < 700
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    const problems = []
+    const layout = async state => { await a.waitForTimeout(250); problems.push(...(await checkMargin(a)).map(p => ({ state, ...p }))) }
+    const mode = await a.evaluate(() => marginMode())
+    // 1. No whole-PDF bar at the margin's foot.
+    const foot = await a.evaluate(() => ({ foot: !!document.querySelector('.mr-foot, .mr-foot__input, .mr-foot__hint, .mr-key'), words: /the whole PDF/.test(document.querySelector('.mr-col')?.innerText || '') && !document.querySelector('.mr-col .mr-trigger') }))
+    ok(`${tag}: no whole-PDF line, field or mic at the margin's foot`, !foot.foot && !foot.words, foot)
+    // 2. The caret: nothing drawn as one; the hint after "Ask" thin, in the accent, a gentle blink.
+    ok(`${tag}: no caret element anywhere in the margin`, await a.evaluate(() => !document.querySelector('.mr-caret')))
+    await a.evaluate(() => goTo({ page: 3, frac: 0.05 })); await a.waitForTimeout(800)
+    await selectText(a); await a.waitForSelector('.mr-bar, .mr-pbar')
+    const caret = await a.evaluate(() => { const c = document.querySelector('.mr-float .mr-bar__caret'); if (!c) return null; const cs = getComputedStyle(c), probe = document.createElement('i'); probe.style.background = 'var(--mr-bar-accent)'; c.parentElement.appendChild(probe); const accent = getComputedStyle(probe).backgroundColor; probe.remove(); return { w: c.getBoundingClientRect().width, bg: cs.backgroundColor, accent, anim: cs.animationName, timing: cs.animationTimingFunction, dur: cs.animationDuration } })
+    // E-ink never animates (the display profile stops every animation): there the caret stands still.
+    const blinks = look === 'eink' ? caret?.anim === 'none' : caret?.anim === 'mr-blink' && caret.timing === 'ease-in-out' && caret.dur === '1.4s'
+    ok(`${tag}: the hint after "Ask" is a 1.5px caret in the accent with a gentle blink${look === 'eink' ? ' (still in e-ink)' : ''}`, caret && Math.abs(caret.w - 1.5) < 0.3 && caret.bg === caret.accent && blinks, caret)
+    // 3. The highlighter (its dot in the current colour) and the pencil.
+    const icons = await a.evaluate(() => { const hl = document.querySelector('.mr-float [data-m="dot"]'), note = document.querySelector('.mr-float [data-m="note"]'); const dot = hl?.querySelector('.mr-hl .mr-dot'); return { pen: !!hl?.querySelector('.mr-hl svg path'), dot: dot && { w: dot.getBoundingClientRect().width, fill: getComputedStyle(dot).backgroundColor }, pencil: !!note?.querySelector('svg path[d^="M11.6 3.4"]'), stroke: note && getComputedStyle(note.querySelector('svg')).strokeWidth } })
+    ok(`${tag}: the bar has the highlighter with a small dot in the current colour, and the pencil, in the icons' stroke`, icons.pen && icons.dot && Math.round(icons.dot.w) === 7 && icons.dot.fill !== 'rgba(0, 0, 0, 0)' && icons.pencil && icons.stroke === '1.6px', icons)
+    await layout('bar')
+    if (look === 'paper') await shot(a, `${tag}-bar`)
+    // 4. Delete and Undo: a card made now, deleted from its action row, put back, deleted again.
+    await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(1500)
+    const made = await a.evaluate(() => col.open)
+    const field = await a.evaluate(() => { const f = openCardEl()?.querySelector('.mr-follow__input'); return { focused: document.activeElement === f, drawn: !!openCardEl()?.querySelector('.mr-caret') } })
+    ok(`${tag}: an opened card's follow-up field has no caret until the reader focuses it`, made && !field.focused && !field.drawn, field)
+    const del = await a.evaluate(() => { const b = openCardEl()?.querySelector('.mr-card__acts .mr-card__delete'), copy = openCardEl()?.querySelector('.mr-card__acts .mr-card__copy'); const r = b?.getBoundingClientRect(); return b && { w: r.width, h: r.height, beside: !copy || copy.offsetParent === null || Math.abs(copy.getBoundingClientRect().top - r.top) < 2 } })
+    ok(`${tag}: the open card has a bin in its action row (beside copy on the desktop), a 28px target`, del && del.w >= 27.5 && del.h >= 27.5 && del.beside, del)
+    await a.click(phone ? '.mr-sheet .mr-card__delete' : `.mr-card.is-open .mr-card__delete`); await a.waitForTimeout(400)
+    const gone = await a.evaluate(id => ({ open: col.open, shown: !!document.querySelector(`.mr-card[data-id="${id}"], .mr-sheet[data-id="${id}"]`), stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: document.querySelector('.mr-undo:not([hidden])')?.innerText.replace(/\s+/g, ' ').trim() }), made)
+    ok(`${tag}: delete takes the card away at once (no confirm), leaves a tombstone, and says "Deleted · Undo"`, !gone.open && !gone.shown && gone.stored?.gone === true && gone.undo === 'Deleted · Undo', gone)
+    await layout('undo')
+    if (look === 'paper') await shot(a, `${tag}-undo`)
+    const undoOverlap = await a.evaluate(() => { const u = document.querySelector('.mr-undo:not([hidden])')?.getBoundingClientRect(); if (!u) return 'none'; return [...document.querySelectorAll('.mr-col .mr-card:not([hidden]), .mr-col .mr-trigger, .mr-sheet')].some(c => { const r = c.getBoundingClientRect(); return Math.min(r.right, u.right) - Math.max(r.left, u.left) > 1 && Math.min(r.bottom, u.bottom) - Math.max(r.top, u.top) > 1 }) })
+    ok(`${tag}: the undo line covers no card`, undoOverlap === false, undoOverlap)
+    await a.click('.mr-undo button'); await a.waitForTimeout(500)
+    const back = await a.evaluate(id => ({ stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: !!document.querySelector('.mr-undo:not([hidden])') }), made)
+    ok(`${tag}: Undo puts the card back, newer than its tombstone, and the line goes`, back.stored && !back.stored.gone && back.stored.turns?.length && !back.undo, back)
+    await a.evaluate(id => { deleteCard(id) }, made); await a.waitForTimeout(UNDO_WAIT)
+    const after = await a.evaluate(id => ({ undo: !!document.querySelector('.mr-undo:not([hidden])'), stored: (store.get('cards:' + state.key) || []).find(c => c.id === id) }), made)
+    const synced = account.cards.get(hex)?.cards?.find(c => c.id === made)
+    ok(`${tag}: the line leaves after a few seconds; the deletion syncs to the account as a tombstone`, !after.undo && after.stored?.gone && synced?.gone === true, { after, synced })
+    // A note: its note and the highlight it made go together.
+    await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(200)
+    await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-float [data-m="note"]')
+    await a.click('.mr-float [data-m="note"]'); await a.waitForSelector('.mr-note .mr-note__field')
+    await a.fill('.mr-note .mr-note__field', 'MOCK note to delete.'); await a.click('.mr-note [data-m="save"]'); await a.waitForTimeout(500)
+    const note = await a.evaluate(() => { const h = (store.get('hl:' + state.key) || []).find(m => m.note === 'MOCK note to delete.'); return h && { id: h.id, withNote: h.withNote } })
+    if (note) await a.evaluate(id => deleteCard('n-' + id), note.id); await a.waitForTimeout(400)
+    const noteGone = await a.evaluate(id => ({ mark: (store.get('hl:' + state.key) || []).some(m => m.id === id), card: !!document.querySelector(`[data-id="n-${id}"]`) }), note?.id)
+    ok(`${tag}: deleting a note takes its note and the highlight it made`, note?.withNote === true && !noteGone.mark && !noteGone.card, { note, noteGone })
+    await a.evaluate(() => hideUndo())
+    // 5. Chat: "/" opens it (no foot), it is capped below the column, and it folds when the reader moves on.
+    if (!phone) {
+      await a.evaluate(() => { openCard(null); getSelection().removeAllRanges(); document.activeElement?.blur?.() })
+      const q0 = account.requests.length
+      await a.keyboard.press('/'); await a.waitForTimeout(200)
+      const opened = await a.evaluate(() => ({ chat: !!document.querySelector('.mr-card.is-whole.is-open, .mr-float.is-whole'), label: document.querySelector('.mr-card.is-whole .mr-card__label')?.innerText.trim(), focus: document.activeElement?.classList.contains('mr-follow__input') }))
+      ok(`${tag}: "/" opens Chat with its field ready, even before a first question`, opened.chat && opened.label?.startsWith('Chat') && opened.focus, opened)
+      await a.keyboard.type('What do the chapters say?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1200)
+      const req = account.requests.slice(q0).find(r => /What do the chapters say/.test(JSON.stringify(r.body.messages)))
+      ok(`${tag}: a Chat question goes as the whole-PDF question (scope "whole", the document)`, req?.body?.companion?.scope === 'whole' && req.body.companion.document?.units?.length > 0, req?.body?.companion && { scope: req.body.companion.scope })
+      if (mode === 'column') {
+        const cap = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-whole.is-open'), colH = document.querySelector('.mr-col').clientHeight; return c && { h: c.getBoundingClientRect().height, max: parseFloat(getComputedStyle(c).maxHeight), colH } })
+        ok(`${tag}: open Chat is capped at 60% of the column`, cap && cap.max <= cap.colH * 0.6 + 1 && cap.h <= cap.colH * 0.6 + 1, cap)
+      }
+      await layout('chat')
+      if (look === 'paper') await shot(a, `${tag}-chat`)
+      // Text selected in an answer is painted as a selection, not as a highlight (screenshot 136).
+      const sel = await a.evaluate(() => { const p = document.querySelector('.mr-card.is-whole .mr-answer p, .mr-float.is-whole .mr-answer p'); if (!p) return null; const probe = document.createElement('i'); probe.style.background = 'var(--mr-sel)'; p.appendChild(probe); const want = getComputedStyle(probe).backgroundColor; probe.remove(); return { paint: getComputedStyle(p, '::selection').backgroundColor, want } })
+      ok(`${tag}: a selection inside a card is painted in the selection tint, not the app's gold`, sel && sel.paint !== 'rgb(245, 230, 200)' && sel.paint === sel.want, sel)
+      await a.evaluate(() => document.activeElement?.blur?.())
+      await a.evaluate(() => { goTo({ page: currentPlace().page + 2, frac: 0.1 }); onScroll() }); await a.waitForTimeout(700)
+      ok(`${tag}: Chat folds once the reader moves on to another page`, await a.evaluate(() => col.open !== 'whole' && !document.querySelector('.mr-card.is-whole.is-open, .mr-float.is-whole')))
+    }
+    // 6. One scroll surface: the scroller to the window's right edge (the scrollbar there), the column inside it; the wheel over a card scrolls the pages.
+    if (mode === 'column') {
+      await a.evaluate(() => { openCard(null); goTo({ page: 3, frac: 0.05 }) }); await a.waitForTimeout(600)
+      await a.evaluate(seedCards, { lines: 2, pairs: false, open: null })
+      await a.waitForTimeout(400)
+      const geo = await a.evaluate(() => { const sc = $('scroll'), r = sc.getBoundingClientRect(), colR = document.querySelector('.mr-col').getBoundingClientRect(), pg = state.pages[2].pg.getBoundingClientRect(); return { right: Math.round(r.right), vw: innerWidth, bar: sc.offsetWidth - sc.clientWidth, colLeft: Math.round(colR.left), colRight: Math.round(colR.right), pageRight: Math.round(pg.right), scrollers: [...document.querySelectorAll('.mr-col, .mr-col *')].filter(e => /(auto|scroll)/.test(getComputedStyle(e).overflowY) && e.scrollHeight > e.clientHeight + 1 && !e.closest('.mr-card.is-open')).length } })
+      ok(`${tag}: the pages and the margin scroll as one: the scroller reaches the window's right edge, the column inside it, the page 56px left of the column`, geo.right === geo.vw && geo.colRight <= geo.vw - 16 && geo.colLeft - geo.pageRight === TINCT_COL_GAP && geo.scrollers === 0, geo)
+      const wheel = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-folded:not([hidden])'); if (!c) return null; const r = c.getBoundingClientRect(); return { x: r.left + 40, y: r.top + 10, top: $('scroll').scrollTop } })
+      if (wheel) { await a.mouse.move(wheel.x, wheel.y); await a.mouse.wheel(0, 300); await a.waitForTimeout(400) }
+      const moved = wheel ? await a.evaluate(t => $('scroll').scrollTop - t, wheel.top) : null
+      await a.mouse.move(Math.round(width - 200), Math.round(height - 40)); const t2 = await a.evaluate(() => $('scroll').scrollTop); await a.mouse.wheel(0, 200); await a.waitForTimeout(400)
+      const moved2 = await a.evaluate(t => $('scroll').scrollTop - t, t2)
+      ok(`${tag}: the wheel over a card, and over the column's empty room, scrolls the pages; the cards stay with their passages`, wheel && moved > 100 && moved2 > 50 && (await a.evaluate(leadersAttached)).ok, { moved, moved2 })
+      await layout('one scroll surface')
+      // The reading place holds across the column opening and closing (a resize through 1180px).
+      const place = await a.evaluate(() => currentPlace())
+      await a.setViewportSize({ width: 1100, height }); await a.waitForTimeout(700); await a.setViewportSize({ width, height }); await a.waitForTimeout(900)
+      const place2 = await a.evaluate(() => currentPlace())
+      ok(`${tag}: the reading place holds while the column comes and goes`, place2.page === place.page && Math.abs((place2.frac ?? 0) - (place.frac ?? 0)) < 0.03, { place, place2 })
+      await a.evaluate(() => { store.set('cards:' + state.key, []); col.view = null; marginLayout({ fresh: true }) })
+    } else {
+      const geo = await a.evaluate(() => { const r = $('scroll').getBoundingClientRect(); return { right: Math.round(r.right), vw: innerWidth } })
+      ok(`${tag}: the scroller still reaches the window's right edge (${mode})`, geo.right === geo.vw, geo)
+    }
+    // 7. Before you start opens in place: from its trigger, growing down, never jumping up; reduced motion: at once.
+    if (mode === 'column') {
+      await a.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }); onScroll() }); await a.waitForTimeout(900)
+      for (const reduce of [false, true]) {
+        await a.emulateMedia({ reducedMotion: reduce ? 'reduce' : 'no-preference' })
+        const run = await a.evaluate(() => new Promise(res => {
+          const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return res(null)
+          const trig = t.getBoundingClientRect(), frames = [], t0 = performance.now()
+          t.click()
+          const tick = () => { const p = document.querySelector('.mr-col .mr-primer'); if (p) { const b = p.getBoundingClientRect(); frames.push({ top: b.top, height: b.height, bottom: document.querySelector('.mr-col').getBoundingClientRect().bottom - b.bottom }) } if (performance.now() - t0 < 600) requestAnimationFrame(tick); else res({ trig: { top: trig.top, height: trig.height }, frames }) }
+          requestAnimationFrame(tick)
+        }))
+        const f = run?.frames || [], first = f[0], last = f.at(-1)
+        const grew = f.some(x => x.height < last?.height - 40)
+        ok(`${tag}: Before you start ${reduce ? '(reduced motion) is there at once' : 'expands in place from its trigger'}, never moving up, ending 70px above the foot`, first && Math.abs(first.top - (run.trig.top - 14)) <= 1.5 && f.every(x => Math.abs(x.top - first.top) <= 0.5) && Math.abs(last.bottom - 70) <= 1 && (reduce ? !grew && Math.abs(first.height - last.height) < 1 : grew && first.height <= run.trig.height + 20), { trig: run?.trig, first, last, n: f.length })
+        if (!reduce && look === 'paper') await shot(a, `${tag}-primer`)
+        await layout(reduce ? 'primer (reduced motion)' : 'primer')
+        await a.evaluate(() => closePrimer()); await a.waitForTimeout(300)
+      }
+      await a.emulateMedia({ reducedMotion: 'no-preference' })
+    }
+    ok(`${tag}: layout clean through every state (bar, undo, Chat, one scroll surface, primer)`, !problems.length && !A.problems.length, [...problems, ...A.problems].slice(0, 6))
+    await A.ctx.close()
+  }
+  return results
+}
+const UNDO_WAIT = 6800
+const TINCT_COL_GAP = 56
+
 async function longBooks(browser, origin) {
   const results = []
   const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
@@ -1919,6 +2215,13 @@ async function longBooks(browser, origin) {
       await a.keyboard.press('/'); await a.keyboard.type('What did TD-Gammon learn from?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
       const ask2 = chats(q1).find(r => /TD-Gammon learn/.test(JSON.stringify(r.body.messages)))
       ok(`${tag}: a second question in the chapter sends the same document, byte for byte (the cached prefix), with its own passages`, ask2 && JSON.stringify(ask2.body.companion.document) === JSON.stringify(doc) && JSON.stringify(ask2.body.companion.passages || null) !== JSON.stringify(found), { same: ask2 && JSON.stringify(ask2.body.companion.document) === JSON.stringify(doc) })
+      // Anders, 15 Oct: a question naming chapters ("what do chapters 3 and 6 say?") carries their opening text first (from the contents), then the search.
+      const q2 = account.requests.length
+      await a.evaluate(() => { document.activeElement?.blur?.(); openCard(null) })
+      await a.keyboard.press('/'); await a.keyboard.type('What do chapters 3 and 6 say?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
+      const ask3 = chats(q2).find(r => /chapters 3 and 6/.test(JSON.stringify(r.body.messages)))
+      const ch3 = m.chapters.find(c => c.title.startsWith('3 ')), ch6 = m.chapters.find(c => c.title.startsWith('6 ')), got = ask3?.body?.companion?.passages || []
+      ok(`${tag}: "what do chapters 3 and 6 say?" carries each chapter's opening text first, from the contents, then the search's passages (at most 6)`, ask3?.body?.companion?.scope === 'whole' && got[0]?.n === printed(ch3.from) && got[1]?.n === printed(ch6.from) && /Finite Markov/.test(got[0].text) && /Temporal-Difference/.test(got[1].text) && got.length <= 6, got.map(f => [f.n, f.text.slice(0, 60)]))
       // A passage action carries the document but no search.
       await a.keyboard.press('Escape'); await a.evaluate(() => { col.open = null; getSelection().removeAllRanges() })
       await selectText(a); await a.waitForSelector('.mr-bar'); const e0 = account.requests.length
@@ -1937,7 +2240,9 @@ async function longBooks(browser, origin) {
       // Made once per unit (later views read the account's copy): the request when there is one, else the unit opened.
       const req = chats(p0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
       const unit = await a.evaluate(() => primer.unit?.title)
-      ok(`${tag}: Before you start on ${where} is the primer of ${want}`, unit === want && (!req || req.body.companion.chapter.action.unitTitle === want), { unit, asked: req?.body?.companion?.chapter?.action })
+      // Sent as the chapter it is ("Chapter 16: Applications and Case Studies"; Anders, 15 Oct).
+      const named = want.replace(/^(\d+) (.*)$/, 'Chapter $1: $2')
+      ok(`${tag}: Before you start on ${where} is the primer of ${want}, named "${named}"`, unit === want && (!req || req.body.companion.chapter.action.unitTitle === named), { unit, asked: req?.body?.companion?.chapter?.action })
       if (where === 'the index') await layout('primer')
       await a.evaluate(() => closePrimer())
     }
@@ -1976,6 +2281,7 @@ const RUNS = {
   behaviour: [behaviour, rows => rows.some(r => !r.pass)],
   primer: [primerBehaviour, rows => rows.some(r => !r.pass)],
   'primer-reliability': [primerReliability, rows => rows.some(r => !r.pass)],
+  'primer-kinds': [primerKinds, rows => rows.some(r => !r.pass)],
   keys: [keysAndAccess, rows => rows.some(r => !r.pass)],
   contrast: [contrast, rows => rows.some(r => r.required && !r.pass)],
   // The EPUB margin is off in the reader for now (reader.js EPUB_MARGIN = false): its check runs in
@@ -1984,6 +2290,7 @@ const RUNS = {
   scans: [scanChecks, rows => rows.some(r => !r.pass)],
   figures: [figureMatrix, rows => rows.some(r => !r.pass)],
   long: [longBooks, rows => rows.some(r => !r.pass)],
+  polish: [polish, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -2007,6 +2314,7 @@ try {
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
   else if (mode === 'primer-reliability') { const rows = await primerReliability(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-reliability-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'primer-kinds') { const rows = await primerKinds(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-kinds-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'behaviour') { const rows = await behaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'behaviour-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'column') { const rows = await columnMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'column-results.json'), JSON.stringify(rows, null, 2)) }
@@ -2014,6 +2322,7 @@ try {
   else if (mode === 'epub') { const rows = await epubCheck(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'epub-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'scans') { const rows = await scanChecks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'scans-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'figures') { const rows = await figureMatrix(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figures-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'polish') { const rows = await polish(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'polish-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)

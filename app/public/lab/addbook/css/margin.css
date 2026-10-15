@@ -188,14 +188,23 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 :where(.mr-float) button { margin: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 :where(.mr-float) button:focus-visible { outline: 2px solid var(--mr-bar-ink); outline-offset: -2px; }
 .mr-float svg { display: block; flex: none; }
-/* The caret after "Ask" and in the question field blinks once a second. */
-@keyframes mr-blink { 0%, 50% { opacity: 1 } 50.01%, 100% { opacity: 0 } }
-.mr-bar__caret { display: inline-block; animation: mr-blink 1s step-end infinite; }
+/* The caret after "Ask" is the type-to-ask hint: thin (1.5px), in the accent, fading in and out
+   gently (Anders, 15 Oct, as Gloss's bar draws it); still with reduced motion. No other caret is
+   drawn: a field shows its own caret only when it has the focus. */
+.mr { --mr-accent: #1f4a5c; --mr-bar-accent: #8cbccd; }   /* Tinct's accent; the same on the dark bar */
+.lab.is-night .mr { --mr-accent: #8cbccd; }
+html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-accent: #111; --mr-bar-accent: #fff; }
+@keyframes mr-blink { 0%, 30% { opacity: 1 } 55%, 80% { opacity: .15 } 100% { opacity: 1 } }
+.mr-bar__caret { display: inline-block; border-radius: 1px; background: var(--mr-bar-accent); animation: mr-blink 1.4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .mr-bar__caret { animation: none; } }
 .mr-bar__item.is-ask { gap: 4px; }
 .mr-bar__sep { flex: none; }
 .mr-dot, .mr-swatch { display: block; flex: none; }
 button.mr-swatch { padding: 0; }
+/* The highlighter (Anders, 15 Oct): the pen in the icons' stroke, the current colour as a small dot at its foot. */
+.mr-hl { position: relative; display: block; width: 18px; height: 18px; }
+.mr-bar .mr-hl svg, .mr-pbar .mr-hl svg, .mr-define__foot .mr-hl svg { width: 18px; height: 18px; }
+.mr-hl .mr-dot { position: absolute; right: -1px; bottom: 0; width: 7px; height: 7px; box-shadow: 0 0 0 1.5px var(--mr-bar); }
 /* Asking: the bar is the question field (mockup 1B): the words, the mic, the send disc. */
 .mr-bar.is-asking { height: auto; min-height: 44px; min-width: min(330px, calc(100% - 32px)); align-items: flex-end; }
 .mr-bar.is-asking .mr-bar__field { flex: 1; min-width: 0; display: flex; align-items: center; padding: 12px 0 12px 10px; }
@@ -287,23 +296,18 @@ html[data-pdf-theme="eink"] .mr-float .mr-bar__item:hover { background: transpar
 .mr-card__acts button, .mr-follow__mic { position: relative; display: grid; place-items: center; width: 16px; height: 16px; color: var(--mr-faint); }
 .mr-follow__mic[aria-pressed="true"] { color: var(--mr-ink); }
 .mr-card__acts svg { stroke-linecap: round; stroke-linejoin: round; }
-.mr-follow svg, .mr-foot svg { stroke-linecap: round; stroke-linejoin: round; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.mr-follow svg { stroke-linecap: round; stroke-linejoin: round; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 /* The follow-up field: the caret blinks where the words will go; no placeholder. */
 .mr-follow__field { position: relative; display: flex; flex: 1 1 auto; min-width: 0; align-self: center; }
 .mr-follow__sp { flex: 1 1 auto; }
 .mr-follow__field + .mr-follow__sp { flex: none; }
-.mr-follow__input { display: block; width: 100%; height: 18px; max-height: 54px; margin: 0; padding: 0; border: 0; outline: 0; resize: none; overflow-y: auto; background: transparent; color: var(--mr-ink); caret-color: var(--mr-ink); font: 400 16px/18px var(--mr-gara); overflow-wrap: anywhere; }
+.mr-follow__input { display: block; width: 100%; height: 18px; max-height: 54px; margin: 0; padding: 0; border: 0; outline: 0; resize: none; overflow-y: auto; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: 400 16px/18px var(--mr-gara); overflow-wrap: anywhere; }
 .mr .mr-follow__input:focus, .mr .mr-follow__input:focus-visible { outline: 0 !important; box-shadow: none; }   /* the caret is the focus */
-.mr-follow__field .mr-caret { position: absolute; left: 0; top: 0; pointer-events: none; animation: mr-blink 1s step-end infinite; }
-.mr-follow__input:focus + .mr-caret, .mr-follow__input.has-text + .mr-caret { display: none; }
-@media (prefers-reduced-motion: reduce) { .mr-follow__field .mr-caret { animation: none; } }
 .mr-follow__link { white-space: nowrap; }
-/* The "more" row and the column foot. */
+/* The "more" row. (No column foot since 15 Oct: questions about the whole PDF go through Chat.) */
 .mr-stack { width: 100%; text-align: left; cursor: pointer; }
 .mr-stack span:first-child { flex: none; }
 .mr-stack span:last-child { margin-left: 12px; text-align: right; }
-.mr-foot { font-family: var(--mr-gara); }
-.mr-foot__hint { white-space: nowrap; }
 /* Leader lines: one SVG over the page and the column, below the top bar. */
 svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 31; overflow: visible; clip-path: inset(var(--pdf-top, 56px) 0 0 0); }
 /* The open card's passage: a 1.5px underline in the lead colour (drawn on the page, so it moves with it). */
@@ -332,7 +336,7 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 .mr-sheet .mr-card__body { display: flex; flex-direction: column; gap: 10px; flex: 0 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
 .mr-sheet.is-full .mr-card__body { flex: 1 1 auto; }
 .mr-sheet .mr-quote { font-size: 15px; }
-.mr-sheet .mr-card__acts { display: none; }   /* the phone's card has no copy row (mockup 5C) */
+.mr-sheet .mr-card__copy { display: none; }   /* the phone's card has no copy (mockup 5C); its row keeps delete */
 .mr-sheet .mr-follow { gap: 14px; padding-top: 12px; margin-top: 0; }
 .mr-sheet .mr-follow__input { font-size: 17px; line-height: 18px; }
 /* The whole-PDF thread in a card or the phone's card: the day or page changing (mockup .psheet .div). */
@@ -361,6 +365,7 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 .mr-primer h4 { margin-right: -8px; }
 .mr-primer .mr-primer__close { flex: none; align-self: center; margin: -1px 0 -1px auto; }
 .mr-primer__n, .mr-map__n { color: var(--mr-hint); font-size: 14px; }
+.mr-primer__unit { margin: 0 0 4px; font-size: 15px; font-style: italic; color: var(--mr-muted); }   /* the unit's name ("Chapter 1: …"), labelled as a section is (.mr-primer__head) */
 .mr-primer__keep { display: flex; flex-direction: column; gap: 5px; }
 .mr-map { display: flex; flex-direction: column; }
 .mr-map__row { width: 100%; text-align: left; color: inherit; }
@@ -414,7 +419,7 @@ button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; backg
    and 3px below, the icon moved down 3px to stay where it was). */
 .mr-card__acts button { width: 28px; height: 28px; margin: -9px -6px -3px; }
 .mr-card__acts button svg { transform: translateY(3px); }
-.mr-follow__mic, .mr-foot .mr-follow__mic { flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -12px; place-items: center end; }
+.mr-follow__mic { flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -12px; place-items: center end; }
 .mr-follow__mic svg { transform: translateY(3px); }
 /* "Show answer", "Next question →", "See your score →", "Try another quiz": 28px tall round their 16px line, which the follow-up line keeps. */
 .mr-follow__link { display: inline-flex; align-items: center; min-height: 28px; margin: -9px 0 -3px; padding-top: 6px; }
@@ -453,3 +458,35 @@ button.mr-related__row:hover .mr-related__line { text-decoration: underline; tex
 .mr .tinct-wait .tinct-wait-ring { animation: none; }
 .mr .tinct-wait .tinct-wait-ring path { transform-box: view-box; transform-origin: 12px 12px; animation: tinct-wait-spin .9s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .mr .tinct-wait .tinct-wait-ring path { animation: none; } }
+
+/* ---------- Polish (Anders's feedback, 15 Oct) ---------- */
+/* Text selected in a card reads as a selection (the page's own tint), never as a highlight: the app's
+   gold ::selection made a selected answer look highlighted (screenshot 136). */
+.mr ::selection, .mr::selection { background: var(--mr-sel); color: inherit; }
+/* Delete: the bin beside copy, the same 16px icon in a 28px target. */
+.mr-card__acts { justify-content: flex-start; }
+.mr-card__delete:hover, .mr-card__copy:hover { color: var(--mr-muted); }
+/* "Deleted · Undo": a quiet line where the card was (the column), else along the bottom; a few seconds. */
+.mr-undo { display: flex; align-items: center; gap: 8px; min-height: 28px; padding-left: 14px; font: 13px var(--mr-ui); color: var(--mr-hint); box-sizing: border-box; }
+.mr-col .mr-undo { position: absolute; left: 0; right: 0; }
+.mr-undo button { margin: 0; padding: 0 2px; min-height: 28px; border: 0; background: none; font: inherit; color: var(--mr-ink); text-decoration: underline; text-decoration-color: var(--mr-hair); text-underline-offset: 3px; cursor: pointer; }
+.mr-undo button:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 2px; border-radius: 4px; }
+.mr-undo.is-float { position: fixed; z-index: 70; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%); padding: 4px 16px; border-radius: 14px; background: var(--mr-card); box-shadow: var(--mr-card-shadow); }
+.mr-undo[hidden] { display: none; }
+/* Chat beside the pages never takes over the margin: at most 60% of the column, its thread scrolling. */
+.mr-col.is-reader .mr-card.is-whole.is-open { max-height: min(calc(var(--mr-col-height) - var(--mr-foot-height) - 28px - var(--mr-reserve, 0px)), calc(var(--mr-col-height) * .6)); }
+/* One scroll surface (Anders, 15 Oct; Gloss's screenshot 139): with the column the pages' scroller runs to
+   the window's edge, its scrollbar there; the pages keep left of the column's room, and the column lets
+   the wheel and clicks between its cards through to the pages (reader.js forwards a wheel over a card). */
+.lab.byob.margin-open .pdf-scroll { right: 0; }
+.lab.byob.margin-open .pdf-column { margin-right: calc(var(--dock-w) + 14px); }
+.mr-col.is-reader { pointer-events: none; }
+/* The column's room over the scroller, in the room's colour: zoomed-in pages never show under the cards (reader.js sets its box). */
+.mr-cover { position: fixed; bottom: 0; z-index: 29; background: var(--pdf-room); pointer-events: none; }
+.mr-cover[hidden] { display: none; }
+.mr-col.is-reader > * { pointer-events: auto; }
+/* Before you start opens in place: the trigger's box grows into the primer, its height easing down. */
+.mr-col .mr-primer { transition: top .28s ease, height .28s ease, background-color .2s ease, box-shadow .2s ease; }
+.mr-col .mr-primer.is-growing { background-color: transparent; box-shadow: inset 1.5px 0 0 var(--mr-lead); overflow: hidden; }
+.mr-col .mr-primer.is-opening { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .mr-col .mr-primer { transition: none; } }

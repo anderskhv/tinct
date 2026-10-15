@@ -12,9 +12,15 @@ import {
   ASK_DOCUMENT_LINE,
   ATTRIBUTION_RULE,
   MARGIN_ANSWER_RULES,
+  NO_META_RULE,
   PDF_DOCUMENT_WORDING,
   WORK_FIRST_RULE,
   COUNTERPOINT_PROMPT,
+  FACTCHECK_OPENING_ROUND,
+  FACTCHECK_VERDICT_ROUND,
+  NO_EXTRACTION_TALK_RULE,
+  PICTURE_RULE,
+  QUIZ_CHECK_PROMPT,
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
   PDF_EXPLAIN_FORMAT,
@@ -149,7 +155,7 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
   })
 
   it('the shared rules: work things out first, never attribute to the document what it does not say; a PDF is the document, one page per tag', async () => {
-    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE])
+    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE])
     expect(WORK_FIRST_RULE).toBe('Work out numbers and facts before you write. Never correct yourself mid-answer.')
     expect(ATTRIBUTION_RULE).toBe('Never attribute to the document something it does not say.')
     for (const rule of MARGIN_ANSWER_RULES) expect(MARGIN_RULES).toContain(rule)
@@ -187,10 +193,11 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
 
   it('Fact-check: the new opening, the verdict once, sources other than the document preferred', () => {
     const prompt = factcheckPrompt('2026-10-15')
-    expect(prompt.startsWith("Check whether the passage's factual claims still hold today and what has changed since it was written. Never treat the document itself as confirmation of its own claims. Today's date is 2026-10-15.")).toBe(true)
-    expect(prompt).toContain('State the overall verdict once: the paragraph after the first never repeats it')
+    expect(prompt.startsWith("Check whether the passage's factual claims still hold today and what has changed since it was written. Today's date is 2026-10-15.")).toBe(true)
+    expect(prompt).toContain('Never treat the document itself as confirmation of its own claims')
+    expect(prompt).toContain('State the verdict once: no other paragraph starts with a verdict word or repeats the verdict.')
     expect(prompt).toContain('Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself.')
-    expect(prompt).toContain('starting with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
+    expect(prompt).toContain('start it with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
   })
 
   it('Simplify: a plain restatement first, adds nothing, rewrites only the selected text', () => {
@@ -215,6 +222,48 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
   })
 })
 
+describe('answer rules from the deep test after train 2 (15 Oct, evening)', () => {
+  it('every margin request carries the picture rule and the no-extraction rule in the cached prefix; the book reader never does', async () => {
+    expect(PICTURE_RULE).toBe('The picture is the passage itself; never describe or read out the picture. Answer about the passage.')
+    expect(NO_EXTRACTION_TALK_RULE).toBe('Never mention text extraction, garbling, or how the document reached you.')
+    expect(MARGIN_RULES).toContain(PICTURE_RULE)
+    expect(MARGIN_RULES).toContain(NO_EXTRACTION_TALK_RULE)
+    for (const intent of ['explain', 'simplify', 'counterpoint', 'related'] as const) {
+      const { anthropic } = stubFetch()
+      await send(margin(intent, 2, { selection: 'Self-attention' }))
+      const prefix = (anthropic[0].system as SystemBlock[])[0]
+      expect(prefix.cache_control).toEqual({ type: 'ephemeral' })
+      expect(prefix.text, intent).toContain(PICTURE_RULE)
+      expect(prefix.text, intent).toContain(NO_EXTRACTION_TALK_RULE)
+      vi.unstubAllGlobals()
+    }
+    const book = buildCompanionSystem(parseCompanionRequest({ intent: 'explain', context: bookContext, selection: 'muse' })!)
+    expect(book).not.toContain(PICTURE_RULE)
+    expect(book).not.toContain(NO_EXTRACTION_TALK_RULE)
+  })
+
+  it('the passage-image line no longer talks about garbled extraction', () => {
+    expect(PASSAGE_IMAGE_LINE).toBe('The attached image shows the passage exactly as printed. Where its equations or symbols differ from the supplied text, trust the image.')
+    expect(PASSAGE_IMAGE_LINE).not.toMatch(/garbl|extract/i)
+  })
+
+  it('quiz_check addresses the reader as you, never as "the reader\'s answer"', () => {
+    expect(QUIZ_CHECK_PROMPT).toContain('Write the feedback to the reader directly, as "you" and "your answer"; never "the reader" or "the reader\'s answer".')
+    expect(QUIZ_CHECK_PROMPT.startsWith('Mark the answer in <reader_answer> to a quiz question')).toBe(true)
+    expect(QUIZ_CHECK_PROMPT).not.toContain("Mark the reader's answer")
+  })
+
+  it('Fact-check: the opening from the document first, then the verdict once', () => {
+    const prompt = factcheckPrompt('2026-10-15')
+    expect(prompt).toContain('First paragraph: from the document alone, what the passage claims and what the document itself offers in support')
+    expect(prompt).toContain('It gives no verdict.')
+    expect(prompt).toContain('State the verdict once: no other paragraph starts with a verdict word or repeats the verdict.')
+    expect(prompt).not.toContain('Then one short paragraph for each checkable claim')
+    expect(FACTCHECK_OPENING_ROUND).toContain('Write only the first paragraph now, from the document alone')
+    expect(FACTCHECK_VERDICT_ROUND).toContain('Do not repeat or restate the first paragraph.')
+  })
+})
+
 describe('docs/margin/PROMPTS.md is in step with the prompts', () => {
   it('carries every PR C wording word for word', () => {
     const doc = readFileSync(resolve(__dirname, '../../docs/margin/PROMPTS.md'), 'utf8')
@@ -222,6 +271,7 @@ describe('docs/margin/PROMPTS.md is in step with the prompts', () => {
       ...MARGIN_ANSWER_RULES, PDF_DOCUMENT_WORDING, PDF_CITATION_RULE, PDF_EXPLAIN_FORMAT, ASK_DOCUMENT_LINE, QUIZ_PASSAGE_FOCUS,
       ...SIMPLIFY_PROMPT.split('\n'), ...COUNTERPOINT_PROMPT.split('\n'), ...RELATED_PROMPT.split('\n'),
       ...factcheckPrompt('{today}').split('\n'),
+      PICTURE_RULE, NO_EXTRACTION_TALK_RULE, PASSAGE_IMAGE_LINE, FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND, ...QUIZ_CHECK_PROMPT.split('\n'),
     ]
     for (const line of lines) expect(doc, line).toContain(line)
   })

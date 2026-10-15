@@ -458,7 +458,13 @@ function applyCrop() {
 // The pages' width at fit: the scroll area less the column's own side padding (css/reader.css
 // .pdf-column), so a page never runs past the screen's edge.
 const columnPad = () => { const cs = getComputedStyle($('column')); return (parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)) || 32 };
-const columnWidth = () => { const w = $('scroll').clientWidth - columnPad(); return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') ? 1100 : 1500) };
+/**
+ * The pages' area across the scroller. With the margin's column the scroller runs to the window's edge
+ * (one scroll surface, its scrollbar at the right, Anders, 15 Oct) and the pages keep to its left, the
+ * column's room being the page column's right margin (margin.css).
+ */
+const pagesWidth = () => $('scroll').clientWidth - (root.classList.contains('margin-open') ? parseFloat(getComputedStyle($('column')).marginRight) || 0 : 0);
+const columnWidth = () => { const w = pagesWidth() - columnPad(); return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') ? 1100 : 1500) };
 const sheetWidth = () => Math.round(columnWidth() * state.zoom);
 function buildSheets(count) {
   state.observer?.disconnect();
@@ -2088,7 +2094,7 @@ const noteDrafts = new Map();
 // The reader's area: below the top bar, left of the docked chat.
 function mrFrame() {
   const r = $('scroll').getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect();
-  const f = { left: Math.max(0, r.left), top: Math.max(0, r.top, hdr.bottom), right: Math.min(innerWidth, r.right), bottom: Math.min(innerHeight, r.bottom) };
+  const f = { left: Math.max(0, r.left), top: Math.max(0, r.top, hdr.bottom), right: Math.min(innerWidth, r.right, r.left + pagesWidth()), bottom: Math.min(innerHeight, r.bottom) };
   if (!isPhone() && chat.el?.isConnected && !chat.el.hidden) { const d = chat.el.getBoundingClientRect(); if (d.left > f.left + 240 && d.left < f.right) f.right = d.left }
   return f;
 }
@@ -2196,7 +2202,7 @@ function mrShow(mode, { question = '' } = {}) {
   el.removeAttribute('style');
   if (mode === 'define') {
     el.className = `mr mr-float mr-define${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Define ' + mr.word);
-    el.innerHTML = MH.defineHtml(mr.def, mrOpts());
+    el.innerHTML = MH.defineHtml(mr.def, { ...mrOpts(), P: MP.P, resolve: citeResolve });
     el.querySelector('.mr-define__wait')?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
   } else if (mode === 'note') {
     el.className = `mr mr-float mr-note${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Note');
@@ -2279,15 +2285,18 @@ function mrPick(color) {
   mrShow('colors');
 }
 function mrNoteOpen() {
+  // A highlight the note itself makes goes with the note when its card is deleted (TinctMargin.deletePlan).
+  const had = mr.ids.length;
   mrHighlight();
   if (!mr.ids.length) return;
+  if (!had) mr.noteMade = true;
   mrShow('note');
 }
 function mrSaveNote() {
   const t = mr.el.querySelector('.mr-note__field'), id = mr.ids[0];
   const list = highlights(), h = list.find(x => x.id === id); if (!h) return marginClose();
   const v = t.value.trim();
-  if (v) h.note = v.slice(0, 4000); else delete h.note;
+  if (v) { if (!h.note && mr.noteMade) h.withNote = true; h.note = v.slice(0, 4000) } else { delete h.note; delete h.withNote }
   h.u = Date.now();
   putHighlights(list); noteDrafts.delete(id);
   marginClose();
@@ -2348,21 +2357,24 @@ async function mrDefine(word) {
   if (hit && (!TinctMargin.nameMidSentence(word, mr.before) || navigator.onLine === false)) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
     mrShow('define');
-    // Online, the sense that fits this passage moves to the top in full ink (define_sense, at most
-    // FIT_SENSE_MS; the dictionary's order shows meanwhile).
+    // Online, two asks at once (15 Oct, evening): the meaning in this text from the companion's
+    // `define`, shown first under "In this text" whenever it arrives, even when a dictionary sense
+    // "fits" ("perplexity" read "confusion"); and define_sense, which moves the fitting sense to the
+    // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
     const info = mr.info, anchor = mr.anchor, def = mr.def;
-    const n = await fittingSense(hit.word, def.senses.map(x => x.text), info);
-    if (n > 0) def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
-    // None fits (a technical term the dictionary knows only in its everyday senses): the meaning in
-    // this text from the companion's `define` comes first, the dictionary's senses below it.
-    if (n === 0) {
-      try {
-        const found = await defineByCompanion(word, info);
-        if (found?.line) { def.inText = found.line; if (found.pos) def.pos = found.pos }
-      } catch { /* the dictionary alone */ }
-    }
+    const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
+    const inText = navigator.onLine === false ? null : defineByCompanion(word, info).then(found => {
+      if (!found?.line) return;
+      def.inText = found.line; if (found.pos) def.pos = found.pos;
+      redraw();
+    }).catch(() => { /* the dictionary alone */ });
+    const sense = fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
+      if (!(n > 0)) return;
+      def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
+      redraw();
+    });
+    await Promise.all([inText, sense]);
     keepDefine(def, info, anchor, key);
-    if (mr?.defToken === token && (n > 0 || def.inText)) mrShow('define');
     return;
   }
   if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
@@ -2524,8 +2536,11 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015train2').then(m => (MP.P = m)).catch(() => null);
-const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015speed').then(m => (MP.P = m)).catch(() => null);
+const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
+// Delete's "Deleted · Undo" line (deleteCard).
+const UNDO_MS = 6000;
+const undo = { el: null, timer: 0, rect: null, restore: null };
 /* The margin for EPUBs read here (FIXES-2026-10-15 PR C) is built but OFF (Anders, 15 Oct 2026: "Keep it
    pdf for now. Later the margin reader will be available for all books."). Off, an EPUB behaves exactly as
    before: the selection popup and the docked chat. The layout check turns it on for its `epub` mode
@@ -2692,8 +2707,31 @@ async function searchPassages(question, doc) {
   for (let n = doc.range.from; n <= doc.range.to; n++) skip.add(n);
   for (const u of primer.units || []) if (u.matter) for (let n = u.from; n <= u.to; n++) skip.add(n);
   read.matter.forEach((m, i) => { if (m) skip.add(i + 1) });
-  const found = read.index.search(question, { limit: 5, skip }).map(hit => ({ n: pageLabel(hit.page), text: hit.text }));
-  return found.length ? found : null;
+  // A question that names a chapter or section ("what do chapters 7 and 10 say?", Anders, 15 Oct) takes
+  // that chapter's opening text from the contents, first; the search then looks for the rest, its terms
+  // the question's own words and the named chapters' titles.
+  const named = TinctMargin.namedUnits(question, contentsEntries()).filter(u => u.page < doc.range.from || u.page > doc.range.to).slice(0, 3);
+  const opening = named.map(u => ({ n: pageLabel(u.page), text: openingText(read, u.page) })).filter(o => o.text);
+  for (const u of named) skip.add(u.page);
+  const query = named.length ? [TinctMargin.withoutRefs(question), ...named.map(u => u.title)].join(' ') : question;
+  const found = read.index.search(query, { limit: 5, skip }).map(hit => ({ n: pageLabel(hit.page), text: hit.text }));
+  const all = [...opening, ...found].slice(0, 6);
+  return all.length ? all : null;
+}
+/** The contents as { title, page }: the file's own (toc), else the outline's units (Before you start's). */
+function contentsEntries() {
+  const list = toc.entries.map(e => ({ title: e.label, page: e.page }));
+  for (const u of primer.units || []) if (u.title && !list.some(e => e.page === u.start && e.title === u.title)) list.push({ title: u.title, page: u.start });
+  return list;
+}
+/** A chapter's opening text: its first page, and the next when that is short (a title page), up to 1,200 characters. */
+function openingText(read, page) {
+  let text = '';
+  for (let n = page; n <= Math.min(page + 2, read.texts.length) && text.length < 600; n++) text += (text ? ' ' : '') + String(read.texts[n - 1] || '');
+  const t = text.replace(/\s+/g, ' ').trim();
+  if (t.length <= 1200) return t;
+  const cut = t.slice(0, 1199), sp = cut.lastIndexOf(' ');
+  return (sp > 1000 ? cut.slice(0, sp) : cut) + '…';
 }
 /** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. An EPUB has no page numbers: its places are quoted words. */
 function citeResolve(token) {
@@ -2777,11 +2815,22 @@ function marginStart() {
   if (!col.el) {
     const el = col.el = document.createElement('div');
     el.className = 'mr mr-col is-reader'; el.setAttribute('role', 'complementary'); el.setAttribute('aria-label', 'Margin');
-    el.innerHTML = '<button type="button" class="mr-stack" data-c="stack" hidden></button><div class="mr-foot"></div>';
-    col.stack = el.querySelector('.mr-stack'); col.foot = el.querySelector('.mr-foot');
+    // No whole-PDF line at the column's foot (Anders, 15 Oct): questions about the whole file go through Chat (the t menu, or "/").
+    el.innerHTML = '<button type="button" class="mr-stack" data-c="stack" hidden></button>';
+    col.stack = el.querySelector('.mr-stack');
     bindCardEvents(el);
+    // One scroll surface (Anders, 15 Oct): the wheel over the column scrolls the pages, unless a card's own body can scroll that way.
+    el.addEventListener('wheel', e => {
+      if (e.ctrlKey || !$('scroll')) return;
+      for (let n = e.target; n && n !== el; n = n.parentElement) {
+        if (n.scrollHeight - n.clientHeight > 1 && /(auto|scroll)/.test(getComputedStyle(n).overflowY) && (e.deltaY < 0 ? n.scrollTop > 0 : n.scrollTop + n.clientHeight < n.scrollHeight - 1)) return;
+      }
+      $('scroll').scrollBy({ top: e.deltaY * (e.deltaMode === 1 ? 16 : 1), left: e.deltaX * (e.deltaMode === 1 ? 16 : 1) });
+    }, { passive: true });
     col.leads = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     col.leads.setAttribute('class', 'mr mr-leads'); col.leads.setAttribute('aria-hidden', 'true');
+    // The pages' scroller runs under the column: zoomed-in pages wider than their area stay hidden beside it, as before (the scrollbar stays clear).
+    col.cover = document.createElement('div'); col.cover.className = 'mr-cover'; col.cover.setAttribute('aria-hidden', 'true'); col.cover.hidden = true;
     col.marks = document.createElement('div'); col.marks.className = 'mr mr-marks';
     col.marks.addEventListener('click', e => {
       const m = e.target.closest('.mr-mark'); if (!m) return;
@@ -2790,9 +2839,7 @@ function marginStart() {
       openCard(at < 0 ? ids[0] : at + 1 < ids.length ? ids[at + 1] : null);
     });
   }
-  // The foot names the file: "the whole PDF", or "the whole book" for an EPUB.
-  if (col.foot.dataset.doc !== docKind()) { col.foot.dataset.doc = docKind(); col.foot.innerHTML = TinctMargin.html.footHtml({ doc: docKind() }); col.stackH = 0 }
-  for (const n of [col.el, col.leads, col.marks]) if (!n.isConnected) root.appendChild(n);
+  for (const n of [col.cover, col.el, col.leads, col.marks]) if (!n.isConnected) root.appendChild(n);
   col.mode = null; col.open = null;
   marginLayout({ fresh: true });
 }
@@ -2800,11 +2847,12 @@ function marginStop() {
   for (const c of col.ctl.values()) c.abort();
   col.ctl.clear(); col.live.clear(); col.pending.clear(); col.quiz.clear();
   closeFloat(); closeSheet2();
-  col.el?.remove(); col.leads?.remove(); col.marks?.remove();
+  col.el?.remove(); col.leads?.remove(); col.marks?.remove(); col.cover?.remove();
   col.els.forEach(e => e.remove()); col.els.clear();
   document.querySelectorAll('.mr-ul-layer').forEach(l => l.replaceChildren());
   if (root.classList.contains('margin-open')) { root.classList.remove('margin-open', 'dock-open'); root.style.removeProperty('--dock-w') }
   col.mode = null; col.open = null;
+  hideUndo();
   primerReset();
 }
 /** Wide desktop: the page area narrows for the column, as it did for the docked chat; the place stays. */
@@ -2869,7 +2917,7 @@ function visibleCards() {
     const all = TinctMargin.anchorOfCard(card).map(a => { const q = state.pages[a.n - 1]?.pg.getBoundingClientRect(); return q ? q.top + (a.y + a.h) * q.height : line.bottom });
     const last = Math.max(line.bottom, ...all);
     const inView = line.top >= top && line.top < bottom - 8;
-    if (inView || (card.id === col.open && last > top && line.top < bottom)) out.push({ card, line, last, pageRight: Math.min(pageEdge(p), sr.left + $('scroll').clientWidth) });
+    if (inView || (card.id === col.open && last > top && line.top < bottom)) out.push({ card, line, last, pageRight: Math.min(pageEdge(p), sr.left + pagesWidth()) });
   }
   return out;
 }
@@ -2935,10 +2983,12 @@ function layoutNow() {
     if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
     if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
+    if (col.cover) col.cover.hidden = mode !== 'column';
     if (mode === 'phone' && col.open) { const o = col.open; col.open = null; openCard(o) }
   }
   if (!mode) return;
   if (!MP.P || !window.TinctWait) { mpReady.then(() => marginLayout()); return }
+  if (wholeMovedOn()) col.open = null;
   const vis = visibleCards();
   underline(vis.find(v => v.card.id === col.open) || null);
   if (mode === 'column') return layoutColumn(vis);
@@ -2968,13 +3018,20 @@ function layoutNow() {
   if (sheetId === 'trigger' && (!trig || mr || primer.away.has(trig.key))) { col.sheet.remove(); col.sheet = null }
   else if (!col.sheet && trig && !mr && !col.open && !primer.away.has(trig.key)) openSheet2('trigger');
   if (col.sheet) drawSheet();
+  placeUndoFloat();
+}
+/** The floating undo line stays clear of the phone's bottom card: just above it when one is open. */
+function placeUndoFloat() {
+  if (!undo.el?.isConnected || !undo.el.classList.contains('is-float')) return;
+  const top = col.sheet?.isConnected ? col.sheet.getBoundingClientRect().top : innerHeight;
+  undo.el.style.bottom = top < innerHeight ? Math.round(innerHeight - top + 12) + 'px' : '';
 }
 /** A page's right edge: a PDF page's own, an EPUB chapter's sheet (its text sits inside the sheet's margins). */
 const pageEdge = p => (p.kind === 'epub' ? p.sheet : p.pg).getBoundingClientRect().right;
 /** The page's visible right edge (the first page in view). */
 function pageRightNow() {
   const sr = $('scroll').getBoundingClientRect(), p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > sr.top) || state.pages[0];
-  return Math.min(pageEdge(p), sr.left + $('scroll').clientWidth);
+  return Math.min(pageEdge(p), sr.left + pagesWidth());
 }
 function layoutColumn(vis) {
   const C = TinctMargin.COL, sr = $('scroll').getBoundingClientRect();
@@ -2982,9 +3039,12 @@ function layoutColumn(vis) {
   const box = TinctMargin.columnBox(innerWidth, pageRight);
   if (!box) return;
   col.el.style.left = box.left + 'px';
-  const colTop = col.el.getBoundingClientRect().top, colH = col.el.clientHeight, footTop = col.foot.offsetTop;
+  const area = pagesWidth();
+  Object.assign(col.cover.style, { left: sr.left + area + 'px', top: sr.top + 'px', width: Math.max(0, $('scroll').clientWidth - area) + 'px' });
+  // No foot: the cards keep COL.foot (46px) clear of the column's end, an open card too (its guard's --mr-foot-height).
+  const colTop = col.el.getBoundingClientRect().top, colH = col.el.clientHeight, footTop = colH;
   col.el.style.setProperty('--mr-col-height', colH + 'px');
-  col.el.style.setProperty('--mr-foot-height', (colH - footTop + 18) + 'px');
+  col.el.style.setProperty('--mr-foot-height', C.foot + 'px');
   // The primer, open, has the column to itself (mockup section 4); its trigger keeps the column's top.
   if (primerInColumn()) {
     primer.trig?.remove(); primer.trig = null;
@@ -2997,17 +3057,21 @@ function layoutColumn(vis) {
   col.el.style.setProperty('--mr-reserve', (trig ? trig.height + TinctMargin.COL.cardGap : 0) + 'px');
   // The whole-PDF card (when the thread has turns) sits first, at the top; then a unit's quiz, when open or at the unit's start.
   const items = [];
-  if (chat.turns.length || chat.live) items.push({ id: 'whole', card: { id: 'whole', kind: 'whole' }, top: 0, fold: false });
+  if (chat.turns.length || chat.live || col.open === 'whole') items.push({ id: 'whole', card: { id: 'whole', kind: 'whole' }, top: 0, fold: false });
   const openUnit = col.open && cardById(col.open)?.data?.unit ? cardById(col.open) : null, trigUnit = triggerUnit();
   const uq = openUnit || (trigUnit && unitQuiz(trigUnit));
   if (uq) items.push({ id: uq.id, card: uq, top: 0, fold: false });
   for (const v of vis) items.push({ id: v.card.id, card: v.card, v, top: v.line.top - colTop });
   // In page order among the cards: after the ones pinned to the top, before the first passage below its line.
   if (trig) { const k = items.findIndex(it => it.v && it.top > trig.top); items.splice(k < 0 ? items.length : k, 0, { id: 'trigger', trigger: true, top: trig.top, fold: false }) }
+  // "Deleted · Undo" keeps the deleted card's place for a few seconds (deleteCard), placed with the cards.
+  const undoAt = undoTop(colTop, colH);
+  if (undo.el && !undo.el.classList.contains('is-float')) undo.el.hidden = undoAt == null;
+  if (undoAt != null) { if (undo.el.parentElement !== col.el) col.el.insertBefore(undo.el, col.stack); const k = items.findIndex(it => it.v && it.top > undoAt); items.splice(k < 0 ? items.length : k, 0, { id: 'undo', undo: true, top: undoAt, fold: false }) }
   const keep = new Set(items.map(i => i.id));
   for (const [id, el] of col.els) if (!keep.has(id)) { el.remove(); col.els.delete(id) }
   for (const it of items) {
-    if (it.trigger) continue;
+    if (it.trigger || it.undo) continue;
     let el = col.els.get(it.id);
     if (!el) { el = document.createElement('div'); col.els.set(it.id, el); col.el.insertBefore(el, col.stack) }
     el.hidden = false;
@@ -3024,14 +3088,14 @@ function layoutColumn(vis) {
     r.innerHTML = TinctMargin.html.cardHtml({ id: 'row', kind: 'note', note: 'A row', text: '' }, { open: false, P: MP.P });
     col.el.appendChild(r); col.rowH = r.offsetHeight || TinctMargin.COL.row; r.remove();
   }
-  const elOf = it => (it.trigger ? primer.trig : col.els.get(it.id));
+  const elOf = it => (it.trigger ? primer.trig : it.undo ? undo.el : col.els.get(it.id));
   // A quiz whose questions are still streaming in (col.quiz) never folds or gathers; once saved it does, like any card.
-  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top, at: i.card?.at, fold: i.fold !== false && col.open !== i.id && !col.quiz.has(i.id), keep: !!i.trigger || col.quiz.has(i.id) })), items.map(i => elOf(i).offsetHeight), footTop, { open: col.open, stackHeight: stackH, rowHeight: col.rowH });
+  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top, at: i.card?.at, fold: i.fold !== false && col.open !== i.id && !col.quiz.has(i.id), keep: !!i.trigger || !!i.undo || col.quiz.has(i.id) })), items.map(i => elOf(i).offsetHeight), footTop, { open: col.open, stackHeight: stackH, rowHeight: col.rowH });
   const at = new Map(out.positions.map(p => [p.id, p]));
   const x1 = box.left - 6, lines = [];
   for (const it of items) {
     const el = elOf(it), p = at.get(it.id);
-    if (it.trigger) { el.style.top = (p ? p.top : 0) + 'px'; continue }
+    if (it.trigger || it.undo) { el.style.top = (p ? p.top : 0) + 'px'; continue }
     if (!p) { el.hidden = true; continue }
     el.classList.toggle('is-row', !!p.row);
     el.style.top = p.top + 'px';
@@ -3040,7 +3104,7 @@ function layoutColumn(vis) {
     const ey = (it.v.line.top + it.v.line.bottom) / 2, cy = (lab.top + lab.bottom) / 2, x0 = it.v.pageRight + C.dot;
     lines.push({ x0, ey, cy, open: it.id === col.open });
   }
-  const gathered = out.gathered.map(id => items.find(i => i.id === id && !i.trigger)).filter(Boolean);
+  const gathered = out.gathered.map(id => items.find(i => i.id === id && !i.trigger && !i.undo)).filter(Boolean);
   col.stack.hidden = !out.stack;
   if (out.stack) {
     // One line: as many of the kinds as fit.
@@ -3074,6 +3138,7 @@ function openCard(id, { focus = false } = {}) {
   if (id && primer.open) { primer.open = false; primer.token++; primer.el?.remove(); primer.el = null }
   if (col.open && col.open !== id) dropEmptyFigure(col.open);
   col.open = id || null;
+  if (id === 'whole') col.whole.page = state.pages.length ? placePage() : null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
   if (mode === 'marks' && !id) closeFloat();
   // A card whose passage is out of view brings it into view.
@@ -3208,6 +3273,16 @@ function fitKeyboard() {
 }
 window.visualViewport?.addEventListener('resize', () => { if (!col.sheet) return; fitKeyboard(); requestAnimationFrame(passageAboveSheet) });
 
+/**
+ * Chat, open beside the pages, folds when the reader moves on to another page (Anders, 15 Oct: it must
+ * not take over the margin), unless its field has the focus or an answer is on its way. Not the phone's card.
+ */
+function wholeMovedOn() {
+  if (col.open !== 'whole' || col.sheet || chat.live || col.whole.page == null || !state.pages.length) return false;
+  const el = openCardEl();
+  if (el && el.contains(document.activeElement)) { col.whole.page = placePage(); return false }
+  return placePage() !== col.whole.page;
+}
 /* -- The whole-PDF thread, in its card or the phone's card -- */
 function wholeTurns() {
   const turns = chat.turns.map(t => ({ role: t.role, text: t.role === 'user' ? (t.display || t.content) : String(t.content || '').replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, ''), at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined, note: t.failed ? `No answer — ${t.failed}` : undefined }));
@@ -3242,9 +3317,10 @@ function drawWhole(el, { sheet = false } = {}) {
   if (f && focused) f.focus({ preventScroll: true });
 }
 function trayChips() { return chat.attach.map((a, i) => `<span class="byob-chip">${a.thumb ? `<img src="${a.thumb}" alt="">` : '<i>Snip</i>'}<span class="byob-chip-label">${a.snip ? `${KIND[a.kind] || 'Snip'} · p. ${a.page}` : 'Image'}</span><button type="button" aria-label="Remove image" data-rm="${i}">×</button></span>`).join('') }
-/** Whole-file chat (the column's foot, the slash key, the menu's chat): its card opens; a question goes to today's ask. */
+/** Chat about the whole file (the t menu's Chat, or the slash key): its card opens; a question goes to today's ask. */
 function openWhole(opts = {}) {
   loadTurns();
+  col.whole.page = state.pages.length ? placePage() : null;
   if (opts.passage) chat.passage = opts.passage;
   if (opts.explanation) {
     chat.turns.push({ role: 'user', content: 'Explain this passage.', passage: opts.passage.text, page: opts.passage.page, at: Date.now() });
@@ -3259,7 +3335,11 @@ function openWhole(opts = {}) {
     try { layoutNow() } catch (e) { console.error(e) }
   }
   if (opts.prompt) ask(opts.prompt, opts.display);
-  else if (!opts.quiet) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector('.mr-follow__input')?.focus({ preventScroll: true })));
+  else if (!opts.quiet) {
+    // Its field takes the keys at once ("/" then typing: no letter may reach the page's own keys), and again once drawn.
+    const focus = () => openCardEl()?.querySelector('.mr-follow__input')?.focus({ preventScroll: true });
+    focus(); requestAnimationFrame(() => requestAnimationFrame(focus));
+  }
 }
 
 /* -- What a card does: open, close, copy, follow up, quiz, citations, dictation -- */
@@ -3293,27 +3373,26 @@ function bindCardEvents(host) {
     if (c === 'open') { openCard(id); if (keyed) refocus(`.mr-card.is-open[data-id="${CSS.escape(id)}"] .mr-card__close`); return }
     if (c === 'close') { if (host === col.sheet) closeSheet2(); else { openCard(null); if (keyed && id) refocus(`.mr-col .mr-card[data-id="${CSS.escape(id)}"] .mr-card__label`) } return }
     if (c === 'grab') { col.sheet?.classList.toggle('is-full'); return }
-    if (c === 'mic') { const f = b.closest('.mr-follow, .mr-foot')?.querySelector('.mr-follow__input'); if (f) { dictation.target = b; dictation.toggle(f) } return }
+    if (c === 'mic') { const f = b.closest('.mr-follow')?.querySelector('.mr-follow__input'); if (f) { dictation.target = b; dictation.toggle(f) } return }
     if (c === 'copy') return copyCard(id);
+    if (c === 'delete') return deleteCard(id);
     if (c === 'show' || c === 'next' || c === 'again') return quizStep(id, c);
   });
   host.addEventListener('input', e => { if (e.target.matches('.mr-follow__input')) { e.target.classList.toggle('has-text', !!e.target.value); fitFollow(e.target) } });
   host.addEventListener('keydown', e => {
     if (!e.target.matches('.mr-follow__input')) return;
-    if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); if (e.target.closest('.mr-foot')) return; openCard(null); return }
+    if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); openCard(null); return }
     if (e.key !== 'Enter' || e.shiftKey || e.isComposing) return;
     e.preventDefault();
     const text = e.target.value.trim(); if (!text) return;
-    const id = e.target.closest('.mr-foot') ? 'foot' : e.target.closest('[data-id]')?.dataset.id;
+    const id = e.target.closest('[data-id]')?.dataset.id;
     e.target.value = ''; e.target.classList.remove('has-text'); fitFollow(e.target); dictation.stop();
-    // From the foot, the conversation goes on in the Whole PDF card; the foot lets go of the keys.
-    if (id === 'foot') e.target.blur();
     followUp(id, text);
   });
 }
 function fitFollow(t) { t.style.height = '18px'; t.style.height = Math.min(t.scrollHeight, 54) + 'px' }
 function followUp(id, text) {
-  if (id === 'foot' || id === 'whole') { openWhole({ quiet: true }); ask(text); return }
+  if (id === 'whole') { openWhole({ quiet: true }); ask(text); return }
   const card = cardById(id); if (!card) return;
   if (card.kind === 'quiz') return quizCheck(card, text);
   if (card.kind === 'note' || id.startsWith('n-')) {
@@ -3334,6 +3413,66 @@ async function copyCard(id) {
   else if (card.kind === 'define') text = (card.data?.senses || []).map((s, i) => `${i + 1}. ${s.text}`).join('\n') || plain(card.data?.line);
   else text = (card.turns || []).filter(t => t.role === 'assistant').map(t => plain(t.content)).join('\n\n');
   try { await navigator.clipboard.writeText(text); toast('Copied.') } catch { toast('Copy did not work here. Use your device’s copy instead.') }
+}
+
+/* -- Delete (Anders, 15 Oct): every margin item, from the bin beside copy. No confirm: a quiet
+   "Deleted · Undo" line stays for a few seconds where the card was (the column), or along the bottom
+   (narrow windows, the phone). A card goes as a tombstone through the card sync; a note's card takes its
+   note, and its highlight when the note made it (TinctMargin.deletePlan). -- */
+function deleteCard(id) {
+  const view = viewCards().find(c => c.id === id) || cardById(id); if (!view) return;
+  const kept = view.kind === 'note' ? null : cardById(id);
+  const marks = highlights(), plan = TinctMargin.deletePlan(view, marks);
+  const touched = new Set([...plan.removeMarks, ...(plan.clearNote ? [plan.clearNote] : [])]);
+  const before = { card: kept ? JSON.parse(JSON.stringify(kept)) : null, marks: marks.filter(m => touched.has(m.id)).map(m => JSON.parse(JSON.stringify(m))) };
+  col.ctl.get(id)?.abort(); col.ctl.delete(id); col.live.delete(id); col.quiz.delete(id); col.pending.delete(id); col.drafts.delete(id);
+  const wasOpen = col.open === id;
+  if (wasOpen) { col.open = null; if (col.sheet) { col.sheet.remove(); col.sheet = null } closeFloat() }
+  if (plan.card) { store.set('cards:' + state.key, keptCards().map(c => (c.id === id ? TinctMargin.tombstone(id) : c))); cardsSync.changed() }
+  for (const mid of plan.removeMarks) removeHighlight(mid);
+  if (plan.clearNote) {
+    const list = highlights(), h = list.find(x => x.id === plan.clearNote);
+    if (h) { delete h.note; delete h.withNote; h.u = Date.now(); putHighlights(list); renderHighlights(state.pages[h.page - 1]) }
+  }
+  col.view = null; strip?.marksChanged();
+  showUndo(TinctMargin.firstRect(view), () => {
+    if (before.card) { store.set('cards:' + state.key, [...keptCards().filter(c => c.id !== before.card.id), { ...before.card, u: Date.now() }]); cardsSync.changed() }
+    if (before.marks.length) {
+      const back = new Set(before.marks.map(m => m.id)), now = Date.now();
+      store.set('hl-gone:' + state.key, (store.get('hl-gone:' + state.key) || []).filter(g => !back.has(g.id)));
+      putHighlights([...highlights().filter(m => !back.has(m.id)), ...before.marks.map(m => ({ ...m, u: now }))]);
+      for (const m of before.marks) renderHighlights(state.pages[m.page - 1]);
+    }
+    col.view = null; strip?.marksChanged();
+    if (wasOpen) openCard(id); else marginLayout({ fresh: true });
+  });
+  marginLayout({ fresh: true });
+  announce('Deleted.');
+}
+/** The quiet "Deleted · Undo" line, for UNDO_MS; Undo puts everything back. */
+function showUndo(rect, restore) {
+  clearTimeout(undo.timer);
+  if (!undo.el) {
+    const el = undo.el = document.createElement('div');
+    el.className = 'mr mr-undo'; el.setAttribute('role', 'status');
+    el.innerHTML = '<span>Deleted</span><span aria-hidden="true">·</span><button type="button" data-u="undo">Undo</button>';
+    el.addEventListener('mousedown', e => e.preventDefault());
+    el.querySelector('[data-u]').addEventListener('click', () => { const r = undo.restore; hideUndo(); r?.() });
+  }
+  undo.rect = rect; undo.restore = restore;
+  // The column places it with the cards (layoutColumn); elsewhere it floats along the bottom.
+  const inColumn = marginMode() === 'column';
+  undo.el.classList.toggle('is-float', !inColumn);
+  if (!inColumn) { undo.el.hidden = false; root.appendChild(undo.el); placeUndoFloat() }
+  undo.timer = setTimeout(hideUndo, UNDO_MS);
+}
+function hideUndo() { clearTimeout(undo.timer); undo.timer = 0; undo.restore = null; undo.rect = null; undo.el?.remove(); marginLayout() }
+/** The undo line's top in the column: the deleted card's passage, when its page is drawn. -> px from the column's top, or null */
+function undoTop(colTop, colH) {
+  if (!undo.el || !undo.rect || undo.el.classList.contains('is-float')) return null;
+  const p = state.pages[undo.rect[0] - 1]; if (!p) return null;
+  const b = p.pg.getBoundingClientRect(), y = b.top + undo.rect[2] * b.height - colTop;
+  return y > -40 && y < colH ? Math.max(0, y) : null;
 }
 
 /* -- The actions: each answer becomes a card -- */
@@ -3561,14 +3700,14 @@ $('scroll').addEventListener('scroll', () => { if (col.mode) marginLayout() }, {
 addEventListener('resize', () => { if (marginOn()) marginLayout({ fresh: true }) });
 // Tapping the page closes the phone's bottom card.
 document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() === 'phone' && !e.target.closest?.('.mr-sheet, .mr-float, .lab-header, .byob-toast')) { const u = currentUnit(); if (u) primer.away.add(u.key); closeSheet2() } }, true);
-// "/" asks about the whole PDF; Escape folds the open card (after the bar and its menus).
+// "/" opens Chat (about the whole PDF), its field ready; Escape folds the open card (after the bar and its menus).
 addEventListener('keydown', e => {
   if (!marginOn() || !readerShown() || e.defaultPrevented) return;
   const inField = !!e.target.closest?.('input, textarea, select, [contenteditable="true"]');
   if (e.key === '/' && !inField && !e.metaKey && !e.ctrlKey && !e.altKey && !mr) {
     if (document.querySelector('.lab-super-layer, .lab-v2-sheet-layer, .lab-contents-v2, .byob-sheet-host, .byob-snip, .byob-jumpbox, .byob-switcher')) return;
     e.preventDefault();
-    if (col.mode === 'column') col.foot.querySelector('.mr-follow__input')?.focus({ preventScroll: true }); else openWhole();
+    openWhole();
     return;
   }
   // B: Before you start, open or folded back (not while typing, not with Cmd, Ctrl or Alt; with a selection, letters go to Ask).
@@ -3589,8 +3728,8 @@ addEventListener('keydown', e => {
    in this browser ('primer:{key}:{unit}') and, signed in with the book in the account, with the
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
-const primer = { units: null, unitsTask: null, open: false, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
-const ppReady = import('/lab/margin/primer-parse.js').catch(() => null);
+const primer = { units: null, unitsTask: null, open: false, from: null, box: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
+const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
 function primerReset() {
   primer.token++;
   Object.assign(primer, { units: null, open: false, unit: null, data: null, wait: false, status: '' });
@@ -3625,9 +3764,25 @@ async function loadUnitsNow() {
   if (token !== state.token) return;
   // A recognised scan has no outline: its chapters (a paper's numbered sections) are its units.
   if (!entries.some(e => Number.isInteger(e.page)) && state.textEdition?.source === 'ocr') entries = state.textEdition.chapters.map(c => ({ title: c.title, page: Array.isArray(c.pages) ? c.pages[0] : null }));
-  const units = TinctMargin.primerUnits(entries, state.pages.length || pdf.numPages);
+  // Any other PDF without an outline: the chapters the scan found, from its printed contents or its
+  // headings (MacKay's 640-page book has no bookmarks, only a printed contents: without this it was
+  // one unit, "the whole PDF", and its primer blended the preface with chapters 1 and 2; Anders, 15 Oct).
+  const count = state.pages.length || pdf.numPages;
+  // (A PDF under 40 pages is one unit whatever it has: nothing to wait for.)
+  if (!entries.some(e => Number.isInteger(e.page)) && count >= TinctMargin.PRIMER.units) {
+    await toc.task;
+    if (token !== state.token) return;
+    entries = scanUnitEntries();
+  }
+  let units = TinctMargin.primerUnits(entries, count);
+  // Still one unit, and too long to send whole: blocks of pages, never "the whole PDF".
+  if (units.length === 1 && units[0].key === 'all' && count >= TinctMargin.PRIMER.units) {
+    const read = await readDocument();
+    if (token !== state.token) return;
+    if (read && !read.pages) units = TinctMargin.primerBlocks(count);
+  }
   for (const u of units.length > 1 ? units.slice(0, 80) : []) {
-    if (u.matter) continue;
+    if (u.matter || u.pages) continue;
     const kind = TinctMargin.pageMatter((await pageText(u.start)).text) || (u.start < u.to ? TinctMargin.pageMatter((await pageText(u.start + 1)).text) : null);
     if (token !== state.token) return;
     if (kind) u.matter = kind === 'contents' ? 'front' : 'back';
@@ -3635,6 +3790,8 @@ async function loadUnitsNow() {
   primer.units = units;
   marginLayout();
 }
+// The scan's chapters as primer entries (TinctMargin.scanEntries).
+const scanUnitEntries = () => TinctMargin.scanEntries(toc.entries, state.scan?.nav, state.pages.length);
 const placePage = () => (state.pages.length ? currentPlace().page : 1);
 // The chapter the reader is in when they open Before you start; on front or back matter, the nearest real chapter.
 const currentUnit = () => (primer.units ? TinctMargin.primerUnitAt(primer.units, placePage()) : null);
@@ -3648,11 +3805,16 @@ function triggerUnit() {
   const unit = currentUnit();
   return unit && TinctMargin.atUnitStart(unit, placePage()) ? unit : null;
 }
-const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : unit.title);
-/** The unit's pages as the companion receives a PDF (the Worker samples a long unit). */
+// The unit's name as the companion and the primer give it: "Chapter 1: Introduction to Information Theory".
+const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : unit.label || unit.title);
+/**
+ * The unit's pages as the companion receives a PDF (the Worker samples a long unit): from its own
+ * first page, not the pages before it that only offer its trigger (a title page, or a contents and
+ * preface no unit of their own covers), so a chapter's primer is that chapter's alone.
+ */
 async function unitPages(unit) {
-  const pages = [], to = Math.min(unit.to, unit.from + 199);
-  for (let n = unit.from; n <= to; n++) pages.push({ n: pageLabel(n), text: ((await pageText(n)).text || ' ').slice(0, 6000) });
+  const pages = [], from = Math.max(unit.from, Math.min(unit.start || unit.from, unit.to)), to = Math.min(unit.to, from + 199);
+  for (let n = from; n <= to; n++) pages.push({ n: pageLabel(n), text: ((await pageText(n)).text || ' ').slice(0, 6000) });
   return { pages, at: 0 };
 }
 const primerUsable = () => state.kind === 'pdf' && !!window.TinctAI?.session?.().token && /^[0-9a-f]{24}$/.test(hexOf(state.key));
@@ -3664,7 +3826,8 @@ async function primerRemote(method, unit, content = null) {
     const r = await fetch(`/api/user-books/primers/${hexOf(state.key)}?unit=${encodeURIComponent(unit.key)}`, {
       method, credentials: 'same-origin', cache: 'no-store',
       headers: { Authorization: 'Bearer ' + TinctAI.session().token, ...(content ? { 'Content-Type': 'application/json' } : {}) },
-      body: content ? JSON.stringify({ primer: { gist: content.gist, claims: content.claims, keepInMind: content.keepInMind, map: content.map } }) : undefined,
+      // Its content only (a primer kept here before kinds has claims and keepInMind; the Worker reads both shapes).
+      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
     });
     if (!r.ok) return null;
     return PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
@@ -3759,6 +3922,9 @@ function openPrimer(unit = currentUnit(), { keyboard = false } = {}) {
   if (!unit || !mode || !primerHasText()) return;
   if (col.open && col.sheet) closeSheet2();
   col.open = null; closeFloat();
+  // It opens where its trigger is and grows from there (primerInColumn): the trigger's place in the column.
+  const t = mode === 'column' && primer.trig?.isConnected ? primer.trig : null;
+  primer.from = t ? { top: t.offsetTop, height: t.offsetHeight } : null; primer.box = null;
   primer.open = true; primer.unit = unit; primer.keyed = keyboard;
   if (mode === 'phone') openSheet2('primer');
   loadPrimer(unit);
@@ -3782,7 +3948,8 @@ function drawPrimer(el, { sheet = false } = {}) {
   el.dataset.sig = sig;
   // The focus stays on the primer while it is drawn again (made, Redo); from the keys it starts on its close.
   if (el.contains(document.activeElement)) primer.keyed = true;
-  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title' });
+  const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
+  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title', unit });
   if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
   else el.innerHTML = inner;
   if (primer.wait) el.querySelector('.mr-wait')?.append(TinctWait.waitRing('Thinking…', { size: 18, live: false }));
@@ -3796,13 +3963,35 @@ function primerEl() {
   }
   return primer.el;
 }
-/** The column: the primer from 16px below its top to 70px above its foot, in place of the cards. -> true when it is open */
+/**
+ * The column: the primer in place of the cards, from where its trigger was down to 70px above the
+ * column's foot (TinctMargin.primerBox). It opens in place (Anders, 15 Oct: "it should just expand"):
+ * the trigger's own box grows into the open primer, its height easing down, never jumping up; with
+ * reduced motion it is there at once, at the same place. -> true when it is open
+ */
 function primerInColumn() {
   if (!primer.open) { primer.el?.remove(); primer.el = null; return false }
-  const el = primerEl();
-  el.classList.remove('is-floating'); el.removeAttribute('style');
-  if (el.parentElement !== col.el) col.el.insertBefore(el, col.el.firstChild);
+  const el = primerEl(), fresh = el.parentElement !== col.el;
+  el.classList.remove('is-floating');
+  if (fresh) { el.removeAttribute('style'); col.el.insertBefore(el, col.el.firstChild) }
   drawPrimer(el);
+  const colH = col.el.clientHeight;
+  // Placed once when it opens; later layouts (a resize) keep its top and fit its height.
+  if (!primer.box || fresh) primer.box = TinctMargin.primerBox(primer.from, colH);
+  const top = primer.box.top, height = Math.max(0, colH - TinctMargin.PRIMER.bottom - top);
+  const still = !fresh || !primer.box.start || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) { if (!el.classList.contains('is-growing')) Object.assign(el.style, { top: top + 'px', bottom: 'auto', height: height + 'px' }); return true }
+  // From the trigger's box to the open primer's, in one easing.
+  const start = primer.box.start;
+  Object.assign(el.style, { top: start.top + 'px', bottom: 'auto', height: start.height + 'px', transition: 'none' });
+  el.classList.add('is-growing');
+  void el.offsetHeight;
+  el.style.transition = '';
+  el.classList.remove('is-growing'); el.classList.add('is-opening');
+  Object.assign(el.style, { top: top + 'px', height: height + 'px' });
+  const done = () => { el.classList.remove('is-opening'); el.removeEventListener('transitionend', onEnd) };
+  const onEnd = e => { if (e.target === el && e.propertyName === 'height') done() };
+  el.addEventListener('transitionend', onEnd); setTimeout(done, 450);
   return true;
 }
 /** The first line of text on a page, as a fraction of its height (from its text layer), kept once found. */
@@ -3826,7 +4015,7 @@ function triggerInColumn(colTop) {
     b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false'); b.title = 'Before you start (B)';
   }
   const b = primer.trig;
-  if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: the gist, the key claims and a map of ${TinctMargin.unitPhrase(unit)}. Key B.`) }
+  if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: ${TinctMargin.triggerLine(unit)} Key B.`) }
   if (b.parentElement !== col.el) col.el.insertBefore(b, col.el.firstChild);
   // The first line of text on the page the reader is on (the unit's first pages: a title page, its start);
   // before the text layer is drawn, that page's top.
@@ -4190,7 +4379,7 @@ function showHot(reg, sticky) {
 function placeHot() {
   const el = hot.el, chip = el?.querySelector('.byob-hot-chip'); if (!chip || !el.isConnected) return;
   const box = el.getBoundingClientRect(), pg = el.parentElement.getBoundingClientRect(), sr = $('scroll').getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect().bottom;
-  const view = { left: Math.max(0, sr.left), right: Math.min(innerWidth, sr.left + $('scroll').clientWidth), top: Math.max(sr.top, hdr, 0), bottom: Math.min(sr.bottom, innerHeight) };
+  const view = { left: Math.max(0, sr.left), right: Math.min(innerWidth, sr.left + pagesWidth()), top: Math.max(sr.top, hdr, 0), bottom: Math.min(sr.bottom, innerHeight) };
   const bounds = { left: Math.max(pg.left, view.left), right: Math.min(pg.right, view.right), top: Math.max(pg.top, view.top), bottom: Math.min(pg.bottom, view.bottom) };
   const at = TinctMargin.placeChip({ box, w: chip.offsetWidth, h: chip.offsetHeight, bounds, outer: view });
   Object.assign(chip.style, { left: at.left - box.left + 'px', top: at.top - box.top + 'px', right: 'auto', transform: 'none' });

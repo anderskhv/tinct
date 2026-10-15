@@ -5,18 +5,30 @@
  * (the PDF reader's static-page copy); one test (src/primerParse.test.ts)
  * runs both against the same cases, so change them together.
  *
- * The model answers with JSON only (docs/margin/PROMPTS.md, chapter action `primer`):
- *   {"gist":"…","claims":[{"text":"…","cite":"{p. 12}"}],"keepInMind":["…"],"map":[{"title":"…","pages":"pp. 9–10"}]}
+ * The model first names the document's kind, then writes that kind's sections, as JSON only
+ * (docs/margin/PROMPTS.md, chapter action `primer`):
+ *   {"kind":"textbook","gist":"…","sections":[{"title":"What you'll learn","items":[{"text":"…","cite":"{p. 12}"}]},
+ *    {"title":"Terms","items":[{"term":"…","meaning":"…"}]}],"map":[{"title":"…","pages":"pp. 9–10"}]}
+ * A primer made before kinds (Anders, 15 Oct 2026), {"gist","claims","keepInMind","map"}, still
+ * reads: as a paper's, its claims and cautions the sections Key claims and Keep in mind.
  * A stored primer adds when it was made and the unit it is for: { …, madeAt, unitKey }.
  * Pure: no browser or Worker APIs.
  */
 
+/** A point with its page tag ('' when it has none). */
 export interface PrimerClaim { text: string; cite: string }
+/** A term and its meaning in one line (the Terms section). */
+export interface PrimerTerm { term: string; meaning: string }
+export type PrimerItem = PrimerClaim | PrimerTerm
+/** One section after the gist: its italic label and its items. */
+export interface PrimerPart { title: string; items: PrimerItem[] }
+/** One row of the map. */
 export interface PrimerSection { title: string; pages: string }
+export type PrimerKind = 'paper' | 'textbook' | 'narrative' | 'practical' | 'other'
 export interface Primer {
+  kind: PrimerKind
   gist: string
-  claims: PrimerClaim[]
-  keepInMind: string[]
+  sections: PrimerPart[]
   map: PrimerSection[]
 }
 export interface StoredPrimer extends Primer {
@@ -25,14 +37,28 @@ export interface StoredPrimer extends Primer {
   unitKey: string
 }
 
+/** The kinds of document a primer is written for, each with its sections in order (the map always last). */
+export const PRIMER_KINDS: Readonly<Record<PrimerKind, readonly string[]>> = Object.freeze({
+  paper: Object.freeze(['Key claims', 'Keep in mind']),
+  textbook: Object.freeze(['What you’ll learn', 'Ideas to hold onto', 'Terms']),
+  narrative: Object.freeze(['Where we are', 'People', 'Threads to watch']),
+  practical: Object.freeze(['What it covers', 'Steps or topics']),
+  other: Object.freeze(['Key points', 'Keep in mind']),
+})
+
 /** Counts and caps. A list longer than its maximum keeps its first items; shorter than its minimum is invalid. */
 export const PRIMER_LIMITS = Object.freeze({
+  sections: Object.freeze({ min: 1, max: 4 }),
+  items: Object.freeze({ min: 1, max: 8 }),
+  map: Object.freeze({ min: 3, max: 8 }),
+  /** A primer made before kinds: its claims and cautions. */
   claims: Object.freeze({ min: 3, max: 5 }),
   keepInMind: Object.freeze({ min: 1, max: 3 }),
-  map: Object.freeze({ min: 3, max: 8 }),
   gistChars: 600,
   itemChars: 400,
   titleChars: 200,
+  sectionTitleChars: 60,
+  termChars: 120,
   citeChars: 40,
   pagesChars: 40,
 })
@@ -61,10 +87,39 @@ function list<T>(value: unknown, { min, max }: { min: number; max: number }, ite
   return out.length >= min ? out : null
 }
 
+/** A point: a string, or { text, cite }. */
+function point(entry: unknown, L: typeof PRIMER_LIMITS): PrimerClaim | null {
+  if (typeof entry === 'string') {
+    const text = clean(entry, L.itemChars)
+    return text ? { text, cite: '' } : null
+  }
+  if (!entry || typeof entry !== 'object') return null
+  const e = entry as Record<string, unknown>
+  const text = clean(e.text, L.itemChars)
+  return text ? { text, cite: clean(e.cite, L.citeChars) } : null
+}
+
+/** A section's item: a term with its meaning, else a point. */
+function item(entry: unknown, L: typeof PRIMER_LIMITS): PrimerItem | null {
+  if (entry && typeof entry === 'object' && 'term' in entry) {
+    const e = entry as Record<string, unknown>
+    const term = clean(e.term, L.termChars), meaning = clean(e.meaning, L.itemChars)
+    return term && meaning ? { term, meaning } : null
+  }
+  return point(entry, L)
+}
+
+/** The kind named, or "other" for any it does not know. */
+function kindOf(value: unknown): PrimerKind {
+  return typeof value === 'string' && Object.prototype.hasOwnProperty.call(PRIMER_KINDS, value) ? value as PrimerKind : 'other'
+}
+
 /**
  * The primer's content, validated: strings trimmed and capped, cite tokens
  * kept as written text (the client turns them into tags), each list held to
- * its counts. Null when any part is missing or too short.
+ * its counts. A primer of the shape before kinds becomes a paper's, its claims
+ * and cautions the sections Key claims and Keep in mind. Null when any part is
+ * missing or too short.
  */
 export function normalizePrimer(value: unknown): Primer | null {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return null
@@ -72,25 +127,28 @@ export function normalizePrimer(value: unknown): Primer | null {
   const L = PRIMER_LIMITS
   const gist = clean(v.gist, L.gistChars)
   if (!gist) return null
-  const claims = list<PrimerClaim>(v.claims, L.claims, entry => {
-    if (typeof entry === 'string') {
-      const text = clean(entry, L.itemChars)
-      return text ? { text, cite: '' } : null
-    }
-    if (!entry || typeof entry !== 'object') return null
-    const e = entry as Record<string, unknown>
-    const text = clean(e.text, L.itemChars)
-    return text ? { text, cite: clean(e.cite, L.citeChars) } : null
-  })
-  const keepInMind = list<string>(v.keepInMind, L.keepInMind, entry => clean(entry, L.itemChars) || null)
   const map = list<PrimerSection>(v.map, L.map, entry => {
     if (!entry || typeof entry !== 'object') return null
     const e = entry as Record<string, unknown>
     const title = clean(e.title, L.titleChars)
     return title ? { title, pages: clean(e.pages, L.pagesChars) } : null
   })
-  if (!claims || !keepInMind || !map) return null
-  return { gist, claims, keepInMind, map }
+  if (!map) return null
+  if (Array.isArray(v.sections)) {
+    const sections = list<PrimerPart>(v.sections, L.sections, entry => {
+      if (!entry || typeof entry !== 'object') return null
+      const e = entry as Record<string, unknown>
+      const title = clean(e.title, L.sectionTitleChars)
+      const items = list<PrimerItem>(e.items, L.items, x => item(x, L))
+      return title && items ? { title, items } : null
+    })
+    return sections ? { kind: kindOf(v.kind), gist, sections, map } : null
+  }
+  const claims = list<PrimerClaim>(v.claims, L.claims, entry => point(entry, L))
+  const keepInMind = list<PrimerClaim>(v.keepInMind, L.keepInMind, entry => (typeof entry === 'string' ? point(entry, L) : null))
+  if (!claims || !keepInMind) return null
+  const [claimsTitle, keepTitle] = PRIMER_KINDS.paper
+  return { kind: 'paper', gist, sections: [{ title: claimsTitle, items: claims }, { title: keepTitle, items: keepInMind }], map }
 }
 
 /** The object that starts at `start` (a "{"), to its matching "}", strings and escapes respected; '' when it never closes. */
