@@ -904,7 +904,7 @@ const strip = window.TinctStrip ? TinctStrip.create({
     return { items, view: { width: vp.width, height: vp.height, transform: vp.transform } };
   },
   highlights: () => highlights(),
-  cards: () => keptCards().filter(c => !c.gone && c.rects?.length && !c.data?.unit),
+  cards: () => keptCards().filter(c => !c.gone && c.rects?.length && !c.data?.unit && (TinctMargin.cardAnswered(c) || (c.at || 0) >= CARDS_SINCE)),
   cardLabel: card => TinctMargin.html.cardLabel(card, pageLabel(card.page)),
   label: n => pageLabel(n),
   goTo: place => { goTo(place); onScroll() },
@@ -2358,6 +2358,8 @@ const mpReady = import('/lab/margin/margin-parse.js?v=20261015margintrain').then
 const col = { el: null, foot: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, whole: { away: false } };
 const marginOn = () => state.kind === 'pdf';
 const keptCards = () => store.get('cards:' + state.key) || [];
+// Cards made before this visit without their answer are not shown (TinctMargin.cardView); newer ones may still be answering.
+const CARDS_SINCE = Date.now();
 const cardById = id => keptCards().find(c => c.id === id && !c.gone) || null;
 function saveCard(card) {
   card.u = Date.now();
@@ -2491,7 +2493,7 @@ function marginLayout({ fresh = false } = {}) {
   col.raf = requestAnimationFrame(() => { col.raf = 0; try { layoutNow() } catch (e) { console.error(e) } });
 }
 function viewCards() {
-  if (!col.view) col.view = TinctMargin.cardView(keptCards(), highlights());
+  if (!col.view) col.view = TinctMargin.cardView(keptCards(), highlights(), { since: CARDS_SINCE });
   return col.view;
 }
 /** The cards whose passages are in view, with their first line's box on screen. */
@@ -2970,6 +2972,8 @@ function setLive(id, patch) {
   if (patch === null) col.live.delete(id); else col.live.set(id, { ...(col.live.get(id) || { text: '', status: '' }), ...patch });
   marginLayout();
 }
+/** Errors whose words are never kept on a card: a refusal, and a reply cut off by its output bound. */
+const WHOLE_OR_NOTHING = new Set(['refused', 'cut_off']);
 /** Run a card's request: its action the first time, today's ask for a follow-up (`question`). */
 async function runCard(id, question = null) {
   await mpReady;
@@ -3027,6 +3031,8 @@ async function runCard(id, question = null) {
       if (!live.questions.length) announce(`${TinctMargin.html.cardLabel(card, pageLabel(card.page))}. ${questions[0].q.replace(/\{[^{}\n]{1,40}\}/g, '').replace(/\s+/g, ' ').trim()}`);
       return;
     }
+    // An empty answer is never kept: the card shows its error instead.
+    if (!String(res.text || '').trim()) throw Object.assign(new Error('empty'), { code: 'empty' });
     card.turns = [...(card.turns || []), { role: 'assistant', content: res.text, at: Date.now() }];
     col.live.delete(id); col.ctl.delete(id);
     saveCard(card);
@@ -3037,12 +3043,12 @@ async function runCard(id, question = null) {
     col.ctl.delete(id);
     if (live && col.quiz.get(id) === live) {
       col.quiz.delete(id);
-      // Stopped after some questions (never a refusal): keep them and end the quiz there, saved once.
+      // Stopped after some questions (never a refusal or a cut-off reply): keep them and end the quiz there, saved once.
       const c = cardById(id);
-      if (c && live.questions.length && e?.code !== 'refused') { col.live.delete(id); c.data = quizEnded(live, live.questions, true); saveCard(c); return }
+      if (c && live.questions.length && !WHOLE_OR_NOTHING.has(e?.code)) { col.live.delete(id); c.data = quizEnded(live, live.questions, true); saveCard(c); return }
     }
     const c = cardById(id);
-    if (c && e?.text && c.kind !== 'quiz' && e.code !== 'refused') { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
+    if (c && e?.text && c.kind !== 'quiz' && !WHOLE_OR_NOTHING.has(e.code)) { c.turns = [...(c.turns || []), { role: 'assistant', content: e.text, at: Date.now() }]; saveCard(c) }
     setLive(id, { text: null, status: errorCopy(e) });
   }
 }
@@ -3231,7 +3237,8 @@ const primerKey = unit => 'primer:' + state.key + ':' + unit.key;
 const PRIMER_WAIT_MS = 45000;
 const PRIMER_SLOW = 'Before you start is taking too long. Try again.';
 const primerMaking = new Map();
-const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed']);
+// A cut-off primer is asked for once more, as one that does not parse.
+const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed', 'cut_off']);
 function makePrimer(unit) {
   const id = primerKey(unit);
   if (primerMaking.has(id)) return primerMaking.get(id);

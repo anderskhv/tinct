@@ -24,7 +24,8 @@ interface MarginApi {
   hyphenWord(text: string, start: number, end: number): [number, number] | null
   columnBox(width: number, pageRight: number): { left: number; width: number } | null
   citeTarget(token: Token, o: { labels?: string[] | null; count?: number; texts?: Map<number, string> | null }): { page: number; needle: string } | null
-  cardView(cards: Card[], marks: Array<Record<string, unknown>>): Card[]
+  cardView(cards: Card[], marks: Array<Record<string, unknown>>, o?: { since?: number }): Card[]
+  cardAnswered(card: Card): boolean
   mergeCards(...sets: Card[][]): Card[]
   newCard(o: Record<string, unknown>): Card
   quizScore(q: Record<string, unknown>): number
@@ -291,11 +292,30 @@ describe('the card store', () => {
     expect(M.mergeCards(b, a)).toEqual(merged)
   })
   it('the view: kept answers not removed, and every highlight with a note, in page order (line, then left to right)', () => {
-    const cards = [card('late', 1, { rects: [[3, 0.1, 0.1, 0.2, 0.02]] }), card('right', 1, { rects: [[2, 0.6, 0.5, 0.2, 0.02]] }), card('left', 1, { rects: [[2, 0.1, 0.501, 0.2, 0.02]] }), { id: 'g', gone: true, u: 1 } as Card]
+    const answered = { turns: [{ role: 'assistant', content: 'An answer.' }] }
+    const cards = [card('late', 1, { ...answered, rects: [[3, 0.1, 0.1, 0.2, 0.02]] }), card('right', 1, { ...answered, rects: [[2, 0.6, 0.5, 0.2, 0.02]] }), card('left', 1, { ...answered, rects: [[2, 0.1, 0.501, 0.2, 0.02]] }), { id: 'g', gone: true, u: 1 } as Card]
     const marks = [{ id: 'm1', page: 2, rects: [[0.1, 0.2, 0.4, 0.02]], text: 'p', color: 'gold', note: 'Mine.', at: 1 }, { id: 'm2', page: 2, rects: [[0.1, 0.3, 0.4, 0.02]], text: 'p', color: 'sky', at: 1 }]
     const view = M.cardView(cards, marks)
     expect(view.map(c => c.id)).toEqual(['n-m1', 'left', 'right', 'late'])
     expect(view[0]).toMatchObject({ kind: 'note', note: 'Mine.', rects: [[2, 0.1, 0.2, 0.4, 0.02]] })
+  })
+  it('a kept card without its answer (cut off, 15 Oct) is not shown, unless made this visit; notes, Ask and Define always are', () => {
+    const at = (n: number) => ({ at: n, rects: [[2, 0.1, 0.1 + n / 100, 0.2, 0.02]] as Card['rects'] })
+    const cards = [
+      card('empty', 1, { ...at(1), turns: [{ role: 'assistant', content: '' }] }),
+      card('blank', 1, { ...at(2), kind: 'factcheck', turns: [{ role: 'assistant', content: '  \n ' }] }),
+      card('none', 1, { ...at(3), kind: 'counterpoint', turns: [] }),
+      card('quiz', 1, { ...at(4), kind: 'quiz', turns: [], data: { questions: [], i: 0, results: [] } }),
+      card('fresh', 1, { ...at(50), kind: 'simplify', turns: [] }),
+      card('ok', 1, { ...at(5), turns: [{ role: 'assistant', content: 'An answer.' }] }),
+      card('ask', 1, { ...at(6), kind: 'ask', turns: [{ role: 'user', content: 'Why?' }] }),
+      card('define', 1, { ...at(7), kind: 'define', turns: [], data: { word: 'w', line: 'A word.' } }),
+    ]
+    const marks = [{ id: 'm1', page: 2, rects: [[0.1, 0.9, 0.4, 0.02]], text: 'p', color: 'gold', note: 'Mine.', at: 1 }]
+    expect(M.cardView(cards, marks).map(c => c.id)).toEqual(['ok', 'ask', 'define', 'n-m1'])
+    // Made at or after this visit began: its answer may still be on the way.
+    expect(M.cardView(cards, marks, { since: 50 }).map(c => c.id)).toEqual(['ok', 'ask', 'define', 'fresh', 'n-m1'])
+    expect(cards.map(c => M.cardAnswered(c))).toEqual([false, false, false, false, false, true, true, true])
   })
   it('a new card keeps its passage in page fractions and bounds its words', () => {
     const c = M.newCard({ kind: 'simplify', page: 4, anchor: [{ n: 4, x: 0.123456, y: 0.5, w: 0.2, h: 0.01 }], text: 'y'.repeat(3000), at: 1000 })
