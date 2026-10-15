@@ -1,5 +1,5 @@
 import { open, select as select0, locate, toTop, timeAnswer } from './th.mjs'; import { sleep } from './lib.mjs'; import fs from 'fs';
-const T = JSON.parse(fs.readFileSync('testset.json', 'utf8')); const OUT = 'deep/tinct.jsonl'; fs.mkdirSync('deep', { recursive: true });
+const T = JSON.parse(fs.readFileSync(process.env.TS || 'testset.json', 'utf8')); const OD = process.env.OUTD || 'deep'; const OUT = OD + '/tinct.jsonl'; fs.mkdirSync(OD, { recursive: true });
 const done = new Set(fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8').trim().split('\n').filter(Boolean).map(l => JSON.parse(l).id) : []);
 const save = o => fs.appendFileSync(OUT, JSON.stringify(o) + '\n');
 let { c, p } = await open();
@@ -10,7 +10,7 @@ async function closeAll() { for (let i = 0; i < 3; i++) { await p.keyboard.press
 async function more(row) { await p.locator('.mr-bar .mr-bar__item:has-text("More"), .mr-bar .mr-bar__item[aria-label="More"]').first().click(); await sleep(450); await p.locator('.mr-more__row', { hasText: row }).first().click(); }
 async function run(id, fn) {
   if (done.has(id)) return; let rec;
-  try { rec = await fn(); } catch (e) { rec = { error: e.message.split('\n')[0] }; await p.screenshot({ path: `deep/t-${id}-fail.png` }).catch(() => {}); }
+  try { rec = await fn(); } catch (e) { rec = { error: e.message.split('\n')[0] }; await p.screenshot({ path: `${OD}/t-${id}-fail.png` }).catch(() => {}); }
   save({ id, ...rec }); console.log(id, rec.error || `${rec.first}/${rec.last}ms`); await closeAll();
 }
 for (const [i, ph] of T.explain.entries()) await run(`explain-${i}`, async () => { await select(p, ph); const t0 = Date.now(); await p.locator('.mr-bar .mr-bar__item', { hasText: 'Explain' }).first().click(); const r = await timeAnswer(p, t0, ANS); return { passage: ph, ...r, card: await cardText() }; });
@@ -30,6 +30,15 @@ for (const [i, ph] of T.quiz.entries()) await run(`quiz-${i}`, async () => {
   }
   await sleep(1200); return { passage: ph, first, last: Date.now() - t0, steps, end: await cardText(), text: steps.map(s => s.q).join(' | ') };
 });
-for (const [i, q] of T.whole.entries()) await run(`whole-${i}`, async () => { await closeAll(); await p.keyboard.press('/'); await sleep(400); await p.keyboard.type(q, { delay: 5 }); const t0 = Date.now(); await p.keyboard.press('Enter'); const r = await timeAnswer(p, t0, ANS, 150000); return { question: q, ...r }; });
-await run('primer', async () => { await toTop(p); await p.mouse.click(60, 500); await p.keyboard.press('b'); await sleep(3000); return { first: 0, last: 0, text: await p.evaluate(() => document.querySelector('.mr-primer')?.innerText || '') }; });
+const answers = () => p.evaluate(() => [...document.querySelectorAll('.mr-card.is-open .mr-answer')].map(e => e.innerText));
+for (const [i, q] of T.whole.entries()) await run(`whole-${i}`, async () => {
+  await closeAll(); await p.keyboard.press('/'); await sleep(2500);
+  const before = (await answers()).length; await p.keyboard.type(q, { delay: 5 }); const t0 = Date.now(); await p.keyboard.press('Enter');
+  let first = 0, last = 0, prev = '', since = 0;
+  while (Date.now() - t0 < 120000) { const a = await answers(); const t = a.length > before ? a[a.length - 1] : ''; const now = Date.now(); if (t.length > 20 && !first) first = now - t0; if (t !== prev) { prev = t; since = now; last = now - t0; } if (first && now - since > 3500) break; await sleep(250); }
+  return { question: q, first, last, text: prev };
+});
+await run('primer', async () => { await toTop(p); await p.mouse.click(60, 500); const t0 = Date.now(); await p.keyboard.press('b');
+  let txt = ''; for (let k = 0; k < 360; k++) { await sleep(500); txt = await p.evaluate(() => document.querySelector('.mr-primer')?.innerText || ''); if (txt && !/Thinking|loading/i.test(txt) && txt.length > 150) break; }
+  return { first: 0, last: Date.now() - t0, text: txt }; });
 console.log('errors', p.errors.slice(0, 10)); await c.close();

@@ -1,6 +1,6 @@
 import { ctx, sleep } from './lib.mjs';
 import fs from 'fs';
-export const URL = 'https://tinct.app/lab/addbook/?userBook=bdfaa68d8984f0dc02beaca5';
+export const URL = process.env.TURL || 'https://tinct.app/lab/addbook/?userBook=bdfaa68d8984f0dc02beaca5';
 export async function open(viewport) {
   const c = await ctx(viewport, viewport && viewport.width < 600 ? { isMobile: true, hasTouch: true } : {}); const p = c.pages()[0] || await c.newPage();
   p.errors = []; p.on('console', m => { if (m.type() === 'error') p.errors.push(m.text().slice(0, 300)); }); p.on('pageerror', e => p.errors.push('PAGEERROR ' + e.message.slice(0, 300)));

@@ -1,10 +1,10 @@
 import { ctx, sleep } from './lib.mjs'; import fs from 'fs';
 process.env.PROFILE = '/tmp/claude-0/-home-user-tinct/1997e058-3432-5517-b2af-8c632de4a039/scratchpad/cmp/gprofile';
-export const GURL = 'https://www.usegloss.io/read/attention-is-all-you-need-9y94h';
+export const GURL = process.env.GURL || 'https://www.usegloss.io/read/attention-is-all-you-need-9y94h';
 export async function gopen(viewport) {
   const c = await ctx(viewport, viewport && viewport.width < 600 ? { isMobile: true, hasTouch: true } : {}); const p = c.pages()[0] || await c.newPage();
   p.errors = []; p.on('pageerror', e => p.errors.push(e.message.slice(0, 200))); p.on('response', r => { if (r.status() >= 400) p.errors.push(r.status() + ' ' + r.url().slice(0, 120)); });
-  await p.goto(GURL, { waitUntil: 'networkidle', timeout: 60000 }); await sleep(2500); return { c, p };
+  await p.goto(GURL, { waitUntil: 'networkidle', timeout: 60000 }); for (let i = 0; i < 40; i++) { await sleep(500); if ((await p.evaluate(() => (document.querySelector('main') || document.body).innerText.length)) > 3000) break; } return { c, p };
 }
 export async function gselect(p, phrase) {
   await p.evaluate(() => scrollTo(0, 0)); await sleep(300);
