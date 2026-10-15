@@ -746,17 +746,22 @@
    * is "outline-{i}" (its index in the outline; "outline-{i}.{j}" for a part's chapter j), "all" for
    * the whole file: a PDF without an outline, or one of fewer than 40 pages (FIXES-2026-10-15, B2).
    * Front and back matter (Contents, Preface, References, Index, …) carry `matter: 'front' | 'back'`.
-   * -> [{ key, title, from, start, to, matter? }] (start: the entry's own page; the trigger shows from `from` to `start`)
+   * A chapter whose title is only its number and name ("1 Introduction to Information Theory", "1 ·
+   * Introduction …") carries `chapter` (its number) and `label` ("Chapter 1: Introduction to
+   * Information Theory"), so it is named as that chapter (Anders, 15 Oct, MacKay): a part's chapters,
+   * an entry marked `kind: 'chapter'` (a printed contents' chapters, js/pdf-scan.js), or any such
+   * entry in a book of 100 pages or more.
+   * -> [{ key, title, from, start, to, matter?, chapter?, label? }] (start: the entry's own page; the trigger shows from `from` to `start`)
    */
   function primerUnits(entries, count) {
     const n = Math.max(1, Number(count) || 1);
-    const clean = (e, key) => ({ key, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page });
+    const clean = (e, key) => ({ key, title: String(e?.title || '').replace(/\s+/g, ' ').trim().slice(0, 300), page: e?.page, ...(e?.kind === 'chapter' ? { chapter: true } : {}) });
     const flat = [];
     (entries || []).forEach((e, i) => {
       const kids = Array.isArray(e?.items) ? e.items.map((c, j) => clean(c, `${i}.${j}`)).filter(c => c.title && Number.isInteger(c.page)) : [];
       if (isPart(clean(e, ''), kids)) {
         // The part's own pages before its first chapter (its title page) go with that chapter.
-        kids.forEach((c, j) => flat.push({ ...c, i: flat.length, page: j === 0 && Number.isInteger(e.page) ? Math.min(e.page, c.page) : c.page, start: c.page }));
+        kids.forEach((c, j) => flat.push({ ...c, chapter: true, i: flat.length, page: j === 0 && Number.isInteger(e.page) ? Math.min(e.page, c.page) : c.page, start: c.page }));
       } else flat.push({ ...clean(e, String(i)), i: flat.length });
     });
     const list = flat.filter(e => e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= n)
@@ -766,8 +771,41 @@
     return list.map((e, k) => {
       const matter = matterOf(e.title);
       const start = Number.isInteger(e.start) && e.start <= n ? e.start : e.page;
-      return { key: 'outline-' + e.key, title: e.title, from: k === 0 ? 1 : e.page, start, to: k + 1 < list.length ? list[k + 1].page - 1 : n, ...(matter ? { matter } : {}) };
+      const named = !matter && (e.chapter || n >= 100) ? numberedChapter(e.title) : null;
+      return { key: 'outline-' + e.key, title: e.title, from: k === 0 ? 1 : e.page, start, to: k + 1 < list.length ? list[k + 1].page - 1 : n, ...(matter ? { matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}` } : {}) };
     });
+  }
+  /**
+   * For a PDF without an outline: the chapters its scan found (js/pdf-scan.js entries, `nav` how they
+   * were found) as primerUnits' entries: the top-level ones, a part with its chapters as items, each
+   * chapter marked as one. From the printed contents always; from headings found by size only when
+   * they are chapter-sized (five pages each or more on average), never a book's every section.
+   * -> [{ title, page, kind?, items }]
+   */
+  function scanEntries(list, nav, count) {
+    list = Array.isArray(list) ? list : [];
+    if (!list.length || (nav !== 'contents' && nav !== 'headings')) return [];
+    if (nav === 'headings' && (Number(count) || 0) / list.length < 5) return [];
+    const entry = e => ({ title: e.label, page: e.page, ...(e.kind === 'chapter' ? { kind: 'chapter' } : {}) });
+    return list.filter(e => !e.parent).map(e => ({ ...entry(e), items: list.filter(c => c.parent === e.id).slice(0, 60).map(entry) }));
+  }
+  /** A chapter's title that is its number and its name: "1 Introduction", "12. Rates", "3 · Inference" -> { n, name }; else null. */
+  function numberedChapter(title) {
+    const m = /^(\d{1,3})(?:\s*[.:·—–-]\s*|\s+)(\S.*)$/u.exec(String(title || '').trim());
+    return m && !/^\d/.test(m[2]) ? { n: m[1], name: m[2].trim() } : null;
+  }
+  /**
+   * A long PDF with no chapters to go by (no outline, no printed contents) and too long to send
+   * whole: blocks of `size` pages, each its own unit ("pages 1–40"), the same blocks the margin's
+   * document uses (reader.js docRange), so a primer never claims to cover the whole PDF.
+   */
+  function primerBlocks(count, size = PRIMER.units) {
+    const n = Math.max(1, Number(count) || 1), out = [];
+    for (let from = 1; from <= n; from += size) {
+      const to = Math.min(n, from + size - 1);
+      out.push({ key: `pages-${from}`, title: `Pages ${from}–${to}`, from, start: from, to, pages: true });
+    }
+    return out;
   }
   // A part's own entries are chapters: numbered "2 …" or "Chapter 2 …" (not sections such as "2.1 …").
   const CHAPTER_TITLE = /^(?:(?:chapter|lecture)\s+[\p{L}\p{N}]+[.:]?|\d{1,3}\.?)\s+\S/iu;
@@ -818,12 +856,15 @@
   const atUnitStart = (unit, page) => !!unit && page >= unit.from && page <= unit.start;
   /**
    * How the trigger names its unit ("a map of chapter 1."): a numbered chapter, part or section as
-   * "chapter 1", the whole file as "the whole PDF", any other heading as a phrase with "the", its
+   * "chapter 1" (a unit primerUnits found to be a chapter, too: "1 Introduction …" in a book), a block
+   * of a long file without chapters as "pages 41–80", the whole file as "the whole PDF", any other heading as a phrase with "the", its
    * own number dropped and its capitalised words lowercased ("1 Introduction" -> "the introduction";
    * acronyms such as "BLEU" stay as printed).
    */
   function unitPhrase(unit) {
     if (!unit || unit.key === 'all' || !unit.title) return 'the whole PDF';
+    if (unit.chapter) return `chapter ${unit.chapter}`;
+    if (unit.pages) return `pages ${unit.from}–${unit.to}`;
     const m = /^(chapter|part|section|lecture|unit|book|appendix)\s+([\p{L}\p{N}]+(?:\.\d+)*)(?=$|[\s.:,;—–-])/iu.exec(unit.title);
     if (m) return `${m[1].toLowerCase()} ${m[2]}`;
     const words = unit.title.replace(/[.:;,]+$/, '').replace(/^\s*(?:\d+(?:\.\d+)*\.?|[IVXLC]+\.|[A-Z]\.)\s+(?=\S)/u, '').trim()
@@ -841,15 +882,32 @@
   const OWN_NUMBER = /^\s*(?:\d+(?:\.\d+)*\.?|[A-Z](?:\.\d+)+\.?|[A-Z]\.|[IVXLC]+\.|(?:chapter|part|section|appendix|lecture|unit)\s+[\p{L}\p{N}]+(?:\.\d+)*[.:]?)\s+\S/iu;
   /**
    * The trigger's words, a folded margin card's (Anders, 15 Oct): the italic label "Before you start",
-   * then "The gist, the key claims and a map of {unit}." The B key is in its title, not a keycap.
+   * then "The gist and a map of {unit}." It names no other section: what follows the gist depends
+   * on the document's kind, known only once the primer is made. The B key is in its title, not a keycap.
    */
   function triggerHtml(unit) {
-    return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">The gist, the key claims and a map of ${esc(unitPhrase(unit))}.</span>`;
+    return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">${esc(triggerLine(unit))}</span>`;
+  }
+  /** The trigger's line, also its accessible name: "The gist and a map of chapter 1." */
+  const triggerLine = unit => `The gist and a map of ${unitPhrase(unit)}.`;
+  /**
+   * A primer's sections after the gist: its own, or, for a primer stored before kinds (Anders, 15
+   * Oct), its claims and cautions as Key claims and Keep in mind. -> [{ title, items: [{ text, cite } | { term, meaning }] }]
+   */
+  function primerSections(p) {
+    if (Array.isArray(p?.sections)) return p.sections.filter(s => s && s.title && Array.isArray(s.items) && s.items.length);
+    const claims = (p?.claims || []).map(c => (typeof c === 'string' ? { text: c, cite: '' } : c)).filter(c => c?.text);
+    const keep = (p?.keepInMind || []).filter(k => typeof k === 'string' && k).map(text => ({ text, cite: '' }));
+    return [claims.length ? { title: 'Key claims', items: claims } : null, keep.length ? { title: 'Keep in mind', items: keep } : null].filter(Boolean);
   }
   /**
-   * The primer. p: { gist, claims: [{ text, cite }], keepInMind: [..], map: [{ title, pages }] }, or
-   * null while it is made (`wait`) or when it could not be (`status`, then Redo).
-   * o: { P (parsers), resolve (citation -> target), status, wait, close (the close button; default true), id (the title's id) }.
+   * The primer. p: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
+   * stored before kinds: { gist, claims, keepInMind, map }), or null while it is made (`wait`) or when
+   * it could not be (`status`, then Redo). The gist first, then each section under its italic label:
+   * a paper's, a textbook's or other's first section and any steps numbered, as Key claims always
+   * were; the others, and terms ("term — meaning"), as Keep in mind was; then the map, Quiz me and the footer.
+   * o: { P (parsers), resolve (citation -> target), status, wait, close (the close button; default true), id (the title's id),
+   *      unit (the unit's name, "Chapter 1: Introduction to Information Theory", shown under the title) }.
    */
   function primerHtml(p, o = {}) {
     const close = o.close === false ? '' : '<button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Close">×</button>';
@@ -859,8 +917,15 @@
       return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><span></span><button type="button" data-c="redo">Redo</button></div>`;
     }
     const tag = cite => (cite ? ' ' + inlineHtml(cite, o.P, o.resolve) : '');
-    const claims = (p.claims || []).map((c, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${inlineHtml(c.text, o.P, o.resolve)}${tag(c.cite)}</span></li>`).join('');
-    const keep = (p.keepInMind || []).map(k => `<li>${inlineHtml(k, o.P, o.resolve)}</li>`).join('');
+    const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
+    const sections = primerSections(p).map((sec, k) => {
+      // Numbered: a paper's claims, a textbook's outcomes, other's points (the first section, as Key claims was) and steps; a story's situation and a guide's scope are not a sequence.
+      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b/i.test(sec.title) || (k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
+      const list = numbered
+        ? `<ol class="mr-primer__claims">${sec.items.map((it, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${line(it)}</span></li>`).join('')}</ol>`
+        : `<ul class="mr-primer__keep">${sec.items.map(it => `<li>${line(it)}</li>`).join('')}</ul>`;
+      return `<div><p class="mr-primer__head">${esc(sec.title)}</p>${list}</div>`;
+    }).join('');
     // A map that uses the document's own numbered headings ("1 Introduction") shows each number once: no count beside it.
     const own = (p.map || []).some(r => OWN_NUMBER.test(r.title || ''));
     const rows = (p.map || []).map((r, i) => {
@@ -870,9 +935,9 @@
       return target ? `<button type="button" class="${cls}" data-page="${target.page}">${inner}</button>` : `<div class="${cls}">${inner}</div>`;
     }).join('');
     return head
+      + (o.unit ? `<p class="mr-primer__unit">${esc(o.unit)}</p>` : '')
       + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
-      + `<div><p class="mr-primer__head">Key claims</p><ol class="mr-primer__claims">${claims}</ol></div>`
-      + `<div><p class="mr-primer__head">Keep in mind</p><ul class="mr-primer__keep">${keep}</ul></div>`
+      + sections
       + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
       + '<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>3 questions →</small></button>'
       + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
@@ -1092,7 +1157,7 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, primerBlocks, numberedChapter, scanEntries, unitAt, atUnitStart, unitPhrase, triggerLine, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt };
 });

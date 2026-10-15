@@ -311,8 +311,9 @@ export function figurePaper() {
 //    TD-Gammon figure with text wrapped beside it (labels inside, a caption); then References and an
 //    Index. longBook({ meta: true }) also returns where things are; `bigImages` adds that many
 //    one-megabyte pictures (70 make a file of about 73 MB, as the test's book) for the reopen timing.
+//    `bookmarks: false` leaves the outline out, as MacKay's 640-page book has none: only its printed Contents.
 export const LONG_BOOK_OFFSET = 22
-export function longBook({ bigImages = 0, meta = false } = {}) {
+export function longBook({ bigImages = 0, meta = false, bookmarks = true } = {}) {
   breaks = 0;
   const TOP = 700, FOOT = 90, PITCH = 15;
   const parts = [
@@ -407,7 +408,9 @@ export function longBook({ bigImages = 0, meta = false } = {}) {
     for (let r = 0; y > FOOT; r++, y -= 13) { const k = i * 46 + r; pg.lines.push({ x: 72, y, size: 9, font: 'Times-Roman', text: `${TERMS[k % TERMS.length]}${k >= TERMS.length ? `, case ${Math.floor(k / TERMS.length)}` : ''}, ${(k * 7) % 500 + 1}, ${(k * 11) % 500 + 3}` }) }
   }
   // The Contents pages: every chapter with its printed page.
-  const rows = outline.flatMap(e => e.children ? [{ title: e.title, page: e.page }, ...e.children] : [e]).filter(e => e.page > LONG_BOOK_OFFSET);
+  const rows = outline.flatMap(e => e.children ? [{ title: e.title, page: e.page }, ...e.children] : [e]).filter(e => e.page > LONG_BOOK_OFFSET)
+    // Without bookmarks, a contents of parts and chapters only, as MacKay's is.
+    .filter(e => bookmarks || !/^\d+\.\d/.test(e.title));
   rows.forEach((e, i) => { const pg = contentsPages[Math.floor(i / 6)] || contentsPages[3]; const y = 680 - (i % 6) * 40; pg.lines.push({ x: 72, y, size: 11, font: 'Times-Roman', text: `${e.title} . . . . . . . . ${e.page - LONG_BOOK_OFFSET}` }) });
   contentsPages[0].lines.push({ x: 72, y: 720, size: 18, font: 'Times-Bold', text: 'Contents' });
   // Running heads with the printed number (even pages: number left; odd: right), the foot's number on openers and front matter.
@@ -423,7 +426,7 @@ export function longBook({ bigImages = 0, meta = false } = {}) {
   // Large pictures for a large file, spread over the chapters' pages (drawn under their text).
   const spots = pages.map((pg, i) => i).filter(i => pages[i].chapter && i + 1 !== figurePage);
   for (let k = 0; k < bigImages; k++) pages[spots[Math.floor(k * spots.length / bigImages)]].images.push({ x: 72, y: 100, w: 468, h: 60, pw: 1024, ph: 1024, noise: k + 1 });
-  const bytes = makePdf({ info: { Title: 'Learning from Reward', Author: 'Ann Example and Bo Sample' }, outline, pages: pages.map(pg => ({ lines: pg.lines, images: pg.images })) });
+  const bytes = makePdf({ info: { Title: 'Learning from Reward', Author: 'Ann Example and Bo Sample' }, outline: bookmarks ? outline : [], pages: pages.map(pg => ({ lines: pg.lines, images: pg.images })) });
   return meta ? { bytes, meta: { offset: LONG_BOOK_OFFSET, pages: pages.length, sarsaPage, figurePage, chapters, refsFrom, indexFrom } } : bytes;
 }
 

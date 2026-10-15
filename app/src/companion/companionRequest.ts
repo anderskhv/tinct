@@ -651,7 +651,7 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
   const stable = buildMarginPrefix(doc, { title: context.bookTitle, author: context.bookAuthor })
   const primer = isPrimerRequest(request)
   const image = extras.image && (request.intent === 'explain' || request.intent === 'define') ? [PASSAGE_IMAGE_LINE] : []
-  const task = primer ? [buildPrimerTask(request.chapter.action, context)] : [...marginTask(request, extras), ...image]
+  const task = primer ? [buildPrimerTask(request.chapter.action, context, doc)] : [...marginTask(request, extras), ...image]
   const volatile = buildMarginVolatile({
     kind: doc.kind,
     place: primer ? null : contextPlace(context),

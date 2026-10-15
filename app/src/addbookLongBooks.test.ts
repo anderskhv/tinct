@@ -21,7 +21,7 @@ const ROOT = resolve(__dirname, '../..') + '/'
 const VENDOR = ROOT + 'app/public/lab/addbook/vendor/pdfjs/'
 
 type Item = { str: string; transform: number[]; width: number; height: number; hasEOL: boolean }
-type Unit = { key: string; title: string; from: number; start: number; to: number; matter?: string }
+type Unit = { key: string; title: string; from: number; start: number; to: number; matter?: string; chapter?: string; label?: string; pages?: boolean }
 interface Search { create(): { add(page: number, text: string): void; search(q: string, o?: { limit?: number; skip?: Set<number> | null }): Array<{ page: number; text: string; score: number }>; size: number }; queryTerms(q: string): string[]; stem(w: string): string }
 interface Order { roles(items: Item[], view?: number[] | null): Array<string | null>; pageText(items: Item[], roles?: Array<string | null>): string; CAPTION: RegExp }
 interface Printed { candidates(items: Item[], view: number[]): Array<{ value: number; roman: boolean }>; labels(perPage: Array<Array<{ value: number; roman: boolean }>>): string[] | null }
@@ -32,15 +32,20 @@ interface Margin {
   pageMatter(text: string): string | null
   matterOf(title: string): string | null
   captionOf(text: string): { kind: string; n: string; label: string } | null
+  scanEntries(list: unknown[], nav: string, count: number): Array<{ title: string; page: number; kind?: string; items: unknown[] }>
+  primerBlocks(count: number): Unit[]
+  unitPhrase(unit: Unit | null): string
+  triggerLine(unit: Unit | null): string
 }
+interface Scan { scan(pdf: Pdf, o: { fileName: string }): Promise<{ nav: string; entries: Array<{ id: string; label: string; page: number; kind: string; parent: string | null }> }> }
 interface Meta { offset: number; pages: number; sarsaPage: number; figurePage: number; chapters: Array<{ title: string; from: number; to: number }>; refsFrom: number; indexFrom: number }
 type Pdf = { numPages: number; getPage(n: number): Promise<{ view: number[]; getTextContent(): Promise<{ items: Item[] }> }>; getOutline(): Promise<Array<{ title: string; dest: unknown; items: unknown[] }>>; getDestination(d: string): Promise<unknown[]>; getPageIndex(ref: unknown): Promise<number>; getPageLabels(): Promise<string[] | null>; destroy(): Promise<void> }
 
 type OcrPage = { page: number; printed_page?: string | null; blocks: Array<{ t: string; x: string; b?: number[] }> }
 interface Ocr { furnitureItems(page: OcrPage): Item[]; FURNITURE_VIEW: number[]; pageText(page: OcrPage): string }
-let S: Search, R: Order, P: Printed, M: Margin, O: Ocr
+let S: Search, R: Order, P: Printed, M: Margin, O: Ocr, SC: Scan
 let pdfjs: { getDocument(o: unknown): { promise: Promise<Pdf> } }
-let maker: { longBook(o: { meta: true }): { bytes: Buffer; meta: Meta }; pdfFixtures(): Record<string, Buffer>; proseBook(o?: unknown): Buffer; figurePaper(): Buffer }
+let maker: { longBook(o: { meta: true; bookmarks?: boolean }): { bytes: Buffer; meta: Meta }; pdfFixtures(): Record<string, Buffer>; proseBook(o?: unknown): Buffer; figurePaper(): Buffer }
 let book: { meta: Meta; pdf: Pdf; pages: Array<{ items: Item[]; view: number[] }> }
 
 const open = (bytes: Buffer) => pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true, verbosity: 0 }).promise
@@ -60,9 +65,9 @@ beforeAll(async () => {
   console.log = quiet
   pdfjs = (globalThis as unknown as { pdfjsLib: typeof pdfjs }).pdfjsLib
   ;(globalThis as unknown as { window: unknown }).window = globalThis
-  for (const f of ['doc-search.js', 'reading-order.js', 'printed-pages.js', 'margin.js', 'pdf-ocr.js']) require(ROOT + 'app/public/lab/addbook/js/' + f)
-  const g = globalThis as unknown as { TinctDocSearch: Search; TinctReadingOrder: Order; TinctPrintedPages: Printed; TinctMargin: Margin; TinctPdfOcr: Ocr }
-  S = g.TinctDocSearch; R = g.TinctReadingOrder; P = g.TinctPrintedPages; M = g.TinctMargin; O = g.TinctPdfOcr
+  for (const f of ['doc-search.js', 'reading-order.js', 'printed-pages.js', 'margin.js', 'pdf-ocr.js', 'pdf-scan.js']) require(ROOT + 'app/public/lab/addbook/js/' + f)
+  const g = globalThis as unknown as { TinctDocSearch: Search; TinctReadingOrder: Order; TinctPrintedPages: Printed; TinctMargin: Margin; TinctPdfOcr: Ocr; TinctPdfScan: Scan }
+  S = g.TinctDocSearch; R = g.TinctReadingOrder; P = g.TinctPrintedPages; M = g.TinctMargin; O = g.TinctPdfOcr; SC = g.TinctPdfScan
   maker = await import(/* @vite-ignore */ pathToFileURL(ROOT + 'addbooks/web/test/make-pdf.mjs').href)
   const made = maker.longBook({ meta: true })
   const pdf = await open(made.bytes)
@@ -176,6 +181,60 @@ describe('Before you start\'s unit on a long book (margin.js)', () => {
     expect(M.matterOf('12 References')).toBe('back')
     expect(M.matterOf('Notes on Method')).toBe('back')
     expect(M.matterOf('Indexing and search')).toBeNull()
+  })
+})
+
+describe('Before you start on a long book: which part it covers (Anders, 15 Oct: MacKay\'s 640 pages, "a map of the whole PDF")', () => {
+  const outlineEntries = async () => {
+    const pdf = book.pdf
+    const at = async (item: { dest: unknown }) => { let d = item.dest; if (typeof d === 'string') d = await pdf.getDestination(d); return await pdf.getPageIndex((d as unknown[])[0]) + 1 }
+    return Promise.all((await pdf.getOutline()).map(async item => ({ title: item.title, page: await at(item), items: await Promise.all((item.items as Array<{ title: string; dest: unknown }>).map(async kid => ({ title: kid.title, page: await at(kid) }))) })))
+  }
+  it('with an outline: from the preface, chapter 1, named "Chapter 1: Introduction" and "chapter 1"; a part\'s chapters are named as chapters', async () => {
+    const units = M.primerUnits(await outlineEntries(), book.meta.pages)
+    const one = M.primerUnitAt(units, 8)!
+    expect([one.title, one.label, M.unitPhrase(one), M.triggerLine(one)]).toEqual(['1 Introduction', 'Chapter 1: Introduction', 'chapter 1', 'The gist and a map of chapter 1.'])
+    expect(one.to).toBe(book.meta.chapters[0].to)
+    const sixteen = M.primerUnitAt(units, book.meta.figurePage)!
+    expect([sixteen.label, M.unitPhrase(sixteen)]).toEqual(['Chapter 16: Applications and Case Studies', 'chapter 16'])
+    // Front and back matter are never named as chapters.
+    expect(units.filter(u => u.matter).every(u => !u.chapter && !u.label)).toBe(true)
+  })
+  it('without an outline (MacKay\'s case): the chapters of its printed contents; from the front matter chapter 1 alone, labelled; never "the whole PDF"', async () => {
+    const made = maker.longBook({ meta: true, bookmarks: false })
+    const pdf = await open(made.bytes)
+    try {
+      expect(await pdf.getOutline()).toBeNull()
+      const scan = await SC.scan(pdf, { fileName: 'learning.pdf' })
+      expect(scan.nav).toBe('contents')
+      const units = M.primerUnits(M.scanEntries(scan.entries, scan.nav, pdf.numPages), pdf.numPages)
+      expect(units.length).toBeGreaterThan(17)
+      for (const page of [1, 3, 8, 15]) {
+        const unit = M.primerUnitAt(units, page)!
+        // Chapter 1 alone: its own pages, from its opener to the page before chapter 2; never two chapters at once.
+        expect([unit.label, unit.start, unit.to], `page ${page}`).toEqual(['Chapter 1: Introduction', made.meta.chapters[0].from, made.meta.chapters[0].to])
+      }
+      expect(M.primerUnitAt(units, made.meta.figurePage)!.label).toBe('Chapter 16: Applications and Case Studies')
+      expect(M.primerUnitAt(units, made.meta.indexFrom + 2)!.label).toBe('Chapter 17: Frontiers')
+      for (let n = 1; n <= pdf.numPages; n += 7) expect(M.triggerLine(M.primerUnitAt(units, n)), String(n)).not.toContain('whole PDF')
+      // Every unit is one chapter (or matter): no unit spans two chapter openers.
+      const openers = made.meta.chapters.map(c => c.from)
+      for (const u of units) expect(openers.filter(p => p > u.start && p <= u.to), u.title).toEqual([])
+    } finally { await pdf.destroy() }
+  }, 120_000)
+  it('a long PDF with nothing to go by: blocks of 40 pages, named by their pages; a short one stays "the whole PDF"', () => {
+    const blocks = M.primerBlocks(95)
+    expect(blocks.map(b => [b.key, b.from, b.to])).toEqual([['pages-1', 1, 40], ['pages-41', 41, 80], ['pages-81', 81, 95]])
+    expect(M.triggerLine(M.primerUnitAt(blocks, 50))).toBe('The gist and a map of pages 41–80.')
+    for (const b of blocks) expect(b.key).toMatch(/^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/)
+    expect(M.triggerLine(M.primerUnits([], 12)[0])).toBe('The gist and a map of the whole PDF.')
+  })
+  it('headings found by size become units only when chapter-sized; an outline-less file\'s scan without chapters gives none', () => {
+    const heads = Array.from({ length: 10 }, (_, i) => ({ id: 'h' + i, label: `Heading ${i}`, page: i * 3 + 1, kind: 'chapter', parent: null }))
+    expect(M.scanEntries(heads, 'headings', 30)).toEqual([])
+    expect(M.scanEntries(heads, 'headings', 200)).toHaveLength(10)
+    expect(M.scanEntries(heads, 'pages', 200)).toEqual([])
+    expect(M.scanEntries(heads, 'outline', 200)).toEqual([])
   })
 })
 

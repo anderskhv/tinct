@@ -361,6 +361,7 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 .mr-primer h4 { margin-right: -8px; }
 .mr-primer .mr-primer__close { flex: none; align-self: center; margin: -1px 0 -1px auto; }
 .mr-primer__n, .mr-map__n { color: var(--mr-hint); font-size: 14px; }
+.mr-primer__unit { margin: 0 0 4px; font-size: 15px; font-style: italic; color: var(--mr-muted); }   /* the unit's name ("Chapter 1: …"), labelled as a section is (.mr-primer__head) */
 .mr-primer__keep { display: flex; flex-direction: column; gap: 5px; }
 .mr-map { display: flex; flex-direction: column; }
 .mr-map__row { width: 100%; text-align: left; color: inherit; }
