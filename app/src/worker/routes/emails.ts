@@ -1,4 +1,5 @@
 import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
+import { TRIAL_RESET_AT } from '../lib/aiAllowance'
 
 export type EmailEnv = {
   SUPABASE_URL?: string
@@ -156,10 +157,12 @@ export function trialEndedEmail(allowanceOn: boolean = AI_ALLOWANCE_ENFORCED): {
 // ===== Cron: Trial lifecycle emails =====
 
 /** Users whose account was created roughly `daysAgo` days ago (±12h window).
- * Filtered to accounts that haven't subscribed. */
-async function usersAgedDays(env: EmailEnv, daysAgo: number): Promise<Array<{ id: string; email: string }>> {
+ * Filtered to accounts that haven't subscribed. Once `notBefore` has passed,
+ * only accounts created at or after it. */
+async function usersAgedDays(env: EmailEnv, daysAgo: number, notBefore?: Date): Promise<Array<{ id: string; email: string }>> {
   const now = Date.now()
-  const start = new Date(now - (daysAgo + 0.5) * 24 * 60 * 60 * 1000).toISOString()
+  const from = now - (daysAgo + 0.5) * 24 * 60 * 60 * 1000
+  const start = new Date(notBefore && now >= notBefore.getTime() ? Math.max(from, notBefore.getTime()) : from).toISOString()
   const end = new Date(now - (daysAgo - 0.5) * 24 * 60 * 60 * 1000).toISOString()
   // Only readers who ticked the email opt-in at sign-up (profiles.email_opt_in).
   const query = `profiles?select=id,email&subscription_status=is.null&email_opt_in=is.true&created_at=gte.${start}&created_at=lt.${end}`
@@ -212,7 +215,10 @@ async function sendLegacyTrialEmails(env: EmailEnv): Promise<void> {
 
   let totalSent = 0
   for (const { daysAgo, email } of milestones) {
-    const users = await usersAgedDays(env, daysAgo)
+    // The trial-day emails after the welcome count from sign-up, so they skip
+    // accounts created before the trial reset, whose trial now runs from it
+    // (lib/aiAllowance.ts TRIAL_RESET_AT).
+    const users = await usersAgedDays(env, daysAgo, daysAgo > 0 ? TRIAL_RESET_AT : undefined)
     if (users.length === 0) {
       console.log(`[cron] daysAgo=${daysAgo}: 0 users`)
       continue

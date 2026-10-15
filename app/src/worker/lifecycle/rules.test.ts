@@ -8,6 +8,7 @@ import {
   planLifecycle,
   planTrialNotice,
   readingCandidates,
+  trialResetAccount,
   type LogRow,
   type ReaderFacts,
 } from './rules'
@@ -93,6 +94,34 @@ describe('trial notices', () => {
     const reader = facts({ createdAt: NOW - 26 * DAY, optedIn: false, confirmed: null })
     expect(planLifecycle(reader, NOW, { trialNotices: false })).toEqual({ kind: 'skip', reason: 'no-consent' })
     expect(planLifecycle(reader, NOW, { trialNotices: true }).kind).toBe('trial')
+  })
+})
+
+describe('trial notices after the trial reset (15 Oct 2026)', () => {
+  const RESET = Date.parse('2026-10-15T00:00:00Z')
+
+  it('never sends a pre-reset account a trial notice, on its sign-up schedule or on the reset\'s, so there is no burst', () => {
+    const after = Date.parse('2026-10-16T08:00:00Z')
+    // Signed up 25 and 30 days before: would have had trial-ending / trial-ended.
+    expect(planTrialNotice(facts({ createdAt: after - 25 * DAY }), after)).toBeNull()
+    expect(planTrialNotice(facts({ createdAt: after - 30 * DAY }), after)).toBeNull()
+    expect(planLifecycle(facts({ createdAt: after - 26 * DAY, optedIn: false, confirmed: null }), after, { trialNotices: true })).toEqual({ kind: 'skip', reason: 'no-consent' })
+    // Every pre-reset account, on the days the reset trial ends: nothing.
+    for (const day of [25, 26, 29, 30, 31, 36]) {
+      const at = RESET + day * DAY + 8 * HOUR
+      for (const created of ['2026-08-01T10:00:00Z', '2026-09-01T10:00:00Z', '2026-10-14T23:00:00Z']) {
+        expect(planTrialNotice(facts({ createdAt: Date.parse(created) }), at)).toBeNull()
+      }
+    }
+  })
+
+  it('keeps the sign-up schedule for accounts created at or after the reset', () => {
+    const created = Date.parse('2026-10-15T09:00:00Z')
+    expect(trialResetAccount({ createdAt: RESET }, RESET)).toBe(false)
+    expect(trialResetAccount({ createdAt: RESET - 1 }, RESET)).toBe(true)
+    expect(trialResetAccount({ createdAt: RESET - 1 }, RESET - 1)).toBe(false) // before the reset, as before
+    expect(planTrialNotice(facts({ createdAt: created }), created + 25 * DAY)?.template).toBe('trial-ending')
+    expect(planTrialNotice(facts({ createdAt: created }), created + 30 * DAY)?.template).toBe('trial-ended')
   })
 })
 
