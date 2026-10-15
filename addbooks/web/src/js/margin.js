@@ -57,6 +57,13 @@
     const centre = (dots.left + dots.right) / 2;
     const left = clamp(phone ? centre - w / 2 : dots.left - 120, frame.left + inset, frame.right - inset - w);
     const fitsAbove = bar.top - gap - h >= frame.top + inset, fitsBelow = bar.bottom + gap + h <= frame.bottom - inset;
+    // Desktop, no room above or below (a short window, the bar mid-screen): beside the bar, right of
+    // it or else left, level with it as far as the frame allows. It may cover page text, never the bar.
+    if (!phone && !fitsAbove && !fitsBelow) {
+      const right = bar.right + gap, leftOf = bar.left - gap - w;
+      const x = right + w <= frame.right - inset ? right : leftOf >= frame.left + inset ? leftOf : null;
+      if (x != null) return { left: x, top: clamp((bar.top + bar.bottom) / 2 - h / 2, frame.top + inset, frame.bottom - inset - h), below: false, beside: true };
+    }
     let below = phone ? fitsBelow || !fitsAbove : bar.below ? fitsBelow || !fitsAbove : !fitsAbove && fitsBelow;
     const top = clamp(below ? bar.bottom + gap : bar.top - gap - h, frame.top + inset, frame.bottom - inset - h);
     return { left, top, below };
@@ -121,10 +128,13 @@
     return !/[.!?:;"“”‘(\[]$/.test(b);
   }
 
-  /** Copy quote: the passage, then the title and page. */
-  function copyQuote({ text, title, page }) {
+  /**
+   * Copy quote: the passage, then the title and page. `page` is the page as printed (its label,
+   * "xii" or "12"); `place` names a place that is not a page (an EPUB's chapter) and wins over it.
+   */
+  function copyQuote({ text, title, page, place }) {
     const quote = String(text || '').replace(/\s+/g, ' ').trim();
-    const where = [String(title || '').trim(), page ? 'p. ' + page : ''].filter(Boolean).join(', ');
+    const where = [String(title || '').trim(), place ? String(place).trim() : page ? 'p. ' + page : ''].filter(Boolean).join(', ');
     return `“${quote}”` + (where ? `\n— ${where}` : '');
   }
 
@@ -208,7 +218,8 @@
   // Share as image stays out of the PDF reader for now (the fixture shows it); every other action is in.
   const LATER = { share: true };
   const shown = (id, all) => all || !LATER[id];
-  const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
+  // Related (FIXES-2026-10-15 A5): between Fact-check and Counterpoint.
+  const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['related', 'Related', 'Where else the text takes this up'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
   const MORE_ROWS_2 = [['copy', 'Copy quote', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
   const colorOf = (colors, key) => { const c = colors.find(x => x[0] === key) || colors[0]; return { key: c[0], label: c[1], dot: c[3] } };
   function dotHtml(colors, current, { noted = false } = {}) {
@@ -399,8 +410,10 @@
   }
 
   /* ---------- The cards: a view over the kept results and the noted highlights ---------- */
-  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF' };
-  const CARD_KINDS = ['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz'];
+  const KINDS = { explain: 'Explain', simplify: 'Simplify', ask: 'Ask', define: 'Define', factcheck: 'Fact-check', related: 'Related', counterpoint: 'Counterpoint', quiz: 'Quiz me', note: 'Your note', whole: 'Whole PDF' };
+  const CARD_KINDS = ['explain', 'simplify', 'ask', 'define', 'factcheck', 'related', 'counterpoint', 'quiz'];
+  /** The whole file's card is "Whole PDF", or "Whole book" for an EPUB. */
+  const wholeName = doc => (doc === 'epub' ? 'Whole book' : KINDS.whole);
   /** A card's passage ([[page, x, y, w, h]] in page fractions) as the reader's anchor list. */
   const anchorOfCard = card => (card.rects || []).map(([n, x, y, w, h]) => ({ n, x, y, w, h }));
   /** A card's first line: [page, x, y, w, h] (lines within half a percent of a page count as one). */
@@ -418,6 +431,8 @@
   /** Two devices' cards: the same rules as the highlights (a union by id, the newer edit wins, a removal is a tombstone). */
   const mergeCards = (...sets) => mergeMarks(...sets);
   const CARD_LIMITS = { text: 2000, turns: 40, content: 12000 };
+  /** A quiz answer the reader types is kept to this many characters (the Worker marks at most this much). */
+  const QUIZ_ANSWER_CHARS = 2000;
   /** A new kept card for a passage (`anchor`: the reader's page-fraction boxes). */
   function newCard({ kind, page, anchor, text, turns = [], data = null, at = Date.now() }) {
     const r = v => Math.round(v * 10000) / 10000;
@@ -433,10 +448,15 @@
     if (!target) return esc(token.raw);
     return `<button type="button" class="mr-cite" data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}>${esc(citeText(token))}</button>`;
   }
+  /**
+   * A stray *word* (the prompts ask for plain prose) shows as italics; a lone star, a product (2*3)
+   * or a footnote mark (text*) stays as written. Runs on escaped text.
+   */
+  const italics = html => html.replace(/(^|[^\w*])\*(?=[^\s*])([^*\n]{0,200}?[^\s*])\*(?![\w*])/g, '$1<em>$2</em>');
   function inlineHtml(text, P, resolve) {
     // Markdown bold is never parsed: its stars are only dropped, so they do not show.
     const plain = String(text || '').replace(/\*\*(?=\S)([^*]+?)\*\*/g, '$1');
-    return P.parseCitations(plain).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : esc(part.text).replace(/\n/g, '<br>'))).join('');
+    return P.parseCitations(plain).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
   }
   const blocksOf = text => String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => b.replace(/^\n+|\s+$/g, '')).filter(b => b.trim());
   function blockHtml(b, P, resolve) {
@@ -463,18 +483,29 @@
   }
   /** The words a folded card shows (two lines of them): plain, no tags. */
   function foldText(card, P) {
-    const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
+    const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/(^|[^\w*])\*(?=[^\s*])([^*\n]{0,200}?[^\s*])\*(?![\w*])/g, '$1$2').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
     if (card.kind === 'note') return plain(card.note);
     if (card.kind === 'define') { const d = card.data || {}; return plain((d.senses || [])[0]?.text || d.line || '') }
     if (card.kind === 'quiz') {
-      const q = card.data || {}, n = q.questions?.length || 0;
-      if (q.done) return `${quizScore(q)} of ${n}`;
+      const q = card.data || {};
+      if (q.done) return quizLine(q);
       return plain(q.questions?.[q.i || 0]?.q || '');
     }
     const answer = (card.turns || []).find(t => t.role === 'assistant');
+    // Related, folded: its bottom line (the label says how many places).
+    if (card.kind === 'related' && answer && P.parseRelated) return plain(P.parseRelated(answer.content).lead);
     return plain(answer?.content || '');
   }
   const quizScore = q => (q.results || []).filter(r => r && r.verdict === 'right' && !r.shown).length;
+  /**
+   * The end card's line: right answers of the questions answered. "Show answer" questions are not
+   * scored (FIXES-2026-10-15, deep test): "2 of 3", or "1 of 2 answered, 1 shown".
+   */
+  function quizLine(q) {
+    const n = q.questions?.length || 0, shown = (q.results || []).slice(0, n).filter(r => r && r.shown).length;
+    if (!shown) return `${quizScore(q)} of ${n}`;
+    return shown < n ? `${quizScore(q)} of ${n - shown} answered, ${shown} shown` : `${shown} of ${n} shown`;
+  }
   /** The question to reread after a quiz: "not yet" first, then "nearly", then one whose answer was shown; -1 when all were right. */
   function quizReread(q) {
     const rs = q.results || [];
@@ -483,12 +514,43 @@
     (q.questions || []).forEach((_, i) => { if (rank(rs[i]) < 9 && (best < 0 || rank(rs[i]) < rank(rs[best]))) best = i });
     return best;
   }
-  /** A card's label: its action and page ("Ask · p. 12"); Define names its word; a note is "Your note". */
-  function cardLabel(card, pageLabel) {
-    if (card.kind === 'note' || card.kind === 'whole') return KINDS[card.kind];
+  /**
+   * A card's label: its action and page ("Ask · p. 12"); Define names its word; a note is "Your note".
+   * `unit` names the place for a file without pages ("ch." for an EPUB's chapter).
+   */
+  function cardLabel(card, pageLabel, { unit = 'p.', doc = 'pdf' } = {}) {
+    if (card.kind === 'whole') return wholeName(doc);
+    if (card.kind === 'note') return KINDS.note;
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
-    if (card.data?.unit) return `${KINDS[card.kind]} · ${card.data.unit.label || KINDS.whole}`;
-    return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · p. ${pageLabel}` : ''}`;
+    if (card.data?.unit) return `${KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
+    return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
+  }
+  /** Related, folded: "Related · 3 places" (PROMPTS.md); null while it has no answer. */
+  function relatedFoldLabel(card, P) {
+    const answer = (card.turns || []).find(t => t.role === 'assistant');
+    if (!answer || !P.parseRelated) return null;
+    const n = P.parseRelated(answer.content).rows.length;
+    return n ? `${KINDS.related} · ${n} ${n === 1 ? 'place' : 'places'}` : null;
+  }
+  /**
+   * Related's places (PROMPTS.md): one row each, its citation tag on the left, then its line. A row
+   * whose place resolves is a button (data-page, data-needle; an EPUB's quoted words in data-quote);
+   * one that does not is plain text with its citation as written.
+   */
+  function relatedHtml(text, P, { resolve = null, place = null } = {}) {
+    const r = P.parseRelated(text);
+    if (!r.lead) return '';
+    const rows = r.rows.map(row => {
+      const target = row.cite ? (resolve ? resolve(row.cite) : null) : row.quote && place ? place(row.quote) : null;
+      // A book's place is its quoted words, in italics at the line's start (they wrap with it); a PDF's, its tag.
+      const lead = row.cite ? `<span class="mr-cite mr-related__tag">${esc(citeText(row.cite))}</span>` : row.quote ? `<span class="mr-related__quote">“${esc(cut(row.quote, 60))}”</span> ` : '';
+      const inner = `${lead}<span class="mr-related__line">${inlineHtml(row.text, P, resolve)}</span>`;
+      const cls = `mr-related__row${row.quote ? ' is-quote' : ''}`;
+      if (!target) return `<div class="${cls}">${inner}</div>`;
+      const attrs = target.page ? ` data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}` : '';
+      return `<button type="button" class="${cls}"${attrs}${row.quote ? ` data-quote="${esc(row.quote)}"` : ''}>${inner}</button>`;
+    }).join('');
+    return `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(r.lead, P, resolve)}</span></p></div>` + (rows ? `<div class="mr-related">${rows}</div>` : '');
   }
   const CARD_ICONS = {
     copy: svg('<rect x="6" y="6" width="9" height="9" rx="1.8"/><path d="M12 6V4.5A1.5 1.5 0 0 0 10.5 3h-6A1.5 1.5 0 0 0 3 4.5v6A1.5 1.5 0 0 0 4.5 12H6"/>'),
@@ -505,8 +567,8 @@
    * "Checking sources…"), live (an answer on its way), pending (a quiz answer being marked) }.
    */
   function cardHtml(card, o) {
-    const P = o.P, label = esc(cardLabel(card, o.pageLabel));
-    if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
+    const P = o.P, label = esc(cardLabel(card, o.pageLabel, o.where));
+    if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${q.questions.length}</span>` : '';
     const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`;
@@ -518,8 +580,9 @@
       if (!qs.length) body = status;
       else if (q.done) {
         const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
-        body = `<div class="mr-answer"><p><span class="is-bottom-line">${quizScore(q)} of ${qs.length}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
-        foot = '';
+        body = `<div class="mr-answer"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
+        // The end card offers another quiz on the same passage (or unit).
+        foot = followHtml({ field: false, mic: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
       } else {
         const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
@@ -528,9 +591,11 @@
           body += r.shown
             ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
             : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
-          foot = followHtml({ field: false, mic: false, link: '<button type="button" class="mr-follow__link" data-c="next">Next question →</button>' });
+          const last = i + 1 >= qs.length;
+          foot = followHtml({ field: false, mic: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
-        else foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' });
+        // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
+        else { body += status; foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
       return head + `<div class="mr-card__body">${body}</div>` + foot;
     }
@@ -549,20 +614,23 @@
       if (t.role === 'user') { if (card.kind === 'ask' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
       answered = true;
       if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve }); body += f.answer + f.sources }
+      else if (card.kind === 'related' && k === 0 && P.parseRelated) body += relatedHtml(t.content, P, { resolve: o.resolve, place: o.place });
       else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
     });
     body += status;
     return head + `<div class="mr-card__body">${body}${answered && !o.status && o.live == null ? copy : ''}</div>` + followHtml();
   }
-  /** The "more" row: "{n} more on this page", their kinds on the right. */
-  function stackHtml(cards, maxKinds = Infinity) {
+  /** The "more" row: "{n} more on this page" (an EPUB: "in this chapter"), their kinds on the right. */
+  function stackHtml(cards, maxKinds = Infinity, { doc = 'pdf' } = {}) {
     const all = [...new Set(cards.map(c => KINDS[c.kind]))];
     const kinds = all.slice(0, maxKinds).join(' · ');
-    return `<span>${cards.length} more on this page</span><span>${esc(kinds)}</span>`;
+    return `<span>${cards.length} more ${doc === 'epub' ? 'in this chapter' : 'on this page'}</span><span>${esc(kinds)}</span>`;
   }
+  /** What the whole file is called at the column's foot: "the whole PDF", or "the whole book" for an EPUB. */
+  const wholeWords = doc => (doc === 'epub' ? 'the whole book' : 'the whole PDF');
   /** The column foot: a hairline, a caret, "[/] the whole PDF" and the mic. */
-  function footHtml() {
-    return `<span class="mr-follow__field"><textarea class="mr-follow__input mr-foot__input" rows="1" enterkeyhint="send" aria-label="Ask about the whole PDF"></textarea><span class="mr-caret" aria-hidden="true"></span></span><span class="mr-follow__sp"></span><span class="mr-foot__hint"><span class="mr-key">/</span> the whole PDF</span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>`;
+  function footHtml({ doc = 'pdf' } = {}) {
+    return `<span class="mr-follow__field"><textarea class="mr-follow__input mr-foot__input" rows="1" enterkeyhint="send" aria-label="Ask about ${wholeWords(doc)}"></textarea><span class="mr-caret" aria-hidden="true"></span></span><span class="mr-follow__sp"></span><span class="mr-foot__hint"><span class="mr-key">/</span> ${wholeWords(doc)}</span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>`;
   }
 
   /** A card's own classes: open or folded, a note (its rule in the highlight colour). */
@@ -582,9 +650,9 @@
   }
   /** The whole-PDF card: "Whole PDF", the thread, the attachments waiting to go, the follow-up line. */
   // On the phone the chat's card has no label (mockup 5D): swipe down or tap the page to close it.
-  function wholeHtml(body, { open = true, fold = '', tray = '', label = true } = {}) {
-    if (!open) return `<button type="button" class="mr-card__label" data-c="open">${KINDS.whole}</button><div class="mr-card__text">${esc(fold)}</div>`;
-    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.whole}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: 'Ask about the whole PDF' });
+  function wholeHtml(body, { open = true, fold = '', tray = '', label = true, doc = 'pdf' } = {}) {
+    if (!open) return `<button type="button" class="mr-card__label" data-c="open">${wholeName(doc)}</button><div class="mr-card__text">${esc(fold)}</div>`;
+    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${wholeName(doc)}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}` });
   }
   /** The phone's bottom card: the grab handle, then a card's open contents. */
   const sheetHtml = inner => `<button type="button" class="mr-sheet__grab" data-c="grab" aria-label="Full height"></button>${inner}`;
@@ -660,7 +728,7 @@
       + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, footHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizReread, typedChar, selectionKey, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, nameMidSentence, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName };
 });

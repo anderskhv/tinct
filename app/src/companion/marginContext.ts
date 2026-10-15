@@ -22,7 +22,7 @@
  * Pure: no browser or Worker APIs.
  */
 import { LAB_ASK_NO_PRAISE_RULE, renderShownExplanations } from './labAskPrompt'
-import { PDF_CITATION_RULE } from './marginPrompts'
+import { MARGIN_ANSWER_RULES, PDF_CITATION_RULE, PDF_DOCUMENT_WORDING } from './marginPrompts'
 
 /** About 150k tokens of English text at roughly 3.7 characters per token. The client holds the same bound (tinct-api.js). */
 export const MARGIN_DOCUMENT_CHARS = 560_000
@@ -116,12 +116,13 @@ export const MARGIN_RULES = [
   LAB_ASK_NO_PRAISE_RULE,
   'Answer completely and stop. Do not end with a question, an offer or an invitation to continue.',
   'Give clear answers with confidence in proportion to the evidence. Never invent a quotation, a source or a page number.',
+  ...MARGIN_ANSWER_RULES,
 ].join('\n')
 
-/** How the markers read for a PDF, or for an EPUB's chapters (EPUBs reach the margin in PR C). */
+/** How the markers read for a PDF, or for an EPUB's chapters. */
 function citationRule(kind: MarginDocumentKind): string {
   return kind === 'pdf'
-    ? `Each <page n="…"> marks where a printed page begins; its n is the page label the reader sees. ${PDF_CITATION_RULE}`
+    ? `Each <page n="…"> marks where a printed page begins; its n is the page label the reader sees. ${PDF_CITATION_RULE} ${PDF_DOCUMENT_WORDING}`
     : 'Each <chapter n="…"> marks where a chapter begins. To point to a place, name the chapter and quote a few of its words.'
 }
 

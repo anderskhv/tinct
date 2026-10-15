@@ -88,6 +88,12 @@ describe('More, the Define card and the note editor', () => {
   })
   it('below a bar that is below the selection, and the phone list below its bar', () => {
     expect(M.placeMore({ bar: { ...box(280, 300, 640, 344), below: true }, dots: box(500, 305, 534, 339), frame: FRAME, w: 300, h: 330 }).top).toBe(352)
+    // PR C (More is a row taller with Related): no room above or below the bar in a short window, so beside it, never over it.
+    const short = box(0, 50, 1024, 768)
+    const beside = M.placeMore({ bar: { ...box(155, 398, 495, 442), below: false }, dots: box(400, 403, 434, 437), frame: short, w: 300, h: 360 })
+    expect(beside).toEqual({ left: 503, top: 240, below: false, beside: true })
+    const leftOf = M.placeMore({ bar: { ...box(600, 398, 940, 442), below: false }, dots: box(900, 403, 934, 437), frame: short, w: 300, h: 360 })
+    expect(leftOf.left + 300).toBeLessThanOrEqual(600 - 8)
     const p = M.placeMore({ bar: { ...box(10, 358, 380, 406), below: true }, dots: box(200, 362, 234, 402), frame: box(0, 96, 390, 810), w: 210, h: 280, phone: true })
     expect(p).toEqual({ left: 112, top: 414, below: true })
   })

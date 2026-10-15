@@ -93,7 +93,7 @@
  * makes it again; Redo stores a new one over it. One small JSON object per
  * unit, `u/{userId}/primers/{bookHex}/{unitKey}`:
  *
- *   GET    /api/user-books/primers/{bookHex}?unit={unitKey}   the stored primer, to its owner only (404 when none)
+ *   GET    /api/user-books/primers/{bookHex}?unit={unitKey}   the stored primer, to its owner only (`primer: null` when none yet; 404 for a book not kept)
  *   PUT    /api/user-books/primers/{bookHex}?unit={unitKey}   store `{ primer: { gist, claims, keepInMind, map } }`
  *                                                            (an owned PDF only; at most MAX_PRIMER_BYTES)
  *
@@ -841,16 +841,22 @@ export type OwnCard = {
   at: number
   u?: number
 }
-export type OwnCardKind = 'explain' | 'simplify' | 'ask' | 'define' | 'factcheck' | 'counterpoint' | 'quiz'
+export type OwnCardKind = 'explain' | 'simplify' | 'ask' | 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'related'
 /** Cards and removals per book. */
 export const MAX_CARDS = 2000
-const CARD_KINDS = new Set<string>(['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz'])
+const CARD_KINDS = new Set<string>(['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'related'])
 const CARD_TURNS = 40
 const CARD_CONTENT = 12_000
 const CARD_DATA_BYTES = 16_000
 
-/** A set of cards from a request body or the store, normalised to the stored shape; null when any is out of shape. */
-export function readCards(value: unknown): Array<OwnCard | OwnMarkGone> | null {
+/**
+ * A set of cards from a request body or the store, normalised to the stored
+ * shape; null when any is out of shape. A card that is only too long is never
+ * a reason to refuse the set (FIXES-2026-10-15 PR C): its passage, turns and
+ * boxes are trimmed to the limits (the newest turns kept), and a card whose
+ * action data is still too large is dropped and counted in `dropped`.
+ */
+export function readCards(value: unknown, dropped: { count: number } = { count: 0 }): Array<OwnCard | OwnMarkGone> | null {
   if (!Array.isArray(value) || value.length > MAX_CARDS) return null
   const out: Array<OwnCard | OwnMarkGone> = []
   const seen = new Set<string>()
@@ -868,33 +874,33 @@ export function readCards(value: unknown): Array<OwnCard | OwnMarkGone> | null {
     if (typeof c.kind !== 'string' || !CARD_KINDS.has(c.kind)) return null
     if (!wholeNumber(c.page) || (c.page as number) < 1 || !time(c.at)) return null
     if (c.u !== undefined && !time(c.u)) return null
-    if (!Array.isArray(c.rects) || !c.rects.length || c.rects.length > MARK_RECTS) return null
+    if (!Array.isArray(c.rects) || !c.rects.length) return null
     const rects: number[][] = []
-    for (const r of c.rects) {
+    for (const r of c.rects.slice(0, MARK_RECTS)) {
       if (!Array.isArray(r) || r.length !== 5 || !wholeNumber(r[0]) || r[0] < 1) return null
       const box = r.slice(1)
       if (!box.every(n => typeof n === 'number' && Number.isFinite(n) && n >= -1 && n <= 2)) return null
       rects.push([r[0], ...box.map((n: number) => Math.round(n * 10_000) / 10_000)])
     }
-    if (typeof c.text !== 'string' || c.text.length > MARK_TEXT) return null
+    if (typeof c.text !== 'string') return null
     const turns: OwnCard['turns'] = []
     if (c.turns !== undefined) {
-      if (!Array.isArray(c.turns) || c.turns.length > CARD_TURNS) return null
-      for (const t of c.turns) {
+      if (!Array.isArray(c.turns)) return null
+      for (const t of c.turns.slice(-CARD_TURNS)) {
         if (!t || typeof t !== 'object') return null
         const turn = t as Record<string, unknown>
-        if ((turn.role !== 'user' && turn.role !== 'assistant') || typeof turn.content !== 'string' || turn.content.length > CARD_CONTENT) return null
+        if ((turn.role !== 'user' && turn.role !== 'assistant') || typeof turn.content !== 'string') return null
         if (turn.at !== undefined && !time(turn.at)) return null
-        if (turn.display !== undefined && (typeof turn.display !== 'string' || turn.display.length > MARK_TEXT)) return null
-        turns.push({ role: turn.role, content: turn.content, ...(turn.at !== undefined ? { at: turn.at as number } : {}), ...(turn.display !== undefined ? { display: turn.display as string } : {}) })
+        if (turn.display !== undefined && typeof turn.display !== 'string') return null
+        turns.push({ role: turn.role, content: turn.content.slice(0, CARD_CONTENT), ...(turn.at !== undefined ? { at: turn.at as number } : {}), ...(turn.display !== undefined ? { display: (turn.display as string).slice(0, MARK_TEXT) } : {}) })
       }
     }
-    const card: OwnCard = { id: c.id, kind: c.kind as OwnCardKind, page: c.page as number, rects, text: c.text, turns, at: c.at as number }
+    const card: OwnCard = { id: c.id, kind: c.kind as OwnCardKind, page: c.page as number, rects, text: c.text.slice(0, MARK_TEXT), turns, at: c.at as number }
     if (c.u !== undefined) card.u = c.u as number
     if (c.data !== undefined) {
       if (!c.data || typeof c.data !== 'object' || Array.isArray(c.data)) return null
       const json = JSON.stringify(c.data)
-      if (json.length > CARD_DATA_BYTES) return null
+      if (json.length > CARD_DATA_BYTES) { dropped.count++; continue }
       card.data = JSON.parse(json) as Record<string, unknown>
     }
     out.push(card)
@@ -903,7 +909,7 @@ export function readCards(value: unknown): Array<OwnCard | OwnMarkGone> | null {
 }
 
 /** One versioned set per book: the highlights (marks) or the margin's cards. */
-interface OwnSet<T> { key: (userId: string, bookHex: string) => string; read: (value: unknown) => T[] | null; field: 'marks' | 'cards' }
+interface OwnSet<T> { key: (userId: string, bookHex: string) => string; read: (value: unknown, dropped?: { count: number }) => T[] | null; field: 'marks' | 'cards' }
 const MARKS_SET: OwnSet<OwnMark | OwnMarkGone> = { key: ownMarksKey, read: readMarks, field: 'marks' }
 const CARDS_SET: OwnSet<OwnCard | OwnMarkGone> = { key: ownCardsKey, read: readCards, field: 'cards' }
 
@@ -986,7 +992,9 @@ async function handleMarks<T>(
   const key = set.key(user.id, bookHex)
   const current = await storedSet(bucket, key, set.read)
   if (request.method === 'GET') return reply({ [set.field]: current.list, rev: current.rev }, 200, request)
-  const list = set.read(body?.[set.field])
+  // Cards too large even when trimmed are left out of the set, not a reason to refuse it; the reader is told how many.
+  const dropped = { count: 0 }
+  const list = set.read(body?.[set.field], dropped)
   const expected = body?.rev
   if (!list || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
   if (current.rev !== expected) return reply({ error: 'conflict', [set.field]: current.list, rev: current.rev }, 409, request)
@@ -997,7 +1005,7 @@ async function handleMarks<T>(
     const latest = await storedSet(bucket, key, set.read)
     return reply({ error: 'conflict', [set.field]: latest.list, rev: latest.rev }, 409, request)
   }
-  return reply({ rev }, 200, request)
+  return reply({ rev, ...(dropped.count ? { dropped: dropped.count } : {}) }, 200, request)
 }
 
 // ===== Covers =====
@@ -1120,10 +1128,13 @@ async function handlePrimer(
   if (request.method === 'GET') {
     // Under the caller's own prefix, so only its owner can reach it; it goes with the book.
     const object = await bucket.get(key)
-    if (!object) return notFound(request)
     let primer: StoredPrimer | null = null
-    try { primer = normalizeStoredPrimer(await object.json()) } catch { primer = null }
-    return primer ? reply({ primer }, 200, request) : notFound(request)
+    if (object) { try { primer = normalizeStoredPrimer(await object.json()) } catch { primer = null } }
+    if (primer) return reply({ primer }, 200, request)
+    // None made yet (or one out of shape) for a book this account keeps is an answer, not an error:
+    // 200 with `primer: null`. A book it does not keep stays 404.
+    const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
+    return book ? reply({ primer: null }, 200, request) : notFound(request)
   }
 
   const lengthHeader = request.headers.get('content-length')

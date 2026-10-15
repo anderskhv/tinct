@@ -99,9 +99,14 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
    a way back to My shelf always in view, at the left of the top bar (Library stays in the t menu). */
 .lab.byob.is-phone .lab-header { grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 4px; }
 .lab.byob.is-phone .lab-v2-library-back { width: 40px; height: 40px; flex-basis: 40px; margin-left: -10px; }
-/* With the arrow there, the title gives way before the page pill (the page stays whole) */
-.lab.byob.is-phone .lab-header-work { flex: 0 1 auto; min-width: 0; }
-.lab.byob.is-phone .lab-header-chapter { flex: none; }
+/* With the arrow there, the title keeps its room first (FIXES-2026-10-15 PR C: it had collapsed to "A."):
+   up to about half the bar, cut with an ellipsis past that; the page pill takes what is left and
+   shortens its own label first. */
+.lab.byob.is-phone .lab-header-brand { min-width: 0; }
+.lab.byob.is-phone .lab-header-work { flex: 0 1 auto; min-width: 0; max-width: none; }
+.lab.byob.is-phone .lab-header-book, .lab.byob.is-phone .lab-header-book > span:first-child { display: block; min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lab.byob.is-phone .lab-header-chapter { flex: 0 12 auto; min-width: 2.6em; }
+.lab.byob.is-phone .lab-header-chapter-label { min-width: 0; }
 /* The rights sheet over the start page */
 .lab.byob.byob-sheet-host { position: fixed; inset: 0; z-index: 90; min-height: 0; height: auto; background: transparent; }
 /* A short sheet (the rights question) is as tall as its content; a centred dialog on desktop */

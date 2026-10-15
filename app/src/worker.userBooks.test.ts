@@ -524,7 +524,10 @@ describe('/api/user-books/primers', () => {
 
   it('stores a primer per unit of an owned PDF, stamps when and which unit, and serves it back to the owner', async () => {
     const { r2, call, hex } = await withPdf()
-    expect((await call(path(hex), { token: 'token-a' })).status).toBe(404)
+    // None made yet: an answer, not an error (FIXES-2026-10-15 PR C).
+    const none = await call(path(hex), { token: 'token-a' })
+    expect(none.status).toBe(200)
+    expect(await none.json()).toEqual({ primer: null })
     const before = Date.now()
     const res = await putPrimer(call, 'token-a', hex, { primer: { ...primer, madeAt: '1999-01-01T00:00:00Z', unitKey: 'forged', extra: 'dropped' } })
     expect(res.status).toBe(200)
@@ -540,7 +543,7 @@ describe('/api/user-books/primers', () => {
     expect(got.status).toBe(200)
     expect(await got.json()).toEqual({ primer: stored })
     // Each unit is its own; the whole file is "all". A primer is not a book.
-    expect((await call(path(hex, 'all'), { token: 'token-a' })).status).toBe(404)
+    expect(await (await call(path(hex, 'all'), { token: 'token-a' })).json()).toEqual({ primer: null })
     expect((await putPrimer(call, 'token-a', hex, { primer }, 'all')).status).toBe(200)
     const list = await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }
     expect(list.books).toHaveLength(1)
@@ -594,7 +597,9 @@ describe('/api/user-books/primers', () => {
     expect(kept.map).toHaveLength(8)
     // A stored object out of shape is not served.
     r2.objects.get(`u/${A}/primers/${hex}/outline-0`)!.bytes = new TextEncoder().encode('{"gist":1}')
-    expect((await call(path(hex), { token: 'token-a' })).status).toBe(404)
+    const outOfShape = await call(path(hex), { token: 'token-a' })
+    expect(outOfShape.status).toBe(200)
+    expect(await outOfShape.json()).toEqual({ primer: null })
   })
 
   it('caps the body (declared or streamed), rate-limits writes and the number of units per book', async () => {
@@ -722,11 +727,30 @@ describe('/api/user-books/cards', () => {
     const { call, hex } = await withPdf()
     for (const bad of [
       [card('ab')], [card('abcd1'), card('abcd1')], [card('abcd1', { kind: 'chat' })], [card('abcd1', { rects: [[0.1, 0.2, 0.5, 0.02]] })],
-      [card('abcd1', { rects: [] })], [card('abcd1', { page: 0 })], [card('abcd1', { text: 'x'.repeat(2001) })],
-      [card('abcd1', { turns: [{ role: 'system', content: 'x' }] })], [card('abcd1', { turns: [{ role: 'user', content: 'x'.repeat(12_001) }] })],
-      [card('abcd1', { data: 'x' })], [card('abcd1', { data: { big: 'x'.repeat(16_001) } })], [{ id: 'abcd1', gone: true }], 'nope',
+      [card('abcd1', { rects: [] })], [card('abcd1', { page: 0 })],
+      [card('abcd1', { turns: [{ role: 'system', content: 'x' }] })],
+      [card('abcd1', { data: 'x' })], [{ id: 'abcd1', gone: true }], 'nope',
     ]) expect((await put(call, 'token-a', hex, { cards: bad, rev: 0 })).status, JSON.stringify(bad).slice(0, 60)).toBe(400)
     expect((await put(call, 'token-a', hex, { marks: [card('abcd1')], rev: 0 })).status).toBe(400)
+  })
+
+  // FIXES-2026-10-15 PR C: one long card never refuses the whole set.
+  it('trims a card that is only too long, and drops one whose data is still too large, instead of refusing the set', async () => {
+    const { call, hex } = await withPdf()
+    const turns = Array.from({ length: 45 }, (_, i) => ({ role: i % 2 ? 'assistant' : 'user', content: `turn ${i} ` + 'x'.repeat(i === 44 ? 12_500 : 1), at: 1_000 + i }))
+    const long = card('long1', { kind: 'ask', text: 'p'.repeat(2_500), turns, rects: Array.from({ length: 450 }, () => [3, 0.1, 0.2, 0.5, 0.02]) })
+    const huge = card('huge2', { kind: 'quiz', turns: [], data: { big: 'x'.repeat(16_001) } })
+    const res = await put(call, 'token-a', hex, { cards: [card('abcd1'), long, huge, card('related3', { kind: 'related' })], rev: 0 })
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({ rev: 1, dropped: 1 })
+    const { cards } = await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json() as { cards: Array<{ id: string; text: string; turns: Array<{ content: string }>; rects: unknown[] }> }
+    expect(cards.map(c => c.id)).toEqual(['abcd1', 'long1', 'related3'])
+    const kept = cards[1]
+    expect(kept.text).toHaveLength(2_000)
+    expect(kept.rects).toHaveLength(400)
+    expect(kept.turns).toHaveLength(40)
+    expect(kept.turns[0].content).toBe('turn 5 x')
+    expect(kept.turns[39].content).toHaveLength(12_000)
   })
 
   it('deletes the cards with the book', async () => {

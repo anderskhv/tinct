@@ -383,23 +383,46 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-swatch[aria-pressed="true"] { outline: 1.5px solid var(--mr-bar-ink); outline-offset: 0; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) :is(.mr-more, .mr-pmore, .mr-define, .mr-note, .mr-bar, .mr-pbar) { outline: 1px solid var(--mr-bar); }
 
-/* ---------- PR 4: targets ----------
-   Controls are 28px; where the mockup draws a 16px icon (copy, mic) or a 20px colour, the target is
-   24px round it, set so nothing on screen moves. */
-/* The colours: a 24px button, the 20px colour inside it, the chosen one ringed as before (2px of bar, 1.5px of ink). */
-button.mr-swatch { width: 24px; height: 24px; margin: 0 3px; padding: 2px; background-clip: content-box !important; }
+/* ---------- PR 4: targets (28px since PR C, FIXES-2026-10-15) ----------
+   Every control is at least 28px each way. Where the mockup draws a 16px icon (copy, mic) or a 20px
+   colour, the 28px target is set round it with negative margins, so nothing on screen moves. */
+/* The colours: a 28px button, the 20px colour inside it, the chosen one ringed as before (2px of bar, 1.5px of ink). */
+button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; background-clip: content-box !important; }
 .mr-swatch[aria-pressed="true"] { box-shadow: 0 0 0 1.5px var(--mr-bar-ink); }
-/* Copy and the mic: 24px round the 16px icon; the copy row keeps its 16px line (the target reaches 5px above and 3px below it). */
-.mr-card__acts button { width: 24px; height: 24px; margin: -5px -4px -3px; }
-.mr-card__acts button svg { transform: translateY(1px); }
-.mr-follow__mic, .mr-foot .mr-follow__mic { flex: none; width: 24px; height: 24px; margin: -3px 0 -3px -8px; place-items: center end; }
-/* "Show answer" and "Next question →": 24px tall round their 16px line, which the follow-up line keeps. */
-.mr-follow__link { display: inline-flex; align-items: center; min-height: 24px; margin: -5px 0 -3px; padding-top: 2px; }
-/* The bottom card's handle: a 56 × 25px target round the 36 × 5px bar, in its place. */
-.mr-sheet__grab { width: 56px; height: 25px; margin: -10px auto -6px; background: none; }
-.mr-sheet__grab::before { content: ""; position: absolute; left: 10px; top: 10px; width: 36px; height: 5px; border-radius: 3px; background: var(--mr-hair); }
+/* Copy and the mic: 28px round the 16px icon; their rows keep their lines (the target reaches 9px above
+   and 3px below, the icon moved down 3px to stay where it was). */
+.mr-card__acts button { width: 28px; height: 28px; margin: -9px -6px -3px; }
+.mr-card__acts button svg { transform: translateY(3px); }
+.mr-follow__mic, .mr-foot .mr-follow__mic { flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -12px; place-items: center end; }
+.mr-follow__mic svg { transform: translateY(3px); }
+/* "Show answer", "Next question →", "See your score →", "Try another quiz": 28px tall round their 16px line, which the follow-up line keeps. */
+.mr-follow__link { display: inline-flex; align-items: center; min-height: 28px; margin: -9px 0 -3px; padding-top: 6px; }
+/* The bottom card's handle: a 56 × 28px target round the 36 × 5px bar, in its place. */
+.mr-sheet__grab { width: 56px; height: 28px; margin: -11px auto -8px; background: none; }
+.mr-sheet__grab::before { content: ""; position: absolute; left: 10px; top: 11px; width: 36px; height: 5px; border-radius: 3px; background: var(--mr-hair); }
 /* The app's e-ink sheet makes every button at least 40px tall (tinct-app.css "[data-eink] button"); the
-   margin's controls keep their own sizes (28px, or 24px round an icon) so nothing moves in e-ink. */
+   margin's controls keep their own sizes (28px) so nothing moves in e-ink. */
 [data-eink] :where(.mr-float, .mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-primer) button, [data-eink] button:where(.mr-trigger, .mr-mark, .mr-swatch) { min-height: var(--mr-min, auto); }
 :where(.mr-card__close, .mr-primer__foot button) { --mr-min: 28px; }
-:where(.mr-follow__link) { --mr-min: 24px; }
+:where(.mr-follow__link) { --mr-min: 28px; }
+
+/* ---------- PR C: Related (docs/margin/PROMPTS.md) ----------
+   After the bottom line, one row per place: the citation tag on the left, then the line in 15px
+   Garamond. Rows read 6px apart with no rules between them; each row is a 28px target (3px above
+   and below its 22px line). A row that scrolls to its place is a button. */
+.mr-related { display: flex; flex-direction: column; margin: -3px 0; }
+.mr-related__row { display: flex; align-items: baseline; gap: 8px; width: 100%; min-height: 28px; box-sizing: border-box; margin: 0; padding: 3px 0; border: 0; background: none; color: var(--mr-ink); font: 15px/1.45 var(--mr-gara); text-align: left; }
+.mr-related__tag { flex: none; cursor: inherit; }
+.mr-related__line { min-width: 0; overflow-wrap: anywhere; }
+.mr-related__row.is-quote { display: block; }
+.mr-related__quote { font-style: italic; color: var(--mr-muted); }
+button.mr-related__row { cursor: pointer; }
+button.mr-related__row:hover .mr-related__line { text-decoration: underline; text-decoration-color: var(--mr-lead); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.mr-sheet .mr-related__row { font-size: 16px; }
+/* The place a row scrolls to, underlined for a moment in the lead colour (as the open card's passage). */
+.mr-flash-layer { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.mr-flash-layer i { position: absolute; height: 1.5px; margin-top: 3px; background: var(--mr-lead); animation: mr-flash 1.8s ease-out forwards; }
+@keyframes mr-flash { 0%, 60% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mr-flash-layer i { animation: none; } }
+/* A stray *word* in an answer shows in italics (the prompts ask for plain prose). */
+.mr-answer em, .mr-claims em, .mr-related em { font-style: italic; }

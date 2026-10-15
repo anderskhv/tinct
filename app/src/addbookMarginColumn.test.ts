@@ -215,7 +215,9 @@ describe('the answer in a card', () => {
     const doneHtml = M.html.cardHtml(quiz(done), { open: true, P, pageLabel: '12' })
     expect(doneHtml).toContain('<span class="is-bottom-line">2 of 3</span>')
     expect(doneHtml).toContain('<p>Q two?</p>')
-    expect(doneHtml).not.toContain('mr-follow')
+    // FIXES-2026-10-15 PR C: the end card offers another quiz; no answer field.
+    expect(doneHtml).toContain('<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>')
+    expect(doneHtml).not.toContain('mr-follow__input')
   })
   it('the "more" row: "{n} more on this page" and the kinds that fit', () => {
     expect(M.html.stackHtml([{ kind: 'note' }, { kind: 'counterpoint' }, { kind: 'note' }])).toBe('<span>3 more on this page</span><span>Your note · Counterpoint</span>')

@@ -40,7 +40,8 @@
 
   // A user's PDF sends its text as pages with their printed labels (`book.pdf`: { pages: [{ n, text }],
   // at: the index of the reader's page among them }), so the companion can cite them ({p. 12}); the
-  // Worker marks each page's boundary as <page n="12">. -> the context's PDF fields, or null.
+  // Worker marks each page's boundary as <page n="12">. An EPUB in this reader sends its chapters the
+  // same way with `kind: 'epub'` (no page citations, no pictures). -> the context's fields, or null.
   function pdfContext(pdf) {
     if (!pdf || !Array.isArray(pdf.pages) || !pdf.pages.length) return null;
     let total = 0;
@@ -52,7 +53,7 @@
       pages.push({ n: typeof page?.n === 'number' ? page.n : String(page?.n ?? pages.length + 1).slice(0, 16), text: text || ' ' });
     }
     const at = Number.isInteger(pdf.at) ? Math.max(0, Math.min(pages.length - 1, pdf.at)) : 0;
-    return { kind: 'pdf', pages, paragraphIndex: at };
+    return { kind: pdf.kind === 'epub' ? 'epub' : 'pdf', pages, paragraphIndex: at };
   }
   function bookContext(book) {
     return {
@@ -121,7 +122,7 @@
         : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false } },
     };
   }
-  const PASSAGE_INTENTS = new Set(['simplify', 'factcheck', 'counterpoint', 'quiz']);
+  const PASSAGE_INTENTS = new Set(['simplify', 'factcheck', 'counterpoint', 'quiz', 'related']);
 
   /**
    * One of the margin's actions as a structured request (docs/margin/PROMPTS.md): the Worker

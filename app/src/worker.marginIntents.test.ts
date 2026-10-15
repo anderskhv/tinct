@@ -30,6 +30,7 @@ import {
 import {
   COUNTERPOINT_PROMPT,
   DEFINE_SENSE_PROMPT,
+  PDF_COUNTERPOINT_PROMPT,
   FACTCHECK_NO_SEARCH_NOTE,
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
@@ -148,8 +149,9 @@ describe('parsing the margin intents', () => {
       .toEqual({ question: 'Q?', expected: 'A.', answer: 'a' })
   })
 
-  it('takes speculation for Simplify (as for Explain) and for nothing else new', () => {
-    expect(parseCompanionRequest({ intent: 'simplify', context: pdfContext, selection: PASSAGE, speculative: true })!.speculative).toBe(true)
+  it('refuses a speculative Simplify (FIXES-2026-10-15 PR C, cost) and takes speculation for nothing else new', () => {
+    expect(parseCompanionRequest({ intent: 'simplify', context: pdfContext, selection: PASSAGE, speculative: true })).toBeNull()
+    expect(parseCompanionRequest({ intent: 'simplify', context: pdfContext, selection: PASSAGE })).not.toHaveProperty('speculative')
     expect(parseCompanionRequest({ intent: 'factcheck', context: pdfContext, selection: PASSAGE, speculative: true })).not.toHaveProperty('speculative')
     expect(parseCompanionRequest({ intent: 'counterpoint', context: pdfContext, selection: PASSAGE, speculative: true })).not.toHaveProperty('speculative')
   })
@@ -242,11 +244,13 @@ describe('the prompts the Worker builds', () => {
 
   it('Counterpoint and a passage quiz: their text, the passage as the user turn', () => {
     const counter = parseCompanionRequest({ intent: 'counterpoint', context: pdfContext, selection: PASSAGE })!
-    expect(buildCompanionSystem(counter).endsWith(COUNTERPOINT_PROMPT)).toBe(true)
+    // A PDF says "the document", never "the chapter" (FIXES-2026-10-15, second paper).
+    expect(buildCompanionSystem(counter).endsWith(PDF_COUNTERPOINT_PROMPT)).toBe(true)
     expect(COUNTERPOINT_PROMPT).toContain('At most 150 words in all. No straw men, and no "on the other hand" filler. Do not draw on later chapters.')
+    expect(PDF_COUNTERPOINT_PROMPT).toBe(COUNTERPOINT_PROMPT.replace('Do not draw on later chapters.', 'Do not draw on later parts of the document.'))
     const quiz = parseCompanionRequest({ intent: 'quiz', context: pdfContext, selection: PASSAGE })!
     const system = buildCompanionSystem(quiz)
-    expect(system.endsWith(quizPrompt('passage'))).toBe(true)
+    expect(system.endsWith(quizPrompt('passage', { pdf: true }))).toBe(true)
     expect(system).toContain('Write three short questions that check whether the reader has understood the selected passage.')
     expect(system).toContain('{"questions":[{"q":"…","answer":"…","why":"one sentence explaining the answer","cite":"{p. 12}"}]}')
     expect(companionSelectionMessage(quiz)).toBe(`<selected_passage>\n${PASSAGE}\n</selected_passage>`)
@@ -256,7 +260,8 @@ describe('the prompts the Worker builds', () => {
     const paragraphs = Array.from({ length: 30 }, (_, i) => `Paragraph ${i + 1}.`)
     const quiz = parseCompanionRequest({ intent: 'quiz', context: { ...bookContext, bookId: undefined, editionKey: undefined, kind: 'pdf', paragraphs, paragraphIndex: 15 } })!
     const system = buildCompanionSystem(quiz)
-    expect(system).toContain('Write three short questions that check whether the reader has understood the supplied chapter.')
+    expect(system).toContain('Write three short questions that check whether the reader has understood the supplied part of the document.')
+    expect(system).not.toContain('the supplied chapter')
     expect(system).toContain('[1] Paragraph 1.')
     expect(system).toContain('[30] Paragraph 30.')
     expect(companionSelectionMessage(quiz)).toBe('Quiz me on Book 1.')
@@ -269,13 +274,13 @@ describe('the prompts the Worker builds', () => {
   it("Fact-check: today's date filled in, the verdict words, and Can't check. when no search can run", () => {
     const request = parseCompanionRequest({ intent: 'factcheck', context: pdfContext, selection: PASSAGE })!
     const searched = buildCompanionSystem(request, { today: '2026-10-14', sourceSearch: true })
-    expect(searched).toContain("Check the factual claims in the selected passage against reliable current sources. Today's date is 2026-10-14; the document may be older")
+    expect(searched).toContain("Check whether the passage's factual claims still hold today and what has changed since it was written. Never treat the document itself as confirmation of its own claims. Today's date is 2026-10-14.")
     expect(searched).toContain('starting with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check. Then a blank line.')
     expect(searched).toContain('End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".')
     expect(searched).not.toContain('{today}')
     expect(searched).not.toContain(FACTCHECK_NO_SEARCH_NOTE)
     expect(buildCompanionSystem(request, { today: '2026-10-14', sourceSearch: false })).toContain(FACTCHECK_NO_SEARCH_NOTE)
-    expect(factcheckPrompt('2026-10-14')).toContain("Today's date is 2026-10-14;")
+    expect(factcheckPrompt('2026-10-14')).toContain("Today's date is 2026-10-14.")
   })
 
   it('builds the source query from the passage and the document, within the search bound', () => {
@@ -418,13 +423,13 @@ describe('/api/chat with the margin intents (provider mocked)', () => {
   it('meters each intent as PROMPTS.md says: define_sense and quiz_check never charged', async () => {
     const cases: Array<[Record<string, unknown>, string]> = [
       [{ intent: 'simplify', selection: PASSAGE }, 'explain'],
-      [{ intent: 'simplify', selection: PASSAGE, speculative: true }, 'explain_speculative'],
       [{ intent: 'define_sense', selection: 'state', senses: ['a', 'b'] }, 'explain_speculative'],
       [{ intent: 'quiz_check', quiz: { question: 'Q', expected: 'E', answer: 'A' } }, 'explain_speculative'],
       [{ intent: 'counterpoint', selection: PASSAGE }, 'chat'],
       [{ intent: 'quiz', selection: PASSAGE }, 'chat'],
       [{ intent: 'quiz' }, 'chat'],
       [{ intent: 'factcheck', selection: PASSAGE }, 'chat'],
+      [{ intent: 'related', selection: PASSAGE }, 'chat'],
     ]
     for (const [companion, feature] of cases) {
       const { rows } = stubFetch()
@@ -491,7 +496,7 @@ describe('Fact-check and the source search', () => {
     expect(anthropic[0].output_config).toEqual({ effort: MARGIN_ROUTES.factcheck.effort })
     expect((anthropic[0].tools as Array<{ name: string }>).map(tool => tool.name)).toEqual(['search_reading_sources'])
     const system = JSON.stringify(anthropic[0].system)
-    expect(system).toContain("Today's date is 2026-10-14;")
+    expect(system).toContain("Today's date is 2026-10-14.")
     expect(system).not.toContain(FACTCHECK_NO_SEARCH_NOTE)
     const messages = anthropic[0].messages as Array<{ role: string; content: Array<Record<string, unknown>> | string }>
     expect(messages[0]).toEqual({ role: 'user', content: `<selected_passage>\n${PASSAGE}\n</selected_passage>` })

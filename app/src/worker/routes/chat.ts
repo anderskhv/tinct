@@ -1,6 +1,6 @@
 import { ChatUpstreamError, fetchChatUpstream as fetchAnthropic, logChatFailure, providerErrorType, readChatChunk, safeChatError } from '../lib/chatUpstream'
 import { COMPANION_MODEL, parseCompanionEffort, type CompanionEffort } from '../../companionModel'
-import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate, type AllowanceView } from '../lib/aiAllowance'
+import { NEVER_CHARGED_AI_FEATURES, allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate, type AllowanceView } from '../lib/aiAllowance'
 import {
   createBookRetrieval,
   parseBookRef,
@@ -282,10 +282,11 @@ function validateSystemParam(value: unknown): { system: AnthropicSystemParam; er
   return { system: blocks }
 }
 
-function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null, timing: ChatRequestTiming, meter?: AiMeter, margin?: CacheLogLabel): Response {
+function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null, timing: ChatRequestTiming, meter?: AiMeter, margin?: CacheLogLabel, chargeable = true): Response {
   let charged = false
   const charge = () => {
-    if (charged) return
+    // A never-charged feature (define_sense, quiz_check, a speculative Explain) never counts a message.
+    if (charged || !chargeable) return
     charged = true
     if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
       ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
@@ -1168,7 +1169,10 @@ export async function handleChat(
       const meterBook = parseBookRef(companion ? companionBookRef(companion) : body.book)
       const meter = createAiMeter(env, ctx, { userId, guest: ledgerGuestKey(request) }, { feature, bookId: meterBook?.bookId ?? null, model })
 
+      // Features in NEVER_CHARGED_AI_FEATURES are metered for cost but never charged to the reader (FIXES-2026-10-15 PR C).
+      const chargeable = !NEVER_CHARGED_AI_FEATURES.includes(feature)
       const charge = () => {
+        if (!chargeable) return
         if (userId && env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
           ctx.waitUntil(supabaseRpc(env, 'use_message', { p_user_id: userId }))
         }
@@ -1262,7 +1266,7 @@ export async function handleChat(
           const data = await response.json().catch(() => ({ error: 'Chat request failed' }))
           return jsonResponse(data, response.status, request)
         }
-        return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter, marginLabel)
+        return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter, marginLabel, chargeable)
       }
 
       const data = await response.json() as { usage?: AnthropicUsage; stop_reason?: string | null }
