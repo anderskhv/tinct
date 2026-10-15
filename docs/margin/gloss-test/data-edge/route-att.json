@@ -1,0 +1,12 @@
+{
+ "captionAsk": {
+  "first": 2832,
+  "last": 5120,
+  "text": "I can't verify exact colors from the figure — the PDF excerpt here gives me the text and layout description, not rendered image colors, and I don't have a reliable memory of specific box colors used in this particular diagram.\n\nWhat I can tell you from the text: Figure 1 shows the encoder on the left and decoder on the right, each stack containing a multi-head self-attention sub-layer and a position-wise feed-forward sub-layer, with residual connections and layer normalization around each. If you're looking at the actual page, the Feed Forward boxes should appear as one of the repeated block elements within each layer — typically distinguished from the attention blocks by shape/label rather than by any color scheme I can confirm."
+ },
+ "whole": {
+  "first": 34,
+  "last": 3584,
+  "text": "Figure 1 isn't reproduced with color in this text excerpt — what's on the page is the architecture diagram description (encoder/decoder stacks, attention and feed-forward sub-layers), but no color information is given for the boxes. If you're looking at the actual PDF image, I can't see the rendered colors from the text here; you'd need to look directly at the figure on page 3 for that visual detail."
+ }
+}

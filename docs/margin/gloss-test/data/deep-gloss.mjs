@@ -19,7 +19,7 @@ for (const [i, ph] of T.factcheck.entries()) await run(`factcheck-${i}`, async (
 for (const [i, ph] of T.counterpoint.entries()) await run(`counterpoint-${i}`, async () => { await gselect(p, ph); const t0 = Date.now(); await more('Counterpoint'); return { passage: ph, ...(await body(t0)) }; }, ph);
 for (const [i, [ph, q]] of T.ask.entries()) await run(`ask-${i}`, async () => { await gselect(p, ph); await p.keyboard.type(q, { delay: 5 }); const t0 = Date.now(); await p.keyboard.press('Enter'); return { passage: ph, question: q, ...(await body(t0)) }; }, q);
 for (const [i, q] of T.whole.entries()) await run(`whole-${i}`, async () => { await p.keyboard.press('Escape'); await p.keyboard.press('/'); await sleep(400); await p.keyboard.type(q, { delay: 5 }); const t0 = Date.now(); await p.keyboard.press('Enter'); return { question: q, ...(await body(t0)) }; }, q);
-await run('primer', async () => { await p.evaluate(() => scrollTo(0, 0)); const t0 = Date.now(); await p.getByText('Gloss this text').first().click();
+if (!process.env.NOPRIMER) await run('primer', async () => { await p.evaluate(() => scrollTo(0, 0)); const t0 = Date.now(); await p.getByText('Gloss this text').first().click();
   let txt = ''; for (let k = 0; k < 400; k++) { await sleep(300); txt = await p.evaluate(() => { const h = [...document.querySelectorAll('section,div,article')].find(e => /Key claims/.test(e.innerText || '') && e.innerText.length < 9000); return h ? h.innerText : ''; }); if (/Redo/.test(txt) && /Map/.test(txt)) break; }
   return { first: 0, last: Date.now() - t0, text: txt }; });
 console.log('errors', p.errors.slice(0, 10)); await c.close();

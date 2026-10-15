@@ -11,7 +11,7 @@ export async function open(viewport) {
 // scroll until a text layer contains the phrase; return client rects of the phrase range
 export async function toTop(p) { await p.evaluate(() => { const els = [...document.querySelectorAll('*')].filter(e => e.scrollHeight > e.clientHeight + 200 && /auto|scroll/.test(getComputedStyle(e).overflowY)); els.sort((a, b) => b.scrollHeight - a.scrollHeight); if (els[0]) els[0].scrollTop = 0; scrollTo(0, 0); }); await sleep(1200); }
 export async function locate(p, phrase) {
-  await toTop(p);
+  if (!process.env.NOTOP) await toTop(p);
   for (let i = 0; i < 80; i++) {
     const r = await p.evaluate(ph => {
       const norm = s => s.replace(/\s+/g, ' ');
