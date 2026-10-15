@@ -13,8 +13,14 @@
 //   - The reader is asked once per book, never automatically. A free account is told, once, in
 //     one calm line, what Premium would do; a switch that is off (the route answers 404) shows
 //     nothing at all.
-// Pure helpers (view, toSend, upload, run) take everything they touch as arguments, so
-// app/src/lab/userBook/pdfOcr.test.ts runs them without a browser.
+// Pure helpers (view, toSend, upload, run, and the text layer's pageText, inkMask, findLines,
+// layoutPage, textItems) take everything they touch as arguments, so
+// app/src/lab/userBook/pdfOcr.test.ts and pdfOcrLayer.test.ts run them without a browser.
+// Once recognised, the scan stays in this viewer with the margin (the scans test, 15 Oct 2026):
+// its recognised pages (GET …/pages) are laid over the page images as a text layer. Each block
+// has its box from recognition (`b`, 0-1000 of the page, ocrEdition.ts OcrBox); the page's own ink
+// finds the printed lines inside it. A page recognised before boxes existed is laid out by its ink
+// alone, in reading order (columns left to right).
 (function (global) {
   const RENDER_EDGE = 1600;
   const JPEG_QUALITY = 0.75;
@@ -243,9 +249,201 @@
     } finally { page.cleanup?.(); canvas.width = canvas.height = 0 }
   }
 
+  /* ---------- The recognised text as a text layer over the page image ---------- */
+  /** Printed but not part of the text read or asked about: running heads, footers, page numbers. */
+  const FURNITURE = new Set(['head', 'foot', 'num']);
+  /** Kept line by line. */
+  const LINED = new Set(['alg', 'tbl', 'eq']);
+  const blocksOf = page => (page && Array.isArray(page.blocks) ? page.blocks : []).filter(b => b && typeof b.x === 'string' && b.x.trim());
+  /** A recognised page's text, as the margin's companion reads it: blocks in order, a blank line between, furniture left out. */
+  function pageText(page) {
+    return blocksOf(page).filter(b => !FURNITURE.has(b.t)).map(b => LINED.has(b.t) ? b.x.split('\n').map(l => l.trim()).filter(Boolean).join('\n') : b.x.replace(/\s+/g, ' ').trim()).join('\n\n');
+  }
+
+  /** Ink of a page image (RGBA): 1 where a pixel is well darker than the paper (its median grey). */
+  function inkMask(data, w, h) {
+    const n = w * h, grey = new Uint8Array(n), counts = new Uint32Array(256);
+    for (let i = 0; i < n; i++) { const y = (0.299 * data[i * 4] + 0.587 * data[i * 4 + 1] + 0.114 * data[i * 4 + 2]) | 0; grey[i] = y; counts[y]++ }
+    let seen = 0, paper = 255;
+    for (let y = 0; y < 256; y++) { seen += counts[y]; if (seen * 2 >= n) { paper = y; break } }
+    const cut = Math.min(paper - 48, 200), mask = new Uint8Array(n);
+    for (let i = 0; i < n; i++) mask[i] = grey[i] < cut ? 1 : 0;
+    return mask;
+  }
+
+  const median = list => { if (!list.length) return 0; const s = list.slice().sort((a, b) => a - b); return s[s.length >> 1] };
+  /**
+   * The printed lines in a region of an ink mask ([x0, y0, x1, y1] in pixels): rows with ink grouped
+   * into lines (an i's dot or an accent joins its line), each with its ink's extent.
+   * -> [{ x0, y0, x1, y1 }] in pixels, top to bottom.
+   */
+  function findLines(mask, w, h, region = [0, 0, w, h]) {
+    const X0 = Math.max(0, Math.floor(region[0])), Y0 = Math.max(0, Math.floor(region[1])), X1 = Math.min(w, Math.ceil(region[2])), Y1 = Math.min(h, Math.ceil(region[3]));
+    if (X1 - X0 < 3 || Y1 - Y0 < 2) return [];
+    const minInk = Math.max(1, Math.round((X1 - X0) * 0.003));
+    let runs = [], start = -1;
+    for (let y = Y0; y <= Y1; y++) {
+      let c = 0;
+      if (y < Y1) for (let x = X0, i = y * w + X0; x < X1; x++, i++) c += mask[i];
+      if (y < Y1 && c >= minInk) { if (start < 0) start = y } else if (start >= 0) { runs.push({ y0: start, y1: y }); start = -1 }
+    }
+    // A small run close to a taller one (a dot, an accent, a descender cut off) belongs to it.
+    const tall = median(runs.map(r => r.y1 - r.y0));
+    for (let merged = true; merged && runs.length > 1;) {
+      merged = false;
+      for (let i = 0; i < runs.length; i++) {
+        const r = runs[i], hgt = r.y1 - r.y0;
+        if (hgt >= tall * 0.5) continue;
+        const up = runs[i - 1], down = runs[i + 1];
+        const gapUp = up ? r.y0 - up.y1 : Infinity, gapDown = down ? down.y0 - r.y1 : Infinity;
+        const into = gapDown <= gapUp ? (gapDown <= Math.max(2, tall * 0.35) ? i + 1 : -1) : (gapUp <= Math.max(2, tall * 0.35) ? i - 1 : -1);
+        if (into < 0) continue;
+        const t = runs[into]; t.y0 = Math.min(t.y0, r.y0); t.y1 = Math.max(t.y1, r.y1);
+        runs.splice(i, 1); merged = true; break;
+      }
+    }
+    const lines = [];
+    for (const r of runs) {
+      // Its ink's extent, and its words: runs of ink apart by a third of the line's height or more.
+      let l = -1, rt = -1, words = 0, gap = Infinity;
+      const space = Math.max(2, (r.y1 - r.y0) * 0.33);
+      for (let x = X0; x < X1; x++) {
+        let any = 0; for (let y = r.y0; y < r.y1 && !any; y++) any = mask[y * w + x];
+        if (any) { if (l < 0) l = x; if (gap >= space) words++; rt = x + 1; gap = 0 } else gap++;
+      }
+      if (l >= 0 && rt - l >= 3 && r.y1 - r.y0 >= 2) lines.push({ x0: l, y0: r.y0, x1: rt, y1: r.y1, words });
+    }
+    return lines;
+  }
+
+  /** A run of columns free of ink down the middle of the page: the gutter of a two-column page, or null. */
+  function findGutter(mask, w, h, lines) {
+    if (lines.length < 3) return null;
+    const ink = new Uint32Array(w);
+    for (const L of lines) for (let y = L.y0; y < L.y1; y++) for (let x = L.x0, i = y * w + L.x0; x < L.x1; x++, i++) ink[x] += mask[i];
+    const rows = lines.reduce((s, L) => s + (L.y1 - L.y0), 0), quiet = Math.max(1, rows * 0.15);
+    let best = null, at = -1;
+    for (let x = Math.floor(w * 0.3); x <= Math.ceil(w * 0.7); x++) {
+      if (x < Math.ceil(w * 0.7) && ink[x] <= quiet) { if (at < 0) at = x } else if (at >= 0) { if (!best || x - at > best[1] - best[0]) best = [at, x]; at = -1 }
+    }
+    return best && best[1] - best[0] >= w * 0.012 ? best : null;
+  }
+
+  /** Lines in reading order: a two-column stretch left column first, a line across the gutter where it stands. */
+  function readingOrder(mask, w, h, lines) {
+    const g = findGutter(mask, w, h, lines);
+    if (!g) return lines;
+    const out = [], left = [], right = [];
+    const flush = () => { out.push(...left.splice(0), ...right.splice(0)) };
+    for (const L of lines) {
+      let across = 0;
+      for (let y = L.y0; y < L.y1 && across < 2; y++) for (let x = g[0], i = y * w + g[0]; x < g[1]; x++, i++) across += mask[i];
+      if (across >= 2 || L.x1 <= g[0] || L.x0 >= g[1]) {
+        if (L.x1 <= g[0]) left.push(L); else if (L.x0 >= g[1]) right.push(L); else { flush(); out.push(L) }
+        continue;
+      }
+      const a = findLines(mask, w, h, [L.x0, L.y0, g[0], L.y1]), b = findLines(mask, w, h, [g[1], L.y0, L.x1, L.y1]);
+      const box = parts => parts.length ? { x0: Math.min(...parts.map(q => q.x0)), y0: L.y0, x1: Math.max(...parts.map(q => q.x1)), y1: L.y1, words: parts.reduce((n, q) => n + q.words, 0) } : null;
+      const la = box(a), lb = box(b);
+      if (la) left.push(la);
+      if (lb) right.push(lb);
+    }
+    flush();
+    return out;
+  }
+
+  const wordsOf = text => text.replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
+  /** Words over lines: as many as each line's ink shows when the count agrees, else in proportion to each line's width. [[word, …] per line] */
+  function spread(words, lines) {
+    if (!lines.length) return [];
+    if (lines.every(L => L.words > 0) && lines.reduce((a, L) => a + L.words, 0) === words.length) {
+      let k = 0;
+      return lines.map(L => words.slice(k, k += L.words));
+    }
+    const widths = lines.map(L => Math.max(1, L.x1 - L.x0)), total = widths.reduce((a, b) => a + b, 0);
+    const chars = words.reduce((a, wd) => a + wd.length + 1, 0);
+    const out = lines.map(() => []);
+    let line = 0, used = 0, target = widths[0] / total * chars;
+    for (let k = 0; k < words.length; k++) {
+      const len = words[k].length + 1, left = words.length - k, linesLeft = lines.length - line;
+      // On to the next line when this one is full (past half the word), or when the words left are needed one a line.
+      if (line < lines.length - 1 && out[line].length && (used + len / 2 > target || left <= linesLeft - 1)) { line++; target += widths[line] / total * chars }
+      out[line].push(words[k]); used += len;
+    }
+    return out;
+  }
+
+  /**
+   * A recognised page laid over its image: [{ text, kind, box: [x0, y0, x1, y1] }], each a printed
+   * line, `box` in fractions of the page from its top-left corner. `mask` is the page's ink (inkMask)
+   * at `w`×`h` pixels; without ink where a block says it is, its lines are spread evenly over its box.
+   */
+  function layoutPage(page, mask, w, h) {
+    const blocks = blocksOf(page);
+    if (!blocks.length || !(w > 0 && h > 0)) return [];
+    const plausible = L => L.y1 - L.y0 <= h * 0.06;
+    const pageLines = findLines(mask, w, h, [w * 0.02, h * 0.01, w * 0.98, h * 0.99]).filter(plausible);
+    const lead = median(pageLines.map(L => L.y1 - L.y0)) || h * 0.014;
+    const norm = L => [L.x0 / w, L.y0 / h, L.x1 / w, L.y1 / h];
+    const out = [];
+    const place = (block, lines) => {
+      const lined = LINED.has(block.t) ? block.x.split('\n').map(l => l.trim()).filter(Boolean) : null;
+      const texts = lined && lined.length === lines.length ? lined.map(l => [l]) : spread(wordsOf(block.x), lines);
+      texts.forEach((ws, i) => { if (ws.length) out.push({ text: ws.join(' '), kind: block.t, box: norm(lines[i]) }) });
+    };
+    const even = (block, [x0, y0, x1, y1]) => {
+      const n = Math.max(1, Math.min(Math.floor((y1 - y0) / (lead * 1.3)) || 1, Math.ceil(block.x.length / 60)));
+      const step = (y1 - y0) / n;
+      return Array.from({ length: n }, (_, i) => ({ x0, y0: y0 + i * step, x1, y1: y0 + i * step + Math.min(step, lead) }));
+    };
+    if (blocks.every(b => Array.isArray(b.b) && b.b.length === 4)) {
+      for (const block of blocks) {
+        const [l, t, r, btm] = block.b, padX = w * 0.006, padY = h * 0.004;
+        const region = [l / 1000 * w - padX, t / 1000 * h - padY, r / 1000 * w + padX, btm / 1000 * h + padY];
+        // A neighbouring line's ascenders or descenders inside the padding are not a line of this block.
+        const top = t / 1000 * h, bottom = btm / 1000 * h;
+        const lines = findLines(mask, w, h, region).filter(L => plausible(L) && Math.min(L.y1, bottom) - Math.max(L.y0, top) >= (L.y1 - L.y0) * 0.5);
+        place(block, lines.length ? lines : even(block, [l / 1000 * w, t / 1000 * h, r / 1000 * w, btm / 1000 * h]));
+      }
+      return out;
+    }
+    // No boxes (recognised before 15 Oct 2026): the blocks in order over the page's lines in reading order.
+    let lines = readingOrder(mask, w, h, pageLines);
+    if (!lines.length) lines = even({ x: blocks.map(b => b.x).join(' ') }, [w * 0.1, h * 0.08, w * 0.9, h * 0.92]);
+    const widths = lines.map(L => Math.max(1, L.x1 - L.x0)), total = widths.reduce((a, b) => a + b, 0);
+    const sizes = blocks.map(b => b.x.length + 1), chars = sizes.reduce((a, b) => a + b, 0);
+    let at = 0;
+    blocks.forEach((block, i) => {
+      const from = at, need = sizes[i] / chars * total, blocksLeft = blocks.length - i - 1;
+      let got = 0;
+      while (at < lines.length - blocksLeft && (at === from || got + widths[at] / 2 <= need)) { got += widths[at]; at++ }
+      // Out of lines: what is left shares the last one.
+      place(block, at > from ? lines.slice(from, at) : [lines[lines.length - 1]]);
+    });
+    return out;
+  }
+
+  /** [a, b, c, d, e, f] products and inverse, as pdf.js's Util. */
+  const mul = (m, n) => [m[0] * n[0] + m[2] * n[1], m[1] * n[0] + m[3] * n[1], m[0] * n[2] + m[2] * n[3], m[1] * n[2] + m[3] * n[3], m[0] * n[4] + m[2] * n[5] + m[4], m[1] * n[4] + m[3] * n[5] + m[5]];
+  const inverse = m => { const d = m[0] * m[3] - m[1] * m[2]; return [m[3] / d, -m[1] / d, -m[2] / d, m[0] / d, (m[2] * m[5] - m[3] * m[4]) / d, (m[1] * m[4] - m[0] * m[5]) / d] };
+  /**
+   * Laid-out lines as pdf.js text items, for the viewer's text layer (reader.js buildTextLayer): one item
+   * a line, in the page's own space, from the page's viewport at scale 1 ({ width, height, transform }).
+   * Each line's text fills its box: its top at the box's top, its size the box's height.
+   */
+  function textItems(lines, vp) {
+    const back = inverse(vp.transform);
+    return lines.map(L => {
+      const [x0, y0, x1, y1] = L.box, size = Math.max(1, (y1 - y0) * vp.height / 0.95);
+      const shown = [size, 0, 0, -size, x0 * vp.width, y0 * vp.height + size * 0.86];
+      return { str: L.text, dir: 'ltr', width: (x1 - x0) * vp.width, height: size, transform: mul(back, shown), fontName: 'ocr', hasEOL: true, kind: L.kind };
+    });
+  }
+
   /**
    * The account's OCR routes with the reader's token (`token()`): status() resolves null when
-   * the switch is off (404) or the account cannot be asked; the others throw ({ status, code }).
+   * the switch is off (404), undefined when the account cannot be asked now (offline, busy,
+   * signed out); pages() the recognised pages or null; the others throw ({ status, code }).
    */
   function api({ token, fetch: fetchImpl = (...a) => global.fetch(...a), sleep = ms => new Promise(r => setTimeout(r, ms)) }) {
     const base = hex => '/api/user-books/ocr/' + encodeURIComponent(hex);
@@ -257,7 +455,10 @@
     const fail = async r => { let code = ''; try { code = (await r.json())?.error || '' } catch {} return Object.assign(new Error(code || 'HTTP ' + r.status), { status: r.status, code }) };
     return {
       async status(hex) {
-        try { const r = await call(base(hex)); return r.ok ? await r.json() : null } catch { return null }
+        try { const r = await call(base(hex)); return r.ok ? await r.json() : r.status === 404 ? null : undefined } catch { return undefined }
+      },
+      async pages(hex) {
+        try { const r = await call(base(hex) + '/pages'); if (!r.ok) return null; const body = await r.json(); return Array.isArray(body?.pages) ? body.pages : null } catch { return null }
       },
       async start(hex, body) {
         const r = await call(base(hex), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
@@ -284,5 +485,6 @@
     RENDER_EDGE, JPEG_QUALITY, BLANK_INK, INK_LEVEL, PARALLEL, POLL_MS,
     FREE_LINE, READY, SHELF, LATER,
     view, shelfLine, toSend, upload, run, defaultEdition, greyInk, faintInk, isBlank, renderPage, api, canStart,
+    pageText, inkMask, findLines, layoutPage, textItems,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

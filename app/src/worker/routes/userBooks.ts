@@ -109,6 +109,7 @@
  *   GET    /api/user-books/ocr/{bookHex}           the job's status, pages still to upload, the reader's tier and month
  *   PUT    /api/user-books/ocr/{bookHex}/pages/{n} one page image (image/jpeg, at most 1.5 MB)
  *   GET    /api/user-books/ocr/{bookHex}/edition   the recognised Tinct text
+ *   GET    /api/user-books/ocr/{bookHex}/pages     the recognised pages (blocks and their boxes), for the PDF reader's text layer
  *   DELETE /api/user-books/ocr/{bookHex}           cancel: unused page reservations back, everything deleted
  *
  * Owner only (a PDF under the caller's own prefix whose SHA-256 starts with
@@ -129,6 +130,8 @@ import {
   ocrCoordinatorName,
   ocrEditionKey,
   ocrImageKey,
+  ocrPagesThisMonth,
+  monthlyPageLimit,
   ownOcrLimits,
   ownOcrPrefix,
   ownPdfOcrOn,
@@ -150,7 +153,7 @@ const TYPES = { pdf: 'application/pdf', epub: 'application/epub+zip' } as const
 export type UserBookType = keyof typeof TYPES
 
 export type UserBooksEnv = { USER_BOOKS?: R2Bucket; OWN_OCR?: DurableObjectNamespace<OwnOcrCoordinator> }
-  & Pick<OwnOcrEnv, 'OWN_PDF_OCR' | 'OCR_MAX_PAGES' | 'XAI_API_KEY'>
+  & Pick<OwnOcrEnv, 'OWN_PDF_OCR' | 'OCR_MAX_PAGES' | 'XAI_API_KEY' | 'NARRATION_COORDINATOR' | 'OWN_PDF_OCR_MONTHLY_PAGES' | 'OWN_PDF_OCR_TRIAL_MONTHLY_PAGES'>
 export { ownOcrPrefix }
 /** A stored cover is at most this many bytes (the browser aims under 60 KB). */
 export const MAX_COVER_BYTES = 64 * 1024
@@ -543,9 +546,10 @@ async function handleOcr(request: Request, env: UserBooksEnv, deps: OcrRouteDeps
   const [bookHex = '', part, pageText, ...extra] = rest.split('/')
   const route = part === undefined ? 'job'
     : part === 'edition' && pageText === undefined ? 'edition'
-      : part === 'pages' && pageText !== undefined && !extra.length ? 'page' : null
+      : part === 'pages' && pageText === undefined ? 'pages'
+        : part === 'pages' && pageText !== undefined && !extra.length ? 'page' : null
   if (!route) return notFound(request)
-  const allowed = route === 'job' ? ['GET', 'POST', 'DELETE'] : route === 'edition' ? ['GET'] : ['PUT']
+  const allowed = route === 'job' ? ['GET', 'POST', 'DELETE'] : route === 'edition' || route === 'pages' ? ['GET'] : ['PUT']
   if (!allowed.includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
   const user = await deps.verifyUser(request)
   if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
@@ -570,8 +574,24 @@ async function handleOcr(request: Request, env: UserBooksEnv, deps: OcrRouteDeps
 
   // Owner only: a PDF stored under the caller's own prefix.
   const book = (await listUserBooks(bucket, user.id)).find(item => item.type === 'pdf' && item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
-  if (!book) return notFound(request)
+  if (!book) {
+    // A scan just added: its account copy is still on its way (the reader asks at once, and again
+    // after "Saved to your account"). Nothing is recognised for a book not stored yet, so its status
+    // is "none", with the reader's tier and month, and nothing is started or read for it.
+    if (route === 'job' && request.method === 'GET') {
+      const tier = await tierOf(deps, user.id)
+      const used = env.NARRATION_COORDINATOR ? await ocrPagesThisMonth(env.NARRATION_COORDINATOR, user.id, Date.now()).catch(() => 0) : 0
+      return reply({ state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month: { used, limit: monthlyPageLimit(limits, tier) }, stored: false, tier }, 200, request)
+    }
+    return notFound(request)
+  }
   const job = namespace.getByName(await ocrCoordinatorName(user.id, bookHex))
+
+  if (route === 'pages') {
+    const pages = await job.recognised()
+    if (!pages) return notFound(request)
+    return reply({ pages }, 200, request)
+  }
 
   if (route === 'edition') {
     const object = await bucket.get(ocrEditionKey(user.id, bookHex))

@@ -21,11 +21,41 @@ describe('assembleOcrEdition', () => {
     expect(edition.chapters[0].pages).toEqual([1])
   })
 
-  it('drops running heads, footers and page numbers, and captions', () => {
+  // Format 2 (15 Oct 2026, the scans test): captions stay, as paragraphs of their own; format 1 dropped them.
+  it('drops running heads, footers and page numbers, and keeps a caption as a paragraph of its own', () => {
     const edition = assembleOcrEdition({ ...book, pages: [page(1, [
-      { t: 'head', x: 'A SCANNED BOOK' }, { t: 'num', x: '12' }, p('Body text.'), { t: 'cap', x: 'Figure 1. A map.' }, { t: 'foot', x: 'Printed in Denmark' },
+      { t: 'head', x: 'A SCANNED BOOK' }, { t: 'num', x: '12' }, p('Body text that runs on'), { t: 'cap', x: 'Figure 1. A map.' }, { t: 'foot', x: 'Printed in Denmark' },
     ])] })
-    expect(edition.chapters[0].paragraphs).toEqual(['Body text.'])
+    expect(edition.chapters[0].paragraphs).toEqual(['Body text that runs on', 'Figure 1. A map.'])
+    expect(edition.converter).toBe(2)
+  })
+
+  it('keeps an algorithm box line by line, and a caption never runs on into the next page\'s paragraph', () => {
+    const edition = assembleOcrEdition({ ...book, pages: [
+      page(1, [p('The procedure is below.'), { t: 'alg', x: 'Algorithm 1 Minibatch training\nfor number of iterations do\n  update the discriminator\nend for' }, { t: 'cap', x: 'Figure 2: the losses' }]),
+      page(2, [p('which a lower-case start would join.')]),
+    ] })
+    const ch = edition.chapters[0]
+    expect(ch.paragraphs).toEqual(['The procedure is below.', 'Algorithm 1 Minibatch training', 'for number of iterations do', 'update the discriminator', 'end for', 'Figure 2: the losses', 'which a lower-case start would join.'])
+    expect(ch.kinds).toEqual([null, 'line', 'line', 'line', 'line', null, null])
+  })
+
+  it('splits a paper into chapters at every numbered section, h1 or h2; subsections and unnumbered headings stay inside', () => {
+    const edition = assembleOcrEdition({ ...book, pages: [
+      page(1, [{ t: 'h1', x: 'Generative Adversarial Nets' }, p('Abstract. We propose a framework.'), { t: 'h2', x: '1 Introduction' }, p('Deep learning is promising.')]),
+      page(2, [{ t: 'h2', x: '2 Related work' }, p('Earlier models.'), { t: 'h2', x: '3. Adversarial nets' }, p('The framework.'), { t: 'h2', x: '3.1 Training' }, p('Train both.')]),
+      page(3, [{ t: 'h2', x: 'Acknowledgments' }, p('Thanks.'), { t: 'h2', x: 'IV. Results' }, p('It works.')]),
+    ] })
+    expect(edition.chapters.map(c => [c.title, c.pages![0]])).toEqual([['Generative Adversarial Nets', 1], ['1 Introduction', 1], ['2 Related work', 2], ['3. Adversarial nets', 2], ['IV. Results', 3]])
+    expect(edition.chapters[3].paragraphs).toEqual(['The framework.', '3.1 Training', 'Train both.', 'Acknowledgments', 'Thanks.'])
+  })
+
+  it('a book with h1 chapters is not split at numbered sections inside them', () => {
+    const edition = assembleOcrEdition({ ...book, pages: [
+      page(1, [{ t: 'h1', x: 'Chapter One' }, { t: 'h2', x: '1 The question' }, p('Text.'), { t: 'h2', x: '2 The answer' }, p('More.')]),
+      page(2, [{ t: 'h1', x: 'Chapter Two' }, p('Next.')]),
+    ] })
+    expect(edition.chapters.map(c => c.title)).toEqual(['Chapter One', 'Chapter Two'])
   })
 
   it('joins a paragraph across pages and records where the next page begins', () => {

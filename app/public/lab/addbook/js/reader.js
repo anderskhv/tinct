@@ -85,7 +85,12 @@ const isNear = p => { const r = p.sheet.getBoundingClientRect(); return r.bottom
 // (add-engine.js): this page reads PDFs, and EPUBs leave for the Tinct reader.
 const engine = window.TinctAddEngine;
 const { owner, library, cloud, shelf, RIGHTS_COPY, accountId } = engine;
-const saveToAccount = (key, file, meta, options = {}) => engine.saveToAccount(key, file, meta, { notify: toast, ...options });
+// Once the account copy is stored ("Saved to your account"), what was asked before it was is asked
+// again (whenSaved: recognising a scan's text, the first-open race of 15 Oct 2026).
+const saveToAccount = async (key, file, meta, options = {}) => {
+  await engine.saveToAccount(key, file, meta, { notify: toast, ...options });
+  if (engine.cloud?.get(key)) dispatchEvent(new CustomEvent('tinct-book-saved', { detail: { key } }));
+};
 const removeBook = key => engine.removeBook(key, { notify: toast });
 // Opening your own file needs a Tinct account (searching free books does not). The
 // rights confirmation (add-engine.js) is asked once per account, before its first file opens.
@@ -290,7 +295,7 @@ async function openEpub(bytes, name, key) {
   catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
   state.pdf?.destroy?.(); state.observer?.disconnect();
-  Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [] });
+  Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null });
   root.classList.add('is-epub'); root.classList.remove('is-pdf');
   const saved = store.get('pos:' + state.key);
   state.zoom = saved?.zoom || 1;
@@ -347,7 +352,9 @@ async function openPdf(bytes, name, key) {
   // The PDF's Tinct text when this device has converted it (the Tinct reader keeps it on the
   // record): a place here also names the same spot in it (textSpot).
   const textEdition = window.TinctPdfText?.usable(rec?.edition) ? rec.edition : null;
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, texts: new Map(), figs: new Map() });
+  // A scan's recognised pages (js/pdf-ocr.js), kept with the book once fetched: its text layer and its text.
+  const ocrPages = ocrPagesOf(rec?.ocrPages);
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map() });
   if (token !== state.token) return;
   root.classList.add('is-pdf'); root.classList.remove('is-epub');
   root.style.removeProperty('--epub-scale');
@@ -457,6 +464,9 @@ function buildSheets(count) {
 async function pageText(n) {
   if (state.texts.has(n)) return state.texts.get(n);
   if (isEpub()) return { text: '', items: [] };
+  // A recognised scan's page: its recognised text; its items are laid out once the page is drawn (ocrItems).
+  const recognised = state.ocrPages?.get(n);
+  if (recognised) { const value = { text: TinctPdfOcr.pageText(recognised), items: [], ocr: true }; state.texts.set(n, value); return value }
   const page = await state.pdf.getPage(n);
   const content = await page.getTextContent();
   const value = { items: content.items, text: content.items.map(i => i.str + (i.hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ').trim() };
@@ -496,7 +506,9 @@ async function renderPage(p) {
   p.canvas?.remove(); p.layer?.remove();
   if (p.source && p.source !== canvas) p.source.width = 0;
   p.pg.prepend(shown); p.canvas = shown; p.source = shown === canvas ? null : canvas; p.renderedWidth = width; p.dark = dark;
-  const { items } = await pageText(p.n);
+  const text = await pageText(p.n);
+  // A recognised scan: its words laid over the page as printed (the drawn page's ink and the blocks' boxes).
+  const items = text.ocr ? ocrItems(p, page, text) : text.items;
   // (In Dark the page shown is its recoloured copy: the text layer goes over that one too.)
   if (token !== state.token || p.canvas !== shown) return;
   buildTextLayer(p, items, page.getViewport({ scale: cssScale }));
@@ -544,6 +556,8 @@ function buildTextLayer(p, items, vp) {
     const span = document.createElement('span');
     span.textContent = item.str + (item.hasEOL ? '\n' : ' ');
     span.dataset.i = i;
+    // A recognised scan's line keeps what it is: a caption, an algorithm box, a footnote (pdf-ocr.js).
+    if (item.kind) span.dataset.kind = item.kind;
     span.style.left = tx[4] + 'px';
     span.style.top = (tx[5] - size * 0.86) + 'px';
     span.style.fontSize = size + 'px';
@@ -946,8 +960,10 @@ const isOcrText = () => state.textEdition?.source === 'ocr';
 const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), store.get('edition:' + hexOf(state.key)), isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : scan?.layout?.default);
 const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + (page ? '&page=' + page : '');
 // Opened here but read as Tinct text: on to the Tinct reader (not for a link that asks for the pages).
+// A scan whose text was recognised stays here, with the margin, its words laid over its pages (the
+// scans test, 15 Oct 2026); its Tinct text is one tap away ("Tinct text"), never a redirect.
 function forwardToText(scan) {
-  if (!scan || !(scan.textPages > 0 || isOcrText()) || new URLSearchParams(location.search).has('pages') || editionChoice(scan) !== 'text') return false;
+  if (!scan || !(scan.textPages > 0) || new URLSearchParams(location.search).has('pages') || editionChoice(scan) !== 'text') return false;
   const pos = store.get('pos:' + state.key);
   location.replace(textUrl(pos?.page));
   return true;
@@ -983,7 +999,7 @@ $('textBtn').onclick = () => readAsText();
 // account's switch off (the status route answers 404), nothing but the scan's own note. What
 // this device remembers of a book's job is `ocr:<hex>` (asked, the blank pages it found, how
 // far it got); the job itself is the account's, so it resumes on any of the reader's devices.
-const ocr = { token: 0, el: null, api: null, readyTimer: 0 };
+const ocr = { token: 0, el: null, api: null, readyTimer: 0, saving: null, starting: false };
 const ocrLocal = hex => ({ get: () => store.get('ocr:' + hex) || {}, set: patch => store.set('ocr:' + hex, { ...(store.get('ocr:' + hex) || {}), ...patch }) });
 const ocrApi = () => (ocr.api ??= TinctPdfOcr.api({ token: () => window.TinctAI?.session?.().token || null }));
 const visibleNow = () => document.visibilityState !== 'hidden';
@@ -993,41 +1009,116 @@ const waitVisible = () => visibleNow() ? Promise.resolve() : new Promise(resolve
   document.addEventListener('visibilitychange', on);
 });
 const ACCOUNT_URL = () => '/sign-in?mode=account&returnTo=' + encodeURIComponent(location.pathname + location.search);
-function ocrStop() { ocr.token++; clearTimeout(ocr.readyTimer); ocr.el?.remove(); ocr.el = null }
-async function ocrOpen() {
+function ocrStop() { ocr.token++; clearTimeout(ocr.readyTimer); ocr.el?.remove(); ocr.el = null; ocr.saving = null; ocr.starting = false }
+// The account copy of a book just added is still on its way while the reader first opens it: the
+// status says so (`stored: false`, the first-open race of 15 Oct 2026), and it is asked again once
+// the copy is stored (saveToAccount's `tinct-book-saved` event). Resolves true when saved.
+function whenSaved(key, ms = 60000) {
+  return new Promise(resolve => {
+    const done = ok => { clearTimeout(timer); removeEventListener('tinct-book-saved', on); resolve(ok) };
+    const on = e => { if (e.detail?.key === key) done(true) };
+    const timer = setTimeout(() => done(false), ms);
+    addEventListener('tinct-book-saved', on);
+  });
+}
+async function ocrOpen({ again = false } = {}) {
   if (!window.TinctPdfOcr || state.kind !== 'pdf') return;
   const token = ++ocr.token, key = state.key, hex = hexOf(key);
   const live = () => token === ocr.token && state.key === key && hasBook();
   const status = window.TinctAI?.session?.().token ? await ocrApi().status(hex) : null;
   if (!live()) return;
-  // Switched off, or the account cannot be asked: the scan as before.
-  if (!status) { if (!isOcrText()) toast(NO_TEXT, { hold: true }); return }
-  // Recognised on another device (or while this page was away): kept here now.
-  if (status.state === 'done' && !isOcrText()) {
-    const edition = await ocrApi().edition(hex);
-    if (!live()) return;
-    if (edition) { await ocrKeep(edition); ocrLocal(hex).set({ ready: true }); if (sameSpot(currentPlace(), state.lastPlace) && forwardToText(state.scan)) return }
+  // 404 while this page is still sending the account copy (an account that answers 404 for a book it
+  // does not have yet): asked again once the copy is in, before anything is said.
+  if (status === null && !again && accountCopy.sending && window.TinctAI?.session?.().token) {
+    await accountCopy.sending.catch(() => {});
+    if (live()) ocrOpen({ again: true });
+    return;
+  }
+  // Switched off (404), or signed out: the scan as before. Not asked now (offline, busy): nothing is said,
+  // so the reader is never told the scan "can't be read aloud" while recognition may be on.
+  if (status === null) { if (!isOcrText()) toast(NO_TEXT, { hold: true }); return }
+  if (!status) return;
+  // Not in the account yet: asked again once it is (the offer shows meanwhile; starting waits for it).
+  if (status.stored === false) {
+    const saving = ocr.saving = { key, done: whenSaved(key) };
+    saving.done.then(saved => { if (saved && ocr.saving === saving && !ocr.starting && live()) ocrOpen() });
+  } else ocr.saving = null;
+  if (status.state === 'done') {
+    // Recognised on another device (or while this page was away): kept here now.
+    if (!isOcrText()) {
+      const edition = await ocrApi().edition(hex);
+      if (!live()) return;
+      if (edition) { await ocrKeep(edition); ocrLocal(hex).set({ ready: true }) }
+    } else if (!state.ocrPages) ocrFetchPages();
   }
   ocrShow(status, token);
   const goingOn = status.state === 'uploading' || status.state === 'running' || (status.state === 'paused' && status.reason === 'premium_required');
   if (goingOn && TinctPdfOcr.canStart(status.tier)) ocrRun(token);
 }
-// The recognised text reached this device: kept with the book, and from now on the book opens
-// in its default edition (Tinct text, unless a paper); the "Tinct text" control appears.
+// The recognised text reached this device: kept with the book. The scan goes on opening here, in its
+// pages with the margin, now with its words laid over them (ocrFetchPages); "Tinct text" reads it reflowed.
 async function ocrKeep(edition) {
-  const hex = hexOf(state.key), choice = TinctPdfOcr.defaultEdition(edition);
+  const hex = hexOf(state.key);
   state.textEdition = edition;
   await library.touch(state.key, { edition });
-  store.set('edition:' + hex, choice);
+  store.set('edition:' + hex, 'pages');
   const pos = store.get('pos:' + state.key);
-  if (pos) store.set('pos:' + state.key, { ...pos, edition: choice === 'text' ? 't' : 'p' });
+  if (pos) store.set('pos:' + state.key, { ...pos, edition: 'p' });
   showEditions();
+  await ocrFetchPages();
+}
+/** A recognised page per page number, from the account's GET …/pages (or kept with the book); null when there is none. */
+function ocrPagesOf(list) {
+  if (!Array.isArray(list)) return null;
+  const pages = new Map(list.filter(pg => pg && Number.isInteger(pg.page) && !pg.blank && !pg.failed && Array.isArray(pg.blocks) && pg.blocks.length).map(pg => [pg.page, pg]));
+  return pages.size ? pages : null;
+}
+/** The recognised pages from the account, kept with the book and laid over the pages now. */
+async function ocrFetchPages() {
+  const key = state.key, hex = hexOf(key);
+  const list = await ocrApi().pages(hex);
+  if (state.key !== key || !Array.isArray(list)) return;
+  await library.touch(key, { ocrPages: list });
+  if (state.key === key) ocrAdopt(list);
+}
+/** The recognised text, in use from now on: the text layer, the margin's document and primer, read aloud. */
+function ocrAdopt(list) {
+  const pages = ocrPagesOf(list);
+  if (!pages) return;
+  state.ocrPages = pages;
+  for (const n of pages.keys()) state.texts.delete(n);
+  docCache.key = null; docCache.task = null;
+  // Drawn pages get their text layer now (drawn again, with it).
+  for (const p of state.pages) if (p.canvas && pages.has(p.n)) { p.renderedWidth = 0; renderPage(p) }
+  applyBookLanguage();
+  loadUnits();
+  setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (state.ocrPages === pages) readDocument() }), 1000);
+}
+/* The text items of a recognised page (TinctPdfOcr.layoutPage over the page as drawn, read at most
+   OCR_INK_EDGE px on its long side), laid out once per page and kept with its text. */
+const OCR_INK_EDGE = 1400;
+function ocrItems(p, page, text) {
+  const recognised = state.ocrPages?.get(p.n);
+  if (!recognised) return [];
+  if (!text.lines) {
+    const c = drawn(p), scale = Math.min(1, OCR_INK_EDGE / Math.max(c.width, c.height));
+    const w = Math.max(1, Math.round(c.width * scale)), h = Math.max(1, Math.round(c.height * scale));
+    const g = document.createElement('canvas'); g.width = w; g.height = h;
+    const x = g.getContext('2d', { willReadFrequently: true });
+    x.drawImage(c, 0, 0, w, h);
+    try { text.lines = TinctPdfOcr.layoutPage(recognised, TinctPdfOcr.inkMask(x.getImageData(0, 0, w, h).data, w, h), w, h) } catch { text.lines = [] }
+    g.width = g.height = 0;
+  }
+  const vp = page.getViewport({ scale: 1 });
+  return (text.items = TinctPdfOcr.textItems(text.lines, { width: vp.width, height: vp.height, transform: vp.transform }));
 }
 async function ocrRun(token, { rerun } = {}) {
   const key = state.key, hex = hexOf(key), pdf = state.pdf;
   const live = () => token === ocr.token && state.key === key && hasBook();
   const local = ocrLocal(hex);
   try {
+    // Started before the account copy was stored: the job waits for it.
+    if (ocr.saving?.key === key) { ocr.starting = true; await ocr.saving.done; ocr.starting = false; ocr.saving = null; if (!live()) return }
     await TinctPdfOcr.run({
       hex, pages: pdf.numPages, api: ocrApi(), local, live, rerun, waitVisible,
       render: n => TinctPdfOcr.renderPage(pdf, n),
@@ -1488,7 +1579,7 @@ async function buildContents() {
   // best so, unless the reader has moved here meanwhile.
   if (fresh && sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
   showEditions();
-  if (hasNoText()) ocrOpen();
+  if (isScan()) ocrOpen();
   toc.entries = scan.entries.slice().sort((a, b) => a.page - b.page);
   toc.nav = toc.entries.length ? scan.nav : 'pages';
   toc.ready = true;
@@ -1498,7 +1589,9 @@ async function buildContents() {
 const bookLang = () => (isEpub() ? state.epub?.language : state.scan?.language) || 'en';
 // A scan without a text layer (no scanned page has text): read aloud, Summarize and Catch me up
 // have nothing to read, so they are switched off rather than run over empty pages.
-const hasNoText = () => !isEpub() && state.scan?.textPages === 0;
+const isScan = () => !isEpub() && state.scan?.textPages === 0;
+// ...unless its text has been recognised: then its pages carry that text (ocrAdopt).
+const hasNoText = () => isScan() && !state.ocrPages;
 const NO_TEXT = 'This PDF is a scan without text, so it can’t be read aloud or summarized.';
 function applyBookLanguage() {
   const lang = bookLang();
@@ -3189,6 +3282,8 @@ async function loadUnits() {
     }));
   } catch { entries = [] }
   if (token !== state.token) return;
+  // A recognised scan has no outline: its chapters (a paper's numbered sections) are its units.
+  if (!entries.some(e => Number.isInteger(e.page)) && state.textEdition?.source === 'ocr') entries = state.textEdition.chapters.map(c => ({ title: c.title, page: Array.isArray(c.pages) ? c.pages[0] : null }));
   primer.units = TinctMargin.primerUnits(entries, state.pages.length || pdf.numPages);
   marginLayout();
 }

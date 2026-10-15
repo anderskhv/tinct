@@ -1,10 +1,12 @@
 // Writes small PDFs for tests, with no dependencies: text in the standard fonts (WinAnsi),
 // optional document info (Title, Author), an outline (bookmarks) and grey raster images.
-//   makePdf({ info, pages: [{ size, lines: [{ x, y, size, font, text }], images: [{ x, y, w, h }] }], outline })
+//   makePdf({ info, pages: [{ size, lines: [{ x, y, size, font, text }], images: [{ x, y, w, h, pw?, ph?, data? }] }], outline })
 // Fonts: Helvetica, Helvetica-Bold, Helvetica-Oblique, Times-Roman, Times-Bold, Times-Italic,
 // and Symbol (its own encoding: '\xe5' is ∑, '\xf2' ∫, '\xb6' ∂), added only to a PDF that uses it.
 // Outline items: { title, page (1-based), children? }.
 // The fixtures the PDF scan, its default edition and the Tinct text are tested on (pdfFixtures) are built here too.
+
+import { deflateSync } from 'node:zlib';
 
 const FONTS = ['Helvetica', 'Helvetica-Bold', 'Helvetica-Oblique', 'Times-Roman', 'Times-Bold', 'Times-Italic'];
 // The few non-ASCII characters the fixtures use, as WinAnsi bytes.
@@ -37,9 +39,12 @@ export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
     let ops = '';
     (pg.images || []).forEach((im, i) => {
       const iw = im.pw || 48, ih = im.ph || 48;
-      const px = Buffer.alloc(iw * ih);
-      for (let y = 0; y < ih; y++) for (let x = 0; x < iw; x++) px[y * iw + x] = 90 + ((x * 7 + y * 13) % 120);
-      const id = add(Buffer.concat([Buffer.from(`<< /Type /XObject /Subtype /Image /Width ${iw} /Height ${ih} /ColorSpace /DeviceGray /BitsPerComponent 8 /Length ${px.length} >>\nstream\n`, 'latin1'), px, Buffer.from('\nendstream', 'latin1')]));
+      // `data`: the image's own grey pixels (a page drawn as a scan), kept deflated; else a grey pattern.
+      let px = im.data ? Buffer.from(im.data) : Buffer.alloc(iw * ih);
+      if (!im.data) for (let y = 0; y < ih; y++) for (let x = 0; x < iw; x++) px[y * iw + x] = 90 + ((x * 7 + y * 13) % 120);
+      const filter = im.data ? ' /Filter /FlateDecode' : '';
+      if (im.data) px = deflateSync(px);
+      const id = add(Buffer.concat([Buffer.from(`<< /Type /XObject /Subtype /Image /Width ${iw} /Height ${ih} /ColorSpace /DeviceGray /BitsPerComponent 8${filter} /Length ${px.length} >>\nstream\n`, 'latin1'), px, Buffer.from('\nendstream', 'latin1')]));
       xobjs.push(`/Im${i + 1} ${id} 0 R`);
       ops += `q ${im.w} 0 0 ${im.h} ${im.x} ${im.y} cm /Im${i + 1} Do Q\n`;
     });
