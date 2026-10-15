@@ -908,10 +908,11 @@ function onScroll() {
     $('progress').textContent = `${pct}%`;
   } else {
   // The chapter pill: the chapter (a real one, from the scan) or the page, then page and percent.
-  const pct = `${Math.round(((place.page - 1 + place.frac) / n) * 100)}%`;
-  $('pageLabel').textContent = ch ? ch.label : `p. ${place.page} of ${n}`;
-  $('pageBtn').setAttribute('aria-label', `Contents and pages, ${ch ? ch.label + ', ' : ''}page ${place.page} of ${n}, ${pct} read`);
-  $('progress').textContent = ch ? `p. ${place.page} · ${pct}` : pct;
+  // Pages by their printed labels where the PDF has them (or prints them: pageLabels), "of" its last one.
+  const pct = `${Math.round(((place.page - 1 + place.frac) / n) * 100)}%`, at = pageLabel(place.page), of = lastLabel();
+  $('pageLabel').textContent = ch ? ch.label : `p. ${at} of ${of}`;
+  $('pageBtn').setAttribute('aria-label', `Contents and pages, ${ch ? ch.label + ', ' : ''}page ${at} of ${of}, ${pct} read`);
+  $('progress').textContent = ch ? `p. ${at} · ${pct}` : pct;
   }
   clearTimeout(saveTimer);
   saveTimer = setTimeout(savePlaceNow, 250);
@@ -1406,10 +1407,12 @@ function openJump() {
   const box = document.createElement('div');
   box.className = 'lab-super-panel byob-panel byob-jumpbox';
   Object.assign(box.style, { left: Math.max(8, Math.min(innerWidth - 240, r.left)) + 'px', top: (r.bottom + 6) + 'px', width: '232px', right: 'auto' });
-  box.innerHTML = `<form class="byob-jump"><label for="jumpInput">Page</label><input id="jumpInput" inputmode="numeric" value="${currentPlace().page}"><span>of ${state.pages.length}</span><button type="submit">Go</button></form>`;
+  // Printed page labels where there are any: the reader types the number they see on the page ("423", "xii").
+  const lettered = (state.labels || []).some(l => /\p{L}/u.test(String(l ?? '')));
+  box.innerHTML = `<form class="byob-jump"><label for="jumpInput">Page</label><input id="jumpInput" inputmode="${lettered ? 'text' : 'numeric'}" autocapitalize="off" autocomplete="off" spellcheck="false" value="${esc(pageLabel(currentPlace().page))}"><span>of ${esc(lastLabel())}</span><button type="submit">Go</button></form>`;
   root.appendChild(box);
   const input = box.querySelector('input'); input.select();
-  box.querySelector('form').onsubmit = e => { e.preventDefault(); const n = parseInt(input.value, 10); if (n) goTo({ page: n, frac: 0 }); closeJump() };
+  box.querySelector('form').onsubmit = e => { e.preventDefault(); const n = pageOfLabel(input.value); if (n) goTo({ page: n, frac: 0 }); closeJump() };
 }
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
 $('pageBtn').onclick = () => openContents();
@@ -2399,6 +2402,16 @@ function saveCard(card) {
 // A PDF's printed page label (the companion is shown these and cites them), else its page number.
 const LABEL_RE = /^[\p{L}\p{N}](?:[\p{L}\p{N}.\-–]{0,14}[\p{L}\p{N}])?$/u;
 function pageLabel(n) { const l = String(state.labels?.[n - 1] ?? '').trim(); return LABEL_RE.test(l) ? l : String(n) }
+/** The file's last page as labelled ("of M" in the top bar and the page jump): its last printed label, else the count. */
+const lastLabel = () => (state.labels ? pageLabel(state.pages.length) : String(state.pages.length));
+/** The page a typed page label names: a printed label (any case: "xii", "423"), else, without labels, a page number. -> page or 0 */
+function pageOfLabel(value) {
+  const v = String(value || '').trim().toLowerCase(), count = state.pages.length;
+  if (!v) return 0;
+  if (state.labels) { for (let n = 1; n <= count; n++) if (pageLabel(n).toLowerCase() === v) return n }
+  const n = /^\d+$/.test(v) ? Number(v) : 0;
+  return !state.labels && n >= 1 && n <= count ? n : 0;
+}
 /** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. */
 async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
   const from = Math.max(1, focus - before), to = Math.min(state.pages.length || focus, focus + after);
@@ -2443,7 +2456,7 @@ function readBook() {
    labels everywhere labels are used: citations, the strip, card labels, Copy quote. */
 const PRINTED_V = 1;
 async function pageLabels(pdf, key, token) {
-  const use = labels => { if (token !== state.token) return; state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged() };
+  const use = labels => { if (token !== state.token) return; state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged(); onScroll() };
   const own = await Promise.resolve(pdf.getPageLabels?.()).catch(() => null);
   if (token !== state.token) return;
   if (Array.isArray(own) && own.length === pdf.numPages) return use(own);

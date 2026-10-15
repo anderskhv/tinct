@@ -1232,6 +1232,18 @@ async function longBooks(browser, origin) {
     await a.waitForFunction(() => state.labels?.length > 400, null, { timeout: 60000 }).catch(() => {})
     const labels = await a.evaluate(n => [state.labels?.[0], state.labels?.[2], state.labels?.[n], state.labels?.[444], pageLabel(currentPlace().page)], m.offset)
     ok(`${tag}: printed page numbers stand for the file's (file page 445 is p. 423; front matter in roman; no page labels in the file)`, JSON.stringify(labels) === JSON.stringify(['i', 'iii', '1', '423', printed(m.figurePage)]), labels)
+    // The top bar and the page jump use the printed numbers too (Anders, 15 Oct): "p. 468 · 84%", a jump to "175" or "iii".
+    const bar = await a.evaluate(() => ({ pill: document.getElementById('pageLabel').textContent, progress: document.getElementById('progress').textContent, aria: document.getElementById('pageBtn').getAttribute('aria-label') }))
+    await a.evaluate(() => openJump()); await a.waitForSelector('.byob-jumpbox input')
+    const jump = await a.evaluate(() => ({ value: document.querySelector('.byob-jumpbox input').value, of: document.querySelector('.byob-jumpbox span').textContent }))
+    await a.fill('.byob-jumpbox input', printed(m.sarsaPage)); await a.press('.byob-jumpbox input', 'Enter'); await a.waitForTimeout(700)
+    const toSarsa = await a.evaluate(() => currentPlace().page)
+    await a.evaluate(() => openJump()); await a.waitForSelector('.byob-jumpbox input')
+    await a.fill('.byob-jumpbox input', 'III'); await a.press('.byob-jumpbox input', 'Enter'); await a.waitForTimeout(700)
+    const toRoman = await a.evaluate(() => currentPlace().page)
+    await a.evaluate(n => { goTo({ page: n, frac: 0 }); onScroll() }, m.figurePage); await a.waitForTimeout(700)
+    const last = printed(m.pages)
+    ok(`${tag}: the top bar and the page jump show printed numbers ("of ${last}"), and a jump takes a printed number or a roman one`, bar.progress.startsWith(`p. ${printed(m.figurePage)} · `) && bar.aria.includes(`page ${printed(m.figurePage)} of ${last}`) && jump.value === printed(m.figurePage) && jump.of === `of ${last}` && toSarsa === m.sarsaPage && toRoman === 3, { bar, jump, toSarsa, toRoman })
     if (!phone) {
       const strip = await a.evaluate(() => document.querySelector('.pdf-strip [aria-valuetext]')?.getAttribute('aria-valuetext') || document.querySelector('.pdf-strip')?.getAttribute('aria-valuetext'))
       // (The strip names the first page of its window: the page above the reader's, or theirs.)
