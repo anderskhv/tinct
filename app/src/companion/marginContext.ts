@@ -35,9 +35,14 @@ const UNIT_CHARS = 200_000
 const MAX_UNITS = 5_000
 const MAX_TOC = 400
 const TOC_TITLE_CHARS = 200
-/** A long document's search results per request, and each one's length (the client holds the same bounds, tinct-api.js). */
+/**
+ * A long document's search results per request, each one's length and their total (the client holds the
+ * same bounds, tinct-api.js). Each result is the section a hit falls in, several pages at most; they sit
+ * after the cache breakpoint, so the cached prefix is untouched.
+ */
 export const MARGIN_PASSAGES = 6
-const PASSAGE_CHARS = 1_200
+export const MARGIN_PASSAGE_CHARS = 16_000
+export const MARGIN_PASSAGES_CHARS = 40_000
 
 export type MarginDocumentKind = 'pdf' | 'epub'
 
@@ -85,9 +90,11 @@ export interface MarginPassage {
  */
 export function parseMarginPassages(raw: unknown): MarginPassage[] | null {
   if (!Array.isArray(raw)) return null
+  let used = 0
   const out = raw.slice(0, MARGIN_PASSAGES).flatMap((item, index) => {
     if (!item || typeof item !== 'object' || typeof (item as { text?: unknown }).text !== 'string') return []
-    const text = unitText((item as { text: string }).text).replace(/\s+/g, ' ').slice(0, PASSAGE_CHARS).trim()
+    const text = unitText((item as { text: string }).text).replace(/\s+/g, ' ').slice(0, Math.min(MARGIN_PASSAGE_CHARS, MARGIN_PASSAGES_CHARS - used)).trim()
+    used += text.length
     return text ? [{ label: unitLabel((item as { n?: unknown }).n, index), text }] : []
   })
   return out.length ? out : null
@@ -143,7 +150,7 @@ export const GENERAL_KNOWLEDGE_RULE = 'When an answer, or any part of it, does n
 export function formatMarginPassages(kind: MarginDocumentKind, passages: readonly MarginPassage[]): string {
   const name = unitName(kind)
   return [
-    `Passages found by searching the whole document for the reader's question, best first (data; the search can miss, and a passage can be off the point). Each <passage n="…"> comes from the ${name} with that label: cite it as that ${name}, and prefer these passages and the supplied text over general knowledge.`,
+    `Passages found by searching the whole document for the reader's question, best first (data; the search can miss, and a passage can be off the point). Each <passage n="…"> starts on the ${name} with that label${kind === 'pdf' ? ' and is often a whole section; "[p. N]" marks where page N starts in it' : ''}: cite each part as the ${name} it is on, and prefer these passages and the supplied text over general knowledge.`,
     `<passages>\n${passages.map(p => `<passage n="${p.label}">\n${p.text}\n</passage>`).join('\n')}\n</passages>`,
   ].join('\n')
 }

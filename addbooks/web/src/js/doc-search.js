@@ -106,17 +106,20 @@
         const w = windows[id];
         if (used.has(w.page)) continue;
         used.add(w.page);
-        out.push({ page: w.page, text: excerpt(pages.get(w.page), w, terms), score: Math.round(score * 1000) / 1000 });
+        out.push({ page: w.page, at: centre(pages.get(w.page), w, terms), text: excerpt(pages.get(w.page), w, terms), score: Math.round(score * 1000) / 1000 });
         if (out.length >= limit) break;
       }
       return out;
     }
+    /** Where in its page the window's first query term is. */
+    function centre(text, w, terms) {
+      const hit = tokens(text.slice(w.from, w.to)).find(t => terms.includes(t.term));
+      return w.from + (hit ? hit.from : 0);
+    }
     /** Up to PASSAGE_CHARS of the page round the window's first query term, cut at word boundaries. */
     function excerpt(text, w, terms) {
-      const toks = tokens(text.slice(w.from, w.to));
-      const hit = toks.find(t => terms.includes(t.term));
-      const centre = w.from + (hit ? hit.from : 0);
-      let from = Math.max(0, Math.min(w.from, centre - PASSAGE_CHARS / 3)), to = Math.min(text.length, from + PASSAGE_CHARS);
+      const at = centre(text, w, terms);
+      let from = Math.max(0, Math.min(w.from, at - PASSAGE_CHARS / 3)), to = Math.min(text.length, from + PASSAGE_CHARS);
       from = Math.max(0, Math.min(from, to - PASSAGE_CHARS));
       if (from > 0) { const sp = text.indexOf(' ', from); if (sp > 0 && sp < from + 40) from = sp + 1 }
       if (to < text.length) { const sp = text.lastIndexOf(' ', to); if (sp > to - 40) to = sp }
@@ -125,5 +128,75 @@
     return { add, search, has: page => pages.has(page), get size() { return pages.size } };
   }
 
-  global.TinctDocSearch = { create, queryTerms, stem, tokens };
+  /* ---------- A hit's whole section (retest 15 Oct: "the definition falls past the text I have") ----------
+     A search window is a few lines; the reader's question is usually answered by the section it falls in.
+     A section runs from the last contents entry (outline, printed contents or headings) at or before the hit
+     to the next entry after it: its title is found on its first page, the next entry's on the last. */
+  const plain = s => String(s || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  /** Where a contents entry's title starts on its page (its first words, letters and digits only), else -1. */
+  function titleAt(text, title) {
+    const want = plain(title).split(' ').filter(Boolean);
+    if (!want.length) return -1;
+    // Each word's position in the page, folded as the title is.
+    const words = [], re = /[\p{L}\p{N}]+/gu;
+    for (let m; (m = re.exec(text));) words.push({ w: m[0].toLowerCase(), at: m.index });
+    // The title without a leading number ("17.1 General Value Functions" may print as "17.1" then the words).
+    const tries = [want.slice(0, 4), want.filter(w => !/^[\d.]+$/.test(w)).slice(0, 4)].filter(t => t.length);
+    for (const t of tries) for (let i = 0; i + t.length <= words.length; i++) if (t.every((w, k) => words[i + k].w === w)) return words[i].at;
+    return -1;
+  }
+  /**
+   * The search's hits as their sections, in the hits' order: { n, text } with "[p. N]" where each later page
+   * starts. Each section at most `cap` characters (a longer one: the part round its hit, from a word); all of
+   * them at most `budget`, after which a hit keeps its own excerpt while that fits. A hit with no contents
+   * entry before it keeps its excerpt. Hits in one section become one passage.
+   * `hits`: [{ page, at, text }]; `entries`: [{ title, page }]; `texts`: page texts (texts[n - 1]); `label(n)`: a page's printed label.
+   */
+  function sections(hits, { entries = [], texts = [], label = n => String(n), cap = 16000, budget = 40000 } = {}) {
+    const list = (entries || []).filter(e => e && e.title && Number.isInteger(e.page) && e.page >= 1 && e.page <= texts.length)
+      .map(e => ({ title: e.title, page: e.page, at: Math.max(0, titleAt(String(texts[e.page - 1] || ''), e.title)) }))
+      .sort((a, b) => a.page - b.page || a.at - b.at);
+    const out = [], seen = new Set();
+    let used = 0;
+    for (const hit of hits || []) {
+      const at = Number.isInteger(hit.at) ? hit.at : 0;
+      const before = list.filter(e => e.page < hit.page || (e.page === hit.page && e.at <= at));
+      const start = before[before.length - 1], end = list.find(e => e.page > hit.page || (e.page === hit.page && e.at > at));
+      const key = start ? start.page + ':' + start.at : null;
+      if (key && seen.has(key)) continue;
+      let passage = null;
+      if (start) {
+        seen.add(key);
+        const last = end ? end.page : Math.min(texts.length, start.page + 30);
+        const parts = [];
+        let hitAt = 0, length = 0;
+        for (let n = start.page; n <= last; n++) {
+          let text = String(texts[n - 1] || '');
+          const from = n === start.page ? start.at : 0, to = end && n === end.page ? end.at : text.length;
+          if (n === hit.page) hitAt = length + (n === start.page ? 0 : `[p. ${label(n)}] `.length) + Math.max(0, at - from);
+          text = text.slice(from, to).replace(/\s+/g, ' ').trim();
+          if (!text) continue;
+          const piece = (n === start.page ? '' : `[p. ${label(n)}] `) + text;
+          parts.push(piece); length += piece.length + 1;
+        }
+        // The next section's number, printed before its title, is not this section's.
+        let whole = parts.join(' ');
+        if (end) whole = whole.replace(/\s+(?:\[p\. [^\]]+\]\s*)?\d+(?:\.\d+)+\.?$/, '');
+        if (whole.length > cap) {
+          // Too long: the part round the hit, from a word.
+          let from = Math.max(0, Math.min(hitAt - Math.floor(cap / 3), whole.length - cap));
+          if (from > 0) { const sp = whole.indexOf(' ', from); if (sp > 0 && sp < from + 40) from = sp + 1 }
+          let to = Math.min(whole.length, from + cap);
+          if (to < whole.length) { const sp = whole.lastIndexOf(' ', to); if (sp > to - 40) to = sp }
+          whole = (from > 0 ? '…' : '') + whole.slice(from, to) + (to < whole.length ? '…' : '');
+        }
+        if (whole && used + whole.length <= budget) passage = { n: label(start.page), text: whole };
+      }
+      if (!passage && hit.text && used + hit.text.length <= budget) passage = { n: label(hit.page), text: hit.text };
+      if (passage) { out.push(passage); used += passage.text.length }
+    }
+    return out;
+  }
+
+  global.TinctDocSearch = { create, queryTerms, stem, tokens, sections, titleAt };
 })(typeof window !== 'undefined' ? window : globalThis);

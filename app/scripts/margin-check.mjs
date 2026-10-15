@@ -19,6 +19,8 @@
 //                                                     primer stored before kinds, and a long book without an outline (MacKay's case): chapter 1, labelled
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
 //   node scripts/margin-check.mjs figures           FIXES items 4–7: figure detection, the chip kept on screen, the figure's card beside it, figure questions
+//   node scripts/margin-check.mjs figure-margins    retest of 15 Oct: captions in the margin (MacKay), a formula's card without a caption,
+//                                                     a caption selected and highlighted, a question naming a figure on another page
 //   node scripts/margin-check.mjs long                PR F: a 585-page book: printed page numbers, the whole-book search with a question,
 //                                                     the primer's chapter (never the index), reading order round a figure, the reopen
 //   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
@@ -57,12 +59,15 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook, makePdf, figurePaper, longBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf, figurePaper, longBook, marginPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 // FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
 const FIGURE_PAPER = join(OUT, 'figure_paper.pdf')
 writeFileSync(FIGURE_PAPER, figurePaper())
+// Retest of 15 Oct: figures with captions in a wide right margin, as MacKay sets them.
+const MARGIN_PAPER = join(OUT, 'margin_paper.pdf')
+writeFileSync(MARGIN_PAPER, marginPaper())
 // PR F: a book-length PDF (the Sutton and Barto stand-in, gloss-test/edge.html): parts, chapters, an index, printed numbers 22 behind the file's.
 const BOOK = longBook({ meta: true })
 const BIG_BOOK = join(OUT, 'long_book.pdf')
@@ -1791,6 +1796,78 @@ async function figureMatrix(browser, origin) {
   return rows
 }
 
+/* ---------- Figures after the retest (gloss-test/retest.html; Anders, 15 Oct) ----------
+   Captions in the margin (MacKay): the chip on a figure in the right margin, a figure and a table of digits
+   whose captions stand in the margin beside them; a formula's card takes no figure's caption; a caption can be
+   selected (the bar, not the chip); a question naming a figure on another page sends that figure. */
+async function retestFigures(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const margin = addBook(MARGIN_PAPER), paper = addBook(FIGURE_PAPER)
+  const views = SAMPLE ? [[1440, 900, 'paper'], [390, 844, 'night']] : [[1440, 900, 'paper'], [1280, 800, 'book'], [1024, 768, 'night'], [390, 844, 'paper'], [360, 740, 'eink']]
+  for (const [width, height, look] of views) {
+    const tag = `figure-margins-${width}x${height}-${look}`, phone = width < 700
+    const A = await readerPage(browser, origin, margin, { width, height, look, minSpans: 10 })
+    const a = A.page, problems = []
+    try {
+      await a.waitForFunction(() => state.figs.has(1) && state.pages[0].figures, null, { timeout: 15000 })
+      const got = await a.evaluate(() => { const f = state.figs.get(1); return Object.fromEntries(f.captions.map(c => [c.label, f.figures[c.fig]])) })
+      const one = got['Figure 1.1'], two = got['Figure 1.2'], three = got['Figure 1.3']
+      // In page fractions: the plot in the margin (x 440–540 pt of 612), the drawing in the text column (x 120–330), the digits (x 160–330).
+      ok(`${tag}: each margin caption has its figure: the plot in the margin, the drawing and the table of digits beside their captions`, one && one.x > 0.68 && two && two.x < 0.21 && two.x + two.w < 0.56 && two.w > 0.3 && three && three.x < 0.28 && three.x + three.w < 0.6, got)
+      // The chip on the plot in the right margin (Anders: none appeared on MacKay's Figure 1.1).
+      await a.evaluate(() => state.pages[0].pg.scrollIntoView({ block: 'start' }))
+      await a.waitForTimeout(400)
+      const at2 = await a.evaluate(() => { const p = state.pages[0], f = state.figs.get(1), c = f.captions.find(c => c.label === 'Figure 1.1'), g = f.figures[c.fig], b = p.pg.getBoundingClientRect(); return { x: b.left + (g.x + g.w / 2) * b.width, y: b.top + (g.y + g.h / 2) * b.height } })
+      if (phone) await a.mouse.click(at2.x, at2.y); else { await a.mouse.move(at2.x - 30, at2.y - 30); await a.mouse.move(at2.x, at2.y, { steps: 4 }) }
+      const chip = await a.waitForSelector('.byob-hot-chip', { timeout: 4000 }).then(() => a.evaluate(chipInside)).catch(() => null)
+      ok(`${tag}: the figure in the right margin offers its chip, inside the page and the screen`, chip?.ok, chip || at2)
+      if (!phone) await shot(a, `${tag}-margin-chip`)
+      await a.evaluate(() => { hideHot(); getSelection().removeAllRanges() })
+      // A formula's card names no figure: the "Figure 1.1" caption beside the text is the plot's (screenshot 141).
+      const formula = await a.evaluate(async () => { const p = state.pages[0], c = state.figs.get(1).captions.find(c => c.label === 'Figure 1.1'); const f = { x: 0.18, y: c.box.y - 0.03, w: 0.5, h: 0.04 }; const item = await regionItem(p, f, 'formula', true); const fig = await regionItem(p, f, 'snip', true); return { formula: item.caption, snip: fig.caption } })
+      ok(`${tag}: a formula's card carries no figure's caption (a snip there still finds the caption beside it)`, formula.formula === '' && /^Figure 1\.1/.test(formula.snip), formula)
+      if (!phone) {
+        // A caption can be selected: a drag over it gives the bar, as any text does (it gave the chip).
+        await a.evaluate(() => state.pages[0].pg.scrollIntoView({ block: 'center' }))
+        await a.waitForTimeout(400)
+        const r = await a.evaluate(() => { const p = state.pages[0], c = state.figs.get(1).captions.find(c => c.label === 'Figure 1.2'), b = p.pg.getBoundingClientRect(); return { x0: b.left + c.box.x * b.width + 2, x1: b.left + (c.box.x + c.box.w) * b.width - 4, y: b.top + (c.box.y + c.box.h * 0.25) * b.height } })
+        await a.mouse.move(r.x0, r.y); await a.waitForTimeout(200); await a.mouse.down(); await a.mouse.move((r.x0 + r.x1) / 2, r.y, { steps: 4 }); await a.mouse.move(r.x1, r.y, { steps: 4 }); await a.mouse.up()
+        await a.waitForSelector('.mr-bar', { timeout: 4000 }).catch(() => {}); await a.waitForTimeout(300)
+        const sel = await a.evaluate(() => ({ text: getSelection().toString().replace(/\s+/g, ' ').trim(), bar: !!document.querySelector('.mr-bar'), chip: !!document.querySelector('.byob-hot-chip') }))
+        ok(`${tag}: dragging over a caption selects the caption and gives the bar, not the figure's chip`, /^Figure 1\.2\. A binary/.test(sel.text) && sel.bar && !sel.chip, sel)
+        await shot(a, `${tag}-caption-bar`)
+        problems.push(...(await checkMargin(a)).map(p => ({ state: 'caption bar', ...p })))
+        // Highlight it, as any passage.
+        await a.click('.mr-bar [data-m="dot"]').catch(() => {}); await a.waitForTimeout(400)
+        const marked = await a.evaluate(() => highlights().some(h => /^Figure 1\.2/.test(h.text || '')))
+        ok(`${tag}: a caption can be highlighted`, marked, marked)
+        await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+      }
+    } catch (e) { ok(`${tag}: run`, false, String(e.message || e).slice(0, 400)) }
+    ok(`${tag}: no layout problems or page errors`, !problems.length && !A.problems.length, [...problems, ...A.problems].slice(0, 5))
+    await A.ctx.close()
+    // A question naming a figure on another page sends that figure (the figure paper: Table 1 is on page 3, asked from page 1).
+    if (width === 1440 || width === 390) {
+      const B = await readerPage(browser, origin, paper, { width, height, look })
+      const b = B.page
+      try {
+        await b.waitForFunction(() => state.figs.has(1), null, { timeout: 15000 })
+        await b.evaluate(() => { for (const n of [2, 3, 4]) state.figs.delete(n); offFigs.clear() })
+        const n0 = account.requests.length
+        await b.evaluate(() => { openCard(null); openWhole({ prompt: 'What does Table 1 show?' }) })
+        await b.waitForFunction(() => chat.turns.some(t => t.role === 'assistant'), null, { timeout: 15000 })
+        const asked = account.requests.slice(n0).find(r => /What does Table 1 show\?/.test(JSON.stringify(r.body.messages || '')))
+        const pics = (asked?.body?.messages?.at(-1)?.content || []).filter?.(x => x.type === 'image') || []
+        ok(`figure-elsewhere-${width}x${height}-${look}: a question from page 1 naming Table 1 (page 3, not yet drawn) sends that table's picture`, pics.length === 1 && /attached image is Table 1 on page 3/.test(JSON.stringify(asked.body.messages[0])), { asked: !!asked, images: pics.length })
+      } catch (e) { ok(`figure-elsewhere-${width}x${height}-${look}: run`, false, String(e.message || e).slice(0, 400)) }
+      ok(`figure-elsewhere-${width}x${height}-${look}: no page errors`, !B.problems.length, B.problems.slice(0, 3))
+      await B.ctx.close()
+    }
+  }
+  return results
+}
+
 /* ---------- Scans (PR D; docs/margin/gloss-test/edge.html, 15 Oct 2026) ----------
    A scan is made here from a text fixture (scan_0042.pdf, drawn at 144 dpi in grey and stored as page
    pictures only, no text), and the mocked recognition returns that fixture's own lines as blocks with
@@ -2170,6 +2247,16 @@ async function longBooks(browser, origin) {
     await a.evaluate(() => openJump()); await a.waitForSelector('.byob-jumpbox input')
     await a.fill('.byob-jumpbox input', 'III'); await a.press('.byob-jumpbox input', 'Enter'); await a.waitForTimeout(700)
     const toRoman = await a.evaluate(() => currentPlace().page)
+    // Retest, 15 Oct: "Go to page" in the contents (the jump readers use) takes the printed number too ("type 445 to reach printed 423"),
+    // and the file's page where no page prints the number.
+    const contentsJump = async value => {
+      await a.evaluate(() => openContents()); await a.waitForSelector('.byob-toc-jump input')
+      const shown = await a.evaluate(() => ({ value: document.querySelector('.byob-toc-jump input').value, of: document.querySelector('.byob-toc-jump span').textContent }))
+      await a.fill('.byob-toc-jump input', value); await a.press('.byob-toc-jump input', 'Enter'); await a.waitForTimeout(700)
+      return { shown, page: await a.evaluate(() => currentPlace().page) }
+    }
+    const jumps = [await contentsJump(printed(m.figurePage)), await contentsJump('viii'), await contentsJump(String(m.pages - 10))]
+    ok(`${tag}: "Go to page" in the contents shows and takes printed numbers (${printed(m.figurePage)} is file page ${m.figurePage}; "viii"; a number no page prints is the file's page)`, jumps[0].shown.of === `of ${printed(m.pages)}` && jumps[0].page === m.figurePage && jumps[1].page === 8 && jumps[2].page === m.pages - 10 && jumps[1].shown.value === printed(m.figurePage), jumps)
     await a.evaluate(n => { goTo({ page: n, frac: 0 }); onScroll() }, m.figurePage); await a.waitForTimeout(700)
     const last = printed(m.pages)
     ok(`${tag}: the top bar and the page jump show printed numbers ("of ${last}"), and a jump takes a printed number or a roman one`, bar.progress.startsWith(`p. ${printed(m.figurePage)} · `) && bar.aria.includes(`page ${printed(m.figurePage)} of ${last}`) && jump.value === printed(m.figurePage) && jump.of === `of ${last}` && toSarsa === m.sarsaPage && toRoman === 3, { bar, jump, toSarsa, toRoman })
@@ -2209,6 +2296,9 @@ async function longBooks(browser, origin) {
       const chapter = m.chapters.find(c => c.title.startsWith('16 '))
       ok(`${tag}: the question goes with chapter 16 whole and the contents with printed pages (the long-file part)`, doc?.part?.total === m.pages && doc.units[0].n === printed(chapter.from) && doc.units.at(-1).n === printed(chapter.to) && doc.part.toc.some(e => e.title === '6.4 Sarsa: On-policy TD Control' && e.n === printed(m.sarsaPage)), doc && { first: doc.units[0].n, last: doc.units.at(-1).n, toc: doc.part?.toc?.length })
       ok(`${tag}: "where is Sarsa introduced" carries the page that introduces it, first, from the search of the whole book`, found[0]?.n === printed(m.sarsaPage) && /name Sarsa/.test(found[0].text) && found.length <= 6 && !found.some(f => Number(f.n) >= Number(printed(chapter.from)) && Number(f.n) <= Number(printed(chapter.to))), found.map(f => f.n))
+      // Retest, 15 Oct: the hit's whole section (6.4, from its title to 6.5's), not only its opening lines; all passages within the request's budget.
+      const sarsa = found[0]?.text || ''
+      ok(`${tag}: the hit goes as its whole section: 6.4 from its title to the next section, within the passages' budget`, /^(?:6\.4 )?Sarsa: On-policy TD Control/.test(sarsa) && sarsa.length > 1200 && !/Q-learning: Off-policy TD Control/.test(sarsa) && found.reduce((n, f) => n + f.text.length, 0) <= 40000, { start: sarsa.slice(0, 60), length: sarsa.length, total: found.reduce((n, f) => n + f.text.length, 0) })
       await layout('whole')
       if (look === 'paper') await shot(a, `${tag}-whole`)
       const q1 = account.requests.length
@@ -2289,6 +2379,7 @@ const RUNS = {
   ...(process.env.EPUB_MARGIN === '1' ? { epub: [epubCheck, rows => rows.some(r => r.problems)] } : {}),
   scans: [scanChecks, rows => rows.some(r => !r.pass)],
   figures: [figureMatrix, rows => rows.some(r => !r.pass)],
+  'figure-margins': [retestFigures, rows => rows.some(r => !r.pass)],
   long: [longBooks, rows => rows.some(r => !r.pass)],
   polish: [polish, rows => rows.some(r => !r.pass)],
 }
@@ -2321,6 +2412,7 @@ try {
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'epub') { const rows = await epubCheck(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'epub-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'scans') { const rows = await scanChecks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'scans-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'figure-margins') { const rows = await retestFigures(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figure-margins-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'figures') { const rows = await figureMatrix(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figures-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'polish') { const rows = await polish(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'polish-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
