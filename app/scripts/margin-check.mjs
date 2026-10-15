@@ -2509,6 +2509,44 @@ async function phoneUi(browser, origin) {
     ok('desktop: no page errors', !D.problems.length, D.problems)
     await D.ctx.close()
   }
+  // The night checklist (15 Oct): on a phone at a chapter's start, a card closed with × stays closed (the
+  // "Before you start" bottom card used to take its place at once, so × seemed to do nothing).
+  {
+    const hex = addBook(BIG_BOOK)
+    const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper', at: BOOK.meta.chapters[0].from })
+    await P.page.waitForFunction(() => primer.units?.length > 1, null, { timeout: 60000 }).catch(() => {})
+    // A chapter's start, where the bottom card offers Before you start.
+    const start = await P.page.evaluate(async () => { for (const u of primer.units.filter(u => u.key !== 'all' && u.from > 1).slice(0, 8)) { goTo({ page: u.start || u.from, frac: 0 }); onScroll(); marginLayout(); await new Promise(r => setTimeout(r, 400)); if (col.sheet?.dataset.id === 'trigger') return currentPlace().page } return null })
+    const trig = await P.page.evaluate(() => col.sheet?.dataset.id || null)
+    const id = await P.page.evaluate(n => { const c = TinctMargin.newCard({ kind: 'explain', page: n, anchor: [{ n, x: 0.15, y: 0.3, w: 0.5, h: 0.012 }], text: 'A passage at the chapter start', turns: [{ role: 'assistant', content: 'An answer.', at: Date.now() }] }); saveCard(c); openCard(c.id); return c.id }, start || BOOK.meta.chapters[0].from)
+    await P.page.waitForTimeout(900)
+    const open = await P.page.evaluate(() => col.sheet?.dataset.id || null)
+    await P.page.click('.mr-sheet .mr-card__close'); await P.page.waitForTimeout(800)
+    const after = await P.page.evaluate(() => ({ sheet: col.sheet?.dataset.id || null, open: col.open }))
+    ok('phone, a chapter\'s start: a card closed with × stays closed (the Before you start card does not take its place)', trig === 'trigger' && open === id && !after.sheet && !after.open, { trig, open, id, after })
+    await P.ctx.close()
+  }
+  // A PDF that fails to open once (pdf.js's first try rejects) opens on the second try, from this device's copy.
+  {
+    const [, hex] = books[0]
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } })
+    await ctx.addInitScript(([session, hex]) => {
+      try { localStorage.setItem('sb-local-auth-token', JSON.stringify(session)); localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('pages')) } catch {}
+      let failed = false
+      // pdf.js's namespace cannot be patched: the page gets a stand-in whose first getDocument rejects.
+      let lib = null
+      Object.defineProperty(window, 'pdfjsLib', { configurable: true, get: () => lib, set: real => {
+        lib = new Proxy(real, { get: (t, k) => k !== 'getDocument' ? t[k] : o => { if (!failed && o?.data) { failed = true; window.__failedOnce = true; return { promise: Promise.reject(Object.assign(new Error('Invalid PDF structure.'), { name: 'InvalidPDFException' })) } } return t.getDocument(o) } })
+      } })
+    }, [SESSION, hex])
+    const page = await ctx.newPage()
+    const errors = []; page.on('pageerror', e => errors.push(e.message))
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    const opened = await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).then(() => true, () => false)
+    const seen = await page.evaluate(() => ({ failedOnce: !!window.__failedOnce, alert: document.querySelector('.pdf-status[role="alert"]')?.textContent || null }))
+    ok('a PDF whose first open fails opens on a second try (no "could not be opened")', opened && seen.failedOnce && !seen.alert && !errors.length, { opened, ...seen, errors })
+    await ctx.close()
+  }
   // 5. &pages: a fresh profile (no edition chosen, no scan kept) on a book that reads as Tinct text by default.
   {
     const [, hex] = books[0]

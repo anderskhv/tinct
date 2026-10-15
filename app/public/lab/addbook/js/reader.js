@@ -141,7 +141,7 @@ async function openStored(key, known = null) {
     const remote = cloud.get(key);
     if (!remote) { toast('That book is no longer on this device. Open the file again.'); return false }
     let bytes;
-    try { bytes = await window.TinctAI.books.download(remote.id) }
+    try { bytes = await downloadChecked(remote.id, key) }
     catch (e) {
       if (e?.code === 'not_found') { cloud.mine().delete(key); toast('That book is no longer in your account.') }
       else toast('That book could not be downloaded. Try again.');
@@ -348,6 +348,45 @@ $('column').addEventListener('click', e => {
 });
 
 /* ---------- PDF ---------- */
+// The book's key names the first 24 hex digits of its SHA-256 (add-engine.js digest): bytes that do not match are not the book.
+const bytesMatch = async (bytes, key) => !!bytes?.byteLength && await engine.digest(bytes) === hexOf(key);
+/** The account copy, checked against the book's key and asked for once more when it does not match (a download cut short). */
+async function downloadChecked(id, key) {
+  for (let tries = 0; ; tries++) {
+    const bytes = await window.TinctAI.books.download(id);
+    if (!/^(pdf|epub):[0-9a-f]{24}$/.test(key) || await bytesMatch(bytes, key)) return bytes;
+    console.warn('[addbook] the account copy did not match its book; asking again');
+    if (tries >= 1) throw Object.assign(new Error('corrupt'), { code: 'corrupt' });
+  }
+}
+/**
+ * The PDF, opened by pdf.js. A large book once failed to open at random on the desktop ("This file could not be
+ * opened as a PDF", MacKay's 640 pages, the night checklist of 15 Oct 2026): a failure other than a password is
+ * tried once more, with the bytes read again (pdf.js hands the first ones to its worker, which detaches them) from
+ * this device's copy, else the account's, each checked against the book's key. -> the pdf.js document, or throws.
+ */
+async function loadPdf(bytes, key, token) {
+  const open = data => pdfjsLib.getDocument({ data, isEvalSupported: false }).promise;
+  try { return await open(bytes) }
+  catch (e) {
+    if (e?.name === 'PasswordException' || token !== state.token) throw e;
+    console.warn('[addbook] the PDF did not open; trying once more', e);
+    const again = await freshPdfBytes(key).catch(() => null);
+    if (!again || token !== state.token) throw e;
+    return await open(again);
+  }
+}
+async function freshPdfBytes(key) {
+  if (!/^pdf:[0-9a-f]{24}$/.test(key)) return null;
+  const rec = await library.get(key);
+  if (rec?.bytes) { const b = new Uint8Array(rec.bytes); if (await bytesMatch(b, key)) return b }
+  // This device's copy is not the book (or is gone): the account's, kept here again in its place.
+  const remote = cloud.get(key);
+  if (!remote) return null;
+  const b = await downloadChecked(remote.id, key);
+  if (rec) await library.touch(key, { bytes: b.slice().buffer, size: b.byteLength });
+  return b;
+}
 async function openPdf(bytes, name, key, known = null) {
   const token = ++state.token;
   closeAllPopups();
@@ -355,8 +394,8 @@ async function openPdf(bytes, name, key, known = null) {
   // Asked while the file opens: a place read later on another device of the account.
   const synced = placeSync.reconcile(key);
   let pdf;
-  try { pdf = await pdfjsLib.getDocument({ data: bytes, isEvalSupported: false }).promise }
-  catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${e?.name === 'PasswordException' ? 'This PDF is password-protected, so it cannot be opened here.' : 'This file could not be opened as a PDF. Choose another file.'}</div>`; return }
+  try { pdf = await loadPdf(bytes, key, token) }
+  catch (e) { if (token !== state.token) return; $('column').innerHTML = `<div class="pdf-status" role="alert">${e?.name === 'PasswordException' ? 'This PDF is password-protected, so it cannot be opened here.' : 'This file could not be opened as a PDF. Choose another file.'}</div>`; return }
   if (token !== state.token) return;
   state.pdf?.destroy?.();
   furniture.clear();
@@ -3431,7 +3470,10 @@ function closeSheet2() {
   const id = col.sheet.dataset.id;
   // The primer folds back to its trigger; the trigger, closed, stays away at this unit's start.
   if (id === 'primer') { primer.open = false; primer.token++ }
-  if (id === 'trigger') { const u = currentUnit(); if (u) primer.away.add(u.key) }
+  // The trigger closed stays away at this unit's start; so does it after a card is closed there (× or a swipe),
+  // or the trigger would take the card's place at once and the card seem never to close (MacKay on a phone,
+  // the night checklist of 15 Oct 2026).
+  if (id !== 'primer') { const u = currentUnit(); if (u) primer.away.add(u.key) }
   col.sheet.remove(); col.sheet = null;
   if (marginMode() === 'phone') { dropEmptyFigure(col.open); col.open = null; marginLayout() }
 }

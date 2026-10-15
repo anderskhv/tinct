@@ -271,3 +271,49 @@ describe('6. two devices writing cards at once (409)', () => {
     expect(phone.cards().map(c => c.id)).toEqual(['p1'])
   })
 })
+
+describe('the night checklist (15 Oct): a phone card’s ×, and a large PDF that failed to open once', () => {
+  it('closing a phone card keeps the Before you start card away at this unit, so × closes it for good', () => {
+    const close = READER.slice(READER.indexOf('function closeSheet2() {'), READER.indexOf('function sheetSwipe('))
+    expect(close).toContain("if (id !== 'primer') { const u = currentUnit(); if (u) primer.away.add(u.key) }")
+  })
+
+  const HEX = 'ab12cd34ef56ab12cd34ef56'
+  const KEY = 'pdf:' + HEX
+  const source = READER.slice(READER.indexOf('const bytesMatch = '), READER.indexOf('async function openPdf('))
+  function harness({ library = null as Uint8Array | null, remote = [] as Uint8Array[], open = [] as Array<'fail' | 'ok' | 'password'> } = {}) {
+    const good = new Uint8Array([1, 2, 3]), downloads: string[] = [], touched: unknown[] = [], opened: Uint8Array[] = []
+    const state = { token: 1 }
+    const engine = { digest: async (b: Uint8Array) => (b[0] === 1 ? HEX : 'ffffffffffffffffffffffff') }
+    const lib = { get: async () => (library ? { bytes: library.buffer } : null), touch: async (_k: string, patch: unknown) => { touched.push(patch) } }
+    const cloud = { get: () => (remote.length ? { id: 'acct-1' } : null) }
+    const win = { TinctAI: { books: { download: async (id: string) => { downloads.push(id); return remote.shift() ?? good } } } }
+    const pdfjsLib = { getDocument: ({ data }: { data: Uint8Array }) => { opened.push(data); const r = open.shift() ?? 'ok'; return { promise: r === 'ok' ? Promise.resolve({ numPages: 1 }) : Promise.reject(Object.assign(new Error(r), { name: r === 'password' ? 'PasswordException' : 'InvalidPDFException' })) } } }
+    const make = new Function('state', 'engine', 'library', 'cloud', 'window', 'pdfjsLib', 'hexOf', 'console', source + '\nreturn { loadPdf, downloadChecked };')
+    const api = make(state, engine, lib, cloud, win, pdfjsLib, (k: string) => k.slice(k.indexOf(':') + 1), { warn: () => {} })
+    return { ...api, good, downloads, touched, opened, state }
+  }
+  it('a first failure is tried once more with this device’s copy read again', async () => {
+    const h = harness({ library: new Uint8Array([1, 2, 3]), open: ['fail', 'ok'] })
+    await expect(h.loadPdf(new Uint8Array([1, 2, 3]), KEY, 1)).resolves.toEqual({ numPages: 1 })
+    expect(h.opened).toHaveLength(2)
+    expect(h.downloads).toEqual([])
+  })
+  it('a device copy that is not the book is replaced by the account’s, checked against the key', async () => {
+    const h = harness({ library: new Uint8Array([9, 9]), remote: [new Uint8Array([1, 2, 3])], open: ['fail', 'ok'] })
+    await expect(h.loadPdf(new Uint8Array([9, 9]), KEY, 1)).resolves.toEqual({ numPages: 1 })
+    expect(h.downloads).toEqual(['acct-1'])
+    expect(h.touched).toHaveLength(1)
+  })
+  it('a password is not tried again, and a second failure still says so', async () => {
+    await expect(harness({ library: new Uint8Array([1]), open: ['password'] }).loadPdf(new Uint8Array([1]), KEY, 1)).rejects.toMatchObject({ name: 'PasswordException' })
+    await expect(harness({ library: new Uint8Array([1]), open: ['fail', 'fail'] }).loadPdf(new Uint8Array([1]), KEY, 1)).rejects.toThrow()
+  })
+  it('a download that does not match its book is asked for once more, then refused', async () => {
+    const once = harness({ remote: [new Uint8Array([7]), new Uint8Array([1, 2, 3])] })
+    await expect(once.downloadChecked('acct-1', KEY)).resolves.toEqual(new Uint8Array([1, 2, 3]))
+    expect(once.downloads).toHaveLength(2)
+    const twice = harness({ remote: [new Uint8Array([7]), new Uint8Array([8])] })
+    await expect(twice.downloadChecked('acct-1', KEY)).rejects.toMatchObject({ code: 'corrupt' })
+  })
+})
