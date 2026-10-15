@@ -91,8 +91,13 @@ export interface LabSource {
   modernPending?: boolean
   /** With modernPending: the paragraphs that are Modern English, as [start, end) runs. Nothing else is shown. */
   modernWritten?: Array<[number, number]>
-  /** Supporting data may arrive after reading text; paragraph identity stays unchanged. */
-  supplement?: Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
+  /**
+   * Supporting data (audio follow timings, the chapter's cast) after the
+   * reading text; paragraph identity stays unchanged. Requested only when
+   * first called: the reader calls it once its first page is on screen, so
+   * these files never share the network with the opening page.
+   */
+  supplement?: () => Promise<Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'>>
   /**
    * With `compareAfterFirstPage`: the Compare edition's paragraphs for this
    * chapter, still on their way (`compareParagraphs` is empty until then).
@@ -426,6 +431,12 @@ export function prefetchLabChapterTexts(
   })()
 }
 
+/** The work, started on the first call; later calls share its promise. */
+function onceCalled<T>(start: () => Promise<T>): () => Promise<T> {
+  let started: Promise<T> | null = null
+  return () => (started ??= start())
+}
+
 export async function loadLabSource(
   chapterNumber = 1,
   editions?: { primary?: string; compare?: string; audio?: string; readingFirst?: boolean },
@@ -459,11 +470,11 @@ export async function loadLabSource(
       paragraphCount: item.paragraphCount,
     }))
 
-    const supplement = Promise.all([loadAudioFollowMetadata(paragraphs, entry.number, audio), threadsPromise ?? loadThreadsJson().catch(() => ({ characters: [] }))])
-      .then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+    const supplement = onceCalled(() => Promise.all([loadAudioFollowMetadata(paragraphs, entry.number, audio), threadsPromise ?? loadThreadsJson().catch(() => ({ characters: [] }))])
+      .then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) })))
     const supporting = editions?.readingFirst
       ? { followParagraphs: paragraphs.map((text, index) => ({ index, text })), cast: [] }
-      : await supplement
+      : await supplement()
     return { ...sourceFromChapter({
       chapterNumber: entry.number,
       chapterTitle: entry.title,
@@ -643,15 +654,15 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     [primaryEdition.key, entry.paragraphs],
     ...(compareEdition ? [[compareEdition.key, compareParagraphs] as const] : []),
   ])
-  const supplement = Promise.all([
+  const supplement = onceCalled(() => Promise.all([
     audioEdition
       ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)
       : Promise.resolve({ followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })) }),
     threadsPromise ?? loadBookThreadsJson(registryBook.id),
-  ]).then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) }))
+  ]).then(([metadata, threads]) => ({ ...metadata, cast: spoilerSafeCast(threads.characters || [], entry.number) })))
   const supporting: Pick<LabSource, 'followParagraphs' | 'audioTitle' | 'cast'> = selection.readingFirst
     ? { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })), cast: [] }
-    : await supplement
+    : await supplement()
 
   return houseStyleSource({
     bookId: registryBook.id,

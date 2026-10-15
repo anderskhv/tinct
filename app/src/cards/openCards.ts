@@ -20,14 +20,16 @@ import { socialFriendsOn } from '../social/friendsClient'
 import { fetchBoard, fetchFind, fetchOwnProfile, loadReading } from './cardsApi'
 import { followBackCount } from './cardsRules'
 import { rankOf } from './cardsFormat'
-import { CARD_PARAM, isCardName, type CardName } from './cardRoutes'
+import type { CardName } from './cardRoutes'
 import { CardStack } from './cardStack'
 import { cardSpec, type CardsData, type CardsEnv, type CardsSession } from './cardViews'
 import { readCardsCache, writeCardsCache } from './cardsCache'
 import { CARDS_COPY } from './cardsCopy'
+import { sessionStorageKey, storedSession, toCardsSession, type StoredAuthSession } from './cardsBoot'
 import { currentBookHint } from '../social/socialClient'
 
 export type { CardName } from './cardRoutes'
+export { consumeCardParam, storedSession } from './cardsBoot'
 
 export interface OpenCardsOptions {
   /** The card to show; You is always underneath, so back leads to it. */
@@ -54,15 +56,6 @@ export function closeAccountCards(): void {
   current?.stack.closeAll()
 }
 
-type StoredAuthSession = { access_token?: unknown; expires_at?: unknown; user?: { id?: unknown; email?: unknown; user_metadata?: Record<string, unknown> } | null }
-
-function toCardsSession(session: StoredAuthSession | null | undefined): CardsSession | null {
-  if (!session || typeof session.access_token !== 'string' || !session.access_token) return null
-  const meta = (session.user?.user_metadata ?? {}) as Record<string, unknown>
-  const named = typeof meta.full_name === 'string' ? meta.full_name : typeof meta.name === 'string' ? meta.name : null
-  return { token: session.access_token, userId: typeof session.user?.id === 'string' ? session.user.id : null, email: typeof session.user?.email === 'string' ? session.user.email : null, accountName: named }
-}
-
 /** How long Supabase's own answer is waited for before the open gives up (its lock can hold for ever on iPhone Safari). */
 export const LIVE_SESSION_WAIT_MS = 4000
 
@@ -78,19 +71,6 @@ async function readSession(): Promise<CardsSession | null> {
   }
 }
 
-/** The configured session key, else the default `sb-<ref>-auth-token` this browser holds, if any. */
-function sessionStorageKey(): string | null {
-  const key = (supabase?.auth as unknown as { storageKey?: unknown })?.storageKey
-  if (typeof key === 'string' && key) return key
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const name = localStorage.key(i)
-      if (name && /^sb-[a-z0-9]+-auth-token$/.test(name)) return name
-    }
-  } catch { /* storage blocked */ }
-  return null
-}
-
 /** What the open path can see of the session in this browser, as booleans only (for the funnel; never the token). */
 export function sessionStorageState(): { key: boolean; raw: boolean; parsed: boolean; fresh: boolean; native: boolean } {
   const native = isNativeCapacitor()
@@ -99,30 +79,6 @@ export function sessionStorageState(): { key: boolean; raw: boolean; parsed: boo
   try { raw = key ? localStorage.getItem(key) : null } catch { raw = null }
   const stored = storedSession()
   return { key: Boolean(key), raw: Boolean(raw), parsed: stored !== null, fresh: Boolean(stored?.fresh), native }
-}
-
-/**
- * The session Supabase keeps in this browser, read directly (no lock, no
- * network), so a tap on the picture opens the cards at once. `fresh` is false
- * once the access token has expired: the cards then paint from the device cache
- * and load only with the token Supabase hands back.
- */
-export function storedSession(): { session: CardsSession; fresh: boolean } | null {
-  if (!supabase || isNativeCapacitor()) return null
-  try {
-    const key = sessionStorageKey()
-    if (!key) return null
-    const raw = localStorage.getItem(key)
-    if (!raw) return null
-    const parsed = JSON.parse(raw) as StoredAuthSession & { currentSession?: StoredAuthSession }
-    const stored = parsed.currentSession ?? parsed
-    const session = toCardsSession(stored)
-    if (!session) return null
-    const expiresAt = typeof stored.expires_at === 'number' ? stored.expires_at * 1000 : 0
-    return { session, fresh: expiresAt > Date.now() + 30_000 }
-  } catch {
-    return null
-  }
 }
 
 function emptyData(): CardsData {
@@ -268,18 +224,3 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
   return true
 }
 
-// ===== ?card= on load =====
-
-/** The card named in the page's URL (from an old link), removed from the URL without a reload. */
-export function consumeCardParam(): CardName | null {
-  try {
-    const url = new URL(location.href)
-    const name = url.searchParams.get(CARD_PARAM)
-    if (!name) return null
-    url.searchParams.delete(CARD_PARAM)
-    history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`)
-    return isCardName(name) ? name : null
-  } catch {
-    return null
-  }
-}

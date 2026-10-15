@@ -1,11 +1,27 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ChatMessage } from '../types'
-import { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
+import type { GrokVoiceSessionController } from '../voice/GrokVoiceSessionController'
 import { IDLE_VOICE_SNAPSHOT, type VoiceAudioEngine, type VoiceUiSnapshot } from '../voice/session'
 import type { AssistantPace } from '../lab/labAsk'
 import { nearbyParagraphWindow } from '../voice/context'
 import { holdScreenWakeLock } from '../lab/wakeLock'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
+
+type VoiceControllerModule = typeof import('../voice/GrokVoiceSessionController')
+let controllerModule: Promise<VoiceControllerModule> | null = null
+
+/**
+ * The Talk session code (the Grok realtime controller), fetched on first use
+ * rather than with the reader: a reader who never talks never downloads it.
+ * The reader warms it once its first page is up (the `warm` option).
+ */
+export function loadVoiceSessionController(): Promise<VoiceControllerModule> {
+  controllerModule ??= import('../voice/GrokVoiceSessionController').catch((error) => {
+    controllerModule = null
+    throw error
+  })
+  return controllerModule
+}
 
 let voiceMessageId = 0
 function nextVoiceMessageId() {
@@ -62,6 +78,11 @@ export interface UseVoiceSessionOptions {
   assistantSpeed?: number
   onSetAssistantPace?: (pace: AssistantPace) => void
   voicePersona?: 'female' | 'male'
+  /**
+   * Load the session code now (default). The reader passes false until its
+   * first page is on screen; Start loads it on demand either way.
+   */
+  warm?: boolean
 }
 
 export function useVoiceSession(options: UseVoiceSessionOptions) {
@@ -71,8 +92,13 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
   optionsRef.current = options
   const controllerRef = useRef<GrokVoiceSessionController | null>(null)
 
-  useEffect(() => {
-    const controller = new GrokVoiceSessionController({
+  // An AudioContext made in a tap that came before the session code loaded.
+  const earlyContextRef = useRef<AudioContext | null>(null)
+  const disposedRef = useRef(false)
+  const buildContextRef = useRef<() => VoiceReaderContext>(() => { throw new Error('unreachable') })
+
+  const createController = useCallback((Controller: VoiceControllerModule['GrokVoiceSessionController']) => {
+    const controller = new Controller({
       onSnapshot: setUi,
       onBeforeUserTurn: () => optionsRef.current.onBeforeUserTurn?.() ?? true,
       onTurn: (role, text, meta) => {
@@ -120,12 +146,41 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       },
     })
     controllerRef.current = controller
+    if (earlyContextRef.current) {
+      controller.adoptLabAudioContext(earlyContextRef.current)
+      earlyContextRef.current = null
+    }
+    const opts = optionsRef.current
+    controller.updateContext(buildContextRef.current(), opts.reference, opts.instructions)
     const debugHost = window as Window & { __tinctVoiceCapture?: () => unknown }
     debugHost.__tinctVoiceCapture = () => controller.getCaptureDiagnostics()
+    return controller
+  }, [])
+
+  /** The session controller, loading its code first when this is its first use. */
+  const ensureController = useCallback(async (): Promise<GrokVoiceSessionController | null> => {
+    if (controllerRef.current) return controllerRef.current
+    const { GrokVoiceSessionController: Controller } = await loadVoiceSessionController()
+    if (disposedRef.current) return null
+    return controllerRef.current ?? createController(Controller)
+  }, [createController])
+
+  const warm = options.warm !== false
+  useEffect(() => {
+    if (!warm || controllerRef.current) return
+    void ensureController().catch(() => {})
+  }, [warm, ensureController])
+
+  useEffect(() => {
+    disposedRef.current = false
     return () => {
+      disposedRef.current = true
+      const debugHost = window as Window & { __tinctVoiceCapture?: () => unknown }
       delete debugHost.__tinctVoiceCapture
-      controller.dispose()
+      controllerRef.current?.dispose()
       controllerRef.current = null
+      void earlyContextRef.current?.close().catch(() => {})
+      earlyContextRef.current = null
     }
   }, [])
 
@@ -159,6 +214,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       readerProfile: opts.readerProfile,
     }
   }, [])
+  buildContextRef.current = buildContext
 
   useEffect(() => {
     controllerRef.current?.updateContext(buildContext(), options.reference, options.instructions)
@@ -180,16 +236,28 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     options.readerProfile,
   ])
 
+  // Must run inside the reader's tap (iOS unlocks audio only there). Before
+  // the session code has loaded, the context is made here and handed over.
   const unlockAudio = useCallback(() => {
-    controllerRef.current?.unlockLabAudioContext()
+    if (controllerRef.current) {
+      controllerRef.current.unlockLabAudioContext()
+      return
+    }
+    if (typeof AudioContext === 'undefined') return
+    try {
+      if (!earlyContextRef.current || earlyContextRef.current.state === 'closed') earlyContextRef.current = new AudioContext()
+      if (earlyContextRef.current.state !== 'running') void earlyContextRef.current.resume().catch(() => {})
+    } catch { /* The controller makes its own on start. */ }
   }, [])
 
   const start = useCallback(async (overrides?: { authToken?: string | null; greeting?: string }) => {
     const opts = optionsRef.current
     opts.onSessionStart?.()
     const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
-    controllerRef.current?.unlockLabAudioContext()
-    await controllerRef.current?.start({
+    unlockAudio()
+    const controller = await ensureController().catch(() => null)
+    if (!controller) return IDLE_VOICE_SNAPSHOT
+    await controller.start({
       authToken,
       greeting: overrides?.greeting,
       isAnonymous: !authToken,
@@ -211,8 +279,8 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       assistantSpeed: opts.assistantSpeed,
       voicePersona: opts.voicePersona,
     })
-    return controllerRef.current?.getSnapshot() ?? IDLE_VOICE_SNAPSHOT
-  }, [buildContext])
+    return controller.getSnapshot()
+  }, [buildContext, ensureController, unlockAudio])
 
   const stop = useCallback(() => {
     controllerRef.current?.stop()
@@ -220,8 +288,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
 
   const handleVoiceButton = useCallback(() => {
     const controller = controllerRef.current
-    if (!controller) return
-    if (!controller.getSnapshot().isActive) {
+    if (!controller || !controller.getSnapshot().isActive) {
       start()
       return
     }

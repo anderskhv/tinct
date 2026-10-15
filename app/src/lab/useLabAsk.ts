@@ -131,6 +131,8 @@ export interface UseLabAskOptions {
   talkSpeed?: number
   /** A new Talk speed, from the control or a spoken / typed pace request. */
   onTalkSpeedChange?: (speed: number) => void
+  /** Load Talk's session code now (default); the reader waits for its first page. */
+  voiceWarm?: boolean
 }
 
 export { LAB_EXPLAIN_PROMPT } from '../companion/companionRequest'
@@ -552,6 +554,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     assistantSpeed: talkSpeed,
     onSetAssistantPace: rememberAssistantPace,
     voicePersona: options.voicePersona,
+    // Talk needs an account: a signed-out reader never downloads its code.
+    warm: (options.voiceWarm ?? true) && signedIn,
   })
 
   // Voice V2: a mid-session failure is shown, not swallowed. The notice

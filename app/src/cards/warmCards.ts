@@ -18,7 +18,7 @@ import { networkSpare, whenReaderSettled } from '../utils/libraryPreviewWarmup'
 import { fetchBoard, fetchOwnProfile, loadReading } from './cardsApi'
 import { readCardsCache, writeCardsCache } from './cardsCache'
 import { rankOf } from './cardsFormat'
-import { storedSession } from './openCards'
+import { storedSession } from './cardsBoot'
 
 export function warmAccountCards(): void {
   if (!networkSpare()) return

@@ -10,6 +10,7 @@ import {
   parseBibleChapterTitle,
   prevLabChapter,
   resetLabBibleManifestCache,
+  resetLabThreadsCache,
 } from './labSource'
 import { paragraphKind, resetParagraphStyles, wordLink } from './labParagraphStyle'
 import { figureFor, figureToken, resetFigures } from './labFigures'
@@ -321,7 +322,27 @@ it('makes reading available without waiting for audio or cast, and only loads Co
   expect(loaded.supplement).toBeDefined()
   expect(requested.some(url => url.includes('modern-en'))).toBe(false)
   release()
-  const extra = await loaded.supplement!
+  const extra = await loaded.supplement!()
   expect(extra.followParagraphs.length).toBe(1)
   expect(loaded.paragraphs).toEqual(['¹ Better is a dry morsel.'])
+})
+
+it('asks for audio timings and the cast only when the reader asks for them (after its first page)', async () => {
+  const requested: string[] = []
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+    const url = String(input)
+    requested.push(url)
+    if (url.includes('threads')) return new Response('{"characters":[]}', { status: 200 })
+    if (url.includes('manifest.json')) return new Response(JSON.stringify({ chapters: [{ number: 645, title: 'Proverbs 17', path: 'ch0645.json' }] }))
+    if (url.includes('ch0645.json')) return new Response(JSON.stringify({ paragraphs: ['¹ Better is a dry morsel.'] }))
+    return new Response('{}', { status: 404 })
+  }))
+  resetLabThreadsCache()
+  const loaded = await loadLabBookSource({ bookId: 'bible', primaryEditionKey: 'kjv-en', chapterNumber: 645, readingFirst: true })
+  await new Promise(resolve => setTimeout(resolve, 0))
+  expect(requested.some(url => url.includes('threads') || url.includes('audio-manifest'))).toBe(false)
+  const first = loaded.supplement!()
+  expect(loaded.supplement!()).toBe(first)
+  await first
+  expect(requested.filter(url => url.includes('threads'))).toHaveLength(1)
 })
