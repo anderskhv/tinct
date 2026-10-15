@@ -556,7 +556,8 @@ async function primerBehaviour(browser, origin) {
   ok('Redo makes a new one (one request) and stores it with the book', primers(r1).length === 1 && /redone gist/.test(await a.innerText('.mr-col .mr-primer')) && /redone gist/.test(account.primers.get(hex + '?outline-0')?.gist || ''))
   ok('a long primer (five claims, eight map rows) has no layout problems in the column', (await checkMargin(a)).length === 0, await checkMargin(a))
   // A map row scrolls the PDF to its page.
-  await a.click('.mr-col .mr-map__row[data-page="6"]'); await a.waitForTimeout(900)
+  // The scroll is smooth; newer Chromium takes about 1.2 s, so wait for it to settle, then check where it landed.
+  await a.click('.mr-col .mr-map__row[data-page="6"]'); await a.waitForFunction(() => { const s = document.getElementById('scroll'), t = s.scrollTop, settled = window.__mrLastTop === t; window.__mrLastTop = t; return settled }, null, { polling: 300, timeout: 5000 }).catch(() => {})
   ok('a map row scrolls the PDF to its page', (await a.evaluate(() => currentPlace().page)) === 6, await a.evaluate(() => currentPlace()))
   await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(500)
   // Quiz me on this chapter: `quiz` with no selection and the unit's pages; a quiz card at the column's top.
