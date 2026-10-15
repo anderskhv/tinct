@@ -1,0 +1,69 @@
+{
+ "explain": [
+  "dispensing with recurrence and convolutions entirely",
+  "This inherently sequential nature precludes parallelization within training examples",
+  "We suspect that for large values of",
+  "before it is added to the sub-layer input and normalized",
+  "the number of operations required to relate signals from two arbitrary input or output positions grows in the distance between positions"
+ ],
+ "simplify": [
+  "Self-attention, sometimes called intra-attention is an attention mechanism relating different positions of a single sequence",
+  "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions",
+  "we must inject some information about the relative or absolute position of the tokens in the sequence",
+  "This hurts perplexity, as the model learns to be more unsure, but improves accuracy and BLEU score",
+  "We chose the sinusoidal version because it may allow the model to extrapolate to sequence lengths longer than the ones encountered during training"
+ ],
+ "define": [
+  "transduction",
+  "ensembles",
+  "perplexity",
+  "constituency",
+  "auto-regressive"
+ ],
+ "factcheck": [
+  "Our model achieves 28.4 BLEU",
+  "after training for 3.5 days on eight GPUs",
+  "have been firmly established as state of the art approaches in sequence modeling",
+  "the Transformer can be trained significantly faster than architectures based on recurrent or convolutional layers",
+  "self-attention could yield more interpretable models"
+ ],
+ "counterpoint": [
+  "being more parallelizable and requiring significantly less time to train",
+  "We are excited about the future of attention-based models and plan to apply them to other tasks",
+  "self-attention layers are faster than recurrent layers when the sequence",
+  "despite the lack of task-specific tuning our model performs",
+  "Learning long-range dependencies is a key challenge in many sequence transduction tasks"
+ ],
+ "ask": [
+  [
+   "We suspect that for large values of",
+   "Why would large dot products push the softmax into regions with tiny gradients?"
+  ],
+  [
+   "Multi-head attention allows the model to jointly attend to information",
+   "Why use 8 smaller heads instead of one big attention head?"
+  ],
+  [
+   "This hurts perplexity, as the model learns to be more unsure",
+   "What is label smoothing, and why would it help BLEU while hurting perplexity?"
+  ],
+  [
+   "We also experimented with using learned positional embeddings",
+   "If learned embeddings performed the same, why keep the sinusoids?"
+  ],
+  [
+   "beam search with a beam size of",
+   "What does a beam size of 4 mean in practice?"
+  ]
+ ],
+ "quiz": [
+  "Self-attention, sometimes called intra-attention is an attention mechanism relating different positions of a single sequence",
+  "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions",
+  "This hurts perplexity, as the model learns to be more unsure, but improves accuracy and BLEU score"
+ ],
+ "whole": [
+  "What limitations of the Transformer do the authors themselves acknowledge?",
+  "How does the base model differ from the big model, and what did each cost to train?",
+  "Which ablation results in Table 3 matter most, and why?"
+ ]
+}
