@@ -1,8 +1,12 @@
 import { highlightWrittenAt } from './labHighlightContentMigration'
 import { isLabChapterNote, type LabHighlight } from './labHighlights'
 
-/** How Contents → Highlights & notes lists marks. */
-export type LabHighlightOrder = 'book' | 'newest'
+/**
+ * How Contents → Highlights & notes lists marks: by creation time, oldest
+ * first unless Newest first is on (Anders, 15 Oct: "either chronological or
+ * newest first"). Book order only breaks ties.
+ */
+export type LabHighlightOrder = 'oldest' | 'newest'
 
 /** Creation time: from the id (`hl-<ms>-…`), else the last change. */
 export function highlightCreatedAt(highlight: Pick<LabHighlight, 'id' | 'updatedAt'>): number {
@@ -12,7 +16,7 @@ export function highlightCreatedAt(highlight: Pick<LabHighlight, 'id' | 'updated
 const byId = (a: LabHighlight, b: LabHighlight) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
 
 /**
- * Book order: chapter (by its place in the book when `chapterPlace` is given,
+ * Book order (the tie-break for marks made in the same millisecond): chapter (by its place in the book when `chapterPlace` is given,
  * else its number), then position in the chapter. A chapter note comes after
  * the chapter's passage highlights.
  */
@@ -31,7 +35,8 @@ export function compareHighlightsInBookOrder(chapterPlace: (chapterNumber: numbe
 
 export function orderLabHighlights(list: LabHighlight[], order: LabHighlightOrder, chapterPlace?: (chapterNumber: number) => number): LabHighlight[] {
   const bookOrder = compareHighlightsInBookOrder(chapterPlace)
-  return [...list].sort(order === 'newest' ? (a, b) => highlightCreatedAt(b) - highlightCreatedAt(a) || bookOrder(a, b) : bookOrder)
+  const direction = order === 'newest' ? -1 : 1
+  return [...list].sort((a, b) => direction * (highlightCreatedAt(a) - highlightCreatedAt(b)) || bookOrder(a, b))
 }
 
 export function highlightHasNote(highlight: Pick<LabHighlight, 'note'>): boolean {

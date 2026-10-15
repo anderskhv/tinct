@@ -1,4 +1,6 @@
 // @vitest-environment jsdom
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { loadEdition } from '../data/editionLoader'
@@ -28,12 +30,13 @@ afterEach(() => { cleanup(); vi.resetAllMocks() })
 
 const rows = () => Array.from(document.querySelectorAll('.overlay .results .result')).map(row => row.getAttribute('data-testid'))
 
-it('lists highlights and notes in book order, the chapter note at its chapter’s end; Newest first by creation time', async () => {
+it('lists highlights and notes oldest first by creation time; Newest first reverses it', async () => {
   render(<LabContentsV2 {...props()} />)
   fireEvent.click(screen.getByRole('button', { name: 'Highlights', exact: true }))
   expect(screen.getByText('Highlights & notes')).toBeTruthy()
   await screen.findByText('Emma Woodhouse,')
-  expect(rows()).toEqual([`contents-highlight-hl-${T + 2}-emma`, `contents-highlight-hl-${T + 1}-daughter`, `contents-chapter-note-hl-${T + 4}-cn`, `contents-highlight-hl-${T + 3}-weston`])
+  expect(screen.getByRole('button', { name: 'Newest first' }).getAttribute('aria-pressed')).toBe('false')
+  expect(rows()).toEqual([`contents-highlight-hl-${T + 1}-daughter`, `contents-highlight-hl-${T + 2}-emma`, `contents-highlight-hl-${T + 3}-weston`, `contents-chapter-note-hl-${T + 4}-cn`])
   fireEvent.click(screen.getByRole('button', { name: 'Newest first' }))
   expect(screen.getByRole('button', { name: 'Newest first' }).getAttribute('aria-pressed')).toBe('true')
   expect(rows()).toEqual([`contents-chapter-note-hl-${T + 4}-cn`, `contents-highlight-hl-${T + 3}-weston`, `contents-highlight-hl-${T + 2}-emma`, `contents-highlight-hl-${T + 1}-daughter`])
@@ -57,6 +60,14 @@ it('shows each note in full under its passage, in ink, and filters to Notes only
   expect(document.querySelector('.note-count')?.textContent).toMatch(/^2 notes in /)
   fireEvent.click(screen.getByRole('button', { name: 'All', exact: true }))
   expect(rows()).toHaveLength(4)
+})
+
+it('sets the quoted passage under a note in plain italic, overriding the legacy uppercase .note-source', () => {
+  const css = readFileSync(resolve(__dirname, 'labContentsV2.css'), 'utf8')
+  const rule = /\.lab-contents-v2 \.result \.note-source \{([^}]*)\}/.exec(css)?.[1] ?? ''
+  expect(rule).toMatch(/text-transform:\s*none/)
+  expect(rule).toMatch(/letter-spacing:\s*normal/)
+  expect(rule).toMatch(/italic/)
 })
 
 it('a chapter note opens its chapter, and the chapter’s tag counts it', async () => {

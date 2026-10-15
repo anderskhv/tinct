@@ -175,4 +175,34 @@ describe('POST /api/lab-chapter-notes', () => {
       .toEqual([{ title: 'A', text: 'b' }, { title: 'C', text: 'd' }, { title: 'E', text: 'f' }, { title: 'G', text: 'h' }])
     expect(parseChapterNotesBeats({ beats: [] })).toBeNull()
   })
+
+  describe('default upstream (global fetch mocked; no provider is called)', () => {
+    afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers() })
+    const ok = () => Response.json({ stop_reason: 'end_turn', content: [{ type: 'text', text: beatsJson }], usage: { input_tokens: 500, output_tokens: 60 } })
+    const providerError = (status: number, type: string) => Response.json({ type: 'error', error: { type, message: 'x' } }, { status, headers: { 'retry-after': '0' } })
+
+    it('retries one transient provider error instead of answering a silent 502 (QA 15 Oct, 02:04Z)', async () => {
+      const fetcher = vi.fn().mockResolvedValueOnce(providerError(529, 'overloaded_error')).mockResolvedValueOnce(ok())
+      vi.stubGlobal('fetch', fetcher)
+      vi.spyOn(console, 'warn').mockImplementation(() => {})
+      const response = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'end' }), env, ctx().ctx, allow, { cache: null, reserveGuestSpend: spend })
+      expect(response.status).toBe(200)
+      expect(fetcher).toHaveBeenCalledTimes(2)
+      expect(String(fetcher.mock.calls[0][0])).toBe('https://api.anthropic.com/v1/messages')
+    })
+
+    it('logs a lasting failure without content, and a provider rate limit stays the calm resting state', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+      vi.stubGlobal('fetch', vi.fn().mockImplementation(async () => providerError(500, 'api_error')))
+      const failed = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'end' }), env, ctx().ctx, allow, { cache: null, reserveGuestSpend: spend })
+      expect(failed.status).toBe(502)
+      const lines = warn.mock.calls.map(([line]) => String(line))
+      expect(lines.some(line => line.includes('"event":"chapter_notes_failed"') && line.includes('"reason":"upstream"'))).toBe(true)
+      expect(lines.join('\n')).not.toContain('Victor')
+      vi.stubGlobal('fetch', vi.fn().mockImplementation(async () => providerError(429, 'rate_limit_error')))
+      const resting = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'end' }), env, ctx().ctx, allow, { cache: null, reserveGuestSpend: spend })
+      expect(resting.status).toBe(503)
+      expect(((await resting.json()) as { error: { type: string } }).error.type).toBe('ai_resting')
+    })
+  })
 })

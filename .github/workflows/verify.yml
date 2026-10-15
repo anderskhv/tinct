@@ -149,7 +149,7 @@ jobs:
           set +e
           npm run check:margin 2>&1 | tee margin-check.log
           status=${PIPESTATUS[0]}
-          grep -E '^FAIL|[1-9][0-9]* problem\(s\)|Error' margin-check.log | head -20 | cut -c1-400 | sed 's/^/::error title=margin-layout::/'
+          grep -E '^FAIL|[1-9][0-9]* problem\(s\)|Error' margin-check.log | head -20 | cut -c1-1600 | sed 's/^/::error title=margin-layout::/'
           exit $status
       - uses: actions/upload-artifact@v4
         continue-on-error: true

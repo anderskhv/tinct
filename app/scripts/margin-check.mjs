@@ -251,7 +251,7 @@ async function readerMatrix(browser, origin) {
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e) }) }
       rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: found.length + problems.length, details: [...found, ...problems], screenshots: states })
       const all = [...found, ...problems]
-      console.log(`${tag}: ${all.length} problem(s)`, process.env.VERBOSE ? JSON.stringify(all) : all.length ? JSON.stringify(all).slice(0, 300) : '')
+      console.log(`${tag}: ${all.length} problem(s)`, process.env.VERBOSE ? JSON.stringify(all) : all.length ? JSON.stringify(all).slice(0, 1500) : '')
       await ctx.close()
     }
   }
