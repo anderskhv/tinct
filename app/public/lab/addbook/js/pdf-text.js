@@ -28,6 +28,11 @@
 //      marker) are collected after their chapter under a "Notes" heading.
 //   5. Chapters: the scan's (outline, printed contents or headings); without any, chapters of
 //      20 pages ("Pages 1–20"), or the whole document under its title when it is shorter.
+//   5b. Crops (converter 3): a displayed formula, a figure or a table found on a page (pages[i].regions,
+//      js/pdf-regions.js) stands in the text as a picture of the page where it sits: a paragraph of
+//      its own (U+FFFC + its id, as an EPUB's pictures: app/src/lab/labFigures.ts), its caption
+//      beneath it, the text it holds out of the running text (kept as its `alt`). One holding running
+//      text is not taken. Without regions (a device that cannot draw them) the text is as converter 2's.
 //   6. Each paragraph keeps the page it starts on (pages[i]) and where it runs onto the next
 //      page ([paragraph, word, page] in pageBreaks), so a place converts between this edition
 //      and the PDF's pages both ways (placeOf / pageOf; app/src/lab/userBook/pdfAnchors.ts).
@@ -37,7 +42,8 @@
 (function (global) {
   // Rules that change any chapter, paragraph or word get a new number (userEdition.ts).
   // 2 (16 Oct 2026): indented blocks run on, numbered subheadings, figure labels left out.
-  const PDF_TEXT_CONVERTER = 2;
+  // 3 (16 Oct 2026): formulas, figures and tables as crops of the page, where the device draws them.
+  const PDF_TEXT_CONVERTER = 3;
   const CHAPTER_PAGES = 20;
   const S = () => global.TinctPdfScan;
 
@@ -99,13 +105,17 @@
     if (!body) return { lines: [], body: null };
     const out = [];
     for (const p of kept) {
-      const ordered = sameBaseline(readingOrder(p.rows.map(r => ({ ...r, text: r.text.replace(BRACKET_PIECES, ' ').replace(/\s+/g, ' ').trim() })).filter(r => r.text), p.x0 || 0, p.w || 612), body);
+      // Formulas, figures and tables kept as crops of the page (converter 3): their own text leaves the
+      // running text, and each stands where it sits, as a line of its own.
+      const { rows, pictures } = picturesOf(p, body);
+      const ordered = sameBaseline(readingOrder([...rows.map(r => ({ ...r, text: r.text.replace(BRACKET_PIECES, ' ').replace(/\s+/g, ' ').trim() })).filter(r => r.text), ...pictures].sort((a, b) => b.y - a.y || a.x - b.x), p.x0 || 0, p.w || 612), body);
       const left = columnLeft(ordered, body);
       const labels = stackedLabels(ordered, body, left);
       let inFoot = false, caption = null;
       const start = out.length;
       for (let [i, r] of ordered.entries()) {
         if (labels.has(i)) continue;
+        if (r.figure) { out.push({ ...r, n: p.n, kind: 'figure' }); caption = null; inFoot = false; continue }
         const low = r.y - p.y0 < p.h * 0.25;
         if (caption && isCell(r, caption, left, body) && caption.y - r.y < body.size * 6) continue;
         // A caption and the lines that continue it, close below, in its own size.
@@ -178,7 +188,7 @@
   // A cell of a table or a label of a diagram beside its caption: off the column's margin, under
   // or over the caption's width, a few words, not a sentence, not a heading.
   function isCell(r, caption, left, body) {
-    if (!r || r.kind === 'heading' || r.kind === 'foot' || r.col !== caption.col) return false;
+    if (!r || r.figure || r.kind === 'heading' || r.kind === 'foot' || r.kind === 'figure' || r.col !== caption.col) return false;
     const margin = left(r.col), reach = body.size * 4;
     return margin != null && r.x - margin > body.size * 2 && r.words <= 6 && !/[.?!,]["”’)]?$/.test(r.text)
       && r.x < caption.x2 + reach && r.x2 > caption.x - reach;
@@ -190,6 +200,61 @@
     if (r.font === body.font && Math.abs(r.size - body.size) < body.size * 0.08) return false;
     if (r.x2 - r.x > (p.w || 612) * 0.6) return false;
     return S().headingLike(r);
+  }
+
+  /* ---------- Crops: formulas, figures and tables as pictures of the page ---------- */
+  // A row's place on its page, in page fractions from the top left (as pdf-regions.js gives regions).
+  const rowBox = (p, r) => {
+    const x0 = p.x0 || 0, w = p.w || 612, top = (p.y0 || 0) + (p.h || 792);
+    return { l: (r.x - x0) / w, r: (r.x2 - x0) / w, cy: (top - r.y - r.size * 0.3) / (p.h || 792) };
+  };
+  const within = (q, b, grow = 0) => q.cy >= b.y - grow && q.cy <= b.y + b.h + grow && (Math.min(q.r, b.x + b.w) - Math.max(q.l, b.x)) >= Math.max(0.0001, (q.r - q.l) * 0.5);
+  // Running text: a body-size line of eight words or more, mostly letters.
+  const prose = (r, body) => r.words >= 8 && Math.abs(r.size - body.size) <= body.size * 0.12 && (r.text.match(/\p{L}/gu) || []).length >= r.text.replace(/\s/g, '').length * 0.7;
+  // A page's regions (p.regions: pdf-regions.js pageRegions, with each crop's `id` and drawn size),
+  // checked against its text: a figure or a table holding three lines of running text, or a formula
+  // holding two, is not taken (findFigures read a page of prose as ink): its text stays text. The
+  // rows each one holds become its `alt` (what the companion and a search read where it stands), those
+  // in its caption's box its caption, and both leave the running text.
+  // -> { rows: the page's rows left, pictures: one line for each region, where its top sits }
+  function picturesOf(p, body) {
+    const regions = (p.regions || []).filter(g => g && g.id && g.w > 0 && g.h > 0);
+    if (!regions.length) return { rows: p.rows, pictures: [] };
+    const boxes = p.rows.map(r => rowBox(p, r));
+    const taken = new Set(), pictures = [];
+    for (const g of regions) {
+      const inside = [], inCaption = [];
+      p.rows.forEach((r, i) => {
+        if (taken.has(i)) return;
+        if (g.captionBox && within(boxes[i], g.captionBox)) inCaption.push(i);
+        else if (within(boxes[i], g)) inside.push(i);
+      });
+      const running = inside.filter(i => prose(p.rows[i], body)).length;
+      if (running >= (g.kind === 'equation' ? 2 : 3)) continue;
+      for (const i of [...inside, ...inCaption]) taken.add(i);
+      const text = list => clean(list.map(i => p.rows[i].text).join(' ').replace(BRACKET_PIECES, ' '));
+      const x0 = p.x0 || 0, w = p.w || 612, top = (p.y0 || 0) + (p.h || 792);
+      pictures.push({
+        figure: { ...g, alt: text(inside), caption: text(inCaption) || g.caption || '' },
+        x: x0 + g.x * w, x2: x0 + (g.x + g.w) * w, y: top - g.y * (p.h || 792), size: body.size, words: 0, chars: 999, text: FIGURE_MARK + g.id, font: null,
+      });
+    }
+    return { rows: p.rows.filter((r, i) => !taken.has(i)), pictures };
+  }
+  const FIGURE_MARK = '\uFFFC';
+  // "(1)", "(2.3)": the number a formula is set with, to name it.
+  const EQUATION_TAG = /\((\d{1,3}(?:\.\d{1,3})?[a-z]?)\)(?!.*\(\d)/;
+  function figureOf(g, number) {
+    const tag = g.kind === 'equation' ? EQUATION_TAG.exec(g.alt || '') : null;
+    const label = g.label || (g.kind === 'equation' ? (tag ? `Equation (${tag[1]})` : 'Equation') : 'Figure');
+    return {
+      id: g.id, number, src: 'asset:' + g.id, label,
+      ...(g.caption ? { caption: g.caption } : {}),
+      ...(g.alt ? { alt: g.alt } : {}),
+      ...(g.css?.width > 0 && g.css?.height > 0 ? { width: Math.round(g.css.width), height: Math.round(g.css.height) } : {}),
+      fit: g.kind === 'equation' ? 'text' : 'column',
+      kind: g.kind,
+    };
   }
 
   /* ---------- Lines to paragraphs ---------- */
@@ -295,6 +360,7 @@
     let cur = null, prev = null, note = null;
     const flush = () => { if (cur) paras.push(cur); cur = null; prev = null };
     for (const l of lines) {
+      if (l.kind === 'figure') { flush(); paras.push({ text: l.text, kind: null, page: l.n, breaks: [], figure: l.figure }); continue }
       if (l.kind === 'foot') {
         if (!note || FOOTNOTE_MARK.test(l.text) || l.n !== note.last.n) { if (note) notes.push(note); note = { text: l.text, page: l.n, breaks: [], last: l } }
         else { note.text = joinLine(note.text, l.text, hyphenated); note.last = l }
@@ -337,7 +403,7 @@
     }
     flush();
     if (note) notes.push(note);
-    const done = p => ({ text: clean(p.text), kind: p.kind, page: p.page, breaks: p.breaks });
+    const done = p => ({ text: clean(p.text), kind: p.kind, page: p.page, breaks: p.breaks, ...(p.figure ? { figure: p.figure } : {}) });
     return { paras: paras.map(done).filter(p => p.text), notes: notes.map(done).filter(p => p.text) };
   }
 
@@ -405,6 +471,7 @@
     const indents = bodyLines.filter(l => { const g = geo.get(l.n + '|' + l.col); return g && l.x - g.left > l.size }).length >= bodyLines.length * 0.03;
     const titleKey = norm(scan.title), authorKey = norm(scan.author);
     const chapters = [];
+    let figureCount = 0;
     for (const part of splitChapters(lines, scan, pages.length)) {
       let chapterLines = part.lines;
       // Before the document's first running text: its own title and byline are the book's, shown above it.
@@ -425,6 +492,8 @@
       all.forEach((p, i) => { for (const [word, page] of p.breaks) pageBreaks.push([i, word, page]) });
       if (pageBreaks.length) chapter.pageBreaks = pageBreaks;
       if (notes.length) chapter.notes = paras.length;
+      const pictures = all.filter(p => p.figure);
+      if (pictures.length) chapter.figures = pictures.map(p => figureOf(p.figure, ++figureCount));
       chapters.push(chapter);
     }
     if (!chapters.length) return null;
@@ -432,8 +501,10 @@
   }
 
   // pdf: a pdf.js document; options.scan: its scan (TinctPdfScan.scan); options.items(n) may
-  // supply a page's text items; options.live() turns false to stop (null is returned).
-  async function convert(pdf, { scan, items, live = () => true } = {}) {
+  // supply a page's text items; options.regions(n, page, items) the page's crops (pdf-regions.js
+  // pageRegions, each with its `id` and drawn size `css`; app/src/lab/userBook/pdfEdition.ts draws
+  // them); options.live() turns false to stop (null is returned).
+  async function convert(pdf, { scan, items, regions, live = () => true } = {}) {
     if (!scan || !(scan.textPages > 0)) return null;
     const api = S();
     const pages = [];
@@ -441,7 +512,8 @@
       const page = await pdf.getPage(n);
       const [x0, y0, x1, y1] = page.view;
       const list = items ? await items(n) : (await page.getTextContent()).items;
-      pages.push({ n, x0, y0, w: x1 - x0, h: y1 - y0, rows: api.textRows(list) });
+      const found = regions ? await regions(n, page, list).catch(() => []) : [];
+      pages.push({ n, x0, y0, w: x1 - x0, h: y1 - y0, rows: api.textRows(list), ...(found?.length ? { regions: found } : {}) });
       if (!live()) return null;
     }
     return fromPages(pages, scan);

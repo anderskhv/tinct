@@ -206,7 +206,7 @@ import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { userBookLangAttribute } from './userBook/userBookLanguage'
 import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
 import { flushOwnPlaces, noteOwnPlace, notePdfPlace } from './userBook/ownSync'
-import { choosePdfPages, PDF_PAGES_EDITION_KEY } from './userBook/pdfEditions'
+import { choosePdfPageAt, PDF_PAGES_EDITION_KEY, showPdfPageAt } from './userBook/pdfEditions'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
@@ -4985,20 +4985,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   // A PDF's Original pages, picked in Book editions: the same spot, kept as the
   // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
-  const openPdfPages = useCallback(() => {
+  // "Show page" (a selection's, a figure's): a look at that paragraph's page (&frac=: how far down it), the
+  // book still read as Tinct text (&pages: the viewer does not send it back), so Back or the viewer's
+  // "Tinct text" returns to the same paragraph.
+  const openPdfPages = useCallback((at?: { chapterNumber: number; paragraphIndex: number; wordIndex: number }) => {
     if (!userBook || userBook.kind !== 'pdf') return
     const current = userPlaceBookRef.current
-    const page = choosePdfPages(userBook.hex, userBook.edition.chapters, {
-      chapterNumber: current.chapterNumber,
-      paragraphIndex: placeRef.current.paragraphIndex,
-      wordIndex: placeRef.current.wordIndex,
-      updatedAt: Date.now(),
-      converter: userBook.edition.converter,
-    }, userBook.pdfPages)
-    notePdfPlace(userBook.hex, { now: true })
-    flushOwnPlaces()
+    const spot = at ?? { chapterNumber: current.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }
+    const place = { ...spot, updatedAt: Date.now(), converter: userBook.edition.converter }
+    const { page, frac } = at
+      ? showPdfPageAt(userBook.hex, userBook.edition.chapters, place, userBook.pdfPages)
+      : choosePdfPageAt(userBook.hex, userBook.edition.chapters, place, userBook.pdfPages)
+    if (!at) { notePdfPlace(userBook.hex, { now: true }); flushOwnPlaces() }
     setSuperSheet(null)
-    window.location.assign(`${ownBookOpenUrl(userBook.hex)}&page=${page}`)
+    window.location.assign(`${ownBookOpenUrl(userBook.hex)}&page=${page}${at ? `&frac=${frac}&pages` : ''}`)
   }, [userBook])
   const sheetPrefs = useCallback((next: LabPrefs) => {
     if (ownPdf && next.primaryEdition === PDF_PAGES_EDITION_KEY) { openPdfPages(); return }
@@ -5350,7 +5350,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       )}
       {figureCard && (
         <LabFigureCard figure={figureCard} onClose={() => setFigureCard(null)}
-          onExplain={explainFigure} onAsk={askAboutFigure} />
+          onExplain={explainFigure} onAsk={askAboutFigure}
+          onShowPage={ownPdf && figureCard.chapterNumber != null && figureCard.paragraphIndex != null
+            ? figure => openPdfPages({ chapterNumber: figure.chapterNumber!, paragraphIndex: figure.paragraphIndex!, wordIndex: 0 })
+            : undefined} />
       )}
       {!frontispieceVisible && superSheet === 'catchup' && userBook && (
         // A reader's own book: one cumulative recap, built from this device's text a chapter at a time.
@@ -6080,6 +6083,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         <SelectionPopup
           selection={selectionPopup}
           popupRef={popupRef}
+          onShowPage={ownPdf && selectionPopup.range && !selectionPopup.side
+            ? () => { const range = selectionPopup.range!; setSelectionPopup(null); openPdfPages({ chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: range.paragraphIndex, wordIndex: range.fromWord }) }
+            : undefined}
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           currentHighlightColor={selectionPopup.existingHighlightId

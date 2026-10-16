@@ -170,7 +170,22 @@ export function keepPdfTextPlace(hex: string, chapters: readonly UserBookChapter
  * Returns the page to open the viewer at.
  */
 export function choosePdfPages(hex: string, chapters: readonly UserBookChapter[], place: UserBookPlace, pages?: number): number {
+  return choosePdfPageAt(hex, chapters, place, pages).page
+}
+
+/** As choosePdfPages, with how far down the page the spot stands (`frac`, for the viewer's `&frac=`). */
+export function choosePdfPageAt(hex: string, chapters: readonly UserBookChapter[], place: UserBookPlace, pages?: number): { page: number; frac: number } {
   writePdfEditionChoice(hex, 'pages')
   const kept = keepPdfTextPlace(hex, chapters, { ...place, updatedAt: Date.now() }, { edition: 'p', pages })
-  return kept?.page ?? 1
+  return kept ?? { page: 1, frac: 0 }
+}
+
+/**
+ * "Show page": a look at the PDF's own page at a paragraph, the book still read as Tinct text.
+ * The spot is kept as the shared place (still in Tinct text), and no choice changes, so Back, or
+ * the viewer's "Tinct text", returns to the same paragraph. -> the page and how far down it.
+ */
+export function showPdfPageAt(hex: string, chapters: readonly UserBookChapter[], place: UserBookPlace, pages?: number): { page: number; frac: number } {
+  const kept = keepPdfTextPlace(hex, chapters, { ...place, updatedAt: Math.max(place.updatedAt, 1) }, { edition: 't', pages })
+  return kept ?? { page: 1, frac: 0 }
 }
