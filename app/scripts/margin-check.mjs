@@ -2850,7 +2850,7 @@ async function cardSafety(browser, origin) {
   const state = () => a.evaluate(() => { const id = col.open, el = id && document.querySelector(`.mr-col [data-id="${CSS.escape(id)}"], .mr-sheet[data-id="${CSS.escape(id)}"]`); return { id, rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait').length, live: id ? col.live.get(id) || null : null, inFlight: id ? col.ctl.has(id) : false, status: el?.querySelector('.mr-status')?.textContent || '', answer: el?.querySelector('.mr-answer')?.textContent || '', turns: id ? (cardById(id)?.turns || []).length : 0 } })
   const reports = from => account.requests.slice(from).filter(r => r.path === '/api/events').flatMap(r => r.body.events || []).filter(e => e.name === 'margin_card_failed')
   const explain = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); await a.waitForTimeout(200); await selectText(a); await a.waitForSelector('.mr-bar [data-m="explain"]'); await a.click('.mr-bar [data-m="explain"]') }
-  const settled = async (ms = 4000) => { const end = Date.now() + ms; let st; while (Date.now() < end) { st = await state(); if (!st.rings && !st.inFlight) return st; await a.waitForTimeout(150) } return st }
+  const settled = async (ms = 4000) => { const end = Date.now() + ms; let st; while (Date.now() < end) { st = await state(); if (!st.rings && !st.inFlight && (st.status || st.answer || !st.live)) return st; await a.waitForTimeout(150) } return st }
 
   // 1. The answer arrives but drawing it throws (an answer the parser cannot take): its words show plainly, and the error is reported.
   let from = account.requests.length
