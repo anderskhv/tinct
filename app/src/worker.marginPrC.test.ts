@@ -17,6 +17,9 @@ import {
   MARGIN_ANSWER_RULES,
   NO_META_RULE,
   PDF_DOCUMENT_WORDING,
+  PDF_EXPLAIN_OPENING_RULE,
+  STANDS_ALONE_RULE,
+  TABLE_NUMBERS_RULE,
   WORK_FIRST_RULE,
   COUNTERPOINT_PROMPT,
   FACTCHECK_OPENING_ROUND,
@@ -158,7 +161,8 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
   })
 
   it('the shared rules: work things out first, never attribute to the document what it does not say; a PDF is the document, one page per tag', async () => {
-    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE])
+    // Morning retest (16 Oct): tables read row by row with comparisons stated, and each answer standing alone.
+    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE])
     expect(WORK_FIRST_RULE).toBe('Work out numbers and facts before you write. Never correct yourself mid-answer.')
     expect(ATTRIBUTION_RULE).toBe('Never attribute to the document something it does not say.')
     for (const rule of MARGIN_ANSWER_RULES) expect(MARGIN_RULES).toContain(rule)
@@ -217,8 +221,14 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
     expect(SIMPLIFY_PROMPT).not.toContain('that says what the passage is doing')
   })
 
-  it('Counterpoint: the author\'s reply only from the document', () => {
-    expect(COUNTERPOINT_PROMPT).toContain('Give the author\'s reply only from what the document says or plainly implies.')
+  // Night run final (16 Oct): the "strongest objection … author's best reply" template is gone for every document.
+  it('Counterpoint: one sharp objection grounded in the document, numbers compared the right way, no reply on the author\'s behalf', () => {
+    expect(COUNTERPOINT_PROMPT).toContain('Give one sharp objection')
+    expect(COUNTERPOINT_PROMPT).toContain('When you compare two numbers, check which is higher before you write and say so plainly.')
+    expect(COUNTERPOINT_PROMPT).toContain('Never answer it on the author\'s behalf')
+    expect(COUNTERPOINT_PROMPT).not.toContain('Then one sentence giving the author\'s best reply.')
+    expect(COUNTERPOINT_PROMPT).not.toContain('Give the author\'s reply only')
+    expect(COUNTERPOINT_PROMPT).toContain('About 120 words in all, plain prose, no headings.')
   })
 
   it('Ask in the margin says so when the document does not explain something; the book reader\'s Ask is unchanged', async () => {
@@ -234,7 +244,8 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
 
 describe('answer rules from the deep test after train 2 (15 Oct, evening)', () => {
   it('every margin request carries the picture rule and the no-extraction rule in the cached prefix; the book reader never does', async () => {
-    expect(PICTURE_RULE).toBe('The picture is the passage itself; never describe or read out the picture, and never say what it confirms. Answer about the passage.')
+    // Morning retest (16 Oct): "The image shows the abstract line…" in an Explain.
+    expect(PICTURE_RULE).toBe('The picture is the passage itself; never describe or read out the picture, never say what it shows or confirms, and never mention an image. Answer about the passage.')
     expect(NO_EXTRACTION_TALK_RULE).toBe('Never mention text extraction, garbling, or how the document reached you.')
     expect(MARGIN_RULES).toContain(PICTURE_RULE)
     expect(MARGIN_RULES).toContain(NO_EXTRACTION_TALK_RULE)
@@ -284,7 +295,7 @@ describe('docs/margin/PROMPTS.md is in step with the prompts', () => {
   it('carries every PR C wording word for word', () => {
     const doc = readFileSync(resolve(__dirname, '../../docs/margin/PROMPTS.md'), 'utf8')
     const lines = [
-      ...MARGIN_ANSWER_RULES, PDF_DOCUMENT_WORDING, PDF_CITATION_RULE, PDF_EXPLAIN_FORMAT, ASK_DOCUMENT_LINE, QUIZ_PASSAGE_FOCUS,
+      ...MARGIN_ANSWER_RULES, PDF_DOCUMENT_WORDING, PDF_CITATION_RULE, PDF_EXPLAIN_FORMAT, PDF_EXPLAIN_OPENING_RULE, ASK_DOCUMENT_LINE, QUIZ_PASSAGE_FOCUS,
       ...SIMPLIFY_PROMPT.split('\n'), ...COUNTERPOINT_PROMPT.split('\n'), ...RELATED_PROMPT.split('\n'),
       ...factcheckPrompt('{today}').split('\n'),
       PICTURE_RULE, NO_EXTRACTION_TALK_RULE, PASSAGE_IMAGE_LINE, FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND, ...QUIZ_CHECK_PROMPT.split('\n'),
@@ -322,12 +333,13 @@ describe('no pipeline wording in any margin prompt', () => {
     for (const block of blocks) for (const leak of LEAKS) expect(block).not.toMatch(leak)
   })
   it('Fact-check names its sources by title, never the search or its notes; Simplify never returns the passage or a note about it', () => {
-    expect(marginPromptText.factcheckPrompt('2026-10-15')).toContain('Name each source by its title; never mention the search itself or its notes.')
+    // Morning retest (16 Oct): "The search tool is unavailable right now."
+    expect(marginPromptText.factcheckPrompt('2026-10-15')).toContain('Name each source by its title; never mention the search, a tool, a lookup or its notes, and never say that sources are unavailable.')
     expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Never return the passage unchanged or nearly unchanged, never quote it back')
     expect(marginPromptText.SIMPLIFY_PROMPT).toContain('no explanation or note after it')
     const doc = readFileSync(resolve(__dirname, '../../docs/margin/PROMPTS.md'), 'utf8')
     // The production re-run after train 3: Explain about the text, never the selection; Counterpoint tied to the document; short Simplify selections.
-    expect(marginPromptText.PDF_EXPLAIN_PROMPT.endsWith(marginPromptText.PDF_EXPLAIN_TEXT_RULE)).toBe(true)
+    expect(marginPromptText.PDF_EXPLAIN_PROMPT.endsWith(`${marginPromptText.PDF_EXPLAIN_TEXT_RULE} ${marginPromptText.PDF_EXPLAIN_OPENING_RULE}`)).toBe(true)
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Look first for the document\'s own inconsistencies')
     expect(marginPromptText.PDF_COUNTERPOINT_PROMPT).toContain('Never a generic objection that would fit any work')
     expect(marginPromptText.SIMPLIFY_PROMPT).toContain('rewrite that fragment alone')
@@ -335,13 +347,15 @@ describe('no pipeline wording in any margin prompt', () => {
     expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Match the length of the selection')
     expect(marginPromptText.SIMPLIFY_PROMPT).toContain('never write the same sentence twice')
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('a reading of it that differs from the obvious one')
-    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('with no author\'s reply')
+    // Night run final (16 Oct): no reply on the author's behalf for any document, a story's included.
+    expect(marginPromptText.COUNTERPOINT_PROMPT).not.toMatch(/Then one sentence giving the author/)
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Quote the document\'s own numbers, formulas and complexities exactly as printed')
     // Round 3 (16 Oct, recheck-1): the rule that named notation and the selection's ends drew those very sentences.
     expect(marginPromptText.PDF_EXPLAIN_TEXT_RULE).toBe('Write only about what the text says and means.')
     expect(marginPromptText.PDF_EXPLAIN_PROMPT).not.toMatch(/notation|starts or stops|cut off/i)
-    expect(marginPromptText.PICTURE_RULE).toContain('never say what it confirms')
-    for (const line of [marginPromptText.PDF_EXPLAIN_TEXT_RULE, ...marginPromptText.SIMPLIFY_PROMPT.split('\n'), ...marginPromptText.COUNTERPOINT_PROMPT.split('\n'), ...marginPromptText.factcheckPrompt('{today}').split('\n'), ...marginPromptText.DEFINE_SENSE_PROMPT.split('\n'), ...CHAPTER_CHAT_INSTRUCTIONS.primer.split('\n')]) expect(doc, line).toContain(line)
+    expect(marginPromptText.PDF_EXPLAIN_OPENING_RULE).toBe('Start with the meaning itself. Never describe the selection ("The selected passage…", "This sentence…") or the picture, and never say what the passage lacks.')
+    expect(marginPromptText.PICTURE_RULE).toContain('never say what it shows or confirms')
+    for (const line of [marginPromptText.PDF_EXPLAIN_TEXT_RULE, marginPromptText.PDF_EXPLAIN_OPENING_RULE, ...marginPromptText.SIMPLIFY_PROMPT.split('\n'), ...marginPromptText.COUNTERPOINT_PROMPT.split('\n'), ...marginPromptText.factcheckPrompt('{today}').split('\n'), ...marginPromptText.DEFINE_SENSE_PROMPT.split('\n'), ...CHAPTER_CHAT_INSTRUCTIONS.primer.split('\n')]) expect(doc, line).toContain(line)
   })
 })
 

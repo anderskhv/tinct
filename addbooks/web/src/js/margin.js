@@ -594,9 +594,25 @@
     if (!f.lead && !opening.length) return { answer: '', sources: '' };
     const open = opening.length ? `<div class="mr-answer mr-opening">${opening.map(b => `<p>${inlineHtml(b, P, resolve)}</p>`).join('')}</div>` : '';
     const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
-    const sources = f.sources.length ? `<div class="mr-sources">${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
+    // The sources as a labelled row of links (night run final, 16 Oct: the bare titles read as a raw tail), their titles tidied (sourceTitle).
+    const sources = f.sources.length ? `<div class="mr-sources"><span class="mr-sources__label">Sources</span>${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
     const verdict = f.lead ? `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>` : '';
     return { answer: open + verdict + claims, sources };
+  }
+  /**
+   * An answer as a card shows it: never a sentence about the passage picture (full battery on train 3), except in a
+   * figure's card, whose picture is its subject; Explain without its template lines (recheck-1 and the night run's
+   * final round, 16 Oct); Counterpoint without the "strongest objection … author's best reply" template; and no
+   * answer referring back to its own earlier replies (morning retest, 16 Oct). The parsers' twins (margin-parse.js).
+   */
+  function cleanAnswer(kind, text, P) {
+    let t = String(text || '');
+    if (!P) return t;
+    if (kind !== 'figure' && P.withoutPictureTalk) t = P.withoutPictureTalk(t);
+    if (kind === 'explain' && P.withoutTemplateTalk) t = P.withoutTemplateTalk(t);
+    if (kind === 'counterpoint' && P.counterpointAnswer) t = P.counterpointAnswer(t);
+    if (P.withoutSelfReference) t = P.withoutSelfReference(t);
+    return t;
   }
   /** The words a folded card shows (two lines of them): plain, no tags. */
   function foldText(card, P) {
@@ -615,8 +631,7 @@
     if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     if (card.kind === 'simplify' && answer && P.simplifyAnswer) { const s = P.simplifyAnswer(answer.content, card.text); return s.unchanged ? SIMPLIFY_UNCHANGED : plain(s.text) }
-    if (card.kind === 'explain' && answer && P.withoutTemplateTalk) return plain(P.withoutTemplateTalk(answer.content));
-    return plain(answer?.content || '');
+    return plain(cleanAnswer(card.kind, answer?.content || '', P));
   }
   /** What a Simplify card says when the answer was only the passage again. */
   const SIMPLIFY_UNCHANGED = 'This passage is already in plain words.';
@@ -755,10 +770,8 @@
     let answered = card.kind === 'note' || card.kind === 'define';
     // Never a sentence about the passage picture (full battery on train 3), except in a figure's card, whose picture is its subject.
     // Explain never shows its template lines, "no notation here" or "the passage is cut off" (recheck-1, 16 Oct).
-    const clean = text => {
-      const t = card.kind !== 'figure' && P?.withoutPictureTalk ? P.withoutPictureTalk(text) : text;
-      return card.kind === 'explain' && P?.withoutTemplateTalk ? P.withoutTemplateTalk(t) : t;
-    };
+    // No answer refers to its own earlier replies, and Counterpoint has no "strongest objection … author's best reply" template (16 Oct).
+    const clean = text => cleanAnswer(card.kind, text, P);
     turns.forEach((t0, k) => {
       const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content) };
       if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
@@ -800,7 +813,7 @@
       if (row.type === 'divider') return `<p class="mr-divider">${esc(row.label)}</p>`;
       const t = turns[row.index]; if (!t) return '';
       if (t.role === 'user') return (t.quote ? `<div class="mr-quote">${esc(cut(t.quote))}</div>` : '') + (t.extra || '') + `<div class="mr-you">${esc(t.text)}</div>` + (t.note ? `<p class="mr-status">${esc(t.note)}</p>` : '');
-      return t.text ? `<div class="mr-answer">${answerHtml(t.text, o.P, { resolve: o.resolve })}</div>` : '';
+      return t.text ? `<div class="mr-answer">${answerHtml(cleanAnswer('chat', t.text, o.P), o.P, { resolve: o.resolve })}</div>` : '';
     }).join('');
   }
   /**
@@ -1113,6 +1126,29 @@
     const find = want => (want && (captions || []).find(c => c && c.fig != null && c.kind === want.kind && String(c.n).toLowerCase() === String(want.n).toLowerCase())) || null;
     return find(figureRef(question)) || find(captionOf(selection)) || null;
   }
+  /**
+   * The picture a passage action sends when the passage touches a table or a formula (morning retest, 16 Oct: Table 1's
+   * O(n²·d) reached the model as "O(n · d)"): the passage's box (page fractions { x, y, w, h }) grown to take in each
+   * table it overlaps, each displayed formula it overlaps, and the table the passage names when that table is on this
+   * page ("as Table 1 shows"). `figures`: the page's found figures (fractions); `captions`: their captions ({ kind, n,
+   * fig }); `blocks`: the displayed formulas (fractions). -> the grown box, or null when it touches neither (then the
+   * passage's own crop goes, as before).
+   */
+  function mathBox({ box, figures = [], captions = [], blocks = [], text = '' } = {}) {
+    if (!box || !(box.w > 0) || !(box.h > 0)) return null;
+    const meets = (a, b) => a && b && a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+    const tables = (captions || []).filter(c => c && c.kind === 'table' && c.fig != null && figures?.[c.fig]);
+    const named = figureRef(text), add = [];
+    for (const c of tables) {
+      const f = figures[c.fig];
+      if (meets(box, f) || (named && named.kind === 'table' && String(named.n).toLowerCase() === String(c.n).toLowerCase())) add.push(f);
+    }
+    for (const b of blocks || []) if (meets(box, b)) add.push(b);
+    if (!add.length) return null;
+    let x0 = box.x, y0 = box.y, x1 = box.x + box.w, y1 = box.y + box.h;
+    for (const f of add) { x0 = Math.min(x0, f.x); y0 = Math.min(y0, f.y); x1 = Math.max(x1, f.x + f.w); y1 = Math.max(y1, f.y + f.h) }
+    return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
+  }
   /** How much two boxes ({ x, y, w, h }) overlap: their intersection over their union. */
   function overlapOf(a, b) {
     const w = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x), h = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y);
@@ -1414,5 +1450,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

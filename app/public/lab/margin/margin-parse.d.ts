@@ -112,3 +112,15 @@ export declare function parseRelated(text: unknown): {
 export declare const PDF_EXPLAIN_FORMAT_BEFORE: string;
 export declare const PDF_EXPLAIN_FORMAT: string;
 export declare const PASSAGE_IMAGE_LINE: string;
+/** An answer without a sentence about the passage picture, or one that opens on it ("The image shows…"). */
+export declare function withoutPictureTalk(text: unknown): string;
+/** Explain without its template lines: no notation, what the passage lacks, where the selection stops; an opening on the selection reads as one on its meaning. */
+export declare function withoutTemplateTalk(text: unknown): string;
+/** A sentence that opens on the selection ("The selected passage says that X") as one on its meaning ("X"). */
+export declare function withoutSelectionTalk(sentence: string): string;
+/** An answer without references to its own earlier replies ("This also corrects my earlier remark"). */
+export declare function withoutSelfReference(text: unknown): string;
+/** Counterpoint without "The strongest objection is that" and the author's reply. */
+export declare function counterpointAnswer(text: unknown): string;
+/** A source's title without the site's name after " | ", " · ", " - " or " — ". */
+export declare function sourceTitle(title: unknown): string;
