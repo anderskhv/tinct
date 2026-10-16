@@ -329,6 +329,8 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   const scan = record.scan as { v?: unknown; layout?: { default?: string }; textPages?: unknown; pages?: unknown } | null | undefined
   let layout = (record.layout as { default?: string } | undefined)?.default ?? scan?.layout?.default ?? null
   let edition = usableUserEdition(record.edition, 'pdf') ? record.edition : null
+  // A conversion kept under earlier rules: converted again below; the place read in it moves by its page.
+  const previous = !edition && record.edition && typeof record.edition === 'object' && Array.isArray(record.edition.chapters) ? record.edition : null
   let pageCount: unknown = [record.pages, scan?.pages].find(n => Number.isInteger(n) && (n as number) > 0)
   const ocr = options.ocr ?? loadOcrEdition
   const recognised = async (): Promise<UserBookEdition | null> => {
@@ -366,7 +368,7 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   edition = healUserEdition(edition)
   const pages = Number.isInteger(pageCount) && (pageCount as number) > 0 ? pageCount as number : undefined
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
-  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images: new Map(), place: readPdfTextPlace(hex, edition, { page: options.page }), cover } }
+  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images: new Map(), place: readPdfTextPlace(hex, edition, { page: options.page, previous }), cover } }
 }
 
 const COVER_HEAL_DELAY_MS = 1500

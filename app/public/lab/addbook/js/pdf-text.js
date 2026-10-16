@@ -6,13 +6,24 @@
 //      (furniture), in reading order: a page set in two columns is read column by column
 //      between the lines that run across it, else top to bottom. Captions ("Figure 2. …") and
 //      the small lettering inside figures are left out.
-//   2. Paragraphs: a new one after a vertical gap of more than 1.5 lines, at a first line
-//      indented by more than 1 em, or after a short line ending a sentence (. ? ! : ").
+//      Rows on the same baseline in a column are one line (an equation and its number, "(2)").
+//      Lettering stacked over another line (a label over an arrow, "constructor"; the chain of
+//      labels above it), a table's cells beside its caption and the brackets of a display
+//      formula ("⎛ ⎞") are left out too.
+//      A numbered section heading in its own face or size ("1.1 Construction tasks", converter
+//      2) is a heading, never the first words of the paragraph below it.
+//   2. Paragraphs: a new one after a vertical gap of more than 1.5 lines, at a line indented
+//      by more than 1 em from the line before, or after a short line ending a sentence
+//      (. ? ! : "). A block set in from the margin (an abstract, a quotation) runs on line by
+//      line (converter 2: before, every line of an indented abstract was a paragraph); a
+//      reference list set with hanging indents keeps each entry whole.
 //      Across a page or a column, the text runs on when the next line starts in lower case or
 //      the line before ends without a full stop (and, in a book that indents its paragraphs,
 //      when the next line is not indented).
 //   3. Words broken at a line end ("under-" + "standing") are joined, unless the hyphenated
-//      word stands elsewhere in the document ("self-evident"); soft hyphens (U+00AD) go.
+//      word stands elsewhere in the document ("self-evident") or its first part is a prefix the
+//      document hyphenates in other words ("non-" + "existence", as "non-zero"); soft hyphens
+//      (U+00AD) go.
 //   4. Footnotes (smaller than the body, in the bottom quarter of the page, starting with a
 //      marker) are collected after their chapter under a "Notes" heading.
 //   5. Chapters: the scan's (outline, printed contents or headings); without any, chapters of
@@ -25,7 +36,8 @@
 // and Add a book's viewer (js/reader.js); the tests import this file directly.
 (function (global) {
   // Rules that change any chapter, paragraph or word get a new number (userEdition.ts).
-  const PDF_TEXT_CONVERTER = 1;
+  // 2 (16 Oct 2026): indented blocks run on, numbered subheadings, figure labels left out.
+  const PDF_TEXT_CONVERTER = 2;
   const CHAPTER_PAGES = 20;
   const S = () => global.TinctPdfScan;
 
@@ -34,6 +46,11 @@
   const TERMINAL = /[.?!:"”’)\]]$/;
   const FOOTNOTE_MARK = /^(?:\d{1,3}|[*†‡§¶])(?:[.)]?\s|\s*\p{Lu})/u;
   const CAPTION = /^(?:fig(?:ure)?|table|tab|plate|chart|diagram)\.?\s*\d+/i;
+  // A numbered section heading: "2.", "1.1", "3.15" and its title.
+  const SECTION = /^(?:\d{1,2}\.(?:\d{1,2}\.?)*)\s+[\p{Lu}\p{Lt}]/u;
+  const EQUATION_NUMBER = /^\(\d{1,3}(?:\.\d{1,3})?[a-z]?\)$/;
+  // The pieces a display formula's tall brackets are set in (U+239B–U+23AD).
+  const BRACKET_PIECES = /[\u239B-\u23AD]/g;
 
   /* ---------- Columns ---------- */
   // A page set in two columns: at least 8 lines on each side of the middle, their starts more
@@ -82,32 +99,115 @@
     if (!body) return { lines: [], body: null };
     const out = [];
     for (const p of kept) {
-      const ordered = readingOrder(p.rows, p.x0 || 0, p.w || 612);
+      const ordered = sameBaseline(readingOrder(p.rows.map(r => ({ ...r, text: r.text.replace(BRACKET_PIECES, ' ').replace(/\s+/g, ' ').trim() })).filter(r => r.text), p.x0 || 0, p.w || 612), body);
+      const left = columnLeft(ordered, body);
+      const labels = stackedLabels(ordered, body, left);
       let inFoot = false, caption = null;
-      for (const r of ordered) {
+      const start = out.length;
+      for (let [i, r] of ordered.entries()) {
+        if (labels.has(i)) continue;
         const low = r.y - p.y0 < p.h * 0.25;
+        if (caption && isCell(r, caption, left, body) && caption.y - r.y < body.size * 6) continue;
         // A caption and the lines that continue it, close below, in its own size.
-        if (CAPTION.test(r.text) && r.size <= body.size * 1.05) { caption = r; continue }
+        if (CAPTION.test(r.text) && r.size <= body.size * 1.05) {
+          // A table's or a diagram's cells set just above its caption (not at the column's margin,
+          // a few words each) are part of it.
+          while (out.length > start && isCell(out.at(-1), r, left, body)) { const cell = out.pop(); r = { ...r, y: Math.max(r.y, cell.y) } }
+          caption = r; continue;
+        }
         if (caption && r.size === caption.size && caption.y - r.y < r.size * 1.8 && r.col === caption.col) { caption = r; continue }
         caption = null;
         if (r.size < body.size * 0.92 && low && (FOOTNOTE_MARK.test(r.text) || inFoot)) { inFoot = true; out.push({ ...r, n: p.n, kind: 'foot' }); continue }
         inFoot = false;
         // The lettering inside a figure or a chart: small text that is not a note.
         if (r.size < body.size * 0.8) continue;
-        const heading = r.size >= body.size * 1.15 && r.words <= 16 && api.headingLike(r);
+        const heading = (r.size >= body.size * 1.15 && r.words <= 16 && api.headingLike(r)) || subheading(r, body, p);
         out.push({ ...r, n: p.n, kind: heading ? 'heading' : 'body' });
       }
     }
     return { lines: out, body };
   }
 
+  // An equation and its number ("(2)", "(1.48)") set far apart on one baseline are one line.
+  function sameBaseline(rows, body) {
+    const out = [];
+    for (const r of rows) {
+      const prev = out.at(-1);
+      if (prev && prev.col === r.col && EQUATION_NUMBER.test(r.text) && Math.abs(prev.y - r.y) < Math.max(2, body.size * 0.3) && r.x >= prev.x2 - 1) {
+        out[out.length - 1] = { ...prev, x2: r.x2, text: prev.text + ' ' + r.text, words: prev.words + r.words, chars: prev.chars + 1 + r.chars, font: prev.font === r.font ? prev.font : null };
+      } else out.push(r);
+    }
+    return out;
+  }
+  // Lettering stacked over another line of the page, closer than a line can be set (a label over
+  // an equation's arrow: "constructor", "cell", "programmable constructor"), and the short rows
+  // stacked on such a label ("program", "⇓"); never a line starting at the column's margin.
+  // Indices into rows.
+  function stackedLabels(rows, body, left) {
+    const out = new Set();
+    const inset = r => { const m = left(r.col) ?? Math.min(...rows.map(o => o.x)); return r.x - m > body.size * 2 };
+    const short = r => r.words <= 4 && r.chars <= 40 && r.size < body.size * 1.15 && inset(r);
+    const overlaps = (a, b) => a.x < b.x2 && a.x2 > b.x && a.col === b.col;
+    rows.forEach((r, i) => {
+      if (!short(r)) return;
+      const tight = Math.min(r.size, body.size) * 0.95;
+      if (rows.some((o, j) => j !== i && !short(o) && overlaps(r, o) && Math.abs(o.y - r.y) >= Math.max(2, body.size * 0.3) && Math.abs(o.y - r.y) < tight)) out.add(i);
+    });
+    // Upwards from each label: short rows set close above it, over the same line.
+    for (let pass = 0; pass < 4; pass++) {
+      rows.forEach((r, i) => {
+        if (out.has(i) || !short(r)) return;
+        if (rows.some((o, j) => out.has(j) && overlaps(r, o) && r.y > o.y && r.y - o.y < body.size * 1.4)) out.add(i);
+      });
+    }
+    return out;
+  }
+  // The left margin of each column on a page: where most of its body-size lines start.
+  function columnLeft(rows, body) {
+    const by = new Map();
+    for (const r of rows) {
+      if (Math.abs(r.size - body.size) > body.size * 0.1 || r.words < 6) continue;
+      const k = String(r.col), x = Math.round(r.x);
+      if (!by.has(k)) by.set(k, new Map());
+      by.get(k).set(x, (by.get(k).get(x) || 0) + 1);
+    }
+    const out = new Map();
+    for (const [k, xs] of by) out.set(k, Number([...xs].sort((a, b) => b[1] - a[1] || a[0] - b[0])[0][0]));
+    return col => out.get(String(col));
+  }
+  // A cell of a table or a label of a diagram beside its caption: off the column's margin, under
+  // or over the caption's width, a few words, not a sentence, not a heading.
+  function isCell(r, caption, left, body) {
+    if (!r || r.kind === 'heading' || r.kind === 'foot' || r.col !== caption.col) return false;
+    const margin = left(r.col), reach = body.size * 4;
+    return margin != null && r.x - margin > body.size * 2 && r.words <= 6 && !/[.?!,]["”’)]?$/.test(r.text)
+      && r.x < caption.x2 + reach && r.x2 > caption.x - reach;
+  }
+  // A numbered section heading ("1.1 Construction tasks", "2. Motivations") set apart from the
+  // body by its face or size: a short line that is not a sentence.
+  function subheading(r, body, p) {
+    if (!SECTION.test(r.text) || r.words > 12 || /[.,;:]$/.test(r.text)) return false;
+    if (r.font === body.font && Math.abs(r.size - body.size) < body.size * 0.08) return false;
+    if (r.x2 - r.x > (p.w || 612) * 0.6) return false;
+    return S().headingLike(r);
+  }
+
   /* ---------- Lines to paragraphs ---------- */
   const wordCount = text => text.split(/\s+/).filter(Boolean).length;
   // Words printed with a hyphen inside a line ("self-evident"), lower case: a word broken at a
   // line end in the same place keeps its hyphen.
+  // A short first part the document sets with a hyphen in two words or more ("non-zero",
+  // "non-residual") is a prefix it hyphenates: "non-" + "existence" keeps its hyphen too.
   function hyphenatedWords(lines) {
-    const out = new Set();
-    for (const l of lines) for (const m of l.text.matchAll(/\p{L}+-\p{L}+/gu)) out.add(m[0].toLowerCase());
+    const out = new Set(), firsts = new Map();
+    for (const l of lines) for (const m of l.text.matchAll(/\p{L}+-\p{L}+/gu)) {
+      const word = m[0].toLowerCase();
+      if (out.has(word)) continue;
+      out.add(word);
+      const first = word.slice(0, word.indexOf('-'));
+      if (first.length <= 5) firsts.set(first, (firsts.get(first) || 0) + 1);
+    }
+    out.prefixes = new Set([...firsts].filter(([, n]) => n >= 2).map(([first]) => first));
     return out;
   }
   // Join a line onto the text before it: a word broken at the line end is joined (keeping its
@@ -117,13 +217,15 @@
     const broken = text.match(/(\p{L}+)-$/u);
     if (broken && /^\p{Ll}/u.test(next)) {
       const rest = next.match(/^\p{L}+/u)[0];
-      return hyphenated.has((broken[1] + '-' + rest).toLowerCase()) ? text + next : text.slice(0, -1) + next;
+      const keep = hyphenated.has((broken[1] + '-' + rest).toLowerCase()) || !!hyphenated.prefixes?.has(broken[1].toLowerCase());
+      return keep ? text + next : text.slice(0, -1) + next;
     }
     return text + ' ' + next;
   }
   const clean = text => text.replace(/­/g, '').replace(/\s+/g, ' ').trim();
 
-  // Column geometry per page and column: where its lines start and end, and its line pitch.
+  // Column geometry per page and column: where its lines start and end, its line pitch, a hanging
+  // indent (`hang`: a reference list's entries), and its justified blocks set in from the margin.
   function geometry(lines) {
     const by = new Map();
     for (const l of lines) {
@@ -133,11 +235,57 @@
       by.get(k).push(l);
     }
     const out = new Map();
+    let carry = null;
     for (const [k, list] of by) {
       const gaps = [];
       for (let i = 1; i < list.length; i++) { const g = list[i - 1].y - list[i].y; if (g > 0 && g < list[i].size * 3) gaps.push(g) }
-      out.set(k, { left: Math.min(...list.map(l => l.x)), right: Math.max(...list.map(l => l.x2)), pitch: median(gaps) || list[0].size * 1.3 });
+      const left = Math.min(...list.map(l => l.x)), right = Math.max(...list.map(l => l.x2));
+      let hang = hangOf(list, left, right);
+      // A list running on from the page or column before: its entries at the top belong to it.
+      if (carry && (!hang || Math.abs(hang.d - carry) <= 1)) {
+        hang ??= { d: carry, lines: new Set() };
+        for (const l of list) { if (!(atMargin(l, left) || Math.abs(l.x - left - hang.d) <= 1)) break; if (hang.lines.has(l)) break; hang.lines.add(l) }
+      }
+      carry = hang && hang.lines.has(list.at(-1)) ? hang.d : null;
+      out.set(k, { left, right, pitch: median(gaps) || list[0].size * 1.3, hang, blocks: blocksOf(list, left) });
     }
+    return out;
+  }
+  const atMargin = (l, left) => l.x - left <= l.size * 0.5;
+  // A hanging indent: lines at the margin followed by lines set in by the same amount, at least
+  // three times, where the line at the margin runs on (not the short last line of a paragraph, as
+  // before a book's indented first lines). The lines it holds, from its first entry on: { d, lines }, or null.
+  function hangOf(list, left, right) {
+    const by = new Map();
+    for (let i = 1; i < list.length; i++) {
+      const m = list[i - 1], l = list[i];
+      if (!atMargin(m, left) || l.x - left <= l.size || l.x - left > l.size * 4) continue;
+      const d = Math.round(l.x - left), ends = m.x2 - m.x < (right - left) * 0.8 && TERMINAL.test(m.text);
+      const n = by.get(d) || { runs: 0, all: 0, from: i - 1 };
+      n.all++; if (!ends) n.runs++;
+      by.set(d, n);
+    }
+    for (const [d, n] of by) if (n.runs >= 3 && n.runs >= n.all * 0.67) return { d, lines: new Set(list.slice(n.from)) };
+    return null;
+  }
+  // Justified blocks set in from the margin (an abstract, a long quotation): three lines or more
+  // starting at the same place, those before the last ending together. Each line -> its block's right edge.
+  function blocksOf(list, left) {
+    const out = new Map();
+    let run = [];
+    const close = () => {
+      if (run.length >= 3) {
+        const body = run.slice(0, -1), edge = Math.max(...body.map(l => l.x2));
+        const flush = body.filter(l => edge - l.x2 <= 2).length;
+        if (flush >= 2 && flush >= body.length * 0.7) for (const l of run) out.set(l, edge);
+      }
+      run = [];
+    };
+    for (const l of list) {
+      if (l.x - left > l.size && run.length && Math.abs(l.x - run[0].x) <= 1) run.push(l);
+      else { close(); if (l.x - left > l.size) run.push(l) }
+    }
+    close();
     return out;
   }
 
@@ -164,14 +312,22 @@
       if (!fresh) {
         if (prev.n === l.n && prev.col === l.col) {
           const pg = geo.get(prev.n + '|' + prev.col) || g;
-          const short = prev.x2 - prev.x < (pg.right - pg.left) * 0.8;
-          fresh = prev.y - l.y > g.pitch * 1.5 || indented || (short && TERMINAL.test(prev.text));
+          // In a justified block set in from the margin (an abstract), a line is short against the block.
+          const edge = g.blocks.get(l) !== undefined && g.blocks.get(l) === g.blocks.get(prev) ? g.blocks.get(l) : null;
+          const short = edge != null ? prev.x2 < edge - (edge - prev.x) * 0.2 : prev.x2 - prev.x < (pg.right - pg.left) * 0.8;
+          const gap = prev.y - l.y > g.pitch * 1.5, ends = short && TERMINAL.test(prev.text);
+          // Set in further than the line before: a first line, a display, a quotation.
+          const stepIn = l.x - prev.x > l.size * 1.0;
+          if (g.hang?.lines.has(l)) fresh = gap || atMargin(l, g.left) || l.x - (g.left + g.hang.d) > l.size;
+          else if (edge != null) fresh = gap || stepIn || ends;
+          else fresh = gap || indented || stepIn || ends;
         } else {
           // Onto the next column or page.
           const runsOn = /^\p{Ll}/u.test(l.text) || !TERMINAL.test(prev.text);
           const pg = geo.get(prev.n + '|' + prev.col) || g;
           const full = prev.x2 - prev.x >= (pg.right - pg.left) * 0.8;
-          fresh = !(runsOn || (indents && full && !indented));
+          // In a reference list, an entry starts at the margin; its indented lines run on.
+          fresh = g.hang?.lines.has(l) ? atMargin(l, g.left) : !(runsOn || (indents && full && !indented));
         }
       }
       if (fresh) { flush(); cur = { text: l.text, kind: null, page: l.n, breaks: [] }; prev = l; continue }
@@ -241,7 +397,7 @@
   // for a document with no text layer.
   function fromPages(pages, scan) {
     if (!scan || !(scan.textPages > 0)) return null;
-    const { lines } = documentLines(pages);
+    const { lines, body } = documentLines(pages);
     if (!lines.some(l => l.kind === 'body')) return null;
     const hyphenated = hyphenatedWords(lines);
     const geo = geometry(lines);
@@ -253,8 +409,12 @@
       let chapterLines = part.lines;
       // Before the document's first running text: its own title and byline are the book's, shown above it.
       if (!chapters.length) {
-        const first = chapterLines.findIndex(l => l.kind === 'body' && l.words >= 6);
-        chapterLines = chapterLines.filter((l, i) => i >= first || ![titleKey, authorKey].includes(norm(l.text)) || !norm(l.text));
+        const first = chapterLines.findIndex(l => l.kind === 'body' && l.words >= 6 && Math.abs(l.size - body.size) <= body.size * 0.05);
+        // Text before any chapter (or a document without chapters): the rest of a title block set
+        // larger than the text on the first page (a paper's affiliations and date) is the book's
+        // too (converter 2). A page measured on it was no page of reading (16 Oct 2026).
+        const titleBlock = (l, i) => (part.lead || !chapterEntries(scan).length) && i < first && l.n === lines[0]?.n && l.size > body.size * 1.1;
+        chapterLines = chapterLines.filter((l, i) => !titleBlock(l, i) && (i >= first || ![titleKey, authorKey].includes(norm(l.text)) || !norm(l.text)));
       }
       const { paras, notes } = paragraphsOf(chapterLines, geo, hyphenated, indents);
       if (!paras.length && !notes.length) continue;
