@@ -212,6 +212,8 @@
    * -> { word, pos, line } | null
    */
   const POS = /^(proper noun|noun phrase|verb phrase|noun|verb|adjective|adverb|pronoun|preposition|conjunction|interjection|determiner|article|numeral|phrase|idiom|prefix|suffix|abbreviation)\b[^.:;]{0,30}[.:;]\s*/i;
+  // A leading label about the word's grammar rather than its meaning: "Proper noun used as a term (…).", "Eponym, used as a modifier:".
+  const GRAMMAR_LABEL = /^\s*(?:an?\s+)?(?:proper noun|eponym(?:ous)?(?:\s+term)?)\b(?:[^.:;\n(]|\([^)\n]*\))*?(?:used as|modifier|term|adjective|name)(?:[^.:;\n(]|\([^)\n]*\))*[.:;\u2014\u2013]\s+/i;
   function parseLookup(raw, word) {
     const text = String(raw || '').trim();
     if (!text) return null;
@@ -224,7 +226,9 @@
     if (v.kind === 'place' && field('name', 120) && field('description', 1600)) return { word: field('name', 120), pos: '', line: field('description', 1600) };
     if (v.kind === 'person' && field('name', 120) && field('body', 1600)) return { word: field('name', 120), pos: field('subtitle', 240), line: field('body', 1600) };
     return null;
-    function definition(d) {
+    function definition(d0) {
+      // Never a grammar label first (re-check 2, 16 Oct: "Proper noun used as a term (adjective-like modifier…)" on "Parzen").
+      const d = d0.replace(GRAMMAR_LABEL, '') || d0;
       const m = d.match(POS);
       return m && d.length > m[0].length ? { word, pos: m[1].toLowerCase(), line: d.slice(m[0].length) } : { word, pos: '', line: d };
     }
@@ -302,7 +306,9 @@
   function defineHtml(d, o) {
     const senses = (d.senses || []).slice(0, 3);
     // Its {p. N} citations are tags, as in cards (o.P, o.resolve); without the parsers, plain text.
-    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${o?.P ? inlineHtml(d.inText, o.P, o.resolve) : esc(d.inText)}</p>` : '';
+    // While it is written: the label in its place, first, with the wait ring (d.inWait); the senses below it at once.
+    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${o?.P ? inlineHtml(d.inText, o.P, o.resolve) : esc(d.inText)}</p>`
+      : d.inWait ? '<p class="mr-define__in mr-define__wait"><span class="mr-define__label">In this text</span></p>' : '';
     const body = d.wait ? '<p class="mr-define__wait"></p>'
       : inText + (senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
         : d.line ? `<p>${esc(d.line)}</p>` : '');

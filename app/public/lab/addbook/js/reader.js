@@ -2600,11 +2600,14 @@ async function mrDefine(word) {
     // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
     const info = mr.info, anchor = mr.anchor, def = mr.def;
     const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
-    const inText = !asks.inText ? null : defineByCompanion(word, info).then(found => {
-      if (!found?.line) return;
-      def.inText = found.line; if (found.pos) def.pos = found.pos;
+    // "In this text" keeps its place first while it is written (a quiet wait under the label), and its words
+    // show as they stream (re-check 2, 16 Oct: Define arrived all at once at 2.9-4.8 s); the senses never wait for it.
+    if (asks.inText) { def.inWait = true; redraw() }
+    const inText = !asks.inText ? null : defineByCompanion(word, info, line => { def.inText = line; def.inWait = false; redraw() }).then(found => {
+      def.inWait = false;
+      if (found?.line) { def.inText = found.line; if (found.pos) def.pos = found.pos }
       redraw();
-    }).catch(() => { /* the dictionary alone */ });
+    }).catch(() => { def.inWait = false; if (!def.inText) redraw() /* the dictionary alone */ });
     const sense = !asks.sense ? null : fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
       if (!(n > 0)) return;
       def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
@@ -2617,7 +2620,7 @@ async function mrDefine(word) {
   if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
   try {
     const info = mr.info, anchor = mr.anchor;
-    const found = await defineByCompanion(word, info);
+    const found = await defineByCompanion(word, info, line => { if (mr?.defToken === token) { mr.def = { word, inText: line }; mrShow('define') } });
     const def = found ? { word: found.word || word, pos: found.pos || '', inText: found.line } : null;
     // Kept in the file it was asked in, even when the reader has moved on.
     if (def) keepDefine(def, info, anchor, key);
@@ -2630,13 +2633,26 @@ async function mrDefine(word) {
   mrShow('define');
 }
 // The companion's existing contextual `define` intent (CONTEXTUAL_LOOKUP_PROMPT, built by the Worker).
-async function defineByCompanion(word, info) {
+// The meaning so far, from a Define reply still streaming: its JSON's text field as far as it has come (a plain
+// reply as it stands), with a leading grammar label or part of speech dropped as parseLookup drops them.
+function partialDefinition(text, word) {
+  const t = String(text || '');
+  const m = /"(?:definition|description|body)"\s*:\s*"((?:[^"\\]|\\.)*)/.exec(t);
+  let so = null;
+  if (m) { try { so = JSON.parse('"' + m[1].replace(/\\u[0-9a-f]{0,3}$|\\$/i, '') + '"') } catch { so = null } }
+  else if (t.trim() && !/^\s*(?:\{|\[|`)/.test(t)) so = t;
+  if (!so || so.trim().length < 12) return null;
+  return TinctMargin.parseLookup(JSON.stringify({ kind: 'definition', definition: so }), word)?.line || null;
+}
+// `onPartial(line)`: the meaning as it streams.
+async function defineByCompanion(word, info, onPartial = null) {
   // A PDF's page goes as its page (kind 'pdf', printed label), as every PDF request does.
   const pdf = await pdfPages(info.page, { before: 0, after: 0 }), wholeDoc = await marginDocument(info.page);
   // Define on a phrase sends the passage picture too (FIXES-2026-10-15 A4); a single word does not.
   const region = /\s/.test(word.trim()) ? selectionRegion(info) : null;
   const image = region ? await pageImage(info.page, region) : null;
-  const call = imgs => TinctAI.companion('define', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, selection: word.slice(0, 300), images: imgs, stream: false });
+  const onText = onPartial ? ({ text }) => { const line = partialDefinition(text, word); if (line) onPartial(line) } : undefined;
+  const call = imgs => TinctAI.companion('define', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, selection: word.slice(0, 300), images: imgs, stream: Boolean(onPartial), onText });
   let res;
   try { res = await call(image ? [image] : undefined) }
   catch (e) { if (!image || (e?.code !== 'images_unavailable' && e?.code !== 'image_rejected')) throw e; if (e.code === 'images_unavailable') sampleImages = false; res = await call(undefined) }

@@ -56,7 +56,7 @@ export const DEFINE_SENSE_PROMPT = [
  * A proper noun used as a term in the PDF reader's Define (round 1, 15 Oct: "Parzen" came back as "not a
  * standalone character"): its meaning in this text, as for any other term.
  */
-export const DEFINE_EPONYM_LINE = 'A proper noun used as a term or in one (Parzen window, Bayes\' theorem, Gaussian, Markov chain) is a word, not a person: give the term\'s meaning in this text, and never say it is not a person or a character.'
+export const DEFINE_EPONYM_LINE = 'For a term, including one named after a person (Parzen window, Bayes\' theorem, Gaussian, Markov chain), start with the term and its meaning in this text, as in "Parzen window: a way to estimate…". Never open with a grammar label such as "proper noun" or "modifier", and never say it is not a person or a character.'
 
 /**
  * The PDF reader's Define, from the shared one (PROMPTS.md, Define): "the selected word" → "the selected

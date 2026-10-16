@@ -125,8 +125,10 @@ Apply the result by moving that sense to first place in full ink, with the other
 **The PDF reader's Define prompt (round 1, 15 October, night)** is the shared `CONTEXTUAL_LOOKUP_PROMPT` with three changes, in the PDF reader only (`marginPrompts.ts` `PDF_CONTEXTUAL_LOOKUP_PROMPT`; the book reader's prompt is unchanged): "the selected word" reads "the selected word or phrase", "in the supplied passage" reads "in the passage" (no pipeline wording), and after the line for a word or other non-person comes this line (MacKay: "Parzen" came back as "not a standalone character"):
 
 ```
-A proper noun used as a term or in one (Parzen window, Bayes' theorem, Gaussian, Markov chain) is a word, not a person: give the term's meaning in this text, and never say it is not a person or a character.
+For a term, including one named after a person (Parzen window, Bayes' theorem, Gaussian, Markov chain), start with the term and its meaning in this text, as in "Parzen window: a way to estimate…". Never open with a grammar label such as "proper noun" or "modifier", and never say it is not a person or a character.
 ```
+
+Round 3 (16 October, re-check 2): the earlier line ("A proper noun used as a term or in one … is a word, not a person") came back as a label, "Proper noun used as a term (adjective-like modifier…)", on "Parzen" and "minimax". The line now asks for the term and its meaning first, and the PDF reader drops a leading grammar label from a Define answer (`parseLookup`, margin.js).
 
 ## Fact-check — new intent `factcheck`
 

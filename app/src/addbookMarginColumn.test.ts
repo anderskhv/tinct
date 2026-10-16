@@ -372,6 +372,18 @@ describe('Define and the hyphenated word (the deep test, 15 Oct)', () => {
     expect(M.hyphenWord(t, ...at('this'))).toBeNull()
     expect(M.hyphenWord('state‑of‑the‑art', 6, 8)).toEqual([0, 16])
   })
+  // Re-check 2 (16 Oct): Define arrived all at once; "In this text" keeps its place first while it is written.
+  it('while the meaning in this text is written: its label first with the wait, the dictionary senses below at once', () => {
+    const div = document.createElement('div')
+    div.innerHTML = M.html.defineHtml({ word: 'attention', source: 'Dictionary', inWait: true, senses: [{ text: 'the work of providing treatment' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold' })
+    const wait = div.querySelector('.mr-define__in.mr-define__wait')!
+    expect(wait.textContent).toBe('In this text')
+    expect(wait.compareDocumentPosition(div.querySelector('.mr-define__senses')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    // Its words as they stream replace the wait.
+    div.innerHTML = M.html.defineHtml({ word: 'attention', source: 'Dictionary', inWait: false, inText: 'A mechanism that weighs', senses: [{ text: 'the work of providing treatment' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold' })
+    expect(div.querySelector('.mr-define__wait')).toBeNull()
+    expect(div.querySelector('.mr-define__in')!.textContent).toBe('In this textA mechanism that weighs')
+  })
   it('when no dictionary sense fits: "In this text" and its meaning first, the dictionary senses below; the part of speech when known', () => {
     const div = document.createElement('div')
     div.innerHTML = M.html.defineHtml({ word: 'attention', pos: 'noun', source: 'Dictionary', inText: 'A mechanism that weighs every position of a sequence against the others.', senses: [{ text: 'the work of providing treatment' }, { text: 'a courteous act' }] }, { colors: [['gold', 'Gold', '#000', '#000']], current: 'gold' })
