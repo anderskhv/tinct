@@ -14,7 +14,7 @@ import { zip } from '../../../../addbooks/web/test/make-epub.mjs'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book tests
 import { pdfFixtures } from '../../../../addbooks/web/test/make-pdf.mjs'
 import { openUserBook } from './userBookStore'
-import { USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookEdition } from './userEdition'
+import { PDF_TEXT_CONVERTER, USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookEdition } from './userEdition'
 
 const OWNER = 'owner-1'
 const HEX = 'ab'.repeat(12)
@@ -143,13 +143,18 @@ describe('openUserBook: a PDF as its Tinct text', () => {
   it('converts a book of prose once, keeps it with its default edition, and opens it here', async () => {
     keep('prose_book.pdf')
     const convert = converter()
+    // Not yet told on this device under the open rule (pdfEditions.ts): converted and kept, then on to the
+    // viewer, which tells its edition (the desktop: pages unless running prose) and forwards back.
+    expect(await openUserBook(HEX, { owner: OWNER, convert })).toMatchObject({ ok: false, reason: 'pages' })
+    expect(records.get(`pdf:${HEX}`)).toMatchObject({ edition: { source: 'pdf' } })
+    localStorage.setItem(`tinct-addbook:open-rule:${HEX}`, '2')
     const result = await openUserBook(HEX, { owner: OWNER, convert })
     expect(result.ok).toBe(true)
     if (!result.ok) return
-    expect(result.book).toMatchObject({ kind: 'pdf', pdfPages: 21, place: null, edition: { source: 'pdf', converter: 1, title: 'A Treatise of Small Things' } })
+    expect(result.book).toMatchObject({ kind: 'pdf', pdfPages: 21, place: null, edition: { source: 'pdf', converter: PDF_TEXT_CONVERTER, title: 'A Treatise of Small Things' } })
     expect(result.book.edition.chapters.map(chapter => chapter.title)).toEqual(['Chapter 1. Of Ideas', 'Chapter 2. Of Impressions', 'Chapter 3. Of Custom', 'Chapter 4. Of Belief', 'Chapter 5. Of Necessity'])
     const record = records.get(`pdf:${HEX}`)!
-    expect(record).toMatchObject({ layout: { default: 'text' }, scan: { v: 5, layout: { default: 'text' } }, pages: 21 })
+    expect(record).toMatchObject({ layout: { default: 'text' }, scan: { v: 6, layout: { default: 'text' } }, pages: 21 })
     expect((record.edition as UserBookEdition).chapters).toEqual(result.book.edition.chapters)
     // The next open reads what is kept.
     const again = await openUserBook(HEX, { owner: OWNER, convert })
@@ -176,7 +181,7 @@ describe('openUserBook: a PDF as its Tinct text', () => {
   it('has no Tinct text for a scan: its pages only; and a PDF kept without its file is downloaded by the viewer', async () => {
     keep('IMG_20240512_scan.pdf')
     expect(await openUserBook(HEX, { owner: OWNER, convert: converter() })).toMatchObject({ ok: false, reason: 'pages_only' })
-    expect(records.get(`pdf:${HEX}`)).toMatchObject({ scan: { v: 5, textPages: 0, layout: { default: 'pages-only' } } })
+    expect(records.get(`pdf:${HEX}`)).toMatchObject({ scan: { v: 6, textPages: 0, layout: { default: 'pages-only' } } })
     expect(records.get(`pdf:${HEX}`)!.edition).toBeUndefined()
     records.set(`pdf:${HEX}`, { key: `pdf:${HEX}`, kind: 'pdf', owner: OWNER, name: 'x.pdf' })
     expect(await openUserBook(HEX, { owner: OWNER, convert: converter() })).toMatchObject({ ok: false, reason: 'missing' })
@@ -184,6 +189,7 @@ describe('openUserBook: a PDF as its Tinct text', () => {
 
   it('converts again a Tinct text kept under other rules, and never opens an EPUB’s conversion for a PDF', async () => {
     keep('PossibleMinds Deutsch (1).pdf', { edition: { format: USER_EDITION_FORMAT, converter: 6, title: 'x', author: '', language: 'en', droppedImages: 0, chapters: [{ number: 1, title: 'x', paragraphs: ['x'] }] } })
+    localStorage.setItem(`tinct-addbook:open-rule:${HEX}`, '2')
     const convert = converter()
     const result = await openUserBook(HEX, { owner: OWNER, convert })
     expect(convert).toHaveBeenCalledTimes(1)

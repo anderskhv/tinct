@@ -224,7 +224,9 @@ async function openBook(kind, bytes, name, key, rec = null) {
     // A PDF is a book with its own address (/lab/addbook/?userBook=<hex>): a reload, the
     // library and the book switcher open it again at its place.
     const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : null;
-    if (url) { if (location.pathname + location.search !== url) history.pushState({ addbookReader: key }, '', url) }
+    // Arrived at this book's own address with a page asked (the Tinct reader's "Show page"): the address is
+    // tidied in place, so Back goes straight back to the paragraph it came from.
+    if (url) { if (location.pathname + location.search !== url) history[urlHex() === hexOf(key) ? 'replaceState' : 'pushState']({ addbookReader: key }, '', url) }
     else if (location.hash !== '#read') history.pushState({ addbookReader: key }, '', '#read');
   }
 }
@@ -420,13 +422,15 @@ async function openPdf(bytes, name, key, known = null) {
   const { late } = await synced;
   if (token !== state.token) return;
   // Read as Tinct text (here or, by its place, on another device): the Tinct reader, before the pages draw.
-  if (scan) await phoneKind(scan, token);
+  if (scan) await openKind(scan, token);
   if (token !== state.token) return;
   if (scan && forwardToText(scan)) return;
   let saved = store.get('pos:' + state.key);
   // A link's page (the Tinct reader's "Original pages") wins for this open; at the saved page, its spot on it too.
-  const asked = Number(new URLSearchParams(location.search).get('page'));
-  if (Number.isInteger(asked) && asked >= 1 && asked <= pdf.numPages && asked !== saved?.page) saved = { ...(saved || {}), page: asked, frac: 0 };
+  // A paragraph's "Show page" in the Tinct reader names how far down the page it stands too (&frac=).
+  const askedParams = new URLSearchParams(location.search), asked = Number(askedParams.get('page')), askedFrac = Number(askedParams.get('frac'));
+  const fracAsked = askedParams.has('frac') && Number.isFinite(askedFrac) ? Math.max(0, Math.min(1, askedFrac)) : null;
+  if (Number.isInteger(asked) && asked >= 1 && asked <= pdf.numPages && (asked !== saved?.page || (fracAsked !== null && fracAsked !== saved?.frac))) saved = { ...(saved || {}), page: asked, frac: fracAsked ?? 0 };
   // On a phone: the reader's own zoom there, else the text column fills the width (columnFit); the desktop's as before.
   state.zoom = isPhone() ? await phoneZoom(saved, token) : saved?.zoom || 1;
   if (token !== state.token) return;
@@ -645,10 +649,14 @@ function buildTextLayer(p, items, vp, roles = null) {
   const frag = document.createDocumentFragment();
   // Side columns (margin figures, notes) follow the body in the PDF's text order, so a drag
   // through the body would run into them. Find where body lines end and move the rest after.
-  // Measure the body from long lines that start at the body's left edge (captions in the margin also run long).
-  const longs = items.filter(it => it.str.length > 30), fs = it => Math.hypot(it.transform[2], it.transform[3]);
-  const lefts = longs.map(it => it.transform[4]).sort((a, b) => a - b), bodyLeft = lefts[Math.floor(lefts.length * 0.3)];
-  const bodyEnds = longs.filter(it => Math.abs(it.transform[4] - bodyLeft) < fs(it) * 4).map(it => it.transform[4] + it.width).sort((a, b) => a - b);
+  // Measured from the body's long lines (textLines: a line's run of items, word gaps apart), not single
+  // items: a justified line often comes as several items ("…in physics and" | "other fie" | "lds. For
+  // instance,"), and an item ending mid-line once set the body's edge there, so the rest of every such line
+  // was moved after the body and a selection skipped it (Constructor Theory, 16 Oct 2026).
+  const lines = textLines(items);
+  const longs = lines.filter(l => l.chars > 30);
+  const lefts = longs.map(l => l.x).sort((a, b) => a - b), bodyLeft = lefts[Math.floor(lefts.length * 0.3)];
+  const bodyEnds = longs.filter(l => Math.abs(l.x - bodyLeft) < l.size * 4).map(l => l.x2).sort((a, b) => a - b);
   const bodyRight = bodyEnds.length >= 4 ? bodyEnds[Math.floor(bodyEnds.length * 0.9)] : Infinity;
   const side = document.createElement('div'); side.className = 'side-col';
   // A figure's labels and caption (js/reading-order.js) come after everything else, so a drag
@@ -668,7 +676,7 @@ function buildTextLayer(p, items, vp, roles = null) {
     const span = document.createElement('span');
     const k = marks ? nextShown(i) : -1, joined = marks && ((marks[i] && !marks[i].last) || (k >= 0 && marks[k]?.first && marks[k].caret));
     const str = marks ? RO.shown(items, marks, i) : item.str;
-    span.textContent = str + (item.hasEOL ? '\n' : joined ? '' : ' ');
+    span.textContent = str + (item.hasEOL ? '\n' : joined || touches(items, i) ? '' : ' ');
     span.dataset.i = i;
     // A recognised scan's line keeps what it is: a caption, an algorithm box, a footnote (pdf-ocr.js).
     if (item.kind) span.dataset.kind = item.kind;
@@ -696,65 +704,48 @@ function buildTextLayer(p, items, vp, roles = null) {
   if (col.mode === 'column' && primer.trig) marginLayout();
 }
 
-/* Displayed formulas: TeX sets an equation as many small fragments (fractions, sums, sub- and
-   superscripts) in no reading order. Put the body text in visual line order, and find runs of
-   formula lines so a selection that touches an equation takes the whole equation. */
+/* A page's visual lines for the text layer: on each baseline, runs of items no more than an em apart
+   (a justified line's word gaps; a column's gutter or a side note's is wider), left to right.
+   -> [{ x, x2, size, chars }] */
+function textLines(items) {
+  const rows = [];
+  for (const it of items) {
+    if (!it?.transform || !it.str || !it.str.trim() || Math.abs(it.transform[1]) > 0.01 * Math.abs(it.transform[0])) continue;
+    const size = Math.hypot(it.transform[2], it.transform[3]) || 1, y = it.transform[5];
+    let row = rows.find(r => Math.abs(r.y - y) < Math.max(1, size * 0.2));
+    if (!row) { row = { y, parts: [] }; rows.push(row) }
+    row.parts.push({ x: it.transform[4], x2: it.transform[4] + (it.width || 0), size, chars: it.str.trim().length });
+  }
+  const out = [];
+  for (const row of rows) {
+    let run = null;
+    for (const part of row.parts.sort((a, b) => a.x - b.x)) {
+      if (run && part.x - run.x2 <= Math.max(run.size, part.size)) { run.x2 = Math.max(run.x2, part.x2); run.chars += part.chars + 1; continue }
+      if (run) out.push(run);
+      run = { ...part };
+    }
+    if (run) out.push(run);
+  }
+  return out;
+}
+/* True when the next item on the same line starts where this one ends (a word split into pieces,
+   "physic" | "s", "fie" | "lds"): no space between them in a selection's text, as in the page's text
+   (TinctReadingOrder.pageText). A space item between, a gap or a new line keeps the space. */
+function touches(items, i) {
+  const it = items[i], next = items[i + 1];
+  if (!it?.transform || !next?.transform || !next.str || !next.str.trim() || /\s$/.test(it.str)) return false;
+  const size = Math.hypot(it.transform[2], it.transform[3]) || 1;
+  if (Math.abs(next.transform[5] - it.transform[5]) > size * 0.2) return false;
+  return Math.abs(next.transform[4] - (it.transform[4] + (it.width || 0))) <= size * 0.1;
+}
+
+/* Displayed formulas (js/pdf-regions.js displayFormulas, shared with Tinct text's crops): the body text in
+   visual line order, and runs of formula lines, so a selection that touches an equation takes the whole equation. */
 function layoutBody(body, vp) {
-  if (!body.length) return { blocks: [], prose: [] };
-  const longOnes = body.filter(b => b.str.trim().length > 30);
-  const size = median((longOnes.length ? longOnes : body).map(b => b.size));
-  const lines = [];
-  for (const b of [...body].sort((a, c) => a.base - c.base)) {
-    const L = lines.at(-1);
-    if (L && b.base - L.base < size * 0.42) { L.items.push(b); L.bottom = Math.max(L.bottom, b.base) } else lines.push({ base: b.base, bottom: b.base, items: [b] });
-  }
-  for (const L of lines) L.items.sort((a, c) => a.x - c.x);
-  body.length = 0; for (const L of lines) body.push(...L.items);
-  const MATHY = /[=≡≃≈≤≥<>±×·∑∏∫√∂∞∈→←⇒|^_{}()\[\]Ͱ-Ͽ∀-⋿]/;
-  const FN = /^(ln|log|exp|sin|cos|tan|max|min|lim|det|sup|inf|arg|mod|var|pr)$/i;
-  const wordsOf = items => items.map(b => b.str.trim()).filter(Boolean);
-  const isProse = words => { const t = words.join(' ').split(/[^A-Za-zÀ-ɏ’']+/).filter(w => w.length >= 2 && !FN.test(w)); return t.some(w => w.length >= 6) || t.length >= 3 };
-  // A prose line can end in a piece of a formula far to its right ("or, equivalently,      ( )"): split it off.
-  const split = [];
-  for (const L of lines) {
-    const segs = [[L.items[0]]]; let a = L.items[0];
-    for (const b of L.items.slice(1)) { if (b.str.trim() && a.str.trim() && b.x - (a.x + a.w) > size * 3) segs.push([b]); else segs.at(-1).push(b); if (b.str.trim()) a = b }
-    if (segs.length > 1 && isProse(wordsOf(L.items))) for (const g of segs) split.push({ base: L.base, bottom: L.bottom, items: g });
-    else split.push(L);
-  }
-  const kind = L => {
-    const words = wordsOf(L.items);
-    if (!words.length || isProse(words)) return 'T';
-    const mathy = words.some(w => MATHY.test(w)) || L.items.some(b => b.str.trim() && Math.abs(b.size - size) > size * 0.15);
-    if (mathy && (words.length >= 2 || words[0].length >= 3)) return 'M';
-    return words.every(w => w.length <= 4 && !/[.,;:]$/.test(w)) ? 'F' : 'T';
-  };
-  const kinds = split.map(kind);
-  const tBases = split.filter((L, i) => kinds[i] === 'T').map(L => L.base);
-  const gaps = tBases.slice(1).map((b, i) => b - tBases[i]).filter(g => g > size * 0.8 && g < size * 2);
-  const lead = gaps.length ? median(gaps) : size * 1.25;
-  const runs = []; let cur = null;
-  split.forEach((L, i) => {
-    if (kinds[i] === 'T') { cur = null; return }
-    if (cur && L.base - cur.lines.at(-1).bottom < size * 2.4) cur.lines.push(L), cur.kinds.push(kinds[i]); else { cur = { lines: [L], kinds: [kinds[i]] }; runs.push(cur) }
-  });
-  // Displayed formulas stand apart from the prose; math squeezed between two prose lines is inline.
-  const blocks = runs.filter(r => {
-    if (!r.kinds.includes('M')) return false;
-    const first = r.lines[0].base, last = r.lines.at(-1).bottom;
-    const above = tBases.filter(b => b < first - 1).at(-1), below = tBases.find(b => b > last + 1);
-    const both = (above === undefined || first - above < lead * 1.1) && (below === undefined || below - last < lead * 1.1);
-    const either = (above !== undefined && first - above < lead * 0.9) || (below !== undefined && below - last < lead * 0.9);
-    return !both && !either;
-  });
-  const box = (items, pad) => { let l = Infinity, t = Infinity, r = -Infinity, btm = -Infinity; for (const b of items) { l = Math.min(l, b.x); r = Math.max(r, b.x + b.w); t = Math.min(t, b.base - b.size * 0.9); btm = Math.max(btm, b.base + b.size * 0.3) } return { x: (l - pad) / vp.width, y: (t - pad) / vp.height, w: (r - l + pad * 2) / vp.width, h: (btm - t + pad * 2) / vp.height } };
-  const prose = split.filter((L, i) => kinds[i] === 'T').map(L => box(L.items, size * 0.15));
-  return { prose, blocks: blocks.map((B, k) => {
-    let l = Infinity, t = Infinity, r = -Infinity, btm = -Infinity;
-    for (const L of B.lines) for (const b of L.items) { b.span.dataset.m = k; l = Math.min(l, b.x); r = Math.max(r, b.x + b.w); t = Math.min(t, b.base - b.size * 0.9); btm = Math.max(btm, b.base + b.size * 0.3) }
-    const pad = size * 0.25;
-    return { x: (l - pad) / vp.width, y: (t - pad) / vp.height, w: (r - l + pad * 2) / vp.width, h: (btm - t + pad * 2) / vp.height };
-  }) };
+  const found = TinctPdfRegions.displayFormulas(body, vp);
+  body.length = 0; body.push(...found.order);
+  found.blocks.forEach((B, k) => { for (const b of B.members) b.span.dataset.m = k });
+  return { prose: found.prose, blocks: found.blocks.map(({ x, y, w, h }) => ({ x, y, w, h })) };
 }
 function blockClientBox(p, B) { const r = p.pg.getBoundingClientRect(); return { left: r.left + B.x * r.width, top: r.top + B.y * r.height, right: r.left + (B.x + B.w) * r.width, bottom: r.top + (B.y + B.h) * r.height } }
 // The selection as clean shapes: one bar per text line, and one box per formula it touches.
@@ -1080,8 +1071,8 @@ const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages
 // A scan whose text the account recognised (js/pdf-ocr.js): its Tinct text opens by its own default.
 const isOcrText = () => state.textEdition?.source === 'ocr';
 // The reader's own choice on this device (the phone's default kept there is not one: TinctReaderLayout.ownChoice).
-const ownEdition = () => window.TinctReaderLayout.ownChoice(store.get('edition:' + hexOf(state.key)), store.get('phone-edition:' + hexOf(state.key)));
-// With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); else the scan's.
+const ownEdition = () => window.TinctReaderLayout.ownChoice(store.get('edition:' + hexOf(state.key)), store.get('phone-edition:' + hexOf(state.key)), store.get('desk-edition:' + hexOf(state.key)));
+// With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); on the desktop, its pages unless running prose (deskKind).
 const editionDefault = scan => isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : window.TinctReaderLayout.openDefault({ phone: isPhone(), kind: state.docKind?.kind, layout: scan?.layout });
 const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), ownEdition(), editionDefault(scan));
 /* Phones open a PDF by its kind (Anders, 16 Oct 2026, option C; TinctReaderLayout.docKind, phoneEdition): a
@@ -1122,6 +1113,51 @@ async function phoneKind(scan, token) {
   store.set('phone-edition:' + hex, { edition, kind: found.kind, by: found.by, v: KIND_V });
   store.set('edition:' + hex, edition);
 }
+/* The desktop opens a PDF as its pages (Margin view), except running prose (Anders, 16 Oct 2026;
+   TinctReaderLayout.desktopEdition): a narrative or an essay, or a text with no columns, mathematics,
+   figures or tables, reads as its Tinct text. Told as on a phone (the kind from a kept primer or a few
+   pages' text, no AI call), only when the reader has chosen nothing for the book, and kept as this
+   device's edition marked as the desktop's (desk-edition:<hex>), so the library and the Tinct reader
+   open it the same way and a choice of the reader's replaces it.
+   Before this rule the desktop opened every PDF scoring under 3.5 as Tinct text (MacKay's extract: 2), and
+   a place read there carries edition 't' though nobody chose it. A choice of Tinct text is kept as the
+   device's edition ('text', readAsText); so a place in Tinct text kept before the rule (RULE_AT), with no
+   choice kept, on a device that has not yet opened the book under this rule (OPEN_RULE, open-rule:<hex>),
+   followed the old default: it keeps its spot but not its edition, and the new default applies. A place
+   in Tinct text kept since then (here or on another device) is honoured as before. */
+const DESK_V = 1;
+// The open rule this device has applied to a book, and when it began (also app/src/lab/userBook/pdfEditions.ts).
+const OPEN_RULE = 2, RULE_AT = Date.UTC(2026, 9, 16, 17); // 2026-10-16T17:00:00Z
+async function deskKind(scan, token) {
+  if (isPhone() || state.kind !== 'pdf' || !scan || !(scan.textPages > 0) || isOcrText() || state.pagesAsked) return;
+  const hex = hexOf(state.key), RL = window.TinctReaderLayout;
+  if (ownEdition()) return;
+  const pos = store.get('pos:' + state.key);
+  if (pos?.edition === 'p' || (pos?.edition === 't' && (store.get('open-rule:' + hex) >= OPEN_RULE || pos.at >= RULE_AT))) return;
+  const auto = store.get('desk-edition:' + hex), primerKind = keptPrimerKind(state.key);
+  let found = auto?.v === DESK_V && auto.kind && (!primerKind || auto.kind === primerKind) ? { kind: auto.kind, by: auto.by } : null;
+  if (!found) {
+    const pages = [];
+    if (!primerKind) for (const n of RL.kindPages(state.pdf.numPages)) { try { pages.push({ n, text: (await pageText(n)).text }) } catch { /* skipped */ } if (token !== state.token) return }
+    found = RL.docKind({ scan, pages, count: state.pdf.numPages, primerKind });
+  }
+  if (token !== state.token) return;
+  state.docKind = found;
+  const edition = RL.desktopEdition(found.kind, scan.layout);
+  store.set('desk-edition:' + hex, { edition, kind: found.kind, by: found.by, v: DESK_V });
+  store.set('edition:' + hex, edition);
+  // The old default's place: the same spot, its edition now the default's (the edition of a place wins: TinctPdfText.choice).
+  const now = store.get('pos:' + state.key);
+  if (now?.edition === 't' && edition === 'pages') { const { edition: _old, ...spot } = now; store.set('pos:' + state.key, spot) }
+}
+// The edition a PDF opens in, told for this device before the Tinct text is forwarded to: on a phone by
+// its kind (phoneKind), on the desktop its pages unless running prose (deskKind). Then marked as opened
+// under this rule, so the library and the Tinct reader follow its place from now on (pdfEditions.ts).
+async function openKind(scan, token) {
+  await (isPhone() ? phoneKind(scan, token) : deskKind(scan, token));
+  if (token !== state.token || state.kind !== 'pdf' || !scan || state.pagesAsked) return;
+  store.set('open-rule:' + hexOf(state.key), OPEN_RULE);
+}
 const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + (page ? '&page=' + page : '');
 // Opened here but read as Tinct text: on to the Tinct reader (not for a link that asks for the pages).
 // A scan whose text was recognised stays here, with the margin, its words laid over its pages (the
@@ -1139,7 +1175,7 @@ function readAsText() {
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
   const spot = sameSpot(place, { page: prev.page, frac: prev.frac }) && Number.isInteger(prev.chapterNumber) ? {} : textSpot(place);
   store.set('pos:' + state.key, { ...prev, ...(sameSpot(place, { page: prev.page, frac: prev.frac }) ? {} : place), ...spot, edition: 't', pages: state.pages.length, at: Date.now() });
-  store.set('edition:' + hexOf(state.key), 'text'); store.del('phone-edition:' + hexOf(state.key));
+  store.set('edition:' + hexOf(state.key), 'text'); store.del('phone-edition:' + hexOf(state.key)); store.del('desk-edition:' + hexOf(state.key));
   placeSync.note(hexOf(state.key), true);
   placeSync.flush();
   stopNarration();
@@ -1217,7 +1253,7 @@ async function ocrKeep(edition) {
   const hex = hexOf(state.key);
   state.textEdition = edition;
   await library.touch(state.key, { edition });
-  store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex);
+  store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex); store.del('desk-edition:' + hex);
   const pos = store.get('pos:' + state.key);
   if (pos) store.set('pos:' + state.key, { ...pos, edition: 'p' });
   showEditions();
@@ -1925,7 +1961,7 @@ async function buildContentsNow(token, key, pdf) {
   // Classified now (a PDF opened for the first time, or scanned again): Tinct text when it reads
   // best so, unless the reader has moved here meanwhile.
   if (fresh && sameSpot(currentPlace(), state.lastPlace)) {
-    await phoneKind(scan, token);
+    await openKind(scan, token);
     if (token !== state.token) return;
     if (sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
   }
