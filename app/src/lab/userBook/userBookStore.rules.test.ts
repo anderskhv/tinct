@@ -143,6 +143,11 @@ describe('openUserBook: a PDF as its Tinct text', () => {
   it('converts a book of prose once, keeps it with its default edition, and opens it here', async () => {
     keep('prose_book.pdf')
     const convert = converter()
+    // Not yet told on this device under the open rule (pdfEditions.ts): converted and kept, then on to the
+    // viewer, which tells its edition (the desktop: pages unless running prose) and forwards back.
+    expect(await openUserBook(HEX, { owner: OWNER, convert })).toMatchObject({ ok: false, reason: 'pages' })
+    expect(records.get(`pdf:${HEX}`)).toMatchObject({ edition: { source: 'pdf' } })
+    localStorage.setItem(`tinct-addbook:open-rule:${HEX}`, '2')
     const result = await openUserBook(HEX, { owner: OWNER, convert })
     expect(result.ok).toBe(true)
     if (!result.ok) return
@@ -184,6 +189,7 @@ describe('openUserBook: a PDF as its Tinct text', () => {
 
   it('converts again a Tinct text kept under other rules, and never opens an EPUB’s conversion for a PDF', async () => {
     keep('PossibleMinds Deutsch (1).pdf', { edition: { format: USER_EDITION_FORMAT, converter: 6, title: 'x', author: '', language: 'en', droppedImages: 0, chapters: [{ number: 1, title: 'x', paragraphs: ['x'] }] } })
+    localStorage.setItem(`tinct-addbook:open-rule:${HEX}`, '2')
     const convert = converter()
     const result = await openUserBook(HEX, { owner: OWNER, convert })
     expect(convert).toHaveBeenCalledTimes(1)

@@ -274,24 +274,40 @@
     return textHeavy(layout) ? 'text' : 'pages';
   }
   /**
-   * The default edition a PDF opens in when the reader has chosen none: on a phone, by its kind (when told)
-   * and the scan's `layout`; on the desktop, or a phone before the kind is known, the scan's default. A PDF
-   * without text ('pages-only') has its pages only.
+   * The edition a kind opens in on the desktop (Anders, 16 Oct 2026): its original pages, except running
+   * prose, which reads as its Tinct text: a narrative or an essay (kind 'narrative'); or a text the scan
+   * finds free of columns, mathematics, figures and tables (textHeavy) that is either prose by the scan's
+   * own signal or a paper or an unsure kind (Deutsch's "Constructor Theory"). A textbook or a practical
+   * guide keeps its pages unless the scan reads it as prose. Shared with the phone's textHeavy.
+   */
+  function desktopEdition(kind, layout = null) {
+    if (kind === 'narrative') return 'text';
+    if (!textHeavy(layout)) return 'pages';
+    const prose = !!(layout && layout.signals && layout.signals.prose);
+    return prose || !(kind === 'textbook' || kind === 'practical') ? 'text' : 'pages';
+  }
+  /**
+   * The default edition a PDF opens in when the reader has chosen none: on a phone, by its kind (when told,
+   * phoneEdition) and the scan's `layout`, else the scan's default; on the desktop, by desktopEdition (its
+   * pages unless running prose), the kind left unsure until it is told. A PDF without text ('pages-only')
+   * has its pages only.
    */
   function openDefault({ phone = false, kind = null, layout = null } = {}) {
     const layoutDefault = (layout && layout.default) || null;
-    if (!phone || !kind || layoutDefault === 'pages-only') return layoutDefault;
-    return phoneEdition(kind, layout);
+    if (layoutDefault === 'pages-only') return layoutDefault;
+    if (phone) return kind ? phoneEdition(kind, layout) : layoutDefault;
+    return layoutDefault ? desktopEdition(kind, layout) : null;
   }
   /**
    * The reader's own edition choice for a book on this device (tinct-addbook:edition:<hex>), or null. The
    * phone keeps its default there too (so the library and the Tinct reader open the book the same way),
-   * marked by `auto` ({ edition }, tinct-addbook:phone-edition:<hex>): a stored value equal to it is the
-   * phone's default, not the reader's choice, and is ignored (the desktop keeps the scan's default).
+   * marked by `auto` ({ edition }, tinct-addbook:phone-edition:<hex>), and so does the desktop (`desk`,
+   * tinct-addbook:desk-edition:<hex>): a stored value equal to either is a default, not the reader's
+   * choice, and is ignored.
    */
-  function ownChoice(stored, auto) {
+  function ownChoice(stored, auto, desk = null) {
     if (stored !== 'text' && stored !== 'pages') return null;
-    return auto && auto.edition === stored ? null : stored;
+    return (auto && auto.edition === stored) || (desk && desk.edition === stored) ? null : stored;
   }
-  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, openDefault, ownChoice };
+  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
 });

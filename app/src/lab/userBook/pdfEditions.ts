@@ -17,7 +17,16 @@
  * pages until the reader switches; else the scan's default
  * (pdf-scan.js layout: prose reads as Tinct text, a paper as its pages).
  * Nothing known (a PDF not yet scanned on this device): the viewer, which
- * forwards to Tinct text once it has classified the document.
+ * forwards to Tinct text once it has classified the document. *
+ * Tinct text is followed (from the place or the scan's default) only once
+ * this device's viewer has opened the book under the current open rule
+ * (`tinct-addbook:open-rule:<hex>` >= PDF_OPEN_RULE: reader.js openKind), or
+ * when an edition is kept on this device. Before that the answer is null and
+ * the viewer decides: since 16 Oct 2026 the desktop opens a PDF in its pages
+ * unless it is running prose, and a place read in Tinct text under the older
+ * default (every PDF scoring under 3.5) is not the reader's choice. A place
+ * read in Tinct text since the rule began (PDF_OPEN_RULE_AT), here or on
+ * another device, is followed at once.
  */
 import { pageOfTextPlace, textPlaceOfPage, type PdfTextPlace } from './pdfAnchors'
 import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace, type UserBookPlace } from './userBookPlace'
@@ -57,14 +66,36 @@ function storedChoice(hex: string, read: Read): PdfEditionChoice | null {
  */
 export function pdfEditionChoice(hex: string, layoutDefault?: PdfLayoutDefault | string | null, read: Read = localRead): PdfEditionChoice | null {
   const pos = readPos(hex, read)
-  if (pos?.edition === 't') return 'text'
-  if (pos?.edition === 'p') return 'pages'
   const stored = storedChoice(hex, read)
+  const settled = !!stored || openRuleApplied(hex, read)
+  if (pos?.edition === 't') return settled || (typeof pos.at === 'number' && pos.at >= PDF_OPEN_RULE_AT) ? 'text' : null
+  if (pos?.edition === 'p') return 'pages'
   if (stored) return stored
   if (pos && Number.isInteger(pos.page)) return 'pages'
-  if (layoutDefault === 'text') return 'text'
+  if (layoutDefault === 'text') return settled ? 'text' : null
   if (layoutDefault === 'pages' || layoutDefault === 'pages-only') return 'pages'
   return null
+}
+
+/** The open rule's version (reader.js OPEN_RULE): 2, the desktop's pages-unless-prose rule of 16 Oct 2026. */
+export const PDF_OPEN_RULE = 2
+/** When it began (reader.js RULE_AT): a place read in Tinct text since then is the edition it is read in, as before. */
+export const PDF_OPEN_RULE_AT = Date.UTC(2026, 9, 16, 17) // 2026-10-16T17:00:00Z
+export const PDF_OPEN_RULE_PREFIX = 'tinct-addbook:open-rule:'
+function openRuleApplied(hex: string, read: Read): boolean {
+  try { return Number(JSON.parse(read(PDF_OPEN_RULE_PREFIX + hex) || '0')) >= PDF_OPEN_RULE } catch { return false }
+}
+
+/**
+ * True when the PDF would read as Tinct text by its place or the scan's
+ * default, but this device's viewer has not yet told its edition under the
+ * current open rule (see above): the Tinct reader sends it to the viewer,
+ * which decides and forwards back when it is Tinct text.
+ */
+export function pdfEditionUntold(hex: string, layoutDefault?: PdfLayoutDefault | string | null, read: Read = localRead): boolean {
+  if (pdfEditionChoice(hex, layoutDefault, read) !== null) return false
+  const pos = readPos(hex, read)
+  return pos?.edition === 't' || (!(pos && Number.isInteger(pos.page)) && layoutDefault === 'text')
 }
 
 export function writePdfEditionChoice(hex: string, choice: PdfEditionChoice): void {

@@ -422,7 +422,7 @@ async function openPdf(bytes, name, key, known = null) {
   const { late } = await synced;
   if (token !== state.token) return;
   // Read as Tinct text (here or, by its place, on another device): the Tinct reader, before the pages draw.
-  if (scan) await phoneKind(scan, token);
+  if (scan) await openKind(scan, token);
   if (token !== state.token) return;
   if (scan && forwardToText(scan)) return;
   let saved = store.get('pos:' + state.key);
@@ -649,10 +649,14 @@ function buildTextLayer(p, items, vp, roles = null) {
   const frag = document.createDocumentFragment();
   // Side columns (margin figures, notes) follow the body in the PDF's text order, so a drag
   // through the body would run into them. Find where body lines end and move the rest after.
-  // Measure the body from long lines that start at the body's left edge (captions in the margin also run long).
-  const longs = items.filter(it => it.str.length > 30), fs = it => Math.hypot(it.transform[2], it.transform[3]);
-  const lefts = longs.map(it => it.transform[4]).sort((a, b) => a - b), bodyLeft = lefts[Math.floor(lefts.length * 0.3)];
-  const bodyEnds = longs.filter(it => Math.abs(it.transform[4] - bodyLeft) < fs(it) * 4).map(it => it.transform[4] + it.width).sort((a, b) => a - b);
+  // Measured from the body's long lines (textLines: a line's run of items, word gaps apart), not single
+  // items: a justified line often comes as several items ("…in physics and" | "other fie" | "lds. For
+  // instance,"), and an item ending mid-line once set the body's edge there, so the rest of every such line
+  // was moved after the body and a selection skipped it (Constructor Theory, 16 Oct 2026).
+  const lines = textLines(items);
+  const longs = lines.filter(l => l.chars > 30);
+  const lefts = longs.map(l => l.x).sort((a, b) => a - b), bodyLeft = lefts[Math.floor(lefts.length * 0.3)];
+  const bodyEnds = longs.filter(l => Math.abs(l.x - bodyLeft) < l.size * 4).map(l => l.x2).sort((a, b) => a - b);
   const bodyRight = bodyEnds.length >= 4 ? bodyEnds[Math.floor(bodyEnds.length * 0.9)] : Infinity;
   const side = document.createElement('div'); side.className = 'side-col';
   // A figure's labels and caption (js/reading-order.js) come after everything else, so a drag
@@ -672,7 +676,7 @@ function buildTextLayer(p, items, vp, roles = null) {
     const span = document.createElement('span');
     const k = marks ? nextShown(i) : -1, joined = marks && ((marks[i] && !marks[i].last) || (k >= 0 && marks[k]?.first && marks[k].caret));
     const str = marks ? RO.shown(items, marks, i) : item.str;
-    span.textContent = str + (item.hasEOL ? '\n' : joined ? '' : ' ');
+    span.textContent = str + (item.hasEOL ? '\n' : joined || touches(items, i) ? '' : ' ');
     span.dataset.i = i;
     // A recognised scan's line keeps what it is: a caption, an algorithm box, a footnote (pdf-ocr.js).
     if (item.kind) span.dataset.kind = item.kind;
@@ -698,6 +702,41 @@ function buildTextLayer(p, items, vp, roles = null) {
   renderHighlights(p);
   // The primer's trigger sits at a page's first line of text, known once its text layer is drawn.
   if (col.mode === 'column' && primer.trig) marginLayout();
+}
+
+/* A page's visual lines for the text layer: on each baseline, runs of items no more than an em apart
+   (a justified line's word gaps; a column's gutter or a side note's is wider), left to right.
+   -> [{ x, x2, size, chars }] */
+function textLines(items) {
+  const rows = [];
+  for (const it of items) {
+    if (!it?.transform || !it.str || !it.str.trim() || Math.abs(it.transform[1]) > 0.01 * Math.abs(it.transform[0])) continue;
+    const size = Math.hypot(it.transform[2], it.transform[3]) || 1, y = it.transform[5];
+    let row = rows.find(r => Math.abs(r.y - y) < Math.max(1, size * 0.2));
+    if (!row) { row = { y, parts: [] }; rows.push(row) }
+    row.parts.push({ x: it.transform[4], x2: it.transform[4] + (it.width || 0), size, chars: it.str.trim().length });
+  }
+  const out = [];
+  for (const row of rows) {
+    let run = null;
+    for (const part of row.parts.sort((a, b) => a.x - b.x)) {
+      if (run && part.x - run.x2 <= Math.max(run.size, part.size)) { run.x2 = Math.max(run.x2, part.x2); run.chars += part.chars + 1; continue }
+      if (run) out.push(run);
+      run = { ...part };
+    }
+    if (run) out.push(run);
+  }
+  return out;
+}
+/* True when the next item on the same line starts where this one ends (a word split into pieces,
+   "physic" | "s", "fie" | "lds"): no space between them in a selection's text, as in the page's text
+   (TinctReadingOrder.pageText). A space item between, a gap or a new line keeps the space. */
+function touches(items, i) {
+  const it = items[i], next = items[i + 1];
+  if (!it?.transform || !next?.transform || !next.str || !next.str.trim() || /\s$/.test(it.str)) return false;
+  const size = Math.hypot(it.transform[2], it.transform[3]) || 1;
+  if (Math.abs(next.transform[5] - it.transform[5]) > size * 0.2) return false;
+  return Math.abs(next.transform[4] - (it.transform[4] + (it.width || 0))) <= size * 0.1;
 }
 
 /* Displayed formulas (js/pdf-regions.js displayFormulas, shared with Tinct text's crops): the body text in
@@ -1032,8 +1071,8 @@ const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages
 // A scan whose text the account recognised (js/pdf-ocr.js): its Tinct text opens by its own default.
 const isOcrText = () => state.textEdition?.source === 'ocr';
 // The reader's own choice on this device (the phone's default kept there is not one: TinctReaderLayout.ownChoice).
-const ownEdition = () => window.TinctReaderLayout.ownChoice(store.get('edition:' + hexOf(state.key)), store.get('phone-edition:' + hexOf(state.key)));
-// With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); else the scan's.
+const ownEdition = () => window.TinctReaderLayout.ownChoice(store.get('edition:' + hexOf(state.key)), store.get('phone-edition:' + hexOf(state.key)), store.get('desk-edition:' + hexOf(state.key)));
+// With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); on the desktop, its pages unless running prose (deskKind).
 const editionDefault = scan => isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : window.TinctReaderLayout.openDefault({ phone: isPhone(), kind: state.docKind?.kind, layout: scan?.layout });
 const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), ownEdition(), editionDefault(scan));
 /* Phones open a PDF by its kind (Anders, 16 Oct 2026, option C; TinctReaderLayout.docKind, phoneEdition): a
@@ -1074,6 +1113,51 @@ async function phoneKind(scan, token) {
   store.set('phone-edition:' + hex, { edition, kind: found.kind, by: found.by, v: KIND_V });
   store.set('edition:' + hex, edition);
 }
+/* The desktop opens a PDF as its pages (Margin view), except running prose (Anders, 16 Oct 2026;
+   TinctReaderLayout.desktopEdition): a narrative or an essay, or a text with no columns, mathematics,
+   figures or tables, reads as its Tinct text. Told as on a phone (the kind from a kept primer or a few
+   pages' text, no AI call), only when the reader has chosen nothing for the book, and kept as this
+   device's edition marked as the desktop's (desk-edition:<hex>), so the library and the Tinct reader
+   open it the same way and a choice of the reader's replaces it.
+   Before this rule the desktop opened every PDF scoring under 3.5 as Tinct text (MacKay's extract: 2), and
+   a place read there carries edition 't' though nobody chose it. A choice of Tinct text is kept as the
+   device's edition ('text', readAsText); so a place in Tinct text kept before the rule (RULE_AT), with no
+   choice kept, on a device that has not yet opened the book under this rule (OPEN_RULE, open-rule:<hex>),
+   followed the old default: it keeps its spot but not its edition, and the new default applies. A place
+   in Tinct text kept since then (here or on another device) is honoured as before. */
+const DESK_V = 1;
+// The open rule this device has applied to a book, and when it began (also app/src/lab/userBook/pdfEditions.ts).
+const OPEN_RULE = 2, RULE_AT = Date.UTC(2026, 9, 16, 17); // 2026-10-16T17:00:00Z
+async function deskKind(scan, token) {
+  if (isPhone() || state.kind !== 'pdf' || !scan || !(scan.textPages > 0) || isOcrText() || state.pagesAsked) return;
+  const hex = hexOf(state.key), RL = window.TinctReaderLayout;
+  if (ownEdition()) return;
+  const pos = store.get('pos:' + state.key);
+  if (pos?.edition === 'p' || (pos?.edition === 't' && (store.get('open-rule:' + hex) >= OPEN_RULE || pos.at >= RULE_AT))) return;
+  const auto = store.get('desk-edition:' + hex), primerKind = keptPrimerKind(state.key);
+  let found = auto?.v === DESK_V && auto.kind && (!primerKind || auto.kind === primerKind) ? { kind: auto.kind, by: auto.by } : null;
+  if (!found) {
+    const pages = [];
+    if (!primerKind) for (const n of RL.kindPages(state.pdf.numPages)) { try { pages.push({ n, text: (await pageText(n)).text }) } catch { /* skipped */ } if (token !== state.token) return }
+    found = RL.docKind({ scan, pages, count: state.pdf.numPages, primerKind });
+  }
+  if (token !== state.token) return;
+  state.docKind = found;
+  const edition = RL.desktopEdition(found.kind, scan.layout);
+  store.set('desk-edition:' + hex, { edition, kind: found.kind, by: found.by, v: DESK_V });
+  store.set('edition:' + hex, edition);
+  // The old default's place: the same spot, its edition now the default's (the edition of a place wins: TinctPdfText.choice).
+  const now = store.get('pos:' + state.key);
+  if (now?.edition === 't' && edition === 'pages') { const { edition: _old, ...spot } = now; store.set('pos:' + state.key, spot) }
+}
+// The edition a PDF opens in, told for this device before the Tinct text is forwarded to: on a phone by
+// its kind (phoneKind), on the desktop its pages unless running prose (deskKind). Then marked as opened
+// under this rule, so the library and the Tinct reader follow its place from now on (pdfEditions.ts).
+async function openKind(scan, token) {
+  await (isPhone() ? phoneKind(scan, token) : deskKind(scan, token));
+  if (token !== state.token || state.kind !== 'pdf' || !scan || state.pagesAsked) return;
+  store.set('open-rule:' + hexOf(state.key), OPEN_RULE);
+}
 const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + (page ? '&page=' + page : '');
 // Opened here but read as Tinct text: on to the Tinct reader (not for a link that asks for the pages).
 // A scan whose text was recognised stays here, with the margin, its words laid over its pages (the
@@ -1091,7 +1175,7 @@ function readAsText() {
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
   const spot = sameSpot(place, { page: prev.page, frac: prev.frac }) && Number.isInteger(prev.chapterNumber) ? {} : textSpot(place);
   store.set('pos:' + state.key, { ...prev, ...(sameSpot(place, { page: prev.page, frac: prev.frac }) ? {} : place), ...spot, edition: 't', pages: state.pages.length, at: Date.now() });
-  store.set('edition:' + hexOf(state.key), 'text'); store.del('phone-edition:' + hexOf(state.key));
+  store.set('edition:' + hexOf(state.key), 'text'); store.del('phone-edition:' + hexOf(state.key)); store.del('desk-edition:' + hexOf(state.key));
   placeSync.note(hexOf(state.key), true);
   placeSync.flush();
   stopNarration();
@@ -1169,7 +1253,7 @@ async function ocrKeep(edition) {
   const hex = hexOf(state.key);
   state.textEdition = edition;
   await library.touch(state.key, { edition });
-  store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex);
+  store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex); store.del('desk-edition:' + hex);
   const pos = store.get('pos:' + state.key);
   if (pos) store.set('pos:' + state.key, { ...pos, edition: 'p' });
   showEditions();
@@ -1877,7 +1961,7 @@ async function buildContentsNow(token, key, pdf) {
   // Classified now (a PDF opened for the first time, or scanned again): Tinct text when it reads
   // best so, unless the reader has moved here meanwhile.
   if (fresh && sameSpot(currentPlace(), state.lastPlace)) {
-    await phoneKind(scan, token);
+    await openKind(scan, token);
     if (token !== state.token) return;
     if (sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
   }
