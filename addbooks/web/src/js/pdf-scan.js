@@ -20,9 +20,10 @@
 //   6. layout: the edition the PDF opens in by default ('text': Tinct text, 'pages': Original
 //      pages, 'pages-only': no text to reflow), from its columns, mathematics, figures and
 //      tables (see layout below). Version 5 (2026-10-09) added it.
+//   Version 6 (2026-10-16): a metadata title that is the printed title with more after it gives way to the printed one.
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 5;
+  const SCAN_VERSION = 6;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
@@ -150,6 +151,14 @@
     if (/^[\w-]+$/.test(t) && /\d/.test(t)) return null; // "scan0042", "IMG-2024"
     return t;
   }
+  // The metadata's title is the printed one with more after it ("Constructor Theory Philosophy": a
+  // journal's section, "… EPA-402-K-02-003, September 2010": a report number): the printed title
+  // is the book's (version 6). -> the metadata's title, or null to take the printed one.
+  function sameTitleLonger(meta, printed) {
+    if (!meta || !printed) return meta;
+    const m = bare(meta), p = bare(printed);
+    return p.length >= 8 && m.length > p.length && m.startsWith(p) ? null : meta;
+  }
   const NOT_A_PERSON = /^(user|admin|administrator|owner|unknown|author|anonymous|default|guest|windows user|microsoft|office|adobe|acrobat|pdf|latex|tex|scanner|copier|hp|canon|xerox|epson|ricoh|brother)\b/i;
   function metaAuthor(raw) {
     const t = readable(raw).replace(/^by\s+/i, '');
@@ -175,7 +184,10 @@
   function printedTitle(pages, isFurniture) {
     for (const p of pages.slice(0, 3)) {
       const skip = epigraphRows(p.rows);
-      const rows = p.rows.filter((r, i) => !skip.has(i) && !isFurniture(p, r) && /\p{L}{2}/u.test(r.text));
+      // A title the running heads repeat ("Constructor Theory" over every page) is still the title where it is
+      // set large, away from the page's edges (version 6).
+      const lettered = p.rows.filter((r, i) => !skip.has(i) && /\p{L}{2}/u.test(r.text)), pageBody = bodyOf(lettered);
+      const rows = lettered.filter(r => !isFurniture(p, r) || (pageBody && !atEdge(p, r) && !isPageNumber(r.text) && r.size >= pageBody.size * 1.3));
       if (!rows.length) continue;
       const body = bodyOf(rows);
       const top = Math.max(...rows.map(r => r.size));
@@ -567,7 +579,7 @@
     for (let n = 1; n <= Math.min(3, pdf.numPages); n++) first.push(await pageOf(n));
     if (!live()) return null;
     const printed = printedTitle(first, furniture(first));
-    const fromMeta = metaTitle(info.Title, fileName);
+    const fromMeta = sameTitleLonger(metaTitle(info.Title, fileName), printed.title);
     const title = fromMeta || printed.title || cleanFileName(fileName);
     const author = metaAuthor(info.Author) || printed.author || '';
     onTitle?.({ title, author });
@@ -603,5 +615,5 @@
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { SCAN_VERSION, scan, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { SCAN_VERSION, scan, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);
