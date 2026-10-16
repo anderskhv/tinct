@@ -752,12 +752,6 @@ export function labBookPageEstimate(input: {
   chapterWeights: LabBookPageWeight[]
   wordsPerPage: number
   bookWordCount?: number
-  /**
-   * The book's page count as first shown in this layout on this visit: held, so the
-   * count never moves under the reader at a chapter change (the page before and after
-   * the current chapter are estimated, its own pages counted; Anders, 16 Oct 2026).
-   */
-  heldTotalPages?: number | null
 }): LabBookPageEstimate {
   const weights = labChapterWordWeights(input.chapterWeights, input.bookWordCount)
   const totalWords = weights.reduce((total, chapter) => total + chapter.wordCount, 0)
@@ -782,9 +776,8 @@ export function labBookPageEstimate(input: {
 
   const pagesBefore = Math.max(0, Math.round(before / capacity))
   const pagesAfter = Math.max(0, Math.round(after / capacity))
-  const held = input.heldTotalPages
-  const totalPages = typeof held === 'number' && Number.isFinite(held) && held >= 1 ? Math.round(held) : pagesBefore + chapterPages + pagesAfter
-  const page = Math.min(totalPages, pagesBefore + currentPage)
+  const page = pagesBefore + currentPage
+  const totalPages = pagesBefore + chapterPages + pagesAfter
   return { page, totalPages, percent: clampPercent(page, totalPages), honest: true }
 }
 
@@ -802,8 +795,6 @@ export function labReaderProgressLabel(input: {
   /** Null until a full page has been measured in this layout. */
   wordsPerPage: number | null
   bookWordCount?: number
-  /** See labBookPageEstimate. */
-  heldTotalPages?: number | null
   /** Retained for callers that still pass it; the book page is measured, not word-summed. */
   chapterWordsRead?: number
 }): string {
@@ -829,7 +820,6 @@ export function labReaderProgressLabel(input: {
     chapterWeights: input.chapterWordCounts,
     wordsPerPage: input.wordsPerPage,
     bookWordCount: input.bookWordCount,
-    heldTotalPages: input.heldTotalPages,
   })
   return `${labPageNumber(estimate.page)} / ${labPageNumber(estimate.totalPages)} of book \u00b7 ${estimate.percent}%`
 }

@@ -37,14 +37,8 @@ export type UserEditionSource = 'epub' | 'pdf' | 'ocr'
  * PDF_TEXT_CONVERTER). The same file converts to the same chapters, paragraphs
  * and words on every device; rules that change any of them get a new number,
  * and a place records the number it was read under, like an EPUB's.
- * 2 (16 Oct 2026): an indented abstract runs on as one paragraph, numbered
- * subheadings stand alone, figure labels and table cells leave the text. A
- * conversion under 1 is made again; a place read in it moves by its PDF page
- * (pdfEditions.ts readPdfTextPlace).
- * 3 (16 Oct 2026): formulas, figures and tables stand in the text as crops of
- * their page (`figures`, kept on this device like an EPUB's pictures).
  */
-export const PDF_TEXT_CONVERTER = 3
+export const PDF_TEXT_CONVERTER = 1
 /**
  * The format of a recognised (OCR) edition assembled in the account (§3 of the PDF editions plan).
  * 2 (15 Oct 2026): captions and algorithm boxes kept, a paper's numbered sections as chapters.

@@ -71,18 +71,6 @@ export interface ChapterFigure {
   large?: boolean
   /** The book names a picture here that this device cannot draw: its caption stands with a placeholder (`src` is empty). */
   unavailable?: boolean
-  /**
-   * A reader's own PDF (Tinct text): what it is called where "Figure N" would not fit it
-   * ("Equation (2)", "Table 1", "Figure 3" as the PDF numbers it), and what it is.
-   */
-  label?: string
-  kind?: 'figure' | 'table' | 'equation'
-  /**
-   * How wide it is drawn: 'column' fills the reading column (a figure, a table cut from a
-   * PDF page), 'text' stands at its own size (a formula, set as large as the text around it),
-   * never wider than the column. Absent: as any picture (labFigures.ts figurePlacement).
-   */
-  fit?: 'column' | 'text'
 }
 
 export interface Chapter {

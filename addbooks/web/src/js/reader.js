@@ -224,9 +224,7 @@ async function openBook(kind, bytes, name, key, rec = null) {
     // A PDF is a book with its own address (/lab/addbook/?userBook=<hex>): a reload, the
     // library and the book switcher open it again at its place.
     const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : null;
-    // Arrived at this book's own address with a page asked (the Tinct reader's "Show page"): the address is
-    // tidied in place, so Back goes straight back to the paragraph it came from.
-    if (url) { if (location.pathname + location.search !== url) history[urlHex() === hexOf(key) ? 'replaceState' : 'pushState']({ addbookReader: key }, '', url) }
+    if (url) { if (location.pathname + location.search !== url) history.pushState({ addbookReader: key }, '', url) }
     else if (location.hash !== '#read') history.pushState({ addbookReader: key }, '', '#read');
   }
 }
@@ -427,10 +425,8 @@ async function openPdf(bytes, name, key, known = null) {
   if (scan && forwardToText(scan)) return;
   let saved = store.get('pos:' + state.key);
   // A link's page (the Tinct reader's "Original pages") wins for this open; at the saved page, its spot on it too.
-  // A paragraph's "Show page" in the Tinct reader names how far down the page it stands too (&frac=).
-  const askedParams = new URLSearchParams(location.search), asked = Number(askedParams.get('page')), askedFrac = Number(askedParams.get('frac'));
-  const fracAsked = askedParams.has('frac') && Number.isFinite(askedFrac) ? Math.max(0, Math.min(1, askedFrac)) : null;
-  if (Number.isInteger(asked) && asked >= 1 && asked <= pdf.numPages && (asked !== saved?.page || (fracAsked !== null && fracAsked !== saved?.frac))) saved = { ...(saved || {}), page: asked, frac: fracAsked ?? 0 };
+  const asked = Number(new URLSearchParams(location.search).get('page'));
+  if (Number.isInteger(asked) && asked >= 1 && asked <= pdf.numPages && asked !== saved?.page) saved = { ...(saved || {}), page: asked, frac: 0 };
   // On a phone: the reader's own zoom there, else the text column fills the width (columnFit); the desktop's as before.
   state.zoom = isPhone() ? await phoneZoom(saved, token) : saved?.zoom || 1;
   if (token !== state.token) return;
@@ -700,13 +696,65 @@ function buildTextLayer(p, items, vp, roles = null) {
   if (col.mode === 'column' && primer.trig) marginLayout();
 }
 
-/* Displayed formulas (js/pdf-regions.js displayFormulas, shared with Tinct text's crops): the body text in
-   visual line order, and runs of formula lines, so a selection that touches an equation takes the whole equation. */
+/* Displayed formulas: TeX sets an equation as many small fragments (fractions, sums, sub- and
+   superscripts) in no reading order. Put the body text in visual line order, and find runs of
+   formula lines so a selection that touches an equation takes the whole equation. */
 function layoutBody(body, vp) {
-  const found = TinctPdfRegions.displayFormulas(body, vp);
-  body.length = 0; body.push(...found.order);
-  found.blocks.forEach((B, k) => { for (const b of B.members) b.span.dataset.m = k });
-  return { prose: found.prose, blocks: found.blocks.map(({ x, y, w, h }) => ({ x, y, w, h })) };
+  if (!body.length) return { blocks: [], prose: [] };
+  const longOnes = body.filter(b => b.str.trim().length > 30);
+  const size = median((longOnes.length ? longOnes : body).map(b => b.size));
+  const lines = [];
+  for (const b of [...body].sort((a, c) => a.base - c.base)) {
+    const L = lines.at(-1);
+    if (L && b.base - L.base < size * 0.42) { L.items.push(b); L.bottom = Math.max(L.bottom, b.base) } else lines.push({ base: b.base, bottom: b.base, items: [b] });
+  }
+  for (const L of lines) L.items.sort((a, c) => a.x - c.x);
+  body.length = 0; for (const L of lines) body.push(...L.items);
+  const MATHY = /[=≡≃≈≤≥<>±×·∑∏∫√∂∞∈→←⇒|^_{}()\[\]Ͱ-Ͽ∀-⋿]/;
+  const FN = /^(ln|log|exp|sin|cos|tan|max|min|lim|det|sup|inf|arg|mod|var|pr)$/i;
+  const wordsOf = items => items.map(b => b.str.trim()).filter(Boolean);
+  const isProse = words => { const t = words.join(' ').split(/[^A-Za-zÀ-ɏ’']+/).filter(w => w.length >= 2 && !FN.test(w)); return t.some(w => w.length >= 6) || t.length >= 3 };
+  // A prose line can end in a piece of a formula far to its right ("or, equivalently,      ( )"): split it off.
+  const split = [];
+  for (const L of lines) {
+    const segs = [[L.items[0]]]; let a = L.items[0];
+    for (const b of L.items.slice(1)) { if (b.str.trim() && a.str.trim() && b.x - (a.x + a.w) > size * 3) segs.push([b]); else segs.at(-1).push(b); if (b.str.trim()) a = b }
+    if (segs.length > 1 && isProse(wordsOf(L.items))) for (const g of segs) split.push({ base: L.base, bottom: L.bottom, items: g });
+    else split.push(L);
+  }
+  const kind = L => {
+    const words = wordsOf(L.items);
+    if (!words.length || isProse(words)) return 'T';
+    const mathy = words.some(w => MATHY.test(w)) || L.items.some(b => b.str.trim() && Math.abs(b.size - size) > size * 0.15);
+    if (mathy && (words.length >= 2 || words[0].length >= 3)) return 'M';
+    return words.every(w => w.length <= 4 && !/[.,;:]$/.test(w)) ? 'F' : 'T';
+  };
+  const kinds = split.map(kind);
+  const tBases = split.filter((L, i) => kinds[i] === 'T').map(L => L.base);
+  const gaps = tBases.slice(1).map((b, i) => b - tBases[i]).filter(g => g > size * 0.8 && g < size * 2);
+  const lead = gaps.length ? median(gaps) : size * 1.25;
+  const runs = []; let cur = null;
+  split.forEach((L, i) => {
+    if (kinds[i] === 'T') { cur = null; return }
+    if (cur && L.base - cur.lines.at(-1).bottom < size * 2.4) cur.lines.push(L), cur.kinds.push(kinds[i]); else { cur = { lines: [L], kinds: [kinds[i]] }; runs.push(cur) }
+  });
+  // Displayed formulas stand apart from the prose; math squeezed between two prose lines is inline.
+  const blocks = runs.filter(r => {
+    if (!r.kinds.includes('M')) return false;
+    const first = r.lines[0].base, last = r.lines.at(-1).bottom;
+    const above = tBases.filter(b => b < first - 1).at(-1), below = tBases.find(b => b > last + 1);
+    const both = (above === undefined || first - above < lead * 1.1) && (below === undefined || below - last < lead * 1.1);
+    const either = (above !== undefined && first - above < lead * 0.9) || (below !== undefined && below - last < lead * 0.9);
+    return !both && !either;
+  });
+  const box = (items, pad) => { let l = Infinity, t = Infinity, r = -Infinity, btm = -Infinity; for (const b of items) { l = Math.min(l, b.x); r = Math.max(r, b.x + b.w); t = Math.min(t, b.base - b.size * 0.9); btm = Math.max(btm, b.base + b.size * 0.3) } return { x: (l - pad) / vp.width, y: (t - pad) / vp.height, w: (r - l + pad * 2) / vp.width, h: (btm - t + pad * 2) / vp.height } };
+  const prose = split.filter((L, i) => kinds[i] === 'T').map(L => box(L.items, size * 0.15));
+  return { prose, blocks: blocks.map((B, k) => {
+    let l = Infinity, t = Infinity, r = -Infinity, btm = -Infinity;
+    for (const L of B.lines) for (const b of L.items) { b.span.dataset.m = k; l = Math.min(l, b.x); r = Math.max(r, b.x + b.w); t = Math.min(t, b.base - b.size * 0.9); btm = Math.max(btm, b.base + b.size * 0.3) }
+    const pad = size * 0.25;
+    return { x: (l - pad) / vp.width, y: (t - pad) / vp.height, w: (r - l + pad * 2) / vp.width, h: (btm - t + pad * 2) / vp.height };
+  }) };
 }
 function blockClientBox(p, B) { const r = p.pg.getBoundingClientRect(); return { left: r.left + B.x * r.width, top: r.top + B.y * r.height, right: r.left + (B.x + B.w) * r.width, bottom: r.top + (B.y + B.h) * r.height } }
 // The selection as clean shapes: one bar per text line, and one box per formula it touches.

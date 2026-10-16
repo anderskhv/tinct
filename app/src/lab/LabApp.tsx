@@ -206,7 +206,7 @@ import { registerUserBook, userBookLabSource } from './userBook/userBookSource'
 import { userBookLangAttribute } from './userBook/userBookLanguage'
 import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
 import { flushOwnPlaces, noteOwnPlace, notePdfPlace } from './userBook/ownSync'
-import { choosePdfPageAt, PDF_PAGES_EDITION_KEY, showPdfPageAt } from './userBook/pdfEditions'
+import { choosePdfPages, PDF_PAGES_EDITION_KEY } from './userBook/pdfEditions'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
@@ -849,9 +849,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   /** Rendered page for the companion's reading trail; written once chapter progress is known. */
   const askPageRef = useRef<{ pageNumber: number; totalPages: number } | null>(null)
   /** Words per page held for one leaf geometry, with the leaf it was measured at. */
-  const wordsPerPageRef = useRef<{ wordsPerPage: number; leafHeight: number; stored?: boolean } | null>(null)
-  const storedCapacityRef = useRef('')
-  const progressTotalRef = useRef<{ key: string; total: number } | null>(null)
+  const wordsPerPageRef = useRef<{ wordsPerPage: number; leafHeight: number } | null>(null)
   /** Words one desktop leaf holds, measured from the layout by the paginator. */
   const [desktopLeafCapacity, setDesktopLeafCapacity] = useState<LabLeafCapacity | null>(null)
   const playbackInterruptedRef = useRef<() => boolean>(() => false)
@@ -3364,11 +3362,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // reserving the chapter actions can split it, leaving a short page before it
   // too. To the Lighthouse opened on The Window 2 (two paragraphs) measured
   // that 34-word page and read 2,029 pages instead of about 960.
-  // Nor is the first: it carries the chapter's title. Constructor Theory's first chapter (its
-  // abstract, three pages) measured its title page and set the book at 192 pages, then 177 a page
-  // later (Anders, 16 Oct 2026).
   const fullPageWordCounts = readingPages
-    .slice(1, Math.max(1, readingPages.length - 2))
+    .slice(0, Math.max(0, readingPages.length - 2))
     .map(page => chapterPageSegments(page).reduce((total, segment) => total + Math.max(0, segment.to - segment.from), 0))
     .filter(count => count > 0)
     .sort((a, b) => a - b)
@@ -3391,23 +3386,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       : null
   const held = wordsPerPageRef.current
   const capacityKey = `${readerLayoutKey}|${typeof window !== 'undefined' ? `${window.innerWidth}x${window.innerHeight}` : ''}`
-  if (freshCapacity !== null && (held === null || held.leafHeight !== freshCapacity.leafHeight || (held.stored && !desktopPaging))) {
-    // A figure kept from an earlier visit in this layout, once shown, stays for this visit: the
-    // page count never moves under the reader. The new measurement is kept for the next visit.
-    // (Constructor Theory read "2 / 266 of book", then "3 / 161" a chapter later: 16 Oct 2026.)
-    if (!desktopPaging && storedCapacityRef.current !== `${capacityKey}=${freshCapacity.wordsPerPage}`) {
-      storedCapacityRef.current = `${capacityKey}=${freshCapacity.wordsPerPage}`
-      storeWordsPerPage(capacityKey, freshCapacity.wordsPerPage)
-    }
-    if (!held?.stored || desktopPaging) wordsPerPageRef.current = freshCapacity
-  }
-  if (wordsPerPageRef.current === null && freshCapacity === null && !desktopPaging) {
-    const stored = readStoredWordsPerPage(capacityKey)
-    if (stored !== null) wordsPerPageRef.current = { wordsPerPage: stored, leafHeight: 0, stored: true }
+  if (freshCapacity !== null && (held === null || held.leafHeight !== freshCapacity.leafHeight)) {
+    wordsPerPageRef.current = freshCapacity
+    if (!desktopPaging) storeWordsPerPage(capacityKey, freshCapacity.wordsPerPage)
   }
   const phoneWordsPerPage = wordsPerPageRef.current?.wordsPerPage
     ?? freshCapacity?.wordsPerPage
-    ?? null
+    ?? (desktopPaging ? null : readStoredWordsPerPage(capacityKey))
   const measuredWordsPerPage = phoneWordsPerPage
     ?? Math.max(1, Math.round(chapterProgress.wordsTotal / Math.max(1, chapterProgress.totalPages)))
   const bookWordCount = getBook(book.bookId || 'bible')?.wordCount
@@ -3421,7 +3406,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     chapterWordCounts: book.chapters,
     wordsPerPage: desktopPaging ? measuredWordsPerPage : phoneWordsPerPage,
     bookWordCount,
-    heldTotalPages: null as number | null,
   }
   // Printed books, Bibles included, number continuously through the volume.
   // The desktop spread therefore shows the book page, not the chapter page,
@@ -3449,16 +3433,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // it. The desktop leaf folios need no hold; they are already painted only
   // on a measured map.
   const progressMeasured = !measuredPaging || nativeMeasuredContent === readerParagraphs
-  // The book's page count on the phone, held from the first one shown in this layout: the pages
-  // of the chapter in front of the reader are counted and the rest estimated, so a chapter change
-  // would otherwise move it (Constructor Theory: "2 / 266 of book", then "3 / 161"; 16 Oct 2026).
-  const progressTotalKey = !desktopPaging && progressInput.wordsPerPage != null && !book.chaptersProvisional && !initialResolving && !headFirstOnScreen && progressMeasured
-    ? `${book.bookId}|${capacityKey}|${progressInput.wordsPerPage}|${bookWordCount ?? ''}|${book.chapters.length}`
-    : null
-  if (progressTotalKey !== null && progressTotalRef.current?.key !== progressTotalKey) {
-    progressTotalRef.current = { key: progressTotalKey, total: labBookPageEstimate({ currentPage: chapterProgress.currentPage, totalPages: chapterProgress.totalPages, chapterNumber: book.chapterNumber, chapterWeights: book.chapters, wordsPerPage: progressInput.wordsPerPage as number, bookWordCount }).totalPages }
-  }
-  if (!desktopPaging && progressTotalRef.current && progressTotalRef.current.key.startsWith(`${book.bookId}|${capacityKey}|${progressInput.wordsPerPage}|`)) progressInput.heldTotalPages = progressTotalRef.current.total
   const [progressHoldReleased, setProgressHoldReleased] = useState(false)
   useEffect(() => {
     if (progressMeasured) { setProgressHoldReleased(false); return }
@@ -4985,20 +4959,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
 
   // A PDF's Original pages, picked in Book editions: the same spot, kept as the
   // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
-  // "Show page" (a selection's, a figure's): a look at that paragraph's page (&frac=: how far down it), the
-  // book still read as Tinct text (&pages: the viewer does not send it back), so Back or the viewer's
-  // "Tinct text" returns to the same paragraph.
-  const openPdfPages = useCallback((at?: { chapterNumber: number; paragraphIndex: number; wordIndex: number }) => {
+  const openPdfPages = useCallback(() => {
     if (!userBook || userBook.kind !== 'pdf') return
     const current = userPlaceBookRef.current
-    const spot = at ?? { chapterNumber: current.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }
-    const place = { ...spot, updatedAt: Date.now(), converter: userBook.edition.converter }
-    const { page, frac } = at
-      ? showPdfPageAt(userBook.hex, userBook.edition.chapters, place, userBook.pdfPages)
-      : choosePdfPageAt(userBook.hex, userBook.edition.chapters, place, userBook.pdfPages)
-    if (!at) { notePdfPlace(userBook.hex, { now: true }); flushOwnPlaces() }
+    const page = choosePdfPages(userBook.hex, userBook.edition.chapters, {
+      chapterNumber: current.chapterNumber,
+      paragraphIndex: placeRef.current.paragraphIndex,
+      wordIndex: placeRef.current.wordIndex,
+      updatedAt: Date.now(),
+      converter: userBook.edition.converter,
+    }, userBook.pdfPages)
+    notePdfPlace(userBook.hex, { now: true })
+    flushOwnPlaces()
     setSuperSheet(null)
-    window.location.assign(`${ownBookOpenUrl(userBook.hex)}&page=${page}${at ? `&frac=${frac}&pages` : ''}`)
+    window.location.assign(`${ownBookOpenUrl(userBook.hex)}&page=${page}`)
   }, [userBook])
   const sheetPrefs = useCallback((next: LabPrefs) => {
     if (ownPdf && next.primaryEdition === PDF_PAGES_EDITION_KEY) { openPdfPages(); return }
@@ -5350,10 +5324,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       )}
       {figureCard && (
         <LabFigureCard figure={figureCard} onClose={() => setFigureCard(null)}
-          onExplain={explainFigure} onAsk={askAboutFigure}
-          onShowPage={ownPdf && figureCard.chapterNumber != null && figureCard.paragraphIndex != null
-            ? figure => openPdfPages({ chapterNumber: figure.chapterNumber!, paragraphIndex: figure.paragraphIndex!, wordIndex: 0 })
-            : undefined} />
+          onExplain={explainFigure} onAsk={askAboutFigure} />
       )}
       {!frontispieceVisible && superSheet === 'catchup' && userBook && (
         // A reader's own book: one cumulative recap, built from this device's text a chapter at a time.
@@ -6083,9 +6054,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
         <SelectionPopup
           selection={selectionPopup}
           popupRef={popupRef}
-          onShowPage={ownPdf && selectionPopup.range && !selectionPopup.side
-            ? () => { const range = selectionPopup.range!; setSelectionPopup(null); openPdfPages({ chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: range.paragraphIndex, wordIndex: range.fromWord }) }
-            : undefined}
           popupMode={popupMode}
           setPopupMode={setPopupMode}
           currentHighlightColor={selectionPopup.existingHighlightId

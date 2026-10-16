@@ -74,15 +74,10 @@ export function bookFigures(chapters: ReadonlyArray<Pick<Chapter, 'number' | 'pa
 }
 
 /** What the companion, a quotation or a search reads where a figure stands. */
-export function figureReadingText(figure: Pick<ChapterFigure, 'number' | 'caption' | 'alt' | 'label'> | null): string {
+export function figureReadingText(figure: Pick<ChapterFigure, 'number' | 'caption' | 'alt'> | null): string {
   if (!figure) return '[Figure]'
   const words = figure.caption || figure.alt || ''
-  return `[${figureName(figure)}${words ? `: ${words}` : ''}]`
-}
-
-/** What a figure is called: its own label (a PDF's "Equation (2)", "Table 1"), else "Figure N". */
-export function figureName(figure: Pick<ChapterFigure, 'number' | 'label'>): string {
-  return figure.label || `Figure ${figure.number}`
+  return `[Figure ${figure.number}${words ? `: ${words}` : ''}]`
 }
 
 /** A paragraph as plain reading text: a figure's token becomes its caption. */
@@ -124,19 +119,16 @@ export type LabFigurePlacement =
   | { mode: 'inline'; width: number | null; height: number | null }
   | { mode: 'strip' }
 
-export function figurePlacement(figure: Pick<ChapterFigure, 'width' | 'height' | 'large' | 'fit'>, at: LabFigureLayout | null = layout): LabFigurePlacement {
+export function figurePlacement(figure: Pick<ChapterFigure, 'width' | 'height' | 'large'>, at: LabFigureLayout | null = layout): LabFigurePlacement {
   if (figure.large) return { mode: 'strip' }
   const aspect = figure.width && figure.height ? figure.height / figure.width : DEFAULT_ASPECT
   if (!at) return { mode: 'inline', width: null, height: null }
   let width = at.columnWidth
-  // A crop of a PDF page: a figure or table fills the column; a formula keeps the size of the text.
-  if (figure.fit === 'text' && figure.width) width = Math.min(width, figure.width)
-  else if (figure.fit !== 'column' && figure.width) width = Math.min(width, figure.width * FIGURE_MAX_UPSCALE)
+  if (figure.width) width = Math.min(width, figure.width * FIGURE_MAX_UPSCALE)
   let height = width * aspect
   const most = at.pageHeight * FIGURE_MAX_PAGE_SHARE
   if (height > most) { height = most; width = height / aspect }
-  // A formula set at the size of its text stands in the text however narrow it is.
-  if (figure.fit !== 'text' && width < Math.min(at.columnWidth * FIGURE_MIN_WIDTH_SHARE, FIGURE_MIN_WIDTH_PX)) return { mode: 'strip' }
+  if (width < Math.min(at.columnWidth * FIGURE_MIN_WIDTH_SHARE, FIGURE_MIN_WIDTH_PX)) return { mode: 'strip' }
   return { mode: 'inline', width: Math.floor(width), height: Math.floor(height) }
 }
 
@@ -146,8 +138,8 @@ export function figureAspect(figure: Pick<ChapterFigure, 'width' | 'height'>): s
 }
 
 /** "FIGURE 3 ↗": a strip's label. */
-export function figureLabel(figure: Pick<ChapterFigure, 'number' | 'label'>): string {
-  return `${figureName(figure)} ↗`
+export function figureLabel(figure: Pick<ChapterFigure, 'number'>): string {
+  return `Figure ${figure.number} ↗`
 }
 
 /**

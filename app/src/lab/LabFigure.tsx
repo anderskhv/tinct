@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useSyncExternalStore, type PointerEvent as ReactPointerEvent } from 'react'
-import { dropFigureUrl, figureAspect, figureAssetGeneration, figureLabel, figureName, figurePlacement, holdFigureUrl, subscribeFigureAssets, type LabFigure } from './labFigures'
+import { dropFigureUrl, figureAspect, figureAssetGeneration, figureLabel, figurePlacement, holdFigureUrl, subscribeFigureAssets, type LabFigure } from './labFigures'
 import { useReaderWindow } from './useReaderWindow'
 import './labCatchUp.css'
 
@@ -28,7 +28,7 @@ function FigureImage({ figure, className }: { figure: LabFigure; className?: str
   }
   // Nothing to draw: the book's picture is missing, cannot be drawn here, or failed twice.
   if (figure.unavailable || !figure.src || (shown.settled && !url)) {
-    return <span className={`lab-figure-missing${className ? ` ${className}` : ''}`} data-testid="lab-figure-missing" role="img" aria-label={figure.caption || figure.alt || figureName(figure)}>
+    return <span className={`lab-figure-missing${className ? ` ${className}` : ''}`} data-testid="lab-figure-missing" role="img" aria-label={figure.caption || figure.alt || `Figure ${figure.number}`}>
       <span className="lab-figure-missing-label">Picture not available</span>
     </span>
   }
@@ -52,8 +52,8 @@ export function LabFigureView({ figure, onOpen }: { figure: LabFigure; onOpen?: 
   const caption = figure.caption ? <span className="lab-figure-caption">{figure.caption}</span> : null
   if (place.mode === 'strip') {
     return (
-      <button type="button" className="lab-figure is-strip" data-figure-id={figure.id} data-figure-kind={figure.kind} data-testid="lab-figure" onClick={open}
-        aria-label={figure.caption ? `${figureName(figure)}: ${figure.caption}` : figureName(figure)}>
+      <button type="button" className="lab-figure is-strip" data-figure-id={figure.id} data-testid="lab-figure" onClick={open}
+        aria-label={figure.caption ? `Figure ${figure.number}: ${figure.caption}` : `Figure ${figure.number}`}>
         <span className="lab-figure-thumb"><FigureImage figure={figure} /></span>
         <span className="lab-figure-strip-text">
           <span className="lab-figure-label">{figureLabel(figure)}</span>
@@ -63,8 +63,8 @@ export function LabFigureView({ figure, onOpen }: { figure: LabFigure; onOpen?: 
     )
   }
   return (
-    <button type="button" className="lab-figure is-inline" data-figure-id={figure.id} data-figure-kind={figure.kind} data-testid="lab-figure" onClick={open}
-      aria-label={figure.caption ? `${figureName(figure)}: ${figure.caption}` : figureName(figure)}>
+    <button type="button" className="lab-figure is-inline" data-figure-id={figure.id} data-testid="lab-figure" onClick={open}
+      aria-label={figure.caption ? `Figure ${figure.number}: ${figure.caption}` : `Figure ${figure.number}`}>
       <span className="lab-figure-frame" style={place.width != null && place.height != null ? { width: place.width, height: place.height } : { aspectRatio: figureAspect(figure) }}>
         <FigureImage figure={figure} />
       </span>
@@ -80,13 +80,11 @@ const MAX_ZOOM = 5
  * zoomed), its caption, and Explain / Chat, in the Catch me up sheet. An
  * overlay only: opening and closing it never moves the reader.
  */
-export function LabFigureCard({ figure, onClose, onExplain, onAsk, onShowPage }: {
+export function LabFigureCard({ figure, onClose, onExplain, onAsk }: {
   figure: LabFigure
   onClose: () => void
   onExplain?: (figure: LabFigure) => void
   onAsk?: (figure: LabFigure) => void
-  /** A reader's own PDF: its page, at this figure, in Original pages. */
-  onShowPage?: (figure: LabFigure) => void
 }) {
   const windowRef = useReaderWindow<HTMLElement>('figure', true)
   const [view, setView] = useState({ scale: 1, x: 0, y: 0 })
@@ -138,13 +136,13 @@ export function LabFigureCard({ figure, onClose, onExplain, onAsk, onShowPage }:
   return (
     <div className="lab-v2-sheet-layer lab-figure-layer" data-testid="lab-figure-layer">
       <button type="button" className="lab-super-scrim" aria-label="Close" onClick={onClose} />
-      <section ref={windowRef} className="lab-v2-sheet lab-figure-card" data-testid="lab-figure-card" data-layer="figure" aria-label={figureName(figure)}>
+      <section ref={windowRef} className="lab-v2-sheet lab-figure-card" data-testid="lab-figure-card" data-layer="figure" aria-label={`Figure ${figure.number}`}>
         <div className="lab-v2-head is-titled" data-reader-window-handle>
-          <h2 className="lab-v2-title">{figureName(figure)}</h2>
+          <h2 className="lab-v2-title">Figure {figure.number}</h2>
           <button type="button" className="lab-v2-dismiss" data-testid="lab-figure-close" aria-label="Close" onClick={onClose}>×</button>
         </div>
         <div className="lab-v2-sheet-body lab-figure-card-body">
-          <div className="lab-figure-zoom" data-testid="lab-figure-zoom" data-zoom={view.scale > 1 ? 'in' : 'out'} data-figure-kind={figure.kind}
+          <div className="lab-figure-zoom" data-testid="lab-figure-zoom" data-zoom={view.scale > 1 ? 'in' : 'out'}
             onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
             <div className="lab-figure-zoom-inner" style={{ transform: `translate(${view.x}px, ${view.y}px) scale(${view.scale})` }}>
               <FigureImage figure={figure} />
@@ -152,10 +150,9 @@ export function LabFigureCard({ figure, onClose, onExplain, onAsk, onShowPage }:
           </div>
           {figure.caption && <p className="lab-figure-card-caption">{figure.caption}</p>}
         </div>
-        {(onExplain || onAsk || onShowPage) && <div className="lab-catch-up-foot lab-figure-card-foot">
+        {(onExplain || onAsk) && <div className="lab-catch-up-foot lab-figure-card-foot">
           {onExplain && <button type="button" className="lab-catch-up-discuss" data-testid="lab-figure-explain" onClick={() => onExplain(figure)}>✧ Explain</button>}
           {onAsk && <button type="button" className="lab-catch-up-discuss" data-testid="lab-figure-ask" onClick={() => onAsk(figure)}>Chat</button>}
-          {onShowPage && <button type="button" className="lab-catch-up-discuss" data-testid="lab-figure-show-page" onClick={() => onShowPage(figure)}>Show page</button>}
         </div>}
       </section>
     </div>
