@@ -214,3 +214,16 @@ describe('Registered books are untouched', () => {
     expect(users).toEqual(['lab/userBook/pdfEdition.ts', 'lab/userBook/userBookStore.ts'])
   })
 })
+
+describe('The title of a paper whose running heads repeat it (Constructor Theory, 16 Oct 2026)', () => {
+  it('reads the printed title, large on page 1, though every page’s head repeats it, and prefers it to a longer metadata title', () => {
+    const api = (globalThis as unknown as { TinctPdfScan: { printedTitle: (pages: unknown[], isFurniture: unknown) => { title: string | null; author: string | null }; furniture: (pages: unknown[]) => unknown; sameTitleLonger: (meta: string | null, printed: string | null) => string | null } }).TinctPdfScan
+    const pages = pagesOf('constructor-theory.pages.json').slice(0, 2).map(page => ({ ...page }))
+    expect(api.printedTitle(pages, api.furniture(pages)).title).toBe('Constructor Theory')
+    // The PDF's metadata title is "Constructor Theory Philosophy" (a journal section after it).
+    expect(api.sameTitleLonger('Constructor Theory Philosophy', 'Constructor Theory')).toBeNull()
+    expect(api.sameTitleLonger('Attention Is All You Need', 'Attention Is All You Need')).toBe('Attention Is All You Need')
+    expect(api.sameTitleLonger('The Yellow Wallpaper', null)).toBe('The Yellow Wallpaper')
+    expect(api.sameTitleLonger('A Treatise', 'Notes')).toBe('A Treatise')
+  })
+})
