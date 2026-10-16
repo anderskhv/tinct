@@ -48,7 +48,7 @@ import {
 import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { createAllowanceGate, type AllowanceGate, type AllowanceView } from './worker/lib/aiAllowance'
 import type { AiUsageRow } from './worker/lib/aiUsage'
-import { handleChat, handleLabChat } from './worker/routes/chat'
+import { MARGIN_NO_SOURCES_RESULT, handleChat, handleLabChat } from './worker/routes/chat'
 import { FACTCHECK_OPENING_ROUTE, factcheckVerdictEffort, MARGIN_ROUTES } from './companion/marginRoutes'
 import { marginRequestRoute } from './companion/companionRequest'
 
@@ -251,7 +251,7 @@ describe('the prompts the Worker builds', () => {
     const counter = parseCompanionRequest({ intent: 'counterpoint', context: pdfContext, selection: PASSAGE })!
     // A PDF says "the document", never "the chapter" (FIXES-2026-10-15, second paper).
     expect(buildCompanionSystem(counter).endsWith(PDF_COUNTERPOINT_PROMPT)).toBe(true)
-    expect(COUNTERPOINT_PROMPT).toContain('At most 150 words in all. No straw men, and no "on the other hand" filler. Do not draw on later chapters.')
+    expect(COUNTERPOINT_PROMPT).toContain('About 120 words in all, plain prose, no headings. No straw men, and no "on the other hand" filler. Do not draw on later chapters.')
     expect(PDF_COUNTERPOINT_PROMPT).toBe(COUNTERPOINT_PROMPT.replace('Do not draw on later chapters.', 'Do not draw on later parts of the document.'))
     const quiz = parseCompanionRequest({ intent: 'quiz', context: pdfContext, selection: PASSAGE })!
     const system = buildCompanionSystem(quiz)
@@ -411,10 +411,10 @@ describe('/api/chat with the margin intents (provider mocked)', () => {
     expect(anthropic[0].model).toBe(route.model)
     expect(anthropic[0].max_tokens).toBe(route.maxTokens)
     expect(anthropic[0].output_config).toEqual({ effort: route.effort })
-    // Haiku's lookups turn thinking off; Counterpoint and Quiz me too, while their trials are on.
+    // Haiku's lookups turn thinking off; Quiz me too, while its trial is on (Counterpoint's is off again, 16 Oct).
     if (route.thinking) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
-    expect(['define_sense', 'quiz_check', 'simplify', 'quiz', 'counterpoint'].includes(intent)).toBe(Boolean(route.thinking))
+    expect(['define_sense', 'quiz_check', 'simplify', 'quiz'].includes(intent)).toBe(Boolean(route.thinking))
     expect(anthropic[0].tools).toBeUndefined()
     expect(String(anthropic[0].system)).not.toContain('ignored')
     const messages = anthropic[0].messages as Array<{ role: string; content: unknown }>
@@ -679,17 +679,34 @@ describe('Fact-check and the source search', () => {
     expect(String(anthropic[0].system)).toContain(FACTCHECK_NO_SEARCH_NOTE)
   })
 
-  it('still answers when the search fails, told not to claim a check', async () => {
+  // Morning retest (16 Oct): a margin Fact-check read "Can't check. The search tool is unavailable right now." The
+  // search is now asked once more, then the answer comes quietly from the document and general knowledge.
+  it('still answers when the search fails twice: asked once more, then quietly from the document, never a word about the tool', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
     vi.spyOn(console, 'log').mockImplementation(() => {})
     const { anthropic, openai } = stubFetch({ search: () => Response.json({ error: { type: 'server_error' } }, { status: 500 }) })
     const response = await handleChat(post('/api/chat', { companion: { intent: 'factcheck', context: pdfContext, selection: PASSAGE } }), { ...env, OPENAI_API_KEY: 'openai-key' }, context().ctx, reader, allow, gateOff)
     expect(response.status).toBe(200)
-    expect(openai).toHaveLength(1)
+    expect(openai).toHaveLength(2)
     const messages = anthropic[0].messages as Array<{ content: Array<Record<string, unknown>> | string }>
     const result = (messages[2].content as Array<Record<string, unknown>>)[0]
-    expect(result.is_error).toBe(true)
-    expect(String(result.content)).toContain('do not claim that sources were checked')
+    expect(result.is_error).toBeUndefined()
+    expect(result.content).toBe(MARGIN_NO_SOURCES_RESULT)
+    expect(String(result.content)).toContain('Never mention a search, a tool')
+    expect(String(result.content)).not.toMatch(/failed|unavailable right now|limit/i)
+  })
+
+  it('a search that fails once and then answers is used as any search is', async () => {
+    let calls = 0
+    const { anthropic, openai } = stubFetch({ search: () => (++calls === 1 ? Response.json({ error: { type: 'server_error' } }, { status: 500 }) : evidence()) })
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const response = await handleChat(post('/api/chat', { companion: { intent: 'factcheck', context: pdfContext, selection: PASSAGE } }), { ...env, OPENAI_API_KEY: 'openai-key' }, context().ctx, reader, allow, gateOff)
+    expect(response.status).toBe(200)
+    expect(openai).toHaveLength(2)
+    const messages = anthropic[0].messages as Array<{ content: Array<Record<string, unknown>> | string }>
+    const result = (messages[2].content as Array<Record<string, unknown>>)[0]
+    expect(result.is_error).toBeUndefined()
+    expect(String(result.content)).toContain('Public-source evidence')
   })
 
   it('is the only new intent that searches', async () => {
