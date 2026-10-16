@@ -473,8 +473,6 @@
 }
 
 /* Beat Safari / UA h1 (2em) so computed size equals Hearing body. */
-/* A first chapter named as the book (a reader's own book): its heading stays in the tree, unshown. */
-.lab .lab-passage-headline[hidden] { display: none !important; }
 .lab h1.lab-passage-headline {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 2.45rem;
@@ -4857,17 +4855,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   height: 100%;
   object-fit: contain;
 }
-/* A crop of a reader's own PDF page (Tinct text): drawn on clear paper, so it takes the page's own.
-   On night paper a formula's or a table's ink is turned light; a figure keeps its colours on a
-   light plate. */
-.lab .lab-figure[data-figure-kind] .lab-figure-frame { background: none; border-radius: 0; }
-.lab.is-night .lab-figure[data-figure-kind="equation"] img,
-.lab.is-night .lab-figure[data-figure-kind="table"] img { filter: invert(1) hue-rotate(180deg); }
-.lab.is-night .lab-figure[data-figure-kind="figure"] .lab-figure-frame { background: #f4efe4; border-radius: 3px; }
-.lab .lab-figure[data-figure-kind="equation"] { margin: .2em 0 .45em; }
-.lab.is-night .lab-figure-zoom[data-figure-kind="equation"] img,
-.lab.is-night .lab-figure-zoom[data-figure-kind="table"] img { filter: invert(1) hue-rotate(180deg); }
-.lab.is-night .lab-figure-zoom[data-figure-kind="figure"] img { background: #f4efe4; }
 .lab .lab-figure-caption {
   display: block;
   margin-top: .45em;
@@ -4943,8 +4930,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 .lab .lab-figure-zoom img { display: block; max-width: 100%; max-height: 62vh; object-fit: contain; -webkit-user-select: none; user-select: none; }
 .lab .lab-figure-card-caption { margin: 0; font-family: var(--lab-font-reader, 'EB Garamond', Georgia, serif); font-style: italic; font-size: 17px; line-height: 1.4; }
 .lab .lab-figure-card-foot { gap: 10px; }
-/* Three actions (a PDF crop adds Show page) share the width on a phone. */
-.lab[data-chrome-version="v2"] .lab-figure-card-foot .lab-catch-up-discuss { min-width: 0; flex: 0 1 132px; padding: 0 12px; white-space: nowrap; }
 
 /* Links: tappable, quiet. A bare address shows its domain and an arrow. */
 .lab .lab-link {
@@ -4985,12 +4970,11 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   line-height: 1.3;
   color: var(--lab-ink-muted, #6a6256);
 }
-/* The byline as the book gives it, in the UI face (design system: no mono, no all-caps labels). */
 .lab .lab-book-opening p.lab-book-opening-author {
   margin-top: .7rem;
-  font: 500 .95rem/1.35 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  letter-spacing: normal;
-  text-transform: none;
+  font: 500 .72rem/1.3 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--lab-ink-muted, #6a6256);
 }
 

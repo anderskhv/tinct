@@ -144,21 +144,6 @@ describe('lab prefs', () => {
     expect(mid.honest).toBe(true)
   })
 
-  it('holds the book’s page count once shown: a chapter change does not move it (Constructor Theory, 16 Oct 2026)', () => {
-    const chapterWeights = [{ number: 1, wordCount: 200 }, { number: 2, wordCount: 4_000 }, { number: 3, wordCount: 4_000 }]
-    // Chapter one counted at 3 pages; chapter two (20 estimated) counts at 14 when it is in front of the reader.
-    const first = labBookPageEstimate({ currentPage: 2, totalPages: 3, chapterNumber: 1, chapterWeights, wordsPerPage: 200 })
-    const unheld = labBookPageEstimate({ currentPage: 1, totalPages: 14, chapterNumber: 2, chapterWeights, wordsPerPage: 200 })
-    expect(unheld.totalPages).not.toBe(first.totalPages)
-    const held = labBookPageEstimate({ currentPage: 1, totalPages: 14, chapterNumber: 2, chapterWeights, wordsPerPage: 200, heldTotalPages: first.totalPages })
-    expect(held.totalPages).toBe(first.totalPages)
-    expect(held.page).toBe(unheld.page)
-    expect(held.percent).toBe(Math.round((held.page / held.totalPages) * 100))
-    // Never past the last page.
-    expect(labBookPageEstimate({ currentPage: 14, totalPages: 14, chapterNumber: 3, chapterWeights, wordsPerPage: 200, heldTotalPages: 30 }).page).toBe(30)
-    expect(labReaderProgressLabel({ mode: 'book', currentPage: 1, totalPages: 14, chapterPercent: 0, chapterNumber: 2, chapterWordCounts: chapterWeights, wordsPerPage: 200, heldTotalPages: first.totalPages })).toBe(`2 / ${first.totalPages} of book · ${Math.round((2 / first.totalPages) * 100)}%`)
-  })
-
   it('weights Bible chapters by paragraph count when no per-chapter words ship', () => {
     // The Bible manifest carries 1,189 chapters with paragraph counts only;
     // laying them all out is never worth it, so the catalogue total is spread.

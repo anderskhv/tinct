@@ -20,7 +20,7 @@
  * forwards to Tinct text once it has classified the document.
  */
 import { pageOfTextPlace, textPlaceOfPage, type PdfTextPlace } from './pdfAnchors'
-import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace, type UserBookPlace } from './userBookPlace'
+import { readUserBookPlace, writeUserBookPlace, type UserBookPlace } from './userBookPlace'
 import type { UserBookChapter, UserBookEdition } from './userEdition'
 
 export const PDF_EDITION_PREFIX = 'tinct-addbook:edition:'
@@ -102,21 +102,8 @@ function inEdition(edition: UserBookEdition, place: PdfTextPlace): PdfTextPlace 
  * at its page. `page` (a link's `&page=`) wins when the place is on another
  * page. The place chosen is kept as the reader's own.
  */
-export function readPdfTextPlace(hex: string, edition: UserBookEdition, options: { page?: number | null; read?: Read; previous?: UserBookEdition | null } = {}): UserBookPlace | null {
-  let own = readUserBookPlace(hex, edition)
-  // A place read under other rules (a conversion made before this one) names other paragraphs:
-  // it moves to the same spot on its PDF page, found in the conversion it was read in when that
-  // is at hand, else the shared place's page decides (below).
-  let moved = false
-  const rules = storedPlaceConverter(hex)
-  if (typeof rules === 'number' && rules !== edition.converter) {
-    const previous = options.previous && options.previous.converter === rules ? options.previous : null
-    const before = previous ? readUserBookPlace(hex, previous) : null
-    const at = before && previous ? pageOfTextPlace(previous.chapters, before) : null
-    const spot = at ? textPlaceOfPage(edition.chapters, at.page, at.frac) : null
-    own = spot && before ? { ...spot, updatedAt: before.updatedAt, converter: edition.converter } : null
-    moved = true
-  }
+export function readPdfTextPlace(hex: string, edition: UserBookEdition, options: { page?: number | null; read?: Read } = {}): UserBookPlace | null {
+  const own = readUserBookPlace(hex, edition)
   const pos = readPos(hex, options.read)
   let place: UserBookPlace | null = own
   const posAt = typeof pos?.at === 'number' ? pos.at : 0
@@ -133,7 +120,7 @@ export function readPdfTextPlace(hex: string, edition: UserBookEdition, options:
     const spot = textPlaceOfPage(edition.chapters, page)
     if (spot) place = { ...spot, updatedAt: place?.updatedAt ?? 0, converter: edition.converter }
   }
-  if (place && (place !== own || moved)) writeUserBookPlace(hex, place)
+  if (place && place !== own) writeUserBookPlace(hex, place)
   return place
 }
 
@@ -170,22 +157,7 @@ export function keepPdfTextPlace(hex: string, chapters: readonly UserBookChapter
  * Returns the page to open the viewer at.
  */
 export function choosePdfPages(hex: string, chapters: readonly UserBookChapter[], place: UserBookPlace, pages?: number): number {
-  return choosePdfPageAt(hex, chapters, place, pages).page
-}
-
-/** As choosePdfPages, with how far down the page the spot stands (`frac`, for the viewer's `&frac=`). */
-export function choosePdfPageAt(hex: string, chapters: readonly UserBookChapter[], place: UserBookPlace, pages?: number): { page: number; frac: number } {
   writePdfEditionChoice(hex, 'pages')
   const kept = keepPdfTextPlace(hex, chapters, { ...place, updatedAt: Date.now() }, { edition: 'p', pages })
-  return kept ?? { page: 1, frac: 0 }
-}
-
-/**
- * "Show page": a look at the PDF's own page at a paragraph, the book still read as Tinct text.
- * The spot is kept as the shared place (still in Tinct text), and no choice changes, so Back, or
- * the viewer's "Tinct text", returns to the same paragraph. -> the page and how far down it.
- */
-export function showPdfPageAt(hex: string, chapters: readonly UserBookChapter[], place: UserBookPlace, pages?: number): { page: number; frac: number } {
-  const kept = keepPdfTextPlace(hex, chapters, { ...place, updatedAt: Math.max(place.updatedAt, 1) }, { edition: 't', pages })
-  return kept ?? { page: 1, frac: 0 }
+  return kept?.page ?? 1
 }
