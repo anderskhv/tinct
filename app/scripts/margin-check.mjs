@@ -38,6 +38,9 @@
 //   node scripts/margin-check.mjs phone-ui            the PM's battery of 15 Oct (phones): the text column fit on a phone (zoom, pan inside
 //                                                     the page, place and pinch kept), the header's title and pill, the desktop unchanged,
 //                                                     Chat in the t menu, Escape on the Aa panel, &pages on a first open, two devices at once (409)
+//   node scripts/margin-check.mjs phone-kind          option C (16 Oct): on a phone a PDF opens by its kind: a narrative as its Tinct text
+//                                                     (on to the Tinct reader), a paper in its pages at the column fit (layout check);
+//                                                     the reader's choice wins; the desktop ignores the phone's default
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -2707,6 +2710,70 @@ async function phoneUi(browser, origin) {
   return results
 }
 
+/* ---------- Option C (Anders, 16 Oct 2026): on a phone a PDF opens by its kind ---------- */
+async function phoneKindCheck(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 600)}`) }
+  const PROSE = join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), PAPER = join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')
+  const prose = addBook(PROSE), paper = addBook(PAPER)
+  // A fresh profile (or one with `seed` in this device's storage), signed in: where the book ends up.
+  const open = async (hex, { width, height, seed = {}, look = 'paper', keep = false } = {}) => {
+    const phone = width < 700
+    const ctx = await browser.newContext({ viewport: { width, height }, hasTouch: phone, isMobile: false })
+    await ctx.addInitScript(([session, seed, look]) => {
+      try {
+        if (sessionStorage.getItem('seeded')) return
+        sessionStorage.setItem('seeded', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: { paper: 'light', book: 'book', night: 'dark', eink: 'light' }[look] }))
+        for (const [k, v] of Object.entries(seed)) localStorage.setItem('tinct-addbook:' + k, JSON.stringify(v))
+      } catch {}
+    }, [SESSION, seed, look])
+    const page = await ctx.newPage(), errors = []
+    page.on('pageerror', e => errors.push(e.message))
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (typeof state !== 'undefined' && state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20), null, { timeout: 30000 }).catch(() => {})
+    await page.waitForTimeout(1200)
+    const where = await page.evaluate(() => location.pathname + location.search)
+    const kept = await page.evaluate(hex => { const g = k => { try { return JSON.parse(localStorage.getItem('tinct-addbook:' + k)) } catch { return null } }; return { edition: g('edition:' + hex), auto: g('phone-edition:' + hex) } }, hex)
+    if (!keep) await ctx.close()
+    return { where, kept, errors, ctx, page }
+  }
+  const views = SAMPLE ? [[390, 844, 'paper'], [360, 740, rotate(LOOKS, 2)]] : VIEWPORTS.filter(([w]) => w < 700).flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+  for (const [width, height, look] of views) {
+    const tag = `phone-kind-${width}x${height}-${look}`
+    // A narrative: on to the Tinct reader once its first scan is done; the phone's default kept, marked as the phone's.
+    const a = await open(prose, { width, height, look })
+    ok(`${tag}: a narrative (prose_book) opens as its Tinct text (on to the Tinct reader) on a first open`, a.where.startsWith('/reader?userBook=' + prose) && a.kept.edition === 'text' && a.kept.auto?.edition === 'text' && a.kept.auto?.kind === 'narrative' && !a.errors.length, a)
+    // A paper: its pages at the column fit, the layout check clean; reopened, the same.
+    const b = await open(paper, { width, height, look, keep: true })
+    const c = b.where.startsWith('/lab/addbook/') ? await b.page.evaluate(columnState, 10) : null
+    ok(`${tag}: a paper (two_column_paper) opens in its pages at the column fit (${c?.zoom}×)`, b.where.startsWith('/lab/addbook/?userBook=' + paper) && c?.fit && c.zoom > 2 && b.kept.edition === 'pages' && b.kept.auto?.kind === 'paper', { where: b.where, c, kept: b.kept })
+    if (c) {
+      const problems = await checkMargin(b.page)
+      ok(`${tag}: layout check in the column fit`, !problems.length, problems)
+      if (!process.env.NO_SHOTS) await b.page.screenshot({ path: join(OUT, `${tag}-paper.png`) })
+      await b.page.reload(); await b.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).catch(() => {}); await b.page.waitForTimeout(800)
+      ok(`${tag}: reopened, the paper stays in its pages`, await b.page.evaluate(() => location.pathname === '/lab/addbook/' && !!state.fit?.column))
+    }
+    ok(`${tag}: no page errors`, !b.errors.length, b.errors)
+    await b.ctx.close()
+  }
+  // The reader's own choice wins over the kind, either way.
+  const own1 = await open(prose, { width: 390, height: 844, seed: { ['edition:' + prose]: 'pages' } })
+  ok('phone-kind: the reader\'s choice of its pages keeps a narrative in its pages', own1.where.startsWith('/lab/addbook/') && own1.kept.edition === 'pages' && !own1.kept.auto, own1)
+  const own2 = await open(paper, { width: 390, height: 844, seed: { ['edition:' + paper]: 'text' } })
+  ok('phone-kind: the reader\'s choice of Tinct text opens a paper as its Tinct text', own2.where.startsWith('/reader?userBook=' + paper) && !own2.kept.auto, own2)
+  const own3 = await open(prose, { width: 390, height: 844, seed: { ['pos:pdf:' + prose]: { page: 2, frac: 0.1, edition: 'p', at: Date.now() } } })
+  ok('phone-kind: a place read in its pages keeps a narrative in its pages', own3.where.startsWith('/lab/addbook/') && !own3.kept.auto, own3)
+  // The desktop: the phone's default kept on this device is not a choice; the scan's default stands.
+  const desk = await open(prose, { width: 1280, height: 800, seed: { ['edition:' + prose]: 'pages', ['phone-edition:' + prose]: { edition: 'pages', kind: 'practical', by: 'text', v: 1 } } })
+  ok('phone-kind: the desktop ignores the phone\'s default and opens the scan\'s (prose_book: Tinct text)', desk.where.startsWith('/reader?userBook=' + prose), desk)
+  const desk2 = await open(paper, { width: 1280, height: 800 })
+  ok('phone-kind: the desktop opens a paper in its pages, as before, and keeps no phone default', desk2.where.startsWith('/lab/addbook/') && !desk2.kept.auto && desk2.kept.edition === null, desk2)
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -2728,6 +2795,7 @@ const RUNS = {
   long: [longBooks, rows => rows.some(r => !r.pass)],
   polish: [polish, rows => rows.some(r => !r.pass)],
   'phone-ui': [phoneUi, rows => rows.some(r => !r.pass)],
+  'phone-kind': [phoneKindCheck, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -2764,6 +2832,7 @@ try {
   else if (mode === 'polish') { const rows = await polish(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'polish-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'phone-ui') { const rows = await phoneUi(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-ui-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'phone-kind') { const rows = await phoneKindCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-kind-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
