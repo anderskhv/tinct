@@ -4,7 +4,7 @@ Requested by Anders on 16 October 2026. Groups are on hold, so this replaces the
 
 ## What it does
 
-A signed-in reader types a friend's email address. They can also suggest a book and add a note. Tinct then sends that person one email. When the friend joins from the email, the two follow each other straight away, both ways. The suggested book opens first.
+A signed-in reader types a friend's email address. They can also suggest a book and add a note. Tinct then sends that person one email. When the friend joins from the email, the two follow each other straight away, both ways. They land in the returning-reader library with the suggested book on the table.
 
 ## The inviter
 
@@ -47,7 +47,7 @@ A signed-in reader types a friend's email address. They can also suggest a book 
    - Continue with Google, or email prefilled with the invited address;
    - "Already on Tinct? Sign in, and you’ll follow each other."
 3. **Sign-up** is the normal flow. Step 2 (board 6) adds one line: "You and <name> will follow each other."
-4. **Arrival** (board 7): the suggested book opens at its start, with a dismissable card "You and <name> follow each other" and the note's first sentence. With no book suggested, they land in the library. Either way the book goes onto their desk, as reading it would.
+4. **Arrival** (board 7): the friend lands in the returning-reader library, the table scene. The suggested book lies on the table with a "From <name>" tag; tap it to start. A dismissable card at the bottom reads "You and <name> follow each other", shows the note, and offers Later and Start reading. The book is on their desk, as if they had started it, and stays until they remove it (the desk rule of 30 September). With no book suggested, they land in the same library without the book, and the card has no Start reading.
 5. **Following:** at account creation (or sign-in for an existing account), the server creates both follows. Mutual follows make them Friends in the existing model.
 6. **Existing account:** signing in from the link creates the same two follows. They are skipped if either reader has blocked the other.
 7. **Bad links:** an expired or used token still shows the join page, without the auto-follow, and says "This invite has expired". The friend can still join. Accepting an invite the friend sent to themselves does nothing.
@@ -82,6 +82,6 @@ All new words go in `cardsCopy.ts` (`inviteFriend`, `theirEmail`, `suggestBook`,
   - invite from profile A;
   - open the email link in a fresh profile;
   - sign up with Google or email;
-  - check both follow each other, the book opens, the card shows, and A's board shows the friend;
+  - check both follow each other, the library opens with the book on the table, the card shows, and A's board shows the friend;
   - repeat with an existing account.
 - Use the test accounts, flagged with `?internal=1`.
