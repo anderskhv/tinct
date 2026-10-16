@@ -70,6 +70,8 @@ export interface SelectionPopupProps {
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define') => Promise<string>
   onCopy: () => void
+  /** A reader's own PDF read as Tinct text: its page, at this passage, in Original pages. */
+  onShowPage?: () => void
   onShare?: (text: string) => void
   /** Share a saved highlight as an image (live reader). */
   onShareHighlight?: (id: string) => void
@@ -93,6 +95,16 @@ export function CopyIcon() {
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
       <rect x="5" y="5" width="9" height="9" rx="1" />
       <path d="M11 5 V3 a1 1 0 0 0 -1 -1 H3 a1 1 0 0 0 -1 1 v7 a1 1 0 0 0 1 1 h2" />
+    </svg>
+  )
+}
+
+/** A page with its corner turned: the PDF's own page. */
+function PageIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 2h5.5L12 4.5V14H4z" />
+      <path d="M9.5 2v2.5H12" />
     </svg>
   )
 }
@@ -161,6 +173,7 @@ export function SelectionPopup({
   onTalkExplanation,
   onRequestExplanation,
   onCopy,
+  onShowPage,
   onDeleteHighlight,
   onShareHighlight,
   dismissPopup,
@@ -539,6 +552,7 @@ export function SelectionPopup({
               <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Chat</span></button>
               <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><HighlightIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
+              {onShowPage && <button type="button" className="popup-menu-action" data-testid="popup-show-page" onClick={onShowPage}><PageIcon /><span>Show page</span></button>}
               {selection.existingHighlightId && onShareHighlight && <button type="button" className="popup-menu-action" data-testid="popup-share-highlight" onClick={() => onShareHighlight(selection.existingHighlightId!)}><ShareIcon /><span>Share</span></button>}
             </>
           ) : <>
@@ -546,6 +560,7 @@ export function SelectionPopup({
             : <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><HighlightIcon /><span>Highlight</span></button>}
           {(popupMode === 'colors' || selection.existingHighlightId) && <div className="popup-colors" aria-label="Highlight colour">{HIGHLIGHT_COLORS.map(c => <button key={c.key} type="button" className={`popup-color-dot highlight-${c.key}${(currentHighlightColor ?? lastColor) === c.key ? ' is-selected' : ''}`} title={`Highlight ${c.label}`} aria-label={`Highlight ${c.label}`} aria-pressed={(currentHighlightColor ?? lastColor) === c.key} onClick={() => applyColor(c.key)} />)}</div>}
           <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>
+          {onShowPage && <button type="button" className="popup-menu-action" data-testid="popup-show-page" onClick={onShowPage}><PageIcon /><span>Show page</span></button>}
           <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Chat</span></button>
           <button type="button" className="popup-menu-action" onClick={() => requestNote()}><NoteIcon /><span>{selection.existingNote ? 'Edit note' : 'Add note'}</span></button>
           {character && <div className="popup-menu-secondary"><button type="button" onClick={onDefine}>Dictionary</button><button type="button" onClick={() => { setGalleryId(null); setPopupMode('gallery') }}>Character gallery</button></div>}
