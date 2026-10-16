@@ -473,6 +473,8 @@
 }
 
 /* Beat Safari / UA h1 (2em) so computed size equals Hearing body. */
+/* A first chapter named as the book (a reader's own book): its heading stays in the tree, unshown. */
+.lab .lab-passage-headline[hidden] { display: none !important; }
 .lab h1.lab-passage-headline {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 2.45rem;
@@ -7607,6 +7609,3 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 /* Talk status (Anders, 9 Oct 2026): slightly smaller, with more room above the controls. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { font-size: 19px; margin: 2px 0 14px; }
 .lab[data-chrome-version="v2"] .lab-call-status { font-size: 24px; margin-bottom: 18px; }
-
-/* A first chapter named as the book (a reader's own book): its heading stays in the tree, unshown. */
-.lab .lab-passage-headline[hidden] { display: none !important; }
