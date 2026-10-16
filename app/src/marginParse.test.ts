@@ -59,8 +59,33 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
       for (const text of ['{a, b}', '{p. 12, which shows}', '{x, p. 3}']) expect(m.parseCitations(text)).toEqual([{ type: 'text', text }])
     })
 
+    // Retest after train 2 (15 Oct, evening): raw "{pp. 5}" and "(p. 2)" in Define and Explain, and a merged "p. 5p. 6".
+    it('reads {pp. N} as one page, and (p. N) or (pp. N–M) as tags; never runs two tags together', () => {
+      expect(m.citationTokens('{pp. 5}')).toEqual([{ type: 'cite', kind: 'p', label: '5', raw: '{pp. 5}' }])
+      expect(m.parseCitations('as the decoder does (p. 2), and later (pp. 5–6).')).toEqual([
+        { type: 'text', text: 'as the decoder does ' },
+        { type: 'cite', kind: 'p', label: '2', raw: '(p. 2)' },
+        { type: 'text', text: ', and later ' },
+        { type: 'cite', kind: 'pp', label: '5', to: '6', raw: '(pp. 5–6)' },
+        { type: 'text', text: '.' },
+      ])
+      expect(m.citationTokens('(p. xii)')[0]).toMatchObject({ kind: 'p', label: 'xii' })
+      for (const text of ['cross validation {p. 5}{p. 6}.', 'cross validation {p. 5} {p. 6}.']) {
+        expect(m.parseCitations(text)).toEqual([
+          { type: 'text', text: 'cross validation ' },
+          { type: 'cite', kind: 'p', label: '5', raw: '{p. 5}' },
+          { type: 'text', text: ', ' },
+          { type: 'cite', kind: 'p', label: '6', raw: '{p. 6}' },
+          { type: 'text', text: '.' },
+        ])
+      }
+      // Turned down by resolve: as written, parentheses and all.
+      expect(m.parseCitations('see (p. 99).', () => false)).toEqual([{ type: 'text', text: 'see (p. 99).' }])
+    })
+
     it('leaves anything else in braces as text, exactly as written', () => {
-      for (const text of ['\\frac{a}{b}', '{x}', '{p.}', '{pp. 12}', '{eq. 1–2}', '{page 12}', '{p. 12', 'p. 12}', '{p. "12"}', '{p. <b>1</b>}', '{}', '{p. 1234567890123456789}']) {
+      // '{pp. 12}' was here: since the retest after train 2 it is one page ({p. 12}), see below.
+      for (const text of ['\\frac{a}{b}', '{x}', '{p.}', '(p. value)', '(see p. 2)', '{eq. 1–2}', '{page 12}', '{p. 12', 'p. 12}', '{p. "12"}', '{p. <b>1</b>}', '{}', '{p. 1234567890123456789}']) {
         const parts = m.parseCitations(text)
         expect(parts.every(part => part.type === 'text')).toBe(true)
         expect(parts.map(part => (part.type === 'text' ? part.text : '')).join('')).toBe(text)
@@ -311,3 +336,92 @@ describe('the static-page copy matches the app copy', () => {
     expect(pageCopy.PASSAGE_IMAGE_LINE).toBe(PASSAGE_IMAGE_LINE)
   })
 })
+
+// Retest after train 2 (15 Oct, evening, GAN paper): one Simplify repeated the passage word for word as its
+// first paragraph, one ended "The rewrite is a restatement of…". Both copies.
+describe.each(copies)('Simplify answers as the card shows them (%s)', (_name, m) => {
+  it('drops a paragraph that is the passage again when a rewrite follows it', () => {
+    const passage = 'procedure for G is to maximize the probability of D making a mistake'
+    const reply = 'The training procedure for G is to maximize the probability of D making a mistake.\n\nThe generator G is trained to make the discriminator D get things wrong as often as possible.'
+    expect(m.wordSimilarity(reply.split('\n\n')[0], passage)).toBeGreaterThanOrEqual(m.SIMPLIFY_SAME)
+    expect(m.simplifyAnswer(reply, passage)).toEqual({ text: 'The generator G is trained to make the discriminator D get things wrong as often as possible.', unchanged: false })
+  })
+  it('drops a closing note about the rewrite', () => {
+    const passage = 'This objective function results in the same fixed point of the dynamics of G and D but provides much stronger gradients early in learning'
+    const reply = 'This objective gives the same final result for G and D, but it gives much stronger learning signals early on.\n\nThe rewrite is a restatement of the selected sentence, which only says the alternative objective reaches the same fixed point.'
+    expect(m.simplifyAnswer(reply, passage)).toEqual({ text: 'This objective gives the same final result for G and D, but it gives much stronger learning signals early on.', unchanged: false })
+    for (const note of ['This simplified version keeps every claim.', 'Note: the rewrite keeps the order.', "I've kept the equation as written."]) {
+      expect(m.simplifyAnswer(`A plain line.\n\n${note}`, passage).text).toBe('A plain line.')
+    }
+  })
+  it('says so when nothing but the passage came back, and leaves a real rewrite alone', () => {
+    expect(m.simplifyAnswer('G must not be trained too much without updating D.', 'G must not be trained too much without updating D')).toEqual({ text: '', unchanged: true })
+    // Citation tags and punctuation do not make a copy look new.
+    expect(m.simplifyAnswer('G must not be trained too much, without updating D {p. 7}.', 'G must not be trained too much without updating D').unchanged).toBe(true)
+    const real = 'The generator should not get many training steps in a row while the discriminator stays the same.'
+    expect(m.simplifyAnswer(real, 'G must not be trained too much without updating D')).toEqual({ text: real, unchanged: false })
+    // A one-paragraph answer is never taken for a note; an empty answer is not "unchanged".
+    expect(m.simplifyAnswer('The rewrite of this is simple.', 'x y z').text).toBe('The rewrite of this is simple.')
+    expect(m.simplifyAnswer('', 'x')).toEqual({ text: '', unchanged: false })
+  })
+})
+
+// Production re-run after train 3 (15 Oct, evening): a four-word selection got two paragraphs repeating
+// the whole sentence; some answers quoted the passage back. Both copies.
+describe.each(copies)('Simplify after the train-3 re-run (%s)', (_name, m) => {
+  it('a selection of a few words keeps one short restatement, never a second paragraph', () => {
+    const reply = 'Where each word sits.\n\nWe must inject some information about the relative or absolute position of the tokens in the sequence.'
+    expect(m.simplifyAnswer(reply, 'position of the tokens')).toEqual({ text: 'Where each word sits.', unchanged: false })
+    // A longer passage keeps its rewrite.
+    const long = 'we must inject some information about the relative or absolute position of the tokens in the sequence'
+    expect(m.simplifyAnswer('The model must be told where each token is.\n\nIt needs some signal of order.', long).text).toBe('The model must be told where each token is.\n\nIt needs some signal of order.')
+  })
+  it('drops a sentence that quotes the passage back, its citation with it', () => {
+    const passage = 'Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions'
+    const reply = 'Multi-head attention lets the model look at several kinds of information at once. The passage\'s own words on this are: "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions." {p. 5}\n\nEach head can focus on something different.'
+    expect(m.simplifyAnswer(reply, passage).text).toBe('Multi-head attention lets the model look at several kinds of information at once.\n\nEach head can focus on something different.')
+    // A short quotation of a term stays.
+    expect(m.simplifyAnswer('Here "subspaces" means separate views of the input.', passage).text).toBe('Here "subspaces" means separate views of the input.')
+  })
+})
+
+// Full battery on train 3 (15 Oct, night): fiction pasted the passage and the sentences after it back,
+// Metamorphosis printed one line twice, and an Explain said "The image confirms this passage reads as printed".
+describe.each(copies)('after the full battery on train 3 (%s)', (_name, m) => {
+  const page = 'The front pattern does move, and no wonder! The woman behind shakes it! Sometimes I think there are a great many women behind, and sometimes only one, and she crawls around fast, and her crawling shakes it all over.'
+  it('Simplify never shows the sentences after the passage pasted back from the page', () => {
+    const reply = 'The pattern on the wallpaper really does move.\n\nThe woman behind shakes it. Sometimes I think there are a great many women behind, and sometimes only one, and she crawls around fast.'
+    expect(m.copiedShare(reply.split('\n\n')[1], page)).toBeGreaterThanOrEqual(m.SIMPLIFY_COPIED)
+    expect(m.simplifyAnswer(reply, 'The front pattern does move, and no wonder!', page).text).toBe('The pattern on the wallpaper really does move.')
+    // Its own plain words are kept, whatever the page says.
+    expect(m.copiedShare('The narrator thinks a woman is trapped behind the pattern and is shaking it.', page)).toBeLessThan(m.SIMPLIFY_COPIED)
+    // Only the page's copy came back: said so.
+    expect(m.simplifyAnswer('The woman behind shakes it! Sometimes I think there are a great many women behind.', 'The woman behind shakes it!', page).unchanged).toBe(true)
+  })
+  it('Simplify never shows the same line or paragraph twice', () => {
+    const passage = 'a gigantic, bony charwoman with white hair flying round her head'
+    expect(m.simplifyAnswer('A huge, heavy-boned cleaning woman with white hair.\n\nA huge, heavy-boned cleaning woman with white hair.', passage).text).toBe('A huge, heavy-boned cleaning woman with white hair.')
+    expect(m.simplifyAnswer('A big cleaning woman.\nA big cleaning woman.\nHer hair flew about.', passage).text).toBe('A big cleaning woman.\nHer hair flew about.')
+  })
+  it('drops a sentence about the passage picture, and nothing else', () => {
+    expect(m.withoutPictureTalk('The image confirms this passage reads as printed. The sentence says the model drops recurrence.')).toBe('The sentence says the model drops recurrence.')
+    expect(m.withoutPictureTalk('It drops recurrence. The attached image matches the text.\n\nMore here.')).toBe('It drops recurrence.\n\nMore here.')
+    for (const text of ['The picture of a yellow room recurs through the story.', 'The image of the wallpaper shows her state of mind.', 'Printed words matter here.']) expect(m.withoutPictureTalk(text)).toBe(text)
+  })
+})
+
+// Night smoke run (15 Oct): a Simplify answer ended with a bare "p. 1." (no braces). Both copies.
+describe.each(copies)('a bare page at the end of a line or an answer (%s)', (_name, m) => {
+  it('is a tag; the same words mid-sentence stay text', () => {
+    expect(m.parseCitations('G tries to make D get things wrong p. 1.')).toEqual([
+      { type: 'text', text: 'G tries to make D get things wrong ' },
+      { type: 'cite', kind: 'p', label: '1', raw: 'p. 1' },
+      { type: 'text', text: '.' },
+    ])
+    expect(m.citationTokens('One line p. 2\nThe next.').map(t => t.label)).toEqual(['2'])
+    expect(m.citationTokens('Ends p.12')[0]).toMatchObject({ kind: 'p', label: '12' })
+    expect(m.citationTokens('Ends pp. 5–6.')[0]).toMatchObject({ kind: 'pp', label: '5', to: '6' })
+    for (const text of ['See p. 3 for more.', 'pp. 5–6.', 'a p. value of 0.05', 'p. 1']) expect(m.parseCitations(text).every(part => part.type === 'text')).toBe(true)
+  })
+})
+

@@ -244,7 +244,7 @@ type ContentBlock = TextBlock | ToolUseBlock | { type: string; [key: string]: un
 
 type RoundOutcome =
   | { ok: true; content: ContentBlock[]; stopReason: string | null; message: Record<string, unknown> | null }
-  | { ok: false; status: number; body: unknown }
+  | { ok: false; status: number; body: unknown; /** Why, for the margin's failure log (metadata only). */ cause?: string }
 
 /** A margin request's labels for the cache log: numbers and names only, never content. */
 type CacheLogLabel = { intent: string; model: string }
@@ -316,11 +316,18 @@ function streamAnthropicResponse(response: Response, request: Request, env: Chat
     const stopError = margin && outcome.ok ? marginStopError(outcome.stopReason) : null
     if (stopError) {
       logChatFailure('stream', stopError)
+      logMarginFailure(request, timing, margin!, { status: 200, errorType: stopError, phase: 'stream', stream: true })
       logChatRequestTiming(timing, 'failed', timing.firstTextMs !== null)
       sink.write('error', safeChatError(stopError))
       return
     }
-    if (margin && outcome.ok && timing.firstTextMs !== null) charge()
+    if (margin && !outcome.ok) logMarginFailure(request, timing, margin, { status: 200, errorType: bodyErrorType(outcome.body), cause: outcome.cause, phase: 'stream', stream: true })
+    // A margin answer is charged only when it reached the reader: one whose connection went
+    // away first (the client then retries once, tinct-api.js) is never charged twice.
+    if (margin && outcome.ok && timing.firstTextMs !== null) {
+      if (sink.open?.() === false) logMarginFailure(request, timing, margin, { status: 200, cause: 'client_gone', phase: 'stream', stream: true })
+      else charge()
+    }
     logChatRequestTiming(timing, outcome.ok ? 'completed' : 'failed', timing.firstTextMs !== null)
     if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
   }, { 'X-Tinct-Chat-Request-Id': timing.requestId })
@@ -334,6 +341,67 @@ function streamAnthropicResponse(response: Response, request: Request, env: Chat
  */
 export function marginStopError(stopReason: string | null | undefined): 'refusal' | 'cut_off' | null {
   return stopReason === 'refusal' ? 'refusal' : stopReason === 'max_tokens' ? 'cut_off' : null
+}
+
+/** The error type in a failure body (safeChatError's `error.type`), or null. */
+function bodyErrorType(body: unknown): string | null {
+  const error = body && typeof body === 'object' ? (body as { error?: unknown }).error : null
+  const type = error && typeof error === 'object' ? (error as { type?: unknown }).type : null
+  return typeof type === 'string' ? type.slice(0, 40) : null
+}
+
+/**
+ * Why a PDF-reader margin answer failed, in a few words for the log: the
+ * provider overloaded or rate-limited, its 5xx, a timeout, a dropped
+ * connection or stream, an empty answer, a refusal or a cut-off, or the
+ * reader's own connection gone before the answer reached it.
+ */
+export function marginFailureCause(status: number | null, errorType: string | null): string {
+  switch (errorType) {
+    case 'overloaded_error': return 'overloaded'
+    case 'rate_limit_error': return 'rate_limited'
+    case 'api_error': return 'upstream_5xx'
+    case 'upstream_timeout': return 'timeout'
+    case 'upstream_connection_error': return 'connection'
+    case 'incomplete_stream': return 'stream_dropped'
+    case 'empty_stream': return 'empty_answer'
+    case 'refusal': return 'refusal'
+    case 'cut_off': return 'cut_off'
+    case 'client_gone': return 'client_gone'
+    case 'invalid_request_error': case 'request_too_large': return 'invalid_request'
+    case 'authentication_error': case 'permission_error': return 'provider_auth'
+    case 'provider_budget': return 'provider_budget'
+    default:
+      if (status === 503) return 'busy'
+      if (status === 504) return 'timeout'
+      return 'upstream_error'
+  }
+}
+
+/**
+ * One structured warning per failed PDF-reader margin answer (retest after
+ * train 2: 7 of about 70 actions showed "could not be loaded"). Metadata
+ * only: the intent, model, status, cause, whether text had reached the
+ * reader and whether this was the client's one retry. Never text, a
+ * selection, a document or anything about the reader.
+ */
+export function logMarginFailure(request: Request, timing: ChatRequestTiming, label: CacheLogLabel, failure: { status: number | null; errorType?: string | null; cause?: string; phase: 'before_answer' | 'stream' | 'answer'; stream: boolean }): void {
+  const errorType = failure.errorType ?? null
+  console.warn(JSON.stringify({
+    event: 'margin_answer_failure',
+    request_id: timing.requestId,
+    margin_intent: label.intent,
+    model: label.model,
+    phase: failure.phase,
+    stream: failure.stream,
+    status: failure.status,
+    error_type: errorType,
+    cause: marginFailureCause(failure.status, failure.cause ?? errorType),
+    had_text: timing.firstTextMs !== null,
+    client_retry: request.headers.get('x-tinct-retry') === '1',
+    provider_rounds: timing.providerRounds,
+    total_ms: Date.now() - timing.startedAt,
+  }))
 }
 
 /**
@@ -405,6 +473,8 @@ function encodeSse(event: string, data: Record<string, unknown>): string {
 
 interface ClientSink {
   write(event: string, data: Record<string, unknown>): void
+  /** False once a write to the reader has failed: they went away (chatEventStream's sink only). */
+  open?: () => boolean
 }
 
 /** Consume one streamed Anthropic round, forwarding text to the client and collecting tool calls. */
@@ -429,7 +499,7 @@ async function consumeStreamedRoundInner(
 ): Promise<RoundOutcome> {
   if (!response.body) {
     logChatFailure('stream', 'empty_stream', response)
-    return { ok: false, status: 502, body: safeChatError() }
+    return { ok: false, status: 502, body: safeChatError(), cause: 'empty_stream' }
   }
   const blocks: ContentBlock[] = []
   const jsonBuffers = new Map<number, string>()
@@ -522,7 +592,7 @@ async function consumeStreamedRoundInner(
           // The caller emits one sanitized error event; never expose provider messages.
           const type = providerErrorType(data)
           logChatFailure('stream', type, response, { partial_text: partialText })
-          return { ok: false, status: 502, body: safeChatError(type) }
+          return { ok: false, status: 502, body: safeChatError(type), cause: type }
         }
         default:
           if (sink && type === 'ping') sink.write(event, data)
@@ -532,11 +602,11 @@ async function consumeStreamedRoundInner(
   } catch (error) {
     const type = error instanceof ChatUpstreamError ? error.errorType : 'upstream_connection_error'
     logChatFailure('stream', type, response, { partial_text: partialText })
-    return { ok: false, status: 502, body: safeChatError(type) }
+    return { ok: false, status: 502, body: safeChatError(type), cause: type }
   }
   if (!completed) {
     logChatFailure('stream', 'incomplete_stream', response, { partial_text: partialText })
-    return { ok: false, status: 502, body: safeChatError() }
+    return { ok: false, status: 502, body: safeChatError(), cause: 'incomplete_stream' }
   }
   return { ok: true, content: blocks.filter(Boolean), stopReason, message }
 }
@@ -926,7 +996,9 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
         effort: input.effort,
         tools: input.tools,
         thinking: input.thinking,
-      }), !firstTextSeen)
+      // A margin round that fails before it starts (a 5xx, 529 or short 429) is retried once even
+      // after the opening was shown: nothing of it reached the reader and nothing was charged.
+      }), !firstTextSeen || Boolean(input.margin))
       input.timing.providerRounds += 1
       input.timing.providerHeadersMs += Date.now() - providerStartedAt
       if (!response.ok) {
@@ -1154,6 +1226,9 @@ export async function handleChat(
   if (!guestRate) timing.authAccessMs = Date.now() - authStartedAt
 
   const answer = async (): Promise<Response> => {
+    // A margin request's labels, for the failure log when the provider call throws.
+    let failureLabel: CacheLogLabel | undefined
+    let failureStream = false
     try {
       const parsedBody = await bodyPromise
       if ('error' in parsedBody) return jsonResponse({ error: parsedBody.error }, parsedBody.status, request)
@@ -1188,6 +1263,8 @@ export async function handleChat(
       const marginLabel: CacheLogLabel | undefined = companion && marginRoute
         ? { intent: companion.intent === 'chapter' ? 'primer' : companion.intent, model: marginRoute.model }
         : undefined
+      failureLabel = marginLabel
+      failureStream = body.stream === true
       // A margin passage action sends one picture of the passage, at most 1568 px on its long side.
       if (marginRoute && passageImages.length) {
         passageImages.splice(1)
@@ -1416,6 +1493,7 @@ export async function handleChat(
         if (!response.ok) {
           logChatRequestTiming(timing, 'failed', false)
           const data = await response.json().catch(() => ({ error: 'Chat request failed' }))
+          if (marginLabel) logMarginFailure(request, timing, marginLabel, { status: response.status, errorType: bodyErrorType(data), phase: 'before_answer', stream: true })
           return jsonResponse(data, response.status, request)
         }
         return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter, marginLabel, chargeable)
@@ -1433,6 +1511,7 @@ export async function handleChat(
       meter.anthropic(data.usage, undefined, stopError || primerFault ? { neverCharged: true } : undefined)
       if (stopError) {
         logChatFailure('http', stopError)
+        if (marginLabel) logMarginFailure(request, timing, marginLabel, { status: 502, errorType: stopError, phase: 'answer', stream: false })
         logChatRequestTiming(timing, 'failed', false)
         return jsonResponse(safeChatError(stopError), 502, request)
       }
@@ -1441,8 +1520,10 @@ export async function handleChat(
         && (data as { content: Array<{ text?: string }> }).content.some(block => Boolean(block.text?.trim()))
       if (response.ok && !hasAnswer) {
         logChatRequestTiming(timing, 'failed', false)
+        if (marginLabel) logMarginFailure(request, timing, marginLabel, { status: 502, errorType: 'empty_stream', phase: 'answer', stream: false })
         return jsonResponse(safeChatError('empty_stream'), 502, request)
       }
+      if (!response.ok && marginLabel) logMarginFailure(request, timing, marginLabel, { status: response.status, errorType: bodyErrorType(data), phase: 'before_answer', stream: false })
 
       // Deduct message on success. Lab guest testers are not billed.
       if (response.ok && !primerFault) charge()
@@ -1453,6 +1534,7 @@ export async function handleChat(
       return result
     } catch (error) {
       if (!(error instanceof ChatUpstreamError)) logChatFailure('route', 'upstream_error')
+      if (failureLabel) logMarginFailure(request, timing, failureLabel, { status: error instanceof ChatUpstreamError ? error.status : 502, errorType: error instanceof ChatUpstreamError ? error.errorType : 'upstream_error', phase: 'before_answer', stream: failureStream })
       logChatRequestTiming(timing, 'failed', timing.firstTextMs !== null)
       return jsonResponse(safeChatError(error instanceof ChatUpstreamError ? error.errorType : 'upstream_error'), error instanceof ChatUpstreamError ? error.status : 502, request)
     }
@@ -1551,12 +1633,29 @@ async function handleBookGroundedChat(input: {
     }
   }
 
-  const settle = (outcome: RoundOutcome) => {
-    if (input.margin && outcome.ok && input.timing.firstTextMs !== null) chargeOnce()
+  // A margin loop whose provider call throws (a dropped connection, a timeout) ends as a failed
+  // outcome, so it is logged and shown like any other; the book reader's throws go on as before.
+  const run = async (sink: ClientSink | null, first?: Response): Promise<RoundOutcome> => {
+    if (!input.margin) return runToolLoop(loopInput, sink, first)
+    try {
+      return await runToolLoop(loopInput, sink, first)
+    } catch (error) {
+      if (!(error instanceof ChatUpstreamError)) logChatFailure('stream', 'upstream_error')
+      const type = error instanceof ChatUpstreamError ? error.errorType : 'upstream_error'
+      return { ok: false, status: error instanceof ChatUpstreamError ? error.status : 502, body: safeChatError(type), cause: type }
+    }
+  }
+  const settle = (outcome: RoundOutcome, sink?: ClientSink) => {
+    if (input.margin && !outcome.ok) logMarginFailure(request, input.timing, input.margin, { status: outcome.status, errorType: bodyErrorType(outcome.body), cause: outcome.cause, phase: input.timing.firstTextMs === null ? 'before_answer' : 'stream', stream: input.stream })
+    if (input.margin && outcome.ok && input.timing.firstTextMs !== null) {
+      // Charged only when the answer reached the reader (see streamAnthropicResponse).
+      if (sink?.open?.() === false) logMarginFailure(request, input.timing, input.margin, { status: 200, cause: 'client_gone', phase: 'stream', stream: true })
+      else chargeOnce()
+    }
     logChatRequestTiming(input.timing, outcome.ok ? 'completed' : 'failed', input.timing.firstTextMs !== null)
   }
   if (!input.stream) {
-    const outcome = await runToolLoop(loopInput, null)
+    const outcome = await run(null)
     settle(outcome)
     if (!outcome.ok) return jsonResponse(outcome.body, outcome.status, request)
     const response = jsonResponse(outcome.message ?? { content: outcome.content }, 200, request)
@@ -1569,8 +1668,8 @@ async function handleBookGroundedChat(input: {
   // browser waiting for response headers with no cancellable stream.
   if (loopInput.prefetchSource) {
     return chatEventStream(request, ctx, async sink => {
-      const outcome = await runToolLoop(loopInput, sink)
-      settle(outcome)
+      const outcome = await run(sink)
+      settle(outcome, sink)
       if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
     }, { 'X-Tinct-Chat-Request-Id': input.timing.requestId })
   }
@@ -1594,11 +1693,12 @@ async function handleBookGroundedChat(input: {
   if (!first.ok) {
     logChatRequestTiming(input.timing, 'failed', false)
     const data = await first.json().catch(() => ({ error: 'Chat request failed' }))
+    if (input.margin) logMarginFailure(request, input.timing, input.margin, { status: first.status, errorType: bodyErrorType(data), phase: 'before_answer', stream: true })
     return jsonResponse(data, first.status, request)
   }
   return chatEventStream(request, ctx, async sink => {
-    const outcome = await runToolLoop(loopInput, sink, first)
-    settle(outcome)
+    const outcome = await run(sink, first)
+    settle(outcome, sink)
     if (!outcome.ok) sink.write('error', outcome.body as Record<string, unknown>)
   }, { 'X-Tinct-Chat-Request-Id': input.timing.requestId })
 }
@@ -1618,11 +1718,13 @@ function chatEventStream(request: Request, ctx: ExecutionContext, run: (sink: Cl
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const writer = writable.getWriter()
   let closed = false
+  let gone = false
   const sink: ClientSink = {
     write(event, data) {
       if (closed) return
-      void writer.write(encoder.encode(encodeSse(event, data))).catch(() => { closed = true })
+      void writer.write(encoder.encode(encodeSse(event, data))).catch(() => { closed = true; gone = true })
     },
+    open: () => !gone,
   }
   const pump = (async () => {
     try {

@@ -21,6 +21,8 @@
 //                                                     primer stored before kinds, and a long book without an outline (MacKay's case): chapter 1, labelled
 //   node scripts/margin-check.mjs keys                PR 4: the keys (N, B, /, Escape, More's arrows), focus, labels, the live region
 //   node scripts/margin-check.mjs figures           FIXES items 4–7: figure detection, the chip kept on screen, the figure's card beside it, figure questions
+//   node scripts/margin-check.mjs figure-margins    retest of 15 Oct: captions in the margin (MacKay), a formula's card without a caption,
+//                                                     a caption selected and highlighted, a question naming a figure on another page
 //   node scripts/margin-check.mjs long                PR F: a 585-page book: printed page numbers, the whole-book search with a question,
 //                                                     the primer's chapter (never the index), reading order round a figure, the reopen
 //   node scripts/margin-check.mjs contrast            PR 4: text contrast of every margin colour pair in every look (a report)
@@ -33,6 +35,9 @@
 //                                                     question and the primer on it, desktop and phone; a scan recognised without boxes
 //   node scripts/margin-check.mjs polish              Anders's feedback of 15 Oct: no foot line (Chat), the caret, the highlighter and
 //                                                     pencil, delete with Undo, one scroll surface, the primer opening in place
+//   node scripts/margin-check.mjs phone-ui            the PM's battery of 15 Oct (phones): the text column fit on a phone (zoom, pan inside
+//                                                     the page, place and pinch kept), the header's title and pill, the desktop unchanged,
+//                                                     Chat in the t menu, Escape on the Aa panel, &pages on a first open, two devices at once (409)
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -59,12 +64,15 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook, makePdf, figurePaper, longBook } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf, figurePaper, longBook, marginPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 // FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
 const FIGURE_PAPER = join(OUT, 'figure_paper.pdf')
 writeFileSync(FIGURE_PAPER, figurePaper())
+// Retest of 15 Oct: figures with captions in a wide right margin, as MacKay sets them.
+const MARGIN_PAPER = join(OUT, 'margin_paper.pdf')
+writeFileSync(MARGIN_PAPER, marginPaper())
 // PR F: a book-length PDF (the Sutton and Barto stand-in, gloss-test/edge.html): parts, chapters, an index, printed numbers 22 behind the file's.
 const BOOK = longBook({ meta: true })
 const BIG_BOOK = join(OUT, 'long_book.pdf')
@@ -1793,6 +1801,78 @@ async function figureMatrix(browser, origin) {
   return rows
 }
 
+/* ---------- Figures after the retest (gloss-test/retest.html; Anders, 15 Oct) ----------
+   Captions in the margin (MacKay): the chip on a figure in the right margin, a figure and a table of digits
+   whose captions stand in the margin beside them; a formula's card takes no figure's caption; a caption can be
+   selected (the bar, not the chip); a question naming a figure on another page sends that figure. */
+async function retestFigures(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const margin = addBook(MARGIN_PAPER), paper = addBook(FIGURE_PAPER)
+  const views = SAMPLE ? [[1440, 900, 'paper'], [390, 844, 'night']] : [[1440, 900, 'paper'], [1280, 800, 'book'], [1024, 768, 'night'], [390, 844, 'paper'], [360, 740, 'eink']]
+  for (const [width, height, look] of views) {
+    const tag = `figure-margins-${width}x${height}-${look}`, phone = width < 700
+    const A = await readerPage(browser, origin, margin, { width, height, look, minSpans: 10 })
+    const a = A.page, problems = []
+    try {
+      await a.waitForFunction(() => state.figs.has(1) && state.pages[0].figures, null, { timeout: 15000 })
+      const got = await a.evaluate(() => { const f = state.figs.get(1); return Object.fromEntries(f.captions.map(c => [c.label, f.figures[c.fig]])) })
+      const one = got['Figure 1.1'], two = got['Figure 1.2'], three = got['Figure 1.3']
+      // In page fractions: the plot in the margin (x 440–540 pt of 612), the drawing in the text column (x 120–330), the digits (x 160–330).
+      ok(`${tag}: each margin caption has its figure: the plot in the margin, the drawing and the table of digits beside their captions`, one && one.x > 0.68 && two && two.x < 0.21 && two.x + two.w < 0.56 && two.w > 0.3 && three && three.x < 0.28 && three.x + three.w < 0.6, got)
+      // The chip on the plot in the right margin (Anders: none appeared on MacKay's Figure 1.1).
+      await a.evaluate(() => state.pages[0].pg.scrollIntoView({ block: 'start' }))
+      await a.waitForTimeout(400)
+      const at2 = await a.evaluate(() => { const p = state.pages[0], f = state.figs.get(1), c = f.captions.find(c => c.label === 'Figure 1.1'), g = f.figures[c.fig], b = p.pg.getBoundingClientRect(); return { x: b.left + (g.x + g.w / 2) * b.width, y: b.top + (g.y + g.h / 2) * b.height } })
+      if (phone) await a.mouse.click(at2.x, at2.y); else { await a.mouse.move(at2.x - 30, at2.y - 30); await a.mouse.move(at2.x, at2.y, { steps: 4 }) }
+      const chip = await a.waitForSelector('.byob-hot-chip', { timeout: 4000 }).then(() => a.evaluate(chipInside)).catch(() => null)
+      ok(`${tag}: the figure in the right margin offers its chip, inside the page and the screen`, chip?.ok, chip || at2)
+      if (!phone) await shot(a, `${tag}-margin-chip`)
+      await a.evaluate(() => { hideHot(); getSelection().removeAllRanges() })
+      // A formula's card names no figure: the "Figure 1.1" caption beside the text is the plot's (screenshot 141).
+      const formula = await a.evaluate(async () => { const p = state.pages[0], c = state.figs.get(1).captions.find(c => c.label === 'Figure 1.1'); const f = { x: 0.18, y: c.box.y - 0.03, w: 0.5, h: 0.04 }; const item = await regionItem(p, f, 'formula', true); const fig = await regionItem(p, f, 'snip', true); return { formula: item.caption, snip: fig.caption } })
+      ok(`${tag}: a formula's card carries no figure's caption (a snip there still finds the caption beside it)`, formula.formula === '' && /^Figure 1\.1/.test(formula.snip), formula)
+      if (!phone) {
+        // A caption can be selected: a drag over it gives the bar, as any text does (it gave the chip).
+        await a.evaluate(() => state.pages[0].pg.scrollIntoView({ block: 'center' }))
+        await a.waitForTimeout(400)
+        const r = await a.evaluate(() => { const p = state.pages[0], c = state.figs.get(1).captions.find(c => c.label === 'Figure 1.2'), b = p.pg.getBoundingClientRect(); return { x0: b.left + c.box.x * b.width + 2, x1: b.left + (c.box.x + c.box.w) * b.width - 4, y: b.top + (c.box.y + c.box.h * 0.25) * b.height } })
+        await a.mouse.move(r.x0, r.y); await a.waitForTimeout(200); await a.mouse.down(); await a.mouse.move((r.x0 + r.x1) / 2, r.y, { steps: 4 }); await a.mouse.move(r.x1, r.y, { steps: 4 }); await a.mouse.up()
+        await a.waitForSelector('.mr-bar', { timeout: 4000 }).catch(() => {}); await a.waitForTimeout(300)
+        const sel = await a.evaluate(() => ({ text: getSelection().toString().replace(/\s+/g, ' ').trim(), bar: !!document.querySelector('.mr-bar'), chip: !!document.querySelector('.byob-hot-chip') }))
+        ok(`${tag}: dragging over a caption selects the caption and gives the bar, not the figure's chip`, /^Figure 1\.2\. A binary/.test(sel.text) && sel.bar && !sel.chip, sel)
+        await shot(a, `${tag}-caption-bar`)
+        problems.push(...(await checkMargin(a)).map(p => ({ state: 'caption bar', ...p })))
+        // Highlight it, as any passage.
+        await a.click('.mr-bar [data-m="dot"]').catch(() => {}); await a.waitForTimeout(400)
+        const marked = await a.evaluate(() => highlights().some(h => /^Figure 1\.2/.test(h.text || '')))
+        ok(`${tag}: a caption can be highlighted`, marked, marked)
+        await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+      }
+    } catch (e) { ok(`${tag}: run`, false, String(e.message || e).slice(0, 400)) }
+    ok(`${tag}: no layout problems or page errors`, !problems.length && !A.problems.length, [...problems, ...A.problems].slice(0, 5))
+    await A.ctx.close()
+    // A question naming a figure on another page sends that figure (the figure paper: Table 1 is on page 3, asked from page 1).
+    if (width === 1440 || width === 390) {
+      const B = await readerPage(browser, origin, paper, { width, height, look })
+      const b = B.page
+      try {
+        await b.waitForFunction(() => state.figs.has(1), null, { timeout: 15000 })
+        await b.evaluate(() => { for (const n of [2, 3, 4]) state.figs.delete(n); offFigs.clear() })
+        const n0 = account.requests.length
+        await b.evaluate(() => { openCard(null); openWhole({ prompt: 'What does Table 1 show?' }) })
+        await b.waitForFunction(() => chat.turns.some(t => t.role === 'assistant'), null, { timeout: 15000 })
+        const asked = account.requests.slice(n0).find(r => /What does Table 1 show\?/.test(JSON.stringify(r.body.messages || '')))
+        const pics = (asked?.body?.messages?.at(-1)?.content || []).filter?.(x => x.type === 'image') || []
+        ok(`figure-elsewhere-${width}x${height}-${look}: a question from page 1 naming Table 1 (page 3, not yet drawn) sends that table's picture`, pics.length === 1 && /attached image is Table 1 on page 3/.test(JSON.stringify(asked.body.messages[0])), { asked: !!asked, images: pics.length })
+      } catch (e) { ok(`figure-elsewhere-${width}x${height}-${look}: run`, false, String(e.message || e).slice(0, 400)) }
+      ok(`figure-elsewhere-${width}x${height}-${look}: no page errors`, !B.problems.length, B.problems.slice(0, 3))
+      await B.ctx.close()
+    }
+  }
+  return results
+}
+
 /* ---------- Scans (PR D; docs/margin/gloss-test/edge.html, 15 Oct 2026) ----------
    A scan is made here from a text fixture (scan_0042.pdf, drawn at 144 dpi in grey and stored as page
    pictures only, no text), and the mocked recognition returns that fixture's own lines as blocks with
@@ -2173,6 +2253,16 @@ async function longBooks(browser, origin) {
     await a.evaluate(() => openJump()); await a.waitForSelector('.byob-jumpbox input')
     await a.fill('.byob-jumpbox input', 'III'); await a.press('.byob-jumpbox input', 'Enter'); await a.waitForTimeout(700)
     const toRoman = await a.evaluate(() => currentPlace().page)
+    // Retest, 15 Oct: "Go to page" in the contents (the jump readers use) takes the printed number too ("type 445 to reach printed 423"),
+    // and the file's page where no page prints the number.
+    const contentsJump = async value => {
+      await a.evaluate(() => openContents()); await a.waitForSelector('.byob-toc-jump input')
+      const shown = await a.evaluate(() => ({ value: document.querySelector('.byob-toc-jump input').value, of: document.querySelector('.byob-toc-jump span').textContent }))
+      await a.fill('.byob-toc-jump input', value); await a.press('.byob-toc-jump input', 'Enter'); await a.waitForTimeout(700)
+      return { shown, page: await a.evaluate(() => currentPlace().page) }
+    }
+    const jumps = [await contentsJump(printed(m.figurePage)), await contentsJump('viii'), await contentsJump(String(m.pages - 10))]
+    ok(`${tag}: "Go to page" in the contents shows and takes printed numbers (${printed(m.figurePage)} is file page ${m.figurePage}; "viii"; a number no page prints is the file's page)`, jumps[0].shown.of === `of ${printed(m.pages)}` && jumps[0].page === m.figurePage && jumps[1].page === 8 && jumps[2].page === m.pages - 10 && jumps[1].shown.value === printed(m.figurePage), jumps)
     await a.evaluate(n => { goTo({ page: n, frac: 0 }); onScroll() }, m.figurePage); await a.waitForTimeout(700)
     const last = printed(m.pages)
     ok(`${tag}: the top bar and the page jump show printed numbers ("of ${last}"), and a jump takes a printed number or a roman one`, bar.progress.startsWith(`p. ${printed(m.figurePage)} · `) && bar.aria.includes(`page ${printed(m.figurePage)} of ${last}`) && jump.value === printed(m.figurePage) && jump.of === `of ${last}` && toSarsa === m.sarsaPage && toRoman === 3, { bar, jump, toSarsa, toRoman })
@@ -2212,6 +2302,9 @@ async function longBooks(browser, origin) {
       const chapter = m.chapters.find(c => c.title.startsWith('16 '))
       ok(`${tag}: the question goes with chapter 16 whole and the contents with printed pages (the long-file part)`, doc?.part?.total === m.pages && doc.units[0].n === printed(chapter.from) && doc.units.at(-1).n === printed(chapter.to) && doc.part.toc.some(e => e.title === '6.4 Sarsa: On-policy TD Control' && e.n === printed(m.sarsaPage)), doc && { first: doc.units[0].n, last: doc.units.at(-1).n, toc: doc.part?.toc?.length })
       ok(`${tag}: "where is Sarsa introduced" carries the page that introduces it, first, from the search of the whole book`, found[0]?.n === printed(m.sarsaPage) && /name Sarsa/.test(found[0].text) && found.length <= 6 && !found.some(f => Number(f.n) >= Number(printed(chapter.from)) && Number(f.n) <= Number(printed(chapter.to))), found.map(f => f.n))
+      // Retest, 15 Oct: the hit's whole section (6.4, from its title to 6.5's), not only its opening lines; all passages within the request's budget.
+      const sarsa = found[0]?.text || ''
+      ok(`${tag}: the hit goes as its whole section: 6.4 from its title to the next section, within the passages' budget`, /^(?:6\.4 )?Sarsa: On-policy TD Control/.test(sarsa) && sarsa.length > 1200 && !/Q-learning: Off-policy TD Control/.test(sarsa) && found.reduce((n, f) => n + f.text.length, 0) <= 40000, { start: sarsa.slice(0, 60), length: sarsa.length, total: found.reduce((n, f) => n + f.text.length, 0) })
       await layout('whole')
       if (look === 'paper') await shot(a, `${tag}-whole`)
       const q1 = account.requests.length
@@ -2353,7 +2446,10 @@ async function focusMatrix(browser, origin) {
         const phone = width < 700
         await check('focus', [s => {
           const f = focusState(), g = f.gaps
-          const centred = !!g && Math.abs(g[0] - g[1]) <= (innerWidth < 700 ? 2 : 42)
+          // A phone's pages open zoomed to their text column (phone-ui): a page wider than the screen cannot be centred, so there
+          // it fills the width with no gap either side (its pan stays inside the page); at fit, centred as before.
+          const zoomedPhone = innerWidth < 700 && state.zoom > 1
+          const centred = !!g && (zoomedPhone ? g[0] <= 0.5 && g[1] <= 0.5 : Math.abs(g[0] - g[1]) <= (innerWidth < 700 ? 2 : 42))
           return { ok: f.mode === 'focus' && f.layout === 'focus' && f.stored === 'focus' && !f.colShown && f.marks === 0 && centred && (!s.wide || Math.abs(f.width - s.width) <= 2) && !!f.pop && f.inside && (!f.covers || f.side === 'over'), ...f, before: s.width }
         }, { width: margin0.width, wide: !phone }])
         const placeF = await page.evaluate(() => currentPlace())
@@ -2401,6 +2497,196 @@ async function focusMatrix(browser, origin) {
   return rows
 }
 
+// The PM's full battery on release train 3 (15 Oct 2026, gloss-test/full-battery.html, "Phones"): a PDF on a
+// phone opens with its text column filling the width (one column of the two-column paper), panned to it and
+// never off the page, the place and the reader's own pinch kept; the phone's header gives the title its room
+// and never shows an empty pill; the desktop is unchanged; the t menu's whole-document chat is "Chat"; Escape
+// closes the Aa panel with focus back on Aa; a link with &pages stays in the pages after a first open's scan;
+// two devices writing at once (409) merge silently and lose nothing.
+function columnState(gutter) {
+  const s = document.getElementById('scroll'), sr = s.getBoundingClientRect()
+  const sheet = state.pages[currentPlace().page - 1].sheet, r = sheet.getBoundingClientRect()
+  // Running lines of the page in view: where their left edges sit on the screen.
+  const spans = [...sheet.querySelectorAll('.text-layer span')].filter(e => (e.textContent || '').trim().split(/\s+/).length >= 4).map(e => e.getBoundingClientRect()).filter(b => b.top > sr.top && b.bottom < innerHeight && b.width > 0)
+  const lefts = spans.map(b => b.left).sort((a, b) => a - b), onScreen = spans.filter(b => b.left >= -1 && b.right <= innerWidth + 1).length
+  return {
+    zoom: state.zoom, fit: !!state.fit?.column, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'),
+    columns: state.fit?.column?.columns || 0, left: lefts.length ? Math.round(lefts[Math.floor(lefts.length * 0.1)]) : null,
+    shown: spans.length ? onScreen / spans.length : 0, sheetLeft: Math.round(r.left - sr.left), sheetRight: Math.round(r.right - sr.left), room: s.clientWidth,
+    maxPan: s.scrollWidth - s.clientWidth, sheetW: Math.round(r.width), gutter,
+  }
+}
+function headerState() {
+  const box = id => { const r = document.getElementById(id).getBoundingClientRect(); return { left: r.left, right: r.right, w: r.width } }
+  const t = document.getElementById('bookTitle'), label = document.getElementById('pageLabel'), btn = document.getElementById('pageBtn')
+  const chevron = btn.querySelector('.lab-header-chevron')
+  return {
+    title: box('bookTitle'), titleWhole: t.scrollWidth <= t.clientWidth + 1, pill: box('pageBtn'), label: label.textContent.trim(), labelWhole: label.scrollWidth <= label.clientWidth + 1,
+    chevron: !!chevron && getComputedStyle(chevron).display !== 'none', aa: box('aaBtn'), pillShown: getComputedStyle(btn).display !== 'none' && btn.getBoundingClientRect().width > 0,
+  }
+}
+async function phoneUi(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 600)}`) }
+  const books = PDFS.map(f => [basename(f, '.pdf'), addBook(f)])
+  const views = SAMPLE ? [[390, 844, 'paper'], [360, 740, rotate(LOOKS, 1)]] : VIEWPORTS.filter(([w]) => w < 700).flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+  const TITLE = 'Attention Is All You Need'
+  for (const [label, hex] of books) for (const [width, height, look] of views) {
+    const tag = `phone-ui-${label}-${width}x${height}-${look}`
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    // 2. The column fit: the zoom fills the width with the column, the lines start 10px in, the pan stays on the page.
+    await a.evaluate(() => goTo({ page: 2, frac: 0.05 })); await a.evaluate(() => panToColumn()); await a.waitForTimeout(900)
+    let c = await a.evaluate(columnState, 10)
+    const two = label.includes('two_column')
+    ok(`${tag}: opens zoomed to its text column (${two ? 'one column of two' : 'one column'}), ${c.zoom}×`, c.fit && c.cls && c.zoom >= (two ? 2.3 : 1.3) && c.zoom <= 3 && c.columns === (two ? 2 : 1), c)
+    ok(`${tag}: the column's lines start about 10px from the screen's edge and are on the screen`, c.left !== null && Math.abs(c.left - 10) <= 8 && c.shown >= (two ? 0.4 : 0.9), c)
+    await a.evaluate(() => { document.getElementById('scroll').scrollLeft = 0 }); await a.waitForTimeout(100)
+    const atLeft = await a.evaluate(columnState, 10)
+    await a.evaluate(() => { document.getElementById('scroll').scrollLeft = 1e6 }); await a.waitForTimeout(100)
+    const atRight = await a.evaluate(columnState, 10)
+    ok(`${tag}: the pan stays inside the page (its left edge at the screen's left, its right edge at the screen's right)`, Math.abs(atLeft.sheetLeft) <= 1 && Math.abs(atRight.sheetRight - atRight.room) <= 1, { atLeft, atRight })
+    await a.evaluate(() => panToColumn())
+    // The layout check with the pages zoomed, then with the bar up.
+    const problems = [...(await checkMargin(a)).map(p => ({ state: 'zoomed', ...p }))]
+    const sel = await selectText(a)
+    if (sel) { await a.waitForSelector('.mr-pbar', { timeout: 5000 }).catch(() => {}); await a.waitForTimeout(250); problems.push(...(await checkMargin(a)).map(p => ({ state: 'bar', ...p }))) }
+    ok(`${tag}: a selection works on the zoomed page (the phone bar)`, !!sel && !!await a.$('.mr-pbar'), { sel })
+    await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+    // The place survives a reload, and the column fit is worked out again (nothing stored for it).
+    const before = await a.evaluate(() => { savePlaceNow(); return { place: currentPlace(), stored: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + state.key)) } })
+    await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(900)
+    const after = await a.evaluate(() => ({ place: currentPlace(), zoom: state.zoom, fit: !!state.fit }))
+    ok(`${tag}: a reload opens at the same place and the same column fit, with no zoom stored for it`, after.place.page === before.place.page && Math.abs(after.place.frac - before.place.frac) < 0.05 && after.fit && after.zoom === c.zoom && before.stored.phoneZoom === undefined, { before, after })
+    // A pinch is the reader's own zoom: kept for this phone, the place kept.
+    const pinched = await a.evaluate(() => { const at = currentPlace(); state.fit = null; setZoom(1.25); return new Promise(r => setTimeout(() => { savePlaceNow(); r({ at, now: currentPlace(), zoom: state.zoom, stored: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + state.key)) }) }, 400)) })
+    ok(`${tag}: a pinch keeps the place and is kept as this phone's zoom`, pinched.now.page === pinched.at.page && Math.abs(pinched.now.frac - pinched.at.frac) < 0.03 && pinched.stored.phoneZoom === 1.25 && pinched.stored.zoom === undefined, pinched)
+    await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(700)
+    ok(`${tag}: reopened at the reader's own zoom, not the fit`, await a.evaluate(() => state.zoom === 1.25 && !state.fit))
+    // 3. The header: a long title gets the room, the pill shortens and is never empty.
+    await a.evaluate(t => { setBookTitle(t, ''); onScroll() }, TITLE); await a.waitForTimeout(300)
+    const h = await a.evaluate(headerState)
+    const overlap = h.title.right > h.pill.left + 0.5 || h.pill.right > h.aa.left + 0.5
+    ok(`${tag}: the header gives the title its room (${Math.round(h.title.w)}px), the pill shows "${h.label}", never empty, nothing overlapping`, h.pillShown && h.label.length > 0 && h.labelWhole && /^p\. \S+$/.test(h.label) && h.title.w >= (width >= 390 ? 125 : 95) && !overlap, h)
+    await a.evaluate(() => { setBookTitle('Short', ''); onScroll() }); await a.waitForTimeout(300)
+    const hs = await a.evaluate(headerState)
+    ok(`${tag}: with a short title, title and pill are both whole and the pill keeps its chevron ("${hs.label}")`, hs.titleWhole && hs.labelWhole && hs.chevron && hs.label.length > 0, hs)
+    problems.push(...(await checkMargin(a)).map(p => ({ state: 'header', ...p })))
+    if (!process.env.NO_SHOTS && look === views[0][2]) await a.screenshot({ path: join(OUT, `${tag}.png`) })
+    ok(`${tag}: layout check (zoomed pages, the bar, the header)`, !problems.length, problems)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // The desktop is unchanged: fit-to-width, the chapter in the pill with page and percent.
+  {
+    const [label, hex] = books[1]
+    const D = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+    const d = await D.page.evaluate(() => ({ zoom: state.zoom, fit: state.fit, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'), progress: getComputedStyle(document.getElementById('progress')).display, chevron: document.getElementById('pageBtn').dataset.chevron }))
+    ok(`phone-ui-${label}-1440x900: the desktop opens at fit as before (no column fit, the pill as before)`, d.zoom === 1 && !d.fit && !d.cls && d.progress !== 'none' && d.chevron === undefined, d)
+    // 1. The t menu's whole-document chat is Chat, and it opens the chat.
+    await D.page.click('#superBtn'); await D.page.waitForSelector('.lab-super-panel')
+    const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
+    ok('the t menu names the whole-document chat "Chat" (no Librarian)', rows[0] === 'chat:Chat' && !rows.some(r => /librarian/i.test(r)), rows)
+    await D.page.click('.lab-super-row[data-row="chat"]'); await D.page.waitForTimeout(500)
+    ok('the t menu\'s Chat opens the whole-document chat (the margin\'s Whole PDF card)', await D.page.evaluate(() => !!document.querySelector('.mr-col .mr-card.is-whole.is-open')))
+    // 4. Escape closes the Aa panel, from its close button and from the size slider; focus returns to Aa.
+    for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-testid="lab-v2-size"]']) {
+      await D.page.keyboard.press('Escape'); await D.page.click('#aaBtn'); await D.page.waitForSelector('.byob-aa-panel')
+      await D.page.focus(from); await D.page.keyboard.press('Escape'); await D.page.waitForTimeout(200)
+      const esc = await D.page.evaluate(() => ({ open: !!document.querySelector('.byob-aa-panel'), focus: document.activeElement?.id, expanded: document.getElementById('aaBtn').getAttribute('aria-expanded') }))
+      ok(`Escape closes the Aa panel (focus in ${from.includes('size') ? 'the size slider' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
+    }
+    ok('desktop: no page errors', !D.problems.length, D.problems)
+    await D.ctx.close()
+  }
+  // The night checklist (15 Oct): on a phone at a chapter's start, a card closed with × stays closed (the
+  // "Before you start" bottom card used to take its place at once, so × seemed to do nothing).
+  {
+    const hex = addBook(BIG_BOOK)
+    const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper', at: BOOK.meta.chapters[0].from })
+    await P.page.waitForFunction(() => primer.units?.length > 1, null, { timeout: 60000 }).catch(() => {})
+    // A chapter's start, where the bottom card offers Before you start.
+    const start = await P.page.evaluate(async () => { for (const u of primer.units.filter(u => u.key !== 'all' && u.from > 1).slice(0, 8)) { goTo({ page: u.start || u.from, frac: 0 }); onScroll(); marginLayout(); await new Promise(r => setTimeout(r, 400)); if (col.sheet?.dataset.id === 'trigger') return currentPlace().page } return null })
+    const trig = await P.page.evaluate(() => col.sheet?.dataset.id || null)
+    const id = await P.page.evaluate(n => { const c = TinctMargin.newCard({ kind: 'explain', page: n, anchor: [{ n, x: 0.15, y: 0.3, w: 0.5, h: 0.012 }], text: 'A passage at the chapter start', turns: [{ role: 'assistant', content: 'An answer.', at: Date.now() }] }); saveCard(c); openCard(c.id); return c.id }, start || BOOK.meta.chapters[0].from)
+    await P.page.waitForTimeout(900)
+    const open = await P.page.evaluate(() => col.sheet?.dataset.id || null)
+    await P.page.click('.mr-sheet .mr-card__close'); await P.page.waitForTimeout(800)
+    const after = await P.page.evaluate(() => ({ sheet: col.sheet?.dataset.id || null, open: col.open }))
+    ok('phone, a chapter\'s start: a card closed with × stays closed (the Before you start card does not take its place)', trig === 'trigger' && open === id && !after.sheet && !after.open, { trig, open, id, after })
+    await P.ctx.close()
+  }
+  // A PDF that fails to open once (pdf.js's first try rejects) opens on the second try, from this device's copy.
+  {
+    const [, hex] = books[0]
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } })
+    await ctx.addInitScript(([session, hex]) => {
+      try { localStorage.setItem('sb-local-auth-token', JSON.stringify(session)); localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('pages')) } catch {}
+      let failed = false
+      // pdf.js's namespace cannot be patched: the page gets a stand-in whose first getDocument rejects.
+      let lib = null
+      Object.defineProperty(window, 'pdfjsLib', { configurable: true, get: () => lib, set: real => {
+        lib = new Proxy(real, { get: (t, k) => k !== 'getDocument' ? t[k] : o => { if (!failed && o?.data) { failed = true; window.__failedOnce = true; return { promise: Promise.reject(Object.assign(new Error('Invalid PDF structure.'), { name: 'InvalidPDFException' })) } } return t.getDocument(o) } })
+      } })
+    }, [SESSION, hex])
+    const page = await ctx.newPage()
+    const errors = []; page.on('pageerror', e => errors.push(e.message))
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    const opened = await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).then(() => true, () => false)
+    const seen = await page.evaluate(() => ({ failedOnce: !!window.__failedOnce, alert: document.querySelector('.pdf-status[role="alert"]')?.textContent || null }))
+    ok('a PDF whose first open fails opens on a second try (no "could not be opened")', opened && seen.failedOnce && !seen.alert && !errors.length, { opened, ...seen, errors })
+    await ctx.close()
+  }
+  // 5. &pages: a fresh profile (no edition chosen, no scan kept) on a book that reads as Tinct text by default.
+  {
+    const [, hex] = books[0]
+    const open = async query => {
+      const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } })
+      await ctx.addInitScript(session => { try { localStorage.setItem('sb-local-auth-token', JSON.stringify(session)) } catch {} }, SESSION)
+      const page = await ctx.newPage()
+      await page.goto(`${origin}/lab/addbook/?userBook=${hex}${query}`)
+      // The first open's scan finishes after the book's own address is pushed.
+      await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (state.scan && toc.ready), null, { timeout: 30000 }).catch(() => {})
+      await page.waitForTimeout(1500)
+      const where = await page.evaluate(() => location.pathname + location.search)
+      await ctx.close()
+      return where
+    }
+    const plain = await open('')
+    ok('control: without &pages this book goes on to the Tinct reader once its first scan is done', plain.startsWith('/reader?userBook=' + hex), plain)
+    const kept = await open('&pages')
+    ok('a first open with &pages stays in the PDF reader after the scan (the &pages race), and keeps &pages in its address', kept === `/lab/addbook/?userBook=${hex}&pages`, kept)
+  }
+  // 6. A phone and a desktop writing cards and highlights at the same moment: 409s merged, nothing lost, nothing said.
+  {
+    const [, hex] = books[1]
+    account.cards.delete(hex); account.marks.delete(hex)
+    const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+    const D = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+    await P.page.waitForTimeout(800)
+    const add = (page, who) => page.evaluate(who => {
+      for (let i = 0; i < 2; i++) saveCard(TinctMargin.newCard({ kind: 'explain', page: 2, anchor: [], text: `${who} passage ${i}`, turns: [{ role: 'assistant', content: `${who} answer ${i}`, at: Date.now() }] }))
+      putHighlights([...highlights(), { id: who + '-hl', page: 2, rects: [[0.1, 0.2, 0.3, 0.02]], text: who + ' words', color: 'gold', at: Date.now() }])
+    }, who)
+    await Promise.all([add(P.page, 'phone'), add(D.page, 'desktop')])
+    // Sent at once from both.
+    await Promise.all([P.page.evaluate(() => Promise.all([cardsSync.push(), marksSync.push()])), D.page.evaluate(() => Promise.all([cardsSync.push(), marksSync.push()]))])
+    await P.page.waitForTimeout(2500)
+    const said = page => page.evaluate(() => [...document.querySelectorAll('.byob-toast, [role="status"], .toast')].map(t => t.textContent).join(' '))
+    const stored = { cards: (account.cards.get(hex)?.cards || []).filter(c => !c.gone).map(c => c.text).sort(), marks: (account.marks.get(hex)?.marks || []).filter(m => !m.gone).map(m => m.id).sort() }
+    ok('two devices at once: the account has every card and highlight from both', stored.cards.length === 4 && stored.marks.includes('phone-hl') && stored.marks.includes('desktop-hl'), stored)
+    const toasts = [await said(P.page), await said(D.page)]
+    ok('two devices at once: no error is shown on either', !toasts.some(t => /could not be saved|conflict|error/i.test(t)), toasts)
+    for (const X of [P, D]) { await X.page.reload(); await X.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await X.page.waitForTimeout(1500) }
+    const has = page => page.evaluate(() => ({ cards: keptCards().filter(c => !c.gone && /^(phone|desktop) passage/.test(c.text)).length, marks: highlights().map(h => h.id).filter(id => /-hl$/.test(id)).sort() }))
+    const both = [await has(P.page), await has(D.page)]
+    ok('two devices at once: each has all four cards and both highlights after its next open', both.every(b => b.cards === 4 && b.marks.join() === 'desktop-hl,phone-hl'), both)
+    ok('two devices at once: no page errors', !P.problems.length && !D.problems.length, [...P.problems, ...D.problems])
+    await P.ctx.close(); await D.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -2418,8 +2704,10 @@ const RUNS = {
   ...(process.env.EPUB_MARGIN === '1' ? { epub: [epubCheck, rows => rows.some(r => r.problems)] } : {}),
   scans: [scanChecks, rows => rows.some(r => !r.pass)],
   figures: [figureMatrix, rows => rows.some(r => !r.pass)],
+  'figure-margins': [retestFigures, rows => rows.some(r => !r.pass)],
   long: [longBooks, rows => rows.some(r => !r.pass)],
   polish: [polish, rows => rows.some(r => !r.pass)],
+  'phone-ui': [phoneUi, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -2451,9 +2739,11 @@ try {
   else if (mode === 'resize') { const rows = await resizeRun(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'resize-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'epub') { const rows = await epubCheck(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'epub-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'scans') { const rows = await scanChecks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'scans-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'figure-margins') { const rows = await retestFigures(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figure-margins-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'figures') { const rows = await figureMatrix(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figures-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'polish') { const rows = await polish(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'polish-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'phone-ui') { const rows = await phoneUi(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-ui-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

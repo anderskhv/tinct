@@ -23,7 +23,7 @@ const VENDOR = ROOT + 'app/public/lab/addbook/vendor/pdfjs/'
 type Item = { str: string; transform: number[]; width: number; height: number; hasEOL: boolean }
 type Unit = { key: string; title: string; from: number; start: number; to: number; matter?: string; chapter?: string; label?: string; pages?: boolean }
 interface Search { create(): { add(page: number, text: string): void; search(q: string, o?: { limit?: number; skip?: Set<number> | null }): Array<{ page: number; text: string; score: number }>; size: number }; queryTerms(q: string): string[]; stem(w: string): string }
-interface Order { roles(items: Item[], view?: number[] | null): Array<string | null>; pageText(items: Item[], roles?: Array<string | null>): string; CAPTION: RegExp }
+interface Order { roles(items: Item[], view?: number[] | null): Array<string | null>; pageText(items: Item[], roles?: Array<string | null>): string; CAPTION: RegExp; suspect(items: Item[]): boolean; hidden(items: Item[], view: number[], ink: Uint8Array, W: number, H: number): Set<number> }
 interface Printed { candidates(items: Item[], view: number[]): Array<{ value: number; roman: boolean }>; labels(perPage: Array<Array<{ value: number; roman: boolean }>>): string[] | null }
 interface Margin {
   primerUnits(entries: unknown[], count: number): Unit[]
@@ -398,5 +398,123 @@ describe('one notion of a figure: PR E\'s detection and PR F\'s reading order', 
       expect(M.captionOf(t), t).not.toBeNull()
       expect(R.CAPTION.test(t), t).toBe(true)
     }
+  })
+})
+
+describe('after the retest (15 Oct): a search hit\'s whole section, and "Go to page" by the printed number', () => {
+  type Hit = { page: number; at: number; text: string }
+  type Sections = (hits: Hit[], o: { entries: Array<{ title: string; page: number }>; texts: string[]; label?: (n: number) => string; cap?: number; budget?: number }) => Array<{ n: string; text: string }>
+  const sections = () => (S as unknown as { sections: Sections }).sections
+  const pageOf = (v: string, labels: string[] | null, o: { count: number; near?: number }) => (P as unknown as { pageOf(v: string, l: string[] | null, o: unknown): number }).pageOf(v, labels, o)
+  // Pages 1–6 of a book: 17 Frontiers opens on page 2, 17.1 starts lower on it and runs over page 3 to 17.2 on page 4.
+  const words = (n: number, w: string) => Array.from({ length: n }, () => w).join(' ')
+  const texts = [
+    'The end of chapter sixteen. ' + words(80, 'soaring'),
+    'Chapter 17 Frontiers In this final chapter we touch on topics. 17.1 General Value Functions and Auxiliary Tasks Our notion of value function has become general. ' + words(60, 'cumulant'),
+    'A general value function predicts any signal, its cumulant. ' + words(120, 'prediction'),
+    'The definition ends here. 17.2 Temporal Abstraction via Options ' + words(80, 'option'),
+    words(100, 'option'),
+    words(100, 'other'),
+  ]
+  const entries = [{ title: 'Frontiers', page: 2 }, { title: 'General Value Functions and Auxiliary Tasks', page: 2 }, { title: 'Temporal Abstraction via Options', page: 4 }]
+  const label = (n: number) => String(n + 422)
+  it('a hit sends its whole section, from its title to the next one, over its pages, marked "[p. N]" (general value functions: the definition is on the next page)', () => {
+    const [one] = sections()([{ page: 2, at: texts[1].indexOf('Our notion'), text: '…a few lines…' }], { entries, texts, label })
+    expect(one.n).toBe('424')
+    expect(one.text.startsWith('General Value Functions and Auxiliary Tasks Our notion')).toBe(true)
+    expect(one.text).toContain('[p. 425] A general value function predicts any signal, its cumulant.')
+    expect(one.text).toContain('[p. 426] The definition ends here.')
+    expect(one.text).not.toMatch(/17\.2|Temporal Abstraction|Frontiers In this/)
+  })
+  it('hits keep their order; two hits in one section send it once; a hit before any section keeps its own lines', () => {
+    const got = sections()([
+      { page: 4, at: 80, text: 'options…' }, { page: 3, at: 10, text: 'cumulant…' }, { page: 2, at: texts[1].length - 20, text: 'again…' }, { page: 1, at: 5, text: 'The end of chapter sixteen…' },
+    ], { entries, texts, label })
+    expect(got.map(p => p.n)).toEqual(['426', '424', '423'])
+    expect(got[0].text.startsWith('Temporal Abstraction via Options')).toBe(true)
+    expect(got[2].text).toBe('The end of chapter sixteen…')
+  })
+  it('within the budget: a section longer than its cap is the part round its hit; once the budget is spent, nothing more', () => {
+    const [long] = sections()([{ page: 3, at: 500, text: 'x' }], { entries, texts, label, cap: 400 })
+    expect(long.text.length).toBeLessThanOrEqual(402)
+    expect(long.text).toContain('prediction')
+    const few = sections()([{ page: 2, at: texts[1].indexOf('Our'), text: 'a' }, { page: 4, at: 80, text: 'b' }], { entries, texts, label, budget: 1200 })
+    expect(few.reduce((a, p) => a + p.text.length, 0)).toBeLessThanOrEqual(1200)
+    expect(few).toHaveLength(2)
+    expect(few[1].text).toBe('b')
+  })
+  it('with no contents at all, each hit keeps its lines (as before)', () => {
+    expect(sections()([{ page: 3, at: 0, text: 'lines' }], { entries: [], texts, label })).toEqual([{ n: '425', text: 'lines' }])
+  })
+  it('the long book\'s search gives each hit a place on its page, where its first term is', () => {
+    const index = S.create()
+    texts.forEach((t, i) => index.add(i + 1, t))
+    const [hit] = index.search('general value function') as Array<{ page: number; at: number }>
+    expect(texts[hit.page - 1].slice(hit.at).toLowerCase()).toMatch(/^general/)
+  })
+  it('"Go to page" takes the printed number (423 is file page 445), roman front matter in any case, the file\'s page where none prints it', () => {
+    const roman = (P as unknown as { toRoman(n: number): string }).toRoman
+    const labels = Array.from({ length: 548 }, (_, i) => (i < 22 ? roman(i + 1) : String(i - 21)))
+    expect(pageOf('423', labels, { count: 548 })).toBe(445)
+    expect(pageOf('viii', labels, { count: 548 })).toBe(8)
+    expect(pageOf('VIII', labels, { count: 548 })).toBe(8)
+    expect(pageOf('p. 423', labels, { count: 548 })).toBe(445)
+    // No page prints 540: the file's page 540.
+    expect(pageOf('540', labels, { count: 548 })).toBe(540)
+    expect(pageOf('900', labels, { count: 548 })).toBe(0)
+    expect(pageOf('', labels, { count: 548 })).toBe(0)
+    // Without labels, the file's page as before.
+    expect(pageOf('12', null, { count: 548 })).toBe(12)
+    // Two pages print "1" (a part that starts again): the number is ambiguous, so the file's page 1; a word goes to the nearer.
+    const twice = ['i', 'ii', '1', '2', 'i', 'ii', '1', '2']
+    expect(pageOf('1', twice, { count: 8 })).toBe(1)
+    expect(pageOf('ii', twice, { count: 8, near: 7 })).toBe(6)
+    expect(pageOf('ii', twice, { count: 8, near: 1 })).toBe(2)
+  })
+  it('reading order: "Figure 1.18 shows …" in running text is no caption; "Figure 1.4 . The …" is', () => {
+    expect(R.CAPTION.test('Figure 1.18 shows the performance of repetition codes')).toBe(false)
+    expect(R.CAPTION.test('Figure 1.4 . The binary symmetric channel.')).toBe(true)
+    expect(R.CAPTION.test('Figure 16.1: The TD-Gammon ANN')).toBe(true)
+  })
+})
+
+describe('text a placed figure carries out of sight (full battery, 15 Oct: "text wrapped beside a figure is scrambled")', () => {
+  // A 600×800 page drawn at 240×320 (2.5 units a pixel): body lines on the left, a figure on the right, and the
+  // figure's hidden page of text (an earlier draft) right across it, over blank paper and on top of the body.
+  const view = [0, 0, 600, 800], W = 240, H = 320
+  const item = (str: string, x: number, y: number, width: number, size = 10): Item => ({ str, transform: [size, 0, 0, size, x, y], width, height: size, hasEOL: true })
+  const page = () => {
+    const ink = new Uint8Array(W * H), items: Item[] = []
+    const paint = (x: number, y: number, w: number, size = 10) => { const l = Math.round(x / 2.5), r = Math.round((x + w) / 2.5), t = Math.round((800 - y - size * 0.7) / 2.5), b = Math.round((800 - y) / 2.5); for (let yy = t; yy <= b; yy++) for (let xx = l; xx <= r; xx++) ink[yy * W + xx] = 1 }
+    // The figure, as the PDF draws it first: its label (drawn), then the hidden draft's lines.
+    items.push(item('predicted probability', 380, 700, 120)); paint(380, 700, 120)
+    for (let k = 0; k < 12; k++) items.push(item(`hidden draft line ${k} of an earlier page of the book`, 60 + (k % 2) * 200, 745 - k * 12.5, 260))
+    // The page's own lines (drawn), the wrapped body beside the figure.
+    for (let k = 0; k < 12; k++) { items.push(item(`network had two additional units in its line ${k}`, 60, 740 - k * 12.5, 230)); paint(60, 740 - k * 12.5, 230) }
+    // The figure's ink, round its label.
+    for (let yy = 40; yy < 110; yy++) for (let xx = 150; xx < 220; xx += 6) ink[yy * W + xx] = 1
+    return { items, ink }
+  }
+  it('the hidden lines go, the page\'s own lines and the figure\'s label stay; reading order then reads the body straight', () => {
+    const { items, ink } = page()
+    expect(R.suspect(items)).toBe(true)
+    const gone = R.hidden(items, view, ink, W, H)
+    const kept = items.filter((_, i) => !gone.has(i)).map(it => it.str)
+    expect(kept.filter(s => /hidden draft/.test(s))).toEqual([])
+    expect(kept).toContain('predicted probability')
+    expect(kept.filter(s => /^network had/.test(s))).toHaveLength(12)
+    const shown = items.map((it, i) => (gone.has(i) ? { ...it, str: '', hasEOL: false } : it))
+    const text = R.pageText(shown, R.roles(shown, view))
+    expect(text).toMatch(/in its line 0\s+network had two additional units in its line 1\s+network had/)
+    expect(text).not.toMatch(/hidden draft/)
+  })
+  it('a page whose lines never lie on each other is left alone (nothing drawn, nothing dropped)', () => {
+    const items = Array.from({ length: 30 }, (_, k) => item(`An ordinary line of running text number ${k}`, 60, 740 - k * 14, 300))
+    expect(R.suspect(items)).toBe(false)
+    expect(R.hidden(items, view, new Uint8Array(W * H), W, H).size).toBe(0)
+  })
+  it('lines on top of each other, all of them drawn (no blank paper under any): nothing is dropped', () => {
+    const { items } = page(), ink = new Uint8Array(W * H).fill(1)
+    expect(R.hidden(items, view, ink, W, H).size).toBe(0)
   })
 })

@@ -7,7 +7,10 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { MARGIN_ROUTES } from './companion/marginRoutes'
-import { MARGIN_RULES } from './companion/marginContext'
+import { GENERAL_KNOWLEDGE_RULE, MARGIN_RULES, buildMarginPrefix, formatMarginPassages, parseMarginDocument } from './companion/marginContext'
+import * as marginPromptText from './companion/marginPrompts'
+import { CHAPTER_CHAT_INSTRUCTIONS } from './companion/chapterChatPrompt'
+import { buildPrimerInstructions, buildPrimerTask } from './companion/primerPrompt'
 import {
   ASK_DOCUMENT_LINE,
   ATTRIBUTION_RULE,
@@ -224,7 +227,7 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
 
 describe('answer rules from the deep test after train 2 (15 Oct, evening)', () => {
   it('every margin request carries the picture rule and the no-extraction rule in the cached prefix; the book reader never does', async () => {
-    expect(PICTURE_RULE).toBe('The picture is the passage itself; never describe or read out the picture. Answer about the passage.')
+    expect(PICTURE_RULE).toBe('The picture is the passage itself; never describe or read out the picture, and never say what it confirms. Answer about the passage.')
     expect(NO_EXTRACTION_TALK_RULE).toBe('Never mention text extraction, garbling, or how the document reached you.')
     expect(MARGIN_RULES).toContain(PICTURE_RULE)
     expect(MARGIN_RULES).toContain(NO_EXTRACTION_TALK_RULE)
@@ -243,7 +246,7 @@ describe('answer rules from the deep test after train 2 (15 Oct, evening)', () =
   })
 
   it('the passage-image line no longer talks about garbled extraction', () => {
-    expect(PASSAGE_IMAGE_LINE).toBe('The attached image shows the passage exactly as printed. Where its equations or symbols differ from the supplied text, trust the image.')
+    expect(PASSAGE_IMAGE_LINE).toBe('The attached image shows the passage exactly as printed. Where its equations or symbols differ from the document\'s text, trust the image.')
     expect(PASSAGE_IMAGE_LINE).not.toMatch(/garbl|extract/i)
   })
 
@@ -255,11 +258,17 @@ describe('answer rules from the deep test after train 2 (15 Oct, evening)', () =
 
   it('Fact-check: the opening from the document first, then the verdict once', () => {
     const prompt = factcheckPrompt('2026-10-15')
-    expect(prompt).toContain('First paragraph: from the document alone, what the passage claims and what the document itself offers in support')
-    expect(prompt).toContain('It gives no verdict.')
+    // Full battery on train 3: the opening is one placing sentence of at most 25 words, no summary of the document's support; at most 150 words in all.
+    expect(prompt).toContain('First paragraph: one sentence of at most 25 words, from the document alone, that places the claim')
+    expect(prompt).not.toContain('what the document itself offers in support')
+    expect(prompt).toContain('It gives no verdict and does not summarise the document\'s support.')
+    expect(prompt).toContain('At most 150 words in all, not counting the Sources: line.')
+    // Fiction: real-world references, never "there is no factual claim".
+    expect(prompt).toContain('If the passage is fiction, check its references to the real world')
+    expect(prompt).toContain('Never open by saying there is no factual claim.')
     expect(prompt).toContain('State the verdict once: no other paragraph starts with a verdict word or repeats the verdict.')
     expect(prompt).not.toContain('Then one short paragraph for each checkable claim')
-    expect(FACTCHECK_OPENING_ROUND).toContain('Write only the first paragraph now, from the document alone')
+    expect(FACTCHECK_OPENING_ROUND).toContain('Write only the first paragraph now: one sentence of at most 25 words, from the document alone')
     expect(FACTCHECK_VERDICT_ROUND).toContain('Do not repeat or restate the first paragraph.')
   })
 })
@@ -274,6 +283,53 @@ describe('docs/margin/PROMPTS.md is in step with the prompts', () => {
       PICTURE_RULE, NO_EXTRACTION_TALK_RULE, PASSAGE_IMAGE_LINE, FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND, ...QUIZ_CHECK_PROMPT.split('\n'),
     ]
     for (const line of lines) expect(doc, line).toContain(line)
+  })
+})
+
+// Retest after train 2 (15 Oct, evening): answers leaked "the text I have", "the supplied text" and "the search note I drew on".
+describe('no pipeline wording in any margin prompt', () => {
+  const LEAKS = [/text I have/i, /text you have/i, /supplied/i, /search note/i]
+  it('none in the prompts, the shared rules, the document block, the primer, or PROMPTS.md\'s prompt blocks', () => {
+    const doc = parseMarginDocument({ kind: 'pdf', units: [{ n: 1, text: 'One.' }, { n: 2, text: 'Two.' }], part: { toc: [{ title: 'Part', n: 1 }], total: 90 } })!
+    const cut = parseMarginDocument({ kind: 'pdf', units: [{ n: 1, text: 'x'.repeat(10) }] })!
+    const context = { bookTitle: 'T', bookAuthor: 'A', chapterLabel: 'All', paragraphs: ['<page n="1">\nOne.\n</page>'], paragraphIndex: 0, lookups: false } as never
+    const texts: Array<[string, string]> = [
+      ...Object.entries(marginPromptText).filter(([, v]) => typeof v === 'string').map(([k, v]) => [k, v as string] as [string, string]),
+      ['quizPrompt passage', marginPromptText.quizPrompt('passage', { pdf: true })], ['quizPrompt unit', marginPromptText.quizPrompt('chapter', { pdf: true })],
+      ['factcheckPrompt', marginPromptText.factcheckPrompt('2026-10-15')],
+      ['MARGIN_RULES', MARGIN_RULES], ['GENERAL_KNOWLEDGE_RULE', GENERAL_KNOWLEDGE_RULE],
+      ['prefix, long file', buildMarginPrefix(doc, { title: 'T', author: '' })], ['prefix, cut', buildMarginPrefix({ ...cut, cut: true }, { title: 'T', author: '' })],
+      ['passages', formatMarginPassages('pdf', [{ label: '3', text: 'x' }])],
+      ['primer', CHAPTER_CHAT_INSTRUCTIONS.primer],
+      ['primer task, all', buildPrimerTask({ kind: 'primer', unitKey: 'all', unitTitle: 'T' }, context, doc)],
+      ['primer task, unit', buildPrimerTask({ kind: 'primer', unitKey: 'outline-1', unitTitle: 'T' }, context, null)],
+      ['primer instructions', buildPrimerInstructions({ kind: 'primer', unitKey: 'all', unitTitle: 'T' }, context)],
+    ]
+    // The PDF contextual lookup keeps the shared Define prompt word for word (PROMPTS.md: "nothing else changes").
+    for (const [name, text] of texts) if (name !== 'PDF_CONTEXTUAL_LOOKUP_PROMPT') for (const leak of LEAKS) expect(text, name).not.toMatch(leak)
+    const blocks = readFileSync(resolve(__dirname, '../../docs/margin/PROMPTS.md'), 'utf8').match(/```[\s\S]*?```/g) ?? []
+    expect(blocks.length).toBeGreaterThan(5)
+    for (const block of blocks) for (const leak of LEAKS) expect(block).not.toMatch(leak)
+  })
+  it('Fact-check names its sources by title, never the search or its notes; Simplify never returns the passage or a note about it', () => {
+    expect(marginPromptText.factcheckPrompt('2026-10-15')).toContain('Name each source by its title; never mention the search itself or its notes.')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Never return the passage unchanged, in the first paragraph or anywhere else')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('End with the rewrite itself, never with a note about the rewrite or what it keeps.')
+    const doc = readFileSync(resolve(__dirname, '../../docs/margin/PROMPTS.md'), 'utf8')
+    // The production re-run after train 3: Explain about the text, never the selection; Counterpoint tied to the document; short Simplify selections.
+    expect(marginPromptText.PDF_EXPLAIN_PROMPT.endsWith(marginPromptText.PDF_EXPLAIN_TEXT_RULE)).toBe(true)
+    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Look first for the document\'s own inconsistencies')
+    expect(marginPromptText.PDF_COUNTERPOINT_PROMPT).toContain('Never a generic objection that would fit any work')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('A selection of a few words gets only the first paragraph')
+    // Full battery on train 3 (fiction, accuracy, leaks).
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('never the story\'s own sentences')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Never copy the sentences that follow it in the document, and never write the same line twice.')
+    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('a reading of it that differs from the obvious one')
+    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('with no author\'s reply')
+    expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Quote the document\'s own numbers, formulas and complexities exactly as printed')
+    expect(marginPromptText.PDF_EXPLAIN_TEXT_RULE).toContain('When the passage has no notation, say nothing about notation.')
+    expect(marginPromptText.PICTURE_RULE).toContain('never say what it confirms')
+    for (const line of [marginPromptText.PDF_EXPLAIN_TEXT_RULE, ...marginPromptText.SIMPLIFY_PROMPT.split('\n'), ...marginPromptText.COUNTERPOINT_PROMPT.split('\n'), ...marginPromptText.factcheckPrompt('{today}').split('\n'), ...marginPromptText.DEFINE_SENSE_PROMPT.split('\n'), ...CHAPTER_CHAT_INSTRUCTIONS.primer.split('\n')]) expect(doc, line).toContain(line)
   })
 })
 

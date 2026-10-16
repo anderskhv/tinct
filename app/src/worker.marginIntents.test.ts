@@ -260,11 +260,11 @@ describe('the prompts the Worker builds', () => {
     expect(companionSelectionMessage(quiz)).toBe(`<selected_passage>\n${PASSAGE}\n</selected_passage>`)
   })
 
-  it('a chapter quiz asks about the supplied chapter and sends the whole chapter', () => {
+  it('a chapter quiz asks about this part of the document and sends the whole chapter', () => {
     const paragraphs = Array.from({ length: 30 }, (_, i) => `Paragraph ${i + 1}.`)
     const quiz = parseCompanionRequest({ intent: 'quiz', context: { ...bookContext, bookId: undefined, editionKey: undefined, kind: 'pdf', paragraphs, paragraphIndex: 15 } })!
     const system = buildCompanionSystem(quiz)
-    expect(system).toContain('Write three short questions that check whether the reader has understood the supplied part of the document.')
+    expect(system).toContain('Write three short questions that check whether the reader has understood this part of the document.')
     expect(system).not.toContain('the supplied chapter')
     expect(system).toContain('[1] Paragraph 1.')
     expect(system).toContain('[30] Paragraph 30.')

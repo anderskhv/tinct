@@ -14,7 +14,7 @@ const store = {
 };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const TRIM = { x: 0.08, y: 0.04 };
-const state = { kind: null, figs: new Map(), pdf: null, epub: null, key: '', name: '', title: '', author: '', scan: null, titleReady: null, pages: [], zoom: 1, trim: false, base: { w: 612, h: 792 }, token: 0, observer: null, texts: new Map() };
+const state = { kind: null, figs: new Map(), pdf: null, epub: null, key: '', name: '', title: '', author: '', scan: null, titleReady: null, pages: [], zoom: 1, fit: null, pagesAsked: false, trim: false, base: { w: 612, h: 792 }, token: 0, observer: null, texts: new Map() };
 const hasBook = () => !!(state.pdf || state.epub);
 const isEpub = () => state.kind === 'epub';
 const prefs = Object.assign({ trim: false, full: false, rate: 1, voice: '', dockW: 380, dock: 'docked' }, store.get('prefs') || {});
@@ -141,7 +141,7 @@ async function openStored(key, known = null) {
     const remote = cloud.get(key);
     if (!remote) { toast('That book is no longer on this device. Open the file again.'); return false }
     let bytes;
-    try { bytes = await window.TinctAI.books.download(remote.id) }
+    try { bytes = await downloadChecked(remote.id, key) }
     catch (e) {
       if (e?.code === 'not_found') { cloud.mine().delete(key); toast('That book is no longer in your account.') }
       else toast('That book could not be downloaded. Try again.');
@@ -223,7 +223,7 @@ async function openBook(kind, bytes, name, key, rec = null) {
     if (Object.keys(patch).length) setTimeout(() => library.touch(key, patch), rec ? 2500 : 0);
     // A PDF is a book with its own address (/lab/addbook/?userBook=<hex>): a reload, the
     // library and the book switcher open it again at its place.
-    const url = kind === 'pdf' ? bookUrl(key) : null;
+    const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : null;
     if (url) { if (location.pathname + location.search !== url) history.pushState({ addbookReader: key }, '', url) }
     else if (location.hash !== '#read') history.pushState({ addbookReader: key }, '', '#read');
   }
@@ -272,7 +272,7 @@ async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop(); strip?.close();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
-  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false;
+  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false; zoomClass();
   Object.assign(book, { key: null, pdf: null, task: null, texts: [], numbers: [], matter: [], index: null });
   if (window.CSS?.highlights) for (const [k] of HL_COLORS) CSS.highlights.delete('tinct-hl-' + k);
   chat.turns = []; chat.passage = null; chat.attach = [];
@@ -348,6 +348,45 @@ $('column').addEventListener('click', e => {
 });
 
 /* ---------- PDF ---------- */
+// The book's key names the first 24 hex digits of its SHA-256 (add-engine.js digest): bytes that do not match are not the book.
+const bytesMatch = async (bytes, key) => !!bytes?.byteLength && await engine.digest(bytes) === hexOf(key);
+/** The account copy, checked against the book's key and asked for once more when it does not match (a download cut short). */
+async function downloadChecked(id, key) {
+  for (let tries = 0; ; tries++) {
+    const bytes = await window.TinctAI.books.download(id);
+    if (!/^(pdf|epub):[0-9a-f]{24}$/.test(key) || await bytesMatch(bytes, key)) return bytes;
+    console.warn('[addbook] the account copy did not match its book; asking again');
+    if (tries >= 1) throw Object.assign(new Error('corrupt'), { code: 'corrupt' });
+  }
+}
+/**
+ * The PDF, opened by pdf.js. A large book once failed to open at random on the desktop ("This file could not be
+ * opened as a PDF", MacKay's 640 pages, the night checklist of 15 Oct 2026): a failure other than a password is
+ * tried once more, with the bytes read again (pdf.js hands the first ones to its worker, which detaches them) from
+ * this device's copy, else the account's, each checked against the book's key. -> the pdf.js document, or throws.
+ */
+async function loadPdf(bytes, key, token) {
+  const open = data => pdfjsLib.getDocument({ data, isEvalSupported: false }).promise;
+  try { return await open(bytes) }
+  catch (e) {
+    if (e?.name === 'PasswordException' || token !== state.token) throw e;
+    console.warn('[addbook] the PDF did not open; trying once more', e);
+    const again = await freshPdfBytes(key).catch(() => null);
+    if (!again || token !== state.token) throw e;
+    return await open(again);
+  }
+}
+async function freshPdfBytes(key) {
+  if (!/^pdf:[0-9a-f]{24}$/.test(key)) return null;
+  const rec = await library.get(key);
+  if (rec?.bytes) { const b = new Uint8Array(rec.bytes); if (await bytesMatch(b, key)) return b }
+  // This device's copy is not the book (or is gone): the account's, kept here again in its place.
+  const remote = cloud.get(key);
+  if (!remote) return null;
+  const b = await downloadChecked(remote.id, key);
+  if (rec) await library.touch(key, { bytes: b.slice().buffer, size: b.byteLength });
+  return b;
+}
 async function openPdf(bytes, name, key, known = null) {
   const token = ++state.token;
   closeAllPopups();
@@ -355,8 +394,8 @@ async function openPdf(bytes, name, key, known = null) {
   // Asked while the file opens: a place read later on another device of the account.
   const synced = placeSync.reconcile(key);
   let pdf;
-  try { pdf = await pdfjsLib.getDocument({ data: bytes, isEvalSupported: false }).promise }
-  catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${e?.name === 'PasswordException' ? 'This PDF is password-protected, so it cannot be opened here.' : 'This file could not be opened as a PDF. Choose another file.'}</div>`; return }
+  try { pdf = await loadPdf(bytes, key, token) }
+  catch (e) { if (token !== state.token) return; $('column').innerHTML = `<div class="pdf-status" role="alert">${e?.name === 'PasswordException' ? 'This PDF is password-protected, so it cannot be opened here.' : 'This file could not be opened as a PDF. Choose another file.'}</div>`; return }
   if (token !== state.token) return;
   state.pdf?.destroy?.();
   furniture.clear();
@@ -369,7 +408,10 @@ async function openPdf(bytes, name, key, known = null) {
   const textEdition = window.TinctPdfText?.usable(rec?.edition) ? rec.edition : null;
   // A scan's recognised pages (js/pdf-ocr.js), kept with the book once fetched: its text layer and its text.
   const ocrPages = ocrPagesOf(rec?.ocrPages);
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map() });
+  // A link that asks for the pages (&pages) is read once, here: the address loses it when the book's own is
+  // pushed (openBook), and a first open's scan finishes after that (the &pages race, 15 Oct 2026).
+  const pagesAsked = new URLSearchParams(location.search).has('pages');
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null });
   if (token !== state.token) return;
   root.classList.add('is-pdf'); root.classList.remove('is-epub');
   root.style.removeProperty('--epub-scale');
@@ -383,7 +425,10 @@ async function openPdf(bytes, name, key, known = null) {
   // A link's page (the Tinct reader's "Original pages") wins for this open; at the saved page, its spot on it too.
   const asked = Number(new URLSearchParams(location.search).get('page'));
   if (Number.isInteger(asked) && asked >= 1 && asked <= pdf.numPages && asked !== saved?.page) saved = { ...(saved || {}), page: asked, frac: 0 };
-  state.zoom = saved?.zoom || 1;
+  // On a phone: the reader's own zoom there, else the text column fills the width (columnFit); the desktop's as before.
+  state.zoom = isPhone() ? await phoneZoom(saved, token) : saved?.zoom || 1;
+  if (token !== state.token) return;
+  zoomClass();
   // Where the book opens: the reader has not moved until they leave it (savePlaceNow).
   state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
   setBookTitle(state.title, state.author);
@@ -406,7 +451,7 @@ async function openPdf(bytes, name, key, known = null) {
   setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
   // The margin replaces the docked chat (docs/margin/BRIEF.md §3): its column, or marks in a narrow window.
   marginStart();
-  requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
+  requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; panToColumn(); onScroll() });
   // The account answered after the book opened: its newer place is shown if the reader is still where it opened.
   late.then(adopted => {
     if (!adopted || token !== state.token || !sameSpot(currentPlace(), state.lastPlace)) return;
@@ -421,6 +466,7 @@ function setBookTitle(title, author) {
   $('bookTitle').textContent = title;
   $('bookBtn').setAttribute('aria-label', `${title}. Switch books`);
   document.title = `${title} · Tinct`;
+  fitPill();
 }
 // A PDF's cover is its first page, drawn once (coverV 2) at the size Your books and the
 // library show it, after the page is open so it never delays reading.
@@ -456,7 +502,7 @@ function applyCrop() {
 }
 // The pages' width at fit: the scroll area less the column's own side padding (css/reader.css
 // .pdf-column), so a page never runs past the screen's edge.
-const columnPad = () => { const cs = getComputedStyle($('column')); return (parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)) || 32 };
+const columnPad = () => { const cs = getComputedStyle($('column')), v = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight); return Number.isFinite(v) ? v : 32 };
 /**
  * The pages' area across the scroller. With the margin's column the scroller runs to the window's edge
  * (one scroll surface, its scrollbar at the right, Anders, 15 Oct) and the pages keep to its left, the
@@ -503,9 +549,30 @@ async function pageText(n) {
   if (recognised) { const value = { text: TinctPdfOcr.pageText(recognised), items: [], ocr: true }; state.texts.set(n, value); return value }
   const page = await state.pdf.getPage(n);
   const content = await page.getTextContent();
-  const value = { items: content.items, ...textOf(content.items, page.view) };
+  const items = await shownItems(page, content.items);
+  const value = { items, ...textOf(items, page.view) };
   state.texts.set(n, value);
   return value;
+}
+/* Text a placed figure carries clipped out of sight (TD-Gammon's figure holds a page of an earlier draft) is no
+   text of the page: on a page whose lines lie on top of each other, the page is drawn small and the text it
+   does not show is dropped (TinctReadingOrder.hidden), for the text layer, selections and the companion alike.
+   Other pages are untouched. -> the items, the unseen ones emptied (indexes kept) */
+async function shownItems(page, items) {
+  const RO = window.TinctReadingOrder;
+  if (!RO?.hidden || !RO.suspect(items)) return items;
+  try {
+    const base = page.getViewport({ scale: 1 }), vp = page.getViewport({ scale: 480 / base.width });
+    const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+    const g = c.getContext('2d', { alpha: false }); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: g, viewport: vp }).promise;
+    const W = 240, H = Math.max(1, Math.round(W * c.height / c.width)), small = document.createElement('canvas'); small.width = W; small.height = H;
+    const x = small.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
+    const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H);
+    for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
+    const gone = RO.hidden(items, page.view, ink, W, H);
+    return gone.size ? items.map((it, i) => (gone.has(i) ? { ...it, str: '', hasEOL: false } : it)) : items;  // (empty items in the run lose their line ends too)
+  } catch { return items }
 }
 async function renderPage(p) {
   const width = sheetWidth(), dark = pageTheme === 'dark';
@@ -937,6 +1004,7 @@ function onScroll() {
     $('pageLabel').textContent = ch ? ch.label : state.title;
     $('pageBtn').setAttribute('aria-label', `Table of contents, ${ch ? ch.label + ', ' : ''}${pct}% read`);
     $('progress').textContent = `${pct}%`;
+    fitPill(window.TinctReaderLayout.pillStages({ chapter: ch ? ch.label : state.title, pct: `${pct}%`, epub: true }));
   } else {
   // The chapter pill: the chapter (a real one, from the scan) or the page, then page and percent.
   // Pages by their printed labels where the PDF has them (or prints them: pageLabels), "of" its last one.
@@ -944,6 +1012,7 @@ function onScroll() {
   $('pageLabel').textContent = ch ? ch.label : `p. ${at} of ${of}`;
   $('pageBtn').setAttribute('aria-label', `Contents and pages, ${ch ? ch.label + ', ' : ''}page ${at} of ${of}, ${pct} read`);
   $('progress').textContent = ch ? `p. ${at} · ${pct}` : pct;
+  fitPill(window.TinctReaderLayout.pillStages({ chapter: ch ? ch.label : `p. ${at} of ${of}`, page: at }));
   }
   clearTimeout(saveTimer);
   saveTimer = setTimeout(savePlaceNow, 250);
@@ -980,7 +1049,9 @@ function savePlaceNow() {
   if (moved) state.lastPlace = place;
   // A move in a PDF is read in Original pages, at this spot in its Tinct text when this device has it.
   const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : {};
-  store.set('pos:' + state.key, moved ? { ...prev, ...place, ...read, zoom: state.zoom, pages: state.pages.length, at: Date.now() } : { ...prev, zoom: state.zoom, pages: state.pages.length });
+  // A PDF's zoom on a phone is kept apart (phoneZoom), and only once the reader chose it: until then the column fit is worked out again.
+  const zoom = state.kind === 'pdf' && isPhone() ? (state.fit ? {} : { phoneZoom: state.zoom }) : { zoom: state.zoom };
+  store.set('pos:' + state.key, moved ? { ...prev, ...place, ...read, ...zoom, pages: state.pages.length, at: Date.now() } : { ...prev, ...zoom, pages: state.pages.length });
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
@@ -1006,7 +1077,7 @@ const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key
 // A scan whose text was recognised stays here, with the margin, its words laid over its pages (the
 // scans test, 15 Oct 2026); its Tinct text is one tap away ("Tinct text"), never a redirect.
 function forwardToText(scan) {
-  if (!scan || !(scan.textPages > 0) || new URLSearchParams(location.search).has('pages') || editionChoice(scan) !== 'text') return false;
+  if (!scan || !(scan.textPages > 0) || state.pagesAsked || editionChoice(scan) !== 'text') return false;
   const pos = store.get('pos:' + state.key);
   location.replace(textUrl(pos?.page));
   return true;
@@ -1237,11 +1308,13 @@ const placeSync = {
    removals are kept as tombstones) and written again, so nothing is lost on a conflict. Signed
    out, or for a book not in the account, they stay in this browser as before. EPUBs never sync here. */
 const MARKS_SYNC_MS = 1500;
+// Rounds of three conflicting writes in a row before a set waits for its next change, open or return online.
+const CONFLICT_ROUNDS = 4;
 /* The same versioned set for the margin's cards (/api/user-books/cards/{bookHex}, 'cards:' + key here):
    one record per kept result, the same merge (TinctMargin.mergeCards). */
 function setSync({ path, field, prefix, local, apply, failed }) {
   return {
-    timer: null, running: null, key: '', told: '',
+    timer: null, running: null, key: '', told: '', rounds: 0,
     /* A write that did not reach the account for any reason but a conflict (which is merged and sent
        again) or a book not in the account (404: kept here, as signed out): the reader is told once per
        file that it is kept on this device (FIXES-2026-10-15 PR C). */
@@ -1291,6 +1364,7 @@ function setSync({ path, field, prefix, local, apply, failed }) {
             const { status, json } = await this.call('PUT', { [field]: list, rev }, { keepalive });
             if (state.key !== key) return;
             if (status === 200) {
+              this.rounds = 0;
               store.set(prefix + '-rev:' + key, json.rev);
               // A card too long for the account even when trimmed stays on this device only.
               if (json.dropped) this.fail(key, `${json.dropped === 1 ? 'A card was' : json.dropped + ' cards were'} too long to save to your account. ${json.dropped === 1 ? 'It is' : 'They are'} kept on this device.`);
@@ -1303,6 +1377,10 @@ function setSync({ path, field, prefix, local, apply, failed }) {
             store.set(prefix + '-rev:' + key, json.rev || 0);
             this.apply(TinctMargin.mergeMarks(this.local(), json[field] || []));
           }
+          // Conflicts every time (two devices writing at once): the merged set stays here, dirty, and is sent
+          // again a moment later, a few rounds at most (then on the next change, open or return online);
+          // nothing is said, as a conflict is not a failure (the PM's battery, 15 Oct 2026).
+          if (state.key === key && store.get(prefix + '-dirty:' + key) && ++this.rounds <= CONFLICT_ROUNDS) { clearTimeout(this.timer); this.timer = setTimeout(() => this.push(), MARKS_SYNC_MS * this.rounds) }
         } catch { if (navigator.onLine !== false && state.key === key) this.fail(key) /* offline: kept dirty, sent when back online */ }
         finally { this.running = null }
       })();
@@ -1351,6 +1429,7 @@ function setZoom(z, { quick = false } = {}) {
     else if (state.zoom <= 1 && dock.byZoom && dock.state === 'minimized') setDock('docked');
   }
   if (isEpub()) { applyEpubScale(); goTo(place); onScroll(); savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }); return }
+  zoomClass();
   applyCrop();
   const w = sheetWidth();
   for (const p of state.pages) { p.sheet.style.width = w + 'px'; p.sheet.style.aspectRatio = sheetRatio(p.w, p.h) }
@@ -1358,16 +1437,91 @@ function setZoom(z, { quick = false } = {}) {
   clearTimeout(zoomTimer);
   zoomTimer = setTimeout(() => { for (const p of state.pages) if (p.canvas) { p.renderedWidth = 0; renderPage(p) } savePlaceNow() }, quick ? 220 : 0);
 }
+/* Phones: the text column fills the width (the PM's full battery, 15 Oct 2026; TinctReaderLayout.textColumn).
+   At the phone's fit-to-width a PDF page is too small to read, so until the reader pinches or sets the size
+   (then pos:<key>.phoneZoom, this device's), a PDF opens on a phone zoomed until its text column fills the
+   width (one column of a two-column paper), panned to it. The desktop's zoom (pos.zoom) is apart and
+   unchanged. While zoomed on a phone the pages have no side padding, so a pan stays inside the page. */
+const COLUMN_GUTTER = 10;
+function zoomClass() { root.classList.toggle('is-page-zoomed', state.kind === 'pdf' && isPhone() && state.zoom > 1) }
+/** The text column of the pages from `from` on (three with running text at most), by the scan's own line and column tests. */
+async function columnFit(from, token) {
+  const RL = window.TinctReaderLayout, Scan = window.TinctPdfScan, Text = window.TinctPdfText;
+  if (!state.pdf || !Scan?.textRows || !Text?.columnsOf) return null;
+  const n = state.pdf.numPages, found = [];
+  let x0 = 0;
+  for (let k = Math.max(1, Math.min(from, n)), tries = 0; k <= n && found.length < 3 && tries < 6; k++, tries++) {
+    try {
+      const [{ items }, page] = await Promise.all([pageText(k), state.pdf.getPage(k)]);
+      if (token !== state.token) return null;
+      const [vx0, , vx1] = page.view, rows = Scan.textRows(items || []);
+      const col = RL.textColumn(rows, Text.columnsOf(rows, vx0, vx1 - vx0));
+      if (col) { found.push(col); x0 = vx0 }
+    } catch { /* a page that cannot be read is skipped */ }
+  }
+  const column = RL.documentColumn(found);
+  return column ? { column, x0 } : null;
+}
+/** The zoom a PDF opens at on a phone: the reader's own there, else the column fit (1 without one). */
+async function phoneZoom(saved, token) {
+  const own = Number(saved?.phoneZoom);
+  if (own > 0) { state.fit = null; return own }
+  const fit = await columnFit(saved?.page || 1, token).catch(() => null);
+  state.fit = { column: fit?.column || null, x0: fit?.x0 || 0 };
+  return fitZoom();
+}
+function fitZoom() { return window.TinctReaderLayout.columnZoom({ column: state.fit?.column, pageWidth: state.base.w, room: $('scroll').clientWidth, cropX: crop().x, gutter: COLUMN_GUTTER }) }
+/** Pan to the column on the page in view (only while the zoom is the column fit). */
+function panToColumn() {
+  if (!state.fit?.column || !isPhone() || state.zoom <= 1) return;
+  const p = state.pages[currentPlace().page - 1];
+  if (!p) return;
+  const s = $('scroll'), r = p.sheet.getBoundingClientRect(), sr = s.getBoundingClientRect();
+  s.scrollLeft = window.TinctReaderLayout.columnScroll({ column: state.fit.column, pageWidth: p.w, x0: state.fit.x0, cropX: crop().x, sheetLeft: r.left - sr.left + s.scrollLeft, sheetWidth: r.width, room: s.clientWidth, gutter: COLUMN_GUTTER });
+}
+/** After a resize: the column fit worked out again for the new width; across the phone/desktop line, each its own zoom. */
+async function refitZoom(crossed) {
+  if (state.kind !== 'pdf') { setZoom(state.zoom); return }
+  if (crossed) {
+    const saved = store.get('pos:' + state.key), token = state.token;
+    const z = isPhone() ? await phoneZoom(saved, token) : (state.fit = null, saved?.zoom || 1);
+    if (token !== state.token) return;
+    setZoom(z); panToColumn(); return;
+  }
+  if (state.fit && isPhone()) { setZoom(fitZoom()); panToColumn(); return }
+  setZoom(state.zoom);
+}
+
+/* The phone's page pill (TinctReaderLayout.pillStages): the fullest label that leaves the title whole and
+   is not cut itself, else the page alone without its chevron; never an empty pill. The desktop's is as before. */
+const pill = { stages: null, key: '', at: 0 };
+function fitPill(stages = pill.stages) {
+  pill.stages = stages;
+  const btn = $('pageBtn'), label = $('pageLabel'), title = $('bookTitle');
+  if (!isPhone() || !stages?.length) { delete btn.dataset.chevron; pill.key = ''; return }
+  const show = stage => { label.textContent = stage.label; btn.dataset.chevron = stage.chevron ? 'on' : 'off' };
+  // The same labels, width and title as last time: the stage found then (onScroll has just written the full label).
+  const key = JSON.stringify(stages) + '|' + innerWidth + '|' + title.textContent;
+  if (key === pill.key) { show(stages[pill.at]); return }
+  const whole = el => el.scrollWidth <= el.clientWidth + 1;
+  let at = 0;
+  for (; at < stages.length; at++) {
+    show(stages[at]);
+    if (at === stages.length - 1 || (whole(title) && whole(label))) break;
+  }
+  pill.key = key; pill.at = at;
+}
 // Ctrl/Cmd +/- and trackpad pinch zoom the pages, not the browser page, so the top bar stays put.
 addEventListener('keydown', e => {
   if (!(e.ctrlKey || e.metaKey) || !state.pages.length) return;
-  if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(state.zoom + 0.1, { quick: true }) }
-  else if (e.key === '-' || e.key === '_') { e.preventDefault(); setZoom(state.zoom - 0.1, { quick: true }) }
-  else if (e.key === '0') { e.preventDefault(); setZoom(1) }
+  if (e.key === '+' || e.key === '=') { e.preventDefault(); state.fit = null; setZoom(state.zoom + 0.1, { quick: true }) }
+  else if (e.key === '-' || e.key === '_') { e.preventDefault(); state.fit = null; setZoom(state.zoom - 0.1, { quick: true }) }
+  else if (e.key === '0') { e.preventDefault(); state.fit = null; setZoom(1) }
 });
 addEventListener('wheel', e => {
   if (!e.ctrlKey || !state.pages.length) return;
   e.preventDefault();
+  state.fit = null;
   setZoom(state.zoom * Math.exp(-e.deltaY * 0.01), { quick: true });
 }, { passive: false });
 // On a touch screen, two fingers on the pages zoom the pages too, not the browser page: a
@@ -1378,6 +1532,7 @@ $('scroll').addEventListener('touchstart', e => { if (e.touches.length === 2 && 
 $('scroll').addEventListener('touchmove', e => {
   if (!pinch || e.touches.length !== 2) return;
   e.preventDefault();
+  state.fit = null;
   setZoom(pinch.zoom * fingerGap(e.touches) / pinch.gap, { quick: true });
 }, { passive: false });
 $('scroll').addEventListener('touchend', e => { if (e.touches.length < 2) pinch = null });
@@ -1385,7 +1540,7 @@ $('scroll').addEventListener('touchcancel', () => { pinch = null });
 // Safari's own pinch (gesture events) over the reader: the pages zoom instead (above).
 for (const type of ['gesturestart', 'gesturechange']) addEventListener(type, e => { if (readerShown() && state.pages.length) e.preventDefault() }, { passive: false });
 let resizeTimer;
-addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { applyLayout(); if (state.pages.length) setZoom(state.zoom) }, 150) });
+addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { const wasPhone = isPhone(); applyLayout(); if (state.pages.length) refitZoom(wasPhone !== isPhone()); fitPill() }, 150) });
 addEventListener('keydown', e => {
   if (e.target.closest('input, textarea, select')) return;
   if (e.key === 'Escape') {
@@ -1465,7 +1620,6 @@ const ICON = {
   library: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m10 5-7 7 7 7M3 12h18"></path></svg>',
   // The reader's Book editions glyph (src/lab/LabSuperMenu.tsx).
   editions: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="4" height="16" rx="0.8"></rect><rect x="10" y="4" width="4" height="16" rx="0.8"></rect><path d="m14.6 5.2 3.9-.9 3 15.6-3.9.9z"></path></svg>',
-  librarian: CHAT_SVG,
   close: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="m7 7 10 10M17 7 7 17"></path></svg>',
   open: '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m-4 4 4-4 4 4M5 14v5h14v-5"></path></svg>',
   pause: '<svg width="20.7" height="20.7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="0.5"></rect><rect x="14" y="5" width="4" height="14" rx="0.5"></rect></svg>',
@@ -1475,9 +1629,10 @@ const ICON = {
   attach: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="m20.5 16-5-5-8 8"></path></svg>',
   copy: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" stroke-width="1.5"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.5"></path></svg>',
 };
-// The reader's rows (src/lab/labSuperMenu.ts: Librarian, Summarize, Catch me up, Settings,
-// Library on the phone), with this viewer's own: Snip a figure, Export notes, Open another book.
-const MENU = [['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['settings', 'Settings', false, true], ['open', 'Open another book', true], ['library', 'Library', true]];
+// The reader's rows (src/lab/labSuperMenu.ts: Summarize, Catch me up, Settings, Library on the phone),
+// with this viewer's own: Snip a figure, Export notes, Open another book. The whole-document chat is
+// "Chat" here, the name its margin card has (the PM's full battery, 15 Oct 2026; the book reader keeps Librarian).
+const MENU = [['chat', 'Chat'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['settings', 'Settings', false, true], ['open', 'Open another book', true], ['library', 'Library', true]];
 // Settings holds read aloud's voice and speed (the look is the Aa panel's), so an EPUB, which has no read aloud here, has none.
 const menuItems = () => MENU.filter(([id]) => (id !== 'snip' || state.kind === 'pdf') && (id !== 'settings' || !isEpub()) && (id !== 'library' || isPhone())).map(([id, label, rule, chevron]) => id === 'settings' ? [id, label, true, chevron] : [id, label, rule, chevron]);
 function openMenu() {
@@ -1503,7 +1658,7 @@ $('superBtn').onclick = openMenu;
 function menuAction(id) {
   if (id === 'library') { leaveToShelf(); return }
   if (!hasBook() && id !== 'open' && id !== 'settings') { toast('Open a book first.'); return }
-  if (id === 'librarian') return openChat();
+  if (id === 'chat') return openChat();
   if ((id === 'summarize' || id === 'catchup') && hasNoText()) return;
   if (id === 'summarize') return summarize();
   if (id === 'catchup') return catchUp();
@@ -1582,8 +1737,10 @@ function openDisplay() {
         </div>
       </div>
     </section>`;
-  layer.querySelector('.lab-super-scrim').onclick = closeDisplay;
-  layer.querySelector('.lab-v2-dismiss').onclick = closeDisplay;
+  layer.querySelector('.lab-super-scrim').onclick = () => closeDisplay({ focus: true });
+  layer.querySelector('.lab-v2-dismiss').onclick = () => closeDisplay({ focus: true });
+  // Escape closes it from anywhere in it, the size slider too (the page's own Escape skips inputs).
+  layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeDisplay({ focus: true }) } });
   layer.querySelector('[data-aa="layout"]').addEventListener('click', e => {
     const b = e.target.closest('[data-layout]'); if (!b) return;
     if (b.dataset.layout === 'text') { closeDisplay(); readAsText(); return }
@@ -1596,7 +1753,7 @@ function openDisplay() {
     layer.querySelector('[data-testid="lab-v2-theme-eink"]')?.remove();
   });
   let sizeTimer;
-  layer.querySelector('[data-testid="lab-v2-size"]').oninput = e => { const z = Number(e.target.value); clearTimeout(sizeTimer); sizeTimer = setTimeout(() => setZoom(z, { quick: true }), 60) };
+  layer.querySelector('[data-testid="lab-v2-size"]').oninput = e => { const z = Number(e.target.value); clearTimeout(sizeTimer); sizeTimer = setTimeout(() => { state.fit = null; setZoom(z, { quick: true }) }, 60) };
   layer.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
     const t = b.dataset.t;
     if (t === 'text') { closeDisplay(); readAsText(); return }
@@ -1609,9 +1766,13 @@ function openDisplay() {
   $('aaBtn').setAttribute('aria-expanded', 'true');
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
-function closeDisplay() {
-  document.querySelector('.byob-aa-panel')?.remove();
+function closeDisplay({ focus = false } = {}) {
+  const panel = document.querySelector('.byob-aa-panel');
+  // Closed from inside it (Escape, ×, the scrim): focus goes back to the Aa button.
+  const inside = !!panel && panel.contains(document.activeElement);
+  panel?.remove();
   $('aaBtn').setAttribute('aria-expanded', 'false');
+  if (panel && (focus || inside)) $('aaBtn').focus({ preventScroll: true });
 }
 $('aaBtn').onclick = openDisplay;
 /* Settings: the reader's Settings sheet (src/lab/LabV2Sheet.tsx), with the rows that apply here: read
@@ -1739,6 +1900,8 @@ function openContents() {
   if (!hasBook()) return;
   closeAllPopups();
   const page = currentPlace().page, cur = chapterAt(page);
+  // Printed page labels where there are any: the reader types the number they see on the page ("423", "xii").
+  const lettered = (state.labels || []).some(l => /\p{L}/u.test(String(l ?? '')));
   if (cur?.parent) toc.expanded.add(cur.parent);
   const layer = document.createElement('div');
   layer.className = 'lab-contents-v2'; layer.dataset.testid = 'lab-toc';
@@ -1758,14 +1921,15 @@ function openContents() {
     <div class="menu" role="dialog" aria-modal="true" aria-label="Contents">
       <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>
       <div class="viewport">
-        <form class="byob-jump byob-toc-jump"${isEpub() ? ' hidden' : ''}><label for="jumpInput">Go to page</label><input id="jumpInput" inputmode="numeric" value="${page}"><span>of ${state.pages.length}</span><button type="submit">Go</button></form>
+        <form class="byob-jump byob-toc-jump"${isEpub() ? ' hidden' : ''}><label for="jumpInput">Go to page</label><input id="jumpInput" inputmode="${lettered ? 'text' : 'numeric'}" autocapitalize="off" autocomplete="off" spellcheck="false" value="${esc(pageLabel(page))}"><span>of ${esc(lastLabel())}</span><button type="submit">Go</button></form>
         ${toc.ready ? (tops.length ? `<nav class="tree" aria-label="Chapters"><ul>${tops.map(node).join('')}</ul></nav>` : isEpub() ? '<p class="status">This book has no table of contents.</p>' : pageList(page)) : '<p class="status" role="status">Reading the book’s contents…</p>'}
       </div></div>`;
   const close = () => layer.remove();
   layer.querySelector('.lc-scrim').onclick = close;
   layer.querySelector('[data-close]').onclick = close;
   layer.querySelector('.title').onclick = close;
-  layer.querySelector('form').onsubmit = ev => { ev.preventDefault(); const n = parseInt(layer.querySelector('#jumpInput').value, 10); if (n) goTo({ page: n, frac: 0 }); close() };
+  // The page the reader types as printed ("423", "viii"); the file's page where no page prints it (pageOfLabel).
+  layer.querySelector('form').onsubmit = ev => { ev.preventDefault(); const n = pageOfLabel(layer.querySelector('#jumpInput').value); if (n) goTo({ page: n, frac: 0 }); close() };
   layer.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
     const e = toc.entries.find(x => x.id === b.dataset.go);
     if (toc.entries.some(c => c.parent === e.id)) { toc.expanded.has(e.id) ? toc.expanded.delete(e.id) : toc.expanded.add(e.id); close(); openContents(); return }
@@ -2407,7 +2571,8 @@ async function mrDefine(word) {
   try { hit = await TinctDictionary.lookup(word) } catch {}
   if (mr?.defToken !== token) return;
   // Offline, a capitalised word the dictionary has shows its entry (a name mid-sentence asks the companion only when it can).
-  if (hit && (!TinctMargin.nameMidSentence(word, mr.before) || navigator.onLine === false)) {
+  const asks = TinctMargin.defineAsks(hit, { word, before: mr.before, online: navigator.onLine !== false });
+  if (asks.dictionary) {
     mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
     mrShow('define');
     // Online, two asks at once (15 Oct, evening): the meaning in this text from the companion's
@@ -2416,12 +2581,12 @@ async function mrDefine(word) {
     // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
     const info = mr.info, anchor = mr.anchor, def = mr.def;
     const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
-    const inText = navigator.onLine === false ? null : defineByCompanion(word, info).then(found => {
+    const inText = !asks.inText ? null : defineByCompanion(word, info).then(found => {
       if (!found?.line) return;
       def.inText = found.line; if (found.pos) def.pos = found.pos;
       redraw();
     }).catch(() => { /* the dictionary alone */ });
-    const sense = fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
+    const sense = !asks.sense ? null : fittingSense(hit.word, def.senses.map(x => x.text), info).then(n => {
       if (!(n > 0)) return;
       def.senses = [{ ...def.senses[n - 1], fit: true }, ...def.senses.filter((_, k) => k !== n - 1)];
       redraw();
@@ -2589,7 +2754,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015speed').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261015retestg').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -2626,11 +2791,10 @@ function pageLabel(n) { const l = String(state.labels?.[n - 1] ?? '').trim(); re
 const lastLabel = () => (state.labels ? pageLabel(state.pages.length) : String(state.pages.length));
 /** The page a typed page label names: a printed label (any case: "xii", "423"), else, without labels, a page number. -> page or 0 */
 function pageOfLabel(value) {
-  const v = String(value || '').trim().toLowerCase(), count = state.pages.length;
-  if (!v) return 0;
-  if (state.labels) { for (let n = 1; n <= count; n++) if (pageLabel(n).toLowerCase() === v) return n }
-  const n = /^\d+$/.test(v) ? Number(v) : 0;
-  return !state.labels && n >= 1 && n <= count ? n : 0;
+  const count = state.pages.length, labels = state.labels ? Array.from({ length: count }, (_, i) => pageLabel(i + 1)) : null;
+  if (window.TinctPrintedPages?.pageOf) return TinctPrintedPages.pageOf(value, labels, { count, near: currentPlace().page });
+  const n = /^\d+$/.test(String(value || '').trim()) ? Number(String(value).trim()) : 0;
+  return n >= 1 && n <= count ? n : 0;
 }
 /** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. */
 async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
@@ -2662,7 +2826,7 @@ function readBook() {
       if (state.pdf !== pdf || (state.ocrPages || null) !== ocr) return null;
       const recognised = ocr?.get(n) && window.TinctPdfOcr ? ocr.get(n) : null;
       const have = recognised ? null : state.texts.get(n), page = recognised ? null : await pdf.getPage(n);
-      const items = recognised ? TinctPdfOcr.furnitureItems(recognised) : have ? have.items : (await page.getTextContent()).items;
+      const items = recognised ? TinctPdfOcr.furnitureItems(recognised) : have ? have.items : await shownItems(page, (await page.getTextContent()).items);
       const text = recognised ? TinctPdfOcr.pageText(recognised) : have ? have.text : textOf(items, page.view).text;
       book.texts[n - 1] = text;
       book.numbers[n - 1] = window.TinctPrintedPages ? TinctPrintedPages.candidates(items, recognised ? TinctPdfOcr.FURNITURE_VIEW : page.view) : [];
@@ -2767,7 +2931,12 @@ async function searchPassages(question, doc) {
   const opening = named.map(u => ({ n: pageLabel(u.page), text: openingText(read, u.page) })).filter(o => o.text);
   for (const u of named) skip.add(u.page);
   const query = named.length ? [TinctMargin.withoutRefs(question), ...named.map(u => u.title)].join(' ') : question;
-  const found = read.index.search(query, { limit: 5, skip }).map(hit => ({ n: pageLabel(hit.page), text: hit.text }));
+  // Each hit as the whole section it falls in (from the contents: outline, printed contents or headings), in the
+  // search's order, within the request's budget for passages (TinctAI.PASSAGES_BUDGET); a hit outside any section keeps its lines.
+  const hits = read.index.search(query, { limit: 5, skip });
+  const budget = (window.TinctAI?.PASSAGES_BUDGET || 40000) - opening.reduce((a, o) => a + o.text.length, 0);
+  const found = TinctDocSearch.sections ? TinctDocSearch.sections(hits, { entries: contentsEntries(), texts: read.texts, label: pageLabel, cap: window.TinctAI?.PASSAGE_CHARS || 16000, budget })
+    : hits.map(hit => ({ n: pageLabel(hit.page), text: hit.text }));
   const all = [...opening, ...found].slice(0, 6);
   return all.length ? all : null;
 }
@@ -2982,7 +3151,9 @@ const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
   const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
-  return { open, P: MP.P, resolve: citeResolve, place: quotePlace, where: where(), pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
+  // Simplify compares its answer with the page and the next (simplifyAnswer): the document pasted back is never shown.
+  const source = card.kind === 'simplify' ? [card.page, card.page + 1].map(n => state.texts.get(n)?.text || '').join('\n') : '';
+  return { open, P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
 }
 /** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
 function holdQuizHeight(el, before) {
@@ -3330,7 +3501,10 @@ function closeSheet2() {
   const id = col.sheet.dataset.id;
   // The primer folds back to its trigger; the trigger, closed, stays away at this unit's start.
   if (id === 'primer') { primer.open = false; primer.token++ }
-  if (id === 'trigger') { const u = currentUnit(); if (u) primer.away.add(u.key) }
+  // The trigger closed stays away at this unit's start; so does it after a card is closed there (× or a swipe),
+  // or the trigger would take the card's place at once and the card seem never to close (MacKay on a phone,
+  // the night checklist of 15 Oct 2026).
+  if (id !== 'primer') { const u = currentUnit(); if (u) primer.away.add(u.key) }
   col.sheet.remove(); col.sheet = null;
   if (marginMode() === 'phone') { dropEmptyFigure(col.open); col.open = null; marginLayout() }
 }
@@ -3609,7 +3783,7 @@ async function runCard(id, question = null) {
   // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
   const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;
   const asked = question ?? (card.kind === 'ask' ? [...(card.turns || [])].reverse().find(t => t.role === 'user')?.content || '' : '');
-  const named = unit || figBox ? null : figureNamed(card.page, card.text, asked);
+  const named = unit || figBox ? null : figureNamed(card.page, card.text, asked) || (asked ? await figureElsewhere(asked, card.page) : null);
   const region = unit || figBox || named ? null : passageRegion(card);
   let image = null;
   if (figBox) { image = figBlobs.get(id) || await figureImage(card.page, figBox); figBlobs.delete(id) }
@@ -3945,7 +4119,7 @@ function makePrimer(unit) {
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal, retry: false });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
@@ -4324,7 +4498,9 @@ async function regionItem(p, f, kind, noImage) {
   const r = p.pg.getBoundingClientRect(), L = r.left + f.x * r.width, T = r.top + f.y * r.height, R = L + f.w * r.width, Bm = T + f.h * r.height;
   const text = [...p.pg.querySelectorAll('.text-layer span')].filter(sp => { const q = sp.getBoundingClientRect(), cx = (q.left + q.right) / 2, cy = (q.top + q.bottom) / 2; return cx >= L && cx <= R && cy >= T && cy <= Bm }).map(sp => sp.textContent).join(' ').replace(/\s+/g, ' ').trim();
   const frac = { x: f.x, y: f.y, w: f.w, h: f.h };
-  return { blob: noImage ? null : await snipImage(p.n, f), page: p.n, text, frac, kind, label: f.label || '', caption: f.caption || captionNear(p, f), sketch: sketchOf(p, f) };
+  // A formula has no caption: the nearest "Figure N" beside it is another figure's (MacKay's (1.2) took Figure 1.1's).
+  const caption = kind === 'formula' ? '' : f.caption || captionNear(p, f);
+  return { blob: noImage ? null : await snipImage(p.n, f), page: p.n, text, frac, kind, label: f.label || '', caption, sketch: sketchOf(p, f) };
 }
 /* -- A figure's card (FIXES-2026-10-15 item 4): beside the figure in the margin, its thumbnail at the
    top, one thread per figure, kept and synced as every card is. Never the whole-PDF thread. -- */
@@ -4371,13 +4547,72 @@ function figureNamed(page, selection, question) {
   const c = TinctMargin.figureFor({ selection, question, captions: p.captions });
   return c && p.figures?.[c.fig] ? { page, f: p.figures[c.fig], label: c.label } : null;
 }
-/** For a whole-PDF question: a selected caption, else a figure the question names on the reader's page or the pages in view. */
-function figureAsked(question, passage, page) {
+/** For a whole-PDF question: a selected caption, else a figure the question names on the reader's page or the pages in view, else anywhere in the file (figureElsewhere). */
+async function figureAsked(question, passage, page) {
   if (passage) { const hit = figureNamed(passage.page, passage.text, question); if (hit) return hit }
   const sr = $('scroll').getBoundingClientRect();
   const inView = state.pages.filter(q => { const r = q.pg.getBoundingClientRect(); return r.bottom > sr.top && r.top < sr.bottom }).map(q => q.n);
   for (const n of [page, ...inView.filter(n => n !== page)]) { const hit = figureNamed(n, '', question); if (hit) return hit }
+  return figureElsewhere(question, page);
+}
+/* A figure a question names on another page (retest 15 Oct: "what does Figure 3 show" from page 1 sent no
+   picture): found by its caption, on a page already looked at, else on the nearest pages whose text starts a
+   line with that caption; that page is drawn small off screen and its figures found as a drawn page's are
+   (without its displayed formulas). -> { page, f, label } or null. */
+const offFigs = new Map();
+async function figureElsewhere(question, page) {
+  const want = TinctMargin.figureRef(question);
+  if (!want || !state.pdf || isEpub()) return null;
+  const match = (n, found) => {
+    const c = (found?.captions || []).find(x => x.kind === want.kind && String(x.n).toLowerCase() === String(want.n).toLowerCase() && found.figures?.[x.fig]);
+    return c ? { page: n, f: found.figures[c.fig], label: c.label } : null;
+  };
+  const byNear = list => list.sort((a, b) => Math.abs(a - page) - Math.abs(b - page));
+  for (const n of byNear([...state.figs.keys()])) { const hit = match(n, state.figs.get(n)); if (hit) return hit }
+  // Pages whose text has the caption ("Table 8." or "Figure 16.1:", not "Table 8 shows"): the whole-book read, else the pages read so far.
+  const read = await Promise.race([readBook(), new Promise(r => setTimeout(() => r(null), 3000))]);
+  let texts = read?.texts?.length ? read.texts.map((t, i) => [i + 1, t]) : [...state.texts.entries()].map(([n, v]) => [n, v.text]);
+  // A long book still being read: "Figure 16.1" is in chapter 16, whose pages (from the contents) are read now.
+  const chapter = !read && /^(\d+)[.\-–]\d/.exec(String(want.n));
+  if (chapter) {
+    await Promise.race([toc.task, new Promise(r => setTimeout(r, 3000))]);
+    const entries = toc.entries || [], e = entries.find(x => new RegExp(`^(?:chapter\\s+)?${chapter[1]}(?![\\d.])`, 'i').test(String(x.label || '').trim()));
+    if (e) {
+      const next = entries.filter(x => x.parent === e.parent && x.page > e.page).sort((a, b) => a.page - b.page)[0];
+      const from = e.page, to = Math.min(state.pages.length, (next?.page || state.pages.length + 1) - 1, from + 80);
+      for (let p = from; p <= to; p++) if (!texts.some(([q]) => q === p)) texts.push([p, (await pageText(p)).text]);
+    }
+  }
+  const num = String(want.n).replace(/[.\-–]/g, '\\$&'), words = want.kind === 'table' ? 'Table|TABLE' : 'Figure|FIGURE|Fig\\.?|FIG\\.?';
+  const label = new RegExp(`(?:^|[\\s(])(?:${words})\\s*${num}\\s*(?::|\\.(?!\\d))`);
+  const pages = byNear(texts.filter(([, t]) => label.test(String(t || ''))).map(([p]) => p)).slice(0, 4);
+  for (const n of pages) { const hit = match(n, await figuresOff(n)); if (hit) return hit }
   return null;
+}
+/** A page's figures found off screen: drawn 480px wide, its text as spans (page fractions). */
+async function figuresOff(n) {
+  if (state.figs.has(n)) return state.figs.get(n);
+  const key = state.key + ':' + n;
+  if (offFigs.has(key)) return offFigs.get(key);
+  const task = (async () => {
+    const page = await state.pdf.getPage(n), base = page.getViewport({ scale: 1 }), vp = page.getViewport({ scale: 480 / base.width });
+    const c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+    const g = c.getContext('2d', { alpha: false }); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: g, viewport: vp }).promise;
+    const W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
+    const small = document.createElement('canvas'); small.width = W; small.height = H;
+    const x = small.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
+    const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H);
+    for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
+    const items = (await pageText(n)).items || [];
+    const spans = items.filter(it => it.str && it.str.trim()).map(it => {
+      const tx = pdfjsLib.Util.transform(vp.transform, it.transform), size = Math.hypot(tx[2], tx[3]);
+      return { x: tx[4] / vp.width, y: (tx[5] - size * 0.86) / vp.height, w: (it.width * vp.scale) / vp.width, h: (size * 1.1) / vp.height, text: it.str };
+    });
+    return TinctMargin.findFigures({ ink, W, H, spans, formulas: [] });
+  })().catch(() => null);
+  offFigs.set(key, task);
+  return task;
 }
 async function regionAction(a, item) {
   const what = item.kind === 'formula' ? 'formula' : 'figure';
@@ -4436,7 +4671,9 @@ function regionAt(x, y) {
   const p = pageForPoint(x, y); if (!p || !p.layer) return null;
   const r = p.pg.getBoundingClientRect(), fx = (x - r.left) / r.width, fy = (y - r.top) / r.height;
   const inside = f => fx >= f.x && fx <= f.x + f.w && fy >= f.y && fy <= f.y + f.h;
-  const fi = (p.figures || []).findIndex(inside); if (fi >= 0) return { p, f: p.figures[fi], kind: 'figure', key: p.n + 'f' + fi };
+  // The smallest figure under the pointer (a figure inside another's box is its own).
+  const fi = (p.figures || []).reduce((best, f, i) => (inside(f) && (best < 0 || f.w * f.h < p.figures[best].w * p.figures[best].h) ? i : best), -1);
+  if (fi >= 0) return { p, f: p.figures[fi], kind: 'figure', key: p.n + 'f' + fi };
   // The fallback (item 5): over a "Figure N" or "Table N" caption, its figure is offered.
   const cap = (p.captions || []).find(c => inside(c.box) && p.figures?.[c.fig]); if (cap) return { p, f: p.figures[cap.fig], kind: 'figure', key: p.n + 'f' + cap.fig };
   const bi = (p.blocks || []).findIndex(inside); if (bi >= 0) return { p, f: p.blocks[bi], kind: 'formula', key: p.n + 'm' + bi };
@@ -4527,6 +4764,17 @@ function caretAt(x, y, col) {
   if (before) return { node: before.sp.firstChild, offset: before.sp.firstChild.length };
   return { node: row[0].sp.firstChild, offset: 0 };
 }
+/** A press between letters (on the layer, not a word): its column is the nearest word's. A caption or a figure's
+    labels sit in their own column (reading order), so a drag over a caption selects the caption, not the body. */
+function nearestIsSide(p, x, y) {
+  let best = null, bd = Infinity;
+  for (const sp of p.layer.querySelectorAll('span')) {
+    if (!sp.firstChild) continue;
+    const r = sp.getBoundingClientRect(), dx = Math.max(r.left - x, 0, x - r.right), dy = Math.max(r.top - y, 0, y - r.bottom), d = dx * dx + dy * dy * 4;
+    if (d < bd) { bd = d; best = sp }
+  }
+  return !!best?.closest('.side-col');
+}
 function extendTo(x, y) {
   const f = caretAt(x, y, drag.col); if (!f || !drag.a) return;
   try { getSelection().setBaseAndExtent(drag.a.node, drag.a.offset, f.node, f.offset) } catch {}
@@ -4535,7 +4783,7 @@ document.addEventListener('mousedown', e => {
   if (e.button !== 0 || Date.now() - drag.touchAt < 1000 || root.classList.contains('is-snipping')) return;
   const t = e.target; if (!t.closest?.('.pdf-sheet') || t.closest('.byob-hot-chip, button')) return;
   const p = pageForPoint(e.clientX, e.clientY); if (!p?.layer) return;
-  const onSide = !!(t.closest('.side-col') || (document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.side-col')));
+  const onSide = !!(t.closest('.side-col') || (document.elementFromPoint(e.clientX, e.clientY)?.closest?.('.side-col'))) || nearestIsSide(p, e.clientX, e.clientY);
   const col = onSide ? 'side' : 'body';
   const a = caretAt(e.clientX, e.clientY, col); if (!a) return;
   e.preventDefault();
@@ -4811,7 +5059,7 @@ async function ask(question, display) {
   const blobs = sampleImages !== false ? attached.map(a => a.blob).filter(Boolean) : [];
   // A picture goes only with a passage, cropped to it (FIXES-2026-10-15 A4); never a whole page.
   // A selected caption, or a question naming "Figure N" on the reader's page, sends that figure instead (FIXES-2026-10-15 item 7).
-  const named = marginOn() && !blobs.length ? figureAsked(question, passage, page) : null;
+  const named = marginOn() && !blobs.length ? await figureAsked(question, passage, page) : null;
   const region = passage && !named ? selectionRegion(passage) : null;
   const image = blobs.length ? null : named ? await figureImage(named.page, named.f) : region ? await pageImage(focusPage, region) : null;
   const snipNote = attached.length ? ` The reader attached ${attached.length > 1 ? attached.length + ' images' : 'an image'}: ${attached.map(a => a.snip ? `${a.kind === 'formula' ? 'a formula' : a.kind === 'figure' ? 'a figure' : 'a snip'} from page ${a.page} of the book` : 'a picture they supplied').join('; ')}. ${blobs.length ? 'Look at the image carefully (axes, labels, curves, notation) and answer about it first, using the book text for context.' : 'You cannot see the picture itself. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain what it shows from these and from the surrounding text, ideally where the text refers to it. This picture is new: never assume it is a figure discussed earlier in the conversation unless its caption says so. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows or for its caption; do not guess.'}` : '';
