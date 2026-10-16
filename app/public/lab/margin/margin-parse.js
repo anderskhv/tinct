@@ -427,7 +427,8 @@ export function parseDefineSense(text, count) {
  * Related (PROMPTS.md): the bottom line naming the thread, then one row per place: a citation
  * ({p. 5}, {sec. 3.2}) or, for a book without page numbers, a few quoted words, then what happens
  * there. A line without either is a row with no tag. Bullets and numbering the prompt forbids are
- * dropped. -> { lead, rows: [{ cite: token | null, quote: string | null, text }] } (at most 8 rows)
+ * dropped, and so is talk about what is or is not listed (round 1, 15 Oct: a row read "is the selected
+ * passage itself, so it is not listed here"): such a row, or such a sentence of the bottom line. -> { lead, rows: [{ cite: token | null, quote: string | null, text }] } (at most 8 rows)
  */
 export function parseRelated(text) {
   const paras = paragraphsOf(text);
@@ -440,11 +441,12 @@ export function parseRelated(text) {
   if (!startsRow(first[0])) {
     const at = first.findIndex(l => startsRow(l));
     const head = at < 0 ? first : first.slice(0, at);
-    lead = head.join(' ');
+    lead = withoutListingTalk(head.join(' '));
     from = head.length;
   }
   const rows = [];
   for (const line of lines.slice(from)) {
+    if (LISTING_TALK.test(line)) continue;
     const cite = leadingCite(line), quote = cite ? null : leadingQuote(line);
     const rest = cite ? cite.rest : quote ? quote.rest : line;
     const body = rest.replace(/^\s*[:–—-]\s*/, '').trim();
@@ -454,6 +456,10 @@ export function parseRelated(text) {
   }
   return { lead, rows };
 }
+/** A Related answer narrating its own list ("not listed here", "the selected passage itself"). */
+const LISTING_TALK = /\b(?:not|never|isn['’]t|aren['’]t)\s+(?:been\s+)?(?:listed|included)\b|\bthe selected passage itself\b/i;
+const withoutListingTalk = text => !LISTING_TALK.test(text) ? text : (text.match(/[^.!?]+[.!?]*\s*/g) || []).filter(sentence => !LISTING_TALK.test(sentence)).join('').trim();
+
 function leadingCite(line) {
   const m = /^\{[^{}\n]{1,40}\}/.exec(line);
   if (!m) return null;

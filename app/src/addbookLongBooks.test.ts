@@ -222,6 +222,43 @@ describe('Before you start on a long book: which part it covers (Anders, 15 Oct:
       for (const u of units) expect(openers.filter(p => p > u.start && p <= u.to), u.title).toEqual([])
     } finally { await pdf.destroy() }
   }, 120_000)
+  it('the scan hears a printed contents\' chapters before it reads the rest of the book: the same entries and language it ends with (round 1, 15 Oct: MacKay\'s trigger waited 15 s)', async () => {
+    const made = maker.longBook({ meta: true, bookmarks: false })
+    const pdf = await open(made.bytes)
+    try {
+      const read = new Set<number>()
+      const getPage = pdf.getPage.bind(pdf)
+      pdf.getPage = (n: number) => { read.add(n); return getPage(n) }
+      let early: { nav: string; entries: unknown[]; language: string; text: boolean | null; pagesRead: number } | null = null
+      const scan = await (SC.scan as unknown as (pdf: Pdf, o: Record<string, unknown>) => Promise<{ nav: string; entries: unknown[]; language: string; textPages: number }>)(pdf, {
+        fileName: 'learning.pdf',
+        onEntries: (e: { nav: string; entries: unknown[]; language: string; text: boolean | null }) => { early = { ...e, pagesRead: read.size } },
+      })
+      expect(early).not.toBeNull()
+      const heard = early!
+      expect(heard.nav).toBe('contents')
+      expect(heard.entries).toEqual(scan.entries)
+      expect(heard.language).toBe(scan.language)
+      expect(heard.text).toBe(true)
+      expect(scan.textPages).toBeGreaterThan(0)
+      // Heard well before the whole book was read.
+      expect(heard.pagesRead).toBeLessThan(Math.min(pdf.numPages, 400) / 2)
+    } finally { await pdf.destroy() }
+  }, 120_000)
+  it('a contents line of only a mark ("." or ";") is no chapter: left out, its entries moved up (the phone pill, 15 Oct)', () => {
+    const usable = (SC as unknown as { usableEntries(list: unknown[]): Array<{ id: string; label: string; parent: string | null }> }).usableEntries
+    const list = [
+      { id: 'c0', label: '1 · Introduction', page: 15, kind: 'chapter', parent: null },
+      { id: 'c1', label: ';', page: 16, kind: 'part', parent: null },
+      { id: 'c2', label: '2 · Probability', page: 34, kind: 'chapter', parent: 'c1' },
+      { id: 'c3', label: ' . ', page: 40, kind: 'chapter', parent: null },
+      { id: 'c4', label: 'II', page: 77, kind: 'part', parent: null },
+      { id: 'c5', label: '3', page: 78, kind: 'chapter', parent: 'c4' },
+    ]
+    expect(usable(list).map(e => [e.id, e.label, e.parent])).toEqual([['c0', '1 · Introduction', null], ['c2', '2 · Probability', null], ['c4', 'II', null], ['c5', '3', 'c4']])
+    const clean = list.filter(e => e.id !== 'c1' && e.id !== 'c3').map(e => ({ ...e, parent: null }))
+    expect(usable(clean)).toBe(clean)
+  })
   it('a long PDF with nothing to go by: blocks of 40 pages, named by their pages; a short one stays "the whole PDF"', () => {
     const blocks = M.primerBlocks(95)
     expect(blocks.map(b => [b.key, b.from, b.to])).toEqual([['pages-1', 1, 40], ['pages-41', 41, 80], ['pages-81', 81, 95]])

@@ -38,6 +38,7 @@ import {
   PASSAGE_IMAGE_LINE,
   PDF_CITATION_RULE,
   PDF_CONTEXTUAL_LOOKUP_PROMPT,
+  DEFINE_EPONYM_LINE,
   QUIZ_CHECK_PROMPT,
   SIMPLIFY_PROMPT,
   WHOLE_PDF_PROMPT,
@@ -48,7 +49,7 @@ import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { createAllowanceGate, type AllowanceGate, type AllowanceView } from './worker/lib/aiAllowance'
 import type { AiUsageRow } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
-import { FACTCHECK_OPENING_ROUTE, MARGIN_ROUTES } from './companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, factcheckVerdictEffort, MARGIN_ROUTES } from './companion/marginRoutes'
 import { marginRequestRoute } from './companion/companionRequest'
 
 const userId = '11111111-1111-4111-8111-111111111111'
@@ -383,11 +384,12 @@ describe('the prompts the Worker builds', () => {
     expect(companionSelectionMessage(define)).toBe(`${CONTEXTUAL_LOOKUP_PROMPT}\n<word>Athena</word>`)
   })
 
-  it('Define on a PDF says "the selected word or phrase", and nothing else changes', () => {
+  it('Define on a PDF says "the selected word or phrase" and "the passage", and adds the eponym line (round 1, 15 Oct)', () => {
     const define = parseCompanionRequest({ intent: 'define', context: pdfContext, selection: 'partition function' })!
     expect(companionSelectionMessage(define)).toBe(`${PDF_CONTEXTUAL_LOOKUP_PROMPT}\n<word>partition function</word>`)
-    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).toContain('Identify what the selected word or phrase denotes in the supplied passage')
-    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT.split('the selected word or phrase').join('the selected word')).toBe(CONTEXTUAL_LOOKUP_PROMPT)
+    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).toContain('Identify what the selected word or phrase denotes in the passage')
+    // Those three changes and nothing else: undone, it is the shared prompt word for word.
+    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT.split(`\n${DEFINE_EPONYM_LINE}`).join('').split('in the passage before').join('in the supplied passage before').split('the selected word or phrase').join('the selected word')).toBe(CONTEXTUAL_LOOKUP_PROMPT)
     // Explain and Define on a PDF keep their prompts otherwise (the PDF reader's Explain is its own request).
     expect(buildCompanionSystem(define)).not.toContain(PDF_CITATION_RULE)
   })
@@ -412,7 +414,7 @@ describe('/api/chat with the margin intents (provider mocked)', () => {
     // Haiku's lookups turn thinking off; Counterpoint and Quiz me think adaptively (no field).
     if (route.thinking) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
-    expect(['define_sense', 'quiz_check', 'simplify'].includes(intent)).toBe(Boolean(route.thinking))
+    expect(['define_sense', 'quiz_check', 'simplify', 'quiz'].includes(intent)).toBe(Boolean(route.thinking))
     expect(anthropic[0].tools).toBeUndefined()
     expect(String(anthropic[0].system)).not.toContain('ignored')
     const messages = anthropic[0].messages as Array<{ role: string; content: unknown }>
@@ -620,9 +622,9 @@ describe('Fact-check and the source search', () => {
     expect(JSON.stringify(first.system)).toContain(FACTCHECK_OPENING_ROUND)
     expect(JSON.stringify(first.system)).not.toContain(FACTCHECK_VERDICT_ROUND)
     expect(first.messages).toEqual([{ role: 'user', content: `<selected_passage>\n${PASSAGE}\n</selected_passage>` }])
-    // Round 2: the verdict, on the route as before, its assistant turn starting with the opening the reader saw.
+    // Round 2: the verdict, on the route at factcheckVerdictEffort() (low since 16 Oct), its assistant turn starting with the opening the reader saw.
     expect(second.max_tokens).toBe(MARGIN_ROUTES.factcheck.maxTokens)
-    expect(second.output_config).toEqual({ effort: MARGIN_ROUTES.factcheck.effort })
+    expect(second.output_config).toEqual({ effort: factcheckVerdictEffort() })
     expect(second).not.toHaveProperty('thinking')
     expect((second.tools as Array<{ name: string }>).map(tool => tool.name)).toEqual(['search_reading_sources'])
     expect(JSON.stringify(second.system)).toContain(FACTCHECK_VERDICT_ROUND)

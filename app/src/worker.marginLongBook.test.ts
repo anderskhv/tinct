@@ -58,26 +58,30 @@ async function send(body: unknown) {
 type SystemBlock = { type: string; text: string; cache_control?: { type: string } }
 const prefix = (body: Record<string, unknown>) => {
   const system = body.system as SystemBlock[]
-  const end = system.findIndex(block => block.cache_control)
+  // Up to the last breakpoint: a long document's prefix is two cached blocks (contents, then the part; round 1, 15 Oct).
+  const end = system.map(block => Boolean(block.cache_control)).lastIndexOf(true)
   return JSON.stringify({ model: body.model, tools: body.tools ?? null, system: system.slice(0, end + 1) })
 }
 
 afterEach(() => { vi.unstubAllGlobals() })
 
 describe('a question on a long PDF (FIXES long books, item 8)', () => {
-  it('before the breakpoint: the rules, the contents with printed pages and the chapter; after it: the place, the passages, the task; the question last', async () => {
+  it('before the breakpoints: the rules and the contents with printed pages, then the chapter; after them: the place, the passages, the task; the question last', async () => {
     const anthropic = stubFetch()
     expect(await send(ask('Where is Sarsa introduced?', SARSA))).toBe(200)
     const system = anthropic[0].system as SystemBlock[]
-    expect(system).toHaveLength(2)
+    expect(system).toHaveLength(3)
     expect(system[0].cache_control).toEqual({ type: 'ephemeral' })
+    expect(system[1].cache_control).toEqual({ type: 'ephemeral' })
     expect(system[0].text).toContain('<contents>\n6 Temporal-Difference Learning (page 156)\n6.4 Sarsa: On-policy TD Control (page 175)\n16 Applications and Case Studies (page 466)\nIndex (page 548)\n</contents>')
-    expect(system[0].text).toContain('the full text of pages 466 to 496, the part the reader is in')
-    expect(system[0].text).toContain('<page n="496">\nChapter 16 page 496.')
-    // Nothing of the question's search sits before the breakpoint.
-    expect(system[0].text).not.toContain('<passages>')
-    expect(system[0].text).not.toContain('gives rise to the name Sarsa')
-    const after = system[1].text
+    expect(system[1].text).toContain('The part the reader is in: pages 466 to 496.')
+    expect(system[1].text).toContain('<page n="496">\nChapter 16 page 496.')
+    // Nothing of the question's search sits before a breakpoint.
+    for (const block of system.slice(0, 2)) {
+      expect(block.text).not.toContain('<passages>')
+      expect(block.text).not.toContain('gives rise to the name Sarsa')
+    }
+    const after = system[2].text
     expect(after).toContain('<passages>\n<passage n="175">\nThis quintuple gives rise to the name Sarsa for the algorithm, which we introduce here.\n</passage>\n<passage n="281">')
     expect(after.indexOf('The reader is on page 468 of 585.')).toBeLessThan(after.indexOf('<passages>'))
     expect(after.indexOf('</passages>')).toBeLessThan(after.indexOf('The reader is asking about the whole document'))
@@ -93,8 +97,8 @@ describe('a question on a long PDF (FIXES long books, item 8)', () => {
     await send(ask('What did TD-Gammon learn from?', null))
     expect(prefix(anthropic[1])).toBe(prefix(anthropic[0]))
     expect(prefix(anthropic[2])).toBe(prefix(anthropic[0]))
-    expect((anthropic[1].system as SystemBlock[])[1].text).toContain('<passage n="440">')
-    expect((anthropic[2].system as SystemBlock[])[1].text).not.toContain('<passages>')
+    expect((anthropic[1].system as SystemBlock[])[2].text).toContain('<passage n="440">')
+    expect((anthropic[2].system as SystemBlock[])[2].text).not.toContain('<passages>')
   })
 
   it('says "from general knowledge" for what is not from the book: in a long document\'s prefix; a short document\'s prefix is as before', async () => {

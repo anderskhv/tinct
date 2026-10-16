@@ -18,8 +18,13 @@
  * Each model keeps its own copy.
  *
  * A document longer than MARGIN_DOCUMENT_CHARS (about 150k tokens) is sent as
- * the part the reader is in plus the table of contents, and the prompt says so
- * (the prefix, per chapter). A question on such a document also carries the
+ * the part the reader is in plus the table of contents, and the prompt says so.
+ * Its prefix is two cached blocks (buildMarginPrefixParts): the rules, the
+ * identity and the contents, the same for every request on the document
+ * whatever the page, then the part's text, the same for every request in the
+ * part. Moving to another chapter reads the first block from the cache and
+ * writes only the second (round 1, 15 Oct: MacKay's single prefix was written
+ * again on every change of part). A question on such a document also carries the
  * passages the reader's device found by searching the whole book for its
  * terms (FIXES-2026-10-15, long books, item 8); they change with every
  * question, so they go after the breakpoint.
@@ -175,40 +180,60 @@ function citationRule(kind: MarginDocumentKind): string {
     : 'Each <chapter n="…"> marks where a chapter begins. To point to a place, name the chapter and quote a few of its words.'
 }
 
-/** The document block: header, optional contents, and the marked text. Same input, same bytes. */
-export function formatMarginDocument(doc: MarginDocument): string {
+/**
+ * The document block in two parts. `head` is the header and, for a long
+ * document, its contents: nothing in it depends on which part is sent.
+ * `text` is the marked text (for a long document, which part it is first).
+ * Same input, same bytes.
+ */
+export function formatMarginDocumentParts(doc: MarginDocument): { head: string; text: string } {
   const name = unitName(doc.kind)
-  const body = doc.units.map(unit => `<${name} n="${unit.label}">\n${unit.text}\n</${name}>`).join('\n\n')
-  const lines: string[] = []
+  const body = `<document>\n${doc.units.map(unit => `<${name} n="${unit.label}">\n${unit.text}\n</${name}>`).join('\n\n')}\n</document>`
   if (doc.part) {
     const first = doc.units[0].label
     const last = doc.units[doc.units.length - 1].label
     const span = first === last ? `${name} ${first}` : `${name}s ${first} to ${last}`
-    lines.push(`This document is too long to include whole (${doc.part.total} ${name}s). Below are its table of contents and the full text of ${span}, the part the reader is in. For other parts, rely on the table of contents and on the passages found by searching the document, when a question comes with them. ${GENERAL_KNOWLEDGE_RULE}`)
-    if (doc.part.toc.length) lines.push(`<contents>\n${doc.part.toc.map(entry => `${entry.title} (${name} ${entry.label})`).join('\n')}\n</contents>`)
-  } else {
-    lines.push(doc.cut
-      ? `The document follows, ${name} by ${name}, as far as its length allows; its end is cut off.`
-      : `The whole document follows, ${name} by ${name}.`)
+    const head = [`This document is too long to include whole (${doc.part.total} ${name}s). Below are its table of contents and then the full text of the part the reader is in. For other parts, rely on the table of contents and on the passages found by searching the document, when a question comes with them. ${GENERAL_KNOWLEDGE_RULE}`]
+    if (doc.part.toc.length) head.push(`<contents>\n${doc.part.toc.map(entry => `${entry.title} (${name} ${entry.label})`).join('\n')}\n</contents>`)
+    return { head: head.join('\n\n'), text: `The part the reader is in: ${span}.\n\n${body}` }
   }
-  lines.push(`<document>\n${body}\n</document>`)
-  return lines.join('\n\n')
+  return {
+    head: doc.cut ? `The document follows, ${name} by ${name}, as far as its length allows; its end is cut off.` : `The whole document follows, ${name} by ${name}.`,
+    text: body,
+  }
+}
+
+/** The document block: header, optional contents, and the marked text. Same input, same bytes. */
+export function formatMarginDocument(doc: MarginDocument): string {
+  const { head, text } = formatMarginDocumentParts(doc)
+  return `${head}\n\n${text}`
 }
 
 export interface MarginIdentity { title: string; author: string }
 
 /**
- * The cached prefix: rules, citation rule, identity, document. It takes only
- * the file and its identity, so no intent, selection, place or date can
- * reach it.
+ * The cached prefix as its cache blocks. A document sent whole is one block
+ * (`stable`). A long document's part is two: `stable` (rules, citation rule,
+ * identity, the header and the contents: byte for byte the same on every
+ * page of the document) and `part` (the part's text: the same on every page
+ * of the part), each ending at a breakpoint. It takes only the file and its
+ * identity, so no intent, selection, place or date can reach it.
  */
-export function buildMarginPrefix(doc: MarginDocument, identity: MarginIdentity): string {
-  return [
+export function buildMarginPrefixParts(doc: MarginDocument, identity: MarginIdentity): { stable: string; part?: string } {
+  const { head, text } = formatMarginDocumentParts(doc)
+  const lead = [
     MARGIN_RULES,
     citationRule(doc.kind),
     `Document (data): ${JSON.stringify({ title: identity.title, ...(identity.author ? { author: identity.author } : {}) })}`,
-    formatMarginDocument(doc),
+    head,
   ].join('\n\n')
+  return doc.part ? { stable: lead, part: text } : { stable: `${lead}\n\n${text}` }
+}
+
+/** The cached prefix as one text: its blocks in order (buildMarginPrefixParts). */
+export function buildMarginPrefix(doc: MarginDocument, identity: MarginIdentity): string {
+  const parts = buildMarginPrefixParts(doc, identity)
+  return parts.part ? `${parts.stable}\n\n${parts.part}` : parts.stable
 }
 
 export interface MarginVolatileInput {

@@ -54,6 +54,19 @@ const route = (model: string, effort: CompanionEffort, maxTokens: number, thinki
   Object.freeze({ model, effort, maxTokens, ...(thinking ? { thinking: Object.freeze({ ...thinking }) } : {}) })
 const NO_THINKING: MarginThinking = { type: 'disabled' }
 
+/**
+ * Speed trials, each a one-line switch and OFF by default (round 1, 15 Oct; Anders turns them on and
+ * measures on production):
+ *
+ * QUIZ_THINKING_OFF: Quiz me with thinking disabled at effort low (Haiku 5.5 accepts `{type: "disabled"}`
+ * at effort high or below; claude-api skill), so question 1 starts at lookup speed. Off: adaptive thinking.
+ */
+export const QUIZ_THINKING_OFF = true
+/** Quiz me's route: low effort and 6000 tokens; with `thinkingOff`, thinking disabled as the lookups. */
+export function quizRoute(thinkingOff: boolean = QUIZ_THINKING_OFF): MarginRoute {
+  return route(MARGIN_HAIKU_MODEL, 'low', 6000, thinkingOff ? NO_THINKING : undefined)
+}
+
 export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Object.freeze({
   // Short, grounded lookups: no thinking, so the bound is all answer and the reply starts at once.
   explain: route(MARGIN_HAIKU_MODEL, 'low', 800, NO_THINKING),
@@ -66,8 +79,9 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
   factcheck: route(MARGIN_HAIKU_MODEL, 'medium', 8000),
   // Low effort, still adaptive (15 Oct evening: 7-12 s at medium, almost all of it thinking); awaiting Anders's confirmation.
   counterpoint: route(MARGIN_HAIKU_MODEL, 'low', 6000),
-  // Low effort as Counterpoint (retest after train 2: first question 5-11 s against a target under 5), still adaptive, same bound.
-  quiz: route(MARGIN_HAIKU_MODEL, 'low', 6000),
+  // Low effort as Counterpoint (retest after train 2: first question 5-11 s against a target under 5), still adaptive, same bound
+  // (QUIZ_THINKING_OFF below trials it without thinking).
+  quiz: quizRoute(),
   // A primer's JSON runs to about 1,700 tokens; thinking at medium effort needs the rest (2 failures in 3 at 1200, 15 Oct).
   primer: route(MARGIN_SONNET_MODEL, 'medium', 8000),
   ask: route(MARGIN_SONNET_MODEL, 'medium', 1800),
@@ -79,6 +93,17 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
  * start at lookup speed; the verdict round after it keeps MARGIN_ROUTES.factcheck.
  */
 export const FACTCHECK_OPENING_ROUTE: MarginRoute = route(MARGIN_HAIKU_MODEL, 'low', 600, NO_THINKING)
+
+/**
+ * Speed trial, OFF by default (null): the effort of Fact-check's verdict round (the rounds after the
+ * doc-first opening, chat.ts runToolLoop). 'low' trials it at low effort (8.5–14 s to the last word in
+ * round 1, 15 Oct); null keeps MARGIN_ROUTES.factcheck's effort. Adaptive thinking either way.
+ */
+export const FACTCHECK_VERDICT_EFFORT: CompanionEffort | null = 'low'
+/** The verdict round's effort: the trial's when it is set, else Fact-check's route effort. */
+export function factcheckVerdictEffort(setting: CompanionEffort | null = FACTCHECK_VERDICT_EFFORT): CompanionEffort {
+  return setting ?? MARGIN_ROUTES.factcheck.effort
+}
 
 /** The route for a PDF reader request, by intent; a chapter request is a primer (the only chapter action a PDF has). */
 export function marginRouteKey(intent: string, chapterAction?: string): MarginRouteKey | null {

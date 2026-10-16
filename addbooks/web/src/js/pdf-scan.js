@@ -515,10 +515,29 @@
   }
 
   /* ---------- The scan ---------- */
+  // An entry whose label has no letter or digit ("." or ";", a stray mark read as a contents line) is
+  // no chapter: left out, its own entries moved up a level. The reader also applies it to stored scans.
+  function usableEntries(list) {
+    if (!Array.isArray(list)) return [];
+    const gone = new Map(list.filter(e => !/[\p{L}\p{N}]/u.test(String(e?.label ?? ''))).map(e => [e.id, e.parent ?? null]));
+    if (!gone.size) return list;
+    const up = id => { let at = id; while (at != null && gone.has(at)) at = gone.get(at); return at ?? null };
+    return list.filter(e => !gone.has(e.id)).map(e => (e.parent != null && gone.has(e.parent) ? { ...e, parent: up(e.parent) } : e));
+  }
+  // The language sample: the scanned pages' text in order, up to about 20,000 characters.
+  function sampleOf(pages) {
+    let sample = '';
+    for (const p of pages) { sample += ' ' + p.rows.map(r => r.text).join(' '); if (sample.length > 20000) break }
+    return sample;
+  }
   // pdf: a pdf.js document. options.fileName names the file; options.items(n) may supply a
   // page's text items (the reader's cache); options.live() turns false to stop early;
-  // options.onTitle({ title, author }) hears the title before the chapters are found.
-  async function scan(pdf, { fileName = '', items, live = () => true, onTitle, maxPages = HEADING_PAGES } = {}) {
+  // options.onTitle({ title, author }) hears the title before the chapters are found;
+  // options.onEntries({ nav, entries, language, text }) hears chapters from the outline or a printed
+  // contents as soon as they are found, before the other pages are read (a 640-page book's took 13 s;
+  // round 1, 15 Oct): the same entries and language the result carries; `text` is true when the
+  // pages read so far already show the file has text, else null (not known yet).
+  async function scan(pdf, { fileName = '', items, live = () => true, onTitle, onEntries, maxPages = HEADING_PAGES } = {}) {
     const textCache = new Map();
     const itemsOf = async n => {
       if (items) return items(n);
@@ -554,29 +573,35 @@
     onTitle?.({ title, author });
     const total = Math.min(maxPages, pdf.numPages);
     const all = [...first];
-    for (let n = first.length + 1; n <= total; n++) { all.push(await pageOf(n)); if (!live()) return null }
+    // The pages the language sample needs first (it depends on these alone), then the outline or printed contents.
+    while (all.length < total && sampleOf(all).length <= 20000) { all.push(await pageOf(all.length + 1)); if (!live()) return null }
+    const sample = sampleOf(all), language = languageOf(sample, info.Language);
+    const runningText = p => { const t = p.rows.map(r => r.text).join(' '); return (t.match(/\p{L}/gu) || []).length >= 50 && !BOILERPLATE_PAGE.test(t) };
+    // A text layer that is mostly not words (a broken font's codes, an OCR layer of noise) is no text.
+    const tokens = sample.split(/\s+/).filter(Boolean);
+    const noise = tokens.length >= 40 && tokens.filter(t => !/\p{L}/u.test(t)).length > tokens.length * 0.3;
     const text = async n => (await itemsOf(n)).map(i => i.str + (i.hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ');
     let entries = null, nav = 'pages';
     if ((entries = await outlineEntries(pdf))) nav = 'outline';
     else if ((entries = await contentsEntries(pdf.numPages, async n => (await pageOf(n)).rows, text))) nav = 'contents';
-    else if ((entries = await headingEntries(all, { fontName, title, author, live }))) nav = 'headings';
     if (!live()) return null;
-    let sample = '';
-    for (const p of all) { sample += ' ' + p.rows.map(r => r.text).join(' '); if (sample.length > 20000) break }
+    if (entries) entries = usableEntries(entries);
+    if (entries && onEntries) { try { onEntries({ nav, entries, language, text: !noise && all.some(runningText) ? true : null }) } catch { /* the listener's own failure never stops the scan */ } }
+    for (let n = all.length + 1; n <= total; n++) { all.push(await pageOf(n)); if (!live()) return null }
+    if (!entries && (entries = await headingEntries(all, { fontName, title, author, live }))) { nav = 'headings'; entries = usableEntries(entries) }
+    if (!live()) return null;
     // Pages with running text (a scanner's notice page aside): none means a scan without a text layer.
-    let textPages = all.filter(p => { const t = p.rows.map(r => r.text).join(' '); return (t.match(/\p{L}/gu) || []).length >= 50 && !BOILERPLATE_PAGE.test(t) }).length;
-    // A text layer that is mostly not words (a broken font's codes, an OCR layer of noise) is no text.
-    const tokens = sample.split(/\s+/).filter(Boolean);
-    if (tokens.length >= 40 && tokens.filter(t => !/\p{L}/u.test(t)).length > tokens.length * 0.3) textPages = 0;
+    let textPages = all.filter(runningText).length;
+    if (noise) textPages = 0;
     const kind = await layout(pdf, all, { itemsOf, fontName, isFurniture: furniture(all), textPages, live });
     if (!live() || !kind) return null;
     return {
-      v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [], language: languageOf(sample, info.Language), textPages, layout: kind,
+      v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [], language, textPages, layout: kind,
       source: { title: fromMeta ? 'metadata' : printed.title ? 'printed' : 'file', author: metaAuthor(info.Author) ? 'metadata' : printed.author ? 'printed' : 'none' },
     };
   }
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { SCAN_VERSION, scan, current, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { SCAN_VERSION, scan, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);
