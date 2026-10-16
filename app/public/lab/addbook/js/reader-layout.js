@@ -108,5 +108,79 @@
     }
     return { left, top: frame.top + inset, width, maxHeight: room, side: 'over' };
   }
-  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup };
+  /* ---------- Phones: fit the text column (the PM's full battery, 15 Oct 2026) ---------- */
+  // A PDF page at the phone's width is too small to read, so on a phone the pages open zoomed until
+  // the text column fills the width (one column of a two-column paper), panned to that column; the
+  // pan stays inside the page. Pinch zoom stays the reader's, and their zoom is kept instead.
+  const quantile = (list, q) => { const s = [...list].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.floor(s.length * q))] : 0 };
+  const median = list => quantile(list, 0.5);
+  /**
+   * One page's text column, in the page's units: `rows` its visual lines (TinctPdfScan.textRows), `sides`
+   * what TinctPdfText.columnsOf says of them (null for a page in one column; else 0, 1 or 'span' per
+   * row). A two-column page's column is its first one, as wide as the wider of the two. Lines of fewer
+   * than 4 words (headings, labels, page numbers) do not count. -> { left, right, columns } or null
+   * when the page has too little running text to tell.
+   */
+  function textColumn(rows, sides = null) {
+    const lines = (rows || []).map((r, i) => ({ r, side: sides ? sides[i] : 0 })).filter(({ r }) => r && r.words >= 4 && r.x2 > r.x);
+    const box = side => {
+      const of = lines.filter(l => l.side === side).map(l => l.r);
+      return of.length >= 6 ? { left: quantile(of.map(r => r.x), 0.1), right: quantile(of.map(r => r.x2), 0.9) } : null;
+    };
+    const first = box(0);
+    if (!first || first.right <= first.left) return null;
+    if (!sides) return { ...first, columns: 1 };
+    const second = box(1);
+    const width = Math.max(first.right - first.left, second ? second.right - second.left : 0);
+    return { left: first.left, right: first.left + width, columns: 2 };
+  }
+  /** The document's column from its pages' (each a textColumn or null): the median left and width, the columns most pages have. */
+  function documentColumn(list) {
+    const cols = (list || []).filter(Boolean);
+    if (!cols.length) return null;
+    const left = median(cols.map(c => c.left)), width = median(cols.map(c => c.right - c.left));
+    const two = cols.filter(c => c.columns === 2).length;
+    return { left, right: left + width, columns: two * 2 > cols.length ? 2 : 1 };
+  }
+  // Zoomed in by less than this, the column already nearly fills the width: the page stays at fit.
+  const COLUMN_FIT_MIN = 1.1;
+  const ZOOM_MAX = 3;
+  /**
+   * The zoom at which the column fills the scroller's width less `gutter` each side. `room`: the scroller's
+   * width in CSS px, which is the page's width at zoom 1 on a phone (no side padding while zoomed);
+   * `pageWidth`: the page's width in its units; `cropX`: the share trimmed off each side (Trim page margins).
+   * -> a zoom from 1 to 3 (1: leave the page at fit).
+   */
+  function columnZoom({ column, pageWidth, room, cropX = 0, gutter = 10 }) {
+    if (!column || !(pageWidth > 0) || !(room > 0)) return 1;
+    const shown = pageWidth * (1 - 2 * cropX), width = column.right - column.left;
+    if (!(width > 0)) return 1;
+    const z = ((room - 2 * gutter) * shown) / (width * room);
+    if (!(z >= COLUMN_FIT_MIN)) return 1;
+    return Math.round(Math.min(ZOOM_MAX, z) * 100) / 100;
+  }
+  /**
+   * The scroller's left offset that puts the column `gutter` px from the screen's left edge: `sheetLeft`
+   * is the page's left in the scroller's content, `sheetWidth` its width now, `x0` the page box's left.
+   * Kept inside the page: never left of its edge, never past its right edge less the screen.
+   */
+  function columnScroll({ column, pageWidth, x0 = 0, cropX = 0, sheetLeft, sheetWidth, room, gutter = 10 }) {
+    if (!column || !(pageWidth > 0)) return Math.max(0, sheetLeft);
+    const scale = sheetWidth / (pageWidth * (1 - 2 * cropX));
+    const at = sheetLeft + (column.left - x0 - cropX * pageWidth) * scale - gutter;
+    return Math.round(clamp(at, sheetLeft, Math.max(sheetLeft, sheetLeft + sheetWidth - room)));
+  }
+  /**
+   * The phone's page pill, fullest first: the chapter, then the page (or an EPUB's percent), then the
+   * same without its chevron. The reader shows the first that leaves the title whole and is not cut
+   * itself, else the last: never an empty pill. -> [{ label, chevron }]
+   */
+  function pillStages({ chapter = '', page = '', pct = '', epub = false } = {}) {
+    const short = epub ? pct : page ? `p. ${page}` : pct;
+    const out = [];
+    if (chapter) out.push({ label: chapter, chevron: true });
+    if (short) out.push({ label: short, chevron: true }, { label: short, chevron: false });
+    return out.length ? out : [{ label: chapter || short || '–', chevron: false }];
+  }
+  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN };
 });

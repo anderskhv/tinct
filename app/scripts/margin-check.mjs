@@ -35,6 +35,9 @@
 //                                                     question and the primer on it, desktop and phone; a scan recognised without boxes
 //   node scripts/margin-check.mjs polish              Anders's feedback of 15 Oct: no foot line (Chat), the caret, the highlighter and
 //                                                     pencil, delete with Undo, one scroll surface, the primer opening in place
+//   node scripts/margin-check.mjs phone-ui            the PM's battery of 15 Oct (phones): the text column fit on a phone (zoom, pan inside
+//                                                     the page, place and pinch kept), the header's title and pill, the desktop unchanged,
+//                                                     Chat in the t menu, Escape on the Aa panel, &pages on a first open, two devices at once (409)
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -2463,7 +2466,10 @@ async function focusMatrix(browser, origin) {
         const phone = width < 700
         await check('focus', [s => {
           const f = focusState(), g = f.gaps
-          const centred = !!g && Math.abs(g[0] - g[1]) <= (innerWidth < 700 ? 2 : 42)
+          // A phone's pages open zoomed to their text column (phone-ui): a page wider than the screen cannot be centred, so there
+          // it fills the width with no gap either side (its pan stays inside the page); at fit, centred as before.
+          const zoomedPhone = innerWidth < 700 && state.zoom > 1
+          const centred = !!g && (zoomedPhone ? g[0] <= 0.5 && g[1] <= 0.5 : Math.abs(g[0] - g[1]) <= (innerWidth < 700 ? 2 : 42))
           return { ok: f.mode === 'focus' && f.layout === 'focus' && f.stored === 'focus' && !f.colShown && f.marks === 0 && centred && (!s.wide || Math.abs(f.width - s.width) <= 2) && !!f.pop && f.inside && (!f.covers || f.side === 'over'), ...f, before: s.width }
         }, { width: margin0.width, wide: !phone }])
         const placeF = await page.evaluate(() => currentPlace())
@@ -2511,6 +2517,196 @@ async function focusMatrix(browser, origin) {
   return rows
 }
 
+// The PM's full battery on release train 3 (15 Oct 2026, gloss-test/full-battery.html, "Phones"): a PDF on a
+// phone opens with its text column filling the width (one column of the two-column paper), panned to it and
+// never off the page, the place and the reader's own pinch kept; the phone's header gives the title its room
+// and never shows an empty pill; the desktop is unchanged; the t menu's whole-document chat is "Chat"; Escape
+// closes the Aa panel with focus back on Aa; a link with &pages stays in the pages after a first open's scan;
+// two devices writing at once (409) merge silently and lose nothing.
+function columnState(gutter) {
+  const s = document.getElementById('scroll'), sr = s.getBoundingClientRect()
+  const sheet = state.pages[currentPlace().page - 1].sheet, r = sheet.getBoundingClientRect()
+  // Running lines of the page in view: where their left edges sit on the screen.
+  const spans = [...sheet.querySelectorAll('.text-layer span')].filter(e => (e.textContent || '').trim().split(/\s+/).length >= 4).map(e => e.getBoundingClientRect()).filter(b => b.top > sr.top && b.bottom < innerHeight && b.width > 0)
+  const lefts = spans.map(b => b.left).sort((a, b) => a - b), onScreen = spans.filter(b => b.left >= -1 && b.right <= innerWidth + 1).length
+  return {
+    zoom: state.zoom, fit: !!state.fit?.column, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'),
+    columns: state.fit?.column?.columns || 0, left: lefts.length ? Math.round(lefts[Math.floor(lefts.length * 0.1)]) : null,
+    shown: spans.length ? onScreen / spans.length : 0, sheetLeft: Math.round(r.left - sr.left), sheetRight: Math.round(r.right - sr.left), room: s.clientWidth,
+    maxPan: s.scrollWidth - s.clientWidth, sheetW: Math.round(r.width), gutter,
+  }
+}
+function headerState() {
+  const box = id => { const r = document.getElementById(id).getBoundingClientRect(); return { left: r.left, right: r.right, w: r.width } }
+  const t = document.getElementById('bookTitle'), label = document.getElementById('pageLabel'), btn = document.getElementById('pageBtn')
+  const chevron = btn.querySelector('.lab-header-chevron')
+  return {
+    title: box('bookTitle'), titleWhole: t.scrollWidth <= t.clientWidth + 1, pill: box('pageBtn'), label: label.textContent.trim(), labelWhole: label.scrollWidth <= label.clientWidth + 1,
+    chevron: !!chevron && getComputedStyle(chevron).display !== 'none', aa: box('aaBtn'), pillShown: getComputedStyle(btn).display !== 'none' && btn.getBoundingClientRect().width > 0,
+  }
+}
+async function phoneUi(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 600)}`) }
+  const books = PDFS.map(f => [basename(f, '.pdf'), addBook(f)])
+  const views = SAMPLE ? [[390, 844, 'paper'], [360, 740, rotate(LOOKS, 1)]] : VIEWPORTS.filter(([w]) => w < 700).flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+  const TITLE = 'Attention Is All You Need'
+  for (const [label, hex] of books) for (const [width, height, look] of views) {
+    const tag = `phone-ui-${label}-${width}x${height}-${look}`
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    // 2. The column fit: the zoom fills the width with the column, the lines start 10px in, the pan stays on the page.
+    await a.evaluate(() => goTo({ page: 2, frac: 0.05 })); await a.evaluate(() => panToColumn()); await a.waitForTimeout(900)
+    let c = await a.evaluate(columnState, 10)
+    const two = label.includes('two_column')
+    ok(`${tag}: opens zoomed to its text column (${two ? 'one column of two' : 'one column'}), ${c.zoom}×`, c.fit && c.cls && c.zoom >= (two ? 2.3 : 1.3) && c.zoom <= 3 && c.columns === (two ? 2 : 1), c)
+    ok(`${tag}: the column's lines start about 10px from the screen's edge and are on the screen`, c.left !== null && Math.abs(c.left - 10) <= 8 && c.shown >= (two ? 0.4 : 0.9), c)
+    await a.evaluate(() => { document.getElementById('scroll').scrollLeft = 0 }); await a.waitForTimeout(100)
+    const atLeft = await a.evaluate(columnState, 10)
+    await a.evaluate(() => { document.getElementById('scroll').scrollLeft = 1e6 }); await a.waitForTimeout(100)
+    const atRight = await a.evaluate(columnState, 10)
+    ok(`${tag}: the pan stays inside the page (its left edge at the screen's left, its right edge at the screen's right)`, Math.abs(atLeft.sheetLeft) <= 1 && Math.abs(atRight.sheetRight - atRight.room) <= 1, { atLeft, atRight })
+    await a.evaluate(() => panToColumn())
+    // The layout check with the pages zoomed, then with the bar up.
+    const problems = [...(await checkMargin(a)).map(p => ({ state: 'zoomed', ...p }))]
+    const sel = await selectText(a)
+    if (sel) { await a.waitForSelector('.mr-pbar', { timeout: 5000 }).catch(() => {}); await a.waitForTimeout(250); problems.push(...(await checkMargin(a)).map(p => ({ state: 'bar', ...p }))) }
+    ok(`${tag}: a selection works on the zoomed page (the phone bar)`, !!sel && !!await a.$('.mr-pbar'), { sel })
+    await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+    // The place survives a reload, and the column fit is worked out again (nothing stored for it).
+    const before = await a.evaluate(() => { savePlaceNow(); return { place: currentPlace(), stored: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + state.key)) } })
+    await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(900)
+    const after = await a.evaluate(() => ({ place: currentPlace(), zoom: state.zoom, fit: !!state.fit }))
+    ok(`${tag}: a reload opens at the same place and the same column fit, with no zoom stored for it`, after.place.page === before.place.page && Math.abs(after.place.frac - before.place.frac) < 0.05 && after.fit && after.zoom === c.zoom && before.stored.phoneZoom === undefined, { before, after })
+    // A pinch is the reader's own zoom: kept for this phone, the place kept.
+    const pinched = await a.evaluate(() => { const at = currentPlace(); state.fit = null; setZoom(1.25); return new Promise(r => setTimeout(() => { savePlaceNow(); r({ at, now: currentPlace(), zoom: state.zoom, stored: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + state.key)) }) }, 400)) })
+    ok(`${tag}: a pinch keeps the place and is kept as this phone's zoom`, pinched.now.page === pinched.at.page && Math.abs(pinched.now.frac - pinched.at.frac) < 0.03 && pinched.stored.phoneZoom === 1.25 && pinched.stored.zoom === undefined, pinched)
+    await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(700)
+    ok(`${tag}: reopened at the reader's own zoom, not the fit`, await a.evaluate(() => state.zoom === 1.25 && !state.fit))
+    // 3. The header: a long title gets the room, the pill shortens and is never empty.
+    await a.evaluate(t => { setBookTitle(t, ''); onScroll() }, TITLE); await a.waitForTimeout(300)
+    const h = await a.evaluate(headerState)
+    const overlap = h.title.right > h.pill.left + 0.5 || h.pill.right > h.aa.left + 0.5
+    ok(`${tag}: the header gives the title its room (${Math.round(h.title.w)}px), the pill shows "${h.label}", never empty, nothing overlapping`, h.pillShown && h.label.length > 0 && h.labelWhole && /^p\. \S+$/.test(h.label) && h.title.w >= (width >= 390 ? 125 : 95) && !overlap, h)
+    await a.evaluate(() => { setBookTitle('Short', ''); onScroll() }); await a.waitForTimeout(300)
+    const hs = await a.evaluate(headerState)
+    ok(`${tag}: with a short title, title and pill are both whole and the pill keeps its chevron ("${hs.label}")`, hs.titleWhole && hs.labelWhole && hs.chevron && hs.label.length > 0, hs)
+    problems.push(...(await checkMargin(a)).map(p => ({ state: 'header', ...p })))
+    if (!process.env.NO_SHOTS && look === views[0][2]) await a.screenshot({ path: join(OUT, `${tag}.png`) })
+    ok(`${tag}: layout check (zoomed pages, the bar, the header)`, !problems.length, problems)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // The desktop is unchanged: fit-to-width, the chapter in the pill with page and percent.
+  {
+    const [label, hex] = books[1]
+    const D = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+    const d = await D.page.evaluate(() => ({ zoom: state.zoom, fit: state.fit, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'), progress: getComputedStyle(document.getElementById('progress')).display, chevron: document.getElementById('pageBtn').dataset.chevron }))
+    ok(`phone-ui-${label}-1440x900: the desktop opens at fit as before (no column fit, the pill as before)`, d.zoom === 1 && !d.fit && !d.cls && d.progress !== 'none' && d.chevron === undefined, d)
+    // 1. The t menu's whole-document chat is Chat, and it opens the chat.
+    await D.page.click('#superBtn'); await D.page.waitForSelector('.lab-super-panel')
+    const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
+    ok('the t menu names the whole-document chat "Chat" (no Librarian)', rows[0] === 'chat:Chat' && !rows.some(r => /librarian/i.test(r)), rows)
+    await D.page.click('.lab-super-row[data-row="chat"]'); await D.page.waitForTimeout(500)
+    ok('the t menu\'s Chat opens the whole-document chat (the margin\'s Whole PDF card)', await D.page.evaluate(() => !!document.querySelector('.mr-col .mr-card.is-whole.is-open')))
+    // 4. Escape closes the Aa panel, from its close button and from the size slider; focus returns to Aa.
+    for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-testid="lab-v2-size"]']) {
+      await D.page.keyboard.press('Escape'); await D.page.click('#aaBtn'); await D.page.waitForSelector('.byob-aa-panel')
+      await D.page.focus(from); await D.page.keyboard.press('Escape'); await D.page.waitForTimeout(200)
+      const esc = await D.page.evaluate(() => ({ open: !!document.querySelector('.byob-aa-panel'), focus: document.activeElement?.id, expanded: document.getElementById('aaBtn').getAttribute('aria-expanded') }))
+      ok(`Escape closes the Aa panel (focus in ${from.includes('size') ? 'the size slider' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
+    }
+    ok('desktop: no page errors', !D.problems.length, D.problems)
+    await D.ctx.close()
+  }
+  // The night checklist (15 Oct): on a phone at a chapter's start, a card closed with × stays closed (the
+  // "Before you start" bottom card used to take its place at once, so × seemed to do nothing).
+  {
+    const hex = addBook(BIG_BOOK)
+    const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper', at: BOOK.meta.chapters[0].from })
+    await P.page.waitForFunction(() => primer.units?.length > 1, null, { timeout: 60000 }).catch(() => {})
+    // A chapter's start, where the bottom card offers Before you start.
+    const start = await P.page.evaluate(async () => { for (const u of primer.units.filter(u => u.key !== 'all' && u.from > 1).slice(0, 8)) { goTo({ page: u.start || u.from, frac: 0 }); onScroll(); marginLayout(); await new Promise(r => setTimeout(r, 400)); if (col.sheet?.dataset.id === 'trigger') return currentPlace().page } return null })
+    const trig = await P.page.evaluate(() => col.sheet?.dataset.id || null)
+    const id = await P.page.evaluate(n => { const c = TinctMargin.newCard({ kind: 'explain', page: n, anchor: [{ n, x: 0.15, y: 0.3, w: 0.5, h: 0.012 }], text: 'A passage at the chapter start', turns: [{ role: 'assistant', content: 'An answer.', at: Date.now() }] }); saveCard(c); openCard(c.id); return c.id }, start || BOOK.meta.chapters[0].from)
+    await P.page.waitForTimeout(900)
+    const open = await P.page.evaluate(() => col.sheet?.dataset.id || null)
+    await P.page.click('.mr-sheet .mr-card__close'); await P.page.waitForTimeout(800)
+    const after = await P.page.evaluate(() => ({ sheet: col.sheet?.dataset.id || null, open: col.open }))
+    ok('phone, a chapter\'s start: a card closed with × stays closed (the Before you start card does not take its place)', trig === 'trigger' && open === id && !after.sheet && !after.open, { trig, open, id, after })
+    await P.ctx.close()
+  }
+  // A PDF that fails to open once (pdf.js's first try rejects) opens on the second try, from this device's copy.
+  {
+    const [, hex] = books[0]
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } })
+    await ctx.addInitScript(([session, hex]) => {
+      try { localStorage.setItem('sb-local-auth-token', JSON.stringify(session)); localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('pages')) } catch {}
+      let failed = false
+      // pdf.js's namespace cannot be patched: the page gets a stand-in whose first getDocument rejects.
+      let lib = null
+      Object.defineProperty(window, 'pdfjsLib', { configurable: true, get: () => lib, set: real => {
+        lib = new Proxy(real, { get: (t, k) => k !== 'getDocument' ? t[k] : o => { if (!failed && o?.data) { failed = true; window.__failedOnce = true; return { promise: Promise.reject(Object.assign(new Error('Invalid PDF structure.'), { name: 'InvalidPDFException' })) } } return t.getDocument(o) } })
+      } })
+    }, [SESSION, hex])
+    const page = await ctx.newPage()
+    const errors = []; page.on('pageerror', e => errors.push(e.message))
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    const opened = await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).then(() => true, () => false)
+    const seen = await page.evaluate(() => ({ failedOnce: !!window.__failedOnce, alert: document.querySelector('.pdf-status[role="alert"]')?.textContent || null }))
+    ok('a PDF whose first open fails opens on a second try (no "could not be opened")', opened && seen.failedOnce && !seen.alert && !errors.length, { opened, ...seen, errors })
+    await ctx.close()
+  }
+  // 5. &pages: a fresh profile (no edition chosen, no scan kept) on a book that reads as Tinct text by default.
+  {
+    const [, hex] = books[0]
+    const open = async query => {
+      const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } })
+      await ctx.addInitScript(session => { try { localStorage.setItem('sb-local-auth-token', JSON.stringify(session)) } catch {} }, SESSION)
+      const page = await ctx.newPage()
+      await page.goto(`${origin}/lab/addbook/?userBook=${hex}${query}`)
+      // The first open's scan finishes after the book's own address is pushed.
+      await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (state.scan && toc.ready), null, { timeout: 30000 }).catch(() => {})
+      await page.waitForTimeout(1500)
+      const where = await page.evaluate(() => location.pathname + location.search)
+      await ctx.close()
+      return where
+    }
+    const plain = await open('')
+    ok('control: without &pages this book goes on to the Tinct reader once its first scan is done', plain.startsWith('/reader?userBook=' + hex), plain)
+    const kept = await open('&pages')
+    ok('a first open with &pages stays in the PDF reader after the scan (the &pages race), and keeps &pages in its address', kept === `/lab/addbook/?userBook=${hex}&pages`, kept)
+  }
+  // 6. A phone and a desktop writing cards and highlights at the same moment: 409s merged, nothing lost, nothing said.
+  {
+    const [, hex] = books[1]
+    account.cards.delete(hex); account.marks.delete(hex)
+    const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+    const D = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+    await P.page.waitForTimeout(800)
+    const add = (page, who) => page.evaluate(who => {
+      for (let i = 0; i < 2; i++) saveCard(TinctMargin.newCard({ kind: 'explain', page: 2, anchor: [], text: `${who} passage ${i}`, turns: [{ role: 'assistant', content: `${who} answer ${i}`, at: Date.now() }] }))
+      putHighlights([...highlights(), { id: who + '-hl', page: 2, rects: [[0.1, 0.2, 0.3, 0.02]], text: who + ' words', color: 'gold', at: Date.now() }])
+    }, who)
+    await Promise.all([add(P.page, 'phone'), add(D.page, 'desktop')])
+    // Sent at once from both.
+    await Promise.all([P.page.evaluate(() => Promise.all([cardsSync.push(), marksSync.push()])), D.page.evaluate(() => Promise.all([cardsSync.push(), marksSync.push()]))])
+    await P.page.waitForTimeout(2500)
+    const said = page => page.evaluate(() => [...document.querySelectorAll('.byob-toast, [role="status"], .toast')].map(t => t.textContent).join(' '))
+    const stored = { cards: (account.cards.get(hex)?.cards || []).filter(c => !c.gone).map(c => c.text).sort(), marks: (account.marks.get(hex)?.marks || []).filter(m => !m.gone).map(m => m.id).sort() }
+    ok('two devices at once: the account has every card and highlight from both', stored.cards.length === 4 && stored.marks.includes('phone-hl') && stored.marks.includes('desktop-hl'), stored)
+    const toasts = [await said(P.page), await said(D.page)]
+    ok('two devices at once: no error is shown on either', !toasts.some(t => /could not be saved|conflict|error/i.test(t)), toasts)
+    for (const X of [P, D]) { await X.page.reload(); await X.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await X.page.waitForTimeout(1500) }
+    const has = page => page.evaluate(() => ({ cards: keptCards().filter(c => !c.gone && /^(phone|desktop) passage/.test(c.text)).length, marks: highlights().map(h => h.id).filter(id => /-hl$/.test(id)).sort() }))
+    const both = [await has(P.page), await has(D.page)]
+    ok('two devices at once: each has all four cards and both highlights after its next open', both.every(b => b.cards === 4 && b.marks.join() === 'desktop-hl,phone-hl'), both)
+    ok('two devices at once: no page errors', !P.problems.length && !D.problems.length, [...P.problems, ...D.problems])
+    await P.ctx.close(); await D.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -2531,6 +2727,7 @@ const RUNS = {
   'figure-margins': [retestFigures, rows => rows.some(r => !r.pass)],
   long: [longBooks, rows => rows.some(r => !r.pass)],
   polish: [polish, rows => rows.some(r => !r.pass)],
+  'phone-ui': [phoneUi, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -2566,6 +2763,7 @@ try {
   else if (mode === 'figures') { const rows = await figureMatrix(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'figures-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'polish') { const rows = await polish(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'polish-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'phone-ui') { const rows = await phoneUi(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-ui-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
