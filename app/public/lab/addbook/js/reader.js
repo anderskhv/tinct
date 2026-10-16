@@ -411,7 +411,7 @@ async function openPdf(bytes, name, key, known = null) {
   // A link that asks for the pages (&pages) is read once, here: the address loses it when the book's own is
   // pushed (openBook), and a first open's scan finishes after that (the &pages race, 15 Oct 2026).
   const pagesAsked = new URLSearchParams(location.search).has('pages');
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null });
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
   if (token !== state.token) return;
   root.classList.add('is-pdf'); root.classList.remove('is-epub');
   root.style.removeProperty('--epub-scale');
@@ -420,6 +420,8 @@ async function openPdf(bytes, name, key, known = null) {
   const { late } = await synced;
   if (token !== state.token) return;
   // Read as Tinct text (here or, by its place, on another device): the Tinct reader, before the pages draw.
+  if (scan) await phoneKind(scan, token);
+  if (token !== state.token) return;
   if (scan && forwardToText(scan)) return;
   let saved = store.get('pos:' + state.key);
   // A link's page (the Tinct reader's "Original pages") wins for this open; at the saved page, its spot on it too.
@@ -1077,7 +1079,49 @@ function textSpot(place) {
 const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages > 0 || isOcrText() : !!state.textEdition);
 // A scan whose text the account recognised (js/pdf-ocr.js): its Tinct text opens by its own default.
 const isOcrText = () => state.textEdition?.source === 'ocr';
-const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), store.get('edition:' + hexOf(state.key)), isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : scan?.layout?.default);
+// The reader's own choice on this device (the phone's default kept there is not one: TinctReaderLayout.ownChoice).
+const ownEdition = () => window.TinctReaderLayout.ownChoice(store.get('edition:' + hexOf(state.key)), store.get('phone-edition:' + hexOf(state.key)));
+// With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); else the scan's.
+const editionDefault = scan => isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : window.TinctReaderLayout.openDefault({ phone: isPhone(), kind: state.docKind?.kind, layout: scan?.layout });
+const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), ownEdition(), editionDefault(scan));
+/* Phones open a PDF by its kind (Anders, 16 Oct 2026, option C; TinctReaderLayout.docKind, phoneEdition): a
+   narrative or an essay as its Tinct text, a paper too when it is mostly prose (no columns, mathematics, figures
+   or tables: the scan's own rule), everything else in its pages at the column fit. Told here, before any AI call, from
+   a primer kept for the book (its kind wins) or the text of a few pages and the scan, and only when the reader
+   has chosen nothing for the book (no edition in its place, no choice on this device). The default is kept as
+   this device's edition (so the library and the Tinct reader open the book the same way) and marked as the
+   phone's (phone-edition:<hex>), so the desktop ignores it and a choice of the reader's replaces it. */
+const KIND_V = 1;
+function keptPrimerKind(key) {
+  let best = null;
+  try {
+    const prefix = STORE_PREFIX + 'primer:' + key + ':';
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || !k.startsWith(prefix)) continue;
+      const p = JSON.parse(localStorage.getItem(k));
+      if (p && window.TinctReaderLayout.KINDS.includes(p.kind) && (!best || String(p.madeAt || '') > String(best.madeAt || ''))) best = p;
+    }
+  } catch { /* storage unavailable */ }
+  return best?.kind || null;
+}
+async function phoneKind(scan, token) {
+  if (!isPhone() || state.kind !== 'pdf' || !scan || !(scan.textPages > 0) || isOcrText() || state.pagesAsked) return;
+  const hex = hexOf(state.key), RL = window.TinctReaderLayout;
+  if (TinctPdfText.choice(store.get('pos:' + state.key), ownEdition(), null)) return;
+  const auto = store.get('phone-edition:' + hex), primerKind = keptPrimerKind(state.key);
+  let found = auto?.v === KIND_V && auto.kind && (!primerKind || auto.kind === primerKind) ? { kind: auto.kind, by: auto.by } : null;
+  if (!found) {
+    const pages = [];
+    if (!primerKind) for (const n of RL.kindPages(state.pdf.numPages)) { try { pages.push({ n, text: (await pageText(n)).text }) } catch { /* skipped */ } if (token !== state.token) return }
+    found = RL.docKind({ scan, pages, count: state.pdf.numPages, primerKind });
+  }
+  if (token !== state.token) return;
+  state.docKind = found;
+  const edition = RL.phoneEdition(found.kind, scan.layout);
+  store.set('phone-edition:' + hex, { edition, kind: found.kind, by: found.by, v: KIND_V });
+  store.set('edition:' + hex, edition);
+}
 const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + (page ? '&page=' + page : '');
 // Opened here but read as Tinct text: on to the Tinct reader (not for a link that asks for the pages).
 // A scan whose text was recognised stays here, with the margin, its words laid over its pages (the
@@ -1095,7 +1139,7 @@ function readAsText() {
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
   const spot = sameSpot(place, { page: prev.page, frac: prev.frac }) && Number.isInteger(prev.chapterNumber) ? {} : textSpot(place);
   store.set('pos:' + state.key, { ...prev, ...(sameSpot(place, { page: prev.page, frac: prev.frac }) ? {} : place), ...spot, edition: 't', pages: state.pages.length, at: Date.now() });
-  store.set('edition:' + hexOf(state.key), 'text');
+  store.set('edition:' + hexOf(state.key), 'text'); store.del('phone-edition:' + hexOf(state.key));
   placeSync.note(hexOf(state.key), true);
   placeSync.flush();
   stopNarration();
@@ -1173,7 +1217,7 @@ async function ocrKeep(edition) {
   const hex = hexOf(state.key);
   state.textEdition = edition;
   await library.touch(state.key, { edition });
-  store.set('edition:' + hex, 'pages');
+  store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex);
   const pos = store.get('pos:' + state.key);
   if (pos) store.set('pos:' + state.key, { ...pos, edition: 'p' });
   showEditions();
@@ -1880,7 +1924,11 @@ async function buildContentsNow(token, key, pdf) {
   applyBookLanguage();
   // Classified now (a PDF opened for the first time, or scanned again): Tinct text when it reads
   // best so, unless the reader has moved here meanwhile.
-  if (fresh && sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
+  if (fresh && sameSpot(currentPlace(), state.lastPlace)) {
+    await phoneKind(scan, token);
+    if (token !== state.token) return;
+    if (sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
+  }
   showEditions();
   if (isScan()) ocrOpen();
   toc.entries = contentsSorted(scan.entries);
