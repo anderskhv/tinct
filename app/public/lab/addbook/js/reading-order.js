@@ -6,7 +6,8 @@
 // PDF's own order). This finds those items so the reader can keep them out of the flow:
 //   roles(items, view)  -> one role per text item: 'body', 'caption' or 'figure' (null for empty ones)
 //   pageText(items, roles) -> the page's text: the body in the PDF's order, then each caption and the
-//                             figure's labels after it, as their own paragraphs
+//                             figure's labels after it, as their own paragraphs; a superscript as ^ (n^2)
+//   scripts(items), shown(items, marks, i) -> which items are superscripts, and an item's text as read
 //   suspect(items), hidden(items, view, ink, W, H) -> text a placed figure carries clipped out of sight
 // Pure: positioned pdf.js text items in, plain values out (the tests run it in Node). Figure
 // detection itself (the chip, PR E) is separate; this only orders text.
@@ -18,11 +19,60 @@
   const median = list => { const s = [...list].sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0 };
   const quantile = (list, q) => { const s = [...list].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.floor(s.length * q))] : 0 };
 
+  /* ---------- Superscripts (morning retest 16 Oct, item 1) ----------
+     TeX sets an exponent as its own item, smaller and raised ("n" then "2" in O(n²·d), "10" then "18" in
+     3.3·10¹⁸). Read as a line of its own, it left the body (a figure's label), so the companion read
+     "O(n · d)" and "3.3 · 10". An item set at most 0.85 of the size of the item it follows on the line, raised
+     by 0.2 to 0.75 of that item's size and starting where it ends, is a superscript of it; the items that run
+     on after it, raised and small, are the same superscript ("2" "i/d" "model" in 10000^(2i/dmodel)). It is
+     written with ^ ("n^2", "10^18", "10000^(2i/dmodel)"), keeps its base's place and role, and the same items
+     always give the same text. A footnote mark is not an exponent: symbols only (∗ † ‡), or digits after a word
+     of four letters or more or after punctuation, stay as printed. */
+  const FOOTNOTE_SYMBOLS = /^[*∗†‡§¶♯♮#]+$/u;
+  /** One mark per item: null, or { base, first, last, caret, paren } for an item of a superscript run. */
+  function scripts(items) {
+    const list = Array.isArray(items) ? items : [];
+    const marks = list.map(() => null);
+    const upright = it => it && typeof it.str === 'string' && it.transform && !rotated(it);
+    let base = -1, prev = -1, run = [];
+    const close = () => {
+      if (!run.length) return;
+      const text = run.map(i => list[i].str.trim()).join('');
+      const before = list[base].str.trimEnd();
+      const footnote = FOOTNOTE_SYMBOLS.test(text) || (/^\d{1,3}$/.test(text) && (/\p{L}{4,}$/u.test(before) || /[.,;:]$/.test(before)));
+      const paren = !/^(?:\d+|\p{L}|[-−+]?\d+|[′″'*∗†‡]+)$/u.test(text);
+      run.forEach((i, k) => { marks[i] = { base, first: k === 0, last: k === run.length - 1, caret: !footnote, paren: !footnote && paren } });
+      run = [];
+    };
+    list.forEach((it, i) => {
+      if (!upright(it)) return;
+      if (!it.str.trim()) return; // a space between keeps the run (it is written as it stands)
+      const size = sizeOf(it), x = it.transform[4], y = it.transform[5];
+      if (base >= 0) {
+        const b = list[base], bs = sizeOf(b), rise = y - b.transform[5];
+        const p = list[prev], end = p.transform[4] + (p.width || 0);
+        const near = x >= end - bs * 0.5 && x <= end + bs * 0.8;
+        if (near && bs > 0 && size <= bs * 0.85 && rise >= bs * 0.2 && rise <= bs * 0.75) { run.push(i); prev = i; return }
+      }
+      close();
+      base = i; prev = i;
+    });
+    close();
+    return marks;
+  }
+  /** An item's text as read: a superscript's first item opens with ^ (or ^( ), its last closes the bracket. */
+  function shown(list, marks, i) {
+    const m = marks && marks[i], str = list[i].str;
+    if (!m || !m.caret) return str;
+    return (m.first ? (m.paren ? '^(' : '^') : '') + str.trim() + (m.last && m.paren ? ')' : '');
+  }
+
   /** Visual segments: items on one baseline, split where a gap is wider than 1.5 em. Top first. */
-  function segmentsOf(items) {
+  function segmentsOf(items, marks = null) {
     const rows = [];
     items.forEach((it, i) => {
       if (!it || typeof it.str !== 'string' || !it.str.trim() || !it.transform || rotated(it)) return;
+      if (marks && marks[i]) return; // a superscript goes with its base (roles)
       const size = sizeOf(it), y = it.transform[5];
       if (size < 0.5) return;
       let row = rows.find(r => Math.abs(r.y - y) < Math.max(1, Math.min(r.size, size) * 0.5));
@@ -107,7 +157,8 @@
   function roles(items, view = null) {
     const list = Array.isArray(items) ? items : [];
     const out = list.map(it => (it && typeof it.str === 'string' && it.str.trim() ? 'body' : null));
-    const segs = segmentsOf(list);
+    const marks = scripts(list);
+    const segs = segmentsOf(list, marks);
     if (!segs.length) return out;
     const size = bodySize(segs), cols = columnsOf(segs, size);
     const [vy0, vy1] = view ? [view[1], view[3]] : [Math.min(...segs.map(s => s.y)) - size * 4, Math.max(...segs.map(s => s.y)) + size * 4];
@@ -129,6 +180,10 @@
         if (last.y - t.y > Math.max(t.size, last.size) * 1.8) break;
         if (Math.abs(t.size - s.size) > s.size * 0.1 || t.x2 < x0 - size || t.x > x2 + size) continue;
         if (Math.abs(t.x - x0) > size * 2 && Math.abs((t.x + t.x2) / 2 - (x0 + x2) / 2) > size * 2) continue;
+        // A line that shares its row with other text under the caption is a table's row or a figure's labels, never
+        // the caption's next line (Table 2's "BLEU" beside "Training Cost (FLOPs)", ByteNet's "23.75" in the GAN and
+        // Attention papers' tables, which a caption above them took in).
+        if (segs.some(o => o !== t && !o.role && Math.abs(o.y - t.y) < Math.min(o.size, t.size) * 0.5 && o.x2 >= x0 - size && o.x <= x2 + size)) break;
         // A caption in the body's size ends at a line that closes a sentence short of its width.
         if (Math.abs(s.size - size) <= size * 0.05 && /[.!?]$/.test(last.text) && last.x2 < x2 - size * 3) break;
         mark(t, 'caption'); x2 = Math.max(x2, t.x2); last = t; count++;
@@ -150,20 +205,23 @@
     }
     // Rotated text on a figure page is an axis label.
     if (captioned || zones.length) list.forEach((it, i) => { if (out[i] === 'body' && it.transform && rotated(it)) out[i] = 'figure' });
+    // A superscript stands where its base stands.
+    marks.forEach((m, i) => { if (m && out[i]) out[i] = out[m.base] });
     return out;
   }
 
   /** The page's text: the body as the PDF orders it, then captions and figure labels, each a paragraph of its own. */
   function pageText(items, itemRoles = roles(items)) {
     const list = Array.isArray(items) ? items : [];
-    const join = picked => picked.map(i => list[i].str + (list[i].hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ').trim();
+    const marks = scripts(list);
+    const join = picked => picked.map(i => shown(list, marks, i) + (list[i].hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ').trim();
     const body = [], caption = [], figure = [];
     list.forEach((it, i) => { const r = itemRoles[i]; if (r === 'caption') caption.push(i); else if (r === 'figure') figure.push(i); else if (it && typeof it.str === 'string') body.push(i) });
     const byPlace = (a, b) => (list[b].transform[5] - list[a].transform[5]) || (list[a].transform[4] - list[b].transform[4]);
     const lines = idx => {
       const rows = [];
       for (const i of [...idx].sort(byPlace)) { const row = rows.at(-1); if (row && Math.abs(list[row[0]].transform[5] - list[i].transform[5]) < sizeOf(list[i]) * 0.5) row.push(i); else rows.push([i]) }
-      return rows.map(row => row.map(i => list[i].str.trim()).filter(Boolean).join(' ')).filter(Boolean);
+      return rows.map(row => row.map(i => shown(list, marks, i).trim()).filter(Boolean).join(' ').replace(/ (?=\^)/g, '')).filter(Boolean);
     };
     const parts = [join(body)];
     if (caption.length) parts.push(lines(caption).join(' ').replace(/(\p{L})- (\p{Ll})/gu, '$1$2'));
@@ -252,5 +310,5 @@
     return out;
   }
 
-  global.TinctReadingOrder = { roles, pageText, CAPTION, suspect, hidden };
+  global.TinctReadingOrder = { roles, pageText, scripts, shown, CAPTION, suspect, hidden };
 })(typeof window !== 'undefined' ? window : globalThis);

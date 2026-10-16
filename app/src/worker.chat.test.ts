@@ -544,13 +544,15 @@ describe('book-grounded lab chat', () => {
   it('answers honestly in one provider round when an explicit source lookup fails', async () => {
     const { assets } = bibleAssets(JEREMIAH, { total: 3 })
     const anthropicBodies: Array<Record<string, unknown>> = []
+    // The book reader asks the search once and keeps its wording (the PDF reader's margin asks twice, 16 Oct).
+    let searches = 0
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
       if (url.includes('/rest/v1/profiles')) {
         return Response.json([{ messages_used_this_period: 0, message_balance: 1, subscription_status: 'active', subscription_period_end: null, created_at: '2026-06-01T12:00:00Z' }])
       }
       if (url.includes('/rest/v1/rpc/use_message')) return Response.json({})
-      if (url === 'https://api.openai.com/v1/responses') return Response.json({ error: { type: 'server_error' } }, { status: 500 })
+      if (url === 'https://api.openai.com/v1/responses') { searches++; return Response.json({ error: { type: 'server_error' } }, { status: 500 }) }
       if (url === 'https://api.anthropic.com/v1/messages') {
         const body = JSON.parse(String(init?.body)) as Record<string, unknown>
         anthropicBodies.push(body)
@@ -573,6 +575,7 @@ describe('book-grounded lab chat', () => {
     expect(response.status).toBe(200)
     expect((await response.json() as { content: Array<{ text: string }> }).content[0].text).toContain('could not verify')
     expect(anthropicBodies).toHaveLength(1)
+    expect(searches).toBe(1)
     expect(anthropicBodies[0].tool_choice).toBeUndefined()
     await Promise.all(pending)
   })

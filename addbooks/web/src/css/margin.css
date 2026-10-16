@@ -490,3 +490,5 @@ button.mr-related__row:hover .mr-related__line { text-decoration: underline; tex
 .mr-col .mr-primer.is-growing { background-color: transparent; box-shadow: inset 1.5px 0 0 var(--mr-lead); overflow: hidden; }
 .mr-col .mr-primer.is-opening { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .mr-col .mr-primer { transition: none; } }
+/* Fact-check's sources row is led by "Sources" (16 Oct: the bare titles read as a raw tail). */
+.mr-sources__label { color: var(--mr-hint); }

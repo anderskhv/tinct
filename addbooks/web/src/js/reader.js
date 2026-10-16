@@ -655,6 +655,10 @@ function buildTextLayer(p, items, vp, roles = null) {
   // through text wrapped beside a figure never runs through them.
   const fig = document.createElement('div'); fig.className = 'side-col fig-col';
   const body = [];
+  // A superscript reads with ^ in a selection, as in the companion's text ("n^2", "10^18"; js/reading-order.js), and
+  // runs on from its base with no space between. A recognised scan's items have no superscripts.
+  const RO = window.TinctReadingOrder, marks = roles && RO?.scripts ? RO.scripts(items) : null;
+  const nextShown = i => { for (let k = i + 1; k < items.length; k++) if (items[k].str.trim()) return k; return -1 };
   items.forEach((item, i) => {
     if (!item.str.trim()) { spans.push(null); return }
     const tx = pdfjsLib.Util.transform(vp.transform, item.transform);
@@ -662,7 +666,9 @@ function buildTextLayer(p, items, vp, roles = null) {
     if (size < 1) { spans.push(null); return }
     const angle = Math.atan2(tx[1], tx[0]);
     const span = document.createElement('span');
-    span.textContent = item.str + (item.hasEOL ? '\n' : ' ');
+    const k = marks ? nextShown(i) : -1, joined = marks && ((marks[i] && !marks[i].last) || (k >= 0 && marks[k]?.first && marks[k].caret));
+    const str = marks ? RO.shown(items, marks, i) : item.str;
+    span.textContent = str + (item.hasEOL ? '\n' : joined ? '' : ' ');
     span.dataset.i = i;
     // A recognised scan's line keeps what it is: a caption, an algorithm box, a footnote (pdf-ocr.js).
     if (item.kind) span.dataset.kind = item.kind;
@@ -670,7 +676,7 @@ function buildTextLayer(p, items, vp, roles = null) {
     span.style.top = (tx[5] - size * 0.86) + 'px';
     span.style.fontSize = size + 'px';
     measureCtx.font = `${size}px sans-serif`;
-    const natural = measureCtx.measureText(item.str).width;
+    const natural = measureCtx.measureText(str).width;
     const target = item.width * vp.scale;
     const sx = natural > 0 && target > 0 ? target / natural : 1;
     span.style.transform = `${angle ? `rotate(${angle}rad) ` : ''}scaleX(${sx})`;
@@ -1726,7 +1732,7 @@ function openJump() {
   box.innerHTML = `<form class="byob-jump"><label for="jumpInput">Page</label><input id="jumpInput" inputmode="${lettered ? 'text' : 'numeric'}" autocapitalize="off" autocomplete="off" spellcheck="false" value="${esc(pageLabel(currentPlace().page))}"><span>of ${esc(lastLabel())}</span><button type="submit">Go</button></form>`;
   root.appendChild(box);
   const input = box.querySelector('input'); input.select();
-  box.querySelector('form').onsubmit = e => { e.preventDefault(); const n = pageOfLabel(input.value); if (n) goTo({ page: n, frac: 0 }); closeJump() };
+  box.querySelector('form').onsubmit = e => { e.preventDefault(); const v = input.value; closeJump(); jumpToLabel(v) };
 }
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
 $('pageBtn').onclick = () => openContents();
@@ -1996,7 +2002,7 @@ function openContents() {
   layer.querySelector('[data-close]').onclick = close;
   layer.querySelector('.title').onclick = close;
   // The page the reader types as printed ("423", "viii"); the file's page where no page prints it (pageOfLabel).
-  layer.querySelector('form').onsubmit = ev => { ev.preventDefault(); const n = pageOfLabel(layer.querySelector('#jumpInput').value); if (n) goTo({ page: n, frac: 0 }); close() };
+  layer.querySelector('form').onsubmit = ev => { ev.preventDefault(); const v = layer.querySelector('#jumpInput').value; close(); jumpToLabel(v) };
   layer.querySelectorAll('[data-go]').forEach(b => b.onclick = () => {
     const e = toc.entries.find(x => x.id === b.dataset.go);
     if (toc.entries.some(c => c.parent === e.id)) { toc.expanded.has(e.id) ? toc.expanded.delete(e.id) : toc.expanded.add(e.id); close(); openContents(); return }
@@ -2258,6 +2264,8 @@ function selectionInfo() {
 }
 let selTimer;
 document.addEventListener('selectionchange', () => {
+  // A text selection always gets the bar, never the figure chip (a caption's words too): the chip goes at once.
+  try { if (hot.el && !getSelection().isCollapsed) hideHot() } catch { /* before the chip's code has run */ }
   clearTimeout(selTimer);
   selTimer = setTimeout(() => {
     // A selection opens the margin's bar or Define card (below), in a PDF or an EPUB.
@@ -2837,7 +2845,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261016round3').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261016round4').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -2878,6 +2886,31 @@ function pageOfLabel(value) {
   if (window.TinctPrintedPages?.pageOf) return TinctPrintedPages.pageOf(value, labels, { count, near: currentPlace().page });
   const n = /^\d+$/.test(String(value || '').trim()) ? Number(String(value).trim()) : 0;
   return n >= 1 && n <= count ? n : 0;
+}
+/**
+ * "Go to page": the page a typed number names. Until a long PDF's printed numbers are known (the whole book is read
+ * once in the background; js/printed-pages.js), the pages from the number on are read for their printed numbers
+ * (at most 90, a book's front matter and parts), so a printed number never lands on the file page of that number
+ * (morning retest 16 Oct: Sutton and Barto's 423 went to chapter 15 when typed early, 445 to the right page later).
+ */
+async function jumpToLabel(value) {
+  const token = state.token, count = state.pages.length;
+  const known = !state.labelsTask || isEpub() || await Promise.race([Promise.resolve(state.labelsTask).then(() => true), new Promise(r => setTimeout(() => r(false), 60))]);
+  let n = 0;
+  if (!known && !state.labels && window.TinctPrintedPages?.findPrinted && state.pdf) {
+    const v = String(value || '').trim(), num = /^\d{1,4}$/.test(v) ? Number(v) : 0;
+    const from = num ? Math.max(1, Math.min(count, num) - 6) : 1, to = Math.min(count, from + 90), per = [];
+    for (let k = from; k <= to; k++) {
+      if (token !== state.token) return;
+      if (state.labels) break;
+      const page = await state.pdf.getPage(k), have = state.texts.get(k);
+      per.push(TinctPrintedPages.candidates(have ? have.items : (await page.getTextContent()).items, page.view));
+    }
+    if (!state.labels) n = TinctPrintedPages.findPrinted(v, per, from);
+  }
+  if (token !== state.token) return;
+  if (!n) n = pageOfLabel(value);
+  if (n) goTo({ page: n, frac: 0 });
 }
 /** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. */
 async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
@@ -3857,7 +3890,21 @@ function figureRules(card, image, sketch) {
   const parts = [card.text ? 'Caption: ' + card.text.slice(0, 600) : '', d.labels ? 'Labels and text inside it: ' + String(d.labels).slice(0, 600) : '', !image && sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + sketch + '\n```' : ''].filter(Boolean).join('\n');
   return `You are Tinct's reading companion. ${bookLine()} They are on page ${at} of ${state.pages.length}.\nThis conversation is about one ${what} on page ${at}${d.label ? ` (${d.label})` : ''}. ${seen} Only this ${what} has been asked about in this conversation: never say another figure was asked about earlier.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the document; say when something is not in it. Plain prose only.${parts ? '\n\n' + parts : ''}`;
 }
-const passageRegion = card => { const rects = anchorRects(TinctMargin.anchorOfCard(card)); return rects.length ? selectionRegion({ page: card.page, box: boxOf(rects) }) : null };
+/* The passage's picture: cropped to the passage, grown to take in a table or a displayed formula it touches or a table on
+   its page it names (TinctMargin.mathBox; morning retest 16 Oct, superscripts lost from Table 1). */
+const passageRegion = card => {
+  const rects = anchorRects(TinctMargin.anchorOfCard(card)); if (!rects.length) return null;
+  const p = state.pages[card.page - 1], own = TinctMargin.anchorOfCard(card).filter(a => a.n === card.page);
+  if (p?.pg && own.length) {
+    const x0 = Math.min(...own.map(a => a.x)), y0 = Math.min(...own.map(a => a.y)), x1 = Math.max(...own.map(a => a.x + a.w)), y1 = Math.max(...own.map(a => a.y + a.h));
+    const grown = TinctMargin.mathBox({ box: { x: x0, y: y0, w: x1 - x0, h: y1 - y0 }, figures: p.figures, captions: p.captions, blocks: p.blocks, text: card.text });
+    if (grown) {
+      const b = p.pg.getBoundingClientRect();
+      return selectionRegion({ page: card.page, box: { left: b.left + grown.x * b.width, top: b.top + grown.y * b.height, right: b.left + (grown.x + grown.w) * b.width, bottom: b.top + (grown.y + grown.h) * b.height } });
+    }
+  }
+  return selectionRegion({ page: card.page, box: boxOf(rects) });
+};
 function setLive(id, patch) {
   if (patch === null) col.live.delete(id); else col.live.set(id, { ...(col.live.get(id) || { text: '', status: '' }), ...patch });
   marginLayout();
@@ -4774,7 +4821,7 @@ function regionAt(x, y) {
   const fi = (p.figures || []).reduce((best, f, i) => (inside(f) && (best < 0 || f.w * f.h < p.figures[best].w * p.figures[best].h) ? i : best), -1);
   if (fi >= 0) return { p, f: p.figures[fi], kind: 'figure', key: p.n + 'f' + fi };
   // The fallback (item 5): over a "Figure N" or "Table N" caption, its figure is offered.
-  const cap = (p.captions || []).find(c => inside(c.box) && p.figures?.[c.fig]); if (cap) return { p, f: p.figures[cap.fig], kind: 'figure', key: p.n + 'f' + cap.fig };
+  const cap = (p.captions || []).find(c => inside(c.box) && p.figures?.[c.fig]); if (cap) return { p, f: p.figures[cap.fig], kind: 'figure', key: p.n + 'f' + cap.fig, caption: true };
   const bi = (p.blocks || []).findIndex(inside); if (bi >= 0) return { p, f: p.blocks[bi], kind: 'formula', key: p.n + 'm' + bi };
   return null;
 }
@@ -4818,7 +4865,9 @@ document.addEventListener('mousemove', e => {
     if (e.target.closest?.('.byob-hot-chip')) return;
     if (document.querySelector('.selection-popup') || !getSelection().isCollapsed) { if (!hot.sticky) hideHot(); return }
     const reg = e.target.closest?.('.pdf-scroll') ? regionAt(e.clientX, e.clientY) : null;
-    if (reg) showHot(reg, false); else if (!hot.sticky && hot.el) hideHotSoon();
+    // Over a caption's own words the chip comes on a tap only: on hover it would stand over the words a reader is about
+    // to select (morning retest 16 Oct: a caption could not be highlighted, noted or asked about).
+    if (reg && !reg.caption) showHot(reg, false); else if (!hot.sticky && hot.el) hideHotSoon();
   });
 });
 // Touch (and a plain click): tap a figure or formula to get the same chip.

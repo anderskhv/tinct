@@ -103,6 +103,9 @@
       if (before && after && before.roman === after.roman && before.d === after.d) out[i] = before;
       else if (before && !before.roman && (!after || i - a <= b - i)) out[i] = before;
       else if (after && after.roman) out[i] = after;
+      // The unnumbered opening page of a book's first chapter, between roman front matter and arabic page 2, is page 1
+      // (Sutton and Barto: file page 23 read "xxiii", so "1" went to the file's first page).
+      else if (before && before.roman && after && !after.roman && i + 1 + after.d >= 1 && i + 1 + after.d <= 2) out[i] = after;
       else if (before && before.roman && (!after || i - a <= b - i)) out[i] = before;
       else if (after && !after.roman && i + 1 + after.d >= 1) out[i] = after;
     }
@@ -134,5 +137,31 @@
     return hits.length ? hits.reduce((a, b) => (Math.abs(b - near) < Math.abs(a - near) ? b : a)) : 0;
   }
 
-  global.TinctPrintedPages = { candidates, labels, romanValue, toRoman, pageOf };
+  /**
+   * The file page that prints `value`, from the candidates of a run of pages only (`perPage[k]` is file page
+   * `first + k`'s), for "Go to page" before the whole book has been read (morning retest 16 Oct: in Sutton and
+   * Barto, typed early, 423 went to file page 423, in chapter 15, where printed 423 is file page 445). A number
+   * counts where two pages within four agree on its distance from the file page; a page that prints nothing (a
+   * chapter's opening page) takes the distance of the agreeing pages nearest it. -> a file page, or 0
+   */
+  function findPrinted(value, perPage, first = 1) {
+    const v = String(value || '').trim().toLowerCase().replace(/^p(?:age|\.)?\s*/, '');
+    const roman = isRoman(v) && !/^\d+$/.test(v), want = /^\d{1,4}$/.test(v) ? Number(v) : roman ? romanValue(v) : 0;
+    if (!want || !Array.isArray(perPage)) return 0;
+    const at = k => (perPage[k] || []).filter(c => c && c.roman === roman).map(c => c.value - (first + k));
+    let best = null;
+    for (let k = 0; k < perPage.length; k++) {
+      for (const d of at(k)) {
+        let agree = 0;
+        for (let j = Math.max(0, k - 4); j <= Math.min(perPage.length - 1, k + 4); j++) if (j !== k && at(j).includes(d)) agree++;
+        if (agree < 2) continue;
+        const page = want - d, gap = Math.abs(page - (first + k));
+        if (page < first || page >= first + perPage.length) continue;
+        if (!best || gap < best.gap) best = { page, gap };
+      }
+    }
+    return best && best.gap <= 8 ? best.page : 0;
+  }
+
+  global.TinctPrintedPages = { candidates, labels, romanValue, toRoman, pageOf, findPrinted };
 })(typeof window !== 'undefined' ? window : globalThis);

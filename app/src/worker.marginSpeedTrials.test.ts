@@ -86,24 +86,26 @@ describe('speed trials switched on', () => {
     expect(anthropic[1]).not.toHaveProperty('thinking')
     expect(anthropic[1].max_tokens).toBe(real.MARGIN_ROUTES.factcheck.maxTokens)
   })
-  // Round 3 (16 Oct): Counterpoint's first words went from 1-2 s to 5-10 s with adaptive thinking (recheck-1).
-  it('COUNTERPOINT_THINKING_OFF: Counterpoint goes with thinking disabled at effort low, a 400-token bound, its grounding prompt unchanged', async () => {
-    expect(real.COUNTERPOINT_THINKING_OFF).toBe(true)
-    expect(real.MARGIN_ROUTES.counterpoint).toEqual(real.counterpointRoute(true))
-    expect(real.counterpointRoute(true)).toEqual({ model: real.MARGIN_HAIKU_MODEL, effort: 'low', maxTokens: 400, thinking: { type: 'disabled' } })
-    // Off: exactly the route before this PR.
+  // Round 3 (16 Oct) trialled Counterpoint with thinking off; the night run's final round (16 Oct) found it worse
+  // (3.80 -> 3.26, ResNet cut off), so the switch is off: adaptive thinking at effort low with 6000 tokens.
+  it('COUNTERPOINT_THINKING_OFF is off: Counterpoint thinks adaptively at effort low with 6000 tokens, one sharp objection and no author\'s reply', async () => {
+    expect(real.COUNTERPOINT_THINKING_OFF).toBe(false)
+    expect(real.MARGIN_ROUTES.counterpoint).toEqual(real.counterpointRoute(false))
     expect(real.counterpointRoute(false)).toEqual({ model: real.MARGIN_HAIKU_MODEL, effort: 'low', maxTokens: 6000 })
+    // The trial's route, kept behind the switch.
+    expect(real.counterpointRoute(true)).toEqual({ model: real.MARGIN_HAIKU_MODEL, effort: 'low', maxTokens: 400, thinking: { type: 'disabled' } })
     const { anthropic } = stubFetch()
     const { status } = await send({ stream: true, companion: { intent: 'counterpoint', context, document, selection: 'S = k log W.' } })
     expect(status).toBe(200)
     expect(anthropic).toHaveLength(1)
     expect(anthropic[0].model).toBe(real.MARGIN_HAIKU_MODEL)
-    expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
+    expect(anthropic[0]).not.toHaveProperty('thinking')
     expect(anthropic[0].output_config).toEqual({ effort: 'low' })
-    expect(anthropic[0].max_tokens).toBe(400)
+    expect(anthropic[0].max_tokens).toBe(6000)
     const system = JSON.stringify(anthropic[0].system)
-    expect(system).toContain('Tie the objection to something specific in the document')
-    expect(system).toContain('Give the author\'s reply only from what the document says or plainly implies.')
-    expect(system).toContain('At most 150 words in all.')
+    expect(system).toContain('Give one sharp objection')
+    expect(system).toContain('say so plainly')
+    expect(system).not.toContain('best reply.')
+    expect(system).toContain('About 120 words in all')
   })
 })
