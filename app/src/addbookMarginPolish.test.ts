@@ -78,7 +78,7 @@ describe('1. No whole-PDF line at the margin\'s foot: Chat instead', () => {
     expect(reader).toMatch(/function wholeTurns\(\) \{\n\s*const turns = chat\.turns\.map/)
   })
   it('Chat on a PDF sends the whole document, the long file\'s search passages and the whole-PDF rules (scope "whole")', async () => {
-    expect(reader).toContain('const wholeDoc = marginOn() ? await marginDocument(focusPage) : null;')
+    expect(reader).toContain("const wholeDoc = marginOn() ? await marginDocumentNow(focusPage, 'whole') : null;")
     expect(reader).toContain('const found = wholeDoc ? await searchPassages(question, wholeDoc) : null;')
     expect(reader).toMatch(/pdf, document: wholeDoc, passages: found, whole: !!pdf,/)
     const sent: Array<Record<string, unknown>> = []

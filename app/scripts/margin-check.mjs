@@ -41,6 +41,10 @@
 //   node scripts/margin-check.mjs phone-kind          option C (16 Oct): on a phone a PDF opens by its kind: a narrative as its Tinct text
 //                                                     (on to the Tinct reader), a paper in its pages at the column fit (layout check);
 //                                                     the reader's choice wins; the desktop ignores the phone's default
+//   node scripts/margin-check.mjs card-safety       16 Oct: a card never keeps the wait ring (drawing throws, the column throws, a step
+//                                                     before the request throws, the card dropped mid-request, a stalled stream), failures
+//                                                     reported; and the first request on a fresh open: Explain within its 3 s document wait, Ask with the document
+//   node scripts/margin-check.mjs latency [pdf ...]   the Ask latency part alone, on the given PDFs
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -183,7 +187,7 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // names the error's type (`cut_off`: the Worker's answer stopped by its output bound, max_tokens).
 // `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
 // unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
-export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null, stall: false }
 /** The mocked Fact-check's opening, streamed before "Checking sources…" as the Worker streams it while the search runs. */
 export const FACTCHECK_OPENING = 'MOCK opening: the passage claims what it says, and the document offers its own table {p. 1}.'
 function mockText(body) {
@@ -224,6 +228,8 @@ async function mockChat(body, res) {
   const text = mockText(body)
   if (!body?.stream) return json(res, 200, { content: [{ type: 'text', text }] })
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
+  // `mock.stall`: the stream opens and then sends nothing more, never ending (16 Oct: a card that waited for ever).
+  if (mock.stall) { mock.stall = false; res.write(`event: message_start\ndata: ${JSON.stringify({ type: 'message_start', message: { usage: {} } })}\n\n`); return }
   // Fact-check, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
   if (body?.companion?.intent === 'factcheck' && !mock.chunks && text.startsWith(FACTCHECK_OPENING)) {
     res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: FACTCHECK_OPENING } })}\n\n`)
@@ -281,6 +287,8 @@ function start(port) {
       const body = JSON.parse((await readBody(req)).toString() || '{}'), entry = { path: p, body, at: Date.now(), done: 0 }; account.requests.push(entry)
       await mockChat(body, res); entry.done = Date.now(); return
     }
+    // The first-party events intake (routes/events.ts), recorded as the Worker would receive it.
+    if (req.method === 'POST' && p === '/api/events') { const body = JSON.parse((await readBody(req)).toString() || '{}'); account.requests.push({ path: p, body, at: Date.now(), done: Date.now() }); res.writeHead(204); return res.end() }
     if (p === '/__margin/anthology.epub') { res.writeHead(200, { 'Content-Type': 'application/epub+zip', 'Cache-Control': 'no-store' }); return res.end(EPUB) }
     if (p === '/api/user-books' && req.method === 'POST') {
       // An upload (Add a book's account copy), stored after `scanMock.uploadDelay` ms: the first-open race.
@@ -2774,6 +2782,129 @@ async function phoneKindCheck(browser, origin) {
   return results
 }
 
+/* ---------- Ask latency (16 Oct): a margin request is sent at once, never after the scan ----------
+   Anders's Ask on a fresh open of a 40-page paper waited over 30 s before anything was sent. On a first
+   open (no stored scan: the scan, the whole-book read and the printed labels all still running) and on a
+   second Ask in the same session, the request must leave the page within ASK_BOUND ms of Return. */
+// Explain (a passage action) is sent within its 3 s wait for the document, plus the page's own steps.
+const EXPLAIN_BOUND = Number(process.env.EXPLAIN_BOUND || 4500)
+async function askLatency(browser, origin, files = null) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(detail ? { detail } : {}) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name} ${String(JSON.stringify(detail || '')).slice(0, 400)}`) }
+  const chats = from => account.requests.slice(from).filter(r => r.path === '/api/chat')
+  for (const file of files || [LONG_BOOK, BIG_BOOK]) {
+    for (const first of ['explain', 'ask']) {
+      const hex = addBook(file)
+      // The long book opens inside a chapter, as a reader returning to it (its first pages carry little text).
+      const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', minSpans: 5, at: file === BIG_BOOK ? BOOK.meta.chapters[2].from + 1 : 0 })
+      const a = A.page
+      const run = async (kind, q = '') => {
+        await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+        await selectText(a); await a.waitForSelector('.mr-bar')
+        const before = account.requests.length, scanning = await a.evaluate(() => !toc.ready)
+        let t0
+        if (kind === 'ask') { await a.keyboard.press(q[0]); await a.waitForSelector('.mr-bar.is-asking .mr-ask'); await a.keyboard.type(q.slice(1)); t0 = Date.now(); await a.keyboard.press('Enter') }
+        else { t0 = Date.now(); await a.click('.mr-bar [data-m="explain"]') }
+        let sent = null, said = false
+        for (let i = 0; i < 2400 && !sent; i++) {
+          sent = chats(before).find(r => kind === 'ask' ? JSON.stringify(r.body?.messages || '').includes(q) : r.body?.companion?.intent === 'explain')
+          if (!sent) { said ||= await a.evaluate(() => [...document.querySelectorAll('.mr-col .mr-status')].some(e => e.textContent === 'Reading the document…')); await a.waitForTimeout(25) }
+        }
+        await a.waitForFunction(() => !col.ctl.size, null, { timeout: 15000 }).catch(() => {})
+        const doc = JSON.stringify(sent?.body?.companion?.document || null)
+        return { sentMs: sent ? sent.at - t0 : null, scanning, document: !!sent?.body?.companion?.document, said, doc, docChars: doc.length }
+      }
+      const tag = `${basename(file)}, first action ${first}`
+      if (first === 'explain') {
+        const r = await run('explain')
+        ok(`${tag}: Explain on a first open is sent within ${EXPLAIN_BOUND} ms, the scan still running or not`, r.sentMs != null && r.sentMs < EXPLAIN_BOUND, { sentMs: r.sentMs, scanStillRunning: r.scanning, withDocument: r.document })
+      } else {
+        const r = await run('ask', 'What is meant here?')
+        // A document-wide action waits for the document (never for the scan's labels); a noticeable wait says so.
+        ok(`${tag}: Ask on a first open waits for the document and is sent with it; a wait over a second shows its status line`, r.sentMs != null && r.document && (r.sentMs < 2000 || r.said), { sentMs: r.sentMs, scanStillRunning: r.scanning, statusShown: r.said })
+        const r2 = await run('ask', 'And why does it matter?')
+        ok(`${tag}: a second Ask is sent at once with the document`, r2.sentMs != null && r2.sentMs < 1000 && r2.document, { sentMs: r2.sentMs })
+        // Once the scan is done (labels, units), every request carries the same bytes: the cached prefix.
+        await a.waitForFunction(() => toc.ready, null, { timeout: 60000 }).catch(() => {})
+        await a.waitForTimeout(1500)
+        const r3 = await run('ask', 'Once more, please?')
+        ok(`${tag}: the document sent before the scan ended is byte for byte the one sent after it`, r3.document && r.doc === r3.doc && r2.doc === r3.doc, { chars: r3.docChars })
+      }
+      ok(`${tag}: no page errors`, !A.problems.length, A.problems.slice(0, 3))
+      await A.ctx.close()
+    }
+  }
+  return results
+}
+
+/* ---------- A card never waits for ever (16 Oct) ----------
+   Anders's Explain and Ask cards kept the wait ring for minutes after the answer had been written.
+   Each way a card's request can fail outside its own error handling ends in the answer or an error
+   line, never the ring, and the failure is reported to the events intake (no passage, no answer). */
+async function cardSafety(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'night' })
+  const a = A.page
+  const state = () => a.evaluate(() => { const id = col.open, el = id && document.querySelector(`.mr-col [data-id="${CSS.escape(id)}"], .mr-sheet[data-id="${CSS.escape(id)}"]`); return { id, rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait').length, live: id ? col.live.get(id) || null : null, inFlight: id ? col.ctl.has(id) : false, status: el?.querySelector('.mr-status')?.textContent || '', answer: el?.querySelector('.mr-answer')?.textContent || '', turns: id ? (cardById(id)?.turns || []).length : 0 } })
+  const reports = from => account.requests.slice(from).filter(r => r.path === '/api/events').flatMap(r => r.body.events || []).filter(e => e.name === 'margin_card_failed')
+  const explain = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); await a.waitForTimeout(200); await selectText(a); await a.waitForSelector('.mr-bar [data-m="explain"]'); await a.click('.mr-bar [data-m="explain"]') }
+  const settled = async (ms = 4000) => { const end = Date.now() + ms; let st; while (Date.now() < end) { st = await state(); if (!st.rings && !st.inFlight && (st.status || st.answer || !st.live)) return st; await a.waitForTimeout(150) } return st }
+
+  // 1. The answer arrives but drawing it throws (an answer the parser cannot take): its words show plainly, and the error is reported.
+  let from = account.requests.length
+  await a.evaluate(() => { const real = TinctMargin.html.cardHtml; window.__realCardHtml = real; TinctMargin.html.cardHtml = (card, o) => { if ((o.live || (card.turns || []).some(t => t.role === 'assistant')) && card.kind === 'explain') throw new TypeError("Cannot read properties of undefined (reading 'n')"); return real(card, o) } })
+  await explain()
+  let st = await settled()
+  ok('drawing the answer throws: the card shows the answer as plain paragraphs, no ring', !st.rings && /MOCK ANSWER/.test(st.answer) && st.turns === 1, st)
+  let rep = reports(from)
+  ok('…and the failure is reported to the events intake: kind, step, error type and code location, no answer text', rep.length >= 1 && rep[0].props.intent === 'explain' && rep[0].props.phase === 'render' && rep[0].props.error === 'TypeError' && /@/.test(rep[0].props.where || '') && !JSON.stringify(rep).includes('MOCK'), rep)
+  await a.evaluate(() => { TinctMargin.html.cardHtml = window.__realCardHtml })
+
+  // 2. The whole column cannot be drawn while the answer streams: the stream still ends, the answer is saved and the error line or answer replaces the ring.
+  from = account.requests.length
+  await explain(); await a.waitForTimeout(80)
+  await a.evaluate(() => { window.__realLayout = marginLayout; window.marginLayout = () => { throw new RangeError('layout failed') } })
+  await a.waitForTimeout(1500)
+  const saved = await a.evaluate(() => (cardById(col.open)?.turns || []).length)
+  await a.evaluate(() => { window.marginLayout = window.__realLayout; marginLayout({ fresh: true }) })
+  st = await settled()
+  ok('the column throws while the answer streams: the answer is still saved and shown, no ring', saved === 1 && !st.rings && /MOCK ANSWER/.test(st.answer), { saved, st })
+
+  // 3. A step before the request throws (the pages around the passage): an error line, never the ring.
+  from = account.requests.length
+  await a.evaluate(() => { window.__realPages = pdfPages; window.pdfPages = async () => { throw new TypeError('pages failed') } })
+  await explain()
+  st = await settled()
+  await a.evaluate(() => { window.pdfPages = window.__realPages })
+  ok('a step before the request throws: the card shows its error line, no ring', !st.rings && !st.inFlight && /could not be loaded/.test(st.status), st)
+  rep = reports(from)
+  ok('…and it is reported as the prepare step', rep.some(e => e.props.phase === 'prepare' && e.props.error === 'TypeError'), rep)
+
+  // 4. The card goes while its answer is on its way (another device's set adopted without it): nothing is left waiting.
+  mock.delay = 1200
+  await explain(); await a.waitForTimeout(300)
+  const gone = await a.evaluate(() => { const id = col.open; store.set('cards:' + state.key, keptCards().filter(c => c.id !== id)); return id })
+  await a.waitForTimeout(1600); mock.delay = 0
+  const left = await a.evaluate(id => ({ live: col.live.has(id), ctl: col.ctl.has(id), rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait').length }), gone)
+  ok('the card is dropped mid-request: no live state, request or ring is left for it', !left.live && !left.ctl && !left.rings, left)
+
+  // 5. The stream opens and then stalls for ever: the request is stopped after its idle bound and the card says so.
+  await a.evaluate(() => { TinctAI.IDLE_MS = 1500 })
+  mock.stall = true
+  await explain()
+  st = await settled(6000)
+  await a.evaluate(() => { TinctAI.IDLE_MS = 120000 })
+  ok('a stream that stalls: stopped after its idle bound, the card shows its error line', !st.rings && !st.inFlight && /could not be loaded/.test(st.status), st)
+
+  ok('no page errors', !A.problems.length, A.problems.slice(0, 3))
+  await A.ctx.close()
+  // A request is sent at once, with the scan, units and labels still running (Ask latency, 16 Oct).
+  results.push(...await askLatency(browser, origin))
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -2796,6 +2927,7 @@ const RUNS = {
   polish: [polish, rows => rows.some(r => !r.pass)],
   'phone-ui': [phoneUi, rows => rows.some(r => !r.pass)],
   'phone-kind': [phoneKindCheck, rows => rows.some(r => !r.pass)],
+  'card-safety': [cardSafety, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -2833,6 +2965,8 @@ try {
   else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'phone-ui') { const rows = await phoneUi(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-ui-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'phone-kind') { const rows = await phoneKindCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-kind-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
