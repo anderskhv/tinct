@@ -5,7 +5,10 @@
  *   - on a phone a narrative or an essay opens as its Tinct text, and so does a paper of running prose
  *     (Deutsch's "Constructor Theory"); papers dense with equations, figures or tables, textbooks and
  *     practical guides open in their pages at the column fit; unsure: the scan's own text-heaviness rule;
- *   - the reader's own choice always wins; the desktop keeps the scan's default.
+ *   - the reader's own choice always wins.
+ * The desktop (Anders, 16 Oct 2026; reader-layout.js desktopEdition): every PDF opens as its pages, except
+ * running prose (a narrative or an essay, or a text with no columns, mathematics, figures or tables that is
+ * prose by the scan's signal or a paper or unsure kind), which opens as its Tinct text.
  * The night set's documents are read with the pdf.js the viewer ships when they are on this machine
  * (NIGHT_DOCS, default the release owner's scratchpad); otherwise the repository's fixture PDFs and
  * written stand-ins are used. No network and no AI.
@@ -14,6 +17,7 @@ import { createRequire } from 'node:module'
 import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
+import { PDF_OPEN_RULE, PDF_OPEN_RULE_AT } from './lab/userBook/pdfEditions'
 
 const require = createRequire(import.meta.url)
 const ROOT = resolve(__dirname, '../..') + '/'
@@ -33,7 +37,8 @@ interface Kinds {
   textHeavy(layout: Partial<Layout> | null): boolean
   phoneEdition(kind: string, layout?: Partial<Layout> | null): 'text' | 'pages'
   openDefault(o: { phone?: boolean; kind?: string | null; layout?: Partial<Layout> | null }): string | null
-  ownChoice(stored: unknown, auto: { edition: string } | null): 'text' | 'pages' | null
+  desktopEdition(kind: string | null, layout?: Partial<Layout> | null): 'text' | 'pages'
+  ownChoice(stored: unknown, auto: { edition: string } | null, desk?: { edition: string } | null): 'text' | 'pages' | null
 }
 type Item = { str: string; transform: number[]; width: number; height: number; hasEOL: boolean }
 type Pdf = { numPages: number; getPage(n: number): Promise<{ view: number[]; getTextContent(): Promise<{ items: Item[] }> }>; destroy(): Promise<void> }
@@ -105,32 +110,39 @@ describe('telling the kind (docKind), from the text of a few pages and the scan'
 // The night set: each document, its kind, and the edition it opens in on a phone and on the desktop.
 // `stand` is the fixture read when the night set is not on this machine.
 const NIGHT_SET = [
-  { file: 'attention.pdf', kind: 'paper', phone: 'pages', stand: 'two_column_paper.pdf' },
-  { file: 'gan.pdf', kind: 'paper', phone: 'pages', stand: 'two_column_paper.pdf' },
-  { file: 'resnet.pdf', kind: 'paper', phone: 'pages', stand: 'two_column_paper.pdf' },
-  { file: 'mackay.pdf', kind: 'textbook', phone: 'pages', stand: null },
-  { file: 'epa-mold-guide.pdf', kind: 'practical', phone: 'pages', stand: null },
-  { file: 'yellow-wallpaper.pdf', kind: 'narrative', phone: 'text', stand: 'prose_book.pdf' },
+  { file: 'attention.pdf', kind: 'paper', phone: 'pages', desk: 'pages', stand: 'two_column_paper.pdf' },
+  { file: 'gan.pdf', kind: 'paper', phone: 'pages', desk: 'pages', stand: 'two_column_paper.pdf' },
+  { file: 'resnet.pdf', kind: 'paper', phone: 'pages', desk: 'pages', stand: 'two_column_paper.pdf' },
+  { file: 'mackay.pdf', kind: 'textbook', phone: 'pages', desk: 'pages', stand: null },
+  // Anders's 60-page extract of MacKay (16 Oct): scored 2 (mathematics only; the margin figures count as
+  // neither columns nor figures), so the desktop opened it as Tinct text. A textbook: its pages now.
+  { file: 'anders-test-1016.pdf', kind: 'textbook', phone: 'pages', desk: 'pages', stand: null },
+  { file: 'epa-mold-guide.pdf', kind: 'practical', phone: 'pages', desk: 'pages', stand: null },
+  { file: 'yellow-wallpaper.pdf', kind: 'narrative', phone: 'text', desk: 'text', stand: 'prose_book.pdf' },
   // A 40-page paper of running prose (arXiv 1210.7439): converted, as the scan's own rule already does.
-  { file: 'constructor-theory.pdf', kind: null, phone: 'text', stand: 'PossibleMinds Deutsch (1).pdf' },
+  { file: 'constructor-theory.pdf', kind: null, phone: 'text', desk: 'text', stand: 'PossibleMinds Deutsch (1).pdf' },
 ] as const
 
 describe('the night set (or its fixture stand-ins)', () => {
   for (const doc of NIGHT_SET) {
     const real = existsSync(NIGHT + doc.file)
     const file = real ? NIGHT + doc.file : doc.stand ? FIXTURES + doc.stand : null
-    it.skipIf(!file)(`${doc.file}${real ? '' : ` (stand-in ${doc.stand})`}: ${doc.kind || 'a prose paper'}, opens on a phone ${doc.phone === 'text' ? 'as its Tinct text' : 'in its pages at the column fit'}`, async () => {
+    it.skipIf(!file)(`${doc.file}${real ? '' : ` (stand-in ${doc.stand})`}: ${doc.kind || 'a prose paper'}, opens on a phone ${doc.phone === 'text' ? 'as its Tinct text' : 'in its pages at the column fit'}, on the desktop ${doc.desk === 'text' ? 'as its Tinct text' : 'as its pages'}`, async () => {
       const { scan, kind } = await readDoc(file!)
       if (doc.kind) expect(kind.kind).toBe(doc.kind)
       expect(L.openDefault({ phone: true, kind: kind.kind, layout: scan.layout })).toBe(doc.phone)
-      // The desktop: the scan's default, whatever the kind.
-      expect(L.openDefault({ phone: false, kind: kind.kind, layout: scan.layout })).toBe(scan.layout.default)
+      // The desktop: its pages unless running prose (desktopEdition), the same before the kind is told.
+      expect(L.openDefault({ phone: false, kind: kind.kind, layout: scan.layout })).toBe(doc.desk)
+      expect(L.desktopEdition(kind.kind, scan.layout)).toBe(doc.desk)
+      if (doc.kind !== 'narrative') expect(L.openDefault({ phone: false, kind: null, layout: scan.layout })).toBe(doc.desk)
       if (real && doc.file === 'constructor-theory.pdf') {
         // What sent it to Tinct text before: the scan's layout score (a paper, short; no columns, mathematics, figures or tables) under 3.5.
         expect(scan.layout.default).toBe('text')
         expect(L.textHeavy(scan.layout)).toBe(true)
       }
+      // What sent these to Tinct text on the desktop before: the scan's score under 3.5.
       if (real && doc.file === 'epa-mold-guide.pdf') expect(scan.layout.default).toBe('text')
+      if (real && doc.file === 'anders-test-1016.pdf') expect(scan.layout).toMatchObject({ default: 'text', score: 2, signals: { math: true, columns: false, figures: false } })
     }, 120_000)
   }
   it('the textbook and the practical guide stand-ins open in their pages on a phone', () => {
@@ -154,18 +166,52 @@ describe('kind -> the mode a phone opens in (phoneEdition, textHeavy)', () => {
       expect(L.phoneEdition(k, null)).toBe('pages')
     }
   })
-  it('the desktop, and a phone before the kind is known, keep the scan\'s default; a PDF without text has its pages only', () => {
-    expect(L.openDefault({ phone: false, kind: 'narrative', layout: { default: 'pages', signals: {} } })).toBe('pages')
-    expect(L.openDefault({ phone: false, kind: 'practical', layout: PROSE })).toBe('text')
+  it('a phone before the kind is known keeps the scan\'s default; a PDF without text has its pages only', () => {
     expect(L.openDefault({ phone: true, kind: null, layout: PROSE })).toBe('text')
+    expect(L.openDefault({ phone: true, kind: null, layout: { default: 'text', signals: { math: true } } })).toBe('text')
     expect(L.openDefault({ phone: true, kind: 'narrative', layout: { default: 'pages-only', signals: {} } })).toBe('pages-only')
     expect(L.openDefault({ phone: true, kind: 'practical', layout: PROSE })).toBe('pages')
+    expect(L.openDefault({ phone: false, kind: 'narrative', layout: { default: 'pages-only', signals: {} } })).toBe('pages-only')
+    expect(L.openDefault({ phone: false, kind: 'narrative', layout: null })).toBeNull()
+  })
+})
+
+describe('kind -> the mode the desktop opens in (desktopEdition: its pages unless running prose)', () => {
+  const sign = (k: string, d = 'text') => ({ default: d, signals: { [k]: true } })
+  it('a narrative or an essay opens as its Tinct text, whatever the scan finds', () => {
+    expect(L.desktopEdition('narrative', PROSE)).toBe('text')
+    expect(L.desktopEdition('narrative', sign('math', 'pages'))).toBe('text')
+  })
+  it('columns, mathematics, figures or tables keep the pages, for every other kind and an unknown one', () => {
+    for (const kind of ['paper', 'textbook', 'practical', 'other', null]) for (const k of ['columns', 'math', 'figures', 'tables']) {
+      expect(L.desktopEdition(kind, sign(k))).toBe('pages')
+      expect(L.desktopEdition(kind, { ...sign(k), signals: { [k]: true, prose: true } })).toBe('pages')
+    }
+  })
+  it('the scan\'s prose signal with none of them: Tinct text, whatever the kind', () => {
+    for (const kind of ['paper', 'textbook', 'practical', 'other', null]) expect(L.desktopEdition(kind, PROSE)).toBe('text')
+  })
+  it('no prose signal and none of them: a paper or an unsure kind is running prose (Constructor Theory); a textbook or a practical guide keeps its pages', () => {
+    const plain = { default: 'text', signals: { paper: true, short: true } }
+    expect(L.desktopEdition('paper', plain)).toBe('text')
+    expect(L.desktopEdition('other', plain)).toBe('text')
+    expect(L.desktopEdition(null, plain)).toBe('text')
+    expect(L.desktopEdition('textbook', plain)).toBe('pages')
+    expect(L.desktopEdition('practical', plain)).toBe('pages')
+  })
+  it('no scan, or one that keeps the pages: the pages', () => {
+    expect(L.desktopEdition('paper', null)).toBe('pages')
+    expect(L.desktopEdition('other', { default: 'pages', signals: {} })).toBe('pages')
+  })
+  it('the phone\'s rule is unchanged beside it (a textbook of prose: the phone its pages, the desktop its Tinct text)', () => {
+    expect(L.phoneEdition('textbook', PROSE)).toBe('pages')
+    expect(L.desktopEdition('textbook', PROSE)).toBe('text')
   })
 })
 
 describe('the reader\'s choice wins (TinctPdfText.choice with ownChoice)', () => {
-  const open = ({ phone, pos = null, stored = null, auto = null, kind, layout }: { phone: boolean; pos?: unknown; stored?: unknown; auto?: { edition: string } | null; kind: string; layout: Layout }) =>
-    choice(pos, L.ownChoice(stored, auto), L.openDefault({ phone, kind, layout }))
+  const open = ({ phone, pos = null, stored = null, auto = null, desk = null, kind, layout }: { phone: boolean; pos?: unknown; stored?: unknown; auto?: { edition: string } | null; desk?: { edition: string } | null; kind: string; layout: Layout }) =>
+    choice(pos, L.ownChoice(stored, auto, desk), L.openDefault({ phone, kind, layout }))
   const PAPER: Layout = { default: 'pages', signals: { math: true, paper: true } }
   it('nothing chosen: the phone opens by kind', () => {
     expect(open({ phone: true, kind: 'narrative', layout: PROSE })).toBe('text')
@@ -180,23 +226,48 @@ describe('the reader\'s choice wins (TinctPdfText.choice with ownChoice)', () =>
     expect(open({ phone: true, pos: { page: 3, edition: 'p' }, kind: 'narrative', layout: PROSE })).toBe('pages')
     expect(open({ phone: true, pos: { page: 3, edition: 't' }, kind: 'paper', layout: PAPER })).toBe('text')
   })
-  it('the phone\'s own default kept as this device\'s edition is not a choice: the desktop ignores it and keeps the scan\'s default', () => {
+  it('the phone\'s own default kept as this device\'s edition is not a choice: the desktop ignores it and opens by its own rule', () => {
     expect(L.ownChoice('pages', { edition: 'pages' })).toBeNull()
     expect(open({ phone: false, stored: 'pages', auto: { edition: 'pages' }, kind: 'practical', layout: PROSE })).toBe('text')
-    expect(open({ phone: false, stored: 'text', auto: { edition: 'text' }, kind: 'narrative', layout: PAPER })).toBe('pages')
+    expect(open({ phone: false, stored: 'text', auto: { edition: 'text' }, kind: 'paper', layout: PAPER })).toBe('pages')
     // A choice of the reader's that differs from the phone's default is theirs.
     expect(L.ownChoice('text', { edition: 'pages' })).toBe('text')
     expect(L.ownChoice('odd', null)).toBeNull()
   })
-  it('the desktop is unchanged: with nothing chosen it opens the scan\'s default for every kind', () => {
-    for (const kind of L.KINDS) for (const layout of [PROSE, PAPER]) expect(open({ phone: false, kind, layout })).toBe(layout.default)
+  it('the desktop\'s own default kept as this device\'s edition is not a choice either; a choice that differs is the reader\'s', () => {
+    expect(L.ownChoice('pages', null, { edition: 'pages' })).toBeNull()
+    expect(L.ownChoice('text', { edition: 'pages' }, { edition: 'pages' })).toBe('text')
+    expect(L.ownChoice('text', null, { edition: 'pages' })).toBe('text')
+    // Kept as the desktop's default, then read on a phone of the same device: the phone opens by its kind.
+    expect(open({ phone: true, stored: 'text', kind: 'textbook', layout: PROSE, desk: { edition: 'text' } })).toBe('pages')
+  })
+  it('the desktop with nothing chosen: its pages for every kind but running prose; the reader\'s choice and the place\'s edition win', () => {
+    for (const kind of L.KINDS) expect(open({ phone: false, kind, layout: PAPER })).toBe(kind === 'narrative' ? 'text' : 'pages')
+    for (const kind of L.KINDS) expect(open({ phone: false, kind, layout: PROSE })).toBe('text')
+    expect(open({ phone: false, stored: 'text', kind: 'textbook', layout: PAPER })).toBe('text')
+    expect(open({ phone: false, stored: 'pages', kind: 'narrative', layout: PROSE })).toBe('pages')
+    expect(open({ phone: false, pos: { page: 3, edition: 'p' }, kind: 'narrative', layout: PROSE })).toBe('pages')
   })
 })
 
-describe('reader.js: the kind is told at open, before the Tinct text is forwarded to, and only on a phone', () => {
-  it('the stored scan\'s open and the first open\'s scan both tell the kind before forwardToText', () => {
-    expect(READER).toMatch(/if \(scan\) await phoneKind\(scan, token\);\s*if \(token !== state\.token\) return;\s*if \(scan && forwardToText\(scan\)\) return;/)
-    expect(READER).toMatch(/await phoneKind\(scan, token\);\s*if \(token !== state\.token\) return;\s*if \(sameSpot\(currentPlace\(\), state\.lastPlace\) && forwardToText\(scan\)\) return;/)
+describe('reader.js: the kind is told at open, before the Tinct text is forwarded to', () => {
+  it('the stored scan\'s open and the first open\'s scan both tell the edition (openKind: phoneKind or deskKind) before forwardToText', () => {
+    expect(READER).toMatch(/if \(scan\) await openKind\(scan, token\);\s*if \(token !== state\.token\) return;\s*if \(scan && forwardToText\(scan\)\) return;/)
+    expect(READER).toMatch(/await openKind\(scan, token\);\s*if \(token !== state\.token\) return;\s*if \(sameSpot\(currentPlace\(\), state\.lastPlace\) && forwardToText\(scan\)\) return;/)
+    expect(READER).toContain('await (isPhone() ? phoneKind(scan, token) : deskKind(scan, token));')
+  })
+  it('deskKind runs only on the desktop, for a text PDF the reader has chosen nothing for, makes no AI call, and keeps the desktop\'s default marked', () => {
+    const body = READER.slice(READER.indexOf('async function deskKind'), READER.indexOf('async function openKind'))
+    expect(body).toMatch(/if \(isPhone\(\) \|\| state\.kind !== 'pdf' \|\| !scan \|\| !\(scan\.textPages > 0\) \|\| isOcrText\(\) \|\| state\.pagesAsked\) return;/)
+    expect(body).toContain('if (ownEdition()) return;')
+    expect(body).toContain("store.set('desk-edition:' + hex, { edition, kind: found.kind, by: found.by, v: DESK_V });")
+    expect(body).toContain('RL.desktopEdition(found.kind, scan.layout)')
+    expect(body).not.toMatch(/companion|fetch\(|TinctAI/)
+    // A place in Tinct text is followed when kept since the rule began, or once this device told it under the rule.
+    expect(body).toContain("(pos?.edition === 't' && (store.get('open-rule:' + hex) >= OPEN_RULE || pos.at >= RULE_AT))")
+    expect(READER).toContain('const OPEN_RULE = 2, RULE_AT = Date.UTC(2026, 9, 17);')
+    // The library and the Tinct reader read the same rule (pdfEditions.ts).
+    expect([PDF_OPEN_RULE, PDF_OPEN_RULE_AT]).toEqual([2, Date.UTC(2026, 9, 17)])
   })
   it('phoneKind runs only on a phone, for a text PDF the reader has chosen nothing for, and makes no AI call', () => {
     const body = READER.slice(READER.indexOf('async function phoneKind'), READER.indexOf('/* ---------- Recognising a scan'))
@@ -205,7 +276,7 @@ describe('reader.js: the kind is told at open, before the Tinct text is forwarde
     expect(body).not.toMatch(/companion|fetch\(|TinctAI/)
   })
   it('a choice of the reader\'s (Convert to Tinct book, a recognised scan\'s pages) drops the phone\'s mark', () => {
-    expect(READER).toContain("store.set('edition:' + hexOf(state.key), 'text'); store.del('phone-edition:' + hexOf(state.key));")
-    expect(READER).toContain("store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex);")
+    expect(READER).toContain("store.set('edition:' + hexOf(state.key), 'text'); store.del('phone-edition:' + hexOf(state.key)); store.del('desk-edition:' + hexOf(state.key));")
+    expect(READER).toContain("store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex); store.del('desk-edition:' + hex);")
   })
 })

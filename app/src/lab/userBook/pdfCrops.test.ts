@@ -253,6 +253,8 @@ describe('Show page: a look at the PDF’s own page at a paragraph', () => {
     expect(at.page).toBe(14)
     expect(at.frac).toBeGreaterThanOrEqual(0)
     expect(store.get('tinct-addbook:edition:' + hex)).toBeUndefined()
+    // (Read as Tinct text on this device: its viewer told the edition under the current open rule, reader.js openKind.)
+    store.set('tinct-addbook:open-rule:' + hex, '2')
     expect(pdfEditionChoice(hex, 'text')).toBe('text')
     expect(readPdfTextPlace(hex, edition)).toMatchObject({ chapterNumber: chapter.number, paragraphIndex, wordIndex: 0 })
   })

@@ -331,6 +331,43 @@ export function marginPaper() {
   return makePdf({ info: { Title: 'Margin Figures' }, pages });
 }
 
+// 7c. Justified text as LaTeX sets it (Constructor Theory, 16 Oct 2026): each line stretched to the measure,
+//     and written in pieces, so pdf.js gives a line as several text items: a long one from the left edge to
+//     mid-line, then the rest, one word itself in two pieces ("fie" | "lds"). The pieces are split by a font
+//     size 0.01 pt apart (invisible). justifiedPaper({ meta: true }) also returns each paragraph's text.
+// Times-Roman's advance widths (its AFM), WinAnsi 32-126, for setting a line to the measure.
+const TIMES_W = ('250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 '
+  + '921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 '
+  + '333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541').split(' ').map(Number);
+const timesWidth = (text, size) => [...text].reduce((w, ch) => w + (TIMES_W[ch.charCodeAt(0) - 32] ?? 500), 0) * size / 1000;
+export function justifiedPaper({ meta = false } = {}) {
+  const size = 11, x = 72, measure = 468, lead = size * 1.4;
+  const esc = s => textBytes(s);
+  // Hume's paragraph (PROSE), in order, as three paragraphs of whole sentences.
+  const sentences = PROSE.match(/[^.]+\.\s*/g).map(t => t.trim());
+  const paragraphs = [sentences.slice(0, 2), sentences.slice(2, 4), sentences.slice(4)].map(list => list.join(' '));
+  let y = 680, draw = '';
+  for (const text of paragraphs) {
+    const words = text.split(' '), lines = [];
+    let line = [];
+    for (const w of words) { if (line.length && timesWidth([...line, w].join(' '), size) > measure - (lines.length ? 0 : 18)) { lines.push(line); line = [] } line.push(w) }
+    if (line.length) lines.push(line);
+    lines.forEach((ws, k) => {
+      const left = x + (k ? 0 : 18), width = measure - (k ? 0 : 18), last = k === lines.length - 1;
+      const natural = timesWidth(ws.join(' '), size), gaps = ws.length - 1;
+      const tw = !last && gaps ? (width - natural) / gaps : 0;
+      // The pieces: about half the words, then one word in two pieces, then the rest.
+      const half = Math.max(1, Math.ceil(ws.length / 2)), cut = ws[half] || '', at = Math.max(1, Math.floor(cut.length / 2));
+      const pieces = [ws.slice(0, half).join(' ') + (cut ? ' ' : ''), cut.slice(0, at), cut.slice(at) + (half + 1 < ws.length ? ' ' : ''), ws.slice(half + 1).join(' ')].filter(Boolean);
+      draw += `BT ${tw.toFixed(3)} Tw ${left} ${y.toFixed(2)} Td ` + pieces.map((piece, n) => `/F4 ${n % 2 ? size + 0.01 : size} Tf ${esc(piece)} Tj`).join(' ') + ' ET\n';
+      y -= lead;
+    });
+    y -= lead * 0.6;
+  }
+  const bytes = makePdf({ info: { Title: 'Justified Lines' }, pages: [{ draw, lines: [{ x: 72, y: 720, size: 15, font: 'Times-Bold', text: 'Of Relations and Matters of Fact' }, { x: 300, y: 40, size: 9, font: 'Times-Roman', text: '1' }] }] });
+  return meta ? { bytes, meta: { paragraphs } } : bytes;
+}
+
 // 8. A long book, the stand-in for Sutton and Barto's "Reinforcement Learning" (docs/margin/gloss-test/
 //    edge.html): about 590 pages with an outline of parts, chapters and sections (as that book's: the
 //    top-level entries are the front matter, chapter 1, three parts and the back matter); front matter

@@ -15,7 +15,7 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
 import { readUserBookPlace, storedPlaceConverter, type UserBookPlace } from './userBookPlace'
 import { CURRENT_CONVERTER, EDITION_CONVERTERS, LEGACY_EDITION_CONVERTER, USER_EDITION_FORMAT, editionSource, usableUserEdition, type UserBookEdition, type UserEditionSource } from './userEdition'
-import { adoptOcrEditionChoice, pdfEditionChoice, readPdfTextPlace } from './pdfEditions'
+import { adoptOcrEditionChoice, pdfEditionChoice, pdfEditionUntold, readPdfTextPlace } from './pdfEditions'
 import { ocrDefaultEdition } from './ocrEdition'
 import type { ConvertedPdf } from './pdfEdition'
 import { healUserEdition } from './chapterAuthors'
@@ -346,7 +346,7 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
     await keepFields(key, owner, { edition }).catch(() => {})
   }
   // Read in Original pages: on to the viewer at once (its Tinct text is made when the reader picks it).
-  if (!edition && pdfEditionChoice(hex, layout) === 'pages') return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  if (!edition && (pdfEditionChoice(hex, layout) === 'pages' || pdfEditionUntold(hex, layout))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     let made: ConvertedPdf | null = null
@@ -367,7 +367,8 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   }
   // Recognised text opens by its own default (the scan's is its pages only).
   if (editionSource(edition) === 'ocr') layout = ocrDefaultEdition(edition)
-  if (pdfEditionChoice(hex, layout) === 'pages') return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  // Not yet told on this device under the current open rule (pdfEditions.ts): the viewer decides, and forwards back when it is Tinct text.
+  if (pdfEditionChoice(hex, layout) === 'pages' || pdfEditionUntold(hex, layout)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   edition = healUserEdition(edition)
   const pages = Number.isInteger(pageCount) && (pageCount as number) > 0 ? pageCount as number : undefined
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
