@@ -12,13 +12,15 @@ describe('A reader’s own book opens with its title once (Constructor Theory, 1
     render(<LabChapterHeading title="Constructor Theory" />)
     expect(screen.getByTestId('lab-book-opening').textContent).toContain('Constructor Theory')
     expect(screen.getByText('David Deutsch')).toBeTruthy()
-    expect(screen.queryByTestId('lab-passage-headline')).toBeNull()
+    // In the tree (the paginators read its face from it), never shown.
+    expect(screen.getByTestId('lab-passage-headline').hidden).toBe(true)
   })
 
   it('a first chapter with its own title keeps it under the opening; any other chapter is just its heading', () => {
     registerBookOpening('1. Introduction', { title: 'Constructor Theory', author: 'David Deutsch' })
     render(<LabChapterHeading title="1. Introduction" />)
     expect(screen.getByTestId('lab-passage-headline').textContent).toBe('1. Introduction')
+    expect(screen.getByTestId('lab-passage-headline').hidden).toBe(false)
     cleanup()
     render(<LabChapterHeading title="Genesis 1" />)
     expect(screen.queryByTestId('lab-book-opening')).toBeNull()

@@ -22,7 +22,8 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
       {opening.subtitle && <p className="lab-book-opening-subtitle">{opening.subtitle}</p>}
       {opening.author && <p className="lab-book-opening-author">{opening.author}</p>}
     </div>}
-    {!repeats && <h1 className="lab-passage-headline" data-testid={measuring ? undefined : "lab-passage-headline"}>{title}</h1>}
+    {/* Kept, hidden, when it repeats the opening: the paginators read its face from it. */}
+    <h1 className="lab-passage-headline" data-testid={measuring ? undefined : "lab-passage-headline"} hidden={repeats || undefined}>{title}</h1>
     {preview && <button type="button" className="lab-chapter-preview" disabled={busy}
       tabIndex={onPreview ? 0 : -1} aria-label={`Primer for ${title}`}
       onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}
