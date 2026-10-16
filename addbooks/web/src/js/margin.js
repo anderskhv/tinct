@@ -553,7 +553,9 @@
   function inlineHtml(text, P, resolve) {
     // Markdown bold is never parsed: its stars are only dropped, so they do not show.
     const plain = String(text || '').replace(/\*\*(?=\S)([^*]+?)\*\*/g, '$1');
-    return P.parseCitations(plain).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
+    // A bare "eq. 1" (no braces) is a tag only when this PDF has that equation (recheck-1, 16 Oct); the rest as before.
+    const bare = token => (/^eq\./i.test(token.raw) ? Boolean(resolve && resolve(token)) : true);
+    return P.parseCitations(plain, bare).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
   }
   const blocksOf = text => String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => b.replace(/^\n+|\s+$/g, '')).filter(b => b.trim());
   function blockHtml(b, P, resolve) {
@@ -607,6 +609,7 @@
     if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     if (card.kind === 'simplify' && answer && P.simplifyAnswer) { const s = P.simplifyAnswer(answer.content, card.text); return s.unchanged ? SIMPLIFY_UNCHANGED : plain(s.text) }
+    if (card.kind === 'explain' && answer && P.withoutTemplateTalk) return plain(P.withoutTemplateTalk(answer.content));
     return plain(answer?.content || '');
   }
   /** What a Simplify card says when the answer was only the passage again. */
@@ -745,7 +748,11 @@
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
     let answered = card.kind === 'note' || card.kind === 'define';
     // Never a sentence about the passage picture (full battery on train 3), except in a figure's card, whose picture is its subject.
-    const clean = text => (card.kind !== 'figure' && P?.withoutPictureTalk ? P.withoutPictureTalk(text) : text);
+    // Explain never shows its template lines, "no notation here" or "the passage is cut off" (recheck-1, 16 Oct).
+    const clean = text => {
+      const t = card.kind !== 'figure' && P?.withoutPictureTalk ? P.withoutPictureTalk(text) : text;
+      return card.kind === 'explain' && P?.withoutTemplateTalk ? P.withoutTemplateTalk(t) : t;
+    };
     turns.forEach((t0, k) => {
       const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content) };
       if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }

@@ -19,8 +19,9 @@ export type CitationPart = TextPart | CitationToken
 const LABEL = '[\\p{L}\\p{N}](?:[\\p{L}\\p{N}.\\-]{0,14}[\\p{L}\\p{N}])?'
 // A page in parentheses, as the answers sometimes write it: (p. 2), (pp. 5–6). Digits or roman numerals only.
 // And a bare page at the very end of a line or an answer, after a space: "… mistake p. 1." (night smoke run, 15 Oct).
+// And a bare equation anywhere, "… in equation (1) eq. 1." (recheck-1, 16 Oct): a tag only when resolve finds it in this PDF.
 const PAREN_LABEL = '(?:\\d{1,5}|[ivxlcdm]{1,8})'
-const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}|\\(\\s*(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?\\s*\\)|(?<=\\s)(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?(?=\\.?[ \\t]*(?:\\n|$))`, 'giu')
+const CITATION_RE = new RegExp(`\\{\\s*(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+)(${LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${LABEL}))?\\s*\\}|\\(\\s*(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?\\s*\\)|(?<=\\s)(pp|p)\\.\\s*(${PAREN_LABEL})(?:\\s*[\\u2013\\u2014-]\\s*(${PAREN_LABEL}))?(?=\\.?[ \\t]*(?:\\n|$))|(?<=[\\s(])(eq)\\.\\s?(\\d{1,3}(?:\\.\\d{1,3})?)(?![\\p{L}\\p{N}])`, 'giu')
 
 const LIST_ITEM_RE = new RegExp(`^(?:(pp|p|eq|fig|table|sec)(?:\\.\\s*|\\s+))?(${LABEL}(?:\\s*[\\u2013\\u2014-]\\s*${LABEL})?)$`, 'iu')
 
@@ -66,10 +67,10 @@ export function parseCitations(text: unknown, resolve?: (token: CitationToken) =
   }
   CITATION_RE.lastIndex = 0
   for (let m: RegExpExecArray | null; (m = CITATION_RE.exec(source));) {
-    let kind = (m[1] || m[4] || m[7]).toLowerCase() as CitationKind
+    let kind = (m[1] || m[4] || m[7] || m[10]).toLowerCase() as CitationKind
     let to: string | undefined = m[3] || m[6] || m[9]
     if (to && kind !== 'p' && kind !== 'pp') continue // {eq. 1–2} is not a citation
-    let label = m[2] || m[5] || m[8]
+    let label = m[2] || m[5] || m[8] || m[11]
     if (to) kind = 'pp'
     else if (kind === 'pp') {
       // {pp. 12-13} with a hyphen reads as one label; split it. {pp. 12} is one page.
@@ -81,6 +82,8 @@ export function parseCitations(text: unknown, resolve?: (token: CitationToken) =
       if (split) { kind = 'pp'; label = split[1]; to = split[2] }
     }
     const token: CitationToken = { type: 'cite', kind, label, ...(to ? { to } : {}), raw: m[0] }
+    // A bare "eq. 1" is a tag only when this PDF has that equation (resolve); otherwise it stays text.
+    if (m[10] && (typeof resolve !== 'function' || !resolve(token))) continue
     if (typeof resolve === 'function' && !resolve(token)) continue
     const gap = source.slice(last, m.index)
     pushText(out.length && out[out.length - 1].type === 'cite' && !gap.trim() ? ', ' : gap)
@@ -106,6 +109,22 @@ export function withoutPictureTalk(text: unknown): string {
 }
 
 /* ---------- Simplify: never the passage again, never a note about the rewrite ---------- */
+
+/**
+ * Explain without its template lines (recheck-1, 16 Oct): a sentence saying the passage has no notation
+ * ("No notation appears in this sentence…", "There is no notation in this passage.") or talking about where
+ * the selection stops ("The passage is cut off mid-sentence here, so…"). Paragraphs kept; a paragraph left
+ * empty goes.
+ */
+const NO_NOTATION_RE = /\bnotation\b/i
+const NEGATION_RE = /\b(?:no|not|none|nothing|without|isn['’]t|doesn['’]t)\b/i
+const CUT_OFF_RE = /\b(?:passage|selection|sentence|excerpt|quotation|quote|extract)\b[^.!?\n]*\b(?:cut off|cuts off|breaks off|trails off|truncated|mid-?sentence|stops (?:before|mid)|ends (?:before|mid|abruptly))/i
+export function withoutTemplateTalk(text: unknown): string {
+  return String(text ?? '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(p => p.split('\n').map(line => sentencesOf(line).filter(sentence => {
+    if (NO_NOTATION_RE.test(sentence) && NEGATION_RE.test(sentence)) return false
+    return !CUT_OFF_RE.test(sentence)
+  }).join(' ')).filter(line => line.trim()).join('\n')).filter(p => p.trim()).join('\n\n')
+}
 
 /** A closing paragraph that talks about the rewrite rather than being it ("The rewrite is a restatement of…"). */
 const SIMPLIFY_META_RE = /^(?:note[:.]?\s+)?(?:(?:the|this|my)\s+(?:rewrite|rewritten (?:version|passage|text)|simplified (?:version|passage|text)|simplification|plain(?:er)? version|restatement|paraphrase)\b|i(?:'ve| have)?\s+(?:kept|rewritten|simplified|restated|stayed)\b)/i
@@ -152,15 +171,36 @@ export function copiedShare(text: unknown, source: unknown): number {
 }
 /** A paragraph copied this much from the page is the document pasted back, not a rewrite. */
 export const SIMPLIFY_COPIED = 0.8
+/** The sentences of a paragraph, each with its citation tags (sentenceEnd). */
+function sentencesOf(p: string): string[] {
+  const out: string[] = []
+  let rest = p.trim()
+  while (rest) {
+    const end = sentenceEnd(rest, 0)
+    out.push(rest.slice(0, end).trim())
+    rest = rest.slice(end).trim()
+  }
+  return out
+}
+/** A sentence this alike to an earlier one is the same sentence again. */
+const SIMPLIFY_REPEAT = 0.9
+/** The passage's paragraphs (blank lines apart; a PDF selection's line breaks are not paragraphs), at least 1. */
+const paragraphCount = (passage: unknown) => Math.max(1, String(passage ?? '').split(/\n[ \t]*\n+/).filter(p => p.trim()).length)
+/** The passage, word for word, inside a longer paragraph ("Experiments on two machine translation tasks are run…"). */
+function containsPassage(block: string, passage: unknown): boolean {
+  const words = wordsOf(passage)
+  return words.length >= 4 && ` ${wordsOf(block).join(' ')} `.includes(` ${words.join(' ')} `)
+}
 /**
- * A Simplify answer as the card shows it: a paragraph that is the passage again (wordSimilarity at
- * least SIMPLIFY_SAME) is dropped while a real rewrite remains, a sentence that quotes the passage
- * back is dropped, a closing note about the rewrite is dropped, and a selection of at most
- * SIMPLIFY_SHORT words keeps only its first paragraph (the re-run after train 3: four words got two
- * paragraphs repeating the whole sentence). -> { text, unchanged }: `unchanged` when nothing but
- * the passage came back (`text` ''). Given `source` (the page's text and the next page's), a paragraph
- * copied from it word for word (copiedShare at least SIMPLIFY_COPIED) is dropped too, and a line or
- * paragraph never shows twice (full battery on train 3).
+ * A Simplify answer as the card shows it (one plain rewrite, PROMPTS.md since round 3, 16 Oct): a paragraph
+ * that is the passage again (wordSimilarity at least SIMPLIFY_SAME, or the passage word for word inside it)
+ * is dropped while a real rewrite remains, a sentence that quotes the passage back is dropped, a closing
+ * note about the rewrite is dropped, a sentence or line said earlier in the answer (the first line said
+ * again, then expanded) is dropped wherever it comes, and the rewrite has no more paragraphs than the
+ * passage (a second rendering is never shown). A selection of at most SIMPLIFY_SHORT words keeps only
+ * its first paragraph. -> { text, unchanged }: `unchanged` when nothing but the passage came back
+ * (`text` ''). Given `source` (the page's text and the next page's), a paragraph copied from it word for
+ * word (copiedShare at least SIMPLIFY_COPIED) is dropped too.
  */
 export function simplifyAnswer(text: unknown, passage: unknown, source?: unknown): { text: string; unchanged: boolean } {
   let blocks = String(text ?? '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => withoutQuotedPassage(b.trim(), passage)).filter(Boolean)
@@ -168,10 +208,18 @@ export function simplifyAnswer(text: unknown, passage: unknown, source?: unknown
   // A line or paragraph never shows twice (Metamorphosis printed one line twice).
   blocks = blocks.map(b => b.split('\n').filter((line, i, all) => !line.trim() || all.findIndex(x => x.trim() === line.trim()) === i).join('\n'))
   blocks = blocks.filter((b, i) => !blocks.slice(0, i).some(a => wordSimilarity(a, b) >= 0.95))
-  const same = (b: string) => wordSimilarity(b, passage) >= SIMPLIFY_SAME || copiedShare(b, source) >= SIMPLIFY_COPIED
+  // A sentence never shows twice, anywhere in the answer (recheck-1: the first line again, then expanded).
+  const said: string[] = []
+  blocks = blocks.map(b => b.split('\n').map(line => sentencesOf(line).filter(sentence => {
+    if (wordsOf(sentence).length && said.some(earlier => wordSimilarity(earlier, sentence) >= SIMPLIFY_REPEAT)) return false
+    said.push(sentence)
+    return true
+  }).join(' ')).filter(line => line.trim()).join('\n')).filter(Boolean)
+  const same = (b: string) => wordSimilarity(b, passage) >= SIMPLIFY_SAME || containsPassage(b, passage) || copiedShare(b, source) >= SIMPLIFY_COPIED
   const kept = blocks.filter(b => !same(b))
   if (blocks.length && !kept.length) return { text: '', unchanged: true }
-  return { text: (wordsOf(passage).length <= SIMPLIFY_SHORT ? kept.slice(0, 1) : kept).join('\n\n'), unchanged: false }
+  const most = wordsOf(passage).length <= SIMPLIFY_SHORT ? 1 : paragraphCount(passage)
+  return { text: kept.slice(0, most).join('\n\n'), unchanged: false }
 }
 
 // Words that end in a dot without ending the sentence.

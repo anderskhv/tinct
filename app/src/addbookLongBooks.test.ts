@@ -293,6 +293,41 @@ describe('printed page numbers (js/printed-pages.js)', () => {
     const opener = book.pages[book.meta.chapters[15].from - 1]
     expect(P.candidates(opener.items, opener.view)).toEqual([{ value: book.meta.chapters[15].from - book.meta.offset, roman: false, edge: 'bottom' }])
   })
+  // recheck-1 (16 Oct): MacKay (640 pages, no page labels) typed 67 landed on file page 67, not 79. Its two copyright
+  // lines fill the top tenth of every page, and the running head ("68  4 — The Source Coding Theorem", number at
+  // the outer edge, alternating sides) sits below them at 751 of 842. Laid out as MacKay's pages are (pdf.js items,
+  // checked against the real file: every page from 13 to 640 prints its file page less 12).
+  it('a running head below a banner, its number at the outer edge on alternating sides (MacKay): offset 12, "67" is file page 79', () => {
+    const item = (str: string, x: number, y: number, size = 9) => ({ str, transform: [size, 0, 0, size, x, y] })
+    const view = [0, 0, 595, 842]
+    const pages = Array.from({ length: 120 }, (_, i) => {
+      const n = i + 1, printed = n - 12
+      const items = [
+        item('Copyright Cambridge University Press 2003. On-screen viewing permitted. Printing not permitted.', 20, 784, 7),
+        item('You can buy this book for 30 pounds or $50.', 20, 772, 7),
+        // A body line near the top that starts with a number, and one at the foot: never a page number.
+        item(`${(n * 7) % 90 + 2} bits are sent over the channel`, 65, 728, 10),
+        item('the body of the page', 65, 400, 10),
+        item(`${(n * 3) % 50 + 1} tribution are`, 65, 82, 10),
+      ]
+      if (printed >= 1) {
+        if (printed % 2 === 0) items.push(item(String(printed), 65, 751), item('4 — The Source Coding Theorem', 402, 751))
+        else items.push(item('4.1: How to measure the information content', 65, 751), item(String(printed), 537, 751))
+      } else if (n >= 5) items.push(item((P as unknown as { toRoman(n: number): string }).toRoman(n), n % 2 ? 542 : 65, 751), item('Preface', n % 2 ? 65 : 516, 751))
+      return { items, view }
+    })
+    // The head's number is read; the body line under it (the fourth line from the top) is not. A foot line's
+    // number is a candidate as before, and neighbouring pages never agree on it.
+    expect(P.candidates(pages[79].items, pages[79].view).filter(c => c.edge === 'top')).toEqual([{ value: 68, roman: false, edge: 'top' }])
+    expect(P.candidates(pages[80].items, pages[80].view).filter(c => c.edge === 'top')).toEqual([{ value: 69, roman: false, edge: 'top' }])
+    const labels = P.labels(pages.map(p => P.candidates(p.items, p.view)))!
+    expect(labels.slice(0, 13)).toEqual(['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', '1'])
+    for (let i = 12; i < 120; i++) expect(labels[i]).toBe(String(i + 1 - 12))
+    expect(P.pageOf('67', labels, { count: 120 })).toBe(79)
+    expect(P.pageOf('xii', labels, { count: 120 })).toBe(12)
+    // A page without the banner keeps the outer tenth's reading: a head at the very top as before.
+    expect(P.candidates([item('423', 65, 800), item('Chapter One', 300, 800)], view)).toEqual([{ value: 423, roman: false, edge: 'top' }])
+  })
   it('a number counts only where neighbouring pages agree: a stray number, or a number on one page alone, is no label', () => {
     const run = (from: number, count: number, d: number) => Array.from({ length: count }, (_, i) => [{ value: from + i + d, roman: false }])
     const perPage = [...run(1, 10, 20)]

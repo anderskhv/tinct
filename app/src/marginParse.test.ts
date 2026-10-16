@@ -372,14 +372,16 @@ describe.each(copies)('Simplify after the train-3 re-run (%s)', (_name, m) => {
   it('a selection of a few words keeps one short restatement, never a second paragraph', () => {
     const reply = 'Where each word sits.\n\nWe must inject some information about the relative or absolute position of the tokens in the sequence.'
     expect(m.simplifyAnswer(reply, 'position of the tokens')).toEqual({ text: 'Where each word sits.', unchanged: false })
-    // A longer passage keeps its rewrite.
+    // A longer passage keeps its rewrite: one paragraph for a one-paragraph passage since round 3 (16 Oct), two for two.
     const long = 'we must inject some information about the relative or absolute position of the tokens in the sequence'
-    expect(m.simplifyAnswer('The model must be told where each token is.\n\nIt needs some signal of order.', long).text).toBe('The model must be told where each token is.\n\nIt needs some signal of order.')
+    expect(m.simplifyAnswer('The model must be told where each token is.\n\nIt needs some signal of order.', long).text).toBe('The model must be told where each token is.')
+    expect(m.simplifyAnswer('The model must be told where each token is.\n\nIt needs some signal of order.', `${long}.\n\nThe encodings have the same dimension as the embeddings.`).text).toBe('The model must be told where each token is.\n\nIt needs some signal of order.')
   })
   it('drops a sentence that quotes the passage back, its citation with it', () => {
     const passage = 'Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions'
     const reply = 'Multi-head attention lets the model look at several kinds of information at once. The passage\'s own words on this are: "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions." {p. 5}\n\nEach head can focus on something different.'
-    expect(m.simplifyAnswer(reply, passage).text).toBe('Multi-head attention lets the model look at several kinds of information at once.\n\nEach head can focus on something different.')
+    // One paragraph for a one-sentence passage since round 3 (16 Oct); the quoting sentence goes either way.
+    expect(m.simplifyAnswer(reply, passage).text).toBe('Multi-head attention lets the model look at several kinds of information at once.')
     // A short quotation of a term stays.
     expect(m.simplifyAnswer('Here "subspaces" means separate views of the input.', passage).text).toBe('Here "subspaces" means separate views of the input.')
   })
@@ -425,3 +427,71 @@ describe.each(copies)('a bare page at the end of a line or an answer (%s)', (_na
   })
 })
 
+
+// recheck-1 (16 Oct, train 4 on production): Simplify repeated its first line on 4 of 8 documents, gave two
+// renderings of one sentence, and on the phone gave the passage back with a few words added. The answers as
+// they came back, from night/out/recheck-1/tinct.jsonl. Both copies.
+describe.each(copies)('Simplify after recheck-1: one rewrite (%s)', (_name, m) => {
+  const cases: Array<[string, string, string, string]> = [
+    ['gan', 'procedure for G is to maximize the probability of D making a mistake',
+      'The training goal for G is to make D as likely as possible to get things wrong.\n\nThe training goal for G is to make D as likely as possible to get things wrong. Here G is the generator, which makes fake samples, and D is the discriminator, which tries to tell real samples from fake ones p. 1.',
+      'The training goal for G is to make D as likely as possible to get things wrong.'],
+    ['resnet', 'The entire network can still be trained end-to-end by SGD with backpropagation',
+      'The whole network can still be trained from start to finish using stochastic gradient descent with backpropagation.\n\nThe whole network can still be trained from start to finish using stochastic gradient descent, a standard training method, together with backpropagation, which adjusts the weights by sending error signals backward through the layers. p. 2',
+      'The whole network can still be trained from start to finish using stochastic gradient descent with backpropagation.'],
+    ['attention', 'Self-attention, sometimes called intra-attention is an attention mechanism relating different positions of a single sequence',
+      'Self-attention, also called intra-attention, lets the positions within one sequence look at each other to build a representation of that sequence.\n\nSelf-attention is a way for a sentence to relate its own words to one another. Each position is compared with the others in the same sequence, so the result describes the whole sequence.',
+      'Self-attention, also called intra-attention, lets the positions within one sequence look at each other to build a representation of that sequence.'],
+    ['yellow-wallpaper', 'He says that with my imaginative power and habit of story-making',
+      'He says my imagination and habit of making up stories could lead to a nervous weakness like mine.\n\nHe says that with my imaginative power and my habit of making up stories, a nervous weakness like mine is sure to lead to all sorts of excited fancies.',
+      'He says my imagination and habit of making up stories could lead to a nervous weakness like mine.'],
+    ['epa-mold', 'Molds reproduce by means of tiny spores',
+      'Molds spread by making tiny spores.\n\nMold spores are very small seeds that molds use to make new mold.',
+      'Molds spread by making tiny spores.'],
+  ]
+  it.each(cases)('%s: one rendering, never the first line again', (_doc, passage, reply, shown) => {
+    expect(m.simplifyAnswer(reply, passage)).toEqual({ text: shown, unchanged: false })
+  })
+  it('the answers that were already one rewrite are left alone', () => {
+    const mackay = 'In a linear block code, the extra bits are formed by adding up some of the original bits. There are N minus K of them, where N is the total length and K is the number of original bits.'
+    expect(m.simplifyAnswer(mackay, 'In a linear block code, the extra N − K bits are linear functions of the original K bits')).toEqual({ text: mackay, unchanged: false })
+    expect(m.simplifyAnswer('In the end, Gregor saw that he had no other option.', 'Eventually, though, Gregor realised that he had no choice')).toEqual({ text: 'In the end, Gregor saw that he had no other option.', unchanged: false })
+  })
+  it('a sentence said again later in the same paragraph is dropped too', () => {
+    expect(m.simplifyAnswer('The generator tries to fool the judge. It wants the judge to be wrong. The generator tries to fool the judge.', 'procedure for G is to maximize the probability of D making a mistake').text).toBe('The generator tries to fool the judge. It wants the judge to be wrong.')
+  })
+  it('the phone answer that held the passage word for word is the passage again', () => {
+    expect(m.simplifyAnswer('Experiments on two machine translation tasks are run to test the new model.', 'Experiments on two machine translation tasks')).toEqual({ text: '', unchanged: true })
+    // Three words in a row are not a copy.
+    expect(m.simplifyAnswer('Two translation tests show the model works.', 'two translation tests').unchanged).toBe(false)
+  })
+})
+
+// recheck-1 (16 Oct): Explain's template lines, and a bare "eq. 1" in the scan's answer. Both copies.
+describe.each(copies)('Explain after recheck-1 (%s)', (_name, m) => {
+  it('drops a sentence saying there is no notation, or that the passage is cut off, and nothing else', () => {
+    const resnet = 'Here the term introduces the design the authors build on {p. 2}. No notation appears in this sentence beyond the bracketed reference numbers, which point to the reference list {p. 9}.'
+    expect(m.withoutTemplateTalk(resnet)).toBe('Here the term introduces the design the authors build on {p. 2}.')
+    expect(m.withoutTemplateTalk('Her phrase suggests she has accepted it. There is no notation in this passage.')).toBe('Her phrase suggests she has accepted it.')
+    const mackay = 'The symbol f is the noise level {p. 3}.\n\nThe passage is cut off mid-sentence here, so the rest of the model appears on the following lines {p. 4}.'
+    expect(m.withoutTemplateTalk(mackay)).toBe('The symbol f is the noise level {p. 3}.')
+    expect(m.withoutTemplateTalk("The reader's selection stops before the claim. It defines entropy.")).toBe('It defines entropy.')
+    // Notation explained, and content that happens to use the words, stay.
+    for (const text of ['The notation H(X) means the entropy of X.', 'The proof here is incomplete, as the author admits {p. 5}.', 'The narrator stops short of naming it.', 'G is not trained to look real.']) expect(m.withoutTemplateTalk(text)).toBe(text)
+  })
+  it('a bare "eq. 1" is a tag when the PDF has that equation, otherwise plain text', () => {
+    const answer = 'D maximises it and G minimises it, as formalised in equation (1) eq. 1. Here it means a contest.'
+    const has = (token: { kind: string; label: string }) => token.kind === 'eq' && token.label === '1'
+    expect(m.parseCitations(answer, has)).toEqual([
+      { type: 'text', text: 'D maximises it and G minimises it, as formalised in equation (1) ' },
+      { type: 'cite', kind: 'eq', label: '1', raw: 'eq. 1' },
+      { type: 'text', text: '. Here it means a contest.' },
+    ])
+    expect(m.parseCitations(answer, () => false)).toEqual([{ type: 'text', text: answer }])
+    expect(m.parseCitations(answer)).toEqual([{ type: 'text', text: answer }])
+    expect(m.parseCitations('By eq. 4.6 the two add.', (token: { label: string }) => token.label === '4.6').filter(part => part.type === 'cite')).toEqual([{ type: 'cite', kind: 'eq', label: '4.6', raw: 'eq. 4.6' }])
+    // Inside a word or braces as before.
+    expect(m.parseCitations('freq. 1 is not one', () => true)).toEqual([{ type: 'text', text: 'freq. 1 is not one' }])
+    expect(m.citationTokens('{eq. 2}')).toEqual([{ type: 'cite', kind: 'eq', label: '2', raw: '{eq. 2}' }])
+  })
+})

@@ -26,9 +26,13 @@
   // A canonical roman numeral of front matter's size only (so "mix", "dim" or "civil" are words, not numbers).
   const isRoman = s => ROMAN_RE.test(s) && toRoman(romanValue(s)) === s.toLowerCase() && romanValue(s) <= 100;
   const EDGE = 0.1;
+  // A running head below a banner (MacKay's copyright lines fill the top tenth; its "68 4 — The Source Coding
+  // Theorem" sits at 751 of 842): the three outermost lines of each edge count too, within its outer 15%.
+  const EDGE_WIDE = 0.15, OUTER_LINES = 3;
 
   /**
-   * The numbers on one page's top or bottom edge (its outer tenth): a line that is only a number
+   * The numbers on one page's top or bottom edge (its outer tenth, and its three outermost lines in the
+ * outer 15%, for a running head below a banner): a line that is only a number
    * ("423", "– 12 –", "xii"), or a running head that starts or ends with one ("423 Chapter 16 …",
    * "16.1. TD-Gammon 423"). `view`: the page's box, pdf.js page.view.
    */
@@ -36,16 +40,19 @@
     if (!Array.isArray(items) || !view) return [];
     const [, y0, , y1] = view, h = y1 - y0;
     if (!(h > 0)) return [];
-    const rows = [];
+    const all = [];
     for (const it of items) {
       if (!it || typeof it.str !== 'string' || !it.str.trim() || !it.transform) continue;
       const y = it.transform[5];
-      if (y < y1 - h * EDGE && y > y0 + h * EDGE) continue;
+      if (y < y1 - h * EDGE_WIDE && y > y0 + h * EDGE_WIDE) continue;
       const size = Math.hypot(it.transform[2], it.transform[3]) || 1;
-      let row = rows.find(r => Math.abs(r.y - y) < size * 0.5);
-      if (!row) { row = { y, parts: [] }; rows.push(row) }
+      let row = all.find(r => Math.abs(r.y - y) < size * 0.5);
+      if (!row) { row = { y, parts: [] }; all.push(row) }
       row.parts.push({ x: it.transform[4], s: it.str.trim() });
     }
+    // Every line in the outer tenth, and the outermost few of each edge in its outer 15%.
+    const tops = all.filter(r => r.y > y0 + h / 2).sort((a, b) => b.y - a.y), feet = all.filter(r => r.y <= y0 + h / 2).sort((a, b) => a.y - b.y);
+    const rows = [...tops, ...feet].filter(r => !(r.y < y1 - h * EDGE && r.y > y0 + h * EDGE) || tops.indexOf(r) >= 0 && tops.indexOf(r) < OUTER_LINES || feet.indexOf(r) >= 0 && feet.indexOf(r) < OUTER_LINES);
     const out = [];
     const add = (s, edge) => {
       const t = s.replace(/^[-–—\s]+|[-–—\s]+$/g, '');

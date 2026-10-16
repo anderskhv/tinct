@@ -498,6 +498,23 @@ describe('after the full battery on train 3', () => {
     div.innerHTML = M.html.cardHtml(M.newCard({ kind: 'figure', page: 1, anchor: a, text: 'Figure 1', turns: [{ role: 'user', content: 'What is it?' }, { role: 'assistant', content: 'The image matches the caption: a stack of six layers.' }] }), { open: true, P, pageLabel: '1' })
     expect(div.querySelector('.mr-card__body')!.textContent).toContain('The image matches the caption')
   })
+  // recheck-1 (16 Oct): Explain's template lines, open and folded; a bare "eq. 1" is a tag only where the PDF has it.
+  it('an Explain card never shows "no notation" or "the passage is cut off", open or folded', () => {
+    const a = [{ n: 1, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }]
+    const c = M.newCard({ kind: 'explain', page: 1, anchor: a, text: 'x', turns: [{ role: 'assistant', content: 'The symbol f is the noise level.\n\nThe passage is cut off mid-sentence here, so the rest follows. There is no notation in this passage.' }] })
+    const div = document.createElement('div')
+    div.innerHTML = M.html.cardHtml(c, { open: true, P, pageLabel: '1' })
+    const text = div.querySelector('.mr-card__body')!.textContent!
+    expect(text).toContain('The symbol f is the noise level.')
+    expect(text).not.toMatch(/cut off|no notation/)
+    div.innerHTML = M.html.cardHtml(c, { open: false, P, pageLabel: '1' })
+    expect(div.textContent).not.toMatch(/cut off|no notation/)
+    const texts = new Map([[1, 'The value function V(G, D) (1) is the game.']])
+    const resolve = (t: Token) => M.citeTarget(t, { count: 1, texts })
+    div.innerHTML = M.html.cardHtml(M.newCard({ kind: 'explain', page: 1, anchor: a, text: 'x', turns: [{ role: 'assistant', content: 'It is a game, as in equation (1) eq. 1. See also eq. 2 there.' }] }), { open: true, P, pageLabel: '1', resolve })
+    expect([...div.querySelectorAll('.mr-cite')].map(el => el.textContent)).toEqual(['eq. 1'])
+    expect(div.querySelector('.mr-card__body')!.textContent).toContain('See also eq. 2 there.')
+  })
   it('a Simplify card leaves out what was pasted from the page (o.source)', () => {
     const a = [{ n: 1, x: 0.1, y: 0.2, w: 0.1, h: 0.02 }]
     const source = 'It is always the same shape, only very numerous. And it is like a woman stooping down and creeping about behind that pattern.'

@@ -243,7 +243,7 @@ describe('the prompts the Worker builds', () => {
     const system = buildCompanionSystem(request)
     sharedRules(system)
     expect(system.endsWith(SIMPLIFY_PROMPT)).toBe(true)
-    expect(SIMPLIFY_PROMPT).toContain('The rewrite is never longer than the passage and never more than 120 words.')
+    expect(SIMPLIFY_PROMPT).toContain('Never more than 120 words.')
     expect(companionSelectionMessage(request)).toBe(`<selected_passage>\n${PASSAGE}\n</selected_passage>`)
   })
 
@@ -411,10 +411,10 @@ describe('/api/chat with the margin intents (provider mocked)', () => {
     expect(anthropic[0].model).toBe(route.model)
     expect(anthropic[0].max_tokens).toBe(route.maxTokens)
     expect(anthropic[0].output_config).toEqual({ effort: route.effort })
-    // Haiku's lookups turn thinking off; Counterpoint and Quiz me think adaptively (no field).
+    // Haiku's lookups turn thinking off; Counterpoint and Quiz me too, while their trials are on.
     if (route.thinking) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
-    expect(['define_sense', 'quiz_check', 'simplify', 'quiz'].includes(intent)).toBe(Boolean(route.thinking))
+    expect(['define_sense', 'quiz_check', 'simplify', 'quiz', 'counterpoint'].includes(intent)).toBe(Boolean(route.thinking))
     expect(anthropic[0].tools).toBeUndefined()
     expect(String(anthropic[0].system)).not.toContain('ignored')
     const messages = anthropic[0].messages as Array<{ role: string; content: unknown }>

@@ -19,28 +19,31 @@ export const PASSAGE_IMAGE_LINE = 'The attached image shows the passage exactly 
  * checks, margin-parse.js).
  */
 export const PDF_EXPLAIN_FORMAT_BEFORE = '2 to 4 short paragraphs, no preamble, no headings.'
-export const PDF_EXPLAIN_FORMAT = 'First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs on what it says and what it means here, explaining any notation or terms where they come up, never in a paragraph of their own. About 120 words or fewer in all. No preamble, no headings.'
+export const PDF_EXPLAIN_FORMAT = 'First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs on what it says and what it means here, explaining a hard term or symbol in the sentence where it is used. About 120 words or fewer in all. No preamble, no headings.'
 
 /** Explain answers about the text (production re-run after train 3: "The reader's selection stops before the claim"). */
-export const PDF_EXPLAIN_TEXT_RULE = 'Answer about the text itself; never comment on the selection, such as where it starts or stops. When the passage has no notation, say nothing about notation.'
+export const PDF_EXPLAIN_TEXT_RULE = 'Write only about what the text says and means.'
 
 /**
  * Explain on a PDF through the `explain` intent (FIXES-2026-10-15 A2): the
  * request the PDF reader used to write itself, now built by the Worker, in
  * the one user turn before the passage.
  */
-export const PDF_EXPLAIN_PROMPT = `Explain the passage the reader selected: what it says, what it means here, and any notation or terms, in plain language for a careful reader. ${PDF_EXPLAIN_FORMAT} Write any maths inline in plain notation. ${PDF_EXPLAIN_TEXT_RULE}`
+export const PDF_EXPLAIN_PROMPT = `Explain the passage the reader selected: what it says and what it means here, in plain language for a careful reader. ${PDF_EXPLAIN_FORMAT} Write any maths inline as plain text. ${PDF_EXPLAIN_TEXT_RULE}`
 
+/**
+ * Simplify (round 3, 16 Oct; Anders: "exactly one plain rewrite"): one rewrite as long as the selection, the same
+ * meaning in everyday words, and nothing else. recheck-1 found the old two-part answer (a restatement, then the
+ * rewrite) repeating its first line and, on a fragment, finishing the sentence with a changed meaning.
+ */
 export const SIMPLIFY_PROMPT = [
-  'Rewrite the selected passage in plain, modern English for a reader meeting it for the first time.',
-  'First paragraph: the passage restated in the plainest faithful words, one sentence, at most 25 words. Then a blank line.',
-  'Rewrite only the selected text, never the sentences around it in the document. If the selection is a fragment, give a plain version of that fragment alone.',
-  'A selection of a few words gets only the first paragraph: one short plain restatement of those words, never the sentence around them, and no second paragraph.',
-  'A passage that tells a story gets the first paragraph and at most one more sentence on what it means here, never the story\'s own sentences.',
-  'Then the rewrite. Keep every claim the passage makes, in its order. Add nothing the passage does not say, and drop nothing that changes its meaning. Use short sentences and everyday words. When a technical term has to stay, explain it in a few words the first time. Keep equations as written and say in words what each one states.',
-  'The rewrite is never longer than the passage and never more than 120 words.',
-  'Do not open with "In simple terms", "Basically" or similar. Do not quote the passage back, in quotation marks or otherwise.',
-  'Never return the passage unchanged, in the first paragraph or anywhere else: put every sentence in plainer words of your own. Never copy the sentences that follow it in the document, and never write the same line twice. End with the rewrite itself, never with a note about the rewrite or what it keeps.',
+  'Rewrite the selected passage once, in plain everyday English, for a reader meeting it for the first time.',
+  'Give exactly one rewrite and nothing else: no preamble, no heading, no second version, no explanation or note after it.',
+  'Match the length of the selection: a sentence becomes one plain sentence, a fragment a plain fragment, a paragraph one short paragraph. Never more than 120 words.',
+  'Rewrite only the selected words. If the selection is a fragment, rewrite that fragment alone: never finish its sentence from the words that follow it in the document.',
+  'Keep the meaning exactly: every claim, in its order, with the same who, what and why. Add nothing the passage does not say, and drop nothing that changes its meaning.',
+  'Use short sentences and everyday words: replace each hard word with a common one, rather than only reordering the passage\'s words. When a technical term has to stay, explain it in a few words. Keep equations as written and say in words what each one states.',
+  'Never return the passage unchanged or nearly unchanged, never quote it back, and never write the same sentence twice. Do not open with "In simple terms", "Basically" or similar.',
 ].join('\n')
 
 export const DEFINE_SENSE_PROMPT = [

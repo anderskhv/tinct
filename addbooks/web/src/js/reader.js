@@ -2773,7 +2773,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261015round2').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261016round3').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -2861,7 +2861,8 @@ function readBook() {
    numbers its pages print in their heads and feet, where neighbouring pages agree (the test's book
    prints 423 on file page 445). Found once per device and kept ('printed:' + key); they are the
    labels everywhere labels are used: citations, the strip, card labels, Copy quote. */
-const PRINTED_V = 1;
+// 2 (round 3, 16 Oct): heads below a banner are read (MacKay), so a book found without numbers before is read again.
+const PRINTED_V = 2;
 async function pageLabels(pdf, key, token) {
   const use = labels => { if (token !== state.token) return; state.labels = labels; marginLayout({ fresh: true }); strip?.marksChanged(); onScroll() };
   const own = await Promise.resolve(pdf.getPageLabels?.()).catch(() => null);
