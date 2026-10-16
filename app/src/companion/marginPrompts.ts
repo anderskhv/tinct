@@ -25,11 +25,17 @@ export const PDF_EXPLAIN_FORMAT = 'First paragraph: the answer itself, one sente
 export const PDF_EXPLAIN_TEXT_RULE = 'Write only about what the text says and means.'
 
 /**
+ * Explain opens with the meaning (night run final and morning retest, 16 Oct: "The selected sentence describes…",
+ * "The image shows the abstract line…", "No special notation or technical terms appear in this line.").
+ */
+export const PDF_EXPLAIN_OPENING_RULE = 'Start with the meaning itself. Never describe the selection ("The selected passage…", "This sentence…") or the picture, and never say what the passage lacks.'
+
+/**
  * Explain on a PDF through the `explain` intent (FIXES-2026-10-15 A2): the
  * request the PDF reader used to write itself, now built by the Worker, in
  * the one user turn before the passage.
  */
-export const PDF_EXPLAIN_PROMPT = `Explain the passage the reader selected: what it says and what it means here, in plain language for a careful reader. ${PDF_EXPLAIN_FORMAT} Write any maths inline as plain text. ${PDF_EXPLAIN_TEXT_RULE}`
+export const PDF_EXPLAIN_PROMPT = `Explain the passage the reader selected: what it says and what it means here, in plain language for a careful reader. ${PDF_EXPLAIN_FORMAT} Write any maths inline as plain text. ${PDF_EXPLAIN_TEXT_RULE} ${PDF_EXPLAIN_OPENING_RULE}`
 
 /**
  * Simplify (round 3, 16 Oct; Anders: "exactly one plain rewrite"): one rewrite as long as the selection, the same
@@ -78,11 +84,12 @@ export const FACTCHECK_PROMPT_TEMPLATE = [
   'First paragraph: one sentence of at most 25 words, from the document alone, that places the claim: what it refers to and where the document states it. It gives no verdict and does not summarise the document\'s support. Then a blank line.',
   'Then the verdict paragraph: start it with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check. Then give the reason in at most two sentences, with numbers where they decide it.',
   'State the verdict once: no other paragraph starts with a verdict word or repeats the verdict. At most one more paragraph may follow, starting with Note., for useful context that is not a verdict.',
+  'Use Partly holds only when one part of the claim holds and another does not, and name both parts in its reason. After the verdict paragraph never judge the claim again: no "holds", "no longer holds", "outdated" or "disputed" in a later paragraph.',
   'Never treat the document itself as confirmation of its own claims: what it offers in support is the authors\' case, not a check. Base the verdict on the returned sources and well-established knowledge.',
   'If the passage is opinion or interpretation, check only what is factual in it.',
   'If the passage is fiction, check its references to the real world (people, places, events, history, science). When it has none, the verdict is Can\'t check. with one line saying the passage has nothing outside the story to check. Never open by saying there is no factual claim.',
   'At most 150 words in all, not counting the Sources: line.',
-  'Name each source by its title; never mention the search itself or its notes.',
+  'Name each source by its title; never mention the search, a tool, a lookup or its notes, and never say that sources are unavailable.',
   'Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself. Never invent a source. End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".',
 ].join('\n')
 
@@ -104,16 +111,20 @@ export function factcheckPrompt(today: string): string {
   return FACTCHECK_PROMPT_TEMPLATE.replace('{today}', today)
 }
 
+/**
+ * Counterpoint (night run final, 16 Oct: 3.26 against Gloss's 4.90; the "strongest objection … author's best reply"
+ * template on every document, a story's too): one sharp objection grounded in the document, about 120 words, and
+ * nothing on the author's behalf. The numbers line carries "say which is higher" (GAN: 225 against 214 read as weak).
+ */
 export const COUNTERPOINT_PROMPT = [
-  'Give the strongest objection a careful, well-informed critic would raise to the claim or argument in the selected passage.',
-  'First paragraph: the objection in one sentence, at most 25 words. Then a blank line.',
-  'Then one paragraph that develops it with a concrete reason, example or counter-case. Name a school of thought or a critic only when the objection is documented as theirs.',
-  'Tie the objection to something specific in the document, a page, table, figure, equation, number or quoted line, and cite it. Look first for the document\'s own inconsistencies: a table or result that cuts against a claim in the text, or numbers that disagree between sections.',
+  'Give one sharp objection to the claim or argument in the selected passage: the one a careful, well-informed critic would raise first.',
+  'First paragraph: the objection itself in one sentence, at most 25 words. Then a blank line.',
+  'Then one paragraph that makes it concrete with a page, table, figure, equation, number or quoted line of the document, cited. Look first for the document\'s own inconsistencies: a table or result that cuts against a claim in the text, or numbers that disagree between sections. Name a school of thought or a critic only when the objection is documented as theirs.',
   'Never a generic objection that would fit any work, such as that a method or metric is unreliable in general.',
-  'Quote the document\'s own numbers, formulas and complexities exactly as printed, checked against its tables; never restate them from memory.',
-  'Then one sentence giving the author\'s best reply. Give the author\'s reply only from what the document says or plainly implies.',
-  'If the passage tells a story rather than making an argument, give instead a reading of it that differs from the obvious one: the reading in one sentence, then one paragraph that grounds it in the text. It must not restate what the passage plainly says, and it ends there, with no author\'s reply.',
-  'At most 150 words in all. No straw men, and no "on the other hand" filler. Do not draw on later chapters.',
+  'Quote the document\'s own numbers, formulas and complexities exactly as printed, read from its tables row by row; never restate them from memory. When you compare two numbers, check which is higher before you write and say so plainly.',
+  'End with the objection. Never answer it on the author\'s behalf, never give "the author\'s best reply", and never open with "The strongest objection is" or "A critic would argue".',
+  'If the passage tells a story rather than making an argument, give instead a reading of it that differs from the obvious one: the reading in one sentence, then one paragraph that grounds it in the text. It must not restate what the passage plainly says.',
+  'About 120 words in all, plain prose, no headings. No straw men, and no "on the other hand" filler. Do not draw on later chapters.',
 ].join('\n')
 
 /**
@@ -166,18 +177,28 @@ export const PLAIN_PROSE_RULE = 'Plain prose only: no Markdown, no asterisks, no
 export const WORK_FIRST_RULE = 'Work out numbers and facts before you write. Never correct yourself mid-answer.'
 export const ATTRIBUTION_RULE = 'Never attribute to the document something it does not say.'
 /**
+ * Shared by every margin action (morning retest, 16 Oct: a Counterpoint put adversarial nets second to DBN on TFD,
+ * where they beat it, 2057 against 1909; night run final: 225 against 214 read as "weak against the baselines").
+ */
+export const TABLE_NUMBERS_RULE = 'Read a table row by row and quote its numbers exactly as printed, each with its own row and column. When you compare two numbers, say which is higher.'
+/**
+ * Shared by every margin action (morning retest, 16 Oct: Chat wrote "This also corrects my earlier remark" and "I can
+ * be more specific than before"). Each answer stands alone.
+ */
+export const STANDS_ALONE_RULE = 'Each answer stands alone: never refer to your own earlier replies, never say an answer corrects or adds to one, and never compare it with "before".'
+/**
  * Shared by every margin action (Anders, 15 Oct): a whole-PDF answer opened "Only the titles and
  * placement of these chapters are supplied, not their text…". An answer never talks about its input.
  */
 export const NO_META_RULE = 'Never mention what text you were or were not given; say plainly when the document doesn\'t cover something, and say "from general knowledge" when you go beyond it.'
 
 /** Shared by every margin action (marginContext.ts MARGIN_RULES; 15 Oct deep test): two answers read the passage picture aloud. */
-export const PICTURE_RULE = 'The picture is the passage itself; never describe or read out the picture, and never say what it confirms. Answer about the passage.'
+export const PICTURE_RULE = 'The picture is the passage itself; never describe or read out the picture, never say what it shows or confirms, and never mention an image. Answer about the passage.'
 /** Shared by every margin action (15 Oct deep test): a primer and a whole-paper answer talked about "garbled" or "lost" extraction. */
 export const NO_EXTRACTION_TALK_RULE = 'Never mention text extraction, garbling, or how the document reached you.'
 
 /** The margin's shared answer rules, in order (marginContext.ts MARGIN_RULES; the fallback without the document too). */
-export const MARGIN_ANSWER_RULES: readonly string[] = Object.freeze([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE])
+export const MARGIN_ANSWER_RULES: readonly string[] = Object.freeze([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE])
 
 /** A PDF is a document or a paper, never "the chapter" ("across the chapter" appeared on a paper). */
 export const PDF_DOCUMENT_WORDING = 'Call this file the document, or the paper when it is one; never the chapter.'
