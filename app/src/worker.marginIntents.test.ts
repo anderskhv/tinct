@@ -49,7 +49,7 @@ import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
 import { createAllowanceGate, type AllowanceGate, type AllowanceView } from './worker/lib/aiAllowance'
 import type { AiUsageRow } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
-import { FACTCHECK_OPENING_ROUTE, MARGIN_ROUTES } from './companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, factcheckVerdictEffort, MARGIN_ROUTES } from './companion/marginRoutes'
 import { marginRequestRoute } from './companion/companionRequest'
 
 const userId = '11111111-1111-4111-8111-111111111111'
@@ -414,7 +414,7 @@ describe('/api/chat with the margin intents (provider mocked)', () => {
     // Haiku's lookups turn thinking off; Counterpoint and Quiz me think adaptively (no field).
     if (route.thinking) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
-    expect(['define_sense', 'quiz_check', 'simplify'].includes(intent)).toBe(Boolean(route.thinking))
+    expect(['define_sense', 'quiz_check', 'simplify', 'quiz'].includes(intent)).toBe(Boolean(route.thinking))
     expect(anthropic[0].tools).toBeUndefined()
     expect(String(anthropic[0].system)).not.toContain('ignored')
     const messages = anthropic[0].messages as Array<{ role: string; content: unknown }>
@@ -622,9 +622,9 @@ describe('Fact-check and the source search', () => {
     expect(JSON.stringify(first.system)).toContain(FACTCHECK_OPENING_ROUND)
     expect(JSON.stringify(first.system)).not.toContain(FACTCHECK_VERDICT_ROUND)
     expect(first.messages).toEqual([{ role: 'user', content: `<selected_passage>\n${PASSAGE}\n</selected_passage>` }])
-    // Round 2: the verdict, on the route as before, its assistant turn starting with the opening the reader saw.
+    // Round 2: the verdict, on the route at factcheckVerdictEffort() (low since 16 Oct), its assistant turn starting with the opening the reader saw.
     expect(second.max_tokens).toBe(MARGIN_ROUTES.factcheck.maxTokens)
-    expect(second.output_config).toEqual({ effort: MARGIN_ROUTES.factcheck.effort })
+    expect(second.output_config).toEqual({ effort: factcheckVerdictEffort() })
     expect(second).not.toHaveProperty('thinking')
     expect((second.tools as Array<{ name: string }>).map(tool => tool.name)).toEqual(['search_reading_sources'])
     expect(JSON.stringify(second.system)).toContain(FACTCHECK_VERDICT_ROUND)

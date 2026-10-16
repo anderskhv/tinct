@@ -112,13 +112,13 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
       related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 8000 },
       counterpoint: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
-      quiz: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
+      quiz: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000, thinking: { type: 'disabled' } },
       primer: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       ask: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 1800 },
     })
     // Every route that thinks adaptively has a key with no thinking field at all, and Sonnet never turns it off.
     for (const [key, route] of Object.entries(MARGIN_ROUTES)) {
-      if (route.model === MARGIN_SONNET_MODEL || ['factcheck', 'counterpoint', 'quiz'].includes(key)) expect(route, key).not.toHaveProperty('thinking')
+      if (route.model === MARGIN_SONNET_MODEL || ['factcheck', 'counterpoint'].includes(key)) expect(route, key).not.toHaveProperty('thinking')
     }
   })
 
@@ -146,7 +146,7 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     expect(anthropic[0].output_config).toEqual({ effort: route.effort })
     expect(anthropic[0].max_tokens).toBe(route.maxTokens)
     // Haiku's lookups: thinking off. Fact-check, Counterpoint, Quiz me and Sonnet's primer and Ask: no thinking field.
-    if (['explain', 'define', 'simplify', 'define_sense', 'quiz_check'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
+    if (['explain', 'define', 'simplify', 'define_sense', 'quiz_check', 'quiz'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
     expect(JSON.stringify(anthropic[0])).not.toContain('budget_tokens')
   })

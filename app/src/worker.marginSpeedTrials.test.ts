@@ -64,7 +64,7 @@ afterEach(() => { vi.unstubAllGlobals() })
 
 describe('speed trials switched on', () => {
   it('QUIZ_THINKING_OFF: the quiz goes with thinking disabled at effort low', async () => {
-    expect(real.QUIZ_THINKING_OFF).toBe(false)
+    expect(real.QUIZ_THINKING_OFF).toBe(true)
     const { anthropic } = stubFetch()
     const { status } = await send({ companion: { intent: 'quiz', context, document, selection: 'S = k log W.' } })
     expect(status).toBe(200)
@@ -75,7 +75,7 @@ describe('speed trials switched on', () => {
   })
 
   it('FACTCHECK_VERDICT_EFFORT = low: the verdict round after the opening goes at effort low, adaptive', async () => {
-    expect(real.FACTCHECK_VERDICT_EFFORT).toBeNull()
+    expect(real.FACTCHECK_VERDICT_EFFORT).toBe('low')
     const { anthropic } = stubFetch()
     const { status, text } = await send({ stream: true, companion: { intent: 'factcheck', context, document, selection: 'S = k log W.' } })
     expect(status).toBe(200)

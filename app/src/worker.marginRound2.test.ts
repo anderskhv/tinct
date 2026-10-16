@@ -160,16 +160,16 @@ describe('Define in the PDF reader: no "supplied", and eponyms are terms (round 
   })
 })
 
-describe('speed trials: one-line switches, off by default', () => {
+describe('speed trials: one-line switches, on since the night of 15–16 Oct (measured against off)', () => {
   it('Quiz me: adaptive thinking at low effort when off; thinking disabled at low effort when on', () => {
-    expect(QUIZ_THINKING_OFF).toBe(false)
-    expect(MARGIN_ROUTES.quiz).toEqual(quizRoute(false))
+    expect(QUIZ_THINKING_OFF).toBe(true)
+    expect(MARGIN_ROUTES.quiz).toEqual(quizRoute(true))
     expect(quizRoute(false)).toEqual({ model: MARGIN_HAIKU_MODEL, effort: 'low', maxTokens: 6000 })
     expect(quizRoute(true)).toEqual({ model: MARGIN_HAIKU_MODEL, effort: 'low', maxTokens: 6000, thinking: { type: 'disabled' } })
   })
   it('Fact-check\'s verdict round: the route\'s effort when off; low when on', () => {
-    expect(FACTCHECK_VERDICT_EFFORT).toBeNull()
-    expect(factcheckVerdictEffort()).toBe(MARGIN_ROUTES.factcheck.effort)
+    expect(FACTCHECK_VERDICT_EFFORT).toBe('low')
+    expect(factcheckVerdictEffort()).toBe('low')
     expect(factcheckVerdictEffort(null)).toBe('medium')
     expect(factcheckVerdictEffort('low')).toBe('low')
   })

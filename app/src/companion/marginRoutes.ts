@@ -61,7 +61,7 @@ const NO_THINKING: MarginThinking = { type: 'disabled' }
  * QUIZ_THINKING_OFF: Quiz me with thinking disabled at effort low (Haiku 5.5 accepts `{type: "disabled"}`
  * at effort high or below; claude-api skill), so question 1 starts at lookup speed. Off: adaptive thinking.
  */
-export const QUIZ_THINKING_OFF = false
+export const QUIZ_THINKING_OFF = true
 /** Quiz me's route: low effort and 6000 tokens; with `thinkingOff`, thinking disabled as the lookups. */
 export function quizRoute(thinkingOff: boolean = QUIZ_THINKING_OFF): MarginRoute {
   return route(MARGIN_HAIKU_MODEL, 'low', 6000, thinkingOff ? NO_THINKING : undefined)
@@ -99,7 +99,7 @@ export const FACTCHECK_OPENING_ROUTE: MarginRoute = route(MARGIN_HAIKU_MODEL, 'l
  * doc-first opening, chat.ts runToolLoop). 'low' trials it at low effort (8.5–14 s to the last word in
  * round 1, 15 Oct); null keeps MARGIN_ROUTES.factcheck's effort. Adaptive thinking either way.
  */
-export const FACTCHECK_VERDICT_EFFORT: CompanionEffort | null = null
+export const FACTCHECK_VERDICT_EFFORT: CompanionEffort | null = 'low'
 /** The verdict round's effort: the trial's when it is set, else Fact-check's route effort. */
 export function factcheckVerdictEffort(setting: CompanionEffort | null = FACTCHECK_VERDICT_EFFORT): CompanionEffort {
   return setting ?? MARGIN_ROUTES.factcheck.effort
