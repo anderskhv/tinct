@@ -176,7 +176,9 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
   it('Explain: an opener of at most 25 words, at most three short paragraphs, about 120 words, no notation paragraph', () => {
     expect(PDF_EXPLAIN_FORMAT).toContain('First paragraph: the answer itself, one sentence, at most 25 words.')
     expect(PDF_EXPLAIN_FORMAT).toContain('at most three short paragraphs')
-    expect(PDF_EXPLAIN_FORMAT).toContain('never in a paragraph of their own')
+    // Round 3 (16 Oct): no "any notation or terms" cue (answers then said there was no notation).
+    expect(PDF_EXPLAIN_FORMAT).toContain('explaining a hard term or symbol in the sentence where it is used.')
+    expect(PDF_EXPLAIN_FORMAT).not.toContain('notation')
     expect(PDF_EXPLAIN_FORMAT).toContain('About 120 words or fewer in all.')
     expect(PDF_EXPLAIN_FORMAT).not.toContain('and any notation or terms. No preamble')
     const request = parseCompanionRequest({ intent: 'explain', context: pdfContext(2), selection: 'Recurrent neural networks' })!
@@ -203,10 +205,15 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
     expect(prompt).toContain('start it with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
   })
 
-  it('Simplify: a plain restatement first, adds nothing, rewrites only the selected text', () => {
-    expect(SIMPLIFY_PROMPT).toContain('First paragraph: the passage restated in the plainest faithful words, one sentence, at most 25 words.')
+  // Round 3 (16 Oct): the two-part answer (a restatement, then the rewrite) is replaced by exactly one rewrite.
+  it('Simplify: exactly one plain rewrite, as long as the selection, the same meaning, nothing else', () => {
+    expect(SIMPLIFY_PROMPT).toContain('Give exactly one rewrite and nothing else: no preamble, no heading, no second version, no explanation or note after it.')
+    expect(SIMPLIFY_PROMPT).toContain('a sentence becomes one plain sentence, a fragment a plain fragment')
     expect(SIMPLIFY_PROMPT).toContain('Add nothing the passage does not say')
-    expect(SIMPLIFY_PROMPT).toContain('Rewrite only the selected text, never the sentences around it in the document. If the selection is a fragment, give a plain version of that fragment alone.')
+    expect(SIMPLIFY_PROMPT).toContain('never finish its sentence from the words that follow it in the document')
+    expect(SIMPLIFY_PROMPT).toContain('Keep the meaning exactly')
+    expect(SIMPLIFY_PROMPT).not.toContain('First paragraph')
+    expect(SIMPLIFY_PROMPT).not.toContain('Then the rewrite')
     expect(SIMPLIFY_PROMPT).not.toContain('that says what the passage is doing')
   })
 
@@ -316,21 +323,23 @@ describe('no pipeline wording in any margin prompt', () => {
   })
   it('Fact-check names its sources by title, never the search or its notes; Simplify never returns the passage or a note about it', () => {
     expect(marginPromptText.factcheckPrompt('2026-10-15')).toContain('Name each source by its title; never mention the search itself or its notes.')
-    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Never return the passage unchanged, in the first paragraph or anywhere else')
-    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('End with the rewrite itself, never with a note about the rewrite or what it keeps.')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Never return the passage unchanged or nearly unchanged, never quote it back')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('no explanation or note after it')
     const doc = readFileSync(resolve(__dirname, '../../docs/margin/PROMPTS.md'), 'utf8')
     // The production re-run after train 3: Explain about the text, never the selection; Counterpoint tied to the document; short Simplify selections.
     expect(marginPromptText.PDF_EXPLAIN_PROMPT.endsWith(marginPromptText.PDF_EXPLAIN_TEXT_RULE)).toBe(true)
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Look first for the document\'s own inconsistencies')
     expect(marginPromptText.PDF_COUNTERPOINT_PROMPT).toContain('Never a generic objection that would fit any work')
-    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('A selection of a few words gets only the first paragraph')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('rewrite that fragment alone')
     // Full battery on train 3 (fiction, accuracy, leaks).
-    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('never the story\'s own sentences')
-    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Never copy the sentences that follow it in the document, and never write the same line twice.')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('Match the length of the selection')
+    expect(marginPromptText.SIMPLIFY_PROMPT).toContain('never write the same sentence twice')
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('a reading of it that differs from the obvious one')
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('with no author\'s reply')
     expect(marginPromptText.COUNTERPOINT_PROMPT).toContain('Quote the document\'s own numbers, formulas and complexities exactly as printed')
-    expect(marginPromptText.PDF_EXPLAIN_TEXT_RULE).toContain('When the passage has no notation, say nothing about notation.')
+    // Round 3 (16 Oct, recheck-1): the rule that named notation and the selection's ends drew those very sentences.
+    expect(marginPromptText.PDF_EXPLAIN_TEXT_RULE).toBe('Write only about what the text says and means.')
+    expect(marginPromptText.PDF_EXPLAIN_PROMPT).not.toMatch(/notation|starts or stops|cut off/i)
     expect(marginPromptText.PICTURE_RULE).toContain('never say what it confirms')
     for (const line of [marginPromptText.PDF_EXPLAIN_TEXT_RULE, ...marginPromptText.SIMPLIFY_PROMPT.split('\n'), ...marginPromptText.COUNTERPOINT_PROMPT.split('\n'), ...marginPromptText.factcheckPrompt('{today}').split('\n'), ...marginPromptText.DEFINE_SENSE_PROMPT.split('\n'), ...CHAPTER_CHAT_INSTRUCTIONS.primer.split('\n')]) expect(doc, line).toContain(line)
   })

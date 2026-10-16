@@ -222,6 +222,10 @@ describe('the note editor', () => {
 
 describe('Define with the companion (the existing contextual define, parsed as the book reader does)', () => {
   it('reads a definition, a person or a place', () => {
+    // Re-check 2 (16 Oct): a grammar label first ("Proper noun used as a term (adjective-like modifier…)") is dropped.
+    expect(M.parseLookup('{"kind":"definition","definition":"Proper noun used as a term (adjective-like modifier for a window). A Parzen window estimates a density from samples."}', 'Parzen')).toEqual({ word: 'Parzen', pos: '', line: 'A Parzen window estimates a density from samples.' })
+    expect(M.parseLookup('{"kind":"definition","definition":"Proper noun used as a term: the game rule where one side minimises what the other maximises."}', 'minimax')!.line).toBe('the game rule where one side minimises what the other maximises.')
+    expect(M.parseLookup('{"kind":"definition","definition":"Parzen window: a way to estimate a density."}', 'Parzen')!.line).toBe('Parzen window: a way to estimate a density.')
     expect(M.parseLookup('{"kind":"definition","definition":"Noun. How widely values spread."}', 'variance')).toEqual({ word: 'variance', pos: 'noun', line: 'How widely values spread.' })
     expect(M.parseLookup('{"kind":"person","name":"Stirling","importance":"minor","subtitle":"a Scottish mathematician","body":"Named for the approximation."}', 'Stirling')).toEqual({ word: 'Stirling', pos: 'a Scottish mathematician', line: 'Named for the approximation.' })
     expect(M.parseLookup('```json\n{"kind":"place","name":"Edinburgh","description":"A city."}\n```', 'Edinburgh')).toEqual({ word: 'Edinburgh', pos: '', line: 'A city.' })

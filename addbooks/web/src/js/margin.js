@@ -212,6 +212,8 @@
    * -> { word, pos, line } | null
    */
   const POS = /^(proper noun|noun phrase|verb phrase|noun|verb|adjective|adverb|pronoun|preposition|conjunction|interjection|determiner|article|numeral|phrase|idiom|prefix|suffix|abbreviation)\b[^.:;]{0,30}[.:;]\s*/i;
+  // A leading label about the word's grammar rather than its meaning: "Proper noun used as a term (…).", "Eponym, used as a modifier:".
+  const GRAMMAR_LABEL = /^\s*(?:an?\s+)?(?:proper noun|eponym(?:ous)?(?:\s+term)?)\b(?:[^.:;\n(]|\([^)\n]*\))*?(?:used as|modifier|term|adjective|name)(?:[^.:;\n(]|\([^)\n]*\))*[.:;\u2014\u2013]\s+/i;
   function parseLookup(raw, word) {
     const text = String(raw || '').trim();
     if (!text) return null;
@@ -224,7 +226,9 @@
     if (v.kind === 'place' && field('name', 120) && field('description', 1600)) return { word: field('name', 120), pos: '', line: field('description', 1600) };
     if (v.kind === 'person' && field('name', 120) && field('body', 1600)) return { word: field('name', 120), pos: field('subtitle', 240), line: field('body', 1600) };
     return null;
-    function definition(d) {
+    function definition(d0) {
+      // Never a grammar label first (re-check 2, 16 Oct: "Proper noun used as a term (adjective-like modifier…)" on "Parzen").
+      const d = d0.replace(GRAMMAR_LABEL, '') || d0;
       const m = d.match(POS);
       return m && d.length > m[0].length ? { word, pos: m[1].toLowerCase(), line: d.slice(m[0].length) } : { word, pos: '', line: d };
     }
@@ -302,7 +306,9 @@
   function defineHtml(d, o) {
     const senses = (d.senses || []).slice(0, 3);
     // Its {p. N} citations are tags, as in cards (o.P, o.resolve); without the parsers, plain text.
-    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${o?.P ? inlineHtml(d.inText, o.P, o.resolve) : esc(d.inText)}</p>` : '';
+    // While it is written: the label in its place, first, with the wait ring (d.inWait); the senses below it at once.
+    const inText = d.inText ? `<p class="mr-define__in"><span class="mr-define__label">In this text</span>${o?.P ? inlineHtml(d.inText, o.P, o.resolve) : esc(d.inText)}</p>`
+      : d.inWait ? '<p class="mr-define__in mr-define__wait"><span class="mr-define__label">In this text</span></p>' : '';
     const body = d.wait ? '<p class="mr-define__wait"></p>'
       : inText + (senses.length ? `<ol class="mr-define__senses">${senses.map(s => `<li${s.fit ? ' class="is-fit"' : ''}>${esc(s.text)}</li>`).join('')}</ol>`
         : d.line ? `<p>${esc(d.line)}</p>` : '');
@@ -553,7 +559,9 @@
   function inlineHtml(text, P, resolve) {
     // Markdown bold is never parsed: its stars are only dropped, so they do not show.
     const plain = String(text || '').replace(/\*\*(?=\S)([^*]+?)\*\*/g, '$1');
-    return P.parseCitations(plain).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
+    // A bare "eq. 1" (no braces) is a tag only when this PDF has that equation (recheck-1, 16 Oct); the rest as before.
+    const bare = token => (/^eq\./i.test(token.raw) ? Boolean(resolve && resolve(token)) : true);
+    return P.parseCitations(plain, bare).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
   }
   const blocksOf = text => String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => b.replace(/^\n+|\s+$/g, '')).filter(b => b.trim());
   function blockHtml(b, P, resolve) {
@@ -607,6 +615,7 @@
     if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     if (card.kind === 'simplify' && answer && P.simplifyAnswer) { const s = P.simplifyAnswer(answer.content, card.text); return s.unchanged ? SIMPLIFY_UNCHANGED : plain(s.text) }
+    if (card.kind === 'explain' && answer && P.withoutTemplateTalk) return plain(P.withoutTemplateTalk(answer.content));
     return plain(answer?.content || '');
   }
   /** What a Simplify card says when the answer was only the passage again. */
@@ -745,7 +754,11 @@
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
     let answered = card.kind === 'note' || card.kind === 'define';
     // Never a sentence about the passage picture (full battery on train 3), except in a figure's card, whose picture is its subject.
-    const clean = text => (card.kind !== 'figure' && P?.withoutPictureTalk ? P.withoutPictureTalk(text) : text);
+    // Explain never shows its template lines, "no notation here" or "the passage is cut off" (recheck-1, 16 Oct).
+    const clean = text => {
+      const t = card.kind !== 'figure' && P?.withoutPictureTalk ? P.withoutPictureTalk(text) : text;
+      return card.kind === 'explain' && P?.withoutTemplateTalk ? P.withoutTemplateTalk(t) : t;
+    };
     turns.forEach((t0, k) => {
       const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content) };
       if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }

@@ -60,15 +60,15 @@ The client shows a stray `*word*` in italics and never shows the stars.
 The PDF reader keeps its own Explain request in `reader.js`: the passage image, the page context, and "trust the image over the extracted text". Change only its wording so that it opens with a bottom line. Replace "2 to 4 short paragraphs, no preamble, no headings." with:
 
 ```
-First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs on what it says and what it means here, explaining any notation or terms where they come up, never in a paragraph of their own. About 120 words or fewer in all. No preamble, no headings.
+First paragraph: the answer itself, one sentence, at most 25 words. Then a blank line, then at most three short paragraphs on what it says and what it means here, explaining a hard term or symbol in the sentence where it is used. About 120 words or fewer in all. No preamble, no headings.
 ```
 
-(PR C, 15 October: Explain ran 190 to 260 words with a separate notation paragraph in the deep test.)
+(PR C, 15 October: Explain ran 190 to 260 words with a separate notation paragraph in the deep test. Round 3, 16 October: the line no longer asks for "any notation or terms", which answers took as a cue to say there was none.)
 
-The Worker's PDF Explain prompt (`PDF_EXPLAIN_PROMPT`) ends with this line (production re-run after train 3: one answer said "The reader's selection stops before the claim"):
+The Worker's PDF Explain prompt (`PDF_EXPLAIN_PROMPT`: "Explain the passage the reader selected: what it says and what it means here, in plain language for a careful reader.", the format above, "Write any maths inline as plain text.") ends with this line. Round 3 (16 October, recheck-1): the earlier line, which named the selection's start and end and said to keep quiet about notation, drew "No notation appears in this sentence…", "There is no notation in this passage." and "The passage is cut off mid-sentence here"; it is now one plain line, and the PDF reader drops such sentences from an Explain card (`withoutTemplateTalk`, `marginParse.ts` and its twin). A bare "eq. 1" in an answer is a tag when the PDF has that equation, else plain text:
 
 ```
-Answer about the text itself; never comment on the selection, such as where it starts or stops. When the passage has no notation, say nothing about notation.
+Write only about what the text says and means.
 ```
 
 Add the PDF citation rule. Do not change the book reader's `LAB_EXPLAIN_PROMPT`.
@@ -86,18 +86,18 @@ The attached image shows the passage exactly as printed. Where its equations or 
 Model: `COMPANION_LOOKUP_MODEL`. Max tokens: 450. Effort: voice. No speculative prefetch: the Worker refuses `speculative: true` on Simplify (PR C, cost).
 
 ```
-Rewrite the selected passage in plain, modern English for a reader meeting it for the first time.
-First paragraph: the passage restated in the plainest faithful words, one sentence, at most 25 words. Then a blank line.
-Rewrite only the selected text, never the sentences around it in the document. If the selection is a fragment, give a plain version of that fragment alone.
-A selection of a few words gets only the first paragraph: one short plain restatement of those words, never the sentence around them, and no second paragraph.
-A passage that tells a story gets the first paragraph and at most one more sentence on what it means here, never the story's own sentences.
-Then the rewrite. Keep every claim the passage makes, in its order. Add nothing the passage does not say, and drop nothing that changes its meaning. Use short sentences and everyday words. When a technical term has to stay, explain it in a few words the first time. Keep equations as written and say in words what each one states.
-The rewrite is never longer than the passage and never more than 120 words.
-Do not open with "In simple terms", "Basically" or similar. Do not quote the passage back, in quotation marks or otherwise.
-Never return the passage unchanged, in the first paragraph or anywhere else: put every sentence in plainer words of your own. Never copy the sentences that follow it in the document, and never write the same line twice. End with the rewrite itself, never with a note about the rewrite or what it keeps.
+Rewrite the selected passage once, in plain everyday English, for a reader meeting it for the first time.
+Give exactly one rewrite and nothing else: no preamble, no heading, no second version, no explanation or note after it.
+Match the length of the selection: a sentence becomes one plain sentence, a fragment a plain fragment, a paragraph one short paragraph. Never more than 120 words.
+Rewrite only the selected words. If the selection is a fragment, rewrite that fragment alone: never finish its sentence from the words that follow it in the document.
+Keep the meaning exactly: every claim, in its order, with the same who, what and why. Add nothing the passage does not say, and drop nothing that changes its meaning.
+Use short sentences and everyday words: replace each hard word with a common one, rather than only reordering the passage's words. When a technical term has to stay, explain it in a few words. Keep equations as written and say in words what each one states.
+Never return the passage unchanged or nearly unchanged, never quote it back, and never write the same sentence twice. Do not open with "In simple terms", "Basically" or similar.
 ```
 
-The last line came from the retest after train 2 (15 October, evening): one rewrite repeated the passage word for word as its first paragraph, and one ended "The rewrite is a restatement of…". The PDF reader also drops a paragraph that is the passage again when a rewrite follows it, and a closing note about the rewrite (`simplifyAnswer`, `marginParse.ts` and its twin); when nothing but the passage is left it shows "This passage is already in plain words." instead. Since the full battery on train 3 (15 October, night) it also drops a paragraph copied word for word from the page or the next one (`copiedShare`, at least 0.8 of its five-word runs), never shows a line or paragraph twice, keeps only the first paragraph for a selection of at most 6 words, and drops a sentence quoting the passage back. Every card but a figure's drops a sentence about the passage picture ("The image confirms this passage reads as printed.", `withoutPictureTalk`). A bare page that ends a line or the answer ("… a mistake p. 1.") is shown as a tag, like {p. 1}.
+**Round 3 (16 October, after recheck-1).** The prompt above replaces the two-part answer (a one-sentence restatement, then the rewrite): in recheck-1 it repeated its first line on 4 of 8 documents, gave two renderings of one sentence, and on a fragment finished the sentence with a changed meaning. Anders asked for exactly one plain rewrite, as long as the selection, with the same meaning, in everyday words, and nothing else. The card now also drops a sentence the answer has already said, anywhere in it; shows no more paragraphs than the passage has (one for a sentence or a fragment); and treats a paragraph that holds the whole passage word for word (4 words or more) as the passage again.
+
+Earlier history: the last line came from the retest after train 2 (15 October, evening): one rewrite repeated the passage word for word as its first paragraph, and one ended "The rewrite is a restatement of…". The PDF reader also drops a paragraph that is the passage again when a rewrite follows it, and a closing note about the rewrite (`simplifyAnswer`, `marginParse.ts` and its twin); when nothing but the passage is left it shows "This passage is already in plain words." instead. Since the full battery on train 3 (15 October, night) it also drops a paragraph copied word for word from the page or the next one (`copiedShare`, at least 0.8 of its five-word runs), never shows a line or paragraph twice, keeps only the first paragraph for a selection of at most 6 words, and drops a sentence quoting the passage back. Every card but a figure's drops a sentence about the passage picture ("The image confirms this passage reads as printed.", `withoutPictureTalk`). A bare page that ends a line or the answer ("… a mistake p. 1.") is shown as a tag, like {p. 1}.
 
 User turn: `<selected_passage>…</selected_passage>`.
 
@@ -125,8 +125,10 @@ Apply the result by moving that sense to first place in full ink, with the other
 **The PDF reader's Define prompt (round 1, 15 October, night)** is the shared `CONTEXTUAL_LOOKUP_PROMPT` with three changes, in the PDF reader only (`marginPrompts.ts` `PDF_CONTEXTUAL_LOOKUP_PROMPT`; the book reader's prompt is unchanged): "the selected word" reads "the selected word or phrase", "in the supplied passage" reads "in the passage" (no pipeline wording), and after the line for a word or other non-person comes this line (MacKay: "Parzen" came back as "not a standalone character"):
 
 ```
-A proper noun used as a term or in one (Parzen window, Bayes' theorem, Gaussian, Markov chain) is a word, not a person: give the term's meaning in this text, and never say it is not a person or a character.
+For a term, including one named after a person (Parzen window, Bayes' theorem, Gaussian, Markov chain), start with the term and its meaning in this text, as in "Parzen window: a way to estimate…". Never open with a grammar label such as "proper noun" or "modifier", and never say it is not a person or a character.
 ```
+
+Round 3 (16 October, re-check 2): the earlier line ("A proper noun used as a term or in one … is a word, not a person") came back as a label, "Proper noun used as a term (adjective-like modifier…)", on "Parzen" and "minimax". The line now asks for the term and its meaning first, and the PDF reader drops a leading grammar label from a Define answer (`parseLookup`, margin.js).
 
 ## Fact-check — new intent `factcheck`
 
@@ -168,6 +170,8 @@ Your first paragraph is written (your previous turn). Continue from it with the 
 Model: `COMPANION_MODEL`. Max tokens: 600. Effort: typed. No tools.
 
 As routed for the PDF reader (`marginRoutes.ts`): Haiku 5.5, 6000 tokens, adaptive thinking. Effort is `low` since 15 October, evening (it was `medium`: 7–12 s, almost all of it thinking), pending Anders's confirmation.
+
+Round 3 (16 October): a speed trial behind one switch, `COUNTERPOINT_THINKING_OFF`, on in this PR: thinking disabled at effort low with a 400-token bound (the 150-word answer with room to spare). recheck-1 had its first words at 5–10 s, against 1–2 s before the stricter grounding prompt, and its median output at 1,200 tokens against 303, nearly all of it thinking. The prompt below, with its grounding rules, is unchanged. Off: adaptive thinking at effort low with 6000 tokens.
 
 ```
 Give the strongest objection a careful, well-informed critic would raise to the claim or argument in the selected passage.
