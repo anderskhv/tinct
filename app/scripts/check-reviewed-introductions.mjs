@@ -4,6 +4,7 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 import {createHash} from 'node:crypto'
 import { markInternal } from './lib/internalTraffic.cjs'
+import { liveLibraryRelease } from './lib/liveLibraryRelease.mjs'
 const live=process.env.LIBRARY_LIVE==='1',origin='https://tinct.app',out='artifacts/reviewed-introductions'
 fs.mkdirSync(out,{recursive:true})
 const firstSource=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/featured-copy.json'))
@@ -20,12 +21,19 @@ assert.equal(new Set(source.books.map(book=>book.id)).size,101)
 console.log('RETAINED_PUBLICATION_HOLDS '+JSON.stringify(retainedHolds))
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex')
 if(live){
- const files=['app.js','index.html','styles.css','authors.js','intro-review.css','reviewed-introductions.js','author-images.json',...source.books.map(b=>'intro-data/'+b.id+'.json'),...manifest.images.map(i=>i.publicPath.replace('/lab/library_2/',''))]
+ // Production serves the build's stamped copies and the Worker's /library page, not public/ byte for byte (scripts/lib/liveLibraryRelease.mjs).
+ const release=await liveLibraryRelease({appRoot:process.cwd(),origin})
+ const files=['app.js','styles.css','authors.js','intro-review.css','reviewed-introductions.js','author-images.json',...source.books.map(b=>'intro-data/'+b.id+'.json'),...manifest.images.map(i=>i.publicPath.replace('/lab/library_2/',''))]
  for(const file of files){
-  const local=fs.readFileSync('public/lab/library_2/'+file),response=await fetch(origin+'/lab/library_2/'+file+'?verified='+hash(local))
+  const stamped=release.files['lab/library_2/'+file],expected=stamped==null?fs.readFileSync('public/lab/library_2/'+file):Buffer.from(stamped)
+  const response=await fetch(origin+'/lab/library_2/'+file+'?verified='+hash(expected))
   assert.equal(response.status,200,file)
-  assert.equal(hash(Buffer.from(await response.arrayBuffer())),hash(local),file+' matches reviewed release')
+  assert.equal(hash(Buffer.from(await response.arrayBuffer())),hash(expected),file+' matches reviewed release')
  }
+ const page=await fetch(origin+'/library?verified='+Date.now(),{redirect:'manual'})
+ assert.equal(page.status,200,'/library')
+ const livePage=await page.text()
+ assert.equal(hash(livePage),hash(await release.libraryPage(livePage)),'index.html (served at /library) matches reviewed release')
 }
 for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[webkit,393,844,'reduce'],[webkit,393,844,'no-preference']]){
  const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})}))
