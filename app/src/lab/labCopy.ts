@@ -77,6 +77,8 @@ export const LAB_COPY = {
   accountEyebrow: 'Free account',
   accountTitle: 'Create a free account to keep using AI',
   accountTitleAudio: 'Create a free account to keep listening',
+  /** After a signed-out guest's Talk trial (one a day, two minutes). */
+  accountTitleTalk: 'Create a free account to keep talking',
   accountBody: 'Keep asking, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.',
   accountBodyAudio: 'Listen on, and use all of Tinct’s AI features. Your first month of AI is free. You can also keep reading without an account.',
   accountKeepReading: 'Keep reading',

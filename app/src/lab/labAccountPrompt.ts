@@ -4,7 +4,10 @@
  * - Reading is always free, signed in or not. Nothing here ever blocks reading.
  * - Ten anonymous AI interactions share one device allowance across Explain
  *   and Chat. The next request asks for an account; reading stays free.
- * - Talk (voice) requires an account; signed out it shows the account sheet.
+ * - Talk (voice): a signed-out guest may try one conversation a day, two
+ *   minutes at most (Anders, 16 Oct 2026); after it, or on a second attempt
+ *   that day, the account sheet. The Worker enforces both (worker/lib/talkTrial.ts);
+ *   this device's day mark only sends a second attempt straight to the sheet.
  * - Opening books never prompts for an account.
  *
  * Paid-tier enforcement is intentionally absent. `LAB_PAID_FEATURES` records
@@ -123,6 +126,22 @@ function trackLabAiGate(decision: LabAiActionDecision, signedIn: boolean): void 
   if (!decision.allowed) { trackFunnel('anon_limit_reached', { free_actions: LAB_FREE_AI_ACTIONS }); return }
   trackFunnelOnce('ai_first_use', { signed_in: signedIn })
   if (signedIn) trackFunnel('member_ai_use')
+}
+
+/** The UTC day this device last used its guest Talk trial (the Worker counts UTC days too). */
+export const LAB_TALK_TRIAL_KEY = 'tinct:lab-talk-trial'
+
+function utcToday(now: number): string {
+  return new Date(now).toISOString().slice(0, 10)
+}
+
+/** Has this device used today's guest Talk trial? */
+export function talkTrialUsedToday(storage: LabPromptStorage | null = browserStorage(), now = Date.now()): boolean {
+  try { return storage?.getItem(LAB_TALK_TRIAL_KEY) === utcToday(now) } catch { return false }
+}
+
+export function markTalkTrialUsed(storage: LabPromptStorage | null = browserStorage(), now = Date.now()): void {
+  try { storage?.setItem(LAB_TALK_TRIAL_KEY, utcToday(now)) } catch { /* private mode */ }
 }
 
 /** Lab sign-in page URL. The sign-in runtime owns the return-target safety policy. */

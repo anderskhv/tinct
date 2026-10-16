@@ -140,8 +140,8 @@ it('gives Talk the Grok contract: reference data apart from the prompt, and the 
   expect(names).not.toContain('ask_companion')
   const resume = (options.tools as Array<{ name: string; parameters: { required?: string[] } }>).find(tool => tool.name === 'resume_audiobook')!
   expect(resume.parameters.required).toEqual(['play_audio'])
-  // Voice sessions require sign-in: the signed-out route is never used.
-  expect(options.labGuest).toBe(false)
+  // Signed out, Talk is the guest trial (one a day, two minutes, through the relay).
+  expect(options.labGuest).toBe(true)
 })
 
 it('carries the Explain quote and its explanation into Talk as reference data', async () => {

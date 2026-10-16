@@ -38,7 +38,7 @@ import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/ad
 import { ACCOUNT_DELETE_PATH, handleAccountDelete } from './worker/routes/accountDelete'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleDictation } from './worker/routes/dictation'
-import { handleLabVoiceSession, handleVoiceSession, handleVoiceUsage } from './worker/routes/voice'
+import { handleLabVoiceRelay, handleLabVoiceSession, handleVoiceSession, handleVoiceUsage, LAB_VOICE_RELAY_PATH } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
 import { handleLabRecap } from './worker/routes/labRecap'
@@ -416,7 +416,8 @@ export default {
       case '/api/events': return handleEvents(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/dictation': return handleDictation(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/voice-usage': return handleVoiceUsage(request, env, ctx, verifyUser, checkRateLimit)
-      case '/api/lab-voice-session': return handleLabVoiceSession(request)
+      case '/api/lab-voice-session': return handleLabVoiceSession(request, env, checkRateLimit, holdGuestSpend)
+      case LAB_VOICE_RELAY_PATH: return handleLabVoiceRelay(request, env, ctx, checkRateLimit)
       case '/api/lab-position': return handleLabPosition(request, env, verifyUser)
       case '/api/lab-chat-history': return handleLabChatHistory(request, env, verifyUser)
       case '/api/recap-preparation': return handleRecapPreparation(request, env, verifyUser)

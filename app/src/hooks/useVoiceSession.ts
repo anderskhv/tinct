@@ -58,6 +58,8 @@ export interface UseVoiceSessionOptions {
   onInsufficientBalance: () => void
   onUsage?: () => void
   onBeforeUserTurn?: () => boolean
+  /** A signed-out guest's Talk trial (VoiceSessionCallbacks.onGuestTrial). */
+  onGuestTrial?: (event: 'started' | 'ended' | 'refused') => void
   onEndConversation?: () => void
   mode?: VoiceSessionMode
   /** Replaces the whole Tinct prompt (the library assistant). The reader leaves this unset. */
@@ -118,6 +120,7 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
         opts.recordMessage(message, opts.chapterNumber, opts.paragraphIndex)
       },
       onNeedAuth: () => optionsRef.current.onNeedAuth(),
+      onGuestTrial: (event) => optionsRef.current.onGuestTrial?.(event),
       onInsufficientBalance: () => optionsRef.current.onInsufficientBalance(),
       onUsage: () => optionsRef.current.onUsage?.(),
       onEndRequested: () => optionsRef.current.onEndConversation?.(),

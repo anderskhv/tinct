@@ -224,8 +224,12 @@ Talk runs on xAI Grok native speech-to-speech (`grok-voice-latest`, voice `altai
 over one browser WebSocket; see `docs/voice-grok-2026-09-18.md`.
 
 - Worker secret `XAI_API_KEY` mints single-use client secrets at
-  `/api/voice-session` (signed-in, charged) and `/api/lab-voice-session`
-  (guest, rate limited). Never put the key in browser assets or logs.
+  `/api/voice-session` (signed-in, charged). A signed-out guest's Talk trial
+  (one a day per IP, two minutes, reserved against the guest AI ceiling) gets
+  a ticket from `/api/lab-voice-session` for the Worker relay
+  `/api/lab-voice-relay`, which connects to xAI with the key and closes the
+  call at two minutes (`app/src/worker/lib/talkTrial.ts`). Never put the key in
+  browser assets or logs.
 - The runtime prompt is `GROK_VOICE_INSTRUCTIONS` in
   `app/src/voice/grokConfig.ts`. Keep it minimal; add a constraint only for a
   demonstrated issue. Reference text (position, excerpt, recent turns) is data

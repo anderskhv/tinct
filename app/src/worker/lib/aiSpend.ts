@@ -56,7 +56,7 @@ export function createGuestSpendHolder(env: GuestAiSpendEnv, now: () => number =
     if (!namespace) { logCeiling('binding_missing'); return null }
     const day = new Date(now()).toISOString().slice(0, 10)
     const units = Math.ceil(microDollars)
-    const name = `spend:guest-ai:${day.slice(0, 7)}`
+    const name = guestSpendBudgetName(day)
     try {
       const ok = await namespace.getByName(name).reserve(day, units, guestAiDailyMicros(env))
       if (!ok) { logCeiling('ceiling_reached'); return null }
@@ -70,6 +70,21 @@ export function createGuestSpendHolder(env: GuestAiSpendEnv, now: () => number =
       return null
     }
   }
+}
+
+/** The coordinator row a day's signed-out AI spend is reserved on. */
+export function guestSpendBudgetName(day: string): string {
+  return `spend:guest-ai:${day.slice(0, 7)}`
+}
+
+/**
+ * Give back part of a reservation made on `day` (a Talk trial that ended
+ * before its two reserved minutes). Best effort; never below zero.
+ */
+export async function releaseGuestSpend(env: GuestAiSpendEnv, day: string, microDollars: number): Promise<void> {
+  const units = Math.floor(microDollars)
+  if (!env.USAGE_COORDINATOR || !(units > 0)) return
+  try { await env.USAGE_COORDINATOR.getByName(guestSpendBudgetName(day)).release(day, units) } catch { logCeiling('release_error') }
 }
 
 /** Fails closed: no binding, a coordinator error, or a full day all refuse. */

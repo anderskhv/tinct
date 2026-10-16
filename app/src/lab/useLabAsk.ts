@@ -47,7 +47,7 @@ import { labConversationStateV2 } from './labVoiceV2'
 import type { LabVoiceVersion } from './labRoute'
 import { readSupabaseAccessToken, resolveLabVoiceToken } from './labAuth'
 import { LAB_COPY } from './labCopy'
-import { decideLabAiAction, gateLabAiAction, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
+import { gateLabAiAction, markTalkTrialUsed, talkTrialUsedToday, type LabAccountPromptRequest, type LabAiAction } from './labAccountPrompt'
 import { dumpLabTalkTurns, fetchLabChatHistoryCloud, LAB_CHAT_BOOK_ID } from './labTalkHistory'
 import {
   appendLabChatTurn,
@@ -112,6 +112,11 @@ export interface UseLabAskOptions {
   signedIn?: boolean
   /** The account policy held back an anonymous reader's AI action; the host shows the sheet. The turn is not sent. */
   onAccountPrompt?: (request: LabAccountPromptRequest) => void
+  /**
+   * A signed-out guest's Talk trial ran out mid-call (two minutes). The host
+   * closes the call and shows the account sheet; without it, the sheet alone.
+   */
+  onTalkTrialEnded?: () => void
   /** Registry book id + edition key. Both present → requests carry `book` and the worker can read other chapters. */
   bookId?: string
   /** Explicit V2 continuation chosen in contents; never a cross-book thread. */
@@ -180,6 +185,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const dismissNotice = useCallback(() => setNotice(null), [])
   const [starting, setStarting] = useState(false)
   const voiceStartRequestRef = useRef(0)
+  /** The guest trial was refused or ran out: the account sheet, not a failure notice. */
+  const guestTrialClosedRef = useRef(false)
   // Talk's speaking speed: the host's saved value when it keeps one, else
   // this hook's own. Every change lands in both and reaches the live session.
   const [localTalkSpeed, setLocalTalkSpeed] = useState(() => clampTalkSpeed(options.talkSpeed ?? 1))
@@ -518,8 +525,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const voice = useVoiceSession({
     authToken: liveToken,
     isAnonymous: !liveToken,
-    // Voice sessions require sign-in; a signed-out Talk shows the account sheet.
-    labGuest: false,
+    // Signed out: the guest Talk trial (one a day, two minutes, through Tinct's relay).
+    labGuest: !signedIn,
     // A reader's own book: the id stays on this device (turns are recorded
     // under it locally; the Talk usage report drops it), no edition key goes
     // out, and the session hears only the passage on screen (buildVoiceReaderContext
@@ -544,7 +551,16 @@ export function useLabAsk(options: UseLabAskOptions) {
     onEndConversation: () => optionsRef.current.onResumeListen?.(false),
     recordMessage: recordTurn,
     appendLocalMessage,
-    onBeforeUserTurn: () => gateAiAction('voice'),
+    // A guest's trial is its own allowance (one call, two minutes); its turns
+    // do not spend the ten free typed actions.
+    onBeforeUserTurn: () => (signedIn ? gateAiAction('voice') : true),
+    onGuestTrial: (event) => {
+      markTalkTrialUsed()
+      if (event === 'started') return
+      guestTrialClosedRef.current = true
+      if (event === 'ended' && optionsRef.current.onTalkTrialEnded) optionsRef.current.onTalkTrialEnded()
+      else optionsRef.current.onAccountPrompt?.({ action: 'voice' })
+    },
     onNeedAuth: () => setNotice(LAB_COPY.signInVoice),
     onInsufficientBalance: () => setNotice(LAB_COPY.balanceEmpty),
     mode: 'conversation',
@@ -560,7 +576,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     assistantSpeed: talkSpeed,
     onSetAssistantPace: rememberAssistantPace,
     voicePersona: options.voicePersona,
-    // Talk needs an account: a signed-out reader never downloads its code.
+    // A signed-out reader downloads Talk's code only when they try it.
     warm: (options.voiceWarm ?? true) && signedIn,
   })
 
@@ -578,18 +594,35 @@ export function useLabAsk(options: UseLabAskOptions) {
 
   const startVoice = useCallback(async (greeting?: string): Promise<boolean | 'cancelled'> => {
     if (voice.isActive || starting) return true
-    // Talk requires an account. Signed out, the host shows the account sheet
-    // (or, with no host, the sign-in notice); no session is requested.
-    if (!signedIn || !decideLabAiAction({ signedIn }).allowed) {
+    // Signed out: one guest Talk trial a day on this device (the Worker holds
+    // the same line per IP). Used today, the host shows the account sheet (or,
+    // with no host, the sign-in notice); no session is requested.
+    if (!signedIn && talkTrialUsedToday()) {
       if (optionsRef.current.onAccountPrompt) optionsRef.current.onAccountPrompt({ action: 'voice' })
       else setNotice(LAB_COPY.signInVoice)
       return false
     }
-    trackFunnelOnce('ai_first_use', { signed_in: true, feature: 'talk' })
-    trackFunnel('member_ai_use', { feature: 'talk' })
+    if (signedIn) {
+      trackFunnelOnce('ai_first_use', { signed_in: true, feature: 'talk' })
+      trackFunnel('member_ai_use', { feature: 'talk' })
+    } else {
+      trackFunnelOnce('ai_first_use', { signed_in: false, feature: 'talk' })
+    }
     const request = ++voiceStartRequestRef.current
+    guestTrialClosedRef.current = false
     voice.unlockAudio()
     setNotice(null)
+    if (!signedIn) {
+      setStarting(true)
+      const snapshot = await voice.start({ authToken: null, greeting })
+      if (request !== voiceStartRequestRef.current) return 'cancelled'
+      setStarting(false)
+      // Refused by the Worker (today's trial used here): the sheet is the answer.
+      if (guestTrialClosedRef.current) return false
+      if (snapshot.error) { setNotice(snapshot.error); return false }
+      if (!snapshot.isActive) { setNotice(current => current || LAB_COPY.voiceStartFailed); return false }
+      return true
+    }
     const knownToken = options.authToken !== undefined ? options.authToken : sessionToken
     if (knownToken) setStarting(true)
     const authToken = await resolveLabVoiceToken({

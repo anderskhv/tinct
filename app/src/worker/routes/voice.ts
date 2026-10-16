@@ -1,13 +1,19 @@
 import { GROK_CLIENT_SECRET_TTL_SECONDS, GROK_VOICE_MODEL } from '../../voice/grokConfig'
 import { allowanceUsedBody, allowsAiFeature, createAllowanceGate, type AllowanceGate } from '../lib/aiAllowance'
-import { AI_RESTING_MESSAGE, AI_RESTING_TYPE } from '../lib/aiSpend'
 import { isProviderBudgetError } from '../lib/chatUpstream'
 import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import { supabaseRpc, type SupabaseEnv } from '../lib/supabase'
-import { ledgerGuestKey, recordAiUsage, talkCostUsd, type LedgerEnv } from '../lib/aiUsage'
+import { CHECK_GUEST_KEY, ledgerGuestKey, recordAiUsage, requestGuestKey, talkCostUsd, type LedgerEnv } from '../lib/aiUsage'
+import { AI_RESTING_MESSAGE, AI_RESTING_TYPE, releaseGuestSpend, type GuestAiSpendEnv, type GuestSpendHold, type HoldGuestSpend } from '../lib/aiSpend'
+import {
+  newTicketNonce, returnTalkTrial, signTalkTicket, takeTalkTrial, talkTrialSlot, utcDay, verifyTalkTicket,
+  TALK_TICKET_PROTOCOL_PREFIX, TALK_TRIAL_CLOSE_CODE, TALK_TRIAL_CLOSE_REASON, TALK_TRIAL_RESERVE_MICROS,
+  TALK_TRIAL_SECONDS, TALK_TRIAL_TICKET_SECONDS, TALK_TRIAL_USED_CODE,
+} from '../lib/talkTrial'
 
-export type VoiceEnv = SupabaseEnv & {
+export type VoiceEnv = SupabaseEnv & GuestAiSpendEnv & {
+  AI_LEDGER_SALT?: string
   /** Grok native speech-to-speech: mints the browser's ephemeral client secret. */
   XAI_API_KEY?: string
   /** Still used by the shared source-research route, not by the voice path. */
@@ -33,14 +39,164 @@ function logVoiceStartFailure(status: number, reason: string, signedIn: boolean)
 }
 
 /**
- * Voice sessions require sign-in. The former signed-out route answers with
- * the same 401 the signed-in route gives without a session, so older
- * clients show their sign-in prompt instead of an error.
+ * A signed-out guest's Talk trial (lib/talkTrial.ts; Anders, 16 Oct 2026):
+ * one conversation per IP per UTC day, two minutes at most. The ceiling for
+ * signed-out AI is reserved first (two minutes' cost), then today's trial is
+ * taken; a refusal of either takes nothing. The answer is a single-use
+ * ticket for the Worker's relay (`handleLabVoiceRelay`), never an xAI secret:
+ * the relay is what ends the call at two minutes.
  */
-export async function handleLabVoiceSession(request: Request): Promise<Response> {
+export async function handleLabVoiceSession(
+  request: Request,
+  env: VoiceEnv,
+  checkRateLimit: CheckRateLimit,
+  holdGuestSpend: HoldGuestSpend,
+  now: () => number = Date.now,
+): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
-  logVoiceStartFailure(401, 'sign_in_required', false)
-  return jsonResponse({ error: 'Authentication required' }, 401, request)
+  if (!env.XAI_API_KEY) return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
+  const ip = requestGuestKey(request)
+  const check = request.headers.get('x-tinct-check') === '1'
+  if (!await checkRateLimit(`lab-voice:${ip}`, env.RATE_LIMIT, 6)) {
+    logVoiceStartFailure(429, 'rate_limited', false)
+    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
+  }
+  const day = utcDay(now())
+  const hold = await holdGuestSpend(TALK_TRIAL_RESERVE_MICROS).catch((): GuestSpendHold | null => null)
+  if (!hold) {
+    logVoiceStartFailure(503, 'guest_ceiling', false)
+    return jsonResponse({ error: AI_RESTING_MESSAGE, code: AI_RESTING_TYPE }, 503, request)
+  }
+  const slot = await talkTrialSlot(env, { ip, check, day })
+  if (!await takeTalkTrial(env, slot)) {
+    await hold.release()
+    logVoiceStartFailure(429, 'trial_used', false)
+    return jsonResponse({ error: 'Create a free account to keep talking.', code: TALK_TRIAL_USED_CODE }, 429, request)
+  }
+  const exp = now() + TALK_TRIAL_TICKET_SECONDS * 1000
+  const ticket = await signTalkTicket(env, { exp, n: newTicketNonce(), d: day, u: TALK_TRIAL_RESERVE_MICROS, t: slot.name, c: check })
+  if (!ticket) {
+    await Promise.all([hold.release(), returnTalkTrial(env, slot.name)])
+    return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
+  }
+  return jsonResponse({
+    value: ticket,
+    expires_at: Math.floor(exp / 1000),
+    model: GROK_VOICE_MODEL,
+    relay: LAB_VOICE_RELAY_PATH,
+    max_seconds: TALK_TRIAL_SECONDS,
+  }, 200, request)
+}
+
+export const LAB_VOICE_RELAY_PATH = '/api/lab-voice-relay'
+export const XAI_REALTIME_HTTP_URL = 'https://api.x.ai/v1/realtime'
+
+/** The part of a Workers WebSocket the relay uses (a test seam). */
+export interface RelaySocket {
+  accept(): void
+  send(data: string | ArrayBuffer): void
+  close(code?: number, reason?: string): void
+  addEventListener(type: 'message' | 'close' | 'error', listener: (event: any) => void): void
+}
+
+export interface VoiceRelayDeps {
+  /** The provider's socket, authenticated with the Worker's key; null when it would not open. */
+  connectUpstream?: (env: VoiceEnv) => Promise<RelaySocket | null>
+  /** [browser end, Worker end]. */
+  createPair?: () => [RelaySocket, RelaySocket]
+  /** The 101 that hands the browser its end. */
+  respond?: (client: RelaySocket, protocol: string) => Response
+  now?: () => number
+  setTimer?: (fn: () => void, ms: number) => unknown
+  clearTimer?: (timer: unknown) => void
+}
+
+async function connectXaiUpstream(env: VoiceEnv): Promise<RelaySocket | null> {
+  const response = await fetch(`${XAI_REALTIME_HTTP_URL}?model=${encodeURIComponent(GROK_VOICE_MODEL)}`, {
+    headers: { Upgrade: 'websocket', Authorization: `Bearer ${env.XAI_API_KEY}` },
+  })
+  return (response as Response & { webSocket?: RelaySocket | null }).webSocket ?? null
+}
+
+function closeQuietly(socket: RelaySocket, code: number, reason: string): void {
+  // Only 1000 and the application range may be sent; anything else ends normally.
+  const sendable = code === 1000 || (code >= 3000 && code <= 4999) ? code : 1000
+  try { socket.close(sendable, reason.slice(0, 120)) } catch { /* already closed */ }
+}
+
+/**
+ * GET /api/lab-voice-relay (WebSocket): a guest's Talk trial, relayed between
+ * the browser and xAI with the Worker's own key, frames passed through
+ * unchanged and never stored. The ticket from `handleLabVoiceSession` rides
+ * in the subprotocol and opens one relay once. At TALK_TRIAL_SECONDS both ends
+ * are closed with TALK_TRIAL_CLOSE_CODE; the connected time is metered in the
+ * AI ledger under the guest's key and the unused part of the reservation is
+ * given back. A provider that never connects returns the trial and the spend.
+ */
+export async function handleLabVoiceRelay(
+  request: Request,
+  env: VoiceEnv,
+  ctx: ExecutionContext,
+  checkRateLimit: CheckRateLimit,
+  deps: VoiceRelayDeps = {},
+): Promise<Response> {
+  const now = deps.now ?? Date.now
+  if (request.headers.get('upgrade')?.toLowerCase() !== 'websocket') return jsonResponse({ error: 'Expected a WebSocket' }, 426, request)
+  if (!env.XAI_API_KEY) return jsonResponse({ error: VOICE_NOT_CONFIGURED_ERROR }, 503, request)
+  const protocol = (request.headers.get('sec-websocket-protocol') ?? '').split(',').map(part => part.trim())
+    .find(part => part.startsWith(TALK_TICKET_PROTOCOL_PREFIX))
+  const ticket = protocol ? await verifyTalkTicket(env, protocol.slice(TALK_TICKET_PROTOCOL_PREFIX.length), now()) : null
+  if (!protocol || !ticket) return jsonResponse({ error: 'Authentication required' }, 401, request)
+  // Single use: the ticket's nonce opens one relay (its window outlasts the ticket).
+  if (!await checkRateLimit(`voice-ticket:${ticket.n}`, env.RATE_LIMIT, 1)) return jsonResponse({ error: 'Authentication required' }, 401, request)
+
+  const upstream = await (deps.connectUpstream ?? connectXaiUpstream)(env).catch(() => null)
+  if (!upstream) {
+    logVoiceStartFailure(502, 'relay_upstream', false)
+    await Promise.all([releaseGuestSpend(env, ticket.d, ticket.u), returnTalkTrial(env, ticket.t)])
+    return jsonResponse({ error: 'Could not start a voice session.' }, 502, request)
+  }
+  const [client, server] = (deps.createPair ?? (() => {
+    const pair = new WebSocketPair()
+    return [pair[0], pair[1]] as unknown as [RelaySocket, RelaySocket]
+  }))()
+  server.accept()
+  upstream.accept()
+  const openedAt = now()
+  const deadline = openedAt + TALK_TRIAL_SECONDS * 1000
+  const setTimer = deps.setTimer ?? ((fn: () => void, ms: number) => setTimeout(fn, ms))
+  const clearTimer = deps.clearTimer ?? ((timer: unknown) => clearTimeout(timer as ReturnType<typeof setTimeout>))
+  let finished = false
+  let settle: () => void = () => {}
+  const closed = new Promise<void>(resolve => { settle = resolve })
+  const finish = (code: number, reason: string) => {
+    if (finished) return
+    finished = true
+    clearTimer(timer)
+    closeQuietly(server, code, reason)
+    closeQuietly(upstream, code, reason)
+    const seconds = Math.min(TALK_TRIAL_SECONDS, Math.max(0, (now() - openedAt) / 1000))
+    const cost = talkCostUsd(seconds)
+    recordAiUsage(env as LedgerEnv, ctx, { guest: ticket.c ? CHECK_GUEST_KEY : requestGuestKey(request) }, {
+      feature: 'talk', provider: 'xai', model: GROK_VOICE_MODEL, seconds, cost_usd: cost,
+    })
+    void releaseGuestSpend(env, ticket.d, ticket.u - Math.ceil(cost * 1_000_000)).finally(settle)
+  }
+  const endTrial = () => finish(TALK_TRIAL_CLOSE_CODE, TALK_TRIAL_CLOSE_REASON)
+  const timer = setTimer(endTrial, TALK_TRIAL_SECONDS * 1000)
+  const pass = (to: RelaySocket) => (event: { data: string | ArrayBuffer }) => {
+    if (finished) return
+    if (now() >= deadline) { endTrial(); return }
+    try { to.send(event.data) } catch { finish(1011, 'relay_send_failed') }
+  }
+  server.addEventListener('message', pass(upstream))
+  upstream.addEventListener('message', pass(server))
+  for (const socket of [server, upstream]) {
+    socket.addEventListener('close', (event: { code?: number; reason?: string }) => finish(event.code ?? 1000, event.reason || ''))
+    socket.addEventListener('error', () => finish(1011, 'relay_error'))
+  }
+  ctx.waitUntil(closed)
+  return (deps.respond ?? ((socket, chosen) => new Response(null, { status: 101, webSocket: socket, headers: { 'Sec-WebSocket-Protocol': chosen } } as ResponseInit)))(client, protocol)
 }
 
 /**
