@@ -235,7 +235,8 @@ describe('the answer in a card', () => {
     expect(f.answer).toContain('<span class="is-bottom-line">Holds. The standard form.</span>')
     expect(f.answer).toContain('<p><span class="mr-verdict">Holds.</span> Below 1% from x = 9.</p>')
     expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> Context.</p>')
-    expect(f.sources).toBe('<div class="mr-sources"><a href="https://dlmf.nist.gov/5.11" target="_blank" rel="noopener noreferrer">NIST</a><a href="https://en.wikipedia.org/wiki/S" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>')
+    // Led by "Sources" since the night run's final round (16 Oct: the bare titles read as a raw tail).
+    expect(f.sources).toBe('<div class="mr-sources"><span class="mr-sources__label">Sources</span><a href="https://dlmf.nist.gov/5.11" target="_blank" rel="noopener noreferrer">NIST</a><a href="https://en.wikipedia.org/wiki/S" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>')
   })
   it('Fact-check, doc-first (15 Oct): the opening in plain text, then the verdict as the bottom line, then a note and the sources; folded, the verdict line', () => {
     const text = 'The passage claims 28.4 BLEU; the paper offers Table 2.\n\nPartly holds. The score stands, but later systems beat it.\n\nNote. A landmark.\n\nSources: [NLP-progress](https://nlpprogress.com/)'

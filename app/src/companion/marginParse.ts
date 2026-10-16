@@ -102,10 +102,50 @@ export function citationTokens(text: unknown): CitationToken[] {
 /**
  * An answer without a sentence about the passage picture ("The image confirms this passage reads as
  * printed.", full battery on train 3): a sentence led by the image or picture that confirms, matches
- * or reads it as printed. Not for a figure's card, whose picture is the subject.
+ * or reads it as printed; and (morning retest, 16 Oct: "The image shows the abstract line…") a sentence that opens
+ * on the picture: "The image shows…", "The attached picture reads…", "In the image, …". Not for a figure's card,
+ * whose picture is the subject.
  */
+const PICTURE_OPENING_RE = /(^|[.!?]["\u201d)]?[ \t]+|\n)(?:(?:the|this) (?:attached |passage |page )?(?:image|picture|screenshot)\b[ \t]+(?:shows?|displays?|reads?|contains?|is|depicts?|presents?|gives?|has)\b|in the (?:attached )?(?:image|picture)\b)[^.!?\n]*[.!?][ \t]*/gi
 export function withoutPictureTalk(text: unknown): string {
-  return String(text ?? '').replace(/(^|[.!?]["\u201d)]?[ \t]+|\n)(?:the |this )?(?:attached |passage )?(?:image|picture)\b[^.!?\n]*\b(?:confirm\w*|match\w*|as printed|reads? the same)\b[^.!?\n]*[.!?][ \t]*/gi, (_m, lead: string) => lead.replace(/[ \t]+$/, ' ')).replace(/ +\n/g, '\n').trim()
+  return String(text ?? '').replace(PICTURE_OPENING_RE, (_m: string, lead: string) => lead.replace(/[ \t]+$/, ' ')).replace(/(^|[.!?]["\u201d)]?[ \t]+|\n)(?:the |this )?(?:attached |passage )?(?:image|picture)\b[^.!?\n]*\b(?:confirm\w*|match\w*|as printed|reads? the same)\b[^.!?\n]*[.!?][ \t]*/gi, (_m, lead: string) => lead.replace(/[ \t]+$/, ' ')).replace(/ +\n/g, '\n').trim()
+}
+
+/**
+ * An answer that refers to its own earlier replies (morning retest, 16 Oct: Chat's "This also corrects my earlier
+ * remark", "I can be more specific than before"). A sentence that opens on such a phrase loses it ("As I said
+ * earlier, X" reads "X"); a sentence that is only about the earlier reply goes.
+ */
+const SELF_REFERENCE_RE = /^(?:(?:this|that|which) (?:also |now |here )?(?:corrects?|updates?|refines?|revises?|clarifies|sharpens?|adds to|expands on|builds on) (?:my|the) (?:earlier|previous|last|first|prior) (?:remark|answer|reply|response|point|statement|explanation|claim)s?|(?:to correct|correcting|to refine|refining|to clarify|updating|revising) (?:my|the) (?:earlier|previous|last|prior) (?:remark|answer|reply|response|point|statement|explanation|claim)s?|as I (?:said|mentioned|noted|explained|wrote|suggested)(?: (?:earlier|before|above|previously))?|as (?:noted|mentioned|said) (?:earlier|before|above|previously)|I can (?:now )?be (?:more|a bit more|much more) (?:specific|precise|exact|concrete) (?:than (?:before|earlier|last time)|now)|(?:more|to be more) (?:specifically|precisely) than (?:before|earlier)|(?:unlike|contrary to) (?:what I said|my earlier (?:remark|answer|reply))(?: (?:earlier|before))?|(?:in|on) (?:my|the) (?:earlier|previous|last) (?:remark|answer|reply|response)s?|(?:going|building) (?:beyond|on) (?:my|the) (?:earlier|previous|last) (?:remark|answer|reply|response)s?)\b[,:;.\u2014\u2013-]?\s*/i;
+export function withoutSelfReference(text: unknown): string {
+  return String(text ?? '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(p => p.split('\n').map(line => sentencesOf(line).map(sentence => {
+    const m = SELF_REFERENCE_RE.exec(sentence);
+    if (!m) return sentence;
+    const rest = sentence.slice(m[0].length).replace(/^(?:that|and|so|but)\s+/i, '');
+    return rest.replace(/\{[^{}\n]{1,40}\}/g, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim().split(' ').length >= 4 ? upperFirst(rest) : '';
+  }).filter(Boolean).join(' ')).filter(line => line.trim()).join('\n')).filter(p => p.trim()).join('\n\n');
+}
+
+/**
+ * Counterpoint without its old template (night run final, 16 Oct: "The strongest objection is that …" and a closing
+ * "The author's best reply is …", on every document): the opening's lead-in goes ("The strongest objection is that
+ * the speed claim…" reads "The speed claim…"), and a sentence giving the author's reply goes with what follows it in
+ * its paragraph (the reply runs to the paragraph's end).
+ */
+const OBJECTION_LEAD_RE = /^(?:the (?:strongest|main|central|key|best|sharpest) (?:objection|counterpoint|criticism|challenge) (?:here |to (?:this|the) (?:passage|claim|argument) )?is that|a (?:careful |well-informed |careful, well-informed )?critic (?:would|might|could) (?:argue|object|say|point out|reply) that)\s+/i;
+const AUTHOR_REPLY_RE = /^(?:the |an? )?(?:authors?['\u2019]s?|writer['\u2019]s|paper['\u2019]s|document['\u2019]s)\s+(?:best |strongest |likely |probable |main )?(?:reply|response|answer|rejoinder|defen[cs]e)\b|^(?:in reply|in response|in (?:their|its|the authors['\u2019]) defen[cs]e),|^the authors? (?:would|might|could|can) (?:reply|respond|answer|counter)\b/i;
+export function counterpointAnswer(text: unknown): string {
+  const paras = String(text ?? '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(p => p.trim()).filter(Boolean);
+  const out: string[] = [];
+  for (const p of paras) {
+    const kept: string[] = [];
+    for (const sentence of sentencesOf(p.replace(/\n/g, ' '))) {
+      if (AUTHOR_REPLY_RE.test(sentence)) break;
+      kept.push(!out.length && !kept.length ? sentence.replace(OBJECTION_LEAD_RE, '').replace(/^\p{Ll}/u, c => c.toUpperCase()) : sentence);
+    }
+    if (kept.length) out.push(kept.join(' '));
+  }
+  return out.join('\n\n');
 }
 
 /* ---------- Simplify: never the passage again, never a note about the rewrite ---------- */
@@ -119,11 +159,28 @@ export function withoutPictureTalk(text: unknown): string {
 const NO_NOTATION_RE = /\bnotation\b/i
 const NEGATION_RE = /\b(?:no|not|none|nothing|without|isn['’]t|doesn['’]t)\b/i
 const CUT_OFF_RE = /\b(?:passage|selection|sentence|excerpt|quotation|quote|extract)\b[^.!?\n]*\b(?:cut off|cuts off|breaks off|trails off|truncated|mid-?sentence|stops (?:before|mid)|ends (?:before|mid|abruptly))/i
+/** "No special notation or technical terms appear in this line.", "There are no symbols here.": a sentence about what the passage lacks (night run final, 16 Oct). */
+const LACKS_RE = /(?:\b(?:no|without|not any)\s+(?:(?:special|new|technical|unusual|hard|difficult|particular)\s+)*(?:symbols?|terms?|jargon|formulas?|equations?|maths?)\b[^.!?]*\b(?:appears?|used|uses|in (?:this|the) (?:line|sentence|passage|selection|text)|here)\b)|^there (?:are|is) no (?:(?:special|new|technical|unusual)\s+)*(?:symbols?|terms?|formulas?|equations?|jargon|maths?)\b/i
+/**
+ * An opening that describes the selection (night run final, 16 Oct: "The selected sentence describes a problem…",
+ * "The selected passage only begins that model."): "says that X" becomes "X", any other verb keeps its words
+ * with "It" for the subject.
+ */
+const SELECTION_SUBJECT_RE = /^(?:the (?:selected |highlighted )?(?:passage|sentence|line|text|phrase|words|excerpt|clause|fragment)(?: (?:you|the reader) (?:selected|highlighted))?|the selection|this selection|your selection|the selected (?:part|bit))\s+(?!(?:of|in|on|at|from|to|for|with|and|or|that|which|who|where|when|about|by|as|between|under|over)\b)(?=\p{Ll})/iu
+const SAYS_THAT_RE = /^(?:says|states|claims|argues|means|tells us|notes|reports|is saying|asserts)\s+(?:that\s+)?/i
+const upperFirst = (t: string): string => t.charAt(0).toUpperCase() + t.slice(1)
+export function withoutSelectionTalk(sentence: string): string {
+  const m = SELECTION_SUBJECT_RE.exec(sentence)
+  if (!m) return sentence
+  const rest = sentence.slice(m[0].length)
+  const says = SAYS_THAT_RE.exec(rest)
+  return says && rest.length - says[0].length > 12 ? upperFirst(rest.slice(says[0].length)) : 'It ' + rest
+}
 export function withoutTemplateTalk(text: unknown): string {
   return String(text ?? '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(p => p.split('\n').map(line => sentencesOf(line).filter(sentence => {
-    if (NO_NOTATION_RE.test(sentence) && NEGATION_RE.test(sentence)) return false
+    if ((NO_NOTATION_RE.test(sentence) && NEGATION_RE.test(sentence)) || LACKS_RE.test(sentence)) return false
     return !CUT_OFF_RE.test(sentence)
-  }).join(' ')).filter(line => line.trim()).join('\n')).filter(p => p.trim()).join('\n\n')
+  }).map(withoutSelectionTalk).join(' ')).filter(line => line.trim()).join('\n')).filter(p => p.trim()).join('\n\n')
 }
 
 /** A closing paragraph that talks about the rewrite rather than being it ("The rewrite is a restatement of…"). */
@@ -305,6 +362,17 @@ function safeUrl(raw: string): string | null {
   } catch { return null; }
 }
 
+/**
+ * A source's title as the card shows it (night run final, 16 Oct: "Deep Residual Learning for Image Recognition |
+ * IEEE Conference Publication | IEEE Xplore", "README.md at master · KaimingHe/deep-residual-networks · GitHub"):
+ * the page's own title without the site's name after " | ", " · ", " - " or " — ", and without a trailing
+ * "(Site Name)". A title that is only a site keeps its words.
+ */
+export function sourceTitle(title: unknown): string {
+  const t = String(title ?? '').replace(/\s+/g, ' ').trim()
+  const first = t.split(/\s+(?:\||\u00b7|-|\u2014|\u2013)\s+/)[0].replace(/\s*\((?=[^()]*\b(?:Stack Exchange|Stack Overflow|Wikipedia|GitHub|Reddit|Medium|Quora|YouTube|arXiv|IEEE|Blog)\b)[^()]{2,40}\)$/i, '').trim()
+  return first.length >= 8 ? first : t
+}
 /** The links on a "Sources:" line: Markdown links first, else bare http(s) URLs (titled by host). */
 export interface Source { title: string; url: string }
 export function parseSourcesLine(line: unknown): Source[] {
@@ -315,7 +383,10 @@ export function parseSourcesLine(line: unknown): Source[] {
     const safe = safeUrl(url)
     if (!safe || seen.has(safe)) return
     seen.add(safe)
-    out.push({ title: title.replace(/\s+/g, ' ').trim() || new URL(safe).hostname, url: safe })
+    const tidy = sourceTitle(title)
+    const key = tidy.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
+    if (key && out.some(o => { const k = o.title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim(); return k === key || k.startsWith(key + ' ') || key.startsWith(k + ' ') })) return
+    out.push({ title: tidy || new URL(safe).hostname.replace(/^www\./, ''), url: safe })
   }
   LINK_RE.lastIndex = 0
   for (let m: RegExpExecArray | null; (m = LINK_RE.exec(body));) add(m[1], m[2])

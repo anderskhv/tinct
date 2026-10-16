@@ -25,14 +25,20 @@ Plain prose only: no Markdown, no asterisks, no bullet characters, no em dashes.
 Work out numbers and facts before you write. Never correct yourself mid-answer.
 Never attribute to the document something it does not say.
 Never mention what text you were or were not given; say plainly when the document doesn't cover something, and say "from general knowledge" when you go beyond it.
+Read a table row by row and quote its numbers exactly as printed, each with its own row and column. When you compare two numbers, say which is higher.
+Each answer stands alone: never refer to your own earlier replies, never say an answer corrects or adds to one, and never compare it with "before".
 ```
+
+The last two lines came from the morning retest (16 October): a GAN Counterpoint put adversarial nets second to DBN on TFD, where they beat it (2057 against 1909), the night run's final round read 225 against 214 as "weak against the baselines", and Chat wrote "This also corrects my earlier remark" and "I can be more specific than before". The PDF reader also drops such an opening from any answer (`withoutSelfReference`, `marginParse.ts` and its twin): "As I said earlier, X" reads "X", and a sentence only about an earlier reply goes.
+
+**Superscripts in the text (morning retest, 16 October).** Table 1's O(n²·d) reached the model as "O(n · d)" and Table 2's FLOPs lost their exponents: the PDF's superscripts, set smaller and raised, were read as a figure's labels and moved to the end of the page. The page text (`js/reading-order.js`) now keeps a superscript with its base and writes it with ^ ("n^2", "10^18", "10000^(2i/dmodel)"); a footnote mark stays as printed. The same page always gives the same text, so the cached document is stable. A passage that touches a table or a displayed formula, or names a table on its page, sends one picture cropped to the passage and that table or formula together (`TinctMargin.mathBox`).
 
 The fourth line came from the MacKay test (15 October): a whole-PDF answer opened "Only the titles and placement of these chapters are supplied, not their text…". A long file's header no longer asks the answer to say when text "is not supplied"; it keeps the general-knowledge rule.
 
 **The picture and the extraction (15 October, evening).** Two answers read the passage picture aloud ("In the image the passage reads…"), and a primer and a whole-paper answer talked about "garbled" or "lost" extraction. `MARGIN_RULES` carries two more lines, after the data-not-instructions line:
 
 ```
-The picture is the passage itself; never describe or read out the picture, and never say what it confirms. Answer about the passage.
+The picture is the passage itself; never describe or read out the picture, never say what it shows or confirms, and never mention an image. Answer about the passage.
 Never mention text extraction, garbling, or how the document reached you.
 ```
 
@@ -69,7 +75,10 @@ The Worker's PDF Explain prompt (`PDF_EXPLAIN_PROMPT`: "Explain the passage the 
 
 ```
 Write only about what the text says and means.
+Start with the meaning itself. Never describe the selection ("The selected passage…", "This sentence…") or the picture, and never say what the passage lacks.
 ```
+
+The second line came from the night run's final round and the morning retest (16 October): "The selected sentence describes…", "The image shows the abstract line…" and "No special notation or technical terms appear in this line.". The card also turns an opening on the selection into one on its meaning ("The selected passage says that X" reads "X", any other verb "It …"), drops a sentence on what the passage lacks (notation, symbols, technical terms) and a sentence that opens on the picture ("The image shows…").
 
 Add the PDF citation rule. Do not change the book reader's `LAB_EXPLAIN_PROMPT`.
 
@@ -143,11 +152,12 @@ Check whether the passage's factual claims still hold today and what has changed
 First paragraph: one sentence of at most 25 words, from the document alone, that places the claim: what it refers to and where the document states it. It gives no verdict and does not summarise the document's support. Then a blank line.
 Then the verdict paragraph: start it with one of: Holds. Partly holds. Outdated. Disputed. Can't check. Then give the reason in at most two sentences, with numbers where they decide it.
 State the verdict once: no other paragraph starts with a verdict word or repeats the verdict. At most one more paragraph may follow, starting with Note., for useful context that is not a verdict.
+Use Partly holds only when one part of the claim holds and another does not, and name both parts in its reason. After the verdict paragraph never judge the claim again: no "holds", "no longer holds", "outdated" or "disputed" in a later paragraph.
 Never treat the document itself as confirmation of its own claims: what it offers in support is the authors' case, not a check. Base the verdict on the returned sources and well-established knowledge.
 If the passage is opinion or interpretation, check only what is factual in it.
 If the passage is fiction, check its references to the real world (people, places, events, history, science). When it has none, the verdict is Can't check. with one line saying the passage has nothing outside the story to check. Never open by saying there is no factual claim.
 At most 150 words in all, not counting the Sources: line.
-Name each source by its title; never mention the search itself or its notes.
+Name each source by its title; never mention the search, a tool, a lookup or its notes, and never say that sources are unavailable.
 Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself. Never invent a source. End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".
 ```
 
@@ -163,7 +173,15 @@ and the verdict round, whose assistant turn begins with the opening the reader h
 Your first paragraph is written (your previous turn). Continue from it with the verdict paragraph, any Note., and the Sources: line. Do not repeat or restate the first paragraph.
 ```
 
-**Card.** The opening first, in plain text, as it streams; then "Checking sources…" in the 12px status style while the search is still running; then the verdict paragraph, its verdict word in italic secondary colour and its sentence as the card's bottom line in medium weight; then any Note.; then the "Sources:" line as the row of plain links shown in the mockup. Folded, the card shows the verdict line. An answer written before 15 October (verdict first, a verdict word per claim) shows as before.
+**When the search fails (morning retest, 16 October: "Can't check. The search tool is unavailable right now.").** In the PDF reader the Worker asks the search once more; when it fails again (or meets its short-term limit) the verdict round receives, as the search's result:
+
+```
+No outside sources were found this time. Answer from the document and well-established general knowledge, and say "from general knowledge" where you rely on it. Never mention a search, a tool, a lookup or that sources are unavailable. End with the line "Sources:" and nothing after it.
+```
+
+The book reader's search keeps its own wording.
+
+**Card.** The opening first, in plain text, as it streams; then "Checking sources…" in the 12px status style while the search is still running; then the verdict paragraph, its verdict word in italic secondary colour and its sentence as the card's bottom line in medium weight; then any Note.; then the "Sources:" line as the row of plain links shown in the mockup, led by "Sources" (16 October: the bare titles read as a raw tail), each title without the site's name after " | ", " · " or " – " ("Deep Residual Learning for Image Recognition", not "… | IEEE Conference Publication | IEEE Xplore"), and a title that repeats an earlier one left out. Folded, the card shows the verdict line. An answer written before 15 October (verdict first, a verdict word per claim) shows as before.
 
 ## Counterpoint — new intent `counterpoint`
 
@@ -171,18 +189,19 @@ Model: `COMPANION_MODEL`. Max tokens: 600. Effort: typed. No tools.
 
 As routed for the PDF reader (`marginRoutes.ts`): Haiku 5.5, 6000 tokens, adaptive thinking. Effort is `low` since 15 October, evening (it was `medium`: 7–12 s, almost all of it thinking), pending Anders's confirmation.
 
-Round 3 (16 October): a speed trial behind one switch, `COUNTERPOINT_THINKING_OFF`, on in this PR: thinking disabled at effort low with a 400-token bound (the 150-word answer with room to spare). recheck-1 had its first words at 5–10 s, against 1–2 s before the stricter grounding prompt, and its median output at 1,200 tokens against 303, nearly all of it thinking. The prompt below, with its grounding rules, is unchanged. Off: adaptive thinking at effort low with 6000 tokens.
+Round 3 (16 October) trialled thinking off (`COUNTERPOINT_THINKING_OFF`, effort low, 400 tokens). The night run's final round (16 October) found it worse, 3.80 to 3.26 against Gloss's 4.90, with ResNet's answer cut off empty; the switch is off again: adaptive thinking at effort low with 6000 tokens.
+
+The night run's final round also removed the "strongest objection … author's best reply" template for every document, not only fiction: one sharp objection grounded in a cited page, table or number, in about 120 words. The card drops what is left of the template in an answer: the lead-in "The strongest objection is that" and a sentence giving the author's reply with what follows it in its paragraph (`counterpointAnswer`, `marginParse.ts` and its twin).
 
 ```
-Give the strongest objection a careful, well-informed critic would raise to the claim or argument in the selected passage.
-First paragraph: the objection in one sentence, at most 25 words. Then a blank line.
-Then one paragraph that develops it with a concrete reason, example or counter-case. Name a school of thought or a critic only when the objection is documented as theirs.
-Tie the objection to something specific in the document, a page, table, figure, equation, number or quoted line, and cite it. Look first for the document's own inconsistencies: a table or result that cuts against a claim in the text, or numbers that disagree between sections.
+Give one sharp objection to the claim or argument in the selected passage: the one a careful, well-informed critic would raise first.
+First paragraph: the objection itself in one sentence, at most 25 words. Then a blank line.
+Then one paragraph that makes it concrete with a page, table, figure, equation, number or quoted line of the document, cited. Look first for the document's own inconsistencies: a table or result that cuts against a claim in the text, or numbers that disagree between sections. Name a school of thought or a critic only when the objection is documented as theirs.
 Never a generic objection that would fit any work, such as that a method or metric is unreliable in general.
-Quote the document's own numbers, formulas and complexities exactly as printed, checked against its tables; never restate them from memory.
-Then one sentence giving the author's best reply. Give the author's reply only from what the document says or plainly implies.
-If the passage tells a story rather than making an argument, give instead a reading of it that differs from the obvious one: the reading in one sentence, then one paragraph that grounds it in the text. It must not restate what the passage plainly says, and it ends there, with no author's reply.
-At most 150 words in all. No straw men, and no "on the other hand" filler. Do not draw on later chapters.
+Quote the document's own numbers, formulas and complexities exactly as printed, read from its tables row by row; never restate them from memory. When you compare two numbers, check which is higher before you write and say so plainly.
+End with the objection. Never answer it on the author's behalf, never give "the author's best reply", and never open with "The strongest objection is" or "A critic would argue".
+If the passage tells a story rather than making an argument, give instead a reading of it that differs from the obvious one: the reading in one sentence, then one paragraph that grounds it in the text. It must not restate what the passage plainly says.
+About 120 words in all, plain prose, no headings. No straw men, and no "on the other hand" filler. Do not draw on later chapters.
 ```
 
 For a PDF the last sentence reads "Do not draw on later parts of the document." (PR C: a PDF is the document, never the chapter.)
