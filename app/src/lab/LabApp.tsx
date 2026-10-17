@@ -188,7 +188,7 @@ import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
 import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
-import { useLabListen } from './useLabListen'
+import { narrationBridgeUrls, useLabListen, type NextChapterAudio } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
 import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
 import {
@@ -1272,6 +1272,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   const [browseWhileListening, setBrowseWhileListening] = useState(false)
   const [audioChapterTransitioning, setAudioChapterTransitioning] = useState(false)
   const audioChapterCompleteRef = useRef<() => boolean>(() => false)
+  /** The next chapter's warmed narration opening, played straight from `ended` on a locked phone. */
+  const nextChapterAudioRef = useRef<() => NextChapterAudio | null>(() => null)
   const browseWhileListeningRef = useRef(false)
   /** A word the reader tapped while audio was paused: the place Play resumes from. */
   const pausedJumpRef = useRef<{ bookId: string; chapterNumber: number; paragraphIndex: number; wordIndex: number } | null>(null)
@@ -1421,6 +1423,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     onPlaybackSpeedChange: (audioSpeed) => updatePrefs({ ...prefs, audioSpeed }),
     titleClip: listenSource.audioTitle,
     onChapterComplete: () => audioChapterCompleteRef.current(),
+    nextChapterAudio: () => nextChapterAudioRef.current(),
   })
   listenSpeedRef.current = listen.speed
   listenPlayingRef.current = listen.playing
@@ -4127,6 +4130,22 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setBook(loaded)
     setOpenAtEnd(landing === 'end')
   }, [book.bookId, bookEditions, listen, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
+
+  nextChapterAudioRef.current = () => {
+    // Only where the chapter-complete handler below continues: the chapter
+    // heard is the chapter shown, warmed narration, never an own book.
+    if (privateBook || !narrationOption || !narrationVoice) return null
+    if (listenSource.bookId !== (book.bookId || 'bible') || listenSource.chapterNumber !== book.chapterNumber) return null
+    const next = nextLabChapter(book.chapters, book.chapterNumber)
+    if (next == null) return null
+    const scope = { ...narrationContextRef.current, chapter: next }
+    const results = [
+      ...readNarrationReplay(scope),
+      ...(warmedNarrationRef.current.get(warmedNarrationKey(scope.bookId, scope.editionKey, next, scope.voice)) ?? []),
+    ]
+    const urls = narrationBridgeUrls(results)
+    return urls.length > 0 ? { chapterNumber: next, urls } : null
+  }
 
   audioChapterCompleteRef.current = () => {
     const next = nextLabChapter(book.chapters, book.chapterNumber)

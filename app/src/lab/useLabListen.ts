@@ -80,6 +80,49 @@ export function narrationLookAheadWidth(rate: number): number {
   return rate < 2.5 ? 2 : 3
 }
 
+/**
+ * After iOS pauses the element by itself (a notification sound, Siri, a call),
+ * play() is retried at these delays (ms from the pause), then given up: about
+ * ten seconds in all. A pause the reader made is never retried.
+ */
+export const INTERRUPTION_RETRY_DELAYS_MS = [400, 1_000, 2_000, 3_500, 5_500, 8_000, 10_000]
+/**
+ * A second interruption this soon after an automatic resume is not retried:
+ * another app that keeps taking the audio (music the reader started) must
+ * not be fought over. The pause then stands until the reader plays.
+ */
+export const INTERRUPTION_REPEAT_WINDOW_MS = 30_000
+
+/**
+ * The next chapter's opening recordings, in playing order: the ready prefix of
+ * each paragraph from the first, stopping at the first sentence group that is
+ * not ready. Later states for the same paragraph replace earlier ones, as the
+ * player adopts them. These play on the same element straight from `ended`
+ * while the page loads that chapter (see `nextChapterAudio`).
+ */
+export function narrationBridgeUrls(results: NarrationParagraphResult[]): string[] {
+  const byParagraph = new Map<number, NarrationParagraphResult>()
+  for (const result of results) byParagraph.set(result.paragraph, result)
+  const urls: string[] = []
+  for (let paragraph = 0; byParagraph.has(paragraph); paragraph += 1) {
+    const result = byParagraph.get(paragraph)!
+    if (isNotReady(result)) break
+    const chunks = [...result.chunks].sort((a, b) => a.index - b.index)
+    for (const chunk of chunks) {
+      if (!chunk.ready || !chunk.url) return urls
+      urls.push(chunk.url)
+    }
+    if (chunks.length < result.chunkCount) break
+  }
+  return urls
+}
+
+export interface NextChapterAudio {
+  chapterNumber: number
+  /** Ready recordings of the next chapter's opening, in playing order. */
+  urls: string[]
+}
+
 export interface UseLabListenOptions {
   playbackUnavailable?: boolean
   /** V2: cancelled or superseded play requests cannot skip or repaint clips. */
@@ -99,6 +142,14 @@ export interface UseLabListenOptions {
   createAudio?: () => HTMLAudioElement
   /** Return true when the reader accepted a transition to the next chapter. */
   onChapterComplete?: () => boolean
+  /**
+   * The next chapter's opening audio, when it is already prepared. Read at
+   * the chapter's last `ended`: if `onChapterComplete` accepts the
+   * transition, the first URL is started on the same element inside that
+   * event, so a locked iPhone keeps playing while the page loads the chapter.
+   * The started chapter adopts it in place once its clips resolve.
+   */
+  nextChapterAudio?: () => NextChapterAudio | null
   /**
    * Fish narration pilot. When set, clips are prepared on demand through
    * `ensure` instead of read from the Kokoro manifest, and only words the
@@ -212,8 +263,19 @@ function defaultCreateAudio(): HTMLAudioElement {
   return audio
 }
 
+/** Lock-screen state follows the player at once, not after React's next commit (a locked phone may not render). */
+function publishPlaybackState(playing: boolean): void {
+  const session = readerMediaSession()
+  if (!session) return
+  try { session.playbackState = playing ? 'playing' : 'paused' } catch { /* unsupported */ }
+}
+
 export function useLabListen(options: UseLabListenOptions) {
-  const [playing, setPlaying] = useState(false)
+  const [playing, setPlayingState] = useState(false)
+  const setPlaying = useCallback((value: boolean) => {
+    setPlayingState(value)
+    publishPlaybackState(value)
+  }, [])
   const [pending, setPendingState] = useState(false)
   const [loading, setLoading] = useState(false)
   const pendingRef = useRef(false)
@@ -243,6 +305,24 @@ export function useLabListen(options: UseLabListenOptions) {
   const chapterHandoffRef = useRef(false)
   const chapterCompletedRef = useRef(false)
   const playRequestRef = useRef(0)
+  /** The reader (in-app, lock screen, AirPods) or the app paused or stopped on purpose: never auto-resume. */
+  const userPausedRef = useRef(false)
+  /** iOS paused the element by itself; retried for a few seconds (INTERRUPTION_RETRY_DELAYS_MS). */
+  const interruptionRef = useRef<{ startedAt: number; timers: Array<ReturnType<typeof setTimeout>> } | null>(null)
+  const lastAutoResumeRef = useRef<number | null>(null)
+  /**
+   * The next chapter's opening, started on the element at the chapter's last
+   * `ended` (see `nextChapterAudio`) and playing while the page loads that
+   * chapter. `position` is the URL on the element; `drained` once the last
+   * one ended before the chapter was adopted.
+   */
+  const bridgeRef = useRef<{ chapterNumber: number; urls: string[]; position: number; drained: boolean } | null>(null)
+  const startBridgeRef = useRef<(audio: HTMLAudioElement, bridge: NextChapterAudio) => void>(() => {})
+  const advanceBridgeRef = useRef<(audio: HTMLAudioElement) => void>(() => {})
+  const beginInterruptionRef = useRef<(audio: HTMLAudioElement) => void>(() => {})
+  const endInterruptionRef = useRef<() => void>(() => {})
+  const attemptResumeRef = useRef<() => void>(() => {})
+  const adoptBridgeRef = useRef<(clips: LabAudioClip[]) => boolean>(() => false)
   const requestIsCurrent = (request: number) => !optionsRef.current.guardPlaybackRequests || request === playRequestRef.current
   // Narration pilot: prepared recordings for the current tuple, requests in
   // flight (shared between play and look-ahead), and one abort controller
@@ -702,6 +782,7 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationAbortRef.current = null
     pendingPlaceRef.current = null
     chapterCompletedRef.current = false
+    endInterruptionRef.current()
     narrationPreparedRef.current = new Map()
     narrationHashesRef.current = new Map()
     narrationRoundRef.current = null
@@ -779,6 +860,8 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleTimeUpdate = () => {
       if (primingRef.current || isUnlockSource(audio)) return
+      // The next chapter's opening is playing before its clips exist here.
+      if (bridgeRef.current) return
       const current = clipsRef.current[clipIndexRef.current]
       if (waitingForNarration(current, audio)) return
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
@@ -786,6 +869,11 @@ export function useLabListen(options: UseLabListenOptions) {
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
       if (!playingRef.current || !audio.src) return
+      if (bridgeRef.current) {
+        // Safari's stale post-swap `ended` reports time zero; a real end does not.
+        if (audio.ended && audio.currentTime > 0) advanceBridgeRef.current(audio)
+        return
+      }
       const pending = clipsRef.current[clipIndexRef.current]
       if (waitingForNarration(pending, audio)) return
       if (switchingRef.current) {
@@ -802,7 +890,15 @@ export function useLabListen(options: UseLabListenOptions) {
       if (!clip) {
         if (chapterCompletedRef.current) return
         chapterCompletedRef.current = true
-        if (optionsRef.current.onChapterComplete?.()) return
+        // Read before the reader moves on: it names the chapter being left.
+        const bridge = optionsRef.current.nextChapterAudio?.() ?? null
+        if (optionsRef.current.onChapterComplete?.()) {
+          // iOS lets a page keep playing without a gesture only on the same
+          // element, started from this event; the chapter text, its clips and
+          // React all arrive later. Start its opening now and adopt it then.
+          if (bridge && bridge.urls.length > 0 && playingRef.current) startBridgeRef.current(audio, bridge)
+          return
+        }
         finishPlayback()
         return
       }
@@ -810,6 +906,8 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleError = () => {
       if (switchingRef.current || primingRef.current || isUnlockSource(audio)) return
+      // A next-chapter opening that fails is dropped; the chapter starts it normally once loaded.
+      if (bridgeRef.current) { bridgeRef.current = null; return }
       // An element that is neither playing nor asked to play has nothing to
       // advance. Clearing the unlock clip's src (or a page refusing it) makes
       // the element report an error; read as a failed last clip, that moved
@@ -837,17 +935,46 @@ export function useLabListen(options: UseLabListenOptions) {
     const handlePlaying = () => {
       if (primingRef.current) return
       if (!playingRef.current) {
-        // A late native start after cancellation must stay silent.
-        audio.autoplay = false
-        audio.pause()
-        return
+        if (interruptionRef.current && !userPausedRef.current) {
+          // iOS resumed the element itself after an interruption: follow it.
+          endInterruptionRef.current()
+          playingRef.current = true
+          setPlaying(true)
+        } else {
+          // A late native start after cancellation must stay silent.
+          audio.autoplay = false
+          audio.pause()
+          return
+        }
       }
+      setPlaying(true)
       if (!waitingForNarration(clipsRef.current[clipIndexRef.current], audio)) setPending(false)
       // iOS can drop Now Playing details set before audio first played; restate them once it does.
       applyMetadataRef.current()
     }
+    // Invariant 5: the one speed is applied on every play event too.
+    const handlePlay = () => {
+      if (primingRef.current || isUnlockSource(audio)) return
+      try { if (audio.playbackRate !== speedRef.current) audio.playbackRate = speedRef.current } catch { /* jsdom */ }
+    }
+    /**
+     * The element paused and the reader did not ask for it: iOS does this for
+     * a call, Siri, another app's audio, a notification sound. The player
+     * shows it paused, the lock screen too, and the interruption is retried.
+     * Our own pauses come with `playingRef` already false, or are followed by
+     * a play() before this event is dispatched; an `ended` pause is the
+     * boundary path's.
+     */
+    const handlePause = () => {
+      if (primingRef.current || isUnlockSource(audio)) return
+      if (!playingRef.current || userPausedRef.current || switchingRef.current) return
+      if (audio.paused !== true || audio.ended || !audio.src) return
+      beginInterruptionRef.current(audio)
+    }
     const publishPosition = () => publishPositionRef.current()
     const nowPlayingEvents = ['playing', 'timeupdate', 'seeked', 'ratechange', 'loadedmetadata'] as const
+    audio.addEventListener('play', handlePlay)
+    audio.addEventListener('pause', handlePause)
     audio.addEventListener('playing', handlePlaying)
     audio.addEventListener('timeupdate', handleTimeUpdate)
     audio.addEventListener('ended', handleEnded)
@@ -855,12 +982,14 @@ export function useLabListen(options: UseLabListenOptions) {
     for (const type of nowPlayingEvents) audio.addEventListener(type, publishPosition)
     return () => {
       for (const type of nowPlayingEvents) audio.removeEventListener(type, publishPosition)
+      audio.removeEventListener('play', handlePlay)
+      audio.removeEventListener('pause', handlePause)
       audio.removeEventListener('playing', handlePlaying)
       audio.removeEventListener('timeupdate', handleTimeUpdate)
       audio.removeEventListener('ended', handleEnded)
       audio.removeEventListener('error', handleError)
     }
-  }, [setPending, syncFollow])
+  }, [setPending, setPlaying, syncFollow])
 
   const detachRef = useRef<(() => void) | null>(null)
   const primingRef = useRef(false)
@@ -883,7 +1012,7 @@ export function useLabListen(options: UseLabListenOptions) {
       const audio = audioRef.current
       const current = clipsRef.current[clipIndexRef.current]
       const preparing = audio && waitingForNarration(current, audio)
-      if (audio && !preparing) {
+      if (audio && !preparing && !bridgeRef.current) {
         const time = playbackTimeSeconds(audio.currentTime || 0, positionRef.current.time)
         if (time > 0 || positionRef.current.time === 0) {
           syncFollow(clipIndexRef.current, time)
@@ -960,6 +1089,8 @@ export function useLabListen(options: UseLabListenOptions) {
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
     chapterCompletedRef.current = false
+    endInterruptionRef.current()
+    if (andPlay) userPausedRef.current = false
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) { setPending(false); return false }
@@ -1110,6 +1241,146 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [enterPreparing, ensureAudio, playClip, prepareThenRun])
   playPlaceRef.current = playPlace
 
+  // --- Chapter boundary on a locked phone -------------------------------
+  const playBridgeUrl = (audio: HTMLAudioElement, url: string) => {
+    switchingRef.current = false
+    audio.autoplay = !isNativeCapacitor()
+    setAudioSource(audio, url)
+    try { audio.currentTime = 0 } catch { /* ignore */ }
+    applyRate(audio, speedRef.current)
+    // Same element, synchronously from `ended`: the only start iOS allows
+    // without a gesture while the screen is locked.
+    void playReaderAudioTransition(audio, audio.src, () => bridgeRef.current != null && playingRef.current && !userPausedRef.current)
+      .then((started) => { if (started) applyRate(audio, speedRef.current) })
+  }
+  startBridgeRef.current = (audio, bridge) => {
+    bridgeRef.current = { chapterNumber: bridge.chapterNumber, urls: bridge.urls, position: 0, drained: false }
+    playBridgeUrl(audio, bridge.urls[0])
+  }
+  advanceBridgeRef.current = (audio) => {
+    const bridge = bridgeRef.current
+    if (!bridge) return
+    if (bridge.position + 1 < bridge.urls.length) {
+      bridge.position += 1
+      playBridgeUrl(audio, bridge.urls[bridge.position])
+    } else {
+      bridge.drained = true
+    }
+  }
+  /**
+   * The next chapter's clips have resolved while its opening already plays
+   * on the element: take over that clip where it is (no pause, no rewind,
+   * no second start). False hands the start back to the ordinary path.
+   */
+  adoptBridgeRef.current = (clips) => {
+    const bridge = bridgeRef.current
+    if (!bridge) return false
+    bridgeRef.current = null
+    const audio = audioRef.current
+    if (!audio || !audio.src || bridge.chapterNumber !== audioChapter()) return false
+    const urlOf = (clip: LabAudioClip): string | null => {
+      if (clip.kind === 'paragraph' && clip.narration) return clip.url ?? null
+      return labAudioFileUrl(clip.file, audioChapter(), audioEdition(), audioBook())
+    }
+    const index = clips.findIndex((clip) => {
+      const url = urlOf(clip)
+      return Boolean(url && (audio.src === url || audio.src.endsWith(url)))
+    })
+    if (index < 0) return false
+    const clip = clips[index]
+    const listening = playingRef.current && !userPausedRef.current
+    chapterHandoffRef.current = false
+    pendingPlaceRef.current = null
+    if (listening && audio.ended) {
+      // The prepared opening ran out before the chapter arrived: go on from the clip after it.
+      clipIndexRef.current = index
+      if (index + 1 < clips.length) return playClipRef.current(index + 1, 0)
+      setPending(false)
+      chapterCompletedRef.current = true
+      if (!optionsRef.current.onChapterComplete?.()) stop()
+      return true
+    }
+    const time = audio.currentTime || 0
+    clipIndexRef.current = index
+    setClipIndex(index)
+    setSrc(urlOf(clip))
+    positionRef.current = { clipIndex: index, time }
+    setPending(false)
+    if (!listening) {
+      // Paused during the handoff: the place is kept, nothing restarts.
+      playingRef.current = false
+      setPlaying(false)
+      setCurrentTime(time)
+      return true
+    }
+    // iOS refused the opening after all: start it the ordinary way, in place.
+    if (audio.paused) return playClipRef.current(index, time)
+    playingRef.current = true
+    setPlaying(true)
+    retryPlaybackRef.current = () => { playClipRef.current(index, time, true) }
+    syncFollow(index, time)
+    applyMetadataRef.current()
+    if (clip.kind === 'paragraph' && clip.narration) { scheduleNarrationLookAhead(); downloadAhead() }
+    return true
+  }
+
+  // --- Interruptions (a call, Siri, a notification sound) ---------------
+  endInterruptionRef.current = () => {
+    const interruption = interruptionRef.current
+    if (!interruption) return
+    interruption.timers.forEach(timer => clearTimeout(timer))
+    interruptionRef.current = null
+  }
+  beginInterruptionRef.current = (audio) => {
+    if (!bridgeRef.current) positionRef.current = { clipIndex: clipIndexRef.current, time: audio.currentTime || 0 }
+    // Any start in flight is superseded; it must not report an error over this.
+    playRequestRef.current += 1
+    playingRef.current = false
+    audio.autoplay = false
+    setPending(false)
+    setPlaying(false)
+    if (interruptionRef.current) return
+    const lastResume = lastAutoResumeRef.current
+    if (lastResume != null && waitClockMs() - lastResume < INTERRUPTION_REPEAT_WINDOW_MS) return
+    const timers = INTERRUPTION_RETRY_DELAYS_MS.map(delay => setTimeout(() => attemptResumeRef.current(), delay))
+    // After the last retry the pause stands; one tap on Play resumes it.
+    const last = INTERRUPTION_RETRY_DELAYS_MS[INTERRUPTION_RETRY_DELAYS_MS.length - 1]
+    timers.push(setTimeout(() => endInterruptionRef.current(), last + 500))
+    interruptionRef.current = { startedAt: waitClockMs(), timers }
+  }
+  attemptResumeRef.current = () => {
+    if (!interruptionRef.current) return
+    const audio = audioRef.current
+    if (userPausedRef.current || !audio || !audio.src || playingRef.current) {
+      if (userPausedRef.current || !audio?.src) endInterruptionRef.current()
+      return
+    }
+    if (!audio.paused) {
+      endInterruptionRef.current()
+      playingRef.current = true
+      setPlaying(true)
+      return
+    }
+    const request = ++playRequestRef.current
+    playingRef.current = true
+    applyRate(audio, speedRef.current)
+    let played: Promise<void>
+    try { played = Promise.resolve(audio.play()) } catch (error) { played = Promise.reject(error) }
+    played.then(() => {
+      if (request !== playRequestRef.current || userPausedRef.current) return
+      endInterruptionRef.current()
+      lastAutoResumeRef.current = waitClockMs()
+      applyRate(audio, speedRef.current)
+      setPlaying(true)
+      syncFollow(clipIndexRef.current, audio.currentTime || 0)
+      const current = clipsRef.current[clipIndexRef.current]
+      if (current?.kind === 'paragraph' && current.narration) scheduleNarrationLookAhead()
+    }, () => {
+      // Still interrupted; the next retry (or the reader) tries again.
+      if (request === playRequestRef.current) playingRef.current = false
+    })
+  }
+
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {
     const chapter = audioChapter()
     const edition = audioEdition()
@@ -1220,6 +1491,9 @@ export function useLabListen(options: UseLabListenOptions) {
   const start = useCallback(async (place?: { paragraphIndex: number; wordIndex?: number }) => {
     if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
     const request = ++playRequestRef.current
+    endInterruptionRef.current()
+    userPausedRef.current = false
+    lastAutoResumeRef.current = null
     setPending(true)
     narrationRetryRef.current = null
     setNarrationState({ status: 'idle' })
@@ -1228,6 +1502,7 @@ export function useLabListen(options: UseLabListenOptions) {
       const clips = await resolveClips()
       if (request !== playRequestRef.current) return false
       if (clips.length === 0) throw new Error('No audio available')
+      if (adoptBridgeRef.current(clips)) return true
       return playPlace(clips, place, true, true)
     } catch {
       if (request !== playRequestRef.current) return false
@@ -1244,6 +1519,9 @@ export function useLabListen(options: UseLabListenOptions) {
   const startAtPlace = useCallback(async (place: { paragraphIndex: number; wordIndex?: number }) => {
     if (optionsRef.current.playbackUnavailable) return false
     const request = ++playRequestRef.current
+    endInterruptionRef.current()
+    userPausedRef.current = false
+    lastAutoResumeRef.current = null
     setPending(true)
     narrationRetryRef.current = null
     setNarrationState({ status: 'idle' })
@@ -1252,6 +1530,7 @@ export function useLabListen(options: UseLabListenOptions) {
       const clips = await resolveClips()
       if (request !== playRequestRef.current) return false
       if (clips.length === 0) throw new Error('No audio available')
+      if (adoptBridgeRef.current(clips)) return true
       return playPlace(clips, place, true, false)
     } catch {
       if (request !== playRequestRef.current) return false
@@ -1276,6 +1555,14 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [playPlace])
 
   const pause = useCallback(() => {
+    // A deliberate pause (in-app, lock screen, AirPods, Talk): never auto-resumed.
+    userPausedRef.current = true
+    endInterruptionRef.current()
+    const paused = audioRef.current
+    const current = clipsRef.current[clipIndexRef.current]
+    if (paused?.src && !bridgeRef.current && !isUnlockSource(paused) && !waitingForNarration(current, paused) && Number.isFinite(paused.currentTime)) {
+      positionRef.current = { clipIndex: clipIndexRef.current, time: paused.currentTime || 0 }
+    }
     setPending(false)
     chapterHandoffRef.current = false
     playRequestRef.current += 1
@@ -1309,6 +1596,9 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const resume = useCallback((fromSentenceStart = false) => {
     if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
+    endInterruptionRef.current()
+    userPausedRef.current = false
+    lastAutoResumeRef.current = null
     const request = ++playRequestRef.current
     const audio = audioRef.current
     const current = clipsRef.current[clipIndexRef.current]
@@ -1337,7 +1627,11 @@ export function useLabListen(options: UseLabListenOptions) {
       playClip(clipIndexRef.current, positionRef.current.time)
       return
     }
-    if (!audio?.src) {
+    if (!audio?.src || isUnlockSource(audio)) {
+      // The element lost its media while paused (WebKit can drop it while
+      // suspended): load the same clip at the same time, synchronously, so a
+      // lock-screen Play still counts as the gesture that starts it.
+      if (current) { playClip(clipIndexRef.current, positionRef.current.time); return }
       void start()
       return
     }
@@ -1362,7 +1656,9 @@ export function useLabListen(options: UseLabListenOptions) {
     retryPlaybackRef.current = () => { playClipRef.current(clipIndexRef.current, positionRef.current.time) }
     playingRef.current = true
     applyRate(audio, speed)
-    playReaderAudio(audio, () => requestIsCurrent(request) && playingRef.current).then(() => {
+    const played = playReaderAudio(audio, () => requestIsCurrent(request) && playingRef.current)
+    publishPlaybackState(true)
+    played.then(() => {
       if (!requestIsCurrent(request)) return
       setPending(false)
       applyRate(audio, speed)
@@ -1379,7 +1675,25 @@ export function useLabListen(options: UseLabListenOptions) {
     })
   }, [applyRate, playClip, setPending, speed, start, syncFollow])
 
+  /**
+   * Lock-screen / Control Center / AirPods Play. iOS counts the action as the
+   * gesture only while it runs, so play() happens inside it, synchronously.
+   * A pending flag left by a start that iOS froze (the element loaded and
+   * paused) must not swallow the tap.
+   */
+  const playFromMediaSession = useCallback(() => {
+    const audio = audioRef.current
+    const current = clipsRef.current[clipIndexRef.current]
+    if (pendingRef.current && audio?.src && audio.paused && !audio.ended && !isUnlockSource(audio) && !waitingForNarration(current, audio)) {
+      setPending(false)
+    }
+    resume()
+  }, [resume, setPending])
+
   const stop = useCallback(() => {
+    userPausedRef.current = true
+    endInterruptionRef.current()
+    bridgeRef.current = null
     setPending(false)
     pendingPlaceRef.current = null
     chapterHandoffRef.current = false
@@ -1412,6 +1726,8 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationAbortRef.current?.abort()
     narrationAbortRef.current = null
     chapterHandoffRef.current = true
+    userPausedRef.current = false
+    endInterruptionRef.current()
     const audio = audioRef.current
     if (audio) audio.autoplay = !isNativeCapacitor()
     playingRef.current = true
@@ -1516,7 +1832,7 @@ export function useLabListen(options: UseLabListenOptions) {
     if (!session) return
     applyMetadataRef.current()
     try {
-      session.setActionHandler('play', () => resume())
+      session.setActionHandler('play', () => playFromMediaSession())
       session.setActionHandler('pause', pause)
       session.setActionHandler('seekbackward', details => seek(-(details.seekOffset || 15)))
       session.setActionHandler('seekforward', details => seek(details.seekOffset || 30))
@@ -1525,7 +1841,44 @@ export function useLabListen(options: UseLabListenOptions) {
     return () => {
       try { session.setActionHandler('play', null); session.setActionHandler('pause', null); session.setActionHandler('seekbackward', null); session.setActionHandler('seekforward', null); session.setActionHandler('seekto', null) } catch { /* unsupported */ }
     }
-  }, [options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, options.coverSrc, pause, resume, seek, seekChapter])
+  }, [options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, options.coverSrc, pause, playFromMediaSession, seek, seekChapter])
+
+  // When the page comes back (unlock, app switch, bfcache), the player says
+  // what the element is doing, whatever events a suspended page missed.
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    const reconcile = () => {
+      const audio = audioRef.current
+      if (!audio || primingRef.current || isUnlockSource(audio) || typeof audio.paused !== 'boolean') return
+      if (interruptionRef.current) { attemptResumeRef.current(); return }
+      if (playingRef.current && audio.paused && !audio.ended && audio.src
+        && !pendingRef.current && !switchingRef.current && !bridgeRef.current) {
+        playRequestRef.current += 1
+        playingRef.current = false
+        audio.autoplay = false
+        setPlaying(false)
+      } else if (!playingRef.current && !audio.paused && audio.src && !pendingRef.current) {
+        userPausedRef.current = false
+        playingRef.current = true
+        setPlaying(true)
+      }
+    }
+    const onVisibility = () => { if (document.visibilityState !== 'hidden') reconcile() }
+    // An output change (headphones out) is not an interruption to resume from.
+    const onDeviceChange = () => endInterruptionRef.current()
+    const devices = typeof navigator !== 'undefined' ? navigator.mediaDevices : undefined
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pageshow', reconcile)
+    window.addEventListener('focus', reconcile)
+    devices?.addEventListener?.('devicechange', onDeviceChange)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pageshow', reconcile)
+      window.removeEventListener('focus', reconcile)
+      devices?.removeEventListener?.('devicechange', onDeviceChange)
+      endInterruptionRef.current()
+    }
+  }, [setPlaying])
 
   useEffect(() => {
     const session = readerMediaSession()
@@ -1538,7 +1891,7 @@ export function useLabListen(options: UseLabListenOptions) {
   // media events too, so the lock screen never falls back to the group's own.
   publishPositionRef.current = () => {
     const session = readerMediaSession()
-    if (!session) return
+    if (!session || bridgeRef.current) return
     const audio = audioRef.current
     let elapsed = 0
     let duration = 0
