@@ -67,7 +67,7 @@ beforeEach(() => {
   const worker = { postMessage: (_message: unknown, ports: Array<{ postMessage?: unknown; onmessage?: (event: { data: unknown }) => void }>) => { setTimeout(() => channelPort1?.onmessage?.({ data: { ok: true } })) } }
   let channelPort1: { onmessage?: (event: { data: unknown }) => void } | null = null
   vi.stubGlobal('MessageChannel', class { port1: { onmessage?: (event: { data: unknown }) => void } = {}; port2 = {}; constructor() { channelPort1 = this.port1 } })
-  Object.defineProperty(navigator, 'serviceWorker', { configurable: true, value: { ready: Promise.resolve({ active: worker }) } })
+  Object.defineProperty(navigator, 'serviceWorker', { configurable: true, value: { ready: Promise.resolve({ active: worker }), getRegistration: () => Promise.resolve({ active: worker }) } })
   Object.defineProperty(navigator, 'onLine', { configurable: true, value: true })
 })
 
@@ -141,6 +141,14 @@ describe('background whole-book save', () => {
     const second = autoSaveBookOffline({ bookId: 'frankenstein', editionKeys: ['original-en'], hasVerseLines: false })
     expect(second).toBe(first)
     await first
+  })
+
+  it('saves nothing without an active service worker (nothing could serve it offline)', async () => {
+    const calls: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => { calls.push(String(url)); return new Response('{}') }))
+    Object.defineProperty(navigator, 'serviceWorker', { configurable: true, value: { ready: new Promise(() => {}), getRegistration: () => Promise.resolve(undefined) } })
+    expect(await autoSaveBookOffline({ bookId: 'frankenstein', editionKeys: ['original-en'], hasVerseLines: false })).toBe(false)
+    expect(calls).toEqual([])
   })
 
   it('leaves a book the reader removed, until the reader saves it by hand', async () => {

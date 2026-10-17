@@ -291,6 +291,10 @@ export function shouldAutoSaveBookOffline(bookId: string, editionKeys: string[])
   return !offlineBookSaved(bookId, editionKeys, buildVersion())
 }
 
+async function activeServiceWorker(): Promise<boolean> {
+  try { return !!(await navigator.serviceWorker.getRegistration())?.active } catch { return false }
+}
+
 const autoSaves = new Map<string, Promise<boolean>>()
 
 /**
@@ -303,8 +307,12 @@ export function autoSaveBookOffline({ bookId, editionKeys, hasVerseLines, signal
   const key = `${bookId}\u0000${editionKeys.join(',')}`
   const running = autoSaves.get(key)
   if (running) return running
-  const save = saveBookOffline({ bookId, editionKeys, hasVerseLines, onProgress: () => {}, background: { signal } })
-    .then(() => true, () => false)
+  // Saved files are only served offline by an active service worker: without one, nothing to save for.
+  const save = activeServiceWorker()
+    .then(active => active
+      ? saveBookOffline({ bookId, editionKeys, hasVerseLines, onProgress: () => {}, background: { signal } }).then(() => true)
+      : false)
+    .catch(() => false)
     .finally(() => { autoSaves.delete(key) })
   autoSaves.set(key, save)
   return save
