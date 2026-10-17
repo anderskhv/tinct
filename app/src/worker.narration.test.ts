@@ -818,6 +818,26 @@ describe('Grok narration rollout', () => {
     expect((await ensure(h, {voice:'f',paragraphs:[{index:1}]})).status).toBe(401)
     expect(h.fish.calls).toHaveLength(1)
   })
+  it('serves guests Ara and Helios only; Orion and Eve need an account even when cached', async () => {
+    const { h } = grokHarness()
+    for (const voice of ['f', 'm', 'orion', 'eve']) await ensure(h, {voice,paragraphs:[{index:0}]})
+    const made = h.fish.calls.length
+    h.deps.verifyUser = async () => null
+    for (const voice of ['f', 'm']) {
+      const cached = await ensure(h, {voice,paragraphs:[{index:0}]})
+      expect(cached.status).toBe(200)
+      expect(cached.json.paragraphs[0].status).toBe('ready')
+    }
+    for (const voice of ['orion', 'eve']) {
+      const refused = await ensure(h, {voice,paragraphs:[{index:0}]})
+      expect(refused.status).toBe(401)
+      expect(refused.json).toMatchObject({ error: 'Sign in to prepare narration', reason: 'account_voice' })
+    }
+    // Signed in, every voice still plays from the cache.
+    h.deps.verifyUser = async () => ({ id: 'signed-in', email: 'reader@example.com' })
+    for (const voice of ['orion', 'eve']) expect((await ensure(h, {voice,paragraphs:[{index:0}]})).json.paragraphs[0].status).toBe('ready')
+    expect(h.fish.calls).toHaveLength(made)
+  })
   describe('cost ledger', () => {
     const READER = '11111111-1111-4111-8111-111111111111'
     const ledgerEnv = { SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'service-role' }

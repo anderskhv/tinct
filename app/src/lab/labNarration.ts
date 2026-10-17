@@ -11,7 +11,7 @@ import { usesRetainedBella } from '../narration/bellaRetention'
  */
 
 import { apiUrl } from '../utils/apiUrl'
-import { isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
+import { isGuestNarrationVoice, isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
 import type { LabPrefs } from './labPrefs'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 
@@ -62,12 +62,25 @@ export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKe
   return isPilotScope(bookId, editionKey, chapter) && (provider === 'grok' || !usesRetainedBella(bookId, editionKey, prefs.voicePersona))
 }
 
-/** The voice to narrate with: the stored choice when the server still offers it, else the first voice. */
-export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOption[]): string | null {
+/** The voices a reader can narrate with: a signed-out reader gets Ara and Helios only, when the server offers them. */
+export function readerNarrationVoices(voices: NarrationVoiceOption[], signedIn: boolean): NarrationVoiceOption[] {
+  if (signedIn) return voices
+  const guestVoices = voices.filter(voice => isGuestNarrationVoice(voice.key))
+  return guestVoices.length > 0 ? guestVoices : voices
+}
+
+/**
+ * The voice to narrate with: the stored choice when the server still offers it, else the first voice.
+ * A signed-out reader whose stored voice needs an account (Orion, Eve) hears
+ * the guest voice of the same persona; the stored choice itself is untouched.
+ */
+export function resolveNarrationVoice(prefs: LabPrefs, allVoices: NarrationVoiceOption[], options: { signedIn?: boolean } = {}): string | null {
+  const voices = readerNarrationVoices(allVoices, options.signedIn !== false)
   if (voices.length === 0) return null
+  const persona = allVoices.find(voice => voice.key === prefs.audiobookVoice)?.persona ?? prefs.voicePersona
   return voices.find(voice => voice.key === prefs.audiobookVoice)?.key
-    ?? voices.find(voice => voice.persona === prefs.voicePersona)?.key
-    ?? voices.find(voice => voice.key === (prefs.voicePersona === 'female' ? 'f' : 'm'))?.key
+    ?? voices.find(voice => voice.persona === persona)?.key
+    ?? voices.find(voice => voice.key === (persona === 'female' ? 'f' : 'm'))?.key
     // The preferred voice is not offered: narrate in the first one rather than
     // reporting audio as unavailable.
     ?? voices[0].key

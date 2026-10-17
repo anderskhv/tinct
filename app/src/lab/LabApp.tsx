@@ -710,7 +710,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
     return () => { cancelled = true }
   }, [privateBook])
-  const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices) : null
+  // Ten shared anonymous AI interactions; opening or reading books never prompts.
+  const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
+  // Signed out, Orion and Eve play as Ara or Helios (cache-only openings); the stored choice stays.
+  const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices, { signedIn }) : null
   // Narration follows the text on the page: the primary edition, not the
   // Kokoro audio edition, so painted words and spoken words are one text.
   const narrationApplies = !privateBook && narrationInfo?.enabled === true
@@ -930,8 +933,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // its first transport fact. It is the only place "no report yet" is read as
   // connecting; after that, no session means no connection.
   const [callAwaitingConnection, setCallAwaitingConnection] = useState(false)
-  // Ten shared anonymous AI interactions; opening or reading books never prompts.
-  const signedIn = authToken !== undefined ? Boolean(authToken) : (Boolean(authUser) || likelyAuthenticated)
   // A user book is read aloud only for its signed-in owner, and only when the
   // server says own-book narration is on; the voices request names no book.
   useEffect(() => {
@@ -5356,6 +5357,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             : null}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
+          onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
             ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
             : undefined}

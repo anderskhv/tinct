@@ -69,3 +69,32 @@ it('asks again on every Play after Keep reading, closing on a single tap and nev
  expect(ensures).toBeGreaterThanOrEqual(1)
  expect(play).not.toHaveBeenCalled()
 })
+
+it('narrates a signed-out reader with a stored Orion in Helios, keeps the choice, and asks for an account for Eve',async()=>{
+ vi.stubGlobal('Audio',class {play=vi.fn(async()=>{});pause(){};addEventListener(){};removeEventListener(){};removeAttribute(){}})
+ localStorage.setItem('tinct-lab-prefs',JSON.stringify({voicePersona:'female',voicePersonaChosen:true,audiobookVoice:'orion'}))
+ const voicesSent:string[]=[]
+ vi.stubGlobal('fetch',vi.fn(async(input:RequestInfo|URL,init?:RequestInit)=>{
+  const url=String(input)
+  if(url.includes('/api/narration/voices'))return new Response(JSON.stringify({enabled:true,provider:'grok',voices:[{key:'f',label:'Ara',persona:'female'},{key:'m',label:'Helios',persona:'male'},{key:'orion',label:'Orion',persona:'male'},{key:'eve',label:'Eve',persona:'female'}]}),{status:200})
+  if(url.includes('/api/narration/ensure')){voicesSent.push(JSON.parse(String(init?.body)).voice);return new Response('',{status:401})}
+  return new Response('',{status:404})
+ }))
+ render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null}/>)
+ await waitFor(()=>expect(vi.mocked(fetch).mock.calls.some(call=>String(call[0]).includes('/api/narration/voices'))).toBe(true))
+ await act(async()=>{await new Promise(resolve=>setTimeout(resolve,30))})
+ fireEvent.click(screen.getByTestId('lab-v2-play'))
+ await waitFor(()=>expect(voicesSent.length).toBeGreaterThan(0))
+ expect(new Set(voicesSent)).toEqual(new Set(['m']))
+ expect(await screen.findByRole('heading',{name:'Create a free account to keep listening'})).toBeTruthy()
+ fireEvent.click(screen.getByRole('button',{name:'Keep reading'}))
+ expect(JSON.parse(localStorage.getItem('tinct-lab-prefs')||'{}').audiobookVoice).toBe('orion')
+ fireEvent.click(screen.getByTestId('lab-super'))
+ fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+ const voice=screen.getByTestId('lab-v2-narration-voice') as HTMLSelectElement
+ expect(voice.value).toBe('male')
+ fireEvent.change(voice,{target:{value:'eve'}})
+ expect(await screen.findByRole('heading',{name:'Create a free account to keep listening'})).toBeTruthy()
+ expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
+ expect(JSON.parse(localStorage.getItem('tinct-lab-prefs')||'{}').audiobookVoice).toBe('orion')
+})

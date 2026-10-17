@@ -7,6 +7,7 @@ import {
   narrationFailureMessage,
   narrationPilotApplies,
   narrationPilotFlag,
+  readerNarrationVoices,
   resolveNarrationVoice,
   NarrationEnsureError,
 } from './labNarration'
@@ -60,6 +61,23 @@ describe('Grok production routing', () => {
     const voices = [{key:'f',label:'Ara',persona:'female' as const},{key:'m',label:'Helios',persona:'male' as const},{key:'orion',label:'Orion',persona:'male' as const},{key:'eve',label:'Eve',persona:'female' as const}]
     expect(resolveNarrationVoice(prefs,voices)).toBe('orion')
     expect(prefs.voicePersona).toBe(DEFAULT_LAB_PREFS.voicePersona)
+  })
+  it('narrates a signed-out reader in Ara or Helios, matching a stored Orion or Eve, without changing the choice', () => {
+    const voices = [{key:'f',label:'Ara',persona:'female' as const},{key:'m',label:'Helios',persona:'male' as const},{key:'orion',label:'Orion',persona:'male' as const},{key:'eve',label:'Eve',persona:'female' as const}]
+    const orion = {...DEFAULT_LAB_PREFS,voicePersona:'female' as const,voicePersonaChosen:true,audiobookVoice:'orion' as const}
+    const eve = {...DEFAULT_LAB_PREFS,voicePersona:'male' as const,voicePersonaChosen:true,audiobookVoice:'eve' as const}
+    expect(resolveNarrationVoice(orion,voices,{signedIn:false})).toBe('m')
+    expect(resolveNarrationVoice(eve,voices,{signedIn:false})).toBe('f')
+    expect(orion.audiobookVoice).toBe('orion')
+    expect(eve.audiobookVoice).toBe('eve')
+    // Signed in (and by default), the stored voice plays.
+    expect(resolveNarrationVoice(orion,voices,{signedIn:true})).toBe('orion')
+    expect(resolveNarrationVoice(eve,voices)).toBe('eve')
+    // Ara and Helios are unchanged for guests.
+    expect(resolveNarrationVoice({...DEFAULT_LAB_PREFS,voicePersona:'female',voicePersonaChosen:true},voices,{signedIn:false})).toBe('f')
+    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS,voices,{signedIn:false})).toBe('m')
+    expect(readerNarrationVoices(voices,false).map(voice => voice.key)).toEqual(['f','m'])
+    expect(readerNarrationVoices(voices,true)).toBe(voices)
   })
   it('fails closed to Grok when configuration cannot load', async () => {
     const offline = (async()=>{throw new TypeError('offline')}) as typeof fetch
