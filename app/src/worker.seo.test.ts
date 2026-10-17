@@ -510,6 +510,8 @@ describe('worker SEO routing', () => {
     const localSources = connect.split(/\s+/).filter(source => source.startsWith('http:') || source.includes('localhost') || source.includes('127.0.0.1'))
     expect(localSources).toEqual(['http://127.0.0.1:47653/theme'])
     expect(connect).not.toContain('*')
+    // A guest's Talk trial runs over the Worker's own relay socket (older Safari does not count wss under 'self').
+    expect(connect.split(/\s+/)).toContain('wss://tinct.app')
     expect(policy).toContain("script-src 'self';")
     expect(policy).toContain("frame-ancestors 'self'")
   })

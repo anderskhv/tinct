@@ -36,8 +36,8 @@ jobs:
           python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
       - name: Verify current production voices and delayed lookup acknowledgement
         run: |
-          VERIFY_FORCE_MESSAGE=1 VOICE_PERSONA=female node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
-          VOICE_PERSONA=male node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
+          # One short guest-trial call checks both voices (scripts/grok-voice-handshake-acceptance.mjs).
+          VERIFY_FORCE_MESSAGE=1 node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()

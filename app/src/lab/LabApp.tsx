@@ -920,6 +920,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   callOpenRef.current = callOpen
   const callAnchorRef = useRef<LabCallAnchor | null>(null)
   const endCallRef = useRef<() => void>(() => {})
+  const talkTrialEndedRef = useRef<() => void>(() => {})
   // Desktop only: the panel collapsed to the corner pill. Rendering state; it
   // never touches the session or the reader's place.
   const [callMinimized, setCallMinimized] = useState(false)
@@ -1295,6 +1296,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     paragraphIndex: focusParagraph ?? (privateBook ? readingPages[readingPageIndex]?.paragraphIndex ?? 0 : 0),
     authToken,
     signedIn,
+    onTalkTrialEnded: () => talkTrialEndedRef.current(),
     onAccountPrompt: (request) => {
       setAccountPrompt(request)
       // Keep the unsent question in the composer; a held-back Talk never connects.
@@ -4583,6 +4585,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   }, [ask, restoreCallAnchor, resumeListenAfterAsk])
 
   endCallRef.current = endCall
+
+  // A guest's two-minute Talk trial ran out: the call closes (its place given
+  // back) and the account sheet opens; closing the sheet returns to reading
+  // the way a held-back Talk does (closeAccountPrompt).
+  talkTrialEndedRef.current = () => {
+    setCallOpen(false)
+    setCallMinimized(false)
+    ask.setMicMuted(false)
+    restoreCallAnchor()
+    setAccountPrompt({ action: 'voice' })
+  }
 
   const reconnectCall = useCallback(() => {
     ask.stopVoice()

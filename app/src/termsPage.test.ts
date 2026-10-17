@@ -78,7 +78,7 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 16 October 2026')
+    expect(privacy).toContain('Last updated: 17 October 2026')
     // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
     expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
@@ -94,6 +94,12 @@ describe('own books and the AI features', () => {
   // The margin's kept answers in an own PDF, kept with the book in the account (margin reader PR 2, 15 Oct 2026).
   it('privacy: says the answers kept in a PDF\'s margin are kept with the book in the account and deleted with it', () => {
     expect(privacyText).toContain('The answers kept in the margin of a PDF you added (the passage, your questions and the companion\'s answers, and a quiz\'s questions and how you answered) are kept the same way, in your browser and, if you are signed in and the book is in your account, privately with it in your account with Cloudflare (R2); they are deleted with the book.')
+  })
+
+  // A signed-out guest's Talk trial runs through Tinct's relay (Anders, 16 Oct 2026).
+  it("privacy: says a guest's Talk passes through Tinct's server unstored, one a day of two minutes", () => {
+    expect(privacyText).not.toContain('Your voice is streamed directly from your device to xAI')
+    expect(privacyText).toContain("Your voice is streamed from your device to xAI (see below) to produce the spoken reply; if you are not signed in, it passes through Tinct's server on the way, which neither stores nor reads it, and the conversation is limited to one a day of two minutes. Tinct does not store the audio.")
   })
 
   // Own-book covers stored with the account copy (2026-10-09).

@@ -46,8 +46,28 @@ export const VOICE_MICROPHONE_TIMEOUT_MS = 30_000
 export const VOICE_CONNECT_ATTEMPTS = 2
 const VOICE_CONNECT_RETRY_DELAY_MS = 1_000
 
+/** `/api/voice-session`, or a guest's `/api/lab-voice-session` (a relay ticket and its limit). */
+type VoiceSessionReply = { value?: string; model?: string; error?: string; code?: string; relay?: string; max_seconds?: number }
+
 /** A setup failure worth one more try: the network or the provider, not the reader's account. */
 class RetryableVoiceSetupError extends Error {}
+/** Today's guest Talk trial is used: the host shows the account sheet, not an error. */
+class GuestTrialRefusedError extends Error {}
+
+/** The Worker's refusal code for a used guest trial (worker/lib/talkTrial.ts). */
+export const TALK_TRIAL_USED_CODE = 'talk_trial_used'
+/** The close code the Worker's relay sends when a guest trial's time is up. */
+export const TALK_TRIAL_CLOSE_CODE = 4000
+
+/** `wss://` for a same-origin (or API_BASE) path. */
+function relaySocketUrl(path: string, model: string): string {
+  const base = apiUrl(path)
+  const origin = typeof location !== 'undefined' ? location.href : 'https://tinct.app/'
+  const url = new URL(base, origin)
+  url.protocol = url.protocol === 'http:' ? 'ws:' : 'wss:'
+  url.searchParams.set('model', model)
+  return url.toString()
+}
 
 /**
  * The setup step a Talk start failed in, counted as `talk_failed.stage`:
@@ -206,6 +226,9 @@ export class GrokVoiceSessionController {
   private followUpPending = false
   /** Between the provider's speech_started and speech_stopped: the reader has the floor. */
   private readerSpeaking = false
+  /** A guest trial's length in seconds (the Worker's relay enforces it too); null signed in. */
+  private trialSeconds: number | null = null
+  private trialTimer: ReturnType<typeof setTimeout> | null = null
 
   private readonly handleVisibilityChange = () => {
     if (typeof document === 'undefined' || document.visibilityState !== 'visible' || !this.ui.isActive) return
@@ -373,8 +396,21 @@ export class GrokVoiceSessionController {
       this.callbacks.onUsage?.()
       this.callbacks.onLatency?.({ kind: 'session_setup', at: Date.now(), sessionSetupMs: Date.now() - this.startedAt, model: GROK_VOICE_MODEL })
     } catch (error) {
-      if (current()) this.fail(error instanceof Error ? error.message : 'Could not start voice.', this.setupStage)
+      if (!current()) return
+      if (error instanceof GuestTrialRefusedError) {
+        this.stop()
+        this.callbacks.onGuestTrial?.('refused')
+        return
+      }
+      this.fail(error instanceof Error ? error.message : 'Could not start voice.', this.setupStage)
     }
+  }
+
+  /** The guest trial's two minutes are up: end the call like a normal end, then tell the host. */
+  private endGuestTrial(generation: number): void {
+    if (generation !== this.generation || !this.ui.isActive) return
+    this.stop()
+    this.callbacks.onGuestTrial?.('ended')
   }
 
   /** Permission can outlive a cancelled start; release any late microphone. */
@@ -403,7 +439,7 @@ export class GrokVoiceSessionController {
   }
 
   /** Bound both the HTTP request and its body, before the socket timeout starts. */
-  private async requestSession(input: StartVoiceSessionInput): Promise<{ response: Response; data: { value?: string; model?: string; error?: string; code?: string } }> {
+  private async requestSession(input: StartVoiceSessionInput): Promise<{ response: Response; data: VoiceSessionReply }> {
     const abort = new AbortController()
     this.setupAbort = abort
     let timedOut = false
@@ -422,7 +458,7 @@ export class GrokVoiceSessionController {
           body: '{}',
           signal: abort.signal,
         })
-        const data = await response.json().catch(() => ({})) as { value?: string; model?: string; error?: string; code?: string }
+        const data = await response.json().catch(() => ({})) as VoiceSessionReply
         return { response, data }
       })()
       return await Promise.race([request, cancelled])
@@ -443,6 +479,7 @@ export class GrokVoiceSessionController {
     const { response, data } = await this.requestSession(input)
     if (generation !== this.generation) return
     if (!response.ok || !data.value) {
+      if (data.code === TALK_TRIAL_USED_CODE) throw new GuestTrialRefusedError(data.error || 'Talk trial used')
       if (response.status === 401) this.callbacks.onNeedAuth?.()
       if (response.status === 402) this.callbacks.onInsufficientBalance?.()
       // A daily ceiling or provider limit: calm and final for this attempt.
@@ -453,7 +490,11 @@ export class GrokVoiceSessionController {
     }
     this.setupSocketFailed = false
     this.setupStage = 'setup_socket'
-    const socket = this.openSocket(data.value, data.model || GROK_VOICE_MODEL)
+    // A guest's trial: the session runs through Tinct's relay, which ends it at max_seconds.
+    const relay = typeof data.relay === 'string' && data.relay.startsWith('/api/') ? data.relay : null
+    if (relay && this.trialSeconds === null) this.callbacks.onGuestTrial?.('started')
+    this.trialSeconds = relay && typeof data.max_seconds === 'number' && data.max_seconds > 0 ? data.max_seconds : null
+    const socket = this.openSocket(data.value, data.model || GROK_VOICE_MODEL, relay)
     this.socket = socket
     await this.awaitReady(generation)
   }
@@ -466,15 +507,19 @@ export class GrokVoiceSessionController {
     try { socket?.close() } catch { /* already closed */ }
   }
 
-  private openSocket(secret: string, model: string): WebSocket {
+  private openSocket(secret: string, model: string, relay: string | null = null): WebSocket {
     const generation = this.generation
-    const socket = new WebSocket(`${GROK_REALTIME_URL}?model=${encodeURIComponent(model)}`, [`xai-client-secret.${secret}`])
+    const socket = relay
+      ? new WebSocket(relaySocketUrl(relay, model), [`tinct-ticket.${secret}`])
+      : new WebSocket(`${GROK_REALTIME_URL}?model=${encodeURIComponent(model)}`, [`xai-client-secret.${secret}`])
     socket.addEventListener('message', event => {
       if (generation !== this.generation) return
       try { this.handleEvent(JSON.parse(String(event.data)) as GrokEvent) } catch { /* Ignore malformed frames. */ }
     })
-    const lost = () => {
+    const lost = (event?: Event) => {
       if (generation !== this.generation || !this.ui.isActive || this.stopping || socket !== this.socket) return
+      // The relay closed a guest trial at its limit: a graceful end, not a lost connection.
+      if (relay && (event as CloseEvent | undefined)?.code === TALK_TRIAL_CLOSE_CODE) { this.endGuestTrial(generation); return }
       // Before the session is ready this is a setup failure the start loop may retry.
       if (!this.ready) { this.setupSocketFailed = true; return }
       this.fail('Voice connection lost. Reconnect to continue.', 'connection')
@@ -530,6 +575,10 @@ export class GrokVoiceSessionController {
         if (this.ready) return
         this.ready = true
         this.connectedAt = Date.now()
+        if (this.trialSeconds !== null) {
+          const generation = this.generation
+          this.trialTimer = setTimeout(() => this.endGuestTrial(generation), this.trialSeconds * 1000)
+        }
         if (typeof window !== 'undefined') window.addEventListener('pagehide', this.handlePageHide)
         try { if (!this.captureSource) this.startCapture() }
         catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.', 'microphone'); return }
@@ -994,6 +1043,8 @@ export class GrokVoiceSessionController {
     this.cancelMicrophone = null
     this.ready = false
     if (this.contextTimer) { clearTimeout(this.contextTimer); this.contextTimer = null }
+    if (this.trialTimer) { clearTimeout(this.trialTimer); this.trialTimer = null }
+    this.trialSeconds = null
     if (this.sendTimer) { clearInterval(this.sendTimer); this.sendTimer = null }
     if (typeof document !== 'undefined' && this.visibilityListening) {
       document.removeEventListener('visibilitychange', this.handleVisibilityChange)

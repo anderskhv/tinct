@@ -39,6 +39,12 @@ export interface VoiceSessionCallbacks {
   onSetAssistantPace?: (pace: AssistantPace) => void
   /** Production-owned Tinct tools such as history, navigation, and settings. */
   onApplicationTool?: VoiceApplicationToolHandler
+  /**
+   * A signed-out guest's Talk trial (one a day, two minutes): `started` when
+   * Tinct granted it, `ended` when its time ran out and the call was closed,
+   * `refused` when today's trial was already used. Never called signed in.
+   */
+  onGuestTrial?: (event: 'started' | 'ended' | 'refused') => void
 }
 
 /**

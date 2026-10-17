@@ -18,8 +18,13 @@ transcription trial paths — is gone from the active path.
 - Transport: one browser WebSocket to `wss://api.x.ai/v1/realtime`,
   authenticated with a single-use ephemeral client secret. The Worker mints the
   secret at `/api/voice-session` (signed-in, entitlement-checked, one message
-  charged) or `/api/lab-voice-session` (guest, IP rate limited). The xAI key
-  never reaches the browser; the Worker accepts no provider parameters.
+  charged). The xAI key never reaches the browser; the Worker accepts no
+  provider parameters. Since 16 Oct 2026 a signed-out guest gets one Talk a
+  day of at most two minutes: `/api/lab-voice-session` reserves two minutes
+  against the guest AI ceiling, takes the day's trial (per hashed IP) and
+  returns a single-use ticket for `/api/lab-voice-relay`, a Worker WebSocket
+  relay that holds the xAI connection with the key and closes both ends at
+  two minutes (code 4000). See `app/src/worker/lib/talkTrial.ts`.
 - Audio: microphone PCM16 via an AudioWorklet (ScriptProcessor fallback),
   provider audio deltas scheduled straight into the AudioContext. Playback level
   drives the orb.
@@ -191,8 +196,10 @@ Live path works again immediately. No user-facing comparison controls exist.
 
 ## Not verified
 
-- Ephemeral secret TTL is 600 s; whether an open session outlives that is not
-  tested (a 5-minute session was not paid for).
+- Ephemeral secret TTL is 600 s. An open session outlives its secret
+  (probed 16 Oct 2026: a 10 s secret, the socket still open at 40 s), so the
+  TTL bounds only opening the socket; the guest trial's two minutes are held
+  by the Worker relay instead.
 - Echo cancellation with real speakers: the smoke test runs muted. Chrome AEC
   is enabled on the microphone constraints; a false barge-in from speaker
   bleed would stop playback early.
