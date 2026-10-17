@@ -11,6 +11,7 @@
 //       Stale-while-revalidate. Serve cached immediately for speed, but
 //       always fetch in the background and replace the cached copy. Means
 //       a corrupt or partial cached entry self-heals on the next load.
+//       Offline, a file cached under another build's ?v= answers too.
 //       A request that includes the `fresh=1` query param skips the cache
 //       entirely and forces a network fetch — used by the loader as an
 //       explicit retry when it sees malformed data.
@@ -27,8 +28,8 @@ const CACHE_NAME = 'tinct-offline-v3'
 const APP_SHELL_CACHE_NAME = 'tinct-app-shell-dev'
 const APP_SHELL_PRECACHE_URLS = []
 // Bundles the reader imports only on demand (stamped like the list above).
-// Not fetched at install; cached on first use, and all of them when a reader
-// makes a book available offline (CACHE_APP_SHELL below).
+// Fetched at install after the list above, and again (any missing) whenever a
+// book is saved for offline reading (CACHE_APP_SHELL below).
 const APP_SHELL_LAZY_URLS = []
 
 const APP_SHELL_PRECACHE_SET = new Set([...APP_SHELL_PRECACHE_URLS, ...APP_SHELL_LAZY_URLS])
@@ -271,7 +272,7 @@ async function handleEdition(request, forceFresh) {
       if (fresh.ok) await cache.put(canonicalRequest, fresh.clone())
       return fresh
     } catch {
-      const cached = await cache.match(canonicalRequest)
+      const cached = await cache.match(canonicalRequest) || await cache.match(canonicalRequest, { ignoreSearch: true })
       if (cached) return cached
       return offlineFallback()
     }
@@ -280,7 +281,10 @@ async function handleEdition(request, forceFresh) {
   const cached = await cache.match(canonicalRequest)
   const networkPromise = fetch(canonicalRequest).then(response => {
     if (response.ok) {
-      cache.put(canonicalRequest, response.clone()).catch(() => {})
+      const stored = cache.put(canonicalRequest, response.clone())
+      // First request under this build's ?v=: the copies earlier builds left go.
+      const tidied = cached ? stored : stored.then(() => dropOtherVersions(cache, canonicalRequest))
+      tidied.catch(() => {})
     }
     return response
   }).catch(() => null)
@@ -292,7 +296,17 @@ async function handleEdition(request, forceFresh) {
 
   const network = await networkPromise
   if (network) return network
+  // Offline, and nothing under this ?v=: a deploy changed the build version
+  // since the book was saved (every build stamps a new one). The copy saved
+  // under the earlier version is the same file, almost always the same text.
+  const anyVersion = await cache.match(canonicalRequest, { ignoreSearch: true })
+  if (anyVersion) return anyVersion
   return offlineFallback()
+}
+
+async function dropOtherVersions(cache, request) {
+  const variants = await cache.keys(request, { ignoreSearch: true })
+  await Promise.all(variants.filter(variant => variant.url !== request.url).map(variant => cache.delete(variant)))
 }
 
 function offlineFallback() {
@@ -321,6 +335,14 @@ async function precacheAppShell() {
   if (!APP_SHELL_PRECACHE_URLS.length) return
   const cache = await caches.open(APP_SHELL_CACHE_NAME)
   await Promise.allSettled(APP_SHELL_PRECACHE_URLS.map(async (url) => {
+    const response = await fetch(url, { cache: 'no-store' })
+    if (response.ok) await cache.put(url, await unredirected(response))
+  }))
+  // Every book a reader opens is saved for offline reading in the background
+  // (src/lab/labOfflineBook.ts), so the bundles it opens on demand (Contents,
+  // the sheets) are part of the shell too: a deploy must not leave a flight-mode
+  // reader with a reader page whose Contents cannot load. They are small.
+  await Promise.allSettled(APP_SHELL_LAZY_URLS.map(async (url) => {
     const response = await fetch(url, { cache: 'no-store' })
     if (response.ok) await cache.put(url, await unredirected(response))
   }))

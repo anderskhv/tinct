@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { LabWait } from './LabWait'
 import {
+  OFFLINE_BOOK_SAVED_EVENT,
   offlineBookSaved,
   offlineBookSupported,
   removeBookOffline,
@@ -32,6 +33,15 @@ export function LabOfflineRow({ bookId, editionKeys, hasVerseLines }: {
   useEffect(() => {
     setState(current => current.kind === 'saving' ? current
       : offlineBookSaved(bookId, editionsId.split(','), buildVersion()) ? { kind: 'saved' } : { kind: 'idle' })
+  }, [bookId, editionsId])
+  // The background save finishing while the sheet is open.
+  useEffect(() => {
+    const saved = (event: Event) => {
+      if ((event as CustomEvent<{ bookId?: string }>).detail?.bookId !== bookId) return
+      setState(current => current.kind === 'idle' && offlineBookSaved(bookId, editionsId.split(','), buildVersion()) ? { kind: 'saved' } : current)
+    }
+    window.addEventListener(OFFLINE_BOOK_SAVED_EVENT, saved)
+    return () => window.removeEventListener(OFFLINE_BOOK_SAVED_EVENT, saved)
   }, [bookId, editionsId])
   if (!offlineBookSupported()) return null
 

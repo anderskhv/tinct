@@ -12,6 +12,7 @@
 //
 //   CI=true npm run build && node scripts/check-offline-book.mjs
 //   OFFLINE_ENGINES=webkit OFFLINE_BOOKS=frankenstein node scripts/check-offline-book.mjs
+//   OFFLINE_VIEWPORT=1440x900 node scripts/check-offline-book.mjs
 import { chromium, webkit } from '@playwright/test'
 import http from 'node:http'
 import fs from 'node:fs/promises'
@@ -28,6 +29,9 @@ const BOOKS = {
   bible: { firstChapter: 1, deepChapter: 500, lastChapter: 1189 },
 }
 const books = (process.env.OFFLINE_BOOKS || 'frankenstein,bible').split(',')
+// OFFLINE_VIEWPORT=1440x900: a desktop window (default: an iPhone, 390x844).
+const [vw, vh] = (process.env.OFFLINE_VIEWPORT || '390x844').split('x').map(Number)
+const viewport = { width: vw, height: vh }, phone = vw < 700
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon', '.webmanifest': 'application/manifest+json', '.wav': 'audio/wav', '.jpg': 'image/jpeg', '.webp': 'image/webp' }
 
 // Playwright's setOffline does not reach a service worker's own fetches in
@@ -77,10 +81,11 @@ const accessToken = `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ sub: userId, e
 const user = { id: userId, aud: 'authenticated', role: 'authenticated', email: 'offline-check@tinct.app', app_metadata: { provider: 'email' }, user_metadata: {}, created_at: '2026-01-01T00:00:00Z' }
 const session = { access_token: accessToken, refresh_token: 'offline-check-refresh', token_type: 'bearer', expires_in: 6 * 3600, expires_at: exp, user }
 
-const ready = page => page.waitForFunction(() => {
+// Text on screen: a page of it on a phone; any on desktop, whose last Bible spread holds 17 words.
+const ready = page => page.waitForFunction(minWords => {
   const root = document.querySelector('[data-testid="lab-root"]')
-  return root?.dataset.readerReady === 'true' && root.dataset.positionResolving !== 'true' && document.querySelectorAll('[data-testid="lab-word"]').length > 20
-}, null, { timeout: 45000 })
+  return root?.dataset.readerReady === 'true' && root.dataset.positionResolving !== 'true' && document.querySelectorAll('[data-testid="lab-word"]').length > minWords
+}, phone ? 20 : 0, { timeout: 45000 })
 const state = page => page.evaluate(() => {
   const root = document.querySelector('[data-testid="lab-root"]')
   const words = [...document.querySelectorAll('[data-testid="lab-word"]')]
@@ -92,7 +97,11 @@ async function turn(page, times = 1) {
 }
 async function turnToChapter(page, chapter, limit = 160) {
   for (let i = 0; i < limit; i++) {
-    if ((await state(page)).chapter === chapter) return
+    const at = (await state(page)).chapter
+    if (at === chapter) return
+    // A desktop spread can end one chapter on the left and open the next,
+    // short one whole on the right: the turn after it is the chapter after.
+    if (!phone && at === chapter + 1) return
     await turn(page)
   }
   throw new Error('never reached chapter ' + chapter)
@@ -108,8 +117,8 @@ try {
       const label = `${engineName}-${bookId}`
       cloud = null; puts.length = 0
       const context = await browser.newContext({
-        serviceWorkers: 'allow', viewport: { width: 390, height: 844 }, hasTouch: true,
-        ...(engineName === 'webkit' ? { isMobile: true, deviceScaleFactor: 2 } : {}),
+        serviceWorkers: 'allow', viewport, hasTouch: phone,
+        ...(engineName === 'webkit' && phone ? { isMobile: true, deviceScaleFactor: 2 } : {}),
       })
       const errors = []
       // Nothing leaves the local origin; Supabase answers the stubbed reader.
@@ -152,7 +161,7 @@ try {
       const opening = await state(page)
 
       // A place two pages in, then offline.
-      await turn(page, 2)
+      await turn(page, phone ? 2 : 1) // a desktop spread is two pages
       await page.waitForTimeout(1600)
       const online = await state(page)
       assert.equal(online.chapter, book.firstChapter)
@@ -200,12 +209,25 @@ try {
       await page.screenshot({ path: `${output}/${label}-5-offline-chapter-${book.deepChapter + 2}.png` })
       await page.goto(`${origin}/reader?book=${bookId}&chapter=${book.lastChapter}`, { waitUntil: 'domcontentloaded' })
       await ready(page)
-      assert.equal((await state(page)).chapter, book.lastChapter)
+      const lastOpening = await state(page)
+      assert.equal(lastOpening.chapter, book.lastChapter)
       await turn(page, 1)
+      // ready() resolves on a head-first map (LabNativePaginator `headFirst`):
+      // a turn asked for before the rest of the chapter is laid out waits for
+      // it (LabApp goNext), and a long chapter takes seconds in WebKit. The
+      // place is the page the turn lands on, so read it once that page is on
+      // screen: its first word is the reader's place (data-place).
+      await page.waitForFunction(() => {
+        const root = document.querySelector('[data-testid="lab-root"]')
+        const first = [...document.querySelectorAll('[data-testid="lab-word"]')].find(node => { const r = node.getBoundingClientRect(); return r.width > 0 && r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight })
+        return !!first && root?.dataset.place !== '0:0' && root?.dataset.place === `${first.dataset.paragraphIndex}:${first.dataset.wordIndex}`
+      }, null, { timeout: 30000, polling: 250 })
       await page.waitForTimeout(1600)
       const last = await state(page)
       assert.equal(last.chapter, book.lastChapter)
-      assert(last.visible > 20, 'last chapter text on screen')
+      assert.notEqual(last.first, lastOpening.first, 'the last chapter page turned')
+      // The Bible's last desktop spread holds only Revelation 22's closing verses.
+      assert(last.visible > (phone ? 20 : 0), 'last chapter text on screen')
       await page.screenshot({ path: `${output}/${label}-6-offline-last-chapter.png` })
       await page.reload({ waitUntil: 'domcontentloaded' })
       await ready(page)
