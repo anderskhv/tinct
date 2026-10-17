@@ -47,6 +47,28 @@ export const NARRATION_PENDING_SRC = 'narration:pending'
  * car and ran dry. Stopping early wastes at most this much text: about 2 KB.
  */
 export const NARRATION_BUFFER_TARGET_SECONDS = 150
+/**
+ * The same, while the page is hidden (a locked phone in a car): nobody can
+ * tap Retry, a gap there is silence until the reader looks at the phone, and
+ * a slow round or a dead spot in the network must not reach the playhead.
+ */
+export const NARRATION_HIDDEN_BUFFER_TARGET_SECONDS = 600
+/**
+ * How long a hidden player keeps holding (silence on the element) while it
+ * waits for a recording or for the network to come back, before it gives up
+ * with the ordinary retryable error.
+ */
+export const NARRATION_HOLD_MAX_MS = 10 * 60_000
+/** Back-off between reloads of a clip whose audio failed to load (network). */
+export function narrationReloadDelayMs(attempt: number): number {
+  return Math.min(15_000, 1_000 * 2 ** Math.max(0, attempt))
+}
+/** Failures no wait can fix: the reader has to act (sign in, reload) or there is nothing to play. */
+const NARRATION_FINAL_REASONS = new Set([
+  'budget_exhausted', 'unauthenticated', 'not_configured', 'provider_auth', 'provider_payment',
+  'text_mismatch', 'modern_pending', 'own_book_limit', 'own_book_cap', 'own_book_pool',
+  'own_book_unavailable', 'own_book_premium', 'cancelled',
+])
 /** Ready clips after the playing one whose audio is downloaded ahead of its turn. */
 export const NARRATION_DOWNLOAD_AHEAD = 2
 /**
@@ -231,8 +253,14 @@ function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
   return paragraphs.some(paragraph => paragraphHasWordTimings(paragraph))
 }
 
+/** The element is not playing the clip's recording: it is being prepared, or silence holds its place. */
 function waitingForNarration(clip: LabAudioClip | undefined, audio: HTMLAudioElement): boolean {
+  if (isHoldSource(audio)) return true
   return clip?.kind === 'paragraph' && !!clip.narration && (!clip.url || !audio.src.endsWith(clip.url))
+}
+
+function pageHidden(): boolean {
+  return typeof document !== 'undefined' && document.visibilityState === 'hidden'
 }
 
 /**
@@ -249,6 +277,58 @@ function isUnlockSource(audio: HTMLAudioElement): boolean {
   if (typeof audio.src !== 'string' || !audio.src) return false
   try {
     return new URL(audio.src, 'https://tinct.invalid').pathname === LAB_SILENT_UNLOCK_SRC
+  } catch {
+    return false
+  }
+}
+
+/**
+ * One second of silence (public/lab/narration-hold.wav), looped on the
+ * narration element while a hidden page waits for the next recording or for
+ * the network. On a locked iPhone an element that goes idle loses the audio
+ * session, the page is suspended, and a later play() is refused: narration
+ * stopped mid-chapter until the reader looked at the phone. Silence that keeps
+ * playing keeps both; the real clip is swapped in from one of the element's
+ * own events. Same-origin like the unlock clip, for the CSP's media-src.
+ */
+export const LAB_NARRATION_HOLD_SRC = '/lab/narration-hold.wav'
+
+/** One second of 8 kHz, 8-bit mono PCM silence: the same bytes as the static file. */
+function silentWav(): Uint8Array {
+  const samples = 8000
+  const bytes = new Uint8Array(44 + samples)
+  const view = new DataView(bytes.buffer)
+  const ascii = (offset: number, text: string) => { for (let i = 0; i < text.length; i += 1) bytes[offset + i] = text.charCodeAt(i) }
+  ascii(0, 'RIFF'); view.setUint32(4, 36 + samples, true); ascii(8, 'WAVE')
+  ascii(12, 'fmt '); view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true)
+  view.setUint32(24, 8000, true); view.setUint32(28, 8000, true); view.setUint16(32, 1, true); view.setUint16(34, 8, true)
+  ascii(36, 'data'); view.setUint32(40, samples, true)
+  bytes.fill(0x80, 44)
+  return bytes
+}
+
+let holdBlobUrl: string | null | undefined
+/**
+ * The hold's source: made in memory (a blob: URL, which the CSP admits), so
+ * it plays in a tunnel with no network at all; the static file otherwise.
+ */
+function holdSourceUrl(): string {
+  if (holdBlobUrl === undefined) {
+    holdBlobUrl = null
+    try {
+      if (typeof Blob !== 'undefined' && typeof URL.createObjectURL === 'function') {
+        holdBlobUrl = URL.createObjectURL(new Blob([silentWav()], { type: 'audio/wav' }))
+      }
+    } catch { /* the static file serves */ }
+  }
+  return holdBlobUrl ?? LAB_NARRATION_HOLD_SRC
+}
+
+function isHoldSource(audio: HTMLAudioElement): boolean {
+  if (typeof audio.src !== 'string' || !audio.src) return false
+  if (holdBlobUrl && audio.src === holdBlobUrl) return true
+  try {
+    return new URL(audio.src, 'https://tinct.invalid').pathname === LAB_NARRATION_HOLD_SRC
   } catch {
     return false
   }
@@ -323,6 +403,26 @@ export function useLabListen(options: UseLabListenOptions) {
   const endInterruptionRef = useRef<() => void>(() => {})
   const attemptResumeRef = useRef<() => void>(() => {})
   const adoptBridgeRef = useRef<(clips: LabAudioClip[]) => boolean>(() => false)
+  /**
+   * Silence holding the element on a hidden page (LAB_NARRATION_HOLD_SRC).
+   * `run` is the start waiting for the hold's next event (not before
+   * `notBefore`), valid only while `request` is still the current play request.
+   */
+  const holdRef = useRef<{ run: (() => void) | null; request: number; notBefore: number } | null>(null)
+  /** The hold clip could not play here (refused or failed to load): wait the ordinary way. */
+  const holdBrokenRef = useRef(false)
+  /** True while a start runs from inside one of the hold's own events. */
+  const inHoldEventRef = useRef(false)
+  /**
+   * iOS paused the element (a call, a navigation prompt, Siri) and the reader
+   * has not acted since: when iOS resumes the element itself, the player follows.
+   */
+  const systemPausedRef = useRef(false)
+  /** Reloads of one clip after its audio failed to load: which URL, how many, since when. */
+  const reloadRef = useRef<{ url: string; attempts: number; since: number } | null>(null)
+  const startHoldRef = useRef<(audio: HTMLAudioElement) => boolean>(() => false)
+  const reloadClipRef = useRef<(audio: HTMLAudioElement) => boolean>(() => false)
+  const runHoldRef = useRef<() => void>(() => {})
   const requestIsCurrent = (request: number) => !optionsRef.current.guardPlaybackRequests || request === playRequestRef.current
   // Narration pilot: prepared recordings for the current tuple, requests in
   // flight (shared between play and look-ahead), and one abort controller
@@ -356,7 +456,15 @@ export function useLabListen(options: UseLabListenOptions) {
   // preparation loop enforces its own ceiling for long waits.
   const armPendingDeadline = useCallback(() => {
     clearTimeout(loadingDeadlineRef.current)
-    loadingDeadlineRef.current = setTimeout(() => {
+    loadingDeadlineRef.current = setTimeout(function expire() {
+      // Never stop on a timer while audio may still come: a hidden page that
+      // is still playing (silence holding, or a clip loading) keeps waiting;
+      // its own waits are bounded (NARRATION_HOLD_MAX_MS, the ensure timeout).
+      const held = audioRef.current
+      if (held && playingRef.current && !userPausedRef.current && !held.paused && (isHoldSource(held) || pageHidden())) {
+        loadingDeadlineRef.current = setTimeout(expire, PENDING_DEADLINE_MS)
+        return
+      }
       pendingRef.current = false
       setPendingState(false)
       setLoading(false)
@@ -573,14 +681,16 @@ export function useLabListen(options: UseLabListenOptions) {
    * "Preparing narration…" notice, its clock must not paint the target's
    * words, and an `ended` from it must not advance past the target.
    */
-  const enterPreparing = useCallback((index: number, offsetSeconds: number) => {
+  const enterPreparing = useCallback((index: number, offsetSeconds: number, keepElement = false) => {
     const audio = audioRef.current
     switchingRef.current = true
     // An ended native element can retain its media session while the next
     // generated clip arrives. Clearing it here breaks locked-screen handoff.
     // Manual seeks still silence and clear a recording that has not ended.
-    const continuousBoundary = Boolean(playingRef.current && audio?.ended)
+    // `keepElement`: silence takes the element over right after (a hidden page).
+    const continuousBoundary = keepElement || Boolean(playingRef.current && audio?.ended)
     if (audio && !continuousBoundary) {
+      audio.loop = false
       try { audio.pause() } catch { /* ignore */ }
       try { audio.removeAttribute('src') } catch { /* ignore */ }
     }
@@ -626,6 +736,13 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     let outcome: NarrationOutcome = { ok: true }
     let polls = 0
+    let failures = 0
+    // Silence is holding the element on a hidden page: nobody can tap Retry,
+    // so a dropped connection or a busy provider is waited out (bounded).
+    const holding = () => {
+      const audio = audioRef.current
+      return Boolean(audio && isHoldSource(audio) && !audio.paused && playingRef.current)
+    }
     // Each productive round lands one chunk; a chunk beyond the ready prefix
     // needs as many rounds as it is deep, plus a few spare. Waiting on a
     // group still being made does not use up rounds: it is bounded by time.
@@ -643,9 +760,20 @@ export function useLabListen(options: UseLabListenOptions) {
       )
       if (superseded()) { reportWait('cancelled'); return }
       if (!outcome.ok) {
-        if (outcome.reason !== 'pending') break
+        const ceiling = holding() ? NARRATION_HOLD_MAX_MS : NARRATION_PREPARE_CEILING_MS
+        if (outcome.reason !== 'pending') {
+          if (!holding() || NARRATION_FINAL_REASONS.has(outcome.reason)) break
+          const delay = narrationReloadDelayMs(failures)
+          if (waitClockMs() - startedAt + delay > ceiling) break
+          failures += 1
+          polls += 1
+          armPendingDeadline()
+          await wait(delay)
+          if (superseded()) { reportWait('cancelled'); return }
+          continue
+        }
         const delay = narrationPollDelayMs(polls, outcome.retryAfterMs)
-        if (waitClockMs() - startedAt + delay > NARRATION_PREPARE_CEILING_MS) break
+        if (waitClockMs() - startedAt + delay > ceiling) break
         polls += 1
         // The server answered: this is a wait, not a stall.
         armPendingDeadline()
@@ -664,6 +792,8 @@ export function useLabListen(options: UseLabListenOptions) {
       narrationRetryRef.current = () => { void prepareThenRun(target, resume) }
       setNarrationState({ status: 'error', paragraphIndex: target.paragraphIndex, message: narrationFailureMessage(outcome.reason), reason: outcome.reason })
       try { audioRef.current?.pause() } catch { /* ignore */ }
+      holdRef.current = null
+      if (audioRef.current) audioRef.current.loop = false
       playingRef.current = false
       setPlaying(false)
       return
@@ -725,7 +855,7 @@ export function useLabListen(options: UseLabListenOptions) {
         const fromChunks: Record<number, number> = {}
         let buffered = 0
         const rate = audioRef.current?.playbackRate || 1
-        const targetSeconds = NARRATION_BUFFER_TARGET_SECONDS * rate
+        const targetSeconds = (pageHidden() ? NARRATION_HIDDEN_BUFFER_TARGET_SECONDS : NARRATION_BUFFER_TARGET_SECONDS) * rate
         const width = narrationLookAheadWidth(rate)
         const targets: Array<{ index: number; chunk: number }> = []
         for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds; position += 1) {
@@ -750,7 +880,9 @@ export function useLabListen(options: UseLabListenOptions) {
         const after = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
         if (after === before) {
           idle += 1
-          if (idle >= 3 || (!outcome.ok && outcome.reason !== 'pending')) return
+          // A dropped connection is waited out like a busy group (a car
+          // between cells); only a failure no wait can fix ends the loop.
+          if (idle >= 3 || (!outcome.ok && NARRATION_FINAL_REASONS.has(outcome.reason))) return
           await wait(Math.min(5000, Math.max(750, (!outcome.ok && outcome.retryAfterMs) || 1500)))
         } else {
           idle = 0
@@ -783,6 +915,20 @@ export function useLabListen(options: UseLabListenOptions) {
     pendingPlaceRef.current = null
     chapterCompletedRef.current = false
     endInterruptionRef.current()
+    reloadRef.current = null
+    // A start waiting on the hold belonged to the old tuple. At a chapter
+    // handoff the silence itself keeps playing until the new chapter starts.
+    if (holdRef.current) holdRef.current.run = null
+    if (!chapterHandoffRef.current) {
+      systemPausedRef.current = false
+      holdRef.current = null
+      const held = audioRef.current
+      if (held && isHoldSource(held)) {
+        held.loop = false
+        try { held.pause() } catch { /* ignore */ }
+        try { held.removeAttribute('src') } catch { /* ignore */ }
+      }
+    }
     narrationPreparedRef.current = new Map()
     narrationHashesRef.current = new Map()
     narrationRoundRef.current = null
@@ -850,6 +996,8 @@ export function useLabListen(options: UseLabListenOptions) {
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
     const finishPlayback = () => {
       setPending(false)
+      holdRef.current = null
+      audio.loop = false
       try { audio.pause() } catch { /* ignore */ }
       audio.autoplay = false
       playingRef.current = false
@@ -860,6 +1008,8 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleTimeUpdate = () => {
       if (primingRef.current || isUnlockSource(audio)) return
+      // Silence is holding the element: its clock is the moment to swap in a ready clip.
+      if (isHoldSource(audio)) { runHoldRef.current(); return }
       // The next chapter's opening is playing before its clips exist here.
       if (bridgeRef.current) return
       const current = clipsRef.current[clipIndexRef.current]
@@ -869,6 +1019,15 @@ export function useLabListen(options: UseLabListenOptions) {
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
       if (!playingRef.current || !audio.src) return
+      if (isHoldSource(audio)) {
+        // A browser that does not loop the silence: swap now, or play it again.
+        runHoldRef.current()
+        if (isHoldSource(audio) && audio.ended) {
+          try { audio.currentTime = 0 } catch { /* ignore */ }
+          void Promise.resolve(audio.play()).catch(() => { /* reconciled on return */ })
+        }
+        return
+      }
       if (bridgeRef.current) {
         // Safari's stale post-swap `ended` reports time zero; a real end does not.
         if (audio.ended && audio.currentTime > 0) advanceBridgeRef.current(audio)
@@ -885,6 +1044,8 @@ export function useLabListen(options: UseLabListenOptions) {
         if (!reachedKnownEnd && !(audio.ended && audio.currentTime > 0)) return
         switchingRef.current = false
       }
+      // This recording played to its end: a later load failure starts a fresh reload budget.
+      reloadRef.current = null
       const next = clipIndexRef.current + 1
       const clip = clipsRef.current[next]
       if (!clip) {
@@ -897,6 +1058,9 @@ export function useLabListen(options: UseLabListenOptions) {
           // element, started from this event; the chapter text, its clips and
           // React all arrive later. Start its opening now and adopt it then.
           if (bridge && bridge.urls.length > 0 && playingRef.current) startBridgeRef.current(audio, bridge)
+          // No opening ready: hold the element with silence while the page
+          // loads the chapter, so its first play() is not refused.
+          else if (playingRef.current && pageHidden()) startHoldRef.current(audio)
           return
         }
         finishPlayback()
@@ -905,7 +1069,30 @@ export function useLabListen(options: UseLabListenOptions) {
       playClipRef.current(next, 0)
     }
     const handleError = () => {
-      if (switchingRef.current || primingRef.current || isUnlockSource(audio)) return
+      if (primingRef.current || isUnlockSource(audio)) return
+      if (isHoldSource(audio)) {
+        // The in-memory silence failed: the static file takes over, same element, same event.
+        if (holdBlobUrl && audio.src === holdBlobUrl) {
+          holdBlobUrl = null
+          try { audio.removeAttribute('src') } catch { /* ignore */ }
+          if (playingRef.current && !userPausedRef.current) startHoldRef.current(audio)
+          return
+        }
+        // The silence itself cannot play here: wait the ordinary way, and
+        // start a clip that was waiting for the hold now.
+        holdBrokenRef.current = true
+        audio.loop = false
+        const run = holdRef.current?.request === playRequestRef.current ? holdRef.current.run : null
+        holdRef.current = null
+        run?.()
+        return
+      }
+      const failing = clipsRef.current[clipIndexRef.current]
+      // The current recording failed to load (switchingRef only screens out
+      // the previous source's stale events, which carry no error of their own).
+      const ownError = Boolean(audio.error) && failing?.kind === 'paragraph' && !!failing.narration && !!failing.url && audio.src.endsWith(failing.url)
+      if (switchingRef.current && !ownError) return
+      if (ownError && reloadClipRef.current(audio)) return
       // A next-chapter opening that fails is dropped; the chapter starts it normally once loaded.
       if (bridgeRef.current) { bridgeRef.current = null; return }
       // An element that is neither playing nor asked to play has nothing to
@@ -935,11 +1122,15 @@ export function useLabListen(options: UseLabListenOptions) {
     const handlePlaying = () => {
       if (primingRef.current) return
       if (!playingRef.current) {
-        if (interruptionRef.current && !userPausedRef.current) {
-          // iOS resumed the element itself after an interruption: follow it.
+        if ((interruptionRef.current || systemPausedRef.current) && !userPausedRef.current) {
+          // iOS resumed the element itself after an interruption, however long
+          // ago it began (a call, a run of navigation prompts): follow it.
           endInterruptionRef.current()
+          systemPausedRef.current = false
           playingRef.current = true
           setPlaying(true)
+          // Silence was holding a recording still to come: ask for it again.
+          if (isHoldSource(audio)) playClipRef.current(clipIndexRef.current, positionRef.current.time)
         } else {
           // A late native start after cancellation must stay silent.
           audio.autoplay = false
@@ -1091,6 +1282,7 @@ export function useLabListen(options: UseLabListenOptions) {
     chapterCompletedRef.current = false
     endInterruptionRef.current()
     if (andPlay) userPausedRef.current = false
+    systemPausedRef.current = false
     const audio = ensureAudio()
     const clip = clipsRef.current[index]
     if (!clip) { setPending(false); return false }
@@ -1105,8 +1297,13 @@ export function useLabListen(options: UseLabListenOptions) {
       // real. The clock starts over here so the previous clip's end time
       // cannot leak into the follow paint or the progress bar while we wait.
       const target: ChunkTarget = { paragraphIndex: clip.index, chunkIndex: clip.chunk?.index ?? 0 }
-      enterPreparing(index, offsetSeconds)
+      // A hidden page cannot start the element again once it goes idle:
+      // silence holds it, started here (inside the event or the gesture that
+      // asked), until the recording is ready.
+      const hold = andPlay && pageHidden() && !isNativeCapacitor() && !holdBrokenRef.current
+      enterPreparing(index, offsetSeconds, hold)
       if (!andPlay) return true
+      if (hold) startHoldRef.current(audio)
       void prepareThenRun(target, () => {
         const ready = findClipIndex(target)
         if (ready >= 0) playClipRef.current(ready, offsetSeconds, andPlay)
@@ -1116,6 +1313,20 @@ export function useLabListen(options: UseLabListenOptions) {
     const url = clip.kind === 'paragraph' && clip.url
       ? clip.url
       : labAudioFileUrl(clip.file, audioChapter(), audioEdition(), audioBook())
+    if (andPlay && !inHoldEventRef.current && isHoldSource(audio) && !audio.paused) {
+      // Silence is holding the element (a hidden page). The swap happens in
+      // the hold's next event, ~4 times a second: a start from a network
+      // callback or a timer is what a locked iPhone refuses.
+      clipIndexRef.current = index
+      setClipIndex(index)
+      positionRef.current = { clipIndex: index, time: offsetSeconds }
+      setSrc(NARRATION_PENDING_SRC)
+      holdRef.current = { run: () => { playClipRef.current(index, offsetSeconds, true) }, request, notBefore: 0 }
+      return true
+    }
+    const fromHold = isHoldSource(audio)
+    holdRef.current = null
+    audio.loop = false
     switchingRef.current = true
     clipIndexRef.current = index
     setClipIndex(index)
@@ -1137,7 +1348,7 @@ export function useLabListen(options: UseLabListenOptions) {
     // the synchronous source swap. Android instead waits for foreground-service
     // ownership in playReaderAudioTransition before any playback can start.
     // Manual seeks/source changes still pause.
-    const continuousBoundary = Boolean(andPlay && playingRef.current && audio.ended)
+    const continuousBoundary = Boolean(andPlay && playingRef.current && (audio.ended || (fromHold && !audio.paused)))
     audio.autoplay = andPlay && !isNativeCapacitor()
     if (!continuousBoundary) {
       try { audio.pause() } catch { /* ignore */ }
@@ -1244,6 +1455,8 @@ export function useLabListen(options: UseLabListenOptions) {
   // --- Chapter boundary on a locked phone -------------------------------
   const playBridgeUrl = (audio: HTMLAudioElement, url: string) => {
     switchingRef.current = false
+    holdRef.current = null
+    audio.loop = false
     audio.autoplay = !isNativeCapacitor()
     setAudioSource(audio, url)
     try { audio.currentTime = 0 } catch { /* ignore */ }
@@ -1324,6 +1537,81 @@ export function useLabListen(options: UseLabListenOptions) {
     return true
   }
 
+  // --- Silence holding the element on a hidden page ----------------------
+  /**
+   * Keep the element playing (looped silence) so a locked iPhone keeps the
+   * audio session and the page running. Started synchronously from an event
+   * on the element or a reader gesture. False when it cannot be used here.
+   */
+  startHoldRef.current = (audio) => {
+    if (isNativeCapacitor() || holdBrokenRef.current) return false
+    if (!holdRef.current) holdRef.current = { run: null, request: playRequestRef.current, notBefore: 0 }
+    audio.loop = true
+    if (!isHoldSource(audio)) {
+      switchingRef.current = false
+      setAudioSource(audio, holdSourceUrl())
+    }
+    audio.autoplay = true
+    if (audio.paused || audio.ended) {
+      let played: Promise<void>
+      try { played = Promise.resolve(audio.play()) } catch (error) { played = Promise.reject(error) }
+      played.catch(() => {
+        // Refused: whatever waits on the hold starts on a timer instead.
+        const hold = holdRef.current
+        if (!hold?.run || !isHoldSource(audio) || !audio.paused) return
+        setTimeout(() => runHoldRef.current(), Math.max(0, hold.notBefore - waitClockMs()))
+      })
+    }
+    return true
+  }
+  /** From the hold's own events: start the clip waiting on it, if its moment has come. */
+  runHoldRef.current = () => {
+    const hold = holdRef.current
+    if (!hold?.run || waitClockMs() < hold.notBefore) return
+    const run = hold.run
+    hold.run = null
+    if (hold.request !== playRequestRef.current || !playingRef.current || userPausedRef.current) return
+    inHoldEventRef.current = true
+    try { run() } finally { inHoldEventRef.current = false }
+  }
+  /**
+   * The playing recording failed to load (a car between cells). Load it again
+   * from the same second, with back-off, holding the element with silence on
+   * a hidden page, for up to NARRATION_HOLD_MAX_MS. False leaves the ordinary
+   * visible error with Retry: a damaged file, a visible page's non-network
+   * error, a reader who paused, or a budget used up.
+   */
+  reloadClipRef.current = (audio) => {
+    if (!playingRef.current || userPausedRef.current || isNativeCapacitor()) return false
+    const code = audio.error?.code
+    // MEDIA_ERR_DECODE: the file itself is damaged; loading it again will not help.
+    if (code === 3) return false
+    // WebKit also reports a dropped load as MEDIA_ERR_SRC_NOT_SUPPORTED; hidden, nobody can tap Retry.
+    if (code !== 2 && !pageHidden()) return false
+    const index = clipIndexRef.current
+    const clip = clipsRef.current[index]
+    const url = clip?.kind === 'paragraph' ? clip.url : undefined
+    if (!url) return false
+    const now = waitClockMs()
+    const prior = reloadRef.current?.url === url ? reloadRef.current : { url, attempts: 0, since: now }
+    if (now - prior.since > NARRATION_HOLD_MAX_MS) { reloadRef.current = null; return false }
+    reloadRef.current = { ...prior, attempts: prior.attempts + 1 }
+    const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
+    const time = live > 0 ? live : positionRef.current.clipIndex === index ? positionRef.current.time : 0
+    positionRef.current = { clipIndex: index, time }
+    const delay = narrationReloadDelayMs(prior.attempts)
+    const request = playRequestRef.current
+    const run = () => { playClipRef.current(index, time, true) }
+    if (pageHidden() && startHoldRef.current(audio)) {
+      holdRef.current = { run, request, notBefore: now + delay }
+    } else {
+      setTimeout(() => {
+        if (request === playRequestRef.current && playingRef.current && !userPausedRef.current) run()
+      }, delay)
+    }
+    return true
+  }
+
   // --- Interruptions (a call, Siri, a notification sound) ---------------
   endInterruptionRef.current = () => {
     const interruption = interruptionRef.current
@@ -1332,7 +1620,8 @@ export function useLabListen(options: UseLabListenOptions) {
     interruptionRef.current = null
   }
   beginInterruptionRef.current = (audio) => {
-    if (!bridgeRef.current) positionRef.current = { clipIndex: clipIndexRef.current, time: audio.currentTime || 0 }
+    if (!bridgeRef.current && !isHoldSource(audio)) positionRef.current = { clipIndex: clipIndexRef.current, time: audio.currentTime || 0 }
+    systemPausedRef.current = true
     // Any start in flight is superseded; it must not report an error over this.
     playRequestRef.current += 1
     playingRef.current = false
@@ -1372,6 +1661,8 @@ export function useLabListen(options: UseLabListenOptions) {
       lastAutoResumeRef.current = waitClockMs()
       applyRate(audio, speedRef.current)
       setPlaying(true)
+      // Silence was holding a recording still to come: ask for it again.
+      if (isHoldSource(audio)) { playClipRef.current(clipIndexRef.current, positionRef.current.time); return }
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
       const current = clipsRef.current[clipIndexRef.current]
       if (current?.kind === 'paragraph' && current.narration) scheduleNarrationLookAhead()
@@ -1493,6 +1784,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const request = ++playRequestRef.current
     endInterruptionRef.current()
     userPausedRef.current = false
+    systemPausedRef.current = false
     lastAutoResumeRef.current = null
     setPending(true)
     narrationRetryRef.current = null
@@ -1521,6 +1813,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const request = ++playRequestRef.current
     endInterruptionRef.current()
     userPausedRef.current = false
+    systemPausedRef.current = false
     lastAutoResumeRef.current = null
     setPending(true)
     narrationRetryRef.current = null
@@ -1557,7 +1850,9 @@ export function useLabListen(options: UseLabListenOptions) {
   const pause = useCallback(() => {
     // A deliberate pause (in-app, lock screen, AirPods, Talk): never auto-resumed.
     userPausedRef.current = true
+    systemPausedRef.current = false
     endInterruptionRef.current()
+    if (holdRef.current) holdRef.current.run = null
     const paused = audioRef.current
     const current = clipsRef.current[clipIndexRef.current]
     if (paused?.src && !bridgeRef.current && !isUnlockSource(paused) && !waitingForNarration(current, paused) && Number.isFinite(paused.currentTime)) {
@@ -1598,11 +1893,12 @@ export function useLabListen(options: UseLabListenOptions) {
     if (optionsRef.current.playbackUnavailable || pendingRef.current) return false
     endInterruptionRef.current()
     userPausedRef.current = false
+    systemPausedRef.current = false
     lastAutoResumeRef.current = null
     const request = ++playRequestRef.current
     const audio = audioRef.current
     const current = clipsRef.current[clipIndexRef.current]
-    const reenter = Boolean(pendingPlaceRef.current || (current?.kind === 'paragraph' && current.narration && (!audio?.src || !current.url || !audio.src.endsWith(current.url))))
+    const reenter = Boolean(pendingPlaceRef.current || (audio && isHoldSource(audio)) || (current?.kind === 'paragraph' && current.narration && (!audio?.src || !current.url || !audio.src.endsWith(current.url))))
     if (fromSentenceStart && reenter) {
       // A recording that is not on the element yet: resume through the place,
       // from the start of the sentence that holds it.
@@ -1684,7 +1980,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const playFromMediaSession = useCallback(() => {
     const audio = audioRef.current
     const current = clipsRef.current[clipIndexRef.current]
-    if (pendingRef.current && audio?.src && audio.paused && !audio.ended && !isUnlockSource(audio) && !waitingForNarration(current, audio)) {
+    if (pendingRef.current && audio?.src && audio.paused && !audio.ended && !isUnlockSource(audio) && (isHoldSource(audio) || !waitingForNarration(current, audio))) {
       setPending(false)
     }
     resume()
@@ -1692,6 +1988,7 @@ export function useLabListen(options: UseLabListenOptions) {
 
   const stop = useCallback(() => {
     userPausedRef.current = true
+    systemPausedRef.current = false
     endInterruptionRef.current()
     bridgeRef.current = null
     setPending(false)
@@ -1704,7 +2001,10 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationAbortRef.current = null
     setNarrationState(current => (current.status === 'loading' ? { status: 'idle' } : current))
     const audio = audioRef.current
+    holdRef.current = null
+    reloadRef.current = null
     if (audio) {
+      audio.loop = false
       audio.pause()
       audio.autoplay = false
       audio.removeAttribute('src')
@@ -1727,6 +2027,7 @@ export function useLabListen(options: UseLabListenOptions) {
     narrationAbortRef.current = null
     chapterHandoffRef.current = true
     userPausedRef.current = false
+    systemPausedRef.current = false
     endInterruptionRef.current()
     const audio = audioRef.current
     if (audio) audio.autoplay = !isNativeCapacitor()
@@ -1859,11 +2160,24 @@ export function useLabListen(options: UseLabListenOptions) {
         setPlaying(false)
       } else if (!playingRef.current && !audio.paused && audio.src && !pendingRef.current) {
         userPausedRef.current = false
+        systemPausedRef.current = false
         playingRef.current = true
         setPlaying(true)
       }
     }
-    const onVisibility = () => { if (document.visibilityState !== 'hidden') reconcile() }
+    const onHidden = () => {
+      const audio = audioRef.current
+      if (!audio || !playingRef.current || userPausedRef.current || primingRef.current) return
+      const current = clipsRef.current[clipIndexRef.current]
+      // Locked while a recording is still being prepared: hold the element
+      // now, while iOS still lets it play, rather than leave it idle.
+      if (current?.kind === 'paragraph' && current.narration && waitingForNarration(current, audio) && !isHoldSource(audio) && !bridgeRef.current) {
+        startHoldRef.current(audio)
+      }
+      // The look-ahead reaches further while hidden; extend it now.
+      if (current?.kind === 'paragraph' && current.narration) scheduleNarrationLookAhead()
+    }
+    const onVisibility = () => { if (document.visibilityState !== 'hidden') reconcile(); else onHidden() }
     // An output change (headphones out) is not an interruption to resume from.
     const onDeviceChange = () => endInterruptionRef.current()
     const devices = typeof navigator !== 'undefined' ? navigator.mediaDevices : undefined
@@ -1878,7 +2192,7 @@ export function useLabListen(options: UseLabListenOptions) {
       devices?.removeEventListener?.('devicechange', onDeviceChange)
       endInterruptionRef.current()
     }
-  }, [setPlaying])
+  }, [scheduleNarrationLookAhead, setPlaying])
 
   useEffect(() => {
     const session = readerMediaSession()
