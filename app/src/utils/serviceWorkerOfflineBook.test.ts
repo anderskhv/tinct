@@ -91,3 +91,9 @@ it('reports failure when offline before anything was cached', async () => {
   h.goOffline()
   expect(await h.cacheShell()).toEqual({ ok: false })
 })
+
+it('installs the lazy bundles with the shell, so a deploy leaves a complete offline reader', async () => {
+  const h = harness()
+  await h.install()
+  expect([...h.stored.keys()].sort()).toEqual(['/assets/index-AbCdEf12.js', '/assets/useVoiceSession-AbCdEf12.js', '/reader'])
+})

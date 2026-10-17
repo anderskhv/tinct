@@ -14,6 +14,8 @@ import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
 import { useDesktopDockPlacement } from './labAudioDock'
 import { isAudioHeld } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
+import { useLabAutoOffline } from './useLabAutoOffline'
+import { offlineEditionKeys } from './labOfflineBook'
 import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
 import { LabFootnote, type OpenFootnote } from './LabFootnote'
 import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
@@ -2149,6 +2151,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // Verifying cards downloads their complete source edition. Do not fetch an
   // unused second book alongside the chapter when Compare is disabled.
   const compareCharacters = useCharacterCards(firstPageShown && prefs.compareOpen && !privateBook ? book.bookId : undefined, prefs.compareEdition)
+  // The whole book, readable offline with no tap: main edition plus compare,
+  // saved in the background once the first page is up (useLabAutoOffline.ts).
+  // A reader's own books are already on this device; an added book's paid
+  // Modern English edition is written on the server and read fresh.
+  const offlineBookId = book.bookId || 'bible'
+  const autoOfflineEditions = offlineEditionKeys(prefs.primaryEdition, prefs.compareOpen ? prefs.compareEdition : null)
+    .filter(key => bookEditions.some(edition => edition.key === key) && !editionHold(offlineBookId, key)
+      && !(isPublicBookId(offlineBookId) && key === MODERN_EDITION_KEY))
+  useLabAutoOffline({
+    bookId: offlineBookId,
+    editionKeys: autoOfflineEditions,
+    hasVerseLines: bookEditions.some(edition => edition.hasVerseLines),
+    enabled: firstPageShown && !privateBook && !ownPdf && !isUserBookId(offlineBookId),
+  })
   // Author footnotes, for the edition actually on the page; other editions never request any.
   const chapterFootnotes = useChapterFootnotes(firstPageShown && !privateBook ? book.bookId : undefined, readerEditionKey, book.chapterNumber, readerParagraphs)
   const [openFootnote, setOpenFootnote] = useState<OpenFootnote | null>(null)
