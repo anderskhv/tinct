@@ -44,6 +44,7 @@ import {
   NARRATION_PROVIDER,
   absoluteSegments,
   chunkNarrationTokens,
+  isGuestNarrationVoice,
   isPilotScope,
   narrationAudioPath,
   narrationBlobKeys,
@@ -1072,6 +1073,10 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   if (isPrivateBook(bookId) || isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
+  // Guests hear Ara and Helios only (the voices with recorded openings); Orion and Eve need an account.
+  if (cacheOnlyGuest && !isGuestNarrationVoice(voice.key)) {
+    return jsonResponse({ error: 'Sign in to prepare narration', reason: 'account_voice' }, 401, request)
+  }
   if (caller === 'prepare' && usesRetainedBella(bookId, editionKey, voice.persona ?? 'female')) {
     return new Response(null, { status: 204 })
   }

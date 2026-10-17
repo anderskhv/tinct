@@ -91,6 +91,17 @@ export interface NarrationIdentityInput {
   settings: NarrationSynthesisSettings
 }
 
+/**
+ * Grok voices a signed-out reader may hear: Ara ('f') and Helios ('m') are
+ * the only voices with recorded openings, and guests are served cache-only.
+ * Orion and Eve need an account (Anders, 2026-10-17).
+ */
+export const GUEST_NARRATION_VOICE_KEYS: readonly string[] = Object.freeze(['f', 'm'])
+
+export function isGuestNarrationVoice(key: string): boolean {
+  return GUEST_NARRATION_VOICE_KEYS.includes(key)
+}
+
 export function isPilotScope(bookId: string, editionKey: string, chapter: number): boolean {
   return /^[a-z0-9-]{1,64}$/.test(bookId)
     && /^[a-z0-9-]+-en$/.test(editionKey)

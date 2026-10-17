@@ -10,8 +10,10 @@ const output = 'artifacts/inline-audio-loading'
 await fs.mkdir(output, { recursive: true })
 const report = { live, cases: [], generated: 0, note: 'Delayed real cached responses exercise preparation without new synthesis; native playback is not mocked.' }
 
-async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f', reducedMotion = false } = {}) {
-  const label = [engine, phone ? 'phone' : 'desktop', theme, voice, reducedMotion ? 'reduced' : 'motion'].join('-')
+// `voice` is what the guest is narrated with: signed out, only Ara ('f') and Helios ('m') play.
+// `stored` is the voice in the reader's prefs; a stored Orion or Eve plays as the matching guest voice.
+async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f', stored = voice, reducedMotion = false } = {}) {
+  const label = [engine, phone ? 'phone' : 'desktop', theme, stored === voice ? voice : stored + '-as-' + voice, reducedMotion ? 'reduced' : 'motion'].join('-')
   const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, serviceWorkers: 'block', reducedMotion: reducedMotion ? 'reduce' : 'no-preference' })
   await context.tracing.start({ screenshots: true, snapshots: true })
   const page = await context.newPage()
@@ -21,10 +23,12 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
   const result = { label, calls, errors, passed: false }
   page.on('pageerror', e => errors.push(e.message))
   await page.route('**/*', async route => {
+    let ensureBody = null
     try {
     const req = route.request(), url = new URL(req.url())
     if (url.pathname === '/api/narration/ensure') {
       const body = req.postDataJSON()
+      ensureBody = body
       assert.equal(body.bookId, 'frankenstein')
       assert.equal(body.voice, voice)
       assert(calls.length < 80, 'Bounded cached acceptance')
@@ -34,7 +38,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
       const response = await route.fetch({ headers: { ...req.headers(), 'x-tinct-check': '1' }, timeout: 15000, maxRetries: 1 })
       const json = await response.json()
       call.status = response.status(); call.generated = json.generated || 0
-      assert.equal(response.status(), 200, JSON.stringify(json))
+      assert.equal(response.status(), 200, JSON.stringify({ response: json, request: body }))
       assert.equal(call.generated, 0, 'Acceptance must reuse cache')
       report.generated += call.generated
       if (delayNext) { delayNext = false; call.delayed = true; await gate }
@@ -50,12 +54,12 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     }
     return route.continue()
     } catch (error) {
-      errors.push('Network acceptance: ' + error.message.split('\n')[0])
+      errors.push('Network acceptance: ' + error.message.split('\n')[0] + (ensureBody ? ' request=' + JSON.stringify(ensureBody) : ''))
       await route.abort().catch(() => {})
     }
   })
-  await page.addInitScript(({ theme, voice }) => {
-    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en', voicePersona: voice === 'm' ? 'male' : 'female', voicePersonaChosen: true, audiobookVoice: ['orion', 'eve'].includes(voice) ? voice : null }))
+  await page.addInitScript(({ theme, stored }) => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme, primaryEdition: 'original-en', voicePersona: stored === 'm' ? 'male' : 'female', voicePersonaChosen: true, audiobookVoice: ['orion', 'eve'].includes(stored) ? stored : null }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein', primaryEditionKey: 'original-en', savedPlace: { bookId: 'frankenstein', chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, page: 0 } }))
     window.__audio = null; window.__audioEvents = []
     const seen = new WeakSet()
@@ -72,7 +76,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     const nativePlay = HTMLMediaElement.prototype.play
     HTMLMediaElement.prototype.play = function () { observe(this); return nativePlay.call(this) }
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: async () => { throw Error('Microphone disabled') } })
-  }, { theme, voice })
+  }, { theme, stored })
   try {
     await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader'), { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
@@ -149,7 +153,7 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
       audio: window.__audio && { paused: window.__audio.paused, readyState: window.__audio.readyState, networkState: window.__audio.networkState, currentTime: window.__audio.currentTime, errorCode: window.__audio.error?.code },
       events: window.__audioEvents?.map(({ type, time, currentTime }) => ({ type, time, currentTime })),
     })).catch(() => null)
-    console.log('INLINE_AUDIO_FAILURE ' + JSON.stringify({ label, errors, calls: calls.map(({ at, status, generated, delayed, injectedFailure }) => ({ at, status, generated, delayed, injectedFailure })), state: result.failureState }))
+    console.log('INLINE_AUDIO_FAILURE ' + JSON.stringify({ label, errors, calls: calls.map(({ at, status, generated, delayed, injectedFailure, body }) => ({ at, status, generated, delayed, injectedFailure, ...(status !== 200 && !injectedFailure ? { body } : {}) })), state: result.failureState }))
     await page.screenshot({ path: output + '/' + label + '-failure.png' }).catch(() => {})
     await context.tracing.stop({ path: output + '/' + label + '-trace.zip' }).catch(() => {})
   } finally {
@@ -191,7 +195,10 @@ for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
     if (engine === 'chromium') {
       await run(browser, engine, { phone: false })
       await run(browser, engine, { phone: false, theme: 'light', reducedMotion: true })
-      for (const voice of ['m', 'orion', 'eve']) await run(browser, engine, { voice })
+      await run(browser, engine, { voice: 'm' })
+      // Signed out, a stored Orion or Eve is narrated by Helios or Ara.
+      await run(browser, engine, { voice: 'm', stored: 'orion' })
+      await run(browser, engine, { voice: 'f', stored: 'eve' })
     }
   } finally { await browser.close() }
 }
