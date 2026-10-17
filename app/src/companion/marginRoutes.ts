@@ -68,14 +68,15 @@ export function quizRoute(thinkingOff: boolean = QUIZ_THINKING_OFF): MarginRoute
 }
 
 /**
- * COUNTERPOINT_THINKING_OFF (round 3, 16 Oct; ON in this PR, Anders measures it against recheck-1): Counterpoint
+ * COUNTERPOINT_THINKING_OFF, OFF again (night run final, 16 Oct: with thinking off and 400 tokens Counterpoint fell
+ * from 3.80 to 3.26 against Gloss's 4.90, and ResNet's answer was cut off empty). Was (round 3, 16 Oct): Counterpoint
  * with thinking disabled at effort low, as the quiz trial. recheck-1 found its first words at 5-10 s (1-2 s
  * before) and its median output at 1,200 tokens against 303, nearly all thinking, after the stricter
  * grounding prompt. The prompt and its grounding rules are unchanged; the bound fits its 150-word answer
  * (about 200 tokens) with room for citations and a little more, so a long answer is not cut off.
  * Off: adaptive thinking at effort low with 6000 tokens, as before.
  */
-export const COUNTERPOINT_THINKING_OFF = true
+export const COUNTERPOINT_THINKING_OFF = false
 /** Counterpoint's answer bound with thinking off: about 300 words. */
 export const COUNTERPOINT_FAST_MAX_TOKENS = 400
 /** Counterpoint's route: with `thinkingOff`, effort low, thinking disabled and COUNTERPOINT_FAST_MAX_TOKENS; else adaptive at low with 6000. */
@@ -93,7 +94,7 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
   related: route(MARGIN_HAIKU_MODEL, 'low', 800, NO_THINKING),
   // Adaptive thinking at medium effort: 1200-1600 left 4 in 5 cut off (15 Oct 2026), so room to think as well.
   factcheck: route(MARGIN_HAIKU_MODEL, 'medium', 8000),
-  // Low effort (15 Oct evening: 7-12 s at medium, almost all of it thinking); COUNTERPOINT_THINKING_OFF above turns thinking off.
+  // Low effort (15 Oct evening: 7-12 s at medium, almost all of it thinking), adaptive thinking, 6000 tokens; COUNTERPOINT_THINKING_OFF above is off.
   counterpoint: counterpointRoute(),
   // Low effort as Counterpoint (retest after train 2: first question 5-11 s against a target under 5), still adaptive, same bound
   // (QUIZ_THINKING_OFF below trials it without thinking).

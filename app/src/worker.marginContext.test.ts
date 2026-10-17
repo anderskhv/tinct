@@ -111,14 +111,15 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
       quiz_check: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 500, thinking: { type: 'disabled' } },
       related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 8000 },
-      counterpoint: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 400, thinking: { type: 'disabled' } },
+      // Counterpoint's thinking-off trial is off again (night run final, 16 Oct: 3.80 -> 3.26, an empty answer cut off).
+      counterpoint: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
       quiz: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000, thinking: { type: 'disabled' } },
       primer: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       ask: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 1800 },
     })
     // Every route that thinks adaptively has a key with no thinking field at all, and Sonnet never turns it off.
     for (const [key, route] of Object.entries(MARGIN_ROUTES)) {
-      if (route.model === MARGIN_SONNET_MODEL || ['factcheck'].includes(key)) expect(route, key).not.toHaveProperty('thinking')
+      if (route.model === MARGIN_SONNET_MODEL || ['factcheck', 'counterpoint'].includes(key)) expect(route, key).not.toHaveProperty('thinking')
     }
   })
 
@@ -145,8 +146,8 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     expect(anthropic[0].model).toBe(route.model)
     expect(anthropic[0].output_config).toEqual({ effort: route.effort })
     expect(anthropic[0].max_tokens).toBe(route.maxTokens)
-    // Haiku's lookups: thinking off. Quiz me and Counterpoint (their trials, on): off too. Fact-check and Sonnet's primer and Ask: no thinking field.
-    if (['explain', 'define', 'simplify', 'define_sense', 'quiz_check', 'quiz', 'counterpoint'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
+    // Haiku's lookups: thinking off. Quiz me (its trial, on): off too. Counterpoint (its trial off again), Fact-check and Sonnet's primer and Ask: no thinking field.
+    if (['explain', 'define', 'simplify', 'define_sense', 'quiz_check', 'quiz'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
     expect(JSON.stringify(anthropic[0])).not.toContain('budget_tokens')
   })

@@ -182,5 +182,132 @@
     if (short) out.push({ label: short, chevron: true }, { label: short, chevron: false });
     return out.length ? out : [{ label: chapter || short || '–', chevron: false }];
   }
-  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN };
+  /* ---------- Phones: the mode a PDF opens in, by its kind (Anders, 16 Oct 2026, option C) ---------- */
+  // On a phone a narrative or an essay (fiction, memoir, essays) opens as its Tinct text, reflowed in the
+  // Tinct reader, and so does a paper of running prose (textHeavy); a paper dense with equations, figures
+  // or tables, a textbook, a practical guide and anything else open in their pages at the column fit. The kind is told at open from the text of a few pages and the scan, before any AI call;
+  // a primer kept for the book names its kind, and that wins. Unsure: the pages. The desktop keeps the
+  // scan's default (pdf-scan.js layout). The reader's own choice always wins (TinctPdfText.choice).
+  const KINDS = ['paper', 'textbook', 'narrative', 'practical', 'other'];
+  /** The pages read to tell the kind: the first three and five spread through the document. */
+  function kindPages(count) {
+    const n = Math.max(0, Math.floor(count || 0)), out = new Set();
+    for (let k = 1; k <= Math.min(3, n); k++) out.add(k);
+    for (let i = 1; i <= 5 && n > 3; i++) out.add(Math.max(1, Math.min(n, Math.round((n * i) / 6))));
+    return [...out].sort((a, b) => a - b);
+  }
+  const IMPERATIVE = /^(?:[■•▪●◦·]\s*|\d{1,2}[.)]\s+)?(?:use|remove|clean|check|avoid|keep|make|turn|open|close|wear|add|place|put|do not|don['’]t|never|always|select|click|tap|press|install|fix|dry|wash|throw|fill|cut|mix|set|apply|ensure|contact|call|follow|take|stop|start|store|replace|reduce|increase|vent|repair|ventilate|discard|scrub|run|insert|connect|choose|try|consult|hire|ask|find|look|be sure|let|allow|prevent|limit|consider|go|move|lift|preheat|stir|bake|remember|if you)\b/i;
+  /** What the sampled text says (`pages`: [{ n, text }]): rates per 1,000 words, shares and yes/no signs. */
+  function kindSigns(pages) {
+    const text = (pages || []).map(p => (p && p.text) || '').join('\n');
+    const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+    const words = (text.match(/\p{L}+/gu) || []).length;
+    const per = n => (words ? (n * 1000) / words : 0);
+    const count = re => (text.match(re) || []).length;
+    const first = (pages || []).filter(p => p && p.n <= 2).map(p => p.text || '').join('\n');
+    const letters = (text.match(/\p{L}/gu) || []).length, digits = (text.match(/\d/g) || []).length;
+    const sentences = text.replace(/\n(?=[■•▪●◦·])/g, '. ').replace(/\s+/g, ' ').split(/(?<=[.!?])\s+/).filter(x => x.length > 12);
+    return {
+      words,
+      abstract: /^(?:\d+\.?\s*)?abstract\b/im.test(first),
+      references: /^(?:\d+\.?\s*)?(?:references|bibliography|works cited)\.?$/im.test(text),
+      arxiv: /\barxiv:\s*\d|\bdoi:\s*10\.\d|\bdoi\.org\/10\./i.test(text),
+      // Citations: [12], [3, 7], (Vaswani et al., 2017).
+      cites: per(count(/\[\d{1,3}(?:\s*[,–-]\s*\d{1,3})*\]/g) + count(/\([A-Z][\p{L}'-]+(?: et al\.?| and [A-Z][\p{L}'-]+)?,? (?:1[89]|20)\d\d[a-z]?\)/gu)),
+      exercises: count(/^(?:exercises?|problems?)\s*\d+(?:\.\d+)*/gim) + count(/\bsolution to exercise\b/gi),
+      theorems: count(/^(?:theorem|definition|lemma|example|proof)\s*\d*[.:]/gim),
+      dialogue: per(count(/[“"][^”"\n]{2,200}[”"]/g)),
+      firstPerson: per(count(/\b(?:I|me|my|myself|I['’]m|I['’]ve|I['’]d)\b/g)),
+      you: per(count(/\b(?:you|your|yours)\b/gi)),
+      digits: letters ? digits / letters : 0,
+      // Bullets and numbered steps, per 1,000 words; the share of sentences that tell the reader to do something.
+      lists: per(lines.filter(l => /^(?:[■•▪●◦·✓☐]\s*|[-–*]\s+|(?:step\s+)?\d{1,2}[.)]\s+\p{L})/iu.test(l)).length),
+      imperatives: sentences.length ? sentences.filter(x => IMPERATIVE.test(x.trim())).length / sentences.length : 0,
+      questions: lines.filter(l => /^(?:how|what|why|when|who|where|can|should|do|does|is|are)\b[^?]{3,80}\?\s*\d*$/i.test(l)).length,
+    };
+  }
+  /**
+   * The document's kind, told locally from `pages` (the sampled text, kindPages) and the `scan` (its layout
+   * signals, chapters, navigation), or the kept primer's `primerKind`, which wins. Scores each kind and
+   * names the best only when it scores 3 or more and leads the next by 1 or more; else 'other' (unsure).
+   * -> { kind, sure, by: 'primer' | 'text' }
+   */
+  function docKind({ scan = null, pages = [], count = 0, primerKind = null } = {}) {
+    if (KINDS.includes(primerKind)) return { kind: primerKind, sure: true, by: 'primer' };
+    const f = kindSigns(pages), s = (scan && scan.layout && scan.layout.signals) || {};
+    if (f.words < 150) return { kind: 'other', sure: false, by: 'text' };
+    const entries = Array.isArray(scan && scan.entries) ? scan.entries : [];
+    const numbered = entries.filter(e => /^(?:chapter\s+)?\d+\s*(?:·|\.|:|\s)\s*\p{L}/iu.test(String((e && e.label) || ''))).length;
+    const n = count || (scan && scan.pages) || 0;
+    const score = {
+      paper: (f.abstract ? 3 : 0) + (f.references ? 2 : 0) + (f.arxiv ? 1 : 0) + (f.cites >= 3 ? 2 : f.cites >= 1 ? 1 : 0)
+        + (s.paper ? 1 : 0) + (s.columns ? 1 : 0) + (s.math ? 1 : 0) + (n > 150 ? -3 : n > 60 ? -1 : 0),
+      textbook: (f.exercises >= 3 ? 3 : f.exercises >= 1 ? 2 : 0) + (numbered >= 4 ? 2 : 0) + (n >= 80 ? 1.5 : n < 40 ? -2 : 0)
+        + (s.math ? 1 : 0) + (f.theorems >= 2 ? 1 : 0) - (f.abstract ? 2 : 0),
+      narrative: (s.prose ? 2 : 0) + (f.dialogue >= 5 ? 2 : f.dialogue >= 2 ? 1 : 0) + (f.firstPerson >= 30 ? 2.5 : f.firstPerson >= 15 ? 1.5 : 0)
+        + (f.digits < 0.008 ? 1 : f.digits > 0.03 ? -2 : 0) + (scan && scan.nav === 'pages' ? 0.5 : 0)
+        - (s.math ? 3 : 0) - (s.columns ? 3 : 0) - (s.tables ? 2 : 0) - (s.paper || f.abstract ? 3 : 0) - (f.cites >= 1 ? 2 : 0) - (f.lists >= 4 ? 2 : 0) - (f.exercises ? 2 : 0),
+      practical: (f.lists >= 8 ? 2.5 : f.lists >= 4 ? 1.5 : 0) + (f.imperatives >= 0.15 ? 2 : f.imperatives >= 0.07 ? 1 : 0) + (f.questions >= 2 ? 1 : 0)
+        + (f.you >= 10 ? 1 : 0) - (f.abstract ? 2 : 0) - (s.math ? 1 : 0),
+    };
+    const [[kind, top], [, next]] = Object.entries(score).sort((a, b) => b[1] - a[1]);
+    const sure = top >= 3 && top - next >= 1;
+    return { kind: sure ? kind : 'other', sure, by: 'text' };
+  }
+  // The scan's own rule (pdf-scan.js layout: columns, mathematics, figures and tables score against prose,
+  // 'text' under 3.5) sent Deutsch's "Constructor Theory", a 40-page paper of running prose, to its Tinct
+  // text; on a phone a paper or an unsure kind follows it only when no page-bound sign is on as well.
+  const PAGE_BOUND = ['columns', 'math', 'figures', 'tables'];
+  /** True when the scan reads the PDF as running text: its default is Tinct text and no columns, mathematics, figures or tables. */
+  function textHeavy(layout) {
+    const signals = (layout && layout.signals) || {};
+    return !!layout && layout.default === 'text' && !PAGE_BOUND.some(k => signals[k]);
+  }
+  /**
+   * The edition a kind opens in on a phone: a narrative (fiction, memoir, an essay) as its Tinct text; a
+   * textbook or a practical guide in its pages; a paper or an unsure kind as its Tinct text only when it is
+   * text-heavy (textHeavy: mostly prose, few equations, figures or tables), else in its pages.
+   */
+  function phoneEdition(kind, layout = null) {
+    if (kind === 'narrative') return 'text';
+    if (kind === 'textbook' || kind === 'practical') return 'pages';
+    return textHeavy(layout) ? 'text' : 'pages';
+  }
+  /**
+   * The edition a kind opens in on the desktop (Anders, 16 Oct 2026): its original pages, except running
+   * prose, which reads as its Tinct text: a narrative or an essay (kind 'narrative'); or a text the scan
+   * finds free of columns, mathematics, figures and tables (textHeavy) that is either prose by the scan's
+   * own signal or a paper or an unsure kind (Deutsch's "Constructor Theory"). A textbook or a practical
+   * guide keeps its pages unless the scan reads it as prose. Shared with the phone's textHeavy.
+   */
+  function desktopEdition(kind, layout = null) {
+    if (kind === 'narrative') return 'text';
+    if (!textHeavy(layout)) return 'pages';
+    const prose = !!(layout && layout.signals && layout.signals.prose);
+    return prose || !(kind === 'textbook' || kind === 'practical') ? 'text' : 'pages';
+  }
+  /**
+   * The default edition a PDF opens in when the reader has chosen none: on a phone, by its kind (when told,
+   * phoneEdition) and the scan's `layout`, else the scan's default; on the desktop, by desktopEdition (its
+   * pages unless running prose), the kind left unsure until it is told. A PDF without text ('pages-only')
+   * has its pages only.
+   */
+  function openDefault({ phone = false, kind = null, layout = null } = {}) {
+    const layoutDefault = (layout && layout.default) || null;
+    if (layoutDefault === 'pages-only') return layoutDefault;
+    if (phone) return kind ? phoneEdition(kind, layout) : layoutDefault;
+    return layoutDefault ? desktopEdition(kind, layout) : null;
+  }
+  /**
+   * The reader's own edition choice for a book on this device (tinct-addbook:edition:<hex>), or null. The
+   * phone keeps its default there too (so the library and the Tinct reader open the book the same way),
+   * marked by `auto` ({ edition }, tinct-addbook:phone-edition:<hex>), and so does the desktop (`desk`,
+   * tinct-addbook:desk-edition:<hex>): a stored value equal to either is a default, not the reader's
+   * choice, and is ignored.
+   */
+  function ownChoice(stored, auto, desk = null) {
+    if (stored !== 'text' && stored !== 'pages') return null;
+    return (auto && auto.edition === stored) || (desk && desk.edition === stored) ? null : stored;
+  }
+  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
 });

@@ -15,7 +15,7 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
 import { readUserBookPlace, storedPlaceConverter, type UserBookPlace } from './userBookPlace'
 import { CURRENT_CONVERTER, EDITION_CONVERTERS, LEGACY_EDITION_CONVERTER, USER_EDITION_FORMAT, editionSource, usableUserEdition, type UserBookEdition, type UserEditionSource } from './userEdition'
-import { adoptOcrEditionChoice, pdfEditionChoice, readPdfTextPlace } from './pdfEditions'
+import { adoptOcrEditionChoice, pdfEditionChoice, pdfEditionUntold, readPdfTextPlace } from './pdfEditions'
 import { ocrDefaultEdition } from './ocrEdition'
 import type { ConvertedPdf } from './pdfEdition'
 import { healUserEdition } from './chapterAuthors'
@@ -329,6 +329,9 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   const scan = record.scan as { v?: unknown; layout?: { default?: string }; textPages?: unknown; pages?: unknown } | null | undefined
   let layout = (record.layout as { default?: string } | undefined)?.default ?? scan?.layout?.default ?? null
   let edition = usableUserEdition(record.edition, 'pdf') ? record.edition : null
+  let figureData = storedImages(record.figureData)
+  // A conversion kept under earlier rules: converted again below; the place read in it moves by its page.
+  const previous = !edition && record.edition && typeof record.edition === 'object' && Array.isArray(record.edition.chapters) ? record.edition : null
   let pageCount: unknown = [record.pages, scan?.pages].find(n => Number.isInteger(n) && (n as number) > 0)
   const ocr = options.ocr ?? loadOcrEdition
   const recognised = async (): Promise<UserBookEdition | null> => {
@@ -343,7 +346,7 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
     await keepFields(key, owner, { edition }).catch(() => {})
   }
   // Read in Original pages: on to the viewer at once (its Tinct text is made when the reader picks it).
-  if (!edition && pdfEditionChoice(hex, layout) === 'pages') return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  if (!edition && (pdfEditionChoice(hex, layout) === 'pages' || pdfEditionUntold(hex, layout))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     let made: ConvertedPdf | null = null
@@ -358,15 +361,19 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
       return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
     }
     // A browser that cannot keep it converts again next time; reading goes on.
-    await keepFields(key, owner, { edition, layout: made.scan.layout, ...(made.fresh ? { scan: made.scan, pages: made.scan.pages } : {}) }).catch(() => {})
+    // Its crops (formulas, figures, tables drawn from its pages) are kept beside it, as an EPUB's pictures are: on this device, for this owner.
+    figureData = made.images ?? new Map()
+    await keepFields(key, owner, { edition, layout: made.scan.layout, figureData: Object.fromEntries(figureData), ...(made.fresh ? { scan: made.scan, pages: made.scan.pages } : {}) }).catch(() => {})
   }
   // Recognised text opens by its own default (the scan's is its pages only).
   if (editionSource(edition) === 'ocr') layout = ocrDefaultEdition(edition)
-  if (pdfEditionChoice(hex, layout) === 'pages') return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  // Not yet told on this device under the current open rule (pdfEditions.ts): the viewer decides, and forwards back when it is Tinct text.
+  if (pdfEditionChoice(hex, layout) === 'pages' || pdfEditionUntold(hex, layout)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   edition = healUserEdition(edition)
   const pages = Number.isInteger(pageCount) && (pageCount as number) > 0 ? pageCount as number : undefined
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
-  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images: new Map(), place: readPdfTextPlace(hex, edition, { page: options.page }), cover } }
+  const images = new Map<string, Blob>([...figureData].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
+  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images, place: readPdfTextPlace(hex, edition, { page: options.page, previous }), cover } }
 }
 
 const COVER_HEAL_DELAY_MS = 1500

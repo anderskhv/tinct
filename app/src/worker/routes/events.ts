@@ -49,6 +49,9 @@ export const FUNNEL_EVENT_NAMES = new Set<string>([
   'book_intro_viewed', 'audio_failed', 'audio_slow_start', 'talk_failed',
   'share_sheet_opened', 'share_created', 'share_completed', 'share_link_opened', 'share_link_signup',
   'cards_open_failed', 'cards_open_stuck',
+  // The PDF reader's margin: a card whose request or drawing failed in the page (reader.js reportCardError;
+  // its kind, the step, the error's type and code location, never the passage, question or answer).
+  'margin_card_failed',
 ])
 const SOCIAL_EVENTS = new Set<string>(SOCIAL_EVENT_NAMES)
 

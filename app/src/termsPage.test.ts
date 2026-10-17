@@ -79,6 +79,8 @@ describe('own books and the AI features', () => {
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
     expect(privacy).toContain('Last updated: 16 October 2026')
+    // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
+    expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
     expect(privacy).toContain('If you upload a picture or a background, we store it with Cloudflare, with its location and camera details removed.')
     expect(privacy).toContain('A person at Tinct looks at each uploaded photo before other readers can see it')

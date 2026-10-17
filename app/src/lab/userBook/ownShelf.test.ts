@@ -140,6 +140,8 @@ describe('where an own book opens', () => {
     localStorage.setItem(`tinct-addbook:pos:pdf:${legacy}`, JSON.stringify({ page: 4, frac: 0, at: 9 }))
     // Read as Tinct text (here, or on another device: the place says so).
     localStorage.setItem(`tinct-addbook:pos:pdf:${switched}`, JSON.stringify({ page: 2, frac: 0, at: 9, edition: 't' }))
+    // Both opened in the viewer on this device under the current open rule (reader.js openKind).
+    for (const hex of [prose, switched]) localStorage.setItem(`tinct-addbook:open-rule:${hex}`, '2')
     const hrefs = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
     expect(hrefs).toEqual({
       [prose]: `/reader?userBook=${prose}`,
@@ -150,6 +152,28 @@ describe('where an own book opens', () => {
       [switched]: `/reader?userBook=${switched}`,
       [HEX]: `/reader?userBook=${HEX}`,
     })
+  })
+
+  it('a PDF not yet opened here under the desktop rule of 16 Oct 2026 opens in the viewer, which tells its edition: Tinct text by the old default or by a place nobody chose', async () => {
+    const [prose, read, chosen] = ['a7', 'b8', 'c9'].map(p => p.repeat(12))
+    withRecords([pdf(prose, 'text'), pdf(read, 'text'), pdf(chosen, 'text')])
+    // Read as Tinct text when the desktop sent every PDF scoring under 3.5 there (MacKay's extract): no choice kept.
+    localStorage.setItem(`tinct-addbook:pos:pdf:${read}`, JSON.stringify({ page: 5, frac: 0.2, at: 9, edition: 't' }))
+    // The reader chose Tinct text on this device (Convert to Tinct book): that wins at once.
+    localStorage.setItem(`tinct-addbook:pos:pdf:${chosen}`, JSON.stringify({ page: 5, frac: 0.2, at: 9, edition: 't' }))
+    localStorage.setItem(`tinct-addbook:edition:${chosen}`, JSON.stringify('text'))
+    const hrefs = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
+    expect(hrefs).toEqual({
+      [prose]: `/lab/addbook/?userBook=${prose}`,
+      [read]: `/lab/addbook/?userBook=${read}`,
+      [chosen]: `/reader?userBook=${chosen}`,
+    })
+    // Once the viewer has told it (and kept running prose as Tinct text), the library goes straight there.
+    localStorage.setItem(`tinct-addbook:open-rule:${prose}`, '2')
+    localStorage.setItem(`tinct-addbook:open-rule:${read}`, '1')
+    const again = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
+    expect(again[prose]).toBe(`/reader?userBook=${prose}`)
+    expect(again[read]).toBe(`/lab/addbook/?userBook=${read}`)
   })
 
   it('marks a scan whose text is not on this device, and opens one whose recognised text is here as Tinct text', async () => {

@@ -4,7 +4,7 @@ import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfP
 import { fetchAccountCopy, fetchAccountPlaces, type AccountPagePlace, type AccountPlace } from './ownAccount'
 import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace } from './userBookPlace'
 import type { UserBookEdition } from './userEdition'
-import { choosePdfPages, pdfEditionChoice, readPdfTextPlace } from './pdfEditions'
+import { choosePdfPages, PDF_OPEN_RULE_AT, pdfEditionChoice, pdfEditionUntold, readPdfTextPlace } from './pdfEditions'
 
 const forget = vi.hoisted(() => vi.fn(async () => [] as string[]))
 vi.mock('./ownShelf', async original => ({ ...await original<typeof import('./ownShelf')>(), forgetRemovedOwnBooks: forget }))
@@ -296,15 +296,17 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
 
   it('keeps one place for both editions: read as Tinct text on one device, it opens there at the same word on the other', async () => {
     vi.useFakeTimers()
+    // Read since the desktop's open rule began (pdfEditions.ts PDF_OPEN_RULE_AT); an older place is below.
+    const AT = PDF_OPEN_RULE_AT + 1_000
     const { places, calls, fetchImpl } = account()
     // Desktop, in the Tinct text: chapter 1, paragraph 1, word 30 (on page 2).
-    writeUserBookPlace(PDF, { chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, updatedAt: 1_000, converter: 1 })
+    writeUserBookPlace(PDF, { chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, updatedAt: AT, converter: 1 })
     noteOwnPlace(PDF, pdfChapters, { pdf: { pages: 5 } })
     // The place it shares with its pages: page, spot on it, the same word and the edition read.
-    expect(pos()).toEqual({ page: 2, frac: 0.25, at: 1_000, chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, converter: 1, edition: 't', pages: 5 })
+    expect(pos()).toEqual({ page: 2, frac: 0.25, at: AT, chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, converter: 1, edition: 't', pages: 5 })
     // Saved as the PDF's one place (not a text place), with both coordinates.
     expect(await pushPdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('saved')
-    expect(places[PDF]).toEqual({ page: 2, frac: 0.25, updatedAt: 1_000, percent: 25, chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, converter: 1, edition: 't', rev: 1 })
+    expect(places[PDF]).toEqual({ page: 2, frac: 0.25, updatedAt: AT, percent: 25, chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, converter: 1, edition: 't', rev: 1 })
     expect(calls.every(call => !JSON.stringify(call.body).includes('Paper'))).toBe(true)
     vi.useRealTimers()
 
@@ -312,7 +314,7 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
     localStorage.clear()
     expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
     expect(pdfEditionChoice(PDF)).toBe('text')
-    expect(readPdfTextPlace(PDF, pdfEdition)).toEqual({ chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, updatedAt: 1_000, converter: 1 })
+    expect(readPdfTextPlace(PDF, pdfEdition)).toEqual({ chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, updatedAt: AT, converter: 1 })
     // Listed with the account's places, it is a PDF's place, never an EPUB's.
     expect(await fetchAccountPlaces('tok', fetchImpl)).toEqual({})
   })
@@ -342,12 +344,41 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
     localStorage.setItem(POS, JSON.stringify({ page: 3, frac: 0.25, zoom: 1, at: 50 }))
     expect(pdfEditionChoice(PDF, 'text')).toBe('pages')
     localStorage.clear()
+    // The scan's Tinct text is followed once the viewer has told the edition on this device (reader.js openKind);
+    // before that, the viewer decides (since 16 Oct 2026 the desktop keeps a PDF's pages unless it is running prose).
+    expect(pdfEditionChoice(PDF, 'text')).toBeNull()
+    expect(pdfEditionUntold(PDF, 'text')).toBe(true)
+    localStorage.setItem(`tinct-addbook:open-rule:${PDF}`, '2')
     expect(pdfEditionChoice(PDF, 'text')).toBe('text')
+    expect(pdfEditionUntold(PDF, 'text')).toBe(false)
+    localStorage.clear()
     expect(pdfEditionChoice(PDF, 'pages')).toBe('pages')
     expect(pdfEditionChoice(PDF)).toBeNull()
     // The choice kept on this device, as Add a book writes it.
     localStorage.setItem(`tinct-addbook:edition:${PDF}`, '"text"')
     expect(pdfEditionChoice(PDF, 'pages')).toBe('text')
+  })
+
+  it('a place read in Tinct text before the desktop rule (16 Oct 2026), with no choice kept, waits for the viewer to tell its edition', () => {
+    // Anders's MacKay extract: forwarded to Tinct text by the old default (scored 2), read there, never chosen.
+    localStorage.setItem(POS, JSON.stringify({ page: 12, frac: 0.4, at: PDF_OPEN_RULE_AT - 3_600_000, edition: 't' }))
+    expect(pdfEditionChoice(PDF, 'text')).toBeNull()
+    expect(pdfEditionUntold(PDF, 'text')).toBe(true)
+    // Chosen on this device (Convert to Tinct book keeps 'text'): the reader's choice wins at once.
+    localStorage.setItem(`tinct-addbook:edition:${PDF}`, '"text"')
+    expect(pdfEditionChoice(PDF, 'text')).toBe('text')
+    localStorage.removeItem(`tinct-addbook:edition:${PDF}`)
+    // Told by the viewer under the current rule: its place is followed again.
+    localStorage.setItem(`tinct-addbook:open-rule:${PDF}`, '2')
+    expect(pdfEditionChoice(PDF, 'text')).toBe('text')
+    // A place read in Tinct text since the rule began is followed at once, on any device.
+    localStorage.clear()
+    localStorage.setItem(POS, JSON.stringify({ page: 12, frac: 0.4, at: PDF_OPEN_RULE_AT + 1, edition: 't' }))
+    expect(pdfEditionChoice(PDF)).toBe('text')
+    // Read in its pages: pages, whenever.
+    localStorage.setItem(POS, JSON.stringify({ page: 12, frac: 0.4, at: 9, edition: 'p' }))
+    expect(pdfEditionChoice(PDF, 'text')).toBe('pages')
+    expect(pdfEditionUntold(PDF, 'text')).toBe(false)
   })
 
   it('never keeps the opening mark (no reading time) as a place', () => {

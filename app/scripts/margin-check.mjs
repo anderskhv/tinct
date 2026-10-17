@@ -38,6 +38,20 @@
 //   node scripts/margin-check.mjs phone-ui            the PM's battery of 15 Oct (phones): the text column fit on a phone (zoom, pan inside
 //                                                     the page, place and pinch kept), the header's title and pill, the desktop unchanged,
 //                                                     Chat in the t menu, Escape on the Aa panel, &pages on a first open, two devices at once (409)
+//   node scripts/margin-check.mjs phone-kind          option C (16 Oct): on a phone a PDF opens by its kind: a narrative as its Tinct text
+//                                                     (on to the Tinct reader), a paper in its pages at the column fit (layout check);
+//                                                     the reader's choice wins; the desktop ignores the phone's default.
+//                                                     The desktop (16 Oct): its pages unless running prose (a MacKay-like page of
+//                                                     mathematics with margin figures, which scored under 3.5, now opens as its pages;
+//                                                     a place read in Tinct text under the old default gives way, a chosen one stands)
+//   node scripts/margin-check.mjs card-safety       16 Oct: a card never keeps the wait ring (drawing throws, the column throws, a step
+//                                                     before the request throws, the card dropped mid-request, a stalled stream), failures
+//                                                     reported; and the first request on a fresh open: Explain within its 3 s document wait, Ask with the document
+//   node scripts/margin-check.mjs latency [pdf ...]   the Ask latency part alone, on the given PDFs
+//   node scripts/margin-check.mjs justified           16 Oct: a selection over justified lines that pdf.js gives in pieces: its text is
+//                                                     the page's text, and its highlight's marks cover the selection to each line's end,
+//                                                     in every look at 1440×900 and 390×844 (JUSTIFIED_PDF=<file> FROM=<words> TO=<words>
+//                                                     PAGE=<n> also checks a PDF of your own, as Constructor Theory)
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -64,7 +78,7 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook, makePdf, figurePaper, longBook, marginPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf, figurePaper, longBook, marginPaper, justifiedPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 // FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
@@ -73,6 +87,10 @@ writeFileSync(FIGURE_PAPER, figurePaper())
 // Retest of 15 Oct: figures with captions in a wide right margin, as MacKay sets them.
 const MARGIN_PAPER = join(OUT, 'margin_paper.pdf')
 writeFileSync(MARGIN_PAPER, marginPaper())
+// 16 Oct: justified lines that pdf.js gives in pieces (Constructor Theory's highlight that stopped mid-line).
+const JUSTIFIED = justifiedPaper({ meta: true })
+const JUSTIFIED_PAPER = join(OUT, 'justified_paper.pdf')
+writeFileSync(JUSTIFIED_PAPER, JUSTIFIED.bytes)
 // PR F: a book-length PDF (the Sutton and Barto stand-in, gloss-test/edge.html): parts, chapters, an index, printed numbers 22 behind the file's.
 const BOOK = longBook({ meta: true })
 const BIG_BOOK = join(OUT, 'long_book.pdf')
@@ -180,7 +198,7 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // names the error's type (`cut_off`: the Worker's answer stopped by its output bound, max_tokens).
 // `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
 // unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
-export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null }
+export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null, stall: false }
 /** The mocked Fact-check's opening, streamed before "Checking sources…" as the Worker streams it while the search runs. */
 export const FACTCHECK_OPENING = 'MOCK opening: the passage claims what it says, and the document offers its own table {p. 1}.'
 function mockText(body) {
@@ -221,6 +239,8 @@ async function mockChat(body, res) {
   const text = mockText(body)
   if (!body?.stream) return json(res, 200, { content: [{ type: 'text', text }] })
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
+  // `mock.stall`: the stream opens and then sends nothing more, never ending (16 Oct: a card that waited for ever).
+  if (mock.stall) { mock.stall = false; res.write(`event: message_start\ndata: ${JSON.stringify({ type: 'message_start', message: { usage: {} } })}\n\n`); return }
   // Fact-check, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
   if (body?.companion?.intent === 'factcheck' && !mock.chunks && text.startsWith(FACTCHECK_OPENING)) {
     res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: FACTCHECK_OPENING } })}\n\n`)
@@ -278,6 +298,8 @@ function start(port) {
       const body = JSON.parse((await readBody(req)).toString() || '{}'), entry = { path: p, body, at: Date.now(), done: 0 }; account.requests.push(entry)
       await mockChat(body, res); entry.done = Date.now(); return
     }
+    // The first-party events intake (routes/events.ts), recorded as the Worker would receive it.
+    if (req.method === 'POST' && p === '/api/events') { const body = JSON.parse((await readBody(req)).toString() || '{}'); account.requests.push({ path: p, body, at: Date.now(), done: Date.now() }); res.writeHead(204); return res.end() }
     if (p === '/__margin/anthology.epub') { res.writeHead(200, { 'Content-Type': 'application/epub+zip', 'Cache-Control': 'no-store' }); return res.end(EPUB) }
     if (p === '/api/user-books' && req.method === 'POST') {
       // An upload (Add a book's account copy), stored after `scanMock.uploadDelay` ms: the first-open race.
@@ -2707,6 +2729,298 @@ async function phoneUi(browser, origin) {
   return results
 }
 
+/* ---------- Option C (Anders, 16 Oct 2026): on a phone a PDF opens by its kind ---------- */
+async function phoneKindCheck(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 600)}`) }
+  const PROSE = join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), PAPER = join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')
+  const prose = addBook(PROSE), paper = addBook(PAPER)
+  // A fresh profile (or one with `seed` in this device's storage), signed in: where the book ends up.
+  const open = async (hex, { width, height, seed = {}, look = 'paper', keep = false } = {}) => {
+    const phone = width < 700
+    const ctx = await browser.newContext({ viewport: { width, height }, hasTouch: phone, isMobile: false })
+    await ctx.addInitScript(([session, seed, look]) => {
+      try {
+        if (sessionStorage.getItem('seeded')) return
+        sessionStorage.setItem('seeded', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: { paper: 'light', book: 'book', night: 'dark', eink: 'light' }[look] }))
+        for (const [k, v] of Object.entries(seed)) localStorage.setItem('tinct-addbook:' + k, JSON.stringify(v))
+      } catch {}
+    }, [SESSION, seed, look])
+    const page = await ctx.newPage(), errors = []
+    page.on('pageerror', e => errors.push(e.message))
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (typeof state !== 'undefined' && state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20), null, { timeout: 30000 }).catch(() => {})
+    await page.waitForTimeout(1200)
+    const where = await page.evaluate(() => location.pathname + location.search)
+    const kept = await page.evaluate(hex => { const g = k => { try { return JSON.parse(localStorage.getItem('tinct-addbook:' + k)) } catch { return null } }; return { edition: g('edition:' + hex), auto: g('phone-edition:' + hex), desk: g('desk-edition:' + hex), rule: g('open-rule:' + hex), pos: g('pos:pdf:' + hex) } }, hex)
+    if (!keep) await ctx.close()
+    return { where, kept, errors, ctx, page }
+  }
+  const views = SAMPLE ? [[390, 844, 'paper'], [360, 740, rotate(LOOKS, 2)]] : VIEWPORTS.filter(([w]) => w < 700).flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
+  for (const [width, height, look] of views) {
+    const tag = `phone-kind-${width}x${height}-${look}`
+    // A narrative: on to the Tinct reader once its first scan is done; the phone's default kept, marked as the phone's.
+    const a = await open(prose, { width, height, look })
+    ok(`${tag}: a narrative (prose_book) opens as its Tinct text (on to the Tinct reader) on a first open`, a.where.startsWith('/reader?userBook=' + prose) && a.kept.edition === 'text' && a.kept.auto?.edition === 'text' && a.kept.auto?.kind === 'narrative' && !a.errors.length, a)
+    // A paper: its pages at the column fit, the layout check clean; reopened, the same.
+    const b = await open(paper, { width, height, look, keep: true })
+    const c = b.where.startsWith('/lab/addbook/') ? await b.page.evaluate(columnState, 10) : null
+    ok(`${tag}: a paper (two_column_paper) opens in its pages at the column fit (${c?.zoom}×)`, b.where.startsWith('/lab/addbook/?userBook=' + paper) && c?.fit && c.zoom > 2 && b.kept.edition === 'pages' && b.kept.auto?.kind === 'paper', { where: b.where, c, kept: b.kept })
+    if (c) {
+      const problems = await checkMargin(b.page)
+      ok(`${tag}: layout check in the column fit`, !problems.length, problems)
+      if (!process.env.NO_SHOTS) await b.page.screenshot({ path: join(OUT, `${tag}-paper.png`) })
+      await b.page.reload(); await b.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).catch(() => {}); await b.page.waitForTimeout(800)
+      ok(`${tag}: reopened, the paper stays in its pages`, await b.page.evaluate(() => location.pathname === '/lab/addbook/' && !!state.fit?.column))
+    }
+    ok(`${tag}: no page errors`, !b.errors.length, b.errors)
+    await b.ctx.close()
+  }
+  // The reader's own choice wins over the kind, either way.
+  const own1 = await open(prose, { width: 390, height: 844, seed: { ['edition:' + prose]: 'pages' } })
+  ok('phone-kind: the reader\'s choice of its pages keeps a narrative in its pages', own1.where.startsWith('/lab/addbook/') && own1.kept.edition === 'pages' && !own1.kept.auto, own1)
+  const own2 = await open(paper, { width: 390, height: 844, seed: { ['edition:' + paper]: 'text' } })
+  ok('phone-kind: the reader\'s choice of Tinct text opens a paper as its Tinct text', own2.where.startsWith('/reader?userBook=' + paper) && !own2.kept.auto, own2)
+  const own3 = await open(prose, { width: 390, height: 844, seed: { ['pos:pdf:' + prose]: { page: 2, frac: 0.1, edition: 'p', at: Date.now() } } })
+  ok('phone-kind: a place read in its pages keeps a narrative in its pages', own3.where.startsWith('/lab/addbook/') && !own3.kept.auto, own3)
+  // The desktop: the phone's default kept on this device is not a choice; the scan's default stands.
+  const desk = await open(prose, { width: 1280, height: 800, seed: { ['edition:' + prose]: 'pages', ['phone-edition:' + prose]: { edition: 'pages', kind: 'practical', by: 'text', v: 1 } } })
+  ok('phone-kind: the desktop ignores the phone\'s default and opens the scan\'s (prose_book: Tinct text)', desk.where.startsWith('/reader?userBook=' + prose), desk)
+  const desk2 = await open(paper, { width: 1280, height: 800 })
+  ok('phone-kind: the desktop opens a paper in its pages, as before, and keeps no phone default', desk2.where.startsWith('/lab/addbook/') && !desk2.kept.auto && desk2.kept.edition === 'pages' && desk2.kept.desk?.kind === 'paper', desk2)
+  /* The desktop (Anders, 16 Oct 2026): every PDF as its pages, except running prose. margin_paper is MacKay's
+     page (mathematics, figures in a wide margin), which scored 2.5 and so opened as Tinct text, as Anders's
+     60-page extract did. */
+  const mackay = addBook(MARGIN_PAPER)
+  for (const [width, height] of SAMPLE ? [[1440, 900]] : [[1440, 900], [1280, 800], [1024, 768]]) {
+    const d = await open(mackay, { width, height, keep: true })
+    const shown = d.where.startsWith('/lab/addbook/') ? await d.page.evaluate(() => ({ spans: document.querySelectorAll('.pdf-sheet .text-layer span').length, score: state.scan?.layout?.score, layout: state.scan?.layout?.default })) : null
+    ok(`desk-pages-${width}x${height}: a page of mathematics with margin figures (scored ${shown?.score}, the scan's default '${shown?.layout}') opens as its pages, kept as the desktop's default`, d.where === `/lab/addbook/?userBook=${mackay}` && shown?.spans > 20 && d.kept.edition === 'pages' && d.kept.desk?.edition === 'pages' && d.kept.rule === 2, { where: d.where, kept: d.kept, shown })
+    if (shown && width === 1440 && !process.env.NO_SHOTS) await d.page.screenshot({ path: join(OUT, `desk-pages-${width}x${height}.png`) })
+    ok(`desk-pages-${width}x${height}: no page errors`, !d.errors.length, d.errors)
+    await d.ctx.close()
+  }
+  // DESK_PDF=<file>: a PDF of your own on the desktop (Anders's MacKay extract): a first open, and one read as Tinct text under the old default.
+  if (process.env.DESK_PDF) {
+    const own = addBook(process.env.DESK_PDF), name = basename(process.env.DESK_PDF, '.pdf')
+    for (const [label, seed] of [['first-open', {}], ['read-as-text-before', { ['pos:pdf:' + own]: { page: 3, frac: 0.2, at: Date.UTC(2026, 9, 16, 9), edition: 't' } }]]) {
+      const d = await open(own, { width: 1440, height: 900, seed, keep: true })
+      await d.page.waitForTimeout(1500)
+      if (!process.env.NO_SHOTS) await d.page.screenshot({ path: join(OUT, `desk-pages-${name}-${label}-1440x900.png`) })
+      ok(`desk-pages: ${name} (${label}) opens as its pages on the desktop`, d.where.startsWith('/lab/addbook/') && d.kept.edition === 'pages', { where: d.where, kept: d.kept })
+      await d.ctx.close()
+    }
+  }
+  // Running prose still opens as its Tinct text on the desktop, its default kept as the desktop's.
+  const deskProse = await open(prose, { width: 1440, height: 900 })
+  ok('desk-pages: a narrative (prose_book) opens as its Tinct text on the desktop', deskProse.where.startsWith('/reader?userBook=' + prose) && deskProse.kept.desk?.edition === 'text' && deskProse.kept.desk?.kind === 'narrative' && deskProse.kept.rule === 2, deskProse)
+  // Read as Tinct text under the old default (a place in Tinct text from before the rule, nothing chosen): its pages now, at the same spot.
+  const OLD = Date.UTC(2026, 9, 16, 9), NEW = Date.UTC(2026, 9, 17, 9)
+  const legacy = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't', chapterNumber: 1, paragraphIndex: 2, wordIndex: 0 } } })
+  ok('desk-pages: a place read in Tinct text under the old default (no choice) opens as its pages, the spot kept', legacy.where.startsWith('/lab/addbook/') && legacy.kept.edition === 'pages' && legacy.kept.pos?.edition === undefined && legacy.kept.pos?.page === 1 && legacy.kept.pos?.frac === 0.3 && legacy.kept.pos?.paragraphIndex === 2, legacy)
+  // The reader's own choice of Tinct text stands, and so does a place read in Tinct text since the rule began (here or on another device).
+  const chose = await open(mackay, { width: 1440, height: 900, seed: { ['edition:' + mackay]: 'text', ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't' } } })
+  ok('desk-pages: the reader\'s choice of Tinct text opens it as Tinct text', chose.where.startsWith('/reader?userBook=' + mackay) && chose.kept.edition === 'text' && !chose.kept.desk, chose)
+  const since = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: NEW, edition: 't' } } })
+  ok('desk-pages: a place read in Tinct text since the rule began opens as Tinct text', since.where.startsWith('/reader?userBook=' + mackay) && since.kept.pos?.edition === 't', since)
+  const inPages = await open(prose, { width: 1440, height: 900, seed: { ['pos:pdf:' + prose]: { page: 2, frac: 0.1, at: OLD, edition: 'p' } } })
+  ok('desk-pages: a narrative read in its pages stays in its pages', inPages.where.startsWith('/lab/addbook/') && !inPages.kept.desk, inPages)
+  return results
+}
+
+/* ---------- Justified lines in pieces (Anders, 16 Oct 2026: a highlight that stopped mid-line) ----------
+   pdf.js gives a justified line as several items (LaTeX's: "…names in physics and" | "other fie" | "lds. For
+   instance,"). The text layer once took the end of the first for the body's right edge and moved the rest of
+   every such line after the body, so a selection over three lines took only their first halves (its text
+   "…in physic s and in thermodynamics…", its mark short of the line's end). Each row selects from the start
+   of a paragraph's first line into its third and checks: the selection's text is the page's text from the
+   first word to the last; the highlight's marks cover the selection's rects (within 2 px); and the marks on the
+   first two lines reach the line's last glyph. */
+async function justifiedCheck(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 900)}`) }
+  const docs = [{ name: 'justified_paper', file: JUSTIFIED_PAPER, page: 1, from: 'All the objects', to: 'which is either intuitively' }]
+  if (process.env.JUSTIFIED_PDF) docs.push({ name: basename(process.env.JUSTIFIED_PDF, '.pdf'), file: process.env.JUSTIFIED_PDF, page: Number(process.env.PAGE || 1), from: process.env.FROM, to: process.env.TO })
+  const views = (SAMPLE ? [[1440, 900, 'paper'], [390, 844, 'night']] : [[1440, 900], [390, 844]].flatMap(([w, h]) => LOOKS.map(l => [w, h, l])))
+  for (const doc of docs) {
+    const hex = addBook(doc.file)
+    for (const [width, height, look] of views) {
+      const tag = `justified-${doc.name}-${width}x${height}-${look}`
+      const R = await readerPage(browser, origin, hex, { width, height, look, at: doc.page })
+      const { page } = R
+      await page.evaluate(n => goTo({ page: n, frac: 0 }), doc.page); await page.waitForTimeout(800)
+      await page.waitForFunction(n => state.pages[n - 1]?.layer?.querySelectorAll('span').length > 10, doc.page, { timeout: 30000 })
+      const got = await page.evaluate(async ({ n, from, to }) => {
+        const p = state.pages[n - 1], norm = t => t.replace(/\s+/g, ' ').trim()
+        // The range: from the first word of `from` to the last word of `to`, found in the layer's text as laid out.
+        const nodes = [], walker = document.createTreeWalker(p.layer, NodeFilter.SHOW_TEXT)
+        let all = '', node
+        while ((node = walker.nextNode())) { nodes.push({ node, at: all.length }); all += node.nodeValue }
+        const flat = all.replace(/\s/g, ' ')
+        const find = (needle, after = 0) => { const words = needle.split(' '); const re = new RegExp(words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('\\s*'), 'g'); re.lastIndex = after; const m = re.exec(flat); return m ? [m.index, m.index + m[0].length] : null }
+        const a = find(from), b = a && find(to, a[1])
+        if (!a || !b) return { error: 'words not found in the text layer', from, to, layer: norm(all).slice(0, 600) }
+        const at = off => { const k = nodes.findLastIndex(x => x.at <= off); return [nodes[k].node, off - nodes[k].at] }
+        const range = document.createRange(); range.setStart(...at(a[0])); range.setEnd(...at(b[1]))
+        getSelection().removeAllRanges(); getSelection().addRange(range)
+        const selected = norm(getSelection().toString())
+        // The page's text (what the companion reads), from the same first word to the same last.
+        const text = norm((await pageText(n)).text), i = text.indexOf(from), j = text.indexOf(to, i)
+        const expected = i >= 0 && j >= 0 ? text.slice(i, j + to.length) : null
+        const sel = [...range.getClientRects()].filter(r => r.width > 0.5 && r.height > 0.5).map(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))
+        const ids = addHighlight({ text: selected }, { range }) || []
+        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))
+        const marks = ids.flatMap(id => [...document.querySelectorAll(`.hl-layer i[data-id="${id}"]`)]).map(el => { const r = el.getBoundingClientRect(); return { l: r.left, r: r.right, t: r.top, b: r.bottom } })
+        // Each line of the selection (its rects by their middle) and the last glyph on that line in the text layer.
+        const lines = []
+        for (const r of sel) { const mid = (r.t + r.b) / 2; let L = lines.find(x => Math.abs(x.mid - mid) < (r.b - r.t) * 0.5); if (!L) { L = { mid, l: r.l, r: r.r, t: r.t, b: r.b }; lines.push(L) } L.l = Math.min(L.l, r.l); L.r = Math.max(L.r, r.r); L.t = Math.min(L.t, r.t); L.b = Math.max(L.b, r.b) }
+        lines.sort((x, y) => x.mid - y.mid)
+        const glyphEnd = mid => { let end = -Infinity; for (const sp of p.layer.querySelectorAll('span')) { const t = sp.firstChild; if (!t || !t.nodeValue.trim()) continue; const g = document.createRange(); g.setStart(t, 0); g.setEnd(t, t.nodeValue.replace(/\s+$/, '').length); const r = g.getBoundingClientRect(); if (r.width > 0 && Math.abs((r.top + r.bottom) / 2 - mid) < r.height * 0.5) end = Math.max(end, r.right) } return end }
+        const covered = lines.map(L => { const on = marks.filter(m => Math.min(m.b, L.b) - Math.max(m.t, L.t) > (L.b - L.t) * 0.5); return { line: Math.round(L.mid), sel: [Math.round(L.l), Math.round(L.r)], mark: on.length ? [Math.round(Math.min(...on.map(m => m.l))), Math.round(Math.max(...on.map(m => m.r)))] : null, glyphEnd: Math.round(glyphEnd(L.mid)) } })
+        getSelection().removeAllRanges()
+        return { selected, expected, lines: covered, marks: marks.length }
+      }, { n: doc.page, from: doc.from, to: doc.to })
+      if (got.error) { ok(`${tag}: the passage is in the text layer`, false, got); await R.ctx.close(); continue }
+      ok(`${tag}: the selection's text is the page's text (${got.selected.length} characters)`, !!got.expected && got.selected === got.expected, { selected: got.selected, expected: got.expected })
+      ok(`${tag}: the selection runs over three lines or more`, got.lines.length >= 3, got.lines)
+      ok(`${tag}: the highlight's marks cover the selection's rects on every line (within 2 px)`, got.lines.every(L => L.mark && L.mark[0] <= L.sel[0] + 2 && L.mark[1] >= L.sel[1] - 2), got.lines)
+      ok(`${tag}: on the lines before the last, the mark reaches the line's last glyph (within 2 px)`, got.lines.slice(0, -1).every(L => L.mark && L.mark[1] >= L.glyphEnd - 2), got.lines)
+      ok(`${tag}: no page errors`, !R.problems.length, R.problems)
+      if (!process.env.NO_SHOTS && ((width === 1440 && look === 'night') || (width === 390 && look === 'night') || SAMPLE)) {
+        const box = await page.evaluate(n => { const r = state.pages[n - 1].pg.getBoundingClientRect(); return { x: Math.max(0, r.left), y: Math.max(0, r.top), width: Math.min(innerWidth, r.right) - Math.max(0, r.left), height: Math.min(innerHeight, r.bottom) - Math.max(0, r.top) } }, doc.page)
+        await page.screenshot({ path: join(OUT, `${tag}.png`), clip: box })
+      }
+      await R.ctx.close()
+    }
+  }
+  return results
+}
+
+/* ---------- Ask latency (16 Oct): a margin request is sent at once, never after the scan ----------
+   Anders's Ask on a fresh open of a 40-page paper waited over 30 s before anything was sent. On a first
+   open (no stored scan: the scan, the whole-book read and the printed labels all still running) and on a
+   second Ask in the same session, the request must leave the page within ASK_BOUND ms of Return. */
+// Explain (a passage action) is sent within its 3 s wait for the document, plus the page's own steps.
+const EXPLAIN_BOUND = Number(process.env.EXPLAIN_BOUND || 4500)
+async function askLatency(browser, origin, files = null) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(detail ? { detail } : {}) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name} ${String(JSON.stringify(detail || '')).slice(0, 400)}`) }
+  const chats = from => account.requests.slice(from).filter(r => r.path === '/api/chat')
+  for (const file of files || [LONG_BOOK, BIG_BOOK]) {
+    for (const first of ['explain', 'ask']) {
+      const hex = addBook(file)
+      // The long book opens inside a chapter, as a reader returning to it (its first pages carry little text).
+      const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', minSpans: 5, at: file === BIG_BOOK ? BOOK.meta.chapters[2].from + 1 : 0 })
+      const a = A.page
+      const run = async (kind, q = '') => {
+        await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+        await selectText(a); await a.waitForSelector('.mr-bar')
+        const before = account.requests.length, scanning = await a.evaluate(() => !toc.ready)
+        let t0
+        if (kind === 'ask') { await a.keyboard.press(q[0]); await a.waitForSelector('.mr-bar.is-asking .mr-ask'); await a.keyboard.type(q.slice(1)); t0 = Date.now(); await a.keyboard.press('Enter') }
+        else { t0 = Date.now(); await a.click('.mr-bar [data-m="explain"]') }
+        let sent = null, said = false
+        for (let i = 0; i < 2400 && !sent; i++) {
+          sent = chats(before).find(r => kind === 'ask' ? JSON.stringify(r.body?.messages || '').includes(q) : r.body?.companion?.intent === 'explain')
+          if (!sent) { said ||= await a.evaluate(() => [...document.querySelectorAll('.mr-col .mr-status')].some(e => e.textContent === 'Reading the document…')); await a.waitForTimeout(25) }
+        }
+        await a.waitForFunction(() => !col.ctl.size, null, { timeout: 15000 }).catch(() => {})
+        const doc = JSON.stringify(sent?.body?.companion?.document || null)
+        return { sentMs: sent ? sent.at - t0 : null, scanning, document: !!sent?.body?.companion?.document, said, doc, docChars: doc.length }
+      }
+      const tag = `${basename(file)}, first action ${first}`
+      if (first === 'explain') {
+        const r = await run('explain')
+        ok(`${tag}: Explain on a first open is sent within ${EXPLAIN_BOUND} ms, the scan still running or not`, r.sentMs != null && r.sentMs < EXPLAIN_BOUND, { sentMs: r.sentMs, scanStillRunning: r.scanning, withDocument: r.document })
+      } else {
+        const r = await run('ask', 'What is meant here?')
+        // A document-wide action waits for the document (never for the scan's labels); a noticeable wait says so.
+        ok(`${tag}: Ask on a first open waits for the document and is sent with it; a wait over a second shows its status line`, r.sentMs != null && r.document && (r.sentMs < 2000 || r.said), { sentMs: r.sentMs, scanStillRunning: r.scanning, statusShown: r.said })
+        const r2 = await run('ask', 'And why does it matter?')
+        ok(`${tag}: a second Ask is sent at once with the document`, r2.sentMs != null && r2.sentMs < 1000 && r2.document, { sentMs: r2.sentMs })
+        // Once the scan is done (labels, units), every request carries the same bytes: the cached prefix.
+        await a.waitForFunction(() => toc.ready, null, { timeout: 60000 }).catch(() => {})
+        await a.waitForTimeout(1500)
+        const r3 = await run('ask', 'Once more, please?')
+        ok(`${tag}: the document sent before the scan ended is byte for byte the one sent after it`, r3.document && r.doc === r3.doc && r2.doc === r3.doc, { chars: r3.docChars })
+      }
+      ok(`${tag}: no page errors`, !A.problems.length, A.problems.slice(0, 3))
+      await A.ctx.close()
+    }
+  }
+  return results
+}
+
+/* ---------- A card never waits for ever (16 Oct) ----------
+   Anders's Explain and Ask cards kept the wait ring for minutes after the answer had been written.
+   Each way a card's request can fail outside its own error handling ends in the answer or an error
+   line, never the ring, and the failure is reported to the events intake (no passage, no answer). */
+async function cardSafety(browser, origin) {
+  const results = []
+  const ok = (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 400)}`) }
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'night' })
+  const a = A.page
+  const state = () => a.evaluate(() => { const id = col.open, el = id && document.querySelector(`.mr-col [data-id="${CSS.escape(id)}"], .mr-sheet[data-id="${CSS.escape(id)}"]`); return { id, rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait').length, live: id ? col.live.get(id) || null : null, inFlight: id ? col.ctl.has(id) : false, status: el?.querySelector('.mr-status')?.textContent || '', answer: el?.querySelector('.mr-answer')?.textContent || '', turns: id ? (cardById(id)?.turns || []).length : 0 } })
+  const reports = from => account.requests.slice(from).filter(r => r.path === '/api/events').flatMap(r => r.body.events || []).filter(e => e.name === 'margin_card_failed')
+  const explain = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); await a.waitForTimeout(200); await selectText(a); await a.waitForSelector('.mr-bar [data-m="explain"]'); await a.click('.mr-bar [data-m="explain"]') }
+  const settled = async (ms = 4000) => { const end = Date.now() + ms; let st; while (Date.now() < end) { st = await state(); if (!st.rings && !st.inFlight && (st.status || st.answer || !st.live)) return st; await a.waitForTimeout(150) } return st }
+
+  // 1. The answer arrives but drawing it throws (an answer the parser cannot take): its words show plainly, and the error is reported.
+  let from = account.requests.length
+  await a.evaluate(() => { const real = TinctMargin.html.cardHtml; window.__realCardHtml = real; TinctMargin.html.cardHtml = (card, o) => { if ((o.live || (card.turns || []).some(t => t.role === 'assistant')) && card.kind === 'explain') throw new TypeError("Cannot read properties of undefined (reading 'n')"); return real(card, o) } })
+  await explain()
+  let st = await settled()
+  ok('drawing the answer throws: the card shows the answer as plain paragraphs, no ring', !st.rings && /MOCK ANSWER/.test(st.answer) && st.turns === 1, st)
+  let rep = reports(from)
+  ok('…and the failure is reported to the events intake: kind, step, error type and code location, no answer text', rep.length >= 1 && rep[0].props.intent === 'explain' && rep[0].props.phase === 'render' && rep[0].props.error === 'TypeError' && /@/.test(rep[0].props.where || '') && !JSON.stringify(rep).includes('MOCK'), rep)
+  await a.evaluate(() => { TinctMargin.html.cardHtml = window.__realCardHtml })
+
+  // 2. The whole column cannot be drawn while the answer streams: the stream still ends, the answer is saved and the error line or answer replaces the ring.
+  from = account.requests.length
+  await explain(); await a.waitForTimeout(80)
+  await a.evaluate(() => { window.__realLayout = marginLayout; window.marginLayout = () => { throw new RangeError('layout failed') } })
+  await a.waitForTimeout(1500)
+  const saved = await a.evaluate(() => (cardById(col.open)?.turns || []).length)
+  await a.evaluate(() => { window.marginLayout = window.__realLayout; marginLayout({ fresh: true }) })
+  st = await settled()
+  ok('the column throws while the answer streams: the answer is still saved and shown, no ring', saved === 1 && !st.rings && /MOCK ANSWER/.test(st.answer), { saved, st })
+
+  // 3. A step before the request throws (the pages around the passage): an error line, never the ring.
+  from = account.requests.length
+  await a.evaluate(() => { window.__realPages = pdfPages; window.pdfPages = async () => { throw new TypeError('pages failed') } })
+  await explain()
+  st = await settled()
+  await a.evaluate(() => { window.pdfPages = window.__realPages })
+  ok('a step before the request throws: the card shows its error line, no ring', !st.rings && !st.inFlight && /could not be loaded/.test(st.status), st)
+  rep = reports(from)
+  ok('…and it is reported as the prepare step', rep.some(e => e.props.phase === 'prepare' && e.props.error === 'TypeError'), rep)
+
+  // 4. The card goes while its answer is on its way (another device's set adopted without it): nothing is left waiting.
+  mock.delay = 1200
+  await explain(); await a.waitForTimeout(300)
+  const gone = await a.evaluate(() => { const id = col.open; store.set('cards:' + state.key, keptCards().filter(c => c.id !== id)); return id })
+  await a.waitForTimeout(1600); mock.delay = 0
+  const left = await a.evaluate(id => ({ live: col.live.has(id), ctl: col.ctl.has(id), rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait').length }), gone)
+  ok('the card is dropped mid-request: no live state, request or ring is left for it', !left.live && !left.ctl && !left.rings, left)
+
+  // 5. The stream opens and then stalls for ever: the request is stopped after its idle bound and the card says so.
+  await a.evaluate(() => { TinctAI.IDLE_MS = 1500 })
+  mock.stall = true
+  await explain()
+  st = await settled(6000)
+  await a.evaluate(() => { TinctAI.IDLE_MS = 120000 })
+  ok('a stream that stalls: stopped after its idle bound, the card shows its error line', !st.rings && !st.inFlight && /could not be loaded/.test(st.status), st)
+
+  ok('no page errors', !A.problems.length, A.problems.slice(0, 3))
+  await A.ctx.close()
+  // A request is sent at once, with the scan, units and labels still running (Ask latency, 16 Oct).
+  results.push(...await askLatency(browser, origin))
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -2728,6 +3042,9 @@ const RUNS = {
   long: [longBooks, rows => rows.some(r => !r.pass)],
   polish: [polish, rows => rows.some(r => !r.pass)],
   'phone-ui': [phoneUi, rows => rows.some(r => !r.pass)],
+  'phone-kind': [phoneKindCheck, rows => rows.some(r => !r.pass)],
+  'card-safety': [cardSafety, rows => rows.some(r => !r.pass)],
+  justified: [justifiedCheck, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -2764,6 +3081,10 @@ try {
   else if (mode === 'polish') { const rows = await polish(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'polish-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'long') { const rows = await longBooks(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'long-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'phone-ui') { const rows = await phoneUi(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-ui-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'phone-kind') { const rows = await phoneKindCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'phone-kind-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

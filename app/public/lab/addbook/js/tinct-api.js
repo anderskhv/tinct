@@ -162,14 +162,15 @@
 
   // A stream that ends without its message_stop, or whose connection breaks, was dropped
   // (code 'dropped', with the words already shown as `text`): never taken for a whole answer.
-  async function readStream(response, onText, signal, onStatus) {
+  async function readStream(response, onText, signal, onStatus, onChunk) {
     const reader = response.body.getReader(), dec = new TextDecoder();
     let buf = '', text = '', stopped = false;
     for (;;) {
-      if (signal?.aborted) { reader.cancel().catch(() => {}); throw err('cancelled') }
+      if (signal?.aborted) { reader.cancel().catch(() => {}); throw err('cancelled', 'cancelled', text ? { text } : undefined) }
       let chunk;
       try { chunk = await reader.read() }
-      catch (e) { if (signal?.aborted || e?.name === 'AbortError') throw err('cancelled'); throw err('dropped', 'The answer stopped.', text ? { text } : undefined) }
+      catch (e) { if (signal?.aborted || e?.name === 'AbortError') throw err('cancelled', 'cancelled', text ? { text } : undefined); throw err('dropped', 'The answer stopped.', text ? { text } : undefined) }
+      onChunk?.();
       const { done, value } = chunk;
       if (done) break;
       buf += dec.decode(value, { stream: true });
@@ -272,7 +273,27 @@
       return once(true);
     }
   }
-  async function sendOnce(request, opts, retried) {
+  /**
+   * No answer waits for ever (Anders, 16 Oct: cards kept the wait ring for minutes). A request whose reply
+   * has sent nothing for IDLE_MS (its headers, or the next piece of a stream) is stopped and fails as
+   * `timeout`, which the card shows with its error line; the reader's own cancel stays `cancelled`.
+   */
+  const IDLE_MS = 120000;
+  async function sendOnce(request, outer, retried) {
+    const link = new AbortController();
+    let timedOut = false, idle = null;
+    const kick = () => { clearTimeout(idle); idle = setTimeout(() => { timedOut = true; link.abort() }, api.IDLE_MS) };
+    const stop = () => link.abort();
+    if (outer.signal?.aborted) link.abort(); else outer.signal?.addEventListener('abort', stop, { once: true });
+    kick();
+    try { return await sendLinked(request, { ...outer, signal: link.signal, onChunk: kick }, retried) }
+    catch (e) {
+      if (timedOut && !outer.signal?.aborted) throw err('timeout', 'The answer took too long.', e?.text ? { text: e.text } : undefined);
+      throw e;
+    }
+    finally { clearTimeout(idle); outer.signal?.removeEventListener('abort', stop) }
+  }
+  async function sendLinked(request, opts, retried) {
     const images = opts.images ? [].concat(opts.images).filter(Boolean) : [];
     const doc = request.companion ? documentContext(opts.document) : null;
     if (doc) request.companion.document = doc;
@@ -304,7 +325,8 @@
     }
     const type = response.headers.get('content-type') || '';
     if (type.includes('text/event-stream')) {
-      try { return { text: await readStream(response, opts.onText, opts.signal, opts.onStatus) } }
+      opts.onChunk?.();
+      try { return { text: await readStream(response, opts.onText, opts.signal, opts.onStatus, opts.onChunk) } }
       catch (e) { if (e?.name === 'AbortError') throw err('cancelled'); if (e && typeof e === 'object') e.streamed = true; throw e }
     }
     let json;
@@ -367,6 +389,6 @@
 
   // What the reader may attach: anything the browser decodes; it is redrawn before sending.
   const imageLimits = { maxCount: MAX_IMAGES, maxInputBytes: 40 * 1024 * 1024, mediaTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/bmp', 'image/avif'] };
-  const api = { session, ask, askJson, companion, toRequest, companionRequest, documentContext, passagesContext, DOCUMENT_CHARS, PASSAGE_CHARS, PASSAGES_BUDGET, imageLimits, books, onSignedOut: null };
+  const api = { session, ask, askJson, companion, toRequest, companionRequest, documentContext, passagesContext, DOCUMENT_CHARS, PASSAGE_CHARS, PASSAGES_BUDGET, imageLimits, books, onSignedOut: null, IDLE_MS };
   window.TinctAI = api;
 })();
