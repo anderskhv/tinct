@@ -1062,7 +1062,7 @@ async function primerBehaviour(browser, origin) {
   const q = chats().slice(r2).find(r => r.body?.companion?.intent === 'quiz')
   const quizCard = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-open'); return c && { label: c.querySelector('.mr-card__label').innerText.replace(/\s+/g, ' '), unit: c.classList.contains('is-unit'), primer: !!document.querySelector('.mr-col .mr-primer') } })
   ok('"Quiz me on this chapter": quiz on the whole unit (no selection, its pages), opening as a quiz card; the primer folds', q && q.body.companion.selection === undefined && q.body.companion.context.pages.length === unitPages(units[0]) && quizCard?.label.startsWith('Quiz me · chapter 1') && /1 of 3/.test(quizCard.label) && quizCard.unit && !quizCard.primer, { q: q?.body?.companion && { sel: q.body.companion.selection, pages: q.body.companion.context.pages.length }, quizCard })
-  ok('the chapter quiz is kept with the cards (synced) and has no leader line', await a.evaluate(() => keptCards().some(c => c.data?.unit?.key === 'outline-0' && c.rects.length === 1) && !document.querySelector('svg.mr-leads path:not(.is-folded)')))
+  ok('the chapter quiz is kept with the cards (synced) and has no leader line', await a.evaluate(() => keptCards().some(c => c.data?.unit?.key === 'outline-0' && c.rects.length === 1) && !document.querySelector('svg.mr-leads path:not(.is-folded):not(.is-rule)')))
   await a.keyboard.press('Escape')
   // The next unit's start offers its own trigger; the middle of a unit offers none.
   await a.evaluate(n => goTo({ page: n, frac: 0 }), units[1].start); await a.waitForTimeout(700)
@@ -1546,7 +1546,7 @@ function leadersAttached() {
   const dots = [...document.querySelectorAll('svg.mr-leads circle')].map(c => Number(c.getAttribute('cy')))
   const loose = dots.filter(y => !want.some(w => Math.abs(w - y) < 1.5))
   const shown = [...document.querySelectorAll('.mr-doc .mr-card:not([hidden]):not(.is-whole):not(.is-unit)')].length
-  const lines = document.querySelectorAll('svg.mr-leads path:not(.is-folded)').length
+  const lines = document.querySelectorAll('svg.mr-leads path:not(.is-folded):not(.is-rule)').length
   return { ok: !loose.length && dots.length >= shown && (!col.open || col.open === 'whole' || lines === 1), loose, dots: dots.length, shown, lines }
 }
 async function columnMatrix(browser, origin) {
@@ -1708,7 +1708,7 @@ async function resizeRun(browser, origin) {
         const att = await page.evaluate(leadersAttached); if (!att.ok) found.push({ w, kind: 'leaders', el: JSON.stringify(att) })
         const place = await page.evaluate(() => currentPlace())
         if (place.page !== place0.page || Math.abs(place.frac - place0.frac) > 0.03) found.push({ w, kind: 'place moved', el: JSON.stringify([place0, place]) })
-        if (w >= 1180) { const lines = await page.evaluate(() => document.querySelectorAll('svg.mr-leads path:not(.is-folded)').length); if (lines !== 1) found.push({ w, kind: 'open line', el: String(lines) }) }
+        if (w >= 1180) { const lines = await page.evaluate(() => document.querySelectorAll('svg.mr-leads path:not(.is-folded):not(.is-rule)').length); if (lines !== 1) found.push({ w, kind: 'open line', el: String(lines) }) }
         else { const marks = await page.evaluate(() => document.querySelectorAll('.mr-mark').length); if (!marks) found.push({ w, kind: 'marks', el: '0' }) }
       }
       const path = join(OUT, `resize-${label}-${look}.jpg`); await page.screenshot({ path, type: 'jpeg', quality: 50 })
@@ -3603,7 +3603,7 @@ async function columnPage(browser, origin) {
     const measure = () => a.evaluate(ids => {
       const s = document.getElementById('scroll')
       const cards = ids.map(id => { const el = document.querySelector(`.mr-doc .mr-card[data-id="${CSS.escape(id)}"]`), card = viewCards().find(c => c.id === id), f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1], b = p.pg.getBoundingClientRect(); const line = b.top + (f[2] + f[4] / 2) * b.height, r = el?.getBoundingClientRect(), lab = el?.querySelector('.mr-card__label')?.getBoundingClientRect(); return el && { id, top: r.top, bottom: r.bottom, rel: r.top - line, label: lab ? (lab.top + lab.bottom) / 2 : null, line, inDoc: !!el.closest('.mr-doc'), position: getComputedStyle(el).position, scrolls: [el, ...el.querySelectorAll('*')].filter(n => n.scrollHeight - n.clientHeight > 1 && /(auto|scroll)/.test(getComputedStyle(n).overflowY)).length, sh: el.scrollHeight, ch: el.clientHeight } })
-      const paths = [...document.querySelectorAll('svg.mr-doc-leads path')].map(p => p.getAttribute('d')), dots = [...document.querySelectorAll('svg.mr-doc-leads circle')].map(c => Number(c.getAttribute('cy')))
+      const paths = [...document.querySelectorAll('svg.mr-doc-leads path:not(.is-rule)')].map(p => p.getAttribute('d')), dots = [...document.querySelectorAll('svg.mr-doc-leads circle')].map(c => Number(c.getAttribute('cy')))
       return { cards, paths, dots, html: document.querySelector('svg.mr-doc-leads')?.innerHTML || '', scrollTop: s.scrollTop, ul: (() => { const i = document.querySelector('.mr-ul-layer i'); if (!i) return null; const probe = document.createElement('i'); probe.style.background = 'var(--mr-accent)'; document.querySelector('.mr-doc').appendChild(probe); const want = getComputedStyle(probe).backgroundColor; probe.remove(); return { bg: getComputedStyle(i).backgroundColor, want } })() }
     }, ids)
     const m0 = await measure()
