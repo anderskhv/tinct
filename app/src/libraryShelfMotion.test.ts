@@ -142,19 +142,21 @@ describe('every removal path uses the motion', () => {
     // changed add-to-tinct.js, app.js and styles.css again; cover-assets.js stays under 20261009owncover.
     // A book opening with the connection to itself (20261015quietopen, quiet-loads.js) changed app.js alone.
     // The reader's own picture from the first paint (20261019avatar) changed boot.js and styles.css.
-    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake'
-    expect(lib('index.html')).toContain('app.js?v=20261015quietopen')
+    // Continue opens the latest thing read, with "Also reading" (20261020continue), changed the reading
+    // table, bookshelf.js and styles.css, and every module above them on the way to index.html.
+    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020continue'
+    expect(lib('index.html')).toContain('app.js?v=20261020continue')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
-    expect(lib('index.html')).toContain('styles.css?v=20261019avatar')
+    expect(lib('index.html')).toContain('styles.css?v=20261020continue')
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
-    expect(lib('app.js')).toContain(`bookshelf.js?v=${ocr}`)
+    expect(lib('app.js')).toContain(`bookshelf.js?v=${latest}`)
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
-    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${ocr}`)
-    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${ocr}`)
+    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${latest}`)
+    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${latest}`)
     expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${ocr}`)
-    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${ocr}`)
+    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${latest}`)
     expect(lib('bookshelf-view.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`table-window.js?v=${motion}`)

@@ -398,6 +398,39 @@ it('leads the first paint with the book the reader just left, before the account
  completed.resolve({data:[],error:null});await result;
 })
 
+it('an own PDF just read on the desktop leads the first paint, with no catalogue wait', async () => {
+ const completed=gate<{data:[];error:null}>(),catalogue=gate<{books:[]}>();
+ const own='userbook-'+'a'.repeat(24);
+ calls.auth.mockResolvedValue({data:{session:{user:{id:'viewer-b'},access_token:'token'}}});calls.memory.mockResolvedValue(null);
+ calls.localPositions.mockResolvedValue(emptyLabPositionState('device-b','viewer-b'));
+ calls.cloudPositions.mockResolvedValue(emptyLabPositionState('cloud','viewer-b'));
+ calls.completions.mockReturnValue(completed.promise);calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0});calls.readingList.mockReturnValue({readingNow:[],finished:[]});
+ // The cached table still leads with the Tinct book read before the PDF.
+ localStorage.setItem('tinct:library-2-table:viewer-b',JSON.stringify({mode:'returning',reading:[{bookId:'emma',title:'Emma',chapterLabel:'Chapter 3',lastActiveAt:Date.now()-60_000},{bookId:own,title:'A Paper',own:true,chapterLabel:'p. 2 of 8',lastActiveAt:Date.now()-3_600_000}],finished:[]}));
+ localStorage.setItem('tinct:lab-library-boot',JSON.stringify({v:1,at:Date.now(),userId:'viewer-b',readingNow:2,finished:0,row:[],hero:{bookId:own,title:'A Paper',chapterLabel:'p. 5 of 8',headline:'You stopped in p. 5 of 8',lastReadAt:Date.now(),coverSrc:null,coverSrcSet:null,note:null}}));
+ const onCached=vi.fn(),{loadReadingTable}=await import('./libraryTwoReading');
+ const result=loadReadingTable({catalogue:catalogue.promise,onCached});
+ await vi.waitFor(()=>expect(onCached).toHaveBeenCalled());
+ const first=onCached.mock.calls[0][0];
+ expect(first.reading.map((book:{bookId:string})=>book.bookId)).toEqual([own,'emma']);
+ expect(first.reading[0]).toMatchObject({own:true,title:'A Paper',chapterLabel:'p. 5 of 8'});
+ catalogue.resolve({books:[]});completed.resolve({data:[],error:null});await result;
+})
+
+it('an own book just read and not on this device\'s table yet still leads, without a cached table', async () => {
+ const own='userbook-'+'b'.repeat(24);
+ const {withJustRead}=await import('./libraryTwoReading');
+ const justRead={bookId:own,title:'To the Lighthouse',chapterLabel:'The Window',headline:'You stopped in The Window',lastReadAt:Date.now()};
+ const led=withJustRead({mode:'new',reading:[],finished:[]},justRead,null);
+ expect(led.mode).toBe('returning');
+ expect(led.reading).toEqual([expect.objectContaining({bookId:own,own:true,title:'To the Lighthouse',cover:null,lastActiveAt:justRead.lastReadAt})]);
+ // A Tinct book the catalogue does not know is still not invented.
+ expect(withJustRead({mode:'new',reading:[],finished:[]},{...justRead,bookId:'unknown-book'},null).reading).toEqual([]);
+ // Another own book read later than the snapshot keeps the lead.
+ const later={mode:'returning' as const,reading:[{bookId:'userbook-'+'c'.repeat(24),title:'Later',author:'',cover:null,wordCount:null,tone:null,chapterLabel:'',headline:'',percent:null,recap:null,own:true,lastActiveAt:justRead.lastReadAt+1}],finished:[]};
+ expect(withJustRead(later,justRead,null)).toBe(later);
+})
+
 it('a book read on to another chapter does not keep the cached percent of its old place', async () => {
  const completed=gate<{data:[];error:null}>();
  calls.auth.mockResolvedValue({data:{session:{user:{id:'viewer-b'},access_token:'token'}}});calls.memory.mockResolvedValue(null);

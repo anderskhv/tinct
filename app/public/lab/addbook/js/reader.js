@@ -1236,6 +1236,7 @@ function savePlaceNow() {
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
   if (moved && isEpub()) epubShare();
+  if (moved) justRead.note();
 }
 // The same spot in the PDF's Tinct text (js/pdf-text.js placeOf), or none (the Tinct reader
 // finds it from the page): never a spot left from an earlier place.
@@ -1551,9 +1552,23 @@ function ocrShow(status, token) {
 }
 
 // Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
-function leavePlace() { if (!hasBook()) return; savePlaceNow(); placeSync.flush(); marksSync.push({ keepalive: true }); cardsSync.push({ keepalive: true }) }
+function leavePlace() { if (!hasBook()) return; savePlaceNow(); justRead.leave(); placeSync.flush(); marksSync.push({ keepalive: true }); cardsSync.push({ keepalive: true }) }
 addEventListener('pagehide', leavePlace);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leavePlace() });
+
+/* ---------- The book just read, for the library's first paint (desktop; this device only) ----------
+   /lab/library-add.js rememberJustRead (src/libraryAdd.ts): the library leads with the book read
+   here until the account's table arrives, so its Continue opens it. Phones are unchanged. */
+const justRead = {
+  key: '',
+  label() { const p = currentPlace(); return state.kind === 'pdf' ? `p. ${p.page} of ${state.pages.length}` : ($('pageLabel')?.textContent || state.title) },
+  write(api) {
+    if (!state.key || this.key !== state.key || isPhone() || !hasBook() || !state.title) return;
+    try { api?.rememberJustRead?.({ hex: hexOf(state.key), title: state.title, chapterLabel: this.label() }) } catch { /* the library resolves the slow way */ }
+  },
+  note() { if (isPhone()) return; this.key = state.key; switcherApi().then(api => this.write(api), () => {}) },
+  leave() { this.write(window.__tinctLibraryAdd) },
+};
 
 /* ---------- A PDF's place on the reader's other devices ---------- */
 // Signed in, the place in a PDF is kept privately in the account (/api/user-books/places,

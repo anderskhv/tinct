@@ -342,8 +342,11 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   // The book the reader just left leads the first paint, so the desk never
   // waits for the account reads to show it (they confirm it moments later).
   const justRead = justLeftReader(auth.userId)
-  const needsCatalogue = !!justRead && !cached?.reading.some(book => book.bookId === justRead.bookId)
+  // An own book just read (the desktop reader and PDF viewer write it) needs no catalogue entry.
+  const justOwn = !!justRead && isUserBookId(justRead.bookId)
+  const needsCatalogue = !!justRead && !justOwn && !cached?.reading.some(book => book.bookId === justRead.bookId)
   if (cached && !needsCatalogue) options.onCached?.(withJustRead(cached, justRead, null))
+  else if (!cached && justOwn) options.onCached?.(withJustRead({ mode: 'returning', reading: [], finished: [] }, justRead, null))
   // Account reads do not need the catalogue: start them now, alongside its
   // download (1.6 MB), instead of after it. Same reads, same merge below.
   let catalogueBooks: Awaited<typeof catalogueReady> | null = null
@@ -506,19 +509,42 @@ function justLeftReader(userId: string | null): { bookId: string; title: string;
   return { bookId: hero.bookId, title: hero.title, chapterLabel: hero.chapterLabel, headline: hero.headline, lastReadAt: hero.lastReadAt }
 }
 
-function withJustRead(table: ReadingTable, justRead: ReturnType<typeof justLeftReader>, book: CatalogueBook | null): ReadingTable {
+/**
+ * The device's table snapshot, led by the book the reader just left: a Tinct
+ * book, or (desktop) an own book read in the reader or the PDF viewer, so
+ * Continue opens what was read last before the account's table arrives.
+ */
+export function withJustRead(table: ReadingTable, justRead: ReturnType<typeof justLeftReader>, book: CatalogueBook | null): ReadingTable {
   if (!justRead) return table
-  // The snapshot names Tinct's books only: an own book read since leads instead.
-  if (table.reading.some(row => row.own && (row.lastActiveAt ?? 0) > justRead.lastReadAt)) return table
+  // An own book read since the snapshot was written leads instead.
+  if (table.reading.some(row => row.own && row.bookId !== justRead.bookId && (row.lastActiveAt ?? 0) > justRead.lastReadAt)) return table
   const existing = table.reading.find(row => row.bookId === justRead.bookId)
-  if (!existing && !book) return table
+  const own = isUserBookId(justRead.bookId)
+  if (!existing && !book && !own) return table
   const lead: ReadingTableBook = existing
     ? !justRead.chapterLabel || justRead.chapterLabel === existing.chapterLabel
       ? existing
       // The cached row describes an older place: its percent, headline and
       // recap belong there, not where the reader just stopped.
       : { ...existing, chapterLabel: justRead.chapterLabel, headline: justRead.headline, percent: null, recap: null }
-    : {
+    : own
+      ? {
+          // Not on this device's table yet: its cover and facts arrive with the account's table.
+          bookId: justRead.bookId,
+          title: justRead.title,
+          author: '',
+          cover: null,
+          wordCount: null,
+          displayYear: '',
+          tone: null,
+          chapterLabel: justRead.chapterLabel,
+          headline: justRead.headline,
+          percent: null,
+          recap: null,
+          own: true,
+          lastActiveAt: justRead.lastReadAt,
+        }
+      : {
         bookId: justRead.bookId,
         title: book?.title ?? justRead.title,
         author: book?.author ?? '',
