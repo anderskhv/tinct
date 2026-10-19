@@ -9,8 +9,11 @@
  * - who can see you: Only me / Friends / Everyone. Skipping = Only me.
  *   Everyone needs an explicit choice AND a confirmed email; until the email
  *   is confirmed it counts as Friends.
- * - uploads (and the Google photo, which is stored like one) show to the owner
- *   at once and to others only after a person approves them.
+ * - uploads (and the Google photo, which is stored like one) show to others at
+ *   once, with no review (Anders, 19 Oct 2026); Tinct can remove one afterwards.
+ * - findable (19 Oct 2026): Friends and Everyone profiles are found by name or
+ *   handle, showing name and picture; reading stays with friends (Everyone:
+ *   with anyone). Only me is never found.
  * - never exposed: highlights, notes, chats, Talk, email. Nothing here carries them.
  */
 
@@ -25,7 +28,7 @@ export const VISIBILITIES: readonly Visibility[] = ['only_me', 'friends', 'every
 /** Plain words, as on flows.html "Who can see you". */
 export const VISIBILITY_COPY: Record<Visibility, { label: string; line: string; short: string }> = {
   only_me: { label: 'Only me', line: 'Nobody else sees your profile or reading.', short: 'only you can see you' },
-  friends: { label: 'Friends', line: 'People you follow who follow you back.', short: 'friends can see you' },
+  friends: { label: 'Friends', line: 'Readers can find your name and picture; only people you follow who follow you back see your reading.', short: 'friends can see you' },
   everyone: { label: 'Everyone', line: 'Anyone with your link, and the Everyone board.', short: 'everyone can see you' },
 }
 
@@ -360,8 +363,10 @@ export interface PublicProfileView {
   picture: { kind: PictureKind; value: string | null }
   background: { kind: BackgroundKind; value: string | null } | null
   /**
-   * True for the follower view: a reader who follows the viewer, whose profile
-   * the viewer may not otherwise see. Name and link only, with the initial.
+   * True for the header-only view: a Friends profile seen by a signed-in
+   * reader who is not a friend (name, link and picture), or a reader who
+   * follows the viewer whose profile the viewer may not otherwise see (name
+   * and link, with the initial). Never any reading.
    */
   limited: boolean
   /** What the owner lets this viewer see (filled with numbers from ship 1 and 3). */
@@ -370,35 +375,47 @@ export interface PublicProfileView {
 
 /**
  * What one viewer may see of one profile, or null for nothing (Not found).
- * The privacy notice ("Your profile") binds this: Friends means friends
- * (mutual follows) only, and a new profile is Only me.
+ * The privacy notice ("Your profile") binds this: reading is shown only to
+ * friends (mutual follows) of a Friends profile, and a new profile is Only me.
  *
  * - blocked either way: nothing;
  * - Everyone (confirmed email): everyone sees the profile with the switches;
- * - Friends: friends see the profile with the switches; anyone else, signed
- *   in or out, gets nothing, exactly as for Only me;
- * - Only me: nothing (the owner sees everything);
+ * - Friends: friends see the profile with the switches. Any other signed-in
+ *   reader (a stranger, or a one-way follower whose request is not yet
+ *   accepted) sees the name, link and picture only, the same as Find readers
+ *   shows (findable profiles, Anders 19 Oct 2026): no banner, books, time or
+ *   board. Signed out, a Friends profile is Not found, as for Only me;
+ * - Only me: nothing (the owner sees everything), and never findable;
  * - one exception, whatever the visibility: a reader who follows the viewer
  *   reached out to them, so the viewer (only the viewer) sees that follower's
- *   name and link with the initial (no photo, banner or reading): enough to
- *   follow back, remove them or block them. This is `limited`.
- * - Uploaded pictures and backgrounds (and the Google photo) appear to others
- *   only once approved; until then others see the initial / library scene.
+ *   name and link: enough to follow back, remove them or block them. For an
+ *   Only me (or hidden) follower that is the initial, never their photo. This
+ *   is `limited`.
+ * - Photos show to others at once (uploads are stored approved since
+ *   19 Oct 2026; Tinct can remove one afterwards). A row still marked pending
+ *   from before then shows the initial / library scene to others until approved.
+ *
+ * `viewer.signedIn` defaults to true for every relation but `stranger`, the
+ * one relation a signed-out visitor has.
  */
-export function publicProfileView(card: ProfileCard, relation: Relation): PublicProfileView | null {
+export function publicProfileView(card: ProfileCard, relation: Relation, viewer: { signedIn?: boolean } = {}): PublicProfileView | null {
   if (relation === 'blocked') return null
   const self = relation === 'self'
+  const signedIn = viewer.signedIn ?? relation !== 'stranger'
   const visibility = effectiveVisibility(card.visibility, card.emailConfirmed)
   const full = self || visibility === 'everyone' || (visibility === 'friends' && relation === 'friend')
-  if (!full) {
-    // Only the owner's own follow opens anything, and only to the reader they follow.
-    if (relation !== 'followed' && relation !== 'friend') return null
-    return { handle: card.handle, name: card.displayName, picture: { kind: 'initial', value: null }, background: null, limited: true, shows: { reading: false, time: false, leaderboard: false } }
-  }
   const pictureHidden = !self && (card.pictureKind === 'upload' || card.pictureKind === 'google') && card.pictureReview !== 'approved'
   const backgroundHidden = !self && card.backgroundKind === 'upload' && card.backgroundReview !== 'approved'
   const picture = pictureHidden ? { kind: 'initial' as const, value: null } : { kind: card.pictureKind, value: card.pictureValue }
   const background = backgroundHidden ? { kind: 'library' as const, value: null } : { kind: card.backgroundKind, value: card.backgroundValue }
+  const nothingShown = { reading: false, time: false, leaderboard: false }
+  if (!full) {
+    // A findable (Friends) profile to a signed-in reader who is not yet a friend: name and picture only.
+    if (visibility === 'friends' && signedIn) return { handle: card.handle, name: card.displayName, picture, background: null, limited: true, shows: nothingShown }
+    // Otherwise only the owner's own follow opens anything, and only to the reader they follow.
+    if (relation !== 'followed' && relation !== 'friend') return null
+    return { handle: card.handle, name: card.displayName, picture: { kind: 'initial', value: null }, background: null, limited: true, shows: nothingShown }
+  }
   return {
     handle: card.handle,
     name: card.displayName,

@@ -5,10 +5,11 @@
  * - Settings: the Leaderboard switch is disabled while "Who can see you" is
  *   Only me or "Show my reading time" is off (the board shows time), and the
  *   reader is taken off the board when either happens.
- * - Follow buttons: Friends / Following (a state, outlined) and Follow back /
- *   Follow (an action, black), as the Friends page named them.
+ * - Follow buttons: Friends / Requested (a state, outlined) and Follow back /
+ *   Follow (an action, black). A one-way follow is a request until it is
+ *   followed back (Anders, 19 Oct 2026; it said Following before).
  * - A reader's profile shows what the server sends: a Friends-only profile
- *   seen by a non-friend (`limited`) is the header only.
+ *   seen by a non-friend (`limited`) is the header only (name and picture).
  */
 import type { OwnProfile, ProfilePageData } from './cardsApi'
 import type { Relation } from '../social/profileRules'
@@ -53,7 +54,8 @@ export type FollowButton = { label: string; style: 'fill' | 'line'; action: 'fol
 export function followButton(relation: Relation | null): FollowButton | null {
   if (relation === 'self' || relation === 'blocked') return null
   if (relation === 'friend') return { label: 'Friends', style: 'line', action: 'unfollow' }
-  if (relation === 'follower') return { label: 'Following', style: 'line', action: 'unfollow' }
+  // A one-way follow is a request until they follow back (Anders, 19 Oct 2026).
+  if (relation === 'follower') return { label: 'Requested', style: 'line', action: 'unfollow' }
   if (relation === 'followed') return { label: 'Follow back', style: 'fill', action: 'follow' }
   return { label: 'Follow', style: 'fill', action: 'follow' }
 }
