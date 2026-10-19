@@ -276,22 +276,18 @@
     return textHeavy(layout) ? 'text' : 'pages';
   }
   /**
-   * The edition a kind opens in on the desktop (Anders, 16 Oct 2026): its original pages, except running
-   * prose, which reads as its Tinct text: a narrative or an essay (kind 'narrative'); or a text the scan
-   * finds free of columns, mathematics, figures and tables (textHeavy) that is either prose by the scan's
-   * own signal or a paper or an unsure kind (Deutsch's "Constructor Theory"). A textbook or a practical
-   * guide keeps its pages unless the scan reads it as prose. Shared with the phone's textHeavy.
+   * The edition a PDF opens in on the desktop (Anders, 19 Oct 2026: Margin view is the main desktop
+   * experience): its original pages, in Margin view, whatever its kind. The prose exception of 16 Oct
+   * (a narrative, or running prose such as Deutsch's "Constructor Theory", as its Tinct text) is gone;
+   * Tinct text on the desktop is the reader's own choice on that device ("Convert to Tinct book").
    */
   function desktopEdition(kind, layout = null) {
-    if (kind === 'narrative') return 'text';
-    if (!textHeavy(layout)) return 'pages';
-    const prose = !!(layout && layout.signals && layout.signals.prose);
-    return prose || !(kind === 'textbook' || kind === 'practical') ? 'text' : 'pages';
+    return 'pages';
   }
   /**
    * The default edition a PDF opens in when the reader has chosen none: on a phone, by its kind (when told,
    * phoneEdition) and the scan's `layout`, else the scan's default; on the desktop, by desktopEdition (its
-   * pages unless running prose), the kind left unsure until it is told. A PDF without text ('pages-only')
+   * pages, in Margin view). A PDF without text ('pages-only')
    * has its pages only.
    */
   function openDefault({ phone = false, kind = null, layout = null } = {}) {

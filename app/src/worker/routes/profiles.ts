@@ -8,7 +8,7 @@
  *   GET  /api/profile/handle?h=       is this link free and allowed?
  *   POST /api/profile/image?slot=     upload a picture or background (JPEG, resized in the browser);
  *                                     only while SOCIAL_PHOTO_UPLOADS is "1" (off at launch: a 404)
- *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others once approved and allowed
+ *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others when the profile allows (shown at once, 19 Oct 2026)
  *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
  *   POST /api/profile/confirm-link    "Send confirmation link": one service email with the signed
  *                                     /confirm link (routes/confirmLink.ts); 1 per 5 minutes, 5 a day
@@ -444,8 +444,9 @@ async function storeImage(env: ProfilesEnv, store: ProfileStore, row: ReaderProf
     ? (row.picture_kind === 'upload' || row.picture_kind === 'google' ? row.picture_value : null)
     : (row.background_kind === 'upload' ? row.background_value : null)
   const patch: Patch = slot === 'picture'
-    ? { picture_kind: kind, picture_value: token, picture_review: 'pending' }
-    : { background_kind: 'upload', background_value: token, background_review: 'pending' }
+    // Visible to others at once, with no review (Anders, 19 Oct 2026); the admin page can still remove it.
+    ? { picture_kind: kind, picture_value: token, picture_review: 'approved' }
+    : { background_kind: 'upload', background_value: token, background_review: 'approved' }
   await store.update(row.id, patch)
   await deleteStoredImage(env, row.id, slot, previous)
 }
@@ -649,7 +650,8 @@ export async function viewFor(store: ProfileStore, ownerId: string, viewerId: st
   const [card, rel] = await Promise.all([store.getCardById(ownerId), viewerId ? store.relation(viewerId, ownerId) : Promise.resolve(null)])
   if (!card && !viewerId) return null
   const relation = rel ? relationOf({ self: false, ...rel }) : 'stranger'
-  if (card) return publicProfileView(cardFromPublic(card), relation)
+  // A signed-in reader may see a Friends profile's name and picture (findable, 19 Oct 2026); signed out, not.
+  if (card) return publicProfileView(cardFromPublic(card), relation, { signedIn: viewerId !== null })
   // No public card (Only me, or hidden): only a reader who follows the viewer
   // shows, as the follower view (name and link), so the viewer can remove or block them.
   if (!rel || rel.blocked || !rel.ownerFollowsViewer) return null

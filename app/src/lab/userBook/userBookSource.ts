@@ -48,20 +48,22 @@ export function userBookEditionKey(edition: Pick<UserBookEdition, 'language' | '
 /**
  * An EPUB is one edition, and on the desktop "Margin view" too: the EPUB in
  * Add a book's margin reader (epubView.ts; choosing it leaves the reader:
- * LabApp). A PDF is two: its Tinct text, read here, and "Original pages", the
- * PDF itself in Add a book's viewer (choosing it there leaves the reader: LabApp).
+ * LabApp). A PDF is two: its Tinct text, read here, and "Original pages" (on
+ * the desktop "Margin view (original pages)"), the PDF itself in Add a book's
+ * viewer (choosing it there leaves the reader: LabApp).
  */
 export function userBookEditions(edition: UserBookEdition, { phone = typeof window !== 'undefined' && window.innerWidth < PHONE_MAX_WIDTH }: { phone?: boolean } = {}): Edition[] {
   const key = userBookEditionKey(edition)
   const pdf = editionSource(edition) !== 'epub'
-  const cacheKey = `${key}/${pdf ? 'pdf' : phone ? 'epub' : 'epub-desk'}/${edition.title}`
+  const cacheKey = `${key}/${pdf ? phone ? 'pdf' : 'pdf-desk' : phone ? 'epub' : 'epub-desk'}/${edition.title}`
   const cached = editionLists.get(cacheKey)
   if (cached) return cached
   const language = userBookLanguage(edition) ?? 'en'
   const list: Edition[] = pdf
     ? [
         { key, language, style: 'original', label: 'Tinct text', aligned: false, hasAudio: false },
-        { key: PDF_PAGES_EDITION_KEY, language, style: 'original', label: 'Original pages', aligned: false, hasAudio: false },
+        // On the desktop its pages are read in Margin view, named so as an EPUB's is (Anders, 19 Oct 2026: the way back).
+        { key: PDF_PAGES_EDITION_KEY, language, style: 'original', label: phone ? 'Original pages' : 'Margin view (original pages)', aligned: false, hasAudio: false },
       ]
     : [
         { key, language, style: 'original', label: 'EPUB', aligned: false, hasAudio: false },

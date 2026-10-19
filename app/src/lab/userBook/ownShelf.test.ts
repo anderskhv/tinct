@@ -148,7 +148,8 @@ describe('where an own book opens', () => {
     localStorage.setItem(`tinct-addbook:edition:${chosen}`, '"text"')
     const hrefs = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
     expect(hrefs).toEqual({
-      [prose]: `/reader?userBook=${prose}`,
+      // Running prose opened as Tinct text by the desktop's default of 16 Oct; its pages since 19 Oct 2026.
+      [prose]: `/lab/addbook/?userBook=${prose}`,
       [paper]: `/lab/addbook/?userBook=${paper}`,
       [legacy]: `/lab/addbook/?userBook=${legacy}`,
       // Not scanned on this device yet: the viewer, which forwards once it has classified it.
@@ -198,12 +199,24 @@ describe('where an own book opens', () => {
       [read]: `/lab/addbook/?userBook=${read}`,
       [chosen]: `/reader?userBook=${chosen}`,
     })
-    // Once the viewer has told it (and kept running prose as Tinct text), the library goes straight there.
+    // Told by the viewer: on the desktop its pages, running prose too (19 Oct 2026; Tinct text by the default
+    // of 16 Oct before), also where that old default was kept as Tinct text (no choice); on a phone, once the
+    // viewer has told it (and kept running prose as Tinct text), the library goes straight there.
     localStorage.setItem(`tinct-addbook:open-rule:${prose}`, '2')
     localStorage.setItem(`tinct-addbook:open-rule:${read}`, '1')
+    localStorage.setItem(`tinct-addbook:edition:${read}`, JSON.stringify('text'))
+    localStorage.setItem(`tinct-addbook:desk-edition:${read}`, JSON.stringify({ edition: 'text', kind: 'paper', by: 'text', v: 1 }))
     const again = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
-    expect(again[prose]).toBe(`/reader?userBook=${prose}`)
+    expect(again[prose]).toBe(`/lab/addbook/?userBook=${prose}`)
     expect(again[read]).toBe(`/lab/addbook/?userBook=${read}`)
+    expect(again[chosen]).toBe(`/reader?userBook=${chosen}`)
+    const width = window.innerWidth
+    try {
+      Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
+      const phone = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
+      expect(phone[prose]).toBe(`/reader?userBook=${prose}`)
+      expect(phone[chosen]).toBe(`/reader?userBook=${chosen}`)
+    } finally { Object.defineProperty(window, 'innerWidth', { configurable: true, value: width }) }
   })
 
   it('marks a scan whose text is not on this device, and opens one whose recognised text is here as Tinct text', async () => {

@@ -262,7 +262,7 @@ describe('sign-up with profiles on', () => {
     vi.doUnmock('./socialClient')
   })
 
-  it('reads the chosen photo before clearing the input, waits while preparing, then says when others see it (iPad, 19 Oct 2026)', async () => {
+  it('reads the chosen photo before clearing the input, waits while preparing, and adds no approval line (iPad, 19 Oct 2026)', async () => {
     const uploaded = { ...profile, uploads: true }
     api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
@@ -306,7 +306,8 @@ describe('sign-up with profiles on', () => {
     expect(order.indexOf('clear')).toBeGreaterThan(order.indexOf('prepared'))
     expect(trigger.disabled).toBe(false)
     expect(trigger.hasAttribute('aria-busy')).toBe(false)
-    expect(document.querySelector('[data-auth-status]')?.textContent).toBe('Others see your photo once it’s approved.')
+    // No approval line: uploads show to others at once (changed on request, 19 Oct 2026).
+    expect(document.querySelector('[data-auth-status]')?.textContent ?? '').not.toContain('approved')
     vi.doUnmock('./socialClient')
   })
 

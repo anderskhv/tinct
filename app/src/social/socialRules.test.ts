@@ -130,6 +130,7 @@ describe('the profile page HTML', () => {
     const withFollow = profileMissingHtml(followButtonHtml({ relation: null, handle: 'bea' }))
     expect(withFollow).toContain('No profile here')
     expect(withFollow).toContain('/sign-in?returnTo=%2F%40bea')
-    expect(profileMissingHtml(followButtonHtml({ relation: 'follower', handle: 'bea' }))).toContain('Following')
+    // A one-way follow is a request until followed back (changed on request, 19 Oct 2026: was Following).
+    expect(profileMissingHtml(followButtonHtml({ relation: 'follower', handle: 'bea' }))).toContain('>Requested</button>')
   })
 })

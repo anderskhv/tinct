@@ -41,7 +41,8 @@ describe('Settings rules', () => {
 describe('follow buttons (the Friends page words)', () => {
   it('outlines a state and fills an action', () => {
     expect(followButton('friend')).toEqual({ label: 'Friends', style: 'line', action: 'unfollow' })
-    expect(followButton('follower')).toEqual({ label: 'Following', style: 'line', action: 'unfollow' })
+    // A one-way follow is a request until followed back (changed on request, 19 Oct 2026: was Following).
+    expect(followButton('follower')).toEqual({ label: 'Requested', style: 'line', action: 'unfollow' })
     expect(followButton('followed')).toEqual({ label: 'Follow back', style: 'fill', action: 'follow' })
     expect(followButton('stranger')).toEqual({ label: 'Follow', style: 'fill', action: 'follow' })
     expect(followButton('self')).toBeNull()
