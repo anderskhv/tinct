@@ -234,29 +234,30 @@ describe('the answer in a card', () => {
     const f = M.html.factcheckHtml('Holds. The standard form.\n\nHolds. Below 1% from x = 9.\n\nNote. Context.\n\nSources: [NIST](https://dlmf.nist.gov/5.11) · [Wikipedia](https://en.wikipedia.org/wiki/S)', P)
     expect(f.answer).toContain('<span class="is-bottom-line">Holds. The standard form.</span>')
     expect(f.answer).toContain('<p><span class="mr-verdict">Holds.</span> Below 1% from x = 9.</p>')
-    expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> Context.</p>')
+    // No "Note." label since 19 Oct 2026: its sentence stays, plain.
+    expect(f.answer).toContain('<p>Context.</p>')
+    expect(f.answer).not.toContain('Note.')
     // Led by "Sources" since the night run's final round (16 Oct: the bare titles read as a raw tail).
     expect(f.sources).toBe('<div class="mr-sources"><span class="mr-sources__label">Sources</span><a href="https://dlmf.nist.gov/5.11" target="_blank" rel="noopener noreferrer">NIST</a><a href="https://en.wikipedia.org/wiki/S" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>')
   })
-  it('Fact-check, doc-first (15 Oct): the opening in plain text, then the verdict as the bottom line, then a note and the sources; folded, the verdict line', () => {
+  it('Fact-check, verdict first (19 Oct 2026): a kept doc-first answer drops its opening; the verdict is the bottom line, the note plain; folded, the verdict line', () => {
     const text = 'The passage claims 28.4 BLEU; the paper offers Table 2.\n\nPartly holds. The score stands, but later systems beat it.\n\nNote. A landmark.\n\nSources: [NLP-progress](https://nlpprogress.com/)'
     const f = M.html.factcheckHtml(text, P)
-    expect(f.answer.indexOf('<div class="mr-answer mr-opening"><p>The passage claims 28.4 BLEU; the paper offers Table 2.</p></div>')).toBe(0)
-    expect(f.answer).toContain('<span class="is-bottom-line">Partly holds. The score stands, but later systems beat it.</span>')
-    expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> A landmark.</p>')
-    expect(f.answer).not.toMatch(/is-bottom-line">The passage/)
+    expect(f.answer.indexOf('<div class="mr-answer"><p><span class="is-bottom-line">Partly holds. The score stands, but later systems beat it.</span>')).toBe(0)
+    expect(f.answer).toContain('<p>A landmark.</p>')
+    expect(f.answer).not.toContain('The passage claims')
+    expect(f.answer).not.toContain('mr-opening')
     expect(f.sources).toContain('NLP-progress')
-    // Streaming, before the verdict: the opening alone, never bolded as a bottom line.
+    // Streaming, before the verdict: nothing shows (the card's dots wait), never the opening.
     const live = M.html.factcheckHtml('The passage claims 28.4 BLEU; the paper offers Table 2.', P, { live: true })
-    expect(live.answer).toBe('<div class="mr-answer mr-opening"><p>The passage claims 28.4 BLEU; the paper offers Table 2.</p></div>')
+    expect(live.answer).toBe('')
     const base = { id: 'f1', page: 1, rects: [[1, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'Our model achieves 28.4 BLEU.' }
     const streaming = M.html.cardHtml({ ...base, kind: 'factcheck', turns: [] }, { open: true, P, pageLabel: '1', live: 'The passage claims 28.4 BLEU.', status: 'Checking sources…' })
-    expect(streaming).toContain('<p>The passage claims 28.4 BLEU.</p>')
-    expect(streaming.indexOf('Checking sources…')).toBeGreaterThan(streaming.indexOf('The passage claims'))
+    expect(streaming).not.toContain('The passage claims')
+    expect(streaming).toContain('Checking sources…')
     expect(streaming).not.toContain('is-bottom-line')
-    // Folded: the verdict line, not the opening.
-    expect(M.html.foldText({ ...base, kind: 'factcheck', turns: [{ role: 'assistant', content: text }] }, P)).toBe('Partly holds. The score stands, but later systems beat it. Note. A landmark.')
-    // An answer written before 15 Oct (verdict first) reads as it did.
+    // Folded: the verdict line and its note, never the opening.
+    expect(M.html.foldText({ ...base, kind: 'factcheck', turns: [{ role: 'assistant', content: text }] }, P)).toBe('Partly holds. The score stands, but later systems beat it. A landmark.')
     const old = M.html.factcheckHtml('Holds. The standard form.\n\nNote. Context.', P)
     expect(old.answer.startsWith('<div class="mr-answer"><p><span class="is-bottom-line">Holds. The standard form.</span>')).toBe(true)
   })

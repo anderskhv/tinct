@@ -6,6 +6,12 @@
  */
 import { createHash } from 'node:crypto'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+// Fact-check's doc-first opening is off since 19 Oct 2026 (marginRoutes.ts FACTCHECK_DOC_FIRST): this file's cases test
+// the opening with its switch on, as it ran from 15 to 19 Oct (worker.marginFactcheck19Oct.test.ts covers the default).
+vi.mock('./companion/marginRoutes', async importOriginal => {
+  const real = await importOriginal<typeof import('./companion/marginRoutes')>()
+  return { ...real, factcheckDocFirst: () => true }
+})
 import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'

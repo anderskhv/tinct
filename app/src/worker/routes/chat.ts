@@ -43,7 +43,7 @@ import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, passageImageWithinCap, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
 import { primerFailure } from '../../companion/primerParse'
-import { FACTCHECK_OPENING_ROUTE, factcheckVerdictEffort, type MarginThinking } from '../../companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, factcheckDocFirst, factcheckVerdictEffort, type MarginThinking } from '../../companion/marginRoutes'
 import { FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND } from '../../companion/marginPrompts'
 
 export type ChatEnv = SupabaseEnv & {
@@ -680,7 +680,7 @@ function cacheableSystem(system: AnthropicSystemParam): AnthropicSystemParam {
  * lets it answer from the document and well-established knowledge without a word about the search
  * (morning retest 16 Oct 2026). The book reader keeps its own wording.
  */
-export const MARGIN_NO_SOURCES_RESULT = 'No outside sources were found this time. Answer from the document and well-established general knowledge, and say "from general knowledge" where you rely on it. Never mention a search, a tool, a lookup or that sources are unavailable. End with the line "Sources:" and nothing after it.'
+export const MARGIN_NO_SOURCES_RESULT = 'No outside sources were found this time. Answer from the document and well-established knowledge, without saying where your knowledge comes from. Never mention a search, a tool, a lookup or that sources are unavailable. Write no Sources: line.'
 
 /** A margin Fact-check's second search call: answer from what is already back, never a word about the search. */
 export const MARGIN_SEARCH_DONE_RESULT = 'Use the sources already returned, the document and well-established general knowledge. Never mention a search, a tool or a lookup.'
@@ -815,6 +815,9 @@ export function heldTextReadyToRelease(text: string): boolean {
   if (text.length >= HELD_TEXT_RELEASE_CHARS) return true
   return /[.?!]["'\u201d\u2019)\]]*\s/.test(text) || /\S[^\S\n]*\n/.test(text)
 }
+
+/** A margin Fact-check answer's first words: one of its verdicts (marginPrompts.ts FACTCHECK_PROMPT_TEMPLATE). */
+export const FACTCHECK_VERDICT_START = /^[*_]{0,2}(?:holds|partly holds|outdated|disputed|can['\u2019]t check)\b/i
 
 /** Custom SSE event: what the companion is looking up. Readers that do not know it ignore it. */
 export const TINCT_STATUS_EVENT = 'tinct_status'
@@ -1028,6 +1031,9 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
     // it is the answer: release what was held and stream the rest as it is
     // written. A tool call that starts first keeps it private.
     const held: Array<{ event: string; data: Record<string, unknown> }> = []
+    // A margin Fact-check (19 Oct 2026): text written before a tool call never reaches the reader ("Sources: none
+    // searched yet."); held text goes out early only once it opens on a verdict, else when the round ends without one.
+    const verdictOnly = Boolean(input.margin && input.prefetchSource)
     let heldText = ''
     let toolStarted = false
     let released = false
@@ -1037,7 +1043,7 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
         if (isToolUseStart(data)) toolStarted = true
         held.push({ event, data })
         heldText += textDelta(data)
-        if (!toolStarted && heldText.trim() && heldTextReadyToRelease(heldText)) {
+        if (!toolStarted && heldText.trim() && heldTextReadyToRelease(heldText) && (!verdictOnly || FACTCHECK_VERDICT_START.test(heldText.trimStart()))) {
           released = true
           noteText()
           for (const item of held.splice(0)) sink.write(item.event, item.data)
@@ -1455,8 +1461,9 @@ export async function handleChat(
           researchKey: env.OPENAI_API_KEY,
           researchGate: () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6),
           sourceQuery: factcheckSourceQuery(companion),
-          // The PDF reader's streamed Fact-check opens from the document while the search runs.
-          ...(marginRoute && stream ? { opening: {
+          // The PDF reader's streamed Fact-check opened from the document while the search ran (doc-first, 15 Oct);
+          // off since 19 Oct 2026 (marginRoutes.ts FACTCHECK_DOC_FIRST): the verdict comes first.
+          ...(marginRoute && stream && factcheckDocFirst() ? { opening: {
             system: withVolatileLine(system, FACTCHECK_OPENING_ROUND),
             verdictSystem: withVolatileLine(system, FACTCHECK_VERDICT_ROUND),
             verdictEffort: factcheckVerdictEffort(),

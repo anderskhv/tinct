@@ -445,6 +445,53 @@ export function parseFactcheck(text: unknown): Factcheck {
 }
 
 /**
+ * A Fact-check answer as the card shows it (Anders, 19 Oct 2026): the verdict first, never a paragraph before it
+ * (the restating "The passage claims that …", a first round's text before the search); no "Sources:" line but the
+ * last one with real links ("Sources: none searched yet." goes); no "Note." or "Caveat:" label (its sentence stays,
+ * plain); and no sentence about the check itself ("From general knowledge," is dropped from its sentence; "the
+ * research summarized here is from general knowledge…", "The claim is about apes today" go). An answer with no
+ * verdict yet (still streaming, or one that never gives one) keeps its words, less the same labels and remarks.
+ */
+const FC_SOURCES_LINE = /^\s*[*_]{0,2}sources[*_]{0,2}\s*:/i
+const FC_LABEL = /^\s*[*_]{0,2}(?:note|caveat|context|nb)[*_]{0,2}\s*[.:][*_]{0,2}\s*/i
+const FC_SOURCE_PHRASE = /^(?:(?:based\s+)?(?:on|from)|according\s+to|drawing\s+on|relying\s+on)\s+(?:well[- ]established\s+|general\s+|common\s+|background\s+)*(?:knowledge|sources)\s*(?:alone\s*)?(?:,\s*|\s+[—–-]\s+)/i
+const FC_META = [
+  /\b(?:general|background|common|well[- ]established)\s+knowledge\b/i,
+  /^(?:the|this)\s+(?:claim|passage|question|check|fact-check)\s+(?:is|was)\s+(?:only\s+|mainly\s+|chiefly\s+)?(?:about|concerned with|limited to)\b/i,
+  /\b(?:summari[sz]ed|reported|covered|cited)\s+here\b/i,
+  /\b(?:no|none|not)\b[^.!?]{0,40}\b(?:sources?|search(?:ed|es)?)\b[^.!?]{0,30}\b(?:searched|found|checked|available|consulted|returned|yet)\b/i,
+  /\b(?:sources?|search)\b[^.!?]{0,30}\b(?:not|none|no)\b[^.!?]{0,20}\b(?:searched|found|checked|available|consulted|returned)\b/i,
+  /^(?:the\s+)?(?:passage|text|author|document|paper|book)\s+(?:claims|says|states|argues|asserts|suggests|holds|contends|maintains)\s+that\b/i,
+]
+function fcSentences(p: string): string[] {
+  return String(p).split(/(?<=[.!?]["”’)\]]*)\s+(?=[*_]{0,2}[\p{Lu}“"(])/u).map(s => s.trim()).filter(Boolean)
+}
+function fcTidy(sentence: string): string {
+  let t = sentence.replace(FC_SOURCE_PHRASE, '')
+  if (t !== sentence) t = t.replace(/^[*_]{0,2}\p{Ll}/u, c => c.toUpperCase())
+  return FC_META.some(re => re.test(t)) ? '' : t
+}
+export function cleanFactcheck(text: unknown): string {
+  const lines = String(text ?? '').replace(/\r\n?/g, '\n').split('\n')
+  // The only Sources line is the last one with real links, at the end.
+  let sources = ''
+  for (let i = lines.length - 1; i >= 0; i--) if (FC_SOURCES_LINE.test(lines[i]) && !sources && parseSourcesLine(lines[i]).length) sources = lines[i].trim()
+  const body = lines.filter(l => !FC_SOURCES_LINE.test(l)).join('\n')
+  let paras = paragraphsOf(body)
+  const at = paras.findIndex(p => VERDICT_START_RE.test(p))
+  if (at > 0) paras = paras.slice(at)
+  const out = paras.map((p, k) => {
+    // The verdict's own words stay as written; a label is dropped, its sentence kept; remarks about the check go.
+    const head = k === 0 && at >= 0 ? leadingWord(p, VERDICTS) : null
+    const words = head ? p.slice(head.length) : p, unlabelled = words.replace(FC_LABEL, '')
+    const rest = unlabelled !== words ? unlabelled.replace(/^\p{Ll}/u, c => c.toUpperCase()) : unlabelled
+    const kept = fcSentences(rest).map(fcTidy).filter(Boolean).join(' ')
+    return head ? (p.slice(0, head.length) + (kept ? ' ' + kept : '')).trim() : kept
+  }).filter(Boolean)
+  return [...out, ...(sources ? [sources] : [])].join('\n\n')
+}
+
+/**
  * The JSON object in a reply: inside a code fence or after stray text, the first {...}
  * that parses. -> the object, or null.
  */

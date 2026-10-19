@@ -143,22 +143,25 @@ Round 3 (16 October, re-check 2): the earlier line ("A proper noun used as a ter
 
 Model: `COMPANION_MODEL`. Max tokens: 900. Effort: typed. Tools: `search_reading_sources`, prefetched with a query built from the passage. This is the only action that searches the web. Charge it like Ask.
 
-**The doc-first opening (approved 15 October).** The search starts at once. While it runs, the Worker streams the opening paragraph from the document alone (its own round: no tools, no thinking, effort low, 600 tokens, Haiku); then, once the sources are back, the verdict round continues from it with the route's model, effort and bound. Without a search (signed out, no key) or unstreamed, one request writes the whole answer in the same shape.
+**Verdict first (19 October, evening; Anders).** Answers opened on "The passage claims that …", carried a first round's "Sources: none searched yet.", an italic "Note." label and "From general knowledge," remarks. The doc-first opening is off (`marginRoutes.ts` `FACTCHECK_DOC_FIRST = false`): the search runs first and the answer starts with its verdict; in the PDF reader's rounds text before a tool call never reaches the reader, and held text goes out early only once it opens on a verdict (`chat.ts` `FACTCHECK_VERDICT_START`). The card cleans what it shows the same way (`margin-parse.js` `cleanFactcheck`).
+
+**The doc-first opening (approved 15 October; off since 19 October).** The search starts at once. While it runs, the Worker streams the opening paragraph from the document alone (its own round: no tools, no thinking, effort low, 600 tokens, Haiku); then, once the sources are back, the verdict round continues from it with the route's model, effort and bound. Without a search (signed out, no key) or unstreamed, one request writes the whole answer in the same shape.
 
 **Speed trial, off (round 1, 15 October, night).** `marginRoutes.ts` `FACTCHECK_VERDICT_EFFORT`: null keeps the route's effort for the verdict round; set to `'low'`, the verdict round runs at effort low (still adaptive thinking). One line, for Anders to turn on and measure in production.
 
 ```
 Check whether the passage's factual claims still hold today and what has changed since it was written. Today's date is {today}.
-First paragraph: one sentence of at most 25 words, from the document alone, that places the claim: what it refers to and where the document states it. It gives no verdict and does not summarise the document's support. Then a blank line.
-Then the verdict paragraph: start it with one of: Holds. Partly holds. Outdated. Disputed. Can't check. Then give the reason in at most two sentences, with numbers where they decide it.
-State the verdict once: no other paragraph starts with a verdict word or repeats the verdict. At most one more paragraph may follow, starting with Note., for useful context that is not a verdict.
+Start the answer with the verdict: its first words are one of: Holds. Partly holds. Outdated. Disputed. Can't check. Then give the reason in at most two sentences, with numbers where they decide it.
+Never restate or summarise the passage or its claim, before or after the verdict: the reader has just read it.
+State the verdict once: no other paragraph starts with a verdict word or repeats the verdict. A real caveat is one plain sentence in the verdict paragraph or the one short paragraph after it, with no label such as "Note." or "Caveat:".
 Use Partly holds only when one part of the claim holds and another does not, and name both parts in its reason. After the verdict paragraph never judge the claim again: no "holds", "no longer holds", "outdated" or "disputed" in a later paragraph.
 Never treat the document itself as confirmation of its own claims: what it offers in support is the authors' case, not a check. Base the verdict on the returned sources and well-established knowledge.
+Never write about the check itself: not where your knowledge comes from (no "from general knowledge"), not which sources were or were not searched, and not what the claim is or is not about.
 If the passage is opinion or interpretation, check only what is factual in it.
 If the passage is fiction, check its references to the real world (people, places, events, history, science). When it has none, the verdict is Can't check. with one line saying the passage has nothing outside the story to check. Never open by saying there is no factual claim.
-At most 150 words in all, not counting the Sources: line.
+At most 120 words in all, not counting the Sources: line.
 Name each source by its title; never mention the search, a tool, a lookup or its notes, and never say that sources are unavailable.
-Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself. Never invent a source. End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".
+Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself. Never invent a source. End with one final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · "; write no other Sources line, and none at all when you used no source.
 ```
 
 After the breakpoint, the opening round adds:
@@ -176,12 +179,14 @@ Your first paragraph is written (your previous turn). Continue from it with the 
 **When the search fails (morning retest, 16 October: "Can't check. The search tool is unavailable right now.").** In the PDF reader the Worker asks the search once more; when it fails again (or meets its short-term limit) the verdict round receives, as the search's result:
 
 ```
-No outside sources were found this time. Answer from the document and well-established general knowledge, and say "from general knowledge" where you rely on it. Never mention a search, a tool, a lookup or that sources are unavailable. End with the line "Sources:" and nothing after it.
+No outside sources were found this time. Answer from the document and well-established knowledge, without saying where your knowledge comes from. Never mention a search, a tool, a lookup or that sources are unavailable. Write no Sources: line.
 ```
 
 The book reader's search keeps its own wording.
 
-**Card.** The opening first, in plain text, as it streams; then "Checking sources…" in the 12px status style while the search is still running; then the verdict paragraph, its verdict word in italic secondary colour and its sentence as the card's bottom line in medium weight; then any Note.; then the "Sources:" line as the row of plain links shown in the mockup, led by "Sources" (16 October: the bare titles read as a raw tail), each title without the site's name after " | ", " · " or " – " ("Deep Residual Learning for Image Recognition", not "… | IEEE Conference Publication | IEEE Xplore"), and a title that repeats an earlier one left out. Folded, the card shows the verdict line. An answer written before 15 October (verdict first, a verdict word per claim) shows as before.
+**Card (since 19 October).** The verdict paragraph first, its sentence as the bottom line; then the caveat as one plain sentence, with no "Note." or "Caveat:" label; then the real links as the only Sources row. Nothing before the verdict is shown (a restating paragraph, a first round's text, a Sources line without links), nor a sentence about the check itself ("From general knowledge," is dropped from its sentence; "the research summarized here is …", "The claim is about …" go). While the search runs the card shows "Checking sources…" with the waiting dots below it.
+
+**Card (15 to 19 October).** The opening first, in plain text, as it streams; then "Checking sources…" in the 12px status style while the search is still running; then the verdict paragraph, its verdict word in italic secondary colour and its sentence as the card's bottom line in medium weight; then any Note.; then the "Sources:" line as the row of plain links shown in the mockup, led by "Sources" (16 October: the bare titles read as a raw tail), each title without the site's name after " | ", " · " or " – " ("Deep Residual Learning for Image Recognition", not "… | IEEE Conference Publication | IEEE Xplore"), and a title that repeats an earlier one left out. Folded, the card shows the verdict line. An answer written before 15 October (verdict first, a verdict word per claim) shows as before.
 
 ## Counterpoint — new intent `counterpoint`
 

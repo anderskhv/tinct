@@ -69,6 +69,8 @@
 //                                                     a one-sentence answer in regular weight; the follow-up field visible
 //                                                     unfocused (border, placeholder), mic and send inside it, send by
 //                                                     Enter or the button
+//   node scripts/margin-check.mjs pause-dots        19 Oct, evening (11): the dots below an answer that pauses (Counterpoint, a
+//                                                     follow-up), gone when more comes or on an error; focus rings for keys only
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -236,8 +238,9 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
 // unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
 export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null, stall: false }
-/** The mocked Fact-check's opening, streamed before "Checking sources…" as the Worker streams it while the search runs. */
-export const FACTCHECK_OPENING = 'MOCK opening: the passage claims what it says, and the document offers its own table {p. 1}.'
+/** The mocked Fact-check's text before its search, streamed before "Checking sources…" as the doc-first Worker streamed it
+    (off since 19 Oct 2026): a restating opening and a first round's Sources line, which the card never shows. */
+export const FACTCHECK_OPENING = 'The passage claims that MOCK opening restates what it says {p. 1}.\n\nSources: none searched yet.'
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
   if (mock.nextFor[intent] != null) { const t = mock.nextFor[intent]; delete mock.nextFor[intent]; return t }
@@ -255,8 +258,9 @@ function mockText(body) {
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
     : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
-  // Fact-check, doc-first (15 Oct): the opening from the document, then the verdict once, a note and the sources.
-  if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
+  // Fact-check as a model answered on 19 Oct 2026 (Anders): a restating opening and a first round's Sources line before the
+  // verdict, "From general knowledge," and an italic "Note." label; the card shows the verdict first, a plain caveat, the links.
+  if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage. From general knowledge, the figure still stands.\n\n*Note.* MOCK caveat in one plain sentence. The claim is about apes today.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
 async function mockChat(body, res) {
@@ -611,8 +615,8 @@ async function behaviour(browser, origin) {
       await a.waitForTimeout(700)
       const during = await a.innerText('.mr-card.is-open')
       ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
-      // Doc-first (15 Oct): the opening from the document is already there, above the status, and no verdict yet.
-      ok('Fact-check: the opening from the document shows while the search runs, above "Checking sources…", before any verdict', during.indexOf('MOCK opening') > -1 && during.indexOf('MOCK opening') < during.indexOf('Checking sources…') && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')), during)
+      // 19 Oct 2026: nothing before the verdict reaches the card (no restating opening, no first round's Sources line); the dots wait below the status.
+      ok('12. Fact-check: while the search runs only "Checking sources…" and the waiting dots show; no text from before the search, no verdict yet', !/MOCK opening|none searched/.test(during) && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')) && !!(await a.$('.mr-card.is-open .tc-wait')), { during, dots: !!(await a.$('.mr-card.is-open .tc-wait')) })
     }
     await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
@@ -633,10 +637,11 @@ async function behaviour(browser, origin) {
     }
     await fresh(a)
   }
-  const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ verdict: getComputedStyle(document.querySelector('.mr-card.is-open .mr-verdict')).fontStyle, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize })))
-  ok('Fact-check: verdict words in italic, the sources as plain links in 12px', fcText.verdict === 'italic' && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px', fcText)
-  const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { opening: t.indexOf('MOCK opening'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length, tag: !!c.querySelector('.mr-opening .mr-cite') } })
-  ok('Fact-check: the opening first, then the verdict once as the bottom line, then the sources; the opening\'s tag is a tag', fcOrder.opening > -1 && fcOrder.opening < fcOrder.verdict && fcOrder.verdict < fcOrder.sources && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1 && fcOrder.tag, fcOrder)
+  const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ labels: document.querySelectorAll('.mr-card.is-open .mr-verdict').length, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize, sourceRows: document.querySelectorAll('.mr-card.is-open .mr-sources').length })))
+  ok('12. Fact-check: no "Note." label; the only sources are the real links, as plain links in 12px', fcText.labels === 0 && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px' && fcText.sourceRows === 1, fcText)
+  const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { text: t, first: c.querySelector('.mr-answer')?.innerText.trim(), opening: /MOCK opening|passage claims|none searched/i.test(t), meta: /general knowledge|claim is about|Note\./i.test(t), caveat: t.indexOf('MOCK caveat in one plain sentence.'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length } })
+  ok('12. Fact-check: the verdict first as the bottom line, then the caveat as a plain sentence, then the sources; no restating opening, no remarks on the check', !fcOrder.opening && !fcOrder.meta && fcOrder.verdict === 0 && fcOrder.first.startsWith('Holds. MOCK verdict line for the passage.') && fcOrder.text.indexOf('The figure still stands.') > fcOrder.verdict && fcOrder.text.indexOf('The figure still stands.') < fcOrder.caveat && fcOrder.caveat > fcOrder.verdict && fcOrder.sources > fcOrder.caveat && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1, fcOrder)
+  await shot(a, 'factcheck-card-1440x900')
   // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
   await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
   ok('Quiz me shows "1 of 3" and the question at 18px', (await a.innerText('.mr-card.is-open .mr-card__count')) === '1 of 3' && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .mr-question')).fontSize)) === '18px')
@@ -3729,6 +3734,65 @@ async function cardsGloss(browser, origin) {
   return results
 }
 
+/* pause-dots (19 Oct 2026, evening, item 11): a card still waiting for more of its answer after words have appeared
+   (Fact-check's search, Counterpoint, a follow-up) shows the main chat's dots below its last text until more text
+   arrives or the request ends, including on error; Minimise shows its focus ring for the keyboard only. */
+async function pauseDots(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  await prefetchSettled(a)
+  const look = () => a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); if (!el) return null; const dots = el.querySelector('.tc-wait'), answers = [...el.querySelectorAll('.mr-answer')], last = answers.at(-1); return { dots: !!dots, below: !!dots && !!last && dots.getBoundingClientRect().top >= last.getBoundingClientRect().bottom - 1, text: last?.innerText.trim() || '' } })
+  for (const intent of ['counterpoint', 'follow-up']) {
+    if (intent === 'follow-up') {
+      mock.next = 'MOCK first answer. Short.'
+      await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+      await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(900)
+    }
+    mock.chunks = [{ text: 'MOCK first words of the answer.' }, { text: ' MOCK the rest after a pause.', wait: 2200 }]
+    if (intent === 'counterpoint') {
+      await selectText(a); await a.waitForSelector('.mr-float [data-m="more"]', { timeout: 5000 }).catch(() => {})
+      await a.click('.mr-float [data-m="more"]'); await a.click('.mr-more [data-m="counterpoint"]')
+    } else { await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('And then?'); await a.keyboard.press('Enter') }
+    await a.waitForTimeout(250)
+    const early = await look()
+    await a.waitForTimeout(1000)
+    const paused = await look()
+    ok(`11. ${intent}: while words are still coming, no dots; once they pause, the main chat's dots below the last text`, early && !early.dots && /MOCK first words/.test(early.text) && paused && paused.dots && paused.below, { early, paused })
+    await a.waitForTimeout(1500)
+    const done = await look()
+    ok(`11. ${intent}: more text arrives and the request ends: the dots go`, done && !done.dots && /MOCK the rest/.test(done.text), done)
+    await a.keyboard.press('Escape'); await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(300)
+  }
+  // An error after words: the dots go with the request.
+  mock.chunks = [{ text: 'MOCK words before a failure.' }, { text: '', wait: 1600 }]; mock.chunksFail = true
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(1100)
+  const failing = await look()
+  await a.waitForTimeout(1200)
+  const failed = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return el && { dots: !!el.querySelector('.tc-wait'), status: el.querySelector('.mr-status')?.textContent || '' } })
+  ok('11. an answer that pauses and then fails: the dots show in the pause and go on the error', failing?.dots && failed && !failed.dots && failed.status.length > 0, { failing, failed })
+  await a.keyboard.press('Escape'); await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(300)
+  // Minimise: no focus ring after a click (the card opened from the bar puts the focus there), one from the keyboard.
+  mock.next = 'MOCK ANSWER. Short.'
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(900)
+  const ring = () => a.evaluate(() => { const b = document.activeElement; return { cls: b?.className || '', outline: b ? getComputedStyle(b).outlineStyle : '' } })
+  const clicked = await ring()
+  ok('11. after a click, the card\'s focused Minimise shows no focus ring', /mr-card__close/.test(clicked.cls) ? clicked.outline === 'none' : true, clicked)
+  await a.click('.mr-card.is-open .mr-card__copy').catch(() => {}); await a.waitForTimeout(200)
+  const copyClick = await ring()
+  ok('11. after a click on copy, no focus ring on it', copyClick.outline === 'none' || !/mr-card__copy/.test(copyClick.cls), copyClick)
+  await a.evaluate(() => document.querySelector('.mr-card.is-open .mr-card__close')?.focus()); await a.keyboard.press('Shift'); await a.keyboard.press('Tab'); await a.keyboard.down('Shift'); await a.keyboard.press('Tab'); await a.keyboard.up('Shift')
+  const keyed = await ring()
+  ok('11. from the keyboard the focused button shows its ring', keyed.outline !== 'none' && keyed.cls.length > 0, keyed)
+  await shot(a, 'pause-dots-1440x900')
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3762,6 +3826,7 @@ const RUNS = {
   'column-page': [columnPage, rows => rows.some(r => !r.pass)],
   'figure-race': [figureRace, rows => rows.some(r => !r.pass)],
   'cards-gloss': [cardsGloss, rows => rows.some(r => !r.pass)],
+  'pause-dots': [pauseDots, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3802,7 +3867,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

@@ -3032,7 +3032,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261019polish').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261019core').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -3454,6 +3454,12 @@ function reserveColumn(on) {
   if (state.pages.length) setZoom(state.zoom);
 }
 
+/* The focus ring on the margin's buttons is for the keyboard only (Anders, 19 Oct 2026: Minimise showed its ring after a
+   click). A card opened or redrawn by a click may put the focus on its Minimise for screen readers; with the pointer as
+   the last input, no ring shows (css/margin.css [data-mr-input="pointer"]). The keys bring it back. */
+document.addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput = 'pointer' }, true);
+document.addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
+
 /* -- Layout, once a frame while the pages scroll -- */
 function marginLayout({ fresh = false } = {}) {
   if (fresh) col.view = null;
@@ -3601,7 +3607,8 @@ function drawCard(el, card, open) {
   if (open) { el.setAttribute('role', 'region'); el.setAttribute('aria-label', cardName(card)) } else { el.removeAttribute('role'); el.removeAttribute('aria-label') }
   const live = col.live.get(card.id);
   if (open && live && !live.status) el.setAttribute('aria-busy', 'true'); else el.removeAttribute('aria-busy');
-  if (open && ((live && !live.text && !live.status) || col.pending.has(card.id))) {
+  // The dots: before the first word, and below the last text whenever the answer pauses (a search, a slow stretch).
+  if (open && (liveWaiting(live, card) || col.pending.has(card.id))) {
     const dots = waitDots(), slot = el.querySelector('.mr-wait');
     if (slot) slot.append(dots); else el.querySelector('.mr-card__body')?.append(dots);
   }
@@ -3986,7 +3993,7 @@ function drawSheet() {
   keepThread(el, card.id, keptTop);
   if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   const live = col.live.get(card.id);
-  if ((live && !live.text && !live.status) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(waitDots());
+  if (liveWaiting(live, card) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(waitDots());
   const f = el.querySelector('.mr-follow__input');
   if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
   restoreDraft(f, card.id);
@@ -4060,7 +4067,7 @@ function drawWhole(el, { sheet = false } = {}) {
   if (!TC) tcReady.then(() => marginLayout());
   const body = MP.P ? TinctMargin.html.threadHtml(rows, turns, { P: MP.P, resolve: citeResolve }) : '';
   const tray = chat.attach.length ? `<div class="byob-tray">${trayChips()}</div>` : '';
-  const sig = JSON.stringify([open, sheet, body.length, body.slice(-200), tray.length, !!chat.live, col.whole.status || '']);
+  const sig = JSON.stringify([open, sheet, body.length, body.slice(-200), tray.length, !!chat.live, !!chat.live?.paused, col.whole.status || '']);
   if (el.dataset.sig === sig) return;
   el.dataset.sig = sig; el.dataset.id = 'whole';
   if (!sheet) el.className = `mr mr-card ${open ? 'is-open' : 'is-folded'} is-whole${el.classList.contains('is-floating') ? ' is-floating' : ''}`;
@@ -4071,7 +4078,7 @@ function drawWhole(el, { sheet = false } = {}) {
   el.innerHTML = sheet ? TinctMargin.html.sheetHtml(inner) : inner;
   const b = el.querySelector('.mr-card__body');
   if (b) {
-    if (chat.live && !chat.live.text) b.append(waitDots());
+    if (chat.live && (!chat.live.text || chat.live.paused)) b.append(waitDots());
     // A question just sent is held near the top while its answer grows below (holdThread); otherwise the thread
     // opens at its end, and while an answer arrives it stays where the reader put it.
     const hold = chat.anchor != null ? { turn: chat.anchor, place: chat.placeAnchor } : null;
@@ -4194,7 +4201,8 @@ async function copyCard(id) {
   if (!card) text = plain([...chat.turns].reverse().find(t => t.role === 'assistant')?.content);
   else if (card.kind === 'note') text = plain(card.note);
   else if (card.kind === 'define') text = (card.data?.senses || []).map((s, i) => `${i + 1}. ${s.text}`).join('\n') || plain(card.data?.line);
-  else text = (card.turns || []).filter(t => t.role === 'assistant').map(t => plain(t.content)).join('\n\n');
+  // Fact-check copies what its card shows: the verdict first, no opening or labels (19 Oct 2026).
+  else text = (card.turns || []).filter(t => t.role === 'assistant').map((t, k) => plain(card.kind === 'factcheck' && k === 0 && MP.P?.cleanFactcheck ? MP.P.cleanFactcheck(t.content) : t.content)).join('\n\n');
   try { await navigator.clipboard.writeText(text); toast('Copied.') } catch { toast('Copy did not work here. Use your device’s copy instead.') }
 }
 
@@ -4295,8 +4303,24 @@ const passageRegion = card => {
   }
   return selectionRegion({ page: card.page, box: boxOf(rects) });
 };
+/*
+ * A card still waiting for more of its answer after words have appeared (Anders, 19 Oct 2026: Fact-check's search and
+ * verdict, Counterpoint, follow-ups): once no new words have come for LIVE_PAUSE_MS, the main chat's dots show below
+ * the last text, until more text arrives or the request ends (its answer saved, an error, a cancel).
+ */
+const LIVE_PAUSE_MS = 700;
+const livePause = new Map();
+/** True while a card's request is on its way and its words are paused (or none show yet): its dots belong below them. */
+const liveWaiting = (live, card = null) => !!live && live.text != null && !live.done && (!live.text || live.paused || unshownLive(card, live.text));
+/** Words on their way that the card does not show yet: Fact-check's, until its verdict (P.cleanFactcheck drops what comes before it). */
+const unshownLive = (card, text) => card?.kind === 'factcheck' && !(card.turns || []).some(t => t.role === 'assistant') && !!MP.P?.cleanFactcheck && !MP.P.parseFactcheck(MP.P.cleanFactcheck(text)).verdict;
 function setLive(id, patch) {
-  if (patch === null) col.live.delete(id); else col.live.set(id, { ...(col.live.get(id) || { text: '', status: '' }), ...patch });
+  const before = col.live.get(id);
+  if (patch && 'text' in patch && patch.text != null && patch.text !== before?.text) patch = { ...patch, paused: false };
+  if (patch === null) col.live.delete(id); else col.live.set(id, { ...(before || { text: '', status: '' }), ...patch });
+  clearTimeout(livePause.get(id)); livePause.delete(id);
+  const now = col.live.get(id);
+  if (now && now.text && !now.paused && !now.done) livePause.set(id, setTimeout(() => { livePause.delete(id); const l = col.live.get(id); if (l === now) { col.live.set(id, { ...l, paused: true }); try { marginLayout() } catch {} } }, LIVE_PAUSE_MS));
   // A layout that throws never stops a stream or leaves the card waiting: the state above stands, and the error is reported.
   try { marginLayout() } catch (e) { reportCardError(e, 'layout', cardById(id)?.kind) }
 }
@@ -4374,7 +4398,7 @@ async function runCardNow(id, question, run) {
   // The margin's parser did not load: said on the card, never a ring that waits for nothing.
   if (!MP.P) throw Object.assign(new Error('margin-parse unavailable'), { code: 'failed' });
   const s = await ai();
-  if (!s) { setLive(id, { status: AI_OFF }); return }
+  if (!s) { setLive(id, { status: AI_OFF, done: true }); return }
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
   const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
   const pdf = unit ? await unitPages(unit) : await pdfPages(card.page);
@@ -5659,7 +5683,12 @@ function renderThread() {
 }
 /** An answer arriving: its text so far, the new words fading in; the view does not follow it. */
 function liveText(text) {
-  if (chat.live && marginOn()) { chat.live.text = text; renderThread(); return }
+  if (chat.live && marginOn()) {
+    // A pause mid-answer shows the dots below the last words (LIVE_PAUSE_MS, as a card's).
+    const live = chat.live; live.text = text; live.paused = false; clearTimeout(live.timer);
+    live.timer = setTimeout(() => { if (chat.live === live) { live.paused = true; renderThread() } }, LIVE_PAUSE_MS);
+    renderThread(); return
+  }
   if (!chat.live || !chat.el) return;
   chat.live.text = text;
   const thread = chat.el.querySelector('#thread'), md_ = thread.querySelector('.tc-a.is-streaming .tc-md');

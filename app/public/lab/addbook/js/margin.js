@@ -588,25 +588,21 @@
     return `<p><span class="is-bottom-line">${inlineHtml(lead, P, resolve)}</span>${tail ? ' ' + inlineHtml(tail, P, resolve) : ''}</p>` + blocks.slice(1).map(b => blockHtml(b, P, resolve)).join('');
   }
   /**
-   * Fact-check: the opening (what the passage claims and what the document offers, streamed while
-   * the search runs) in plain text, then the verdict line as the bottom line, one paragraph per
-   * claim or note with its word in italic, the sources as plain links. `live`: still streaming, so
-   * text with no verdict yet is the opening, never bolded as one.
+   * Fact-check (Anders, 19 Oct 2026): the verdict line first, as the bottom line; then the one plain caveat or reason
+   * paragraph, any further claim with its verdict word in italic; the sources as plain links. Nothing before the
+   * verdict is shown (the restating opening, a first round's text before the search: P.cleanFactcheck drops them),
+   * and while it streams, words that are not yet a verdict wait (the card's dots show meanwhile). An answer kept
+   * before 19 Oct is cleaned the same way when it is drawn.
    */
   function factcheckHtml(text, P, { resolve = null, live = false } = {}) {
-    const f = P.parseFactcheck(text);
-    const opening = f.opening || [];
-    if (live && !f.verdict && !opening.length) {
-      const blocks = blocksOf(text).filter(b => !/^\s*[*_]{0,2}sources[*_]{0,2}\s*:/i.test(b));
-      return { answer: blocks.length ? `<div class="mr-answer mr-opening">${blocks.map(b => `<p>${inlineHtml(b.trim(), P, resolve)}</p>`).join('')}</div>` : '', sources: '' };
-    }
-    if (!f.lead && !opening.length) return { answer: '', sources: '' };
-    const open = opening.length ? `<div class="mr-answer mr-opening">${opening.map(b => `<p>${inlineHtml(b, P, resolve)}</p>`).join('')}</div>` : '';
-    const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
+    const f = P.parseFactcheck(P.cleanFactcheck ? P.cleanFactcheck(text) : text);
+    if (live && !f.verdict) return { answer: '', sources: '' };
+    if (!f.lead) return { answer: '', sources: '' };
+    const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict && c.verdict !== P.NOTE ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
     // The sources as a labelled row of links (night run final, 16 Oct: the bare titles read as a raw tail), their titles tidied (sourceTitle).
     const sources = f.sources.length ? `<div class="mr-sources"><span class="mr-sources__label">Sources</span>${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
-    const verdict = f.lead ? `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>` : '';
-    return { answer: open + verdict + claims, sources };
+    const verdict = `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>`;
+    return { answer: verdict + claims, sources };
   }
   /**
    * An answer as a card shows it: never a sentence about the passage picture (full battery on train 3), except in a
@@ -636,8 +632,8 @@
     const answer = (card.turns || []).find(t => t.role === 'assistant');
     // Related, folded: its bottom line (the label says how many places).
     if (card.kind === 'related' && answer && P.parseRelated) return plain(P.parseRelated(answer.content).lead);
-    // Fact-check, folded: its verdict line (the opening before it is context).
-    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
+    // Fact-check, folded: its verdict line and what follows it (nothing before the verdict; 19 Oct 2026).
+    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(P.cleanFactcheck ? P.cleanFactcheck(answer.content) : answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     if (card.kind === 'simplify' && answer && P.simplifyAnswer) { const s = P.simplifyAnswer(answer.content, card.text); return s.unchanged ? SIMPLIFY_UNCHANGED : plain(s.text) }
     return plain(cleanAnswer(card.kind, answer?.content || '', P));
