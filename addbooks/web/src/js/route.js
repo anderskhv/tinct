@@ -3,9 +3,10 @@
 // library's My shelf ("My private uploads"), and its + adds one in place. This page stays only
 // as the PDF reader: /lab/addbook/?userBook=<hex> (or an older ?open=<key>) opens one kept
 // book, and an older ?mode=file&handoff=1 link still takes its handed-over file. Everything
-// else goes to My shelf before the page draws.
+// else goes to My shelf before the page draws. ?tinctBook=<id> is the margin preview of a registered
+// book (js/tinct-book.js), framed by /reader?book=<id>&margin=1.
 (function () {
   const params = new URLSearchParams(location.search);
-  if (params.has('userBook') || params.has('open') || params.has('handoff')) { document.documentElement.dataset.route = 'reader'; return }
+  if (params.has('userBook') || params.has('open') || params.has('handoff') || params.has('tinctBook')) { document.documentElement.dataset.route = 'reader'; return }
   location.replace('/library#my-shelf');
 })();

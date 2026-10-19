@@ -257,7 +257,7 @@ async function leaveToShelf() {
   leavingToShelf = true;
   leavePlace(); stopNarration();
   await accountCopySent();
-  location.assign(LIBRARY_URL);
+  previewWindow().location.assign(LIBRARY_URL);
 }
 // Back on this page from My shelf (restored as it was left): the way back works again.
 addEventListener('pageshow', () => { leavingToShelf = false });
@@ -273,7 +273,7 @@ async function openFromUrl(hex) {
   return false;
 }
 $('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
-$('bookBtn').onclick = () => openSwitcher();
+$('bookBtn').onclick = () => (state.preview ? openContents() : openSwitcher());
 let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
@@ -289,7 +289,7 @@ async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   window.TinctNotebook?.close();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
-  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false; zoomClass();
+  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map(), preview: null }); toc.entries = []; toc.ready = false; zoomClass();
   Object.assign(book, { key: null, pdf: null, task: null, texts: [], numbers: [], matter: [], index: null });
   if (window.CSS?.highlights) for (const [k] of HL_COLORS) CSS.highlights.delete('tinct-hl-' + k);
   chat.turns = []; chat.passage = null; chat.attach = [];
@@ -316,11 +316,11 @@ async function openEpub(bytes, name, key, rec = null) {
   closeAllPopups();
   waitStatus('Opening…');
   let book;
-  try { book = await TinctEpub.parse(bytes, { fallbackTitle: name.replace(/\.epub$/i, ''), onProgress: f => { $('column').querySelector('.pdf-status .tinct-wait')?.setLabel(`Opening… ${Math.round(f * 100)}%`) } }) }
+  try { book = rec?.parsed || await TinctEpub.parse(bytes, { fallbackTitle: name.replace(/\.epub$/i, ''), onProgress: f => { $('column').querySelector('.pdf-status .tinct-wait')?.setLabel(`Opening… ${Math.round(f * 100)}%`) } }) }
   catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
   state.pdf?.destroy?.(); state.observer?.disconnect();
-  Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null });
+  Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null, preview: rec?.preview || null });
   // The book's Tinct text, when this device converted it in the Tinct reader: the place is shared with it (epubShare).
   state.epubEdition = Array.isArray(rec?.edition?.chapters) ? rec.edition : null;
   root.classList.add('is-epub'); root.classList.remove('is-pdf');
@@ -351,6 +351,7 @@ async function openEpub(bytes, name, key, rec = null) {
   if (epubMargin()) {
     warmDictionary();
     primerReset();
+    if (state.preview) previewUnits();
     setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
     marginStart();
   } else if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
@@ -1339,6 +1340,7 @@ function forwardToText(scan) {
 }
 // "Tinct text": the place now, read from here on in the Tinct text, sent at once; then the reader.
 function readAsText() {
+  if (state.preview) return previewLeave();
   if (isEpub()) return epubToTinct();
   if (!hasText()) return;
   savePlaceNow();
@@ -1893,7 +1895,7 @@ const ICON = {
 // "Chat" here, the name its margin card has (the PM's full battery, 15 Oct 2026; the book reader keeps Librarian).
 const MENU = [['chat', 'Chat'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['settings', 'Settings', false, true], ['open', 'Open another book', true], ['library', 'Library', true]];
 // Settings holds read aloud's voice and speed (the look is the Aa panel's), so an EPUB, which has no read aloud here, has none.
-const menuItems = () => MENU.filter(([id]) => (id !== 'snip' || state.kind === 'pdf') && (id !== 'settings' || !isEpub()) && (id !== 'library' || isPhone())).map(([id, label, rule, chevron]) => id === 'settings' ? [id, label, true, chevron] : [id, label, rule, chevron]);
+const menuItems = () => MENU.filter(([id]) => (id !== 'snip' || state.kind === 'pdf') && (id !== 'settings' || !isEpub()) && (id !== 'library' || isPhone()) && (id !== 'open' || !state.preview)).map(([id, label, rule, chevron]) => id === 'settings' ? [id, label, true, chevron] : [id, label, rule, chevron]);
 function openMenu() {
   if (document.querySelector('.lab-super-layer')) return closeMenu();
   closeAllPopups();
@@ -1960,7 +1962,7 @@ const layoutChoice = o => `<button type="button" class="lab-v2-edition-option" d
 /** The panel's Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
 function drawLayoutChoices() {
   const panel = document.querySelector('.byob-aa-panel'); if (!panel) return;
-  const opts = RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn() });
+  const opts = RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
   const box = panel.querySelector('[data-aa="layout"]'), row = panel.querySelector('[data-t="text"]');
   if (box) { box.hidden = !opts.length; box.querySelector('.lab-v2-edition-choices').innerHTML = opts.map(layoutChoice).join('') }
   if (row) row.hidden = !(RL.TINCT_TEXT === 'row' && hasText());
@@ -2486,7 +2488,7 @@ async function contextText(from, to, budget) {
   for (let n = from; n <= to && out.length < budget; n++) out += `\n[${isEpub() ? (toc.entries.find(e => e.page === n)?.label || 'Section ' + n) : 'Page ' + n}]\n` + (await pageText(n)).text;
   return out.slice(0, budget);
 }
-const bookLine = () => `The reader is reading their own copy of ${isEpub() ? 'an EPUB' : 'a PDF'} titled "${state.title}"${state.author ? ' by ' + state.author : ''}. They have confirmed they are entitled to use it.`;
+const bookLine = () => state.preview ? `The reader is reading Tinct's ${state.preview.editionLabel} of "${state.title}"${state.author ? ' by ' + state.author : ''}, a book in Tinct's library.` : `The reader is reading their own copy of ${isEpub() ? 'an EPUB' : 'a PDF'} titled "${state.title}"${state.author ? ' by ' + state.author : ''}. They have confirmed they are entitled to use it.`;
 
 /* ---------- Selection: Explain / Chat / Copy ---------- */
 let sel = null;
@@ -3467,6 +3469,7 @@ async function marginDocumentNow(page, kind, onWait = null) {
    chapter the reader is in with the contents list instead, and a search of the rest for a question. */
 const docCache = { key: null, task: null };
 function readDocument() {
+  if (state.preview) return Promise.resolve(previewDocument());
   if (docCache.key === state.key && docCache.task) return docCache.task;
   const key = state.key, limit = window.TinctAI?.DOCUMENT_CHARS || 560000;
   docCache.key = key;
@@ -6642,6 +6645,38 @@ async function epubToTinct() {
   leftForTinct = true;
   location.assign('/reader?userBook=' + encodeURIComponent(hex));
 }
+
+/* ---------- Tinct's own books in the margin: the preview (js/tinct-book.js; Anders, 19 Oct 2026) ----------
+   /reader?book=<id>&margin=1 shows this page in a frame with a registered book's main edition as an EPUB's
+   chapters (one paragraph per edition paragraph). It reads as an EPUB here, with the margin at every width
+   (window.TinctEpubMargin), and keeps everything on this device under its own key (`preview:<bookId>`): its
+   place, highlights, notes and cards. EPUBs never sync, so nothing reaches the account, the book reader's
+   place or its highlights. Its units are the book's chapters; each request sends the passage with its chapter
+   and the contents (marginDocument's EPUB part). Leaving goes through the top window. */
+const PREVIEW_NORMAL = 'Back to normal reader';
+const previewWindow = () => (state.preview && window.top) || window;
+/** `book`: TinctEpub.parse's shape (js/tinct-book.js builds it); `preview`: { bookId, editionLabel, normalHref }. -> opened */
+async function openRegistered(book, preview) {
+  showReader();
+  await openEpub(null, book.title, 'preview:' + preview.bookId, { parsed: book, preview });
+  return hasBook() && state.preview === preview;
+}
+/** Before you start, Catch me up, Recap and Quiz me work on chapters: one unit per chapter. */
+function previewUnits() {
+  toc.early = { text: true };
+  primer.units = state.pages.map(p => {
+    const e = toc.entries.find(x => x.page === p.n && x.kind === 'chapter');
+    return { key: 'chapter-' + (e?.number ?? p.n), title: e?.label || 'Chapter ' + p.n, from: p.n, start: p.n, to: p.n };
+  });
+}
+/** The companion's document: never the whole book; the chapter the reader is in and the contents (marginDocument). */
+const previewDocument = () => ({ pages: null, limit: window.TinctAI?.DOCUMENT_CHARS || 560000, label: n => String(n) });
+/** Back to normal reader: the place here is kept first; the book reader opens at its own place. */
+function previewLeave() {
+  leavePlace(); stopNarration();
+  previewWindow().location.assign(state.preview.normalHref);
+}
+window.TinctReader.openRegistered = openRegistered;
 
 /* ---------- The Notebook (js/notebook.js; Anders, 19 Oct 2026) ----------
    Everything the reader made in this book, from the margin's store (cards:<key>, hl:<key>); nothing of its own.
