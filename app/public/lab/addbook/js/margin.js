@@ -517,9 +517,24 @@
     const out = [];
     // A unit's quiz (Quiz me on this chapter, from the primer) has no passage: it sits at the column's top instead.
     for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit && (cardAnswered(c) || (c.at || 0) >= since)) out.push(c);
-    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at });
+    // A note in the margin (a click on the empty column) or a unit's own note (its end's Note) has no passage: its one
+    // box has no size (noteSpot). It is "free": no underline, no leader line, its field always editable.
+    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) { const spot = noteSpot(m); out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at, ...(spot ? { free: true, ...(spot.unit ? { unitNote: true } : {}) } : {}) }) }
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
   }
+  /**
+   * A note with no passage (Anders, 19 Oct 2026, evening): a margin note, kept as a highlight record whose one box has
+   * no size, [x, y, 0, 0], at the height it was written (x 1: the page's right edge, y its height on the page), or a
+   * unit's own note (the Note pill at its end), whose box is [2, 1, 0, 0] on the unit's last page. Both sync as every
+   * note does (the account keeps a highlight's boxes as they are). -> { y, unit } | null
+   */
+  function noteSpot(m) {
+    const r = m?.rects;
+    if (!Array.isArray(r) || r.length !== 1 || !Array.isArray(r[0]) || r[0][2] !== 0 || r[0][3] !== 0) return null;
+    return { y: Number(r[0][1]) || 0, unit: r[0][0] === 2 };
+  }
+  /** The box a margin note keeps: at `y` (a fraction of its page's height); a unit's note: its last page's foot. */
+  const noteBox = (y, { unit = false } = {}) => (unit ? [2, 1, 0, 0] : [1, Math.round(Math.max(0, Math.min(1, y)) * 10000) / 10000, 0, 0]);
   /**
    * Deleting a card (Anders, 15 Oct): what goes. A card becomes a tombstone (synced as every card's
    * removal). A note's card is its highlight's note: the note goes, and the highlight with it when the
@@ -785,6 +800,11 @@
     // say what the card is about. Screen readers get it as the card's description (reader.js: aria-describedby).
     // A figure's card keeps its caption, which is what the figure says, not a quote.
     let body = thumb + (card.text && card.kind === 'figure' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : card.text && card.kind !== 'define' ? `<span class="mr-card__about" hidden>${esc(cut(card.text))}</span>` : '');
+    // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
+    if (card.kind === 'note' && card.free) {
+      const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
+      return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button>${card.draft ? '' : deleteHtml(card)}</div></div>`;
+    }
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
@@ -1491,5 +1511,5 @@
 
   const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

@@ -574,3 +574,11 @@ html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr
 .byob-aa-panel :is(.byob-zoom-step, .byob-zoom-fit):not(:disabled):hover { background: var(--lab-v2-well, rgba(0, 0, 0, .05)); }
 .byob-aa-panel .byob-zoom-note { margin: 8px 4px 4px; }   /* the panel's own note (lab-v2-note) */
 .byob-aa-panel .byob-zoom-note button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+/* A margin note (19 Oct 2026, evening; reader.js newMarginNote): its words in a field that is always editable, in the
+   card's own type, no box until it has the focus; Ask (words, as the bar's) and the bin under it. */
+.mr-card .mr-note-edit { display: block; width: 100%; min-height: 48px; margin: 0; padding: 4px 0; border: 0; border-radius: 0; outline: 0; resize: none; overflow: hidden; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: italic 16px/1.5 var(--mr-gara); overflow-wrap: anywhere; box-shadow: inset 0 -1px 0 var(--mr-hair); }
+.mr-card .mr-note-edit:focus { box-shadow: inset 0 -1.5px 0 var(--mr-accent); }
+.mr-card .mr-note-edit::placeholder { color: var(--mr-hint); opacity: 1; }
+.mr-card__acts .mr-card__ask { width: auto; min-width: 28px; height: 28px; margin: -6px 0 -3px; padding: 0 2px; font: 13px var(--mr-ui); color: var(--mr-muted); }
+.mr-card__acts .mr-card__ask:hover { color: var(--mr-ink); }
+.mr .mr-note-edit:focus, .mr .mr-note-edit:focus-visible { outline: 0 !important; }   /* the caret and the accent rule are the focus */

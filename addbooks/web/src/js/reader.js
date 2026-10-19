@@ -26,7 +26,11 @@ const savePrefs = () => store.set('prefs', prefs);
    click). A card opened or redrawn by a click may put the focus on its Minimise for screen readers; with the pointer as
    the last input, no ring shows (css/margin.css [data-mr-input="pointer"]). The keys bring it back. Registered first, so
    no other key handler stops it. */
-addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput = 'pointer' }, true);
+addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput = 'pointer'; marginPress.busy = marginBusy() }, true);
+/* What a press found open before anything folded it (registered first, so it sees the margin as it was): a click on the
+   empty margin column then only folds what was open (a card, Before you start, the bar), and writes no note. */
+const marginPress = { busy: false };
+const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-aa-panel, .lab-super-layer')) } catch { return false } };
 addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
 
 /* ---------- Layout: Tinct's phone/desktop classes ---------- */
@@ -3857,7 +3861,14 @@ function drawCard(el, card, open) {
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
   const before = card.kind === 'quiz' && open ? el.offsetHeight : 0, kept = open ? bodyTop(el) : null;
-  el.innerHTML = cardHtmlSafe(card, open);
+  // A margin note's field being written keeps its words, caret and focus through a redraw (and is not kept meanwhile).
+  const noteField = el.querySelector('.mr-note-edit'), noteText = noteField?.value, noteFocus = noteField && document.activeElement === noteField ? [noteField.selectionStart, noteField.selectionEnd] : null;
+  if (noteFocus) noteCommitting = true;
+  try {
+    el.innerHTML = cardHtmlSafe(card, open);
+    const nf = el.querySelector('.mr-note-edit');
+    if (nf) { if (noteText != null) nf.value = noteText; fitNote(nf); if (noteFocus) { nf.focus({ preventScroll: true }); nf.setSelectionRange(...noteFocus) } }
+  } finally { if (noteFocus) noteCommitting = false }
   if (card.kind === 'quiz') holdQuizHeight(el, before);
   describeCard(el, card, open);
   keepThread(el, card.id, kept);
@@ -4090,7 +4101,8 @@ function layoutColumn() {
     const top = Math.max(Math.round(it.top), floor);
     if (it.el.style.top !== top + 'px') it.el.style.top = top + 'px';
     floor = top + it.el.offsetHeight + C.cardGap;
-    if (!it.card) continue;
+    // A note with no passage (a margin note, a unit's note) has no line to a passage.
+    if (!it.card || it.card.free) continue;
     const cy = top + it.mid, x0 = it.x0, x1 = left - 6, folded = it.card.id === col.open ? '' : ' class="is-folded"';
     // Straight across when the card is level with its passage; pushed down, across, a short slant, then across.
     const d = Math.abs(cy - it.ey) <= 1 ? `M${x0} ${it.ey} H${x1}` : `M${x0} ${it.ey} H${x0 + 12} L${x1 - 12} ${cy} H${x1}`;
@@ -4116,7 +4128,7 @@ const passageMark = () => (['underline', 'tint', 'off'].includes(prefs.passageMa
 function underline(v) {
   const mark = passageMark();
   document.querySelectorAll('.mr-ul-layer').forEach(l => { if (!v || l.dataset.id !== v.card.id || l.dataset.mark !== mark + (state.pages[Number(l.dataset.n) - 1]?.layer ? ':t' : '')) { l.replaceChildren(); delete l.dataset.id } });
-  if (!v || (mark === 'off' && v.card.kind !== 'figure')) return;
+  if (!v || v.card.free || (mark === 'off' && v.card.kind !== 'figure')) return;
   for (const a of TinctMargin.anchorOfCard(v.card)) {
     const p = state.pages[a.n - 1]; if (!p) continue;
     const layer = layerOf(p, 'mr-ul-layer'); layer.classList.add('mr');
@@ -4147,7 +4159,7 @@ function openCard(id, { focus = false } = {}) {
   const mode = marginMode();
   // One open at a time: a card opening folds the primer back to its trigger.
   if (id && primer.open) { primer.open = false; primer.token++; primer.el?.remove(); primer.el = null }
-  if (col.open && col.open !== id) { dropEmptyFigure(col.open); holds.delete(col.open); dropDraft(col.open) }
+  if (col.open && col.open !== id) { commitNoteEdit(); dropEmptyFigure(col.open); holds.delete(col.open); dropDraft(col.open) }
   col.open = id || null;
   if (id === 'whole') col.whole.page = state.pages.length ? placePage() : null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
@@ -4437,10 +4449,14 @@ function bindCardEvents(host) {
     if (c === 'mic') { const cid = b.closest('[data-id]')?.dataset.id; if (cid && b.closest('.mr-follow')?.querySelector('.mr-follow__input')) dictation.toggle({ card: cid }); return }
     if (c === 'send') { const f = b.closest('.mr-follow')?.querySelector('.mr-follow__input'); if (f) sendFollow(f); return }
     if (c === 'copy') return copyCard(id);
+    if (c === 'note-ask') return noteAsk(id);
     if (c === 'delete') return deleteCard(id);
     if (c === 'show' || c === 'next' || c === 'again') return quizStep(id, c);
   });
-  host.addEventListener('input', e => { if (e.target.matches('.mr-follow__input')) { e.target.classList.toggle('has-text', !!e.target.value); fitFollow(e.target) } });
+  host.addEventListener('input', e => { if (e.target.matches('.mr-follow__input')) { e.target.classList.toggle('has-text', !!e.target.value); fitFollow(e.target) } if (e.target.matches('.mr-note-edit')) fitNote(e.target) });
+  // A margin note is kept when its field lets go (an empty one goes); Escape lets go and folds it.
+  host.addEventListener('focusout', e => { if (e.target.matches?.('.mr-note-edit') && !e.relatedTarget?.closest?.('[data-c="note-ask"]')) commitNoteEdit(e.target) });
+  host.addEventListener('keydown', e => { if (e.target.matches?.('.mr-note-edit') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); openCard(null) } });
   host.addEventListener('keydown', e => {
     if (!e.target.matches('.mr-follow__input')) return;
     if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); openCard(null); return }
@@ -4487,6 +4503,74 @@ async function copyCard(id) {
   else text = (card.turns || []).filter(t => t.role === 'assistant').map((t, k) => plain(card.kind === 'factcheck' && k === 0 && MP.P?.cleanFactcheck ? MP.P.cleanFactcheck(t.content) : t.content)).join('\n\n');
   try { await navigator.clipboard.writeText(text); toast('Copied.') } catch { toast('Copy did not work here. Use your device’s copy instead.') }
 }
+
+/* -- Margin notes (Anders, 19 Oct 2026, evening; the wide column only) --
+   A click on the empty margin column writes a note at that height: a card opens there with its field ready. A note is a
+   highlight record with no passage (TinctMargin.noteBox: one box of no size at its height), so it is kept and synced
+   as every note is; it is kept when its field lets go, and an empty one is let go. Its Ask turns it into a chat (an Ask
+   card in its place, the note its first message). If anything was open, the first click only folds it. */
+function newMarginNote(y, { unit = null } = {}) {
+  const at = unit ? { n: unit.to, frac: 1 } : pagePoint(y); if (!at) return;
+  dropDraft(col.draft?.id);
+  const id = 'n-new' + Date.now().toString(36);
+  const box = TinctMargin.noteBox(at.frac, { unit: !!unit });
+  col.draft = { id, kind: 'note', free: true, draft: true, ...(unit ? { unitNote: true, unit: unit.key } : {}), page: at.n, rects: [[at.n, ...box]], text: '', note: '', color: TinctMargin.defaultColor(prefs, HL_COLORS), at: Date.now(), u: Date.now() };
+  col.view = null;
+  openCard(id);
+  const focus = () => openCardEl()?.querySelector('.mr-note-edit')?.focus({ preventScroll: true });
+  requestAnimationFrame(() => requestAnimationFrame(focus));
+  return id;
+}
+/** The note field drawn again keeps its words, its caret and its focus. */
+function fitNote(t) { t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 320) + 'px' }
+let noteCommitting = false;
+/** Keep (or let go) the open margin note's words: a new one becomes a note; an emptied one goes. */
+function commitNoteEdit(field = null) {
+  if (noteCommitting) return;
+  const t = field || document.querySelector('.mr-card.is-open .mr-note-edit, .mr-sheet .mr-note-edit');
+  const host = t?.closest('[data-id]'); if (!t || !host) return;
+  noteCommitting = true;
+  try {
+    const id = host.dataset.id, v = t.value.trim().slice(0, 4000);
+    if (col.draft?.id === id) {
+      const d = col.draft;
+      if (!v) { dropDraft(id); if (col.open === id) col.open = null; marginLayout({ fresh: true }); return }
+      const mid = Date.now().toString(36) + Math.random().toString(36).slice(2, 6), now = Date.now();
+      const list = highlights(); list.push({ id: mid, page: d.page, rects: [d.rects[0].slice(1)], text: '', color: d.color, at: now, u: now, note: v, withNote: true });
+      col.draft = null; col.defs.delete(id);
+      if (col.open === id) col.open = 'n-' + mid;
+      putHighlights(list); strip?.marksChanged();
+      return;
+    }
+    const mark = highlights().find(h => 'n-' + h.id === id); if (!mark) return;
+    if (v === (mark.note || '')) return;
+    if (!v) { if (col.open === id) col.open = null; removeHighlight(mark.id); col.view = null; strip?.marksChanged(); marginLayout({ fresh: true }); return }
+    const list = highlights(), h = list.find(x => x.id === mark.id); h.note = v; h.u = Date.now(); putHighlights(list);
+  } finally { noteCommitting = false }
+}
+/** A margin note's Ask: the note becomes the first message of a chat in its place (an Ask card); the note goes. */
+function noteAsk(id) {
+  const view = viewCards().find(c => c.id === id) || (col.draft?.id === id ? col.draft : null); if (!view) return;
+  const t = document.querySelector(`[data-id="${CSS.escape(id)}"] .mr-note-edit`), v = (t ? t.value : view.note || '').trim();
+  if (!v) { t?.focus({ preventScroll: true }); return }
+  const [n, x, y] = view.rects[0];
+  const card = TinctMargin.newCard({ kind: 'ask', page: n, anchor: [{ n, x, y, w: 0, h: 0 }], text: '', turns: [{ role: 'user', content: v, at: Date.now() }], data: { fromNote: true } });
+  noteCommitting = true;
+  try {
+    if (col.draft?.id === id) dropDraft(id);
+    else { const mark = highlights().find(h => 'n-' + h.id === id); if (mark) removeHighlight(mark.id) }
+  } finally { noteCommitting = false }
+  store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed(); col.view = null;
+  col.open = null; openCard(card.id); runCard(card.id);
+}
+// A click on the empty margin column (the wide desktop): a new note there, unless something was open (then it only folded).
+document.addEventListener('click', e => {
+  if (marginMode() !== 'column' || e.button > 0 || marginPress.busy || !getSelection().isCollapsed || !col.doc?.isConnected) return;
+  if (e.target.closest?.('.mr-card, .mr-trigger, .mr-primer, .mr-undo, .mr-pills, .mr-float, .pdf-sheet, .lab-header, .pdf-strip, button, a, input, textarea, select, [role="dialog"]')) return;
+  const left = col.doc.getBoundingClientRect().left, sr = $('scroll').getBoundingClientRect(), top = Math.max(sr.top, $('hdr').getBoundingClientRect().bottom);
+  if (e.clientX < left - 8 || e.clientX > left + TinctMargin.COL.width + 8 || e.clientY < top || e.clientY > sr.bottom) return;
+  newMarginNote(e.clientY);
+});
 
 /* -- Delete (Anders, 15 Oct): every margin item, from the bin beside copy. No confirm: a quiet
    "Deleted · Undo" line stays for a few seconds where the card was (the column), or along the bottom
@@ -4554,7 +4638,9 @@ function undoTop(colTop, colH) {
 function cardTurns(card, image, fig = {}) {
   const at = isEpub() ? `chapter ${pageLabel(card.page)}` : `page ${pageLabel(card.page)}`;
   const imageLine = !image ? '' : fig.named ? ` The attached image is ${fig.named.label} on page ${pageLabel(fig.named.page)}, as printed, which the passage or question refers to: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the text for context.` : ' ' + MP.P.PASSAGE_IMAGE_LINE;
-  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}\n\nThe passage they selected on ${at}:\n${card.text.slice(0, 3000)}`;
+  // A chat that began as a note in the margin has no passage: the note is its first message.
+  const about = card.text ? `\n\nThe passage they selected on ${at}:\n${card.text.slice(0, 3000)}` : `\n\nThis conversation began as a note they wrote in the margin beside ${at}; the note is their first message.`;
+  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}${about}`;
   const what = card.data?.region === 'formula' ? 'formula' : 'figure';
   const lead = { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
   const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
@@ -4689,7 +4775,7 @@ async function runCardNow(id, question, run) {
   const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;
   const asked = question ?? (card.kind === 'ask' ? [...(card.turns || [])].reverse().find(t => t.role === 'user')?.content || '' : '');
   const named = unit || figBox ? null : figureNamed(card.page, card.text, asked) || (asked ? await figureElsewhere(asked, card.page) : null);
-  const region = unit || figBox || named ? null : passageRegion(card);
+  const region = unit || figBox || named || !card.text ? null : passageRegion(card);
   let image = null;
   if (figBox) { image = figBlobs.get(id) || await figureImage(card.page, figBox); figBlobs.delete(id) }
   else if (named) image = await figureImage(named.page, named.f);

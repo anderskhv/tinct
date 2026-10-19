@@ -87,6 +87,8 @@
 //                                                     colours, its note, Remove highlight; recolour, Explain, remove
 //   node scripts/margin-check.mjs zoom-panel        19 Oct, evening (6): a PDF's Aa Zoom (−, %, +, Fit width), the page never past
 //                                                     its room; no Full width; phones and Tinct text keep the slider
+//   node scripts/margin-check.mjs margin-notes      19 Oct, evening (3): a note from a click on the empty margin, at that height;
+//                                                     fold first; empty goes; kept, synced, reloaded; Ask makes it a chat
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -4176,6 +4178,67 @@ async function zoomPanel(browser, origin) {
   return results
 }
 
+/* margin-notes (19 Oct 2026, evening, item 3): on the wide column a click on the empty margin opens a new note card at
+   that height, its field ready; with anything open the first click only folds it; an empty note goes when it lets go;
+   a note is kept and synced as every note is (and reloads in its place); its Ask turns it into a chat with the note as
+   the first message. Narrow windows write none. */
+async function marginNotes(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  account.marks.clear(); account.cards.clear()
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => { openCard(null); closePrimer() }); await a.waitForTimeout(300)
+  const colX = () => a.evaluate(() => Math.round(document.querySelector('.mr-doc').getBoundingClientRect().left + 190))
+  const x = await colX(), clickPage = async () => { const p = await a.evaluate(() => { const b = state.pages.find(q => q.pg.getBoundingClientRect().bottom > 400).pg.getBoundingClientRect(); return { x: b.left + 30, y: 640 } }); await a.mouse.click(p.x, p.y); await a.waitForTimeout(400) }
+  const openNote = () => a.evaluate(() => { const c = document.querySelector('.mr-doc .mr-card.is-open'); if (!c) return null; const f = c.querySelector('.mr-note-edit'), lab = c.querySelector('.mr-card__label').getBoundingClientRect(); return { id: c.dataset.id, label: c.querySelector('.mr-card__name')?.textContent, field: !!f, focused: document.activeElement === f, mid: Math.round((lab.top + lab.bottom) / 2), ask: !!c.querySelector('[data-c="note-ask"]') } })
+  // 1. A click on the empty margin: a note at that height, its field ready.
+  await a.mouse.click(x, 520); await a.waitForTimeout(500)
+  const n1 = await openNote()
+  ok('3. a click on the empty margin opens a new note card at that height ("Your note"), its field focused, with Ask', n1 && n1.label === 'Your note' && n1.field && n1.focused && Math.abs(n1.mid - 520) <= 24 && n1.ask, n1)
+  await a.keyboard.type('My margin thought about this page.')
+  await shot(a, 'margin-note-1440x900')
+  await clickPage()
+  const kept = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const c = h && document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); return h && { rects: h.rects, withNote: h.withNote, page: h.page, folded: !!c?.classList.contains('is-folded'), text: c?.querySelector('.mr-card__text')?.textContent, hl: document.querySelectorAll(`.hl-layer i[data-id="${h.id}"]`).length } })
+  ok('3. it is kept when its field lets go: a note with no passage at its height, folded in place, no highlight drawn', kept && kept.rects.length === 1 && kept.rects[0][0] === 1 && kept.rects[0][2] === 0 && kept.rects[0][3] === 0 && kept.withNote && kept.folded && /My margin thought/.test(kept.text || '') && kept.hl === 0, kept)
+  await a.waitForTimeout(2200)
+  const synced = account.marks.get(hex)?.marks?.find(m => m.note === 'My margin thought about this page.')
+  ok('3. it syncs to the account as every note does', !!synced && synced.rects[0][2] === 0, synced)
+  // 2. With a card open, the first click on the margin only folds it.
+  await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); openCard('n-' + h.id) }); await a.waitForTimeout(400)
+  const before = await a.evaluate(() => highlights().length)
+  await a.mouse.click(x, 760); await a.waitForTimeout(500)
+  ok('3. with a card open, the first click on the margin only folds it (no new note)', !(await a.evaluate(() => col.open)) && !(await a.evaluate(() => !!col.draft)) && (await a.evaluate(() => highlights().length)) === before)
+  // 3. An empty note goes when it lets go.
+  await a.mouse.click(x, 760); await a.waitForTimeout(400)
+  const empty = await openNote()
+  await clickPage()
+  ok('3. an empty note is let go when its field loses the focus (nothing kept, no card)', empty?.field && (await a.evaluate(() => highlights().length)) === before && !(await a.evaluate(() => !!col.draft || !!document.querySelector('.mr-doc .mr-card .mr-note-edit[placeholder]:not(:placeholder-shown)'))), empty)
+  // 4. Reload: the note in its place.
+  const y0 = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const el = document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); const p = state.pages[h.page - 1].pg.getBoundingClientRect(); return Math.round(el.getBoundingClientRect().top - (p.top + h.rects[0][1] * p.height)) })
+  await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }); await a.waitForTimeout(1200)
+  await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); goTo({ page: h.page, frac: Math.max(0, h.rects[0][1] - 0.2) }) }); await a.waitForTimeout(900)
+  const y1 = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const el = document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); if (!el) return null; const p = state.pages[h.page - 1].pg.getBoundingClientRect(); return Math.round(el.getBoundingClientRect().top - (p.top + h.rects[0][1] * p.height)) })
+  ok('3. after a reload the note is in its place', y1 != null && Math.abs(y1 - y0) <= 2, { y0, y1 })
+  // 5. Ask: the note becomes a chat, the note its first message.
+  const r0 = account.requests.length
+  await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); openCard('n-' + h.id) }); await a.waitForTimeout(400)
+  await a.click('.mr-doc .mr-card.is-open [data-c="note-ask"]'); await a.waitForTimeout(1500)
+  const chat = await a.evaluate(() => { const c = cardById(col.open || ''); const el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, first: c.turns?.[0], answered: c.turns?.some(t => t.role === 'assistant'), bubble: el?.querySelector('.mr-you')?.textContent, noteGone: !highlights().some(m => m.note === 'My margin thought about this page.') } })
+  const sent = account.requests.slice(r0).find(r => JSON.stringify(r.body?.messages || '').includes('My margin thought'))
+  ok('3. Ask turns the note into a chat in its place: the note is its first message, answered; the note goes', chat && chat.kind === 'ask' && chat.first?.role === 'user' && chat.first.content === 'My margin thought about this page.' && chat.answered && /My margin thought/.test(chat.bubble || '') && chat.noteGone && !!sent, { chat, sent: !!sent })
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // Narrow windows: no note from a click beside the page.
+  const N = await readerPage(browser, origin, hex, { width: 1024, height: 768, look: 'paper', startPage: 3 })
+  const n0 = await N.page.evaluate(() => highlights().length)
+  await N.page.mouse.click(1000, 400); await N.page.waitForTimeout(400)
+  ok('3. a narrow window writes no note on a click beside the page', (await N.page.evaluate(() => highlights().length)) === n0 && !(await N.page.evaluate(() => !!col.draft)))
+  await N.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -4218,6 +4281,7 @@ const RUNS = {
   'figure-chip': [figureChip, rows => rows.some(r => !r.pass)],
   'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
   'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
+  'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4258,7 +4322,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
