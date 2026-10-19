@@ -5439,8 +5439,8 @@ function unitPlaceNow(u) {
 }
 const compactText = t => String(t || '').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]/gu, '');
 const pageLinesMemo = new Map();
-/** A page's lines of text, top first: { top, size, text } (top in page fractions, as the text layer sets its spans); running heads, folios and rotated text left out. */
-function pageLines(n) {
+/** A page's lines of text for the unit marks, top first: { top, size, text } (top in page fractions, as the text layer sets its spans); running heads, folios and rotated text left out. */
+function unitLines(n) {
   const k = state.key + ':' + n;
   if (!pageLinesMemo.has(k)) pageLinesMemo.set(k, (async () => {
     const page = await state.pdf.getPage(n), vp = page.getViewport({ scale: 1 }), items = (await pageText(n)).items || [];
@@ -5465,10 +5465,10 @@ async function unitPlace(u) {
   const head = await headPlace(u);
   let end = null;
   if (next) {
-    const nh = await headPlace(next), lines = await pageLines(nh.page), above = lines.filter(l => l.top < nh.y - 0.002);
+    const nh = await headPlace(next), lines = await unitLines(nh.page), above = lines.filter(l => l.top < nh.y - 0.002);
     if (nh.page === u.to + 1 && above.length) end = { page: nh.page, y: above[above.length - 1].top };
   }
-  if (!end) { const lines = await pageLines(u.to); end = { page: u.to, y: lines.length ? lines[lines.length - 1].top : 0.9 } }
+  if (!end) { const lines = await unitLines(u.to); end = { page: u.to, y: lines.length ? lines[lines.length - 1].top : 0.9 } }
   return { head, end };
 }
 const headMemo = new Map();
@@ -5476,7 +5476,7 @@ const headMemo = new Map();
 function headPlace(u) {
   const k = state.key + ':' + u.key + ':' + u.start;
   if (!headMemo.has(k)) headMemo.set(k, (async () => {
-    const lines = await pageLines(u.start);
+    const lines = await unitLines(u.start);
     const want = compactText(u.head || TinctMargin.html.unitName(u, ''));
     if (want && !u.pages) {
       // The largest line that reads as the title (a running head repeating it is smaller).
