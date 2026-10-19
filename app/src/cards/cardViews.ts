@@ -30,8 +30,8 @@ import {
 import { chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
-import { privateImageUrl, rememberNewBooksOpenIn, resizePhoto, uploadProfileImage } from '../social/socialClient'
-import { PHOTO_ACCEPT } from '../social/photoAccept'
+import { photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { photoAccept } from '../social/photoAccept'
 import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
@@ -306,10 +306,12 @@ export function youCard(env: CardsEnv): CardSpec {
       const chosen = field.files?.[0]
       field.value = ''
       if (!chosen) return
-      const image = await resizePhoto(chosen, slot)
-      const saved = image ? await uploadProfileImage(env.session.token, slot, image) : null
-      if (saved?.ok) env.data.profile = saved.profile
-      else status = (saved && !saved.ok && saved.message) || CARDS_COPY.saveFailed
+      // Every failure says why: the photo's own problem, or the upload's.
+      const prepared = await preparePhoto(chosen, slot)
+      if (!prepared.ok) { status = prepared.message; env.changed(); return }
+      const saved = await uploadProfileImage(env.session.token, slot, prepared.image)
+      if (saved.ok) env.data.profile = saved.profile
+      else status = photoUploadMessage(saved, CARDS_COPY.saveFailed)
       env.changed()
     })
   }
@@ -442,7 +444,7 @@ function nameField(env: CardsEnv, card: CardHandle, naming: { open: boolean; dra
 }
 
 function fileField(): HTMLInputElement {
-  return el('input', { type: 'file', accept: PHOTO_ACCEPT, className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
+  return el('input', { type: 'file', accept: photoAccept(), className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
 }
 
 /** At or above this share of the month's credits used, the Top up (or Get Premium) row shows (Anders, 14 Oct 2026). */

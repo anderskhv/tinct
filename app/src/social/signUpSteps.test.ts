@@ -201,6 +201,7 @@ describe('sign-up with profiles on', () => {
     vi.doMock('./socialClient', async () => ({
       ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
       resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+      preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
     }))
     mount(true)
     await import('../labSignIn')
@@ -243,6 +244,7 @@ describe('sign-up with profiles on', () => {
     vi.doMock('./socialClient', async () => ({
       ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
       resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+      preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
     }))
     mount(true)
     await import('../labSignIn')

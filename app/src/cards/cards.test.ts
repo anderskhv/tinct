@@ -20,11 +20,13 @@ import { CARDS_CACHE_PREFIX, readCardsCache, writeCardsCache } from './cardsCach
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { forgetBoards } from './boardMemory'
 import { readingTimeStats } from '../readingTime/model'
+import { preparePhoto } from '../social/socialClient'
 
 // The photo resize needs a real canvas; the cards' upload path is what is tested here.
 vi.mock('../social/socialClient', async importOriginal => ({
   ...(await importOriginal<typeof import('../social/socialClient')>()),
   resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+  preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
 }))
 
 const session = { token: 'tok', userId: '11111111-1111-4111-8111-111111111111', email: 'anders@example.com', accountName: 'Anders' }
@@ -624,6 +626,18 @@ describe('picture and background (Anders, 10 October 2026)', () => {
     choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[1])
     await flush()
     expect(top().querySelector('.tc-status')?.textContent).toBe('That picture is too large.')
+  })
+
+  it('says why when the photo itself cannot be used (a HEIC this browser cannot read), and sends nothing', async () => {
+    profile = ownProfile({ uploads: true })
+    await open('you')
+    vi.mocked(preparePhoto).mockResolvedValueOnce({ ok: false, message: 'This photo’s format can’t be read here. Try a screenshot of it.' })
+    click(byTest('you-picture'))
+    click(byTest('menu-upload'))
+    choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[0])
+    await flush()
+    expect(top().querySelector('.tc-status')?.textContent).toBe('This photo’s format can’t be read here. Try a screenshot of it.')
+    expect(uploads).toEqual([])
   })
 })
 
