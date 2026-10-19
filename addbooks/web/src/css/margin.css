@@ -312,7 +312,7 @@ html[data-pdf-theme="eink"] .mr-float .mr-bar__item:hover { background: transpar
 svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 31; overflow: visible; clip-path: inset(var(--pdf-top, 56px) 0 0 0); }
 /* The open card's passage: a 1.5px underline in the lead colour (drawn on the page, so it moves with it). */
 .mr-ul-layer { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
-.mr-ul-layer i { position: absolute; height: 1.5px; margin-top: 3px; background: var(--mr-lead); }
+.mr-ul-layer i { position: absolute; height: 1.5px; margin-top: 3px; background: var(--mr-accent); }   /* the open card's passage, in the accent (19 Oct 2026, as Gloss) */
 /* A figure's open card rings its figure (FIXES-2026-10-15 item 4) instead of underlining a passage. */
 .mr-ul-layer i.is-box { height: auto; margin: 0; background: none; border: 1.5px solid var(--mr-lead); border-radius: 4px; }
 /* A figure's card: the figure's thumbnail at the top, its room kept while it is drawn. */
@@ -486,11 +486,6 @@ button.mr-related__row:hover .mr-related__line { text-decoration: underline; tex
 .mr-cover[hidden] { display: none; }
 .mr-col.is-reader > * { pointer-events: auto; }
 /* Before you start opens in place: the trigger's box grows into the primer, its height easing down. */
-/* Only while it opens: after that it moves with the pages (reader.js primerInColumn), never easing behind them. */
-.mr-col .mr-primer.is-opening { transition: top .28s ease, height .28s ease, background-color .2s ease, box-shadow .2s ease; }
-.mr-col .mr-primer.is-growing { background-color: transparent; box-shadow: inset 1.5px 0 0 var(--mr-lead); overflow: hidden; }
-.mr-col .mr-primer.is-opening { overflow: hidden; }
-@media (prefers-reduced-motion: reduce) { .mr-col .mr-primer, .mr-col .mr-primer.is-opening { transition: none; } }
 /* Fact-check's sources row is led by "Sources" (16 Oct: the bare titles read as a raw tail). */
 .mr-sources__label { color: var(--mr-hint); }
 
@@ -514,3 +509,20 @@ html[data-eink="true"] .mr .tc-wait i, html[data-pdf-theme="eink"] .mr .tc-wait 
 .mr-card.is-open .mr-card__body, .mr-sheet, .mr-sheet .mr-card__body, .mr-primer, .mr-float .mr-card__body { overscroll-behavior: contain; }
 /* The writing space under a question just sent (reader.js holdThread): never squeezed by the card's flex column. */
 .mr .tc-spacer { flex: none; }
+
+/* ---------- The column as part of the page (19 Oct 2026; reader.js layoutColumn) ----------
+   The cards' layer sits inside the pages' scroller and scrolls with them; an open card grows in place (no
+   scrolling body of its own: the page is the one scroll); Before you start likewise. The leader lines are drawn
+   in the same layer's coordinates, once per layout. */
+.mr-col.mr-doc.is-reader { position: absolute; top: 0; bottom: auto; height: 0; z-index: 3; overflow: visible; }
+.mr-col.mr-doc.is-reader .mr-card.is-open, .mr-col.mr-doc.is-reader .mr-card.is-whole.is-open { max-height: none; }
+.mr-col.mr-doc .mr-card.is-open .mr-card__body { overflow: visible; max-height: none; }
+.mr-col.mr-doc .mr-primer { position: absolute; left: 0; right: 0; bottom: auto; height: auto; overflow: visible; }
+svg.mr-leads.mr-doc-leads { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: visible; z-index: 2; clip-path: none; inset: auto; }
+.mr-doc-cover { position: absolute; top: 0; background: var(--pdf-room); pointer-events: none; }
+
+/* Gloss's controls (19 Oct 2026): the top-right control minimises (one line, in the icons' stroke); the bin sits in
+   the follow-up line beside the mic, the same 16px icon in a 28px target. */
+.mr-card__close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.mr-follow .mr-card__delete { position: relative; display: grid; flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -6px; place-items: center; color: var(--mr-faint); }
+.mr-follow .mr-card__delete svg { transform: translateY(3px); stroke-linecap: round; stroke-linejoin: round; }

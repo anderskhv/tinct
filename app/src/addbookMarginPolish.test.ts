@@ -70,7 +70,9 @@ describe('1. No whole-PDF line at the margin\'s foot: Chat instead', () => {
   it('"/" opens Chat; the t menu\'s Chat is the same card, and it shows even before its first question', () => {
     expect(reader).toMatch(/if \(e\.key === '\/' [^\n]*\n[^\n]*\n\s*e\.preventDefault\(\);\n\s*openWhole\(\);/)
     expect(reader).toContain("if (marginOn()) return openWhole(opts);")
-    expect(reader).toContain("if (chat.turns.length || chat.live || col.open === 'whole') items.push({ id: 'whole'")
+    // Open (even before a first question), its own panel; folded with a thread, at the document's top (19 Oct 2026).
+    expect(reader).toContain("if (col.open === 'whole') { const el = take('whole', col.el); drawWhole(el); el.style.top = '0px' }")
+    expect(reader).toContain("else if (chat.turns.length || chat.live) { const el = take('whole'); drawWhole(el);")
   })
   it('Chat and the old whole-PDF card are one store (chat:{key}): every existing thread shows in Chat', () => {
     expect(reader).toMatch(/function loadTurns\(\) \{ chat\.turns = \(store\.get\('chat:' \+ state\.key\)/)
@@ -132,17 +134,20 @@ describe('3. The highlighter and the pencil in the selection bar', () => {
 
 describe('4. Delete on every margin item', () => {
   const kinds = ['explain', 'simplify', 'define', 'factcheck', 'counterpoint', 'related', 'quiz', 'ask', 'figure']
-  it('every card has a bin in its action row beside copy, open on desktop and on the phone', () => {
+  it('every card has a bin, in its follow-up line beside the mic (19 Oct 2026, as Gloss), open on desktop and on the phone; copy stays under the answer', () => {
     for (const kind of kinds) {
       const c = card(kind, kind === 'quiz' ? { turns: [], data: { questions: [{ q: 'Q?', answer: 'A', why: '', cite: '' }], i: 0, results: [] } } : kind === 'define' ? { turns: [], data: { word: 'w', senses: [{ text: 'A sense.' }] } } : {})
       const html = M.html.cardHtml(c, { open: true, P })
-      expect(html, kind).toMatch(/<div class="mr-card__acts">(?:<button type="button" class="mr-card__copy"[^>]*>.*?<\/button>)?<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">/)
+      expect(html, kind).toMatch(/<div class="mr-follow">.*<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">/)
+      expect(html, kind).not.toMatch(/<div class="mr-card__acts">(?:(?!<\/div>).)*mr-card__delete/)
     }
     const note = M.html.cardHtml({ id: 'n-m1', kind: 'note', mark: 'm1', page: 3, rects: [[3, 0, 0, 1, 0.02]], text: 'T', note: 'My note.', at: 1 }, { open: true, P })
     expect(note).toContain('<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">')
     expect(note).toContain('data-c="delete" aria-label="Delete note"')
-    // While an answer streams there is nothing to copy yet; delete is there.
-    expect(M.html.cardHtml(card('explain', { turns: [] }), { open: true, P, live: 'Partial' })).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__delete"/)
+    // While an answer streams there is nothing to copy yet; delete is there, in the follow-up line.
+    const streaming = M.html.cardHtml(card('explain', { turns: [] }), { open: true, P, live: 'Partial' })
+    expect(streaming).not.toContain('mr-card__copy')
+    expect(streaming).toMatch(/<div class="mr-follow">.*class="mr-card__delete"/)
     // The phone's card hides copy only.
     expect(css).toContain('.mr-sheet .mr-card__copy { display: none; }')
     expect(css).not.toContain('.mr-sheet .mr-card__acts { display: none; }')
@@ -271,13 +276,11 @@ describe('7. Before you start opens in place', () => {
   it('without a trigger (B on another page) it opens where it always did', () => {
     expect(M.primerBox(null, 800)).toEqual({ start: null, top: 16, height: 800 - 70 - 16 })
   })
-  it('the height eases; with reduced motion it is there at once', () => {
-    // Only while it opens (19 Oct 2026): after that it moves with the pages, never easing behind them.
-    expect(css).toContain('.mr-col .mr-primer.is-opening { transition: top .28s ease, height .28s ease, background-color .2s ease, box-shadow .2s ease; }')
-    expect(css).not.toMatch(/\.mr-col \.mr-primer \{ transition: top/)
-    expect(css).toContain('@media (prefers-reduced-motion: reduce) { .mr-col .mr-primer, .mr-col .mr-primer.is-opening { transition: none; } }')
-    expect(reader).toContain("const still = !fresh || !primer.box.start || matchMedia('(prefers-reduced-motion: reduce)').matches;")
-    expect(reader).toContain('primer.from = t ? { top: t.offsetTop, height: t.offsetHeight } : null;')
+  it('in the column it is part of the page (19 Oct 2026): in its trigger\'s place at its unit\'s first page, growing in place, no easing or scrolling of its own', () => {
+    expect(reader).toContain('items.push({ el, ey, top: ey - 4, order: -1 });')
+    expect(reader).not.toMatch(/is-growing|is-opening|primerInColumn/)
+    expect(css).not.toMatch(/\.mr-primer\.is-(?:opening|growing)/)
+    expect(css).toContain('.mr-col.mr-doc .mr-primer { position: absolute; left: 0; right: 0; bottom: auto; height: auto; overflow: visible; }')
   })
 })
 

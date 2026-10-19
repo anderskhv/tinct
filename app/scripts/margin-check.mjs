@@ -61,6 +61,12 @@
 //   node scripts/margin-check.mjs card-fold         19 Oct: a click outside an open card folds it, its answer kept (also mid-stream)
 //   node scripts/margin-check.mjs cross-page        19 Oct: a selection across a page break highlights body words only (no running heads,
 //                                                     page numbers or empty boxes), on its words, and reloads in place
+//   node scripts/margin-check.mjs column-page       19 Oct: the wide column is part of the page (Gloss): cards at their passages, fixed
+//                                                     with the page through scrolls, straight leader lines (one slant when pushed down),
+//                                                     pushed down never overlapping, an open card growing in place with no scroll of its own
+//   node scripts/margin-check.mjs figure-race       19 Oct: no figure over prose, found with half the text layer missing or on a redraw
+//   node scripts/margin-check.mjs cards-gloss       19 Oct: Minimise folds a card; the bin beside the mic deletes it; no quoted passage;
+//                                                     a one-sentence answer in regular weight
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -130,8 +136,28 @@ const srOnly = p => p.kind === 'overflow' && /^\.tinct-wait(?:-label)?(?:\.|\s|$
 // PR C (FIXES-2026-10-15): every target is at least 28px each way, including where the mockup draws a
 // 16px icon or a 20px colour (copy, the mics, the colours, the bottom card's handle, the quiz links).
 export const ICON_TARGETS = '.mr-card__copy, .mr-card__delete, .mr-undo button, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link, button.mr-related__row'
+// Since 19 Oct 2026 the wide column is part of the page (reader.js layoutColumn): its cards scroll with the pages
+// like their text, so a card scrolled out of the pages' view (or under the top bar, or under open Chat's own
+// panel, which stays put) is not on screen to check, as a line of page text there would not be. Those are set
+// aside for the check; every card in view is checked as before.
+const asideOutOfView = () => {
+  const s = document.getElementById('scroll'); if (!s || !document.querySelector('.mr-doc')) return 0
+  const sr = s.getBoundingClientRect(), top = Math.max(sr.top, document.getElementById('hdr')?.getBoundingClientRect().bottom || 0)
+  const chat = document.querySelector('.mr-col:not(.mr-doc) .mr-card.is-whole.is-open')?.getBoundingClientRect()
+  let n = 0
+  for (const el of document.querySelectorAll('.mr-doc > .mr-card, .mr-doc > .mr-trigger, .mr-doc > .mr-primer, .mr-doc > .mr-undo')) {
+    const r = el.getBoundingClientRect()
+    const under = chat && Math.min(r.bottom, chat.bottom) - Math.max(r.top, chat.top) > 0
+    if (r.top < top - 0.5 || r.bottom > sr.bottom + 0.5 || under) { el.dataset.mcAside = el.style.visibility; el.style.visibility = 'hidden'; n++ }
+  }
+  return n
+}
+const restoreAside = () => { for (const el of document.querySelectorAll('[data-mc-aside]')) { el.style.visibility = el.dataset.mcAside; delete el.dataset.mcAside } }
 export async function checkMargin(page, selectors = SELECTORS) {
-  const list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p))
+  await page.evaluate(asideOutOfView)
+  let list
+  try { list = (await checkLayout(page, { selectors })).filter(p => !scrolledAway(p) && !srOnly(p)) }
+  finally { await page.evaluate(restoreAside) }
   const small = await page.evaluate(sel => [...document.querySelectorAll(sel)].filter(el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && (r.width < 27.5 || r.height < 27.5) }).map(el => ({ kind: 'squeezed', el: '.' + String(el.className).trim().split(/\s+/).join('.'), size: [Math.round(el.getBoundingClientRect().width), Math.round(el.getBoundingClientRect().height)] })), ICON_TARGETS)
   return [...list, ...small, ...await page.evaluate(stripProblems)]
 }
@@ -631,7 +657,7 @@ async function behaviour(browser, origin) {
   await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
   const score = await a.innerText('.mr-card.is-open')
   // Q1 right, Q2 shown, Q3 not yet: one right of the two answered, one shown, and Q3 ("not yet" first) to reread.
-  ok('after question 3: the score, leaving out the shown answer ("1 of 2 answered, 1 shown"), and the question to reread', /^Quiz me · p\. \S+\s*×\s*1 of 2 answered, 1 shown\s*MOCK Q3/.test(score) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
+  ok('after question 3: the score, leaving out the shown answer ("1 of 2 answered, 1 shown"), and the question to reread', /^Quiz me · p\. \S+\s*1 of 2 answered, 1 shown\s*MOCK Q3/.test(score) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
   if (!process.env.NO_SHOTS) await shot(a, 'prc-quiz-end-1440x900')
   const q2 = account.requests.length
   await a.click('.mr-card.is-open [data-c="again"]'); await a.waitForTimeout(1200)
@@ -954,10 +980,10 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
   // It opens in place (Anders, 15 Oct): from its trigger's place, growing down; measured once it has grown.
   await a.waitForTimeout(450)
-  const placeWant = await a.evaluate(t => TinctMargin.primerBox({ top: t.top, height: t.height }, document.querySelector('.mr-col').clientHeight).top, { top: trig?.top ?? 0, height: trig?.height ?? 0 })
   ok('B opens the primer in place, made nothing more: the one chapter request (ahead), action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 0 && primers(0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
   const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
-  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, alone in the column', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && Math.abs(shown.top - placeWant) <= 1 && shown.top >= Math.min(16, (trig?.top ?? 0) - 14) - 1 && shown.bottom === 70 && !shown.trigger, { ...shown, placeWant })
+  // (Since 19 Oct 2026 the column is part of the page: the primer opens in its trigger's place and grows in place.)
+  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, in its trigger\'s place', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && Math.abs(shown.top - (trig?.top ?? -99)) <= 1 && !shown.trigger, { ...shown, trig: trig?.top })
   await a.waitForTimeout(600)
   const stored = account.primers.get(hex + '?outline-0')
   ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
@@ -996,8 +1022,9 @@ async function primerBehaviour(browser, origin) {
   await a.evaluate(n => goTo({ page: n, frac: 0 }), units[1].start); await a.waitForTimeout(700)
   const t5 = await a.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
   await a.evaluate(n => goTo({ page: n, frac: 0.3 }), units[1].start + 1); await a.waitForTimeout(700)
-  const t6 = await a.evaluate(() => !!document.querySelector('.mr-col .mr-trigger'))
-  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
+  // (The trigger is part of the page at its unit's start since 19 Oct 2026: in the middle of a unit none is in view.)
+  const t6 = await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
+  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none in view', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
   const r3 = chats().length
   await a.keyboard.press('b'); await a.waitForTimeout(1000)
   const req3 = primers(r3)[0]
@@ -1440,6 +1467,15 @@ function figureOrderAgrees([n, labels]) {
 // "N more" (B's crowding), the open card stays open, and a gathered kind is named in the "more" row.
 function foldedKinds() {
   if (col.mode !== 'column') return { ok: true, mode: col.mode }
+  // Since 19 Oct 2026 the column is part of the page: nothing folds to a row or gathers; every card shows, pushed
+  // down in page order, none over another, the open one open (Related and figure cards like every other).
+  if (document.querySelector('.mr-doc')) {
+    const cards = store.get('cards:' + state.key) || [], how = id => { const el = col.els.get(id); return !el || el.hidden ? 'hidden' : el.classList.contains('is-open') ? 'open' : 'card' }
+    const by = {}; for (const c of cards) (by[c.kind] = by[c.kind] || []).push(how(c.id))
+    const rs = [...document.querySelectorAll('.mr-doc > .mr-card:not([hidden])')].map(el => el.getBoundingClientRect()).sort((x, y) => x.top - y.top)
+    const overlap = rs.some((r, i) => i && r.top < rs[i - 1].bottom - 0.5)
+    return { ok: ['related', 'figure'].every(k => (by[k] || []).length && by[k].every(h => h !== 'hidden')) && !overlap && !!col.open && how(col.open) === 'open', by, overlap }
+  }
   const cards = store.get('cards:' + state.key) || [], stack = document.querySelector('.mr-stack:not([hidden])')
   // Every seeded passage is in view, so a hidden card beside a "more" row is a gathered one.
   const how = id => { const el = col.els.get(id); return !el || el.hidden ? (stack ? 'gathered' : 'hidden') : el.classList.contains('is-row') ? 'row' : el.classList.contains('is-open') ? 'open' : 'card' }
@@ -1453,12 +1489,17 @@ function foldedKinds() {
 // The leader lines are attached: each dot is level with a passage in view and every card's label line has its line.
 function leadersAttached() {
   if (col.mode !== 'column') return { ok: true }
-  const vis = visibleCards(), want = vis.map(v => (v.line.top + v.line.bottom) / 2)
+  // Since 19 Oct 2026 the column is part of the page: its dots are in the pages' scroller's coordinates, one per
+  // card at its passage's line (every card, not only those in view).
+  const s = document.getElementById('scroll'), sr = s.getBoundingClientRect(), dy = s.scrollTop - sr.top
+  // (A figure's card starts level with the figure's top less 4px; its dot and line are at its label.)
+  const labelMid = id => { const l = document.querySelector(`.mr-doc .mr-card[data-id="${CSS.escape(id)}"] .mr-card__label`); return l ? Math.round(l.offsetTop + l.offsetHeight / 2) : 12 }
+  const want = viewCards().filter(c => !c.data?.unit && !c.gone).map(card => { const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1]; if (!p) return null; const b = p.pg.getBoundingClientRect(); return card.kind === 'figure' ? Math.round(b.top + f[2] * b.height + dy) - 4 + labelMid(card.id) : b.top + f[2] * b.height + f[4] * b.height / 2 + dy }).filter(v => v != null)
   const dots = [...document.querySelectorAll('svg.mr-leads circle')].map(c => Number(c.getAttribute('cy')))
   const loose = dots.filter(y => !want.some(w => Math.abs(w - y) < 1.5))
-  const shown = [...document.querySelectorAll('.mr-col .mr-card:not([hidden]):not(.is-whole)')].length
+  const shown = [...document.querySelectorAll('.mr-doc .mr-card:not([hidden]):not(.is-whole):not(.is-unit)')].length
   const lines = document.querySelectorAll('svg.mr-leads path:not(.is-folded)').length
-  return { ok: !loose.length && dots.length >= shown && (!col.open || col.open === 'whole' || lines === 1 || !vis.some(v => v.card.id === col.open)), loose, dots: dots.length, shown, lines }
+  return { ok: !loose.length && dots.length >= shown && (!col.open || col.open === 'whole' || lines === 1), loose, dots: dots.length, shown, lines }
 }
 async function columnMatrix(browser, origin) {
   const rows = []
@@ -1543,6 +1584,8 @@ async function columnMatrix(browser, origin) {
         await state('long', () => {
           const el = document.querySelector('.mr-card.is-open, .mr-sheet'); if (!el) return { ok: false, why: 'no open card' }
           const b = el.querySelector('.mr-card__body'), lab = (el.querySelector('.mr-card__label') || el.querySelector('.mr-sheet__grab')).getBoundingClientRect(), fu = el.querySelector('.mr-follow').getBoundingClientRect()
+          // The wide column (19 Oct 2026): the card grows in place, no scroll of its own; the page is the one scroll.
+          if (el.closest('.mr-doc')) { const scrolls = [el, ...el.querySelectorAll('*')].filter(n => n.scrollHeight - n.clientHeight > 1 && /(auto|scroll)/.test(getComputedStyle(n).overflowY)).map(n => n.className); return { ok: !scrolls.length && el.getBoundingClientRect().height > 600 && lab.top >= 0, scrolls, lab: lab.top } }
           return { ok: b.scrollHeight > b.clientHeight + 20 && lab.top >= 0 && fu.bottom <= innerHeight + 1, body: [b.scrollHeight, b.clientHeight], lab: lab.top, fu: fu.bottom }
         })
         // A 60-character word and a long URL in the question, the answer and the sources; six sources wrap.
@@ -1568,7 +1611,8 @@ async function columnMatrix(browser, origin) {
         await page.evaluate(seedCards, { lines: 4, pairs: true, open: 2, where: 'top' })
         await state('trigger', () => ({ ok: col.mode !== 'column' || !!document.querySelector('.mr-col .mr-trigger:not([hidden])'), mode: col.mode }))
         await page.evaluate(LONG => { openCard(null); const u = currentUnit(); store.set(primerKey(u), { ...LONG, madeAt: new Date().toISOString(), unitKey: u.key }); openPrimer(u) }, LONG_PRIMER)
-        await state('primer', () => { const el = document.querySelector('.mr-primer'); return { ok: !!el?.querySelector('.mr-map') && el.querySelectorAll('.mr-map__row').length === 8 && (col.mode !== 'column' || !document.querySelector('.mr-col .mr-card:not([hidden])')) } })
+        // (Wide: in its place in the page's layer, the cards pushed below it, none over it; 19 Oct 2026.)
+        await state('primer', () => { const el = document.querySelector('.mr-primer'), r = el?.getBoundingClientRect(); return { ok: !!el?.querySelector('.mr-map') && el.querySelectorAll('.mr-map__row').length === 8 && (col.mode !== 'column' || ![...document.querySelectorAll('.mr-doc > .mr-card:not([hidden])')].some(c => { const q = c.getBoundingClientRect(); return Math.min(q.bottom, r.bottom) - Math.max(q.top, r.top) > 0.5 })) } })
         await page.evaluate(() => closePrimer())
         if (mode === 'phone') {
           // The bottom card with the keyboard open: its follow-up line above the keyboard, the passage in view.
@@ -2174,8 +2218,9 @@ async function polish(browser, origin) {
     const made = await a.evaluate(() => col.open)
     const field = await a.evaluate(() => { const f = openCardEl()?.querySelector('.mr-follow__input'); return { focused: document.activeElement === f, drawn: !!openCardEl()?.querySelector('.mr-caret') } })
     ok(`${tag}: an opened card's follow-up field has no caret until the reader focuses it`, made && !field.focused && !field.drawn, field)
-    const del = await a.evaluate(() => { const b = openCardEl()?.querySelector('.mr-card__acts .mr-card__delete'), copy = openCardEl()?.querySelector('.mr-card__acts .mr-card__copy'); const r = b?.getBoundingClientRect(); return b && { w: r.width, h: r.height, beside: !copy || copy.offsetParent === null || Math.abs(copy.getBoundingClientRect().top - r.top) < 2 } })
-    ok(`${tag}: the open card has a bin in its action row (beside copy on the desktop), a 28px target`, del && del.w >= 27.5 && del.h >= 27.5 && del.beside, del)
+    // Since 19 Oct 2026 (as Gloss) the bin is in the follow-up line, beside the mic.
+    const del = await a.evaluate(() => { const b = openCardEl()?.querySelector('.mr-follow .mr-card__delete'), mic = openCardEl()?.querySelector('.mr-follow .mr-follow__mic'); const r = b?.getBoundingClientRect(); return b && { w: r.width, h: r.height, beside: !!mic && b.nextElementSibling === mic && Math.abs(mic.getBoundingClientRect().top - r.top) < 2 } })
+    ok(`${tag}: the open card has a bin in its follow-up line beside the mic, a 28px target`, del && del.w >= 27.5 && del.h >= 27.5 && del.beside, del)
     await a.click(phone ? '.mr-sheet .mr-card__delete' : `.mr-card.is-open .mr-card__delete`); await a.waitForTimeout(400)
     const gone = await a.evaluate(id => ({ open: col.open, shown: !!document.querySelector(`.mr-card[data-id="${id}"], .mr-sheet[data-id="${id}"]`), stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: document.querySelector('.mr-undo:not([hidden])')?.innerText.replace(/\s+/g, ' ').trim() }), made)
     ok(`${tag}: delete takes the card away at once (no confirm), leaves a tombstone, and says "Deleted · Undo"`, !gone.open && !gone.shown && gone.stored?.gone === true && gone.undo === 'Deleted · Undo', gone)
@@ -2211,7 +2256,7 @@ async function polish(browser, origin) {
       const req = account.requests.slice(q0).find(r => /What do the chapters say/.test(JSON.stringify(r.body.messages)))
       ok(`${tag}: a Chat question goes as the whole-PDF question (scope "whole", the document)`, req?.body?.companion?.scope === 'whole' && req.body.companion.document?.units?.length > 0, req?.body?.companion && { scope: req.body.companion.scope })
       if (mode === 'column') {
-        const cap = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-whole.is-open'), colH = document.querySelector('.mr-col').clientHeight; return c && { h: c.getBoundingClientRect().height, max: parseFloat(getComputedStyle(c).maxHeight), colH } })
+        const cap = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-whole.is-open'), colH = document.querySelector('.mr-col:not(.mr-doc)').clientHeight; return c && { h: c.getBoundingClientRect().height, max: parseFloat(getComputedStyle(c).maxHeight), colH } })
         ok(`${tag}: open Chat is capped at 60% of the column`, cap && cap.max <= cap.colH * 0.6 + 1 && cap.h <= cap.colH * 0.6 + 1, cap)
       }
       await layout('chat')
@@ -2230,7 +2275,7 @@ async function polish(browser, origin) {
       await a.waitForTimeout(400)
       const geo = await a.evaluate(() => { const sc = $('scroll'), r = sc.getBoundingClientRect(), colR = document.querySelector('.mr-col').getBoundingClientRect(), pg = state.pages[2].pg.getBoundingClientRect(); return { right: Math.round(r.right), vw: innerWidth, bar: sc.offsetWidth - sc.clientWidth, colLeft: Math.round(colR.left), colRight: Math.round(colR.right), pageRight: Math.round(pg.right), scrollers: [...document.querySelectorAll('.mr-col, .mr-col *')].filter(e => /(auto|scroll)/.test(getComputedStyle(e).overflowY) && e.scrollHeight > e.clientHeight + 1 && !e.closest('.mr-card.is-open')).length } })
       ok(`${tag}: the pages and the margin scroll as one: the scroller reaches the window's right edge, the column inside it, the page 56px left of the column`, geo.right === geo.vw && geo.colRight <= geo.vw - 16 && geo.colLeft - geo.pageRight === TINCT_COL_GAP && geo.scrollers === 0, geo)
-      const wheel = await a.evaluate(() => { const c = document.querySelector('.mr-col .mr-card.is-folded:not([hidden])'); if (!c) return null; const r = c.getBoundingClientRect(); return { x: r.left + 40, y: r.top + 10, top: $('scroll').scrollTop } })
+      const wheel = await a.evaluate(() => { const c = [...document.querySelectorAll('.mr-col .mr-card.is-folded:not([hidden])')].find(c => { const r = c.getBoundingClientRect(); return r.top > 80 && r.bottom < innerHeight - 20 }); if (!c) return null; const r = c.getBoundingClientRect(); return { x: r.left + 40, y: r.top + 10, top: $('scroll').scrollTop } })
       if (wheel) { await a.mouse.move(wheel.x, wheel.y); await a.mouse.wheel(0, 300); await a.waitForTimeout(400) }
       const moved = wheel ? await a.evaluate(t => $('scroll').scrollTop - t, wheel.top) : null
       await a.mouse.move(Math.round(width - 200), Math.round(height - 40)); const t2 = await a.evaluate(() => $('scroll').scrollTop); await a.mouse.wheel(0, 200); await a.waitForTimeout(400)
@@ -2261,7 +2306,9 @@ async function polish(browser, origin) {
         }))
         const f = run?.frames || [], first = f[0], last = f.at(-1)
         const grew = f.some(x => x.height < last?.height - 40)
-        ok(`${tag}: Before you start ${reduce ? '(reduced motion) is there at once' : 'expands in place from its trigger'}, never moving up, ending 70px above the foot`, first && Math.abs(first.top - (run.trig.top - 14)) <= 1.5 && f.every(x => Math.abs(x.top - first.top) <= 0.5) && Math.abs(last.bottom - 70) <= 1 && (reduce ? !grew && Math.abs(first.height - last.height) < 1 : grew && first.height <= run.trig.height + 20), { trig: run?.trig, first, last, n: f.length })
+        // Since 19 Oct 2026 the column is part of the page: the primer opens in its trigger's place (its top where the
+        // trigger's was), never moving, at its whole height at once (no scrolling of its own, the page scrolls).
+        ok(`${tag}: Before you start ${reduce ? '(reduced motion) ' : ''}opens in its trigger's place, never moving, whole at once`, first && Math.abs(first.top - run.trig.top) <= 1.5 && f.every(x => Math.abs(x.top - first.top) <= 0.5 && Math.abs(x.height - last.height) < 1) && last.height > run.trig.height + 100, { trig: run?.trig, first, last, n: f.length })
         if (!reduce && look === 'paper') await shot(a, `${tag}-primer`)
         await layout(reduce ? 'primer (reduced motion)' : 'primer')
         await a.evaluate(() => closePrimer()); await a.waitForTimeout(300)
@@ -3090,7 +3137,7 @@ async function primerAnchor(browser, origin) {
   ok('1. desktop: scrolled 240 px, the open primer moves up with the page by the same amount (not sticky)', b0 && b1 && b0.position === 'absolute' && Math.abs((b0.top - b1.top) - (s1 - s0)) <= 2 && s1 - s0 > 200 && b1.height === b0.height, { b0, b1, scrolled: s1 - s0 })
   await shot(a, 'primer-anchor-1440x900-night-scrolled')
   await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 2600)); await a.waitForTimeout(300)
-  const gone = await a.evaluate(() => ({ primer: (el => !!el && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().bottom > document.querySelector('.mr-col').getBoundingClientRect().top)(document.querySelector('.mr-col .mr-primer')), open: primer.open }))
+  const gone = await a.evaluate(() => ({ primer: (el => !!el && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().bottom > Math.max(document.getElementById('scroll').getBoundingClientRect().top, document.getElementById('hdr').getBoundingClientRect().bottom))(document.querySelector('.mr-col .mr-primer')), open: primer.open }))
   ok('1. desktop: scrolled on past it, the primer has gone up with its page (still open, nothing follows the reader)', !gone.primer && gone.open, gone)
   await a.evaluate(() => document.getElementById('scroll').scrollTo(0, 0)); await a.waitForTimeout(300)
   await a.evaluate(n => document.getElementById('scroll').scrollTo(0, n), s0); await a.waitForTimeout(300)
@@ -3236,7 +3283,7 @@ async function chatScroll(browser, origin) {
       await a.waitForTimeout(300)
       ok(`${tag}: 4. …nor at its top, scrolling up`, (await scrollTop(a)) === page0, { page0, now: await scrollTop(a) })
       // The column's empty room still scrolls the pages (one scroll surface).
-      const empty = await a.evaluate(() => { const c = document.querySelector('.mr-col').getBoundingClientRect(); return { x: c.left + c.width / 2, y: c.bottom - 30 } })
+      const empty = await a.evaluate(() => { const c = document.querySelector('.mr-col:not(.mr-doc)').getBoundingClientRect(); return { x: c.left + c.width / 2, y: innerHeight - 30 } })
       await a.mouse.move(empty.x, empty.y); await a.mouse.wheel(0, 300); await a.waitForTimeout(400)
       ok(`${tag}: the column's empty room still scrolls the pages (one scroll surface)`, (await scrollTop(a)) > page0, { page0, now: await scrollTop(a) })
       await a.evaluate(n => document.getElementById('scroll').scrollTo(0, n), page0); await a.waitForTimeout(200)
@@ -3291,8 +3338,9 @@ async function chatScroll(browser, origin) {
   mock.next = HUME_REPLY; mock.delay = 0
   await c.click('.mr-card.is-open .mr-follow__input'); await c.keyboard.type('Explain this more.'); await c.keyboard.press('Enter')
   await c.waitForTimeout(1000)
-  const held = await c.evaluate(() => { const b = document.querySelector('.mr-card.is-open .mr-card__body'), row = b.querySelector('.mr-you[data-turn="1"]'), br = b.getBoundingClientRect(), r = row.getBoundingClientRect(); const answers = b.querySelectorAll('.mr-answer'), last = answers[answers.length - 1]; return { rowTop: Math.round(r.top - br.top), scrollTop: b.scrollTop, first: answers[0].querySelectorAll('.is-bottom-line').length, reply: last.innerText.replace(/\s+/g, ' ').trim(), bold: last.querySelectorAll('.is-bottom-line').length } })
-  ok('card: 5. a follow-up sits near the top of the card\'s thread, its answer below', held.scrollTop > 0 && held.rowTop >= 0 && held.rowTop <= 130, held)
+  const held = await c.evaluate(() => { const b = document.querySelector('.mr-card.is-open .mr-card__body'), row = b.querySelector('.mr-you[data-turn="1"]'), r = row.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(), hdr = document.getElementById('hdr').getBoundingClientRect().bottom; const answers = b.querySelectorAll('.mr-answer'), last = answers[answers.length - 1], lr = last.getBoundingClientRect(); return { inView: r.top >= Math.max(s.top, hdr) && r.bottom <= s.bottom, below: lr.top >= r.bottom - 1, ownScroll: b.scrollHeight - b.clientHeight, first: answers[0].querySelectorAll('.is-bottom-line').length, reply: last.innerText.replace(/\s+/g, ' ').trim(), bold: last.querySelectorAll('.is-bottom-line').length } })
+  // In the wide column the card is part of the page (item 9): it grows in place and the page brings the question into view.
+  ok('card: 5. a follow-up is brought into view, its answer below it; the card grows in place (no scroll of its own)', held.inView && held.below && held.ownScroll <= 1, held)
   ok('card: 8. the card\'s own answer keeps its bold bottom line; the follow-up\'s reply is plain and unstripped', held.first === 1 && held.bold === 0 && held.reply.startsWith('The sentence you\'ve highlighted ends the reply to Hume'), held)
   ok('card: no page errors', !C.problems.length, C.problems)
   await C.ctx.close()
@@ -3457,6 +3505,176 @@ async function crossPage(browser, origin) {
   return results
 }
 
+/* column-page (19 Oct 2026, item 9): on a wide desktop the margin's cards are part of the page, as in Gloss: each at
+   its passage's line, scrolling with the page and never moved or redrawn by a scroll; the leader line straight across
+   when the card is at its passage, and fixed with the page when a card was pushed down (then across, a short slant,
+   across); cards close together pushed down, never overlapping; an open card grows in place (no scrolling body of
+   its own after three follow-ups: the page is the one scroll); the open card's passage underlined in the accent. */
+async function columnPage(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(LONG_BOOK)
+  for (const [width, height, look] of [[1440, 900, 'night'], [2000, 1066, 'night'], [1280, 800, 'paper']]) {
+    const tag = `column-page-${width}x${height}-${look}`
+    const A = await readerPage(browser, origin, hex, { width, height, look, startPage: 3 })
+    const a = A.page
+    await prefetchSettled(a)
+    // Three passages a line apart (their cards must be pushed down), the first open.
+    const ids = await a.evaluate(() => {
+      const p = state.pages[2], b = p.pg.getBoundingClientRect(), hdr = document.getElementById('hdr').getBoundingClientRect().bottom
+      const spans = [...p.layer.querySelectorAll(':scope > span')].filter(sp => !sp.dataset.f && sp.textContent.trim().length > 20).filter(sp => { const r = sp.getBoundingClientRect(); return r.top > hdr + 120 && r.bottom < innerHeight - 200 })
+      const lines = []; for (const sp of spans) { const r = sp.getBoundingClientRect(); if (!lines.some(l => Math.abs(l.top - r.top) < 4)) lines.push(r) }
+      const cards = lines.slice(0, 3).map((r, i) => TinctMargin.newCard({ kind: i === 1 ? 'ask' : 'explain', page: 3, anchor: [{ n: 3, x: (r.left - b.left) / b.width, y: (r.top - b.top) / b.height, w: (r.width * 0.6) / b.width, h: r.height / b.height }], text: 'A passage of the page.', turns: i === 1 ? [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph.' }] : [{ role: 'assistant', content: 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.' }] }))
+      store.set('cards:' + state.key, cards); col.view = null; openCard(cards[0].id)
+      return cards.map(c => c.id)
+    })
+    await a.waitForTimeout(600)
+    const measure = () => a.evaluate(ids => {
+      const s = document.getElementById('scroll')
+      const cards = ids.map(id => { const el = document.querySelector(`.mr-doc .mr-card[data-id="${CSS.escape(id)}"]`), card = viewCards().find(c => c.id === id), f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1], b = p.pg.getBoundingClientRect(); const line = b.top + (f[2] + f[4] / 2) * b.height, r = el?.getBoundingClientRect(), lab = el?.querySelector('.mr-card__label')?.getBoundingClientRect(); return el && { id, top: r.top, bottom: r.bottom, rel: r.top - line, label: lab ? (lab.top + lab.bottom) / 2 : null, line, inDoc: !!el.closest('.mr-doc'), position: getComputedStyle(el).position, scrolls: [el, ...el.querySelectorAll('*')].filter(n => n.scrollHeight - n.clientHeight > 1 && /(auto|scroll)/.test(getComputedStyle(n).overflowY)).length, sh: el.scrollHeight, ch: el.clientHeight } })
+      const paths = [...document.querySelectorAll('svg.mr-doc-leads path')].map(p => p.getAttribute('d')), dots = [...document.querySelectorAll('svg.mr-doc-leads circle')].map(c => Number(c.getAttribute('cy')))
+      return { cards, paths, dots, html: document.querySelector('svg.mr-doc-leads')?.innerHTML || '', scrollTop: s.scrollTop, ul: (() => { const i = document.querySelector('.mr-ul-layer i'); if (!i) return null; const probe = document.createElement('i'); probe.style.background = 'var(--mr-accent)'; document.querySelector('.mr-doc').appendChild(probe); const want = getComputedStyle(probe).backgroundColor; probe.remove(); return { bg: getComputedStyle(i).backgroundColor, want } })() }
+    }, ids)
+    const m0 = await measure()
+    ok(`${tag}: 9. the cards are in the page's layer (they scroll with it), never fixed to the window`, m0.cards.every(c => c && c.inDoc && c.position === 'absolute'), m0.cards)
+    ok(`${tag}: 9. the open card's passage is underlined in the accent`, m0.ul && m0.ul.bg === m0.ul.want, m0.ul)
+    ok(`${tag}: 9. cards close together are pushed down: none overlaps the one before`, m0.cards.every((c, i) => !i || c.top >= m0.cards[i - 1].bottom - 0.5), m0.cards.map(c => [Math.round(c.top), Math.round(c.bottom)]))
+    // The first card sits at its passage: its line is straight across (y1 == y2), at the passage's line, level with its label.
+    const straight = /^M(\d+) (-?\d+) H(\d+)$/.exec(m0.paths[0] || '')
+    const firstDy = m0.scrollTop - (await a.evaluate(() => document.getElementById('scroll').getBoundingClientRect().top))
+    ok(`${tag}: 9. a card at its passage: its leader line is straight across, at the passage's line and its label's`, straight && Math.abs(Number(straight[2]) - (m0.cards[0].line + firstDy)) <= 1 && Math.abs(m0.cards[0].label - m0.cards[0].line) <= 1, { d: m0.paths[0], line: m0.cards[0].line + firstDy, label: m0.cards[0].label })
+    // A pushed card: its line leaves its passage's line across, then slants to its label (one clean elbow).
+    const pushed = m0.cards.findIndex((c, i) => i && Math.abs(c.label - c.line) > 1)
+    const elbow = pushed > 0 && /^M(\d+) (-?\d+) H(\d+) L(\d+) (-?\d+) H(\d+)$/.exec(m0.paths[pushed] || '')
+    ok(`${tag}: 9. a pushed-down card: its line starts across at its passage's line, then one slant into its label`, pushed > 0 && elbow && Math.abs(Number(elbow[2]) - (m0.cards[pushed].line + firstDy)) <= 1 && Math.abs(Number(elbow[5]) - (m0.cards[pushed].label + firstDy)) <= 1, { pushed, d: m0.paths[pushed] })
+    // Scrolling: the cards keep their places on the page, the lines are not drawn again.
+    await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 180)); await a.waitForTimeout(300)
+    await a.evaluate(() => document.getElementById('scroll').scrollBy(0, -60)); await a.waitForTimeout(300)
+    const m1 = await measure()
+    ok(`${tag}: 9. scrolled, every card keeps its place against its passage (to the pixel)`, m1.scrollTop - m0.scrollTop > 100 && m1.cards.every((c, i) => Math.abs(c.rel - m0.cards[i].rel) <= 0.5), { moved: m1.scrollTop - m0.scrollTop, rel0: m0.cards.map(c => c.rel), rel1: m1.cards.map(c => c.rel) })
+    ok(`${tag}: 9. scrolled, the leader lines are the same lines (fixed with the page, not drawn again)`, m1.html === m0.html && m1.paths.length === 3, { before: m0.paths, after: m1.paths })
+    // 9. The open card grows in place: three follow-ups, no scrolling body; the wheel over it scrolls the page.
+    for (const q of ['First follow-up?', 'Second follow-up?', 'Third follow-up?']) {
+      await a.click('.mr-doc .mr-card.is-open .mr-follow__input'); await a.keyboard.type(q); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
+    }
+    const m2 = await measure()
+    ok(`${tag}: 9. after three follow-ups the open card has grown in place: no scroll of its own (scrollHeight == clientHeight)`, m2.cards[0].scrolls === 0 && Math.abs(m2.cards[0].sh - m2.cards[0].ch) <= 1 && m2.cards[0].bottom - m2.cards[0].top > m0.cards[0].bottom - m0.cards[0].top + 100, m2.cards[0])
+    ok(`${tag}: 9. …and the cards below it are pushed down, none overlapping`, m2.cards.every((c, i) => !i || c.top >= m2.cards[i - 1].bottom - 0.5), m2.cards.map(c => [Math.round(c.top), Math.round(c.bottom)]))
+    const box = await a.evaluate(id => { const r = document.querySelector(`.mr-doc .mr-card[data-id="${CSS.escape(id)}"]`).getBoundingClientRect(); return { x: r.left + r.width / 2, y: Math.max(r.top + 20, Math.min(r.bottom - 20, innerHeight / 2)) } }, ids[0])
+    const t0 = await scrollTop(a)
+    await a.mouse.move(box.x, box.y); await a.mouse.wheel(0, 300); await a.waitForTimeout(400)
+    ok(`${tag}: 9. only the page scrolls: the wheel over the open card scrolls the pages`, (await scrollTop(a)) - t0 > 100, { t0, now: await scrollTop(a) })
+    ok(`${tag}: no layout problems (cards in view)`, (await checkMargin(a)).length === 0, (await checkMargin(a)).slice(0, 4))
+    ok(`${tag}: leader dots on their passages`, (await a.evaluate(leadersAttached)).ok, await a.evaluate(leadersAttached))
+    await a.evaluate(n => document.getElementById('scroll').scrollTo(0, n), m0.scrollTop); await a.waitForTimeout(400)
+    await shot(a, `${tag}-after`)
+    // Before you start is at its unit's first page, part of the page too.
+    await a.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }); onScroll() }); await a.waitForTimeout(700)
+    const t1 = await a.evaluate(() => { const t = document.querySelector('.mr-doc .mr-trigger'); return t && { top: t.getBoundingClientRect().top, inDoc: true } })
+    await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 120)); await a.waitForTimeout(300)
+    const t2 = await a.evaluate(() => document.querySelector('.mr-doc .mr-trigger')?.getBoundingClientRect().top)
+    ok(`${tag}: Before you start sits at the document's start in the page's layer and scrolls with it`, t1 && Math.abs((t1.top - t2) - 120) <= 1, { t1, t2 })
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
+/* figure-race (19 Oct 2026, item 12): a prose paragraph (with inline symbols) is never boxed as a figure, even when its
+   figures are looked for while its text layer is incomplete (half its lines missing, as when the items came in late)
+   or while the page is being drawn again; the text there gets the selection's bar, never the figure chip. On the
+   paper's figures (control) the figure is still found. FIG_PDF=<file> PAGE=<n> also checks a page of your own
+   (Constructor Theory p. 5: "If a machine stops being capable of performing a task 𝔄…"). */
+async function figureRace(browser, origin) {
+  const results = [], ok = okList(results)
+  const docs = [{ name: 'prose_book', file: LONG_BOOK, page: 3 }]
+  if (process.env.FIG_PDF) docs.push({ name: basename(process.env.FIG_PDF, '.pdf'), file: process.env.FIG_PDF, page: Number(process.env.PAGE || 5) })
+  for (const doc of docs) {
+    const hex = addBook(doc.file), tag = `figure-race-${doc.name}`
+    const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+    const a = A.page
+    await a.evaluate(n => goTo({ page: n, frac: 0.2 }), doc.page); await a.waitForTimeout(1200)
+    await a.waitForFunction(n => state.pages[n - 1]?.layer && state.pages[n - 1]?.canvas, doc.page, { timeout: 20000 }).catch(() => {})
+    // Prose lines: body spans of 40 characters or more. A figure over any of them is wrong.
+    const overProse = () => a.evaluate(n => {
+      const p = state.pages[n - 1], b = p.pg.getBoundingClientRect()
+      const lines = [...p.layer.querySelectorAll(':scope > span')].filter(sp => !sp.dataset.f && sp.textContent.trim().length >= 40).map(sp => { const r = sp.getBoundingClientRect(); return { x: (r.left - b.left) / b.width, y: (r.top - b.top) / b.height, w: r.width / b.width, h: r.height / b.height } })
+      const hit = (f, q) => Math.min(f.x + f.w, q.x + q.w) - Math.max(f.x, q.x) > q.w * 0.5 && Math.min(f.y + f.h, q.y + q.h) - Math.max(f.y, q.y) > q.h * 0.5
+      return { figures: (p.figures || []).length, over: (p.figures || []).filter(f => lines.filter(q => hit(f, q)).length >= 2).length, lines: lines.length }
+    }, doc.page)
+    // 1. Found while half of the layer's lines are missing (the items late): no figure over the prose.
+    const partial = await a.evaluate(async n => {
+      const p = state.pages[n - 1], gone = []
+      const spans = [...p.layer.querySelectorAll(':scope > span')], tops = [...new Set(spans.map(sp => Math.round(sp.getBoundingClientRect().top)))]
+      tops.forEach((t, i) => { if (i % 2) for (const sp of spans) if (Math.round(sp.getBoundingClientRect().top) === t) { gone.push([sp, sp.nextSibling]); sp.remove() } })
+      state.figs.delete(n); p.figures = null; p.figLayer = null; await detectFigures(p)
+      const found = p.figures ? p.figures.length : null
+      for (const [sp, next] of gone.reverse()) p.layer.insertBefore(sp, next && next.parentElement === p.layer ? next : null)
+      // Complete again: found (the next try).
+      await new Promise(r => setTimeout(r, 900))
+      return { removed: gone.length, found, after: (p.figures || []).length }
+    }, doc.page)
+    const r1 = await overProse()
+    ok(`${tag}: 12. while half the text layer is missing no figures are found at all (only from the page's complete text); once complete, none over the prose`, partial.removed > 3 && partial.found === null && r1.over === 0 && r1.lines >= 5, { partial, r1 })
+    // 2. Found again once the page is drawn again (the complete layer): still none over the prose.
+    await a.evaluate(() => setZoom(state.zoom * 1.1, { quick: true })); await a.waitForTimeout(1600)
+    const r2 = await overProse()
+    ok(`${tag}: 12. found again on the redrawn page (complete text): none over the prose`, r2.over === 0, r2)
+    // 3. The pointer over the paragraph and a selection in it: the selection's bar, never the figure chip.
+    const pt = await a.evaluate(n => { const sp = [...state.pages[n - 1].layer.querySelectorAll(':scope > span')].filter(s => !s.dataset.f && s.textContent.trim().length >= 40).find(s => { const r = s.getBoundingClientRect(); return r.top > 150 && r.bottom < innerHeight - 150 }); const r = sp.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 } }, doc.page)
+    await a.mouse.move(pt.x, pt.y); await a.mouse.move(pt.x + 5, pt.y); await a.waitForTimeout(400)
+    const chip = await a.evaluate(() => !!document.querySelector('.byob-hot'))
+    await a.mouse.dblclick(pt.x, pt.y); await a.waitForTimeout(700)
+    const bar = await a.evaluate(() => ({ bar: !!document.querySelector('.mr-float.mr-bar, .mr-float .mr-bar__item, .mr-define'), chip: !!document.querySelector('.byob-hot') }))
+    ok(`${tag}: 12. over the paragraph no figure box or chip; a selection there gets the selection's bar`, !chip && bar.bar && !bar.chip, { chip, ...bar })
+    await shot(a, tag)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // Control: the figure paper's figures are still found (the prose rule takes no real figure away).
+  const F = await readerPage(browser, origin, addBook(FIGURE_PAPER), { width: 1440, height: 900, look: 'paper', minSpans: 5 })
+  await F.page.waitForFunction(() => state.pages[0]?.figures, null, { timeout: 15000 }).catch(() => {})
+  const figs = await F.page.evaluate(() => (state.pages[0].figures || []).length)
+  ok('figure-race: the figure paper\'s first page still has its figures', figs >= 1, figs)
+  await F.ctx.close()
+  return results
+}
+
+/* cards-gloss (19 Oct 2026, items 13 and 14): a card's top-right control minimises it (folds it, nothing deleted); its
+   bin is in the follow-up line beside the mic and deletes the card and its saved answer (with Undo); the card does
+   not quote its passage (screen readers get it as its description); a one-sentence answer is in regular weight. */
+async function cardsGloss(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height] of [[1440, 900], [390, 844]]) {
+    const tag = `cards-gloss-${width}x${height}`, phone = width < 700
+    const A = await readerPage(browser, origin, hex, { width, height, look: 'paper', startPage: 3 })
+    const a = A.page
+    await prefetchSettled(a)
+    mock.next = 'One sentence of a simpler wording of the passage.'
+    await selectText(a); await a.waitForSelector('.mr-float [data-m="simplify"]', { timeout: 5000 }).catch(() => {})
+    await a.click('.mr-float [data-m="simplify"]').catch(() => {}); await a.waitForTimeout(1300)
+    const host = phone ? '.mr-sheet' : '.mr-card.is-open'
+    const look = await a.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const close = el.querySelector('.mr-card__close'), del = el.querySelector('.mr-card__delete'), mic = el.querySelector('.mr-follow__mic'), about = el.querySelector('.mr-card__about'); return { close: close && [close.getAttribute('aria-label'), close.textContent.trim(), !!close.querySelector('svg path')], delInFollow: !!del?.closest('.mr-follow'), besideMic: !!del && del.nextElementSibling === mic, inActs: !!el.querySelector('.mr-card__acts .mr-card__delete'), copy: !!el.querySelector('.mr-card__acts .mr-card__copy'), quote: !!el.querySelector('.mr-quote'), described: el.getAttribute('aria-describedby') && document.getElementById(el.getAttribute('aria-describedby'))?.textContent.length > 5, bold: el.querySelectorAll('.mr-answer .is-bottom-line').length, answer: el.querySelector('.mr-answer')?.textContent.trim() } }, host)
+    ok(`${tag}: 13. the top-right control is "Minimise", one line, no ×`, look && look.close?.[0] === 'Minimise' && look.close[1] === '' && look.close[2], look)
+    ok(`${tag}: 13. the bin is in the follow-up line beside the mic; copy stays under the answer`, look && look.delInFollow && look.besideMic && !look.inActs && look.copy, look)
+    ok(`${tag}: 14. the card does not quote its passage; screen readers have it as the card's description`, look && !look.quote && look.described, look)
+    ok(`${tag}: 13. a one-sentence answer is in regular weight (no bold lead)`, look && look.bold === 0 && /^One sentence/.test(look.answer || ''), look)
+    // Minimise folds it; the answer is kept.
+    const id = await a.evaluate(() => col.open)
+    await a.click(`${host} .mr-card__close`); await a.waitForTimeout(300)
+    const folded = await a.evaluate(id => ({ open: col.open, kept: (store.get('cards:' + state.key) || []).some(c => c.id === id && !c.gone && c.turns?.length) }), id)
+    ok(`${tag}: 13. Minimise folds the card; its answer is kept`, !folded.open && folded.kept, folded)
+    // The bin deletes it and its saved answer (Undo offered).
+    await a.evaluate(id => openCard(id), id); await a.waitForTimeout(400)
+    await a.click(`${host} .mr-follow .mr-card__delete`); await a.waitForTimeout(400)
+    const gone = await a.evaluate(id => ({ open: col.open, stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: !!document.querySelector('.mr-undo:not([hidden])'), shown: !!document.querySelector(`.mr-card[data-id="${id}"]`) }), id)
+    ok(`${tag}: 13. the bin in the follow-up line deletes the card and its saved answer (Undo offered)`, !gone.open && gone.stored?.gone === true && !gone.stored.turns?.length && gone.undo && !gone.shown, gone)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3487,6 +3705,9 @@ const RUNS = {
   'highlight-place': [highlightPlace, rows => rows.some(r => !r.pass)],
   'card-fold': [cardFold, rows => rows.some(r => !r.pass)],
   'cross-page': [crossPage, rows => rows.some(r => !r.pass)],
+  'column-page': [columnPage, rows => rows.some(r => !r.pass)],
+  'figure-race': [figureRace, rows => rows.some(r => !r.pass)],
+  'cards-gloss': [cardsGloss, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3527,7 +3748,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

@@ -621,7 +621,9 @@ async function renderPage(p) {
   // A PDF's own text keeps a figure's labels and caption out of the body's flow (js/reading-order.js); a
   // recognised scan's lines are already in reading order, captions as their own blocks (pdf-ocr.js).
   buildTextLayer(p, items, page.getViewport({ scale: cssScale }), text.ocr ? null : text.roles);
-  if (!state.figs.has(p.n)) setTimeout(() => detectFigures(p), 0); else { const f = state.figs.get(p.n); p.figures = f.figures; p.captions = f.captions }
+  // Found again whenever the page's text layer is built again (a zoom, a redraw): a page's figures are only ever
+  // found from its complete text laid over its drawing, never kept from a layer that did not match it (19 Oct 2026).
+  setTimeout(() => detectFigures(p), 0);
   if (narr.active && narr.page === p.n) paintNarration();
 }
 // The drawn page, as printed: what snips, figure detection and sketches read.
@@ -3388,8 +3390,8 @@ function marginStart() {
     const el = col.el = document.createElement('div');
     el.className = 'mr mr-col is-reader'; el.setAttribute('role', 'complementary'); el.setAttribute('aria-label', 'Margin');
     // No whole-PDF line at the column's foot (Anders, 15 Oct): questions about the whole file go through Chat (the t menu, or "/").
-    el.innerHTML = '<button type="button" class="mr-stack" data-c="stack" hidden></button>';
-    col.stack = el.querySelector('.mr-stack');
+    // (No "N more" row: the column's cards are part of the page and are pushed down, never gathered; 19 Oct 2026.)
+    col.stack = document.createElement('button');
     bindCardEvents(el);
     // One scroll surface (Anders, 15 Oct): the wheel over the column scrolls the pages, unless it is over a card's own
     // scrolling body. Over an open card's body, Chat or Before you start that scrolls, it never reaches the pages, even
@@ -3436,7 +3438,7 @@ function marginStop() {
   for (const c of col.ctl.values()) c.abort();
   col.ctl.clear(); col.live.clear(); col.pending.clear(); col.quiz.clear();
   closeFloat(); closeSheet2();
-  col.el?.remove(); col.leads?.remove(); col.marks?.remove(); col.cover?.remove();
+  col.el?.remove(); col.leads?.remove(); col.marks?.remove(); col.cover?.remove(); dropDocLayer();
   col.els.forEach(e => e.remove()); col.els.clear();
   document.querySelectorAll('.mr-ul-layer').forEach(l => l.replaceChildren());
   if (root.classList.contains('margin-open')) { root.classList.remove('margin-open', 'dock-open'); root.style.removeProperty('--dock-w') }
@@ -3543,7 +3545,7 @@ function cardHtmlSafe(card, open) {
     const said = o.live != null ? o.live : [...(card.turns || [])].reverse().find(t => t.role === 'assistant')?.content || '';
     const paras = String(said || '').replace(/\{[^{}\n]{1,40}\}/g, '').split(/\n{2,}/).map(t => t.trim()).filter(Boolean).map(t => `<p>${esc(t)}</p>`).join('');
     if (!open) return `<button type="button" class="mr-card__label" data-c="open">${esc(name)}</button><div class="mr-card__text">${esc(String(card.text || said).slice(0, 140))}</div>`;
-    return `<div class="mr-card__label"><span class="mr-card__name">${esc(name)}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`
+    return `<div class="mr-card__label"><span class="mr-card__name">${esc(name)}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${TinctMargin.html.CARD_ICONS?.minimise || '–'}</button></div>`
       + `<div class="mr-card__body">${paras ? `<div class="mr-answer">${paras}</div>` : ''}${o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : o.live === '' ? '<div class="mr-wait"></div>' : ''}<div class="mr-card__acts"><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">${TinctMargin.html.CARD_ICONS?.trash || "×"}</button></div></div>`;
   }
 }
@@ -3593,6 +3595,7 @@ function drawCard(el, card, open) {
   const before = card.kind === 'quiz' && open ? el.offsetHeight : 0, kept = open ? bodyTop(el) : null;
   el.innerHTML = cardHtmlSafe(card, open);
   if (card.kind === 'quiz') holdQuizHeight(el, before);
+  describeCard(el, card, open);
   keepThread(el, card.id, kept);
   if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   if (open) { el.setAttribute('role', 'region'); el.setAttribute('aria-label', cardName(card)) } else { el.removeAttribute('role'); el.removeAttribute('aria-label') }
@@ -3608,6 +3611,11 @@ function drawCard(el, card, open) {
   if (f && focused) f.focus({ preventScroll: true });
   if (dictation.target) dictation.paint();
   return true;
+}
+/** The passage a card is about, for screen readers: its description (the card no longer quotes it; 19 Oct 2026). */
+function describeCard(el, card, open) {
+  const about = open && el.querySelector('.mr-card__about');
+  if (about) { about.id = 'mr-about-' + String(card.id).replace(/[^\w-]/g, ''); el.setAttribute('aria-describedby', about.id) } else el.removeAttribute('aria-describedby');
 }
 /** A card drawn again: its follow-up held near the top (holdThread), else its body where the reader had it. */
 function keepThread(el, id, kept) {
@@ -3628,22 +3636,24 @@ function layoutNow() {
     col.mode = mode;
     root.dataset.readerLayout = mode === 'focus' ? 'focus' : 'margin';
     reserveColumn(mode === 'column');
-    if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren() }
+    if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren(); dropDocLayer() }
     if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
     if (mode !== 'phone') closeSheet2();
     if (mode !== 'column') { primer.trig?.remove(); primer.trig = null }
     if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
     if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
-    if (col.cover) col.cover.hidden = mode !== 'column';
+    if (col.cover) col.cover.hidden = true;
     if (mode === 'phone' && col.open) { const o = col.open; col.open = null; openCard(o) }
   }
   if (!mode) return;
   if (!MP.P || !window.TinctWait) { mpReady.then(() => marginLayout()); return }
   if (wholeMovedOn()) col.open = null;
-  const vis = visibleCards();
-  underline(vis.find(v => v.card.id === col.open) || null);
-  if (mode === 'column') return layoutColumn(vis);
+  const vis = mode === 'column' ? [] : visibleCards();
+  // The open card's passage stays underlined wherever it is (the column's cards are part of the page).
+  const openCard_ = mode === 'column' && col.open && col.open !== 'whole' ? viewCards().find(c => c.id === col.open) : null;
+  underline(openCard_ ? { card: openCard_ } : vis.find(v => v.card.id === col.open) || null);
+  if (mode === 'column') return layoutColumn();
   if (mode === 'focus') return layoutFocus(vis);
   // Marks: at the page's right edge, level with each passage's first line. Passages closer than a
   // mark's 28px target share one mark, which opens each of their cards in turn.
@@ -3686,89 +3696,148 @@ function pageRightNow() {
   const sr = $('scroll').getBoundingClientRect(), p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > sr.top) || state.pages[0];
   return Math.min(pageEdge(p), sr.left + pagesWidth());
 }
-function layoutColumn(vis) {
-  const C = TinctMargin.COL, sr = $('scroll').getBoundingClientRect();
-  const pageRight = vis[0]?.pageRight ?? pageRightNow();
+/*
+ * The wide desktop's column is part of the page (Anders, 19 Oct 2026, beside Gloss): its cards, Before you start,
+ * Chat folded and "Deleted · Undo" sit in a layer inside the pages' scroller (col.doc), each at its passage's line,
+ * and scroll with the page; nothing is fixed to the window and nothing moves while the reader scrolls (a layout
+ * gives the same document positions, so it writes nothing). An open card grows in place: no scrolling body of its
+ * own, the page is the one scroll. Cards that would overlap are pushed down, in page order, as comments in a
+ * document editor. The leader line runs from the dot beside the passage's line to the card's label: straight
+ * across when the card sits at its passage (its label is placed level with the line), and when a card was pushed
+ * down, across, a short slant, then across into the card. Open Chat keeps its own panel (col.el, fixed); folded,
+ * it sits at the document's top. Before you start is at its unit's first page. The phone and narrow windows are
+ * as before.
+ */
+const SVGNS = 'http://www.w3.org/2000/svg';
+function docLayer() {
+  if (!col.doc) {
+    const el = col.doc = document.createElement('div');
+    el.className = 'mr mr-col mr-doc is-reader'; el.setAttribute('role', 'complementary'); el.setAttribute('aria-label', 'Margin');
+    bindCardEvents(el);
+    const svg = col.docLeads = document.createElementNS(SVGNS, 'svg');
+    svg.setAttribute('class', 'mr mr-leads mr-doc-leads'); svg.setAttribute('aria-hidden', 'true');
+    col.docLines = '';
+  }
+  const s = $('scroll');
+  if (col.doc.parentElement !== s) s.append(col.doc);
+  if (col.docLeads.parentElement !== col.doc) col.doc.prepend(col.docLeads);
+  return col.doc;
+}
+function dropDocLayer() { col.doc?.remove(); col.docLeads?.remove(); col.docLines = ''; if (col.docLeads) col.docLeads.innerHTML = '' }
+/** The pages' right edge for the column: the widest page's (kept per zoom and width, so it never moves with a scroll). */
+function docPageRight(sr, area) {
+  const key = [state.key, state.zoom, innerWidth, area, state.pages.length, $('scroll').scrollLeft].join('|');
+  if (col.edgeKey !== key) {
+    let right = -Infinity;
+    for (const p of state.pages) right = Math.max(right, pageEdge(p));
+    col.edgeKey = key; col.edgeAt = Math.min(right, sr.left + area); col.edgeOver = right > sr.left + area + 1;
+  }
+  return col.edgeAt;
+}
+function layoutColumn() {
+  const C = TinctMargin.COL, s = $('scroll'), sr = s.getBoundingClientRect(), area = pagesWidth();
+  const pageRight = docPageRight(sr, area);
   const box = TinctMargin.columnBox(innerWidth, pageRight);
   if (!box) return;
   col.el.style.left = box.left + 'px';
-  const area = pagesWidth();
-  Object.assign(col.cover.style, { left: sr.left + area + 'px', top: sr.top + 'px', width: Math.max(0, $('scroll').clientWidth - area) + 'px' });
-  // No foot: the cards keep COL.foot (46px) clear of the column's end, an open card too (its guard's --mr-foot-height).
-  const colTop = col.el.getBoundingClientRect().top, colH = col.el.clientHeight, footTop = colH;
+  const colH = col.el.clientHeight;
   col.el.style.setProperty('--mr-col-height', colH + 'px');
   col.el.style.setProperty('--mr-foot-height', C.foot + 'px');
-  // The primer, open, has the column to itself (mockup section 4); its trigger keeps the column's top.
-  if (primerInColumn()) {
-    primer.trig?.remove(); primer.trig = null;
-    col.els.forEach(e => { e.hidden = true }); col.stack.hidden = true; col.leads.replaceChildren();
-    return;
+  col.el.style.setProperty('--mr-reserve', '0px');
+  col.leads.replaceChildren();
+  const doc = docLayer();
+  const dy = s.scrollTop - sr.top, dx = s.scrollLeft - sr.left, Y = y => Math.round(y + dy), X = x => Math.round(x + dx);
+  const left = X(box.left);
+  if (doc.style.left !== left + 'px') doc.style.left = left + 'px';
+  // Zoomed-in pages wider than their area stay hidden beside the column, as before: the cover is in the cards'
+  // layer now, under the cards (a cover outside the scroller would hide them).
+  col.cover.hidden = true;
+  if (!col.docCover) { col.docCover = document.createElement('div'); col.docCover.className = 'mr-doc-cover'; col.docCover.setAttribute('aria-hidden', 'true') }
+  if (col.docCover.parentElement !== doc) doc.prepend(col.docCover);
+  col.docCover.hidden = !col.edgeOver;
+  if (col.edgeOver) Object.assign(col.docCover.style, { left: X(sr.left + area) - left + 'px', width: Math.max(0, s.clientWidth - area) + 'px', height: s.scrollHeight + 'px' });
+  // The leader lines, in the scroller's coordinates (the layer is at `left`), over the cover.
+  if (col.docLeads.style.left !== -left + 'px') col.docLeads.style.left = -left + 'px';
+  const pageTop = n => { const p = state.pages[n - 1]; return p ? p.pg.getBoundingClientRect() : null };
+  const items = [], keep = new Set();
+  const take = (id, parent = doc) => {
+    let el = col.els.get(id);
+    if (!el) { el = document.createElement('div'); col.els.set(id, el) }
+    if (el.parentElement !== parent) parent.appendChild(el);
+    el.hidden = false; el.classList.remove('is-row');
+    keep.add(id);
+    return el;
+  };
+  const first = pageTop(1), docTop = first ? Y(first.top) : 0;
+  // Chat: open, its own panel (fixed); folded, at the document's top.
+  if (col.open === 'whole') { const el = take('whole', col.el); drawWhole(el); el.style.top = '0px' }
+  else if (chat.turns.length || chat.live) { const el = take('whole'); drawWhole(el); items.push({ el, ey: docTop, top: docTop, order: -2 }) }
+  // Before you start, at its unit's first page: the trigger, or the primer open in its place.
+  const unit = primer.open ? primer.unit : primer.units && primerHasText() ? currentUnit() : null;
+  primer.trig && !unit && (primer.trig.remove(), primer.trig = null);
+  if (unit) {
+    const p = state.pages[(unit.from || unit.start) - 1], pr = p?.pg.getBoundingClientRect(), frac = p ? pageFirstLine(p) : null;
+    const ey = pr ? Y(pr.top + (frac == null ? 0 : frac * pr.height)) : docTop;
+    if (primer.open) {
+      primer.trig?.remove(); primer.trig = null;
+      const el = primerEl(); el.classList.remove('is-floating');
+      if (el.parentElement !== doc) { el.removeAttribute('style'); doc.appendChild(el) }
+      drawPrimer(el);
+      items.push({ el, ey, top: ey - 4, order: -1 });
+    } else {
+      primer.el?.remove(); primer.el = null;
+      if (!primer.trig) { const b = primer.trig = document.createElement('button'); b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false'); b.title = 'Before you start (B)' }
+      const b = primer.trig;
+      if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: ${TinctMargin.triggerLine(unit)} Key B.`) }
+      if (b.parentElement !== doc) doc.appendChild(b);
+      items.push({ el: b, ey, top: ey - 4, order: -1 });
+    }
+    // The unit's quiz (from the primer), below it.
+    const openUnit = col.open && cardById(col.open)?.data?.unit ? cardById(col.open) : null, uq = openUnit || unitQuiz(unit);
+    if (uq) { const el = take(uq.id); drawCard(el, uq, col.open === uq.id); el.classList.add('is-unit'); items.push({ el, ey, top: ey, order: 0 }) }
+  } else { primer.el?.remove(); primer.el = null }
+  // The cards, each at its passage's line.
+  for (const card of viewCards()) {
+    if (card.data?.unit || keep.has(card.id)) continue;
+    const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1]; if (!p) continue;
+    const b = p.pg.getBoundingClientRect();
+    const h = (card.kind === 'figure' ? Math.min(f[4], 22 / b.height) : f[4]) * b.height;
+    const el = take(card.id); drawCard(el, card, col.open === card.id);
+    const lab = el.querySelector('.mr-card__label');
+    const mid = lab ? Math.round(lab.offsetTop + lab.offsetHeight / 2) : 12;
+    // The passage's line; a figure's card starts level with the figure's top (less 4px), its line at its label.
+    const ey = card.kind === 'figure' ? Y(b.top + f[2] * b.height) - 4 + mid : Y(b.top + f[2] * b.height + h / 2);
+    items.push({ el, ey, top: ey - mid, mid, card, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot, order: 1 });
   }
-  // The trigger is placed with the cards, level with its page's first line of text (less 4px, as a card).
-  const trig = triggerInColumn(colTop);
-  // An open card stops at the column's foot as the guard says, less the trigger's room.
-  col.el.style.setProperty('--mr-reserve', (trig ? trig.height + TinctMargin.COL.cardGap : 0) + 'px');
-  // The whole-PDF card (when the thread has turns) sits first, at the top; then a unit's quiz, when open or at the unit's start.
-  const items = [];
-  if (chat.turns.length || chat.live || col.open === 'whole') items.push({ id: 'whole', card: { id: 'whole', kind: 'whole' }, top: 0, fold: false });
-  const openUnit = col.open && cardById(col.open)?.data?.unit ? cardById(col.open) : null, trigUnit = triggerUnit();
-  const uq = openUnit || (trigUnit && unitQuiz(trigUnit));
-  if (uq) items.push({ id: uq.id, card: uq, top: 0, fold: false });
-  for (const v of vis) items.push({ id: v.card.id, card: v.card, v, top: v.line.top - colTop });
-  // In page order among the cards: after the ones pinned to the top, before the first passage below its line.
-  if (trig) { const k = items.findIndex(it => it.v && it.top > trig.top); items.splice(k < 0 ? items.length : k, 0, { id: 'trigger', trigger: true, top: trig.top, fold: false }) }
-  // "Deleted · Undo" keeps the deleted card's place for a few seconds (deleteCard), placed with the cards.
-  const undoAt = undoTop(colTop, colH);
-  if (undo.el && !undo.el.classList.contains('is-float')) undo.el.hidden = undoAt == null;
-  if (undoAt != null) { if (undo.el.parentElement !== col.el) col.el.insertBefore(undo.el, col.stack); const k = items.findIndex(it => it.v && it.top > undoAt); items.splice(k < 0 ? items.length : k, 0, { id: 'undo', undo: true, top: undoAt, fold: false }) }
-  const keep = new Set(items.map(i => i.id));
+  // "Deleted · Undo" keeps the deleted card's place for a few seconds.
+  if (undo.el && undo.rect && !undo.el.classList.contains('is-float')) {
+    const b = pageTop(undo.rect[0]);
+    if (b) { if (undo.el.parentElement !== doc) doc.appendChild(undo.el); undo.el.hidden = false; const ey = Y(b.top + undo.rect[2] * b.height); items.push({ el: undo.el, ey, top: ey - Math.round(undo.el.offsetHeight / 2), order: 1 }) }
+  }
   for (const [id, el] of col.els) if (!keep.has(id)) { el.remove(); col.els.delete(id) }
+  // Pushed down in page order, never over the card before.
+  items.sort((a, b) => a.ey - b.ey || a.order - b.order);
+  let floor = 0;
+  const lines = [];
   for (const it of items) {
-    if (it.trigger || it.undo) continue;
-    let el = col.els.get(it.id);
-    if (!el) { el = document.createElement('div'); col.els.set(it.id, el); col.el.insertBefore(el, col.stack) }
-    el.hidden = false;
-    if (it.id === 'whole') drawWhole(el); else drawCard(el, it.card, col.open === it.id);
-    // Measured as a folded card; placement says which become one-line rows.
-    el.classList.remove('is-row');
+    const top = Math.max(Math.round(it.top), floor);
+    if (it.el.style.top !== top + 'px') it.el.style.top = top + 'px';
+    floor = top + it.el.offsetHeight + C.cardGap;
+    if (!it.card) continue;
+    const cy = top + it.mid, x0 = it.x0, x1 = left - 6, folded = it.card.id === col.open ? '' : ' class="is-folded"';
+    // Straight across when the card is level with its passage; pushed down, across, a short slant, then across.
+    const d = Math.abs(cy - it.ey) <= 1 ? `M${x0} ${it.ey} H${x1}` : `M${x0} ${it.ey} H${x0 + 12} L${x1 - 12} ${cy} H${x1}`;
+    lines.push(`<circle${folded} cx="${x0}" cy="${it.ey}" r="${C.r}"/><path${folded} d="${d}"/>`);
   }
-  // The row's height on one line ("1 more on this page"), measured once.
-  if (!col.stackH) { const was = col.stack.hidden; col.stack.hidden = false; col.stack.innerHTML = TinctMargin.html.stackHtml([{ kind: 'note' }], Infinity, { doc: docKind() }); col.stackH = col.stack.offsetHeight || 34; col.stack.hidden = was }
-  const stackH = col.stackH;
-  // A one-line row's height (crowded pages), measured once.
-  if (!col.rowH) {
-    const r = document.createElement('div'); r.className = 'mr mr-card is-folded is-row'; r.style.visibility = 'hidden';
-    r.innerHTML = TinctMargin.html.cardHtml({ id: 'row', kind: 'note', note: 'A row', text: '' }, { open: false, P: MP.P });
-    col.el.appendChild(r); col.rowH = r.offsetHeight || TinctMargin.COL.row; r.remove();
+  const html = lines.join('');
+  if (col.docLines !== html) { col.docLines = html; col.docLeads.innerHTML = html }
+  // A follow-up just sent: brought into view on the page (the card grows below; the page is the one scroll).
+  const held = col.open && holds.get(col.open), el = held?.place && col.els.get(col.open), row = el && el.querySelector(`[data-turn="${held.turn}"]`);
+  if (row) {
+    held.place = false;
+    const r = row.getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect().bottom;
+    if (r.bottom > sr.bottom - 24 || r.top < Math.max(sr.top, hdr)) s.scrollBy({ top: r.top - (Math.max(sr.top, hdr) + (sr.bottom - Math.max(sr.top, hdr)) * 0.25) });
   }
-  const elOf = it => (it.trigger ? primer.trig : it.undo ? undo.el : col.els.get(it.id));
-  // A quiz whose questions are still streaming in (col.quiz) never folds or gathers; once saved it does, like any card.
-  const out = TinctMargin.placeCards(items.map(i => ({ id: i.id, top: i.top, at: i.card?.at, fold: i.fold !== false && col.open !== i.id && !col.quiz.has(i.id), keep: !!i.trigger || !!i.undo || col.quiz.has(i.id) })), items.map(i => elOf(i).offsetHeight), footTop, { open: col.open, stackHeight: stackH, rowHeight: col.rowH });
-  const at = new Map(out.positions.map(p => [p.id, p]));
-  const x1 = box.left - 6, lines = [];
-  for (const it of items) {
-    const el = elOf(it), p = at.get(it.id);
-    if (it.trigger || it.undo) { el.style.top = (p ? p.top : 0) + 'px'; continue }
-    if (!p) { el.hidden = true; continue }
-    el.classList.toggle('is-row', !!p.row);
-    el.style.top = p.top + 'px';
-    if (!it.v) continue;
-    const lab = el.querySelector('.mr-card__label').getBoundingClientRect();
-    const ey = (it.v.line.top + it.v.line.bottom) / 2, cy = (lab.top + lab.bottom) / 2, x0 = it.v.pageRight + C.dot;
-    lines.push({ x0, ey, cy, open: it.id === col.open });
-  }
-  const gathered = out.gathered.map(id => items.find(i => i.id === id && !i.trigger && !i.undo)).filter(Boolean);
-  col.stack.hidden = !out.stack;
-  if (out.stack) {
-    // One line: as many of the kinds as fit.
-    const kinds = new Set(gathered.map(g => g.card.kind)).size;
-    for (let k = kinds; k >= 1; k--) { col.stack.innerHTML = TinctMargin.html.stackHtml(gathered.map(g => g.card), k, { doc: docKind() }); if (col.stack.offsetHeight <= stackH + 1) break }
-    col.stack.dataset.first = gathered[0]?.id || '';
-    col.stack.style.top = out.stack.top + 'px';
-    const cy = colTop + out.stack.top + col.stack.offsetHeight / 2;
-    for (const g of gathered) if (g.v) lines.push({ x0: g.v.pageRight + C.dot, ey: (g.v.line.top + g.v.line.bottom) / 2, cy, open: false });
-  }
-  col.leads.innerHTML = lines.map(l => { const f = l.open ? '' : ' class="is-folded"'; return `<circle${f} cx="${l.x0.toFixed(1)}" cy="${l.ey.toFixed(1)}" r="${C.r}"/><path${f} d="${TinctMargin.leadPath(l.x0, l.ey, x1, l.cy)}"/>` }).join('');
 }
 /** The open card's passage: a 1.5px underline in the lead colour, on the page. */
 function underline(v) {
@@ -3913,6 +3982,7 @@ function drawSheet() {
   const before = card.kind === 'quiz' ? el.offsetHeight : 0, keptTop = bodyTop(el);
   el.innerHTML = TinctMargin.html.sheetHtml(cardHtmlSafe(card, true));
   if (card.kind === 'quiz') holdQuizHeight(el, before);
+  describeCard(el, card, true);
   keepThread(el, card.id, keptTop);
   if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   const live = col.live.get(card.id);
@@ -4529,7 +4599,7 @@ addEventListener('keydown', e => {
    in this browser ('primer:{key}:{unit}') and, signed in with the book in the account, with the
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
-const primer = { units: null, unitsTask: null, open: false, from: null, box: null, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
+const primer = { units: null, unitsTask: null, open: false, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
 const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
 function primerReset() {
   primer.token++;
@@ -4758,9 +4828,7 @@ function openPrimer(unit = currentUnit(), { keyboard = false } = {}) {
   if (!unit || !mode || !primerHasText()) return;
   if (col.open && col.sheet) closeSheet2();
   col.open = null; closeFloat();
-  // It opens where its trigger is and grows from there (primerInColumn): the trigger's place in the column.
-  const t = mode === 'column' && primer.trig?.isConnected ? primer.trig : null;
-  primer.from = t ? { top: t.offsetTop, height: t.offsetHeight } : null; primer.box = null;
+  // In the column it opens in its trigger's place, at its unit's first page (layoutColumn), and scrolls with the page.
   primer.open = true; primer.unit = unit; primer.keyed = keyboard;
   if (mode === 'phone') openSheet2('primer');
   loadPrimer(unit);
@@ -4799,44 +4867,6 @@ function primerEl() {
   }
   return primer.el;
 }
-/**
- * The column: the primer in place of the cards, from where its trigger was down to 70px above the
- * column's foot (TinctMargin.primerBox). It opens in place (Anders, 15 Oct: "it should just expand"):
- * the trigger's own box grows into the open primer, its height easing down, never jumping up; with
- * reduced motion it is there at once, at the same place. -> true when it is open
- */
-function primerInColumn() {
-  if (!primer.open) { primer.el?.remove(); primer.el = null; return false }
-  const el = primerEl(), fresh = el.parentElement !== col.el;
-  el.classList.remove('is-floating');
-  if (fresh) { el.removeAttribute('style'); col.el.insertBefore(el, col.el.firstChild) }
-  const colH = col.el.clientHeight, colTop = col.el.getBoundingClientRect().top;
-  // Placed once when it opens, at a point on the pages; later layouts (a scroll, a resize) keep it at that
-  // point, so it scrolls away with the page as a card does, and its height stays.
-  if (!primer.box || fresh) { primer.box = TinctMargin.primerBox(primer.from, colH); primer.anchor = pagePoint(colTop + primer.box.top) }
-  const height = Math.max(0, colH - TinctMargin.PRIMER.bottom - primer.box.top), at = pointOnPages(primer.anchor);
-  const top = at == null ? primer.box.top : Math.round(at - colTop);
-  // Scrolled out of the column: it waits there (still open) and the cards have the column.
-  if (top + height <= 0 || top >= colH) { el.style.display = 'none'; return false }
-  el.style.display = '';
-  drawPrimer(el);
-  // Above the column's top it goes under the top bar, never over it.
-  el.style.clipPath = top < 0 ? `inset(${-top}px -60px -60px -60px)` : '';
-  const still = !fresh || !primer.box.start || matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (still) { if (!el.classList.contains('is-growing')) Object.assign(el.style, { top: top + 'px', bottom: 'auto', height: height + 'px' }); return true }
-  // From the trigger's box to the open primer's, in one easing.
-  const start = primer.box.start;
-  Object.assign(el.style, { top: start.top + 'px', bottom: 'auto', height: start.height + 'px', transition: 'none' });
-  el.classList.add('is-growing');
-  void el.offsetHeight;
-  el.style.transition = '';
-  el.classList.remove('is-growing'); el.classList.add('is-opening');
-  Object.assign(el.style, { top: top + 'px', height: height + 'px' });
-  const done = () => { el.classList.remove('is-opening'); el.removeEventListener('transitionend', onEnd) };
-  const onEnd = e => { if (e.target === el && e.propertyName === 'height') done() };
-  el.addEventListener('transitionend', onEnd); setTimeout(done, 450);
-  return true;
-}
 /** A point on the pages at viewport height `y`: { n, frac } of that page's height (the page there, or the nearest). */
 function pagePoint(y) {
   if (!state.pages.length) return null;
@@ -4860,23 +4890,6 @@ function pageFirstLine(p) {
   const frac = (Math.min(...tops) - b.top) / b.height;
   firstLineFrac.set(key, frac);
   return frac;
-}
-/** The column's trigger at the unit's start, a folded card at its page's first line. -> { top (that line, from the column's top), height }, or null */
-function triggerInColumn(colTop) {
-  const unit = triggerUnit();
-  if (!unit) { primer.trig?.remove(); primer.trig = null; return null }
-  if (!primer.trig) {
-    const b = primer.trig = document.createElement('button');
-    b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false'); b.title = 'Before you start (B)';
-  }
-  const b = primer.trig;
-  if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: ${TinctMargin.triggerLine(unit)} Key B.`) }
-  if (b.parentElement !== col.el) col.el.insertBefore(b, col.el.firstChild);
-  // The first line of text on the page the reader is on (the unit's first pages: a title page, its start);
-  // before the text layer is drawn, that page's top.
-  const p = state.pages[Math.max(unit.from, Math.min(unit.start, placePage())) - 1], pr = p?.pg.getBoundingClientRect(), frac = p ? pageFirstLine(p) : null;
-  const line = pr ? pr.top + (frac == null ? 0 : frac * pr.height) : colTop;
-  return { top: line - colTop, height: b.offsetHeight };
 }
 /** Narrow windows: the primer floats beside the page, as a card opened from a mark does. */
 function placePrimerFloat(pageRight, { anchored = false } = {}) {
@@ -5253,8 +5266,17 @@ async function regionPopup(box, item) {
 }
 
 /* ---------- Figures: areas with ink but no running text get a hover chip (TinctMargin.findFigures) ---------- */
-function detectFigures(p) {
-  if (!p.canvas || !p.layer || state.figs.has(p.n)) return;
+async function detectFigures(p) {
+  if (!p.canvas || !p.layer || p.figLayer === p.layer) return;
+  const layer = p.layer, token = state.token;
+  // Only from the page's complete text (19 Oct 2026: a paragraph boxed as a figure while its text was not all in):
+  // every item pdf.js gives for the page has its span in the layer, laid over the drawing it was built for (the
+  // layer is in page fractions). Until then nothing is found (and it is tried again once the layer is complete).
+  const text = await pageText(p.n).catch(() => null);
+  if (token !== state.token || p.layer !== layer || !p.canvas) return;
+  const complete = !text || text.ocr || !Array.isArray(text.items) || (p.spans?.length === text.items.length && p.spans.every(sp => !sp || sp.isConnected));
+  if (!complete) { if ((p.figTries = (p.figTries || 0) + 1) <= 40) setTimeout(() => detectFigures(p), 300); return }
+  p.figLayer = layer; p.figTries = 0;
   const c = drawn(p), W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
   const g = document.createElement('canvas'); g.width = W; g.height = H;
   const x = g.getContext('2d', { willReadFrequently: true }); x.drawImage(c, 0, 0, W, H);
