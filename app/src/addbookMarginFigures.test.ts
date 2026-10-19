@@ -349,9 +349,13 @@ describe('a figure’s card: beside the figure, one thread per figure (item 4)',
     expect(body.querySelector('.mr-quote')!.textContent).toMatch(/^Figure 1\. A network/)
     expect([...body.querySelectorAll('.mr-you')].map(e => e.textContent)).toEqual(['What are the rows?'])
     expect(body.querySelectorAll('.mr-answer')).toHaveLength(2)
-    // While the thumbnail is drawn: the box with its room, no picture yet.
-    const waiting = new DOMParser().parseFromString(M.html.cardHtml(card, { open: true, P, pageLabel: '1', thumbRatio: 2.5 }), 'text/html')
+    // While the thumbnail is drawn (thumb '', narrow windows and the phone): the box with its room, no picture yet.
+    const waiting = new DOMParser().parseFromString(M.html.cardHtml(card, { open: true, P, pageLabel: '1', thumb: '', thumbRatio: 2.5 }), 'text/html')
     expect(waiting.querySelector('.mr-thumb')!.children).toHaveLength(0)
+    // The wide column (Anders, 19 Oct 2026, night): no thumbnail given, no picture; the card starts with the caption.
+    const wide = new DOMParser().parseFromString(`<div>${M.html.cardHtml(card, { open: true, P, pageLabel: '1' })}</div>`, 'text/html')
+    expect(wide.querySelector('.mr-thumb')).toBeNull()
+    expect(wide.querySelector('.mr-card__body')!.firstElementChild!.className).toBe('mr-quote')
     // A first question asked from Chat shows as the reader's bubble.
     const chat = M.html.cardHtml({ ...figureCard(), turns: [{ role: 'user', content: 'What do the rows stand for?' }] }, { open: true, P, pageLabel: '1' })
     expect(chat).toContain('<div class="mr-you" data-turn="0">What do the rows stand for?</div>')
