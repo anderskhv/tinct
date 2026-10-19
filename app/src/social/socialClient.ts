@@ -210,24 +210,55 @@ export function newBooksOpenIn(doc: Document | null = typeof document === 'undef
  */
 export async function resizePhoto(file: Blob, slot: 'picture' | 'background'): Promise<Blob | null> {
   const [width, height] = slot === 'picture' ? [512, 512] : [1600, 800]
-  let bitmap: ImageBitmap | null = null
+  const image = await decodePhoto(file)
+  if (!image) return null
   try {
-    bitmap = await createImageBitmap(file)
-    const scale = Math.max(width / bitmap.width, height / bitmap.height)
+    const scale = Math.max(width / image.width, height / image.height)
     const sw = width / scale
     const sh = height / scale
-    const sx = (bitmap.width - sw) / 2
-    const sy = (bitmap.height - sh) / 2
+    const sx = (image.width - sw) / 2
+    const sy = (image.height - sh) / 2
     const canvas = document.createElement('canvas')
     canvas.width = width
     canvas.height = height
     const context = canvas.getContext('2d')
     if (!context) return null
-    context.drawImage(bitmap, sx, sy, sw, sh, 0, 0, width, height)
+    context.drawImage(image.source, sx, sy, sw, sh, 0, 0, width, height)
     return await new Promise(resolve => canvas.toBlob(blob => resolve(blob), 'image/jpeg', 0.86))
   } catch {
     return null
   } finally {
-    bitmap?.close()
+    image.close()
+  }
+}
+
+interface DecodedPhoto {
+  source: CanvasImageSource
+  width: number
+  height: number
+  close: () => void
+}
+
+/**
+ * The photo's pixels. createImageBitmap first; Safari on iPad and iPhone
+ * cannot make a bitmap from some photos (HEIC among them) that it can still
+ * show, so an <img> decodes those instead.
+ */
+async function decodePhoto(file: Blob): Promise<DecodedPhoto | null> {
+  try {
+    const bitmap = await createImageBitmap(file)
+    return { source: bitmap, width: bitmap.width, height: bitmap.height, close: () => bitmap.close() }
+  } catch { /* the <img> below */ }
+  if (typeof URL === 'undefined' || typeof URL.createObjectURL !== 'function') return null
+  const url = URL.createObjectURL(file)
+  try {
+    const img = new Image()
+    img.src = url
+    await img.decode()
+    if (!img.naturalWidth || !img.naturalHeight) { URL.revokeObjectURL(url); return null }
+    return { source: img, width: img.naturalWidth, height: img.naturalHeight, close: () => URL.revokeObjectURL(url) }
+  } catch {
+    URL.revokeObjectURL(url)
+    return null
   }
 }
