@@ -11,6 +11,7 @@
 //   4. on a phone (390×844) the same /reader stays the reader, as today.
 // CONTINUE_SHOTS=<dir> writes screenshots.
 import { chromium } from '@playwright/test'
+import { markInternal } from './lib/internalTraffic.cjs'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import fs from 'node:fs/promises'
@@ -81,7 +82,7 @@ async function seed(page, registeredAt) {
 }
 
 const executablePath = process.env.CHROMIUM_PATH || undefined
-const browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) })
+const browser = await markInternal(await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) }))
 const results = []
 const check = (name, ok, detail = '') => { results.push({ name, ok }); console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  ' + detail : ''}`) }
 
