@@ -3953,19 +3953,23 @@ async function epubViewCheck(browser, origin) {
     await e.click('.nb-entry .nb-kind'); await e.waitForTimeout(1500)
     const jump = await e.evaluate(() => { const c = (store.get('cards:' + state.key) || [])[0], r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], sr = document.getElementById('scroll').getBoundingClientRect(); return { open: col.open === c.id, inView: r.top > sr.top && r.bottom < sr.bottom, card: !!document.querySelector('.mr-card.is-open') } })
     ok(`${tag}: its entry jumps to the passage and opens the card`, jump.open && jump.inView && jump.card, jump)
+    await shot(e, `${tag}-card`)
     await e.keyboard.press('Escape'); await e.evaluate(() => { openCard(null) })
     // Back at the place, then a reload: the same paragraph and word.
     await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await e.evaluate(() => savePlaceNow())
     await e.reload(); await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
     const reloaded = await e.evaluate(spotNow)
-    ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && Math.abs(reloaded.word - here.word) <= 1, { here, reloaded })
+    ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
     // The text size and the window's width change: the place stays.
     await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800)
     const zoomed = await e.evaluate(spotNow)
     await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800)
     const narrowed = await e.evaluate(spotNow)
     await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800)
-    ok(`${tag}: a text size or width change keeps the paragraph in view`, zoomed.para === here.para && narrowed.para === here.para && zoomed.page === 3 && narrowed.page === 3, { here, zoomed, narrowed })
+    const sizedBack = await e.evaluate(spotNow)
+    // The same paragraph, its line at the top (the word's line may start a word or two earlier once the lines wrap anew).
+    const near = x => x.page === here.page && x.para === here.para && x.word <= here.word && here.word - x.word <= 12
+    ok(`${tag}: a text size or width change keeps the paragraph and word at the top`, near(zoomed) && near(narrowed) && near(sizedBack), { here, zoomed, narrowed, sizedBack })
     // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
     await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600)
     await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
@@ -3974,7 +3978,8 @@ async function epubViewCheck(browser, origin) {
     const left = await e.evaluate(([k, h]) => ({ view: JSON.parse(localStorage.getItem('tinct-addbook:epub-view:' + h)), pos: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)) }), [key, hex])
     ok(`${tag}: Convert to Tinct book opens the Tinct reader, kept as this device's choice, the place sent by its words`, left.view === 'text' && left.pos.quote === here.quote && left.pos.para === here.para, left)
     // With that choice, this address goes on to the Tinct reader; the Tinct reader's "Margin view" comes back to the same words.
-    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`, { timeout: 20000 }), e.goto(`${origin}/lab/addbook/?userBook=${hex}`)])
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`).catch(() => {})
+    await e.waitForURL(`**/reader?userBook=${hex}`, { timeout: 20000 }).catch(() => {})
     ok(`${tag}: chosen, the Tinct reader is where it opens on this device`, e.url().includes(`/reader?userBook=${hex}`), e.url())
     const target = await e.evaluate(() => 'Lamplight has always posed questions about the nature of the evening')
     await e.evaluate(([k, h, q]) => { localStorage.setItem('tinct-addbook:epub-view:' + h, JSON.stringify('margin')); const pos = JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)); localStorage.setItem('tinct-addbook:pos:' + k, JSON.stringify({ ...pos, via: 't', quote: q, at: Date.now() })) }, [key, hex, 'If we really do live in a lamplit household, then where does electricity fit'])

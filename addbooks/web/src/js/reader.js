@@ -1578,7 +1578,7 @@ function setZoom(z, { quick = false } = {}) {
     if (state.zoom > 1 && before <= 1 && dock.state === 'docked') setDock('minimized', { byZoom: true });
     else if (state.zoom <= 1 && dock.byZoom && dock.state === 'minimized') setDock('docked');
   }
-  if (isEpub()) { applyEpubScale(); goTo(place); onScroll(); savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }); return }
+  if (isEpub()) { epubReflow(() => { applyEpubScale(); goTo(place) }); onScroll(); savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }); return }
   zoomClass();
   applyCrop();
   const w = sheetWidth();
@@ -6050,16 +6050,35 @@ function epubParas(p) {
   return p.paras;
 }
 const wordsOf = text => String(text || '').trim().split(/\s+/).filter(Boolean);
-/** The paragraph and word at the top of the view, and the words from there. */
+/** A paragraph's words as [text node, start, end], in order (its text never changes once drawn). */
+const wordCache = new WeakMap();
+function wordSpans(el) {
+  let list = wordCache.get(el);
+  if (!list) {
+    list = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    for (let node; (node = walker.nextNode());) for (const m of node.nodeValue.matchAll(/\S+/g)) list.push([node, m.index, m.index + m[0].length]);
+    wordCache.set(el, list);
+  }
+  return list;
+}
+function wordRect(el, i) {
+  const w = wordSpans(el)[i]; if (!w) return null;
+  const r = document.createRange(); r.setStart(w[0], w[1]); r.setEnd(w[0], w[2]);
+  return [...r.getClientRects()].find(q => q.height > 0) || r.getBoundingClientRect();
+}
+/** The first index in 0..n-1 whose `bottom(i)` is past `y` (bottoms grow with i), or n. */
+function firstPast(n, bottom, y) { let lo = 0, hi = n; while (lo < hi) { const mid = (lo + hi) >> 1; if (bottom(mid) > y) hi = mid; else lo = mid + 1 } return lo }
+/** The paragraph and word at the top of the view (the first word whose line is in view), and the words from there. */
 function epubSpot() {
   const none = { para: undefined, word: undefined, quote: undefined };
   const place = currentPlace(), p = state.pages[place.page - 1]; if (!p) return none;
-  const top = $('scroll').getBoundingClientRect().top, paras = epubParas(p);
-  const i = paras.findIndex(el => el.getBoundingClientRect().bottom > top + 1);
-  if (i < 0) return none;
-  const r = paras[i].getBoundingClientRect(), words = wordsOf(paras[i].textContent);
-  const word = r.top >= top || !words.length ? 0 : Math.min(words.length - 1, Math.floor(words.length * (top - r.top) / Math.max(1, r.height)));
-  return { para: i, word, quote: words.slice(word, word + 14).join(' ').slice(0, 120) };
+  const top = $('scroll').getBoundingClientRect().top + 1, paras = epubParas(p);
+  const i = firstPast(paras.length, k => paras[k].getBoundingClientRect().bottom, top);
+  if (i >= paras.length) return none;
+  const el = paras[i], words = wordsOf(el.textContent);
+  const word = el.getBoundingClientRect().top >= top ? 0 : Math.min(words.length - 1, firstPast(wordSpans(el).length, k => wordRect(el, k)?.bottom ?? -Infinity, top));
+  return { para: i, word: Math.max(0, word), quote: words.slice(Math.max(0, word), Math.max(0, word) + 14).join(' ').slice(0, 120) };
 }
 /** Scroll until `measure()` (a client y, or null) stands `at` of the way down the view; the chapters measure as they come near. */
 function epubSettle(measure, at = 0, tries = 6) {
@@ -6079,10 +6098,27 @@ function epubSettle(measure, at = 0, tries = 6) {
 function epubGoSpot(n, para, word = 0) {
   const p = state.pages[n - 1], el = p && epubParas(p)[para]; if (!el) return false;
   goTo({ page: n, frac: 0 });
-  const words = Math.max(1, wordsOf(el.textContent).length);
-  epubSettle(() => { const r = el.getBoundingClientRect(); return r.top + Math.min(1, word / words) * r.height - (word ? 2 : 10) });
+  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - 10));
   return true;
 }
+/* A change of width (the window, Full width) or text size reflows the chapters: the paragraph and word at the
+   top of the view stay there. The spot is read as the reader scrolls (not while the text reflows) and gone back to. */
+const epubHold = { spot: null, page: 0, raf: 0, reflow: 0 };
+function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
+$('scroll').addEventListener('scroll', () => { if (isEpub() && !epubHold.raf) epubHold.raf = requestAnimationFrame(() => { epubHold.raf = 0; epubHoldNow() }) }, { passive: true });
+/** Around a reflow: `change()` reflows; the held spot is gone back to. */
+function epubReflow(change) {
+  epubHoldNow();
+  const { spot, page } = epubHold;
+  epubHold.reflow++;
+  change();
+  if (spot && page) epubGoSpot(page, spot.para, spot.word);
+  setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 400);
+}
+addEventListener('resize', () => {
+  if (!isEpub() || !epubHold.spot) return;
+  if (!epubHold.reflow) { epubHold.reflow++; setTimeout(() => { epubHold.reflow--; const { spot, page } = epubHold; if (isEpub() && spot && page) epubGoSpot(page, spot.para, spot.word) }, 220) }
+});
 /** To a character offset in chapter `n` (a card's or a highlight's passage), a quarter of the way down the view. */
 function epubGoOffset(n, offset) {
   const p = state.pages[n - 1]; if (!p) return Promise.resolve(false);
