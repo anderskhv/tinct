@@ -61,6 +61,12 @@ describe('where an EPUB opens (epubView)', () => {
     expect(ownBookHref(HEX, 'pdf', 'text')).toBe(`/reader?userBook=${HEX}`)
   })
 
+  it('a file added from the library opens in its view too (add-engine.js prepareEpub, the same rule)', async () => {
+    const engine = await import('node:fs').then(fs => fs.readFileSync(resolve(__dirname, '../../../public/lab/addbook/js/add-engine.js'), 'utf8'))
+    expect(engine).toContain("const margin = global.innerWidth >= 700 && store.get('epub-view:' + decodeURIComponent(hex)) !== 'text';")
+    expect(engine).toContain("return { title: meta.title, author, href: epubHref(key) };")
+  })
+
   it('the Aa panel of an EPUB in Margin view: that view, and Convert to Tinct book; none without the margin', () => {
     expect(RL.options('epub', { epubMargin: true })).toEqual([{ id: 'margin', label: 'Margin view (default)', on: true }, { id: 'text', label: 'Convert to Tinct book', on: false, leaves: true }])
     expect(RL.options('epub')).toEqual([])

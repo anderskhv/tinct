@@ -256,8 +256,19 @@
     // The cover at full size (coverV 2); a book kept with the old 180 px thumbnail is redrawn here, on its next open.
     await library.touch(key, { title: meta.title, author, coverV: 2, ...(meta.cover ? { cover: meta.cover, coverW: meta.coverWidth } : {}) });
     if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet: silent, notify }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
-    return { title: meta.title, author, href: '/reader?userBook=' + encodeURIComponent(key.slice('epub:'.length)) };
+    return { title: meta.title, author, href: epubHref(key) };
   }
+  /**
+   * Where a kept EPUB opens (Anders, 19 Oct 2026): on the desktop, Add a book's margin reader
+   * (/lab/addbook/?userBook=<hex>, Margin view), unless the reader chose the Tinct reader on this device
+   * ("Convert to Tinct book", epub-view:<hex>); on a phone, the Tinct reader (/reader?userBook=<hex>).
+   * The rule of TinctReaderLayout.epubView (reader-layout.js) and app/src/lab/userBook/epubView.ts.
+   */
+  const epubHref = key => {
+    const hex = encodeURIComponent(String(key).slice(String(key).indexOf(':') + 1));
+    const margin = global.innerWidth >= 700 && store.get('epub-view:' + decodeURIComponent(hex)) !== 'text';
+    return (margin ? '/lab/addbook/?userBook=' : '/reader?userBook=') + hex;
+  };
   /**
    * A PDF kept on this device: where it opens (Add a book's PDF reader). The account copy is
    * sent from there, once the viewer's scan has read the document's own title and author
@@ -275,6 +286,6 @@
   global.TinctAddEngine = {
     store, owner, library, cloud, covers, saveToAccount, shelf, removeBook,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
-    kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, ACCOUNT_COPY_WAIT_MS,
+    kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, epubHref, ACCOUNT_COPY_WAIT_MS,
   };
 })(window);
