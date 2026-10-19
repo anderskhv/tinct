@@ -5472,7 +5472,7 @@ async function unitPlace(u) {
   return { head, end };
 }
 const headMemo = new Map();
-/** The top of a unit's heading on its first page: the line that reads as its title, else the outline's destination, else the page's first line. */
+/** The top of a unit's heading on its first page: the line that reads as its title, else the outline's destination, else the page's top. */
 function headPlace(u) {
   const k = state.key + ':' + u.key + ':' + u.start;
   if (!headMemo.has(k)) headMemo.set(k, (async () => {
@@ -5492,8 +5492,10 @@ function headPlace(u) {
       const line = lines.find(l => l.top >= y - 0.01);
       return { page: u.start, y: line ? line.top : Math.max(0, y) };
     }
-    return { page: u.start, y: lines.length ? lines[0].top : 0.06 };
-  })().catch(() => ({ page: u.start, y: 0.06 })));
+    // No heading to go by (the whole file, a band of pages): the page's top, never its first line of text (a cover drawn
+    // as one picture has its only line at its foot; Possible Minds, 19 Oct 2026).
+    return { page: u.start, y: 0.004 };
+  })().catch(() => ({ page: u.start, y: 0.004 })));
   return headMemo.get(k);
 }
 /**

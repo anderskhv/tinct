@@ -4040,7 +4040,7 @@ async function wholeWords(browser, origin) {
   return results
 }
 
-/* primer-top (19 Oct 2026, evening, item 9): Before you start, and the document's start pills, sit at the top of the
+/* primer-top (19 Oct 2026, evening, item 9): Before you start, and the document's start mark (pills before 19 Oct, night), sit at the top of the
    document's first page, also when that page is a cover drawn as one picture (Possible Minds; here with one line of text
    at its foot); before, they stood at the page's first line of text, about 800 px down. Opened, the primer starts there too. */
 const COVER_PDF = join(OUT, 'image_cover.pdf')
@@ -4059,7 +4059,9 @@ async function primerTop(browser, origin) {
   ok('9. at the top of the first page (a picture cover): within 12 px of the page\'s top, not at the first line of text', start && start.top >= -2 && start.top <= 12, start)
   await a.evaluate(() => openPrimer(currentUnit())); await a.waitForTimeout(700)
   const opened = await where('.mr-doc .mr-primer')
-  ok('9. opened, Before you start starts at the top of the first page too (below the pills)', opened && opened.top >= -2 && opened.top <= 60, opened)
+  // (Since 19 Oct 2026, night, directly under the start mark, whose rule is at the page's top here.)
+  const mark = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-unit.is-start'), pg = state.pages[0].pg.getBoundingClientRect(); return el && Math.round(el.getBoundingClientRect().bottom - pg.top) })
+  ok('9. opened, Before you start starts at the top of the first page too (directly under the start mark)', opened && mark != null && opened.top >= mark - 1 && opened.top <= mark + 16 && mark <= 130, { opened, mark })
   await shot(a, 'primer-top-1440x900')
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
