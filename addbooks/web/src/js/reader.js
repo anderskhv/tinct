@@ -127,9 +127,10 @@ async function chooseFile(file) {
   stopNarration();
   const saved = await engine.keepFile(file, read, TinctPdfScan.cleanFileName(file.name));
   if (!saved) toast('This browser could not keep a copy, so you will need to open the file again next time.');
-  // An EPUB reads in the Tinct reader, which opens it from this browser's copy.
-  if (kind === 'epub' && saved) { await openInTinct(bytes, file.name, key, file); return }
+  // An EPUB reads in the Tinct reader on a phone, which opens it from this browser's copy; on the desktop, here (epubHere).
+  if (kind === 'epub' && saved && !epubHere(key)) { await openInTinct(bytes, file.name, key, file); return }
   await openBook(kind, bytes, file.name, key);
+  if (kind === 'epub' && saved) { epubShelved(bytes, file.name, key, file); return }
   sendAccountCopy(key, file, { kind, name: file.name });
 }
 // `known`: the record already read from this device (openFromUrl), so a large file is read once (FIXES item 12).
@@ -157,8 +158,10 @@ async function openStored(key, known = null) {
   }
   // Opened before it reached the account (offline, or the sign-in had lapsed): save it now.
   const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
-  if (rec.kind === 'epub' && (rec.opened ? (await library.touch(key, { openedAt: rec.opened }), true) : await library.get(key))) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
+  if (rec.kind === 'epub' && !epubHere(key) && (rec.opened ? (await library.touch(key, { openedAt: rec.opened }), true) : await library.get(key))) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key, rec);
+  // An EPUB read here: named and drawn on the shelf, and its account copy sent, as the Tinct reader's way does (once).
+  if (rec.kind === 'epub') { if (pending || !(Number(rec.coverV) >= 2)) epubShelved(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   if (!pending) return true;
   // A PDF just added on My shelf (add-engine preparePdf) reaches the account here, named like a
   // file chosen on this page: by the document's own title, once the scan has read it (briefly).
@@ -216,14 +219,14 @@ addEventListener('pageshow', e => { if (e.persisted && leftForTinct) { leftForTi
 /** `rec`: the book's record as read for this open, when there is one (openStored): not read again. */
 async function openBook(kind, bytes, name, key, rec = null) {
   showReader();
-  if (kind === 'epub') await openEpub(bytes, name, key); else await openPdf(bytes, name, key, rec);
+  if (kind === 'epub') await openEpub(bytes, name, key, rec); else await openPdf(bytes, name, key, rec);
   if (hasBook()) {
     // One write, after the page is drawn, and none when nothing changed: each write rewrites the whole file.
     const patch = { ...(rec?.opened ? { openedAt: rec.opened } : {}), ...(!rec || rec.title !== state.title || (rec.author || '') !== (state.author || '') ? { title: state.title, author: state.author || '' } : {}) };
     if (Object.keys(patch).length) setTimeout(() => library.touch(key, patch), rec ? 2500 : 0);
     // A PDF is a book with its own address (/lab/addbook/?userBook=<hex>): a reload, the
     // library and the book switcher open it again at its place.
-    const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : null;
+    const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : epubMargin() ? bookUrl(key) : null;
     // Arrived at this book's own address with a page asked (the Tinct reader's "Show page"): the address is
     // tidied in place, so Back goes straight back to the paragraph it came from.
     if (url) { if (location.pathname + location.search !== url) history[urlHex() === hexOf(key) ? 'replaceState' : 'pushState']({ addbookReader: key }, '', url) }
@@ -272,6 +275,7 @@ function showReader() { document.body.dataset.view = 'reader'; $('root').hidden 
 async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   const hadBook = hasBook();
   closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop(); strip?.close();
+  window.TinctNotebook?.close();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
   Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false; zoomClass();
@@ -296,7 +300,7 @@ addEventListener('popstate', () => {
 window.TinctReader = { chooseFile, openStored, openFromUrl, urlHex, close: closeBook, library, cloud, shelf, removeBook, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
 
 /* ---------- EPUB ---------- */
-async function openEpub(bytes, name, key) {
+async function openEpub(bytes, name, key, rec = null) {
   const token = ++state.token;
   closeAllPopups();
   waitStatus('Opening…');
@@ -306,6 +310,8 @@ async function openEpub(bytes, name, key) {
   if (token !== state.token) return;
   state.pdf?.destroy?.(); state.observer?.disconnect();
   Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null });
+  // The book's Tinct text, when this device converted it in the Tinct reader: the place is shared with it (epubShare).
+  state.epubEdition = Array.isArray(rec?.edition?.chapters) ? rec.edition : null;
   root.classList.add('is-epub'); root.classList.remove('is-pdf');
   const saved = store.get('pos:' + state.key);
   state.zoom = saved?.zoom || 1;
@@ -337,7 +343,7 @@ async function openEpub(bytes, name, key) {
     setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
     marginStart();
   } else if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
-  requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
+  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0 } onScroll() });
 }
 function applyEpubScale() { root.style.setProperty('--epub-scale', String(state.zoom)) }
 // Links inside the book move within it.
@@ -1109,13 +1115,14 @@ function savePlaceNow() {
   const moved = !sameSpot(place, state.lastPlace);
   if (moved) state.lastPlace = place;
   // A move in a PDF is read in Original pages, at this spot in its Tinct text when this device has it.
-  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : {};
+  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : moved && isEpub() ? epubSpot() : {};
   // A PDF's zoom on a phone is kept apart (phoneZoom), and only once the reader chose it: until then the column fit is worked out again.
   const zoom = state.kind === 'pdf' && isPhone() ? (state.fit ? {} : { phoneZoom: state.zoom }) : { zoom: state.zoom };
   store.set('pos:' + state.key, moved ? { ...prev, ...place, ...read, ...zoom, pages: state.pages.length, at: Date.now() } : { ...prev, ...zoom, pages: state.pages.length });
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
+  if (moved && isEpub()) epubShare();
 }
 // The same spot in the PDF's Tinct text (js/pdf-text.js placeOf), or none (the Tinct reader
 // finds it from the page): never a spot left from an earlier place.
@@ -1226,6 +1233,7 @@ function forwardToText(scan) {
 }
 // "Tinct text": the place now, read from here on in the Tinct text, sent at once; then the reader.
 function readAsText() {
+  if (isEpub()) return epubToTinct();
   if (!hasText()) return;
   savePlaceNow();
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
@@ -1843,7 +1851,7 @@ const layoutChoice = o => `<button type="button" class="lab-v2-edition-option" d
 /** The panel's Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
 function drawLayoutChoices() {
   const panel = document.querySelector('.byob-aa-panel'); if (!panel) return;
-  const opts = RL.options(state.kind, { layout: viewLayout(), hasText: hasText() });
+  const opts = RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn() });
   const box = panel.querySelector('[data-aa="layout"]'), row = panel.querySelector('[data-t="text"]');
   if (box) { box.hidden = !opts.length; box.querySelector('.lab-v2-edition-choices').innerHTML = opts.map(layoutChoice).join('') }
   if (row) row.hidden = !(RL.TINCT_TEXT === 'row' && hasText());
@@ -3033,12 +3041,12 @@ const col = { el: null, stack: null, leads: null, marks: null, float: null, shee
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
 const undo = { el: null, timer: 0, rect: null, restore: null };
-/* The margin for EPUBs read here (FIXES-2026-10-15 PR C) is built but OFF (Anders, 15 Oct 2026: "Keep it
-   pdf for now. Later the margin reader will be available for all books."). Off, an EPUB behaves exactly as
-   before: the selection popup and the docked chat. The layout check turns it on for its `epub` mode
-   (EPUB_MARGIN=1 sets window.TinctEpubMargin before the page loads). */
-const EPUB_MARGIN = false;
-const epubMargin = () => EPUB_MARGIN || window.TinctEpubMargin === true;
+/* The margin for EPUBs read here (FIXES-2026-10-15 PR C), on since 19 Oct 2026 on the desktop (Anders: EPUBs
+   open here in Margin view, TinctReaderLayout.epubView). A phone reads EPUBs in the Tinct reader as before; an
+   EPUB open here at a phone's width keeps the selection popup and the docked chat. The layout check turns the
+   margin on at a phone's width too (window.TinctEpubMargin) for its `epub` mode. */
+const EPUB_MARGIN = true;
+const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubMargin === true;
 // The PDF reader's margin: a PDF, and an EPUB when EPUB_MARGIN is on.
 const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));
 /** How the margin names the file and a place in it: pages for a PDF, chapters for an EPUB. */
@@ -6018,6 +6026,172 @@ function saveFile(name, blob) {
   } catch { return false }
 }
 function blobToDataUrl(blob) { return new Promise(res => { const r = new FileReader(); r.onload = () => res(String(r.result)); r.onerror = () => res(''); r.readAsDataURL(blob) }) }
+
+/* ---------- EPUBs on the desktop: Margin view, the place by paragraph and word (Anders, 19 Oct 2026) ----------
+   An EPUB opens here in Margin view on the desktop (TinctReaderLayout.epubView), its text flowing, with the margin's
+   cards and the Notebook; "Convert to Tinct book" (the Aa panel) reads it in the Tinct reader from then on, on this
+   device (epub-view:<hex>), and the Tinct reader's "Margin view" comes back. A phone reads it in the Tinct reader,
+   as before. Its place here is kept by paragraph and word (pos:<key>: `para`, `word`, and the words there, `quote`),
+   so a change of width or text size never moves it; the place crosses to the Tinct reader and back by those words
+   (TinctReaderLayout.findQuote; app/src/lab/userBook/epubView.ts), the newer place winning. When this device has the
+   book's Tinct text (converted in the Tinct reader), the place is also kept as the Tinct reader's (place:<hex>), the
+   one the account syncs, and a place read later there is taken here. */
+const epubOwnView = key => store.get('epub-view:' + hexOf(key));
+/** True when this EPUB reads here (the desktop, unless the reader chose the Tinct reader on this device). */
+const epubHere = key => RL.epubView({ phone: innerWidth < 700, own: epubOwnView(key) }) === 'margin';
+/** Named and drawn on the shelf (its title, author and cover) and sent to the account, as the Tinct reader's way does; never waited for. */
+function epubShelved(bytes, name, key, upload, { quiet = false } = {}) {
+  engine.prepareEpub(bytes, name, key, upload, { quiet, notify: toast }).catch(() => {});
+}
+const EPUB_BLOCKS = 'p,h1,h2,h3,h4,h5,h6,li,dt,dd,figcaption,pre,blockquote,div,td,th,caption';
+/** A chapter's paragraphs: its innermost blocks with words in them, in reading order. */
+function epubParas(p) {
+  if (!p.paras) p.paras = [...p.pg.querySelectorAll(EPUB_BLOCKS)].filter(el => !el.querySelector(EPUB_BLOCKS) && el.textContent.trim());
+  return p.paras;
+}
+const wordsOf = text => String(text || '').trim().split(/\s+/).filter(Boolean);
+/** The paragraph and word at the top of the view, and the words from there. */
+function epubSpot() {
+  const none = { para: undefined, word: undefined, quote: undefined };
+  const place = currentPlace(), p = state.pages[place.page - 1]; if (!p) return none;
+  const top = $('scroll').getBoundingClientRect().top, paras = epubParas(p);
+  const i = paras.findIndex(el => el.getBoundingClientRect().bottom > top + 1);
+  if (i < 0) return none;
+  const r = paras[i].getBoundingClientRect(), words = wordsOf(paras[i].textContent);
+  const word = r.top >= top || !words.length ? 0 : Math.min(words.length - 1, Math.floor(words.length * (top - r.top) / Math.max(1, r.height)));
+  return { para: i, word, quote: words.slice(word, word + 14).join(' ').slice(0, 120) };
+}
+/** Scroll until `measure()` (a client y, or null) stands `at` of the way down the view; the chapters measure as they come near. */
+function epubSettle(measure, at = 0, tries = 6) {
+  return new Promise(resolve => {
+    const s = $('scroll');
+    const step = n => {
+      const y = measure(); if (y == null) return resolve(false);
+      const sr = s.getBoundingClientRect(), delta = y - (sr.top + at * sr.height);
+      if (Math.abs(delta) > 1.5) s.scrollTop += delta;
+      if (n <= 0 || Math.abs(delta) <= 1.5) { onScroll(); return resolve(true) }
+      requestAnimationFrame(() => step(n - 1));
+    };
+    step(tries);
+  });
+}
+/** To a paragraph's word in chapter `n` (the word's line at the top of the view). */
+function epubGoSpot(n, para, word = 0) {
+  const p = state.pages[n - 1], el = p && epubParas(p)[para]; if (!el) return false;
+  goTo({ page: n, frac: 0 });
+  const words = Math.max(1, wordsOf(el.textContent).length);
+  epubSettle(() => { const r = el.getBoundingClientRect(); return r.top + Math.min(1, word / words) * r.height - (word ? 2 : 10) });
+  return true;
+}
+/** To a character offset in chapter `n` (a card's or a highlight's passage), a quarter of the way down the view. */
+function epubGoOffset(n, offset) {
+  const p = state.pages[n - 1]; if (!p) return Promise.resolve(false);
+  goTo({ page: n, frac: 0 });
+  return epubSettle(() => { const r = rangeFromOffsets(p.pg, offset, offset + 1)?.getClientRects()[0]; return r ? r.top : null }, 0.25);
+}
+/** To the paragraph holding these words (a place from the Tinct reader). */
+function epubGoQuote(quote) {
+  const hit = RL.findQuote(state.pages.map(p => epubParas(p).map(el => el.textContent)), quote);
+  return !!hit && epubGoSpot(hit.chapter + 1, hit.para, hit.word);
+}
+/** The Tinct reader's place (place:<hex>) as words, when this device has the book's Tinct text. */
+function readerPlaceWords() {
+  const place = store.get('place:' + hexOf(state.key)), ed = state.epubEdition;
+  if (!place || !ed || (typeof place.converter === 'number' && typeof ed.converter === 'number' && place.converter !== ed.converter)) return null;
+  const ch = ed.chapters.find(c => c.number === place.chapterNumber), text = ch?.paragraphs?.[place.paragraphIndex];
+  if (!text) return null;
+  return { quote: wordsOf(text).slice(place.wordIndex || 0, (place.wordIndex || 0) + 14).join(' '), at: Number(place.updatedAt) || 0 };
+}
+/** Where an EPUB opens here: the Tinct reader's place when it was read there since (or chosen there), else its paragraph and word. */
+function epubRestore(saved) {
+  if (saved?.via === 't' && saved.quote && epubGoQuote(saved.quote)) { const { via: _t, ...rest } = saved; store.set('pos:' + state.key, rest); return true }
+  const there = readerPlaceWords();
+  if (there && there.at > (Number(saved?.at) || 0) && epubGoQuote(there.quote)) return true;
+  return !!saved && Number.isInteger(saved.para) && epubGoSpot(saved.page, saved.para, saved.word || 0);
+}
+/** A move here is kept as the Tinct reader's place too (the one the account syncs), when this device has the Tinct text. */
+function epubShare() {
+  const ed = state.epubEdition, pos = store.get('pos:' + state.key); if (!ed || !pos?.quote) return;
+  const hit = RL.findQuote(ed.chapters.map(c => c.paragraphs || []), pos.quote); if (!hit) return;
+  const prev = store.get('place:' + hexOf(state.key)) || {};
+  store.set('place:' + hexOf(state.key), { chapterNumber: ed.chapters[hit.chapter].number, paragraphIndex: hit.para, wordIndex: hit.word, updatedAt: pos.at || Date.now(), ...(typeof ed.converter === 'number' ? { converter: ed.converter } : {}), ...(Number.isInteger(prev.rev) ? { rev: prev.rev } : {}) });
+}
+/** "Convert to Tinct book": this device reads the EPUB in the Tinct reader from now on, at this place. */
+async function epubToTinct() {
+  const hex = hexOf(state.key);
+  savePlaceNow();
+  store.set('pos:' + state.key, { ...(store.get('pos:' + state.key) || {}), ...currentPlace(), ...epubSpot(), at: Date.now() });
+  epubShare();
+  store.set('epub-view:' + hex, 'text');
+  leavePlace(); stopNarration();
+  await accountCopySent();
+  leftForTinct = true;
+  location.assign('/reader?userBook=' + encodeURIComponent(hex));
+}
+
+/* ---------- The Notebook (js/notebook.js; Anders, 19 Oct 2026) ----------
+   Everything the reader made in this book, from the margin's store (cards:<key>, hl:<key>); nothing of its own.
+   Desktop only (css/notebook.css). Opened from the top bar; updated as the store changes. */
+const nbPlace = e => {
+  if (!isEpub()) return `p. ${pageLabel(e.page)}`;
+  const card = e.source === 'card' ? cardById(e.id) : null, mark = e.source === 'mark' ? highlights().find(m => m.id === e.mark) : null;
+  const n = card?.span?.[0] || e.page, start = card ? card.span?.[1] : mark?.start, p = state.pages[n - 1];
+  if (!p || start == null) return `ch. ${n}`;
+  p.paraStarts ??= epubParas(p).map(el => textOffset(p.pg, el, 0));
+  let i = 0; while (i + 1 < p.paraStarts.length && p.paraStarts[i + 1] <= start) i++;
+  return `ch. ${n} ¶ ${i + 1}`;
+};
+function nbFlash(mark) {
+  const p = state.pages[mark.page - 1]; if (!p) return;
+  if (p.kind === 'epub') { const r = rangeFromOffsets(p.pg, mark.start, mark.end); if (r) flashPlace(p, [...r.getClientRects()]); return }
+  const b = p.pg.getBoundingClientRect();
+  flashPlace(p, (mark.rects || []).map(([x, y, w, h]) => ({ left: b.left + x * b.width, top: b.top + y * b.height, right: b.left + (x + w) * b.width, bottom: b.top + (y + h) * b.height, width: w * b.width, height: h * b.height })));
+}
+/** An entry's passage, brought into view; then its card opens in the margin (a plain highlight flashes). */
+async function nbJump(e) {
+  const card = e.source === 'card' ? cardById(e.id) : null, mark = e.source === 'mark' ? highlights().find(m => m.id === e.mark) : null;
+  if (!card && !mark) return;
+  if (isEpub()) await epubGoOffset(card ? card.span?.[0] || card.page : mark.page, (card ? card.span?.[1] : mark.start) ?? 0);
+  else {
+    const f = card && !card.data?.unit && card.rects?.length ? TinctMargin.firstRect(card) : null;
+    const top = f ? f[2] : mark?.rects?.length ? Math.min(...mark.rects.map(r => r[1])) : 0;
+    goTo({ page: f ? f[0] : (card || mark).page, frac: Math.max(0, top - 0.15) }); onScroll();
+  }
+  await new Promise(r => setTimeout(r, 160));
+  col.view = null;
+  if (card) openCard(card.id);
+  else if (mark.note) openCard('n-' + mark.id);
+  else nbFlash(mark);
+}
+/** Delete an entry as the margin's bin does (deleteCard), its Undo kept by the Notebook. -> restore() */
+function nbRemove(e) {
+  if (e.source === 'card') {
+    deleteCard(e.id);
+    const restore = undo.restore; hideUndo();
+    return restore;
+  }
+  const marks = highlights(), m = marks.find(x => x.id === e.mark); if (!m) return null;
+  const before = JSON.parse(JSON.stringify(m));
+  if (e.kind === 'note' && !m.withNote) { delete m.note; m.u = Date.now(); putHighlights(marks) }
+  else removeHighlight(m.id);
+  renderHighlights(state.pages[m.page - 1]); col.view = null; strip?.marksChanged(); marginLayout({ fresh: true }); announce('Deleted.');
+  return () => {
+    store.set('hl-gone:' + state.key, (store.get('hl-gone:' + state.key) || []).filter(g => g.id !== before.id));
+    putHighlights([...highlights().filter(x => x.id !== before.id), { ...before, u: Date.now() }]);
+    renderHighlights(state.pages[before.page - 1]); col.view = null; strip?.marksChanged(); marginLayout({ fresh: true });
+  };
+}
+if (window.TinctNotebook && $('notebookBtn')) {
+  TinctNotebook.mount({
+    root, button: $('notebookBtn'),
+    data: () => (hasBook() ? { cards: keptCards(), marks: highlights() } : { cards: [], marks: [] }),
+    place: nbPlace, meta: () => ({ title: state.title, author: state.author }),
+    jump: e => { nbJump(e).catch(err => console.error(err)) }, remove: nbRemove, toast,
+  });
+  // Live: a card or highlight written to the store (an answer, a note, the account's copy merged) redraws it.
+  const storeSet = store.set;
+  store.set = (k, v) => { storeSet(k, v); if (state.key && (k === 'cards:' + state.key || k === 'hl:' + state.key)) TinctNotebook.changed() };
+}
 
 /* ---------- Boot ---------- */
 applyLayout();
