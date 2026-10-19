@@ -130,6 +130,7 @@ function attest(fileName) {
 }
 async function chooseFile(file) {
   if (!file || needsAccount()) return;
+  await pdfReady();
   const read = await engine.readFile(file);
   if (read.error) { toast(read.error); return }
   const { kind, bytes, key } = read;
@@ -149,6 +150,7 @@ async function chooseFile(file) {
 // `known`: the record already read from this device (openFromUrl), so a large file is read once (FIXES item 12).
 async function openStored(key, known = null) {
   if (needsAccount()) return false;
+  await pdfReady();
   let rec = known || await library.get(key);
   if (!rec) {
     // On the account but not on this device yet: download it, then keep it here too.
@@ -266,6 +268,7 @@ addEventListener('pageshow', () => { leavingToShelf = false });
 // /lab/addbook/?userBook=<hex>: this book, from this device, else from the account.
 async function openFromUrl(hex) {
   if (needsAccount()) return false;
+  await pdfReady();
   showReader();
   waitStatus('Opening…');
   for (const kind of ['pdf', 'epub']) { const rec = await library.get(kind + ':' + hex); if (rec) return openStored(kind + ':' + hex, rec) }
@@ -384,6 +387,21 @@ async function downloadChecked(id, key) {
   }
 }
 /**
+ * The PDF-only scripts (pdf.js and the scan, text, regions, OCR, reading-order, printed-page and search rules):
+ * index.html loads them before this file. The margin preview of a Tinct book (book.html, js/tinct-book.js) reads
+ * no PDF and leaves them out (round 2: the phone's first page came about 0.3 s later with them); a PDF opened
+ * there after all loads them here first, in the same order, with the same cache tags (scripts/check-margin-preview.mjs).
+ */
+const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261016train6', 'js/pdf-text.js?v=20261019batch', 'js/pdf-ocr.js?v=20261015train2', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
+let pdfScripts = null;
+function pdfReady() {
+  if (window.pdfjsLib && window.TinctPdfScan) return Promise.resolve();
+  return (pdfScripts ??= PDF_SCRIPTS.reduce((after, src) => after.then(() => new Promise((resolve, reject) => {
+    const s = document.createElement('script'); s.src = src; s.onload = resolve; s.onerror = reject; document.head.appendChild(s);
+  })), Promise.resolve()).then(pdfWorker).catch(e => { pdfScripts = null; throw e }));
+}
+function pdfWorker() { if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('vendor/pdfjs/pdf.worker.min.js', document.baseURI).href }
+/**
  * The PDF, opened by pdf.js. A large book once failed to open at random on the desktop ("This file could not be
  * opened as a PDF", MacKay's 640 pages, the night checklist of 15 Oct 2026): a failure other than a password is
  * tried once more, with the bytes read again (pdf.js hands the first ones to its worker, which detaches them) from
@@ -412,6 +430,7 @@ async function freshPdfBytes(key) {
   return b;
 }
 async function openPdf(bytes, name, key, known = null) {
+  await pdfReady();
   const token = ++state.token;
   closeAllPopups();
   waitStatus('Opening…');
@@ -1776,11 +1795,22 @@ async function refitZoom(crossed) {
 /* The phone's page pill (TinctReaderLayout.pillStages): the fullest label that leaves the title whole and
    is not cut itself, else the page alone without its chevron; never an empty pill. The desktop's is as before. */
 const pill = { stages: null, key: '', at: 0 };
+const PILL_CUT_MIN = 40;
 function fitPill(stages = pill.stages) {
   pill.stages = stages;
   const btn = $('pageBtn'), label = $('pageLabel'), title = $('bookTitle');
-  if (!isPhone() || !stages?.length) { delete btn.dataset.chevron; pill.key = ''; return }
-  const show = stage => { label.textContent = stage.label; btn.dataset.chevron = stage.chevron ? 'on' : 'off' };
+  if (!isPhone() || !stages?.length) { delete btn.dataset.chevron; delete btn.dataset.fit; pill.key = ''; return }
+  const show = stage => {
+    btn.dataset.chevron = stage.chevron ? 'on' : 'off';
+    if (stage.cut) {
+      // Cut with an ellipsis, a closing number kept: the pill gives way to the title (reader.css data-fit="cut").
+      const { head, tail } = window.TinctReaderLayout.cutLabel(stage.label);
+      label.innerHTML = `<span class="byob-cut">${esc(head)}</span>${tail ? `<span class="byob-cut-tail">${esc(tail)}</span>` : ''}`;
+      btn.dataset.fit = 'cut';
+    } else { label.textContent = stage.label; delete btn.dataset.fit }
+  };
+  // A cut label shows enough of itself to be read: about five letters before its ellipsis.
+  const readable = () => (label.querySelector('.byob-cut')?.clientWidth || 0) >= PILL_CUT_MIN;
   // The same labels, width and title as last time: the stage found then (onScroll has just written the full label).
   const key = JSON.stringify(stages) + '|' + innerWidth + '|' + title.textContent;
   if (key === pill.key) { show(stages[pill.at]); return }
@@ -1788,6 +1818,7 @@ function fitPill(stages = pill.stages) {
   let at = 0;
   for (; at < stages.length; at++) {
     show(stages[at]);
+    if (stages[at].cut && whole(title) && readable()) break;
     if (at === stages.length - 1 || (whole(title) && whole(label))) break;
   }
   pill.key = key; pill.at = at;
@@ -7007,7 +7038,7 @@ if (window.TinctNotebook && $('notebookBtn')) {
 applyLayout();
 document.fonts?.ready.then(applyLayout);
 applyTheme(); state.trim = !!prefs.trim;
-if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('vendor/pdfjs/pdf.worker.min.js', document.baseURI).href;
+pdfWorker();
 if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => {};
 if (window.TinctAI) TinctAI.onSignedOut = () => toast('Your Tinct sign-in has expired, so this answer used the guest allowance. Sign in again to use your own.');
 document.body.dataset.view = 'start';

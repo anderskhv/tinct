@@ -293,6 +293,7 @@ export default defineConfig(({ mode, command }) => {
             '/admin/social': '/lab/admin-social/index.html',
             // The PDF reader's folder page, as the Worker's assets serve it (the margin preview frames it).
             '/lab/addbook/': '/lab/addbook/index.html',
+            '/lab/addbook/book': '/lab/addbook/book.html',
           }
           if (pageAssets[pathOnly]) {
             req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`

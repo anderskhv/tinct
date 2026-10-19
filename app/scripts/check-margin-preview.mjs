@@ -79,6 +79,21 @@ async function selectInView(frame) {
   })
 }
 
+// Round 2 (static): the preview's page, book.html, is index.html without the PDF-only scripts (and one comment), and
+// reader.js loads those scripts, if a PDF opens there after all, in index.html's order with its cache tags (pdfReady).
+{
+  const index = readFileSync(resolve('public/lab/addbook/index.html'), 'utf8'), book = readFileSync(resolve('public/lab/addbook/book.html'), 'utf8')
+  const reader = readFileSync(resolve('public/lab/addbook/js/reader.js'), 'utf8')
+  const listed = JSON.parse(reader.match(/^const PDF_SCRIPTS = (\[.*\]);$/m)[1].replace(/'/g, '"'))
+  const tags = [...index.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])
+  const pdfOnly = tags.filter(src => listed.includes(src))
+  ok('book.html: index.html without the PDF-only scripts', book.replace(/^<!-- The margin preview of a Tinct book.*-->\n/m, '') === index.split('\n').filter(l => !listed.some(src => l === `<script src="${src}"></script>`)).join('\n'), listed)
+  ok('reader.js PDF_SCRIPTS: every one in index.html, in its order, with its tag', pdfOnly.length === listed.length && pdfOnly.every((src, i) => src === listed[i]) && listed.includes('vendor/pdfjs/pdf.min.js'), { listed, pdfOnly })
+  ok('book.html has the margin reader (reader.js, tinct-book.js, margin.js) and no pdf.js', /js\/reader\.js/.test(book) && /js\/tinct-book\.js/.test(book) && /js\/margin\.js/.test(book) && !/pdf\.min\.js|pdf-scan\.js/.test(book))
+  const mirror = f => readFileSync(resolve('../addbooks/web/src/' + f), 'utf8') === readFileSync(resolve('public/lab/addbook/' + f), 'utf8')
+  ok('book.html, index.html and the changed scripts are mirrored in addbooks/web/src', ['book.html', 'index.html', 'js/reader.js', 'js/tinct-book.js', 'js/reader-layout.js', 'css/reader.css'].every(mirror))
+}
+
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] })
 const shots = []
 try {
@@ -89,8 +104,9 @@ try {
       const log = { position: [], ai: [] }
       await mockApis(context, log)
       const page = await context.newPage()
-      const errors = []
+      const errors = [], pdfAsked = []
       page.on('pageerror', e => errors.push(String(e)))
+      page.on('request', r => { if (r.resourceType() === 'script' && /\/lab\/addbook\/(vendor\/pdfjs|js\/(pdf-(?!theme)|reading-order|printed-pages|doc-search))/.test(r.url())) pdfAsked.push(r.url()) })
       // The book reader's place on this device, before anything runs (an origin page first, so storage is the app's).
       await page.goto(`${ORIGIN}/lab/addbook/vendor/pdfjs/pdf.min.js`)
       await page.evaluate(rec => { localStorage.clear(); localStorage.setItem('tinct-lab-position', JSON.stringify(rec)); localStorage.setItem('tinct-lab-device-id', 'qa') }, positionRecord())
@@ -104,6 +120,19 @@ try {
       ok(`${tag}: at the book reader's place (chapter ${want.chapterNumber}, paragraph ${want.paragraphIndex})`, at.page === chapterIndex(bookId, want.chapterNumber) + 1 && at.para === want.paragraphIndex && at.word <= want.wordIndex, { at, want })
       ok(`${tag}: the sticky opt-in is stored`, await page.evaluate(() => localStorage.getItem('tinct:margin-preview')) === '1')
       shots.push(join(OUT, `${tag}-open.png`)); await page.screenshot({ path: shots.at(-1) })
+      // Round 2: the frame is book.html, without pdf.js and the PDF-only scripts (the phone's first page came 0.3 s later with them).
+      ok(`${tag}: the frame is the preview's page (book.html) and asks for no PDF script`, new URL(frame.url()).pathname === '/lab/addbook/book' && pdfAsked.length === 0 && await frame.evaluate(() => typeof window.pdfjsLib === 'undefined' && !window.TinctPdfScan), pdfAsked)
+      // Round 2: chapters after the place and the next are laid out later (.tb-later), and the place stays where it opened while they are.
+      const later = await frame.evaluate(() => ({ later: document.querySelectorAll('.tb-chapter.tb-later').length, all: document.querySelectorAll('.tb-chapter').length }))
+      ok(`${tag}: the chapters after the place wait to be laid out (${later.later} of ${later.all})`, later.later > 0 && later.later < later.all, later)
+      await page.waitForTimeout(3500)
+      const still = await spotOf(frame), fewer = await frame.evaluate(() => document.querySelectorAll('.tb-chapter.tb-later').length)
+      ok(`${tag}: the place stays put while later chapters are laid out (${later.later} → ${fewer} waiting)`, still.page === at.page && still.para === at.para && still.word === at.word && fewer < later.later, { at, still, fewer })
+      // Round 2: the phone's chapter pill names the chapter (cut with an ellipsis if need be), not the percent alone, and the title stays whole.
+      if (phone) {
+        const pill = await frame.evaluate(() => { const l = document.getElementById('pageLabel'), t = document.getElementById('bookTitle'); return { label: l.textContent, fit: document.getElementById('pageBtn').dataset.fit || '', title: t.scrollWidth <= t.clientWidth + 1, chapter: toc.entries.filter(e => e.kind === 'chapter' && e.page <= currentPlace().page).at(-1)?.label } })
+        ok(`${tag}: the phone's pill names the chapter ("${pill.label}"), the title whole`, !/^\d+%$/.test(pill.label) && pill.title && !!pill.chapter && (pill.chapter.includes(pill.label) || /…/.test(pill.label) || pill.fit === 'cut'), pill)
+      }
 
       // 2. A selection opens the bar; Explain draws its card with the passage and its chapter as the document.
       const picked = await selectInView(frame)
@@ -234,9 +263,34 @@ try {
       const lab2 = await page.waitForSelector('[data-testid="lab-root"]', { timeout: 30000 }).catch(() => null)
       ok(`${tag}: /reader without the flag is the book reader`, !!lab2 && !(await page.$('iframe[data-testid="margin-preview-frame"]')))
       if (phone || bookId === BOOKS[0]) { await page.waitForTimeout(1500); shots.push(join(OUT, `${tag}-normal.png`)); await page.screenshot({ path: shots.at(-1) }) }
+      // Round 2: a PDF opened in the preview after all loads the PDF scripts then (pdfReady), once.
+      if (!phone && bookId === BOOKS[0]) {
+        await page.goto(`${ORIGIN}/reader?book=${bookId}&margin=1`)
+        const again = await frameOf(page)
+        const lazy = await again.evaluate(async () => { await pdfReady(); await pdfReady(); return { lib: typeof pdfjsLib?.getDocument, scan: !!window.TinctPdfScan, text: !!window.TinctPdfText, worker: pdfjsLib.GlobalWorkerOptions.workerSrc, scripts: document.querySelectorAll('script[src*="pdf.min.js"]').length } })
+        ok(`${tag}: pdfReady loads pdf.js and the PDF scripts on demand, once`, lazy.lib === 'function' && lazy.scan && lazy.text && /pdf\.worker\.min\.js$/.test(lazy.worker) && lazy.scripts === 1, lazy)
+      }
       ok(`${tag}: no page errors`, errors.length === 0, errors)
       await context.close()
     }
+  }
+
+  // Round 2: a long book with parts on a phone (War and Peace): the pill names the chapter ("Chapter 1" of
+  // "Book One (1805) — Chapter 1"), and most chapters wait to be laid out.
+  {
+    const tag = 'war-and-peace-390x844'
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, hasTouch: true, isMobile: true })
+    await mockApis(context, { position: [], ai: [] })
+    const page = await context.newPage()
+    const errors = []; page.on('pageerror', e => errors.push(String(e)))
+    await page.goto(`${ORIGIN}/reader?book=war-and-peace&margin=1`)
+    const frame = await frameOf(page)
+    const pill = await frame.evaluate(() => ({ label: document.getElementById('pageLabel').textContent, later: document.querySelectorAll('.tb-chapter.tb-later').length, all: document.querySelectorAll('.tb-chapter').length }))
+    ok(`${tag}: the pill names the chapter ("${pill.label}")`, /^Chapter \d+$/.test(pill.label), pill)
+    ok(`${tag}: most chapters wait to be laid out (${pill.later} of ${pill.all})`, pill.later > pill.all / 2, pill)
+    shots.push(join(OUT, `${tag}-open.png`)); await page.screenshot({ path: shots.at(-1) })
+    ok(`${tag}: no page errors`, errors.length === 0, errors)
+    await context.close()
   }
 
   // 8. A web font that arrives late (after the place was restored) leaves the place where it was, also without

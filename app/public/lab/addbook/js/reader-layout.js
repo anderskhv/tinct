@@ -175,14 +175,34 @@
   /**
    * The phone's page pill, fullest first: the chapter, then the page (or an EPUB's percent), then the
    * same without its chevron. The reader shows the first that leaves the title whole and is not cut
-   * itself, else the last: never an empty pill. -> [{ label, chevron }]
+   * itself, else the last: never an empty pill. -> [{ label, chevron, cut? }]
+   * An EPUB's chapter (a Tinct book's in the margin preview, round 2: To the Lighthouse showed "33%" alone) is
+   * tried shorter before the percent: its numbered part ("Chapter 1" of "Book One (1805) — Chapter 1"), then
+   * cut with an ellipsis (`cut`: the pill gives way to the title, a closing number is kept: "The Wi… · 1").
    */
   function pillStages({ chapter = '', page = '', pct = '', epub = false } = {}) {
     const short = epub ? pct : page ? `p. ${page}` : pct;
     const out = [];
     if (chapter) out.push({ label: chapter, chevron: true });
+    if (chapter && epub) {
+      const name = shortChapter(chapter);
+      if (name !== chapter) out.push({ label: name, chevron: true });
+      out.push({ label: name, chevron: false, cut: true });
+    }
     if (short) out.push({ label: short, chevron: true }, { label: short, chevron: false });
     return out.length ? out : [{ label: chapter || short || '–', chevron: false }];
+  }
+  /** A chapter's numbered part, for a short pill: "Chapter 1" of "Book One (1805) — Chapter 1", "Act 1, Scene 1" of
+   * "Act 1, Scene 1 — Venice. A street"; the label itself when no part of it ends with a number. */
+  function shortChapter(label) {
+    const parts = String(label || '').split(/\s+—\s+/);
+    if (parts.length < 2) return String(label || '');
+    return parts.slice().reverse().find(p => /(?:^|\s)(?:\d+|[IVXLC]+)\.?$/.test(p.trim())) || String(label);
+  }
+  /** A label as its cut stage shows it: the closing number kept whole after the ellipsis. -> { head, tail } */
+  function cutLabel(label) {
+    const m = /^(.*?\S)(\s*[·,:]?\s+(?:\d+|[IVXLC]+))$/.exec(String(label || ''));
+    return m ? { head: m[1], tail: m[2] } : { head: String(label || ''), tail: '' };
   }
   /* ---------- Phones: the mode a PDF opens in, by its kind (Anders, 16 Oct 2026, option C) ---------- */
   // On a phone a narrative or an essay (fiction, memoir, essays) opens as its Tinct text, reflowed in the
@@ -340,5 +360,5 @@
     }
     return null;
   }
-  return { epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
+  return { epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, shortChapter, cutLabel, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
 });

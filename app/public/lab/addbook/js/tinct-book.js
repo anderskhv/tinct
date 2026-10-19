@@ -1,6 +1,6 @@
 'use strict';
 // Tinct · the margin preview (Anders, 19 Oct 2026): a registered Tinct book in this reader, for testing.
-// /reader?book=<id>&margin=1 shows this page in a frame at /lab/addbook/?tinctBook=<id> and hands it the book's
+// /reader?book=<id>&margin=1 shows this page (book.html) in a frame at /lab/addbook/book?tinctBook=<id> and hands it the book's
 // main edition, already loaded and checked (src/lab/marginPreview/: the edition loader, the book reader's place,
 // read only). Here it becomes an EPUB's chapters (reader.js openRegistered): one <p> per edition paragraph, so a
 // place is the same (chapter, paragraph, word) in both readers. The preview keeps its own place, highlights,
@@ -41,8 +41,9 @@
     return el;
   }
 
-  /** The model as TinctEpub.parse returns a book: { title, authors, language, chapters: [{ index, title, node, text }], toc }. */
-  function asEpub(model) {
+  /** The model as TinctEpub.parse returns a book: { title, authors, language, chapters: [{ index, title, node, text }], toc }.
+   * `from`: the chapter (1-based) the reader opens at. The chapters after the next one are laid out later (laterChapters). */
+  function asEpub(model, from = 1) {
     const toc = [], parts = new Map();
     const chapters = model.chapters.map((c, index) => {
       const node = document.createElement('div');
@@ -51,6 +52,7 @@
       head.className = 'tb-head';
       head.innerHTML = (c.section ? `<span class="tb-part">${esc(c.section)}</span>` : '') + `<span class="tb-title">${esc(c.title)}</span>`;
       node.append(head, ...c.paragraphs.map(paragraphEl));
+      if (index + 1 > from + 1) { node.classList.add('tb-later'); node.style.containIntrinsicBlockSize = `auto ${estimate(c)}px` }
       let parent = null;
       if (c.section) {
         if (!parts.has(c.section)) { const e = { id: 'p' + parts.size, label: c.section, page: index + 1, anchor: '', depth: 0, parent: null, kind: 'part' }; parts.set(c.section, e); toc.push(e) }
@@ -60,6 +62,38 @@
       return { index, href: '', title: c.title, node, text: [c.title, ...c.paragraphs.map(p => p.text)].join('\n\n') };
     });
     return { title: model.title, authors: model.author ? [model.author] : [], language: model.language || 'en', chapters, toc, cover: null };
+  }
+
+  /**
+   * The first page on a phone (round 2): every chapter drawn at once was the largest part of it (0.4 s of layout for
+   * Frankenstein at a phone's speed, more for a long book). The chapters up to the place and the one after are drawn
+   * at once, so the place is where it was (round 1: estimated heights above it moved it). Those after it are drawn
+   * by the browser when they come near (`.tb-later`: content-visibility auto, at an estimated height), and one by one
+   * while the reader is still: a chapter is drawn then only while it is below the screen, where its real height moves
+   * nothing in view. One the reader has passed (the contents' jump) is left to the browser.
+   */
+  const LINE_PX = () => (innerWidth < 700 ? 1.1 : 0.75); // px of height per character, before one chapter is measured
+  let pxPerChar = 0;
+  const charsOf = c => c.paragraphs.reduce((n, p) => n + String(p.text || '').length + 60, 200);
+  const estimate = c => Math.round(charsOf(c) * (pxPerChar || LINE_PX()));
+  function laterChapters(model) {
+    const nodes = [...document.querySelectorAll('.tb-chapter')];
+    const measured = nodes.findIndex((n, i) => !n.classList.contains('tb-later') && n.offsetHeight > 0 && model.chapters[i]?.paragraphs.length > 3);
+    if (measured >= 0) {
+      pxPerChar = nodes[measured].offsetHeight / charsOf(model.chapters[measured]);
+      nodes.forEach((n, i) => { if (n.classList.contains('tb-later')) n.style.containIntrinsicBlockSize = `auto ${estimate(model.chapters[i])}px` });
+    }
+    const idle = window.requestIdleCallback ? f => requestIdleCallback(f, { timeout: 1500 }) : f => setTimeout(f, 120);
+    let i = 0;
+    const next = () => {
+      for (; i < nodes.length; i++) {
+        const n = nodes[i]; if (!n.classList.contains('tb-later') || !n.isConnected) continue;
+        if (n.getBoundingClientRect().top <= innerHeight * 2) continue; // near or passed: the browser draws it
+        n.classList.remove('tb-later'); i++; break;
+      }
+      if (i < nodes.length) idle(next);
+    };
+    idle(next);
   }
 
   /**
@@ -81,7 +115,8 @@
 .tb-chapter .tb-part{display:block;font-size:.9em;font-style:italic;opacity:.7;margin-bottom:.4em}
 .tb-chapter .tb-title{display:block;font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:1.45em;line-height:1.25}
 .tb-chapter .tb-p{white-space:pre-line}
-.lab.byob .epub-sheet{content-visibility:visible}`;
+.lab.byob .epub-sheet{content-visibility:visible}
+.lab.byob .tb-chapter.tb-later{content-visibility:auto}`;
   // (Chapters are drawn whole, not skipped off screen: a Tinct chapter runs to many screens, and an estimated height
   // above the place moved it as the chapters were drawn; reader.js epubGoSpot measures real lines.)
 
@@ -113,8 +148,12 @@
       return;
     }
     seedPlace(model);
-    await R.openRegistered(asEpub(model), { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0` });
+    let from = 1;
+    try { from = Math.max(1, Number(JSON.parse(localStorage.getItem(POS) || 'null')?.page) || 1) } catch {}
+    const book = asEpub(model, from);
+    setTimeout(() => laterChapters(model), 1200);
+    await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0` });
   }
-  window.TinctBookPreview = { asEpub, seedPlace, KEY };
+  window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });
 })();

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-build="Add a book · 2026-10-08 · 786f050162">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<!-- The margin preview of a Tinct book (/reader?book=<id>&margin=1 frames book.html?tinctBook=<id>, js/tinct-book.js): index.html without the PDF-only scripts, which reader.js loads if a PDF opens here (pdfReady). Kept equal to index.html otherwise by scripts/check-margin-preview.mjs. -->
+<title>Add a book · Tinct</title>
+<meta name="description" content="Read your own PDF or EPUB in Tinct, or find a free public-domain book, with an AI reading companion.">
+<script src="js/route.js?v=20261019preview"></script>
+<script type="module" src="/lab/internal-traffic.js"></script>
+<script type="module" src="/lab/display-profile.js"></script>
+<link rel="stylesheet" href="/fonts/tinct-fonts.css">
+<link rel="stylesheet" href="css/tinct-app.css">
+<link rel="stylesheet" href="css/reader.css?v=20261019r2">
+<link rel="stylesheet" href="/lab/chat-thread.css?v=20261013status">
+<link rel="stylesheet" href="css/addbook.css">
+<link rel="stylesheet" href="css/margin.css?v=20261019unitmarks">
+<link rel="stylesheet" href="css/notebook.css?v=20261019batch">
+</head>
+<body data-view="start">
+<main id="start" hidden></main>
+
+<div id="root" hidden>
+<div lang="en" class="lab is-desktop has-page-buttons byob" data-testid="lab-root" data-page-turn-zones="none" data-theme="light" data-lab-layout="desktop" data-chrome-state="reading" data-phone-bar="none" data-reader-ready="true" data-position-resolving="false" data-playing="false" data-fullscreen="false" data-reader-controls="visible" data-compare-active="false" data-desktop-paging="true" data-desktop-view="read" data-desktop-panel="none" data-voice-surface="read" data-voice-version="v2" data-chrome-version="v2" data-transport="closed" data-super-menu="closed" data-super-sheet="closed" style="--lab-font-reader: 'Literata', 'EB Garamond', Georgia, serif; --lab-font-size: 1.3; --lab-line-height: 1.48;">
+  <header class="lab-header" id="hdr">
+    <button type="button" class="lab-v2-library-back" id="backBtn" aria-label="Back to library"><svg width="20.7" height="20.7" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    <div class="lab-header-brand">
+      <h1 class="lab-header-work"><button type="button" class="lab-header-book" id="bookBtn" aria-label="Contents"><span id="bookTitle">Your book</span></button></h1>
+      <span class="lab-title-sep" aria-hidden="true"> · </span>
+      <button type="button" class="lab-header-chapter" id="pageBtn" aria-label="Go to page"><span class="lab-header-chapter-label" id="pageLabel">p. 1</span><span class="byob-pg" id="progress">–</span><span class="lab-header-chevron" aria-hidden="true">∨</span></button>
+    </div>
+    <div class="lab-header-controls">
+      <button type="button" class="byob-nb" id="notebookBtn" aria-label="Notebook" aria-expanded="false" aria-controls="notebook"></button>
+      <button type="button" class="byob-aa" id="aaBtn" aria-label="Layout and themes" aria-haspopup="dialog" aria-expanded="false"><span aria-hidden="true">Aa</span></button>
+      <button type="button" class="lab-v2-play" id="playBtn" aria-label="Play"><svg width="20.7" height="20.7" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.6 6.4v11.2L17.8 12 8.6 6.4Z" fill="currentColor" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"></path></svg></button>
+      <button type="button" class="lab-super" id="superBtn" data-open="false" aria-label="Menu" aria-expanded="false" aria-haspopup="menu"><span class="lab-super-disc" aria-hidden="true"></span><span class="lab-super-nudge" aria-hidden="true"><span class="lab-super-spin"><span class="lab-super-pulse"><svg class="lab-super-mark" width="27.6" height="27.6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="lab-super-frame" data-frame="0" style="opacity:1"><g transform="matrix(1,0,-0.1944,1,2.333,0)"><path d="M11.40 8.00V13.40C11.40 15.30 12.50 16.10 14.40 15.80"></path><path d="M8.70 10.40H15.00"></path></g></g></svg></span></span></span></button>
+    </div>
+  </header>
+  <div class="lab-body" id="body">
+    <div class="pdf-scroll" id="scroll"><div class="pdf-column" id="column"></div></div>
+  </div>
+  
+</div>
+</div>
+<input type="file" id="fileInput" accept="application/pdf,.pdf,application/epub+zip,.epub" hidden>
+<script src="js/tinct-api.js?v=20261019preview2"></script>
+<script src="js/epub.js"></script>
+<script src="js/add-engine.js?v=20261019batch"></script>
+<script src="js/pdf-theme.js?v=20261008rel9"></script>
+<script src="js/dictionary.js?v=20261015margin34"></script>
+<script src="js/margin.js?v=20261019preview2"></script>
+<script src="js/strip.js?v=20261015train2"></script>
+<script src="js/reader-layout.js?v=20261019r2"></script>
+<script src="js/notebook.js?v=20261019batch"></script>
+<script src="/lab/wait-ring.js?v=20261014talkwake"></script>
+<script src="js/reader.js?v=20261019r2"></script>
+<script src="js/tinct-book.js?v=20261019r2"></script>
+<script type="module" src="js/start.js?v=20261019preview"></script>
+</body>
+</html>

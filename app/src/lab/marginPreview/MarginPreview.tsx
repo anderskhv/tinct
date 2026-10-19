@@ -1,7 +1,7 @@
 /**
  * /reader?book=<id>&margin=1: a registered book in the margin reader, as a
  * preview for testing (Anders, 2026-10-19). The margin reader is the static
- * page at /lab/addbook, shown full screen in a same-origin frame so the
+ * page at /lab/addbook/book (book.html), shown full screen in a same-origin frame so the
  * address stays /reader. The page asks this one for the book
  * (`window.TinctMarginPreview.load()`, js/tinct-book.js) and leaves through
  * the top window ("Back to normal reader", the library).
@@ -14,7 +14,8 @@ import { readSupabaseAccessToken } from '../labAuth'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
 import { normalReaderHref, type MarginPreviewBook } from './marginPreviewModel'
 
-export const MARGIN_PREVIEW_FRAME_SRC = '/lab/addbook/?tinctBook='
+// book.html (served as /lab/addbook/book): the margin reader's page without the PDF-only scripts (round 2).
+export const MARGIN_PREVIEW_FRAME_SRC = '/lab/addbook/book?tinctBook='
 
 declare global {
   interface Window {
