@@ -19,6 +19,8 @@ window.TinctStart = {
 };
 
 async function boot() {
+  // The margin preview of a registered book (/reader?book=<id>&margin=1): js/tinct-book.js opens it.
+  if (params.has('tinctBook')) return;
   // One book's address (/lab/addbook/?userBook=<hex>: a PDF read here, My shelf's and the
   // book switcher's links, a reload): that book, at its place, from this device or the account.
   const hex = window.TinctReader.urlHex();
