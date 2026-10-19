@@ -34,8 +34,12 @@ export const isEditionDiscoverable = (bookId: string, edition: { key: string; la
 export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
   'alice-in-wonderland/modern-en',
   'alice-in-wonderland/original-en',
+  'arabian-nights/modern-en',
+  'arabian-nights/original-en',
   'bible/bsb-en',
   'bible/webc-en',
+  'grimms-fairy-tales/modern-en',
+  'grimms-fairy-tales/original-en',
   'middlemarch/modern-en',
   'middlemarch/original-en',
   'sense-and-sensibility/modern-en',

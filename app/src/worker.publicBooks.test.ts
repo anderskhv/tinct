@@ -444,6 +444,8 @@ describe('classification rules', () => {
     expect(classifyByRules(work({ subjects: ['Detective and mystery stories'] }))).toMatchObject({ form: 'novel', shelfIds: ['detective-fiction'], houseIds: ['novel'], confidence: 'rule' })
     expect(classifyByRules(work({ subjects: ['Horror tales'] })).shelfIds).toEqual(['gothic-novels'])
     expect(classifyByRules(work({ subjects: ['Sea stories'] })).shelfIds).toEqual(['adventure'])
+    expect(classifyByRules(work({ subjects: ['Fairy tales -- Germany'] }))).toMatchObject({ form: 'short-stories', shelfIds: ['folk-and-fairy-tales'], houseIds: ['novel'] })
+    expect(classifyByRules(work({ subjects: ['Folklore -- Arab countries'], bookshelves: ['Short Stories'] }))).toMatchObject({ form: 'short-stories', shelfIds: ['folk-and-fairy-tales'] })
     expect(classifyByRules(work({ subjects: ['American fiction -- 19th century'] })).shelfIds).toEqual(['american-novels'])
     expect(classifyByRules(work({ subjects: ['Fiction'], firstPublishedYear: 1922 })).shelfIds).toEqual(['modernist-novels'])
     expect(classifyByRules(work({ subjects: ['Russia -- Fiction'] })).shelfIds).toEqual(['russian-novels'])

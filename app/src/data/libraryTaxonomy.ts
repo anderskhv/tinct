@@ -2957,6 +2957,54 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
     "shelves": [
       "critical-rationalism"
     ]
+  },
+  {
+    "id": "grimms-fairy-tales",
+    "title": "Grimms’ Fairy Tales",
+    "author": "Jacob and Wilhelm Grimm",
+    "year": "1812",
+    "ySort": 1812,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 30,
+    "blurb": "Sixty-five tales of kings, tailors, stepmothers and talking animals, told in plain, repeated patterns.",
+    "themes": [
+      "tales",
+      "justice",
+      "transformation",
+      "family",
+      "cunning"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN"
+    ]
+  },
+  {
+    "id": "arabian-nights",
+    "title": "The Arabian Nights Entertainments",
+    "author": "Andrew Lang",
+    "year": "1898",
+    "ySort": 1898,
+    "form": "short-stories",
+    "era": "modern",
+    "hue": 40,
+    "blurb": "A sultan’s nightly story-bargain opens tales of genies, sailors, merchants and a magic lamp.",
+    "themes": [
+      "storytelling",
+      "fate",
+      "power",
+      "travel",
+      "wonder"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales"
+    ],
+    "langs": [
+      "EN"
+    ]
   }
 ]
 
@@ -3121,6 +3169,11 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
     "sub": "Journeys, wagers and the open sea",
     "hue": 60
   },
+  "folk-and-fairy-tales": {
+    "title": "Folk & Fairy Tales",
+    "sub": "Tales from the oral tradition",
+    "hue": 30
+  },
   "critical-rationalism": {
     "title": "Critical Rationalism",
     "sub": "Popper, Deutsch and how knowledge grows",
@@ -3183,6 +3236,7 @@ export const LIBRARY_HOUSES: LibraryHouse[] = [
       "gothic-novels",
       "satirical-novels",
       "adventure",
+      "folk-and-fairy-tales",
       "detective-fiction"
     ]
   },
