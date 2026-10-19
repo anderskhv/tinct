@@ -73,6 +73,8 @@
 //                                                     follow-up), gone when more comes or on an error; focus rings for keys only
 //   node scripts/margin-check.mjs passage-mark      19 Oct, evening (10): the underline under each line's baseline, tints that never
 //                                                     cover a neighbour's words (also at leading 1.05), the Aa panel's Passage mark
+//   node scripts/margin-check.mjs stray-menu        19 Oct, evening (4): the bar only after a deliberate selection (drag, keys, a
+//                                                     highlight), never for one set by code, restored on refocus or left as a card folds
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -430,12 +432,16 @@ async function selectText(page, { oneWord = false, near = 'middle' } = {}) {
       return r.top > 120 && r.bottom < innerHeight - 140 && r.left > 0 && r.right < innerWidth && (oneWord ? /(?<=^|\s)[a-z]{5,}(?=[\s,.;:]|$)/ : /[A-Za-z]{5,}/).test(t) && t.trim().split(/\s+/).length >= (oneWord ? 1 : 4)
     })
     if (!spans.length) return null
+    // The pointer goes down on the page (19 Oct 2026, item 4: a selection opens the bar only as a gesture ends).
+    document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); 
     const span = near === 'top' ? spans[0] : near === 'bottom' ? spans[spans.length - 1] : spans[Math.floor(spans.length / 2)]
     const node = span.firstChild, t = node.textContent
     let a, b
     if (oneWord) { const m = /(?<=^|\s)[a-z]{5,}(?=[\s,.;:]|$)/.exec(t) || /[A-Za-z]{5,}/.exec(t); a = m.index; b = a + m[0].length }
-    else { const next = spans[spans.indexOf(span) + 1]; if (next && next.firstChild) { getSelection().setBaseAndExtent(node, 0, next.firstChild, next.firstChild.textContent.length); return getSelection().toString() } a = 0; b = t.length }
+    else { const next = spans[spans.indexOf(span) + 1]; if (next && next.firstChild) { getSelection().setBaseAndExtent(node, 0, next.firstChild, next.firstChild.textContent.length); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' })); return getSelection().toString() } a = 0; b = t.length }
     getSelection().setBaseAndExtent(node, a, node, b)
+    // The pointer let go (19 Oct 2026, item 4): the bar opens only after a deliberate selection, never one set by code alone.
+    document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
     return getSelection().toString()
   }, { oneWord, near })
 }
@@ -1337,7 +1343,9 @@ async function keysAndAccess(browser, origin) {
   ok('Return chooses the row (Counterpoint: its card opens)', account.requests.slice(n0).some(r => r.body?.companion?.intent === 'counterpoint') && /^Counterpoint/.test(await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')))
   ok('the finished answer is announced once in a polite live region', await a.evaluate(() => { const l = document.getElementById('mr-live'); return !!l && l.getAttribute('aria-live') === 'polite' && /^Counterpoint · p\. \d+\. MOCK ANSWER/.test(l.textContent) }), await a.evaluate(() => document.getElementById('mr-live')?.textContent))
   // Escape one step at a time: the open card folds after the bar has gone.
-  await selectText(a); await a.waitForSelector('.mr-bar'); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
+  // (Selecting with the pointer folds the open card since 19 Oct; it is opened again here, as the keys would leave it.)
+  const openId = await a.evaluate(() => col.open)
+  await selectText(a); await a.waitForSelector('.mr-bar'); await a.evaluate(id => openCard(id), openId); await a.waitForTimeout(150); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   await a.keyboard.press('Escape'); const s1 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
   await a.keyboard.press('Escape'); const s2 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
   await a.keyboard.press('Escape'); await a.waitForTimeout(150); const s3 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
@@ -1698,7 +1706,8 @@ async function openEpubHere(browser, origin, { width, height, look, margin = tru
 // Select `chars` characters of the `nth` paragraph of chapter `ch` (1-based), as a reader would.
 function selectEpub({ ch = 3, nth = 1, chars = 110 } = {}) {
   const p = state.pages[ch - 1].pg.querySelectorAll('p')[nth], t = p.firstChild
-  getSelection().setBaseAndExtent(t, 0, t, Math.min(chars, t.textContent.length))
+  document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().setBaseAndExtent(t, 0, t, Math.min(chars, t.textContent.length))
+  document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
   return getSelection().toString()
 }
 // Cards on the first lines of the paragraphs in view, kept as offsets (span) as the reader keeps them.
@@ -2947,7 +2956,7 @@ async function justifiedCheck(browser, origin) {
         if (!a || !b) return { error: 'words not found in the text layer', from, to, layer: norm(all).slice(0, 600) }
         const at = off => { const k = nodes.findLastIndex(x => x.at <= off); return [nodes[k].node, off - nodes[k].at] }
         const range = document.createRange(); range.setStart(...at(a[0])); range.setEnd(...at(b[1]))
-        getSelection().removeAllRanges(); getSelection().addRange(range)
+        document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().removeAllRanges(); getSelection().addRange(range); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
         const selected = norm(getSelection().toString())
         // The page's text (what the companion reads), from the same first word to the same last.
         const text = norm((await pageText(n)).text), i = text.indexOf(from), j = text.indexOf(to, i)
@@ -3407,7 +3416,7 @@ async function highlightPlace(browser, origin) {
   // The justified lines of 16 Oct (pieces of a line), at rest, on the desktop.
   const jhex = addBook(JUSTIFIED_PAPER)
   const J = await readerPage(browser, origin, jhex, { width: 1440, height: 900, look: 'night', minSpans: 10 })
-  await J.page.evaluate(() => { const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => s.textContent.trim().length > 3); getSelection().setBaseAndExtent(spans[3].firstChild, 0, spans[9].firstChild, spans[9].firstChild.length) })
+  await J.page.evaluate(() => { const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => s.textContent.trim().length > 3); document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().setBaseAndExtent(spans[3].firstChild, 0, spans[9].firstChild, spans[9].firstChild.length); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' })) })
   await J.page.waitForTimeout(300)
   const mj = await measure(J.page)
   ok('justified lines: 7. the highlight covers the selected words', mj && covers(mj.words, await marksOf(J.page, mj.ids)), mj?.words?.slice(0, 3))
@@ -3477,7 +3486,7 @@ async function crossPage(browser, origin) {
         const body = pg => [...pg.layer.querySelectorAll(':scope > span')].filter(sp => !sp.dataset.f && sp.textContent.trim())
         const first = body(p).at(-2), last = body(q)[2]
         const range = document.createRange(); range.setStart(first.firstChild, 0); range.setEnd(last.firstChild, last.firstChild.length)
-        getSelection().removeAllRanges(); getSelection().addRange(range)
+        document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().removeAllRanges(); getSelection().addRange(range); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
         const furniture = [...p.layer.querySelectorAll('span[data-f]'), ...q.layer.querySelectorAll('span[data-f]')].map(sp => ({ t: sp.textContent.trim(), r: (r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))(sp.getBoundingClientRect()) }))
         const words = bodyOfRange(range).rects.map(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))
         const info = selectionInfo()
@@ -3864,6 +3873,62 @@ async function passageMark(browser, origin) {
   return results
 }
 
+/* stray-menu (19 Oct 2026, evening, item 4): the selection bar opens only right after a deliberate selection: a mouse
+   drag let go, a double-click, selection keys ending on a new selection, or a click on a highlight. A selection
+   restored on a tab's refocus, one left over when a card folds, or one set by code never opens it. */
+async function strayMenu(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  await prefetchSettled(a)
+  const bar = () => a.evaluate(() => !!document.querySelector('.mr-float.mr-bar, .mr-float.mr-define'))
+  const spanBox = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[2]; const r = sp.getBoundingClientRect(); return { x0: r.left + 2, x1: r.left + r.width * 0.6, y: r.top + r.height / 2 } })
+  const setByCode = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[4]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, Math.min(20, sp.firstChild.length)) })
+  const reset = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(400) }
+  // Set by code alone: no bar.
+  await setByCode(); await a.waitForTimeout(700)
+  ok('4. a selection set by code (no gesture) opens no bar', !(await bar()))
+  await reset()
+  // A mouse drag let go: the bar.
+  const b = await spanBox()
+  await a.mouse.move(b.x0, b.y); await a.mouse.down(); await a.mouse.move(b.x1, b.y, { steps: 6 }); await a.mouse.up(); await a.waitForTimeout(500)
+  ok('4. a mouse drag let go on a new selection opens the bar', await bar())
+  await a.screenshot({ path: join(OUT, 'stray-menu-drag.png') })
+  await reset()
+  // Selection keys ending on a new selection: the bar.
+  await a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[3]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, 1) })
+  await a.waitForTimeout(500)
+  ok('4. (a one-letter selection set by code opens none)', !(await bar()))
+  for (let k = 0; k < 12; k++) await a.keyboard.press('Shift+ArrowRight')
+  await a.waitForTimeout(500)
+  ok('4. selection keys ending on a new selection open the bar', await bar(), await a.evaluate(() => getSelection().toString()))
+  await reset()
+  // The tab hidden and shown again with a selection left: no bar.
+  await setByCode()
+  await a.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'hidden', configurable: true }); document.dispatchEvent(new Event('visibilitychange')); Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true }); document.dispatchEvent(new Event('visibilitychange')); window.dispatchEvent(new Event('focus')); document.dispatchEvent(new Event('selectionchange')) })
+  await a.waitForTimeout(700)
+  ok('4. a selection restored on a tab\'s refocus opens no bar', !(await bar()))
+  await reset()
+  // A card folded by a click outside, a selection left over: no bar.
+  mock.next = 'MOCK ANSWER. Short.'
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(900)
+  await a.mouse.click(30, 600); await a.waitForTimeout(200)
+  await setByCode(); await a.evaluate(() => document.dispatchEvent(new Event('selectionchange'))); await a.waitForTimeout(700)
+  ok('4. a card folded, a selection left over: no bar', !(await bar()) && !(await a.evaluate(() => col.open)))
+  await reset()
+  // A click on a highlight: the bar.
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="dot"]'); await a.waitForTimeout(300); await reset()
+  const hl = await a.evaluate(() => { const i = document.querySelector('.hl-layer i'); const r = i.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 } })
+  await a.mouse.click(hl.x, hl.y); await a.waitForTimeout(500)
+  ok('4. a click on a highlight opens its bar', await bar())
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3899,6 +3964,7 @@ const RUNS = {
   'cards-gloss': [cardsGloss, rows => rows.some(r => !r.pass)],
   'pause-dots': [pauseDots, rows => rows.some(r => !r.pass)],
   'passage-mark': [passageMark, rows => rows.some(r => !r.pass)],
+  'stray-menu': [strayMenu, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3939,7 +4005,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

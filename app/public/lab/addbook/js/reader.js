@@ -21,6 +21,12 @@ const prefs = Object.assign({ trim: false, full: false, rate: 1, voice: '', dock
 // "Dark pages" and "Paper tone" were PDF-only switches; the page now follows the reader's theme.
 delete prefs.dark; delete prefs.tone;
 const savePrefs = () => store.set('prefs', prefs);
+/* The focus ring on the margin's buttons is for the keyboard only (Anders, 19 Oct 2026: Minimise showed its ring after a
+   click). A card opened or redrawn by a click may put the focus on its Minimise for screen readers; with the pointer as
+   the last input, no ring shows (css/margin.css [data-mr-input="pointer"]). The keys bring it back. Registered first, so
+   no other key handler stops it. */
+addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput = 'pointer' }, true);
+addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
 
 /* ---------- Layout: Tinct's phone/desktop classes ---------- */
 function applyLayout() {
@@ -2418,13 +2424,43 @@ function selectionInfo() {
   return { text, page: Number(sheetEl.dataset.page), box, rects, range: range.cloneRange() };
 }
 let selTimer;
+/*
+ * The bar opens only right after a deliberate selection (Anders, 19 Oct 2026: a stray menu came back on a tab's refocus
+ * and when a card folded): a pointer let go (or a touch) or selection keys ending on a new, non-empty selection, or a
+ * click on a highlight. A selection the page restores, one left over, or one set by the reader's own code never
+ * opens it. A bar already open follows its selection as before (a phone's handles move it without any event).
+ */
+const gesture = { start: null, touchAt: 0 };
+const selNow = () => { const s = getSelection(); if (!s?.rangeCount || s.isCollapsed) return null; const r = s.getRangeAt(0); return { sc: r.startContainer, so: r.startOffset, ec: r.endContainer, eo: r.endOffset } };
+const sameSel = (a, b) => !!a && !!b && a.sc === b.sc && a.so === b.so && a.ec === b.ec && a.eo === b.eo;
+const UI_PRESS = '.mr-float, .mr-card, .mr-col, .mr-sheet, .mr-marks, .lab-header, .lab-v2-sheet-layer, input, textarea, select';
+document.addEventListener('pointerdown', e => { gesture.start = selNow(); gesture.inUi = !!e.target?.closest?.(UI_PRESS); if (e.pointerType === 'touch') gesture.touchAt = Date.now() }, true);
+document.addEventListener('touchstart', () => { gesture.touchAt = Date.now() }, { passive: true, capture: true });
+/** A gesture ended: a new, non-empty selection (snapped to whole words) opens the margin's bar. */
+function selectionMade() {
+  if (!marginOn() || !readerShown()) return;
+  const now = selNow(), before = gesture.start; gesture.start = null;
+  if (!now || sameSel(now, before) || (mr && !mr.held && mr.info?.range && sameRange(mr.info.range, now))) return;
+  clearTimeout(selTimer);
+  marginSelection({ fresh: true });
+}
+const sameRange = (r, n) => r.startContainer === n.sc && r.startOffset === n.so && r.endContainer === n.ec && r.endOffset === n.eo;
+document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; setTimeout(selectionMade, 30) }, true);
+document.addEventListener('touchend', () => setTimeout(selectionMade, 60), { passive: true, capture: true });
+document.addEventListener('keyup', e => {
+  if (e.target?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
+  const keys = e.shiftKey && /^(?:Arrow|Home|End|Page)/.test(e.key) || e.key === 'Shift' || ((e.metaKey || e.ctrlKey) && (e.key === 'a' || e.key === 'A'));
+  if (keys) setTimeout(selectionMade, 0);
+}, true);
 document.addEventListener('selectionchange', () => {
   // A text selection always gets the bar, never the figure chip (a caption's words too): the chip goes at once.
   try { if (hot.el && !getSelection().isCollapsed) hideHot() } catch { /* before the chip's code has run */ }
   clearTimeout(selTimer);
   selTimer = setTimeout(() => {
-    // A selection opens the margin's bar or Define card (below), in a PDF or an EPUB.
-    if (marginOn()) return marginSelection();
+    // A selection opens the margin's bar or Define card (below), in a PDF or an EPUB: only after a gesture (selectionMade);
+    // here a bar already open follows its selection, or closes when it is gone. A touch's own selection (long press,
+    // its handles) counts as the gesture while the finger was down a moment ago.
+    if (marginOn()) return marginSelection({ fresh: Date.now() - gesture.touchAt < 1500 });
     const info = selectionInfo();
     const pop = document.querySelector('.selection-popup');
     if (!info) { if (pop && pop.dataset.popupMode === 'main') hideSelection(); return }
@@ -2585,7 +2621,7 @@ function rangeInText(range) {
   const at = node => (node?.nodeType === 1 ? node : node?.parentElement)?.closest?.('.text-layer, .epub-pg');
   return !!range && !range.collapsed && !!at(range.startContainer) && !!at(range.endContainer) && range.startContainer.isConnected;
 }
-function marginSelection() {
+function marginSelection({ fresh = false } = {}) {
   const info = selectionInfo();
   // A page drawn again (its text layer replaced: a late render, a zoom, the column reserving its room)
   // drops the selection without the reader letting go: the bar stays on its kept passage. Seen as the
@@ -2593,6 +2629,8 @@ function marginSelection() {
   if (!info && mr && !mr.held && mr.mode === 'menu' && mr.info?.range && !rangeInText(mr.info.range)) { mr.held = true; paintSelection(); return }
   if (!info) { if (mr && !mr.held && mr.mode === 'menu') marginClose(); return }
   if (mr && !mr.held && mr.info.text === info.text && mr.info.page === info.page) return;
+  // A new bar only for a deliberate selection; an open one follows its selection (the phone's handles).
+  if (!fresh && !(mr && !mr.held && mr.mode === 'menu')) return;
   marginOpen(info);
 }
 function marginOpen(info, { existing = null, asking = false } = {}) {
@@ -3513,8 +3551,6 @@ function reserveColumn(on) {
 /* The focus ring on the margin's buttons is for the keyboard only (Anders, 19 Oct 2026: Minimise showed its ring after a
    click). A card opened or redrawn by a click may put the focus on its Minimise for screen readers; with the pointer as
    the last input, no ring shows (css/margin.css [data-mr-input="pointer"]). The keys bring it back. */
-document.addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput = 'pointer' }, true);
-document.addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
 
 /* -- Layout, once a frame while the pages scroll -- */
 function marginLayout({ fresh = false } = {}) {
