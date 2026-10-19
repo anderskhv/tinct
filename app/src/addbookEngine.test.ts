@@ -84,6 +84,43 @@ describe('Add a book’s engine (add-engine.js)', () => {
     expect(notify).toHaveBeenCalledWith('Removed from this device, but not from your account. Try again.')
   })
 
+  // Android file managers and cloud apps hand an EPUB over as application/octet-stream, sometimes
+  // with no extension; Windows may give no type. The file's own bytes decide.
+  it('knows an EPUB or a PDF by its bytes when the type is empty or octet-stream and the name says nothing', async () => {
+    const engine = loadEngine({ userId: 'u1' })
+    const enc = (text: string) => new TextEncoder().encode(text)
+    const zipEntry = (name: string, body: string) => {
+      const header = new Uint8Array(30); header.set([0x50, 0x4b, 0x03, 0x04]); header[26] = name.length
+      return [header, enc(name), enc(body)]
+    }
+    const epubBytes = new Blob([...zipEntry('mimetype', 'application/epub+zip'), ...zipEntry('META-INF/container.xml', '<container/>')])
+    for (const [name, type] of [['book.epub', 'application/octet-stream'], ['document:1234', 'application/octet-stream'], ['download', ''], ['book.EPUB', '']] as const) {
+      const read = await engine.readFile(new File([epubBytes], name, { type }))
+      expect(read.kind, `${name} ${type}`).toBe('epub')
+      expect(read.key).toMatch(/^epub:[0-9a-f]{24}$/)
+    }
+    // A ZIP whose first entry is not "mimetype" but which holds META-INF/container.xml.
+    const loose = new File([new Blob([...zipEntry('OEBPS/a.xhtml', '<p/>'), ...zipEntry('META-INF/container.xml', '<container/>')])], 'shared-file', { type: 'application/octet-stream' })
+    expect((await engine.readFile(loose)).kind).toBe('epub')
+    // A PDF with no name to go by (pdf.js is not on this page, so the %PDF check alone decides).
+    expect((await engine.readFile(new File(['%PDF-1.7\n'], 'scan', { type: 'application/octet-stream' }))).key).toMatch(/^pdf:[0-9a-f]{24}$/)
+    expect((await engine.readFile(new File(['%PDF-1.4'], '', { type: '' }))).kind).toBe('pdf')
+    // Other bytes, an ordinary ZIP and a photo are still refused.
+    expect(await engine.readFile(new File(['hello'], 'notes', { type: 'application/octet-stream' }))).toEqual({ error: 'Choose a PDF or EPUB file.' })
+    expect(await engine.readFile(new File([new Blob(zipEntry('photos/a.jpg', 'x'))], 'archive', { type: 'application/octet-stream' }))).toEqual({ error: 'Choose a PDF or EPUB file.' })
+    expect(await engine.readFile(new File([new Uint8Array([0xff, 0xd8, 0xff, 0xe0])], 'IMG_1.jpg', { type: 'image/jpeg' }))).toEqual({ error: 'Choose a PDF or EPUB file.' })
+  })
+
+  it('says so when the device cannot hand the file over (a cloud file not downloaded), instead of failing silently', async () => {
+    const engine = loadEngine({ userId: 'u1' })
+    const unreadable = new File(['%PDF'], 'lecture.pdf', { type: 'application/pdf' })
+    Object.defineProperty(unreadable, 'slice', { value: () => ({ arrayBuffer: async () => { throw new DOMException('The requested file could not be read', 'NotReadableError') } }) })
+    expect(await engine.readFile(unreadable)).toEqual({ error: 'This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.' })
+    const halfway = new File(['%PDF'], 'lecture.pdf', { type: 'application/pdf' })
+    Object.defineProperty(halfway, 'arrayBuffer', { value: async () => { throw new DOMException('The requested file could not be read', 'NotReadableError') } })
+    expect(await engine.readFile(halfway)).toEqual({ error: 'This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.' })
+  })
+
   // QA #359: a file named .pdf that is not a PDF landed on My shelf as a book that could not open.
   it('refuses a ".pdf" that is not a PDF before it is kept, in the PDF reader’s own words', async () => {
     const engine = loadEngine({ userId: 'u1' })

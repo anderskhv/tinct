@@ -154,6 +154,24 @@
   const rightsConfirmed = () => store.get('rights:' + accountId())?.v === RIGHTS_VERSION;
   const confirmRights = () => store.set('rights:' + accountId(), { at: new Date().toISOString(), v: RIGHTS_VERSION });
   const kindOf = file => /\.epub$/i.test(file.name) || file.type === 'application/epub+zip' ? 'epub' : /\.pdf$/i.test(file.name) || file.type === 'application/pdf' ? 'pdf' : null;
+  // What the file's own bytes say it is: some Android file managers and cloud apps hand over an
+  // EPUB as application/octet-stream (or with no type and no extension), and Windows may give no
+  // type, so the bytes decide when they can: %PDF in the first kilobyte is a PDF; a ZIP whose
+  // first entry is the EPUB "mimetype" file (or that holds META-INF/container.xml) is an EPUB.
+  const latin1 = (bytes, from, to) => { let out = ''; for (let i = Math.max(0, from); i < Math.min(bytes.length, to); i++) out += String.fromCharCode(bytes[i]); return out };
+  const isZip = bytes => bytes.length >= 4 && bytes[0] === 0x50 && bytes[1] === 0x4b && bytes[2] === 0x03 && bytes[3] === 0x04;
+  function sniffKind(bytes) {
+    if (latin1(bytes, 0, 1024).includes('%PDF')) return 'pdf';
+    if (!isZip(bytes) || bytes.length < 30) return null;
+    const nameLength = bytes[26] | (bytes[27] << 8), extraLength = bytes[28] | (bytes[29] << 8);
+    if (latin1(bytes, 30, 30 + nameLength) !== 'mimetype') return null;
+    const at = 30 + nameLength + extraLength;
+    return latin1(bytes, at, at + 20) === 'application/epub+zip' ? 'epub' : null;
+  }
+  /** An EPUB whose first entry is not "mimetype": its central directory (at the end) names META-INF/container.xml. */
+  const zipHoldsEpub = bytes => isZip(bytes) && latin1(bytes, bytes.length - 256 * 1024, bytes.length).includes('META-INF/container.xml');
+  const FILE_UNREADABLE = 'This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.';
+  const FILE_FAILED = 'This file could not be opened. Choose another file.';
   async function digest(bytes) {
     try { const h = await crypto.subtle.digest('SHA-256', bytes); return [...new Uint8Array(h)].slice(0, 12).map(b => b.toString(16).padStart(2, '0')).join('') }
     catch { return String(bytes.byteLength) }
@@ -196,13 +214,26 @@
   // As reader.js names a file it opens.
   const nameTitle = name => String(name || '').replace(/\.(pdf|epub)$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || String(name || '');
   /** A chosen file read for keeping: {kind, bytes, key}, or {error} with the reader-facing message. */
+  // The kind: the bytes first, then the name or type (as before); a ZIP with neither is read whole and
+  // looked at again. Never throws: a file the device cannot hand over (a cloud file not downloaded)
+  // and anything unexpected end in the reader-facing message.
   async function readFile(file) {
-    const kind = file ? kindOf(file) : null;
-    if (!kind) return { error: 'Choose a PDF or EPUB file.' };
-    if (file.size > MAX_BYTES) return { error: 'That file is larger than 300 MB, too big to open here.' };
-    const bytes = new Uint8Array(await file.arrayBuffer());
-    if (kind === 'pdf') { const problem = await pdfProblem(bytes); if (problem) return { error: problem } }
-    return { kind, bytes, key: kind + ':' + await digest(bytes) };
+    if (!file) return { error: 'Choose a PDF or EPUB file.' };
+    try {
+      let head;
+      try { head = new Uint8Array(await file.slice(0, 4096).arrayBuffer()) } catch { return { error: FILE_UNREADABLE } }
+      let kind = sniffKind(head) || kindOf(file);
+      if (!kind && !isZip(head)) return { error: 'Choose a PDF or EPUB file.' };
+      if (file.size > MAX_BYTES) return { error: 'That file is larger than 300 MB, too big to open here.' };
+      let bytes;
+      try { bytes = new Uint8Array(await file.arrayBuffer()) } catch { return { error: FILE_UNREADABLE } }
+      if (!kind) kind = zipHoldsEpub(bytes) ? 'epub' : null;
+      if (!kind) return { error: 'Choose a PDF or EPUB file.' };
+      if (kind === 'pdf') { const problem = await pdfProblem(bytes); if (problem) return { error: problem } }
+      return { kind, bytes, key: kind + ':' + await digest(bytes) };
+    } catch {
+      return { error: FILE_FAILED };
+    }
   }
   /** Keep the file in this browser, opened now. Resolves true when it is kept. */
   async function keepFile(file, { kind, bytes, key }, title = nameTitle(file.name)) {
@@ -244,6 +275,6 @@
   global.TinctAddEngine = {
     store, owner, library, cloud, covers, saveToAccount, shelf, removeBook,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
-    kindOf, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, ACCOUNT_COPY_WAIT_MS,
+    kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, ACCOUNT_COPY_WAIT_MS,
   };
 })(window);

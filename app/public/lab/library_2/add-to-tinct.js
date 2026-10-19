@@ -118,8 +118,14 @@ export function resetAddAccess(){access=null;}
 // saved privately to the account, then the book opens: an EPUB in the Tinct reader, a PDF in
 // Add a book's PDF reader. Nothing goes through Add a book's page.
 const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. When you ask Tinct’s reading companion about it, its text is sent to answer. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
-const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261014talkwake'];
+// Both the extensions and the types: iOS Files greys an EPUB out when only a type it does not map is
+// named. No spaces: Android's WebView hands each piece to the picker untrimmed. On Android some file
+// managers and cloud apps report an EPUB as application/octet-stream, which the picker would grey out,
+// so it is named there too; the engine then decides by the file's own bytes (add-engine.js readFile).
+export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
+export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
+export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261019ownfile'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
@@ -153,7 +159,7 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  const close=button('tui-close own-file-close','');close.setAttribute('aria-label',OWN_BOOK_COPY.close);
  close.innerHTML='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="m3 3 8 8M11 3l-8 8"/></svg>';
  close.onclick=()=>{if(!box.dataset.busy)closeFileDialog();};head.append(close);
- const input=make('input');input.type='file';input.accept=FILE_ACCEPT;input.hidden=true;input.className='own-file-input';
+ const input=make('input');input.type='file';input.accept=fileAccept();input.hidden=true;input.className='own-file-input';
  const content=make('div','own-file-content');
  box.append(head,content,input);layer.append(box);document.body.append(layer);
  // While a file is being added, the pop-up stays until the book opens.
