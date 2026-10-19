@@ -117,10 +117,12 @@ const CUT_OFF_RE = /\b(?:passage|selection|sentence|excerpt|quotation|quote|extr
 const LACKS_RE = /(?:\b(?:no|without|not any)\s+(?:(?:special|new|technical|unusual|hard|difficult|particular)\s+)*(?:symbols?|terms?|jargon|formulas?|equations?|maths?)\b[^.!?]*\b(?:appears?|used|uses|in (?:this|the) (?:line|sentence|passage|selection|text)|here)\b)|^there (?:are|is) no (?:(?:special|new|technical|unusual)\s+)*(?:symbols?|terms?|formulas?|equations?|jargon|maths?)\b/i;
 /**
  * An opening that describes the selection (night run final, 16 Oct: "The selected sentence describes a problem…",
- * "The selected passage only begins that model."): "says that X" becomes "X", any other verb keeps its words
- * with "It" for the subject.
+ * "The selected passage says that…"): "says that X" becomes "X", another describing verb keeps its words with
+ * "It" for the subject. Only a sentence whose verb describes the selection (says, describes, explains, …): never one
+ * where the selection is the subject of a real claim ("The sentence you've highlighted ends the reply to Hume", which
+ * once read "It you've highlighted ends…"; Anders, 19 Oct 2026).
  */
-const SELECTION_SUBJECT_RE = /^(?:the (?:selected |highlighted )?(?:passage|sentence|line|text|phrase|words|excerpt|clause|fragment)(?: (?:you|the reader) (?:selected|highlighted))?|the selection|this selection|your selection|the selected (?:part|bit))\s+(?!(?:of|in|on|at|from|to|for|with|and|or|that|which|who|where|when|about|by|as|between|under|over)\b)(?=\p{Ll})/iu;
+const SELECTION_SUBJECT_RE = /^(?:the (?:selected |highlighted )?(?:passage|sentence|line|text|phrase|words|excerpt|clause|fragment)(?: (?:you|you['’]ve|you have|the reader) (?:just )?(?:selected|highlighted|marked|picked))?|the selection|this selection|your selection|the selected (?:part|bit))\s+(?=(?:(?:only|here|simply|just|basically|essentially|briefly|also|merely)\s+)?(?:says|states|claims|argues|means|tells us|notes|reports|is saying|asserts|describes|explains|discusses|introduces|presents|outlines|summari[sz]es|defines|refers to|talks about|is about|mentions|points out|observes|expresses|deals with|is describing|is explaining)\b)/iu;
 const SAYS_THAT_RE = /^(?:says|states|claims|argues|means|tells us|notes|reports|is saying|asserts)\s+(?:that\s+)?/i;
 const upperFirst = (t) => t.charAt(0).toUpperCase() + t.slice(1);
 export function withoutSelectionTalk(sentence) {
@@ -281,16 +283,21 @@ function paragraphsOf(text) {
 
 /** Where the first sentence of `p` ends (an index into p), from `from` on. */
 function sentenceEnd(p, from) {
-  let depth = 0;
+  // Inside parentheses a sentence does not end ("the one that follows (\"Nor does the argument...by Russell 1913...\")
+  // begins…": its bottom line once stopped at the closing quote; Anders, 19 Oct 2026). A parenthesis never closed
+  // gives back the first end found inside it.
+  let depth = 0, paren = 0, openAt = -1, pending = -1;
   for (let i = from; i < p.length; i++) {
     const ch = p[i];
     if (ch === '{') depth++;
     else if (ch === '}') depth = Math.max(0, depth - 1);
+    else if (ch === '(') { if (!paren++) openAt = i; }
+    else if (ch === ')') paren = Math.max(0, paren - 1);
     if (depth || !/[.?!]/.test(ch)) continue;
     let j = i + 1;
     while (j < p.length && /[.?!]/.test(p[j])) j++;
     while (j < p.length && /["'”’)\]*_]/.test(p[j])) j++;
-    if (j < p.length && !/\s/.test(p[j])) continue; // 1.2, U.S.A., a.b
+    if (j < p.length && !/\s/.test(p[j])) continue // 1.2, U.S.A., a.b
     if (ch === '.') {
       const word = /([\p{L}.]+)$/u.exec(p.slice(0, i))?.[1]?.toLowerCase() || '';
       if (ABBREVIATIONS.has(word) || /^\p{L}$/u.test(word) && j < p.length) continue;
@@ -303,9 +310,13 @@ function sentenceEnd(p, from) {
       if (!m || !citationTokens(m[0].trim()).length) break;
       k += m[0].length;
     }
+    // Inside a parenthesis that opened mid-sentence: not the end, even where it closes right after ("…1913...\")
+    // begins"). One that opened the sentence ("(An aside.) Next") ends with it.
+    const open = paren - (p.slice(i + 1, j).match(/\)/g) || []).length;
+    if (paren > 0 && (open > 0 || p.slice(from, openAt).trim())) { if (pending < 0) pending = k; continue }
     return k;
   }
-  return p.length;
+  return pending >= 0 ? pending : p.length;
 }
 
 /**

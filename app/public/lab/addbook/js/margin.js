@@ -568,6 +568,13 @@
     const fence = /^\s*```[^\n]*\n([\s\S]*?)\n?```\s*$/.exec(b);
     return fence ? `<pre>${esc(fence[1])}</pre>` : `<p>${inlineHtml(b.trim(), P, resolve)}</p>`;
   }
+  /**
+   * A reply in a conversation (Chat, and a card's follow-ups): plain paragraphs, no bold bottom line, as the book
+   * reader's chat shows its answers (Anders, 19 Oct 2026: a follow-up's first sentence came out bold up to a quote).
+   */
+  function replyHtml(text, P, { resolve = null } = {}) {
+    return blocksOf(text).map(b => blockHtml(b, P, resolve)).join('');
+  }
   /** An answer with its bottom line (the first sentence of the first paragraph) in weight 600; the rest of that paragraph runs on. */
   function answerHtml(text, P, { resolve = null, prefixes } = {}) {
     const blocks = blocksOf(text);
@@ -576,6 +583,8 @@
     const first = blocks[0].trim();
     const { lead } = P.splitBottomLine(first, prefixes ? { prefixes } : undefined);
     const tail = first.slice(lead.length).trim();
+    // One sentence is the whole answer, in regular weight: the lead is bold only when more follows (19 Oct 2026).
+    if (!tail && blocks.length === 1) return `<p>${inlineHtml(lead, P, resolve)}</p>`;
     return `<p><span class="is-bottom-line">${inlineHtml(lead, P, resolve)}</span>${tail ? ' ' + inlineHtml(tail, P, resolve) : ''}</p>` + blocks.slice(1).map(b => blockHtml(b, P, resolve)).join('');
   }
   /**
@@ -698,13 +707,16 @@
     mic: ICONS.mic,
     // Delete: a bin, in the copy icon's stroke (Anders, 15 Oct: every margin item can be deleted).
     trash: svg('<path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4"/>'),
+    // Minimise: one horizontal line, in the same stroke (Anders, 19 Oct 2026, as Gloss: the card folds, nothing is deleted).
+    minimise: svg('<path d="M4.5 9h9"/>'),
   };
   /**
    * The follow-up line: a field with no placeholder (its caret shows only when it has the focus,
    * Anders, 15 Oct: no caret blinking in every open card), an optional link ("Show answer"), the mic.
    */
-  function followHtml({ link = '', field = true, mic = true, label = 'Follow up' } = {}) {
-    return `<div class="mr-follow">${field ? `<span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" aria-label="${esc(label)}"></textarea></span>` : ''}<span class="mr-follow__sp"></span>${link}${mic ? `<button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>` : ''}</div>`;
+  // `trash`: the card whose bin sits in this line, beside the mic (Anders, 19 Oct 2026, as Gloss).
+  function followHtml({ link = '', field = true, mic = true, label = 'Follow up', trash = null } = {}) {
+    return `<div class="mr-follow">${field ? `<span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" aria-label="${esc(label)}"></textarea></span>` : ''}<span class="mr-follow__sp"></span>${link}${trash ? deleteHtml(trash) : ''}${mic ? `<button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>` : ''}</div>`;
   }
   /**
    * A card. Folded: its label and two lines. Open: the label and close, the passage quote, the
@@ -718,23 +730,24 @@
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
-    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>`;
-    // The action row: copy (once there is something to copy) and delete, which every card has.
-    const acts = withCopy => `<div class="mr-card__acts">${withCopy ? `<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button>` : ''}${deleteHtml(card)}</div>`;
+    // Its top-right control minimises it (folds it, as a click outside does); its bin is in the follow-up line (19 Oct 2026).
+    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button></div>`;
+    // The action row under the answer: copy, once there is something to copy.
+    const acts = withCopy => (withCopy ? `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>` : '');
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
-      let body = '', foot = followHtml({ field: false, mic: false });
+      let body = '', foot = followHtml({ field: false, mic: false, trash: card });
       if (!qs.length) body = status;
       else if (q.done) {
         const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
         body = `<div class="mr-answer"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
         // The end card offers another quiz on the same passage (or unit).
-        foot = followHtml({ field: false, mic: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
+        foot = followHtml({ field: false, mic: false, trash: card, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
       } else if (!qs[q.i || 0]) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
-        foot = followHtml({ field: false, mic: false });
+        foot = followHtml({ field: false, mic: false, trash: card });
       } else {
         const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
@@ -745,17 +758,20 @@
             : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
           const last = i + 1 >= qs.length && (q.ended || !o.writing);
-          foot = followHtml({ field: false, mic: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          foot = followHtml({ field: false, mic: false, trash: card, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
-        else { body += status; foot = followHtml({ label: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
+        else { body += status; foot = followHtml({ label: 'Your answer', trash: card, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
       // A quiz has nothing to copy; its row holds delete, unless an answer is being marked.
       return head + `<div class="mr-card__body">${body}${o.pending != null ? '' : acts(false)}</div>` + foot;
     }
     // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
     const thumb = card.kind === 'figure' ? `<div class="mr-thumb"${o.thumbRatio ? ` style="aspect-ratio:${Number(o.thumbRatio).toFixed(3)}"` : ''}>${o.thumb ? `<img src="${esc(o.thumb)}" alt="${label}">` : ''}</div>` : '';
-    let body = thumb + (card.text && card.kind !== 'define' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : '');
+    // The passage is not quoted at the card's top (Anders, 19 Oct 2026): its underline in the text and the leader line
+    // say what the card is about. Screen readers get it as the card's description (reader.js: aria-describedby).
+    // A figure's card keeps its caption, which is what the figure says, not a quote.
+    let body = thumb + (card.text && card.kind === 'figure' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : card.text && card.kind !== 'define' ? `<span class="mr-card__about" hidden>${esc(cut(card.text))}</span>` : '');
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
@@ -771,10 +787,13 @@
     // Never a sentence about the passage picture (full battery on train 3), except in a figure's card, whose picture is its subject.
     // Explain never shows its template lines, "no notation here" or "the passage is cut off" (recheck-1, 16 Oct).
     // No answer refers to its own earlier replies, and Counterpoint has no "strongest objection … author's best reply" template (16 Oct).
-    const clean = text => cleanAnswer(card.kind, text, P);
+    // Only the card's own answer (its first) gets the card's treatment; a follow-up's reply is a chat reply: Chat's
+    // cleanup (never the Explain opening's selection stripping) and plain paragraphs (Anders, 19 Oct 2026).
+    const lead = turns.findIndex(t => t.role !== 'user');
+    const clean = (text, k) => cleanAnswer(k === lead ? card.kind : 'chat', text, P);
     turns.forEach((t0, k) => {
-      const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content) };
-      if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
+      const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content, k) };
+      if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you" data-turn="${k}">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
       answered = true;
       if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve, live: o.live != null && k === turns.length - 1 }); body += f.answer + f.sources }
       else if (card.kind === 'related' && k === 0 && P.parseRelated) body += relatedHtml(t.content, P, { resolve: o.resolve, place: o.place });
@@ -785,10 +804,10 @@
         if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
         else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }
-      else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
+      else body += `<div class="mr-answer">${(k === lead ? answerHtml : replyHtml)(t.content, P, { resolve: o.resolve })}</div>`;
     });
     body += status;
-    return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml();
+    return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml({ trash: card });
   }
   /** The "more" row: "{n} more on this page" (an EPUB: "in this chapter"), their kinds on the right. */
   function stackHtml(cards, maxKinds = Infinity, { doc = 'pdf' } = {}) {
@@ -812,8 +831,9 @@
     return rows.map(row => {
       if (row.type === 'divider') return `<p class="mr-divider">${esc(row.label)}</p>`;
       const t = turns[row.index]; if (!t) return '';
-      if (t.role === 'user') return (t.quote ? `<div class="mr-quote">${esc(cut(t.quote))}</div>` : '') + (t.extra || '') + `<div class="mr-you">${esc(t.text)}</div>` + (t.note ? `<p class="mr-status">${esc(t.note)}</p>` : '');
-      return t.text ? `<div class="mr-answer">${answerHtml(cleanAnswer('chat', t.text, o.P), o.P, { resolve: o.resolve })}</div>` : '';
+      // data-turn: the question's first piece, which the thread holds near its top once it is sent (reader.js holdThread).
+      if (t.role === 'user') return (t.quote ? `<div class="mr-quote" data-turn="${row.index}">${esc(cut(t.quote))}</div>` : '') + (t.extra || '') + `<div class="mr-you" data-turn="${row.index}">${esc(t.text)}</div>` + (t.note ? `<p class="mr-status">${esc(t.note)}</p>` : '');
+      return t.text ? `<div class="mr-answer">${replyHtml(cleanAnswer('chat', t.text, o.P), o.P, { resolve: o.resolve })}</div>` : '';
     }).join('');
   }
   /**
@@ -1424,8 +1444,16 @@
     const owned = new Set(captions.filter(c => c.fig != null).map(c => c.fig)), area = o => Math.max(1, (o.r - o.l) * (o.b - o.t));
     const inter = (a, o) => Math.max(0, Math.min(a.r, o.r) - Math.max(a.l, o.l)) * Math.max(0, Math.min(a.b, o.b) - Math.max(a.t, o.t));
     const drop = new Set();
+    // A box mostly covered by running text, or holding three lines of it, is prose, never a figure, whatever inline
+    // symbols it has (Anders, 19 Oct 2026: a paragraph of Constructor Theory with a fraktur A and an italic N was
+    // boxed as a figure, its chip in place of the selection's bar).
+    const prose = o => {
+      const runs = segs.filter(s => (s.running || s.line.running) && !s.caption && !s.inCaption && inter(o, s.q) > 0.5 * area(s.q));
+      return runs.reduce((a, s) => a + inter(o, s.q), 0) > 0.45 * area(o) || new Set(runs.map(s => s.line)).size >= 3;
+    };
+    boxes.forEach((o, j) => { if (prose(o)) drop.add(j) });
     boxes.forEach((o, j) => {
-      if (owned.has(j)) return;
+      if (owned.has(j) || drop.has(j)) return;
       const inside = [...owned].filter(k => inter(o, boxes[k]) > 0.6 * Math.min(area(o), area(boxes[k])));
       if (inside.length === 1 && area(o) > area(boxes[inside[0]]) && ![...owned].some(k => k !== inside[0] && inter(o, boxes[k]) > 0)) { Object.assign(boxes[inside[0]], union(boxes[inside[0]], o)); drop.add(j) }
       else if (inside.length && [...owned].reduce((a, k) => a + inter(o, boxes[k]), 0) > 0.6 * area(o)) drop.add(j);
@@ -1448,7 +1476,7 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
   return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

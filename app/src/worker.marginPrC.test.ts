@@ -420,6 +420,27 @@ describe('cost guards (FIXES-2026-10-15 PR C)', () => {
     expect(charges).toHaveLength(1)
   })
 
+  it('Before you start made ahead as a PDF opens (speculative) is never charged; made on opening it, it is (19 Oct 2026)', async () => {
+    const primerJson = JSON.stringify({ gist: 'The paper drops recurrence. It uses attention alone.', claims: [1, 2, 3].map(i => ({ text: `Claim ${i}.`, cite: '{p. 1}' })), keepInMind: ['A caution: a convention that changes later.'], map: [1, 2, 3].map(i => ({ title: `Section ${i}`, pages: `p. ${i}` })) })
+    const primer = (fields: Record<string, unknown> = {}) => ({ companion: { intent: 'chapter', context: pdfContext(1), document, chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'Attention Is All You Need' } }, ...fields } })
+    const ahead = parseCompanionRequest(primer({ speculative: true }).companion)!
+    expect(ahead.speculative).toBe(true)
+    expect(companionAllowance(ahead)).toBe('free')
+    expect(companionAllowance(parseCompanionRequest(primer().companion)!)).toBe('chat')
+    // Only a primer can be made ahead: another chapter action marked speculative still counts.
+    expect(companionAllowance({ intent: 'chapter', speculative: true, chapter: { action: { kind: 'recap' } } } as never)).toBe('chat')
+    let stub = stubFetch(() => ({ json: { content: [{ type: 'text', text: primerJson }], stop_reason: 'end_turn', usage: { input_tokens: 10, output_tokens: 5 } } }))
+    expect((await send({ ...primer({ speculative: true }), stream: false })).status).toBe(200)
+    expect(stub.charges).toHaveLength(0)
+    expect(stub.rows.map(row => row.feature)).toEqual(['explain_speculative'])
+    vi.unstubAllGlobals()
+    stub = stubFetch(() => ({ json: { content: [{ type: 'text', text: primerJson }], stop_reason: 'end_turn', usage: { input_tokens: 10, output_tokens: 5 } } }))
+    const made = await send({ ...primer(), stream: false })
+    expect(made.status, made.text + JSON.stringify(stub.rows)).toBe(200)
+    expect(stub.charges, JSON.stringify(stub.rows)).toHaveLength(1)
+    expect(stub.rows.map(row => row.feature)).toEqual(['chat'])
+  })
+
   it('define_sense and quiz_check send the cached document plus at most 2,000 characters of their own', async () => {
     expect(OWN_INPUT_CHARS).toBe(2_000)
     const sense = parseCompanionRequest(margin('define_sense', 2, { selection: 'attention', senses: Array(5).fill('s'.repeat(500)) }).companion)!
