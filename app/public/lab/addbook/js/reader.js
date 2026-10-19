@@ -4073,7 +4073,7 @@ function layoutColumn() {
     const p = state.pages[at.head.page - 1], pr = p?.pg.getBoundingClientRect();
     if (pr) {
       const ey = Y(pr.top + at.head.y * pr.height), el = unitMark(u, 'start', doc); seenMarks.add(el);
-      items.push({ el, ey, top: ey, order: -1, rule: true, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot });
+      items.push({ el, ey, top: ey, order: -1, rule: true, mark: 'start', unit: u.key, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot });
       if (primer.open && primer.unit?.key === u.key) {
         const pe = primerEl(); pe.classList.remove('is-floating');
         if (pe.parentElement !== doc) { pe.removeAttribute('style'); doc.appendChild(pe) }
@@ -4087,9 +4087,9 @@ function layoutColumn() {
     if (qr) {
       const ey = Y(qr.top + at.end.y * qr.height), el = unitMark(u, 'end', doc); seenMarks.add(el);
       // Before the next unit's start mark when they meet.
-      items.push({ el, ey, top: ey, order: -1.6, rule: true, x0: X(Math.min(pageEdge(q), sr.left + area)) + C.dot });
+      items.push({ el, ey, top: ey, order: -1.6, rule: true, mark: 'end', unit: u.key, x0: X(Math.min(pageEdge(q), sr.left + area)) + C.dot });
       const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
-      [...['recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id); drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -1.59 + k * 0.001 }) });
+      [...['recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id); drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -1.59 + k * 0.001, endOf: u.key }) });
     }
   }
   for (const [k, el] of col.pills) if (!seenMarks.has(el)) { el.remove(); col.pills.delete(k) }
@@ -4117,11 +4117,26 @@ function layoutColumn() {
   items.sort((a, b) => a.ey - b.ey || a.order - b.order);
   let floor = 0;
   const lines = [];
-  for (const it of items) {
-    const top = Math.max(Math.round(it.top), floor);
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    let want = Math.round(it.top);
+    // A unit's end meeting the next unit's start (Anders, 19 Oct 2026, night: the start rule sits exactly above the
+    // heading): the end mark, with its cards, moves up so it ends clear of the start rule, its tick slanting from the
+    // last line; only with no room above does the start mark go down instead.
+    if (it.mark === 'end') {
+      let j = i + 1, h = it.el.offsetHeight;
+      while (j < items.length && items[j].endOf === it.unit) { h += C.cardGap + items[j].el.offsetHeight; j++ }
+      const next = items[j], at = next && next.mark === 'start' ? Math.round(next.top) : null;
+      if (at != null && Math.max(want, floor) + h + C.cardGap > at && at - C.cardGap - h >= floor) {
+        want = at - C.cardGap - h;
+        // Its cards follow it directly.
+        for (let k = i + 1; k < j; k++) items[k].top = 0;
+      }
+    }
+    const top = Math.max(want, floor);
     if (it.el.style.top !== top + 'px') it.el.style.top = top + 'px';
     floor = top + it.el.offsetHeight + C.cardGap;
-    // A unit mark's rule: a tick from the page to the column, level with the heading (or the last line); pushed down, slanting to the mark.
+    // A unit mark's rule: a tick from the page to the column, level with the heading (or the last line); moved, slanting to the mark.
     if (it.rule) { lines.push(`<path class="is-rule" d="${Math.abs(top - it.ey) <= 1 ? `M${it.x0} ${it.ey} H${left}` : `M${it.x0} ${it.ey} H${it.x0 + 12} L${left - 12} ${top} H${left}`}"/>`); continue }
     // A note with no passage (a margin note, a unit's note) has no line to a passage.
     if (!it.card || it.card.free) continue;

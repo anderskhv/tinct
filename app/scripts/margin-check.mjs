@@ -4332,10 +4332,11 @@ async function unitMarks(browser, origin) {
     return { head, last, end, start, ticks }
   }, [units[0].key, units[1].key])
   ok('2. the end mark: "End of", the unit\'s name and pages, ✧ Recap · ✧ Quiz me · Note', meet.end && meet.end.k === 'End of' && meet.end.name === '1 Introduction pp. 1–3' && meet.end.words.join('|') === '✧Recap|✧Quiz me|Note', meet.end)
-  ok('2. the end rule\'s y is the top of the unit\'s last line (on the next unit\'s page, above its heading; within 2 px)', meet.end && meet.last != null && Math.abs(meet.end.top - meet.last) <= 2, { end: meet.end?.top, last: meet.last })
-  const pushed = meet.start && meet.head != null && meet.start.top > meet.head + 2
-  const tickAtHead = meet.ticks.some(t => Math.abs(t.y - meet.head) <= 2 && (pushed ? /L/.test(t.d) : !/L/.test(t.d)))
-  ok('2. the next start mark is pushed below the end mark (never over it) and its tick stays at the heading, slanting to it', meet.start && meet.end && meet.start.top >= meet.end.bottom - 1 && pushed && tickAtHead, { start: meet.start?.top, endBottom: meet.end?.bottom, head: meet.head, ticks: meet.ticks.map(t => t.d) })
+  // They collide (the last line is one line above the heading): the start mark keeps its place exactly above the heading
+  // (Anders, 19 Oct 2026, night); the end mark moves up, ending clear of the start rule, its tick slanting from the last line.
+  const tickFrom = (y, slant) => meet.ticks.some(t => Math.abs(t.y - y) <= 2 && (slant ? /L/.test(t.d) : !/L/.test(t.d)))
+  ok('2. collision: the start rule stays within 2 px of the heading\'s top, its tick straight across', meet.start && meet.head != null && Math.abs(meet.start.top - meet.head) <= 2 && tickFrom(meet.head, false), { start: meet.start?.top, head: meet.head, ticks: meet.ticks.map(t => t.d) })
+  ok('2. collision: the end mark moves up, ending clear of the start rule; its tick slants from the top of the unit\'s last line (on the next unit\'s page, above its heading)', meet.end && meet.start && meet.last != null && meet.end.bottom <= meet.start.top + 0.5 && meet.end.top < meet.last - 2 && tickFrom(meet.last, true), { end: meet.end && [meet.end.top, meet.end.bottom], start: meet.start?.top, last: meet.last, ticks: meet.ticks.map(t => t.d) })
   await shot(a, 'unit-marks-end-1440x900')
   // 3. Cards from a mark open under it; their requests carry the unit's pages.
   const r1 = account.requests.length
