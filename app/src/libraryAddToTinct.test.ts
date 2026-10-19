@@ -795,6 +795,31 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(box.querySelector('.own-file-search')).toBeNull()
   })
 
+  it('names both the extensions and the types (iOS Files), with no spaces; on Android also octet-stream, which some file managers report for an EPUB', () => {
+    const IPAD = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15'
+    const IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'
+    const WINDOWS = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36'
+    const SAMSUNG = 'Mozilla/5.0 (Linux; Android 14; SM-S921B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Mobile Safari/537.36'
+    const ANDROID_APP = 'Mozilla/5.0 (Linux; Android 14; Pixel 8; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0 Mobile Safari/537.36'
+    for (const ua of [IPAD, IPHONE, WINDOWS]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub')
+    for (const ua of [SAMSUNG, ANDROID_APP]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub,application/octet-stream')
+    for (const list of [addToTinct.FILE_ACCEPT, addToTinct.FILE_ACCEPT_ANDROID]) {
+      expect(list).not.toMatch(/\s/)
+      for (const piece of ['.pdf', '.epub', 'application/pdf', 'application/epub+zip']) expect(list.split(',')).toContain(piece)
+    }
+    // Add a book's PDF reader asks for the same file types.
+    expect(readFileSync('public/lab/addbook/index.html', 'utf8')).toContain('accept="application/pdf,.pdf,application/epub+zip,.epub"')
+  })
+
+  it('says why when a chosen file is refused, and offers the picker again', async () => {
+    document.documentElement.classList.add('signed-in')
+    const { engine } = fakeEngine({ readError: 'This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.' })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine })
+    choose(new File(['x'], 'book', { type: 'application/octet-stream' }))
+    await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.'))
+    expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
+  })
+
   it('adds an EPUB in place: rights once (the engine records it), kept, saved, then opens in the Tinct reader, never via Add a book’s page', async () => {
     document.documentElement.classList.add('signed-in')
     const go = vi.fn(), keep = vi.fn(async () => true)

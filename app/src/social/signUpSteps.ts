@@ -33,13 +33,14 @@ import {
   ownPictureView,
   paintAvatar,
   rememberNewBooksOpenIn,
-  resizePhoto,
+  photoUploadMessage,
+  preparePhoto,
   saveProfile,
   socialProfilesOn,
   uploadProfileImage,
   type OwnProfile,
 } from './socialClient'
-import { PHOTO_ACCEPT } from './photoAccept'
+import { photoAccept } from './photoAccept'
 import { CARDS_COPY } from '../cards/cardsCopy'
 
 export const SIGNUP_CONSENT_KEY = 'tinct:signup-consent'
@@ -255,7 +256,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const uploads = profile.uploads === true ? el('div', { className: 'social-uploads', dataset: { socialUploads: '' } }) : null
   if (uploads) {
     for (const slot of ['picture', 'background'] as const) {
-      const field = el('input', { type: 'file', accept: PHOTO_ACCEPT, tabIndex: -1 })
+      const field = el('input', { type: 'file', accept: photoAccept(), tabIndex: -1 })
       field.setAttribute('aria-hidden', 'true')
       const label = slot === 'picture' ? CARDS_COPY.uploadPicture : CARDS_COPY.uploadBackground
       const trigger = el('button', { type: 'button', dataset: { socialUpload: slot } }, label)
@@ -266,10 +267,12 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
         if (!chosen) return
         trigger.disabled = true
         hooks.setStatus()
-        const image = await resizePhoto(chosen, slot)
-        const saved = image ? await uploadProfileImage(token, slot, image) : null
+        // Every failure says why: the photo's own problem, or the upload's.
+        const prepared = await preparePhoto(chosen, slot)
+        const saved = prepared.ok ? await uploadProfileImage(token, slot, prepared.image) : null
         trigger.disabled = false
-        if (!saved?.ok) { hooks.setStatus((saved && !saved.ok && saved.message) || CARDS_COPY.saveFailed, 'error'); return }
+        if (!prepared.ok) { hooks.setStatus(prepared.message, 'error'); return }
+        if (!saved?.ok) { hooks.setStatus(saved ? photoUploadMessage(saved, CARDS_COPY.saveFailed) : CARDS_COPY.saveFailed, 'error'); return }
         profile = saved.profile
         if (slot === 'background') { backgroundUploaded = true; return }
         // The reader's own picture joins the choices, chosen; it is already saved.
