@@ -39,6 +39,7 @@ import {
   uploadProfileImage,
   type OwnProfile,
 } from './socialClient'
+import { PHOTO_ACCEPT } from './photoAccept'
 import { CARDS_COPY } from '../cards/cardsCopy'
 
 export const SIGNUP_CONSENT_KEY = 'tinct:signup-consent'
@@ -254,7 +255,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const uploads = profile.uploads === true ? el('div', { className: 'social-uploads', dataset: { socialUploads: '' } }) : null
   if (uploads) {
     for (const slot of ['picture', 'background'] as const) {
-      const field = el('input', { type: 'file', accept: 'image/*', tabIndex: -1 })
+      const field = el('input', { type: 'file', accept: PHOTO_ACCEPT, tabIndex: -1 })
       field.setAttribute('aria-hidden', 'true')
       const label = slot === 'picture' ? CARDS_COPY.uploadPicture : CARDS_COPY.uploadBackground
       const trigger = el('button', { type: 'button', dataset: { socialUpload: slot } }, label)

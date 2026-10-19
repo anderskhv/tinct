@@ -31,6 +31,7 @@ import { chapterFraction, followBackCount, followButton, leaderboardAllowed, pri
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
 import { privateImageUrl, rememberNewBooksOpenIn, resizePhoto, uploadProfileImage } from '../social/socialClient'
+import { PHOTO_ACCEPT } from '../social/photoAccept'
 import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
@@ -441,7 +442,7 @@ function nameField(env: CardsEnv, card: CardHandle, naming: { open: boolean; dra
 }
 
 function fileField(): HTMLInputElement {
-  return el('input', { type: 'file', accept: 'image/*', className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
+  return el('input', { type: 'file', accept: PHOTO_ACCEPT, className: 'tc-file', 'aria-hidden': 'true', tabindex: '-1' }) as HTMLInputElement
 }
 
 /** At or above this share of the month's credits used, the Top up (or Get Premium) row shows (Anders, 14 Oct 2026). */
