@@ -152,6 +152,8 @@ describe('Copy quote and the margin\'s words for an EPUB', () => {
   it('names chapters and "the whole book" for an EPUB; a PDF keeps pages and "the whole PDF"', () => {
     const card: Card = { id: 'c', kind: 'explain', page: 3, rects: [[3, 0, 0, 1, 0.02]], text: 't', at: 1 }
     expect(M.html.cardLabel(card, '3', { unit: 'ch.', doc: 'epub' })).toBe('Explain · ch. 3')
+    // The margin preview of a Tinct book: the chapter by its title, as the chapter pill shows it (no "ch.").
+    expect(M.html.cardLabel(card, 'Chapter 1', { unit: '', doc: 'epub' })).toBe('Explain · Chapter 1')
     expect(M.html.cardLabel(card, '3')).toBe('Explain · p. 3')
     expect(M.html.cardLabel({ ...card, kind: 'whole' }, '3', { doc: 'epub' })).toBe('Whole book')
     expect(M.html.stackHtml([{ kind: 'note' }], Infinity, { doc: 'epub' })).toBe('<span>1 more in this chapter</span><span>Your note</span>')

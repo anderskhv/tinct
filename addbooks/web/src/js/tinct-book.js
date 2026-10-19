@@ -78,20 +78,36 @@
   }
 
   const STYLE = `.tb-chapter .tb-head{display:block;margin:0 0 1.6em;text-align:center}
-.tb-chapter .tb-part{display:block;font-size:.78em;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:.5em}
+.tb-chapter .tb-part{display:block;font-size:.9em;font-style:italic;opacity:.7;margin-bottom:.4em}
 .tb-chapter .tb-title{display:block;font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:1.45em;line-height:1.25}
 .tb-chapter .tb-p{white-space:pre-line}
 .lab.byob .epub-sheet{content-visibility:visible}`;
   // (Chapters are drawn whole, not skipped off screen: a Tinct chapter runs to many screens, and an estimated height
   // above the place moved it as the chapters were drawn; reader.js epubGoSpot measures real lines.)
 
+  /**
+   * The reading fonts, fetched while the book loads (at most FONT_WAIT_MS): the chapters are then laid out once, in
+   * their own fonts. A font that came later reflowed the whole book after the place was restored, and without scroll
+   * anchoring (Safari) moved it by paragraphs; reader.js also goes back to the held place then (fonts loadingdone).
+   */
+  const FONT_WAIT_MS = 1500;
+  function fontsSoon() {
+    const f = document.fonts; if (!f?.load) return Promise.resolve();
+    const lab = document.querySelector('.lab');
+    const body = (lab && getComputedStyle(lab).getPropertyValue('--lab-font-reader').trim()) || "'Literata', Georgia, serif";
+    const wanted = [`400 19px ${body}`, `italic 400 19px ${body}`, `400 28px 'Playfair Display'`].map(font => f.load(font, 'Aa').catch(() => null));
+    return Promise.race([Promise.all(wanted), new Promise(r => setTimeout(r, FONT_WAIT_MS))]);
+  }
+
   async function open() {
     const R = window.TinctReader; if (!R?.openRegistered) return;
     const style = document.createElement('style'); style.textContent = STYLE; document.head.appendChild(style);
     document.body.dataset.view = 'reader'; document.getElementById('root').hidden = false; document.getElementById('start').hidden = true;
     say('Opening…');
+    const fonts = fontsSoon();
     let model = null;
     try { model = await framed() } catch { model = null }
+    await fonts;
     if (!model || !Array.isArray(model.chapters) || !model.chapters.length) {
       say(`This preview opens from the reader. <a href="/reader?book=${encodeURIComponent(id)}&amp;margin=1" target="_top">Open the margin preview</a>`);
       return;

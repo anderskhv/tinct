@@ -1221,7 +1221,9 @@ function savePlaceNow() {
   clearTimeout(saveTimer);
   if (!state.pages.length || !state.key) return;
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
-  const moved = !sameSpot(place, state.lastPlace);
+  // A place kept without its paragraph (the view's top was in the space at a chapter's end) takes the paragraph
+  // as soon as there is one, though the view has hardly moved: else a reload opens in that space, a chapter early.
+  const moved = !sameSpot(place, state.lastPlace) || (isEpub() && !Number.isInteger(prev.para) && epubSpot().para != null);
   if (moved) state.lastPlace = place;
   // A move in a PDF is read in Original pages, at this spot in its Tinct text when this device has it.
   const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : moved && isEpub() ? epubSpot() : {};
@@ -3328,10 +3330,14 @@ const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubM
 const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));
 /** How the margin names the file and a place in it: pages for a PDF, chapters for an EPUB. */
 const docKind = () => (isEpub() ? 'epub' : 'pdf');
-const where = () => (isEpub() ? { unit: 'ch.', doc: 'epub' } : { doc: 'pdf' });
-const cardName = card => TinctMargin.html.cardLabel(card, pageLabel(card.page), where());
-/** An EPUB chapter as a place in prose ("ch. 3"), for Copy quote. */
-const chapterPlace = n => `ch. ${n}`;
+// The preview names a chapter by its title, as its pill and contents do ("Chapter 1", "Letter 2"), never by its place in the file.
+const where = () => (isEpub() ? { unit: state.preview ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
+/** A card's place as its label shows it: the page label, an EPUB chapter's number, or the preview's chapter title. */
+const placeName = n => (state.preview && chapterTitle(n)) || pageLabel(n);
+const chapterTitle = n => toc.entries.find(e => e.page === n && e.kind === 'chapter')?.label || '';
+const cardName = card => TinctMargin.html.cardLabel(card, placeName(card.page), where());
+/** An EPUB chapter as a place in prose ("ch. 3"; the preview's "Chapter 1"), for Copy quote and the Notebook. */
+const chapterPlace = n => (state.preview && chapterTitle(n)) || `ch. ${n}`;
 const keptCards = () => store.get('cards:' + state.key) || [];
 // Cards made before this visit without their answer are not shown (TinctMargin.cardView); newer ones may still be answering.
 const CARDS_SINCE = Date.now();
@@ -3522,7 +3528,7 @@ async function marginDocument(page) {
   if (isEpub()) {
     // Too long to send whole: the chapter the reader is in, and the contents.
     const text = (await pageText(page)).text || '';
-    return { kind: 'epub', units: [{ n: pageLabel(page), text: text.slice(0, read.limit) }], part: { toc: toc.entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length } };
+    return { kind: 'epub', units: [{ n: pageLabel(page), text: text.slice(0, read.limit) }], part: { toc: toc.entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length }, ...(state.preview ? { library: true } : {}) };
   }
   const [r, contents] = await Promise.all([docRange(page), contentsSoon()]);
   if (state.key !== key) return null;
@@ -3813,7 +3819,7 @@ function cardOpts(card, open) {
   const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
   // Simplify compares its answer with the page and the next (simplifyAnswer): the document pasted back is never shown.
   const source = card.kind === 'simplify' ? [card.page, card.page + 1].map(n => state.texts.get(n)?.text || '').join('\n') : '';
-  return { open, P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
+  return { open, P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: placeName(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
 }
 /** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
 function holdQuizHeight(el, before) {
@@ -6593,9 +6599,10 @@ function epubSettle(measure, at = 0, tries = 6) {
     step(tries);
   });
 }
-/** To a paragraph's word in chapter `n` (the word's line at the top of the view). */
+/** To a paragraph's word in chapter `n` (the word's line at the top of the view); held there until the reader scrolls. */
 function epubGoSpot(n, para, word = 0) {
   const p = state.pages[n - 1], el = p && epubParas(p)[para]; if (!el) return false;
+  Object.assign(epubHold, { spot: { para, word }, page: n });
   goTo({ page: n, frac: 0 });
   epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - 10));
   return true;
@@ -6617,6 +6624,17 @@ function epubReflow(change) {
 addEventListener('resize', () => {
   if (!isEpub() || !epubHold.spot) return;
   if (!epubHold.reflow) { epubHold.reflow++; setTimeout(() => { epubHold.reflow--; const { spot, page } = epubHold; if (isEpub() && spot && page) epubGoSpot(page, spot.para, spot.word) }, 220) }
+});
+// A web font that arrives after the place was found reflows the chapters, and without scroll anchoring (Safari)
+// the text moves under the view: back to the paragraph and word held, when the reflow moved them.
+document.fonts?.addEventListener?.('loadingdone', () => {
+  if (!isEpub() || !state.pages.length) return;
+  const { spot, page } = epubHold; if (!spot || !page) return;
+  const now = epubSpot();
+  if (currentPlace().page === page && now.para === spot.para && (now.word || 0) <= (spot.word || 0)) return;
+  epubHold.reflow++;
+  epubGoSpot(page, spot.para, spot.word);
+  setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 400);
 });
 /** To a character offset in chapter `n` (a card's or a highlight's passage), a quarter of the way down the view. */
 function epubGoOffset(n, offset) {
@@ -6684,7 +6702,8 @@ function previewUnits() {
   toc.early = { text: true };
   primer.units = state.pages.map(p => {
     const e = toc.entries.find(x => x.page === p.n && x.kind === 'chapter');
-    return { key: 'chapter-' + (e?.number ?? p.n), title: e?.label || 'Chapter ' + p.n, from: p.n, start: p.n, to: p.n };
+    const title = e?.label || 'Chapter ' + p.n;
+    return { key: 'chapter-' + (e?.number ?? p.n), title, phrase: /^chapter\s+\S+$/i.test(title) ? title.toLowerCase() : title, from: p.n, start: p.n, to: p.n };
   });
 }
 /** The companion's document: never the whole book; the chapter the reader is in and the contents (marginDocument). */
@@ -6703,10 +6722,10 @@ const nbPlace = e => {
   if (!isEpub()) return `p. ${pageLabel(e.page)}`;
   const card = e.source === 'card' ? cardById(e.id) : null, mark = e.source === 'mark' ? highlights().find(m => m.id === e.mark) : null;
   const n = card?.span?.[0] || e.page, start = card ? card.span?.[1] : mark?.start, p = state.pages[n - 1];
-  if (!p || start == null) return `ch. ${n}`;
+  if (!p || start == null) return chapterPlace(n);
   p.paraStarts ??= epubParas(p).map(el => textOffset(p.pg, el, 0));
   let i = 0; while (i + 1 < p.paraStarts.length && p.paraStarts[i + 1] <= start) i++;
-  return `ch. ${n} ¶ ${i + 1}`;
+  return `${chapterPlace(n)} ¶ ${i + 1}`;
 };
 function nbFlash(mark) {
   const p = state.pages[mark.page - 1]; if (!p) return;

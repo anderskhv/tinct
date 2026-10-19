@@ -132,7 +132,7 @@ Document and unit identity (data): ${JSON.stringify({ title: context.bookTitle, 
  * pages (or without an outline) is one unit, "all": the whole document. Never
  * "an excerpt" (FIXES B2).
  */
-export function buildPrimerTask(action: PrimerChapterAction, context: LabAskContext, doc?: Pick<MarginDocument, 'units' | 'part' | 'cut'> | null): string {
+export function buildPrimerTask(action: PrimerChapterAction, context: LabAskContext, doc?: Pick<MarginDocument, 'units' | 'part' | 'cut' | 'library'> | null): string {
   const authorship = authorshipNote(context.bookAuthor, context.authorship, 'this chapter')
   const labels = context.paragraphs.map(page => splitPage(page).label).filter(Boolean)
   const pages = labels.length ? (labels[0] === labels[labels.length - 1] ? labels[0] : `${labels[0]}–${labels[labels.length - 1]}`) : ''
@@ -144,7 +144,7 @@ export function buildPrimerTask(action: PrimerChapterAction, context: LabAskCont
     ? 'Here "the chapter" means the whole document above, every page of it.'
     : action.unitKey === 'all'
       ? `Here "the chapter" means only the part of the document above${supplied ? `, the pages labelled ${supplied}` : ''}; never call it the whole document. Use the contents only to place it.`
-      : `Here "the chapter" means one part of the reader's own document, the unit named here and only it; its text is in the document above${pages ? `, on the pages labelled ${pages}` : ''}. Use the rest of the document only to place the unit; never blend it with a neighbouring chapter.`
+      : `Here "the chapter" means one part of ${doc?.library ? 'the book' : 'the reader\'s own document'}, the unit named here and only it; its text is in the document above${pages ? `, on the pages labelled ${pages}` : ''}. Use the rest of the document only to place the unit; never blend it with a neighbouring chapter.`
   return `${CHAPTER_CHAT_INSTRUCTIONS.primer}
 ${scope} Cautions (Keep in mind) are about the document itself (its conventions, assumptions, notation and claims to check), never about how the text reached you.
 Unit (data): ${JSON.stringify({ unit: action.unitTitle, ...(pages ? { pages } : {}), author: promptAuthor(context.bookAuthor, context.authorship) })}${authorship ? `\n${authorship}` : ''}`

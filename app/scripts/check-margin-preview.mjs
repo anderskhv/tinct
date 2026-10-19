@@ -42,7 +42,7 @@ async function mockApis(context, log) {
   await context.route(/\/api\/lab-position/, route => { log.position.push(route.request().method()); return route.fulfill({ status: route.request().method() === 'GET' ? 200 : 500, contentType: 'application/json', body: JSON.stringify(positionRecord()) }) })
   await context.route(/\/api\/(chat|lab-chat)(\?|$)/, async route => {
     let body = null; try { body = JSON.parse(route.request().postData() || 'null') } catch {}
-    log.ai.push({ url: route.request().url(), intent: body?.companion?.intent, kind: body?.companion?.context?.kind, document: body?.companion?.document ? { kind: body.companion.document.kind, units: body.companion.document.units.length, part: !!body.companion.document.part, chars: body.companion.document.units.reduce((n, u) => n + u.text.length, 0) } : null, selection: body?.companion?.selection })
+    log.ai.push({ url: route.request().url(), intent: body?.companion?.intent, kind: body?.companion?.context?.kind, document: body?.companion?.document ? { library: body.companion.document.library === true, kind: body.companion.document.kind, units: body.companion.document.units.length, part: !!body.companion.document.part, chars: body.companion.document.units.reduce((n, u) => n + u.text.length, 0) } : null, selection: body?.companion?.selection })
     const c = body?.companion || {}
     // Shaped as each action parses it (as scripts/margin-check.mjs mocks them); the rest a plain answer.
     const text = c.intent === 'define' ? JSON.stringify({ kind: 'definition', definition: `Noun. A mocked meaning of “${c.selection}” here.` })
@@ -115,6 +115,10 @@ try {
       const explain = log.ai.find(r => r.intent === 'explain')
       ok(`${tag}: Explain answers in a margin card`, !!card, log.ai)
       ok(`${tag}: the request carries the passage and the chapter it is in (an EPUB part), never the whole book`, !!explain && explain.kind === 'epub' && explain.selection?.length > 10 && (!explain.document || (explain.document.part && explain.document.units === 1)), explain)
+      ok(`${tag}: the request says the book is from Tinct's library, not the reader's own files (document.library)`, !!explain?.document?.library, explain?.document)
+      // The card names its chapter as the chapter pill and the contents do ("Chapter 1"), not by its place in the file ("ch. 5").
+      const named = await frame.evaluate(() => { const c = keptCards().find(k => k.kind === 'explain' && !k.gone); const title = c && toc.entries.find(e => e.page === c.page && e.kind === 'chapter')?.label; return { want: title ? `Explain · ${title}` : null, labels: [...document.querySelectorAll('.mr-card__label')].map(e => e.textContent.trim()), name: c ? cardName(c) : null } })
+      ok(`${tag}: the card's label names the chapter by its title (${named.want})`, !!named.want && named.name === named.want && named.labels.includes(named.want) && !named.labels.some(l => /\bch\. \d/.test(l)), named)
       shots.push(join(OUT, `${tag}-explain.png`)); await page.screenshot({ path: shots.at(-1) })
 
       // 3. The Notebook lists it (desktop only).
@@ -122,6 +126,8 @@ try {
         await frame.evaluate(() => { getSelection().removeAllRanges(); document.getElementById('notebookBtn').click() })
         const nb = await frame.waitForSelector('.nb .nb-entry', { timeout: 8000 }).catch(() => null)
         ok(`${tag}: the Notebook lists the Explain card`, !!nb)
+        const nbPlaces = await frame.evaluate(() => [...document.querySelectorAll('.nb .nb-entry')].map(e => e.innerText.replace(/\s+/g, ' ').trim().slice(0, 60)))
+        ok(`${tag}: the Notebook names the chapter by its title, not "ch. N"`, nbPlaces.length > 0 && nbPlaces.every(t => !/\bch\. \d/.test(t)) && nbPlaces.some(t => named.want && t.includes(named.want.replace(/^Explain · /, ''))), nbPlaces)
         shots.push(join(OUT, `${tag}-notebook.png`)); await page.screenshot({ path: shots.at(-1) })
         await frame.evaluate(() => document.getElementById('notebookBtn').click())
       }
@@ -172,12 +178,18 @@ try {
       shots.push(join(OUT, `${tag}-chapters.png`)); await page.screenshot({ path: shots.at(-1) })
       await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [data-close]')?.click())
 
+      // 3d. Type: a part's name is not set in capitals; a chapter's Before you start names it as its contents do.
+      const type = await frame.evaluate(() => ({ part: [...document.querySelectorAll('.tb-part')].map(e => getComputedStyle(e).textTransform)[0] ?? null, phrases: (primer.units || []).slice(0, 30).map(u => TinctMargin.unitPhrase(u)) }))
+      ok(`${tag}: part names are not in capitals`, type.part === null || type.part === 'none', type.part)
+      ok(`${tag}: Before you start names chapters as the contents do ("chapter 1", "Letter 2", "The Window · 2")`, type.phrases.length > 0 && type.phrases.every(p => /^chapter \d+$|^Letter \d+$|^(The Window|Time Passes|The Lighthouse) · \d+$/.test(p)), type.phrases.slice(0, 6))
       // 4. A reload keeps the preview's own place.
       // (The open card folded first: an open card may bring its passage back into view.)
       await frame.evaluate(() => { getSelection().removeAllRanges(); closeAllPopups(); if (col.open) openCard(null); closeSheet2?.() })
       await page.waitForTimeout(600)
       await frame.evaluate(() => document.getElementById('scroll').scrollBy(0, 2400))
       await page.waitForTimeout(1500)
+      // On text, not in the space at a chapter's end (no paragraph there: the place is kept as a fraction of the chapter).
+      for (let i = 0; i < 8 && (await spotOf(frame)).para === undefined; i++) { await frame.evaluate(() => document.getElementById('scroll').scrollBy(0, 160)); await page.waitForTimeout(400) }
       const moved = await spotOf(frame)
       await frame.evaluate(() => savePlaceNow())
       const savedPos = await page.evaluate(id => localStorage.getItem(`tinct-addbook:pos:preview:${id}`), bookId)
@@ -194,6 +206,15 @@ try {
       const after = await mainKeys(page)
       ok(`${tag}: the book reader's keys are untouched`, JSON.stringify(after) === JSON.stringify(before), { before: Object.keys(before), after: Object.keys(after) })
       ok(`${tag}: the account's place is read (GET) and never written`, log.position.every(m => m === 'GET'), log.position)
+
+      // 5b. Dark (Aa): the chapters turn dark with the rest of the reader. (The theme is the device's, shared with the
+      // book reader by design, tinct-lab-prefs: so after the check above.)
+      await frame.click('#aaBtn'); await frame.waitForSelector('[data-theme-choice="dark"]', { timeout: 5000 }); await frame.click('[data-theme-choice="dark"]'); await page.waitForTimeout(400)
+      const dark = await frame.evaluate(() => { const s = [...document.querySelectorAll('.epub-sheet')].find(e => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight }); const lum = c => { const m = c.match(/\d+(\.\d+)?/g).map(Number); return (0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]) / 255 }; return { bg: lum(getComputedStyle(s).backgroundColor), ink: lum(getComputedStyle(s.querySelector('.tb-p')).color) } })
+      ok(`${tag}: Dark turns the chapters dark (light text on a dark sheet)`, dark.bg < 0.2 && dark.ink > 0.6, dark)
+      shots.push(join(OUT, `${tag}-dark.png`)); await page.screenshot({ path: shots.at(-1) })
+      await frame.click('[data-theme-choice="light"]'); await frame.evaluate(() => closeDisplay()); await page.waitForTimeout(300)
+
 
       // 6. Back to normal reader (the Aa panel): the book reader for the same book, the opt-in off.
       await frame.click('#aaBtn')
@@ -213,6 +234,31 @@ try {
       ok(`${tag}: no page errors`, errors.length === 0, errors)
       await context.close()
     }
+  }
+
+  // 8. A web font that arrives late (after the place was restored) leaves the place where it was, also without
+  // scroll anchoring (Safari: none). Fonts held back past the preview's wait for them (tinct-book.js FONT_WAIT_MS).
+  for (const bookId of BOOKS) {
+    const tag = `${bookId}-latefont`
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, hasTouch: true, isMobile: true })
+    await mockApis(context, { position: [], ai: [] })
+    await context.route(/\/fonts\/.*\.woff2/, async route => { await new Promise(r => setTimeout(r, 3500)); await route.continue().catch(() => {}) })
+    await context.addInitScript(() => { if (location.pathname.startsWith('/lab/')) document.addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = '#scroll{overflow-anchor:none}'; document.head.appendChild(s) }) })
+    const page = await context.newPage()
+    const errors = []; page.on('pageerror', e => errors.push(String(e)))
+    await page.goto(`${ORIGIN}/lab/addbook/vendor/pdfjs/pdf.min.js`)
+    const seeded = { page: chapterIndex(bookId, PLACES[bookId].chapterNumber) + 3, para: 6 }
+    await page.evaluate(([id, s]) => { localStorage.clear(); localStorage.setItem(`tinct-addbook:pos:preview:${id}`, JSON.stringify({ page: s.page, frac: 0, para: s.para, word: 0, at: Date.now() })) }, [bookId, seeded])
+    await page.goto(`${ORIGIN}/reader?book=${bookId}&margin=1`)
+    const frame = await frameOf(page)
+    const first = await spotOf(frame)
+    await frame.waitForFunction(() => document.fonts.status === 'loaded' && [...document.fonts].some(f => f.family.includes('Literata') && f.status === 'loaded'), null, { timeout: 20000 }).catch(() => null)
+    await page.waitForTimeout(800)
+    const later = await spotOf(frame)
+    ok(`${tag}: restored at chapter ${seeded.page}, paragraph ${seeded.para}`, first.page === seeded.page && first.para === seeded.para, first)
+    ok(`${tag}: still there after the fonts arrive (no scroll anchoring)`, later.page === seeded.page && later.para === seeded.para, { first, later })
+    ok(`${tag}: no page errors`, errors.length === 0, errors)
+    await context.close()
   }
 } finally {
   await browser.close()
