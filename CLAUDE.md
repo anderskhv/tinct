@@ -1,279 +1,74 @@
-# AI-Enhanced Reading Platform — Tinct
+# Tinct — Claude instructions
 
-## Automatic book-task routing — approved 2026-09-24
+Read `AGENTS.md` first: it holds current state, the deploy flow, privacy rules, reader invariants and public URLs. This file adds only what Claude must not miss.
 
-Requests to **add, onboard, prepare, translate, modernize or repair a book** activate the [content-only book workflow](books/BOOK-TASK-WORKFLOW.md), even when this session starts at the repository root. Read it and its required strategy references before editing. A request to add or finish a book is not authorization to change code, integrate the app, merge to main or deploy.
+## Book tasks
 
-This is task-specific: Claude may implement and release code when Anders explicitly assigns a coding/release task, following current repository rules and serialized release ownership. Do not infer that assignment from a book request.
+- Requests to add, onboard, prepare, translate, modernize or repair a book follow [books/BOOK-TASK-WORKFLOW.md](books/BOOK-TASK-WORKFLOW.md), even from the repo root. Read it and its strategy references before editing.
+- A book request is not authorisation to change code, integrate, merge to main or deploy. Code and release work needs an explicit assignment from Anders.
+- Since 8 Oct 2026 Claude owns integration and publication too (Codex retired), as a separate assigned step.
+- Acclaim quotes must be verifiable in a primary source; no literary folklore.
 
-> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+## Language
 
-> **2026-06-17 update:** This file is historical and contains stale counts,
-> old sprint state, and Claude-specific workflow rules. For current project
-> state and next steps, read `AGENTS.md` first, then
-> `docs/two-month-project-pipeline-2026-06-17.md`.
->
-> Current shutdown checkpoint: 100 live books, latest deployed Worker
-> `1fece18c-5bf3-4f6a-9943-2ad629544477`, Desktop APK at
-> `/Users/andershvelplund/Desktop/Tinct-test-2026-06-17.apk`.
-> Voice (Talk) runs on xAI Grok native speech-to-speech since 2026-09-18; see
-> `docs/voice-grok-2026-09-18.md` and the Voice section of `AGENTS.md`.
->
-> Current deploy policy is in `AGENTS.md`: until Tinct has more than 10 users,
-> deploy-after-verify with `npm run deploy` from `app/`. Do not ask first
-> unless Anders said local-only. Never raw Wrangler.
+English is the strategy. Danish is optional, not a launch, QA or marketing requirement ([STRATEGY.md](STRATEGY.md#language-scope)). Keep future localization easy.
 
-## Organization
+## Hard bans
 
-Project CEO for Tinct. Group CEO is `../../CLAUDE.md` — that handles session protocol (Garmin, calendar, morning check-in). You handle this project's code and tasks.
+- **Zero Anthropic API spend in development.** Generate content in the conversation and write it to files. The API key is for the production reader chat only.
+- Never run `generate-editions.cjs`.
+- Never run raw `wrangler`; use the npm scripts.
 
-**On-request advisors:** `../../agents/design.md`, `../../agents/marketing.md`, `../../agents/deutsch.md` (+ `deutsch-condensed.md`). Load when Anders says "consult the design lead" or "what would marketing say?"
+## Deploy
 
-**Screenshots:** `../../Screenshots/` — Read tool handles images natively. Most recent files first.
+Deploy-after-verify (until Tinct has more than 10 users): build, verify-bundle, merge to `main`, and let the GitHub Actions deploy workflow release it. Do not ask first unless Anders said local-only. Details and the completion checklist are in `AGENTS.md`.
 
-**Reference docs:** `STRATEGY.md` (positioning), `BACKLOG.md` (prioritized work), `Design refs/` (current visual specs). `DECISIONS.md` is the live decision log.
+## Data and privacy
 
----
+- Anders's own account data (reading time, profile, stats) may be read at any time as ground truth. Other readers' data needs his approval per `AGENTS.md`. Nothing of his goes into the repo.
+- Keep `app/public/privacy.html` true: changes to what personal data is collected, where it goes, how long it is kept or who sees it follow the Privacy section of `AGENTS.md`. Book, reader and layout work needs no privacy check.
 
-## Working Directory — CRITICAL
+## SQL for Anders
 
-- **Git root:** `/Users/andershvelplund/Documents/Projects/Tinct` — all `git *` commands run here.
-- **Build/deploy root:** `/Users/andershvelplund/Documents/Projects/Tinct/app` — all `npm *`, `npx *`, `wrangler *` run here.
+When Anders must run SQL, give him in one message:
+1. the editor link: https://supabase.com/dashboard/project/yazjyiqsxjystvpkyouk/sql/new
+2. the complete SQL in one copy-paste block (not a file path);
+3. one line: what it does, whether it changes data, whether it is safe to run twice.
 
-One repo, one remote (`https://github.com/anderskhv/tinct.git`).
+Check it against the latest migration on main first. Read-only queries touch only his own rows.
 
-**Never use `cd <path> && git ...`** — security prompt. Use `git -C /Users/andershvelplund/Documents/Projects/Tinct ...`. For inline Python, write to a temp `.py` file rather than using `#` comments in heredocs.
+## Browser cache advice
 
----
+Never recommend `Cmd+Shift+R`. Suggest, in order: a private/incognito window; in Chrome with DevTools open, right-click reload, "Empty Cache and Hard Reload"; in Safari, Develop, Empty Caches. For embedded iframes, only a private window is reliable.
 
-## Telling Anders to "hard refresh"
+## Working rules
 
-Do not recommend `Cmd+Shift+R` to Anders; use the cache-clearing alternatives below.
+- **Verification means running it.** A passing build is not done; exercise the change and confirm it with your own eyes.
+- **Never lose reading position.** Every view, edition, language, font or layout change must keep the reader's place.
+- **Bug fixes:** trace the real data flow and reproduce before patching; grep for every reference to a removed or renamed symbol. Two failed attempts means stop, instrument, and tell Anders honestly. No third guess.
 
-**Always recommend in this order:**
+## Reading-position invariants
 
-1. **Open a private/incognito window** (`Cmd+Shift+N` in Chrome, `Cmd+Shift+P` in Safari/Firefox). Most reliable, keyboard-agnostic, totally cache-free.
-2. **Right-click the browser reload button → "Empty Cache and Hard Reload"** (Chrome with DevTools open). One click, no shortcut.
-3. **Safari only:** Develop menu → Empty Caches, then reload. (Develop menu must be enabled in Preferences → Advanced.)
+The legacy `App.tsx` reader was deleted on 2026-09-30; the live reader is `src/lab/` at `/reader`. The invariants in `AGENTS.md` (Reader And Position Invariants) apply to `src/lab/labPosition*`, `labPositionStore` and the sync code. Each guards a real past bug (cross-book position bleed, writes behind overlays, chapter regressions). If a rule looks redundant, run `npm test` from `app/` before touching it; never change a test to match new behaviour.
 
-For embedded iframes (like the landing-page demo), private window is the only reliable option — iframe caches separately and shortcut-based hard-reload often misses it.
+## Ask Anders first
 
----
+Deleting books or features; changing the reading UX paradigm (split pane, chat placement); database schema changes; spending money; new external dependencies; pricing or content strategy. UI-heavy features: show a faithful mockup before building.
 
-## API Cost Rule — HARD BAN
+## Design preferences
 
-**Zero Anthropic API spend in development. No exceptions.**
+Rules live in `docs/design-system.md`. The ones Anders cares about most:
+- Playfair Display for page and dialog titles, EB Garamond for book text and titles, system UI for all chrome. At most two families per screen.
+- Never mono (figures use tabular-nums). Sentence case: no all-caps buttons or labels.
+- No filler text: every line names, instructs or informs a decision.
 
-All content (editions, translations, summaries, onboarding, threads) is generated through this CLI conversation and written to files — never via scripts that call `api.anthropic.com`. **`generate-editions.cjs` is forbidden for development use.** The API key exists only for the prod reader chat. Violating this is a firing offense for the CEO.
+## Product policies
 
----
+- Reading angle is free for everyone and always skippable.
+- Signed-in users never see the landing page (`app/public/landing.html` redirects before render). A regression is P0.
+- Supabase email confirmation is off: sign-up lands straight in the reader.
+- Every book and edition is visually QA'd page by page before shipping.
 
-## Auto-Documentation & Decision Logging
+## Decisions
 
-**Auto-update this file** when a decision is made (design, product, architecture, project standard). Append to the Decisions Log. Use judgment — log what's useful for future sessions, skip trivia.
-
-**Process rules:**
-- Log decisions at the moment they're made, not at end of day.
-- SESSION.md is a current-state snapshot, not a changelog. Overwrite at end of session.
-- Current State section has a "Last verified" date. >7 days old → read the actual code, don't trust docs.
-- A session that ends without updating SESSION.md and Current State is a bug; next session must fix it before any other work.
-
-**`DECISIONS.md`** (separate file) holds the live decision log. Format: `| Date | Decision | Category | Escalated? | Reasoning |`. Categories: `architecture`, `design`, `content`, `deploy`, `delete`, `scope`, `external`, `spend`. Log BEFORE asking Anders — even if you decide alone, log it as `Escalated? No`. Reviewed weekly to tune autonomy.
-
----
-
-## Project Overview
-
-A content-agnostic deep reading platform. Active wrestling with texts: multi-edition reading (original / modern English), AI chat, highlighting, journaling. 33 books live, expanding to 100+ Western classics + Bible.
-
----
-
-## Design Direction
-
-- Warm, literary, clean. Light mode default; dark mode + e-ink mode available.
-- Desktop-first; mobile = 5-tab swipeable layout (Read / Compare / Chat / Feed / Cast).
-- Library taxonomy is Houses -> Shelves -> Books. Every production book must be classified into the taxonomy when added: House, Shelf membership, form, era, and relevant canon/list metadata.
-- **Type:** Playfair Display for page/dialog titles, EB Garamond for book text and book titles, system UI font for all UI chrome. Never mono (figures use tabular-nums). At most two families per screen. No filler text: every line names, instructs, or informs a decision. See `docs/design-system.md`.
-- **Palette:** `--paper: #ece7db`, `--ink: #0b0b0b`, `--accent: #1f4a5c` (deep teal).
-- Canonical reader pattern: Variant D "The Hybrid" from `Design refs/Reader Variations.html`. Landing: `Design refs/Tinct Landing v2.html`.
-- Default reading view = single edition with quick-toggle. Split pane is an opt-in toggle, paragraph-aligned.
-
----
-
-## Tech Stack
-
-React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gutenberg / Internet Archive). Cloudflare Workers deploy. Supabase auth + storage. Stripe billing. R2 for audio. Capacitor for Android.
-
----
-
-## Current State
-
-**Last verified against codebase: 2026-04-20**
-
-**Built & deployed:**
-- 33 public books in `bookRegistry.ts` (+ 1 copyright-protected local-only).
-- English editions: original-en and modern-en.
-- Paginated reader (CSS multi-column) + opt-in split pane (paragraph-aligned).
-- Side panel: Chat | Feed | Cast (Feed = journal+highlights+notes+chats; Cast = character tracker, formerly "Threads").
-- Audio: paragraph-level playback, speed control, auto-advance, R2-hosted.
-- Auth: Supabase email + Google OAuth (Apple OAuth deferred — needs Apple Developer config).
-- Billing: Stripe Checkout, Premium **$5/mo**, 30-day free trial, three tiers (Anonymous / Free account / Premium).
-- Offline: DownloadManager + service worker caching.
-- Android: Capacitor build in `app/android/`, Play Store listing drafted (`PLAY-STORE-LISTING.md`).
-- Landing: static `app/public/landing.html` (logged-out users only — signed-in users redirect to `/read` before render).
-- Highlights (5 colors), notes, reading journal, proactive AI insights, dark/e-ink/font controls.
-
-**Production:** https://tinct.app + https://tinct.ahvelplund.workers.dev. Last confirmed deploy: 2026-03-26.
-
-**Current sprint:** Design refresh — landing page + reader UX rebuild to new design system.
-
-**Known gaps:**
-- Account deletion backend stub (TODO in App.tsx).
-- Audio edition preference callback stub (App.tsx ~1193).
-- Stripe keys commented out in .env — verify prod checkout.
-- AccountDecision.tsx retained but unrendered — clean up later.
-
----
-
-## Operating Rules
-
-**Be autonomous, be concise, verify before claiming done.**
-
-- **Verification means running it.** A passing build is necessary but not sufficient. "Done" = dev server up, feature exercised in a browser, expected behavior confirmed with your own eyes (screenshot/curl).
-- **Never lose reading position.** Any view change (single↔split, edition, language, font) must save scrollFraction and restore. Losing someone's place is the worst possible UX failure.
-- **Grep after deletion.** Remove a variable/function/type/import → grep `src/` for stale references before building. The most common bug is removing a declaration but leaving references in dep arrays, imports, or other files.
-- **Plan mode for non-trivial work.** 3+ steps or any architectural decision. Re-plan immediately if things go sideways.
-- **Subagents for research/exploration** to keep main context clean. Subagents must never stop on permission errors — try alternative tools (Read/Write vs Bash, `python3 -c` vs scripts, Glob/Grep vs find/rg). Stuck after 2 alternatives → ask Anders.
-- **Demand elegance** for non-trivial changes — pause and ask "is there a more elegant way?". Skip for simple fixes.
-- **Self-improvement:** after any user correction, append the pattern to the Decisions Log.
-- **Errors don't stop you.** Work around. Reading must degrade gracefully if Claude API fails.
-- **Anders's own stats are not secret (2026-10-10, his words: "you may always … check my stats").** Claude may read Anders's own account data (reading time, profile, figures) at any time to establish ground truth for what the app shows. His account only; other readers' data still needs his approval per `AGENTS.md`, and nothing of his goes into the repo.
-- **Keep the privacy notice true.** Changes to what personal data is collected, where it goes, how long it is kept or who sees it follow the Privacy section of `AGENTS.md` (update `app/public/privacy.html` in the same PR; new data categories or providers go to Anders). Everything else — books, reader, layout — needs no privacy check.
-
----
-
-## SQL for Anders to run (always)
-
-Whenever Anders must run SQL (a migration, a repair, a read-only query on his own data), give him in the same message:
-1. the Supabase SQL editor link for the project: https://supabase.com/dashboard/project/yazjyiqsxjystvpkyouk/sql/new
-2. the complete SQL in one copy-paste block (not just a file path), and
-3. one line on what it does, whether it changes data, and whether it is safe to run twice.
-Check the SQL against the latest migration on main first (e.g. that a constraint keeps every existing value). Read-only queries on his own rows only, never other readers' data. (Anders, 9 Oct 2026.)
-
----
-
-## Pre-Deploy Checklist (MANDATORY)
-
-1. `npm run dev` — open localhost:3001, manually verify the change.
-2. `npm run build` — must pass with zero errors. **Read the output for stack traces even if exit code is 0.** Stale `dist/` is the failure mode: verify the timestamp on `dist/assets/index-*.js` matches; if not, `rm -rf dist && npm run build`. **Always `npm run build`, never raw `npx vite build`** — the npm script does the index/landing swap that prod needs.
-3. **Build with only committed files:** `git stash && npm run build && git stash pop`. If this fails, you have an uncommitted file that `src/` imports — `git status` to find it. *(This has broken prod before. Remote builds nearly always fail because of an untracked file imported by `src/`.)*
-4. `npm run deploy` — chains build → verify-bundle → wrangler. **Never run raw `wrangler deploy`** — it skips the verify step.
-5. **Smoke test:** `./scripts/smoke-test.sh` — 8 checks (homepage, JS bundle has Supabase + R2 URLs, /api/chat responds, audio manifest + sample, CSS). Any failure → revert and fix.
-6. Open the production URL and exercise the specific change.
-
-**If you deployed a broken site:** revert + redeploy first, diagnose second. Service first.
-
----
-
-## Bug Fix Protocol (mandatory after any failed first attempt)
-
-1. Trace the actual data flow before patching — don't pattern-match a plausible fix.
-2. Write a reproduction (Playwright or manual steps) **before** the fix.
-3. After editing: grep for ALL references to any removed/renamed symbol — especially in dep arrays, imports, other files.
-4. Reproduction must pass before deploy.
-5. **Two failed attempts = STOP.** Add `console.log` at every stage, read the actual browser console. Plan-mode document what you tried and why each failed. Tell Anders honestly. Do NOT try a third variation of the same approach.
-
----
-
-## Invariants (DO NOT VIOLATE)
-
-> **2026-09-30:** The legacy React `App.tsx` reader and its hooks (`useReadingPosition`, `useReadingLog`, `readerSession`) were deleted; the live reader is `src/lab/` at `/reader`. Invariants 1–8 below describe that removed code and are kept as the design record; the same rules apply to the live reader's position and sync code (`src/lab/labPosition*`, `labPositionStore`).
-
-These rules exist because their absence caused recurring sync bugs (B1, B19, B21 from 2026-04-27 test day, the Apr 23 `tinct-current-book` regression, and 2026-04-25 chat divider pollution). Every rule has a unit test in `app/src/hooks/useReadingPosition.guards.test.ts`. **If a rule looks unnecessary, run the tests before deleting anything.** "This seems redundant" is the exact thought that historically bites us.
-
-1. **Persisted reader state always carries matching `bookId` + `chapterNumber` as a tuple.** ReaderSession is the source for persisted position/history/progress tuples. `App.tsx` owns a reducer-backed `readerSessionState` and passes it to `useReadingPosition` and `useReadingLog`; legacy reader state may still drive rendering during migration, but it must not be used as the persisted content tuple. `useReadingPosition.saveNow` delegates to `readerSession/positionSync.commitReadingPosition()`, which gates writes with `canPersistLocation()` and then writes the validated readerSession location.
-2. **Any code path that changes `currentBookId` must trigger chapter re-derivation.** The `bookId`-change effect in `App.tsx` re-derives chapter/savedPos/targetParagraphRef and bumps readerKey. Cloud-sync paths set `currentBookId` and rely on this effect — don't replace it with handler-side logic.
-3. **Position writes are blocked while overlay/auth/onboarding is in front of the reader.** The `writeSuspended` parameter on `useReadingPosition` is computed from those overlay states. Heartbeats/visibility writes during overlays risk capturing default in-memory state (B19).
-4. **Backward chapter writes require a recent user-nav signal.** `shouldBlockRegression` (in `useReadingPosition.guards.ts`) gates `saveNow`. Page-change effect calls `markUserNav` so legitimate user backward nav (prev-chapter, TOC) widens the window.
-5. **Audio playback rate has exactly one source of truth: `useAudioSpeed`.** Persisted via storage layer. `applyTo(audioElement)` must run on every audio creation AND every `play` event — DOM resets to 1.0 on certain transitions. Set, never increment.
-6. **Position validates against book structure on read.** `primaryData` validation effect checks chapter AND paragraph bounds. Out-of-range = pre-Phase-1 cross-book bleed → reset position AND delete the storage key (so cloud cache doesn't resurrect it).
-7. **Position writes skip when `bookId` just changed.** The chapter-change effect in `useReadingPosition` lists `bookId` in its deps and fires when the user switches book — but at that moment App.tsx's bookId-change effect has only *queued* setCurrentChapter/setLastParagraphIndex, so stateRef still holds the OLD book's chapter and paragraph. A write here lands a cross-book mismatch in cloud (2026-05-09 Odyssey→Bible bleed: ch=1, para=13 written under bookId=bible). `shouldSkipOnBookChange` (in `useReadingPosition.guards.ts`) detects the prev-vs-current bookId mismatch and skips. Belt-and-suspenders: `writeSuspended` in App.tsx also gates on `isLoading`, blocking heartbeat/visibility/blur/pagehide writes during the same vulnerable window.
-
-8. **Reading history/progress writes require a ready same-book ReaderSession location.** `useReadingLog` and the `progress:*` effect in `useReadingPosition` must call `getPersistableReaderHistoryLocation()` before writing `reading-log:*` or `progress:*`. During `switching-book` / `loading-edition`, or when the location book/chapter/edition does not match the active book, history/progress writes skip. This prevents the same stale tuple class from corrupting Feed/progress after position writes have been fixed.
-
-9. **Cloud storage writes are versioned and deletes are tombstones.** Authenticated clients write through `commit_user_data()` with an expected `rev`; conflicts adopt server truth instead of overwriting it. Deletes write `value: null` so realtime UPDATE events carry deletion across devices. Direct upsert is a migration fallback only.
-
-**Test gate:** `npm test` runs guards in <1s. Run before changing `useReadingPosition.ts`, `useReadingLog.ts`, `useAudioSpeed.ts`, or position-related effects in `App.tsx`. If tempted to "fix the test to match the new behavior" — stop, the test is what's protecting you.
-
----
-
-## Autonomy Framework
-
-**Pre-authorized (just do it):**
-- Git commits when build passes AND change verified locally.
-- **For explicitly assigned coding/release tasks only:** follow current `AGENTS.md` publication rules. Content-branch pushes never authorize deployment.
-- Bug fixes / code corrections (verify locally before reporting).
-- Deploy — only after the full Pre-Deploy Checklist.
-- Running tests and acting on results.
-- Content generation within established patterns (book editions, chapter metadata, onboarding JSON).
-- Backlog prioritization, routine refactors that don't change behavior.
-
-**Escalate:**
-- Deleting books or features (scope reduction).
-- Changing reading-experience UX paradigm (split pane, chat placement).
-- Database schema changes.
-- Spending money (Claude API beyond dev/test, services).
-- New external dependencies.
-- Pricing or content-strategy changes.
-- UI-heavy features → show mockups before building.
-
-**Rule:** Backlog says do it + tests pass + pattern established → execute and report. Don't ask.
-
----
-
-## Book Addition Workflow
-
-Read [the mandatory book-task workflow](books/BOOK-TASK-WORKFLOW.md) and [current adding-book strategy](books/README.md). Claude completes and pushes the isolated content package, then (when assigned) handles registry, app integration and publication. Claude owns integration and publication since 2026-10-08; Codex is retired. The old inline checklist is superseded.
-
----
-
-## Decisions Log
-
-Active product policy. Older implementation logs and superseded decisions live in git history.
-
-- **[Translation Display]** — Single edition with quick-toggle is the default. Split pane is opt-in, not the default view. Dual side-by-side rejected as fatiguing.
-- **[Naming]** — "Reading journal" not "takeaways" (invites reflection, not optimization). Side-panel tab is "Cast" (formerly "Threads").
-- **[Voice Input]** — Nice-to-have, not core. Reading is silent/private.
-- **[QA Standard]** — Every book, every edition, visually QA'd page-by-page via screenshots before shipping. Non-negotiable.
-- **[Domain]** — `tinct.app`.
-- **[Onboarding Entry Point]** — Onboarding modal fires for ALL entry points (direct nav, SEO, share links). This is intentional — it's Tinct's differentiation from Project Gutenberg. Dismissable at any step.
-- **[Reading Angle is core, not premium]** — Free for all users. The #1 completion-rate mechanism — research confirms personal connection before reading begins is the top driver of book completion. Stored in session, injected into AI system prompt so mid-read chat references it. Skip option offered ("Just start reading" 5th card; "Or skip — the book works either way" copy in Account Onboarding Step 1) — pitched as default but never imposed.
-- **[Pricing]** — Premium **$5/mo** (since 2026-10-05; AI use becomes a metered allowance shown as a usage bar, top-ups via chat packs — see DECISIONS.md), 30-day free trial (auto-cancels). Three tiers in PricingModal: Anonymous (read-only) / Free account (reading features + 30-day Premium trial) / Premium ($3/mo: AI chat 200 msgs/mo, audiobook, Cast, offline, reading journal). Chat-pack overflow $5/200 messages stays as a separate product.
-- **[Kids Editions Dropped]** — Permanently out of scope. Never generate, reference, or discuss children's editions.
-- **[Landing Page Auth Redirect — P0]** — Signed-in users must NEVER see the landing page. Auth-check script at top of `app/public/landing.html` inspects the Supabase session token and redirects to `/read` before render. Any regression is a P0 bug.
-- **[User Journeys v1]** — Two paths. Journey A (direct-to-book / SEO): edition picker → reader → state-aware top banner → end-of-chapter-1 progress prompt → sign-up → TierChooser. Journey B (library-first): landing → library → 3-step Book Onboarding → TierChooser → reader. Four locked principles: no hard gates, don't describe local storage, no-downside Premium (defaulted), three tiers always. URL parsing: `/read/{bookId}` = full mode, `/{bookId}` = edition-only mode. Account Onboarding (6-step tour) is optional, available from Settings — NOT critical path.
-- **[Book-task scope — 2026-09-24]** — Follow `books/BOOK-TASK-WORKFLOW.md`: isolated content artifacts only; integration and publication are a separate assigned step. Since 2026-10-08 Claude owns that step too (Codex retired).
-- **[Open Audit Items]** — Awaiting Anders: (1) make R2 bucket private + bind to worker via `env.R2_BUCKET.get()`; (2) convert hero images to WebP (~800 KB gzip savings); (3) `React.lazy()` SettingsSheet/PricingModal/UsageDashboard/BookStore/TierChooser (~30-40 KB deferred); (4) minify static JSON via Vite plugin (~10-15 KB).
-- **[Angle Iteration — FUTURE, not built]** — When user submits a reading angle, AI responds conversationally and iterates over a few turns before lock-in. Free tier gets ~5 messages of this as taste of the AI companion (in-book chat remains Premium). Logged to `BACKLOG.md`.
-
-- **[Feature Tour — shipped 2026-04-29]** — 10-step coachmark walkthrough. Fires once on first sign-up via `user?.id` null → signed-in transition (800ms delay; `tinct-tour-seen` flag prevents repeat). Mobile and desktop have separate orderings to match each platform's actual top-bar / bottom-bar layout. Conditional steps drop when feature isn't available (anonymous: 3 stops; free: 4; premium: 10). Re-trigger via Settings → "Show feature tour again →". Lives in `app/src/components/FeatureTour.tsx`. **This is what we now mean by "Account Onboarding"** — the unbuilt 6-step manifesto in `Design refs/Account Onboarding.html` is retired.
-
-- **[Book Onboarding v2 — in flight 2026-04-29]** — Replacing the existing 3-step (edition / angle / cast) flow with a 6-step flow that puts substance before commitment:
-  1. **About + Acclaim** — book description plus 1-3 verified primary-source endorsements
-  2. **Why It Still Matters** — 3 items in the calibrated voice (book-focused, brief contemporary touch)
-  3. **Pick edition** — existing UI; Compare defaults to inverse-of-primary (not empty)
-  4. **Cast** — existing
-  5. **Reading angles** — card-pick of 4 cards + "Just start reading" (replaces the AI AngleChat — no more chat for setting angles)
-  6. **Account** *(anonymous only)* — sign-up CTA; on signup, Feature Tour auto-fires
-
-  JSON schema gains `acclaim` (array of `{quote, source, context}`) and `whyItMatters` (array of 3 `{title, body}`). The old `preReadingChat` block (3 themes + fallback) is **dropped** — was a spec idea that never landed. Voice calibration locked: declarative, book-focused, "deals with / asks / follows" verbs, ONE brief contemporary line at the end of each `whyItMatters` item, no aphorisms, no first-person-plural commentary, no parallelism rhythms.
-
-- **[Acclaim quotes — primary sources only, fact-checked]** — Every acclaim quote must be verifiable in a primary source (Wikipedia with citations, Letters, published essays). No unverified literary folklore. Fact-checking agent runs over each batch of generated book content before commit.
-
-- **[Book Onboarding flow rewrite + manifesto retired 2026-04-29]** — The unbuilt 6-step "Account Onboarding" manifesto (HTML at `Design refs/Account Onboarding.html`) is formally **dropped**. What we now mean by "post-signup onboarding" is the Feature Tour. The Account Onboarding component referenced in earlier decisions (User Journeys v1, Account Onboarding Rewrite 2026-04-21) was design-only and never built; we're not building it. Feature Tour fills that role.
-
-- **[Email confirmation dropped from signup 2026-05-09]** — Supabase "Confirm email" toggled off; signups land in the reader on submit, no email click required. Triggered by the first customer being stranded with an unconfirmed account after a premium-grant script. Tradeoffs accepted: typo'd emails become orphan accounts (no password recovery), slightly higher spam-signup risk. Mitigations: Google OAuth remains the friction-free path; email is still required for password reset and Stripe receipts. `AuthModal.tsx` no longer renders a "Check your email" success state — it closes on signup success and the auth listener takes over.
-
-- **[Privacy commitments 2026-10-02]** — The public notice (`app/public/privacy.html`) is binding on code. Standing commitments and the when-it-applies trigger live in the Privacy section of `AGENTS.md`; scoped so book, reader and layout work is unaffected.
-
-- **[Sign-out wipes local data 2026-05-06]** — Privacy/data-leak fix. SupabaseStorageProvider mirrors every cloud write to localStorage as a fast cache. Before this fix, sign-out only cleared the auth token; the cache survived, so (a) "Read"/"Library" on the landing page jumped into the previous account's state, and (b) the sign-in migration in `App.tsx` copied that cache into the next account's Supabase row, polluting fresh accounts. Fix: `clearLocalUserData()` in `services/storage.ts` wipes all `tinct:*` and `tinct-*` keys except an allowlist (`tinct:device-preferences`, `tinct-home-role-dismissed`, `tinct-banner-dismissed`, `tinct:last-user-id`). Called on `signOut()` (which then hard-redirects to `/` so React in-memory state can't re-persist) and via the user-switch guard (`tinct:last-user-id`) in App.tsx — if the signing-in user differs from the last one, wipe before migration runs.
+Log decisions in `DECISIONS.md` when they are made (`| Date | Decision | Category | Escalated? | Reasoning |`), including ones made alone (`Escalated? No`). After a correction from Anders, log the pattern there.
