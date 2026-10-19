@@ -130,18 +130,22 @@ describe('where an own book opens', () => {
   afterEach(() => { vi.unstubAllGlobals(); localStorage.clear() })
   const pdf = (hex: string, layout?: string) => ({ key: `pdf:${hex}`, kind: 'pdf', owner: 'me', name: `${hex}.pdf`, openedAt: 1, ...(layout ? { scan: { v: 5, entries: [], layout: { default: layout } } } : {}) })
 
-  it('opens a PDF in the edition it is read in: its Tinct text in the reader, its pages in the viewer', async () => {
-    const [prose, paper, legacy, unknown, switched] = ['a1', 'b2', 'c3', 'd4', 'e5'].map(p => p.repeat(12))
+  // Rewritten 19 Oct 2026 (Anders: a PDF's view is chosen per device; only the place syncs): a place read in
+  // Tinct text (here or on another device) no longer opens the reader; the edition kept on this device does.
+  it('opens a PDF in this device\'s edition: its Tinct text in the reader, its pages in the viewer', async () => {
+    const [prose, paper, legacy, unknown, switched, chosen] = ['a1', 'b2', 'c3', 'd4', 'e5', 'f6'].map(p => p.repeat(12))
     withRecords([
-      pdf(prose, 'text'), pdf(paper, 'pages'), pdf(legacy, 'text'), pdf(unknown), pdf(switched, 'pages'),
+      pdf(prose, 'text'), pdf(paper, 'pages'), pdf(legacy, 'text'), pdf(unknown), pdf(switched, 'pages'), pdf(chosen, 'pages'),
       { key: `epub:${HEX}`, kind: 'epub', owner: 'me', name: 'b.epub', openedAt: 1 },
     ])
-    // Read in the viewer before Tinct text existed: it stays in its pages until the reader switches.
+    // Read in the viewer before Tinct text existed, not opened here since: the viewer tells its edition.
     localStorage.setItem(`tinct-addbook:pos:pdf:${legacy}`, JSON.stringify({ page: 4, frac: 0, at: 9 }))
-    // Read as Tinct text (here, or on another device: the place says so).
-    localStorage.setItem(`tinct-addbook:pos:pdf:${switched}`, JSON.stringify({ page: 2, frac: 0, at: 9, edition: 't' }))
-    // Both opened in the viewer on this device under the current open rule (reader.js openKind).
+    // Read as Tinct text (here, or on another device: the place says so): not this device's view.
+    for (const hex of [switched, chosen]) localStorage.setItem(`tinct-addbook:pos:pdf:${hex}`, JSON.stringify({ page: 2, frac: 0, at: 9, edition: 't' }))
+    // Opened in the viewer on this device under the current open rule (reader.js openKind).
     for (const hex of [prose, switched]) localStorage.setItem(`tinct-addbook:open-rule:${hex}`, '2')
+    // Convert to Tinct book, chosen on this device.
+    localStorage.setItem(`tinct-addbook:edition:${chosen}`, '"text"')
     const hrefs = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
     expect(hrefs).toEqual({
       [prose]: `/reader?userBook=${prose}`,
@@ -149,7 +153,8 @@ describe('where an own book opens', () => {
       [legacy]: `/lab/addbook/?userBook=${legacy}`,
       // Not scanned on this device yet: the viewer, which forwards once it has classified it.
       [unknown]: `/lab/addbook/?userBook=${unknown}`,
-      [switched]: `/reader?userBook=${switched}`,
+      [switched]: `/lab/addbook/?userBook=${switched}`,
+      [chosen]: `/reader?userBook=${chosen}`,
       [HEX]: `/reader?userBook=${HEX}`,
     })
   })
