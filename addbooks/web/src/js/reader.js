@@ -2713,10 +2713,11 @@ function marginOpen(info, { existing = null, asking = false } = {}) {
   hideSelection();
   const word = !existing && TinctMargin.oneWord(info.text);
   const anchor = existing ? existing.rects.map(([x, y, w, h]) => ({ n: existing.page, x, y, w, h })) : anchorOf(info.rects || [info.box]);
-  mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, mode: null, el: null, moreEl: null, before: word && info.range ? textBefore(info.range) : '' };
+  // A highlight clicked (Anders, 19 Oct 2026): its own bar, Ask and Explain, its colours, its note, Remove highlight.
+  mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, mode: null, el: null, moreEl: null, base: existing ? 'existing' : null, before: word && info.range ? textBefore(info.range) : '' };
   sel = info;
   if (word && !asking) { mrDefine(word); return }
-  mrShow('menu');
+  mrShow(mr.base || 'menu');
 }
 function marginClose() {
   if (!mr) return;
@@ -2843,7 +2844,7 @@ function highlightAnchor(info, anchor, color) {
 function mrPick(color) {
   Object.assign(prefs, TinctMargin.chooseColor(prefs, color)); savePrefs();
   if (!mr.ids.length) mrHighlight(color); else for (const id of mr.ids) recolorHighlight(id, color);
-  mrShow('colors');
+  mrShow(mr.base || 'colors');
 }
 function mrNoteOpen() {
   // A highlight the note itself makes goes with the note when its card is deleted (TinctMargin.deletePlan).
@@ -3036,7 +3037,7 @@ addEventListener('keydown', e => {
     if (mr.moreEl) { const had = mr.moreEl.contains(document.activeElement); closeMore(); if (had) mr.el.querySelector('[data-m="more"]')?.focus({ preventScroll: true }); return }
     if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') {
       if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
-      dictation.stop(); mrShow(mr.def ? 'define' : 'menu')
+      dictation.stop(); mrShow(mr.base || (mr.def ? 'define' : 'menu'))
       // Ask and the note took the focus, and with it the page's selection: select the passage again,
       // so a late selectionchange finds it and the bar stays (it closed the bar on a slow machine).
       // A passage whose page was drawn again meanwhile (its range left the text layer) is held instead (rangeInText).
@@ -3054,7 +3055,7 @@ addEventListener('keydown', e => {
     return;
   }
   // The bar is a toolbar: Tab from the page moves into it; Left and Right move along it.
-  if (mr?.el && !mr.moreEl && ['menu', 'colors', 'define'].includes(mr.mode) && !e.metaKey && !e.ctrlKey && !e.altKey) {
+  if (mr?.el && !mr.moreEl && ['menu', 'colors', 'define', 'existing'].includes(mr.mode) && !e.metaKey && !e.ctrlKey && !e.altKey) {
     const items = [...mr.el.querySelectorAll('button:not([disabled])')], at = items.indexOf(document.activeElement);
     if (e.key === 'Tab' && !e.shiftKey && at < 0 && !e.target.closest?.('input, textarea, select, [contenteditable="true"], .mr-col, .mr-sheet, .mr-card')) { e.preventDefault(); e.stopImmediatePropagation(); items[0]?.focus({ preventScroll: true }); return }
     if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && at >= 0) { e.preventDefault(); e.stopImmediatePropagation(); items[(at + (e.key === 'ArrowRight' ? 1 : -1) + items.length) % items.length].focus({ preventScroll: true }); return }
@@ -3065,7 +3066,7 @@ addEventListener('keydown', e => {
   if (!key) return;
   if (document.querySelector('.lab-super-layer, .lab-v2-sheet-layer, .lab-contents-v2, .byob-sheet-host, .byob-snip, .byob-jumpbox, .byob-switcher')) return;
   if (!mr) { const info = selectionInfo(); if (!info) return; marginOpen(info, { asking: key.action === 'ask' }) }
-  else if (!['menu', 'colors', 'define'].includes(mr.mode)) return;
+  else if (!['menu', 'colors', 'define', 'existing'].includes(mr.mode)) return;
   e.preventDefault(); e.stopImmediatePropagation();
   if (key.action === 'note') { mr.defToken = {}; mr.def = null; return mrNoteOpen() }
   mrShow('asking', { question: key.ch });

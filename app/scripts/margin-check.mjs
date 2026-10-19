@@ -83,6 +83,8 @@
 //                                                     pop-over); narrow windows and the phone keep the pop-over
 //   node scripts/margin-check.mjs figure-chip       19 Oct, evening (5): the figure chip in the bar's dark style: Ask, Explain,
 //                                                     Highlight, Copy; Ask opens the figure's card
+//   node scripts/margin-check.mjs highlight-bar     19 Oct, evening (2): a highlight clicked opens the dark bar: Ask, Explain, its
+//                                                     colours, its note, Remove highlight; recolour, Explain, remove
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -4075,6 +4077,49 @@ async function figureChip(browser, origin) {
   return results
 }
 
+/* highlight-bar (19 Oct 2026, evening, item 2): a click on a highlight opens the dark selection bar with Ask and
+   Explain, its colours (its own pressed), its note and Remove highlight (on the phone the bin, so named); a colour
+   recolours it and the bar stays; Explain makes its card; Remove highlight removes it. */
+async function highlightBar(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height, look] of [[1440, 900, 'paper'], [1440, 900, 'night'], [360, 740, 'paper']]) {
+    const tag = `highlight-bar-${width}x${height}-${look}`, phone = width < 700
+    account.marks.clear(); account.cards.clear()
+    const A = await readerPage(browser, origin, hex, { width, height, look, startPage: 3 })
+    const a = A.page
+    await prefetchSettled(a)
+    const make = async () => { await selectText(a); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {}); await a.click('.mr-float [data-m="dot"]'); await a.waitForTimeout(300); await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); if (phone) await a.evaluate(() => closeSheet2()); await a.waitForTimeout(300) }
+    const clickHl = async () => { const p = await a.evaluate(() => { const i = [...document.querySelectorAll('.hl-layer i')].at(-1); const r = i.getBoundingClientRect(); return { x: r.left + Math.min(20, r.width / 2), y: r.top + r.height / 2 } }); await a.mouse.click(p.x, p.y); await a.waitForTimeout(500) }
+    const barNow = () => a.evaluate(() => { const b = document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar'); if (!b) return null; return { items: [...b.querySelectorAll('button')].map(x => x.dataset.m || (x.dataset.color ? 'color' : '?')), words: [...b.querySelectorAll('button')].map(x => x.textContent.trim()).filter(Boolean), remove: b.querySelector('[data-m="remove"]')?.getAttribute('aria-label') || b.querySelector('[data-m="remove"]')?.textContent, pressed: b.querySelector('.mr-swatch[aria-pressed="true"]')?.dataset.color, bg: getComputedStyle(b).backgroundColor, dark: (() => { const m = getComputedStyle(b).backgroundColor.match(/\d+/g).map(Number); return (m[0] + m[1] + m[2]) / 3 < 80 })() } })
+    await make()
+    const color = await a.evaluate(() => highlights().at(-1)?.color)
+    await clickHl()
+    const bar = await barNow()
+    ok(`${tag}: 2. a click on a highlight opens the dark bar: Ask, Explain, its colours (its own pressed), its note, Remove highlight`, bar && bar.dark && bar.items.join(',') === 'ask,explain,color,color,color,color,color,note,remove' && bar.pressed === color && bar.remove === 'Remove highlight', { bar, color })
+    if (!phone && look === 'paper') await shot(a, 'highlight-bar-1440x900')
+    const problems = await checkMargin(a)
+    ok(`${tag}: the bar is laid out cleanly (inside the screen, nothing cut or overlapping)`, !problems.length, problems.slice(0, 4))
+    // Another colour: recoloured, the bar stays as it is.
+    const other = await a.evaluate(c => [...document.querySelectorAll('.mr-float .mr-swatch')].map(b => b.dataset.color).find(k => k !== c), color)
+    await a.click(`.mr-float .mr-swatch[data-color="${other}"]`); await a.waitForTimeout(300)
+    const after = await barNow()
+    ok(`${tag}: 2. a colour recolours it and the bar stays`, (await a.evaluate(() => highlights().at(-1)?.color)) === other && after && after.pressed === other && after.items.includes('remove'), after)
+    // Explain: its card on the highlight's passage.
+    await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(1300)
+    const card = await a.evaluate(() => { const c = cardById(col.open || ''); return c && { kind: c.kind, answered: (c.turns || []).some(t => t.role === 'assistant') } })
+    ok(`${tag}: 2. Explain from it makes the passage's card`, card && card.kind === 'explain' && card.answered, card)
+    await a.keyboard.press('Escape'); if (phone) await a.evaluate(() => closeSheet2()); await a.evaluate(() => openCard(null)); await a.waitForTimeout(300)
+    // Remove highlight.
+    const n0 = await a.evaluate(() => highlights().length)
+    await clickHl(); await a.click('.mr-float [data-m="remove"]').catch(() => {}); await a.waitForTimeout(300)
+    ok(`${tag}: 2. Remove highlight removes it and the bar goes`, (await a.evaluate(() => highlights().length)) === n0 - 1 && !(await barNow()))
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -4115,6 +4160,7 @@ const RUNS = {
   'primer-top': [primerTop, rows => rows.some(r => !r.pass)],
   'define-card': [defineCard, rows => rows.some(r => !r.pass)],
   'figure-chip': [figureChip, rows => rows.some(r => !r.pass)],
+  'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4155,7 +4201,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

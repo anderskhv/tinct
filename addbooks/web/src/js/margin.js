@@ -247,6 +247,8 @@
     highlight: svg('<path d="M12.3 2.8l2.9 2.9-6.6 6.6-2.9-2.9z"/><path d="M5.7 9.4l-1.2 4 4-1.2M3.4 15.4h3.4"/>'),
     mic: svg('<rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5"/><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5"/>'),
     up: svg('<path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/>'),
+    // Remove highlight on the phone's bar (no room for its words there): the cards' bin.
+    trash: svg('<path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4"/>'),
   };
   // Share as image stays out of the PDF reader for now (the fixture shows it); every other action is in.
   const LATER = { share: true };
@@ -271,10 +273,18 @@
     return colors.map(([k, label, , dot]) => `<button type="button" class="mr-swatch" data-color="${esc(k)}" style="background:${esc(dot)}" aria-label="${esc(label)}" aria-pressed="${k === current}"></button>`).join('');
   }
   /**
-   * The bar. state: 'menu' | 'colors' | 'asking'. opts: { colors, current, phone, all (show the 1b
-   * actions, fixture only), moreOpen, noted, question }.
+   * The bar. state: 'menu' | 'colors' | 'asking' | 'existing'. opts: { colors, current, phone, all (show the 1b
+   * actions, fixture only), moreOpen, noted, question }. 'existing' is a highlight clicked (Anders, 19 Oct 2026): Ask
+   * and Explain, its colours, its note, and Remove highlight (on the phone, the bin with that name).
    */
   function barHtml(state, o) {
+    if (state === 'existing') {
+      const sep = '<span class="mr-bar__sep" aria-hidden="true"></span>';
+      return `<button type="button" class="mr-bar__item is-text" data-m="ask">Ask</button>${sep}<button type="button" class="mr-bar__item is-text" data-m="explain">Explain</button>${sep}`
+        + swatchesHtml(o.colors, o.current) + sep
+        + `<button type="button" class="mr-bar__item" data-m="note" aria-label="${o.noted ? 'Edit note' : 'Add note'}">${ICONS.note}</button>`
+        + (o.phone ? `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight">${ICONS.trash}</button>` : `<button type="button" class="mr-bar__item is-text" data-m="remove">Remove highlight</button>`);
+    }
     if (state === 'asking') {
       return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" aria-label="Ask about this passage">${esc(o.question || '')}</textarea></label>`
         + `<button type="button" class="mr-bar__item is-mic" data-m="mic" aria-label="Dictate" aria-pressed="false">${ICONS.mic}</button>`
