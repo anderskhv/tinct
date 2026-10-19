@@ -5463,7 +5463,8 @@ function unitMark(unit, where, doc) {
 }
 /** A unit's pages as printed: "pp. 10–18", "p. 4"; none for a band, whose name says them. */
 function unitPagesLabel(unit) {
-  if (unit.pages) return '';
+  // An EPUB's units are its chapters (the preview's too): no pages to name.
+  if (unit.pages || isEpub()) return '';
   const a = pageLabel(unit.from), b = pageLabel(unit.to);
   return unit.from === unit.to ? `p. ${a}` : `pp. ${a}–${b}`;
 }

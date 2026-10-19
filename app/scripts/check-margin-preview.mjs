@@ -180,6 +180,9 @@ try {
 
       // 3d. Type: a part's name is not set in capitals; a chapter's Before you start names it as its contents do.
       const type = await frame.evaluate(() => ({ part: [...document.querySelectorAll('.tb-part')].map(e => getComputedStyle(e).textTransform)[0] ?? null, phrases: (primer.units || []).slice(0, 30).map(u => TinctMargin.unitPhrase(u)) }))
+      // A chapter's marks in the margin name it without pages ("p. 3" was its place in the file).
+      const marks = await frame.evaluate(() => [...document.querySelectorAll('.mr-unit__n, .byob-unit-now__name')].map(e => e.textContent.trim()))
+      ok(`${tag}: chapter marks name no pages`, (phone || marks.length > 0) && marks.every(t => !/\bpp?\. \d/.test(t)), marks)
       ok(`${tag}: part names are not in capitals`, type.part === null || type.part === 'none', type.part)
       ok(`${tag}: Before you start names chapters as the contents do ("chapter 1", "Letter 2", "The Window · 2")`, type.phrases.length > 0 && type.phrases.every(p => /^chapter \d+$|^Letter \d+$|^(The Window|Time Passes|The Lighthouse) · \d+$/.test(p)), type.phrases.slice(0, 6))
       // 4. A reload keeps the preview's own place.
