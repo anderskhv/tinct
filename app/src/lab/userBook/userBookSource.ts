@@ -9,6 +9,7 @@ import type { Edition } from '../../types'
 import type { LabSource } from '../labSource'
 import { editionSource, type UserBookEdition } from './userEdition'
 import { PDF_PAGES_EDITION_KEY } from './pdfEditions'
+import { EPUB_MARGIN_EDITION_KEY, PHONE_MAX_WIDTH } from './epubView'
 import { isUserBookId } from './userBookId'
 import { userBookLanguage } from './userBookLanguage'
 import { registerBookOpening, registerChapterStructure } from '../labParagraphStyle'
@@ -45,14 +46,15 @@ export function userBookEditionKey(edition: Pick<UserBookEdition, 'language' | '
 }
 
 /**
- * An EPUB is one edition. A PDF is two: its Tinct text, read here, and
- * "Original pages", the PDF itself in Add a book's viewer (choosing it there
- * leaves the reader: LabApp).
+ * An EPUB is one edition, and on the desktop "Margin view" too: the EPUB in
+ * Add a book's margin reader (epubView.ts; choosing it leaves the reader:
+ * LabApp). A PDF is two: its Tinct text, read here, and "Original pages", the
+ * PDF itself in Add a book's viewer (choosing it there leaves the reader: LabApp).
  */
-export function userBookEditions(edition: UserBookEdition): Edition[] {
+export function userBookEditions(edition: UserBookEdition, { phone = typeof window !== 'undefined' && window.innerWidth < PHONE_MAX_WIDTH }: { phone?: boolean } = {}): Edition[] {
   const key = userBookEditionKey(edition)
   const pdf = editionSource(edition) !== 'epub'
-  const cacheKey = `${key}/${pdf ? 'pdf' : 'epub'}/${edition.title}`
+  const cacheKey = `${key}/${pdf ? 'pdf' : phone ? 'epub' : 'epub-desk'}/${edition.title}`
   const cached = editionLists.get(cacheKey)
   if (cached) return cached
   const language = userBookLanguage(edition) ?? 'en'
@@ -61,7 +63,10 @@ export function userBookEditions(edition: UserBookEdition): Edition[] {
         { key, language, style: 'original', label: 'Tinct text', aligned: false, hasAudio: false },
         { key: PDF_PAGES_EDITION_KEY, language, style: 'original', label: 'Original pages', aligned: false, hasAudio: false },
       ]
-    : [{ key, language, style: 'original', label: 'EPUB', aligned: false, hasAudio: false }]
+    : [
+        { key, language, style: 'original', label: 'EPUB', aligned: false, hasAudio: false },
+        ...(phone ? [] : [{ key: EPUB_MARGIN_EDITION_KEY, language, style: 'original', label: 'Margin view', aligned: false, hasAudio: false } satisfies Edition]),
+      ]
   editionLists.set(cacheKey, list)
   return list
 }

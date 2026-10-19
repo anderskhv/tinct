@@ -15,9 +15,9 @@ import { LabWait } from '../LabWait'
 import { ownBookOpenUrl, USER_BOOKS_SHELF_URL } from './userBookId'
 import { registerUserBook } from './userBookSource'
 import { openUserBook, type LoadedUserBook, type UserBookOpenResult } from './userBookStore'
-import { readUserBookPlace } from './userBookPlace'
 import { reconcileOpenPlace, reconcilePdfPlace } from './ownSync'
 import { readPdfTextPlace } from './pdfEditions'
+import { epubViewHere, readEpubPlace, type EpubView } from './epubView'
 import { registerFigureAssets } from '../labFigures'
 
 type ReaderState = { status: 'opening' } | { status: 'ready'; book: LoadedUserBook } | { status: 'failed'; message: string }
@@ -44,7 +44,7 @@ function pageParam(): number | null {
 export function UserBookReader({ hex, owner, open = openUserBook, forward = replaceLocation, reconcile = reconcilePlace }: {
   hex: string
   owner?: string | null
-  open?: (hex: string, options: { owner?: string | null; page?: number | null }) => Promise<UserBookOpenResult>
+  open?: (hex: string, options: { owner?: string | null; page?: number | null; epubView?: EpubView }) => Promise<UserBookOpenResult>
   forward?: (url: string) => void
   /** Bring this device's place in line with the account's (bounded; never rejects the open). */
   reconcile?: (hex: string, book: LoadedUserBook) => Promise<void>
@@ -54,16 +54,18 @@ export function UserBookReader({ hex, owner, open = openUserBook, forward = repl
     let live = true
     setState({ status: 'opening' })
     const page = pageParam()
-    void open(hex, { ...(owner !== undefined ? { owner } : {}), ...(page ? { page } : {}) }).then(async result => {
+    // An EPUB read in Margin view on this device (the desktop's default) goes on to Add a book's margin reader.
+    const epubView = epubViewHere(hex)
+    void open(hex, { ...(owner !== undefined ? { owner } : {}), ...(page ? { page } : {}), epubView }).then(async result => {
       if (!live) return
-      if (!result.ok && (result.reason === 'missing' || result.reason === 'pages')) { forward(ownBookOpenUrl(hex)); return }
+      if (!result.ok && (result.reason === 'missing' || result.reason === 'pages' || result.reason === 'margin')) { forward(ownBookOpenUrl(hex)); return }
       // No Tinct text to read (a scan): its pages, and the viewer does not send it back here.
       if (!result.ok && result.reason === 'pages_only') { forward(ownBookOpenUrl(hex) + '&pages=1'); return }
       if (!result.ok) { setState({ status: 'failed', message: result.message }); return }
       // A place read later on another device of the account opens here.
       await reconcile(hex, result.book).catch(() => {})
       if (!live) return
-      const book = { ...result.book, place: (result.book.kind === 'pdf' ? readPdfTextPlace(hex, result.book.edition, { page }) : readUserBookPlace(hex, result.book.edition)) ?? result.book.place }
+      const book = { ...result.book, place: (result.book.kind === 'pdf' ? readPdfTextPlace(hex, result.book.edition, { page }) : readEpubPlace(hex, result.book.edition)) ?? result.book.place }
       registerUserBook(book.bookId, book.edition)
       // The pictures are handed over before the reader draws its first page.
       const images = book.images

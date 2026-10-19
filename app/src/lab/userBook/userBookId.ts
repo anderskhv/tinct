@@ -65,15 +65,18 @@ export function ownBookOpenUrl(hex: string): string {
 }
 
 /**
- * Where an own book opens: an EPUB in the Tinct reader; a PDF in the reader
+ * Where an own book opens: an EPUB in Add a book's margin reader when that is
+ * its view on this device (`choice` 'margin', from epubView.ts epubViewHere:
+ * the desktop's), else in the Tinct reader; a PDF in the reader
  * as its Tinct text when that is the edition it opens in (`choice`, from
  * pdfEditions.ts pdfEditionChoice), else in Add a book's viewer (Original
  * pages), which forwards to the Tinct text once it knows the PDF reads best so.
  * A book of unknown kind (`kind` absent) opens in the reader, which forwards a
  * PDF read in its pages to the viewer.
  */
-export function ownBookHref(hex: string, kind?: 'pdf' | 'epub' | null, choice?: 'text' | 'pages' | null): string {
+export function ownBookHref(hex: string, kind?: 'pdf' | 'epub' | null, choice?: 'text' | 'pages' | 'margin' | null): string {
   if (kind === 'pdf') return choice === 'text' ? userBookReaderUrl(hex) : ownBookOpenUrl(hex)
+  if (kind === 'epub') return choice === 'margin' ? ownBookOpenUrl(hex) : userBookReaderUrl(hex)
   if (!kind && choice === 'pages') return ownBookOpenUrl(hex)
   return userBookReaderUrl(hex)
 }

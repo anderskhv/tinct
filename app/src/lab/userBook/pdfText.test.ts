@@ -207,12 +207,14 @@ describe('Tinct text: places between the text and the pages', () => {
     expect(textPlaceOfPage(chapters, 1, 0)).toEqual({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 })
   })
 
-  it('picks the edition a PDF opens in by the same rule as the reader', () => {
-    expect(text.choice({ page: 3, edition: 't' }, 'pages', 'pages')).toBe('text')
-    expect(text.choice({ page: 3, edition: 'p' }, 'text', 'text')).toBe('pages')
+  // Rewritten 19 Oct 2026 (Anders: a PDF's view is chosen per device; only the place syncs): the place no
+  // longer takes part. The order is this device's own choice, its kept default, then the rule's default.
+  it('picks the edition a PDF opens in by the same rule as the reader: this device\'s choice, its kept default, the rule', () => {
+    expect(text.choice('pages', 'text', 'text')).toBe('pages')
+    expect(text.choice('text', 'pages', 'pages')).toBe('text')
     expect(text.choice(null, 'text', 'pages')).toBe('text')
-    expect(text.choice({ page: 3, frac: 0.2 }, null, 'text')).toBe('pages')
-    expect(text.choice({ zoom: 1 }, null, 'text')).toBe('text')
+    expect(text.choice(null, 'pages', 'text')).toBe('pages')
+    expect(text.choice(null, null, 'text')).toBe('text')
     expect(text.choice(null, null, 'pages-only')).toBe('pages')
     expect(text.choice(null, null, undefined)).toBeNull()
   })

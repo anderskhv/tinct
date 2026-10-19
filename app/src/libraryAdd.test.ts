@@ -96,7 +96,8 @@ describe('ownBooks (My shelf: Your own books)', () => {
     ] })) as unknown as typeof fetch
     const list = await ownBooks(fetchImpl)
     expect(list.map(b => [b.title, b.kind, b.href, b.readingAt])).toEqual([
-      ['My novel', 'epub', '/reader?userBook=' + 'b'.repeat(24), null],
+      // An EPUB on the desktop opens in Add a book's margin reader (19 Oct 2026, epubView.ts), which downloads it; a phone's goes to the reader (epubView.test.ts).
+      ['My novel', 'epub', '/lab/addbook/?userBook=' + 'b'.repeat(24), null],
       ['Lecture notes', 'pdf', '/lab/addbook/?userBook=' + 'a'.repeat(24), null],
     ])
   })

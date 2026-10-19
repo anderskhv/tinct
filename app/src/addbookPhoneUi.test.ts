@@ -183,7 +183,8 @@ describe('5. a link with &pages', () => {
     expect(READER).toContain("const pagesAsked = new URLSearchParams(location.search).has('pages');")
     expect(READER).toContain("if (!scan || !(scan.textPages > 0) || state.pagesAsked || editionChoice(scan) !== 'text') return false;")
     // The address the reader pushes keeps it, so a reload stays in the pages too.
-    expect(READER).toContain("const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : null;")
+    // (Since 19 Oct 2026 an EPUB in Margin view has its own address too, without &pages.)
+    expect(READER).toContain("const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : epubMargin() ? bookUrl(key) : null;")
     // forwardToText reads it nowhere else.
     const forward = READER.slice(READER.indexOf('function forwardToText('), READER.indexOf('function readAsText('))
     expect(forward).not.toContain('location.search')

@@ -179,14 +179,15 @@ describe('Copy quote and the margin\'s words for an EPUB', () => {
   })
 })
 
-describe('the EPUB margin switch (Anders, 15 Oct: "Keep it pdf for now")', () => {
-  it('is off by default, and marginOn() consults it: an EPUB keeps the popup and the docked chat', () => {
+// Anders, 15 Oct: "Keep it pdf for now"; 19 Oct 2026: EPUBs open in Margin view on the desktop (TinctReaderLayout.epubView).
+describe('the EPUB margin switch', () => {
+  it('is on, on the desktop only, and marginOn() consults it: an EPUB at a phone\'s width keeps the popup and the docked chat', () => {
     const reader = readFileSync(ROOT + 'app/public/lab/addbook/js/reader.js', 'utf8')
-    expect(reader).toContain('const EPUB_MARGIN = false;')
+    expect(reader).toContain('const EPUB_MARGIN = true;')
     expect(reader).toContain("const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));")
-    expect(reader).toContain("const epubMargin = () => EPUB_MARGIN || window.TinctEpubMargin === true;")
+    expect(reader).toContain("const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubMargin === true;")
     // The mirror ships the same switch.
-    expect(readFileSync(ROOT + 'addbooks/web/src/js/reader.js', 'utf8')).toContain('const EPUB_MARGIN = false;')
+    expect(readFileSync(ROOT + 'addbooks/web/src/js/reader.js', 'utf8')).toContain('const EPUB_MARGIN = true;')
   })
 })
 
