@@ -171,6 +171,31 @@ describe('a user book in the Tinct reader', () => {
     await waitFor(() => expect(ownSync.flush).toHaveBeenCalled())
   })
 
+  it('on the desktop, leaving it names it as the book just read for the library\u2019s first paint (this device only)', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'u-test', email: 'reader@example.com' } }))
+    render(<LabApp pathname="/lab/desktop" authToken={undefined} userBook={loaded({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 0 })} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+    await waitFor(() => {
+      window.dispatchEvent(new Event('pagehide'))
+      expect(JSON.parse(localStorage.getItem('tinct:lab-library-boot') || 'null')?.hero).toMatchObject({ bookId: BOOK_ID, title: 'My Own Notebook' })
+    })
+    expect(JSON.parse(localStorage.getItem('tinct:lab-library-boot')!).userId).toBe('u-test')
+    // Nothing of it is sent anywhere.
+    expect(requests.filter(request => /userbook|Notebook/.test(request.url + JSON.stringify(request.body)))).toEqual([])
+  })
+
+  it('on a phone, leaving it writes no library snapshot (phones unchanged)', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'u-test', email: 'reader@example.com' } }))
+    render(<LabApp pathname="/lab/phone" authToken={undefined} userBook={loaded({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 0 })} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+    await new Promise(resolve => setTimeout(resolve, 50))
+    window.dispatchEvent(new Event('pagehide'))
+    Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'hidden' })
+    document.dispatchEvent(new Event('visibilitychange'))
+    Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'visible' })
+    expect(localStorage.getItem('tinct:lab-library-boot')).toBeNull()
+  })
+
   it('opened without a saved place, joins Currently reading from its start, a mark never sent to the account', async () => {
     ownSync.note.mockClear()
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)

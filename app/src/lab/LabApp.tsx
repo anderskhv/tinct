@@ -1620,17 +1620,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   // the library and whenever the page is hidden, so the library never has to
   // wait for the network to show "Reading now".
   const rememberLibraryPlace = useCallback(() => {
-    // The library's "Reading now" is for Tinct's books; a user book stays on Add a book's shelf.
-    if (userBook || positionWritesSuspended || readerLoadError || book.paragraphs.length === 0) return
+    // On the desktop an own book read here leads the library's first paint too, so its
+    // Continue opens what was read last (continueLatest.ts). This device only; phones unchanged.
+    if ((userBook && isPhone) || positionWritesSuspended || readerLoadError || book.paragraphs.length === 0) return
     const userId = authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)
     writeLabLibraryBootSnapshot(snapshotWithReaderPlace(readLabLibraryBootSnapshot(), {
       userId,
-      bookId: book.bookId || 'bible',
+      bookId: userBook ? userBook.bookId : book.bookId || 'bible',
       title: book.bookTitle,
       chapterLabel: book.chapterLabel,
       now: Date.now(),
     }))
-  }, [authToken, authUser?.id, book.bookId, book.bookTitle, book.chapterLabel, book.paragraphs.length, positionWritesSuspended, readerLoadError, userBook])
+  }, [authToken, authUser?.id, book.bookId, book.bookTitle, book.chapterLabel, book.paragraphs.length, isPhone, positionWritesSuspended, readerLoadError, userBook])
   const rememberLibraryPlaceRef = useRef(rememberLibraryPlace)
   rememberLibraryPlaceRef.current = rememberLibraryPlace
   useEffect(() => {
