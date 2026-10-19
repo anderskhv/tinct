@@ -101,9 +101,18 @@ async function main(){
    assert.ok(page,'Unexpected asset request '+new URL(req.url).pathname)
    return new Response(page,{headers:{'Content-Type':'text/html; charset=utf-8'}})
   }}},{waitUntil:()=>{}})
-  const expectedBytes=Buffer.from(await expectedPage.arrayBuffer()),pageResponse=await fetch(canonical)
-  assert.equal(pageResponse.status,200)
-  const livePage=Buffer.from(await pageResponse.arrayBuffer())
+  const expectedBytes=Buffer.from(await expectedPage.arrayBuffer())
+  // Right after a deploy some edges still serve the previous version's library
+  // page (its script tags differ), so poll for the exact bytes for up to two
+  // minutes before failing. The match itself stays exact.
+  let livePage,pageStatus
+  for(let attempt=0;attempt<13;attempt++){
+   if(attempt)await new Promise(resolve=>setTimeout(resolve,10000))
+   const pageResponse=await fetch(canonical,{headers:{'Cache-Control':'no-cache'}})
+   pageStatus=pageResponse.status;livePage=Buffer.from(await pageResponse.arrayBuffer())
+   if(pageStatus===200&&hash(livePage)===hash(expectedBytes))break
+  }
+  assert.equal(pageStatus,200)
   assert.equal(hash(livePage),hash(expectedBytes),'Canonical book page must match the Worker-branded accepted source')
   results.assets.push({path:'/read/'+book,sourceSha256:hash(rawPage),sha256:hash(livePage),bytes:livePage.length,transformation:'handleSeoAndStaticRequest'})
 
