@@ -973,6 +973,115 @@
     }
     return out;
   }
+  /**
+   * Reading units sized for Primer, Catch me up, Recap and Quiz me (Anders, 19 Oct 2026: "rarely will you want a recap
+   * of a paragraph nor of a full book"). `entries`: the outline's (or the scan's) headings, each { title, page, kind?,
+   * items? } with `items` the next heading level, to any depth; a flat outline numbered "1", "1.1", "2" … is nested by
+   * its numbers. `count`: the file's pages. The rule, in pages (UNIT_SIZE):
+   *  - the top-level headings are the units (a part whose entries are chapters gives its chapters, as primerUnits);
+   *  - a unit longer than `split` (30) is split at its next heading level, again as needed; with no headings under it,
+   *    into bands of about `band` (10) pages ("Chapter 3, pages 41–50");
+   *  - a unit shorter than `min` (2) joins its shorter neighbour (front or back matter only joins matter, unless it has
+   *    no page of its own);
+   *  - with no usable headings, bands of `band` pages ("Pages 11–20"), the last taking a tail of `min` pages or fewer;
+   *    a file of `band` + `min` pages or fewer is one unit, "all".
+   * The aim is units of about 3–25 pages. Each unit runs from its heading's page to the page before the next one's; the
+   * first also takes the pages before its heading (from 1, `start` its heading's page). Keys follow the outline's
+   * ("outline-2", "outline-2.1"), a joined unit's both ends ("outline-0_1"), a band its first page ("outline-3-p41",
+   * "pages-11"); all are keys the Worker's storage accepts.
+   * -> [{ key, title, from, start, to, matter?, chapter?, label?, parts?, pages? }]
+   */
+  const UNIT_SIZE = { min: 2, split: 30, band: 10 };
+  const SECTION_NO = /^(\d{1,3}(?:\.\d{1,3})*)\.?(?=\s|$)/;
+  function sizeUnits(entries, count, opts = {}) {
+    const S = { ...UNIT_SIZE, ...opts }, n = Math.max(1, Number(count) || 1);
+    const cleanTitle = t => String(t || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+    const size = u => u.to - u.from + 1;
+    // The headings as a tree: unresolved entries give way to their own entries; flat numbering nested.
+    const tree = (list, prefix) => {
+      const out = [];
+      (Array.isArray(list) ? list : []).forEach((e, i) => {
+        const key = prefix + i, items = tree(e?.items, key + '.'), title = cleanTitle(e?.title), page = e?.page;
+        if (!title || !Number.isInteger(page) || page < 1 || page > n) { out.push(...items); return }
+        out.push({ key, title, page, chapter: e?.kind === 'chapter', items });
+      });
+      return nest(out);
+    };
+    const nest = list => {
+      const out = [], stack = [];
+      for (const node of list) {
+        const num = SECTION_NO.exec(node.title)?.[1];
+        if (num) {
+          while (stack.length && !num.startsWith(stack[stack.length - 1].num + '.')) stack.pop();
+          if (stack.length) { stack[stack.length - 1].node.items.push(node); stack.push({ num, node }); continue }
+          stack.push({ num, node });
+        } else stack.length = 0;
+        out.push(node);
+      }
+      for (const node of out) node.items.sort((a, b) => a.page - b.page);
+      return out;
+    };
+    let top = tree(entries, '');
+    // A part whose entries are chapters gives its chapters (its own pages before the first go with the first).
+    top = top.flatMap(e => (isPart(e, e.items) ? e.items.map((c, j) => ({ ...c, chapter: true, page: j === 0 ? Math.min(e.page, c.page) : c.page, start: c.page })) : [e]));
+    const bands = (from, to, base) => {
+      const out = [];
+      for (let a = from; a <= to; a += S.band) {
+        let b = Math.min(to, a + S.band - 1);
+        if (to - b <= S.min) b = to;
+        out.push({ ...base(a, b), from: a, start: a, to: b });
+        if (b === to) break;
+      }
+      return out;
+    };
+    if (!top.length) {
+      if (n <= S.band + S.min) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
+      return bands(1, n, (a, b) => ({ key: `pages-${a}`, title: `Pages ${a}–${b}`, pages: true }));
+    }
+    // Headings in page order over [lo, hi], each running to the page before the next (a heading sharing its page with
+    // the next one has no page of its own: it joins a neighbour below).
+    const lay = (nodes, lo, hi) => {
+      const list = nodes.map((nd, i) => ({ nd, i })).filter(({ nd }) => nd.page <= hi).sort((a, b) => a.nd.page - b.nd.page || a.i - b.i).map(({ nd }) => nd);
+      let units = list.map((nd, k) => {
+        const page = Math.max(lo, nd.page);
+        return { key: 'outline-' + nd.key, title: nd.title, nd, from: k === 0 ? lo : page, start: Math.max(lo, Number.isInteger(nd.start) ? nd.start : page), to: k + 1 < list.length ? Math.max(lo, list[k + 1].page) - 1 : hi };
+      });
+      // Too long: split at the next heading level, or into bands.
+      units = units.flatMap(u => {
+        if (size(u) <= S.split) return [u];
+        const kids = u.nd.items.filter(c => c.page >= u.from && c.page <= u.to);
+        if (kids.length && !(kids.length === 1 && kids[0].page <= u.start)) {
+          const subs = lay(kids, u.from, u.to);
+          // The pages between the heading and its first section go with the first section; the heading stays its own when it has pages of its own.
+          if (subs.length && u.start < subs[0].start && subs[0].start - u.start >= S.min) return [{ ...u, to: subs[0].start - 1 }, ...subs.map((s, i) => (i === 0 ? { ...s, from: subs[0].start } : s))];
+          return subs;
+        }
+        return bands(u.from, u.to, (a, b) => ({ key: `${u.key}-p${a}`, title: `${u.title}, pages ${a}–${b}`, nd: { ...u.nd, items: [] }, banded: true }));
+      });
+      return units;
+    };
+    let units = lay(top, 1, n);
+    units.forEach(u => { u.matter = matterOf(u.title) });
+    // Too short: joined to the shorter neighbour (the later one when they are as long), until none is.
+    for (let k; (k = units.findIndex((u, i) => size(u) < S.min && joinable(i))) >= 0;) {
+      const u = units[k], prev = units[k - 1], next = units[k + 1];
+      const ok = o => o && (size(u) <= 0 || !!o.matter === !!u.matter);
+      const into = ok(prev) && ok(next) ? (size(prev) < size(next) ? k - 1 : k + 1) : ok(next) ? k + 1 : k - 1;
+      const [a, b] = into < k ? [units[into], u] : [u, units[into]];
+      const lead = size(b) > size(a) ? b : a;
+      const joined = { ...lead, key: a.key.split('_')[0] + '_' + b.key.replace(/^outline-/, '').split('_').pop(), from: a.from, start: a.start, to: b.to, matter: a.matter && b.matter ? lead.matter : null, parts: [...(a.parts || [a.title]), ...(b.parts || [b.title])] };
+      units.splice(Math.min(k, into), 2, joined);
+    }
+    function joinable(i) {
+      const u = units[i], ok = o => o && (size(u) <= 0 || !!o.matter === !!u.matter);
+      return ok(units[i - 1]) || ok(units[i + 1]);
+    }
+    if (units.length === 1 && units[0].from === 1 && units[0].to === n && n <= S.split && !units[0].title) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
+    return units.map(u => {
+      const named = !u.matter && !u.banded && !u.parts && (u.nd?.chapter || n >= 100) ? numberedChapter(u.title) : null;
+      return { key: u.key.slice(0, 64), title: u.title, from: u.from, start: Math.min(Math.max(u.start, u.from), u.to), to: u.to, ...(u.matter ? { matter: u.matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}` } : {}), ...(u.parts ? { parts: u.parts } : {}) };
+    });
+  }
   // A part's own entries are chapters: numbered "2 …" or "Chapter 2 …" (not sections such as "2.1 …").
   const CHAPTER_TITLE = /^(?:(?:chapter|lecture)\s+[\p{L}\p{N}]+[.:]?|\d{1,3}\.?)\s+\S/iu;
   const PART_TITLE = /^(?:(?:part|book|volume)\s+[\p{L}\p{N}]+|[IVXLC]{1,6}\.?)(?=$|[\s.:—–-])/u;
@@ -1523,5 +1632,5 @@
 
   const html = { esc, cut, ICONS, LATER, pillsHtml, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });
