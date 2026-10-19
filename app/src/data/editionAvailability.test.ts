@@ -72,11 +72,11 @@ it('withdraws every Danish edition without migrating or deleting its source iden
  }
 })
 
-describe('To the Lighthouse in Danish: the only offered Danish edition', () => {
+describe('The offered Danish editions (explicit allowlist)', () => {
  const book = getBook('to-the-lighthouse')!
  const edition = book.editions.find(e => e.key === 'modern-da')!
  it('is exactly one explicit identity, never inferred from the language', () => {
-  expect([...OFFERED_DANISH_EDITIONS]).toEqual(['to-the-lighthouse/modern-da'])
+  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'around-the-world-80-days/modern-da', 'jungle-book/modern-da', 'to-the-lighthouse/modern-da'])
   expect(edition).toMatchObject({ language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false })
   expect(isOfferedDanishEdition('to-the-lighthouse', 'modern-da')).toBe(true)
   // Same book, other Danish keys; same key, other books: still withdrawn.

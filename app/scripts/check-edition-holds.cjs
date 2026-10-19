@@ -16,7 +16,7 @@ if (!process.env.TEST_ORIGIN) {
     assert.ok(!hub.includes('/read/'+id),id+' absent from static discovery')
     assert.ok(!sitemap.includes('/read/'+id),id+' absent from sitemap')
   }
-  // The offered Danish edition (To the Lighthouse) stays out of static discovery and the sitemap.
+  // The offered Danish editions (OFFERED_DANISH_EDITIONS) stay out of static discovery and the sitemap.
   for(const text of [hub,sitemap,fs.readFileSync('dist/read/to-the-lighthouse/book.html','utf8')])assert.ok(!/modern-da|Moderne Dansk|lang="da"/.test(text),'Danish edition absent from static discovery')
   server = http.createServer((req,res) => {
     const url = new URL(req.url, origin)
@@ -75,9 +75,9 @@ if (!process.env.TEST_ORIGIN) {
     await context.close()
    }
   }
-  // Positive case: the one offered Danish edition (OFFERED_DANISH_EDITIONS) is not held and opens.
-  for (const width of [390,1440]) {
-   const bookId='to-the-lighthouse',editionKey='modern-da'
+  // Positive case: every offered Danish edition (OFFERED_DANISH_EDITIONS) is not held and opens.
+  for (const [bookId,width] of ['to-the-lighthouse','a-little-princess','around-the-world-80-days','jungle-book'].flatMap(b=>[390,1440].map(w=>[b,w]))) {
+   const editionKey='modern-da'
    const context=await (width < 900 ? browsers.phone : browsers.desktop).newContext({serviceWorkers:'block',viewport:{width,height:900},isMobile:width<900,hasTouch:width<900})
    const page=await context.newPage(),errors=[]
    page.on('pageerror',e=>errors.push(e.message))

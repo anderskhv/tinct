@@ -54,14 +54,14 @@ const get = async path => {
    assert.ok(html.includes('Temporarily unavailable')&&html.includes('heldEdition='+editionKey),identity+' still held')
    results.push({identity,discovery:false,held:true})
  }
- {
-   const identity='to-the-lighthouse/modern-da',book=catalogue.books.find(b=>b.id==='to-the-lighthouse')
+ for(const bookId of ['to-the-lighthouse','a-little-princess','around-the-world-80-days','jungle-book']){
+   const identity=bookId+'/modern-da',book=catalogue.books.find(b=>b.id===bookId)
    assert.equal(book.editions.find(e=>e.key==='modern-da')?.discoveryAvailable,true,identity+' offered')
    assert.equal(book.defaultEditionKey,'modern-en',identity+' not a new-reader default')
    assert.notEqual(book.defaultCompareEditionKey,'modern-da',identity+' not a default compare')
-   assert.ok(!(await (await get('/read/to-the-lighthouse?edition=modern-da')).text()).includes('<h2>Temporarily unavailable</h2>'),identity+' not held')
-   const local=fs.readFileSync('public/data/editions/to-the-lighthouse-modern-da.json')
-   const sha256=createHash('sha256').update(Buffer.from(await (await get('/data/editions/to-the-lighthouse-modern-da.json?v='+version)).arrayBuffer())).digest('hex')
+   assert.ok(!(await (await get('/read/'+bookId+'?edition=modern-da')).text()).includes('<h2>Temporarily unavailable</h2>'),identity+' not held')
+   const local=fs.readFileSync('public/data/editions/'+bookId+'-modern-da.json')
+   const sha256=createHash('sha256').update(Buffer.from(await (await get('/data/editions/'+bookId+'-modern-da.json?v='+version)).arrayBuffer())).digest('hex')
    assert.equal(sha256,createHash('sha256').update(local).digest('hex'),identity+' served bytes')
    results.push({identity,sha256,discovery:true,held:false})
  }
