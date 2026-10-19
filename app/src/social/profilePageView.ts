@@ -77,7 +77,8 @@ export function followButtonHtml(data: Pick<ProfilePageData, 'relation' | 'handl
   }
   if (relation === 'self') return `<a class="secondary" data-testid="profile-edit" href="/library?card=settings">Edit profile</a>`
   if (relation === 'friend') return `<button type="button" class="secondary" data-action="unfollow" data-testid="profile-follow" aria-pressed="true">Friends</button>`
-  if (relation === 'follower') return `<button type="button" class="secondary" data-action="unfollow" data-testid="profile-follow" aria-pressed="true">Following</button>`
+  // A one-way follow is a request until they follow back (19 Oct 2026).
+  if (relation === 'follower') return `<button type="button" class="secondary" data-action="unfollow" data-testid="profile-follow" aria-pressed="true">Requested</button>`
   if (relation === 'followed') return `<button type="button" class="primary" data-action="follow" data-testid="profile-follow">Follow back</button>`
   return `<button type="button" class="primary" data-action="follow" data-testid="profile-follow">Follow</button>`
 }
@@ -108,8 +109,8 @@ export function profileMainHtml(data: ProfilePageData): string {
   const sub = data.followsYou && data.relation !== 'self' && data.relation !== null ? 'Follows you' : data.link
   parts.push(`<div class="who">${avatarHtml(data.picture)}<span class="nm"><h1 class="name">${esc(data.name)}</h1><span>${esc(sub)}</span></span><div class="actions" data-actions>${followButtonHtml(data)}</div></div>`)
   parts.push('<div class="body">')
-  // The follower view (a reader who follows you, whose profile you may not otherwise
-  // see) is the name and link alone: it says nothing about what they share.
+  // The header-only view (a Friends profile before you are friends: name and picture;
+  // or a follower whose profile you may not otherwise see) says nothing about what they share.
   if (!data.limited) {
     const facts: string[] = []
     if (data.time) facts.push(`<div><b>${esc(data.time.last7)}</b><span>last 7 days</span></div>`, `<div><b>${esc(data.time.year)}</b><span>this year</span></div>`)

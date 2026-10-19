@@ -252,7 +252,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   nameInput.addEventListener('input', () => paintAvatar(initial.avatar, pictureView('initial', null, nameInput.value || profile.name), token))
 
   // Uploads, as on the You card, only while the Worker accepts them
-  // (SOCIAL_PHOTO_UPLOADS): saved at once, shown to others after review.
+  // (SOCIAL_PHOTO_UPLOADS): saved at once and shown to others at once (no review since 19 Oct 2026).
   let uploadedPicture: { button: HTMLButtonElement; avatar: HTMLElement } | null = null
   let backgroundUploaded = false
   const uploads = profile.uploads === true ? el('div', { className: 'social-uploads', dataset: { socialUploads: '' } }) : null
@@ -284,7 +284,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
         }
         if (!prepared.ok) { hooks.setStatus(prepared.message, 'error'); return }
         if (!saved?.ok) { hooks.setStatus(saved ? photoUploadMessage(saved, CARDS_COPY.saveFailed) : CARDS_COPY.saveFailed, 'error'); return }
-        hooks.setStatus(PHOTO_COPY.approval, 'neutral')
+        // Shown to others at once, with no review (19 Oct 2026): no line after a saved upload.
         profile = saved.profile
         if (slot === 'background') { backgroundUploaded = true; return }
         // The reader's own picture joins the choices, chosen; it is already saved.
