@@ -34,8 +34,12 @@ export const isEditionDiscoverable = (bookId: string, edition: { key: string; la
 export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
   'alice-in-wonderland/modern-en',
   'alice-in-wonderland/original-en',
+  'arabian-nights/modern-en',
+  'arabian-nights/original-en',
   'bible/bsb-en',
   'bible/webc-en',
+  'grimms-fairy-tales/modern-en',
+  'grimms-fairy-tales/original-en',
   'middlemarch/modern-en',
   'middlemarch/original-en',
   'sense-and-sensibility/modern-en',
@@ -47,7 +51,7 @@ export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
 ])
 /**
  * Text-only editions: no recording and no narration (`hasAudio: false`).
- * The offered Danish editions (To the Lighthouse 2026-10-10; A Little Princess, Around the World, The Jungle Book 2026-10-19): Danish narration is disabled
+ * The offered Danish editions (To the Lighthouse 2026-10-10; A Little Princess, Around the World, The Jungle Book, Grimm, Arabian Nights 2026-10-19): Danish narration is disabled
  * (docs/audiobook-architecture-2026-09-21.md), so nothing is ever recorded.
  */
 export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
@@ -55,6 +59,8 @@ export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
   'a-little-princess/modern-da',
   'around-the-world-80-days/modern-da',
   'jungle-book/modern-da',
+  'grimms-fairy-tales/modern-da',
+  'arabian-nights/modern-da',
 ])
 /** Whether an edition has recorded chapter audio (manifest, sidecar, MP3s) to ask for. */
 export const hasRecordedAudio = (bookId: string, editionKey: string): boolean => !STREAMED_ONLY_AUDIO_EDITIONS.has(`${bookId}/${editionKey}`) && !TEXT_ONLY_EDITIONS.has(`${bookId}/${editionKey}`)

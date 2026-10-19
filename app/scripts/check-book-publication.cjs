@@ -3,10 +3,10 @@ const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
 // Books published through a reviewed release package (books/wip/<id>/release).
-const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility']
+const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights']
 // Text-only editions published beside the English pair: To the Lighthouse in
 // Danish (OFFERED_DANISH_EDITIONS, 2026-10-10). No narration, no character cards.
-const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da']}[book]||[]
+const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da'],'grimms-fairy-tales':['modern-da'],'arabian-nights':['modern-da']}[book]||[]
 assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))
@@ -67,7 +67,9 @@ async function toggleCompare(page,phone){
 }
 async function main(){
  if(live){
-  const files=[...['original-en','modern-en',...TEXT_ONLY_EDITIONS].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/characters/'+book+'.v1.json','data/onboarding/'+book+'.json','data/editions/'+book+'-threads.json']
+  const files=[...['original-en','modern-en',...TEXT_ONLY_EDITIONS].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/onboarding/'+book+'.json']
+  // Character cards and Cast are optional: anthologies such as Grimm and the Arabian Nights have neither.
+  for(const optional of ['data/characters/'+book+'.v1.json','data/editions/'+book+'-threads.json'])if(fs.existsSync('public/'+optional))files.push(optional)
   for(const asset of ['covers/v2/'+book+'.webp','brand/20260921/books/'+book+'.jpg'])if(fs.existsSync('public/'+asset))files.push(asset)
   if(book==='symposium')files.push('brand/20260921/books/to-the-lighthouse.jpg')
   for(const ed of ['original-en','modern-en',...TEXT_ONLY_EDITIONS]){

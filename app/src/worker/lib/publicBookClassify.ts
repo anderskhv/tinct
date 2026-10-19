@@ -46,6 +46,7 @@ export const SHELVES: Record<string, { house: string; title: string; sub: string
   'gothic-novels': { house: 'novel', title: 'The Gothic', sub: 'Doubles, monsters, dark houses', hue: 265 },
   'satirical-novels': { house: 'novel', title: 'Satire', sub: 'Voltaire and the philosophical tale', hue: 35 },
   'adventure': { house: 'novel', title: 'Adventure', sub: 'Journeys, wagers and the open sea', hue: 60 },
+  'folk-and-fairy-tales': { house: 'novel', title: 'Folk & Fairy Tales', sub: 'Tales from the oral tradition', hue: 30 },
   'detective-fiction': { house: 'novel', title: 'Detective Fiction', sub: 'Cases, clues and the logic of inference', hue: 265 },
   'ancient-epics': { house: 'epic', title: 'Ancient Epics', sub: 'Gilgamesh, Homer, Virgil', hue: 35 },
   'sacred-epics': { house: 'epic', title: 'Sacred Epics', sub: 'Dante and Milton', hue: 265 },
@@ -128,6 +129,7 @@ export function classifyByRules(work: CatalogueWork): Classification {
       if (has(text, /detective|mystery|crime/)) shelf = 'detective-fiction'
       else if (has(text, /horror|gothic|ghost|vampire|supernatural/)) shelf = 'gothic-novels'
       else if (has(text, /satire|satirical|humorous|humour|humor\b/)) shelf = 'satirical-novels'
+      else if (has(text, /fairy tales|folklore|folk tales|legends/)) shelf = 'folk-and-fairy-tales'
       else if (has(text, /adventure|sea stories|western stories|voyages|pirates|science fiction/)) shelf = 'adventure'
       else if (languages.includes('ru') || has(text, /russia/)) shelf = 'russian-novels'
       else if (languages.some(l => ['da', 'sv', 'no', 'nb', 'fi', 'is'].includes(l)) || has(text, /danish|swedish|norwegian|finnish|icelandic|scandinavian/)) shelf = 'nordic-novels'

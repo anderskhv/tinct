@@ -40,8 +40,14 @@ def find_matching(text: str, start: int, open_ch: str, close_ch: str) -> int:
     depth = 0
     in_string: str | None = None
     escape = False
+    in_comment = False
     for i in range(start, len(text)):
         ch = text[i]
+        if in_comment:
+            # A // comment may hold an apostrophe ("the editions' 17"); it is not a string.
+            if ch == "\n":
+                in_comment = False
+            continue
         if in_string:
             if escape:
                 escape = False
@@ -50,7 +56,9 @@ def find_matching(text: str, start: int, open_ch: str, close_ch: str) -> int:
             elif ch == in_string:
                 in_string = None
             continue
-        if ch in ("'", '"', "`"):
+        if ch == "/" and text[i + 1 : i + 2] == "/":
+            in_comment = True
+        elif ch in ("'", '"', "`"):
             in_string = ch
         elif ch == open_ch:
             depth += 1
