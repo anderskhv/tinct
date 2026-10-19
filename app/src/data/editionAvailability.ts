@@ -6,7 +6,7 @@ import manifest from './editionAvailability.json'
 export const TEMPORARY_EDITION_HOLDS: Readonly<Record<string, { reason: string }>> = manifest.editions
 /**
  * The only Danish editions Tinct offers: a deliberate, narrow exception to the
- * Danish withdrawal (Anders, 2026-10-10: To the Lighthouse in Danish; 2026-10-19: A Little Princess, Around the World in Eighty Days and The Jungle Book). Every
+ * Danish withdrawal (Anders, 2026-10-10: To the Lighthouse in Danish; 2026-10-19: A Little Princess, Around the World in Eighty Days and The Jungle Book; later 2026-10-19: Grimms' Fairy Tales and The Arabian Nights). Every
  * other `-da` edition stays withdrawn. List exact `bookId/editionKey`
  * identities; never infer an exception from the language.
  */
@@ -15,6 +15,8 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'a-little-princess/modern-da',
   'around-the-world-80-days/modern-da',
   'jungle-book/modern-da',
+  'grimms-fairy-tales/modern-da',
+  'arabian-nights/modern-da',
 ])
 export const isOfferedDanishEdition = (bookId: string, editionKey: string | undefined): boolean =>
   Boolean(editionKey) && OFFERED_DANISH_EDITIONS.has(bookId + '/' + editionKey)

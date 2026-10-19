@@ -3475,8 +3475,8 @@ export const THE_FARTHEST_REACHES: Book = {
 
 // Grimms' Fairy Tales and The Arabian Nights (Lang), integrated 2026-10-19 from the
 // content packages in books/wip/grimms-fairy-tales and books/wip/arabian-nights
-// (branch claude/inspiring-ritchie-zi00fu, 6f4ab42cf). English pair only: the
-// staged modern-da editions wait for Anders (language scope). No cast. Chapters
+// (branch claude/inspiring-ritchie-zi00fu, 6f4ab42cf). Danish (modern-da) is an
+// offered text-only edition (OFFERED_DANISH_EDITIONS, Anders 2026-10-19). No cast. Chapters
 // are numbered 1-65 and 1-35, one reading unit per tale (Lang's preface is 1).
 export const GRIMMS_FAIRY_TALES: Book = {
   id: 'grimms-fairy-tales',
@@ -3491,6 +3491,7 @@ export const GRIMMS_FAIRY_TALES: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Taylor & Edwardes', translator: 'Edgar Taylor and Marian Edwardes', aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Text only: Danish narration is disabled.
   ],
 }
 
@@ -3507,6 +3508,7 @@ export const ARABIAN_NIGHTS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Lang (1898)', year: 1898, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Text only: Danish narration is disabled.
   ],
 }
 

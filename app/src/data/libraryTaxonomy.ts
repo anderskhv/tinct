@@ -2979,7 +2979,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "folk-and-fairy-tales"
     ],
     "langs": [
-      "EN"
+      "EN",
+      "DA"
     ]
   },
   {
@@ -3003,7 +3004,8 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "folk-and-fairy-tales"
     ],
     "langs": [
-      "EN"
+      "EN",
+      "DA"
     ]
   }
 ]
