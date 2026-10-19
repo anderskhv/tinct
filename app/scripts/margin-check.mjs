@@ -43,7 +43,9 @@
 //                                                     the reader's choice wins; the desktop ignores the phone's default.
 //                                                     The desktop (16 Oct): its pages unless running prose (a MacKay-like page of
 //                                                     mathematics with margin figures, which scored under 3.5, now opens as its pages;
-//                                                     a place read in Tinct text under the old default gives way, a chosen one stands)
+//                                                     a place read in Tinct text under the old default gives way, a chosen one stands).
+//                                                     Per device (19 Oct): the place's edition never decides; two devices sharing one
+//                                                     place: the desktop in its pages, the phone in Tinct text at the same spot, and back
 //   node scripts/margin-check.mjs card-safety       16 Oct: a card never keeps the wait ring (drawing throws, the column throws, a step
 //                                                     before the request throws, the card dropped mid-request, a stalled stream), failures
 //                                                     reported; and the first request on a fresh open: Explain within its 3 s document wait, Ask with the document
@@ -2859,8 +2861,9 @@ async function phoneKindCheck(browser, origin) {
   ok('phone-kind: the reader\'s choice of its pages keeps a narrative in its pages', own1.where.startsWith('/lab/addbook/') && own1.kept.edition === 'pages' && !own1.kept.auto, own1)
   const own2 = await open(paper, { width: 390, height: 844, seed: { ['edition:' + paper]: 'text' } })
   ok('phone-kind: the reader\'s choice of Tinct text opens a paper as its Tinct text', own2.where.startsWith('/reader?userBook=' + paper) && !own2.kept.auto, own2)
+  // A place read in its pages (here or on another device) is no choice (Anders, 19 Oct 2026: the view is per device, only the place syncs).
   const own3 = await open(prose, { width: 390, height: 844, seed: { ['pos:pdf:' + prose]: { page: 2, frac: 0.1, edition: 'p', at: Date.now() } } })
-  ok('phone-kind: a place read in its pages keeps a narrative in its pages', own3.where.startsWith('/lab/addbook/') && !own3.kept.auto, own3)
+  ok('phone-kind: a place read in its pages does not keep a narrative in its pages: the phone\'s rule opens its Tinct text at that page', own3.where === `/reader?userBook=${prose}&page=2` && own3.kept.auto?.edition === 'text', own3)
   // The desktop: the phone's default kept on this device is not a choice; the scan's default stands.
   const desk = await open(prose, { width: 1280, height: 800, seed: { ['edition:' + prose]: 'pages', ['phone-edition:' + prose]: { edition: 'pages', kind: 'practical', by: 'text', v: 1 } } })
   ok('phone-kind: the desktop ignores the phone\'s default and opens the scan\'s (prose_book: Tinct text)', desk.where.startsWith('/reader?userBook=' + prose), desk)
@@ -2895,14 +2898,32 @@ async function phoneKindCheck(browser, origin) {
   // Read as Tinct text under the old default (a place in Tinct text from before the rule, nothing chosen): its pages now, at the same spot.
   const OLD = Date.UTC(2026, 9, 16, 9), NEW = Date.UTC(2026, 9, 17, 9)
   const legacy = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't', chapterNumber: 1, paragraphIndex: 2, wordIndex: 0 } } })
-  ok('desk-pages: a place read in Tinct text under the old default (no choice) opens as its pages, the spot kept', legacy.where.startsWith('/lab/addbook/') && legacy.kept.edition === 'pages' && legacy.kept.pos?.edition === undefined && legacy.kept.pos?.page === 1 && legacy.kept.pos?.frac === 0.3 && legacy.kept.pos?.paragraphIndex === 2, legacy)
-  // The reader's own choice of Tinct text stands, and so does a place read in Tinct text since the rule began (here or on another device).
+  ok('desk-pages: a place read in Tinct text under the old default (no choice) opens as its pages, the spot kept', legacy.where.startsWith('/lab/addbook/') && legacy.kept.edition === 'pages' && legacy.kept.pos?.page === 1 && legacy.kept.pos?.frac === 0.3 && legacy.kept.pos?.paragraphIndex === 2, legacy)
+  // The reader's own choice of Tinct text stands; a place read in Tinct text since the rule began (here or on another device) is no choice (19 Oct).
   const chose = await open(mackay, { width: 1440, height: 900, seed: { ['edition:' + mackay]: 'text', ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't' } } })
   ok('desk-pages: the reader\'s choice of Tinct text opens it as Tinct text', chose.where.startsWith('/reader?userBook=' + mackay) && chose.kept.edition === 'text' && !chose.kept.desk, chose)
   const since = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: NEW, edition: 't' } } })
-  ok('desk-pages: a place read in Tinct text since the rule began opens as Tinct text', since.where.startsWith('/reader?userBook=' + mackay) && since.kept.pos?.edition === 't', since)
+  ok('desk-pages: a place read in Tinct text since the rule began (on a phone) opens as its pages on the desktop', since.where.startsWith('/lab/addbook/') && since.kept.desk?.edition === 'pages' && since.kept.pos?.page === 1, since)
   const inPages = await open(prose, { width: 1440, height: 900, seed: { ['pos:pdf:' + prose]: { page: 2, frac: 0.1, at: OLD, edition: 'p' } } })
-  ok('desk-pages: a narrative read in its pages stays in its pages', inPages.where.startsWith('/lab/addbook/') && !inPages.kept.desk, inPages)
+  ok('desk-pages: a narrative read in its pages elsewhere opens as its Tinct text on the desktop, at that page', inPages.where === `/reader?userBook=${prose}&page=2` && inPages.kept.desk?.edition === 'text', inPages)
+  /* Per device (Anders, 19 Oct 2026): two browser contexts, a desktop and a phone, sharing one account place
+     (copied between them as ownSync.ts adoptPage keeps it: the page, the spot, the edition it was read in). */
+  {
+    const D = await open(prose, { width: 1440, height: 900, seed: { ['edition:' + prose]: 'pages' }, keep: true })
+    const deskOpen = D.where.startsWith('/lab/addbook/')
+    // "Original pages" chosen on the desktop; read there to page 2, a third of the way down.
+    const place = deskOpen ? await D.page.evaluate(() => { goTo({ page: 2, frac: 0.3 }); onScroll(); savePlaceNow(); return store.get('pos:' + state.key) }) : null
+    await D.ctx.close()
+    ok('per-device: the desktop reads in its pages (its own choice), its place read in pages', deskOpen && place?.page === 2 && place?.edition === 'p', { where: D.where, place })
+    const P = await open(prose, { width: 390, height: 844, seed: { ['pos:pdf:' + prose]: place } })
+    ok('per-device: the phone opens the same place as its Tinct text (its own rule), at the same page; the desktop\'s choice did not travel', P.where === `/reader?userBook=${prose}&page=2` && P.kept.auto?.edition === 'text' && P.kept.edition === 'text' && P.kept.pos?.edition === 'p' && P.kept.pos?.frac === place?.frac, P)
+    // Back: read on in the Tinct text on the phone (the Tinct reader keeps the page and its edition 't'), then the desktop.
+    const back = { ...place, page: 3, frac: 0.1, at: Date.now(), edition: 't', chapterNumber: undefined, paragraphIndex: undefined, wordIndex: undefined }
+    const D2 = await open(prose, { width: 1440, height: 900, seed: { ['edition:' + prose]: 'pages', ['pos:pdf:' + prose]: back }, keep: true })
+    const at = D2.where.startsWith('/lab/addbook/') ? await D2.page.evaluate(() => currentPlace()) : null
+    await D2.ctx.close()
+    ok('per-device: back on the desktop, its pages still, at the page the phone read to', D2.where.startsWith('/lab/addbook/') && at?.page === 3 && D2.kept.edition === 'pages' && !D2.errors.length, { where: D2.where, at, kept: D2.kept })
+  }
   return results
 }
 

@@ -421,7 +421,7 @@ async function openPdf(bytes, name, key, known = null) {
   state.base = { w: first.width, h: first.height };
   const { late } = await synced;
   if (token !== state.token) return;
-  // Read as Tinct text (here or, by its place, on another device): the Tinct reader, before the pages draw.
+  // Read as Tinct text on this device (its own choice, else its default: openKind): the Tinct reader, before the pages draw.
   if (scan) await openKind(scan, token);
   if (token !== state.token) return;
   if (scan && forwardToText(scan)) return;
@@ -1128,7 +1128,8 @@ function textSpot(place) {
 // A text PDF reads as its Tinct text in the Tinct reader (/reader?userBook=<hex>) or as its
 // pages here; both keep one place (pos:<key>: the page, the spot in the text and the edition
 // read), so either opens where the other was left, here and on the reader's other devices.
-// Which one a PDF opens in: TinctPdfText.choice (app/src/lab/userBook/pdfEditions.ts).
+// Which one a PDF opens in is this device's (Anders, 19 Oct 2026): only the place syncs, and the
+// edition it was read in never decides. TinctPdfText.choice (app/src/lab/userBook/pdfEditions.ts).
 const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages > 0 || isOcrText() : !!state.textEdition);
 // A scan whose text the account recognised (js/pdf-ocr.js): its Tinct text opens by its own default.
 const isOcrText = () => state.textEdition?.source === 'ocr';
@@ -1136,12 +1137,14 @@ const isOcrText = () => state.textEdition?.source === 'ocr';
 const ownEdition = () => window.TinctReaderLayout.ownChoice(store.get('edition:' + hexOf(state.key)), store.get('phone-edition:' + hexOf(state.key)), store.get('desk-edition:' + hexOf(state.key)));
 // With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); on the desktop, its pages unless running prose (deskKind).
 const editionDefault = scan => isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : window.TinctReaderLayout.openDefault({ phone: isPhone(), kind: state.docKind?.kind, layout: scan?.layout });
-const editionChoice = scan => TinctPdfText.choice(store.get('pos:' + state.key), ownEdition(), editionDefault(scan));
+// This device's kept default (phoneKind, deskKind): the phone's on a phone, the desktop's on the desktop.
+const keptEdition = () => store.get((isPhone() ? 'phone-edition:' : 'desk-edition:') + hexOf(state.key))?.edition || null;
+const editionChoice = scan => TinctPdfText.choice(ownEdition(), keptEdition(), editionDefault(scan));
 /* Phones open a PDF by its kind (Anders, 16 Oct 2026, option C; TinctReaderLayout.docKind, phoneEdition): a
    narrative or an essay as its Tinct text, a paper too when it is mostly prose (no columns, mathematics, figures
    or tables: the scan's own rule), everything else in its pages at the column fit. Told here, before any AI call, from
    a primer kept for the book (its kind wins) or the text of a few pages and the scan, and only when the reader
-   has chosen nothing for the book (no edition in its place, no choice on this device). The default is kept as
+   has chosen nothing for the book on this device (the place's edition is not a choice). The default is kept as
    this device's edition (so the library and the Tinct reader open the book the same way) and marked as the
    phone's (phone-edition:<hex>), so the desktop ignores it and a choice of the reader's replaces it. */
 const KIND_V = 1;
@@ -1161,7 +1164,7 @@ function keptPrimerKind(key) {
 async function phoneKind(scan, token) {
   if (!isPhone() || state.kind !== 'pdf' || !scan || !(scan.textPages > 0) || isOcrText() || state.pagesAsked) return;
   const hex = hexOf(state.key), RL = window.TinctReaderLayout;
-  if (TinctPdfText.choice(store.get('pos:' + state.key), ownEdition(), null)) return;
+  if (ownEdition()) return;
   const auto = store.get('phone-edition:' + hex), primerKind = keptPrimerKind(state.key);
   let found = auto?.v === KIND_V && auto.kind && (!primerKind || auto.kind === primerKind) ? { kind: auto.kind, by: auto.by } : null;
   if (!found) {
@@ -1181,21 +1184,15 @@ async function phoneKind(scan, token) {
    pages' text, no AI call), only when the reader has chosen nothing for the book, and kept as this
    device's edition marked as the desktop's (desk-edition:<hex>), so the library and the Tinct reader
    open it the same way and a choice of the reader's replaces it.
-   Before this rule the desktop opened every PDF scoring under 3.5 as Tinct text (MacKay's extract: 2), and
-   a place read there carries edition 't' though nobody chose it. A choice of Tinct text is kept as the
-   device's edition ('text', readAsText); so a place in Tinct text kept before the rule (RULE_AT), with no
-   choice kept, on a device that has not yet opened the book under this rule (OPEN_RULE, open-rule:<hex>),
-   followed the old default: it keeps its spot but not its edition, and the new default applies. A place
-   in Tinct text kept since then (here or on another device) is honoured as before. */
+   A place carries the edition it was read in, here or on another device; it never decides the view
+   (Anders, 19 Oct 2026: a PDF's view is chosen per device, only the place syncs). */
 const DESK_V = 1;
-// The open rule this device has applied to a book, and when it began (also app/src/lab/userBook/pdfEditions.ts).
-const OPEN_RULE = 2, RULE_AT = Date.UTC(2026, 9, 16, 17); // 2026-10-16T17:00:00Z
+// The open rule this device has applied to a book (also app/src/lab/userBook/pdfEditions.ts).
+const OPEN_RULE = 2;
 async function deskKind(scan, token) {
   if (isPhone() || state.kind !== 'pdf' || !scan || !(scan.textPages > 0) || isOcrText() || state.pagesAsked) return;
   const hex = hexOf(state.key), RL = window.TinctReaderLayout;
   if (ownEdition()) return;
-  const pos = store.get('pos:' + state.key);
-  if (pos?.edition === 'p' || (pos?.edition === 't' && (store.get('open-rule:' + hex) >= OPEN_RULE || pos.at >= RULE_AT))) return;
   const auto = store.get('desk-edition:' + hex), primerKind = keptPrimerKind(state.key);
   let found = auto?.v === DESK_V && auto.kind && (!primerKind || auto.kind === primerKind) ? { kind: auto.kind, by: auto.by } : null;
   if (!found) {
@@ -1208,13 +1205,10 @@ async function deskKind(scan, token) {
   const edition = RL.desktopEdition(found.kind, scan.layout);
   store.set('desk-edition:' + hex, { edition, kind: found.kind, by: found.by, v: DESK_V });
   store.set('edition:' + hex, edition);
-  // The old default's place: the same spot, its edition now the default's (the edition of a place wins: TinctPdfText.choice).
-  const now = store.get('pos:' + state.key);
-  if (now?.edition === 't' && edition === 'pages') { const { edition: _old, ...spot } = now; store.set('pos:' + state.key, spot) }
 }
 // The edition a PDF opens in, told for this device before the Tinct text is forwarded to: on a phone by
 // its kind (phoneKind), on the desktop its pages unless running prose (deskKind). Then marked as opened
-// under this rule, so the library and the Tinct reader follow its place from now on (pdfEditions.ts).
+// under this rule, so the library and the Tinct reader open it as this device does (pdfEditions.ts).
 async function openKind(scan, token) {
   await (isPhone() ? phoneKind(scan, token) : deskKind(scan, token));
   if (token !== state.token || state.kind !== 'pdf' || !scan || state.pagesAsked) return;
@@ -2020,12 +2014,14 @@ async function buildContentsNow(token, key, pdf) {
   }
   setBookTitle(scan.title, scan.author);
   applyBookLanguage();
-  // Classified now (a PDF opened for the first time, or scanned again): Tinct text when it reads
-  // best so, unless the reader has moved here meanwhile.
-  if (fresh && sameSpot(currentPlace(), state.lastPlace)) {
+  // Classified now (a PDF opened for the first time, or scanned again): Tinct text when this device
+  // reads it best so. Scrolling meanwhile is no choice of the reader's: the spot reached is kept and
+  // the Tinct text opens there (only "Original pages" or a link's &pages keep the pages).
+  if (fresh) {
     await openKind(scan, token);
     if (token !== state.token) return;
-    if (sameSpot(currentPlace(), state.lastPlace) && forwardToText(scan)) return;
+    if (editionChoice(scan) === 'text' && !sameSpot(currentPlace(), state.lastPlace)) savePlaceNow();
+    if (forwardToText(scan)) return;
   }
   showEditions();
   if (isScan()) ocrOpen();

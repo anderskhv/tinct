@@ -574,15 +574,13 @@
     const first = chapters[0];
     return first ? { chapterNumber: first.number, paragraphIndex: 0, wordIndex: 0 } : null;
   }
-  // The edition a PDF opens in: the edition of its place ('t' / 'p'); else the reader's choice
-  // on this device ('text' / 'pages'); else a place kept before Tinct text existed stays in
-  // Original pages; else the scan's default; null when nothing is known yet
-  // (app/src/lab/userBook/pdfEditions.ts pdfEditionChoice, the same rule).
-  function choice(pos, stored, layoutDefault) {
-    if (pos?.edition === 't') return 'text';
-    if (pos?.edition === 'p') return 'pages';
-    if (stored === 'text' || stored === 'pages') return stored;
-    if (pos && Number.isInteger(pos.page)) return 'pages';
+  // The edition a PDF opens in on this device (Anders, 19 Oct 2026: a PDF's view is chosen per device;
+  // only the place syncs): the reader's own choice here ('text' / 'pages'); else this device's kept
+  // default (phone-edition / desk-edition); else the device's rule or the scan's default; null when
+  // nothing is known yet. The place's edition (where it was last read, here or on another device)
+  // never decides (app/src/lab/userBook/pdfEditions.ts pdfEditionChoice, the same rule).
+  function choice(own, kept, layoutDefault) {
+    for (const e of [own, kept]) if (e === 'text' || e === 'pages') return e;
     if (layoutDefault === 'text') return 'text';
     if (layoutDefault === 'pages' || layoutDefault === 'pages-only') return 'pages';
     return null;
