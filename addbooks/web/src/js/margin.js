@@ -782,7 +782,7 @@
         ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${P ? inlineHtml(q.inText, P, o.resolve) : esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
         : senses.length
           ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
-          : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
+          : q.line ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line)}</span></p></div>` : '';
     }
     const turns = [...(card.turns || [])];
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });

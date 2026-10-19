@@ -79,6 +79,8 @@
 //                                                     highlighted whole; an old highlight from "ection" re-snapped only when safe
 //   node scripts/margin-check.mjs primer-top        19 Oct, evening (9): Before you start and the start pills at the top of page 1,
 //                                                     also when page 1 is a picture cover without text
+//   node scripts/margin-check.mjs define-card       19 Oct, evening (7): Define on the wide column as an open margin card only (no
+//                                                     pop-over); narrow windows and the phone keep the pop-over
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -498,7 +500,8 @@ async function readerMatrix(browser, origin) {
         await page.mouse.click(5, height - 5)
         // Define.
         if (!await pick({ oneWord: true })) throw new Error('no word to select')
-        await check('define', '.mr-define .mr-define__senses, .mr-define .mr-define__body p:not(.mr-define__wait)')
+        // On the wide column Define is a card (19 Oct 2026, evening); elsewhere its pop-over.
+        await check('define', '.mr-define .mr-define__senses, .mr-define .mr-define__body p:not(.mr-define__wait), .mr-doc .mr-card.is-open .mr-answer')
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e) }) }
       rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: found.length + problems.length, details: [...found, ...problems], screenshots: states })
       const all = [...found, ...problems]
@@ -761,7 +764,7 @@ async function behaviour(browser, origin) {
   const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
   const pageCount = await a.evaluate(() => state.pages.length)
   ok('"/" sends the whole-file question: scope "whole" with every page of the PDF (the whole document, PR A), never the page alone', whole?.body?.companion?.scope === 'whole' && whole.body.companion.document?.units?.length === pageCount && !/say when something is not on these pages/.test(JSON.stringify(whole.body.messages)), { scope: whole?.body?.companion?.scope, units: whole?.body?.companion?.document?.units?.length, pageCount })
-  ok('"/" asks about the whole PDF; the answer opens in the Chat card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Chat') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
+  ok('"/" asks about the whole PDF; the answer opens in the Chat card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Chat') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.parentElement !== w.parentElement /* open Chat is its own panel (19 Oct): the trigger stays at its page */ || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
   await fresh(a)
   // Reopened, the Whole PDF card shows its earlier conversation at once (the same task, no frame later).
   await a.evaluate(() => { openCard(null) }); await a.waitForTimeout(300)
@@ -847,7 +850,9 @@ async function behaviour(browser, origin) {
   ok('the dictionary is kept for offline use', await a.evaluate(() => TinctDictionary.warm()))
   await A.ctx.setOffline(true)
   await a.reload().catch(() => {})
-  const C = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' }).catch(() => null)
+  // Define's pop-over is a narrow window's (and the phone's) since 19 Oct 2026, evening: the wide column shows a card
+  // instead (define-card). These checks of the pop-over and the lookups run at 1024×768.
+  const C = await readerPage(browser, origin, hex, { width: 1024, height: 768, look: 'paper' }).catch(() => null)
   if (C) {
     await C.page.evaluate(() => { goTo({ page: 3, frac: 0 }); return TinctDictionary.warm() }); await C.page.waitForTimeout(800); await C.ctx.setOffline(true)
     // A word the dictionary has (the page's first few words may be ones it leaves out, such as "which").
@@ -3952,8 +3957,9 @@ async function wholeWords(browser, origin) {
   ok('8. (the fixture: "S" and "ection" are two items, touching)', at.sLeft != null, at)
   // Double-click inside "ection".
   await a.mouse.dblclick(at.x, at.y); await a.waitForTimeout(700)
-  const dbl = await a.evaluate(() => ({ sel: getSelection().toString().trim(), word: mr?.word || null, info: mr?.info?.text || null }))
-  ok('8. a double-click on a line\'s first word split in two selects and defines the whole word ("Section")', dbl.sel === 'Section' && (dbl.word === 'Section' || dbl.info === 'Section'), dbl)
+  // On the wide column Define opens as a card (item 7): its label names the word.
+  const dbl = await a.evaluate(() => ({ sel: getSelection().toString().trim(), word: mr?.word || null, info: mr?.info?.text || null, card: document.querySelector('.mr-doc .mr-card.is-open .mr-card__name')?.textContent || null }))
+  ok('8. a double-click on a line\'s first word split in two selects and defines the whole word ("Section")', /^Define · section$/i.test(dbl.card || '') || (dbl.sel === 'Section' && (dbl.word === 'Section' || dbl.info === 'Section')), dbl)
   await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); await a.waitForTimeout(300)
   // A drag from inside "ection" to the line's later words, then a highlight.
   await a.mouse.move(at.x, at.y); await a.mouse.down(); await a.mouse.move(at.x2, at.y, { steps: 8 }); await a.mouse.up(); await a.waitForTimeout(600)
@@ -4006,6 +4012,38 @@ async function primerTop(browser, origin) {
   return results
 }
 
+/* define-card (19 Oct 2026, evening, item 7): on the wide margin column Define is a margin card only, opened (not
+   folded), with no pop-over over the text; its dots wait until the meaning arrives; it is kept. A narrow window and the
+   phone keep the pop-over. */
+async function defineCard(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height] of [[1440, 900], [1024, 768], [390, 844]]) {
+    const tag = `define-card-${width}x${height}`, wide = width >= 1180
+    const A = await readerPage(browser, origin, hex, { width, height, look: 'paper', startPage: 3 })
+    const a = A.page
+    await prefetchSettled(a)
+    mock.delayFor.define = 900
+    let word = '', early = null
+    for (const near of ['middle', 'top', 'bottom']) {
+      word = await selectText(a, { oneWord: true, near }); await a.waitForTimeout(350)
+      early = await a.evaluate(() => ({ pop: !!document.querySelector('.mr-float.mr-define'), card: (() => { const c = document.querySelector('.mr-doc .mr-card.is-open'); return c && { label: c.querySelector('.mr-card__name')?.textContent || '', dots: !!c.querySelector('.tc-wait'), words: !!c.querySelector('.mr-answer') } })(), open: col.open }))
+      if (early.pop || early.card) break
+    }
+    await a.waitForTimeout(1600)
+    const done = await a.evaluate(() => { const c = document.querySelector('.mr-doc .mr-card.is-open'); const r = c?.getBoundingClientRect(), pg = document.querySelector('.pdf-sheet')?.getBoundingClientRect(); return { pop: !!document.querySelector('.mr-float.mr-define'), card: c && { label: c.querySelector('.mr-card__name')?.textContent || '', answer: c.querySelector('.mr-answer')?.innerText || '', dots: !!c.querySelector('.tc-wait'), right: r.left >= pg.right }, kept: keptCards().filter(k => k.kind === 'define').length, sel: getSelection().toString() } })
+    if (wide) {
+      ok(`${tag}: 7. one word opens Define as an open margin card at once ("Define · ${word}"), its dots or the dictionary's words in it, no pop-over over the text`, !early.pop && early.card && early.card.label === `Define · ${word}` && (early.card.dots || early.card.words), early)
+      ok(`${tag}: 7. the meaning fills the card in the column (beside the page), the dots gone; it is kept`, !done.pop && done.card && done.card.answer.length > 3 && !done.card.dots && done.card.right && done.kept >= 1, done)
+      await shot(a, `${tag}`)
+    } else ok(`${tag}: 7. a narrow window or phone keeps Define's pop-over`, early.pop || done.pop, { early, done })
+    mock.delayFor.define = 0
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -4044,6 +4082,7 @@ const RUNS = {
   'stray-menu': [strayMenu, rows => rows.some(r => !r.pass)],
   'whole-words': [wholeWords, rows => rows.some(r => !r.pass)],
   'primer-top': [primerTop, rows => rows.some(r => !r.pass)],
+  'define-card': [defineCard, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4084,7 +4123,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

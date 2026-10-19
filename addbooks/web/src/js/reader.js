@@ -2906,25 +2906,36 @@ function fitAsk() {
 /* Define: the offline dictionary first (js/dictionary.js); a name, or a word it lacks, from the
    companion's contextual `define` when online; offline, "Not in the offline dictionary." */
 async function mrDefine(word) {
+  // The wide margin column: Define is a margin card only, opened, never a pop-over on the text (Anders, 19 Oct 2026).
+  // Narrow windows and the phone keep the pop-over.
+  if (marginMode() === 'column' && mr) return defineCard(word);
   mr.word = word; mr.held = true; mr.def = { word, source: '', wait: true };
   const token = mr.defToken = {};
   // The file this Define belongs to: an answer that arrives after the reader opened another file is never kept in it.
   const key = state.key;
   mrShow('define');
+  await runDefine({ word, info: mr.info, anchor: mr.anchor, key, before: mr.before, alive: () => mr?.defToken === token, show: (def, final) => { mr.def = def; if (final || mr.mode === 'define') mrShow('define') } });
+}
+/*
+ * Define's lookups: the offline dictionary first (js/dictionary.js); a name, or a word it lacks, from the companion's
+ * contextual `define` when online; offline, "Not in the offline dictionary." `show(def, final)` draws each step (the
+ * pop-over, or the card); `alive()` is false once another Define or file has taken over. A found definition is kept
+ * as a Define card (keepDefine; `card`, the column's card not yet kept, keeps its id).
+ */
+async function runDefine({ word, info, anchor, key, before, alive, show, card = null }) {
   let hit = null;
   try { hit = await TinctDictionary.lookup(word) } catch {}
-  if (mr?.defToken !== token) return;
+  if (!alive()) return null;
   // Offline, a capitalised word the dictionary has shows its entry (a name mid-sentence asks the companion only when it can).
-  const asks = TinctMargin.defineAsks(hit, { word, before: mr.before, online: navigator.onLine !== false });
+  const asks = TinctMargin.defineAsks(hit, { word, before, online: navigator.onLine !== false });
   if (asks.dictionary) {
-    mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
-    mrShow('define');
+    const def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
+    show(def);
     // Online, two asks at once (15 Oct, evening): the meaning in this text from the companion's
     // `define`, shown first under "In this text" whenever it arrives, even when a dictionary sense
     // "fits" ("perplexity" read "confusion"); and define_sense, which moves the fitting sense to the
     // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
-    const info = mr.info, anchor = mr.anchor, def = mr.def;
-    const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
+    const redraw = () => { if (alive()) show(def) };
     // "In this text" keeps its place first while it is written (a quiet wait under the label), and its words
     // show as they stream (re-check 2, 16 Oct: Define arrived all at once at 2.9-4.8 s); the senses never wait for it.
     if (asks.inText) { def.inWait = true; redraw() }
@@ -2939,23 +2950,57 @@ async function mrDefine(word) {
       redraw();
     });
     await Promise.all([inText, sense]);
-    keepDefine(def, info, anchor, key);
-    return;
+    keepDefine(def, info, anchor, key, card);
+    return def;
   }
-  if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
+  if (navigator.onLine === false) { const def = { word, line: 'Not in the offline dictionary.' }; show(def, true); return null }
   try {
-    const info = mr.info, anchor = mr.anchor;
-    const found = await defineByCompanion(word, info, line => { if (mr?.defToken === token) { mr.def = { word, inText: line }; mrShow('define') } });
+    const found = await defineByCompanion(word, info, line => { if (alive()) show({ word, inText: line }) });
     const def = found ? { word: found.word || word, pos: found.pos || '', inText: found.line } : null;
     // Kept in the file it was asked in, even when the reader has moved on.
-    if (def) keepDefine(def, info, anchor, key);
-    if (mr?.defToken !== token) return;
-    mr.def = def || { word, line: errorCopy(null) };
+    if (def) keepDefine(def, info, anchor, key, card);
+    if (!alive()) return def;
+    show(def || { word, line: errorCopy(null) }, true);
+    return def;
   } catch (e) {
-    if (mr?.defToken !== token) return;
-    mr.def = { word, line: e?.code === 'offline' ? 'Not in the offline dictionary.' : errorCopy(e) };
+    if (!alive()) return null;
+    show({ word, line: e?.code === 'offline' ? 'Not in the offline dictionary.' : errorCopy(e) }, true);
+    return null;
   }
-  mrShow('define');
+}
+/*
+ * Define on the wide margin column (Anders, 19 Oct 2026): the selection lets go and Define's card opens in the column at
+ * the word, its dots showing until the meaning arrives, and grows as the dictionary, "In this text" and the fitting
+ * sense come in. A word defined there before opens its card again (and is looked up afresh). A card whose lookup found
+ * nothing (offline, an error) is shown open but not kept: it goes when it folds.
+ */
+function defineCard(word) {
+  const info = mr.info, anchor = mr.anchor, before = mr.before, key = state.key;
+  marginClose(); getSelection().removeAllRanges();
+  const existing = keptCards().find(c => c.kind === 'define' && !c.gone && c.page === info.page && c.text === info.text.slice(0, 2000));
+  const card = existing || withSpan(TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text, data: { word } }), info);
+  if (!existing) { dropDraft(col.draft?.id); col.draft = card; col.view = null }
+  const token = col.defToken = {}, id = card.id;
+  const alive = () => col.defToken === token && state.key === key;
+  setLive(id, { text: '', status: '' });
+  openCard(id, { focus: 'card' });
+  const show = def => {
+    col.defs.set(id, { word: def.word || word, pos: def.pos || '', senses: (def.senses || []).map(x => ({ text: x.text, ...(x.fit ? { fit: true } : {}) })), ...(def.line ? { line: def.line } : {}), ...(def.inText ? { inText: def.inText } : {}) });
+    const any = !!(def.inText || def.line || def.senses?.length);
+    setLive(id, { text: any ? (def.inText || def.line || def.senses[0].text) : '', status: '' });
+  };
+  runDefine({ word, info, anchor, key, before, alive, show, card }).catch(() => null).finally(() => {
+    if (col.defToken !== token) return;
+    col.live.delete(id);
+    // Kept: the card's own data from now on. Not kept: its words stay on the open card until it folds.
+    if (cardById(id)) { col.defs.delete(id); if (col.draft?.id === id) col.draft = null }
+    col.view = null; marginLayout();
+  });
+}
+/** The column's Define card not yet kept goes when it folds or another opens (nothing was found for it). */
+function dropDraft(id) {
+  if (!id || col.draft?.id !== id) return;
+  col.draft = null; col.defs.delete(id); col.live.delete(id); col.view = null;
 }
 // The companion's existing contextual `define` intent (CONTEXTUAL_LOOKUP_PROMPT, built by the Worker).
 // The meaning so far, from a Define reply still streaming: its JSON's text field as far as it has come (a plain
@@ -3203,7 +3248,7 @@ const dictation = {
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
 const mpReady = import('/lab/margin/margin-parse.js?v=20261019core').then(m => (MP.P = m)).catch(() => null);
-const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
+const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
 const undo = { el: null, timer: 0, rect: null, restore: null };
@@ -3638,7 +3683,11 @@ function viewCards() {
   // An EPUB's text reflows (zoom, width), so its cards and noted highlights are measured from their
   // character offsets near the reader's place, and again when that place moves to another chapter.
   if (isEpub()) { const at = state.pages.length ? currentPlace().page : 0; if (col.viewAt !== at) { col.viewAt = at; col.view = null } }
-  if (!col.view) col.view = isEpub() ? TinctMargin.cardView(keptCards().map(epubCardRects), highlights().map(epubMarkRects), { since: CARDS_SINCE }) : TinctMargin.cardView(keptCards(), highlights(), { since: CARDS_SINCE });
+  if (!col.view) {
+    col.view = isEpub() ? TinctMargin.cardView(keptCards().map(epubCardRects), highlights().map(epubMarkRects), { since: CARDS_SINCE }) : TinctMargin.cardView(keptCards(), highlights(), { since: CARDS_SINCE });
+    // Define's card on the wide column, open before it is kept (defineCard).
+    if (col.draft && !col.view.some(c => c.id === col.draft.id)) col.view = [...col.view, col.draft];
+  }
   return col.view;
 }
 /* ---- An EPUB's passages as offsets in a chapter's text (as its highlights are), measured into the
@@ -3691,7 +3740,7 @@ function visibleCards() {
  * reader's progress live in col.quiz, in memory, until the stream ends; the card is saved once then.
  */
 const quizLive = card => { const d = col.quiz.get(card.id); return d ? { ...card, data: d } : card };
-const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id), card.kind === 'figure' && figThumbs.has(card.id)]);
+const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.defs.get(card.id) || 0, col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id), card.kind === 'figure' && figThumbs.has(card.id)]);
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
   const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
@@ -3759,6 +3808,8 @@ const bodyTop = el => { const b = el?.querySelector('.mr-card__body'); return b 
 /** Draw a card into `el` when what it shows changed; true when it was drawn again. */
 function drawCard(el, card, open) {
   card = quizLive(card);
+  // Define while it is looked up (defineCard): the words so far.
+  if (col.defs.has(card.id)) card = { ...card, data: col.defs.get(card.id) };
   const sig = cardSig(card, open);
   if (el.dataset.sig === sig) return false;
   el.dataset.sig = sig; el.dataset.id = card.id;
@@ -4057,7 +4108,7 @@ function openCard(id, { focus = false } = {}) {
   const mode = marginMode();
   // One open at a time: a card opening folds the primer back to its trigger.
   if (id && primer.open) { primer.open = false; primer.token++; primer.el?.remove(); primer.el = null }
-  if (col.open && col.open !== id) { dropEmptyFigure(col.open); holds.delete(col.open) }
+  if (col.open && col.open !== id) { dropEmptyFigure(col.open); holds.delete(col.open); dropDraft(col.open) }
   col.open = id || null;
   if (id === 'whole') col.whole.page = state.pages.length ? placePage() : null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
@@ -4408,7 +4459,7 @@ function deleteCard(id) {
   const marks = highlights(), plan = TinctMargin.deletePlan(view, marks);
   const touched = new Set([...plan.removeMarks, ...(plan.clearNote ? [plan.clearNote] : [])]);
   const before = { card: kept ? JSON.parse(JSON.stringify(kept)) : null, marks: marks.filter(m => touched.has(m.id)).map(m => JSON.parse(JSON.stringify(m))) };
-  col.ctl.get(id)?.abort(); col.ctl.delete(id); col.live.delete(id); col.quiz.delete(id); col.pending.delete(id); col.drafts.delete(id);
+  col.ctl.get(id)?.abort(); col.ctl.delete(id); col.live.delete(id); col.quiz.delete(id); col.pending.delete(id); col.drafts.delete(id); dropDraft(id);
   const wasOpen = col.open === id;
   if (wasOpen) { col.open = null; if (col.sheet) { col.sheet.remove(); col.sheet = null } closeFloat() }
   if (plan.card) { store.set('cards:' + state.key, keptCards().map(c => (c.id === id ? TinctMargin.tombstone(id) : c))); cardsSync.changed() }
@@ -4761,13 +4812,14 @@ async function fittingSense(word, senses, info) {
  * (`key`). One that answers after the reader opened another file goes to its own file's cards (sent
  * to the account when that file is next open), never into the file now open.
  */
-function keepDefine(def, info, anchor, key = state.key) {
+function keepDefine(def, info, anchor, key = state.key, given = null) {
   if (!key || !def || (!def.senses?.length && !def.line && !def.inText)) return;
   const here = key === state.key && marginOn();
   const cards = here ? keptCards() : store.get('cards:' + key) || [];
   const existing = cards.find(c => c.kind === 'define' && !c.gone && c.page === info.page && c.text === info.text.slice(0, 2000));
   const data = { word: def.word, pos: def.pos || '', senses: (def.senses || []).map(s => ({ text: s.text })), ...(def.line ? { line: def.line } : {}), ...(def.inText ? { inText: def.inText } : {}) };
-  const card = existing || (here ? withSpan(TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }), info) : TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }));
+  // The column's card not yet kept (defineCard) keeps its id: it stays the open card.
+  const card = existing || given || (here ? withSpan(TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }), info) : TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }));
   if (existing && JSON.stringify(existing.data) === JSON.stringify(data)) return;
   card.data = data;
   if (here) return saveCard(card);
