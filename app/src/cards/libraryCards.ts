@@ -20,6 +20,8 @@ import { NEUTRAL_READER_NAME } from './cardsCopy'
 import type { OwnProfile } from '../social/socialClient'
 import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, paintCachedAvatar, readAvatarCache, writeAvatarCache } from './avatarCache'
 import type { PictureView } from '../social/profileRules'
+import { socialFriendsOn } from '../social/friendsClient'
+import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, dismissFindableNotice, findableNoticeDue, findableNoticeText } from '../social/findableNotice'
 
 /** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
 export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
@@ -175,6 +177,38 @@ async function start(pending: CardName | null): Promise<void> {
     return
   }
   if (result.profile.shouldPrompt) showPrompt(token)
+  else if (socialFriendsOn() && findableNoticeDue(result.profile, userId)) showFindableNotice(userId!, result.profile.visibility)
+}
+
+/**
+ * The one-time notice about findable profiles (findableNotice.ts), in the
+ * prompt's style: Settings opens the Settings card; either button keeps it
+ * from coming back for this account.
+ */
+export function showFindableNotice(userId: string, visibility: OwnProfile['visibility']): void {
+  const text = findableNoticeText(visibility)
+  if (!text || document.querySelector(`.social-prompt[${FINDABLE_NOTICE_ATTR}]`)) return
+  const card = document.createElement('div')
+  card.className = 'social-prompt'
+  card.setAttribute('role', 'dialog')
+  card.setAttribute('aria-label', FINDABLE_NOTICE_COPY.label)
+  card.setAttribute(FINDABLE_NOTICE_ATTR, '')
+  card.dataset.testid = 'findable-notice'
+  const line = document.createElement('p')
+  line.textContent = text
+  const go = document.createElement('button')
+  go.type = 'button'
+  go.className = 'go'
+  go.textContent = FINDABLE_NOTICE_COPY.settings
+  go.addEventListener('click', () => { dismissFindableNotice(userId); open('settings') })
+  const later = document.createElement('button')
+  later.type = 'button'
+  later.className = 'later'
+  later.textContent = FINDABLE_NOTICE_COPY.dismiss
+  later.dataset.testid = 'findable-notice-dismiss'
+  later.addEventListener('click', () => dismissFindableNotice(userId))
+  card.append(line, go, later)
+  document.body.append(card)
 }
 
 /** Keep a small copy of the reader's own header picture on this device (avatarCache.ts). */

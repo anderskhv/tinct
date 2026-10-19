@@ -402,7 +402,8 @@ describe('Find readers and a reader\'s profile', () => {
       await flush()
       const calls = (fetch as unknown as ReturnType<typeof vi.fn>).mock.calls.map(call => String(call[0]))
       expect(calls).toContain('/api/social/find?q=Karl')
-      expect(byTest('find-results')?.textContent).toContain('No public reader by that name.')
+      // Search finds Friends and Everyone readers now (19 Oct 2026): the line no longer says "public".
+      expect(byTest('find-results')?.textContent).toContain('No reader by that name.')
     } finally {
       vi.useRealTimers()
     }
@@ -453,6 +454,58 @@ describe('Find readers and a reader\'s profile', () => {
     await flush()
     expect(byTest('profile-follow')?.textContent).toBe('Follow')
     expect(top().querySelector('[data-testid="card-facts"]')).toBeNull()
+  })
+})
+
+// Findable profiles (Anders, 19 Oct 2026): a follow is a request; the one-time notice on the You card.
+describe('findable profiles and follow requests (19 October 2026)', () => {
+  const NOTICE = 'Readers can now find you by name and picture. Your reading stays private until you accept a follower. Change it in Settings.'
+
+  it('a one-way follow reads Requested; Following you counts the requests waiting to be followed back', async () => {
+    await open('find')
+    expect(byTest('following-you-count')?.textContent).toBe('1')
+    expect(byTest('reader-row-button')?.textContent).toBe('Follow')
+    readerProfile = { handle: 'karl', name: 'Karl Ny', link: 'tinct.app/@karl', picture: pic('K'), banner: { src: '/b.jpg', private: false }, relation: 'follower', followsYou: false, limited: true, time: null, readingNow: null, finished: null }
+    click(byTest('reader-row'))
+    await flush()
+    // Until Karl follows back: Requested, and his header only (no facts, no books).
+    expect(byTest('profile-follow')?.textContent).toBe('Requested')
+    expect(top().querySelector('[data-testid="card-facts"]')).toBeNull()
+    expect(top().querySelectorAll('.tc-g').length).toBe(0)
+  })
+
+  it('the You card shows the notice once to a Friends profile; Dismiss keeps it away for this account', async () => {
+    await open('you')
+    const notice = byTest('findable-notice')
+    expect(notice?.textContent).toContain(NOTICE)
+    expect(notice?.textContent).toContain('Settings')
+    click(byTest('findable-notice-dismiss'))
+    await flush()
+    expect(byTest('findable-notice')).toBeNull()
+    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('1')
+    closeAccountCards()
+    await open('you')
+    expect(byTest('findable-notice')).toBeNull()
+  })
+
+  it('Settings in the notice opens Settings and ends the notice', async () => {
+    await open('you')
+    click(byTest('findable-notice-settings'))
+    await flush()
+    expect(top().dataset.card).toBe('settings')
+    click(byTest('card-back'))
+    expect(byTest('findable-notice')).toBeNull()
+  })
+
+  it('an Only me profile never gets it; an Everyone profile gets a line that is true for it', async () => {
+    profile = ownProfile({ visibility: 'only_me', effectiveVisibility: 'only_me' })
+    await open('you')
+    expect(byTest('findable-notice')).toBeNull()
+    closeAccountCards()
+    profile = ownProfile({ visibility: 'everyone', effectiveVisibility: 'everyone' })
+    await open('you')
+    expect(byTest('findable-notice')?.textContent).toContain('Your profile is set to Everyone, so anyone with your link sees your reading.')
+    expect(byTest('findable-notice')?.textContent).not.toContain('stays private')
   })
 })
 
@@ -615,8 +668,9 @@ describe('picture and background (Anders, 10 October 2026)', () => {
     choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[1])
     await flush()
     expect(uploads[1]).toEqual({ url: '/api/profile/image?slot=background', type: 'image/jpeg' })
-    // Saved: one line on when others see it (uploads wait for review).
-    expect(top().querySelector('.tc-status')?.textContent).toBe(PHOTO_COPY.approval)
+    // Saved, and shown to others at once (no review since 19 Oct 2026; the approval line is gone).
+    expect(top().querySelector('.tc-status')?.textContent ?? '').toBe('')
+    expect(top().textContent).not.toContain('approved')
   })
 
   it('reads the chosen photo before the input is cleared, clears it only after preparing, and waits meanwhile (iPad, 19 Oct 2026)', async () => {
@@ -657,7 +711,8 @@ describe('picture and background (Anders, 10 October 2026)', () => {
     expect(uploads).toEqual([{ url: '/api/profile/image?slot=picture', type: 'image/jpeg' }])
     expect((byTest('you-picture') as HTMLButtonElement).disabled).toBe(false)
     expect(byTest('you-picture')?.hasAttribute('aria-busy')).toBe(false)
-    expect(top().querySelector('.tc-status')?.textContent).toBe(PHOTO_COPY.approval)
+    // No approval line: uploads show to others at once (19 Oct 2026).
+    expect(top().querySelector('.tc-status')?.textContent ?? '').toBe('')
   })
 
   it('the Worker’s 415 has its own wording, not the not-a-photo line', async () => {

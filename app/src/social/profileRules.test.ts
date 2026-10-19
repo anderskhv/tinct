@@ -136,22 +136,34 @@ describe('who sees what', () => {
     expect(publicProfileView(card('only_me'), 'self')?.limited).toBe(false)
   })
 
-  it('Friends: friends see the profile; a stranger or one-way follower sees nothing, as for Only me (privacy notice)', () => {
+  // Changed on request (Anders, 19 Oct 2026): Friends profiles are findable by name and picture;
+  // reading stays with accepted friends. Before, a stranger or one-way follower saw nothing.
+  it('Friends: friends see the profile; any other signed-in reader sees name and picture only; signed out, nothing', () => {
     const friend = publicProfileView(card('friends'), 'friend')!
     expect(friend.limited).toBe(false)
     expect(friend.shows).toEqual({ reading: true, time: true, leaderboard: true })
-    for (const viewer of ['stranger', 'follower'] as const) expect(publicProfileView(card('friends'), viewer)).toBeNull()
+    const headerOnly = { handle: 'anders', name: 'Anders', picture: { kind: 'set', value: 'stoic' }, background: null, limited: true, shows: { reading: false, time: false, leaderboard: false } }
+    // A one-way follower (a request not yet accepted) and a signed-in stranger: no reading, time, board or banner.
+    expect(publicProfileView(card('friends'), 'follower')).toEqual(headerOnly)
+    expect(publicProfileView(card('friends'), 'stranger', { signedIn: true })).toEqual(headerOnly)
+    expect(publicProfileView(card('friends'), 'followed')).toEqual(headerOnly)
+    // Signed out (the stranger default): Not found, as for Only me.
+    expect(publicProfileView(card('friends'), 'stranger')).toBeNull()
+    expect(publicProfileView(card('friends'), 'stranger', { signedIn: false })).toBeNull()
   })
 
-  it('a reader who follows you shows to you by name and link with the initial, whatever their visibility, so you can remove or block them', () => {
-    for (const visibility of ['only_me', 'friends'] as const) {
-      expect(publicProfileView(card(visibility), 'followed')).toEqual(followerView)
-    }
+  it('an Only me reader who follows you shows to you by name and link with the initial, so you can remove or block them', () => {
+    expect(publicProfileView(card('only_me'), 'followed')).toEqual(followerView)
     // Following them back does not open an Only me profile: still only the follower view.
     expect(publicProfileView(card('only_me'), 'friend')).toEqual(followerView)
-    // Not even an approved photo shows in the follower view.
-    expect(publicProfileView(card('friends', { pictureKind: 'upload', pictureValue: 'abc123', pictureReview: 'approved' }), 'followed')!.picture).toEqual({ kind: 'initial', value: null })
+    // Not even an approved photo shows in an Only me follower view.
+    expect(publicProfileView(card('only_me', { pictureKind: 'upload', pictureValue: 'abc123', pictureReview: 'approved' }), 'followed')!.picture).toEqual({ kind: 'initial', value: null })
+    // A Friends follower is findable anyway: name and picture (19 Oct 2026; it was the initial before).
+    expect(publicProfileView(card('friends', { pictureKind: 'upload', pictureValue: 'abc123', pictureReview: 'approved' }), 'followed')!.picture).toEqual({ kind: 'upload', value: 'abc123' })
     expect(publicProfileView(card('only_me'), 'blocked')).toBeNull()
+    // Only me is never findable: a signed-in stranger or one-way follower gets nothing.
+    expect(publicProfileView(card('only_me'), 'stranger', { signedIn: true })).toBeNull()
+    expect(publicProfileView(card('only_me'), 'follower')).toBeNull()
   })
 
   it('Everyone: every viewer sees the profile, as far as the switches allow', () => {
@@ -171,7 +183,9 @@ describe('who sees what', () => {
     expect(effectiveVisibility('everyone', true)).toBe('everyone')
     const waiting = card('everyone', { emailConfirmed: false })
     expect(publicProfileView(waiting, 'stranger')).toBeNull()
-    expect(publicProfileView(waiting, 'follower')).toBeNull()
+    // Held at Friends: a one-way follower sees name and picture only (findable, 19 Oct 2026).
+    expect(publicProfileView(waiting, 'follower')!.limited).toBe(true)
+    expect(publicProfileView(waiting, 'follower')!.shows).toEqual({ reading: false, time: false, leaderboard: false })
     expect(publicProfileView(waiting, 'friend')!.limited).toBe(false)
   })
 

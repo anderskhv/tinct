@@ -83,7 +83,18 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
     expect(privacy).toContain('If you upload a picture or a background, we store it with Cloudflare, with its location and camera details removed.')
-    expect(privacy).toContain('A person at Tinct looks at each uploaded photo before other readers can see it')
+    // No review before others see them since 19 Oct 2026 (changed on request: it said a person looked at each first).
+    expect(privacy).not.toContain('A person at Tinct looks at each uploaded photo before other readers can see it')
+    expect(privacy).toContain('Uploaded photos are not reviewed before other readers see them: they show at once wherever your picture or background is shown, and Tinct can remove a photo that breaks our Terms.')
+  })
+
+  // Findable profiles and follow requests (Anders, 19 Oct 2026; an in-app notice instead of an email).
+  it('privacy: Friends profiles are findable by name and picture; reading only to accepted friends; Only me unfindable', () => {
+    expect(privacy).toContain('Last updated: 19 October 2026')
+    expect(privacyText).toContain('A Friends or Everyone profile can be found by other signed-in readers in Find readers, by your name or link; the results show only your name and picture.')
+    expect(privacyText).toContain('With Friends, what you read, your reading time and your place on the leaderboard are shown only to accepted friends: readers you follow who follow you back.')
+    expect(privacyText).toContain('When someone follows you, it is a request: until you follow them back, they see only your name and picture.')
+    expect(privacyText).toContain('Only me keeps you unfindable: nobody can find your profile or see your reading, and a reader you follow sees only your name and link.')
   })
 
   // The library header keeps a small copy of the reader's own picture on the device (src/cards/avatarCache.ts, 19 Oct 2026).
