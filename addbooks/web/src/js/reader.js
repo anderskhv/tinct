@@ -717,8 +717,6 @@ function buildTextLayer(p, items, vp, roles = null) {
   p.pg.appendChild(layer); p.layer = layer; p.spans = spans;
   resnapHighlights(p);
   renderHighlights(p);
-  // The primer's trigger sits at a page's first line of text, known once its text layer is drawn.
-  if (col.mode === 'column' && primer.trig) marginLayout();
 }
 
 /* A page's furniture in its text layer (Anders, 19 Oct 2026: a highlight across pages 4 and 5 of Constructor
@@ -3953,8 +3951,10 @@ function layoutColumn() {
   const unit = primer.open ? primer.unit : primer.units && primerHasText() ? currentUnit() : null;
   primer.trig && !unit && (primer.trig.remove(), primer.trig = null);
   if (unit) {
-    const p = state.pages[(unit.from || unit.start) - 1], pr = p?.pg.getBoundingClientRect(), frac = p ? pageFirstLine(p) : null;
-    const ey = pr ? Y(pr.top + (frac == null ? 0 : frac * pr.height)) : docTop;
+    // At the top of the unit's first page (Anders, 19 Oct 2026): never at its first line of text, which on a cover drawn
+    // as one picture (Possible Minds) is far down the page or not there at all. Its top is the page's top.
+    const p = state.pages[(unit.from || unit.start) - 1], pr = p?.pg.getBoundingClientRect();
+    const ey = (pr ? Y(pr.top) : docTop) + 4;
     if (primer.open) {
       primer.trig?.remove(); primer.trig = null;
       const el = primerEl(); el.classList.remove('is-floating');
@@ -5106,18 +5106,6 @@ function pointOnPages(a) {
   const p = a && state.pages[a.n - 1]; if (!p) return null;
   const r = p.pg.getBoundingClientRect();
   return r.top + a.frac * r.height;
-}
-/** The first line of text on a page, as a fraction of its height (from its text layer), kept once found. */
-const firstLineFrac = new Map();
-function pageFirstLine(p) {
-  const key = state.key + ':' + p.n;
-  if (firstLineFrac.has(key)) return firstLineFrac.get(key);
-  const b = p.pg.getBoundingClientRect();
-  const tops = [...(p.layer?.querySelectorAll('span') || [])].filter(sp => (sp.textContent || '').trim()).map(sp => sp.getBoundingClientRect()).filter(r => r.height > 0).map(r => r.top);
-  if (!tops.length || !b.height) return null;
-  const frac = (Math.min(...tops) - b.top) / b.height;
-  firstLineFrac.set(key, frac);
-  return frac;
 }
 /** Narrow windows: the primer floats beside the page, as a card opened from a mark does. */
 function placePrimerFloat(pageRight, { anchored = false } = {}) {

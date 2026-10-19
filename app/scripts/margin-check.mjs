@@ -77,6 +77,8 @@
 //                                                     highlight), never for one set by code, restored on refocus or left as a card folds
 //   node scripts/margin-check.mjs whole-words       19 Oct, evening (8): a split first word ("S" | "ection") selected, quoted and
 //                                                     highlighted whole; an old highlight from "ection" re-snapped only when safe
+//   node scripts/margin-check.mjs primer-top        19 Oct, evening (9): Before you start and the start pills at the top of page 1,
+//                                                     also when page 1 is a picture cover without text
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -985,12 +987,12 @@ async function primerBehaviour(browser, origin) {
   const trig = await a.evaluate(() => {
     const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return null
     const cs = getComputedStyle(t), title = getComputedStyle(t.querySelector('.mr-trigger__title')), sub = getComputedStyle(t.querySelector('.mr-trigger__sub'))
-    // Its page's first line of text, measured in the column.
-    const p = state.pages[currentPlace().page - 1], spans = [...p.layer.querySelectorAll('span')].filter(s => s.textContent.trim()).map(s => s.getBoundingClientRect().top)
-    const line = Math.min(...spans) - document.querySelector('.mr-col').getBoundingClientRect().top
+    // Its unit's first page's top, measured in the column (19 Oct 2026, evening: the page's top, never its first line of text).
+    const p = state.pages[(primer.units?.[0]?.from || 1) - 1]
+    const line = p.pg.getBoundingClientRect().top + 4 - t.parentElement.getBoundingClientRect().top
     return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, height: t.offsetHeight, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
   })
-  ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
+  ok('at the PDF\'s start the trigger is a folded card at its first page\'s top (9, 19 Oct evening): italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
   // Made ahead as the file opens (Anders, 19 Oct 2026): one request, for the reader's unit, marked speculative (never charged).
   const req = primers(0)[0]
   ok('as the file opens (signed in), the primer of the reader\'s unit is made once, ahead, marked speculative', primers(0).length === 1 && req.body.companion.speculative === true, { requests: primers(0).length, speculative: req?.body?.companion?.speculative })
@@ -3978,6 +3980,32 @@ async function wholeWords(browser, origin) {
   return results
 }
 
+/* primer-top (19 Oct 2026, evening, item 9): Before you start, and the document's start pills, sit at the top of the
+   document's first page, also when that page is a cover drawn as one picture (Possible Minds; here with one line of text
+   at its foot); before, they stood at the page's first line of text, about 800 px down. Opened, the primer starts there too. */
+const COVER_PDF = join(OUT, 'image_cover.pdf')
+writeFileSync(COVER_PDF, makePdf({ info: { Title: 'Image cover' }, pages: [{ images: [{ x: 0, y: 0, w: 612, h: 792, pw: 64, ph: 82, noise: 7 }], lines: [{ x: 250, y: 46, size: 10, text: 'A cover drawn as one picture' }] }, ...[1, 2, 3].map(n => ({ lines: prose(720, 40, { size: 11, from: n * 30 }) }))] }))
+async function primerTop(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(COVER_PDF)
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', at: 1 }).catch(e => ({ error: e }))
+  if (A.error) { ok('primer-top: the cover PDF opens', false, String(A.error.message).slice(0, 200)); return results }
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(900)
+  await a.waitForSelector('.mr-doc .mr-trigger, .mr-doc .mr-pills.is-start', { timeout: 10000 }).catch(() => {})
+  const where = sel => a.evaluate(sel => { const el = document.querySelector(sel), pg = state.pages[0].pg.getBoundingClientRect(); return el && { top: Math.round(el.getBoundingClientRect().top - pg.top), page: Math.round(pg.height) } }, sel)
+  const start = await where('.mr-doc .mr-pills.is-start, .mr-doc .mr-trigger')
+  ok('9. at the top of the first page (a picture cover): within 12 px of the page\'s top, not at the first line of text', start && start.top >= -2 && start.top <= 12, start)
+  await a.evaluate(() => openPrimer(currentUnit())); await a.waitForTimeout(700)
+  const opened = await where('.mr-doc .mr-primer')
+  ok('9. opened, Before you start starts at the top of the first page too (below the pills)', opened && opened.top >= -2 && opened.top <= 60, opened)
+  await shot(a, 'primer-top-1440x900')
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -4015,6 +4043,7 @@ const RUNS = {
   'passage-mark': [passageMark, rows => rows.some(r => !r.pass)],
   'stray-menu': [strayMenu, rows => rows.some(r => !r.pass)],
   'whole-words': [wholeWords, rows => rows.some(r => !r.pass)],
+  'primer-top': [primerTop, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4055,7 +4084,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
