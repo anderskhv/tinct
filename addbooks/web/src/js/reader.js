@@ -690,6 +690,8 @@ function buildTextLayer(p, items, vp, roles = null) {
     span.style.left = pct(tx[4], vp.width);
     span.style.top = pct(tx[5] - size * 0.86, vp.height);
     span.style.fontSize = (size / vp.width * 100).toFixed(4) + 'cqw';
+    // Its baseline and size in page fractions: a highlight's band and the passage mark follow each line's own (lineBand).
+    if (!angle) { span.dataset.b = (tx[5] / vp.height).toFixed(5); span.dataset.s = (size / vp.height).toFixed(5) }
     measureCtx.font = `${size}px sans-serif`;
     const natural = measureCtx.measureText(str).width;
     const target = item.width * vp.scale;
@@ -882,7 +884,9 @@ function paintSelection() {
   for (const bar of selectionShapes(s.getRangeAt(0))) {
     const p = pageForPoint((bar.left + bar.right) / 2, (bar.top + bar.bottom) / 2); if (!p) continue;
     const r = p.pg.getBoundingClientRect(), i = document.createElement('i');
-    Object.assign(i.style, { left: (bar.left - r.left) / r.width * 100 + '%', top: (bar.top - r.top) / r.height * 100 + '%', width: (bar.right - bar.left) / r.width * 100 + '%', height: (bar.bottom - bar.top) / r.height * 100 + '%' });
+    // The selection's tint keeps to each line's band too, never over the next line's words (lineBand).
+    const [x, y, w, h] = bandBox(p, [(bar.left - r.left) / r.width, (bar.top - r.top) / r.height, (bar.right - bar.left) / r.width, (bar.bottom - bar.top) / r.height]);
+    Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: h * 100 + '%' });
     layerOf(p, 'sel-layer').appendChild(i);
   }
 }
@@ -892,8 +896,8 @@ function paintHeld() {
   if (!mr?.anchor || mr.ids.length || !(mr.held || mr.mode === 'asking')) return;
   for (const a of mr.anchor) {
     const p = state.pages[a.n - 1]; if (!p) continue;
-    const i = document.createElement('i');
-    Object.assign(i.style, { left: a.x * 100 + '%', top: a.y * 100 + '%', width: a.w * 100 + '%', height: a.h * 100 + '%' });
+    const i = document.createElement('i'), [x, y, w, h] = bandBox(p, [a.x, a.y, a.w, a.h]);
+    Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: h * 100 + '%' });
     layerOf(p, 'sel-layer').appendChild(i);
   }
 }
@@ -918,11 +922,59 @@ function showPalette(ids, box) {
   pop.querySelectorAll('[data-color]').forEach(b => b.onclick = () => { for (const id of ids) recolorHighlight(id, b.dataset.color); pop.querySelectorAll('[data-color]').forEach(o => { o.classList.toggle('is-selected', o === b); o.setAttribute('aria-pressed', o === b) }) });
   pop.querySelector('[data-a="unhighlight"]').onclick = () => { for (const id of ids) removeHighlight(id); hideSelection() };
 }
+/*
+ * A line's own band on its page (Anders, 19 Oct 2026: the passage's underline sat too low and cut into the next line;
+ * a highlight's tint must never cover a neighbouring line's words, even at tight line spacing). From the text layer's
+ * spans (their baselines and sizes, data-b and data-s, in page fractions): the line whose baseline lies in the box
+ * `[x, y, w, h]`, its glyphs from 0.8 of its size above the baseline to 0.24 below, kept clear of the lines above and
+ * below it in the same column (their descenders and ascenders). -> { top, bottom, base, size } in page fractions, or
+ * null when the page's text is not drawn or no line is in the box (then the stored box is drawn as it is).
+ */
+function pageLines(p) {
+  if (!p?.layer) return null;
+  if (p.linesOf === p.layer) return p.lines;
+  const rows = [];
+  for (const sp of p.layer.querySelectorAll('span[data-b]')) {
+    if (sp.dataset.f || !(sp.textContent || '').trim()) continue;
+    const b = Number(sp.dataset.b), sz = Number(sp.dataset.s), x0 = parseFloat(sp.style.left) / 100;
+    if (!(sz > 0)) continue;
+    const w = sp.getBoundingClientRect().width / Math.max(1, p.pg.getBoundingClientRect().width);
+    let row = rows.find(r => Math.abs(r.b - b) < Math.min(r.s, sz) * 0.3 && x0 <= r.x1 + r.s * 4 && x0 + w >= r.x0 - r.s * 4);
+    if (!row) { row = { b, s: sz, x0, x1: x0 + w }; rows.push(row) }
+    else { row.s = Math.max(row.s, sz); row.x0 = Math.min(row.x0, x0); row.x1 = Math.max(row.x1, x0 + w) }
+  }
+  p.lines = rows.sort((a, b) => a.b - b.b); p.linesOf = p.layer;
+  return p.lines;
+}
+function lineBand(p, [x, y, w, h]) {
+  const lines = pageLines(p); if (!lines?.length) return null;
+  const across = l => l.x0 < x + w && l.x1 > x;
+  // A line's box holds its baseline in its lower part (about three quarters down); a neighbour's, at tight spacing, lies
+  // just outside it. A box with several baselines inside it (a displayed formula's) is not one line's: drawn as it is.
+  const inside = lines.filter(l => across(l) && l.b >= y + h * 0.1 && l.b <= y + h * 1.05);
+  if (inside.some(l => Math.abs(l.b - inside[0].b) > Math.min(l.s, inside[0].s) * 0.6)) return null;
+  const own = inside.filter(l => l.b >= y + h * 0.4);
+  if (!own.length) return null;
+  const want = y + h * 0.78, line = own.reduce((a, l) => (Math.abs(l.b - want) < Math.abs(a.b - want) ? l : a));
+  const gap = 0.6 / Math.max(1, p.pg.getBoundingClientRect().height);
+  let top = line.b - line.s * 0.8, bottom = line.b + line.s * 0.24;
+  const prev = lines.filter(l => across(l) && l.b < line.b - line.s * 0.5).at(-1), next = lines.find(l => across(l) && l.b > line.b + line.s * 0.5);
+  if (prev) top = Math.max(top, prev.b + prev.s * 0.22 + gap);
+  if (next) bottom = Math.min(bottom, next.b - next.s * 0.74 - gap);
+  return bottom > top ? { top, bottom, base: line.b, size: line.s, next } : null;
+}
+/** A box as drawn on its page: a line's box snapped to that line's band (lineBand); a figure's box, or one with no line, as it is. */
+function bandBox(p, r, { box = false } = {}) {
+  const band = !box && lineBand(p, r);
+  return band ? [r[0], band.top, r[2], band.bottom - band.top] : r;
+}
 function renderHighlights(p) {
   if (!p) return;
   if (p.kind === 'epub') return renderEpubHighlights();
   const layer = layerOf(p, 'hl-layer'); layer.replaceChildren();
-  for (const h of highlights().filter(h => h.page === p.n)) for (const [x, y, w, hh] of h.rects) {
+  for (const h of highlights().filter(h => h.page === p.n)) for (const r of h.rects) {
+    if (!(r[2] > 0) || !(r[3] > 0)) continue;   // a margin note's spot (a box of no size) draws nothing
+    const [x, y, w, hh] = bandBox(p, r, { box: !!h.box });
     const i = document.createElement('i'); i.dataset.id = h.id; if (h.box) i.className = 'is-box'; i.style.setProperty('--hl', hlFill(h.color));
     Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: hh * 100 + '%' });
     layer.appendChild(i);
@@ -1881,6 +1933,7 @@ function openDisplay() {
           ${toggleRow('full', 'Full width', !!prefs.full)}
           ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}
           ${toggleRow('screen', 'Full screen', !!document.fullscreenElement)}
+          ${marginOn() ? selectRow('passageMarkSel', 'Passage mark', passageMark(), [['underline', 'Underline'], ['tint', 'Highlight'], ['off', 'Off']]) : ''}
           <button type="button" class="lab-v2-row is-link" data-t="text" hidden><span class="lab-v2-row-label">Convert to Tinct book</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></button>
         </div>
       </div>
@@ -1909,6 +1962,9 @@ function openDisplay() {
     if (t === 'trim') setTrim(!state.trim); if (t === 'full') setFull(!prefs.full);
     b.setAttribute('aria-checked', String(t === 'trim' ? state.trim : !!prefs[t]));
   });
+  // The open card's passage on the page: underlined, tinted or not marked (this device's choice).
+  const markSel = layer.querySelector('#passageMarkSel');
+  if (markSel) markSel.onchange = e => { prefs.passageMark = e.target.value; savePrefs(); layer.querySelector('[data-value="passageMarkSel"]').textContent = e.target.selectedOptions[0]?.textContent || ''; marginLayout({ fresh: true }) };
   root.appendChild(layer);
   drawLayoutChoices();
   $('aaBtn').setAttribute('aria-expanded', 'true');
@@ -3846,17 +3902,39 @@ function layoutColumn() {
     if (r.bottom > sr.bottom - 24 || r.top < Math.max(sr.top, hdr)) s.scrollBy({ top: r.top - (Math.max(sr.top, hdr) + (sr.bottom - Math.max(sr.top, hdr)) * 0.25) });
   }
 }
-/** The open card's passage: a 1.5px underline in the lead colour, on the page. */
+/**
+ * The open card's passage, marked on the page as the reader chooses in the Aa panel ("Passage mark", per device;
+ * Anders, 19 Oct 2026): Underline (default), a 1.5px line in the accent just under each line's own baseline (0.12 of
+ * its size), never into the next line; Highlight, a soft tint of each line's band (lineBand); or Off. A figure's open
+ * card rings its figure instead.
+ */
+const passageMark = () => (['underline', 'tint', 'off'].includes(prefs.passageMark) ? prefs.passageMark : 'underline');
 function underline(v) {
-  document.querySelectorAll('.mr-ul-layer').forEach(l => { if (!v || l.dataset.id !== v.card.id) { l.replaceChildren(); delete l.dataset.id } });
-  if (!v) return;
+  const mark = passageMark();
+  document.querySelectorAll('.mr-ul-layer').forEach(l => { if (!v || l.dataset.id !== v.card.id || l.dataset.mark !== mark + (state.pages[Number(l.dataset.n) - 1]?.layer ? ':t' : '')) { l.replaceChildren(); delete l.dataset.id } });
+  if (!v || (mark === 'off' && v.card.kind !== 'figure')) return;
   for (const a of TinctMargin.anchorOfCard(v.card)) {
     const p = state.pages[a.n - 1]; if (!p) continue;
     const layer = layerOf(p, 'mr-ul-layer'); layer.classList.add('mr');
     if (layer.dataset.id === v.card.id) continue;
-    layer.dataset.id = v.card.id;
-    // A figure's open card rings its figure instead of underlining it.
-    for (const r of v.card.rects.filter(r => r[0] === a.n)) { const i = document.createElement('i'); if (v.card.kind === 'figure') { i.className = 'is-box'; Object.assign(i.style, { left: r[1] * 100 + '%', top: r[2] * 100 + '%', width: r[3] * 100 + '%', height: r[4] * 100 + '%' }) } else Object.assign(i.style, { left: r[1] * 100 + '%', top: (r[2] + r[4]) * 100 + '%', width: r[3] * 100 + '%' }); layer.appendChild(i) }
+    layer.dataset.id = v.card.id; layer.dataset.n = String(a.n); layer.dataset.mark = mark + (p.layer ? ':t' : '');
+    const px = 1 / Math.max(1, p.pg.getBoundingClientRect().height);
+    for (const r of v.card.rects.filter(r => r[0] === a.n)) {
+      const i = document.createElement('i');
+      if (v.card.kind === 'figure') { i.className = 'is-box'; Object.assign(i.style, { left: r[1] * 100 + '%', top: r[2] * 100 + '%', width: r[3] * 100 + '%', height: r[4] * 100 + '%' }); layer.appendChild(i); continue }
+      const band = lineBand(p, r.slice(1));
+      if (mark === 'tint') {
+        i.className = 'is-tint';
+        const [, y, , h] = band ? [0, band.top, 0, band.bottom - band.top] : r.slice(1);
+        Object.assign(i.style, { left: r[1] * 100 + '%', top: y * 100 + '%', width: r[3] * 100 + '%', height: h * 100 + '%' });
+      } else {
+        // Just under the baseline; without the page's text drawn, just inside the box's foot (its descenders' room).
+        let top = band ? band.base + band.size * 0.12 : r[2] + r[4] * 0.86;
+        if (band?.next) top = Math.min(top, band.next.b - band.next.s * 0.74 - 2.5 * px);
+        Object.assign(i.style, { left: r[1] * 100 + '%', top: top * 100 + '%', width: r[3] * 100 + '%' });
+      }
+      layer.appendChild(i);
+    }
   }
 }
 

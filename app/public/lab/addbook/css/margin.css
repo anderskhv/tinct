@@ -547,3 +547,8 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; 
    button focused by the card's own redraw, Minimise above all, shows none. */
 :root[data-mr-input="pointer"] :is(.mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-float, .mr-primer, .mr-undo, .mr-pills) :is(button, [tabindex]):focus-visible,
 :root[data-mr-input="pointer"] button:is(.mr-trigger, .mr-pill):focus-visible { outline: none; }
+/* The passage mark (Aa panel, per device; reader.js underline): the underline sits just under each line's own baseline
+   (its top set by the reader, no offset here); Highlight is a soft tint of each line's band, never over the next line. */
+.mr-ul-layer i:not(.is-box) { margin-top: 0; }
+.mr-ul-layer i.is-tint { height: auto; border-radius: 2px; background: color-mix(in srgb, var(--mr-accent) 14%, transparent); }
+.lab.is-night .mr-ul-layer i.is-tint { background: color-mix(in srgb, var(--mr-accent) 22%, transparent); }

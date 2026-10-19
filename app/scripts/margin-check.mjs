@@ -71,6 +71,8 @@
 //                                                     Enter or the button
 //   node scripts/margin-check.mjs pause-dots        19 Oct, evening (11): the dots below an answer that pauses (Counterpoint, a
 //                                                     follow-up), gone when more comes or on an error; focus rings for keys only
+//   node scripts/margin-check.mjs passage-mark      19 Oct, evening (10): the underline under each line's baseline, tints that never
+//                                                     cover a neighbour's words (also at leading 1.05), the Aa panel's Passage mark
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -97,7 +99,7 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook, makePdf, figurePaper, longBook, marginPaper, justifiedPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf, prose, figurePaper, longBook, marginPaper, justifiedPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 // FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
@@ -3793,6 +3795,75 @@ async function pauseDots(browser, origin) {
   return results
 }
 
+/* passage-mark (19 Oct 2026, evening, item 10): the open card's passage is underlined just under each line's own
+   baseline (0.08 to 0.18 of its size), never into the next line's words; a highlight's tint and the "Highlight"
+   passage mark keep to their lines, never over a neighbour's words, even at tight line spacing (leading 1.05); the
+   Aa panel's "Passage mark" (Underline, Highlight, Off) is kept on this device across a reload. */
+const TIGHT_PDF = join(OUT, 'tight_leading.pdf')
+writeFileSync(TIGHT_PDF, makePdf({ info: { Title: 'Tight leading' }, pages: [1, 2].map(n => ({ lines: prose(740, 56, { size: 11, from: n * 40 }).map((l, i) => ({ ...l, y: 740 - i * 11.5 })) })) }))
+async function passageMark(browser, origin) {
+  const results = [], ok = okList(results)
+  // Each mark against its page's lines (reader.js pageLines): its own line, the offset under the baseline, the neighbours' glyphs.
+  const marks = page => page.evaluate(() => {
+    const out = []
+    for (const p of state.pages) {
+      const lines = pageLines(p) || [], b = p.pg.getBoundingClientRect()
+      const glyph = l => [l.b - l.s * 0.72, l.b + l.s * 0.2]
+      for (const [sel, kind] of [['.mr-ul-layer i:not(.is-box)', 'mark'], ['.hl-layer i', 'highlight']]) for (const i of p.pg.querySelectorAll(sel)) {
+        const r = i.getBoundingClientRect(), top = (r.top - b.top) / b.height, bottom = (r.bottom - b.top) / b.height, x0 = (r.left - b.left) / b.width, x1 = (r.right - b.left) / b.width
+        const across = lines.filter(l => l.x0 < x1 && l.x1 > x0)
+        const tint = kind === 'highlight' || i.classList.contains('is-tint')
+        const own = tint ? across.reduce((a, l) => (!a || Math.abs(l.b - l.s * 0.3 - (top + bottom) / 2) < Math.abs(a.b - a.s * 0.3 - (top + bottom) / 2) ? l : a), null) : across.filter(l => l.b <= top + 0.0005).at(-1)
+        if (!own) { out.push({ kind, lost: true }); continue }
+        const hits = across.filter(l => l !== own && Math.min(bottom, glyph(l)[1]) - Math.max(top, glyph(l)[0]) > 0.0002).length
+        out.push({ kind: tint ? (kind === 'highlight' ? 'highlight' : 'tint') : 'underline', offset: +((top - own.b) / own.s).toFixed(3), hits, height: +((r.bottom - r.top)).toFixed(2) })
+      }
+    }
+    return out
+  })
+  const openOn = async (a, kind = 'explain') => {
+    await a.evaluate(() => getSelection().removeAllRanges())
+    await selectText(a); await a.waitForSelector(`.mr-float [data-m="${kind}"]`, { timeout: 5000 }).catch(() => {})
+    await a.click(`.mr-float [data-m="${kind}"]`); await a.waitForTimeout(1200)
+  }
+  for (const [file, label] of [[PDFS[0], 'prose'], [TIGHT_PDF, 'tight']]) {
+    const hex = addBook(file)
+    const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: label === 'prose' ? 3 : 1 })
+    const a = A.page
+    await prefetchSettled(a)
+    await openOn(a)
+    const u = (await marks(a)).filter(m => m.kind === 'underline')
+    ok(`10. ${label}: the open card's passage is underlined under each line's own baseline (0.08–0.18 of its size), never into the next line`, u.length >= 2 && u.every(m => m.offset >= (label === 'tight' ? 0.04 : 0.08) && m.offset <= 0.18 && m.hits === 0 && Math.abs(m.height - 1.5) < 0.6), u)
+    if (label === 'prose') await shot(a, 'passage-underline-1440x900')
+    // A highlight on the same lines: its tint on its own lines only.
+    await a.keyboard.press('Escape'); await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+    await a.evaluate(() => getSelection().removeAllRanges()); await selectText(a); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {})
+    await a.click('.mr-float [data-m="dot"]'); await a.waitForTimeout(400)
+    const h = (await marks(a)).filter(m => m.kind === 'highlight')
+    ok(`10. ${label}: a highlight's tint never covers a neighbouring line's words`, h.length >= 2 && h.every(m => m.hits === 0), h)
+    await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+    // The Aa panel: Passage mark → Highlight (a soft tint of each line's band), then Off.
+    await openOn(a)
+    await a.click('#aaBtn'); await a.waitForSelector('#passageMarkSel', { timeout: 4000 }).catch(() => {})
+    const row = await a.evaluate(() => { const s = document.querySelector('#passageMarkSel'); return s && { value: s.value, options: [...s.options].map(o => o.textContent), label: s.closest('.lab-v2-row')?.querySelector('.lab-v2-row-label')?.textContent } })
+    ok(`10. ${label}: the Aa panel has "Passage mark": Underline (default), Highlight, Off`, row && row.value === 'underline' && row.options.join('|') === 'Underline|Highlight|Off' && row.label === 'Passage mark', row)
+    await a.selectOption('#passageMarkSel', 'tint'); await a.waitForTimeout(400)
+    const t = (await marks(a)).filter(m => m.kind === 'tint')
+    ok(`10. ${label}: Highlight marks the passage with a soft tint on each line, never over a neighbour's words`, t.length >= 2 && t.every(m => m.hits === 0) && !(await marks(a)).some(m => m.kind === 'underline'), t)
+    await a.selectOption('#passageMarkSel', 'off'); await a.waitForTimeout(400)
+    ok(`10. ${label}: Off marks nothing`, !(await marks(a)).some(m => m.kind === 'underline' || m.kind === 'tint'), await marks(a))
+    if (label === 'prose') {
+      await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }); await a.waitForTimeout(800)
+      const kept = await a.evaluate(() => passageMark())
+      ok('10. the choice is kept on this device across a reload', kept === 'off', kept)
+      await a.evaluate(() => { prefs.passageMark = 'underline'; savePrefs() })
+    }
+    ok(`${label}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3827,6 +3898,7 @@ const RUNS = {
   'figure-race': [figureRace, rows => rows.some(r => !r.pass)],
   'cards-gloss': [cardsGloss, rows => rows.some(r => !r.pass)],
   'pause-dots': [pauseDots, rows => rows.some(r => !r.pass)],
+  'passage-mark': [passageMark, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3867,7 +3939,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
