@@ -272,7 +272,7 @@ describe('where the compare page ends', () => {
     return [...screen.getByTestId('lab-book').querySelectorAll('[data-testid="lab-word"]')].map(node => (node.textContent ?? '').trim())
   }
 
-  it('carries the whole primary page over: one page when the passage fits, the end marked when it does not', () => {
+  it('carries the whole primary page over: one page when the passage fits, normal pages with no end mark when it does not', () => {
     withCompare()
     const primary = group(verses(7, 'p'))
     renderPhone({ source: { ...fallbackLabSource(), paragraphs: primary, compareParagraphs: group(verses(4, 'c')) } })
@@ -287,20 +287,21 @@ describe('where the compare page ends', () => {
     expect(shown.find(word => /^c\d+w/.test(word))).toBe(`c${firstVerse}w0`)
     expect(shown[shown.length - 1]).toBe(`c${lastVerse}w3.`)
     expect(shown.some(word => word === `c${Number(lastVerse) + 1}w0`)).toBe(false)
-    expect(screen.queryByTestId('lab-compare-page-end')).toBeNull()
     swipe(screen.getByTestId('lab-book'), 0, 110)
     cleanup()
 
-    // Twice as long: normal pages, and the end of the passage is marked.
+    // Twice as long: normal pages, and nothing is drawn where the passage
+    // ends (Anders, 2026-10-19: the end-of-page mark was distracting).
     withCompare()
     renderPhone({ source: { ...fallbackLabSource(), paragraphs: primary, compareParagraphs: group(verses(14, 'c')) } })
-    // The first page, which ends between two verses inside a paragraph.
-    const longLast = [...visibleWords()].reverse().find(word => /^p\d+w/.test(word))!.match(/^p(\d+)w/)![1]
     swipe(screen.getByTestId('lab-book'), 0, -110)
-    for (let i = 0; i < 4 && !screen.queryByTestId('lab-compare-page-end'); i += 1) fireEvent.click(screen.getByTestId('lab-page-next'))
-    const marker = screen.getByTestId('lab-compare-page-end')
-    // The mark stands right before the first word after the passage: the next verse.
-    expect((marker.nextElementSibling?.textContent ?? '').trim()).toBe(String(Number(longLast) + 1))
+    const firstComparePage = visibleWords()
+    expect(firstComparePage.some(word => /^c\d+w/.test(word))).toBe(true)
+    for (let i = 0; i < 4; i += 1) {
+      expect(screen.getByTestId('lab-book').querySelector('[aria-label="End of your page"]')).toBeNull()
+      expect(screen.getByTestId('lab-book').textContent ?? '').not.toMatch(/end of your page/i)
+      fireEvent.click(screen.getByTestId('lab-page-next'))
+    }
   })
 
 

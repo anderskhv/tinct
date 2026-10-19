@@ -496,3 +496,8 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
    page itself was idle (?diag=table). Softer gradients give the same edge without the filter. */
 .reading-table .rt-shadow{filter:none;background:radial-gradient(closest-side,#010301e6,#01030199 40%,#01030133 75%,#01030100)}
 .reading-table .rt-cast{filter:none;background:radial-gradient(ellipse at 50% 50%,#02040399,#02040350 30%,#02040320 55%,#02040300 75%)}
+/* The reader's own picture from the first paint (boot.js --own-avatar, src/cards/avatarCache.ts): the
+   account button already as the 44px disc button account-cards.js makes it (libraryCards.ts STYLE), so
+   the live disc replaces it in place with no shift. */
+html.signed-in.own-avatar #sign-in:not(.cards-you){display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;min-height:0;padding:0;border:0;border-radius:50%;background:transparent;font-size:0;color:transparent}
+html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px;height:24px;border-radius:50%;background:#6a6a6a var(--own-avatar) 50% 50%/cover no-repeat;box-shadow:0 0 0 1px rgba(238,238,238,.4)}
