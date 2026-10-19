@@ -265,7 +265,7 @@ describe('the answer in a card', () => {
     const ask = M.html.cardHtml({ ...base, kind: 'ask', turns: [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'Because. More.' }] }, { open: true, P, pageLabel: '12' })
     expect(ask).toContain('<span class="mr-card__name">Ask · p. 12</span>')
     expect(ask).toContain('class="mr-card__close"')
-    expect(ask).toContain('<div class="mr-you">Why?</div>')
+    expect(ask).toContain('<div class="mr-you" data-turn="0">Why?</div>')
     expect(ask).toMatch(/<div class="mr-quote">x{119}…<\/div>/)
     expect(ask).toContain('data-c="copy"')
     expect(ask).toContain('class="mr-follow"')

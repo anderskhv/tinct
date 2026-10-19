@@ -26,7 +26,7 @@ body { overscroll-behavior: none; }
 .byob .pdf-scroll, .byob .lab-header { touch-action: pan-x pan-y; }
 .pdf-column { display: flex; flex-direction: column; align-items: safe center; gap: var(--pdf-gap); padding: 14px 16px 42vh; min-width: min-content; }
 .pdf-sheet { position: relative; flex: none; background: var(--pdf-paper); box-shadow: var(--pdf-sheet-shadow); overflow: hidden; }
-.pdf-sheet .pg { position: absolute; left: var(--cx, 0%); top: var(--cy, 0%); width: var(--cw, 100%); height: var(--ch, 100%); }
+.pdf-sheet .pg { position: absolute; left: var(--cx, 0%); top: var(--cy, 0%); width: var(--cw, 100%); height: var(--ch, 100%); container-type: inline-size; }   /* the text layer's type is sized in its width (cqw) */
 .pdf-sheet canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 /* Light and Book: the white sheet takes the paper's tone (white becomes paper, ink stays ink). */
 html[data-pdf-theme="light"] .pdf-sheet canvas, html[data-pdf-theme="book"] .pdf-sheet canvas { mix-blend-mode: multiply; }

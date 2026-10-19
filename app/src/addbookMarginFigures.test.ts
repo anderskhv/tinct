@@ -354,6 +354,6 @@ describe('a figure’s card: beside the figure, one thread per figure (item 4)',
     expect(waiting.querySelector('.mr-thumb')!.children).toHaveLength(0)
     // A first question asked from Chat shows as the reader's bubble.
     const chat = M.html.cardHtml({ ...figureCard(), turns: [{ role: 'user', content: 'What do the rows stand for?' }] }, { open: true, P, pageLabel: '1' })
-    expect(chat).toContain('<div class="mr-you">What do the rows stand for?</div>')
+    expect(chat).toContain('<div class="mr-you" data-turn="0">What do the rows stand for?</div>')
   })
 })

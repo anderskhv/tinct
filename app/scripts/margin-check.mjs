@@ -52,6 +52,13 @@
 //                                                     the page's text, and its highlight's marks cover the selection to each line's end,
 //                                                     in every look at 1440×900 and 390×844 (JUSTIFIED_PDF=<file> FROM=<words> TO=<words>
 //                                                     PAGE=<n> also checks a PDF of your own, as Constructor Theory)
+//   node scripts/margin-check.mjs primer-anchor     19 Oct: Before you start made ahead once as the PDF opens, shown at once, scrolling
+//                                                     away with the page (never following the reader), never made again
+//   node scripts/margin-check.mjs wait-dots         19 Oct: the wait before an answer is the book reader's chat dots (cards, Chat, primer)
+//   node scripts/margin-check.mjs chat-scroll       19 Oct: scrolling in Chat never scrolls the pages (wheel, touch); a sent question is held
+//                                                     near the top; a chat reply is plain (the exact reply of 19 Oct)
+//   node scripts/margin-check.mjs highlight-place   19 Oct: a highlight's box covers its words, also when made while the pages are redrawn
+//   node scripts/margin-check.mjs card-fold         19 Oct: a click outside an open card folds it, its answer kept (also mid-stream)
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -374,6 +381,11 @@ async function readerPage(browser, origin, hex, { width, height, look, startPage
   if (startPage > 1) { await page.evaluate(n => goTo({ page: n, frac: 0.05 }), startPage); await page.waitForTimeout(800) }
   return { ctx, page, problems }
 }
+// Before you start is made ahead as a signed-in reader opens a PDF (reader.js primerPrefetch, 19 Oct 2026): wait
+// until that has run (or found nothing to do), so a check's own requests and mocked replies are its own.
+async function prefetchSettled(page, ms = 15000) {
+  await page.waitForFunction(() => !window.TinctAI?.session?.().token || (primerAhead.key && !primerMaking.size && primerAhead.done), null, { timeout: ms, polling: 100 }).catch(() => {})
+}
 // Select words on the first text page in view: `words` words from a long span, or one word.
 async function selectText(page, { oneWord = false, near = 'middle' } = {}) {
   return page.evaluate(({ oneWord, near }) => {
@@ -650,7 +662,7 @@ async function behaviour(browser, origin) {
     await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('Ideas'); await a.keyboard.press('Enter'); await a.waitForTimeout(700)
     const h0 = await a.evaluate(() => document.querySelector('.mr-card.is-open').getBoundingClientRect().height)
     await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(200)
-    const wait = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { text: el.innerText, h: el.getBoundingClientRect().height, ring: !!el.querySelector('.tinct-wait-ring') } })
+    const wait = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { text: el.innerText, h: el.getBoundingClientRect().height, ring: !!el.querySelector('.tinct-wait-ring, .tc-wait') } })
     ok('answering ahead: "Writing the next question…", the card keeps its height, no ring', /Writing the next question…/.test(wait.text) && Math.abs(wait.h - h0) <= 1 && !wait.ring, { h0, wait })
     await a.waitForFunction(() => /MOCK streamed Q2/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 5000 }).catch(() => {})
     ok('question 2 takes its place when it arrives, "2 of 3"', /MOCK streamed Q2/.test(await a.innerText('.mr-card.is-open')) && /2 of 3/.test(await a.innerText('.mr-card.is-open')))
@@ -920,6 +932,7 @@ async function primerBehaviour(browser, origin) {
   const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
   const a = A.page
   await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await prefetchSettled(a)
   const units = await a.evaluate(() => primer.units)
   // The unit's own pages, from its entry's page (not the title page before it, which only offers the trigger).
   const unitPages = u => u.to - u.start + 1
@@ -933,13 +946,14 @@ async function primerBehaviour(browser, origin) {
     return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, height: t.offsetHeight, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
   })
   ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
-  ok('nothing is made when the file opens (only when the reader opens the trigger)', primers(0).length === 0)
+  // Made ahead as the file opens (Anders, 19 Oct 2026): one request, for the reader's unit, marked speculative (never charged).
+  const req = primers(0)[0]
+  ok('as the file opens (signed in), the primer of the reader\'s unit is made once, ahead, marked speculative', primers(0).length === 1 && req.body.companion.speculative === true, { requests: primers(0).length, speculative: req?.body?.companion?.speculative })
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
-  const req = primers(r0)[0]
   // It opens in place (Anders, 15 Oct): from its trigger's place, growing down; measured once it has grown.
   await a.waitForTimeout(450)
   const placeWant = await a.evaluate(t => TinctMargin.primerBox({ top: t.top, height: t.height }, document.querySelector('.mr-col').clientHeight).top, { top: trig?.top ?? 0, height: trig?.height ?? 0 })
-  ok('B opens the primer in place: one chapter request, action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
+  ok('B opens the primer in place, made nothing more: the one chapter request (ahead), action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 0 && primers(0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
   const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
   ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, alone in the column', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && Math.abs(shown.top - placeWant) <= 1 && shown.top >= Math.min(16, (trig?.top ?? 0) - 14) - 1 && shown.bottom === 70 && !shown.trigger, { ...shown, placeWant })
   await a.waitForTimeout(600)
@@ -948,15 +962,16 @@ async function primerBehaviour(browser, origin) {
   await a.click('.mr-col .mr-primer .mr-primer__close'); await a.waitForTimeout(250)
   ok('its close folds it back to the trigger', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
   await a.click('.mr-col .mr-trigger'); await a.waitForTimeout(400)
-  ok('clicking the trigger opens it again, and reopening never makes it again', await a.isVisible('.mr-col .mr-primer .mr-primer__gist') && primers(r0).length === 1)
+  ok('clicking the trigger opens it again, and reopening never makes it again', await a.isVisible('.mr-col .mr-primer .mr-primer__gist') && primers(r0).length === 0)
   await a.keyboard.press('Escape'); await a.waitForTimeout(200)
   ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
   // Another device (this browser's copy gone): the account's primer, not a new one.
   await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
-  await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(900)
   const r1 = chats().length
+  await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(900)
+  await prefetchSettled(a)
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
-  ok('on another device the account\'s primer opens; nothing is made again', primers(r1).length === 0 && /MOCK gist/.test(await a.innerText('.mr-col .mr-primer')))
+  ok('on another device (opened there, and B) the account\'s primer opens; nothing is made again', primers(r1).length === 0 && /MOCK gist/.test(await a.innerText('.mr-col .mr-primer')))
   // Redo: a new one, stored again.
   mock.primer = { gist: 'MOCK redone gist. Second sentence.', claims: [1, 2, 3, 4, 5].map(i => ({ text: `Redone claim ${i}.`, cite: '{p. 2}' })), keepInMind: ['One', 'Two'], map: [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ title: `Redone section ${i}`, pages: `p. ${i + 1}` })) }
   await a.click('.mr-col .mr-primer [data-c="redo"]'); await a.waitForTimeout(1200); mock.primer = null
@@ -989,19 +1004,22 @@ async function primerBehaviour(browser, origin) {
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
   // A PDF under 40 pages is one unit, "all", even with an outline (the prose book, 21 pages, has one).
+  // (Made ahead as it opens, or on B: the one request since it opened.)
+  const rs = chats().length
   const S = await readerPage(browser, origin, hexShort, { width: 1440, height: 900, look: 'paper' })
   await S.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await prefetchSettled(S.page)
   const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '), units: primer.units.map(u => u.key), pages: state.pages.length }))
-  const rs = chats().length
   await S.page.keyboard.press('b'); await S.page.waitForTimeout(1000)
   const reqs = primers(rs)[0]
   ok('a PDF under 40 pages is one unit ("all"), its outline notwithstanding: the whole file goes', /map of the whole PDF\.$/.test(ts.trig || '') && ts.units.join() === 'all' && reqs?.body?.companion?.chapter?.action?.unitKey === 'all' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
   await S.ctx.close()
   // A PDF without an outline is one unit, "all".
+  const rb = chats().length
   const B = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'night' })
   await B.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await prefetchSettled(B.page)
   const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
-  const rb = chats().length
   await B.page.keyboard.press('b'); await B.page.waitForTimeout(1000)
   const reqb = primers(rb)[0]
   ok('a PDF without an outline: one unit ("all"), the whole PDF', /map of the whole PDF\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === 'all' && reqb.body.companion.context.pages.length === 8, { tb, action: reqb?.body?.companion?.chapter })
@@ -1067,6 +1085,7 @@ async function primerKinds(browser, origin) {
     const a = A.page
     // The primer is offered once the file's scan says it has text (primerHasText).
     await a.waitForFunction(() => primer.units && primerHasText(), null, { timeout: 30000 }).catch(() => {})
+    await prefetchSettled(a)
     const open = async () => {
       await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); openCard(null) })
       await a.evaluate(() => openPrimer(currentUnit()))
@@ -1108,6 +1127,9 @@ async function primerKinds(browser, origin) {
   const bare = addBook(BARE_BOOK), m = BARE.meta, ch1 = m.chapters[0]
   for (const [width, height] of [[1440, 900], [390, 844]]) {
     const phone = width < 700, tag = `primer_no_outline-${width}x${height}`, where = phone ? '.mr-sheet .mr-primer' : '.mr-col .mr-primer'
+    // Made fresh on each device here (the account's copy from the desktop run is cleared): ahead as it opens (19 Oct 2026), or on B.
+    account.primers.clear()
+    const r0 = account.requests.length
     const A = await readerPage(browser, origin, bare, { width, height, look: 'paper', at: 8 })
     const a = A.page
     await a.waitForFunction(() => primer.units && primerHasText(), null, { timeout: 30000 }).catch(() => {})
@@ -1116,9 +1138,7 @@ async function primerKinds(browser, origin) {
     const lines = await a.evaluate(n => { const out = []; for (let p = 1; p <= n; p += 9) out.push(TinctMargin.triggerLine(TinctMargin.primerUnitAt(primer.units, p))); return out }, m.pages)
     ok(`${tag}: the trigger names its chapter on every page, never "the whole PDF"`, lines.every(l => /^The gist and a map of chapter \d+\.$/.test(l)), [...new Set(lines)].slice(0, 6))
     await a.evaluate(() => { goTo({ page: 8, frac: 0.1 }); onScroll() }); await a.waitForTimeout(600)
-    // Made fresh on each device here (the account's copy from the desktop run is cleared). The phone has no B key: the same call.
-    account.primers.clear()
-    const r0 = account.requests.length
+    // The phone has no B key: the same call.
     if (phone) await a.evaluate(() => openPrimer()); else await a.keyboard.press('b')
     await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 15000 }).catch(() => {}); await a.waitForTimeout(400)
     const req = chats(r0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
@@ -1165,6 +1185,7 @@ async function primerReliability(browser, origin) {
   ]
   const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
   const a = A.page
+  await prefetchSettled(a)
   let passed = 0
   for (const [name, replies, interrupt] of cases) {
     await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); openCard(null) })
@@ -1204,7 +1225,10 @@ async function primerReliability(browser, origin) {
   // A reply that never comes: after 45 s, "Before you start is taking too long. Try again." (the page's clock is run forward).
   const B = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
   const b = B.page
+  await prefetchSettled(b)
   await b.clock.install()
+  // (Made ahead as it opened: this browser's copy and the account's go, so opening it asks.)
+  account.primers.clear()
   mock.primers = [{ text: good, delay: 20000 }]; const r3 = chats().length
   await b.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); openPrimer(currentUnit()) })
   await b.waitForTimeout(800)
@@ -2049,7 +2073,8 @@ async function scanChecks(browser, origin) {
   const b0 = chats().length
   await page.keyboard.press('b')
   const primed = await page.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 10000 }).then(() => true).catch(() => false)
-  const pr = chats().slice(b0).find(r => r.body?.companion?.intent === 'chapter')
+  // Made ahead once its text was recognised (19 Oct 2026), or on B: the one primer request since (none came before, above).
+  const pr = chats().slice(q0).find(r => r.body?.companion?.intent === 'chapter')
   ok('the primer on the scan is made from its recognised text and shows in the column', primed && pr?.body?.companion?.context?.pages?.every(pg => pg.text.trim().length > 20) && pr.body.companion.document?.units?.length === made.recognised.length, { primed, pages: pr?.body?.companion?.context?.pages?.map(pg => pg.text.length) })
   await page.waitForTimeout(300)
   const primerProblems = await checkMargin(page)
@@ -2963,7 +2988,7 @@ async function cardSafety(browser, origin) {
   const hex = addBook(PDFS[0])
   const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'night' })
   const a = A.page
-  const state = () => a.evaluate(() => { const id = col.open, el = id && document.querySelector(`.mr-col [data-id="${CSS.escape(id)}"], .mr-sheet[data-id="${CSS.escape(id)}"]`); return { id, rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait').length, live: id ? col.live.get(id) || null : null, inFlight: id ? col.ctl.has(id) : false, status: el?.querySelector('.mr-status')?.textContent || '', answer: el?.querySelector('.mr-answer')?.textContent || '', turns: id ? (cardById(id)?.turns || []).length : 0 } })
+  const state = () => a.evaluate(() => { const id = col.open, el = id && document.querySelector(`.mr-col [data-id="${CSS.escape(id)}"], .mr-sheet[data-id="${CSS.escape(id)}"]`); return { id, rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait, .mr-col .tc-wait, .mr-sheet .tc-wait').length, live: id ? col.live.get(id) || null : null, inFlight: id ? col.ctl.has(id) : false, status: el?.querySelector('.mr-status')?.textContent || '', answer: el?.querySelector('.mr-answer')?.textContent || '', turns: id ? (cardById(id)?.turns || []).length : 0 } })
   const reports = from => account.requests.slice(from).filter(r => r.path === '/api/events').flatMap(r => r.body.events || []).filter(e => e.name === 'margin_card_failed')
   const explain = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); await a.waitForTimeout(200); await selectText(a); await a.waitForSelector('.mr-bar [data-m="explain"]'); await a.click('.mr-bar [data-m="explain"]') }
   const settled = async (ms = 4000) => { const end = Date.now() + ms; let st; while (Date.now() < end) { st = await state(); if (!st.rings && !st.inFlight && (st.status || st.answer || !st.live)) return st; await a.waitForTimeout(150) } return st }
@@ -3003,7 +3028,7 @@ async function cardSafety(browser, origin) {
   await explain(); await a.waitForTimeout(300)
   const gone = await a.evaluate(() => { const id = col.open; store.set('cards:' + state.key, keptCards().filter(c => c.id !== id)); return id })
   await a.waitForTimeout(1600); mock.delay = 0
-  const left = await a.evaluate(id => ({ live: col.live.has(id), ctl: col.ctl.has(id), rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait').length }), gone)
+  const left = await a.evaluate(id => ({ live: col.live.has(id), ctl: col.ctl.has(id), rings: document.querySelectorAll('.mr-col .tinct-wait, .mr-sheet .tinct-wait, .mr-col .tc-wait, .mr-sheet .tc-wait').length }), gone)
   ok('the card is dropped mid-request: no live state, request or ring is left for it', !left.live && !left.ctl && !left.rings, left)
 
   // 5. The stream opens and then stalls for ever: the request is stopped after its idle bound and the card says so.
@@ -3018,6 +3043,356 @@ async function cardSafety(browser, origin) {
   await A.ctx.close()
   // A request is sent at once, with the scan, units and labels still running (Ask latency, 16 Oct).
   results.push(...await askLatency(browser, origin))
+  return results
+}
+
+/* ---------- Anders's feedback of 19 Oct 2026 (the margin reader beside the book reader's chat) ----------
+   primer-anchor: Before you start is made ahead once as the PDF opens and shows at once; it scrolls away with the
+   page like a card, never following the reader (column and narrow window); reopening never makes it again.
+   wait-dots: the wait before an answer is the book reader's chat dots (chat-thread.css .tc-wait, exactly), never
+   the ring, in cards, Chat and Before you start; static with reduced motion.
+   chat-scroll: scrolling inside Chat (or an open card) never scrolls the pages, by wheel or touch; a question sent
+   sits near the top of the thread with its answer growing below, and a reader who scrolled up stays there; a chat
+   reply is plain paragraphs, never stripped or bolded as a card's opening (the exact reply Anders saw).
+   highlight-place: a highlight's box covers the selected words, also when made while the pages are being redrawn
+   (a zoom, a resize), on desktop pages and phone pages. */
+const chatsOf = from => account.requests.slice(from).filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
+const okList = results => (name, pass, detail) => { results.push({ name, pass: !!pass, ...(pass ? {} : { detail }) }); console.log(`${pass ? 'ok  ' : 'FAIL'} ${name}${pass ? '' : ' ' + String(JSON.stringify(detail)).slice(0, 500)}`) }
+const scrollTop = page => page.evaluate(() => document.getElementById('scroll').scrollTop)
+const primerBox = page => page.evaluate(() => { const el = document.querySelector('.mr-col .mr-primer, .mr-primer.is-floating'); if (!el) return null; const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return { top: Math.round(r.top), bottom: Math.round(r.bottom), height: Math.round(r.height), shown: cs.display !== 'none' && r.height > 0, position: cs.position } })
+
+async function primerAnchor(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(LONG_BOOK)
+  const primers = from => chatsOf(from).filter(r => r.body?.companion?.chapter?.action?.kind === 'primer')
+  account.primers.clear()
+  const r0 = account.requests.length
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'night' })
+  const a = A.page
+  await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
+  await prefetchSettled(a)
+  const made = primers(r0)
+  ok('2. opened signed in: Before you start of the reader\'s unit is made ahead, once, marked speculative, and kept here and with the book', made.length === 1 && made[0].body.companion.speculative === true && made[0].body.companion.chapter.action.unitKey === 'outline-0' && await a.evaluate(() => !!store.get(primerKey(currentUnit()))) && account.primers.has(hex + '?outline-0'), { made: made.length, speculative: made[0]?.body?.companion?.speculative })
+  // Tapping it: there at once (no wait, no request).
+  const r1 = account.requests.length
+  await a.click('.mr-col .mr-trigger')
+  await a.waitForTimeout(120)
+  const now = await a.evaluate(() => ({ gist: !!document.querySelector('.mr-col .mr-primer .mr-primer__gist'), wait: !!document.querySelector('.mr-col .mr-primer .tc-wait, .mr-col .mr-primer .tinct-wait') }))
+  ok('2. tapping Before you start shows it at once: its gist within 120 ms, no wait, no request', now.gist && !now.wait && primers(r1).length === 0, now)
+  await a.waitForTimeout(500)
+  // 1. It scrolls away with the page, as a card does: never sticky or fixed, never following the reader.
+  const b0 = await primerBox(a), s0 = await scrollTop(a)
+  await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 240)); await a.waitForTimeout(250)
+  const b1 = await primerBox(a), s1 = await scrollTop(a)
+  ok('1. desktop: scrolled 240 px, the open primer moves up with the page by the same amount (not sticky)', b0 && b1 && b0.position === 'absolute' && Math.abs((b0.top - b1.top) - (s1 - s0)) <= 2 && s1 - s0 > 200 && b1.height === b0.height, { b0, b1, scrolled: s1 - s0 })
+  await shot(a, 'primer-anchor-1440x900-night-scrolled')
+  await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 2600)); await a.waitForTimeout(300)
+  const gone = await a.evaluate(() => ({ primer: (el => !!el && getComputedStyle(el).display !== 'none' && el.getBoundingClientRect().bottom > document.querySelector('.mr-col').getBoundingClientRect().top)(document.querySelector('.mr-col .mr-primer')), open: primer.open }))
+  ok('1. desktop: scrolled on past it, the primer has gone up with its page (still open, nothing follows the reader)', !gone.primer && gone.open, gone)
+  await a.evaluate(() => document.getElementById('scroll').scrollTo(0, 0)); await a.waitForTimeout(300)
+  await a.evaluate(n => document.getElementById('scroll').scrollTo(0, n), s0); await a.waitForTimeout(300)
+  const back = await primerBox(a)
+  ok('1. desktop: back where it was opened, the primer is there again, at the same place', back?.shown && Math.abs(back.top - b0.top) <= 2, { back, b0 })
+  ok('1. desktop: no layout problems with the primer open', (await checkMargin(a)).length === 0, await checkMargin(a))
+  await shot(a, 'primer-anchor-1440x900-night')
+  // Reopening the file makes nothing again.
+  const r2 = account.requests.length
+  await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(900)
+  await prefetchSettled(a)
+  ok('2. opening the file again makes nothing again (kept here)', primers(r2).length === 0, primers(r2).length)
+  ok('no page errors (desktop)', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // Another device: the account's copy, nothing made.
+  const r3 = account.requests.length
+  const D = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  await prefetchSettled(D.page)
+  ok('2. on another device the account\'s copy is taken; nothing is made again', primers(r3).length === 0 && await D.page.evaluate(() => !!store.get(primerKey(currentUnit()))), primers(r3).length)
+  await D.ctx.close()
+  // Signed out: nothing is made ahead.
+  const r4 = account.requests.length
+  const so = await browser.newContext({ viewport: { width: 1440, height: 900 } })
+  await so.addInitScript(hex => { try { localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('pages')) } catch {} }, hex)
+  const sp = await so.newPage()
+  await sp.goto(`${origin}/lab/addbook/?userBook=${hex}`).catch(() => {})
+  await sp.waitForTimeout(4000)
+  ok('2. signed out: nothing is made ahead', primers(r4).length === 0, primers(r4).length)
+  await so.close()
+  // A narrow window: the primer floats beside the page and scrolls away with it too.
+  const N = await readerPage(browser, origin, hex, { width: 1024, height: 768, look: 'paper' })
+  const n = N.page
+  await prefetchSettled(n)
+  await n.evaluate(() => openPrimer(currentUnit())); await n.waitForSelector('.mr-primer.is-floating .mr-primer__gist', { timeout: 6000 }).catch(() => {})
+  const f0 = await primerBox(n), t0 = await scrollTop(n)
+  await n.evaluate(() => document.getElementById('scroll').scrollBy(0, 200)); await n.waitForTimeout(250)
+  const f1 = await primerBox(n), t1 = await scrollTop(n)
+  ok('1. narrow window: the floating primer moves up with the page by the scroll (not fixed in place)', f0 && f1 && Math.abs((f0.top - f1.top) - (t1 - t0)) <= 2 && t1 - t0 > 150, { f0, f1, scrolled: t1 - t0 })
+  ok('no page errors (narrow)', !N.problems.length, N.problems)
+  await N.ctx.close()
+  // The phone: the bottom card (it never followed the page), for the record.
+  const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'night' })
+  await prefetchSettled(P.page)
+  await P.page.waitForSelector('.mr-sheet .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await P.page.click('.mr-sheet .mr-trigger').catch(() => {}); await P.page.waitForSelector('.mr-sheet .mr-primer .mr-primer__gist', { timeout: 6000 }).catch(() => {})
+  ok('phone: Before you start opens at once in the bottom card', await P.page.isVisible('.mr-sheet .mr-primer .mr-primer__gist'))
+  await shot(P.page, 'primer-anchor-390x844-night')
+  ok('no page errors (phone)', !P.problems.length, P.problems)
+  await P.ctx.close()
+  return results
+}
+
+async function waitDots(browser, origin) {
+  const results = [], ok = okList(results)
+  const css = readFileSync(join(PUBLIC, 'lab/chat-thread.css'), 'utf8')
+  // The book reader's dots, as chat-thread.css draws them: size, gap, colour per look, timing.
+  const rule = sel => (css.match(new RegExp(sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}')) || [])[1] || ''
+  const want = { size: /width: (\d+px)/.exec(rule('.tc .tc-wait i'))?.[1], gap: /gap: (\d+px)/.exec(rule('.tc .tc-wait'))?.[1], duration: /(\d*\.?\d+s) ease-in-out infinite/.exec(rule('.tc .tc-wait i'))?.[1], delays: ['0s', /animation-delay: ([^;]+);/.exec(rule('.tc .tc-wait i:nth-child(2)'))?.[1], /animation-delay: ([^;]+);/.exec(rule('.tc .tc-wait i:nth-child(3)'))?.[1]], faint: { paper: /--tc-faint: (#[0-9a-f]+)/.exec(rule('.tc'))?.[1], night: /--tc-faint: (#[0-9a-f]+)/.exec(rule('.lab.is-night .tc'))?.[1] } }
+  const hexRgb = h => `rgb(${parseInt(h.slice(1, 3), 16)}, ${parseInt(h.slice(3, 5), 16)}, ${parseInt(h.slice(5, 7), 16)})`
+  const dots = (page, sel) => page.evaluate(sel => { const w = document.querySelector(sel); if (!w) return null; const is = [...w.querySelectorAll('i')], cs = is.map(i => getComputedStyle(i)); return { n: is.length, size: cs[0]?.width, h: cs[0]?.height, gap: getComputedStyle(w).columnGap, bg: cs[0]?.backgroundColor, name: cs[0]?.animationName, duration: cs[0]?.animationDuration, delays: cs.map(c => c.animationDelay), opacity: cs[0]?.opacity, label: w.getAttribute('aria-label'), rings: document.querySelectorAll('.mr .tinct-wait').length } }, sel)
+  const hex = addBook(PDFS[0])
+  for (const [width, height, look] of [[1440, 900, 'night'], [390, 844, 'paper']]) {
+    const phone = width < 700, tag = `wait-dots-${width}x${height}-${look}`
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    const faint = hexRgb(look === 'night' ? want.faint.night : want.faint.paper)
+    const same = d => d && d.n === 3 && d.size === want.size && d.h === want.size && d.gap === want.gap && d.bg === faint && d.name === 'tc-breathe' && d.duration === want.duration && JSON.stringify(d.delays.map(parseFloat)) === JSON.stringify(want.delays.map(parseFloat)) && d.label === 'Answer on the way' && d.rings === 0
+    // A card (Explain) waiting for its answer.
+    mock.delay = 1500
+    await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+    await a.click('.mr-float [data-m="explain"]').catch(() => {}); await a.waitForTimeout(300)
+    const card = await dots(a, phone ? '.mr-sheet .tc-wait' : '.mr-card.is-open .tc-wait')
+    ok(`${tag}: 3. a card waiting for its answer shows the book reader's chat dots (${want.size}, gap ${want.gap}, ${look === 'night' ? want.faint.night : want.faint.paper}, ${want.duration}, delays ${want.delays.join('/')}), no ring`, same(card), { card, want })
+    await a.waitForTimeout(1600)
+    ok(`${tag}: …and the answer replaces them`, await a.evaluate(() => !document.querySelector('.mr .tc-wait')))
+    await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+    // Chat waiting for its answer.
+    await a.evaluate(() => openWhole({ quiet: true })); await a.waitForTimeout(300)
+    // The answer's stream opens and sends nothing yet (mock.stall): the wait before its first word.
+    mock.stall = true
+    await a.evaluate(() => { ask('What does the whole document argue?') })
+    await a.waitForTimeout(400)
+    const chatDots = await dots(a, phone ? '.mr-sheet .tc-wait' : '.mr-card.is-whole .tc-wait')
+    ok(`${tag}: 3. Chat waiting for its answer shows the same dots, no ring`, same(chatDots), chatDots || await a.evaluate(() => ({ live: chat.live, open: col.open, html: (col.sheet || document.querySelector('.mr-card.is-whole'))?.outerHTML.slice(0, 500) })))
+    await shot(a, `${tag}-chat-waiting`)
+    await a.evaluate(() => chat.ctl?.abort()); mock.stall = false; await a.waitForTimeout(300)
+    // Before you start being made.
+    await a.evaluate(() => { closeChat?.(); openCard(null); closePrimer(); for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
+    account.primers.clear(); mock.primers = [{ text: JSON.stringify({ gist: 'MOCK gist. Second.', claims: [1, 2, 3].map(i => ({ text: `Claim ${i}.`, cite: '{p. 1}' })), keepInMind: ['One.'], map: [{ title: 'One', pages: 'p. 1' }] }), delay: 1500 }]
+    await prefetchSettled(a)
+    await a.evaluate(() => openPrimer(currentUnit())); await a.waitForTimeout(400)
+    const primerDots = await dots(a, '.mr-primer .tc-wait')
+    ok(`${tag}: 3. Before you start being made shows the same dots, no ring`, same(primerDots), primerDots)
+    await a.waitForTimeout(1600); mock.primers = []; mock.delay = 0
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // Reduced motion: still dots, not breathing, as the book reader's (opacity .45).
+  const R = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  await R.page.emulateMedia({ reducedMotion: 'reduce' })
+  mock.delay = 1500
+  await R.page.evaluate(() => openWhole({ quiet: true })); await R.page.waitForTimeout(300)
+  mock.stall = true
+  await R.page.evaluate(() => { ask('A question.') }); await R.page.waitForTimeout(400)
+  const still = await dots(R.page, '.mr-card.is-whole .tc-wait')
+  ok('3. reduced motion: the dots stand still at .45, as the book reader\'s', still && still.n === 3 && still.name === 'none' && still.opacity === '0.45', still)
+  await R.page.evaluate(() => chat.ctl?.abort()); mock.stall = false; mock.delay = 0
+  await R.ctx.close()
+  return results
+}
+
+// A long Chat thread: older questions and answers, so the thread scrolls.
+const LONG_ANSWER = n => Array.from({ length: 4 }, (_, i) => `MOCK paragraph ${i + 1} of answer ${n}. It runs long enough to fill a few lines of the margin's card, so that the thread has to scroll when several of them are kept.`).join('\n\n')
+const seedChat = (page, count = 4) => page.evaluate(([count, answers]) => { const at = Date.now() - 3600e3; const turns = []; for (let i = 0; i < count; i++) { turns.push({ role: 'user', content: `Earlier question ${i + 1}?`, page: 1, at: at + i * 60e3 }); turns.push({ role: 'assistant', content: answers[i], at: at + i * 60e3 + 1000 }) } store.set('chat:' + state.key, turns) }, [count, Array.from({ length: count }, (_, i) => LONG_ANSWER(i + 1))])
+const HUME_REPLY = 'The sentence you\'ve highlighted ends the reply to Hume, and the one that follows ("Nor does the argument...by Russell 1913...") begins the reply to a second objection. That second objection is about the form of the laws.\n\nSo the passage is not free of causal talk; it says where such talk belongs.'
+
+async function chatScroll(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height, look] of [[1440, 900, 'night'], [390, 844, 'night']]) {
+    const phone = width < 700, tag = `chat-scroll-${width}x${height}-${look}`, host = phone ? '.mr-sheet' : '.mr-card.is-whole.is-open'
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    await prefetchSettled(a)
+    await seedChat(a)
+    await a.evaluate(() => openWhole({ quiet: true })); await a.waitForTimeout(500)
+    const body = `${host} .mr-card__body`
+    const info = () => a.evaluate(sel => { const b = document.querySelector(sel); return b && { top: b.scrollTop, max: b.scrollHeight - b.clientHeight, ob: getComputedStyle(b).overscrollBehaviorY } }, body)
+    const i0 = await info()
+    ok(`${tag}: the thread scrolls and contains its overscroll`, i0 && i0.max > 100 && i0.ob === 'contain', i0)
+    // 4. At its end, more scrolling never moves the pages behind it.
+    await a.evaluate(sel => { const b = document.querySelector(sel); b.scrollTop = b.scrollHeight }, body)
+    const page0 = await scrollTop(a)
+    const box = await a.evaluate(sel => { const r = document.querySelector(sel).getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 } }, body)
+    if (!phone) {
+      await a.mouse.move(box.x, box.y)
+      for (let k = 0; k < 4; k++) { await a.mouse.wheel(0, 400); await a.waitForTimeout(80) }
+      await a.waitForTimeout(300)
+      const page1 = await scrollTop(a)
+      ok(`${tag}: 4. the wheel over Chat at its end never scrolls the pages`, page1 === page0, { page0, page1 })
+      await a.evaluate(sel => { document.querySelector(sel).scrollTop = 0 }, body)
+      for (let k = 0; k < 3; k++) { await a.mouse.wheel(0, -400); await a.waitForTimeout(80) }
+      await a.waitForTimeout(300)
+      ok(`${tag}: 4. …nor at its top, scrolling up`, (await scrollTop(a)) === page0, { page0, now: await scrollTop(a) })
+      // The column's empty room still scrolls the pages (one scroll surface).
+      const empty = await a.evaluate(() => { const c = document.querySelector('.mr-col').getBoundingClientRect(); return { x: c.left + c.width / 2, y: c.bottom - 30 } })
+      await a.mouse.move(empty.x, empty.y); await a.mouse.wheel(0, 300); await a.waitForTimeout(400)
+      ok(`${tag}: the column's empty room still scrolls the pages (one scroll surface)`, (await scrollTop(a)) > page0, { page0, now: await scrollTop(a) })
+      await a.evaluate(n => document.getElementById('scroll').scrollTo(0, n), page0); await a.waitForTimeout(200)
+    } else {
+      // A touch drag (as iOS Safari sends it) at the body's end, then at its top.
+      const cdp = await a.context().newCDPSession(a)
+      const drag = dy => cdp.send('Input.synthesizeScrollGesture', { x: Math.round(box.x), y: Math.round(box.y), yDistance: dy, gestureSourceType: 'touch', speed: 1200 })
+      await drag(-300); await a.waitForTimeout(400)
+      const p1 = await scrollTop(a)
+      await a.evaluate(sel => { document.querySelector(sel).scrollTop = 0 }, body)
+      await drag(300); await a.waitForTimeout(400)
+      const p2 = await scrollTop(a)
+      ok(`${tag}: 4. a touch drag in Chat at its end or its top never scrolls the pages`, p1 === page0 && p2 === page0 && await a.isVisible('.mr-sheet'), { page0, p1, p2 })
+    }
+    // 5. A question sent: held near the top of the thread, its answer growing below.
+    await a.evaluate(sel => { const b = document.querySelector(sel); b.scrollTop = 0 }, body)
+    const chunks = Array.from({ length: 8 }, (_, i) => ({ text: (i ? '\n\n' : '') + `MOCK streamed paragraph ${i + 1}, which keeps the answer growing for a while below the question.`, wait: 250 }))
+    mock.chunks = chunks
+    const n = await a.evaluate(() => chat.turns.length)
+    await a.evaluate(() => { const f = (col.sheet || document.querySelector('.mr-card.is-whole.is-open'))?.querySelector('.mr-follow__input'); f.focus() })
+    await a.keyboard.type('Where does the argument turn?'); await a.keyboard.press('Enter')
+    await a.waitForTimeout(700)
+    const q = sel => a.evaluate(([sel, n]) => { const b = document.querySelector(sel), row = b?.querySelector(`.mr-you[data-turn="${n}"]`); if (!row) return null; const br = b.getBoundingClientRect(), r = row.getBoundingClientRect(); return { rowTop: Math.round(r.top - br.top), rowBottom: Math.round(r.bottom - br.top), clientHeight: b.clientHeight, scrollTop: b.scrollTop, answer: !!row.nextElementSibling } }, [sel, n])
+    const early = await q(body)
+    ok(`${tag}: 5. once sent, the question sits near the top of the thread (the book reader's place), not at the thread's start`, early && early.scrollTop > 0 && early.rowTop >= 0 && early.rowTop <= 130 && early.rowBottom < early.clientHeight, early)
+    await shot(a, `${tag}-sent`)
+    await a.waitForTimeout(800)
+    const mid = await q(body)
+    ok(`${tag}: 5. while the answer streams the question stays where it was put (nothing moves)`, mid && Math.abs(mid.rowTop - early.rowTop) <= 2 && mid.answer, { early, mid })
+    // The reader scrolls up while it streams: never pulled back.
+    await a.evaluate(sel => { document.querySelector(sel).scrollTop = 40 }, body)
+    await a.waitForTimeout(900)
+    const kept = await a.evaluate(sel => document.querySelector(sel).scrollTop, body)
+    ok(`${tag}: 5. a reader who scrolled up while it streams stays where they are`, Math.abs(kept - 40) <= 1, kept)
+    await a.waitForTimeout(1200)
+    // 8. A chat reply is plain paragraphs: the exact reply Anders saw, never stripped or bolded.
+    mock.next = HUME_REPLY
+    await a.evaluate(() => { const f = (col.sheet || document.querySelector('.mr-card.is-whole.is-open'))?.querySelector('.mr-follow__input'); f.focus() })
+    await a.keyboard.type('Explain this more: it is not free of causal talk.'); await a.keyboard.press('Enter')
+    await a.waitForTimeout(900)
+    const reply = await a.evaluate(sel => { const answers = document.querySelectorAll(`${sel} .mr-answer`), last = answers[answers.length - 1]; return last && { text: last.innerText.replace(/\s+/g, ' ').trim(), bold: last.querySelectorAll('.is-bottom-line, strong, b').length, paras: last.querySelectorAll('p').length } }, body)
+    ok(`${tag}: 8. Chat shows the reply as written, in plain paragraphs: "The sentence you've highlighted ends the reply to Hume…", no bold lead`, reply && reply.text.startsWith('The sentence you\'ve highlighted ends the reply to Hume, and the one that follows ("Nor does the argument...by Russell 1913...") begins the reply to a second objection.') && reply.bold === 0 && reply.paras === 2, reply)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // 5 and 8 in a card: a follow-up to an Explain card is held near the top; its reply is a chat reply.
+  const C = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const c = C.page
+  await prefetchSettled(c)
+  await c.evaluate(answer => { const p = currentPlace().page, card = TinctMargin.newCard({ kind: 'explain', page: p, anchor: [{ n: p, x: 0.15, y: 0.3, w: 0.5, h: 0.02 }], text: 'A passage.', turns: [{ role: 'assistant', content: answer }] }); store.set('cards:' + state.key, [card]); col.view = null; openCard(card.id) }, LONG_ANSWER(1) + '\n\n' + LONG_ANSWER(2))
+  await c.waitForTimeout(500)
+  mock.next = HUME_REPLY; mock.delay = 0
+  await c.click('.mr-card.is-open .mr-follow__input'); await c.keyboard.type('Explain this more.'); await c.keyboard.press('Enter')
+  await c.waitForTimeout(1000)
+  const held = await c.evaluate(() => { const b = document.querySelector('.mr-card.is-open .mr-card__body'), row = b.querySelector('.mr-you[data-turn="1"]'), br = b.getBoundingClientRect(), r = row.getBoundingClientRect(); const answers = b.querySelectorAll('.mr-answer'), last = answers[answers.length - 1]; return { rowTop: Math.round(r.top - br.top), scrollTop: b.scrollTop, first: answers[0].querySelectorAll('.is-bottom-line').length, reply: last.innerText.replace(/\s+/g, ' ').trim(), bold: last.querySelectorAll('.is-bottom-line').length } })
+  ok('card: 5. a follow-up sits near the top of the card\'s thread, its answer below', held.scrollTop > 0 && held.rowTop >= 0 && held.rowTop <= 130, held)
+  ok('card: 8. the card\'s own answer keeps its bold bottom line; the follow-up\'s reply is plain and unstripped', held.first === 1 && held.bold === 0 && held.reply.startsWith('The sentence you\'ve highlighted ends the reply to Hume'), held)
+  ok('card: no page errors', !C.problems.length, C.problems)
+  await C.ctx.close()
+  return results
+}
+
+async function highlightPlace(browser, origin) {
+  const results = [], ok = okList(results)
+  // Each selected word's box lies inside the highlight (its middle within a mark; the mark's middle on the word's line).
+  const measure = page => page.evaluate(() => {
+    const s = getSelection(); if (!s.rangeCount) return null
+    const range = s.getRangeAt(0).cloneRange()
+    const words = [...range.getClientRects()].filter(r => r.width > 1 && r.height > 1).map(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))
+    const ids = addHighlight({ text: s.toString() }, { range }) || []
+    getSelection().removeAllRanges()
+    return { ids, words }
+  })
+  const marksOf = (page, ids) => page.evaluate(ids => ids.flatMap(id => [...document.querySelectorAll(`.hl-layer i[data-id="${id}"]`)]).map(el => { const r = el.getBoundingClientRect(); return { l: r.left, r: r.right, t: r.top, b: r.bottom } }), ids)
+  const covers = (words, marks) => words.length > 0 && words.every(w => { const cx = (w.l + w.r) / 2, cy = (w.t + w.b) / 2; return marks.some(m => cx >= m.l - 1 && cx <= m.r + 1 && cy >= m.t && cy <= m.b && Math.abs((m.t + m.b) / 2 - cy) <= (w.b - w.t) * 0.25) })
+  // The words again (their place after the pages were drawn again): the same text found in the layer.
+  const refind = (page, text) => page.evaluate(text => {
+    for (const p of state.pages) {
+      if (!p.layer) continue
+      const nodes = [], walker = document.createTreeWalker(p.layer, NodeFilter.SHOW_TEXT); let all = '', node
+      while ((node = walker.nextNode())) { nodes.push({ node, at: all.length }); all += node.nodeValue }
+      const flat = all.replace(/\s/g, ' '), want = text.replace(/\s+/g, ' ').trim(), i = flat.indexOf(want)
+      if (i < 0) continue
+      const at = off => { const k = nodes.findLastIndex(x => x.at <= off); return [nodes[k].node, off - nodes[k].at] }
+      const r = document.createRange(); r.setStart(...at(i)); r.setEnd(...at(i + want.length))
+      return [...r.getClientRects()].filter(x => x.width > 1 && x.height > 1).map(x => ({ l: x.left, r: x.right, t: x.top, b: x.bottom }))
+    }
+    return null
+  }, text)
+  const hex = addBook(PDFS[0])
+  for (const [width, height, look] of [[1440, 900, 'night'], [390, 844, 'night']]) {
+    const tag = `highlight-place-${width}x${height}-${look}`
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    // At rest.
+    const text = await selectText(a); await a.waitForTimeout(400)
+    const m0 = await measure(a); await a.waitForTimeout(200)
+    ok(`${tag}: 7. the highlight covers the selected words (each word's middle inside a mark, the mark on the word's line)`, m0 && covers(m0.words, await marksOf(a, m0.ids)), { words: m0?.words?.slice(0, 2), marks: m0 && (await marksOf(a, m0.ids)).slice(0, 2) })
+    // While the pages are being drawn again (a zoom, before the new drawing lands): kept on its words afterwards.
+    await a.keyboard.press('Escape').catch(() => {})
+    const sel2 = await a.evaluate(() => { const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 160 && r.bottom < innerHeight - 160 && /[A-Za-z]{5,}/.test(s.textContent) && s.textContent.trim().split(/\s+/).length >= 4 }); const sp = spans[Math.floor(spans.length / 3)]; return sp ? sp.textContent.trim().split(/\s+/).slice(0, 4).join(' ') : null })
+    await a.evaluate(() => setZoom(state.zoom * 1.15, { quick: true }))
+    const m1 = await a.evaluate(want => { for (const p of state.pages) { if (!p.layer) continue; const nodes = [], w = document.createTreeWalker(p.layer, NodeFilter.SHOW_TEXT); let all = '', node; while ((node = w.nextNode())) { nodes.push({ node, at: all.length }); all += node.nodeValue } const i = all.replace(/\s/g, ' ').indexOf(want); if (i < 0) continue; const at = off => { const k = nodes.findLastIndex(x => x.at <= off); return [nodes[k].node, off - nodes[k].at] }; const r = document.createRange(); r.setStart(...at(i)); r.setEnd(...at(i + want.length)); return addHighlight({ text: want }, { range: r }) || [] } return [] }, sel2)
+    await a.waitForTimeout(1500)
+    const words1 = await refind(a, sel2), marks1 = await marksOf(a, m1)
+    ok(`${tag}: 7. a highlight made while the pages were being drawn again (a zoom) lands on its words once they are drawn`, sel2 && words1 && covers(words1, marks1), { sel2, words: words1?.slice(0, 2), marks: marks1.slice(0, 2) })
+    await shot(a, tag)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // The justified lines of 16 Oct (pieces of a line), at rest, on the desktop.
+  const jhex = addBook(JUSTIFIED_PAPER)
+  const J = await readerPage(browser, origin, jhex, { width: 1440, height: 900, look: 'night', minSpans: 10 })
+  await J.page.evaluate(() => { const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => s.textContent.trim().length > 3); getSelection().setBaseAndExtent(spans[3].firstChild, 0, spans[9].firstChild, spans[9].firstChild.length) })
+  await J.page.waitForTimeout(300)
+  const mj = await measure(J.page)
+  ok('justified lines: 7. the highlight covers the selected words', mj && covers(mj.words, await marksOf(J.page, mj.ids)), mj?.words?.slice(0, 3))
+  await J.ctx.close()
+  return results
+}
+
+/* card-fold (19 Oct 2026, item 10): a click outside an open margin card folds it; its answer is kept (and keeps
+   coming while it streams); one click on the folded card opens it again with its answer; Escape folds it too. */
+async function cardFold(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'night', startPage: 3 })
+  const a = A.page
+  await prefetchSettled(a)
+  const state = () => a.evaluate(() => { const id = col.open || window.__foldId; const el = id && document.querySelector(`.mr-col .mr-card[data-id="${CSS.escape(id)}"]`); return { open: col.open, folded: !!el?.classList.contains('is-folded'), answer: el?.querySelector('.mr-answer, .mr-card__text')?.textContent || '', turns: (cardById(id)?.turns || []).length } })
+  // Click page text well away from the card's passage (the first page's lower lines).
+  const clickText = () => a.evaluate(() => { const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > innerHeight * 0.6 && r.bottom < innerHeight - 20 && s.textContent.trim().length > 3 }); const r = spans[spans.length - 1].getBoundingClientRect(); return { x: r.left + 4, y: r.top + r.height / 2 } }).then(p => a.mouse.click(p.x, p.y))
+  for (const streaming of [false, true]) {
+    const tag = streaming ? 'while its answer streams' : 'with its answer'
+    mock.delay = streaming ? 1500 : 0
+    await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+    await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+    await a.click('.mr-float [data-m="explain"]')
+    await a.waitForTimeout(streaming ? 300 : 1200)
+    await a.evaluate(() => { window.__foldId = col.open })
+    const before = await state()
+    await clickText(); await a.waitForTimeout(300)
+    const after = await state()
+    ok(`10. ${tag}: a click on the page's text away from it folds the Explain card (not deleted)`, before.open && !after.open && after.folded, { before, after })
+    if (streaming) await a.waitForTimeout(1800)
+    await a.evaluate(() => getSelection().removeAllRanges())
+    await a.click(`.mr-col .mr-card.is-folded[data-id="${await a.evaluate(() => window.__foldId)}"] .mr-card__label`)
+    await a.waitForTimeout(400)
+    const again = await state()
+    ok(`10. ${tag}: one click on the folded card opens it again, with its answer`, again.open && /MOCK ANSWER/.test(again.answer) && again.turns === 1, again)
+  }
+  mock.delay = 0
+  // A click in the card or its follow-up line keeps it open; Escape folds it.
+  await a.click('.mr-col .mr-card.is-open .mr-follow__input'); await a.waitForTimeout(200)
+  ok('10. a click in the card\'s follow-up line keeps it open', !!(await a.evaluate(() => col.open)))
+  await a.evaluate(() => document.activeElement?.blur()); await a.keyboard.press('Escape'); await a.waitForTimeout(200)
+  ok('10. Escape folds it', !(await a.evaluate(() => col.open)))
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
   return results
 }
 
@@ -3045,6 +3420,11 @@ const RUNS = {
   'phone-kind': [phoneKindCheck, rows => rows.some(r => !r.pass)],
   'card-safety': [cardSafety, rows => rows.some(r => !r.pass)],
   justified: [justifiedCheck, rows => rows.some(r => !r.pass)],
+  'primer-anchor': [primerAnchor, rows => rows.some(r => !r.pass)],
+  'wait-dots': [waitDots, rows => rows.some(r => !r.pass)],
+  'chat-scroll': [chatScroll, rows => rows.some(r => !r.pass)],
+  'highlight-place': [highlightPlace, rows => rows.some(r => !r.pass)],
+  'card-fold': [cardFold, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3085,6 +3465,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

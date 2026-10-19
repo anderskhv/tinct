@@ -641,6 +641,7 @@ async function darkCopy(page, canvas, viewport) {
   } catch { return null }
 }
 const measureCtx = document.createElement('canvas').getContext('2d');
+const pct = (v, of) => (v / of * 100).toFixed(4) + '%';
 function buildTextLayer(p, items, vp, roles = null) {
   const layer = document.createElement('div');
   layer.className = 'text-layer';
@@ -680,9 +681,13 @@ function buildTextLayer(p, items, vp, roles = null) {
     span.dataset.i = i;
     // A recognised scan's line keeps what it is: a caption, an algorithm box, a footnote (pdf-ocr.js).
     if (item.kind) span.dataset.kind = item.kind;
-    span.style.left = tx[4] + 'px';
-    span.style.top = (tx[5] - size * 0.86) + 'px';
-    span.style.fontSize = size + 'px';
+    // In fractions of the page (its width for the type: container units), never pixels: the layer then
+    // stays on the drawn text while the page's box changes before it is drawn again (a zoom, the column
+    // taking its room). A layer in pixels went stale there, and a highlight made in that moment was kept
+    // off its words: half a line lower and too far left (Anders, Constructor Theory, 19 Oct 2026).
+    span.style.left = pct(tx[4], vp.width);
+    span.style.top = pct(tx[5] - size * 0.86, vp.height);
+    span.style.fontSize = (size / vp.width * 100).toFixed(4) + 'cqw';
     measureCtx.font = `${size}px sans-serif`;
     const natural = measureCtx.measureText(str).width;
     const target = item.width * vp.scale;
@@ -2531,7 +2536,7 @@ function mrShow(mode, { question = '' } = {}) {
   if (mode === 'define') {
     el.className = `mr mr-float mr-define${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Define ' + mr.word);
     el.innerHTML = MH.defineHtml(mr.def, { ...mrOpts(), P: MP.P, resolve: citeResolve });
-    el.querySelector('.mr-define__wait')?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
+    el.querySelector('.mr-define__wait')?.append(waitDots());
   } else if (mode === 'note') {
     el.className = `mr mr-float mr-note${phone ? ' is-phone' : ''}`; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Note');
     const draft = noteDrafts.get(mr.ids[0]) ?? mrNote();
@@ -2580,7 +2585,7 @@ function mrAction(m) {
     return mrShow(mr.mode === 'define' ? 'define' : 'menu');
   }
   if (m === 'note') return mrNoteOpen();
-  if (m === 'mic') { const t = mr.el.querySelector('.mr-ask'); if (t) { dictation.target = null; dictation.toggle(t) } return }
+  if (m === 'mic') { if (mr.el.querySelector('.mr-ask')) dictation.toggle({ bar: true }); return }
   if (m === 'send') return mrSend();
   if (m === 'save') return mrSaveNote();
   if (m === 'remove') { for (const id of mr.ids) { removeHighlight(id); noteDrafts.delete(id) } marginClose(); return }
@@ -2795,9 +2800,16 @@ addEventListener('keydown', e => {
 // A tap or click outside lets go of a passage the margin holds (a new selection opens its own).
 document.addEventListener('pointerdown', e => { if (mr && !e.target.closest?.('.mr-float') && (mr.held || mr.mode !== 'menu')) marginClose() }, true);
 
-/* Dictation into the question, as the book reader's chat does (src/lab/useLabDictation.ts):
-   signed in, one clip recorded while the mic is on and turned into text by /api/dictation;
-   signed out, the browser's own speech recognition. It never sends the question or starts Talk. */
+/* Dictation into a question: the book reader's chat dictation, ported line for line from src/lab/useLabDictation.ts
+   (its states, its copy, its mic button; Anders, 19 Oct 2026: "the transcription didn't work as smooth as the
+   normal chat … could we just copy what we're doing in the normal chat"). Signed in, one clip is recorded while
+   the mic is on and turned into text by /api/dictation (xAI); signed out, or without MediaRecorder, the browser's
+   own speech recognition, so no anonymous audio reaches Tinct. It only edits the question: it never sends it.
+   States: idle, starting (the microphone opening; tapping again cancels), listening (the mic finishes and sends
+   the clip), transcribing (the mic waits). The target is the card (by its id) or the bar's Ask field, never a DOM
+   node: a card drawn again mid-dictation keeps its words and its state (the old port wrote into a field the
+   redraw had replaced). Its line under the field says the state as the chat's does ("Listening — tap stop to
+   finish", the ring while starting and writing), or what went wrong. */
 const DICTATION_COPY = {
   unavailable: 'Dictation is unavailable in this browser. Use your keyboard microphone or type your question.',
   denied: 'Microphone access was denied. Allow it in your browser to dictate.',
@@ -2806,68 +2818,149 @@ const DICTATION_COPY = {
   noStart: 'The microphone could not start. Please try again.',
   failed: 'Dictation could not be turned into text. Tap the microphone to try again.',
 };
+const DICTATION_MAX_SECONDS = 60;
+const DICTATION_MIME_TYPES = ['audio/webm;codecs=opus', 'audio/mp4', 'audio/webm', 'audio/ogg;codecs=opus'];
 const dictation = {
-  rec: null, clip: null, session: 0,
+  state: 'idle', notice: null, recognition: null, recording: null, session: 0,
+  // { card: id } or { bar: true }; the field and its mic are found from it whenever they are needed.
   target: null,
-  pressed(on) { (this.target || mr?.el?.querySelector('[data-m="mic"]'))?.setAttribute('aria-pressed', String(on)) },
-  write(field, prefix, text) { field.value = [prefix, text].filter(Boolean).join(' '); field.dispatchEvent(new Event('input', { bubbles: true })) },
+  field() {
+    const t = this.target; if (!t) return null;
+    if (t.bar) return mr?.el?.querySelector('.mr-ask') || null;
+    for (const host of document.querySelectorAll(`.mr-card[data-id="${CSS.escape(t.card)}"], .mr-sheet[data-id="${CSS.escape(t.card)}"]`)) { const f = host.querySelector('.mr-follow__input'); if (f) return f }
+    return null;
+  },
+  set(state, notice = this.notice) {
+    // The bar has no room for a line: what went wrong there is a toast, as before.
+    if (this.target?.bar && state === 'idle' && notice && notice !== this.notice) toast(notice);
+    this.state = state; this.notice = notice; this.paint();
+  },
+  /** The mic and the line under the field, drawn again from the state (after any card redraw too). */
+  paint() {
+    const t = this.target, live = this.state !== 'idle';
+    const mic = t?.bar ? mr?.el?.querySelector('[data-m="mic"]') : this.field()?.closest('.mr-follow')?.querySelector('[data-c="mic"]');
+    for (const b of document.querySelectorAll('[data-c="mic"], .mr-bar [data-m="mic"]')) if (b !== mic && b.getAttribute('aria-pressed') === 'true') { b.setAttribute('aria-pressed', 'false'); b.setAttribute('aria-label', 'Dictate a question'); b.disabled = false; b.innerHTML = TinctMargin.html.CARD_ICONS.mic }
+    document.querySelectorAll('.mr-dictation').forEach(n => { if (!mic || !n.parentElement?.contains(mic)) n.remove() });
+    if (!mic) return;
+    mic.setAttribute('aria-pressed', String(live));
+    mic.setAttribute('aria-label', live ? 'Stop dictation' : 'Dictate a question');
+    mic.disabled = this.state === 'transcribing';
+    const icon = live ? (TC?.ICONS.stop || TinctMargin.html.CARD_ICONS.mic) : TinctMargin.html.CARD_ICONS.mic;
+    if (mic.dataset.icon !== String(live)) { mic.dataset.icon = String(live); mic.innerHTML = icon }
+    // The line: in the card (or bottom card) below its follow-up line. The bar shows the state on its mic only.
+    if (t?.bar) return;
+    const host = mic.closest('.mr-follow')?.parentElement;
+    let line = host?.querySelector(':scope > .mr-dictation');
+    const text = this.state === 'listening' ? 'Listening — tap stop to finish' : this.state === 'idle' ? this.notice : null;
+    if (!live && !text) { line?.remove(); return }
+    if (!line && host) { line = document.createElement('p'); line.className = 'mr-status mr-dictation'; line.setAttribute('role', 'status'); host.append(line) }
+    if (!line || line.dataset.state === this.state + ':' + (text || '')) return;
+    line.dataset.state = this.state + ':' + (text || '');
+    line.replaceChildren();
+    if (this.state === 'starting' || this.state === 'transcribing') line.append(TinctWait.waitRing(this.state === 'starting' ? 'Starting microphone…' : 'Writing down what you said…', { size: 14, live: false }));
+    else line.textContent = text;
+  },
+  write(text) { const f = this.field(); if (!f) return; f.value = text; f.dispatchEvent(new Event('input', { bubbles: true })) },
   stop() {
     this.session++;
-    const r = this.rec; this.rec = null;
-    if (r) { r.onresult = r.onerror = r.onend = null; try { r.stop() } catch {} }
-    const c = this.clip; this.clip = null;
-    if (c) { clearTimeout(c.timer); c.recorder.onstop = null; try { if (c.recorder.state !== 'inactive') c.recorder.stop() } catch {} c.stream.getTracks().forEach(t => t.stop()); c.abort.abort() }
-    this.pressed(false);
+    const r = this.recognition; this.recognition = null;
+    if (r) { r.onstart = r.onresult = r.onerror = r.onend = null; try { r.stop() } catch { /* already stopped */ } }
+    const c = this.recording; this.recording = null;
+    if (c) {
+      if (c.timer) clearTimeout(c.timer);
+      c.recorder.ondataavailable = c.recorder.onstop = c.recorder.onerror = c.recorder.onstart = null;
+      try { if (c.recorder.state !== 'inactive') c.recorder.stop() } catch { /* already stopped */ }
+      c.stream.getTracks().forEach(t => t.stop()); c.abort.abort();
+    }
+    this.set('idle');
   },
-  toggle(field) {
-    if (this.rec) return this.stop();
-    if (this.clip) { if (this.clip.recorder.state === 'recording') { clearTimeout(this.clip.timer); this.clip.recorder.stop() } return }
-    const prefix = field.value.trim(), token = window.TinctAI?.session?.().token;
-    if (token && typeof MediaRecorder !== 'undefined' && navigator.mediaDevices?.getUserMedia) this.record(field, prefix); else this.recognise(field, prefix);
+  /** The mic in a card (`{ card: id }`) or the bar (`{ bar: true }`). */
+  toggle(target) {
+    const same = this.target && (target.bar ? this.target.bar : this.target.card === target.card);
+    if (!same && this.state !== 'idle') this.stop();
+    if (!same) { this.notice = null; this.paint() }
+    this.target = target;
+    if (this.recognition) return this.stop();
+    if (this.recording) {
+      // Recording: the mic finishes and sends. While it is being transcribed there is nothing more to finish.
+      if (this.recording.recorder.state === 'recording') this.finish();
+      return;
+    }
+    // The microphone is still being opened: tapping again cancels.
+    if (this.state === 'starting') return this.stop();
+    const prefix = (this.field()?.value || '').trim(), token = window.TinctAI?.session?.().token;
+    if (token && typeof MediaRecorder !== 'undefined' && navigator.mediaDevices?.getUserMedia) this.record(prefix); else this.recognise(prefix);
   },
-  async record(field, prefix) {
-    const session = ++this.session;
-    let stream;
-    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }) }
-    catch (e) { if (session === this.session) toast(e?.name === 'NotAllowedError' || e?.name === 'SecurityError' ? DICTATION_COPY.denied : DICTATION_COPY.noStart); return }
-    if (session !== this.session) { stream.getTracks().forEach(t => t.stop()); return }
-    let recorder;
+  finish() {
+    const c = this.recording; if (!c || c.recorder.state === 'inactive') return;
+    if (c.timer) { clearTimeout(c.timer); c.timer = null }
+    this.set('transcribing');
+    try { c.recorder.stop() } catch { this.stop(); this.set('idle', DICTATION_COPY.stopped) }
+  },
+  async transcribe(session, c, blob) {
+    const current = () => this.session === session;
+    const fail = message => { if (!current()) return; this.recording = null; this.set('idle', message) };
+    if (!blob.size) return fail(DICTATION_COPY.noSpeech);
     try {
-      const type = ['audio/webm;codecs=opus', 'audio/mp4', 'audio/webm', 'audio/ogg;codecs=opus'].find(t => { try { return MediaRecorder.isTypeSupported(t) } catch { return false } });
-      recorder = new MediaRecorder(stream, { ...(type ? { mimeType: type } : {}), audioBitsPerSecond: 32000 });
-    } catch { stream.getTracks().forEach(t => t.stop()); toast(DICTATION_COPY.noStart); return }
-    const clip = this.clip = { recorder, stream, chunks: [], abort: new AbortController(), timer: null };
-    recorder.ondataavailable = ev => { if (ev.data?.size) clip.chunks.push(ev.data) };
-    recorder.onstop = async () => {
-      stream.getTracks().forEach(t => t.stop());
-      if (session !== this.session) return;
-      this.clip = null; this.pressed(false);
-      const blob = new Blob(clip.chunks, { type: recorder.mimeType || 'audio/webm' });
-      if (!blob.size) { toast(DICTATION_COPY.noSpeech); return }
-      try {
-        const token = window.TinctAI?.session?.().token; if (!token) { toast(DICTATION_COPY.failed); return }
-        const form = new FormData(); form.append('language', 'en'); form.append('bookId', 'userbook-' + hexOf(state.key)); form.append('audio', blob, 'dictation');
-        const r = await fetch('/api/dictation', { method: 'POST', body: form, headers: { Authorization: 'Bearer ' + token }, signal: clip.abort.signal });
-        const data = await r.json().catch(() => ({}));
-        if (session !== this.session) return;
-        if (!r.ok || typeof data.text !== 'string') { toast(DICTATION_COPY.failed); return }
-        if (!data.text.trim()) { toast(DICTATION_COPY.noSpeech); return }
-        this.write(field, prefix, data.text.trim());
-      } catch { if (session === this.session) toast(DICTATION_COPY.failed) }
-    };
-    clip.timer = setTimeout(() => { if (this.clip === clip && recorder.state === 'recording') recorder.stop() }, 60000);
-    try { recorder.start(); this.pressed(true) } catch { this.stop(); toast(DICTATION_COPY.noStart) }
+      const token = window.TinctAI?.session?.().token;
+      if (!current()) return;
+      if (!token) return fail(DICTATION_COPY.failed);
+      // A reader's own file sends no vocabulary hints: its names stay on the device (as the book reader's).
+      const form = new FormData(); form.append('language', 'en'); form.append('bookId', 'userbook-' + hexOf(state.key)); form.append('audio', blob, 'dictation');
+      const internal = (() => { try { return localStorage.getItem('tinct:internal') === '1' ? { 'x-tinct-check': '1' } : {} } catch { return {} } })();
+      const r = await fetch('/api/dictation', { method: 'POST', body: form, headers: { ...internal, Authorization: 'Bearer ' + token }, signal: c.abort.signal });
+      const data = await r.json().catch(() => ({}));
+      if (!current()) return;
+      if (!r.ok || typeof data.text !== 'string') return fail(DICTATION_COPY.failed);
+      const text = data.text.trim();
+      if (!text) return fail(DICTATION_COPY.noSpeech);
+      this.recording = null;
+      this.write([c.prefix, text].filter(Boolean).join(' '));
+      this.set('idle');
+    } catch { fail(DICTATION_COPY.failed) }
   },
-  recognise(field, prefix) {
+  record(prefix) {
+    const session = ++this.session;
+    this.set('starting', null);
+    (async () => {
+      let stream;
+      try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }) }
+      catch (e) { if (this.session !== session) return; this.set('idle', e?.name === 'NotAllowedError' || e?.name === 'SecurityError' ? DICTATION_COPY.denied : DICTATION_COPY.noStart); return }
+      if (this.session !== session) { stream.getTracks().forEach(t => t.stop()); return }
+      let recorder;
+      try {
+        const type = DICTATION_MIME_TYPES.find(t => { try { return MediaRecorder.isTypeSupported(t) } catch { return false } });
+        recorder = new MediaRecorder(stream, { ...(type ? { mimeType: type } : {}), audioBitsPerSecond: 32000 });
+      } catch { stream.getTracks().forEach(t => t.stop()); this.set('idle', DICTATION_COPY.noStart); return }
+      const c = this.recording = { recorder, stream, chunks: [], timer: null, abort: new AbortController(), prefix };
+      recorder.ondataavailable = ev => { if (ev.data?.size) c.chunks.push(ev.data) };
+      recorder.onstart = () => { if (this.session === session) this.set('listening') };
+      recorder.onerror = () => { if (this.session !== session) return; this.stop(); this.set('idle', DICTATION_COPY.stopped) };
+      recorder.onstop = () => {
+        stream.getTracks().forEach(t => t.stop());
+        if (this.session !== session) return;
+        this.transcribe(session, c, new Blob(c.chunks, { type: recorder.mimeType || c.chunks[0]?.type || 'audio/webm' }));
+      };
+      c.timer = setTimeout(() => { if (this.session === session) this.finish() }, DICTATION_MAX_SECONDS * 1000);
+      try { recorder.start() } catch { this.stop(); this.set('idle', DICTATION_COPY.noStart) }
+    })();
+  },
+  recognise(prefix) {
     const R = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!R) { toast(DICTATION_COPY.unavailable); return }
+    if (!R) { this.set('idle', DICTATION_COPY.unavailable); return }
     this.session++;
-    const rec = this.rec = new R();
+    const rec = this.recognition = new R();
     rec.continuous = true; rec.interimResults = true; rec.lang = navigator.language || 'en-US';
-    rec.onresult = ev => { if (this.rec === rec) this.write(field, prefix, [...ev.results].map(x => x[0].transcript.trim()).filter(Boolean).join(' ')) };
-    rec.onerror = ev => { if (this.rec !== rec) return; toast(ev.error === 'not-allowed' || ev.error === 'service-not-allowed' ? DICTATION_COPY.denied : ev.error === 'no-speech' ? DICTATION_COPY.noSpeech : DICTATION_COPY.stopped); this.stop() };
-    rec.onend = () => { if (this.rec === rec) this.stop() };
-    try { rec.start(); this.pressed(true) } catch { this.stop(); toast(DICTATION_COPY.noStart) }
+    this.set('starting', null);
+    rec.onstart = () => { if (this.recognition === rec) this.set('listening') };
+    rec.onresult = ev => { if (this.recognition === rec) this.write([prefix, [...ev.results].map(x => x[0].transcript.trim()).filter(Boolean).join(' ')].filter(Boolean).join(' ')) };
+    rec.onerror = ev => {
+      if (this.recognition !== rec) return;
+      const notice = ev.error === 'not-allowed' || ev.error === 'service-not-allowed' ? DICTATION_COPY.denied : ev.error === 'no-speech' ? DICTATION_COPY.noSpeech : DICTATION_COPY.stopped;
+      this.stop(); this.set('idle', notice);
+    };
+    rec.onend = () => { if (this.recognition === rec) this.stop() };
+    try { rec.start() } catch { this.stop(); this.set('idle', DICTATION_COPY.noStart) }
   },
 };
 
@@ -2881,7 +2974,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261016round4').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261019polish').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -3242,12 +3335,12 @@ function marginStart() {
     el.innerHTML = '<button type="button" class="mr-stack" data-c="stack" hidden></button>';
     col.stack = el.querySelector('.mr-stack');
     bindCardEvents(el);
-    // One scroll surface (Anders, 15 Oct): the wheel over the column scrolls the pages, unless a card's own body can scroll that way.
+    // One scroll surface (Anders, 15 Oct): the wheel over the column scrolls the pages, unless it is over a card's own
+    // scrolling body. Over an open card's body, Chat or Before you start that scrolls, it never reaches the pages, even
+    // at its end (Anders, 19 Oct 2026: "if you scroll the chat … and the chat is at the bottom, it starts scrolling the
+    // reading feed"); the pages scroll from the folded cards and the empty column.
     el.addEventListener('wheel', e => {
-      if (e.ctrlKey || !$('scroll')) return;
-      for (let n = e.target; n && n !== el; n = n.parentElement) {
-        if (n.scrollHeight - n.clientHeight > 1 && /(auto|scroll)/.test(getComputedStyle(n).overflowY) && (e.deltaY < 0 ? n.scrollTop > 0 : n.scrollTop + n.clientHeight < n.scrollHeight - 1)) return;
-      }
+      if (e.ctrlKey || !$('scroll') || ownScroll(e.target, el)) return;
       $('scroll').scrollBy({ top: e.deltaY * (e.deltaMode === 1 ? 16 : 1), left: e.deltaX * (e.deltaMode === 1 ? 16 : 1) });
     }, { passive: true });
     col.leads = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -3266,6 +3359,23 @@ function marginStart() {
   col.mode = null; col.open = null;
   marginLayout({ fresh: true });
 }
+/** A scrolling body (overflow auto or scroll, taller than its box) of an open card, Chat or the primer, at or above `target`, below `stop`. */
+function ownScroll(target, stop = null) {
+  for (let n = target; n && n !== stop && n !== document.body; n = n.parentElement) {
+    if (n.scrollHeight - n.clientHeight > 1 && /(auto|scroll)/.test(getComputedStyle(n).overflowY) && n.closest('.mr-card.is-open, .mr-primer, .mr-sheet, .mr-float')) return n;
+  }
+  return null;
+}
+/* A touch drag inside such a body never moves the page behind it, on iOS Safari too (overscroll-behavior covers
+   only what it can: a drag that starts at the body's end is chained by older WebKit). Only at an end, and only in
+   the direction the body cannot go; the bottom card's swipes on its handle and label are not bodies. */
+const touchHold = { body: null, y: 0 };
+document.addEventListener('touchstart', e => { touchHold.body = e.touches.length === 1 ? ownScroll(e.target) : null; touchHold.y = e.touches[0]?.clientY || 0 }, { passive: true, capture: true });
+document.addEventListener('touchmove', e => {
+  const b = touchHold.body; if (!b || e.touches.length !== 1 || !e.cancelable) return;
+  const y = e.touches[0].clientY, down = y > touchHold.y; touchHold.y = y;
+  if ((down && b.scrollTop <= 0) || (!down && b.scrollTop + b.clientHeight >= b.scrollHeight - 1)) e.preventDefault();
+}, { passive: false, capture: true });
 function marginStop() {
   for (const c of col.ctl.values()) c.abort();
   col.ctl.clear(); col.live.clear(); col.pending.clear(); col.quiz.clear();
@@ -3290,7 +3400,7 @@ function reserveColumn(on) {
 function marginLayout({ fresh = false } = {}) {
   if (fresh) col.view = null;
   if (col.raf) return;
-  col.raf = requestAnimationFrame(() => { col.raf = 0; try { layoutNow() } catch (e) { console.error(e) } });
+  col.raf = requestAnimationFrame(() => { col.raf = 0; try { layoutNow() } catch (e) { console.error(e) } primerPrefetch() });
 }
 function viewCards() {
   // An EPUB's text reflows (zoom, width), so its cards and noted highlights are measured from their
@@ -3381,6 +3491,39 @@ function cardHtmlSafe(card, open) {
       + `<div class="mr-card__body">${paras ? `<div class="mr-answer">${paras}</div>` : ''}${o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : o.live === '' ? '<div class="mr-wait"></div>' : ''}<div class="mr-card__acts"><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">${TinctMargin.html.CARD_ICONS?.trash || "×"}</button></div></div>`;
   }
 }
+/**
+ * The wait before an answer's first word, in the margin's cards, Chat and Before you start: the book reader's chat
+ * dots (chat-thread.js WAIT_HTML, styled in margin.css as chat-thread.css styles them), not the ring (Anders,
+ * 19 Oct 2026: "I like the dots a lot more that we have in normal reader interface").
+ */
+const WAIT_DOTS = '<span class="tc-wait" role="status" aria-label="Answer on the way"><i></i><i></i><i></i></span>';
+function waitDots() { const t = document.createElement('template'); t.innerHTML = TC?.WAIT_HTML || WAIT_DOTS; return t.content.firstChild }
+/*
+ * A question sent in Chat or as a card's follow-up (Anders, 19 Oct 2026: "it doesn't take you down to your last
+ * question. It sort of starts at the top"): as the book reader's chat does (chat-thread.js questionTop and
+ * fitSpacer, LabAskPane / this file's holdQuestion), the thread scrolls once so the question sits near the top of
+ * the body, with a little of what came before above it, and the answer grows below it; writing space under the
+ * question (.tc-spacer) lets it get there while the answer is short. After that nothing moves: each redraw keeps the
+ * body where the reader has it, so a reader who scrolled up is never pulled back. A body that does not scroll yet
+ * shows everything and needs no hold; the question is placed the first time the thread outgrows it.
+ * hold: { turn (the question's turn index, [data-turn]), place (not yet placed) }; kept: the body's scrollTop before
+ * the redraw (null when it was not drawn before). -> true when a question is held.
+ */
+const holds = new Map();
+function holdThread(body, hold, kept) {
+  const row = hold && TC && body.querySelector(`[data-turn="${hold.turn}"]`);
+  if (!row) return false;
+  let space = body.querySelector(':scope > .tc-spacer');
+  if (!space) { space = document.createElement('div'); space.className = 'tc-spacer'; space.setAttribute('aria-hidden', 'true'); body.append(space) }
+  space.style.height = '0px';
+  if (body.scrollHeight - body.clientHeight <= 1 && hold.place) return true;
+  const top = TC.questionTop(body, row);
+  TC.fitSpacer(body, top);
+  if (hold.place) { hold.place = false; body.scrollTop = top }
+  else if (kept != null) body.scrollTop = kept;
+  return true;
+}
+const bodyTop = el => { const b = el?.querySelector('.mr-card__body'); return b ? b.scrollTop : null };
 /** Draw a card into `el` when what it shows changed; true when it was drawn again. */
 function drawCard(el, card, open) {
   card = quizLive(card);
@@ -3391,22 +3534,30 @@ function drawCard(el, card, open) {
   if (card.kind === 'note') el.style.setProperty('--hl-color', (HL_COLORS.find(c => c[0] === card.color) || HL_COLORS[0])[3]);
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
-  const before = card.kind === 'quiz' && open ? el.offsetHeight : 0;
+  const before = card.kind === 'quiz' && open ? el.offsetHeight : 0, kept = open ? bodyTop(el) : null;
   el.innerHTML = cardHtmlSafe(card, open);
   if (card.kind === 'quiz') holdQuizHeight(el, before);
+  keepThread(el, card.id, kept);
   if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   if (open) { el.setAttribute('role', 'region'); el.setAttribute('aria-label', cardName(card)) } else { el.removeAttribute('role'); el.removeAttribute('aria-label') }
   const live = col.live.get(card.id);
   if (open && live && !live.status) el.setAttribute('aria-busy', 'true'); else el.removeAttribute('aria-busy');
   if (open && ((live && !live.text && !live.status) || col.pending.has(card.id))) {
-    const ring = TinctWait.waitRing('Thinking…', { size: 18 }), slot = el.querySelector('.mr-wait');
-    if (slot) slot.append(ring); else el.querySelector('.mr-card__body')?.append(ring);
+    const dots = waitDots(), slot = el.querySelector('.mr-wait');
+    if (slot) slot.append(dots); else el.querySelector('.mr-card__body')?.append(dots);
   }
   const f = el.querySelector('.mr-follow__input');
   if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
   restoreDraft(f, card.id);
   if (f && focused) f.focus({ preventScroll: true });
+  if (dictation.target) dictation.paint();
   return true;
+}
+/** A card drawn again: its follow-up held near the top (holdThread), else its body where the reader had it. */
+function keepThread(el, id, kept) {
+  const body = el.querySelector('.mr-card__body'); if (!body) return;
+  // The card's thread is laid out before it is measured (the column places the card after this).
+  if (!holdThread(body, holds.get(id), kept) && kept != null) body.scrollTop = kept;
 }
 /** A quiz answer whose marking failed goes back into the card's field (once). */
 function restoreDraft(f, id) {
@@ -3457,7 +3608,7 @@ function layoutNow() {
     m.setAttribute('aria-expanded', String(g.cards.some(c => c.card.id === col.open)));
   }
   col.marks.querySelectorAll('.mr-mark:not([data-primer])').forEach(m => { if (!seen.has(m.dataset.id)) m.remove() });
-  if (mode === 'marks') { placeFloat(vis.find(v => v.card.id === col.open)); const pr = pageRightNow(); primerMark(pr); placePrimerFloat(pr); return }
+  if (mode === 'marks') { placeFloat(vis.find(v => v.card.id === col.open)); const pr = pageRightNow(); primerMark(pr); placePrimerFloat(pr, { anchored: true }); return }
   col.marks.querySelector('.mr-mark[data-primer]')?.remove();
   // The phone: the trigger is the bottom card at a unit's start, until the reader closes it there or selects text.
   const trig = triggerUnit(), sheetId = col.sheet?.dataset.id;
@@ -3582,7 +3733,7 @@ function openCard(id, { focus = false } = {}) {
   const mode = marginMode();
   // One open at a time: a card opening folds the primer back to its trigger.
   if (id && primer.open) { primer.open = false; primer.token++; primer.el?.remove(); primer.el = null }
-  if (col.open && col.open !== id) dropEmptyFigure(col.open);
+  if (col.open && col.open !== id) { dropEmptyFigure(col.open); holds.delete(col.open) }
   col.open = id || null;
   if (id === 'whole') col.whole.page = state.pages.length ? placePage() : null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
@@ -3703,16 +3854,18 @@ function drawSheet() {
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
   el.dataset.sig = sig;
-  const before = card.kind === 'quiz' ? el.offsetHeight : 0;
+  const before = card.kind === 'quiz' ? el.offsetHeight : 0, keptTop = bodyTop(el);
   el.innerHTML = TinctMargin.html.sheetHtml(cardHtmlSafe(card, true));
   if (card.kind === 'quiz') holdQuizHeight(el, before);
+  keepThread(el, card.id, keptTop);
   if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   const live = col.live.get(card.id);
-  if ((live && !live.text && !live.status) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(TinctWait.waitRing('Thinking…', { size: 18 }));
+  if ((live && !live.text && !live.status) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(waitDots());
   const f = el.querySelector('.mr-follow__input');
   if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
   restoreDraft(f, card.id);
   if (f && focused) f.focus({ preventScroll: true });
+  if (dictation.target) dictation.paint();
   // The card grew (its answer arrived): the passage moves up to stay just above it.
   const h = el.offsetHeight;
   if (h !== Number(el.dataset.h || 0)) { el.dataset.h = h; requestAnimationFrame(passageAboveSheet) }
@@ -3731,7 +3884,8 @@ function closeSheet2() {
 }
 function sheetSwipe(el) {
   let y0 = null, full = false;
-  el.addEventListener('pointerdown', e => { if (e.target.closest('textarea, a, .mr-card__body button, .mr-follow')) return; y0 = e.clientY; full = el.classList.contains('is-full') });
+  // A drag in a body that scrolls is the body's (as the browser's pan always made it), never the card's.
+  el.addEventListener('pointerdown', e => { if (e.target.closest('textarea, a, .mr-card__body button, .mr-follow') || ownScroll(e.target, el.parentElement)) return; y0 = e.clientY; full = el.classList.contains('is-full') });
   el.addEventListener('pointerup', e => {
     if (y0 == null) return;
     const dy = e.clientY - y0; y0 = null;
@@ -3791,19 +3945,25 @@ function drawWhole(el, { sheet = false } = {}) {
   el.innerHTML = sheet ? TinctMargin.html.sheetHtml(inner) : inner;
   const b = el.querySelector('.mr-card__body');
   if (b) {
-    if (chat.live && !chat.live.text) b.append(TinctWait.waitRing('Thinking…', { size: 18 }));
-    // The thread opens at its end; while an answer arrives it stays where the reader put it.
-    b.scrollTop = !kept || kept.end ? b.scrollHeight : kept.top;
+    if (chat.live && !chat.live.text) b.append(waitDots());
+    // A question just sent is held near the top while its answer grows below (holdThread); otherwise the thread
+    // opens at its end, and while an answer arrives it stays where the reader put it.
+    const hold = chat.anchor != null ? { turn: chat.anchor, place: chat.placeAnchor } : null;
+    if (holdThread(b, hold, kept ? kept.top : null)) chat.placeAnchor = hold.place;
+    else b.scrollTop = !kept || kept.end ? b.scrollHeight : kept.top;
   }
   el.querySelectorAll('[data-rm]').forEach(x => x.onclick = () => { chat.attach.splice(Number(x.dataset.rm), 1); marginLayout() });
   const f = el.querySelector('.mr-follow__input');
   if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
   if (f && focused) f.focus({ preventScroll: true });
+  if (dictation.target) dictation.paint();
 }
 function trayChips() { return chat.attach.map((a, i) => `<span class="byob-chip">${a.thumb ? `<img src="${a.thumb}" alt="">` : '<i>Snip</i>'}<span class="byob-chip-label">${a.snip ? `${KIND[a.kind] || 'Snip'} · p. ${a.page}` : 'Image'}</span><button type="button" aria-label="Remove image" data-rm="${i}">×</button></span>`).join('') }
 /** Chat about the whole file (the t menu's Chat, or the slash key): its card opens; a question goes to today's ask. */
 function openWhole(opts = {}) {
   loadTurns();
+  // Opened: no question is held (the thread opens at its end); a question asked now is held (ask).
+  if (col.open !== 'whole') { chat.anchor = null; chat.placeAnchor = false; chat.pinTop = null }
   col.whole.page = state.pages.length ? placePage() : null;
   if (opts.passage) chat.passage = opts.passage;
   if (opts.explanation) {
@@ -3857,7 +4017,7 @@ function bindCardEvents(host) {
     if (c === 'open') { openCard(id); if (keyed) refocus(`.mr-card.is-open[data-id="${CSS.escape(id)}"] .mr-card__close`); return }
     if (c === 'close') { if (host === col.sheet) closeSheet2(); else { openCard(null); if (keyed && id) refocus(`.mr-col .mr-card[data-id="${CSS.escape(id)}"] .mr-card__label`) } return }
     if (c === 'grab') { col.sheet?.classList.toggle('is-full'); return }
-    if (c === 'mic') { const f = b.closest('.mr-follow')?.querySelector('.mr-follow__input'); if (f) { dictation.target = b; dictation.toggle(f) } return }
+    if (c === 'mic') { const cid = b.closest('[data-id]')?.dataset.id; if (cid && b.closest('.mr-follow')?.querySelector('.mr-follow__input')) dictation.toggle({ card: cid }); return }
     if (c === 'copy') return copyCard(id);
     if (c === 'delete') return deleteCard(id);
     if (c === 'show' || c === 'next' || c === 'again') return quizStep(id, c);
@@ -3886,6 +4046,7 @@ function followUp(id, text) {
     saveCard(ask_); openCard(ask_.id); runCard(ask_.id, text); return;
   }
   card.turns = [...(card.turns || []), { role: 'user', content: text, at: Date.now() }];
+  holds.set(card.id, { turn: card.turns.length - 1, place: true });
   saveCard(card); runCard(card.id, text);
 }
 async function copyCard(id) {
@@ -4271,6 +4432,19 @@ $('scroll').addEventListener('scroll', () => { if (col.mode) marginLayout() }, {
 addEventListener('resize', () => { if (marginOn()) marginLayout({ fresh: true }) });
 // Tapping the page closes the phone's bottom card.
 document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() === 'phone' && !e.target.closest?.('.mr-sheet, .mr-float, .lab-header, .byob-toast')) { const u = currentUnit(); if (u) primer.away.add(u.key); closeSheet2() } }, true);
+/* A click outside an open margin card folds it (Anders, 19 Oct 2026: "when you click outside a margin note (Explain,
+   etc.) it should minimize"): on the page's text (a new selection still gets its bar), the empty margin, anywhere
+   else. Folded, it is the card's folded form in its place with its leader line (or its mark), one click from open;
+   nothing is deleted, and an answer still on its way keeps coming (runCard) and shows when it is opened again. Not
+   a click in the card, its follow-up line, the selection's bar or menus, a mark or another card (they open their
+   own), the top bar, a toast or a dialog. Chat (the whole file's) keeps its own panel and rules; the phone's bottom
+   card closes as above. Escape folds it too (the keys, below). */
+document.addEventListener('pointerdown', e => {
+  const mode = marginMode();
+  if (!col.open || col.open === 'whole' || !mode || mode === 'phone' || e.button > 0) return;
+  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
+  openCard(null);
+}, true);
 // "/" opens Chat (about the whole PDF), its field ready; Escape folds the open card (after the bar and its menus).
 addEventListener('keydown', e => {
   if (!marginOn() || !readerShown() || e.defaultPrevented) return;
@@ -4295,11 +4469,11 @@ addEventListener('keydown', e => {
    whole file without an outline (TinctMargin.primerUnits). At a unit's start the margin offers
    the trigger: the column's first folded card (desktop), a mark at the page's edge (narrow
    windows), the bottom card (phone). Clicking it, or B, opens the primer in its place; closing
-   folds it back. The primer is made only when the reader opens it (chapter action `primer`), kept
+   folds it back. The primer is made ahead as the PDF opens (signed in, primerPrefetch) or when the reader opens it (chapter action `primer`), kept
    in this browser ('primer:{key}:{unit}') and, signed in with the book in the account, with the
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
-const primer = { units: null, unitsTask: null, open: false, from: null, box: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
+const primer = { units: null, unitsTask: null, open: false, from: null, box: null, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
 const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
 function primerReset() {
   primer.token++;
@@ -4363,6 +4537,7 @@ async function loadUnitsNow() {
   kinds.forEach((kind, i) => { if (kind) units[i].matter = kind === 'contents' ? 'front' : 'back' });
   primer.units = units;
   marginLayout();
+  primerPrefetch();
 }
 const placePage = () => (state.pages.length ? currentPlace().page : 1);
 // The chapter the reader is in when they open Before you start; on front or back matter, the nearest real chapter.
@@ -4417,7 +4592,7 @@ const PRIMER_SLOW = 'Before you start is taking too long. Try again.';
 const primerMaking = new Map();
 // A cut-off primer is asked for once more, as one that does not parse.
 const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed', 'cut_off']);
-function makePrimer(unit) {
+function makePrimer(unit, { speculative = false } = {}) {
   const id = primerKey(unit);
   if (primerMaking.has(id)) return primerMaking.get(id);
   const key = state.key;
@@ -4429,7 +4604,7 @@ function makePrimer(unit) {
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal, retry: false });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal, retry: false, speculative });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
@@ -4453,7 +4628,39 @@ function makePrimer(unit) {
   primerMaking.set(id, made);
   return made;
 }
-/** The primer for `unit`: kept here, else the account's, else made now (only when opened). Redo makes a new one. */
+/**
+ * Made ahead (Anders, 19 Oct 2026: "we should load the before you read right away … they click it and it's right
+ * there"): once the document's text and units are ready, the primer of the unit at the reader's place is made in
+ * the background, once per open, signed in only (as the book reader fetches Explain ahead only for a signed-in
+ * reader), and never when it is kept here or with the book already: a book's unit is made at most once. It goes as
+ * `speculative`, which the Worker never charges to the reader's allowance (metered as Tinct's own cost, as a
+ * speculative Explain is); opening it then shows it at once, and opening it while it is still being made waits for
+ * that same request (makePrimer), so nothing is made twice.
+ */
+const PRIMER_PREFETCH_MS = 1200;
+// key: the open it ran for; done: it has finished (made, found, or nothing to do).
+const primerAhead = { key: null, timer: 0, done: false };
+function primerPrefetch() {
+  if (state.kind !== 'pdf' || !primer.units || !primerHasText() || !window.TinctAI?.session?.().token) return;
+  const open = state.key + '#' + state.token;
+  if (primerAhead.key === open) return;
+  Object.assign(primerAhead, { key: open, done: false });
+  clearTimeout(primerAhead.timer);
+  primerAhead.timer = setTimeout(async () => {
+    try {
+      const key = state.key, unit = currentUnit();
+      if (!unit || state.key + '#' + state.token !== open) return;
+      const id = primerKey(unit);
+      if (store.get(id) || primerMaking.has(id)) return;
+      const remote = await primerRemote('GET', unit);
+      if (state.key !== key) return;
+      if (remote) { store.set(id, remote); return }
+      if (store.get(id) || primerMaking.has(id)) return;
+      await makePrimer(unit, { speculative: true }).catch(() => { /* opened later, it is made then */ });
+    } finally { if (primerAhead.key === open) primerAhead.done = true }
+  }, PRIMER_PREFETCH_MS);
+}
+/** The primer for `unit`: kept here, else the account's, else made now (made ahead on open: primerPrefetch). Redo makes a new one. */
 async function loadPrimer(unit, { redo = false } = {}) {
   const token = ++primer.token, key = state.key;
   const live = () => token === primer.token && state.key === key && primer.open && primer.unit?.key === unit.key;
@@ -4525,7 +4732,7 @@ function drawPrimer(el, { sheet = false } = {}) {
   const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title', unit });
   if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
   else el.innerHTML = inner;
-  if (primer.wait) el.querySelector('.mr-wait')?.append(TinctWait.waitRing('Thinking…', { size: 18, live: false }));
+  if (primer.wait) el.querySelector('.mr-wait')?.append(waitDots());
   if (primer.keyed) { primer.keyed = false; const close = el.querySelector('.mr-primer__close'); close?.focus({ preventScroll: true }); requestAnimationFrame(() => { if (close?.isConnected && !el.contains(document.activeElement)) close.focus({ preventScroll: true }) }) }
 }
 function primerEl() {
@@ -4547,11 +4754,18 @@ function primerInColumn() {
   const el = primerEl(), fresh = el.parentElement !== col.el;
   el.classList.remove('is-floating');
   if (fresh) { el.removeAttribute('style'); col.el.insertBefore(el, col.el.firstChild) }
+  const colH = col.el.clientHeight, colTop = col.el.getBoundingClientRect().top;
+  // Placed once when it opens, at a point on the pages; later layouts (a scroll, a resize) keep it at that
+  // point, so it scrolls away with the page as a card does, and its height stays.
+  if (!primer.box || fresh) { primer.box = TinctMargin.primerBox(primer.from, colH); primer.anchor = pagePoint(colTop + primer.box.top) }
+  const height = Math.max(0, colH - TinctMargin.PRIMER.bottom - primer.box.top), at = pointOnPages(primer.anchor);
+  const top = at == null ? primer.box.top : Math.round(at - colTop);
+  // Scrolled out of the column: it waits there (still open) and the cards have the column.
+  if (top + height <= 0 || top >= colH) { el.style.display = 'none'; return false }
+  el.style.display = '';
   drawPrimer(el);
-  const colH = col.el.clientHeight;
-  // Placed once when it opens; later layouts (a resize) keep its top and fit its height.
-  if (!primer.box || fresh) primer.box = TinctMargin.primerBox(primer.from, colH);
-  const top = primer.box.top, height = Math.max(0, colH - TinctMargin.PRIMER.bottom - top);
+  // Above the column's top it goes under the top bar, never over it.
+  el.style.clipPath = top < 0 ? `inset(${-top}px -60px -60px -60px)` : '';
   const still = !fresh || !primer.box.start || matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (still) { if (!el.classList.contains('is-growing')) Object.assign(el.style, { top: top + 'px', bottom: 'auto', height: height + 'px' }); return true }
   // From the trigger's box to the open primer's, in one easing.
@@ -4566,6 +4780,18 @@ function primerInColumn() {
   const onEnd = e => { if (e.target === el && e.propertyName === 'height') done() };
   el.addEventListener('transitionend', onEnd); setTimeout(done, 450);
   return true;
+}
+/** A point on the pages at viewport height `y`: { n, frac } of that page's height (the page there, or the nearest). */
+function pagePoint(y) {
+  if (!state.pages.length) return null;
+  const p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > y) || state.pages[state.pages.length - 1], r = p.pg.getBoundingClientRect();
+  return r.height ? { n: p.n, frac: (y - r.top) / r.height } : null;
+}
+/** Where a point on the pages (pagePoint) is now, in viewport pixels; null when it is unknown. */
+function pointOnPages(a) {
+  const p = a && state.pages[a.n - 1]; if (!p) return null;
+  const r = p.pg.getBoundingClientRect();
+  return r.top + a.frac * r.height;
 }
 /** The first line of text on a page, as a fraction of its height (from its text layer), kept once found. */
 const firstLineFrac = new Map();
@@ -4597,16 +4823,23 @@ function triggerInColumn(colTop) {
   return { top: line - colTop, height: b.offsetHeight };
 }
 /** Narrow windows: the primer floats beside the page, as a card opened from a mark does. */
-function placePrimerFloat(pageRight) {
+function placePrimerFloat(pageRight, { anchored = false } = {}) {
   if (!primer.open) { if (primer.el?.classList.contains('is-floating')) { primer.el.remove(); primer.el = null } return }
-  const el = primerEl();
-  if (el.parentElement !== root) root.appendChild(el);
+  const el = primerEl(), fresh = el.parentElement !== root;
+  if (fresh) root.appendChild(el);
   el.classList.add('is-floating');
   drawPrimer(el);
   const hdr = $('hdr').getBoundingClientRect().bottom, x = pageRight + TinctMargin.COL.dot;
   el.style.left = (x + 14 + 380 <= innerWidth - 16 ? x + 14 : Math.max(16, x - 14 - 380)) + 'px';
-  el.style.top = hdr + 16 + 'px';
   el.style.maxHeight = Math.max(160, innerHeight - hdr - 32) + 'px';
+  if (!anchored) { el.style.display = ''; el.style.top = hdr + 16 + 'px'; return }
+  // Narrow windows: it opens below the top bar at a point on the pages and scrolls away with them, as a card does.
+  if (fresh || !primer.anchor) primer.anchor = pagePoint(hdr + 16);
+  const at = pointOnPages(primer.anchor), top = at == null ? hdr + 16 : Math.round(at);
+  el.style.top = top + 'px';
+  const gone = top >= innerHeight || top + el.offsetHeight <= hdr;
+  el.style.display = gone ? 'none' : '';
+  el.style.clipPath = top < hdr ? `inset(${hdr - top}px -60px -60px -60px)` : '';
 }
 /** Narrow windows: the trigger is a mark level with the unit's first page's top. -> the mark, or null */
 function primerMark(pageRight) {

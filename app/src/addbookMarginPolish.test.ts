@@ -272,8 +272,10 @@ describe('7. Before you start opens in place', () => {
     expect(M.primerBox(null, 800)).toEqual({ start: null, top: 16, height: 800 - 70 - 16 })
   })
   it('the height eases; with reduced motion it is there at once', () => {
-    expect(css).toContain('.mr-col .mr-primer { transition: top .28s ease, height .28s ease, background-color .2s ease, box-shadow .2s ease; }')
-    expect(css).toContain('@media (prefers-reduced-motion: reduce) { .mr-col .mr-primer { transition: none; } }')
+    // Only while it opens (19 Oct 2026): after that it moves with the pages, never easing behind them.
+    expect(css).toContain('.mr-col .mr-primer.is-opening { transition: top .28s ease, height .28s ease, background-color .2s ease, box-shadow .2s ease; }')
+    expect(css).not.toMatch(/\.mr-col \.mr-primer \{ transition: top/)
+    expect(css).toContain('@media (prefers-reduced-motion: reduce) { .mr-col .mr-primer, .mr-col .mr-primer.is-opening { transition: none; } }')
     expect(reader).toContain("const still = !fresh || !primer.box.start || matchMedia('(prefers-reduced-motion: reduce)').matches;")
     expect(reader).toContain('primer.from = t ? { top: t.offsetTop, height: t.offsetHeight } : null;')
   })

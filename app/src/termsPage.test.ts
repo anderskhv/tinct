@@ -78,7 +78,7 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 17 October 2026')
+    expect(privacy).toContain('Last updated: 19 October 2026')
     // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
     expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
@@ -119,7 +119,7 @@ describe('own books and the AI features', () => {
 
   // Before you start on an own PDF (margin reader primer, 14 Oct 2026): what is sent, where the overview is kept, when it goes.
   it('privacy: Before you start sends the unit\'s text, keeps the overview with the book, and deletes it with the book and the account', () => {
-    expect(privacyText).toContain('For Before you start on a PDF you added, the text of the chapter or section you open it on (or of the whole file if it has no contents list) is sent the same way, and the overview is kept with the book so it is not made again: in your browser and, if the book is in your account, privately in your account, only for you, until you redo it or remove the book.')
+    expect(privacyText).toContain('For Before you start on a PDF you added, the text of the chapter or section you are reading (or of the whole file if it has no contents list) is sent the same way: if you are signed in, automatically as soon as you open the PDF, so the overview is ready when you tap it, and otherwise when you open Before you start. The overview is kept with the book so it is not made again: in your browser and, if the book is in your account, privately in your account, only for you, until you redo it or remove the book.')
     expect(privacyText).toContain('the PDF and EPUB files you added and any audio, recaps and recognised text made from them, the Before you start overviews made of them, analytics and usage records')
   })
 

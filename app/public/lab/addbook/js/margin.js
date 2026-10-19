@@ -568,6 +568,13 @@
     const fence = /^\s*```[^\n]*\n([\s\S]*?)\n?```\s*$/.exec(b);
     return fence ? `<pre>${esc(fence[1])}</pre>` : `<p>${inlineHtml(b.trim(), P, resolve)}</p>`;
   }
+  /**
+   * A reply in a conversation (Chat, and a card's follow-ups): plain paragraphs, no bold bottom line, as the book
+   * reader's chat shows its answers (Anders, 19 Oct 2026: a follow-up's first sentence came out bold up to a quote).
+   */
+  function replyHtml(text, P, { resolve = null } = {}) {
+    return blocksOf(text).map(b => blockHtml(b, P, resolve)).join('');
+  }
   /** An answer with its bottom line (the first sentence of the first paragraph) in weight 600; the rest of that paragraph runs on. */
   function answerHtml(text, P, { resolve = null, prefixes } = {}) {
     const blocks = blocksOf(text);
@@ -771,10 +778,13 @@
     // Never a sentence about the passage picture (full battery on train 3), except in a figure's card, whose picture is its subject.
     // Explain never shows its template lines, "no notation here" or "the passage is cut off" (recheck-1, 16 Oct).
     // No answer refers to its own earlier replies, and Counterpoint has no "strongest objection … author's best reply" template (16 Oct).
-    const clean = text => cleanAnswer(card.kind, text, P);
+    // Only the card's own answer (its first) gets the card's treatment; a follow-up's reply is a chat reply: Chat's
+    // cleanup (never the Explain opening's selection stripping) and plain paragraphs (Anders, 19 Oct 2026).
+    const lead = turns.findIndex(t => t.role !== 'user');
+    const clean = (text, k) => cleanAnswer(k === lead ? card.kind : 'chat', text, P);
     turns.forEach((t0, k) => {
-      const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content) };
-      if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
+      const t = t0.role === 'user' ? t0 : { ...t0, content: clean(t0.content, k) };
+      if (t.role === 'user') { if (card.kind === 'ask' || card.kind === 'figure' || k > 0) body += `<div class="mr-you" data-turn="${k}">${esc(t.display || t.content)}</div>`; if (t.failed) body += `<p class="mr-status">${esc(t.failed)}</p>`; return }
       answered = true;
       if (card.kind === 'factcheck' && k <= 1) { const f = factcheckHtml(t.content, P, { resolve: o.resolve, live: o.live != null && k === turns.length - 1 }); body += f.answer + f.sources }
       else if (card.kind === 'related' && k === 0 && P.parseRelated) body += relatedHtml(t.content, P, { resolve: o.resolve, place: o.place });
@@ -785,7 +795,7 @@
         if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
         else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }
-      else body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
+      else body += `<div class="mr-answer">${(k === lead ? answerHtml : replyHtml)(t.content, P, { resolve: o.resolve })}</div>`;
     });
     body += status;
     return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml();
@@ -812,8 +822,9 @@
     return rows.map(row => {
       if (row.type === 'divider') return `<p class="mr-divider">${esc(row.label)}</p>`;
       const t = turns[row.index]; if (!t) return '';
-      if (t.role === 'user') return (t.quote ? `<div class="mr-quote">${esc(cut(t.quote))}</div>` : '') + (t.extra || '') + `<div class="mr-you">${esc(t.text)}</div>` + (t.note ? `<p class="mr-status">${esc(t.note)}</p>` : '');
-      return t.text ? `<div class="mr-answer">${answerHtml(cleanAnswer('chat', t.text, o.P), o.P, { resolve: o.resolve })}</div>` : '';
+      // data-turn: the question's first piece, which the thread holds near its top once it is sent (reader.js holdThread).
+      if (t.role === 'user') return (t.quote ? `<div class="mr-quote" data-turn="${row.index}">${esc(cut(t.quote))}</div>` : '') + (t.extra || '') + `<div class="mr-you" data-turn="${row.index}">${esc(t.text)}</div>` + (t.note ? `<p class="mr-status">${esc(t.note)}</p>` : '');
+      return t.text ? `<div class="mr-answer">${replyHtml(cleanAnswer('chat', t.text, o.P), o.P, { resolve: o.resolve })}</div>` : '';
     }).join('');
   }
   /**
@@ -1448,7 +1459,7 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
+  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
   return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

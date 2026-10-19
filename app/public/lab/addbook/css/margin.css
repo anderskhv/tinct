@@ -486,9 +486,31 @@ button.mr-related__row:hover .mr-related__line { text-decoration: underline; tex
 .mr-cover[hidden] { display: none; }
 .mr-col.is-reader > * { pointer-events: auto; }
 /* Before you start opens in place: the trigger's box grows into the primer, its height easing down. */
-.mr-col .mr-primer { transition: top .28s ease, height .28s ease, background-color .2s ease, box-shadow .2s ease; }
+/* Only while it opens: after that it moves with the pages (reader.js primerInColumn), never easing behind them. */
+.mr-col .mr-primer.is-opening { transition: top .28s ease, height .28s ease, background-color .2s ease, box-shadow .2s ease; }
 .mr-col .mr-primer.is-growing { background-color: transparent; box-shadow: inset 1.5px 0 0 var(--mr-lead); overflow: hidden; }
 .mr-col .mr-primer.is-opening { overflow: hidden; }
-@media (prefers-reduced-motion: reduce) { .mr-col .mr-primer { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .mr-col .mr-primer, .mr-col .mr-primer.is-opening { transition: none; } }
 /* Fact-check's sources row is led by "Sources" (16 Oct: the bare titles read as a raw tail). */
 .mr-sources__label { color: var(--mr-hint); }
+
+/* ---------- The wait before an answer (19 Oct 2026): the book reader's chat dots ----------
+   Cards, Chat, Define and Before you start show chat-thread.css's .tc-wait (three small faint dots breathing
+   slowly), with its size, colour (--tc-faint per look) and timing; static with reduced motion and in e-ink. */
+.mr { --mr-dots: #9a9183; }
+.lab.is-night .mr { --mr-dots: #6f675d; }
+html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-dots: #555; }
+.mr .tc-wait { display: inline-flex; align-items: center; gap: 5px; height: 1.5em; vertical-align: top; }
+.mr .tc-wait i { width: 5px; height: 5px; border-radius: 50%; background: var(--mr-dots); opacity: .35; animation: tc-breathe 2.4s ease-in-out infinite; }
+.mr .tc-wait i:nth-child(2) { animation-delay: .4s; }
+.mr .tc-wait i:nth-child(3) { animation-delay: .8s; }
+@keyframes tc-breathe { 0%, 100% { opacity: .2; } 50% { opacity: .6; } }
+@media (prefers-reduced-motion: reduce) {
+  .mr .tc-wait i { animation: none !important; opacity: .45; }
+}
+html[data-eink="true"] .mr .tc-wait i, html[data-pdf-theme="eink"] .mr .tc-wait i { animation: none !important; }
+
+/* Scrolling inside a card, Chat or Before you start never scrolls the pages behind it (19 Oct 2026; reader.js ownScroll). */
+.mr-card.is-open .mr-card__body, .mr-sheet, .mr-sheet .mr-card__body, .mr-primer, .mr-float .mr-card__body { overscroll-behavior: contain; }
+/* The writing space under a question just sent (reader.js holdThread): never squeezed by the card's flex column. */
+.mr .tc-spacer { flex: none; }
