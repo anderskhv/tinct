@@ -148,6 +148,25 @@ describe('lab sign-in providers', () => {
     expect(providerButtons().filter(button => !button.hidden).map(button => button.dataset.oauth)).toEqual(['google'])
   })
 
+  it('names the Terms and the Privacy notice under Create account, with no checkbox, only while creating an account', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: null } } as never)
+    await mount('?mode=create&returnTo=%2Flibrary')
+    const legal = document.querySelector<HTMLElement>('[data-auth-legal]')!
+    expect(legal.hidden).toBe(false)
+    expect(legal.textContent).toBe('By creating an account you agree to the Terms and confirm you’ve read the Privacy notice.')
+    expect([...legal.querySelectorAll('a')].map(a => [a.textContent, a.getAttribute('href'), a.getAttribute('target')])).toEqual([
+      ['Terms', '/terms', null],
+      ['Privacy notice', '/privacy', null],
+    ])
+    expect(legal.querySelector('input')).toBeNull()
+    // Under the Create account button, which is below the Google option.
+    const submit = document.querySelector('[data-auth-submit]')!
+    expect(submit.nextElementSibling).toBe(legal)
+    expect(document.querySelector('[data-auth-providers]')!.compareDocumentPosition(legal) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    document.querySelector<HTMLButtonElement>('.auth-fine[data-mode-copy="create"] [data-set-mode="signin"]')!.click()
+    expect(legal.hidden).toBe(true)
+  })
+
   it('sends each provider through Supabase OAuth with the reader\'s returnTo', async () => {
     // One mount per provider: a started round-trip leaves the page busy (it
     // is about to navigate), so the other buttons are correctly disabled.
