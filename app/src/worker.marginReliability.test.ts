@@ -8,6 +8,12 @@
  */
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { MARGIN_HAIKU_MODEL, MARGIN_ROUTES } from './companion/marginRoutes'
+// Fact-check's doc-first opening is off since 19 Oct 2026 (marginRoutes.ts FACTCHECK_DOC_FIRST): the verdict round's
+// retry after the opening is tested with its switch on, as it ran from 15 to 19 Oct.
+vi.mock('./companion/marginRoutes', async importOriginal => {
+  const real = await importOriginal<typeof import('./companion/marginRoutes')>()
+  return { ...real, factcheckDocFirst: () => true }
+})
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { handleChat, marginFailureCause } from './worker/routes/chat'
 
