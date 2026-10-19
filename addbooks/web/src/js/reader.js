@@ -5133,7 +5133,8 @@ const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : uni
 async function unitPages(unit) {
   const pages = [], from = Math.max(unit.from, Math.min(unit.start || unit.from, unit.to)), to = Math.min(unit.to, from + 199);
   for (let n = from; n <= to; n++) pages.push({ n: pageLabel(n), text: ((await pageText(n)).text || ' ').slice(0, 6000) });
-  return { pages, at: 0 };
+  // An EPUB's units (the preview's chapters) go as chapters, as pdfPages sends them.
+  return { pages, at: 0, ...(isEpub() ? { kind: 'epub' } : {}) };
 }
 const primerUsable = () => state.kind === 'pdf' && !!window.TinctAI?.session?.().token && /^[0-9a-f]{24}$/.test(hexOf(state.key));
 /** The account's copy: GET the stored primer, or PUT a new one. -> the stored primer, or null (none, signed out, not in the account, offline). */

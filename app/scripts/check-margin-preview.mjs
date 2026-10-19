@@ -43,7 +43,12 @@ async function mockApis(context, log) {
   await context.route(/\/api\/(chat|lab-chat)(\?|$)/, async route => {
     let body = null; try { body = JSON.parse(route.request().postData() || 'null') } catch {}
     log.ai.push({ url: route.request().url(), intent: body?.companion?.intent, kind: body?.companion?.context?.kind, document: body?.companion?.document ? { kind: body.companion.document.kind, units: body.companion.document.units.length, part: !!body.companion.document.part, chars: body.companion.document.units.reduce((n, u) => n + u.text.length, 0) } : null, selection: body?.companion?.selection })
-    const text = MOCK_ANSWER
+    const c = body?.companion || {}
+    // Shaped as each action parses it (as scripts/margin-check.mjs mocks them); the rest a plain answer.
+    const text = c.intent === 'define' ? JSON.stringify({ kind: 'definition', definition: `Noun. A mocked meaning of “${c.selection}” here.` })
+      : c.intent === 'quiz' ? JSON.stringify({ questions: [1, 2, 3].map(i => ({ q: `MOCK Q${i}. What happens here?`, answer: 'Something', why: 'Because.', cite: '' })) })
+      : c.intent === 'chapter' && c.chapter?.action?.kind === 'primer' ? JSON.stringify({ gist: `MOCK gist of ${c.chapter.action.unitTitle}. It says what the chapter sets out to do.`, claims: [1, 2, 3].map(i => ({ text: `MOCK claim ${i} of the chapter.`, cite: `{p. ${c.context?.pages?.[0]?.n ?? 1}}` })), keepInMind: ['MOCK caution: a name that changes later.'], map: [1, 2, 3].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${c.context?.pages?.[0]?.n ?? 1}` })) })
+      : MOCK_ANSWER
     if (!body?.stream) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ content: [{ type: 'text', text }] }) })
     return route.fulfill({ status: 200, headers: { 'Content-Type': 'text/event-stream' }, body: `event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\nevent: message_stop\ndata: {"type":"message_stop"}\n\n` })
   })
@@ -120,6 +125,52 @@ try {
         shots.push(join(OUT, `${tag}-notebook.png`)); await page.screenshot({ path: shots.at(-1) })
         await frame.evaluate(() => document.getElementById('notebookBtn').click())
       }
+
+      // 3b. Every margin action reaches the companion for a registered book (desktop, the first book): the bar's
+      // Ask and Simplify, More's Define, Fact-check, Counterpoint and Quiz me, and the chapter pills.
+      if (!phone && bookId === BOOKS[0]) {
+        const fold = () => frame.evaluate(() => { getSelection().removeAllRanges(); closeAllPopups(); if (col.open) openCard(null) })
+        const sent = async (label, act, intent) => {
+          const n = log.ai.length
+          await act()
+          const got = await frame.waitForFunction(() => true, null, { timeout: 100 }).then(async () => { for (let i = 0; i < 60 && !log.ai.slice(n).some(r => r.intent === intent); i++) await page.waitForTimeout(150); return log.ai.slice(n).find(r => r.intent === intent) })
+          ok(`${tag}: ${label} asks the companion (${intent}) with the book's text`, !!got && got.kind === 'epub', log.ai.slice(n))
+          await page.waitForTimeout(500)
+          await fold()
+        }
+        const fromBar = m => async () => { await selectInView(frame); await frame.waitForSelector('.mr-bar [data-m="more"]', { timeout: 8000 }); if (m !== 'ask' && m !== 'simplify') { await frame.click('.mr-bar [data-m="more"]'); await frame.waitForSelector(`.mr-more [data-m="${m}"]`) ; await frame.click(`.mr-more [data-m="${m}"]`) } else await frame.click(`.mr-bar [data-m="${m}"]`) }
+        await sent('Simplify', fromBar('simplify'), 'simplify')
+        await sent('Ask', async () => { await fromBar('ask')(); await frame.waitForSelector('.mr-bar.is-asking textarea, .mr-bar.is-asking input', { timeout: 5000 }); await frame.keyboard?.type?.('Why?'); await page.keyboard.type('Why does she do this?'); await page.keyboard.press('Enter') }, 'ask')
+        await sent('Fact-check', fromBar('factcheck'), 'factcheck')
+        await sent('Counterpoint', fromBar('counterpoint'), 'counterpoint')
+        await sent('Quiz me', fromBar('quiz'), 'quiz')
+        // Define: one uncommon word; the dictionary first (offline here), then the companion.
+        await frame.evaluate(() => { const p = [...document.querySelectorAll('.tb-p')].find(el => { const r = el.getBoundingClientRect(); return r.top > 120 && r.bottom < innerHeight - 200 && /[a-z]{9,}/.test(el.textContent) }); const node = [...p.childNodes].find(n => n.nodeType === 3 && /[a-z]{9,}/.test(n.nodeValue)); const m = /[a-z]{9,}/.exec(node.nodeValue); document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().setBaseAndExtent(node, m.index, node, m.index + m[0].length); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' })) })
+        const defineBtn = await frame.waitForSelector('.mr-bar [data-m="define"], .mr-bar [data-m="more"]', { timeout: 8000 }).catch(() => null)
+        if (defineBtn && (await defineBtn.getAttribute('data-m')) === 'more') { await defineBtn.click(); await frame.click('.mr-more [data-m="define"]') } else if (defineBtn) await defineBtn.click()
+        const defined = await frame.waitForSelector('.mr-define, .mr-card.is-define, [class*="define"]', { timeout: 15000 }).catch(() => null)
+        ok(`${tag}: Define answers in the margin`, !!defined)
+        shots.push(join(OUT, `${tag}-define.png`)); await page.screenshot({ path: shots.at(-1) })
+        await fold()
+        const pill = id => async () => { await frame.evaluate(id => { const b = [...document.querySelectorAll(`.mr-pill[data-pill="${id}"]`)].find(x => x.getBoundingClientRect().height > 0); b.scrollIntoView({ block: 'center' }); b.click() }, id) }
+        await sent('Primer (Before you start)', pill('primer'), 'chapter')
+        shots.push(join(OUT, `${tag}-primer.png`)); await page.screenshot({ path: shots.at(-1) })
+        ok(`${tag}: Before you start shows the chapter's primer`, await frame.evaluate(() => !!document.querySelector('.mr-primer') && /MOCK gist/.test(document.querySelector('.mr-primer').textContent)))
+        await frame.evaluate(() => closePrimer())
+        await sent('Catch me up', pill('catchup'), 'ask')
+        await sent('Recap', pill('recap'), 'ask')
+        await sent('Quiz me on the chapter', pill('quiz'), 'quiz')
+        const primerReq = log.ai.find(r => r.intent === 'chapter')
+        ok(`${tag}: Before you start is about the chapter (one unit per chapter)`, !!primerReq, primerReq)
+      }
+
+      // 3c. The chapter controls: the header's pill opens the book's chapters (parts and chapters).
+      await frame.evaluate(() => { getSelection().removeAllRanges(); closeAllPopups(); if (col.open) openCard(null); closeSheet2() })
+      await frame.click('#pageBtn')
+      const toc = await frame.waitForSelector('[data-testid="lab-toc"] .tree', { timeout: 5000 }).catch(() => null)
+      ok(`${tag}: the chapter pill opens the book's chapters`, !!toc && (await frame.$$('[data-testid="lab-toc"] [data-go]')).length > 1)
+      shots.push(join(OUT, `${tag}-chapters.png`)); await page.screenshot({ path: shots.at(-1) })
+      await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [data-close]')?.click())
 
       // 4. A reload keeps the preview's own place.
       // (The open card folded first: an open card may bring its passage back into view.)
