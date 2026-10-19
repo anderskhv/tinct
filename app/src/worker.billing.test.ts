@@ -1,12 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   availablePremiumIntervals,
+  CHECKOUT_TERMS_MESSAGE,
   handleBalance,
   handleCancelSubscription,
   handleCreateCheckout,
   handleCreatePortal,
   handleSubscriptionInfo,
   handleWebhook,
+  logCheckoutRefusal,
   premiumPriceFor,
 } from './worker/routes/billing'
 
@@ -100,6 +102,66 @@ describe('billing routes', () => {
       const sent = await checkoutParams({ STRIPE_AUTOMATIC_TAX: 'on' })
       expect(sent.get('automatic_tax[enabled]')).toBe('true')
       expect(sent.get('customer_update[address]')).toBe('auto')
+    })
+  })
+
+  describe('terms consent at checkout (EU right of withdrawal)', () => {
+    afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks() })
+    const reader = async () => ({ id: '11111111-1111-4111-8111-111111111111', email: 'reader@example.com' })
+    const env = {
+      ...stripeEnv,
+      STRIPE_PRICE_PREMIUM: 'price_month', STRIPE_PRICE_PREMIUM_YEARLY: 'price_year',
+      STRIPE_PRICE_CHAT_100: 'price_3', STRIPE_PRICE_CHAT_200: 'price_5', STRIPE_PRICE_TOP_UP_10: 'price_10',
+    }
+    const checkout = async (body: unknown, allowanceOn: boolean, stripeReply = () => Response.json({ url: 'https://checkout.stripe.com/x' })) => {
+      const sent: URLSearchParams[] = []
+      vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+        const url = String(input)
+        if (url.includes('/rest/v1/profiles')) return Response.json([{ stripe_customer_id: 'cus_1' }])
+        if (url === 'https://api.stripe.com/v1/checkout/sessions') { sent.push(new URLSearchParams(String(init?.body))); return stripeReply() }
+        return Response.json({})
+      }))
+      const response = await handleCreateCheckout(
+        new Request('https://tinct.app/api/create-checkout', { method: 'POST', body: JSON.stringify(body), headers: { 'content-type': 'application/json' } }),
+        env, reader, undefined, allowanceOn,
+      )
+      return { response, sent }
+    }
+
+    it('keeps the line short, linked to the terms, and within Stripe\'s 1200 characters', () => {
+      expect(CHECKOUT_TERMS_MESSAGE).toBe('I agree to the [Terms](https://tinct.app/terms). Tinct starts right away, so I lose the 14-day right to cancel for what I have already used.')
+      expect(CHECKOUT_TERMS_MESSAGE.length).toBeLessThanOrEqual(1200)
+    })
+
+    it.each([
+      ['monthly Premium', { type: 'subscription' }, false],
+      ['yearly Premium', { type: 'subscription', interval: 'year' }, false],
+      ['the $3 message pack', { type: 'chat_pack_100' }, false],
+      ['the $5 message pack', { type: 'chat_pack_200' }, false],
+      ['the $5 AI top-up', { type: 'chat_pack_200' }, true],
+      ['the $10 AI top-up', { type: 'top_up_10' }, true],
+    ])('requires the terms checkbox and the withdrawal line for %s', async (_kind, body, allowanceOn) => {
+      const { response, sent } = await checkout(body, allowanceOn)
+      expect(response.status).toBe(200)
+      expect(sent).toHaveLength(1)
+      expect(sent[0].get('consent_collection[terms_of_service]')).toBe('required')
+      expect(sent[0].get('custom_text[terms_of_service_acceptance][message]')).toBe(CHECKOUT_TERMS_MESSAGE)
+      expect(String(sent[0])).toContain('consent_collection%5Bterms_of_service%5D=required')
+    })
+
+    it('logs a refusal over the terms setup by name, and keeps the consent rather than retrying without it', async () => {
+      const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const refusal = 'You cannot collect consent to your terms of service unless a URL is set in the Stripe Dashboard.'
+      const { response, sent } = await checkout({ type: 'subscription' }, false, () => Response.json({ error: { message: refusal } }, { status: 400 }))
+      expect(response.status).toBe(400)
+      expect(sent).toHaveLength(1)
+      expect(errors).toHaveBeenCalledWith(expect.stringContaining('terms consent'), refusal)
+    })
+
+    it('logs any other refusal as a plain failure', () => {
+      const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+      logCheckoutRefusal('subscription', 'No such price')
+      expect(errors).toHaveBeenCalledWith(expect.stringContaining('creation failed'), 'No such price')
     })
   })
 
