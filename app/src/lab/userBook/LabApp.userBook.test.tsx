@@ -94,7 +94,8 @@ describe('a user book in the Tinct reader', () => {
     expect(document.title).toBe('My Own Notebook · Tinct')
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
-    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'settings', 'account'])
+    // Book editions: an EPUB on the desktop has Margin view too (19 Oct 2026, epubView.ts).
+    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'account'])
     // The Librarian row offers Chat and Talk, as for any book (2026-10-08).
     expect(screen.getByTestId('lab-super-row-chat')).toBeTruthy()
     expect(screen.getByTestId('lab-super-row-talk')).toBeTruthy()
@@ -389,10 +390,36 @@ describe('a PDF read as its Tinct text', () => {
     await waitFor(() => expect(ownSync.note).toHaveBeenCalledWith(HEX, book.edition.chapters, { pdf: { pages: 6 } }))
   })
 
-  it('an EPUB keeps one edition and no Book editions row', () => {
-    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
+  // Anders, 19 Oct 2026: on the desktop an EPUB reads in Add a book's margin reader unless the reader chose the
+  // Tinct reader there; from here, "Margin view" goes back. A phone keeps one edition and no Book editions row.
+  it('an EPUB on a phone keeps one edition and no Book editions row', () => {
+    const width = window.innerWidth
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
+    try {
+      render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
+      fireEvent.click(screen.getByTestId('lab-super'))
+      expect(screen.queryByTestId('lab-super-row-editions')).toBeNull()
+    } finally { Object.defineProperty(window, 'innerWidth', { configurable: true, value: width }) }
+  })
+
+  it('an EPUB on the desktop offers Margin view, which opens the margin reader at the same words, chosen on this device', async () => {
+    ownSync.flush.mockClear()
+    const assign = vi.fn()
+    vi.stubGlobal('location', { ...window.location, assign, search: '?userBook=' + HEX, href: 'http://localhost/reader?userBook=' + HEX })
+    const book = loaded({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 0 })
+    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={book} />)
     fireEvent.click(screen.getByTestId('lab-super'))
-    expect(screen.queryByTestId('lab-super-row-editions')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    fireEvent.click(await screen.findByTestId('lab-v2-main-edition'))
+    const options = [...document.querySelectorAll('.lab-v2-edition-option')].map(option => [option.textContent?.replace('✓', '').trim(), option.getAttribute('aria-pressed')])
+    expect(options).toEqual([['EPUB', 'true'], ['Margin view', 'false']])
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
+    fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Margin view'))!)
+    expect(assign).toHaveBeenCalledWith(`/lab/addbook/?userBook=${HEX}`)
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:epub-view:${HEX}`) || 'null')).toBe('margin')
+    const words = book.edition.chapters.find(chapter => chapter.number === 2)!.paragraphs[0].split(/\s+/).slice(0, 14).join(' ')
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:pos:epub:${HEX}`) || 'null')).toMatchObject({ via: 't', quote: words })
+    expect(ownSync.flush).toHaveBeenCalled()
   })
 })
 

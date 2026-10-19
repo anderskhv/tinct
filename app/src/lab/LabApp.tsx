@@ -209,6 +209,7 @@ import { userBookLangAttribute } from './userBook/userBookLanguage'
 import { readUserBookPlace, writeUserBookPlace } from './userBook/userBookPlace'
 import { flushOwnPlaces, noteOwnPlace, notePdfPlace } from './userBook/ownSync'
 import { choosePdfPageAt, PDF_PAGES_EDITION_KEY, showPdfPageAt } from './userBook/pdfEditions'
+import { chooseEpubMargin, EPUB_MARGIN_EDITION_KEY } from './userBook/epubView'
 import type { LoadedUserBook } from './userBook/userBookStore'
 import { readerMediaSession, readerMediaMetadata } from '../utils/readerMediaSession'
 import { continueHandoff } from '../preReader/continueHandoff'
@@ -573,6 +574,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   })
   const allBookEditions = book.editions?.length ? book.editions : bibleEditions()
   const bookEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
+  // An own EPUB on the desktop has two editions too: its text here, and Margin view (Add a book's margin reader; epubView.ts).
+  const ownEpubMargin = !!userBook && userBook.kind !== 'pdf' && bookEditions.some(edition => edition.key === EPUB_MARGIN_EDITION_KEY)
+  const ownEditions = ownPdf || ownEpubMargin
   const heldPrimary = editionHold(book.bookId || 'bible', prefs.primaryEdition)
   const heldCompare = prefs.compareOpen ? editionHold(book.bookId || 'bible', prefs.compareEdition) : undefined
   const temporaryHold = heldPrimary || heldCompare
@@ -5003,7 +5007,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       else if (id === 'summarize') openChapterNotes('end')
       else if (id === 'settings') setSuperSheet('reading')
       else if (id === 'account') setSuperSheet('account')
-      else if (id === 'editions' && ownPdf) setSuperSheet('editions')
+      else if (id === 'editions' && ownEditions) setSuperSheet('editions')
       // Back to the library from an own book lands on the reading table, as from Tinct's (Anders, 2026-10-12).
       else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary('/library')
       return
@@ -5019,7 +5023,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     leaveForLibrary(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`)
-  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownPdf, openChapterNotes, signedIn])
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn])
 
   // A PDF's Original pages, picked in Book editions: the same spot, kept as the
   // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
@@ -5038,10 +5042,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setSuperSheet(null)
     window.location.assign(`${ownBookOpenUrl(userBook.hex)}&page=${page}${at ? `&frac=${frac}&pages` : ''}`)
   }, [userBook])
+  // An EPUB's Margin view, picked in Book editions: this device reads it in Add a book's margin reader from now
+  // on, at the same words (epubView.ts chooseEpubMargin; the place is also sent as the reader's own first).
+  const openEpubMargin = useCallback(() => {
+    if (!userBook || userBook.kind === 'pdf') return
+    chooseEpubMargin(userBook.hex, userBook.edition, { chapterNumber: userPlaceBookRef.current.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex })
+    flushOwnPlaces()
+    setSuperSheet(null)
+    window.location.assign(ownBookOpenUrl(userBook.hex))
+  }, [userBook])
   const sheetPrefs = useCallback((next: LabPrefs) => {
     if (ownPdf && next.primaryEdition === PDF_PAGES_EDITION_KEY) { openPdfPages(); return }
+    if (ownEpubMargin && next.primaryEdition === EPUB_MARGIN_EDITION_KEY) { openEpubMargin(); return }
     updatePrefs(next)
-  }, [ownPdf, openPdfPages, updatePrefs])
+  }, [ownPdf, openPdfPages, ownEpubMargin, openEpubMargin, updatePrefs])
 
   // Contents -> Introduction opens the book's introduction in the library.
   // The navigation waits for the commit that closes Contents: writes are
@@ -5149,7 +5163,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
-    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownPdf)),
+    ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
   })
 
   if (temporaryHold && !holdRecovery) return (
@@ -5358,7 +5372,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           open={superMenuOpen}
           phone={showPhoneChrome}
           privateBook={privateBook}
-          ownPdf={ownPdf}
+          ownPdf={ownEditions}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
@@ -5373,7 +5387,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           prefs={displayPrefs}
           phoneShakespeare={phoneShakespeare}
           onPrefs={sheetPrefs}
-          ownPdf={ownPdf}
+          ownPdf={ownEditions}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)

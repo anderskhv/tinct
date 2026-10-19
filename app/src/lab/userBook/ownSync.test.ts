@@ -455,10 +455,16 @@ describe('own books removed on another device', () => {
     expect(forget).not.toHaveBeenCalled()
   })
 
-  it('lists an account EPUB not on this device to open in the reader, with the place and progress read elsewhere', () => {
+  // Since 19 Oct 2026 (epubView.ts) an EPUB opens in Add a book's margin reader on the desktop, which fetches it; a phone keeps the Tinct reader.
+  it('lists an account EPUB not on this device to open in its view (the margin reader on the desktop, the reader on a phone), with the place and progress read elsewhere', () => {
     localStorage.setItem(`tinct-addbook:place:${'d'.repeat(24)}`, JSON.stringify({ chapterNumber: 3, paragraphIndex: 2, wordIndex: 0, updatedAt: 700, percent: 41.5 }))
-    const book = accountOnlyBook({ id: 'e'.repeat(32), type: 'epub', sha256: 'd'.repeat(64), title: 'River Notes', name: 'river.epub', author: 'Me', size: 1, createdAt: '2026-10-01T00:00:00Z' })
-    expect(book).toMatchObject({ key: `epub:${'d'.repeat(24)}`, href: `/reader?userBook=${'d'.repeat(24)}`, title: 'River Notes', cover: null })
+    const listed = () => accountOnlyBook({ id: 'e'.repeat(32), type: 'epub', sha256: 'd'.repeat(64), title: 'River Notes', name: 'river.epub', author: 'Me', size: 1, createdAt: '2026-10-01T00:00:00Z' })
+    const width = window.innerWidth
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
+    expect(listed()).toMatchObject({ href: `/reader?userBook=${'d'.repeat(24)}` })
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: width })
+    const book = listed()
+    expect(book).toMatchObject({ key: `epub:${'d'.repeat(24)}`, href: `/lab/addbook/?userBook=${'d'.repeat(24)}`, title: 'River Notes', cover: null })
     expect(book.reading).toMatchObject({ bookId: `userbook-${'d'.repeat(24)}`, percent: 41.5, lastActiveAt: 700 })
     const pdf = accountOnlyBook({ id: 'e'.repeat(32), type: 'pdf', sha256: 'a'.repeat(64), title: '', name: 'notes.pdf', author: '', size: 1, createdAt: '' })
     expect(pdf).toMatchObject({ title: 'notes', href: `/lab/addbook/?userBook=${'a'.repeat(24)}`, reading: null })

@@ -16,6 +16,7 @@ import { userBookId } from './userBookId'
 import { readUserBookPlace, storedPlaceConverter, type UserBookPlace } from './userBookPlace'
 import { CURRENT_CONVERTER, EDITION_CONVERTERS, LEGACY_EDITION_CONVERTER, USER_EDITION_FORMAT, editionSource, usableUserEdition, type UserBookEdition, type UserEditionSource } from './userEdition'
 import { adoptOcrEditionChoice, pdfEditionChoice, pdfEditionUntold, readPdfTextPlace } from './pdfEditions'
+import type { EpubView } from './epubView'
 import { ocrDefaultEdition } from './ocrEdition'
 import type { ConvertedPdf } from './pdfEdition'
 import { healUserEdition } from './chapterAuthors'
@@ -77,7 +78,7 @@ export type UserBookOpenResult =
    * 'pages_only': a PDF without text to reflow (a scan), read in its pages;
    * 'pages': a PDF the reader reads in Original pages. Both go on to the viewer.
    */
-  | { ok: false; reason: 'signed_out' | 'missing' | 'unreadable' | 'storage' | 'pages_only' | 'pages'; message: string }
+  | { ok: false; reason: 'signed_out' | 'missing' | 'unreadable' | 'storage' | 'pages_only' | 'pages' | 'margin'; message: string }
 
 /** The account the files on this device are tagged with, as Add a book reads it. */
 export function userBookOwner(): string | null {
@@ -211,7 +212,7 @@ const refusalCode = (result: Converted): string | undefined => 'error' in result
  * account's private copy is downloaded and kept here instead; only a book in
  * neither place (or a PDF, which Add a book's viewer opens) is 'missing'.
  */
-export async function openUserBook(hex: string, options: { owner?: string | null; account?: AccountCopyLoader; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null } = {}): Promise<UserBookOpenResult> {
+export async function openUserBook(hex: string, options: { owner?: string | null; account?: AccountCopyLoader; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; epubView?: EpubView } = {}): Promise<UserBookOpenResult> {
   const owner = options.owner !== undefined ? options.owner : userBookOwner()
   if (!owner) return { ok: false, reason: 'signed_out', message: MISSING_MESSAGE }
   if (typeof indexedDB === 'undefined') return { ok: false, reason: 'storage', message: STORAGE_MESSAGE }
@@ -225,6 +226,9 @@ export async function openUserBook(hex: string, options: { owner?: string | null
     try { pdf = await readRecord('pdf:' + hex, owner) } catch { return { ok: false, reason: 'storage', message: STORAGE_MESSAGE } }
     if (pdf && pdf.kind === 'pdf') return openPdfBook(hex, owner, pdf, options)
   }
+  // An EPUB read in Margin view on this device (epubView.ts; the desktop's default): on to Add a book's
+  // margin reader before any conversion. A book not on this device yet is fetched there too.
+  if (options.epubView === 'margin' && (!record || record.kind === 'epub')) return { ok: false, reason: 'margin', message: '' }
   if (record && record.kind !== 'epub') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
   let fromAccount = false
   // Under the rules it was first converted with: a book already read keeps its chapters, paragraphs and places.
