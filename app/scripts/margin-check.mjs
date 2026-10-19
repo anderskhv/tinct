@@ -67,8 +67,10 @@
 //                                                     with the page through scrolls, straight leader lines (one slant when pushed down),
 //                                                     pushed down never overlapping, an open card growing in place with no scroll of its own
 //   node scripts/margin-check.mjs figure-race       19 Oct: no figure over prose, found with half the text layer missing or on a redraw
-//   node scripts/margin-check.mjs cards-gloss       19 Oct: Minimise folds a card; the bin beside the mic deletes it; no quoted passage;
-//                                                     a one-sentence answer in regular weight
+//   node scripts/margin-check.mjs cards-gloss       19 Oct: Minimise folds a card; the bin beside copy deletes it; no quoted passage;
+//                                                     a one-sentence answer in regular weight; the follow-up field visible
+//                                                     unfocused (border, placeholder), mic and send inside it, send by
+//                                                     Enter or the button
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -137,7 +139,7 @@ const scrolledAway = p => p.kind === 'clipped' && /^\.(?:mr-card__body|(?:mr\.)?
 const srOnly = p => p.kind === 'overflow' && /^\.tinct-wait(?:-label)?(?:\.|\s|$)/.test(p.el || '')
 // PR C (FIXES-2026-10-15): every target is at least 28px each way, including where the mockup draws a
 // 16px icon or a 20px colour (copy, the mics, the colours, the bottom card's handle, the quiz links).
-export const ICON_TARGETS = '.mr-card__copy, .mr-card__delete, .mr-undo button, .mr-follow__mic, .mr-swatch, .mr-sheet__grab, .mr-follow__link, button.mr-related__row'
+export const ICON_TARGETS = '.mr-card__copy, .mr-card__delete, .mr-undo button, .mr-follow__mic, .mr-follow__send, .mr-swatch, .mr-sheet__grab, .mr-follow__link, button.mr-related__row'
 // Since 19 Oct 2026 the wide column is part of the page (reader.js layoutColumn): its cards scroll with the pages
 // like their text, so a card scrolled out of the pages' view (or under the top bar, or under open Chat's own
 // panel, which stays put) is not on screen to check, as a line of page text there would not be. Those are set
@@ -2220,9 +2222,9 @@ async function polish(browser, origin) {
     const made = await a.evaluate(() => col.open)
     const field = await a.evaluate(() => { const f = openCardEl()?.querySelector('.mr-follow__input'); return { focused: document.activeElement === f, drawn: !!openCardEl()?.querySelector('.mr-caret') } })
     ok(`${tag}: an opened card's follow-up field has no caret until the reader focuses it`, made && !field.focused && !field.drawn, field)
-    // Since 19 Oct 2026 (as Gloss) the bin is in the follow-up line, beside the mic.
-    const del = await a.evaluate(() => { const b = openCardEl()?.querySelector('.mr-follow .mr-card__delete'), mic = openCardEl()?.querySelector('.mr-follow .mr-follow__mic'); const r = b?.getBoundingClientRect(); return b && { w: r.width, h: r.height, beside: !!mic && b.nextElementSibling === mic && Math.abs(mic.getBoundingClientRect().top - r.top) < 2 } })
-    ok(`${tag}: the open card has a bin in its follow-up line beside the mic, a 28px target`, del && del.w >= 27.5 && del.h >= 27.5 && del.beside, del)
+    // Since 19 Oct 2026 (as Gloss) the bin is in the action row under the answer, beside copy (the phone's card hides copy).
+    const del = await a.evaluate(() => { const el = openCardEl(), b = el?.querySelector('.mr-card__acts .mr-card__delete'), copy = el?.querySelector('.mr-card__acts .mr-card__copy'); const r = b?.getBoundingClientRect(), shown = copy && copy.getBoundingClientRect().width > 0; return b && { w: r.width, h: r.height, inFollow: !!el.querySelector('.mr-follow .mr-card__delete'), beside: shown ? copy.nextElementSibling === b && Math.abs(copy.getBoundingClientRect().top - r.top) < 2 : !!b.closest('.mr-sheet'), copyShown: !!shown } })
+    ok(`${tag}: the open card has a bin in its action row beside copy, a 28px target, none in the follow-up field`, del && del.w >= 27.5 && del.h >= 27.5 && del.beside && !del.inFollow, del)
     await a.click(phone ? '.mr-sheet .mr-card__delete' : `.mr-card.is-open .mr-card__delete`); await a.waitForTimeout(400)
     const gone = await a.evaluate(id => ({ open: col.open, shown: !!document.querySelector(`.mr-card[data-id="${id}"], .mr-sheet[data-id="${id}"]`), stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: document.querySelector('.mr-undo:not([hidden])')?.innerText.replace(/\s+/g, ' ').trim() }), made)
     ok(`${tag}: delete takes the card away at once (no confirm), leaves a tombstone, and says "Deleted · Undo"`, !gone.open && !gone.shown && gone.stored?.gone === true && gone.undo === 'Deleted · Undo', gone)
@@ -3556,6 +3558,9 @@ async function columnPage(browser, origin) {
       return { cards, paths, dots, html: document.querySelector('svg.mr-doc-leads')?.innerHTML || '', scrollTop: s.scrollTop, ul: (() => { const i = document.querySelector('.mr-ul-layer i'); if (!i) return null; const probe = document.createElement('i'); probe.style.background = 'var(--mr-accent)'; document.querySelector('.mr-doc').appendChild(probe); const want = getComputedStyle(probe).backgroundColor; probe.remove(); return { bg: getComputedStyle(i).backgroundColor, want } })() }
     }, ids)
     const m0 = await measure()
+    const field = await fieldLook(a, '.mr-doc .mr-card.is-open')
+    ok(`${tag}: the open card's follow-up field is visible without the focus (border, placeholder "Ask a follow-up", mic and send inside)`, field && !field.focused && field.border >= 1 && field.borderColor !== 'rgba(0, 0, 0, 0)' && field.placeholder === 'Ask a follow-up' && field.phShown && field.order === 'input,mic,send' && field.sendDisabled && field.phContrast >= 4.5, field)
+    ok(`${tag}: the open card's bin is in its action row beside copy`, await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), d = el?.querySelector('.mr-card__acts .mr-card__delete'); return !!d && d.previousElementSibling?.classList.contains('mr-card__copy') && !el.querySelector('.mr-follow .mr-card__delete') }))
     ok(`${tag}: 9. the cards are in the page's layer (they scroll with it), never fixed to the window`, m0.cards.every(c => c && c.inDoc && c.position === 'absolute'), m0.cards)
     ok(`${tag}: 9. the open card's passage is underlined in the accent`, m0.ul && m0.ul.bg === m0.ul.want, m0.ul)
     ok(`${tag}: 9. cards close together are pushed down: none overlaps the one before`, m0.cards.every((c, i) => !i || c.top >= m0.cards[i - 1].bottom - 0.5), m0.cards.map(c => [Math.round(c.top), Math.round(c.bottom)]))
@@ -3660,6 +3665,30 @@ async function figureRace(browser, origin) {
   return results
 }
 
+/* The follow-up field as drawn, unfocused: its box's border and radius, the placeholder (and its contrast on the
+   field), the order of the field, the mic and send inside the box, and send's look. */
+function fieldLook(a, sel) {
+  return a.evaluate(sel => {
+    const el = document.querySelector(sel), box = el?.querySelector('.mr-follow__box'), f = box?.querySelector('.mr-follow__input'), send = box?.querySelector('.mr-follow__send'), mic = box?.querySelector('.mr-follow__mic')
+    if (!box || !f || !send) return null
+    const cs = getComputedStyle(box), r = box.getBoundingClientRect(), ph = getComputedStyle(f, '::placeholder'), ss = getComputedStyle(send)
+    const rgb = c => { const m = /rgba?\(([^)]+)\)/.exec(c); if (!m) return null; const v = m[1].split(/[ ,/]+/).filter(Boolean).map(Number); return { r: v[0], g: v[1], b: v[2], a: v.length > 3 ? v[3] : 1 } }
+    const lum = c => [c.r, c.g, c.b].map(x => { x /= 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4 }).reduce((s, x, i) => s + x * [0.2126, 0.7152, 0.0722][i], 0)
+    // The field's background, over the card's when it is not opaque.
+    let bg = rgb(cs.backgroundColor); if (!bg || bg.a < 1) { const c = rgb(getComputedStyle(el).backgroundColor); bg = bg && c ? { r: bg.r * bg.a + c.r * (1 - bg.a), g: bg.g * bg.a + c.g * (1 - bg.a), b: bg.b * bg.a + c.b * (1 - bg.a), a: 1 } : c }
+    let fg = rgb(ph.color); if (fg && bg && fg.a < 1) fg = { r: fg.r * fg.a + bg.r * (1 - fg.a), g: fg.g * fg.a + bg.g * (1 - fg.a), b: fg.b * fg.a + bg.b * (1 - fg.a), a: 1 }
+    const L1 = fg && bg ? lum(fg) : 0, L2 = bg ? lum(bg) : 0
+    const order = [...box.querySelectorAll('.mr-follow__input, .mr-follow__mic, .mr-follow__send')].map(n => n.classList.contains('mr-follow__input') ? 'input' : n.classList.contains('mr-follow__mic') ? 'mic' : 'send').join(',')
+    const mr = mic?.getBoundingClientRect(), sr = send.getBoundingClientRect()
+    return {
+      focused: document.activeElement === f, border: parseFloat(cs.borderTopWidth), borderColor: cs.borderTopColor, radius: parseFloat(cs.borderTopLeftRadius), w: r.width, h: r.height,
+      placeholder: f.getAttribute('placeholder'), phShown: !f.value && f.matches(':placeholder-shown'), phColor: ph.color, bg: cs.backgroundColor, phContrast: Math.round(((Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05)) * 100) / 100,
+      order, micInside: !!mr && mr.left >= r.left && mr.right <= sr.left + 1 && sr.right <= r.right, sendDisabled: send.disabled, sendFill: ss.backgroundColor, sendOpacity: Number(ss.opacity), sendW: sr.width, arrow: !!send.querySelector('svg path[d^="M9 14V4"]'),
+      font: getComputedStyle(f).fontFamily, caps: getComputedStyle(f, '::placeholder').textTransform,
+    }
+  }, sel)
+}
+
 /* cards-gloss (19 Oct 2026, items 13 and 14): a card's top-right control minimises it (folds it, nothing deleted); its
    bin is in the follow-up line beside the mic and deletes the card and its saved answer (with Undo); the card does
    not quote its passage (screen readers get it as its description); a one-sentence answer is in regular weight. */
@@ -3675,9 +3704,34 @@ async function cardsGloss(browser, origin) {
     await selectText(a); await a.waitForSelector('.mr-float [data-m="simplify"]', { timeout: 5000 }).catch(() => {})
     await a.click('.mr-float [data-m="simplify"]').catch(() => {}); await a.waitForTimeout(1300)
     const host = phone ? '.mr-sheet' : '.mr-card.is-open'
-    const look = await a.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const close = el.querySelector('.mr-card__close'), del = el.querySelector('.mr-card__delete'), mic = el.querySelector('.mr-follow__mic'), about = el.querySelector('.mr-card__about'); return { close: close && [close.getAttribute('aria-label'), close.textContent.trim(), !!close.querySelector('svg path')], delInFollow: !!del?.closest('.mr-follow'), besideMic: !!del && del.nextElementSibling === mic, inActs: !!el.querySelector('.mr-card__acts .mr-card__delete'), copy: !!el.querySelector('.mr-card__acts .mr-card__copy'), quote: !!el.querySelector('.mr-quote'), described: el.getAttribute('aria-describedby') && document.getElementById(el.getAttribute('aria-describedby'))?.textContent.length > 5, bold: el.querySelectorAll('.mr-answer .is-bottom-line').length, answer: el.querySelector('.mr-answer')?.textContent.trim() } }, host)
+    const look = await a.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const close = el.querySelector('.mr-card__close'), del = el.querySelector('.mr-card__delete'), copy = el.querySelector('.mr-card__acts .mr-card__copy'), about = el.querySelector('.mr-card__about'); return { close: close && [close.getAttribute('aria-label'), close.textContent.trim(), !!close.querySelector('svg path')], delInFollow: !!del?.closest('.mr-follow'), besideCopy: !!del && !!copy && copy.nextElementSibling === del, inActs: !!el.querySelector('.mr-card__acts .mr-card__delete'), copy: !!copy, quote: !!el.querySelector('.mr-quote'), described: el.getAttribute('aria-describedby') && document.getElementById(el.getAttribute('aria-describedby'))?.textContent.length > 5, bold: el.querySelectorAll('.mr-answer .is-bottom-line').length, answer: el.querySelector('.mr-answer')?.textContent.trim() } }, host)
     ok(`${tag}: 13. the top-right control is "Minimise", one line, no ×`, look && look.close?.[0] === 'Minimise' && look.close[1] === '' && look.close[2], look)
-    ok(`${tag}: 13. the bin is in the follow-up line beside the mic; copy stays under the answer`, look && look.delInFollow && look.besideMic && !look.inActs && look.copy, look)
+    ok(`${tag}: 13. the bin is in the action row under the answer, beside copy; none in the follow-up field`, look && look.inActs && look.besideCopy && !look.delInFollow && look.copy, look)
+    // The follow-up field (Anders, 19 Oct 2026: "it's too hidden that this is indeed a chat field"): seen without focusing it.
+    const field = await fieldLook(a, host)
+    ok(`${tag}: the follow-up field is visible without the focus: a non-zero border, rounded, the placeholder "Ask a follow-up"`, field && !field.focused && field.border >= 1 && field.borderColor !== 'rgba(0, 0, 0, 0)' && field.radius >= 8 && field.placeholder === 'Ask a follow-up' && field.phShown && field.w > 150 && field.h >= 36, field)
+    ok(`${tag}: the mic is inside the field on its right, then send (an up-arrow in a filled square, off while empty)`, field && field.micInside && field.order === 'input,mic,send' && field.sendDisabled && field.sendFill !== 'rgba(0, 0, 0, 0)' && field.sendOpacity < 0.6 && field.arrow && field.sendW >= 27.5, field)
+    ok(`${tag}: the placeholder is legible on the field (at least 4.5:1)`, field && field.phContrast >= 4.5, field && { ph: field.phColor, bg: field.bg, ratio: field.phContrast })
+    // Typing turns send on; the button sends as Enter does (and the field empties).
+    mock.next = 'MOCK FOLLOW-UP. A short reply.'
+    await a.click(`${host} .mr-follow__input`); await a.keyboard.type('And then?')
+    const armed = await a.evaluate(sel => { const s = document.querySelector(`${sel} .mr-follow__send`); return s && { disabled: s.disabled, opacity: Number(getComputedStyle(s).opacity) } }, host)
+    ok(`${tag}: with text in the field, send is on`, armed && !armed.disabled && armed.opacity > 0.9, armed)
+    await a.click(`${host} .mr-follow__send`); await a.waitForTimeout(1200)
+    const sent = await a.evaluate(sel => { const el = document.querySelector(sel); return el && { asked: [...el.querySelectorAll('.mr-you')].some(n => n.textContent.includes('And then?')), field: el.querySelector('.mr-follow__input')?.value, disabled: el.querySelector('.mr-follow__send')?.disabled } }, host)
+    ok(`${tag}: the send button sends the follow-up and empties the field`, sent && sent.asked && sent.field === '' && sent.disabled, sent)
+    await a.click(`${host} .mr-follow__input`); await a.keyboard.type('Once more?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1200)
+    const entered = await a.evaluate(sel => [...document.querySelectorAll(`${sel} .mr-you`)].some(n => n.textContent.includes('Once more?')), host)
+    ok(`${tag}: Enter sends the follow-up`, entered, entered)
+    // The card in paper and night (the field's border and placeholder in each look's colours).
+    await a.evaluate(() => document.activeElement?.blur())
+    if (!phone) for (const look of ['paper', 'night']) {
+      await a.evaluate(t => setTheme(t), look === 'night' ? 'dark' : 'light'); await a.waitForTimeout(700)
+      const f = await fieldLook(a, host)
+      ok(`${tag}: in ${look}, the field is seen unfocused and its placeholder is legible`, f && f.border >= 1 && f.borderColor !== 'rgba(0, 0, 0, 0)' && f.phShown && f.phContrast >= 4.5, f)
+      await shot(a, `${tag}-${look}-card`)
+    }
+    if (!phone) { await a.evaluate(() => setTheme('light')); await a.waitForTimeout(500) }
     ok(`${tag}: 14. the card does not quote its passage; screen readers have it as the card's description`, look && !look.quote && look.described, look)
     ok(`${tag}: 13. a one-sentence answer is in regular weight (no bold lead)`, look && look.bold === 0 && /^One sentence/.test(look.answer || ''), look)
     // Minimise folds it; the answer is kept.
@@ -3687,9 +3741,9 @@ async function cardsGloss(browser, origin) {
     ok(`${tag}: 13. Minimise folds the card; its answer is kept`, !folded.open && folded.kept, folded)
     // The bin deletes it and its saved answer (Undo offered).
     await a.evaluate(id => openCard(id), id); await a.waitForTimeout(400)
-    await a.click(`${host} .mr-follow .mr-card__delete`); await a.waitForTimeout(400)
+    await a.click(`${host} .mr-card__acts .mr-card__delete`); await a.waitForTimeout(400)
     const gone = await a.evaluate(id => ({ open: col.open, stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: !!document.querySelector('.mr-undo:not([hidden])'), shown: !!document.querySelector(`.mr-card[data-id="${id}"]`) }), id)
-    ok(`${tag}: 13. the bin in the follow-up line deletes the card and its saved answer (Undo offered)`, !gone.open && gone.stored?.gone === true && !gone.stored.turns?.length && gone.undo && !gone.shown, gone)
+    ok(`${tag}: 13. the bin in the action row deletes the card and its saved answer (Undo offered)`, !gone.open && gone.stored?.gone === true && !gone.stored.turns?.length && gone.undo && !gone.shown, gone)
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
     await A.ctx.close()
   }

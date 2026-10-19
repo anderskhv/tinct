@@ -4131,6 +4131,8 @@ function bindCardEvents(host) {
     if (cite) { goToCite(Number(cite.dataset.page), cite.dataset.needle || ''); return }
     const card = e.target.closest('.mr-card, .mr-sheet'), b = e.target.closest('[data-c]');
     const id = card?.dataset.id || host.dataset?.id;
+    // A click on the follow-up field's box (round its words) puts the caret in it.
+    if (!b && e.target.closest('.mr-follow__box') && !e.target.closest('textarea')) { e.target.closest('.mr-follow__box').querySelector('.mr-follow__input')?.focus({ preventScroll: true }); return }
     if (!b) { if (card?.classList.contains('is-folded')) openCard(card.dataset.id); return }
     const c = b.dataset.c;
     if (c === 'stack') return openCard(b.dataset.first || null);
@@ -4140,6 +4142,7 @@ function bindCardEvents(host) {
     if (c === 'close') { if (host === col.sheet) closeSheet2(); else { openCard(null); if (keyed && id) refocus(`.mr-col .mr-card[data-id="${CSS.escape(id)}"] .mr-card__label`) } return }
     if (c === 'grab') { col.sheet?.classList.toggle('is-full'); return }
     if (c === 'mic') { const cid = b.closest('[data-id]')?.dataset.id; if (cid && b.closest('.mr-follow')?.querySelector('.mr-follow__input')) dictation.toggle({ card: cid }); return }
+    if (c === 'send') { const f = b.closest('.mr-follow')?.querySelector('.mr-follow__input'); if (f) sendFollow(f); return }
     if (c === 'copy') return copyCard(id);
     if (c === 'delete') return deleteCard(id);
     if (c === 'show' || c === 'next' || c === 'again') return quizStep(id, c);
@@ -4150,13 +4153,22 @@ function bindCardEvents(host) {
     if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); openCard(null); return }
     if (e.key !== 'Enter' || e.shiftKey || e.isComposing) return;
     e.preventDefault();
-    const text = e.target.value.trim(); if (!text) return;
-    const id = e.target.closest('[data-id]')?.dataset.id;
-    e.target.value = ''; e.target.classList.remove('has-text'); fitFollow(e.target); dictation.stop();
-    followUp(id, text);
+    sendFollow(e.target);
   });
 }
-function fitFollow(t) { t.style.height = '18px'; t.style.height = Math.min(t.scrollHeight, 54) + 'px' }
+/** Send what the follow-up field holds (Enter, or its send button), then empty it. */
+function sendFollow(f) {
+  const text = f.value.trim(); if (!text) return;
+  const id = f.closest('[data-id]')?.dataset.id;
+  f.value = ''; f.classList.remove('has-text'); fitFollow(f); dictation.stop();
+  followUp(id, text);
+}
+/** The field grows with its words (to three lines); its send button is enabled once there is text (19 Oct 2026). */
+function fitFollow(t) {
+  t.style.height = '18px'; t.style.height = Math.min(t.scrollHeight, 54) + 'px';
+  const send = t.closest('.mr-follow')?.querySelector('.mr-follow__send');
+  if (send) send.disabled = !t.value.trim();
+}
 function followUp(id, text) {
   if (id === 'whole') { openWhole({ quiet: true }); ask(text); return }
   const card = cardById(id); if (!card) return;

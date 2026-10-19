@@ -260,7 +260,7 @@ describe('the answer in a card', () => {
     const old = M.html.factcheckHtml('Holds. The standard form.\n\nNote. Context.', P)
     expect(old.answer.startsWith('<div class="mr-answer"><p><span class="is-bottom-line">Holds. The standard form.</span>')).toBe(true)
   })
-  it('open cards: label and Minimise, the passage not quoted (its description, cut at 120), the bubble for Ask only, copy, the follow-up line with the bin', () => {
+  it('open cards: label and Minimise, the passage not quoted (its description, cut at 120), the bubble for Ask only, copy and the bin under the answer, the follow-up field', () => {
     const base = { id: 'c1', page: 12, rects: [[12, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'x'.repeat(200) }
     const ask = M.html.cardHtml({ ...base, kind: 'ask', turns: [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'Because. More.' }] }, { open: true, P, pageLabel: '12' })
     expect(ask).toContain('<span class="mr-card__name">Ask · p. 12</span>')
@@ -270,9 +270,11 @@ describe('the answer in a card', () => {
     expect(ask).not.toContain('mr-quote')
     expect(ask).toMatch(/<span class="mr-card__about" hidden>x{119}…<\/span>/)
     expect(ask).toContain('aria-label="Minimise"')
-    expect(ask).toMatch(/<div class="mr-follow">.*<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">.*<\/button><button type="button" class="mr-follow__mic"/)
+    // The action row under the answer: copy, then the bin (19 Oct 2026, as Gloss); the follow-up field has no bin.
+    expect(ask).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">.*?<\/button><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">.*?<\/button><\/div><\/div><div class="mr-follow has-field">/)
     expect(ask).toContain('data-c="copy"')
-    expect(ask).toContain('class="mr-follow"')
+    expect(ask).toMatch(/<div class="mr-follow has-field"><div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="Ask a follow-up" aria-label="Follow up"><\/textarea><\/span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">.*?<\/button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>.*?<\/button><\/div><\/div>$/)
+    expect(ask.slice(ask.indexOf('class="mr-follow'))).not.toContain('mr-card__delete')
     const simplify = M.html.cardHtml({ ...base, kind: 'simplify', turns: [{ role: 'assistant', content: 'Plainly. Words.' }] }, { open: true, P, pageLabel: '12' })
     expect(simplify).not.toContain('mr-you')
     // While Fact-check searches: the status line, no copy yet.

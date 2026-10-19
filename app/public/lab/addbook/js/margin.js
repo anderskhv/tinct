@@ -709,14 +709,20 @@
     trash: svg('<path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4"/>'),
     // Minimise: one horizontal line, in the same stroke (Anders, 19 Oct 2026, as Gloss: the card folds, nothing is deleted).
     minimise: svg('<path d="M4.5 9h9"/>'),
+    // Send: the selection bar's up-arrow, in the same stroke (Anders, 19 Oct 2026, as Gloss's follow-up field).
+    send: ICONS.up,
   };
   /**
-   * The follow-up line: a field with no placeholder (its caret shows only when it has the focus,
-   * Anders, 15 Oct: no caret blinking in every open card), an optional link ("Show answer"), the mic.
+   * The follow-up line: a rounded, bordered field that is always visible, with its placeholder ("Ask a follow-up"),
+   * the mic inside it on the right and then the send button, an up-arrow that is enabled once there is text (Anders,
+   * 19 Oct 2026: "it's too hidden that this is indeed a chat field. Gloss does better"). Enter sends, as before; the
+   * caret shows only when the field has the focus (15 Oct). An optional link ("Show answer") goes under the field.
+   * A card's bin is in its action row under the answer, beside copy (cardHtml), not here.
    */
-  // `trash`: the card whose bin sits in this line, beside the mic (Anders, 19 Oct 2026, as Gloss).
-  function followHtml({ link = '', field = true, mic = true, label = 'Follow up', trash = null } = {}) {
-    return `<div class="mr-follow">${field ? `<span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" aria-label="${esc(label)}"></textarea></span>` : ''}<span class="mr-follow__sp"></span>${link}${trash ? deleteHtml(trash) : ''}${mic ? `<button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>` : ''}</div>`;
+  function followHtml({ link = '', field = true, label = 'Follow up', placeholder = 'Ask a follow-up' } = {}) {
+    if (!field && !link) return '';
+    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
+    return `<div class="mr-follow${field ? ' has-field' : ''}">${box}${link}</div>`;
   }
   /**
    * A card. Folded: its label and two lines. Open: the label and close, the passage quote, the
@@ -730,24 +736,25 @@
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
-    // Its top-right control minimises it (folds it, as a click outside does); its bin is in the follow-up line (19 Oct 2026).
+    // Its top-right control minimises it (folds it, as a click outside does).
     const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button></div>`;
-    // The action row under the answer: copy, once there is something to copy.
-    const acts = withCopy => (withCopy ? `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>` : '');
+    // The action row under the answer, as Gloss's: copy, once there is something to copy, then the bin (Anders,
+    // 19 Oct 2026: the bin moved out of the follow-up line into this row). There is no regenerate action for a card.
+    const acts = withCopy => `<div class="mr-card__acts">${withCopy ? `<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button>` : ''}${deleteHtml(card)}</div>`;
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
-      let body = '', foot = followHtml({ field: false, mic: false, trash: card });
+      let body = '', foot = '';
       if (!qs.length) body = status;
       else if (q.done) {
         const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
         body = `<div class="mr-answer"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
         // The end card offers another quiz on the same passage (or unit).
-        foot = followHtml({ field: false, mic: false, trash: card, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
+        foot = followHtml({ field: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
       } else if (!qs[q.i || 0]) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
-        foot = followHtml({ field: false, mic: false, trash: card });
+        foot = '';
       } else {
         const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
@@ -758,12 +765,12 @@
             : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
           const last = i + 1 >= qs.length && (q.ended || !o.writing);
-          foot = followHtml({ field: false, mic: false, trash: card, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          foot = followHtml({ field: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
-        else { body += status; foot = followHtml({ label: 'Your answer', trash: card, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
+        else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
-      // A quiz has nothing to copy; its row holds delete, unless an answer is being marked.
+      // A quiz has nothing to copy; its action row holds the bin, unless an answer is being marked.
       return head + `<div class="mr-card__body">${body}${o.pending != null ? '' : acts(false)}</div>` + foot;
     }
     // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
@@ -807,7 +814,7 @@
       else body += `<div class="mr-answer">${(k === lead ? answerHtml : replyHtml)(t.content, P, { resolve: o.resolve })}</div>`;
     });
     body += status;
-    return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml({ trash: card });
+    return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml();
   }
   /** The "more" row: "{n} more on this page" (an EPUB: "in this chapter"), their kinds on the right. */
   function stackHtml(cards, maxKinds = Infinity, { doc = 'pdf' } = {}) {
@@ -817,7 +824,7 @@
   }
   /** What the whole file is called: "the whole PDF", or "the whole book" for an EPUB. */
   const wholeWords = doc => (doc === 'epub' ? 'the whole book' : 'the whole PDF');
-  /** A card's delete: a bin beside copy (no confirm; the reader can undo for a few seconds). */
+  /** A card's delete: a bin in the action row, beside copy (no confirm; the reader can undo for a few seconds). */
   const deleteHtml = card => `<button type="button" class="mr-card__delete" data-c="delete" aria-label="${card.kind === 'note' ? 'Delete note' : 'Delete'}">${CARD_ICONS.trash}</button>`;
 
   /** A card's own classes: open or folded, a note (its rule in the highlight colour). */
@@ -844,7 +851,7 @@
   // On the phone the chat's card has no label (mockup 5D): swipe down or tap the page to close it.
   function wholeHtml(body, { open = true, fold = '', tray = '', label = true, doc = 'pdf' } = {}) {
     if (!open) return `<button type="button" class="mr-card__label" data-c="open">${KINDS.chat}</button><div class="mr-card__text">${esc(fold)}</div>`;
-    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.chat}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}` });
+    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.chat}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}`, placeholder: `Ask about ${wholeWords(doc)}` });
   }
   /** The phone's bottom card: the grab handle, then a card's open contents. */
   const sheetHtml = inner => `<button type="button" class="mr-sheet__grab" data-c="grab" aria-label="Full height"></button>${inner}`;

@@ -297,10 +297,18 @@ html[data-pdf-theme="eink"] .mr-float .mr-bar__item:hover { background: transpar
 .mr-follow__mic[aria-pressed="true"] { color: var(--mr-ink); }
 .mr-card__acts svg { stroke-linecap: round; stroke-linejoin: round; }
 .mr-follow svg { stroke-linecap: round; stroke-linejoin: round; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
-/* The follow-up field: the caret blinks where the words will go; no placeholder. */
+/* The follow-up field (Anders, 19 Oct 2026, as Gloss): a rounded, bordered box that is always visible, its
+   placeholder in the hint colour, the mic and the send button inside it on the right. The caret shows only when
+   it has the focus. */
+.mr-follow__box { flex: 1 1 100%; min-width: 0; display: flex; align-items: flex-end; gap: 2px; min-height: 40px; box-sizing: border-box; padding: 5px 5px 5px 12px; border: 1px solid var(--mr-field-line); border-radius: 12px; background: var(--mr-field); cursor: text; }
+.mr-follow__box:focus-within { border-color: var(--mr-accent); }
 .mr-follow__field { position: relative; display: flex; flex: 1 1 auto; min-width: 0; align-self: center; }
-.mr-follow__sp { flex: 1 1 auto; }
-.mr-follow__field + .mr-follow__sp { flex: none; }
+.mr-follow__input::placeholder { color: var(--mr-hint); opacity: 1; font-style: normal; }
+/* Send: the up-arrow in a filled rounded square, in the ink; it reads as off until there is text. */
+.mr-follow__send { flex: none; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; border-radius: 8px; background: var(--mr-ink); color: var(--mr-card); cursor: pointer; }
+.mr-follow .mr-follow__send svg { width: 16px; height: 16px; stroke: currentColor; }
+.mr-follow__send:disabled { opacity: .3; cursor: default; }
+.mr-follow__box .mr-follow__mic:not([aria-pressed="true"]) { color: var(--mr-muted); }   /* legible on the field in every look */
 .mr-follow__input { display: block; width: 100%; height: 18px; max-height: 54px; margin: 0; padding: 0; border: 0; outline: 0; resize: none; overflow-y: auto; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: 400 16px/18px var(--mr-gara); overflow-wrap: anywhere; }
 .mr .mr-follow__input:focus, .mr .mr-follow__input:focus-visible { outline: 0 !important; box-shadow: none; }   /* the caret is the focus */
 .mr-follow__link { white-space: nowrap; }
@@ -337,7 +345,7 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 .mr-sheet.is-full .mr-card__body { flex: 1 1 auto; }
 .mr-sheet .mr-quote { font-size: 15px; }
 .mr-sheet .mr-card__copy { display: none; }   /* the phone's card has no copy (mockup 5C); its row keeps delete */
-.mr-sheet .mr-follow { gap: 14px; padding-top: 12px; margin-top: 0; }
+.mr-sheet .mr-follow { gap: 8px 14px; margin-top: 0; }
 .mr-sheet .mr-follow__input { font-size: 17px; line-height: 18px; }
 /* The whole-PDF thread in a card or the phone's card: the day or page changing (mockup .psheet .div). */
 .mr-divider { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--mr-faint); font-style: italic; font-size: 13px; white-space: nowrap; }
@@ -419,8 +427,7 @@ button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; backg
    and 3px below, the icon moved down 3px to stay where it was). */
 .mr-card__acts button { width: 28px; height: 28px; margin: -9px -6px -3px; }
 .mr-card__acts button svg { transform: translateY(3px); }
-.mr-follow__mic { flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -12px; place-items: center end; }
-.mr-follow__mic svg { transform: translateY(3px); }
+.mr-follow__mic { flex: none; width: 28px; height: 28px; margin: 0; place-items: center; }   /* inside the field, before send */
 /* "Show answer", "Next question →", "See your score →", "Try another quiz": 28px tall round their 16px line, which the follow-up line keeps. */
 .mr-follow__link { display: inline-flex; align-items: center; min-height: 28px; margin: -9px 0 -3px; padding-top: 6px; }
 /* The bottom card's handle: a 56 × 28px target round the 36 × 5px bar, in its place. */
@@ -430,7 +437,7 @@ button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; backg
    margin's controls keep their own sizes (28px) so nothing moves in e-ink. */
 [data-eink] :where(.mr-float, .mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-primer) button, [data-eink] button:where(.mr-trigger, .mr-mark, .mr-swatch) { min-height: var(--mr-min, auto); }
 :where(.mr-card__close, .mr-primer__foot button) { --mr-min: 28px; }
-:where(.mr-follow__link) { --mr-min: 28px; }
+:where(.mr-follow__link, .mr-follow__mic, .mr-follow__send) { --mr-min: 28px; }
 
 /* ---------- PR C: Related (docs/margin/PROMPTS.md) ----------
    After the bottom line, one row per place: the citation tag on the left, then the line in 15px
@@ -463,7 +470,7 @@ button.mr-related__row:hover .mr-related__line { text-decoration: underline; tex
 /* Text selected in a card reads as a selection (the page's own tint), never as a highlight: the app's
    gold ::selection made a selected answer look highlighted (screenshot 136). */
 .mr ::selection, .mr::selection { background: var(--mr-sel); color: inherit; }
-/* Delete: the bin beside copy, the same 16px icon in a 28px target. */
+/* Delete: the bin beside copy in the action row under the answer, the same 16px icon in a 28px target. */
 .mr-card__acts { justify-content: flex-start; }
 .mr-card__delete:hover, .mr-card__copy:hover { color: var(--mr-muted); }
 /* "Deleted · Undo": a quiet line where the card was (the column), else along the bottom; a few seconds. */
@@ -521,8 +528,16 @@ html[data-eink="true"] .mr .tc-wait i, html[data-pdf-theme="eink"] .mr .tc-wait 
 svg.mr-leads.mr-doc-leads { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: visible; z-index: 2; clip-path: none; inset: auto; }
 .mr-doc-cover { position: absolute; top: 0; background: var(--pdf-room); pointer-events: none; }
 
-/* Gloss's controls (19 Oct 2026): the top-right control minimises (one line, in the icons' stroke); the bin sits in
-   the follow-up line beside the mic, the same 16px icon in a 28px target. */
+/* Gloss's controls (19 Oct 2026): the top-right control minimises (one line, in the icons' stroke); the bin is in
+   the action row under the answer, beside copy (.mr-card__acts). */
 .mr-card__close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
-.mr-follow .mr-card__delete { position: relative; display: grid; flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -6px; place-items: center; color: var(--mr-faint); }
-.mr-follow .mr-card__delete svg { transform: translateY(3px); stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- The follow-up field and the action row, as Gloss (Anders, 19 Oct 2026) ----------
+   "It's too hidden that this is indeed a chat field." The card ends with its action row under the answer (copy, then
+   the bin), then the field: always visible, rounded and bordered in the look's own colours (.mr-follow__box above).
+   The follow-up line loses its hairline: the box is the line. A link ("Show answer") wraps under the box. */
+.mr { --mr-field: #fdfbf7; --mr-field-line: rgba(32, 26, 19, .26); }   /* a shade lighter than the card; a border seen without the focus */
+.lab.is-book-theme .mr { --mr-field: #f8f2e6; }
+.lab.is-night .mr { --mr-field: #171411; --mr-field-line: rgba(214, 204, 191, .26); }
+html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; --mr-field-line: #111; }
+.mr-follow { flex-wrap: wrap; gap: 8px 12px; padding-top: 0; border-top: 0; }
