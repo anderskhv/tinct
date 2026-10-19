@@ -324,8 +324,8 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 /* A figure's open card rings its figure (FIXES-2026-10-15 item 4) instead of underlining a passage. */
 .mr-ul-layer i.is-box { height: auto; margin: 0; background: none; border: 1.5px solid var(--mr-lead); border-radius: 4px; }
 /* A figure's card: the figure's thumbnail at the top, its room kept while it is drawn. */
-.mr-thumb { flex: none; width: 100%; max-height: 140px; border-radius: 8px; background: var(--mr-hair); overflow: hidden; }
-.mr-thumb img { display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.mr-thumb { flex: none; display: block; width: 100%; max-height: 120px; margin: 0; padding: 0; border: 0; border-radius: 8px; background: transparent; overflow: hidden; cursor: zoom-in; }   /* narrow windows and the phone only; opens the figure view */
+.mr-thumb img { display: block; width: 100%; height: 100%; max-height: 120px; object-fit: contain; object-position: left center; }
 .lab.is-night .mr-thumb img { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }   /* as the night page's own fallback */
 /* Narrow windows: 8px marks at the page's right edge in the lead colour; a 28px target round each. */
 .mr-marks { position: fixed; inset: var(--pdf-top, 56px) 0 0 0; pointer-events: none; z-index: 31; overflow: hidden; }
@@ -545,7 +545,7 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; 
 /* ---------- 19 Oct 2026, evening (Anders's feedback) ---------- */
 /* The focus ring on a margin button is for the keyboard only: after a click (the pointer the last input; reader.js) a
    button focused by the card's own redraw, Minimise above all, shows none. */
-:root[data-mr-input="pointer"] :is(.mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-float, .mr-primer, .mr-undo, .mr-pills) :is(button, [tabindex]):focus-visible,
+:root[data-mr-input="pointer"] :is(.mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-float, .mr-primer, .mr-undo, .mr-unit) :is(button, [tabindex]):focus-visible,
 :root[data-mr-input="pointer"] button:is(.mr-trigger, .mr-pill):focus-visible { outline: none; }
 /* The passage mark (Aa panel, per device; reader.js underline): the underline sits just under each line's own baseline
    (its top set by the reader, no offset here); Highlight is a soft tint of each line's band, never over the next line. */
@@ -586,7 +586,15 @@ html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr
    (src/lab/lab.css .lab-chapter-recap, .lab-chapter-note): the words in 14px Garamond in the muted ink, a hairline pill
    round them, the companion's ✧ before its own; pressed while its card is open. A row at a unit's start sits at the top of
    its first page; one at its end, at the foot of its last page. */
-.mr-col .mr-pills { position: absolute; left: 0; right: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; }
+/* A unit's marks (Anders's mockup, 19 Oct 2026, night): in the column, scrolling with the page; the hairline rule at the
+   mark's top is level with the heading's (or the last line's) top, its tick drawn with the leader lines (.is-rule). */
+.mr-col .mr-unit { position: absolute; left: 0; right: 0; display: grid; gap: 6px; padding-top: 9px; border-top: 1px solid var(--mr-hair); font-family: var(--mr-gara); }
+.mr-unit__k { font: 12.5px/1.3 var(--mr-ui); color: var(--mr-faint); }
+.mr-unit__n { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; font-size: 17px; font-style: italic; line-height: 1.3; color: var(--mr-ink); }
+.mr-unit__pages { font-style: normal; font-size: 13px; color: var(--mr-faint); font-variant-numeric: tabular-nums; }
+.mr-unit__acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; }
+.mr-leads path.is-rule { stroke: var(--mr-hair); }
+html[data-pdf-theme="eink"] .mr-col .mr-unit { border-top-color: var(--mr-ink); }
 .mr-pill { display: inline-flex; align-items: center; min-height: 32px; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mr-muted); font: 14px/1.4 var(--mr-gara); text-align: left; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
 .mr-pill > span { border: 1px solid var(--mr-hair); border-radius: 999px; padding: 2px 10px; }
 .mr-pill:hover { color: var(--mr-ink); }
@@ -598,3 +606,18 @@ html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr
 .mr-pill:focus-visible > span { outline: 2px solid var(--mr-muted); outline-offset: 2px; }
 :root[data-mr-input="pointer"] .mr-pill:focus-visible > span { outline: none; }
 html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }
+/* The chapter menu on the wide column: the unit the reader is in, marked, and its actions. */
+.byob-unit-now { display: grid; gap: 6px; margin: 0 0 8px; padding: 8px 10px; border-radius: 10px; background: var(--wash, var(--mr-wash)); font-family: var(--mr-gara, "EB Garamond", Georgia, serif); }
+.byob-unit-now__name { margin: 0; font-size: 16px; color: var(--mr-ink, inherit); font-variant-numeric: tabular-nums; }
+.byob-unit-now__acts { display: flex; flex-wrap: wrap; gap: 0 8px; }
+/* The figure large (a figure card's picture, a picture in the chat): over the reader, the page's room behind it. */
+.mr-figview { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 56px 16px 24px; background: color-mix(in srgb, var(--mr-room) 92%, transparent); }
+.mr-figview__fig { margin: 0; max-width: 100%; max-height: 100%; display: grid; place-items: center; }
+.mr-figview__fig img { display: block; max-width: min(100%, 1100px); max-height: calc(100vh - 96px); object-fit: contain; background: #fff; border-radius: 6px; box-shadow: var(--mr-card-shadow); }
+.lab.is-night .mr-figview__fig img { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }
+.mr-figview__close { position: absolute; top: 12px; right: 12px; min-width: 40px; min-height: 40px; display: grid; place-items: center; border: 0; border-radius: 999px; background: var(--mr-card); color: var(--mr-ink); cursor: pointer; }
+.mr-figview__close svg { width: 16px; height: 16px; }
+/* A question's attached pictures in the Chat card: at most 120px tall, each opening large. */
+.mr-card .tc-imgs { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin: 4px 0; }
+.mr-card .tc-img { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; }
+.mr-card .tc-img img { display: block; max-width: 220px; max-height: 120px; border-radius: 8px; background: #fff; }

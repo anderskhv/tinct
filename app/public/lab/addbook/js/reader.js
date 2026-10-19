@@ -32,6 +32,8 @@ addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput
 const marginPress = { busy: false };
 const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-aa-panel, .lab-super-layer')) } catch { return false } };
 addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
+// The figure view (figureView) closes on Escape before anything else hears it (an open card under it stays open).
+addEventListener('keydown', e => { const v = e.key === 'Escape' && document.querySelector('.mr-figview'); if (v) { e.preventDefault(); e.stopImmediatePropagation(); v.close?.() } }, true);
 
 /* ---------- Layout: Tinct's phone/desktop classes ---------- */
 function applyLayout() {
@@ -2246,9 +2248,12 @@ function openContents() {
       ${branch && open ? `<ul class="nested"><button class="rail" data-collapse="${e.id}" aria-label="Collapse ${esc(e.label)}" tabindex="-1"></button>${kids.map(node).join('')}${kids.some(k => cur && k.id === cur.id) ? '<span class="gold-branch"></span>' : ''}</ul>` : ''}</li>`;
   };
   const tops = toc.entries.filter(e => !e.parent);
+  // The wide column: the unit the reader is in, marked, with its Recap, Quiz me and Catch me up (as its marks offer them).
+  const unit = marginMode() === 'column' && primerHasText() ? currentUnit() : null;
+  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Recap'], ['quiz', 'Quiz me'], ['catchup', 'Catch me up']].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
   layer.innerHTML = `<button class="lc-scrim" aria-label="Close contents" tabindex="-1"></button>
     <div class="menu" role="dialog" aria-modal="true" aria-label="Contents">
-      <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>
+      <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>${unitNow}
       <div class="viewport">
         <form class="byob-jump byob-toc-jump"${isEpub() ? ' hidden' : ''}><label for="jumpInput">Go to page</label><input id="jumpInput" inputmode="${lettered ? 'text' : 'numeric'}" autocapitalize="off" autocomplete="off" spellcheck="false" value="${esc(pageLabel(page))}"><span>of ${esc(lastLabel())}</span><button type="submit">Go</button></form>
         ${toc.ready ? (tops.length ? `<nav class="tree" aria-label="Chapters"><ul>${tops.map(node).join('')}</ul></nav>` : isEpub() ? '<p class="status">This book has no table of contents.</p>' : pageList(page)) : '<p class="status" role="status">Reading the book’s contents…</p>'}
@@ -2264,6 +2269,7 @@ function openContents() {
     if (toc.entries.some(c => c.parent === e.id)) { toc.expanded.has(e.id) ? toc.expanded.delete(e.id) : toc.expanded.add(e.id); close(); openContents(); return }
     close(); goToEntry(e);
   });
+  layer.querySelectorAll('[data-unit-act]').forEach(b => b.onclick = () => { close(); pillAction(b.dataset.unitAct, unit.key) });
   layer.querySelectorAll('[data-collapse]').forEach(b => b.onclick = () => { toc.expanded.delete(b.dataset.collapse); close(); openContents() });
   layer.querySelectorAll('[data-page]').forEach(b => b.onclick = () => { close(); goTo({ page: Number(b.dataset.page), frac: 0 }) });
   root.appendChild(layer);
@@ -3535,7 +3541,7 @@ async function marginDocument(page) {
  */
 async function docRange(page) {
   await Promise.race([primer.unitsTask, new Promise(r => setTimeout(r, 60000))]);
-  const unit = primer.units && primer.units[0]?.key !== 'all' ? TinctMargin.unitAt(primer.units, page) : null;
+  const unit = primer.parts && primer.parts[0]?.key !== 'all' ? TinctMargin.unitAt(primer.parts, page) : null;
   if (unit) return { from: unit.from, to: unit.to };
   const block = Math.floor((page - 1) / 40) * 40 + 1;
   return { from: block, to: Math.min(state.pages.length, block + 39) };
@@ -3805,7 +3811,8 @@ const quizLive = card => { const d = col.quiz.get(card.id); return d ? { ...card
 const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.defs.get(card.id) || 0, col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id), card.kind === 'figure' && figThumbs.has(card.id)]);
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
-  const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
+  // The wide column shows no picture in a figure's card: the figure is beside it (Anders, 19 Oct 2026, night).
+  const thumb = open && card.kind === 'figure' && marginMode() !== 'column' ? figThumb(card) : null;
   // Simplify compares its answer with the page and the next (simplifyAnswer): the document pasted back is never shown.
   const source = card.kind === 'simplify' ? [card.page, card.page + 1].map(n => state.texts.get(n)?.text || '').join('\n') : '';
   return { open, P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
@@ -4067,37 +4074,40 @@ function layoutColumn() {
   // Chat: open, its own panel (fixed); folded, at the document's top.
   if (col.open === 'whole') { const el = take('whole', col.el); drawWhole(el); el.style.top = '0px' }
   else if (chat.turns.length || chat.live) { const el = take('whole'); drawWhole(el); items.push({ el, ey: docTop, top: docTop, order: -2 }) }
-  // Each unit's pills (Anders, 19 Oct 2026, evening): at the top of its first page Primer and Catch me up, Before you
-  // start opening under them in place, then the unit's catch-up; at the foot of its last page Recap, Quiz me and Note,
-  // their cards under them. Never at a page's first line of text: on a cover drawn as one picture (Possible Minds) that
-  // is far down the page or not there at all. Units near the reader's place are drawn (their pages are).
-  const units = primerHasText() ? pillUnits() : [];
-  const seenPills = new Set();
+  // Each unit's marks (Anders's mockup, 19 Oct 2026, night): in the column and scrolling with the page, never pinned.
+  // The start mark's rule level with the top of the unit's heading on the page ("Starting", Primer, Catch me up),
+  // Before you start and the catch-up opening under it; the end mark's level with the top of its last line ("End of",
+  // Recap, Quiz me, Note), their cards under it. A short tick runs out to the page; a mark pushed down by the one
+  // before it keeps its tick at the heading, slanting to the mark (as a card's leader line). Units near the reader's
+  // place are drawn (their pages are), and the unit of an open unit card.
+  const units = primerHasText() ? markUnits() : [];
+  const seenMarks = new Set();
   if (!units.some(u => primer.open && primer.unit?.key === u.key)) { if (!primer.open) { primer.el?.remove(); primer.el = null } }
   for (const u of units) {
-    const p = state.pages[(u.from || u.start) - 1], pr = p?.pg.getBoundingClientRect();
+    const at = unitPlaceNow(u); if (!at) continue;
+    const p = state.pages[at.head.page - 1], pr = p?.pg.getBoundingClientRect();
     if (pr) {
-      const ey = Y(pr.top) + 4, row = pillRow(u, 'start', doc); seenPills.add(row);
-      items.push({ el: row, ey, top: ey - 4, order: -1 });
+      const ey = Y(pr.top + at.head.y * pr.height), el = unitMark(u, 'start', doc); seenMarks.add(el);
+      items.push({ el, ey, top: ey, order: -1, rule: true, mark: 'start', unit: u.key, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot });
       if (primer.open && primer.unit?.key === u.key) {
-        const el = primerEl(); el.classList.remove('is-floating');
-        if (el.parentElement !== doc) { el.removeAttribute('style'); doc.appendChild(el) }
-        drawPrimer(el);
-        items.push({ el, ey, top: ey, order: -0.9 });
+        const pe = primerEl(); pe.classList.remove('is-floating');
+        if (pe.parentElement !== doc) { pe.removeAttribute('style'); doc.appendChild(pe) }
+        drawPrimer(pe);
+        items.push({ el: pe, ey, top: ey, order: -0.9 });
       }
       const cu = unitCard(u, 'catchup');
-      if (cu) { const el = take(cu.id); drawCard(el, cu, col.open === cu.id); el.classList.add('is-unit'); items.push({ el, ey, top: ey, order: -0.8 }) }
+      if (cu) { const ce = take(cu.id); drawCard(ce, cu, col.open === cu.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -0.8 }) }
     }
-    const q = state.pages[u.to - 1], qr = q?.pg.getBoundingClientRect();
+    const q = state.pages[at.end.page - 1], qr = q?.pg.getBoundingClientRect();
     if (qr) {
-      const row = pillRow(u, 'end', doc); seenPills.add(row);
-      const ey = Y(qr.bottom) - (row.offsetHeight || 32) - 4;
-      items.push({ el: row, ey, top: ey, order: 2 });
+      const ey = Y(qr.top + at.end.y * qr.height), el = unitMark(u, 'end', doc); seenMarks.add(el);
+      // Before the next unit's start mark when they meet.
+      items.push({ el, ey, top: ey, order: -1.6, rule: true, mark: 'end', unit: u.key, x0: X(Math.min(pageEdge(q), sr.left + area)) + C.dot });
       const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
-      [...['recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const el = take(c.id); drawCard(el, c, col.open === c.id); el.classList.add('is-unit'); items.push({ el, ey: ey + 0.001 * (k + 1), top: ey, order: 2.1 + k * 0.01 }) });
+      [...['recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id); drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -1.59 + k * 0.001, endOf: u.key }) });
     }
   }
-  for (const [k, el] of col.pills) if (!seenPills.has(el)) { el.remove(); col.pills.delete(k) }
+  for (const [k, el] of col.pills) if (!seenMarks.has(el)) { el.remove(); col.pills.delete(k) }
   if (primer.open && !units.some(u => u.key === primer.unit?.key)) { primer.el?.remove(); primer.el = null }
   // The cards, each at its passage's line.
   for (const card of viewCards()) {
@@ -4122,10 +4132,27 @@ function layoutColumn() {
   items.sort((a, b) => a.ey - b.ey || a.order - b.order);
   let floor = 0;
   const lines = [];
-  for (const it of items) {
-    const top = Math.max(Math.round(it.top), floor);
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    let want = Math.round(it.top);
+    // A unit's end meeting the next unit's start (Anders, 19 Oct 2026, night: the start rule sits exactly above the
+    // heading): the end mark, with its cards, moves up so it ends clear of the start rule, its tick slanting from the
+    // last line; only with no room above does the start mark go down instead.
+    if (it.mark === 'end') {
+      let j = i + 1, h = it.el.offsetHeight;
+      while (j < items.length && items[j].endOf === it.unit) { h += C.cardGap + items[j].el.offsetHeight; j++ }
+      const next = items[j], at = next && next.mark === 'start' ? Math.round(next.top) : null;
+      if (at != null && Math.max(want, floor) + h + C.cardGap > at && at - C.cardGap - h >= floor) {
+        want = at - C.cardGap - h;
+        // Its cards follow it directly.
+        for (let k = i + 1; k < j; k++) items[k].top = 0;
+      }
+    }
+    const top = Math.max(want, floor);
     if (it.el.style.top !== top + 'px') it.el.style.top = top + 'px';
     floor = top + it.el.offsetHeight + C.cardGap;
+    // A unit mark's rule: a tick from the page to the column, level with the heading (or the last line); moved, slanting to the mark.
+    if (it.rule) { lines.push(`<path class="is-rule" d="${Math.abs(top - it.ey) <= 1 ? `M${it.x0} ${it.ey} H${left}` : `M${it.x0} ${it.ey} H${it.x0 + 12} L${left - 12} ${top} H${left}`}"/>`); continue }
     // A note with no passage (a margin note, a unit's note) has no line to a passage.
     if (!it.card || it.card.free) continue;
     const cy = top + it.mid, x0 = it.x0, x1 = left - 6, folded = it.card.id === col.open ? '' : ' class="is-folded"';
@@ -4380,9 +4407,11 @@ function wholeMovedOn() {
   if (el && el.contains(document.activeElement)) { col.whole.page = placePage(); return false }
   return placePage() !== col.whole.page;
 }
+/* A question's attached pictures in a thread (the Chat card, the chat panel): at most 120px tall, each opening large. */
+const chatImgs = imgs => `<span class="tc-imgs">${imgs.filter(Boolean).map(u => `<button type="button" class="tc-img" data-chatimg="${esc(u)}" aria-label="Show the attached image larger"><img src="${esc(u)}" alt="Attached image"></button>`).join('')}</span>`;
 /* -- The whole-PDF thread, in its card or the phone's card -- */
 function wholeTurns() {
-  const turns = chat.turns.map(t => ({ role: t.role, text: t.role === 'user' ? (t.display || t.content) : String(t.content || '').replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, ''), at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined, note: t.failed ? `No answer — ${t.failed}` : undefined }));
+  const turns = chat.turns.map(t => ({ role: t.role, text: t.role === 'user' ? (t.display || t.content) : String(t.content || '').replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, ''), at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined, extra: t.role === 'user' && t.imgs?.length ? chatImgs(t.imgs) : undefined, note: t.failed ? `No answer — ${t.failed}` : undefined }));
   if (chat.live) turns.push({ role: 'assistant', text: chat.live.text, at: Date.now(), place: turns.at(-1)?.place });
   return turns;
 }
@@ -4453,7 +4482,12 @@ function bindCardEvents(host) {
     if (e.mrDone) return; e.mrDone = true;
     // A unit's pill (the wide column): its own card.
     const pill = e.target.closest('.mr-pill');
-    if (pill) { pillAction(pill.dataset.pill, pill.closest('.mr-pills')?.dataset.unit); return }
+    if (pill) { pillAction(pill.dataset.pill, pill.closest('.mr-unit')?.dataset.unit); return }
+    // A figure card's small picture (narrow windows, the phone): the figure large.
+    const ci = e.target.closest('[data-chatimg]');
+    if (ci) { openChatImage(ci.dataset.chatimg); return }
+    const fv = e.target.closest('[data-figview]');
+    if (fv) { const card = cardById(fv.closest('[data-id]')?.dataset.id || col.open); if (card) openFigureView(card); return }
     const row = e.target.closest('.mr-map__row[data-page]');
     if (row) { goToCite(Number(row.dataset.page), ''); return }
     // Related: a place scrolls the file there and underlines it briefly.
@@ -4601,7 +4635,7 @@ function noteAsk(id) {
 // A click on the empty margin column (the wide desktop): a new note there, unless something was open (then it only folded).
 document.addEventListener('click', e => {
   if (marginMode() !== 'column' || e.button > 0 || marginPress.busy || !getSelection().isCollapsed || !col.doc?.isConnected) return;
-  if (e.target.closest?.('.mr-card, .mr-trigger, .mr-primer, .mr-undo, .mr-pills, .mr-float, .pdf-sheet, .lab-header, .pdf-strip, button, a, input, textarea, select, [role="dialog"]')) return;
+  if (e.target.closest?.('.mr-card, .mr-trigger, .mr-primer, .mr-undo, .mr-unit, .mr-float, .pdf-sheet, .lab-header, .pdf-strip, button, a, input, textarea, select, [role="dialog"]')) return;
   const left = col.doc.getBoundingClientRect().left, sr = $('scroll').getBoundingClientRect(), top = Math.max(sr.top, $('hdr').getBoundingClientRect().bottom);
   if (e.clientX < left - 8 || e.clientX > left + TinctMargin.COL.width + 8 || e.clientY < top || e.clientY > sr.bottom) return;
   newMarginNote(e.clientY);
@@ -5052,12 +5086,12 @@ addEventListener('keydown', e => {
    in this browser ('primer:{key}:{unit}') and, signed in with the book in the account, with the
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
-const primer = { units: null, unitsTask: null, open: false, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
+const primer = { units: null, parts: null, places: new Map(), unitsTask: null, open: false, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
 const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
 function primerReset() {
   primer.token++;
-  Object.assign(primer, { units: null, open: false, unit: null, data: null, wait: false, status: '' });
-  primer.away.clear();
+  Object.assign(primer, { units: null, parts: null, open: false, unit: null, data: null, wait: false, status: '' });
+  primer.away.clear(); primer.places.clear();
   primer.el?.remove(); primer.trig?.remove(); primer.el = null; primer.trig = null;
   for (const el of col.pills.values()) el.remove(); col.pills.clear();
 }
@@ -5073,49 +5107,63 @@ function loadUnits() {
 }
 async function loadUnitsNow() {
   const token = state.token, pdf = state.pdf;
+  // An entry's page, and its heading's top on that page (an XYZ destination's, in page fractions) where it gives one.
   const resolve = async item => {
     try {
       let dest = item.dest;
       if (typeof dest === 'string') dest = await pdf.getDestination(dest);
       const ref = Array.isArray(dest) ? dest[0] : null;
-      return ref && typeof ref === 'object' ? await pdf.getPageIndex(ref) + 1 : Number.isInteger(ref) ? ref + 1 : null;
-    } catch { return null }
+      const page = ref && typeof ref === 'object' ? await pdf.getPageIndex(ref) + 1 : Number.isInteger(ref) ? ref + 1 : null;
+      return { page, top: dest?.[1]?.name === 'XYZ' && Number.isFinite(dest[3]) ? dest[3] : null };
+    } catch { return { page: null, top: null } }
   };
-  let entries = [];
-  try {
-    const outline = await pdf.getOutline();
-    entries = await Promise.all((outline || []).map(async item => ({ title: item.title, page: await resolve(item), items: await Promise.all((item.items || []).slice(0, 60).map(async kid => ({ title: kid.title, page: await resolve(kid) }))) })));
-  } catch { entries = [] }
+  // The outline to three levels: the units are sized from it (TinctMargin.sizeUnits), the document's parts from its top level (primerUnits).
+  const walk = async (items, depth) => Promise.all((items || []).slice(0, 60).map(async item => {
+    const at = await resolve(item);
+    return { title: item.title, page: at.page, top: at.top, items: depth < 2 ? await walk(item.items, depth + 1) : [] };
+  }));
+  let entries = [], tree = [];
+  try { entries = tree = await walk(await pdf.getOutline(), 0) } catch { entries = tree = [] }
   if (token !== state.token) return;
   // A recognised scan has no outline: its chapters (a paper's numbered sections) are its units.
-  if (!entries.some(e => Number.isInteger(e.page)) && state.textEdition?.source === 'ocr') entries = state.textEdition.chapters.map(c => ({ title: c.title, page: Array.isArray(c.pages) ? c.pages[0] : null }));
+  if (!entries.some(e => Number.isInteger(e.page)) && state.textEdition?.source === 'ocr') entries = tree = state.textEdition.chapters.map(c => ({ title: c.title, page: Array.isArray(c.pages) ? c.pages[0] : null }));
   // Any other PDF without an outline: the chapters the scan found, from its printed contents or its
   // headings (MacKay's 640-page book has no bookmarks, only a printed contents: without this it was
   // one unit, "the whole PDF", and its primer blended the preface with chapters 1 and 2; Anders, 15 Oct).
   const count = state.pages.length || pdf.numPages;
-  // (A PDF under 40 pages is one unit whatever it has: nothing to wait for.)
   // The chapters are heard as soon as the scan finds them (contentsSoon), not when it ends: MacKay's trigger
-  // took 15 s on its first open (round 1, 15 Oct).
-  if (!entries.some(e => Number.isInteger(e.page)) && count >= TinctMargin.PRIMER.units) {
+  // took 15 s on its first open (round 1, 15 Oct). A short paper's headings are its units too (sizeUnits).
+  if (!entries.some(e => Number.isInteger(e.page))) {
     const soon = await contentsSoon();
     if (token !== state.token) return;
-    entries = TinctMargin.scanEntries(soon.entries, soon.nav, count);
+    if (count >= TinctMargin.PRIMER.units) entries = TinctMargin.scanEntries(soon.entries, soon.nav, count);
+    tree = soon.nav === 'contents' || soon.nav === 'headings' ? TinctMargin.scanTree(soon.entries) : [];
   }
-  let units = TinctMargin.primerUnits(entries, count);
-  // Still one unit, and too long to send whole: blocks of pages, never "the whole PDF".
-  if (units.length === 1 && units[0].key === 'all' && count >= TinctMargin.PRIMER.units) {
+  // The document's parts (docRange: the cached part of the whole document) stay chapter-sized: the outline's top
+  // level, else 40-page blocks.
+  let parts = TinctMargin.primerUnits(entries, count);
+  if (parts.length === 1 && parts[0].key === 'all' && count >= TinctMargin.PRIMER.units) {
     const read = await readDocument();
     if (token !== state.token) return;
-    if (read && !read.pages) units = TinctMargin.primerBlocks(count);
+    if (read && !read.pages) parts = TinctMargin.primerBlocks(count);
   }
+  // The reading units (Primer, Catch me up, Recap, Quiz me; their marks): about 3–25 pages each (Anders, 19 Oct 2026).
+  const units = TinctMargin.sizeUnits(tree, count);
+  // Each unit's heading's top as the outline gives it (a fallback for unitPlace).
+  const tops = new Map();
+  const note = (list, prefix) => (list || []).forEach((e, i) => { if (e.top != null) tops.set('outline-' + prefix + i, e.top); note(e.items, prefix + i + '.') });
+  note(tree, '');
+  for (const u of units) { const t = tops.get(u.key.split('_')[0]); if (t != null) u.destTop = t }
   // Read side by side, not one after another (80 units took about 2 s in turn).
-  const kinds = await Promise.all((units.length > 1 ? units.slice(0, 80) : []).map(async u => {
+  const kinds = await Promise.all((units.length > 1 ? units.slice(0, 120) : []).map(async u => {
     if (u.matter || u.pages) return null;
     return TinctMargin.pageMatter((await pageText(u.start)).text) || (u.start < u.to ? TinctMargin.pageMatter((await pageText(u.start + 1)).text) : null);
   }));
   if (token !== state.token) return;
   kinds.forEach((kind, i) => { if (kind) units[i].matter = kind === 'contents' ? 'front' : 'back' });
+  primer.parts = parts;
   primer.units = units;
+  primer.places.clear();
   marginLayout();
   primerPrefetch();
 }
@@ -5376,28 +5424,109 @@ function unitCard(unit, pill) {
   if (pill === 'quiz') return unitQuiz(unit);
   return keptCards().filter(c => !c.gone && c.data?.unit?.key === unit.key && c.data?.pill === pill).sort((a, b) => (b.at || 0) - (a.at || 0))[0] || null;
 }
-/** The units whose pills are drawn: those whose first or last page is near the reader's place, never front or back matter. */
-function pillUnits() {
+/** The units whose marks are drawn: those whose start or end is near the reader's place, the open primer's and an open unit card's; never front or back matter. */
+function markUnits() {
   if (!primer.units) return [];
-  const at = placePage(), here = currentUnit();
-  // Before you start's unit (open, or the one it is about from the reader's place, front matter's nearest chapter) always.
-  return primer.units.filter(u => (primer.open && primer.unit?.key === u.key) || u === here || (!u.matter && (Math.abs((u.from || u.start) - at) <= 3 || Math.abs(u.to - at) <= 3 || (at >= u.from && at <= u.to && u.to - u.from <= 6))));
+  const at = placePage(), here = currentUnit(), open = col.open && col.open !== 'whole' ? cardById(col.open) : null;
+  const openKey = open?.data?.unit?.key || (open?.unitNote ? open.unit : null) || (col.draft?.unitNote && col.open === col.draft.id ? col.draft.unit : null);
+  const near = u => { const end = primer.places.get(u.key)?.value?.end.page ?? u.to; return Math.abs(u.start - at) <= 3 || Math.abs(end - at) <= 3 || (at >= u.from && at <= end && end - u.from <= 6) };
+  return primer.units.filter(u => (primer.open && primer.unit?.key === u.key) || u.key === openKey || u === here || (!u.matter && near(u)));
 }
-/** A unit's row of pills (its start's or its end's), drawn again only when what it shows changed. */
-function pillRow(unit, where, doc) {
+/** A unit's mark (its start's or its end's), drawn again only when what it shows changed. */
+function unitMark(unit, where, doc) {
   const k = unit.key + ':' + where;
   let el = col.pills.get(k);
-  if (!el) { el = document.createElement('div'); el.className = `mr mr-pills is-${where}`; el.setAttribute('role', 'group'); el.dataset.unit = unit.key; el.dataset.where = where; col.pills.set(k, el) }
+  if (!el) { el = document.createElement('div'); el.className = `mr mr-unit is-${where}`; el.setAttribute('role', 'group'); el.dataset.unit = unit.key; el.dataset.where = where; col.pills.set(k, el) }
   const open = where === 'start' ? (primer.open && primer.unit?.key === unit.key ? 'primer' : unitCard(unit, 'catchup')?.id === col.open && col.open ? 'catchup' : '')
     : ['recap', 'quiz'].find(p => col.open && unitCard(unit, p)?.id === col.open) || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === unit.to || c.unit === unit.key)) ? 'note' : '');
-  const name = TinctMargin.unitPhrase(unit), sig = JSON.stringify([where, unit.key, open, name]);
+  const name = TinctMargin.html.unitName(unit, state.title), phrase = TinctMargin.unitPhrase(unit), pages = unitPagesLabel(unit);
+  const sig = JSON.stringify([where, unit.key, open, name, pages]);
   if (el.dataset.sig !== sig) {
     el.dataset.sig = sig;
-    el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${name}`);
-    el.innerHTML = TinctMargin.html.pillsHtml(where, { open, name, line: TinctMargin.triggerLine(unit) });
+    el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
+    el.innerHTML = TinctMargin.html.markHtml(where, { open, name, pages, phrase, line: TinctMargin.triggerLine(unit) });
   }
   if (el.parentElement !== doc) doc.appendChild(el);
   return el;
+}
+/** A unit's pages as printed: "pp. 10–18", "p. 4"; none for a band, whose name says them. */
+function unitPagesLabel(unit) {
+  if (unit.pages) return '';
+  const a = pageLabel(unit.from), b = pageLabel(unit.to);
+  return unit.from === unit.to ? `p. ${a}` : `pp. ${a}–${b}`;
+}
+/* Where a unit's marks go: its heading's top on its first page and the top of its last line, in page fractions (the
+   text layer's own line boxes: baseline less 0.86 of the size). Found once per unit from the page's text, the layout
+   drawn again when it is known. -> { head: { page, y }, end: { page, y } } or null (not yet) */
+function unitPlaceNow(u) {
+  const had = primer.places.get(u.key);
+  if (had) return had.value || null;
+  const entry = { value: null };
+  primer.places.set(u.key, entry);
+  const key = state.key;
+  unitPlace(u).then(v => { if (state.key !== key || primer.places.get(u.key) !== entry) return; entry.value = v; marginLayout() }, () => {});
+  return null;
+}
+const compactText = t => String(t || '').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]/gu, '');
+const pageLinesMemo = new Map();
+/** A page's lines of text for the unit marks, top first: { top, size, text } (top in page fractions, as the text layer sets its spans); running heads, folios and rotated text left out. */
+function unitLines(n) {
+  const k = state.key + ':' + n;
+  if (!pageLinesMemo.has(k)) pageLinesMemo.set(k, (async () => {
+    const page = await state.pdf.getPage(n), vp = page.getViewport({ scale: 1 }), items = (await pageText(n)).items || [];
+    const lines = [];
+    for (const it of items) {
+      if (!it?.str?.trim()) continue;
+      const tx = pdfjsLib.Util.transform(vp.transform, it.transform), size = Math.hypot(tx[2], tx[3]);
+      if (size < 1 || Math.abs(tx[1]) > size * 0.05) continue;
+      const top = (tx[5] - size * 0.86) / vp.height, L = lines.find(l => Math.abs(l.base - tx[5]) < Math.min(l.size, size) * 0.5);
+      if (L) { L.parts.push([tx[4], it.str]); L.top = Math.min(L.top, top); L.size = Math.max(L.size, size) } else lines.push({ base: tx[5], size, top, parts: [[tx[4], it.str]] });
+    }
+    for (const L of lines) L.text = L.parts.sort((a, b) => a[0] - b[0]).map(q => q[1]).join(' ').replace(/\s+/g, ' ').trim();
+    const sizes = lines.map(l => l.size).sort((a, b) => a - b), body = sizes[Math.floor(sizes.length / 2)] || 0;
+    // A folio ("14", "xii"), and a short line at the very top or foot in the body's size or smaller (a running head).
+    const furniture = l => /^(?:\d{1,4}|[ivxlc]{1,7})$/i.test(l.text) || ((l.top < 0.08 || l.top > 0.93) && l.text.length < 70 && l.size <= body * 1.02);
+    return lines.filter(l => !furniture(l)).sort((a, b) => a.top - b.top);
+  })().catch(() => []));
+  return pageLinesMemo.get(k);
+}
+async function unitPlace(u) {
+  const units = primer.units || [], next = units[units.indexOf(u) + 1];
+  const head = await headPlace(u);
+  let end = null;
+  if (next) {
+    const nh = await headPlace(next), lines = await unitLines(nh.page), above = lines.filter(l => l.top < nh.y - 0.002);
+    if (nh.page === u.to + 1 && above.length) end = { page: nh.page, y: above[above.length - 1].top };
+  }
+  if (!end) { const lines = await unitLines(u.to); end = { page: u.to, y: lines.length ? lines[lines.length - 1].top : 0.9 } }
+  return { head, end };
+}
+const headMemo = new Map();
+/** The top of a unit's heading on its first page: the line that reads as its title, else the outline's destination, else the page's top. */
+function headPlace(u) {
+  const k = state.key + ':' + u.key + ':' + u.start;
+  if (!headMemo.has(k)) headMemo.set(k, (async () => {
+    const lines = await unitLines(u.start);
+    const want = compactText(u.head || TinctMargin.html.unitName(u, ''));
+    if (want && !u.pages) {
+      // The largest line that reads as the title (a running head repeating it is smaller).
+      let best = null;
+      for (let j = 0; j < lines.length; j++) {
+        const c = compactText(lines[j].text), two = c + compactText(lines[j + 1]?.text);
+        if (c && (c.startsWith(want) || (c.length >= Math.min(6, want.length) && want.startsWith(c) && two.startsWith(want.slice(0, 40)))) && (!best || lines[j].size > best.size)) best = lines[j];
+      }
+      if (best) return { page: u.start, y: best.top };
+    }
+    if (u.destTop != null) {
+      const page = await state.pdf.getPage(u.start), [, , , h] = page.view, y = 1 - u.destTop / h;
+      const line = lines.find(l => l.top >= y - 0.01);
+      return { page: u.start, y: line ? line.top : Math.max(0, y) };
+    }
+    // No heading to go by (the whole file, a band of pages): the page's top, never its first line of text (a cover drawn
+    // as one picture has its only line at its foot; Possible Minds, 19 Oct 2026).
+    return { page: u.start, y: 0.004 };
+  })().catch(() => ({ page: u.start, y: 0.004 })));
+  return headMemo.get(k);
 }
 /**
  * A pill tapped (the wide column): Primer opens or folds Before you start in place; Catch me up and Recap open the
@@ -5488,10 +5617,11 @@ function loadTurns() { chat.turns = (store.get('chat:' + state.key) || []).filte
 let imageLimits = null;
 async function thumbOf(blob) {
   try {
-    const bmp = await createImageBitmap(blob), k = Math.min(1, 220 / bmp.width, 160 / bmp.height);
+    // Shown at most 120px tall (a figure card's picture away from the wide column, the chat's), so three times that.
+    const bmp = await createImageBitmap(blob), k = Math.min(1, 720 / bmp.width, 360 / bmp.height);
     const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(bmp.width * k)); c.height = Math.max(1, Math.round(bmp.height * k));
     const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(bmp, 0, 0, c.width, c.height);
-    return c.toDataURL('image/jpeg', 0.7);
+    return c.toDataURL('image/jpeg', 0.86);
   } catch { return '' }
 }
 async function addAttachments(files, meta = {}) {
@@ -5505,7 +5635,9 @@ async function addAttachments(files, meta = {}) {
     }
     const max = imageLimits?.maxCount || 4;
     if (chat.attach.length >= max) { toast(`Up to ${max} images per question.`); break }
-    chat.attach.push({ ...item, kind: item.kind, snip: !!meta.snip, page: meta.page ?? item.page, text: meta.text ?? item.text, thumb: item.thumb || (item.blob ? await thumbOf(item.blob) : '') });
+    const thumb = item.thumb || (item.blob ? await thumbOf(item.blob) : '');
+    if (thumb && item.blob) fullOf.set(thumb, item.blob);
+    chat.attach.push({ ...item, kind: item.kind, snip: !!meta.snip, page: meta.page ?? item.page, text: meta.text ?? item.text, thumb });
   }
   if (!chat.el) openChat({ quiet: true }); renderTray();
   const t = chat.el?.querySelector('textarea'); if (t) { t.dispatchEvent(new Event('input')); t.focus({ preventScroll: true }) }
@@ -5555,11 +5687,15 @@ function startSnip() {
   });
 }
 function endSnip() { document.querySelector('.byob-snip')?.remove(); root.classList.remove('is-snipping') }
-async function snipImage(n, f) {
+// A crop's long side (Anders, 19 Oct 2026: Table 1 was soft in its card): at least three times the size it is shown
+// at (the figure view fills most of a window), drawn from the PDF itself, within a sane canvas. tinct-api.js sends the
+// model at most 1568 px of it; thumbnails are made from it (thumbOf), so they are sharp on a retina screen too.
+const SNIP_LONG = 2400;
+async function snipImage(n, f, { long = SNIP_LONG } = {}) {
   try {
     const page = await state.pdf.getPage(n), base = page.getViewport({ scale: 1 });
-    // Sharp enough to read small labels: aim for ~1600px across the snip, within a sane canvas size.
-    const scale = Math.max(1, Math.min(6, 1600 / (f.w * base.width), 4096 / base.width));
+    const side = Math.max(f.w * base.width, f.h * base.height, 1);
+    const scale = Math.max(1, Math.min(12, long / side));
     const vp = page.getViewport({ scale });
     const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(f.w * vp.width)); c.height = Math.max(1, Math.round(f.h * vp.height));
     const g = c.getContext('2d', { alpha: false }); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
@@ -5634,6 +5770,32 @@ function figThumb(card) {
     snipImage(card.page, f).then(b => (b ? thumbOf(b) : '')).then(url => { thumbWork.delete(card.id); if (url) { figThumbs.set(card.id, url); marginLayout() } });
   }
   return { url: figThumbs.get(card.id) || '', ratio };
+}
+/* The figure large (a figure card's picture, or one in the chat; Anders, 19 Oct 2026, night): over the reader, its
+   picture drawn sharp from the PDF (snipImage); Escape, the close or a click beside it closes it. */
+const fullOf = new Map();
+function figureView(src, alt, more = null) {
+  document.querySelector('.mr-figview')?.remove();
+  const back = document.activeElement;
+  const el = document.createElement('div');
+  el.className = 'mr mr-figview'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', alt || 'Figure');
+  el.innerHTML = `<figure class="mr-figview__fig"><img alt="${esc(alt || '')}" src="${esc(src || '')}"></figure><button type="button" class="mr-figview__close" aria-label="Close">${TC?.ICONS.close || "×"}</button>`;
+  const close = el.close = () => { el.remove(); if (back?.isConnected) back.focus?.({ preventScroll: true }) };
+  el.addEventListener('click', e => { if (!e.target.closest('img')) close() });
+  root.appendChild(el);
+  el.querySelector('.mr-figview__close').focus({ preventScroll: true });
+  // The sharp picture replaces the small one when it is drawn.
+  if (more) more.then(url => { if (url && el.isConnected) el.querySelector('img').src = url }).catch(() => {});
+  return el;
+}
+function openFigureView(card) {
+  const f = TinctMargin.anchorOfCard(card)[0]; if (!f) return;
+  const label = card.data?.label || 'Figure';
+  figureView(figThumbs.get(card.id) || '', `${label} · p. ${pageLabel(card.page)}`, state.pdf ? snipImage(card.page, f).then(b => (b ? URL.createObjectURL(b) : '')) : null);
+}
+function openChatImage(src) {
+  const blob = fullOf.get(src);
+  figureView(src, 'Attached image', blob ? Promise.resolve(URL.createObjectURL(blob)) : null);
 }
 /** Explain or Chat on a figure: its card (made once per figure), opened beside it; Explain asks once. */
 function figureAction(a, item) {
@@ -5723,7 +5885,7 @@ async function figuresOff(n) {
       const tx = pdfjsLib.Util.transform(vp.transform, it.transform), size = Math.hypot(tx[2], tx[3]);
       return { x: tx[4] / vp.width, y: (tx[5] - size * 0.86) / vp.height, w: (it.width * vp.scale) / vp.width, h: (size * 1.1) / vp.height, text: it.str };
     });
-    return TinctMargin.findFigures({ ink, W, H, spans, formulas: [] });
+    return TinctMargin.findFigures({ ink, W, H, spans, formulas: [], shapes: await pageShapes(n) });
   })().catch(() => null);
   offFigs.set(key, task);
   return task;
@@ -5767,6 +5929,57 @@ async function regionPopup(box, item) {
   pop.querySelectorAll('[data-a]').forEach(b => b.onclick = () => regionAction(b.dataset.a, item));
 }
 
+/* A page's own drawing for the figures' boxes (TinctMargin.snapFigure): every painted path (its rules, lines, curves,
+   filled shapes) and every picture, each as its box in page fractions, from the page's operator list (pdf.js 3.11:
+   constructPath carries its box; the paint that follows says it is drawn, not a clip). Kept per page. */
+const shapeMemo = new Map();
+function pageShapes(n) {
+  if (isEpub() || !state.pdf) return Promise.resolve([]);
+  const k = state.key + ':' + n;
+  if (!shapeMemo.has(k)) shapeMemo.set(k, (async () => {
+    const page = await state.pdf.getPage(n), vp = page.getViewport({ scale: 1 }), list = await page.getOperatorList();
+    const O = pdfjsLib.OPS, U = pdfjsLib.Util, out = [], stack = [];
+    const PAINT = new Set([O.stroke, O.closeStroke, O.fill, O.eoFill, O.fillStroke, O.eoFillStroke, O.closeFillStroke, O.closeEOFillStroke]);
+    const IMAGE = new Set([O.paintImageXObject, O.paintInlineImageXObject, O.paintImageMaskXObject, O.paintSolidColorImageMask, O.paintImageXObjectRepeat].filter(v => v != null));
+    let ctm = [1, 0, 0, 1, 0, 0], pending = null, white = false;
+    // A path's box from its own points (the curves' control points too: pdf.js 3.11's minMax leaves curves out).
+    const pathBox = (ops, args) => {
+      if (!Array.isArray(ops) || !args) return null;
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity, k = 0;
+      const at = (x, y) => { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y };
+      for (const op of ops) {
+        const n = op === O.rectangle ? 4 : op === O.curveTo ? 6 : op === O.curveTo2 || op === O.curveTo3 ? 4 : op === O.moveTo || op === O.lineTo ? 2 : 0;
+        if (op === O.rectangle) { at(args[k], args[k + 1]); at(args[k] + args[k + 2], args[k + 1] + args[k + 3]) }
+        else for (let j = 0; j < n; j += 2) at(args[k + j], args[k + j + 1]);
+        k += n;
+      }
+      return x1 >= x0 && Number.isFinite(x0 + y0 + x1 + y1) ? box(x0, y0, x1, y1) : null;
+    };
+    const box = (x0, y0, x1, y1) => {
+      const m = U.transform(vp.transform, ctm), pts = [[x0, y0], [x1, y0], [x0, y1], [x1, y1]].map(([x, y]) => U.applyTransform([x, y], m));
+      const xs = pts.map(q => q[0]), ys = pts.map(q => q[1]), l = Math.min(...xs), t = Math.min(...ys);
+      return { x: l / vp.width, y: t / vp.height, w: (Math.max(...xs) - l) / vp.width, h: (Math.max(...ys) - t) / vp.height };
+    };
+    for (let i = 0; i < list.fnArray.length && out.length < 4000; i++) {
+      const fn = list.fnArray[i], a = list.argsArray[i];
+      if (fn === O.save) stack.push([ctm, white]);
+      else if (fn === O.restore) [ctm, white] = stack.pop() || [[1, 0, 0, 1, 0, 0], false];
+      else if (fn === O.transform) ctm = U.transform(ctm, a);
+      else if (fn === O.paintFormXObjectBegin) { stack.push([ctm, white]); if (Array.isArray(a?.[0])) ctm = U.transform(ctm, a[0]) }
+      else if (fn === O.paintFormXObjectEnd) [ctm, white] = stack.pop() || [[1, 0, 0, 1, 0, 0], false];
+      else if (fn === O.setFillRGBColor || fn === O.setFillGray || fn === O.setFillColor) {
+        const v = a && typeof a[0] === 'string' ? a[0] : null, nums = a && !v ? Object.values(a).filter(x => typeof x === 'number') : [];
+        white = v ? /^#f[a-f0-9]f[a-f0-9]f[a-f0-9]$/i.test(v) : nums.length > 0 && nums.every(x => x >= (nums.some(y => y > 1) ? 250 : 0.98));
+      }
+      else if (fn === O.constructPath) pending = pathBox(a?.[0], a?.[1]);
+      else if (PAINT.has(fn)) { if (pending && !(white && (fn === O.fill || fn === O.eoFill))) out.push(pending); pending = null }
+      else if (fn === O.endPath) pending = null;
+      else if (IMAGE.has(fn)) out.push(box(0, 0, 1, 1));
+    }
+    return out;
+  })().catch(() => []));
+  return shapeMemo.get(k);
+}
 /* ---------- Figures: areas with ink but no running text get a hover chip (TinctMargin.findFigures) ---------- */
 async function detectFigures(p) {
   if (!p.canvas || !p.layer || p.figLayer === p.layer) return;
@@ -5778,6 +5991,8 @@ async function detectFigures(p) {
   if (token !== state.token || p.layer !== layer || !p.canvas) return;
   const complete = !text || text.ocr || !Array.isArray(text.items) || (p.spans?.length === text.items.length && p.spans.every(sp => !sp || sp.isConnected));
   if (!complete) { if ((p.figTries = (p.figTries || 0) + 1) <= 40) setTimeout(() => detectFigures(p), 300); return }
+  const shapes = await pageShapes(p.n);
+  if (token !== state.token || p.layer !== layer || !p.canvas) return;
   p.figLayer = layer; p.figTries = 0;
   const c = drawn(p), W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
   const g = document.createElement('canvas'); g.width = W; g.height = H;
@@ -5786,7 +6001,7 @@ async function detectFigures(p) {
   for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
   const pr = p.pg.getBoundingClientRect();
   const spans = [...p.layer.querySelectorAll('span')].map(sp => { const q = sp.getBoundingClientRect(); return { x: (q.left - pr.left) / pr.width, y: (q.top - pr.top) / pr.height, w: q.width / pr.width, h: q.height / pr.height, text: sp.textContent } });
-  const found = TinctMargin.findFigures({ ink, W, H, spans, formulas: p.blocks || [] });
+  const found = TinctMargin.findFigures({ ink, W, H, spans, formulas: p.blocks || [], shapes });
   state.figs.set(p.n, found); p.figures = found.figures; p.captions = found.captions;
 }
 const hot = { el: null, key: '', sticky: false, raf: 0, timer: 0, over: false };
@@ -6027,6 +6242,8 @@ function openChat(opts = {}) {
       else if (action === 'recall') { const last = TC.lastQuestion(chat.turns, t => t.display || t.content); if (last) { e.preventDefault(); input.value = last; input.dispatchEvent(new Event('input')) } }
       else if (action === 'close') { e.preventDefault(); closeChat() }
     });
+    // An attached picture in the thread (at most 120px tall): the picture large.
+    el.addEventListener('click', e => { const b = e.target.closest('[data-chatimg]'); if (b) { e.preventDefault(); openChatImage(b.dataset.chatimg) } });
     el.querySelector('.tc-compose').addEventListener('pointerdown', e => { if (e.target.closest('button, a, input, textarea, .tc-attached, .byob-tray')) return; e.preventDefault(); input.focus() });
     const thread = el.querySelector('#thread'), latest = el.querySelector('#latest');
     TC.bindPress(thread);
@@ -6128,7 +6345,7 @@ function renderThread() {
     role: t.role, text: t.role === 'user' ? (t.display || t.content) : t.content, html: t.role === 'assistant' ? md(t.content) : undefined,
     at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined,
     note: t.failed ? `No answer — ${t.failed}` : undefined,
-    extra: t.imgs?.length ? `<span class="tc-imgs">${t.imgs.map(u => `<img src="${esc(u)}" alt="Attached image">`).join('')}</span>` : '',
+    extra: t.imgs?.length ? chatImgs(t.imgs) : '',
   }));
   if (chat.live) turns.push({ role: 'assistant', text: chat.live.text, html: chat.live.text ? md(chat.live.text) : '', place: turns.at(-1)?.place });
   thread.innerHTML = TC.threadHtml(turns, { streaming: !!chat.live });
