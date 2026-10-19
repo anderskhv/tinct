@@ -36,10 +36,14 @@ describe('socialRules', () => {
     expect(everyoneBoardOpen(null)).toBe(false)
   })
 
-  it('internal and test accounts never appear on either board', () => {
+  it('internal and test accounts never appear on Everyone; mutual friends see them on Friends (19 Oct 2026)', () => {
     const viewer = { friends: new Set(['b']), blocked: new Set<string>() }
-    expect(appearsOnBoard(card({ internal: true }), 'friends', viewer)).toBe(false)
+    expect(appearsOnBoard(card({ internal: true }), 'friends', viewer)).toBe(true)
     expect(appearsOnBoard(card({ internal: true }), 'everyone', viewer)).toBe(false)
+    // Not a friend: still not on Friends; blocked or off the leaderboard: on neither.
+    expect(appearsOnBoard(card({ internal: true }), 'friends', { friends: new Set<string>(), blocked: new Set<string>() })).toBe(false)
+    expect(appearsOnBoard(card({ internal: true }), 'friends', { friends: new Set(['b']), blocked: new Set(['b']) })).toBe(false)
+    expect(appearsOnBoard(card({ internal: true, on_leaderboard: false }), 'friends', viewer)).toBe(false)
     expect(appearsOnBoard(card({ internal: false }), 'friends', viewer)).toBe(true)
     expect(appearsOnBoard(card({ internal: false }), 'everyone', viewer)).toBe(true)
   })
@@ -126,6 +130,7 @@ describe('the profile page HTML', () => {
     const withFollow = profileMissingHtml(followButtonHtml({ relation: null, handle: 'bea' }))
     expect(withFollow).toContain('No profile here')
     expect(withFollow).toContain('/sign-in?returnTo=%2F%40bea')
-    expect(profileMissingHtml(followButtonHtml({ relation: 'follower', handle: 'bea' }))).toContain('Following')
+    // A one-way follow is a request until followed back (changed on request, 19 Oct 2026: was Following).
+    expect(profileMissingHtml(followButtonHtml({ relation: 'follower', handle: 'bea' }))).toContain('>Requested</button>')
   })
 })

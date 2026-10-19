@@ -21,6 +21,7 @@ import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { forgetBoards } from './boardMemory'
 import { readingTimeStats } from '../readingTime/model'
 import { preparePhoto } from '../social/socialClient'
+import { PHOTO_COPY } from '../social/photoFile'
 
 // The photo resize needs a real canvas; the cards' upload path is what is tested here.
 vi.mock('../social/socialClient', async importOriginal => ({
@@ -401,7 +402,8 @@ describe('Find readers and a reader\'s profile', () => {
       await flush()
       const calls = (fetch as unknown as ReturnType<typeof vi.fn>).mock.calls.map(call => String(call[0]))
       expect(calls).toContain('/api/social/find?q=Karl')
-      expect(byTest('find-results')?.textContent).toContain('No public reader by that name.')
+      // Search finds Friends and Everyone readers now (19 Oct 2026): the line no longer says "public".
+      expect(byTest('find-results')?.textContent).toContain('No reader by that name.')
     } finally {
       vi.useRealTimers()
     }
@@ -452,6 +454,58 @@ describe('Find readers and a reader\'s profile', () => {
     await flush()
     expect(byTest('profile-follow')?.textContent).toBe('Follow')
     expect(top().querySelector('[data-testid="card-facts"]')).toBeNull()
+  })
+})
+
+// Findable profiles (Anders, 19 Oct 2026): a follow is a request; the one-time notice on the You card.
+describe('findable profiles and follow requests (19 October 2026)', () => {
+  const NOTICE = 'Readers can now find you by name and picture. Your reading stays private until you accept a follower. Change it in Settings.'
+
+  it('a one-way follow reads Requested; Following you counts the requests waiting to be followed back', async () => {
+    await open('find')
+    expect(byTest('following-you-count')?.textContent).toBe('1')
+    expect(byTest('reader-row-button')?.textContent).toBe('Follow')
+    readerProfile = { handle: 'karl', name: 'Karl Ny', link: 'tinct.app/@karl', picture: pic('K'), banner: { src: '/b.jpg', private: false }, relation: 'follower', followsYou: false, limited: true, time: null, readingNow: null, finished: null }
+    click(byTest('reader-row'))
+    await flush()
+    // Until Karl follows back: Requested, and his header only (no facts, no books).
+    expect(byTest('profile-follow')?.textContent).toBe('Requested')
+    expect(top().querySelector('[data-testid="card-facts"]')).toBeNull()
+    expect(top().querySelectorAll('.tc-g').length).toBe(0)
+  })
+
+  it('the You card shows the notice once to a Friends profile; Dismiss keeps it away for this account', async () => {
+    await open('you')
+    const notice = byTest('findable-notice')
+    expect(notice?.textContent).toContain(NOTICE)
+    expect(notice?.textContent).toContain('Settings')
+    click(byTest('findable-notice-dismiss'))
+    await flush()
+    expect(byTest('findable-notice')).toBeNull()
+    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('1')
+    closeAccountCards()
+    await open('you')
+    expect(byTest('findable-notice')).toBeNull()
+  })
+
+  it('Settings in the notice opens Settings and ends the notice', async () => {
+    await open('you')
+    click(byTest('findable-notice-settings'))
+    await flush()
+    expect(top().dataset.card).toBe('settings')
+    click(byTest('card-back'))
+    expect(byTest('findable-notice')).toBeNull()
+  })
+
+  it('an Only me profile never gets it; an Everyone profile gets a line that is true for it', async () => {
+    profile = ownProfile({ visibility: 'only_me', effectiveVisibility: 'only_me' })
+    await open('you')
+    expect(byTest('findable-notice')).toBeNull()
+    closeAccountCards()
+    profile = ownProfile({ visibility: 'everyone', effectiveVisibility: 'everyone' })
+    await open('you')
+    expect(byTest('findable-notice')?.textContent).toContain('Your profile is set to Everyone, so anyone with your link sees your reading.')
+    expect(byTest('findable-notice')?.textContent).not.toContain('stays private')
   })
 })
 
@@ -614,7 +668,64 @@ describe('picture and background (Anders, 10 October 2026)', () => {
     choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[1])
     await flush()
     expect(uploads[1]).toEqual({ url: '/api/profile/image?slot=background', type: 'image/jpeg' })
+    // Saved, and shown to others at once (no review since 19 Oct 2026; the approval line is gone).
     expect(top().querySelector('.tc-status')?.textContent ?? '').toBe('')
+    expect(top().textContent).not.toContain('approved')
+  })
+
+  it('reads the chosen photo before the input is cleared, clears it only after preparing, and waits meanwhile (iPad, 19 Oct 2026)', async () => {
+    profile = ownProfile({ uploads: true })
+    await open('you')
+    const order: string[] = []
+    let finishPrepare = () => {}
+    vi.mocked(preparePhoto).mockImplementationOnce(async photo => {
+      order.push('prepare')
+      // What is prepared is the in-memory copy, with the photo's type and name.
+      expect(photo).not.toBe(file)
+      expect(photo.type).toBe('image/heic')
+      expect((photo as File).name).toBe('IMG_0001.heic')
+      expect(new Uint8Array(await photo.arrayBuffer())).toEqual(new Uint8Array([1, 2, 3]))
+      await new Promise<void>(resolve => { finishPrepare = resolve })
+      order.push('prepared')
+      return { ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) }
+    })
+    const file = new File([new Uint8Array([1, 2, 3])], 'IMG_0001.heic', { type: 'image/heic' })
+    const read = file.arrayBuffer.bind(file)
+    file.arrayBuffer = vi.fn(async () => { order.push('read'); return read() })
+    const field = top().querySelectorAll<HTMLInputElement>('input[type="file"]')[0]
+    Object.defineProperty(field, 'files', { configurable: true, value: [file] })
+    Object.defineProperty(field, 'value', { configurable: true, get: () => '', set: () => { order.push('clear') } })
+    click(byTest('you-picture'))
+    click(byTest('menu-upload'))
+    field.dispatchEvent(new Event('change'))
+    await flush()
+    // Busy while preparing: the photo buttons wait.
+    expect((byTest('you-picture') as HTMLButtonElement).disabled).toBe(true)
+    expect(byTest('you-picture')?.getAttribute('aria-busy')).toBe('true')
+    expect((byTest('you-background') as HTMLButtonElement).disabled).toBe(true)
+    expect(order).toEqual(['read', 'prepare'])
+    finishPrepare()
+    await flush()
+    expect(order[0]).toBe('read')
+    expect(order.indexOf('clear')).toBeGreaterThan(order.indexOf('prepared'))
+    expect(uploads).toEqual([{ url: '/api/profile/image?slot=picture', type: 'image/jpeg' }])
+    expect((byTest('you-picture') as HTMLButtonElement).disabled).toBe(false)
+    expect(byTest('you-picture')?.hasAttribute('aria-busy')).toBe(false)
+    // No approval line: uploads show to others at once (19 Oct 2026).
+    expect(top().querySelector('.tc-status')?.textContent ?? '').toBe('')
+  })
+
+  it('the Worker’s 415 has its own wording, not the not-a-photo line', async () => {
+    profile = ownProfile({ uploads: true })
+    await open('you')
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ error: PHOTO_COPY.unprocessed }, { status: 415 })))
+    click(byTest('you-picture'))
+    click(byTest('menu-upload'))
+    choose(top().querySelectorAll<HTMLInputElement>('input[type="file"]')[0])
+    await flush()
+    expect(top().querySelector('.tc-status')?.textContent).toBe('This photo could not be processed. Try a screenshot of it.')
+    expect(PHOTO_COPY.unprocessed).not.toBe(PHOTO_COPY.notAPhoto)
+    expect(PHOTO_COPY.unprocessed).not.toBe(PHOTO_COPY.unreadable)
   })
 
   it('says so when an upload is refused', async () => {
@@ -916,27 +1027,79 @@ describe('Leaderboard rows open profiles; Everyone first while open (Anders, 15 
     expect(top().dataset.card).toBe('you')
   })
 
-  it('opens on Everyone when it is open, with Friends beside it; the You row ranks on Everyone; one board request on open', async () => {
-    boards = { friends: { ...FRIENDS_BOARD, everyoneOpen: true }, everyone }
+  it('no friends: opens on Everyone when it is open, with Friends beside it; the You row ranks on Everyone', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, everyoneOpen: true, friends: 0 }, everyone }
     profile = ownProfile({ onLeaderboard: true })
     await open('you')
-    expect(boardCalls).toEqual(['everyone'])
+    expect(boardCalls).toEqual(['friends', 'everyone'])
     expect(byTest('you-leaderboard')?.textContent).toContain('1st of 2')
     click(byTest('you-leaderboard'))
     // Painted from the board read on open, at once, and not asked again.
     expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
     expect(top().querySelectorAll('[data-testid="board-row"]')).toHaveLength(1)
     await flush()
-    expect(boardCalls).toEqual(['everyone'])
+    expect(boardCalls).toEqual(['friends', 'everyone'])
     click(top().querySelector('[data-testid="board-tabs"] [data-value="friends"]'))
     await flush()
-    expect(boardCalls).toEqual(['everyone', 'friends'])
+    // The Friends board read on open is a few seconds old: shown without asking again.
+    expect(boardCalls).toEqual(['friends', 'everyone'])
     expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.friends)
+  })
+
+  it('with a mutual friend: opens on Friends even while Everyone is open; one board request on open (19 Oct 2026)', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, everyoneOpen: true, friends: 1, total: 2, entries: [entry(1, 'Mette', 7200, false, 'mette'), entry(2, 'You', 60, true)] }, everyone }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    expect(boardCalls).toEqual(['friends'])
+    expect(byTest('you-leaderboard')?.textContent).toContain('2nd of 2')
+    click(byTest('you-leaderboard'))
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.friends)
+    expect([...top().querySelectorAll('[data-testid="board-row"]')].map(node => node.textContent)).toEqual([expect.stringContaining('Mette')])
+    await flush()
+    expect(boardCalls).toEqual(['friends'])
+  })
+
+  it('a tab the reader picked is kept: Everyone stays the opening board on this page', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, everyoneOpen: true, friends: 1, entries: [entry(1, 'Mette', 7200, false, 'mette'), entry(2, 'You', 60, true)] }, everyone }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    click(byTest('you-leaderboard'))
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="everyone"]'))
+    await flush()
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
+    closeAccountCards()
+    await flush()
+    await open('you')
+    click(byTest('you-leaderboard'))
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
+  })
+
+  it('says why friends do not see you, and where to fix it; nothing when they do', async () => {
+    const board = async (meShown: boolean, own: Record<string, unknown>) => {
+      forgetBoards()
+      boards = { friends: { ...FRIENDS_BOARD, meShown, entries: [entry(1, 'You', 60, true)] }, everyone: null }
+      const stack = new CardStack({ dark: false })
+      const env: CardsEnv = {
+        session, social: true, changed: () => stack.refreshLive(), reloadFind: () => {}, signOut: async () => {}, resetPassword: async () => '', navigate: vi.fn(),
+        data: { profile: ownProfile(own) as never, reading: null, allowance: null, plan: 'premium', intervals: [], rank: null, find: null, findBadge: 0 },
+      }
+      stack.push(leaderboardCard(env))
+      await flush()
+      const line = byTest('board-hidden')?.textContent ?? null
+      stack.closeAll()
+      return line
+    }
+    expect(await board(false, { onLeaderboard: false })).toBe('Friends don’t see you here: turn on Leaderboard in Settings.')
+    expect(await board(false, { showTime: false, onLeaderboard: false })).toBe('Friends don’t see you here: turn on Show my reading time in Settings.')
+    expect(await board(false, { visibility: 'only_me', onLeaderboard: false })).toBe('Friends don’t see you here: your profile is Only me. Change it in Settings.')
+    expect(await board(true, {})).toBeNull()
+    // Off the board for another reason (an internal account on Everyone, a hidden profile): no line.
+    expect(await board(false, {})).toBeNull()
   })
 
   it('Everyone closed: the Friends board, its rank, no tabs', async () => {
     await open('you')
-    expect(boardCalls).toEqual(['everyone', 'friends'])
+    expect(boardCalls).toEqual(['friends'])
     expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 5')
     click(byTest('you-leaderboard'))
     expect(top().querySelector('[data-testid="board-tabs"]')).toBeNull()

@@ -19,8 +19,10 @@
  *   2026, "let's just make a global leaderboard now"): Friends is there from
  *   day one; Everyone is not offered at all (no tab, no board from the API)
  *   until at least EVERYONE_BOARD_MIN_READERS real readers would appear on it.
- *   Tinct's own internal and test accounts never appear on any board and
- *   never count (isInternalAccount; reader_profiles.internal).
+ *   Tinct's own internal and test accounts never appear on the Everyone
+ *   board and never count toward it (isInternalAccount;
+ *   reader_profiles.internal). Mutual friends see each other on the Friends
+ *   board regardless (19 Oct 2026).
  */
 import { normalizeHandle, type PictureKind, type Visibility } from './profileRules'
 
@@ -96,14 +98,17 @@ export interface BoardCard {
  *   their reading time; nobody blocked either way;
  * - Everyone: only readers set to Everyone (with a confirmed email: the view
  *   already turns an unconfirmed Everyone into Friends);
- * - Friends: only mutual follows (whose profile is Friends or Everyone).
+ * - Friends: only mutual follows (whose profile is Friends or Everyone),
+ *   whether or not the friend is an internal account;
+ * - Everyone: never an internal or test account.
  */
 export function appearsOnBoard(card: BoardCard, board: Board, viewer: { friends: ReadonlySet<string>; blocked: ReadonlySet<string> }): boolean {
-  if (card.internal === true) return false
   if (viewer.blocked.has(card.id)) return false
   if (!card.on_leaderboard || !card.show_time) return false
   if (card.visibility === 'only_me') return false
-  if (board === 'everyone') return card.visibility === 'everyone'
+  // Internal and test accounts stay off Everyone (and its count), never off a
+  // friend's board: mutual friends always see each other (19 Oct 2026).
+  if (board === 'everyone') return card.visibility === 'everyone' && card.internal !== true
   return viewer.friends.has(card.id)
 }
 

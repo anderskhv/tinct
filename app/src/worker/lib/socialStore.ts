@@ -5,7 +5,8 @@
  * SQL not yet run) becomes one typed error the routes turn into "unavailable".
  *
  * Other readers are only ever read through public_profile_cards, which leaves
- * out Only me and hidden profiles and unapproved photos (20261008_profiles.sql).
+ * out Only me and hidden profiles and unapproved photos (20261008_profiles.sql;
+ * uploads are stored approved since 19 Oct 2026).
  */
 import type { BoardCard, ReportReason } from '../../social/socialRules'
 import type { Review } from '../../social/profileRules'
@@ -47,8 +48,12 @@ export interface SocialStore {
   unblock(blocker: string, blocked: string): Promise<void>
 
   cardsByIds(ids: string[]): Promise<BoardCard[]>
-  /** Everyone readers only, by name or handle. */
-  searchEveryone(query: { kind: 'handle'; handle: string } | { kind: 'name'; text: string }, limit: number): Promise<BoardCard[]>
+  /**
+   * Find readers: every findable profile (Friends or Everyone; the view leaves
+   * out Only me and hidden), by name or handle (Anders, 19 Oct 2026). Rows carry
+   * only what the card view holds; Find shows name, handle and picture.
+   */
+  searchReaders(query: { kind: 'handle'; handle: string } | { kind: 'name'; text: string }, limit: number): Promise<BoardCard[]>
   /** Everyone readers with the leaderboard and reading time on. */
   everyoneBoardCards(limit: number): Promise<BoardCard[]>
   /** How many of those are real readers (internal and test accounts left out). Throws when it cannot be told. */
@@ -67,6 +72,8 @@ export interface SocialStore {
   openReports(limit: number): Promise<ReportRow[]>
   resolveReport(id: number, resolution: string): Promise<void>
   pendingReviews(limit: number): Promise<AdminProfileRow[]>
+  /** Profiles with an uploaded (or Google) picture or an uploaded background, newest change first: photos show at once, so the admin page can remove one afterwards. */
+  recentPhotos(limit: number): Promise<AdminProfileRow[]>
   adminProfiles(query: string, limit: number): Promise<AdminProfileRow[]>
   adminProfile(id: string): Promise<AdminProfileRow | null>
   adminUpdate(id: string, patch: Partial<{ display_name: string; handle: string; hidden_at: string | null; picture_review: Review; background_review: Review; picture_kind: string; picture_value: string | null; background_kind: string; background_value: string | null }>): Promise<'ok' | 'taken'>
@@ -171,11 +178,12 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
       }
       return out
     },
-    async searchEveryone(query, limit) {
+    async searchReaders(query, limit) {
       const filter = query.kind === 'handle'
         ? `handle=eq.${encodeURIComponent(query.handle)}`
         : `or=(display_name.ilike.${like(query.text)},handle.ilike.${like(query.text.replace(/\s+/g, ''))})`
-      return cardRows(env, `public_profile_cards?visibility=eq.everyone&${filter}&order=display_name.asc&limit=${limit}`)
+      // Friends and Everyone (the view never holds Only me or hidden profiles; the filter says so again).
+      return cardRows(env, `public_profile_cards?visibility=in.(friends,everyone)&${filter}&order=display_name.asc&limit=${limit}`)
     },
     async everyoneBoardCards(limit) {
       return cardRows(env, `public_profile_cards?visibility=eq.everyone&on_leaderboard=is.true&show_time=is.true&limit=${limit}`)
@@ -226,6 +234,9 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
     },
     async pendingReviews(limit) {
       return rows<AdminProfileRow>(env, `reader_profiles?or=(picture_review.eq.pending,background_review.eq.pending)&select=${ADMIN_COLUMNS}&order=updated_at.asc&limit=${limit}`)
+    },
+    async recentPhotos(limit) {
+      return rows<AdminProfileRow>(env, `reader_profiles?or=(picture_kind.in.(upload,google),background_kind.eq.upload)&select=${ADMIN_COLUMNS}&order=updated_at.desc&limit=${limit}`)
     },
     async adminProfiles(query, limit) {
       const text = query.replace(/[^\p{L}\p{N} ._'-]/gu, '').trim()

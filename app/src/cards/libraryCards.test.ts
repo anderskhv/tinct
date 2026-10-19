@@ -265,3 +265,41 @@ describe('the profile step for an older account (Anders, 15 October 2026)', () =
     expect(localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + USER)).toBeNull()
   })
 })
+
+describe('the findable-profiles notice in the library (Anders, 19 October 2026)', () => {
+  const answer = (visibility: string) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility, picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false } })
+  const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
+  async function visit(visibility: string, friendsOn = true) {
+    vi.resetModules()
+    document.head.innerHTML = friendsOn ? '<meta name="tinct-social" content="1"><meta name="tinct-friends" content="1">' : ''
+    document.documentElement.classList.add('signed-in')
+    vi.stubGlobal('fetch', vi.fn((url: string) => String(url).startsWith('/api/profile')
+      ? Promise.resolve(new Response(JSON.stringify(answer(visibility)), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+      : new Promise<Response>(() => {})))
+    await import('./libraryCards')
+    await settle()
+    return document.querySelector<HTMLElement>('[data-testid="findable-notice"]')
+  }
+  afterEach(() => { document.head.innerHTML = '' })
+
+  it('shows once to a Friends profile, in the prompt\'s style, until dismissed', async () => {
+    storeSession(3600)
+    const notice = await visit('friends')
+    expect(notice?.classList.contains('social-prompt')).toBe(true)
+    expect(notice?.textContent).toContain('Readers can now find you by name and picture. Your reading stays private until you accept a follower. Change it in Settings.')
+    expect(notice?.querySelector('.go')?.textContent).toBe('Settings')
+    notice!.querySelector<HTMLElement>('[data-testid="findable-notice-dismiss"]')!.click()
+    expect(document.querySelector('[data-testid="findable-notice"]')).toBeNull()
+    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${USER}`)).toBe('1')
+    // The next visit: not again.
+    document.body.innerHTML = '<header id="header"><nav><button id="sign-in" class="sign-in">Account</button></nav></header>'
+    expect(await visit('friends')).toBeNull()
+  })
+
+  it('never for Only me, nor while Friends is switched off', async () => {
+    storeSession(3600)
+    expect(await visit('only_me')).toBeNull()
+    expect(await visit('friends', false)).toBeNull()
+    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${USER}`)).toBeNull()
+  })
+})

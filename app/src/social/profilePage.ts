@@ -173,7 +173,9 @@ function wire() {
     }
     if (action === 'follow') void act('follow')
     else if (action === 'unfollow') {
-      sheet(data.relation === 'friend' ? 'Unfollow?' : 'Stop following?', `${data.name} will no longer be on your Friends board.`, [{ label: 'Unfollow', run: () => void act('unfollow') }])
+      // A one-way follow is a request until it is followed back (19 Oct 2026).
+      if (data.relation === 'follower') sheet('Withdraw request?', `You will no longer follow ${data.name}.`, [{ label: 'Withdraw', run: () => void act('unfollow') }])
+      else sheet('Unfollow?', `${data.name} will no longer be on your Friends board.`, [{ label: 'Unfollow', run: () => void act('unfollow') }])
     } else if (action === 'remove-follower') {
       sheet('Remove follower?', `${data.name} will no longer follow you. They are not told.`, [{ label: 'Remove', run: () => void act('remove-follower') }])
     } else if (action === 'block') {

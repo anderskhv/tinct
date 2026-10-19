@@ -7,7 +7,7 @@
  *
  *   GET  /api/social/board?tab=friends|everyone   the leaderboard (last 7 days); Everyone only once open
  *   GET  /api/social/rank                          "#N among friends" for the sheet and You
- *   GET  /api/social/find[?q=]                     search Everyone readers; Following you; Also reading your books
+ *   GET  /api/social/find[?q=]                     search Friends and Everyone readers; Following you; Also reading your books
  *   GET  /api/social/profile/{handle}              one profile as this visitor may see it
  *   POST /api/social/follow|unfollow|remove-follower|block  { handle }
  *   POST /api/social/unblock                       { id }
@@ -16,18 +16,22 @@
  *   POST /api/social/card                          { bookId } -> PNG "Finished {book} · {hours}"
  *   GET  /@{handle}                                the public profile page (noindex)
  *   GET  /admin/social                             the admin page (/friends redirects to the account cards)
- *   GET|POST /api/admin/social…                    admin view: rename, hide, reports, photo review
+ *   GET|POST /api/admin/social…                    admin view: rename, hide, reports, recent photos (remove)
  *
  * Who sees what is decided here, in profileRules.publicProfileView and in
  * public_profile_cards, and app/public/privacy.html ("Your profile") binds it:
- * Only me and hidden profiles never appear, and a Friends profile shows only
- * to friends (to anyone else, signed in or out, it is Not found, like Only
- * me); a reader who follows you is always listed to you (by name and link,
- * with the initial) so you can remove or block them; following works from a
- * link before the profile shows, and the answer never tells a Friends, Only
- * me or missing profile apart; blocked readers never see each other in
- * either direction; the leaderboard is opt-in and shows name, picture and
- * time only; Find only lists Everyone.
+ * Only me and hidden profiles never appear; a Friends profile is findable by
+ * name and picture (Anders, 19 Oct 2026): a signed-in reader who is not a
+ * friend sees its name, link and picture only, and its reading, time and
+ * board place only once the follow is accepted (followed back: friends);
+ * signed out it is Not found, like Only me. A follow is a request until then
+ * (the page says Requested). A reader who follows you is always listed to you
+ * so you can follow back, remove or block them (an Only me or hidden one by
+ * name and link with the initial); following works from a link before the
+ * profile shows, and the answer never tells an Only me or missing profile
+ * apart (signed out, nor a Friends one); blocked readers never see each other
+ * in either direction; the leaderboard is opt-in and shows name, picture and
+ * time only; Find lists Friends and Everyone profiles by name and picture.
  * Tinct's internal and test accounts never appear on a board, and the Everyone
  * board exists only once EVERYONE_BOARD_MIN_READERS real readers are on it
  * (Anders, 8 October 2026): below that the API serves no Everyone board and
@@ -320,7 +324,7 @@ export interface BoardEntry {
   handle?: string
 }
 
-export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; everyoneOpen: boolean; entries: BoardEntry[] }> {
+export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; friends: number; everyoneOpen: boolean; entries: BoardEntry[] }> {
   // Two round trips to the database, not six (Anders, 15 Oct 2026: the board
   // took too long). First, at once: who the viewer's friends are, their own
   // profile, when the 7-day cache was built, and (Everyone) the pool.
@@ -369,8 +373,11 @@ export async function buildBoard(ctx: Context, viewerId: string, tab: Board, ope
   const window = leaderboardWindow(ctx.now)
   // Whether others see the viewer on this board (the page explains when they do not).
   const ownCard = own ? cards.find(card => card.id === viewerId) ?? null : null
-  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && ownCard.internal !== true && (tab === 'friends' || ownCard.visibility === 'everyone'))
-  return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, everyoneOpen: open, entries: shown.map(entry) }
+  // An internal account is left off Everyone only; friends always see it (19 Oct 2026).
+  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && (tab === 'friends' || (ownCard.visibility === 'everyone' && ownCard.internal !== true)))
+  // How many mutual friends the viewer has, so the cards open on Friends when there are any.
+  const friends = [...circle.friends].filter(id => id !== viewerId).length
+  return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, friends, everyoneOpen: open, entries: shown.map(entry) }
 }
 
 // ===== Find =====
@@ -385,12 +392,12 @@ function findRow(card: BoardCard, circle: Circle, book: string | null = null) {
 /**
  * Following you: the people who follow you are always listed to you, so you
  * can follow back, remove or block any of them (privacy notice: "You can
- * remove a follower or block a reader at any time"). An Everyone reader shows
- * with their card until you follow back (then they are a friend on the board).
- * A follower whose profile you may not otherwise see (Friends before you
- * follow back, Only me, hidden) shows as the follower view: their name and
- * link with the initial, never their picture or reading. Only me and hidden
- * followers stay listed after you follow back, since no board shows them.
+ * remove a follower or block a reader at any time"). A Friends or Everyone
+ * reader shows with their name and picture until you follow back (accepting
+ * the request: then they are a friend on the board; 19 Oct 2026). An Only me
+ * or hidden follower shows as the follower view: their name and link with the
+ * initial, never their picture or reading; they stay listed after you follow
+ * back, since no board shows them.
  */
 async function followingYouRows(ctx: Context, circle: Circle) {
   const followers = [...circle.followers].slice(0, FOLLOWER_LOOKUP_LIMIT)
@@ -400,7 +407,7 @@ async function followingYouRows(ctx: Context, circle: Circle) {
   })
   const rows = cards
     .filter(card => !circle.following.has(card.id))
-    .map(card => card.visibility === 'everyone' ? findRow(card, circle) : followerRow(card.id, card.handle, card.display_name))
+    .map(card => findRow(card, circle))
   const cardless = await cardlessFollowers(ctx, followers, cards)
   return [...rows, ...cardless.map(row => followerRow(row.id, row.handle, row.display_name))]
 }
@@ -410,7 +417,8 @@ async function buildFind(ctx: Context, viewerId: string, q: string | null) {
   const query = parseFindQuery(q)
   if (q !== null) {
     if (!query) return { results: [] }
-    const cards = await ctx.social.searchEveryone(query, 20)
+    // Every findable profile (Friends or Everyone), by name and picture only: no reading.
+    const cards = await ctx.social.searchReaders(query, 20)
     return { results: cards.filter(card => card.id !== viewerId && !circle.blocked.has(card.id)).map(card => findRow(card, circle)) }
   }
   const followingYou = await followingYouRows(ctx, circle)
@@ -664,13 +672,15 @@ async function handleAdmin(request: Request, url: URL, ctx: Context): Promise<Re
   const path = url.pathname.replace(/\/+$/, '')
   if (path === '/api/admin/social' && request.method === 'GET') {
     const q = (url.searchParams.get('q') || '').slice(0, 60)
-    const [pending, reports, profiles] = await Promise.all([
-      ctx.social.pendingReviews(50), ctx.social.openReports(100), q ? ctx.social.adminProfiles(q, 30) : Promise.resolve([]),
+    // Photos show at once (19 Oct 2026): `pending` holds only rows from before then; `recent` lists the latest photos to remove if need be.
+    const [pending, recent, reports, profiles] = await Promise.all([
+      ctx.social.pendingReviews(50), ctx.social.recentPhotos(30), ctx.social.openReports(100), q ? ctx.social.adminProfiles(q, 30) : Promise.resolve([]),
     ])
     const reported = new Map<string, AdminProfileRow | null>()
     for (const report of reports) if (!reported.has(report.reported)) reported.set(report.reported, await ctx.social.adminProfile(report.reported))
     return reply({
       pending: pending.map(adminRow),
+      recent: recent.map(adminRow),
       reports: reports.map(report => ({ id: report.id, reason: report.reason, handle: report.handle, createdAt: report.created_at, profile: reported.get(report.reported) ? adminRow(reported.get(report.reported)!) : null })),
       profiles: profiles.map(adminRow),
     }, 200, request)
@@ -753,8 +763,9 @@ type SocialActionPath = '/api/social/follow' | '/api/social/unfollow' | '/api/so
 
 /**
  * What an action answers about a reader the viewer may not see: the same
- * for a Friends profile, an Only me one, one across a block and a handle
- * nobody has, so no answer tells them apart.
+ * for an Only me profile, a hidden one, one across a block and a handle
+ * nobody has, so no answer tells them apart. (A Friends profile is findable
+ * by name and picture since 19 Oct 2026, so it answers with the relation.)
  */
 const UNSEEN_RESULT: Record<SocialActionPath, { relation: Relation; followsYou: false }> = {
   '/api/social/follow': { relation: 'follower', followsYou: false },
@@ -824,8 +835,8 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
       const reason = body?.reason as ReportReason
       if (!REPORT_REASONS.includes(reason)) return reply({ error: 'Choose a reason.' }, 422, request)
       if (deps.checkRateLimit && !(await deps.checkRateLimit(`social-report:${viewerId}`, env.RATE_LIMIT, 10))) return reply({ error: 'rate_limited' }, 429, request)
-      // Only a reader the viewer may see, or who follows them: a Friends profile the viewer
-      // cannot see answers like an Only me or missing one, so a report never probes.
+      // Only a reader the viewer may see (a Friends profile at least by name and picture), or who
+      // follows them: an Only me or hidden profile answers like a missing one, so a report never probes.
       const id = await targetId(ctx, viewerId, body)
       if (!id || !(await viewFor(ctx.profiles, id, viewerId))) return reply({ error: 'Not found' }, 404, request)
       const handle = normalizeHandle(String(body?.handle ?? ''))

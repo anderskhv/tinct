@@ -27,12 +27,14 @@ import {
   type ProfilePicture,
   type ReadingLoad,
 } from './cardsApi'
-import { chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
+import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
-import { photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
-import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, type BoardTab } from './boardMemory'
+import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, dismissFindableNotice, findableNoticeDue, findableNoticeText } from '../social/findableNotice'
+import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
 
@@ -300,19 +302,30 @@ export function youCard(env: CardsEnv): CardSpec {
   // One file field per slot for the card's life, so a re-render while the
   // system picker is open never drops the reader's choice.
   const files = { picture: fileField(), background: fileField() }
+  /** The slot being prepared and uploaded: both photo buttons wait meanwhile. */
+  let busy: 'picture' | 'background' | null = null
   for (const slot of ['picture', 'background'] as const) {
     const field = files[slot]
     field.addEventListener('change', async () => {
       const chosen = field.files?.[0]
-      field.value = ''
-      if (!chosen) return
-      // Every failure says why: the photo's own problem, or the upload's.
-      const prepared = await preparePhoto(chosen, slot)
-      if (!prepared.ok) { status = prepared.message; env.changed(); return }
-      const saved = await uploadProfileImage(env.session.token, slot, prepared.image)
-      if (saved.ok) env.data.profile = saved.profile
-      else status = photoUploadMessage(saved, CARDS_COPY.saveFailed)
+      if (!chosen) { field.value = ''; return }
+      busy = slot
       env.changed()
+      try {
+        // Read into memory before the input is cleared (iPadOS may release a converted HEIC; photoInMemory).
+        const photo = await photoInMemory(chosen)
+        // Every failure says why: the photo's own problem, or the upload's.
+        const prepared = photo ? await preparePhoto(photo, slot) : { ok: false as const, message: PHOTO_COPY.unreadable }
+        if (!prepared.ok) { status = prepared.message; return }
+        const saved = await uploadProfileImage(env.session.token, slot, prepared.image)
+        // Shown to others at once, with no review (19 Oct 2026): no line after a saved upload.
+        if (saved.ok) env.data.profile = saved.profile
+        else status = photoUploadMessage(saved, CARDS_COPY.saveFailed)
+      } finally {
+        field.value = ''
+        busy = null
+        env.changed()
+      }
     })
   }
   return {
@@ -357,6 +370,10 @@ export function youCard(env: CardsEnv): CardSpec {
           ], body, 'end')
         })
         bgButton = button
+        if (busy) {
+          for (const node of [pic, button] as HTMLButtonElement[]) node.disabled = true
+          ;(busy === 'picture' ? pic : button).setAttribute('aria-busy', 'true')
+        }
         body.append(files.picture, files.background)
       } else {
         pic.disabled = true
@@ -381,11 +398,34 @@ export function youCard(env: CardsEnv): CardSpec {
         env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
-      body.append(...[readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
+      body.append(...[findableNotice(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
       status = ''
       return [hero, body]
     },
   }
+}
+
+/**
+ * The one-time notice about findable profiles (social/findableNotice.ts) at
+ * the top of the You card, unless the library already showed it and it was
+ * dismissed: Settings opens the Settings card; either row ends it.
+ */
+function findableNotice(env: CardsEnv, card: CardHandle): HTMLElement | null {
+  const userId = env.session.userId
+  const profile = env.data.profile
+  if (!env.social || !profile || !findableNoticeDue(profile, userId)) return null
+  const text = findableNoticeText(profile.visibility)
+  if (!text) return null
+  const notice = group(
+    el('p', { text, style: { margin: '0', padding: '12px 16px', fontSize: '15px', lineHeight: '1.4' } }),
+    row({ label: FINDABLE_NOTICE_COPY.settings, chevron: true, testid: 'findable-notice-settings', onClick: () => { dismissFindableNotice(userId); card.stack.push(settingsCard(env)); env.changed() } }),
+    row({ label: FINDABLE_NOTICE_COPY.dismiss, testid: 'findable-notice-dismiss', onClick: () => { dismissFindableNotice(userId); env.changed() } }),
+  )!
+  notice.setAttribute(FINDABLE_NOTICE_ATTR, '')
+  notice.setAttribute('role', 'note')
+  notice.setAttribute('aria-label', FINDABLE_NOTICE_COPY.label)
+  notice.dataset.testid = 'findable-notice'
+  return notice
 }
 
 /**
@@ -623,8 +663,9 @@ const BOARD_FRESH_MS = 15_000
 export function leaderboardCard(env: CardsEnv): CardSpec {
   const userId = env.session.userId
   const tabOf = (data: BoardData | null | undefined): BoardTab => (data?.tab === 'everyone' ? 'everyone' : 'friends')
-  // Opens on the board the cards read on open: Everyone while it is open
-  // (Anders, 15 Oct 2026: "a global leaderboard"), else Friends.
+  // Opens on the board the cards read on open (boardMemory loadDefaultBoard):
+  // the tab picked on this page; else Friends with a mutual friend (19 Oct
+  // 2026); else Everyone while it is open (Anders, 15 Oct 2026); else Friends.
   const first = env.data.board ?? knownDefaultBoard(userId)
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
@@ -669,7 +710,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
               board = result
               if (result.everyoneOpen !== undefined) everyoneOpen = result.everyoneOpen === true || asked === 'everyone'
               // The board the cards open on gives the You card's rank.
-              if (asked === 'everyone' || !everyoneOpen) {
+              if (tabOf(knownDefaultBoard(userId)) === asked) {
                 env.data.board = result
                 const me = result.entries.find(entry => entry.me) ?? result.me
                 env.data.rank = rankOf(me?.rank, result.total)
@@ -683,6 +724,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
       if (everyoneOpen) {
         body.append(segmented(CARDS_COPY.leaderboard, [{ value: 'friends', label: CARDS_COPY.friends }, { value: 'everyone', label: CARDS_COPY.everyone }], tab, value => {
           tab = value
+          rememberPickedBoard(userId, value)
           board = undefined
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
@@ -694,6 +736,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }))
         const list = group(...rows.map(entry => boardRow(env, card, entry)))
         if (list) { list.dataset.testid = 'board-rows'; body.append(list) }
+        const hidden = boardHiddenLine(board.meShown, env.data.profile)
+        if (hidden) body.append(el('p', { className: 'tc-foot', text: hidden, dataset: { testid: 'board-hidden' } }))
       } else if (board === null) {
         body.append(el('p', { className: 'tc-foot', style: { margin: '0 16px' }, text: CARDS_COPY.boardUnavailable }))
       }
@@ -777,14 +821,25 @@ export function findCard(env: CardsEnv): CardSpec {
         timer = setTimeout(async () => {
           const found = await searchReaders(token, q)
           if (query.trim() !== q || card.stack.isClosed) return
-          // Search lists only readers set to Everyone (the server's rule).
+          // Search lists Friends and Everyone readers by name and picture (the server's rule, 19 Oct 2026).
           results = found?.results ?? []
           renderResults()
         }, 250)
       })
       const search = el('label', { className: 'tc-search', dataset: { testid: 'find-search' } }, el('span', { html: ICONS.search, style: { display: 'contents' } }), input)
 
-      if (data?.followingYou.length) browse.append(heading(CARDS_COPY.followingYou), group(...data.followingYou.map(person => personRow(person, 'following-you-row')))!)
+      if (data?.followingYou.length) {
+        // Following you is where a follow request is accepted (by following back); the count says how many wait.
+        const waiting = followBackCount(data.followingYou.map(person => ({ relation: relations.get(person.handle) ?? person.relation })))
+        const title = heading(CARDS_COPY.followingYou)
+        if (waiting > 0) {
+          title.append(el('span', {
+            className: 'tc-badge', text: String(waiting), 'aria-label': CARDS_COPY.waitingRequests(waiting), dataset: { testid: 'following-you-count' },
+            style: { display: 'inline-grid', verticalAlign: 'middle', minWidth: '18px', height: '18px', fontSize: '11px', padding: '0 5px', marginLeft: '6px' },
+          }))
+        }
+        browse.append(title, group(...data.followingYou.map(person => personRow(person, 'following-you-row')))!)
+      }
       if (data?.alsoReading.length) browse.append(heading(CARDS_COPY.readingYourBooks), group(...data.alsoReading.map(person => personRow(person, 'reader-row')))!)
       const link = data?.link ?? env.data.profile?.link ?? null
       if (link) {

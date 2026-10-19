@@ -25,6 +25,8 @@ export const PHOTO_COPY = {
   unreadable: 'This photo could not be read here. Try a smaller copy or a screenshot of it.',
   /** Decoded, but the browser would not draw or encode it. */
   unprepared: 'This photo could not be prepared here. Try a screenshot of it.',
+  /** The Worker could not process the prepared photo (its 415; 19 Oct 2026: it said the same as notAPhoto). */
+  unprocessed: 'This photo could not be processed. Try a screenshot of it.',
   /** Still over the upload limit at the lowest quality (as the Worker words it). */
   tooLarge: 'That picture is too large.',
   /** The upload switch is off or the store is unavailable. */

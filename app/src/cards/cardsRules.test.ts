@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter } from './cardsRules'
+import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter } from './cardsRules'
 import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, ordinal, rankOf, shortEmail, weekHeights, chartWeeks, dayMonthShortDate } from './cardsFormat'
 import { accountPageRedirect, cardUrl, isCardName } from './cardRoutes'
 import type { ProfilePageData } from './cardsApi'
+import { hasFriends } from './boardMemory'
+import { CARDS_COPY } from './cardsCopy'
 
 const privacy = { visibility: 'friends' as const, showReading: true, showTime: true, onLeaderboard: true }
 
@@ -39,7 +41,8 @@ describe('Settings rules', () => {
 describe('follow buttons (the Friends page words)', () => {
   it('outlines a state and fills an action', () => {
     expect(followButton('friend')).toEqual({ label: 'Friends', style: 'line', action: 'unfollow' })
-    expect(followButton('follower')).toEqual({ label: 'Following', style: 'line', action: 'unfollow' })
+    // A one-way follow is a request until followed back (changed on request, 19 Oct 2026: was Following).
+    expect(followButton('follower')).toEqual({ label: 'Requested', style: 'line', action: 'unfollow' })
     expect(followButton('followed')).toEqual({ label: 'Follow back', style: 'fill', action: 'follow' })
     expect(followButton('stranger')).toEqual({ label: 'Follow', style: 'fill', action: 'follow' })
     expect(followButton('self')).toBeNull()
@@ -137,5 +140,35 @@ describe('old links', () => {
     expect(cardUrl('find')).toBe('/library?card=find')
     expect(isCardName('settings')).toBe(true)
     expect(isCardName('picture')).toBe(false)
+  })
+})
+
+describe('the leaderboard for a reader friends cannot see (19 Oct 2026)', () => {
+  const own = { visibility: 'friends' as const, showTime: true, onLeaderboard: true }
+  it('a line only when the reader’s own settings keep friends from seeing them', () => {
+    expect(boardHiddenLine(true, own)).toBeNull()
+    expect(boardHiddenLine(undefined, own)).toBeNull()
+    expect(boardHiddenLine(false, null)).toBeNull()
+    expect(boardHiddenLine(false, own)).toBeNull()
+    expect(boardHiddenLine(false, { ...own, onLeaderboard: false })).toBe(CARDS_COPY.hiddenLeaderboard)
+    expect(boardHiddenLine(false, { ...own, showTime: false, onLeaderboard: false })).toBe(CARDS_COPY.hiddenTime)
+    expect(boardHiddenLine(false, { ...own, visibility: 'only_me', onLeaderboard: false })).toBe(CARDS_COPY.hiddenOnlyMe)
+    for (const line of [CARDS_COPY.hiddenLeaderboard, CARDS_COPY.hiddenTime, CARDS_COPY.hiddenOnlyMe]) {
+      expect(line).toMatch(/^Friends don’t see you here: /)
+      expect(line).not.toMatch(/[A-Z]{3,}/)
+    }
+  })
+
+  it('a mutual friend: from the count, or from a friend’s row when an older Worker sends none', () => {
+    const board = (friends: number | undefined, others: number) => ({
+      tab: 'friends' as const, window: { start: '', end: '' }, refreshedAt: null, total: others + 1, me: null, meShown: true, friends,
+      entries: [{ rank: 1, name: 'You', picture: { src: null, pos: '', cover: false, private: false, initial: 'Y' }, seconds: 0, duration: '', me: true },
+        ...Array.from({ length: others }, (_, i) => ({ rank: i + 2, name: `R${i}`, picture: { src: null, pos: '', cover: false, private: false, initial: 'R' }, seconds: 0, duration: '', me: false }))],
+    })
+    expect(hasFriends(null)).toBe(false)
+    expect(hasFriends(board(0, 0))).toBe(false)
+    expect(hasFriends(board(1, 0))).toBe(true)
+    expect(hasFriends(board(undefined, 0))).toBe(false)
+    expect(hasFriends(board(undefined, 1))).toBe(true)
   })
 })

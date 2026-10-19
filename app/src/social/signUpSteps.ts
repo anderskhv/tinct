@@ -33,6 +33,7 @@ import {
   ownPictureView,
   paintAvatar,
   rememberNewBooksOpenIn,
+  photoInMemory,
   photoUploadMessage,
   preparePhoto,
   saveProfile,
@@ -41,6 +42,7 @@ import {
   type OwnProfile,
 } from './socialClient'
 import { photoAccept } from './photoAccept'
+import { PHOTO_COPY } from './photoFile'
 import { CARDS_COPY } from '../cards/cardsCopy'
 
 export const SIGNUP_CONSENT_KEY = 'tinct:signup-consent'
@@ -250,7 +252,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   nameInput.addEventListener('input', () => paintAvatar(initial.avatar, pictureView('initial', null, nameInput.value || profile.name), token))
 
   // Uploads, as on the You card, only while the Worker accepts them
-  // (SOCIAL_PHOTO_UPLOADS): saved at once, shown to others after review.
+  // (SOCIAL_PHOTO_UPLOADS): saved at once and shown to others at once (no review since 19 Oct 2026).
   let uploadedPicture: { button: HTMLButtonElement; avatar: HTMLElement } | null = null
   let backgroundUploaded = false
   const uploads = profile.uploads === true ? el('div', { className: 'social-uploads', dataset: { socialUploads: '' } }) : null
@@ -263,16 +265,26 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
       trigger.addEventListener('click', () => field.click())
       field.addEventListener('change', async () => {
         const chosen = field.files?.[0]
-        field.value = ''
-        if (!chosen) return
+        if (!chosen) { field.value = ''; return }
         trigger.disabled = true
+        trigger.setAttribute('aria-busy', 'true')
         hooks.setStatus()
-        // Every failure says why: the photo's own problem, or the upload's.
-        const prepared = await preparePhoto(chosen, slot)
-        const saved = prepared.ok ? await uploadProfileImage(token, slot, prepared.image) : null
-        trigger.disabled = false
+        let prepared: Awaited<ReturnType<typeof preparePhoto>>
+        let saved: Awaited<ReturnType<typeof uploadProfileImage>> | null = null
+        try {
+          // Read into memory before the input is cleared (iPadOS may release a converted HEIC; photoInMemory).
+          const photo = await photoInMemory(chosen)
+          // Every failure says why: the photo's own problem, or the upload's.
+          prepared = photo ? await preparePhoto(photo, slot) : { ok: false, message: PHOTO_COPY.unreadable }
+          saved = prepared.ok ? await uploadProfileImage(token, slot, prepared.image) : null
+        } finally {
+          field.value = ''
+          trigger.disabled = false
+          trigger.removeAttribute('aria-busy')
+        }
         if (!prepared.ok) { hooks.setStatus(prepared.message, 'error'); return }
         if (!saved?.ok) { hooks.setStatus(saved ? photoUploadMessage(saved, CARDS_COPY.saveFailed) : CARDS_COPY.saveFailed, 'error'); return }
+        // Shown to others at once, with no review (19 Oct 2026): no line after a saved upload.
         profile = saved.profile
         if (slot === 'background') { backgroundUploaded = true; return }
         // The reader's own picture joins the choices, chosen; it is already saved.
