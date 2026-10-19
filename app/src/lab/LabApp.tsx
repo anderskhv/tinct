@@ -1076,7 +1076,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
    * page) so re-measuring cannot undo the cut.
    */
   const comparePassageRef = useRef<{ paragraphs: string[]; start: LabCompareAnchor; end: LabCompareAnchor; entryPlace: LabCompareAnchor } | null>(null)
-  const [comparePageEnd, setComparePageEnd] = useState<{ paragraphs: string[]; at: LabCompareAnchor } | null>(null)
   const withComparePassage = useCallback((pages: ChapterHearingPage[], paragraphs: string[]) => {
     const passage = comparePassageRef.current
     return passage && passage.paragraphs === paragraphs ? labComparePassagePages(pages, passage.start, passage.end).pages : pages
@@ -1096,7 +1095,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
   useEffect(() => {
     if (mobileCompareActive) return
     comparePassageRef.current = null
-    setComparePageEnd(null)
   }, [mobileCompareActive])
 
   useEffect(() => {
@@ -3057,14 +3055,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     setDesktopLeafCapacity(capacity)
   }, [applyNativePages])
   const standbyKey = layoutKeyFor(standbyEditionKey)
-  // Marked only where the passage runs on: a page that ends exactly there needs no mark.
-  const comparePageEndMarker = showPhoneChrome && mobileCompareActive && comparePageEnd?.paragraphs === readerParagraphs
-    && !readingPages.some(page => {
-      const head = pageAnchorOf(page)
-      return head?.paragraphIndex === comparePageEnd.at.paragraphIndex && head.wordIndex === comparePageEnd.at.wordIndex
-    })
-    ? comparePageEnd.at
-    : null
   const standbyKeyRef = useRef(standbyKey)
   standbyKeyRef.current = standbyKey
   const readerLayoutKey = [
@@ -3894,8 +3884,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
       ?? (measured?.length ? measured : chapterHearingPages(targetParagraphs, canUseLabPageBudget(budget) ? budget : null))
     // The whole main page, not just its first word: its end is carried over
     // too, and the compare page is cut to exactly that passage when it fits
-    // one page. When it does not, pagination stays as it is and the end is
-    // marked. Nothing here writes a place; the font is the reader's own.
+    // one page. When it does not, pagination stays as it is. Nothing here
+    // writes a place; the font is the reader's own.
     const mainTail = compareHead ? chapterPageTail(current[currentIndex]) : null
     const compareEnd = mainTail
       ? mapLabCompareEnd(readerParagraphs, targetParagraphs, { paragraphIndex: mainTail.paragraphIndex, wordIndex: mainTail.to })
@@ -3903,7 +3893,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     comparePassageRef.current = compareHead && compareEnd
       ? { paragraphs: targetParagraphs, start: compareHead, end: compareEnd, entryPlace: { ...sourceAnchor } }
       : null
-    setComparePageEnd(compareEnd ? { paragraphs: targetParagraphs, at: compareEnd } : null)
     const nextPages = withComparePassage(naturalPages, targetParagraphs)
     // Find the natural page containing the mapped verse. Splitting at the
     // anchor creates a short leftover page without reflowing the chapter.
@@ -5567,7 +5556,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
-            pageEndMarker={comparePageEndMarker}
             compare={desktopCompareActive && desktopCompareEnabled}
             mode="reading"
             follow={(showHearing && listen.playing || pausedTransportVisible && !listen.playing && !mobileCompareActive) ? listen.follow : { kind: 'none' }}
