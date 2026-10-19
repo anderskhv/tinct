@@ -2480,18 +2480,20 @@ async function longBooks(browser, origin) {
       await layout('explain card')
       await a.keyboard.press('Escape'); await a.evaluate(() => { col.open = null; getSelection().removeAllRanges() })
     }
-    // Item 9: Before you start is about the chapter the reader is in, never a part, the index or the references.
-    for (const [where, page, want] of [['the figure page (chapter 16)', m.figurePage, '16 Applications and Case Studies'], ['the index', m.indexFrom + 3, '17 Frontiers'], ['the references', m.refsFrom + 1, '17 Frontiers'], ['the preface', 8, '1 Introduction']]) {
+    // Item 9: Before you start is about the chapter the reader is in, never a part, the index or the references. Since
+    // 19 Oct 2026, night (TinctMargin.sizeUnits), a chapter over 30 pages is read in its sections: the primer is of the
+    // section the page is in (the figure page), or the nearest (the index and references: chapter 17's last; the
+    // preface: chapter 1's first), sent under the section's own title.
+    for (const [where, page, want] of [['the figure page (chapter 16)', m.figurePage, /^16\.\d+ /], ['the index', m.indexFrom + 3, /^17\.\d+ /], ['the references', m.refsFrom + 1, /^17\.\d+ /], ['the preface', 8, /^1\.1 /]]) {
       if (phone && where !== 'the index') continue
       await a.evaluate(n => { closePrimer(); goTo({ page: n, frac: 0.1 }); onScroll() }, page); await a.waitForTimeout(700)
       const p0 = account.requests.length
       await a.evaluate(() => openPrimer()); await a.waitForTimeout(1500)
       // Made once per unit (later views read the account's copy): the request when there is one, else the unit opened.
       const req = chats(p0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
-      const unit = await a.evaluate(() => primer.unit?.title)
-      // Sent as the chapter it is ("Chapter 16: Applications and Case Studies"; Anders, 15 Oct).
-      const named = want.replace(/^(\d+) (.*)$/, 'Chapter $1: $2')
-      ok(`${tag}: Before you start on ${where} is the primer of ${want}, named "${named}"`, unit === want && (!req || req.body.companion.chapter.action.unitTitle === named), { unit, asked: req?.body?.companion?.chapter?.action })
+      const got = await a.evaluate(n => ({ title: primer.unit?.title, from: primer.unit?.from, to: primer.unit?.to, last: primer.units.filter(u => !u.matter && /^17\./.test(u.title)).at(-1)?.title, first: primer.units.find(u => !u.matter)?.title, n }), page), unit = got.title
+      const placed = where === 'the figure page (chapter 16)' ? got.from <= page && page <= got.to : where === 'the preface' ? unit === got.first : unit === got.last
+      ok(`${tag}: Before you start on ${where} is the primer of a section of its chapter (${want}), sent under its own title`, want.test(unit || '') && placed && (!req || req.body.companion.chapter.action.unitTitle === unit), { got, asked: req?.body?.companion?.chapter?.action })
       if (where === 'the index') await layout('primer')
       await a.evaluate(() => closePrimer())
     }
