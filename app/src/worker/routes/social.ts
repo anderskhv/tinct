@@ -320,7 +320,7 @@ export interface BoardEntry {
   handle?: string
 }
 
-export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; everyoneOpen: boolean; entries: BoardEntry[] }> {
+export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; friends: number; everyoneOpen: boolean; entries: BoardEntry[] }> {
   // Two round trips to the database, not six (Anders, 15 Oct 2026: the board
   // took too long). First, at once: who the viewer's friends are, their own
   // profile, when the 7-day cache was built, and (Everyone) the pool.
@@ -369,8 +369,11 @@ export async function buildBoard(ctx: Context, viewerId: string, tab: Board, ope
   const window = leaderboardWindow(ctx.now)
   // Whether others see the viewer on this board (the page explains when they do not).
   const ownCard = own ? cards.find(card => card.id === viewerId) ?? null : null
-  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && ownCard.internal !== true && (tab === 'friends' || ownCard.visibility === 'everyone'))
-  return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, everyoneOpen: open, entries: shown.map(entry) }
+  // An internal account is left off Everyone only; friends always see it (19 Oct 2026).
+  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && (tab === 'friends' || (ownCard.visibility === 'everyone' && ownCard.internal !== true)))
+  // How many mutual friends the viewer has, so the cards open on Friends when there are any.
+  const friends = [...circle.friends].filter(id => id !== viewerId).length
+  return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, friends, everyoneOpen: open, entries: shown.map(entry) }
 }
 
 // ===== Find =====

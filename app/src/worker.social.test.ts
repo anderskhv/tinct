@@ -725,20 +725,28 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
   })
 
-  it('internal accounts never appear on the Everyone board or the Friends board', async () => {
+  it('internal accounts never appear on the Everyone board, but mutual friends see them on Friends (19 Oct 2026)', async () => {
     const world = new World()
     world.add(A)
     addReaders(world, 1, 10)
     const [qa] = addReaders(world, 100, 1, true)
+    addReaders(world, 101, 1, true)
     world.befriend(A, qa)
     world.befriend(A, uuid(1))
     const everyone = await json(await get(world, '/api/social/board?tab=everyone', A))
     expect(everyone.entries).toHaveLength(11)
     expect(names(everyone)).not.toContain('Reader 100')
+    expect(names(everyone)).not.toContain('Reader 101')
     const friends = await json(await get(world, '/api/social/board?tab=friends', A))
-    expect(names(friends)).toEqual(['Reader 1', 'You'])
+    expect(names(friends)).toEqual(['Reader 1', 'Reader 100', 'You'])
+    expect(friends.friends).toBe(2)
+    // An internal account that is not a friend stays off Friends too.
+    expect(names(friends)).not.toContain('Reader 101')
     const rank = await json(await get(world, '/api/social/rank', A))
-    expect(rank).toMatchObject({ total: 2 })
+    expect(rank).toMatchObject({ total: 3 })
+    // And the internal friend sees the viewer back.
+    const theirs = await json(await get(world, '/api/social/board?tab=friends', qa))
+    expect(names(theirs)).toContain(NAMES[A])
   })
 
   it('the Friends board is unaffected below the threshold', async () => {
@@ -768,14 +776,21 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(200)
   })
 
-  it('an internal account sees its own row but is told others do not see it', async () => {
+  it('an internal account is shown to friends, and told it is not shown on Everyone', async () => {
     const world = new World()
     world.add(A)
     world.internal.add(A)
     world.read(A, 0, 45)
     const data = await json(await get(world, '/api/social/board?tab=friends', A))
     expect(names(data)).toEqual(['You'])
-    expect(data.meShown).toBe(false)
+    expect(data.meShown).toBe(true)
+    expect(data.friends).toBe(0)
+    addReaders(world, 1, 1)
+    // The Everyone count is reused for a few minutes.
+    world.now = NOW + 6 * 60_000
+    const everyone = await json(await get(world, '/api/social/board?tab=everyone', A))
+    expect(names(everyone)).toContain('You')
+    expect(everyone.meShown).toBe(false)
   })
 
   it('a profile read or saved by an internal device, or with a test address, flags the account; real readers are never flagged', async () => {

@@ -12,11 +12,26 @@
  */
 import type { OwnProfile, ProfilePageData } from './cardsApi'
 import type { Relation } from '../social/profileRules'
+import { CARDS_COPY } from './cardsCopy'
 
 export type PrivacyFields = Pick<OwnProfile, 'visibility' | 'showReading' | 'showTime' | 'onLeaderboard'>
 
 export function leaderboardAllowed(profile: Pick<OwnProfile, 'visibility' | 'showTime'>): boolean {
   return profile.visibility !== 'only_me' && profile.showTime
+}
+
+/**
+ * The line under the leaderboard when friends cannot see the reader there
+ * (19 Oct 2026), with the reason and where to fix it; null otherwise. Only the
+ * reader's own settings give a reason: anything else that keeps them off a
+ * board (the Everyone board's own rules) shows no line.
+ */
+export function boardHiddenLine(meShown: boolean | undefined, profile: Pick<OwnProfile, 'visibility' | 'showTime' | 'onLeaderboard'> | null | undefined): string | null {
+  if (meShown !== false || !profile) return null
+  if (profile.visibility === 'only_me') return CARDS_COPY.hiddenOnlyMe
+  if (!profile.showTime) return CARDS_COPY.hiddenTime
+  if (!profile.onLeaderboard) return CARDS_COPY.hiddenLeaderboard
+  return null
 }
 
 /** The settings after one change, and the patch to post at once (POST /api/profile). */
