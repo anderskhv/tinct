@@ -3291,7 +3291,7 @@ const dictation = {
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
 const mpReady = import('/lab/margin/margin-parse.js?v=20261019core').then(m => (MP.P = m)).catch(() => null);
-const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null };
+const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null, pills: new Map() };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
 const undo = { el: null, timer: 0, rect: null, restore: null };
@@ -3915,7 +3915,7 @@ function layoutNow() {
     if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren(); dropDocLayer() }
     if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
     if (mode !== 'phone') closeSheet2();
-    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null }
+    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear() }
     if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
     if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
@@ -4048,35 +4048,41 @@ function layoutColumn() {
   // Chat: open, its own panel (fixed); folded, at the document's top.
   if (col.open === 'whole') { const el = take('whole', col.el); drawWhole(el); el.style.top = '0px' }
   else if (chat.turns.length || chat.live) { const el = take('whole'); drawWhole(el); items.push({ el, ey: docTop, top: docTop, order: -2 }) }
-  // Before you start, at its unit's first page: the trigger, or the primer open in its place.
-  const unit = primer.open ? primer.unit : primer.units && primerHasText() ? currentUnit() : null;
-  primer.trig && !unit && (primer.trig.remove(), primer.trig = null);
-  if (unit) {
-    // At the top of the unit's first page (Anders, 19 Oct 2026): never at its first line of text, which on a cover drawn
-    // as one picture (Possible Minds) is far down the page or not there at all. Its top is the page's top.
-    const p = state.pages[(unit.from || unit.start) - 1], pr = p?.pg.getBoundingClientRect();
-    const ey = (pr ? Y(pr.top) : docTop) + 4;
-    if (primer.open) {
-      primer.trig?.remove(); primer.trig = null;
-      const el = primerEl(); el.classList.remove('is-floating');
-      if (el.parentElement !== doc) { el.removeAttribute('style'); doc.appendChild(el) }
-      drawPrimer(el);
-      items.push({ el, ey, top: ey - 4, order: -1 });
-    } else {
-      primer.el?.remove(); primer.el = null;
-      if (!primer.trig) { const b = primer.trig = document.createElement('button'); b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false'); b.title = 'Before you start (B)' }
-      const b = primer.trig;
-      if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: ${TinctMargin.triggerLine(unit)} Key B.`) }
-      if (b.parentElement !== doc) doc.appendChild(b);
-      items.push({ el: b, ey, top: ey - 4, order: -1 });
+  // Each unit's pills (Anders, 19 Oct 2026, evening): at the top of its first page Primer and Catch me up, Before you
+  // start opening under them in place, then the unit's catch-up; at the foot of its last page Recap, Quiz me and Note,
+  // their cards under them. Never at a page's first line of text: on a cover drawn as one picture (Possible Minds) that
+  // is far down the page or not there at all. Units near the reader's place are drawn (their pages are).
+  const units = primerHasText() ? pillUnits() : [];
+  const seenPills = new Set();
+  if (!units.some(u => primer.open && primer.unit?.key === u.key)) { if (!primer.open) { primer.el?.remove(); primer.el = null } }
+  for (const u of units) {
+    const p = state.pages[(u.from || u.start) - 1], pr = p?.pg.getBoundingClientRect();
+    if (pr) {
+      const ey = Y(pr.top) + 4, row = pillRow(u, 'start', doc); seenPills.add(row);
+      items.push({ el: row, ey, top: ey - 4, order: -1 });
+      if (primer.open && primer.unit?.key === u.key) {
+        const el = primerEl(); el.classList.remove('is-floating');
+        if (el.parentElement !== doc) { el.removeAttribute('style'); doc.appendChild(el) }
+        drawPrimer(el);
+        items.push({ el, ey, top: ey, order: -0.9 });
+      }
+      const cu = unitCard(u, 'catchup');
+      if (cu) { const el = take(cu.id); drawCard(el, cu, col.open === cu.id); el.classList.add('is-unit'); items.push({ el, ey, top: ey, order: -0.8 }) }
     }
-    // The unit's quiz (from the primer), below it.
-    const openUnit = col.open && cardById(col.open)?.data?.unit ? cardById(col.open) : null, uq = openUnit || unitQuiz(unit);
-    if (uq) { const el = take(uq.id); drawCard(el, uq, col.open === uq.id); el.classList.add('is-unit'); items.push({ el, ey, top: ey, order: 0 }) }
-  } else { primer.el?.remove(); primer.el = null }
+    const q = state.pages[u.to - 1], qr = q?.pg.getBoundingClientRect();
+    if (qr) {
+      const row = pillRow(u, 'end', doc); seenPills.add(row);
+      const ey = Y(qr.bottom) - (row.offsetHeight || 32) - 4;
+      items.push({ el: row, ey, top: ey, order: 2 });
+      const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
+      [...['recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const el = take(c.id); drawCard(el, c, col.open === c.id); el.classList.add('is-unit'); items.push({ el, ey: ey + 0.001 * (k + 1), top: ey, order: 2.1 + k * 0.01 }) });
+    }
+  }
+  for (const [k, el] of col.pills) if (!seenPills.has(el)) { el.remove(); col.pills.delete(k) }
+  if (primer.open && !units.some(u => u.key === primer.unit?.key)) { primer.el?.remove(); primer.el = null }
   // The cards, each at its passage's line.
   for (const card of viewCards()) {
-    if (card.data?.unit || keep.has(card.id)) continue;
+    if (card.data?.unit || card.unitNote || keep.has(card.id)) continue;
     const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1]; if (!p) continue;
     const b = p.pg.getBoundingClientRect();
     const h = (card.kind === 'figure' ? Math.min(f[4], 22 / b.height) : f[4]) * b.height;
@@ -4110,6 +4116,11 @@ function layoutColumn() {
   }
   const html = lines.join('');
   if (col.docLines !== html) { col.docLines = html; col.docLeads.innerHTML = html }
+  // A unit's card just opened (its pill, or the primer's quiz row): brought into view on the page.
+  if (col.reveal) {
+    const el = col.els.get(col.reveal); col.reveal = null;
+    if (el) { const r = el.getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect().bottom; if (r.top < Math.max(sr.top, hdr) || r.top > sr.bottom - 80) s.scrollBy({ top: r.top - (Math.max(sr.top, hdr) + 40) }) }
+  }
   // A follow-up just sent: brought into view on the page (the card grows below; the page is the one scroll).
   const held = col.open && holds.get(col.open), el = held?.place && col.els.get(col.open), row = el && el.querySelector(`[data-turn="${held.turn}"]`);
   if (row) {
@@ -4172,6 +4183,8 @@ function openCard(id, { focus = false } = {}) {
       if (p) { const b = p.pg.getBoundingClientRect(), y = b.top + f[2] * b.height; if (y < sr.top + 40 || y > sr.bottom - 120) goTo({ page: f[0], frac: Math.max(0, f[2] - 0.08) }, true) }
     }
   }
+  // A unit's card on the wide column sits at its unit's start or end: brought into view once laid out.
+  if (id && mode === 'column' && (cardById(id)?.data?.unit || col.draft?.id === id && col.draft.unitNote)) col.reveal = id;
   marginLayout();
   // focus: true puts it in the follow-up line; 'card' on the card itself (its close, or the bottom card's handle), no keyboard.
   if (focus) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector(focus === 'card' ? '.mr-card__close, .mr-sheet__grab' : '.mr-follow__input')?.focus({ preventScroll: true })));
@@ -4419,6 +4432,9 @@ function bindCardEvents(host) {
   host.addEventListener('click', e => {
     // A host inside another (the primer in the column) handles its click once.
     if (e.mrDone) return; e.mrDone = true;
+    // A unit's pill (the wide column): its own card.
+    const pill = e.target.closest('.mr-pill');
+    if (pill) { pillAction(pill.dataset.pill, pill.closest('.mr-pills')?.dataset.unit); return }
     const row = e.target.closest('.mr-map__row[data-page]');
     if (row) { goToCite(Number(row.dataset.page), ''); return }
     // Related: a place scrolls the file there and underlines it briefly.
@@ -4642,10 +4658,23 @@ function cardTurns(card, image, fig = {}) {
   const about = card.text ? `\n\nThe passage they selected on ${at}:\n${card.text.slice(0, 3000)}` : `\n\nThis conversation began as a note they wrote in the margin beside ${at}; the note is their first message.`;
   const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}${about}`;
   const what = card.data?.region === 'formula' ? 'formula' : 'figure';
-  const lead = { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
+  const pill = card.data?.pill;
+  const lead = pill ? { recap: 'Recap this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
   const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
-  if (lead && (turns[0]?.role === 'assistant' || (card.kind === 'figure' && !turns.length))) turns.unshift({ role: 'user', content: lead });
-  return [{ role: 'user', content: rules }, ...turns];
+  if (lead && (turns[0]?.role === 'assistant' || ((card.kind === 'figure' || pill) && !turns.length))) turns.unshift({ role: 'user', content: lead });
+  return [{ role: 'user', content: pill ? pillRules(card) : rules }, ...turns];
+}
+/** Recap and Catch me up (a unit's pills): the companion's instructions for the unit's card. */
+function pillRules(card) {
+  const unit = primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, start: card.page, to: card.page };
+  const name = unit.key === 'all' ? 'the whole document' : TinctMargin.unitPhrase(unit), pages = u => (u.from === u.to ? `page ${pageLabel(u.from)}` : `pages ${pageLabel(u.from)}–${pageLabel(u.to)}`);
+  const head = `You are Tinct's reading companion. ${bookLine()}`;
+  const form = 'Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.';
+  if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
+  const before = catchRange(unit);
+  return unit.from > 1
+    ? `${head} They are about to start ${name}.\nCatch them up on what has happened or been argued in the document so far, before ${name} (${pages(before)}): the main thread and where it stands now, so they can go on. ${form}`
+    : `${head} They are at the start of the document, on page ${pageLabel(before.to)}.\nCatch them up on what the document has set up so far: its subject and what it has said up to here, so they can go on. ${form}`;
 }
 /** A figure's card: its thread is about this one figure (item 4), seen in its picture, else from its caption, labels and a sketch. */
 function figureRules(card, image, sketch) {
@@ -4769,7 +4798,7 @@ async function runCardNow(id, question, run) {
   if (!s) { setLive(id, { status: AI_OFF, done: true }); return }
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
   const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
-  const pdf = unit ? await unitPages(unit) : await pdfPages(card.page);
+  const pdf = unit ? await unitPages(card.data?.pill === 'catchup' ? catchRange(unit) : unit) : await pdfPages(card.page);
   // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
   // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
   const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;
@@ -5011,6 +5040,7 @@ function primerReset() {
   Object.assign(primer, { units: null, open: false, unit: null, data: null, wait: false, status: '' });
   primer.away.clear();
   primer.el?.remove(); primer.trig?.remove(); primer.el = null; primer.trig = null;
+  for (const el of col.pills.values()) el.remove(); col.pills.clear();
 }
 /**
  * The units, from the outline: each top-level entry resolved to its page, with a part's own entries
@@ -5242,12 +5272,15 @@ function openPrimer(unit = currentUnit(), { keyboard = false } = {}) {
 /** Fold the primer back to its trigger. */
 function closePrimer() {
   if (!primer.open) return;
+  const key = primer.unit?.key;
   const had = !!primer.el?.contains(document.activeElement);
   primer.open = false; primer.token++;
   primer.el?.remove(); primer.el = null;
   if (col.sheet?.dataset.id === 'primer') { col.sheet.remove(); col.sheet = null }
   marginLayout();
-  if (had) requestAnimationFrame(() => (primer.trig?.isConnected ? primer.trig : $('scroll')).focus?.({ preventScroll: true }));
+  // The focus goes back to the unit's Primer pill (the wide column), else the pages.
+  const pill = key && col.pills.get(key + ':start')?.querySelector('[data-pill="primer"]');
+  if (had) requestAnimationFrame(() => (pill?.isConnected ? pill : $('scroll')).focus?.({ preventScroll: true }));
 }
 const togglePrimer = opts => (primer.open ? closePrimer() : openPrimer(undefined, opts));
 /** Draw the primer into `el` (the column's, the floating one, or the phone's card). */
@@ -5319,8 +5352,65 @@ function primerMark(pageRight) {
 }
 /** The unit quiz card ("Quiz me on this chapter"): Quiz me on the whole unit, at the column's top. */
 function unitQuiz(unit) { return keptCards().filter(c => !c.gone && c.kind === 'quiz' && c.data?.unit?.key === unit.key).sort((a, b) => (b.at || 0) - (a.at || 0))[0] || null }
-function quizUnit() {
-  const unit = primer.unit || currentUnit(); if (!unit) return;
+/** A unit's newest card for a pill: its quiz, its recap or its catch-up (an Ask card on the unit, data.pill). */
+function unitCard(unit, pill) {
+  if (pill === 'quiz') return unitQuiz(unit);
+  return keptCards().filter(c => !c.gone && c.data?.unit?.key === unit.key && c.data?.pill === pill).sort((a, b) => (b.at || 0) - (a.at || 0))[0] || null;
+}
+/** The units whose pills are drawn: those whose first or last page is near the reader's place, never front or back matter. */
+function pillUnits() {
+  if (!primer.units) return [];
+  const at = placePage(), here = currentUnit();
+  // Before you start's unit (open, or the one it is about from the reader's place, front matter's nearest chapter) always.
+  return primer.units.filter(u => (primer.open && primer.unit?.key === u.key) || u === here || (!u.matter && (Math.abs((u.from || u.start) - at) <= 3 || Math.abs(u.to - at) <= 3 || (at >= u.from && at <= u.to && u.to - u.from <= 6))));
+}
+/** A unit's row of pills (its start's or its end's), drawn again only when what it shows changed. */
+function pillRow(unit, where, doc) {
+  const k = unit.key + ':' + where;
+  let el = col.pills.get(k);
+  if (!el) { el = document.createElement('div'); el.className = `mr mr-pills is-${where}`; el.setAttribute('role', 'group'); el.dataset.unit = unit.key; el.dataset.where = where; col.pills.set(k, el) }
+  const open = where === 'start' ? (primer.open && primer.unit?.key === unit.key ? 'primer' : unitCard(unit, 'catchup')?.id === col.open && col.open ? 'catchup' : '')
+    : ['recap', 'quiz'].find(p => col.open && unitCard(unit, p)?.id === col.open) || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === unit.to || c.unit === unit.key)) ? 'note' : '');
+  const name = TinctMargin.unitPhrase(unit), sig = JSON.stringify([where, unit.key, open, name]);
+  if (el.dataset.sig !== sig) {
+    el.dataset.sig = sig;
+    el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${name}`);
+    el.innerHTML = TinctMargin.html.pillsHtml(where, { open, name, line: TinctMargin.triggerLine(unit) });
+  }
+  if (el.parentElement !== doc) doc.appendChild(el);
+  return el;
+}
+/**
+ * A pill tapped (the wide column): Primer opens or folds Before you start in place; Catch me up and Recap open the
+ * unit's card (made then, on tap: only the primer is made ahead) or fold it; Quiz me the unit's quiz; Note the reader's
+ * own note on the unit (a new one ready to write).
+ */
+function pillAction(pill, key) {
+  const unit = primer.units?.find(u => u.key === key); if (!unit) return;
+  if (pill === 'primer') { if (primer.open && primer.unit?.key === key) closePrimer(); else openPrimer(unit); return }
+  if (pill === 'quiz') return quizUnit(unit);
+  if (pill === 'note') {
+    const note = viewCards().find(c => c.unitNote && (c.page === unit.to || c.unit === unit.key));
+    if (note) { openCard(col.open === note.id ? null : note.id, { focus: col.open === note.id ? false : 'card' }); return }
+    if (primer.open) closePrimer();
+    newMarginNote(null, { unit }); return;
+  }
+  const have = unitCard(unit, pill);
+  if (have) { openCard(col.open === have.id ? null : have.id); return }
+  if (primer.open) closePrimer();
+  const label = unit.key === 'all' ? TinctMargin.KINDS.whole : TinctMargin.unitPhrase(unit);
+  const card = TinctMargin.newCard({ kind: 'ask', page: pill === 'recap' ? unit.to : unit.from, anchor: [{ n: pill === 'recap' ? unit.to : unit.from, x: 0, y: 0, w: 0, h: 0 }], text: '', data: { unit: { key: unit.key, label }, pill } });
+  store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed(); col.view = null;
+  openCard(card.id); runCard(card.id);
+}
+/** The pages a unit's catch-up covers: everything before it (at most the 200 pages before), or the opening so far in the first unit. */
+function catchRange(unit) {
+  const end = unit.from > 1 ? unit.from - 1 : Math.max(1, placePage());
+  const from = Math.max(1, end - 199);
+  return { key: unit.key, from, start: from, to: end };
+}
+function quizUnit(at = null) {
+  const unit = at || primer.unit || currentUnit(); if (!unit) return;
   let card = unitQuiz(unit);
   if (!card || card.data.done) {
     // A passage-less card: its "passage" is a zero box at the unit's start (the stored cards' shape needs one); the view leaves it out.

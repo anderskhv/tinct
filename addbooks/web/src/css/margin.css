@@ -582,3 +582,19 @@ html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr
 .mr-card__acts .mr-card__ask { width: auto; min-width: 28px; height: 28px; margin: -6px 0 -3px; padding: 0 2px; font: 13px var(--mr-ui); color: var(--mr-muted); }
 .mr-card__acts .mr-card__ask:hover { color: var(--mr-ink); }
 .mr .mr-note-edit:focus, .mr .mr-note-edit:focus-visible { outline: 0 !important; }   /* the caret and the accent rule are the focus */
+/* A unit's pills on the wide column (19 Oct 2026, evening; reader.js pillRow): as the book reader's chapter pills
+   (src/lab/lab.css .lab-chapter-recap, .lab-chapter-note): the words in 14px Garamond in the muted ink, a hairline pill
+   round them, the companion's ✧ before its own; pressed while its card is open. A row at a unit's start sits at the top of
+   its first page; one at its end, at the foot of its last page. */
+.mr-col .mr-pills { position: absolute; left: 0; right: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; }
+.mr-pill { display: inline-flex; align-items: center; min-height: 32px; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mr-muted); font: 14px/1.4 var(--mr-gara); text-align: left; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+.mr-pill > span { border: 1px solid var(--mr-hair); border-radius: 999px; padding: 2px 10px; }
+.mr-pill:hover { color: var(--mr-ink); }
+.mr-pill:hover > span { background: var(--mr-card); }
+.mr-pill[aria-expanded="true"] { color: var(--mr-ink); }
+.mr-pill[aria-expanded="true"] > span { background: var(--mr-card); border-color: var(--mr-lead); }
+.mr-pill__mark { margin-right: 5px; font-size: .9em; }
+.mr-pill:focus-visible { outline: none; }
+.mr-pill:focus-visible > span { outline: 2px solid var(--mr-muted); outline-offset: 2px; }
+:root[data-mr-input="pointer"] .mr-pill:focus-visible > span { outline: none; }
+html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }

@@ -89,6 +89,8 @@
 //                                                     its room; no Full width; phones and Tinct text keep the slider
 //   node scripts/margin-check.mjs margin-notes      19 Oct, evening (3): a note from a click on the empty margin, at that height;
 //                                                     fold first; empty goes; kept, synced, reloaded; Ask makes it a chat
+//   node scripts/margin-check.mjs unit-pills        19 Oct, evening (1): each unit's pills on the wide column (Primer, Catch me up;
+//                                                     Recap, Quiz me, Note), their cards; a file without units; phones unchanged
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -143,9 +145,9 @@ export const SELECTORS = {
   menu: '.mr-more, .mr-pmore, .mr-define, .mr-note',
   // PR 3: the primer's trigger and the primer are blocks of the column, as cards are (no overlap, never off screen).
   // Since 15 Oct the "Deleted · Undo" line keeps a deleted card's place in the column: a block, as the cards are.
-  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer, .mr-col .mr-undo',
+  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer, .mr-col .mr-undo, .mr-col .mr-pills',
   text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *, .mr-trigger',
-  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
+  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-pill, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
 }
 // A long answer scrolls inside its open card (BRIEF.md, "A 600-word answer": the card scrolls, its
 // label and follow-up line stay). Lines scrolled out of that body are not cut off by a container
@@ -167,7 +169,7 @@ const asideOutOfView = () => {
   const sr = s.getBoundingClientRect(), top = Math.max(sr.top, document.getElementById('hdr')?.getBoundingClientRect().bottom || 0)
   const chat = document.querySelector('.mr-col:not(.mr-doc) .mr-card.is-whole.is-open')?.getBoundingClientRect()
   let n = 0
-  for (const el of document.querySelectorAll('.mr-doc > .mr-card, .mr-doc > .mr-trigger, .mr-doc > .mr-primer, .mr-doc > .mr-undo')) {
+  for (const el of document.querySelectorAll('.mr-doc > .mr-card, .mr-doc > .mr-trigger, .mr-doc > .mr-pills, .mr-doc > .mr-primer, .mr-doc > .mr-undo')) {
     const r = el.getBoundingClientRect()
     const under = chat && Math.min(r.bottom, chat.bottom) - Math.max(r.top, chat.top) > 0
     if (r.top < top - 0.5 || r.bottom > sr.bottom + 0.5 || under) { el.dataset.mcAside = el.style.visibility; el.style.visibility = 'hidden'; n++ }
@@ -991,21 +993,22 @@ async function primerBehaviour(browser, origin) {
   const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
   const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
   const a = A.page
-  await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  // (On the wide column Before you start's trigger is its unit's Primer pill since 19 Oct 2026, evening: item 1.)
+  await a.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(a)
   const units = await a.evaluate(() => primer.units)
   // The unit's own pages, from its entry's page (not the title page before it, which only offers the trigger).
   const unitPages = u => u.to - u.start + 1
   const r0 = chats().length
   const trig = await a.evaluate(() => {
-    const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return null
-    const cs = getComputedStyle(t), title = getComputedStyle(t.querySelector('.mr-trigger__title')), sub = getComputedStyle(t.querySelector('.mr-trigger__sub'))
+    const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'), row = t?.closest('.mr-pills'); if (!t) return null
+    const span = getComputedStyle(t.querySelector('span'))
     // Its unit's first page's top, measured in the column (19 Oct 2026, evening: the page's top, never its first line of text).
     const p = state.pages[(primer.units?.[0]?.from || 1) - 1]
-    const line = p.pg.getBoundingClientRect().top + 4 - t.parentElement.getBoundingClientRect().top
-    return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, height: t.offsetHeight, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
+    const line = p.pg.getBoundingClientRect().top + 4 - row.parentElement.getBoundingClientRect().top
+    return { text: t.getAttribute('aria-label'), words: t.textContent.trim(), top: row.offsetTop, bottom: row.offsetTop + row.offsetHeight, line, tip: t.title, radius: span.borderRadius, border: span.borderTopWidth, font: getComputedStyle(t).fontFamily }
   })
-  ok('at the PDF\'s start the trigger is a folded card at its first page\'s top (9, 19 Oct evening): italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
+  ok('at the PDF\'s start its Primer pill (Before you start) sits at its first page\'s top (items 1 and 9, 19 Oct evening): "✧ Primer", named for the unit ("Before you start: The gist and a map of chapter 1."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: The gist and a map of chapter 1.' && trig.words === '✧Primer' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
   // Made ahead as the file opens (Anders, 19 Oct 2026): one request, for the reader's unit, marked speculative (never charged).
   const req = primers(0)[0]
   ok('as the file opens (signed in), the primer of the reader\'s unit is made once, ahead, marked speculative', primers(0).length === 1 && req.body.companion.speculative === true, { requests: primers(0).length, speculative: req?.body?.companion?.speculative })
@@ -1013,18 +1016,18 @@ async function primerBehaviour(browser, origin) {
   // It opens in place (Anders, 15 Oct): from its trigger's place, growing down; measured once it has grown.
   await a.waitForTimeout(450)
   ok('B opens the primer in place, made nothing more: the one chapter request (ahead), action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 0 && primers(0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
-  const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
-  // (Since 19 Oct 2026 the column is part of the page: the primer opens in its trigger's place and grows in place.)
-  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, in its trigger\'s place', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && Math.abs(shown.top - (trig?.top ?? -99)) <= 1 && !shown.trigger, { ...shown, trig: trig?.top })
+  const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, pressed: document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-expanded') } })
+  // (Since 19 Oct 2026 the column is part of the page: the primer opens in place, under its unit's pills, its Primer pill pressed.)
+  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, in place under its pills', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && shown.top >= (trig?.bottom ?? 1e9) - 1 && shown.top - (trig?.bottom ?? 0) <= 20 && shown.pressed === 'true', { ...shown, trig })
   await a.waitForTimeout(600)
   const stored = account.primers.get(hex + '?outline-0')
   ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
   await a.click('.mr-col .mr-primer .mr-primer__close'); await a.waitForTimeout(250)
-  ok('its close folds it back to the trigger', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
-  await a.click('.mr-col .mr-trigger'); await a.waitForTimeout(400)
+  ok('its close folds it back to the trigger (its Primer pill)', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-pill[data-pill="primer"]'))
+  await a.click('.mr-col .mr-pill[data-pill="primer"]'); await a.waitForTimeout(400)
   ok('clicking the trigger opens it again, and reopening never makes it again', await a.isVisible('.mr-col .mr-primer .mr-primer__gist') && primers(r0).length === 0)
   await a.keyboard.press('Escape'); await a.waitForTimeout(200)
-  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
+  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-pill[data-pill="primer"]'))
   // Another device (this browser's copy gone): the account's primer, not a new one.
   await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
   const r1 = chats().length
@@ -1052,10 +1055,10 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('Escape')
   // The next unit's start offers its own trigger; the middle of a unit offers none.
   await a.evaluate(n => goTo({ page: n, frac: 0 }), units[1].start); await a.waitForTimeout(700)
-  const t5 = await a.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  const t5 = await a.evaluate(n => document.querySelector(`.mr-col .mr-pills[data-unit="${primer.units.find(u => u.start === n)?.key}"] .mr-pill[data-pill="primer"]`)?.getAttribute('aria-label'), units[1].start)
   await a.evaluate(n => goTo({ page: n, frac: 0.3 }), units[1].start + 1); await a.waitForTimeout(700)
   // (The trigger is part of the page at its unit's start since 19 Oct 2026: in the middle of a unit none is in view.)
-  const t6 = await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
+  const t6 = await a.evaluate(() => { const t = [...document.querySelectorAll('.mr-col .mr-pill[data-pill="primer"]')].find(x => { const r = x.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom }); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
   ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none in view', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
   const r3 = chats().length
   await a.keyboard.press('b'); await a.waitForTimeout(1000)
@@ -1068,9 +1071,9 @@ async function primerBehaviour(browser, origin) {
   // (Made ahead as it opens, or on B: the one request since it opened.)
   const rs = chats().length
   const S = await readerPage(browser, origin, hexShort, { width: 1440, height: 900, look: 'paper' })
-  await S.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await S.page.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(S.page)
-  const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '), units: primer.units.map(u => u.key), pages: state.pages.length }))
+  const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'), units: primer.units.map(u => u.key), pages: state.pages.length }))
   await S.page.keyboard.press('b'); await S.page.waitForTimeout(1000)
   const reqs = primers(rs)[0]
   ok('a PDF under 40 pages is one unit ("all"), its outline notwithstanding: the whole file goes', /map of the whole PDF\.$/.test(ts.trig || '') && ts.units.join() === 'all' && reqs?.body?.companion?.chapter?.action?.unitKey === 'all' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
@@ -1078,9 +1081,9 @@ async function primerBehaviour(browser, origin) {
   // A PDF without an outline is one unit, "all".
   const rb = chats().length
   const B = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'night' })
-  await B.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await B.page.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(B.page)
-  const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'))
   await B.page.keyboard.press('b'); await B.page.waitForTimeout(1000)
   const reqb = primers(rb)[0]
   ok('a PDF without an outline: one unit ("all"), the whole PDF', /map of the whole PDF\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === 'all' && reqb.body.companion.context.pages.length === 8, { tb, action: reqb?.body?.companion?.chapter })
@@ -1643,7 +1646,7 @@ async function columnMatrix(browser, origin) {
         // PR 3: at a unit's start, the trigger with the page's cards below it; then the longest primer, open.
         await page.evaluate(() => { openCard(null); goTo({ page: TinctMargin.unitAt(primer.units, currentPlace().page).start, frac: 0 }) }); await settle(page)
         await page.evaluate(seedCards, { lines: 4, pairs: true, open: 2, where: 'top' })
-        await state('trigger', () => ({ ok: col.mode !== 'column' || !!document.querySelector('.mr-col .mr-trigger:not([hidden])'), mode: col.mode }))
+        await state('trigger', () => ({ ok: col.mode !== 'column' || !!document.querySelector('.mr-col .mr-pill[data-pill="primer"]'), mode: col.mode }))
         await page.evaluate(LONG => { openCard(null); const u = currentUnit(); store.set(primerKey(u), { ...LONG, madeAt: new Date().toISOString(), unitKey: u.key }); openPrimer(u) }, LONG_PRIMER)
         // (Wide: in its place in the page's layer, the cards pushed below it, none over it; 19 Oct 2026.)
         await state('primer', () => { const el = document.querySelector('.mr-primer'), r = el?.getBoundingClientRect(); return { ok: !!el?.querySelector('.mr-map') && el.querySelectorAll('.mr-map__row').length === 8 && (col.mode !== 'column' || ![...document.querySelectorAll('.mr-doc > .mr-card:not([hidden])')].some(c => { const q = c.getBoundingClientRect(); return Math.min(q.bottom, r.bottom) - Math.max(q.top, r.top) > 0.5 })) } })
@@ -2233,7 +2236,7 @@ async function polish(browser, origin) {
     const layout = async state => { await a.waitForTimeout(250); problems.push(...(await checkMargin(a)).map(p => ({ state, ...p }))) }
     const mode = await a.evaluate(() => marginMode())
     // 1. No whole-PDF bar at the margin's foot.
-    const foot = await a.evaluate(() => ({ foot: !!document.querySelector('.mr-foot, .mr-foot__input, .mr-foot__hint, .mr-key'), words: /the whole PDF/.test(document.querySelector('.mr-col')?.innerText || '') && !document.querySelector('.mr-col .mr-trigger') }))
+    const foot = await a.evaluate(() => ({ foot: !!document.querySelector('.mr-foot, .mr-foot__input, .mr-foot__hint, .mr-key'), words: /the whole PDF/.test(document.querySelector('.mr-col')?.innerText || '') && !document.querySelector('.mr-col .mr-trigger, .mr-col .mr-pills') }))
     ok(`${tag}: no whole-PDF line, field or mic at the margin's foot`, !foot.foot && !foot.words, foot)
     // 2. The caret: nothing drawn as one; the hint after "Ask" thin, in the accent, a gentle blink.
     ok(`${tag}: no caret element anywhere in the margin`, await a.evaluate(() => !document.querySelector('.mr-caret')))
@@ -2261,7 +2264,7 @@ async function polish(browser, origin) {
     ok(`${tag}: delete takes the card away at once (no confirm), leaves a tombstone, and says "Deleted · Undo"`, !gone.open && !gone.shown && gone.stored?.gone === true && gone.undo === 'Deleted · Undo', gone)
     await layout('undo')
     if (look === 'paper') await shot(a, `${tag}-undo`)
-    const undoOverlap = await a.evaluate(() => { const u = document.querySelector('.mr-undo:not([hidden])')?.getBoundingClientRect(); if (!u) return 'none'; return [...document.querySelectorAll('.mr-col .mr-card:not([hidden]), .mr-col .mr-trigger, .mr-sheet')].some(c => { const r = c.getBoundingClientRect(); return Math.min(r.right, u.right) - Math.max(r.left, u.left) > 1 && Math.min(r.bottom, u.bottom) - Math.max(r.top, u.top) > 1 }) })
+    const undoOverlap = await a.evaluate(() => { const u = document.querySelector('.mr-undo:not([hidden])')?.getBoundingClientRect(); if (!u) return 'none'; return [...document.querySelectorAll('.mr-col .mr-card:not([hidden]), .mr-col .mr-pills, .mr-col .mr-trigger, .mr-sheet')].some(c => { const r = c.getBoundingClientRect(); return Math.min(r.right, u.right) - Math.max(r.left, u.left) > 1 && Math.min(r.bottom, u.bottom) - Math.max(r.top, u.top) > 1 }) })
     ok(`${tag}: the undo line covers no card`, undoOverlap === false, undoOverlap)
     await a.click('.mr-undo button'); await a.waitForTimeout(500)
     const back = await a.evaluate(id => ({ stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: !!document.querySelector('.mr-undo:not([hidden])') }), made)
@@ -2333,8 +2336,9 @@ async function polish(browser, origin) {
       for (const reduce of [false, true]) {
         await a.emulateMedia({ reducedMotion: reduce ? 'reduce' : 'no-preference' })
         const run = await a.evaluate(() => new Promise(res => {
-          const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return res(null)
-          const trig = t.getBoundingClientRect(), frames = [], t0 = performance.now()
+          // (Its trigger is the unit's Primer pill on the wide column since 19 Oct 2026, evening: it opens under the pills.)
+          const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'); if (!t) return res(null)
+          const r = t.closest('.mr-pills').getBoundingClientRect(), trig = { top: r.bottom, height: r.height }, frames = [], t0 = performance.now()
           t.click()
           const tick = () => { const p = document.querySelector('.mr-col .mr-primer'); if (p) { const b = p.getBoundingClientRect(); frames.push({ top: b.top, height: b.height, bottom: document.querySelector('.mr-col').getBoundingClientRect().bottom - b.bottom }) } if (performance.now() - t0 < 600) requestAnimationFrame(tick); else res({ trig: { top: trig.top, height: trig.height }, frames }) }
           requestAnimationFrame(tick)
@@ -2343,7 +2347,7 @@ async function polish(browser, origin) {
         const grew = f.some(x => x.height < last?.height - 40)
         // Since 19 Oct 2026 the column is part of the page: the primer opens in its trigger's place (its top where the
         // trigger's was), never moving, at its whole height at once (no scrolling of its own, the page scrolls).
-        ok(`${tag}: Before you start ${reduce ? '(reduced motion) ' : ''}opens in its trigger's place, never moving, whole at once`, first && Math.abs(first.top - run.trig.top) <= 1.5 && f.every(x => Math.abs(x.top - first.top) <= 0.5 && Math.abs(x.height - last.height) < 1) && last.height > run.trig.height + 100, { trig: run?.trig, first, last, n: f.length })
+        ok(`${tag}: Before you start ${reduce ? '(reduced motion) ' : ''}opens in place under its pills, never moving, whole at once`, first && first.top >= run.trig.top - 1 && first.top - run.trig.top <= 20 && f.every(x => Math.abs(x.top - first.top) <= 0.5 && Math.abs(x.height - last.height) < 1) && last.height > run.trig.height + 100, { trig: run?.trig, first, last, n: f.length })
         if (!reduce && look === 'paper') await shot(a, `${tag}-primer`)
         await layout(reduce ? 'primer (reduced motion)' : 'primer')
         await a.evaluate(() => closePrimer()); await a.waitForTimeout(300)
@@ -2501,9 +2505,9 @@ async function longBooks(browser, origin) {
     const A = await readerPage(browser, origin, bare, { width: 1440, height: 900, look: 'paper', at: ch4.from, minSpans: 5 })
     const a = A.page
     const shown = Date.now()
-    await a.waitForFunction(() => !!document.querySelector('.mr-trigger'), null, { timeout: 30000 }).catch(() => {})
+    await a.waitForFunction(() => !!document.querySelector('.mr-trigger, .mr-pill[data-pill="primer"]'), null, { timeout: 30000 }).catch(() => {})
     const wait = Date.now() - shown
-    const when = await a.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), unit: primer.units && TinctMargin.primerUnitAt(primer.units, currentPlace().page)?.title, scanDone: toc.ready }))
+    const when = await a.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger, .mr-pill[data-pill="primer"]'), unit: primer.units && TinctMargin.primerUnitAt(primer.units, currentPlace().page)?.title, scanDone: toc.ready }))
     ok(`${tag}: Before you start's trigger shows on chapter 4 within 5 s of its first text, from the contents the scan finds first (${wait} ms; the scan done: ${when.scanDone})`, when.trigger && wait <= 5000 && /^4 /.test(when.unit || ''), { wait, ...when })
     // The margin's document, a function of the book alone: the same bytes on two pages of chapter 4, the same contents on chapter 16.
     const docs = await a.evaluate(async ([p1, p2, p3]) => { const out = []; for (const n of [p1, p2, p3]) out.push(JSON.stringify(await marginDocument(n))); return out }, [ch4.from + 1, ch4.to - 1, ch16.from + 1])
@@ -3161,7 +3165,7 @@ async function primerAnchor(browser, origin) {
   ok('2. opened signed in: Before you start of the reader\'s unit is made ahead, once, marked speculative, and kept here and with the book', made.length === 1 && made[0].body.companion.speculative === true && made[0].body.companion.chapter.action.unitKey === 'outline-0' && await a.evaluate(() => !!store.get(primerKey(currentUnit()))) && account.primers.has(hex + '?outline-0'), { made: made.length, speculative: made[0]?.body?.companion?.speculative })
   // Tapping it: there at once (no wait, no request).
   const r1 = account.requests.length
-  await a.click('.mr-col .mr-trigger')
+  await a.click('.mr-col .mr-pill[data-pill="primer"]')
   await a.waitForTimeout(120)
   const now = await a.evaluate(() => ({ gist: !!document.querySelector('.mr-col .mr-primer .mr-primer__gist'), wait: !!document.querySelector('.mr-col .mr-primer .tc-wait, .mr-col .mr-primer .tinct-wait') }))
   ok('2. tapping Before you start shows it at once: its gist within 120 ms, no wait, no request', now.gist && !now.wait && primers(r1).length === 0, now)
@@ -3608,9 +3612,9 @@ async function columnPage(browser, origin) {
     await shot(a, `${tag}-after`)
     // Before you start is at its unit's first page, part of the page too.
     await a.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }); onScroll() }); await a.waitForTimeout(700)
-    const t1 = await a.evaluate(() => { const t = document.querySelector('.mr-doc .mr-trigger'); return t && { top: t.getBoundingClientRect().top, inDoc: true } })
+    const t1 = await a.evaluate(() => { const t = document.querySelector('.mr-doc .mr-pills.is-start'); return t && { top: t.getBoundingClientRect().top, inDoc: true } })
     await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 120)); await a.waitForTimeout(300)
-    const t2 = await a.evaluate(() => document.querySelector('.mr-doc .mr-trigger')?.getBoundingClientRect().top)
+    const t2 = await a.evaluate(() => document.querySelector('.mr-doc .mr-pills.is-start')?.getBoundingClientRect().top)
     ok(`${tag}: Before you start sits at the document's start in the page's layer and scrolls with it`, t1 && Math.abs((t1.top - t2) - 120) <= 1, { t1, t2 })
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
     await A.ctx.close()
@@ -4239,6 +4243,73 @@ async function marginNotes(browser, origin) {
   return results
 }
 
+/* unit-pills (19 Oct 2026, evening, item 1): on the wide column each unit has the book reader's chapter pills: at the
+   top of its first page Primer (Before you start, made ahead) and Catch me up; at the foot of its last page Recap, Quiz
+   me and Note. Each opens a margin card; Catch me up and Recap are made on tap; Note is the reader's own note on the
+   unit, kept and synced. A document without units has the start pills at the top of page 1 and the end pills after
+   its last page. Phones are unchanged. */
+async function unitPills(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(LONG_BOOK)
+  account.marks.clear(); account.cards.clear(); account.primers.clear()
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) {} goTo({ page: 1, frac: 0 }) }); await a.waitForTimeout(800)
+  const row = where => a.evaluate(where => { const r = document.querySelector(`.mr-doc .mr-pills.is-${where}[data-unit="${primer.units[0].key}"]`); if (!r) return null; const b = [...r.querySelectorAll('.mr-pill')], sp = b[0]?.querySelector('span'), cs = sp && getComputedStyle(sp), bs = b[0] && getComputedStyle(b[0]); const u = primer.units[0], pg = state.pages[(where === 'start' ? u.from : u.to) - 1].pg.getBoundingClientRect(), rr = r.getBoundingClientRect(); return { words: b.map(x => x.textContent.trim()), font: bs.fontFamily, size: bs.fontSize, radius: cs.borderRadius, border: cs.borderTopWidth, gap: Math.round(where === 'start' ? rr.top - pg.top : pg.bottom - rr.bottom), right: rr.left >= pg.right } }, where)
+  const start = await row('start')
+  ok('1. at the top of the unit\'s first page: "✧ Primer" and "✧ Catch me up", the book reader\'s pills (14px Garamond, a hairline pill), beside the page', start && start.words.join('|') === '✧Primer|✧Catch me up' && /EB Garamond/.test(start.font) && start.size === '14px' && start.radius === '999px' && start.border === '1px' && start.gap >= -2 && start.gap <= 12 && start.right, start)
+  await shot(a, 'unit-pills-start-1440x900')
+  // Primer: Before you start, made ahead, open at once below the pills; again folds it.
+  const r0 = account.requests.length
+  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="primer"]'); await a.waitForTimeout(400)
+  const primerOpen = await a.evaluate(() => { const p = document.querySelector('.mr-doc .mr-primer'), r = document.querySelector('.mr-doc .mr-pills.is-start'); return p && { gist: !!p.querySelector('.mr-primer__gist'), below: p.getBoundingClientRect().top >= r.getBoundingClientRect().bottom - 1, pressed: r.querySelector('[data-pill="primer"]').getAttribute('aria-expanded') } })
+  ok('1. Primer opens Before you start (made ahead: at once, no request) under the pills, its pill pressed', primerOpen?.gist && primerOpen.below && primerOpen.pressed === 'true' && !chatsOf(r0).some(r => r.body?.companion?.chapter), primerOpen)
+  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="primer"]'); await a.waitForTimeout(300)
+  ok('1. Primer again folds it', !(await a.$('.mr-doc .mr-primer')))
+  // Catch me up: a card under the pills, made on tap (the companion's ask, the pages before the unit).
+  const r1 = account.requests.length
+  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="catchup"]'); await a.waitForTimeout(1300)
+  const cu = await a.evaluate(() => { const c = cardById(col.open || ''); const el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { label: el?.querySelector('.mr-card__name')?.textContent, answer: el?.querySelector('.mr-answer')?.innerText || '', unit: c.data?.unit?.key, pill: c.data?.pill, below: el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-start').getBoundingClientRect().bottom - 1 } })
+  const cuReq = chatsOf(r1).find(r => /Catch them up/.test(JSON.stringify(r.body.messages || '')))
+  ok('1. Catch me up opens its card under the pills ("Catch me up · …"), answered on tap', cu && /^Catch me up · /.test(cu.label || '') && /MOCK ANSWER/.test(cu.answer) && cu.pill === 'catchup' && cu.below && !!cuReq && cuReq.body.companion?.intent === 'ask', { cu, sent: !!cuReq })
+  await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+  // The unit's end: Recap, Quiz me, Note at the foot of its last page.
+  await a.evaluate(() => { const u = primer.units[0]; goTo({ page: u.to, frac: 0.75 }) }); await a.waitForTimeout(900)
+  const end = await row('end')
+  ok('1. at the foot of the unit\'s last page: "✧ Recap", "✧ Quiz me", "Note" (no mark: the reader\'s own)', end && end.words.join('|') === '✧Recap|✧Quiz me|Note' && end.gap >= -2 && end.gap <= 14 && end.right, end)
+  const r2 = account.requests.length
+  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="recap"]'); await a.waitForTimeout(1300)
+  const rc = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', below: el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-end').getBoundingClientRect().bottom - 1 } })
+  ok('1. Recap opens its card under the end pills ("Recap · …"), answered on tap', rc && /^Recap · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && rc.below && chatsOf(r2).some(r => /Recap it for them/.test(JSON.stringify(r.body.messages || ''))), rc)
+  await shot(a, 'unit-pills-end-1440x900')
+  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="quiz"]'); await a.waitForTimeout(1300)
+  const qz = await a.evaluate(() => { const c = cardById(col.open || ''), el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, unit: !!c.data?.unit, count: el?.querySelector('.mr-card__count')?.textContent } })
+  ok('1. Quiz me opens the unit\'s quiz ("1 of 3")', qz && qz.kind === 'quiz' && qz.unit && qz.count === '1 of 3', qz)
+  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="note"]'); await a.waitForTimeout(500)
+  const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f, placeholder: f?.placeholder } })
+  ok('1. Note opens the reader\'s own note on the unit, its field ready', nt && nt.field && nt.focused && nt.placeholder === 'A note on this chapter', nt)
+  await a.keyboard.type('My note on the whole chapter.')
+  await a.mouse.click(300, 500); await a.waitForTimeout(500)
+  const saved = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My note on the whole chapter.'); return h && { page: h.page, rects: h.rects, to: primer.units[0].to } })
+  ok('1. the note is kept as the unit\'s (its last page, [2, 1, 0, 0]) and shows under the end pills', saved && saved.page === saved.to && JSON.stringify(saved.rects) === '[[2,1,0,0]]' && await a.evaluate(() => { const h = highlights().find(m => m.note === 'My note on the whole chapter.'); const el = document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); return !!el && el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-end').getBoundingClientRect().bottom - 1 }), saved)
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // A document without units: start pills at the top of page 1, end pills after its last page.
+  const hexS = addBook(PDFS[0])
+  const S = await readerPage(browser, origin, hexS, { width: 1440, height: 900, look: 'night' })
+  await prefetchSettled(S.page)
+  const one = await S.page.evaluate(async () => { const u = primer.units; const top = document.querySelector('.mr-doc .mr-pills.is-start'); const p1 = state.pages[0].pg.getBoundingClientRect(); const r = { units: u.map(x => x.key), startGap: top ? Math.round(top.getBoundingClientRect().top - p1.top) : null }; goTo({ page: state.pages.length, frac: 0.8 }); await new Promise(z => setTimeout(z, 900)); const end = document.querySelector('.mr-doc .mr-pills.is-end'), pl = state.pages.at(-1).pg.getBoundingClientRect(); r.endGap = end ? Math.round(pl.bottom - end.getBoundingClientRect().bottom) : null; r.words = end ? [...end.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()) : null; return r })
+  ok('1. a document without units: the start pills at the top of page 1, the end pills after its last page', one.units.join() === 'all' && one.startGap >= -2 && one.startGap <= 12 && one.endGap >= -2 && one.endGap <= 14 && one.words?.join('|') === '✧Recap|✧Quiz me|Note', one)
+  await S.ctx.close()
+  // Phones are unchanged: no pills.
+  const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  await P.page.waitForTimeout(800)
+  ok('1. a phone shows no pills (unchanged)', !(await P.page.$('.mr-pills')))
+  await P.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -4282,6 +4353,7 @@ const RUNS = {
   'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
   'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
   'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
+  'unit-pills': [unitPills, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4322,7 +4394,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
