@@ -19,8 +19,19 @@ const hasBook = () => !!(state.pdf || state.epub);
 const isEpub = () => state.kind === 'epub';
 const prefs = Object.assign({ trim: false, full: false, rate: 1, voice: '', dockW: 380, dock: 'docked' }, store.get('prefs') || {});
 // "Dark pages" and "Paper tone" were PDF-only switches; the page now follows the reader's theme.
-delete prefs.dark; delete prefs.tone;
+// "Full width" is gone too (19 Oct 2026, evening): Zoom's + widens the page as far as the room allows.
+delete prefs.dark; delete prefs.tone; delete prefs.full;
 const savePrefs = () => store.set('prefs', prefs);
+/* The focus ring on the margin's buttons is for the keyboard only (Anders, 19 Oct 2026: Minimise showed its ring after a
+   click). A card opened or redrawn by a click may put the focus on its Minimise for screen readers; with the pointer as
+   the last input, no ring shows (css/margin.css [data-mr-input="pointer"]). The keys bring it back. Registered first, so
+   no other key handler stops it. */
+addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput = 'pointer'; marginPress.busy = marginBusy() }, true);
+/* What a press found open before anything folded it (registered first, so it sees the margin as it was): a click on the
+   empty margin column then only folds what was open (a card, Before you start, the bar), and writes no note. */
+const marginPress = { busy: false };
+const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-aa-panel, .lab-super-layer')) } catch { return false } };
+addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
 
 /* ---------- Layout: Tinct's phone/desktop classes ---------- */
 function applyLayout() {
@@ -127,9 +138,10 @@ async function chooseFile(file) {
   stopNarration();
   const saved = await engine.keepFile(file, read, TinctPdfScan.cleanFileName(file.name));
   if (!saved) toast('This browser could not keep a copy, so you will need to open the file again next time.');
-  // An EPUB reads in the Tinct reader, which opens it from this browser's copy.
-  if (kind === 'epub' && saved) { await openInTinct(bytes, file.name, key, file); return }
+  // An EPUB reads in the Tinct reader on a phone, which opens it from this browser's copy; on the desktop, here (epubHere).
+  if (kind === 'epub' && saved && !epubHere(key)) { await openInTinct(bytes, file.name, key, file); return }
   await openBook(kind, bytes, file.name, key);
+  if (kind === 'epub' && saved) { epubShelved(bytes, file.name, key, file); return }
   sendAccountCopy(key, file, { kind, name: file.name });
 }
 // `known`: the record already read from this device (openFromUrl), so a large file is read once (FIXES item 12).
@@ -157,8 +169,10 @@ async function openStored(key, known = null) {
   }
   // Opened before it reached the account (offline, or the sign-in had lapsed): save it now.
   const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
-  if (rec.kind === 'epub' && (rec.opened ? (await library.touch(key, { openedAt: rec.opened }), true) : await library.get(key))) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
+  if (rec.kind === 'epub' && !epubHere(key) && (rec.opened ? (await library.touch(key, { openedAt: rec.opened }), true) : await library.get(key))) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key, rec);
+  // An EPUB read here: named and drawn on the shelf, and its account copy sent, as the Tinct reader's way does (once).
+  if (rec.kind === 'epub') { if (pending || !(Number(rec.coverV) >= 2)) epubShelved(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   if (!pending) return true;
   // A PDF just added on My shelf (add-engine preparePdf) reaches the account here, named like a
   // file chosen on this page: by the document's own title, once the scan has read it (briefly).
@@ -216,14 +230,14 @@ addEventListener('pageshow', e => { if (e.persisted && leftForTinct) { leftForTi
 /** `rec`: the book's record as read for this open, when there is one (openStored): not read again. */
 async function openBook(kind, bytes, name, key, rec = null) {
   showReader();
-  if (kind === 'epub') await openEpub(bytes, name, key); else await openPdf(bytes, name, key, rec);
+  if (kind === 'epub') await openEpub(bytes, name, key, rec); else await openPdf(bytes, name, key, rec);
   if (hasBook()) {
     // One write, after the page is drawn, and none when nothing changed: each write rewrites the whole file.
     const patch = { ...(rec?.opened ? { openedAt: rec.opened } : {}), ...(!rec || rec.title !== state.title || (rec.author || '') !== (state.author || '') ? { title: state.title, author: state.author || '' } : {}) };
     if (Object.keys(patch).length) setTimeout(() => library.touch(key, patch), rec ? 2500 : 0);
     // A PDF is a book with its own address (/lab/addbook/?userBook=<hex>): a reload, the
     // library and the book switcher open it again at its place.
-    const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : null;
+    const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : epubMargin() ? bookUrl(key) : null;
     // Arrived at this book's own address with a page asked (the Tinct reader's "Show page"): the address is
     // tidied in place, so Back goes straight back to the paragraph it came from.
     if (url) { if (location.pathname + location.search !== url) history[urlHex() === hexOf(key) ? 'replaceState' : 'pushState']({ addbookReader: key }, '', url) }
@@ -272,6 +286,7 @@ function showReader() { document.body.dataset.view = 'reader'; $('root').hidden 
 async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   const hadBook = hasBook();
   closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop(); strip?.close();
+  window.TinctNotebook?.close();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
   Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map() }); toc.entries = []; toc.ready = false; zoomClass();
@@ -296,7 +311,7 @@ addEventListener('popstate', () => {
 window.TinctReader = { chooseFile, openStored, openFromUrl, urlHex, close: closeBook, library, cloud, shelf, removeBook, pickFile: () => { if (!needsAccount()) $('fileInput').click() } };
 
 /* ---------- EPUB ---------- */
-async function openEpub(bytes, name, key) {
+async function openEpub(bytes, name, key, rec = null) {
   const token = ++state.token;
   closeAllPopups();
   waitStatus('Opening…');
@@ -306,6 +321,8 @@ async function openEpub(bytes, name, key) {
   if (token !== state.token) return;
   state.pdf?.destroy?.(); state.observer?.disconnect();
   Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null });
+  // The book's Tinct text, when this device converted it in the Tinct reader: the place is shared with it (epubShare).
+  state.epubEdition = Array.isArray(rec?.edition?.chapters) ? rec.edition : null;
   root.classList.add('is-epub'); root.classList.remove('is-pdf');
   const saved = store.get('pos:' + state.key);
   state.zoom = saved?.zoom || 1;
@@ -337,7 +354,7 @@ async function openEpub(bytes, name, key) {
     setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
     marginStart();
   } else if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
-  requestAnimationFrame(() => { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0; onScroll() });
+  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0 } onScroll() });
 }
 function applyEpubScale() { root.style.setProperty('--epub-scale', String(state.zoom)) }
 // Links inside the book move within it.
@@ -516,8 +533,16 @@ const columnPad = () => { const cs = getComputedStyle($('column')), v = parseFlo
  */
 const pagesWidth = () => $('scroll').clientWidth - (root.classList.contains('margin-open') ? parseFloat(getComputedStyle($('column')).marginRight) || 0 : 0);
 // Focus view keeps the page as wide as Margin view has it (the column's room left empty), so a switch only re-centres it.
-const focusRoom = () => (col.mode === 'focus' && !prefs.full && innerWidth >= TinctMargin.COL.narrow ? TinctMargin.COLUMN_RESERVE + 14 : 0);
-const columnWidth = () => { const room = focusRoom(), w = pagesWidth() - columnPad() - room; return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') || room ? 1100 : 1500) };
+const focusRoom = () => (col.mode === 'focus' && innerWidth >= TinctMargin.COL.narrow ? TinctMargin.COLUMN_RESERVE + 14 : 0);
+const columnWidth = () => { const room = focusRoom(), w = pagesWidth() - columnPad() - room; return Math.min(w, root.classList.contains('dock-open') || room ? 1100 : 1500) };
+/**
+ * How far a PDF's page zooms in on the desktop (Anders, 19 Oct 2026, evening: the size slider zoomed the page past
+ * the margin view): at most as wide as the reading area (the pages' room, less its padding: never under the margin
+ * column, never past the window), so 100% is the fit width and the most is the area's whole width (what "Full
+ * width" gave). Phones and EPUBs keep their range.
+ */
+const ZOOM_MIN = 0.5;
+const zoomMax = () => (state.kind !== 'pdf' || isPhone() ? 3 : Math.max(1, Math.min(3, Math.floor((pagesWidth() - columnPad()) / Math.max(1, columnWidth()) * 100) / 100)));
 const sheetWidth = () => Math.round(columnWidth() * state.zoom);
 function buildSheets(count) {
   state.observer?.disconnect();
@@ -690,6 +715,8 @@ function buildTextLayer(p, items, vp, roles = null) {
     span.style.left = pct(tx[4], vp.width);
     span.style.top = pct(tx[5] - size * 0.86, vp.height);
     span.style.fontSize = (size / vp.width * 100).toFixed(4) + 'cqw';
+    // Its baseline and size in page fractions: a highlight's band and the passage mark follow each line's own (lineBand).
+    if (!angle) { span.dataset.b = (tx[5] / vp.height).toFixed(5); span.dataset.s = (size / vp.height).toFixed(5) }
     measureCtx.font = `${size}px sans-serif`;
     const natural = measureCtx.measureText(str).width;
     const target = item.width * vp.scale;
@@ -707,9 +734,8 @@ function buildTextLayer(p, items, vp, roles = null) {
   if (side.childNodes.length) layer.appendChild(side);
   if (fig.childNodes.length) layer.appendChild(fig);
   p.pg.appendChild(layer); p.layer = layer; p.spans = spans;
+  resnapHighlights(p);
   renderHighlights(p);
-  // The primer's trigger sits at a page's first line of text, known once its text layer is drawn.
-  if (col.mode === 'column' && primer.trig) marginLayout();
 }
 
 /* A page's furniture in its text layer (Anders, 19 Oct 2026: a highlight across pages 4 and 5 of Constructor
@@ -882,7 +908,9 @@ function paintSelection() {
   for (const bar of selectionShapes(s.getRangeAt(0))) {
     const p = pageForPoint((bar.left + bar.right) / 2, (bar.top + bar.bottom) / 2); if (!p) continue;
     const r = p.pg.getBoundingClientRect(), i = document.createElement('i');
-    Object.assign(i.style, { left: (bar.left - r.left) / r.width * 100 + '%', top: (bar.top - r.top) / r.height * 100 + '%', width: (bar.right - bar.left) / r.width * 100 + '%', height: (bar.bottom - bar.top) / r.height * 100 + '%' });
+    // The selection's tint keeps to each line's band too, never over the next line's words (lineBand).
+    const [x, y, w, h] = bandBox(p, [(bar.left - r.left) / r.width, (bar.top - r.top) / r.height, (bar.right - bar.left) / r.width, (bar.bottom - bar.top) / r.height]);
+    Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: h * 100 + '%' });
     layerOf(p, 'sel-layer').appendChild(i);
   }
 }
@@ -892,8 +920,8 @@ function paintHeld() {
   if (!mr?.anchor || mr.ids.length || !(mr.held || mr.mode === 'asking')) return;
   for (const a of mr.anchor) {
     const p = state.pages[a.n - 1]; if (!p) continue;
-    const i = document.createElement('i');
-    Object.assign(i.style, { left: a.x * 100 + '%', top: a.y * 100 + '%', width: a.w * 100 + '%', height: a.h * 100 + '%' });
+    const i = document.createElement('i'), [x, y, w, h] = bandBox(p, [a.x, a.y, a.w, a.h]);
+    Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: h * 100 + '%' });
     layerOf(p, 'sel-layer').appendChild(i);
   }
 }
@@ -918,11 +946,95 @@ function showPalette(ids, box) {
   pop.querySelectorAll('[data-color]').forEach(b => b.onclick = () => { for (const id of ids) recolorHighlight(id, b.dataset.color); pop.querySelectorAll('[data-color]').forEach(o => { o.classList.toggle('is-selected', o === b); o.setAttribute('aria-pressed', o === b) }) });
   pop.querySelector('[data-a="unhighlight"]').onclick = () => { for (const id of ids) removeHighlight(id); hideSelection() };
 }
+/*
+ * A line's own band on its page (Anders, 19 Oct 2026: the passage's underline sat too low and cut into the next line;
+ * a highlight's tint must never cover a neighbouring line's words, even at tight line spacing). From the text layer's
+ * spans (their baselines and sizes, data-b and data-s, in page fractions): the line whose baseline lies in the box
+ * `[x, y, w, h]`, its glyphs from 0.8 of its size above the baseline to 0.24 below, kept clear of the lines above and
+ * below it in the same column (their descenders and ascenders). -> { top, bottom, base, size } in page fractions, or
+ * null when the page's text is not drawn or no line is in the box (then the stored box is drawn as it is).
+ */
+function pageLines(p) {
+  if (!p?.layer) return null;
+  if (p.linesOf === p.layer) return p.lines;
+  const rows = [];
+  for (const sp of p.layer.querySelectorAll('span[data-b]')) {
+    if (sp.dataset.f || !(sp.textContent || '').trim()) continue;
+    const b = Number(sp.dataset.b), sz = Number(sp.dataset.s), x0 = parseFloat(sp.style.left) / 100;
+    if (!(sz > 0)) continue;
+    const w = sp.getBoundingClientRect().width / Math.max(1, p.pg.getBoundingClientRect().width);
+    let row = rows.find(r => Math.abs(r.b - b) < Math.min(r.s, sz) * 0.3 && x0 <= r.x1 + r.s * 4 && x0 + w >= r.x0 - r.s * 4);
+    if (!row) { row = { b, s: sz, x0, x1: x0 + w }; rows.push(row) }
+    else { row.s = Math.max(row.s, sz); row.x0 = Math.min(row.x0, x0); row.x1 = Math.max(row.x1, x0 + w) }
+  }
+  p.lines = rows.sort((a, b) => a.b - b.b); p.linesOf = p.layer;
+  return p.lines;
+}
+function lineBand(p, [x, y, w, h]) {
+  const lines = pageLines(p); if (!lines?.length) return null;
+  const across = l => l.x0 < x + w && l.x1 > x;
+  // A line's box holds its baseline in its lower part (about three quarters down); a neighbour's, at tight spacing, lies
+  // just outside it. A box with several baselines inside it (a displayed formula's) is not one line's: drawn as it is.
+  const inside = lines.filter(l => across(l) && l.b >= y + h * 0.1 && l.b <= y + h * 1.05);
+  if (inside.some(l => Math.abs(l.b - inside[0].b) > Math.min(l.s, inside[0].s) * 0.6)) return null;
+  const own = inside.filter(l => l.b >= y + h * 0.4);
+  if (!own.length) return null;
+  const want = y + h * 0.78, line = own.reduce((a, l) => (Math.abs(l.b - want) < Math.abs(a.b - want) ? l : a));
+  const gap = 0.6 / Math.max(1, p.pg.getBoundingClientRect().height);
+  let top = line.b - line.s * 0.8, bottom = line.b + line.s * 0.24;
+  const prev = lines.filter(l => across(l) && l.b < line.b - line.s * 0.5).at(-1), next = lines.find(l => across(l) && l.b > line.b + line.s * 0.5);
+  if (prev) top = Math.max(top, prev.b + prev.s * 0.22 + gap);
+  if (next) bottom = Math.min(bottom, next.b - next.s * 0.74 - gap);
+  return bottom > top ? { top, bottom, base: line.b, size: line.s, next } : null;
+}
+/** A box as drawn on its page: a line's box snapped to that line's band (lineBand); a figure's box, or one with no line, as it is. */
+function bandBox(p, r, { box = false } = {}) {
+  const band = !box && lineBand(p, r);
+  return band ? [r[0], band.top, r[2], band.bottom - band.top] : r;
+}
+/*
+ * A highlight kept before whole words (19 Oct 2026: one began at "ection") is re-snapped to them once its page's text is
+ * drawn, only when that is safe: its words occur once on the page, the letters it lacks touch them with no space
+ * between, and they sit on its own first or last line, just beside its box. Then its text and that box grow to the
+ * whole word (and it syncs as any change). It is never moved onto other words.
+ */
+function resnapHighlights(p) {
+  if (state.kind !== 'pdf' || !p?.layer) return;
+  const list = highlights(), mine = list.filter(h => h.page === p.n && !h.box && !h.gone && h.text && h.rects?.some(r => r[2] > 0 && r[3] > 0));
+  if (!mine.length) return;
+  const nodes = layerTexts(p.layer.querySelector('span')?.firstChild); if (!nodes?.length) return;
+  let raw = '', norm = '';
+  const map = [];
+  for (const n of nodes) raw += n.data;
+  for (let k = 0; k < raw.length; k++) { if (/\s/.test(raw[k])) { if (norm && !norm.endsWith(' ')) { norm += ' '; map.push(k) } } else { norm += raw[k]; map.push(k) } }
+  const pr = p.pg.getBoundingClientRect(); if (!pr.width || !pr.height) return;
+  const boxOfRaw = (a, b) => { const r = rangeFromOffsets(p.layer, a, b); if (!r) return null; const rs = [...r.getClientRects()].filter(q => q.width > 0.3); if (!rs.length) return null; const u = boxOf(rs); return { x: (u.left - pr.left) / pr.width, y: (u.top - pr.top) / pr.height, x1: (u.right - pr.left) / pr.width, y1: (u.bottom - pr.top) / pr.height } };
+  let changed = false;
+  for (const h of mine) {
+    const text = String(h.text).replace(/\s+/g, ' ').trim(), at = norm.indexOf(text);
+    if (at < 0 || norm.indexOf(text, at + 1) >= 0) continue;
+    let a = at, b = at + text.length;
+    while (a > 0 && WORD_CH.test(norm[a - 1]) && WORD_CH.test(norm[a])) a--;
+    while (b < norm.length && WORD_CH.test(norm[b]) && WORD_CH.test(norm[b - 1])) b++;
+    if (a === at && b === at + text.length) continue;
+    const rects = h.rects.map(r => [...r]), first = rects.reduce((m, r) => (r[1] < m[1] - 0.004 || (Math.abs(r[1] - m[1]) <= 0.004 && r[0] < m[0]) ? r : m)), last = rects.reduce((m, r) => (r[1] + r[3] > m[1] + m[3] + 0.004 || (Math.abs(r[1] + r[3] - m[1] - m[3]) <= 0.004 && r[0] + r[2] > m[0] + m[2]) ? r : m));
+    // The added letters must sit on the box's own line, right beside it (within a letter's width): else nothing moves.
+    const beside = (q, r, side) => q && Math.min(q.y1, r[1] + r[3]) - Math.max(q.y, r[1]) > (r[3] * 0.4) && (side < 0 ? Math.abs(q.x1 - r[0]) < r[3] * 0.8 : Math.abs(q.x - (r[0] + r[2])) < r[3] * 0.8);
+    const pre = a < at ? boxOfRaw(map[a], map[at]) : null, post = b > at + text.length ? boxOfRaw(map[at + text.length - 1] + 1, map[b - 1] + 1) : null;
+    if ((a < at && !beside(pre, first, -1)) || (b > at + text.length && !beside(post, last, 1))) continue;
+    if (pre) { const right = first[0] + first[2]; first[0] = Math.round(Math.min(first[0], pre.x) * 10000) / 10000; first[2] = Math.round((right - first[0]) * 10000) / 10000 }
+    if (post) last[2] = Math.round((Math.max(last[0] + last[2], post.x1) - last[0]) * 10000) / 10000;
+    h.rects = rects; h.text = norm.slice(a, b).slice(0, 2000); h.u = Date.now(); changed = true;
+  }
+  if (changed) { store.set('hl:' + state.key, list); marksSync.changed() }
+}
 function renderHighlights(p) {
   if (!p) return;
   if (p.kind === 'epub') return renderEpubHighlights();
   const layer = layerOf(p, 'hl-layer'); layer.replaceChildren();
-  for (const h of highlights().filter(h => h.page === p.n)) for (const [x, y, w, hh] of h.rects) {
+  for (const h of highlights().filter(h => h.page === p.n)) for (const r of h.rects) {
+    if (!(r[2] > 0) || !(r[3] > 0)) continue;   // a margin note's spot (a box of no size) draws nothing
+    const [x, y, w, hh] = bandBox(p, r, { box: !!h.box });
     const i = document.createElement('i'); i.dataset.id = h.id; if (h.box) i.className = 'is-box'; i.style.setProperty('--hl', hlFill(h.color));
     Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: hh * 100 + '%' });
     layer.appendChild(i);
@@ -1109,13 +1221,14 @@ function savePlaceNow() {
   const moved = !sameSpot(place, state.lastPlace);
   if (moved) state.lastPlace = place;
   // A move in a PDF is read in Original pages, at this spot in its Tinct text when this device has it.
-  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : {};
+  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : moved && isEpub() ? epubSpot() : {};
   // A PDF's zoom on a phone is kept apart (phoneZoom), and only once the reader chose it: until then the column fit is worked out again.
   const zoom = state.kind === 'pdf' && isPhone() ? (state.fit ? {} : { phoneZoom: state.zoom }) : { zoom: state.zoom };
   store.set('pos:' + state.key, moved ? { ...prev, ...place, ...read, ...zoom, pages: state.pages.length, at: Date.now() } : { ...prev, ...zoom, pages: state.pages.length });
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
+  if (moved && isEpub()) epubShare();
 }
 // The same spot in the PDF's Tinct text (js/pdf-text.js placeOf), or none (the Tinct reader
 // finds it from the page): never a spot left from an earlier place.
@@ -1226,6 +1339,7 @@ function forwardToText(scan) {
 }
 // "Tinct text": the place now, read from here on in the Tinct text, sent at once; then the reader.
 function readAsText() {
+  if (isEpub()) return epubToTinct();
   if (!hasText()) return;
   savePlaceNow();
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
@@ -1564,13 +1678,14 @@ let zoomTimer;
 function setZoom(z, { quick = false } = {}) {
   const place = currentPlace();
   const before = state.zoom;
-  state.zoom = Math.max(0.5, Math.min(3, Math.round(z * 100) / 100));
+  state.zoom = Math.max(ZOOM_MIN, Math.min(zoomMax(), Math.round(z * 100) / 100));
+  syncZoomRow();
   // Zooming past fit tucks the docked chat into its tab; coming back restores it.
   if (!isPhone() && state.pages.length) {
     if (state.zoom > 1 && before <= 1 && dock.state === 'docked') setDock('minimized', { byZoom: true });
     else if (state.zoom <= 1 && dock.byZoom && dock.state === 'minimized') setDock('docked');
   }
-  if (isEpub()) { applyEpubScale(); goTo(place); onScroll(); savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }); return }
+  if (isEpub()) { epubReflow(() => { applyEpubScale(); goTo(place) }); onScroll(); savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }); return }
   zoomClass();
   applyCrop();
   const w = sheetWidth();
@@ -1578,6 +1693,8 @@ function setZoom(z, { quick = false } = {}) {
   goTo(place); onScroll();
   clearTimeout(zoomTimer);
   zoomTimer = setTimeout(() => { for (const p of state.pages) if (p.canvas) { p.renderedWidth = 0; renderPage(p) } savePlaceNow() }, quick ? 220 : 0);
+  // The margin column keeps 56px right of the page's new edge (a page widened by Zoom moves it over).
+  if (marginOn()) marginLayout({ fresh: true });
 }
 /* Phones: the text column fills the width (the PM's full battery, 15 Oct 2026; TinctReaderLayout.textColumn).
    At the phone's fit-to-width a PDF page is too small to read, so until the reader pinches or sets the size
@@ -1843,7 +1960,7 @@ const layoutChoice = o => `<button type="button" class="lab-v2-edition-option" d
 /** The panel's Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
 function drawLayoutChoices() {
   const panel = document.querySelector('.byob-aa-panel'); if (!panel) return;
-  const opts = RL.options(state.kind, { layout: viewLayout(), hasText: hasText() });
+  const opts = RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn() });
   const box = panel.querySelector('[data-aa="layout"]'), row = panel.querySelector('[data-t="text"]');
   if (box) { box.hidden = !opts.length; box.querySelector('.lab-v2-edition-choices').innerHTML = opts.map(layoutChoice).join('') }
   if (row) row.hidden = !(RL.TINCT_TEXT === 'row' && hasText());
@@ -1870,11 +1987,11 @@ function openDisplay() {
       <div class="lab-v2-sheet-body">
         <div class="byob-aa-layout" data-aa="layout" role="group" aria-labelledby="aaLayoutLabel"><p class="lab-v2-group-label" id="aaLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
         <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
-        <div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>
+        ${zoomPanel() ? zoomRowHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
         <div class="lab-v2-rows">
-          ${toggleRow('full', 'Full width', !!prefs.full)}
           ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}
           ${toggleRow('screen', 'Full screen', !!document.fullscreenElement)}
+          ${marginOn() ? selectRow('passageMarkSel', 'Passage mark', passageMark(), [['underline', 'Underline'], ['tint', 'Highlight'], ['off', 'Off']]) : ''}
           <button type="button" class="lab-v2-row is-link" data-t="text" hidden><span class="lab-v2-row-label">Convert to Tinct book</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></button>
         </div>
       </div>
@@ -1895,16 +2012,28 @@ function openDisplay() {
     layer.querySelector('[data-testid="lab-v2-theme-eink"]')?.remove();
   });
   let sizeTimer;
-  layer.querySelector('[data-testid="lab-v2-size"]').oninput = e => { const z = Number(e.target.value); clearTimeout(sizeTimer); sizeTimer = setTimeout(() => { state.fit = null; setZoom(z, { quick: true }) }, 60) };
+  const slider = layer.querySelector('[data-testid="lab-v2-size"]');
+  if (slider) slider.oninput = e => { const z = Number(e.target.value); clearTimeout(sizeTimer); sizeTimer = setTimeout(() => { state.fit = null; setZoom(z, { quick: true }) }, 60) };
+  // Zoom (a PDF on the desktop): −, the percentage, +, Fit width (100%, the default); the page never wider than its room.
+  layer.querySelector('.byob-zoom')?.addEventListener('click', e => {
+    const b = e.target.closest('[data-z]'); if (!b || b.disabled) return;
+    state.fit = null;
+    const z = b.dataset.z === 'fit' ? 1 : b.dataset.z === '+' ? zoomStep(1) : zoomStep(-1);
+    setZoom(z, { quick: true });
+  });
+  layer.querySelector("[data-convert]")?.addEventListener('click', () => { closeDisplay(); readAsText() });
   layer.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
     const t = b.dataset.t;
     if (t === 'text') { closeDisplay(); readAsText(); return }
     if (t === 'screen') { toggleFullscreen().then(on => b.setAttribute('aria-checked', String(on))); return }
-    if (t === 'trim') setTrim(!state.trim); if (t === 'full') setFull(!prefs.full);
+    if (t === 'trim') setTrim(!state.trim);
     b.setAttribute('aria-checked', String(t === 'trim' ? state.trim : !!prefs[t]));
   });
+  // The open card's passage on the page: underlined, tinted or not marked (this device's choice).
+  const markSel = layer.querySelector('#passageMarkSel');
+  if (markSel) markSel.onchange = e => { prefs.passageMark = e.target.value; savePrefs(); layer.querySelector('[data-value="passageMarkSel"]').textContent = e.target.selectedOptions[0]?.textContent || ''; marginLayout({ fresh: true }) };
   root.appendChild(layer);
-  drawLayoutChoices();
+  drawLayoutChoices(); syncZoomRow();
   $('aaBtn').setAttribute('aria-expanded', 'true');
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
@@ -1945,9 +2074,27 @@ function openSettings() {
   root.appendChild(layer);
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
-function setFull(on) { prefs.full = on; savePrefs(); if (state.pages.length) setZoom(state.zoom) }
+/** The Aa panel's Zoom row instead of the size slider: a PDF's pages on the desktop (Tinct text and phones keep the slider). */
+const zoomPanel = () => state.kind === 'pdf' && !isPhone();
+/** The next zoom a step away (10% steps, landing on them), within ZOOM_MIN and zoomMax. */
+const zoomStep = dir => Math.max(ZOOM_MIN, Math.min(zoomMax(), (dir > 0 ? Math.floor(state.zoom * 10 + 1e-6) + 1 : Math.ceil(state.zoom * 10 - 1e-6) - 1) / 10));
+function zoomRowHtml() {
+  return `<div class="byob-zoom" role="group" aria-labelledby="aaZoomLabel"><span class="lab-v2-row-label byob-zoom-label" id="aaZoomLabel">Zoom</span>`
+    + `<button type="button" class="byob-zoom-step" data-z="-" aria-label="Zoom out">−</button><output class="byob-zoom-pct" aria-live="polite"></output><button type="button" class="byob-zoom-step" data-z="+" aria-label="Zoom in">+</button>`
+    + `<button type="button" class="byob-zoom-fit" data-z="fit" aria-pressed="false">Fit width</button></div>`
+    + (hasText() ? `<p class="lab-v2-note byob-zoom-note">For larger text that reflows, use <button type="button" data-convert>Convert to Tinct book</button>.</p>` : '');
+}
+/** The open Aa panel's Zoom row, after any zoom (its buttons, keys, a pinch). */
+function syncZoomRow() {
+  const row = document.querySelector('.byob-aa-panel .byob-zoom'); if (!row) return;
+  row.querySelector('.byob-zoom-pct').textContent = Math.round(state.zoom * 100) + '%';
+  row.querySelector('[data-z="-"]').disabled = state.zoom <= ZOOM_MIN + 1e-6;
+  row.querySelector('[data-z="+"]').disabled = state.zoom >= zoomMax() - 1e-6;
+  const fit = Math.abs(state.zoom - 1) < 1e-6, f = row.querySelector('[data-z="fit"]');
+  f.setAttribute('aria-pressed', String(fit)); f.disabled = fit;
+}
 async function toggleFullscreen() {
-  try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen() } catch { toast('Full screen is not available here. Use Full width instead.') }
+  try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen() } catch { toast('Full screen is not available here.') }
   return !!document.fullscreenElement;
 }
 function setTrim(on) { prefs.trim = state.trim = on; savePrefs(); if (state.pages.length) setZoom(state.zoom); else applyCrop() }
@@ -2358,13 +2505,84 @@ function selectionInfo() {
   return { text, page: Number(sheetEl.dataset.page), box, rects, range: range.cloneRange() };
 }
 let selTimer;
+/*
+ * The bar opens only right after a deliberate selection (Anders, 19 Oct 2026: a stray menu came back on a tab's refocus
+ * and when a card folded): a pointer let go (or a touch) or selection keys ending on a new, non-empty selection, or a
+ * click on a highlight. A selection the page restores, one left over, or one set by the reader's own code never
+ * opens it. A bar already open follows its selection as before (a phone's handles move it without any event).
+ */
+const gesture = { start: null, touchAt: 0 };
+const selNow = () => { const s = getSelection(); if (!s?.rangeCount || s.isCollapsed) return null; const r = s.getRangeAt(0); return { sc: r.startContainer, so: r.startOffset, ec: r.endContainer, eo: r.endOffset } };
+const sameSel = (a, b) => !!a && !!b && a.sc === b.sc && a.so === b.so && a.ec === b.ec && a.eo === b.eo;
+const UI_PRESS = '.mr-float, .mr-card, .mr-col, .mr-sheet, .mr-marks, .lab-header, .lab-v2-sheet-layer, input, textarea, select';
+document.addEventListener('pointerdown', e => { gesture.start = selNow(); gesture.inUi = !!e.target?.closest?.(UI_PRESS); if (e.pointerType === 'touch') gesture.touchAt = Date.now() }, true);
+document.addEventListener('touchstart', () => { gesture.touchAt = Date.now() }, { passive: true, capture: true });
+/** A gesture ended: a new, non-empty selection (snapped to whole words) opens the margin's bar. */
+function selectionMade() {
+  if (!marginOn() || !readerShown()) return;
+  const now = selNow(), before = gesture.start; gesture.start = null;
+  if (!now || sameSel(now, before) || (mr && !mr.held && mr.info?.range && sameRange(mr.info.range, now))) return;
+  clearTimeout(selTimer);
+  snapWords();
+  marginSelection({ fresh: true });
+}
+/*
+ * A fresh selection covers whole words (Anders, 19 Oct 2026: a highlight began at "ection", "Define · ection"): pdf.js
+ * often gives a line's first letter as an item of its own ("S" | "ection", no space between), and a double-click or a
+ * drag starting there stopped at the item's edge. An end inside a word moves to the word's edge, across items that
+ * touch (no space between them), never across a space, a line break or a hyphen.
+ */
+const WORD_CH = /[\p{L}\p{M}\p{N}'’]/u;
+function layerTexts(node) {
+  const layer = (node?.nodeType === 1 ? node : node?.parentElement)?.closest?.('.text-layer'); if (!layer) return null;
+  const nodes = [], w = document.createTreeWalker(layer, NodeFilter.SHOW_TEXT);
+  for (let n = w.nextNode(); n; n = w.nextNode()) nodes.push(n);
+  return nodes;
+}
+function wordEdge(node, off, dir) {
+  if (node?.nodeType !== 3) return null;
+  const nodes = layerTexts(node); if (!nodes) return null;
+  let i = nodes.indexOf(node); if (i < 0) return null;
+  const before = off > 0 ? node.data[off - 1] : nodes[i - 1]?.data.at(-1) || '';
+  const after = off < node.data.length ? node.data[off] : nodes[i + 1]?.data[0] || '';
+  if (!WORD_CH.test(before) || !WORD_CH.test(after)) return null;
+  for (;;) {
+    if (dir < 0) {
+      if (off > 0) { if (WORD_CH.test(node.data[off - 1])) { off--; continue } break }
+      if (i > 0 && WORD_CH.test(nodes[i - 1].data.at(-1) || '')) { node = nodes[--i]; off = node.data.length; continue }
+      break;
+    }
+    if (off < node.data.length) { if (WORD_CH.test(node.data[off])) { off++; continue } break }
+    if (i + 1 < nodes.length && WORD_CH.test(nodes[i + 1].data[0] || '')) { node = nodes[++i]; off = 0; continue }
+    break;
+  }
+  return { node, off };
+}
+function snapWords() {
+  try {
+    const s = getSelection(); if (!s?.rangeCount || s.isCollapsed) return;
+    const r = s.getRangeAt(0), a = wordEdge(r.startContainer, r.startOffset, -1), b = wordEdge(r.endContainer, r.endOffset, 1);
+    if (!a && !b) return;
+    s.setBaseAndExtent(a ? a.node : r.startContainer, a ? a.off : r.startOffset, b ? b.node : r.endContainer, b ? b.off : r.endOffset);
+  } catch { /* the selection stays as made */ }
+}
+const sameRange = (r, n) => r.startContainer === n.sc && r.startOffset === n.so && r.endContainer === n.ec && r.endOffset === n.eo;
+document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; setTimeout(selectionMade, 30) }, true);
+document.addEventListener('touchend', () => setTimeout(selectionMade, 60), { passive: true, capture: true });
+document.addEventListener('keyup', e => {
+  if (e.target?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
+  const keys = e.shiftKey && /^(?:Arrow|Home|End|Page)/.test(e.key) || e.key === 'Shift' || ((e.metaKey || e.ctrlKey) && (e.key === 'a' || e.key === 'A'));
+  if (keys) setTimeout(selectionMade, 0);
+}, true);
 document.addEventListener('selectionchange', () => {
   // A text selection always gets the bar, never the figure chip (a caption's words too): the chip goes at once.
   try { if (hot.el && !getSelection().isCollapsed) hideHot() } catch { /* before the chip's code has run */ }
   clearTimeout(selTimer);
   selTimer = setTimeout(() => {
-    // A selection opens the margin's bar or Define card (below), in a PDF or an EPUB.
-    if (marginOn()) return marginSelection();
+    // A selection opens the margin's bar or Define card (below), in a PDF or an EPUB: only after a gesture (selectionMade);
+    // here a bar already open follows its selection, or closes when it is gone. A touch's own selection (long press,
+    // its handles) counts as the gesture while the finger was down a moment ago.
+    if (marginOn()) return marginSelection({ fresh: Date.now() - gesture.touchAt < 1500 });
     const info = selectionInfo();
     const pop = document.querySelector('.selection-popup');
     if (!info) { if (pop && pop.dataset.popupMode === 'main') hideSelection(); return }
@@ -2525,7 +2743,7 @@ function rangeInText(range) {
   const at = node => (node?.nodeType === 1 ? node : node?.parentElement)?.closest?.('.text-layer, .epub-pg');
   return !!range && !range.collapsed && !!at(range.startContainer) && !!at(range.endContainer) && range.startContainer.isConnected;
 }
-function marginSelection() {
+function marginSelection({ fresh = false } = {}) {
   const info = selectionInfo();
   // A page drawn again (its text layer replaced: a late render, a zoom, the column reserving its room)
   // drops the selection without the reader letting go: the bar stays on its kept passage. Seen as the
@@ -2533,16 +2751,19 @@ function marginSelection() {
   if (!info && mr && !mr.held && mr.mode === 'menu' && mr.info?.range && !rangeInText(mr.info.range)) { mr.held = true; paintSelection(); return }
   if (!info) { if (mr && !mr.held && mr.mode === 'menu') marginClose(); return }
   if (mr && !mr.held && mr.info.text === info.text && mr.info.page === info.page) return;
+  // A new bar only for a deliberate selection; an open one follows its selection (the phone's handles).
+  if (!fresh && !(mr && !mr.held && mr.mode === 'menu')) return;
   marginOpen(info);
 }
 function marginOpen(info, { existing = null, asking = false } = {}) {
   hideSelection();
   const word = !existing && TinctMargin.oneWord(info.text);
   const anchor = existing ? existing.rects.map(([x, y, w, h]) => ({ n: existing.page, x, y, w, h })) : anchorOf(info.rects || [info.box]);
-  mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, mode: null, el: null, moreEl: null, before: word && info.range ? textBefore(info.range) : '' };
+  // A highlight clicked (Anders, 19 Oct 2026): its own bar, Ask and Explain, its colours, its note, Remove highlight.
+  mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, mode: null, el: null, moreEl: null, base: existing ? 'existing' : null, before: word && info.range ? textBefore(info.range) : '' };
   sel = info;
   if (word && !asking) { mrDefine(word); return }
-  mrShow('menu');
+  mrShow(mr.base || 'menu');
 }
 function marginClose() {
   if (!mr) return;
@@ -2669,7 +2890,7 @@ function highlightAnchor(info, anchor, color) {
 function mrPick(color) {
   Object.assign(prefs, TinctMargin.chooseColor(prefs, color)); savePrefs();
   if (!mr.ids.length) mrHighlight(color); else for (const id of mr.ids) recolorHighlight(id, color);
-  mrShow('colors');
+  mrShow(mr.base || 'colors');
 }
 function mrNoteOpen() {
   // A highlight the note itself makes goes with the note when its card is deleted (TinctMargin.deletePlan).
@@ -2732,25 +2953,36 @@ function fitAsk() {
 /* Define: the offline dictionary first (js/dictionary.js); a name, or a word it lacks, from the
    companion's contextual `define` when online; offline, "Not in the offline dictionary." */
 async function mrDefine(word) {
+  // The wide margin column: Define is a margin card only, opened, never a pop-over on the text (Anders, 19 Oct 2026).
+  // Narrow windows and the phone keep the pop-over.
+  if (marginMode() === 'column' && mr) return defineCard(word);
   mr.word = word; mr.held = true; mr.def = { word, source: '', wait: true };
   const token = mr.defToken = {};
   // The file this Define belongs to: an answer that arrives after the reader opened another file is never kept in it.
   const key = state.key;
   mrShow('define');
+  await runDefine({ word, info: mr.info, anchor: mr.anchor, key, before: mr.before, alive: () => mr?.defToken === token, show: (def, final) => { mr.def = def; if (final || mr.mode === 'define') mrShow('define') } });
+}
+/*
+ * Define's lookups: the offline dictionary first (js/dictionary.js); a name, or a word it lacks, from the companion's
+ * contextual `define` when online; offline, "Not in the offline dictionary." `show(def, final)` draws each step (the
+ * pop-over, or the card); `alive()` is false once another Define or file has taken over. A found definition is kept
+ * as a Define card (keepDefine; `card`, the column's card not yet kept, keeps its id).
+ */
+async function runDefine({ word, info, anchor, key, before, alive, show, card = null }) {
   let hit = null;
   try { hit = await TinctDictionary.lookup(word) } catch {}
-  if (mr?.defToken !== token) return;
+  if (!alive()) return null;
   // Offline, a capitalised word the dictionary has shows its entry (a name mid-sentence asks the companion only when it can).
-  const asks = TinctMargin.defineAsks(hit, { word, before: mr.before, online: navigator.onLine !== false });
+  const asks = TinctMargin.defineAsks(hit, { word, before, online: navigator.onLine !== false });
   if (asks.dictionary) {
-    mr.def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
-    mrShow('define');
+    const def = { word: hit.word, source: 'Dictionary', senses: hit.definitions.slice(0, 3).map(text => ({ text })) };
+    show(def);
     // Online, two asks at once (15 Oct, evening): the meaning in this text from the companion's
     // `define`, shown first under "In this text" whenever it arrives, even when a dictionary sense
     // "fits" ("perplexity" read "confusion"); and define_sense, which moves the fitting sense to the
     // top of the dictionary's senses below it (at most FIT_SENSE_MS). Offline, the dictionary alone.
-    const info = mr.info, anchor = mr.anchor, def = mr.def;
-    const redraw = () => { if (mr?.defToken === token && mr.mode === 'define') mrShow('define') };
+    const redraw = () => { if (alive()) show(def) };
     // "In this text" keeps its place first while it is written (a quiet wait under the label), and its words
     // show as they stream (re-check 2, 16 Oct: Define arrived all at once at 2.9-4.8 s); the senses never wait for it.
     if (asks.inText) { def.inWait = true; redraw() }
@@ -2765,23 +2997,57 @@ async function mrDefine(word) {
       redraw();
     });
     await Promise.all([inText, sense]);
-    keepDefine(def, info, anchor, key);
-    return;
+    keepDefine(def, info, anchor, key, card);
+    return def;
   }
-  if (navigator.onLine === false) { mr.def = { word, line: 'Not in the offline dictionary.' }; return mrShow('define') }
+  if (navigator.onLine === false) { const def = { word, line: 'Not in the offline dictionary.' }; show(def, true); return null }
   try {
-    const info = mr.info, anchor = mr.anchor;
-    const found = await defineByCompanion(word, info, line => { if (mr?.defToken === token) { mr.def = { word, inText: line }; mrShow('define') } });
+    const found = await defineByCompanion(word, info, line => { if (alive()) show({ word, inText: line }) });
     const def = found ? { word: found.word || word, pos: found.pos || '', inText: found.line } : null;
     // Kept in the file it was asked in, even when the reader has moved on.
-    if (def) keepDefine(def, info, anchor, key);
-    if (mr?.defToken !== token) return;
-    mr.def = def || { word, line: errorCopy(null) };
+    if (def) keepDefine(def, info, anchor, key, card);
+    if (!alive()) return def;
+    show(def || { word, line: errorCopy(null) }, true);
+    return def;
   } catch (e) {
-    if (mr?.defToken !== token) return;
-    mr.def = { word, line: e?.code === 'offline' ? 'Not in the offline dictionary.' : errorCopy(e) };
+    if (!alive()) return null;
+    show({ word, line: e?.code === 'offline' ? 'Not in the offline dictionary.' : errorCopy(e) }, true);
+    return null;
   }
-  mrShow('define');
+}
+/*
+ * Define on the wide margin column (Anders, 19 Oct 2026): the selection lets go and Define's card opens in the column at
+ * the word, its dots showing until the meaning arrives, and grows as the dictionary, "In this text" and the fitting
+ * sense come in. A word defined there before opens its card again (and is looked up afresh). A card whose lookup found
+ * nothing (offline, an error) is shown open but not kept: it goes when it folds.
+ */
+function defineCard(word) {
+  const info = mr.info, anchor = mr.anchor, before = mr.before, key = state.key;
+  marginClose(); getSelection().removeAllRanges();
+  const existing = keptCards().find(c => c.kind === 'define' && !c.gone && c.page === info.page && c.text === info.text.slice(0, 2000));
+  const card = existing || withSpan(TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text, data: { word } }), info);
+  if (!existing) { dropDraft(col.draft?.id); col.draft = card; col.view = null }
+  const token = col.defToken = {}, id = card.id;
+  const alive = () => col.defToken === token && state.key === key;
+  setLive(id, { text: '', status: '' });
+  openCard(id, { focus: 'card' });
+  const show = def => {
+    col.defs.set(id, { word: def.word || word, pos: def.pos || '', senses: (def.senses || []).map(x => ({ text: x.text, ...(x.fit ? { fit: true } : {}) })), ...(def.line ? { line: def.line } : {}), ...(def.inText ? { inText: def.inText } : {}) });
+    const any = !!(def.inText || def.line || def.senses?.length);
+    setLive(id, { text: any ? (def.inText || def.line || def.senses[0].text) : '', status: '' });
+  };
+  runDefine({ word, info, anchor, key, before, alive, show, card }).catch(() => null).finally(() => {
+    if (col.defToken !== token) return;
+    col.live.delete(id);
+    // Kept: the card's own data from now on. Not kept: its words stay on the open card until it folds.
+    if (cardById(id)) { col.defs.delete(id); if (col.draft?.id === id) col.draft = null }
+    col.view = null; marginLayout();
+  });
+}
+/** The column's Define card not yet kept goes when it folds or another opens (nothing was found for it). */
+function dropDraft(id) {
+  if (!id || col.draft?.id !== id) return;
+  col.draft = null; col.defs.delete(id); col.live.delete(id); col.view = null;
 }
 // The companion's existing contextual `define` intent (CONTEXTUAL_LOOKUP_PROMPT, built by the Worker).
 // The meaning so far, from a Define reply still streaming: its JSON's text field as far as it has come (a plain
@@ -2817,7 +3083,7 @@ addEventListener('keydown', e => {
     if (mr.moreEl) { const had = mr.moreEl.contains(document.activeElement); closeMore(); if (had) mr.el.querySelector('[data-m="more"]')?.focus({ preventScroll: true }); return }
     if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') {
       if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
-      dictation.stop(); mrShow(mr.def ? 'define' : 'menu')
+      dictation.stop(); mrShow(mr.base || (mr.def ? 'define' : 'menu'))
       // Ask and the note took the focus, and with it the page's selection: select the passage again,
       // so a late selectionchange finds it and the bar stays (it closed the bar on a slow machine).
       // A passage whose page was drawn again meanwhile (its range left the text layer) is held instead (rangeInText).
@@ -2835,7 +3101,7 @@ addEventListener('keydown', e => {
     return;
   }
   // The bar is a toolbar: Tab from the page moves into it; Left and Right move along it.
-  if (mr?.el && !mr.moreEl && ['menu', 'colors', 'define'].includes(mr.mode) && !e.metaKey && !e.ctrlKey && !e.altKey) {
+  if (mr?.el && !mr.moreEl && ['menu', 'colors', 'define', 'existing'].includes(mr.mode) && !e.metaKey && !e.ctrlKey && !e.altKey) {
     const items = [...mr.el.querySelectorAll('button:not([disabled])')], at = items.indexOf(document.activeElement);
     if (e.key === 'Tab' && !e.shiftKey && at < 0 && !e.target.closest?.('input, textarea, select, [contenteditable="true"], .mr-col, .mr-sheet, .mr-card')) { e.preventDefault(); e.stopImmediatePropagation(); items[0]?.focus({ preventScroll: true }); return }
     if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && at >= 0) { e.preventDefault(); e.stopImmediatePropagation(); items[(at + (e.key === 'ArrowRight' ? 1 : -1) + items.length) % items.length].focus({ preventScroll: true }); return }
@@ -2846,7 +3112,7 @@ addEventListener('keydown', e => {
   if (!key) return;
   if (document.querySelector('.lab-super-layer, .lab-v2-sheet-layer, .lab-contents-v2, .byob-sheet-host, .byob-snip, .byob-jumpbox, .byob-switcher')) return;
   if (!mr) { const info = selectionInfo(); if (!info) return; marginOpen(info, { asking: key.action === 'ask' }) }
-  else if (!['menu', 'colors', 'define'].includes(mr.mode)) return;
+  else if (!['menu', 'colors', 'define', 'existing'].includes(mr.mode)) return;
   e.preventDefault(); e.stopImmediatePropagation();
   if (key.action === 'note') { mr.defToken = {}; mr.def = null; return mrNoteOpen() }
   mrShow('asking', { question: key.ch });
@@ -3028,17 +3294,17 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261019polish').then(m => (MP.P = m)).catch(() => null);
-const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false } };
+const mpReady = import('/lab/margin/margin-parse.js?v=20261019core').then(m => (MP.P = m)).catch(() => null);
+const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null, pills: new Map() };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
 const undo = { el: null, timer: 0, rect: null, restore: null };
-/* The margin for EPUBs read here (FIXES-2026-10-15 PR C) is built but OFF (Anders, 15 Oct 2026: "Keep it
-   pdf for now. Later the margin reader will be available for all books."). Off, an EPUB behaves exactly as
-   before: the selection popup and the docked chat. The layout check turns it on for its `epub` mode
-   (EPUB_MARGIN=1 sets window.TinctEpubMargin before the page loads). */
-const EPUB_MARGIN = false;
-const epubMargin = () => EPUB_MARGIN || window.TinctEpubMargin === true;
+/* The margin for EPUBs read here (FIXES-2026-10-15 PR C), on since 19 Oct 2026 on the desktop (Anders: EPUBs
+   open here in Margin view, TinctReaderLayout.epubView). A phone reads EPUBs in the Tinct reader as before; an
+   EPUB open here at a phone's width keeps the selection popup and the docked chat. The layout check turns the
+   margin on at a phone's width too (window.TinctEpubMargin) for its `epub` mode. */
+const EPUB_MARGIN = true;
+const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubMargin === true;
 // The PDF reader's margin: a PDF, and an EPUB when EPUB_MARGIN is on.
 const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));
 /** How the margin names the file and a place in it: pages for a PDF, chapters for an EPUB. */
@@ -3450,6 +3716,10 @@ function reserveColumn(on) {
   if (state.pages.length) setZoom(state.zoom);
 }
 
+/* The focus ring on the margin's buttons is for the keyboard only (Anders, 19 Oct 2026: Minimise showed its ring after a
+   click). A card opened or redrawn by a click may put the focus on its Minimise for screen readers; with the pointer as
+   the last input, no ring shows (css/margin.css [data-mr-input="pointer"]). The keys bring it back. */
+
 /* -- Layout, once a frame while the pages scroll -- */
 function marginLayout({ fresh = false } = {}) {
   if (fresh) col.view = null;
@@ -3460,7 +3730,11 @@ function viewCards() {
   // An EPUB's text reflows (zoom, width), so its cards and noted highlights are measured from their
   // character offsets near the reader's place, and again when that place moves to another chapter.
   if (isEpub()) { const at = state.pages.length ? currentPlace().page : 0; if (col.viewAt !== at) { col.viewAt = at; col.view = null } }
-  if (!col.view) col.view = isEpub() ? TinctMargin.cardView(keptCards().map(epubCardRects), highlights().map(epubMarkRects), { since: CARDS_SINCE }) : TinctMargin.cardView(keptCards(), highlights(), { since: CARDS_SINCE });
+  if (!col.view) {
+    col.view = isEpub() ? TinctMargin.cardView(keptCards().map(epubCardRects), highlights().map(epubMarkRects), { since: CARDS_SINCE }) : TinctMargin.cardView(keptCards(), highlights(), { since: CARDS_SINCE });
+    // Define's card on the wide column, open before it is kept (defineCard).
+    if (col.draft && !col.view.some(c => c.id === col.draft.id)) col.view = [...col.view, col.draft];
+  }
   return col.view;
 }
 /* ---- An EPUB's passages as offsets in a chapter's text (as its highlights are), measured into the
@@ -3513,7 +3787,7 @@ function visibleCards() {
  * reader's progress live in col.quiz, in memory, until the stream ends; the card is saved once then.
  */
 const quizLive = card => { const d = col.quiz.get(card.id); return d ? { ...card, data: d } : card };
-const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id), card.kind === 'figure' && figThumbs.has(card.id)]);
+const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.defs.get(card.id) || 0, col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id), card.kind === 'figure' && figThumbs.has(card.id)]);
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
   const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
@@ -3581,6 +3855,8 @@ const bodyTop = el => { const b = el?.querySelector('.mr-card__body'); return b 
 /** Draw a card into `el` when what it shows changed; true when it was drawn again. */
 function drawCard(el, card, open) {
   card = quizLive(card);
+  // Define while it is looked up (defineCard): the words so far.
+  if (col.defs.has(card.id)) card = { ...card, data: col.defs.get(card.id) };
   const sig = cardSig(card, open);
   if (el.dataset.sig === sig) return false;
   el.dataset.sig = sig; el.dataset.id = card.id;
@@ -3589,7 +3865,14 @@ function drawCard(el, card, open) {
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
   const before = card.kind === 'quiz' && open ? el.offsetHeight : 0, kept = open ? bodyTop(el) : null;
-  el.innerHTML = cardHtmlSafe(card, open);
+  // A margin note's field being written keeps its words, caret and focus through a redraw (and is not kept meanwhile).
+  const noteField = el.querySelector('.mr-note-edit'), noteText = noteField?.value, noteFocus = noteField && document.activeElement === noteField ? [noteField.selectionStart, noteField.selectionEnd] : null;
+  if (noteFocus) noteCommitting = true;
+  try {
+    el.innerHTML = cardHtmlSafe(card, open);
+    const nf = el.querySelector('.mr-note-edit');
+    if (nf) { if (noteText != null) nf.value = noteText; fitNote(nf); if (noteFocus) { nf.focus({ preventScroll: true }); nf.setSelectionRange(...noteFocus) } }
+  } finally { if (noteFocus) noteCommitting = false }
   if (card.kind === 'quiz') holdQuizHeight(el, before);
   describeCard(el, card, open);
   keepThread(el, card.id, kept);
@@ -3597,7 +3880,8 @@ function drawCard(el, card, open) {
   if (open) { el.setAttribute('role', 'region'); el.setAttribute('aria-label', cardName(card)) } else { el.removeAttribute('role'); el.removeAttribute('aria-label') }
   const live = col.live.get(card.id);
   if (open && live && !live.status) el.setAttribute('aria-busy', 'true'); else el.removeAttribute('aria-busy');
-  if (open && ((live && !live.text && !live.status) || col.pending.has(card.id))) {
+  // The dots: before the first word, and below the last text whenever the answer pauses (a search, a slow stretch).
+  if (open && (liveWaiting(live, card) || col.pending.has(card.id))) {
     const dots = waitDots(), slot = el.querySelector('.mr-wait');
     if (slot) slot.append(dots); else el.querySelector('.mr-card__body')?.append(dots);
   }
@@ -3635,7 +3919,7 @@ function layoutNow() {
     if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren(); dropDocLayer() }
     if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
     if (mode !== 'phone') closeSheet2();
-    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null }
+    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear() }
     if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
     if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
@@ -3768,33 +4052,41 @@ function layoutColumn() {
   // Chat: open, its own panel (fixed); folded, at the document's top.
   if (col.open === 'whole') { const el = take('whole', col.el); drawWhole(el); el.style.top = '0px' }
   else if (chat.turns.length || chat.live) { const el = take('whole'); drawWhole(el); items.push({ el, ey: docTop, top: docTop, order: -2 }) }
-  // Before you start, at its unit's first page: the trigger, or the primer open in its place.
-  const unit = primer.open ? primer.unit : primer.units && primerHasText() ? currentUnit() : null;
-  primer.trig && !unit && (primer.trig.remove(), primer.trig = null);
-  if (unit) {
-    const p = state.pages[(unit.from || unit.start) - 1], pr = p?.pg.getBoundingClientRect(), frac = p ? pageFirstLine(p) : null;
-    const ey = pr ? Y(pr.top + (frac == null ? 0 : frac * pr.height)) : docTop;
-    if (primer.open) {
-      primer.trig?.remove(); primer.trig = null;
-      const el = primerEl(); el.classList.remove('is-floating');
-      if (el.parentElement !== doc) { el.removeAttribute('style'); doc.appendChild(el) }
-      drawPrimer(el);
-      items.push({ el, ey, top: ey - 4, order: -1 });
-    } else {
-      primer.el?.remove(); primer.el = null;
-      if (!primer.trig) { const b = primer.trig = document.createElement('button'); b.type = 'button'; b.className = 'mr mr-trigger'; b.dataset.c = 'primer'; b.setAttribute('aria-expanded', 'false'); b.title = 'Before you start (B)' }
-      const b = primer.trig;
-      if (b.dataset.unit !== unit.key) { b.dataset.unit = unit.key; b.innerHTML = TinctMargin.html.triggerHtml(unit); b.setAttribute('aria-label', `Before you start: ${TinctMargin.triggerLine(unit)} Key B.`) }
-      if (b.parentElement !== doc) doc.appendChild(b);
-      items.push({ el: b, ey, top: ey - 4, order: -1 });
+  // Each unit's pills (Anders, 19 Oct 2026, evening): at the top of its first page Primer and Catch me up, Before you
+  // start opening under them in place, then the unit's catch-up; at the foot of its last page Recap, Quiz me and Note,
+  // their cards under them. Never at a page's first line of text: on a cover drawn as one picture (Possible Minds) that
+  // is far down the page or not there at all. Units near the reader's place are drawn (their pages are).
+  const units = primerHasText() ? pillUnits() : [];
+  const seenPills = new Set();
+  if (!units.some(u => primer.open && primer.unit?.key === u.key)) { if (!primer.open) { primer.el?.remove(); primer.el = null } }
+  for (const u of units) {
+    const p = state.pages[(u.from || u.start) - 1], pr = p?.pg.getBoundingClientRect();
+    if (pr) {
+      const ey = Y(pr.top) + 4, row = pillRow(u, 'start', doc); seenPills.add(row);
+      items.push({ el: row, ey, top: ey - 4, order: -1 });
+      if (primer.open && primer.unit?.key === u.key) {
+        const el = primerEl(); el.classList.remove('is-floating');
+        if (el.parentElement !== doc) { el.removeAttribute('style'); doc.appendChild(el) }
+        drawPrimer(el);
+        items.push({ el, ey, top: ey, order: -0.9 });
+      }
+      const cu = unitCard(u, 'catchup');
+      if (cu) { const el = take(cu.id); drawCard(el, cu, col.open === cu.id); el.classList.add('is-unit'); items.push({ el, ey, top: ey, order: -0.8 }) }
     }
-    // The unit's quiz (from the primer), below it.
-    const openUnit = col.open && cardById(col.open)?.data?.unit ? cardById(col.open) : null, uq = openUnit || unitQuiz(unit);
-    if (uq) { const el = take(uq.id); drawCard(el, uq, col.open === uq.id); el.classList.add('is-unit'); items.push({ el, ey, top: ey, order: 0 }) }
-  } else { primer.el?.remove(); primer.el = null }
+    const q = state.pages[u.to - 1], qr = q?.pg.getBoundingClientRect();
+    if (qr) {
+      const row = pillRow(u, 'end', doc); seenPills.add(row);
+      const ey = Y(qr.bottom) - (row.offsetHeight || 32) - 4;
+      items.push({ el: row, ey, top: ey, order: 2 });
+      const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
+      [...['recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const el = take(c.id); drawCard(el, c, col.open === c.id); el.classList.add('is-unit'); items.push({ el, ey: ey + 0.001 * (k + 1), top: ey, order: 2.1 + k * 0.01 }) });
+    }
+  }
+  for (const [k, el] of col.pills) if (!seenPills.has(el)) { el.remove(); col.pills.delete(k) }
+  if (primer.open && !units.some(u => u.key === primer.unit?.key)) { primer.el?.remove(); primer.el = null }
   // The cards, each at its passage's line.
   for (const card of viewCards()) {
-    if (card.data?.unit || keep.has(card.id)) continue;
+    if (card.data?.unit || card.unitNote || keep.has(card.id)) continue;
     const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1]; if (!p) continue;
     const b = p.pg.getBoundingClientRect();
     const h = (card.kind === 'figure' ? Math.min(f[4], 22 / b.height) : f[4]) * b.height;
@@ -3819,7 +4111,8 @@ function layoutColumn() {
     const top = Math.max(Math.round(it.top), floor);
     if (it.el.style.top !== top + 'px') it.el.style.top = top + 'px';
     floor = top + it.el.offsetHeight + C.cardGap;
-    if (!it.card) continue;
+    // A note with no passage (a margin note, a unit's note) has no line to a passage.
+    if (!it.card || it.card.free) continue;
     const cy = top + it.mid, x0 = it.x0, x1 = left - 6, folded = it.card.id === col.open ? '' : ' class="is-folded"';
     // Straight across when the card is level with its passage; pushed down, across, a short slant, then across.
     const d = Math.abs(cy - it.ey) <= 1 ? `M${x0} ${it.ey} H${x1}` : `M${x0} ${it.ey} H${x0 + 12} L${x1 - 12} ${cy} H${x1}`;
@@ -3827,6 +4120,11 @@ function layoutColumn() {
   }
   const html = lines.join('');
   if (col.docLines !== html) { col.docLines = html; col.docLeads.innerHTML = html }
+  // A unit's card just opened (its pill, or the primer's quiz row): brought into view on the page.
+  if (col.reveal) {
+    const el = col.els.get(col.reveal); col.reveal = null;
+    if (el) { const r = el.getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect().bottom; if (r.top < Math.max(sr.top, hdr) || r.top > sr.bottom - 80) s.scrollBy({ top: r.top - (Math.max(sr.top, hdr) + 40) }) }
+  }
   // A follow-up just sent: brought into view on the page (the card grows below; the page is the one scroll).
   const held = col.open && holds.get(col.open), el = held?.place && col.els.get(col.open), row = el && el.querySelector(`[data-turn="${held.turn}"]`);
   if (row) {
@@ -3835,17 +4133,39 @@ function layoutColumn() {
     if (r.bottom > sr.bottom - 24 || r.top < Math.max(sr.top, hdr)) s.scrollBy({ top: r.top - (Math.max(sr.top, hdr) + (sr.bottom - Math.max(sr.top, hdr)) * 0.25) });
   }
 }
-/** The open card's passage: a 1.5px underline in the lead colour, on the page. */
+/**
+ * The open card's passage, marked on the page as the reader chooses in the Aa panel ("Passage mark", per device;
+ * Anders, 19 Oct 2026): Underline (default), a 1.5px line in the accent just under each line's own baseline (0.12 of
+ * its size), never into the next line; Highlight, a soft tint of each line's band (lineBand); or Off. A figure's open
+ * card rings its figure instead.
+ */
+const passageMark = () => (['underline', 'tint', 'off'].includes(prefs.passageMark) ? prefs.passageMark : 'underline');
 function underline(v) {
-  document.querySelectorAll('.mr-ul-layer').forEach(l => { if (!v || l.dataset.id !== v.card.id) { l.replaceChildren(); delete l.dataset.id } });
-  if (!v) return;
+  const mark = passageMark();
+  document.querySelectorAll('.mr-ul-layer').forEach(l => { if (!v || l.dataset.id !== v.card.id || l.dataset.mark !== mark + (state.pages[Number(l.dataset.n) - 1]?.layer ? ':t' : '')) { l.replaceChildren(); delete l.dataset.id } });
+  if (!v || v.card.free || (mark === 'off' && v.card.kind !== 'figure')) return;
   for (const a of TinctMargin.anchorOfCard(v.card)) {
     const p = state.pages[a.n - 1]; if (!p) continue;
     const layer = layerOf(p, 'mr-ul-layer'); layer.classList.add('mr');
     if (layer.dataset.id === v.card.id) continue;
-    layer.dataset.id = v.card.id;
-    // A figure's open card rings its figure instead of underlining it.
-    for (const r of v.card.rects.filter(r => r[0] === a.n)) { const i = document.createElement('i'); if (v.card.kind === 'figure') { i.className = 'is-box'; Object.assign(i.style, { left: r[1] * 100 + '%', top: r[2] * 100 + '%', width: r[3] * 100 + '%', height: r[4] * 100 + '%' }) } else Object.assign(i.style, { left: r[1] * 100 + '%', top: (r[2] + r[4]) * 100 + '%', width: r[3] * 100 + '%' }); layer.appendChild(i) }
+    layer.dataset.id = v.card.id; layer.dataset.n = String(a.n); layer.dataset.mark = mark + (p.layer ? ':t' : '');
+    const px = 1 / Math.max(1, p.pg.getBoundingClientRect().height);
+    for (const r of v.card.rects.filter(r => r[0] === a.n)) {
+      const i = document.createElement('i');
+      if (v.card.kind === 'figure') { i.className = 'is-box'; Object.assign(i.style, { left: r[1] * 100 + '%', top: r[2] * 100 + '%', width: r[3] * 100 + '%', height: r[4] * 100 + '%' }); layer.appendChild(i); continue }
+      const band = lineBand(p, r.slice(1));
+      if (mark === 'tint') {
+        i.className = 'is-tint';
+        const [, y, , h] = band ? [0, band.top, 0, band.bottom - band.top] : r.slice(1);
+        Object.assign(i.style, { left: r[1] * 100 + '%', top: y * 100 + '%', width: r[3] * 100 + '%', height: h * 100 + '%' });
+      } else {
+        // Just under the baseline; without the page's text drawn, just inside the box's foot (its descenders' room).
+        let top = band ? band.base + band.size * 0.12 : r[2] + r[4] * 0.86;
+        if (band?.next) top = Math.min(top, band.next.b - band.next.s * 0.74 - 2.5 * px);
+        Object.assign(i.style, { left: r[1] * 100 + '%', top: top * 100 + '%', width: r[3] * 100 + '%' });
+      }
+      layer.appendChild(i);
+    }
   }
 }
 
@@ -3854,7 +4174,7 @@ function openCard(id, { focus = false } = {}) {
   const mode = marginMode();
   // One open at a time: a card opening folds the primer back to its trigger.
   if (id && primer.open) { primer.open = false; primer.token++; primer.el?.remove(); primer.el = null }
-  if (col.open && col.open !== id) { dropEmptyFigure(col.open); holds.delete(col.open) }
+  if (col.open && col.open !== id) { commitNoteEdit(); dropEmptyFigure(col.open); holds.delete(col.open); dropDraft(col.open) }
   col.open = id || null;
   if (id === 'whole') col.whole.page = state.pages.length ? placePage() : null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
@@ -3867,6 +4187,8 @@ function openCard(id, { focus = false } = {}) {
       if (p) { const b = p.pg.getBoundingClientRect(), y = b.top + f[2] * b.height; if (y < sr.top + 40 || y > sr.bottom - 120) goTo({ page: f[0], frac: Math.max(0, f[2] - 0.08) }, true) }
     }
   }
+  // A unit's card on the wide column sits at its unit's start or end: brought into view once laid out.
+  if (id && mode === 'column' && (cardById(id)?.data?.unit || col.draft?.id === id && col.draft.unitNote)) col.reveal = id;
   marginLayout();
   // focus: true puts it in the follow-up line; 'card' on the card itself (its close, or the bottom card's handle), no keyboard.
   if (focus) requestAnimationFrame(() => requestAnimationFrame(() => openCardEl()?.querySelector(focus === 'card' ? '.mr-card__close, .mr-sheet__grab' : '.mr-follow__input')?.focus({ preventScroll: true })));
@@ -3982,7 +4304,7 @@ function drawSheet() {
   keepThread(el, card.id, keptTop);
   if (closeFocused) el.querySelector('.mr-card__close')?.focus({ preventScroll: true });
   const live = col.live.get(card.id);
-  if ((live && !live.text && !live.status) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(waitDots());
+  if (liveWaiting(live, card) || col.pending.has(card.id)) (el.querySelector('.mr-wait') || el.querySelector('.mr-card__body'))?.append(waitDots());
   const f = el.querySelector('.mr-follow__input');
   if (f && draft) { f.value = draft; f.classList.add('has-text'); fitFollow(f) }
   restoreDraft(f, card.id);
@@ -4056,7 +4378,7 @@ function drawWhole(el, { sheet = false } = {}) {
   if (!TC) tcReady.then(() => marginLayout());
   const body = MP.P ? TinctMargin.html.threadHtml(rows, turns, { P: MP.P, resolve: citeResolve }) : '';
   const tray = chat.attach.length ? `<div class="byob-tray">${trayChips()}</div>` : '';
-  const sig = JSON.stringify([open, sheet, body.length, body.slice(-200), tray.length, !!chat.live, col.whole.status || '']);
+  const sig = JSON.stringify([open, sheet, body.length, body.slice(-200), tray.length, !!chat.live, !!chat.live?.paused, col.whole.status || '']);
   if (el.dataset.sig === sig) return;
   el.dataset.sig = sig; el.dataset.id = 'whole';
   if (!sheet) el.className = `mr mr-card ${open ? 'is-open' : 'is-folded'} is-whole${el.classList.contains('is-floating') ? ' is-floating' : ''}`;
@@ -4067,7 +4389,7 @@ function drawWhole(el, { sheet = false } = {}) {
   el.innerHTML = sheet ? TinctMargin.html.sheetHtml(inner) : inner;
   const b = el.querySelector('.mr-card__body');
   if (b) {
-    if (chat.live && !chat.live.text) b.append(waitDots());
+    if (chat.live && (!chat.live.text || chat.live.paused)) b.append(waitDots());
     // A question just sent is held near the top while its answer grows below (holdThread); otherwise the thread
     // opens at its end, and while an answer arrives it stays where the reader put it.
     const hold = chat.anchor != null ? { turn: chat.anchor, place: chat.placeAnchor } : null;
@@ -4114,6 +4436,9 @@ function bindCardEvents(host) {
   host.addEventListener('click', e => {
     // A host inside another (the primer in the column) handles its click once.
     if (e.mrDone) return; e.mrDone = true;
+    // A unit's pill (the wide column): its own card.
+    const pill = e.target.closest('.mr-pill');
+    if (pill) { pillAction(pill.dataset.pill, pill.closest('.mr-pills')?.dataset.unit); return }
     const row = e.target.closest('.mr-map__row[data-page]');
     if (row) { goToCite(Number(row.dataset.page), ''); return }
     // Related: a place scrolls the file there and underlines it briefly.
@@ -4144,10 +4469,14 @@ function bindCardEvents(host) {
     if (c === 'mic') { const cid = b.closest('[data-id]')?.dataset.id; if (cid && b.closest('.mr-follow')?.querySelector('.mr-follow__input')) dictation.toggle({ card: cid }); return }
     if (c === 'send') { const f = b.closest('.mr-follow')?.querySelector('.mr-follow__input'); if (f) sendFollow(f); return }
     if (c === 'copy') return copyCard(id);
+    if (c === 'note-ask') return noteAsk(id);
     if (c === 'delete') return deleteCard(id);
     if (c === 'show' || c === 'next' || c === 'again') return quizStep(id, c);
   });
-  host.addEventListener('input', e => { if (e.target.matches('.mr-follow__input')) { e.target.classList.toggle('has-text', !!e.target.value); fitFollow(e.target) } });
+  host.addEventListener('input', e => { if (e.target.matches('.mr-follow__input')) { e.target.classList.toggle('has-text', !!e.target.value); fitFollow(e.target) } if (e.target.matches('.mr-note-edit')) fitNote(e.target) });
+  // A margin note is kept when its field lets go (an empty one goes); Escape lets go and folds it.
+  host.addEventListener('focusout', e => { if (e.target.matches?.('.mr-note-edit') && !e.relatedTarget?.closest?.('[data-c="note-ask"]')) commitNoteEdit(e.target) });
+  host.addEventListener('keydown', e => { if (e.target.matches?.('.mr-note-edit') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); openCard(null) } });
   host.addEventListener('keydown', e => {
     if (!e.target.matches('.mr-follow__input')) return;
     if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); e.target.blur(); openCard(null); return }
@@ -4190,9 +4519,78 @@ async function copyCard(id) {
   if (!card) text = plain([...chat.turns].reverse().find(t => t.role === 'assistant')?.content);
   else if (card.kind === 'note') text = plain(card.note);
   else if (card.kind === 'define') text = (card.data?.senses || []).map((s, i) => `${i + 1}. ${s.text}`).join('\n') || plain(card.data?.line);
-  else text = (card.turns || []).filter(t => t.role === 'assistant').map(t => plain(t.content)).join('\n\n');
+  // Fact-check copies what its card shows: the verdict first, no opening or labels (19 Oct 2026).
+  else text = (card.turns || []).filter(t => t.role === 'assistant').map((t, k) => plain(card.kind === 'factcheck' && k === 0 && MP.P?.cleanFactcheck ? MP.P.cleanFactcheck(t.content) : t.content)).join('\n\n');
   try { await navigator.clipboard.writeText(text); toast('Copied.') } catch { toast('Copy did not work here. Use your device’s copy instead.') }
 }
+
+/* -- Margin notes (Anders, 19 Oct 2026, evening; the wide column only) --
+   A click on the empty margin column writes a note at that height: a card opens there with its field ready. A note is a
+   highlight record with no passage (TinctMargin.noteBox: one box of no size at its height), so it is kept and synced
+   as every note is; it is kept when its field lets go, and an empty one is let go. Its Ask turns it into a chat (an Ask
+   card in its place, the note its first message). If anything was open, the first click only folds it. */
+function newMarginNote(y, { unit = null } = {}) {
+  const at = unit ? { n: unit.to, frac: 1 } : pagePoint(y); if (!at) return;
+  dropDraft(col.draft?.id);
+  const id = 'n-new' + Date.now().toString(36);
+  const box = TinctMargin.noteBox(at.frac, { unit: !!unit });
+  col.draft = { id, kind: 'note', free: true, draft: true, ...(unit ? { unitNote: true, unit: unit.key } : {}), page: at.n, rects: [[at.n, ...box]], text: '', note: '', color: TinctMargin.defaultColor(prefs, HL_COLORS), at: Date.now(), u: Date.now() };
+  col.view = null;
+  openCard(id);
+  const focus = () => openCardEl()?.querySelector('.mr-note-edit')?.focus({ preventScroll: true });
+  requestAnimationFrame(() => requestAnimationFrame(focus));
+  return id;
+}
+/** The note field drawn again keeps its words, its caret and its focus. */
+function fitNote(t) { t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 320) + 'px' }
+let noteCommitting = false;
+/** Keep (or let go) the open margin note's words: a new one becomes a note; an emptied one goes. */
+function commitNoteEdit(field = null) {
+  if (noteCommitting) return;
+  const t = field || document.querySelector('.mr-card.is-open .mr-note-edit, .mr-sheet .mr-note-edit');
+  const host = t?.closest('[data-id]'); if (!t || !host) return;
+  noteCommitting = true;
+  try {
+    const id = host.dataset.id, v = t.value.trim().slice(0, 4000);
+    if (col.draft?.id === id) {
+      const d = col.draft;
+      if (!v) { dropDraft(id); if (col.open === id) col.open = null; marginLayout({ fresh: true }); return }
+      const mid = Date.now().toString(36) + Math.random().toString(36).slice(2, 6), now = Date.now();
+      const list = highlights(); list.push({ id: mid, page: d.page, rects: [d.rects[0].slice(1)], text: '', color: d.color, at: now, u: now, note: v, withNote: true });
+      col.draft = null; col.defs.delete(id);
+      if (col.open === id) col.open = 'n-' + mid;
+      putHighlights(list); strip?.marksChanged();
+      return;
+    }
+    const mark = highlights().find(h => 'n-' + h.id === id); if (!mark) return;
+    if (v === (mark.note || '')) return;
+    if (!v) { if (col.open === id) col.open = null; removeHighlight(mark.id); col.view = null; strip?.marksChanged(); marginLayout({ fresh: true }); return }
+    const list = highlights(), h = list.find(x => x.id === mark.id); h.note = v; h.u = Date.now(); putHighlights(list);
+  } finally { noteCommitting = false }
+}
+/** A margin note's Ask: the note becomes the first message of a chat in its place (an Ask card); the note goes. */
+function noteAsk(id) {
+  const view = viewCards().find(c => c.id === id) || (col.draft?.id === id ? col.draft : null); if (!view) return;
+  const t = document.querySelector(`[data-id="${CSS.escape(id)}"] .mr-note-edit`), v = (t ? t.value : view.note || '').trim();
+  if (!v) { t?.focus({ preventScroll: true }); return }
+  const [n, x, y] = view.rects[0];
+  const card = TinctMargin.newCard({ kind: 'ask', page: n, anchor: [{ n, x, y, w: 0, h: 0 }], text: '', turns: [{ role: 'user', content: v, at: Date.now() }], data: { fromNote: true } });
+  noteCommitting = true;
+  try {
+    if (col.draft?.id === id) dropDraft(id);
+    else { const mark = highlights().find(h => 'n-' + h.id === id); if (mark) removeHighlight(mark.id) }
+  } finally { noteCommitting = false }
+  store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed(); col.view = null;
+  col.open = null; openCard(card.id); runCard(card.id);
+}
+// A click on the empty margin column (the wide desktop): a new note there, unless something was open (then it only folded).
+document.addEventListener('click', e => {
+  if (marginMode() !== 'column' || e.button > 0 || marginPress.busy || !getSelection().isCollapsed || !col.doc?.isConnected) return;
+  if (e.target.closest?.('.mr-card, .mr-trigger, .mr-primer, .mr-undo, .mr-pills, .mr-float, .pdf-sheet, .lab-header, .pdf-strip, button, a, input, textarea, select, [role="dialog"]')) return;
+  const left = col.doc.getBoundingClientRect().left, sr = $('scroll').getBoundingClientRect(), top = Math.max(sr.top, $('hdr').getBoundingClientRect().bottom);
+  if (e.clientX < left - 8 || e.clientX > left + TinctMargin.COL.width + 8 || e.clientY < top || e.clientY > sr.bottom) return;
+  newMarginNote(e.clientY);
+});
 
 /* -- Delete (Anders, 15 Oct): every margin item, from the bin beside copy. No confirm: a quiet
    "Deleted · Undo" line stays for a few seconds where the card was (the column), or along the bottom
@@ -4204,7 +4602,7 @@ function deleteCard(id) {
   const marks = highlights(), plan = TinctMargin.deletePlan(view, marks);
   const touched = new Set([...plan.removeMarks, ...(plan.clearNote ? [plan.clearNote] : [])]);
   const before = { card: kept ? JSON.parse(JSON.stringify(kept)) : null, marks: marks.filter(m => touched.has(m.id)).map(m => JSON.parse(JSON.stringify(m))) };
-  col.ctl.get(id)?.abort(); col.ctl.delete(id); col.live.delete(id); col.quiz.delete(id); col.pending.delete(id); col.drafts.delete(id);
+  col.ctl.get(id)?.abort(); col.ctl.delete(id); col.live.delete(id); col.quiz.delete(id); col.pending.delete(id); col.drafts.delete(id); dropDraft(id);
   const wasOpen = col.open === id;
   if (wasOpen) { col.open = null; if (col.sheet) { col.sheet.remove(); col.sheet = null } closeFloat() }
   if (plan.card) { store.set('cards:' + state.key, keptCards().map(c => (c.id === id ? TinctMargin.tombstone(id) : c))); cardsSync.changed() }
@@ -4260,12 +4658,27 @@ function undoTop(colTop, colH) {
 function cardTurns(card, image, fig = {}) {
   const at = isEpub() ? `chapter ${pageLabel(card.page)}` : `page ${pageLabel(card.page)}`;
   const imageLine = !image ? '' : fig.named ? ` The attached image is ${fig.named.label} on page ${pageLabel(fig.named.page)}, as printed, which the passage or question refers to: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the text for context.` : ' ' + MP.P.PASSAGE_IMAGE_LINE;
-  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}\n\nThe passage they selected on ${at}:\n${card.text.slice(0, 3000)}`;
+  // A chat that began as a note in the margin has no passage: the note is its first message.
+  const about = card.text ? `\n\nThe passage they selected on ${at}:\n${card.text.slice(0, 3000)}` : `\n\nThis conversation began as a note they wrote in the margin beside ${at}; the note is their first message.`;
+  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}${about}`;
   const what = card.data?.region === 'formula' ? 'formula' : 'figure';
-  const lead = { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
+  const pill = card.data?.pill;
+  const lead = pill ? { recap: 'Recap this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
   const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
-  if (lead && (turns[0]?.role === 'assistant' || (card.kind === 'figure' && !turns.length))) turns.unshift({ role: 'user', content: lead });
-  return [{ role: 'user', content: rules }, ...turns];
+  if (lead && (turns[0]?.role === 'assistant' || ((card.kind === 'figure' || pill) && !turns.length))) turns.unshift({ role: 'user', content: lead });
+  return [{ role: 'user', content: pill ? pillRules(card) : rules }, ...turns];
+}
+/** Recap and Catch me up (a unit's pills): the companion's instructions for the unit's card. */
+function pillRules(card) {
+  const unit = primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, start: card.page, to: card.page };
+  const name = unit.key === 'all' ? 'the whole document' : TinctMargin.unitPhrase(unit), pages = u => (u.from === u.to ? `page ${pageLabel(u.from)}` : `pages ${pageLabel(u.from)}–${pageLabel(u.to)}`);
+  const head = `You are Tinct's reading companion. ${bookLine()}`;
+  const form = 'Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.';
+  if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
+  const before = catchRange(unit);
+  return unit.from > 1
+    ? `${head} They are about to start ${name}.\nCatch them up on what has happened or been argued in the document so far, before ${name} (${pages(before)}): the main thread and where it stands now, so they can go on. ${form}`
+    : `${head} They are at the start of the document, on page ${pageLabel(before.to)}.\nCatch them up on what the document has set up so far: its subject and what it has said up to here, so they can go on. ${form}`;
 }
 /** A figure's card: its thread is about this one figure (item 4), seen in its picture, else from its caption, labels and a sketch. */
 function figureRules(card, image, sketch) {
@@ -4291,8 +4704,24 @@ const passageRegion = card => {
   }
   return selectionRegion({ page: card.page, box: boxOf(rects) });
 };
+/*
+ * A card still waiting for more of its answer after words have appeared (Anders, 19 Oct 2026: Fact-check's search and
+ * verdict, Counterpoint, follow-ups): once no new words have come for LIVE_PAUSE_MS, the main chat's dots show below
+ * the last text, until more text arrives or the request ends (its answer saved, an error, a cancel).
+ */
+const LIVE_PAUSE_MS = 700;
+const livePause = new Map();
+/** True while a card's request is on its way and its words are paused (or none show yet): its dots belong below them. */
+const liveWaiting = (live, card = null) => !!live && live.text != null && !live.done && (!live.text || live.paused || unshownLive(card, live.text));
+/** Words on their way that the card does not show yet: Fact-check's, until its verdict (P.cleanFactcheck drops what comes before it). */
+const unshownLive = (card, text) => card?.kind === 'factcheck' && !(card.turns || []).some(t => t.role === 'assistant') && !!MP.P?.cleanFactcheck && !MP.P.parseFactcheck(MP.P.cleanFactcheck(text)).verdict;
 function setLive(id, patch) {
-  if (patch === null) col.live.delete(id); else col.live.set(id, { ...(col.live.get(id) || { text: '', status: '' }), ...patch });
+  const before = col.live.get(id);
+  if (patch && 'text' in patch && patch.text != null && patch.text !== before?.text) patch = { ...patch, paused: false };
+  if (patch === null) col.live.delete(id); else col.live.set(id, { ...(before || { text: '', status: '' }), ...patch });
+  clearTimeout(livePause.get(id)); livePause.delete(id);
+  const now = col.live.get(id);
+  if (now && now.text && !now.paused && !now.done) livePause.set(id, setTimeout(() => { livePause.delete(id); const l = col.live.get(id); if (l === now) { col.live.set(id, { ...l, paused: true }); try { marginLayout() } catch {} } }, LIVE_PAUSE_MS));
   // A layout that throws never stops a stream or leaves the card waiting: the state above stands, and the error is reported.
   try { marginLayout() } catch (e) { reportCardError(e, 'layout', cardById(id)?.kind) }
 }
@@ -4370,16 +4799,16 @@ async function runCardNow(id, question, run) {
   // The margin's parser did not load: said on the card, never a ring that waits for nothing.
   if (!MP.P) throw Object.assign(new Error('margin-parse unavailable'), { code: 'failed' });
   const s = await ai();
-  if (!s) { setLive(id, { status: AI_OFF }); return }
+  if (!s) { setLive(id, { status: AI_OFF, done: true }); return }
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
   const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
-  const pdf = unit ? await unitPages(unit) : await pdfPages(card.page);
+  const pdf = unit ? await unitPages(card.data?.pill === 'catchup' ? catchRange(unit) : unit) : await pdfPages(card.page);
   // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
   // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
   const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;
   const asked = question ?? (card.kind === 'ask' ? [...(card.turns || [])].reverse().find(t => t.role === 'user')?.content || '' : '');
   const named = unit || figBox ? null : figureNamed(card.page, card.text, asked) || (asked ? await figureElsewhere(asked, card.page) : null);
-  const region = unit || figBox || named ? null : passageRegion(card);
+  const region = unit || figBox || named || !card.text ? null : passageRegion(card);
   let image = null;
   if (figBox) { image = figBlobs.get(id) || await figureImage(card.page, figBox); figBlobs.delete(id) }
   else if (named) image = await figureImage(named.page, named.f);
@@ -4541,13 +4970,14 @@ async function fittingSense(word, senses, info) {
  * (`key`). One that answers after the reader opened another file goes to its own file's cards (sent
  * to the account when that file is next open), never into the file now open.
  */
-function keepDefine(def, info, anchor, key = state.key) {
+function keepDefine(def, info, anchor, key = state.key, given = null) {
   if (!key || !def || (!def.senses?.length && !def.line && !def.inText)) return;
   const here = key === state.key && marginOn();
   const cards = here ? keptCards() : store.get('cards:' + key) || [];
   const existing = cards.find(c => c.kind === 'define' && !c.gone && c.page === info.page && c.text === info.text.slice(0, 2000));
   const data = { word: def.word, pos: def.pos || '', senses: (def.senses || []).map(s => ({ text: s.text })), ...(def.line ? { line: def.line } : {}), ...(def.inText ? { inText: def.inText } : {}) };
-  const card = existing || (here ? withSpan(TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }), info) : TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }));
+  // The column's card not yet kept (defineCard) keeps its id: it stays the open card.
+  const card = existing || given || (here ? withSpan(TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }), info) : TinctMargin.newCard({ kind: 'define', page: info.page, anchor, text: info.text }));
   if (existing && JSON.stringify(existing.data) === JSON.stringify(data)) return;
   card.data = data;
   if (here) return saveCard(card);
@@ -4614,6 +5044,7 @@ function primerReset() {
   Object.assign(primer, { units: null, open: false, unit: null, data: null, wait: false, status: '' });
   primer.away.clear();
   primer.el?.remove(); primer.trig?.remove(); primer.el = null; primer.trig = null;
+  for (const el of col.pills.values()) el.remove(); col.pills.clear();
 }
 /**
  * The units, from the outline: each top-level entry resolved to its page, with a part's own entries
@@ -4845,12 +5276,15 @@ function openPrimer(unit = currentUnit(), { keyboard = false } = {}) {
 /** Fold the primer back to its trigger. */
 function closePrimer() {
   if (!primer.open) return;
+  const key = primer.unit?.key;
   const had = !!primer.el?.contains(document.activeElement);
   primer.open = false; primer.token++;
   primer.el?.remove(); primer.el = null;
   if (col.sheet?.dataset.id === 'primer') { col.sheet.remove(); col.sheet = null }
   marginLayout();
-  if (had) requestAnimationFrame(() => (primer.trig?.isConnected ? primer.trig : $('scroll')).focus?.({ preventScroll: true }));
+  // The focus goes back to the unit's Primer pill (the wide column), else the pages.
+  const pill = key && col.pills.get(key + ':start')?.querySelector('[data-pill="primer"]');
+  if (had) requestAnimationFrame(() => (pill?.isConnected ? pill : $('scroll')).focus?.({ preventScroll: true }));
 }
 const togglePrimer = opts => (primer.open ? closePrimer() : openPrimer(undefined, opts));
 /** Draw the primer into `el` (the column's, the floating one, or the phone's card). */
@@ -4887,18 +5321,6 @@ function pointOnPages(a) {
   const r = p.pg.getBoundingClientRect();
   return r.top + a.frac * r.height;
 }
-/** The first line of text on a page, as a fraction of its height (from its text layer), kept once found. */
-const firstLineFrac = new Map();
-function pageFirstLine(p) {
-  const key = state.key + ':' + p.n;
-  if (firstLineFrac.has(key)) return firstLineFrac.get(key);
-  const b = p.pg.getBoundingClientRect();
-  const tops = [...(p.layer?.querySelectorAll('span') || [])].filter(sp => (sp.textContent || '').trim()).map(sp => sp.getBoundingClientRect()).filter(r => r.height > 0).map(r => r.top);
-  if (!tops.length || !b.height) return null;
-  const frac = (Math.min(...tops) - b.top) / b.height;
-  firstLineFrac.set(key, frac);
-  return frac;
-}
 /** Narrow windows: the primer floats beside the page, as a card opened from a mark does. */
 function placePrimerFloat(pageRight, { anchored = false } = {}) {
   if (!primer.open) { if (primer.el?.classList.contains('is-floating')) { primer.el.remove(); primer.el = null } return }
@@ -4934,8 +5356,65 @@ function primerMark(pageRight) {
 }
 /** The unit quiz card ("Quiz me on this chapter"): Quiz me on the whole unit, at the column's top. */
 function unitQuiz(unit) { return keptCards().filter(c => !c.gone && c.kind === 'quiz' && c.data?.unit?.key === unit.key).sort((a, b) => (b.at || 0) - (a.at || 0))[0] || null }
-function quizUnit() {
-  const unit = primer.unit || currentUnit(); if (!unit) return;
+/** A unit's newest card for a pill: its quiz, its recap or its catch-up (an Ask card on the unit, data.pill). */
+function unitCard(unit, pill) {
+  if (pill === 'quiz') return unitQuiz(unit);
+  return keptCards().filter(c => !c.gone && c.data?.unit?.key === unit.key && c.data?.pill === pill).sort((a, b) => (b.at || 0) - (a.at || 0))[0] || null;
+}
+/** The units whose pills are drawn: those whose first or last page is near the reader's place, never front or back matter. */
+function pillUnits() {
+  if (!primer.units) return [];
+  const at = placePage(), here = currentUnit();
+  // Before you start's unit (open, or the one it is about from the reader's place, front matter's nearest chapter) always.
+  return primer.units.filter(u => (primer.open && primer.unit?.key === u.key) || u === here || (!u.matter && (Math.abs((u.from || u.start) - at) <= 3 || Math.abs(u.to - at) <= 3 || (at >= u.from && at <= u.to && u.to - u.from <= 6))));
+}
+/** A unit's row of pills (its start's or its end's), drawn again only when what it shows changed. */
+function pillRow(unit, where, doc) {
+  const k = unit.key + ':' + where;
+  let el = col.pills.get(k);
+  if (!el) { el = document.createElement('div'); el.className = `mr mr-pills is-${where}`; el.setAttribute('role', 'group'); el.dataset.unit = unit.key; el.dataset.where = where; col.pills.set(k, el) }
+  const open = where === 'start' ? (primer.open && primer.unit?.key === unit.key ? 'primer' : unitCard(unit, 'catchup')?.id === col.open && col.open ? 'catchup' : '')
+    : ['recap', 'quiz'].find(p => col.open && unitCard(unit, p)?.id === col.open) || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === unit.to || c.unit === unit.key)) ? 'note' : '');
+  const name = TinctMargin.unitPhrase(unit), sig = JSON.stringify([where, unit.key, open, name]);
+  if (el.dataset.sig !== sig) {
+    el.dataset.sig = sig;
+    el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${name}`);
+    el.innerHTML = TinctMargin.html.pillsHtml(where, { open, name, line: TinctMargin.triggerLine(unit) });
+  }
+  if (el.parentElement !== doc) doc.appendChild(el);
+  return el;
+}
+/**
+ * A pill tapped (the wide column): Primer opens or folds Before you start in place; Catch me up and Recap open the
+ * unit's card (made then, on tap: only the primer is made ahead) or fold it; Quiz me the unit's quiz; Note the reader's
+ * own note on the unit (a new one ready to write).
+ */
+function pillAction(pill, key) {
+  const unit = primer.units?.find(u => u.key === key); if (!unit) return;
+  if (pill === 'primer') { if (primer.open && primer.unit?.key === key) closePrimer(); else openPrimer(unit); return }
+  if (pill === 'quiz') return quizUnit(unit);
+  if (pill === 'note') {
+    const note = viewCards().find(c => c.unitNote && (c.page === unit.to || c.unit === unit.key));
+    if (note) { openCard(col.open === note.id ? null : note.id, { focus: col.open === note.id ? false : 'card' }); return }
+    if (primer.open) closePrimer();
+    newMarginNote(null, { unit }); return;
+  }
+  const have = unitCard(unit, pill);
+  if (have) { openCard(col.open === have.id ? null : have.id); return }
+  if (primer.open) closePrimer();
+  const label = unit.key === 'all' ? TinctMargin.KINDS.whole : TinctMargin.unitPhrase(unit);
+  const card = TinctMargin.newCard({ kind: 'ask', page: pill === 'recap' ? unit.to : unit.from, anchor: [{ n: pill === 'recap' ? unit.to : unit.from, x: 0, y: 0, w: 0, h: 0 }], text: '', data: { unit: { key: unit.key, label }, pill } });
+  store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed(); col.view = null;
+  openCard(card.id); runCard(card.id);
+}
+/** The pages a unit's catch-up covers: everything before it (at most the 200 pages before), or the opening so far in the first unit. */
+function catchRange(unit) {
+  const end = unit.from > 1 ? unit.from - 1 : Math.max(1, placePage());
+  const from = Math.max(1, end - 199);
+  return { key: unit.key, from, start: from, to: end };
+}
+function quizUnit(at = null) {
+  const unit = at || primer.unit || currentUnit(); if (!unit) return;
   let card = unitQuiz(unit);
   if (!card || card.data.done) {
     // A passage-less card: its "passage" is a zero box at the unit's start (the stored cards' shape needs one); the view leaves it out.
@@ -5317,11 +5796,13 @@ function showHot(reg, sticky) {
   hideHot();
   const el = document.createElement('div'); el.className = 'byob-hot';
   Object.assign(el.style, { left: reg.f.x * 100 + '%', top: reg.f.y * 100 + '%', width: reg.f.w * 100 + '%', height: reg.f.h * 100 + '%' });
-  el.innerHTML = `<div class="byob-hot-chip" role="toolbar" aria-label="${KIND[reg.kind]} actions">
-    <button type="button" data-a="explain" title="Explain this ${reg.kind} in chat"><span class="byob-hot-sym" aria-hidden="true">✧</span>Explain</button>
-    <button type="button" data-a="ask" title="Chat about this ${reg.kind}">${ACT.ask}Chat</button>
-    <button type="button" data-a="highlight" title="Highlight this ${reg.kind}">${ACT.highlight}Highlight</button>
-    <button type="button" data-a="copy" title="Copy this ${reg.kind} as an image">${ACT.copy}Copy</button></div>`;
+  // The selection bar's own dark style and order (Anders, 19 Oct 2026): Ask, Explain, then Highlight and Copy.
+  const sep = '<span class="mr-bar__sep" aria-hidden="true"></span>', I = TinctMargin.html.ICONS;
+  el.innerHTML = `<div class="byob-hot-chip mr mr-chip" role="toolbar" aria-label="${KIND[reg.kind]} actions">
+    <button type="button" class="mr-bar__item is-text" data-a="ask" title="Ask about this ${reg.kind}">Ask</button>${sep}
+    <button type="button" class="mr-bar__item is-text" data-a="explain" title="Explain this ${reg.kind}">Explain</button>${sep}
+    <button type="button" class="mr-bar__item" data-a="highlight" title="Highlight this ${reg.kind}">${I.highlight}<span>Highlight</span></button>
+    <button type="button" class="mr-bar__item" data-a="copy" title="Copy this ${reg.kind} as an image">${TinctMargin.html.CARD_ICONS.copy}<span>Copy</span></button></div>`;
   const chip = el.querySelector('.byob-hot-chip');
   chip.addEventListener('mousedown', e => { e.preventDefault(); e.stopPropagation() });
   chip.addEventListener('mouseenter', () => { hot.over = true; clearTimeout(hot.timer) });
@@ -5655,7 +6136,12 @@ function renderThread() {
 }
 /** An answer arriving: its text so far, the new words fading in; the view does not follow it. */
 function liveText(text) {
-  if (chat.live && marginOn()) { chat.live.text = text; renderThread(); return }
+  if (chat.live && marginOn()) {
+    // A pause mid-answer shows the dots below the last words (LIVE_PAUSE_MS, as a card's).
+    const live = chat.live; live.text = text; live.paused = false; clearTimeout(live.timer);
+    live.timer = setTimeout(() => { if (chat.live === live) { live.paused = true; renderThread() } }, LIVE_PAUSE_MS);
+    renderThread(); return
+  }
   if (!chat.live || !chat.el) return;
   chat.live.text = text;
   const thread = chat.el.querySelector('#thread'), md_ = thread.querySelector('.tc-a.is-streaming .tc-md');
@@ -6018,6 +6504,214 @@ function saveFile(name, blob) {
   } catch { return false }
 }
 function blobToDataUrl(blob) { return new Promise(res => { const r = new FileReader(); r.onload = () => res(String(r.result)); r.onerror = () => res(''); r.readAsDataURL(blob) }) }
+
+/* ---------- EPUBs on the desktop: Margin view, the place by paragraph and word (Anders, 19 Oct 2026) ----------
+   An EPUB opens here in Margin view on the desktop (TinctReaderLayout.epubView), its text flowing, with the margin's
+   cards and the Notebook; "Convert to Tinct book" (the Aa panel) reads it in the Tinct reader from then on, on this
+   device (epub-view:<hex>), and the Tinct reader's "Margin view" comes back. A phone reads it in the Tinct reader,
+   as before. Its place here is kept by paragraph and word (pos:<key>: `para`, `word`, and the words there, `quote`),
+   so a change of width or text size never moves it; the place crosses to the Tinct reader and back by those words
+   (TinctReaderLayout.findQuote; app/src/lab/userBook/epubView.ts), the newer place winning. When this device has the
+   book's Tinct text (converted in the Tinct reader), the place is also kept as the Tinct reader's (place:<hex>), the
+   one the account syncs, and a place read later there is taken here. */
+const epubOwnView = key => store.get('epub-view:' + hexOf(key));
+/** True when this EPUB reads here (the desktop, unless the reader chose the Tinct reader on this device). */
+const epubHere = key => RL.epubView({ phone: innerWidth < 700, own: epubOwnView(key) }) === 'margin';
+/** Named and drawn on the shelf (its title, author and cover) and sent to the account, as the Tinct reader's way does; never waited for. */
+function epubShelved(bytes, name, key, upload, { quiet = false } = {}) {
+  engine.prepareEpub(bytes, name, key, upload, { quiet, notify: toast }).catch(() => {});
+}
+const EPUB_BLOCKS = 'p,h1,h2,h3,h4,h5,h6,li,dt,dd,figcaption,pre,blockquote,div,td,th,caption';
+/** A chapter's paragraphs: its innermost blocks with words in them, in reading order. */
+function epubParas(p) {
+  if (!p.paras) p.paras = [...p.pg.querySelectorAll(EPUB_BLOCKS)].filter(el => !el.querySelector(EPUB_BLOCKS) && el.textContent.trim());
+  return p.paras;
+}
+const wordsOf = text => String(text || '').trim().split(/\s+/).filter(Boolean);
+/** A paragraph's words as [text node, start, end], in order (its text never changes once drawn). */
+const wordCache = new WeakMap();
+function wordSpans(el) {
+  let list = wordCache.get(el);
+  if (!list) {
+    list = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    for (let node; (node = walker.nextNode());) for (const m of node.nodeValue.matchAll(/\S+/g)) list.push([node, m.index, m.index + m[0].length]);
+    wordCache.set(el, list);
+  }
+  return list;
+}
+function wordRect(el, i) {
+  const w = wordSpans(el)[i]; if (!w) return null;
+  const r = document.createRange(); r.setStart(w[0], w[1]); r.setEnd(w[0], w[2]);
+  return [...r.getClientRects()].find(q => q.height > 0) || r.getBoundingClientRect();
+}
+/** The first index in 0..n-1 whose `bottom(i)` is past `y` (bottoms grow with i), or n. */
+function firstPast(n, bottom, y) { let lo = 0, hi = n; while (lo < hi) { const mid = (lo + hi) >> 1; if (bottom(mid) > y) hi = mid; else lo = mid + 1 } return lo }
+/** The paragraph and word at the top of the view (the first word whose line is in view), and the words from there. */
+function epubSpot() {
+  const none = { para: undefined, word: undefined, quote: undefined };
+  const place = currentPlace(), p = state.pages[place.page - 1]; if (!p) return none;
+  const top = $('scroll').getBoundingClientRect().top + 1, paras = epubParas(p);
+  const i = firstPast(paras.length, k => paras[k].getBoundingClientRect().bottom, top);
+  if (i >= paras.length) return none;
+  const el = paras[i], words = wordsOf(el.textContent);
+  const word = el.getBoundingClientRect().top >= top ? 0 : Math.min(words.length - 1, firstPast(wordSpans(el).length, k => wordRect(el, k)?.bottom ?? -Infinity, top));
+  return { para: i, word: Math.max(0, word), quote: words.slice(Math.max(0, word), Math.max(0, word) + 14).join(' ').slice(0, 120) };
+}
+/** Scroll until `measure()` (a client y, or null) stands `at` of the way down the view; the chapters measure as they come near. */
+function epubSettle(measure, at = 0, tries = 6) {
+  return new Promise(resolve => {
+    const s = $('scroll');
+    const step = n => {
+      const y = measure(); if (y == null) return resolve(false);
+      const sr = s.getBoundingClientRect(), delta = y - (sr.top + at * sr.height);
+      if (Math.abs(delta) > 1.5) s.scrollTop += delta;
+      if (n <= 0 || Math.abs(delta) <= 1.5) { onScroll(); return resolve(true) }
+      requestAnimationFrame(() => step(n - 1));
+    };
+    step(tries);
+  });
+}
+/** To a paragraph's word in chapter `n` (the word's line at the top of the view). */
+function epubGoSpot(n, para, word = 0) {
+  const p = state.pages[n - 1], el = p && epubParas(p)[para]; if (!el) return false;
+  goTo({ page: n, frac: 0 });
+  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - 10));
+  return true;
+}
+/* A change of width (the window, Full width) or text size reflows the chapters: the paragraph and word at the
+   top of the view stay there. The spot is read as the reader scrolls (not while the text reflows) and gone back to. */
+const epubHold = { spot: null, page: 0, raf: 0, reflow: 0 };
+function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
+$('scroll').addEventListener('scroll', () => { if (isEpub() && !epubHold.raf) epubHold.raf = requestAnimationFrame(() => { epubHold.raf = 0; epubHoldNow() }) }, { passive: true });
+/** Around a reflow: `change()` reflows; the held spot is gone back to. */
+function epubReflow(change) {
+  epubHoldNow();
+  const { spot, page } = epubHold;
+  epubHold.reflow++;
+  change();
+  if (spot && page) epubGoSpot(page, spot.para, spot.word);
+  setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 400);
+}
+addEventListener('resize', () => {
+  if (!isEpub() || !epubHold.spot) return;
+  if (!epubHold.reflow) { epubHold.reflow++; setTimeout(() => { epubHold.reflow--; const { spot, page } = epubHold; if (isEpub() && spot && page) epubGoSpot(page, spot.para, spot.word) }, 220) }
+});
+/** To a character offset in chapter `n` (a card's or a highlight's passage), a quarter of the way down the view. */
+function epubGoOffset(n, offset) {
+  const p = state.pages[n - 1]; if (!p) return Promise.resolve(false);
+  goTo({ page: n, frac: 0 });
+  return epubSettle(() => { const r = rangeFromOffsets(p.pg, offset, offset + 1)?.getClientRects()[0]; return r ? r.top : null }, 0.25);
+}
+/** To the paragraph holding these words (a place from the Tinct reader). */
+function epubGoQuote(quote) {
+  const hit = RL.findQuote(state.pages.map(p => epubParas(p).map(el => el.textContent)), quote);
+  return !!hit && epubGoSpot(hit.chapter + 1, hit.para, hit.word);
+}
+/** The Tinct reader's place (place:<hex>) as words, when this device has the book's Tinct text. */
+function readerPlaceWords() {
+  const place = store.get('place:' + hexOf(state.key)), ed = state.epubEdition;
+  if (!place || !ed || (typeof place.converter === 'number' && typeof ed.converter === 'number' && place.converter !== ed.converter)) return null;
+  const ch = ed.chapters.find(c => c.number === place.chapterNumber), text = ch?.paragraphs?.[place.paragraphIndex];
+  if (!text) return null;
+  return { quote: wordsOf(text).slice(place.wordIndex || 0, (place.wordIndex || 0) + 14).join(' '), at: Number(place.updatedAt) || 0 };
+}
+/** Where an EPUB opens here: the Tinct reader's place when it was read there since (or chosen there), else its paragraph and word. */
+function epubRestore(saved) {
+  if (saved?.via === 't' && saved.quote && epubGoQuote(saved.quote)) { const { via: _t, ...rest } = saved; store.set('pos:' + state.key, rest); return true }
+  const there = readerPlaceWords();
+  if (there && there.at > (Number(saved?.at) || 0) && epubGoQuote(there.quote)) return true;
+  return !!saved && Number.isInteger(saved.para) && epubGoSpot(saved.page, saved.para, saved.word || 0);
+}
+/** A move here is kept as the Tinct reader's place too (the one the account syncs), when this device has the Tinct text. */
+function epubShare() {
+  const ed = state.epubEdition, pos = store.get('pos:' + state.key); if (!ed || !pos?.quote) return;
+  const hit = RL.findQuote(ed.chapters.map(c => c.paragraphs || []), pos.quote); if (!hit) return;
+  const prev = store.get('place:' + hexOf(state.key)) || {};
+  store.set('place:' + hexOf(state.key), { chapterNumber: ed.chapters[hit.chapter].number, paragraphIndex: hit.para, wordIndex: hit.word, updatedAt: pos.at || Date.now(), ...(typeof ed.converter === 'number' ? { converter: ed.converter } : {}), ...(Number.isInteger(prev.rev) ? { rev: prev.rev } : {}) });
+}
+/** "Convert to Tinct book": this device reads the EPUB in the Tinct reader from now on, at this place. */
+async function epubToTinct() {
+  const hex = hexOf(state.key);
+  savePlaceNow();
+  store.set('pos:' + state.key, { ...(store.get('pos:' + state.key) || {}), ...currentPlace(), ...epubSpot(), at: Date.now() });
+  epubShare();
+  store.set('epub-view:' + hex, 'text');
+  leavePlace(); stopNarration();
+  await accountCopySent();
+  leftForTinct = true;
+  location.assign('/reader?userBook=' + encodeURIComponent(hex));
+}
+
+/* ---------- The Notebook (js/notebook.js; Anders, 19 Oct 2026) ----------
+   Everything the reader made in this book, from the margin's store (cards:<key>, hl:<key>); nothing of its own.
+   Desktop only (css/notebook.css). Opened from the top bar; updated as the store changes. */
+const nbPlace = e => {
+  if (!isEpub()) return `p. ${pageLabel(e.page)}`;
+  const card = e.source === 'card' ? cardById(e.id) : null, mark = e.source === 'mark' ? highlights().find(m => m.id === e.mark) : null;
+  const n = card?.span?.[0] || e.page, start = card ? card.span?.[1] : mark?.start, p = state.pages[n - 1];
+  if (!p || start == null) return `ch. ${n}`;
+  p.paraStarts ??= epubParas(p).map(el => textOffset(p.pg, el, 0));
+  let i = 0; while (i + 1 < p.paraStarts.length && p.paraStarts[i + 1] <= start) i++;
+  return `ch. ${n} ¶ ${i + 1}`;
+};
+function nbFlash(mark) {
+  const p = state.pages[mark.page - 1]; if (!p) return;
+  if (p.kind === 'epub') { const r = rangeFromOffsets(p.pg, mark.start, mark.end); if (r) flashPlace(p, [...r.getClientRects()]); return }
+  const b = p.pg.getBoundingClientRect();
+  flashPlace(p, (mark.rects || []).map(([x, y, w, h]) => ({ left: b.left + x * b.width, top: b.top + y * b.height, right: b.left + (x + w) * b.width, bottom: b.top + (y + h) * b.height, width: w * b.width, height: h * b.height })));
+}
+/** A card as the margin shows it: Fact-check's answer from its verdict on (P.cleanFactcheck, as its card and its copy). */
+function nbShown(card) {
+  if (card.kind !== 'factcheck' || !MP.P?.cleanFactcheck) return card;
+  let k = 0;
+  return { ...card, turns: (card.turns || []).map(t => (t.role === 'assistant' && k++ === 0 ? { ...t, content: MP.P.cleanFactcheck(t.content) } : t)) };
+}
+/** An entry's passage, brought into view; then its card opens in the margin (a plain highlight flashes). */
+async function nbJump(e) {
+  const card = e.source === 'card' ? cardById(e.id) : null, mark = e.source === 'mark' ? highlights().find(m => m.id === e.mark) : null;
+  if (!card && !mark) return;
+  if (isEpub()) await epubGoOffset(card ? card.span?.[0] || card.page : mark.page, (card ? card.span?.[1] : mark.start) ?? 0);
+  else {
+    const f = card && !card.data?.unit && card.rects?.length ? TinctMargin.firstRect(card) : null;
+    const top = f ? f[2] : mark?.rects?.length ? Math.min(...mark.rects.map(r => r[1])) : 0;
+    goTo({ page: f ? f[0] : (card || mark).page, frac: Math.max(0, top - 0.15) }); onScroll();
+  }
+  await new Promise(r => setTimeout(r, 160));
+  col.view = null;
+  if (card) openCard(card.id);
+  else if (mark.note) openCard('n-' + mark.id);
+  else nbFlash(mark);
+}
+/** Delete an entry as the margin's bin does (deleteCard), its Undo kept by the Notebook. -> restore() */
+function nbRemove(e) {
+  if (e.source === 'card') {
+    deleteCard(e.id);
+    const restore = undo.restore; hideUndo();
+    return restore;
+  }
+  const marks = highlights(), m = marks.find(x => x.id === e.mark); if (!m) return null;
+  const before = JSON.parse(JSON.stringify(m));
+  if (e.kind === 'note' && !m.withNote) { delete m.note; m.u = Date.now(); putHighlights(marks) }
+  else removeHighlight(m.id);
+  renderHighlights(state.pages[m.page - 1]); col.view = null; strip?.marksChanged(); marginLayout({ fresh: true }); announce('Deleted.');
+  return () => {
+    store.set('hl-gone:' + state.key, (store.get('hl-gone:' + state.key) || []).filter(g => g.id !== before.id));
+    putHighlights([...highlights().filter(x => x.id !== before.id), { ...before, u: Date.now() }]);
+    renderHighlights(state.pages[before.page - 1]); col.view = null; strip?.marksChanged(); marginLayout({ fresh: true });
+  };
+}
+if (window.TinctNotebook && $('notebookBtn')) {
+  TinctNotebook.mount({
+    root, button: $('notebookBtn'),
+    data: () => (hasBook() ? { cards: keptCards().map(nbShown), marks: highlights() } : { cards: [], marks: [] }),
+    place: nbPlace, meta: () => ({ title: state.title, author: state.author }),
+    jump: e => { nbJump(e).catch(err => console.error(err)) }, remove: nbRemove, toast,
+  });
+  // Live: a card or highlight written to the store (an answer, a note, the account's copy merged) redraws it.
+  const storeSet = store.set;
+  store.set = (k, v) => { storeSet(k, v); if (state.key && (k === 'cards:' + state.key || k === 'hl:' + state.key)) TinctNotebook.changed() };
+}
 
 /* ---------- Boot ---------- */
 applyLayout();

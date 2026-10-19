@@ -25,6 +25,7 @@
 import { accountBookKey, fetchAccountPlaceSets, listAccountBooks, ownBookToken, putAccountPagePlace, putAccountPlace, type AccountBook, type AccountPagePlace, type AccountPlace, type FetchLike } from './ownAccount'
 import { PDF_PLACE_PREFIX, forgetRemovedOwnBooks, ownReading, ownReadingNow, pdfReading, placePercent, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './ownShelf'
 import { ownBookHref } from './userBookId'
+import { epubViewHere } from './epubView'
 import type { UserBookChapter } from './userEdition'
 import { sendMissingCovers, storedCovers, type CoverCache, type CoverShrinker } from './ownCovers'
 import { keepPdfTextPlace, pdfEditionChoice } from './pdfEditions'
@@ -333,7 +334,7 @@ export function accountOnlyBook(book: AccountBook): OwnShelfBook {
     cover: null,
     storedCover: null,
     at,
-    href: ownBookHref(hex, book.type, book.type === 'pdf' ? pdfEditionChoice(hex) : null),
+    href: ownBookHref(hex, book.type, book.type === 'pdf' ? pdfEditionChoice(hex) : epubViewHere(hex)),
     // A PDF's place: the page read on another device of the account (pullAccountPlaces), if any.
     reading: book.type === 'epub' ? ownReading(hex, null, at) : pdfReading(hex, {}, at),
   }

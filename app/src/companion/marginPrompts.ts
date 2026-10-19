@@ -75,22 +75,25 @@ export const PDF_CONTEXTUAL_LOOKUP_PROMPT = CONTEXTUAL_LOOKUP_PROMPT
   .replace(/^(For a word or other non-person[^\n]*)$/m, `$1\n${DEFINE_EPONYM_LINE}`)
 
 /**
- * `{today}` is filled by the Worker (factcheckPrompt). The doc-first opening (approved by Anders,
- * 15 Oct 2026): the first paragraph is written from the document alone while the source search
- * runs, so it streams at once; the verdict and the sources follow it.
+ * `{today}` is filled by the Worker (factcheckPrompt). Verdict first (Anders, 19 Oct 2026: answers opened on "The
+ * passage claims that …", carried "Sources: none searched yet.", an italic "Note." label and "From general
+ * knowledge," remarks): no restating paragraph, a caveat as one plain sentence near the verdict, no labels, no
+ * remarks on how it was checked or what the claim covers, and the real link list as the only Sources line. The
+ * doc-first opening (15 Oct) is off (marginRoutes.ts FACTCHECK_DOC_FIRST); its two round lines stay below for it.
  */
 export const FACTCHECK_PROMPT_TEMPLATE = [
   'Check whether the passage\'s factual claims still hold today and what has changed since it was written. Today\'s date is {today}.',
-  'First paragraph: one sentence of at most 25 words, from the document alone, that places the claim: what it refers to and where the document states it. It gives no verdict and does not summarise the document\'s support. Then a blank line.',
-  'Then the verdict paragraph: start it with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check. Then give the reason in at most two sentences, with numbers where they decide it.',
-  'State the verdict once: no other paragraph starts with a verdict word or repeats the verdict. At most one more paragraph may follow, starting with Note., for useful context that is not a verdict.',
+  'Start the answer with the verdict: its first words are one of: Holds. Partly holds. Outdated. Disputed. Can\'t check. Then give the reason in at most two sentences, with numbers where they decide it.',
+  'Never restate or summarise the passage or its claim, before or after the verdict: the reader has just read it.',
+  'State the verdict once: no other paragraph starts with a verdict word or repeats the verdict. A real caveat is one plain sentence in the verdict paragraph or the one short paragraph after it, with no label such as "Note." or "Caveat:".',
   'Use Partly holds only when one part of the claim holds and another does not, and name both parts in its reason. After the verdict paragraph never judge the claim again: no "holds", "no longer holds", "outdated" or "disputed" in a later paragraph.',
   'Never treat the document itself as confirmation of its own claims: what it offers in support is the authors\' case, not a check. Base the verdict on the returned sources and well-established knowledge.',
+  'Never write about the check itself: not where your knowledge comes from (no "from general knowledge"), not which sources were or were not searched, and not what the claim is or is not about.',
   'If the passage is opinion or interpretation, check only what is factual in it.',
   'If the passage is fiction, check its references to the real world (people, places, events, history, science). When it has none, the verdict is Can\'t check. with one line saying the passage has nothing outside the story to check. Never open by saying there is no factual claim.',
-  'At most 150 words in all, not counting the Sources: line.',
+  'At most 120 words in all, not counting the Sources: line.',
   'Name each source by its title; never mention the search, a tool, a lookup or its notes, and never say that sources are unavailable.',
-  'Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself. Never invent a source. End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".',
+  'Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself. Never invent a source. End with one final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · "; write no other Sources line, and none at all when you used no source.',
 ].join('\n')
 
 /**
@@ -105,7 +108,7 @@ export const FACTCHECK_VERDICT_ROUND = 'Your first paragraph is written (your pr
  * search is switched off): the same shape, honest about what was not checked.
  * The reader sees "Can't check." where a verdict needs a current source.
  */
-export const FACTCHECK_NO_SEARCH_NOTE = 'No source search is available for this check, so no sources were returned. Do not claim that any source was checked. Give a verdict only where well-established knowledge settles it; use Can\'t check. for anything that needs a current source. End with the line "Sources:" and nothing after it.'
+export const FACTCHECK_NO_SEARCH_NOTE = 'No source search is available for this check, so no sources were returned. Do not claim that any source was checked. Give a verdict only where well-established knowledge settles it; use Can\'t check. for anything that needs a current source. Write no Sources: line.'
 
 export function factcheckPrompt(today: string): string {
   return FACTCHECK_PROMPT_TEMPLATE.replace('{today}', today)

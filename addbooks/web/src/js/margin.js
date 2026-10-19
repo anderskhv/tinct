@@ -247,6 +247,8 @@
     highlight: svg('<path d="M12.3 2.8l2.9 2.9-6.6 6.6-2.9-2.9z"/><path d="M5.7 9.4l-1.2 4 4-1.2M3.4 15.4h3.4"/>'),
     mic: svg('<rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5"/><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5"/>'),
     up: svg('<path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/>'),
+    // Remove highlight on the phone's bar (no room for its words there): the cards' bin.
+    trash: svg('<path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4"/>'),
   };
   // Share as image stays out of the PDF reader for now (the fixture shows it); every other action is in.
   const LATER = { share: true };
@@ -271,10 +273,18 @@
     return colors.map(([k, label, , dot]) => `<button type="button" class="mr-swatch" data-color="${esc(k)}" style="background:${esc(dot)}" aria-label="${esc(label)}" aria-pressed="${k === current}"></button>`).join('');
   }
   /**
-   * The bar. state: 'menu' | 'colors' | 'asking'. opts: { colors, current, phone, all (show the 1b
-   * actions, fixture only), moreOpen, noted, question }.
+   * The bar. state: 'menu' | 'colors' | 'asking' | 'existing'. opts: { colors, current, phone, all (show the 1b
+   * actions, fixture only), moreOpen, noted, question }. 'existing' is a highlight clicked (Anders, 19 Oct 2026): Ask
+   * and Explain, its colours, its note, and Remove highlight (on the phone, the bin with that name).
    */
   function barHtml(state, o) {
+    if (state === 'existing') {
+      const sep = '<span class="mr-bar__sep" aria-hidden="true"></span>';
+      return `<button type="button" class="mr-bar__item is-text" data-m="ask">Ask</button>${sep}<button type="button" class="mr-bar__item is-text" data-m="explain">Explain</button>${sep}`
+        + swatchesHtml(o.colors, o.current) + sep
+        + `<button type="button" class="mr-bar__item" data-m="note" aria-label="${o.noted ? 'Edit note' : 'Add note'}">${ICONS.note}</button>`
+        + (o.phone ? `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight">${ICONS.trash}</button>` : `<button type="button" class="mr-bar__item is-text" data-m="remove">Remove highlight</button>`);
+    }
     if (state === 'asking') {
       return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" aria-label="Ask about this passage">${esc(o.question || '')}</textarea></label>`
         + `<button type="button" class="mr-bar__item is-mic" data-m="mic" aria-label="Dictate" aria-pressed="false">${ICONS.mic}</button>`
@@ -507,9 +517,24 @@
     const out = [];
     // A unit's quiz (Quiz me on this chapter, from the primer) has no passage: it sits at the column's top instead.
     for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit && (cardAnswered(c) || (c.at || 0) >= since)) out.push(c);
-    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at });
+    // A note in the margin (a click on the empty column) or a unit's own note (its end's Note) has no passage: its one
+    // box has no size (noteSpot). It is "free": no underline, no leader line, its field always editable.
+    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) { const spot = noteSpot(m); out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at, ...(spot ? { free: true, ...(spot.unit ? { unitNote: true } : {}) } : {}) }) }
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
   }
+  /**
+   * A note with no passage (Anders, 19 Oct 2026, evening): a margin note, kept as a highlight record whose one box has
+   * no size, [x, y, 0, 0], at the height it was written (x 1: the page's right edge, y its height on the page), or a
+   * unit's own note (the Note pill at its end), whose box is [2, 1, 0, 0] on the unit's last page. Both sync as every
+   * note does (the account keeps a highlight's boxes as they are). -> { y, unit } | null
+   */
+  function noteSpot(m) {
+    const r = m?.rects;
+    if (!Array.isArray(r) || r.length !== 1 || !Array.isArray(r[0]) || r[0][2] !== 0 || r[0][3] !== 0) return null;
+    return { y: Number(r[0][1]) || 0, unit: r[0][0] === 2 };
+  }
+  /** The box a margin note keeps: at `y` (a fraction of its page's height); a unit's note: its last page's foot. */
+  const noteBox = (y, { unit = false } = {}) => (unit ? [2, 1, 0, 0] : [1, Math.round(Math.max(0, Math.min(1, y)) * 10000) / 10000, 0, 0]);
   /**
    * Deleting a card (Anders, 15 Oct): what goes. A card becomes a tombstone (synced as every card's
    * removal). A note's card is its highlight's note: the note goes, and the highlight with it when the
@@ -588,25 +613,21 @@
     return `<p><span class="is-bottom-line">${inlineHtml(lead, P, resolve)}</span>${tail ? ' ' + inlineHtml(tail, P, resolve) : ''}</p>` + blocks.slice(1).map(b => blockHtml(b, P, resolve)).join('');
   }
   /**
-   * Fact-check: the opening (what the passage claims and what the document offers, streamed while
-   * the search runs) in plain text, then the verdict line as the bottom line, one paragraph per
-   * claim or note with its word in italic, the sources as plain links. `live`: still streaming, so
-   * text with no verdict yet is the opening, never bolded as one.
+   * Fact-check (Anders, 19 Oct 2026): the verdict line first, as the bottom line; then the one plain caveat or reason
+   * paragraph, any further claim with its verdict word in italic; the sources as plain links. Nothing before the
+   * verdict is shown (the restating opening, a first round's text before the search: P.cleanFactcheck drops them),
+   * and while it streams, words that are not yet a verdict wait (the card's dots show meanwhile). An answer kept
+   * before 19 Oct is cleaned the same way when it is drawn.
    */
   function factcheckHtml(text, P, { resolve = null, live = false } = {}) {
-    const f = P.parseFactcheck(text);
-    const opening = f.opening || [];
-    if (live && !f.verdict && !opening.length) {
-      const blocks = blocksOf(text).filter(b => !/^\s*[*_]{0,2}sources[*_]{0,2}\s*:/i.test(b));
-      return { answer: blocks.length ? `<div class="mr-answer mr-opening">${blocks.map(b => `<p>${inlineHtml(b.trim(), P, resolve)}</p>`).join('')}</div>` : '', sources: '' };
-    }
-    if (!f.lead && !opening.length) return { answer: '', sources: '' };
-    const open = opening.length ? `<div class="mr-answer mr-opening">${opening.map(b => `<p>${inlineHtml(b, P, resolve)}</p>`).join('')}</div>` : '';
-    const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
+    const f = P.parseFactcheck(P.cleanFactcheck ? P.cleanFactcheck(text) : text);
+    if (live && !f.verdict) return { answer: '', sources: '' };
+    if (!f.lead) return { answer: '', sources: '' };
+    const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict && c.verdict !== P.NOTE ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
     // The sources as a labelled row of links (night run final, 16 Oct: the bare titles read as a raw tail), their titles tidied (sourceTitle).
     const sources = f.sources.length ? `<div class="mr-sources"><span class="mr-sources__label">Sources</span>${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
-    const verdict = f.lead ? `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>` : '';
-    return { answer: open + verdict + claims, sources };
+    const verdict = `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>`;
+    return { answer: verdict + claims, sources };
   }
   /**
    * An answer as a card shows it: never a sentence about the passage picture (full battery on train 3), except in a
@@ -636,11 +657,23 @@
     const answer = (card.turns || []).find(t => t.role === 'assistant');
     // Related, folded: its bottom line (the label says how many places).
     if (card.kind === 'related' && answer && P.parseRelated) return plain(P.parseRelated(answer.content).lead);
-    // Fact-check, folded: its verdict line (the opening before it is context).
-    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
+    // Fact-check, folded: its verdict line and what follows it (nothing before the verdict; 19 Oct 2026).
+    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(P.cleanFactcheck ? P.cleanFactcheck(answer.content) : answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     if (card.kind === 'simplify' && answer && P.simplifyAnswer) { const s = P.simplifyAnswer(answer.content, card.text); return s.unchanged ? SIMPLIFY_UNCHANGED : plain(s.text) }
     return plain(cleanAnswer(card.kind, answer?.content || '', P));
+  }
+  /**
+   * A unit's pills (Anders, 19 Oct 2026, evening; the wide column), as the book reader's chapter pills look and behave
+   * (src/lab/LabChapterEnd.tsx, LabChapterHeading.tsx): at its start Primer (Before you start) and Catch me up; at its
+   * end Recap, Quiz me and Note (the reader's own note on it). The companion's carry its mark (✧); the note does not.
+   * Each opens a margin card. o: { unit (its key), name (its phrase, for screen readers), open (the open pill's id) }.
+   */
+  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Recap', quiz: 'Quiz me', note: 'Note' };
+  const PILL_SETS = { start: ['primer', 'catchup'], end: ['recap', 'quiz', 'note'] };
+  function pillsHtml(where, o = {}) {
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    return PILL_SETS[where].map(id => `<button type="button" class="mr-pill${id === 'note' ? ' is-note' : ''}" data-pill="${id}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}><span>${id === 'note' ? '' : '<span class="mr-pill__mark" aria-hidden="true">✧</span>'}${PILLS[id]}</span></button>`).join('');
   }
   /** What a Simplify card says when the answer was only the passage again. */
   const SIMPLIFY_UNCHANGED = 'This passage is already in plain words.';
@@ -670,7 +703,7 @@
     if (card.kind === 'whole') return wholeName(doc);
     if (card.kind === 'note') return KINDS.note;
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
-    if (card.data?.unit) return `${KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
+    if (card.data?.unit) return `${PILLS[card.data.pill] || KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
     // A figure's card: its caption's own label ("Figure 2 · p. 3"), else what it is.
     if (card.kind === 'figure') return `${card.data?.label || KINDS[card.data?.region] || KINDS.figure}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
     return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
@@ -779,6 +812,11 @@
     // say what the card is about. Screen readers get it as the card's description (reader.js: aria-describedby).
     // A figure's card keeps its caption, which is what the figure says, not a quote.
     let body = thumb + (card.text && card.kind === 'figure' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : card.text && card.kind !== 'define' ? `<span class="mr-card__about" hidden>${esc(cut(card.text))}</span>` : '');
+    // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
+    if (card.kind === 'note' && card.free) {
+      const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
+      return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button>${card.draft ? '' : deleteHtml(card)}</div></div>`;
+    }
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
@@ -786,7 +824,7 @@
         ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${P ? inlineHtml(q.inText, P, o.resolve) : esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
         : senses.length
           ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
-          : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
+          : q.line ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line)}</span></p></div>` : '';
     }
     const turns = [...(card.turns || [])];
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
@@ -1483,7 +1521,7 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
+  const html = { esc, cut, ICONS, LATER, pillsHtml, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

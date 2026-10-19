@@ -5,6 +5,12 @@
  * provider call is mocked; nothing reaches Anthropic or OpenAI.
  */
 import { afterEach, describe, expect, it, vi } from 'vitest'
+// Fact-check's doc-first opening is off since 19 Oct 2026 (marginRoutes.ts FACTCHECK_DOC_FIRST): this file's cases test
+// the opening with its switch on, as it ran from 15 to 19 Oct (worker.marginFactcheck19Oct.test.ts covers the default).
+vi.mock('./companion/marginRoutes', async importOriginal => {
+  const real = await importOriginal<typeof import('./companion/marginRoutes')>()
+  return { ...real, factcheckDocFirst: () => true }
+})
 import { COMPANION_MODEL } from './companionModel'
 import {
   COMPANION_INTENT_EFFORT,
@@ -281,8 +287,9 @@ describe('the prompts the Worker builds', () => {
     const searched = buildCompanionSystem(request, { today: '2026-10-14', sourceSearch: true })
     expect(searched).toContain("Check whether the passage's factual claims still hold today and what has changed since it was written. Today's date is 2026-10-14.")
     expect(searched).toContain('Never treat the document itself as confirmation of its own claims')
-    expect(searched).toContain('Then the verdict paragraph: start it with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
-    expect(searched).toContain('End with a final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · ".')
+    // Verdict first since 19 Oct 2026.
+    expect(searched).toContain('Start the answer with the verdict: its first words are one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
+    expect(searched).toContain('End with one final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · "; write no other Sources line, and none at all when you used no source.')
     expect(searched).not.toContain('{today}')
     expect(searched).not.toContain(FACTCHECK_NO_SEARCH_NOTE)
     expect(buildCompanionSystem(request, { today: '2026-10-14', sourceSearch: false })).toContain(FACTCHECK_NO_SEARCH_NOTE)

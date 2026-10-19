@@ -155,8 +155,33 @@ describe('where an own book opens', () => {
       [unknown]: `/lab/addbook/?userBook=${unknown}`,
       [switched]: `/lab/addbook/?userBook=${switched}`,
       [chosen]: `/reader?userBook=${chosen}`,
-      [HEX]: `/reader?userBook=${HEX}`,
+      // An EPUB on the desktop (19 Oct 2026, epubView.ts): Add a book's margin reader.
+      [HEX]: `/lab/addbook/?userBook=${HEX}`,
     })
+  })
+
+  // Anders, 19 Oct 2026: EPUBs open in the margin reader on the desktop; phones keep the Tinct reader; the reader's own choice on this device wins.
+  it('opens an EPUB in Margin view on the desktop, in the Tinct reader on a phone or when chosen on this device', async () => {
+    const [plain, converted, back] = ['e1', 'e2', 'e3'].map(p => p.repeat(12))
+    const epub = (hex: string) => ({ key: `epub:${hex}`, kind: 'epub', owner: 'me', name: `${hex}.epub`, openedAt: 1 })
+    withRecords([epub(plain), epub(converted), epub(back)])
+    localStorage.setItem(`tinct-addbook:epub-view:${converted}`, JSON.stringify('text'))
+    localStorage.setItem(`tinct-addbook:epub-view:${back}`, JSON.stringify('margin'))
+    const width = window.innerWidth
+    try {
+      Object.defineProperty(window, 'innerWidth', { configurable: true, value: 1440 })
+      expect(Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))).toEqual({
+        [plain]: `/lab/addbook/?userBook=${plain}`,
+        [converted]: `/reader?userBook=${converted}`,
+        [back]: `/lab/addbook/?userBook=${back}`,
+      })
+      Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
+      expect(Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))).toEqual({
+        [plain]: `/reader?userBook=${plain}`,
+        [converted]: `/reader?userBook=${converted}`,
+        [back]: `/reader?userBook=${back}`,
+      })
+    } finally { Object.defineProperty(window, 'innerWidth', { configurable: true, value: width }) }
   })
 
   it('a PDF not yet opened here under the desktop rule of 16 Oct 2026 opens in the viewer, which tells its edition: Tinct text by the old default or by a place nobody chose', async () => {

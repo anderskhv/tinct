@@ -11,6 +11,8 @@ vi.mock('./companion/marginRoutes', async importOriginal => {
     ...real,
     MARGIN_ROUTES: Object.freeze({ ...real.MARGIN_ROUTES, quiz: real.quizRoute(true) }),
     factcheckVerdictEffort: () => real.factcheckVerdictEffort('low'),
+    // The verdict round after the doc-first opening (the opening's switch on; off by default since 19 Oct 2026).
+    factcheckDocFirst: () => true,
   }
 })
 

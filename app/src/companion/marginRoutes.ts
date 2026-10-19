@@ -105,7 +105,18 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
 })
 
 /**
- * Fact-check's opening (the doc-first opening, approved 15 Oct 2026): the first paragraph, written
+ * Fact-check's doc-first opening, OFF since 19 Oct 2026 (Anders: the answers opened on "The passage claims that …" and
+ * carried a first round's "Sources: none searched yet."): the verdict comes first, written once the source search is
+ * back, so no text reaches the reader before the search. On (true), the opening round below runs again.
+ */
+export const FACTCHECK_DOC_FIRST = false
+/** Whether Fact-check streams its doc-first opening (the switch above, unless a test passes its own). */
+export function factcheckDocFirst(setting: boolean = FACTCHECK_DOC_FIRST): boolean {
+  return setting
+}
+
+/**
+ * Fact-check's opening (the doc-first opening, approved 15 Oct 2026; off, FACTCHECK_DOC_FIRST): the first paragraph, written
  * from the cached document while the source search runs. No tools and no thinking, so its words
  * start at lookup speed; the verdict round after it keeps MARGIN_ROUTES.factcheck.
  */

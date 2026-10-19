@@ -12,6 +12,7 @@
 import { ADD_BOOK_IDB_NAME } from '../../services/storage'
 import { chapterProgress, conciseChapterLabel, positionLine } from '../../preReader/recapPosition'
 import { ownBookHref, userBookId } from './userBookId'
+import { epubViewHere } from './epubView'
 import { pdfEditionChoice } from './pdfEditions'
 import type { UserBookChapter } from './userEdition'
 
@@ -211,8 +212,8 @@ function summarize(record: StoredRecord): OwnShelfBook | null {
     key, kind, hex, title, author,
     cover: typeof record.cover === 'string' && COVER_RE.test(record.cover) ? record.cover : null,
     at,
-    // A PDF opens in the edition it is read in (pdfEditions.ts): its Tinct text or its pages.
-    href: ownBookHref(hex, kind, kind === 'pdf' ? pdfEditionChoice(hex, String(record.layout?.default ?? record.scan?.layout?.default ?? '') || null) : null),
+    // A PDF opens in the edition it is read in (pdfEditions.ts): its Tinct text or its pages; an EPUB in its view on this device (epubView.ts).
+    href: ownBookHref(hex, kind, kind === 'pdf' ? pdfEditionChoice(hex, String(record.layout?.default ?? record.scan?.layout?.default ?? '') || null) : epubViewHere(hex)),
     reading: kind === 'epub' ? ownReading(hex, chapters, at) : pdfReading(hex, record, at),
     ...(kind === 'pdf' && record.scan?.textPages === 0 && record.edition?.source !== 'ocr' ? { scan: true as const } : {}),
   }

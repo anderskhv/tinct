@@ -2,7 +2,7 @@
 // Tinct · Add a book: the reader's layouts (the Aa panel, Anders, 15 Oct 2026). A PDF reads in
 // Margin view (the margin column, its marks or the phone's bottom card) or in Focus view (the page
 // in the middle, no column; Explain, Ask and the chat open in a pop-up window, as in the book
-// reader). An EPUB has no margin yet, so it has no layout to choose. The choice is this device's
+// reader). An EPUB reads in Margin view on the desktop (epubView), or in the Tinct reader. The choice is this device's
 // (the reader's prefs, tinct-addbook:prefs). No DOM and no network here, so every rule has a unit
 // test (src/addbookLayout.test.ts). Loaded before reader.js as window.TinctReaderLayout.
 (function (root, factory) {
@@ -37,7 +37,9 @@
    * the current one here). An EPUB: none (it has one way to read here; no Two page or Compare yet).
    * -> [{ id, label, on, leaves? }]
    */
-  function options(kind, { layout = DEFAULT, hasText = false, tinctText = TINCT_TEXT } = {}) {
+  function options(kind, { layout = DEFAULT, hasText = false, tinctText = TINCT_TEXT, epubMargin = false } = {}) {
+    // An EPUB read here in Margin view (the desktop, epubView): that view, and Convert to Tinct book (the Tinct reader).
+    if (kind === 'epub' && epubMargin) return [{ id: 'margin', label: LAYOUTS.margin, on: true }, { id: 'text', label: 'Convert to Tinct book', on: false, leaves: true }];
     if (kind !== 'pdf') return [];
     const out = Object.entries(LAYOUTS).map(([id, label]) => ({ id, label, on: id === layout }));
     if (hasText && tinctText === 'layout') out.push({ id: 'text', label: 'Convert to Tinct book', on: false, leaves: true });
@@ -309,5 +311,38 @@
     if (stored !== 'text' && stored !== 'pages') return null;
     return (auto && auto.edition === stored) || (desk && desk.edition === stored) ? null : stored;
   }
-  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
+  /**
+   * Where an EPUB opens (Anders, 19 Oct 2026): on the desktop, here, in Margin view (its text flowing, with
+   * the margin's cards and the Notebook), unless the reader chose the Tinct reader on this device ("Convert to
+   * Tinct book"; `own`: 'text'), or chose Margin view back from there ('margin'). Phones keep the Tinct reader,
+   * as before 19 Oct. `own` is this device's choice (tinct-addbook:epub-view:<hex>), never the account's.
+   * The same rule as app/src/lab/userBook/epubView.ts. -> 'margin' | 'text'
+   */
+  function epubView({ phone = false, own = null } = {}) {
+    if (phone) return 'text';
+    return own === 'text' ? 'text' : 'margin';
+  }
+  /** Words compared loosely: letters and figures only, lower case, accents and punctuation dropped. */
+  const quoteKey = text => String(text || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  /**
+   * Where some words stand in a book (the place crossing between an EPUB read here and its Tinct text, whose
+   * paragraphs are cut by another reader of the file): `chapters` is a list of chapters, each a list of
+   * paragraph texts. The first paragraph holding the words' first 60 letters, else their first 30, else 16
+   * (whole words); `word` is the index of the word they start at. -> { chapter, para, word } (0-based) | null
+   */
+  function findQuote(chapters, quote) {
+    const q = quoteKey(quote); if (q.length < 6) return null;
+    const keys = (chapters || []).map(list => (list || []).map(quoteKey));
+    for (const size of [60, 30, 16]) {
+      if (q.length < size && size !== 16) continue;
+      const cut = q.length <= size ? q : q.slice(0, q.lastIndexOf(' ', size) > 5 ? q.lastIndexOf(' ', size) : size);
+      for (let c = 0; c < keys.length; c++) for (let p = 0; p < keys[c].length; p++) {
+        const k = keys[c][p], at = (' ' + k).indexOf(' ' + cut);
+        if (at < 0) continue;
+        return { chapter: c, para: p, word: at === 0 ? 0 : k.slice(0, at).split(' ').filter(Boolean).length };
+      }
+    }
+    return null;
+  }
+  return { epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
 });

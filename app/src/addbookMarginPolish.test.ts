@@ -277,8 +277,10 @@ describe('7. Before you start opens in place', () => {
   it('without a trigger (B on another page) it opens where it always did', () => {
     expect(M.primerBox(null, 800)).toEqual({ start: null, top: 16, height: 800 - 70 - 16 })
   })
-  it('in the column it is part of the page (19 Oct 2026): in its trigger\'s place at its unit\'s first page, growing in place, no easing or scrolling of its own', () => {
-    expect(reader).toContain('items.push({ el, ey, top: ey - 4, order: -1 });')
+  // Since 19 Oct 2026, evening (item 1) its trigger on the wide column is its unit's Primer pill: it opens under the pills.
+  it('in the column it is part of the page (19 Oct 2026): under its unit\'s pills at its first page, growing in place, no easing or scrolling of its own', () => {
+    expect(reader).toContain('items.push({ el: row, ey, top: ey - 4, order: -1 });')
+    expect(reader).toContain('items.push({ el, ey, top: ey, order: -0.9 });')
     expect(reader).not.toMatch(/is-growing|is-opening|primerInColumn/)
     expect(css).not.toMatch(/\.mr-primer\.is-(?:opening|growing)/)
     expect(css).toContain('.mr-col.mr-doc .mr-primer { position: absolute; left: 0; right: 0; bottom: auto; height: auto; overflow: visible; }')

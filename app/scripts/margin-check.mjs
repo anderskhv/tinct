@@ -71,6 +71,28 @@
 //                                                     a one-sentence answer in regular weight; the follow-up field visible
 //                                                     unfocused (border, placeholder), mic and send inside it, send by
 //                                                     Enter or the button
+//   node scripts/margin-check.mjs pause-dots        19 Oct, evening (11): the dots below an answer that pauses (Counterpoint, a
+//                                                     follow-up), gone when more comes or on an error; focus rings for keys only
+//   node scripts/margin-check.mjs passage-mark      19 Oct, evening (10): the underline under each line's baseline, tints that never
+//                                                     cover a neighbour's words (also at leading 1.05), the Aa panel's Passage mark
+//   node scripts/margin-check.mjs stray-menu        19 Oct, evening (4): the bar only after a deliberate selection (drag, keys, a
+//                                                     highlight), never for one set by code, restored on refocus or left as a card folds
+//   node scripts/margin-check.mjs whole-words       19 Oct, evening (8): a split first word ("S" | "ection") selected, quoted and
+//                                                     highlighted whole; an old highlight from "ection" re-snapped only when safe
+//   node scripts/margin-check.mjs primer-top        19 Oct, evening (9): Before you start and the start pills at the top of page 1,
+//                                                     also when page 1 is a picture cover without text
+//   node scripts/margin-check.mjs define-card       19 Oct, evening (7): Define on the wide column as an open margin card only (no
+//                                                     pop-over); narrow windows and the phone keep the pop-over
+//   node scripts/margin-check.mjs figure-chip       19 Oct, evening (5): the figure chip in the bar's dark style: Ask, Explain,
+//                                                     Highlight, Copy; Ask opens the figure's card
+//   node scripts/margin-check.mjs highlight-bar     19 Oct, evening (2): a highlight clicked opens the dark bar: Ask, Explain, its
+//                                                     colours, its note, Remove highlight; recolour, Explain, remove
+//   node scripts/margin-check.mjs zoom-panel        19 Oct, evening (6): a PDF's Aa Zoom (−, %, +, Fit width), the page never past
+//                                                     its room; no Full width; phones and Tinct text keep the slider
+//   node scripts/margin-check.mjs margin-notes      19 Oct, evening (3): a note from a click on the empty margin, at that height;
+//                                                     fold first; empty goes; kept, synced, reloaded; Ask makes it a chat
+//   node scripts/margin-check.mjs unit-pills        19 Oct, evening (1): each unit's pills on the wide column (Primer, Catch me up;
+//                                                     Recap, Quiz me, Note), their cards; a file without units; phones unchanged
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -97,7 +119,7 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook, makePdf, figurePaper, longBook, marginPaper, justifiedPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf, prose, figurePaper, longBook, marginPaper, justifiedPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 // FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
@@ -125,9 +147,9 @@ export const SELECTORS = {
   menu: '.mr-more, .mr-pmore, .mr-define, .mr-note',
   // PR 3: the primer's trigger and the primer are blocks of the column, as cards are (no overlap, never off screen).
   // Since 15 Oct the "Deleted · Undo" line keeps a deleted card's place in the column: a block, as the cards are.
-  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer, .mr-col .mr-undo',
+  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer, .mr-col .mr-undo, .mr-col .mr-pills',
   text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *, .mr-trigger',
-  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
+  tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-pill, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
 }
 // A long answer scrolls inside its open card (BRIEF.md, "A 600-word answer": the card scrolls, its
 // label and follow-up line stay). Lines scrolled out of that body are not cut off by a container
@@ -149,7 +171,7 @@ const asideOutOfView = () => {
   const sr = s.getBoundingClientRect(), top = Math.max(sr.top, document.getElementById('hdr')?.getBoundingClientRect().bottom || 0)
   const chat = document.querySelector('.mr-col:not(.mr-doc) .mr-card.is-whole.is-open')?.getBoundingClientRect()
   let n = 0
-  for (const el of document.querySelectorAll('.mr-doc > .mr-card, .mr-doc > .mr-trigger, .mr-doc > .mr-primer, .mr-doc > .mr-undo')) {
+  for (const el of document.querySelectorAll('.mr-doc > .mr-card, .mr-doc > .mr-trigger, .mr-doc > .mr-pills, .mr-doc > .mr-primer, .mr-doc > .mr-undo')) {
     const r = el.getBoundingClientRect()
     const under = chat && Math.min(r.bottom, chat.bottom) - Math.max(r.top, chat.top) > 0
     if (r.top < top - 0.5 || r.bottom > sr.bottom + 0.5 || under) { el.dataset.mcAside = el.style.visibility; el.style.visibility = 'hidden'; n++ }
@@ -238,8 +260,9 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
 // unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
 export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null, stall: false }
-/** The mocked Fact-check's opening, streamed before "Checking sources…" as the Worker streams it while the search runs. */
-export const FACTCHECK_OPENING = 'MOCK opening: the passage claims what it says, and the document offers its own table {p. 1}.'
+/** The mocked Fact-check's text before its search, streamed before "Checking sources…" as the doc-first Worker streamed it
+    (off since 19 Oct 2026): a restating opening and a first round's Sources line, which the card never shows. */
+export const FACTCHECK_OPENING = 'The passage claims that MOCK opening restates what it says {p. 1}.\n\nSources: none searched yet.'
 function mockText(body) {
   const c = body?.companion || {}, intent = c.intent
   if (mock.nextFor[intent] != null) { const t = mock.nextFor[intent]; delete mock.nextFor[intent]; return t }
@@ -257,8 +280,9 @@ function mockText(body) {
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
     : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
-  // Fact-check, doc-first (15 Oct): the opening from the document, then the verdict once, a note and the sources.
-  if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage.\n\nNote. Useful context that is not a verdict.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
+  // Fact-check as a model answered on 19 Oct 2026 (Anders): a restating opening and a first round's Sources line before the
+  // verdict, "From general knowledge," and an italic "Note." label; the card shows the verdict first, a plain caveat, the links.
+  if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage. From general knowledge, the figure still stands.\n\n*Note.* MOCK caveat in one plain sentence. The claim is about apes today.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
 }
 async function mockChat(body, res) {
@@ -426,12 +450,16 @@ async function selectText(page, { oneWord = false, near = 'middle' } = {}) {
       return r.top > 120 && r.bottom < innerHeight - 140 && r.left > 0 && r.right < innerWidth && (oneWord ? /(?<=^|\s)[a-z]{5,}(?=[\s,.;:]|$)/ : /[A-Za-z]{5,}/).test(t) && t.trim().split(/\s+/).length >= (oneWord ? 1 : 4)
     })
     if (!spans.length) return null
+    // The pointer goes down on the page (19 Oct 2026, item 4: a selection opens the bar only as a gesture ends).
+    document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); 
     const span = near === 'top' ? spans[0] : near === 'bottom' ? spans[spans.length - 1] : spans[Math.floor(spans.length / 2)]
     const node = span.firstChild, t = node.textContent
     let a, b
     if (oneWord) { const m = /(?<=^|\s)[a-z]{5,}(?=[\s,.;:]|$)/.exec(t) || /[A-Za-z]{5,}/.exec(t); a = m.index; b = a + m[0].length }
-    else { const next = spans[spans.indexOf(span) + 1]; if (next && next.firstChild) { getSelection().setBaseAndExtent(node, 0, next.firstChild, next.firstChild.textContent.length); return getSelection().toString() } a = 0; b = t.length }
+    else { const next = spans[spans.indexOf(span) + 1]; if (next && next.firstChild) { getSelection().setBaseAndExtent(node, 0, next.firstChild, next.firstChild.textContent.length); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' })); return getSelection().toString() } a = 0; b = t.length }
     getSelection().setBaseAndExtent(node, a, node, b)
+    // The pointer let go (19 Oct 2026, item 4): the bar opens only after a deliberate selection, never one set by code alone.
+    document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
     return getSelection().toString()
   }, { oneWord, near })
 }
@@ -484,7 +512,8 @@ async function readerMatrix(browser, origin) {
         await page.mouse.click(5, height - 5)
         // Define.
         if (!await pick({ oneWord: true })) throw new Error('no word to select')
-        await check('define', '.mr-define .mr-define__senses, .mr-define .mr-define__body p:not(.mr-define__wait)')
+        // On the wide column Define is a card (19 Oct 2026, evening); elsewhere its pop-over.
+        await check('define', '.mr-define .mr-define__senses, .mr-define .mr-define__body p:not(.mr-define__wait), .mr-doc .mr-card.is-open .mr-answer')
       } catch (e) { found.push({ state: 'run', kind: 'error', el: String(e.message || e) }) }
       rows.push({ pdf: label, viewport: `${width}×${height}`, look, problems: found.length + problems.length, details: [...found, ...problems], screenshots: states })
       const all = [...found, ...problems]
@@ -613,8 +642,8 @@ async function behaviour(browser, origin) {
       await a.waitForTimeout(700)
       const during = await a.innerText('.mr-card.is-open')
       ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
-      // Doc-first (15 Oct): the opening from the document is already there, above the status, and no verdict yet.
-      ok('Fact-check: the opening from the document shows while the search runs, above "Checking sources…", before any verdict', during.indexOf('MOCK opening') > -1 && during.indexOf('MOCK opening') < during.indexOf('Checking sources…') && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')), during)
+      // 19 Oct 2026: nothing before the verdict reaches the card (no restating opening, no first round's Sources line); the dots wait below the status.
+      ok('12. Fact-check: while the search runs only "Checking sources…" and the waiting dots show; no text from before the search, no verdict yet', !/MOCK opening|none searched/.test(during) && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')) && !!(await a.$('.mr-card.is-open .tc-wait')), { during, dots: !!(await a.$('.mr-card.is-open .tc-wait')) })
     }
     await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
@@ -635,10 +664,11 @@ async function behaviour(browser, origin) {
     }
     await fresh(a)
   }
-  const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ verdict: getComputedStyle(document.querySelector('.mr-card.is-open .mr-verdict')).fontStyle, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize })))
-  ok('Fact-check: verdict words in italic, the sources as plain links in 12px', fcText.verdict === 'italic' && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px', fcText)
-  const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { opening: t.indexOf('MOCK opening'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length, tag: !!c.querySelector('.mr-opening .mr-cite') } })
-  ok('Fact-check: the opening first, then the verdict once as the bottom line, then the sources; the opening\'s tag is a tag', fcOrder.opening > -1 && fcOrder.opening < fcOrder.verdict && fcOrder.verdict < fcOrder.sources && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1 && fcOrder.tag, fcOrder)
+  const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ labels: document.querySelectorAll('.mr-card.is-open .mr-verdict').length, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize, sourceRows: document.querySelectorAll('.mr-card.is-open .mr-sources').length })))
+  ok('12. Fact-check: no "Note." label; the only sources are the real links, as plain links in 12px', fcText.labels === 0 && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px' && fcText.sourceRows === 1, fcText)
+  const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { text: t, first: c.querySelector('.mr-answer')?.innerText.trim(), opening: /MOCK opening|passage claims|none searched/i.test(t), meta: /general knowledge|claim is about|Note\./i.test(t), caveat: t.indexOf('MOCK caveat in one plain sentence.'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length } })
+  ok('12. Fact-check: the verdict first as the bottom line, then the caveat as a plain sentence, then the sources; no restating opening, no remarks on the check', !fcOrder.opening && !fcOrder.meta && fcOrder.verdict === 0 && fcOrder.first.startsWith('Holds. MOCK verdict line for the passage.') && fcOrder.text.indexOf('The figure still stands.') > fcOrder.verdict && fcOrder.text.indexOf('The figure still stands.') < fcOrder.caveat && fcOrder.caveat > fcOrder.verdict && fcOrder.sources > fcOrder.caveat && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1, fcOrder)
+  await shot(a, 'factcheck-card-1440x900')
   // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
   await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
   ok('Quiz me shows "1 of 3" and the question at 18px', (await a.innerText('.mr-card.is-open .mr-card__count')) === '1 of 3' && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .mr-question')).fontSize)) === '18px')
@@ -746,7 +776,7 @@ async function behaviour(browser, origin) {
   const whole = account.requests.slice(w0).find(r => /What is this about\?/.test(JSON.stringify(r.body.messages)))
   const pageCount = await a.evaluate(() => state.pages.length)
   ok('"/" sends the whole-file question: scope "whole" with every page of the PDF (the whole document, PR A), never the page alone', whole?.body?.companion?.scope === 'whole' && whole.body.companion.document?.units?.length === pageCount && !/say when something is not on these pages/.test(JSON.stringify(whole.body.messages)), { scope: whole?.body?.companion?.scope, units: whole?.body?.companion?.document?.units?.length, pageCount })
-  ok('"/" asks about the whole PDF; the answer opens in the Chat card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Chat') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
+  ok('"/" asks about the whole PDF; the answer opens in the Chat card at the top of the column (first; the primer\'s trigger, when it shows, follows in its place)', whole?.body?.companion?.context?.kind === 'pdf' && (await a.innerText('.mr-col .mr-card.is-whole .mr-card__label')).startsWith('Chat') && (await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); const w = document.querySelector('.mr-col .mr-card.is-whole'); return w.offsetTop === 0 && (!t || t.parentElement !== w.parentElement /* open Chat is its own panel (19 Oct): the trigger stays at its page */ || t.offsetTop >= w.offsetTop + w.offsetHeight + TinctMargin.COL.cardGap - 0.5) })))
   await fresh(a)
   // Reopened, the Whole PDF card shows its earlier conversation at once (the same task, no frame later).
   await a.evaluate(() => { openCard(null) }); await a.waitForTimeout(300)
@@ -832,7 +862,9 @@ async function behaviour(browser, origin) {
   ok('the dictionary is kept for offline use', await a.evaluate(() => TinctDictionary.warm()))
   await A.ctx.setOffline(true)
   await a.reload().catch(() => {})
-  const C = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' }).catch(() => null)
+  // Define's pop-over is a narrow window's (and the phone's) since 19 Oct 2026, evening: the wide column shows a card
+  // instead (define-card). These checks of the pop-over and the lookups run at 1024×768.
+  const C = await readerPage(browser, origin, hex, { width: 1024, height: 768, look: 'paper' }).catch(() => null)
   if (C) {
     await C.page.evaluate(() => { goTo({ page: 3, frac: 0 }); return TinctDictionary.warm() }); await C.page.waitForTimeout(800); await C.ctx.setOffline(true)
     // A word the dictionary has (the page's first few words may be ones it leaves out, such as "which").
@@ -938,13 +970,15 @@ async function behaviour(browser, origin) {
   if (!process.env.NO_SHOTS) await Ph.page.screenshot({ path: join(OUT, 'prc-phone-title-390x844.png'), clip: { x: 0, y: 0, width: 390, height: 120 } })
   ok('phone: no page errors', !Ph.problems.length, Ph.problems)
   await Ph.ctx.close()
-  // EPUB_MARGIN is off: an EPUB read here behaves as before (the selection popup, no margin).
-  {
-    const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
+  // EPUB_MARGIN (19 Oct 2026, Anders: EPUBs in Margin view on the desktop): at a desktop's width an EPUB read here has the
+  // margin (its bar, no popup); at a phone's width (where phones read EPUBs in the Tinct reader) it behaves as before.
+  for (const [width, height, on] of [[1440, 900, true], [390, 844, false]]) {
+    const E = await openEpubHere(browser, origin, { width, height, look: 'paper', margin: false })
     await E.page.evaluate(() => goTo({ page: 3, frac: 0.02 })); await E.page.waitForTimeout(500)
     await E.page.evaluate(selectEpub, { ch: 3, nth: 1 }); await E.page.waitForTimeout(700)
-    const off = await E.page.evaluate(() => ({ on: marginOn(), col: !!document.querySelector('.mr-col:not([hidden])'), bar: !!document.querySelector('.mr-bar'), popup: !!document.querySelector('.selection-popup') }))
-    ok('EPUB_MARGIN off: an EPUB has no margin and keeps the selection popup', !off.on && !off.col && !off.bar && off.popup, off)
+    const got = await E.page.evaluate(() => ({ on: marginOn(), col: !!document.querySelector('.mr-col:not([hidden])'), bar: !!document.querySelector('.mr-bar, .mr-pbar'), popup: !!document.querySelector('.selection-popup') }))
+    if (on) ok('EPUB_MARGIN on the desktop: an EPUB has the margin (its bar, no selection popup)', got.on && got.bar && !got.popup, got)
+    else ok('EPUB_MARGIN at a phone\'s width: an EPUB has no margin and keeps the selection popup', !got.on && !got.col && !got.bar && got.popup, got)
     await E.ctx.close()
   }
   ok('no page errors', !A.problems.length, A.problems)
@@ -963,21 +997,22 @@ async function primerBehaviour(browser, origin) {
   const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
   const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
   const a = A.page
-  await a.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  // (On the wide column Before you start's trigger is its unit's Primer pill since 19 Oct 2026, evening: item 1.)
+  await a.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(a)
   const units = await a.evaluate(() => primer.units)
   // The unit's own pages, from its entry's page (not the title page before it, which only offers the trigger).
   const unitPages = u => u.to - u.start + 1
   const r0 = chats().length
   const trig = await a.evaluate(() => {
-    const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return null
-    const cs = getComputedStyle(t), title = getComputedStyle(t.querySelector('.mr-trigger__title')), sub = getComputedStyle(t.querySelector('.mr-trigger__sub'))
-    // Its page's first line of text, measured in the column.
-    const p = state.pages[currentPlace().page - 1], spans = [...p.layer.querySelectorAll('span')].filter(s => s.textContent.trim()).map(s => s.getBoundingClientRect().top)
-    const line = Math.min(...spans) - document.querySelector('.mr-col').getBoundingClientRect().top
-    return { text: t.innerText.replace(/\s+/g, ' ').trim(), top: t.offsetTop, height: t.offsetHeight, line, key: !!t.querySelector('.mr-key'), tip: t.title, fill: cs.backgroundColor, radius: cs.borderRadius, rule: cs.boxShadow, italic: title.fontStyle, ink: [title.color, sub.color, getComputedStyle(document.querySelector('.mr-col')).getPropertyValue('--mr-ink').trim()] }
+    const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'), row = t?.closest('.mr-pills'); if (!t) return null
+    const span = getComputedStyle(t.querySelector('span'))
+    // Its unit's first page's top, measured in the column (19 Oct 2026, evening: the page's top, never its first line of text).
+    const p = state.pages[(primer.units?.[0]?.from || 1) - 1]
+    const line = p.pg.getBoundingClientRect().top + 4 - row.parentElement.getBoundingClientRect().top
+    return { text: t.getAttribute('aria-label'), words: t.textContent.trim(), top: row.offsetTop, bottom: row.offsetTop + row.offsetHeight, line, tip: t.title, radius: span.borderRadius, border: span.borderTopWidth, font: getComputedStyle(t).fontFamily }
   })
-  ok('at the PDF\'s start the trigger is a folded card at the page\'s first line less 4px: italic "Before you start", the unit\'s line, both in ink, a lead-coloured rule, no fill, no keycap ("Before you start (B)" in its title)', trig && trig.text === 'Before you start The gist and a map of chapter 1.' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && !trig.key && trig.tip === 'Before you start (B)' && trig.fill === 'rgba(0, 0, 0, 0)' && trig.radius === '0px' && /inset/.test(trig.rule) && trig.italic === 'italic' && trig.ink[0] === trig.ink[1], trig)
+  ok('at the PDF\'s start its Primer pill (Before you start) sits at its first page\'s top (items 1 and 9, 19 Oct evening): "✧ Primer", named for the unit ("Before you start: The gist and a map of chapter 1."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: The gist and a map of chapter 1.' && trig.words === '✧Primer' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
   // Made ahead as the file opens (Anders, 19 Oct 2026): one request, for the reader's unit, marked speculative (never charged).
   const req = primers(0)[0]
   ok('as the file opens (signed in), the primer of the reader\'s unit is made once, ahead, marked speculative', primers(0).length === 1 && req.body.companion.speculative === true, { requests: primers(0).length, speculative: req?.body?.companion?.speculative })
@@ -985,18 +1020,18 @@ async function primerBehaviour(browser, origin) {
   // It opens in place (Anders, 15 Oct): from its trigger's place, growing down; measured once it has grown.
   await a.waitForTimeout(450)
   ok('B opens the primer in place, made nothing more: the one chapter request (ahead), action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 0 && primers(0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
-  const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, trigger: !!document.querySelector('.mr-col .mr-trigger') } })
-  // (Since 19 Oct 2026 the column is part of the page: the primer opens in its trigger's place and grows in place.)
-  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, in its trigger\'s place', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && Math.abs(shown.top - (trig?.top ?? -99)) <= 1 && !shown.trigger, { ...shown, trig: trig?.top })
+  const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.offsetTop, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, pressed: document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-expanded') } })
+  // (Since 19 Oct 2026 the column is part of the page: the primer opens in place, under its unit's pills, its Primer pill pressed.)
+  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, in place under its pills', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter 3 questions →' && shown.foot === 'Made when you opened the file Redo' && shown.cards === 0 && shown.top >= (trig?.bottom ?? 1e9) - 1 && shown.top - (trig?.bottom ?? 0) <= 20 && shown.pressed === 'true', { ...shown, trig })
   await a.waitForTimeout(600)
   const stored = account.primers.get(hex + '?outline-0')
   ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
   await a.click('.mr-col .mr-primer .mr-primer__close'); await a.waitForTimeout(250)
-  ok('its close folds it back to the trigger', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
-  await a.click('.mr-col .mr-trigger'); await a.waitForTimeout(400)
+  ok('its close folds it back to the trigger (its Primer pill)', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-pill[data-pill="primer"]'))
+  await a.click('.mr-col .mr-pill[data-pill="primer"]'); await a.waitForTimeout(400)
   ok('clicking the trigger opens it again, and reopening never makes it again', await a.isVisible('.mr-col .mr-primer .mr-primer__gist') && primers(r0).length === 0)
   await a.keyboard.press('Escape'); await a.waitForTimeout(200)
-  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-trigger'))
+  ok('Escape folds the primer back', !(await a.$('.mr-col .mr-primer')) && await a.isVisible('.mr-col .mr-pill[data-pill="primer"]'))
   // Another device (this browser's copy gone): the account's primer, not a new one.
   await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
   const r1 = chats().length
@@ -1024,10 +1059,10 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('Escape')
   // The next unit's start offers its own trigger; the middle of a unit offers none.
   await a.evaluate(n => goTo({ page: n, frac: 0 }), units[1].start); await a.waitForTimeout(700)
-  const t5 = await a.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  const t5 = await a.evaluate(n => document.querySelector(`.mr-col .mr-pills[data-unit="${primer.units.find(u => u.start === n)?.key}"] .mr-pill[data-pill="primer"]`)?.getAttribute('aria-label'), units[1].start)
   await a.evaluate(n => goTo({ page: n, frac: 0.3 }), units[1].start + 1); await a.waitForTimeout(700)
   // (The trigger is part of the page at its unit's start since 19 Oct 2026: in the middle of a unit none is in view.)
-  const t6 = await a.evaluate(() => { const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
+  const t6 = await a.evaluate(() => { const t = [...document.querySelectorAll('.mr-col .mr-pill[data-pill="primer"]')].find(x => { const r = x.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom }); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
   ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none in view', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
   const r3 = chats().length
   await a.keyboard.press('b'); await a.waitForTimeout(1000)
@@ -1040,9 +1075,9 @@ async function primerBehaviour(browser, origin) {
   // (Made ahead as it opens, or on B: the one request since it opened.)
   const rs = chats().length
   const S = await readerPage(browser, origin, hexShort, { width: 1440, height: 900, look: 'paper' })
-  await S.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await S.page.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(S.page)
-  const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '), units: primer.units.map(u => u.key), pages: state.pages.length }))
+  const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'), units: primer.units.map(u => u.key), pages: state.pages.length }))
   await S.page.keyboard.press('b'); await S.page.waitForTimeout(1000)
   const reqs = primers(rs)[0]
   ok('a PDF under 40 pages is one unit ("all"), its outline notwithstanding: the whole file goes', /map of the whole PDF\.$/.test(ts.trig || '') && ts.units.join() === 'all' && reqs?.body?.companion?.chapter?.action?.unitKey === 'all' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
@@ -1050,9 +1085,9 @@ async function primerBehaviour(browser, origin) {
   // A PDF without an outline is one unit, "all".
   const rb = chats().length
   const B = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'night' })
-  await B.page.waitForSelector('.mr-col .mr-trigger', { timeout: 8000 }).catch(() => {})
+  await B.page.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(B.page)
-  const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-trigger')?.innerText.replace(/\s+/g, ' '))
+  const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'))
   await B.page.keyboard.press('b'); await B.page.waitForTimeout(1000)
   const reqb = primers(rb)[0]
   ok('a PDF without an outline: one unit ("all"), the whole PDF', /map of the whole PDF\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === 'all' && reqb.body.companion.context.pages.length === 8, { tb, action: reqb?.body?.companion?.chapter })
@@ -1332,7 +1367,9 @@ async function keysAndAccess(browser, origin) {
   ok('Return chooses the row (Counterpoint: its card opens)', account.requests.slice(n0).some(r => r.body?.companion?.intent === 'counterpoint') && /^Counterpoint/.test(await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')))
   ok('the finished answer is announced once in a polite live region', await a.evaluate(() => { const l = document.getElementById('mr-live'); return !!l && l.getAttribute('aria-live') === 'polite' && /^Counterpoint · p\. \d+\. MOCK ANSWER/.test(l.textContent) }), await a.evaluate(() => document.getElementById('mr-live')?.textContent))
   // Escape one step at a time: the open card folds after the bar has gone.
-  await selectText(a); await a.waitForSelector('.mr-bar'); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
+  // (Selecting with the pointer folds the open card since 19 Oct; it is opened again here, as the keys would leave it.)
+  const openId = await a.evaluate(() => col.open)
+  await selectText(a); await a.waitForSelector('.mr-bar'); await a.evaluate(id => openCard(id), openId); await a.waitForTimeout(150); await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   await a.keyboard.press('Escape'); const s1 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
   await a.keyboard.press('Escape'); const s2 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
   await a.keyboard.press('Escape'); await a.waitForTimeout(150); const s3 = [!!(await a.$('.mr-more')), !!(await a.$('.mr-bar')), !!(await a.$('.mr-card.is-open'))]
@@ -1613,7 +1650,7 @@ async function columnMatrix(browser, origin) {
         // PR 3: at a unit's start, the trigger with the page's cards below it; then the longest primer, open.
         await page.evaluate(() => { openCard(null); goTo({ page: TinctMargin.unitAt(primer.units, currentPlace().page).start, frac: 0 }) }); await settle(page)
         await page.evaluate(seedCards, { lines: 4, pairs: true, open: 2, where: 'top' })
-        await state('trigger', () => ({ ok: col.mode !== 'column' || !!document.querySelector('.mr-col .mr-trigger:not([hidden])'), mode: col.mode }))
+        await state('trigger', () => ({ ok: col.mode !== 'column' || !!document.querySelector('.mr-col .mr-pill[data-pill="primer"]'), mode: col.mode }))
         await page.evaluate(LONG => { openCard(null); const u = currentUnit(); store.set(primerKey(u), { ...LONG, madeAt: new Date().toISOString(), unitKey: u.key }); openPrimer(u) }, LONG_PRIMER)
         // (Wide: in its place in the page's layer, the cards pushed below it, none over it; 19 Oct 2026.)
         await state('primer', () => { const el = document.querySelector('.mr-primer'), r = el?.getBoundingClientRect(); return { ok: !!el?.querySelector('.mr-map') && el.querySelectorAll('.mr-map__row').length === 8 && (col.mode !== 'column' || ![...document.querySelectorAll('.mr-doc > .mr-card:not([hidden])')].some(c => { const q = c.getBoundingClientRect(); return Math.min(q.bottom, r.bottom) - Math.max(q.top, r.top) > 0.5 })) } })
@@ -1693,7 +1730,8 @@ async function openEpubHere(browser, origin, { width, height, look, margin = tru
 // Select `chars` characters of the `nth` paragraph of chapter `ch` (1-based), as a reader would.
 function selectEpub({ ch = 3, nth = 1, chars = 110 } = {}) {
   const p = state.pages[ch - 1].pg.querySelectorAll('p')[nth], t = p.firstChild
-  getSelection().setBaseAndExtent(t, 0, t, Math.min(chars, t.textContent.length))
+  document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().setBaseAndExtent(t, 0, t, Math.min(chars, t.textContent.length))
+  document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
   return getSelection().toString()
 }
 // Cards on the first lines of the paragraphs in view, kept as offsets (span) as the reader keeps them.
@@ -2202,7 +2240,7 @@ async function polish(browser, origin) {
     const layout = async state => { await a.waitForTimeout(250); problems.push(...(await checkMargin(a)).map(p => ({ state, ...p }))) }
     const mode = await a.evaluate(() => marginMode())
     // 1. No whole-PDF bar at the margin's foot.
-    const foot = await a.evaluate(() => ({ foot: !!document.querySelector('.mr-foot, .mr-foot__input, .mr-foot__hint, .mr-key'), words: /the whole PDF/.test(document.querySelector('.mr-col')?.innerText || '') && !document.querySelector('.mr-col .mr-trigger') }))
+    const foot = await a.evaluate(() => ({ foot: !!document.querySelector('.mr-foot, .mr-foot__input, .mr-foot__hint, .mr-key'), words: /the whole PDF/.test(document.querySelector('.mr-col')?.innerText || '') && !document.querySelector('.mr-col .mr-trigger, .mr-col .mr-pills') }))
     ok(`${tag}: no whole-PDF line, field or mic at the margin's foot`, !foot.foot && !foot.words, foot)
     // 2. The caret: nothing drawn as one; the hint after "Ask" thin, in the accent, a gentle blink.
     ok(`${tag}: no caret element anywhere in the margin`, await a.evaluate(() => !document.querySelector('.mr-caret')))
@@ -2230,7 +2268,7 @@ async function polish(browser, origin) {
     ok(`${tag}: delete takes the card away at once (no confirm), leaves a tombstone, and says "Deleted · Undo"`, !gone.open && !gone.shown && gone.stored?.gone === true && gone.undo === 'Deleted · Undo', gone)
     await layout('undo')
     if (look === 'paper') await shot(a, `${tag}-undo`)
-    const undoOverlap = await a.evaluate(() => { const u = document.querySelector('.mr-undo:not([hidden])')?.getBoundingClientRect(); if (!u) return 'none'; return [...document.querySelectorAll('.mr-col .mr-card:not([hidden]), .mr-col .mr-trigger, .mr-sheet')].some(c => { const r = c.getBoundingClientRect(); return Math.min(r.right, u.right) - Math.max(r.left, u.left) > 1 && Math.min(r.bottom, u.bottom) - Math.max(r.top, u.top) > 1 }) })
+    const undoOverlap = await a.evaluate(() => { const u = document.querySelector('.mr-undo:not([hidden])')?.getBoundingClientRect(); if (!u) return 'none'; return [...document.querySelectorAll('.mr-col .mr-card:not([hidden]), .mr-col .mr-pills, .mr-col .mr-trigger, .mr-sheet')].some(c => { const r = c.getBoundingClientRect(); return Math.min(r.right, u.right) - Math.max(r.left, u.left) > 1 && Math.min(r.bottom, u.bottom) - Math.max(r.top, u.top) > 1 }) })
     ok(`${tag}: the undo line covers no card`, undoOverlap === false, undoOverlap)
     await a.click('.mr-undo button'); await a.waitForTimeout(500)
     const back = await a.evaluate(id => ({ stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: !!document.querySelector('.mr-undo:not([hidden])') }), made)
@@ -2302,8 +2340,9 @@ async function polish(browser, origin) {
       for (const reduce of [false, true]) {
         await a.emulateMedia({ reducedMotion: reduce ? 'reduce' : 'no-preference' })
         const run = await a.evaluate(() => new Promise(res => {
-          const t = document.querySelector('.mr-col .mr-trigger'); if (!t) return res(null)
-          const trig = t.getBoundingClientRect(), frames = [], t0 = performance.now()
+          // (Its trigger is the unit's Primer pill on the wide column since 19 Oct 2026, evening: it opens under the pills.)
+          const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'); if (!t) return res(null)
+          const r = t.closest('.mr-pills').getBoundingClientRect(), trig = { top: r.bottom, height: r.height }, frames = [], t0 = performance.now()
           t.click()
           const tick = () => { const p = document.querySelector('.mr-col .mr-primer'); if (p) { const b = p.getBoundingClientRect(); frames.push({ top: b.top, height: b.height, bottom: document.querySelector('.mr-col').getBoundingClientRect().bottom - b.bottom }) } if (performance.now() - t0 < 600) requestAnimationFrame(tick); else res({ trig: { top: trig.top, height: trig.height }, frames }) }
           requestAnimationFrame(tick)
@@ -2312,7 +2351,7 @@ async function polish(browser, origin) {
         const grew = f.some(x => x.height < last?.height - 40)
         // Since 19 Oct 2026 the column is part of the page: the primer opens in its trigger's place (its top where the
         // trigger's was), never moving, at its whole height at once (no scrolling of its own, the page scrolls).
-        ok(`${tag}: Before you start ${reduce ? '(reduced motion) ' : ''}opens in its trigger's place, never moving, whole at once`, first && Math.abs(first.top - run.trig.top) <= 1.5 && f.every(x => Math.abs(x.top - first.top) <= 0.5 && Math.abs(x.height - last.height) < 1) && last.height > run.trig.height + 100, { trig: run?.trig, first, last, n: f.length })
+        ok(`${tag}: Before you start ${reduce ? '(reduced motion) ' : ''}opens in place under its pills, never moving, whole at once`, first && first.top >= run.trig.top - 1 && first.top - run.trig.top <= 20 && f.every(x => Math.abs(x.top - first.top) <= 0.5 && Math.abs(x.height - last.height) < 1) && last.height > run.trig.height + 100, { trig: run?.trig, first, last, n: f.length })
         if (!reduce && look === 'paper') await shot(a, `${tag}-primer`)
         await layout(reduce ? 'primer (reduced motion)' : 'primer')
         await a.evaluate(() => closePrimer()); await a.waitForTimeout(300)
@@ -2470,9 +2509,9 @@ async function longBooks(browser, origin) {
     const A = await readerPage(browser, origin, bare, { width: 1440, height: 900, look: 'paper', at: ch4.from, minSpans: 5 })
     const a = A.page
     const shown = Date.now()
-    await a.waitForFunction(() => !!document.querySelector('.mr-trigger'), null, { timeout: 30000 }).catch(() => {})
+    await a.waitForFunction(() => !!document.querySelector('.mr-trigger, .mr-pill[data-pill="primer"]'), null, { timeout: 30000 }).catch(() => {})
     const wait = Date.now() - shown
-    const when = await a.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), unit: primer.units && TinctMargin.primerUnitAt(primer.units, currentPlace().page)?.title, scanDone: toc.ready }))
+    const when = await a.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger, .mr-pill[data-pill="primer"]'), unit: primer.units && TinctMargin.primerUnitAt(primer.units, currentPlace().page)?.title, scanDone: toc.ready }))
     ok(`${tag}: Before you start's trigger shows on chapter 4 within 5 s of its first text, from the contents the scan finds first (${wait} ms; the scan done: ${when.scanDone})`, when.trigger && wait <= 5000 && /^4 /.test(when.unit || ''), { wait, ...when })
     // The margin's document, a function of the book alone: the same bytes on two pages of chapter 4, the same contents on chapter 16.
     const docs = await a.evaluate(async ([p1, p2, p3]) => { const out = []; for (const n of [p1, p2, p3]) out.push(JSON.stringify(await marginDocument(n))); return out }, [ch4.from + 1, ch4.to - 1, ch16.from + 1])
@@ -2710,11 +2749,12 @@ async function phoneUi(browser, origin) {
     await D.page.click('.lab-super-row[data-row="chat"]'); await D.page.waitForTimeout(500)
     ok('the t menu\'s Chat opens the whole-document chat (the margin\'s Whole PDF card)', await D.page.evaluate(() => !!document.querySelector('.mr-col .mr-card.is-whole.is-open')))
     // 4. Escape closes the Aa panel, from its close button and from the size slider; focus returns to Aa.
-    for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-testid="lab-v2-size"]']) {
+    // (A PDF's size control on the desktop is Zoom's − and + since 19 Oct 2026, evening; the phone keeps the slider.)
+    for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-z="-"]']) {
       await D.page.keyboard.press('Escape'); await D.page.click('#aaBtn'); await D.page.waitForSelector('.byob-aa-panel')
       await D.page.focus(from); await D.page.keyboard.press('Escape'); await D.page.waitForTimeout(200)
       const esc = await D.page.evaluate(() => ({ open: !!document.querySelector('.byob-aa-panel'), focus: document.activeElement?.id, expanded: document.getElementById('aaBtn').getAttribute('aria-expanded') }))
-      ok(`Escape closes the Aa panel (focus in ${from.includes('size') ? 'the size slider' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
+      ok(`Escape closes the Aa panel (focus in ${from.includes('data-z') ? 'Zoom' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
     }
     ok('desktop: no page errors', !D.problems.length, D.problems)
     await D.ctx.close()
@@ -2961,7 +3001,7 @@ async function justifiedCheck(browser, origin) {
         if (!a || !b) return { error: 'words not found in the text layer', from, to, layer: norm(all).slice(0, 600) }
         const at = off => { const k = nodes.findLastIndex(x => x.at <= off); return [nodes[k].node, off - nodes[k].at] }
         const range = document.createRange(); range.setStart(...at(a[0])); range.setEnd(...at(b[1]))
-        getSelection().removeAllRanges(); getSelection().addRange(range)
+        document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().removeAllRanges(); getSelection().addRange(range); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
         const selected = norm(getSelection().toString())
         // The page's text (what the companion reads), from the same first word to the same last.
         const text = norm((await pageText(n)).text), i = text.indexOf(from), j = text.indexOf(to, i)
@@ -3148,7 +3188,7 @@ async function primerAnchor(browser, origin) {
   ok('2. opened signed in: Before you start of the reader\'s unit is made ahead, once, marked speculative, and kept here and with the book', made.length === 1 && made[0].body.companion.speculative === true && made[0].body.companion.chapter.action.unitKey === 'outline-0' && await a.evaluate(() => !!store.get(primerKey(currentUnit()))) && account.primers.has(hex + '?outline-0'), { made: made.length, speculative: made[0]?.body?.companion?.speculative })
   // Tapping it: there at once (no wait, no request).
   const r1 = account.requests.length
-  await a.click('.mr-col .mr-trigger')
+  await a.click('.mr-col .mr-pill[data-pill="primer"]')
   await a.waitForTimeout(120)
   const now = await a.evaluate(() => ({ gist: !!document.querySelector('.mr-col .mr-primer .mr-primer__gist'), wait: !!document.querySelector('.mr-col .mr-primer .tc-wait, .mr-col .mr-primer .tinct-wait') }))
   ok('2. tapping Before you start shows it at once: its gist within 120 ms, no wait, no request', now.gist && !now.wait && primers(r1).length === 0, now)
@@ -3421,7 +3461,7 @@ async function highlightPlace(browser, origin) {
   // The justified lines of 16 Oct (pieces of a line), at rest, on the desktop.
   const jhex = addBook(JUSTIFIED_PAPER)
   const J = await readerPage(browser, origin, jhex, { width: 1440, height: 900, look: 'night', minSpans: 10 })
-  await J.page.evaluate(() => { const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => s.textContent.trim().length > 3); getSelection().setBaseAndExtent(spans[3].firstChild, 0, spans[9].firstChild, spans[9].firstChild.length) })
+  await J.page.evaluate(() => { const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => s.textContent.trim().length > 3); document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().setBaseAndExtent(spans[3].firstChild, 0, spans[9].firstChild, spans[9].firstChild.length); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' })) })
   await J.page.waitForTimeout(300)
   const mj = await measure(J.page)
   ok('justified lines: 7. the highlight covers the selected words', mj && covers(mj.words, await marksOf(J.page, mj.ids)), mj?.words?.slice(0, 3))
@@ -3491,7 +3531,7 @@ async function crossPage(browser, origin) {
         const body = pg => [...pg.layer.querySelectorAll(':scope > span')].filter(sp => !sp.dataset.f && sp.textContent.trim())
         const first = body(p).at(-2), last = body(q)[2]
         const range = document.createRange(); range.setStart(first.firstChild, 0); range.setEnd(last.firstChild, last.firstChild.length)
-        getSelection().removeAllRanges(); getSelection().addRange(range)
+        document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().removeAllRanges(); getSelection().addRange(range); document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
         const furniture = [...p.layer.querySelectorAll('span[data-f]'), ...q.layer.querySelectorAll('span[data-f]')].map(sp => ({ t: sp.textContent.trim(), r: (r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))(sp.getBoundingClientRect()) }))
         const words = bodyOfRange(range).rects.map(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))
         const info = selectionInfo()
@@ -3595,9 +3635,9 @@ async function columnPage(browser, origin) {
     await shot(a, `${tag}-after`)
     // Before you start is at its unit's first page, part of the page too.
     await a.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }); onScroll() }); await a.waitForTimeout(700)
-    const t1 = await a.evaluate(() => { const t = document.querySelector('.mr-doc .mr-trigger'); return t && { top: t.getBoundingClientRect().top, inDoc: true } })
+    const t1 = await a.evaluate(() => { const t = document.querySelector('.mr-doc .mr-pills.is-start'); return t && { top: t.getBoundingClientRect().top, inDoc: true } })
     await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 120)); await a.waitForTimeout(300)
-    const t2 = await a.evaluate(() => document.querySelector('.mr-doc .mr-trigger')?.getBoundingClientRect().top)
+    const t2 = await a.evaluate(() => document.querySelector('.mr-doc .mr-pills.is-start')?.getBoundingClientRect().top)
     ok(`${tag}: Before you start sits at the document's start in the page's layer and scrolls with it`, t1 && Math.abs((t1.top - t2) - 120) <= 1, { t1, t2 })
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
     await A.ctx.close()
@@ -3650,7 +3690,8 @@ async function figureRace(browser, origin) {
     await a.mouse.move(pt.x, pt.y); await a.mouse.move(pt.x + 5, pt.y); await a.waitForTimeout(400)
     const chip = await a.evaluate(() => !!document.querySelector('.byob-hot'))
     await a.mouse.dblclick(pt.x, pt.y); await a.waitForTimeout(700)
-    const bar = await a.evaluate(() => ({ bar: !!document.querySelector('.mr-float.mr-bar, .mr-float .mr-bar__item, .mr-define'), chip: !!document.querySelector('.byob-hot') }))
+    // (One word on the wide column opens Define's card instead of a pop-over since 19 Oct 2026, evening.)
+    const bar = await a.evaluate(() => ({ bar: !!document.querySelector('.mr-float.mr-bar, .mr-float .mr-bar__item, .mr-define') || !!cardById(col.open || '')?.kind?.startsWith('define') || !!col.draft, chip: !!document.querySelector('.byob-hot') }))
     ok(`${tag}: 12. over the paragraph no figure box or chip; a selection there gets the selection's bar`, !chip && bar.bar && !bar.chip, { chip, ...bar })
     await shot(a, tag)
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
@@ -3750,6 +3791,858 @@ async function cardsGloss(browser, origin) {
   return results
 }
 
+/* pause-dots (19 Oct 2026, evening, item 11): a card still waiting for more of its answer after words have appeared
+   (Fact-check's search, Counterpoint, a follow-up) shows the main chat's dots below its last text until more text
+   arrives or the request ends, including on error; Minimise shows its focus ring for the keyboard only. */
+async function pauseDots(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  await prefetchSettled(a)
+  const look = () => a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); if (!el) return null; const dots = el.querySelector('.tc-wait'), answers = [...el.querySelectorAll('.mr-answer')], last = answers.at(-1); return { dots: !!dots, below: !!dots && !!last && dots.getBoundingClientRect().top >= last.getBoundingClientRect().bottom - 1, text: last?.innerText.trim() || '' } })
+  for (const intent of ['counterpoint', 'follow-up']) {
+    if (intent === 'follow-up') {
+      mock.next = 'MOCK first answer. Short.'
+      await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+      await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(900)
+    }
+    mock.chunks = [{ text: 'MOCK first words of the answer.' }, { text: ' MOCK the rest after a pause.', wait: 2200 }]
+    if (intent === 'counterpoint') {
+      await selectText(a); await a.waitForSelector('.mr-float [data-m="more"]', { timeout: 5000 }).catch(() => {})
+      await a.click('.mr-float [data-m="more"]'); await a.click('.mr-more [data-m="counterpoint"]')
+    } else { await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('And then?'); await a.keyboard.press('Enter') }
+    await a.waitForTimeout(250)
+    const early = await look()
+    await a.waitForTimeout(1000)
+    const paused = await look()
+    ok(`11. ${intent}: while words are still coming, no dots; once they pause, the main chat's dots below the last text`, early && !early.dots && /MOCK first words/.test(early.text) && paused && paused.dots && paused.below, { early, paused })
+    await a.waitForTimeout(1500)
+    const done = await look()
+    ok(`11. ${intent}: more text arrives and the request ends: the dots go`, done && !done.dots && /MOCK the rest/.test(done.text), done)
+    await a.keyboard.press('Escape'); await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(300)
+  }
+  // An error after words: the dots go with the request.
+  mock.chunks = [{ text: 'MOCK words before a failure.' }, { text: '', wait: 1600 }]; mock.chunksFail = true
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(1100)
+  const failing = await look()
+  await a.waitForTimeout(1200)
+  const failed = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return el && { dots: !!el.querySelector('.tc-wait'), status: el.querySelector('.mr-status')?.textContent || '' } })
+  ok('11. an answer that pauses and then fails: the dots show in the pause and go on the error', failing?.dots && failed && !failed.dots && failed.status.length > 0, { failing, failed })
+  await a.keyboard.press('Escape'); await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(300)
+  // Minimise: no focus ring after a click (the card opened from the bar puts the focus there), one from the keyboard.
+  mock.next = 'MOCK ANSWER. Short.'
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(900)
+  const ring = () => a.evaluate(() => { const b = document.activeElement; return { cls: b?.className || '', outline: b ? getComputedStyle(b).outlineStyle : '' } })
+  const clicked = await ring()
+  ok('11. after a click, the card\'s focused Minimise shows no focus ring', /mr-card__close/.test(clicked.cls) ? clicked.outline === 'none' : true, clicked)
+  await a.click('.mr-card.is-open .mr-card__copy').catch(() => {}); await a.waitForTimeout(200)
+  const copyClick = await ring()
+  ok('11. after a click on copy, no focus ring on it', copyClick.outline === 'none' || !/mr-card__copy/.test(copyClick.cls), copyClick)
+  await a.evaluate(() => document.querySelector('.mr-card.is-open .mr-card__close')?.focus()); await a.keyboard.press('Shift'); await a.keyboard.press('Tab'); await a.keyboard.down('Shift'); await a.keyboard.press('Tab'); await a.keyboard.up('Shift')
+  const keyed = await ring()
+  ok('11. from the keyboard the focused button shows its ring', keyed.outline !== 'none' && keyed.cls.length > 0, keyed)
+  await shot(a, 'pause-dots-1440x900')
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
+/* passage-mark (19 Oct 2026, evening, item 10): the open card's passage is underlined just under each line's own
+   baseline (0.08 to 0.18 of its size), never into the next line's words; a highlight's tint and the "Highlight"
+   passage mark keep to their lines, never over a neighbour's words, even at tight line spacing (leading 1.05); the
+   Aa panel's "Passage mark" (Underline, Highlight, Off) is kept on this device across a reload. */
+const TIGHT_PDF = join(OUT, 'tight_leading.pdf')
+writeFileSync(TIGHT_PDF, makePdf({ info: { Title: 'Tight leading' }, pages: [1, 2].map(n => ({ lines: prose(740, 56, { size: 11, from: n * 40 }).map((l, i) => ({ ...l, y: 740 - i * 11.5 })) })) }))
+async function passageMark(browser, origin) {
+  const results = [], ok = okList(results)
+  // Each mark against its page's lines (reader.js pageLines): its own line, the offset under the baseline, the neighbours' glyphs.
+  const marks = page => page.evaluate(() => {
+    const out = []
+    for (const p of state.pages) {
+      const lines = pageLines(p) || [], b = p.pg.getBoundingClientRect()
+      const glyph = l => [l.b - l.s * 0.72, l.b + l.s * 0.2]
+      for (const [sel, kind] of [['.mr-ul-layer i:not(.is-box)', 'mark'], ['.hl-layer i', 'highlight']]) for (const i of p.pg.querySelectorAll(sel)) {
+        const r = i.getBoundingClientRect(), top = (r.top - b.top) / b.height, bottom = (r.bottom - b.top) / b.height, x0 = (r.left - b.left) / b.width, x1 = (r.right - b.left) / b.width
+        const across = lines.filter(l => l.x0 < x1 && l.x1 > x0)
+        const tint = kind === 'highlight' || i.classList.contains('is-tint')
+        const own = tint ? across.reduce((a, l) => (!a || Math.abs(l.b - l.s * 0.3 - (top + bottom) / 2) < Math.abs(a.b - a.s * 0.3 - (top + bottom) / 2) ? l : a), null) : across.filter(l => l.b <= top + 0.0005).at(-1)
+        if (!own) { out.push({ kind, lost: true }); continue }
+        const hits = across.filter(l => l !== own && Math.min(bottom, glyph(l)[1]) - Math.max(top, glyph(l)[0]) > 0.0002).length
+        out.push({ kind: tint ? (kind === 'highlight' ? 'highlight' : 'tint') : 'underline', offset: +((top - own.b) / own.s).toFixed(3), hits, height: +((r.bottom - r.top)).toFixed(2) })
+      }
+    }
+    return out
+  })
+  const openOn = async (a, kind = 'explain') => {
+    await a.evaluate(() => getSelection().removeAllRanges())
+    await selectText(a); await a.waitForSelector(`.mr-float [data-m="${kind}"]`, { timeout: 5000 }).catch(() => {})
+    await a.click(`.mr-float [data-m="${kind}"]`); await a.waitForTimeout(1200)
+  }
+  for (const [file, label] of [[PDFS[0], 'prose'], [TIGHT_PDF, 'tight']]) {
+    const hex = addBook(file)
+    const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: label === 'prose' ? 3 : 1 })
+    const a = A.page
+    await prefetchSettled(a)
+    await openOn(a)
+    const u = (await marks(a)).filter(m => m.kind === 'underline')
+    ok(`10. ${label}: the open card's passage is underlined under each line's own baseline (0.08–0.18 of its size), never into the next line`, u.length >= 2 && u.every(m => m.offset >= (label === 'tight' ? 0.04 : 0.08) && m.offset <= 0.18 && m.hits === 0 && Math.abs(m.height - 1.5) < 0.6), u)
+    if (label === 'prose') await shot(a, 'passage-underline-1440x900')
+    // A highlight on the same lines: its tint on its own lines only.
+    await a.keyboard.press('Escape'); await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+    await a.evaluate(() => getSelection().removeAllRanges()); await selectText(a); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {})
+    await a.click('.mr-float [data-m="dot"]'); await a.waitForTimeout(400)
+    const h = (await marks(a)).filter(m => m.kind === 'highlight')
+    ok(`10. ${label}: a highlight's tint never covers a neighbouring line's words`, h.length >= 2 && h.every(m => m.hits === 0), h)
+    await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+    // The Aa panel: Passage mark → Highlight (a soft tint of each line's band), then Off.
+    await openOn(a)
+    await a.click('#aaBtn'); await a.waitForSelector('#passageMarkSel', { timeout: 4000 }).catch(() => {})
+    const row = await a.evaluate(() => { const s = document.querySelector('#passageMarkSel'); return s && { value: s.value, options: [...s.options].map(o => o.textContent), label: s.closest('.lab-v2-row')?.querySelector('.lab-v2-row-label')?.textContent } })
+    ok(`10. ${label}: the Aa panel has "Passage mark": Underline (default), Highlight, Off`, row && row.value === 'underline' && row.options.join('|') === 'Underline|Highlight|Off' && row.label === 'Passage mark', row)
+    await a.selectOption('#passageMarkSel', 'tint'); await a.waitForTimeout(400)
+    const t = (await marks(a)).filter(m => m.kind === 'tint')
+    ok(`10. ${label}: Highlight marks the passage with a soft tint on each line, never over a neighbour's words`, t.length >= 2 && t.every(m => m.hits === 0) && !(await marks(a)).some(m => m.kind === 'underline'), t)
+    await a.selectOption('#passageMarkSel', 'off'); await a.waitForTimeout(400)
+    ok(`10. ${label}: Off marks nothing`, !(await marks(a)).some(m => m.kind === 'underline' || m.kind === 'tint'), await marks(a))
+    if (label === 'prose') {
+      await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }); await a.waitForTimeout(800)
+      const kept = await a.evaluate(() => passageMark())
+      ok('10. the choice is kept on this device across a reload', kept === 'off', kept)
+      await a.evaluate(() => { prefs.passageMark = 'underline'; savePrefs() })
+    }
+    ok(`${label}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
+/* stray-menu (19 Oct 2026, evening, item 4): the selection bar opens only right after a deliberate selection: a mouse
+   drag let go, a double-click, selection keys ending on a new selection, or a click on a highlight. A selection
+   restored on a tab's refocus, one left over when a card folds, or one set by code never opens it. */
+async function strayMenu(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  await prefetchSettled(a)
+  const bar = () => a.evaluate(() => !!document.querySelector('.mr-float.mr-bar, .mr-float.mr-define'))
+  const spanBox = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span:not([data-f])')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[2]; const r = sp.getBoundingClientRect(); return { x0: r.left + 2, x1: r.left + r.width * 0.6, y: r.top + r.height / 2 } })
+  const setByCode = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span:not([data-f])')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[4]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, Math.min(20, sp.firstChild.length)) })
+  const reset = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(400) }
+  // Set by code alone: no bar.
+  await setByCode(); await a.waitForTimeout(700)
+  ok('4. a selection set by code (no gesture) opens no bar', !(await bar()))
+  await reset()
+  // A mouse drag let go: the bar.
+  const b = await spanBox()
+  await a.mouse.move(b.x0, b.y); await a.mouse.down(); await a.mouse.move(b.x1, b.y, { steps: 6 }); await a.mouse.up(); await a.waitForTimeout(500)
+  ok('4. a mouse drag let go on a new selection opens the bar', await bar())
+  await a.screenshot({ path: join(OUT, 'stray-menu-drag.png') })
+  await reset()
+  // Selection keys ending on a new selection: the bar.
+  await a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span:not([data-f])')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[3]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, 1) })
+  await a.waitForTimeout(500)
+  ok('4. (a one-letter selection set by code opens none)', !(await bar()))
+  for (let k = 0; k < 12; k++) await a.keyboard.press('Shift+ArrowRight')
+  await a.waitForTimeout(500)
+  // (Its first key ends inside a word: snapped to the whole word (item 8), which on the wide column opens Define's card (item 7).)
+  ok('4. selection keys ending on a new selection open the bar (or, for one word, Define\'s card)', await bar() || await a.evaluate(() => cardById(col.open || '')?.kind === 'define' || col.draft?.kind === 'define'), await a.evaluate(() => getSelection().toString()))
+  await reset()
+  // The tab hidden and shown again with a selection left: no bar.
+  await setByCode()
+  await a.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'hidden', configurable: true }); document.dispatchEvent(new Event('visibilitychange')); Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true }); document.dispatchEvent(new Event('visibilitychange')); window.dispatchEvent(new Event('focus')); document.dispatchEvent(new Event('selectionchange')) })
+  await a.waitForTimeout(700)
+  ok('4. a selection restored on a tab\'s refocus opens no bar', !(await bar()))
+  await reset()
+  // A card folded by a click outside, a selection left over: no bar.
+  mock.next = 'MOCK ANSWER. Short.'
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(900)
+  await a.mouse.click(30, 600); await a.waitForTimeout(200)
+  await setByCode(); await a.evaluate(() => document.dispatchEvent(new Event('selectionchange'))); await a.waitForTimeout(700)
+  ok('4. a card folded, a selection left over: no bar', !(await bar()) && !(await a.evaluate(() => col.open)))
+  await reset()
+  // A click on a highlight: the bar.
+  await selectText(a); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {})
+  await a.click('.mr-float [data-m="dot"]'); await a.waitForTimeout(300); await reset()
+  const hl = await a.evaluate(() => { const i = document.querySelector('.hl-layer i'); const r = i.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 } })
+  await a.mouse.click(hl.x, hl.y); await a.waitForTimeout(500)
+  ok('4. a click on a highlight opens its bar', await bar())
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
+/* whole-words (19 Oct 2026, evening, item 8): a line's or a page's first letter as an item of its own ("S" | "ection",
+   as pdf.js gives a drop cap or a kerned capital): a double-click on "ection" and a drag from inside it select, quote and
+   highlight "Section"; a highlight kept from "ection" is re-snapped to "Section" once its page is drawn (its words are
+   on the page once and the letter touches them), one whose words are not there unchanged. */
+const SPLIT_WORDS = 'ection 2 describes the method in detail, and the appendix lists every measured case.'
+const SPLIT_PDF = join(OUT, 'split_word.pdf')
+writeFileSync(SPLIT_PDF, makePdf({ info: { Title: 'Split words' }, pages: [1, 2].map(n => ({ lines: [{ x: 72, y: 740, size: 14, text: 'S' }, { x: 72 + 7.784, y: 740, size: 11, text: SPLIT_WORDS }, ...prose(722, 40, { size: 11, from: n * 30 })] })) }))
+async function wholeWords(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(SPLIT_PDF)
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 2 })
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => goTo({ page: 2, frac: 0 })); await a.waitForTimeout(900)
+  const ection = () => a.evaluate(() => { const sp = [...state.pages[1].layer.querySelectorAll('span')].find(s => s.textContent.startsWith('ection')); const r = document.createRange(); r.setStart(sp.firstChild, 2); r.setEnd(sp.firstChild, 3); const b = r.getBoundingClientRect(); const r2 = document.createRange(); r2.setStart(sp.firstChild, 14); r2.setEnd(sp.firstChild, 15); const e = r2.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2, x2: e.left + e.width / 2, sLeft: sp.previousElementSibling ? sp.previousElementSibling.getBoundingClientRect().left : null, pageLeft: state.pages[1].pg.getBoundingClientRect().left, pageWidth: state.pages[1].pg.getBoundingClientRect().width } })
+  const at = await ection().catch(async e => ({ error: String(e.message).slice(0, 200), spans: await a.evaluate(() => [...(state.pages[1]?.layer?.querySelectorAll('span') || [])].slice(0, 4).map(s => s.textContent)) }))
+  ok('8. (the fixture: "S" and "ection" are two items, touching)', at.sLeft != null, at)
+  // Double-click inside "ection".
+  await a.mouse.dblclick(at.x, at.y); await a.waitForTimeout(700)
+  // On the wide column Define opens as a card (item 7): its label names the word.
+  const dbl = await a.evaluate(() => ({ sel: getSelection().toString().trim(), word: mr?.word || null, info: mr?.info?.text || null, card: document.querySelector('.mr-doc .mr-card.is-open .mr-card__name')?.textContent || null }))
+  ok('8. a double-click on a line\'s first word split in two selects and defines the whole word ("Section")', /^Define · section$/i.test(dbl.card || '') || (dbl.sel === 'Section' && (dbl.word === 'Section' || dbl.info === 'Section')), dbl)
+  await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); await a.waitForTimeout(300)
+  // A drag from inside "ection" to the line's later words, then a highlight.
+  await a.mouse.move(at.x, at.y); await a.mouse.down(); await a.mouse.move(at.x2, at.y, { steps: 8 }); await a.mouse.up(); await a.waitForTimeout(600)
+  const drag = await a.evaluate(() => ({ sel: getSelection().toString().replace(/\s+/g, ' ').trim(), info: mr?.info?.text || null }))
+  ok('8. a drag starting inside the split word quotes it whole ("Section 2 …")', /^Section 2/.test(drag.info || drag.sel), drag)
+  await a.click('.mr-float [data-m="dot"]').catch(() => {}); await a.waitForTimeout(400)
+  const made = await a.evaluate(() => { const h = highlights().at(-1), b = state.pages[1].pg.getBoundingClientRect(); return h && { text: h.text, x: h.rects[0][0] * b.width + b.left } })
+  ok('8. its highlight starts at "S" and quotes "Section …"', made && /^Section 2/.test(made.text) && made.x <= at.sLeft + 1.5, { made, sLeft: at.sLeft })
+  await shot(a, 'whole-words-1440x900')
+  // A highlight kept from "ection" (before), and one whose words are not on the page: reloaded.
+  await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+  await a.evaluate(([words]) => {
+    const p = state.pages[1], b = p.pg.getBoundingClientRect(), sp = [...p.layer.querySelectorAll('span')].find(s => s.textContent.startsWith('ection')), r = sp.getBoundingClientRect()
+    const box = [(r.left - b.left) / b.width, (r.top - b.top) / b.height, (r.width * 0.4) / b.width, r.height / b.height].map(v => Math.round(v * 10000) / 10000)
+    const at = Date.now() - 86400e3
+    store.set('hl:' + state.key, [{ id: 'oldsplit1', page: 2, rects: [box], text: words.slice(0, 18), color: 'gold', at, u: at }, { id: 'oldother1', page: 2, rects: [box], text: 'ection words that are nowhere here', color: 'sage', at, u: at }])
+  }, [SPLIT_WORDS])
+  await a.reload(); await a.waitForFunction(() => state.pages[1]?.layer, null, { timeout: 30000 }); await a.evaluate(() => goTo({ page: 2, frac: 0 })); await a.waitForTimeout(1500)
+  const kept = await a.evaluate(() => { const b = state.pages[1].pg.getBoundingClientRect(), hs = highlights(); const one = hs.find(h => h.id === 'oldsplit1'), two = hs.find(h => h.id === 'oldother1'); const s = [...state.pages[1].layer.querySelectorAll('span')].find(x => x.textContent === 'S').getBoundingClientRect(); return { one: one && { text: one.text, x: one.rects[0][0] * b.width + b.left }, two: two && { text: two.text, x: two.rects[0][0] * b.width + b.left }, sLeft: s.left } })
+  ok('8. an old highlight from "ection" is re-snapped on load: "Section …", its box from the "S"', kept.one && kept.one.text.startsWith('Section 2 describes') && Math.abs(kept.one.x - kept.sLeft) < 1.5, kept)
+  ok('8. one whose words are not on the page is left as it was (never moved onto other words)', kept.two && kept.two.text === 'ection words that are nowhere here' && kept.two.x > kept.sLeft + 3, kept)
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
+/* primer-top (19 Oct 2026, evening, item 9): Before you start, and the document's start pills, sit at the top of the
+   document's first page, also when that page is a cover drawn as one picture (Possible Minds; here with one line of text
+   at its foot); before, they stood at the page's first line of text, about 800 px down. Opened, the primer starts there too. */
+const COVER_PDF = join(OUT, 'image_cover.pdf')
+writeFileSync(COVER_PDF, makePdf({ info: { Title: 'Image cover' }, pages: [{ images: [{ x: 0, y: 0, w: 612, h: 792, pw: 64, ph: 82, noise: 7 }], lines: [{ x: 250, y: 46, size: 10, text: 'A cover drawn as one picture' }] }, ...[1, 2, 3].map(n => ({ lines: prose(720, 40, { size: 11, from: n * 30 }) }))] }))
+async function primerTop(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(COVER_PDF)
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', at: 1 }).catch(e => ({ error: e }))
+  if (A.error) { ok('primer-top: the cover PDF opens', false, String(A.error.message).slice(0, 200)); return results }
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(900)
+  await a.waitForSelector('.mr-doc .mr-trigger, .mr-doc .mr-pills.is-start', { timeout: 10000 }).catch(() => {})
+  const where = sel => a.evaluate(sel => { const el = document.querySelector(sel), pg = state.pages[0].pg.getBoundingClientRect(); return el && { top: Math.round(el.getBoundingClientRect().top - pg.top), page: Math.round(pg.height) } }, sel)
+  const start = await where('.mr-doc .mr-pills.is-start, .mr-doc .mr-trigger')
+  ok('9. at the top of the first page (a picture cover): within 12 px of the page\'s top, not at the first line of text', start && start.top >= -2 && start.top <= 12, start)
+  await a.evaluate(() => openPrimer(currentUnit())); await a.waitForTimeout(700)
+  const opened = await where('.mr-doc .mr-primer')
+  ok('9. opened, Before you start starts at the top of the first page too (below the pills)', opened && opened.top >= -2 && opened.top <= 60, opened)
+  await shot(a, 'primer-top-1440x900')
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
+/* define-card (19 Oct 2026, evening, item 7): on the wide margin column Define is a margin card only, opened (not
+   folded), with no pop-over over the text; its dots wait until the meaning arrives; it is kept. A narrow window and the
+   phone keep the pop-over. */
+async function defineCard(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height] of [[1440, 900], [1024, 768], [390, 844]]) {
+    const tag = `define-card-${width}x${height}`, wide = width >= 1180
+    const A = await readerPage(browser, origin, hex, { width, height, look: 'paper', startPage: 3 })
+    const a = A.page
+    await prefetchSettled(a)
+    mock.delayFor.define = 900
+    let word = '', early = null
+    for (const near of ['middle', 'top', 'bottom']) {
+      word = await selectText(a, { oneWord: true, near }); await a.waitForTimeout(350)
+      early = await a.evaluate(() => ({ pop: !!document.querySelector('.mr-float.mr-define'), card: (() => { const c = document.querySelector('.mr-doc .mr-card.is-open'); return c && { label: c.querySelector('.mr-card__name')?.textContent || '', dots: !!c.querySelector('.tc-wait'), words: !!c.querySelector('.mr-answer') } })(), open: col.open }))
+      if (early.pop || early.card) break
+    }
+    await a.waitForTimeout(1600)
+    const done = await a.evaluate(() => { const c = document.querySelector('.mr-doc .mr-card.is-open'); const r = c?.getBoundingClientRect(), pg = document.querySelector('.pdf-sheet')?.getBoundingClientRect(); return { pop: !!document.querySelector('.mr-float.mr-define'), card: c && { label: c.querySelector('.mr-card__name')?.textContent || '', answer: c.querySelector('.mr-answer')?.innerText || '', dots: !!c.querySelector('.tc-wait'), right: r.left >= pg.right }, kept: keptCards().filter(k => k.kind === 'define').length, sel: getSelection().toString() } })
+    if (wide) {
+      ok(`${tag}: 7. one word opens Define as an open margin card at once ("Define · ${word}"), its dots or the dictionary's words in it, no pop-over over the text`, !early.pop && early.card && early.card.label === `Define · ${word}` && (early.card.dots || early.card.words), early)
+      ok(`${tag}: 7. the meaning fills the card in the column (beside the page), the dots gone; it is kept`, !done.pop && done.card && done.card.answer.length > 3 && !done.card.dots && done.card.right && done.kept >= 1, done)
+      await shot(a, `${tag}`)
+    } else ok(`${tag}: 7. a narrow window or phone keeps Define's pop-over`, early.pop || done.pop, { early, done })
+    mock.delayFor.define = 0
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
+/* figure-chip (19 Oct 2026, evening, item 5): the figure and formula chip is the selection bar's dark style (its colour,
+   44px, 12px corners), with Ask, Explain, Highlight and Copy in that order; Ask opens the figure's card. */
+async function figureChip(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(FIGURE_PAPER)
+  for (const [width, height, look] of [[1440, 900, 'paper'], [1440, 900, 'night'], [390, 844, 'paper']]) {
+    const tag = `figure-chip-${width}x${height}-${look}`
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    await prefetchSettled(a)
+    await a.evaluate(() => { const p = state.pages[0], sr = $('scroll').getBoundingClientRect(), b = p.pg.getBoundingClientRect(); $('scroll').scrollTop += b.top + 0.3 * b.height - (sr.top + 0.3 * sr.height) })
+    await a.waitForFunction(() => state.figs.has(1) && state.pages[0].figures?.length, null, { timeout: 15000 }).catch(() => {})
+    const pt = await a.evaluate(() => { const f = state.pages[0].figures[0], b = state.pages[0].pg.getBoundingClientRect(); return { x: b.left + (f.x + f.w / 2) * b.width, y: b.top + (f.y + f.h / 2) * b.height } })
+    if (width < 700) await a.mouse.click(pt.x, pt.y); else { await a.mouse.move(pt.x - 40, pt.y - 40); await a.mouse.move(pt.x, pt.y, { steps: 4 }) }
+    await a.waitForSelector('.byob-hot-chip', { timeout: 4000 }).catch(() => {})
+    const chip = await a.evaluate(() => { const c = document.querySelector('.byob-hot-chip'); if (!c) return null; const cs = getComputedStyle(c), bar = getComputedStyle(c).getPropertyValue('--mr-bar').trim(); const r = c.getBoundingClientRect(); return { words: [...c.querySelectorAll('button')].map(b => b.textContent.trim()), bg: cs.backgroundColor, bar, height: Math.round(r.height), radius: cs.borderRadius, ink: cs.color, inside: r.left >= 0 && r.right <= innerWidth, fonts: [...new Set([...c.querySelectorAll('button')].map(b => getComputedStyle(b).fontFamily))] } })
+    const hex2rgb = h => { const m = /^#([0-9a-f]{6})$/i.exec(h || ''); return m ? `rgb(${parseInt(m[1].slice(0, 2), 16)}, ${parseInt(m[1].slice(2, 4), 16)}, ${parseInt(m[1].slice(4, 6), 16)})` : h }
+    ok(`${tag}: 5. the chip is the selection bar's dark style (its colour, 44px, 12px corners) with Ask, Explain, Highlight, Copy`, chip && chip.words.join('|') === 'Ask|Explain|Highlight|Copy' && chip.bg === hex2rgb(chip.bar) && chip.height === 44 && chip.radius === '12px' && chip.inside && !chip.fonts.some(f => /mono/i.test(f)), chip)
+    if (width === 1440 && look === 'paper') await shot(a, 'figure-chip-1440x900')
+    await a.click('.byob-hot-chip [data-a="ask"]').catch(() => {}); await a.waitForTimeout(600)
+    const card = await a.evaluate(() => { const id = col.open, c = id && cardById(id); return c && { kind: c.kind, field: !!document.querySelector('.mr-card.is-open .mr-follow__input, .mr-sheet .mr-follow__input') } })
+    ok(`${tag}: 5. Ask opens the figure's card, its question field ready`, card && card.kind === 'figure' && card.field, card)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
+/* highlight-bar (19 Oct 2026, evening, item 2): a click on a highlight opens the dark selection bar with Ask and
+   Explain, its colours (its own pressed), its note and Remove highlight (on the phone the bin, so named); a colour
+   recolours it and the bar stays; Explain makes its card; Remove highlight removes it. */
+async function highlightBar(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height, look] of [[1440, 900, 'paper'], [1440, 900, 'night'], [360, 740, 'paper']]) {
+    const tag = `highlight-bar-${width}x${height}-${look}`, phone = width < 700
+    account.marks.clear(); account.cards.clear()
+    const A = await readerPage(browser, origin, hex, { width, height, look, startPage: 3 })
+    const a = A.page
+    await prefetchSettled(a)
+    const make = async () => { await selectText(a); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {}); await a.click('.mr-float [data-m="dot"]'); await a.waitForTimeout(300); await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); if (phone) await a.evaluate(() => closeSheet2()); await a.waitForTimeout(300) }
+    const clickHl = async () => { const p = await a.evaluate(() => { const i = [...document.querySelectorAll('.hl-layer i')].at(-1); const r = i.getBoundingClientRect(); return { x: r.left + Math.min(20, r.width / 2), y: r.top + r.height / 2 } }); await a.mouse.click(p.x, p.y); await a.waitForTimeout(500) }
+    const barNow = () => a.evaluate(() => { const b = document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar'); if (!b) return null; return { items: [...b.querySelectorAll('button')].map(x => x.dataset.m || (x.dataset.color ? 'color' : '?')), words: [...b.querySelectorAll('button')].map(x => x.textContent.trim()).filter(Boolean), remove: b.querySelector('[data-m="remove"]')?.getAttribute('aria-label') || b.querySelector('[data-m="remove"]')?.textContent, pressed: b.querySelector('.mr-swatch[aria-pressed="true"]')?.dataset.color, bg: getComputedStyle(b).backgroundColor, dark: (() => { const m = getComputedStyle(b).backgroundColor.match(/\d+/g).map(Number); return (m[0] + m[1] + m[2]) / 3 < 80 })() } })
+    await make()
+    const color = await a.evaluate(() => highlights().at(-1)?.color)
+    await clickHl()
+    const bar = await barNow()
+    ok(`${tag}: 2. a click on a highlight opens the dark bar: Ask, Explain, its colours (its own pressed), its note, Remove highlight`, bar && bar.dark && bar.items.join(',') === 'ask,explain,color,color,color,color,color,note,remove' && bar.pressed === color && bar.remove === 'Remove highlight', { bar, color })
+    if (!phone && look === 'paper') await shot(a, 'highlight-bar-1440x900')
+    const problems = await checkMargin(a)
+    ok(`${tag}: the bar is laid out cleanly (inside the screen, nothing cut or overlapping)`, !problems.length, problems.slice(0, 4))
+    // Another colour: recoloured, the bar stays as it is.
+    const other = await a.evaluate(c => [...document.querySelectorAll('.mr-float .mr-swatch')].map(b => b.dataset.color).find(k => k !== c), color)
+    await a.click(`.mr-float .mr-swatch[data-color="${other}"]`); await a.waitForTimeout(300)
+    const after = await barNow()
+    ok(`${tag}: 2. a colour recolours it and the bar stays`, (await a.evaluate(() => highlights().at(-1)?.color)) === other && after && after.pressed === other && after.items.includes('remove'), after)
+    // Explain: its card on the highlight's passage.
+    await a.click('.mr-float [data-m="explain"]'); await a.waitForTimeout(1300)
+    const card = await a.evaluate(() => { const c = cardById(col.open || ''); return c && { kind: c.kind, answered: (c.turns || []).some(t => t.role === 'assistant') } })
+    ok(`${tag}: 2. Explain from it makes the passage's card`, card && card.kind === 'explain' && card.answered, card)
+    await a.keyboard.press('Escape'); if (phone) await a.evaluate(() => closeSheet2()); await a.evaluate(() => openCard(null)); await a.waitForTimeout(300)
+    // Remove highlight.
+    const n0 = await a.evaluate(() => highlights().length)
+    await clickHl(); await a.click('.mr-float [data-m="remove"]').catch(() => {}); await a.waitForTimeout(300)
+    ok(`${tag}: 2. Remove highlight removes it and the bar goes`, (await a.evaluate(() => highlights().length)) === n0 - 1 && !(await barNow()))
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
+/* zoom-panel (19 Oct 2026, evening, item 6): a PDF's Aa panel on the desktop has Zoom (−, the percentage, +, Fit width,
+   100% by default) instead of the A—A slider, and a line pointing to Convert to Tinct book; the page never grows past
+   its room (never under the margin column, no sideways scroll), by the buttons, the keys or a pinch; "Full width" is
+   gone (measured: in Margin view it changed nothing up to about 1600 px; + reaches what it gave). Phones and Tinct
+   text (an EPUB) keep the size slider. */
+async function zoomPanel(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  const room = page => page.evaluate(() => { const s = $('scroll'), sh = state.pages[0].sheet.getBoundingClientRect(), colEl = document.querySelector('.mr-doc'); const colLeft = colEl && marginMode() === 'column' ? colEl.getBoundingClientRect().left : innerWidth; return { zoom: state.zoom, sheet: Math.round(sh.width), right: Math.round(sh.right), colLeft: Math.round(colLeft), sideways: s.scrollWidth - s.clientWidth, pct: document.querySelector('.byob-zoom-pct')?.textContent || null } })
+  for (const [width, height, layout] of [[1440, 900, 'margin'], [1920, 1080, 'margin'], [1440, 900, 'focus']]) {
+    const tag = `zoom-panel-${width}x${height}-${layout}`
+    const A = await readerPage(browser, origin, hex, { width, height, look: 'paper' })
+    const a = A.page
+    await prefetchSettled(a)
+    if (layout === 'focus') { await a.evaluate(() => setLayout('focus')); await a.waitForTimeout(700) }
+    await a.click('#aaBtn'); await a.waitForSelector('.byob-aa-panel', { timeout: 4000 }).catch(() => {})
+    const panel = await a.evaluate(() => { const p = document.querySelector('.byob-aa-panel'); return p && { zoom: !!p.querySelector('.byob-zoom'), label: p.querySelector('.byob-zoom-label')?.textContent, slider: !!p.querySelector('[data-testid="lab-v2-size"]'), full: [...p.querySelectorAll('.lab-v2-row-label')].some(l => /Full width/.test(l.textContent)), fit: p.querySelector('[data-z="fit"]')?.getAttribute('aria-pressed'), note: p.querySelector('.byob-zoom-note')?.textContent.trim() || null, pct: p.querySelector('.byob-zoom-pct')?.textContent } })
+    ok(`${tag}: 6. Zoom (−, 100%, +, Fit width pressed) replaces the size slider; no "Full width"`, panel && panel.zoom && panel.label === 'Zoom' && !panel.slider && !panel.full && panel.fit === 'true' && panel.pct === '100%', panel)
+    ok(`${tag}: 6. one line points to Convert to Tinct book for larger text that reflows`, panel?.note === 'For larger text that reflows, use Convert to Tinct book.', panel?.note)
+    if (width === 1440 && layout === 'margin') await shot(a, 'zoom-panel-1440x900')
+    // + until it stops: the page never past its room.
+    for (let k = 0; k < 30 && !(await a.evaluate(() => document.querySelector('[data-z="+"]')?.disabled)); k++) { await a.click('[data-z="+"]'); await a.waitForTimeout(60) }
+    await a.waitForTimeout(400)
+    const most = await room(a)
+    ok(`${tag}: 6. + stops where the page fills its room: never under the margin column, no sideways scroll (${most.sheet}px at ${most.pct})`, most.right <= most.colLeft + 1 && most.sideways <= 1 && most.right <= width, most)
+    // The keys and a pinch past it: still within the room.
+    await a.keyboard.press('Escape'); await a.waitForTimeout(150)
+    await a.keyboard.press('Control+='); await a.keyboard.press('Control+='); await a.waitForTimeout(400)
+    await a.mouse.move(width * 0.3, height * 0.5); await a.keyboard.down('Control'); await a.mouse.wheel(0, -400); await a.keyboard.up('Control'); await a.waitForTimeout(500)
+    const keys = await room(a)
+    ok(`${tag}: 6. Ctrl + and a pinch never take it further`, keys.right <= keys.colLeft + 1 && keys.sideways <= 1 && Math.abs(keys.zoom - most.zoom) < 0.011, { most, keys })
+    // − and Fit width.
+    await a.click('#aaBtn'); await a.waitForSelector('.byob-zoom'); await a.click('[data-z="-"]'); await a.waitForTimeout(300)
+    const less = await room(a)
+    await a.click('[data-z="fit"]'); await a.waitForTimeout(400)
+    const fit = await room(a)
+    ok(`${tag}: 6. − zooms out (the percentage follows); Fit width returns to 100%`, less.zoom < most.zoom && less.pct === Math.round(less.zoom * 100) + '%' && fit.zoom === 1 && fit.pct === '100%', { less, fit })
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // A phone keeps its size slider.
+  const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  await P.page.click('#aaBtn'); await P.page.waitForTimeout(400)
+  ok('zoom-panel-390x844: 6. the phone keeps its size slider (phones unchanged)', await P.page.evaluate(() => !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]') && !document.querySelector('.byob-zoom')))
+  await P.ctx.close()
+  // Tinct text (an EPUB here): the size slider stays a text-size control.
+  const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
+  await E.page.click('#aaBtn'); await E.page.waitForTimeout(400)
+  ok('zoom-panel-epub: 6. in Tinct text the size slider stays a text-size control', await E.page.evaluate(() => document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]')?.getAttribute('aria-label') === 'Text size' && !document.querySelector('.byob-zoom')))
+  await E.ctx.close()
+  return results
+}
+
+/* margin-notes (19 Oct 2026, evening, item 3): on the wide column a click on the empty margin opens a new note card at
+   that height, its field ready; with anything open the first click only folds it; an empty note goes when it lets go;
+   a note is kept and synced as every note is (and reloads in its place); its Ask turns it into a chat with the note as
+   the first message. Narrow windows write none. */
+async function marginNotes(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  account.marks.clear(); account.cards.clear()
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 3 })
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => { openCard(null); closePrimer() }); await a.waitForTimeout(300)
+  const colX = () => a.evaluate(() => Math.round(document.querySelector('.mr-doc').getBoundingClientRect().left + 190))
+  const x = await colX(), clickPage = async () => { const p = await a.evaluate(() => { const b = state.pages.find(q => q.pg.getBoundingClientRect().bottom > 400).pg.getBoundingClientRect(); return { x: b.left + 30, y: 640 } }); await a.mouse.click(p.x, p.y); await a.waitForTimeout(400) }
+  const openNote = () => a.evaluate(() => { const c = document.querySelector('.mr-doc .mr-card.is-open'); if (!c) return null; const f = c.querySelector('.mr-note-edit'), lab = c.querySelector('.mr-card__label').getBoundingClientRect(); return { id: c.dataset.id, label: c.querySelector('.mr-card__name')?.textContent, field: !!f, focused: document.activeElement === f, mid: Math.round((lab.top + lab.bottom) / 2), ask: !!c.querySelector('[data-c="note-ask"]') } })
+  // 1. A click on the empty margin: a note at that height, its field ready.
+  await a.mouse.click(x, 520); await a.waitForTimeout(500)
+  const n1 = await openNote()
+  ok('3. a click on the empty margin opens a new note card at that height ("Your note"), its field focused, with Ask', n1 && n1.label === 'Your note' && n1.field && n1.focused && Math.abs(n1.mid - 520) <= 24 && n1.ask, n1)
+  await a.keyboard.type('My margin thought about this page.')
+  await shot(a, 'margin-note-1440x900')
+  await clickPage()
+  const kept = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const c = h && document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); return h && { rects: h.rects, withNote: h.withNote, page: h.page, folded: !!c?.classList.contains('is-folded'), text: c?.querySelector('.mr-card__text')?.textContent, hl: document.querySelectorAll(`.hl-layer i[data-id="${h.id}"]`).length } })
+  ok('3. it is kept when its field lets go: a note with no passage at its height, folded in place, no highlight drawn', kept && kept.rects.length === 1 && kept.rects[0][0] === 1 && kept.rects[0][2] === 0 && kept.rects[0][3] === 0 && kept.withNote && kept.folded && /My margin thought/.test(kept.text || '') && kept.hl === 0, kept)
+  await a.waitForTimeout(2200)
+  const synced = account.marks.get(hex)?.marks?.find(m => m.note === 'My margin thought about this page.')
+  ok('3. it syncs to the account as every note does', !!synced && synced.rects[0][2] === 0, synced)
+  // 2. With a card open, the first click on the margin only folds it.
+  await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); openCard('n-' + h.id) }); await a.waitForTimeout(400)
+  const before = await a.evaluate(() => highlights().length)
+  await a.mouse.click(x, 760); await a.waitForTimeout(500)
+  ok('3. with a card open, the first click on the margin only folds it (no new note)', !(await a.evaluate(() => col.open)) && !(await a.evaluate(() => !!col.draft)) && (await a.evaluate(() => highlights().length)) === before)
+  // 3. An empty note goes when it lets go.
+  await a.mouse.click(x, 760); await a.waitForTimeout(400)
+  const empty = await openNote()
+  await clickPage()
+  ok('3. an empty note is let go when its field loses the focus (nothing kept, no card)', empty?.field && (await a.evaluate(() => highlights().length)) === before && !(await a.evaluate(() => !!col.draft || !!document.querySelector('.mr-doc .mr-card .mr-note-edit[placeholder]:not(:placeholder-shown)'))), empty)
+  // 4. Reload: the note in its place.
+  const y0 = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const el = document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); const p = state.pages[h.page - 1].pg.getBoundingClientRect(); return Math.round(el.getBoundingClientRect().top - (p.top + h.rects[0][1] * p.height)) })
+  await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }); await a.waitForTimeout(1200)
+  await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); goTo({ page: h.page, frac: Math.max(0, h.rects[0][1] - 0.2) }) }); await a.waitForTimeout(900)
+  const y1 = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const el = document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); if (!el) return null; const p = state.pages[h.page - 1].pg.getBoundingClientRect(); return Math.round(el.getBoundingClientRect().top - (p.top + h.rects[0][1] * p.height)) })
+  ok('3. after a reload the note is in its place', y1 != null && Math.abs(y1 - y0) <= 2, { y0, y1 })
+  // 5. Ask: the note becomes a chat, the note its first message.
+  const r0 = account.requests.length
+  await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); openCard('n-' + h.id) }); await a.waitForTimeout(400)
+  await a.click('.mr-doc .mr-card.is-open [data-c="note-ask"]'); await a.waitForTimeout(1500)
+  const chat = await a.evaluate(() => { const c = cardById(col.open || ''); const el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, first: c.turns?.[0], answered: c.turns?.some(t => t.role === 'assistant'), bubble: el?.querySelector('.mr-you')?.textContent, noteGone: !highlights().some(m => m.note === 'My margin thought about this page.') } })
+  const sent = account.requests.slice(r0).find(r => JSON.stringify(r.body?.messages || '').includes('My margin thought'))
+  ok('3. Ask turns the note into a chat in its place: the note is its first message, answered; the note goes', chat && chat.kind === 'ask' && chat.first?.role === 'user' && chat.first.content === 'My margin thought about this page.' && chat.answered && /My margin thought/.test(chat.bubble || '') && chat.noteGone && !!sent, { chat, sent: !!sent })
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // Narrow windows: no note from a click beside the page.
+  const N = await readerPage(browser, origin, hex, { width: 1024, height: 768, look: 'paper', startPage: 3 })
+  const n0 = await N.page.evaluate(() => highlights().length)
+  await N.page.mouse.click(1000, 400); await N.page.waitForTimeout(400)
+  ok('3. a narrow window writes no note on a click beside the page', (await N.page.evaluate(() => highlights().length)) === n0 && !(await N.page.evaluate(() => !!col.draft)))
+  await N.ctx.close()
+  return results
+}
+
+/* unit-pills (19 Oct 2026, evening, item 1): on the wide column each unit has the book reader's chapter pills: at the
+   top of its first page Primer (Before you start, made ahead) and Catch me up; at the foot of its last page Recap, Quiz
+   me and Note. Each opens a margin card; Catch me up and Recap are made on tap; Note is the reader's own note on the
+   unit, kept and synced. A document without units has the start pills at the top of page 1 and the end pills after
+   its last page. Phones are unchanged. */
+async function unitPills(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(LONG_BOOK)
+  account.marks.clear(); account.cards.clear(); account.primers.clear()
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) {} goTo({ page: 1, frac: 0 }) }); await a.waitForTimeout(800)
+  const row = where => a.evaluate(where => { const r = document.querySelector(`.mr-doc .mr-pills.is-${where}[data-unit="${primer.units[0].key}"]`); if (!r) return null; const b = [...r.querySelectorAll('.mr-pill')], sp = b[0]?.querySelector('span'), cs = sp && getComputedStyle(sp), bs = b[0] && getComputedStyle(b[0]); const u = primer.units[0], pg = state.pages[(where === 'start' ? u.from : u.to) - 1].pg.getBoundingClientRect(), rr = r.getBoundingClientRect(); return { words: b.map(x => x.textContent.trim()), font: bs.fontFamily, size: bs.fontSize, radius: cs.borderRadius, border: cs.borderTopWidth, gap: Math.round(where === 'start' ? rr.top - pg.top : pg.bottom - rr.bottom), right: rr.left >= pg.right } }, where)
+  const start = await row('start')
+  ok('1. at the top of the unit\'s first page: "✧ Primer" and "✧ Catch me up", the book reader\'s pills (14px Garamond, a hairline pill), beside the page', start && start.words.join('|') === '✧Primer|✧Catch me up' && /EB Garamond/.test(start.font) && start.size === '14px' && start.radius === '999px' && start.border === '1px' && start.gap >= -2 && start.gap <= 12 && start.right, start)
+  await shot(a, 'unit-pills-start-1440x900')
+  // Primer: Before you start, made ahead, open at once below the pills; again folds it.
+  const r0 = account.requests.length
+  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="primer"]'); await a.waitForTimeout(400)
+  const primerOpen = await a.evaluate(() => { const p = document.querySelector('.mr-doc .mr-primer'), r = document.querySelector('.mr-doc .mr-pills.is-start'); return p && { gist: !!p.querySelector('.mr-primer__gist'), below: p.getBoundingClientRect().top >= r.getBoundingClientRect().bottom - 1, pressed: r.querySelector('[data-pill="primer"]').getAttribute('aria-expanded') } })
+  ok('1. Primer opens Before you start (made ahead: at once, no request) under the pills, its pill pressed', primerOpen?.gist && primerOpen.below && primerOpen.pressed === 'true' && !chatsOf(r0).some(r => r.body?.companion?.chapter), primerOpen)
+  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="primer"]'); await a.waitForTimeout(300)
+  ok('1. Primer again folds it', !(await a.$('.mr-doc .mr-primer')))
+  // Catch me up: a card under the pills, made on tap (the companion's ask, the pages before the unit).
+  const r1 = account.requests.length
+  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="catchup"]'); await a.waitForTimeout(1300)
+  const cu = await a.evaluate(() => { const c = cardById(col.open || ''); const el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { label: el?.querySelector('.mr-card__name')?.textContent, answer: el?.querySelector('.mr-answer')?.innerText || '', unit: c.data?.unit?.key, pill: c.data?.pill, below: el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-start').getBoundingClientRect().bottom - 1 } })
+  const cuReq = chatsOf(r1).find(r => /Catch them up/.test(JSON.stringify(r.body.messages || '')))
+  ok('1. Catch me up opens its card under the pills ("Catch me up · …"), answered on tap', cu && /^Catch me up · /.test(cu.label || '') && /MOCK ANSWER/.test(cu.answer) && cu.pill === 'catchup' && cu.below && !!cuReq && cuReq.body.companion?.intent === 'ask', { cu, sent: !!cuReq })
+  await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+  // The unit's end: Recap, Quiz me, Note at the foot of its last page.
+  await a.evaluate(() => { const u = primer.units[0]; goTo({ page: u.to, frac: 0.75 }) }); await a.waitForTimeout(900)
+  const end = await row('end')
+  ok('1. at the foot of the unit\'s last page: "✧ Recap", "✧ Quiz me", "Note" (no mark: the reader\'s own)', end && end.words.join('|') === '✧Recap|✧Quiz me|Note' && end.gap >= -2 && end.gap <= 14 && end.right, end)
+  const r2 = account.requests.length
+  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="recap"]'); await a.waitForTimeout(1300)
+  const rc = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', below: el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-end').getBoundingClientRect().bottom - 1 } })
+  ok('1. Recap opens its card under the end pills ("Recap · …"), answered on tap', rc && /^Recap · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && rc.below && chatsOf(r2).some(r => /Recap it for them/.test(JSON.stringify(r.body.messages || ''))), rc)
+  await shot(a, 'unit-pills-end-1440x900')
+  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="quiz"]'); await a.waitForTimeout(1300)
+  const qz = await a.evaluate(() => { const c = cardById(col.open || ''), el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, unit: !!c.data?.unit, count: el?.querySelector('.mr-card__count')?.textContent } })
+  ok('1. Quiz me opens the unit\'s quiz ("1 of 3")', qz && qz.kind === 'quiz' && qz.unit && qz.count === '1 of 3', qz)
+  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="note"]'); await a.waitForTimeout(500)
+  const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f, placeholder: f?.placeholder } })
+  ok('1. Note opens the reader\'s own note on the unit, its field ready', nt && nt.field && nt.focused && nt.placeholder === 'A note on this chapter', nt)
+  await a.keyboard.type('My note on the whole chapter.')
+  await a.mouse.click(300, 500); await a.waitForTimeout(500)
+  const saved = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My note on the whole chapter.'); return h && { page: h.page, rects: h.rects, to: primer.units[0].to } })
+  ok('1. the note is kept as the unit\'s (its last page, [2, 1, 0, 0]) and shows under the end pills', saved && saved.page === saved.to && JSON.stringify(saved.rects) === '[[2,1,0,0]]' && await a.evaluate(() => { const h = highlights().find(m => m.note === 'My note on the whole chapter.'); const el = document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); return !!el && el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-end').getBoundingClientRect().bottom - 1 }), saved)
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  // A document without units: start pills at the top of page 1, end pills after its last page.
+  const hexS = addBook(PDFS[0])
+  const S = await readerPage(browser, origin, hexS, { width: 1440, height: 900, look: 'night' })
+  await prefetchSettled(S.page)
+  const one = await S.page.evaluate(async () => { const u = primer.units; const top = document.querySelector('.mr-doc .mr-pills.is-start'); const p1 = state.pages[0].pg.getBoundingClientRect(); const r = { units: u.map(x => x.key), startGap: top ? Math.round(top.getBoundingClientRect().top - p1.top) : null }; goTo({ page: state.pages.length, frac: 0.8 }); await new Promise(z => setTimeout(z, 900)); const end = document.querySelector('.mr-doc .mr-pills.is-end'), pl = state.pages.at(-1).pg.getBoundingClientRect(); r.endGap = end ? Math.round(pl.bottom - end.getBoundingClientRect().bottom) : null; r.words = end ? [...end.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()) : null; return r })
+  ok('1. a document without units: the start pills at the top of page 1, the end pills after its last page', one.units.join() === 'all' && one.startGap >= -2 && one.startGap <= 12 && one.endGap >= -2 && one.endGap <= 14 && one.words?.join('|') === '✧Recap|✧Quiz me|Note', one)
+  await S.ctx.close()
+  // Phones are unchanged: no pills.
+  const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  await P.page.waitForTimeout(800)
+  ok('1. a phone shows no pills (unchanged)', !(await P.page.$('.mr-pills')))
+  await P.ctx.close()
+  return results
+}
+
+/* ---------- 19 Oct 2026: the Notebook and EPUBs in Margin view (Anders) ---------- */
+// Cards of every kind on the lines in view (a long answer, follow-ups), a note and a plain highlight, made
+// minutes apart, in the reader's own store (as the margin keeps them). -> the ids, newest first
+function seedNotebook() {
+  const hdr = document.getElementById('hdr').getBoundingClientRect().bottom
+  const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.width > 60 && r.top > hdr + 20 && r.bottom < innerHeight - 40 && (s.textContent || '').trim().length > 12 })
+  const lines = []
+  for (const s of spans) { const r = s.getBoundingClientRect(); if (!lines.some(l => Math.abs(l.r.top - r.top) < 4)) lines.push({ s, r }) }
+  lines.sort((a, b) => a.r.top - b.r.top)
+  const now = Date.now(), long = 'MOCK long answer. The passage sets out its claim in the first sentence and then qualifies it. ' + Array.from({ length: 9 }, (_, i) => `Sentence ${i + 2} adds a further point that the reader may want to weigh against the text.`).join(' ')
+  const specs = [
+    ['explain', [{ role: 'assistant', content: long }, { role: 'user', content: 'And what follows from it?' }, { role: 'assistant', content: 'MOCK follow-up answer. The next step is named {p. 3}.' }]],
+    ['ask', [{ role: 'user', content: 'Why does the author say this here?' }, { role: 'assistant', content: 'MOCK ask answer. Because the chapter turns on it.' }]],
+    ['simplify', [{ role: 'assistant', content: 'MOCK simplify. In plain words, the idea is small.' }]],
+    ['factcheck', [{ role: 'assistant', content: 'Holds. MOCK verdict line.\n\nSources: [Mock source](https://example.org/one)' }]],
+    ['counterpoint', [{ role: 'assistant', content: 'MOCK counterpoint. The strongest objection is the obvious one.' }]],
+    ['define', [], { word: 'variance', senses: [{ text: 'How widely values spread around their mean.' }, { text: 'The fact of being different.' }] }],
+    ['quiz', [], { questions: [{ q: 'MOCK Q1. What is named first?', answer: 'Ideas', why: 'It comes first.' }, { q: 'MOCK Q2. Why keep them apart?', answer: 'They are known differently', why: '' }], i: 0, results: [] }],
+  ]
+  const cards = specs.map(([kind, turns, data], i) => {
+    const l = lines[i % lines.length], anchor = anchorOf([{ left: l.r.left, right: l.r.right, top: l.r.top, bottom: l.r.bottom }])
+    return TinctMargin.newCard({ kind, page: anchor[0].n, anchor, text: (l.s.textContent || '').trim(), turns, data, at: now - (i + 3) * 60000 * 7 })
+  })
+  store.set('cards:' + state.key, cards)
+  const mark = (i, note, at) => { const l = lines[(i + 7) % lines.length], b = state.pages[Number(l.s.closest('.pdf-sheet').dataset.page) - 1].pg.getBoundingClientRect(); const r = v => Math.round(v * 10000) / 10000; return { id: 'm' + i + at.toString(36), page: Number(l.s.closest('.pdf-sheet').dataset.page), rects: [[r((l.r.left - b.left) / b.width), r((l.r.top - b.top) / b.height), r(l.r.width / b.width), r(l.r.height / b.height)]], text: (l.s.textContent || '').trim(), color: 'gold', at, u: at, ...(note ? { note, withNote: true } : {}) } }
+  store.set('hl:' + state.key, [mark(0, 'My own note on this line.', now - 60000 * 2), mark(1, '', now - 86400000 * 2)])
+  col.view = null; marginLayout({ fresh: true })
+  return cards.length + 2
+}
+const nbState = () => {
+  const el = document.querySelector('.nb'); if (!el) return null
+  const r = el.getBoundingClientRect(), list = el.querySelector('.nb-list')
+  const entries = [...el.querySelectorAll('.nb-entry')].map(e => ({ id: e.dataset.id, kind: e.querySelector('.nb-kind')?.textContent, chip: e.querySelector('.nb-chip')?.textContent, time: e.querySelector('.nb-time')?.textContent, quote: !!e.querySelector('.nb-quote'), q: e.querySelectorAll('.nb-qa:not(.is-a)').length, a: e.querySelectorAll('.nb-qa.is-a').length, cut: !!e.querySelector('.nb-answer.is-cut'), more: !!e.querySelector('.nb-more:not([hidden])'), follow: !!e.querySelector('.nb-follow'), bin: !!e.querySelector('.nb-bin'), radius: parseFloat(getComputedStyle(e).borderTopLeftRadius) }))
+  const quote = el.querySelector('.nb-quote'), qs = quote && getComputedStyle(quote)
+  const fonts = [...el.querySelectorAll('*')].map(n => getComputedStyle(n).fontFamily).filter(f => /mono|courier|menlo|consolas/i.test(f))
+  const caps = [...el.querySelectorAll('*')].filter(n => getComputedStyle(n).textTransform === 'uppercase').length
+  return { open: true, inside: r.left >= 0 && r.right <= innerWidth && r.top >= document.getElementById('hdr').getBoundingClientRect().bottom && r.bottom <= innerHeight, width: r.width, title: el.querySelector('.nb-title')?.textContent, count: el.querySelector('.nb-count')?.textContent, filter: el.querySelector('[data-f][aria-checked="true"]')?.textContent, icons: [...el.querySelectorAll('.nb-icons button')].map(b => b.getAttribute('aria-label')), entries, rule: qs && [qs.borderLeftWidth, qs.borderLeftStyle], scrolls: list.scrollHeight > list.clientHeight ? getComputedStyle(list).overflowY : 'fits', mono: fonts.length, caps, button: document.getElementById('notebookBtn').getAttribute('aria-expanded') }
+}
+async function notebookCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height] of [[1440, 900], [2000, 1066]]) {
+    const tag = `notebook-${width}x${height}`
+    const A = await readerPage(browser, origin, hex, { width, height, look: 'paper', startPage: 2 })
+    const a = A.page
+    await prefetchSettled(a)
+    await A.ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin })
+    const seeded = await a.evaluate(seedNotebook)
+    const btn = await a.evaluate(() => { const b = document.getElementById('notebookBtn'), r = b.getBoundingClientRect(), aa = document.getElementById('aaBtn').getBoundingClientRect(); return { shown: r.width > 0 && getComputedStyle(b).display !== 'none', w: r.width, h: r.height, sameRow: Math.abs((r.top + r.bottom) / 2 - (aa.top + aa.bottom) / 2) < 2, label: b.getAttribute('aria-label'), svg: !!b.querySelector('svg') } })
+    ok(`${tag}: the top bar has the Notebook button beside Aa, in the toolbar's style`, btn.shown && btn.sameRow && btn.w === 34 && btn.h === 34 && btn.label === 'Notebook' && btn.svg, btn)
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry'); await a.waitForTimeout(200)
+    let s = await a.evaluate(nbState)
+    ok(`${tag}: it opens with "Notebook", the count line and copy, download and close`, s && s.title === 'Notebook' && s.count === `${seeded} entries` && s.icons.join() === 'Copy all,Download,Close' && s.button === 'true' && s.inside, s)
+    ok(`${tag}: All lists every entry newest first, each a rounded card with its chip, kind, time and bin`, s.entries.length === seeded && s.entries.every(e => e.chip && e.kind && e.time && e.bin && e.radius >= 12) && s.entries[0].kind === 'Note' && s.entries[0].time === '2 min ago' && s.entries[s.entries.length - 1].kind === 'Highlight' && s.entries[s.entries.length - 1].time === '2 days ago', s.entries)
+    ok(`${tag}: the kinds are named: Explain, Ask, Simplify, Define, Fact-check, Counterpoint, Quiz, Note, Highlight`, ['Explain', 'Ask', 'Simplify', 'Define · variance', 'Fact-check', 'Counterpoint', 'Quiz', 'Note', 'Highlight'].every(k => s.entries.some(e => e.kind === k)), s.entries.map(e => e.kind))
+    const ex = s.entries.find(e => e.kind === 'Explain'), ask = s.entries.find(e => e.kind === 'Ask')
+    ok(`${tag}: a quoted passage with an accent rule; Q and A rows; a long answer cut at four lines with "Read the whole answer"; follow-ups under a rule`, s.rule?.[0] === '2px' && s.rule[1] === 'solid' && ex.quote && ex.cut && ex.more && ex.follow && ask.q === 1 && ask.a === 1 && !ask.cut, { rule: s.rule, ex, ask })
+    ok(`${tag}: no mono, no capitals`, s.mono === 0 && s.caps === 0, s)
+    await shot(a, `${tag}-all`)
+    // Read the whole answer: the answer in full, in place.
+    const exId = ex.id
+    await a.click(`.nb-entry[data-id="${exId}"] .nb-more`); await a.waitForTimeout(150)
+    const whole = await a.evaluate(id => { const e = document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`); return { full: e.classList.contains('is-full'), h: e.getBoundingClientRect().height, sh: e.scrollHeight } }, exId)
+    ok(`${tag}: "Read the whole answer" shows all of it`, whole.full && Math.abs(whole.h - whole.sh) < 2, whole)
+    // The filter.
+    await a.click('.nb [data-f="mine"]'); await a.waitForTimeout(150)
+    s = await a.evaluate(nbState)
+    ok(`${tag}: My notes: the reader's own notes and highlights only`, s.filter === 'My notes' && s.entries.length === 2 && s.entries.every(e => ['Note', 'Highlight'].includes(e.kind)) && s.count === '2 entries', s)
+    await shot(a, `${tag}-mine`)
+    await a.click('.nb [data-f="ai"]'); await a.waitForTimeout(150)
+    s = await a.evaluate(nbState)
+    ok(`${tag}: AI: the companion's answers only`, s.filter === 'AI' && s.entries.length === seeded - 2 && s.entries.every(e => !['Note', 'Highlight'].includes(e.kind)) && s.count === `${seeded - 2} entries`, s)
+    await shot(a, `${tag}-ai`)
+    await a.click('.nb [data-f="all"]'); await a.waitForTimeout(150)
+    await a.keyboard.press('Escape'); await a.waitForTimeout(150)
+    const esc0 = await a.evaluate(() => ({ open: !!document.querySelector('.nb'), focus: document.activeElement?.id }))
+    ok(`${tag}: Escape closes it and returns to the button`, !esc0.open && esc0.focus === 'notebookBtn', esc0)
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    // Live: a card made with the Notebook open appears at the top.
+    await a.evaluate(() => { document.querySelector('.nb').style.visibility = 'hidden' })
+    mock.next = 'MOCK live answer. Made while the Notebook was open.'
+    await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+    await a.click('.mr-float [data-m="explain"]').catch(() => {}); await a.waitForTimeout(1500)
+    await a.evaluate(() => { document.querySelector('.nb').style.visibility = '' })
+    s = await a.evaluate(nbState)
+    ok(`${tag}: live: an answer made while it is open is listed at once, at the top`, s.entries.length === seeded + 1 && s.entries[0].kind === 'Explain' && s.entries[0].time === 'Just now' && s.count === `${seeded + 1} entries`, s.entries.slice(0, 2))
+    await a.evaluate(() => { openCard(null) })
+    // Jump: clicking an entry brings its passage into view and opens its card in the margin.
+    await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(500)
+    const askId = ask.id
+    await a.click(`.nb-entry[data-id="${askId}"] .nb-kind`); await a.waitForTimeout(1400)
+    const jumped = await a.evaluate(id => { const c = cardById(id), f = TinctMargin.firstRect(c), p = state.pages[f[0] - 1], b = p.pg.getBoundingClientRect(), y = b.top + f[2] * b.height, sr = document.getElementById('scroll').getBoundingClientRect(), el = document.querySelector(`.mr-card.is-open[data-id="${id}"]`), r = el?.getBoundingClientRect(), top = r && document.elementFromPoint(r.left + r.width / 2, r.top + Math.min(20, r.height / 2)); return { open: col.open, inView: y > sr.top && y < sr.bottom - 60, shown: !!r && r.width > 0 && r.right <= innerWidth, seen: !!top && el.contains(top), panel: !!document.querySelector('.nb') } }, askId)
+    ok(`${tag}: clicking an entry jumps to its passage and opens its card in the margin, seen (the Notebook steps aside)`, jumped.open === askId && jumped.inView && jumped.shown && jumped.seen && !jumped.panel, jumped)
+    await shot(a, `${tag}-jump`)
+    // A note's entry opens the note's card; a plain highlight is flashed.
+    const noteId = s.entries.find(e => e.kind === 'Note').id
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    ok(`${tag}: reopened, it is as it was left (the filter, the list)`, (await a.evaluate(nbState)).filter === 'All', null)
+    await a.click(`.nb-entry[data-id="${noteId}"] .nb-kind`); await a.waitForTimeout(1200)
+    ok(`${tag}: a note's entry opens its note in the margin`, await a.evaluate(id => col.open === id, noteId), await a.evaluate(() => col.open))
+    // Delete with Undo.
+    const before = await a.evaluate(() => (store.get('cards:' + state.key) || []).filter(c => !c.gone).length)
+    await a.evaluate(() => openCard(null)); await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    await a.click(`.nb-entry[data-id="${askId}"] .nb-bin`); await a.waitForTimeout(250)
+    const del = await a.evaluate(id => ({ gone: !document.querySelector(`.nb-entry[data-id="${id}"]`), undo: !!document.querySelector('.nb .nb-undo button'), stored: (store.get('cards:' + state.key) || []).find(c => c.id === id)?.gone === true, colUndo: !!document.querySelector('.mr-undo:not(.nb-undo)'), count: document.querySelector('.nb-count').textContent }), askId)
+    ok(`${tag}: the bin deletes the entry and its card (a tombstone), with "Deleted · Undo" in its place`, del.gone && del.undo && del.stored && !del.colUndo && del.count === `${seeded} entries`, del)
+    await a.click('.nb .nb-undo button'); await a.waitForTimeout(250)
+    const back = await a.evaluate(id => ({ back: !!document.querySelector(`.nb-entry[data-id="${id}"]`), stored: (store.get('cards:' + state.key) || []).filter(c => !c.gone).length }), askId)
+    ok(`${tag}: Undo puts it back`, back.back && back.stored === before, { back, before })
+    const hlId = (await a.evaluate(nbState)).entries.find(e => e.kind === 'Highlight').id
+    await a.click(`.nb-entry[data-id="${hlId}"] .nb-bin`); await a.waitForTimeout(250)
+    const hlGone = await a.evaluate(() => highlights().length)
+    await a.click('.nb .nb-undo button'); await a.waitForTimeout(250)
+    ok(`${tag}: a highlight's bin removes it, and Undo restores it`, hlGone === 1 && await a.evaluate(() => highlights().length) === 2, hlGone)
+    if (!(await a.evaluate(() => !!document.querySelector('.nb')))) { await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry') }
+    // Copy all and Download: Markdown made on the device.
+    const r0 = account.requests.length
+    await a.click('.nb [data-nb="copy"]'); await a.waitForTimeout(300)
+    const clip = await a.evaluate(() => navigator.clipboard.readText()).catch(() => '')
+    ok(`${tag}: Copy all copies the entries as Markdown`, /^# A Treatise of Small Things: notebook\n\nAnn Example\n/.test(clip) && /\n## Ask · p\. \d+/.test(clip) && /\*\*Q\.\*\* Why does the author say this here\?/.test(clip) && /\n> /.test(clip), clip.slice(0, 300))
+    const [dl] = await Promise.all([a.waitForEvent('download'), a.click('.nb [data-nb="download"]')])
+    const file = join(OUT, `${tag}-download.md`); await dl.saveAs(file)
+    const md = readFileSync(file, 'utf8')
+    ok(`${tag}: Download saves a Markdown file of everything, made on this device (no request)`, dl.suggestedFilename() === 'A Treatise of Small Things notebook.md' && md.split('\n## ').length - 1 === seeded + 1 && /My own note on this line\./.test(md) && /MOCK follow-up answer\. The next step is named \(p\. 3\)\./.test(md) && account.requests.slice(r0).every(r => r.path === '/api/events'), { name: dl.suggestedFilename(), entries: md.split('\n## ').length - 1 })
+    // Its close button closes it; the focus goes back to the button.
+    await a.click('.nb [data-nb="close"]'); await a.waitForTimeout(150)
+    const shut = await a.evaluate(() => ({ open: !!document.querySelector('.nb'), focus: document.activeElement?.id, expanded: document.getElementById('notebookBtn').getAttribute('aria-expanded') }))
+    ok(`${tag}: its close button closes it and returns to the top bar's button`, !shut.open && shut.focus === 'notebookBtn' && shut.expanded === 'false', shut)
+    // Night: the same panel in the night look.
+    await a.evaluate(() => setTheme('dark')); await a.waitForTimeout(400)
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    const night = await a.evaluate(() => { const el = document.querySelector('.nb'); return { bg: getComputedStyle(el).backgroundColor, ink: getComputedStyle(el.querySelector('.nb-kind')).color } })
+    ok(`${tag}: in Night it takes the margin's night colours`, night.bg === 'rgb(31, 27, 23)' && night.ink !== 'rgb(11, 11, 11)', night)
+    await shot(a, `${tag}-night`)
+    await a.evaluate(() => setTheme('light'))
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // The margin batch (19 Oct 2026): the core branch's new cards in the Notebook. A margin note and a unit's note under
+  // "My notes"; a unit's pill cards (Catch me up, Recap, its quiz) and a Fact-check under "AI", Fact-check as its card shows it.
+  {
+    const tag = 'notebook-batch-1440x900'
+    const hexL = addBook(LONG_BOOK)
+    account.marks.clear(); account.cards.clear()
+    const B = await readerPage(browser, origin, hexL, { width: 1440, height: 900, look: 'paper' })
+    const b = B.page
+    await prefetchSettled(b)
+    await b.evaluate(() => { openCard(null); closePrimer(); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(800)
+    await b.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="catchup"]'); await b.waitForTimeout(1300)
+    await b.evaluate(() => openCard(null)); await b.waitForTimeout(200)
+    await b.evaluate(() => { const u = primer.units[0]; goTo({ page: u.to, frac: 0.75 }) }); await b.waitForTimeout(900)
+    await b.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="recap"]'); await b.waitForTimeout(1300)
+    await b.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="quiz"]'); await b.waitForTimeout(1300)
+    await b.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="note"]'); await b.waitForTimeout(500)
+    await b.keyboard.type('My note on the whole chapter.')
+    await b.mouse.click(300, 500); await b.waitForTimeout(500)
+    await b.evaluate(() => { openCard(null); goTo({ page: 2, frac: 0.1 }) }); await b.waitForTimeout(900)
+    const x = await b.evaluate(() => Math.round(document.querySelector('.mr-doc').getBoundingClientRect().left + 190))
+    await b.mouse.click(x, 560); await b.waitForTimeout(500)
+    await b.keyboard.type('My margin thought for the Notebook.')
+    await b.evaluate(() => { const p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > 400).pg.getBoundingClientRect(); return { x: p.left + 30, y: 640 } }).then(p => b.mouse.click(p.x, p.y)); await b.waitForTimeout(500)
+    // A Fact-check kept with a restating opening and an empty Sources line (as before the verdict-first prompt).
+    await b.evaluate(() => { const card = TinctMargin.newCard({ kind: 'factcheck', page: 2, anchor: [{ n: 2, x: 0.12, y: 0.3, w: 0.6, h: 0.02 }], text: 'A passage that makes a claim.', turns: [{ role: 'assistant', content: 'The passage claims that MOCK opening restates it {p. 2}.\n\nHolds. MOCK verdict first.\n\nSources: none searched yet.' }], at: Date.now() - 60000 }); store.set('cards:' + state.key, [...keptCards(), card]); col.view = null; marginLayout({ fresh: true }) })
+    await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry'); await b.waitForTimeout(200)
+    const all = await b.evaluate(nbState)
+    const named = k => all.entries.filter(e => e.kind === k)
+    const unitLabel = await b.evaluate(() => TinctMargin.unitPhrase(primer.units[0]))
+    ok(`${tag}: All lists the margin note, the unit's note, Catch me up, Recap, the unit's quiz and the Fact-check`, named('Note').length === 2 && named('Catch me up').length === 1 && named('Recap').length === 1 && named('Quiz').length === 1 && named('Fact-check').length === 1 && all.count === '6 entries', all.entries.map(e => [e.kind, e.chip]))
+    ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Catch me up')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip, { chip: named('Recap')[0]?.chip, unitLabel })
+    const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Fact-check')[0]?.id)
+    ok(`${tag}: Fact-check is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
+    await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
+    const mine = await b.evaluate(nbState)
+    const notes = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => n.textContent))
+    ok(`${tag}: My notes: the margin note and the unit's note (no passage quoted)`, mine.entries.length === 2 && mine.entries.every(e => e.kind === 'Note' && !e.quote) && notes.includes('My margin thought for the Notebook.') && notes.includes('My note on the whole chapter.'), { entries: mine.entries, notes })
+    await shot(b, `${tag}-mine`)
+    await b.click('.nb [data-f="ai"]'); await b.waitForTimeout(150)
+    const ai = await b.evaluate(nbState)
+    ok(`${tag}: AI: Catch me up, Recap, Quiz and Fact-check, no notes`, ai.entries.length === 4 && ['Catch me up', 'Recap', 'Quiz', 'Fact-check'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
+    await shot(b, `${tag}-ai`)
+    // Jump: a Recap entry opens its card under the unit's end pills; a margin note's entry opens the note.
+    await b.evaluate(() => goTo({ page: 1, frac: 0 })); await b.waitForTimeout(500)
+    const recapId = ai.entries.find(e => e.kind === 'Recap').id
+    await b.click(`.nb-entry[data-id="${recapId}"] .nb-kind`); await b.waitForTimeout(1400)
+    const seenCard = id => b.evaluate(id => { const el = document.querySelector(`.mr-card.is-open[data-id="${id}"]`), r = el?.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect(), top = r && document.elementFromPoint(r.left + r.width / 2, Math.max(r.top, sr.top) + 10); return { open: col.open, shown: !!r && r.width > 0 && r.top < sr.bottom - 40 && r.bottom > sr.top + 40, seen: !!top && el.contains(top), panel: !!document.querySelector('.nb'), name: el?.querySelector('.mr-card__name')?.textContent } }, id)
+    const rj = await seenCard(recapId)
+    ok(`${tag}: a Recap entry jumps to the unit's end and opens its card there, seen`, rj.open === recapId && rj.shown && rj.seen && !rj.panel && /^Recap · /.test(rj.name || ''), rj)
+    await shot(b, `${tag}-jump-recap`)
+    await b.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(500)
+    await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry')
+    await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
+    const noteId = await b.evaluate(() => [...document.querySelectorAll('.nb-entry')].find(e => /My margin thought/.test(e.textContent))?.dataset.id)
+    await b.click(`.nb-entry[data-id="${noteId}"] .nb-kind`); await b.waitForTimeout(1400)
+    const nj = await seenCard(noteId)
+    ok(`${tag}: a margin note's entry jumps to it and opens the note, seen`, nj.open === noteId && nj.shown && nj.seen && !nj.panel, nj)
+    ok(`${tag}: no page errors`, !B.problems.length, B.problems)
+    await B.ctx.close()
+  }
+  // Phones: no Notebook (the phone is unchanged).
+  const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  const phone = await P.page.evaluate(() => { const b = document.getElementById('notebookBtn'); return { display: getComputedStyle(b).display, w: b.getBoundingClientRect().width } })
+  ok('notebook-390x844: no Notebook button on a phone', phone.display === 'none' && phone.w === 0, phone)
+  await P.ctx.close()
+  return results
+}
+
+// An EPUB of the account (the anthology), as My shelf and the library open it.
+function addEpub() {
+  const sha256 = createHash('sha256').update(EPUB).digest('hex')
+  if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'anthology.epub', title: 'Lamplight Essays', author: 'Ed Itor', type: 'epub', size: EPUB.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: EPUB })
+  return sha256.slice(0, 24)
+}
+async function epubPage(browser, origin, hex, { width, height, look = 'paper', init = null }) {
+  const ctx = await browser.newContext({ viewport: { width, height }, hasTouch: width < 700 })
+  await ctx.addInitScript(([session, look]) => {
+    try {
+      if (!sessionStorage.getItem('nb-init')) {
+        sessionStorage.setItem('nb-init', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: { paper: 'light', night: 'dark' }[look] || 'light' }))
+      }
+    } catch {}
+  }, [SESSION, look])
+  const page = await ctx.newPage(), problems = [], navs = []
+  page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+  page.on('framenavigated', f => { if (f === page.mainFrame()) navs.push(f.url()) })
+  if (init) await page.addInitScript(init)
+  await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+  return { ctx, page, problems, navs }
+}
+// The paragraph and word at the top of the view, by the words there (they never move with the width or size).
+const spotNow = () => { const s = epubSpot(), place = currentPlace(); return { page: place.page, para: s.para, word: s.word, quote: s.quote } }
+async function epubViewCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addEpub(), key = 'epub:' + hex
+  for (const [width, height] of [[1440, 900], [2000, 1066]]) {
+    const tag = `epub-view-${width}x${height}`
+    const E = await epubPage(browser, origin, hex, { width, height })
+    const e = E.page
+    await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
+    const opened = await e.evaluate(() => ({ url: location.pathname + location.search, kind: state.kind, margin: marginOn(), mode: col.mode, dock: !!document.querySelector('.byob-dock'), nb: getComputedStyle(document.getElementById('notebookBtn')).display !== 'none' }))
+    ok(`${tag}: the EPUB opens here, in Margin view (its column), at its own address, with the Notebook`, opened.url === `/lab/addbook/?userBook=${hex}` && opened.kind === 'epub' && opened.margin && opened.mode === 'column' && !opened.dock && opened.nb, opened)
+    // The Aa panel: Margin view, and Convert to Tinct book.
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel')
+    const aa = await e.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => [b.dataset.layout, b.textContent.trim(), b.getAttribute('aria-pressed')]))
+    ok(`${tag}: the Aa panel offers Margin view (chosen) and Convert to Tinct book`, JSON.stringify(aa) === JSON.stringify([['margin', 'Margin view (default)✓', 'true'], ['text', 'Convert to Tinct book', 'false']]), aa)
+    await e.keyboard.press('Escape')
+    // A place: chapter 3's third paragraph, some way in.
+    await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
+    await e.waitForTimeout(400); await e.evaluate(() => savePlaceNow())
+    const here = await e.evaluate(spotNow)
+    const kept = await e.evaluate(k => store.get('pos:' + k), key)
+    ok(`${tag}: the place is kept by paragraph and word, with its words`, here.page === 3 && here.para === 3 && kept.para === 3 && kept.word === here.word && kept.word > 0 && kept.quote === here.quote && kept.quote.split(' ').length >= 10, { here, kept })
+    await shot(e, `${tag}-margin`)
+    // A card and the Notebook on an EPUB: the chip names the chapter and paragraph; the entry jumps back.
+    await e.evaluate(() => { const p = state.pages[3], t = epubParas(p)[2].firstChild, range = document.createRange(); range.setStart(t, 0); range.setEnd(t, 40); const info = { text: range.toString(), page: 4, range }; store.set('cards:' + state.key, [withSpan(TinctMargin.newCard({ kind: 'explain', page: 4, anchor: anchorOf(selectionShapes(range)), text: info.text, turns: [{ role: 'assistant', content: 'MOCK explain on an EPUB.' }] }), info)]); col.view = null; marginLayout({ fresh: true }) })
+    await e.click('#notebookBtn'); await e.waitForSelector('.nb .nb-entry')
+    const entry = await e.evaluate(nbState)
+    ok(`${tag}: the Notebook lists an EPUB's card by chapter and paragraph`, entry.entries.length === 1 && entry.entries[0].chip === 'ch. 4 ¶ 3' && entry.entries[0].kind === 'Explain', entry.entries)
+    await shot(e, `${tag}-notebook`)
+    await e.click('.nb-entry .nb-kind'); await e.waitForTimeout(1500)
+    const jump = await e.evaluate(() => { const c = (store.get('cards:' + state.key) || [])[0], r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], sr = document.getElementById('scroll').getBoundingClientRect(); return { open: col.open === c.id, inView: r.top > sr.top && r.bottom < sr.bottom, card: !!document.querySelector('.mr-card.is-open') } })
+    ok(`${tag}: its entry jumps to the passage and opens the card`, jump.open && jump.inView && jump.card, jump)
+    await shot(e, `${tag}-card`)
+    await e.keyboard.press('Escape'); await e.evaluate(() => { openCard(null) })
+    // Back at the place, then a reload: the same paragraph and word.
+    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await e.evaluate(() => savePlaceNow())
+    await e.reload(); await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const reloaded = await e.evaluate(spotNow)
+    ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
+    // The text size and the window's width change: the place stays.
+    await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800)
+    const zoomed = await e.evaluate(spotNow)
+    await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800)
+    const narrowed = await e.evaluate(spotNow)
+    await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800)
+    const sizedBack = await e.evaluate(spotNow)
+    // The same paragraph, its line at the top (the word's line may start a word or two earlier once the lines wrap anew).
+    const near = x => x.page === here.page && x.para === here.para && x.word <= here.word && here.word - x.word <= 12
+    ok(`${tag}: a text size or width change keeps the paragraph and word at the top`, near(zoomed) && near(narrowed) && near(sizedBack), { here, zoomed, narrowed, sizedBack })
+    // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
+    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600)
+    await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel [data-layout="text"]')
+    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-aa-panel [data-layout="text"]')])
+    const left = await e.evaluate(([k, h]) => ({ view: JSON.parse(localStorage.getItem('tinct-addbook:epub-view:' + h)), pos: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)) }), [key, hex])
+    ok(`${tag}: Convert to Tinct book opens the Tinct reader, kept as this device's choice, the place sent by its words`, left.view === 'text' && left.pos.quote === here.quote && left.pos.para === here.para, left)
+    // With that choice, this address goes on to the Tinct reader; the Tinct reader's "Margin view" comes back to the same words.
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`).catch(() => {})
+    await e.waitForURL(`**/reader?userBook=${hex}`, { timeout: 20000 }).catch(() => {})
+    ok(`${tag}: chosen, the Tinct reader is where it opens on this device`, e.url().includes(`/reader?userBook=${hex}`), e.url())
+    const target = await e.evaluate(() => 'Lamplight has always posed questions about the nature of the evening')
+    await e.evaluate(([k, h, q]) => { localStorage.setItem('tinct-addbook:epub-view:' + h, JSON.stringify('margin')); const pos = JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)); localStorage.setItem('tinct-addbook:pos:' + k, JSON.stringify({ ...pos, via: 't', quote: q, at: Date.now() })) }, [key, hex, 'If we really do live in a lamplit household, then where does electricity fit'])
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const back = await e.evaluate(spotNow)
+    ok(`${tag}: from the Tinct reader's Margin view, the EPUB opens here at the words it was at`, back.page === 2 && back.para === 1 && back.word === 0 && /^If we really do live/.test(back.quote), back)
+    void target
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  // A phone keeps the Tinct reader.
+  const P = await epubPage(browser, origin, hex, { width: 390, height: 844 })
+  await P.page.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+  await P.page.waitForURL(`**/reader?userBook=${hex}`, { timeout: 30000 }).catch(() => {})
+  ok('epub-view-390x844: a phone opens the EPUB in the Tinct reader, as before', P.page.url().includes(`/reader?userBook=${hex}`), P.page.url())
+  await P.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3783,6 +4676,19 @@ const RUNS = {
   'column-page': [columnPage, rows => rows.some(r => !r.pass)],
   'figure-race': [figureRace, rows => rows.some(r => !r.pass)],
   'cards-gloss': [cardsGloss, rows => rows.some(r => !r.pass)],
+  'pause-dots': [pauseDots, rows => rows.some(r => !r.pass)],
+  'passage-mark': [passageMark, rows => rows.some(r => !r.pass)],
+  'stray-menu': [strayMenu, rows => rows.some(r => !r.pass)],
+  'whole-words': [wholeWords, rows => rows.some(r => !r.pass)],
+  'primer-top': [primerTop, rows => rows.some(r => !r.pass)],
+  'define-card': [defineCard, rows => rows.some(r => !r.pass)],
+  'figure-chip': [figureChip, rows => rows.some(r => !r.pass)],
+  'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
+  'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
+  'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
+  'unit-pills': [unitPills, rows => rows.some(r => !r.pass)],
+  notebook: [notebookCheck, rows => rows.some(r => !r.pass)],
+  'epub-view': [epubViewCheck, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3823,7 +4729,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'notebook', 'epub-view'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

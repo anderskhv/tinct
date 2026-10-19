@@ -541,3 +541,60 @@ svg.mr-leads.mr-doc-leads { position: absolute; left: 0; top: 0; width: 1px; hei
 .lab.is-night .mr { --mr-field: #171411; --mr-field-line: rgba(214, 204, 191, .26); }
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; --mr-field-line: #111; }
 .mr-follow { flex-wrap: wrap; gap: 8px 12px; padding-top: 0; border-top: 0; }
+
+/* ---------- 19 Oct 2026, evening (Anders's feedback) ---------- */
+/* The focus ring on a margin button is for the keyboard only: after a click (the pointer the last input; reader.js) a
+   button focused by the card's own redraw, Minimise above all, shows none. */
+:root[data-mr-input="pointer"] :is(.mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-float, .mr-primer, .mr-undo, .mr-pills) :is(button, [tabindex]):focus-visible,
+:root[data-mr-input="pointer"] button:is(.mr-trigger, .mr-pill):focus-visible { outline: none; }
+/* The passage mark (Aa panel, per device; reader.js underline): the underline sits just under each line's own baseline
+   (its top set by the reader, no offset here); Highlight is a soft tint of each line's band, never over the next line. */
+.mr-ul-layer i:not(.is-box) { margin-top: 0; }
+.mr-ul-layer i.is-tint { height: auto; border-radius: 2px; background: color-mix(in srgb, var(--mr-accent) 14%, transparent); }
+.lab.is-night .mr-ul-layer i.is-tint { background: color-mix(in srgb, var(--mr-accent) 22%, transparent); }
+/* The figure and formula chip in the selection bar's dark style (19 Oct 2026, evening; reader.js showHot): Ask, Explain,
+   Highlight and Copy, the bar's items, separators, colours and shadow; no tip (it stands off the figure's corner). */
+.byob-hot-chip.mr-chip { display: flex; align-items: center; gap: 0; height: 44px; padding: 0 6px; border: 0; border-radius: 12px; background: var(--mr-bar); color: var(--mr-bar-ink); font: 400 14px var(--mr-ui); box-shadow: var(--mr-bar-shadow); }
+.byob-hot-chip.mr-chip .mr-bar__item { display: flex; align-items: center; gap: 7px; height: 34px; min-width: 28px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--mr-bar-ink); font: inherit; cursor: pointer; white-space: nowrap; }
+.byob-hot-chip.mr-chip .mr-bar__item.is-text { padding: 0 11px; }
+.byob-hot-chip.mr-chip .mr-bar__item:hover { background: rgba(255, 255, 255, .10); }
+.byob-hot-chip.mr-chip .mr-bar__item:focus-visible { outline: 2px solid var(--mr-bar-ink); outline-offset: -2px; }
+.byob-hot-chip.mr-chip svg { width: 16px; height: 16px; fill: none; stroke: var(--mr-bar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.byob-hot-chip.mr-chip .mr-bar__sep { width: 1px; height: 20px; margin: 0 4px; background: var(--mr-bar-sep); }
+html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr-bar); }
+/* The Aa panel's Zoom for a PDF on the desktop (19 Oct 2026, evening; reader.js zoomRowHtml), in the panel's own
+   look (lab-v2-size's row and hairline, its label type): −, the percentage in tabular figures, +, then Fit width; the
+   line under it points to Convert to Tinct book for larger text that reflows. */
+.byob-aa-panel .byob-zoom { display: flex; align-items: center; gap: 8px; min-height: 48px; box-shadow: inset 0 -1px 0 var(--lab-v2-hairline); }
+.byob-aa-panel .byob-zoom-label { flex: 1 1 auto; }   /* the panel's own row label (lab-v2-row-label) */
+.byob-aa-panel .byob-zoom-step { display: grid; place-items: center; width: 32px; height: 32px; margin: 0; padding: 0; border: 1px solid var(--lab-v2-hairline); border-radius: 50%; background: transparent; color: inherit; font: 18px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.byob-aa-panel .byob-zoom-pct { min-width: 46px; text-align: center; font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+.byob-aa-panel .byob-zoom-fit { min-height: 32px; margin: 0 0 0 6px; padding: 0 12px; border: 1px solid var(--lab-v2-hairline); border-radius: 999px; background: transparent; color: inherit; font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.byob-aa-panel :is(.byob-zoom-step, .byob-zoom-fit):disabled { opacity: .4; cursor: default; }
+.byob-aa-panel :is(.byob-zoom-step, .byob-zoom-fit):not(:disabled):hover { background: var(--lab-v2-well, rgba(0, 0, 0, .05)); }
+.byob-aa-panel .byob-zoom-note { margin: 8px 4px 4px; }   /* the panel's own note (lab-v2-note) */
+.byob-aa-panel .byob-zoom-note button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+/* A margin note (19 Oct 2026, evening; reader.js newMarginNote): its words in a field that is always editable, in the
+   card's own type, no box until it has the focus; Ask (words, as the bar's) and the bin under it. */
+.mr-card .mr-note-edit { display: block; width: 100%; min-height: 48px; margin: 0; padding: 4px 0; border: 0; border-radius: 0; outline: 0; resize: none; overflow: hidden; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: italic 16px/1.5 var(--mr-gara); overflow-wrap: anywhere; box-shadow: inset 0 -1px 0 var(--mr-hair); }
+.mr-card .mr-note-edit:focus { box-shadow: inset 0 -1.5px 0 var(--mr-accent); }
+.mr-card .mr-note-edit::placeholder { color: var(--mr-hint); opacity: 1; }
+.mr-card__acts .mr-card__ask { width: auto; min-width: 28px; height: 28px; margin: -6px 0 -3px; padding: 0 2px; font: 13px var(--mr-ui); color: var(--mr-muted); }
+.mr-card__acts .mr-card__ask:hover { color: var(--mr-ink); }
+.mr .mr-note-edit:focus, .mr .mr-note-edit:focus-visible { outline: 0 !important; }   /* the caret and the accent rule are the focus */
+/* A unit's pills on the wide column (19 Oct 2026, evening; reader.js pillRow): as the book reader's chapter pills
+   (src/lab/lab.css .lab-chapter-recap, .lab-chapter-note): the words in 14px Garamond in the muted ink, a hairline pill
+   round them, the companion's ✧ before its own; pressed while its card is open. A row at a unit's start sits at the top of
+   its first page; one at its end, at the foot of its last page. */
+.mr-col .mr-pills { position: absolute; left: 0; right: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; }
+.mr-pill { display: inline-flex; align-items: center; min-height: 32px; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mr-muted); font: 14px/1.4 var(--mr-gara); text-align: left; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+.mr-pill > span { border: 1px solid var(--mr-hair); border-radius: 999px; padding: 2px 10px; }
+.mr-pill:hover { color: var(--mr-ink); }
+.mr-pill:hover > span { background: var(--mr-card); }
+.mr-pill[aria-expanded="true"] { color: var(--mr-ink); }
+.mr-pill[aria-expanded="true"] > span { background: var(--mr-card); border-color: var(--mr-lead); }
+.mr-pill__mark { margin-right: 5px; font-size: .9em; }
+.mr-pill:focus-visible { outline: none; }
+.mr-pill:focus-visible > span { outline: 2px solid var(--mr-muted); outline-offset: 2px; }
+:root[data-mr-input="pointer"] .mr-pill:focus-visible > span { outline: none; }
+html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }
