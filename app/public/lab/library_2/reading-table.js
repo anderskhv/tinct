@@ -38,6 +38,12 @@ const firstTable = window.__library2Boot?.hint && !isDemo ? loadTable().then(val
 
 // Retain decoded spine images so CSS can paint them with the covers in one pass.
 const readyTextures = new Map();
+// The reader's desktop/phone test (src/lab/labChrome.ts isLabPhoneSurface, as boot.js reads it).
+export function deskNow() {
+  try {
+    return !(/iPhone|iPod/i.test(navigator.userAgent || '') || ((navigator.maxTouchPoints || 0) > 0 && typeof screen !== 'undefined' && screen.width <= 430) || innerWidth <= 430 || (typeof matchMedia === 'function' && matchMedia('(max-width: 899px), ((max-width: 1024px) and (orientation: portrait))').matches));
+  } catch { return false; }
+}
 function prepareTexture(name) {
   if (!SPINE_TEXTURES) return Promise.resolve();
   if (!readyTextures.has(name)) {
@@ -317,6 +323,9 @@ function wire(view, table, demo, keepBookId, options={}) {
   });
 
   const remove = view.querySelector('#rt-remove'), dialog = view.querySelector('#rt-remove-dialog');
+  const also = document.createElement('a');
+  also.className = 'rt-also'; also.id = 'rt-also'; also.href = '#'; also.hidden = true;
+  $('rt-continue').after(also);
   let removeFrame=0;
   function positionRemove(animate=false){
     cancelAnimationFrame(removeFrame);
@@ -413,6 +422,7 @@ function wire(view, table, demo, keepBookId, options={}) {
       // A linked book the reader has not started: its question, and Read opens its introduction.
       view.classList.toggle('is-linked', !!b.linked);
       $('rt-continue').firstChild.textContent = b.linked ? 'Read' : 'Continue';
+      showAlso(b);
       renderBookMetadata($('rt-book-metadata'), b, {percent:b.percent});
       remove.setAttribute('aria-label',`Remove ${b.title} from currently reading`);
       $('rt-place').textContent = b.chapterLabel;
@@ -445,10 +455,23 @@ function wire(view, table, demo, keepBookId, options={}) {
     $('rt-more').textContent = 'Read more';
     requestAnimationFrame(() => { $('rt-more').classList.toggle('is-hidden', recap.scrollHeight <= recap.clientHeight + 1); });
   }
-  async function continueReading() {
-    const b = table.reading[current];
+  // Also reading (desktop, 20 Oct 2026): the most recent book of the other kind (a Tinct book vs
+  // the reader's own document) beside Continue, one tap away. Phones are unchanged.
+  function alsoReading(b) {
+    if (!b || b.linked || !deskNow()) return null;
+    return table.reading.find(other => other.bookId !== b.bookId && !other.linked && !!other.own !== !!b.own) || null;
+  }
+  function showAlso(b) {
+    const other = alsoReading(b);
+    also.hidden = !other;
+    also.dataset.book = other ? other.bookId : '';
+    also.textContent = other ? `Also reading: ${other.title}` : '';
+    if (other) also.title = other.title; else also.removeAttribute('title');
+  }
+  async function continueReading(index = current) {
+    const b = table.reading[index];
     if (!b || document.body.classList.contains('leaving')) return;
-    if(options.onOpen){try{await options.onOpen(b.bookId,b.linked?'linked':'reading',books[current].querySelector('.rt-front img'));}catch{options.onError?.('This book could not open. Please try again.');}return;}
+    if(options.onOpen){try{await options.onOpen(b.bookId,b.linked?'linked':'reading',books[index].querySelector('.rt-front img'));}catch{options.onError?.('This book could not open. Please try again.');}return;}
     document.body.classList.add('leaving');
     const destination = demo || !view.api ? Promise.resolve(`/library?book=${encodeURIComponent(b.bookId)}&view=book-detail`) : view.api.readerDestination(b.bookId, null);
     const [href] = await Promise.all([destination, new Promise(r => setTimeout(r, 240))]);
@@ -497,6 +520,7 @@ function wire(view, table, demo, keepBookId, options={}) {
   }, { passive: false });
 
   $('rt-continue').addEventListener('click', e => { e.preventDefault(); continueReading(); });
+  also.addEventListener('click', e => { e.preventDefault(); const i = table.reading.findIndex(b => b.bookId === also.dataset.book); if (i >= 0) continueReading(i); });
   dots.forEach(dot => { dot.onclick = () => select(+dot.dataset.i, true); });
   $('rt-prev').onclick = () => select(current - 1, true);
   $('rt-next').onclick = () => select(current + 1, true);

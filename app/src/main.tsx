@@ -18,6 +18,7 @@ import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { warmAccountCards } from './cards/warmCards'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import { storedContentMigrations } from './lab/labStoredContentMigrations'
+import { continueLatestDestination } from './lab/continueLatest'
 import './index.css'
 import { loadDesktopExperience } from './desktopCommands'
 import { installStaleChunkRecovery } from './utils/staleChunkRecovery'
@@ -81,6 +82,13 @@ const render = () => ReactDOM.createRoot(document.getElementById('root')!).rende
 async function begin() {
   if (nativeDestination) { window.location.replace(nativeDestination); return }
   if (isCapacitor) await initializeNativeBooks()
+  // Desktop /reader with no book: an own PDF/EPUB read later than the registered
+  // book opens instead, decided before anything paints (lab/continueLatest.ts).
+  // Phones and the native app keep today's reader.
+  if (Root === LabApp && !userBookHex && !isCapacitor) {
+    const latest = await continueLatestDestination({ pathname, search: window.location.search }).catch(() => null)
+    if (latest) { window.location.replace(latest); return }
+  }
   // Books readers added (pd-…) are registered before the reader reads the registry; bounded wait.
   if (Root === LabApp && !userBookHex) {
     const missing = await preparePublicBooksForReader()

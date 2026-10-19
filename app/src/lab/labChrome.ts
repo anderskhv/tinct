@@ -138,6 +138,25 @@ export function isLabPhoneSurface(input: {
   return false
 }
 
+/**
+ * The browser's inputs to `isLabPhoneSurface`, read now. The reader's own
+ * surface test (LabApp) and the reader's boot (continueLatest.ts) share it, so
+ * both agree on which device is a phone.
+ */
+export function labPhoneSurfaceInput(override?: LabLayoutHint): Parameters<typeof isLabPhoneSurface>[0] {
+  if (typeof window === 'undefined') return { override }
+  let matchMediaPhone = false
+  try { matchMediaPhone = typeof window.matchMedia === 'function' ? window.matchMedia(LAB_PHONE_QUERY).matches : false } catch { matchMediaPhone = false }
+  return {
+    override,
+    matchMediaPhone,
+    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+    innerWidth: window.innerWidth,
+    maxTouchPoints: typeof navigator !== 'undefined' ? navigator.maxTouchPoints : 0,
+    screenWidth: window.screen?.width,
+  }
+}
+
 /** Footer chrome even if isPhone class is wrong on a narrow/iPhone surface. */
 export function shouldShowLabPhoneFooter(input: {
   isPhone?: boolean
