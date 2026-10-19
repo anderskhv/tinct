@@ -258,7 +258,7 @@ $('search-toggle').onclick=()=>setSearch(true);$('search-cancel').onclick=()=>se
 
 let activeBook=null,sourceCanvas=null,sourceRect=null,bookProgress=0,bookAnim=null,currentTab='preface',edition='original-en',reading=false,tourProgress=0,tourAnimation=null,readerProgress=0,readerAnimation=null;
 const editionChoices=new Map();
-// Danish only where the catalogue offers it (OFFERED_DANISH_EDITIONS: To the Lighthouse).
+// Danish only where the catalogue offers it (OFFERED_DANISH_EDITIONS).
 function availableEditions(){return (activeBook.editions||[]).filter(e=>(e.language!=='da'||e.discoveryAvailable===true)&&e.discoveryAvailable!==false&&e.availability?.chapterText!==false);}
 // Compare is on by default (Anders, 2026-10-06): the AI/modern edition reads and
 // the human edition sits beside it. A reader who chose None in the reader keeps None.

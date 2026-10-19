@@ -2830,7 +2830,7 @@ export const A_LITTLE_PRINCESS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false, // Text only: Danish narration is disabled.
     },
   ],
 }
@@ -2867,7 +2867,7 @@ export const THE_JUNGLE_BOOK: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false, // Text only: Danish narration is disabled.
     },
   ],
 }
@@ -2905,7 +2905,7 @@ export const AROUND_THE_WORLD_IN_80_DAYS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false, // Text only: Danish narration is disabled.
     },
   ],
 }
