@@ -46,6 +46,28 @@ const marks = [
   { id: 'm3', gone: true },
 ]
 
+describe('the margin batch\'s cards in the Notebook (19 Oct 2026)', () => {
+  const unit = { key: 'u1', label: 'Chapter 2' }
+  const list = N.entriesOf({
+    cards: [
+      { id: 'p1', kind: 'ask', page: 9, text: '', data: { unit, pill: 'recap' }, turns: [{ role: 'assistant', content: 'The recap.' }], at: NOW - min },
+      { id: 'p2', kind: 'ask', page: 4, text: '', data: { unit, pill: 'catchup' }, turns: [{ role: 'assistant', content: 'So far.' }], at: NOW - 2 * min },
+    ],
+    // A margin note: a highlight record with no passage (its one box has no size).
+    marks: [{ id: 'mn', page: 5, rects: [[1, 0.4, 0, 0]], text: '', note: 'A thought in the margin.', withNote: true, at: NOW - 3 * min }],
+  })
+  it('names a unit\'s pill cards by their pill, under AI, their chip the unit', () => {
+    const ai = N.filterEntries(list, 'ai')
+    expect(ai.map(e => e.id)).toEqual(['p1', 'p2'])
+    expect(N.toMarkdown(ai)).toContain('## Recap · Chapter 2')
+    expect(N.toMarkdown(ai)).toContain('## Catch me up · Chapter 2')
+    expect(ai.map(e => e.unit)).toEqual(['Chapter 2', 'Chapter 2'])
+  })
+  it('lists a margin note under My notes, with no passage', () => {
+    expect(N.filterEntries(list, 'mine')).toMatchObject([{ id: 'n-mn', kind: 'note', quote: '', note: 'A thought in the margin.' }])
+  })
+})
+
 describe('the entries, from the margin\'s own store', () => {
   const list = N.entriesOf({ cards, marks })
   it('are every answered card and every highlight, newest first', () => {
@@ -106,7 +128,7 @@ describe('how the reader wires it', () => {
   const html = readFileSync(ROOT + 'app/public/lab/addbook/index.html', 'utf8')
   const css = readFileSync(ROOT + 'app/public/lab/addbook/css/notebook.css', 'utf8')
   it('reads the margin\'s store (cards, highlights) and keeps nothing of its own', () => {
-    expect(reader).toContain("data: () => (hasBook() ? { cards: keptCards(), marks: highlights() } : { cards: [], marks: [] }),")
+    expect(reader).toContain("data: () => (hasBook() ? { cards: keptCards().map(nbShown), marks: highlights() } : { cards: [], marks: [] }),")
     const nb = readFileSync(ROOT + 'app/public/lab/addbook/js/notebook.js', 'utf8')
     expect(nb).not.toMatch(/localStorage|indexedDB|fetch\(|store\.set/)
   })

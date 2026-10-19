@@ -6661,6 +6661,12 @@ function nbFlash(mark) {
   const b = p.pg.getBoundingClientRect();
   flashPlace(p, (mark.rects || []).map(([x, y, w, h]) => ({ left: b.left + x * b.width, top: b.top + y * b.height, right: b.left + (x + w) * b.width, bottom: b.top + (y + h) * b.height, width: w * b.width, height: h * b.height })));
 }
+/** A card as the margin shows it: Fact-check's answer from its verdict on (P.cleanFactcheck, as its card and its copy). */
+function nbShown(card) {
+  if (card.kind !== 'factcheck' || !MP.P?.cleanFactcheck) return card;
+  let k = 0;
+  return { ...card, turns: (card.turns || []).map(t => (t.role === 'assistant' && k++ === 0 ? { ...t, content: MP.P.cleanFactcheck(t.content) } : t)) };
+}
 /** An entry's passage, brought into view; then its card opens in the margin (a plain highlight flashes). */
 async function nbJump(e) {
   const card = e.source === 'card' ? cardById(e.id) : null, mark = e.source === 'mark' ? highlights().find(m => m.id === e.mark) : null;
@@ -6698,7 +6704,7 @@ function nbRemove(e) {
 if (window.TinctNotebook && $('notebookBtn')) {
   TinctNotebook.mount({
     root, button: $('notebookBtn'),
-    data: () => (hasBook() ? { cards: keptCards(), marks: highlights() } : { cards: [], marks: [] }),
+    data: () => (hasBook() ? { cards: keptCards().map(nbShown), marks: highlights() } : { cards: [], marks: [] }),
     place: nbPlace, meta: () => ({ title: state.title, author: state.author }),
     jump: e => { nbJump(e).catch(err => console.error(err)) }, remove: nbRemove, toast,
   });

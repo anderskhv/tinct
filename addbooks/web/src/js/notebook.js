@@ -16,6 +16,8 @@
   const KINDS = { explain: 'Explain', ask: 'Ask', simplify: 'Simplify', define: 'Define', factcheck: 'Fact-check', counterpoint: 'Counterpoint', quiz: 'Quiz', related: 'Related', figure: 'Figure', note: 'Note', highlight: 'Highlight' };
   const CARD_KINDS = ['explain', 'ask', 'simplify', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'];
   const MINE = ['note', 'highlight'];
+  // A unit's pill cards (the wide column's Recap and Catch me up: Ask cards on the unit, data.pill) go by their pill's name.
+  const PILLS = { recap: 'Recap', catchup: 'Catch me up' };
   const FILTERS = [['all', 'All'], ['mine', 'My notes'], ['ai', 'AI']];
   const UNDO_MS = 6000;
 
@@ -63,6 +65,7 @@
     const [first = { q: '', a: '' }, ...follow] = qa;
     return {
       id: card.id, source: 'card', kind: card.kind, mine: false, page: card.page,
+      ...(PILLS[card.data?.pill] ? { pill: card.data.pill } : {}),
       unit: card.data?.unit ? card.data.unit.label || '' : '',
       word: card.kind === 'define' ? card.data?.word || card.text || '' : '',
       quote: card.kind === 'quiz' && card.data?.unit ? '' : String(card.text || '').trim(),
@@ -91,7 +94,7 @@
     return list.slice();
   }
   const countLine = n => `${n} ${n === 1 ? 'entry' : 'entries'}`;
-  const kindName = e => KINDS[e.kind] || KINDS.explain;
+  const kindName = e => PILLS[e.pill] || KINDS[e.kind] || KINDS.explain;
   /** When an entry was made, from now: "Just now", "5 min ago", "3 h ago", "Yesterday", "4 days ago", else the date. */
   function ago(at, now = Date.now()) {
     const s = Math.max(0, (now - at) / 1000);
@@ -296,5 +299,5 @@
       e.preventDefault(); e.stopImmediatePropagation(); close({ focus: true });
     }, true);
   }
-  return { KINDS, CARD_KINDS, FILTERS, UNDO_MS, plain, pairs, entriesOf, filterEntries, countLine, ago, toMarkdown, fileName, mount, open, close, changed, isOpen: () => nb.open };
+  return { KINDS, CARD_KINDS, PILLS, FILTERS, UNDO_MS, plain, pairs, entriesOf, filterEntries, countLine, ago, toMarkdown, fileName, mount, open, close, changed, isOpen: () => nb.open };
 });
