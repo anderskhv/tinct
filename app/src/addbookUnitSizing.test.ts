@@ -118,3 +118,13 @@ describe('unit sizing', () => {
     expect(one.every(u => span(u) === 10)).toBe(true)
   })
 })
+
+describe('unit sizing: a conclusion sharing its page with the references', () => {
+  it('is named for the conclusion, not the references (Constructor Theory: 4. Conclusion, Acknowledgements, References on p. 39)', () => {
+    const units = M.sizeUnits([{ title: '1. Introduction', page: 1 }, { title: '2. Motivations', page: 7 }, { title: '3. Development of the theory', page: 27 }, { title: '4. Conclusion', page: 39 }, { title: 'Acknowledgements', page: 39 }, { title: 'References', page: 39 }], 40)
+    expect(units.map(u => [u.title, u.from, u.to, u.matter || ''])).toEqual([
+      ['1. Introduction', 1, 6, ''], ['2. Motivations', 7, 26, ''], ['3. Development of the theory', 27, 38, ''], ['4. Conclusion', 39, 40, ''],
+    ])
+    expect(units[3].parts).toEqual(['4. Conclusion', 'Acknowledgements', 'References'])
+  })
+})

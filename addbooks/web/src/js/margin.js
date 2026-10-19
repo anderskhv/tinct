@@ -1086,7 +1086,8 @@
       const ok = o => o && (size(u) <= 0 || !!o.matter === !!u.matter);
       const into = ok(prev) && ok(next) ? (size(prev) < size(next) ? k - 1 : k + 1) : ok(next) ? k + 1 : k - 1;
       const [a, b] = into < k ? [units[into], u] : [u, units[into]];
-      const lead = size(b) > size(a) ? b : a;
+      // Named for the part that is not front or back matter (a conclusion sharing its page with the references), else the longer.
+      const lead = !!a.matter !== !!b.matter ? (a.matter ? b : a) : size(b) > size(a) ? b : a;
       const joined = { ...lead, key: a.key.split('_')[0] + '_' + b.key.replace(/^outline-/, '').split('_').pop(), from: a.from, start: a.start, to: b.to, matter: a.matter && b.matter ? lead.matter : null, head: a.head || a.title, parts: [...(a.parts || [a.title]), ...(b.parts || [b.title])] };
       units.splice(Math.min(k, into), 2, joined);
     }
