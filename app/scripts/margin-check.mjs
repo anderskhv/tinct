@@ -3750,6 +3750,250 @@ async function cardsGloss(browser, origin) {
   return results
 }
 
+/* ---------- 19 Oct 2026: the Notebook and EPUBs in Margin view (Anders) ---------- */
+// Cards of every kind on the lines in view (a long answer, follow-ups), a note and a plain highlight, made
+// minutes apart, in the reader's own store (as the margin keeps them). -> the ids, newest first
+function seedNotebook() {
+  const hdr = document.getElementById('hdr').getBoundingClientRect().bottom
+  const spans = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.width > 60 && r.top > hdr + 20 && r.bottom < innerHeight - 40 && (s.textContent || '').trim().length > 12 })
+  const lines = []
+  for (const s of spans) { const r = s.getBoundingClientRect(); if (!lines.some(l => Math.abs(l.r.top - r.top) < 4)) lines.push({ s, r }) }
+  lines.sort((a, b) => a.r.top - b.r.top)
+  const now = Date.now(), long = 'MOCK long answer. The passage sets out its claim in the first sentence and then qualifies it. ' + Array.from({ length: 9 }, (_, i) => `Sentence ${i + 2} adds a further point that the reader may want to weigh against the text.`).join(' ')
+  const specs = [
+    ['explain', [{ role: 'assistant', content: long }, { role: 'user', content: 'And what follows from it?' }, { role: 'assistant', content: 'MOCK follow-up answer. The next step is named {p. 3}.' }]],
+    ['ask', [{ role: 'user', content: 'Why does the author say this here?' }, { role: 'assistant', content: 'MOCK ask answer. Because the chapter turns on it.' }]],
+    ['simplify', [{ role: 'assistant', content: 'MOCK simplify. In plain words, the idea is small.' }]],
+    ['factcheck', [{ role: 'assistant', content: 'Holds. MOCK verdict line.\n\nSources: [Mock source](https://example.org/one)' }]],
+    ['counterpoint', [{ role: 'assistant', content: 'MOCK counterpoint. The strongest objection is the obvious one.' }]],
+    ['define', [], { word: 'variance', senses: [{ text: 'How widely values spread around their mean.' }, { text: 'The fact of being different.' }] }],
+    ['quiz', [], { questions: [{ q: 'MOCK Q1. What is named first?', answer: 'Ideas', why: 'It comes first.' }, { q: 'MOCK Q2. Why keep them apart?', answer: 'They are known differently', why: '' }], i: 0, results: [] }],
+  ]
+  const cards = specs.map(([kind, turns, data], i) => {
+    const l = lines[i % lines.length], anchor = anchorOf([{ left: l.r.left, right: l.r.right, top: l.r.top, bottom: l.r.bottom }])
+    return TinctMargin.newCard({ kind, page: anchor[0].n, anchor, text: (l.s.textContent || '').trim(), turns, data, at: now - (i + 3) * 60000 * 7 })
+  })
+  store.set('cards:' + state.key, cards)
+  const mark = (i, note, at) => { const l = lines[(i + 7) % lines.length], b = state.pages[Number(l.s.closest('.pdf-sheet').dataset.page) - 1].pg.getBoundingClientRect(); const r = v => Math.round(v * 10000) / 10000; return { id: 'm' + i + at.toString(36), page: Number(l.s.closest('.pdf-sheet').dataset.page), rects: [[r((l.r.left - b.left) / b.width), r((l.r.top - b.top) / b.height), r(l.r.width / b.width), r(l.r.height / b.height)]], text: (l.s.textContent || '').trim(), color: 'gold', at, u: at, ...(note ? { note, withNote: true } : {}) } }
+  store.set('hl:' + state.key, [mark(0, 'My own note on this line.', now - 60000 * 2), mark(1, '', now - 86400000 * 2)])
+  col.view = null; marginLayout({ fresh: true })
+  return cards.length + 2
+}
+const nbState = () => {
+  const el = document.querySelector('.nb'); if (!el) return null
+  const r = el.getBoundingClientRect(), list = el.querySelector('.nb-list')
+  const entries = [...el.querySelectorAll('.nb-entry')].map(e => ({ id: e.dataset.id, kind: e.querySelector('.nb-kind')?.textContent, chip: e.querySelector('.nb-chip')?.textContent, time: e.querySelector('.nb-time')?.textContent, quote: !!e.querySelector('.nb-quote'), q: e.querySelectorAll('.nb-qa:not(.is-a)').length, a: e.querySelectorAll('.nb-qa.is-a').length, cut: !!e.querySelector('.nb-answer.is-cut'), more: !!e.querySelector('.nb-more:not([hidden])'), follow: !!e.querySelector('.nb-follow'), bin: !!e.querySelector('.nb-bin'), radius: parseFloat(getComputedStyle(e).borderTopLeftRadius) }))
+  const quote = el.querySelector('.nb-quote'), qs = quote && getComputedStyle(quote)
+  const fonts = [...el.querySelectorAll('*')].map(n => getComputedStyle(n).fontFamily).filter(f => /mono|courier|menlo|consolas/i.test(f))
+  const caps = [...el.querySelectorAll('*')].filter(n => getComputedStyle(n).textTransform === 'uppercase').length
+  return { open: true, inside: r.left >= 0 && r.right <= innerWidth && r.top >= document.getElementById('hdr').getBoundingClientRect().bottom && r.bottom <= innerHeight, width: r.width, title: el.querySelector('.nb-title')?.textContent, count: el.querySelector('.nb-count')?.textContent, filter: el.querySelector('[data-f][aria-checked="true"]')?.textContent, icons: [...el.querySelectorAll('.nb-icons button')].map(b => b.getAttribute('aria-label')), entries, rule: qs && [qs.borderLeftWidth, qs.borderLeftStyle], scrolls: list.scrollHeight > list.clientHeight ? getComputedStyle(list).overflowY : 'fits', mono: fonts.length, caps, button: document.getElementById('notebookBtn').getAttribute('aria-expanded') }
+}
+async function notebookCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  for (const [width, height] of [[1440, 900], [2000, 1066]]) {
+    const tag = `notebook-${width}x${height}`
+    const A = await readerPage(browser, origin, hex, { width, height, look: 'paper', startPage: 2 })
+    const a = A.page
+    await prefetchSettled(a)
+    await A.ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin })
+    const seeded = await a.evaluate(seedNotebook)
+    const btn = await a.evaluate(() => { const b = document.getElementById('notebookBtn'), r = b.getBoundingClientRect(), aa = document.getElementById('aaBtn').getBoundingClientRect(); return { shown: r.width > 0 && getComputedStyle(b).display !== 'none', w: r.width, h: r.height, sameRow: Math.abs((r.top + r.bottom) / 2 - (aa.top + aa.bottom) / 2) < 2, label: b.getAttribute('aria-label'), svg: !!b.querySelector('svg') } })
+    ok(`${tag}: the top bar has the Notebook button beside Aa, in the toolbar's style`, btn.shown && btn.sameRow && btn.w === 34 && btn.h === 34 && btn.label === 'Notebook' && btn.svg, btn)
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry'); await a.waitForTimeout(200)
+    let s = await a.evaluate(nbState)
+    ok(`${tag}: it opens with "Notebook", the count line and copy, download and close`, s && s.title === 'Notebook' && s.count === `${seeded} entries` && s.icons.join() === 'Copy all,Download,Close' && s.button === 'true' && s.inside, s)
+    ok(`${tag}: All lists every entry newest first, each a rounded card with its chip, kind, time and bin`, s.entries.length === seeded && s.entries.every(e => e.chip && e.kind && e.time && e.bin && e.radius >= 12) && s.entries[0].kind === 'Note' && s.entries[0].time === '2 min ago' && s.entries[s.entries.length - 1].kind === 'Highlight' && s.entries[s.entries.length - 1].time === '2 days ago', s.entries)
+    ok(`${tag}: the kinds are named: Explain, Ask, Simplify, Define, Fact-check, Counterpoint, Quiz, Note, Highlight`, ['Explain', 'Ask', 'Simplify', 'Define · variance', 'Fact-check', 'Counterpoint', 'Quiz', 'Note', 'Highlight'].every(k => s.entries.some(e => e.kind === k)), s.entries.map(e => e.kind))
+    const ex = s.entries.find(e => e.kind === 'Explain'), ask = s.entries.find(e => e.kind === 'Ask')
+    ok(`${tag}: a quoted passage with an accent rule; Q and A rows; a long answer cut at four lines with "Read the whole answer"; follow-ups under a rule`, s.rule?.[0] === '2px' && s.rule[1] === 'solid' && ex.quote && ex.cut && ex.more && ex.follow && ask.q === 1 && ask.a === 1 && !ask.cut, { rule: s.rule, ex, ask })
+    ok(`${tag}: no mono, no capitals`, s.mono === 0 && s.caps === 0, s)
+    await shot(a, `${tag}-all`)
+    // Read the whole answer: the answer in full, in place.
+    const exId = ex.id
+    await a.click(`.nb-entry[data-id="${exId}"] .nb-more`); await a.waitForTimeout(150)
+    const whole = await a.evaluate(id => { const e = document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`); return { full: e.classList.contains('is-full'), h: e.getBoundingClientRect().height, sh: e.scrollHeight } }, exId)
+    ok(`${tag}: "Read the whole answer" shows all of it`, whole.full && Math.abs(whole.h - whole.sh) < 2, whole)
+    // The filter.
+    await a.click('.nb [data-f="mine"]'); await a.waitForTimeout(150)
+    s = await a.evaluate(nbState)
+    ok(`${tag}: My notes: the reader's own notes and highlights only`, s.filter === 'My notes' && s.entries.length === 2 && s.entries.every(e => ['Note', 'Highlight'].includes(e.kind)) && s.count === '2 entries', s)
+    await shot(a, `${tag}-mine`)
+    await a.click('.nb [data-f="ai"]'); await a.waitForTimeout(150)
+    s = await a.evaluate(nbState)
+    ok(`${tag}: AI: the companion's answers only`, s.filter === 'AI' && s.entries.length === seeded - 2 && s.entries.every(e => !['Note', 'Highlight'].includes(e.kind)) && s.count === `${seeded - 2} entries`, s)
+    await shot(a, `${tag}-ai`)
+    await a.click('.nb [data-f="all"]'); await a.waitForTimeout(150)
+    await a.keyboard.press('Escape'); await a.waitForTimeout(150)
+    const esc0 = await a.evaluate(() => ({ open: !!document.querySelector('.nb'), focus: document.activeElement?.id }))
+    ok(`${tag}: Escape closes it and returns to the button`, !esc0.open && esc0.focus === 'notebookBtn', esc0)
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    // Live: a card made with the Notebook open appears at the top.
+    await a.evaluate(() => { document.querySelector('.nb').style.visibility = 'hidden' })
+    mock.next = 'MOCK live answer. Made while the Notebook was open.'
+    await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-float [data-m="explain"]', { timeout: 5000 }).catch(() => {})
+    await a.click('.mr-float [data-m="explain"]').catch(() => {}); await a.waitForTimeout(1500)
+    await a.evaluate(() => { document.querySelector('.nb').style.visibility = '' })
+    s = await a.evaluate(nbState)
+    ok(`${tag}: live: an answer made while it is open is listed at once, at the top`, s.entries.length === seeded + 1 && s.entries[0].kind === 'Explain' && s.entries[0].time === 'Just now' && s.count === `${seeded + 1} entries`, s.entries.slice(0, 2))
+    await a.evaluate(() => { openCard(null) })
+    // Jump: clicking an entry brings its passage into view and opens its card in the margin.
+    await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(500)
+    const askId = ask.id
+    await a.click(`.nb-entry[data-id="${askId}"] .nb-kind`); await a.waitForTimeout(1400)
+    const jumped = await a.evaluate(id => { const c = cardById(id), f = TinctMargin.firstRect(c), p = state.pages[f[0] - 1], b = p.pg.getBoundingClientRect(), y = b.top + f[2] * b.height, sr = document.getElementById('scroll').getBoundingClientRect(), el = document.querySelector(`.mr-card.is-open[data-id="${id}"]`), r = el?.getBoundingClientRect(), top = r && document.elementFromPoint(r.left + r.width / 2, r.top + Math.min(20, r.height / 2)); return { open: col.open, inView: y > sr.top && y < sr.bottom - 60, shown: !!r && r.width > 0 && r.right <= innerWidth, seen: !!top && el.contains(top), panel: !!document.querySelector('.nb') } }, askId)
+    ok(`${tag}: clicking an entry jumps to its passage and opens its card in the margin, seen (the Notebook steps aside)`, jumped.open === askId && jumped.inView && jumped.shown && jumped.seen && !jumped.panel, jumped)
+    await shot(a, `${tag}-jump`)
+    // A note's entry opens the note's card; a plain highlight is flashed.
+    const noteId = s.entries.find(e => e.kind === 'Note').id
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    ok(`${tag}: reopened, it is as it was left (the filter, the list)`, (await a.evaluate(nbState)).filter === 'All', null)
+    await a.click(`.nb-entry[data-id="${noteId}"] .nb-kind`); await a.waitForTimeout(1200)
+    ok(`${tag}: a note's entry opens its note in the margin`, await a.evaluate(id => col.open === id, noteId), await a.evaluate(() => col.open))
+    // Delete with Undo.
+    const before = await a.evaluate(() => (store.get('cards:' + state.key) || []).filter(c => !c.gone).length)
+    await a.evaluate(() => openCard(null)); await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    await a.click(`.nb-entry[data-id="${askId}"] .nb-bin`); await a.waitForTimeout(250)
+    const del = await a.evaluate(id => ({ gone: !document.querySelector(`.nb-entry[data-id="${id}"]`), undo: !!document.querySelector('.nb .nb-undo button'), stored: (store.get('cards:' + state.key) || []).find(c => c.id === id)?.gone === true, colUndo: !!document.querySelector('.mr-undo:not(.nb-undo)'), count: document.querySelector('.nb-count').textContent }), askId)
+    ok(`${tag}: the bin deletes the entry and its card (a tombstone), with "Deleted · Undo" in its place`, del.gone && del.undo && del.stored && !del.colUndo && del.count === `${seeded} entries`, del)
+    await a.click('.nb .nb-undo button'); await a.waitForTimeout(250)
+    const back = await a.evaluate(id => ({ back: !!document.querySelector(`.nb-entry[data-id="${id}"]`), stored: (store.get('cards:' + state.key) || []).filter(c => !c.gone).length }), askId)
+    ok(`${tag}: Undo puts it back`, back.back && back.stored === before, { back, before })
+    const hlId = (await a.evaluate(nbState)).entries.find(e => e.kind === 'Highlight').id
+    await a.click(`.nb-entry[data-id="${hlId}"] .nb-bin`); await a.waitForTimeout(250)
+    const hlGone = await a.evaluate(() => highlights().length)
+    await a.click('.nb .nb-undo button'); await a.waitForTimeout(250)
+    ok(`${tag}: a highlight's bin removes it, and Undo restores it`, hlGone === 1 && await a.evaluate(() => highlights().length) === 2, hlGone)
+    if (!(await a.evaluate(() => !!document.querySelector('.nb')))) { await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry') }
+    // Copy all and Download: Markdown made on the device.
+    const r0 = account.requests.length
+    await a.click('.nb [data-nb="copy"]'); await a.waitForTimeout(300)
+    const clip = await a.evaluate(() => navigator.clipboard.readText()).catch(() => '')
+    ok(`${tag}: Copy all copies the entries as Markdown`, /^# A Treatise of Small Things: notebook\n\nAnn Example\n/.test(clip) && /\n## Ask · p\. \d+/.test(clip) && /\*\*Q\.\*\* Why does the author say this here\?/.test(clip) && /\n> /.test(clip), clip.slice(0, 300))
+    const [dl] = await Promise.all([a.waitForEvent('download'), a.click('.nb [data-nb="download"]')])
+    const file = join(OUT, `${tag}-download.md`); await dl.saveAs(file)
+    const md = readFileSync(file, 'utf8')
+    ok(`${tag}: Download saves a Markdown file of everything, made on this device (no request)`, dl.suggestedFilename() === 'A Treatise of Small Things notebook.md' && md.split('\n## ').length - 1 === seeded + 1 && /My own note on this line\./.test(md) && /MOCK follow-up answer\. The next step is named \(p\. 3\)\./.test(md) && account.requests.slice(r0).every(r => r.path === '/api/events'), { name: dl.suggestedFilename(), entries: md.split('\n## ').length - 1 })
+    // Its close button closes it; the focus goes back to the button.
+    await a.click('.nb [data-nb="close"]'); await a.waitForTimeout(150)
+    const shut = await a.evaluate(() => ({ open: !!document.querySelector('.nb'), focus: document.activeElement?.id, expanded: document.getElementById('notebookBtn').getAttribute('aria-expanded') }))
+    ok(`${tag}: its close button closes it and returns to the top bar's button`, !shut.open && shut.focus === 'notebookBtn' && shut.expanded === 'false', shut)
+    // Night: the same panel in the night look.
+    await a.evaluate(() => setTheme('dark')); await a.waitForTimeout(400)
+    await a.click('#notebookBtn'); await a.waitForSelector('.nb .nb-entry')
+    const night = await a.evaluate(() => { const el = document.querySelector('.nb'); return { bg: getComputedStyle(el).backgroundColor, ink: getComputedStyle(el.querySelector('.nb-kind')).color } })
+    ok(`${tag}: in Night it takes the margin's night colours`, night.bg === 'rgb(31, 27, 23)' && night.ink !== 'rgb(11, 11, 11)', night)
+    await shot(a, `${tag}-night`)
+    await a.evaluate(() => setTheme('light'))
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // Phones: no Notebook (the phone is unchanged).
+  const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  const phone = await P.page.evaluate(() => { const b = document.getElementById('notebookBtn'); return { display: getComputedStyle(b).display, w: b.getBoundingClientRect().width } })
+  ok('notebook-390x844: no Notebook button on a phone', phone.display === 'none' && phone.w === 0, phone)
+  await P.ctx.close()
+  return results
+}
+
+// An EPUB of the account (the anthology), as My shelf and the library open it.
+function addEpub() {
+  const sha256 = createHash('sha256').update(EPUB).digest('hex')
+  if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'anthology.epub', title: 'Lamplight Essays', author: 'Ed Itor', type: 'epub', size: EPUB.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: EPUB })
+  return sha256.slice(0, 24)
+}
+async function epubPage(browser, origin, hex, { width, height, look = 'paper', init = null }) {
+  const ctx = await browser.newContext({ viewport: { width, height }, hasTouch: width < 700 })
+  await ctx.addInitScript(([session, look]) => {
+    try {
+      if (!sessionStorage.getItem('nb-init')) {
+        sessionStorage.setItem('nb-init', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: { paper: 'light', night: 'dark' }[look] || 'light' }))
+      }
+    } catch {}
+  }, [SESSION, look])
+  const page = await ctx.newPage(), problems = [], navs = []
+  page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+  page.on('framenavigated', f => { if (f === page.mainFrame()) navs.push(f.url()) })
+  if (init) await page.addInitScript(init)
+  await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+  return { ctx, page, problems, navs }
+}
+// The paragraph and word at the top of the view, by the words there (they never move with the width or size).
+const spotNow = () => { const s = epubSpot(), place = currentPlace(); return { page: place.page, para: s.para, word: s.word, quote: s.quote } }
+async function epubViewCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addEpub(), key = 'epub:' + hex
+  for (const [width, height] of [[1440, 900], [2000, 1066]]) {
+    const tag = `epub-view-${width}x${height}`
+    const E = await epubPage(browser, origin, hex, { width, height })
+    const e = E.page
+    await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
+    const opened = await e.evaluate(() => ({ url: location.pathname + location.search, kind: state.kind, margin: marginOn(), mode: col.mode, dock: !!document.querySelector('.byob-dock'), nb: getComputedStyle(document.getElementById('notebookBtn')).display !== 'none' }))
+    ok(`${tag}: the EPUB opens here, in Margin view (its column), at its own address, with the Notebook`, opened.url === `/lab/addbook/?userBook=${hex}` && opened.kind === 'epub' && opened.margin && opened.mode === 'column' && !opened.dock && opened.nb, opened)
+    // The Aa panel: Margin view, and Convert to Tinct book.
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel')
+    const aa = await e.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => [b.dataset.layout, b.textContent.trim(), b.getAttribute('aria-pressed')]))
+    ok(`${tag}: the Aa panel offers Margin view (chosen) and Convert to Tinct book`, JSON.stringify(aa) === JSON.stringify([['margin', 'Margin view (default)✓', 'true'], ['text', 'Convert to Tinct book', 'false']]), aa)
+    await e.keyboard.press('Escape')
+    // A place: chapter 3's third paragraph, some way in.
+    await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
+    await e.waitForTimeout(400); await e.evaluate(() => savePlaceNow())
+    const here = await e.evaluate(spotNow)
+    const kept = await e.evaluate(k => store.get('pos:' + k), key)
+    ok(`${tag}: the place is kept by paragraph and word, with its words`, here.page === 3 && here.para === 3 && kept.para === 3 && kept.word === here.word && kept.word > 0 && kept.quote === here.quote && kept.quote.split(' ').length >= 10, { here, kept })
+    await shot(e, `${tag}-margin`)
+    // A card and the Notebook on an EPUB: the chip names the chapter and paragraph; the entry jumps back.
+    await e.evaluate(() => { const p = state.pages[3], t = epubParas(p)[2].firstChild, range = document.createRange(); range.setStart(t, 0); range.setEnd(t, 40); const info = { text: range.toString(), page: 4, range }; store.set('cards:' + state.key, [withSpan(TinctMargin.newCard({ kind: 'explain', page: 4, anchor: anchorOf(selectionShapes(range)), text: info.text, turns: [{ role: 'assistant', content: 'MOCK explain on an EPUB.' }] }), info)]); col.view = null; marginLayout({ fresh: true }) })
+    await e.click('#notebookBtn'); await e.waitForSelector('.nb .nb-entry')
+    const entry = await e.evaluate(nbState)
+    ok(`${tag}: the Notebook lists an EPUB's card by chapter and paragraph`, entry.entries.length === 1 && entry.entries[0].chip === 'ch. 4 ¶ 3' && entry.entries[0].kind === 'Explain', entry.entries)
+    await shot(e, `${tag}-notebook`)
+    await e.click('.nb-entry .nb-kind'); await e.waitForTimeout(1500)
+    const jump = await e.evaluate(() => { const c = (store.get('cards:' + state.key) || [])[0], r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], sr = document.getElementById('scroll').getBoundingClientRect(); return { open: col.open === c.id, inView: r.top > sr.top && r.bottom < sr.bottom, card: !!document.querySelector('.mr-card.is-open') } })
+    ok(`${tag}: its entry jumps to the passage and opens the card`, jump.open && jump.inView && jump.card, jump)
+    await e.keyboard.press('Escape'); await e.evaluate(() => { openCard(null) })
+    // Back at the place, then a reload: the same paragraph and word.
+    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await e.evaluate(() => savePlaceNow())
+    await e.reload(); await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const reloaded = await e.evaluate(spotNow)
+    ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && Math.abs(reloaded.word - here.word) <= 1, { here, reloaded })
+    // The text size and the window's width change: the place stays.
+    await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800)
+    const zoomed = await e.evaluate(spotNow)
+    await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800)
+    const narrowed = await e.evaluate(spotNow)
+    await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800)
+    ok(`${tag}: a text size or width change keeps the paragraph in view`, zoomed.para === here.para && narrowed.para === here.para && zoomed.page === 3 && narrowed.page === 3, { here, zoomed, narrowed })
+    // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
+    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600)
+    await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel [data-layout="text"]')
+    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-aa-panel [data-layout="text"]')])
+    const left = await e.evaluate(([k, h]) => ({ view: JSON.parse(localStorage.getItem('tinct-addbook:epub-view:' + h)), pos: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)) }), [key, hex])
+    ok(`${tag}: Convert to Tinct book opens the Tinct reader, kept as this device's choice, the place sent by its words`, left.view === 'text' && left.pos.quote === here.quote && left.pos.para === here.para, left)
+    // With that choice, this address goes on to the Tinct reader; the Tinct reader's "Margin view" comes back to the same words.
+    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`, { timeout: 20000 }), e.goto(`${origin}/lab/addbook/?userBook=${hex}`)])
+    ok(`${tag}: chosen, the Tinct reader is where it opens on this device`, e.url().includes(`/reader?userBook=${hex}`), e.url())
+    const target = await e.evaluate(() => 'Lamplight has always posed questions about the nature of the evening')
+    await e.evaluate(([k, h, q]) => { localStorage.setItem('tinct-addbook:epub-view:' + h, JSON.stringify('margin')); const pos = JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)); localStorage.setItem('tinct-addbook:pos:' + k, JSON.stringify({ ...pos, via: 't', quote: q, at: Date.now() })) }, [key, hex, 'If we really do live in a lamplit household, then where does electricity fit'])
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const back = await e.evaluate(spotNow)
+    ok(`${tag}: from the Tinct reader's Margin view, the EPUB opens here at the words it was at`, back.page === 2 && back.para === 1 && back.word === 0 && /^If we really do live/.test(back.quote), back)
+    void target
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  // A phone keeps the Tinct reader.
+  const P = await epubPage(browser, origin, hex, { width: 390, height: 844 })
+  await P.page.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+  await P.page.waitForURL(`**/reader?userBook=${hex}`, { timeout: 30000 }).catch(() => {})
+  ok('epub-view-390x844: a phone opens the EPUB in the Tinct reader, as before', P.page.url().includes(`/reader?userBook=${hex}`), P.page.url())
+  await P.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3783,6 +4027,8 @@ const RUNS = {
   'column-page': [columnPage, rows => rows.some(r => !r.pass)],
   'figure-race': [figureRace, rows => rows.some(r => !r.pass)],
   'cards-gloss': [cardsGloss, rows => rows.some(r => !r.pass)],
+  notebook: [notebookCheck, rows => rows.some(r => !r.pass)],
+  'epub-view': [epubViewCheck, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3823,7 +4069,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'notebook', 'epub-view'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

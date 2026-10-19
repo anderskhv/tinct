@@ -142,7 +142,7 @@
     bin: '<path d="M5.4 7.2h13.2M9.8 7.2V5.4h4.4v1.8M7.2 7.2l.8 11.6a1.6 1.6 0 0 0 1.6 1.4h4.8a1.6 1.6 0 0 0 1.6-1.4l.8-11.6M10.4 10.6v6M13.6 10.6v6"/>',
   };
   const BUTTON_HTML = svg(ICONS.book);
-  const nb = { host: null, el: null, list: null, open: false, filter: 'all', full: new Set(), undo: null, raf: 0, opener: null };
+  const nb = { host: null, el: null, list: null, open: false, filter: 'all', full: new Set(), undo: null, raf: 0, scroll: 0 };
 
   function qaHtml(label, text, cls = '') {
     return `<div class="nb-qa${cls}"><span class="nb-qa__l" aria-hidden="true">${label}</span><div class="nb-qa__t"><span class="nb-sr">${label === 'Q' ? 'Question' : 'Answer'}: </span>${esc(text).replace(/\n/g, '<br>')}</div></div>`;
@@ -249,24 +249,29 @@
     });
     return el;
   }
+  // The panel stands over the margin column, so it steps aside for the card it opens (reopened, it is as it was left).
   function jump(id) {
     const entry = shownNow().find(e => e.id === id);
-    if (entry) nb.host.jump(entry);
+    if (!entry) return;
+    close({ away: true });
+    nb.host.jump(entry);
   }
   function open() {
     if (!nb.host || nb.open) return;
-    nb.open = true; nb.full.clear();
+    nb.open = true;
     if (!nb.el) { nb.el = build(); nb.list = nb.el.querySelector('.nb-list') }
     nb.host.root.appendChild(nb.el);
     nb.host.button.setAttribute('aria-expanded', 'true');
     nb.host.root.dataset.notebook = 'open';
     draw();
+    nb.list.scrollTop = nb.scroll || 0;
     nb.el.querySelector(`[data-f="${nb.filter}"]`).focus({ preventScroll: true });
     nb.host.opened?.(true);
   }
-  function close({ focus = false } = {}) {
+  function close({ focus = false, away = false } = {}) {
     if (!nb.open) return;
-    const inside = nb.el.contains(document.activeElement);
+    const inside = !away && nb.el.contains(document.activeElement);
+    nb.scroll = nb.list.scrollTop;
     nb.open = false; endUndo();
     nb.el.remove();
     nb.host.button.setAttribute('aria-expanded', 'false');
@@ -283,9 +288,10 @@
     host.button.innerHTML = BUTTON_HTML;
     host.button.addEventListener('click', () => (nb.open ? close({ focus: true }) : open()));
     // Escape closes it (before the margin's own Escape, which would fold a card), unless a menu over it is open.
-    document.addEventListener('keydown', e => {
+    // On the window, in the capture phase: before the reader's own Escape (folding a card, closing the primer).
+    window.addEventListener('keydown', e => {
       if (e.key !== 'Escape' || !nb.open) return;
-      if (e.target.closest?.('.lab-v2-sheet-layer, .mr-note, .mr-more, .mr-define')) return;
+      if (e.target.closest?.('.lab-v2-sheet-layer, .mr-note, .mr-more, .mr-define, .mr-bar, .mr-pbar')) return;
       if (!nb.el.contains(e.target) && e.target.closest?.('.mr-card, .mr-sheet, input, textarea, [contenteditable="true"]')) return;
       e.preventDefault(); e.stopImmediatePropagation(); close({ focus: true });
     }, true);
