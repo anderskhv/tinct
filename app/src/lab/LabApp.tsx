@@ -86,6 +86,7 @@ import {
   labPageTurnAffordance,
   labPageTurnSurfaceEnabled,
   labNeedsGestureAudioUnlock,
+  labPhoneSurfaceInput,
 } from './labChrome'
 import { LabContentsV2 } from './LabContentsV2'
 import type { ContentsPlace } from './labContents'
@@ -233,20 +234,7 @@ type LabFullscreenElement = HTMLElement & {
 }
 
 function phoneSurfaceInput(layoutOverride: ReturnType<typeof labLayoutOverride>) {
-  if (typeof window === 'undefined') {
-    return { override: layoutOverride }
-  }
-  const matchMediaPhone = typeof window.matchMedia === 'function'
-    ? window.matchMedia(PHONE_QUERY).matches
-    : false
-  return {
-    override: layoutOverride,
-    matchMediaPhone,
-    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
-    innerWidth: window.innerWidth,
-    maxTouchPoints: typeof navigator !== 'undefined' ? navigator.maxTouchPoints : 0,
-    screenWidth: window.screen?.width,
-  }
+  return labPhoneSurfaceInput(layoutOverride)
 }
 
 /** How long the first page's fade-in class stays; the animation itself is shorter (lab.css). */
