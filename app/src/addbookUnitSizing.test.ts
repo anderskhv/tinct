@@ -90,24 +90,27 @@ describe('unit sizing', () => {
     expect(M.sizeUnits([{ title: '', page: 2 }, { title: 'Lost', page: null }], 12)).toEqual([{ key: 'all', title: '', from: 1, start: 1, to: 12 }])
     expect(M.sizeUnits([], 25).map(u => [u.from, u.to])).toEqual([[1, 10], [11, 20], [21, 25]])
   })
-  it('a huge chapter is split at its sections; one with none, into bands of about 10 pages', () => {
+  it('a huge chapter is split at its sections; one with none is kept whole up to 60 pages, past that in bands of about 10 pages', () => {
     const book: Entry[] = [
       { title: '1 Origins', page: 1 },
       { title: '2 The Long Chapter', page: 11, items: [{ title: '2.1 First', page: 12 }, { title: '2.2 Second', page: 25 }, { title: '2.3 Third', page: 41 }, { title: '2.4 Fourth', page: 41 }, { title: '2.5 Fifth', page: 55 }] },
-      { title: '3 Without Sections', page: 71 }, { title: '4 End', page: 120 },
+      { title: '3 Without Sections', page: 71 }, { title: '4 Also Without', page: 135 }, { title: '5 End', page: 170 },
     ]
-    const units = M.sizeUnits(book, 130)
-    covers(units, 130)
+    const units = M.sizeUnits(book, 180)
+    covers(units, 180)
     expect(units.map(u => [u.title, u.from, u.to])).toEqual([
       ['1 Origins', 1, 10],
       ['2.1 First', 11, 24], ['2.2 Second', 25, 40], ['2.4 Fourth', 41, 54], ['2.5 Fifth', 55, 70],
-      ['3 Without Sections, pages 71–80', 71, 80], ['3 Without Sections, pages 81–90', 81, 90], ['3 Without Sections, pages 91–100', 91, 100], ['3 Without Sections, pages 101–110', 101, 110], ['3 Without Sections, pages 111–119', 111, 119],
-      ['4 End', 120, 130],
+      ['3 Without Sections, pages 71–80', 71, 80], ['3 Without Sections, pages 81–90', 81, 90], ['3 Without Sections, pages 91–100', 91, 100], ['3 Without Sections, pages 101–110', 101, 110], ['3 Without Sections, pages 111–120', 111, 120], ['3 Without Sections, pages 121–130', 121, 130], ['3 Without Sections, pages 131–134', 131, 134],
+      ['4 Also Without', 135, 169],
+      ['5 End', 170, 180],
     ])
     expect(units[1].start).toBe(12)
-    expect(units.every(u => span(u) >= M.UNIT_SIZE.min && span(u) <= M.UNIT_SIZE.split)).toBe(true)
-    // Chapter naming as the primer's: a book of 100 pages or more names "Chapter 1: Origins".
+    expect(units.every(u => span(u) >= M.UNIT_SIZE.min && span(u) <= M.UNIT_SIZE.split * 2)).toBe(true)
+    // Chapter naming as the primer's: a book of 100 pages or more names "Chapter 1: Origins"; a band keeps its chapter.
     expect(units[0].label).toBe('Chapter 1: Origins')
+    expect(units[5].label).toBe('Chapter 3: Without Sections, pages 71–80')
+    expect((M as unknown as { unitPhrase(u: Unit): string }).unitPhrase(units[5])).toBe('pages 71–80 of chapter 3')
   })
   it('a part of chapters gives its chapters; a 300-page book of one entry is never one unit', () => {
     const units = M.sizeUnits([{ title: 'Part I Foundations', page: 1, items: [{ title: '1 Sets', page: 3 }, { title: '2 Maps', page: 15 }, { title: '3 Groups', page: 30 }] }], 44)
@@ -116,6 +119,8 @@ describe('unit sizing', () => {
     covers(one, 300)
     expect(one.length).toBe(30)
     expect(one.every(u => span(u) === 10)).toBe(true)
+    // A 31-page chapter with no sections stays one chapter.
+    expect(M.sizeUnits([{ title: '1 Introduction', page: 1, kind: 'chapter' }, { title: '2 Bandits', page: 32, kind: 'chapter' }], 50).map(u => [u.label, u.from, u.to])).toEqual([['Chapter 1: Introduction', 1, 31], ['Chapter 2: Bandits', 32, 50]])
   })
 })
 

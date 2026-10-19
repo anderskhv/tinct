@@ -1014,12 +1014,13 @@ async function primerBehaviour(browser, origin) {
   const trig = await a.evaluate(() => {
     const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'), row = t?.closest('.mr-unit'); if (!t) return null
     const span = getComputedStyle(t.querySelector('span'))
-    // Its unit's first page's top, measured in the column (19 Oct 2026, evening: the page's top, never its first line of text).
-    const p = state.pages[(primer.units?.[0]?.from || 1) - 1]
-    const line = p.pg.getBoundingClientRect().top + 4 - row.parentElement.getBoundingClientRect().top
+    // Its start mark's rule at the top of its unit's heading on the page (19 Oct 2026, night: the unit marks), measured in the column.
+    const u = primer.units?.[0], p = state.pages[(u?.start || 1) - 1], want = (u?.title || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+    const head = [...p.layer.querySelectorAll('span')].filter(sp => { const t = sp.textContent.toLowerCase().replace(/[^a-z0-9]/g, ''); return t.length > 3 && want.startsWith(t) }).sort((x, y) => y.getBoundingClientRect().height - x.getBoundingClientRect().height)[0]
+    const line = head ? head.getBoundingClientRect().top - row.parentElement.getBoundingClientRect().top : NaN
     return { text: t.getAttribute('aria-label'), words: t.textContent.trim(), top: row.offsetTop, bottom: row.offsetTop + row.offsetHeight, line, tip: t.title, radius: span.borderRadius, border: span.borderTopWidth, font: getComputedStyle(t).fontFamily }
   })
-  ok('at the PDF\'s start its Primer pill (Before you start) sits at its first page\'s top (items 1 and 9, 19 Oct evening): "✧ Primer", named for the unit ("Before you start: The gist and a map of chapter 1."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: The gist and a map of chapter 1.' && trig.words === '✧Primer' && Math.abs(trig.top - (trig.line - 4)) <= 1.5 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
+  ok('at the PDF\'s start its Primer (Before you start) is in the start mark level with the unit\'s heading (19 Oct, night): "✧ Primer", named for the unit ("Before you start: The gist and a map of chapter 1."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: The gist and a map of chapter 1.' && trig.words === '✧Primer' && Math.abs(trig.top - trig.line) <= 2 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
   // Made ahead as the file opens (Anders, 19 Oct 2026): one request, for the reader's unit, marked speculative (never charged).
   const req = primers(0)[0]
   ok('as the file opens (signed in), the primer of the reader\'s unit is made once, ahead, marked speculative', primers(0).length === 1 && req.body.companion.speculative === true, { requests: primers(0).length, speculative: req?.body?.companion?.speculative })
@@ -1078,16 +1079,17 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('Escape')
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
-  // A PDF under 40 pages is one unit, "all", even with an outline (the prose book, 21 pages, has one).
+  // A PDF under 40 pages with an outline (the prose book, 21 pages) has its chapters as units since 19 Oct 2026, night
+  // (TinctMargin.sizeUnits: 3–25 pages a unit; before, one unit "all"): B makes the first chapter's primer, its pages only.
   // (Made ahead as it opens, or on B: the one request since it opened.)
   const rs = chats().length
   const S = await readerPage(browser, origin, hexShort, { width: 1440, height: 900, look: 'paper' })
   await S.page.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(S.page)
-  const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'), units: primer.units.map(u => u.key), pages: state.pages.length }))
+  const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'), units: primer.units.map(u => u.key), pages: primer.units[0].to - primer.units[0].start + 1 }))
   await S.page.keyboard.press('b'); await S.page.waitForTimeout(1000)
   const reqs = primers(rs)[0]
-  ok('a PDF under 40 pages is one unit ("all"), its outline notwithstanding: the whole file goes', /map of the whole PDF\.$/.test(ts.trig || '') && ts.units.join() === 'all' && reqs?.body?.companion?.chapter?.action?.unitKey === 'all' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
+  ok('a PDF under 40 pages with chapters: its chapters are its units; the first chapter\'s pages go', /map of chapter 1\.$/.test(ts.trig || '') && ts.units.join() === 'outline-0,outline-1,outline-2,outline-3,outline-4' && reqs?.body?.companion?.chapter?.action?.unitKey === 'outline-0' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
   await S.ctx.close()
   // A PDF without an outline is one unit, "all".
   const rb = chats().length
@@ -1095,9 +1097,12 @@ async function primerBehaviour(browser, origin) {
   await B.page.waitForSelector('.mr-col .mr-pill[data-pill="primer"]', { timeout: 8000 }).catch(() => {})
   await prefetchSettled(B.page)
   const tb = await B.page.evaluate(() => document.querySelector('.mr-col .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'))
+  const ub = await B.page.evaluate(() => primer.units.map(u => ({ key: u.key, pages: u.to - u.start + 1 })))
   await B.page.keyboard.press('b'); await B.page.waitForTimeout(1000)
   const reqb = primers(rb)[0]
-  ok('a PDF without an outline: one unit ("all"), the whole PDF', /map of the whole PDF\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === 'all' && reqb.body.companion.context.pages.length === 8, { tb, action: reqb?.body?.companion?.chapter })
+  // Since 19 Oct 2026, night (TinctMargin.sizeUnits), a short paper's headings found by the scan are its units too (the
+  // two-column paper's numbered sections); one with none is one unit, "all" (unit sizing's tests).
+  ok('a PDF without an outline: its scanned headings as units, the first unit\'s pages sent', ub.length > 1 && /map of chapter 1\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === ub[0].key && reqb.body.companion.context.pages.length === ub[0].pages, { tb, ub, action: reqb?.body?.companion?.chapter, pages: reqb?.body?.companion?.context?.pages?.length })
   // Not in the account (signed out): kept in this browser only; reopening uses it.
   await B.ctx.close()
   const C = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'paper' })

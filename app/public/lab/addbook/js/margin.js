@@ -1074,7 +1074,9 @@
           if (subs.length && u.start < subs[0].start && subs[0].start - u.start >= S.min) return [{ ...u, to: subs[0].start - 1 }, ...subs.map((s, i) => (i === 0 ? { ...s, from: subs[0].start } : s))];
           return subs;
         }
-        return bands(u.from, u.to, (a, b) => ({ key: `${u.key}-p${a}`, title: `${u.title}, pages ${a}–${b}`, nd: { ...u.nd, items: [] }, banded: true }));
+        // No headings under it: kept whole up to twice the limit (a 31-page chapter is still one chapter), else bands.
+        if (size(u) <= S.split * 2) return [u];
+        return bands(u.from, u.to, (a, b) => ({ key: `${u.key}-p${a}`, title: `${u.title}, pages ${a}–${b}`, base: u.title, nd: { ...u.nd, items: [] }, banded: true }));
       });
       return units;
     };
@@ -1097,8 +1099,9 @@
     }
     if (units.length === 1 && units[0].from === 1 && units[0].to === n && n <= S.split && !units[0].title) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
     return units.map(u => {
-      const named = !u.matter && !u.banded && !u.parts && (u.nd?.chapter || n >= 100) ? numberedChapter(u.title) : null;
-      return { key: u.key.slice(0, 64), title: u.title, from: u.from, start: Math.min(Math.max(u.start, u.from), u.to), to: u.to, ...(u.matter ? { matter: u.matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}` } : {}), ...(u.parts ? { parts: u.parts, head: u.head } : {}) };
+      const named = !u.matter && !u.parts && (u.nd?.chapter || n >= 100) ? numberedChapter(u.banded ? u.base : u.title) : null;
+      const band = u.banded ? `, pages ${u.from}–${u.to}` : '';
+      return { key: u.key.slice(0, 64), title: u.title, from: u.from, start: Math.min(Math.max(u.start, u.from), u.to), to: u.to, ...(u.matter ? { matter: u.matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}${band}` } : {}), ...(u.banded ? { band: true, head: u.base } : {}), ...(u.parts ? { parts: u.parts, head: u.head } : {}) };
     });
   }
   /** The scan's chapters and headings (js/pdf-scan.js entries: { id, label, page, kind, parent }) as sizeUnits' entries, nested by parent. */
@@ -1163,6 +1166,8 @@
    */
   function unitPhrase(unit) {
     if (!unit || unit.key === 'all' || !unit.title) return 'the whole PDF';
+    // A band of a long chapter without sections (sizeUnits): "pages 71–80 of chapter 3".
+    if (unit.band) return `pages ${unit.from}–${unit.to} of ${unitPhrase({ ...unit, band: false, title: unit.head || unit.title.replace(/, pages \d+–\d+$/, '') })}`;
     if (unit.chapter) return `chapter ${unit.chapter}`;
     if (unit.pages) return `pages ${unit.from}–${unit.to}`;
     const m = /^(chapter|part|section|lecture|unit|book|appendix)\s+([\p{L}\p{N}]+(?:\.\d+)*)(?=$|[\s.:,;—–-])/iu.exec(unit.title);
