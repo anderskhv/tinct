@@ -3906,8 +3906,8 @@ async function strayMenu(browser, origin) {
   const a = A.page
   await prefetchSettled(a)
   const bar = () => a.evaluate(() => !!document.querySelector('.mr-float.mr-bar, .mr-float.mr-define'))
-  const spanBox = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[2]; const r = sp.getBoundingClientRect(); return { x0: r.left + 2, x1: r.left + r.width * 0.6, y: r.top + r.height / 2 } })
-  const setByCode = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[4]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, Math.min(20, sp.firstChild.length)) })
+  const spanBox = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span:not([data-f])')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[2]; const r = sp.getBoundingClientRect(); return { x0: r.left + 2, x1: r.left + r.width * 0.6, y: r.top + r.height / 2 } })
+  const setByCode = () => a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span:not([data-f])')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[4]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, Math.min(20, sp.firstChild.length)) })
   const reset = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(400) }
   // Set by code alone: no bar.
   await setByCode(); await a.waitForTimeout(700)
@@ -3920,12 +3920,13 @@ async function strayMenu(browser, origin) {
   await a.screenshot({ path: join(OUT, 'stray-menu-drag.png') })
   await reset()
   // Selection keys ending on a new selection: the bar.
-  await a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[3]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, 1) })
+  await a.evaluate(() => { const sp = [...document.querySelectorAll('.pdf-sheet .text-layer span:not([data-f])')].filter(s => { const r = s.getBoundingClientRect(); return r.top > 200 && r.bottom < innerHeight - 200 && s.textContent.trim().split(/\s+/).length > 5 })[3]; getSelection().setBaseAndExtent(sp.firstChild, 0, sp.firstChild, 1) })
   await a.waitForTimeout(500)
   ok('4. (a one-letter selection set by code opens none)', !(await bar()))
   for (let k = 0; k < 12; k++) await a.keyboard.press('Shift+ArrowRight')
   await a.waitForTimeout(500)
-  ok('4. selection keys ending on a new selection open the bar', await bar(), await a.evaluate(() => getSelection().toString()))
+  // (Its first key ends inside a word: snapped to the whole word (item 8), which on the wide column opens Define's card (item 7).)
+  ok('4. selection keys ending on a new selection open the bar (or, for one word, Define\'s card)', await bar() || await a.evaluate(() => cardById(col.open || '')?.kind === 'define' || col.draft?.kind === 'define'), await a.evaluate(() => getSelection().toString()))
   await reset()
   // The tab hidden and shown again with a selection left: no bar.
   await setByCode()
