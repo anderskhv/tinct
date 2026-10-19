@@ -291,6 +291,8 @@ export default defineConfig(({ mode, command }) => {
             '/library/': '/lab/library_2/index.html',
             // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.
             '/admin/social': '/lab/admin-social/index.html',
+            // The PDF reader's folder page, as the Worker's assets serve it (the margin preview frames it).
+            '/lab/addbook/': '/lab/addbook/index.html',
           }
           if (pageAssets[pathOnly]) {
             req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`

@@ -355,7 +355,9 @@ async function openEpub(bytes, name, key, rec = null) {
     setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
     marginStart();
   } else if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
-  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0 } onScroll() });
+  // The preview: the margin's first layout (reserveColumn's reflow) holds no spot while the place is being restored.
+  if (state.preview) { epubHold.spot = null; epubHold.reflow++ }
+  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600) });
 }
 function applyEpubScale() { root.style.setProperty('--epub-scale', String(state.zoom)) }
 // Links inside the book move within it.

@@ -80,7 +80,10 @@
   const STYLE = `.tb-chapter .tb-head{display:block;margin:0 0 1.6em;text-align:center}
 .tb-chapter .tb-part{display:block;font-size:.78em;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:.5em}
 .tb-chapter .tb-title{display:block;font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:1.45em;line-height:1.25}
-.tb-chapter .tb-p{white-space:pre-line}`;
+.tb-chapter .tb-p{white-space:pre-line}
+.lab.byob .epub-sheet{content-visibility:visible}`;
+  // (Chapters are drawn whole, not skipped off screen: a Tinct chapter runs to many screens, and an estimated height
+  // above the place moved it as the chapters were drawn; reader.js epubGoSpot measures real lines.)
 
   async function open() {
     const R = window.TinctReader; if (!R?.openRegistered) return;
