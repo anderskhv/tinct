@@ -28,6 +28,34 @@ export type BillingEnv = SupabaseEnv & {
 
 const WEBHOOK_TOLERANCE_SECONDS = 300 // 5 minutes
 
+/**
+ * The line beside Stripe's required terms checkbox at every Checkout (Anders, 2026-10-19).
+ * EU consumer law (CRD art. 16(m), 7(3)/8(8)) needs the buyer's express request to start
+ * at once and their acknowledgement that the 14-day withdrawal right is lost for what is
+ * delivered; terms.html ("EU right of withdrawal") says the same. Stripe allows Markdown
+ * links and up to 1200 characters here.
+ */
+export const CHECKOUT_TERMS_MESSAGE = 'I agree to the [Terms](https://tinct.app/terms). Tinct starts right away, so I lose the 14-day right to cancel for what I have already used.'
+
+/**
+ * Every Checkout session requires the terms checkbox. Stripe refuses the session
+ * when no Terms of service URL is set in the dashboard's public details; that refusal
+ * is logged by `logCheckoutRefusal`, and the consent is never dropped to get past it.
+ */
+export function requireCheckoutConsent(params: URLSearchParams): void {
+  params.set('consent_collection[terms_of_service]', 'required')
+  params.set('custom_text[terms_of_service_acceptance][message]', CHECKOUT_TERMS_MESSAGE)
+}
+
+/** Logs a refused Checkout session, naming the terms setup when that is the cause. */
+export function logCheckoutRefusal(kind: string, message: string | undefined): void {
+  if (message && /terms|consent_collection|custom_text/i.test(message)) {
+    console.error(`[Stripe] ${kind} checkout refused over the terms consent (check the Terms of service URL in Stripe public details):`, message)
+  } else {
+    console.error(`[Stripe] ${kind} checkout session creation failed:`, message ?? 'Unknown Stripe error')
+  }
+}
+
 export type BillingInterval = 'month' | 'year'
 
 /**
@@ -166,6 +194,7 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     params.set('success_url', `${origin}?payment=success`)
     params.set('cancel_url', `${origin}?payment=cancelled`)
     params.set('metadata[supabase_user_id]', user.id)
+    requireCheckoutConsent(params)
     if (env.STRIPE_AUTOMATIC_TAX === 'on') {
       params.set('automatic_tax[enabled]', 'true')
       // The customer already exists; Checkout saves the billing address it asks for onto it.
@@ -233,7 +262,7 @@ export async function handleCreateCheckout(request: Request, env: BillingEnv, ve
     })
     const stripeData = await stripeRes.json() as { url?: string; error?: { message: string } }
     if (!stripeRes.ok || stripeData.error) {
-      console.error('[Stripe] Session creation failed:', stripeData.error?.message)
+      logCheckoutRefusal(String(body.type).slice(0, 32), stripeData.error?.message)
       return jsonResponse({ error: `Payment processing failed: ${stripeData.error?.message || 'Unknown Stripe error'}` }, 400, request)
     }
     const checkoutUrl = stripeData.url
