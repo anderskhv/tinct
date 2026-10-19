@@ -68,7 +68,7 @@
   }
 
   // The margin's whole file (docs/margin/FIXES-2026-10-15.md A1): { kind: 'pdf' | 'epub', units: [{ n, text }],
-  // part?: { toc: [{ title, n }], total } }, sent as it is with every margin request so the Worker's cached
+  // part?: { toc: [{ title, n }], total }, library?: true }, sent as it is with every margin request so the Worker's cached
   // prefix stays byte for byte the same. -> the request's `document`, or null.
   function documentContext(doc) {
     if (!doc || (doc.kind !== 'pdf' && doc.kind !== 'epub') || !Array.isArray(doc.units) || !doc.units.length) return null;
@@ -83,7 +83,8 @@
     const part = doc.part && Array.isArray(doc.part.toc)
       ? { toc: doc.part.toc.slice(0, 400).map(e => ({ title: String(e?.title || '').slice(0, 200), n: typeof e?.n === 'number' ? e.n : String(e?.n ?? '').slice(0, 16) })), total: Number(doc.part.total) || units.length }
       : null;
-    return { kind: doc.kind, units, ...(part ? { part } : {}) };
+    // A book from Tinct's library (the margin preview), not a file of the reader's own: the Worker words its first line so.
+    return { kind: doc.kind, units, ...(part ? { part } : {}), ...(doc.library === true ? { library: true } : {}) };
   }
 
   // A long file's passages found by searching it for the question (FIXES-2026-10-15, long books, item 8):

@@ -9,6 +9,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { LabApp } from './lab/LabApp'
 import { userBookFromSearch } from './lab/userBook/userBookId'
+import { marginPreviewBookForPage } from './lab/marginPreview/marginPreviewFlag'
+import { isMarginPreviewBook } from './lab/marginPreview/marginPreviewModel'
+import { getBook } from './data/bookRegistry'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
@@ -56,6 +59,9 @@ const userBookHex = pathname === '/reader' ? userBookFromSearch(window.location.
 // Read now, before the auth client can drop a lapsed session: Add a book tags
 // files with the account even when its sign-in has lapsed.
 const userBookOwner = userBookHex ? (readCachedSupabaseUser()?.id ?? null) : null
+// The margin preview (/reader?book=<id>&margin=1, or this device's opt-in): a registered
+// book in the margin reader instead of the book reader; loaded only on that page.
+const MarginPreview = React.lazy(() => import('./lab/marginPreview/MarginPreview').then(module => ({ default: module.MarginPreview })))
 const UserBookReader = React.lazy(() => import('./lab/userBook/UserBookReader').then(module => ({ default: module.UserBookReader })))
 if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader') {
@@ -93,6 +99,13 @@ async function begin() {
       window.location.replace(`/library?book=${encodeURIComponent(missing)}`)
       return
     }
+  }
+  // Decided once the added books are registered. The book reader is not mounted, and the
+  // stored-data migrations wait for its next visit: the preview writes none of its data.
+  const previewBookId = pathname === '/reader' && !userBookHex ? marginPreviewBookForPage(id => isMarginPreviewBook(getBook(id))) : null
+  if (previewBookId) {
+    ReactDOM.createRoot(document.getElementById('root')!).render(<React.Suspense fallback={null}><MarginPreview bookId={previewBookId} /></React.Suspense>)
+    return
   }
   const contentMigrations = Root === LabApp ? storedContentMigrations() : null
   if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])

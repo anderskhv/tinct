@@ -720,8 +720,10 @@
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
     if (card.data?.unit) return `${PILLS[card.data.pill] || KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
     // A figure's card: its caption's own label ("Figure 2 · p. 3"), else what it is.
-    if (card.kind === 'figure') return `${card.data?.label || KINDS[card.data?.region] || KINDS.figure}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
-    return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
+    // (No unit: the place names itself, as a chapter title does.)
+    const at = pageLabel ? ` · ${unit ? unit + ' ' : ''}${pageLabel}` : '';
+    if (card.kind === 'figure') return `${card.data?.label || KINDS[card.data?.region] || KINDS.figure}${at}`;
+    return `${KINDS[card.kind] || KINDS.explain}${at}`;
   }
   /** Related, folded: "Related · 3 places" (PROMPTS.md); null while it has no answer. */
   function relatedFoldLabel(card, P) {
@@ -1166,6 +1168,8 @@
    */
   function unitPhrase(unit) {
     if (!unit || unit.key === 'all' || !unit.title) return 'the whole PDF';
+    // A Tinct book's chapter (the margin preview) names itself as its contents do ("Letter 2", "The Window · 11").
+    if (unit.phrase) return unit.phrase;
     // A band of a long chapter without sections (sizeUnits): "pages 71–80 of chapter 3".
     if (unit.band) return `pages ${unit.from}–${unit.to} of ${unitPhrase({ ...unit, band: false, title: unit.head || unit.title.replace(/, pages \d+–\d+$/, '') })}`;
     if (unit.chapter) return `chapter ${unit.chapter}`;

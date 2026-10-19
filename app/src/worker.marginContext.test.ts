@@ -13,7 +13,7 @@ vi.mock('./companion/marginRoutes', async importOriginal => {
   return { ...real, factcheckDocFirst: () => true }
 })
 import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
-import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, parseMarginDocument } from './companion/marginContext'
+import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
@@ -595,5 +595,27 @@ describe('the book reader is unchanged', () => {
     await send(requests[name].body, { guest: requests[name].guest })
     expect(anthropic).toHaveLength(1)
     expect(sha(anthropic[0])).toBe(BEFORE[name])
+  })
+})
+
+describe('a book from Tinct\'s library in the margin (the margin preview)', () => {
+  const chapters = { kind: 'epub', units: [{ n: 5, text: 'Chapter 1\n\nI am by birth a Genevese.' }] }
+  it('is not called a file the reader opened from their own files', () => {
+    const doc = parseMarginDocument({ ...chapters, library: true })!
+    expect(doc.library).toBe(true)
+    const { stable } = buildMarginPrefixParts(doc, { title: 'Frankenstein', author: 'Mary Shelley' })
+    expect(stable.startsWith(marginRules(true))).toBe(true)
+    expect(stable).not.toContain('their own files')
+    expect(stable).not.toContain('entitled')
+    expect(stable).toContain('a book the reader is reading from Tinct\'s library')
+  })
+  it('leaves a reader\'s own file exactly as before (the same cached prefix)', () => {
+    for (const raw of [chapters, { ...chapters, library: 'yes' }, { ...chapters, library: false }]) {
+      const doc = parseMarginDocument(raw)!
+      expect(doc.library).toBeUndefined()
+      expect(buildMarginPrefixParts(doc, { title: 'Mine', author: '' }).stable.startsWith(MARGIN_RULES)).toBe(true)
+    }
+    expect(MARGIN_RULES).toBe(marginRules(false))
+    expect(MARGIN_RULES.split('\n')[0]).toContain('opened from their own files')
   })
 })
