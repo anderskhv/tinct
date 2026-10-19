@@ -1248,10 +1248,12 @@ const hasText = () => state.kind === 'pdf' && (state.scan ? state.scan.textPages
 const isOcrText = () => state.textEdition?.source === 'ocr';
 // The reader's own choice on this device (the phone's default kept there is not one: TinctReaderLayout.ownChoice).
 const ownEdition = () => window.TinctReaderLayout.ownChoice(store.get('edition:' + hexOf(state.key)), store.get('phone-edition:' + hexOf(state.key)), store.get('desk-edition:' + hexOf(state.key)));
-// With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); on the desktop, its pages unless running prose (deskKind).
+// With none, the default: a recognised scan's own; on a phone, by the document's kind (phoneKind); on the desktop, its pages (Margin view; deskKind).
 const editionDefault = scan => isOcrText() ? TinctPdfOcr.defaultEdition(state.textEdition) : window.TinctReaderLayout.openDefault({ phone: isPhone(), kind: state.docKind?.kind, layout: scan?.layout });
-// This device's kept default (phoneKind, deskKind): the phone's on a phone, the desktop's on the desktop.
-const keptEdition = () => store.get((isPhone() ? 'phone-edition:' : 'desk-edition:') + hexOf(state.key))?.edition || null;
+// This device's kept default (phoneKind): the phone's on a phone. The desktop's mark (desk-edition:<hex>) is a
+// default too, never a choice: one kept as Tinct text under the prose rule of 16 Oct must not keep a PDF there,
+// so the desktop's rule (its pages: TinctReaderLayout.desktopEdition) decides afresh (Anders, 19 Oct 2026).
+const keptEdition = () => isPhone() ? store.get('phone-edition:' + hexOf(state.key))?.edition || null : null;
 const editionChoice = scan => TinctPdfText.choice(ownEdition(), keptEdition(), editionDefault(scan));
 /* Phones open a PDF by its kind (Anders, 16 Oct 2026, option C; TinctReaderLayout.docKind, phoneEdition): a
    narrative or an essay as its Tinct text, a paper too when it is mostly prose (no columns, mathematics, figures
@@ -1291,9 +1293,9 @@ async function phoneKind(scan, token) {
   store.set('phone-edition:' + hex, { edition, kind: found.kind, by: found.by, v: KIND_V });
   store.set('edition:' + hex, edition);
 }
-/* The desktop opens a PDF as its pages (Margin view), except running prose (Anders, 16 Oct 2026;
-   TinctReaderLayout.desktopEdition): a narrative or an essay, or a text with no columns, mathematics,
-   figures or tables, reads as its Tinct text. Told as on a phone (the kind from a kept primer or a few
+/* The desktop opens every PDF as its pages, in Margin view (Anders, 19 Oct 2026: Margin view is the main
+   desktop experience; TinctReaderLayout.desktopEdition), running prose too; Tinct text only by the reader's
+   own choice on this device ("Convert to Tinct book"). Told as on a phone (the kind from a kept primer or a few
    pages' text, no AI call), only when the reader has chosen nothing for the book, and kept as this
    device's edition marked as the desktop's (desk-edition:<hex>), so the library and the Tinct reader
    open it the same way and a choice of the reader's replaces it.
@@ -1320,7 +1322,7 @@ async function deskKind(scan, token) {
   store.set('edition:' + hex, edition);
 }
 // The edition a PDF opens in, told for this device before the Tinct text is forwarded to: on a phone by
-// its kind (phoneKind), on the desktop its pages unless running prose (deskKind). Then marked as opened
+// its kind (phoneKind), on the desktop its pages (deskKind). Then marked as opened
 // under this rule, so the library and the Tinct reader open it as this device does (pdfEditions.ts).
 async function openKind(scan, token) {
   await (isPhone() ? phoneKind(scan, token) : deskKind(scan, token));
@@ -1350,6 +1352,18 @@ function readAsText() {
   placeSync.flush();
   stopNarration();
   location.assign(textUrl(place.page));
+}
+// Margin view or Focus view picked in the Aa panel while this device reads the PDF as Tinct text (a look at a
+// page, &pages: "Show page"): the way back. Its pages become this device's own choice, as "Original pages" in the
+// Tinct reader does (pdfEditions.ts choosePdfPageAt), so the next open stays here (Anders, 19 Oct 2026).
+function keepPagesHere() {
+  if (state.kind !== 'pdf' || !hasText() || editionChoice(state.scan) !== 'text') return;
+  const hex = hexOf(state.key);
+  store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex); store.del('desk-edition:' + hex);
+  if (state.pagesAsked) {
+    state.pagesAsked = false;
+    try { history.replaceState(history.state, '', bookUrl(state.key)) } catch { /* kept */ }
+  }
 }
 // The Tinct text is offered in the Aa panel (openDisplay) as "Convert to Tinct book": under Layout, or as its own row (TinctReaderLayout.TINCT_TEXT).
 // A PDF's text known after the panel opened (the scan, a recognised scan) shows there at once.
@@ -2003,6 +2017,7 @@ function openDisplay() {
   layer.querySelector('[data-aa="layout"]').addEventListener('click', e => {
     const b = e.target.closest('[data-layout]'); if (!b) return;
     if (b.dataset.layout === 'text') { closeDisplay(); readAsText(); return }
+    keepPagesHere();
     setLayout(b.dataset.layout);
     drawLayoutChoices();
   });

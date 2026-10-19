@@ -293,6 +293,8 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
     { number: 2, title: 'Two', paragraphs: [words(50), words(50)], pages: [4, 5] },
   ]
   const pdfEdition = { format: 'tinct-user-edition-v1', converter: 1, source: 'pdf', title: 'Paper', author: '', language: 'en', droppedImages: 0, chapters: pdfChapters } as unknown as UserBookEdition
+  // A phone's rule (jsdom's window is a desktop's): the desktop opens every PDF in its pages unless chosen (19 Oct 2026).
+  const PHONE = { phone: true }
 
   // Rewritten 19 Oct 2026 (Anders: a PDF's view is chosen per device; only the place syncs): the place read
   // in Tinct text no longer opens the other device in Tinct text; its spot does, once that device's view is.
@@ -315,10 +317,12 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
     // its viewer tells it first (untold), and the Tinct text, once that is the phone's, opens at the same word.
     localStorage.clear()
     expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
-    expect(pdfEditionChoice(PDF)).toBeNull()
-    expect(pdfEditionUntold(PDF)).toBe(true)
+    expect(pdfEditionChoice(PDF, undefined, undefined, PHONE)).toBeNull()
+    expect(pdfEditionUntold(PDF, undefined, undefined, PHONE)).toBe(true)
+    // A desktop opens it in its pages (Margin view), whatever the place says.
+    expect(pdfEditionChoice(PDF, undefined, undefined, { phone: false })).toBe('pages')
     localStorage.setItem(`tinct-addbook:edition:${PDF}`, '"text"')
-    expect(pdfEditionChoice(PDF)).toBe('text')
+    expect(pdfEditionChoice(PDF, undefined, undefined, PHONE)).toBe('text')
     expect(readPdfTextPlace(PDF, pdfEdition)).toEqual({ chapterNumber: 1, paragraphIndex: 1, wordIndex: 30, updatedAt: AT, converter: 1 })
     // Listed with the account's places, it is a PDF's place, never an EPUB's.
     expect(await fetchAccountPlaces('tok', fetchImpl)).toEqual({})
@@ -353,22 +357,30 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
       localStorage.clear()
       if (place) localStorage.setItem(POS, JSON.stringify(place))
       // The scan's Tinct text is followed once the viewer has told the edition on this device (reader.js openKind).
-      expect(pdfEditionChoice(PDF, 'text')).toBeNull()
-      expect(pdfEditionUntold(PDF, 'text')).toBe(true)
+      expect(pdfEditionChoice(PDF, 'text', undefined, PHONE)).toBeNull()
+      expect(pdfEditionUntold(PDF, 'text', undefined, PHONE)).toBe(true)
       localStorage.setItem(`tinct-addbook:open-rule:${PDF}`, '2')
-      expect(pdfEditionChoice(PDF, 'text')).toBe('text')
-      expect(pdfEditionUntold(PDF, 'text')).toBe(false)
+      expect(pdfEditionChoice(PDF, 'text', undefined, PHONE)).toBe('text')
+      expect(pdfEditionUntold(PDF, 'text', undefined, PHONE)).toBe(false)
       localStorage.removeItem(`tinct-addbook:open-rule:${PDF}`)
-      expect(pdfEditionChoice(PDF, 'pages')).toBe('pages')
+      expect(pdfEditionChoice(PDF, 'pages', undefined, PHONE)).toBe('pages')
       // Not scanned here: the viewer tells it when there is a place to open at; a book never read converts first.
-      expect(pdfEditionChoice(PDF)).toBeNull()
-      expect(pdfEditionUntold(PDF)).toBe(!!place)
+      expect(pdfEditionChoice(PDF, undefined, undefined, PHONE)).toBeNull()
+      expect(pdfEditionUntold(PDF, undefined, undefined, PHONE)).toBe(!!place)
       // The edition kept on this device (the reader's choice, or the default its viewer told), as Add a book writes it.
       localStorage.setItem(`tinct-addbook:edition:${PDF}`, '"text"')
-      expect(pdfEditionChoice(PDF, 'pages')).toBe('text')
+      expect(pdfEditionChoice(PDF, 'pages', undefined, PHONE)).toBe('text')
       localStorage.setItem(`tinct-addbook:edition:${PDF}`, '"pages"')
-      expect(pdfEditionChoice(PDF, 'text')).toBe('pages')
-      expect(pdfEditionUntold(PDF, 'text')).toBe(false)
+      expect(pdfEditionChoice(PDF, 'text', undefined, PHONE)).toBe('pages')
+      expect(pdfEditionUntold(PDF, 'text', undefined, PHONE)).toBe(false)
+      // The desktop: its pages unless the reader chose Tinct text here (19 Oct 2026); a kept default is no choice.
+      localStorage.removeItem(`tinct-addbook:edition:${PDF}`)
+      expect(pdfEditionChoice(PDF, 'text', undefined, { phone: false })).toBe('pages')
+      expect(pdfEditionUntold(PDF, 'text', undefined, { phone: false })).toBe(false)
+      localStorage.setItem(`tinct-addbook:edition:${PDF}`, '"text"')
+      expect(pdfEditionChoice(PDF, 'pages', undefined, { phone: false })).toBe('text')
+      localStorage.setItem(`tinct-addbook:desk-edition:${PDF}`, JSON.stringify({ edition: 'text', kind: 'paper', by: 'text', v: 1 }))
+      expect(pdfEditionChoice(PDF, 'text', undefined, { phone: false })).toBe('pages')
     }
   })
 
@@ -393,7 +405,7 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
     // The phone: its Tinct text, though the place was read in pages, at the same word.
     use('phone')
     expect(await reconcilePdfPlace(PDF, { token: 'tok', fetchImpl })).toBe('adopted')
-    expect(pdfEditionChoice(PDF, 'text')).toBe('text')
+    expect(pdfEditionChoice(PDF, 'text', undefined, PHONE)).toBe('text')
     expect(readPdfTextPlace(PDF, pdfEdition)).toMatchObject({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 25 })
     // Read on in the Tinct text to chapter 2, paragraph 1, word 10 (page 5).
     writeUserBookPlace(PDF, { chapterNumber: 2, paragraphIndex: 1, wordIndex: 10, updatedAt: 9_000, converter: 1 })
