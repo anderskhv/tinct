@@ -155,6 +155,8 @@
     if (intent === 'define_sense') companion.senses = (o.senses || []).slice(0, 3).map(s => String(s).slice(0, 500));
     // Before you start (PROMPTS.md, chapter action `primer`): the unit's pages as context, its key and title as the action.
     if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300) } };
+    // Made ahead of the reader opening it (reader.js primerPrefetch): never charged to the reader's allowance.
+    if (companion.chapter && o.speculative) companion.speculative = true;
     if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000) };
     // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
     return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
@@ -312,6 +314,8 @@
     try { response = await attempt(s.token) } catch (e) { if (e?.name === 'AbortError') throw err('cancelled'); throw err('offline', 'No connection.') }
     // An expired sign-in falls back to the guest allowance rather than failing outright.
     if (response.status === 401 && s.token) {
+      // A request made ahead (speculative) never falls back to the guest allowance: it simply is not made.
+      if (request.companion?.speculative) throw err('session_expired', 'HTTP 401');
       api.onSignedOut?.();
       if (images.length) throw err('images_unavailable', 'Sign in to send pictures to the companion.');
       try { response = await attempt(null) } catch (e) { if (e?.name === 'AbortError') throw err('cancelled'); throw err('offline') }

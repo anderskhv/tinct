@@ -56,10 +56,10 @@ describe('Related (A5, approved 15 Oct)', () => {
   const card: Card = { id: 'r', kind: 'related', page: 5, rects: [[5, 0.1, 0.2, 0.5, 0.02]], text: 'Self-attention', turns: [{ role: 'assistant', content: answer }], at: 1 }
   const resolveTag = (t: { kind: string; label: string }) => (t.label === '99' ? null : { page: t.kind === 'sec' ? 6 : Number(t.label), needle: t.kind === 'sec' ? '3.2 Encoder' : '' })
 
-  it('opens as the quote, the bottom line, then one row per place: its tag on the left and its line', () => {
+  it('opens as the bottom line (no quote since 19 Oct 2026), then one row per place: its tag on the left and its line', () => {
     const html = M.html.cardHtml(card, { open: true, P, pageLabel: '5', resolve: resolveTag })
     expect(html).toContain('<span class="mr-card__name">Related · p. 5</span>')
-    expect(html).toContain('<div class="mr-quote">Self-attention</div>')
+    expect(html).not.toContain('mr-quote')
     expect(html).toContain('<span class="is-bottom-line">Self-attention is the thread through the model.</span>')
     expect(html).toContain('<button type="button" class="mr-related__row" data-page="2"><span class="mr-cite mr-related__tag">p. 2</span><span class="mr-related__line">Background sets it against recurrence.</span></button>')
     expect(html).toContain('<button type="button" class="mr-related__row" data-page="6" data-needle="3.2 Encoder"><span class="mr-cite mr-related__tag">sec. 3.2</span>')

@@ -65,7 +65,10 @@ export interface CompanionRequest {
   context?: LabAskContext
   /** The selected passage (explain) or word (define). */
   selection?: string
-  /** Explain fetched ahead of a tap (the reader may never ask): metered as `explain_speculative`, never against an allowance. */
+  /**
+   * Fetched ahead of a tap (the reader may never ask): Explain, Define, or Before you start made as a PDF opens.
+   * Metered as `explain_speculative`, never against an allowance.
+   */
   speculative?: boolean
   /**
    * Chapter action; `target` carries the next chapter's paragraphs for `prepare`.
@@ -187,10 +190,14 @@ export function companionAllowance(request: CompanionRequest): CompanionAllowanc
     case 'define_sense':
     case 'quiz_check':
       return 'free'
+    case 'chapter':
+      // Before you start made ahead, as the PDF opens (Anders, 19 Oct 2026): Tinct's cost, like a speculative
+      // Explain. Made when the reader opens it, it counts like Ask.
+      return request.speculative && isPrimerRequest(request) ? 'free' : 'chat'
     case 'library':
       return 'librarian'
     default:
-      // ask, chapter, factcheck, counterpoint, related, and quiz (one request writes the whole quiz).
+      // ask, factcheck, counterpoint, related, and quiz (one request writes the whole quiz).
       return 'chat'
   }
 }
@@ -389,7 +396,8 @@ function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, 
   const parsed = parseContext({ ...c, chapterLabel: c.chapterLabel ?? action.unitTitle, pages: primerPages(c.pages), paragraphs: undefined })
   if (!parsed?.pdf || !parsed.context.paragraphs.some(page => /^<page n="[^"]*">\n\S/.test(page))) return null
   const document = parseMarginDocument(r.document)
-  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(document ? { document } : {}) }
+  // Made ahead of the reader opening it (the PDF reader's primerPrefetch): never charged (companionAllowance).
+  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(document ? { document } : {}), ...(r.speculative === true ? { speculative: true } : {}) }
 }
 
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
