@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261014talkwake';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261020continue';
 import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261014talkwake';
-import { createBookshelf } from './bookshelf-view.js?v=20261014talkwake';
+import { createBookshelf } from './bookshelf-view.js?v=20261020continue';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 import { bookCoverSrc } from '../book-cover.js?v=20261009owncover';
 
@@ -45,7 +45,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    },
    onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(desk(),saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
    onOpen:async(id,shelf,img)=>{
-    if(shelf==='reading'&&!sample){await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader'&&!href.startsWith('/reader?userBook='))throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}
+    if(shelf==='reading'&&!sample){await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader'&&!href.startsWith('/reader?userBook=')&&!href.startsWith('/lab/addbook/?userBook='))throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}
     else await openBook(id,img);
    }});
   else if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;
