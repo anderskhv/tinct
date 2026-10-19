@@ -640,4 +640,16 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Farthest Reaches',
     author: 'Brett Hall',
   },
+  'grimms-fairy-tales': {
+    title: 'Read Grimms\' Fairy Tales Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for Grimms\' Fairy Tales.',
+    bookName: 'Grimms\' Fairy Tales',
+    author: 'Jacob and Wilhelm Grimm',
+  },
+  'arabian-nights': {
+    title: 'Read The Arabian Nights Entertainments Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for The Arabian Nights Entertainments.',
+    bookName: 'The Arabian Nights Entertainments',
+    author: 'Andrew Lang',
+  },
 }

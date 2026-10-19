@@ -54,7 +54,7 @@ const get = async path => {
    assert.ok(html.includes('Temporarily unavailable')&&html.includes('heldEdition='+editionKey),identity+' still held')
    results.push({identity,discovery:false,held:true})
  }
- for(const bookId of ['to-the-lighthouse','a-little-princess','around-the-world-80-days','jungle-book']){
+ for(const bookId of ['to-the-lighthouse','a-little-princess','around-the-world-80-days','jungle-book','grimms-fairy-tales','arabian-nights']){
    const identity=bookId+'/modern-da',book=catalogue.books.find(b=>b.id===bookId)
    assert.equal(book.editions.find(e=>e.key==='modern-da')?.discoveryAvailable,true,identity+' offered')
    assert.equal(book.defaultEditionKey,'modern-en',identity+' not a new-reader default')

@@ -330,7 +330,7 @@ function volumesKey(title, author) {
 const NAMES_PART = /\b(?:part|vol\.?|volume|book|tome)\s+(?:\d+|[ivxlc]+|one|two|three|four|five|six)\b|\(of \d+\)/i
 
 /** Gutenberg ebook numbers the registry names for its sources (bookRegistry.ts comments). */
-export const REGISTRY_GUTENBERG_IDS = { 'pg:44024': 'the-art-of-war', 'pg:15877': 'meditations', 'pg:14591': 'faust-part-1' }
+export const REGISTRY_GUTENBERG_IDS = { 'pg:44024': 'the-art-of-war', 'pg:15877': 'meditations', 'pg:14591': 'faust-part-1', 'pg:2591': 'grimms-fairy-tales', 'pg:128': 'arabian-nights' }
 
 /**
  * Catalogue works that are already in Tinct: the catalogue's own match (`onTinct`),
