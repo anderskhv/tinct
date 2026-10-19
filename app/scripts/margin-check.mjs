@@ -85,6 +85,8 @@
 //                                                     Highlight, Copy; Ask opens the figure's card
 //   node scripts/margin-check.mjs highlight-bar     19 Oct, evening (2): a highlight clicked opens the dark bar: Ask, Explain, its
 //                                                     colours, its note, Remove highlight; recolour, Explain, remove
+//   node scripts/margin-check.mjs zoom-panel        19 Oct, evening (6): a PDF's Aa Zoom (−, %, +, Fit width), the page never past
+//                                                     its room; no Full width; phones and Tinct text keep the slider
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -2737,11 +2739,12 @@ async function phoneUi(browser, origin) {
     await D.page.click('.lab-super-row[data-row="chat"]'); await D.page.waitForTimeout(500)
     ok('the t menu\'s Chat opens the whole-document chat (the margin\'s Whole PDF card)', await D.page.evaluate(() => !!document.querySelector('.mr-col .mr-card.is-whole.is-open')))
     // 4. Escape closes the Aa panel, from its close button and from the size slider; focus returns to Aa.
-    for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-testid="lab-v2-size"]']) {
+    // (A PDF's size control on the desktop is Zoom's − and + since 19 Oct 2026, evening; the phone keeps the slider.)
+    for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-z="-"]']) {
       await D.page.keyboard.press('Escape'); await D.page.click('#aaBtn'); await D.page.waitForSelector('.byob-aa-panel')
       await D.page.focus(from); await D.page.keyboard.press('Escape'); await D.page.waitForTimeout(200)
       const esc = await D.page.evaluate(() => ({ open: !!document.querySelector('.byob-aa-panel'), focus: document.activeElement?.id, expanded: document.getElementById('aaBtn').getAttribute('aria-expanded') }))
-      ok(`Escape closes the Aa panel (focus in ${from.includes('size') ? 'the size slider' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
+      ok(`Escape closes the Aa panel (focus in ${from.includes('data-z') ? 'Zoom' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
     }
     ok('desktop: no page errors', !D.problems.length, D.problems)
     await D.ctx.close()
@@ -4120,6 +4123,59 @@ async function highlightBar(browser, origin) {
   return results
 }
 
+/* zoom-panel (19 Oct 2026, evening, item 6): a PDF's Aa panel on the desktop has Zoom (−, the percentage, +, Fit width,
+   100% by default) instead of the A—A slider, and a line pointing to Convert to Tinct book; the page never grows past
+   its room (never under the margin column, no sideways scroll), by the buttons, the keys or a pinch; "Full width" is
+   gone (measured: in Margin view it changed nothing up to about 1600 px; + reaches what it gave). Phones and Tinct
+   text (an EPUB) keep the size slider. */
+async function zoomPanel(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(PDFS[0])
+  const room = page => page.evaluate(() => { const s = $('scroll'), sh = state.pages[0].sheet.getBoundingClientRect(), colEl = document.querySelector('.mr-doc'); const colLeft = colEl && marginMode() === 'column' ? colEl.getBoundingClientRect().left : innerWidth; return { zoom: state.zoom, sheet: Math.round(sh.width), right: Math.round(sh.right), colLeft: Math.round(colLeft), sideways: s.scrollWidth - s.clientWidth, pct: document.querySelector('.byob-zoom-pct')?.textContent || null } })
+  for (const [width, height, layout] of [[1440, 900, 'margin'], [1920, 1080, 'margin'], [1440, 900, 'focus']]) {
+    const tag = `zoom-panel-${width}x${height}-${layout}`
+    const A = await readerPage(browser, origin, hex, { width, height, look: 'paper' })
+    const a = A.page
+    await prefetchSettled(a)
+    if (layout === 'focus') { await a.evaluate(() => setLayout('focus')); await a.waitForTimeout(700) }
+    await a.click('#aaBtn'); await a.waitForSelector('.byob-aa-panel', { timeout: 4000 }).catch(() => {})
+    const panel = await a.evaluate(() => { const p = document.querySelector('.byob-aa-panel'); return p && { zoom: !!p.querySelector('.byob-zoom'), label: p.querySelector('.byob-zoom-label')?.textContent, slider: !!p.querySelector('[data-testid="lab-v2-size"]'), full: [...p.querySelectorAll('.lab-v2-row-label')].some(l => /Full width/.test(l.textContent)), fit: p.querySelector('[data-z="fit"]')?.getAttribute('aria-pressed'), note: p.querySelector('.byob-zoom-note')?.textContent.trim() || null, pct: p.querySelector('.byob-zoom-pct')?.textContent } })
+    ok(`${tag}: 6. Zoom (−, 100%, +, Fit width pressed) replaces the size slider; no "Full width"`, panel && panel.zoom && panel.label === 'Zoom' && !panel.slider && !panel.full && panel.fit === 'true' && panel.pct === '100%', panel)
+    ok(`${tag}: 6. one line points to Convert to Tinct book for larger text that reflows`, panel?.note === 'For larger text that reflows, use Convert to Tinct book.', panel?.note)
+    if (width === 1440 && layout === 'margin') await shot(a, 'zoom-panel-1440x900')
+    // + until it stops: the page never past its room.
+    for (let k = 0; k < 30 && !(await a.evaluate(() => document.querySelector('[data-z="+"]')?.disabled)); k++) { await a.click('[data-z="+"]'); await a.waitForTimeout(60) }
+    await a.waitForTimeout(400)
+    const most = await room(a)
+    ok(`${tag}: 6. + stops where the page fills its room: never under the margin column, no sideways scroll (${most.sheet}px at ${most.pct})`, most.right <= most.colLeft + 1 && most.sideways <= 1 && most.right <= width, most)
+    // The keys and a pinch past it: still within the room.
+    await a.keyboard.press('Escape'); await a.waitForTimeout(150)
+    await a.keyboard.press('Control+='); await a.keyboard.press('Control+='); await a.waitForTimeout(400)
+    await a.mouse.move(width * 0.3, height * 0.5); await a.keyboard.down('Control'); await a.mouse.wheel(0, -400); await a.keyboard.up('Control'); await a.waitForTimeout(500)
+    const keys = await room(a)
+    ok(`${tag}: 6. Ctrl + and a pinch never take it further`, keys.right <= keys.colLeft + 1 && keys.sideways <= 1 && Math.abs(keys.zoom - most.zoom) < 0.011, { most, keys })
+    // − and Fit width.
+    await a.click('#aaBtn'); await a.waitForSelector('.byob-zoom'); await a.click('[data-z="-"]'); await a.waitForTimeout(300)
+    const less = await room(a)
+    await a.click('[data-z="fit"]'); await a.waitForTimeout(400)
+    const fit = await room(a)
+    ok(`${tag}: 6. − zooms out (the percentage follows); Fit width returns to 100%`, less.zoom < most.zoom && less.pct === Math.round(less.zoom * 100) + '%' && fit.zoom === 1 && fit.pct === '100%', { less, fit })
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // A phone keeps its size slider.
+  const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
+  await P.page.click('#aaBtn'); await P.page.waitForTimeout(400)
+  ok('zoom-panel-390x844: 6. the phone keeps its size slider (phones unchanged)', await P.page.evaluate(() => !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]') && !document.querySelector('.byob-zoom')))
+  await P.ctx.close()
+  // Tinct text (an EPUB here): the size slider stays a text-size control.
+  const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
+  await E.page.click('#aaBtn'); await E.page.waitForTimeout(400)
+  ok('zoom-panel-epub: 6. in Tinct text the size slider stays a text-size control', await E.page.evaluate(() => document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]')?.getAttribute('aria-label') === 'Text size' && !document.querySelector('.byob-zoom')))
+  await E.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -4161,6 +4217,7 @@ const RUNS = {
   'define-card': [defineCard, rows => rows.some(r => !r.pass)],
   'figure-chip': [figureChip, rows => rows.some(r => !r.pass)],
   'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
+  'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4201,7 +4258,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

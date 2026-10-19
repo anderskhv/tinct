@@ -562,3 +562,15 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; 
 .byob-hot-chip.mr-chip svg { width: 16px; height: 16px; fill: none; stroke: var(--mr-bar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .byob-hot-chip.mr-chip .mr-bar__sep { width: 1px; height: 20px; margin: 0 4px; background: var(--mr-bar-sep); }
 html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr-bar); }
+/* The Aa panel's Zoom for a PDF on the desktop (19 Oct 2026, evening; reader.js zoomRowHtml), in the panel's own
+   look (lab-v2-size's row and hairline, its label type): −, the percentage in tabular figures, +, then Fit width; the
+   line under it points to Convert to Tinct book for larger text that reflows. */
+.byob-aa-panel .byob-zoom { display: flex; align-items: center; gap: 8px; min-height: 48px; box-shadow: inset 0 -1px 0 var(--lab-v2-hairline); }
+.byob-aa-panel .byob-zoom-label { flex: 1 1 auto; }   /* the panel's own row label (lab-v2-row-label) */
+.byob-aa-panel .byob-zoom-step { display: grid; place-items: center; width: 32px; height: 32px; margin: 0; padding: 0; border: 1px solid var(--lab-v2-hairline); border-radius: 50%; background: transparent; color: inherit; font: 18px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.byob-aa-panel .byob-zoom-pct { min-width: 46px; text-align: center; font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+.byob-aa-panel .byob-zoom-fit { min-height: 32px; margin: 0 0 0 6px; padding: 0 12px; border: 1px solid var(--lab-v2-hairline); border-radius: 999px; background: transparent; color: inherit; font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.byob-aa-panel :is(.byob-zoom-step, .byob-zoom-fit):disabled { opacity: .4; cursor: default; }
+.byob-aa-panel :is(.byob-zoom-step, .byob-zoom-fit):not(:disabled):hover { background: var(--lab-v2-well, rgba(0, 0, 0, .05)); }
+.byob-aa-panel .byob-zoom-note { margin: 8px 4px 4px; }   /* the panel's own note (lab-v2-note) */
+.byob-aa-panel .byob-zoom-note button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }

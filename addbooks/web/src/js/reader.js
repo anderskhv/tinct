@@ -19,7 +19,8 @@ const hasBook = () => !!(state.pdf || state.epub);
 const isEpub = () => state.kind === 'epub';
 const prefs = Object.assign({ trim: false, full: false, rate: 1, voice: '', dockW: 380, dock: 'docked' }, store.get('prefs') || {});
 // "Dark pages" and "Paper tone" were PDF-only switches; the page now follows the reader's theme.
-delete prefs.dark; delete prefs.tone;
+// "Full width" is gone too (19 Oct 2026, evening): Zoom's + widens the page as far as the room allows.
+delete prefs.dark; delete prefs.tone; delete prefs.full;
 const savePrefs = () => store.set('prefs', prefs);
 /* The focus ring on the margin's buttons is for the keyboard only (Anders, 19 Oct 2026: Minimise showed its ring after a
    click). A card opened or redrawn by a click may put the focus on its Minimise for screen readers; with the pointer as
@@ -522,8 +523,16 @@ const columnPad = () => { const cs = getComputedStyle($('column')), v = parseFlo
  */
 const pagesWidth = () => $('scroll').clientWidth - (root.classList.contains('margin-open') ? parseFloat(getComputedStyle($('column')).marginRight) || 0 : 0);
 // Focus view keeps the page as wide as Margin view has it (the column's room left empty), so a switch only re-centres it.
-const focusRoom = () => (col.mode === 'focus' && !prefs.full && innerWidth >= TinctMargin.COL.narrow ? TinctMargin.COLUMN_RESERVE + 14 : 0);
-const columnWidth = () => { const room = focusRoom(), w = pagesWidth() - columnPad() - room; return prefs.full ? w : Math.min(w, root.classList.contains('dock-open') || room ? 1100 : 1500) };
+const focusRoom = () => (col.mode === 'focus' && innerWidth >= TinctMargin.COL.narrow ? TinctMargin.COLUMN_RESERVE + 14 : 0);
+const columnWidth = () => { const room = focusRoom(), w = pagesWidth() - columnPad() - room; return Math.min(w, root.classList.contains('dock-open') || room ? 1100 : 1500) };
+/**
+ * How far a PDF's page zooms in on the desktop (Anders, 19 Oct 2026, evening: the size slider zoomed the page past
+ * the margin view): at most as wide as the reading area (the pages' room, less its padding: never under the margin
+ * column, never past the window), so 100% is the fit width and the most is the area's whole width (what "Full
+ * width" gave). Phones and EPUBs keep their range.
+ */
+const ZOOM_MIN = 0.5;
+const zoomMax = () => (state.kind !== 'pdf' || isPhone() ? 3 : Math.max(1, Math.min(3, Math.floor((pagesWidth() - columnPad()) / Math.max(1, columnWidth()) * 100) / 100)));
 const sheetWidth = () => Math.round(columnWidth() * state.zoom);
 function buildSheets(count) {
   state.observer?.disconnect();
@@ -1663,7 +1672,8 @@ let zoomTimer;
 function setZoom(z, { quick = false } = {}) {
   const place = currentPlace();
   const before = state.zoom;
-  state.zoom = Math.max(0.5, Math.min(3, Math.round(z * 100) / 100));
+  state.zoom = Math.max(ZOOM_MIN, Math.min(zoomMax(), Math.round(z * 100) / 100));
+  syncZoomRow();
   // Zooming past fit tucks the docked chat into its tab; coming back restores it.
   if (!isPhone() && state.pages.length) {
     if (state.zoom > 1 && before <= 1 && dock.state === 'docked') setDock('minimized', { byZoom: true });
@@ -1677,6 +1687,8 @@ function setZoom(z, { quick = false } = {}) {
   goTo(place); onScroll();
   clearTimeout(zoomTimer);
   zoomTimer = setTimeout(() => { for (const p of state.pages) if (p.canvas) { p.renderedWidth = 0; renderPage(p) } savePlaceNow() }, quick ? 220 : 0);
+  // The margin column keeps 56px right of the page's new edge (a page widened by Zoom moves it over).
+  if (marginOn()) marginLayout({ fresh: true });
 }
 /* Phones: the text column fills the width (the PM's full battery, 15 Oct 2026; TinctReaderLayout.textColumn).
    At the phone's fit-to-width a PDF page is too small to read, so until the reader pinches or sets the size
@@ -1969,9 +1981,8 @@ function openDisplay() {
       <div class="lab-v2-sheet-body">
         <div class="byob-aa-layout" data-aa="layout" role="group" aria-labelledby="aaLayoutLabel"><p class="lab-v2-group-label" id="aaLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
         <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
-        <div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>
+        ${zoomPanel() ? zoomRowHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
         <div class="lab-v2-rows">
-          ${toggleRow('full', 'Full width', !!prefs.full)}
           ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}
           ${toggleRow('screen', 'Full screen', !!document.fullscreenElement)}
           ${marginOn() ? selectRow('passageMarkSel', 'Passage mark', passageMark(), [['underline', 'Underline'], ['tint', 'Highlight'], ['off', 'Off']]) : ''}
@@ -1995,19 +2006,28 @@ function openDisplay() {
     layer.querySelector('[data-testid="lab-v2-theme-eink"]')?.remove();
   });
   let sizeTimer;
-  layer.querySelector('[data-testid="lab-v2-size"]').oninput = e => { const z = Number(e.target.value); clearTimeout(sizeTimer); sizeTimer = setTimeout(() => { state.fit = null; setZoom(z, { quick: true }) }, 60) };
+  const slider = layer.querySelector('[data-testid="lab-v2-size"]');
+  if (slider) slider.oninput = e => { const z = Number(e.target.value); clearTimeout(sizeTimer); sizeTimer = setTimeout(() => { state.fit = null; setZoom(z, { quick: true }) }, 60) };
+  // Zoom (a PDF on the desktop): −, the percentage, +, Fit width (100%, the default); the page never wider than its room.
+  layer.querySelector('.byob-zoom')?.addEventListener('click', e => {
+    const b = e.target.closest('[data-z]'); if (!b || b.disabled) return;
+    state.fit = null;
+    const z = b.dataset.z === 'fit' ? 1 : b.dataset.z === '+' ? zoomStep(1) : zoomStep(-1);
+    setZoom(z, { quick: true });
+  });
+  layer.querySelector("[data-convert]")?.addEventListener('click', () => { closeDisplay(); readAsText() });
   layer.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
     const t = b.dataset.t;
     if (t === 'text') { closeDisplay(); readAsText(); return }
     if (t === 'screen') { toggleFullscreen().then(on => b.setAttribute('aria-checked', String(on))); return }
-    if (t === 'trim') setTrim(!state.trim); if (t === 'full') setFull(!prefs.full);
+    if (t === 'trim') setTrim(!state.trim);
     b.setAttribute('aria-checked', String(t === 'trim' ? state.trim : !!prefs[t]));
   });
   // The open card's passage on the page: underlined, tinted or not marked (this device's choice).
   const markSel = layer.querySelector('#passageMarkSel');
   if (markSel) markSel.onchange = e => { prefs.passageMark = e.target.value; savePrefs(); layer.querySelector('[data-value="passageMarkSel"]').textContent = e.target.selectedOptions[0]?.textContent || ''; marginLayout({ fresh: true }) };
   root.appendChild(layer);
-  drawLayoutChoices();
+  drawLayoutChoices(); syncZoomRow();
   $('aaBtn').setAttribute('aria-expanded', 'true');
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
@@ -2048,9 +2068,27 @@ function openSettings() {
   root.appendChild(layer);
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
-function setFull(on) { prefs.full = on; savePrefs(); if (state.pages.length) setZoom(state.zoom) }
+/** The Aa panel's Zoom row instead of the size slider: a PDF's pages on the desktop (Tinct text and phones keep the slider). */
+const zoomPanel = () => state.kind === 'pdf' && !isPhone();
+/** The next zoom a step away (10% steps, landing on them), within ZOOM_MIN and zoomMax. */
+const zoomStep = dir => Math.max(ZOOM_MIN, Math.min(zoomMax(), (dir > 0 ? Math.floor(state.zoom * 10 + 1e-6) + 1 : Math.ceil(state.zoom * 10 - 1e-6) - 1) / 10));
+function zoomRowHtml() {
+  return `<div class="byob-zoom" role="group" aria-labelledby="aaZoomLabel"><span class="lab-v2-row-label byob-zoom-label" id="aaZoomLabel">Zoom</span>`
+    + `<button type="button" class="byob-zoom-step" data-z="-" aria-label="Zoom out">−</button><output class="byob-zoom-pct" aria-live="polite"></output><button type="button" class="byob-zoom-step" data-z="+" aria-label="Zoom in">+</button>`
+    + `<button type="button" class="byob-zoom-fit" data-z="fit" aria-pressed="false">Fit width</button></div>`
+    + (hasText() ? `<p class="lab-v2-note byob-zoom-note">For larger text that reflows, use <button type="button" data-convert>Convert to Tinct book</button>.</p>` : '');
+}
+/** The open Aa panel's Zoom row, after any zoom (its buttons, keys, a pinch). */
+function syncZoomRow() {
+  const row = document.querySelector('.byob-aa-panel .byob-zoom'); if (!row) return;
+  row.querySelector('.byob-zoom-pct').textContent = Math.round(state.zoom * 100) + '%';
+  row.querySelector('[data-z="-"]').disabled = state.zoom <= ZOOM_MIN + 1e-6;
+  row.querySelector('[data-z="+"]').disabled = state.zoom >= zoomMax() - 1e-6;
+  const fit = Math.abs(state.zoom - 1) < 1e-6, f = row.querySelector('[data-z="fit"]');
+  f.setAttribute('aria-pressed', String(fit)); f.disabled = fit;
+}
 async function toggleFullscreen() {
-  try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen() } catch { toast('Full screen is not available here. Use Full width instead.') }
+  try { if (document.fullscreenElement) await document.exitFullscreen(); else await document.documentElement.requestFullscreen() } catch { toast('Full screen is not available here.') }
   return !!document.fullscreenElement;
 }
 function setTrim(on) { prefs.trim = state.trim = on; savePrefs(); if (state.pages.length) setZoom(state.zoom); else applyCrop() }
