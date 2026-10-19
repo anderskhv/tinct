@@ -225,6 +225,25 @@ export async function resizePhoto(file: Blob, slot: 'picture' | 'background'): P
   return prepared.ok ? prepared.image : null
 }
 
+/**
+ * The chosen photo, read into memory while its file input still holds it
+ * (19 Oct 2026). On iPadOS, Safari hands over a temporary JPEG converted from
+ * HEIC, which may be released once the input is cleared; reading it later
+ * failed with "This photo could not be read here". So the handlers read the
+ * file first and clear the input only after preparePhoto. Null when even the
+ * first read fails. Never throws.
+ */
+export async function photoInMemory(file: Blob & { name?: string }): Promise<Blob | null> {
+  try {
+    const bytes = await file.arrayBuffer()
+    return typeof File === 'function' && typeof file.name === 'string'
+      ? new File([bytes], file.name, { type: file.type })
+      : new Blob([bytes], { type: file.type })
+  } catch {
+    return null
+  }
+}
+
 /** The photo ready to upload, or the reader-facing reason it cannot be used. Never throws. */
 export async function preparePhoto(file: Blob, slot: 'picture' | 'background'): Promise<PreparedPhoto> {
   const [width, height] = PHOTO_SLOT_SIZE[slot]

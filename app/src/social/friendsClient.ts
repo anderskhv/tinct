@@ -35,6 +35,8 @@ export interface BoardData {
   total: number
   me: BoardEntry | null
   meShown: boolean
+  /** How many mutual friends the viewer has (absent from an older Worker). */
+  friends?: number
   /** Whether the Everyone board is offered (the page shows the Everyone tab only then). */
   everyoneOpen?: boolean
   entries: BoardEntry[]

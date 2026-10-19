@@ -27,12 +27,13 @@ import {
   type ProfilePicture,
   type ReadingLoad,
 } from './cardsApi'
-import { chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
+import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
-import { photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
-import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, type BoardTab } from './boardMemory'
+import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
 
@@ -300,19 +301,29 @@ export function youCard(env: CardsEnv): CardSpec {
   // One file field per slot for the card's life, so a re-render while the
   // system picker is open never drops the reader's choice.
   const files = { picture: fileField(), background: fileField() }
+  /** The slot being prepared and uploaded: both photo buttons wait meanwhile. */
+  let busy: 'picture' | 'background' | null = null
   for (const slot of ['picture', 'background'] as const) {
     const field = files[slot]
     field.addEventListener('change', async () => {
       const chosen = field.files?.[0]
-      field.value = ''
-      if (!chosen) return
-      // Every failure says why: the photo's own problem, or the upload's.
-      const prepared = await preparePhoto(chosen, slot)
-      if (!prepared.ok) { status = prepared.message; env.changed(); return }
-      const saved = await uploadProfileImage(env.session.token, slot, prepared.image)
-      if (saved.ok) env.data.profile = saved.profile
-      else status = photoUploadMessage(saved, CARDS_COPY.saveFailed)
+      if (!chosen) { field.value = ''; return }
+      busy = slot
       env.changed()
+      try {
+        // Read into memory before the input is cleared (iPadOS may release a converted HEIC; photoInMemory).
+        const photo = await photoInMemory(chosen)
+        // Every failure says why: the photo's own problem, or the upload's.
+        const prepared = photo ? await preparePhoto(photo, slot) : { ok: false as const, message: PHOTO_COPY.unreadable }
+        if (!prepared.ok) { status = prepared.message; return }
+        const saved = await uploadProfileImage(env.session.token, slot, prepared.image)
+        if (saved.ok) { env.data.profile = saved.profile; status = PHOTO_COPY.approval }
+        else status = photoUploadMessage(saved, CARDS_COPY.saveFailed)
+      } finally {
+        field.value = ''
+        busy = null
+        env.changed()
+      }
     })
   }
   return {
@@ -357,6 +368,10 @@ export function youCard(env: CardsEnv): CardSpec {
           ], body, 'end')
         })
         bgButton = button
+        if (busy) {
+          for (const node of [pic, button] as HTMLButtonElement[]) node.disabled = true
+          ;(busy === 'picture' ? pic : button).setAttribute('aria-busy', 'true')
+        }
         body.append(files.picture, files.background)
       } else {
         pic.disabled = true
@@ -623,8 +638,9 @@ const BOARD_FRESH_MS = 15_000
 export function leaderboardCard(env: CardsEnv): CardSpec {
   const userId = env.session.userId
   const tabOf = (data: BoardData | null | undefined): BoardTab => (data?.tab === 'everyone' ? 'everyone' : 'friends')
-  // Opens on the board the cards read on open: Everyone while it is open
-  // (Anders, 15 Oct 2026: "a global leaderboard"), else Friends.
+  // Opens on the board the cards read on open (boardMemory loadDefaultBoard):
+  // the tab picked on this page; else Friends with a mutual friend (19 Oct
+  // 2026); else Everyone while it is open (Anders, 15 Oct 2026); else Friends.
   const first = env.data.board ?? knownDefaultBoard(userId)
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
@@ -669,7 +685,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
               board = result
               if (result.everyoneOpen !== undefined) everyoneOpen = result.everyoneOpen === true || asked === 'everyone'
               // The board the cards open on gives the You card's rank.
-              if (asked === 'everyone' || !everyoneOpen) {
+              if (tabOf(knownDefaultBoard(userId)) === asked) {
                 env.data.board = result
                 const me = result.entries.find(entry => entry.me) ?? result.me
                 env.data.rank = rankOf(me?.rank, result.total)
@@ -683,6 +699,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
       if (everyoneOpen) {
         body.append(segmented(CARDS_COPY.leaderboard, [{ value: 'friends', label: CARDS_COPY.friends }, { value: 'everyone', label: CARDS_COPY.everyone }], tab, value => {
           tab = value
+          rememberPickedBoard(userId, value)
           board = undefined
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
@@ -694,6 +711,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }))
         const list = group(...rows.map(entry => boardRow(env, card, entry)))
         if (list) { list.dataset.testid = 'board-rows'; body.append(list) }
+        const hidden = boardHiddenLine(board.meShown, env.data.profile)
+        if (hidden) body.append(el('p', { className: 'tc-foot', text: hidden, dataset: { testid: 'board-hidden' } }))
       } else if (board === null) {
         body.append(el('p', { className: 'tc-foot', style: { margin: '0 16px' }, text: CARDS_COPY.boardUnavailable }))
       }

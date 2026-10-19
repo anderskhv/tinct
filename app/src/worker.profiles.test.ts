@@ -13,6 +13,7 @@ import { confirmUrl, verifyLink } from './worker/lifecycle/links'
 import { confirmLinkEmail, confirmLinkLimiter, confirmLinkSender, CONFIRM_LINK_SUBJECT } from './worker/routes/confirmLink'
 import { LIFECYCLE_TEST_GATE, isLifecycleTestRecipient } from './worker/routes/emails'
 import { handleEmailLink } from './worker/routes/emailLinks'
+import { PHOTO_COPY } from './social/photoFile'
 
 const A = '11111111-1111-4111-8111-111111111111'
 const B = '22222222-2222-4222-8222-222222222222'
@@ -492,6 +493,16 @@ describe('uploads', () => {
     // Choosing a set removes the stored photo.
     await post(store, A, { picture: { kind: 'set', value: 'stoic' } }, env)
     expect(objects.size).toBe(0)
+  })
+
+  it('a photo the Worker cannot process: a 415 in its own words, not the client’s not-a-photo line (19 Oct 2026)', async () => {
+    const store = new MemoryStore(); seed(store)
+    const bucket = { put: async () => {}, get: async () => null, delete: async () => {} }
+    const env = { ...on, SOCIAL_PHOTO_UPLOADS: '1', USER_BOOKS: bucket }
+    const res = await call(store, '/api/profile/image?slot=picture', { method: 'POST', as: A, body: new TextEncoder().encode('<svg></svg>') as BodyInit }, env)
+    expect(res.status).toBe(415)
+    expect(await res.json()).toEqual({ error: 'This photo could not be processed. Try a screenshot of it.' })
+    expect(PHOTO_COPY.unprocessed).not.toBe(PHOTO_COPY.notAPhoto)
   })
 })
 

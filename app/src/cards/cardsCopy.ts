@@ -95,6 +95,10 @@ export const CARDS_COPY = {
   unblock: 'Unblock',
   noSearchResult: 'No public reader by that name.',
   boardUnavailable: 'The leaderboard is not available just now. Your reading time is safe.',
+  // Under the board when friends cannot see you there (19 Oct 2026)
+  hiddenOnlyMe: 'Friends don’t see you here: your profile is Only me. Change it in Settings.',
+  hiddenTime: 'Friends don’t see you here: turn on Show my reading time in Settings.',
+  hiddenLeaderboard: 'Friends don’t see you here: turn on Leaderboard in Settings.',
   linkCopied: 'Link copied.',
   shareUnavailable: 'Sharing is not available here. Copy the link instead.',
   shareTitle: 'Read with me on Tinct',

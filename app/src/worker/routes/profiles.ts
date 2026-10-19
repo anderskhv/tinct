@@ -52,6 +52,7 @@ import {
   type Visibility,
 } from '../../social/profileRules'
 import { isInternalAccount } from '../../social/socialRules'
+import { PHOTO_COPY } from '../../social/photoFile'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
 import { SIGNUP_CONFIRM_DEDUPE_KEY, SIGNUP_CONFIRM_TEMPLATE, SIGNUP_CONFIRM_WINDOW_MS } from './confirmLink'
 import { corsHeaders } from '../lib/responses'
@@ -549,7 +550,7 @@ export async function handleProfiles(
       const bytes = new Uint8Array(await request.arrayBuffer())
       if (bytes.length > MAX_IMAGE_BYTES) return reply({ error: 'That picture is too large.' }, 413, request)
       const jpeg = stripJpegMetadata(bytes)
-      if (!jpeg || jpeg.width > MAX_IMAGE_SIDE || jpeg.height > MAX_IMAGE_SIDE) return reply({ error: 'Please choose a JPEG, PNG or WebP photo.' }, 415, request)
+      if (!jpeg || jpeg.width > MAX_IMAGE_SIDE || jpeg.height > MAX_IMAGE_SIDE) return reply({ error: PHOTO_COPY.unprocessed }, 415, request)
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, slot, jpeg.bytes, 'image/jpeg', 'upload', random)
       const next = await store.getOwn(user.id) ?? row
