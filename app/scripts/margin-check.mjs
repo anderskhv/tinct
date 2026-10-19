@@ -75,6 +75,8 @@
 //                                                     cover a neighbour's words (also at leading 1.05), the Aa panel's Passage mark
 //   node scripts/margin-check.mjs stray-menu        19 Oct, evening (4): the bar only after a deliberate selection (drag, keys, a
 //                                                     highlight), never for one set by code, restored on refocus or left as a card folds
+//   node scripts/margin-check.mjs whole-words       19 Oct, evening (8): a split first word ("S" | "ection") selected, quoted and
+//                                                     highlighted whole; an old highlight from "ection" re-snapped only when safe
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -3929,6 +3931,53 @@ async function strayMenu(browser, origin) {
   return results
 }
 
+/* whole-words (19 Oct 2026, evening, item 8): a line's or a page's first letter as an item of its own ("S" | "ection",
+   as pdf.js gives a drop cap or a kerned capital): a double-click on "ection" and a drag from inside it select, quote and
+   highlight "Section"; a highlight kept from "ection" is re-snapped to "Section" once its page is drawn (its words are
+   on the page once and the letter touches them), one whose words are not there unchanged. */
+const SPLIT_WORDS = 'ection 2 describes the method in detail, and the appendix lists every measured case.'
+const SPLIT_PDF = join(OUT, 'split_word.pdf')
+writeFileSync(SPLIT_PDF, makePdf({ info: { Title: 'Split words' }, pages: [1, 2].map(n => ({ lines: [{ x: 72, y: 740, size: 14, text: 'S' }, { x: 72 + 7.784, y: 740, size: 11, text: SPLIT_WORDS }, ...prose(722, 40, { size: 11, from: n * 30 })] })) }))
+async function wholeWords(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(SPLIT_PDF)
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper', startPage: 2 })
+  const a = A.page
+  await prefetchSettled(a)
+  await a.evaluate(() => goTo({ page: 2, frac: 0 })); await a.waitForTimeout(900)
+  const ection = () => a.evaluate(() => { const sp = [...state.pages[1].layer.querySelectorAll('span')].find(s => s.textContent.startsWith('ection')); const r = document.createRange(); r.setStart(sp.firstChild, 2); r.setEnd(sp.firstChild, 3); const b = r.getBoundingClientRect(); const r2 = document.createRange(); r2.setStart(sp.firstChild, 14); r2.setEnd(sp.firstChild, 15); const e = r2.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2, x2: e.left + e.width / 2, sLeft: sp.previousElementSibling ? sp.previousElementSibling.getBoundingClientRect().left : null, pageLeft: state.pages[1].pg.getBoundingClientRect().left, pageWidth: state.pages[1].pg.getBoundingClientRect().width } })
+  const at = await ection().catch(async e => ({ error: String(e.message).slice(0, 200), spans: await a.evaluate(() => [...(state.pages[1]?.layer?.querySelectorAll('span') || [])].slice(0, 4).map(s => s.textContent)) }))
+  ok('8. (the fixture: "S" and "ection" are two items, touching)', at.sLeft != null, at)
+  // Double-click inside "ection".
+  await a.mouse.dblclick(at.x, at.y); await a.waitForTimeout(700)
+  const dbl = await a.evaluate(() => ({ sel: getSelection().toString().trim(), word: mr?.word || null, info: mr?.info?.text || null }))
+  ok('8. a double-click on a line\'s first word split in two selects and defines the whole word ("Section")', dbl.sel === 'Section' && (dbl.word === 'Section' || dbl.info === 'Section'), dbl)
+  await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); await a.waitForTimeout(300)
+  // A drag from inside "ection" to the line's later words, then a highlight.
+  await a.mouse.move(at.x, at.y); await a.mouse.down(); await a.mouse.move(at.x2, at.y, { steps: 8 }); await a.mouse.up(); await a.waitForTimeout(600)
+  const drag = await a.evaluate(() => ({ sel: getSelection().toString().replace(/\s+/g, ' ').trim(), info: mr?.info?.text || null }))
+  ok('8. a drag starting inside the split word quotes it whole ("Section 2 …")', /^Section 2/.test(drag.info || drag.sel), drag)
+  await a.click('.mr-float [data-m="dot"]').catch(() => {}); await a.waitForTimeout(400)
+  const made = await a.evaluate(() => { const h = highlights().at(-1), b = state.pages[1].pg.getBoundingClientRect(); return h && { text: h.text, x: h.rects[0][0] * b.width + b.left } })
+  ok('8. its highlight starts at "S" and quotes "Section …"', made && /^Section 2/.test(made.text) && made.x <= at.sLeft + 1.5, { made, sLeft: at.sLeft })
+  await shot(a, 'whole-words-1440x900')
+  // A highlight kept from "ection" (before), and one whose words are not on the page: reloaded.
+  await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
+  await a.evaluate(([words]) => {
+    const p = state.pages[1], b = p.pg.getBoundingClientRect(), sp = [...p.layer.querySelectorAll('span')].find(s => s.textContent.startsWith('ection')), r = sp.getBoundingClientRect()
+    const box = [(r.left - b.left) / b.width, (r.top - b.top) / b.height, (r.width * 0.4) / b.width, r.height / b.height].map(v => Math.round(v * 10000) / 10000)
+    const at = Date.now() - 86400e3
+    store.set('hl:' + state.key, [{ id: 'oldsplit1', page: 2, rects: [box], text: words.slice(0, 18), color: 'gold', at, u: at }, { id: 'oldother1', page: 2, rects: [box], text: 'ection words that are nowhere here', color: 'sage', at, u: at }])
+  }, [SPLIT_WORDS])
+  await a.reload(); await a.waitForFunction(() => state.pages[1]?.layer, null, { timeout: 30000 }); await a.evaluate(() => goTo({ page: 2, frac: 0 })); await a.waitForTimeout(1500)
+  const kept = await a.evaluate(() => { const b = state.pages[1].pg.getBoundingClientRect(), hs = highlights(); const one = hs.find(h => h.id === 'oldsplit1'), two = hs.find(h => h.id === 'oldother1'); const s = [...state.pages[1].layer.querySelectorAll('span')].find(x => x.textContent === 'S').getBoundingClientRect(); return { one: one && { text: one.text, x: one.rects[0][0] * b.width + b.left }, two: two && { text: two.text, x: two.rects[0][0] * b.width + b.left }, sLeft: s.left } })
+  ok('8. an old highlight from "ection" is re-snapped on load: "Section …", its box from the "S"', kept.one && kept.one.text.startsWith('Section 2 describes') && Math.abs(kept.one.x - kept.sLeft) < 1.5, kept)
+  ok('8. one whose words are not on the page is left as it was (never moved onto other words)', kept.two && kept.two.text === 'ection words that are nowhere here' && kept.two.x > kept.sLeft + 3, kept)
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3965,6 +4014,7 @@ const RUNS = {
   'pause-dots': [pauseDots, rows => rows.some(r => !r.pass)],
   'passage-mark': [passageMark, rows => rows.some(r => !r.pass)],
   'stray-menu': [strayMenu, rows => rows.some(r => !r.pass)],
+  'whole-words': [wholeWords, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4005,7 +4055,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

@@ -715,6 +715,7 @@ function buildTextLayer(p, items, vp, roles = null) {
   if (side.childNodes.length) layer.appendChild(side);
   if (fig.childNodes.length) layer.appendChild(fig);
   p.pg.appendChild(layer); p.layer = layer; p.spans = spans;
+  resnapHighlights(p);
   renderHighlights(p);
   // The primer's trigger sits at a page's first line of text, known once its text layer is drawn.
   if (col.mode === 'column' && primer.trig) marginLayout();
@@ -973,6 +974,42 @@ function lineBand(p, [x, y, w, h]) {
 function bandBox(p, r, { box = false } = {}) {
   const band = !box && lineBand(p, r);
   return band ? [r[0], band.top, r[2], band.bottom - band.top] : r;
+}
+/*
+ * A highlight kept before whole words (19 Oct 2026: one began at "ection") is re-snapped to them once its page's text is
+ * drawn, only when that is safe: its words occur once on the page, the letters it lacks touch them with no space
+ * between, and they sit on its own first or last line, just beside its box. Then its text and that box grow to the
+ * whole word (and it syncs as any change). It is never moved onto other words.
+ */
+function resnapHighlights(p) {
+  if (state.kind !== 'pdf' || !p?.layer) return;
+  const list = highlights(), mine = list.filter(h => h.page === p.n && !h.box && !h.gone && h.text && h.rects?.some(r => r[2] > 0 && r[3] > 0));
+  if (!mine.length) return;
+  const nodes = layerTexts(p.layer.querySelector('span')?.firstChild); if (!nodes?.length) return;
+  let raw = '', norm = '';
+  const map = [];
+  for (const n of nodes) raw += n.data;
+  for (let k = 0; k < raw.length; k++) { if (/\s/.test(raw[k])) { if (norm && !norm.endsWith(' ')) { norm += ' '; map.push(k) } } else { norm += raw[k]; map.push(k) } }
+  const pr = p.pg.getBoundingClientRect(); if (!pr.width || !pr.height) return;
+  const boxOfRaw = (a, b) => { const r = rangeFromOffsets(p.layer, a, b); if (!r) return null; const rs = [...r.getClientRects()].filter(q => q.width > 0.3); if (!rs.length) return null; const u = boxOf(rs); return { x: (u.left - pr.left) / pr.width, y: (u.top - pr.top) / pr.height, x1: (u.right - pr.left) / pr.width, y1: (u.bottom - pr.top) / pr.height } };
+  let changed = false;
+  for (const h of mine) {
+    const text = String(h.text).replace(/\s+/g, ' ').trim(), at = norm.indexOf(text);
+    if (at < 0 || norm.indexOf(text, at + 1) >= 0) continue;
+    let a = at, b = at + text.length;
+    while (a > 0 && WORD_CH.test(norm[a - 1]) && WORD_CH.test(norm[a])) a--;
+    while (b < norm.length && WORD_CH.test(norm[b]) && WORD_CH.test(norm[b - 1])) b++;
+    if (a === at && b === at + text.length) continue;
+    const rects = h.rects.map(r => [...r]), first = rects.reduce((m, r) => (r[1] < m[1] - 0.004 || (Math.abs(r[1] - m[1]) <= 0.004 && r[0] < m[0]) ? r : m)), last = rects.reduce((m, r) => (r[1] + r[3] > m[1] + m[3] + 0.004 || (Math.abs(r[1] + r[3] - m[1] - m[3]) <= 0.004 && r[0] + r[2] > m[0] + m[2]) ? r : m));
+    // The added letters must sit on the box's own line, right beside it (within a letter's width): else nothing moves.
+    const beside = (q, r, side) => q && Math.min(q.y1, r[1] + r[3]) - Math.max(q.y, r[1]) > (r[3] * 0.4) && (side < 0 ? Math.abs(q.x1 - r[0]) < r[3] * 0.8 : Math.abs(q.x - (r[0] + r[2])) < r[3] * 0.8);
+    const pre = a < at ? boxOfRaw(map[a], map[at]) : null, post = b > at + text.length ? boxOfRaw(map[at + text.length - 1] + 1, map[b - 1] + 1) : null;
+    if ((a < at && !beside(pre, first, -1)) || (b > at + text.length && !beside(post, last, 1))) continue;
+    if (pre) { const right = first[0] + first[2]; first[0] = Math.round(Math.min(first[0], pre.x) * 10000) / 10000; first[2] = Math.round((right - first[0]) * 10000) / 10000 }
+    if (post) last[2] = Math.round((Math.max(last[0] + last[2], post.x1) - last[0]) * 10000) / 10000;
+    h.rects = rects; h.text = norm.slice(a, b).slice(0, 2000); h.u = Date.now(); changed = true;
+  }
+  if (changed) { store.set('hl:' + state.key, list); marksSync.changed() }
 }
 function renderHighlights(p) {
   if (!p) return;
@@ -2442,7 +2479,48 @@ function selectionMade() {
   const now = selNow(), before = gesture.start; gesture.start = null;
   if (!now || sameSel(now, before) || (mr && !mr.held && mr.info?.range && sameRange(mr.info.range, now))) return;
   clearTimeout(selTimer);
+  snapWords();
   marginSelection({ fresh: true });
+}
+/*
+ * A fresh selection covers whole words (Anders, 19 Oct 2026: a highlight began at "ection", "Define · ection"): pdf.js
+ * often gives a line's first letter as an item of its own ("S" | "ection", no space between), and a double-click or a
+ * drag starting there stopped at the item's edge. An end inside a word moves to the word's edge, across items that
+ * touch (no space between them), never across a space, a line break or a hyphen.
+ */
+const WORD_CH = /[\p{L}\p{M}\p{N}'’]/u;
+function layerTexts(node) {
+  const layer = (node?.nodeType === 1 ? node : node?.parentElement)?.closest?.('.text-layer'); if (!layer) return null;
+  const nodes = [], w = document.createTreeWalker(layer, NodeFilter.SHOW_TEXT);
+  for (let n = w.nextNode(); n; n = w.nextNode()) nodes.push(n);
+  return nodes;
+}
+function wordEdge(node, off, dir) {
+  if (node?.nodeType !== 3) return null;
+  const nodes = layerTexts(node); if (!nodes) return null;
+  let i = nodes.indexOf(node); if (i < 0) return null;
+  const before = off > 0 ? node.data[off - 1] : nodes[i - 1]?.data.at(-1) || '';
+  const after = off < node.data.length ? node.data[off] : nodes[i + 1]?.data[0] || '';
+  if (!WORD_CH.test(before) || !WORD_CH.test(after)) return null;
+  for (;;) {
+    if (dir < 0) {
+      if (off > 0) { if (WORD_CH.test(node.data[off - 1])) { off--; continue } break }
+      if (i > 0 && WORD_CH.test(nodes[i - 1].data.at(-1) || '')) { node = nodes[--i]; off = node.data.length; continue }
+      break;
+    }
+    if (off < node.data.length) { if (WORD_CH.test(node.data[off])) { off++; continue } break }
+    if (i + 1 < nodes.length && WORD_CH.test(nodes[i + 1].data[0] || '')) { node = nodes[++i]; off = 0; continue }
+    break;
+  }
+  return { node, off };
+}
+function snapWords() {
+  try {
+    const s = getSelection(); if (!s?.rangeCount || s.isCollapsed) return;
+    const r = s.getRangeAt(0), a = wordEdge(r.startContainer, r.startOffset, -1), b = wordEdge(r.endContainer, r.endOffset, 1);
+    if (!a && !b) return;
+    s.setBaseAndExtent(a ? a.node : r.startContainer, a ? a.off : r.startOffset, b ? b.node : r.endContainer, b ? b.off : r.endOffset);
+  } catch { /* the selection stays as made */ }
 }
 const sameRange = (r, n) => r.startContainer === n.sc && r.startOffset === n.so && r.endContainer === n.ec && r.endOffset === n.eo;
 document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; setTimeout(selectionMade, 30) }, true);
