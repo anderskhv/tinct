@@ -698,6 +698,7 @@ function buildTextLayer(p, items, vp, roles = null) {
     else if (item.transform[4] > bodyRight + 2) side.appendChild(span);
     else body.push({ span, x: tx[4], base: tx[5], size, w: target, str: item.str });
   });
+  markFurniture(body, vp.height);
   const lay = layoutBody(body, vp); p.blocks = lay.blocks; p.prose = lay.prose;
   for (const b of body) frag.appendChild(b.span);
   layer.appendChild(frag);
@@ -709,6 +710,57 @@ function buildTextLayer(p, items, vp, roles = null) {
   if (col.mode === 'column' && primer.trig) marginLayout();
 }
 
+/* A page's furniture in its text layer (Anders, 19 Oct 2026: a highlight across pages 4 and 5 of Constructor
+   Theory took in "David Deutsch", "Constructor Theory" and the page number): the running head or foot set apart
+   at the page's top or foot (its line in the top or bottom eighth, a clear gap from the body, short), and a page
+   number alone on its line near an edge. Marked data-f: never selected (user-select: none), never highlighted,
+   never in a passage's text. The body's own first and last lines are never furniture (they are not set apart). */
+const PAGE_NUMBER_LINE = /^(?:(?:page|p\.|pg\.?)\s*)?(?:\d{1,4}|[ivxlcdm]{1,7})$/i;
+function markFurniture(body, height) {
+  const rows = [];
+  for (const b of [...body].sort((x, y) => x.base - y.base)) {
+    const r = rows.find(q => Math.abs(q.base - b.base) < Math.max(2, b.size * 0.3));
+    if (r) { r.items.push(b); r.size = Math.max(r.size, b.size) } else rows.push({ base: b.base, size: b.size, items: [b] });
+  }
+  rows.sort((x, y) => x.base - y.base);
+  if (rows.length < 4) return;
+  const gaps = rows.slice(1).map((r, i) => r.base - rows[i].base).filter(g => g > 0).sort((x, y) => x - y);
+  const lead = gaps[Math.floor(gaps.length / 2)] || rows[0].size * 1.3;
+  const text = r => r.items.map(b => b.str).join(' ').replace(/\s+/g, ' ').trim();
+  const mark = r => { for (const b of r.items) b.span.dataset.f = '1' };
+  const top = rows[0], second = rows[1], last = rows[rows.length - 1], before = rows[rows.length - 2];
+  if (top.base < height * 0.125 && second.base - top.base > lead * 1.7 && text(top).length <= 90) mark(top);
+  if (last.base > height * 0.875 && last.base - before.base > lead * 1.7 && text(last).length <= 90) mark(last);
+  for (const r of rows) if ((r.base < height * 0.15 || r.base > height * 0.85) && PAGE_NUMBER_LINE.test(text(r))) mark(r);
+}
+/**
+ * The selection's body text on the pages, as rects and words (Anders, 19 Oct 2026, a selection across pages): only
+ * the text layer's text, never page furniture (data-f), a side column or a figure's labels unless the selection
+ * starts or ends there, and never a box of only spaces or a line break. -> { rects, text }
+ */
+function bodyOfRange(range) {
+  const rects = [], words = [];
+  const startCol = (range.startContainer.nodeType === 1 ? range.startContainer : range.startContainer.parentElement)?.closest?.('.side-col'), endCol = (range.endContainer.nodeType === 1 ? range.endContainer : range.endContainer.parentElement)?.closest?.('.side-col');
+  const root = range.commonAncestorContainer.nodeType === 1 ? range.commonAncestorContainer : range.commonAncestorContainer.parentElement;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    if (!range.intersectsNode(n)) continue;
+    const span = n.parentElement; if (!span?.closest('.text-layer')) continue;
+    if (span.dataset.f) continue;
+    const col = span.closest('.side-col');
+    if (col && col !== startCol && col !== endCol) continue;
+    let a = n === range.startContainer ? range.startOffset : 0, b = n === range.endContainer ? range.endOffset : n.length;
+    const t = n.nodeValue;
+    while (a < b && /\s/.test(t[a])) a++;
+    while (b > a && /\s/.test(t[b - 1])) b--;
+    if (b <= a) continue;
+    const r = document.createRange(); r.setStart(n, a); r.setEnd(n, b);
+    for (const box of r.getClientRects()) if (box.width > 0.5 && box.height > 0.5) rects.push(box);
+    // A word split over two items runs on (no space); otherwise the item's own space or line break is a space.
+    words.push(t.slice(a, b) + (/\s/.test(t[b] || '') ? ' ' : ''));
+  }
+  return { rects, text: words.join('').replace(/\s+/g, ' ').trim() };
+}
 /* A page's visual lines for the text layer: on each baseline, runs of items no more than an em apart
    (a justified line's word gaps; a column's gutter or a side note's is wider), left to right.
    -> [{ x, x2, size, chars }] */
@@ -755,7 +807,10 @@ function layoutBody(body, vp) {
 function blockClientBox(p, B) { const r = p.pg.getBoundingClientRect(); return { left: r.left + B.x * r.width, top: r.top + B.y * r.height, right: r.left + (B.x + B.w) * r.width, bottom: r.top + (B.y + B.h) * r.height } }
 // The selection as clean shapes: one bar per text line, and one box per formula it touches.
 function selectionShapes(range) {
-  let rects = [...range.getClientRects()].filter(r => r.width > 0.5 && r.height > 0.5);
+  // A PDF's text layer: its body text only (bodyOfRange); anything else (an EPUB's text) as the range draws it.
+  const at = n => (n.nodeType === 1 ? n : n.parentElement)?.closest?.('.text-layer');
+  const inLayer = !!(at(range.startContainer) || at(range.endContainer));
+  let rects = (inLayer ? bodyOfRange(range).rects : [...range.getClientRects()]).filter(r => r.width > 0.5 && r.height > 0.5);
   const H = median(rects.map(r => r.height));
   rects = rects.filter(r => r.height < H * 4);
   const boxes = [];
@@ -2296,7 +2351,8 @@ function selectionInfo() {
   const range = s.getRangeAt(0);
   const node = range.commonAncestorContainer.nodeType === 1 ? range.commonAncestorContainer : range.commonAncestorContainer.parentElement;
   const sheetEl = node?.closest('.pdf-sheet, .epub-sheet') || range.startContainer.parentElement?.closest('.pdf-sheet, .epub-sheet');
-  const text = s.toString().replace(/\s+/g, ' ').trim();
+  // A PDF's passage is its body text only, never the page furniture between two pages (bodyOfRange).
+  const text = (sheetEl?.classList.contains('pdf-sheet') ? bodyOfRange(range).text : '') || s.toString().replace(/\s+/g, ' ').trim();
   if (!sheetEl || text.length < 2) return null;
   const rects = selectionShapes(range);
   if (!rects.length) return null;

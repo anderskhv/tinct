@@ -59,6 +59,8 @@
 //                                                     near the top; a chat reply is plain (the exact reply of 19 Oct)
 //   node scripts/margin-check.mjs highlight-place   19 Oct: a highlight's box covers its words, also when made while the pages are redrawn
 //   node scripts/margin-check.mjs card-fold         19 Oct: a click outside an open card folds it, its answer kept (also mid-stream)
+//   node scripts/margin-check.mjs cross-page        19 Oct: a selection across a page break highlights body words only (no running heads,
+//                                                     page numbers or empty boxes), on its words, and reloads in place
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -2894,7 +2896,8 @@ async function justifiedCheck(browser, origin) {
         // The page's text (what the companion reads), from the same first word to the same last.
         const text = norm((await pageText(n)).text), i = text.indexOf(from), j = text.indexOf(to, i)
         const expected = i >= 0 && j >= 0 ? text.slice(i, j + to.length) : null
-        const sel = [...range.getClientRects()].filter(r => r.width > 0.5 && r.height > 0.5).map(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))
+        // The selection's words (19 Oct 2026: a highlight covers the words, never the spaces or line breaks after them).
+        const sel = bodyOfRange(range).rects.map(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))
         const ids = addHighlight({ text: selected }, { range }) || []
         await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))
         const marks = ids.flatMap(id => [...document.querySelectorAll(`.hl-layer i[data-id="${id}"]`)]).map(el => { const r = el.getBoundingClientRect(); return { l: r.left, r: r.right, t: r.top, b: r.bottom } })
@@ -3396,6 +3399,64 @@ async function cardFold(browser, origin) {
   return results
 }
 
+/* cross-page (19 Oct 2026, item 11): a selection from the foot of one page onto the next highlights only the body
+   words of both pages: never the running heads or page numbers, no box of nothing, each box on its words; the
+   page itself is never selectable; the highlight reloads where it was; the passage's text is the body words.
+   CROSS_PDF=<file> PAGE=<n> also checks a PDF of your own (Constructor Theory, pages 4 to 5). */
+async function crossPage(browser, origin) {
+  const results = [], ok = okList(results)
+  const docs = [{ name: 'prose_book', file: LONG_BOOK, page: 3 }]
+  if (process.env.CROSS_PDF) docs.push({ name: basename(process.env.CROSS_PDF, '.pdf'), file: process.env.CROSS_PDF, page: Number(process.env.PAGE || 4) })
+  for (const doc of docs) {
+    const hex = addBook(doc.file)
+    for (const [width, height, look] of [[1440, 900, 'night'], [390, 844, 'night']]) {
+      const tag = `cross-page-${doc.name}-${width}x${height}-${look}`
+      const A = await readerPage(browser, origin, hex, { width, height, look })
+      const a = A.page
+      await a.evaluate(n => goTo({ page: n, frac: 0.85 }), doc.page); await a.waitForTimeout(1200)
+      await a.waitForFunction(n => state.pages[n - 1]?.layer && state.pages[n]?.layer, doc.page, { timeout: 20000 }).catch(() => {})
+      const got = await a.evaluate(async n => {
+        const p = state.pages[n - 1], q = state.pages[n]
+        const body = pg => [...pg.layer.querySelectorAll(':scope > span')].filter(sp => !sp.dataset.f && sp.textContent.trim())
+        const first = body(p).at(-2), last = body(q)[2]
+        const range = document.createRange(); range.setStart(first.firstChild, 0); range.setEnd(last.firstChild, last.firstChild.length)
+        getSelection().removeAllRanges(); getSelection().addRange(range)
+        const furniture = [...p.layer.querySelectorAll('span[data-f]'), ...q.layer.querySelectorAll('span[data-f]')].map(sp => ({ t: sp.textContent.trim(), r: (r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))(sp.getBoundingClientRect()) }))
+        const words = bodyOfRange(range).rects.map(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))
+        const info = selectionInfo()
+        const select = ['.pdf-sheet', '.pdf-sheet canvas', '.pdf-sheet .pg'].map(sel => getComputedStyle(document.querySelector(sel)).userSelect)
+        const ids = addHighlight({ text: info?.text || '' }, { range }) || []
+        getSelection().removeAllRanges()
+        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))
+        const marks = ids.flatMap(id => [...document.querySelectorAll(`.hl-layer i[data-id="${id}"]`)].map(el => ({ page: Number(el.closest('.pdf-sheet').dataset.page), ...(r => ({ l: r.left, r: r.right, t: r.top, b: r.bottom }))(el.getBoundingClientRect()) })))
+        return { ids, furniture, words, marks, text: info?.text || '', firstText: first.textContent.trim(), lastText: last.textContent.trim(), select, stored: ids.map(id => (store.get('hl:' + state.key) || []).find(h => h.id === id)) }
+      }, doc.page)
+      const hit = (x, y) => Math.min(x.r, y.r) - Math.max(x.l, y.l) > 0.5 && Math.min(x.b, y.b) - Math.max(x.t, y.t) > 0.5
+      ok(`${tag}: the page, its drawing and its box are never selectable (only the text)`, got.select.every(v => v === 'none'), got.select)
+      ok(`${tag}: the page's running heads and numbers are known as furniture on both pages`, got.furniture.length >= 2, got.furniture.map(f => f.t))
+      ok(`${tag}: 11. a selection across the page break highlights body words on both pages`, new Set(got.marks.map(m => m.page)).size === 2 && got.marks.length >= 2, got.marks.map(m => m.page))
+      ok(`${tag}: 11. no highlight box touches a running head or a page number`, !got.marks.some(m => got.furniture.some(f => hit(m, f.r))), got.marks)
+      ok(`${tag}: 11. no box is empty: each covers selected words`, got.marks.every(m => got.words.some(w => hit(m, w))), got.marks)
+      ok(`${tag}: 11. every selected word lies in a box, on its line`, got.words.every(w => { const cx = (w.l + w.r) / 2, cy = (w.t + w.b) / 2; return got.marks.some(m => cx >= m.l - 1 && cx <= m.r + 1 && cy >= m.t && cy <= m.b && Math.abs((m.t + m.b) / 2 - cy) <= (w.b - w.t) * 0.25) }), { words: got.words.slice(0, 3), marks: got.marks.slice(0, 3) })
+      ok(`${tag}: 11. the passage is the body words only, from the first to the last`, got.text.startsWith(got.firstText.split(/\s+/)[0]) && got.text.endsWith(got.lastText.split(/\s+/).at(-1)) && !got.furniture.some(f => f.t.length > 2 && got.text.includes(f.t)), { text: got.text.slice(0, 120) + '…' + got.text.slice(-60), furniture: got.furniture.map(f => f.t) })
+      await shot(a, tag)
+      // Saved: it reloads where it was.
+      // Where each box is on its page (fractions of the page's box, in thousandths): the same after a reload.
+      const onPage = ids => a.evaluate(ids => ids.flatMap(id => [...document.querySelectorAll(`.hl-layer i[data-id="${id}"]`)].map(el => { const r = el.getBoundingClientRect(), pg = el.closest('.pg').getBoundingClientRect(); return [Number(el.closest('.pdf-sheet').dataset.page), ...[(r.left - pg.left) / pg.width, (r.top - pg.top) / pg.height, (r.right - pg.left) / pg.width, (r.bottom - pg.top) / pg.height].map(v => Math.round(v * 1000))] })), ids)
+      const before = await onPage(got.ids)
+      const place = await a.evaluate(() => $('scroll').scrollTop)
+      await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 })
+      await a.evaluate(t => { $('scroll').scrollTop = t }, place); await a.waitForTimeout(1500)
+      await a.evaluate(t => { $('scroll').scrollTop = t }, place); await a.waitForTimeout(600)
+      const after = await onPage(got.ids)
+      ok(`${tag}: 11. saved, the highlight reloads where it was on its pages`, after.length === before.length && after.every((m, i) => m.every((v, k) => Math.abs(v - before[i][k]) <= 1)), { before, after })
+      ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+      await A.ctx.close()
+    }
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -3425,6 +3486,7 @@ const RUNS = {
   'chat-scroll': [chatScroll, rows => rows.some(r => !r.pass)],
   'highlight-place': [highlightPlace, rows => rows.some(r => !r.pass)],
   'card-fold': [cardFold, rows => rows.some(r => !r.pass)],
+  'cross-page': [crossPage, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -3465,7 +3527,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

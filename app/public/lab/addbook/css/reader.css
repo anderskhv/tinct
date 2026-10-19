@@ -35,6 +35,11 @@ html[data-pdf-theme="dark"] .pdf-sheet canvas.is-raw { filter: invert(.88) hue-r
 .text-layer { position: absolute; inset: 0; line-height: 1; z-index: 2; }
 .text-layer span { position: absolute; white-space: pre; color: transparent; transform-origin: 0 0; cursor: text; font-family: sans-serif; }
 .text-layer span::selection, .text-layer br::selection, .text-layer::selection, .side-col::selection { background: transparent; color: transparent; }
+/* Only the text layer's body text can be selected: never the page, its canvas or its furniture (data-f: running heads,
+   page numbers), so a selection across a page break never paints the page itself (Anders, 19 Oct 2026). */
+.pdf-sheet, .pdf-sheet .pg, .pdf-sheet canvas, .text-layer, .side-col { -webkit-user-select: none; user-select: none; }
+.text-layer span { -webkit-user-select: text; user-select: text; }
+.text-layer span[data-f] { -webkit-user-select: none; user-select: none; }
 .side-col { position: absolute; inset: 0; pointer-events: none; }
 .side-col span { pointer-events: auto; }
 .sel-layer, .hl-layer { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
