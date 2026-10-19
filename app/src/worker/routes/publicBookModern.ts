@@ -34,7 +34,7 @@
 import { corsHeaders, getAllowedOrigin } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { CheckRateLimit } from '../lib/rateLimit'
-import { ensureStripeCustomer, type BillingEnv, type CheckoutSessionObject } from './billing'
+import { ensureStripeCustomer, logCheckoutRefusal, requireCheckoutConsent, type BillingEnv, type CheckoutSessionObject } from './billing'
 import { bucketOf, editionChapter, editionObjectKey, metaKey, readJson, upsertIndexEntry, type PublicBooksEnv, type StoredMeta } from './publicBooks'
 import {
   HOLD_MS,
@@ -472,6 +472,7 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
   params.set('success_url', `${origin}/reader?book=${book}&modern=1&session_id={CHECKOUT_SESSION_ID}`)
   params.set('cancel_url', `${origin}/reader?book=${book}&modern=cancel`)
   params.set('expires_at', String(Math.floor(now() / 1000) + SESSION_EXPIRES_S))
+  requireCheckoutConsent(params)
   if (env.STRIPE_AUTOMATIC_TAX === 'on') {
     params.set('automatic_tax[enabled]', 'true')
     params.set('customer_update[address]', 'auto')
@@ -484,7 +485,8 @@ async function checkout(request: Request, env: ModernEnv, bucket: R2Bucket, book
   let session: { id?: string; url?: string } | null = null
   try {
     const response = await stripeFetch('https://api.stripe.com/v1/checkout/sessions', { method: 'POST', headers: stripeHeaders(env, `modern-${bookId}-${holdId}`), body: params.toString() })
-    session = response.ok ? await response.json() as { id?: string; url?: string } : null
+    if (response.ok) session = await response.json() as { id?: string; url?: string }
+    else logCheckoutRefusal('modern_edition', (await response.json().catch(() => null) as { error?: { message?: string } } | null)?.error?.message)
   } catch { session = null }
   if (!session?.id || !session.url) { await release(); return reply({ error: 'payment_unavailable' }, 502, request) }
   const sessionId = session.id

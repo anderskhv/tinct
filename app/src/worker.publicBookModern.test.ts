@@ -3,7 +3,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handlePublicBooks, handlePublicEditionData, type PublicBooksDeps } from './worker/routes/publicBooks'
 import { grantModernEdition, handleModernDiagnostics, releaseModernCheckout, runModernBook, runModernEditionJobs, type ModernDeps } from './worker/routes/publicBookModern'
-import { handleWebhook } from './worker/routes/billing'
+import { CHECKOUT_TERMS_MESSAGE, handleWebhook } from './worker/routes/billing'
 import gorgiasExcerpt from './worker/__fixtures__/gorgias-excerpt.json'
 import {
   CHUNK_WORDS,
@@ -272,6 +272,22 @@ describe('purchase guard', () => {
     expect((await t.status()).offer).toEqual({ tier: 2, cents: 500 })
     expect((await t.buy('b')).status).toBe(200)
     expect(t.stripe.created).toHaveLength(2)
+  })
+
+  it('asks for the terms checkbox and the withdrawal line on the Modern English checkout', async () => {
+    const t = setup()
+    expect((await t.buy('a')).status).toBe(200)
+    expect(t.stripe.created[0].get('consent_collection[terms_of_service]')).toBe('required')
+    expect(t.stripe.created[0].get('custom_text[terms_of_service_acceptance][message]')).toBe(CHECKOUT_TERMS_MESSAGE)
+  })
+
+  it('logs a refused Modern English checkout instead of failing silently', async () => {
+    const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+    try {
+      const t = setup({ stripeFails: true })
+      expect((await t.buy('a')).status).toBe(502)
+      expect(errors).toHaveBeenCalledWith(expect.stringContaining('modern_edition checkout'), 'no')
+    } finally { errors.mockRestore() }
   })
 
   it('releases the hold when Stripe fails', async () => {
