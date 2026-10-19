@@ -22,3 +22,7 @@ Askepot (Ashputtel), Snehvide og Rosenrød (Snow-White and Rose-Red), **Snebloms
 - Distances: English leagues are “mil”. English miles are now mostly plain “mil” or “et godt stykke”, because the size does not matter in a fairy tale. “Engelske mil” is left in two places in the Fisherman (the park and the throne). Yards are “alen”.
 - Address: the cat says *De* to Mr Fox and the fox says *du* to her. This is on purpose (her politeness, his arrogance). Elsewhere children and animals use *du*.
 - Snow-White and Rose-Red uses *Snehvide* for a different character than tale 33 (*Sneblomst*); they never appear in the same tale.
+
+## 2026-10-19: Snehvide
+
+Anders chose the familiar Danish name: "Sneblomst" (36 occurrences, incl. the tale title) is now "Snehvide". The separate tale "Snehvide og Rosenrød" keeps its own Snehvide, as in Danish tradition.

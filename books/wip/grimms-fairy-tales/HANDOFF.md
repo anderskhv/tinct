@@ -12,7 +12,7 @@
 | --- | ---: | ---: | ---: | --- |
 | `editions/grimms-fairy-tales-original-en.json` | 65 | 902 | 100,401 | `e5aeb318c7ed1e44202f57ec7b7303958823ec63909ca69538fe26bb151a95f3` |
 | `editions/grimms-fairy-tales-modern-en.json` | 65 | 902 | 95,492 | `679ab684eaf90eb7cfdd30a869d97f865aba6e0c5aff77951386ca16c7eba6ab` |
-| `editions/grimms-fairy-tales-modern-da.json` | 65 | 902 | 93,183 | `d2cca955bf4b307e59413bc7d946763e05c40679d2a3eb9e98effd549dbd4695` |
+| `editions/grimms-fairy-tales-modern-da.json` | 65 | 902 | 93,183 | `53550b14b49833ff6a26d746d6c7cc989009e3133876123e8b146ef907f4ef70` |
 
 Also: `onboarding/grimms-fairy-tales.json` (draft: About, 3 why-it-matters, 4 angle cards; `acclaim` and `cast` empty), `SOURCE.md`, `taxonomy.md`, `review/REVIEW.md`, `review/DANISH-NOTES.md`, `review/danish-fixed-paragraphs.json`, `review/danish-rereview-2026-10-19.json`, `review/SHA256SUMS.txt`.
 
