@@ -91,6 +91,8 @@
 //                                                     its room; no Full width; phones and Tinct text keep the slider
 //   node scripts/margin-check.mjs margin-notes      19 Oct, evening (3): a note from a click on the empty margin, at that height;
 //                                                     fold first; empty goes; kept, synced, reloaded; Ask makes it a chat
+//   node scripts/margin-check.mjs table-crop        19 Oct, night (2): Table 1's crop snapped to its rules with its labels, drawn sharp,
+//                                                     its caption as printed; no picture in the wide column's card (CT_PDF: the real PDF)
 //   node scripts/margin-check.mjs unit-marks        19 Oct, night (1): each unit's marks on the wide column, level with its heading and
 //                                                     its last line (Primer, Catch me up; Recap, Quiz me, Note), the chapter menu's actions (unit-pills: the same)
 //   node scripts/margin-check.mjs unit-pills        (old name) 19 Oct, evening (1): each unit's pills on the wide column (Primer, Catch me up;
@@ -1905,7 +1907,8 @@ async function figureMatrix(browser, origin) {
       const before = account.requests.length, wholeBefore = await page.evaluate(() => chat.turns.length)
       await page.click('.byob-hot-chip [data-a="explain"]')
       await page.waitForFunction(() => { const c = cardById(col.open); return c && c.kind === 'figure' && c.turns.length === 1 }, null, { timeout: 8000 })
-      await page.waitForFunction(() => !!document.querySelector('.mr-card.is-open .mr-thumb img, .mr-sheet .mr-thumb img'), null, { timeout: 8000 })
+      // Anders, 19 Oct 2026, night: no picture in the card on the wide column (the figure is beside it); elsewhere a small one.
+      await page.waitForFunction(() => col.mode === 'column' || !!document.querySelector('.mr-card.is-open .mr-thumb img, .mr-sheet .mr-thumb img'), null, { timeout: 8000 })
       const sent = account.requests.slice(before).find(r => r.path === '/api/chat')
       const pics = (sent?.body?.messages?.at(-1)?.content || []).filter?.(b => b.type === 'image') || []
       const rules = JSON.stringify(sent?.body?.messages?.[0] || '')
@@ -1915,7 +1918,8 @@ async function figureMatrix(browser, origin) {
         // Beside: in the column the card starts level with the figure's top (less the 4px lift), unless the column moved it up to fit; marks float it beside the mark; the phone's bottom card sits below the figure.
         const beside = col.mode === 'column' ? Math.abs(r.top - (figTop - 4)) < 3 || r.bottom <= f.top + (box.y + box.h) * f.height + 2 : col.mode === 'marks' ? !!el?.classList.contains('is-floating') : r.top >= figTop
         const label = el?.querySelector('.mr-card__name')?.textContent || el?.getAttribute('aria-label')
-        return { ok: beside && /^Figure 1 · p\. 1$/.test(label || '') && !!el.querySelector('.mr-thumb img')?.naturalWidth && chat.turns.length === whole && keptCards().filter(c => c.kind === 'figure' && !c.gone).length === 1, mode: col.mode, beside, label, top: r && Math.round(r.top), figTop: Math.round(figTop) }
+        const img = el.querySelector('.mr-thumb img'), pic = col.mode === 'column' ? !el.querySelector('.mr-thumb') && el.querySelector('.mr-card__body > :first-child')?.classList.contains('mr-quote') : !!img?.naturalWidth && img.getBoundingClientRect().height <= 120.5
+        return { ok: beside && /^Figure 1 · p\. 1$/.test(label || '') && pic && chat.turns.length === whole && keptCards().filter(c => c.kind === 'figure' && !c.gone).length === 1, mode: col.mode, beside, label, top: r && Math.round(r.top), figTop: Math.round(figTop) }
       }, wholeBefore])
       if (!(pics.length === 1 && /This conversation is about one figure on page 1 \(Figure 1\)/.test(rules) && /attached image is that figure/.test(rules) && sent.body.companion?.document)) found.push({ state: 'fig-card', kind: 'request', el: JSON.stringify({ images: pics.length, rules: rules.slice(0, 200), document: !!sent?.body?.companion?.document }) })
       // A follow-up stays in the figure's thread; Explain on the same figure again opens the same card.
@@ -4385,6 +4389,95 @@ async function unitMarks(browser, origin) {
   return results
 }
 
+/* table-crop (Anders, 19 Oct 2026, night, item 2; Constructor Theory p. 14, Table 1): (a) a boxed table's crop snaps to
+   its rules and takes in its header above them and its row label set upwards at their left, never its caption; (b) the
+   crop is drawn sharp (at least three times the size it is shown at, within its long side; the model still gets at
+   most 1568 px); (c) its caption reads as printed ("Table 1: A classification of constructions", no stray spaces). On
+   the wide column the figure's card shows no picture (the table is beside it) and starts with the caption; narrow
+   windows and the chat keep a small picture, at most 120px tall, that opens the figure large. On the section paper's
+   page 14 and, when it is here, the real PDF's (CT_PDF). */
+const CT_PDF = process.env.CT_PDF || '/tmp/claude-0/-home-user-tinct/35906d38-b552-59f0-819b-6f696b0ab988/scratchpad/night/docs/constructor-theory.pdf'
+async function tableCrop(browser, origin) {
+  const results = [], ok = okList(results)
+  // Each PDF: its page, the rules' box (PDF points: x0, y0, x1, y1 from the page's foot) and its page size.
+  const cases = [{ name: 'section paper', file: SECTION_PAPER, page: 14, rules: [190, 350, 440, 540], size: [612, 792], line: 0.3 }]
+  if (existsSync(CT_PDF)) cases.push({ name: 'Constructor Theory', file: CT_PDF, page: 14, rules: [197.64, 241.29, 430.92, 325.05], size: [595.29, 841.89], line: 0 })
+  for (const c of cases) {
+    const hex = addBook(c.file)
+    account.cards.clear()
+    const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+    const a = A.page
+    await prefetchSettled(a)
+    await a.evaluate(n => goTo({ page: n, frac: 0.45 }), c.page); await a.waitForTimeout(900)
+    await a.waitForFunction(n => state.figs.has(n) && state.pages[n - 1].captions?.some(x => x.label === 'Table 1'), c.page, { timeout: 20000 }).catch(() => {})
+    const got = await a.evaluate(({ page: n, rules, size, line }) => {
+      const p = state.pages[n - 1], pr = p.pg.getBoundingClientRect(), cap = (p.captions || []).find(x => x.label === 'Table 1'), f = cap && p.figures[cap.fig]
+      const span = t => { const sp = [...p.layer.querySelectorAll('span')].find(s => s.textContent.trim() === t); if (!sp) return null; const r = sp.getBoundingClientRect(); return { x: (r.left - pr.left) / pr.width, y: (r.top - pr.top) / pr.height, w: r.width / pr.width, h: r.height / pr.height } }
+      const box = { x: (rules[0] - line) / size[0], y: (size[1] - rules[3] - line) / size[1], w: (rules[2] - rules[0] + 2 * line) / size[0], h: (rules[3] - rules[1] + 2 * line) / size[1] }
+      const want = [box, span('Input'), span('Output')].filter(Boolean).reduce((u, b) => { const x = Math.min(u.x, b.x), y = Math.min(u.y, b.y); return { x, y, w: Math.max(u.x + u.w, b.x + b.w) - x, h: Math.max(u.y + u.h, b.y + b.h) - y } })
+      return { f, want, labels: [!!span('Input'), !!span('Output')], caption: cap?.text, capBox: cap?.box, pt: [1 / size[0], 1 / size[1]] }
+    }, c)
+    // (a) Each edge holds the rules and labels, and lies within the pad (3 pt) and 1.5 pt more of them.
+    const edges = got.f && ['left', 'top', 'right', 'bottom'].map((e, i) => {
+      const [fv, wv, pt] = [[got.f.x, got.want.x, got.pt[0]], [got.f.y, got.want.y, got.pt[1]], [got.f.x + got.f.w, got.want.x + got.want.w, got.pt[0]], [got.f.y + got.f.h, got.want.y + got.want.h, got.pt[1]]][i]
+      const slack = (i < 2 ? wv - fv : fv - wv) / pt
+      return { e, slack: Math.round(slack * 10) / 10 }
+    })
+    const clear = got.f && got.capBox && got.f.y + got.f.h <= got.capBox.y + 0.0005
+    ok(`(a) ${c.name}: Table 1's crop snaps to its rules, with its header above and its row label at its left (each edge 0–4.5 pt outside them), never over its caption`, edges && got.labels.every(Boolean) && edges.every(x => x.slack >= -0.5 && x.slack <= 4.5) && clear, { edges, labels: got.labels, f: got.f, want: got.want, capBox: got.capBox })
+    ok(`(c) ${c.name}: the caption reads as printed`, got.caption === 'Table 1: A classification of constructions', got.caption)
+    // The card on the wide column: no picture, the caption first; Explain sends the table sharp (up to the model's 1568 px).
+    const r0 = account.requests.length
+    await a.evaluate(async n => { const p = state.pages[n - 1], cap = p.captions.find(x => x.label === 'Table 1'); await regionAction('explain', await regionItem(p, p.figures[cap.fig], 'figure')) }, c.page)
+    await a.waitForFunction(() => { const card = cardById(col.open); return card && card.kind === 'figure' && card.turns.length >= 1 }, null, { timeout: 8000 }).catch(() => {})
+    await a.waitForTimeout(600)
+    const card = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); return el && { thumb: !!el.querySelector('.mr-thumb, img'), first: el.querySelector('.mr-card__body > :first-child')?.className, quote: el.querySelector('.mr-quote')?.textContent } })
+    ok(`${c.name}: on the wide column the table's card shows no picture and starts with its caption`, card && !card.thumb && /mr-quote/.test(card.first || '') && card.quote === 'Table 1: A classification of constructions', card)
+    await shot(a, `table-card-${c.name === 'section paper' ? 'fixture' : 'ct'}-after-1440x900`)
+    const sent = chatsOf(r0).find(r => (r.body?.messages?.at(-1)?.content || []).some?.(b => b.type === 'image'))
+    const pic = sent?.body.messages.at(-1).content.find(b => b.type === 'image')
+    const side = pic ? await a.evaluate(async d => { const im = await createImageBitmap(await (await fetch('data:image/png;base64,' + d)).blob()); return Math.max(im.width, im.height) }, pic.source.data).catch(() => 0) : 0
+    ok(`(b) ${c.name}: Explain sends the table at the model's full 1568 px (drawn larger, then sized down)`, side >= 1500 && side <= 1568, { side })
+    // (b) The figure view: the picture at least three times the size it is shown at (within the crop's long side).
+    await a.evaluate(() => openFigureView(cardById(col.open)))
+    await a.waitForFunction(() => { const i = document.querySelector('.mr-figview img'); return i && i.complete && /^blob:/.test(i.src) && i.naturalWidth > 0 }, null, { timeout: 8000 }).catch(() => {})
+    const view = await a.evaluate(() => { const i = document.querySelector('.mr-figview img'); if (!i) return null; const r = i.getBoundingClientRect(); return { nat: Math.max(i.naturalWidth, i.naturalHeight), css: Math.max(r.width, r.height), long: SNIP_LONG } })
+    ok(`(b) ${c.name}: the figure view's picture is drawn at least 3x its shown size (or its full ${2400} px long side)`, view && view.nat >= Math.min(view.css * 3, view.long) - 2, view)
+    await shot(a, `table-view-${c.name === 'section paper' ? 'fixture' : 'ct'}-1440x900`)
+    await a.keyboard.press('Escape'); await a.waitForTimeout(200)
+    ok(`${c.name}: Escape closes the figure view`, !(await a.$('.mr-figview')))
+    ok(`${c.name}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  // Narrow windows and the chat: a small picture, at most 120px tall, sharp (3x), that opens the figure large.
+  const hex = addBook(SECTION_PAPER)
+  account.cards.clear()
+  const N = await readerPage(browser, origin, hex, { width: 1024, height: 768, look: 'paper' })
+  const n = N.page
+  await prefetchSettled(n)
+  await n.evaluate(() => goTo({ page: 14, frac: 0.45 })); await n.waitForTimeout(900)
+  await n.waitForFunction(() => state.figs.has(14) && state.pages[13].captions?.some(x => x.label === 'Table 1'), null, { timeout: 20000 }).catch(() => {})
+  await n.evaluate(async () => { const p = state.pages[13], cap = p.captions.find(x => x.label === 'Table 1'); await regionAction('explain', await regionItem(p, p.figures[cap.fig], 'figure')) })
+  await n.waitForFunction(() => { const i = document.querySelector('.mr-card.is-open .mr-thumb img, .mr-sheet .mr-thumb img'); return i && i.complete && i.naturalWidth > 0 }, null, { timeout: 10000 }).catch(() => {})
+  const small = await n.evaluate(() => { const i = document.querySelector('.mr-card.is-open .mr-thumb img, .mr-sheet .mr-thumb img'); if (!i) return { mode: col.mode }; const r = i.getBoundingClientRect(), ratio = i.naturalWidth / i.naturalHeight, shown = Math.min(r.width / ratio, r.height); return { mode: col.mode, height: Math.round(r.height), natural: i.naturalHeight, shown: Math.round(shown) } })
+  ok('narrow window: the figure card keeps a small picture, at most 120px tall, drawn at 3x', small.height && small.height <= 120.5 && small.natural >= small.shown * 3 - 2, small)
+  await shot(n, 'table-card-narrow-1024x768')
+  await n.click('.mr-card.is-open .mr-thumb, .mr-sheet .mr-thumb'); await n.waitForTimeout(600)
+  ok('narrow window: tapping the picture opens the figure large', !!(await n.$('.mr-figview img')))
+  await n.keyboard.press('Escape'); await n.waitForTimeout(200)
+  // The whole-document chat: an attached figure is shown at most 120px tall and opens large.
+  await n.evaluate(async () => { openCard(null); const p = state.pages[13], cap = p.captions.find(x => x.label === 'Table 1'); const item = await regionItem(p, p.figures[cap.fig], 'figure'); openChat({ quiet: true }); await addAttachments([item], { snip: true }); ask('What does this table classify?') })
+  await n.waitForFunction(() => { const i = document.querySelector('.tc-imgs img'); return i && i.complete && i.naturalWidth > 0 }, null, { timeout: 10000 }).catch(() => {})
+  const inChat = await n.evaluate(() => { const i = document.querySelector('.tc-imgs img'); if (!i) return null; const r = i.getBoundingClientRect(); return { height: Math.round(r.height), natural: i.naturalHeight } })
+  ok('chat: the attached table is at most 120px tall, drawn at 3x', inChat && inChat.height <= 120.5 && inChat.natural >= inChat.height * 3 - 2, inChat)
+  await n.click('.tc-imgs .tc-img'); await n.waitForTimeout(600)
+  const chatView = await n.evaluate(() => { const i = document.querySelector('.mr-figview img'); return i && { blob: /^blob:/.test(i.src), nat: i.naturalWidth } })
+  ok('chat: tapping it opens it large, from the sharp crop', chatView && chatView.blob && chatView.nat > 1000, chatView)
+  ok('no page errors', !N.problems.length, N.problems)
+  await N.ctx.close()
+  return results
+}
+
 /* ---------- 19 Oct 2026: the Notebook and EPUBs in Margin view (Anders) ---------- */
 // Cards of every kind on the lines in view (a long answer, follow-ups), a note and a plain highlight, made
 // minutes apart, in the reader's own store (as the margin keeps them). -> the ids, newest first
@@ -4738,6 +4831,7 @@ const RUNS = {
   'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
   'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
   'unit-marks': [unitMarks, rows => rows.some(r => !r.pass)],
+  'table-crop': [tableCrop, rows => rows.some(r => !r.pass)],
   notebook: [notebookCheck, rows => rows.some(r => !r.pass)],
   'epub-view': [epubViewCheck, rows => rows.some(r => !r.pass)],
 }
@@ -4780,7 +4874,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'notebook', 'epub-view'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

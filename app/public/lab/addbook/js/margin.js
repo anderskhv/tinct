@@ -822,7 +822,10 @@
       return head + `<div class="mr-card__body">${body}${o.pending != null ? '' : acts(false)}</div>` + foot;
     }
     // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
-    const thumb = card.kind === 'figure' ? `<div class="mr-thumb"${o.thumbRatio ? ` style="aspect-ratio:${Number(o.thumbRatio).toFixed(3)}"` : ''}>${o.thumb ? `<img src="${esc(o.thumb)}" alt="${label}">` : ''}</div>` : '';
+    // Anders, 19 Oct 2026, night: on the wide column the figure is right beside its card (the leader line joins them), so
+    // the card shows no picture and starts with the caption; elsewhere (narrow windows, the phone) a small one, at most
+    // 120px tall, that opens the figure large. o.thumb: its picture (or '' while drawn); none given, no picture.
+    const thumb = card.kind === 'figure' && o.thumb != null ? `<button type="button" class="mr-thumb" data-figview aria-label="Show ${label} larger"${o.thumbRatio ? ` style="aspect-ratio:${Number(o.thumbRatio).toFixed(3)}"` : ''}>${o.thumb ? `<img src="${esc(o.thumb)}" alt="${label}">` : ''}</button>` : '';
     // The passage is not quoted at the card's top (Anders, 19 Oct 2026): its underline in the text and the leader line
     // say what the card is about. Screen readers get it as the card's description (reader.js: aria-describedby).
     // A figure's card keeps its caption, which is what the figure says, not a quote.
@@ -1419,6 +1422,46 @@
     return cover < 0.35 || (str.length >= 8 && gap > Math.max(10, (s.h * H) * 2));
   }
   /**
+   * A figure's box snapped to the page's own drawing (Anders, 19 Oct 2026, Constructor Theory's Table 1: the crop was
+   * offset from the table's outer rule). `f`: the box found from the drawn page (page fractions; a coarse picture, so its
+   * edges are off by a few points); `shapes`: the page's painted paths and pictures ({ x, y, w, h }, page fractions:
+   * reader.js pageShapes); `labels`: text that is no running text and no caption; `caps`: the captions' boxes. The
+   * shapes that meet the box, and those touching them, make the drawing's box; when it covers most of the found box it
+   * is the figure, with the labels beside or over it (a header above a table, a row label set upwards at its left) and
+   * a small pad, kept off the captions. Otherwise (no drawing, or a little of it) the found box stays.
+   */
+  const SNAP = { pad: 0.005, reach: 0.04, touch: 0.004, cover: 0.55 };
+  function snapFigure(f, shapes = [], labels = [], caps = []) {
+    const meets = (a, b, g = 0) => a.x <= b.x + b.w + g && a.x + a.w >= b.x - g && a.y <= b.y + b.h + g && a.y + a.h >= b.y - g;
+    const join = (a, b) => { const x = Math.min(a.x, b.x), y = Math.min(a.y, b.y); return { x, y, w: Math.max(a.x + a.w, b.x + b.w) - x, h: Math.max(a.y + a.h, b.y + b.h) - y } };
+    const area = a => Math.max(0, a.w) * Math.max(0, a.h);
+    const cut = (a, b) => area({ x: Math.max(a.x, b.x), y: Math.max(a.y, b.y), w: Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x), h: Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) });
+    // Within reach of the found box only (never the page's frame, a rule across the page, or a neighbour's drawing).
+    const reach = { x: f.x - SNAP.reach, y: f.y - SNAP.reach, w: f.w + SNAP.reach * 2, h: f.h + SNAP.reach * 2 };
+    const near = (shapes || []).filter(o => o && o.w >= 0 && o.h >= 0 && !(o.w > 0.9 && o.h > 0.9) && area(o) < 0.6 && o.x >= reach.x && o.y >= reach.y && o.x + o.w <= reach.x + reach.w && o.y + o.h <= reach.y + reach.h);
+    let U = null;
+    const used = new Set();
+    for (const o of near) if (meets(o, f)) { U = U ? join(U, o) : { ...o }; used.add(o) }
+    if (!U) return f;
+    for (let grew = true; grew;) { grew = false; for (const o of near) if (!used.has(o) && meets(o, U, SNAP.touch)) { U = join(U, o); used.add(o); grew = true } }
+    if (cut(U, f) < SNAP.cover * area(f)) return f;
+    // The labels round the drawing: text over it or within a line's height of it that the found box holds (its middle
+    // inside it, give or take its coarse edge).
+    let box = U;
+    const held = l => { const cx = l.x + l.w / 2, cy = l.y + l.h / 2; return cx >= f.x - 0.01 && cx <= f.x + f.w + 0.01 && cy >= f.y - 0.01 && cy <= f.y + f.h + 0.01 };
+    for (const l of labels || []) if (meets(l, U, Math.max(0.012, l.h * 1.2)) && held(l) && !(caps || []).some(c => meets(l, c))) box = join(box, l);
+    const P = SNAP.pad;
+    let out = { x: box.x - P, y: box.y - P, w: box.w + P * 2, h: box.h + P * 2 };
+    // Never into a caption: the pad stops short of it.
+    for (const c of caps || []) {
+      if (!meets(out, c) || meets(box, c)) continue;
+      if (c.y >= box.y + box.h) out.h = Math.min(out.h, c.y - out.y - 0.001);
+      else if (c.y + c.h <= box.y) { const b = out.y + out.h; out.y = Math.max(out.y, c.y + c.h + 0.001); out.h = b - out.y }
+    }
+    const x = Math.max(0, out.x), y = Math.max(0, out.y);
+    return { x, y, w: Math.min(1, out.x + out.w) - x, h: Math.min(1, out.y + out.h) - y };
+  }
+  /**
    * The figures on a page (item 5): areas of ink that are not running text. Running text (lines
    * of more than 48 characters or 7 words), captions and displayed formulas are blanked out. Short
    * label text ("hidden units") inside an area of ink stays, joining the pieces of a diagram, but
@@ -1435,7 +1478,7 @@
    * `spans`: [{ x, y, w, h, text }]; `formulas`: [{ x, y, w, h }]; all page fractions.
    * -> { figures: [{ x, y, w, h, label?, caption? }], captions: [{ kind, n, label, text, fig, box }] }
    */
-  function findFigures({ ink, W, H, spans = [], formulas = [] } = {}) {
+  function findFigures({ ink, W, H, spans = [], formulas = [], shapes = [] } = {}) {
     const N = W * H;
     const px = q => ({ l: Math.max(0, Math.floor(q.x * W) - 1), t: Math.max(0, Math.floor(q.y * H)), r: Math.min(W - 1, Math.ceil((q.x + q.w) * W)), b: Math.min(H - 1, Math.ceil((q.y + q.h) * H)) });
     const fill = (a, q, v) => { for (let y = q.t; y <= q.b; y++) a.fill(v, y * W + q.l, y * W + q.r + 1) };
@@ -1450,13 +1493,16 @@
       let cur = null;
       for (const s of L.items.sort((a, b) => a.x - b.x)) {
         if (cur && (s.x - (cur.x + cur.w)) * W <= s.h * H * 1.2) {
+          // A word space only where the PDF leaves one: pieces set close ("Table 1", ": A c", "lassification") join
+          // as they print (Anders, 19 Oct 2026: "Table 1 : A c lassification of constructions").
+          const gap = (s.x - (cur.x + cur.w)) * W, tight = gap <= s.h * H * 0.12 || /\s$/.test(cur.parts[cur.parts.length - 1]) || /^\s/.test(s.text);
           const right = Math.max(cur.x + cur.w, s.x + s.w), bottom = Math.max(cur.y + cur.h, s.y + s.h);
-          cur.y = Math.min(cur.y, s.y); cur.w = right - cur.x; cur.h = bottom - cur.y; cur.parts.push(s.text);
+          cur.y = Math.min(cur.y, s.y); cur.w = right - cur.x; cur.h = bottom - cur.y; cur.parts.push((tight ? '' : ' ') + s.text);
         } else { cur = { x: s.x, y: s.y, w: s.w, h: s.h, parts: [s.text], line: L }; segs.push(cur) }
       }
     }
     for (const s of segs) {
-      s.text = s.parts.join(' ').replace(/\s+/g, ' ').trim();
+      s.text = s.parts.join('').replace(/\s+/g, ' ').trim();
       s.q = px(s); s.caption = captionOf(s.text);
       // An algorithm's or a plate's caption is no figure's, but it ends the figure above it.
       s.stop = !!s.caption || /^(Algorithm|Exhibit|Plate|Listing)\s*\d+(?:[.\-–]\d+)*\s*[.:]/.test(s.text);
@@ -1641,6 +1687,13 @@
     }
     const pad = 1.5;
     const figures = boxes.map(o => ({ x: Math.max(0, (o.l - pad) / W), y: Math.max(0, (o.t - pad) / H), w: Math.min(1, (o.r - o.l + pad * 2) / W), h: Math.min(1, (o.b - o.t + pad * 2) / H) }));
+    // Snapped to the page's own drawing where it has one (its rules, paths and pictures; snapFigure): the drawing's
+    // box with the labels round it, never its caption, padded a little.
+    if (shapes?.length) {
+      const labels = segs.filter(s => !s.running && !s.line.running && !s.caption && !s.inCaption && !s.stop).map(s => ({ x: s.x, y: s.y, w: s.w, h: s.h }));
+      const caps = captions.map(c => ({ x: c.q.l / W, y: c.q.t / H, w: (c.q.r - c.q.l + 1) / W, h: (c.q.b - c.q.t + 1) / H }));
+      figures.forEach((f, j) => Object.assign(f, snapFigure(f, shapes, labels, caps)));
+    }
     const out = [];
     for (const c of captions) {
       if (c.fig == null) continue;
@@ -1653,5 +1706,5 @@
 
   const html = { esc, cut, ICONS, LATER, pillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

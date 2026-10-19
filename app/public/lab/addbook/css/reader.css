@@ -264,3 +264,6 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .pdf-strip__tip { outline: 1px solid var(--mr-ink); outline-offset: -1px; }
 .pdf-strip:focus-visible .pdf-strip__win { stroke: var(--mr-ink); }
 /* ---------- end position strip ---------- */
+/* A picture in the chat's thread: at most 120px tall, opening it large (Anders, 19 Oct 2026, night). */
+.tc .tc-imgs .tc-img { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; }
+.tc .tc-imgs .tc-img img { display: block; max-width: 220px; max-height: 120px; border-radius: 8px; background: #fff; }

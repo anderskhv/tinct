@@ -32,6 +32,8 @@ addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput
 const marginPress = { busy: false };
 const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-aa-panel, .lab-super-layer')) } catch { return false } };
 addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
+// The figure view (figureView) closes on Escape before anything else hears it (an open card under it stays open).
+addEventListener('keydown', e => { const v = e.key === 'Escape' && document.querySelector('.mr-figview'); if (v) { e.preventDefault(); e.stopImmediatePropagation(); v.close?.() } }, true);
 
 /* ---------- Layout: Tinct's phone/desktop classes ---------- */
 function applyLayout() {
@@ -3794,7 +3796,8 @@ const quizLive = card => { const d = col.quiz.get(card.id); return d ? { ...card
 const cardSig = (card, open) => JSON.stringify([card.u, open, col.live.get(card.id), col.defs.get(card.id) || 0, col.pending.get(card.id), state.labels ? 1 : 0, open && card.kind === 'quiz' ? card.data : 0, col.quiz.has(card.id), card.kind === 'figure' && figThumbs.has(card.id)]);
 function cardOpts(card, open) {
   const live = col.live.get(card.id);
-  const thumb = open && card.kind === 'figure' ? figThumb(card) : null;
+  // The wide column shows no picture in a figure's card: the figure is beside it (Anders, 19 Oct 2026, night).
+  const thumb = open && card.kind === 'figure' && marginMode() !== 'column' ? figThumb(card) : null;
   // Simplify compares its answer with the page and the next (simplifyAnswer): the document pasted back is never shown.
   const source = card.kind === 'simplify' ? [card.page, card.page + 1].map(n => state.texts.get(n)?.text || '').join('\n') : '';
   return { open, P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: pageLabel(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
@@ -4374,9 +4377,11 @@ function wholeMovedOn() {
   if (el && el.contains(document.activeElement)) { col.whole.page = placePage(); return false }
   return placePage() !== col.whole.page;
 }
+/* A question's attached pictures in a thread (the Chat card, the chat panel): at most 120px tall, each opening large. */
+const chatImgs = imgs => `<span class="tc-imgs">${imgs.filter(Boolean).map(u => `<button type="button" class="tc-img" data-chatimg="${esc(u)}" aria-label="Show the attached image larger"><img src="${esc(u)}" alt="Attached image"></button>`).join('')}</span>`;
 /* -- The whole-PDF thread, in its card or the phone's card -- */
 function wholeTurns() {
-  const turns = chat.turns.map(t => ({ role: t.role, text: t.role === 'user' ? (t.display || t.content) : String(t.content || '').replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, ''), at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined, note: t.failed ? `No answer — ${t.failed}` : undefined }));
+  const turns = chat.turns.map(t => ({ role: t.role, text: t.role === 'user' ? (t.display || t.content) : String(t.content || '').replace(/\n\n\*(Claude can’t|That image)[^*]*\*/g, ''), at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined, extra: t.role === 'user' && t.imgs?.length ? chatImgs(t.imgs) : undefined, note: t.failed ? `No answer — ${t.failed}` : undefined }));
   if (chat.live) turns.push({ role: 'assistant', text: chat.live.text, at: Date.now(), place: turns.at(-1)?.place });
   return turns;
 }
@@ -4448,6 +4453,11 @@ function bindCardEvents(host) {
     // A unit's pill (the wide column): its own card.
     const pill = e.target.closest('.mr-pill');
     if (pill) { pillAction(pill.dataset.pill, pill.closest('.mr-unit')?.dataset.unit); return }
+    // A figure card's small picture (narrow windows, the phone): the figure large.
+    const ci = e.target.closest('[data-chatimg]');
+    if (ci) { openChatImage(ci.dataset.chatimg); return }
+    const fv = e.target.closest('[data-figview]');
+    if (fv) { const card = cardById(fv.closest('[data-id]')?.dataset.id || col.open); if (card) openFigureView(card); return }
     const row = e.target.closest('.mr-map__row[data-page]');
     if (row) { goToCite(Number(row.dataset.page), ''); return }
     // Related: a place scrolls the file there and underlines it briefly.
@@ -5575,10 +5585,11 @@ function loadTurns() { chat.turns = (store.get('chat:' + state.key) || []).filte
 let imageLimits = null;
 async function thumbOf(blob) {
   try {
-    const bmp = await createImageBitmap(blob), k = Math.min(1, 220 / bmp.width, 160 / bmp.height);
+    // Shown at most 120px tall (a figure card's picture away from the wide column, the chat's), so three times that.
+    const bmp = await createImageBitmap(blob), k = Math.min(1, 720 / bmp.width, 360 / bmp.height);
     const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(bmp.width * k)); c.height = Math.max(1, Math.round(bmp.height * k));
     const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(bmp, 0, 0, c.width, c.height);
-    return c.toDataURL('image/jpeg', 0.7);
+    return c.toDataURL('image/jpeg', 0.86);
   } catch { return '' }
 }
 async function addAttachments(files, meta = {}) {
@@ -5592,7 +5603,9 @@ async function addAttachments(files, meta = {}) {
     }
     const max = imageLimits?.maxCount || 4;
     if (chat.attach.length >= max) { toast(`Up to ${max} images per question.`); break }
-    chat.attach.push({ ...item, kind: item.kind, snip: !!meta.snip, page: meta.page ?? item.page, text: meta.text ?? item.text, thumb: item.thumb || (item.blob ? await thumbOf(item.blob) : '') });
+    const thumb = item.thumb || (item.blob ? await thumbOf(item.blob) : '');
+    if (thumb && item.blob) fullOf.set(thumb, item.blob);
+    chat.attach.push({ ...item, kind: item.kind, snip: !!meta.snip, page: meta.page ?? item.page, text: meta.text ?? item.text, thumb });
   }
   if (!chat.el) openChat({ quiet: true }); renderTray();
   const t = chat.el?.querySelector('textarea'); if (t) { t.dispatchEvent(new Event('input')); t.focus({ preventScroll: true }) }
@@ -5642,11 +5655,15 @@ function startSnip() {
   });
 }
 function endSnip() { document.querySelector('.byob-snip')?.remove(); root.classList.remove('is-snipping') }
-async function snipImage(n, f) {
+// A crop's long side (Anders, 19 Oct 2026: Table 1 was soft in its card): at least three times the size it is shown
+// at (the figure view fills most of a window), drawn from the PDF itself, within a sane canvas. tinct-api.js sends the
+// model at most 1568 px of it; thumbnails are made from it (thumbOf), so they are sharp on a retina screen too.
+const SNIP_LONG = 2400;
+async function snipImage(n, f, { long = SNIP_LONG } = {}) {
   try {
     const page = await state.pdf.getPage(n), base = page.getViewport({ scale: 1 });
-    // Sharp enough to read small labels: aim for ~1600px across the snip, within a sane canvas size.
-    const scale = Math.max(1, Math.min(6, 1600 / (f.w * base.width), 4096 / base.width));
+    const side = Math.max(f.w * base.width, f.h * base.height, 1);
+    const scale = Math.max(1, Math.min(12, long / side));
     const vp = page.getViewport({ scale });
     const c = document.createElement('canvas'); c.width = Math.max(1, Math.round(f.w * vp.width)); c.height = Math.max(1, Math.round(f.h * vp.height));
     const g = c.getContext('2d', { alpha: false }); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
@@ -5721,6 +5738,32 @@ function figThumb(card) {
     snipImage(card.page, f).then(b => (b ? thumbOf(b) : '')).then(url => { thumbWork.delete(card.id); if (url) { figThumbs.set(card.id, url); marginLayout() } });
   }
   return { url: figThumbs.get(card.id) || '', ratio };
+}
+/* The figure large (a figure card's picture, or one in the chat; Anders, 19 Oct 2026, night): over the reader, its
+   picture drawn sharp from the PDF (snipImage); Escape, the close or a click beside it closes it. */
+const fullOf = new Map();
+function figureView(src, alt, more = null) {
+  document.querySelector('.mr-figview')?.remove();
+  const back = document.activeElement;
+  const el = document.createElement('div');
+  el.className = 'mr mr-figview'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', alt || 'Figure');
+  el.innerHTML = `<figure class="mr-figview__fig"><img alt="${esc(alt || '')}" src="${esc(src || '')}"></figure><button type="button" class="mr-figview__close" aria-label="Close">${TC?.ICONS.close || "×"}</button>`;
+  const close = el.close = () => { el.remove(); if (back?.isConnected) back.focus?.({ preventScroll: true }) };
+  el.addEventListener('click', e => { if (!e.target.closest('img')) close() });
+  root.appendChild(el);
+  el.querySelector('.mr-figview__close').focus({ preventScroll: true });
+  // The sharp picture replaces the small one when it is drawn.
+  if (more) more.then(url => { if (url && el.isConnected) el.querySelector('img').src = url }).catch(() => {});
+  return el;
+}
+function openFigureView(card) {
+  const f = TinctMargin.anchorOfCard(card)[0]; if (!f) return;
+  const label = card.data?.label || 'Figure';
+  figureView(figThumbs.get(card.id) || '', `${label} · p. ${pageLabel(card.page)}`, state.pdf ? snipImage(card.page, f).then(b => (b ? URL.createObjectURL(b) : '')) : null);
+}
+function openChatImage(src) {
+  const blob = fullOf.get(src);
+  figureView(src, 'Attached image', blob ? Promise.resolve(URL.createObjectURL(blob)) : null);
 }
 /** Explain or Chat on a figure: its card (made once per figure), opened beside it; Explain asks once. */
 function figureAction(a, item) {
@@ -5810,7 +5853,7 @@ async function figuresOff(n) {
       const tx = pdfjsLib.Util.transform(vp.transform, it.transform), size = Math.hypot(tx[2], tx[3]);
       return { x: tx[4] / vp.width, y: (tx[5] - size * 0.86) / vp.height, w: (it.width * vp.scale) / vp.width, h: (size * 1.1) / vp.height, text: it.str };
     });
-    return TinctMargin.findFigures({ ink, W, H, spans, formulas: [] });
+    return TinctMargin.findFigures({ ink, W, H, spans, formulas: [], shapes: await pageShapes(n) });
   })().catch(() => null);
   offFigs.set(key, task);
   return task;
@@ -5854,6 +5897,44 @@ async function regionPopup(box, item) {
   pop.querySelectorAll('[data-a]').forEach(b => b.onclick = () => regionAction(b.dataset.a, item));
 }
 
+/* A page's own drawing for the figures' boxes (TinctMargin.snapFigure): every painted path (its rules, lines, curves,
+   filled shapes) and every picture, each as its box in page fractions, from the page's operator list (pdf.js 3.11:
+   constructPath carries its box; the paint that follows says it is drawn, not a clip). Kept per page. */
+const shapeMemo = new Map();
+function pageShapes(n) {
+  if (isEpub() || !state.pdf) return Promise.resolve([]);
+  const k = state.key + ':' + n;
+  if (!shapeMemo.has(k)) shapeMemo.set(k, (async () => {
+    const page = await state.pdf.getPage(n), vp = page.getViewport({ scale: 1 }), list = await page.getOperatorList();
+    const O = pdfjsLib.OPS, U = pdfjsLib.Util, out = [], stack = [];
+    const PAINT = new Set([O.stroke, O.closeStroke, O.fill, O.eoFill, O.fillStroke, O.eoFillStroke, O.closeFillStroke, O.closeEOFillStroke]);
+    const IMAGE = new Set([O.paintImageXObject, O.paintInlineImageXObject, O.paintImageMaskXObject, O.paintSolidColorImageMask, O.paintImageXObjectRepeat].filter(v => v != null));
+    let ctm = [1, 0, 0, 1, 0, 0], pending = null, white = false;
+    const box = (x0, y0, x1, y1) => {
+      const m = U.transform(vp.transform, ctm), pts = [[x0, y0], [x1, y0], [x0, y1], [x1, y1]].map(([x, y]) => U.applyTransform([x, y], m));
+      const xs = pts.map(q => q[0]), ys = pts.map(q => q[1]), l = Math.min(...xs), t = Math.min(...ys);
+      return { x: l / vp.width, y: t / vp.height, w: (Math.max(...xs) - l) / vp.width, h: (Math.max(...ys) - t) / vp.height };
+    };
+    for (let i = 0; i < list.fnArray.length && out.length < 4000; i++) {
+      const fn = list.fnArray[i], a = list.argsArray[i];
+      if (fn === O.save) stack.push([ctm, white]);
+      else if (fn === O.restore) [ctm, white] = stack.pop() || [[1, 0, 0, 1, 0, 0], false];
+      else if (fn === O.transform) ctm = U.transform(ctm, a);
+      else if (fn === O.paintFormXObjectBegin) { stack.push([ctm, white]); if (Array.isArray(a?.[0])) ctm = U.transform(ctm, a[0]) }
+      else if (fn === O.paintFormXObjectEnd) [ctm, white] = stack.pop() || [[1, 0, 0, 1, 0, 0], false];
+      else if (fn === O.setFillRGBColor || fn === O.setFillGray || fn === O.setFillColor) {
+        const v = a && typeof a[0] === 'string' ? a[0] : null, nums = a && !v ? Object.values(a).filter(x => typeof x === 'number') : [];
+        white = v ? /^#f[a-f0-9]f[a-f0-9]f[a-f0-9]$/i.test(v) : nums.length > 0 && nums.every(x => x >= (nums.some(y => y > 1) ? 250 : 0.98));
+      }
+      else if (fn === O.constructPath) { const mm = a?.[2]; pending = mm && mm.length === 4 && mm.every(Number.isFinite) ? box(mm[0], mm[2], mm[1], mm[3]) : null }
+      else if (PAINT.has(fn)) { if (pending && !(white && (fn === O.fill || fn === O.eoFill))) out.push(pending); pending = null }
+      else if (fn === O.endPath) pending = null;
+      else if (IMAGE.has(fn)) out.push(box(0, 0, 1, 1));
+    }
+    return out;
+  })().catch(() => []));
+  return shapeMemo.get(k);
+}
 /* ---------- Figures: areas with ink but no running text get a hover chip (TinctMargin.findFigures) ---------- */
 async function detectFigures(p) {
   if (!p.canvas || !p.layer || p.figLayer === p.layer) return;
@@ -5865,6 +5946,8 @@ async function detectFigures(p) {
   if (token !== state.token || p.layer !== layer || !p.canvas) return;
   const complete = !text || text.ocr || !Array.isArray(text.items) || (p.spans?.length === text.items.length && p.spans.every(sp => !sp || sp.isConnected));
   if (!complete) { if ((p.figTries = (p.figTries || 0) + 1) <= 40) setTimeout(() => detectFigures(p), 300); return }
+  const shapes = await pageShapes(p.n);
+  if (token !== state.token || p.layer !== layer || !p.canvas) return;
   p.figLayer = layer; p.figTries = 0;
   const c = drawn(p), W = 240, H = Math.max(1, Math.round(W * c.height / c.width));
   const g = document.createElement('canvas'); g.width = W; g.height = H;
@@ -5873,7 +5956,7 @@ async function detectFigures(p) {
   for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0;
   const pr = p.pg.getBoundingClientRect();
   const spans = [...p.layer.querySelectorAll('span')].map(sp => { const q = sp.getBoundingClientRect(); return { x: (q.left - pr.left) / pr.width, y: (q.top - pr.top) / pr.height, w: q.width / pr.width, h: q.height / pr.height, text: sp.textContent } });
-  const found = TinctMargin.findFigures({ ink, W, H, spans, formulas: p.blocks || [] });
+  const found = TinctMargin.findFigures({ ink, W, H, spans, formulas: p.blocks || [], shapes });
   state.figs.set(p.n, found); p.figures = found.figures; p.captions = found.captions;
 }
 const hot = { el: null, key: '', sticky: false, raf: 0, timer: 0, over: false };
@@ -6114,6 +6197,8 @@ function openChat(opts = {}) {
       else if (action === 'recall') { const last = TC.lastQuestion(chat.turns, t => t.display || t.content); if (last) { e.preventDefault(); input.value = last; input.dispatchEvent(new Event('input')) } }
       else if (action === 'close') { e.preventDefault(); closeChat() }
     });
+    // An attached picture in the thread (at most 120px tall): the picture large.
+    el.addEventListener('click', e => { const b = e.target.closest('[data-chatimg]'); if (b) { e.preventDefault(); openChatImage(b.dataset.chatimg) } });
     el.querySelector('.tc-compose').addEventListener('pointerdown', e => { if (e.target.closest('button, a, input, textarea, .tc-attached, .byob-tray')) return; e.preventDefault(); input.focus() });
     const thread = el.querySelector('#thread'), latest = el.querySelector('#latest');
     TC.bindPress(thread);
@@ -6215,7 +6300,7 @@ function renderThread() {
     role: t.role, text: t.role === 'user' ? (t.display || t.content) : t.content, html: t.role === 'assistant' ? md(t.content) : undefined,
     at: t.at, place: placeOf(t), quote: t.role === 'user' ? t.passage : undefined,
     note: t.failed ? `No answer — ${t.failed}` : undefined,
-    extra: t.imgs?.length ? `<span class="tc-imgs">${t.imgs.map(u => `<img src="${esc(u)}" alt="Attached image">`).join('')}</span>` : '',
+    extra: t.imgs?.length ? chatImgs(t.imgs) : '',
   }));
   if (chat.live) turns.push({ role: 'assistant', text: chat.live.text, html: chat.live.text ? md(chat.live.text) : '', place: turns.at(-1)?.place });
   thread.innerHTML = TC.threadHtml(turns, { streaming: !!chat.live });

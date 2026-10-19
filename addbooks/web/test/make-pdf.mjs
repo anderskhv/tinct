@@ -526,11 +526,12 @@ export function sectionPaper() {
   }
   // Page 14: Table 1, a box of 2 x 2 cells with its headers, the row label upwards at its left, the caption under it.
   const t = pages[13];
+  // Header "Output" above the box and "Input" left of it, outside its rules, as in the PDF.
   t.draw = '0.6 w 190 350 250 190 re S 240 350 m 240 540 l S 190 500 m 440 500 l S 340 350 m 340 520 l S 240 425 m 440 425 l S';
   t.lines.push(
-    { x: 365, y: 525, size: 9, font: 'Times-Roman', text: 'Output' },
+    { x: 365, y: 545, size: 9, font: 'Times-Roman', text: 'Output' },
     { x: 262, y: 505, size: 9, font: 'Times-Roman', text: 'Abstract' }, { x: 362, y: 505, size: 9, font: 'Times-Roman', text: 'Physical' },
-    { x: 205, y: 405, size: 9, font: 'Times-Roman', text: 'Input', rotate: 90 },
+    { x: 184, y: 405, size: 9, font: 'Times-Roman', text: 'Input', rotate: 90 },
     { x: 246, y: 470, size: 9, font: 'Times-Roman', text: 'Abstract' }, { x: 246, y: 390, size: 9, font: 'Times-Roman', text: 'Physical' },
     { x: 262, y: 460, size: 11, font: 'Times-Roman', text: 'Computation' }, { x: 356, y: 460, size: 11, font: 'Times-Roman', text: 'Preparation' },
     { x: 260, y: 385, size: 11, font: 'Times-Roman', text: 'Measurement' }, { x: 352, y: 385, size: 11, font: 'Times-Roman', text: 'Other construction' },
