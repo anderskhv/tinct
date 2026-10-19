@@ -357,7 +357,8 @@ describe('a PDF read as its Tinct text', () => {
     expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-v2-main-edition'))
     const options = [...body.querySelectorAll('.lab-v2-edition-option')].map(option => [option.textContent?.replace('✓', '').trim(), option.getAttribute('aria-pressed')])
-    expect(options).toEqual([['Tinct text', 'true'], ['Original pages', 'false']])
+    // On the desktop its pages are named as an EPUB's Margin view is (19 Oct 2026: the way back); a phone says Original pages.
+    expect(options).toEqual([['Tinct text', 'true'], ['Margin view (original pages)', 'false']])
   })
 
   it('picking Original pages opens the viewer at the same spot, kept and sent as the PDF\u2019s one place', async () => {
@@ -368,7 +369,7 @@ describe('a PDF read as its Tinct text', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     fireEvent.click(await screen.findByTestId('lab-v2-main-edition'))
-    fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Original pages'))!)
+    fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Margin view (original pages)'))!)
     expect(assign).toHaveBeenCalledWith(`/lab/addbook/?userBook=${HEX}&page=4`)
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`) || 'null')).toMatchObject({ page: 4, chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, converter: 1, edition: 'p' })
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:edition:${HEX}`) || 'null')).toBe('pages')

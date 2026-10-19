@@ -350,7 +350,9 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
     await keepFields(key, owner, { edition }).catch(() => {})
   }
   // Read in Original pages: on to the viewer at once (its Tinct text is made when the reader picks it).
-  if (!edition && (pdfEditionChoice(hex, layout) === 'pages' || pdfEditionUntold(hex, layout))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  // The desktop's own rule (its pages, 19 Oct 2026) is applied below, after the Tinct text is made and kept for a switch.
+  const beforeOpen = { desktopPages: false }
+  if (!edition && (pdfEditionChoice(hex, layout, undefined, beforeOpen) === 'pages' || pdfEditionUntold(hex, layout, undefined, beforeOpen))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     let made: ConvertedPdf | null = null
