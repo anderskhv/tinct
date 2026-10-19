@@ -5910,6 +5910,19 @@ function pageShapes(n) {
     const PAINT = new Set([O.stroke, O.closeStroke, O.fill, O.eoFill, O.fillStroke, O.eoFillStroke, O.closeFillStroke, O.closeEOFillStroke]);
     const IMAGE = new Set([O.paintImageXObject, O.paintInlineImageXObject, O.paintImageMaskXObject, O.paintSolidColorImageMask, O.paintImageXObjectRepeat].filter(v => v != null));
     let ctm = [1, 0, 0, 1, 0, 0], pending = null, white = false;
+    // A path's box from its own points (the curves' control points too: pdf.js 3.11's minMax leaves curves out).
+    const pathBox = (ops, args) => {
+      if (!Array.isArray(ops) || !args) return null;
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity, k = 0;
+      const at = (x, y) => { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y };
+      for (const op of ops) {
+        const n = op === O.rectangle ? 4 : op === O.curveTo ? 6 : op === O.curveTo2 || op === O.curveTo3 ? 4 : op === O.moveTo || op === O.lineTo ? 2 : 0;
+        if (op === O.rectangle) { at(args[k], args[k + 1]); at(args[k] + args[k + 2], args[k + 1] + args[k + 3]) }
+        else for (let j = 0; j < n; j += 2) at(args[k + j], args[k + j + 1]);
+        k += n;
+      }
+      return x1 >= x0 && Number.isFinite(x0 + y0 + x1 + y1) ? box(x0, y0, x1, y1) : null;
+    };
     const box = (x0, y0, x1, y1) => {
       const m = U.transform(vp.transform, ctm), pts = [[x0, y0], [x1, y0], [x0, y1], [x1, y1]].map(([x, y]) => U.applyTransform([x, y], m));
       const xs = pts.map(q => q[0]), ys = pts.map(q => q[1]), l = Math.min(...xs), t = Math.min(...ys);
@@ -5926,7 +5939,7 @@ function pageShapes(n) {
         const v = a && typeof a[0] === 'string' ? a[0] : null, nums = a && !v ? Object.values(a).filter(x => typeof x === 'number') : [];
         white = v ? /^#f[a-f0-9]f[a-f0-9]f[a-f0-9]$/i.test(v) : nums.length > 0 && nums.every(x => x >= (nums.some(y => y > 1) ? 250 : 0.98));
       }
-      else if (fn === O.constructPath) { const mm = a?.[2]; pending = mm && mm.length === 4 && mm.every(Number.isFinite) ? box(mm[0], mm[2], mm[1], mm[3]) : null }
+      else if (fn === O.constructPath) pending = pathBox(a?.[0], a?.[1]);
       else if (PAINT.has(fn)) { if (pending && !(white && (fn === O.fill || fn === O.eoFill))) out.push(pending); pending = null }
       else if (fn === O.endPath) pending = null;
       else if (IMAGE.has(fn)) out.push(box(0, 0, 1, 1));
