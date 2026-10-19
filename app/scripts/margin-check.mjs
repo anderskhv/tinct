@@ -938,13 +938,15 @@ async function behaviour(browser, origin) {
   if (!process.env.NO_SHOTS) await Ph.page.screenshot({ path: join(OUT, 'prc-phone-title-390x844.png'), clip: { x: 0, y: 0, width: 390, height: 120 } })
   ok('phone: no page errors', !Ph.problems.length, Ph.problems)
   await Ph.ctx.close()
-  // EPUB_MARGIN is off: an EPUB read here behaves as before (the selection popup, no margin).
-  {
-    const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
+  // EPUB_MARGIN (19 Oct 2026, Anders: EPUBs in Margin view on the desktop): at a desktop's width an EPUB read here has the
+  // margin (its bar, no popup); at a phone's width (where phones read EPUBs in the Tinct reader) it behaves as before.
+  for (const [width, height, on] of [[1440, 900, true], [390, 844, false]]) {
+    const E = await openEpubHere(browser, origin, { width, height, look: 'paper', margin: false })
     await E.page.evaluate(() => goTo({ page: 3, frac: 0.02 })); await E.page.waitForTimeout(500)
     await E.page.evaluate(selectEpub, { ch: 3, nth: 1 }); await E.page.waitForTimeout(700)
-    const off = await E.page.evaluate(() => ({ on: marginOn(), col: !!document.querySelector('.mr-col:not([hidden])'), bar: !!document.querySelector('.mr-bar'), popup: !!document.querySelector('.selection-popup') }))
-    ok('EPUB_MARGIN off: an EPUB has no margin and keeps the selection popup', !off.on && !off.col && !off.bar && off.popup, off)
+    const got = await E.page.evaluate(() => ({ on: marginOn(), col: !!document.querySelector('.mr-col:not([hidden])'), bar: !!document.querySelector('.mr-bar, .mr-pbar'), popup: !!document.querySelector('.selection-popup') }))
+    if (on) ok('EPUB_MARGIN on the desktop: an EPUB has the margin (its bar, no selection popup)', got.on && got.bar && !got.popup, got)
+    else ok('EPUB_MARGIN at a phone\'s width: an EPUB has no margin and keeps the selection popup', !got.on && !got.col && !got.bar && got.popup, got)
     await E.ctx.close()
   }
   ok('no page errors', !A.problems.length, A.problems)
