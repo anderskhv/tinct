@@ -11,13 +11,15 @@
  * instead (name, picture, background; signUpSteps.ts), once (15 Oct 2026).
  */
 import { supabase } from '../services/supabase'
-import { fetchOwnProfile, ownPictureView, paintAvatar, saveProfile, currentBookHint } from '../social/socialClient'
+import { fetchOwnProfile, ownPictureView, paintAvatar, privateImageUrl, saveProfile, currentBookHint } from '../social/socialClient'
 import { cardUrl } from './cardRoutes'
 import { consumeCardParam, openAccountCards, sessionStorageState, storedSession, type CardName } from './openCards'
 import { clearCardsCache, readCardsCache } from './cardsCache'
 import { trackFunnel } from '../utils/funnel'
 import { NEUTRAL_READER_NAME } from './cardsCopy'
 import type { OwnProfile } from '../social/socialClient'
+import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, paintCachedAvatar, readAvatarCache, writeAvatarCache } from './avatarCache'
+import type { PictureView } from '../social/profileRules'
 
 /** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
 export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
@@ -120,16 +122,20 @@ async function start(pending: CardName | null): Promise<void> {
   const style = document.createElement('style')
   style.textContent = STYLE
   document.head.append(style)
+  // boot.js may already show this device's copy on the bare button (--own-avatar, from
+  // the page's head); this disc takes its place at the same size: no shift, no second picture.
   const avatar = document.createElement('span')
   if (pending) open(pending)
-  // At once, from the session stored in this browser and this device's last
-  // profile: the picture the reader chose, else an empty disc. Never a
-  // stand-in letter ("R" for "Reader" showed for seconds on iPhone, where
-  // getSession() can wait behind a token refresh).
+  // At once, from the session stored in this browser and this device's copy of
+  // the reader's own picture (avatarCache.ts), else the last profile the cards
+  // showed: the picture the reader chose, else an empty disc. Never a stand-in
+  // letter ("R" for "Reader" showed for seconds on iPhone, where getSession()
+  // can wait behind a token refresh).
   const stored = storedSession()
-  const known = readCardsCache(stored?.session.userId ?? null)?.profile ?? null
-  const show = (token: string) => {
-    paintAvatar(avatar, known ? ownPictureView(known) : { kind: 'initial', initial: '' }, token)
+  let userId = stored?.session.userId ?? null
+  const kept = readAvatarCache(userId)
+  const known = readCardsCache(userId)?.profile ?? null
+  const mount = () => {
     // Looked up now: the header may have been drawn again since the script loaded.
     const button = document.getElementById('sign-in')
     if (button && !button.contains(avatar)) {
@@ -138,23 +144,47 @@ async function start(pending: CardName | null): Promise<void> {
       button.setAttribute('aria-label', 'You')
     }
   }
+  const show = (token: string) => {
+    if (kept) paintCachedAvatar(avatar, kept.src)
+    else paintAvatar(avatar, known ? headerPictureView(ownPictureView(known)) : { kind: 'initial', initial: '' }, token)
+    mount()
+  }
   if (stored) show(stored.session.token)
   let token = stored?.fresh ? stored.session.token : ''
   if (!token) {
     const { data } = await supabase.auth.getSession()
     token = data.session?.access_token ?? ''
+    userId = userId ?? data.session?.user.id ?? null
   }
   if (!token) return
   if (!stored) show(token)
   const result = await fetchOwnProfile(token, currentBookHint())
   if (!result.ok) return
-  paintAvatar(avatar, ownPictureView(result.profile), token)
-  const userId = stored?.session.userId ?? (await supabase.auth.getSession()).data.session?.user.id ?? null
+  // Then the profile: the same picture keeps the copy already shown (nothing is
+  // downloaded); a different one is painted and a new copy kept for next time.
+  const view = headerPictureView(ownPictureView(result.profile))
+  const sig = avatarSignature(view)
+  if (!kept || kept.sig !== sig) {
+    paintAvatar(avatar, view, token)
+    mount()
+    if (sig && view.kind === 'image') void keepAvatar(userId, sig, view, token)
+    else clearAvatarCache(userId)
+  }
   if (userId && legacyProfileStepDue(result.profile, userId)) {
     offerLegacyProfileStep(token, userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
     return
   }
   if (result.profile.shouldPrompt) showPrompt(token)
+}
+
+/** Keep a small copy of the reader's own header picture on this device (avatarCache.ts). */
+async function keepAvatar(userId: string | null, sig: string, view: Extract<PictureView, { kind: 'image' }>, token: string): Promise<void> {
+  if (!userId) return
+  const src = view.private ? await privateImageUrl(token, view.src) : view.src
+  if (!src) return
+  const copy = await captureAvatar(view, src)
+  // Still this reader's browser: a sign-out or account switch meanwhile keeps nothing.
+  if (copy && storedSession()?.session.userId === userId) writeAvatarCache(userId, { sig, src: copy })
 }
 
 function showPrompt(token: string) {

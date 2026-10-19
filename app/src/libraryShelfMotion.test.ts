@@ -141,10 +141,12 @@ describe('every removal path uses the motion', () => {
     // every module above them on the way to index.html; the wait ring (20261014talkwake, wait-ring.js)
     // changed add-to-tinct.js, app.js and styles.css again; cover-assets.js stays under 20261009owncover.
     // A book opening with the connection to itself (20261015quietopen, quiet-loads.js) changed app.js alone.
+    // The reader's own picture from the first paint (20261019avatar) changed boot.js and styles.css.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake'
     expect(lib('index.html')).toContain('app.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
-    expect(lib('index.html')).toContain(`styles.css?v=${ocr}`)
+    expect(lib('index.html')).toContain('styles.css?v=20261019avatar')
+    expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
     expect(lib('app.js')).toContain(`bookshelf.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ocr}`)

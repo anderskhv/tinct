@@ -86,6 +86,12 @@ describe('own books and the AI features', () => {
     expect(privacy).toContain('A person at Tinct looks at each uploaded photo before other readers can see it')
   })
 
+  // The library header keeps a small copy of the reader's own picture on the device (src/cards/avatarCache.ts, 19 Oct 2026).
+  it('privacy: names the small copy of the reader\'s own picture kept in the browser', () => {
+    expect(privacyText).toContain('offline and cache data (including a small copy of your own profile picture, so the library can show it at once)')
+    expect(privacyText).toContain('Signing out removes your reading data and the device identifier from the browser.')
+  })
+
   // Highlights and notes in an own PDF kept with the book in the account (margin reader PR 1a, 14 Oct 2026).
   it('privacy: says a PDF\'s highlights and notes are kept with the book in the account and deleted with it', () => {
     expect(privacyText).toContain('The highlights and notes you make in a PDF you added (the passage, where it is on the page, its colour and your note) are kept in your browser and, if you are signed in and the book is in your account, privately with it in your account with Cloudflare (R2), so they show on your other devices; they are deleted with the book.')

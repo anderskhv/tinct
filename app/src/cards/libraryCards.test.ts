@@ -182,6 +182,66 @@ describe('the library picture', () => {
   })
 })
 
+describe('the library picture from this device\'s copy (Anders, 19 October 2026)', () => {
+  const SRC = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ=='
+  const profile = (picture: Record<string, unknown>) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', picture, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false } })
+  async function startWith(answer: unknown) {
+    vi.resetModules()
+    document.documentElement.classList.add('signed-in')
+    const requests: string[] = []
+    let respond: () => void = () => {}
+    const answered = new Promise<void>(resolve => { respond = resolve })
+    vi.stubGlobal('fetch', vi.fn((url: string) => {
+      requests.push(String(url))
+      if (!String(url).startsWith('/api/profile')) return new Promise<Response>(() => {})
+      return answered.then(() => new Response(JSON.stringify(answer), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+    }))
+    await import('./libraryCards')
+    await Promise.resolve()
+    return { requests, respond, disc: () => document.querySelector<HTMLElement>('#sign-in.cards-you .tinct-avatar') }
+  }
+  const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
+
+  it('paints the kept copy before the profile answers, and keeps it when the picture is the same', async () => {
+    storeSession(3600)
+    const { avatarSignature, headerPictureView, writeAvatarCache } = await import('./avatarCache')
+    const painting = { kind: 'image' as const, src: '/lab/library_2/assets/meditations.jpg', pos: '50% 34%', cover: true }
+    writeAvatarCache(USER, { sig: avatarSignature(headerPictureView(painting))!, src: SRC })
+    const run = await startWith(profile({ kind: 'set', value: 'stoic', url: null }))
+    expect(run.disc()?.style.backgroundImage).toBe(`url("${SRC}")`)
+    run.respond()
+    await settle()
+    expect(run.requests.some(url => url.startsWith('/api/profile'))).toBe(true)
+    // The same picture: the copy stays, and the painting is not downloaded at all.
+    expect(run.disc()?.style.backgroundImage).toBe(`url("${SRC}")`)
+  })
+
+  it('a picture changed elsewhere replaces the copy, from the painting\'s small file', async () => {
+    storeSession(3600)
+    const { writeAvatarCache } = await import('./avatarCache')
+    writeAvatarCache(USER, { sig: 'an older picture', src: SRC })
+    const run = await startWith(profile({ kind: 'set', value: 'at-sea', url: null }))
+    expect(run.disc()?.style.backgroundImage).toBe(`url("${SRC}")`)
+    run.respond()
+    await settle()
+    expect(run.disc()?.style.backgroundImage).toBe('url("/lab/library_2/assets/covers/odyssey-480.webp")')
+    expect(document.querySelectorAll('#sign-in .tinct-avatar')).toHaveLength(1)
+  })
+
+  it('never paints another account\'s copy, and a profile with no picture drops this one\'s', async () => {
+    storeSession(3600)
+    const { readAvatarCache, writeAvatarCache } = await import('./avatarCache')
+    writeAvatarCache('22222222-2222-4222-8222-222222222222', { sig: 's', src: SRC })
+    writeAvatarCache(USER, { sig: 's', src: SRC.replace('==', 'AA') })
+    const run = await startWith(profile({ kind: 'initial', value: null, url: null }))
+    expect(run.disc()?.style.backgroundImage).not.toContain(SRC)
+    run.respond()
+    await settle()
+    expect(run.disc()?.dataset.kind).toBe('initial')
+    expect(readAvatarCache(USER)).toBeNull()
+  })
+})
+
 describe('the profile step for an older account (Anders, 15 October 2026)', () => {
   it('once, for a profile never set up that still has the neutral name', async () => {
     const { legacyProfileStepDue, legacyProfileStepUrl, LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
