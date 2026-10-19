@@ -2,6 +2,7 @@ import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import { flushSync } from 'react-dom'
 import type { CharacterSelection } from '../../services/characters/characterCards'
+import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
 import type { SelectionSegment } from './selectionGeometry'
@@ -392,7 +393,7 @@ export function SelectionPopup({
           {popupMode === 'character' && card && <>
             <h2>{card.name}</h2>
             {roleLabel && <small>{roleLabel}</small>}
-            <p className="popup-character-subtitle">{card.subtitle}</p>
+            {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
             <p>{card.body}</p>
 
           </>}
