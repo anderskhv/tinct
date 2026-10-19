@@ -57,7 +57,8 @@ export function makePdf({ info = {}, pages = [], outline = [] } = {}) {
     for (const l of pg.lines || []) {
       const f = fonts.indexOf(l.font || 'Times-Roman') + 1;
       if (f < 1) throw new Error('unknown font ' + l.font);
-      ops += `BT /F${f} ${l.size || 11} Tf ${l.x ?? 72} ${l.y} Td ${textBytes(l.text)} Tj ET\n`;
+      // `rotate: 90`: set upwards (a table's row label, read bottom to top).
+      ops += l.rotate === 90 ? `BT /F${f} ${l.size || 11} Tf 0 1 -1 0 ${l.x ?? 72} ${l.y} Tm ${textBytes(l.text)} Tj ET\n` : l.mcid != null ? `/Span <</MCID ${l.mcid}>> BDC BT /F${f} ${l.size || 11} Tf 1 0 0 1 ${l.x ?? 72} ${l.y} Tm ${textBytes(l.text)} Tj ET EMC\n` : `BT /F${f} ${l.size || 11} Tf ${l.x ?? 72} ${l.y} Td ${textBytes(l.text)} Tj ET\n`;
     }
     const content = Buffer.from(ops, 'latin1');
     const contentId = add(Buffer.concat([Buffer.from(`<< /Length ${content.length} >>\nstream\n`, 'latin1'), content, Buffer.from('\nendstream', 'latin1')]));
@@ -495,6 +496,53 @@ export function longBook({ bigImages = 0, meta = false, bookmarks = true } = {})
   for (let k = 0; k < bigImages; k++) pages[spots[Math.floor(k * spots.length / bigImages)]].images.push({ x: 72, y: 100, w: 468, h: 60, pw: 1024, ph: 1024, noise: k + 1 });
   const bytes = makePdf({ info: { Title: 'Learning from Reward', Author: 'Ann Example and Bo Sample' }, outline: bookmarks ? outline : [], pages: pages.map(pg => ({ lines: pg.lines, images: pg.images })) });
   return meta ? { bytes, meta: { offset: LONG_BOOK_OFFSET, pages: pages.length, sarsaPage, figurePage, chapters, refsFrom, indexFrom } } : bytes;
+}
+
+// 9. A paper of numbered sections (Anders, 19 Oct 2026, night: the unit marks), Constructor Theory's shape: 20 pages,
+//    sections that start mid-page (1, 1.1, 2, 2.1 …) in a flat outline, short ones joined into their neighbour by
+//    TinctMargin.sizeUnits, a page number at each foot. Page 14 has its table boxed in rules, the row label set upwards
+//    and its caption in pieces set close ("Table", "1", ": A c", "lassification of constructions"), as the PDF does.
+export const SECTION_HEADS = [
+  ['1 Introduction', 1, 700], ['1.1 Constructors', 2, 520], ['2 Motivations', 4, 430], ['2.1 Catalysis', 5, 600],
+  ['2.2 Substrates', 7, 360], ['3 Information', 9, 470], ['3.1 Media', 11, 640], ['4 Superinformation', 15, 700],
+  ['5 Conclusion', 18, 400], ['References', 19, 700],
+];
+export function sectionPaper() {
+  breaks = 0;
+  const pages = Array.from({ length: 20 }, (_, i) => ({ lines: [], draw: '' }));
+  for (let n = 1; n <= 20; n++) {
+    const pg = pages[n - 1], heads = SECTION_HEADS.filter(h => h[1] === n).map(h => h[2]);
+    let y = 720;
+    if (n === 1) { pg.lines.push({ x: 160, y: 740, size: 18, font: 'Times-Bold', text: 'A Theory of Constructions' }); y = 720 }
+    const stop = n === 14 ? [[560, 315]] : [];
+    for (let line = 0; y > 90; line++) {
+      const h = heads.find(v => v <= y + 2 && v > y - 15);
+      if (h) { const t = SECTION_HEADS.find(x => x[1] === n && x[2] === h)[0]; pg.lines.push({ x: 72, y: h, size: /^\d+\.\d/.test(t) ? 11 : 13, font: 'Times-Bold', text: t }); y = h - 24; continue }
+      const gap = stop.find(([a, b]) => y <= a && y > b);
+      if (gap) { y = gap[1]; continue }
+      pg.lines.push(...prose(y, 1, { from: n * 53 + line * 11 })); y -= 15;
+    }
+    pg.lines.push({ x: 300, y: 50, size: 9, font: 'Times-Roman', text: String(n) });
+  }
+  // Page 14: Table 1, a box of 2 x 2 cells with its headers, the row label upwards at its left, the caption under it.
+  const t = pages[13];
+  t.draw = '0.6 w 190 350 250 190 re S 240 350 m 240 540 l S 190 500 m 440 500 l S 340 350 m 340 520 l S 240 425 m 440 425 l S';
+  t.lines.push(
+    { x: 365, y: 525, size: 9, font: 'Times-Roman', text: 'Output' },
+    { x: 262, y: 505, size: 9, font: 'Times-Roman', text: 'Abstract' }, { x: 362, y: 505, size: 9, font: 'Times-Roman', text: 'Physical' },
+    { x: 205, y: 405, size: 9, font: 'Times-Roman', text: 'Input', rotate: 90 },
+    { x: 246, y: 470, size: 9, font: 'Times-Roman', text: 'Abstract' }, { x: 246, y: 390, size: 9, font: 'Times-Roman', text: 'Physical' },
+    { x: 262, y: 460, size: 11, font: 'Times-Roman', text: 'Computation' }, { x: 356, y: 460, size: 11, font: 'Times-Roman', text: 'Preparation' },
+    { x: 260, y: 385, size: 11, font: 'Times-Roman', text: 'Measurement' }, { x: 352, y: 385, size: 11, font: 'Times-Roman', text: 'Other construction' },
+  );
+  // The caption in the PDF's own pieces, each set where the one before ends (no space glyph between them but after "Table").
+  let cx = 214;
+  for (const piece of ['Table', ' ', '1', ': A c', 'lassification of constructions']) {
+    if (piece !== ' ') t.lines.push({ x: +cx.toFixed(2), y: 338, size: 9, font: 'Times-Roman', text: piece, mcid: t.lines.length });
+    cx += timesWidth(piece, 9);
+  }
+  const outline = SECTION_HEADS.map(([title, page]) => ({ title, page }));
+  return makePdf({ info: { Title: 'A Theory of Constructions' }, pages, outline });
 }
 
 export function pdfFixtures() {

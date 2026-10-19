@@ -91,7 +91,9 @@
 //                                                     its room; no Full width; phones and Tinct text keep the slider
 //   node scripts/margin-check.mjs margin-notes      19 Oct, evening (3): a note from a click on the empty margin, at that height;
 //                                                     fold first; empty goes; kept, synced, reloaded; Ask makes it a chat
-//   node scripts/margin-check.mjs unit-pills        19 Oct, evening (1): each unit's pills on the wide column (Primer, Catch me up;
+//   node scripts/margin-check.mjs unit-marks        19 Oct, night (1): each unit's marks on the wide column, level with its heading and
+//                                                     its last line (Primer, Catch me up; Recap, Quiz me, Note), the chapter menu's actions (unit-pills: the same)
+//   node scripts/margin-check.mjs unit-pills        (old name) 19 Oct, evening (1): each unit's pills on the wide column (Primer, Catch me up;
 //                                                     Recap, Quiz me, Note), their cards; a file without units; phones unchanged
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
@@ -119,8 +121,11 @@ const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium
 const [mode = 'fixture', ...args] = process.argv.slice(2)
 const PDFS = args.length ? args : [join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf'), join(REPO, 'addbooks/web/test/pdf-fixtures/two_column_paper.pdf')]
 // A book of 40 pages or more, with an outline: its top-level entries are the primer's units (a shorter PDF is one unit).
-const { proseBook, makePdf, prose, figurePaper, longBook, marginPaper, justifiedPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
+const { proseBook, makePdf, prose, figurePaper, longBook, marginPaper, justifiedPaper, sectionPaper } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-pdf.mjs')).href)
 const LONG_BOOK = join(OUT, 'long_prose_book.pdf')
+// 19 Oct 2026, night: a 20-page paper of numbered sections starting mid-page (the unit marks), its Table 1 boxed in rules.
+const SECTION_PAPER = join(OUT, 'section_paper.pdf')
+writeFileSync(SECTION_PAPER, sectionPaper())
 writeFileSync(LONG_BOOK, proseBook({ paragraphs: 48 }))
 // FIXES-2026-10-15 items 4–7: a paper of figures (a labelled network diagram, a block diagram at the page's left edge, a table, a large figure).
 const FIGURE_PAPER = join(OUT, 'figure_paper.pdf')
@@ -147,7 +152,7 @@ export const SELECTORS = {
   menu: '.mr-more, .mr-pmore, .mr-define, .mr-note',
   // PR 3: the primer's trigger and the primer are blocks of the column, as cards are (no overlap, never off screen).
   // Since 15 Oct the "Deleted · Undo" line keeps a deleted card's place in the column: a block, as the cards are.
-  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer, .mr-col .mr-undo, .mr-col .mr-pills',
+  card: DEFAULT_SELECTORS.card + ', .mr-trigger, .mr-primer, .mr-col .mr-undo, .mr-col .mr-unit',
   text: DEFAULT_SELECTORS.text + ', .mr-note *, .mr-stack, .mr-stack *, .mr-foot *, .mr-trigger',
   tap: DEFAULT_SELECTORS.tap + ', .mr-pmore > button, .mr-note__foot .mr-bar__item, .mr-mark, .mr-trigger, .mr-pill, .mr-primer__close, .mr-map__row, .mr-quiz-row, .mr-primer__foot button',
 }
@@ -171,7 +176,7 @@ const asideOutOfView = () => {
   const sr = s.getBoundingClientRect(), top = Math.max(sr.top, document.getElementById('hdr')?.getBoundingClientRect().bottom || 0)
   const chat = document.querySelector('.mr-col:not(.mr-doc) .mr-card.is-whole.is-open')?.getBoundingClientRect()
   let n = 0
-  for (const el of document.querySelectorAll('.mr-doc > .mr-card, .mr-doc > .mr-trigger, .mr-doc > .mr-pills, .mr-doc > .mr-primer, .mr-doc > .mr-undo')) {
+  for (const el of document.querySelectorAll('.mr-doc > .mr-card, .mr-doc > .mr-trigger, .mr-doc > .mr-unit, .mr-doc > .mr-primer, .mr-doc > .mr-undo')) {
     const r = el.getBoundingClientRect()
     const under = chat && Math.min(r.bottom, chat.bottom) - Math.max(r.top, chat.top) > 0
     if (r.top < top - 0.5 || r.bottom > sr.bottom + 0.5 || under) { el.dataset.mcAside = el.style.visibility; el.style.visibility = 'hidden'; n++ }
@@ -1005,7 +1010,7 @@ async function primerBehaviour(browser, origin) {
   const unitPages = u => u.to - u.start + 1
   const r0 = chats().length
   const trig = await a.evaluate(() => {
-    const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'), row = t?.closest('.mr-pills'); if (!t) return null
+    const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'), row = t?.closest('.mr-unit'); if (!t) return null
     const span = getComputedStyle(t.querySelector('span'))
     // Its unit's first page's top, measured in the column (19 Oct 2026, evening: the page's top, never its first line of text).
     const p = state.pages[(primer.units?.[0]?.from || 1) - 1]
@@ -1059,7 +1064,7 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('Escape')
   // The next unit's start offers its own trigger; the middle of a unit offers none.
   await a.evaluate(n => goTo({ page: n, frac: 0 }), units[1].start); await a.waitForTimeout(700)
-  const t5 = await a.evaluate(n => document.querySelector(`.mr-col .mr-pills[data-unit="${primer.units.find(u => u.start === n)?.key}"] .mr-pill[data-pill="primer"]`)?.getAttribute('aria-label'), units[1].start)
+  const t5 = await a.evaluate(n => document.querySelector(`.mr-col .mr-unit[data-unit="${primer.units.find(u => u.start === n)?.key}"] .mr-pill[data-pill="primer"]`)?.getAttribute('aria-label'), units[1].start)
   await a.evaluate(n => goTo({ page: n, frac: 0.3 }), units[1].start + 1); await a.waitForTimeout(700)
   // (The trigger is part of the page at its unit's start since 19 Oct 2026: in the middle of a unit none is in view.)
   const t6 = await a.evaluate(() => { const t = [...document.querySelectorAll('.mr-col .mr-pill[data-pill="primer"]')].find(x => { const r = x.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom }); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
@@ -2240,7 +2245,7 @@ async function polish(browser, origin) {
     const layout = async state => { await a.waitForTimeout(250); problems.push(...(await checkMargin(a)).map(p => ({ state, ...p }))) }
     const mode = await a.evaluate(() => marginMode())
     // 1. No whole-PDF bar at the margin's foot.
-    const foot = await a.evaluate(() => ({ foot: !!document.querySelector('.mr-foot, .mr-foot__input, .mr-foot__hint, .mr-key'), words: /the whole PDF/.test(document.querySelector('.mr-col')?.innerText || '') && !document.querySelector('.mr-col .mr-trigger, .mr-col .mr-pills') }))
+    const foot = await a.evaluate(() => ({ foot: !!document.querySelector('.mr-foot, .mr-foot__input, .mr-foot__hint, .mr-key'), words: /the whole PDF/.test(document.querySelector('.mr-col')?.innerText || '') && !document.querySelector('.mr-col .mr-trigger, .mr-col .mr-unit') }))
     ok(`${tag}: no whole-PDF line, field or mic at the margin's foot`, !foot.foot && !foot.words, foot)
     // 2. The caret: nothing drawn as one; the hint after "Ask" thin, in the accent, a gentle blink.
     ok(`${tag}: no caret element anywhere in the margin`, await a.evaluate(() => !document.querySelector('.mr-caret')))
@@ -2268,7 +2273,7 @@ async function polish(browser, origin) {
     ok(`${tag}: delete takes the card away at once (no confirm), leaves a tombstone, and says "Deleted · Undo"`, !gone.open && !gone.shown && gone.stored?.gone === true && gone.undo === 'Deleted · Undo', gone)
     await layout('undo')
     if (look === 'paper') await shot(a, `${tag}-undo`)
-    const undoOverlap = await a.evaluate(() => { const u = document.querySelector('.mr-undo:not([hidden])')?.getBoundingClientRect(); if (!u) return 'none'; return [...document.querySelectorAll('.mr-col .mr-card:not([hidden]), .mr-col .mr-pills, .mr-col .mr-trigger, .mr-sheet')].some(c => { const r = c.getBoundingClientRect(); return Math.min(r.right, u.right) - Math.max(r.left, u.left) > 1 && Math.min(r.bottom, u.bottom) - Math.max(r.top, u.top) > 1 }) })
+    const undoOverlap = await a.evaluate(() => { const u = document.querySelector('.mr-undo:not([hidden])')?.getBoundingClientRect(); if (!u) return 'none'; return [...document.querySelectorAll('.mr-col .mr-card:not([hidden]), .mr-col .mr-unit, .mr-col .mr-trigger, .mr-sheet')].some(c => { const r = c.getBoundingClientRect(); return Math.min(r.right, u.right) - Math.max(r.left, u.left) > 1 && Math.min(r.bottom, u.bottom) - Math.max(r.top, u.top) > 1 }) })
     ok(`${tag}: the undo line covers no card`, undoOverlap === false, undoOverlap)
     await a.click('.mr-undo button'); await a.waitForTimeout(500)
     const back = await a.evaluate(id => ({ stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: !!document.querySelector('.mr-undo:not([hidden])') }), made)
@@ -2342,7 +2347,7 @@ async function polish(browser, origin) {
         const run = await a.evaluate(() => new Promise(res => {
           // (Its trigger is the unit's Primer pill on the wide column since 19 Oct 2026, evening: it opens under the pills.)
           const t = document.querySelector('.mr-col .mr-pill[data-pill="primer"]'); if (!t) return res(null)
-          const r = t.closest('.mr-pills').getBoundingClientRect(), trig = { top: r.bottom, height: r.height }, frames = [], t0 = performance.now()
+          const r = t.closest('.mr-unit').getBoundingClientRect(), trig = { top: r.bottom, height: r.height }, frames = [], t0 = performance.now()
           t.click()
           const tick = () => { const p = document.querySelector('.mr-col .mr-primer'); if (p) { const b = p.getBoundingClientRect(); frames.push({ top: b.top, height: b.height, bottom: document.querySelector('.mr-col').getBoundingClientRect().bottom - b.bottom }) } if (performance.now() - t0 < 600) requestAnimationFrame(tick); else res({ trig: { top: trig.top, height: trig.height }, frames }) }
           requestAnimationFrame(tick)
@@ -3635,9 +3640,9 @@ async function columnPage(browser, origin) {
     await shot(a, `${tag}-after`)
     // Before you start is at its unit's first page, part of the page too.
     await a.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }); onScroll() }); await a.waitForTimeout(700)
-    const t1 = await a.evaluate(() => { const t = document.querySelector('.mr-doc .mr-pills.is-start'); return t && { top: t.getBoundingClientRect().top, inDoc: true } })
+    const t1 = await a.evaluate(() => { const t = document.querySelector('.mr-doc .mr-unit.is-start'); return t && { top: t.getBoundingClientRect().top, inDoc: true } })
     await a.evaluate(() => document.getElementById('scroll').scrollBy(0, 120)); await a.waitForTimeout(300)
-    const t2 = await a.evaluate(() => document.querySelector('.mr-doc .mr-pills.is-start')?.getBoundingClientRect().top)
+    const t2 = await a.evaluate(() => document.querySelector('.mr-doc .mr-unit.is-start')?.getBoundingClientRect().top)
     ok(`${tag}: Before you start sits at the document's start in the page's layer and scrolls with it`, t1 && Math.abs((t1.top - t2) - 120) <= 1, { t1, t2 })
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
     await A.ctx.close()
@@ -4037,9 +4042,9 @@ async function primerTop(browser, origin) {
   const a = A.page
   await prefetchSettled(a)
   await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(900)
-  await a.waitForSelector('.mr-doc .mr-trigger, .mr-doc .mr-pills.is-start', { timeout: 10000 }).catch(() => {})
+  await a.waitForSelector('.mr-doc .mr-trigger, .mr-doc .mr-unit.is-start', { timeout: 10000 }).catch(() => {})
   const where = sel => a.evaluate(sel => { const el = document.querySelector(sel), pg = state.pages[0].pg.getBoundingClientRect(); return el && { top: Math.round(el.getBoundingClientRect().top - pg.top), page: Math.round(pg.height) } }, sel)
-  const start = await where('.mr-doc .mr-pills.is-start, .mr-doc .mr-trigger')
+  const start = await where('.mr-doc .mr-unit.is-start, .mr-doc .mr-trigger')
   ok('9. at the top of the first page (a picture cover): within 12 px of the page\'s top, not at the first line of text', start && start.top >= -2 && start.top <= 12, start)
   await a.evaluate(() => openPrimer(currentUnit())); await a.waitForTimeout(700)
   const opened = await where('.mr-doc .mr-primer')
@@ -4267,70 +4272,116 @@ async function marginNotes(browser, origin) {
   return results
 }
 
-/* unit-pills (19 Oct 2026, evening, item 1): on the wide column each unit has the book reader's chapter pills: at the
-   top of its first page Primer (Before you start, made ahead) and Catch me up; at the foot of its last page Recap, Quiz
-   me and Note. Each opens a margin card; Catch me up and Recap are made on tap; Note is the reader's own note on the
-   unit, kept and synced. A document without units has the start pills at the top of page 1 and the end pills after
-   its last page. Phones are unchanged. */
-async function unitPills(browser, origin) {
+/* unit-marks (Anders's mockup, 19 Oct 2026, night; replaces #485's unit pills): on the wide column each reading unit
+   (TinctMargin.sizeUnits: about 3–25 pages, from the headings) has two marks in the column, scrolling with the page,
+   nothing pinned: "Starting" (its name and pages, ✧ Primer, ✧ Catch me up), its rule level with the top of the unit's
+   heading; "End of" (✧ Recap, ✧ Quiz me, Note), its rule level with the top of the unit's last line. A mark pushed
+   down keeps its tick at the heading and slants to the mark. Cards opened from a mark open under it, and their
+   requests carry the unit's pages. The chapter menu marks the unit and offers Recap, Quiz me and Catch me up. Phones
+   are unchanged. On the section paper (a 20-page paper of numbered sections that start mid-page) and the long book. */
+// In the page: the top of the first text-layer span on page n whose line starts with `text` (the heading), or the top
+// of the last body line above `before` (a fraction of the page) on page n; viewport px.
+const MARK_PROBES = `
+  // (The largest such line: a running head repeating a chapter's title in small capitals is not its heading.)
+  window.__spanTop = (n, text) => { const p = state.pages[n - 1]; const want = text.toLowerCase().replace(/[^a-z0-9]/g, ''); const spans = [...p.layer.querySelectorAll('span')].filter(sp => sp.textContent.trim()); let best = null; for (const sp of spans) { const t = sp.textContent.toLowerCase().replace(/[^a-z0-9]/g, ''); if (t && want.startsWith(t.slice(0, Math.min(t.length, want.length))) && t.length >= Math.min(2, want.length)) { const r = sp.getBoundingClientRect(); const line = spans.filter(o => Math.abs(o.getBoundingClientRect().top - r.top) < 4).map(o => o.textContent).join('').toLowerCase().replace(/[^a-z0-9]/g, ''); if (line.startsWith(want) && (!best || r.height > best.h)) best = { top: r.top, h: r.height } } } return best ? best.top : null };
+  window.__lastLineTop = (n, before) => { const p = state.pages[n - 1], pr = p.pg.getBoundingClientRect(); const tops = [...p.layer.querySelectorAll('span[data-b]')].filter(sp => sp.textContent.trim() && !/^\\s*\\d{1,4}\\s*$/.test(sp.textContent)).map(sp => sp.getBoundingClientRect().top).filter(t => (t - pr.top) / pr.height < before - 0.002); return tops.length ? Math.max(...tops) : null };
+  window.__mark = (key, where) => { const el = document.querySelector('.mr-doc .mr-unit.is-' + where + '[data-unit="' + key + '"]'); if (!el) return null; const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return { top: r.top, bottom: r.bottom, left: r.left, k: el.querySelector('.mr-unit__k')?.textContent, name: el.querySelector('.mr-unit__n')?.innerText.replace(/\\s+/g, ' ').trim(), words: [...el.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()), position: cs.position, rule: cs.borderTopWidth } };
+`
+async function unitMarks(browser, origin) {
   const results = [], ok = okList(results)
-  const hex = addBook(LONG_BOOK)
+  const hex = addBook(SECTION_PAPER)
   account.marks.clear(); account.cards.clear(); account.primers.clear()
   const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
   const a = A.page
+  await a.evaluate(MARK_PROBES)
   await prefetchSettled(a)
-  await a.evaluate(() => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) {} goTo({ page: 1, frac: 0 }) }); await a.waitForTimeout(800)
-  const row = where => a.evaluate(where => { const r = document.querySelector(`.mr-doc .mr-pills.is-${where}[data-unit="${primer.units[0].key}"]`); if (!r) return null; const b = [...r.querySelectorAll('.mr-pill')], sp = b[0]?.querySelector('span'), cs = sp && getComputedStyle(sp), bs = b[0] && getComputedStyle(b[0]); const u = primer.units[0], pg = state.pages[(where === 'start' ? u.from : u.to) - 1].pg.getBoundingClientRect(), rr = r.getBoundingClientRect(); return { words: b.map(x => x.textContent.trim()), font: bs.fontFamily, size: bs.fontSize, radius: cs.borderRadius, border: cs.borderTopWidth, gap: Math.round(where === 'start' ? rr.top - pg.top : pg.bottom - rr.bottom), right: rr.left >= pg.right } }, where)
-  const start = await row('start')
-  ok('1. at the top of the unit\'s first page: "✧ Primer" and "✧ Catch me up", the book reader\'s pills (14px Garamond, a hairline pill), beside the page', start && start.words.join('|') === '✧Primer|✧Catch me up' && /EB Garamond/.test(start.font) && start.size === '14px' && start.radius === '999px' && start.border === '1px' && start.gap >= -2 && start.gap <= 12 && start.right, start)
-  await shot(a, 'unit-pills-start-1440x900')
-  // Primer: Before you start, made ahead, open at once below the pills; again folds it.
-  const r0 = account.requests.length
-  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="primer"]'); await a.waitForTimeout(400)
-  const primerOpen = await a.evaluate(() => { const p = document.querySelector('.mr-doc .mr-primer'), r = document.querySelector('.mr-doc .mr-pills.is-start'); return p && { gist: !!p.querySelector('.mr-primer__gist'), below: p.getBoundingClientRect().top >= r.getBoundingClientRect().bottom - 1, pressed: r.querySelector('[data-pill="primer"]').getAttribute('aria-expanded') } })
-  ok('1. Primer opens Before you start (made ahead: at once, no request) under the pills, its pill pressed', primerOpen?.gist && primerOpen.below && primerOpen.pressed === 'true' && !chatsOf(r0).some(r => r.body?.companion?.chapter), primerOpen)
-  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="primer"]'); await a.waitForTimeout(300)
-  ok('1. Primer again folds it', !(await a.$('.mr-doc .mr-primer')))
-  // Catch me up: a card under the pills, made on tap (the companion's ask, the pages before the unit).
+  await a.waitForFunction(() => primer.units?.length > 1, null, { timeout: 15000 }).catch(() => {})
+  const units = await a.evaluate(() => primer.units.map(u => ({ key: u.key, title: u.title, from: u.from, to: u.to, start: u.start })))
+  ok('sized units from the headings: the numbered sections, never their subsections; References apart', units.map(u => `${u.title} ${u.from}–${u.to}`).join(' | ') === '1 Introduction 1–3 | 2 Motivations 4–8 | 3 Information 9–14 | 4 Superinformation 15–18 | References 19–20', units)
+  // 1. The first unit's start: the rule exactly at the top of its heading's line (nothing above it to push it).
+  await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(900)
+  const s1 = await a.evaluate(k => ({ mark: __mark(k, 'start'), head: __spanTop(1, '1 Introduction') }), units[0].key)
+  ok('1. the start mark: "Starting", the unit\'s name and pages, ✧ Primer · ✧ Catch me up, in the column (not pinned)', s1.mark && s1.mark.k === 'Starting' && s1.mark.name === '1 Introduction pp. 1–3' && s1.mark.words.join('|') === '✧Primer|✧Catch me up' && s1.mark.position === 'absolute' && s1.mark.rule === '1px', s1)
+  ok('1. the start rule\'s y is the top of the heading\'s line on the page (within 2 px)', s1.mark && s1.head != null && Math.abs(s1.mark.top - s1.head) <= 2, s1)
+  await shot(a, 'unit-marks-start-1440x900')
+  // The marks scroll with the page; nothing in the column is pinned.
+  const scroll = await a.evaluate(async k => { const s = document.getElementById('scroll'), t0 = __mark(k, 'start').top; s.scrollBy({ top: 200 }); await new Promise(r => setTimeout(r, 300)); const t1 = __mark(k, 'start').top; const pinned = [...document.querySelectorAll('.mr-doc, .mr-doc *')].filter(el => /fixed|sticky/.test(getComputedStyle(el).position)).map(el => el.className.baseVal ?? el.className); s.scrollBy({ top: -200 }); await new Promise(r => setTimeout(r, 300)); return { moved: Math.round(t0 - t1), pinned } }, units[0].key)
+  ok('1. the marks scroll with the page (200 px of scroll moves them 200 px); no pinned element in the column', Math.abs(scroll.moved - 200) <= 1 && !scroll.pinned.length, scroll)
+  // 2. The first unit's end and the second unit's start meet on page 4: the end rule at the top of the last line above
+  // "2 Motivations", the start mark pushed below it, its tick still at the heading, slanting to the mark.
+  await a.evaluate(() => goTo({ page: 4, frac: 0.25 })); await a.waitForTimeout(900)
+  const meet = await a.evaluate(([k0, k1]) => {
+    const head = __spanTop(4, '2 Motivations'), pr = state.pages[3].pg.getBoundingClientRect();
+    const last = __lastLineTop(4, (head - pr.top) / pr.height), end = __mark(k0, 'end'), start = __mark(k1, 'start');
+    const sr = document.getElementById('scroll').getBoundingClientRect(), s = document.getElementById('scroll');
+    // The ticks, in the scroller's coordinates: each rule path's first point.
+    const ticks = [...document.querySelectorAll('.mr-doc-leads path.is-rule')].map(p => { const m = /^M(-?[\d.]+) (-?[\d.]+)/.exec(p.getAttribute('d')); const n = (p.getAttribute('d').match(/-?[\d.]+/g) || []).map(Number); return m && { y: Number(m[2]) - s.scrollTop + sr.top, endY: n[n.length - 1 - 1] != null ? n.at(-2) : null, d: p.getAttribute('d') } }).filter(Boolean)
+    return { head, last, end, start, ticks }
+  }, [units[0].key, units[1].key])
+  ok('2. the end mark: "End of", the unit\'s name and pages, ✧ Recap · ✧ Quiz me · Note', meet.end && meet.end.k === 'End of' && meet.end.name === '1 Introduction pp. 1–3' && meet.end.words.join('|') === '✧Recap|✧Quiz me|Note', meet.end)
+  ok('2. the end rule\'s y is the top of the unit\'s last line (on the next unit\'s page, above its heading; within 2 px)', meet.end && meet.last != null && Math.abs(meet.end.top - meet.last) <= 2, { end: meet.end?.top, last: meet.last })
+  const pushed = meet.start && meet.head != null && meet.start.top > meet.head + 2
+  const tickAtHead = meet.ticks.some(t => Math.abs(t.y - meet.head) <= 2 && (pushed ? /L/.test(t.d) : !/L/.test(t.d)))
+  ok('2. the next start mark is pushed below the end mark (never over it) and its tick stays at the heading, slanting to it', meet.start && meet.end && meet.start.top >= meet.end.bottom - 1 && pushed && tickAtHead, { start: meet.start?.top, endBottom: meet.end?.bottom, head: meet.head, ticks: meet.ticks.map(t => t.d) })
+  await shot(a, 'unit-marks-end-1440x900')
+  // 3. Cards from a mark open under it; their requests carry the unit's pages.
   const r1 = account.requests.length
-  await a.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="catchup"]'); await a.waitForTimeout(1300)
-  const cu = await a.evaluate(() => { const c = cardById(col.open || ''); const el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { label: el?.querySelector('.mr-card__name')?.textContent, answer: el?.querySelector('.mr-answer')?.innerText || '', unit: c.data?.unit?.key, pill: c.data?.pill, below: el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-start').getBoundingClientRect().bottom - 1 } })
-  const cuReq = chatsOf(r1).find(r => /Catch them up/.test(JSON.stringify(r.body.messages || '')))
-  ok('1. Catch me up opens its card under the pills ("Catch me up · …"), answered on tap', cu && /^Catch me up · /.test(cu.label || '') && /MOCK ANSWER/.test(cu.answer) && cu.pill === 'catchup' && cu.below && !!cuReq && cuReq.body.companion?.intent === 'ask', { cu, sent: !!cuReq })
+  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="recap"]`); await a.waitForTimeout(1300)
+  const rc = await a.evaluate(k => { const el = document.querySelector('.mr-doc .mr-card.is-open'), m = document.querySelector(`.mr-doc .mr-unit.is-end[data-unit="${k}"]`); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', gap: Math.round(el.getBoundingClientRect().top - m.getBoundingClientRect().bottom) } }, units[0].key)
+  const rcReq = chatsOf(r1).find(r => /Recap it for them/.test(JSON.stringify(r.body.messages || '')))
+  ok('3. Recap opens its card directly under the end mark, answered on tap, about the unit\'s pages (1–3)', rc && /^Recap · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && rc.gap >= 0 && rc.gap <= 16 && !!rcReq && /\(pages 1–3\)/.test(JSON.stringify(rcReq.body.messages)), { rc, sent: !!rcReq })
   await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
-  // The unit's end: Recap, Quiz me, Note at the foot of its last page.
-  await a.evaluate(() => { const u = primer.units[0]; goTo({ page: u.to, frac: 0.75 }) }); await a.waitForTimeout(900)
-  const end = await row('end')
-  ok('1. at the foot of the unit\'s last page: "✧ Recap", "✧ Quiz me", "Note" (no mark: the reader\'s own)', end && end.words.join('|') === '✧Recap|✧Quiz me|Note' && end.gap >= -2 && end.gap <= 14 && end.right, end)
   const r2 = account.requests.length
-  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="recap"]'); await a.waitForTimeout(1300)
-  const rc = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', below: el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-end').getBoundingClientRect().bottom - 1 } })
-  ok('1. Recap opens its card under the end pills ("Recap · …"), answered on tap', rc && /^Recap · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && rc.below && chatsOf(r2).some(r => /Recap it for them/.test(JSON.stringify(r.body.messages || ''))), rc)
-  await shot(a, 'unit-pills-end-1440x900')
-  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="quiz"]'); await a.waitForTimeout(1300)
-  const qz = await a.evaluate(() => { const c = cardById(col.open || ''), el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, unit: !!c.data?.unit, count: el?.querySelector('.mr-card__count')?.textContent } })
-  ok('1. Quiz me opens the unit\'s quiz ("1 of 3")', qz && qz.kind === 'quiz' && qz.unit && qz.count === '1 of 3', qz)
-  await a.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="note"]'); await a.waitForTimeout(500)
-  const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f, placeholder: f?.placeholder } })
-  ok('1. Note opens the reader\'s own note on the unit, its field ready', nt && nt.field && nt.focused && nt.placeholder === 'A note on this chapter', nt)
-  await a.keyboard.type('My note on the whole chapter.')
-  await a.mouse.click(300, 500); await a.waitForTimeout(500)
-  const saved = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My note on the whole chapter.'); return h && { page: h.page, rects: h.rects, to: primer.units[0].to } })
-  ok('1. the note is kept as the unit\'s (its last page, [2, 1, 0, 0]) and shows under the end pills', saved && saved.page === saved.to && JSON.stringify(saved.rects) === '[[2,1,0,0]]' && await a.evaluate(() => { const h = highlights().find(m => m.note === 'My note on the whole chapter.'); const el = document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); return !!el && el.getBoundingClientRect().top >= document.querySelector('.mr-doc .mr-pills.is-end').getBoundingClientRect().bottom - 1 }), saved)
+  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="catchup"]`); await a.waitForTimeout(1300)
+  const cu = await a.evaluate(k => { const el = document.querySelector('.mr-doc .mr-card.is-open'), m = document.querySelector(`.mr-doc .mr-unit.is-start[data-unit="${k}"]`); return el && { label: el.querySelector('.mr-card__name')?.textContent, gap: Math.round(el.getBoundingClientRect().top - m.getBoundingClientRect().bottom) } }, units[1].key)
+  const cuReq = chatsOf(r2).find(r => /Catch them up/.test(JSON.stringify(r.body.messages || '')))
+  ok('3. Catch me up opens its card directly under the start mark, on the pages before the unit (1–3)', cu && /^Catch me up · /.test(cu.label || '') && cu.gap >= 0 && cu.gap <= 16 && !!cuReq && /\(pages 1–3\)/.test(JSON.stringify(cuReq.body.messages)), { cu, sent: !!cuReq })
+  await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(500)
+  const pm = await a.evaluate(k => { const p = document.querySelector('.mr-doc .mr-primer'), m = document.querySelector(`.mr-doc .mr-unit.is-start[data-unit="${k}"]`); return p && { gap: Math.round(p.getBoundingClientRect().top - m.getBoundingClientRect().bottom), unit: primer.unit?.key, pressed: m.querySelector('[data-pill="primer"]').getAttribute('aria-expanded') } }, units[1].key)
+  ok('3. Primer opens Before you start for the unit, under its start mark, its button pressed', pm && pm.gap >= 0 && pm.gap <= 16 && pm.unit === units[1].key && pm.pressed === 'true', pm)
+  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(300)
+  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="quiz"]`); await a.waitForTimeout(1300)
+  const qz = await a.evaluate(() => { const c = cardById(col.open || ''), el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, unit: c.data?.unit?.key, count: el?.querySelector('.mr-card__count')?.textContent } })
+  ok('3. Quiz me opens the unit\'s quiz', qz && qz.kind === 'quiz' && qz.unit === units[0].key && qz.count === '1 of 3', qz)
+  await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="note"]`); await a.waitForTimeout(500)
+  const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f } })
+  ok('3. Note opens the reader\'s own note on the unit, its field ready', nt && nt.field && nt.focused, nt)
+  await a.keyboard.press('Escape'); await a.waitForTimeout(300)
+  // 4. The chapter menu: the unit the reader is in, marked, with Recap, Quiz me and Catch me up.
+  await a.evaluate(() => { openCard(null); goTo({ page: 6, frac: 0.3 }) }); await a.waitForTimeout(800)
+  await a.evaluate(() => openContents()); await a.waitForTimeout(300)
+  const menu = await a.evaluate(() => { const s = document.querySelector('.lab-contents-v2 .byob-unit-now'); return s && { name: s.querySelector('[aria-current]')?.textContent, acts: [...s.querySelectorAll('[data-unit-act]')].map(b => b.textContent.trim()) } })
+  ok('4. the chapter menu marks the unit being read and offers ✧ Recap · ✧ Quiz me · ✧ Catch me up', menu && menu.name === '2 Motivations · pp. 4–8' && menu.acts.join('|') === '✧Recap|✧Quiz me|✧Catch me up', menu)
+  await shot(a, 'unit-marks-menu-1440x900')
+  const r3 = account.requests.length
+  await a.click('.lab-contents-v2 [data-unit-act="recap"]'); await a.waitForTimeout(1500)
+  const fromMenu = await a.evaluate(k => { const el = document.querySelector('.mr-doc .mr-card.is-open'), m = document.querySelector(`.mr-doc .mr-unit.is-end[data-unit="${k}"]`), r = el?.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect(); return el && m && { label: el.querySelector('.mr-card__name')?.textContent, gap: Math.round(r.top - m.getBoundingClientRect().bottom), inView: r.top < sr.bottom && r.bottom > sr.top } }, units[1].key)
+  ok('4. Recap from the menu opens the unit\'s recap under its end mark, brought into view', fromMenu && /^Recap · /.test(fromMenu.label || '') && fromMenu.gap >= 0 && fromMenu.gap <= 16 && fromMenu.inView && chatsOf(r3).some(r => /\(pages 4–8\)/.test(JSON.stringify(r.body.messages || ''))), fromMenu)
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
-  // A document without units: start pills at the top of page 1, end pills after its last page.
-  const hexS = addBook(PDFS[0])
-  const S = await readerPage(browser, origin, hexS, { width: 1440, height: 900, look: 'night' })
-  await prefetchSettled(S.page)
-  const one = await S.page.evaluate(async () => { const u = primer.units; const top = document.querySelector('.mr-doc .mr-pills.is-start'); const p1 = state.pages[0].pg.getBoundingClientRect(); const r = { units: u.map(x => x.key), startGap: top ? Math.round(top.getBoundingClientRect().top - p1.top) : null }; goTo({ page: state.pages.length, frac: 0.8 }); await new Promise(z => setTimeout(z, 900)); const end = document.querySelector('.mr-doc .mr-pills.is-end'), pl = state.pages.at(-1).pg.getBoundingClientRect(); r.endGap = end ? Math.round(pl.bottom - end.getBoundingClientRect().bottom) : null; r.words = end ? [...end.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()) : null; return r })
-  ok('1. a document without units: the start pills at the top of page 1, the end pills after its last page', one.units.join() === 'all' && one.startGap >= -2 && one.startGap <= 12 && one.endGap >= -2 && one.endGap <= 14 && one.words?.join('|') === '✧Recap|✧Quiz me|Note', one)
-  await S.ctx.close()
-  // Phones are unchanged: no pills.
+  // 5. The long book's chapters start at a page's top: the start rule at the chapter's heading there.
+  const hexL = addBook(LONG_BOOK)
+  const L = await readerPage(browser, origin, hexL, { width: 1440, height: 900, look: 'night' })
+  await L.page.evaluate(MARK_PROBES)
+  await prefetchSettled(L.page)
+  await L.page.waitForFunction(() => primer.units?.length > 1, null, { timeout: 15000 }).catch(() => {})
+  const long = await L.page.evaluate(async () => { const u = primer.units[1]; goTo({ page: u.start, frac: 0 }); await new Promise(r => setTimeout(r, 900)); const m = __mark(u.key, 'start'), s = document.getElementById('scroll'), sr = s.getBoundingClientRect(); const ticks = [...document.querySelectorAll('.mr-doc-leads path.is-rule')].map(p => p.getAttribute('d')); return { title: u.title, head: __spanTop(u.start, u.title), mark: m, units: primer.units.length, ticks: ticks.map(d => { const n = d.match(/-?[\d.]+/g).map(Number); return { y: n[1] - s.scrollTop + sr.top, end: n.at(-2) - s.scrollTop + sr.top, slant: /L/.test(d) } }) } })
+  // The previous chapter's end mark (its last line near the foot of the page before) may push it down: then its tick is at the heading, slanting to the mark.
+  const at = long.mark && long.head != null && (Math.abs(long.mark.top - long.head) <= 2 ? long.ticks.some(t => Math.abs(t.y - long.head) <= 2 && !t.slant) : long.ticks.some(t => Math.abs(t.y - long.head) <= 2 && t.slant && Math.abs(t.end - long.mark.top) <= 2))
+  ok('5. a chapter at a page\'s top (the long book, night): its start rule at its heading\'s top, or pushed with its tick from the heading', at, long)
+  ok('5. no page errors', !L.problems.length, L.problems)
+  await L.ctx.close()
+  // Phones and narrow windows are unchanged: no marks.
   const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
   await P.page.waitForTimeout(800)
-  ok('1. a phone shows no pills (unchanged)', !(await P.page.$('.mr-pills')))
+  ok('6. a phone shows no unit marks (unchanged)', !(await P.page.$('.mr-unit')))
   await P.ctx.close()
+  const N = await readerPage(browser, origin, hex, { width: 1024, height: 768, look: 'paper' })
+  await N.page.waitForTimeout(800)
+  ok('6. a narrow window shows no unit marks (unchanged)', !(await N.page.$('.mr-unit')))
+  await N.ctx.close()
   return results
 }
 
@@ -4482,12 +4533,12 @@ async function notebookCheck(browser, origin) {
     const b = B.page
     await prefetchSettled(b)
     await b.evaluate(() => { openCard(null); closePrimer(); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(800)
-    await b.click('.mr-doc .mr-pills.is-start .mr-pill[data-pill="catchup"]'); await b.waitForTimeout(1300)
+    await b.click('.mr-doc .mr-unit.is-start .mr-pill[data-pill="catchup"]'); await b.waitForTimeout(1300)
     await b.evaluate(() => openCard(null)); await b.waitForTimeout(200)
     await b.evaluate(() => { const u = primer.units[0]; goTo({ page: u.to, frac: 0.75 }) }); await b.waitForTimeout(900)
-    await b.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="recap"]'); await b.waitForTimeout(1300)
-    await b.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="quiz"]'); await b.waitForTimeout(1300)
-    await b.click('.mr-doc .mr-pills.is-end .mr-pill[data-pill="note"]'); await b.waitForTimeout(500)
+    await b.click('.mr-doc .mr-unit.is-end .mr-pill[data-pill="recap"]'); await b.waitForTimeout(1300)
+    await b.click('.mr-doc .mr-unit.is-end .mr-pill[data-pill="quiz"]'); await b.waitForTimeout(1300)
+    await b.click('.mr-doc .mr-unit.is-end .mr-pill[data-pill="note"]'); await b.waitForTimeout(500)
     await b.keyboard.type('My note on the whole chapter.')
     await b.mouse.click(300, 500); await b.waitForTimeout(500)
     await b.evaluate(() => { openCard(null); goTo({ page: 2, frac: 0.1 }) }); await b.waitForTimeout(900)
@@ -4686,7 +4737,7 @@ const RUNS = {
   'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
   'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
   'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
-  'unit-pills': [unitPills, rows => rows.some(r => !r.pass)],
+  'unit-marks': [unitMarks, rows => rows.some(r => !r.pass)],
   notebook: [notebookCheck, rows => rows.some(r => !r.pass)],
   'epub-view': [epubViewCheck, rows => rows.some(r => !r.pass)],
 }
@@ -4729,7 +4780,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'notebook', 'epub-view'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'notebook', 'epub-view'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

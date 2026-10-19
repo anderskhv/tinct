@@ -664,16 +664,31 @@
     return plain(cleanAnswer(card.kind, answer?.content || '', P));
   }
   /**
-   * A unit's pills (Anders, 19 Oct 2026, evening; the wide column), as the book reader's chapter pills look and behave
+   * A unit's actions (Anders, 19 Oct 2026, evening; the wide column), as the book reader's chapter pills look and behave
    * (src/lab/LabChapterEnd.tsx, LabChapterHeading.tsx): at its start Primer (Before you start) and Catch me up; at its
    * end Recap, Quiz me and Note (the reader's own note on it). The companion's carry its mark (✧); the note does not.
    * Each opens a margin card. o: { unit (its key), name (its phrase, for screen readers), open (the open pill's id) }.
+   * They sit in the unit's marks (markHtml).
    */
   const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Recap', quiz: 'Quiz me', note: 'Note' };
   const PILL_SETS = { start: ['primer', 'catchup'], end: ['recap', 'quiz', 'note'] };
   function pillsHtml(where, o = {}) {
     const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return PILL_SETS[where].map(id => `<button type="button" class="mr-pill${id === 'note' ? ' is-note' : ''}" data-pill="${id}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}><span>${id === 'note' ? '' : '<span class="mr-pill__mark" aria-hidden="true">✧</span>'}${PILLS[id]}</span></button>`).join('');
+  }
+  /**
+   * A unit's mark on the wide column (Anders's mockup, 19 Oct 2026, night): a margin item that scrolls with the page, its
+   * hairline rule level with the top of the unit's heading (start) or of its last line (end). "Starting" or "End of",
+   * the unit's name and its pages, then its actions (pillsHtml). o: { name, pages ("pp. 10–18"), open, phrase, line }.
+   */
+  function markHtml(where, o = {}) {
+    const pages = o.pages ? ` <small class="mr-unit__pages">${esc(o.pages)}</small>` : '';
+    return `<span class="mr-unit__k">${where === 'start' ? 'Starting' : 'End of'}</span><span class="mr-unit__n">${esc(o.name || '')}${pages}</span><div class="mr-unit__acts">${pillsHtml(where, { open: o.open, name: o.phrase, line: o.line })}</div>`;
+  }
+  /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */
+  function unitName(unit, whole = '') {
+    if (!unit || unit.key === 'all' || !unit.title) return whole;
+    return unit.pages ? unit.title : unit.title.replace(/, pages \d+–\d+$/, '');
   }
   /** What a Simplify card says when the answer was only the passage again. */
   const SIMPLIFY_UNCHANGED = 'This passage is already in plain words.';
@@ -1069,7 +1084,7 @@
       const into = ok(prev) && ok(next) ? (size(prev) < size(next) ? k - 1 : k + 1) : ok(next) ? k + 1 : k - 1;
       const [a, b] = into < k ? [units[into], u] : [u, units[into]];
       const lead = size(b) > size(a) ? b : a;
-      const joined = { ...lead, key: a.key.split('_')[0] + '_' + b.key.replace(/^outline-/, '').split('_').pop(), from: a.from, start: a.start, to: b.to, matter: a.matter && b.matter ? lead.matter : null, parts: [...(a.parts || [a.title]), ...(b.parts || [b.title])] };
+      const joined = { ...lead, key: a.key.split('_')[0] + '_' + b.key.replace(/^outline-/, '').split('_').pop(), from: a.from, start: a.start, to: b.to, matter: a.matter && b.matter ? lead.matter : null, head: a.head || a.title, parts: [...(a.parts || [a.title]), ...(b.parts || [b.title])] };
       units.splice(Math.min(k, into), 2, joined);
     }
     function joinable(i) {
@@ -1079,8 +1094,14 @@
     if (units.length === 1 && units[0].from === 1 && units[0].to === n && n <= S.split && !units[0].title) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
     return units.map(u => {
       const named = !u.matter && !u.banded && !u.parts && (u.nd?.chapter || n >= 100) ? numberedChapter(u.title) : null;
-      return { key: u.key.slice(0, 64), title: u.title, from: u.from, start: Math.min(Math.max(u.start, u.from), u.to), to: u.to, ...(u.matter ? { matter: u.matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}` } : {}), ...(u.parts ? { parts: u.parts } : {}) };
+      return { key: u.key.slice(0, 64), title: u.title, from: u.from, start: Math.min(Math.max(u.start, u.from), u.to), to: u.to, ...(u.matter ? { matter: u.matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}` } : {}), ...(u.parts ? { parts: u.parts, head: u.head } : {}) };
     });
+  }
+  /** The scan's chapters and headings (js/pdf-scan.js entries: { id, label, page, kind, parent }) as sizeUnits' entries, nested by parent. */
+  function scanTree(list) {
+    list = Array.isArray(list) ? list.filter(e => e && Number.isInteger(e.page)) : [];
+    const kids = id => list.filter(e => (e.parent ?? null) === id).slice(0, 200).map(e => ({ title: e.label, page: e.page, ...(e.kind === 'chapter' ? { kind: 'chapter' } : {}), items: e.id != null && e.id !== id ? kids(e.id) : [] }));
+    return kids(null);
   }
   // A part's own entries are chapters: numbered "2 …" or "Chapter 2 …" (not sections such as "2.1 …").
   const CHAPTER_TITLE = /^(?:(?:chapter|lecture)\s+[\p{L}\p{N}]+[.:]?|\d{1,3}\.?)\s+\S/iu;
@@ -1630,7 +1651,7 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, pillsHtml, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
+  const html = { esc, cut, ICONS, LATER, pillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });
