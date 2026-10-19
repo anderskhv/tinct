@@ -5577,11 +5577,13 @@ function showHot(reg, sticky) {
   hideHot();
   const el = document.createElement('div'); el.className = 'byob-hot';
   Object.assign(el.style, { left: reg.f.x * 100 + '%', top: reg.f.y * 100 + '%', width: reg.f.w * 100 + '%', height: reg.f.h * 100 + '%' });
-  el.innerHTML = `<div class="byob-hot-chip" role="toolbar" aria-label="${KIND[reg.kind]} actions">
-    <button type="button" data-a="explain" title="Explain this ${reg.kind} in chat"><span class="byob-hot-sym" aria-hidden="true">✧</span>Explain</button>
-    <button type="button" data-a="ask" title="Chat about this ${reg.kind}">${ACT.ask}Chat</button>
-    <button type="button" data-a="highlight" title="Highlight this ${reg.kind}">${ACT.highlight}Highlight</button>
-    <button type="button" data-a="copy" title="Copy this ${reg.kind} as an image">${ACT.copy}Copy</button></div>`;
+  // The selection bar's own dark style and order (Anders, 19 Oct 2026): Ask, Explain, then Highlight and Copy.
+  const sep = '<span class="mr-bar__sep" aria-hidden="true"></span>', I = TinctMargin.html.ICONS;
+  el.innerHTML = `<div class="byob-hot-chip mr mr-chip" role="toolbar" aria-label="${KIND[reg.kind]} actions">
+    <button type="button" class="mr-bar__item is-text" data-a="ask" title="Ask about this ${reg.kind}">Ask</button>${sep}
+    <button type="button" class="mr-bar__item is-text" data-a="explain" title="Explain this ${reg.kind}">Explain</button>${sep}
+    <button type="button" class="mr-bar__item" data-a="highlight" title="Highlight this ${reg.kind}">${I.highlight}<span>Highlight</span></button>
+    <button type="button" class="mr-bar__item" data-a="copy" title="Copy this ${reg.kind} as an image">${TinctMargin.html.CARD_ICONS.copy}<span>Copy</span></button></div>`;
   const chip = el.querySelector('.byob-hot-chip');
   chip.addEventListener('mousedown', e => { e.preventDefault(); e.stopPropagation() });
   chip.addEventListener('mouseenter', () => { hot.over = true; clearTimeout(hot.timer) });

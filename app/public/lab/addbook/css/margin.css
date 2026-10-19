@@ -552,3 +552,13 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; 
 .mr-ul-layer i:not(.is-box) { margin-top: 0; }
 .mr-ul-layer i.is-tint { height: auto; border-radius: 2px; background: color-mix(in srgb, var(--mr-accent) 14%, transparent); }
 .lab.is-night .mr-ul-layer i.is-tint { background: color-mix(in srgb, var(--mr-accent) 22%, transparent); }
+/* The figure and formula chip in the selection bar's dark style (19 Oct 2026, evening; reader.js showHot): Ask, Explain,
+   Highlight and Copy, the bar's items, separators, colours and shadow; no tip (it stands off the figure's corner). */
+.byob-hot-chip.mr-chip { display: flex; align-items: center; gap: 0; height: 44px; padding: 0 6px; border: 0; border-radius: 12px; background: var(--mr-bar); color: var(--mr-bar-ink); font: 400 14px var(--mr-ui); box-shadow: var(--mr-bar-shadow); }
+.byob-hot-chip.mr-chip .mr-bar__item { display: flex; align-items: center; gap: 7px; height: 34px; min-width: 28px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--mr-bar-ink); font: inherit; cursor: pointer; white-space: nowrap; }
+.byob-hot-chip.mr-chip .mr-bar__item.is-text { padding: 0 11px; }
+.byob-hot-chip.mr-chip .mr-bar__item:hover { background: rgba(255, 255, 255, .10); }
+.byob-hot-chip.mr-chip .mr-bar__item:focus-visible { outline: 2px solid var(--mr-bar-ink); outline-offset: -2px; }
+.byob-hot-chip.mr-chip svg { width: 16px; height: 16px; fill: none; stroke: var(--mr-bar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.byob-hot-chip.mr-chip .mr-bar__sep { width: 1px; height: 20px; margin: 0 4px; background: var(--mr-bar-sep); }
+html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr-bar); }

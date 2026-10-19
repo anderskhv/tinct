@@ -81,6 +81,8 @@
 //                                                     also when page 1 is a picture cover without text
 //   node scripts/margin-check.mjs define-card       19 Oct, evening (7): Define on the wide column as an open margin card only (no
 //                                                     pop-over); narrow windows and the phone keep the pop-over
+//   node scripts/margin-check.mjs figure-chip       19 Oct, evening (5): the figure chip in the bar's dark style: Ask, Explain,
+//                                                     Highlight, Copy; Ask opens the figure's card
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -3654,7 +3656,8 @@ async function figureRace(browser, origin) {
     await a.mouse.move(pt.x, pt.y); await a.mouse.move(pt.x + 5, pt.y); await a.waitForTimeout(400)
     const chip = await a.evaluate(() => !!document.querySelector('.byob-hot'))
     await a.mouse.dblclick(pt.x, pt.y); await a.waitForTimeout(700)
-    const bar = await a.evaluate(() => ({ bar: !!document.querySelector('.mr-float.mr-bar, .mr-float .mr-bar__item, .mr-define'), chip: !!document.querySelector('.byob-hot') }))
+    // (One word on the wide column opens Define's card instead of a pop-over since 19 Oct 2026, evening.)
+    const bar = await a.evaluate(() => ({ bar: !!document.querySelector('.mr-float.mr-bar, .mr-float .mr-bar__item, .mr-define') || !!cardById(col.open || '')?.kind?.startsWith('define') || !!col.draft, chip: !!document.querySelector('.byob-hot') }))
     ok(`${tag}: 12. over the paragraph no figure box or chip; a selection there gets the selection's bar`, !chip && bar.bar && !bar.chip, { chip, ...bar })
     await shot(a, tag)
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
@@ -4044,6 +4047,34 @@ async function defineCard(browser, origin) {
   return results
 }
 
+/* figure-chip (19 Oct 2026, evening, item 5): the figure and formula chip is the selection bar's dark style (its colour,
+   44px, 12px corners), with Ask, Explain, Highlight and Copy in that order; Ask opens the figure's card. */
+async function figureChip(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(FIGURE_PAPER)
+  for (const [width, height, look] of [[1440, 900, 'paper'], [1440, 900, 'night'], [390, 844, 'paper']]) {
+    const tag = `figure-chip-${width}x${height}-${look}`
+    const A = await readerPage(browser, origin, hex, { width, height, look })
+    const a = A.page
+    await prefetchSettled(a)
+    await a.evaluate(() => { const p = state.pages[0], sr = $('scroll').getBoundingClientRect(), b = p.pg.getBoundingClientRect(); $('scroll').scrollTop += b.top + 0.3 * b.height - (sr.top + 0.3 * sr.height) })
+    await a.waitForFunction(() => state.figs.has(1) && state.pages[0].figures?.length, null, { timeout: 15000 }).catch(() => {})
+    const pt = await a.evaluate(() => { const f = state.pages[0].figures[0], b = state.pages[0].pg.getBoundingClientRect(); return { x: b.left + (f.x + f.w / 2) * b.width, y: b.top + (f.y + f.h / 2) * b.height } })
+    if (width < 700) await a.mouse.click(pt.x, pt.y); else { await a.mouse.move(pt.x - 40, pt.y - 40); await a.mouse.move(pt.x, pt.y, { steps: 4 }) }
+    await a.waitForSelector('.byob-hot-chip', { timeout: 4000 }).catch(() => {})
+    const chip = await a.evaluate(() => { const c = document.querySelector('.byob-hot-chip'); if (!c) return null; const cs = getComputedStyle(c), bar = getComputedStyle(c).getPropertyValue('--mr-bar').trim(); const r = c.getBoundingClientRect(); return { words: [...c.querySelectorAll('button')].map(b => b.textContent.trim()), bg: cs.backgroundColor, bar, height: Math.round(r.height), radius: cs.borderRadius, ink: cs.color, inside: r.left >= 0 && r.right <= innerWidth, fonts: [...new Set([...c.querySelectorAll('button')].map(b => getComputedStyle(b).fontFamily))] } })
+    const hex2rgb = h => { const m = /^#([0-9a-f]{6})$/i.exec(h || ''); return m ? `rgb(${parseInt(m[1].slice(0, 2), 16)}, ${parseInt(m[1].slice(2, 4), 16)}, ${parseInt(m[1].slice(4, 6), 16)})` : h }
+    ok(`${tag}: 5. the chip is the selection bar's dark style (its colour, 44px, 12px corners) with Ask, Explain, Highlight, Copy`, chip && chip.words.join('|') === 'Ask|Explain|Highlight|Copy' && chip.bg === hex2rgb(chip.bar) && chip.height === 44 && chip.radius === '12px' && chip.inside && !chip.fonts.some(f => /mono/i.test(f)), chip)
+    if (width === 1440 && look === 'paper') await shot(a, 'figure-chip-1440x900')
+    await a.click('.byob-hot-chip [data-a="ask"]').catch(() => {}); await a.waitForTimeout(600)
+    const card = await a.evaluate(() => { const id = col.open, c = id && cardById(id); return c && { kind: c.kind, field: !!document.querySelector('.mr-card.is-open .mr-follow__input, .mr-sheet .mr-follow__input') } })
+    ok(`${tag}: 5. Ask opens the figure's card, its question field ready`, card && card.kind === 'figure' && card.field, card)
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -4083,6 +4114,7 @@ const RUNS = {
   'whole-words': [wholeWords, rows => rows.some(r => !r.pass)],
   'primer-top': [primerTop, rows => rows.some(r => !r.pass)],
   'define-card': [defineCard, rows => rows.some(r => !r.pass)],
+  'figure-chip': [figureChip, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -4123,7 +4155,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip'].includes(mode)) { const [run, bad] = RUNS[mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
