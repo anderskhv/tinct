@@ -39,7 +39,7 @@ const firstTable = window.__library2Boot?.hint && !isDemo ? loadTable().then(val
 // Retain decoded spine images so CSS can paint them with the covers in one pass.
 const readyTextures = new Map();
 // The reader's desktop/phone test (src/lab/labChrome.ts isLabPhoneSurface, as boot.js reads it).
-function deskNow() {
+export function deskNow() {
   try {
     return !(/iPhone|iPod/i.test(navigator.userAgent || '') || ((navigator.maxTouchPoints || 0) > 0 && typeof screen !== 'undefined' && screen.width <= 430) || innerWidth <= 430 || (typeof matchMedia === 'function' && matchMedia('(max-width: 899px), ((max-width: 1024px) and (orientation: portrait))').matches));
   } catch { return false; }

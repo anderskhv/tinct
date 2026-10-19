@@ -65,10 +65,16 @@ describe('Also reading beside Continue', () => {
 })
 
 describe('Continue on an own PDF read in its pages', () => {
-  it('the desk lets Add a book’s viewer open (its URL is not the reader’s)', async () => {
+  it('the desktop desk lets Add a book’s viewer open (its URL is not the reader’s); phones keep today’s check', async () => {
     const { readFileSync } = await import('node:fs')
     const { resolve } = await import('node:path')
     const shelf = readFileSync(resolve(__dirname, '../public/lab/library_2/bookshelf.js'), 'utf8')
-    expect(shelf).toContain("!href.startsWith('/lab/addbook/?userBook=')")
+    expect(shelf).toContain("!(deskNow()&&href.startsWith('/lab/addbook/?userBook='))")
+    // @ts-expect-error -- plain browser module of the library page
+    const { deskNow } = await import('../public/lab/library_2/reading-table.js')
+    setWidth(390)
+    expect(deskNow()).toBe(false)
+    setWidth(1440)
+    expect(deskNow()).toBe(true)
   })
 })
