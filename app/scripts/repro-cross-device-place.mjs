@@ -3,7 +3,8 @@
 // open of check-continue-latest.mjs and counts landings that are not the phone's place.
 //   cd app && SKIP_ENV_CHECK=1 VITE_SUPABASE_URL=https://qa.supabase.co VITE_SUPABASE_ANON_KEY=qa npm run build
 //   CHROMIUM_PATH=<chrome> RUNS=60 node scripts/repro-cross-device-place.mjs
-// BROWSER=webkit WEBKIT_PATH=<pw webkit dir executable> runs it in WebKit. PARALLEL=<n> opens n at once.
+// BROWSER=webkit runs it in WebKit (PLAYWRIGHT_BROWSERS_PATH as installed). PARALLEL=<n> opens n at once.
+// REPRO_DIST=<dir> serves another build (an unfixed one, to compare). VIEWPORT=phone opens it at 390×844.
 // Mocks only: the built app is served from dist/ under https://tinct.app by request interception, the
 // account's /api/lab-position answers with the phone's place, every other request is refused.
 import { chromium, webkit } from '@playwright/test'
@@ -13,7 +14,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 const origin = 'https://tinct.app'
-const dist = path.resolve('dist')
+const dist = path.resolve(process.env.REPRO_DIST || 'dist')
 const runs = Number(process.env.RUNS || 60)
 const parallel = Number(process.env.PARALLEL || 1)
 const settleMs = Number(process.env.SETTLE_MS || 3000)
@@ -83,7 +84,9 @@ const browser = await markInternal(await engine.launch({ headless: true, ...(exe
 async function once(n) {
   const now = Date.now()
   const puts = []
-  const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' })
+  const context = await browser.newContext(process.env.VIEWPORT === 'phone'
+    ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: true, isMobile: process.env.BROWSER !== 'webkit' ? true : undefined, serviceWorkers: 'block' }
+    : { viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' })
   await serve(context, accountRecord(now), puts)
   const page = await context.newPage()
   const logs = []
