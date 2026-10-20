@@ -36,12 +36,12 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
           onClick={event => { event.stopPropagation(); onPreview?.() }}>
           <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Primer</span>
         </button>
-        <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-catchup'} disabled={busy}
+        {margin.catchUp !== false && <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-catchup'} disabled={busy}
           tabIndex={measuring ? -1 : 0} aria-label={`Catch me up on what came before ${unitName(title)}`}
           onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}
           onClick={event => { event.stopPropagation(); if (!measuring) margin.onCatchUp?.() }}>
           <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Catch me up</span>
-        </button>
+        </button>}
       </div>
     </div>}
     {preview && !margin && <button type="button" className="lab-chapter-preview" disabled={busy}

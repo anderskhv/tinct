@@ -222,10 +222,10 @@ import { ownReadingNowWithAccount } from './userBook/ownSync'
 import { readShelfMembership } from '../libraryTwoSaved'
 import { resolveBookCover } from '../../public/lab/book-cover.js'
 import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
-import { MarginPhoneContext, unitName, type MarginPhonePills } from './marginPhone/marginPhoneContext'
+import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills } from './marginPhone/marginPhoneContext'
 import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
-import { PHONE_CARD_NAMES, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
+import { PHONE_CARD_NAMES, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
 import { DefinitionFallback } from '../components/reader/DefinitionFallback'
 import './lab.css'
 
@@ -5313,10 +5313,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (kind === 'quiz') { openPhoneCard({ kind: 'quiz', passage, chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, openedAt: Date.now() }); return }
     openPhoneCard({ kind, passage, openedAt: Date.now() })
   }
+  const marginCatchUp = catchUpAvailable(book.chapters, book.chapterNumber)
   const marginPills: MarginPhonePills | null = useMemo(() => marginPhone ? {
+    catchUp: marginCatchUp,
     onCatchUp: () => { if (!initialResolving && !book.chaptersProvisional) setSuperSheet('catchup') },
     onQuiz: () => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current() },
-  } : null, [marginPhone, initialResolving, book.chaptersProvisional])
+  } : null, [marginPhone, marginCatchUp, initialResolving, book.chaptersProvisional])
   marginPhoneNoteRef.current = (chapterNumber: number) => {
     if (!marginPhone) return false
     const chapter = book.chapters.find(item => item.number === chapterNumber)
@@ -5661,6 +5663,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           phone={showPhoneChrome}
           privateBook={privateBook}
           ownPdf={ownEditions}
+          noCatchUp={marginPhone && !marginCatchUp}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
@@ -6412,18 +6415,21 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         </LabPhoneCard>
       )}
       {marginPhone && callFullScreen && (
-        <LabPhoneCard label={phoneCardLabel('Talk')} kind="talk" tall onClose={endCall}>
-          <LabVoiceCall
-            view={callView}
-            getAssistantLevel={ask.getAssistantLevel}
-            reducedMotion={reducedMotion}
-            notice={ask.notice}
-            onMuteToggle={toggleCallMute}
-            onEnd={endCall}
-            onReconnect={reconnectCall}
-            talkSpeed={ask.talkSpeed}
-            onTalkSpeedChange={ask.setTalkSpeed}
-          />
+        <LabPhoneCard label={phoneCardLabel('Talk')} kind="talk" onClose={endCall}>
+          <PhoneTalkFrame>{orbSize => (
+            <LabVoiceCall
+              view={callView}
+              getAssistantLevel={ask.getAssistantLevel}
+              reducedMotion={reducedMotion}
+              notice={ask.notice}
+              onMuteToggle={toggleCallMute}
+              onEnd={endCall}
+              onReconnect={reconnectCall}
+              talkSpeed={ask.talkSpeed}
+              onTalkSpeedChange={ask.setTalkSpeed}
+              orbSize={orbSize}
+            />
+          )}</PhoneTalkFrame>
         </LabPhoneCard>
       )}
 

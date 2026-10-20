@@ -20,7 +20,7 @@ function rememberColor(color: HighlightColor) {
 export interface LabPhoneBarProps {
   /** The selected words (copy, and where the bar sits). */
   text: string
-  /** A saved highlight was tapped, or the selection was just highlighted: its colours, its note and the bin. */
+  /** A saved highlight was tapped, or the selection was just highlighted: its colours, its note and ✕ (remove it). */
   existingColor?: HighlightColor
   noted?: boolean
   /** Where the press ended, used only when no selected word is painted. */
@@ -40,7 +40,7 @@ export interface LabPhoneBarProps {
  * of the page less 10px a side, 12px below the selection's last line (above
  * its first line when there is no room), its tip at the selection. Ask ·
  * Explain · Simplify · ••• · highlight · note; a highlight shows Ask · Explain,
- * its colours, its note and the bin.
+ * its colours, its note and ✕ (remove it).
  */
 export function LabPhoneBar(props: LabPhoneBarProps) {
   const { text, existingColor, noted = false, fallbackY } = props
@@ -111,7 +111,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
           ))}
           {sep}
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
-          <button type="button" className="lab-pbar-item" data-testid="lab-pbar-remove" aria-label="Remove highlight" onClick={props.onRemove}><PhoneIcon name="trash" /></button>
+          <button type="button" className="lab-pbar-item" data-testid="lab-pbar-remove" aria-label="Remove highlight" title="Remove highlight" onClick={props.onRemove}><PhoneIcon name="close" /></button>
         </>
       ) : (
         <>

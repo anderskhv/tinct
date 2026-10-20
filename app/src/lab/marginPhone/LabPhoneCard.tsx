@@ -6,7 +6,7 @@ import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
 import './marginPhone.css'
 
 /** The margin reader's card icons (public/lab/addbook/js/margin.js ICONS), drawn on an 18px grid. */
-export function PhoneIcon({ name }: { name: 'more' | 'note' | 'highlight' | 'mic' | 'up' | 'trash' }) {
+export function PhoneIcon({ name }: { name: 'more' | 'note' | 'highlight' | 'mic' | 'up' | 'trash' | 'close' }) {
   const body = {
     more: <><circle cx="4" cy="9" r=".9" /><circle cx="9" cy="9" r=".9" /><circle cx="14" cy="9" r=".9" /></>,
     note: <><path d="M11.6 3.4l2.9 2.9-7.6 7.6-3.6.8.8-3.6z" /><path d="M10.1 4.9l2.9 2.9M10.5 15.3h4.6" /></>,
@@ -14,6 +14,7 @@ export function PhoneIcon({ name }: { name: 'more' | 'note' | 'highlight' | 'mic
     mic: <><rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5" /><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5" /></>,
     up: <path d="M9 14V4M4.5 8.5 9 4l4.5 4.5" />,
     trash: <path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4" />,
+    close: <path d="M4.5 4.5l9 9M13.5 4.5l-9 9" />,
   }[name]
   return <svg viewBox="0 0 18 18" aria-hidden="true" focusable="false" className="lab-picon">{body}</svg>
 }

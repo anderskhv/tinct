@@ -54,9 +54,10 @@ async function mock(context, log) {
 /** A chapter's start, handed over as the library does: the normal reader and the margin mode show the same page there, but for the pills. */
 const SEED = { chapterNumber: Number(process.env.CHAPTER || 5), paragraphIndex: 0 }
 async function boot(engine, search, seed = SEED, keep = null) {
+  const fresh = !!keep?.fresh
   const context = keep?.context ?? await engine.launch().then(browser => browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' }).then(c => { c.__browser = browser; return c }))
   const log = keep?.log ?? { ai: [], notes: [], voice: [], errors: [] }
-  if (!keep) {
+  if (!keep || fresh) {
     await mock(context, log)
     await context.addInitScript(({ bookId, seed }) => {
       localStorage.setItem('tinct:wipe-v1-done', '1')
@@ -66,18 +67,18 @@ async function boot(engine, search, seed = SEED, keep = null) {
         sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId, primaryEditionKey: 'modern-en', savedPlace: { bookId, chapterNumber: seed.chapterNumber, paragraphIndex: seed.paragraphIndex, wordIndex: 0, page: 0 } }))
       }
       HTMLMediaElement.prototype.play = async function () { this.muted = true }
-      const silent = async () => { const ctx = new (window.AudioContext || window.webkitAudioContext)(); return ctx.createMediaStreamDestination().stream }
+      const silent = async () => { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); return ctx.createMediaStreamDestination().stream } catch { return new MediaStream() } }
       if (navigator.mediaDevices) Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: silent })
       window.__copied = []
       Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async text => { window.__copied.push(text) } } })
     }, { bookId: BOOK, seed })
   }
   const page = keep?.page ?? await context.newPage()
-  if (!keep) {
+  if (!keep || fresh) {
     page.setDefaultTimeout(15000)
     page.on('pageerror', e => log.errors.push(e.message))
   }
-  if (keep && search === null) await page.reload({ waitUntil: 'domcontentloaded' })
+  if (keep && !fresh && search === null) await page.reload({ waitUntil: 'domcontentloaded' })
   else await page.goto(ORIGIN + '/reader' + search, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 60000 })
   await page.evaluate(() => document.fonts.ready)
@@ -97,7 +98,8 @@ const same = (a, b) => a.chapter === b.chapter && a.place === b.place && a.first
 /** The top bar: its markup (classes, labels, text) and its box. */
 const headerOf = page => page.evaluate(() => {
   const header = document.querySelector('.lab-header')
-  const walk = el => [el.tagName, el.className && String(el.className), el.getAttribute('aria-label'), el.getAttribute('data-testid'), ...[...el.childNodes].map(n => n.nodeType === 3 ? n.textContent.trim() : n.nodeType === 1 ? walk(n) : '')]
+  // The menu disc's first-view spin (is-spinning) is a moment's animation, not the bar's markup.
+  const walk = el => [el.tagName, el.className && String(el.className).replace(/ is-spinning\b/, ''), el.getAttribute('aria-label'), el.getAttribute('data-testid'), ...[...el.childNodes].map(n => n.nodeType === 3 ? n.textContent.trim() : n.nodeType === 1 ? walk(n) : '')]
   const r = header.getBoundingClientRect()
   return { tree: JSON.stringify(walk(header)), box: [r.left, r.top, r.width, r.height].map(Math.round) }
 })
@@ -219,6 +221,10 @@ async function run(engineName) {
     await check(`${label} opened and closed`)
   }
   let card = await action(() => page.getByTestId('lab-pbar-explain').click(), 'explain', 'Explain')
+  // The answer streams in; read the card once it has arrived and the card has slid up.
+  await page.getByTestId('lab-phone-card-answer').waitFor()
+  await page.waitForTimeout(400)
+  card = await cardOf(page)
   ok(`${tag}: the Explain card streams the answer, its lead sentence bold`, card.text.includes('MOCK lead sentence') && card.lead === 'MOCK lead sentence of the answer.' && /Ask a follow-up/.test(await page.getByTestId('lab-phone-card-input').getAttribute('placeholder')), card)
   shots.push(await shot(page, `${tag}-explain`))
   // A follow-up in the card: the chat's question, answered in the card.
@@ -268,10 +274,22 @@ async function run(engineName) {
   card = await cardOf(page)
   ok(`${tag}: the note opens as a card, its field focused`, card.kind === 'note' && card.focused === 'TEXTAREA:lab-phone-card-note', card)
   await page.keyboard.type('A note of mine')
+  // A note's words are upright, while written and once saved (Anders, 20 Oct 2026); the card's label stays italic.
+  const noteStyle = await page.evaluate(() => ({ field: getComputedStyle(document.querySelector('[data-testid="lab-phone-card-note"]')).fontStyle, label: getComputedStyle(document.querySelector('[data-testid="lab-phone-card-label"]')).fontStyle }))
+  ok(`${tag}: the note's text is upright (roman), the label italic`, noteStyle.field === 'normal' && noteStyle.label === 'italic', noteStyle)
   shots.push(await shot(page, `${tag}-note`))
   await tapOutside(page)
   const saved = await page.evaluate(() => Object.entries(localStorage).filter(([k]) => /highlight/i.test(k)).map(([, v]) => v).join(' '))
   ok(`${tag}: the note is kept in the reader's highlights`, saved.includes('A note of mine'))
+  // Once saved, opened again: still upright.
+  await select(page)
+  if (await page.getByTestId('lab-pbar-note').count()) {
+    await page.getByTestId('lab-pbar-note').click()
+    await page.getByTestId('lab-phone-card-note').waitFor()
+    const again = await page.evaluate(() => { const f = document.querySelector('[data-testid="lab-phone-card-note"]'); return { value: f.value, style: getComputedStyle(f).fontStyle } })
+    ok(`${tag}: the saved note reopens upright`, again.value === 'A note of mine' && again.style === 'normal', again)
+    await tapOutside(page)
+  }
   await check('the note card')
   // Tap the highlight: the bar with the bin; the bin removes it.
   const mark = page.locator('[data-testid="lab-page-wrap"] .lab-passage [data-highlight-id]').first()
@@ -279,9 +297,11 @@ async function run(engineName) {
   const tapAt = { pointerId: 13, pointerType: 'touch', isPrimary: true, bubbles: true, clientX: mb.x + Math.min(8, mb.width / 2), clientY: mb.y + mb.height / 2 }
   await mark.dispatchEvent('pointerdown', tapAt); await page.waitForTimeout(60); await mark.dispatchEvent('pointerup', tapAt)
   await page.getByTestId('lab-pbar-remove').waitFor({ timeout: 4000 })
+  const remove = await page.getByTestId('lab-pbar-remove').evaluate(b => ({ text: b.textContent.trim(), label: b.getAttribute('aria-label'), icon: !!b.querySelector('svg.lab-picon'), path: b.querySelector('path')?.getAttribute('d') }))
+  ok(`${tag}: removing a highlight is an icon-only ✕ in the bar's icon style`, remove.text === '' && remove.label === 'Remove highlight' && remove.icon && remove.path === 'M4.5 4.5l9 9M13.5 4.5l-9 9', remove)
   await page.getByTestId('lab-pbar-remove').click()
   await page.waitForTimeout(300)
-  ok(`${tag}: a tap on a highlight offers the bin, and the bin deletes it`, await page.locator('[data-testid="lab-page-wrap"] .lab-passage [data-highlight-id]').count() === 0)
+  ok(`${tag}: a tap on a highlight offers ✕, and ✕ deletes it`, await page.locator('[data-testid="lab-page-wrap"] .lab-passage [data-highlight-id]').count() === 0)
   await check('deleting a highlight')
 
   // 6. Chat and Talk open as cards.
@@ -303,7 +323,6 @@ async function run(engineName) {
   card = await cardOf(page)
   const talk = await page.evaluate(() => ({ call: !!document.querySelector('[data-testid="lab-phone-card"] .lab-call'), full: [...document.querySelectorAll('.lab-call')].some(el => !el.closest('[data-testid="lab-phone-card"]')), wrap: !!document.querySelector('[data-testid="lab-page-wrap"]') }))
   ok(`${tag}: Talk opens as a card with the voice session's own view, not full screen`, card.kind === 'talk' && /^Talk/.test(card.label) && talk.call && !talk.full && talk.wrap, { card, talk })
-  shots.push(await shot(page, `${tag}-talk`))
   await close1('outside', 'Talk')
 
   // 7. The pills: at a chapter's start and end, each opening its card.
@@ -362,12 +381,73 @@ async function run(engineName) {
   ok(`${tag}: still in margin mode after the reload (the sticky opt-in)`, await sp.evaluate(() => !!document.querySelector('.lab.is-margin-phone')))
   ok(`${tag}: no page errors`, startState.log.errors.length === 0 && log.errors.length === 0, [...log.errors, ...startState.log.errors])
   await close(startState)
+
+  // The book's first chapter: nothing to catch up on yet (Anders, 20 Oct 2026): ✧ Primer only, no Catch me up in the t menu.
+  const firstState = await boot(engine, `?book=${BOOK}&margin=1`, { chapterNumber: 1, paragraphIndex: 0 })
+  const fp = firstState.page
+  const first = await fp.evaluate(() => document.querySelector('[data-testid="lab-unit-start"]')?.textContent.replace(/\s+/g, ' ').trim() ?? null)
+  ok(`${tag}: the first chapter's start pill has ✧ Primer and no ✧ Catch me up ("${first}")`, !!first && /^Starting .+✧Primer$/.test(first), first)
+  await showControls(fp)
+  await fp.getByTestId('lab-super').click()
+  await fp.getByTestId('lab-super-menu').waitFor()
+  ok(`${tag}: the first chapter's t menu has no Catch me up`, (await fp.getByTestId('lab-super-row-catchup').count()) === 0 && (await fp.getByTestId('lab-super-row-summarize').count()) === 1)
+  shots.push(await shot(fp, `${tag}-first-chapter-menu`))
+  await close(firstState)
   return shots
+}
+
+/**
+ * Talk in its card at 390×844 and 375×667: the orb whole inside the card and centred, the status line and the three
+ * controls beneath it, all in view without scrolling; never full screen. At device scale 1: headless WebKit on Linux
+ * paints a canvas at scale 2 shifted by its own size (only a quarter of the orb shows), which an iPhone does not.
+ */
+async function talkCard(engineName, w, h) {
+  const engine = engineName === 'webkit' ? webkit : chromium
+  const tag = `${BOOK}-${w}x${h}-${engineName}`
+  const browser = await engine.launch()
+  const context = await browser.newContext({ ...devices['iPhone 13'], viewport: { width: w, height: h }, deviceScaleFactor: 1, serviceWorkers: 'block' })
+  context.__browser = browser
+  const state = await boot(engine, `?book=${BOOK}&margin=1`, SEED, { context, page: await context.newPage(), log: { ai: [], notes: [], voice: [], errors: [] }, fresh: true })
+  const { page } = state
+  // The session never connects here; a start the browser refused closes the card, and Talk is opened again.
+  let fit = null
+  for (let attempt = 0; attempt < 3 && !fit; attempt++) {
+    await showControls(page)
+    await page.getByTestId('lab-super').click()
+    await page.getByTestId('lab-super-row-talk').click()
+    await page.getByTestId('lab-phone-card').waitFor()
+    await page.waitForTimeout(600)
+    fit = await page.evaluate(() => {
+    if (!document.querySelector('[data-testid="lab-phone-card"] .lab-call-circle')) return null
+    const card = document.querySelector('[data-testid="lab-phone-card"]').getBoundingClientRect()
+    const orb = document.querySelector('[data-testid="lab-phone-card"] .lab-call-circle').getBoundingClientRect()
+    const status = document.querySelector('[data-testid="lab-phone-card"] .lab-call-status').getBoundingClientRect()
+    const controls = [...document.querySelectorAll('[data-testid="lab-phone-card"] .lab-call-controls button')].map(b => b.getBoundingClientRect())
+    const body = document.querySelector('[data-testid="lab-phone-card-body"]')
+    return {
+      card: [card.left, card.top, card.right, card.bottom].map(Math.round), orb: [orb.left, orb.top, orb.right, orb.bottom].map(Math.round),
+      offCentre: Math.round(Math.abs((orb.left + orb.right) / 2 - (card.left + card.right) / 2)),
+      statusBelow: status.top >= orb.bottom - 1 && status.bottom <= card.bottom, controls: controls.length,
+      controlsIn: controls.every(r => r.top >= status.bottom - 1 && r.bottom <= card.bottom && r.top >= card.top),
+      scrolls: body.scrollHeight > body.clientHeight + 1, share: Math.round(card.height / innerHeight * 100),
+    }
+  })
+  }
+  if (!fit) { ok(`${tag}: Talk opens as a card`, false); await close(state); return null }
+  ok(`${tag}: Talk's orb lies whole inside the card, centred (${fit.orb[2] - fit.orb[0]}px)`, fit.orb[0] >= fit.card[0] && fit.orb[1] >= fit.card[1] && fit.orb[2] <= fit.card[2] && fit.orb[3] <= fit.card[3] && fit.offCentre <= 4 && fit.orb[2] - fit.orb[0] >= 64, fit)
+  ok(`${tag}: the status line and the ${fit.controls} controls sit beneath the orb, in view, nothing scrolls; the card ${fit.share}% of the screen`, fit.statusBelow && fit.controls === 3 && fit.controlsIn && !fit.scrolls && fit.share <= 62, fit)
+  const path = join(OUT, `${tag}-talk.png`)
+  await page.screenshot({ path })
+  await close(state)
+  return path
 }
 
 const all = []
 for (const engine of ENGINES) {
   try { all.push(...await run(engine)) } catch (error) { ok(`${engine}: run`, false, String(error?.stack || error).slice(0, 1200)) }
+  for (const [w, h] of [[390, 844], [375, 667]]) {
+    try { const path = await talkCard(engine, w, h); if (path) all.push(path) } catch (error) { ok(`${engine} ${w}x${h}: Talk`, false, String(error?.stack || error).slice(0, 1200)) }
+  }
 }
 console.log(all.map(p => 'shot ' + p).join('\n'))
 console.log(failures ? `${failures} failure(s)` : 'all ok')

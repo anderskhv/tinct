@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode, type MutableRefObject } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type MutableRefObject } from 'react'
 import type { LabAskTurn } from '../labAsk'
 import { isAiRestingError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
@@ -222,4 +222,29 @@ export function PhoneNoteBody({ quote, value, onChange, inputRef, chapter = fals
         value={value} onChange={event => onChange(event.target.value)} />
     </>
   )
+}
+
+/** The room the call's status line, its controls and their gaps take under the orb in the Talk card. */
+const TALK_BELOW_ORB_PX = 190
+/**
+ * Talk in the card: the call's own view, its orb sized from the card's box (not the window), so the orb, the
+ * status line and the controls all show whole, the orb centred.
+ */
+export function PhoneTalkFrame({ children }: { children: (orbSize: number) => ReactNode }) {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const [orb, setOrb] = useState(120)
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const fit = () => {
+      const { width, height } = el.getBoundingClientRect()
+      if (!width || !height) return
+      setOrb(Math.round(Math.max(64, Math.min(176, width * 0.6, height - TALK_BELOW_ORB_PX))))
+    }
+    fit()
+    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(fit) : null
+    observer?.observe(el)
+    return () => observer?.disconnect()
+  }, [])
+  return <div ref={ref} className="lab-pcard-talk" data-testid="lab-phone-talk" data-orb={orb}>{children(orb)}</div>
 }

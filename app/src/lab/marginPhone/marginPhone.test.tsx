@@ -3,7 +3,8 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { LabChapterHeading } from '../LabChapterHeading'
 import { LabChapterEnd } from '../LabChapterEnd'
-import { MarginPhoneContext } from './marginPhoneContext'
+import { MarginPhoneContext, catchUpAvailable, isFrontMatter } from './marginPhoneContext'
+import { labSuperMenuRows } from '../labSuperMenu'
 import { splitLead } from './LabPhoneCard'
 import { parsePhoneQuiz, parsePhoneQuizMark } from './LabPhoneCards'
 
@@ -45,6 +46,26 @@ describe('the chapter pills in the phone margin mode', () => {
     measured.container.querySelectorAll('button').forEach(button => fireEvent.click(button))
     expect(onQuiz).not.toHaveBeenCalled()
     expect(onCatchUp).not.toHaveBeenCalled()
+  })
+})
+
+describe('no Catch me up before there is anything to catch up on', () => {
+  const chapters = [{ number: 0, title: 'Preface' }, { number: 1, title: 'Introduction' }, { number: 2, title: 'Chapter 1' }, { number: 3, title: 'Chapter 2' }]
+  it('the first chapter and front matter have none; a chapter after a real one has it', () => {
+    expect(catchUpAvailable(chapters, 0)).toBe(false)
+    expect(catchUpAvailable(chapters, 1)).toBe(false)
+    expect(catchUpAvailable(chapters, 2)).toBe(false)
+    expect(catchUpAvailable(chapters, 3)).toBe(true)
+    expect(catchUpAvailable([{ number: 1, title: 'Letter 1' }, { number: 2, title: 'Letter 2' }], 1)).toBe(false)
+    expect(catchUpAvailable([{ number: 1, title: 'Letter 1' }, { number: 2, title: 'Letter 2' }], 2)).toBe(true)
+    expect(isFrontMatter("Translator's Note")).toBe(true)
+    expect(isFrontMatter('Prologue')).toBe(false)
+  })
+  it('the start pill shows only ✧ Primer, and the t menu has no Catch me up row', () => {
+    render(<MarginPhoneContext.Provider value={{ catchUp: false }}><LabChapterHeading title="Chapter 1" preview onPreview={() => {}} /></MarginPhoneContext.Provider>)
+    expect(screen.getByTestId('lab-unit-start').textContent).toBe('Starting Chapter 1✧Primer')
+    expect(labSuperMenuRows({ phone: true, noCatchUp: true }).some(row => row.id === 'catchup')).toBe(false)
+    expect(labSuperMenuRows({ phone: true }).some(row => row.id === 'catchup')).toBe(true)
   })
 })
 
