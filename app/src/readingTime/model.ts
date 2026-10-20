@@ -11,10 +11,16 @@
 import { isUserBookId } from '../lab/userBook/userBookId'
 import { isBookFinished } from '../preReader/bookFinished'
 
-/** At most one heartbeat per reader in this window (the Worker's gate). */
-export const BEAT_MIN_GAP_MS = 50_000
-/** At most this many seconds credited per heartbeat. */
-export const BEAT_MAX_SECONDS = 60
+/**
+ * At most one heartbeat per reader in this window (the Worker's gate). The
+ * reader beats about every five minutes (each beat is ledger reads and one
+ * add_reading_time write); the gap and the per-beat cap keep the same 1.2x
+ * ratio they had at one beat a minute (50 s / 60 s), so no more can be
+ * credited per hour than before.
+ */
+export const BEAT_MIN_GAP_MS = 250_000
+/** At most this many seconds credited per heartbeat (five minutes). */
+export const BEAT_MAX_SECONDS = 300
 /** At most this many seconds credited per reader-local day (all books). */
 export const DAILY_CAP_SECONDS = 16 * 3600
 /** Book id of time counted before the ledger existed. Not a day's reading. */
