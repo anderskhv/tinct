@@ -6,7 +6,9 @@
 // Tinct's own testing (?internal=1, see ../internal-traffic.js) still sends, marked internal: true.
 import {isInternal} from '../internal-traffic.js';
 const DEVICE_KEY='tinct-lab-device-id',SESSION_KEY='tinct-funnel-session',ONCE_KEY='tinct:funnel-once';
-const FLUSH_MS=4000,BEAT_MS=30000,BATCH=10,ATTRIBUTION=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+// Visible time goes up every 5 minutes and in full on hide/pagehide (one analytics row each).
+export const BEAT_MS=5*60_000;
+const FLUSH_MS=4000,BATCH=10,ATTRIBUTION=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
 const newId=()=>{try{if(crypto.randomUUID)return crypto.randomUUID();}catch{}return `${Math.random().toString(36).slice(2)}${Date.now().toString(36)}`.padEnd(16,'0');};
 const memory={device:null,session:null,once:new Set()};
 function stored(store,key,make){try{let v=store.getItem(key);if(!v){v=make();store.setItem(key,v);}return v;}catch{return null;}}

@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handleReadingTime, type ReadingTimeDeps } from './worker/routes/readingTime'
-import { BEAT_MIN_GAP_MS, DAILY_CAP_SECONDS, EARLIER_BOOK_ID } from './readingTime/model'
+import { BEAT_MAX_SECONDS, BEAT_MIN_GAP_MS, DAILY_CAP_SECONDS, EARLIER_BOOK_ID } from './readingTime/model'
 
 const userId = '11111111-1111-4111-8111-111111111111'
 const NOW = Date.UTC(2026, 9, 7, 12, 0, 0)
@@ -119,7 +119,7 @@ describe('the switch', () => {
 })
 
 describe('heartbeats', () => {
-  it('takes one beat per ~50 seconds per reader', async () => {
+  it('takes one beat per BEAT_MIN_GAP_MS (~250 seconds) per reader', async () => {
     const { table } = fakeSupabase()
     const clock = { now: NOW }
     const d = deps(clock)
@@ -132,19 +132,20 @@ describe('heartbeats', () => {
     expect(table.find(row => row.book_id === 'frankenstein')?.read_seconds).toBe(120)
   })
 
-  it('credits at most 60 seconds a beat, and listening only while narration plays', async () => {
+  it('credits at most BEAT_MAX_SECONDS (300) a beat, and listening only while narration plays', async () => {
+    // Cap change (DB IO trim, 20 Oct 2026): was 60 s a beat.
     const { table } = fakeSupabase()
     const clock = { now: NOW }
     const d = deps(clock)
     const first = await handleReadingTime(beat({ read: 3600 }), on, d)
-    expect(await first.json()).toEqual({ enabled: true, credited: { read: 60, listen: 0 } })
+    expect(await first.json()).toEqual({ enabled: true, credited: { read: BEAT_MAX_SECONDS, listen: 0 } })
     clock.now += BEAT_MIN_GAP_MS
     const silent = await handleReadingTime(beat({ read: 0, listen: 60, playing: false }), on, d)
     expect(await silent.json()).toEqual({ enabled: true, credited: { read: 0, listen: 0 } })
     clock.now += BEAT_MIN_GAP_MS
     const playing = await handleReadingTime(beat({ read: 0, listen: 60, playing: true }), on, d)
     expect(await playing.json()).toEqual({ enabled: true, credited: { read: 0, listen: 60 } })
-    expect(table.find(row => row.book_id === 'frankenstein')).toMatchObject({ read_seconds: 60, listen_seconds: 60 })
+    expect(table.find(row => row.book_id === 'frankenstein')).toMatchObject({ read_seconds: BEAT_MAX_SECONDS, listen_seconds: 60 })
   })
 
   it('stops at 16 hours in a reader-local day', async () => {
