@@ -334,7 +334,9 @@
   }
   /** The note editor: the passage, the field, Remove highlight and Save note (the book reader's note sheet). */
   function noteHtml({ quote, note = '' }) {
-    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(quote))}”</p><textarea class="mr-note__field" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(note)}</textarea></div>`
+    // A passage that opens or closes on its own quotation mark is not quoted twice (round 3: ““Yes, of course, if”).
+    const bare = String(quote || '').trim().replace(/^["“‘']+|["”’']+$/g, '');
+    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(bare))}”</p><textarea class="mr-note__field" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(note)}</textarea></div>`
       + `<div class="mr-note__foot"><button type="button" class="mr-bar__item is-quiet" data-m="remove">Remove highlight</button><button type="button" class="mr-bar__item" data-m="save"${note ? '' : ' disabled'}>Save note</button></div>`;
   }
   /**

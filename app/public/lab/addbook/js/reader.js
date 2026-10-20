@@ -1183,6 +1183,18 @@ function currentPlace() {
   }
   return { page: state.pages.length || 1, frac: 0 };
 }
+/**
+ * The page (an EPUB's chapter) the reader is reading, for the chapter the pill, the contents and the chapter's
+ * cards name: the page at the view's top, or the next one once its top has passed the upper third of the view
+ * (round 3: "The Window · 3" stood a third down the phone's screen while the pill still said 2). One rule for PDFs
+ * and EPUBs; the place kept (currentPlace) is still the page at the top.
+ */
+const READING_LINE = 1 / 3;
+function readingPage(place = currentPlace()) {
+  const next = state.pages[place.page], s = $('scroll');
+  if (!next || place.frac >= 1) return place.page;
+  return next.sheet.getBoundingClientRect().top <= s.getBoundingClientRect().top + s.clientHeight * READING_LINE ? place.page + 1 : place.page;
+}
 function goTo(place, smooth) {
   const p = state.pages[Math.max(1, Math.min(state.pages.length, place.page)) - 1];
   if (!p) return;
@@ -1195,7 +1207,7 @@ function onScroll() {
   if (!state.pages.length) return;
   strip?.update();
   const place = currentPlace(), n = state.pages.length;
-  const ch = toc.ready ? chapterAt(place.page) : null;
+  const ch = toc.ready ? chapterAt(readingPage(place)) : null;
   if (isEpub()) {
     const sc = $('scroll'), pct = Math.round(100 * sc.scrollTop / Math.max(1, sc.scrollHeight - sc.clientHeight));
     $('pageLabel').textContent = ch ? ch.label : state.title;
@@ -1810,13 +1822,15 @@ async function refitZoom(crossed) {
 /* The phone's page pill (TinctReaderLayout.pillStages): the fullest label that leaves the title whole and
    is not cut itself, else the page alone without its chevron; never an empty pill. The desktop's is as before. */
 const pill = { stages: null, key: '', at: 0 };
-const PILL_CUT_MIN = 40;
+const PILL_CUT_MIN = 40, PILL_TITLE_MIN = 72;
 function fitPill(stages = pill.stages) {
   pill.stages = stages;
   const btn = $('pageBtn'), label = $('pageLabel'), title = $('bookTitle');
-  if (!isPhone() || !stages?.length) { delete btn.dataset.chevron; delete btn.dataset.fit; pill.key = ''; return }
+  if (!isPhone() || !stages?.length) { delete btn.dataset.chevron; delete btn.dataset.fit; delete btn.dataset.title; pill.key = ''; return }
   const show = stage => {
     btn.dataset.chevron = stage.chevron ? 'on' : 'off';
+    // The book's title gives way first (an EPUB's stages, round 3): cut by its own ellipsis, or left out (reader.css data-title="off").
+    if (stage.title === 'off') btn.dataset.title = 'off'; else delete btn.dataset.title;
     if (stage.cut) {
       // Cut with an ellipsis, a closing number kept: the pill gives way to the title (reader.css data-fit="cut").
       const { head, tail } = window.TinctReaderLayout.cutLabel(stage.label);
@@ -1831,10 +1845,13 @@ function fitPill(stages = pill.stages) {
   if (key === pill.key) { show(stages[pill.at]); return }
   const whole = el => el.scrollWidth <= el.clientWidth + 1;
   let at = 0;
+  // The title as the stage has it: whole, cut but still readable (most of it, and six letters or so before its
+  // ellipsis: "To the Li…", never "To the …"), or left out.
+  const titleFits = stage => stage.title === 'off' || (stage.title === 'cut' ? title.clientWidth >= Math.max(PILL_TITLE_MIN, title.scrollWidth * 0.6) : whole(title));
   for (; at < stages.length; at++) {
     show(stages[at]);
-    if (stages[at].cut && whole(title) && readable()) break;
-    if (at === stages.length - 1 || (whole(title) && whole(label))) break;
+    if (stages[at].cut && titleFits(stages[at]) && readable()) break;
+    if (at === stages.length - 1 || (!stages[at].cut && titleFits(stages[at]) && whole(label))) break;
   }
   pill.key = key; pill.at = at;
 }
@@ -2270,6 +2287,7 @@ function chapterAt(page) {
   return cur;
 }
 function goToEntry(e) {
+  primer.held = false;
   const el = isEpub() && e.anchor && document.getElementById('c' + (e.page - 1) + '-' + e.anchor.replace(/[^\w-]/g, '_'));
   if (el) { const s = $('scroll'); s.scrollTo({ top: s.scrollTop + el.getBoundingClientRect().top - s.getBoundingClientRect().top - 24 }); return }
   goTo({ page: e.page, frac: 0 });
@@ -2282,7 +2300,7 @@ function chapterRange(e) {
 function openContents() {
   if (!hasBook()) return;
   closeAllPopups();
-  const page = currentPlace().page, cur = chapterAt(page);
+  const page = currentPlace().page, cur = chapterAt(readingPage());
   // Printed page labels where there are any: the reader types the number they see on the page ("423", "xii").
   const lettered = (state.labels || []).some(l => /\p{L}/u.test(String(l ?? '')));
   if (cur?.parent) toc.expanded.add(cur.parent);
@@ -5143,7 +5161,7 @@ addEventListener('keydown', e => {
    in this browser ('primer:{key}:{unit}') and, signed in with the book in the account, with the
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
-const primer = { units: null, parts: null, places: new Map(), unitsTask: null, open: false, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false };
+const primer = { units: null, parts: null, places: new Map(), unitsTask: null, open: false, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false, held: false };
 const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
 function primerReset() {
   primer.token++;
@@ -5224,7 +5242,7 @@ async function loadUnitsNow() {
   marginLayout();
   primerPrefetch();
 }
-const placePage = () => (state.pages.length ? currentPlace().page : 1);
+const placePage = () => (state.pages.length ? readingPage() : 1);
 // The chapter the reader is in when they open Before you start; on front or back matter, the nearest real chapter.
 const currentUnit = () => (primer.units ? TinctMargin.primerUnitAt(primer.units, placePage()) : null);
 // A scan with no text (yet) has nothing to make a primer from: no trigger and no B until its text is
@@ -5236,7 +5254,18 @@ const primerHasText = () => (state.scan ? !hasNoText() : toc.early?.text === tru
 function triggerUnit() {
   if (!primer.units || primer.open || !primerHasText()) return null;
   const unit = currentUnit();
-  return unit && TinctMargin.atUnitStart(unit, placePage()) ? unit : null;
+  if (!unit || !TinctMargin.atUnitStart(unit, placePage()) || (primer.held && marginMode() === 'phone')) return null;
+  // An EPUB's chapter is one page (the margin preview's Tinct books): its trigger shows while the chapter's start is
+  // near the view's top, as a PDF's shows on its unit's first page, and not all through the chapter (round 3: the
+  // phone's bottom card covered the text on opening at a place mid-chapter, and followed the reader down it).
+  return !isEpub() || epubNearStart(unit.start) ? unit : null;
+}
+/** An EPUB chapter's start is near: its top is in view, or less than half a screen above it. */
+function epubNearStart(n) {
+  const p = state.pages[n - 1], s = $('scroll');
+  if (!p) return false;
+  const top = p.sheet.getBoundingClientRect().top - s.getBoundingClientRect().top;
+  return top >= -s.clientHeight / 2 && top <= s.clientHeight * READING_LINE;
 }
 // The unit's name as the companion and the primer give it: "Chapter 1: Introduction to Information Theory".
 const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : unit.label || unit.title);
@@ -6518,7 +6547,7 @@ function speak(text) {
 
 /* Summarize: the pages of this stretch, into Chat, like Tinct's chapter summary */
 async function summarize() {
-  const page = currentPlace().page, ch = chapterAt(page);
+  const page = readingPage(), ch = chapterAt(page);
   const r = ch ? chapterRange(ch) : { from: Math.max(1, page - ((page - 1) % 20)), to: page };
   const from = r.from, to = Math.min(r.to, r.from + 39);
   const what = ch ? ch.label : `pages ${from}–${to}`;
@@ -6962,8 +6991,12 @@ async function openRegistered(book, preview) {
   return hasBook() && state.preview === preview;
 }
 /** Before you start, Catch me up, Recap and Quiz me work on chapters: one unit per chapter. */
+for (const type of ['touchmove', 'wheel', 'keydown']) addEventListener(type, () => { if (primer.held) { primer.held = false; requestAnimationFrame(marginLayout) } }, { capture: true, passive: true });
 function previewUnits() {
   toc.early = { text: true };
+  // On a phone the bottom card waits for the reader's first move (a scroll, a key, a jump in the contents): it never
+  // covers the text the book opened at (round 3), and shows at a chapter's start from then on (triggerUnit).
+  primer.held = isPhone();
   primer.units = state.pages.map(p => {
     const e = toc.entries.find(x => x.page === p.n && x.kind === 'chapter');
     const title = e?.label || 'Chapter ' + p.n;

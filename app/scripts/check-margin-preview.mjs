@@ -61,6 +61,7 @@ const frameOf = async page => {
   await page.waitForTimeout(1200)
   return frame
 }
+const pillNow = frame => frame.evaluate(() => { const l = document.getElementById('pageLabel'), t = document.getElementById('bookTitle'), b = document.getElementById('pageBtn'); return { label: l.textContent, fit: b.dataset.fit || '', titleMode: b.dataset.title || (t.scrollWidth <= t.clientWidth + 1 ? 'whole' : 'cut'), title: b.dataset.title === 'off' || t.scrollWidth <= t.clientWidth + 1 || t.clientWidth >= 72, chapter: chapterAt(readingPage())?.label } })
 const spotOf = frame => frame.evaluate(() => ({ page: currentPlace().page, ...epubSpot(), key: state.key, mode: marginMode() }))
 const mainKeys = page => page.evaluate(re => Object.fromEntries(Object.keys(localStorage).filter(k => new RegExp(re).test(k)).map(k => [k, localStorage.getItem(k)])), MAIN_KEY.source)
 
@@ -130,8 +131,12 @@ try {
       ok(`${tag}: the place stays put while later chapters are laid out (${later.later} → ${fewer} waiting)`, still.page === at.page && still.para === at.para && still.word === at.word && fewer < later.later, { at, still, fewer })
       // Round 2: the phone's chapter pill names the chapter (cut with an ellipsis if need be), not the percent alone, and the title stays whole.
       if (phone) {
-        const pill = await frame.evaluate(() => { const l = document.getElementById('pageLabel'), t = document.getElementById('bookTitle'); return { label: l.textContent, fit: document.getElementById('pageBtn').dataset.fit || '', title: t.scrollWidth <= t.clientWidth + 1, chapter: toc.entries.filter(e => e.kind === 'chapter' && e.page <= currentPlace().page).at(-1)?.label } })
+        const pill = await pillNow(frame)
         ok(`${tag}: the phone's pill names the chapter ("${pill.label}"), the title whole`, !/^\d+%$/.test(pill.label) && pill.title && !!pill.chapter && (pill.chapter.includes(pill.label) || /…/.test(pill.label) || pill.fit === 'cut'), pill)
+        // Round 3: the book's title gives way first: the chapter's name is whole ("The Window · 2"), never "The W… · 2".
+        ok(`${tag}: the pill's chapter name is whole, the title cut or left out first ("${pill.label}", title ${pill.titleMode})`, pill.label === pill.chapter && pill.fit !== 'cut', pill)
+        // Round 3: Before you start's bottom card does not cover the text the book opened at.
+        ok(`${tag}: no Before you start card over the text on opening`, await frame.evaluate(() => col.sheet?.dataset.id !== 'trigger'))
       }
 
       // 2. A selection opens the bar; Explain draws its card with the passage and its chapter as the document.
@@ -206,6 +211,38 @@ try {
       ok(`${tag}: the chapter pill opens the book's chapters`, !!toc && (await frame.$$('[data-testid="lab-toc"] [data-go]')).length > 1)
       shots.push(join(OUT, `${tag}-chapters.png`)); await page.screenshot({ path: shots.at(-1) })
       await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [data-close]')?.click())
+
+      // 3f. Round 3: the note editor quotes a passage that opens on its own quotation mark once (““Yes, of course”).
+      const noteQuote = await frame.evaluate(() => { const d = document.createElement('div'); d.innerHTML = TinctMargin.html.noteHtml({ quote: '“Yes, of course, if”' }); return d.querySelector('.mr-note__quote').textContent })
+      ok(`${tag}: the note editor quotes the passage once (${noteQuote})`, noteQuote === '“Yes, of course, if”', noteQuote)
+
+      // 3e. Round 3: the current chapter is the next one once its heading has passed the upper third (pill and contents),
+      // and on a phone Before you start's bottom card shows at a chapter's start after the reader moves, not further down.
+      {
+        const next = (await spotOf(frame)).page + 1
+        await frame.evaluate(n => { const s = document.getElementById('scroll'), sh = state.pages[n - 1].sheet; s.scrollTo({ top: s.scrollTop + sh.getBoundingClientRect().top - s.getBoundingClientRect().top - s.clientHeight * 0.28 }) }, next)
+        await page.waitForTimeout(700)
+        const now = await frame.evaluate(() => ({ top: currentPlace().page, label: document.getElementById('pageLabel').textContent, reading: chapterAt(readingPage())?.label, want: null }))
+        now.want = await frame.evaluate(n => toc.entries.filter(e => e.kind === 'chapter' && e.page <= n).at(-1)?.label, next)
+        ok(`${tag}: a heading a third down the screen is the chapter being read (pill "${now.label}", want "${now.want}")`, now.top === next - 1 && now.reading === now.want && (phone ? now.label === now.want || now.want.includes(now.label) : true), now)
+        await frame.click('#pageBtn')
+        await frame.waitForSelector('[data-testid="lab-toc"] .tree', { timeout: 5000 }).catch(() => null)
+        const cur = await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [aria-current="page"] .text')?.textContent || null)
+        ok(`${tag}: the contents mark that chapter as the one being read ("${cur}")`, cur === now.want, { cur, want: now.want })
+        await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [data-close]')?.click())
+        if (phone) {
+          shots.push(join(OUT, `${tag}-heading.png`)); await page.screenshot({ path: shots.at(-1) })
+          await frame.evaluate(() => { primer.away.clear(); dispatchEvent(new Event('touchmove')); document.getElementById('scroll').scrollBy(0, 2) })
+          await page.waitForTimeout(700)
+          const trig = await frame.evaluate(() => col.sheet?.dataset.id === 'trigger' ? col.sheet.innerText : null)
+          ok(`${tag}: after a move, Before you start offers that chapter at its start`, !!trig && trig.toLowerCase().includes(now.want.toLowerCase()), trig)
+          await frame.evaluate(() => { const s = document.getElementById('scroll'); s.scrollBy(0, s.clientHeight * 1.2) })
+          await page.waitForTimeout(700)
+          const gone = await frame.evaluate(() => ({ sheet: col.sheet?.dataset.id || null, page: currentPlace().page }))
+          ok(`${tag}: further into the chapter the card is gone (it does not follow the reader down)`, gone.sheet !== 'trigger' || gone.page !== next, gone)
+          await frame.evaluate(() => closeSheet2())
+        }
+      }
 
       // 3d. Type: a part's name is not set in capitals; a chapter's Before you start names it as its contents do.
       const type = await frame.evaluate(() => ({ part: [...document.querySelectorAll('.tb-part')].map(e => getComputedStyle(e).textTransform)[0] ?? null, phrases: (primer.units || []).slice(0, 30).map(u => TinctMargin.unitPhrase(u)) }))
@@ -287,8 +324,26 @@ try {
     const frame = await frameOf(page)
     const pill = await frame.evaluate(() => ({ label: document.getElementById('pageLabel').textContent, later: document.querySelectorAll('.tb-chapter.tb-later').length, all: document.querySelectorAll('.tb-chapter').length }))
     ok(`${tag}: the pill names the chapter ("${pill.label}")`, /^Chapter \d+$/.test(pill.label), pill)
+    ok(`${tag}: the title stays whole beside "Chapter N"`, (await pillNow(frame)).titleMode === 'whole')
     ok(`${tag}: most chapters wait to be laid out (${pill.later} of ${pill.all})`, pill.later > pill.all / 2, pill)
     shots.push(join(OUT, `${tag}-open.png`)); await page.screenshot({ path: shots.at(-1) })
+    ok(`${tag}: no page errors`, errors.length === 0, errors)
+    await context.close()
+  }
+
+  // Round 3: the narrowest phones (375 and 390 px): To the Lighthouse's pill keeps "The Window · N" whole, the title
+  // cut (most of it still shown) or left out; never the chapter cut while the title stays.
+  for (const [w, h] of [[375, 812], [390, 844]]) {
+    const tag = `to-the-lighthouse-${w}x${h}-pill`
+    const context = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, hasTouch: true, isMobile: true, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1' })
+    await mockApis(context, { position: [], ai: [] })
+    const page = await context.newPage()
+    const errors = []; page.on('pageerror', e => errors.push(String(e)))
+    await page.goto(`${ORIGIN}/reader?book=to-the-lighthouse&margin=1`)
+    const frame = await frameOf(page)
+    const pill = await pillNow(frame)
+    ok(`${tag}: "${pill.label}" whole, the title ${pill.titleMode}`, pill.label === pill.chapter && /^The Window · \d+$/.test(pill.label) && pill.fit !== 'cut' && pill.title, pill)
+    shots.push(join(OUT, `${tag}.png`)); await page.screenshot({ path: shots.at(-1), clip: { x: 0, y: 0, width: w, height: 120 } })
     ok(`${tag}: no page errors`, errors.length === 0, errors)
     await context.close()
   }
