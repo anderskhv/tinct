@@ -32,10 +32,15 @@
  * apart (signed out, nor a Friends one); blocked readers never see each other
  * in either direction; the leaderboard is opt-in and shows name, picture and
  * time only; Find lists Friends and Everyone profiles by name and picture.
- * Tinct's internal and test accounts never appear on a board, and the Everyone
- * board exists only once EVERYONE_BOARD_MIN_READERS real readers are on it
- * (Anders, 8 October 2026): below that the API serves no Everyone board and
+ * Tinct's test accounts never appear on the Everyone board; an internal
+ * account (reader_profiles.internal) set to Everyone and on the leaderboard
+ * appears there like anyone else (Anders, 20 Oct 2026), and friends see each
+ * other on Friends either way. The Everyone board exists only once
+ * EVERYONE_BOARD_MIN_READERS real readers (internal accounts not counted) are
+ * on it (Anders, 8 October 2026): below that the API serves no Everyone board and
  * every response says `everyoneOpen: false`, so the page shows no Everyone tab.
+ * Board seconds are read live from the reading_time ledger by the You card's
+ * own 7-day rule (socialRules.weekSeconds), so both show the same time.
  * Never returned: email, highlights, notes, chats, Talk.
  */
 import {
@@ -60,16 +65,18 @@ import {
   finishedCardLine,
   leaderboardWindow,
   mutualFriends,
+  offEveryone,
   parseFindQuery,
   rankRows,
   socialFriendsOn,
-  windowSeconds,
+  weekSeconds,
+  weekSinceDay,
   type Board,
   type BoardCard,
   type ReportReason,
 } from '../../social/socialRules'
 import { followButtonHtml, profileDocument, profileMissingHtml, type ProfileBook, type ProfilePageData, type ProfilePicture } from '../../social/profilePageView'
-import { finishedBookIds, formatDuration, readingTimeStats, type LedgerRow } from '../../readingTime/model'
+import { finishedBookIds, formatDuration, plausibleToday, readingTimeStats, utcDay, type LedgerRow } from '../../readingTime/model'
 import { chapterNumbersOf, yourReadingView, type CatalogueEntry } from '../../readingTime/yourReading'
 import { isShareableBookId } from '../../readingTime/privateBook'
 import { INDEX_KEY, bucketOf, readJson as readBucketJson, type PublicBooksEnv } from './publicBooks'
@@ -324,30 +331,68 @@ export interface BoardEntry {
   handle?: string
 }
 
-export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; friends: number; everyoneOpen: boolean; entries: BoardEntry[] }> {
+/**
+ * The board's seconds, live from the ledger by the You card's 7-day rule
+ * (Anders, 20 Oct 2026: a new reader's You card said 16 m while the board,
+ * read from the hourly cache, said 0 m). Others' 7 days end on the UTC date
+ * (or tomorrow, once they have time there); the viewer's on their own local
+ * day when the page sent it. Null when the ledger cannot be read.
+ */
+async function liveSeconds(ctx: Context, ids: string[], viewerId: string, viewerToday: string | null): Promise<Map<string, number> | null> {
+  try {
+    const rows = await ctx.social.weekLedger(ids, weekSinceDay(ctx.now))
+    const today = utcDay(ctx.now)
+    return weekSeconds(rows, id => (id === viewerId && viewerToday ? viewerToday : today))
+  } catch (error) {
+    console.warn(JSON.stringify({ event: 'leaderboard_live_failed', detail: error instanceof Error ? error.message : 'failed' }))
+    return null
+  }
+}
+
+/** The fallback when the live read fails: the hourly cache, rebuilt first when stale (as before 20 Oct 2026). */
+async function cachedSeconds(ctx: Context, ids: string[]): Promise<{ seconds: Map<string, number>; refreshedAt: string | null }> {
+  const refreshedAt = await freshBoard(ctx)
+  return { seconds: await ctx.social.boardSeconds(ids), refreshedAt }
+}
+
+/** Which internal cards on an Everyone board are test accounts (`test` set on each); unknown leaves them off. */
+async function markTestAccounts(ctx: Context, cards: BoardCard[]): Promise<BoardCard[]> {
+  const internal = cards.filter(card => card.internal === true)
+  if (!internal.length) return cards
+  const tests = await ctx.social.testAccounts(internal.map(card => card.id)).catch(error => {
+    console.warn(JSON.stringify({ event: 'test_accounts_failed', detail: error instanceof Error ? error.message : 'failed' }))
+    return null
+  })
+  if (!tests) return cards
+  return cards.map(card => (card.internal === true ? { ...card, test: tests.has(card.id) } : card))
+}
+
+export async function buildBoard(ctx: Context, viewerId: string, tab: Board, open = false, viewerToday: string | null = null): Promise<{ tab: Board; window: { start: string; end: string }; refreshedAt: string | null; total: number; me: BoardEntry | null; meShown: boolean; friends: number; everyoneOpen: boolean; entries: BoardEntry[] }> {
   // Two round trips to the database, not six (Anders, 15 Oct 2026: the board
   // took too long). First, at once: who the viewer's friends are, their own
-  // profile, when the 7-day cache was built, and (Everyone) the pool.
-  const [circle, own, builtAt, everyonePool] = await Promise.all([
+  // profile and (Everyone) the pool.
+  const [circle, own, everyoneCards] = await Promise.all([
     circleOf(ctx, viewerId),
     ctx.profiles.getOwn(viewerId),
-    ctx.social.boardRefreshedAt(),
     tab === 'everyone' ? ctx.social.everyoneBoardCards(EVERYONE_POOL) : Promise.resolve(null),
   ])
-  // Then the cards (the viewer's own among them) and the seconds of everyone
-  // who could be on this board; a reader filtered out below is simply not read from the map.
-  const candidates = tab === 'friends' ? [...circle.friends] : (everyonePool ?? []).map(card => card.id)
-  const stale = !(builtAt && ctx.now - Date.parse(builtAt) < LEADERBOARD_STALE_MS)
-  const [cards, freshSeconds] = await Promise.all([
+  // Then the cards (the viewer's own among them), the live seconds of everyone
+  // who could be on this board (a reader filtered out below is simply not read
+  // from the map) and, on Everyone, which internal accounts are test accounts.
+  const candidates = tab === 'friends' ? [...circle.friends] : (everyoneCards ?? []).map(card => card.id)
+  const today = viewerToday && plausibleToday(viewerToday, ctx.now) ? viewerToday : null
+  const [cards, live, everyonePool] = await Promise.all([
     ctx.social.cardsByIds(tab === 'friends' ? [...candidates, viewerId] : [viewerId]).catch(error => {
       if (tab === 'friends') throw error
       return [] as BoardCard[]
     }),
-    stale ? Promise.resolve(null) : ctx.social.boardSeconds([viewerId, ...candidates]),
+    liveSeconds(ctx, [viewerId, ...candidates], viewerId, today),
+    everyoneCards ? markTestAccounts(ctx, everyoneCards) : Promise.resolve(null),
   ])
-  // A stale cache is rebuilt before its seconds are read, as before (rare: the hourly cron rebuilds it).
-  const refreshedAt = stale ? await freshBoard(ctx) : builtAt
-  const seconds = freshSeconds ?? await ctx.social.boardSeconds([viewerId, ...candidates])
+  // Rare: the ledger could not be read, so the hourly cache answers (rebuilt first when stale).
+  const fallback = live ? null : await cachedSeconds(ctx, [viewerId, ...candidates])
+  const seconds = live ?? fallback!.seconds
+  const refreshedAt = live ? new Date(ctx.now).toISOString() : fallback!.refreshedAt
   const pool = tab === 'friends' ? cards : everyonePool ?? []
   const others = pool.filter(card => card.id !== viewerId && appearsOnBoard(card, tab, circle))
   type Row = { name: string; picture: ProfilePicture; seconds: number; me: boolean; handle?: string }
@@ -372,9 +417,9 @@ export async function buildBoard(ctx: Context, viewerId: string, tab: Board, ope
   })
   const window = leaderboardWindow(ctx.now)
   // Whether others see the viewer on this board (the page explains when they do not).
-  const ownCard = own ? cards.find(card => card.id === viewerId) ?? null : null
-  // An internal account is left off Everyone only; friends always see it (19 Oct 2026).
-  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && (tab === 'friends' || (ownCard.visibility === 'everyone' && ownCard.internal !== true)))
+  const ownCard = own ? (everyonePool ?? []).find(card => card.id === viewerId) ?? cards.find(card => card.id === viewerId) ?? null : null
+  // Only a test account is left off Everyone (20 Oct 2026); friends always see each other (19 Oct 2026).
+  const meShown = Boolean(ownCard && ownCard.on_leaderboard && ownCard.show_time && (tab === 'friends' || (ownCard.visibility === 'everyone' && !offEveryone(ownCard))))
   // How many mutual friends the viewer has, so the cards open on Friends when there are any.
   const friends = [...circle.friends].filter(id => id !== viewerId).length
   return { tab, window: { start: window.start, end: window.end }, refreshedAt, total: ranked.length, me: meRanked ? entry(meRanked) : null, meShown, friends, everyoneOpen: open, entries: shown.map(entry) }
@@ -530,7 +575,8 @@ export async function buildProfile(ctx: Context, handle: string, viewerId: strin
   if (view.limited || (!view.shows.time && !view.shows.reading)) return data
   const rows = await ledger
   if (rows && view.shows.time) {
-    const last7 = windowSeconds(rows.map(row => ({ user_id: ownerId, day: row.day, book_id: row.bookId, read_seconds: row.read, listen_seconds: row.listen })), ctx.now).get(ownerId) ?? 0
+    // The same 7 days as the leaderboard and Your reading (readingTimeStats).
+    const last7 = readingTimeStats(rows, utcDay(ctx.now)).last7Seconds
     const year = String(new Date(ctx.now).getUTCFullYear())
     const yearSeconds = rows.filter(row => row.day.startsWith(`${year}-`)).reduce((sum, row) => sum + row.read + row.listen, 0)
     data.time = { last7: formatDuration(last7), year: formatDuration(yearSeconds) }
@@ -798,14 +844,15 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
 
     if (path === '/api/social/board' && request.method === 'GET') {
       const tab: Board = url.searchParams.get('tab') === 'everyone' ? 'everyone' : 'friends'
-      // The board is read beside the Everyone count, not after it.
-      const [open, data] = await Promise.all([everyoneOpen(ctx), buildBoard(ctx, viewerId, tab)])
+      // The board is read beside the Everyone count, not after it. `today` is the
+      // page's own date, so the viewer's row counts the same 7 days as Your reading.
+      const [open, data] = await Promise.all([everyoneOpen(ctx), buildBoard(ctx, viewerId, tab, false, url.searchParams.get('today'))])
       // Below the threshold there is no Everyone board at all.
       if (tab === 'everyone' && !open) return reply({ error: 'Not found', everyoneOpen: false }, 404, request)
       return reply({ ...data, everyoneOpen: open }, 200, request)
     }
     if (path === '/api/social/rank' && request.method === 'GET') {
-      const board = await buildBoard(ctx, viewerId, 'friends')
+      const board = await buildBoard(ctx, viewerId, 'friends', false, url.searchParams.get('today'))
       return reply({ rank: board.me?.rank ?? null, total: board.total, seconds: board.me?.seconds ?? 0 }, 200, request)
     }
     if (path === '/api/social/find' && request.method === 'GET') {

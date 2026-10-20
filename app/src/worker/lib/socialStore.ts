@@ -8,7 +8,7 @@
  * out Only me and hidden profiles and unapproved photos (20261008_profiles.sql;
  * uploads are stored approved since 19 Oct 2026).
  */
-import type { BoardCard, ReportReason } from '../../social/socialRules'
+import { isReservedTestEmail, type BoardCard, type ReportReason } from '../../social/socialRules'
 import type { Review } from '../../social/profileRules'
 import type { ReaderProfileRow } from './profileStore'
 import type { SupabaseEnv } from './supabase'
@@ -58,8 +58,16 @@ export interface SocialStore {
   everyoneBoardCards(limit: number): Promise<BoardCard[]>
   /** How many of those are real readers (internal and test accounts left out). Throws when it cannot be told. */
   everyoneReaderCount(): Promise<number>
+  /** Which of these accounts are test accounts (profiles.is_test, or a reserved test address). Throws when it cannot be told. */
+  testAccounts(ids: string[]): Promise<Set<string>>
 
-  /** The cached 7-day seconds for these readers, and when the cache was built. */
+  /**
+   * The board's live seconds: these readers' ledger rows from a day on
+   * ('_earlier' left out), by the (user_id, day) index. Throws rather than
+   * return a cut-off list, so the board never shows too little time.
+   */
+  weekLedger(ids: string[], sinceDay: string): Promise<LedgerDayRow[]>
+  /** The fallback: the cached 7-day seconds for these readers (hourly), and when the cache was built. */
   boardSeconds(ids: string[]): Promise<Map<string, number>>
   boardRefreshedAt(): Promise<string | null>
   refreshBoard(): Promise<void>
@@ -195,6 +203,30 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
       const total = Number((res.headers.get('content-range') || '').split('/')[1])
       if (!Number.isFinite(total)) throw new SocialUnavailable('public_profile_cards count unreadable')
       return total
+    },
+
+    async testAccounts(list) {
+      const out = new Set<string>()
+      for (const group of chunks([...new Set(list)], 100)) {
+        if (!group.length) continue
+        // profiles.is_test exists once 20261010_profiles_is_test.sql has run; until then the address alone tells.
+        let res = await request(env, `profiles?id=in.(${ids(group)})&select=id,email,is_test`)
+        if (res.status === 400 && /is_test/.test(await res.clone().text().catch(() => ''))) res = await request(env, `profiles?id=in.(${ids(group)})&select=id,email`)
+        if (!res.ok) throw new SocialUnavailable(`profiles test ${res.status}`, res.status)
+        for (const row of await res.json() as Array<{ id: string; email: string | null; is_test?: boolean | null }>) {
+          if (row.is_test === true || isReservedTestEmail(row.email)) out.add(row.id)
+        }
+      }
+      return out
+    },
+
+    async weekLedger(list, sinceDay) {
+      // 50 readers a request: a reader has at most a row per day and book in the window.
+      const groups = chunks([...new Set(list)].filter(id => /^[0-9a-f-]{36}$/i.test(id)), 50)
+      const limit = 1000
+      const parts = await Promise.all(groups.map(group => rows<LedgerDayRow>(env, `reading_time?user_id=in.(${ids(group)})&day=gte.${sinceDay}&book_id=neq._earlier&select=user_id,day,book_id,read_seconds,listen_seconds&limit=${limit}`)))
+      if (parts.some(part => part.length >= limit)) throw new SocialUnavailable('week ledger cut off')
+      return parts.flat()
     },
 
     async boardSeconds(list) {
