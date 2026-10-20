@@ -192,7 +192,7 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
      reader.js savePlaceNow). The reader's own actions are counted (a restore is the reader's place only once it has
      landed, or once they act). Uses reader.js's globals (state, epubHold, epubSpot, epubGoSpot, currentPlace). */
   const POS_KEY = 'pos:' + KEY;
-  let interactions = 0, sync = null, lastActive = 0;
+  let interactions = 0, sync = null, lastActive = 0, goes = 0;
   for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, () => {
     interactions++;
     const now = Date.now(); if (now - lastActive > 1000) { lastActive = now; try { sync?.place?.active?.() } catch {} }
@@ -242,6 +242,7 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
       reportPlace('move');
     };
     sync.place.listen(spot => {
+      goes++;
       if (!epubGoSpot(spot.page, spot.para, spot.word)) { reportPlace('open', { target: spot }); return }
       settled(spot).then(target => reportPlace('open', { target }));
     });
@@ -336,7 +337,13 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
     if (!opened || !sync?.place) return;
     watchPlace();
-    reportPlace('open', { target: await settled() });
+    const target = await settled();
+    reportPlace('open', { target });
+    // A reflow just after the restore (a font, the top bar's controls) can leave the view off its word as it is
+    // reported, and the page then holds the place (marginPreviewPlace). reader.js brings the view back to the held
+    // word; the restore is told again a few times while the reader has not acted, so it is written once it holds.
+    const before = interactions;
+    for (const ms of [1200, 2500, 5000]) setTimeout(() => { if (interactions === before && !goes && state.key === 'preview:' + id) reportPlace('open', { target }) }, ms);
   }
   window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });

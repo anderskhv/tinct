@@ -127,6 +127,14 @@ describe('the margin place gate: the book reader\'s rules for writing a place', 
     expect(gate.watch()).toBeNull()
   })
 
+  it('a restore that lands only after a reflow settles is the opening write then (open-book), at its word', () => {
+    const gate = createMarginPlaceGate({ bookId: 'frankenstein', chapters })
+    const target = { page: 2, para: 2, word: 3 }
+    expect(gate.decide(open({ page: 2, para: 2, word: 0 }, target))).toBeNull()
+    expect(gate.decide(open(target, target))).toMatchObject({ reason: 'open-book', at: { paragraphIndex: 2, wordIndex: 3 } })
+    expect(gate.decide(open(target, target))).toBeNull()
+  })
+
   it('writes no backward place without a reader action since the last write', () => {
     const gate = createMarginPlaceGate({ bookId: 'frankenstein', chapters })
     const target = { page: 2, para: 2, word: 3 }

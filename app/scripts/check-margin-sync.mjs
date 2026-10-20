@@ -143,7 +143,7 @@ async function checkPlace(browser) {
   try {
     const frame = await marginFrame(page)
     const at = await frameSpot(frame)
-    ok('place: margin view opens at the account\'s place', at.page === chapterAt(5) && at.para === 3 && at.word === 4, at)
+    ok('place: margin view opens at the account\'s place (its paragraph, the word\'s line at the top)', at.page === chapterAt(5) && at.para === 3 && at.word <= 4, at)
     await waitFor(() => settled()?.deviceId !== 'qa-phone')
     ok('place: opening writes the restored word back, settled in this book', settled()?.deviceId !== 'qa-phone' && settled()?.paragraphIndex === 3 && settled()?.wordIndex === 4 && settled()?.primaryEditionKey === 'modern-en' && account.position.lastSettledBookId === BOOK, settled())
     // The reader scrolls (a wheel in the frame): the new place is written.

@@ -86,12 +86,13 @@ export function createMarginPlaceGate(opts: { bookId: string; chapters: MarginPr
       // Loading (or being moved to another device's place): no place yet.
       if (!isOpen || !report.spot) return null
       let spot = report.spot
+      let landedRestore = false
       if (watch) {
         const landed = sameSpot(spot, watch.spot)
         if (holdPlaceWrite({ watch, reason: report.kind === 'open' ? 'open-book' : 'page-turn', interactions: report.interactions, landed })) return null
         // Landed, nothing done since: the restored word itself. Acted since: the reader's own place from now on.
         if (report.interactions > watch.interactions) watch = null
-        else spot = watch.spot
+        else { spot = watch.spot; landedRestore = true }
       }
       const at = anchorOfSpot(chapters, spot)
       if (!at) return null
@@ -106,9 +107,10 @@ export function createMarginPlaceGate(opts: { bookId: string; chapters: MarginPr
       if (last && sameSpot(spot, last.spot)) return null
       // Backward without a reader action since the last write: a reflow, not a place.
       if (last && spotBefore(spot, last.spot) && !acted) return null
-      const reason: LabPlaceReason = report.kind === 'open' && !openWritten ? 'open-book' : 'page-turn'
+      // The opening write: the restore as it lands (at its `open` report, or a later one once a reflow has settled).
+      const reason: LabPlaceReason = !openWritten && (report.kind === 'open' || landedRestore) ? 'open-book' : 'page-turn'
       const finished = last && acted && reason === 'page-turn' && spot.page === last.spot.page + 1 ? chapters[last.spot.page - 1]?.number : undefined
-      if (report.kind === 'open') openWritten = true
+      if (reason === 'open-book') openWritten = true
       last = { spot, interactions: report.interactions }
       return { reason, at, spot, ...(finished ? { finished } : {}) }
     },
