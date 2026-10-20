@@ -31,6 +31,7 @@ import {
   WHOLE_PDF_PROMPT,
   factcheckPrompt,
   quizPrompt,
+  ASK_SOURCE_SEARCH_LINE,
   quizAskedBlock,
   type QuizAsked,
 } from './marginPrompts'
@@ -410,14 +411,15 @@ function parseShelf(raw: unknown): LibraryShelf | null {
  */
 function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, unknown>): CompanionRequest | null {
   const c = r.context && typeof r.context === 'object' ? r.context as Record<string, unknown> : null
-  if (!c || c.kind !== 'pdf' || c.bookId !== undefined || !Array.isArray(c.pages)) return null
+  // A reader's own PDF, or since 20 Oct 2026 their own EPUB (its units are chapters; Before you start for each essay).
+  if (!c || (c.kind !== 'pdf' && c.kind !== 'epub') || c.bookId !== undefined || !Array.isArray(c.pages)) return null
   const action = parseChapterChatAction(chapter.action, null)
   if (!action) return null
   const parsed = parseContext({ ...c, chapterLabel: c.chapterLabel ?? action.unitTitle, pages: primerPages(c.pages), paragraphs: undefined })
   if (!parsed?.pdf || !parsed.context.paragraphs.some(page => /^<page n="[^"]*">\n\S/.test(page))) return null
   const document = parseMarginDocument(r.document)
   // Made ahead of the reader opening it (the PDF reader's primerPrefetch): never charged (companionAllowance).
-  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(document ? { document } : {}), ...(r.speculative === true ? { speculative: true } : {}) }
+  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(parsed.epub ? { epub: true as const } : {}), ...(document ? { document } : {}), ...(r.speculative === true ? { speculative: true } : {}) }
 }
 
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
@@ -562,7 +564,7 @@ function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): st
     case 'quiz_check': return [QUIZ_CHECK_PROMPT]
     // A question in the PDF reader's margin: the document before our own explanation; on a PDF passage, the image line, as Explain has it.
     // About the whole PDF: its own rules too (WHOLE_PDF_PROMPT).
-    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
+    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.sourceSearch ? [ASK_SOURCE_SEARCH_LINE] : []), ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
     default: return []
   }
 }
@@ -719,8 +721,17 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
   return { stable: prefix.stable, ...(prefix.part ? { part: prefix.part } : {}), volatile }
 }
 
-/** Fact-check is the only action that searches the web. */
+/**
+ * Fact-check always searches; Ask in the margin reader (a passage question, a follow-up, the whole file: `ask` on a
+ * reader's own PDF or EPUB) has the same search as a tool the model may call when the question needs current or outside
+ * facts (Anders, 20 Oct 2026: no "Web" toggle, the model decides). Never prefetched for Ask (factcheckSourceQuery is
+ * Fact-check's alone), so a question the document answers costs no search.
+ */
 export function companionUsesSourceSearch(request: CompanionRequest): boolean {
+  return request.intent === 'factcheck' || (request.intent === 'ask' && Boolean(request.pdf))
+}
+/** Whether the search runs before the model answers (Fact-check) or only when the model calls it (Ask). */
+export function companionPrefetchesSources(request: CompanionRequest): boolean {
   return request.intent === 'factcheck'
 }
 

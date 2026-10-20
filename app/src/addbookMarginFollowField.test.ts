@@ -29,7 +29,7 @@ const card = (kind: string, extra: Partial<Card> = {}): Card => ({ id: 'c1', kin
 describe('the follow-up field', () => {
   it('is a box with the field, the mic and then send (disabled until there is text); placeholder "Ask a follow-up"', () => {
     const f = M.html.followHtml()
-    expect(f).toMatch(/^<div class="mr-follow has-field"><div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="Ask a follow-up" aria-label="Follow up"><\/textarea><\/span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false"><svg[^]*?<\/svg><\/button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled><svg[^]*?<\/svg><\/button><\/div><\/div>$/)
+    expect(f).toMatch(/^<div class="mr-follow has-field"><div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="Ask a follow-up" aria-label="Follow up" spellcheck="false" autocorrect="off" autocomplete="off"><\/textarea><\/span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false"><svg[^]*?<\/svg><\/button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled><svg[^]*?<\/svg><\/button><\/div><\/div>$/)
     // The send icon is the selection bar's up-arrow, in the icons' stroke.
     expect(f).toContain('<path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/>')
     expect(f).not.toContain('mr-card__delete')

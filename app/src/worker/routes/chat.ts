@@ -30,6 +30,7 @@ import {
   companionTrailChapters,
   companionUsesSourceSearch,
   factcheckSourceQuery,
+  companionPrefetchesSources,
   isPrimerRequest,
   marginRequestRoute,
   parseCompanionRequest,
@@ -43,7 +44,7 @@ import { createAiMeter, ledgerGuestKey, type AiFeature, type AiMeter } from '../
 import { MAX_IMAGE_REQUEST_BODY_BYTES, contentHasImage, messageText, parseUserBlocks, passageImageWithinCap, type ChatUserBlock } from '../lib/chatImages'
 import { bookAssets } from './publicBooks'
 import { primerFailure } from '../../companion/primerParse'
-import { FACTCHECK_OPENING_ROUTE, factcheckDocFirst, factcheckVerdictEffort, type MarginThinking } from '../../companion/marginRoutes'
+import { FACTCHECK_OPENING_ROUTE, MARGIN_SONNET_MODEL, factcheckDocFirst, factcheckVerdictEffort, type MarginThinking } from '../../companion/marginRoutes'
 import { FACTCHECK_OPENING_ROUND, FACTCHECK_VERDICT_ROUND } from '../../companion/marginPrompts'
 
 export type ChatEnv = SupabaseEnv & {
@@ -1460,10 +1461,11 @@ export async function handleChat(
           trailChapters: [],
           researchKey: env.OPENAI_API_KEY,
           researchGate: () => checkRateLimit(`source-research:${userId}`, env.RATE_LIMIT, 6),
-          sourceQuery: factcheckSourceQuery(companion),
+          // Fact-check searches before it answers; Ask (20 Oct 2026) has the search as a tool the model may call.
+          ...(companionPrefetchesSources(companion) ? { sourceQuery: factcheckSourceQuery(companion) } : {}),
           // The PDF reader's streamed Fact-check opened from the document while the search ran (doc-first, 15 Oct);
           // off since 19 Oct 2026 (marginRoutes.ts FACTCHECK_DOC_FIRST): the verdict comes first.
-          ...(marginRoute && stream && factcheckDocFirst() ? { opening: {
+          ...(marginRoute && stream && companionPrefetchesSources(companion) && factcheckDocFirst() ? { opening: {
             system: withVolatileLine(system, FACTCHECK_OPENING_ROUND),
             verdictSystem: withVolatileLine(system, FACTCHECK_VERDICT_ROUND),
             verdictEffort: factcheckVerdictEffort(),
@@ -1501,10 +1503,16 @@ export async function handleChat(
 
       timing.contextReadyMs = Date.now() - timing.startedAt
       const providerStartedAt = Date.now()
+      // The cached document is shared by every margin request on one model, tools included (they come first in the
+      // prefix). Ask on Sonnet carries the source search as a tool since 20 Oct 2026, so the other Sonnet margin requests
+      // (Before you start, Quiz me and its marking) carry the same tool, never callable (tool_choice none): one cached
+      // prefix, as before.
+      const searchPrefix = Boolean(marginRoute && companion?.pdf && marginRoute.model === MARGIN_SONNET_MODEL && userId && env.OPENAI_API_KEY)
       const response = await fetchAnthropic(apiKey, {
         model,
         max_tokens: maxTokens,
         ...thinkingConfig(marginRoute?.thinking),
+        ...(searchPrefix ? { tools: [SOURCE_SEARCH_TOOL], tool_choice: { type: 'none' } } : {}),
         system,
         messages: safeMessages,
         ...effortConfig(effort),

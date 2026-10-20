@@ -108,7 +108,7 @@ const signedIn = async (body: unknown) => {
 afterEach(() => { vi.unstubAllGlobals() })
 
 describe('primer: parsing', () => {
-  it('parses only for a user PDF: kind pdf, no bookId', () => {
+  it('parses only for a user\'s own file: kind pdf (or epub), no bookId', () => {
     const parsed = parseCompanionRequest(primerBody())!
     expect(parsed.intent).toBe('chapter')
     expect(parsed.chapter!.action).toEqual(primerAction)
@@ -119,7 +119,8 @@ describe('primer: parsing', () => {
     expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, bookId: 'odyssey' } }))).toBeNull()
     expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, bookId: '../not-an-id' } }))).toBeNull()
     expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, kind: undefined } }))).toBeNull()
-    expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, kind: 'epub' } }))).toBeNull()
+    // An EPUB of the reader's own has Before you start too since 20 Oct 2026 (its units' marks): parsed, marked an EPUB.
+    expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, kind: 'epub' } }))!.epub).toBe(true)
     expect(parseCompanionRequest({ intent: 'chapter', context: bookContext, chapter: { action: { ...primerAction, bookId: 'odyssey' } } })).toBeNull()
     expect(parseCompanionRequest({ intent: 'chapter', context: { ...bookContext, kind: 'pdf' }, chapter: { action: primerAction } })).toBeNull()
   })

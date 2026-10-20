@@ -594,7 +594,12 @@
     const plain = String(text || '').replace(/\*\*(?=\S)([^*]+?)\*\*/g, '$1');
     // A bare "eq. 1" (no braces) is a tag only when this PDF has that equation (recheck-1, 16 Oct); the rest as before.
     const bare = token => (/^eq\./i.test(token.raw) ? Boolean(resolve && resolve(token)) : true);
-    return P.parseCitations(plain, bare).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
+    // A dropped page reference (a book without pages) takes the space before it along: "within it." not "within it ."
+    return P.parseCitations(plain, bare).reduce((html, part) => {
+      if (part.type !== 'cite') return html + italics(esc(part.text)).replace(/\n/g, '<br>');
+      const cite = citeHtml(part, resolve);
+      return cite ? html + cite : html.replace(/[ \t]+$/, '');
+    }, '');
   }
   const blocksOf = text => String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => b.replace(/^\n+|\s+$/g, '')).filter(b => b.trim());
   function blockHtml(b, P, resolve) {
@@ -627,6 +632,14 @@
    * and while it streams, words that are not yet a verdict wait (the card's dots show meanwhile). An answer kept
    * before 19 Oct is cleaned the same way when it is drawn.
    */
+  /** A reply's own "Sources:" line (its last), parsed as Fact-check's: { text without it, html of its links }. */
+  function sourcesOf(text, P) {
+    const t = String(text || ''), m = /\n[ \t]*Sources:[^\n]*\s*$/i.exec(t);
+    if (!m || !P?.parseSourcesLine) return { text: t, html: '' };
+    const list = P.parseSourcesLine(m[0].trim());
+    const html = list.length ? `<div class="mr-sources"><span class="mr-sources__label">Sources</span>${list.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(P.sourceTitle ? P.sourceTitle(s.title) : s.title)}</a>`).join('')}</div>` : '';
+    return { text: t.slice(0, m.index), html };
+  }
   function factcheckHtml(text, P, { resolve = null, live = false } = {}) {
     const f = P.parseFactcheck(P.cleanFactcheck ? P.cleanFactcheck(text) : text);
     if (live && !f.verdict) return { answer: '', sources: '' };
@@ -810,7 +823,7 @@
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     // "x of n": n is the quiz's real number of questions, one per key idea (known as soon as the ideas have streamed).
-    const total = q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : o.writing ? 0 : q.questions?.length;
+    const total = !o.writing ? q.questions?.length : q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : 0;
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1}${total ? ` of ${total}` : ''}</span>` : '';
     // Its top-right control minimises it (folds it, as a click outside does). The phone's bottom card has none (Anders,
     // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet).
@@ -903,7 +916,12 @@
         if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
         else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }
-      else body += `<div class="mr-answer">${(k === lead ? answerHtml : replyHtml)(t.content, P, { resolve: o.resolve })}</div>`;
+      else {
+        // An answer that searched sources (Ask, 20 Oct 2026: the model decides) ends with a "Sources:" line: shown as
+        // Fact-check shows its sources, a labelled row of links, never as a raw line.
+        const src = sourcesOf(t.content, P);
+        body += `<div class="mr-answer">${(k === lead ? answerHtml : replyHtml)(src.text, P, { resolve: o.resolve })}</div>${src.html}`;
+      }
     });
     body += status;
     return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml();

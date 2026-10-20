@@ -205,6 +205,13 @@ export const RELATED_PROMPT = [
 /** Ask in the PDF reader's margin (a passage question, a follow-up, the whole file): the document first, then our own explanation. */
 export const ASK_DOCUMENT_LINE = 'When the document does not explain something, say so before offering an explanation of your own.'
 
+/**
+ * Ask with the source search as a tool (Anders, 20 Oct 2026: no "Web" toggle, the model decides): one search, only when
+ * the question needs current facts or facts from outside the document; the sources then listed as Fact-check lists them,
+ * which the card shows as Fact-check's (margin.js factcheckHtml's links).
+ */
+export const ASK_SOURCE_SEARCH_LINE = 'You may call search_reading_sources once, only when the question needs current facts or facts from outside the document that well-established knowledge does not settle; otherwise answer without it. Never mention the search or a tool. When you used it, end with one final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · "; write no Sources line otherwise.'
+
 /** Shared by every margin action (marginContext.ts MARGIN_RULES): the client renders plain text and never parses Markdown. */
 export const PLAIN_PROSE_RULE = 'Plain prose only: no Markdown, no asterisks, no bullet characters, no em dashes.'
 

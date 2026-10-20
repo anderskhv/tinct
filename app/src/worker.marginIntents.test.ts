@@ -729,7 +729,9 @@ describe('Fact-check and the source search', () => {
       const { openai, anthropic } = stubFetch({ search: evidence })
       await handleChat(post('/api/chat', { companion: { ...companion, context: pdfContext } }), { ...env, OPENAI_API_KEY: 'openai-key' }, context().ctx, reader, allow, gateOff)
       expect(openai).toHaveLength(0)
-      expect(anthropic[0].tools).toBeUndefined()
+      // Never callable: no tools, or (Quiz me on Sonnet since 20 Oct 2026, sharing Ask's cached prefix) the search tool
+      // with tool_choice none.
+      if (anthropic[0].tools !== undefined) expect(anthropic[0].tool_choice).toEqual({ type: 'none' })
       vi.unstubAllGlobals()
     }
   })

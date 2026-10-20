@@ -5234,7 +5234,8 @@ async function runCardNow(id, question, run) {
   };
   const call = async imgs => {
     const images = imgs ? [imgs] : undefined;
-    if (question != null || card.kind === 'ask' || card.kind === 'figure') return TinctAI.ask(cardTurns(card, imgs, fig), { book, images, document: wholeDoc, passages: found, onText, signal: ctl.signal });
+    // Ask may search sources when the model decides it needs to (20 Oct 2026): "Checking sources…" shows meanwhile, as Fact-check's does.
+    if (question != null || card.kind === 'ask' || card.kind === 'figure') return TinctAI.ask(cardTurns(card, imgs, fig), { book, images, document: wholeDoc, passages: found, onText, onStatus, signal: ctl.signal });
     // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
     if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), ...(live?.asked ? { asked: live.asked } : {}), images, stream: true, onText: onQuizText, signal: ctl.signal });
     return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
