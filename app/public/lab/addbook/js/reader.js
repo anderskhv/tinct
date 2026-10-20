@@ -400,13 +400,26 @@ function applyPaper() {
   root.classList.toggle('is-paper', isPaper());
   if (!isPaper() || state.preview) return;
   let p = null;
-  try { p = RL.paper(localStorage.getItem('tinct-lab-prefs'), innerWidth) } catch { p = null }
+  try { p = marginPaper(RL.paper(localStorage.getItem('tinct-lab-prefs'), innerWidth)) } catch { p = null }
   if (!p) return;
   const set = (k, v) => root.style.setProperty(k, v);
   set('--tb-font', p.fontFamily); set('--tb-size', p.fontSize + 'px'); set('--tb-head', String(p.headingSize / p.fontSize));
   set('--tb-lh', String(p.lineHeight)); set('--tb-gap', p.paragraphGap + 'em'); set('--tb-align', p.align); set('--tb-measure', p.measure + 'px');
 }
 addEventListener('resize', () => { if (isEpub()) applyPaper() });
+/**
+ * Margin view's own text size and line (TinctReaderLayout.marginText, Anders, 20 Oct 2026) on the book reader's paper (its
+ * font, leading, paragraph gap, alignment): larger than the book reader's two-page leaf and wider on a wide screen, scaled
+ * by this device's Text size and Line width (the Aa panel, prefs.textSize and prefs.lineWidth). A Tinct book's preview
+ * keeps the book reader's own text (tinct-book.js applyPaper). -> the paper with its fontSize, headingSize and measure, or null
+ */
+function marginPaper(p) {
+  if (!p) return null;
+  const t = RL.marginText(innerWidth, { size: prefs.textSize, width: prefs.lineWidth });
+  return { ...p, fontSize: t.fontSize, headingSize: p.headingSize / p.fontSize * t.fontSize, measure: t.measure };
+}
+/** Text size and Line width in the Aa panel: an EPUB or a PDF's Tinct text of the reader's own on the desktop. */
+const typePanel = () => isPaper() && !state.preview;
 // Links inside the book move within it.
 $('column').addEventListener('click', e => {
   const a = e.target.closest?.('a[data-chapter]'); if (!a) return;
@@ -434,7 +447,7 @@ async function downloadChecked(id, key) {
  * no PDF and leaves them out (round 2: the phone's first page came about 0.3 s later with them); a PDF opened
  * there after all loads them here first, in the same order, with the same cache tags (scripts/check-margin-preview.mjs).
  */
-const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261020pdfspeed', 'js/pdf-text.js?v=20261020pdfspeed', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
+const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261020pdfspeed', 'js/pdf-text.js?v=20261020pdfspeed', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth', 'js/pdf-text-view.js?v=20261020pdfspeed'];
 let pdfScripts = null;
 function pdfReady() {
   if (window.pdfjsLib && window.TinctPdfScan) return Promise.resolve();
@@ -2395,7 +2408,7 @@ function openDisplay() {
       <div class="lab-v2-sheet-body">
         <div class="byob-aa-layout" data-aa="layout" role="group" aria-labelledby="aaLayoutLabel"><p class="lab-v2-group-label" id="aaLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
         <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
-        ${zoomPanel() ? zoomRowHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
+        ${zoomPanel() ? zoomRowHtml() : typePanel() ? typeRowsHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
         <div class="lab-v2-rows">
           ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}
           ${toggleRow('screen', 'Full screen', !!document.fullscreenElement)}
@@ -2432,6 +2445,8 @@ function openDisplay() {
     const z = b.dataset.z === 'fit' ? 1 : b.dataset.z === '+' ? zoomStep(1) : zoomStep(-1);
     setZoom(z, { quick: true });
   });
+  // Text size and Line width (an EPUB on the desktop): this device's, a step at a time, the place kept.
+  layer.querySelector('.byob-type')?.parentElement.addEventListener('click', e => { const b = e.target.closest('[data-type-step]'); if (b && !b.disabled) stepType(b.closest('.byob-type').dataset.type, Number(b.dataset.typeStep)) });
   layer.querySelector("[data-convert]")?.addEventListener('click', () => { closeDisplay(); readAsText() });
   layer.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
     const t = b.dataset.t;
@@ -2444,7 +2459,7 @@ function openDisplay() {
   const markSel = layer.querySelector('#passageMarkSel');
   if (markSel) markSel.onchange = e => { prefs.passageMark = e.target.value; savePrefs(); layer.querySelector('[data-value="passageMarkSel"]').textContent = e.target.selectedOptions[0]?.textContent || ''; marginLayout({ fresh: true }) };
   root.appendChild(layer);
-  drawLayoutChoices(); syncZoomRow();
+  drawLayoutChoices(); syncZoomRow(); syncTypeRows();
   $('aaBtn').setAttribute('aria-expanded', 'true');
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
@@ -2494,6 +2509,37 @@ function zoomRowHtml() {
     + `<button type="button" class="byob-zoom-step" data-z="-" aria-label="Zoom out">−</button><output class="byob-zoom-pct" aria-live="polite"></output><button type="button" class="byob-zoom-step" data-z="+" aria-label="Zoom in">+</button>`
     + `<button type="button" class="byob-zoom-fit" data-z="fit" aria-pressed="false">Fit width</button></div>`
     + (hasText() ? `<p class="lab-v2-note byob-zoom-note">For larger text that reflows, use <button type="button" data-convert>Convert to Tinct book</button>.</p>` : '');
+}
+/*
+ * Text size and Line width (Anders, 20 Oct 2026): an EPUB on the desktop in Margin view, this device's (prefs.textSize,
+ * prefs.lineWidth; TinctReaderLayout.TEXT_SIZES and LINE_WIDTHS), in place of the size slider. A step reflows the text
+ * with the reading place kept by paragraph and word (epubReflow). A book's own older size (its slider, pos.zoom) gives
+ * way to the device's on the first Text size step.
+ */
+const TYPE_ROWS = { size: ['Text size', 'textSize', 'TEXT_SIZES', 'Smaller', 'Larger'], width: ['Line width', 'lineWidth', 'LINE_WIDTHS', 'Narrower', 'Wider'] };
+function typeRowsHtml() {
+  return `<div class="byob-type-rows">${Object.entries(TYPE_ROWS).map(([id, [label, , , less, more]]) => `<div class="byob-type" data-type="${id}" role="group" aria-labelledby="aaType-${id}"><span class="lab-v2-row-label byob-zoom-label" id="aaType-${id}">${label}</span>`
+    + `<button type="button" class="byob-zoom-step" data-type-step="-1" aria-label="${less}">−</button><output class="byob-zoom-pct" aria-live="polite"></output><button type="button" class="byob-zoom-step" data-type-step="1" aria-label="${more}">+</button></div>`).join('')}</div>`;
+}
+function syncTypeRows() {
+  for (const row of document.querySelectorAll('.byob-aa-panel .byob-type')) {
+    const [, key, list] = TYPE_ROWS[row.dataset.type], steps = RL[list], now = steps.includes(Number(prefs[key])) ? Number(prefs[key]) : 1;
+    row.querySelector('.byob-zoom-pct').textContent = Math.round(now * 100) + '%';
+    row.querySelector('[data-type-step="-1"]').disabled = now <= steps[0];
+    row.querySelector('[data-type-step="1"]').disabled = now >= steps[steps.length - 1];
+  }
+}
+function stepType(type, dir) {
+  const row = TYPE_ROWS[type]; if (!row || !typePanel()) return;
+  const [, key, list] = row, next = RL.typeStep(RL[list], prefs[key] ?? 1, dir);
+  if (next === (prefs[key] ?? 1) && !(type === 'size' && state.zoom !== 1)) return;
+  if (next === 1) delete prefs[key]; else prefs[key] = next;
+  savePrefs();
+  const zoomed = type === 'size' && state.zoom !== 1;
+  if (zoomed) state.zoom = 1;
+  epubReflow(() => { if (zoomed) applyEpubScale(); applyPaper() });
+  onScroll(); savePlaceNow(); syncTypeRows();
+  if (marginOn()) marginLayout({ fresh: true });
 }
 /** The open Aa panel's Zoom row, after any zoom (its buttons, keys, a pinch). */
 function syncZoomRow() {
@@ -4793,14 +4839,9 @@ function openCard(id, { focus = false } = {}) {
   if (id === 'whole') col.whole.page = state.pages.length ? placePage() : null;
   if (mode === 'phone') { if (id) openSheet2(id); else closeSheet2() }
   if (mode === 'marks' && !id) closeFloat();
-  // A card whose passage is out of view brings it into view.
-  if (id && id !== 'whole') {
-    const card = viewCards().find(c => c.id === id) || cardById(id);
-    if (card && mode !== 'phone' && !card.data?.unit) {
-      const f = TinctMargin.firstRect(card), p = state.pages[f[0] - 1], sr = $('scroll').getBoundingClientRect();
-      if (p) { const b = p.pg.getBoundingClientRect(), y = b.top + f[2] * b.height; if (y < sr.top + 40 || y > sr.bottom - 120) goTo({ page: f[0], frac: Math.max(0, f[2] - 0.08) }, true) }
-    }
-  }
+  // Opening a card never moves the page (Anders, 20 Oct 2026: Quiz me jumped to the start of its passage, and a click on a
+  // card scrolled to its anchor): the card opens where it is and takes the focus. A jump the reader asks for (the
+  // Notebook's entry, a citation, Related's places) scrolls on its own before it opens the card.
   // A unit's card on the wide column sits at its unit's start or end: brought into view once laid out.
   if (id && mode === 'column' && (cardById(id)?.data?.unit || col.draft?.id === id && col.draft.unitNote)) col.reveal = id;
   marginLayout();
@@ -5649,25 +5690,37 @@ function quizStep(id, step) {
 }
 async function quizCheck(card, answer) {
   await mpReady;
-  answer = String(answer || '').slice(0, TinctMargin.QUIZ_ANSWER_CHARS);
-  const q = col.quiz.get(card.id) || card.data, i = q.i || 0, item = q.questions?.[i]; if (!item || q.results?.[i]) return;
+  const q = col.quiz.get(card.id) || card.data, i = q.i || 0, item = q.questions?.[i]; if (!item) return;
+  // A reply under the marking (Anders, 20 Oct 2026): after "Nearly." or "Not quite.", a few rounds on this question, the
+  // earlier turns sent with it; "Next question →" stays in view meanwhile.
+  const prior = q.results?.[i];
+  if (prior && !TinctMargin.quizCanReply(prior)) return;
+  answer = String(answer || '').slice(0, prior ? TinctMargin.QUIZ_REPLY_CHARS : TinctMargin.QUIZ_ANSWER_CHARS);
+  const turns = prior ? TinctMargin.quizTurns(prior) : null;
   col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
   try {
     const pdf = await pdfPages(card.page), wholeDoc = await marginDocumentNow(card.page, 'quiz_check');
-    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer, ...(q.thesis ? { thesis: q.thesis } : {}), ...(q.ideas?.length ? { ideas: q.ideas } : {}), ...(q.ideas?.[item.idea ?? i] ? { idea: q.ideas[item.idea ?? i] } : {}), ...(!q.unit && card.text ? { passage: card.text } : {}) } });
+    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer, ...(turns ? { turns } : {}), ...(q.thesis ? { thesis: q.thesis } : {}), ...(q.ideas?.length ? { ideas: q.ideas } : {}), ...(q.ideas?.[item.idea ?? i] ? { idea: q.ideas[item.idea ?? i] } : {}), ...(!q.unit && card.text ? { passage: card.text } : {}) } });
     const mark = MP.P.parseQuizCheck(res.text);
     if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
     const result = { answer, verdict: mark.verdict, feedback: mark.feedback };
+    // A reply joins its question's thread; the question's own verdict (its score) stays the first answer's.
+    const keep = results => { if (prior) { const r = results[i]; if (r) { r.thread = [...(r.thread || []), { reply: answer, verdict: mark.verdict, feedback: mark.feedback }] } } else results[i] = result };
     // Still streaming: the mark joins the quiz in memory; else the saved card takes it.
     const live = col.quiz.get(card.id);
-    if (live) { live.results[i] = result; col.pending.delete(card.id); marginLayout(); return }
+    if (live) { keep(live.results); col.pending.delete(card.id); marginLayout(); return }
     const c = cardById(card.id); if (!c) return;
-    c.data.results = c.data.results || []; c.data.results[i] = result;
+    c.data.results = c.data.results || []; keep(c.data.results); quizFit(c.data, i);
     col.pending.delete(card.id); saveCard(c);
   } catch (e) {
     // The error shows in the card, and the reader's answer goes back into its field to send again.
     col.pending.delete(card.id); col.drafts.set(card.id, answer); col.live.set(card.id, { text: null, status: errorCopy(e) }); marginLayout();
   }
+}
+/** A quiz kept within the account's room for a card's data (16 000 characters): the oldest other questions' replies go first. */
+function quizFit(data, keepAt) {
+  const results = data.results || [];
+  for (let k = 0; k < results.length && JSON.stringify(data).length > 15000; k++) if (k !== keepAt && results[k]?.thread) delete results[k].thread;
 }
 /* 1.5 s aborted most first requests on production (15 Oct: a cold cache write of the whole document
    comes first); with Haiku 5.5 and the cached document a reply takes about a second, a cold one longer. */
@@ -7518,7 +7571,7 @@ function epubSettle(measure, at = 0, tries = 6) {
 /** To a paragraph's word in chapter `n` (the word's line at the top of the view); held there until the reader scrolls. */
 function epubGoSpot(n, para, word = 0) {
   const p = state.pages[n - 1], el = p && epubParas(p)[para]; if (!el) return false;
-  Object.assign(epubHold, { spot: { para, word }, page: n });
+  Object.assign(epubHold, { spot: { para, word }, page: n, at: null });
   goTo({ page: n, frac: 0 });
   // A little room above the paragraph, never as much as reaches the paragraph before (the phone's gap is small): its
   // last line would then be at the top, and the place read back as that paragraph's end.
@@ -7530,8 +7583,14 @@ function epubGoSpot(n, para, word = 0) {
 }
 /* A change of width (the window, Full width) or text size reflows the chapters: the paragraph and word at the
    top of the view stay there. The spot is read as the reader scrolls (not while the text reflows) and gone back to. */
-const epubHold = { spot: null, page: 0, raf: 0, reflow: 0, exact: null };
-function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
+const epubHold = { spot: null, page: 0, at: null, raf: 0, reflow: 0, exact: null };
+/** The held word's top, from the top of the view (px), or null. */
+function epubSpotTop(page, spot) {
+  const el = state.pages[page - 1] && epubParas(state.pages[page - 1])[spot.para], w = el && wordRect(el, spot.word || 0);
+  return w ? w.top - $('scroll').getBoundingClientRect().top : null;
+}
+// The place as the reader leaves it: its paragraph and word, and where that word stands in the view (`at`).
+function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow) return; const s = epubSpot(); if (s.para != null) { const page = currentPlace().page; Object.assign(epubHold, { spot: s, page, at: epubSpotTop(page, s) }) } }
 $('scroll').addEventListener('scroll', () => { if (isEpub() && !epubHold.raf) epubHold.raf = requestAnimationFrame(() => { epubHold.raf = 0; epubHoldNow() }) }, { passive: true });
 /** Around a reflow: `change()` reflows; the held spot is gone back to. */
 function epubReflow(change) {
@@ -7555,6 +7614,9 @@ document.fonts?.addEventListener?.('loadingdone', () => {
   // Still there: the held word's line at the top of the view (a reflow that moved it a line or two down is gone back from).
   const el = state.pages[page - 1] && epubParas(state.pages[page - 1])[spot.para], w = el && wordRect(el, spot.word || 0);
   const top = $('scroll').getBoundingClientRect().top;
+  // Not moved at all (a font only a card or the bar uses; Anders, 20 Oct 2026: Quiz me's card jumped the page to its
+  // passage's start): the text stays exactly where the reader left it.
+  if (w && epubHold.at != null && Math.abs(w.top - top - epubHold.at) <= 1) return;
   if (!w || (w.top >= top - w.height * 0.6 && w.top <= top + w.height * 0.6)) return;
   epubHold.reflow++;
   epubGoSpot(page, spot.para, spot.word);

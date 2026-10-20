@@ -5344,6 +5344,170 @@ async function epubAskCheck(browser, origin) {
   }
   return results
 }
+
+/* desk-polish (Anders's desktop feedback of 20 Oct 2026 on an EPUB in Margin view, "Bold Conjectures II"): D1 a larger default
+   text and a wider column on wide screens, Text size and Line width in the Aa panel, kept per device with the place kept;
+   D2 Quiz me on a selection never scrolls the page; D3 a click on a card (its label, its text, its field) never scrolls to
+   its passage; D4 a quiz answer's bubble set as the question and the feedback; D5 a reply under "Nearly" or a wrong answer's
+   feedback, a few rounds (at most 3), "Next question →" in view throughout (the grader mocked); D6 figure captions set
+   apart. At 2000×1050 and 1440×900, Night. Screenshots in EPUB_SHOTS (desk-*.png). */
+const ESSAYS_FIGURE = makeEssayEpub({ title: 'Lamplit Conjectures, Volume III', figure: true })
+function addEssaysFigure() {
+  const sha256 = createHash('sha256').update(ESSAYS_FIGURE).digest('hex')
+  if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'lamplit-conjectures-3.epub', title: 'Lamplit Conjectures, Volume III', author: 'Gale Editor', type: 'epub', size: ESSAYS_FIGURE.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: ESSAYS_FIGURE })
+  return sha256.slice(0, 24)
+}
+// The text as set on the page: its size, the column's width, characters per line (by the font's average letter) and the side room.
+const typeNow = () => {
+  const p = [...document.querySelectorAll('.epub-sheet:not(.is-toc):not(.is-front) .epub-pg p')].find(el => el.textContent.length > 300), cs = getComputedStyle(p), r = p.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect()
+  // Characters on each full line (spaces counted): the offsets where the line's top changes, its last line left out.
+  const t = [...p.childNodes].find(n => n.nodeType === 3 && n.length > 300), range = document.createRange(), tops = []
+  for (let i = 0; i < t.length; i++) { range.setStart(t, i); range.setEnd(t, i + 1); const b = range.getBoundingClientRect(); if (b.width) tops.push(Math.round(b.top)) }
+  const starts = tops.reduce((a, top, i) => (i && top > tops[i - 1] + 2 ? [...a, i] : a), [0]), lines = starts.slice(1).map((s, i) => s - starts[i])
+  return { size: Math.round(parseFloat(cs.fontSize) * 100) / 100, width: Math.round(r.width), cpl: Math.round(lines.reduce((a, b) => a + b, 0) / Math.max(1, lines.length)), left: Math.round(r.left - sr.left), win: innerWidth }
+}
+const typeRows = () => [...document.querySelectorAll('.byob-aa-panel .byob-type')].map(r => [r.querySelector('.lab-v2-row-label').textContent, r.querySelector('.byob-zoom-pct').textContent])
+async function deskPolishCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const shotTo = (page, name) => page.screenshot({ path: join(EPUB_SHOTS, name + '.png') })
+  for (const [width, height] of [[2000, 1050], [1440, 900]]) {
+    const tag = `${width}x${height}`
+    let E = await essaysOpen(browser, origin, { width, height }), e = E.page
+    // D1. The default: larger and wider than the book reader's leaf was here (2000: 24.5px over 881px; 1440: 19.2px over 618px).
+    const t0 = await e.evaluate(typeNow)
+    const want = width >= 2000 ? { size: 25.5, width: 950 } : { size: 20.5, width: 740 }
+    ok(`${tag}: D1 the default text is larger and its column wider, about 65–80 characters a line`, t0.size >= want.size && t0.width >= want.width && t0.cpl >= 65 && t0.cpl <= 80, t0)
+    await shotTo(e, `desk-${tag}-D1-default`)
+    // The Aa panel: Text size and Line width, each "100%" with − and +.
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    const rows = await e.evaluate(typeRows)
+    ok(`${tag}: D1 the Aa panel has Text size and Line width (100%), no size slider`, JSON.stringify(rows) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !(await e.$('.byob-aa-panel [data-testid="lab-v2-size"]')), rows)
+    await shotTo(e, `desk-${tag}-D1-aa-panel`)
+    const here = await e.evaluate(spotNow)
+    await e.click('.byob-type[data-type="size"] [data-type-step="1"]'); await e.waitForTimeout(500)
+    await e.click('.byob-type[data-type="width"] [data-type-step="1"]'); await e.waitForTimeout(500)
+    const t1 = await e.evaluate(typeNow), rows1 = await e.evaluate(typeRows), after = await e.evaluate(spotNow)
+    const stored = await e.evaluate(() => JSON.parse(localStorage.getItem('tinct-addbook:prefs')))
+    const near = x => x.page === here.page && x.para === here.para && Math.abs(here.word - x.word) <= 14
+    ok(`${tag}: D1 Text size + and Line width + set the text larger and the line wider, kept as this device's, the place kept`, t1.size > t0.size * 1.05 && t1.width > t0.width && JSON.stringify(rows1) === JSON.stringify([['Text size', '110%'], ['Line width', '110%']]) && stored.textSize === 1.1 && stored.lineWidth === 1.1 && near(after), { t0, t1, rows1, stored, here, after })
+    await e.keyboard.press('Escape')
+    await shotTo(e, `desk-${tag}-D1-larger`)
+    await e.evaluate(() => savePlaceNow()); await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const t2 = await e.evaluate(typeNow), back = await e.evaluate(spotNow)
+    ok(`${tag}: D1 a reload keeps this device's Text size and Line width, at the same place`, Math.abs(t2.size - t1.size) < 0.1 && Math.abs(t2.width - t1.width) <= 1 && near(back), { t1, t2, here, back })
+    // Back to the default for what follows (the − steps).
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    await e.click('.byob-type[data-type="size"] [data-type-step="-1"]'); await e.click('.byob-type[data-type="width"] [data-type-step="-1"]'); await e.waitForTimeout(400)
+    const rows2 = await e.evaluate(typeRows), prefs2 = await e.evaluate(() => JSON.parse(localStorage.getItem('tinct-addbook:prefs')))
+    ok(`${tag}: D1 − steps back to 100%, the default stored as no choice; the other per-device choices kept`, JSON.stringify(rows2) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !('textSize' in prefs2) && !('lineWidth' in prefs2) && prefs2.dock === 'docked', { rows2, prefs2 })
+    await e.keyboard.press('Escape')
+
+    // D2. Quiz me on a selection whose start is above the view, and on one starting just inside its top: the page stays.
+    const n = await essayPage(e, '1 The Fate')
+    const quizAt = async (para, below, label) => {
+      await essayScrollTo(e, n, para, -below)
+      await essaySelect(e, n, para, 170); await e.waitForSelector('.mr-bar')
+      await e.click('.mr-bar [data-m="more"]'); await e.waitForSelector('.mr-more')
+      const s0 = await scrollTop(e)
+      await e.click('.mr-more [data-m="quiz"]'); await e.waitForTimeout(1600)
+      const s1 = await scrollTop(e)
+      const card = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'), r = el?.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect(); return el && { top: Math.round(r.top), bottom: Math.round(r.bottom), inView: r.bottom > sr.top && r.top < sr.bottom, name: el.querySelector('.mr-card__name')?.textContent } })
+      ok(`${tag}: D2 Quiz me (${label}) leaves the page where it was, its card open beside the passage`, Math.abs(s1 - s0) <= 1 && card?.inView && /^Quiz me/.test(card.name || ''), { s0, s1, card })
+      return { s0, s1 }
+    }
+    const d2a = await quizAt(3, 60, 'the selection starting above the view')
+    await shotTo(e, `desk-${tag}-D2-quiz-above`)
+    const d2b = await quizAt(5, -20, 'the selection starting at the view\'s top')
+    await shotTo(e, `desk-${tag}-D2-quiz-top`)
+    console.log(`${tag} D2 scroll before/after: above ${d2a.s0}→${d2a.s1}, top ${d2b.s0}→${d2b.s1}`)
+
+    // D4 + D5. Answer: "Nearly." (mocked); the bubble set as the question and the feedback; a reply under it, two rounds.
+    const r0 = account.requests.length
+    mock.nextFor.quiz_check = JSON.stringify({ verdict: 'nearly', feedback: 'MOCK: you have the two kinds; say why they are kept apart.' })
+    await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+    await e.keyboard.type('Ideas and facts are known in different ways'); await e.keyboard.press('Enter'); await e.waitForTimeout(1000)
+    const fonts = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'), f = s => { const cs = getComputedStyle(el.querySelector(s)); return [cs.fontFamily, cs.fontSize] }; return { question: f('.mr-question'), you: f('.mr-you'), feedback: f('.mr-answer') } })
+    ok(`${tag}: D4 the answer bubble has the question's and the feedback's font family and size`, JSON.stringify(fonts.you) === JSON.stringify(fonts.question) && JSON.stringify(fonts.feedback) === JSON.stringify(fonts.question), fonts)
+    const nearly = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { text: el.innerText, field: !!el.querySelector('.mr-follow__input'), placeholder: el.querySelector('.mr-follow__input')?.placeholder, next: el.querySelector('[data-c="next"]')?.textContent } })
+    ok(`${tag}: D5 under "Nearly." a reply field ("Ask a follow-up") and "Next question →" both show`, /Nearly\./.test(nearly.text) && nearly.field && nearly.placeholder === 'Ask a follow-up' && nearly.next === 'Next question →', nearly)
+    await e.screenshot({ path: join(EPUB_SHOTS, `desk-${tag}-D4-bubble.png`), clip: await e.evaluate(() => { const r = document.querySelector('.mr-card.is-open').getBoundingClientRect(); return { x: Math.max(0, r.left - 16), y: Math.max(0, r.top - 16), width: Math.min(innerWidth - Math.max(0, r.left - 16), r.width + 32), height: Math.min(innerHeight - Math.max(0, r.top - 16), r.height + 32) } }) })
+    const f0 = await scrollTop(e)
+    mock.nextFor.quiz_check = JSON.stringify({ verdict: 'nearly', feedback: 'MOCK: closer; the two kinds differ in how they are known, not in what they are about.' })
+    await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+    await e.keyboard.type('so is it because the two instances cancel?'); await e.keyboard.press('Enter'); await e.waitForTimeout(1000)
+    mock.nextFor.quiz_check = JSON.stringify({ verdict: 'right', feedback: 'MOCK: yes, that is the reason.' })
+    await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+    await e.keyboard.type('one is certain by thought, the other needs experience'); await e.keyboard.press('Enter'); await e.waitForTimeout(1000)
+    const f1 = await scrollTop(e)
+    const checks = account.requests.slice(r0).filter(r => r.body?.companion?.intent === 'quiz_check').map(r => r.body.companion.quiz)
+    const turnsOk = checks.length === 3 && !checks[0].turns && JSON.stringify(checks[1].turns?.map(t => [t.role, t.verdict || ''])) === JSON.stringify([['reader', ''], ['grader', 'nearly']]) && checks[1].answer === 'so is it because the two instances cancel?' && checks[2].turns?.length === 4 && checks[2].turns[2].text === 'so is it because the two instances cancel?'
+    ok(`${tag}: D5 each reply goes to the grader with the earlier turns on this question (the answer, each marking and reply)`, turnsOk, checks.map(c => ({ answer: c.answer, turns: c.turns })))
+    const thread = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { bubbles: [...el.querySelectorAll('.mr-you')].map(b => b.textContent), marks: [...el.querySelectorAll('.mr-answer .is-bottom-line')].map(b => b.textContent), field: !!el.querySelector('.mr-follow__input'), next: el.querySelector('[data-c="next"]')?.textContent, count: el.querySelector('.mr-card__count')?.textContent } })
+    ok(`${tag}: D5 the thread shows each reply and its marking; Right ends the replies; "Next question →" still there; the page never moved`, thread.bubbles.length === 3 && thread.marks.join('|') === 'Nearly.|Nearly.|Right.' && !thread.field && thread.next === 'Next question →' && /^1 of/.test(thread.count || '') && Math.abs(f1 - f0) <= 1, { thread, f0, f1 })
+    await e.screenshot({ path: join(EPUB_SHOTS, `desk-${tag}-D5-follow-ups.png`), clip: await e.evaluate(() => { const r = document.querySelector('.mr-card.is-open').getBoundingClientRect(); return { x: Math.max(0, r.left - 16), y: Math.max(0, r.top - 16), width: Math.min(innerWidth - Math.max(0, r.left - 16), r.width + 32), height: Math.min(innerHeight - Math.max(0, r.top - 16), r.height + 32) } }) })
+    // The second question, wrong three times: three replies, then only "Next question →".
+    await e.click('.mr-card.is-open [data-c="next"]'); await e.waitForTimeout(400)
+    for (let k = 0; k < 4; k++) {
+      mock.nextFor.quiz_check = JSON.stringify({ verdict: 'not_yet', feedback: `MOCK: not yet (${k}).` })
+      const has = await e.evaluate(() => !!document.querySelector('.mr-card.is-open .mr-follow__input'))
+      if (!has) break
+      await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+      await e.keyboard.type(`guess ${k}`); await e.keyboard.press('Enter'); await e.waitForTimeout(900)
+    }
+    delete mock.nextFor.quiz_check
+    const capped = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { bubbles: el.querySelectorAll('.mr-you').length, field: !!el.querySelector('.mr-follow__input'), next: el.querySelector('[data-c="next"]')?.textContent } })
+    ok(`${tag}: D5 a wrong answer takes replies too, at most 3, then "Next question →" alone`, capped.bubbles === 4 && !capped.field && capped.next === 'Next question →', capped)
+    // The score keeps the first answers' marks; the thread is kept with the card (saved).
+    const saved = await e.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz' && x.data?.results?.[0]?.thread); return c && c.data.results.map(r => r && [r.verdict, (r.thread || []).length]) })
+    ok(`${tag}: D5 the replies are kept with the quiz (its card), the questions' own marks unchanged`, JSON.stringify(saved?.slice(0, 2)) === JSON.stringify([['nearly', 2], ['not_yet', 3]]), saved)
+
+    // D3. A folded card clicked (its label, then its text) and an open card's text and field: the page never scrolls.
+    await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
+    const folded = await e.evaluate(() => { const el = [...document.querySelectorAll('.mr-card.is-folded')].find(c => /Quiz me/.test(c.textContent)); return el?.dataset.id })
+    // Its passage near the foot of the view (where opening once scrolled it up into view).
+    // The reader's own scroll (a wheel lets go of the place held for the answers, holdPlace), then the page moved there.
+    await e.evaluate(id => { dispatchEvent(new WheelEvent('wheel')); const c = keptCards().find(x => x.id === id), r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], s = document.getElementById('scroll'), sr = s.getBoundingClientRect(); s.scrollTop += r.top - (sr.bottom - 100) }, folded)
+    await e.waitForTimeout(500)
+    const clickAt = async sel => { const b = await e.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const r = el.getBoundingClientRect(); return { x: r.left + Math.min(40, r.width / 2), y: r.top + Math.min(8, r.height / 2), h: innerHeight } }, sel); if (!b || b.y > b.h - 2) return null; const s0 = await scrollTop(e); await e.mouse.click(b.x, b.y); await e.waitForTimeout(900); return { s0, s1: await scrollTop(e) } }
+    const viaLabel = await clickAt(`.mr-card.is-folded[data-id="${folded}"] .mr-card__label`)
+    const opened = await e.evaluate(id => col.open === id, folded)
+    ok(`${tag}: D3 a click on a folded card's label opens it with the page where it was (its passage near the foot of the view)`, viaLabel && Math.abs(viaLabel.s1 - viaLabel.s0) <= 1 && opened, { viaLabel, opened })
+    const viaText = await clickAt(`.mr-card.is-open[data-id="${folded}"] .mr-question`)
+    const viaField = await clickAt(`.mr-card.is-open[data-id="${folded}"] .mr-card__body`)
+    ok(`${tag}: D3 a click on an open card's text or body never scrolls`, viaText && viaField && Math.abs(viaText.s1 - viaText.s0) <= 1 && Math.abs(viaField.s1 - viaField.s0) <= 1, { viaText, viaField })
+    // The passage at the view's top edge: a folded Explain card there, clicked by its text.
+    await e.evaluate(() => openCard(null)); await e.keyboard.press('Escape'); await e.waitForTimeout(200)
+    await e.evaluate(() => dispatchEvent(new WheelEvent('wheel'))); await essayScrollTo(e, n, 9, 0); await essaySelect(e, n, 9, 80); await e.waitForSelector('.mr-bar'); await e.click('.mr-bar [data-m="explain"]'); await e.waitForTimeout(1300)
+    const ex = await e.evaluate(() => col.open)
+    await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
+    await e.evaluate(() => { dispatchEvent(new WheelEvent('wheel')); const s = document.getElementById('scroll'); s.scrollTop += 24 }); await e.waitForTimeout(400)
+    const viaFold = await clickAt(`.mr-card.is-folded[data-id="${ex}"] .mr-card__text`)
+    ok(`${tag}: D3 a folded Explain card whose passage starts at the view's top opens in place (no scroll)`, viaFold && Math.abs(viaFold.s1 - viaFold.s0) <= 1 && (await e.evaluate(id => col.open === id, ex)), viaFold)
+    await shotTo(e, `desk-${tag}-D3-card-click`)
+    console.log(`${tag} D3 scroll before/after: label ${viaLabel?.s0}→${viaLabel?.s1}, text ${viaText?.s0}→${viaText?.s1}, folded explain ${viaFold?.s0}→${viaFold?.s1}`)
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+
+    // D6. Figure captions: "Figure 2: …" after a picture is set apart; "Figure 3 of …" in running text is not.
+    const hex = addEssaysFigure()
+    E = await epubPage(browser, origin, hex, { width, height, look: 'night' }); e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const fig = await e.evaluate(() => {
+      const caps = [...document.querySelectorAll('.epub-pg .ep-caption')], cap = caps[0]
+      const body = [...document.querySelectorAll('.epub-pg p')].find(p => p.textContent.startsWith('Figure 3 of'))
+      if (!cap || !body) return { caps: caps.length, body: !!body }
+      cap.scrollIntoView({ block: 'center' })
+      const c = getComputedStyle(cap), b = getComputedStyle(body)
+      return { caps: caps.length, text: cap.textContent.slice(0, 20), capSize: parseFloat(c.fontSize), bodySize: parseFloat(b.fontSize), capColor: c.color, bodyColor: b.color, above: Math.round(cap.getBoundingClientRect().top - cap.previousElementSibling.getBoundingClientRect().bottom), bodyCaption: body.classList.contains('ep-caption') }
+    })
+    ok(`${tag}: D6 a figure's caption is smaller, muted, with space above; running text that starts "Figure 3" is not`, fig.caps === 1 && fig.text.startsWith('Figure 2:') && fig.capSize < fig.bodySize * 0.9 && fig.capColor !== fig.bodyColor && fig.above >= 6 && !fig.bodyCaption, fig)
+    await e.waitForTimeout(400)
+    await shotTo(e, `desk-${tag}-D6-caption`)
+    ok(`${tag}: D6 no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  return results
+}
 function lum255(c) { const v = String(c).match(/[\d.]+/g)?.slice(0, 3).map(Number) || [0, 0, 0]; return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2] }
 
 const RUNS = {
@@ -5400,6 +5564,7 @@ const RUNS = {
   'epub-quiz': [epubQuizCheck, rows => rows.some(r => !r.pass)],
   'epub-ask': [epubAskCheck, rows => rows.some(r => !r.pass)],
   'pdf-text': [pdfTextCheck, rows => rows.some(r => !r.pass)],
+  'desk-polish': [deskPolishCheck, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -5440,7 +5605,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
