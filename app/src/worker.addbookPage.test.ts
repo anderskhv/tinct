@@ -6,6 +6,8 @@ import worker from './worker'
 // The Add-a-book page (addbooks/web, installed to public/lab/addbook) is a static
 // page: the Worker must serve it as itself, under the production CSP, unindexed.
 const PAGE = readFileSync(join(__dirname, '../../addbooks/web/src/index.html'), 'utf8')
+// The margin preview's page (/lab/addbook/book, from book.html): the same page without the PDF-only scripts.
+const BOOK_PAGE = readFileSync(join(__dirname, '../../addbooks/web/src/book.html'), 'utf8')
 const ROBOTS = readFileSync(join(__dirname, '../public/robots.txt'), 'utf8')
 
 function env() {
@@ -14,6 +16,7 @@ function env() {
       fetch: async (request: Request) => {
         const url = new URL(request.url)
         if (url.pathname === '/lab/addbook/') return new Response(PAGE, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+        if (url.pathname === '/lab/addbook/book') return new Response(BOOK_PAGE, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
         if (url.pathname === '/lab/addbook') return new Response(null, { status: 307, headers: { Location: '/lab/addbook/' } })
         if (url.pathname === '/lab/addbook/js/reader.js') return new Response('/* reader */', { headers: { 'Content-Type': 'text/javascript' } })
         if (url.pathname === '/app.html') return new Response('<html><head></head><body>app shell</body></html>', { headers: { 'Content-Type': 'text/html' } })
@@ -35,6 +38,19 @@ describe('/lab/addbook/', () => {
     expect(html).not.toContain('app shell')
     expect(html).toMatch(/<meta name="robots" content="noindex">/)
     expect(html).not.toMatch(/<script>(?!<\/script>)/) // no inline scripts
+    expect(response.headers.get('Content-Security-Policy')).toContain("script-src 'self';")
+    expect(response.headers.get('Cache-Control')).toBe('no-store')
+  })
+
+  it('serves the margin preview\'s page (book.html, no PDF scripts) under the same CSP, uncached', async () => {
+    const response = await worker.fetch(new Request('https://tinct.app/lab/addbook/book?tinctBook=frankenstein'), env() as never, ctx)
+    expect(response.status).toBe(200)
+    const html = await response.text()
+    expect(html).toContain('js/reader.js')
+    expect(html).toContain('js/tinct-book.js')
+    expect(html).not.toContain('pdf.min.js')
+    expect(html).not.toContain('app shell')
+    expect(html).not.toMatch(/<script>(?!<\/script>)/)
     expect(response.headers.get('Content-Security-Policy')).toContain("script-src 'self';")
     expect(response.headers.get('Cache-Control')).toBe('no-store')
   })

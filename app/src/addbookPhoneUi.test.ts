@@ -28,7 +28,9 @@ interface LayoutApi {
   documentColumn(list: Array<Column | null>): Column | null
   columnZoom(o: { column: Column | null; pageWidth: number; room: number; cropX?: number; gutter?: number }): number
   columnScroll(o: { column: Column | null; pageWidth: number; x0?: number; cropX?: number; sheetLeft: number; sheetWidth: number; room: number; gutter?: number }): number
-  pillStages(o: { chapter?: string; page?: string; pct?: string; epub?: boolean }): Array<{ label: string; chevron: boolean }>
+  pillStages(o: { chapter?: string; page?: string; pct?: string; epub?: boolean }): Array<{ label: string; chevron: boolean; cut?: boolean }>
+  shortChapter(label: string): string
+  cutLabel(label: string): { head: string; tail: string }
   COLUMN_FIT_MIN: number
 }
 type Item = { str: string; transform: number[]; width: number; height: number }
@@ -157,6 +159,26 @@ describe('3. the phone’s header', () => {
     expect(L.pillStages({ chapter: 'p. 4 of 15', page: '4' }).at(-1)).toEqual({ label: 'p. 4', chevron: false })
     expect(L.pillStages({ chapter: 'Part II', pct: '42%', epub: true }).at(-1)).toEqual({ label: '42%', chevron: false })
     for (const o of [{}, { chapter: '' }, { page: '' }]) expect(L.pillStages(o).every(s => s.label.trim().length > 0)).toBe(true)
+  })
+  it('an EPUB chapter (the margin preview of a Tinct book) is tried shorter and then cut before the percent alone (round 2)', () => {
+    // To the Lighthouse on a 390 px phone showed "33%" alone: its chapter is cut, its number kept, before the percent.
+    expect(L.pillStages({ chapter: 'The Window · 1', pct: '33%', epub: true })).toEqual([
+      { label: 'The Window · 1', chevron: true }, { label: 'The Window · 1', chevron: false, cut: true }, { label: '33%', chevron: true }, { label: '33%', chevron: false },
+    ])
+    expect(L.pillStages({ chapter: 'Book One (1805) — Chapter 1', pct: '0%', epub: true }).slice(0, 3)).toEqual([
+      { label: 'Book One (1805) — Chapter 1', chevron: true }, { label: 'Chapter 1', chevron: true }, { label: 'Chapter 1', chevron: false, cut: true },
+    ])
+    expect(L.shortChapter('Act 1, Scene 1 — Venice. A street')).toBe('Act 1, Scene 1')
+    expect(L.shortChapter('Chapter 1 — Loomings')).toBe('Chapter 1')
+    expect(L.shortChapter('Book VI: The Widow And The Wife — Chapter LVIII')).toBe('Chapter LVIII')
+    expect(L.shortChapter('Agamemnon — Prologue')).toBe('Agamemnon — Prologue')
+    expect(L.shortChapter('Letter 1')).toBe('Letter 1')
+    expect(L.cutLabel('The Window · 1')).toEqual({ head: 'The Window', tail: ' · 1' })
+    expect(L.cutLabel('Time Passes')).toEqual({ head: 'Time Passes', tail: '' })
+    // A PDF's pill is as before: no cut stage.
+    expect(L.pillStages({ chapter: '3 Model Architecture', page: '4' }).some(s => s.cut)).toBe(false)
+    expect(READER).toContain('if (stages[at].cut && whole(title) && readable()) break;')
+    expect(CSS).toContain('.lab.byob.is-phone .lab-header-chapter[data-fit="cut"] { flex: 0 1 auto; }')
   })
   it('reader.js tries each stage until the title and the label are whole, the last one always', () => {
     expect(READER).toContain("if (at === stages.length - 1 || (whole(title) && whole(label))) break;")

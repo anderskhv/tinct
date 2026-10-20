@@ -135,6 +135,13 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-phone .lab-header-chapter-label { min-width: 0; }
 .lab.byob.is-phone .lab-header-chapter[data-chevron="off"] { padding: 3px 9px; }
 .lab.byob.is-phone .lab-header-chapter[data-chevron="off"] .lab-header-chevron { display: none; }
+/* A chapter cut to fit (reader.js fitPill, a `cut` stage): the pill gives way to the title, the chapter's name ends in an
+   ellipsis and a closing number stays whole ("The Wi… · 1"). */
+.lab.byob.is-phone .lab-header-chapter[data-fit="cut"] { flex: 0 1 auto; }
+.lab.byob.is-phone .lab-header-brand:has(> .lab-header-chapter[data-fit="cut"]) .lab-header-work { flex-shrink: 0; }
+.lab.byob.is-phone .lab-header-chapter[data-fit="cut"] .lab-header-chapter-label { display: flex; }
+.lab.byob.is-phone .lab-header-chapter-label .byob-cut { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lab.byob.is-phone .lab-header-chapter-label .byob-cut-tail { flex: none; white-space: pre; }
 /* The pill's own fill sets it apart from the title, so the phone has no dot between them; and the bar's right
    edge is the t button's own room (its glyph sits 12px inside it), as the back arrow's left is. */
 .lab.byob.is-phone .lab-title-sep { display: none; }
