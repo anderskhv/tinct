@@ -28,7 +28,6 @@ vi.mock('../useLabListen', () => ({
     }
   },
 }))
-vi.mock('../useNarrationPrefetch', () => ({ useNarrationPrefetch: () => {} }))
 vi.mock('../useLabListenReport', () => ({ useLabListenReport: () => {} }))
 vi.mock('../labAuth', () => ({ readSupabaseAccessToken: () => Promise.resolve(null) }))
 const loads = vi.hoisted(() => [] as Array<Record<string, unknown>>)

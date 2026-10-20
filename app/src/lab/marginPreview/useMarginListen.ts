@@ -12,8 +12,10 @@
  * player in plain JS would be a second engine to keep in step. The frame is
  * same-origin, so a direct API needs no message protocol.
  *
- * Nothing is generated beyond what Play in the book reader generates: the
- * same ensure calls, the same look-ahead and the same next-chapter warming.
+ * Nothing is generated beyond the player's own capped play-ahead (its ensure
+ * calls and look-ahead while playing); the book reader's next-chapter warming
+ * (useNarrationPrefetch) is deliberately not run here. A next chapter's opening
+ * already cached on this device still bridges the chapter end.
  * Where listening stops is written as the book reader's place for the book
  * on this device (marginListenModel withAudioPlace), so the book reader
  * resumes there.
@@ -21,14 +23,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { getBook } from '../../data/bookRegistry'
 import { readSupabaseAccessToken } from '../labAuth'
-import { ensureNarration, fetchNarrationPilotInfo, type NarrationParagraphResult, type NarrationPilotInfo } from '../labNarration'
+import { ensureNarration, fetchNarrationPilotInfo, type NarrationPilotInfo } from '../labNarration'
 import { LAB_PREFS_KEY, parseLabPrefs, writeLabPrefs, type LabPrefs } from '../labPrefs'
 import { loadLabBookSource, nextLabChapter, type LabSource } from '../labSource'
 import { readLabDeviceId, readLabPositionLocal, writeLabPositionLocal } from '../labPositionStore'
 import { readNarrationReplay, storeNarrationReplay } from '../narrationReplayCache'
 import { narrationBridgeUrls, useLabListen } from '../useLabListen'
 import { useLabListenReport } from '../useLabListenReport'
-import { useNarrationPrefetch } from '../useNarrationPrefetch'
 import { heardPlace, marginListenSnapshot, marginNarrationPlan, withAudioPlace, type MarginListenAt, type MarginListenSnapshot } from './marginListenModel'
 
 /** The frame's way to the player (MarginPreview.tsx puts it on window.TinctMarginPreview). */
@@ -103,11 +104,9 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
   const identity = info?.voices.find(v => v.key === voice)?.cacheIdentity ?? null
   const contextRef = useRef({ bookId, editionKey: editionKey ?? '', chapter: chapterNumber, paragraphs: source?.paragraphs ?? [], voice, identity, token })
   contextRef.current = { bookId, editionKey: editionKey ?? '', chapter: source?.chapterNumber ?? chapterNumber, paragraphs: source?.paragraphs ?? [], voice, identity, token }
-  const warmedRef = useRef(new Map<string, NarrationParagraphResult[]>())
-  const warmedKey = (chapter: number) => JSON.stringify([bookId, editionKey, chapter, voice])
   const prepared = useCallback(() => {
     const c = contextRef.current
-    return [...readNarrationReplay(c), ...(warmedRef.current.get(JSON.stringify([c.bookId, c.editionKey, c.chapter, c.voice])) ?? [])]
+    return readNarrationReplay(c)
   }, [])
   const ensure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const c = contextRef.current
@@ -166,7 +165,7 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     const next = nextLabChapter(source.chapters, source.chapterNumber)
     if (next == null) return null
     const scope = { ...contextRef.current, chapter: next }
-    const urls = narrationBridgeUrls([...readNarrationReplay(scope), ...(warmedRef.current.get(warmedKey(next)) ?? [])])
+    const urls = narrationBridgeUrls(readNarrationReplay(scope))
     return urls.length > 0 ? { chapterNumber: next, urls } : null
   }
 
@@ -215,27 +214,6 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
   }, [listen.playing, writePlace])
 
   useLabListenReport(listen.playing, bookId)
-  useNarrationPrefetch({
-    active: Boolean(narration) && listen.playing,
-    voice,
-    bookId,
-    editionKey: editionKey ?? '',
-    chapter: source?.chapterNumber ?? chapterNumber,
-    nextChapter: source ? nextLabChapter(source.chapters, source.chapterNumber) : null,
-    paragraphCount: source?.paragraphs.length ?? 0,
-    currentParagraph: heard?.paragraphIndex ?? request?.paragraphIndex ?? 0,
-    remainingSeconds: listen.chapterDuration > 0 ? Math.max(0, listen.chapterDuration - listen.chapterTime) / listen.speed : undefined,
-    onPrepared: (target, results) => {
-      storeNarrationReplay({ bookId, editionKey: editionKey ?? '', chapter: target, identity }, results)
-      const cache = warmedRef.current
-      cache.delete(warmedKey(target))
-      cache.set(warmedKey(target), results)
-      while (cache.size > 4) cache.delete(cache.keys().next().value!)
-    },
-    speed: listen.speed,
-    authToken: token,
-    readToken: readSupabaseAccessToken,
-  })
 
   const snapshot = marginListenSnapshot({
     available: plan && info ? !plan.unavailable : null,
