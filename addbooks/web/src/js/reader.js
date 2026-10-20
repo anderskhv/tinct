@@ -1261,6 +1261,8 @@ function readingPage(place = currentPlace()) {
 function goTo(place, smooth) {
   const p = state.pages[Math.max(1, Math.min(state.pages.length, place.page)) - 1];
   if (!p) return;
+  // A jump asked for (the contents, a citation, a card's passage) lets go of the place held while a card answers (holdPlace).
+  if (typeof releasePlace === 'function') releasePlace();
   const s = $('scroll'), r = p.sheet.getBoundingClientRect();
   const y = s.scrollTop + r.top - s.getBoundingClientRect().top + (place.frac || 0) * r.height - (place.frac ? 0 : 10);
   s.scrollTo({ top: y, behavior: smooth && !matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'auto' });
