@@ -320,6 +320,10 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
       say(`This preview opens from the reader. <a href="/reader?book=${encodeURIComponent(id)}&amp;margin=1" target="_top">Open the margin preview</a>`);
       return;
     }
+    // The page's sync first (it mounts as the book loads), so the book opens with its marks and cards, and the later
+    // chapters' layout (laterChapters) is timed from the open as before.
+    sync = await syncOf(host);
+    if (sync?.marks) keepMarks();
     seedPlace(model);
     let from = 1;
     try { from = Math.max(1, Number(JSON.parse(localStorage.getItem(POS) || 'null')?.page) || 1) } catch {}
@@ -329,8 +333,6 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     const layoutHref = typeof host.layoutHref === 'function'
       ? (view, at) => { const c = model.chapters[at.page - 1]; return c ? host.layoutHref(view, { editionKey: model.editionKey, chapterNumber: c.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }) : null }
       : null;
-    sync = await syncOf(host);
-    if (sync?.marks) keepMarks();
     const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
     if (!opened || !sync?.place) return;
     watchPlace();

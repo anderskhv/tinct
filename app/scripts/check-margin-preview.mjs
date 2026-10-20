@@ -281,7 +281,9 @@ try {
       const back = await spotOf(frame)
       ok(`${tag}: a reload keeps the preview's place`, back.page === moved.page && (moved.para === undefined || back.para === moved.para), { moved, back })
       const kept = await page.evaluate(id => JSON.parse(localStorage.getItem(`tinct-addbook:pos:preview:${id}`) || 'null'), bookId)
-      ok(`${tag}: the place, cards and highlights are kept under the preview's own keys`, !!kept && Number.isInteger(kept.para) && await page.evaluate(id => !!localStorage.getItem(`tinct-addbook:cards:preview:${id}`), bookId), kept)
+      // 21 Oct 2026 (margin sync): the frame keeps its own copy of the place only to open there; its cards are the
+      // book's chat history (signed out, its device copy), never the preview's own key.
+      ok(`${tag}: the place is kept under the preview's key, the cards in the book's chat history`, !!kept && Number.isInteger(kept.para) && await page.evaluate(id => !localStorage.getItem(`tinct-addbook:cards:preview:${id}`) && JSON.parse(localStorage.getItem(`tinct:chat-history:${id}`) || '[]').some(c => c.card?.kind === 'explain'), bookId), kept)
 
       // 5. Nothing of the book reader's was written, and nothing went to the account.
       const after = await mainKeys(page)
@@ -290,8 +292,10 @@ try {
       const shared = /^(tinct-lab-position|tinct-lab-position-dirty|tinct-lab-device-id|tinct-lab-highlights-tap-cleanup-v1)$/
       const strip = keys => JSON.stringify(Object.fromEntries(Object.entries(keys).filter(([k]) => !shared.test(k))))
       ok(`${tag}: the book reader's other keys are untouched`, strip(after) === strip(before), { before: Object.keys(before), after: Object.keys(after) })
+      // Its moves here are script scrolls with no reader action, which the margin's place gate never writes (a
+      // reflow, not a place: marginPreviewPlace.ts); real input is checked in scripts/check-margin-sync.mjs.
       const record = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-position') || 'null')?.books?.[id], bookId)
-      ok(`${tag}: the place is the book reader's record for the book (chapter, paragraph, word)`, !!record && record.sequentialChapter === (await frame.evaluate(n => state.preview && toc.entries.find(e => e.page === n && e.kind === 'chapter')?.number, back.page)) && record.paragraphIndex === back.para, { record, back })
+      ok(`${tag}: the book reader's record keeps a place of this book in its edition`, !!record && record.bookId === bookId && record.primaryEditionKey === 'modern-en' && Number.isInteger(record.paragraphIndex), record)
       ok(`${tag}: signed out, nothing is written to the account`, log.position.every(m => m === 'GET'), log.position)
 
       // 5b. Dark (Aa): the chapters turn dark with the rest of the reader. (The theme is the device's, shared with the
