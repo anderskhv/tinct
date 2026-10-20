@@ -332,7 +332,9 @@ async function openEpub(bytes, name, key, rec = null) {
   try { book = rec?.parsed || await TinctEpub.parse(bytes, { fallbackTitle: name.replace(/\.epub$/i, ''), onProgress: f => { $('column').querySelector('.pdf-status .tinct-wait')?.setLabel(`Opening… ${Math.round(f * 100)}%`) } }) }
   catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
-  state.pdf?.destroy?.(); state.observer?.disconnect();
+  // A PDF's Tinct text whose crops are still being drawn keeps its document until they are (openPdfText).
+  if (!state.pdf || state.pdf !== rec?.pdfText?.drawing) state.pdf?.destroy?.();
+  state.observer?.disconnect();
   Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null, preview: rec?.preview || null, pdfText: rec?.pdfText || null });
   // The book's Tinct text, when this device converted it in the Tinct reader: the place is shared with it (epubShare).
   state.epubEdition = Array.isArray(rec?.edition?.chapters) ? rec.edition : null;
@@ -1548,7 +1550,8 @@ function pdfTextConvert(token, scan, page, { idle = false } = {}) {
     try { edition = await TinctPdfText.convert(pdf, { scan, ...(crops ? { regions: crops } : {}), live: () => state.pdf === pdf, pace, ...(idle ? { concurrency: 2 } : {}) }) } catch (e) { console.warn('[addbook] Tinct text', e) }
     if (!edition) { crops?.stop(); if (pdfTextJob === job) pdfTextJob = null; return null }
     if (state.key === key) state.textEdition = edition;
-    const keep = () => library.touch(key, { edition, figureData: Object.fromEntries(images) }).catch(() => {});
+    // Kept, it is read from the record from now on: this one lets go of its pictures.
+    const keep = () => library.touch(key, { edition, figureData: Object.fromEntries(images) }).then(() => { if (pdfTextJob === job) pdfTextJob = null }, () => {});
     if (!crops || !hasFigures(edition)) { crops?.stop(); await keep() }
     else crops.drawn().then(all => (all ? keep() : null));
     return edition;
@@ -1606,7 +1609,8 @@ async function openPdfText() {
     const own = store.get('pos:' + tkey) || {};
     if (at && !(own.at > (pos.at || 0) && own.page === at.n)) store.set('pos:' + tkey, { ...own, page: at.n, frac: 0, para: at.para, word: at.word, at: Date.now() });
     ocrStop(); stopNarration();
-    const pdfText = { key, hex, edition, labels: Array.isArray(labels) ? labels : null, pages: pdf.numPages, scanned: scan?.textPages === 0 };
+    const pdfText = { key, hex, edition, labels: Array.isArray(labels) ? labels : null, pages: pdf.numPages, scanned: scan?.textPages === 0, ...(crops ? { drawing: pdf } : {}) };
+    if (crops) crops.drawn().finally(() => { if (state.pdf !== pdf) pdf.destroy?.() });
     await openEpub(null, state.title, tkey, { parsed: book, pdfText });
     if (isPdfText()) root.classList.add('is-pdf-text');
     return true;

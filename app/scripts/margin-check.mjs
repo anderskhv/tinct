@@ -4900,9 +4900,18 @@ async function pdfTextCheck(browser, origin) {
       return { text, ids }
     })
     const navsBefore = navs.length
+    // Read in its pages, its Tinct text is prepared in idle time and kept on its record with its crops (20 Oct 2026, speed).
+    let prepared = false
+    for (let k = 0; k < 80 && !prepared; k++) {
+      prepared = await page.evaluate(async () => { const r = await library.get(state.key); return !!(r?.edition && TinctPdfText.usable(r.edition) && (r.figureData || !r.edition.chapters.some(c => c.figures?.length))) })
+      if (!prepared) await page.waitForTimeout(250)
+    }
+    ok(`${tag}: read in its pages, its Tinct text is prepared in idle time and kept before Tinct text is chosen`, prepared)
     await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="text"]')
+    const chosen = Date.now()
     await page.click('.byob-aa-panel [data-layout="text"]')
     const shown = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 30000 }).then(() => true).catch(() => false)
+    console.log(`     ${tag}: Tinct text shown ${Date.now() - chosen} ms after it was chosen (prepared)`)
     await page.waitForTimeout(1500)
     const view = await page.evaluate(() => {
       const sheet = document.querySelector('.epub-sheet'), cs = sheet && getComputedStyle(sheet), pg = document.querySelector('.epub-pg'), font = pg && getComputedStyle(pg).fontFamily
@@ -4942,6 +4951,45 @@ async function pdfTextCheck(browser, origin) {
     await page.waitForTimeout(1200)
     const after = await page.evaluate(() => ({ at: currentPlace(), edition: store.get('edition:' + hexOf(state.key)), url: location.pathname + location.search }))
     ok(`${tag}: the Aa panel offers Tinct text (chosen) and Original pages, and Original pages goes back to the same page`, JSON.stringify(aa) === '["margin","pages"]' && back && after.at.page === spotNowText?.page && Math.abs(after.at.frac - spotNowText.frac) < 0.2 && after.edition === 'pages', { aa, spotNowText, after })
+    ok(`${tag}: no page errors`, !problems.length, problems)
+    await ctx.close()
+  }
+  // Chosen at once, before any idle time (20 Oct 2026, speed): the text opens before its crops are drawn, each standing at its
+  // size until it comes; the place does not move as they come, and the text is kept with all of them.
+  {
+    const hex = addBook(FIGURE_PAPER), tag = 'pdf-text-at-once'
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 })
+    await ctx.addInitScript(([session, hex]) => {
+      try {
+        if (sessionStorage.getItem('seeded')) return
+        sessionStorage.setItem('seeded', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('text'))
+        localStorage.setItem('tinct-addbook:pos:pdf:' + hex, JSON.stringify({ page: 3, frac: 0.2, at: Date.now() }))
+      } catch {}
+      // Each crop a while in coming, so the text is read while they are drawn.
+      const toBlob = HTMLCanvasElement.prototype.toBlob
+      HTMLCanvasElement.prototype.toBlob = function (...a) { setTimeout(() => toBlob.apply(this, a), 700) }
+    }, [SESSION, hex])
+    await ctx.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    const page = await ctx.newPage(), problems = []
+    page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+    const started = Date.now()
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    const shown = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter .pt-fig'), null, { timeout: 30000 }).then(() => true).catch(() => false)
+    const opened = Date.now() - started
+    await page.waitForTimeout(600)
+    const first = await page.evaluate(() => ({ waiting: document.querySelectorAll('.pt-fig img[data-wait]').length, figs: document.querySelectorAll('.pt-fig').length, spot: epubSpot(), boxes: [...document.querySelectorAll('.pt-fig img')].map(i => [i.offsetWidth, i.offsetHeight]) }))
+    console.log(`     ${tag}: Tinct text shown ${opened} ms after the page was asked for; 0.6 s later ${first.waiting} of ${first.figs} crops still being drawn`)
+    let all = null
+    for (let k = 0; k < 80; k++) {
+      all = await page.evaluate(async () => { const r = await library.get(PT().pdfKey(state.key)); return {  waiting: document.querySelectorAll('.pt-fig img[data-wait]').length, kept: !!r?.figureData && Object.keys(r.figureData).length, spot: epubSpot(), boxes: [...document.querySelectorAll('.pt-fig img')].map(i => [i.offsetWidth, i.offsetHeight]), drawn: [...document.querySelectorAll('.pt-fig img')].every(i => i.src.startsWith('blob:') && i.naturalWidth > 0) } })
+      if (!all.waiting && all.kept && all.drawn) break
+      await page.waitForTimeout(250)
+    }
+    ok(`${tag}: chosen at once, the Tinct text opens with its crops standing at their size while they are drawn`, shown && first.figs >= 1 && first.waiting >= 1, first)
+    ok(`${tag}: every crop comes in, at the size it stood at, and the text is kept with them`, !all.waiting && all.drawn && all.kept === first.figs && JSON.stringify(all.boxes) === JSON.stringify(first.boxes), { first, all })
+    ok(`${tag}: the place does not move as the crops come`, JSON.stringify(all.spot) === JSON.stringify(first.spot), { first: first.spot, after: all.spot })
     ok(`${tag}: no page errors`, !problems.length, problems)
     await ctx.close()
   }
