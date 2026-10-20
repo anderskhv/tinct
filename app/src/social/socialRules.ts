@@ -7,8 +7,10 @@
  * tinct.app/@handle, Worker-rendered, noindex, with the background banner.
  *
  * - Friends are mutual follows. Follow, unfollow, remove follower, block.
- * - The leaderboard counts reading + listening over a rolling 7 days, from
- *   the reading_time ledger, refreshed at least hourly. The leaderboard is
+ * - The leaderboard counts reading + listening over a rolling 7 days, read
+ *   live from the reading_time ledger when the board is asked for, by the
+ *   same 7-day rule as the You card's Your reading (weekSeconds; 20 Oct
+ *   2026). The hourly leaderboard_7d cache is only the fallback. The leaderboard is
  *   opt-in ("appear on the leaderboard", default off) and needs "show my
  *   reading time" on. Your own row and rank always show to you.
  * - Find searches only readers set to Everyone; "Also reading your books"
@@ -19,12 +21,16 @@
  *   2026, "let's just make a global leaderboard now"): Friends is there from
  *   day one; Everyone is not offered at all (no tab, no board from the API)
  *   until at least EVERYONE_BOARD_MIN_READERS real readers would appear on it.
- *   Tinct's own internal and test accounts never appear on the Everyone
- *   board and never count toward it (isInternalAccount;
- *   reader_profiles.internal). Mutual friends see each other on the Friends
- *   board regardless (19 Oct 2026).
+ *   Internal accounts (isInternalAccount; reader_profiles.internal) never
+ *   count toward that threshold, so staff alone cannot open the board. An
+ *   internal account set to Everyone and on the leaderboard appears on the
+ *   Everyone board like anyone else (Anders, 20 Oct 2026: he and his family
+ *   are real readers); Tinct's test accounts (profiles.is_test or a reserved
+ *   test address) never appear on it (offEveryone). Mutual friends see each
+ *   other on the Friends board regardless (19 Oct 2026).
  */
 import { normalizeHandle, type PictureKind, type Visibility } from './profileRules'
+import { addDays, readingTimeStats, type LedgerRow } from '../readingTime/model'
 
 /** SOCIAL_FRIENDS needs SOCIAL_PROFILES: either off, and nothing of ship 3 exists. */
 export function socialFriendsOn(env: { SOCIAL_FRIENDS?: string; SOCIAL_PROFILES?: string }): boolean {
@@ -33,7 +39,7 @@ export function socialFriendsOn(env: { SOCIAL_FRIENDS?: string; SOCIAL_PROFILES?
 
 // ===== The 7-day window =====
 
-/** Rows older than this are rebuilt when a board is read (the cron rebuilds hourly). */
+/** The fallback cache (read only when the live ledger read fails) is rebuilt on read when older than this; the cron rebuilds it hourly. */
 export const LEADERBOARD_STALE_MS = 65 * 60_000
 
 function utcDay(ms: number): string {
@@ -68,6 +74,35 @@ export function windowSeconds(rows: Array<{ user_id: string; day: string; book_i
   return out
 }
 
+/** The first ledger day a live board reads: the viewer's own today may be a day behind UTC, and their 7 days end there. */
+export function weekSinceDay(nowMs: number): string {
+  return addDays(utcDay(nowMs), -7)
+}
+
+/**
+ * Each reader's seconds over the last 7 days, live from ledger rows, by the
+ * exact rule of the You card's Your reading (readingTimeStats().last7Seconds):
+ * the reader's today and the six days before, or the seven days ending
+ * tomorrow when the reader already has time on tomorrow ('_earlier' never
+ * counts). `todayOf` gives each reader's today: the viewer's own local day
+ * when the page sent it, else the UTC date.
+ */
+export function weekSeconds(rows: Array<{ user_id: string; day: string; book_id: string; read_seconds: number; listen_seconds: number }>, todayOf: (userId: string) => string): Map<string, number> {
+  const byReader = new Map<string, LedgerRow[]>()
+  for (const row of rows) {
+    if (row.book_id === '_earlier') continue
+    const list = byReader.get(row.user_id) ?? []
+    list.push({ day: row.day, bookId: row.book_id, read: Number(row.read_seconds) || 0, listen: Number(row.listen_seconds) || 0 })
+    byReader.set(row.user_id, list)
+  }
+  const out = new Map<string, number>()
+  for (const [id, list] of byReader) {
+    const seconds = readingTimeStats(list, todayOf(id)).last7Seconds
+    if (seconds > 0) out.set(id, seconds)
+  }
+  return out
+}
+
 // ===== Who appears on which board =====
 
 export type Board = 'friends' | 'everyone'
@@ -89,6 +124,21 @@ export interface BoardCard {
    * has run.
    */
   internal?: boolean
+  /**
+   * A test account (profiles.is_test, or a reserved test address). The Worker
+   * looks it up for internal cards on the Everyone board only (every test
+   * account is also internal); undefined: not looked up.
+   */
+  test?: boolean
+}
+
+/**
+ * Kept off the Everyone board: a test account, or an internal account not
+ * (yet) known to be a real reader. An internal account that is not a test
+ * account appears like anyone else (Anders, 20 Oct 2026).
+ */
+export function offEveryone(card: Pick<BoardCard, 'internal' | 'test'>): boolean {
+  return card.test === true || (card.internal === true && card.test !== false)
 }
 
 /**
@@ -100,15 +150,16 @@ export interface BoardCard {
  *   already turns an unconfirmed Everyone into Friends);
  * - Friends: only mutual follows (whose profile is Friends or Everyone),
  *   whether or not the friend is an internal account;
- * - Everyone: never an internal or test account.
+ * - Everyone: never a test account (offEveryone); an internal account that
+ *   is a real reader shows like anyone else (20 Oct 2026).
  */
 export function appearsOnBoard(card: BoardCard, board: Board, viewer: { friends: ReadonlySet<string>; blocked: ReadonlySet<string> }): boolean {
   if (viewer.blocked.has(card.id)) return false
   if (!card.on_leaderboard || !card.show_time) return false
   if (card.visibility === 'only_me') return false
-  // Internal and test accounts stay off Everyone (and its count), never off a
-  // friend's board: mutual friends always see each other (19 Oct 2026).
-  if (board === 'everyone') return card.visibility === 'everyone' && card.internal !== true
+  // Test accounts stay off Everyone; internal ones stay out of its count only
+  // (20 Oct 2026). Mutual friends always see each other (19 Oct 2026).
+  if (board === 'everyone') return card.visibility === 'everyone' && !offEveryone(card)
   return viewer.friends.has(card.id)
 }
 
