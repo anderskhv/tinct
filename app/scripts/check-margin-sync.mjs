@@ -176,6 +176,76 @@ async function checkPlace(browser) {
   } finally { await context.close() }
 }
 
+async function selectInView(frame, words = 4) {
+  return frame.evaluate(words => {
+    const top = document.getElementById('scroll').getBoundingClientRect().top + 60
+    const p = [...document.querySelectorAll('.tb-p')].find(el => { const r = el.getBoundingClientRect(); return r.top > top && r.bottom < innerHeight - 200 && el.textContent.split(/\s+/).length > 12 })
+    if (!p) return null
+    const node = [...p.childNodes].find(n => n.nodeType === 3 && n.nodeValue.trim().split(/\s+/).length > 8) || p.firstChild
+    const all = [...node.nodeValue.matchAll(/\S+/g)], pick = all.slice(3, 3 + words)
+    document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' }))
+    getSelection().setBaseAndExtent(node, pick[0].index, node, pick.at(-1).index + pick.at(-1)[0].length)
+    document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
+    return getSelection().toString()
+  }, words)
+}
+const rowMarks = () => account.rows.get('lab-highlights:' + BOOK)?.value || { highlights: [], deleted: [] }
+
+async function checkMarks(browser) {
+  resetAccount({ chapterNumber: 5, paragraphIndex: 3, wordIndex: 0 })
+  const words = String(edition.chapters[chapterAt(5) - 1].paragraphs[3]).replace(/_/g, '').split(/\s+/).filter(Boolean)
+  // The book reader made this one on the phone: chapter 5, paragraph 3, its first three words.
+  const phoneMark = { id: 'hl-1790000000000-phone1', bookId: BOOK, editionKey: 'modern-en', chapterNumber: 5, paragraphIndex: 3, fromWord: 0, endParagraphIndex: 3, toWord: 3, color: 'rose', text: words.slice(0, 3).join(' '), note: 'From the phone.', updatedAt: Date.now() - 50000 }
+  account.rows.set('lab-highlights:' + BOOK, { key: 'lab-highlights:' + BOOK, value: { v: 1, highlights: [phoneMark], deleted: [] }, rev: 1 })
+  // A highlight the preview kept on this device before the margin view shared the book reader's (migrated once).
+  const legacyText = words.slice(5, 7).join(' ')
+  const { context, page } = await device(browser, { seed: {} })
+  try {
+    const frame = await marginFrame(page)
+    await frame.waitForFunction(() => highlights().some(h => h.id === 'hl-1790000000000-phone1'), null, { timeout: 10000 }).catch(() => {})
+    const shown = await frame.evaluate(() => { const h = highlights().find(x => x.id === 'hl-1790000000000-phone1'); if (!h) return null; const r = rangeFromOffsets(state.pages[h.page - 1].pg, h.start, h.end); return { text: r?.toString(), note: h.note, color: h.color } })
+    ok('marks: the phone\'s highlight shows in margin view on its words, with its note', shown?.text === phoneMark.text && shown?.note === phoneMark.note && shown?.color === 'rose', shown)
+    const picked = await selectInView(frame)
+    await frame.waitForSelector('.mr-bar [data-m="dot"]', { timeout: 8000 })
+    await frame.click('.mr-bar [data-m="dot"]')
+    await page.waitForTimeout(400)
+    const made = await frame.evaluate(() => highlights().filter(h => h.id !== 'hl-1790000000000-phone1').map(h => ({ id: h.id, text: h.text })))
+    ok('marks: a selection highlighted in margin view', made.length === 1 && made[0].text === picked.replace(/\s+/g, ' ').trim(), { made, picked })
+    await waitFor(() => rowMarks().highlights.some(h => h.id === made[0]?.id), 8000)
+    const row = rowMarks().highlights.find(h => h.id === made[0]?.id)
+    const want = picked.trim().split(/\s+/)
+    ok('marks: it reaches the account\'s lab-highlights row as word anchors (commit_user_data)', !!row && row.bookId === BOOK && row.editionKey === 'modern-en' && Number.isInteger(row.fromWord) && row.toWord - row.fromWord === want.length && row.text === want.join(' ') && account.commits.every(c => c.rev !== null || c.key !== 'lab-highlights:' + BOOK), row)
+    ok('marks: the phone\'s highlight is kept in the row', rowMarks().highlights.some(h => h.id === phoneMark.id))
+    const local = await page.evaluate(() => Object.keys(localStorage).filter(k => /^tinct-addbook:hl/.test(k)))
+    ok('marks: no preview-local highlight keys are written', local.length === 0, local)
+    // The normal reader on this device: both marks, painted.
+    await normalReader(page)
+    const painted = await page.evaluate(ids => ({ list: JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').filter(h => ids.includes(h.id)).length, rose: document.querySelectorAll('.lab-hearing-word.is-hl-rose').length, any: document.querySelectorAll('.lab-hearing-word[class*="is-hl-"]').length }), [phoneMark.id, made[0]?.id])
+    ok('marks: the normal reader has both and paints them', painted.list === 2 && painted.rose === 3 && painted.any >= 3 + want.length, painted)
+    await page.screenshot({ path: path.join(OUT, 'marks-normal.png') })
+    // The reverse: a highlight made in the normal reader shows in margin view on another device.
+    const extra = { ...phoneMark, id: 'hl-1790000000001-desk2', fromWord: 8, toWord: 10, color: 'sky', note: undefined, text: words.slice(8, 10).join(' '), updatedAt: Date.now() }
+    await page.evaluate(m => { const list = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]'); list.push(m); localStorage.setItem('tinct-lab-highlights', JSON.stringify(list)) }, extra)
+    await page.reload(); await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 60000 })
+    await waitFor(() => rowMarks().highlights.some(h => h.id === extra.id), 10000)
+    const second = await device(browser, { seed: { 'tinct-addbook:hl:preview:frankenstein': [{ id: 'legacy1', page: chapterAt(5), start: 0, end: 0, text: legacyText, color: 'lavender', at: 1000 }] } })
+    // (A legacy mark at the chapter's start offsets with other words: kept where it was, never moved onto the wrong words.)
+    const frame2 = await marginFrame(second.page)
+    await frame2.waitForFunction(ids => ids.every(id => highlights().some(h => h.id === id)), [phoneMark.id, made[0]?.id, extra.id], { timeout: 10000 }).catch(() => {})
+    const there = await frame2.evaluate(() => highlights().map(h => h.id))
+    ok('marks: margin view on another device shows the margin, phone and normal-reader highlights', [phoneMark.id, made[0]?.id, extra.id].every(id => there.includes(id)), there)
+    // A removal in margin view is a tombstone in the account.
+    await frame2.evaluate(id => removeHighlight(id), extra.id)
+    await waitFor(() => rowMarks().deleted.some(t => t.id === extra.id), 8000)
+    ok('marks: a highlight removed in margin view is deleted in the account (tombstone)', rowMarks().deleted.some(t => t.id === extra.id) && !rowMarks().highlights.some(h => h.id === extra.id), rowMarks().deleted)
+    const legacyLeft = await second.page.evaluate(() => localStorage.getItem('tinct-addbook:hl:preview:frankenstein'))
+    ok('marks: a preview-local mark whose words no longer match is left in place, not migrated', !!legacyLeft && !rowMarks().highlights.some(h => h.id === 'legacy1'), legacyLeft)
+    ok('marks: no page errors', page.errors.length === 0 && second.page.errors.length === 0, [...page.errors, ...second.page.errors])
+    await second.context.close()
+  } finally { await context.close() }
+}
+globalThis.checkMarks = checkMarks
+
 const browser = await markInternal(await chromium.launch({ executablePath: EXEC, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] }))
 try {
   if (MODE === 'place' || MODE === 'all') await checkPlace(browser)

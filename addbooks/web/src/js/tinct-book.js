@@ -6,7 +6,8 @@
 // place is the same (chapter, paragraph, word) in both readers.
 // Sync (21 Oct 2026, margin view as the desktop's default): the place is reported to the page, which writes it through
 // the book reader's position path (src/lab/marginPreview/useMarginPreviewPlace.ts); this frame keeps a copy of it on
-// this device (pos:preview:<id>) only to open where it was.
+// this device (pos:preview:<id>) only to open where it was. Highlights and notes are the book reader's own
+// (useMarginPreviewMarks), and cards live in the book's chat history (useMarginPreviewCards), held here in memory only.
 (function () {
   const id = new URLSearchParams(location.search).get('tinctBook');
   if (!id || !/^[a-z0-9][a-z0-9-]{0,80}$/.test(id)) return;
@@ -246,6 +247,63 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     });
   }
 
+  /* ---------- Sync with the page: highlights and notes (21 Oct 2026) ----------
+     The book's marks are the book reader's own (the page's useMarginPreviewMarks: its list, its tombstones, its
+     account rows). Here reader.js's store keeps them in memory under the preview's keys, filled from the page and
+     handed back to it after each change; nothing of them is written to this device's own keys any more (the page
+     moved what was there into the book reader's list once). */
+  /* Cards too (21 Oct 2026): Explain, Simplify, Define, Ask, quizzes, primers, recaps… are kept in the book's chat
+     history (the page's useMarginPreviewCards), held here in memory as `cards:<key>`. */
+  const CARD_KEY = 'cards:' + KEY;
+  const MARK_KEYS = new Set(['hl:' + KEY, 'hl-gone:' + KEY, CARD_KEY]);
+  const memory = new Map();
+  let marksTimer = 0, cardsTimer = 0;
+  function pushCards() {
+    clearTimeout(cardsTimer); cardsTimer = 0;
+    try { sync?.cards?.put(JSON.parse(memory.get(CARD_KEY) || '[]')) } catch {}
+  }
+  function redrawMarks() {
+    try { renderEpubHighlights() } catch {}
+    try { marginLayout({ fresh: true }) } catch {}
+    try { window.TinctNotebook?.changed() } catch {}
+  }
+  function pushMarks() {
+    clearTimeout(marksTimer); marksTimer = 0;
+    try { sync?.marks?.put(JSON.parse(memory.get('hl:' + KEY) || '[]')) } catch {}
+  }
+  function keepMarks() {
+    const { get, set, del } = store;
+    store.get = k => (MARK_KEYS.has(k) ? (memory.has(k) ? JSON.parse(memory.get(k)) : null) : get(k));
+    store.del = k => (MARK_KEYS.has(k) ? void memory.delete(k) : del(k));
+    store.set = (k, v) => {
+      if (!MARK_KEYS.has(k)) return set(k, v);
+      const text = JSON.stringify(v);
+      if (memory.get(k) === text) return;
+      memory.set(k, text);
+      try { window.TinctNotebook?.changed() } catch {}
+      if (k === 'hl:' + KEY) { clearTimeout(marksTimer); marksTimer = setTimeout(pushMarks, 400) }
+      if (k === CARD_KEY && sync?.cards) { clearTimeout(cardsTimer); cardsTimer = setTimeout(pushCards, 800) }
+    };
+    try { memory.set('hl:' + KEY, JSON.stringify(sync.marks.list() || [])) } catch { memory.set('hl:' + KEY, '[]') }
+    try { memory.set(CARD_KEY, JSON.stringify(sync.cards?.list() || [])) } catch { memory.set(CARD_KEY, '[]') }
+    sync.cards?.listen(list => {
+      const text = JSON.stringify(list || []);
+      if (cardsTimer || memory.get(CARD_KEY) === text) return; // a change here is on its way: it wins
+      memory.set(CARD_KEY, text);
+      if (state.key === 'preview:' + id) { try { marginLayout({ fresh: true }) } catch {} try { window.TinctNotebook?.changed() } catch {} }
+    });
+    sync.marks.listen(list => {
+      const text = JSON.stringify(list || []);
+      if (marksTimer || memory.get('hl:' + KEY) === text) return; // a change of the reader's is on its way: it wins
+      memory.set('hl:' + KEY, text);
+      if (state.key === 'preview:' + id) redrawMarks();
+    });
+    // Leaving: what is waiting goes now.
+    const leaving = () => { if (marksTimer) pushMarks(); if (cardsTimer) pushCards() };
+    addEventListener('pagehide', leaving);
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leaving() });
+  }
+
   async function open() {
     const R = window.TinctReader; if (!R?.openRegistered) return;
     const style = document.createElement('style'); style.textContent = STYLE; document.head.appendChild(style);
@@ -272,6 +330,7 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
       ? (view, at) => { const c = model.chapters[at.page - 1]; return c ? host.layoutHref(view, { editionKey: model.editionKey, chapterNumber: c.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }) : null }
       : null;
     sync = await syncOf(host);
+    if (sync?.marks) keepMarks();
     const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
     if (!opened || !sync?.place) return;
     watchPlace();
