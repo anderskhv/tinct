@@ -212,6 +212,10 @@ try {
       shots.push(join(OUT, `${tag}-chapters.png`)); await page.screenshot({ path: shots.at(-1) })
       await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [data-close]')?.click())
 
+      // 3f. Round 3: the note editor quotes a passage that opens on its own quotation mark once (““Yes, of course”).
+      const noteQuote = await frame.evaluate(() => { const d = document.createElement('div'); d.innerHTML = TinctMargin.html.noteHtml({ quote: '“Yes, of course, if”' }); return d.querySelector('.mr-note__quote').textContent })
+      ok(`${tag}: the note editor quotes the passage once (${noteQuote})`, noteQuote === '“Yes, of course, if”', noteQuote)
+
       // 3e. Round 3: the current chapter is the next one once its heading has passed the upper third (pill and contents),
       // and on a phone Before you start's bottom card shows at a chapter's start after the reader moves, not further down.
       {
