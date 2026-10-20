@@ -18,7 +18,7 @@ import {
 } from './labPrefs'
 import {
   LAB_FONT_PICKER_GROUPS,
-  LAB_V2_SHEET_TITLES,
+  labV2SheetTitle,
   LAB_V2_THEMES,
   labAlignmentValue,
   labFontValue,
@@ -73,6 +73,13 @@ export interface LabV2SheetProps {
   modernOffer?: { price: string; busy?: boolean; onBuy: () => void }
   /** A reader's own PDF: Book editions picks between its Tinct text and its Original pages only. */
   ownPdf?: boolean
+  /**
+   * The phone's grouping (t menu, 20 Oct 2026): the settings layer is Text and theme (themes, size, Advanced
+   * settings) and the editions layer is Reading settings, which also holds the voice and speed.
+   */
+  grouped?: boolean
+  /** False for a reader's own book with one edition: its Reading settings holds the voice and speed only. */
+  editionRows?: boolean
 }
 
 /** A row's value and chevron, right-aligned in the mono the canvas uses. */
@@ -194,7 +201,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, margin = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, margin = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, grouped = false, editionRows = true }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -219,6 +226,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
   if (!layer || layer === 'catchup' || layer === 'account') return null
 
   const font = labReadingFont(prefs.fontFamily)
+  const title = labV2SheetTitle(layer, grouped)
   const editionName = (key: string) => {
     const edition = editions.find(item => item.key === key)
     return edition ? readerEditionLabel(edition) : key
@@ -242,25 +250,53 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
     </button>
   )
 
+  // Voice and speed: in Settings on the desktop, in Reading settings on the phone (grouped).
+  const voiceRows = (
+    <div className="lab-v2-rows">
+      <SelectRow
+        label="Voice"
+        testId="lab-v2-narration-voice"
+        value={narrationPilot?.info?.provider !== 'grok' ? prefs.voicePersona
+          : onAccountVoice ? (narrationPilot?.voice === 'm' ? 'male' : narrationPilot?.voice === 'f' ? 'female' : prefs.voicePersona)
+          : prefs.audiobookVoice || prefs.voicePersona}
+        options={narrationPilot?.info?.provider === 'grok' ? [
+          { value: 'female', label: 'Ara · Female' },
+          { value: 'male', label: 'Helios · Male' },
+          { value: 'orion', label: 'Orion · Male' },
+          { value: 'eve', label: 'Eve · Female' },
+        ] : [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }]}
+        onChange={value => {
+          if (value !== 'orion' && value !== 'eve') onPrefs({ ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female', voicePersonaChosen: true })
+          else if (onAccountVoice) onAccountVoice()
+          else onPrefs({ ...prefs, audiobookVoice: value, voicePersonaChosen: true })
+        }}
+      />
+      <SelectRow label="Speed" testId="lab-v2-audio-speed" value={String(prefs.audioSpeed)}
+        options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}
+        onChange={value => onPrefs({ ...prefs, audioSpeed: Number(value) })} />
+    </div>
+  )
+
+
   const head = layer === 'reading' || layer === 'editions'
     ? (
       <div className="lab-v2-head is-titled" data-reader-window-handle>
-        <h2 className="lab-v2-title">{LAB_V2_SHEET_TITLES[layer]}</h2>
+        <h2 className="lab-v2-title">{title}</h2>
         <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
       </div>
     )
     : (
       <div className="lab-v2-head is-centred" data-reader-window-handle>
         {picker ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('editions')}>‹ Editions</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('editions')}>{grouped ? '‹ Reading settings' : '‹ Editions'}</button>
         ) : layer === 'font' ? (
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('advanced')}>‹ Advanced</button>
         ) : layer === 'advanced' ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>‹ Settings</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>{grouped ? '‹ Text and theme' : '‹ Settings'}</button>
         ) : (
           <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
         )}
-        <h2 className="lab-v2-title">{LAB_V2_SHEET_TITLES[layer]}</h2>
+        <h2 className="lab-v2-title">{title}</h2>
         <button type="button" className="lab-v2-confirm" data-testid="lab-v2-sheet-confirm" aria-label="Done" onClick={onClose}>✓</button>
       </div>
     )
@@ -279,7 +315,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
         className="lab-v2-sheet"
         data-testid="lab-v2-sheet"
         data-layer={layer}
-        aria-label={LAB_V2_SHEET_TITLES[layer]}
+        aria-label={title}
       >
         {head}
         <div className="lab-v2-sheet-body">
@@ -320,30 +356,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                 />
                 <span className="lab-v2-size-large" aria-hidden="true">A</span>
               </div>
-              <div className="lab-v2-rows">
-
-                  <SelectRow
-                    label="Voice"
-                    testId="lab-v2-narration-voice"
-                    value={narrationPilot?.info?.provider !== 'grok' ? prefs.voicePersona
-                      : onAccountVoice ? (narrationPilot?.voice === 'm' ? 'male' : narrationPilot?.voice === 'f' ? 'female' : prefs.voicePersona)
-                      : prefs.audiobookVoice || prefs.voicePersona}
-                    options={narrationPilot?.info?.provider === 'grok' ? [
-                      { value: 'female', label: 'Ara · Female' },
-                      { value: 'male', label: 'Helios · Male' },
-                      { value: 'orion', label: 'Orion · Male' },
-                      { value: 'eve', label: 'Eve · Female' },
-                    ] : [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }]}
-                    onChange={value => {
-                      if (value !== 'orion' && value !== 'eve') onPrefs({ ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female', voicePersonaChosen: true })
-                      else if (onAccountVoice) onAccountVoice()
-                      else onPrefs({ ...prefs, audiobookVoice: value, voicePersonaChosen: true })
-                    }}
-                  />
-                <SelectRow label="Speed" testId="lab-v2-audio-speed" value={String(prefs.audioSpeed)}
-                  options={[...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.audioSpeed])].sort((a, b) => a - b).map(value => ({ value: String(value), label: value + '×' }))}
-                  onChange={value => onPrefs({ ...prefs, audioSpeed: Number(value) })} />
-              </div>
+              {!grouped && voiceRows}
               <div className="lab-v2-foot">
                 <button
                   type="button"
@@ -360,6 +373,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
 
           {layer === 'editions' && (
             <div className="lab-v2-editions">
+              {editionRows && <>
               {editionRow('Main version', 'mainEdition', editionName(prefs.primaryEdition), 'lab-v2-main-edition')}
               {!ownPdf && <>
               {editionRow('Audiobook version', 'audioEdition', prefs.audioFollowsPrimary === false ? editionName(prefs.audioEdition) : 'Follow main version', 'lab-v2-audio-edition')}
@@ -390,16 +404,22 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                 </p>
               )}
               </>}
+              {grouped && <>
+                <div className="lab-v2-edition-divider" />
+                {voiceRows}
+              </>}
               {bookId && !ownPdf && !isUserBookId(bookId) && <>
                 <div className="lab-v2-edition-divider" />
                 <LabOfflineRow bookId={bookId}
                   editionKeys={offlineEditionKeys(prefs.primaryEdition, prefs.compareOpen ? prefs.compareEdition : null)}
                   hasVerseLines={editions.some(edition => edition.hasVerseLines)} />
               </>}
+              </>}
+              {grouped && !editionRows && voiceRows}
             </div>
           )}
           {picker && (
-            <div className="lab-v2-edition-choices" role="group" aria-label={LAB_V2_SHEET_TITLES[layer]}>
+            <div className="lab-v2-edition-choices" role="group" aria-label={title}>
               {layer !== 'mainEdition' && (
                 <button type="button" className="lab-v2-edition-option" aria-pressed={selected === ''} onClick={() => choose('')}>
                   <span>{layer === 'audioEdition' ? 'Follow main version' : 'None'}</span>

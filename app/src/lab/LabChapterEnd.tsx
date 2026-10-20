@@ -1,7 +1,7 @@
-import { unitName, useMarginPhone } from './marginPhone/marginPhoneContext'
+import { useMarginPhone } from './marginPhone/marginPhoneContext'
 
-export function LabChapterEnd({ chapterTitle = '', hasNext, busy = false, measuring = false, docked = false, recap = true, note = true, onContinue, onDiscuss, onNote, finishedCard }: {
-  /** The chapter's title: the phone's margin mode names it ("End of <chapter>"); measuring copies pass it too. */
+export function LabChapterEnd({ hasNext, busy = false, measuring = false, docked = false, recap = true, note = true, onContinue, onDiscuss, onNote, finishedCard }: {
+  /** The chapter's title (measuring copies pass it too). */
   chapterTitle?: string
   hasNext: boolean; busy?: boolean; measuring?: boolean; docked?: boolean
   /** False where no recap can be offered (a reader's own book, once its next chapter is open). */
@@ -14,11 +14,10 @@ export function LabChapterEnd({ chapterTitle = '', hasNext, busy = false, measur
   /** Social ship 3: at the end of a book, the "Finished {book}" reading card to share. Absent while the switch is off. */
   finishedCard?: { label: string; busy: boolean; note: string; onShare: () => void }
 }) {
-  // The phone's margin mode: "End of <chapter>" with ✧ Recap · ✧ Quiz me · Note.
+  // The phone's margin mode: ✧ Recap · ✧ Quiz me · Note, with no label above them.
   const margin = useMarginPhone()
   return <section className={`lab-chapter-end${docked ? ' is-docked' : ''}`} data-testid={measuring ? undefined : "lab-chapter-end"} aria-label="Chapter finished"
     onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
-    {margin && <p className="lab-unit-k" data-testid={measuring ? undefined : 'lab-unit-end'}>End of {unitName(chapterTitle)}</p>}
     <div className="lab-chapter-end-actions">
       {recap && <button type="button" className="lab-chapter-recap" disabled={busy} tabIndex={onDiscuss ? 0 : -1} aria-label="Recap this chapter" onClick={onDiscuss}>
         <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Recap</span>

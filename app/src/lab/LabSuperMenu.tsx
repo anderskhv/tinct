@@ -60,7 +60,9 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
-  if (id === 'settings') {
+  // Text and theme: the letters the theme buttons show, set in the book's face.
+  if (id === 'text') return <span className="lab-super-row-aa">Aa</span>
+  if (id === 'settings' || id === 'reading') {
     return (
       <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
         <path d="M4 7h7M15 7h5M4 17h5M13 17h7" />
@@ -125,7 +127,24 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, noCatchUp, onSe
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
         {/* The Librarian row is the one way to the librarian (2026-10-08): its
             body opens Chat, its icons open Chat or Talk directly. */}
-        {rows.map(row => row.modes ? (
+        {rows.map(row => row.modes && row.id === 'conversation' ? (
+          // The phone: Chat · Talk, one row, each half its own button.
+          <div key={row.id} className="lab-super-row is-pair" data-row={row.id} role="group" aria-label="Chat or Talk">
+            {row.modes.map((mode, index) => (
+              <button
+                key={mode}
+                type="button"
+                className={`lab-super-row-half${index ? ' is-second' : ''}`}
+                data-mode={mode}
+                data-testid={`lab-super-row-${mode}`}
+                onClick={() => onSelect(mode)}
+              >
+                <span className="lab-super-row-icon" aria-hidden="true">{mode === 'chat' ? <ChatIcon size={18} /> : <TalkIcon size={18} />}</span>
+                <span className="lab-super-row-label">{mode === 'chat' ? 'Chat' : 'Talk'}</span>
+              </button>
+            ))}
+          </div>
+        ) : row.modes ? (
           <div key={row.id} className={`lab-super-row is-librarian${row.ruleBefore ? ' has-rule' : ''}`} data-row={row.id} role="group" aria-label={row.label}>
             <button
               type="button"
