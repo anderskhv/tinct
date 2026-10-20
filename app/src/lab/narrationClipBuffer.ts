@@ -315,7 +315,9 @@ export class NarrationClipBuffer {
       if (now - entry.dataAt >= stallAfter) {
         this.weakUntil = now + CLIP_BUFFER_WEAK_MS
         entry.resuming = true
-        entry.notBefore = now + CLIP_FETCH_RETRY_MS[Math.min(entry.retries, CLIP_FETCH_RETRY_MS.length - 1)]
+        // Nearly dry, the back-off stays short (≤ 1 s): the next try is the one that may catch the network coming back.
+        const nearDry = typeof this.aheadSeconds === 'number' && this.aheadSeconds < CLIP_BUFFER_NEAREST_FIRST_SECONDS
+        entry.notBefore = now + CLIP_FETCH_RETRY_MS[Math.min(entry.retries, nearDry ? 2 : CLIP_FETCH_RETRY_MS.length - 1)]
         entry.retries += 1
         this.signal({ kind: 'fetch-stalled', url: entry.url, aheadSeconds: this.aheadSeconds, retries: entry.retries })
         entry.controller?.abort()

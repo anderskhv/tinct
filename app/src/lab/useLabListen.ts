@@ -95,6 +95,8 @@ const NARRATION_STALL_NO_DATA_MS = 3_000
  */
 export const NARRATION_STALL_RETRY_MS = [0, 1_000, 2_000, 4_000, 6_000, 8_000, 10_000, 13_000, 16_000, 20_000, 25_000, 30_000]
 const NARRATION_STALL_HIDDEN_RETRY_MS = 10_000
+/** Hidden, a stalled recording waits this long (in silence) for its downloaded copy before it streams from the network again. */
+export const NARRATION_HIDDEN_STREAM_AFTER_MS = 20_000
 /** How often the stall watchdog looks while playing. */
 const NARRATION_STALL_CHECK_MS = 500
 const STALL_EVENTS = ['waiting', 'stalled', 'suspend', 'emptied', 'error'] as const
@@ -492,6 +494,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const stallRef = useRef<{ index: number; time: number; attempts: number; since: number; nextAt: number } | null>(null)
   const noteProgressRef = useRef<(audio: HTMLAudioElement) => void>(() => {})
   const checkStallRef = useRef<() => void>(() => {})
+  const holdForStallRef = useRef<(audio: HTMLAudioElement) => boolean>(() => false)
   /** downloadAhead, for the element's handlers and the visibility listener. */
   const downloadAheadRef = useRef<() => void>(() => {})
   const narrationRetryRef = useRef<(() => void) | null>(null)
@@ -1120,7 +1123,12 @@ export function useLabListen(options: UseLabListenOptions) {
       if (primingRef.current || isUnlockSource(audio)) return
       noteProgressRef.current(audio)
       // Silence is holding the element: its clock is the moment to swap in a ready clip.
-      if (isHoldSource(audio)) { runHoldRef.current(); return }
+      if (isHoldSource(audio)) {
+        // The hold's clock is the heartbeat on a locked phone: the buffer keeps downloading from it.
+        if (playingRef.current && waitClockMs() - clipBufferAtRef.current >= CLIP_BUFFER_REFRESH_MS) downloadAheadRef.current()
+        runHoldRef.current()
+        return
+      }
       // The next chapter's opening is playing before its clips exist here.
       if (bridgeRef.current) return
       const current = clipsRef.current[clipIndexRef.current]
@@ -1209,7 +1217,14 @@ export function useLabListen(options: UseLabListenOptions) {
       if (playingRef.current && failingUrl && audio.src.startsWith('blob:') && sourcePlaysClip(audio.src, failingUrl) && clipBufferRef.current?.sourceFor(failingUrl) === audio.src) {
         clipBufferRef.current.forget(failingUrl)
         const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
-        playClipRef.current(clipIndexRef.current, live > 0 ? live : positionRef.current.time)
+        const index = clipIndexRef.current
+        const time = live > 0 ? live : positionRef.current.time
+        // Hidden: never a pause on a locked phone; silence holds the element and the swap happens from its event.
+        if (pageHidden() && startHoldRef.current(audio)) {
+          holdRef.current = { run: () => { playClipRef.current(index, time, true, true) }, request: playRequestRef.current, notBefore: 0 }
+          return
+        }
+        playClipRef.current(index, time)
         return
       }
       if (ownError && reloadClipRef.current(audio)) return
@@ -1261,7 +1276,7 @@ export function useLabListen(options: UseLabListenOptions) {
         }
       }
       setPlaying(true)
-      if (stallRef.current) publishPlaybackState(false)
+      if (stallRef.current && !pageHidden()) publishPlaybackState(false)
       if (!waitingForNarration(clipsRef.current[clipIndexRef.current], audio)) setPending(false)
       // iOS can drop Now Playing details set before audio first played; restate them once it does.
       applyMetadataRef.current()
@@ -1303,8 +1318,19 @@ export function useLabListen(options: UseLabListenOptions) {
     audio.addEventListener('waiting', handleWaiting)
     for (const type of ['pause', 'ended', 'emptied'] as const) audio.addEventListener(type, clearBuffering)
     // Bytes arriving: a slow load is buffering, not wedged. A stall-type event re-checks soon.
-    const handleProgress = () => { dataAtRef.current = waitClockMs() }
-    const handleStallEvent = () => { setTimeout(() => checkStallRef.current(), NARRATION_STALL_MS + 50) }
+    // Media events drive the checks too: a locked phone suspends timers, not the element's events.
+    const handleProgress = () => { dataAtRef.current = waitClockMs(); checkStallRef.current() }
+    const handleStallEvent = (event: Event) => {
+      // Hidden and out of audio: hold now, inside this event; no timer may come to notice it later.
+      // Not for a copy in memory (it only decodes) nor a source just assigned
+      // (an ordinary start): `stalled` — no data for ~3 s — counts for a fresh source too.
+      const streaming = !audio.src.startsWith('blob:')
+      const underrun = event.type === 'stalled' || (event.type === 'waiting' && !switchingRef.current)
+      if (underrun && streaming && pageHidden() && audio.readyState < 3 && !audio.paused && playingRef.current
+        && holdForStallRef.current(audio)) return
+      checkStallRef.current()
+      setTimeout(() => checkStallRef.current(), NARRATION_STALL_MS + 50)
+    }
     audio.addEventListener('progress', handleProgress)
     for (const type of STALL_EVENTS) audio.addEventListener(type, handleStallEvent)
     for (const type of nowPlayingEvents) audio.addEventListener(type, publishPosition)
@@ -1530,7 +1556,7 @@ export function useLabListen(options: UseLabListenOptions) {
     setPlaying(true)
     // A start that takes a while is silence: the lock screen says paused until sound comes ('playing').
     setTimeout(() => {
-      if (requestIsCurrent(request) && playingRef.current && pendingRef.current && audio.src === expectedSrc && !audio.ended) publishPlaybackState(false)
+      if (requestIsCurrent(request) && playingRef.current && pendingRef.current && audio.src === expectedSrc && !audio.ended && !pageHidden()) publishPlaybackState(false)
     }, NARRATION_SILENT_START_MS)
     if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead()
     downloadAhead()
@@ -1819,11 +1845,15 @@ export function useLabListen(options: UseLabListenOptions) {
 
   // --- Stalls: the element says it plays, but its clock stands still ------
   noteProgressRef.current = (audio) => {
+    // The hold's looping silence is not the recording's clock: it never ends a stall.
+    if (isHoldSource(audio)) return
     const progress = progressRef.current
     const time = audio.currentTime || 0
     const now = waitClockMs()
-    if (audio.src !== progress.src) { progressRef.current = { src: audio.src, time, at: now }; return }
-    if (time > progress.time + 0.05) {
+    // A reloaded recording already past the stalled second is sound again, even on its first tick.
+    const resumed = audio.src !== progress.src && stallRef.current != null && time > stallRef.current.time + 0.05
+    if (audio.src !== progress.src && !resumed) { progressRef.current = { src: audio.src, time, at: now }; return }
+    if (resumed || time > progress.time + 0.05) {
       progressRef.current = { src: audio.src, time, at: now }
       if (stallRef.current) {
         // Sound again: the stall is over; the transport and lock screen say so.
@@ -1834,6 +1864,50 @@ export function useLabListen(options: UseLabListenOptions) {
     } else if (time < progress.time - 0.5) {
       progressRef.current = { src: audio.src, time, at: now }
     }
+  }
+  /**
+   * A locked iPhone refuses play() without a gesture once the element is
+   * paused or idle, and it suspends timers: so on a hidden page a stall is
+   * never paused out of. Silence takes the element over (same element, no
+   * pause), its own events become the heartbeat that keeps the buffer
+   * downloading, and the recording is swapped back in from one of those
+   * events at the stalled second — from memory once the buffer's copy is
+   * here (never a second wait on the network), else from the network after
+   * NARRATION_HIDDEN_STREAM_AFTER_MS. Called from the watchdog and straight
+   * from the element's own `waiting`/`stalled` (no timer needed). False: the
+   * hold cannot be used here.
+   */
+  holdForStallRef.current = (audio) => {
+    if (isNativeCapacitor() || holdBrokenRef.current || !playingRef.current || userPausedRef.current) return false
+    if (isHoldSource(audio) || isUnlockSource(audio) || bridgeRef.current || !audio.src) return false
+    const index = clipIndexRef.current
+    const clip = clipsRef.current[index]
+    if (!clip || waitingForNarration(clip, audio)) return false
+    const now = waitClockMs()
+    const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
+    let stall = stallRef.current
+    if (!stall || stall.index !== index) {
+      stall = { index, time: live > 0 ? live : positionRef.current.clipIndex === index ? positionRef.current.time : 0, attempts: 0, since: now, nextAt: now }
+      stallRef.current = stall
+      positionRef.current = { clipIndex: index, time: stall.time }
+      setBufferingState(true)
+    }
+    stall.attempts += 1
+    const at = { index, time: stall.time, request: playRequestRef.current, since: now }
+    const run = () => {
+      const url = clipSourceUrl(clipsRef.current[at.index] ?? clip)
+      const copied = Boolean(url && clipBufferRef.current?.isReady(url))
+      if (!copied && waitClockMs() - at.since < NARRATION_HIDDEN_STREAM_AFTER_MS) {
+        // Not here yet: keep holding, look again at the hold's next event.
+        if (holdRef.current) holdRef.current.run = run
+        return
+      }
+      playClipRef.current(at.index, at.time, true, true)
+    }
+    if (!startHoldRef.current(audio)) return false
+    holdRef.current = { run, request: at.request, notBefore: 0 }
+    downloadAheadRef.current()
+    return true
   }
   checkStallRef.current = () => {
     const audio = audioRef.current
@@ -1852,10 +1926,13 @@ export function useLabListen(options: UseLabListenOptions) {
       stall = { index, time: live > 0 ? live : positionRef.current.clipIndex === index ? positionRef.current.time : 0, attempts: 0, since: now, nextAt: now }
       stallRef.current = stall
       positionRef.current = { clipIndex: index, time: stall.time }
-      // Honest at once: the ring in the transport, paused on the lock screen.
+      // Honest at once: the ring in the transport, and in front of the reader
+      // paused on the lock screen. Hidden, the session stays 'playing': a
+      // locked iPhone may suspend a page whose audio says paused, and the
+      // recovery below keeps sound (silence) on the element meanwhile.
       clearTimeout(bufferingTimerRef.current)
       setBufferingState(true)
-      publishPlaybackState(false)
+      if (!pageHidden()) publishPlaybackState(false)
     }
     // Bytes still arriving for a recording the element streams: a slow load, not a wedge. Wait it out.
     const loading = audio.networkState === 2 && now - dataAtRef.current < NARRATION_STALL_NO_DATA_MS
@@ -1884,6 +1961,7 @@ export function useLabListen(options: UseLabListenOptions) {
       return
     }
     if (hidden && now - stall.since > NARRATION_HOLD_MAX_MS) return
+    if (hidden && holdForStallRef.current(audio)) return
     const attempt = stall.attempts
     stall.attempts += 1
     const following = NARRATION_STALL_RETRY_MS[stall.attempts]
@@ -1903,7 +1981,7 @@ export function useLabListen(options: UseLabListenOptions) {
     downloadAheadRef.current()
     playClipRef.current(index, stall.time, true, true)
     // Starting it again is not sound yet: the lock screen keeps saying paused until the clock moves.
-    publishPlaybackState(false)
+    if (!pageHidden()) publishPlaybackState(false)
   }
   // The watchdog's own beat: a stalled element sends no timeupdate. It never
   // drives the follow paint, which stays on the element's clock.
