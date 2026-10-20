@@ -210,7 +210,7 @@ export const ASK_DOCUMENT_LINE = 'When the document does not explain something, 
  * the question needs current facts or facts from outside the document; the sources then listed as Fact-check lists them,
  * which the card shows as Fact-check's (margin.js factcheckHtml's links).
  */
-export const ASK_SOURCE_SEARCH_LINE = 'You may call search_reading_sources once, only when the question needs current facts or facts from outside the document that well-established knowledge does not settle; otherwise answer without it. Never mention the search or a tool. When you used it, end with one final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · "; write no Sources line otherwise.'
+export const ASK_SOURCE_SEARCH_LINE = 'You may call search_reading_sources once. Call it when the question is about things outside the text: its reception, impact or influence, citations, later work, its current status, who the author is, or recent events; or when it needs current facts that well-established knowledge does not settle. Search for those rather than declining or saying the document does not say; answer from the document alone when it answers the question. Never mention the search or a tool. When you used it, end with one final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · "; write no Sources line otherwise.'
 
 /** Shared by every margin action (marginContext.ts MARGIN_RULES): the client renders plain text and never parses Markdown. */
 export const PLAIN_PROSE_RULE = 'Plain prose only: no Markdown, no asterisks, no bullet characters, no em dashes.'
@@ -239,8 +239,14 @@ export const PICTURE_RULE = 'The picture is the passage itself; never describe o
 /** Shared by every margin action (15 Oct deep test): a primer and a whole-paper answer talked about "garbled" or "lost" extraction. */
 export const NO_EXTRACTION_TALK_RULE = 'Never mention text extraction, garbling, or how the document reached you.'
 
+/**
+ * Anders, 20 Oct 2026: a primer opened "The unit recalls Everett's relative-state construction…". "Unit" is Tinct's own word
+ * and never reaches the reader: every margin answer names the text by what it is, or by its title, or starts with its content.
+ */
+export const NAME_THE_TEXT_RULE = 'Name the text by what it is ("this chapter", "this essay", "this section", "the paper") or by its title, or start straight with its content; never call it a "unit".'
+
 /** The margin's shared answer rules, in order (marginContext.ts MARGIN_RULES; the fallback without the document too). */
-export const MARGIN_ANSWER_RULES: readonly string[] = Object.freeze([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE])
+export const MARGIN_ANSWER_RULES: readonly string[] = Object.freeze([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE, NAME_THE_TEXT_RULE])
 
 /** A PDF is a document or a paper, never "the chapter" ("across the chapter" appeared on a paper). */
 export const PDF_DOCUMENT_WORDING = 'Call this file the document, or the paper when it is one; never the chapter.'

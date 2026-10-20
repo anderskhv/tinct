@@ -134,3 +134,29 @@ describe('Quiz me: whose view, and a defensible framing (Anders, 20 Oct 2026, Sc
     expect(pageCopy.parseQuiz(JSON.stringify({ ideas: ['a'], thesis: 'The author defends many worlds.', questions: [{ idea: 0, q: 'Why?', answer: 'x' }] }))!.thesis).toBe('The author defends many worlds.')
   })
 })
+
+describe('never "unit" (Anders, 20 Oct 2026: "The unit recalls Everett\'s relative-state construction…")', () => {
+  it('the primer names the text by what it is, with its kind and title, and forbids "unit"', async () => {
+    const { CHAPTER_CHAT_INSTRUCTIONS, parseChapterChatAction } = await import('./companion/chapterChatPrompt')
+    const { buildPrimerTask, buildPrimerInstructions } = await import('./companion/primerPrompt')
+    expect(CHAPTER_CHAT_INSTRUCTIONS.primer).toContain('never call it a "unit"')
+    const action = parseChapterChatAction({ kind: 'primer', unitKey: 'outline-1', unitTitle: 'What Many Worlds Means for Gravity', unitKind: 'chapter' }, null)!
+    expect(action.unitKind).toBe('chapter')
+    expect(parseChapterChatAction({ kind: 'primer', unitKey: 'outline-1', unitTitle: 'T', unitKind: 'unit' }, null)!.unitKind).toBeUndefined()
+    const ctx = { bookTitle: 'Lamplit Conjectures', bookAuthor: 'Gale Editor', chapterLabel: 'T', paragraphs: ['<page n="9">\nOne.\n</page>'], paragraphIndex: 0, lookups: false } as never
+    for (const text of [buildPrimerTask(action, ctx, null), buildPrimerInstructions(action, ctx)]) {
+      expect(text).toContain('"kind":"chapter"')
+      expect(text).toContain('What Many Worlds Means for Gravity')
+      // "unit" only in the rule that forbids it.
+      expect(text.replace('never call it a "unit"', '')).not.toMatch(/\bunits?\b/i)
+    }
+  })
+  it('every margin answer rule set forbids it; the quiz prompt never says it', async () => {
+    const { MARGIN_ANSWER_RULES, NAME_THE_TEXT_RULE } = await import('./companion/marginPrompts')
+    expect(MARGIN_ANSWER_RULES).toContain(NAME_THE_TEXT_RULE)
+    expect(NAME_THE_TEXT_RULE).toContain('never call it a "unit"')
+    for (const p of [quizPrompt('passage'), quizPrompt('chapter'), quizPrompt('chapter', { pdf: true })]) expect(p).not.toMatch(/\bunits?\b/i)
+    // (The marking prompt's "units" are units of measure: "equivalent wording, units and rounding".)
+    expect(QUIZ_CHECK_PROMPT.replace('units and rounding', '')).not.toMatch(/\bunits?\b/i)
+  })
+})

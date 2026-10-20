@@ -19,6 +19,7 @@ import {
   PDF_DOCUMENT_WORDING,
   PDF_EXPLAIN_OPENING_RULE,
   STANDS_ALONE_RULE,
+  NAME_THE_TEXT_RULE,
   TABLE_NUMBERS_RULE,
   WORK_FIRST_RULE,
   COUNTERPOINT_PROMPT,
@@ -162,7 +163,8 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
 
   it('the shared rules: work things out first, never attribute to the document what it does not say; a PDF is the document, one page per tag', async () => {
     // Morning retest (16 Oct): tables read row by row with comparisons stated, and each answer standing alone.
-    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE])
+    // The last since 20 Oct 2026 (Anders): never "unit".
+    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE, NAME_THE_TEXT_RULE])
     expect(WORK_FIRST_RULE).toBe('Work out numbers and facts before you write. Never correct yourself mid-answer.')
     expect(ATTRIBUTION_RULE).toBe('Never attribute to the document something it does not say.')
     for (const rule of MARGIN_ANSWER_RULES) expect(MARGIN_RULES).toContain(rule)

@@ -155,7 +155,7 @@
     if (o.selection != null) companion.selection = String(o.selection).slice(0, intent === 'define_sense' ? 200 : 6000);
     if (intent === 'define_sense') companion.senses = (o.senses || []).slice(0, 3).map(s => String(s).slice(0, 500));
     // Before you start (PROMPTS.md, chapter action `primer`): the unit's pages as context, its key and title as the action.
-    if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300) } };
+    if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300), ...(o.chapter.action.unitKind ? { unitKind: String(o.chapter.action.unitKind) } : {}) } };
     // Made ahead of the reader opening it (reader.js primerPrefetch): never charged to the reader's allowance.
     if (companion.chapter && o.speculative) companion.speculative = true;
     if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000), ...(o.quiz.thesis ? { thesis: String(o.quiz.thesis).slice(0, 300) } : {}), ...(Array.isArray(o.quiz.ideas) && o.quiz.ideas.length ? { ideas: o.quiz.ideas.slice(0, 8).map(i => String(i).slice(0, 200)) } : {}), ...(o.quiz.idea ? { idea: String(o.quiz.idea).slice(0, 300) } : {}), ...(o.quiz.passage ? { passage: String(o.quiz.passage).slice(0, 4000) } : {}) };

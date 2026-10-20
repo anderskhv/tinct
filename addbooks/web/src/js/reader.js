@@ -2376,7 +2376,7 @@ function openContents() {
   const tops = toc.entries.filter(e => !e.parent);
   // The wide column: the unit the reader is in, marked, with its Recap, Quiz me and Catch me up (as its marks offer them).
   const unit = marginMode() === 'column' && primerHasText() ? currentUnit() : null;
-  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Recap'], ['quiz', 'Quiz me'], ['catchup', 'Catch me up']].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
+  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Recap'], ['quiz', 'Quiz me'], ...(nothingBefore(unit) ? [] : [['catchup', 'Catch me up']])].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
   layer.innerHTML = `<button class="lc-scrim" aria-label="Close contents" tabindex="-1"></button>
     <div class="menu" role="dialog" aria-modal="true" aria-label="Contents">
       <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>${unitNow}
@@ -4129,9 +4129,13 @@ function waitDots() { const t = document.createElement('template'); t.innerHTML 
  * the redraw (null when it was not drawn before). -> true when a question is held.
  */
 const holds = new Map();
-function holdThread(body, hold, kept) {
+function holdThread(body, hold, kept, live = true) {
   const row = hold && TC && body.querySelector(`[data-turn="${hold.turn}"]`);
   if (!row) return false;
+  // A body that does not scroll (the wide column's card grows in place), or an answer that has finished: no room is
+  // kept below it (Anders, 20 Oct 2026: after a follow-up the card grew to nearly full height, a large empty area
+  // between the answer and its field). The card is as tall as what it holds.
+  if (!live || getComputedStyle(body).overflowY === 'visible') { body.querySelector(':scope > .tc-spacer')?.remove(); return false }
   let space = body.querySelector(':scope > .tc-spacer');
   if (!space) { space = document.createElement('div'); space.className = 'tc-spacer'; space.setAttribute('aria-hidden', 'true'); body.append(space) }
   space.style.height = '0px';
@@ -4192,7 +4196,8 @@ function describeCard(el, card, open) {
 function keepThread(el, id, kept) {
   const body = el.querySelector('.mr-card__body'); if (!body) return;
   // The card's thread is laid out before it is measured (the column places the card after this).
-  if (!holdThread(body, holds.get(id), kept) && kept != null) body.scrollTop = kept;
+  // The space that holds a question near the top is kept only while its answer is on its way (col.live).
+  if (!holdThread(body, holds.get(id), kept, col.live.has(id) || col.pending.has(id)) && kept != null) body.scrollTop = Math.min(kept, body.scrollHeight - body.clientHeight);
 }
 /** A quiz answer whose marking failed goes back into the card's field (once). */
 function restoreDraft(f, id) {
@@ -4726,7 +4731,7 @@ function drawWhole(el, { sheet = false } = {}) {
     // A question just sent is held near the top while its answer grows below (holdThread); otherwise the thread
     // opens at its end, and while an answer arrives it stays where the reader put it.
     const hold = chat.anchor != null ? { turn: chat.anchor, place: chat.placeAnchor } : null;
-    if (holdThread(b, hold, kept ? kept.top : null)) chat.placeAnchor = hold.place;
+    if (holdThread(b, hold, kept ? kept.top : null, !!chat.live)) chat.placeAnchor = hold.place;
     else b.scrollTop = !kept || kept.end ? b.scrollHeight : kept.top;
   }
   el.querySelectorAll('[data-rm]').forEach(x => x.onclick = () => { chat.attach.splice(Number(x.dataset.rm), 1); marginLayout() });
@@ -5060,12 +5065,19 @@ function cardTurns(card, image, fig = {}) {
   if (lead && (turns[0]?.role === 'assistant' || ((card.kind === 'figure' || pill) && !turns.length))) turns.unshift({ role: 'user', content: lead });
   return [{ role: 'user', content: pill ? pillRules(card) : rules }, ...turns];
 }
+/** How a card names the text it is about (the companion's NAME_THE_TEXT_RULE, marginPrompts.ts): never "unit". */
+const NAME_THE_TEXT = 'Name the text by what it is ("this chapter", "this essay", "this section", "the paper") or by its title, or start straight with its content; never call it a "unit".';
+/** What a unit is, for the companion to name it naturally (never "unit"): the book, the document, a chapter, a section or pages. */
+const unitKind = unit => (unit.key === BOOK_UNIT ? 'book' : unit.key === 'all' ? 'document' : unit.pages || unit.band ? 'pages' : isEpub() || unit.chapter || /^chapter\b/i.test(unit.title || '') ? 'chapter' : 'section');
 /** Recap and Catch me up (a unit's pills): the companion's instructions for the unit's card. */
 function pillRules(card) {
   const unit = primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, start: card.page, to: card.page };
-  const name = unit.key === 'all' ? 'the whole document' : TinctMargin.unitPhrase(unit), pages = u => (u.from === u.to ? `page ${pageLabel(u.from)}` : `pages ${pageLabel(u.from)}–${pageLabel(u.to)}`);
+  // An EPUB has no pages: its chapters by their titles (Anders, 20 Oct 2026); a PDF its pages.
+  const name = unit.key === 'all' ? 'the whole document' : TinctMargin.unitPhrase(unit);
+  const pages = u => (isEpub() ? (u.from === u.to ? chapterPlace(u.from) : `from ${chapterPlace(u.from)} to ${chapterPlace(u.to)}`) : u.from === u.to ? `page ${pageLabel(u.from)}` : `pages ${pageLabel(u.from)}–${pageLabel(u.to)}`);
   const head = `You are Tinct's reading companion. ${bookLine()}`;
-  const form = 'Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.';
+  // The reader's words for the text: what it is or its title, never our word "unit" (Anders, 20 Oct 2026).
+  const form = `Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. ${isEpub() ? 'Ground it in the book and cite no pages; say nothing that is not in it.' : 'Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.'} ${NAME_THE_TEXT}`;
   if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
   const before = catchRange(unit);
   return unit.from > 1
@@ -5609,7 +5621,7 @@ function makePrimer(unit, { speculative = false } = {}) {
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal, retry: false, speculative });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit) } }, stream: false, signal: ctl.signal, retry: false, speculative });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
@@ -5817,13 +5829,15 @@ function unitMark(unit, where, doc) {
   const open = where === 'start' ? (primer.open && primer.unit?.key === unit.key ? 'primer' : unitCard(unit, 'catchup')?.id === col.open && col.open ? 'catchup' : '')
     : ['recap', 'quiz'].find(p => col.open && unitCard(unit, p)?.id === col.open) || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === unit.to || c.unit === unit.key)) ? 'note' : '');
   const name = TinctMargin.html.unitName(unit, state.title), phrase = TinctMargin.unitPhrase(unit), pages = unitPagesLabel(unit);
-  const sig = JSON.stringify([where, unit.key, open, name, pages]);
+  const sig = JSON.stringify([where, unit.key, open, name, pages, nothingBefore(unit)]);
   if (el.dataset.sig !== sig) {
     el.dataset.sig = sig;
     el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
     el.innerHTML = TinctMargin.html.markHtml(where, { open, name, pages, phrase, line: TinctMargin.triggerLine(unit) });
     // The whole book: "Before you start" and its Primer alone (there is nothing before it to catch up on).
     if (unit.key === BOOK_UNIT) { el.classList.add('is-book'); el.querySelector('.mr-unit__k').textContent = 'Before you start'; el.querySelector('[data-pill="catchup"]')?.remove() }
+    // Nor at the first section, or front matter before it (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page").
+    else if (nothingBefore(unit)) el.querySelector('[data-pill="catchup"]')?.remove()
   }
   if (el.parentElement !== doc) doc.appendChild(el);
   return el;
@@ -7336,6 +7350,13 @@ function epubOwnUnits(book) {
   primer.book = units.length > 1 ? { key: BOOK_UNIT, title: state.title, phrase: 'the whole book', from: 1, start: 1, to: state.pages.length } : null;
   primer.places.clear();
 }
+/** True for the first real unit and any front matter before it: nothing has been read before it to catch up on. */
+function nothingBefore(unit) {
+  const units = primer.units || [], i = units.findIndex(u => u.key === unit?.key);
+  if (i < 0) return unit?.key === BOOK_UNIT;
+  const first = units.findIndex(u => !u.matter);
+  return first < 0 || i <= first;
+}
 /** A unit by its key: one of the units, or the whole book's. */
 const unitByKey = key => primer.units?.find(u => u.key === key) || (primer.book?.key === key ? primer.book : null);
 /*
@@ -7357,7 +7378,7 @@ function flowMarks() {
       el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
       el.dataset.k = where === 'start' ? 'Starting' : 'End of'; el.dataset.n = name;
       const said = { primer: `Before you start: ${TinctMargin.triggerLine(u)}`, catchup: `Catch me up on what came before ${phrase}`, recap: `Recap ${phrase}`, quiz: `Quiz me on ${phrase}`, note: `Note on ${phrase}` };
-      el.innerHTML = (where === 'start' ? ['primer', 'catchup'] : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
+      el.innerHTML = (where === 'start' ? (nothingBefore(u) ? ['primer'] : ['primer', 'catchup']) : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
       return el;
     };
     const head = ch.querySelector(':scope > .tb-head');

@@ -372,7 +372,9 @@ try {
         const shown = el => !!el && el.getBoundingClientRect().height > 0
         return { start: ids(start), end: ids(end), shown: shown(start) && shown(end), k: start && getComputedStyle(start, '::before').content, text: (start?.textContent || '') + (end?.textContent || ''), caps: start ? getComputedStyle(start.querySelector('.tb-pill'), '::after').textTransform : '' }
       })
-      ok(`${tag}: a chapter's start has Primer and Catch me up, its end Recap, Quiz me and Note, in the text`, pills.shown && pills.start.join() === 'primer,catchup' && pills.end.join() === 'recap,quiz,note' && /Starting/.test(pills.k || '') && pills.text === '' && pills.caps === 'none', pills)
+      // The first chapter has no Catch me up (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page"); the next ones have.
+      const later = await frame.evaluate(() => [...(document.querySelectorAll('.tb-chapter')[1]?.querySelectorAll(':scope > .tb-mark.is-start .tb-pill') || [])].map(b => b.dataset.pill))
+      ok(`${tag}: the first chapter's start has Primer alone (the next ones Primer and Catch me up), its end Recap, Quiz me and Note, in the text`, pills.shown && pills.start.join() === 'primer' && later.join() === 'primer,catchup' && pills.end.join() === 'recap,quiz,note' && /Starting/.test(pills.k || '') && pills.text === '' && pills.caps === 'none', { pills, later })
       shots.push(join(OUT, `${tag}-pills-start.png`)); await page.screenshot({ path: shots.at(-1) })
       await frame.evaluate(() => { const e = document.querySelector('.tb-chapter > .tb-mark.is-end'); const s = document.getElementById('scroll'); s.scrollTop += e.getBoundingClientRect().top - s.clientHeight / 2 }); await page.waitForTimeout(500)
       shots.push(join(OUT, `${tag}-pills-end.png`)); await page.screenshot({ path: shots.at(-1) })

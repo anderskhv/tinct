@@ -27,7 +27,10 @@ Never attribute to the document something it does not say.
 Never mention what text you were or were not given; say plainly when the document doesn't cover something, and say "from general knowledge" when you go beyond it.
 Read a table row by row and quote its numbers exactly as printed, each with its own row and column. When you compare two numbers, say which is higher.
 Each answer stands alone: never refer to your own earlier replies, never say an answer corrects or adds to one, and never compare it with "before".
+Name the text by what it is ("this chapter", "this essay", "this section", "the paper") or by its title, or start straight with its content; never call it a "unit".
 ```
+
+The last line is Anders's (20 October 2026): a primer opened "The unit recalls Everett's relative-state construction…". "Unit" is Tinct's own word and never reaches the reader; the primer request also names the part's kind (`unitKind`: book, document, chapter, section, essay, paper or pages) so the model can call it what it is.
 
 The last two lines came from the morning retest (16 October): a GAN Counterpoint put adversarial nets second to DBN on TFD, where they beat it (2057 against 1909), the night run's final round read 225 against 214 as "weak against the baselines", and Chat wrote "This also corrects my earlier remark" and "I can be more specific than before". The PDF reader also drops such an opening from any answer (`withoutSelfReference`, `marginParse.ts` and its twin): "As I said earlier, X" reads "X", and a sentence only about an earlier reply goes.
 
@@ -231,6 +234,16 @@ Round 1 (15 October, night): a Metamorphosis row read "is the selected passage i
 
 As built (PR C): each row is a 28px target (3px above and below its line, so the lines read 6px apart). A row whose place this PDF does not have stays text. In an EPUB the place is the quoted words, in italics at the start of the line; the row finds them in the book, scrolls there and underlines them. In More, Related sits between Fact-check and Counterpoint: "Where else the text takes this up".
 
+## Ask with the source search (Anders, 20 October 2026)
+
+No "Web" toggle: the model decides. Ask on a reader's own PDF or EPUB (a passage question, a card's follow-up, the whole file) carries Fact-check's search (`search_reading_sources`) as a tool when the reader is signed in and the search key is set; it is never prefetched (Fact-check's alone). One search at most; metered as Fact-check's (`source_search`); the answer charged once like any Ask. The other Sonnet margin requests (Before you start, Quiz me, its marking) carry the same tool with `tool_choice: none`, so the cached prefix stays one. Added to Ask's task:
+
+```
+You may call search_reading_sources once. Call it when the question is about things outside the text: its reception, impact or influence, citations, later work, its current status, who the author is, or recent events; or when it needs current facts that well-established knowledge does not settle. Search for those rather than declining or saying the document does not say; answer from the document alone when it answers the question. Never mention the search or a tool. When you used it, end with one final line that starts "Sources:" and lists each source you used as a Markdown link [title](url), separated by " · "; write no Sources line otherwise.
+```
+
+The card shows the Sources line as Fact-check's row of links; "Checking sources…" shows while it searches.
+
 ## Quiz me — new intents `quiz` and `quiz_check`
 
 **`quiz`** writes the questions. Model: `COMPANION_MODEL`. Max tokens: 6,000 (up to eight questions since 20 October 2026, thinking included). Effort: typed. Charge once per quiz, not per question. In the PDF reader (`marginRoutes.ts` QUIZ_ROUTE, Anders, 20 October 2026): Sonnet 5.5, the margin's Sonnet (Ask and the primer share its cached prefix), adaptive thinking at effort medium, 8,000 tokens. The Haiku speed trial `QUIZ_THINKING_OFF` (thinking disabled at effort low) is off.
@@ -297,7 +310,7 @@ other: anything else.
 Then write the orientation for that kind, as JSON only:
 {"kind":"textbook","gist":"…","sections":[{"title":"What you’ll learn","items":[{"text":"…","cite":"{p. 12}"}]},{"title":"Terms","items":[{"term":"…","meaning":"…"}]}],"map":[{"title":"…","pages":"pp. 9–10"}]}
 kind: paper, textbook, narrative, practical or other.
-gist: always first. Two sentences, at most 45 words, on what the chapter sets out to do and why it matters for what follows. No sales language.
+gist: always first. Two sentences, at most 45 words, on what the chapter sets out to do and why it matters for what follows. No sales language. Start straight with its content, or name it by what it is ("This chapter", "This essay", "This section", "The paper") or by its title; never call it a "unit".
 sections: the kind's sections, with exactly these titles, in this order:
 paper: "Key claims", three to five of the chapter's central claims, results or turns; "Keep in mind", one to three cautions a careful teacher would give: conventions that change later, assumptions, contested or dated material, notation traps. Do not repeat the claims.
 textbook: "What you’ll learn", three to five things the reader will be able to explain or do after the chapter; "Ideas to hold onto", two to four central ideas the rest of the chapter builds on; "Terms", three to eight of the chapter's own key terms, each as {"term":"…","meaning":"…"}, the meaning one line, as the chapter defines it.

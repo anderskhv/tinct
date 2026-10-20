@@ -98,6 +98,21 @@ describe('Ask may search sources; the model decides', () => {
     expect(charges).toHaveLength(1)
   })
 
+  it('a follow-up about the paper\'s impact (Anders, 20 Oct 2026, "is it an impactful paper?"): searched, not declined, sources cited', async () => {
+    expect(ASK_SOURCE_SEARCH_LINE).toMatch(/reception, impact or influence, citations, later work, its current status, who the author is, or recent events/)
+    expect(ASK_SOURCE_SEARCH_LINE).toContain('Search for those rather than declining or saying the document does not say')
+    const { anthropic, openai, charges } = stubFetch([{ ...searchCall, content: [{ type: 'tool_use', id: 'toolu_2', name: 'search_reading_sources', input: { query: 'impact and citations of the paper' } }] }, text('It has been widely cited and built on.\n\nSources: [Citations](https://example.org/cites)')])
+    // A card's follow-up: the earlier question and answer, then the new question, on the same route.
+    const followUp = { messages: [{ role: 'user', content: 'What does it claim?' }, { role: 'assistant', content: 'A Heisenberg-picture version of Everett.' }, { role: 'user', content: 'is it an impactful paper?' }], companion: { intent: 'ask', context, document } }
+    const { status, text: body } = await send(followUp)
+    expect(status).toBe(200)
+    expect((anthropic[0].tools as Array<{ name: string }>).map(t => t.name)).toEqual(['search_reading_sources'])
+    expect((anthropic[0].system as SystemBlock[]).map(b => b.text).join('\n')).toContain(ASK_SOURCE_SEARCH_LINE)
+    expect(openai).toHaveLength(1)
+    expect(body).toContain('Sources: [Citations](https://example.org/cites)')
+    expect(charges).toHaveLength(1)
+  })
+
   it('signed out: no tool (the search needs a signed-in reader, as Fact-check\'s does)', async () => {
     const { anthropic } = stubFetch([text('An answer.')])
     await send(ask('Is it debated today?'), true)

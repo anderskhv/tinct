@@ -4380,7 +4380,8 @@ async function unitMarks(browser, origin) {
   // 1. The first unit's start: the rule exactly at the top of its heading's line (nothing above it to push it).
   await a.evaluate(() => goTo({ page: 1, frac: 0 })); await a.waitForTimeout(900)
   const s1 = await a.evaluate(k => ({ mark: __mark(k, 'start'), head: __spanTop(1, '1 Introduction') }), units[0].key)
-  ok('1. the start mark: "Starting", the unit\'s name and pages, ✧ Primer · ✧ Catch me up, in the column (not pinned)', s1.mark && s1.mark.k === 'Starting' && s1.mark.name === '1 Introduction pp. 1–3' && s1.mark.words.join('|') === '✧Primer|✧Catch me up' && s1.mark.position === 'absolute' && s1.mark.rule === '1px', s1)
+  // The first unit offers no Catch me up (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page").
+  ok('1. the start mark: "Starting", the unit\'s name and pages, ✧ Primer alone (nothing to catch up on yet), in the column (not pinned)', s1.mark && s1.mark.k === 'Starting' && s1.mark.name === '1 Introduction pp. 1–3' && s1.mark.words.join('|') === '✧Primer' && s1.mark.position === 'absolute' && s1.mark.rule === '1px', s1)
   ok('1. the start rule\'s y is the top of the heading\'s line on the page (within 2 px)', s1.mark && s1.head != null && Math.abs(s1.mark.top - s1.head) <= 2, s1)
   await shot(a, 'unit-marks-start-1440x900')
   // The marks scroll with the page; nothing in the column is pinned.
@@ -4701,8 +4702,9 @@ async function notebookCheck(browser, origin) {
     const B = await readerPage(browser, origin, hexL, { width: 1440, height: 900, look: 'paper' })
     const b = B.page
     await prefetchSettled(b)
-    await b.evaluate(() => { openCard(null); closePrimer(); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(800)
-    await b.click('.mr-doc .mr-unit.is-start .mr-pill[data-pill="catchup"]'); await b.waitForTimeout(1300)
+    // Catch me up from the second unit's start (the first has none since 20 Oct 2026: nothing to catch up on yet).
+    await b.evaluate(() => { openCard(null); closePrimer(); goTo({ page: primer.units[1].start, frac: 0 }) }); await b.waitForTimeout(800)
+    await b.click(`.mr-doc .mr-unit.is-start[data-unit="${await b.evaluate(() => primer.units[1].key)}"] .mr-pill[data-pill="catchup"]`); await b.waitForTimeout(1300)
     await b.evaluate(() => openCard(null)); await b.waitForTimeout(200)
     await b.evaluate(() => { const u = primer.units[0]; goTo({ page: u.to, frac: 0.75 }) }); await b.waitForTimeout(900)
     await b.click('.mr-doc .mr-unit.is-end .mr-pill[data-pill="recap"]'); await b.waitForTimeout(1300)
@@ -4963,7 +4965,17 @@ async function epubUnitsCheck(browser, origin) {
   const n = await essayPage(e, '1 The Fate'), key = await e.evaluate(n => primer.units.find(u => u.start === n).key, n)
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   const start = await e.evaluate(([n, k]) => { const m = document.querySelector(`.mr-doc .mr-unit.is-start[data-unit="${k}"]`), h = state.pages[n - 1].pg.querySelector('h1'); return m && { top: m.getBoundingClientRect().top, head: h.getBoundingClientRect().top, k: m.querySelector('.mr-unit__k')?.textContent, name: m.querySelector('.mr-unit__n')?.textContent, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()) } }, [n, key])
-  ok('3. "Starting 1 The Fate of Lamplight" with ✧ Primer · ✧ Catch me up, level with the essay\'s heading (within 2 px)', start && start.k === 'Starting' && start.name === '1 The Fate of Lamplight' && start.pills.join('|') === '✧Primer|✧Catch me up' && Math.abs(start.top - start.head) <= 2, start)
+  // The first section offers no Catch me up (item l, Anders, 20 Oct 2026): nothing has been read before it.
+  ok('3/l. "Starting 1 The Fate of Lamplight" (the first section) with ✧ Primer alone, level with the essay\'s heading (within 2 px)', start && start.k === 'Starting' && start.name === '1 The Fate of Lamplight' && start.pills.join('|') === '✧Primer' && Math.abs(start.top - start.head) <= 2, start)
+  await e.evaluate(() => openContents()); await e.waitForTimeout(300)
+  const menu1 = await e.evaluate(() => [...document.querySelectorAll('.lab-contents-v2 [data-unit-act]')].map(b => b.dataset.unitAct))
+  await e.keyboard.press('Escape'); await e.evaluate(() => document.querySelector('.lab-contents-v2')?.remove())
+  ok('l. the chapter menu offers no Catch me up in the first section', menu1.length > 0 && !menu1.includes('catchup'), menu1)
+  const n2 = await essayPage(e, '2 Controversial'), key2 = await e.evaluate(n => primer.units.find(u => u.start === n).key, n2)
+  await e.evaluate(n => goTo({ page: n, frac: 0 }), n2); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
+  const second = await e.evaluate(k => { const m = document.querySelector(`.mr-doc .mr-unit.is-start[data-unit="${k}"]`); return m && [...m.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()) }, key2)
+  ok('3. the next essay\'s start offers ✧ Primer · ✧ Catch me up', second?.join('|') === '✧Primer|✧Catch me up', second)
+  await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   await epubShot(e, 'unit-marks')
   await e.evaluate(n => { const p = state.pages[n - 1], last = epubParas(p).at(-1); last.scrollIntoView(); document.getElementById('scroll').scrollBy(0, -400) }, n); await e.waitForTimeout(800)
   const end = await e.evaluate(([n, k]) => { const m = document.querySelector(`.mr-doc .mr-unit.is-end[data-unit="${k}"]`); if (!m) return null; const last = epubParas(state.pages[n - 1]).at(-1), r = document.createRange(); r.selectNodeContents(last); const lines = textRects(r); return { k: m.querySelector('.mr-unit__k')?.textContent, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()), ticks: [...document.querySelectorAll('.mr-doc-leads path.is-rule')].map(p => p.getAttribute('d')), lastTop: lines.at(-1).top, scroll: document.getElementById('scroll').scrollTop, sr: document.getElementById('scroll').getBoundingClientRect().top } }, [n, key])
@@ -5105,6 +5117,10 @@ async function epubAskCheck(browser, origin) {
     const spot1 = await e.evaluate(() => JSON.stringify(epubSpot()))
     ok(`${look}: 7. Enter on an Ask card's follow-up never moves the reading place (long answer, a font arriving)`, track.every(t => Math.abs(t - f0) <= 1) && spot0 === spot1, { f0, track, spot0, spot1 })
     if (look === 'night') await epubShot(e, 'ask-after-follow-up')
+    // n. The card is as tall as what it holds (Anders, 20 Oct 2026, 185.png): its field right under the last answer's icons.
+    await e.waitForTimeout(600)
+    const gap = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'), acts = [...el.querySelectorAll('.mr-card__acts')].at(-1), field = el.querySelector('.mr-follow'); return { gap: Math.round(field.getBoundingClientRect().top - acts.getBoundingClientRect().bottom), spacer: !!el.querySelector('.tc-spacer') } })
+    ok(`${look}: n. after a follow-up's answer the card sizes to its content: the field under 24 px below the answer's icons, no spacer`, gap.gap >= 0 && gap.gap < 24 && !gap.spacer, gap)
     // Explain's follow-up, a quiz answer and a note's Ask: the same.
     await e.evaluate(() => openCard(null)); await e.keyboard.press('Escape'); await e.waitForTimeout(200)
     await essaySelect(e, n, 9, 70); await e.waitForSelector('.mr-bar'); await e.click('.mr-bar [data-m="explain"]'); await e.waitForTimeout(1200)
