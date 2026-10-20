@@ -98,7 +98,7 @@ export function labMarkOf(m: MarginMark, scope: MarginMarkScope): Omit<LabHighli
     if (!note) return null
     if (spot.unit) return { ...common, editionKey: scope.editionKey, kind: 'chapter', paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, note }
     const p = paragraphAtFraction(chapter, spot.y)
-    return { ...common, editionKey: scope.editionKey, ...revision, paragraphIndex: p, fromWord: 0, endParagraphIndex: p, toWord: 0, text: '', note, margin: 'note' } as Omit<LabHighlight, 'updatedAt'>
+    return { ...common, editionKey: scope.editionKey, ...revision, paragraphIndex: p, fromWord: 0, endParagraphIndex: p, toWord: 0, text: '', note, margin: 'note' } as unknown as Omit<LabHighlight, 'updatedAt'>
   }
   const range = rangeOfOffsets(chapter, Number(m.start), Number(m.end))
   if (!range) return null
