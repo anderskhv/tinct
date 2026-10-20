@@ -156,6 +156,7 @@ import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labLayoutOverride } from './labRoute'
+import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
 import { buildDictationKeyterms } from './labDictationKeyterms'
 import { LabAskPane } from './LabAskPane'
@@ -1511,6 +1512,23 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // Set by the first tap, key or wheel on the reader; a cloud record that
   // lands after that never moves the page.
   const interactionRef = useRef(false)
+  // Every tap, key, wheel or touch anywhere in the document: a reader action
+  // after a saved-place restore was set owns the place from then on.
+  const interactionCountRef = useRef(0)
+  // The account's place being restored (labRestoreTarget.ts): no place is
+  // written until the settled page on screen holds it or the reader acts.
+  const restoreWatchRef = useRef<LabRestoreWatch | null>(null)
+  // The chapter whose page map is on screen, as restore targets are keyed.
+  const shownChapterKeyRef = useRef(labRestoreChapterKey(book.bookId, book.chapterNumber))
+  const restoreViewNow = (): LabRestoreView => ({
+    chapterKey: shownChapterKeyRef.current,
+    settled: pagesStableRef.current && !headFirstPending(nativeHeadOnlyRef.current),
+    pages: readingPagesRef.current,
+    pageIndex: readingPageIndexRef.current,
+  })
+  const watchRestore = (place: { paragraphIndex: number; wordIndex: number }, chapterKey: string) => {
+    restoreWatchRef.current = { ...place, chapterKey, interactions: interactionCountRef.current, retries: 0 }
+  }
   const placeWritesSuspended = Boolean(temporaryHold) || Boolean(chapterCoverTitle) || handoffWritesSuspended || remoteResumePending || Boolean(readerLoadError) || tocOpen
   const positionSync = useLabPositionSync({
     book,
@@ -1531,6 +1549,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     interactedRef: interactionRef,
     onResolvedPlace: (place) => {
       restorePlaceRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+      watchRestore(restorePlaceRef.current, labRestoreChapterKey(book.bookId, book.chapterNumber))
       placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
       restorePageRef.current = null
       // On a head-first map the full map restores it (applyNativePages).
@@ -1570,8 +1589,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         // measurement must never consume the incoming chapter's saved word.
         const paragraphIndex = Math.min(place.paragraphIndex, loaded.paragraphs.length - 1)
         const wordIndex = Math.min(place.wordIndex, Math.max(0, tokenizeHearingWords(loaded.paragraphs[paragraphIndex]).length - 1))
-        restorePlaceRef.current = { paragraphIndex, wordIndex }
-        placeRef.current = restorePlaceRef.current
+        // Bound to the incoming chapter: the outgoing chapter's paginator can
+        // still finish a measurement before this chapter commits, and must
+        // not take this place as its own (labRestoreTarget.ts).
+        const loadedKey = labRestoreChapterKey(loaded.bookId, loaded.chapterNumber)
+        restorePlaceRef.current = restoreTargetIn({ paragraphIndex, wordIndex }, loadedKey)
+        watchRestore(restorePlaceRef.current, loadedKey)
+        placeRef.current = { paragraphIndex, wordIndex }
         restorePageRef.current = null
         setReaderLoadError('')
         if (selection.prefs !== prefs) updatePrefs(selection.prefs)
@@ -1591,6 +1615,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const userPlaceBookRef = useRef(book)
   userPlaceBookRef.current = book
   const notePlace = useCallback<typeof positionSync.notePlace>((reason, at) => {
+    // A restore that has not landed is retried, never saved as the page on screen.
+    const watch = restoreWatchRef.current
+    if (watch && holdPlaceWrite({ watch, reason, interactions: interactionCountRef.current, landed: restoreLanded(watch, restoreViewNow()) })) return
     if (!userBook) { positionSync.notePlace(reason, at); return }
     if (reason === 'hide') { flushOwnPlaces(); return }
     if (placeWritesSuspended) return
@@ -1786,6 +1813,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       root.removeEventListener('touchstart', mark, options)
     }
   }, [])
+  useEffect(() => {
+    const count = () => { interactionCountRef.current += 1 }
+    const options: AddEventListenerOptions = { capture: true, passive: true }
+    const events = ['pointerdown', 'keydown', 'wheel', 'touchstart'] as const
+    for (const name of events) document.addEventListener(name, count, options)
+    return () => { for (const name of events) document.removeEventListener(name, count, options) }
+  }, [])
 
   const editionTupleRef = useRef(`${prefs.primaryEdition}\u0000${prefs.compareEdition}\u0000${prefs.compareOpen}`)
   useEffect(() => {
@@ -1926,8 +1960,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       // never let that replace a requested Bible chapter. Generic books may
       // safely normalize an invalid saved chapter to their own first chapter.
       if (activeBookId === 'bible' && loaded.chapterNumber !== wanted && wanted !== 1) return
-      if (restorePlaceRef.current) {
-        const paragraphIndex = restorePlaceRef.current.paragraphIndex
+      const loadedTarget = restoreTargetFor(restorePlaceRef.current, labRestoreChapterKey(loaded.bookId, loaded.chapterNumber))
+      if (loadedTarget) {
+        const paragraphIndex = loadedTarget.paragraphIndex
         if (paragraphIndex >= loaded.paragraphs.length) {
           restorePlaceRef.current = { paragraphIndex: 0, wordIndex: 0 }
           placeRef.current = restorePlaceRef.current
@@ -2011,6 +2046,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const contentChanged = chapterContentRef.current !== readerParagraphs
     const pagingChanged = chapterPagingRef.current !== measuredPaging
     chapterKeyRef.current = chapterKey
+    shownChapterKeyRef.current = labRestoreChapterKey(book.bookId, book.chapterNumber)
     chapterContentRef.current = readerParagraphs
     chapterPagingRef.current = measuredPaging
     // Same chapter, same text, same paging: nothing this effect lays out has
@@ -2062,8 +2098,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       readingPageIndexRef.current = last
       setReadingPageIndex(last)
     } else if (chapterChanged) {
-      if (restorePlaceRef.current) {
-        const place = restorePlaceRef.current
+      const target = restoreTargetFor(restorePlaceRef.current, shownChapterKeyRef.current)
+      if (target) {
+        const place = target
         restorePlaceRef.current = null
         placeRef.current = place
         const idx = pageIndexForPlace(next, place.paragraphIndex, place.wordIndex)
@@ -2252,7 +2289,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       // land on (a saved word, a page, the chapter's end, the word being
       // spoken) waits for the full map, so the reader never lands on a
       // stand-in page and never moves when the rest arrives.
-      const wanted = restorePlaceRef.current ?? (playing ? placeRef.current : null) ?? mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current
+      const wanted = restoreTargetFor(restorePlaceRef.current, shownChapterKeyRef.current) ?? (playing ? placeRef.current : null) ?? mobileCompareReturnPlaceRef.current ?? pageAnchorRef.current
       const atOpening = !wanted || pageIndexForPlace(next, wanted.paragraphIndex, wanted.wordIndex) === 0
       if (!atOpening || (restorePageRef.current ?? 0) > 0 || chapterLandingRef.current === 'end' || openAtEndRef.current) return
     }
@@ -2273,9 +2310,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const currentIndex = Math.max(0, Math.min(readingPageIndexRef.current, Math.max(0, current.length - 1)))
     // The first native map replaces an estimated map. Restore from the saved
     // word itself, never from the estimated page that happened to contain it.
-    const restoring = restorePlaceRef.current
-      && next.some(page => chapterPageSegments(page).some(segment => segment.paragraphIndex === restorePlaceRef.current!.paragraphIndex))
-      ? restorePlaceRef.current : null
+    // Only a target for the chapter this map lays out: the outgoing chapter's
+    // last measurement can land after the next chapter's place was set.
+    const target = restoreTargetFor(restorePlaceRef.current, shownChapterKeyRef.current)
+    const restoring = target
+      && next.some(page => chapterPageSegments(page).some(segment => segment.paragraphIndex === target.paragraphIndex))
+      ? target : null
     if (restoring) {
       pageAnchorRef.current = restoring
       restorePlaceRef.current = null
@@ -4001,6 +4041,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     pageAnchorRef.current = null
     restorePlaceRef.current = null
+    restoreWatchRef.current = null
     chapterLandingRef.current = landing
     landingChapterRef.current = number
     openAtEndRef.current = landing === 'end'
@@ -4044,7 +4085,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       ? { bookId: loaded.bookId || 'bible', editionKey: prefs.primaryEdition, chapterNumber: number, anchor: continuation }
       : null
     if (continuation) {
-      restorePlaceRef.current = continuation
+      restorePlaceRef.current = restoreTargetIn(continuation, labRestoreChapterKey(loaded.bookId, loaded.chapterNumber))
       pageAnchorRef.current = continuation
       placeRef.current = continuation
       // This page turn has already consumed the opening on the right leaf.
@@ -4072,6 +4113,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     else listen.stop()
     pageAnchorRef.current = null
     restorePlaceRef.current = null
+    restoreWatchRef.current = null
     chapterLandingRef.current = landing
     landingChapterRef.current = number
     openAtEndRef.current = landing === 'end'
@@ -4137,7 +4179,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       ? { bookId: loaded.bookId || 'bible', editionKey: prefs.primaryEdition, chapterNumber: number, anchor: continuation }
       : null
     if (continuation) {
-      restorePlaceRef.current = continuation
+      restorePlaceRef.current = restoreTargetIn(continuation, labRestoreChapterKey(loaded.bookId, loaded.chapterNumber))
       pageAnchorRef.current = continuation
       placeRef.current = continuation
       // This page turn has already consumed the opening on the right leaf.
@@ -4586,7 +4628,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // goToChapter clears both refs on the way in, so they are set right after
     // its synchronous prefix has run.
     const pending = goToChapter(restore.chapterNumber, 'start')
-    restorePlaceRef.current = place
+    restorePlaceRef.current = restoreTargetIn(place, labRestoreChapterKey(book.bookId, restore.chapterNumber))
     restorePageRef.current = restore.pageIndex
     placeRef.current = place
     void pending
@@ -4849,6 +4891,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const readerReady = readerLaidOut
     && (!measuredPaging || nativeMeasuredContent === readerParagraphs || nativeHeadContent === readerParagraphs)
     && (!desktopPaging || desktopMeasuredKey === desktopLayoutKey)
+  // The account's place, once its chapter is on screen and settled: landed,
+  // the watch ends; on another page (a stale map, a reflow), restore it again.
+  // The reader acting first ends the watch: their page is the place.
+  useEffect(() => {
+    const watch = restoreWatchRef.current
+    if (!watch) return
+    if (interactionCountRef.current > watch.interactions) { restoreWatchRef.current = null; return }
+    if (!readerReady) return
+    const view = restoreViewNow()
+    if (restoreLanded(watch, view)) { restoreWatchRef.current = null; return }
+    const index = restoreRetryIndex(watch, view, interactionCountRef.current)
+    if (index === null) return
+    watch.retries += 1
+    const place = { paragraphIndex: watch.paragraphIndex, wordIndex: watch.wordIndex }
+    pageAnchorRef.current = place
+    placeRef.current = place
+    readingPageIndexRef.current = index
+    setReadingPageIndex(index)
+  })
   // The first page fades in once, in the render that makes it visible.
   const [firstRevealDone, setFirstRevealDone] = useState(false)
   const firstReveal = readerReady && !firstRevealDone

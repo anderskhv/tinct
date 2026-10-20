@@ -74,6 +74,17 @@ export interface DrainResult {
   state: ReadingMemoryState | null
 }
 
+/** True when two memories hold the same sessions (updatedAt alone is not a change). */
+export function sameReadingMemory(a: ReadingMemoryState, b: ReadingMemoryState): boolean {
+  const ids = Object.keys(a.sessions)
+  if (ids.length !== Object.keys(b.sessions).length) return false
+  for (const id of ids) {
+    const left = a.sessions[id], right = b.sessions[id]
+    if (!right || left.seq !== right.seq || JSON.stringify(left) !== JSON.stringify(right)) return false
+  }
+  return true
+}
+
 /**
  * Replay queued events onto the cloud memory. Idempotent: applying the same
  * (sessionId, seq) twice changes nothing, and a version conflict adopts the
@@ -95,7 +106,9 @@ export async function drainReadingMemoryQueue(
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     const base = row?.state ?? emptyReadingMemory()
     const merged = applyReadingMemoryEvents(base, events)
-    if (merged === base) {
+    // Same object (every event already applied) or the same content (e.g. a
+    // pruned-away session): the cloud copy would not change, so skip the write.
+    if (merged === base || sameReadingMemory(merged, base)) {
       // Everything queued is already in the cloud: nothing to write.
       queue.ack(events)
       return { status: 'applied', state: base }
