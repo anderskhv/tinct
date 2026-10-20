@@ -246,6 +246,57 @@ async function checkMarks(browser) {
 }
 globalThis.checkMarks = checkMarks
 
+const chatRow = () => account.rows.get('chat-history:' + BOOK)?.value || []
+async function checkCards(browser) {
+  resetAccount({ chapterNumber: 5, paragraphIndex: 3, wordIndex: 0 })
+  const { context, page } = await device(browser)
+  try {
+    const frame = await marginFrame(page)
+    const picked = await selectInView(frame, 6)
+    await frame.waitForSelector('.mr-bar [data-m="explain"]', { timeout: 8000 })
+    await frame.click('.mr-bar [data-m="explain"]')
+    await frame.waitForFunction(() => keptCards().some(c => c.kind === 'explain' && !c.gone && (c.turns || []).some(t => /MOCK EXPLAIN/.test(t.content || ''))), null, { timeout: 15000 }).catch(() => {})
+    const card = await frame.evaluate(() => keptCards().find(c => c.kind === 'explain' && !c.gone))
+    ok('cards: Explain in margin view makes a card with its answer', !!card && card.turns.some(t => /MOCK EXPLAIN/.test(t.content)), card)
+    await waitFor(() => chatRow().some(c => c.id === 'mc_' + card?.id), 12000)
+    const conv = chatRow().find(c => c.id === 'mc_' + card?.id)
+    ok('cards: it is kept in the book\'s chat history row (chat-history:frankenstein) as a passage-anchored entry', !!conv && conv.card?.kind === 'explain' && conv.card.anchor?.editionKey === 'modern-en' && conv.card.anchor.chapterNumber === 5 && conv.messages.some(m => m.role === 'assistant' && /MOCK EXPLAIN/.test(m.content)) && conv.messages[0].highlightedText === picked.replace(/\s+/g, ' ').trim(), conv)
+    ok('cards: no preview-local card key is written', await page.evaluate(() => !Object.keys(localStorage).some(k => k.startsWith('tinct-addbook:cards:'))))
+    // After a reload on this desktop.
+    await page.reload()
+    const again = await marginFrame(page)
+    const back = await again.evaluate(id => { const c = keptCards().find(k => k.id === id); return c && { turns: c.turns.length, span: c.span, shown: [...document.querySelectorAll('.mr-card')].some(e => e.dataset.id === id) } }, card.id)
+    ok('cards: the card is there after a reload, on its passage', !!back && back.turns >= 1 && Array.isArray(back.span) && back.span[1] === card.span[1] && back.span[2] === card.span[2], { back, span: card.span })
+    // Another context sharing the account (another desktop): the card is there.
+    const other = await device(browser)
+    const frame2 = await marginFrame(other.page)
+    await frame2.waitForFunction(id => keptCards().some(c => c.id === id), card.id, { timeout: 10000 }).catch(() => {})
+    const there = await frame2.evaluate(id => { const c = keptCards().find(k => k.id === id); return c ? { kind: c.kind, answer: (c.turns || []).some(t => /MOCK EXPLAIN/.test(t.content || '')), span: c.span } : null }, card.id)
+    ok('cards: margin view on another device shows the card, answered, on its passage', !!there && there.kind === 'explain' && there.answer && there.span?.[1] === card.span[1], there)
+    await other.page.screenshot({ path: path.join(OUT, 'cards-other.png') })
+    // The phone's chat for the book has it (the same history).
+    const phone = await device(browser, { viewport: { width: 390, height: 844 } })
+    await normalReader(phone.page)
+    await phone.page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').some(c => c.card?.kind === 'explain'), null, { timeout: 15000 }).catch(() => {})
+    ok('cards: the phone\'s chat history for the book holds the card\'s question and answer', await phone.page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').some(c => c.card?.kind === 'explain' && c.messages.some(m => /MOCK EXPLAIN/.test(m.content)))))
+    await phone.context.close()
+    // Deleted on the other device: a tombstone; gone here after a reload.
+    await frame2.evaluate(id => deleteCard(id), card.id)
+    await other.page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')))
+    await other.page.evaluate(() => window.dispatchEvent(new Event('pagehide')))
+    await waitFor(() => chatRow().some(c => c.id === 'mc_' + card.id && c.card?.gone), 12000)
+    ok('cards: a card deleted in margin view is a tombstone in the history row', chatRow().some(c => c.id === 'mc_' + card.id && c.card?.gone && c.messages.length === 0), chatRow().find(c => c.id === 'mc_' + card.id))
+    await page.reload()
+    const after = await marginFrame(page)
+    await page.waitForTimeout(1500)
+    ok('cards: and is gone from margin view on the first desktop', await after.evaluate(id => !keptCards().some(c => c.id === id && !c.gone), card.id))
+    ok('cards: chat history commits always carry an expected rev', account.commits.filter(c => c.key.startsWith('chat-history:')).every(c => c.rev !== null))
+    ok('cards: no page errors', page.errors.length === 0 && other.page.errors.length === 0, [...page.errors, ...other.page.errors])
+    await other.context.close()
+  } finally { await context.close() }
+}
+globalThis.checkCards = checkCards
+
 const browser = await markInternal(await chromium.launch({ executablePath: EXEC, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] }))
 try {
   if (MODE === 'place' || MODE === 'all') await checkPlace(browser)
