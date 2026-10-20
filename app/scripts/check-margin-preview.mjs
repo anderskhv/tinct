@@ -285,8 +285,14 @@ try {
 
       // 5. Nothing of the book reader's was written, and nothing went to the account.
       const after = await mainKeys(page)
-      ok(`${tag}: the book reader's keys are untouched`, JSON.stringify(after) === JSON.stringify(before), { before: Object.keys(before), after: Object.keys(after) })
-      ok(`${tag}: the account's place is read (GET) and never written`, log.position.every(m => m === 'GET'), log.position)
+      // 21 Oct 2026 (margin sync): the place is the book reader's own record now (src/lab/marginPreview/useMarginPreviewPlace.ts);
+      // signed out, as here, it stays on this device. Its other keys are untouched.
+      const shared = /^(tinct-lab-position|tinct-lab-position-dirty|tinct-lab-device-id|tinct-lab-highlights-tap-cleanup-v1)$/
+      const strip = keys => JSON.stringify(Object.fromEntries(Object.entries(keys).filter(([k]) => !shared.test(k))))
+      ok(`${tag}: the book reader's other keys are untouched`, strip(after) === strip(before), { before: Object.keys(before), after: Object.keys(after) })
+      const record = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-position') || 'null')?.books?.[id], bookId)
+      ok(`${tag}: the place is the book reader's record for the book (chapter, paragraph, word)`, !!record && record.sequentialChapter === (await frame.evaluate(n => state.preview && toc.entries.find(e => e.page === n && e.kind === 'chapter')?.number, back.page)) && record.paragraphIndex === back.para, { record, back })
+      ok(`${tag}: signed out, nothing is written to the account`, log.position.every(m => m === 'GET'), log.position)
 
       // 5b. Dark (Aa): the chapters turn dark with the rest of the reader. (The theme is the device's, shared with the
       // book reader by design, tinct-lab-prefs: so after the check above.)
