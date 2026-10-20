@@ -68,6 +68,8 @@
   function view(status, local = {}, pages = status?.pages) {
     if (!status || typeof status !== 'object' || !status.state) return null;
     const n = status.pages || pages || 0;
+    // The reader's yes, shown before the account answers: the same line My shelf shows.
+    if (status.state === 'starting') return { kind: 'progress', text: SHELF };
     const free = !canStart(status.tier);
     if (status.state === 'done') {
       if (status.failed > 0 && !free) return { kind: 'failed', text: failedLine(status.failed), action: 'retry' };
@@ -88,6 +90,24 @@
     }
     if (status.state === 'running') return { kind: 'progress', text: recognising(settled(status), n) };
     return null; // 'failed' (nothing to recognise): the pages stay as they are
+  }
+
+  /**
+   * How far the shown step has got, for the determinate bar beside its line: { done, total }
+   * (the pages of the line's own count), or null when there is no count. The reader's yes
+   * (`state: 'starting'`, before the account has answered) is 0 of the book's pages, so the
+   * bar shows at once (Anders, 20 Oct 2026: feedback within about 100 ms of the tap).
+   */
+  function progress(status, local = {}, pages = status?.pages) {
+    if (!status || typeof status !== 'object') return null;
+    const n = status.pages || pages || 0;
+    if (!(n > 0)) return null;
+    const of = x => ({ done: Math.max(0, Math.min(x, n)), total: n });
+    if (status.state === 'starting') return of(local.prepared || 0);
+    if (!canStart(status.tier)) return null;
+    if (status.state === 'uploading' || (status.state === 'running' && status.missing?.length)) return of(Math.max(local.prepared || 0, (status.uploaded || 0) + (status.blank || 0)));
+    if (status.state === 'running' || (status.state === 'paused' && status.reason === 'premium_required')) return of(settled(status));
+    return null;
   }
 
   /** What My shelf says of a book whose text is being recognised (null: nothing). */
@@ -506,7 +526,7 @@
   global.TinctPdfOcr = {
     RENDER_EDGE, JPEG_QUALITY, BLANK_INK, INK_LEVEL, PARALLEL, POLL_MS,
     FREE_LINE, READY, SHELF, LATER,
-    view, shelfLine, toSend, upload, run, defaultEdition, greyInk, faintInk, isBlank, renderPage, api, canStart,
+    view, progress, shelfLine, toSend, upload, run, defaultEdition, greyInk, faintInk, isBlank, renderPage, api, canStart,
     pageText, inkMask, findLines, layoutPage, textItems, furnitureItems, FURNITURE_VIEW,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

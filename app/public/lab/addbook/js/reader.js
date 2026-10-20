@@ -17,6 +17,8 @@ const TRIM = { x: 0.08, y: 0.04 };
 const state = { kind: null, figs: new Map(), pdf: null, epub: null, key: '', name: '', title: '', author: '', scan: null, titleReady: null, pages: [], zoom: 1, fit: null, pagesAsked: false, trim: false, base: { w: 612, h: 792 }, token: 0, observer: null, texts: new Map() };
 const hasBook = () => !!(state.pdf || state.epub);
 const isEpub = () => state.kind === 'epub';
+// A PDF's Tinct text read here in Margin view (js/pdf-text-view.js, openPdfText): an EPUB's path, the PDF's pages cited.
+const isPdfText = () => state.kind === 'epub' && !!state.pdfText;
 const prefs = Object.assign({ trim: false, full: false, rate: 1, voice: '', dockW: 380, dock: 'docked' }, store.get('prefs') || {});
 // "Dark pages" and "Paper tone" were PDF-only switches; the page now follows the reader's theme.
 // "Full width" is gone too (19 Oct 2026, evening): Zoom's + widens the page as far as the room allows.
@@ -326,7 +328,7 @@ async function openEpub(bytes, name, key, rec = null) {
   catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
   state.pdf?.destroy?.(); state.observer?.disconnect();
-  Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null, preview: rec?.preview || null });
+  Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null, preview: rec?.preview || null, pdfText: rec?.pdfText || null });
   // The book's Tinct text, when this device converted it in the Tinct reader: the place is shared with it (epubShare).
   state.epubEdition = Array.isArray(rec?.edition?.chapters) ? rec.edition : null;
   root.classList.add('is-epub'); root.classList.remove('is-pdf');
@@ -425,7 +427,7 @@ async function downloadChecked(id, key) {
  * no PDF and leaves them out (round 2: the phone's first page came about 0.3 s later with them); a PDF opened
  * there after all loads them here first, in the same order, with the same cache tags (scripts/check-margin-preview.mjs).
  */
-const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261016train6', 'js/pdf-text.js?v=20261019batch', 'js/pdf-ocr.js?v=20261015train2', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
+const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261016train6', 'js/pdf-text.js?v=20261019batch', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
 let pdfScripts = null;
 function pdfReady() {
   if (window.pdfjsLib && window.TinctPdfScan) return Promise.resolve();
@@ -487,6 +489,8 @@ async function openPdf(bytes, name, key, known = null) {
   // A link that asks for the pages (&pages) is read once, here: the address loses it when the book's own is
   // pushed (openBook), and a first open's scan finishes after that (the &pages race, 15 Oct 2026).
   const pagesAsked = new URLSearchParams(location.search).has('pages');
+  pdfTextLeave();
+  Object.assign(state, { pdfText: null });
   Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
   if (token !== state.token) return;
   root.classList.add('is-pdf'); root.classList.remove('is-epub', 'is-paper');
@@ -1012,10 +1016,11 @@ function paintHeld() {
     layerOf(p, 'sel-layer').appendChild(i);
   }
 }
-const highlights = () => store.get('hl:' + state.key) || [];
+const highlights = () => { const own = store.get('hl:' + state.key) || []; return isPdfText() ? [...own, ...pdfHighlightsHere()] : own };
 const HL_COLORS = [['gold', 'Gold', 'rgba(232,196,92,.42)', '#e9cf86'], ['rose', 'Rose', 'rgba(232,118,128,.30)', '#eba7ad'], ['sage', 'Sage', 'rgba(108,178,108,.32)', '#a9d0a3'], ['sky', 'Sky', 'rgba(96,148,226,.30)', '#a6c2ee'], ['lavender', 'Lavender', 'rgba(156,116,222,.30)', '#c6b0ee']];
 const hlFill = c => (HL_COLORS.find(x => x[0] === c) || HL_COLORS[0])[2];
 function recolorHighlight(id, color) {
+  if (changeTextHighlight(id, list => list.map(x => (x.id === id ? { ...x, color } : x)))) { prefs.hlColor = color; savePrefs(); return }
   const list = highlights(), h = list.find(x => x.id === id); if (!h) return;
   h.color = color; prefs.hlColor = color; savePrefs();
   if (state.kind === 'pdf') h.u = Date.now();
@@ -1126,6 +1131,14 @@ function renderHighlights(p) {
     Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: hh * 100 + '%' });
     layer.appendChild(i);
   }
+  // Highlights made in the PDF's Tinct text (openPdfText), where their words are on this page.
+  p.textMarks = textHighlightsOn(p);
+  for (const { h, rects } of p.textMarks) for (const r of rects) {
+    const [x, y, w, hh] = bandBox(p, r);
+    const i = document.createElement('i'); i.dataset.id = h.id; i.className = 'is-text'; i.style.setProperty('--hl', hlFill(h.color));
+    Object.assign(i.style, { left: x * 100 + '%', top: y * 100 + '%', width: w * 100 + '%', height: hh * 100 + '%' });
+    layer.appendChild(i);
+  }
 }
 function addHighlight(info, { range, color } = {}) {
   const s = getSelection(); if (!range && !s.rangeCount) return;
@@ -1144,7 +1157,17 @@ function addHighlight(info, { range, color } = {}) {
   for (const page of byPage.keys()) renderHighlights(state.pages[page - 1]);
   return ids;
 }
+/** A highlight of the PDF's Tinct text shown on its pages (textHighlightsOn): changed in its own list. -> true when it was one */
+function changeTextHighlight(id, change) {
+  if (state.kind !== 'pdf' || !PT() || highlights().some(x => x.id === id)) return false;
+  const k = 'hl:' + PT().keyOf(hexOf(state.key)), list = store.get(k) || [], h = list.find(x => x.id === id);
+  if (!h) return false;
+  store.set(k, change(list, h));
+  for (const p of state.pages) if (p.textMarks?.some(m => m.h.id === id)) renderHighlights(p);
+  return true;
+}
 function removeHighlight(id) {
+  if (changeTextHighlight(id, list => list.filter(x => x.id !== id))) return;
   const h = highlights().find(x => x.id === id);
   // A PDF remembers the removal (a tombstone), so the account's copy and other devices lose it too.
   if (h && state.kind === 'pdf') store.set('hl-gone:' + state.key, TinctMargin.mergeMarks(store.get('hl-gone:' + state.key) || [], [TinctMargin.tombstone(id)]));
@@ -1153,7 +1176,7 @@ function removeHighlight(id) {
 }
 // Saved highlights of the open book; a PDF's go to the account too when signed in (marksSync).
 function putHighlights(list) {
-  store.set('hl:' + state.key, list);
+  if (isPdfText()) putPdfTextHighlights(list); else store.set('hl:' + state.key, list);
   if (state.kind === 'pdf') marksSync.changed();
   // A note added, changed or removed is a card in the margin (or no longer one).
   if (marginOn()) marginLayout({ fresh: true });
@@ -1162,7 +1185,10 @@ function highlightAt(x, y) {
   if (isEpub()) return epubHighlightAt(x, y);
   const p = pageForPoint(x, y); if (!p) return null;
   const r = p.pg.getBoundingClientRect(), fx = (x - r.left) / r.width, fy = (y - r.top) / r.height;
-  const h = highlights().find(h => h.page === p.n && h.rects.some(([a, b, w, hh]) => fx >= a && fx <= a + w && fy >= b && fy <= b + hh));
+  const inside = rects => rects.some(([a, b, w, hh]) => fx >= a && fx <= a + w && fy >= b && fy <= b + hh);
+  const found = highlights().find(h => h.page === p.n && inside(h.rects));
+  const text = found ? null : (p.textMarks || []).find(m => inside(m.rects));
+  const h = found || (text && { ...text.h, page: p.n, rects: text.rects });
   if (!h) return null;
   const box = h.rects.reduce((acc, [a, b, w, hh]) => ({ left: Math.min(acc.left, r.left + a * r.width), top: Math.min(acc.top, r.top + b * r.height), right: Math.max(acc.right, r.left + (a + w) * r.width), bottom: Math.max(acc.bottom, r.top + (b + hh) * r.height) }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
   return { id: h.id, text: h.text, page: h.page, box };
@@ -1194,9 +1220,12 @@ function addEpubHighlight(info, range, color) {
     const start = textOffset(p.pg, r.startContainer, r.startOffset), end = textOffset(p.pg, r.endContainer, r.endOffset);
     if (end - start < 1) continue;
     const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6); ids.push(id);
-    list.push({ id, page: p.n, start, end, text: r.toString().replace(/\s+/g, ' ').trim().slice(0, 2000) || info.text.slice(0, 2000), color: color || prefs.hlColor || 'gold', at: Date.now() });
+    const text = r.toString().replace(/\s+/g, ' ').trim().slice(0, 2000) || info.text.slice(0, 2000);
+    // A PDF's Tinct text: the page its words are printed on, to show it on the PDF's pages too (textHighlightsOn).
+    const pdfPage = isPdfText() ? pdfTextPage(p.n, text) : null;
+    list.push({ id, page: p.n, start, end, text, color: color || prefs.hlColor || 'gold', at: Date.now(), ...(pdfPage ? { pdfPage } : {}) });
   }
-  store.set('hl:' + state.key, list);
+  if (isPdfText()) putPdfTextHighlights(list); else store.set('hl:' + state.key, list);
   renderEpubHighlights();
   return ids;
 }
@@ -1331,7 +1360,7 @@ function savePlaceNow() {
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
-  if (moved && isEpub()) epubShare();
+  if (moved && isEpub()) { if (isPdfText()) pdfTextShare(); else epubShare() }
   if (moved) justRead.note();
 }
 // The same spot in the PDF's Tinct text (js/pdf-text.js placeOf), or none (the Tinct reader
@@ -1435,10 +1464,15 @@ async function openKind(scan, token) {
 }
 const textUrl = page => '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + (page ? '&page=' + page : '');
 // Opened here but read as Tinct text: on to the Tinct reader (not for a link that asks for the pages).
-// A scan whose text was recognised stays here, with the margin, its words laid over its pages (the
-// scans test, 15 Oct 2026); its Tinct text is one tap away ("Tinct text"), never a redirect.
+// A scan whose text was recognised opens as text PDFs do (Anders, 20 Oct 2026): on a phone its Tinct text
+// by default (its own: TinctPdfOcr.defaultEdition, kept as the phone's in ocrKeep); on the desktop here, its
+// words laid over its pages with the margin, unless the reader chose Tinct text on this device.
 function forwardToText(scan) {
-  if (!scan || !(scan.textPages > 0) || state.pagesAsked || editionChoice(scan) !== 'text') return false;
+  if (!scan || state.pagesAsked) return false;
+  const text = scan.textPages > 0 ? editionChoice(scan) === 'text' : isOcrText() && (ownEdition() === 'text' || (isPhone() && editionChoice(scan) === 'text'));
+  if (!text) return false;
+  // The desktop reads it here, in Margin view (openPdfText); a phone in the Tinct reader.
+  if (!isPhone()) { openPdfText(); return true }
   const pos = store.get('pos:' + state.key);
   location.replace(textUrl(pos?.page));
   return true;
@@ -1446,8 +1480,11 @@ function forwardToText(scan) {
 // "Tinct text": the place now, read from here on in the Tinct text, sent at once; then the reader.
 function readAsText() {
   if (state.preview) return previewLeave();
+  if (isPdfText()) return;
   if (isEpub()) return epubToTinct();
   if (!hasText()) return;
+  // On the desktop the Tinct text reads here, beside the margin (Anders, 20 Oct 2026, mockup 2b): never the Tinct reader.
+  if (!isPhone()) return openPdfText();
   savePlaceNow();
   const place = currentPlace(), prev = store.get('pos:' + state.key) || {};
   const spot = sameSpot(place, { page: prev.page, frac: prev.frac }) && Number.isInteger(prev.chapterNumber) ? {} : textSpot(place);
@@ -1470,6 +1507,149 @@ function keepPagesHere() {
     try { history.replaceState(history.state, '', bookUrl(state.key)) } catch { /* kept */ }
   }
 }
+/* ---------- A PDF's Tinct text in Margin view (the desktop; js/pdf-text-view.js) ----------
+   "Tinct text" on the desktop (Anders, 20 Oct 2026, mockup 2b): the PDF's own Tinct text (pdf-text.js, or a recognised
+   scan's), reflowed here on Tinct paper with the margin beside it, through the EPUB path (openEpub). Its place, highlights
+   and cards on this device are kept under 'pdftext:<hex>'; a move is kept as the PDF's place too (the page it is on, and
+   the spot in the text: pdfTextShare), so "Original pages" opens at the same place, and the PDF's own opens here at it.
+   The PDF's highlights and notes show here where their words are found on their page (pdfHighlightsHere), and this
+   view's highlights on the PDF's pages where their words are found there (textHighlightsOn); a change to either is
+   kept with its own. The margin's requests read the document as the PDF's pages, so their answers cite them. */
+const PT = () => window.TinctPdfTextView;
+const pdfTextUrls = new Set();
+function pdfTextLeave() { for (const u of pdfTextUrls) URL.revokeObjectURL(u); pdfTextUrls.clear() }
+let pdfTextOpening = null;
+async function openPdfText() {
+  if (state.kind !== 'pdf' || !state.pdf || !PT() || pdfTextOpening) return false;
+  const key = state.key, hex = hexOf(key), pdf = state.pdf, scan = state.scan, token = state.token, drawn = state.pages.length > 0;
+  if (drawn) savePlaceNow();
+  const pos = store.get('pos:' + key) || {};
+  const place = drawn ? currentPlace() : { page: pos.page || 1, frac: pos.frac || 0 };
+  // This device reads it as its Tinct text from now on (the reader's choice; a recognised scan's switch too, as the Tinct reader's adoptOcrEditionChoice).
+  store.set('edition:' + hex, 'text'); store.del('phone-edition:' + hex); store.del('desk-edition:' + hex);
+  pdfTextOpening = (async () => {
+    const rec = await library.get(key);
+    let edition = state.textEdition, figureData = rec?.figureData || null;
+    const hasFigures = e => (e?.chapters || []).some(c => c.figures?.length);
+    // Converted here when this device has no Tinct text yet (or its crops are not on this device): the same rules and crops as the Tinct reader's.
+    if ((!edition || (edition.source !== 'ocr' && hasFigures(edition) && !figureData)) && scan?.textPages > 0) {
+      const said = drawn ? setTimeout(() => toast('Preparing the Tinct text…', { hold: true }), 400) : null;
+      const images = new Map();
+      try { edition = await TinctPdfText.convert(pdf, { scan, ...(PT().cropper(images) ? { regions: PT().cropper(images) } : {}), live: () => token === state.token }) || edition } catch (e) { console.warn('[addbook] Tinct text', e) }
+      clearTimeout(said);
+      if (token !== state.token) return false;
+      if (edition && edition !== state.textEdition) {
+        figureData = Object.fromEntries(images);
+        state.textEdition = edition;
+        await library.touch(key, { edition, figureData }).catch(() => {});
+      }
+    }
+    if (token !== state.token) return false;
+    if (!edition) { toast('This PDF has no text to reflow. Its pages stay as they are.'); store.set('edition:' + hex, 'pages'); if (!drawn) location.reload(); return false }
+    // The PDF's labels, to cite its pages as the pages do (pageLabel).
+    const labels = state.labels || (store.get('printed:' + key)?.labels) || null;
+    const src = id => { const f = figureData?.[id]; if (!f?.data) return null; const u = URL.createObjectURL(new Blob([f.data], { type: f.type || 'image/png' })); pdfTextUrls.add(u); return u };
+    pdfTextLeave();
+    const book = PT().bookOf(edition, { title: state.title, author: state.author, figureSrc: src });
+    const tkey = PT().keyOf(hex);
+    // At the same place: the PDF's page and how far down it, as a paragraph and word of the text (both ways: pageAt).
+    const at = PT().spotAt(edition, place.page, place.frac);
+    const own = store.get('pos:' + tkey) || {};
+    if (at && !(own.at > (pos.at || 0) && own.page === at.n)) store.set('pos:' + tkey, { ...own, page: at.n, frac: 0, para: at.para, word: at.word, at: Date.now() });
+    ocrStop(); stopNarration();
+    const pdfText = { key, hex, edition, labels: Array.isArray(labels) ? labels : null, pages: pdf.numPages, scanned: scan?.textPages === 0 };
+    await openEpub(null, state.title, tkey, { parsed: book, pdfText });
+    if (isPdfText()) root.classList.add('is-pdf-text');
+    return true;
+  })();
+  try { return await pdfTextOpening } finally { pdfTextOpening = null }
+}
+/** The PDF's place from the text view's: the page and how far down it, with the spot in the text (the Tinct reader's too). */
+function pdfTextShare() {
+  const t = state.pdfText; if (!t) return;
+  const place = currentPlace(), spot = epubSpot();
+  const pg = PT().pageAt(t.edition, place.page, spot.para || 0, spot.word || 0); if (!pg) return;
+  const c = t.edition.chapters[place.page - 1], prev = store.get('pos:' + t.key) || {};
+  store.set('pos:' + t.key, { ...prev, page: pg.page, frac: pg.frac, edition: 't', chapterNumber: c.number, paragraphIndex: spot.para || 0, wordIndex: spot.word || 0, ...(typeof t.edition.converter === 'number' ? { converter: t.edition.converter } : {}), pages: t.pages, at: Date.now() });
+  placeSync.note(t.hex);
+}
+/** "Original pages": the PDF's pages here, at the same place (its page and how far down it). */
+async function pdfTextToPages() {
+  const t = state.pdfText; if (!t) return;
+  savePlaceNow(); pdfTextShare();
+  store.set('edition:' + t.hex, 'pages'); store.del('phone-edition:' + t.hex); store.del('desk-edition:' + t.hex);
+  const rec = await library.get(t.key);
+  if (!rec?.bytes) { toast('This PDF is not on this device. Open it again from Your books.'); return }
+  stopNarration();
+  await openBook('pdf', new Uint8Array(rec.bytes), rec.name, t.key, rec);
+}
+/** The PDF page a passage in chapter `n` of the text stands on (its words found in the chapter), else the chapter's first. */
+function pdfTextPage(n, text) {
+  const t = state.pdfText, c = t?.edition.chapters[n - 1]; if (!c) return null;
+  const want = PT().norm(text).slice(0, 60);
+  const i = want.length >= 3 ? c.paragraphs.findIndex(p => PT().norm(p).includes(want)) : -1;
+  return PT().pageAt(t.edition, n, Math.max(0, i), 0)?.page || c.pages?.[0] || null;
+}
+const pdfTextLabel = page => { const l = String(state.pdfText?.labels?.[page - 1] ?? '').trim(); return LABEL_RE.test(l) ? l : String(page) };
+/** The PDF's highlights (and their notes) where their words are found in this view: on their page's paragraphs. */
+const pdfHlCache = { stamp: null, list: [] };
+function pdfHighlightsHere() {
+  const t = state.pdfText; if (!t) return [];
+  const origin = (store.get('hl:' + t.key) || []).filter(h => !h.gone && !h.box && String(h.text || '').trim().length >= 3);
+  const stamp = state.pages.length + '|' + origin.map(h => h.id + ':' + (h.u || h.at) + ':' + h.color + ':' + String(h.note || '').length).join(',');
+  if (pdfHlCache.stamp === stamp) return pdfHlCache.list;
+  const out = [];
+  for (const h of origin) {
+    for (const n of PT().chaptersOnPage(t.edition, h.page)) {
+      const p = state.pages[n - 1]; if (!p) continue;
+      const els = PT().parasOnPage(t.edition, n, h.page).map(i => epubParas(p)[i]).filter(Boolean);
+      if (!els.length) continue;
+      let hay = '';
+      const segs = [];
+      for (const el of els) { segs.push([hay.length, textOffset(p.pg, el, 0), el.textContent.length]); hay += el.textContent + ' ' }
+      const hit = PT().findIn(hay, h.text); if (!hit) continue;
+      const toPg = k => { const seg = segs.filter(sg => sg[0] <= k).at(-1); return seg[1] + Math.min(seg[2], k - seg[0]) };
+      const { rects: _r, ...rest } = h;
+      out.push({ ...rest, via: 'pdf', page: n, start: toPg(hit[0]), end: toPg(hit[1]) });
+      break;
+    }
+  }
+  pdfHlCache.stamp = stamp; pdfHlCache.list = out;
+  return out;
+}
+/** A changed list in the text view: its own highlights kept under its key, the PDF's (via) kept with the PDF's (their colour and note; one removed, removed there). */
+function putPdfTextHighlights(list) {
+  const t = state.pdfText, before = new Set(pdfHighlightsHere().map(h => h.id));
+  const mine = list.filter(h => h.via !== 'pdf'), theirs = new Map(list.filter(h => h.via === 'pdf').map(h => [h.id, h]));
+  const gone = [...before].filter(id => !theirs.has(id));
+  const origin = store.get('hl:' + t.key) || [];
+  const next = origin.filter(h => !gone.includes(h.id)).map(h => {
+    const m = theirs.get(h.id); if (!m) return h;
+    if (m.color === h.color && (m.note || '') === (h.note || '') && !!m.withNote === !!h.withNote) return h;
+    const out = { ...h, color: m.color, u: Date.now() };
+    if (m.note) out.note = m.note; else delete out.note;
+    if (m.withNote) out.withNote = true; else delete out.withNote;
+    return out;
+  });
+  if (gone.length) store.set('hl-gone:' + t.key, TinctMargin.mergeMarks(store.get('hl-gone:' + t.key) || [], gone.map(id => TinctMargin.tombstone(id))));
+  store.set('hl:' + t.key, next);
+  store.set('hl:' + state.key, mine);
+}
+/** This view's own highlights on a PDF page whose words hold them (drawn there, never stored with the PDF's): [{ h, rects }]. */
+function textHighlightsOn(p) {
+  if (state.kind !== 'pdf' || !p?.layer || !PT()) return [];
+  const list = (store.get('hl:' + PT().keyOf(hexOf(state.key))) || []).filter(h => h.pdfPage === p.n && String(h.text || '').trim().length >= 3);
+  if (!list.length) return [];
+  const raw = p.layer.textContent || '', pr = p.pg.getBoundingClientRect(); if (!pr.width) return [];
+  const out = [];
+  for (const h of list) {
+    const hit = PT().findIn(raw, h.text); if (!hit) continue;
+    const r = rangeFromOffsets(p.layer, hit[0], hit[1]); if (!r) continue;
+    const rects = [...r.getClientRects()].filter(q => q.width > 0.3 && q.height > 0).map(q => [(q.left - pr.left) / pr.width, (q.top - pr.top) / pr.height, q.width / pr.width, q.height / pr.height]);
+    if (rects.length) out.push({ h, rects });
+  }
+  return out;
+}
 // The Tinct text is offered in the Aa panel (openDisplay) as "Convert to Tinct book": under Layout, or as its own row (TinctReaderLayout.TINCT_TEXT).
 // A PDF's text known after the panel opened (the scan, a recognised scan) shows there at once.
 function showEditions() { drawLayoutChoices() }
@@ -1489,6 +1669,7 @@ const waitVisible = () => visibleNow() ? Promise.resolve() : new Promise(resolve
   const on = () => { if (visibleNow()) { document.removeEventListener('visibilitychange', on); resolve() } };
   document.addEventListener('visibilitychange', on);
 });
+const OCR_FAILED = 'Could not start recognising the text. Try again.';
 const ACCOUNT_URL = () => '/sign-in?mode=account&returnTo=' + encodeURIComponent(location.pathname + location.search);
 function ocrStop() { ocr.token++; clearTimeout(ocr.readyTimer); ocr.el?.remove(); ocr.el = null; ocr.saving = null; ocr.starting = false }
 // The account copy of a book just added is still on its way while the reader first opens it: the
@@ -1529,20 +1710,30 @@ async function ocrOpen({ again = false } = {}) {
     if (!isOcrText()) {
       const edition = await ocrApi().edition(hex);
       if (!live()) return;
-      if (edition) { await ocrKeep(edition); ocrLocal(hex).set({ ready: true }) }
+      if (edition) {
+        await ocrKeep(edition); ocrLocal(hex).set({ ready: true });
+        // A phone reads it as its Tinct text from here (its default, as on the next open: forwardToText).
+        if (live() && forwardToText(state.scan)) return;
+      }
     } else if (!state.ocrPages) ocrFetchPages();
   }
   ocrShow(status, token);
   const goingOn = status.state === 'uploading' || status.state === 'running' || (status.state === 'paused' && status.reason === 'premium_required');
   if (goingOn && TinctPdfOcr.canStart(status.tier)) ocrRun(token);
 }
-// The recognised text reached this device: kept with the book. The scan goes on opening here, in its
-// pages with the margin, now with its words laid over them (ocrFetchPages); "Tinct text" reads it reflowed.
+// The recognised text reached this device: kept with the book, its words laid over the pages (ocrFetchPages).
+// Recognised while the book is open, it is read as Tinct text from the same place at once (ocrRun). Else the
+// next open follows the device's rule (forwardToText): a phone's default is the recognised text's own, kept
+// as the phone's like a prose PDF's (phoneKind); the desktop opens its pages; a choice of the reader's stands.
 async function ocrKeep(edition) {
   const hex = hexOf(state.key);
   state.textEdition = edition;
   await library.touch(state.key, { edition });
-  store.set('edition:' + hex, 'pages'); store.del('phone-edition:' + hex); store.del('desk-edition:' + hex);
+  if (isPhone() && !ownEdition()) {
+    const kept = TinctPdfOcr.defaultEdition(edition);
+    store.set('phone-edition:' + hex, { edition: kept, kind: 'scan', by: 'ocr', v: KIND_V });
+    store.set('edition:' + hex, kept);
+  }
   const pos = store.get('pos:' + state.key);
   if (pos) store.set('pos:' + state.key, { ...pos, edition: 'p' });
   showEditions();
@@ -1595,10 +1786,12 @@ function ocrItems(p, page, text) {
   const vp = page.getViewport({ scale: 1 });
   return (text.items = TinctPdfOcr.textItems(text.lines, { width: vp.width, height: vp.height, transform: vp.transform }));
 }
-async function ocrRun(token, { rerun } = {}) {
+// `offer`: the status the reader said yes to, shown again (with a short line) if the job cannot be started.
+async function ocrRun(token, { rerun, offer } = {}) {
   const key = state.key, hex = hexOf(key), pdf = state.pdf;
   const live = () => token === ocr.token && state.key === key && hasBook();
   const local = ocrLocal(hex);
+  let answered = false;
   try {
     // Started before the account copy was stored: the job waits for it.
     if (ocr.saving?.key === key) { ocr.starting = true; await ocr.saving.done; ocr.starting = false; ocr.saving = null; if (!live()) return }
@@ -1606,11 +1799,19 @@ async function ocrRun(token, { rerun } = {}) {
       hex, pages: pdf.numPages, api: ocrApi(), local, live, rerun, waitVisible,
       render: n => TinctPdfOcr.renderPage(pdf, n),
       sleep: ms => new Promise(r => setTimeout(r, ms)).then(waitVisible),
-      onStatus: status => ocrShow(status, token),
-      onEdition: edition => ocrKeep(edition),
+      onStatus: status => { answered = true; ocrShow(status, token) },
+      // Recognised while the book is open: on to its Tinct text at the same place (readAsText), no "ready" line.
+      onEdition: async edition => { answered = true; local.set({ ready: true }); await ocrKeep(edition); if (live()) readAsText() },
     });
   } catch (e) {
     if (!live()) return;
+    // The yes could not be started (offline, the account busy): the offer again, with a short line.
+    if (offer && !answered && e?.status !== 402) {
+      local.set({ asked: false, started: false });
+      ocrShow(offer, token);
+      toast(OCR_FAILED);
+      return;
+    }
     // Premium ended meanwhile: the free line. Anything else (offline, the account busy): the
     // pages sent so far are kept by the account, and the rest go on the next open.
     if (e?.status === 402) ocrShow({ state: 'none', tier: 'none', pages: pdf.numPages }, token);
@@ -1636,14 +1837,17 @@ function ocrShow(status, token) {
   } else if (shown.kind === 'offer') {
     el.innerHTML = `<p class="byob-ocr-line">${esc(shown.text)}</p><div class="byob-ocr-actions"><button type="button" data-ocr="later">Not now</button><button type="button" class="primary" data-ocr="start">Recognise text</button></div>`;
     el.querySelector('[data-ocr="later"]').onclick = () => { local.set({ asked: true }); ocrShow(status, token) };
-    el.querySelector('[data-ocr="start"]').onclick = () => { local.set({ asked: true }); el.querySelector('.byob-ocr-actions')?.remove(); ocrRun(token) };
+    // The tap is answered at once (Anders, 20 Oct 2026): "Recognising text…" and its bar before the account is asked.
+    el.querySelector('[data-ocr="start"]').onclick = () => { local.set({ asked: true, prepared: 0 }); ocrShow({ state: 'starting', tier: status.tier, pages: state.pdf?.numPages || 0 }, token); ocrRun(token, { offer: status }) };
   } else if (shown.kind === 'failed') {
     el.innerHTML = `<p class="byob-ocr-line">${esc(shown.text)} <button type="button" class="byob-ocr-link" data-ocr="retry">Try them again</button></p>`;
     el.querySelector('[data-ocr="retry"]').onclick = () => { el.querySelector('[data-ocr="retry"]').disabled = true; ocrRun(token, { rerun: 'failed' }) };
+  } else if (shown.kind === 'ready') {
+    // No "ready" line (Anders, 20 Oct 2026): recognised while open, the book goes on to its Tinct text (ocrRun).
+    local.set({ ready: true }); el.remove(); ocr.el = null;
   } else {
-    el.innerHTML = `<p class="byob-ocr-line">${esc(shown.text)}</p>`;
-    // Said once; the "Tinct text" control stays.
-    if (shown.kind === 'ready') { local.set({ ready: true }); ocr.readyTimer = setTimeout(() => { if (token === ocr.token) { ocr.el?.remove(); ocr.el = null } }, 8000) }
+    const bar = shown.kind === 'progress' ? TinctPdfOcr.progress(status, local.get(), state.pdf?.numPages) : null;
+    el.innerHTML = `<p class="byob-ocr-line">${esc(shown.text)}</p>` + (bar ? `<div class="byob-ocr-bar" role="progressbar" aria-label="${esc(shown.text)}" aria-valuemin="0" aria-valuemax="${bar.total}" aria-valuenow="${bar.done}"><span style="width:${(100 * bar.done / bar.total).toFixed(1)}%"></span></div>` : '');
   }
 }
 
@@ -2110,7 +2314,7 @@ const layoutChoice = o => `<button type="button" class="lab-v2-edition-option" d
 /** The panel's Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
 function drawLayoutChoices() {
   const panel = document.querySelector('.byob-aa-panel'); if (!panel) return;
-  const opts = previewLayouts() || RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
+  const opts = previewLayouts() || RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn(), pdfText: isPdfText() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
   const box = panel.querySelector('[data-aa="layout"]'), row = panel.querySelector('[data-t="text"]');
   if (box) { box.hidden = !opts.length; box.querySelector('.lab-v2-edition-choices').innerHTML = opts.map(layoutChoice).join('') }
   if (row) row.hidden = !(RL.TINCT_TEXT === 'row' && hasText());
@@ -2153,6 +2357,7 @@ function openDisplay() {
   layer.querySelector('[data-aa="layout"]').addEventListener('click', e => {
     const b = e.target.closest('[data-layout]'); if (!b) return;
     if (b.dataset.layout === 'text') { closeDisplay(); readAsText(); return }
+    if (isPdfText()) { if (b.dataset.layout === 'pages') { closeDisplay(); pdfTextToPages() } return }
     if (state.preview && PREVIEW_VIEWS[b.dataset.layout]) { closeDisplay(); previewView(b.dataset.layout); return }
     keepPagesHere();
     setLayout(b.dataset.layout);
@@ -3597,16 +3802,18 @@ const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubM
 // The PDF reader's margin: a PDF, and an EPUB when EPUB_MARGIN is on.
 const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));
 /** How the margin names the file and a place in it: pages for a PDF, chapters for an EPUB. */
-const docKind = () => (isEpub() ? 'epub' : 'pdf');
+const docKind = () => (isEpub() && !isPdfText() ? 'epub' : 'pdf');
 // An EPUB names a chapter by its title, exactly as its pill and contents do ("1 The Fate of Spacetime"; the preview's
 // "Chapter 1", "Letter 2"), never by its place in the file (Anders, 20 Oct 2026: "Quiz me · ch. 9" under the pill's
 // "1 The Fate of Spacetime"; round 1 of the preview did the same for Tinct books).
-const where = () => (isEpub() ? { unit: epubNamesChapters() ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
+const where = () => (isPdfText() ? { doc: 'pdf' } : isEpub() ? { unit: epubNamesChapters() ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
 const epubNamesChapters = () => isEpub() && toc.ready && toc.entries.length > 0;
 /** A card's place as its label shows it: the page label, or an EPUB's chapter title (its number when it has no contents). */
 const placeName = n => (isEpub() && chapterTitle(n)) || pageLabel(n);
 const chapterTitle = n => (state.preview ? toc.entries.find(e => e.page === n && e.kind === 'chapter')?.label : chapterAt(n)?.label) || '';
-const cardName = card => TinctMargin.html.cardLabel(card, placeName(card.page), where());
+// A card in a PDF's Tinct text names the PDF page its passage is printed on, as on the pages.
+const cardPlace = card => (isPdfText() ? pdfTextLabel(pdfTextPage(card.page, card.text) || 1) : placeName(card.page));
+const cardName = card => TinctMargin.html.cardLabel(card, cardPlace(card), where());
 /** An EPUB chapter as a place in prose (its title, as the pill names it; "ch. 3" without one), for Copy quote and the Notebook. */
 const chapterPlace = n => chapterTitle(n) || `ch. ${n}`;
 const keptCards = () => store.get('cards:' + state.key) || [];
@@ -3762,8 +3969,24 @@ async function marginDocumentNow(page, kind, onWait = null) {
    Worker's cached prefix is read, not rewritten. A file longer than TinctAI.DOCUMENT_CHARS sends the
    chapter the reader is in with the contents list instead, and a search of the rest for a question. */
 const docCache = { key: null, task: null };
+/** A PDF's Tinct text as its pages: each page's words in the text (a figure as its caption), by page number. */
+function pdfTextPages() {
+  const t = state.pdfText, texts = new Map();
+  for (const c of t.edition.chapters) c.paragraphs.forEach((p, i) => {
+    const id = PT().figureId(p), text = id ? (c.figures || []).find(f => f.id === id)?.caption || '' : p;
+    const page = c.pages?.[i] || 1;
+    if (text) texts.set(page, (texts.get(page) ? texts.get(page) + '\n\n' : '') + text);
+  });
+  return texts;
+}
 function readDocument() {
   if (state.preview) return Promise.resolve(previewDocument());
+  if (isPdfText()) {
+    const t = state.pdfText, limit = window.TinctAI?.DOCUMENT_CHARS || 560000, texts = pdfTextPages(), pages = [];
+    let chars = 0;
+    for (let n = 1; n <= t.pages; n++) { const text = texts.get(n) || ''; chars += text.length; pages.push({ n: pdfTextLabel(n), text }) }
+    return Promise.resolve(chars > limit ? { pages: null, limit, label: pdfTextLabel } : { pages, limit, label: pdfTextLabel });
+  }
   if (docCache.key === state.key && docCache.task) return docCache.task;
   const key = state.key, limit = window.TinctAI?.DOCUMENT_CHARS || 560000;
   docCache.key = key;
@@ -3870,14 +4093,23 @@ function openingText(read, page) {
 /** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. An EPUB has no page numbers: its places are quoted words. */
 // An EPUB (and the preview's Tinct book) has no pages: a page reference in an answer is left out, never shown as "p. 9"
 // (Anders, 20 Oct 2026; margin.js citeHtml reads `drop`). A PDF keeps its references.
-Object.defineProperty(citeResolve, 'drop', { get: () => isEpub() });
+Object.defineProperty(citeResolve, 'drop', { get: () => isEpub() && !isPdfText() });
 function citeResolve(token) {
+  // A PDF's Tinct text: its pages, as the companion was shown them (readDocument).
+  if (isPdfText()) { const t = state.pdfText; return TinctMargin.citeTarget(token, { labels: t.labels, count: t.pages, texts: pdfTextPages() }) }
   if (isEpub()) return null;
   const texts = new Map([...state.texts.entries()].map(([n, v]) => [n, v.text]));
   return TinctMargin.citeTarget(token, { labels: state.labels, count: state.pages.length, texts });
 }
 /** Scroll the PDF to a citation's page, and to its printed words on it when they are found. */
 function goToCite(page, needle) {
+  // A PDF's Tinct text: the page's first words in the text, or the cited words where they stand on it.
+  if (isPdfText()) {
+    const t = state.pdfText, at = PT().spotAt(t.edition, page, 0); if (!at) return;
+    const found = needle ? PT().chaptersOnPage(t.edition, page).flatMap(n => PT().parasOnPage(t.edition, n, page).map(i => ({ n, i }))).find(({ n, i }) => PT().norm(t.edition.chapters[n - 1].paragraphs[i]).includes(PT().norm(needle))) : null;
+    epubGoSpot(found ? found.n : at.n, found ? found.i : at.para, found ? 0 : at.word);
+    return;
+  }
   const p = state.pages[page - 1]; if (!p) return;
   const find = () => {
     if (!needle || !p.layer) return null;
@@ -4094,7 +4326,7 @@ function cardOpts(card, open) {
   const thumb = open && card.kind === 'figure' && marginMode() !== 'column' ? figThumb(card) : null;
   // Simplify compares its answer with the page and the next (simplifyAnswer): the document pasted back is never shown.
   const source = card.kind === 'simplify' ? [card.page, card.page + 1].map(n => state.texts.get(n)?.text || '').join('\n') : '';
-  return { open, sheet: open && marginMode() === 'phone', P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: placeName(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
+  return { open, sheet: open && marginMode() === 'phone', P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: cardPlace(card), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
 }
 /** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
 function holdQuizHeight(el, before) {
@@ -5087,7 +5319,7 @@ function pillRules(card) {
   const pages = u => (isEpub() ? (u.from === u.to ? chapterPlace(u.from) : `from ${chapterPlace(u.from)} to ${chapterPlace(u.to)}`) : u.from === u.to ? `page ${pageLabel(u.from)}` : `pages ${pageLabel(u.from)}–${pageLabel(u.to)}`);
   const head = `You are Tinct's reading companion. ${bookLine()}`;
   // The reader's words for the text: what it is or its title, never our word "unit" (Anders, 20 Oct 2026).
-  const form = `Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. ${isEpub() ? 'Ground it in the book and cite no pages; say nothing that is not in it.' : 'Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.'} ${NAME_THE_TEXT}`;
+  const form = `Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. ${isEpub() && !isPdfText() ? 'Ground it in the book and cite no pages; say nothing that is not in it.' : 'Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.'} ${NAME_THE_TEXT}`;
   if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
   const before = catchRange(unit);
   return unit.from > 1
