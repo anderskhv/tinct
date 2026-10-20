@@ -53,7 +53,12 @@ export interface FunnelDeps {
 
 export const FUNNEL_FLUSH_MS = 4000
 export const FUNNEL_BATCH = 10
-export const FUNNEL_HEARTBEAT_MS = 30_000
+/**
+ * Visible time is reported this often while the page stays visible, and in
+ * full on hide and pagehide, so the summed duration is the same whatever the
+ * interval. Every report is an analytics_events row: keep it rare.
+ */
+export const FUNNEL_HEARTBEAT_MS = 5 * 60_000
 
 export function createFunnel(deps: FunnelDeps, surface: 'library' | 'reader' | 'sign-in' = 'reader') {
   let queue: Array<{ name: Wire; props: Record<string, string | number | boolean> }> = []
