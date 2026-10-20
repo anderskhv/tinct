@@ -9,7 +9,15 @@ import { drainReadingMemoryQueue, type ReadingMemoryCloud, type ReadingMemoryQue
 import { createReadingMemoryRecorder, detectCompletionSignal, type ReadingMemoryRecorder } from './recorder'
 import { wordCount } from './textRange'
 
-const CLOUD_DRAIN_DEBOUNCE_MS = 1_500
+/**
+ * The device mirror is written on every page turn; the account's cloud copy
+ * (one versioned `user_data` row, fanned out to per-session rows by a
+ * trigger) goes up at most once in this window. Leaving the page (hidden or
+ * pagehide), coming back online and sign-in still send it at once. Nothing is
+ * lost in between: every write waits in the persisted device queue, and the
+ * library recap drains that same queue before it reads the cloud copy.
+ */
+export const CLOUD_DRAIN_MIN_INTERVAL_MS = 5 * 60_000
 
 /**
  * Side-effect-free observer of the lab reader. It only READS existing reader
@@ -48,20 +56,36 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
   const cloudForRef = useRef(input.cloudFor ?? createSupabaseReadingMemoryCloud)
   cloudForRef.current = input.cloudFor ?? createSupabaseReadingMemoryCloud
   const drainTimerRef = useRef<number | null>(null)
+  /** When the last drain started; null until the first one. */
+  const lastDrainAtRef = useRef<number | null>(null)
+  const drainingRef = useRef(false)
+  /** A flush (hide, online, sign-in) asked for while a drain was in flight. */
+  const flushAgainRef = useRef(false)
 
   const scheduleDrain = (immediate = false) => {
     const uid = userIdRef.current
     if (!uid || typeof window === 'undefined') return
     const run = () => {
-      drainTimerRef.current = null
+      if (drainTimerRef.current !== null) { window.clearTimeout(drainTimerRef.current); drainTimerRef.current = null }
+      if (drainingRef.current) { if (immediate) flushAgainRef.current = true; return }
       const cloud = cloudForRef.current(uid)
       const queue = queueRef.current
-      if (!cloud || !queue) return
-      void drainReadingMemoryQueue(queue, cloud).catch(() => {})
+      // Nothing queued since the last cloud write: no read, no write.
+      if (!cloud || !queue || queue.pending().length === 0) return
+      lastDrainAtRef.current = Date.now()
+      drainingRef.current = true
+      void drainReadingMemoryQueue(queue, cloud).catch(() => {}).finally(() => {
+        drainingRef.current = false
+        const again = flushAgainRef.current
+        flushAgainRef.current = false
+        if (queueRef.current && queueRef.current.pending().length > 0) scheduleDrain(again)
+      })
     }
-    if (drainTimerRef.current !== null) window.clearTimeout(drainTimerRef.current)
-    if (immediate) run()
-    else drainTimerRef.current = window.setTimeout(run, CLOUD_DRAIN_DEBOUNCE_MS)
+    if (immediate) { run(); return }
+    // Throttle, not debounce: steady page turns must not postpone it forever.
+    if (drainTimerRef.current !== null) return
+    const wait = lastDrainAtRef.current === null ? 0 : Math.max(0, lastDrainAtRef.current + CLOUD_DRAIN_MIN_INTERVAL_MS - Date.now())
+    drainTimerRef.current = window.setTimeout(run, wait)
   }
 
   if (!recorderRef.current) {
@@ -138,6 +162,8 @@ export function useLabReadingMemory(input: LabReadingMemoryInput): void {
       window.removeEventListener('pagehide', onHide)
       window.removeEventListener('online', onOnline)
       recorderRef.current?.end()
+      // Leaving the reader sends what waits instead of leaving it for later.
+      scheduleDrain(true)
       if (drainTimerRef.current !== null) window.clearTimeout(drainTimerRef.current)
     }
     // Listeners read refs; they do not need to re-bind per render.
