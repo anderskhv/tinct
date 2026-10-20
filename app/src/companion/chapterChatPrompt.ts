@@ -27,7 +27,7 @@ other: anything else.
 Then write the orientation for that kind, as JSON only:
 {"kind":"textbook","gist":"…","sections":[{"title":"What you’ll learn","items":[{"text":"…","cite":"{p. 12}"}]},{"title":"Terms","items":[{"term":"…","meaning":"…"}]}],"map":[{"title":"…","pages":"pp. 9–10"}]}
 kind: paper, textbook, narrative, practical or other.
-gist: always first. Two sentences, at most 45 words, on what the chapter sets out to do and why it matters for what follows. No sales language.
+gist: always first. Two sentences, at most 45 words, on what the chapter sets out to do and why it matters for what follows. No sales language. Start straight with its content, or name it by what it is ("This chapter", "This essay", "This section", "The paper") or by its title; never call it a "unit".
 sections: the kind's sections, with exactly these titles, in this order:
 paper: "Key claims", three to five of the chapter's central claims, results or turns; "Keep in mind", one to three cautions a careful teacher would give: conventions that change later, assumptions, contested or dated material, notation traps. Do not repeat the claims.
 textbook: "What you’ll learn", three to five things the reader will be able to explain or do after the chapter; "Ideas to hold onto", two to four central ideas the rest of the chapter builds on; "Terms", three to eight of the chapter's own key terms, each as {"term":"…","meaning":"…"}, the meaning one line, as the chapter defines it.
@@ -50,7 +50,11 @@ export interface PrimerChapterAction {
   unitKey: string
   /** The unit's printed title, or the file's title for the whole file. */
   unitTitle: string
+  /** What it is, so the primer names it naturally ("This chapter…"; Anders, 20 Oct 2026: never "the unit"). */
+  unitKind?: PrimerUnitKind
 }
+export const PRIMER_UNIT_KINDS = ['book', 'document', 'chapter', 'section', 'essay', 'paper', 'pages'] as const
+export type PrimerUnitKind = typeof PRIMER_UNIT_KINDS[number]
 
 /**
  * Only immutable chapter identity is stored; source payloads/instructions stay out of history.
@@ -66,7 +70,8 @@ export function parseChapterChatAction(raw: unknown, bookId: string | null): Cha
     if (p.kind !== 'primer' || typeof p.unitKey !== 'string' || !PRIMER_UNIT_KEY_RE.test(p.unitKey)
       || typeof p.unitTitle !== 'string') return undefined
     const unitTitle = p.unitTitle.trim().slice(0, 300)
-    return unitTitle ? { kind: 'primer', unitKey: p.unitKey, unitTitle } : undefined
+    const unitKind = (PRIMER_UNIT_KINDS as readonly string[]).includes(p.unitKind as string) ? p.unitKind as PrimerUnitKind : undefined
+    return unitTitle ? { kind: 'primer', unitKey: p.unitKey, unitTitle, ...(unitKind ? { unitKind } : {}) } : undefined
   }
   const x = raw as ChapterChatAction
   if ((x.kind !== 'discuss' && x.kind !== 'prepare' && x.kind !== 'preview') || x.bookId !== bookId

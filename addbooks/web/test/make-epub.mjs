@@ -237,3 +237,77 @@ export function makeCommercialEpub({ title = 'Quiet Experiments', epub2 = false 
   ];
   return zip(files);
 }
+
+// A cover picture as some publishers ship it (synthetic): a navy ground with a pale panel, and a pure black strip
+// down its left side `strip` of its width (the bleed of a print cover, Anders's "Bold Conjectures", 20 Oct 2026).
+export function stripCover(width = 600, height = 900, strip = 0.08) {
+  const row = width * 3 + 1, raw = Buffer.alloc(row * height), cut = Math.round(width * strip);
+  for (let y = 0; y < height; y++) {
+    raw[y * row] = 0;
+    for (let x = 0; x < width; x++) {
+      const o = y * row + 1 + x * 3, panel = x > width * 0.2 && x < width * 0.9 && y > height * 0.35 && y < height * 0.55;
+      const c = x < cut ? [0, 0, 0] : panel ? [236, 226, 160] : [16 + ((x * 7 + y * 3) % 9), 40 + ((x + y) % 7), 78 + ((x * 3 + y) % 11)];
+      raw[o] = c[0]; raw[o + 1] = c[1]; raw[o + 2] = c[2];
+    }
+  }
+  const chunk = (type, data) => {
+    const head = Buffer.alloc(8); head.writeUInt32BE(data.length, 0); head.write(type, 4, 'ascii');
+    const crc = Buffer.alloc(4); crc.writeUInt32BE(crc32(Buffer.concat([Buffer.from(type, 'ascii'), data])) >>> 0, 0);
+    return Buffer.concat([head, data, crc]);
+  };
+  const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(width, 0); ihdr.writeUInt32BE(height, 4); ihdr[8] = 8; ihdr[9] = 2;
+  return Buffer.concat([Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]), chunk('IHDR', ihdr), chunk('IDAT', deflateSync(raw)), chunk('IEND', Buffer.alloc(0))]);
+}
+
+// An essay collection shaped like Anders's "Bold Conjectures, Volume II" (20 Oct 2026; invented text, no book's words):
+// a cover (an SVG wrapper round a picture with a black strip), a half title and a title page set in small caps by the
+// book's own stylesheet (one typed in capitals and set in all-small-caps), a copyright page with a logo, a dedication,
+// a supporters page, the book's own contents page (the nav document, in the spine, mostly links, with author lines),
+// a preface, then essays each with its author line, a section heading, small caps in the text and a note link.
+// EPUB 3 nav with landmarks (toc, bodymatter at the first essay) and an EPUB 2 guide.
+export function makeEssayEpub({ title = 'Lamplit Conjectures, Volume II', essays = 4 } = {}) {
+  const sentence = [
+    'Every theory of the evening begins with the lamp, because the lamp is the one thing in the room that explains itself while it explains everything else.',
+    'Yet the lamp does not merely describe a distinct, non-overlapping domain: the room and the light are a single, unified whole, and it is unsurprising that the two accounts of them overlap.',
+    'What, exactly, stands in the way of a single account? Why do the wick and the shade fail to work together naturally, and why has the question outlived so many careful attempts?',
+    'To understand this we must first study both accounts and see what each tells us about the room, and then ask what would have to change for them to agree.',
+  ];
+  const para = (n, k = 0) => `<p class="calibre6">${sentence[(n + k) % 4]} ${sentence[(n + k + 1) % 4]} ${sentence[(n + k + 2) % 4]}</p>`;
+  const paras = (from, count) => Array.from({ length: count }, (_, i) => para(from + i)).join('');
+  const names = ['The Fate of Lamplight', 'Controversial Candles', 'Can the Wick Be Tested?', 'Another Triumph of the Shade', 'The Patient Moth', 'Wax as Information'];
+  const authors = ['Ada Example', 'Ben Placeholder', 'Cleo Sample', 'Dov Instance', 'Eli Fixture', 'Fay Mock'];
+  const x = (body, type = '') => `<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>x</title><link rel="stylesheet" type="text/css" href="../Styles/book.css"/><style>.calibre9{font-variant:small-caps}</style></head><body${type ? ` epub:type="${type}"` : ''}>${body}</body></html>`;
+  const essayDocs = Array.from({ length: essays }, (_, i) => [`e${i + 1}`, `Text/essay${i + 1}.xhtml`,
+    `<section epub:type="chapter"><h1 class="calibre4">${i + 1} ${names[i]}</h1><p class="calibre7">${authors[i]}</p>${paras(i * 3, 3)}<p class="calibre6">As <span class="calibre9">Ada Lovelamp</span> observed, the <span class="calibre8">ncr</span> of a flame is its own best witness.<a href="notes.xhtml#n${i + 1}" id="r${i + 1}"><sup>${i + 1}</sup></a></p><h2 class="calibre5">The Shade</h2>${paras(i * 3 + 1, 4)}<blockquote class="calibre10"><p class="calibre6">${sentence[i % 4]}</p></blockquote>${paras(i * 3 + 2, 4)}</section>`]);
+  const docs = [
+    ['cover', 'Text/cover.xhtml', '<div class="calibre1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" height="100%" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid meet"><image width="600" height="900" xlink:href="../Images/cover.png"/></svg></div>', 'cover'],
+    ['halftitle', 'Text/halftitle.xhtml', '<p class="calibre2">Lamplit Conjectures</p>', 'halftitlepage'],
+    ['title', 'Text/title.xhtml', '<p class="calibre3">LAMPLIT CONJECTURES</p><p class="calibre3">VOLUME II</p><p class="calibre6">Essays Across the Evening</p><p class="calibre6">Edited by Gale Editor</p><p class="calibre6">Conjecture Lamp Press</p>', 'titlepage'],
+    ['copyright', 'Text/copyright.xhtml', '<div class="calibre1"><img src="../Images/logo.png" alt="Lamp Institute"/></div><p class="calibre2">Copyright © 2026 Lamp Institute</p><p class="calibre6">All rights reserved.</p><p class="calibre2">First Edition</p><p class="calibre6">Digital ISBN: 000-0-0000000-0-0</p>', 'copyright-page'],
+    ['dedication', 'Text/dedication.xhtml', '<p class="calibre6">Dedicated to the Moth and the Wick,<br/>who kept the evening going.</p>', 'dedication'],
+    ['supporters', 'Text/supporters.xhtml', '<p class="calibre6">Major support for this volume<br/>was provided by the Lantern Fund.</p><p class="calibre6">Additional support by Several Kind Patrons.</p>', ''],
+    ['nav', 'Text/nav.xhtml', null, ''],
+    ['preface', 'Text/preface.xhtml', `<section epub:type="preface"><h1 class="calibre4">Preface</h1>${paras(0, 4)}</section>`, ''],
+    ...essayDocs.map(([id, path, body]) => [id, path, body, '']),
+    ['notes', 'Text/notes.xhtml', `<section epub:type="endnotes"><h1 class="calibre4">Notes</h1>${essayDocs.map((_, i) => `<p class="calibre6" id="n${i + 1}"><a href="essay${i + 1}.xhtml#r${i + 1}">${i + 1}</a> A note on the flame, in a smaller voice.</p>`).join('')}</section>`, ''],
+  ];
+  const tocItems = [['preface.xhtml', 'Preface'], ...essayDocs.map(([, path], i) => [path.slice('Text/'.length), `${i + 1} ${names[i]}`, authors[i]]), ['notes.xhtml', 'Notes']];
+  const nav = `<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title>Contents</title><link rel="stylesheet" type="text/css" href="../Styles/book.css"/></head><body><nav epub:type="toc" id="toc"><h1 class="calibre4">Contents</h1><ol class="calibre11">${tocItems.map(([href, label, by]) => `<li><a href="${href}">${label}</a>${by ? `<p class="calibre7">${by}</p>` : ''}</li>`).join('')}</ol></nav><nav epub:type="landmarks" hidden=""><ol><li><a epub:type="cover" href="cover.xhtml">Cover</a></li><li><a epub:type="toc" href="nav.xhtml">Contents</a></li><li><a epub:type="bodymatter" href="essay1.xhtml">Start</a></li></ol></nav></body></html>`;
+  const css = '.calibre2{font-variant:small-caps;text-align:center}.calibre3{font-variant-caps:all-small-caps;text-align:center;letter-spacing:.1em}.calibre4{font-size:1.6em;text-align:left}.calibre6{text-align:justify}.calibre7{font-style:italic;text-align:left}.calibre8{text-transform:uppercase;font-variant:small-caps}.calibre1{text-align:center}.calibre10{margin:1em 2em}';
+  const manifest = [
+    '<item id="css" href="Styles/book.css" media-type="text/css"/>',
+    ...docs.map(([id, path]) => `<item id="${id}" href="${path}" media-type="application/xhtml+xml"${id === 'nav' ? ' properties="nav"' : id === 'cover' ? ' properties="svg"' : ''}/>`),
+    '<item id="img-cover" href="Images/cover.png" media-type="image/png" properties="cover-image"/>',
+    '<item id="img-logo" href="Images/logo.png" media-type="image/png"/>',
+  ].join('');
+  const opf = `<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">lamplit-conjectures-2</dc:identifier><dc:title>${title}</dc:title><dc:creator>Gale Editor</dc:creator><dc:language>en</dc:language></metadata><manifest>${manifest}</manifest><spine>${docs.map(([id]) => `<itemref idref="${id}"/>`).join('')}</spine><guide><reference type="cover" href="Text/cover.xhtml" title="Cover"/><reference type="toc" href="Text/nav.xhtml" title="Contents"/><reference type="text" href="Text/essay1.xhtml" title="Start"/></guide></package>`;
+  return zip([
+    ['mimetype', 'application/epub+zip'],
+    ['META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'],
+    ['OEBPS/content.opf', opf],
+    ['OEBPS/Styles/book.css', css],
+    ...docs.map(([id, path, body, type]) => [`OEBPS/${path}`, id === 'nav' ? nav : x(body, type), { deflate: true }]),
+    ['OEBPS/Images/cover.png', stripCover()],
+    ['OEBPS/Images/logo.png', png(240, 220, [235, 235, 235])],
+  ]);
+}

@@ -14,6 +14,7 @@ type Engine = {
   rightsConfirmed(): boolean; confirmRights(): void
   readFile(file: File): Promise<{ kind?: string; key?: string; bytes?: Uint8Array; error?: string }>
   removeBook(key: string, options?: { notify?: (text: string) => void }): Promise<boolean>
+  forgetBookHere(hex: string, storages?: Storage[]): number
   preparePdf(file: File, key: string): Promise<{ href: string }>
   pdfHref(key: string): string
   library: { get(key: string): Promise<unknown>; remove(key: string): Promise<void>; touch(key: string, patch: object): Promise<void> }
@@ -29,6 +30,22 @@ function loadEngine(session: { userId: string | null; token?: string | null }, b
 describe('Add a book’s engine (add-engine.js)', () => {
   beforeEach(() => localStorage.clear())
   afterEach(() => { delete win.TinctAddEngine; delete win.TinctAI })
+
+  it('deleting a book forgets every key this device keeps for it, and no other book\'s (20 Oct 2026: the privacy notice says they go)', async () => {
+    const engine = loadEngine({ userId: 'u1' })
+    const hex = 'a1b2c3d4e5f60718293a4b5c', other = 'ffffffffffffffffffffffff'
+    for (const k of [`pos:epub:${hex}`, `hl:epub:${hex}`, `cards:epub:${hex}`, `chat:epub:${hex}`, `primer:epub:${hex}:outline-1`, `catchup:epub:${hex}:1-3`, `epub-view:${hex}`, `place:${hex}`, `pos:epub:${other}`]) localStorage.setItem('tinct-addbook:' + k, '1')
+    localStorage.setItem('tinct:library-2-table:u1', JSON.stringify([{ key: 'epub:' + hex }]))
+    localStorage.setItem('tinct:library-2-first-paint', 'other books only')
+    sessionStorage.setItem('tinct-addbook:pos:epub:' + hex, '1')
+    await engine.removeBook('epub:' + hex)
+    const keys = [...Object.keys(localStorage), ...Object.keys(sessionStorage)]
+    expect(keys.filter(k => k.includes(hex))).toEqual([])
+    expect(localStorage.getItem('tinct:library-2-table:u1')).toBeNull()
+    expect(localStorage.getItem('tinct-addbook:pos:epub:' + other)).toBe('1')
+    expect(localStorage.getItem('tinct:library-2-first-paint')).toBe('other books only')
+    expect(engine.forgetBookHere('not-a-book')).toBe(0)
+  })
 
   it('reads a PDF or EPUB with its key (kind + the first 24 hex digits of its SHA-256) and refuses anything else, as Add a book did', async () => {
     const engine = loadEngine({ userId: 'u1' })

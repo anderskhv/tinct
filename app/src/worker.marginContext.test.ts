@@ -114,12 +114,13 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
       simplify: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       define: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       define_sense: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 400, thinking: { type: 'disabled' } },
-      quiz_check: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 500, thinking: { type: 'disabled' } },
+      // Quiz me on Sonnet with adaptive thinking (Anders, 20 Oct 2026; the Haiku speed trial QUIZ_THINKING_OFF is off).
+      quiz_check: { model: 'claude-sonnet-5-5', effort: 'low', maxTokens: 3000 },
       related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 8000 },
       // Counterpoint's thinking-off trial is off again (night run final, 16 Oct: 3.80 -> 3.26, an empty answer cut off).
       counterpoint: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
-      quiz: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000, thinking: { type: 'disabled' } },
+      quiz: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       primer: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       ask: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 1800 },
     })
@@ -153,7 +154,7 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     expect(anthropic[0].output_config).toEqual({ effort: route.effort })
     expect(anthropic[0].max_tokens).toBe(route.maxTokens)
     // Haiku's lookups: thinking off. Quiz me (its trial, on): off too. Counterpoint (its trial off again), Fact-check and Sonnet's primer and Ask: no thinking field.
-    if (['explain', 'define', 'simplify', 'define_sense', 'quiz_check', 'quiz'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
+    if (['explain', 'define', 'simplify', 'define_sense'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
     expect(JSON.stringify(anthropic[0])).not.toContain('budget_tokens')
   })
@@ -224,7 +225,7 @@ describe('the cached prefix', () => {
 
   it('sends byte-identical bytes up to the breakpoint for different intents and selections on the same file and model', async () => {
     const { anthropic } = stubFetch()
-    // Haiku 5.5: Explain on page 1, then Define-sense on page 3 and Simplify on page 2.
+    // Haiku 5.5: Explain on page 1, then Define-sense on page 3 and Simplify on page 2; then a quiz answer marked (Sonnet).
     await send(margin('explain', 1, { selection: 'dispensing with recurrence and convolutions entirely' }))
     await send(margin('define_sense', 3, { selection: 'intra-attention', senses: ['One.', 'Two.'] }))
     await send(margin('simplify', 2, { selection: 'Recurrent neural networks have been firmly established' }))
@@ -237,7 +238,9 @@ describe('the cached prefix', () => {
     expect(ask.model).toBe(MARGIN_SONNET_MODEL)
     expect(prefixBytes(defineSense)).toBe(prefixBytes(explain))
     expect(prefixBytes(simplify)).toBe(prefixBytes(explain))
-    expect(prefixBytes(quizCheck)).toBe(prefixBytes(explain))
+    // Marking a quiz answer is on Sonnet since 20 Oct 2026: it shares Ask's and the primer's cached prefix.
+    expect(prefixBytes(quizCheck)).toBe(prefixBytes(ask))
+    expect(quizCheck.model).toBe(MARGIN_SONNET_MODEL)
     expect(prefixBytes(primer)).toBe(prefixBytes(ask))
     // The same document text either way; only the model (each keeps its own cache) differs.
     expect((ask.system as SystemBlock[])[0].text).toBe((explain.system as SystemBlock[])[0].text)

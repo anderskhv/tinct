@@ -155,10 +155,12 @@
     if (o.selection != null) companion.selection = String(o.selection).slice(0, intent === 'define_sense' ? 200 : 6000);
     if (intent === 'define_sense') companion.senses = (o.senses || []).slice(0, 3).map(s => String(s).slice(0, 500));
     // Before you start (PROMPTS.md, chapter action `primer`): the unit's pages as context, its key and title as the action.
-    if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300) } };
+    if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300), ...(o.chapter.action.unitKind ? { unitKind: String(o.chapter.action.unitKind) } : {}) } };
     // Made ahead of the reader opening it (reader.js primerPrefetch): never charged to the reader's allowance.
     if (companion.chapter && o.speculative) companion.speculative = true;
-    if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000) };
+    if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000), ...(o.quiz.thesis ? { thesis: String(o.quiz.thesis).slice(0, 300) } : {}), ...(Array.isArray(o.quiz.ideas) && o.quiz.ideas.length ? { ideas: o.quiz.ideas.slice(0, 8).map(i => String(i).slice(0, 200)) } : {}), ...(o.quiz.idea ? { idea: String(o.quiz.idea).slice(0, 300) } : {}), ...(o.quiz.passage ? { passage: String(o.quiz.passage).slice(0, 4000) } : {}) };
+    // "Try new questions": the questions asked before on this text, each with its key idea and whether it was missed (Anders, 20 Oct 2026).
+    if (intent === 'quiz' && Array.isArray(o.asked) && o.asked.length) companion.asked = o.asked.slice(-24).map(a => ({ q: String(a.q || '').slice(0, 300), ...(a.idea ? { idea: String(a.idea).slice(0, 300) } : {}), ...(a.missed ? { missed: true } : {}) }));
     // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
     return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
   }
