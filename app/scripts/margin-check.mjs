@@ -4974,7 +4974,8 @@ async function epubUnitsCheck(browser, origin) {
   const book = await e.evaluate(() => { const m = document.querySelector('.mr-doc .mr-unit.is-book'), pg = state.pages[0].pg.getBoundingClientRect(); return m && { k: m.querySelector('.mr-unit__k').textContent, name: m.querySelector('.mr-unit__n').textContent, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()), top: Math.round(m.getBoundingClientRect().top - pg.top) } })
   ok('3. a whole-book "Before you start" at the very top, its Primer alone', book && book.k === 'Before you start' && book.name === 'Lamplit Conjectures, Volume II' && book.pills.join('|') === '✧Primer' && Math.abs(book.top) <= 12, book)
   const r0 = account.requests.length
-  await e.click('.mr-doc .mr-unit.is-book [data-pill="primer"]'); await e.waitForTimeout(1600)
+  await e.click('.mr-doc .mr-unit.is-book [data-pill="primer"]')
+  await e.waitForFunction(() => /MOCK gist/.test(document.querySelector('.mr-doc .mr-primer')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
   const req = account.requests.slice(r0).find(r => r.body?.companion?.chapter?.action?.kind === 'primer')
   const shown = await e.evaluate(() => { const p = document.querySelector('.mr-doc .mr-primer'); return p && { text: p.innerText.slice(0, 200), unit: primer.unit?.key } })
   ok('3. its Primer opens Before you start for the whole book: the request is the book\'s, every chapter of it, as chapters', !!req && req.body.companion.chapter.action.unitKey === 'book' && req.body.companion.context.kind === 'epub' && req.body.companion.context.pages.length >= 12 && shown?.unit === 'book' && /MOCK gist/.test(shown.text), { req: req && { unit: req.body.companion.chapter.action, pages: req.body.companion.context.pages.length }, shown })
