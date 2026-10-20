@@ -4,6 +4,7 @@
 // the real element when iOS pauses it, an interruption (a message ping) must
 // resume by itself, and the lock-screen controls must act on the element
 // synchronously.
+import { clipUrlOfSource } from './narrationClipBuffer'
 import { useEffect, useRef, useState } from 'react'
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
@@ -154,7 +155,9 @@ it('crosses a chapter boundary on a hidden page by starting the next chapter on 
   act(() => { audio.finish() })
   // Synchronously, inside `ended`: same element, next chapter's first recording.
   expect(audio.play.mock.calls.length).toBe(playsBefore + 1)
-  expect(audio.playLog[audio.playLog.length - 1]).toContain('ezra-411-0')
+  expect(clipUrlOfSource(audio.playLog[audio.playLog.length - 1])).toContain('ezra-411-0')
+  // Downloaded before the chapter ended: the opening plays from memory, with no request at the boundary.
+  expect(audio.playLog[audio.playLog.length - 1]).toMatch(/^blob:/)
   expect(h.result.current.chapter).toBe(410)
 
   // The page is still loading chapter 411 while the bridge plays.
@@ -168,7 +171,7 @@ it('crosses a chapter boundary on a hidden page by starting the next chapter on 
   await waitFor(() => expect(h.result.current.player.pending).toBe(false))
   await waitFor(() => expect(h.result.current.player.follow.kind).toBe('word'))
   // Adopted where it is, not restarted: no pause, no rewind, no second request.
-  expect(audio.src).toContain('ezra-411-0')
+  expect(clipUrlOfSource(audio.src)).toContain('ezra-411-0')
   expect(audio.currentTime).toBe(3)
   expect(audio.pause.mock.calls.length).toBe(pausesBefore)
   expect(ensure).not.toHaveBeenCalled()
