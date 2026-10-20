@@ -233,11 +233,23 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
       expect(m.parseQuiz('Here is your quiz:\n' + JSON.stringify(quiz) + '\nGood luck {p. 1}!')).toEqual(quiz)
     })
 
-    it('tolerates one to three valid questions and drops broken ones', () => {
+    it('tolerates one to eight valid questions (one per key idea) and drops broken ones', () => {
       const one = m.parseQuiz(JSON.stringify({ questions: [{ q: 'Q?', answer: 'A.' }, { q: '', answer: 'x' }, { q: 'No answer' }, 'junk', null] }))
       expect(one).toEqual({ questions: [{ q: 'Q?', answer: 'A.', why: '', cite: '' }] })
+      // Anders, 20 Oct 2026: the count follows the text's key ideas, at most eight.
       const five = m.parseQuiz(JSON.stringify({ questions: Array.from({ length: 5 }, (_, i) => ({ q: `Q${i}`, answer: `A${i}` })) }))
-      expect(five!.questions.map(item => item.q)).toEqual(['Q0', 'Q1', 'Q2'])
+      expect(five!.questions.map(item => item.q)).toEqual(['Q0', 'Q1', 'Q2', 'Q3', 'Q4'])
+      const ten = m.parseQuiz(JSON.stringify({ questions: Array.from({ length: 10 }, (_, i) => ({ q: `Q${i}`, answer: `A${i}` })) }))
+      expect(ten!.questions).toHaveLength(m.QUIZ_MAX_QUESTIONS)
+      expect(m.QUIZ_MAX_QUESTIONS).toBe(8)
+    })
+
+    it('keeps the key ideas first and each question\'s idea (by index)', () => {
+      const text = JSON.stringify({ ideas: ['Light needs a source', 'Shades redirect it'], questions: [{ idea: 0, q: 'Why does a room need a source?', answer: 'x' }, { idea: 1, q: 'How does a shade change the room?', answer: 'y' }, { idea: 'z', q: 'Odd?', answer: 'w' }] })
+      expect(m.parseQuiz(text)).toEqual({ ideas: ['Light needs a source', 'Shades redirect it'], questions: [{ q: 'Why does a room need a source?', answer: 'x', why: '', cite: '', idea: 0 }, { q: 'How does a shade change the room?', answer: 'y', why: '', cite: '', idea: 1 }, { q: 'Odd?', answer: 'w', why: '', cite: '' }] })
+      expect(m.parseQuizIdeas(text.slice(0, text.indexOf('"questions"')))).toEqual(['Light needs a source', 'Shades redirect it'])
+      expect(m.parseQuizIdeas('{"ideas":["Light ] needs", "Sha')).toBeNull()
+      expect(m.parseQuizPartial(text).map(item => item.idea)).toEqual([0, 1, undefined])
     })
 
     it('keeps a cite only when it is one citation token', () => {
@@ -265,7 +277,7 @@ describe.each(copies)('margin parsers (%s)', (_name, m) => {
       expect(m.parseQuizCheck('```json\n{"verdict":"nearly","feedback":"Say why."}\n```')).toEqual({ verdict: 'nearly', feedback: 'Say why.' })
       expect(m.parseQuizCheck('Mark: {"verdict":"Not yet","feedback":"Reread the second step."}')).toEqual({ verdict: 'not_yet', feedback: 'Reread the second step.' })
       expect(m.parseQuizCheck('{"verdict":"not-yet"}')).toEqual({ verdict: 'not_yet', feedback: '' })
-      expect(m.QUIZ_VERDICT_LINE).toEqual({ right: 'Right.', nearly: 'Nearly.', not_yet: 'Not yet.' })
+      expect(m.QUIZ_VERDICT_LINE).toEqual({ right: 'Right.', nearly: 'Nearly.', not_yet: 'Not quite.' })
     })
 
     it('refuses an unknown mark or no JSON', () => {

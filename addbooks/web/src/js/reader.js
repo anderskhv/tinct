@@ -104,7 +104,8 @@ const saveToAccount = async (key, file, meta, options = {}) => {
   await engine.saveToAccount(key, file, meta, { notify: toast, ...options });
   if (engine.cloud?.get(key)) dispatchEvent(new CustomEvent('tinct-book-saved', { detail: { key } }));
 };
-const removeBook = key => engine.removeBook(key, { notify: toast });
+// Deleting the book that is open closes it first, so nothing of it is written again after its keys are gone (engine.forgetBookHere).
+const removeBook = async key => { if (state.key === key) await closeBook({ toShelf: true }); return engine.removeBook(key, { notify: toast }) };
 // Opening your own file needs a Tinct account (searching free books does not). The
 // rights confirmation (add-engine.js) is asked once per account, before its first file opens.
 function needsAccount() {
@@ -337,9 +338,16 @@ async function openEpub(bytes, name, key, rec = null) {
   document.title = `${state.title} · Tinct`;
   $('column').innerHTML = '';
   applyEpubScale();
+  // Tinct paper on the desktop (Anders, 20 Oct 2026): an EPUB reads on the theme's own paper, one continuous page, the
+  // margin column beside it, as the preview's Tinct books do; sheets are for a PDF's pages.
+  applyPaper();
   for (const c of book.chapters) {
     const sheet = document.createElement('section');
-    sheet.className = 'epub-sheet'; sheet.dataset.page = c.index + 1;
+    // The book's own contents page is hidden (Tinct's chapter menu does its job); front matter is set as one compact,
+    // centred block, the cover included (Anders, 20 Oct 2026). Each stays a chapter, so places and marks keep their numbers.
+    sheet.className = 'epub-sheet' + (c.role === 'toc' ? ' is-toc' : c.role === 'front' ? ' is-front' : c.role === 'cover' ? ' is-cover is-front' : '');
+    if (c.role === 'toc') sheet.setAttribute('aria-hidden', 'true');
+    sheet.dataset.page = c.index + 1;
     const pg = document.createElement('div'); pg.className = 'pg epub-pg'; pg.lang = book.language || 'en';
     pg.appendChild(c.node);
     sheet.appendChild(pg);
@@ -356,15 +364,40 @@ async function openEpub(bytes, name, key, rec = null) {
   if (epubMargin()) {
     warmDictionary();
     primerReset();
-    if (state.preview) previewUnits();
+    if (state.preview) previewUnits(); else epubOwnUnits(book);
     setTimeout(() => (window.requestIdleCallback || setTimeout)(() => { if (token === state.token) readDocument() }), 4000);
     marginStart();
   } else if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
   // The preview: the margin's first layout (reserveColumn's reflow) holds no spot while the place is being restored.
   if (state.preview) { epubHold.spot = null; epubHold.reflow++ }
-  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600) });
+  // Tinct paper's fonts (the text's and the headings' EB Garamond), waited for at most 1.5 s before the place is found:
+  // a heading font that came later moved the text under the restored place (as the preview does, tinct-book.js fontsSoon).
+  if (isPaper() && !state.preview && document.fonts?.load) {
+    const body = getComputedStyle(root).getPropertyValue('--tb-font').trim() || "'Literata', Georgia, serif";
+    await Promise.race([Promise.all([`400 19px ${body}`, `italic 400 19px ${body}`, "700 20px 'EB Garamond'", "600 20px 'EB Garamond'"].map(font => document.fonts.load(font, 'Aa').catch(() => null))), new Promise(r => setTimeout(r, 1500))]);
+    if (token !== state.token) return;
+  }
+  // A first open begins at the first section of the text (the Preface, not the title page; epub.js classify).
+  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else if (book.start > 0 && !state.preview) epubGoSpot(book.start + 1, 0, 0); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600) });
 }
 function applyEpubScale() { root.style.setProperty('--epub-scale', String(state.zoom)) }
+/**
+ * Tinct paper (an EPUB on the desktop, js/tinct-book.js for the preview's Tinct books): the book reader's desktop leaf for
+ * this reader and window (TinctReaderLayout.paper, the same formulas as the preview's), on the theme's paper. The
+ * preview's frame hands its own (tinct-book.js applyPaper); an own EPUB reads the stored preferences here.
+ */
+const isPaper = () => isEpub() && !isPhone();
+function applyPaper() {
+  root.classList.toggle('is-paper', isPaper());
+  if (!isPaper() || state.preview) return;
+  let p = null;
+  try { p = RL.paper(localStorage.getItem('tinct-lab-prefs'), innerWidth) } catch { p = null }
+  if (!p) return;
+  const set = (k, v) => root.style.setProperty(k, v);
+  set('--tb-font', p.fontFamily); set('--tb-size', p.fontSize + 'px'); set('--tb-head', String(p.headingSize / p.fontSize));
+  set('--tb-lh', String(p.lineHeight)); set('--tb-gap', p.paragraphGap + 'em'); set('--tb-align', p.align); set('--tb-measure', p.measure + 'px');
+}
+addEventListener('resize', () => { if (isEpub()) applyPaper() });
 // Links inside the book move within it.
 $('column').addEventListener('click', e => {
   const a = e.target.closest?.('a[data-chapter]'); if (!a) return;
@@ -456,7 +489,7 @@ async function openPdf(bytes, name, key, known = null) {
   const pagesAsked = new URLSearchParams(location.search).has('pages');
   Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
   if (token !== state.token) return;
-  root.classList.add('is-pdf'); root.classList.remove('is-epub');
+  root.classList.add('is-pdf'); root.classList.remove('is-epub', 'is-paper');
   root.style.removeProperty('--epub-scale');
   const first = (await pdf.getPage(1)).getViewport({ scale: 1 });
   state.base = { w: first.width, h: first.height };
@@ -862,7 +895,7 @@ function selectionShapes(range) {
   // A PDF's text layer: its body text only (bodyOfRange); anything else (an EPUB's text) as the range draws it.
   const at = n => (n.nodeType === 1 ? n : n.parentElement)?.closest?.('.text-layer');
   const inLayer = !!(at(range.startContainer) || at(range.endContainer));
-  let rects = (inLayer ? bodyOfRange(range).rects : [...range.getClientRects()]).filter(r => r.width > 0.5 && r.height > 0.5);
+  let rects = (inLayer ? bodyOfRange(range).rects : textRects(range)).filter(r => r.width > 0.5 && r.height > 0.5);
   const H = median(rects.map(r => r.height));
   rects = rects.filter(r => r.height < H * 4);
   const boxes = [];
@@ -898,6 +931,28 @@ document.addEventListener('dblclick', e => {
 
 /* ---------- Selection drawn as clean line bars; saved highlights ---------- */
 const median = a => { const b = [...a].sort((x, y) => x - y); return b[Math.floor(b.length / 2)] || 0 };
+/**
+ * A range's boxes of text only (Anders, 20 Oct 2026, EPUB highlights): Range.getClientRects() also gives the border box
+ * of every element the range holds whole (a paragraph, a heading), a full-width box whose foot lies on the last line, so
+ * the passage mark struck through that line and ran past its last word, and merged lines lost their own marks. Here
+ * each text node's own part of the range, line by line.
+ */
+function textRects(range) {
+  if (!range) return [];
+  const root = range.commonAncestorContainer, out = [];
+  if (root.nodeType === 3) return [...range.getClientRects()];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  for (let node; (node = walker.nextNode());) {
+    if (!range.intersectsNode(node)) continue;
+    const r = document.createRange();
+    r.selectNodeContents(node);
+    if (node === range.startContainer) r.setStart(node, range.startOffset);
+    if (node === range.endContainer) r.setEnd(node, range.endOffset);
+    if (r.collapsed) continue;
+    for (const box of r.getClientRects()) out.push(box);
+  }
+  return out;
+}
 function lineBars(rects) {
   // Merge the per-word boxes of a selection into one bar per line (split at wide gaps). Each bar
   // takes its height from its own widest word, so labels at different heights stay on their words.
@@ -1164,7 +1219,7 @@ function epubHighlightAt(x, y) {
   const p = pageForPoint(x, y); if (!p) return null;
   for (const h of highlights().filter(h => h.page === p.n && h.start != null)) {
     const r = rangeFromOffsets(p.pg, h.start, h.end); if (!r) continue;
-    const rects = [...r.getClientRects()];
+    const rects = textRects(r);
     if (rects.some(q => x >= q.left && x <= q.right && y >= q.top && y <= q.bottom)) {
       const box = rects.reduce((a, q) => ({ left: Math.min(a.left, q.left), top: Math.min(a.top, q.top), right: Math.max(a.right, q.right), bottom: Math.max(a.bottom, q.bottom) }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
       return { id: h.id, text: h.text, page: h.page, box };
@@ -1206,6 +1261,8 @@ function readingPage(place = currentPlace()) {
 function goTo(place, smooth) {
   const p = state.pages[Math.max(1, Math.min(state.pages.length, place.page)) - 1];
   if (!p) return;
+  // A jump asked for (the contents, a citation, a card's passage) lets go of the place held while a card answers (holdPlace).
+  if (typeof releasePlace === 'function') releasePlace();
   const s = $('scroll'), r = p.sheet.getBoundingClientRect();
   const y = s.scrollTop + r.top - s.getBoundingClientRect().top + (place.frac || 0) * r.height - (place.frac ? 0 : 10);
   s.scrollTo({ top: y, behavior: smooth && !matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'auto' });
@@ -2329,7 +2386,7 @@ function openContents() {
   const tops = toc.entries.filter(e => !e.parent);
   // The wide column: the unit the reader is in, marked, with its Recap, Quiz me and Catch me up (as its marks offer them).
   const unit = marginMode() === 'column' && primerHasText() ? currentUnit() : null;
-  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Recap'], ['quiz', 'Quiz me'], ['catchup', 'Catch me up']].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
+  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Recap'], ['quiz', 'Quiz me'], ...(nothingBefore(unit) ? [] : [['catchup', 'Catch me up']])].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
   layer.innerHTML = `<button class="lc-scrim" aria-label="Close contents" tabindex="-1"></button>
     <div class="menu" role="dialog" aria-modal="true" aria-label="Contents">
       <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>${unitNow}
@@ -3145,6 +3202,7 @@ function mrSaveNote() {
 function mrSend() {
   const t = mr?.el?.querySelector('.mr-ask'); if (!t) return;
   const q = t.value.trim(); if (!q) return;
+  holdPlace();
   // A question from the bar is an Ask card on the passage (its thread continues in the card).
   cardAction('ask', { question: q });
 }
@@ -3525,7 +3583,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261019core').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=20261020epub').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null, pills: new Map() };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -3540,14 +3598,17 @@ const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubM
 const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));
 /** How the margin names the file and a place in it: pages for a PDF, chapters for an EPUB. */
 const docKind = () => (isEpub() ? 'epub' : 'pdf');
-// The preview names a chapter by its title, as its pill and contents do ("Chapter 1", "Letter 2"), never by its place in the file.
-const where = () => (isEpub() ? { unit: state.preview ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
-/** A card's place as its label shows it: the page label, an EPUB chapter's number, or the preview's chapter title. */
-const placeName = n => (state.preview && chapterTitle(n)) || pageLabel(n);
-const chapterTitle = n => toc.entries.find(e => e.page === n && e.kind === 'chapter')?.label || '';
+// An EPUB names a chapter by its title, exactly as its pill and contents do ("1 The Fate of Spacetime"; the preview's
+// "Chapter 1", "Letter 2"), never by its place in the file (Anders, 20 Oct 2026: "Quiz me · ch. 9" under the pill's
+// "1 The Fate of Spacetime"; round 1 of the preview did the same for Tinct books).
+const where = () => (isEpub() ? { unit: epubNamesChapters() ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
+const epubNamesChapters = () => isEpub() && toc.ready && toc.entries.length > 0;
+/** A card's place as its label shows it: the page label, or an EPUB's chapter title (its number when it has no contents). */
+const placeName = n => (isEpub() && chapterTitle(n)) || pageLabel(n);
+const chapterTitle = n => (state.preview ? toc.entries.find(e => e.page === n && e.kind === 'chapter')?.label : chapterAt(n)?.label) || '';
 const cardName = card => TinctMargin.html.cardLabel(card, placeName(card.page), where());
-/** An EPUB chapter as a place in prose ("ch. 3"; the preview's "Chapter 1"), for Copy quote and the Notebook. */
-const chapterPlace = n => (state.preview && chapterTitle(n)) || `ch. ${n}`;
+/** An EPUB chapter as a place in prose (its title, as the pill names it; "ch. 3" without one), for Copy quote and the Notebook. */
+const chapterPlace = n => chapterTitle(n) || `ch. ${n}`;
 const keptCards = () => store.get('cards:' + state.key) || [];
 // Cards made before this visit without their answer are not shown (TinctMargin.cardView); newer ones may still be answering.
 const CARDS_SINCE = Date.now();
@@ -3807,6 +3868,9 @@ function openingText(read, page) {
   return (sp > 1000 ? cut.slice(0, sp) : cut) + '…';
 }
 /** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. An EPUB has no page numbers: its places are quoted words. */
+// An EPUB (and the preview's Tinct book) has no pages: a page reference in an answer is left out, never shown as "p. 9"
+// (Anders, 20 Oct 2026; margin.js citeHtml reads `drop`). A PDF keeps its references.
+Object.defineProperty(citeResolve, 'drop', { get: () => isEpub() });
 function citeResolve(token) {
   if (isEpub()) return null;
   const texts = new Map([...state.texts.entries()].map(([n, v]) => [n, v.text]));
@@ -3855,7 +3919,7 @@ function goToPlace(page, { needle = '', quote = '' } = {}) {
     const range = rangeFromOffsets(p.pg, f.start, f.end);
     const r = range?.getBoundingClientRect(), b = p.pg.getBoundingClientRect();
     goTo({ page: f.page, frac: r && b.height ? Math.max(0, (r.top - b.top) / b.height - 0.04) : 0 }, true);
-    setTimeout(() => flashPlace(p, range ? [...range.getClientRects()] : []), 450);
+    setTimeout(() => flashPlace(p, range ? textRects(range) : []), 450);
     return;
   }
   goToCite(page, needle);
@@ -3980,7 +4044,7 @@ function epubRects(n, start, end) {
   const range = rangeFromOffsets(p.pg, start, end); if (!range) return null;
   const b = p.pg.getBoundingClientRect(); if (!b.width || !b.height) return null;
   const r = v => Math.round(v * 10000) / 10000;
-  const rects = lineBars([...range.getClientRects()]).map(bar => [n, r((bar.left - b.left) / b.width), r((bar.top - b.top) / b.height), r((bar.right - bar.left) / b.width), r((bar.bottom - bar.top) / b.height)]);
+  const rects = lineBars(textRects(range)).map(bar => [n, r((bar.left - b.left) / b.width), r((bar.top - b.top) / b.height), r((bar.right - bar.left) / b.width), r((bar.bottom - bar.top) / b.height)]);
   return rects.length ? rects : null;
 }
 function epubCardRects(card) {
@@ -4075,9 +4139,13 @@ function waitDots() { const t = document.createElement('template'); t.innerHTML 
  * the redraw (null when it was not drawn before). -> true when a question is held.
  */
 const holds = new Map();
-function holdThread(body, hold, kept) {
+function holdThread(body, hold, kept, live = true) {
   const row = hold && TC && body.querySelector(`[data-turn="${hold.turn}"]`);
   if (!row) return false;
+  // A body that does not scroll (the wide column's card grows in place), or an answer that has finished: no room is
+  // kept below it (Anders, 20 Oct 2026: after a follow-up the card grew to nearly full height, a large empty area
+  // between the answer and its field). The card is as tall as what it holds.
+  if (!live || getComputedStyle(body).overflowY === 'visible') { body.querySelector(':scope > .tc-spacer')?.remove(); return false }
   let space = body.querySelector(':scope > .tc-spacer');
   if (!space) { space = document.createElement('div'); space.className = 'tc-spacer'; space.setAttribute('aria-hidden', 'true'); body.append(space) }
   space.style.height = '0px';
@@ -4138,7 +4206,8 @@ function describeCard(el, card, open) {
 function keepThread(el, id, kept) {
   const body = el.querySelector('.mr-card__body'); if (!body) return;
   // The card's thread is laid out before it is measured (the column places the card after this).
-  if (!holdThread(body, holds.get(id), kept) && kept != null) body.scrollTop = kept;
+  // The space that holds a question near the top is kept only while its answer is on its way (col.live).
+  if (!holdThread(body, holds.get(id), kept, col.live.has(id) || col.pending.has(id)) && kept != null) body.scrollTop = Math.min(kept, body.scrollHeight - body.clientHeight);
 }
 /** A quiz answer whose marking failed goes back into the card's field (once). */
 function restoreDraft(f, id) {
@@ -4297,6 +4366,9 @@ function layoutColumn() {
   // before it keeps its tick at the heading, slanting to the mark (as a card's leader line). Units near the reader's
   // place are drawn (their pages are), and the unit of an open unit card.
   const units = primerHasText() ? markUnits() : [];
+  // The whole book's Before you start, at the very top of the first page (an EPUB of the reader's own): its own mark.
+  const bookUnit = primer.book && primerHasText() && placePage() <= Math.max(3, primer.units?.[0]?.start || 1) ? primer.book : null;
+  if (bookUnit) units.unshift(bookUnit);
   const seenMarks = new Set();
   if (!units.some(u => primer.open && primer.unit?.key === u.key)) { if (!primer.open) { primer.el?.remove(); primer.el = null } }
   for (const u of units) {
@@ -4311,10 +4383,10 @@ function layoutColumn() {
         drawPrimer(pe);
         items.push({ el: pe, ey, top: ey, order: -0.9 });
       }
-      const cu = unitCard(u, 'catchup');
+      const cu = u.key === BOOK_UNIT ? null : unitCard(u, 'catchup');
       if (cu) { const ce = take(cu.id); drawCard(ce, cu, col.open === cu.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -0.8 }) }
     }
-    const q = state.pages[at.end.page - 1], qr = q?.pg.getBoundingClientRect();
+    const q = state.pages[at.end.page - 1], qr = u.key === BOOK_UNIT ? null : q?.pg.getBoundingClientRect();
     if (qr) {
       const ey = Y(qr.top + at.end.y * qr.height), el = unitMark(u, 'end', doc); seenMarks.add(el);
       // Before the next unit's start mark when they meet.
@@ -4383,13 +4455,10 @@ function layoutColumn() {
     const el = col.els.get(col.reveal); col.reveal = null;
     if (el) { const r = el.getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect().bottom; if (r.top < Math.max(sr.top, hdr) || r.top > sr.bottom - 80) s.scrollBy({ top: r.top - (Math.max(sr.top, hdr) + 40) }) }
   }
-  // A follow-up just sent: brought into view on the page (the card grows below; the page is the one scroll).
-  const held = col.open && holds.get(col.open), el = held?.place && col.els.get(col.open), row = el && el.querySelector(`[data-turn="${held.turn}"]`);
-  if (row) {
-    held.place = false;
-    const r = row.getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect().bottom;
-    if (r.bottom > sr.bottom - 24 || r.top < Math.max(sr.top, hdr)) s.scrollBy({ top: r.top - (Math.max(sr.top, hdr) + (sr.bottom - Math.max(sr.top, hdr)) * 0.25) });
-  }
+  // A follow-up just sent: the page stays where the reader is (Anders, 20 Oct 2026: "the reading place must never
+  // move"); the card grows below its field, in place, and the reader scrolls to it when they wish (holdPlace).
+  const held = col.open && holds.get(col.open);
+  if (held?.place && col.els.get(col.open)?.querySelector(`[data-turn="${held.turn}"]`)) held.place = false;
 }
 /**
  * The open card's passage, marked on the page as the reader chooses in the Aa panel ("Passage mark", per device;
@@ -4672,7 +4741,7 @@ function drawWhole(el, { sheet = false } = {}) {
     // A question just sent is held near the top while its answer grows below (holdThread); otherwise the thread
     // opens at its end, and while an answer arrives it stays where the reader put it.
     const hold = chat.anchor != null ? { turn: chat.anchor, place: chat.placeAnchor } : null;
-    if (holdThread(b, hold, kept ? kept.top : null)) chat.placeAnchor = hold.place;
+    if (holdThread(b, hold, kept ? kept.top : null, !!chat.live)) chat.placeAnchor = hold.place;
     else b.scrollTop = !kept || kept.end ? b.scrollHeight : kept.top;
   }
   el.querySelectorAll('[data-rm]').forEach(x => x.onclick = () => { chat.attach.splice(Number(x.dataset.rm), 1); marginLayout() });
@@ -4770,8 +4839,32 @@ function bindCardEvents(host) {
   });
 }
 /** Send what the follow-up field holds (Enter, or its send button), then empty it. */
+/*
+ * The reading place never moves for a card (Anders, 20 Oct 2026: Enter on an Ask card's follow-up took the reader to the
+ * start of the chapter). From a sent question or answer (a follow-up, Ask from the bar, a quiz answer, a note's Ask)
+ * until the reader moves the page themselves, the pages' scroll is held where the reader left it: any other change
+ * (a card drawn again, a reflow, a focus) is put back at once. The reader's own wheel, touch, keys, a press on the
+ * pages or a jump they ask for (a citation, the contents) lets go. A card's answer grows in the column in place.
+ */
+const placeLock = { top: null, until: 0 };
+function holdPlace(ms = 30000) {
+  const s = $('scroll'); if (!s || !hasBook() || isPhone()) return;
+  placeLock.top = s.scrollTop; placeLock.until = Date.now() + ms;
+}
+function releasePlace() { placeLock.top = null; placeLock.until = 0 }
+const placeHeld = () => placeLock.top != null && Date.now() < placeLock.until;
+$('scroll').addEventListener('scroll', () => {
+  if (!placeHeld()) { placeLock.top = null; return }
+  const s = $('scroll');
+  if (Math.abs(s.scrollTop - placeLock.top) > 1) s.scrollTop = placeLock.top;
+}, { passive: true });
+for (const type of ['wheel', 'touchstart']) addEventListener(type, releasePlace, { capture: true, passive: true });
+addEventListener('keydown', e => { if (!e.target?.closest?.('input, textarea, select, [contenteditable="true"]')) releasePlace() }, true);
+// A press on the pages, the scrollbar or anything outside the card being answered (a citation, the contents, the top bar).
+addEventListener('pointerdown', e => { if (!e.target?.closest?.('.mr-card.is-open .mr-follow, .mr-bar')) releasePlace() }, true);
 function sendFollow(f) {
   const text = f.value.trim(); if (!text) return;
+  holdPlace();
   const id = f.closest('[data-id]')?.dataset.id;
   f.value = ''; f.classList.remove('has-text'); fitFollow(f); dictation.stop();
   followUp(id, text);
@@ -4875,6 +4968,7 @@ function commitNoteEdit(field = null) {
 }
 /** A margin note's Ask: the note becomes the first message of a chat in its place (an Ask card); the note goes. */
 function noteAsk(id) {
+  holdPlace();
   const view = viewCards().find(c => c.id === id) || (col.draft?.id === id ? col.draft : null); if (!view) return;
   const t = document.querySelector(`[data-id="${CSS.escape(id)}"] .mr-note-edit`), v = (t ? t.value : view.note || '').trim();
   if (!v) { t?.focus({ preventScroll: true }); return }
@@ -4901,6 +4995,12 @@ document.addEventListener('click', e => {
    "Deleted · Undo" line stays for a few seconds where the card was (the column), or along the bottom
    (narrow windows, the phone). A card goes as a tombstone through the card sync; a note's card takes its
    note, and its highlight when the note made it (TinctMargin.deletePlan). -- */
+/** A duplicate quiz card on the same passage goes without an undo (cardAction keeps one quiz per passage). */
+function deleteCardQuiet(id) {
+  col.ctl.get(id)?.abort(); col.ctl.delete(id); col.live.delete(id); col.quiz.delete(id); col.pending.delete(id); col.drafts.delete(id);
+  if (col.open === id) col.open = null;
+  store.set('cards:' + state.key, keptCards().map(c => (c.id === id ? TinctMargin.tombstone(id) : c))); cardsSync.changed(); col.view = null;
+}
 function deleteCard(id) {
   // The phone's draft (an Ask not sent, a note not written): it goes, with a highlight its note made.
   if (dropPhoneDraft(id, { mark: true })) { if (col.open === id) { col.open = null; col.sheet?.remove(); col.sheet = null } marginLayout({ fresh: true }); return }
@@ -4975,12 +5075,19 @@ function cardTurns(card, image, fig = {}) {
   if (lead && (turns[0]?.role === 'assistant' || ((card.kind === 'figure' || pill) && !turns.length))) turns.unshift({ role: 'user', content: lead });
   return [{ role: 'user', content: pill ? pillRules(card) : rules }, ...turns];
 }
+/** How a card names the text it is about (the companion's NAME_THE_TEXT_RULE, marginPrompts.ts): never "unit". */
+const NAME_THE_TEXT = 'Name the text by what it is ("this chapter", "this essay", "this section", "the paper") or by its title, or start straight with its content; never call it a "unit".';
+/** What a unit is, for the companion to name it naturally (never "unit"): the book, the document, a chapter, a section or pages. */
+const unitKind = unit => (unit.key === BOOK_UNIT ? 'book' : unit.key === 'all' ? 'document' : unit.pages || unit.band ? 'pages' : isEpub() || unit.chapter || /^chapter\b/i.test(unit.title || '') ? 'chapter' : 'section');
 /** Recap and Catch me up (a unit's pills): the companion's instructions for the unit's card. */
 function pillRules(card) {
   const unit = primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, start: card.page, to: card.page };
-  const name = unit.key === 'all' ? 'the whole document' : TinctMargin.unitPhrase(unit), pages = u => (u.from === u.to ? `page ${pageLabel(u.from)}` : `pages ${pageLabel(u.from)}–${pageLabel(u.to)}`);
+  // An EPUB has no pages: its chapters by their titles (Anders, 20 Oct 2026); a PDF its pages.
+  const name = unit.key === 'all' ? 'the whole document' : TinctMargin.unitPhrase(unit);
+  const pages = u => (isEpub() ? (u.from === u.to ? chapterPlace(u.from) : `from ${chapterPlace(u.from)} to ${chapterPlace(u.to)}`) : u.from === u.to ? `page ${pageLabel(u.from)}` : `pages ${pageLabel(u.from)}–${pageLabel(u.to)}`);
   const head = `You are Tinct's reading companion. ${bookLine()}`;
-  const form = 'Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.';
+  // The reader's words for the text: what it is or its title, never our word "unit" (Anders, 20 Oct 2026).
+  const form = `Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. ${isEpub() ? 'Ground it in the book and cite no pages; say nothing that is not in it.' : 'Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.'} ${NAME_THE_TEXT}`;
   if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
   const before = catchRange(unit);
   return unit.from > 1
@@ -5108,7 +5215,7 @@ async function runCardNow(id, question, run) {
   const s = await ai();
   if (!s) { setLive(id, { status: AI_OFF, done: true }); return }
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
-  const unit = card.data?.unit ? (primer.units?.find(u => u.key === card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
+  const unit = card.data?.unit ? (unitByKey(card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
   const pdf = unit ? await unitPages(card.data?.pill === 'catchup' ? catchRange(unit) : unit) : await pdfPages(card.page);
   // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
   // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
@@ -5132,10 +5239,12 @@ async function runCardNow(id, question, run) {
   // Quiz me streams (FIXES-2026-10-15 A7): each question shows as soon as it is complete; the reader can
   // answer question 1 while 2 and 3 are written. Nothing is saved until the stream ends.
   const quizRun = card.kind === 'quiz' && question == null;
-  const live = quizRun ? { ...(card.data?.unit ? { unit: card.data.unit } : {}), questions: [], i: 0, results: [] } : null;
+  const live = quizRun ? { ...(card.data?.unit ? { unit: card.data.unit } : {}), ...(card.data?.asked?.length ? { asked: card.data.asked } : {}), ideas: null, questions: [], i: 0, results: [] } : null;
   if (live) col.quiz.set(id, live);
   const onQuizText = ({ text }) => {
     if (ctl.signal.aborted || col.quiz.get(id) !== live) return;
+    // The key ideas come first: they set the quiz's length ("1 of 5").
+    if (!live.ideas) { const ideas = MP.P.parseQuizIdeas?.(text); if (ideas?.length) { live.ideas = ideas; marginLayout() } }
     const got = MP.P.parseQuizPartial?.(text) || [];
     if (got.length <= live.questions.length) return;
     const first = !live.questions.length, waiting = live.i >= live.questions.length;
@@ -5147,9 +5256,10 @@ async function runCardNow(id, question, run) {
   };
   const call = async imgs => {
     const images = imgs ? [imgs] : undefined;
-    if (question != null || card.kind === 'ask' || card.kind === 'figure') return TinctAI.ask(cardTurns(card, imgs, fig), { book, images, document: wholeDoc, passages: found, onText, signal: ctl.signal });
+    // Ask may search sources when the model decides it needs to (20 Oct 2026): "Checking sources…" shows meanwhile, as Fact-check's does.
+    if (question != null || card.kind === 'ask' || card.kind === 'figure') return TinctAI.ask(cardTurns(card, imgs, fig), { book, images, document: wholeDoc, passages: found, onText, onStatus, signal: ctl.signal });
     // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
-    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: true, onText: onQuizText, signal: ctl.signal });
+    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), ...(live?.asked ? { asked: live.asked } : {}), images, stream: true, onText: onQuizText, signal: ctl.signal });
     return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
   };
   run.phase = 'request';
@@ -5164,8 +5274,10 @@ async function runCardNow(id, question, run) {
     if (!card) { col.quiz.delete(id); col.live.delete(id); col.ctl.delete(id); marginLayout(); return }
     if (quizRun) {
       // The whole reply is the authority; what streamed stands when it does not parse.
-      const questions = MP.P.parseQuiz(res.text)?.questions || live.questions;
+      const whole = MP.P.parseQuiz(res.text), questions = whole?.questions || live.questions;
       if (!questions.length) throw Object.assign(new Error('failed'), { code: 'failed' });
+      if (whole?.ideas?.length) live.ideas = whole.ideas;
+      if (whole?.thesis) live.thesis = whole.thesis;
       col.quiz.delete(id); col.live.delete(id); col.ctl.delete(id);
       card.data = quizEnded(live, questions, false);
       saveCard(card);
@@ -5197,13 +5309,28 @@ async function runCardNow(id, question, run) {
 /** The quiz as it is saved when its stream ends: the questions that arrived and how far the reader got. */
 function quizEnded(live, questions, stopped) {
   const i = Math.min(live.i || 0, questions.length);
-  return { ...(live.unit ? { unit: live.unit } : {}), questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < 3 ? { ended: true } : {}) };
+  const ideas = live.ideas?.length ? { ideas: live.ideas } : {}, asked = live.asked?.length ? { asked: live.asked } : {}, thesis = live.thesis ? { thesis: live.thesis } : {};
+  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...thesis, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
 }
+/** How many questions a quiz has: one per key idea once they are known; while it streams without them, as many as may come. */
+const quizTotal = (q, streaming = false) => (q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : streaming ? TinctMargin.QUIZ_MAX_QUESTIONS : q.questions?.length || 0);
 /** An action from the bar or More on the held passage: a new card, opened, its answer on the way. */
 function cardAction(kind, { question = '' } = {}) {
   if (!mr) return;
   const info = mr.info, anchor = mr.anchor;
   marginClose(); getSelection().removeAllRanges();
+  // One quiz, one card (Anders, 20 Oct 2026: a stub "Quiz me · 0 of 3" stood above the quiz): Quiz me again on the same
+  // passage opens its quiz; a finished one asks for new questions in that card.
+  if (kind === 'quiz') {
+    const span = withSpan({}, info).span, same = keptCards().filter(c => !c.gone && c.kind === 'quiz' && !c.data?.unit && c.page === info.page && (span && c.span ? c.span[1] === span[1] && c.span[2] === span[2] : c.text === info.text));
+    if (same.length) {
+      const keep = same.sort((a, b) => (b.u || b.at || 0) - (a.u || a.at || 0))[0];
+      for (const c of same) if (c !== keep) deleteCardQuiet(c.id);
+      if (keep.data?.done || !keep.data?.questions?.length && !col.quiz.has(keep.id) && !col.ctl.has(keep.id)) quizStep(keep.id, 'again');
+      else openCard(keep.id, { focus: 'card' });
+      return;
+    }
+  }
   const card = withSpan(TinctMargin.newCard({ kind, page: info.page, anchor, text: info.text, turns: kind === 'ask' ? [{ role: 'user', content: question, at: Date.now() }] : [], data: kind === 'quiz' ? { questions: [], i: 0, results: [] } : null }), info);
   store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed();
   col.view = null;
@@ -5221,12 +5348,14 @@ function quizStep(id, step) {
   // "Try another quiz": new questions on the same passage (or unit), in the same card.
   if (step === 'again') {
     col.ctl.get(id)?.abort(); col.quiz.delete(id);
-    card.data = { ...(q.unit ? { unit: q.unit } : {}), questions: [], i: 0, results: [] };
+    // New questions, never the same ones: the questions asked so far go with the request, the missed ideas first.
+    const asked = TinctMargin.quizAsked(q);
+    card.data = { ...(q.unit ? { unit: q.unit } : {}), ...(asked.length ? { asked } : {}), questions: [], i: 0, results: [] };
     saveCard(card); openCard(id); runCard(id);
     return;
   }
   if (step === 'show') q.results[i] = { shown: true };
-  else if (i + 1 >= (live ? 3 : q.questions.length)) q.done = true;
+  else if (i + 1 >= (live ? quizTotal(live, true) : q.questions.length)) q.done = true;
   else q.i = i + 1;
   if (live) marginLayout(); else saveCard(card);
   if (step === 'next') openCard(id, { focus: !q.done && !!q.questions[q.i || 0] });
@@ -5238,7 +5367,7 @@ async function quizCheck(card, answer) {
   col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
   try {
     const pdf = await pdfPages(card.page), wholeDoc = await marginDocumentNow(card.page, 'quiz_check');
-    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
+    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer, ...(q.thesis ? { thesis: q.thesis } : {}), ...(q.ideas?.length ? { ideas: q.ideas } : {}), ...(q.ideas?.[item.idea ?? i] ? { idea: q.ideas[item.idea ?? i] } : {}), ...(!q.unit && card.text ? { passage: card.text } : {}) } });
     const mark = MP.P.parseQuizCheck(res.text);
     if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
     const result = { answer, verdict: mark.verdict, feedback: mark.feedback };
@@ -5348,7 +5477,7 @@ const primer = { units: null, parts: null, places: new Map(), unitsTask: null, o
 const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
 function primerReset() {
   primer.token++;
-  Object.assign(primer, { units: null, parts: null, open: false, unit: null, data: null, wait: false, status: '' });
+  Object.assign(primer, { units: null, parts: null, book: null, open: false, unit: null, data: null, wait: false, status: '' });
   primer.away.clear(); primer.places.clear();
   primer.el?.remove(); primer.trig?.remove(); primer.el = null; primer.trig = null;
   for (const el of col.pills.values()) el.remove(); col.pills.clear();
@@ -5502,7 +5631,7 @@ function makePrimer(unit, { speculative = false } = {}) {
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title } }, stream: false, signal: ctl.signal, retry: false, speculative });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit) } }, stream: false, signal: ctl.signal, retry: false, speculative });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
@@ -5710,11 +5839,15 @@ function unitMark(unit, where, doc) {
   const open = where === 'start' ? (primer.open && primer.unit?.key === unit.key ? 'primer' : unitCard(unit, 'catchup')?.id === col.open && col.open ? 'catchup' : '')
     : ['recap', 'quiz'].find(p => col.open && unitCard(unit, p)?.id === col.open) || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === unit.to || c.unit === unit.key)) ? 'note' : '');
   const name = TinctMargin.html.unitName(unit, state.title), phrase = TinctMargin.unitPhrase(unit), pages = unitPagesLabel(unit);
-  const sig = JSON.stringify([where, unit.key, open, name, pages]);
+  const sig = JSON.stringify([where, unit.key, open, name, pages, nothingBefore(unit)]);
   if (el.dataset.sig !== sig) {
     el.dataset.sig = sig;
     el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
     el.innerHTML = TinctMargin.html.markHtml(where, { open, name, pages, phrase, line: TinctMargin.triggerLine(unit) });
+    // The whole book: "Before you start" and its Primer alone (there is nothing before it to catch up on).
+    if (unit.key === BOOK_UNIT) { el.classList.add('is-book'); el.querySelector('.mr-unit__k').textContent = 'Before you start'; el.querySelector('[data-pill="catchup"]')?.remove() }
+    // Nor at the first section, or front matter before it (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page").
+    else if (nothingBefore(unit)) el.querySelector('[data-pill="catchup"]')?.remove()
   }
   if (el.parentElement !== doc) doc.appendChild(el);
   return el;
@@ -5730,7 +5863,7 @@ function unitPagesLabel(unit) {
    text layer's own line boxes: baseline less 0.86 of the size). Found once per unit from the page's text, the layout
    drawn again when it is known. -> { head: { page, y }, end: { page, y } } or null (not yet) */
 function unitPlaceNow(u) {
-  if (state.preview && isEpub()) return previewUnitPlace(u);
+  if (isEpub()) return previewUnitPlace(u);
   const had = primer.places.get(u.key);
   if (had) return had.value || null;
   const entry = { value: null };
@@ -5744,10 +5877,11 @@ function unitPlaceNow(u) {
 function previewUnitPlace(u) {
   const p = state.pages[u.start - 1], q = state.pages[u.to - 1]; if (!p || !q) return null;
   const at = (pg, y) => { const r = pg.getBoundingClientRect(); return r.height > 0 ? (y - r.top) / r.height : 0 };
-  const head = p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head');
+  // An EPUB of the reader's own: the unit's first heading in its first chapter (the book's own <h1>…); none, the chapter's top.
+  const head = u.key === BOOK_UNIT ? null : p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head') || p.pg.querySelector('.epub-body :is(h1, h2, h3)');
   const last = [...epubParas(q)].reverse().find(el => el.textContent.trim().replace(/\u200b/g, ''));
   let y = null;
-  if (last) { const r = document.createRange(); r.selectNodeContents(last); const lines = [...r.getClientRects()].filter(b => b.height > 0); y = lines.length ? lines[lines.length - 1].top : last.getBoundingClientRect().top }
+  if (last) { const r = document.createRange(); r.selectNodeContents(last); const lines = textRects(r).filter(b => b.height > 0); y = lines.length ? lines[lines.length - 1].top : last.getBoundingClientRect().top }
   return { head: { page: u.start, y: head ? at(p.pg, head.getBoundingClientRect().top) : 0.004 }, end: { page: u.to, y: y == null ? 0.9 : at(q.pg, y) } };
 }
 const compactText = t => String(t || '').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]/gu, '');
@@ -5817,7 +5951,7 @@ function headPlace(u) {
  * own note on the unit (a new one ready to write).
  */
 function pillAction(pill, key) {
-  const unit = primer.units?.find(u => u.key === key); if (!unit) return;
+  const unit = unitByKey(key); if (!unit) return;
   if (pill === 'primer') { if (primer.open && primer.unit?.key === key) closePrimer(); else openPrimer(unit); return }
   if (pill === 'quiz') return quizUnit(unit);
   if (pill === 'note') {
@@ -7128,10 +7262,13 @@ addEventListener('resize', () => {
 // A web font that arrives after the place was found reflows the chapters, and without scroll anchoring (Safari)
 // the text moves under the view: back to the paragraph and word held, when the reflow moved them.
 document.fonts?.addEventListener?.('loadingdone', () => {
-  if (!isEpub() || !state.pages.length) return;
+  // Not while a card is being answered: the place is held where the reader left it (holdPlace).
+  if (!isEpub() || !state.pages.length || placeHeld()) return;
   const { spot, page } = epubHold; if (!spot || !page) return;
-  const now = epubSpot();
-  if (currentPlace().page === page && now.para === spot.para && (now.word || 0) <= (spot.word || 0)) return;
+  // Still there: the held word's line at the top of the view (a reflow that moved it a line or two down is gone back from).
+  const el = state.pages[page - 1] && epubParas(state.pages[page - 1])[spot.para], w = el && wordRect(el, spot.word || 0);
+  const top = $('scroll').getBoundingClientRect().top;
+  if (!w || (w.top >= top - w.height * 0.6 && w.top <= top + w.height * 0.6)) return;
   epubHold.reflow++;
   epubGoSpot(page, spot.para, spot.word);
   setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 400);
@@ -7212,6 +7349,29 @@ function previewUnits() {
   flowMarks();
 }
 /*
+ * An EPUB of the reader's own (Anders, 20 Oct 2026): the same unit marks as a PDF's, "Starting …" with Primer and Catch me
+ * up, "End of …" with Recap, Quiz me and Note, its units sized as a PDF's are (TinctMargin.epubUnits: each essay of an
+ * essay collection is one), and a whole-book Before you start at the very top (BOOK_UNIT). Desktop only: a phone reads
+ * an EPUB in the Tinct reader.
+ */
+const BOOK_UNIT = 'book';
+function epubOwnUnits(book) {
+  toc.early = { text: true };
+  const units = TinctMargin.epubUnits(book.chapters.map(c => ({ chars: c.text.length, role: c.role })), toc.entries);
+  primer.units = units.length ? units : null;
+  primer.book = units.length > 1 ? { key: BOOK_UNIT, title: state.title, phrase: 'the whole book', from: 1, start: 1, to: state.pages.length } : null;
+  primer.places.clear();
+}
+/** True for the first real unit and any front matter before it: nothing has been read before it to catch up on. */
+function nothingBefore(unit) {
+  const units = primer.units || [], i = units.findIndex(u => u.key === unit?.key);
+  if (i < 0) return unit?.key === BOOK_UNIT;
+  const first = units.findIndex(u => !u.matter);
+  return first < 0 || i <= first;
+}
+/** A unit by its key: one of the units, or the whole book's. */
+const unitByKey = key => primer.units?.find(u => u.key === key) || (primer.book?.key === key ? primer.book : null);
+/*
  * The phone's chapter pills (Anders, 20 Oct 2026: "All we needed was a new menu, the cards layout and the new pills"):
  * in the text, under each chapter's heading "Starting <chapter>" with Primer and Catch me up, after its last paragraph
  * "End of <chapter>" with Recap, Quiz me and Note, as the wide column's unit marks (markHtml) look. Each opens its
@@ -7230,7 +7390,7 @@ function flowMarks() {
       el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
       el.dataset.k = where === 'start' ? 'Starting' : 'End of'; el.dataset.n = name;
       const said = { primer: `Before you start: ${TinctMargin.triggerLine(u)}`, catchup: `Catch me up on what came before ${phrase}`, recap: `Recap ${phrase}`, quiz: `Quiz me on ${phrase}`, note: `Note on ${phrase}` };
-      el.innerHTML = (where === 'start' ? ['primer', 'catchup'] : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
+      el.innerHTML = (where === 'start' ? (nothingBefore(u) ? ['primer'] : ['primer', 'catchup']) : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
       return el;
     };
     const head = ch.querySelector(':scope > .tb-head');
@@ -7289,7 +7449,7 @@ const nbPlace = e => {
 };
 function nbFlash(mark) {
   const p = state.pages[mark.page - 1]; if (!p) return;
-  if (p.kind === 'epub') { const r = rangeFromOffsets(p.pg, mark.start, mark.end); if (r) flashPlace(p, [...r.getClientRects()]); return }
+  if (p.kind === 'epub') { const r = rangeFromOffsets(p.pg, mark.start, mark.end); if (r) flashPlace(p, textRects(r)); return }
   const b = p.pg.getBoundingClientRect();
   flashPlace(p, (mark.rects || []).map(([x, y, w, h]) => ({ left: b.left + x * b.width, top: b.top + y * b.height, right: b.left + (x + w) * b.width, bottom: b.top + (y + h) * b.height, width: w * b.width, height: h * b.height })));
 }
