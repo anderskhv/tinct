@@ -15,7 +15,7 @@ import type { UserBookImage } from './epubEdition'
 import type { PdfLayoutDefault } from './pdfEditions'
 
 /** The cache tag of Add a book's scripts (its index.html). */
-export const ADDBOOK_SCRIPT_TAG = '20261020epub'
+export const ADDBOOK_SCRIPT_TAG = '20261020pdfspeed'
 const BASE = '/lab/addbook/'
 
 export interface PdfLayout { default: PdfLayoutDefault; score: number; signals: Record<string, boolean> }
@@ -57,6 +57,16 @@ interface RegionsApi {
   textLines: (body: Array<{ x: number; base: number; size: number; w: number; str: string }>, vp: { width: number; height: number }) => unknown[]
   trimRegions: (regions: PdfRegion[], lines: unknown[]) => PdfRegion[]
   cropSize: (region: PdfRegion, page: { w: number; h: number }, options: { dpr: number; column: number }) => { width: number; height: number; css: { width: number; height: number } } | null
+  /** displayFormulas, findFigures, pageRegions and trimRegions in one: a page's regions from its ink and text. */
+  find?: (input: FindInput, margin: NonNullable<Engine['margin']>) => PdfRegion[]
+  /** `find` in a worker (js/pdf-regions-worker.js at the URL), else on this thread. */
+  finder?: (url: string | null, margin: NonNullable<Engine['margin']>) => (input: FindInput) => Promise<PdfRegion[]>
+}
+interface FindInput {
+  ink: Uint8Array; W: number; H: number
+  spans: Array<{ x: number; y: number; w: number; h: number; text: string }>
+  body: Array<{ x: number; base: number; size: number; w: number; str: string }>
+  vp: { width: number; height: number }
 }
 
 type Global = typeof globalThis & { pdfjsLib?: Engine['pdfjs']; TinctPdfScan?: Engine['scan']; TinctPdfText?: Engine['text']; TinctPdfRegions?: RegionsApi; TinctMargin?: Engine['margin'] }
@@ -121,6 +131,8 @@ export async function convertPdf(bytes: ArrayBuffer, options: { fileName?: strin
     const images = new Map<string, UserBookImage>()
     const regions = options.crops !== false ? cropper(engine, images, options.crops || deviceCrops()) : null
     const edition = scan.textPages > 0 ? await engine.text.convert(pdf, { scan, ...(regions ? { regions } : {}) }) : null
+    // Its crops, drawn while the converter read on: a text naming one that could not be drawn has its picture missing.
+    if (regions) await regions.drawn()
     // Only the crops the text names are kept.
     const named = new Set((edition?.chapters ?? []).flatMap(chapter => (chapter.figures ?? []).map(figure => figure.id)))
     for (const id of [...images.keys()]) if (!named.has(id)) images.delete(id)
@@ -157,15 +169,56 @@ const pngOf = (c: Canvas): Promise<Blob | null> => new Promise(resolve => { try 
 /**
  * The regions callback the converter calls for each page (pdf-text.js convert `regions`): the
  * page drawn small to find its figures and tables (margin.js findFigures, as the viewer finds
- * them) and its displayed formulas (pdf-regions.js displayFormulas), then each region drawn sharp
- * at this device's pixel ratio (pdf-regions.js cropSize, the long side at most 1568 px), on clear
- * paper, and kept in `images` under its id. A page that cannot be drawn has no crops: its text
- * stays text.
+ * them) and its displayed formulas (pdf-regions.js displayFormulas). The converter waits only for
+ * where they are (their ids and drawn sizes); each region is then drawn sharp at this device's
+ * pixel ratio (pdf-regions.js cropSize, the long side at most 1568 px), on clear paper, one page at
+ * a time while the converter reads on, and kept in `images` under its id (`drawn()`: all are, true
+ * when every one was). The same steps and ids as the viewer's (pdf-text-view.js cropper). A page
+ * that cannot be drawn has no crops: its text stays text.
  */
-function cropper(engine: Engine, images: Map<string, UserBookImage>, options: CropOptions | false): RegionsOf | null {
+type Cropper = RegionsOf & { drawn: () => Promise<boolean> }
+function cropper(engine: Engine, images: Map<string, UserBookImage>, options: CropOptions | false): Cropper | null {
   const api = engine.regions, margin = engine.margin, util = engine.pdfjs.Util
   if (!options || !api || !margin || !util || typeof document === 'undefined') return null
-  return async (n, page, items) => {
+  // Where the regions are: worked out off the main thread while the next page is drawn (js/pdf-regions-worker.js).
+  const find = api.finder
+    ? api.finder(`${BASE}js/pdf-regions-worker.js?v=${ADDBOOK_SCRIPT_TAG}`, margin)
+    : async (input: FindInput): Promise<PdfRegion[]> => {
+      const blocks = api.displayFormulas(input.body, input.vp).blocks
+      const found = margin.findFigures({ ink: input.ink, W: input.W, H: input.H, spans: input.spans, formulas: blocks })
+      return api.trimRegions(api.pageRegions({ figures: found.figures, captions: found.captions, blocks }), api.textLines(input.body, input.vp))
+    }
+  interface Job { n: number; page: PdfPage; regions: PdfRegion[]; sizes: Array<ReturnType<RegionsApi['cropSize']>>; scale: number }
+  const queue: Job[] = []
+  let running: Promise<void> | null = null
+  let failed = false
+  // A page's sharp drawing: the page once, sharp enough for its sharpest crop, then each crop cut from it.
+  const draw = async ({ n, page, regions, sizes, scale }: Job): Promise<void> => {
+    const big = page.getViewport({ scale })
+    const sharp = canvas(big.width, big.height), sg = sharp.getContext('2d')
+    if (!sg) { failed = true; return }
+    try {
+      await page.render({ canvasContext: sg, viewport: big, background: 'rgba(0,0,0,0)' }).promise
+      for (const [k, region] of regions.entries()) {
+        const size = sizes[k]
+        if (!size) continue
+        const crop = canvas(size.width, size.height), cg = crop.getContext('2d')
+        if (!cg) { failed = true; continue }
+        cg.drawImage(sharp, region.x * sharp.width, region.y * sharp.height, region.w * sharp.width, region.h * sharp.height, 0, 0, crop.width, crop.height)
+        const blob = await pngOf(crop)
+        crop.width = crop.height = 0
+        if (!blob) { failed = true; continue }
+        images.set(`p${n}-${k + 1}`, { type: 'image/png', data: await blob.arrayBuffer() })
+      }
+    } finally { sharp.width = sharp.height = 0 }
+  }
+  const pump = () => {
+    running ??= (async () => {
+      while (queue.length) { try { await draw(queue.shift()!) } catch { failed = true } }
+      running = null
+    })()
+  }
+  const run: Cropper = Object.assign(async (n: number, page: PdfPage, items: PdfTextItem[]): Promise<PdfCropRegion[]> => {
     const base = page.getViewport({ scale: 1 })
     const pageSize = { w: base.width, h: base.height }
     // Where: the page 480 px wide, its ink at 240 (as the viewer's figuresOff).
@@ -181,6 +234,7 @@ function cropper(engine: Engine, images: Map<string, UserBookImage>, options: Cr
     x.drawImage(drawn, 0, 0, W, H)
     const d = x.getImageData(0, 0, W, H).data, ink = new Uint8Array(W * H)
     for (let i = 0; i < W * H; i++) ink[i] = (d[i * 4] * 0.3 + d[i * 4 + 1] * 0.59 + d[i * 4 + 2] * 0.11) < 247 ? 1 : 0
+    drawn.width = drawn.height = 0; small.width = small.height = 0
     const spans: Array<{ x: number; y: number; w: number; h: number; text: string }> = []
     const body: Array<{ x: number; base: number; size: number; w: number; str: string }> = []
     for (const it of items) {
@@ -190,32 +244,18 @@ function cropper(engine: Engine, images: Map<string, UserBookImage>, options: Cr
       spans.push({ x: tx[4] / vp.width, y: (tx[5] - size * 0.86) / vp.height, w: (it.width * vp.scale) / vp.width, h: (size * 1.1) / vp.height, text: it.str })
       body.push({ x: tx[4], base: tx[5], size, w: it.width * vp.scale, str: it.str })
     }
-    const blocks = api.displayFormulas(body, vp).blocks
-    const found = margin.findFigures({ ink, W, H, spans, formulas: blocks })
-    const regions = api.trimRegions(api.pageRegions({ figures: found.figures, captions: found.captions, blocks }), api.textLines(body, vp))
+    const regions = await find({ ink, W, H, spans, body, vp: { width: vp.width, height: vp.height } })
     if (!regions.length) return []
     // Drawn once, sharp enough for the sharpest crop on the page, on clear paper.
     const sizes = regions.map(region => api.cropSize(region, pageSize, options))
     // A phone's canvas holds about 16 million pixels: the page is drawn at no more than 12 million.
     const most = Math.sqrt(12e6 / Math.max(1, pageSize.w * pageSize.h))
     const scale = Math.min(most, Math.max(1, ...regions.map((region, k) => sizes[k] ? sizes[k]!.width / (region.w * pageSize.w) : 1)))
-    const big = page.getViewport({ scale })
-    const sharp = canvas(big.width, big.height), sg = sharp.getContext('2d')
-    if (!sg) return []
-    await page.render({ canvasContext: sg, viewport: big, background: 'rgba(0,0,0,0)' }).promise
+    queue.push({ n, page, regions, sizes, scale })
+    pump()
     const out: PdfCropRegion[] = []
-    for (const [k, region] of regions.entries()) {
-      const size = sizes[k]
-      if (!size) continue
-      const crop = canvas(size.width, size.height), cg = crop.getContext('2d')
-      if (!cg) continue
-      cg.drawImage(sharp, region.x * sharp.width, region.y * sharp.height, region.w * sharp.width, region.h * sharp.height, 0, 0, crop.width, crop.height)
-      const blob = await pngOf(crop)
-      if (!blob) continue
-      const id = `p${n}-${k + 1}`
-      images.set(id, { type: 'image/png', data: await blob.arrayBuffer() })
-      out.push({ ...region, id, css: size.css })
-    }
+    for (const [k, region] of regions.entries()) { const size = sizes[k]; if (size) out.push({ ...region, id: `p${n}-${k + 1}`, css: size.css }) }
     return out
-  }
+  }, { drawn: async () => { while (running) await running; return !failed } })
+  return run
 }

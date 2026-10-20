@@ -17,6 +17,7 @@ type View = {
   spotAt: (e: unknown, page: number, frac?: number) => { n: number; para: number; word: number } | null
   parasOnPage: (e: unknown, n: number, page: number) => number[]
   findIn: (hay: string, text: string) => [number, number] | null
+  figureCame: (book: unknown, id: string, url: string) => void
 }
 let V: View
 beforeAll(() => {
@@ -49,6 +50,22 @@ describe('the text view of a PDF', () => {
     expect(blocks[2].textContent).toBe('Figure 1. A curve.')
     expect(book.toc.map(e => [e.label, e.page])).toEqual([['Introduction', 1], ['Results', 2]])
     expect(book.chapters.every(c => c.role === 'text')).toBe(true)
+  })
+  // Anders, 20 Oct 2026 (the conversion took a while): the text opens before its crops are drawn. One still being drawn
+  // stands at its size, with the words a drawn one has, so nothing moves and no place changes when it comes.
+  it('sets a crop still being drawn at its size, and its picture in place when it comes', () => {
+    const drawn = V.bookOf(edition, { title: 'Paper', figureSrc: (id: string) => `blob:${id}` })
+    const book = V.bookOf(edition, { title: 'Paper', figureSrc: () => null, figureWaits: (id: string) => id === 'p2-1' })
+    const fig = book.chapters[0].node.querySelector('.pt-fig')!, img = fig.querySelector('img')!
+    expect(img.getAttribute('src')).toMatch(/^data:image\/svg\+xml,/)
+    expect(decodeURIComponent(img.getAttribute('src')!)).toContain('width="300" height="200"')
+    expect([img.width, img.height]).toEqual([300, 200])
+    expect(book.chapters.map(c => c.text)).toEqual(drawn.chapters.map(c => c.text))
+    expect(book.chapters[0].node.textContent).toBe(drawn.chapters[0].node.textContent)
+    V.figureCame(book, 'p2-1', 'blob:p2-1')
+    expect(img.getAttribute('src')).toBe('blob:p2-1')
+    expect(img.dataset.wait).toBeUndefined()
+    expect(book.chapters[0].node.innerHTML).toBe(drawn.chapters[0].node.innerHTML)
   })
   it('converts a place both ways: a page and how far down it, and a paragraph and word', () => {
     const at = V.spotAt(edition, 2, 0)!

@@ -207,5 +207,53 @@
     return { width: Math.max(1, Math.round(cssW * ratio * fit)), height: Math.max(1, Math.round(cssH * ratio * fit)), css: { width: Math.round(cssW), height: Math.round(cssH) } };
   }
 
-  return { displayFormulas, pageRegions, textLines, trimRegions, cropSize, MAX_SIDE, TEXT_SCALE };
+  /**
+   * A page's regions for Tinct text, from what the croppers read of it (js/pdf-text-view.js, pdfEdition.ts): its ink at
+   * 240 px wide (`ink`, W x H, 1 where dark), its text items as page fractions (`spans`, for findFigures) and in viewport
+   * pixels (`body`, `vp`, for displayFormulas). `margin`: TinctMargin (findFigures). -> trimRegions' regions.
+   */
+  function find({ ink, W, H, spans, body, vp }, margin) {
+    const blocks = displayFormulas(body, vp).blocks;
+    const found = margin.findFigures({ ink, W, H, spans, formulas: blocks });
+    return trimRegions(pageRegions({ figures: found.figures, captions: found.captions, blocks }), textLines(body, vp));
+  }
+  /**
+   * `find`, off the main thread (js/pdf-regions-worker.js at `url`) while the pages are drawn on it; here instead where a
+   * worker cannot start or fails, and until it has loaded (a short document never waits for it). The same rules either
+   * way, so the same regions. The worker stops when idle.
+   * -> input => Promise<regions>
+   */
+  function finder(url, margin) {
+    let worker = null, ready = false, seq = 0, rest = null;
+    const waiting = new Map();
+    const here = input => new Promise(resolve => resolve(find(input, margin)));
+    const close = () => { clearTimeout(rest); try { worker?.terminate() } catch {} worker = null; ready = false };
+    const fail = () => { close(); url = null; const left = [...waiting.values()]; waiting.clear(); for (const w of left) w.here() };
+    const start = () => {
+      if (worker || !url || typeof Worker !== 'function') return worker;
+      try {
+        worker = new Worker(url);
+        worker.onmessage = e => {
+          if (e.data?.ready) { ready = true; rest = setTimeout(close, 4000); return }
+          const w = waiting.get(e.data?.id); if (!w) return;
+          waiting.delete(e.data.id);
+          if (e.data.error) w.here(); else w.resolve(e.data.regions);
+          if (!waiting.size) { clearTimeout(rest); rest = setTimeout(close, 4000) }
+        };
+        worker.onerror = e => { e?.preventDefault?.(); fail() };
+      } catch { worker = null; url = null }
+      return worker;
+    };
+    return input => {
+      if (!start() || !ready) return here(input);
+      clearTimeout(rest);
+      return new Promise((resolve, reject) => {
+        const id = ++seq;
+        waiting.set(id, { resolve, here: () => here(input).then(resolve, reject) });
+        try { worker.postMessage({ id, ...input }) } catch { waiting.delete(id); here(input).then(resolve, reject) }
+      });
+    };
+  }
+
+  return { displayFormulas, pageRegions, textLines, trimRegions, cropSize, find, finder, MAX_SIDE, TEXT_SCALE };
 });

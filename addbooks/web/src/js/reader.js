@@ -332,7 +332,9 @@ async function openEpub(bytes, name, key, rec = null) {
   try { book = rec?.parsed || await TinctEpub.parse(bytes, { fallbackTitle: name.replace(/\.epub$/i, ''), onProgress: f => { $('column').querySelector('.pdf-status .tinct-wait')?.setLabel(`Opening… ${Math.round(f * 100)}%`) } }) }
   catch (e) { $('column').innerHTML = `<div class="pdf-status" role="alert">${esc(e?.code === 'drm' || e?.code === 'unsupported' || e?.code === 'bad_epub' || e?.code === 'not_zip' ? e.message : 'This file could not be opened as an EPUB. Choose another file.')}</div>`; return }
   if (token !== state.token) return;
-  state.pdf?.destroy?.(); state.observer?.disconnect();
+  // A PDF's Tinct text whose crops are still being drawn keeps its document until they are (openPdfText).
+  if (!state.pdf || state.pdf !== rec?.pdfText?.drawing) state.pdf?.destroy?.();
+  state.observer?.disconnect();
   Object.assign(state, { kind: 'epub', epub: book, pdf: null, key, title: book.title, author: book.authors.join(', '), texts: new Map(), pages: [], ocrPages: null, preview: rec?.preview || null, pdfText: rec?.pdfText || null });
   // The book's Tinct text, when this device converted it in the Tinct reader: the place is shared with it (epubShare).
   state.epubEdition = Array.isArray(rec?.edition?.chapters) ? rec.edition : null;
@@ -432,7 +434,7 @@ async function downloadChecked(id, key) {
  * no PDF and leaves them out (round 2: the phone's first page came about 0.3 s later with them); a PDF opened
  * there after all loads them here first, in the same order, with the same cache tags (scripts/check-margin-preview.mjs).
  */
-const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261016train6', 'js/pdf-text.js?v=20261019batch', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
+const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261020pdfspeed', 'js/pdf-text.js?v=20261020pdfspeed', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
 let pdfScripts = null;
 function pdfReady() {
   if (window.pdfjsLib && window.TinctPdfScan) return Promise.resolve();
@@ -496,7 +498,7 @@ async function openPdf(bytes, name, key, known = null) {
   const pagesAsked = new URLSearchParams(location.search).has('pages');
   pdfTextLeave();
   Object.assign(state, { pdfText: null });
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, textCrops: !!rec?.figureData, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
   if (token !== state.token) return;
   root.classList.add('is-pdf'); root.classList.remove('is-epub', 'is-paper');
   root.style.removeProperty('--epub-scale');
@@ -1522,6 +1524,51 @@ function keepPagesHere() {
    kept with its own. The margin's requests read the document as the PDF's pages, so their answers cite them. */
 const PT = () => window.TinctPdfTextView;
 const pdfTextUrls = new Set();
+// The crops of a text converted on this open, still being drawn (pdf-text-view.js cropper): nearest the reader's page first.
+let pdfTextCrops = null;
+const hasFigures = e => (e?.chapters || []).some(c => c.figures?.length);
+/** No Tinct text on this device yet, or its crops are not here: it is converted. */
+const pdfTextWanted = (edition, rec) => !edition || (edition.source !== 'ocr' && hasFigures(edition) && !rec?.figureData);
+/*
+ * The PDF's Tinct text converted on this device (pdf-text.js convert, its crops by pdf-text-view.js cropper), and kept on
+ * its record with its crops once all are drawn (a text without them is converted again on the next open). One per open of
+ * the PDF: asked again (the reader chose Tinct text while it was being prepared), the same one goes on, at full speed.
+ * `idle`: a page at a time, when the browser is idle (pdfTextPrepare). -> { done: Promise<edition | null>, images, crops }.
+ */
+let pdfTextJob = null;
+function pdfTextConvert(token, scan, page, { idle = false } = {}) {
+  const key = state.key, pdf = state.pdf;
+  if (pdfTextJob && pdfTextJob.key === key && pdfTextJob.pdf === pdf) { if (!idle) pdfTextJob.hurry(); pdfTextJob.crops?.near(page); return pdfTextJob }
+  const images = new Map(), crops = PT().cropper(images), waiting = new Set();
+  let slow = idle;
+  const later = window.requestIdleCallback ? f => requestIdleCallback(f) : f => setTimeout(f, 250);
+  const pace = () => (slow ? new Promise(r => { waiting.add(r); later(() => { waiting.delete(r); r() }) }) : null);
+  if (crops) { crops.pace = pace; crops.near(page) }
+  const job = { key, pdf, images, crops, hurry() { slow = false; for (const r of waiting) r(); waiting.clear() } };
+  job.done = (async () => {
+    let edition = null;
+    try { edition = await TinctPdfText.convert(pdf, { scan, ...(crops ? { regions: crops } : {}), live: () => state.pdf === pdf, pace, ...(idle ? { concurrency: 2 } : {}) }) } catch (e) { console.warn('[addbook] Tinct text', e) }
+    if (!edition) { crops?.stop(); if (pdfTextJob === job) pdfTextJob = null; return null }
+    if (state.key === key) state.textEdition = edition;
+    // Kept, it is read from the record from now on: this one lets go of its pictures.
+    const keep = () => library.touch(key, { edition, figureData: Object.fromEntries(images) }).then(() => { if (state.key === key) state.textCrops = true; if (pdfTextJob === job) pdfTextJob = null }, () => {});
+    if (!crops || !hasFigures(edition)) { crops?.stop(); await keep() }
+    else crops.drawn().then(all => (all ? keep() : null));
+    return edition;
+  })();
+  pdfTextJob = job;
+  return job;
+}
+/*
+ * A text PDF read in its pages on the desktop is converted to its Tinct text in the background, a page whenever the browser
+ * is idle, so "Tinct text" opens at once the first time it is chosen (and the Tinct reader finds it kept on the record).
+ */
+function pdfTextPrepare(token) {
+  if (isPhone() || state.kind !== 'pdf' || !state.pdf || !PT() || !(state.scan?.textPages > 0) || pdfTextJob?.pdf === state.pdf) return;
+  // What the record holds is known from its open (openPdf): nothing more is read from it here.
+  if (token !== state.token || !pdfTextWanted(state.textEdition, { figureData: state.textCrops })) return;
+  pdfTextConvert(token, state.scan, store.get('pos:' + state.key)?.page || 1, { idle: true });
+}
 function pdfTextLeave() { for (const u of pdfTextUrls) URL.revokeObjectURL(u); pdfTextUrls.clear() }
 let pdfTextOpening = null;
 async function openPdfText() {
@@ -1534,35 +1581,36 @@ async function openPdfText() {
   store.set('edition:' + hex, 'text'); store.del('phone-edition:' + hex); store.del('desk-edition:' + hex);
   pdfTextOpening = (async () => {
     const rec = await library.get(key);
-    let edition = state.textEdition, figureData = rec?.figureData || null;
-    const hasFigures = e => (e?.chapters || []).some(c => c.figures?.length);
+    let edition = state.textEdition, figureData = rec?.figureData || null, crops = null;
     // Converted here when this device has no Tinct text yet (or its crops are not on this device): the same rules and crops as the Tinct reader's.
-    if ((!edition || (edition.source !== 'ocr' && hasFigures(edition) && !figureData)) && scan?.textPages > 0) {
+    // A conversion begun in idle time (pdfTextPrepare) goes on at full speed. The text opens once it is converted; its crops are
+    // drawn after, nearest the reader's page first, each standing at its size until it comes (pdf-text-view.js cropper).
+    if (pdfTextWanted(edition, rec) && scan?.textPages > 0) {
       const said = drawn ? setTimeout(() => toast('Preparing the Tinct text…', { hold: true }), 400) : null;
-      const images = new Map();
-      try { edition = await TinctPdfText.convert(pdf, { scan, ...(PT().cropper(images) ? { regions: PT().cropper(images) } : {}), live: () => token === state.token }) || edition } catch (e) { console.warn('[addbook] Tinct text', e) }
+      const job = pdfTextConvert(token, scan, place.page);
+      const made = await job.done;
       clearTimeout(said);
       if (token !== state.token) return false;
-      if (edition && edition !== state.textEdition) {
-        figureData = Object.fromEntries(images);
-        state.textEdition = edition;
-        await library.touch(key, { edition, figureData }).catch(() => {});
-      }
+      if (made) { edition = made; figureData = job.images; crops = job.crops?.busy() ? job.crops : null }
     }
     if (token !== state.token) return false;
     if (!edition) { toast('This PDF has no text to reflow. Its pages stay as they are.'); store.set('edition:' + hex, 'pages'); if (!drawn) location.reload(); return false }
     // The PDF's labels, to cite its pages as the pages do (pageLabel).
     const labels = state.labels || (store.get('printed:' + key)?.labels) || null;
-    const src = id => { const f = figureData?.[id]; if (!f?.data) return null; const u = URL.createObjectURL(new Blob([f.data], { type: f.type || 'image/png' })); pdfTextUrls.add(u); return u };
+    const src = id => { const f = figureData instanceof Map ? figureData.get(id) : figureData?.[id]; if (!f?.data) return null; const u = URL.createObjectURL(new Blob([f.data], { type: f.type || 'image/png' })); pdfTextUrls.add(u); return u };
     pdfTextLeave();
-    const book = PT().bookOf(edition, { title: state.title, author: state.author, figureSrc: src });
+    let book = null;
+    pdfTextCrops = crops;
+    if (crops) crops.onDrawn = id => { if (book && state.pdfText?.edition === edition) PT().figureCame(book, id, src(id)) };
+    book = PT().bookOf(edition, { title: state.title, author: state.author, figureSrc: src, figureWaits: id => !!crops && !figureData.has(id) });
     const tkey = PT().keyOf(hex);
     // At the same place: the PDF's page and how far down it, as a paragraph and word of the text (both ways: pageAt).
     const at = PT().spotAt(edition, place.page, place.frac);
     const own = store.get('pos:' + tkey) || {};
     if (at && !(own.at > (pos.at || 0) && own.page === at.n)) store.set('pos:' + tkey, { ...own, page: at.n, frac: 0, para: at.para, word: at.word, at: Date.now() });
     ocrStop(); stopNarration();
-    const pdfText = { key, hex, edition, labels: Array.isArray(labels) ? labels : null, pages: pdf.numPages, scanned: scan?.textPages === 0 };
+    const pdfText = { key, hex, edition, labels: Array.isArray(labels) ? labels : null, pages: pdf.numPages, scanned: scan?.textPages === 0, ...(crops ? { drawing: pdf } : {}) };
+    if (crops) crops.drawn().finally(() => { if (state.pdf !== pdf) pdf.destroy?.() });
     await openEpub(null, state.title, tkey, { parsed: book, pdfText });
     if (isPdfText()) root.classList.add('is-pdf-text');
     return true;
@@ -1574,6 +1622,7 @@ function pdfTextShare() {
   const t = state.pdfText; if (!t) return;
   const place = currentPlace(), spot = epubSpot();
   const pg = PT().pageAt(t.edition, place.page, spot.para || 0, spot.word || 0); if (!pg) return;
+  pdfTextCrops?.near(pg.page);
   const c = t.edition.chapters[place.page - 1], prev = store.get('pos:' + t.key) || {};
   store.set('pos:' + t.key, { ...prev, page: pg.page, frac: pg.frac, edition: 't', chapterNumber: c.number, paragraphIndex: spot.para || 0, wordIndex: spot.word || 0, ...(typeof t.edition.converter === 'number' ? { converter: t.edition.converter } : {}), pages: t.pages, at: Date.now() });
   placeSync.note(t.hex);
@@ -2540,6 +2589,7 @@ async function buildContentsNow(token, key, pdf) {
   onScroll();
   // The primer's trigger waits for the scan (primerHasText).
   marginLayout();
+  pdfTextPrepare(token);
 }
 // The document's language (the scan's), for read-aloud's voice and the pages' text; English when unknown.
 const bookLang = () => (isEpub() ? state.epub?.language : state.scan?.language) || 'en';

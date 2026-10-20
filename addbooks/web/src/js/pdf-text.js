@@ -504,19 +504,38 @@
   // supply a page's text items; options.regions(n, page, items) the page's crops (pdf-regions.js
   // pageRegions, each with its `id` and drawn size `css`; app/src/lab/userBook/pdfEdition.ts draws
   // them); options.live() turns false to stop (null is returned).
-  async function convert(pdf, { scan, items, regions, live = () => true } = {}) {
+  // Pages are read `concurrency` at a time (pdf.js parses one in its worker while another is drawn
+  // here) and put together in page order, so the edition is the one a page at a time gives; options.pace(),
+  // when given, is waited for before each page (reader.js: in idle time only). Its
+  // stages are performance measures: 'tinct:pdf-text:pages' (text and regions), 'tinct:pdf-text:model'.
+  const now = () => global.performance?.now?.() ?? Date.now();
+  const measure = (name, start) => { try { global.performance?.measure?.(name, { start }) } catch {} };
+  async function convert(pdf, { scan, items, regions, live = () => true, concurrency = 4, pace = null } = {}) {
     if (!scan || !(scan.textPages > 0)) return null;
     const api = S();
-    const pages = [];
-    for (let n = 1; n <= pdf.numPages; n++) {
+    const count = pdf.numPages, pages = new Array(count), started = now();
+    let next = 1, stop = false;
+    const read = async n => {
       const page = await pdf.getPage(n);
       const [x0, y0, x1, y1] = page.view;
       const list = items ? await items(n) : (await page.getTextContent()).items;
       const found = regions ? await regions(n, page, list).catch(() => []) : [];
-      pages.push({ n, x0, y0, w: x1 - x0, h: y1 - y0, rows: api.textRows(list), ...(found?.length ? { regions: found } : {}) });
-      if (!live()) return null;
-    }
-    return fromPages(pages, scan);
+      pages[n - 1] = { n, x0, y0, w: x1 - x0, h: y1 - y0, rows: api.textRows(list), ...(found?.length ? { regions: found } : {}) };
+    };
+    const lane = async () => {
+      while (!stop && next <= count) {
+        if (pace) { await pace(); if (stop || next > count) break }
+        const n = next++;
+        try { await read(n) } catch (e) { stop = true; throw e }
+        if (!live()) stop = true;
+      }
+    };
+    await Promise.all(Array.from({ length: Math.max(1, Math.min(count, Math.floor(concurrency) || 1)) }, lane));
+    if (stop) return null;
+    measure('tinct:pdf-text:pages', started);
+    const built = now(), edition = fromPages(pages, scan);
+    measure('tinct:pdf-text:model', built);
+    return edition;
   }
 
   /* ---------- Places: text <-> page (app/src/lab/userBook/pdfAnchors.ts, the same rules) ---------- */
