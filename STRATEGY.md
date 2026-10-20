@@ -1,6 +1,6 @@
 # Tinct — Strategy
 
-**Last updated:** 2026-04-21
+**Last updated:** 2026-04-21. **Positioning updated 2026-10-20:** Tinct is now positioned as deep reading for any text worth reading, not the classics only; see [BRAND.md](./BRAND.md), which wins where the two differ.
 
 The full emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md). The one-minute version is in [ELEVATOR-PITCH.md](./ELEVATOR-PITCH.md). This document is the strategic machinery behind both — what we're building, for whom, against whom, and how the economics work.
 
