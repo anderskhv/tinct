@@ -126,7 +126,7 @@
 .lab.is-phone .pdf-column{padding-top:0;padding-left:0;padding-right:0}
 .lab.is-phone .epub-sheet,html .lab.byob.is-phone .epub-sheet{width:100%;max-width:672px;margin:0 auto;padding:10px 1.55rem 2.4em;background:transparent!important;box-shadow:none!important;border:0;border-radius:0;color:var(--lab-ink)}
 .lab.is-phone .epub-pg,html .lab.byob.is-phone .epub-pg{font-size:calc(1.58rem / 1.3 * var(--epub-scale,1));line-height:1.48;color:var(--lab-ink)!important}
-.lab.is-phone .epub-pg p.tb-p{margin:0 0 .28em;text-align:justify;text-justify:auto;-webkit-hyphens:auto;hyphens:auto}
+.lab.is-phone .epub-pg p.tb-p{margin:0 0 .28em;text-align:var(--lab-text-align,justify);text-justify:auto;word-spacing:normal;letter-spacing:normal;overflow-wrap:break-word;word-break:normal;-webkit-hyphens:auto;hyphens:auto;-webkit-hyphenate-limit-before:2;-webkit-hyphenate-limit-after:3;-webkit-hyphenate-limit-lines:3;hyphenate-limit-chars:7 2 3;hyphenate-limit-lines:3}
 .lab.is-phone .tb-chapter .tb-head{text-align:left;margin:0 0 .45em}
 .lab.is-phone .tb-chapter .tb-part{font-size:.82em;margin-bottom:.25em;color:var(--lab-ink-muted);opacity:1}
 .lab.is-phone .tb-chapter .tb-head.is-named .tb-part{display:none}
