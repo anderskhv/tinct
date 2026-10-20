@@ -179,9 +179,9 @@ const check = (name, ok, detail = '') => { results.push({ name, ok }); console.l
       check('cross-device: the reader lands on the phone’s chapter, paragraph and word', landed?.ready === 'true' && landed.chapter === '412' && landed.place === '1:3', JSON.stringify(landed))
       check('cross-device: the boot asked the account for its position (mocked GET)', log.includes('GET /api/lab-position'))
       // The boot only reads (its GET is the first request); the reader's normal sync may then PUT the
-      // merged record, which must keep the phone's settle and place exactly.
+      // merged record (a dwell here may settle it again, later), which must keep the phone's book and exact word.
       check('cross-device: the boot’s first account request is the GET, before any PUT', log.indexOf('GET /api/lab-position') >= 0 && log.indexOf('GET /api/lab-position') < (log.indexOf('PUT /api/lab-position') + 1 || Infinity), log.join(', '))
-      const kept = log.puts.every(put => put.lastSettledBookId === 'ezra' && put.lastSettledAt === phonePlace.updatedAt && ['sequentialChapter', 'paragraphIndex', 'wordIndex', 'updatedAt'].every(key => put.books?.ezra?.[key] === phonePlace[key]))
+      const kept = log.puts.every(put => put.lastSettledBookId === 'ezra' && put.lastSettledAt >= phonePlace.updatedAt && ['sequentialChapter', 'paragraphIndex', 'wordIndex'].every(key => put.books?.ezra?.[key] === phonePlace[key]))
       check('cross-device: any position the reader sends keeps the phone’s settle and place', kept, JSON.stringify(log.puts.map(put => ({ settled: put.lastSettledBookId, at: put.lastSettledAt, ezra: put.books?.ezra && `${put.books.ezra.sequentialChapter}:${put.books.ezra.paragraphIndex}:${put.books.ezra.wordIndex}` }))))
       check('cross-device: no page errors', errors.length === 0, errors.slice(0, 3).join(' | '))
       if (shots) await page.screenshot({ path: path.join(shots, 'desktop-3-cross-device-reader.png') })
