@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { addPending, beatPayload, fetchReadingTime, nextFlush, pendingSeconds, readPending, readingTimeSwitch, resetReadingTimeSwitch, sendFlush } from './labReadingTime'
 import { useLabReadingYear } from './useLabReadingYear'
 import { readLocalReadingYear, readingYearTotals } from './labReadingYear'
-import { localDay } from '../readingTime/model'
+import { BEAT_MAX_SECONDS, localDay } from '../readingTime/model'
 
 beforeEach(() => {
   localStorage.clear()
@@ -57,15 +57,17 @@ describe('the ledger summary', () => {
 })
 
 describe('pending time on the device', () => {
-  it('keeps each day and book apart, and a beat carries at most a minute of the current one', () => {
-    addPending('u1', '2026-10-07', 'odyssey', { read: 30 })
-    addPending('u1', '2026-10-07', 'odyssey', { read: 30, listen: 0 })
-    addPending('u1', '2026-10-07', 'odyssey', { listen: 30 })
+  it('keeps each day and book apart, and a beat carries at most BEAT_MAX_SECONDS (five minutes) of the current one', () => {
+    // Cap change (DB IO trim, 20 Oct 2026): a beat carried 60 s, now 300 s.
+    expect(BEAT_MAX_SECONDS).toBe(300)
+    addPending('u1', '2026-10-07', 'odyssey', { read: 150 })
+    addPending('u1', '2026-10-07', 'odyssey', { read: 150, listen: 0 })
+    addPending('u1', '2026-10-07', 'odyssey', { listen: 150 })
     addPending('u1', '2026-10-06', 'bible', { read: 90 })
-    expect(readPending('u1')).toEqual({ '2026-10-07': { odyssey: { read: 60, listen: 30 } }, '2026-10-06': { bible: { read: 90, listen: 0 } } })
-    expect(beatPayload(readPending('u1'), '2026-10-07', 'odyssey', false)).toEqual({ day: '2026-10-07', bookId: 'odyssey', read: 30, listen: 30, playing: true })
+    expect(readPending('u1')).toEqual({ '2026-10-07': { odyssey: { read: 300, listen: 150 } }, '2026-10-06': { bible: { read: 90, listen: 0 } } })
+    expect(beatPayload(readPending('u1'), '2026-10-07', 'odyssey', false)).toEqual({ day: '2026-10-07', bookId: 'odyssey', read: 150, listen: 150, playing: true })
     expect(beatPayload(readPending('u1'), '2026-10-07', 'bible', false)).toBeNull()
-    expect(pendingSeconds(readPending('u1'))).toBe(180)
+    expect(pendingSeconds(readPending('u1'))).toBe(540)
     expect(readPending(null)).toEqual({})
   })
 

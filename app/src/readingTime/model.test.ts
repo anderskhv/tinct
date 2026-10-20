@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   BEAT_MAX_SECONDS,
+  BEAT_MIN_GAP_MS,
   DAILY_CAP_SECONDS,
   EARLIER_BOOK_ID,
   booksComparison,
@@ -22,9 +23,13 @@ const NOW = Date.UTC(2026, 9, 7, 12, 0, 0) // 7 October 2026, 12:00 UTC
 const row = (day: string, bookId: string, read: number, listen = 0): LedgerRow => ({ day, bookId, read, listen })
 
 describe('heartbeat limits', () => {
-  it('credits at most a minute per beat', () => {
-    expect(creditBeat({ read: 300, listen: 0, playing: false }, 0)).toEqual({ read: BEAT_MAX_SECONDS, listen: 0 })
-    expect(creditBeat({ read: 45, listen: 45, playing: true }, 0)).toEqual({ read: 15, listen: 45 })
+  it('credits at most BEAT_MAX_SECONDS (five minutes) per beat', () => {
+    // Cap change (DB IO trim, 20 Oct 2026): 60 s a beat at one beat per 50 s,
+    // now 300 s at one per 250 s: the same most-per-hour ratio.
+    expect(BEAT_MAX_SECONDS).toBe(300)
+    expect(BEAT_MAX_SECONDS / (BEAT_MIN_GAP_MS / 1000)).toBe(60 / 50)
+    expect(creditBeat({ read: 1500, listen: 0, playing: false }, 0)).toEqual({ read: BEAT_MAX_SECONDS, listen: 0 })
+    expect(creditBeat({ read: 225, listen: 225, playing: true }, 0)).toEqual({ read: 75, listen: 225 })
     expect(creditBeat({ read: 30, listen: 0, playing: false }, 0)).toEqual({ read: 30, listen: 0 })
   })
 

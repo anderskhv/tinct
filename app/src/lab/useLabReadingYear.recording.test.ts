@@ -11,17 +11,20 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const USER = '11111111-1111-4111-8111-111111111111'
 
+const yearRow = vi.hoisted(() => ({ reads: 0 }))
+
 vi.mock('../services/supabase', () => ({
   supabase: {
     auth: {
       getSession: async () => ({ data: { session: { user: { id: USER }, access_token: 'token' } } }),
     },
-    from: () => ({ select: () => ({ eq: () => ({ eq: () => ({ maybeSingle: async () => ({ data: null, error: null }) }) }) }) }),
+    from: () => { yearRow.reads += 1; return { select: () => ({ eq: () => ({ eq: () => ({ maybeSingle: async () => ({ data: null, error: null }) }) }) }) } },
     rpc: async () => ({ data: null, error: { message: 'not in tests' } }),
   },
 }))
 
-import { useLabReadingYear } from './useLabReadingYear'
+import { LEDGER_BEAT_EVERY_MS, READING_YEAR_SYNC_MS, useLabReadingYear } from './useLabReadingYear'
+import { BEAT_MAX_SECONDS, BEAT_MIN_GAP_MS } from '../readingTime/model'
 import { readPending, resetReadingTimeSwitch } from './labReadingTime'
 import { localDay } from '../readingTime/model'
 
@@ -35,7 +38,8 @@ function fakeWorker(state: { enabled: boolean; beatStatus?: number }) {
     if (url.includes('/api/reading-time/status')) return Response.json({ enabled: state.enabled })
     if (url.includes('/api/reading-time/beat')) {
       if (state.beatStatus && state.beatStatus !== 200) return Response.json({ enabled: true, error: 'unavailable' }, { status: state.beatStatus })
-      return Response.json({ enabled: true, credited: { read: 60, listen: 0 } })
+      const body = init?.body ? JSON.parse(String(init.body)) as { read: number; listen: number } : { read: 0, listen: 0 }
+      return Response.json({ enabled: true, credited: { read: body.read, listen: body.listen } })
     }
     if (url.includes('/api/reading-time/flush')) return Response.json({ enabled: true, credited: 0 })
     return Response.json({})
@@ -59,6 +63,7 @@ function mount() {
 }
 
 beforeEach(() => {
+  yearRow.reads = 0
   localStorage.clear()
   resetReadingTimeSwitch()
   vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'setTimeout', 'clearTimeout', 'Date'] })
@@ -93,7 +98,8 @@ describe('a ledger hiccup (one 503)', () => {
     const { beats } = fakeWorker(worker)
     mount()
     await act(async () => { for (let i = 0; i < 10; i += 1) await Promise.resolve() })
-    await read(2 * 60_000)
+    // Interval change (DB IO trim, 20 Oct 2026): beats come every ~5 minutes, not every minute.
+    await read(6 * 60_000)
     const failed = beats().length
     expect(failed).toBeGreaterThan(0)
     // The ledger is back.
@@ -103,5 +109,79 @@ describe('a ledger hiccup (one 503)', () => {
     // What waited on the device during the hiccup is carried, not lost.
     const today = readPending(USER)[localDay()]?.['pd-pg-1672']
     expect((today?.read ?? 0)).toBeLessThan(12 * 60)
+  })
+})
+
+const settle = async () => { await act(async () => { for (let i = 0; i < 10; i += 1) await Promise.resolve() }) }
+const sent = (beats: Call[]) => beats.reduce((sum, call) => sum + (call.body as { read: number; listen: number }).read + (call.body as { read: number; listen: number }).listen, 0)
+const waiting = () => { const time = readPending(USER)[localDay()]?.['pd-pg-1672']; return (time?.read ?? 0) + (time?.listen ?? 0) }
+
+describe('ledger heartbeats every five minutes (DB IO trim)', () => {
+  it('beats about every five minutes, and beats plus pending equal the time counted', async () => {
+    expect(LEDGER_BEAT_EVERY_MS).toBeGreaterThanOrEqual(BEAT_MIN_GAP_MS)
+    expect(LEDGER_BEAT_EVERY_MS).toBeLessThanOrEqual(5 * 60_000)
+    const { beats } = fakeWorker({ enabled: true })
+    mount()
+    await settle()
+    await read(16 * 60_000)
+    // 16 minutes of reading: three beats (was ~16), none above the Worker's cap.
+    expect(beats()).toHaveLength(3)
+    for (const call of beats()) expect((call.body as { read: number }).read).toBeLessThanOrEqual(BEAT_MAX_SECONDS)
+    expect(sent(beats()) + waiting()).toBe(16 * 60)
+  })
+
+  it('sends the waiting seconds when the page is hidden, once the gate allows', async () => {
+    const { beats } = fakeWorker({ enabled: true })
+    mount()
+    await settle()
+    await read(2 * 60_000)
+    const hidden = vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden')
+    // Too soon for the Worker's gate: nothing sent, nothing lost.
+    document.dispatchEvent(new Event('visibilitychange'))
+    await settle()
+    expect(beats()).toHaveLength(0)
+    expect(waiting()).toBe(120)
+    hidden.mockRestore()
+    await read(150_000)
+    window.dispatchEvent(new Event('pagehide'))
+    await settle()
+    expect(beats()).toHaveLength(1)
+    expect(sent(beats())).toBe(270)
+    expect(waiting()).toBe(0)
+  })
+
+  it('drains time carried from an earlier beat early, as soon as a full beat waits', async () => {
+    const { beats } = fakeWorker({ enabled: true })
+    mount()
+    await settle()
+    // Carried over from before (e.g. a beat refused by the gate).
+    const { addPending } = await import('./labReadingTime')
+    addPending(USER, localDay(), 'pd-pg-1672', { read: 200 })
+    await read(16 * 60_000)
+    expect(sent(beats()) + waiting()).toBe(200 + 16 * 60)
+    expect(waiting()).toBeLessThan(BEAT_MAX_SECONDS)
+  })
+})
+
+describe('reading-year sync every fifteen minutes (DB IO trim)', () => {
+  it('syncs the yearly tally every 15 minutes and on hide, not every 2 minutes', async () => {
+    expect(READING_YEAR_SYNC_MS).toBe(15 * 60_000)
+    fakeWorker({ enabled: false })
+    const listeningRef = { current: false }
+    const { rerender } = renderHook(({ page }) => useLabReadingYear({ userId: USER, bookId: 'pd-pg-1672', chapter: 1, page, onCover: false, paused: false, listeningRef }), { initialProps: { page: 0 } })
+    await settle()
+    const start = yearRow.reads
+    for (let page = 1; page <= 14; page += 1) {
+      rerender({ page })
+      await read(60_000)
+    }
+    expect(yearRow.reads - start).toBe(0)
+    rerender({ page: 15 })
+    await read(60_000)
+    expect(yearRow.reads - start).toBe(1)
+    rerender({ page: 16 })
+    window.dispatchEvent(new Event('pagehide'))
+    await settle()
+    expect(yearRow.reads - start).toBe(2)
   })
 })

@@ -11,7 +11,7 @@ import { buildMarginPrefix, buildMarginPrefixParts, parseMarginDocument } from '
 import {
   DEFINE_EPONYM_LINE, MARGIN_CHECKED_WORDS, MARGIN_CONTEXT_PARAGRAPH, MARGIN_LAB_ASK_POLICY, MARGIN_READ_LINE, PDF_CONTEXTUAL_LOOKUP_PROMPT, RELATED_PROMPT,
 } from './companion/marginPrompts'
-import { FACTCHECK_VERDICT_EFFORT, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, QUIZ_THINKING_OFF, factcheckVerdictEffort, quizRoute } from './companion/marginRoutes'
+import { FACTCHECK_VERDICT_EFFORT, MARGIN_HAIKU_MODEL, MARGIN_SONNET_MODEL, MARGIN_ROUTES, QUIZ_THINKING_OFF, factcheckVerdictEffort, quizRoute } from './companion/marginRoutes'
 import * as twinTs from './companion/marginParse'
 import * as twinJs from '../public/lab/margin/margin-parse.js'
 import { CONTEXTUAL_LOOKUP_PROMPT } from './components/reader/contextualLookup'
@@ -161,10 +161,11 @@ describe('Define in the PDF reader: no "supplied", and eponyms are terms (round 
 })
 
 describe('speed trials: one-line switches, on since the night of 15–16 Oct (measured against off)', () => {
-  it('Quiz me: adaptive thinking at low effort when off; thinking disabled at low effort when on', () => {
-    expect(QUIZ_THINKING_OFF).toBe(true)
-    expect(MARGIN_ROUTES.quiz).toEqual(quizRoute(true))
-    expect(quizRoute(false)).toEqual({ model: MARGIN_HAIKU_MODEL, effort: 'low', maxTokens: 6000 })
+  // Off since 20 Oct 2026 (Anders moved Quiz me to Sonnet with thinking): an intended change, not a loosening.
+  it('Quiz me: Sonnet with adaptive thinking at medium effort when off (now); Haiku with thinking disabled at low effort when on', () => {
+    expect(QUIZ_THINKING_OFF).toBe(false)
+    expect(MARGIN_ROUTES.quiz).toEqual(quizRoute(false))
+    expect(quizRoute(false)).toEqual({ model: MARGIN_SONNET_MODEL, effort: 'medium', maxTokens: 8000 })
     expect(quizRoute(true)).toEqual({ model: MARGIN_HAIKU_MODEL, effort: 'low', maxTokens: 6000, thinking: { type: 'disabled' } })
   })
   it('Fact-check\'s verdict round: the route\'s effort when off; low when on', () => {

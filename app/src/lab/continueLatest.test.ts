@@ -1,10 +1,11 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { continueChoice, continueLatestDestination, newestOwnBook, readerNamesNoBook, registeredReadAt, CONTINUE_ACCOUNT_WAIT_MS, type AccountOwnPlaces } from './continueLatest'
+import { continueChoice, continueLatestDestination, fetchAccountLabPosition, newestOwnBook, readerNamesNoBook, registeredReadAt, CONTINUE_ACCOUNT_WAIT_MS, type AccountOwnPlaces } from './continueLatest'
 import { ownBookOpenUrl, userBookReaderUrl } from './userBook/userBookId'
 import { isLabPhoneSurface, labPhoneSurfaceInput } from './labChrome'
 import type { OwnShelfBook } from './userBook/ownShelf'
-import { emptyLabPositionState } from './labPosition'
+import { emptyLabPositionState, type LabPositionState } from './labPosition'
+import { READER_BOOT_POSITION_PREFETCH } from './readerBoot'
 
 const PDF = 'a'.repeat(24)
 const EPUB = 'b'.repeat(24)
@@ -102,15 +103,108 @@ describe('Continue opens the latest thing read (desktop /reader with no book)', 
   })
 })
 
+/** A position record that resumes `bookId`, read at `at` (on the phone, for the account's). */
+function settledIn(bookId: string, at: number, deviceId = 'phone'): LabPositionState {
+  const state = emptyLabPositionState(deviceId, 'user-1')
+  state.books[bookId] = { bookId, headerBook: bookId, chapterNumber: 3, sequentialChapter: 3, paragraphIndex: 7, wordIndex: 4, updatedAt: at, deviceId, rev: 2 }
+  state.lastSettledBookId = bookId
+  state.lastSettledAt = at
+  state.updatedAt = at
+  return state
+}
+
+describe('the account’s registered-book position counts (read on another device)', () => {
+  it('the Bible read on the phone is newer than the own PDF, which is newer than this device’s registered book: the reader opens', async () => {
+    const readAccountPosition = vi.fn(async () => settledIn('john', 3_000))
+    const href = await continueLatestDestination({ ...base, registeredAt: () => 1_000, readLocal: async () => [ownBook(PDF, 'pdf', 2_000)], readAccount: async () => null, readAccountPosition })
+    expect(readAccountPosition).toHaveBeenCalledTimes(1)
+    expect(href).toBeNull()
+  })
+
+  it('an own book read after the phone’s Bible still opens', async () => {
+    const href = await continueLatestDestination({ ...base, registeredAt: () => 1_000, readLocal: async () => [ownBook(PDF, 'pdf', 4_000)], readAccount: async () => null, readAccountPosition: async () => settledIn('john', 3_000) })
+    expect(href).toBe(ownBookOpenUrl(PDF))
+  })
+
+  it('both account reads start together, before either answers', async () => {
+    const started: string[] = []
+    let release: () => void = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const pending = continueLatestDestination({
+      ...base,
+      registeredAt: () => 1_000,
+      readLocal: async () => [ownBook(PDF, 'pdf', 2_000)],
+      readAccount: async () => { started.push('places'); await gate; return null },
+      readAccountPosition: async () => { started.push('position'); await gate; return settledIn('john', 3_000) },
+    })
+    await Promise.resolve()
+    expect(started.sort()).toEqual(['places', 'position'])
+    release()
+    expect(await pending).toBeNull()
+  })
+
+  it('the account position timing out falls back to this device, under the one deadline', async () => {
+    vi.useFakeTimers()
+    let aborted = false
+    const readAccountPosition = (signal?: AbortSignal) => new Promise<LabPositionState | null>(() => { signal?.addEventListener('abort', () => { aborted = true }) })
+    const pending = continueLatestDestination({ ...base, registeredAt: () => 1_000, readLocal: async () => [ownBook(PDF, 'pdf', 2_000)], readAccount: async () => null, readAccountPosition })
+    await vi.advanceTimersByTimeAsync(CONTINUE_ACCOUNT_WAIT_MS)
+    await expect(pending).resolves.toBe(ownBookOpenUrl(PDF))
+    expect(aborted).toBe(true)
+  })
+
+  it('signed out: the account position is never asked', async () => {
+    const readAccountPosition = vi.fn(async () => settledIn('john', 9_000))
+    expect(await continueLatestDestination({ ...base, owner: null, registeredAt: () => 0, readLocal: async () => [ownBook(PDF, 'pdf', 2_000)], readAccountPosition })).toBeNull()
+    expect(readAccountPosition).not.toHaveBeenCalled()
+  })
+
+  it('offline: the account position is never asked', async () => {
+    const readAccountPosition = vi.fn(async () => settledIn('john', 9_000))
+    const href = await continueLatestDestination({ ...base, online: false, registeredAt: () => 1_000, readLocal: async () => [ownBook(PDF, 'pdf', 2_000)], readAccountPosition })
+    expect(readAccountPosition).not.toHaveBeenCalled()
+    expect(href).toBe(ownBookOpenUrl(PDF))
+  })
+
+  it('the default read is one plain GET of /api/lab-position, and it writes nothing', async () => {
+    const fetchImpl = vi.fn(async (_url: RequestInfo | URL, _init?: RequestInit) => new Response(JSON.stringify(settledIn('john', 3_000)), { status: 200 }))
+    const setItem = vi.spyOn(Storage.prototype, 'setItem')
+    const state = await fetchAccountLabPosition('tok', undefined, fetchImpl as unknown as typeof fetch)
+    expect(fetchImpl).toHaveBeenCalledTimes(1)
+    const [url, init] = fetchImpl.mock.calls[0]
+    expect(String(url)).toMatch(/\/api\/lab-position$/)
+    expect(init?.method).toBe('GET')
+    expect((init?.headers as Record<string, string>).Authorization).toBe('Bearer tok')
+    expect(registeredReadAt(state)).toBe(3_000)
+    expect(setItem).not.toHaveBeenCalled()
+    setItem.mockRestore()
+    expect(await fetchAccountLabPosition(null, undefined, fetchImpl as unknown as typeof fetch)).toBeNull()
+    expect(await fetchAccountLabPosition('tok', undefined, (async () => new Response('', { status: 500 })) as unknown as typeof fetch)).toBeNull()
+  })
+
+  it('reads the head script’s early GET without taking it from the reader', async () => {
+    const slot = window as unknown as Record<string, unknown>
+    slot[READER_BOOT_POSITION_PREFETCH] = { token: 'tok', at: Date.now(), body: Promise.resolve(settledIn('john', 3_000)) }
+    const fetchImpl = vi.fn()
+    const state = await fetchAccountLabPosition('tok', undefined, fetchImpl as unknown as typeof fetch)
+    expect(fetchImpl).not.toHaveBeenCalled()
+    expect(registeredReadAt(state)).toBe(3_000)
+    expect(slot[READER_BOOT_POSITION_PREFETCH]).toBeTruthy()
+    delete slot[READER_BOOT_POSITION_PREFETCH]
+  })
+})
+
 describe('phones keep today’s /reader exactly', () => {
   it('decides nothing and reads nothing on a phone', async () => {
     const readLocal = vi.fn(async () => [ownBook(PDF, 'pdf', 9_000)])
     const readAccount = vi.fn(async () => ({ text: {}, pages: { [PDF]: { updatedAt: 9_000 } } }))
     const registeredAt = vi.fn(() => 0)
     const session = { getItem: vi.fn(() => null) }
-    expect(await continueLatestDestination({ ...base, phone: true, session, registeredAt, readLocal, readAccount })).toBeNull()
+    const readAccountPosition = vi.fn(async () => settledIn('john', 9_000))
+    expect(await continueLatestDestination({ ...base, phone: true, session, registeredAt, readLocal, readAccount, readAccountPosition })).toBeNull()
     expect(readLocal).not.toHaveBeenCalled()
     expect(readAccount).not.toHaveBeenCalled()
+    expect(readAccountPosition).not.toHaveBeenCalled()
     expect(registeredAt).not.toHaveBeenCalled()
     expect(session.getItem).not.toHaveBeenCalled()
   })

@@ -363,5 +363,38 @@
     }
     return null;
   }
-  return { epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, shortChapter, cutLabel, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
+  /*
+   * Tinct paper for an EPUB of the reader's own on the desktop (Anders, 20 Oct 2026: "the same continuous Tinct-paper
+   * page as Tinct books in the preview"): the text as the book reader's desktop leaf sets it for this reader and window,
+   * by the same formulas as the preview's (app/src/lab/marginPreview/marginPreviewModel.ts marginPreviewPaper; a unit
+   * test keeps them equal). `raw`: the stored `tinct-lab-prefs` (its desktop appearance). -> { fontFamily, fontSize,
+   * headingSize, lineHeight, paragraphGap, align, measure } (px, em)
+   */
+  const FONTS = { baskerville: "'Libre Baskerville', 'EB Garamond', Georgia, serif", sourceserif: "'Source Serif 4', 'EB Garamond', Georgia, serif", literata: "'Literata', 'EB Garamond', Georgia, serif", atkinson: "'Atkinson Hyperlegible', 'IBM Plex Sans', system-ui, sans-serif" };
+  function desktopAppearance(raw) {
+    let src = null;
+    try { src = typeof raw === 'string' ? JSON.parse(raw || 'null') : raw } catch { src = null }
+    if (!src || typeof src !== 'object') return {};
+    if (src.version === 2 && src.desktop && typeof src.desktop === 'object') return { ...(src.shared || {}), ...src.desktop };
+    return src;
+  }
+  function paper(raw, viewportWidth) {
+    const p = desktopAppearance(raw), w = Number(viewportWidth) > 0 ? Number(viewportWidth) : 1440;
+    const desktopDefault = clamp(Math.round(w * 0.00077 * 10) / 10, 1.0, 1.4);
+    const size = p.fontSizeExplicit === true && Number(p.fontSize) > 0 ? Number(p.fontSize) : desktopDefault;
+    const named = (v, map, dflt) => (typeof v === 'number' && Number.isFinite(v) ? v : map[v] ?? dflt);
+    const scale = named(p.margins, { narrow: 0.7, wide: 1.45, medium: 1 }, 1);
+    const padX = clamp(w * 0.03, 28, 64) * scale;
+    const explicit = typeof p.alignmentExplicit === 'boolean' ? p.alignmentExplicit : p.alignment === 'left' || p.alignment === 'justify';
+    return {
+      fontFamily: p.fontFamily === 'garamond' ? "'EB Garamond', Georgia, 'Times New Roman', serif" : FONTS[p.fontFamily] || FONTS.literata,
+      fontSize: 16 * 1.42 * size / 1.3,
+      headingSize: 16 * 1.58 * size / 1.3,
+      lineHeight: named(p.lineSpacing, { compact: 1.34, open: 1.62, comfortable: 1.48 }, 1.48),
+      paragraphGap: named(p.paragraphSpacing, { compact: 0.08, generous: 0.55, standard: 0.28 }, 0.28),
+      align: explicit && (p.alignment === 'left' || p.alignment === 'justify') ? p.alignment : 'justify',
+      measure: Math.max(280, (w - 2 * 31 - 2 * padX - 56) / 2),
+    };
+  }
+  return { paper, epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, shortChapter, cutLabel, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
 });

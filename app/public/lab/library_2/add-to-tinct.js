@@ -777,13 +777,17 @@ export const ownPercentLabel=p=>typeof p!=='number'||!Number.isFinite(p)?'':p>0&
  * `cover` replaces the listed cover (the reading table's full-size one, when it has it).
  * `progress`: under Currently reading, how far through it the reader is (read on this device
  * or another of the account), under the cover where Tinct's books show theirs.
+ * `onDelete`: the cover's ••• menu with Delete (shelfMenu), called with the book and the ••• button.
  */
-export function ownBookCard(book,el,{onRemove=null,cover=null,progress=false}={}){
+export function ownBookCard(book,el,{onRemove=null,onDelete=null,cover=null,progress=false}={}){
  const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';card.dataset.ownKey=book.key;
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
  open.append(ownCoverElement(cover?{...book,cover}:book));
  let face=open;
- if(onRemove){
+ if(onDelete){
+  face=el('div','card-wrap');
+  face.append(open,shelfMenu(book.title,{own:true,onChoose:from=>onDelete(book,from)}));
+ }else if(onRemove){
   face=el('div','card-wrap');
   const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=book.title;x.setAttribute('aria-label','Remove from My shelf: '+book.title);
   x.onclick=event=>{event.preventDefault();event.stopPropagation();onRemove(book,x);};
@@ -810,8 +814,8 @@ export const ownTableId=key=>'userbook-'+String(key||'').replace(/^(epub|pdf):/,
 /**
  * My shelf's own books. Own books being read join Currently reading (after the library's own,
  * or under a new heading at the top), with the × that takes a book off Currently reading
- * (`onRemoveReading`); then "My private uploads" with every own book and the × that deletes
- * one (`onDelete`). `covers` maps a reading-table id to its full-size cover. Adding a book is
+ * (`onRemoveReading`); then "My private uploads" with every own book and the ••• menu that
+ * deletes one (`onDelete`). `covers` maps a reading-table id to its full-size cover. Adding a book is
  * the + beside My shelf's heading. Returns how many cards were added. `currentlyReading: false`:
  * the library's My shelf, whose Currently reading is the reading table's list (own books in it).
  */
@@ -825,26 +829,70 @@ export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,
  }
  if(own.length){
   grid.append(el('h2','my-books-head',PRIVATE_UPLOADS));
-  for(const book of own){grid.append(ownBookCard(book,el,{onRemove:onDelete,cover:coverFor(book)}));added++;}
+  for(const book of own){grid.append(ownBookCard(book,el,{onDelete,cover:coverFor(book)}));added++;}
  }
  return added;
 }
 
-// ---- Removing one of My private uploads: the existing delete (this device and the account) ----
+// ---- My shelf's ••• menu: each book's one action (Anders, 2026-10-20) ----
 /**
- * Confirm before an own book is deleted (the reading table's remove dialog, in Tinct UI).
- * Resolves true on Remove.
+ * What the one action on a shelf book says: an own book (PDF, EPUB) is deleted from
+ * Tinct; a Tinct book leaves the reader's books, its place and notes kept.
  */
-export function confirmDeleteUpload(book,{from=null}={}){
+export function shelfAction(own){
+ return own
+  ?{item:'Delete',title:t=>`Delete ${t}?`,body:'Deletes the file, its notes and its place from Tinct on all your devices.',confirm:'Delete'}
+  :{item:'Remove from my books',title:t=>`Remove ${t}?`,body:'Removes it from your books. Your notes stay if you add it again.',confirm:'Remove'};
+}
+let openMenu=null;
+function closeShelfMenu({focus=false}={}){
+ if(!openMenu)return;const {menu,more,away}=openMenu;openMenu=null;
+ menu.remove();more.setAttribute('aria-expanded','false');more.classList.remove('is-open');
+ removeEventListener('pointerdown',away,true);removeEventListener('keydown',away,true);
+ if(focus)more.focus({preventScroll:true});
+}
+/**
+ * The quiet ••• on a shelf cover (on hover with a mouse, always shown on touch): a menu
+ * with the book's one action. `onChoose(more)` runs once the menu has closed.
+ */
+export function shelfMenu(title,{own=false,onChoose}){
+ const action=shelfAction(own);
+ const more=button('shelf-more');more.dataset.shelfMore=own?'own':'tinct';
+ more.setAttribute('aria-label',`More for ${title}`);more.setAttribute('aria-haspopup','menu');more.setAttribute('aria-expanded','false');
+ more.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>';
+ more.onclick=event=>{
+  event.preventDefault();event.stopPropagation();
+  if(openMenu?.more===more){closeShelfMenu();return;}
+  closeShelfMenu();
+  const menu=make('div','shelf-menu');menu.setAttribute('role','menu');menu.dataset.testid='shelf-menu';
+  const item=button('shelf-menu-item',action.item);item.setAttribute('role','menuitem');if(own)item.classList.add('is-delete');
+  item.onclick=e=>{e.preventDefault();e.stopPropagation();closeShelfMenu();onChoose(more);};
+  menu.append(item);menu.addEventListener('click',e=>e.stopPropagation());
+  const away=e=>{if(e.type==='keydown'){if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closeShelfMenu({focus:true});}return;}if(!menu.contains(e.target)&&e.target!==more&&!more.contains(e.target))closeShelfMenu();};
+  more.after(menu);more.setAttribute('aria-expanded','true');more.classList.add('is-open');
+  openMenu={menu,more,away};
+  addEventListener('pointerdown',away,true);addEventListener('keydown',away,true);
+  item.focus({preventScroll:true});
+ };
+ return more;
+}
+/**
+ * Confirm a shelf book's action in Tinct UI's dialog, never window.confirm: its title
+ * names the book, its one line says what happens (shelfAction). `own`: an own book's
+ * Delete (the default: My private uploads); false: a Tinct book's Remove from my books.
+ * Resolves true on the action, false on Cancel, Escape or a click outside.
+ */
+export function confirmDeleteUpload(book,{from=null,own=true}={}){
+ const action=shelfAction(own);
  return new Promise(resolve=>{
   const layer=make('div','tui-scrim own-delete-layer');layer.dataset.testid='own-delete-dialog';layer.dataset.tuiTheme='dark';
   const box=make('div','tui-dialog own-delete-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-delete-title');
-  const title=make('h2','tui-dialog__title',`Remove ${book.title}?`);title.id='own-delete-title';
+  const title=make('h2','tui-dialog__title',action.title(book.title));title.id='own-delete-title';
   const head=make('div','tui-dialog__head');head.append(title);
-  const keepIt=button('tui-btn tui-btn--secondary own-delete-cancel','Keep book');
-  const remove=button('tui-btn tui-btn--primary own-delete-confirm','Remove');
+  const keepIt=button('tui-btn tui-btn--secondary own-delete-cancel','Cancel');
+  const remove=button('tui-btn tui-btn--primary own-delete-confirm',action.confirm);
   const row=make('div','tui-dialog__actions');row.append(keepIt,remove);
-  box.append(head,make('p','tui-dialog__body','It is removed from this device and your account.'),row);layer.append(box);document.body.append(layer);
+  box.append(head,make('p','tui-dialog__body',action.body),row);layer.append(box);document.body.append(layer);
   const done=value=>{removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});resolve(value);};
   const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();done(false);}};
   addEventListener('keydown',onKey,true);
@@ -854,15 +902,44 @@ export function confirmDeleteUpload(book,{from=null}={}){
  });
 }
 /**
- * Delete an own book from this device and the account with Add a book's own delete
- * (add-engine.js removeBook: the kept file, its place, the account copy). Other books'
- * places are never touched. Resolves true when it is gone from both.
+ * Delete an own book with Add a book's own delete (add-engine.js removeBook: this device's
+ * copy in IndexedDB, its place, and the account's copy, whose DELETE takes the R2 file, its
+ * cover, place, highlights and notes, margin answers, recap, narration and recognised text:
+ * worker/routes/userBooks.ts remove). Then this device's other keys for the book go
+ * (forgetOwnBookHere). Other books' places are never touched. Resolves true when it is
+ * gone from both.
  */
-export async function deleteUpload(book,{engine=loadFileEngine}={}){
+export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}){
  const api=await engine();
  // An account copy not on this device is found by the account's list.
  if(!(await api.library.get(book.key)))await api.cloud.refresh();
- return api.removeBook(book.key);
+ const gone=await api.removeBook(book.key);
+ forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined);
+ return gone;
+}
+/** This page's fast-paint snapshots: rebuilt on the next load, so one that names a deleted book is dropped whole. */
+const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-paint$)/;
+/**
+ * Everything this device keeps for one own book besides its file (removeBook takes that and its
+ * place): its highlights, margin answers, chats, PDF page and edition, view, hidden mark, the
+ * library's small cover copy, and any snapshot naming it. Keys are matched by the book's own
+ * 24-hex-digit id, so no other book's keys can match.
+ */
+export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage]){
+ if(!/^[0-9a-f]{24}$/.test(String(hex)))return 0;
+ const id='userbook-'+hex;let gone=0;
+ for(const store of storages){
+  if(!store)continue;
+  try{
+   const keys=[];for(let i=0;i<store.length;i++){const key=store.key(i);if(key)keys.push(key);}
+   for(const key of keys){
+    const mine=(key.startsWith('tinct-addbook:')||key.startsWith('tinct:'))&&key.includes(hex);
+    const names=!mine&&SNAPSHOT_KEYS.test(key)&&String(store.getItem(key)||'').includes(id);
+    if(mine||names){store.removeItem(key);gone++;}
+   }
+  }catch{/* blocked storage: nothing kept to forget */}
+ }
+ return gone;
 }
 
 /** The library top bar's +, beside search: the "Your own book" pop-up with "Add a book" (`onSearch`: the library search), where Add to Tinct is on. */

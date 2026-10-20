@@ -7,7 +7,7 @@
  * - every counted tick (same activity rule as the device tally) goes to a
  *   small per-day, per-book pending store on the device instead of the yearly
  *   tally, so each second is in exactly one place;
- * - signed in, a heartbeat about once a minute sends the current book's
+ * - signed in, a heartbeat about every five minutes sends the current book's
  *   pending time; the Worker credits it under its limits;
  * - whatever a heartbeat cannot carry (signed out, offline, another book or
  *   day, the ledger not there yet) stays pending and is flushed later, once,
@@ -145,7 +145,7 @@ export function pendingRows(store: PendingStore): LedgerRow[] {
 
 /**
  * What one heartbeat carries: the current book's pending time today, at most
- * a minute of it (listening first). The rest waits for the next beat.
+ * BEAT_MAX_SECONDS of it (listening first). The rest waits for the next beat.
  */
 export function beatPayload(store: PendingStore, day: string, bookId: string, playing: boolean): { day: string; bookId: string; read: number; listen: number; playing: boolean } | null {
   const time = store[day]?.[bookId]

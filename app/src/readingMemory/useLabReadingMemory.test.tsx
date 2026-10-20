@@ -7,7 +7,7 @@ import { READING_MEMORY_DEVICE_KEY, READING_MEMORY_QUEUE_KEY, deviceReadingMemor
 import { fakeVersionedCloud, platoDialogueFixture, sessionFor } from './fixtures.test-helpers'
 import { applyReadingMemoryEvent, emptyReadingMemory, eventFromSession, latestReadingSession } from './sessions'
 import type { ReadingMemoryCloud } from './queue'
-import { useLabReadingMemory, type LabReadingMemoryInput } from './useLabReadingMemory'
+import { CLOUD_DRAIN_MIN_INTERVAL_MS, useLabReadingMemory, type LabReadingMemoryInput } from './useLabReadingMemory'
 
 afterEach(() => {
   cleanup()
@@ -152,5 +152,76 @@ describe('useLabReadingMemory (reader observer)', () => {
     const session = latestReadingSession(readDeviceReadingMemory())
     expect(typeof session?.endedAt).toBe('number')
     expect(session!.endedAt! >= session!.startedAt).toBe(true)
+  })
+
+})
+
+describe('useLabReadingMemory cloud cadence', () => {
+  afterEach(() => { vi.useRealTimers() })
+
+  const settle = async (ms = 0) => { await act(async () => { await vi.advanceTimersByTimeAsync(ms) }) }
+
+  it('writes the device copy on every turn but the cloud copy at most once every 5 minutes', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] })
+    vi.setSystemTime(Date.UTC(2026, 9, 20, 9, 0))
+    const fake = fakeVersionedCloud()
+    const cloudFor = () => fake.cloud
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ userId: 'user-1', cloudFor }) })
+    await settle()
+    expect(fake.commits).toHaveLength(1)
+    const pages = chapterHearingPages(platoDialogueFixture().paragraphs, null).length
+    expect(pages).toBeGreaterThan(2)
+    for (let page = 1; page < Math.min(pages, 4); page++) {
+      await settle(20_000)
+      rerender(inputFor({ userId: 'user-1', cloudFor, pageIndex: page, pageTurnDirection: 'next' }))
+      // Local every turn.
+      expect(latestReadingSession(readDeviceReadingMemory())?.anchor.page).toBe(page + 1)
+    }
+    expect(fake.commits).toHaveLength(1)
+    expect(deviceReadingMemoryQueue().pending()).toHaveLength(1)
+    await settle(CLOUD_DRAIN_MIN_INTERVAL_MS - 60_000 - 1_000)
+    expect(fake.commits).toHaveLength(1)
+    await settle(2_000)
+    expect(fake.commits).toHaveLength(2)
+    const last = Math.min(pages, 4)
+    expect(Object.values(fake.row()!.state.sessions)[0].anchor.page).toBe(last)
+    expect(deviceReadingMemoryQueue().pending()).toEqual([])
+  })
+
+  it('flushes at once when the page is hidden, then pagehide sends nothing more', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] })
+    vi.setSystemTime(Date.UTC(2026, 9, 20, 9, 0))
+    const fake = fakeVersionedCloud()
+    const cloudFor = () => fake.cloud
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ userId: 'user-1', cloudFor }) })
+    await settle()
+    expect(fake.commits).toHaveLength(1)
+    await settle(10_000)
+    rerender(inputFor({ userId: 'user-1', cloudFor, pageIndex: 1, pageTurnDirection: 'next' }))
+    expect(fake.commits).toHaveLength(1)
+    const visibility = vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden')
+    act(() => { document.dispatchEvent(new Event('visibilitychange')) })
+    act(() => { window.dispatchEvent(new Event('pagehide')) })
+    await settle()
+    visibility.mockRestore()
+    expect(fake.commits).toHaveLength(2)
+    const session = Object.values(fake.row()!.state.sessions)[0]
+    expect(session.anchor.page).toBe(2)
+    expect(typeof session.endedAt).toBe('number')
+    expect(deviceReadingMemoryQueue().pending()).toEqual([])
+    // Nothing new: the throttle window passing writes nothing.
+    await settle(CLOUD_DRAIN_MIN_INTERVAL_MS * 2)
+    expect(fake.commits).toHaveLength(2)
+  })
+
+  it('signed out never touches the cloud', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] })
+    const fake = fakeVersionedCloud()
+    const { rerender } = renderHook((props: LabReadingMemoryInput) => useLabReadingMemory(props), { initialProps: inputFor({ cloudFor: () => fake.cloud }) })
+    rerender(inputFor({ cloudFor: () => fake.cloud, pageIndex: 1 }))
+    act(() => { window.dispatchEvent(new Event('pagehide')) })
+    await settle(CLOUD_DRAIN_MIN_INTERVAL_MS)
+    expect(fake.reads()).toBe(0)
+    expect(fake.commits).toEqual([])
   })
 })
