@@ -1,6 +1,6 @@
 # Tinct — Brand
 
-**Part 1 agreed with Anders, 2026-10-20.** Positioning only: what Tinct says and to whom. It supersedes the classics-only framing in [STRATEGY.md](STRATEGY.md) and [ELEVATOR-PITCH.md](ELEVATOR-PITCH.md) where they differ. Parts 2–5 (founder vs brand voice, funnel and channels, community, plan) are still to come.
+**Part 1 agreed with Anders, 2026-10-20.** Positioning only: what Tinct says and to whom. It supersedes the classics-only framing in [STRATEGY.md](STRATEGY.md) and [ELEVATOR-PITCH.md](ELEVATOR-PITCH.md) where they differ. Part 2 (voice) agreed the same day. Parts 3–5 (funnel and channels, community, plan) are still to come.
 
 ## The core
 
@@ -34,6 +34,17 @@ Hero image: one hard line with the margin open (Explain answering, Simplify and 
 **Founder vs brand:** the renaissance thesis (people need depth; the West has forgotten how to defend its values) is Anders's own voice, not Tinct's. Tinct's belief must work for any curious reader.
 
 **In reserve:** "You read it. It tincts you." for the About page and the name story. A *tinct* was the alchemists' tincture that turns base metal to gold: "that great medicine hath / With his tinct gilded thee" (*Antony and Cleopatra*, 1.5).
+
+## Voice: founder-led (part 2, agreed 2026-10-20)
+
+| | |
+|---|---|
+| **Founder voice** | Anders on X as @FallibleMusings, under his real name and face, with video. About 90% of the effort while Tinct is small. |
+| **What he posts** | Reading hard things in public (where a text fought back, what clicked, Tinct visible in the screenshot); building Tinct in public with real numbers; the depth thesis. The renaissance and western-values thesis comes as an occasional argued essay (about one post in ten), never as a sneer at people. |
+| **Brand account** | Tinct's X account (few followers) stays quiet: passage cards, product updates, "you said, we fixed", reposts of Anders. |
+| **Honesty** | Complete for Anders's own data and for Tinct's totals. Other readers' data only as totals large enough not to identify anyone, or with their consent (see `AGENTS.md`). |
+
+Anders writes the founder posts himself.
 
 ## Ask readers
 
