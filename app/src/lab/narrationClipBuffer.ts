@@ -27,8 +27,31 @@ export const CLIP_BUFFER_SAVE_DATA_SECONDS = 45
 export const CLIP_BUFFER_MIN_CLIPS = 2
 /** Memory ceiling for downloaded clips; ~17 minutes of 128 kbps narration. */
 export const CLIP_BUFFER_MAX_BYTES = 16 * 1024 * 1024
-/** Downloads at once: one keeps the nearest clip first on a thin connection. */
+/** Downloads at once while healthy: one keeps the nearest clip first on a thin connection. */
 const CONCURRENCY = 1
+/** Downloads at once while the buffer is low or the network weak: the next clips side by side. */
+export const CLIP_BUFFER_URGENT_CONCURRENCY = 3
+/**
+ * Low-water mark, listening seconds ready ahead: below it the buffer is
+ * topped up urgently (parallel downloads) long before anything is audible.
+ */
+export const CLIP_BUFFER_LOW_WATER_SECONDS = 45
+/** Under this many listening seconds ahead, downloads go one at a time, nearest first, whatever else holds. */
+export const CLIP_BUFFER_NEAREST_FIRST_SECONDS = 10
+/** Under this many listening seconds ahead, with the next clip not here, the transport shows buffering. */
+export const CLIP_BUFFER_DRY_SECONDS = 5
+/** A download that has received no bytes for this long is stalled: aborted and resumed at once. */
+export const CLIP_FETCH_STALL_MS = 3_000
+/** Waits before each resume of a stalled download (then the last, repeated). */
+export const CLIP_FETCH_RETRY_MS = [0, 500, 1_000, 2_000, 4_000]
+/** A stall or a too-slow download marks the network weak for this long: wider window, parallel downloads. */
+export const CLIP_BUFFER_WEAK_MS = 30_000
+/** While weak, the window is this many times wider (never with Save-Data). */
+export const CLIP_BUFFER_WEAK_FACTOR = 2
+/** A download is judged for speed only after this long, so one slow first packet is not a verdict. */
+const RATE_SAMPLE_MS = 2_000
+/** How often the in-flight downloads are checked while any runs (fetch callbacks and the player's clock check too). */
+const CHECK_MS = 1_000
 /** Back-off after a failed download before the same URL is asked again. */
 const RETRY_AFTER_MS = 4_000
 
@@ -101,6 +124,40 @@ interface Entry {
   bytes: number
   failedAt?: number
   controller?: AbortController
+  /** Bytes of the download so far (kept across a resume), and its size when the server said. */
+  parts: Uint8Array[]
+  received: number
+  total?: number
+  type?: string
+  /** This attempt: when it started, when bytes last arrived, what it had then. */
+  startedAt: number
+  dataAt: number
+  attemptReceived: number
+  /** Stalled downloads resumed so far, and the earliest moment for the next. */
+  retries: number
+  notBefore: number
+  /** Seconds of audio, when the player knows (judges a download's speed against playback). */
+  duration?: number
+  /** Aborted on purpose to resume: not a failure. */
+  resuming?: boolean
+}
+
+/** What the buffer reports when it acts early (window `tinct:narration-buffer` events; counted nowhere). */
+export interface ClipBufferSignal {
+  kind: 'fetch-stalled' | 'fetch-slow' | 'low-water' | 'recovered'
+  url?: string
+  /** Listening seconds ready ahead when it fired. */
+  aheadSeconds?: number
+  retries?: number
+}
+
+export interface WantOptions {
+  /** Listening seconds ready ahead of the playhead (the player's view). */
+  aheadSeconds?: number
+  /** Playback rate: a download slower than the audio it carries, at this rate, is too slow. */
+  rate?: number
+  /** Seconds of audio of each URL, when known. */
+  durations?: Record<string, number | undefined>
 }
 
 export interface ClipBufferDeps {
@@ -144,6 +201,14 @@ export class NarrationClipBuffer {
   private order: string[] = []
   private active = 0
   private readonly deps: ClipBufferDeps | null
+  private weakUntil = 0
+  private lowWater = false
+  private rate = 1
+  private aheadSeconds: number | undefined
+  private checkTimer: ReturnType<typeof setTimeout> | undefined
+  private pumpTimer: ReturnType<typeof setTimeout> | undefined
+  /** Signals, for the reader's diagnostics and the gap harness. */
+  onSignal: ((signal: ClipBufferSignal) => void) | null = defaultSignal
 
   constructor(deps?: Partial<ClipBufferDeps>) {
     const merged: Partial<ClipBufferDeps> = { ...defaultDeps(), ...(deps ?? {}) }
@@ -162,6 +227,11 @@ export class NarrationClipBuffer {
     return this.entries.get(url)?.state === 'ready'
   }
 
+  /** The network looked weak lately (a stalled or too-slow download): the player widens its window. */
+  get weak(): boolean {
+    return Boolean(this.deps && this.deps.now() < this.weakUntil)
+  }
+
   /** Bytes held in memory. */
   get bytes(): number {
     let total = 0
@@ -173,20 +243,34 @@ export class NarrationClipBuffer {
    * Download `urls` (in playing order, nearest first) and keep them, plus
    * anything in `retain` already held (the playing clip, the one before it
    * that the element may still read, and later clips a wider window fetched).
-   * Everything else is dropped. Safe to call often; each URL is fetched once.
+   * Everything else is dropped. Safe to call often (the player calls it from
+   * its clock): each URL is fetched once, and each call also checks the
+   * downloads in flight, so the checks run on a locked phone too, where
+   * timers are throttled but media events still arrive.
    */
-  want(urls: string[], retain: string[] = []): void {
+  want(urls: string[], retain: string[] = [], options: WantOptions = {}): void {
     if (!this.deps) return
+    const now = this.deps.now()
     const kept = new Set([...urls, ...retain.filter(Boolean)])
     for (const [url, entry] of Array.from(this.entries.entries())) {
       if (!kept.has(url)) this.drop(url, entry)
     }
     this.order = urls
+    if (typeof options.rate === 'number' && options.rate > 0) this.rate = options.rate
+    this.aheadSeconds = options.aheadSeconds
+    const low = typeof options.aheadSeconds === 'number' && options.aheadSeconds < CLIP_BUFFER_LOW_WATER_SECONDS && urls.some(url => !this.isReady(url))
+    if (low && !this.lowWater) this.signal({ kind: 'low-water', aheadSeconds: options.aheadSeconds })
+    this.lowWater = low
     for (const url of urls) {
       const entry = this.entries.get(url)
-      if (!entry) this.entries.set(url, { url, state: 'queued', bytes: 0 })
-      else if (entry.state === 'failed' && this.deps.now() - (entry.failedAt ?? 0) >= RETRY_AFTER_MS) entry.state = 'queued'
+      const duration = options.durations?.[url]
+      if (!entry) this.entries.set(url, { url, state: 'queued', bytes: 0, parts: [], received: 0, startedAt: 0, dataAt: 0, attemptReceived: 0, retries: 0, notBefore: 0, duration })
+      else {
+        if (duration) entry.duration = duration
+        if (entry.state === 'failed' && now - (entry.failedAt ?? 0) >= RETRY_AFTER_MS) entry.state = 'queued'
+      }
     }
+    this.check()
     this.pump()
   }
 
@@ -200,9 +284,57 @@ export class NarrationClipBuffer {
   clear(): void {
     for (const [url, entry] of Array.from(this.entries.entries())) this.drop(url, entry)
     this.order = []
+    clearTimeout(this.checkTimer)
+    clearTimeout(this.pumpTimer)
+    this.checkTimer = undefined
+    this.pumpTimer = undefined
+  }
+
+  /**
+   * Early warning on the downloads in flight: one that has received nothing
+   * for CLIP_FETCH_STALL_MS is aborted and resumed from its last byte at once
+   * (short back-off); one slower than the audio it carries marks the network
+   * weak. Both happen while the player still has its buffer to play.
+   */
+  check(): void {
+    const deps = this.deps
+    if (!deps) return
+    const now = deps.now()
+    for (const entry of this.entries.values()) {
+      if (entry.state !== 'loading') continue
+      if (now - entry.dataAt >= CLIP_FETCH_STALL_MS) {
+        this.weakUntil = now + CLIP_BUFFER_WEAK_MS
+        entry.resuming = true
+        entry.notBefore = now + CLIP_FETCH_RETRY_MS[Math.min(entry.retries, CLIP_FETCH_RETRY_MS.length - 1)]
+        entry.retries += 1
+        this.signal({ kind: 'fetch-stalled', url: entry.url, aheadSeconds: this.aheadSeconds, retries: entry.retries })
+        entry.controller?.abort()
+        continue
+      }
+      const elapsed = now - entry.startedAt
+      if (entry.duration && entry.total && elapsed >= RATE_SAMPLE_MS && entry.received < entry.total) {
+        const bytesPerSecond = ((entry.received - entry.attemptReceived) * 1000) / elapsed
+        const needed = (entry.total / entry.duration) * this.rate
+        if (bytesPerSecond < needed && now >= this.weakUntil) {
+          this.weakUntil = now + CLIP_BUFFER_WEAK_MS
+          this.signal({ kind: 'fetch-slow', url: entry.url, aheadSeconds: this.aheadSeconds })
+        }
+      }
+    }
+    this.armCheck()
+  }
+
+  private armCheck(): void {
+    if (this.checkTimer !== undefined || !Array.from(this.entries.values()).some(entry => entry.state === 'loading')) return
+    this.checkTimer = setTimeout(() => { this.checkTimer = undefined; this.check(); this.pump() }, CHECK_MS)
+  }
+
+  private signal(signal: ClipBufferSignal): void {
+    try { this.onSignal?.(signal) } catch { /* diagnostics only */ }
   }
 
   private drop(url: string, entry: Entry): void {
+    entry.resuming = false
     entry.controller?.abort()
     if (entry.objectUrl) {
       sourceOrigins.delete(entry.objectUrl)
@@ -214,51 +346,111 @@ export class NarrationClipBuffer {
   private pump(): void {
     const deps = this.deps
     if (!deps) return
-    while (this.active < CONCURRENCY) {
+    const now = deps.now()
+    // Side by side only while the nearest clip is not critical yet: on a thin
+    // link, parallel downloads share the bandwidth and the next clip, the one
+    // that decides whether a boundary is silent, would arrive later.
+    const nearestFirst = typeof this.aheadSeconds === 'number' && this.aheadSeconds < CLIP_BUFFER_NEAREST_FIRST_SECONDS
+    const limit = !nearestFirst && (this.lowWater || now < this.weakUntil) ? CLIP_BUFFER_URGENT_CONCURRENCY : CONCURRENCY
+    let wake = Infinity
+    while (this.active < limit) {
       if (this.bytes >= deps.maxBytes) return
-      const next = this.order.map(url => this.entries.get(url)).find(entry => entry?.state === 'queued')
-      if (!next) return
+      const queued = this.order.map(url => this.entries.get(url)).filter((entry): entry is Entry => entry?.state === 'queued')
+      const next = queued.find(entry => entry.notBefore <= now)
+      if (!next) {
+        for (const entry of queued) wake = Math.min(wake, entry.notBefore)
+        break
+      }
       this.load(next, deps)
+    }
+    if (wake < Infinity && this.pumpTimer === undefined) {
+      this.pumpTimer = setTimeout(() => { this.pumpTimer = undefined; this.pump() }, Math.max(0, wake - now))
     }
   }
 
   private load(entry: Entry, deps: ClipBufferDeps): void {
     entry.state = 'loading'
+    entry.resuming = false
+    const now = deps.now()
+    entry.startedAt = now
+    entry.dataAt = now
+    entry.attemptReceived = entry.received
     const controller = typeof AbortController !== 'undefined' ? new AbortController() : undefined
     entry.controller = controller
     this.active += 1
+    const current = () => this.entries.get(entry.url) === entry && entry.controller === controller
     const settle = () => {
       this.active -= 1
-      entry.controller = undefined
+      if (entry.controller === controller) entry.controller = undefined
       this.pump()
     }
+    // A resumed download asks only for the bytes it lacks.
+    const resumeFrom = entry.received
+    const headers = resumeFrom > 0 ? { Range: `bytes=${resumeFrom}-` } : undefined
+    this.armCheck()
     void Promise.resolve()
-      .then(() => deps.fetch(entry.url, { cache: 'force-cache', credentials: 'same-origin', ...(controller ? { signal: controller.signal } : {}) }))
+      .then(() => deps.fetch(entry.url, { cache: 'force-cache', credentials: 'same-origin', ...(headers ? { headers } : {}), ...(controller ? { signal: controller.signal } : {}) }))
       .then(async (response) => {
         if (!response?.ok) throw new Error(String(response?.status))
         if (!deps.createObjectURL) {
           // No blob: URLs here: the download still warms the HTTP cache the element reads from.
           await response.arrayBuffer()
-          if (this.entries.get(entry.url) === entry) entry.state = 'ready'
+          if (current()) entry.state = 'ready'
           return
         }
-        const blob = typeof response.blob === 'function'
-          ? await response.blob()
-          : new Blob([await response.arrayBuffer()], { type: 'audio/mpeg' })
+        let blob: Blob
+        const reader = response.body && typeof response.body.getReader === 'function' ? response.body.getReader() : null
+        if (reader) {
+          if (resumeFrom > 0 && response.status !== 206) { entry.parts = []; entry.received = 0; entry.attemptReceived = 0 }
+          const length = Number(response.headers?.get?.('content-length'))
+          if (Number.isFinite(length) && length > 0) entry.total = entry.received + length
+          entry.type = response.headers?.get?.('content-type') || entry.type
+          for (;;) {
+            const { done, value } = await reader.read()
+            if (done) break
+            if (!current()) { try { await reader.cancel() } catch { /* ignore */ } return }
+            if (value?.length) {
+              entry.parts.push(value)
+              entry.received += value.length
+              entry.dataAt = deps.now()
+            }
+          }
+          blob = new Blob(entry.parts as BlobPart[], { type: entry.type && entry.type.startsWith('audio/') ? entry.type : 'audio/mpeg' })
+        } else {
+          blob = typeof response.blob === 'function'
+            ? await response.blob()
+            : new Blob([await response.arrayBuffer()], { type: 'audio/mpeg' })
+        }
         if (!blob || blob.size === 0) throw new Error('empty')
-        if (this.entries.get(entry.url) !== entry) return
+        if (!current()) return
         const typed = blob.type && blob.type.startsWith('audio/') ? blob : new Blob([blob], { type: 'audio/mpeg' })
+        entry.parts = []
         entry.objectUrl = deps.createObjectURL(typed)
         sourceOrigins.set(entry.objectUrl, entry.url)
         entry.bytes = typed.size
         entry.state = 'ready'
+        if (entry.retries > 0) this.signal({ kind: 'recovered', url: entry.url, aheadSeconds: this.aheadSeconds, retries: entry.retries })
       })
       .catch(() => {
-        // Never in the way of playback: the element streams the URL itself.
         if (this.entries.get(entry.url) !== entry) return
+        if (entry.resuming) {
+          // Aborted by the stall check: resume (from the last byte) after the back-off.
+          entry.state = 'queued'
+          return
+        }
+        if (entry.controller !== controller) return
+        // Never in the way of playback: the element streams the URL itself.
         entry.state = 'failed'
         entry.failedAt = deps.now()
+        entry.parts = []
+        entry.received = 0
       })
       .finally(settle)
   }
+}
+
+/** Signals go to the page as `tinct:narration-buffer` events: nothing listens in the app; the gap harness does. */
+function defaultSignal(signal: ClipBufferSignal): void {
+  if (typeof window === 'undefined' || typeof CustomEvent !== 'function') return
+  window.dispatchEvent(new CustomEvent('tinct:narration-buffer', { detail: { ...signal, at: new Date().getTime() } }))
 }

@@ -191,3 +191,121 @@ describe('NarrationClipBuffer', () => {
     expect(sourcePlaysClip('/b', '/b')).toBe(true)
   })
 })
+
+describe('NarrationClipBuffer early warning', () => {
+  /** A streamed response: `chunks` arrive at once, then the connection hangs until aborted (or `finish`). */
+  function streaming(signal: AbortSignal | undefined, chunks: number[], total: number, status = 200) {
+    let finish: (() => void) | null = null
+    let sent = 0
+    const reader = {
+      read: () => {
+        if (sent < chunks.length) return Promise.resolve({ done: false, value: new Uint8Array(chunks[sent++]) })
+        return new Promise<{ done: boolean; value?: Uint8Array }>((resolve, reject) => {
+          finish = () => resolve({ done: true })
+          signal?.addEventListener('abort', () => reject(Object.assign(new Error('aborted'), { name: 'AbortError' })), { once: true })
+        })
+      },
+      cancel: async () => {},
+    }
+    const headers = new Map([['content-length', String(total)], ['content-type', 'audio/mpeg']])
+    return { response: { ok: true, status, headers: { get: (name: string) => headers.get(name) ?? null }, body: { getReader: () => reader } } as unknown as Response, finish: () => finish?.() }
+  }
+
+  function rig() {
+    let now = 0
+    const calls: Array<{ url: string; range?: string; signal?: AbortSignal; answer: (response: Response) => void }> = []
+    // Like fetch: an abort rejects a request still waiting for its answer.
+    const fetch = vi.fn((url: string, init?: RequestInit) => new Promise<Response>((resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => reject(Object.assign(new Error('aborted'), { name: 'AbortError' })), { once: true })
+      calls.push({ url, range: (init?.headers as Record<string, string> | undefined)?.Range, signal: init?.signal ?? undefined, answer: resolve })
+    })) as unknown as typeof globalThis.fetch
+    const signals: string[] = []
+    const buffer = new NarrationClipBuffer({ fetch, createObjectURL: blob => `blob:size-${blob.size}`, revokeObjectURL: () => {}, now: () => now, maxBytes: 1e9 })
+    buffer.onSignal = signal => { signals.push(signal.kind + (signal.aheadSeconds != null ? '@' + signal.aheadSeconds : '')) }
+    const flush = () => new Promise(resolve => setTimeout(resolve, 0))
+    return { buffer, calls, signals, flush, advance: (ms: number) => { now += ms } }
+  }
+
+  it('aborts a download that stops receiving bytes and resumes it from the last byte, while the buffer still plays', async () => {
+    const h = rig()
+    h.buffer.want(['/b'], [], { aheadSeconds: 80, rate: 1.5 })
+    await h.flush()
+    const first = streaming(h.calls[0].signal, [400], 1000)
+    h.calls[0].answer(first.response)
+    await h.flush()
+    h.advance(2_000)
+    h.buffer.check()
+    expect(h.signals).toEqual([])
+    h.advance(1_100)
+    // Checked from the player's clock (media events), not only a timer.
+    h.buffer.want(['/b'], [], { aheadSeconds: 78, rate: 1.5 })
+    await h.flush()
+    expect(h.signals).toEqual(['fetch-stalled@78'])
+    expect(h.calls).toHaveLength(2)
+    expect(h.calls[1].range).toBe('bytes=400-')
+    expect(h.buffer.weak).toBe(true)
+    const rest = streaming(h.calls[1].signal, [600], 600, 206)
+    h.calls[1].answer(rest.response)
+    await h.flush()
+    rest.finish()
+    await h.flush()
+    // The copy holds every byte, the first attempt's and the resumed ones.
+    expect(h.buffer.sourceFor('/b')).toBe('blob:size-1000')
+    expect(h.signals).toEqual(['fetch-stalled@78', 'recovered@78'])
+  })
+
+  it('a request that never answers is a stall too, retried with back-off', async () => {
+    const h = rig()
+    h.buffer.want(['/b'], [], { aheadSeconds: 60 })
+    await h.flush()
+    h.advance(3_000)
+    h.buffer.check()
+    await h.flush()
+    // The pending fetch was aborted; the retry starts at once (first back-off is 0).
+    expect(h.calls).toHaveLength(2)
+    expect(h.calls[0].signal?.aborted).toBe(true)
+    h.advance(3_000)
+    h.buffer.check()
+    await h.flush()
+    // The second resume waits its back-off before asking again.
+    expect(h.calls).toHaveLength(2)
+    h.advance(600)
+    await new Promise(resolve => setTimeout(resolve, 10))
+    h.buffer.want(['/b'], [], { aheadSeconds: 50 })
+    await h.flush()
+    expect(h.calls).toHaveLength(3)
+  })
+
+  it('below the low-water mark downloads the next clips side by side, but nearest first when nearly dry', async () => {
+    const h = rig()
+    h.buffer.want(['/b', '/c', '/d', '/e'], [], { aheadSeconds: 30 })
+    await h.flush()
+    expect(h.signals).toEqual(['low-water@30'])
+    expect(h.calls.map(call => call.url)).toEqual(['/b', '/c', '/d'])
+    const quiet = rig()
+    quiet.buffer.want(['/b', '/c'], [], { aheadSeconds: 6 })
+    await quiet.flush()
+    expect(quiet.calls.map(call => call.url)).toEqual(['/b'])
+    const healthy = rig()
+    healthy.buffer.want(['/b', '/c'], [], { aheadSeconds: 100 })
+    await healthy.flush()
+    expect(healthy.calls.map(call => call.url)).toEqual(['/b'])
+    expect(healthy.signals).toEqual([])
+  })
+
+  it('a download slower than the audio it carries marks the network weak', async () => {
+    const h = rig()
+    h.buffer.want(['/b'], [], { aheadSeconds: 100, rate: 2, durations: { '/b': 10 } })
+    await h.flush()
+    // 10 s of audio in 100 000 bytes: at 2x playback needs 20 000 B/s; 2 000 B arrived in 2.5 s.
+    const slow = streaming(h.calls[0].signal, [2_000], 100_000)
+    h.calls[0].answer(slow.response)
+    await h.flush()
+    h.advance(2_500)
+    h.buffer.check()
+    expect(h.signals).toEqual(['fetch-slow@100'])
+    expect(h.buffer.weak).toBe(true)
+    h.advance(31_000)
+    expect(h.buffer.weak).toBe(false)
+  })
+})

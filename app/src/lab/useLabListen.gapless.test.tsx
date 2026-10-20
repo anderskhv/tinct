@@ -6,7 +6,7 @@
 // memory, inside `ended`, at the one playback speed. A wait for audio
 // mid-recording shows in the transport instead of as silence.
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
-import { afterEach, beforeEach, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useLabListen } from './useLabListen'
 import type { NarrationParagraphResult } from './labNarration'
 import { CLIP_BUFFER_SAVE_DATA_SECONDS, CLIP_BUFFER_VISIBLE_SECONDS, clipUrlOfSource } from './narrationClipBuffer'
@@ -196,4 +196,67 @@ it('streams the recording itself, from the same place, when its downloaded copy 
   expect(audio.currentTime).toBe(4)
   expect(h.result.current.clipIndex).toBe(1)
   expect(h.result.current.narration).toEqual({ status: 'idle' })
+})
+
+describe('a recording that stalls mid-clip (iPhone, 20 Oct 2026: stopped on "say", still showing Pause)', () => {
+  let session: { playbackState: string; metadata: unknown; setActionHandler: () => void; setPositionState: () => void }
+  beforeEach(() => {
+    session = { playbackState: 'none', metadata: null, setActionHandler: () => {}, setPositionState: () => {} }
+    Object.defineProperty(navigator, 'mediaSession', { configurable: true, value: session })
+  })
+  afterEach(() => { delete (navigator as { mediaSession?: unknown }).mediaSession })
+
+  it('notices the clock standing still, says so, and recovers the same second at the same speed', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const { h, audio } = await playing({ speed: 1.5 })
+    audio.currentTime = 7
+    act(() => { audio.dispatchEvent(new Event('timeupdate')) })
+    expect(session.playbackState).toBe('playing')
+    const plays = audio.play.mock.calls.length
+    // The element keeps saying it plays; its clock does not move.
+    await act(async () => { vi.advanceTimersByTime(2_100) })
+    expect(h.result.current.buffering).toBe(true)
+    expect(session.playbackState).toBe('paused')
+    // First a nudge in place (play, as the stall is noticed), then a reload of the same recording from the stalled second.
+    expect(audio.play.mock.calls.length).toBeGreaterThan(plays)
+    expect(session.playbackState).toBe('paused')
+    const loads = audio.playLog.length
+    audio.playbackRate = 1
+    await act(async () => { vi.advanceTimersByTime(1_500) })
+    expect(audio.playLog.length).toBeGreaterThan(loads)
+    expect(clipUrlOfSource(audio.src)).toBe(clipUrl(1, 0))
+    expect(audio.currentTime).toBe(7)
+    expect(audio.playbackRate).toBe(1.5)
+    // Sound again: the transport and the lock screen follow.
+    audio.currentTime = 7.4
+    act(() => { audio.dispatchEvent(new Event('timeupdate')) })
+    expect(h.result.current.buffering).toBe(false)
+    expect(session.playbackState).toBe('playing')
+    expect(h.result.current.playing).toBe(true)
+  })
+
+  it('in front of the reader, stops honestly with Retry after its tries run out', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const { h, audio } = await playing()
+    audio.currentTime = 3
+    act(() => { audio.dispatchEvent(new Event('timeupdate')) })
+    await act(async () => { vi.advanceTimersByTime(45_000) })
+    expect(h.result.current.playing).toBe(false)
+    expect(h.result.current.buffering).toBe(false)
+    expect(h.result.current.narration).toMatchObject({ status: 'error', reason: 'stalled' })
+    expect(session.playbackState).toBe('paused')
+    act(() => { h.result.current.retryNarration() })
+    expect(clipUrlOfSource(audio.src)).toBe(clipUrl(1, 0))
+    expect(audio.currentTime).toBe(3)
+  })
+
+  it('a reader pause is never a stall', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const { h, audio } = await playing()
+    act(() => { h.result.current.pause() })
+    const plays = audio.play.mock.calls.length
+    await act(async () => { vi.advanceTimersByTime(10_000) })
+    expect(audio.play.mock.calls.length).toBe(plays)
+    expect(h.result.current.buffering).toBe(false)
+  })
 })
