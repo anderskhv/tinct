@@ -43,6 +43,8 @@ export interface MarginListenApi {
   pause: () => void
   /** Seconds back (negative) or forward. */
   skip: (seconds: number) => void
+  /** To this many seconds into the chapter (the transport's slider). */
+  seekChapter: (seconds: number) => void
   setSpeed: (rate: number) => void
   /** Put the transport away; the place is kept. */
   stop: () => void
@@ -285,6 +287,7 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     },
     pause: () => { listenRef.current.pause() },
     skip: (seconds) => { listenRef.current.seek(seconds) },
+    seekChapter: (seconds) => { listenRef.current.seekChapter(seconds) },
     setSpeed: (rate) => { listenRef.current.setSpeed(rate) },
     stop: () => {
       const l = listenRef.current
