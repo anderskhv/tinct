@@ -513,8 +513,10 @@ async function readerMatrix(browser, origin) {
           if (!await page.$('.mr-float.mr-bar [data-m="note"]')) throw new Error('the bar closed after Escape from Ask')
         }
         // The note editor.
+        // On a phone the note is the bottom card, its field focused (20 Oct 2026), closed as the card is.
         await page.click('.mr-float [data-m="note"]')
-        await check('note', '.mr-note')
+        await check('note', width >= 700 ? '.mr-note' : '.mr-sheet .mr-note-edit')
+        if (width < 700) await page.evaluate(() => closeSheet2())
         await page.keyboard.press('Escape'); await page.keyboard.press('Escape')
         await page.mouse.click(5, height - 5)
         // Define.
@@ -1623,7 +1625,17 @@ async function columnMatrix(browser, origin) {
             store.set('hl:' + state.key, [...highlights(), { id: 'under' + at.toString(36), page: p.n, rects: [[(bar.left - r.left) / r.width, (bar.top - r.top) / r.height, (bar.right - bar.left) / r.width, (bar.bottom - bar.top) / r.height]], text: 'An earlier passage.', color: 'sky', note: 'An earlier note.', at, u: at }])
             for (const q of state.pages) if (q.layer) renderHighlights(q)
           })
-          await page.click('.mr-float [data-m="note"]'); await page.waitForSelector('.mr-note .mr-note__field', { timeout: 4000 })
+          await page.click('.mr-float [data-m="note"]')
+          // A phone: the note is the bottom card (20 Oct 2026), its field focused in it; written there, nothing to save.
+          if (await page.waitForSelector('.mr-sheet .mr-note-edit', { timeout: 1500 }).catch(() => null)) {
+            await page.keyboard.type('A note on a crowded page.')
+            await state('crowded-note', () => {
+              const el = document.querySelector('.mr-sheet'), f = el?.querySelector('.mr-note-edit'), r = el?.getBoundingClientRect()
+              return { ok: String(col.open || '').startsWith('n-') && !!f && f.value === 'A note on a crowded page.' && document.activeElement === f && r.top >= 0 && r.bottom <= innerHeight + 1, open: col.open, focus: document.activeElement?.className }
+            })
+            await page.evaluate(() => closeSheet2())
+          } else {
+          await page.waitForSelector('.mr-note .mr-note__field', { timeout: 4000 })
           await page.keyboard.type('A note on a crowded page.')
           await page.click('.mr-note [data-m="save"]')
           await state('crowded-note', () => {
@@ -1631,6 +1643,7 @@ async function columnMatrix(browser, origin) {
             const r = el?.getBoundingClientRect()
             return { ok: String(col.open || '').startsWith('n-') && !!el && /A note on a crowded page\./.test(el.innerText) && r.top >= 0 && r.bottom <= innerHeight + 1 && el.contains(document.activeElement), open: col.open, focus: document.activeElement?.className }
           })
+          }
         } else found.push({ state: 'crowded-note', kind: 'error', el: 'no text to select' })
         // A 600-word answer: the open card scrolls inside; its label and follow-up line stay in view.
         await settle(page); await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['explain'], answer: LONG })
@@ -2294,8 +2307,10 @@ async function polish(browser, origin) {
     // A note: its note and the highlight it made go together.
     await a.evaluate(() => { openCard(null); getSelection().removeAllRanges() }); await a.waitForTimeout(200)
     await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-float [data-m="note"]')
-    await a.click('.mr-float [data-m="note"]'); await a.waitForSelector('.mr-note .mr-note__field')
-    await a.fill('.mr-note .mr-note__field', 'MOCK note to delete.'); await a.click('.mr-note [data-m="save"]'); await a.waitForTimeout(500)
+    await a.click('.mr-float [data-m="note"]')
+    // On a phone the note is the bottom card (20 Oct 2026): written in its field, kept as the card closes.
+    if (phone) { await a.waitForSelector('.mr-sheet .mr-note-edit'); await a.fill('.mr-sheet .mr-note-edit', 'MOCK note to delete.'); await a.evaluate(() => closeSheet2()); await a.waitForTimeout(500) }
+    else { await a.waitForSelector('.mr-note .mr-note__field'); await a.fill('.mr-note .mr-note__field', 'MOCK note to delete.'); await a.click('.mr-note [data-m="save"]'); await a.waitForTimeout(500) }
     const note = await a.evaluate(() => { const h = (store.get('hl:' + state.key) || []).find(m => m.note === 'MOCK note to delete.'); return h && { id: h.id, withNote: h.withNote } })
     if (note) await a.evaluate(id => deleteCard('n-' + id), note.id); await a.waitForTimeout(400)
     const noteGone = await a.evaluate(id => ({ mark: (store.get('hl:' + state.key) || []).some(m => m.id === id), card: !!document.querySelector(`[data-id="n-${id}"]`) }), note?.id)
@@ -2787,9 +2802,11 @@ async function phoneUi(browser, origin) {
     const id = await P.page.evaluate(n => { const c = TinctMargin.newCard({ kind: 'explain', page: n, anchor: [{ n, x: 0.15, y: 0.3, w: 0.5, h: 0.012 }], text: 'A passage at the chapter start', turns: [{ role: 'assistant', content: 'An answer.', at: Date.now() }] }); saveCard(c); openCard(c.id); return c.id }, start || BOOK.meta.chapters[0].from)
     await P.page.waitForTimeout(900)
     const open = await P.page.evaluate(() => col.sheet?.dataset.id || null)
-    await P.page.click('.mr-sheet .mr-card__close'); await P.page.waitForTimeout(800)
-    const after = await P.page.evaluate(() => ({ sheet: col.sheet?.dataset.id || null, open: col.open }))
-    ok('phone, a chapter\'s start: a card closed with × stays closed (the Before you start card does not take its place)', trig === 'trigger' && open === id && !after.sheet && !after.open, { trig, open, id, after })
+    // The phone's card has no minimise (20 Oct 2026): it closes with a tap outside it (or a drag down).
+    const minimise = await P.page.evaluate(() => col.sheet?.querySelectorAll('.mr-card__close').length ?? -1)
+    await P.page.mouse.click(200, 120); await P.page.waitForTimeout(800)
+    const after = await P.page.evaluate(m => ({ sheet: col.sheet?.dataset.id || null, open: col.open, minimise: m }), minimise)
+    ok('phone, a chapter\'s start: a card closed with a tap outside stays closed (the Before you start card does not take its place); no minimise', trig === 'trigger' && open === id && !after.sheet && !after.open && after.minimise === 0, { trig, open, id, after })
     await P.ctx.close()
   }
   // A PDF that fails to open once (pdf.js's first try rejects) opens on the second try, from this device's copy.
@@ -3769,7 +3786,9 @@ async function cardsGloss(browser, origin) {
     await a.click('.mr-float [data-m="simplify"]').catch(() => {}); await a.waitForTimeout(1300)
     const host = phone ? '.mr-sheet' : '.mr-card.is-open'
     const look = await a.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const close = el.querySelector('.mr-card__close'), del = el.querySelector('.mr-card__delete'), copy = el.querySelector('.mr-card__acts .mr-card__copy'), about = el.querySelector('.mr-card__about'); return { close: close && [close.getAttribute('aria-label'), close.textContent.trim(), !!close.querySelector('svg path')], delInFollow: !!del?.closest('.mr-follow'), besideCopy: !!del && !!copy && copy.nextElementSibling === del, inActs: !!el.querySelector('.mr-card__acts .mr-card__delete'), copy: !!copy, quote: !!el.querySelector('.mr-quote'), described: el.getAttribute('aria-describedby') && document.getElementById(el.getAttribute('aria-describedby'))?.textContent.length > 5, bold: el.querySelectorAll('.mr-answer .is-bottom-line').length, answer: el.querySelector('.mr-answer')?.textContent.trim() } }, host)
-    ok(`${tag}: 13. the top-right control is "Minimise", one line, no ×`, look && look.close?.[0] === 'Minimise' && look.close[1] === '' && look.close[2], look)
+    // The phone's bottom card has no minimise (20 Oct 2026): a drag down or a tap outside it closes it.
+    if (phone) ok(`${tag}: 13. the phone's bottom card has no minimise`, look && !look.close, look)
+    else ok(`${tag}: 13. the top-right control is "Minimise", one line, no ×`, look && look.close?.[0] === 'Minimise' && look.close[1] === '' && look.close[2], look)
     ok(`${tag}: 13. the bin is in the action row under the answer, beside copy; none in the follow-up field`, look && look.inActs && look.besideCopy && !look.delInFollow && look.copy, look)
     // The follow-up field (Anders, 19 Oct 2026: "it's too hidden that this is indeed a chat field"): seen without focusing it.
     const field = await fieldLook(a, host)
@@ -3800,9 +3819,10 @@ async function cardsGloss(browser, origin) {
     ok(`${tag}: 13. a one-sentence answer is in regular weight (no bold lead)`, look && look.bold === 0 && /^One sentence/.test(look.answer || ''), look)
     // Minimise folds it; the answer is kept.
     const id = await a.evaluate(() => col.open)
-    await a.click(`${host} .mr-card__close`); await a.waitForTimeout(300)
+    if (phone) await a.mouse.click(200, 120); else await a.click(`${host} .mr-card__close`)
+    await a.waitForTimeout(300)
     const folded = await a.evaluate(id => ({ open: col.open, kept: (store.get('cards:' + state.key) || []).some(c => c.id === id && !c.gone && c.turns?.length) }), id)
-    ok(`${tag}: 13. Minimise folds the card; its answer is kept`, !folded.open && folded.kept, folded)
+    ok(`${tag}: 13. ${phone ? 'a tap outside closes the card' : 'Minimise folds the card'}; its answer is kept`, !folded.open && folded.kept, folded)
     // The bin deletes it and its saved answer (Undo offered).
     await a.evaluate(id => openCard(id), id); await a.waitForTimeout(400)
     await a.click(`${host} .mr-card__acts .mr-card__delete`); await a.waitForTimeout(400)

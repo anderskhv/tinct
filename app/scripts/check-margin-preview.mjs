@@ -347,7 +347,7 @@ try {
       const page = await context.newPage()
       const errors = []; page.on('pageerror', e => errors.push(String(e)))
       const type = () => {
-        const pick = el => { const s = getComputedStyle(el), r = el.getBoundingClientRect(); return { size: parseFloat(s.fontSize), line: parseFloat(s.lineHeight), left: Math.round(r.left), width: Math.round(r.width), color: s.color, family: s.fontFamily.split(',')[0].replace(/["']/g, ''), align: s.textAlign } }
+        const pick = el => { const s = getComputedStyle(el), r = el.getBoundingClientRect(); return { size: parseFloat(s.fontSize), line: parseFloat(s.lineHeight), left: Math.round(r.left), width: Math.round(r.width), color: s.color, family: s.fontFamily.split(',')[0].replace(/["']/g, ''), align: s.textAlign, hyphens: s.hyphens || s.webkitHyphens, spacing: s.wordSpacing, lang: el.closest('[lang]')?.lang } }
         const p = [...document.querySelectorAll('.tb-p, .lab-hearing-line')].find(e => e.getBoundingClientRect().height > 40 && e.getBoundingClientRect().top > 0)
         return p ? pick(p) : null
       }
@@ -363,6 +363,8 @@ try {
       shots.push(join(OUT, `${tag}-open.png`)); await page.screenshot({ path: shots.at(-1) })
       ok(`${tag}: no white page card on the phone (the paper shows, no shadow or border)`, /rgba\(0, 0, 0, 0\)|transparent/.test(look.bg) && look.shadow === 'none' && look.border === '0px', look)
       ok(`${tag}: the text is set as the book reader's (font, size, line, colour, measure, margins)`, !!normal && !!mine && mine.family === normal.family && Math.abs(mine.size - normal.size) < 0.6 && Math.abs(mine.line - normal.line) < 1 && mine.color === normal.color && Math.abs(mine.left - normal.left) <= 2 && Math.abs(mine.width - normal.width) <= 4 && mine.align === normal.align, { normal, mine })
+      // Hyphenated as the book reader's justified phone text where it has no plan of its own: by the browser, in the book's language.
+      ok(`${tag}: justified and hyphenated by the book's language, the book reader's word spacing`, mine?.hyphens === 'auto' && mine.lang === 'en' && mine.spacing === normal?.spacing && mine.align === 'justify', { normal, mine })
       // The chapter pills, in the text at a chapter's start and end; their words are not text of the chapter.
       const pills = await frame.evaluate(() => {
         const ch = document.querySelector('.tb-chapter'), start = ch.querySelector(':scope > .tb-head + .tb-mark.is-start'), end = ch.querySelector(':scope > .tb-mark.is-end:last-child')
