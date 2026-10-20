@@ -41,6 +41,8 @@
     return el;
   }
 
+  const partNamed = (part, title) => { const name = String(part).replace(/^part\s+[\divxlc]+\s*[—–:.-]?\s*/i, '').trim().toLowerCase(); return !!name && String(title).toLowerCase().includes(name) };
+
   /** The model as TinctEpub.parse returns a book: { title, authors, language, chapters: [{ index, title, node, text }], toc }.
    * `from`: the chapter (1-based) the reader opens at. The chapters after the next one are laid out later (laterChapters). */
   function asEpub(model, from = 1) {
@@ -51,6 +53,9 @@
       const head = document.createElement('header');
       head.className = 'tb-head';
       head.innerHTML = (c.section ? `<span class="tb-part">${esc(c.section)}</span>` : '') + `<span class="tb-title">${esc(c.title)}</span>`;
+      // The phone shows the heading as the book reader does, its chapter's title alone, when that names the part
+      // ("The Window · 1" under "Part I — The Window"); a part the title does not name keeps its line.
+      if (c.section && partNamed(c.section, c.title)) head.classList.add('is-named');
       node.append(head, ...c.paragraphs.map(paragraphEl));
       if (index + 1 > from + 1) { node.classList.add('tb-later'); node.style.containIntrinsicBlockSize = `auto ${estimate(c)}px` }
       let parent = null;
@@ -116,7 +121,25 @@
 .tb-chapter .tb-title{display:block;font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:1.45em;line-height:1.25}
 .tb-chapter .tb-p{white-space:pre-line}
 .lab.byob .epub-sheet{content-visibility:visible}
-.lab.byob .tb-chapter.tb-later{content-visibility:auto}`;
+.lab.byob .tb-chapter.tb-later{content-visibility:auto}
+.tb-mark{display:none}
+.lab.is-phone .pdf-column{padding-top:0;padding-left:0;padding-right:0}
+.lab.is-phone .epub-sheet,html .lab.byob.is-phone .epub-sheet{width:100%;max-width:672px;margin:0 auto;padding:10px 1.55rem 2.4em;background:transparent!important;box-shadow:none!important;border:0;border-radius:0;color:var(--lab-ink)}
+.lab.is-phone .epub-pg,html .lab.byob.is-phone .epub-pg{font-size:calc(1.58rem / 1.3 * var(--epub-scale,1));line-height:1.48;color:var(--lab-ink)!important}
+.lab.is-phone .epub-pg p.tb-p{margin:0 0 .28em;text-align:var(--lab-text-align,justify);text-justify:auto;word-spacing:normal;letter-spacing:normal;overflow-wrap:break-word;word-break:normal;-webkit-hyphens:auto;hyphens:auto;-webkit-hyphenate-limit-before:2;-webkit-hyphenate-limit-after:3;-webkit-hyphenate-limit-lines:3;hyphenate-limit-chars:7 2 3;hyphenate-limit-lines:3}
+.lab.is-phone .tb-chapter .tb-head{text-align:left;margin:0 0 .45em}
+.lab.is-phone .tb-chapter .tb-part{font-size:.82em;margin-bottom:.25em;color:var(--lab-ink-muted);opacity:1}
+.lab.is-phone .tb-chapter .tb-head.is-named .tb-part{display:none}
+.lab.is-phone .tb-chapter .tb-title{font-family:var(--lab-font-reader,'EB Garamond',Georgia,serif);font-weight:700;font-size:1.266em;line-height:1.42}
+.lab.is-phone .tb-mark{display:block;margin:.2em 0 .9em;font-family:'EB Garamond',Georgia,serif;color:var(--lab-ink-muted);-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.lab.is-phone .tb-mark.is-end{margin:1.1em 0 .4em;padding-top:.7em;border-top:1px solid color-mix(in srgb,var(--lab-ink) 14%,transparent)}
+.lab.is-phone .tb-mark::before{content:attr(data-k) " " attr(data-n);display:block;margin:0 0 4px;font-size:15px;font-style:italic;line-height:1.3;color:var(--lab-ink-faint)}
+.lab.is-phone .tb-pill{display:inline-flex;align-items:center;min-height:36px;margin:0 8px 0 0;padding:0;border:0;background:transparent;color:var(--lab-ink-muted);font:15px/1.3 'EB Garamond',Georgia,serif;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.lab.is-phone .tb-pill::after{content:attr(data-label);border:1px solid color-mix(in srgb,var(--lab-ink) 22%,transparent);border-radius:999px;padding:3px 12px}
+.lab.is-phone .tb-pill:not([data-pill="note"])::after{content:"✧\\00a0\\00a0" attr(data-label)}
+.lab.is-phone .tb-pill[aria-expanded="true"]::after{color:var(--lab-ink);background:var(--lab-surface)}
+.lab.is-phone .tb-pill:focus-visible{outline:none}
+.lab.is-phone .tb-pill:focus-visible::after{outline:2px solid var(--lab-ink-muted);outline-offset:2px}`;
   // (Chapters are drawn whole, not skipped off screen: a Tinct chapter runs to many screens, and an estimated height
   // above the place moved it as the chapters were drawn; reader.js epubGoSpot measures real lines.)
 
@@ -154,6 +177,6 @@
     setTimeout(() => laterChapters(model), 1200);
     await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0` });
   }
-  window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate };
+  window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });
 })();

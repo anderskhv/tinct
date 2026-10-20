@@ -925,7 +925,15 @@ function lineBars(rects) {
 }
 function pageForPoint(x, y) { return state.pages.find(p => { const r = p.pg.getBoundingClientRect(); return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom }) }
 function layerOf(p, cls) { let l = p.pg.querySelector(':scope > .' + cls); if (!l) { l = document.createElement('div'); l.className = cls; p.pg.insertBefore(l, p.layer || null) } return l }
+/* The phone's EPUB selection, the reader's own (ownSelection, below): its state, and its paint (the CSS Custom Highlight
+   API, as an EPUB's highlights are drawn): the passage while it is pressed and dragged, then while its bar is open. */
+const own = { timer: 0, x: 0, y: 0, at: 0, on: false, a: null, range: null, moved: false, tap: 0 };
+function paintOwn(range) {
+  if (!window.CSS?.highlights || typeof Highlight === 'undefined') return;
+  if (range) CSS.highlights.set('tinct-sel', new Highlight(range)); else CSS.highlights.delete('tinct-sel');
+}
 function paintSelection() {
+  paintOwn(own.on ? own.range : mr?.own && !mr.ids.length && mr.mode !== 'note' && rangeInText(mr.info?.range) ? mr.info.range : null);
   document.querySelectorAll('.sel-layer').forEach(l => l.replaceChildren());
   const s = getSelection();
   if (!s || s.isCollapsed || !s.rangeCount || !s.anchorNode?.parentElement?.closest('.text-layer')) { paintHeld(); return }
@@ -2584,11 +2592,15 @@ let sel = null;
 function selectionInfo() {
   const s = getSelection();
   if (!s || s.isCollapsed || !s.rangeCount) return null;
-  const range = s.getRangeAt(0);
+  return rangeInfo(s.getRangeAt(0), s.toString());
+}
+/** A passage as the bar takes it: { text, page, box, rects, range } from a range (the selection's, or the phone's own). */
+function rangeInfo(range, said = range.toString()) {
+  if (!range || range.collapsed) return null;
   const node = range.commonAncestorContainer.nodeType === 1 ? range.commonAncestorContainer : range.commonAncestorContainer.parentElement;
   const sheetEl = node?.closest('.pdf-sheet, .epub-sheet') || range.startContainer.parentElement?.closest('.pdf-sheet, .epub-sheet');
   // A PDF's passage is its body text only, never the page furniture between two pages (bodyOfRange).
-  const text = (sheetEl?.classList.contains('pdf-sheet') ? bodyOfRange(range).text : '') || s.toString().replace(/\s+/g, ' ').trim();
+  const text = (sheetEl?.classList.contains('pdf-sheet') ? bodyOfRange(range).text : '') || String(said).replace(/\s+/g, ' ').trim();
   if (!sheetEl || text.length < 2) return null;
   const rects = selectionShapes(range);
   if (!rects.length) return null;
@@ -2615,6 +2627,8 @@ function selectionMade() {
   if (!now || sameSel(now, before) || (mr && !mr.held && mr.info?.range && sameRange(mr.info.range, now))) return;
   clearTimeout(selTimer);
   snapWords();
+  // The phone's EPUB: a selection made anyway (the keys, a test's) is taken over as the reader's own (ownSelection).
+  if (ownsSelection() && adoptNative()) return;
   marginSelection({ fresh: true });
 }
 /*
@@ -2666,6 +2680,8 @@ document.addEventListener('keyup', e => {
   if (keys) setTimeout(selectionMade, 0);
 }, true);
 document.addEventListener('selectionchange', () => {
+  // The phone's EPUB: a native selection under a finger is taken over at once, so iOS's menu goes with it (ownSelection).
+  if (ownsSelection() && Date.now() - gesture.touchAt < 1500 && adoptNative()) return;
   // A text selection always gets the bar, never the figure chip (a caption's words too): the chip goes at once.
   try { if (hot.el && !getSelection().isCollapsed) hideHot() } catch { /* before the chip's code has run */ }
   clearTimeout(selTimer);
@@ -2681,6 +2697,84 @@ document.addEventListener('selectionchange', () => {
     sel = info; showSelection();
   }, isPhone() ? 450 : 250);
 });
+/*
+ * The phone's EPUB (the margin preview): the reader's own selection (Anders, 20 Oct 2026: iOS put Copy, Find Selection
+ * and Look Up over the dark bar). As the book reader (src/lab/LabPassage.tsx: selectstart cancelled under a finger, a
+ * long press of its own, its own paint): a press held on a word selects it, a drag goes on word by word (the pages
+ * scroll at the edges), and it is drawn with the CSS Custom Highlight API (paintOwn), never as a native selection, so
+ * iOS has nothing to put its menu on. One that comes anyway is taken over and cleared at once (adoptNative). A short
+ * tap is handled here too, as iOS sends no click for a tap on plain text: it lets the bar go, or opens a highlight's
+ * bar or a card's passage (tapPage).
+ */
+const OWN_PRESS_MS = 380;
+const OWN_SKIP = '.mr-float, .mr-card, .mr-sheet, .mr-marks, .mr-pmore, .mr-undo, .lab-header, .tb-mark, button, a, input, textarea, select, [role="dialog"]';
+const ownsSelection = () => isPhone() && isEpub() && marginOn() && readerShown();
+const inEpubText = n => !!(n?.nodeType === 1 ? n : n?.parentElement)?.closest?.('.epub-pg');
+/** The word under a point on an EPUB's page, as a range; null between words or off the text. */
+function wordRangeAt(x, y) {
+  const c = caretFromPoint(x, y); if (!c || c.node?.nodeType !== 3 || !inEpubText(c.node)) return null;
+  const t = c.node.data; let a = Math.min(c.offset, t.length);
+  if (!WORD_CH.test(t[a] || '') && WORD_CH.test(t[a - 1] || '')) a--;
+  if (!WORD_CH.test(t[a] || '')) return null;
+  let b = a;
+  while (a > 0 && WORD_CH.test(t[a - 1])) a--;
+  while (b < t.length && WORD_CH.test(t[b])) b++;
+  const r = document.createRange(); r.setStart(c.node, a); r.setEnd(c.node, b);
+  return r;
+}
+/** A native selection on the pages becomes the reader's own: cleared, its passage drawn and its bar opened. -> taken */
+function adoptNative() {
+  const s = getSelection(); if (!s?.rangeCount || s.isCollapsed) return false;
+  const r = s.getRangeAt(0); if (!inEpubText(r.startContainer) || !inEpubText(r.endContainer)) return false;
+  const range = r.cloneRange();
+  s.removeAllRanges();
+  if (own.on) return true;
+  const info = rangeInfo(range);
+  if (info && !(mr?.own && mr.info?.range && mr.info.range.compareBoundaryPoints(Range.START_TO_START, range) === 0 && mr.info.range.compareBoundaryPoints(Range.END_TO_END, range) === 0)) marginOpen(info, { own: true });
+  return true;
+}
+document.addEventListener('selectstart', e => { if (ownsSelection() && Date.now() - gesture.touchAt < 1500 && inEpubText(e.target)) e.preventDefault() }, true);
+document.addEventListener('touchstart', e => {
+  clearTimeout(own.timer); own.on = false; own.moved = false; own.at = 0;
+  if (e.touches?.length !== 1 || !ownsSelection() || !inEpubText(e.target) || e.target.closest?.(OWN_SKIP)) return;
+  const t = e.touches[0]; own.x = t.clientX; own.y = t.clientY; own.at = Date.now();
+  own.timer = setTimeout(() => {
+    const r = wordRangeAt(own.x, own.y); if (!r) return;
+    if (mr) marginClose();
+    own.on = true; own.a = r; own.range = r.cloneRange();
+    paintOwn(own.range);
+  }, OWN_PRESS_MS);
+}, { passive: true, capture: true });
+document.addEventListener('touchmove', e => {
+  if (!own.at) return;
+  const t = e.touches[0]; if (!t) return;
+  if (!own.on) { if (Math.hypot(t.clientX - own.x, t.clientY - own.y) > 10) { clearTimeout(own.timer); own.moved = true; own.at = 0 } return }
+  if (e.cancelable) e.preventDefault();
+  const s = $('scroll').getBoundingClientRect(), top = Math.max(s.top, $('hdr').getBoundingClientRect().bottom);
+  if (t.clientY < top + 40) $('scroll').scrollBy(0, -14); else if (t.clientY > s.bottom - 40) $('scroll').scrollBy(0, 14);
+  const r = wordRangeAt(t.clientX, t.clientY); if (!r) return;
+  const range = document.createRange();
+  if (r.compareBoundaryPoints(Range.START_TO_START, own.a) < 0) { range.setStart(r.startContainer, r.startOffset); range.setEnd(own.a.endContainer, own.a.endOffset) }
+  else { range.setStart(own.a.startContainer, own.a.startOffset); range.setEnd(r.endContainer, r.endOffset) }
+  own.range = range; paintOwn(range);
+}, { passive: false, capture: true });
+document.addEventListener('touchend', e => {
+  clearTimeout(own.timer);
+  if (own.on) {
+    own.on = false; own.at = 0; own.tap = Date.now();
+    if (e.cancelable) e.preventDefault();
+    const info = rangeInfo(own.range);
+    if (info) marginOpen(info, { own: true }); else paintOwn(null);
+    return;
+  }
+  if (!own.at) return;
+  const quick = !own.moved && Date.now() - own.at < 500, t = e.changedTouches[0];
+  own.at = 0;
+  if (!quick || !t) return;
+  own.tap = Date.now();
+  tapPage(t.clientX, t.clientY);
+}, { passive: false, capture: true });
+document.addEventListener('touchcancel', () => { clearTimeout(own.timer); if (own.on) { own.on = false; paintOwn(null) } own.at = 0 }, { capture: true, passive: true });
 function placePopup(el, box, width) {
   const below = innerHeight - box.bottom > 240 || box.top < 260;
   const left = Math.max(8, Math.min(innerWidth - width - 8, (box.left + box.right) / 2 - width / 2));
@@ -2840,18 +2934,19 @@ function marginSelection({ fresh = false } = {}) {
   // drops the selection without the reader letting go: the bar stays on its kept passage. Seen as the
   // CI layout check's intermittent "1 problem" desktop rows (the bar detached under a click).
   if (!info && mr && !mr.held && mr.mode === 'menu' && mr.info?.range && !rangeInText(mr.info.range)) { mr.held = true; paintSelection(); return }
-  if (!info) { if (mr && !mr.held && mr.mode === 'menu') marginClose(); return }
+  // The phone's own selection (mr.own) has no native one: a tap lets its bar go (tapPage), not the selection's change.
+  if (!info) { if (mr && !mr.held && !mr.own && mr.mode === 'menu') marginClose(); return }
   if (mr && !mr.held && mr.info.text === info.text && mr.info.page === info.page) return;
   // A new bar only for a deliberate selection; an open one follows its selection (the phone's handles).
   if (!fresh && !(mr && !mr.held && mr.mode === 'menu')) return;
   marginOpen(info);
 }
-function marginOpen(info, { existing = null, asking = false } = {}) {
+function marginOpen(info, { existing = null, asking = false, own: ownSel = false } = {}) {
   hideSelection();
   const word = !existing && TinctMargin.oneWord(info.text);
   const anchor = existing ? existing.rects.map(([x, y, w, h]) => ({ n: existing.page, x, y, w, h })) : anchorOf(info.rects || [info.box]);
   // A highlight clicked (Anders, 19 Oct 2026): its own bar, Ask and Explain, its colours, its note, Remove highlight.
-  mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, mode: null, el: null, moreEl: null, base: existing ? 'existing' : null, before: word && info.range ? textBefore(info.range) : '' };
+  mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, own: ownSel, mode: null, el: null, moreEl: null, base: existing ? 'existing' : null, before: word && info.range ? textBefore(info.range) : '' };
   sel = info;
   if (word && !asking) { mrDefine(word); return }
   mrShow(mr.base || 'menu');
@@ -2940,7 +3035,8 @@ let mrFrameReq = 0;
 $('scroll').addEventListener('scroll', () => { if (!mr || mrFrameReq) return; mrFrameReq = requestAnimationFrame(() => { mrFrameReq = 0; mrPlace() }) }, { passive: true });
 addEventListener('resize', () => { if (mr && mr.mode !== 'asking' && mr.mode !== 'note') marginClose() });
 function mrAction(m) {
-  if (m === 'ask') return mrShow('asking');
+  // The phone: Ask is the bottom card, the passage quoted and its field ready above the keyboard (phoneAsk).
+  if (m === 'ask') return marginMode() === 'phone' ? phoneAsk() : mrShow('asking');
   // Explain, Simplify, Fact-check, Counterpoint and Quiz me answer as cards (the margin, PR 2).
   if (m === 'explain' || m === 'simplify' || m === 'factcheck' || m === 'related' || m === 'counterpoint' || m === 'quiz') { closeMore(); return cardAction(m) }
   if (m === 'more') return mr.moreEl ? closeMore() : openMore();
@@ -2989,7 +3085,50 @@ function mrNoteOpen() {
   mrHighlight();
   if (!mr.ids.length) return;
   if (!had) mr.noteMade = true;
+  if (marginMode() === 'phone') return phoneNote();
   mrShow('note');
+}
+/*
+ * The phone (Anders, 20 Oct 2026): Ask and a note are the bottom card, as an answer is, never a field on the page (the
+ * keyboard's bar sat over the passage and the field was out of view). The card quotes the passage and its field has
+ * the focus at once (in the tap, so iOS opens the keyboard); the card rides above the keyboard (fitKeyboard). Until a
+ * question is sent or a note written it is a draft (col.draft), let go when the card closes.
+ */
+function sheetFocus(sel) {
+  const f = col.sheet?.querySelector(sel); if (!f) return;
+  f.focus({ preventScroll: true });
+  requestAnimationFrame(() => { const g = col.sheet?.querySelector(sel); if (g && document.activeElement !== g) g.focus({ preventScroll: true }) });
+}
+function phoneAsk() {
+  const info = mr.info, anchor = mr.anchor;
+  marginClose(); getSelection().removeAllRanges();
+  const card = withSpan(TinctMargin.newCard({ kind: 'ask', page: info.page, anchor, text: info.text }), info);
+  dropDraft(col.draft?.id);
+  col.draft = { ...card, draft: true, asking: true };
+  col.view = null;
+  openCard(card.id);
+  sheetFocus('.mr-follow__input');
+}
+function phoneNote() {
+  const id = mr.ids[0], made = !!mr.noteMade;
+  marginClose();
+  const m = highlights().find(h => h.id === id); if (!m) return;
+  const cid = 'n-' + id;
+  if (!viewCards().some(c => c.id === cid)) {
+    const rec = isEpub() ? epubMarkRects(m, { any: true }) : m;
+    dropDraft(col.draft?.id);
+    col.draft = { id: cid, kind: 'note', mark: id, phoneNote: true, draft: true, noteMade: made, page: m.page, rects: (rec?.rects || []).map(r => [m.page, ...r]), text: m.text, note: noteDrafts.get(id) || '', color: m.color, at: Date.now(), u: Date.now() };
+    col.view = null;
+  }
+  openCard(cid);
+  sheetFocus('.mr-note-edit');
+}
+/** A phone's draft (an Ask not yet sent, a note not yet written) let go; a highlight its note made goes too when asked. */
+function dropPhoneDraft(id, { mark = false } = {}) {
+  const d = col.draft; if (!d || d.id !== id || !(d.asking || d.phoneNote)) return false;
+  dropDraft(id);
+  if (mark && d.phoneNote && d.noteMade) removeHighlight(d.mark);
+  return true;
 }
 function mrSaveNote() {
   const t = mr.el.querySelector('.mr-note__field'), id = mr.ids[0];
@@ -3890,7 +4029,7 @@ function cardOpts(card, open) {
   const thumb = open && card.kind === 'figure' && marginMode() !== 'column' ? figThumb(card) : null;
   // Simplify compares its answer with the page and the next (simplifyAnswer): the document pasted back is never shown.
   const source = card.kind === 'simplify' ? [card.page, card.page + 1].map(n => state.texts.get(n)?.text || '').join('\n') : '';
-  return { open, P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: placeName(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
+  return { open, sheet: open && marginMode() === 'phone', P: MP.P, resolve: citeResolve, place: quotePlace, source, where: where(), pageLabel: placeName(card.page), live: live ? live.text : null, status: live?.status || '', pending: col.pending.get(card.id), writing: col.quiz.has(card.id), ...(thumb ? { thumb: thumb.url, thumbRatio: thumb.ratio } : {}) };
 }
 /** "Writing the next question…" keeps the card at the height it had (no jump); any other state lets it go. */
 function holdQuizHeight(el, before) {
@@ -4055,8 +4194,9 @@ function layoutNow() {
   col.marks.querySelector('.mr-mark[data-primer]')?.remove();
   // The phone: the trigger is the bottom card at a unit's start, until the reader closes it there or selects text.
   const trig = triggerUnit(), sheetId = col.sheet?.dataset.id;
-  if (sheetId === 'trigger' && (!trig || mr || primer.away.has(trig.key))) { col.sheet.remove(); col.sheet = null }
-  else if (!col.sheet && trig && !mr && !col.open && !primer.away.has(trig.key)) openSheet2('trigger');
+  if (sheetId === 'trigger' && (!trig || mr || primer.away.has(trig.key) || state.preview)) { col.sheet.remove(); col.sheet = null }
+  // The margin preview's phone has the chapters' own pills in the text (flowMarks): Primer is there, no card of its own.
+  else if (!col.sheet && trig && !mr && !col.open && !primer.away.has(trig.key) && !state.preview) openSheet2('trigger');
   if (col.sheet) drawSheet();
   placeUndoFloat();
 }
@@ -4379,7 +4519,7 @@ function openSheet2(id) {
   col.sheet.dataset.id = id; delete col.sheet.dataset.sig;
   if (!col.sheet.isConnected) root.appendChild(col.sheet);
   drawSheet();
-  fitKeyboard();
+  watchKeyboard(); fitKeyboard();
   requestAnimationFrame(passageAboveSheet);
 }
 // The page scrolls so the passage sits just above the bottom card, still underlined.
@@ -4413,9 +4553,15 @@ function drawSheet() {
   if (el.dataset.sig === sig) return;
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
+  const nf0 = el.querySelector('.mr-note-edit'), noteText = nf0?.value, noteFocus = nf0 && document.activeElement === nf0;
   el.dataset.sig = sig;
   const before = card.kind === 'quiz' ? el.offsetHeight : 0, keptTop = bodyTop(el);
-  el.innerHTML = TinctMargin.html.sheetHtml(cardHtmlSafe(card, true));
+  if (noteFocus) noteCommitting = true;
+  try {
+    el.innerHTML = TinctMargin.html.sheetHtml(cardHtmlSafe(card, true));
+    const nf = el.querySelector('.mr-note-edit');
+    if (nf) { if (noteText != null) nf.value = noteText; fitNote(nf); if (noteFocus) nf.focus({ preventScroll: true }) }
+  } finally { if (noteFocus) noteCommitting = false }
   if (card.kind === 'quiz') holdQuizHeight(el, before);
   describeCard(el, card, true);
   keepThread(el, card.id, keptTop);
@@ -4433,7 +4579,11 @@ function drawSheet() {
 }
 function closeSheet2() {
   if (!col.sheet) return;
+  // A note being written is kept first (a removed field sends no focusout); an Ask not sent, or an empty note, goes.
+  commitNoteEdit();
+  if (!col.sheet) return;
   const id = col.sheet.dataset.id;
+  dropPhoneDraft(id);
   // The primer folds back to its trigger; the trigger, closed, stays away at this unit's start.
   if (id === 'primer') { primer.open = false; primer.token++ }
   // The trigger closed stays away at this unit's start; so does it after a card is closed there (× or a swipe),
@@ -4465,12 +4615,21 @@ function sheetSwipe(el) {
 // The keyboard: the bottom card rides above it, so the follow-up line stays in view.
 // With the keyboard open the card leaves room above it for the passage (a few lines under the top bar).
 function fitKeyboard() {
-  const vv = window.visualViewport, el = col.sheet; if (!el) return;
-  const kb = vv ? Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)) : 0;
+  // The margin preview is a full-screen frame: the keyboard shows in the top window's visual viewport, not the frame's.
+  const w = keyboardWindow(), vv = w.visualViewport, el = col.sheet; if (!el) return;
+  const kb = vv ? Math.max(0, Math.round(w.innerHeight - vv.height - vv.offsetTop)) : 0;
   el.style.setProperty('--mr-kb', kb + 'px'); el.classList.toggle('is-kb', kb > 0);
   el.style.maxHeight = kb > 0 ? Math.max(160, Math.round(vv.height + vv.offsetTop - $('hdr').getBoundingClientRect().bottom - 72)) + 'px' : '';
 }
-window.visualViewport?.addEventListener('resize', () => { if (!col.sheet) return; fitKeyboard(); requestAnimationFrame(passageAboveSheet) });
+function keyboardWindow() { try { const w = previewWindow(); return w.visualViewport ? w : window } catch { return window } }
+const kbWatched = new WeakSet();
+function watchKeyboard() {
+  const vv = keyboardWindow().visualViewport; if (!vv || kbWatched.has(vv)) return;
+  kbWatched.add(vv);
+  const on = () => { if (!col.sheet) return; fitKeyboard(); requestAnimationFrame(passageAboveSheet) };
+  vv.addEventListener('resize', on); vv.addEventListener('scroll', on);
+}
+watchKeyboard();
 
 /**
  * Chat, open beside the pages, folds when the reader moves on to another page (Anders, 15 Oct: it must
@@ -4624,6 +4783,15 @@ function fitFollow(t) {
 }
 function followUp(id, text) {
   if (id === 'whole') { openWhole({ quiet: true }); ask(text); return }
+  // The phone's Ask (phoneAsk): its first question makes it a kept card, answered in its place.
+  if (col.draft?.id === id && col.draft.asking) {
+    const now = Date.now(), { draft: _d, asking: _a, ...rest } = col.draft;
+    const card = { ...rest, turns: [{ role: 'user', content: text, at: now }], at: now, u: now };
+    col.draft = null; col.view = null;
+    store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed();
+    openCard(card.id); runCard(card.id);
+    return;
+  }
   const card = cardById(id); if (!card) return;
   if (card.kind === 'quiz') return quizCheck(card, text);
   if (card.kind === 'note' || id.startsWith('n-')) {
@@ -4662,6 +4830,7 @@ function newMarginNote(y, { unit = null } = {}) {
   col.view = null;
   openCard(id);
   const focus = () => openCardEl()?.querySelector('.mr-note-edit')?.focus({ preventScroll: true });
+  if (marginMode() === 'phone') focus();
   requestAnimationFrame(() => requestAnimationFrame(focus));
   return id;
 }
@@ -4676,6 +4845,15 @@ function commitNoteEdit(field = null) {
   noteCommitting = true;
   try {
     const id = host.dataset.id, v = t.value.trim().slice(0, 4000);
+    if (col.draft?.id === id && col.draft.phoneNote) {
+      // The phone's note on a highlight (phoneNote): written, it is that highlight's note; empty, the draft waits.
+      const d = col.draft; if (!v) return;
+      const list = highlights(), h = list.find(x => x.id === d.mark); if (!h) return;
+      h.note = v; if (d.noteMade) h.withNote = true; h.u = Date.now();
+      col.draft = null; col.defs.delete(id); col.view = null;
+      putHighlights(list); strip?.marksChanged();
+      return;
+    }
     if (col.draft?.id === id) {
       const d = col.draft;
       if (!v) { dropDraft(id); if (col.open === id) col.open = null; marginLayout({ fresh: true }); return }
@@ -4688,6 +4866,8 @@ function commitNoteEdit(field = null) {
     }
     const mark = highlights().find(h => 'n-' + h.id === id); if (!mark) return;
     if (v === (mark.note || '')) return;
+    // Emptied: a margin note goes; a passage's note (the phone's card) goes, and its highlight only when the note made it.
+    if (!v && !TinctMargin.noteSpot(mark) && !mark.withNote) { const list = highlights(), h = list.find(x => x.id === mark.id); delete h.note; h.u = Date.now(); if (col.open === id) col.open = null; col.view = null; putHighlights(list); strip?.marksChanged(); return }
     if (!v) { if (col.open === id) col.open = null; removeHighlight(mark.id); col.view = null; strip?.marksChanged(); marginLayout({ fresh: true }); return }
     const list = highlights(), h = list.find(x => x.id === mark.id); h.note = v; h.u = Date.now(); putHighlights(list);
   } finally { noteCommitting = false }
@@ -4721,6 +4901,8 @@ document.addEventListener('click', e => {
    (narrow windows, the phone). A card goes as a tombstone through the card sync; a note's card takes its
    note, and its highlight when the note made it (TinctMargin.deletePlan). -- */
 function deleteCard(id) {
+  // The phone's draft (an Ask not sent, a note not written): it goes, with a highlight its note made.
+  if (dropPhoneDraft(id, { mark: true })) { if (col.open === id) { col.open = null; col.sheet?.remove(); col.sheet = null } marginLayout({ fresh: true }); return }
   const view = viewCards().find(c => c.id === id) || cardById(id); if (!view) return;
   const kept = view.kind === 'note' ? null : cardById(id);
   const marks = highlights(), plan = TinctMargin.deletePlan(view, marks);
@@ -6785,14 +6967,10 @@ document.addEventListener('click', e => {
   // A PDF's highlight opens the margin's bar for it: its colour, its note.
   // A passage with a card opens that card (and folds the others); a highlight's note opens its note card.
   if (marginOn()) {
-    if (clickedIn(e, '.mr-col, .mr-marks, .mr-sheet, .mr-card')) return;
-    // An EPUB's highlight is offsets in its chapter: measured into boxes here, as its card is.
-    const h = highlightAt(e.clientX, e.clientY), found = h && highlights().find(x => x.id === h.id), rec = isEpub() && found ? epubMarkRects(found, { any: true }) : found;
-    const card = cardAt(e.clientX, e.clientY);
-    if (card && !rec) { openCard(card.id); return }
-    if (rec?.rects) { marginOpen({ text: h.text, page: h.page, box: h.box }, { existing: rec }); if (rec.note && marginMode() !== 'phone') openCard('n-' + rec.id) }
-    // Focus view: a click on the page away from the pop-up window closes it, as the book reader's does.
-    else if (!card && col.open && marginMode() === 'focus' && clickedIn(e, '.pdf-scroll')) openCard(null);
+    if (clickedIn(e, '.mr-col, .mr-marks, .mr-sheet, .mr-card, .tb-mark')) return;
+    // The phone's EPUB took the tap already (ownSelection's touchend: iOS sends no click for a tap on plain text).
+    if (ownsSelection() && Date.now() - own.tap < 800) return;
+    tapPage(e.clientX, e.clientY, { click: true, inScroll: clickedIn(e, '.pdf-scroll') });
     return;
   }
   const h = highlightAt(e.clientX, e.clientY), open = document.querySelector('.selection-popup[data-popup-mode="highlight"]');
@@ -6801,6 +6979,17 @@ document.addEventListener('click', e => {
   // The click collapses the selection; keep this popup until the next click or selection.
   const pop = document.querySelector('.selection-popup'); if (pop) pop.dataset.popupMode = 'highlight';
 });
+/** A tap or click on the pages (the margin): a highlight's bar, a card's passage, or (the phone's own selection) its bar let go. */
+function tapPage(x, y, { click = false, inScroll = !click } = {}) {
+  if (!click && mr) { marginClose(); return }
+  // An EPUB's highlight is offsets in its chapter: measured into boxes here, as its card is.
+  const h = highlightAt(x, y), found = h && highlights().find(q => q.id === h.id), rec = isEpub() && found ? epubMarkRects(found, { any: true }) : found;
+  const card = cardAt(x, y);
+  if (card && !rec) { openCard(card.id); return }
+  if (rec?.rects) { marginOpen({ text: h.text, page: h.page, box: h.box }, { existing: rec }); if (rec.note && marginMode() !== 'phone') openCard('n-' + rec.id) }
+  // Focus view: a click on the page away from the pop-up window closes it, as the book reader's does.
+  else if (!card && col.open && marginMode() === 'focus' && inScroll) openCard(null);
+}
 // Tapping a word while reading aloud moves the narration there.
 document.addEventListener('click', e => {
   const span = e.target.closest?.('.text-layer span'); if (!span || !(narr.active || narr.paused) || !getSelection().isCollapsed) return;
@@ -6897,7 +7086,10 @@ function epubGoSpot(n, para, word = 0) {
   const p = state.pages[n - 1], el = p && epubParas(p)[para]; if (!el) return false;
   Object.assign(epubHold, { spot: { para, word }, page: n });
   goTo({ page: n, frac: 0 });
-  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - 10));
+  // A little room above the paragraph, never as much as reaches the paragraph before (the phone's gap is small): its
+  // last line would then be at the top, and the place read back as that paragraph's end.
+  const room = () => { const prev = epubParas(p)[para - 1], top = el.getBoundingClientRect().top; return prev ? Math.max(0, Math.min(10, top - prev.getBoundingClientRect().bottom - 2)) : 10 };
+  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - room()));
   return true;
 }
 /* A change of width (the window, Full width) or text size reflows the chapters: the paragraph and word at the
@@ -7002,7 +7194,40 @@ function previewUnits() {
     const title = e?.label || 'Chapter ' + p.n;
     return { key: 'chapter-' + (e?.number ?? p.n), title, phrase: /^chapter\s+\S+$/i.test(title) ? title.toLowerCase() : title, from: p.n, start: p.n, to: p.n };
   });
+  flowMarks();
 }
+/*
+ * The phone's chapter pills (Anders, 20 Oct 2026: "All we needed was a new menu, the cards layout and the new pills"):
+ * in the text, under each chapter's heading "Starting <chapter>" with Primer and Catch me up, after its last paragraph
+ * "End of <chapter>" with Recap, Quiz me and Note, as the wide column's unit marks (markHtml) look. Each opens its
+ * bottom card (pillAction). Their words are drawn by CSS (attr()), never text in the chapter: an EPUB's places and
+ * highlights are character offsets in its text. Shown on the phone only (the wide column has its own marks).
+ */
+function flowMarks() {
+  if (!state.preview || !primer.units) return;
+  const PILLS = TinctMargin.html.PILLS;
+  for (const u of primer.units) {
+    const ch = state.pages[u.start - 1]?.pg.querySelector('.tb-chapter'); if (!ch || ch.querySelector(':scope > .tb-mark')) continue;
+    const name = TinctMargin.html.unitName(u, state.title), phrase = TinctMargin.unitPhrase(u);
+    const mark = where => {
+      const el = document.createElement('div');
+      el.className = 'tb-mark is-' + where; el.setAttribute('role', 'group'); el.dataset.unit = u.key;
+      el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
+      el.dataset.k = where === 'start' ? 'Starting' : 'End of'; el.dataset.n = name;
+      const said = { primer: `Before you start: ${TinctMargin.triggerLine(u)}`, catchup: `Catch me up on what came before ${phrase}`, recap: `Recap ${phrase}`, quiz: `Quiz me on ${phrase}`, note: `Note on ${phrase}` };
+      el.innerHTML = (where === 'start' ? ['primer', 'catchup'] : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
+      return el;
+    };
+    const head = ch.querySelector(':scope > .tb-head');
+    if (head) head.after(mark('start')); else ch.prepend(mark('start'));
+    ch.append(mark('end'));
+  }
+}
+$('column').addEventListener('click', e => {
+  const b = e.target.closest?.('.tb-pill'); if (!b) return;
+  e.stopPropagation();
+  pillAction(b.dataset.pill, b.closest('.tb-mark')?.dataset.unit);
+});
 /** The companion's document: never the whole book; the chapter the reader is in and the contents (marginDocument). */
 const previewDocument = () => ({ pages: null, limit: window.TinctAI?.DOCUMENT_CHARS || 560000, label: n => String(n) });
 /** Back to normal reader: the place here is kept first; the book reader opens at its own place. */

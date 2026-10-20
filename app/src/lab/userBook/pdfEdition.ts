@@ -15,7 +15,7 @@ import type { UserBookImage } from './epubEdition'
 import type { PdfLayoutDefault } from './pdfEditions'
 
 /** The cache tag of Add a book's scripts (its index.html). */
-export const ADDBOOK_SCRIPT_TAG = '20261020r3'
+export const ADDBOOK_SCRIPT_TAG = '20261020phone'
 const BASE = '/lab/addbook/'
 
 export interface PdfLayout { default: PdfLayoutDefault; score: number; signals: Record<string, boolean> }
