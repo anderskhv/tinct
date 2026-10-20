@@ -81,6 +81,8 @@ const longOpening = Number(option('long-opening', '0'))
  * an element the page paused itself refuses play() without a gesture.
  */
 const iosBackground = flag('ios-background')
+/** `--clip-seconds 4`: every sentence group lasts this long (short dialogue paragraphs, as in To the Lighthouse). */
+const clipSeconds = Number(option('clip-seconds', '0'))
 const outageMs = Number(option('outage-ms', '0'))
 const BOOK = 'frankenstein'
 const EDITION = 'original-en'
@@ -119,7 +121,7 @@ async function chapterLayout(chapter) {
       chunks: chunks.map(chunk => {
         const spoken = tokens.slice(chunk.wordFrom, chunk.wordTo).join(' ')
         const natural = Math.max(1, Math.round((spoken.length / CHARS_PER_SECOND) * 2) / 2)
-        const duration = longOpening > 0 && chapter === 1 && index === 0 && chunk.index === 0 ? longOpening : natural
+        const duration = longOpening > 0 && chapter === 1 && index === 0 && chunk.index === 0 ? longOpening : clipSeconds > 0 ? clipSeconds : natural
         return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, duration }
       }),
     }
@@ -455,7 +457,7 @@ async function runCase(browser, engine, profileName, visibility) {
   making.clear()
   outage = null
   const caseLabel = [engine, viewport, profileName, visibility, serviceWorkers === 'allow' ? 'sw' : null, generateMs > 0 ? `cold${generateMs}` : null,
-    speed !== 1 ? `x${speed}` : null, longOpening ? `opening${longOpening}s` : null, iosBackground ? 'ios-bg' : null, outageMs > 0 ? `outage${outageAtSeconds}s+${outageMs}ms` : null].filter(Boolean).join('-')
+    speed !== 1 ? `x${speed}` : null, longOpening ? `opening${longOpening}s` : null, iosBackground ? 'ios-bg' : null, clipSeconds ? `clips${clipSeconds}s` : null, outageMs > 0 ? `outage${outageAtSeconds}s+${outageMs}ms` : null].filter(Boolean).join('-')
   const context = await browser.newContext({
     viewport: viewport === 'phone' ? { width: 390, height: 844 } : { width: 1440, height: 900 },
     hasTouch: viewport === 'phone', serviceWorkers,

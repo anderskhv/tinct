@@ -42,12 +42,15 @@ export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 /** `src` reported while a narration chunk is being prepared: truthy so the shell resumes through the hook, never a URL. */
 export const NARRATION_PENDING_SRC = 'narration:pending'
 /**
- * Seconds of narration (at 1x) kept generated ahead of the playhead. Groups
- * generate in ~4 s (median, 2026-09-25) but each ensure round and download
- * crosses a phone's mobile network; 45 s kept playback only just ahead in a
- * car and ran dry. Stopping early wastes at most this much text: about 2 KB.
+ * Listening seconds kept generated ahead of the playhead while the page is
+ * visible (the audio is this times the speed). Pressing Play authorises
+ * generating the chapter as it is listened to; this window is the most a stop
+ * can waste: at most 90 s of listening, ~1.2 KB of text at 1x (~2.4 KB at 2x).
+ * 45 s one group at a time ran dry in a car (2026-09-25); since 2026-10-20
+ * the next groups are made side by side (narrationLookAheadWidth), so the
+ * window no longer has to hide serial synthesis and was cut from 150 s.
  */
-export const NARRATION_BUFFER_TARGET_SECONDS = 150
+export const NARRATION_BUFFER_TARGET_SECONDS = 90
 /**
  * The same, while the page is hidden (a locked phone in a car): nobody can
  * tap Retry, a gap there is silence until the reader looks at the phone, and
@@ -129,12 +132,27 @@ export function narrationPollDelayMs(poll: number, retryAfterMs?: number): numbe
 }
 
 /**
- * How many sentence groups a round prepares at once, by playback speed: at
- * speed a single synthesis cannot keep up with the listening.
+ * How many sentence groups the first preparation after Play asks for at
+ * once, by speed: the one Play needs, plus the next at speed.
  */
 export function narrationLookAheadWidth(rate: number): number {
   if (!Number.isFinite(rate) || rate < 1.5) return 1
   return rate < 2.5 ? 2 : 3
+}
+
+/**
+ * How many sentence groups the look-ahead prepares at once while playing,
+ * by speed: 2 up to 1.25x, 3 from 1.5x. One at a time (the rule until
+ * 2026-10-20) could not keep up at 1.75x with ~3.5 s per short paragraph
+ * (Anders, To the Lighthouse): playback outran the queue. The groups are
+ * always the next ones in playing order and always inside the window, so
+ * this changes when they are made, never how many: the Worker's per-group
+ * lease still makes each once, and its 60 ensure requests a minute per
+ * reader are far above a round every few seconds.
+ */
+export function narrationSynthesisWidth(rate: number): number {
+  if (!Number.isFinite(rate) || rate < 1.5) return 2
+  return 3
 }
 
 /**
@@ -274,6 +292,12 @@ function bareFollowParagraphs(paragraphs: FollowParagraph[]): FollowParagraph[] 
  */
 function waitClockMs(): number {
   return new Date().getTime()
+}
+
+function deferredSignal(): { promise: Promise<void>; resolve: () => void } {
+  let resolve: () => void = () => {}
+  const promise = new Promise<void>((done) => { resolve = done })
+  return { promise, resolve }
 }
 
 function wait(ms: number): Promise<void> {
@@ -481,6 +505,8 @@ export function useLabListen(options: UseLabListenOptions) {
   /** Paragraph index → hash of its narration text, for the current tuple. */
   const narrationHashesRef = useRef<Map<number, string>>(new Map())
   const narrationRoundRef = useRef<Promise<NarrationParagraphResult[]> | null>(null)
+  /** Resolves (and is replaced) each time one answer of a parallel round has been adopted. */
+  const roundProgressRef = useRef(deferredSignal())
   const narrationLookAheadRef = useRef<Promise<void> | null>(null)
   /** Recordings downloaded ahead of their turn (downloadAhead); created on first use. */
   const clipBufferRef = useRef<NarrationClipBuffer | null>(null)
@@ -696,7 +722,8 @@ export function useLabListen(options: UseLabListenOptions) {
     const narration = optionsRef.current.narration
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
     while (narrationRoundRef.current) {
-      try { await narrationRoundRef.current } catch { /* reported by its own caller */ }
+      // A round in flight may land what this caller needs part-way (its parallel answers apply as they come).
+      try { await Promise.race([narrationRoundRef.current, roundProgressRef.current.promise]) } catch { /* reported by its own caller */ }
       if (generation !== playRequestRef.current) return { ok: false, reason: 'cancelled' }
       // The round in flight may have landed exactly what this caller needs.
       if (satisfied?.()) return { ok: true }
@@ -716,8 +743,19 @@ export function useLabListen(options: UseLabListenOptions) {
       }
       return results
     }
+    // Side by side, each answer is adopted as it arrives: the next recording
+    // never waits on a slower synthesis of a later one.
     const round = parallel && parallel.length > 1
-      ? Promise.all(parallel.map(target => ensureIndexes([target.index], { [target.index]: target.chunk })))
+      ? Promise.all(parallel.map(target => ensureIndexes([target.index], { [target.index]: target.chunk }).then((results) => {
+          // Adopted on the same terms as the round's own end: unless a tuple change or stop aborted it.
+          if (!signal.aborted) {
+            applyPreparedNarration(results)
+            const progress = roundProgressRef.current
+            roundProgressRef.current = deferredSignal()
+            progress.resolve()
+          }
+          return results
+        })))
         .then(answers => answers.flat())
       : ensureIndexes(indexes, fromChunks)
     narrationRoundRef.current = round
@@ -952,6 +990,17 @@ export function useLabListen(options: UseLabListenOptions) {
 
   downloadAheadRef.current = downloadAhead
 
+  /** A sentence group's length before it exists: its words at a reading voice's pace (as the chapter clock estimates). */
+  const estimatedGroupSeconds = (clip: LabAudioClip): number => {
+    if (typeof clip.duration === 'number' && clip.duration > 0) return clip.duration
+    if (clip.kind !== 'paragraph') return 0
+    const text = narrationParagraphs().find(paragraph => paragraph.index === clip.index)?.text || ''
+    const tokens = text.split(/\s+/).filter(Boolean)
+    const from = clip.chunk?.wordFrom ?? 0
+    const to = clip.chunk?.wordTo && clip.chunk.wordTo > from ? clip.chunk.wordTo : tokens.length
+    return Math.max(1, (tokens.slice(from, to).join(' ').length || text.length) / 14)
+  }
+
   const scheduleNarrationLookAhead = useCallback(() => {
     const narration = optionsRef.current.narration
     if (!narration || narrationLookAheadRef.current) return
@@ -969,14 +1018,22 @@ export function useLabListen(options: UseLabListenOptions) {
         let buffered = 0
         const rate = audioRef.current?.playbackRate || 1
         const targetSeconds = (pageHidden() ? NARRATION_HIDDEN_BUFFER_TARGET_SECONDS : NARRATION_BUFFER_TARGET_SECONDS) * rate
-        const width = narrationLookAheadWidth(rate)
+        const width = narrationSynthesisWidth(rate)
         const targets: Array<{ index: number; chunk: number }> = []
-        for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds; position += 1) {
+        // Audio seconds up to each clip, counting groups still to make at their estimated length:
+        // a group starting past the window is never asked for, so a stop wastes at most the window.
+        let reach = 0
+        for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds && reach < targetSeconds; position += 1) {
           const clip = clipsRef.current[position]
           if (clip.kind !== 'paragraph') continue
+          const offset = position === clipIndexRef.current ? positionRef.current.time : 0
           if (clip.url && typeof clip.duration === 'number' && indexes.length === 0) {
-            buffered += Math.max(0, clip.duration - (position === clipIndexRef.current ? positionRef.current.time : 0))
+            buffered += Math.max(0, clip.duration - offset)
+            reach = buffered
+          } else if (clip.url && typeof clip.duration === 'number') {
+            reach += clip.duration
           } else if (!clip.url) {
+            reach += Math.max(0, estimatedGroupSeconds(clip) - offset)
             if (!indexes.includes(clip.index)) {
               indexes.push(clip.index)
               fromChunks[clip.index] = clip.chunk?.index ?? 0
