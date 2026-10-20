@@ -625,6 +625,6 @@ html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }
    one and no long-press callout, so iOS shows no menu of its own beside the bar (20 Oct 2026). */
 ::highlight(tinct-sel) { background-color: rgba(214, 186, 112, .40); }
 .lab.is-phone .epub-pg { -webkit-touch-callout: none; }
-.mr-sheet .mr-note-edit { display: block; width: 100%; min-height: 72px; margin: 0; padding: 4px 0; border: 0; border-radius: 0; outline: 0; resize: none; overflow: hidden; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: italic 17px/1.5 var(--mr-gara); overflow-wrap: anywhere; box-shadow: inset 0 -1px 0 var(--mr-hair); }
+.mr-sheet .mr-note-edit { display: block; width: 100%; min-height: 72px; margin: 0; padding: 4px 0; border: 0; border-radius: 0; outline: 0; resize: none; overflow: hidden; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: 400 17px/1.5 var(--mr-gara); font-style: normal; overflow-wrap: anywhere; box-shadow: inset 0 -1px 0 var(--mr-hair); }
 .mr-sheet .mr-note-edit:focus { box-shadow: inset 0 -1.5px 0 var(--mr-accent); }
 .mr-sheet .mr-note-edit::placeholder { color: var(--mr-hint); opacity: 1; }
