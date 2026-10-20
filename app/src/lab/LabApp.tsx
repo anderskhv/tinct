@@ -174,7 +174,9 @@ import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './use
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
+import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
 import { adjacentPageIndex, applyPaintShrink, canUseLabPageBudget, chapterHearingPages, chapterPageSegments, chapterPageTail, clampedChapterProgress, cutPageTailTo, followOnReadingPage, growPageByFirstOmittedWord, growPageByWords, growPaintedPageIfSlack, labChapterProgress, labNavPageList, labPageBudgetFromMetrics, leftoverWordCount, listeningSentenceStart, pageAnchorOf, pageIndexForPlace, reflowAfterCut, restorePageIndexForAnchor, sameChapterPages, snapShrinkEndToSentence, tokenizeHearingWords, type ChapterHearingPage } from './labHearing'
@@ -558,7 +560,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     // render so every write of these prefs already carries it.
     const flagged = applyNarrationPilotFlag(migrated, narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : '')))
     const synced = syncLabAudioEdition(flagged, book.editions?.length ? book.editions : bibleEditions())
-    return userBookEditionKey ? userBookPrefs(synced, userBookEditionKey) : synced
+    if (userBookEditionKey) return userBookPrefs(synced, userBookEditionKey)
+    // Compare chosen in the margin preview's Layout: its compare edition is shown, even after an earlier None.
+    return readerHandoff && deepLinkViewForPage() === 'compare' && !synced.compareOpen && synced.compareEdition !== synced.primaryEdition
+      ? { ...synced, compareOpen: true }
+      : synced
   })
   const allBookEditions = book.editions?.length ? book.editions : bibleEditions()
   const bookEditions = selectableLabEditions(book.bookId || 'bible', allBookEditions)
@@ -607,7 +613,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
     savedMode: compareViewSavedMode,
   })
   const [mobileCompareActive, setMobileCompareActive] = useState(() => initialCompareView('phone'))
-  const [desktopCompareActive, setDesktopCompareActive] = useState(() => initialCompareView('desktop'))
+  // Two-page or Compare chosen in the margin preview's Layout (`view`, a deep link's): that layout, kept for the book.
+  const [deepLinkDesktopView] = useState(() => readerHandoff && !userBook ? deepLinkViewForPage() : null)
+  const [desktopCompareActive, setDesktopCompareActive] = useState(() => deepLinkDesktopView ? deepLinkDesktopView === 'compare' : initialCompareView('desktop'))
+  useEffect(() => {
+    if (deepLinkDesktopView) storeCompareView('desktop', compareViewBookId, deepLinkDesktopView === 'compare')
+  // Once, for the link this page opened with.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   /** The reader's own Compare toggle: remembered for this book in this layout. */
   const rememberCompareView = useCallback((on: boolean) => {
     if (!userBook) storeCompareView(appearanceProfile, compareViewBookId, on)
@@ -5381,6 +5394,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook }
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } }
+            : null}
+          margin={!showPhoneChrome && !userBook && marginPreviewOptedIn() && isMarginPreviewBook(getBook(book.bookId || 'bible'))
+            ? { onOpen: () => {
+                const bookId = book.bookId!
+                notePlace('hide')
+                window.location.assign(marginPreviewReturnHref(bookId, { editionKey: prefs.primaryEdition, chapterNumber: book.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }))
+              } }
             : null}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}

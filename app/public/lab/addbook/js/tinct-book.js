@@ -16,14 +16,32 @@
   const column = () => document.getElementById('column');
   const say = html => { const c = column(); if (c) c.innerHTML = `<div class="pdf-status" role="alert">${html}</div>` };
 
-  /** The book from the page that framed this one (MarginPreview.tsx), waited for briefly. -> its load() promise, or null */
-  async function framed() {
+  /** The page that framed this one (MarginPreview.tsx: load, paper, layoutHref), waited for briefly. -> it, or null */
+  async function bridge() {
     for (let i = 0; i < 50; i++) {
-      try { const p = window.parent !== window && window.parent.TinctMarginPreview; if (p && p.bookId === id) return p.load() } catch { return null }
+      try { const p = window.parent !== window && window.parent.TinctMarginPreview; if (p && p.bookId === id) return p } catch { return null }
       await new Promise(r => setTimeout(r, 100));
     }
     return null;
   }
+
+  /*
+   * Tinct paper (Anders, 20 Oct 2026): on the desktop the book reads as in the book reader, its font, size, line,
+   * paragraph gap, alignment and its leaf's measure for this reader and window (marginPreviewPaper), on the theme's
+   * own paper: no white sheet, border or shadow (white sheets are for a PDF's real pages). The margin column sits
+   * beside the text, which scrolls with it. Applied again as the window changes width (the size follows it).
+   */
+  let paperOf = null;
+  function applyPaper() {
+    const lab = document.querySelector('.lab'); if (!lab || !paperOf) return;
+    let p = null;
+    try { p = paperOf(innerWidth) } catch { p = null }
+    if (!p) return;
+    const set = (k, v) => lab.style.setProperty(k, v);
+    set('--tb-font', p.fontFamily); set('--tb-size', p.fontSize + 'px'); set('--tb-head', String(p.headingSize / p.fontSize));
+    set('--tb-lh', String(p.lineHeight)); set('--tb-gap', p.paragraphGap + 'em'); set('--tb-align', p.align); set('--tb-measure', p.measure + 'px');
+  }
+  addEventListener('resize', applyPaper);
 
   /** A paragraph as the book reader shows it: its text, emphasised ranges in <em>. An empty one keeps its index. */
   function paragraphEl(p) {
@@ -139,7 +157,14 @@
 .lab.is-phone .tb-pill:not([data-pill="note"])::after{content:"✧\\00a0\\00a0" attr(data-label)}
 .lab.is-phone .tb-pill[aria-expanded="true"]::after{color:var(--lab-ink);background:var(--lab-surface)}
 .lab.is-phone .tb-pill:focus-visible{outline:none}
-.lab.is-phone .tb-pill:focus-visible::after{outline:2px solid var(--lab-ink-muted);outline-offset:2px}`;
+.lab.is-phone .tb-pill:focus-visible::after{outline:2px solid var(--lab-ink-muted);outline-offset:2px}
+html .lab.byob:not(.is-phone) .epub-sheet{width:min(100%,var(--tb-measure,42em));max-width:100%;padding:12px 0 2.4em;background:transparent!important;box-shadow:none!important;border:0;border-radius:0;color:var(--lab-ink)}
+html .lab.byob:not(.is-phone) .epub-pg{font-family:var(--tb-font,var(--lab-font-reader,'Literata',Georgia,serif));font-size:calc(var(--tb-size,19px) * var(--epub-scale,1));line-height:var(--tb-lh,1.48);color:var(--lab-ink)!important}
+html .lab.byob:not(.is-phone) .epub-pg p.tb-p{margin:0 0 var(--tb-gap,.28em);text-align:var(--tb-align,justify);text-justify:auto;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:7 2 3;-webkit-hyphenate-limit-before:2;-webkit-hyphenate-limit-after:3;text-wrap:wrap}
+html .lab.byob:not(.is-phone) .tb-chapter .tb-head{text-align:left;margin:0 0 20px;padding-top:9px}
+html .lab.byob:not(.is-phone) .tb-chapter .tb-part{font-family:'EB Garamond',Georgia,serif;font-size:.82em;margin-bottom:.25em;color:var(--lab-ink-muted);opacity:1}
+html .lab.byob:not(.is-phone) .tb-chapter .tb-head.is-named .tb-part{display:none}
+html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Georgia,'Times New Roman',serif;font-weight:700;font-size:calc(var(--tb-head,1.1127) * 1em);line-height:1.25;color:var(--lab-ink)}`;
   // (Chapters are drawn whole, not skipped off screen: a Tinct chapter runs to many screens, and an estimated height
   // above the place moved it as the chapters were drawn; reader.js epubGoSpot measures real lines.)
 
@@ -152,7 +177,7 @@
   function fontsSoon() {
     const f = document.fonts; if (!f?.load) return Promise.resolve();
     const lab = document.querySelector('.lab');
-    const body = (lab && getComputedStyle(lab).getPropertyValue('--lab-font-reader').trim()) || "'Literata', Georgia, serif";
+    const css = lab && getComputedStyle(lab), body = (css && (css.getPropertyValue('--tb-font').trim() || css.getPropertyValue('--lab-font-reader').trim())) || "'Literata', Georgia, serif";
     const wanted = [`400 19px ${body}`, `italic 400 19px ${body}`, `400 28px 'Playfair Display'`].map(font => f.load(font, 'Aa').catch(() => null));
     return Promise.race([Promise.all(wanted), new Promise(r => setTimeout(r, FONT_WAIT_MS))]);
   }
@@ -162,9 +187,12 @@
     const style = document.createElement('style'); style.textContent = STYLE; document.head.appendChild(style);
     document.body.dataset.view = 'reader'; document.getElementById('root').hidden = false; document.getElementById('start').hidden = true;
     say('Opening…');
+    const host = await bridge();
+    paperOf = typeof host?.paper === 'function' ? host.paper : null;
+    applyPaper();
     const fonts = fontsSoon();
     let model = null;
-    try { model = await framed() } catch { model = null }
+    try { model = host ? await host.load() : null } catch { model = null }
     await fonts;
     if (!model || !Array.isArray(model.chapters) || !model.chapters.length) {
       say(`This preview opens from the reader. <a href="/reader?book=${encodeURIComponent(id)}&amp;margin=1" target="_top">Open the margin preview</a>`);
@@ -175,7 +203,11 @@
     try { from = Math.max(1, Number(JSON.parse(localStorage.getItem(POS) || 'null')?.page) || 1) } catch {}
     const book = asEpub(model, from);
     setTimeout(() => laterChapters(model), 1200);
-    await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0` });
+    // Two-page and Compare (the desktop's Layout): the book reader at this chapter, paragraph and word, in that layout.
+    const layoutHref = typeof host.layoutHref === 'function'
+      ? (view, at) => { const c = model.chapters[at.page - 1]; return c ? host.layoutHref(view, { editionKey: model.editionKey, chapterNumber: c.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }) : null }
+      : null;
+    await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
   }
   window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });
