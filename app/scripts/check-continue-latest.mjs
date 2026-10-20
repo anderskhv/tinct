@@ -9,6 +9,11 @@
 //      "Also reading" names the registered book beside Continue;
 //   3. opens /reader with no book: the PDF's viewer opens instead, before the reader paints;
 //   4. on a phone (390×844) the same /reader stays the reader, as today.
+// Cross-device (bug in #492): the Bible read on the phone five minutes ago (the account's
+// /api/lab-position, mocked), the PDF twenty minutes ago and the registered book here thirty:
+//   5. /reader with no book stays the reader and lands on the phone's chapter, paragraph and
+//      word; the boot writes no position;
+//   6. the library's settled desk leads with the Bible, with the PDF as Also reading.
 // CONTINUE_SHOTS=<dir> writes screenshots.
 import { chromium } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
@@ -34,7 +39,7 @@ const pages = {
   '/lab/addbook/': 'lab/addbook/index.html',
 }
 
-async function serve(context, log) {
+async function serve(context, log, accountPosition = null) {
   await context.route('**/*', async route => {
     const request = route.request()
     const url = new URL(request.url())
@@ -43,6 +48,10 @@ async function serve(context, log) {
     if (url.pathname === '/qa-seed') return route.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>seed</title>' })
     if (url.pathname.startsWith('/api/')) {
       log.push(`${request.method()} ${url.pathname}`)
+      // The phone's place, as the account holds it. The reader's own sync PUTs are kept to check that
+      // the account's settle stays the phone's place; the mock's record does not change.
+      if (url.pathname === '/api/lab-position' && accountPosition && request.method() === 'PUT') log.puts?.push(request.postDataJSON())
+      if (url.pathname === '/api/lab-position' && accountPosition) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(accountPosition) })
       if (url.pathname === '/api/user-books/places') return route.fulfill({ status: 200, contentType: 'application/json', body: '{"places":{}}' })
       if (url.pathname === '/api/user-books') return route.fulfill({ status: 200, contentType: 'application/json', body: '{"books":[]}' })
       if (url.pathname === '/api/public-books') return route.fulfill({ status: 200, contentType: 'application/json', body: '{"books":[]}' })
@@ -139,6 +148,59 @@ const check = (name, ok, detail = '') => { results.push({ name, ok }); console.l
   check('the reader’s boot asked the account for own-book places (mocked)', log.includes('GET /api/user-books/places'))
   check('no page errors on the desktop', errors.length === 0, errors.slice(0, 3).join(' | '))
   await context.close()
+}
+
+// ---- Cross-device: the Bible read on the phone, newer than everything here ----
+{
+  const now = Date.now()
+  const phonePlace = { bookId: 'ezra', headerBook: 'Ezra', chapterNumber: 9, sequentialChapter: 412, paragraphIndex: 1, wordIndex: 3, primaryEditionKey: 'web-en', updatedAt: now - 5 * 60 * 1000, deviceId: 'qa-phone', rev: 3 }
+  const accountPosition = { owner: USER, books: { ezra: phonePlace }, finished: {}, hidden: {}, lastSettledBookId: 'ezra', lastSettledAt: phonePlace.updatedAt, updatedAt: phonePlace.updatedAt, deviceId: 'qa-phone' }
+  for (const step of ['reader', 'library']) {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' })
+    const log = []
+    log.puts = []
+    await serve(context, log, accountPosition)
+    const page = await context.newPage()
+    const errors = []
+    page.on('pageerror', error => errors.push(error.message))
+    await seed(page, now - 30 * 60 * 1000)
+    // The PDF was read here twenty minutes ago: newer than the registered book on this device.
+    await page.evaluate(({ hex, at }) => localStorage.setItem('tinct-addbook:pos:pdf:' + hex, JSON.stringify({ page: 2, frac: 0.2, pages: 3, at })), { hex: HEX, at: now - 20 * 60 * 1000 })
+    log.length = 0
+    if (step === 'reader') {
+      await page.goto(`${origin}/reader`, { waitUntil: 'domcontentloaded' })
+      await page.waitForFunction(({ chapter, place }) => {
+        const root = document.querySelector('[data-testid="lab-root"]')
+        return root?.dataset.readerReady === 'true' && root.dataset.chapter === chapter && root.dataset.place === place
+      }, { chapter: String(phonePlace.sequentialChapter), place: `${phonePlace.paragraphIndex}:${phonePlace.wordIndex}` }, { timeout: 45000 }).catch(() => {})
+      const at = new URL(page.url())
+      const landed = await page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return root ? { chapter: root.dataset.chapter, place: root.dataset.place, ready: root.dataset.readerReady } : null })
+      check('cross-device: /reader stays the reader (the phone’s Bible is newer than the PDF)', at.pathname === '/reader' && !at.searchParams.has('userBook'), page.url().replace(origin, ''))
+      check('cross-device: the reader lands on the phone’s chapter, paragraph and word', landed?.ready === 'true' && landed.chapter === '412' && landed.place === '1:3', JSON.stringify(landed))
+      check('cross-device: the boot asked the account for its position (mocked GET)', log.includes('GET /api/lab-position'))
+      // The boot only reads (its GET is the first request); the reader's normal sync may then PUT the
+      // merged record (a dwell here may settle it again, later), which must keep the phone's book and exact word.
+      check('cross-device: the boot’s first account request is the GET, before any PUT', log.indexOf('GET /api/lab-position') >= 0 && log.indexOf('GET /api/lab-position') < (log.indexOf('PUT /api/lab-position') + 1 || Infinity), log.join(', '))
+      const kept = log.puts.every(put => put.lastSettledBookId === 'ezra' && put.lastSettledAt >= phonePlace.updatedAt && ['sequentialChapter', 'paragraphIndex', 'wordIndex'].every(key => put.books?.ezra?.[key] === phonePlace[key]))
+      check('cross-device: any position the reader sends keeps the phone’s settle and place', kept, JSON.stringify(log.puts.map(put => ({ settled: put.lastSettledBookId, at: put.lastSettledAt, ezra: put.books?.ezra && `${put.books.ezra.sequentialChapter}:${put.books.ezra.paragraphIndex}:${put.books.ezra.wordIndex}` }))))
+      check('cross-device: no page errors', errors.length === 0, errors.slice(0, 3).join(' | '))
+      if (shots) await page.screenshot({ path: path.join(shots, 'desktop-3-cross-device-reader.png') })
+    } else {
+      await page.goto(`${origin}/library`, { waitUntil: 'domcontentloaded' })
+      await page.waitForFunction(() => document.querySelector('.reading-table.is-ready:not([hidden])'), null, { timeout: 45000 })
+      await page.waitForFunction(() => /Bible/.test([...document.querySelectorAll('.reading-table.is-ready')].pop()?.querySelector('#rt-title')?.textContent || ''), null, { timeout: 15000 }).catch(() => {})
+      await page.waitForFunction(() => { const a = [...document.querySelectorAll('.reading-table.is-ready')].pop()?.querySelector('#rt-also'); return a && !a.hidden }, null, { timeout: 15000 }).catch(() => {})
+      const desk = await page.evaluate(() => {
+        const view = [...document.querySelectorAll('.reading-table.is-ready')].pop()
+        const also = view?.querySelector('#rt-also')
+        return { title: view?.querySelector('#rt-title')?.textContent.trim(), also: also && !also.hidden ? also.textContent : null }
+      })
+      check('cross-device: the library’s desk leads with the phone’s Bible', /Bible/.test(desk.title || ''), `title=${desk.title}`)
+      check('cross-device: Also reading names the PDF beside Continue', /^Also reading: /.test(desk.also || '') && !/Bible|Frankenstein/.test(desk.also || ''), `also=${desk.also}`)
+      if (shots) await page.screenshot({ path: path.join(shots, 'desktop-4-cross-device-library.png') })
+    }
+    await context.close()
+  }
 }
 
 // ---- Phone: today's behaviour ----
