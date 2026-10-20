@@ -21,7 +21,7 @@ interface Scan { title: string; author: string; textPages: number; nav: string; 
 interface Doc { numPages: number; getPage: (n: number) => Promise<{ getTextContent: () => Promise<{ items: unknown[] }> }>; destroy: () => Promise<void> }
 interface PdfTextApi {
   PDF_TEXT_CONVERTER: number
-  convert: (pdf: Doc, options: { scan: Scan }) => Promise<UserBookEdition | null>
+  convert: (pdf: Doc, options: { scan: Scan; concurrency?: number; regions?: (n: number, page: unknown, items: unknown[]) => Promise<unknown[]>; pace?: () => Promise<void> | null; live?: () => boolean }) => Promise<UserBookEdition | null>
   fromPages: (pages: Array<{ n: number; x0: number; y0: number; w: number; h: number; rows: Row[] }>, scan: Scan) => UserBookEdition | null
   pageOf: (edition: UserBookEdition, place: { chapterNumber: number; paragraphIndex: number; wordIndex: number }) => { page: number; frac: number } | null
   placeOf: (edition: UserBookEdition, page: number, frac?: number) => { chapterNumber: number; paragraphIndex: number; wordIndex: number } | null
@@ -220,9 +220,50 @@ describe('Tinct text: places between the text and the pages', () => {
   })
 })
 
+// Anders, 20 Oct 2026 (the conversion took a while): pages are read several at a time and put together in page order,
+// so the text is the one a page at a time gives, whatever order the pages finish in.
+describe('Tinct text: pages read several at a time', () => {
+  it('gives the same edition at any concurrency, its regions arriving in any order', async () => {
+    for (const [name, bytes] of [...Object.entries(fixtures), ['book.pdf', proseBook({ text: true }).bytes] as const]) {
+      const pdf = await open(bytes)
+      try {
+        const scan = await scanApi.scan(pdf, { fileName: name })
+        if (!(scan.textPages > 0)) continue
+        const one = await text.convert(pdf, { scan, concurrency: 1 })
+        // A crop region on every third page, the later pages answered first.
+        const regions = async (n: number) => {
+          await new Promise(r => setTimeout(r, (pdf.numPages - n) * 3))
+          return n % 3 ? [] : [{ kind: 'figure', x: 0.3, y: 0.02, w: 0.4, h: 0.03, id: `p${n}-1`, css: { width: 300, height: 20 } }]
+        }
+        const seq = await text.convert(pdf, { scan, concurrency: 1, regions })
+        for (const concurrency of [2, 4, 7]) {
+          expect(await text.convert(pdf, { scan, concurrency }), `${name} at ${concurrency}`).toEqual(one)
+          expect(await text.convert(pdf, { scan, concurrency, regions }), `${name} with regions at ${concurrency}`).toEqual(seq)
+        }
+      } finally { await pdf.destroy() }
+    }
+  }, 60000)
+
+  it('waits for its pace before each page, and stops when no longer live', async () => {
+    const { bytes } = proseBook({ text: true })
+    const pdf = await open(bytes)
+    try {
+      const scan = await scanApi.scan(pdf, { fileName: 'book.pdf' })
+      let paced = 0
+      const edition = await text.convert(pdf, { scan, concurrency: 2, pace: () => { paced++; return Promise.resolve() } })
+      // Each page waited once (a lane may wait once more and find no page left).
+      expect(paced).toBeGreaterThanOrEqual(pdf.numPages)
+      expect(paced).toBeLessThanOrEqual(pdf.numPages + 1)
+      expect(edition).toEqual(await text.convert(pdf, { scan }))
+      let reads = 0
+      expect(await text.convert(pdf, { scan, live: () => ++reads < 3 })).toBeNull()
+    } finally { await pdf.destroy() }
+  })
+})
+
 describe('Tinct text: the installed copy', () => {
   it('ships the text script the tests cover, with the scan and viewer scripts it works with', () => {
-    for (const file of ['pdf-text.js', 'pdf-scan.js', 'reader.js']) {
+    for (const file of ['pdf-text.js', 'pdf-scan.js', 'reader.js', 'pdf-regions.js', 'pdf-regions-worker.js', 'pdf-text-view.js']) {
       expect(readFileSync(ROOT + 'app/public/lab/addbook/js/' + file, 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/js/' + file, 'utf8'))
     }
     expect(readFileSync(ROOT + 'app/public/lab/addbook/css/reader.css', 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/css/reader.css', 'utf8'))
