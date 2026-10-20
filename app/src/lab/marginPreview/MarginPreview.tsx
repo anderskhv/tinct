@@ -14,6 +14,7 @@ import { readSupabaseAccessToken } from '../labAuth'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import { marginPreviewAtForPage } from './marginPreviewFlag'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
+import { useMarginListen, type MarginListenApi } from './useMarginListen'
 import {
   marginPreviewCompareEdition,
   marginPreviewLayoutHref,
@@ -37,6 +38,8 @@ declare global {
       paper: (viewportWidth: number) => MarginPreviewPaper
       /** Two-page or Compare: the book reader at this place, in that layout. */
       layoutHref: (view: MarginPreviewView, place: MarginPreviewPlace) => string
+      /** Listen: the book reader's player, run in this page (useMarginListen.ts; the frame's js/tinct-listen.js). */
+      listen?: MarginListenApi
     }
   }
 }
@@ -48,10 +51,11 @@ function desktopPrefs() {
   return parseLabPrefs(raw, 'desktop')
 }
 
-export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>): NonNullable<Window['TinctMarginPreview']> {
+export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>, listen?: MarginListenApi): NonNullable<Window['TinctMarginPreview']> {
   const book = getBook(bookId)
   return {
     bookId,
+    ...(listen ? { listen } : {}),
     load: () => pending,
     paper: width => marginPreviewPaper(desktopPrefs(), width, { shakespeare: book?.author === 'William Shakespeare' }),
     layoutHref: (view, place) => marginPreviewLayoutHref(bookId, view, place, book ? marginPreviewCompareEdition(book, desktopPrefs(), place.editionKey) : undefined),
@@ -70,12 +74,21 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
     task.catch(() => setFailed(true))
     return task
   }, [bookId, load])
+  const [shown, setShown] = useState<MarginPreviewBook | null>(null)
   useEffect(() => {
-    window.TinctMarginPreview = marginPreviewBridge(bookId, pending)
+    let current = true
+    pending.then(model => { if (current) setShown(model) }, () => {})
+    return () => { current = false }
+  }, [pending])
+  const chapterTitles = useMemo(() => new Map((shown?.chapters ?? []).map(c => [c.number, c.title])), [shown])
+  // The edition the frame shows is the one heard.
+  const listen = useMarginListen({ bookId, editionKey: shown?.editionKey ?? null, chapterTitles })
+  useEffect(() => {
+    window.TinctMarginPreview = marginPreviewBridge(bookId, pending, listen)
     const title = getBook(bookId)?.title
     if (title) document.title = `${title} · Margin preview · Tinct`
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, pending])
+  }, [bookId, pending, listen])
   if (failed) {
     return (
       <main data-testid="margin-preview-error" style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
