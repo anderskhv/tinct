@@ -5226,8 +5226,9 @@ async function epubQuizCheck(browser, origin) {
   // q (20 Oct 2026): deleting the book from the reader leaves nothing of it on this device (place, highlights, cards, chats, primers).
   await e.evaluate(() => { savePlaceNow(); const p = state.pages[8], t = epubParas(p)[3].firstChild, r = document.createRange(); r.setStart(t, 0); r.setEnd(t, 30); addHighlight({ text: r.toString(), page: 9, range: r }, { range: r, color: 'yellow' }); store.set('chat:' + state.key, [{ role: 'user', content: 'x' }]) })
   const before = await e.evaluate(h => Object.keys(localStorage).filter(k => k.includes(h)), E.hex)
-  await e.evaluate(k => TinctReader.removeBook(k), E.key); await e.waitForTimeout(800)
-  const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex)
+  // Removing the open book closes it (and may go on to Your books, a navigation): the keys are read once the page has settled.
+  await e.evaluate(k => TinctReader.removeBook(k), E.key).catch(() => {}); await e.waitForTimeout(800); await e.waitForLoadState('load').catch(() => {})
+  const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex).catch(async () => { await e.waitForTimeout(1500); return e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex) })
   ok('q. deleting the book from the reader leaves no key of it on this device (its place, highlights, cards, chat, primers)', before.length >= 4 && left.length === 0, { before, left })
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()

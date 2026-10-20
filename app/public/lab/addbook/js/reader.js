@@ -107,7 +107,12 @@ const saveToAccount = async (key, file, meta, options = {}) => {
   if (engine.cloud?.get(key)) dispatchEvent(new CustomEvent('tinct-book-saved', { detail: { key } }));
 };
 // Deleting the book that is open closes it first, so nothing of it is written again after its keys are gone (engine.forgetBookHere).
-const removeBook = async key => { if (state.key === key) await closeBook({ toShelf: true }); return engine.removeBook(key, { notify: toast }) };
+// The open book is closed first, and the shelf shown only once it and its keys here are gone (the shelf is another page now).
+const removeBook = async key => {
+  const open = state.key === key || state.pdfText?.key === key;
+  if (open) await closeBook({ toShelf: true, stay: true });
+  try { return await engine.removeBook(key, { notify: toast }) } finally { if (open) window.TinctStart?.show({ shelf: true }) }
+};
 // Opening your own file needs a Tinct account (searching free books does not). The
 // rights confirmation (add-engine.js) is asked once per account, before its first file opens.
 function needsAccount() {
@@ -291,13 +296,13 @@ addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hid
 /* ---------- Reader ↔ start page ---------- */
 const readerShown = () => document.body.dataset.view === 'reader';
 function showReader() { document.body.dataset.view = 'reader'; $('root').hidden = false; window.TinctStart?.hide(); applyLayout() }
-async function closeBook({ fromHistory = false, toShelf = false } = {}) {
+async function closeBook({ fromHistory = false, toShelf = false, stay = false } = {}) {
   const hadBook = hasBook();
   closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop(); strip?.close();
   window.TinctNotebook?.close();
   ++state.token;
   state.observer?.disconnect(); state.pdf?.destroy?.();
-  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map(), preview: null }); toc.entries = []; toc.ready = false; zoomClass();
+  Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map(), preview: null, pdfText: null }); toc.entries = []; toc.ready = false; zoomClass(); pdfTextLeave();
   Object.assign(book, { key: null, pdf: null, task: null, texts: [], numbers: [], matter: [], index: null });
   if (window.CSS?.highlights) for (const [k] of HL_COLORS) CSS.highlights.delete('tinct-hl-' + k);
   chat.turns = []; chat.passage = null; chat.attach = [];
@@ -306,7 +311,7 @@ async function closeBook({ fromHistory = false, toShelf = false } = {}) {
   document.title = 'Add a book · Tinct';
   if (!fromHistory && location.hash === '#read') history.back();
   else if (!fromHistory && hadBook && urlHex()) history.replaceState(null, '', location.pathname);
-  window.TinctStart?.show({ shelf: toShelf });
+  if (!stay) window.TinctStart?.show({ shelf: toShelf });
 }
 // Back to library: the start page, with "Your books" in view.
 $('backBtn').onclick = () => leaveToShelf();
