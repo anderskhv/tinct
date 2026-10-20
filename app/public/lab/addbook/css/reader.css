@@ -142,6 +142,8 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-phone .lab-header-chapter[data-fit="cut"] .lab-header-chapter-label { display: flex; }
 .lab.byob.is-phone .lab-header-chapter-label .byob-cut { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lab.byob.is-phone .lab-header-chapter-label .byob-cut-tail { flex: none; white-space: pre; }
+/* The title gives way to the chapter's name first (round 3, an EPUB's stages): cut by its own ellipsis, then left out. */
+.lab.byob.is-phone .lab-header-brand:has(> .lab-header-chapter[data-title="off"]) .lab-header-work { display: none; }
 /* The pill's own fill sets it apart from the title, so the phone has no dot between them; and the bar's right
    edge is the t button's own room (its glyph sits 12px inside it), as the back arrow's left is. */
 .lab.byob.is-phone .lab-title-sep { display: none; }

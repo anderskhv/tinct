@@ -28,7 +28,7 @@ interface LayoutApi {
   documentColumn(list: Array<Column | null>): Column | null
   columnZoom(o: { column: Column | null; pageWidth: number; room: number; cropX?: number; gutter?: number }): number
   columnScroll(o: { column: Column | null; pageWidth: number; x0?: number; cropX?: number; sheetLeft: number; sheetWidth: number; room: number; gutter?: number }): number
-  pillStages(o: { chapter?: string; page?: string; pct?: string; epub?: boolean }): Array<{ label: string; chevron: boolean; cut?: boolean }>
+  pillStages(o: { chapter?: string; page?: string; pct?: string; epub?: boolean }): Array<{ label: string; chevron: boolean; cut?: boolean; title?: 'cut' | 'off' }>
   shortChapter(label: string): string
   cutLabel(label: string): { head: string; tail: string }
   COLUMN_FIT_MIN: number
@@ -162,12 +162,21 @@ describe('3. the phone’s header', () => {
   })
   it('an EPUB chapter (the margin preview of a Tinct book) is tried shorter and then cut before the percent alone (round 2)', () => {
     // To the Lighthouse on a 390 px phone showed "33%" alone: its chapter is cut, its number kept, before the percent.
+    // Round 3: the book's title gives way first (cut, then left out); the chapter is cut only after that.
     expect(L.pillStages({ chapter: 'The Window · 1', pct: '33%', epub: true })).toEqual([
-      { label: 'The Window · 1', chevron: true }, { label: 'The Window · 1', chevron: false, cut: true }, { label: '33%', chevron: true }, { label: '33%', chevron: false },
+      { label: 'The Window · 1', chevron: true }, { label: 'The Window · 1', chevron: true, title: 'cut' }, { label: 'The Window · 1', chevron: true, title: 'off' },
+      { label: 'The Window · 1', chevron: false, cut: true, title: 'off' }, { label: '33%', chevron: true }, { label: '33%', chevron: false },
     ])
-    expect(L.pillStages({ chapter: 'Book One (1805) — Chapter 1', pct: '0%', epub: true }).slice(0, 3)).toEqual([
-      { label: 'Book One (1805) — Chapter 1', chevron: true }, { label: 'Chapter 1', chevron: true }, { label: 'Chapter 1', chevron: false, cut: true },
+    expect(L.pillStages({ chapter: 'Book One (1805) — Chapter 1', pct: '0%', epub: true }).slice(0, 7)).toEqual([
+      { label: 'Book One (1805) — Chapter 1', chevron: true }, { label: 'Book One (1805) — Chapter 1', chevron: true, title: 'cut' },
+      { label: 'Chapter 1', chevron: true }, { label: 'Chapter 1', chevron: true, title: 'cut' },
+      { label: 'Book One (1805) — Chapter 1', chevron: true, title: 'off' }, { label: 'Chapter 1', chevron: true, title: 'off' },
+      { label: 'Chapter 1', chevron: false, cut: true, title: 'off' },
     ])
+    // Every stage that keeps the title whole comes before any that cuts it, and those before any that leaves it out.
+    const rank = (s: { title?: string }) => ({ cut: 1, off: 2 } as Record<string, number>)[s.title || ''] ?? 0
+    const lh = L.pillStages({ chapter: 'The Window · 1', pct: '33%', epub: true }).filter(s => !/%$/.test(s.label))
+    expect(lh.map(rank)).toEqual([...lh.map(rank)].sort())
     expect(L.shortChapter('Act 1, Scene 1 — Venice. A street')).toBe('Act 1, Scene 1')
     expect(L.shortChapter('Chapter 1 — Loomings')).toBe('Chapter 1')
     expect(L.shortChapter('Book VI: The Widow And The Wife — Chapter LVIII')).toBe('Chapter LVIII')
@@ -176,12 +185,14 @@ describe('3. the phone’s header', () => {
     expect(L.cutLabel('The Window · 1')).toEqual({ head: 'The Window', tail: ' · 1' })
     expect(L.cutLabel('Time Passes')).toEqual({ head: 'Time Passes', tail: '' })
     // A PDF's pill is as before: no cut stage.
-    expect(L.pillStages({ chapter: '3 Model Architecture', page: '4' }).some(s => s.cut)).toBe(false)
-    expect(READER).toContain('if (stages[at].cut && whole(title) && readable()) break;')
+    expect(L.pillStages({ chapter: '3 Model Architecture', page: '4' }).some(s => s.cut || s.title)).toBe(false)
+    expect(READER).toContain('if (stages[at].cut && titleFits(stages[at]) && readable()) break;')
+    expect(READER).toContain("title.clientWidth >= Math.max(PILL_TITLE_MIN, title.scrollWidth * 0.6) : whole(title)")
+    expect(CSS).toContain('.lab.byob.is-phone .lab-header-brand:has(> .lab-header-chapter[data-title="off"]) .lab-header-work { display: none; }')
     expect(CSS).toContain('.lab.byob.is-phone .lab-header-chapter[data-fit="cut"] { flex: 0 1 auto; }')
   })
   it('reader.js tries each stage until the title and the label are whole, the last one always', () => {
-    expect(READER).toContain("if (at === stages.length - 1 || (whole(title) && whole(label))) break;")
+    expect(READER).toContain("if (at === stages.length - 1 || (!stages[at].cut && titleFits(stages[at]) && whole(label))) break;")
     // onScroll writes the full label each time: the stage found for the same labels, width and title is shown again.
     expect(READER).toContain("if (key === pill.key) { show(stages[pill.at]); return }")
     expect(READER).toMatch(/fitPill\(window\.TinctReaderLayout\.pillStages\(\{ chapter: ch \? ch\.label : `p\. \$\{at\} of \$\{of\}`, page: at \}\)\);/)

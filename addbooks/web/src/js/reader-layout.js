@@ -178,17 +178,20 @@
    * itself, else the last: never an empty pill. -> [{ label, chevron, cut? }]
    * An EPUB's chapter (a Tinct book's in the margin preview, round 2: To the Lighthouse showed "33%" alone) is
    * tried shorter before the percent: its numbered part ("Chapter 1" of "Book One (1805) — Chapter 1"), then
-   * cut with an ellipsis (`cut`: the pill gives way to the title, a closing number is kept: "The Wi… · 1").
+   * cut with an ellipsis (`cut`: a closing number is kept: "The Wi… · 1").
+   * Round 3: in an EPUB the book's title gives way first, as the chapter's name is what the pill is for ("To the
+   * Lighthouse | The W… · 2" on a 390 px phone): each chapter label is tried with the title whole, then with the title
+   * cut (`title: 'cut'`, still readable), then without the title (`title: 'off'`), and is cut itself only after that.
    */
   function pillStages({ chapter = '', page = '', pct = '', epub = false } = {}) {
     const short = epub ? pct : page ? `p. ${page}` : pct;
     const out = [];
-    if (chapter) out.push({ label: chapter, chevron: true });
     if (chapter && epub) {
-      const name = shortChapter(chapter);
-      if (name !== chapter) out.push({ label: name, chevron: true });
-      out.push({ label: name, chevron: false, cut: true });
-    }
+      const name = shortChapter(chapter), labels = name !== chapter ? [chapter, name] : [chapter];
+      for (const label of labels) out.push({ label, chevron: true }, { label, chevron: true, title: 'cut' });
+      for (const label of labels) out.push({ label, chevron: true, title: 'off' });
+      out.push({ label: name, chevron: false, cut: true, title: 'off' });
+    } else if (chapter) out.push({ label: chapter, chevron: true });
     if (short) out.push({ label: short, chevron: true }, { label: short, chevron: false });
     return out.length ? out : [{ label: chapter || short || '–', chevron: false }];
   }
