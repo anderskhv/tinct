@@ -6,14 +6,16 @@
  * (`window.TinctMarginPreview.load()`, js/tinct-book.js) and leaves through
  * the top window ("Back to normal reader", the library).
  *
- * The book reader (LabApp) is not mounted: nothing of it runs or writes.
+ * The book reader (LabApp) is not mounted. What the margin view keeps goes through the book reader's own stores
+ * (MarginPreviewSync, mounted once the book is loaded): the place, highlights and notes, cards.
  */
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { getBook } from '../../data/bookRegistry'
 import { readSupabaseAccessToken } from '../labAuth'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import { marginPreviewAtForPage } from './marginPreviewFlag'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
+import { MarginPreviewSync, type MarginPreviewSyncBridge } from './MarginPreviewSync'
 import {
   marginPreviewCompareEdition,
   marginPreviewLayoutHref,
@@ -37,6 +39,8 @@ declare global {
       paper: (viewportWidth: number) => MarginPreviewPaper
       /** Two-page or Compare: the book reader at this place, in that layout. */
       layoutHref: (view: MarginPreviewView, place: MarginPreviewPlace) => string
+      /** The account's sync (MarginPreviewSync), once the book is loaded; null before and after. */
+      sync?: MarginPreviewSyncBridge | null
     }
   }
 }
@@ -64,12 +68,16 @@ export function marginPreviewFrameSrc(bookId: string): string {
 
 export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId: string; load?: typeof loadMarginPreviewBook }) {
   const [failed, setFailed] = useState(false)
+  const [model, setModel] = useState<MarginPreviewBook | null>(null)
   // One load per page, shared with the frame (it may ask before or after this renders).
   const pending = useMemo(() => {
     const task = load(bookId, { readToken: readSupabaseAccessToken, at: marginPreviewAtForPage() })
-    task.catch(() => setFailed(true))
+    task.then(setModel, () => setFailed(true))
     return task
   }, [bookId, load])
+  const onBridge = useCallback((sync: MarginPreviewSyncBridge | null) => {
+    if (window.TinctMarginPreview?.bookId === bookId) window.TinctMarginPreview.sync = sync
+  }, [bookId])
   useEffect(() => {
     window.TinctMarginPreview = marginPreviewBridge(bookId, pending)
     const title = getBook(bookId)?.title
@@ -85,6 +93,8 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
     )
   }
   return (
+    <>
+    {model && model.bookId === bookId ? <MarginPreviewSync model={model} onBridge={onBridge} /> : null}
     <iframe
       data-testid="margin-preview-frame"
       title="Margin preview"
@@ -92,5 +102,6 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
       allow="fullscreen; clipboard-write"
       style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, display: 'block', background: 'var(--paper, #ece7db)' }}
     />
+    </>
   )
 }

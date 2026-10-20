@@ -102,18 +102,19 @@ async function begin() {
       return
     }
   }
-  // Decided once the added books are registered. On a desktop the book reader is not mounted, and
-  // the stored-data migrations wait for its next visit: the preview writes none of its data. On a
-  // phone the preview is the book reader itself with the new bar, cards and pills (marginPreviewMount.ts).
+  // Decided once the added books are registered. On a desktop the book reader is not mounted; the
+  // margin view keeps the place, highlights and notes through the book reader's stores (MarginPreviewSync),
+  // so the stored-data migrations run first, as they do for the book reader. On a phone the preview is
+  // the book reader itself with the new bar, cards and pills (marginPreviewMount.ts).
   const phone = isLabPhoneSurface(labPhoneSurfaceInput(labLayoutOverride(pathname, window.location.search)))
   const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(id => isMarginPreviewBook(getBook(id)), phone) : null
+  const contentMigrations = Root === LabApp ? storedContentMigrations() : null
+  if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
   if (preview?.mount === 'frame' && preview.bookId) {
     const previewBookId = preview.bookId
     ReactDOM.createRoot(document.getElementById('root')!).render(<React.Suspense fallback={null}><MarginPreview bookId={previewBookId} /></React.Suspense>)
     return
   }
-  const contentMigrations = Root === LabApp ? storedContentMigrations() : null
-  if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
   render(preview?.mount === 'phone')
 }
 void begin().catch(() => {

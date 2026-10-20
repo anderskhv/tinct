@@ -3,8 +3,10 @@
 // /reader?book=<id>&margin=1 shows this page (book.html) in a frame at /lab/addbook/book?tinctBook=<id> and hands it the book's
 // main edition, already loaded and checked (src/lab/marginPreview/: the edition loader, the book reader's place,
 // read only). Here it becomes an EPUB's chapters (reader.js openRegistered): one <p> per edition paragraph, so a
-// place is the same (chapter, paragraph, word) in both readers. The preview keeps its own place, highlights,
-// notes and cards on this device (tinct-addbook:*:preview:<id>) and never writes the book reader's.
+// place is the same (chapter, paragraph, word) in both readers.
+// Sync (21 Oct 2026, margin view as the desktop's default): the place is reported to the page, which writes it through
+// the book reader's position path (src/lab/marginPreview/useMarginPreviewPlace.ts); this frame keeps a copy of it on
+// this device (pos:preview:<id>) only to open where it was.
 (function () {
   const id = new URLSearchParams(location.search).get('tinctBook');
   if (!id || !/^[a-z0-9][a-z0-9-]{0,80}$/.test(id)) return;
@@ -182,6 +184,68 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     return Promise.race([Promise.all(wanted), new Promise(r => setTimeout(r, FONT_WAIT_MS))]);
   }
 
+  /* ---------- Sync with the page (21 Oct 2026): the place ----------
+     The page (MarginPreviewSync) writes the place through the book reader's store, with its guards: it is told
+     where the view is and decides what of that is a place (marginPreviewPlace.ts). `open`: the book is open and its
+     place restored (the word it was restored to: the target); `move`: the view moved (each place kept here,
+     reader.js savePlaceNow). The reader's own actions are counted (a restore is the reader's place only once it has
+     landed, or once they act). Uses reader.js's globals (state, epubHold, epubSpot, epubGoSpot, currentPlace). */
+  const POS_KEY = 'pos:' + KEY;
+  let interactions = 0, sync = null, lastActive = 0;
+  for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, () => {
+    interactions++;
+    const now = Date.now(); if (now - lastActive > 1000) { lastActive = now; try { sync?.place?.active?.() } catch {} }
+  }, { capture: true, passive: true });
+  /** The page's sync, once it is there (it mounts as the book loads), or null. */
+  async function syncOf(host) {
+    for (let i = 0; i < 40; i++) { try { if (host?.sync) return host.sync } catch { return null } await new Promise(r => setTimeout(r, 75)) }
+    return null;
+  }
+  /** Where the view is: the word it was brought to while it has not moved since (previewSpot), else the top of the view; null in the space at a chapter's end. */
+  function spotNow() {
+    try {
+      const page = currentPlace().page, s = document.getElementById('scroll'), x = epubHold.exact;
+      if (x && x.top != null && x.page === page && Math.abs(s.scrollTop - x.top) <= 2) return { page, para: x.para, word: x.word };
+      const e = epubSpot();
+      return Number.isInteger(e.para) ? { page, para: e.para, word: e.word || 0 } : null;
+    } catch { return null }
+  }
+  /** The screen of its chapter the view is on (the reading year's pages). */
+  function screenNow() {
+    try {
+      const s = document.getElementById('scroll'), p = state.pages[currentPlace().page - 1];
+      return Math.max(0, Math.floor((s.getBoundingClientRect().top - p.sheet.getBoundingClientRect().top) / Math.max(1, s.clientHeight)));
+    } catch { return 0 }
+  }
+  function reportPlace(kind, extra = {}) {
+    try { sync?.place?.report({ kind, spot: spotNow(), interactions, screen: screenNow(), ...extra }, document.visibilityState === 'hidden') } catch {}
+  }
+  /** Once a restore has settled (epubGoSpot's word at the top: epubHold.exact.top), or a moment for one without a word. -> its target */
+  async function settled(want = null) {
+    const t0 = Date.now();
+    for (;;) {
+      await new Promise(r => requestAnimationFrame(() => setTimeout(r, 30)));
+      const x = typeof epubHold !== 'undefined' ? epubHold.exact : null;
+      if (x && x.top != null && (!want || (x.page === want.page && x.para === want.para && x.word === want.word))) return { page: x.page, para: x.para, word: x.word };
+      if (Date.now() - t0 > (x || want ? 3000 : 700)) return want || (x ? { page: x.page, para: x.para, word: x.word } : null);
+    }
+  }
+  function watchPlace() {
+    // A place kept here is a move when its time changes (savePlaceNow stamps `at` only for a move).
+    const set = store.set;
+    let at = (store.get(POS_KEY) || {}).at || 0;
+    store.set = (k, v) => {
+      set(k, v);
+      if (k !== POS_KEY || !v || v.at === at) return;
+      at = v.at;
+      reportPlace('move');
+    };
+    sync.place.listen(spot => {
+      if (!epubGoSpot(spot.page, spot.para, spot.word)) { reportPlace('open', { target: spot }); return }
+      settled(spot).then(target => reportPlace('open', { target }));
+    });
+  }
+
   async function open() {
     const R = window.TinctReader; if (!R?.openRegistered) return;
     const style = document.createElement('style'); style.textContent = STYLE; document.head.appendChild(style);
@@ -207,7 +271,11 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     const layoutHref = typeof host.layoutHref === 'function'
       ? (view, at) => { const c = model.chapters[at.page - 1]; return c ? host.layoutHref(view, { editionKey: model.editionKey, chapterNumber: c.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }) : null }
       : null;
-    await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
+    sync = await syncOf(host);
+    const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
+    if (!opened || !sync?.place) return;
+    watchPlace();
+    reportPlace('open', { target: await settled() });
   }
   window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });
