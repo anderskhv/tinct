@@ -247,13 +247,14 @@ export const PDF_COUNTERPOINT_PROMPT = COUNTERPOINT_PROMPT.replace('Do not draw 
  * thing). Credit first; an addition is judged on its merits with general knowledge, never marked down for not being in
  * the passage; reasoning over wording; feedback in two or three short sentences.
  */
+export const QUIZ_CHECK_BASIS_RULE = 'Mark the answer in <reader_answer> to a quiz question by whether it shows that the reader understood the key idea the question tests (<key_idea>), in the passage (<passage>) and the document. <one_acceptable_answer> is one acceptable answer, a hint, not the only one. Judge the reasoning, not the wording: an answer that gives the right reason in its own words is right, and one that repeats the text\'s words without the reason is not. Accept equivalent wording, units and rounding.'
 export const QUIZ_CHECK_CREDIT_RULE = 'First credit what the answer gets right.'
 export const QUIZ_CHECK_ADDITION_RULE = 'Judge anything the answer adds on its merits, using the passage and reliable general knowledge, and say in one sentence whether it is true, partly true or wrong, and why. Never lower a grade only because something is not in the passage.'
 export const QUIZ_CHECK_FRAMING_RULE = 'Accept a correct answer in any defensible framing. When the reader answers from a different defensible view than the one the question names, above all the author\'s own position (given in <author_position> and the document), mark it right and add one sentence naming the difference, such as "That is the many-worlds account the essay defends; here the passage is describing collapse."'
 export const QUIZ_CHECK_NO_REREAD_RULE = 'Never tell the reader to reread when their answer is defensible.'
 export const QUIZ_CHECK_GRADES_RULE = 'Mark "right" when the core idea is right and any addition is defensible or partly true; "nearly" only when the core idea is incomplete or partly wrong; "not_yet" (shown as "Not quite.") when the core idea is wrong.'
 export const QUIZ_CHECK_PROMPT = [
-  'Mark the answer in <reader_answer> to a quiz question against the expected answer. Judge the reasoning, not the wording: an answer that gives the right reason in its own words is right, and one that repeats the text\'s words without the reason is not. Accept equivalent wording, units and rounding.',
+  QUIZ_CHECK_BASIS_RULE,
   QUIZ_CHECK_CREDIT_RULE,
   QUIZ_CHECK_ADDITION_RULE,
   QUIZ_CHECK_FRAMING_RULE,

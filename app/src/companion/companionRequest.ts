@@ -51,7 +51,8 @@ export type PassageIntent = 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' |
 export const PASSAGE_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['simplify', 'factcheck', 'counterpoint', 'quiz', 'related'])
 
 /** Answered by COMPANION_LOOKUP_MODEL (which takes no effort setting); everything else by COMPANION_MODEL. */
-export const COMPANION_LOOKUP_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['explain', 'define', 'simplify', 'define_sense', 'quiz_check'])
+// quiz_check left the lookup model on 20 Oct 2026 (Anders): marked on the companion model, with thinking.
+export const COMPANION_LOOKUP_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['explain', 'define', 'simplify', 'define_sense'])
 
 export interface QuizCheck {
   question: string
@@ -62,6 +63,9 @@ export interface QuizCheck {
   /** The quiz's line on the author's own position, and its key ideas: the grader's context (Anders, 20 Oct 2026). */
   thesis?: string
   ideas?: string[]
+  /** The key idea this question tests, and the passage quizzed (a passage quiz): what the grader marks against. */
+  idea?: string
+  passage?: string
 }
 
 export interface CompanionRequest {
@@ -131,6 +135,8 @@ export const LAB_EXPLAIN_PROMPT = [
 /** A quiz retry sends at most this many earlier questions, each at most this long. */
 export const QUIZ_ASKED_MAX = 24
 export const QUIZ_ASKED_CHARS = 300
+/** The passage a quiz answer is marked against, at most this long. */
+export const QUIZ_CHECK_PASSAGE_CHARS = 4000
 
 /** Output bound per intent. The Worker never uses a caller-supplied value. */
 export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = Object.freeze({
@@ -143,10 +149,11 @@ export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = O
   define_sense: 60,
   factcheck: 900,
   counterpoint: 600,
-  // Up to eight questions, each with its idea, answer and reason (Anders, 20 Oct 2026: one question per key idea).
-  quiz: 1800,
-  // Up to three short sentences of feedback (Anders, 20 Oct 2026: credit, a word on an addition, what is missing).
-  quiz_check: 260,
+  // Up to eight questions, each with its idea, answer and reason (Anders, 20 Oct 2026: one question per key idea), and
+  // room for the companion model's thinking, which counts toward the bound.
+  quiz: 6000,
+  // Two or three short sentences of feedback, on the companion model with thinking (Anders, 20 Oct 2026).
+  quiz_check: 2000,
   related: 500,
 })
 
@@ -492,8 +499,10 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     if (!answer) return null
     // What the grader needs to know the author's position (Anders, 20 Oct 2026): the quiz's thesis line and key ideas.
     const thesis = text(q!.thesis, QUIZ_ASKED_CHARS)
+    const idea = text(q!.idea, QUIZ_ASKED_CHARS)
+    const passage = text(q!.passage, QUIZ_CHECK_PASSAGE_CHARS)
     const ideas = Array.isArray(q!.ideas) ? (q!.ideas as unknown[]).slice(0, 8).map(item => text(item, 200)).filter((item): item is string => Boolean(item)) : []
-    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer, ...(thesis ? { thesis } : {}), ...(ideas.length ? { ideas } : {}) }, ...pdf }
+    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer, ...(thesis ? { thesis } : {}), ...(ideas.length ? { ideas } : {}), ...(idea ? { idea } : {}), ...(passage ? { passage } : {}) }, ...pdf }
   }
   if (intent === 'chapter') {
     const chapter = r.chapter && typeof r.chapter === 'object' ? r.chapter as Record<string, unknown> : null
@@ -648,7 +657,10 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
       const q = request.quizCheck!
       const position = q.thesis ? `<author_position>${tagData(q.thesis)}</author_position>\n` : ''
       const ideas = q.ideas?.length ? `<key_ideas>\n${q.ideas.map((idea, i) => `${i + 1}. ${tagData(idea)}`).join('\n')}\n</key_ideas>\n` : ''
-      return `${position}${ideas}<question>${tagData(q.question)}</question>\n<expected>${tagData(q.expected)}</expected>\n<why>${tagData(q.why ?? '')}</why>\n<reader_answer>${tagData(q.answer)}</reader_answer>`
+      // Marked against the key idea and the passage, the expected answer only a hint (Anders, 20 Oct 2026).
+      const passage = q.passage ? `<passage>\n${tagData(q.passage)}\n</passage>\n` : ''
+      const idea = q.idea ? `<key_idea>${tagData(q.idea)}</key_idea>\n` : ''
+      return `${position}${ideas}${passage}${idea}<question>${tagData(q.question)}</question>\n<one_acceptable_answer>${tagData(q.expected)}</one_acceptable_answer>\n<why>${tagData(q.why ?? '')}</why>\n<reader_answer>${tagData(q.answer)}</reader_answer>`
     }
     default:
       return null

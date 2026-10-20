@@ -460,7 +460,7 @@ describe('cost guards (FIXES-2026-10-15 PR C)', () => {
     const { anthropic } = stubFetch()
     await send(margin('quiz_check', 2, { quiz: { question: 'q'.repeat(1_000), expected: 'e'.repeat(1_000), why: 'w'.repeat(1_000), answer: 'a'.repeat(5_000) } }))
     const turn = String((anthropic[0].messages as Array<{ content: string }>)[0].content)
-    const own = turn.replace(/<\/?(?:question|expected|why|reader_answer)>/g, '').replace(/\n/g, '')
+    const own = turn.replace(/<\/?(?:question|one_acceptable_answer|why|reader_answer)>/g, '').replace(/\n/g, '')
     expect(own.length).toBeLessThanOrEqual(2_000)
     // The document is still there, before the breakpoint.
     expect((anthropic[0].system as SystemBlock[])[0].text).toContain('<page n="1">')

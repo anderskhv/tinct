@@ -58,13 +58,23 @@ const NO_THINKING: MarginThinking = { type: 'disabled' }
  * Speed trials, each a one-line switch and OFF by default (round 1, 15 Oct; Anders turns them on and
  * measures on production):
  *
- * QUIZ_THINKING_OFF: Quiz me with thinking disabled at effort low (Haiku 5.5 accepts `{type: "disabled"}`
- * at effort high or below; claude-api skill), so question 1 starts at lookup speed. Off: adaptive thinking.
+ * QUIZ_THINKING_OFF: Quiz me with thinking disabled at effort low on Haiku 5.5 (Haiku 5.5 accepts `{type: "disabled"}`
+ * at effort high or below; claude-api skill), so question 1 starts at lookup speed. OFF since 20 Oct 2026: Anders moved
+ * Quiz me to Sonnet with thinking (the rigid grades of items i and j came from Haiku without thinking marking against one
+ * expected answer). Off: QUIZ_ROUTE.
  */
-export const QUIZ_THINKING_OFF = true
-/** Quiz me's route: low effort and 6000 tokens; with `thinkingOff`, thinking disabled as the lookups. */
+export const QUIZ_THINKING_OFF = false
+/**
+ * Quiz me on Sonnet with adaptive thinking (Anders, 20 Oct 2026): the margin's Sonnet, the one Ask and Before you start
+ * use, so the cached document prefix is shared with them. Writing the questions at effort medium (key ideas, then one
+ * why/how question each, up to eight), with room to think; marking an answer at effort low with room for its thinking
+ * and two or three sentences of feedback. Sonnet refuses `{type: "disabled"}`: no thinking field (adaptive).
+ */
+export const QUIZ_ROUTE = route(MARGIN_SONNET_MODEL, 'medium', 8000)
+export const QUIZ_CHECK_ROUTE = route(MARGIN_SONNET_MODEL, 'low', 3000)
+/** Quiz me's route: QUIZ_ROUTE; with `thinkingOff` (the old speed trial), Haiku at effort low with thinking disabled, 6000 tokens. */
 export function quizRoute(thinkingOff: boolean = QUIZ_THINKING_OFF): MarginRoute {
-  return route(MARGIN_HAIKU_MODEL, 'low', 6000, thinkingOff ? NO_THINKING : undefined)
+  return thinkingOff ? route(MARGIN_HAIKU_MODEL, 'low', 6000, NO_THINKING) : QUIZ_ROUTE
 }
 
 /**
@@ -90,14 +100,14 @@ export const MARGIN_ROUTES: Readonly<Record<MarginRouteKey, MarginRoute>> = Obje
   simplify: route(MARGIN_HAIKU_MODEL, 'low', 800, NO_THINKING),
   define: route(MARGIN_HAIKU_MODEL, 'low', 800, NO_THINKING),
   define_sense: route(MARGIN_HAIKU_MODEL, 'low', 400, NO_THINKING),
-  quiz_check: route(MARGIN_HAIKU_MODEL, 'low', 500, NO_THINKING),
+  // Sonnet with thinking (Anders, 20 Oct 2026): a fair mark of the reasoning, an addition judged on its merits.
+  quiz_check: QUIZ_CHECK_ROUTE,
   related: route(MARGIN_HAIKU_MODEL, 'low', 800, NO_THINKING),
   // Adaptive thinking at medium effort: 1200-1600 left 4 in 5 cut off (15 Oct 2026), so room to think as well.
   factcheck: route(MARGIN_HAIKU_MODEL, 'medium', 8000),
   // Low effort (15 Oct evening: 7-12 s at medium, almost all of it thinking), adaptive thinking, 6000 tokens; COUNTERPOINT_THINKING_OFF above is off.
   counterpoint: counterpointRoute(),
-  // Low effort as Counterpoint (retest after train 2: first question 5-11 s against a target under 5), still adaptive, same bound
-  // (QUIZ_THINKING_OFF below trials it without thinking).
+  // Sonnet, adaptive thinking at effort medium (Anders, 20 Oct 2026; QUIZ_THINKING_OFF, the Haiku speed trial, is off).
   quiz: quizRoute(),
   // A primer's JSON runs to about 1,700 tokens; thinking at medium effort needs the rest (2 failures in 3 at 1200, 15 Oct).
   primer: route(MARGIN_SONNET_MODEL, 'medium', 8000),

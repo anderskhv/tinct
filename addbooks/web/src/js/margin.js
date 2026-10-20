@@ -562,6 +562,8 @@
   const CARD_LIMITS = { text: 2000, turns: 40, content: 12000 };
   /** A quiz answer the reader types is kept to this many characters (the Worker marks at most this much). */
   const QUIZ_ANSWER_CHARS = 2000;
+  /** At most this many questions in one quiz, one per key idea (the Worker's QUIZ_MAX_IDEAS; Anders, 20 Oct 2026). */
+  const QUIZ_MAX_QUESTIONS = 8;
   /** A new kept card for a passage (`anchor`: the reader's page-fraction boxes). */
   function newCard({ kind, page, anchor, text, turns = [], data = null, at = Date.now() }) {
     const r = v => Math.round(v * 10000) / 10000;
@@ -574,6 +576,8 @@
      null. A tag that resolves is a button carrying its page; one that does not stays text. */
   function citeHtml(token, resolve) {
     const target = resolve ? resolve(token) : null;
+    // A book without pages (an EPUB, a Tinct book: resolve.drop) shows no page reference at all (Anders, 20 Oct 2026: "p. 9").
+    if (!target && resolve?.drop) return '';
     // A tag this PDF has no place for is shown without its braces ("p. 1"), never as "{p. 1}"; one written in parentheses stays as written.
     if (!target) return esc(token.raw.startsWith('(') ? token.raw : citeText(token));
     return `<button type="button" class="mr-cite" data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}>${esc(citeText(token))}</button>`;
@@ -696,13 +700,29 @@
   const SIMPLIFY_UNCHANGED = 'This passage is already in plain words.';
   const quizScore = q => (q.results || []).filter(r => r && r.verdict === 'right' && !r.shown).length;
   /**
-   * The end card's line: right answers of the questions answered. "Show answer" questions are not
-   * scored (FIXES-2026-10-15, deep test): "2 of 3", or "1 of 2 answered, 1 shown".
+   * The end card's line: "2/3", right answers of all its questions (a "Show answer" question is not right).
    */
   function quizLine(q) {
-    const n = q.questions?.length || 0, shown = (q.results || []).slice(0, n).filter(r => r && r.shown).length;
-    if (!shown) return `${quizScore(q)} of ${n}`;
-    return shown < n ? `${quizScore(q)} of ${n - shown} answered, ${shown} shown` : `${shown} of ${n} shown`;
+    // Anders, 20 Oct 2026 ("its only 3 qs … maybe could just say 2/3, try new questions?"): right answers of all the
+    // questions asked; a shown answer is not a right one.
+    return `${quizScore(q)}/${q.questions?.length || 0}`;
+  }
+  /**
+   * "Try new questions" (Anders, 20 Oct 2026): the questions asked on this text so far, for the next request (`asked`),
+   * oldest first, at most QUIZ_ASKED: each with its key idea and `missed` unless it was answered right, so the new
+   * questions aim first at the ideas the reader missed and never repeat one. A shown answer counts as missed.
+   */
+  const QUIZ_ASKED = 24;
+  function quizAsked(q) {
+    const ideas = q?.ideas || [], results = q?.results || [];
+    const now = (q?.questions || []).map((item, i) => {
+      const idea = Number.isInteger(item.idea) ? ideas[item.idea] : ideas[i];
+      const right = results[i] && !results[i].shown && results[i].verdict === 'right';
+      return { q: item.q, ...(idea ? { idea } : {}), ...(right ? {} : { missed: true }) };
+    });
+    // An idea missed in an earlier round stays missed until a later question on it is answered right.
+    const gotten = new Set(now.filter(a => !a.missed && a.idea).map(a => a.idea));
+    return [...(q?.asked || []).map(a => { if (!a.missed || !gotten.has(a.idea)) return a; const { missed: _m, ...rest } = a; return rest }), ...now].slice(-QUIZ_ASKED);
   }
   /** The question to reread after a quiz: "not yet" first, then "nearly", then one whose answer was shown; -1 when all were right. */
   function quizReread(q) {
@@ -787,7 +807,9 @@
     const P = o.P, label = esc(cardLabel(card, o.pageLabel, o.where));
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
-    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
+    // "x of n": n is the quiz's real number of questions, one per key idea (known as soon as the ideas have streamed).
+    const total = q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : o.writing ? 0 : q.questions?.length;
+    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1}${total ? ` of ${total}` : ''}</span>` : '';
     // Its top-right control minimises it (folds it, as a click outside does). The phone's bottom card has none (Anders,
     // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet).
     const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}${o.sheet ? '' : `<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button>`}</div>`;
@@ -804,10 +826,9 @@
       let body = '', foot = '';
       if (!qs.length) body = status;
       else if (q.done) {
-        const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
-        body = `<div class="mr-answer"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
-        // The end card offers another quiz on the same passage (or unit).
-        foot = followHtml({ field: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
+        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit.
+        body = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
+        foot = followHtml({ field: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
       } else if (!qs[q.i || 0]) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
@@ -821,7 +842,7 @@
             ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
             : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
-          const last = i + 1 >= qs.length && (q.ended || !o.writing);
+          const last = i + 1 >= qs.length && (q.ended || !o.writing || i + 1 >= (q.ideas?.length || Infinity));
           foot = followHtml({ field: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
@@ -1727,5 +1748,5 @@
 
   const html = { esc, cut, ICONS, LATER, pillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

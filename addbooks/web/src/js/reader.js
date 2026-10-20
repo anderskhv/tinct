@@ -862,7 +862,7 @@ function selectionShapes(range) {
   // A PDF's text layer: its body text only (bodyOfRange); anything else (an EPUB's text) as the range draws it.
   const at = n => (n.nodeType === 1 ? n : n.parentElement)?.closest?.('.text-layer');
   const inLayer = !!(at(range.startContainer) || at(range.endContainer));
-  let rects = (inLayer ? bodyOfRange(range).rects : [...range.getClientRects()]).filter(r => r.width > 0.5 && r.height > 0.5);
+  let rects = (inLayer ? bodyOfRange(range).rects : textRects(range)).filter(r => r.width > 0.5 && r.height > 0.5);
   const H = median(rects.map(r => r.height));
   rects = rects.filter(r => r.height < H * 4);
   const boxes = [];
@@ -898,6 +898,28 @@ document.addEventListener('dblclick', e => {
 
 /* ---------- Selection drawn as clean line bars; saved highlights ---------- */
 const median = a => { const b = [...a].sort((x, y) => x - y); return b[Math.floor(b.length / 2)] || 0 };
+/**
+ * A range's boxes of text only (Anders, 20 Oct 2026, EPUB highlights): Range.getClientRects() also gives the border box
+ * of every element the range holds whole (a paragraph, a heading), a full-width box whose foot lies on the last line, so
+ * the passage mark struck through that line and ran past its last word, and merged lines lost their own marks. Here
+ * each text node's own part of the range, line by line.
+ */
+function textRects(range) {
+  if (!range) return [];
+  const root = range.commonAncestorContainer, out = [];
+  if (root.nodeType === 3) return [...range.getClientRects()];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  for (let node; (node = walker.nextNode());) {
+    if (!range.intersectsNode(node)) continue;
+    const r = document.createRange();
+    r.selectNodeContents(node);
+    if (node === range.startContainer) r.setStart(node, range.startOffset);
+    if (node === range.endContainer) r.setEnd(node, range.endOffset);
+    if (r.collapsed) continue;
+    for (const box of r.getClientRects()) out.push(box);
+  }
+  return out;
+}
 function lineBars(rects) {
   // Merge the per-word boxes of a selection into one bar per line (split at wide gaps). Each bar
   // takes its height from its own widest word, so labels at different heights stay on their words.
@@ -1164,7 +1186,7 @@ function epubHighlightAt(x, y) {
   const p = pageForPoint(x, y); if (!p) return null;
   for (const h of highlights().filter(h => h.page === p.n && h.start != null)) {
     const r = rangeFromOffsets(p.pg, h.start, h.end); if (!r) continue;
-    const rects = [...r.getClientRects()];
+    const rects = textRects(r);
     if (rects.some(q => x >= q.left && x <= q.right && y >= q.top && y <= q.bottom)) {
       const box = rects.reduce((a, q) => ({ left: Math.min(a.left, q.left), top: Math.min(a.top, q.top), right: Math.max(a.right, q.right), bottom: Math.max(a.bottom, q.bottom) }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
       return { id: h.id, text: h.text, page: h.page, box };
@@ -3540,14 +3562,17 @@ const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubM
 const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));
 /** How the margin names the file and a place in it: pages for a PDF, chapters for an EPUB. */
 const docKind = () => (isEpub() ? 'epub' : 'pdf');
-// The preview names a chapter by its title, as its pill and contents do ("Chapter 1", "Letter 2"), never by its place in the file.
-const where = () => (isEpub() ? { unit: state.preview ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
-/** A card's place as its label shows it: the page label, an EPUB chapter's number, or the preview's chapter title. */
-const placeName = n => (state.preview && chapterTitle(n)) || pageLabel(n);
-const chapterTitle = n => toc.entries.find(e => e.page === n && e.kind === 'chapter')?.label || '';
+// An EPUB names a chapter by its title, exactly as its pill and contents do ("1 The Fate of Spacetime"; the preview's
+// "Chapter 1", "Letter 2"), never by its place in the file (Anders, 20 Oct 2026: "Quiz me · ch. 9" under the pill's
+// "1 The Fate of Spacetime"; round 1 of the preview did the same for Tinct books).
+const where = () => (isEpub() ? { unit: epubNamesChapters() ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
+const epubNamesChapters = () => isEpub() && toc.ready && toc.entries.length > 0;
+/** A card's place as its label shows it: the page label, or an EPUB's chapter title (its number when it has no contents). */
+const placeName = n => (isEpub() && chapterTitle(n)) || pageLabel(n);
+const chapterTitle = n => (state.preview ? toc.entries.find(e => e.page === n && e.kind === 'chapter')?.label : chapterAt(n)?.label) || '';
 const cardName = card => TinctMargin.html.cardLabel(card, placeName(card.page), where());
-/** An EPUB chapter as a place in prose ("ch. 3"; the preview's "Chapter 1"), for Copy quote and the Notebook. */
-const chapterPlace = n => (state.preview && chapterTitle(n)) || `ch. ${n}`;
+/** An EPUB chapter as a place in prose (its title, as the pill names it; "ch. 3" without one), for Copy quote and the Notebook. */
+const chapterPlace = n => chapterTitle(n) || `ch. ${n}`;
 const keptCards = () => store.get('cards:' + state.key) || [];
 // Cards made before this visit without their answer are not shown (TinctMargin.cardView); newer ones may still be answering.
 const CARDS_SINCE = Date.now();
@@ -3807,6 +3832,9 @@ function openingText(read, page) {
   return (sp > 1000 ? cut.slice(0, sp) : cut) + '…';
 }
 /** A citation's place in this PDF (TinctMargin.citeTarget over the pages read so far), or null. An EPUB has no page numbers: its places are quoted words. */
+// An EPUB (and the preview's Tinct book) has no pages: a page reference in an answer is left out, never shown as "p. 9"
+// (Anders, 20 Oct 2026; margin.js citeHtml reads `drop`). A PDF keeps its references.
+Object.defineProperty(citeResolve, 'drop', { get: () => isEpub() });
 function citeResolve(token) {
   if (isEpub()) return null;
   const texts = new Map([...state.texts.entries()].map(([n, v]) => [n, v.text]));
@@ -3855,7 +3883,7 @@ function goToPlace(page, { needle = '', quote = '' } = {}) {
     const range = rangeFromOffsets(p.pg, f.start, f.end);
     const r = range?.getBoundingClientRect(), b = p.pg.getBoundingClientRect();
     goTo({ page: f.page, frac: r && b.height ? Math.max(0, (r.top - b.top) / b.height - 0.04) : 0 }, true);
-    setTimeout(() => flashPlace(p, range ? [...range.getClientRects()] : []), 450);
+    setTimeout(() => flashPlace(p, range ? textRects(range) : []), 450);
     return;
   }
   goToCite(page, needle);
@@ -3980,7 +4008,7 @@ function epubRects(n, start, end) {
   const range = rangeFromOffsets(p.pg, start, end); if (!range) return null;
   const b = p.pg.getBoundingClientRect(); if (!b.width || !b.height) return null;
   const r = v => Math.round(v * 10000) / 10000;
-  const rects = lineBars([...range.getClientRects()]).map(bar => [n, r((bar.left - b.left) / b.width), r((bar.top - b.top) / b.height), r((bar.right - bar.left) / b.width), r((bar.bottom - bar.top) / b.height)]);
+  const rects = lineBars(textRects(range)).map(bar => [n, r((bar.left - b.left) / b.width), r((bar.top - b.top) / b.height), r((bar.right - bar.left) / b.width), r((bar.bottom - bar.top) / b.height)]);
   return rects.length ? rects : null;
 }
 function epubCardRects(card) {
@@ -4901,6 +4929,12 @@ document.addEventListener('click', e => {
    "Deleted · Undo" line stays for a few seconds where the card was (the column), or along the bottom
    (narrow windows, the phone). A card goes as a tombstone through the card sync; a note's card takes its
    note, and its highlight when the note made it (TinctMargin.deletePlan). -- */
+/** A duplicate quiz card on the same passage goes without an undo (cardAction keeps one quiz per passage). */
+function deleteCardQuiet(id) {
+  col.ctl.get(id)?.abort(); col.ctl.delete(id); col.live.delete(id); col.quiz.delete(id); col.pending.delete(id); col.drafts.delete(id);
+  if (col.open === id) col.open = null;
+  store.set('cards:' + state.key, keptCards().map(c => (c.id === id ? TinctMargin.tombstone(id) : c))); cardsSync.changed(); col.view = null;
+}
 function deleteCard(id) {
   // The phone's draft (an Ask not sent, a note not written): it goes, with a highlight its note made.
   if (dropPhoneDraft(id, { mark: true })) { if (col.open === id) { col.open = null; col.sheet?.remove(); col.sheet = null } marginLayout({ fresh: true }); return }
@@ -5132,10 +5166,12 @@ async function runCardNow(id, question, run) {
   // Quiz me streams (FIXES-2026-10-15 A7): each question shows as soon as it is complete; the reader can
   // answer question 1 while 2 and 3 are written. Nothing is saved until the stream ends.
   const quizRun = card.kind === 'quiz' && question == null;
-  const live = quizRun ? { ...(card.data?.unit ? { unit: card.data.unit } : {}), questions: [], i: 0, results: [] } : null;
+  const live = quizRun ? { ...(card.data?.unit ? { unit: card.data.unit } : {}), ...(card.data?.asked?.length ? { asked: card.data.asked } : {}), ideas: null, questions: [], i: 0, results: [] } : null;
   if (live) col.quiz.set(id, live);
   const onQuizText = ({ text }) => {
     if (ctl.signal.aborted || col.quiz.get(id) !== live) return;
+    // The key ideas come first: they set the quiz's length ("1 of 5").
+    if (!live.ideas) { const ideas = MP.P.parseQuizIdeas?.(text); if (ideas?.length) { live.ideas = ideas; marginLayout() } }
     const got = MP.P.parseQuizPartial?.(text) || [];
     if (got.length <= live.questions.length) return;
     const first = !live.questions.length, waiting = live.i >= live.questions.length;
@@ -5149,7 +5185,7 @@ async function runCardNow(id, question, run) {
     const images = imgs ? [imgs] : undefined;
     if (question != null || card.kind === 'ask' || card.kind === 'figure') return TinctAI.ask(cardTurns(card, imgs, fig), { book, images, document: wholeDoc, passages: found, onText, signal: ctl.signal });
     // Explain is the Worker's explain intent (FIXES-2026-10-15 A2): its prompt is built there.
-    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), images, stream: true, onText: onQuizText, signal: ctl.signal });
+    if (card.kind === 'quiz') return TinctAI.companion('quiz', { book, pdf, document: wholeDoc, ...(unit ? {} : { selection: card.text }), ...(live?.asked ? { asked: live.asked } : {}), images, stream: true, onText: onQuizText, signal: ctl.signal });
     return TinctAI.companion(card.kind, { book, pdf, document: wholeDoc, selection: card.text, images, stream: true, onText, onStatus, signal: ctl.signal });
   };
   run.phase = 'request';
@@ -5164,8 +5200,10 @@ async function runCardNow(id, question, run) {
     if (!card) { col.quiz.delete(id); col.live.delete(id); col.ctl.delete(id); marginLayout(); return }
     if (quizRun) {
       // The whole reply is the authority; what streamed stands when it does not parse.
-      const questions = MP.P.parseQuiz(res.text)?.questions || live.questions;
+      const whole = MP.P.parseQuiz(res.text), questions = whole?.questions || live.questions;
       if (!questions.length) throw Object.assign(new Error('failed'), { code: 'failed' });
+      if (whole?.ideas?.length) live.ideas = whole.ideas;
+      if (whole?.thesis) live.thesis = whole.thesis;
       col.quiz.delete(id); col.live.delete(id); col.ctl.delete(id);
       card.data = quizEnded(live, questions, false);
       saveCard(card);
@@ -5197,13 +5235,28 @@ async function runCardNow(id, question, run) {
 /** The quiz as it is saved when its stream ends: the questions that arrived and how far the reader got. */
 function quizEnded(live, questions, stopped) {
   const i = Math.min(live.i || 0, questions.length);
-  return { ...(live.unit ? { unit: live.unit } : {}), questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < 3 ? { ended: true } : {}) };
+  const ideas = live.ideas?.length ? { ideas: live.ideas } : {}, asked = live.asked?.length ? { asked: live.asked } : {}, thesis = live.thesis ? { thesis: live.thesis } : {};
+  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...thesis, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
 }
+/** How many questions a quiz has: one per key idea once they are known; while it streams without them, as many as may come. */
+const quizTotal = (q, streaming = false) => (q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : streaming ? TinctMargin.QUIZ_MAX_QUESTIONS : q.questions?.length || 0);
 /** An action from the bar or More on the held passage: a new card, opened, its answer on the way. */
 function cardAction(kind, { question = '' } = {}) {
   if (!mr) return;
   const info = mr.info, anchor = mr.anchor;
   marginClose(); getSelection().removeAllRanges();
+  // One quiz, one card (Anders, 20 Oct 2026: a stub "Quiz me · 0 of 3" stood above the quiz): Quiz me again on the same
+  // passage opens its quiz; a finished one asks for new questions in that card.
+  if (kind === 'quiz') {
+    const span = withSpan({}, info).span, same = keptCards().filter(c => !c.gone && c.kind === 'quiz' && !c.data?.unit && c.page === info.page && (span && c.span ? c.span[1] === span[1] && c.span[2] === span[2] : c.text === info.text));
+    if (same.length) {
+      const keep = same.sort((a, b) => (b.u || b.at || 0) - (a.u || a.at || 0))[0];
+      for (const c of same) if (c !== keep) deleteCardQuiet(c.id);
+      if (keep.data?.done || !keep.data?.questions?.length && !col.quiz.has(keep.id) && !col.ctl.has(keep.id)) quizStep(keep.id, 'again');
+      else openCard(keep.id, { focus: 'card' });
+      return;
+    }
+  }
   const card = withSpan(TinctMargin.newCard({ kind, page: info.page, anchor, text: info.text, turns: kind === 'ask' ? [{ role: 'user', content: question, at: Date.now() }] : [], data: kind === 'quiz' ? { questions: [], i: 0, results: [] } : null }), info);
   store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed();
   col.view = null;
@@ -5221,12 +5274,14 @@ function quizStep(id, step) {
   // "Try another quiz": new questions on the same passage (or unit), in the same card.
   if (step === 'again') {
     col.ctl.get(id)?.abort(); col.quiz.delete(id);
-    card.data = { ...(q.unit ? { unit: q.unit } : {}), questions: [], i: 0, results: [] };
+    // New questions, never the same ones: the questions asked so far go with the request, the missed ideas first.
+    const asked = TinctMargin.quizAsked(q);
+    card.data = { ...(q.unit ? { unit: q.unit } : {}), ...(asked.length ? { asked } : {}), questions: [], i: 0, results: [] };
     saveCard(card); openCard(id); runCard(id);
     return;
   }
   if (step === 'show') q.results[i] = { shown: true };
-  else if (i + 1 >= (live ? 3 : q.questions.length)) q.done = true;
+  else if (i + 1 >= (live ? quizTotal(live, true) : q.questions.length)) q.done = true;
   else q.i = i + 1;
   if (live) marginLayout(); else saveCard(card);
   if (step === 'next') openCard(id, { focus: !q.done && !!q.questions[q.i || 0] });
@@ -5238,7 +5293,7 @@ async function quizCheck(card, answer) {
   col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
   try {
     const pdf = await pdfPages(card.page), wholeDoc = await marginDocumentNow(card.page, 'quiz_check');
-    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
+    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer, ...(q.thesis ? { thesis: q.thesis } : {}), ...(q.ideas?.length ? { ideas: q.ideas } : {}), ...(q.ideas?.[item.idea ?? i] ? { idea: q.ideas[item.idea ?? i] } : {}), ...(!q.unit && card.text ? { passage: card.text } : {}) } });
     const mark = MP.P.parseQuizCheck(res.text);
     if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
     const result = { answer, verdict: mark.verdict, feedback: mark.feedback };
@@ -5747,7 +5802,7 @@ function previewUnitPlace(u) {
   const head = p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head');
   const last = [...epubParas(q)].reverse().find(el => el.textContent.trim().replace(/\u200b/g, ''));
   let y = null;
-  if (last) { const r = document.createRange(); r.selectNodeContents(last); const lines = [...r.getClientRects()].filter(b => b.height > 0); y = lines.length ? lines[lines.length - 1].top : last.getBoundingClientRect().top }
+  if (last) { const r = document.createRange(); r.selectNodeContents(last); const lines = textRects(r).filter(b => b.height > 0); y = lines.length ? lines[lines.length - 1].top : last.getBoundingClientRect().top }
   return { head: { page: u.start, y: head ? at(p.pg, head.getBoundingClientRect().top) : 0.004 }, end: { page: u.to, y: y == null ? 0.9 : at(q.pg, y) } };
 }
 const compactText = t => String(t || '').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]/gu, '');
@@ -7289,7 +7344,7 @@ const nbPlace = e => {
 };
 function nbFlash(mark) {
   const p = state.pages[mark.page - 1]; if (!p) return;
-  if (p.kind === 'epub') { const r = rangeFromOffsets(p.pg, mark.start, mark.end); if (r) flashPlace(p, [...r.getClientRects()]); return }
+  if (p.kind === 'epub') { const r = rangeFromOffsets(p.pg, mark.start, mark.end); if (r) flashPlace(p, textRects(r)); return }
   const b = p.pg.getBoundingClientRect();
   flashPlace(p, (mark.rects || []).map(([x, y, w, h]) => ({ left: b.left + x * b.width, top: b.top + y * b.height, right: b.left + (x + w) * b.width, bottom: b.top + (y + h) * b.height, width: w * b.width, height: h * b.height })));
 }
