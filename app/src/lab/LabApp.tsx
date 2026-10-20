@@ -5438,7 +5438,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const lead = card.kind === 'ask' ? null
       : card.kind === 'define' ? (
         <div className="lab-pcard-define" data-testid="lab-phone-define">
-          <p className="lab-pcard-headword">{define.result?.word || card.word}</p>
+          {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword">{define.result?.word || card.word}</p>}
           <DefinitionFallback key={card.word} word={card.word}
             request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
             dictionaryDefinitions={define.loading ? undefined : define.result?.definitions} />
@@ -5448,7 +5448,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return (
       <LabPhoneCard label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={closePhoneCard}
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
-        <PhonePassageBody quote={card.passage.text} lead={lead} turns={turns} pending={pending} />
+        <PhonePassageBody quote={card.kind === 'define' && !/\s/.test(card.word.trim()) ? undefined : card.passage.text} lead={lead} turns={turns} pending={pending} />
       </LabPhoneCard>
     )
   }
