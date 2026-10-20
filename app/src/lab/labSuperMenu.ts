@@ -26,8 +26,12 @@ export interface LabSuperMenuRow {
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
  * Summarize), reading choices, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false }: { phone?: boolean; privateBook?: boolean; ownPdf?: boolean } = {}): LabSuperMenuRow[] {
-  const rows: LabSuperMenuRow[] = [
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false }: {
+  phone?: boolean; privateBook?: boolean; ownPdf?: boolean
+  /** The phone's margin mode on a book's first chapter (or its front matter): nothing to catch up on yet. */
+  noCatchUp?: boolean
+} = {}): LabSuperMenuRow[] {
+  const all: LabSuperMenuRow[] = [
     // One row for both conversations (Anders, 2026-10-07): always here, so
     // the only way to the librarian since the margin tab went (2026-10-08).
     { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
@@ -39,6 +43,7 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
     ...(phone ? [{ id: 'library' as const, label: 'Library', ruleBefore: true }] : []),
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: !phone },
   ]
+  const rows = noCatchUp ? all.filter(row => row.id !== 'catchup') : all
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
   // at a time), but one edition, except a PDF: its Tinct text and its

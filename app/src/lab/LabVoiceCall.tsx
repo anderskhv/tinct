@@ -27,6 +27,8 @@ import { LabTalkSpeedControl } from './LabTalkSpeedControl'
  */
 
 interface LabVoiceCallProps {
+  /** The orb's size in px (the phone's Talk card sizes it from its own box); the full-screen call keeps LAB_CALL_ORB_PX. */
+  orbSize?: number
   view: LabCallView
   /** Real assistant loudness, 0-1, or null when the audio path exposes none. */
   getAssistantLevel?: () => number | null
@@ -91,6 +93,7 @@ export function LabVoiceCall({
   onReconnect,
   talkSpeed = 1,
   onTalkSpeedChange,
+  orbSize = LAB_CALL_ORB_PX,
 }: LabVoiceCallProps) {
   const previousRef = useRef<LabCallView | null>(null)
   useEffect(() => {
@@ -116,7 +119,7 @@ export function LabVoiceCall({
           broken={view.broken}
           getAssistantLevel={getAssistantLevel}
           reducedMotion={reducedMotion}
-          size={LAB_CALL_ORB_PX}
+          size={orbSize}
           className="lab-call-circle"
         />
         <div className="lab-call-words">
