@@ -36,7 +36,10 @@
         const img = doc.createElement('img');
         img.src = url || placeholder(fig); img.alt = fig.alt || fig.label || 'Figure'; img.decoding = 'async';
         if (wait) img.dataset.wait = '1';
-        if (fig.width > 0 && fig.height > 0) { img.width = fig.width; img.height = fig.height }
+        // Its width and shape as set (the page's .epub-pg img is width: auto): the drawn crop, larger in pixels and rounded a
+        // little differently, then stands at the placeholder's size in a column wider than the crop (Margin view's wider
+        // line, 20 Oct 2026), never moving the text as it comes.
+        if (fig.width > 0 && fig.height > 0) { img.width = fig.width; img.height = fig.height; img.style.width = fig.width + 'px'; img.style.aspectRatio = `${fig.width} / ${fig.height}` }
         el.append(img);
       }
       // The caption under the crop (its words are the paragraph's, for a place and a selection); without one, a mark that keeps its index.

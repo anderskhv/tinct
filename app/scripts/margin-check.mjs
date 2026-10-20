@@ -4343,10 +4343,11 @@ async function zoomPanel(browser, origin) {
   await P.page.click('#aaBtn'); await P.page.waitForTimeout(400)
   ok('zoom-panel-390x844: 6. the phone keeps its size slider (phones unchanged)', await P.page.evaluate(() => !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]') && !document.querySelector('.byob-zoom')))
   await P.ctx.close()
-  // Tinct text (an EPUB here): the size slider stays a text-size control.
+  // Tinct text (an EPUB here) on the desktop: text controls, never Zoom (since 20 Oct 2026, desk-polish D1: Text size and
+  // Line width in place of the size slider).
   const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
   await E.page.click('#aaBtn'); await E.page.waitForTimeout(400)
-  ok('zoom-panel-epub: 6. in Tinct text the size slider stays a text-size control', await E.page.evaluate(() => document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]')?.getAttribute('aria-label') === 'Text size' && !document.querySelector('.byob-zoom')))
+  ok('zoom-panel-epub: 6. in Tinct text the Aa panel has text controls (Text size, Line width), no Zoom', await E.page.evaluate(() => JSON.stringify([...document.querySelectorAll('.byob-aa-panel .byob-type .lab-v2-row-label')].map(l => l.textContent)) === '["Text size","Line width"]' && !document.querySelector('.byob-zoom')))
   await E.ctx.close()
   return results
 }
@@ -5120,9 +5121,11 @@ async function epubOpenCheck(browser, origin) {
     const centred = [...document.querySelectorAll('.epub-sheet.is-front .epub-body p')].every(p => getComputedStyle(p).textAlign === 'center')
     const plain = sheets.every(s => { const cs = getComputedStyle(s); return cs.boxShadow === 'none' && /rgba\(0, 0, 0, 0\)|transparent/.test(cs.backgroundColor) })
     const text = sheets.slice(1).map(s => s.getBoundingClientRect().height)
-    return { block: Math.round(last.bottom - sheets[1].getBoundingClientRect().top), cover: Math.round(first.height), text, centred, plain }
+    // Each piece's height scales with the text size (Margin view's own since 20 Oct 2026, desk-polish D1; 340px was set at 19.22px).
+    const scale = parseFloat(getComputedStyle(state.pages[8].pg).fontSize) / 19.22
+    return { block: Math.round(last.bottom - sheets[1].getBoundingClientRect().top), cover: Math.round(first.height), text, scale, centred, plain }
   })
-  ok('1. the front matter (title, copyright, dedication, supporters) is one compact centred block, not a sheet per file: under 1.4 screens', front.centred && front.plain && front.block < 900 * 1.4 && front.text.every(h => h < 340), front)
+  ok('1. the front matter (title, copyright, dedication, supporters) is one compact centred block, not a sheet per file: under 1.4 screens', front.centred && front.plain && front.block < 900 * 1.4 && front.text.every(h => h < 340 * front.scale), front)
   const cover = await e.evaluate(async () => {
     const img = state.pages[0].pg.querySelector('img'); await img.decode().catch(() => {})
     const c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight; const g = c.getContext('2d'); g.drawImage(img, 0, 0)
@@ -5146,9 +5149,10 @@ async function epubOpenCheck(browser, origin) {
     return { color: cs.color, text: getComputedStyle(p).color, underline: cs.textDecorationLine, contrast: Math.round((Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05) * 10) / 10 }
   })
   ok('2. a link in the book is readable in Night: the text\'s ink, underlined, contrast at least 4.5:1', link.color === link.text && /underline/.test(link.underline) && link.contrast >= 4.5, link)
-  // 4. Tinct paper: no sheets, the book reader's size and measure, the margin column beside the text.
-  const paper = await e.evaluate(() => { const s = state.pages[8].sheet, cs = getComputedStyle(s), pg = getComputedStyle(state.pages[8].pg), p = TinctReaderLayout.paper(localStorage.getItem('tinct-lab-prefs'), innerWidth); return { bg: cs.backgroundColor, shadow: cs.boxShadow, width: Math.round(s.getBoundingClientRect().width), measure: Math.round(p.measure), size: parseFloat(pg.fontSize), want: Math.round(p.fontSize * 100) / 100, mode: col.mode, paper: root.classList.contains('is-paper'), h1: getComputedStyle(state.pages[8].pg.querySelector('h1')).fontFamily } })
-  ok('4. Tinct paper: no sheet (transparent, no shadow), the book reader\'s text size and measure, the margin column beside it', /rgba\(0, 0, 0, 0\)|transparent/.test(paper.bg) && paper.shadow === 'none' && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
+  // 4. Tinct paper: no sheets, Margin view's own text size and measure (desk-polish D1, 20 Oct 2026: TinctReaderLayout.marginText,
+  // this device's Text size and Line width at 100%), the margin column beside the text.
+  const paper = await e.evaluate(() => { const s = state.pages[8].sheet, cs = getComputedStyle(s), pg = getComputedStyle(state.pages[8].pg), p = TinctReaderLayout.marginText(innerWidth); return { bg: cs.backgroundColor, shadow: cs.boxShadow, width: Math.round(s.getBoundingClientRect().width), measure: Math.round(p.measure), size: parseFloat(pg.fontSize), want: Math.round(p.fontSize * 100) / 100, mode: col.mode, paper: root.classList.contains('is-paper'), h1: getComputedStyle(state.pages[8].pg.querySelector('h1')).fontFamily } })
+  ok('4. Tinct paper: no sheet (transparent, no shadow), Margin view\'s text size and measure, the margin column beside it', /rgba\(0, 0, 0, 0\)|transparent/.test(paper.bg) && paper.shadow === 'none' && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
   return results
