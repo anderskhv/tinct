@@ -17,6 +17,7 @@
 //   node scripts/check-narration-gaps.mjs --profiles 4g --visibility hidden --seconds 60
 //   node scripts/check-narration-gaps.mjs --no-assert --label before --dist artifacts/dist-before
 //   options: --engines chromium,webkit  --sw allow  --viewport desktop  --generate-ms 4000 (cold synthesis)
+//            --surface margin (the margin preview on a desktop: Listen from its top bar, the same player)
 // Thresholds (fast and 4G): p95 <= 150 ms and no gap over 300 ms.
 // 3G is reported, never asserted. WebKit is in the default matrix because it
 // is where the gaps were: its media element re-requested every clip over the
@@ -53,7 +54,9 @@ const runSeconds = Number(option('seconds', '45'))
 const label = option('label', 'run')
 const assertGaps = !flag('no-assert')
 const serviceWorkers = option('sw', 'block')
-const viewport = option('viewport', 'phone')
+/** `--surface margin`: the margin preview on a desktop (/reader?book=frankenstein&margin=1; Listen from its top bar). */
+const surface = option('surface', 'reader')
+const viewport = surface === 'margin' ? 'desktop' : option('viewport', 'phone')
 /** Server time for an ensure answer on a cache hit, and for a group that has to be generated. */
 const ensureCachedMs = Number(option('ensure-ms', '120'))
 const generateMs = Number(option('generate-ms', '0'))
@@ -283,8 +286,10 @@ async function handleAudio(req, res, url) {
 async function handleStatic(req, res, url) {
   let pathname = decodeURIComponent(url.pathname)
   if (pathname === '/reader' || pathname === '/reader/') pathname = '/app.html'
-  const file = path.join(dist, pathname)
+  let file = path.join(dist, pathname)
   if (!file.startsWith(dist)) { res.writeHead(403); res.end(); return }
+  // The margin preview's frame is /lab/addbook/book (book.html), as the Worker serves it.
+  if (!path.extname(file) && existsSync(file + '.html')) file += '.html'
   try {
     const stat = await fs.stat(file)
     if (!stat.isFile()) throw new Error('dir')
@@ -323,6 +328,8 @@ const origin = `http://127.0.0.1:${server.address().port}`
 
 // ---- Browser ------------------------------------------------------------------
 function initScript(config) {
+  // The margin preview's frame shares this page's storage; the player and its element are this page's.
+  if (window.top !== window) return
   window.__narr = { events: [], hidden: false }
   const realVisibility = Object.getOwnPropertyDescriptor(Document.prototype, 'visibilityState')
   Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => (window.__narr.hidden ? 'hidden' : realVisibility.get.call(document)) })
@@ -356,11 +363,11 @@ function initScript(config) {
   window.__narr.samples = []
   setInterval(() => {
     const audio = [...document.querySelectorAll('audio')][0] || window.__narr.lastAudio
-    const transport = document.querySelector('[data-testid="lab-v2-play"]')
+    const transport = document.querySelector('[data-testid="lab-v2-play"]') || document.querySelector('iframe[data-testid="margin-preview-frame"]')?.contentDocument?.getElementById('playBtn')
     window.__narr.samples.push({
       t: now(), ct: audio ? audio.currentTime : null, src: audio ? (audio.currentSrc || audio.src || '') : '', paused: audio ? audio.paused : null, loop: audio ? audio.loop : null,
       session: navigator.mediaSession ? navigator.mediaSession.playbackState : null,
-      spinner: Boolean(document.querySelector('[data-testid="lab-audio-spinner"]')), label: transport ? transport.getAttribute('aria-label') : null,
+      spinner: Boolean(document.querySelector('[data-testid="lab-audio-spinner"]')) || transport?.dataset.loading === 'true', label: transport ? transport.getAttribute('aria-label') : null,
     })
   }, 200)
 }
@@ -423,7 +430,7 @@ async function runCase(browser, engine, profileName, visibility) {
   generated.clear()
   making.clear()
   outage = null
-  const caseLabel = [engine, viewport, profileName, visibility, serviceWorkers === 'allow' ? 'sw' : null, generateMs > 0 ? `cold${generateMs}` : null,
+  const caseLabel = [engine, surface === 'margin' ? 'margin' : null, viewport, profileName, visibility, serviceWorkers === 'allow' ? 'sw' : null, generateMs > 0 ? `cold${generateMs}` : null,
     speed !== 1 ? `x${speed}` : null, longOpening ? `opening${longOpening}s` : null, outageMs > 0 ? `outage${outageAtSeconds}s+${outageMs}ms` : null].filter(Boolean).join('-')
   const context = await browser.newContext({
     viewport: viewport === 'phone' ? { width: 390, height: 844 } : { width: 1440, height: 900 },
@@ -435,11 +442,15 @@ async function runCase(browser, engine, profileName, visibility) {
   await page.addInitScript(initScript, { speed, startParagraph, startPage })
   const result = { label: caseLabel, engine, profile: profileName, visibility, errors }
   try {
-    await page.goto(origin + (viewport === 'phone' ? '/reader?layout=phone' : '/reader'), { waitUntil: 'domcontentloaded' })
-    await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 60000 })
+    const margin = surface === 'margin'
+    await page.goto(origin + (margin ? '/reader?book=frankenstein&margin=1' : viewport === 'phone' ? '/reader?layout=phone' : '/reader'), { waitUntil: 'domcontentloaded' })
+    const frame = margin ? await (await page.waitForSelector('iframe[data-testid="margin-preview-frame"]', { timeout: 30000 })).contentFrame() : null
+    if (frame) await frame.waitForFunction(() => document.querySelector('.lab.tb-can-listen .tb-chapter p.tb-p'), null, { timeout: 60000 })
+    else await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 60000 })
     await page.waitForTimeout(800)
     const startedAt = Date.now()
-    await page.getByTestId('lab-v2-play').click()
+    if (frame) await frame.click('#playBtn')
+    else await page.getByTestId('lab-v2-play').click()
     await page.waitForFunction(() => window.__narr.events.some(e => e.type === 'playing' && !e.loop && !/unlock-silence/.test(e.src)), null, { timeout: 60000 })
     result.firstPlayMs = Date.now() - startedAt
     if (visibility === 'hidden') {
@@ -458,7 +469,7 @@ async function runCase(browser, engine, profileName, visibility) {
       events: window.__narr.events,
       signals: window.__narr.signals,
       samples: window.__narr.samples,
-      transport: document.querySelector('[data-testid="lab-v2-play"]')?.getAttribute('aria-label'),
+      transport: (document.querySelector('[data-testid="lab-v2-play"]') || document.querySelector('iframe[data-testid="margin-preview-frame"]')?.contentDocument?.getElementById('playBtn'))?.getAttribute('aria-label'),
       buffering: !!document.querySelector('[data-testid="lab-audio-buffering"]'),
     }))
     const endedBy = Date.now()
@@ -509,7 +520,7 @@ async function runCase(browser, engine, profileName, visibility) {
         silencesDuringOrAfter: silent.filter(item => item.end >= outage.start),
       }
     }
-    await page.getByTestId('lab-v2-play').evaluate((button) => { if (button.getAttribute('aria-label') === 'Pause') button.click() }).catch(() => {})
+    await (frame ? frame.locator('#playBtn') : page.getByTestId('lab-v2-play')).evaluate((button) => { if (button.getAttribute('aria-label') === 'Pause') button.click() }).catch(() => {})
   } catch (error) {
     result.error = error.stack || String(error)
     await page.screenshot({ path: path.join(output, caseLabel + '-failure.png') }).catch(() => {})
