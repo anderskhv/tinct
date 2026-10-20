@@ -2309,7 +2309,12 @@ async function polish(browser, origin) {
     await selectText(a, { near: 'top' }); await a.waitForSelector('.mr-float [data-m="note"]')
     await a.click('.mr-float [data-m="note"]')
     // On a phone the note is the bottom card (20 Oct 2026): written in its field, kept as the card closes.
-    if (phone) { await a.waitForSelector('.mr-sheet .mr-note-edit'); await a.fill('.mr-sheet .mr-note-edit', 'MOCK note to delete.'); await a.evaluate(() => closeSheet2()); await a.waitForTimeout(500) }
+    if (phone) {
+      await a.waitForSelector('.mr-sheet .mr-note-edit'); await a.fill('.mr-sheet .mr-note-edit', 'MOCK note to delete.')
+      const style = await a.evaluate(() => getComputedStyle(document.querySelector('.mr-sheet .mr-note-edit')).fontStyle)
+      ok(`${tag}: the phone's note card sets the note text upright (font-style normal)`, style === 'normal', style)
+      await a.evaluate(() => closeSheet2()); await a.waitForTimeout(500)
+    }
     else { await a.waitForSelector('.mr-note .mr-note__field'); await a.fill('.mr-note .mr-note__field', 'MOCK note to delete.'); await a.click('.mr-note [data-m="save"]'); await a.waitForTimeout(500) }
     const note = await a.evaluate(() => { const h = (store.get('hl:' + state.key) || []).find(m => m.note === 'MOCK note to delete.'); return h && { id: h.id, withNote: h.withNote } })
     if (note) await a.evaluate(id => deleteCard('n-' + id), note.id); await a.waitForTimeout(400)
@@ -4272,7 +4277,12 @@ async function marginNotes(browser, origin) {
   ok('3. a click on the empty margin opens a new note card at that height ("Your note"), its field focused, with Ask', n1 && n1.label === 'Your note' && n1.field && n1.focused && Math.abs(n1.mid - 520) <= 24 && n1.ask, n1)
   await a.keyboard.type('My margin thought about this page.')
   await shot(a, 'margin-note-1440x900')
+  // The note's words are upright (Anders, 20 Oct 2026), while written and once kept; the card's label stays italic.
+  const editing = await a.evaluate(() => { const c = document.querySelector('.mr-doc .mr-card.is-open'), f = c?.querySelector('.mr-note-edit'); return f && { text: getComputedStyle(f).fontStyle, label: getComputedStyle(c.querySelector('.mr-card__label')).fontStyle } })
+  ok('3. the note text is upright while it is written (font-style normal); the label keeps its italic', editing?.text === 'normal' && editing.label === 'italic', editing)
   await clickPage()
+  const keptStyle = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const t = h && document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"] .mr-card__text`); return t ? getComputedStyle(t).fontStyle : null })
+  ok('3. the kept note text is upright (font-style normal)', keptStyle === 'normal', keptStyle)
   const kept = await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); const c = h && document.querySelector(`.mr-doc .mr-card[data-id="n-${h.id}"]`); return h && { rects: h.rects, withNote: h.withNote, page: h.page, folded: !!c?.classList.contains('is-folded'), text: c?.querySelector('.mr-card__text')?.textContent, hl: document.querySelectorAll(`.hl-layer i[data-id="${h.id}"]`).length } })
   ok('3. it is kept when its field lets go: a note with no passage at its height, folded in place, no highlight drawn', kept && kept.rects.length === 1 && kept.rects[0][0] === 1 && kept.rects[0][2] === 0 && kept.rects[0][3] === 0 && kept.withNote && kept.folded && /My margin thought/.test(kept.text || '') && kept.hl === 0, kept)
   await a.waitForTimeout(2200)
@@ -4280,6 +4290,8 @@ async function marginNotes(browser, origin) {
   ok('3. it syncs to the account as every note does', !!synced && synced.rects[0][2] === 0, synced)
   // 2. With a card open, the first click on the margin only folds it.
   await a.evaluate(() => { const h = highlights().find(m => m.note === 'My margin thought about this page.'); openCard('n-' + h.id) }); await a.waitForTimeout(400)
+  const reopened = await a.evaluate(() => { const f = document.querySelector('.mr-doc .mr-card.is-open .mr-note-edit'); return f && { value: f.value, style: getComputedStyle(f).fontStyle } })
+  ok('3. the kept note, opened again, is upright in its field', reopened?.style === 'normal' && /My margin thought/.test(reopened.value), reopened)
   const before = await a.evaluate(() => highlights().length)
   await a.mouse.click(x, 760); await a.waitForTimeout(500)
   ok('3. with a card open, the first click on the margin only folds it (no new note)', !(await a.evaluate(() => col.open)) && !(await a.evaluate(() => !!col.draft)) && (await a.evaluate(() => highlights().length)) === before)
@@ -4689,6 +4701,8 @@ async function notebookCheck(browser, origin) {
     await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
     const mine = await b.evaluate(nbState)
     const notes = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => n.textContent))
+    const noteStyles = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => getComputedStyle(n).fontStyle))
+    ok(`${tag}: the Notebook sets every note's text upright (font-style normal)`, noteStyles.length >= 2 && noteStyles.every(v => v === 'normal'), noteStyles)
     ok(`${tag}: My notes: the margin note and the unit's note (no passage quoted)`, mine.entries.length === 2 && mine.entries.every(e => e.kind === 'Note' && !e.quote) && notes.includes('My margin thought for the Notebook.') && notes.includes('My note on the whole chapter.'), { entries: mine.entries, notes })
     await shot(b, `${tag}-mine`)
     await b.click('.nb [data-f="ai"]'); await b.waitForTimeout(150)
