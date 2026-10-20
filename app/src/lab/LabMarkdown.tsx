@@ -72,3 +72,8 @@ export function LabMarkdown({ children, words: split = false }: { children: stri
     </div>
   )
 }
+
+/** One line of the same inline vocabulary (bold, italics, code, links), no blocks. */
+export function LabInlineMarkdown({ children }: { children: string }) {
+  return <>{inlineNodes(children)}</>
+}

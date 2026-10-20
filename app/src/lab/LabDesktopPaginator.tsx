@@ -569,7 +569,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
     <div className="lab-desktop-measure-page">
       <LabChapterHeading title={chapterTitle} preview={chapterActions} measuring />
       <div className="lab-desktop-measure-rows" />
-      {chapterActions && <LabChapterEnd hasNext={hasNextChapter} measuring />}
+      {chapterActions && <LabChapterEnd chapterTitle={chapterTitle} hasNext={hasNextChapter} measuring />}
     </div>
   </div>
 }

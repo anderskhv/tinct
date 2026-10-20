@@ -1014,13 +1014,20 @@ export function useLabAsk(options: UseLabAskOptions) {
     chapterNumber?: number
     chapterLabel?: string
     speculative?: boolean
-    intent?: 'define'
+    /**
+     * Define, or one of the margin's passage actions on the same routes (the phone's
+     * margin mode, marginPhone/): Simplify, Fact-check, Counterpoint, Quiz me (no text:
+     * the whole chapter) and a quiz answer marked (`quiz`).
+     */
+    intent?: 'define' | 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check'
+    quiz?: { question: string; expected: string; why?: string; answer: string }
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
-    if (!text || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
+    const textless = input.intent === 'quiz' || input.intent === 'quiz_check'
+    if ((!text && !textless) || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
-    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent])
+    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       // The reader asked for it: this is the moment the action is charged,
@@ -1079,7 +1086,10 @@ export function useLabAsk(options: UseLabAskOptions) {
         // The Worker builds the prompt and the question from this context.
         body: JSON.stringify({
           stream: true,
-          companion: { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
+          companion: input.intent && input.intent !== 'define'
+            // The margin's actions: the Worker builds each prompt from its intent (companionRequest.ts).
+            ? { intent: input.intent, context, ...(text && input.intent !== 'quiz_check' ? { selection: text } : {}), ...(input.intent === 'quiz_check' && input.quiz ? { quiz: input.quiz } : {}) }
+            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
         }),
       })
       progress()
