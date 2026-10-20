@@ -503,3 +503,15 @@ html[data-eink=true].librarian-away #librarian.tuck{transition:none}
    the live disc replaces it in place with no shift. */
 html.signed-in.own-avatar #sign-in:not(.cards-you){display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;min-height:0;padding:0;border:0;border-radius:50%;background:transparent;font-size:0;color:transparent}
 html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px;height:24px;border-radius:50%;background:#6a6a6a var(--own-avatar) 50% 50%/cover no-repeat;box-shadow:0 0 0 1px rgba(238,238,238,.4)}
+/* My shelf's ••• on a cover (2026-10-20): one quiet action per book. Shown on hover with a mouse,
+   always on touch; its menu opens under it, inside the card. */
+.shelf-more{position:absolute;top:6px;right:6px;z-index:3;width:30px;height:24px;border-radius:12px;display:grid;place-items:center;padding:0;color:#eee7d0;background:#0c1a13b3;border:1px solid #eee7d033;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;opacity:.9;transition:opacity .15s,background .15s}
+.shelf-more::before{content:'';position:absolute;inset:-8px}
+.shelf-more svg{width:16px;height:16px;fill:currentColor}
+.shelf-more:hover,.shelf-more.is-open{background:#0c1a13e6}
+@media(hover:hover) and (pointer:fine){.shelf-more{opacity:0}.card-wrap:hover .shelf-more,.card-wrap:focus-within .shelf-more,.shelf-more.is-open,.shelf-more:focus-visible{opacity:.95}}
+.shelf-menu{position:absolute;top:36px;right:6px;z-index:4;min-width:150px;max-width:calc(100% - 12px);padding:4px;border-radius:10px;background:#111a14f2;border:1px solid #eee7d026;box-shadow:0 10px 28px #0008}
+.shelf-menu-item{display:block;width:100%;text-align:left;padding:9px 10px;border:0;border-radius:7px;background:none;color:#eee7d0;font:14px/1.25 system-ui,-apple-system,sans-serif;cursor:pointer}
+.shelf-menu-item:hover,.shelf-menu-item:focus-visible{background:#eee7d01a;outline:none}
+.shelf-menu-item.is-delete{color:#f0b9a8}
+@media(max-width:699px){.shelf-menu{min-width:0;left:6px;right:6px;max-width:none}.shelf-menu-item{font-size:13px;padding:8px}}

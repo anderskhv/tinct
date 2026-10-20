@@ -51,6 +51,26 @@ export function takenOffReadingNow(
 export interface ReadingNowList extends ReadingList {
   /** Every book in progress, removed ones included: their resume targets are still the reader's place. */
   inProgress: ReadingListRow[]
+  /** Every finished book, removed ones included: finishing a book stays a fact (spoilers, profiles). */
+  allFinished: ReadingList['finished']
+}
+
+/**
+ * From this time on a removal ("Remove from my books", Anders 2026-10-20) also
+ * takes a finished book off the Finished shelf. Earlier removals are ignored
+ * there, as the 2026-10-07 rule did ("finished books stay"), so no book
+ * finished and removed back then disappears now.
+ */
+export const FINISHED_REMOVAL_SINCE = Date.UTC(2026, 9, 20)
+
+/** Whether the reader removed this finished book from their books after finishing it. */
+export function removedFromFinished(
+  row: { bookId: string; finishedAt: number | null },
+  membership: ShelfMembership | null | undefined,
+): boolean {
+  if (!membership?.removed.includes(row.bookId)) return false
+  const removedAt = membership.removedAt?.[row.bookId] ?? 0
+  return removedAt >= FINISHED_REMOVAL_SINCE && removedAt >= (row.finishedAt ?? 0)
 }
 
 /**
@@ -66,8 +86,9 @@ export function readingNowList(input: ReadingListInput & { membership?: ShelfMem
   const list = readingList({ ...rest, positions: input.positions ? { ...input.positions, hidden: {} } : null })
   return {
     readingNow: list.readingNow.filter(row => !takenOffReadingNow(row, membership, hidden)),
-    finished: list.finished,
+    finished: list.finished.filter(row => !removedFromFinished(row, membership)),
     inProgress: list.readingNow,
+    allFinished: list.finished,
   }
 }
 

@@ -657,24 +657,31 @@ describe('My shelf groups', () => {
     expect(addToTinct.ownTableId('pdf:bb')).toBe('userbook-bb')
   })
 
-  it('gives own books the same × as the shelf’s other books: off Currently reading, or deleted from My private uploads', () => {
+  it('gives own books being read the shelf’s ×, and every upload the ••• menu whose one action is Delete', () => {
     const grid = document.createElement('div')
     const onRemoveReading = vi.fn(), onDelete = vi.fn()
     addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 3), own('pdf:bb', 'Slides', null, 'pdf')], el, { onRemoveReading, onDelete })
+    document.body.append(grid)
     const reading = grid.querySelector('[data-shelf-group="own-reading"]')!
     const x = reading.querySelector('.save-toggle') as HTMLButtonElement
     expect(x.textContent).toBe('×')
-    expect(x.dataset.shelfRemove).toBe('true')
     expect(x.getAttribute('aria-label')).toBe('Remove from My shelf: Notes')
     x.click()
     expect(onRemoveReading).toHaveBeenCalledWith(expect.objectContaining({ key: 'epub:aa' }), x)
     expect(onDelete).not.toHaveBeenCalled()
     const uploads = [...grid.querySelectorAll('[data-shelf-group="own"]')]
-    expect(uploads.map(card => card.querySelector('.save-toggle')?.getAttribute('aria-label'))).toEqual(['Remove from My shelf: Notes', 'Remove from My shelf: Slides'])
-    ;(uploads[1].querySelector('.save-toggle') as HTMLButtonElement).click()
-    expect(onDelete).toHaveBeenCalledWith(expect.objectContaining({ key: 'pdf:bb' }), uploads[1].querySelector('.save-toggle'))
-    // Removing never opens the book.
-    expect(reading.querySelector('a')?.contains(x)).toBe(false)
+    expect(uploads.map(card => card.querySelector('.shelf-more')?.getAttribute('aria-label'))).toEqual(['More for Notes', 'More for Slides'])
+    expect(uploads.some(card => card.querySelector('.save-toggle'))).toBe(false)
+    const more = uploads[1].querySelector('.shelf-more') as HTMLButtonElement
+    more.click()
+    const items = [...grid.querySelectorAll('[role="menuitem"]')]
+    expect(items.map(item => item.textContent)).toEqual(['Delete'])
+    ;(items[0] as HTMLButtonElement).click()
+    expect(onDelete).toHaveBeenCalledWith(expect.objectContaining({ key: 'pdf:bb' }), more)
+    expect(grid.querySelector('.shelf-menu')).toBeNull()
+    // The menu never opens the book.
+    expect(uploads[1].querySelector('a')?.contains(more)).toBe(false)
+    grid.remove()
   })
 
   it('opens a Currently reading heading for own books when the library has none, and adds nothing for an empty list', () => {
@@ -722,17 +729,54 @@ describe('Removing one of My private uploads', () => {
   afterEach(() => { document.body.replaceChildren() })
   const book = { key: 'epub:aa', kind: 'epub', title: 'The Sovereign Child', author: 'Me', at: 1, readingAt: null, href: '/reader?userBook=aa' }
 
-  it('asks first, naming the book; Keep book keeps it', async () => {
+  it('asks first in the page, naming the book and saying plainly what Delete does; Cancel keeps it', async () => {
     const asked = addToTinct.confirmDeleteUpload(book)
     const dialog = document.querySelector('[data-testid="own-delete-dialog"]')!
-    expect(dialog.querySelector('h2')?.textContent).toBe('Remove The Sovereign Child?')
-    expect(dialog.textContent).toContain('It is removed from this device and your account.')
+    expect(dialog.querySelector('h2')?.textContent).toBe('Delete The Sovereign Child?')
+    expect(dialog.querySelector('.tui-dialog__body')?.textContent).toBe('Deletes the file, its notes and its place from Tinct on all your devices.')
+    expect(dialog.querySelector('.own-delete-confirm')?.textContent).toBe('Delete')
     ;(dialog.querySelector('.own-delete-cancel') as HTMLButtonElement).click()
     expect(await asked).toBe(false)
     expect(document.querySelector('[data-testid="own-delete-dialog"]')).toBeNull()
     const confirmed = addToTinct.confirmDeleteUpload(book)
     ;(document.querySelector('.own-delete-confirm') as HTMLButtonElement).click()
     expect(await confirmed).toBe(true)
+    // Escape is Cancel.
+    const escaped = addToTinct.confirmDeleteUpload(book)
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+    expect(await escaped).toBe(false)
+  })
+
+  it('says what Remove from my books does for a Tinct book: its notes stay', async () => {
+    const asked = addToTinct.confirmDeleteUpload({ title: 'Antigone' }, { own: false })
+    const dialog = document.querySelector('[data-testid="own-delete-dialog"]')!
+    expect(dialog.querySelector('h2')?.textContent).toBe('Remove Antigone?')
+    expect(dialog.querySelector('.tui-dialog__body')?.textContent).toBe('Removes it from your books. Your notes stay if you add it again.')
+    expect(dialog.querySelector('.own-delete-confirm')?.textContent).toBe('Remove')
+    ;(dialog.querySelector('.own-delete-confirm') as HTMLButtonElement).click()
+    expect(await asked).toBe(true)
+    expect(addToTinct.shelfAction(false).item).toBe('Remove from my books')
+    expect(addToTinct.shelfAction(true).item).toBe('Delete')
+  })
+
+  it('a Tinct book’s ••• offers Remove from my books, and Escape or a tap elsewhere closes it untouched', () => {
+    const wrap = document.createElement('div'); document.body.append(wrap)
+    const onChoose = vi.fn()
+    const more = addToTinct.shelfMenu('Antigone', { onChoose })
+    wrap.append(more)
+    expect(more.getAttribute('aria-expanded')).toBe('false')
+    more.click()
+    expect(more.getAttribute('aria-expanded')).toBe('true')
+    expect(wrap.querySelector('[role="menuitem"]')?.textContent).toBe('Remove from my books')
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+    expect(wrap.querySelector('.shelf-menu')).toBeNull()
+    more.click()
+    document.body.dispatchEvent(new Event('pointerdown', { bubbles: true }))
+    expect(wrap.querySelector('.shelf-menu')).toBeNull()
+    expect(onChoose).not.toHaveBeenCalled()
+    more.click()
+    ;(wrap.querySelector('[role="menuitem"]') as HTMLButtonElement).click()
+    expect(onChoose).toHaveBeenCalledWith(more)
   })
 
   it('deletes with Add a book’s own delete (this device and the account), finding an account-only copy first', async () => {
@@ -747,6 +791,27 @@ describe('Removing one of My private uploads', () => {
     calls.length = 0
     expect(await addToTinct.deleteUpload(book, { engine: engine(false) })).toBe(true)
     expect(calls).toEqual(['get epub:aa', 'refresh', 'remove epub:aa'])
+  })
+
+  it('then forgets this device’s other keys for the book (highlights, margin answers, chats, snapshots), never another book’s', async () => {
+    const hex = 'a1b2c3d4e5f6a1b2c3d4e5f6', other = 'ffffffffffffffffffffffff'
+    const store = new Map<string, string>([
+      [`tinct-addbook:hl:${hex}`, '[]'], [`tinct-addbook:cards:${hex}`, '[]'], [`tinct-addbook:chat:pdf:${hex}`, '[]'],
+      [`tinct-addbook:pos:pdf:${hex}`, '{}'], [`tinct-addbook:table-hidden:${hex}`, '1'], [`tinct:library-2-own-thumb:userbook-${hex}`, 'data:'],
+      ['tinct:library-2-table:viewer', JSON.stringify({ reading: [{ bookId: `userbook-${hex}`, title: 'Private' }] })],
+      [`tinct-addbook:hl:${other}`, '[]'], ['tinct-addbook:rights:viewer', '{}'], ['tinct:library-2-first-paint', '{"books":["hamlet"]}'],
+    ])
+    const storage = { get length() { return store.size }, key: (i: number) => [...store.keys()][i] ?? null, getItem: (k: string) => store.get(k) ?? null, removeItem: (k: string) => { store.delete(k) } }
+    const calls: string[] = []
+    const engine = async () => ({
+      library: { get: async () => ({ key: `pdf:${hex}` }) }, cloud: { refresh: async () => true },
+      removeBook: async (key: string) => { calls.push('remove ' + key); return true },
+    })
+    expect(await addToTinct.deleteUpload({ ...book, key: `pdf:${hex}` }, { engine, storages: [storage] })).toBe(true)
+    expect(calls).toEqual([`remove pdf:${hex}`])
+    expect([...store.keys()].sort()).toEqual([`tinct-addbook:hl:${other}`, 'tinct-addbook:rights:viewer', 'tinct:library-2-first-paint'])
+    // Anything but a book's own id forgets nothing.
+    expect(addToTinct.forgetOwnBookHere('tinct', [storage])).toBe(0)
   })
 })
 

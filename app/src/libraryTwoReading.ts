@@ -120,6 +120,8 @@ const LIBRARY_POSITION_DEVICE_ID = 'lab-library'
 
 let catalogue: Map<string, CatalogueBook> | null = null
 let lastRows = new Map<string, ReadingListRow>()
+/** Every finished book of the last read, removed ones included (introductionProgress). */
+let lastFinished = new Set<string>()
 let lastPositions: LabPositionState | null = null
 const summaryOutcomes = new Map<string, Promise<SummaryResult>>()
 
@@ -258,7 +260,8 @@ async function placeFor(bookId: string): Promise<Place | null> {
 export async function introductionProgress(bookId: string): Promise<{ chapterNumber: number; completed: boolean }> {
   const table = await loadReadingTable()
   const place = await placeFor(bookId)
-  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) }
+  // A finished book removed from the reader's books is still finished.
+  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) || lastFinished.has(bookId) }
 }
 
 /**
@@ -408,6 +411,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   })
   // Removed books still resume at their place (placeFor).
   lastRows = new Map(list.inProgress.map(row => [row.bookId, row]))
+  lastFinished = new Set((list.allFinished ?? list.finished).map(row => row.bookId))
   const table: ReadingTable = {
     mode: libraryModeFor(list),
     reading: list.readingNow.map(row => {
@@ -431,9 +435,9 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         lastActiveAt: row.lastActiveAt,
       }
     }),
-    // Finished books stay: My shelf offers removal only for books being read (Anders,
-    // 2026-10-07), and older removals of finished books are ignored here, so they
-    // reappear without any stored removal being rewritten.
+    // A finished book leaves the shelf only when removed after it was finished, from
+    // 2026-10-20 ("Remove from my books", readingNow.ts removedFromFinished); older
+    // removals of finished books stay ignored (2026-10-07), so those books stay.
     finished: list.finished.map(row => {
       const book = books.get(row.bookId)
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: bookCoverSrc({ bookId: row.bookId, art: book?.art }), finishedAt: row.finishedAt }
