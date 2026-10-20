@@ -76,6 +76,8 @@ const NARRATION_FINAL_REASONS = new Set([
  * (narrationClipBuffer.ts).
  */
 export const NARRATION_DOWNLOAD_AHEAD = 2
+/** A mid-clip wait for audio shorter than this shows nothing. */
+const BUFFERING_SHOW_AFTER_MS = 300
 /** How often a playing clip's clock re-tops the clip buffer (a download that failed, a window that grew). */
 const CLIP_BUFFER_REFRESH_MS = 3_000
 /**
@@ -365,6 +367,19 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [])
   const [pending, setPendingState] = useState(false)
   const [loading, setLoading] = useState(false)
+  /**
+   * The playing recording ran out of downloaded audio mid-clip (the element's
+   * `waiting`): the transport shows its loading ring, after a short delay so
+   * a blip never flashes, until sound resumes. Not `pending`: nothing is being
+   * started, Pause still pauses, and no stall deadline runs.
+   */
+  const [buffering, setBufferingState] = useState(false)
+  const bufferingTimerRef = useRef<ReturnType<typeof setTimeout>>()
+  const setBuffering = useCallback((value: boolean) => {
+    clearTimeout(bufferingTimerRef.current)
+    if (!value) { setBufferingState(false); return }
+    bufferingTimerRef.current = setTimeout(() => setBufferingState(true), BUFFERING_SHOW_AFTER_MS)
+  }, [])
   const pendingRef = useRef(false)
   const loadingTimerRef = useRef<ReturnType<typeof setTimeout>>()
   const loadingDeadlineRef = useRef<ReturnType<typeof setTimeout>>()
@@ -1162,6 +1177,7 @@ export function useLabListen(options: UseLabListenOptions) {
       else if (!optionsRef.current.onChapterComplete?.()) finishPlayback()
     }
     const handlePlaying = () => {
+      setBuffering(false)
       if (primingRef.current) return
       if (!playingRef.current) {
         if ((interruptionRef.current || systemPausedRef.current) && !userPausedRef.current) {
@@ -1204,6 +1220,13 @@ export function useLabListen(options: UseLabListenOptions) {
       if (audio.paused !== true || audio.ended || !audio.src) return
       beginInterruptionRef.current(audio)
     }
+    // Out of audio mid-recording (a stream that stalled): say so in the transport.
+    const handleWaiting = () => {
+      if (primingRef.current || isUnlockSource(audio) || isHoldSource(audio) || bridgeRef.current) return
+      if (!playingRef.current || pendingRef.current || audio.paused) return
+      setBuffering(true)
+    }
+    const clearBuffering = () => setBuffering(false)
     const publishPosition = () => publishPositionRef.current()
     const nowPlayingEvents = ['playing', 'timeupdate', 'seeked', 'ratechange', 'loadedmetadata'] as const
     audio.addEventListener('play', handlePlay)
@@ -1212,8 +1235,12 @@ export function useLabListen(options: UseLabListenOptions) {
     audio.addEventListener('timeupdate', handleTimeUpdate)
     audio.addEventListener('ended', handleEnded)
     audio.addEventListener('error', handleError)
+    audio.addEventListener('waiting', handleWaiting)
+    for (const type of ['pause', 'ended', 'emptied'] as const) audio.addEventListener(type, clearBuffering)
     for (const type of nowPlayingEvents) audio.addEventListener(type, publishPosition)
     return () => {
+      audio.removeEventListener('waiting', handleWaiting)
+      for (const type of ['pause', 'ended', 'emptied'] as const) audio.removeEventListener(type, clearBuffering)
       for (const type of nowPlayingEvents) audio.removeEventListener(type, publishPosition)
       audio.removeEventListener('play', handlePlay)
       audio.removeEventListener('pause', handlePause)
@@ -1222,7 +1249,7 @@ export function useLabListen(options: UseLabListenOptions) {
       audio.removeEventListener('ended', handleEnded)
       audio.removeEventListener('error', handleError)
     }
-  }, [setPending, setPlaying, syncFollow])
+  }, [setBuffering, setPending, setPlaying, syncFollow])
 
   const detachRef = useRef<(() => void) | null>(null)
   const primingRef = useRef(false)
@@ -1260,6 +1287,7 @@ export function useLabListen(options: UseLabListenOptions) {
   useEffect(() => () => {
     clearTimeout(loadingTimerRef.current)
     clearTimeout(loadingDeadlineRef.current)
+    clearTimeout(bufferingTimerRef.current)
     playRequestRef.current += 1
     narrationRequestRef.current += 1
     narrationAbortRef.current?.abort()
@@ -2303,6 +2331,8 @@ export function useLabListen(options: UseLabListenOptions) {
   return {
     pending,
     loading,
+    /** Playing, but waiting for audio mid-recording: show the loading ring, keep Pause. */
+    buffering: buffering && playing && !pending,
     isPending: () => pendingRef.current,
     playing,
     follow: visibleFollow,

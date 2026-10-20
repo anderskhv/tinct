@@ -5689,7 +5689,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 aria-busy={listen.pending || undefined}
                 onClick={handleBarListen}
               >
-                {listen.loading ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
+                {listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>}
               <LabSuperButton
                 open={superMenuOpen}
@@ -6088,7 +6088,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         {((!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || (phoneAsk && !marginPhone)) && askPaneElement}
       </div>
 
-      <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : ''}</span>
+      <span className="lab-visually-hidden" role="status" aria-live="polite">{listen.loading ? 'Loading audio. Tap Play again to cancel.' : listen.buffering ? 'Loading audio.' : ''}</span>
       {!frontispieceVisible && <div className="lab-bottom-chrome" ref={bottomChromeRef} data-testid="lab-bottom-chrome" onPointerDown={() => { if (desktopPaging) setReaderControlsVisible(true) }}>
       {listen.narration.status === 'loading' && listen.narration.waiting && listen.pending && <div className="lab-narration-inline" role="status" data-testid="lab-narration-preparing">
         {/* The ring the Play button shows, in the row; "Preparing narration…" stays for screen readers. */}
@@ -6186,7 +6186,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <section ref={desktopDockRef} className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
           <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
           <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
-          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading ? <LoadingIcon size={22} /> : listen.pending || !listen.playing ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
+          <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading || listen.buffering ? <LoadingIcon size={22} /> : listen.pending || !listen.playing ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
@@ -6268,7 +6268,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 pause: (
                   <button key="pause" type="button" className="lab-phone-fat lab-audio-control is-active" onClick={handleBarListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : listen.playing ? 'Pause audiobook' : 'Resume audiobook'} data-testid="lab-listen">
                     <span data-testid="lab-hearing-pause" className="lab-visually-hidden">{!listen.playing ? 'Resume' : LAB_COPY.pause}</span>
-                    {listen.loading ? <LoadingIcon size={21} /> : listen.pending || !listen.playing ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
+                    {listen.loading || listen.buffering ? <LoadingIcon size={21} /> : listen.pending || !listen.playing ? <PlayIcon size={21} /> : <PauseIcon size={21} />}
                   </button>
                 ),
                 back: (
