@@ -552,7 +552,8 @@ export function parseQuiz(text) {
   if (!list) return null
   const questions = list.flatMap(raw => { const item = quizItem(raw); return item ? [item] : [] }).slice(0, QUIZ_MAX_QUESTIONS)
   const ideas = quizIdeas(value.ideas)
-  return questions.length ? { ...(ideas?.length ? { ideas } : {}), questions } : null
+  const thesis = field(value.thesis, 300)
+  return questions.length ? { ...(ideas?.length ? { ideas } : {}), ...(thesis ? { thesis } : {}), questions } : null
 }
 
 /**

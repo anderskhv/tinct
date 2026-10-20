@@ -3565,8 +3565,8 @@ const docKind = () => (isEpub() ? 'epub' : 'pdf');
 // An EPUB names a chapter by its title, exactly as its pill and contents do ("1 The Fate of Spacetime"; the preview's
 // "Chapter 1", "Letter 2"), never by its place in the file (Anders, 20 Oct 2026: "Quiz me · ch. 9" under the pill's
 // "1 The Fate of Spacetime"; round 1 of the preview did the same for Tinct books).
-const where = () => (isEpub() ? { unit: chapterTitles() ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
-const chapterTitles = () => isEpub() && toc.ready && toc.entries.length > 0;
+const where = () => (isEpub() ? { unit: epubNamesChapters() ? '' : 'ch.', doc: 'epub' } : { doc: 'pdf' });
+const epubNamesChapters = () => isEpub() && toc.ready && toc.entries.length > 0;
 /** A card's place as its label shows it: the page label, or an EPUB's chapter title (its number when it has no contents). */
 const placeName = n => (isEpub() && chapterTitle(n)) || pageLabel(n);
 const chapterTitle = n => (state.preview ? toc.entries.find(e => e.page === n && e.kind === 'chapter')?.label : chapterAt(n)?.label) || '';
@@ -5203,6 +5203,7 @@ async function runCardNow(id, question, run) {
       const whole = MP.P.parseQuiz(res.text), questions = whole?.questions || live.questions;
       if (!questions.length) throw Object.assign(new Error('failed'), { code: 'failed' });
       if (whole?.ideas?.length) live.ideas = whole.ideas;
+      if (whole?.thesis) live.thesis = whole.thesis;
       col.quiz.delete(id); col.live.delete(id); col.ctl.delete(id);
       card.data = quizEnded(live, questions, false);
       saveCard(card);
@@ -5234,8 +5235,8 @@ async function runCardNow(id, question, run) {
 /** The quiz as it is saved when its stream ends: the questions that arrived and how far the reader got. */
 function quizEnded(live, questions, stopped) {
   const i = Math.min(live.i || 0, questions.length);
-  const ideas = live.ideas?.length ? { ideas: live.ideas } : {}, asked = live.asked?.length ? { asked: live.asked } : {};
-  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
+  const ideas = live.ideas?.length ? { ideas: live.ideas } : {}, asked = live.asked?.length ? { asked: live.asked } : {}, thesis = live.thesis ? { thesis: live.thesis } : {};
+  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...thesis, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
 }
 /** How many questions a quiz has: one per key idea once they are known; while it streams without them, as many as may come. */
 const quizTotal = (q, streaming = false) => (q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : streaming ? TinctMargin.QUIZ_MAX_QUESTIONS : q.questions?.length || 0);
@@ -5292,7 +5293,7 @@ async function quizCheck(card, answer) {
   col.pending.set(card.id, answer); col.live.delete(card.id); marginLayout();
   try {
     const pdf = await pdfPages(card.page), wholeDoc = await marginDocumentNow(card.page, 'quiz_check');
-    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer } });
+    const res = await TinctAI.companion('quiz_check', { book: { ...aiBook(), pdf }, pdf, document: wholeDoc, quiz: { question: item.q, expected: item.answer, why: item.why, answer, ...(q.thesis ? { thesis: q.thesis } : {}), ...(q.ideas?.length ? { ideas: q.ideas } : {}) } });
     const mark = MP.P.parseQuizCheck(res.text);
     if (!mark) throw Object.assign(new Error('failed'), { code: 'failed' });
     const result = { answer, verdict: mark.verdict, feedback: mark.feedback };

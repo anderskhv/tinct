@@ -263,7 +263,7 @@ describe('the prompts the Worker builds', () => {
     const system = buildCompanionSystem(quiz)
     expect(system.endsWith(quizPrompt('passage', { pdf: true }))).toBe(true)
     expect(system).toContain('Write a short quiz that shows whether the reader has understood the selected passage, all of it.')
-    expect(system).toContain('{"ideas":["…"],"questions":[{"idea":0,"q":"…","answer":"…","why":"one sentence explaining the answer","cite":"{p. 12}"}]}')
+    expect(system).toContain('{"ideas":["…"],"thesis":"…","questions":[{"idea":0,"q":"…","answer":"…","why":"one sentence explaining the answer","cite":"{p. 12}"}]}')
     expect(companionSelectionMessage(quiz)).toBe(`<selected_passage>\n${PASSAGE}\n</selected_passage>`)
   })
 

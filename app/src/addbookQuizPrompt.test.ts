@@ -5,7 +5,7 @@
  */
 import { describe, expect, it } from 'vitest'
 import { buildCompanionSystem, companionSelectionMessage, parseCompanionRequest, QUIZ_ASKED_MAX } from './companion/companionRequest'
-import { QUIZ_CHECK_ADDITION_RULE, QUIZ_CHECK_CREDIT_RULE, QUIZ_CHECK_GRADES_RULE, QUIZ_CHECK_PROMPT, QUIZ_CITE_NONE, QUIZ_CITE_PDF, QUIZ_KEY_IDEAS_RULE, QUIZ_MAX_IDEAS, QUIZ_NO_REPEAT_RULE, QUIZ_ONE_PER_IDEA_RULE, QUIZ_WHY_HOW_RULE, quizPrompt } from './companion/marginPrompts'
+import { QUIZ_CHECK_FRAMING_RULE, QUIZ_CHECK_NO_REREAD_RULE, QUIZ_WHOSE_VIEW_RULE, QUIZ_CHECK_ADDITION_RULE, QUIZ_CHECK_CREDIT_RULE, QUIZ_CHECK_GRADES_RULE, QUIZ_CHECK_PROMPT, QUIZ_CITE_NONE, QUIZ_CITE_PDF, QUIZ_KEY_IDEAS_RULE, QUIZ_MAX_IDEAS, QUIZ_NO_REPEAT_RULE, QUIZ_ONE_PER_IDEA_RULE, QUIZ_WHY_HOW_RULE, quizPrompt } from './companion/marginPrompts'
 import * as pageCopy from '../public/lab/margin/margin-parse.js'
 
 const context = (kind: 'pdf' | 'epub') => ({ bookTitle: 'Lamplit Conjectures', bookAuthor: 'Gale Editor', chapterLabel: '1 The Fate of Lamplight', kind, paragraphs: ['One.', 'Two.'], paragraphIndex: 0 })
@@ -15,8 +15,8 @@ describe('Quiz me: understanding, covering the text', () => {
   it('asks for the key ideas first, then exactly one question per idea, in the text\'s order', () => {
     expect(prompt.indexOf(QUIZ_KEY_IDEAS_RULE)).toBeGreaterThan(-1)
     expect(prompt.indexOf(QUIZ_ONE_PER_IDEA_RULE)).toBeGreaterThan(prompt.indexOf(QUIZ_KEY_IDEAS_RULE))
-    expect(prompt).toContain('"ideas":["…"],"questions":[{"idea":0')
-    expect(prompt).toContain('Return only JSON, the key ideas first:')
+    expect(prompt).toContain('"ideas":["…"],"thesis":"…","questions":[{"idea":0')
+    expect(prompt).toContain('Return only JSON, the key ideas first, then the author\'s own position')
   })
   it('scales the count with the text, at most eight, never a fixed three', () => {
     expect(QUIZ_KEY_IDEAS_RULE).toMatch(/one or two for a sentence or a short passage, more for a long passage or a whole chapter, at most eight; never a fixed three/)
@@ -98,5 +98,39 @@ describe('Quiz me: a retry carries the questions asked before', () => {
     const many = parseCompanionRequest({ intent: 'quiz', context: context('pdf'), asked: [null, 'x', { q: '' }, ...Array.from({ length: 40 }, (_, i) => ({ q: `Q${i}?`, missed: 'yes' }))] })!
     expect(many.asked).toHaveLength(QUIZ_ASKED_MAX - 3)
     expect(many.asked!.every(item => !('missed' in item))).toBe(true)
+  })
+})
+
+describe('Quiz me: whose view, and a defensible framing (Anders, 20 Oct 2026, Schrödinger\'s cat)', () => {
+  it('questions name whose view they ask about, never "Why does the passage say…"', () => {
+    expect(quizPrompt('passage')).toContain(QUIZ_WHOSE_VIEW_RULE)
+    expect(QUIZ_WHOSE_VIEW_RULE).toContain('names whose view it asks about')
+    expect(QUIZ_WHOSE_VIEW_RULE).toContain('"According to the collapse view described here, why…"')
+    expect(QUIZ_WHOSE_VIEW_RULE).toContain('never "Why does the passage say…"')
+    expect(quizPrompt('chapter')).toContain('"thesis":"…"')
+  })
+  it('grading accepts a defensible framing, above all the author\'s own, names the difference, and never says reread', () => {
+    expect(QUIZ_CHECK_PROMPT).toContain(QUIZ_CHECK_FRAMING_RULE)
+    expect(QUIZ_CHECK_FRAMING_RULE).toContain('Accept a correct answer in any defensible framing')
+    expect(QUIZ_CHECK_FRAMING_RULE).toContain('above all the author\'s own position')
+    expect(QUIZ_CHECK_FRAMING_RULE).toContain('mark it right and add one sentence naming the difference')
+    expect(QUIZ_CHECK_PROMPT).toContain(QUIZ_CHECK_NO_REREAD_RULE)
+    expect(QUIZ_CHECK_NO_REREAD_RULE).toBe('Never tell the reader to reread when their answer is defensible.')
+  })
+  it('the marking request carries the author\'s position and the key ideas (mocked: never sent to a model)', () => {
+    const check = parseCompanionRequest({ intent: 'quiz_check', context: context('epub'), quiz: {
+      question: 'According to the collapse view described here, why do we never see the cat both alive and dead?',
+      expected: 'Observation collapses the superposition into one outcome.',
+      answer: 'because we become entangled with the box when we open it so we branch into one of the positions',
+      thesis: 'The author defends the many-worlds account: superpositions never collapse; observers branch.',
+      ideas: ['Measurement seems to pick one outcome', 'Many worlds keeps every branch'],
+    } })!
+    expect(check.quizCheck!.thesis).toContain('many-worlds')
+    const message = companionSelectionMessage(check)!
+    expect(message.startsWith('<author_position>The author defends the many-worlds account')).toBe(true)
+    expect(message).toContain('<key_ideas>\n1. Measurement seems to pick one outcome\n2. Many worlds keeps every branch\n</key_ideas>')
+    expect(buildCompanionSystem(check)).toContain(QUIZ_CHECK_FRAMING_RULE)
+    // The quiz's thesis is kept from the reply.
+    expect(pageCopy.parseQuiz(JSON.stringify({ ideas: ['a'], thesis: 'The author defends many worlds.', questions: [{ idea: 0, q: 'Why?', answer: 'x' }] }))!.thesis).toBe('The author defends many worlds.')
   })
 })

@@ -81,6 +81,7 @@ export interface QuizQuestion {
 }
 export declare function parseQuiz(text: unknown): {
     ideas?: string[];
+    thesis?: string;
     questions: QuizQuestion[];
 } | null;
 /** The three marks a quiz answer can get, and how the card shows each as its bottom line. */

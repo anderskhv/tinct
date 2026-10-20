@@ -557,13 +557,14 @@ function quizItem(raw: unknown): QuizQuestion | null {
   const idea = typeof item.idea === 'number' && Number.isInteger(item.idea) && item.idea >= 0 && item.idea < QUIZ_MAX_QUESTIONS ? item.idea : null
   return { q, answer, why: field(item.why, 600), cite: citeField(item.cite), ...(idea != null ? { idea } : {}) }
 }
-export function parseQuiz(text: unknown): { ideas?: string[]; questions: QuizQuestion[] } | null {
+export function parseQuiz(text: unknown): { ideas?: string[]; thesis?: string; questions: QuizQuestion[] } | null {
   const value = extractJson(text)
   const list = value && Array.isArray(value.questions) ? value.questions : null
   if (!list) return null
   const questions = (list as unknown[]).flatMap(raw => { const item = quizItem(raw); return item ? [item] : [] }).slice(0, QUIZ_MAX_QUESTIONS)
   const ideas = quizIdeas(value.ideas)
-  return questions.length ? { ...(ideas?.length ? { ideas } : {}), questions } : null
+  const thesis = field(value.thesis, 300)
+  return questions.length ? { ...(ideas?.length ? { ideas } : {}), ...(thesis ? { thesis } : {}), questions } : null
 }
 
 /**

@@ -59,6 +59,9 @@ export interface QuizCheck {
   why?: string
   /** What the reader typed or dictated. */
   answer: string
+  /** The quiz's line on the author's own position, and its key ideas: the grader's context (Anders, 20 Oct 2026). */
+  thesis?: string
+  ideas?: string[]
 }
 
 export interface CompanionRequest {
@@ -487,7 +490,10 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     const why = text(q!.why, QUIZ_CHECK_BUDGET.why)
     const answer = text(q!.answer, Math.min(QUIZ_ANSWER_CHARS, OWN_INPUT_CHARS - question.length - expected.length - (why?.length ?? 0)))
     if (!answer) return null
-    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer }, ...pdf }
+    // What the grader needs to know the author's position (Anders, 20 Oct 2026): the quiz's thesis line and key ideas.
+    const thesis = text(q!.thesis, QUIZ_ASKED_CHARS)
+    const ideas = Array.isArray(q!.ideas) ? (q!.ideas as unknown[]).slice(0, 8).map(item => text(item, 200)).filter((item): item is string => Boolean(item)) : []
+    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer, ...(thesis ? { thesis } : {}), ...(ideas.length ? { ideas } : {}) }, ...pdf }
   }
   if (intent === 'chapter') {
     const chapter = r.chapter && typeof r.chapter === 'object' ? r.chapter as Record<string, unknown> : null
@@ -640,7 +646,9 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
     }
     case 'quiz_check': {
       const q = request.quizCheck!
-      return `<question>${tagData(q.question)}</question>\n<expected>${tagData(q.expected)}</expected>\n<why>${tagData(q.why ?? '')}</why>\n<reader_answer>${tagData(q.answer)}</reader_answer>`
+      const position = q.thesis ? `<author_position>${tagData(q.thesis)}</author_position>\n` : ''
+      const ideas = q.ideas?.length ? `<key_ideas>\n${q.ideas.map((idea, i) => `${i + 1}. ${tagData(idea)}`).join('\n')}\n</key_ideas>\n` : ''
+      return `${position}${ideas}<question>${tagData(q.question)}</question>\n<expected>${tagData(q.expected)}</expected>\n<why>${tagData(q.why ?? '')}</why>\n<reader_answer>${tagData(q.answer)}</reader_answer>`
     }
     default:
       return null

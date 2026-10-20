@@ -253,6 +253,11 @@ function anthologyEpub() {
   ])
 }
 const EPUB = anthologyEpub()
+// 20 Oct 2026: an essay collection shaped like Anders's "Bold Conjectures, Volume II" (make-epub.mjs makeEssayEpub): cover,
+// half title and title in the book's own small caps, copyright, dedication, supporters, its own contents page, a preface
+// and essays with author lines.
+const { makeEssayEpub } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-epub.mjs')).href)
+const ESSAYS = makeEssayEpub()
 const json = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) }
 const readBody = req => new Promise(r => { const parts = []; req.on('data', c => parts.push(c)); req.on('end', () => r(Buffer.concat(parts))) })
 // A mocked companion, per intent, streamed as the Worker relays it: a definition for `define`, the
@@ -4741,6 +4746,12 @@ function addEpub() {
   if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'anthology.epub', title: 'Lamplight Essays', author: 'Ed Itor', type: 'epub', size: EPUB.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: EPUB })
   return sha256.slice(0, 24)
 }
+// The essay collection, in the account as My shelf and the library open it.
+function addEssays() {
+  const sha256 = createHash('sha256').update(ESSAYS).digest('hex')
+  if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'lamplit-conjectures.epub', title: 'Lamplit Conjectures, Volume II', author: 'Gale Editor', type: 'epub', size: ESSAYS.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: ESSAYS })
+  return sha256.slice(0, 24)
+}
 async function epubPage(browser, origin, hex, { width, height, look = 'paper', init = null }) {
   const ctx = await browser.newContext({ viewport: { width, height }, hasTouch: width < 700 })
   await ctx.addInitScript(([session, look]) => {
@@ -4906,7 +4917,7 @@ try {
   else if (mode === 'keys') { const rows = await keysAndAccess(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'keys-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'fixture') { const rows = await fixtureRows(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'fixture-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'reader') { const rows = await readerMatrix(browser, origin); failed = rows.some(r => r.problems); writeFileSync(join(OUT, 'reader-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(origin); await new Promise(() => {}) }
+  else if (mode === 'serve') { for (const f of PDFS) console.log(addBook(f), f); console.log(addEpub(), 'anthology.epub'); console.log(addEssays(), 'essays.epub'); console.log(origin); await new Promise(() => {}) }
   else if (mode === 'primer-reliability') { const rows = await primerReliability(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-reliability-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'primer-kinds') { const rows = await primerKinds(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-kinds-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'primer') { const rows = await primerBehaviour(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'primer-results.json'), JSON.stringify(rows, null, 2)) }
