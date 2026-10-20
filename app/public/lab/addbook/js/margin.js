@@ -788,8 +788,13 @@
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
-    // Its top-right control minimises it (folds it, as a click outside does).
-    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button></div>`;
+    // Its top-right control minimises it (folds it, as a click outside does). The phone's bottom card has none (Anders,
+    // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet).
+    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}${o.sheet ? '' : `<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button>`}</div>`;
+    // The phone's card quotes its passage (Ask and a note, before anything is written in them).
+    const quote = o.sheet && card.text ? `<div class="mr-quote">“${esc(cut(String(card.text).trim().replace(/^["“‘']+|["”’']+$/g, '')))}”</div>` : '';
+    // The phone's Ask (reader.js phoneAsk): the passage and an empty field, the question not yet sent.
+    if (card.asking) return head + `<div class="mr-card__body">${quote}<div class="mr-card__acts">${deleteHtml(card)}</div></div>` + followHtml({ placeholder: 'Ask…', label: 'Ask about this passage' });
     // The action row under the answer, as Gloss's: copy, once there is something to copy, then the bin (Anders,
     // 19 Oct 2026: the bin moved out of the follow-up line into this row). There is no regenerate action for a card.
     const acts = withCopy => `<div class="mr-card__acts">${withCopy ? `<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button>` : ''}${deleteHtml(card)}</div>`;
@@ -835,6 +840,10 @@
     // A figure's card keeps its caption, which is what the figure says, not a quote.
     let body = thumb + (card.text && card.kind === 'figure' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : card.text && card.kind !== 'define' ? `<span class="mr-card__about" hidden>${esc(cut(card.text))}</span>` : '');
     // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
+    // The phone's note on a passage (reader.js phoneNote): the passage, its note in a field, the bin.
+    if (card.kind === 'note' && !card.free && o.sheet) {
+      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea><div class="mr-card__acts">${deleteHtml(card)}</div></div>`;
+    }
     if (card.kind === 'note' && card.free) {
       const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
       return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button>${card.draft ? '' : deleteHtml(card)}</div></div>`;

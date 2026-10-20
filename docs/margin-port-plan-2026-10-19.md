@@ -64,6 +64,13 @@ The two readers already agree on coordinates: chapter number, paragraph index an
 
 For the port, the margin reader stores anchors as `{ chapterNumber, paragraphIndex, fromWord, endParagraphIndex, toWord, editionKey }`, not character offsets. Highlights and notes then are `LabHighlight` records, and the same rows (`lab-highlights:{bookId}`) serve both layouts. Cards need one new per-book record keyed the same way. That is a schema decision for Anders: a new synced data category under the existing user-data store, covered by export and deletion.
 
+## Direction (Anders, 20 Oct 2026)
+
+"For mobile it's about building as much as we can on the existing foundation, for desktop it's essentially the same process but here margin reader becomes the default way to read anything with two page and compare mode as the two others."
+
+- **Phone:** the existing React phone reader stays the foundation: its look, typography and tabs. The port adds four things only: the new header menu, the selection bar, bottom-sheet cards (AI answers and notes alike) and the in-text unit pills (Starting … ✧ Primer · ✧ Catch me up; End of … ✧ Recap · ✧ Quiz me · Note). This settles the tabs-vs-t-menu question below: the tabs stay.
+- **Desktop:** the margin reader becomes the default layout for every book, Tinct and own. Two-page and Compare are the two other layouts.
+
 ## 3. What the real port needs
 
 1. **Shared annotation store and sync.**
