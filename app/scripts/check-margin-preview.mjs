@@ -64,6 +64,8 @@ const frameOf = async page => {
 }
 const pillNow = frame => frame.evaluate(() => { const l = document.getElementById('pageLabel'), t = document.getElementById('bookTitle'), b = document.getElementById('pageBtn'); return { label: l.textContent, fit: b.dataset.fit || '', titleMode: b.dataset.title || (t.scrollWidth <= t.clientWidth + 1 ? 'whole' : 'cut'), title: b.dataset.title === 'off' || t.scrollWidth <= t.clientWidth + 1 || t.clientWidth >= 72, chapter: chapterAt(readingPage())?.label } })
 const spotOf = frame => frame.evaluate(() => ({ page: currentPlace().page, ...epubSpot(), key: state.key, mode: marginMode() }))
+// Every key on this device, for what the preview writes (21 Oct 2026: only the book reader's stores).
+const allKeys = page => page.evaluate(() => Object.fromEntries(Object.keys(localStorage).map(k => [k, localStorage.getItem(k)])))
 const mainKeys = page => page.evaluate(re => Object.fromEntries(Object.keys(localStorage).filter(k => new RegExp(re).test(k)).map(k => [k, localStorage.getItem(k)])), MAIN_KEY.source)
 
 async function selectInView(frame) {
@@ -112,7 +114,7 @@ try {
       // The book reader's place on this device, before anything runs (an origin page first, so storage is the app's).
       await page.goto(`${ORIGIN}/lab/addbook/vendor/pdfjs/pdf.min.js`)
       await page.evaluate(rec => { localStorage.clear(); localStorage.setItem('tinct-lab-position', JSON.stringify(rec)); localStorage.setItem('tinct-lab-device-id', 'qa') }, positionRecord())
-      const before = await mainKeys(page)
+      const before = await mainKeys(page), beforeAll = await allKeys(page)
 
       // 1. Opens in the margin reader at the book reader's place. A phone opens the book reader in its margin mode
       // instead (check-phone-cards.mjs has its checks): no frame, the sticky opt-in stored, nothing else here.
@@ -285,13 +287,21 @@ try {
       // book's chat history (signed out, its device copy), never the preview's own key.
       ok(`${tag}: the place is kept under the preview's key, the cards in the book's chat history`, !!kept && Number.isInteger(kept.para) && await page.evaluate(id => !localStorage.getItem(`tinct-addbook:cards:preview:${id}`) && JSON.parse(localStorage.getItem(`tinct:chat-history:${id}`) || '[]').some(c => c.card?.kind === 'explain'), bookId), kept)
 
-      // 5. Nothing of the book reader's was written, and nothing went to the account.
+      // 5. The preview writes through the book reader's stores and nothing else (21 Oct 2026, margin sync): the place in
+      // its position record (src/lab/marginPreview/useMarginPreviewPlace.ts), highlights and notes in its highlight
+      // list, cards in the book's chat history; besides them only the frame's own copy of its place and its device
+      // conveniences (theme, primers, the opt-in) under the margin's `tinct-addbook:` and margin keys. Signed out, as
+      // here, all of it stays on this device.
+      const READER_STORES = /^(tinct-lab-position|tinct-lab-position-dirty|tinct-lab-device-id|tinct-lab-highlights|tinct-lab-highlight-tombstones|tinct-lab-highlights-tap-cleanup-v1|tinct:reading-year:.+|tinct:chat-history:.+)$/
+      const PREVIEW_OWN = /^(tinct-addbook:(pos|read|session|prefs|primer|primers|edition|dict|units|whole|turns|view)[:\w-]*.*|tinct:margin-preview|tinct-lab-prefs|tinct:internal)$/
+      const afterAll = await allKeys(page)
+      const written = Object.keys(afterAll).filter(k => afterAll[k] !== beforeAll[k])
+      const elsewhere = written.filter(k => !READER_STORES.test(k) && !PREVIEW_OWN.test(k))
+      ok(`${tag}: the preview writes only through the book reader's stores (and its own place copy)`, elsewhere.length === 0, { elsewhere, written })
       const after = await mainKeys(page)
-      // 21 Oct 2026 (margin sync): the place is the book reader's own record now (src/lab/marginPreview/useMarginPreviewPlace.ts);
-      // signed out, as here, it stays on this device. Its other keys are untouched.
-      const shared = /^(tinct-lab-position|tinct-lab-position-dirty|tinct-lab-device-id|tinct-lab-highlights-tap-cleanup-v1)$/
-      const strip = keys => JSON.stringify(Object.fromEntries(Object.entries(keys).filter(([k]) => !shared.test(k))))
+      const strip = keys => JSON.stringify(Object.fromEntries(Object.entries(keys).filter(([k]) => !READER_STORES.test(k))))
       ok(`${tag}: the book reader's other keys are untouched`, strip(after) === strip(before), { before: Object.keys(before), after: Object.keys(after) })
+      ok(`${tag}: no preview-local highlight or card keys are written`, !written.some(k => /^tinct-addbook:(hl|hl-gone|cards):/.test(k)), written)
       // Its moves here are script scrolls with no reader action, which the margin's place gate never writes (a
       // reflow, not a place: marginPreviewPlace.ts); real input is checked in scripts/check-margin-sync.mjs.
       const record = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-position') || 'null')?.books?.[id], bookId)
