@@ -19,7 +19,7 @@ import { isNativeCapacitor } from '../utils/nativePlatform'
 import {readerMediaSession, readerMediaMetadata, playReaderAudioTransition, playReaderAudio, endNativeNarration} from '../utils/readerMediaSession'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { LAB_COPY } from './labCopy'
-import { CLIP_BUFFER_DRY_SECONDS, CLIP_BUFFER_WEAK_FACTOR, NarrationClipBuffer, clipBufferSeconds, clipsToBuffer, connectionSavesData, sourcePlaysClip, type BufferCandidate } from './narrationClipBuffer'
+import { CLIP_BUFFER_DRY_SECONDS, CLIP_BUFFER_WEAK_FACTOR, NarrationClipBuffer, repeatWhilePlaying, clipBufferSeconds, clipsToBuffer, connectionSavesData, sourcePlaysClip, type BufferCandidate } from './narrationClipBuffer'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
 import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
 import {
@@ -95,6 +95,8 @@ const NARRATION_STALL_NO_DATA_MS = 3_000
  */
 export const NARRATION_STALL_RETRY_MS = [0, 1_000, 2_000, 4_000, 6_000, 8_000, 10_000, 13_000, 16_000, 20_000, 25_000, 30_000]
 const NARRATION_STALL_HIDDEN_RETRY_MS = 10_000
+/** How often the stall watchdog looks while playing. */
+const NARRATION_STALL_CHECK_MS = 500
 const STALL_EVENTS = ['waiting', 'stalled', 'suspend', 'emptied', 'error'] as const
 /** A clip still not sounding this long after it was started reads as paused on the lock screen. */
 const NARRATION_SILENT_START_MS = 1_000
@@ -1857,9 +1859,16 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     // Bytes still arriving for a recording the element streams: a slow load, not a wedge. Wait it out.
     const loading = audio.networkState === 2 && now - dataAtRef.current < NARRATION_STALL_NO_DATA_MS
-    if (loading || now < stall.nextAt) return
+    if (loading) return
+    const stalledUrl = clipSourceUrl(clip)
+    const buffer = clipBufferRef.current
+    // The buffer's copy of this recording just arrived: reload from memory now.
+    const copyReady = Boolean(stalledUrl && buffer?.isReady(stalledUrl) && !audio.src.startsWith('blob:') && stall.attempts > 0)
+    // The copy is arriving: wait for it rather than splitting the link with a second download.
+    if (!copyReady && stalledUrl && stall.attempts > 0 && buffer?.isArriving(stalledUrl)) return
+    if (!copyReady && now < stall.nextAt) return
     const hidden = pageHidden()
-    if (!hidden && stall.attempts >= NARRATION_STALL_RETRY_MS.length) {
+    if (!copyReady && !hidden && stall.attempts >= NARRATION_STALL_RETRY_MS.length) {
       // Out of tries in front of the reader: stop honestly, with Retry from the same second.
       const at = stall
       stallRef.current = null
@@ -1880,7 +1889,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const following = NARRATION_STALL_RETRY_MS[stall.attempts]
     stall.nextAt = now + (following != null ? following - NARRATION_STALL_RETRY_MS[attempt] : NARRATION_STALL_HIDDEN_RETRY_MS)
     applyRate(audio, speedRef.current)
-    if (attempt === 0) {
+    if (attempt === 0 && !copyReady) {
       // A nudge in place: some stalls only need the element asked again.
       try { if (!audio.paused) audio.currentTime = stall.time } catch { /* ignore */ }
       void Promise.resolve().then(() => audio.play()).catch(() => { /* the next attempt reloads */ })
@@ -1896,10 +1905,11 @@ export function useLabListen(options: UseLabListenOptions) {
     // Starting it again is not sound yet: the lock screen keeps saying paused until the clock moves.
     publishPlaybackState(false)
   }
+  // The watchdog's own beat: a stalled element sends no timeupdate. It never
+  // drives the follow paint, which stays on the element's clock.
   useEffect(() => {
     if (!playing) { stallRef.current = null; return }
-    const timer = setInterval(() => checkStallRef.current(), 500)
-    return () => clearInterval(timer)
+    return repeatWhilePlaying(() => checkStallRef.current(), NARRATION_STALL_CHECK_MS)
   }, [playing])
 
   const resolveClips = useCallback(async (): Promise<LabAudioClip[]> => {

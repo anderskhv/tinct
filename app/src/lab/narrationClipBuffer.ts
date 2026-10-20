@@ -229,6 +229,12 @@ export class NarrationClipBuffer {
     return this.entries.get(url)?.state === 'ready'
   }
 
+  /** This clip is downloading and bytes arrived within the last second. */
+  isArriving(url: string): boolean {
+    const entry = this.entries.get(url)
+    return Boolean(this.deps && entry?.state === 'loading' && this.deps.now() - entry.dataAt < 1_000)
+  }
+
   /** The network looked weak lately (a stalled or too-slow download): the player widens its window. */
   get weak(): boolean {
     return Boolean(this.deps && this.deps.now() < this.weakUntil)
@@ -457,4 +463,19 @@ export class NarrationClipBuffer {
 function defaultSignal(signal: ClipBufferSignal): void {
   if (typeof window === 'undefined' || typeof CustomEvent !== 'function') return
   window.dispatchEvent(new CustomEvent('tinct:narration-buffer', { detail: { ...signal, at: new Date().getTime() } }))
+}
+
+/**
+ * Run `beat` every `ms` until the returned stop is called: the stall
+ * watchdog's timer (a stalled element sends no events to drive it).
+ */
+export function repeatWhilePlaying(beat: () => void, ms: number): () => void {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  let stopped = false
+  const tick = () => {
+    if (stopped) return
+    try { beat() } finally { if (!stopped) timer = setTimeout(tick, ms) }
+  }
+  timer = setTimeout(tick, ms)
+  return () => { stopped = true; clearTimeout(timer) }
 }
