@@ -67,10 +67,11 @@ describe('the page wrapper', () => {
 describe('main.tsx', () => {
   it('decides the preview only on /reader, never for a reader’s own book, and otherwise renders the book reader as before', () => {
     const main = readFileSync(resolve(__dirname, '../../main.tsx'), 'utf8')
-    expect(main).toContain("const previewBookId = pathname === '/reader' && !userBookHex ? marginPreviewBookForPage(")
-    // The preview returns before the stored-data migrations and the book reader's render.
-    expect(main.indexOf('if (previewBookId)')).toBeLessThan(main.indexOf('storedContentMigrations()'))
-    expect(main.indexOf('if (previewBookId)')).toBeLessThan(main.lastIndexOf('render()'))
+    expect(main).toContain("const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(")
+    // The desktop frame returns before the stored-data migrations and the book reader's render;
+    // a phone renders the book reader itself (marginPreviewMount.test.ts).
+    expect(main.indexOf("if (preview?.mount === 'frame'")).toBeLessThan(main.indexOf('storedContentMigrations()'))
+    expect(main.indexOf("if (preview?.mount === 'frame'")).toBeLessThan(main.lastIndexOf("render(preview?.mount === 'phone')"))
   })
 })
 

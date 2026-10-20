@@ -125,7 +125,7 @@ describe('every removal path uses the motion', () => {
   it('My shelf, the reading table and the shelf study keep their books and glide them', () => {
     const app = lib('app.js'), table = lib('reading-table.js'), view = lib('bookshelf-view.js')
     // My shelf: the leaving book fades during the save, then the re-render plays FLIP with the scroll kept.
-    for (const path of ['removeFromMyShelf', 'removeOwnFromReading', 'deleteOwnBook']) expect(app).toMatch(new RegExp(`function ${path}[\\s\\S]{0,400}leaveShelf\\(`))
+    for (const path of ['removeFromMyShelf', 'deleteOwnBook']) expect(app).toMatch(new RegExp(`function ${path}[\\s\\S]{0,400}leaveShelf\\(`))
     expect(app).toMatch(/playFlip\(shelfNodes\(\),before,shelfKey/)
     expect(app).toMatch(/scrollTo\(\{top:y,behavior:'instant'\}\)/)
     // The desk takes books off in place and hands the choice to a neighbour.
@@ -144,10 +144,11 @@ describe('every removal path uses the motion', () => {
     // The reader's own picture from the first paint (20261019avatar) changed boot.js and styles.css.
     // Continue opens the latest thing read, with "Also reading" (20261020continue), changed the reading
     // table, bookshelf.js and styles.css, and every module above them on the way to index.html.
+    // My shelf's ••• menu (20261020shelfmenu) changed app.js and styles.css; Finished's held books (20261020finished) app.js.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020continue'
-    expect(lib('index.html')).toContain('app.js?v=20261020continue')
+    expect(lib('index.html')).toContain('app.js?v=20261020finished')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
-    expect(lib('index.html')).toContain('styles.css?v=20261020continue')
+    expect(lib('index.html')).toContain('styles.css?v=20261020shelfmenu')
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
     expect(lib('app.js')).toContain(`bookshelf.js?v=${latest}`)
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)

@@ -363,6 +363,29 @@ it('keeps finished books on the shelf: an earlier removal of a finished book is 
   expect(table.reading.map(book=>book.bookId)).toEqual([])
 })
 
+it('Remove from my books takes a finished book off Finished from 2026-10-20 on, keeps it finished, and adding it again brings it back', async () => {
+  const { FINISHED_REMOVAL_SINCE, removedFromFinished } = await import('./preReader/readingNow')
+  const after = FINISHED_REMOVAL_SINCE + 1000
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+  calls.memory.mockResolvedValue(null)
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  // hamlet: removed now, after it was finished. crito: removed before the rule (stays). the-awakening: finished after its removal (stays).
+  calls.membership.mockResolvedValue({removed:['hamlet','crito','the-awakening'],tableHidden:[],removedAt:{hamlet:after,crito:150,'the-awakening':after},tableHiddenAt:{}})
+  calls.readingList.mockReturnValue({readingNow:[],finished:[{bookId:'hamlet',finishedAt:100},{bookId:'crito',finishedAt:100},{bookId:'the-awakening',finishedAt:after+5}]})
+  const books=['crito','hamlet','the-awakening'].map(id=>({id,title:id,author:'Author',defaultEditionKey:'original-en',editions:[{key:'original-en',language:'en',style:'original'}],readingStructure:{chapters:[{number:1,title:'Chapter 1',paragraphCount:40}]}}))
+  const api=await import('./libraryTwoReading')
+  const table=await api.loadReadingTable({catalogue:Promise.resolve({books})})
+  expect(table.finished.map(book=>book.bookId)).toEqual(['crito','the-awakening'])
+  // Still finished for the introduction's spoiler rule.
+  expect((await api.introductionProgress('hamlet')).completed).toBe(true)
+  // Added again (saved): no longer a removal, so Finished shows it.
+  calls.membership.mockResolvedValue({removed:['crito','the-awakening'],tableHidden:[],removedAt:{crito:150,'the-awakening':after},tableHiddenAt:{}})
+  expect((await api.loadReadingTable({catalogue:Promise.resolve({books})})).finished.map(book=>book.bookId)).toEqual(['hamlet','crito','the-awakening'])
+  expect(removedFromFinished({bookId:'x',finishedAt:null},{removed:['x'],tableHidden:[],removedAt:{x:0}})).toBe(false)
+  expect(removedFromFinished({bookId:'x',finishedAt:null},{removed:['x'],tableHidden:[],removedAt:{x:after}})).toBe(true)
+})
+
 it('paints each book with its stored summary so the desk never shows the position line first', async () => {
   calls.auth.mockResolvedValue({data:{session:null}})
   calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))

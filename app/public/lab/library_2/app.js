@@ -14,10 +14,9 @@ import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,shelfMenu,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
-import {isPublicBookId} from '../public-books.js?v=20261009rel10';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {bookCoverSrc} from '../book-cover.js?v=20261009owncover';
@@ -546,10 +545,12 @@ let layerSkipPop=false;
 addEventListener('popstate',()=>{if(layerSkipPop){layerSkipPop=false;return;}layerFromPop=true;try{if(activeBook){if(reading)$('reader-back').click();closeBook();}else if(collectionChoice!=='home')selectCollection('home');}finally{layerFromPop=false;}});
 function selectCollection(value){const fromHome=collectionChoice==='home';const shelfView=value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf';if(value!=='home'&&fromHome&&!shelfView)pushLayer('collection');else if(value==='home'&&!fromHome)dropLayer('collection');collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
 // My shelf: what you are reading, what you want to read, and what you have finished.
+// Remove from my books (Anders, 2026-10-20): confirmed in the page, then off My shelf, the
+// reading table and Continue, from every group (Finished too). Its place, highlights and
+// notes are kept: the shelf's own tombstone (libraryTwoSaved.ts), so adding it again brings them back.
 async function removeFromMyShelf(id,{title='',from=null}={}){
- // A book added to Tinct leaves My shelf only once confirmed, as My private uploads do (approved copy, Anders 2026-10-08).
- if(isPublicBookId(id)&&!await confirmDeleteUpload({title:title||books.find(b=>b.id===id)?.title||''},{from}))return;
- const leave=leaveShelf(['reading:'+id,'want:'+id]);
+ if(!await confirmDeleteUpload({title:title||bookById(id)?.title||''},{from,own:false}))return;
+ const leave=leaveShelf(['reading:'+id,'want:'+id,'finished:'+id]);
  try{
   const api=await readingApi();
   // Off My shelf, with the desk's fast-paint snapshot (so a refresh cannot paint it back), for every kind of book.
@@ -570,31 +571,34 @@ function dropFromReading(id){
  if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
  dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
 }
-/** An own book's × under Currently reading: off Currently reading, as the desk's × does (its place is kept; it stays in My private uploads). */
-async function removeOwnFromReading(book){
- const id=ownTableId(book.key),leave=leaveShelf(['own-reading:'+book.key]);
- try{const api=await readingApi();await Promise.all([api.hideFromReadingNow(id),leave.faded]);leave.done();dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null,savedAt:Date.now()}:own));}
- catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
-}
-/** An own book's × under My private uploads: confirmed, then Add a book's own delete (this device and the account). */
+/** An own book's Delete (its ••• menu, anywhere on My shelf): confirmed, then Add a book's own delete (every device and the account). */
 async function deleteOwnBook(book,from){
- if(!await confirmDeleteUpload(book,{from}))return;
- const leave=leaveShelf(['own:'+book.key,'own-reading:'+book.key]);
+ if(!await confirmDeleteUpload(book,{from,own:true}))return;
+ const leave=leaveShelf(['own:'+book.key,'own-reading:'+book.key,'finished:'+book.key]);
  try{
   const [gone]=await Promise.all([deleteUpload(book),leave.faded]);leave.done();
-  if(!gone)notice('Removed from this device, but not from your account. Try again.');
+  if(!gone)notice('Deleted from this device, but not from your account. Try again.');
   dropFromReading(ownTableId(book.key));refreshOwnShelf(list=>list.filter(own=>own.key!==book.key));
- }catch{leave.cancel();notice('This book could not be removed. Please try again.');}
+ }catch{leave.cancel();notice('This book could not be deleted. Please try again.');}
 }
 /** A Currently reading card from the reading row itself, for a book the library's list does not hold yet. */
-function readingRowCard(row){
- const card=el('article','collection-card');card.dataset.shelfGroup='reading';card.dataset.rowBook=row.bookId;
+/**
+ * A Finished card: one of the reader's own books (finished by its place), a book the shelves list
+ * (or a typed search finds), else the row itself. Finished books held from the shelves (Symposium,
+ * War and Peace: discoveryAvailable false) used to be dropped here, so Finished showed fewer books
+ * than the reader had finished (Anders, 2026-10-20).
+ */
+function finishedCard(row){
+ if(row.own){if(!row.ownKey||!row.href||!addEnabled())return null;const card=ownBookCard({key:row.ownKey,kind:row.kind||(row.ownKey.startsWith('pdf:')?'pdf':'epub'),title:row.title||'',author:row.author||'',cover:row.cover||ownShelf?.find(own=>own.key===row.ownKey)?.cover||null,href:row.href},el,{onDelete:(own,from)=>void deleteOwnBook(own,from)});card.dataset.shelfGroup='finished';return card;}
+ const book=bookById(row.bookId);return book?{book}:readingRowCard(row,'finished');
+}
+function readingRowCard(row,group='reading'){
+ const card=el('article','collection-card');card.dataset.shelfGroup=group;card.dataset.rowBook=row.bookId;
  const wrap=el('div','card-wrap');const open=el('button','book-card cover-button');open.type='button';open.setAttribute('aria-label',`Open ${row.title}${row.author?', by '+row.author:''}`);
  const src=bookCoverSrc({bookId:row.bookId,art:row.cover});
  if(src){const img=el('img','cover');img.src=src;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
  open.onclick=async()=>{document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination({id:row.bookId},null),new Promise(r=>setTimeout(r,240))]);location.assign(href);};
- const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=row.title;x.setAttribute('aria-label','Remove from My shelf: '+row.title);x.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(row.bookId,{title:row.title,from:x});};
- wrap.append(open,x);card.append(wrap,el('h2','',shortTitle(row.title)),el('p','',row.author||''));return card;
+ wrap.append(open,shelfMenu(row.title,{onChoose:from=>void removeFromMyShelf(row.bookId,{title:row.title,from})}));card.append(wrap,el('h2','',shortTitle(row.title)),el('p','',row.author||''));return card;
 }
 /**
  * A Currently reading card for one of the reader's own books, from its reading-table row: the same
@@ -606,7 +610,7 @@ function ownReadingCard(row,ownList){
  const key=row.ownKey||listed?.key;if(!key)return null;
  const book={key,kind:row.kind||listed?.kind||(key.startsWith('pdf:')?'pdf':'epub'),title:row.title||listed?.title||'',author:row.author||listed?.author||'',cover:row.cover||listed?.cover||null,href:row.href||listed?.href||'',percent:row.percent??listed?.percent??null};
  if(!book.href)return null;
- const card=ownBookCard(book,el,{onRemove:own=>void removeOwnFromReading(own),progress:true});card.dataset.shelfGroup='own-reading';return card;
+ const card=ownBookCard(book,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),progress:true});card.dataset.shelfGroup='own-reading';return card;
 }
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 // Removing a book from My shelf (Anders, 2026-10-09: "like Apple apps in iOS"): the
@@ -640,9 +644,9 @@ function drawMyBooks(){
  const showOwn=addEnabled();
  const readingCards=reading.map(row=>row.own?(showOwn?ownReadingCard(row,ownShelf):null):byId(row.bookId)?{book:byId(row.bookId)}:readingRowCard(row)).filter(Boolean);
  // An own book taken off Currently reading (its place kept) is saved for later, as Tinct's are
- // (Anders, 2026-10-12); it stays under My private uploads too, where its × deletes it.
- const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{progress:true});card.dataset.shelfGroup='want';return card;}):[];
- const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean).map(book=>({book})),'finished']];
+ // (Anders, 2026-10-12); its ••• deletes it, as under My private uploads.
+ const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),progress:true});card.dataset.shelfGroup='want';return card;}):[];
+ const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(finishedCard).filter(Boolean),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
@@ -651,11 +655,9 @@ function drawMyBooks(){
    if(item instanceof Node){grid.append(item);return;}
    const book=item.book;
    const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;card.dataset.book=book.id;
-   const toggle=open.querySelector('.save-toggle');
-   // Finished books cannot be removed (Anders, 2026-10-07): they stay on the shelf.
-   // Books being read and books saved for later keep their ×.
-   if(toggle&&kind==='finished')toggle.remove();
-   else if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id,{title:book.title,from:toggle});};}
+   // Every book here, Finished too, has the cover's ••• with Remove from my books (Anders,
+   // 2026-10-20; it replaces the shelf's ×, and the 2026-10-07 rule that Finished books stay).
+   open.querySelector('.save-toggle')?.replaceWith(shelfMenu(book.title,{onChoose:from=>void removeFromMyShelf(book.id,{title:book.title,from})}));
    if(kind==='reading'){
     const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
     b.addEventListener('click',async e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});

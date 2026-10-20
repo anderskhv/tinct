@@ -569,8 +569,9 @@ test.describe('My shelf', () => {
     // The reader's own EPUB opens in the reader; the PDF at its own address in Add a book's PDF reader.
     await expect(grid.locator('.own-book a').first()).toHaveAttribute('href', '/reader?userBook=aaaaaaaaaaaaaaaaaaaaaaaa')
     await expect(grid.locator('[data-shelf-group="own"][data-own-key="pdf:bbbbbbbbbbbbbbbbbbbbbbbb"] a')).toHaveAttribute('href', '/lab/addbook/?userBook=bbbbbbbbbbbbbbbbbbbbbbbb')
-    // Every upload has the shelf's ×.
-    await expect(grid.locator('[data-shelf-group="own"] [data-shelf-remove]')).toHaveCount(2)
+    // Every upload has the cover's ••• (its one action: Delete).
+    await expect(grid.locator('[data-shelf-group="own"] .shelf-more')).toHaveCount(2)
+    await expect(grid.locator('[data-shelf-group="own"] [data-shelf-remove]')).toHaveCount(0)
     await expect(page.locator('#collection input, #collection [type="search"]')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     await shot(page, 'myshelf-signed-in')
@@ -605,22 +606,43 @@ test.describe('My shelf', () => {
     await page.waitForURL(/\/sign-in\?mode=account/)
   })
 
-  test('books being read can be removed; finished books cannot', async ({ page }) => {
+  /** A shelf card's ••• (shown on hover with a mouse, always on touch), opened: its menu's one item. */
+  const openMore = async (page: Page, card: ReturnType<Page['locator']>) => {
+    const more = card.locator('.shelf-more')
+    if (!test.info().project.use.hasTouch) {
+      await expect(more).toHaveCSS('opacity', '0')
+      await card.locator('.card-wrap').hover()
+    }
+    await expect(more).toHaveCSS('opacity', /^0\.9/)
+    await more.click()
+    const items = card.locator('[role="menuitem"]')
+    await expect(items).toHaveCount(1)
+    return items.first()
+  }
+
+  test('every book on My shelf, Finished too, has the cover\'s ••• with Remove from my books', async ({ page }) => {
     // The sample returning reader: five books being read, two finished.
     await prepare(page, { internal: false, signedIn: true, query: 'demo=reading' })
     await openShelf(page)
     const grid = page.locator('#collection-books')
     await expect(grid.locator('[data-shelf-group="finished"]')).toHaveCount(2)
-    const reading = grid.locator('[data-shelf-group="reading"]')
-    expect(await reading.count()).toBeGreaterThan(0)
-    await expect(reading.locator('[data-shelf-remove]')).toHaveCount(await reading.count())
-    await expect(reading.first().locator('[data-shelf-remove]')).toHaveAttribute('aria-label', /^Remove from My shelf: /)
-    await expect(grid.locator('[data-shelf-group="finished"] .save-toggle, [data-shelf-group="finished"] [data-shelf-remove]')).toHaveCount(0)
+    const tinct = grid.locator('[data-shelf-group="reading"]:not(.own-book), [data-shelf-group="finished"]')
+    expect(await tinct.count()).toBeGreaterThan(2)
+    await expect(tinct.locator('.shelf-more')).toHaveCount(await tinct.count())
+    await expect(grid.locator('[data-shelf-remove]')).toHaveCount(0)
+    const finished = grid.locator('[data-shelf-group="finished"]').first()
+    await expect(finished.locator('.shelf-more')).toHaveAttribute('aria-label', /^More for /)
+    const item = await openMore(page, finished)
+    await expect(item).toHaveText('Remove from my books')
+    await shot(page, 'myshelf-more-menu')
+    await page.keyboard.press('Escape')
+    await expect(grid.locator('.shelf-menu')).toHaveCount(0)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
   })
 
-  test('a finished book removed earlier is shown again; a book saved for later keeps its ×', async ({ page }) => {
-    // This device as a guest: Hamlet finished, then removed from My shelf (the old ×); the Odyssey saved for later.
-    const removal = JSON.stringify({ items: { hamlet: { saved: false, at: Date.now() - 60_000 }, odyssey: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
+  test('a finished book removed before 2026-10-20 is shown again; a book saved for later has its •••', async ({ page }) => {
+    // This device as a guest: Hamlet finished, then removed from My shelf with the old × (before the new rule); the Odyssey saved for later.
+    const removal = JSON.stringify({ items: { hamlet: { saved: false, at: Date.UTC(2026, 9, 10) }, odyssey: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
     await page.addInitScript(value => {
       try { localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ bookId: 'hamlet' })); localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ }
     }, removal)
@@ -629,48 +651,134 @@ test.describe('My shelf', () => {
     const finished = page.locator('#collection-books [data-shelf-group="finished"]')
     await expect(finished).toHaveCount(1, { timeout: 20_000 })
     await expect(finished.locator('h2')).toHaveText('Hamlet')
-    await expect(finished.locator('[data-shelf-remove], .save-toggle')).toHaveCount(0)
+    await expect(finished.locator('.shelf-more')).toHaveCount(1)
     const saved = page.locator('#collection-books [data-shelf-group="want"]')
     await expect(saved).toHaveCount(1)
-    await expect(saved.locator('[data-shelf-remove]')).toHaveAttribute('aria-label', 'Remove from My shelf: The Odyssey')
+    await expect(saved.locator('.shelf-more')).toHaveAttribute('aria-label', 'More for The Odyssey')
     expect(await page.evaluate(() => localStorage.getItem('tinct:library-2-saved:guest'))).toBe(removal)
   })
 
-  test('an added book\'s × asks first, with the approved copy: Keep book keeps it, Remove removes it (QA 2026-10-08)', async ({ page }) => {
-    // This device, with the internal flag: the added book Emma saved for later.
-    const saved = JSON.stringify({ items: { [ADDED.id]: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
-    await page.addInitScript(value => { try { localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ } }, saved)
-    await prepare(page, { internal: true, signedIn: false })
+  test('Remove from my books asks first in the page: Cancel keeps it, Remove takes it off Finished too', async ({ page }) => {
+    await page.addInitScript(() => { try { localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ bookId: 'hamlet' })) } catch { /* private */ } })
+    await prepare(page, { internal: false, signedIn: false })
     await openShelf(page)
-    const card = page.locator('#collection-books [data-shelf-group="want"]', { hasText: 'Emma' })
+    const card = page.locator('#collection-books [data-shelf-group="finished"]', { hasText: 'Hamlet' })
     await expect(card).toHaveCount(1, { timeout: 20_000 })
-    const x = card.locator('[data-shelf-remove]')
-    await x.click()
+    await (await openMore(page, card)).click()
     const dialog = page.locator('[data-testid="own-delete-dialog"]')
     await expect(dialog).toBeVisible()
-    await expect(dialog.locator('h2')).toHaveText('Remove Emma?')
-    await expect(dialog.locator('.tui-dialog__body')).toHaveText('It is removed from this device and your account.')
-    await expect(dialog.locator('.own-delete-cancel')).toHaveText('Keep book')
+    await expect(dialog.locator('h2')).toHaveText('Remove Hamlet?')
+    await expect(dialog.locator('.tui-dialog__body')).toHaveText('Removes it from your books. Your notes stay if you add it again.')
+    await expect(dialog.locator('.own-delete-cancel')).toHaveText('Cancel')
     await expect(dialog.locator('.own-delete-confirm')).toHaveText('Remove')
-    await shot(page, 'myshelf-remove-added-confirm')
+    await page.waitForTimeout(400)
+    await shot(page, 'myshelf-remove-tinct-confirm')
     await dialog.locator('.own-delete-cancel').click()
     await expect(dialog).toHaveCount(0)
     await expect(card).toHaveCount(1)
-    await x.click()
+    await (await openMore(page, card)).click()
     await page.locator('[data-testid="own-delete-dialog"] .own-delete-confirm').click()
-    await expect(page.locator('#collection-books [data-shelf-group="want"]', { hasText: 'Emma' })).toHaveCount(0)
+    await expect(page.locator('#collection-books [data-shelf-group="finished"]')).toHaveCount(0)
+    // Still gone after a reload: the shelf's tombstone, and the book is still finished on this device.
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await openShelf(page)
+    await page.waitForTimeout(1500)
+    await expect(page.locator('#collection-books [data-shelf-group="finished"]')).toHaveCount(0)
+    expect(await page.evaluate(() => localStorage.getItem('tinct:book-completed:hamlet'))).not.toBeNull()
   })
 
-  test('a registry book\'s × still removes it at once', async ({ page }) => {
-    const saved = JSON.stringify({ items: { odyssey: { saved: true, at: Date.now() - 30_000 } }, pending: {} })
-    await page.addInitScript(value => { try { localStorage.setItem('tinct:library-2-saved:guest', value) } catch { /* private */ } }, saved)
+  test('removing a book being read takes it off My shelf and the reading table; adding it again brings back its place', async ({ page }) => {
+    // This device as a guest, reading Frankenstein: chapter 3, paragraph 5 (the reader's own record).
+    const at = Date.now() - 120_000
+    const place = { bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 3, sequentialChapter: 3, paragraphIndex: 5, wordIndex: 0, pageIndex: 0, primaryEditionKey: 'original-en', updatedAt: at, deviceId: 'device-e2e', rev: 1 }
+    const record = JSON.stringify({ books: { frankenstein: place }, finished: {}, owner: null, hidden: {}, lastSettledBookId: 'frankenstein', lastSettledAt: at, updatedAt: at, deviceId: 'device-e2e' })
+    await page.addInitScript(value => { try { if (!localStorage.getItem('tinct-lab-position')) localStorage.setItem('tinct-lab-position', value) } catch { /* private */ } }, record)
+    await prepare(page, { internal: false, signedIn: false, query: 'x=1' })
+    const tableIds = () => page.evaluate(() => (window as unknown as { __library2Reading?: { reading: Array<{ bookId: string }> } }).__library2Reading?.reading.map(b => b.bookId) ?? null)
+    await expect.poll(tableIds, { timeout: 30_000 }).toContain('frankenstein')
+    const before = await page.evaluate(() => (window as unknown as { __library2Reading: { reading: Array<{ bookId: string; chapterLabel: string }> } }).__library2Reading.reading.find(b => b.bookId === 'frankenstein')!.chapterLabel)
+    await openShelf(page)
+    const card = page.locator('#collection-books [data-shelf-group="reading"][data-book="frankenstein"]')
+    await expect(card).toHaveCount(1)
+    await (await openMore(page, card)).click()
+    await page.locator('[data-testid="own-delete-dialog"] .own-delete-confirm').click()
+    await expect(card).toHaveCount(0)
+    await expect.poll(tableIds).not.toContain('frankenstein')
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await page.waitForTimeout(2500)
+    expect(await tableIds() ?? []).not.toContain('frankenstein')
+    await expect(page.locator('.reading-table:not([hidden]) .rt-b', { hasText: 'Frankenstein' })).toHaveCount(0)
+    // The place was never touched.
+    expect(JSON.parse(await page.evaluate(() => localStorage.getItem('tinct-lab-position') || '{}')).books.frankenstein).toMatchObject({ chapterNumber: 3, paragraphIndex: 5 })
+    // Added again from the library (its +): back on the table at the same place.
+    const plus = page.locator('#shelves .save-toggle[data-book="frankenstein"]').first()
+    await plus.scrollIntoViewIfNeeded()
+    await plus.click()
+    await expect(plus).toHaveAttribute('aria-pressed', 'true')
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await expect.poll(tableIds, { timeout: 30_000 }).toContain('frankenstein')
+    const after = await page.evaluate(() => (window as unknown as { __library2Reading: { reading: Array<{ bookId: string; chapterLabel: string }> } }).__library2Reading.reading.find(b => b.bookId === 'frankenstein')!.chapterLabel)
+    expect(after).toBe(before)
+    await shot(page, 'table-readded')
+  })
+
+  test('an own book\'s Delete asks first, calls the account\'s delete, and the book is gone after a reload', async ({ page }) => {
+    const hex = 'bbbbbbbbbbbbbbbbbbbbbbbb', fileId = 'f'.repeat(32)
+    let deleted = false
+    const deletes: string[] = []
+    await page.route('**/api/user-books**', async route => {
+      const url = new URL(route.request().url())
+      if (route.request().method() === 'DELETE') { deletes.push(url.pathname); deleted = true; return route.fulfill({ json: { ok: true } }) }
+      if (url.pathname === '/api/user-books') return route.fulfill({ json: { books: deleted ? [] : [{ id: fileId, name: 'week4.pdf', title: 'Lecture notes, week 4', author: '', type: 'pdf', size: 1000, sha256: hex + 'c'.repeat(40), createdAt: '2026-10-01T00:00:00Z', cover: null }] } })
+      return route.fulfill({ json: {} })
+    })
+    await prepare(page, { internal: false, signedIn: true })
+    // My shelf's list follows the account (as libraryAdd.ts ownBooks does): once deleted there, it no longer names the book.
+    await page.route('**/lab/library-add.js**', route => route.fulfill({
+      contentType: 'text/javascript',
+      body: `window.__tinctLibraryAdd={ownBooks:async()=>{const r=await fetch('/api/user-books');const keys=(await r.json()).books.map(b=>b.type+':'+b.sha256.slice(0,24));return ${JSON.stringify(OWN_BOOKS)}.filter(b=>b.key!=='pdf:${hex}'||keys.includes(b.key));},canAdd:async()=>true,importWork:${FAILING_IMPORT}};`,
+    }))
+    await page.evaluate(key => localStorage.setItem(`tinct-addbook:hl:${key}`, '[]'), hex)
+    await openShelf(page)
+    const card = page.locator(`#collection-books [data-shelf-group="own"][data-own-key="pdf:${hex}"]`)
+    await expect(card).toHaveCount(1, { timeout: 20_000 })
+    const item = await openMore(page, card)
+    await expect(item).toHaveText('Delete')
+    await item.click()
+    const dialog = page.locator('[data-testid="own-delete-dialog"]')
+    await expect(dialog.locator('h2')).toHaveText('Delete Lecture notes, week 4?')
+    await expect(dialog.locator('.tui-dialog__body')).toHaveText('Deletes the file, its notes and its place from Tinct on all your devices.')
+    await expect(dialog.locator('.own-delete-confirm')).toHaveText('Delete')
+    await page.waitForTimeout(400)
+    await shot(page, 'myshelf-delete-own-confirm')
+    await dialog.locator('.own-delete-confirm').click()
+    await expect(card).toHaveCount(0)
+    await expect.poll(() => deletes).toEqual([`/api/user-books/${fileId}`])
+    // This device's keys for the book went with it.
+    expect(await page.evaluate(key => localStorage.getItem(`tinct-addbook:hl:${key}`), hex)).toBeNull()
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await openShelf(page)
+    await expect(page.locator('#collection-books [data-shelf-group="own"]').first()).toBeVisible({ timeout: 20_000 })
+    await expect(page.locator(`#collection-books [data-own-key="pdf:${hex}"]`)).toHaveCount(0)
+  })
+
+  test('Finished lists every finished book, held from the shelves or not (Symposium, War and Peace), never the Bible', async ({ page }) => {
+    // One reader's account rows (2026-10-20), as the library mirrors them on this device.
+    const rows = {
+      'book-completed:symposium': { bookId: 'symposium', source: 'text', completedAt: 1785548118551 },
+      'progress:war-and-peace': { bookId: 'war-and-peace', percent: 100, totalChapters: 365, positionPercent: 100, highestCompletedChapter: 364 },
+      'progress:the-awakening': { bookId: 'the-awakening', percent: 97, totalChapters: 39, positionPercent: 100, highestCompletedChapter: 38 },
+      'progress:bible': { bookId: 'bible', percent: 96, totalChapters: 1189, positionPercent: 72, highestCompletedChapter: 1146 },
+      'progress:paradise-lost': { bookId: 'paradise-lost', percent: 33, totalChapters: 12, positionPercent: 33, highestCompletedChapter: 4 },
+    }
+    await page.addInitScript(value => { try { for (const [key, row] of Object.entries(value)) localStorage.setItem('tinct:' + key, JSON.stringify(row)) } catch { /* private */ } }, rows)
     await prepare(page, { internal: false, signedIn: false })
     await openShelf(page)
-    const card = page.locator('#collection-books [data-shelf-group="want"]')
-    await expect(card).toHaveCount(1, { timeout: 20_000 })
-    await card.locator('[data-shelf-remove]').click()
-    await expect(page.locator('[data-testid="own-delete-dialog"]')).toHaveCount(0)
-    await expect(page.locator('#collection-books [data-shelf-group="want"]')).toHaveCount(0)
+    const finished = page.locator('#collection-books [data-shelf-group="finished"]')
+    await expect(finished).toHaveCount(3, { timeout: 20_000 })
+    expect((await finished.locator('h2').allTextContents()).sort()).toEqual(['Symposium', 'The Awakening', 'War and Peace'])
+    await expect(finished.locator('.shelf-more')).toHaveCount(3)
+    await shot(page, 'myshelf-finished-three')
   })
 
   test('signed out: My shelf as before', async ({ page }) => {

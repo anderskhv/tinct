@@ -9,7 +9,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { LabApp } from './lab/LabApp'
 import { userBookFromSearch } from './lab/userBook/userBookId'
-import { marginPreviewBookForPage } from './lab/marginPreview/marginPreviewFlag'
+import { marginPreviewMountForPage } from './lab/marginPreview/marginPreviewMount'
+import { isLabPhoneSurface, labPhoneSurfaceInput } from './lab/labChrome'
+import { labLayoutOverride } from './lab/labRoute'
 import { isMarginPreviewBook } from './lab/marginPreview/marginPreviewModel'
 import { getBook } from './data/bookRegistry'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
@@ -70,9 +72,9 @@ if (pathname === '/reader') {
   warmAccountCards()
 }
 
-const render = () => ReactDOM.createRoot(document.getElementById('root')!).render(
+const render = (marginPhone = false) => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : <LabApp />}
+    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : <LabApp marginPhone={marginPhone || undefined} />}
   </React.StrictMode>,
 )
 
@@ -100,16 +102,19 @@ async function begin() {
       return
     }
   }
-  // Decided once the added books are registered. The book reader is not mounted, and the
-  // stored-data migrations wait for its next visit: the preview writes none of its data.
-  const previewBookId = pathname === '/reader' && !userBookHex ? marginPreviewBookForPage(id => isMarginPreviewBook(getBook(id))) : null
-  if (previewBookId) {
+  // Decided once the added books are registered. On a desktop the book reader is not mounted, and
+  // the stored-data migrations wait for its next visit: the preview writes none of its data. On a
+  // phone the preview is the book reader itself with the new bar, cards and pills (marginPreviewMount.ts).
+  const phone = isLabPhoneSurface(labPhoneSurfaceInput(labLayoutOverride(pathname, window.location.search)))
+  const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(id => isMarginPreviewBook(getBook(id)), phone) : null
+  if (preview?.mount === 'frame' && preview.bookId) {
+    const previewBookId = preview.bookId
     ReactDOM.createRoot(document.getElementById('root')!).render(<React.Suspense fallback={null}><MarginPreview bookId={previewBookId} /></React.Suspense>)
     return
   }
   const contentMigrations = Root === LabApp ? storedContentMigrations() : null
   if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
-  render()
+  render(preview?.mount === 'phone')
 }
 void begin().catch(() => {
   // Render the ordinary reader error/retry flow; never clear its saved data.

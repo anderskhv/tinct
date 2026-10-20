@@ -99,6 +99,11 @@ export interface ReadingTableFinished {
   author: string
   cover: string | null
   finishedAt: number | null
+  /** One of the reader's own books (ownTableBook's fields), finished by its place (ownShelf.ts ownFinished). */
+  own?: true
+  ownKey?: string
+  kind?: 'pdf' | 'epub'
+  href?: string
 }
 
 export interface ReadingTable {
@@ -120,6 +125,8 @@ const LIBRARY_POSITION_DEVICE_ID = 'lab-library'
 
 let catalogue: Map<string, CatalogueBook> | null = null
 let lastRows = new Map<string, ReadingListRow>()
+/** Every finished book of the last read, removed ones included (introductionProgress). */
+let lastFinished = new Set<string>()
 let lastPositions: LabPositionState | null = null
 const summaryOutcomes = new Map<string, Promise<SummaryResult>>()
 
@@ -258,7 +265,8 @@ async function placeFor(bookId: string): Promise<Place | null> {
 export async function introductionProgress(bookId: string): Promise<{ chapterNumber: number; completed: boolean }> {
   const table = await loadReadingTable()
   const place = await placeFor(bookId)
-  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) }
+  // A finished book removed from the reader's books is still finished.
+  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) || lastFinished.has(bookId) }
 }
 
 /**
@@ -408,6 +416,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   })
   // Removed books still resume at their place (placeFor).
   lastRows = new Map(list.inProgress.map(row => [row.bookId, row]))
+  lastFinished = new Set((list.allFinished ?? list.finished).map(row => row.bookId))
   const table: ReadingTable = {
     mode: libraryModeFor(list),
     reading: list.readingNow.map(row => {
@@ -431,15 +440,18 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         lastActiveAt: row.lastActiveAt,
       }
     }),
-    // Finished books stay: My shelf offers removal only for books being read (Anders,
-    // 2026-10-07), and older removals of finished books are ignored here, so they
-    // reappear without any stored removal being rewritten.
+    // A finished book leaves the shelf only when removed after it was finished, from
+    // 2026-10-20 ("Remove from my books", readingNow.ts removedFromFinished); older
+    // removals of finished books stay ignored (2026-10-07), so those books stay.
     finished: list.finished.map(row => {
       const book = books.get(row.bookId)
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: bookCoverSrc({ bookId: row.bookId, art: book?.art }), finishedAt: row.finishedAt }
     }),
   }
-  table.reading = withOwnReading(table.reading, await ownReady)
+  // An own book at its end is finished, as Tinct's are: on Finished, not on the reading table.
+  const own = await ownReady
+  table.reading = withOwnReading(table.reading, own.filter(book => !book.reading.finished))
+  table.finished = withOwnFinished(table.finished, own.filter(book => book.reading.finished))
   if (table.reading.length) table.mode = 'returning'
   // Paint each book's stored "so far" summary with the table itself, so the
   // desk never flashes the position headline first (cache reads only).
@@ -485,6 +497,17 @@ export function ownTableBook(book: OwnShelfBook & { reading: OwnShelfReading }):
   }
 }
 
+/** Own books at their end joined to Finished, most recently finished first (their place's time). */
+export function withOwnFinished(finished: ReadingTableFinished[], own: ReadonlyArray<OwnShelfBook & { reading: OwnShelfReading }>): ReadingTableFinished[] {
+  if (own.length === 0) return finished
+  const rows: ReadingTableFinished[] = own.map(book => {
+    const row = ownTableBook(book)
+    return { bookId: row.bookId, title: row.title, author: row.author, cover: row.cover, finishedAt: book.reading.lastActiveAt, own: true, ownKey: row.ownKey, kind: row.kind, href: row.href }
+  })
+  const ids = new Set(rows.map(row => row.bookId))
+  return [...finished.filter(row => !ids.has(row.bookId)), ...rows].sort((a, b) => (b.finishedAt ?? 0) - (a.finishedAt ?? 0))
+}
+
 /** Tinct's books and the reader's own in one row, most recently read first. */
 export function withOwnReading(reading: ReadingTableBook[], own: ReadonlyArray<OwnShelfBook & { reading: OwnShelfReading }>): ReadingTableBook[] {
   if (own.length === 0) return reading
@@ -496,8 +519,8 @@ export function withOwnReading(reading: ReadingTableBook[], own: ReadonlyArray<O
  * data: URL, and localStorage also keeps reading places. The fresh read paints them.
  */
 function withoutOwnCovers(table: ReadingTable): ReadingTable {
-  const strip = (rows: ReadingTableBook[]) => rows.map(row => row.own ? { ...row, cover: null } : row)
-  return { ...table, reading: strip(table.reading), ...(table.shelfReading ? { shelfReading: strip(table.shelfReading) } : {}) }
+  const strip = <T extends { own?: boolean; cover: string | null }>(rows: T[]) => rows.map(row => row.own ? { ...row, cover: null } : row)
+  return { ...table, reading: strip(table.reading), finished: strip(table.finished), ...(table.shelfReading ? { shelfReading: strip(table.shelfReading) } : {}) }
 }
 
 /** The book the reader was just in (the reader's library boot snapshot), if recent and this account's. */
