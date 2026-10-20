@@ -16,6 +16,21 @@ let pageHandoff: ReaderHandoffIntent | null = null
 let pageSharedLink: { id: string; ref: string } | null = null
 let pageModernReturn: ModernReturn | null = null
 
+let pageDeepLinkView: LabDeepLinkView | null = null
+
+/**
+ * The desktop layout a deep link asks for (`view=two-page|compare`): the margin preview's Layout choices
+ * (Anders, 2026-10-20) open the book reader at the same place in Two-page or Compare. Read with the link, once.
+ */
+export type LabDeepLinkView = 'two-page' | 'compare'
+export function deepLinkView(params: URLSearchParams | null): LabDeepLinkView | null {
+  const view = params?.get('view')
+  return view === 'two-page' || view === 'compare' ? view : null
+}
+export function deepLinkViewForPage(): LabDeepLinkView | null {
+  return pageDeepLinkView
+}
+
 /** The Checkout return (`?book=…&modern=1|cancel`) this page was opened from, read before the URL is cleaned. */
 export function modernReturnForPage(): ModernReturn | null {
   return pageModernReturn
@@ -143,7 +158,11 @@ export function readerHandoffFromUrlParams(params: URLSearchParams | null): Read
     return text && /^\d{1,6}$/.test(text) ? Number(text) : 0
   }
   const savedPlace = { bookId, chapterNumber, paragraphIndex: at('paragraph'), wordIndex: at('word'), page: 0 }
-  const open = (primaryEditionKey: string) => createReaderHandoffIntent({ bookId, primaryEditionKey, savedPlace, startAtSavedPlace: true })
+  // `compare` (the margin preview's Two-page and Compare, 2026-10-20): the reader's compare edition kept beside it.
+  const compareKey = params.get('compare')
+  const open = (primaryEditionKey: string) => (compareKey && compareKey !== primaryEditionKey
+    ? createReaderHandoffIntent({ bookId, primaryEditionKey, compareEditionKey: compareKey, savedPlace, startAtSavedPlace: true })
+    : null) ?? createReaderHandoffIntent({ bookId, primaryEditionKey, savedPlace, startAtSavedPlace: true })
   const named = params.get('edition')
   if (!named) {
     const book = getBook(bookId)!
@@ -179,6 +198,7 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
     if (pageModernReturn && params) forgetParams(params, ['book', 'modern', 'session_id'])
     const shareId = params?.get('share')
     if (pageHandoff && shareId && /^[a-hj-km-np-z2-9]{7}$/.test(shareId)) pageSharedLink = { id: shareId, ref: (params?.get('ref') || '').slice(0, 80) }
+    pageDeepLinkView = pageHandoff && params?.has('chapter') ? deepLinkView(params) : null
     if (!heldBook && pageHandoff && params?.has('chapter') && readerHandoffFromUrlParams(params)) forgetDeepLinkParams(params)
   }
   return pageHandoff
@@ -190,7 +210,7 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
  * 2026-10-01), so the link's own parameters leave the URL once read.
  */
 function forgetDeepLinkParams(params: URLSearchParams): void {
-  forgetParams(params, ['book', 'edition', 'chapter', 'paragraph', 'word', 'share', 'ref'])
+  forgetParams(params, ['book', 'edition', 'chapter', 'paragraph', 'word', 'share', 'ref', 'compare', 'view'])
 }
 
 function forgetParams(params: URLSearchParams, keys: string[]): void {

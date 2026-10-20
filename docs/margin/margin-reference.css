@@ -100,7 +100,7 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-card.is-folded .mr-card__text { margin-top: 2px; font-size: 16px; line-height: 1.4; color: var(--mr-muted);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .mr-card.is-note.is-folded { box-shadow: inset 2px 0 0 var(--hl-color); }   /* the note's highlight colour */
-.mr-card.is-note .mr-card__text { font-style: italic; }
+.mr-card.is-note .mr-card__text { font-style: normal; }   /* a note's own words are upright (Anders, 20 Oct 2026); its label stays italic */
 /* open */
 .mr-card.is-open { display: flex; flex-direction: column; gap: 10px; padding: 14px 18px 12px; border-radius: 14px; background: var(--mr-card); box-shadow: var(--mr-card-shadow); }
 .mr-quote { position: relative; padding-left: 12px; font-size: 14px; font-style: italic; line-height: 1.4; color: var(--mr-muted); }   /* cut at 120 chars with … */

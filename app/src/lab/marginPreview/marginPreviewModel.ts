@@ -13,8 +13,9 @@
  */
 import { stripUnderscoreEmphasis } from '../emphasisText'
 import { editionHold } from '../../data/editionAvailability'
-import { defaultPrimaryEditionKey } from '../../data/editionDefaults'
+import { defaultCompareEditionKey, defaultPrimaryEditionKey } from '../../data/editionDefaults'
 import type { LabBookPlace } from '../labPosition'
+import { labDesktopDefaultFontSize, labFontFamilyCss, labLineHeight, labMarginScale, labParagraphGap, labReadingFont, labReadingFontSize, type LabPrefs } from '../labPrefs'
 import type { Book, EditionData } from '../../types'
 
 export interface MarginPreviewParagraph {
@@ -125,4 +126,83 @@ export function marginPreviewStart(place: LabBookPlace | null, chapters: MarginP
   const count = words(chapter.paragraphs[paragraph].text)
   const word = sameEdition ? Math.max(0, Math.min(place.wordIndex, Math.max(0, count - 1))) : 0
   return { chapterNumber: chapter.number, paragraphIndex: paragraph, wordIndex: word, updatedAt: place.updatedAt }
+}
+
+/**
+ * The desktop margin view's paper (Anders, 20 Oct 2026: "Tinct paper"): the text exactly as the book reader's
+ * desktop leaf sets it for this reader and window. Font, size, line, paragraph gap, alignment and the leaf's
+ * measure, from the same preferences and formulas (lab.css `[data-desktop-paging]`: the leaf's text is
+ * 1.42rem × size / 1.3, the heading 1.58rem; two leaves share the page area, 31px in from each side and
+ * padded by clamp(28px, 3vw, 64px) × Margins, with a 56px gutter between them). Colours follow the shared theme.
+ */
+export interface MarginPreviewPaper {
+  fontFamily: string
+  /** px */
+  fontSize: number
+  /** px: the chapter heading. */
+  headingSize: number
+  lineHeight: number
+  /** em */
+  paragraphGap: number
+  align: 'left' | 'justify'
+  /** px: one leaf's text width. */
+  measure: number
+}
+
+const ROOT_PX = 16
+/** The page area's inset from each side of the window, its border included (lab.css .lab-page-wrap, .lab-passage). */
+const LEAF_AREA_INSET = 31
+const LEAF_GUTTER = 56
+
+export function marginPreviewPaper(prefs: LabPrefs, viewportWidth: number, opts: { shakespeare?: boolean } = {}): MarginPreviewPaper {
+  const size = labReadingFontSize(prefs, 'desktop', labDesktopDefaultFontSize(viewportWidth))
+  const scale = labMarginScale(prefs.margins)
+  const padX = Math.min(64, Math.max(28, viewportWidth * 0.03)) * scale
+  const align = prefs.alignmentExplicit === false ? (opts.shakespeare ? 'left' : 'justify') : prefs.alignment
+  return {
+    fontFamily: labFontFamilyCss(labReadingFont(prefs.fontFamily)),
+    fontSize: ROOT_PX * 1.42 * size / 1.3,
+    headingSize: ROOT_PX * 1.58 * size / 1.3,
+    lineHeight: labLineHeight(prefs.lineSpacing),
+    paragraphGap: labParagraphGap(prefs.paragraphSpacing),
+    align,
+    measure: Math.max(280, (viewportWidth - 2 * LEAF_AREA_INSET - 2 * padX - LEAF_GUTTER) / 2),
+  }
+}
+
+/** The two layouts of the book reader the preview hands over to (Anders, 20 Oct 2026). */
+export type MarginPreviewView = 'two-page' | 'compare'
+export const MARGIN_PREVIEW_VIEWS: readonly MarginPreviewView[] = ['two-page', 'compare']
+
+/** A place in a book's edition: chapter number, paragraph index and word index, as both readers count them. */
+export interface MarginPreviewPlace {
+  editionKey: string
+  chapterNumber: number
+  paragraphIndex: number
+  wordIndex: number
+}
+
+const whole = (n: number) => Math.max(0, Math.floor(Number(n) || 0))
+const placeParams = (place: MarginPreviewPlace) =>
+  `&edition=${encodeURIComponent(place.editionKey)}&chapter=${Math.max(1, whole(place.chapterNumber))}&paragraph=${whole(place.paragraphIndex)}&word=${whole(place.wordIndex)}`
+
+/**
+ * Two-page or Compare from the preview: the book reader's deep link to the same place (labReaderHandoff
+ * readerHandoffFromUrlParams), with `view` naming the layout and `compare` the reader's compare edition. The
+ * link's `chapter` keeps the book reader for this one visit, and the opt-in is left alone (marginPreviewFlag).
+ */
+export function marginPreviewLayoutHref(bookId: string, view: MarginPreviewView, place: MarginPreviewPlace, compareEditionKey?: string | null): string {
+  const compare = compareEditionKey && compareEditionKey !== place.editionKey ? `&compare=${encodeURIComponent(compareEditionKey)}` : ''
+  return `/reader?book=${encodeURIComponent(bookId)}${placeParams(place)}${compare}&view=${view}`
+}
+
+/** Margin from the book reader: the preview at the same place (marginPreviewFlag reads it once, then drops it from the address). */
+export function marginPreviewReturnHref(bookId: string, place: MarginPreviewPlace): string {
+  return `/reader?book=${encodeURIComponent(bookId)}&margin=1${placeParams(place)}`
+}
+
+/** The compare edition the book reader would show beside `editionKey`, from its preferences, or its default pair. */
+export function marginPreviewCompareEdition(book: Book, prefs: Pick<LabPrefs, 'compareOpen' | 'compareEdition'>, editionKey: string): string | undefined {
+  const usable = (key: string | undefined) => key && key !== editionKey && book.editions.some(edition => edition.key === key) && !editionHold(book.id, key) ? key : undefined
+  return (prefs.compareOpen ? usable(prefs.compareEdition) : undefined) ?? usable(defaultCompareEditionKey(book.id, book.editions, editionKey, book.year))
 }
