@@ -7536,8 +7536,10 @@ function epubGoSpot(n, para, word = 0) {
 /* A change of width (the window, Full width) or text size reflows the chapters: the paragraph and word at the
    top of the view stay there. The spot is read as the reader scrolls (not while the text reflows) and gone back to. */
 // settling: epubGoSpot's ways there under way; opened: the open (state.token) whose place has been gone back to.
+// Until then the view is not the reader's place yet (the top of the book while the fonts load), so no scroll is
+// held as it; the margin check waits for it too (margin-check.mjs epubSettled).
 const epubHold = { spot: null, page: 0, raf: 0, reflow: 0, exact: null, settling: 0, opened: 0 };
-function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow || epubHold.settling) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
+function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow || epubHold.settling || epubHold.opened !== state.token) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
 $('scroll').addEventListener('scroll', () => { if (isEpub() && !epubHold.raf) epubHold.raf = requestAnimationFrame(() => { epubHold.raf = 0; epubHoldNow() }) }, { passive: true });
 /** Around a reflow: `change()` reflows; the held spot is gone back to. */
 function epubReflow(change) {
