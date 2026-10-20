@@ -87,12 +87,14 @@ const NARRATION_STALL_NO_DATA_MS = 3_000
 /**
  * Waits between stall recoveries (ms after detection): first a nudge
  * (play/seek in place), then reloads of the same recording from the same
- * second — its downloaded copy, then the network. Visible, the player then
+ * second — from a copy the clip buffer downloads at once when the stall is
+ * noticed, else the network — never more than 5 s apart, so playback
+ * resumes within seconds of the network coming back. Visible, the player then
  * stops honestly with Retry; hidden (a locked phone) it keeps trying every
  * NARRATION_STALL_HIDDEN_RETRY_MS for up to NARRATION_HOLD_MAX_MS.
  */
-export const NARRATION_STALL_RETRY_MS = [0, 1_000, 2_000, 4_000, 8_000, 15_000]
-const NARRATION_STALL_HIDDEN_RETRY_MS = 15_000
+export const NARRATION_STALL_RETRY_MS = [0, 1_000, 2_000, 4_000, 6_000, 8_000, 10_000, 13_000, 16_000, 20_000, 25_000, 30_000]
+const NARRATION_STALL_HIDDEN_RETRY_MS = 10_000
 const STALL_EVENTS = ['waiting', 'stalled', 'suspend', 'emptied', 'error'] as const
 /** A clip still not sounding this long after it was started reads as paused on the lock screen. */
 const NARRATION_SILENT_START_MS = 1_000
@@ -914,6 +916,10 @@ export function useLabListen(options: UseLabListenOptions) {
       for (const url of opening?.urls ?? []) candidates.push({ url })
     }
     const urls = clipsToBuffer(candidates, index, remaining, target, NARRATION_DOWNLOAD_AHEAD)
+    // The playing recording stalled while the element streams it: download a
+    // copy first, so a reload resumes from memory as soon as bytes flow again.
+    const streamedUrl = clipSourceUrl(current)
+    if (stallRef.current && streamedUrl && !buffer.isReady(streamedUrl) && !urls.includes(streamedUrl)) urls.unshift(streamedUrl)
     const retain = candidates.slice(Math.max(0, index - 1)).map(candidate => candidate.url).filter((url): url is string => Boolean(url))
     // Buffer health: listening seconds that will play without the network — the
     // rest of this recording (in memory or the element's buffer), then every
@@ -1880,9 +1886,12 @@ export function useLabListen(options: UseLabListenOptions) {
       void Promise.resolve().then(() => audio.play()).catch(() => { /* the next attempt reloads */ })
       return
     }
-    // Reload the recording from the stalled second: its downloaded copy first, then the network.
+    // Reload the recording from the stalled second: from its downloaded copy
+    // once the buffer has it (asked for at once), else the network. A copy
+    // that itself will not play is dropped for the network.
     const url = clipSourceUrl(clip)
-    if (attempt >= 2 && url) clipBufferRef.current?.forget(url)
+    if (attempt >= 2 && url && audio.src.startsWith('blob:')) clipBufferRef.current?.forget(url)
+    downloadAheadRef.current()
     playClipRef.current(index, stall.time, true, true)
     // Starting it again is not sound yet: the lock screen keeps saying paused until the clock moves.
     publishPlaybackState(false)

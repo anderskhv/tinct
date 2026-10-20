@@ -61,12 +61,20 @@ const generateMs = Number(option('generate-ms', '0'))
 const speed = Number(option('rate', '1'))
 /** Paragraph Play starts at (the first clip is then streamed by the element itself). */
 const startParagraph = Number(option('start-paragraph', '0'))
+/** The saved page that holds it (the reader opens at the saved page; Play starts at its first word). */
+const startPage = Number(option('start-page', '0'))
 /**
  * Network outage: `--outage-at` seconds after the first sound, every audio
  * connection in flight goes dead (no more bytes, ever) and every new one
  * hangs, for `--outage-ms`; afterwards new requests are served normally.
  */
 const outageAtSeconds = Number(option('outage-at', '0'))
+/**
+ * `--long-opening 20`: the chapter's first clip lasts this long (its words
+ * stay short). The element streams that clip itself, so an outage early in it
+ * cuts the element's own download mid-recording: the stall the iPhone hit.
+ */
+const longOpening = Number(option('long-opening', '0'))
 const outageMs = Number(option('outage-ms', '0'))
 const BOOK = 'frankenstein'
 const EDITION = 'original-en'
@@ -104,7 +112,8 @@ async function chapterLayout(chapter) {
       textHash: await core.sha256Hex(core.narrationTextForParagraph(text)),
       chunks: chunks.map(chunk => {
         const spoken = tokens.slice(chunk.wordFrom, chunk.wordTo).join(' ')
-        const duration = Math.max(1, Math.round((spoken.length / CHARS_PER_SECOND) * 2) / 2)
+        const natural = Math.max(1, Math.round((spoken.length / CHARS_PER_SECOND) * 2) / 2)
+        const duration = longOpening > 0 && chapter === 1 && index === 0 && chunk.index === 0 ? longOpening : natural
         return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, duration }
       }),
     }
@@ -338,9 +347,9 @@ function initScript(config) {
   Object.setPrototypeOf(window.Audio, NativeAudio)
   const nativePlay = HTMLMediaElement.prototype.play
   HTMLMediaElement.prototype.play = function () { observe(this); return nativePlay.call(this) }
-  const { speed, startParagraph } = config
+  const { speed, startParagraph, startPage } = config
   localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'light', primaryEdition: 'original-en', voicePersona: 'female', voicePersonaChosen: true, audiobookVoice: null, audioSpeed: speed }))
-  sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein', primaryEditionKey: 'original-en', savedPlace: { bookId: 'frankenstein', chapterNumber: 1, paragraphIndex: startParagraph, wordIndex: 0, page: 0 } }))
+  sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein', primaryEditionKey: 'original-en', savedPlace: { bookId: 'frankenstein', chapterNumber: 1, paragraphIndex: startParagraph, wordIndex: 0, page: startPage } }))
   // The buffer's early warnings, and the player as a listener and the lock screen see it, five times a second.
   window.__narr.signals = []
   window.addEventListener('tinct:narration-buffer', event => window.__narr.signals.push({ ...event.detail, t: now() }))
@@ -363,8 +372,10 @@ const percentile = (values, p) => {
 }
 
 /**
- * Stretches where the listener hears nothing: samples whose clock does not
- * move (longer than 400 ms), with what the transport and lock screen said.
+ * Stretches where the listener hears nothing: samples (every 200 ms) whose
+ * clock does not move for longer than 600 ms — shorter runs are one or two
+ * samples across an ordinary boundary — with what the transport and lock
+ * screen said meanwhile.
  */
 function silences(samples) {
   const found = []
@@ -377,7 +388,7 @@ function silences(samples) {
       run.samples.push(sample)
     } else if (run) {
       const ms = Math.round(sample.t - run.start)
-      if (ms > 400) found.push({ start: run.start, end: sample.t, ms, spinnerShown: run.samples.some(item => item.spinner), sessionPlayingThroughout: run.samples.every(item => item.session === 'playing'), pauseShown: run.samples.every(item => item.label === 'Pause') })
+      if (ms > 600) found.push({ start: run.start, end: sample.t, ms, spinnerShown: run.samples.some(item => item.spinner), sessionPlayingThroughout: run.samples.every(item => item.session === 'playing'), pauseShown: run.samples.every(item => item.label === 'Pause') })
       run = null
     }
   }
@@ -413,7 +424,7 @@ async function runCase(browser, engine, profileName, visibility) {
   making.clear()
   outage = null
   const caseLabel = [engine, viewport, profileName, visibility, serviceWorkers === 'allow' ? 'sw' : null, generateMs > 0 ? `cold${generateMs}` : null,
-    speed !== 1 ? `x${speed}` : null, startParagraph ? `p${startParagraph}` : null, outageMs > 0 ? `outage${outageAtSeconds}s+${outageMs}ms` : null].filter(Boolean).join('-')
+    speed !== 1 ? `x${speed}` : null, longOpening ? `opening${longOpening}s` : null, outageMs > 0 ? `outage${outageAtSeconds}s+${outageMs}ms` : null].filter(Boolean).join('-')
   const context = await browser.newContext({
     viewport: viewport === 'phone' ? { width: 390, height: 844 } : { width: 1440, height: 900 },
     hasTouch: viewport === 'phone', serviceWorkers,
@@ -421,7 +432,7 @@ async function runCase(browser, engine, profileName, visibility) {
   const page = await context.newPage()
   const errors = []
   page.on('pageerror', error => errors.push(error.message))
-  await page.addInitScript(initScript, { speed, startParagraph })
+  await page.addInitScript(initScript, { speed, startParagraph, startPage })
   const result = { label: caseLabel, engine, profile: profileName, visibility, errors }
   try {
     await page.goto(origin + (viewport === 'phone' ? '/reader?layout=phone' : '/reader'), { waitUntil: 'domcontentloaded' })
@@ -481,6 +492,8 @@ async function runCase(browser, engine, profileName, visibility) {
       // Only after the first sound: the wait for Play to start is not a gap.
       silences: silences(state.samples.filter(sample => sample.t >= (state.events.find(e => e.type === 'playing' && !e.loop && !/unlock-silence/.test(e.src))?.t ?? Infinity))),
     })
+    // A clip that never followed the one before it: keep the element's own story for diagnosis.
+    if (!found.length || found.some(item => item.gapMs == null)) result.events = state.events
     const silent = result.silences
     result.maxSilenceMs = silent.length ? Math.max(...silent.map(item => item.ms)) : 0
     if (outage) {

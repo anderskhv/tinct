@@ -42,6 +42,8 @@ export const CLIP_BUFFER_NEAREST_FIRST_SECONDS = 10
 export const CLIP_BUFFER_DRY_SECONDS = 5
 /** A download that has received no bytes for this long is stalled: aborted and resumed at once. */
 export const CLIP_FETCH_STALL_MS = 3_000
+/** The same, while under CLIP_BUFFER_NEAREST_FIRST_SECONDS ahead. */
+export const CLIP_FETCH_STALL_NEAR_DRY_MS = 1_500
 /** Waits before each resume of a stalled download (then the last, repeated). */
 export const CLIP_FETCH_RETRY_MS = [0, 500, 1_000, 2_000, 4_000]
 /** A stall or a too-slow download marks the network weak for this long: wider window, parallel downloads. */
@@ -302,7 +304,9 @@ export class NarrationClipBuffer {
     const now = deps.now()
     for (const entry of this.entries.values()) {
       if (entry.state !== 'loading') continue
-      if (now - entry.dataAt >= CLIP_FETCH_STALL_MS) {
+      // Nearly dry, a silent connection is judged sooner: every second counts.
+      const stallAfter = typeof this.aheadSeconds === 'number' && this.aheadSeconds < CLIP_BUFFER_NEAREST_FIRST_SECONDS ? CLIP_FETCH_STALL_NEAR_DRY_MS : CLIP_FETCH_STALL_MS
+      if (now - entry.dataAt >= stallAfter) {
         this.weakUntil = now + CLIP_BUFFER_WEAK_MS
         entry.resuming = true
         entry.notBefore = now + CLIP_FETCH_RETRY_MS[Math.min(entry.retries, CLIP_FETCH_RETRY_MS.length - 1)]
