@@ -209,6 +209,7 @@ function startOutage() {
 
 // ---- Server -----------------------------------------------------------------
 const fetchLog = []
+const ensureLog = []
 let ensureCalls = 0
 const generated = new Set()
 const making = new Map()
@@ -223,6 +224,8 @@ async function readBody(req) {
 async function handleEnsure(req, res) {
   ensureCalls += 1
   const body = JSON.parse(await readBody(req) || '{}')
+  const ensureEntry = { start: Date.now(), chapter: body.chapter, asked: (body.paragraphs || []).map(item => `${item.index}:${item.fromChunk ?? '-'}`), text: (body.paragraphs || []).some(item => item.textHash) }
+  ensureLog.push(ensureEntry)
   await wait(profile.rttMs + ensureCachedMs)
   const layout = await chapterLayout(Number(body.chapter))
   const paragraphs = []
@@ -261,6 +264,8 @@ async function handleEnsure(req, res) {
       source: 'cache',
     })
   }
+  ensureEntry.end = Date.now()
+  ensureEntry.ready = paragraphs.map(item => `${item.paragraph}:${item.readyChunks ?? item.status}`)
   const json = Buffer.from(JSON.stringify({ paragraphs, generated: 0 }))
   res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Content-Length': json.length })
   res.end(json)
@@ -333,6 +338,14 @@ const origin = `http://127.0.0.1:${server.address().port}`
 function initScript(config) {
   window.__narr = { events: [], hidden: false }
   const realSetInterval = window.setInterval.bind(window)
+  // When the page itself asks for narration (client clock), next to the server's log.
+  window.__narr.ensureClient = []
+  const realFetch = window.fetch.bind(window)
+  window.fetch = (input, init) => {
+    const url = typeof input === 'string' ? input : input?.url || ''
+    if (url.includes('/api/narration/ensure')) window.__narr.ensureClient.push({ t: performance.timeOrigin + performance.now(), body: init?.body ? JSON.parse(init.body).paragraphs?.map(item => `${item.index}:${item.fromChunk ?? '-'}`) : null })
+    return realFetch(input, init)
+  }
   if (config.iosBackground) {
     const rawTimeout = window.setTimeout.bind(window)
     const rawInterval = window.setInterval.bind(window)
@@ -452,6 +465,7 @@ function boundaries(events, startOrder) {
 async function runCase(browser, engine, profileName, visibility) {
   profile = PROFILES[profileName]
   fetchLog.length = 0
+  ensureLog.length = 0
   ensureCalls = 0
   generated.clear()
   making.clear()
@@ -491,6 +505,7 @@ async function runCase(browser, engine, profileName, visibility) {
       events: window.__narr.events,
       signals: window.__narr.signals,
       refusedPlays: window.__narr.refusedPlays || 0,
+      ensureClient: window.__narr.ensureClient,
       deferredTimers: window.__narr.deferredTimers || 0,
       samples: window.__narr.samples,
       transport: document.querySelector('[data-testid="lab-v2-play"]')?.getAttribute('aria-label'),
@@ -522,6 +537,8 @@ async function runCase(browser, engine, profileName, visibility) {
       audioRequests: audioFetches.length,
       audioBytes: audioFetches.reduce((sum, entry) => sum + (entry.bytes || 0), 0),
       ensureCalls,
+      ensureClient: state.ensureClient.map(entry => ({ ...entry, t: Math.round(entry.t - startedAt) })),
+      ensures: ensureLog.map(entry => ({ ...entry, start: entry.start - startedAt, end: entry.end ? entry.end - startedAt : null })),
       fetches: audioFetches.map(entry => ({ path: entry.path.split('/').pop(), range: entry.range, dest: entry.purpose, start: entry.start - startedAt, end: entry.end ? entry.end - startedAt : null, bytes: entry.bytes, aborted: entry.aborted || false })),
       transport: state.transport,
       // Only after the first sound: the wait for Play to start is not a gap.
