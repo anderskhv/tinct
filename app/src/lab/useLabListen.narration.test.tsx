@@ -230,11 +230,12 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(chunkClips[1]).toMatchObject({ url: undefined, narration: { ready: false } })
     await act(async () => h.pending[0].resolve())
 
-    // The look-ahead asks for the next two groups side by side, each by name, in playing order.
+    // The look-ahead asks for the next two groups side by side, in playing order: the
+    // ordinary request (paragraphs 2..3 reported, group 2:1 made) and one naming group 2:2.
     await waitFor(() => expect(h.calls.length).toBe(3))
-    expect(h.calls.slice(1).map(call => [call.indexes, call.fromChunks])).toEqual([[[2], { 2: 1 }], [[2], { 2: 2 }]])
+    expect(h.calls.slice(1).map(call => [call.indexes, call.fromChunks])).toEqual([[[2, 3], { 2: 1, 3: 0 }], [[2], { 2: 2 }]])
     // The nearer one lands first and is adopted at once, without waiting for the other.
-    await act(async () => { await h.answer(h.calls[1], { 2: 2 }) })
+    await act(async () => { await h.answer(h.calls[1], { 2: 2, 3: 0 }) })
     const second = h.result.current.clips.filter(clip => clip.kind === 'paragraph' && clip.index === 2)[1]
     expect(second).toMatchObject({ url: expect.stringContaining('hash-2-1'), chunk: { index: 1, wordFrom: layout[1].wordFrom } })
 
@@ -323,7 +324,7 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     await waitFor(() => expect(h.calls.length).toBe(3))
     await new Promise(resolve => setTimeout(resolve, 50))
     expect(h.calls.length).toBe(3)
-    expect(h.calls.slice(1).map(call => call.fromChunks)).toEqual([{ 2: 1 }, { 2: 2 }])
+    expect(h.calls.slice(1).map(call => call.fromChunks)).toEqual([{ 2: 1, 3: 0 }, { 2: 2 }])
   })
 
   it('keeps the chapter clock moving forward across sentence-group boundaries', async () => {
@@ -334,7 +335,7 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
     await act(async () => h.pending[0].resolve())
     await waitFor(() => expect(h.calls.length).toBe(3))
-    await act(async () => { await h.answer(h.calls[1], { 2: 2 }) })
+    await act(async () => { await h.answer(h.calls[1], { 2: 2, 3: 0 }) })
     h.audio.currentTime = 3
     act(() => h.audio.dispatchEvent(new Event('timeupdate')))
     const before = h.result.current.chapterTime

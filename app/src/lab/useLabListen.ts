@@ -745,8 +745,14 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     // Side by side, each answer is adopted as it arrives: the next recording
     // never waits on a slower synthesis of a later one.
-    const round = parallel && parallel.length > 1
-      ? Promise.all(parallel.map(target => ensureIndexes([target.index], { [target.index]: target.chunk }).then((results) => {
+    // The first request is the ordinary one (every paragraph in `indexes`
+    // reported, so cached paragraphs arrive whole in one answer); the others
+    // each name one further group to make at the same time.
+    const requests: Array<{ indexes: number[]; fromChunks?: Record<number, number> }> = parallel && parallel.length > 1
+      ? [{ indexes, fromChunks }, ...parallel.slice(1).map(target => ({ indexes: [target.index], fromChunks: { [target.index]: target.chunk } }))]
+      : []
+    const round = requests.length > 1
+      ? Promise.all(requests.map(request => ensureIndexes(request.indexes, request.fromChunks).then((results) => {
           // Adopted on the same terms as the round's own end: unless a tuple change or stop aborted it.
           if (!signal.aborted) {
             applyPreparedNarration(results)
