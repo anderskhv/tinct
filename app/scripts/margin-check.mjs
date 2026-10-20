@@ -3449,11 +3449,15 @@ async function chatScroll(browser, origin) {
   await c.evaluate(answer => { const p = currentPlace().page, card = TinctMargin.newCard({ kind: 'explain', page: p, anchor: [{ n: p, x: 0.15, y: 0.3, w: 0.5, h: 0.02 }], text: 'A passage.', turns: [{ role: 'assistant', content: answer }] }); store.set('cards:' + state.key, [card]); col.view = null; openCard(card.id) }, LONG_ANSWER(1) + '\n\n' + LONG_ANSWER(2))
   await c.waitForTimeout(500)
   mock.next = HUME_REPLY; mock.delay = 0
-  await c.click('.mr-card.is-open .mr-follow__input'); await c.keyboard.type('Explain this more.'); await c.keyboard.press('Enter')
+  await c.click('.mr-card.is-open .mr-follow__input'); await c.keyboard.type('Explain this more.')
+  const top0 = await c.evaluate(() => document.getElementById('scroll').scrollTop)
+  await c.keyboard.press('Enter')
   await c.waitForTimeout(1000)
+  const top1 = await c.evaluate(() => document.getElementById('scroll').scrollTop)
   const held = await c.evaluate(() => { const b = document.querySelector('.mr-card.is-open .mr-card__body'), row = b.querySelector('.mr-you[data-turn="1"]'), r = row.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(), hdr = document.getElementById('hdr').getBoundingClientRect().bottom; const answers = b.querySelectorAll('.mr-answer'), last = answers[answers.length - 1], lr = last.getBoundingClientRect(); return { inView: r.top >= Math.max(s.top, hdr) && r.bottom <= s.bottom, below: lr.top >= r.bottom - 1, ownScroll: b.scrollHeight - b.clientHeight, first: answers[0].querySelectorAll('.is-bottom-line').length, reply: last.innerText.replace(/\s+/g, ' ').trim(), bold: last.querySelectorAll('.is-bottom-line').length } })
-  // In the wide column the card is part of the page (item 9): it grows in place and the page brings the question into view.
-  ok('card: 5. a follow-up is brought into view, its answer below it; the card grows in place (no scroll of its own)', held.inView && held.below && held.ownScroll <= 1, held)
+  // In the wide column the card is part of the page (item 9): it grows in place. Since 20 Oct 2026 (Anders: "the reading
+  // place must never move") the page stays where the reader left it; the question stands where its field was.
+  ok('card: 5. a follow-up leaves the page where it was, its answer below it; the card grows in place (no scroll of its own)', top1 === top0 && held.below && held.ownScroll <= 1, { ...held, top0, top1 })
   ok('card: 8. the card\'s own answer keeps its bold bottom line; the follow-up\'s reply is plain and unstripped', held.first === 1 && held.bold === 0 && held.reply.startsWith('The sentence you\'ve highlighted ends the reply to Hume'), held)
   ok('card: no page errors', !C.problems.length, C.problems)
   await C.ctx.close()

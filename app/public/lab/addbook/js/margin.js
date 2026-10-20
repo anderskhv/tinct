@@ -286,7 +286,9 @@
         + (o.phone ? `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight">${ICONS.trash}</button>` : `<button type="button" class="mr-bar__item is-text" data-m="remove">Remove highlight</button>`);
     }
     if (state === 'asking') {
-      return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" aria-label="Ask about this passage">${esc(o.question || '')}</textarea></label>`
+      // Gloss's field (Anders, 20 Oct 2026): one pill, a placeholder, the mic and a round send. No spelling marks or
+      // autocorrect bubble (macOS put an "ads ×" correction chip under "adsf"): a question is the reader's own words.
+      return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" placeholder="Ask about this passage" aria-label="Ask about this passage" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="sentences">${esc(o.question || '')}</textarea></label>`
         + `<button type="button" class="mr-bar__item is-mic" data-m="mic" aria-label="Dictate" aria-pressed="false">${ICONS.mic}</button>`
         + `<button type="button" class="mr-bar__send" data-m="send" aria-label="Send"${o.question ? '' : ' disabled'}>${ICONS.up}</button>`;
     }
@@ -793,7 +795,7 @@
    */
   function followHtml({ link = '', field = true, label = 'Follow up', placeholder = 'Ask a follow-up' } = {}) {
     if (!field && !link) return '';
-    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
+    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}" spellcheck="false" autocorrect="off" autocomplete="off"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
     return `<div class="mr-follow${field ? ' has-field' : ''}">${box}${link}</div>`;
   }
   /**
@@ -1137,6 +1139,35 @@
       const band = u.banded ? `, pages ${u.from}–${u.to}` : '';
       return { key: u.key.slice(0, 64), title: u.title, from: u.from, start: Math.min(Math.max(u.start, u.from), u.to), to: u.to, ...(u.matter ? { matter: u.matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}${band}` } : {}), ...(u.banded ? { band: true, head: u.base } : {}), ...(u.parts ? { parts: u.parts, head: u.head } : {}) };
     });
+  }
+  /**
+   * An EPUB's reading units (Anders, 20 Oct 2026: the same marks as a PDF's, "each essay here should be one unit"), sized
+   * by sizeUnits as a PDF's are. An EPUB has no pages, so its chapters (spine files) are measured in page-sized pieces of
+   * text (EPUB_PAGE_CHARS, at least one each); its contents' top entries, with their own entries under them, are the
+   * headings; the units come back as chapter ranges (1-based, as the reader's pages are), a split inside one file folded
+   * into the unit it starts in. `chapters`: [{ chars, role }] in spine order; `entries`: the contents
+   * ({ id, label, page, parent }). -> [{ key, title, from, start, to, matter?, … }] (sizeUnits' fields, in chapters)
+   */
+  const EPUB_PAGE_CHARS = 2200;
+  function epubUnits(chapters, entries) {
+    const list = Array.isArray(chapters) ? chapters : [];
+    if (!list.length) return [];
+    const first = [], at = [];
+    let pages = 0;
+    for (const c of list) { first.push(pages + 1); const n = c?.role === 'toc' ? 1 : Math.max(1, Math.round((Number(c?.chars) || 0) / EPUB_PAGE_CHARS)); pages += n; at.push(pages) }
+    const chapterOf = p => { let i = 0; while (i < at.length - 1 && at[i] < p) i++; return i + 1 };
+    const real = (entries || []).filter(e => e && e.label && Number.isInteger(e.page) && e.page >= 1 && e.page <= list.length && list[e.page - 1]?.role !== 'toc');
+    const node = e => ({ title: e.label, page: first[e.page - 1], items: real.filter(c => c.parent === e.id).map(node) });
+    const tree = real.filter(e => !e.parent || !real.some(p => p.id === e.parent)).map(node);
+    const sized = sizeUnits(tree, pages);
+    const out = [];
+    for (const u of sized) {
+      const from = chapterOf(u.from), to = chapterOf(u.to), start = chapterOf(u.start);
+      const prev = out[out.length - 1];
+      if (prev && from <= prev.to) { prev.to = Math.max(prev.to, to); continue }
+      out.push({ ...u, from, start: Math.min(Math.max(start, from), to), to });
+    }
+    return out;
   }
   /** The scan's chapters and headings (js/pdf-scan.js entries: { id, label, page, kind, parent }) as sizeUnits' entries, nested by parent. */
   function scanTree(list) {
@@ -1748,5 +1779,5 @@
 
   const html = { esc, cut, ICONS, LATER, pillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });
