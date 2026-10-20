@@ -1976,7 +1976,10 @@ export function useLabListen(options: UseLabListenOptions) {
     const now = waitClockMs()
     const progress = progressRef.current
     if (progress.src !== audio.src) { progressRef.current = { src: audio.src, time: audio.currentTime || 0, at: now }; return }
-    if (now - progress.at < NARRATION_STALL_MS) return
+    // The element's own clock, read now: a busy page may run this check before the
+    // `timeupdate` it owes, and a clock that moved is never a stall.
+    noteProgressRef.current(audio)
+    if (now - progressRef.current.at < NARRATION_STALL_MS) return
     let stall = stallRef.current
     if (!stall || stall.index !== index) {
       const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
