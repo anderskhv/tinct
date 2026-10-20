@@ -77,8 +77,10 @@ export interface QuizQuestion {
     answer: string;
     why: string;
     cite: string;
+    idea?: number;
 }
 export declare function parseQuiz(text: unknown): {
+    ideas?: string[];
     questions: QuizQuestion[];
 } | null;
 /** The three marks a quiz answer can get, and how the card shows each as its bottom line. */
@@ -86,8 +88,10 @@ export declare const QUIZ_VERDICTS: readonly ["right", "nearly", "not_yet"];
 export type QuizVerdict = typeof QUIZ_VERDICTS[number];
 export declare const QUIZ_VERDICT_LINE: Readonly<Record<QuizVerdict, string>>;
 /** quiz_check's mark. -> { verdict: 'right' | 'nearly' | 'not_yet', feedback } or null. */
-/** Quiz me while it streams: the complete questions so far, up to three. */
-export declare function parseQuizPartial(text: unknown): Array<{ q: string; answer: string; why: string; cite: string }>;
+/** Quiz me while it streams: the complete questions so far, up to QUIZ_MAX_QUESTIONS. */
+export declare const QUIZ_MAX_QUESTIONS: number;
+export declare function parseQuizPartial(text: unknown): Array<{ q: string; answer: string; why: string; cite: string; idea?: number }>;
+export declare function parseQuizIdeas(text: unknown): string[] | null;
 export declare function parseQuizCheck(text: unknown): {
     verdict: QuizVerdict;
     feedback: string;

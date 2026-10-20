@@ -209,8 +209,8 @@ describe('models, output bounds, effort and allowance per PROMPTS.md', () => {
     ['define_sense', 60, 'free'],
     ['factcheck', 900, 'chat'],
     ['counterpoint', 600, 'chat'],
-    ['quiz', 700, 'chat'],
-    ['quiz_check', 150, 'free'],
+    ['quiz', 1800, 'chat'],
+    ['quiz_check', 260, 'free'],
   ]
   it.each(table)('%s: routed by the margin table, %i answer tokens, allowance %s', (intent, maxTokens, allowance) => {
     expect(marginRequestRoute({ intent, pdf: true })).toBe(MARGIN_ROUTES[intent as keyof typeof MARGIN_ROUTES])
@@ -262,8 +262,8 @@ describe('the prompts the Worker builds', () => {
     const quiz = parseCompanionRequest({ intent: 'quiz', context: pdfContext, selection: PASSAGE })!
     const system = buildCompanionSystem(quiz)
     expect(system.endsWith(quizPrompt('passage', { pdf: true }))).toBe(true)
-    expect(system).toContain('Write three short questions that check whether the reader has understood the selected passage.')
-    expect(system).toContain('{"questions":[{"q":"…","answer":"…","why":"one sentence explaining the answer","cite":"{p. 12}"}]}')
+    expect(system).toContain('Write a short quiz that shows whether the reader has understood the selected passage, all of it.')
+    expect(system).toContain('{"ideas":["…"],"questions":[{"idea":0,"q":"…","answer":"…","why":"one sentence explaining the answer","cite":"{p. 12}"}]}')
     expect(companionSelectionMessage(quiz)).toBe(`<selected_passage>\n${PASSAGE}\n</selected_passage>`)
   })
 
@@ -271,7 +271,7 @@ describe('the prompts the Worker builds', () => {
     const paragraphs = Array.from({ length: 30 }, (_, i) => `Paragraph ${i + 1}.`)
     const quiz = parseCompanionRequest({ intent: 'quiz', context: { ...bookContext, bookId: undefined, editionKey: undefined, kind: 'pdf', paragraphs, paragraphIndex: 15 } })!
     const system = buildCompanionSystem(quiz)
-    expect(system).toContain('Write three short questions that check whether the reader has understood this part of the document.')
+    expect(system).toContain('Write a short quiz that shows whether the reader has understood this part of the document, all of it.')
     expect(system).not.toContain('the supplied chapter')
     expect(system).toContain('[1] Paragraph 1.')
     expect(system).toContain('[30] Paragraph 30.')

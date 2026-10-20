@@ -539,29 +539,39 @@ function citeField(value: unknown): string {
 }
 
 /**
- * Quiz me's questions: up to three valid ones (a question and an answer each), in order.
- * -> { questions: [{ q, answer, why, cite }] } with 1 to 3 questions, or null.
+ * Quiz me (Anders, 20 Oct 2026: "Quiz me must cover the text being quizzed"): the key ideas of the quizzed text first,
+ * then one why/how question per idea, so their number scales with the text, at most QUIZ_MAX_QUESTIONS. A question
+ * names its idea by index (`idea`, kept with it, never shown) so a retry can aim at the ideas the reader missed.
+ * -> { ideas?: string[], questions: [{ q, answer, why, cite, idea? }] } with 1 to QUIZ_MAX_QUESTIONS questions, or null.
  */
-export interface QuizQuestion { q: string; answer: string; why: string; cite: string }
-export function parseQuiz(text: unknown): { questions: QuizQuestion[] } | null {
+export const QUIZ_MAX_QUESTIONS = 8
+export interface QuizQuestion { q: string; answer: string; why: string; cite: string; idea?: number }
+function quizIdeas(value: unknown): string[] | null {
+  return Array.isArray(value) ? (value as unknown[]).map(item => field(item, 300)).filter(Boolean).slice(0, QUIZ_MAX_QUESTIONS) : null
+}
+function quizItem(raw: unknown): QuizQuestion | null {
+  if (!raw || typeof raw !== 'object') return null
+  const item = raw as Record<string, unknown>
+  const q = field(item.q, 600), answer = field(item.answer, 600)
+  if (!q || !answer) return null
+  const idea = typeof item.idea === 'number' && Number.isInteger(item.idea) && item.idea >= 0 && item.idea < QUIZ_MAX_QUESTIONS ? item.idea : null
+  return { q, answer, why: field(item.why, 600), cite: citeField(item.cite), ...(idea != null ? { idea } : {}) }
+}
+export function parseQuiz(text: unknown): { ideas?: string[]; questions: QuizQuestion[] } | null {
   const value = extractJson(text)
   const list = value && Array.isArray(value.questions) ? value.questions : null
   if (!list) return null
-  const questions = (list as unknown[]).flatMap((raw): QuizQuestion[] => {
-    if (!raw || typeof raw !== 'object') return []
-    const item = raw as Record<string, unknown>
-    const q = field(item.q, 600), answer = field(item.answer, 600)
-    return q && answer ? [{ q, answer, why: field(item.why, 600), cite: citeField(item.cite) }] : []
-  }).slice(0, 3)
-  return questions.length ? { questions } : null
+  const questions = (list as unknown[]).flatMap(raw => { const item = quizItem(raw); return item ? [item] : [] }).slice(0, QUIZ_MAX_QUESTIONS)
+  const ideas = quizIdeas(value.ideas)
+  return questions.length ? { ...(ideas?.length ? { ideas } : {}), questions } : null
 }
 
 /**
  * Quiz me while its reply streams (FIXES-2026-10-15 A7): the questions that are already
- * complete, in order, up to three. Reads the `"questions": [` array of PROMPTS.md's JSON
+ * complete, in order, up to QUIZ_MAX_QUESTIONS. Reads the `"questions": [` array of PROMPTS.md's JSON
  * object by object, so question 1 shows as soon as its closing brace arrives; an object
  * still being written, and anything after the array, wait. Each complete object is kept or
- * dropped as parseQuiz would. -> [{ q, answer, why, cite }], possibly empty.
+ * dropped as parseQuiz would. -> [{ q, answer, why, cite, idea? }], possibly empty.
  */
 export function parseQuizPartial(text: unknown): QuizQuestion[] {
   const s = String(text ?? '')
@@ -569,7 +579,7 @@ export function parseQuizPartial(text: unknown): QuizQuestion[] {
   if (!key) return []
   const out: QuizQuestion[] = []
   let i = key.index + key[0].length
-  while (out.length < 3) {
+  while (out.length < QUIZ_MAX_QUESTIONS) {
     while (i < s.length && /[\s,]/.test(s[i])) i++
     if (s[i] !== '{') break
     const end = balancedEnd(s, i)
@@ -577,18 +587,33 @@ export function parseQuizPartial(text: unknown): QuizQuestion[] {
     let item: unknown
     try { item = JSON.parse(s.slice(i, end + 1)) } catch { break }
     i = end + 1
-    if (!item || typeof item !== 'object') continue
-    const r = item as Record<string, unknown>
-    const q = field(r.q, 600), answer = field(r.answer, 600)
-    if (q && answer) out.push({ q, answer, why: field(r.why, 600), cite: citeField(r.cite) })
+    const q = quizItem(item)
+    if (q) out.push(q)
   }
   return out
+}
+
+/** The key ideas while the quiz streams: the `"ideas"` array once it is complete (it comes first), else null. */
+export function parseQuizIdeas(text: unknown): string[] | null {
+  const s = String(text ?? '')
+  const key = /"ideas"\s*:\s*\[/.exec(s)
+  if (!key) return null
+  const open = key.index + key[0].length - 1
+  let end = -1, inString = false, escaped = false
+  for (let i = open + 1; i < s.length && end < 0; i++) {
+    const ch = s[i]
+    if (inString) { if (escaped) escaped = false; else if (ch === '\\') escaped = true; else if (ch === '"') inString = false }
+    else if (ch === '"') inString = true
+    else if (ch === ']') end = i
+  }
+  if (end < 0) return null
+  try { return quizIdeas(JSON.parse(s.slice(open, end + 1))) } catch { return null }
 }
 
 /** The three marks a quiz answer can get, and how the card shows each as its bottom line. */
 export const QUIZ_VERDICTS = ['right', 'nearly', 'not_yet'] as const
 export type QuizVerdict = typeof QUIZ_VERDICTS[number]
-export const QUIZ_VERDICT_LINE: Readonly<Record<QuizVerdict, string>> = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not yet.' }
+export const QUIZ_VERDICT_LINE: Readonly<Record<QuizVerdict, string>> = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not quite.' }
 
 /** quiz_check's mark. -> { verdict: 'right' | 'nearly' | 'not_yet', feedback } or null. */
 export function parseQuizCheck(text: unknown): { verdict: QuizVerdict; feedback: string } | null {

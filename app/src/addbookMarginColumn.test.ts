@@ -286,7 +286,7 @@ describe('the answer in a card', () => {
     const folded = M.html.cardHtml({ ...base, kind: 'explain', turns: [{ role: 'assistant', content: 'Each bar {p. 12} is a chance.' }] }, { open: false, P, pageLabel: '12' })
     expect(folded).toBe('<button type="button" class="mr-card__label" data-c="open">Explain · p. 12</button><div class="mr-card__text">Each bar is a chance.</div>')
   })
-  it('Quiz me: "1 of 3", the question, Show answer; marked: the bubble, Right./Nearly./Not yet., the cite, Next question →; then the score and the one to reread', () => {
+  it('Quiz me: "1 of 3", the question, Show answer; marked: the bubble, Right./Nearly./Not quite., the cite, Next question →; then the score alone and Try new questions', () => {
     const questions = [{ q: 'Q one?', answer: '2.5', why: 'Because.', cite: '{p. 12}' }, { q: 'Q two?', answer: 'B', why: '', cite: '' }, { q: 'Q three?', answer: 'C', why: '', cite: '{eq. 1.2}' }]
     const quiz = (data: Record<string, unknown>) => ({ id: 'q', kind: 'quiz', page: 12, rects: [[12, 0, 0, 1, 0.02]], text: 'p', at: 1, data: { questions, i: 0, results: [], ...data } })
     const resolveTag = () => ({ page: 12, needle: '' })
@@ -306,10 +306,10 @@ describe('the answer in a card', () => {
     expect(M.quizReread({ questions, results: [{ verdict: 'nearly' }, { verdict: 'not_yet' }, { shown: true }] })).toBe(1)
     expect(M.quizReread({ questions, results: [{ verdict: 'right' }, { verdict: 'right' }, { verdict: 'right' }] })).toBe(-1)
     const doneHtml = M.html.cardHtml(quiz(done), { open: true, P, pageLabel: '12' })
-    expect(doneHtml).toContain('<span class="is-bottom-line">2 of 3</span>')
-    expect(doneHtml).toContain('<p>Q two?</p>')
-    // FIXES-2026-10-15 PR C: the end card offers another quiz; no answer field.
-    expect(doneHtml).toContain('<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>')
+    // Anders, 20 Oct 2026: the end card is minimal, "2/3" and Try new questions; no question to reread, no answer field.
+    expect(doneHtml).toContain('<span class="is-bottom-line">2/3</span>')
+    expect(doneHtml).not.toContain('Q two?')
+    expect(doneHtml).toContain('<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>')
     expect(doneHtml).not.toContain('mr-follow__input')
   })
   it('the "more" row: "{n} more on this page" and the kinds that fit', () => {

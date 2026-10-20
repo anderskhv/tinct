@@ -159,6 +159,8 @@
     // Made ahead of the reader opening it (reader.js primerPrefetch): never charged to the reader's allowance.
     if (companion.chapter && o.speculative) companion.speculative = true;
     if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000) };
+    // "Try new questions": the questions asked before on this text, each with its key idea and whether it was missed (Anders, 20 Oct 2026).
+    if (intent === 'quiz' && Array.isArray(o.asked) && o.asked.length) companion.asked = o.asked.slice(-24).map(a => ({ q: String(a.q || '').slice(0, 300), ...(a.idea ? { idea: String(a.idea).slice(0, 300) } : {}), ...(a.missed ? { missed: true } : {}) }));
     // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
     return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
   }

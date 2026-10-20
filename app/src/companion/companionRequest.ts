@@ -31,6 +31,8 @@ import {
   WHOLE_PDF_PROMPT,
   factcheckPrompt,
   quizPrompt,
+  quizAskedBlock,
+  type QuizAsked,
 } from './marginPrompts'
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
 import { buildMarginPrefixParts, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
@@ -97,6 +99,8 @@ export interface CompanionRequest {
   senses?: string[]
   /** quiz_check: the question, its expected answer and the reader's answer. */
   quizCheck?: QuizCheck
+  /** quiz: the questions asked before on the same text ("Try new questions"), each with its key idea and whether it was missed. */
+  asked?: QuizAsked[]
   /**
    * The PDF reader's margin only (`pdf`): the reader's whole file as text,
    * the cached prefix of every margin prompt (marginContext.ts). Never set
@@ -121,6 +125,10 @@ export const LAB_EXPLAIN_PROMPT = [
   'Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.',
 ].join('\n\n')
 
+/** A quiz retry sends at most this many earlier questions, each at most this long. */
+export const QUIZ_ASKED_MAX = 24
+export const QUIZ_ASKED_CHARS = 300
+
 /** Output bound per intent. The Worker never uses a caller-supplied value. */
 export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = Object.freeze({
   ask: 1024,
@@ -132,8 +140,10 @@ export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = O
   define_sense: 60,
   factcheck: 900,
   counterpoint: 600,
-  quiz: 700,
-  quiz_check: 150,
+  // Up to eight questions, each with its idea, answer and reason (Anders, 20 Oct 2026: one question per key idea).
+  quiz: 1800,
+  // Up to three short sentences of feedback (Anders, 20 Oct 2026: credit, a word on an addition, what is missing).
+  quiz_check: 260,
   related: 500,
 })
 
@@ -441,7 +451,15 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (intent === 'quiz') {
     // No selection: a quiz on the whole supplied chapter (or PDF unit).
     const selection = text(r.selection, SELECTION_CHARS)
-    return { intent, context: { ...context, lookups: false }, ...(selection ? { selection } : {}), ...pdf }
+    // A retry: the questions asked before (Anders, 20 Oct 2026: "Try new questions" gave the same ones).
+    const asked = Array.isArray(r.asked) ? r.asked.slice(0, QUIZ_ASKED_MAX).flatMap((raw): QuizAsked[] => {
+      const item = raw && typeof raw === 'object' ? raw as Record<string, unknown> : null
+      const q = item ? text(item.q, QUIZ_ASKED_CHARS) : undefined
+      if (!q) return []
+      const idea = text(item!.idea, QUIZ_ASKED_CHARS)
+      return [{ q, ...(idea ? { idea } : {}), ...(item!.missed === true ? { missed: true } : {}) }]
+    }) : []
+    return { intent, context: { ...context, lookups: false }, ...(selection ? { selection } : {}), ...(asked.length ? { asked } : {}), ...pdf }
   }
   if (intent === 'define_sense') {
     const selection = text(r.selection, WORD_CHARS)
@@ -610,10 +628,12 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
     case 'counterpoint':
     case 'related':
       return `<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
-    case 'quiz':
+    case 'quiz': {
+      const asked = request.asked?.length ? `\n\n${quizAskedBlock(request.asked.map(item => ({ q: tagData(item.q), ...(item.idea ? { idea: tagData(item.idea) } : {}), ...(item.missed ? { missed: true } : {}) })))}` : ''
       return request.selection
-        ? `<selected_passage>\n${tagData(request.selection)}\n</selected_passage>`
-        : `Quiz me on ${request.context!.chapterLabel}.`
+        ? `<selected_passage>\n${tagData(request.selection)}\n</selected_passage>${asked}`
+        : `Quiz me on ${request.context!.chapterLabel}.${asked}`
+    }
     case 'define_sense': {
       const senses = (request.senses ?? []).map((sense, index) => `${index + 1}. ${tagData(sense).replace(/\s+/g, ' ').trim()}`).join('\n')
       return `<word>${tagData(request.selection!)}</word>\n<senses>\n${senses}\n</senses>`
