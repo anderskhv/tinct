@@ -15,7 +15,7 @@ import type { UserBookImage } from './epubEdition'
 import type { PdfLayoutDefault } from './pdfEditions'
 
 /** The cache tag of Add a book's scripts (its index.html). */
-export const ADDBOOK_SCRIPT_TAG = '20261020epub'
+export const ADDBOOK_SCRIPT_TAG = '20261020pdfspeed'
 const BASE = '/lab/addbook/'
 
 export interface PdfLayout { default: PdfLayoutDefault; score: number; signals: Record<string, boolean> }
@@ -57,6 +57,16 @@ interface RegionsApi {
   textLines: (body: Array<{ x: number; base: number; size: number; w: number; str: string }>, vp: { width: number; height: number }) => unknown[]
   trimRegions: (regions: PdfRegion[], lines: unknown[]) => PdfRegion[]
   cropSize: (region: PdfRegion, page: { w: number; h: number }, options: { dpr: number; column: number }) => { width: number; height: number; css: { width: number; height: number } } | null
+  /** displayFormulas, findFigures, pageRegions and trimRegions in one: a page's regions from its ink and text. */
+  find?: (input: FindInput, margin: NonNullable<Engine['margin']>) => PdfRegion[]
+  /** `find` in a worker (js/pdf-regions-worker.js at the URL), else on this thread. */
+  finder?: (url: string | null, margin: NonNullable<Engine['margin']>) => (input: FindInput) => Promise<PdfRegion[]>
+}
+interface FindInput {
+  ink: Uint8Array; W: number; H: number
+  spans: Array<{ x: number; y: number; w: number; h: number; text: string }>
+  body: Array<{ x: number; base: number; size: number; w: number; str: string }>
+  vp: { width: number; height: number }
 }
 
 type Global = typeof globalThis & { pdfjsLib?: Engine['pdfjs']; TinctPdfScan?: Engine['scan']; TinctPdfText?: Engine['text']; TinctPdfRegions?: RegionsApi; TinctMargin?: Engine['margin'] }
@@ -170,6 +180,14 @@ type Cropper = RegionsOf & { drawn: () => Promise<boolean> }
 function cropper(engine: Engine, images: Map<string, UserBookImage>, options: CropOptions | false): Cropper | null {
   const api = engine.regions, margin = engine.margin, util = engine.pdfjs.Util
   if (!options || !api || !margin || !util || typeof document === 'undefined') return null
+  // Where the regions are: worked out off the main thread while the next page is drawn (js/pdf-regions-worker.js).
+  const find = api.finder
+    ? api.finder(`${BASE}js/pdf-regions-worker.js?v=${ADDBOOK_SCRIPT_TAG}`, margin)
+    : async (input: FindInput): Promise<PdfRegion[]> => {
+      const blocks = api.displayFormulas(input.body, input.vp).blocks
+      const found = margin.findFigures({ ink: input.ink, W: input.W, H: input.H, spans: input.spans, formulas: blocks })
+      return api.trimRegions(api.pageRegions({ figures: found.figures, captions: found.captions, blocks }), api.textLines(input.body, input.vp))
+    }
   interface Job { n: number; page: PdfPage; regions: PdfRegion[]; sizes: Array<ReturnType<RegionsApi['cropSize']>>; scale: number }
   const queue: Job[] = []
   let running: Promise<void> | null = null
@@ -226,9 +244,7 @@ function cropper(engine: Engine, images: Map<string, UserBookImage>, options: Cr
       spans.push({ x: tx[4] / vp.width, y: (tx[5] - size * 0.86) / vp.height, w: (it.width * vp.scale) / vp.width, h: (size * 1.1) / vp.height, text: it.str })
       body.push({ x: tx[4], base: tx[5], size, w: it.width * vp.scale, str: it.str })
     }
-    const blocks = api.displayFormulas(body, vp).blocks
-    const found = margin.findFigures({ ink, W, H, spans, formulas: blocks })
-    const regions = api.trimRegions(api.pageRegions({ figures: found.figures, captions: found.captions, blocks }), api.textLines(body, vp))
+    const regions = await find({ ink, W, H, spans, body, vp: { width: vp.width, height: vp.height } })
     if (!regions.length) return []
     // Drawn once, sharp enough for the sharpest crop on the page, on clear paper.
     const sizes = regions.map(region => api.cropSize(region, pageSize, options))

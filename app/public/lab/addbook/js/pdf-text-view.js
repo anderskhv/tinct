@@ -141,12 +141,16 @@
    * on. `drawn()` is done when all are (true: every one drawn), `onDrawn(id)` is told of each, `stop()` ends the drawing,
    * `pace()` (when set) is waited for before each page is drawn.
    */
+  // The worker beside this script, with its cache tag.
+  const WORKER = (() => { try { const src = global.document?.currentScript?.src; return src ? new URL('pdf-regions-worker.js' + new URL(src).search, src).href : null } catch { return null } })();
   function canvas(doc, w, h) { const c = doc.createElement('canvas'); c.width = Math.max(1, Math.round(w)); c.height = Math.max(1, Math.round(h)); return c }
   const pngOf = c => new Promise(resolve => { try { c.toBlob(b => resolve(b), 'image/png') } catch { resolve(null) } });
   function cropper(images, { doc = global.document, dpr = Math.max(1, Math.min(3, global.devicePixelRatio || 1)), column = Math.min(680, Math.max(280, (global.innerWidth || 390) - 32)) } = {}) {
     const api = global.TinctPdfRegions, margin = global.TinctMargin, util = global.pdfjsLib?.Util;
     if (!api || !margin?.findFigures || !util || !doc) return null;
     const options = { dpr, column };
+    // Where the regions are: worked out off the main thread while the next page is drawn (js/pdf-regions-worker.js).
+    const find = api.finder ? api.finder(WORKER, margin) : input => Promise.resolve().then(() => api.find(input, margin));
     const queue = [];
     let running = null, focus = null, failed = false, stopped = false;
     // A page's sharp drawing: the page once, sharp enough for its sharpest crop, then each crop cut from it.
@@ -206,9 +210,7 @@
         spans.push({ x: tx[4] / vp.width, y: (tx[5] - size * 0.86) / vp.height, w: (it.width * vp.scale) / vp.width, h: (size * 1.1) / vp.height, text: it.str });
         body.push({ x: tx[4], base: tx[5], size, w: it.width * vp.scale, str: it.str });
       }
-      const blocks = api.displayFormulas(body, vp).blocks;
-      const found = margin.findFigures({ ink, W, H, spans, formulas: blocks });
-      const regions = api.trimRegions(api.pageRegions({ figures: found.figures, captions: found.captions, blocks }), api.textLines(body, vp));
+      const regions = await find({ ink, W, H, spans, body, vp: { width: vp.width, height: vp.height } });
       if (!regions.length || stopped) return [];
       const sizes = regions.map(region => api.cropSize(region, pageSize, options));
       const most = Math.sqrt(12e6 / Math.max(1, pageSize.w * pageSize.h));

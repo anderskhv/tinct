@@ -432,7 +432,7 @@ async function downloadChecked(id, key) {
  * no PDF and leaves them out (round 2: the phone's first page came about 0.3 s later with them); a PDF opened
  * there after all loads them here first, in the same order, with the same cache tags (scripts/check-margin-preview.mjs).
  */
-const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261016train6', 'js/pdf-text.js?v=20261019batch', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
+const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261020pdfspeed', 'js/pdf-text.js?v=20261020pdfspeed', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth'];
 let pdfScripts = null;
 function pdfReady() {
   if (window.pdfjsLib && window.TinctPdfScan) return Promise.resolve();
