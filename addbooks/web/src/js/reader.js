@@ -498,7 +498,7 @@ async function openPdf(bytes, name, key, known = null) {
   const pagesAsked = new URLSearchParams(location.search).has('pages');
   pdfTextLeave();
   Object.assign(state, { pdfText: null });
-  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
+  Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, textCrops: !!rec?.figureData, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
   if (token !== state.token) return;
   root.classList.add('is-pdf'); root.classList.remove('is-epub', 'is-paper');
   root.style.removeProperty('--epub-scale');
@@ -1551,7 +1551,7 @@ function pdfTextConvert(token, scan, page, { idle = false } = {}) {
     if (!edition) { crops?.stop(); if (pdfTextJob === job) pdfTextJob = null; return null }
     if (state.key === key) state.textEdition = edition;
     // Kept, it is read from the record from now on: this one lets go of its pictures.
-    const keep = () => library.touch(key, { edition, figureData: Object.fromEntries(images) }).then(() => { if (pdfTextJob === job) pdfTextJob = null }, () => {});
+    const keep = () => library.touch(key, { edition, figureData: Object.fromEntries(images) }).then(() => { if (state.key === key) state.textCrops = true; if (pdfTextJob === job) pdfTextJob = null }, () => {});
     if (!crops || !hasFigures(edition)) { crops?.stop(); await keep() }
     else crops.drawn().then(all => (all ? keep() : null));
     return edition;
@@ -1563,10 +1563,10 @@ function pdfTextConvert(token, scan, page, { idle = false } = {}) {
  * A text PDF read in its pages on the desktop is converted to its Tinct text in the background, a page whenever the browser
  * is idle, so "Tinct text" opens at once the first time it is chosen (and the Tinct reader finds it kept on the record).
  */
-async function pdfTextPrepare(token) {
+function pdfTextPrepare(token) {
   if (isPhone() || state.kind !== 'pdf' || !state.pdf || !PT() || !(state.scan?.textPages > 0) || pdfTextJob?.pdf === state.pdf) return;
-  const rec = await library.get(state.key).catch(() => null);
-  if (token !== state.token || !pdfTextWanted(state.textEdition, rec)) return;
+  // What the record holds is known from its open (openPdf): nothing more is read from it here.
+  if (token !== state.token || !pdfTextWanted(state.textEdition, { figureData: state.textCrops })) return;
   pdfTextConvert(token, state.scan, store.get('pos:' + state.key)?.page || 1, { idle: true });
 }
 function pdfTextLeave() { for (const u of pdfTextUrls) URL.revokeObjectURL(u); pdfTextUrls.clear() }
