@@ -574,7 +574,7 @@ function dropFromReading(id){
 /** An own book's Delete (its ••• menu, anywhere on My shelf): confirmed, then Add a book's own delete (every device and the account). */
 async function deleteOwnBook(book,from){
  if(!await confirmDeleteUpload(book,{from,own:true}))return;
- const leave=leaveShelf(['own:'+book.key,'own-reading:'+book.key]);
+ const leave=leaveShelf(['own:'+book.key,'own-reading:'+book.key,'finished:'+book.key]);
  try{
   const [gone]=await Promise.all([deleteUpload(book),leave.faded]);leave.done();
   if(!gone)notice('Deleted from this device, but not from your account. Try again.');
@@ -582,8 +582,18 @@ async function deleteOwnBook(book,from){
  }catch{leave.cancel();notice('This book could not be deleted. Please try again.');}
 }
 /** A Currently reading card from the reading row itself, for a book the library's list does not hold yet. */
-function readingRowCard(row){
- const card=el('article','collection-card');card.dataset.shelfGroup='reading';card.dataset.rowBook=row.bookId;
+/**
+ * A Finished card: one of the reader's own books (finished by its place), a book the shelves list
+ * (or a typed search finds), else the row itself. Finished books held from the shelves (Symposium,
+ * War and Peace: discoveryAvailable false) used to be dropped here, so Finished showed fewer books
+ * than the reader had finished (Anders, 2026-10-20).
+ */
+function finishedCard(row){
+ if(row.own){if(!row.ownKey||!row.href||!addEnabled())return null;const card=ownBookCard({key:row.ownKey,kind:row.kind||(row.ownKey.startsWith('pdf:')?'pdf':'epub'),title:row.title||'',author:row.author||'',cover:row.cover||ownShelf?.find(own=>own.key===row.ownKey)?.cover||null,href:row.href},el,{onDelete:(own,from)=>void deleteOwnBook(own,from)});card.dataset.shelfGroup='finished';return card;}
+ const book=bookById(row.bookId);return book?{book}:readingRowCard(row,'finished');
+}
+function readingRowCard(row,group='reading'){
+ const card=el('article','collection-card');card.dataset.shelfGroup=group;card.dataset.rowBook=row.bookId;
  const wrap=el('div','card-wrap');const open=el('button','book-card cover-button');open.type='button';open.setAttribute('aria-label',`Open ${row.title}${row.author?', by '+row.author:''}`);
  const src=bookCoverSrc({bookId:row.bookId,art:row.cover});
  if(src){const img=el('img','cover');img.src=src;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
@@ -636,7 +646,7 @@ function drawMyBooks(){
  // An own book taken off Currently reading (its place kept) is saved for later, as Tinct's are
  // (Anders, 2026-10-12); its ••• deletes it, as under My private uploads.
  const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),progress:true});card.dataset.shelfGroup='want';return card;}):[];
- const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean).map(book=>({book})),'finished']];
+ const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(finishedCard).filter(Boolean),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
