@@ -19,6 +19,7 @@ import { isNativeCapacitor } from '../utils/nativePlatform'
 import {readerMediaSession, readerMediaMetadata, playReaderAudioTransition, playReaderAudio, endNativeNarration} from '../utils/readerMediaSession'
 import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { LAB_COPY } from './labCopy'
+import { NarrationClipBuffer, clipBufferSeconds, clipsToBuffer, connectionSavesData, sourcePlaysClip, type BufferCandidate } from './narrationClipBuffer'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
 import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
 import {
@@ -69,8 +70,14 @@ const NARRATION_FINAL_REASONS = new Set([
   'text_mismatch', 'modern_pending', 'own_book_limit', 'own_book_cap', 'own_book_pool',
   'own_book_unavailable', 'own_book_premium', 'cancelled',
 ])
-/** Ready clips after the playing one whose audio is downloaded ahead of its turn. */
+/**
+ * Ready clips after the playing one whose audio is always downloaded ahead of
+ * its turn; the clip buffer reaches further, by listening time
+ * (narrationClipBuffer.ts).
+ */
 export const NARRATION_DOWNLOAD_AHEAD = 2
+/** How often a playing clip's clock re-tops the clip buffer (a download that failed, a window that grew). */
+const CLIP_BUFFER_REFRESH_MS = 3_000
 /**
  * How long Play keeps waiting while the Worker reports the first sentence
  * group as still being made (pending, another generator holding its lease, or
@@ -256,7 +263,7 @@ function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
 /** The element is not playing the clip's recording: it is being prepared, or silence holds its place. */
 function waitingForNarration(clip: LabAudioClip | undefined, audio: HTMLAudioElement): boolean {
   if (isHoldSource(audio)) return true
-  return clip?.kind === 'paragraph' && !!clip.narration && (!clip.url || !audio.src.endsWith(clip.url))
+  return clip?.kind === 'paragraph' && !!clip.narration && (!clip.url || !sourcePlaysClip(audio.src, clip.url))
 }
 
 function pageHidden(): boolean {
@@ -434,8 +441,12 @@ export function useLabListen(options: UseLabListenOptions) {
   const narrationHashesRef = useRef<Map<number, string>>(new Map())
   const narrationRoundRef = useRef<Promise<NarrationParagraphResult[]> | null>(null)
   const narrationLookAheadRef = useRef<Promise<void> | null>(null)
-  /** Clip URLs already downloaded ahead of their turn (downloadAhead). */
-  const downloadedRef = useRef(new Set<string>())
+  /** Recordings downloaded ahead of their turn (downloadAhead); created on first use. */
+  const clipBufferRef = useRef<NarrationClipBuffer | null>(null)
+  /** When the clip buffer was last topped up. */
+  const clipBufferAtRef = useRef(0)
+  /** downloadAhead, for the element's handlers and the visibility listener. */
+  const downloadAheadRef = useRef<() => void>(() => {})
   const narrationRetryRef = useRef<(() => void) | null>(null)
   const [narrationState, setNarrationState] = useState<LabNarrationState>({ status: 'idle' })
   // Counted, never shown: which failure code and which book, nothing else.
@@ -495,6 +506,14 @@ export function useLabListen(options: UseLabListenOptions) {
   const audioChapter = () => optionsRef.current.chapterNumber ?? 1
   const audioEdition = () => optionsRef.current.audioEdition || 'kjv-en'
   const audioBook = () => optionsRef.current.bookId || 'bible'
+  /** Where a clip's recording is fetched from: narration's own URL, or the Kokoro file's. */
+  const clipSourceUrl = (clip: LabAudioClip): string | null => (
+    clip.kind === 'paragraph' && clip.narration
+      ? clip.url ?? null
+      : labAudioFileUrl(clip.file, audioChapter(), audioEdition(), audioBook())
+  )
+  /** The source the element is given for a recording: its downloaded copy when there is one. */
+  const elementSource = (url: string): string => clipBufferRef.current?.sourceFor(url) ?? url
 
   const commitFollowParagraphs = useCallback((followed: FollowParagraph[]) => {
     paragraphsRef.current = followed
@@ -814,30 +833,44 @@ export function useLabListen(options: UseLabListenOptions) {
    * clip that fails is retried, with a visible state, when playback reaches it.
    */
   /**
-   * Download the next ready clips' audio before their turn, so a group
-   * boundary does not wait on a fresh fetch over a slow connection. The audio
-   * route sends long-lived public caching; the element's own request is then
-   * answered from the browser cache. Only the ready run right after the
-   * playing clip, only same-origin audio, each URL once.
+   * Keep the recordings after the playing one downloaded, whole, before their
+   * turn (narrationClipBuffer.ts): a clip boundary then swaps the element to
+   * audio already in memory instead of waiting on a fresh request over a
+   * phone network. The window is listening time (longer while hidden, shorter
+   * with Save-Data), never fewer than the next NARRATION_DOWNLOAD_AHEAD clips,
+   * and runs into the next chapter's prepared opening once this chapter's
+   * remaining audio is inside it. Each URL is fetched once; a failure only
+   * means the element streams that clip itself.
    */
   const downloadAhead = useCallback(() => {
     if (typeof fetch !== 'function') return
-    let queued = 0
-    for (let position = clipIndexRef.current + 1; position < clipsRef.current.length && queued < NARRATION_DOWNLOAD_AHEAD; position += 1) {
-      const clip = clipsRef.current[position]
-      if (clip.kind !== 'paragraph' || !clip.narration) continue
-      const url = clip.url
-      if (!url || !url.startsWith('/')) break
-      queued += 1
-      if (downloadedRef.current.has(url)) continue
-      downloadedRef.current.add(url)
-      // Never in the way of playback: a failed or odd fetch only forgets the URL.
-      void Promise.resolve()
-        .then(() => fetch(url, { cache: 'force-cache', credentials: 'same-origin' }))
-        .then(response => (response?.ok ? response.arrayBuffer() : Promise.reject(new Error(String(response?.status)))))
-        .catch(() => { downloadedRef.current.delete(url) })
+    clipBufferAtRef.current = waitClockMs()
+    const buffer = clipBufferRef.current ?? (clipBufferRef.current = new NarrationClipBuffer())
+    const clips = clipsRef.current
+    const index = clipIndexRef.current
+    const current = clips[index]
+    if (!current) return
+    const candidates: BufferCandidate[] = clips.map(clip => ({ url: clipSourceUrl(clip) ?? undefined, duration: clip.duration }))
+    const remaining = typeof current.duration === 'number' ? Math.max(0, current.duration - positionRef.current.time) : 0
+    const target = clipBufferSeconds({ hidden: pageHidden(), saveData: connectionSavesData(), rate: audioRef.current?.playbackRate || speedRef.current })
+    // This chapter's audio left, when every later clip is ready to download.
+    let chapterLeft = remaining
+    let chapterReady = true
+    for (let position = index + 1; position < candidates.length; position += 1) {
+      if (!candidates[position].url) { chapterReady = false; break }
+      chapterLeft += candidates[position].duration ?? 0
     }
+    if (chapterReady && chapterLeft < target) {
+      // The chapter boundary is a clip boundary like any other.
+      const opening = optionsRef.current.nextChapterAudio?.()
+      for (const url of opening?.urls ?? []) candidates.push({ url })
+    }
+    const urls = clipsToBuffer(candidates, index, remaining, target, NARRATION_DOWNLOAD_AHEAD)
+    const retain = candidates.slice(Math.max(0, index - 1)).map(candidate => candidate.url).filter((url): url is string => Boolean(url))
+    buffer.want(urls, retain)
   }, [])
+
+  downloadAheadRef.current = downloadAhead
 
   const scheduleNarrationLookAhead = useCallback(() => {
     const narration = optionsRef.current.narration
@@ -1015,6 +1048,7 @@ export function useLabListen(options: UseLabListenOptions) {
       const current = clipsRef.current[clipIndexRef.current]
       if (waitingForNarration(current, audio)) return
       syncFollow(clipIndexRef.current, audio.currentTime || 0)
+      if (playingRef.current && waitClockMs() - clipBufferAtRef.current >= CLIP_BUFFER_REFRESH_MS) downloadAheadRef.current()
     }
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
@@ -1090,8 +1124,16 @@ export function useLabListen(options: UseLabListenOptions) {
       const failing = clipsRef.current[clipIndexRef.current]
       // The current recording failed to load (switchingRef only screens out
       // the previous source's stale events, which carry no error of their own).
-      const ownError = Boolean(audio.error) && failing?.kind === 'paragraph' && !!failing.narration && !!failing.url && audio.src.endsWith(failing.url)
+      const ownError = Boolean(audio.error) && failing?.kind === 'paragraph' && !!failing.narration && !!failing.url && sourcePlaysClip(audio.src, failing.url)
       if (switchingRef.current && !ownError) return
+      // A downloaded copy that will not play: drop it and stream the recording itself, same place.
+      const failingUrl = failing ? clipSourceUrl(failing) : null
+      if (playingRef.current && failingUrl && audio.src.startsWith('blob:') && sourcePlaysClip(audio.src, failingUrl) && clipBufferRef.current?.sourceFor(failingUrl) === audio.src) {
+        clipBufferRef.current.forget(failingUrl)
+        const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
+        playClipRef.current(clipIndexRef.current, live > 0 ? live : positionRef.current.time)
+        return
+      }
       if (ownError && reloadClipRef.current(audio)) return
       // A next-chapter opening that fails is dropped; the chapter starts it normally once loaded.
       if (bridgeRef.current) { bridgeRef.current = null; return }
@@ -1228,6 +1270,7 @@ export function useLabListen(options: UseLabListenOptions) {
       try { audio.removeAttribute('src') } catch { /* jsdom */ }
     }
     audioRef.current = null
+    clipBufferRef.current?.clear()
     endNativeNarration()
   }, [])
 
@@ -1341,7 +1384,7 @@ export function useLabListen(options: UseLabListenOptions) {
       primingRef.current = false
       try { audio.muted = primingMutedRef.current } catch { /* jsdom */ }
     }
-    const sameSrc = audio.src === url || audio.src.endsWith(url)
+    const sameSrc = sourcePlaysClip(audio.src, url)
     // At an automatic boundary, pausing the ended element before assigning
     // the next source makes WebKit hand lock-screen ownership back to the
     // page. Preserve the active native media session and arm autoplay before
@@ -1354,7 +1397,8 @@ export function useLabListen(options: UseLabListenOptions) {
       try { audio.pause() } catch { /* ignore */ }
     }
     if (!sameSrc) {
-      setAudioSource(audio, url)
+      // Downloaded ahead: the swap plays from memory, with no request at the boundary.
+      setAudioSource(audio, elementSource(url))
       try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
     }
     const expectedSrc = audio.src
@@ -1383,7 +1427,8 @@ export function useLabListen(options: UseLabListenOptions) {
     syncFollow(index, offsetSeconds)
     playingRef.current = true
     setPlaying(true)
-    if (clip.kind === 'paragraph' && clip.narration) { scheduleNarrationLookAhead(); downloadAhead() }
+    if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead()
+    downloadAhead()
     void playReaderAudioTransition(
       audio,
       expectedSrc,
@@ -1409,7 +1454,7 @@ export function useLabListen(options: UseLabListenOptions) {
         message: narrationFailureMessage('playback'), reason: 'playback' })
     })
     return true
-  }, [setPending, applyRate, ensureAudio, enterPreparing, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
+  }, [setPending, applyRate, downloadAhead, ensureAudio, enterPreparing, prepareThenRun, scheduleNarrationLookAhead, speed, syncFollow])
   playClipRef.current = playClip
 
   const playPlace = useCallback((
@@ -1458,7 +1503,7 @@ export function useLabListen(options: UseLabListenOptions) {
     holdRef.current = null
     audio.loop = false
     audio.autoplay = !isNativeCapacitor()
-    setAudioSource(audio, url)
+    setAudioSource(audio, elementSource(url))
     try { audio.currentTime = 0 } catch { /* ignore */ }
     applyRate(audio, speedRef.current)
     // Same element, synchronously from `ended`: the only start iOS allows
@@ -1491,14 +1536,8 @@ export function useLabListen(options: UseLabListenOptions) {
     bridgeRef.current = null
     const audio = audioRef.current
     if (!audio || !audio.src || bridge.chapterNumber !== audioChapter()) return false
-    const urlOf = (clip: LabAudioClip): string | null => {
-      if (clip.kind === 'paragraph' && clip.narration) return clip.url ?? null
-      return labAudioFileUrl(clip.file, audioChapter(), audioEdition(), audioBook())
-    }
-    const index = clips.findIndex((clip) => {
-      const url = urlOf(clip)
-      return Boolean(url && (audio.src === url || audio.src.endsWith(url)))
-    })
+    const urlOf = clipSourceUrl
+    const index = clips.findIndex(clip => sourcePlaysClip(audio.src, urlOf(clip)))
     if (index < 0) return false
     const clip = clips[index]
     const listening = playingRef.current && !userPausedRef.current
@@ -1533,7 +1572,8 @@ export function useLabListen(options: UseLabListenOptions) {
     retryPlaybackRef.current = () => { playClipRef.current(index, time, true) }
     syncFollow(index, time)
     applyMetadataRef.current()
-    if (clip.kind === 'paragraph' && clip.narration) { scheduleNarrationLookAhead(); downloadAhead() }
+    if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead()
+    downloadAhead()
     return true
   }
 
@@ -1879,7 +1919,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const clip = clipsRef.current[clipIndexRef.current]
     if (!clip || clip.kind !== 'paragraph') return null
     const audio = audioRef.current
-    const loaded = Boolean(audio?.src && clip.url && audio.src.endsWith(clip.url))
+    const loaded = Boolean(audio?.src && clip.url && sourcePlaysClip(audio.src, clip.url))
     const time = loaded ? playbackTimeSeconds(audio!.currentTime || 0, positionRef.current.time) : positionRef.current.time
     const base = clip.chunk?.wordFrom ?? 0
     const words = clip.words
@@ -1898,7 +1938,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const request = ++playRequestRef.current
     const audio = audioRef.current
     const current = clipsRef.current[clipIndexRef.current]
-    const reenter = Boolean(pendingPlaceRef.current || (audio && isHoldSource(audio)) || (current?.kind === 'paragraph' && current.narration && (!audio?.src || !current.url || !audio.src.endsWith(current.url))))
+    const reenter = Boolean(pendingPlaceRef.current || (audio && isHoldSource(audio)) || (current?.kind === 'paragraph' && current.narration && (!audio?.src || !current.url || !sourcePlaysClip(audio.src, current.url))))
     if (fromSentenceStart && reenter) {
       // A recording that is not on the element yet: resume through the place,
       // from the start of the sentence that holds it.
@@ -2009,6 +2049,8 @@ export function useLabListen(options: UseLabListenOptions) {
       audio.autoplay = false
       audio.removeAttribute('src')
     }
+    // Stopped: nothing ahead will play from memory; free it.
+    clipBufferRef.current?.clear()
     clipIndexRef.current = 0
     setClipIndex(0)
     setCurrentTime(0)
@@ -2176,6 +2218,8 @@ export function useLabListen(options: UseLabListenOptions) {
       }
       // The look-ahead reaches further while hidden; extend it now.
       if (current?.kind === 'paragraph' && current.narration) scheduleNarrationLookAhead()
+      // So does the download window, while the page can still fetch freely.
+      downloadAheadRef.current()
     }
     const onVisibility = () => { if (document.visibilityState !== 'hidden') reconcile(); else onHidden() }
     // An output change (headphones out) is not an interruption to resume from.
