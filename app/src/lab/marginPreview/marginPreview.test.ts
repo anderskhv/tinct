@@ -147,6 +147,33 @@ describe('loading the preview', () => {
     expect(loaded.start.chapterNumber).toBe(5)
     expect(fetchImpl).not.toHaveBeenCalled()
   })
+  it('round 3: fetches the device place’s edition while the account’s place is asked for, and uses the boot’s early GET', async () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify(record(place({ chapterNumber: 2, updatedAt: 1000 }))))
+    const order: string[] = []
+    let answer: (r: Response) => void = () => {}
+    const fetchImpl = vi.fn(() => { order.push('position'); return new Promise<Response>(r => { answer = r }) })
+    const loadEditionImpl = vi.fn(async (_id: string, key: string) => { order.push('edition ' + key); return edition })
+    const task = loadMarginPreviewBook('frankenstein', { fetchImpl: fetchImpl as unknown as typeof fetch, readToken: async () => 'token', loadEditionImpl })
+    await new Promise(r => setTimeout(r, 0))
+    expect(order).toEqual(['edition modern-en', 'position'])
+    answer(new Response(JSON.stringify(record(place({ chapterNumber: 4, updatedAt: 2000 }))), { status: 200 }))
+    expect((await task).start.chapterNumber).toBe(4)
+    expect(loadEditionImpl).toHaveBeenCalledTimes(1)
+    // The account's newer place read in another edition: that edition is loaded and read.
+    const other = vi.fn(async () => new Response(JSON.stringify(record(place({ chapterNumber: 3, primaryEditionKey: 'original-en', updatedAt: 3000 }))), { status: 200 }))
+    const loads = vi.fn(async (_id: string, _key: string) => edition)
+    const read = await loadMarginPreviewBook('frankenstein', { fetchImpl: other as unknown as typeof fetch, readToken: async () => 'token', loadEditionImpl: loads })
+    expect(read.editionKey).toBe('original-en')
+    expect(loads.mock.calls.map(c => c[1])).toEqual(['modern-en', 'original-en'])
+    // The head script's early GET with the same token is taken once instead of asking again.
+    const slot = window as unknown as Record<string, unknown>
+    slot.__tinctPositionPrefetch = { token: 'token', at: Date.now(), body: Promise.resolve(record(place({ chapterNumber: 6, updatedAt: 4000 }))) }
+    const none = vi.fn()
+    const booted = await loadMarginPreviewBook('frankenstein', { fetchImpl: none as unknown as typeof fetch, readToken: async () => 'token', loadEditionImpl: async () => edition })
+    expect(booted.start.chapterNumber).toBe(6)
+    expect(none).not.toHaveBeenCalled()
+    expect(slot.__tinctPositionPrefetch).toBeUndefined()
+  })
   it('refuses the Bible', async () => {
     await expect(loadMarginPreviewBook('bible', { readToken: async () => null })).rejects.toThrow()
   })

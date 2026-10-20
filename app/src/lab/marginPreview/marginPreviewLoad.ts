@@ -16,6 +16,7 @@ import { apiUrl } from '../../utils/apiUrl'
 import { LAB_POSITION_STORAGE_KEY, libraryResumePlace, parseLabPositionState, type LabBookPlace } from '../labPosition'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import type { EditionData } from '../../types'
+import { READER_BOOT_POSITION_PREFETCH, type ReaderBootPositionPrefetch } from '../readerBoot'
 import {
   isMarginPreviewBook,
   marginPreviewChapters,
@@ -53,6 +54,20 @@ export function deviceMainPlace(bookId: string, storage: Pick<Storage, 'getItem'
   return libraryResumePlace(parseLabPositionState(raw, 'margin-preview'), bookId, registeredId)
 }
 
+/**
+ * The same GET the reader's head script may already have started with this token (readerBootEntry, round 3): taken
+ * once if recent, as the book reader takes it (labPositionStore). -> its body, or null to ask again.
+ */
+async function bootPositionPrefetch(token: string): Promise<unknown | null> {
+  if (typeof window === 'undefined') return null
+  const slot = window as unknown as Record<string, ReaderBootPositionPrefetch | undefined>
+  const early = slot[READER_BOOT_POSITION_PREFETCH]
+  if (!early) return null
+  delete slot[READER_BOOT_POSITION_PREFETCH]
+  if (early.token !== token || Date.now() - early.at > 20_000) return null
+  return early.body.catch(() => null)
+}
+
 /** The account's place for this book: one GET, bounded; null signed out, offline or slow. */
 export async function accountMainPlace(bookId: string, deps: MarginPreviewDeps): Promise<LabBookPlace | null> {
   const token = await (deps.readToken?.() ?? Promise.resolve(null)).catch(() => null)
@@ -61,6 +76,8 @@ export async function accountMainPlace(bookId: string, deps: MarginPreviewDeps):
   const controller = typeof AbortController === 'undefined' ? null : new AbortController()
   const read = (async () => {
     try {
+      const early = await bootPositionPrefetch(token)
+      if (early) return libraryResumePlace(parseLabPositionState(early, 'margin-preview'), bookId, registeredId)
       const res = await fetchImpl(apiUrl('/api/lab-position'), { method: 'GET', headers: { Authorization: `Bearer ${token}` }, ...(controller ? { signal: controller.signal } : {}) })
       if (!res.ok) return null
       return libraryResumePlace(parseLabPositionState(await res.json(), 'margin-preview'), bookId, registeredId)
@@ -77,11 +94,19 @@ export async function loadMarginPreviewBook(bookId: string, deps: MarginPreviewD
   const book = getBook(bookId)
   if (!isMarginPreviewBook(book)) throw new Error(`${bookId} cannot open in the margin preview`)
   const storage = deps.storage === undefined ? (typeof localStorage === 'undefined' ? null : localStorage) : deps.storage
-  const place = newerPlace(deviceMainPlace(bookId, storage), await accountMainPlace(bookId, deps))
+  const devicePlace = deviceMainPlace(bookId, storage)
   const prefs = parseLabPrefs(readJson(storage, LAB_PREFS_KEY), 'desktop')
-  const editionKey = marginPreviewEditionKey(book, { placeEdition: place?.primaryEditionKey, prefsEdition: prefs.primaryEdition })
+  const keyFor = (place: LabBookPlace | null) => marginPreviewEditionKey(book, { placeEdition: place?.primaryEditionKey, prefsEdition: prefs.primaryEdition })
+  // The edition this device's place reads in is fetched while the account's place is asked for (round 3: the text
+  // waited for that request first); the account's newer place in another edition, rarely, loads that one instead.
+  const load = deps.loadEditionImpl ?? loadEdition
+  const guess = keyFor(devicePlace)
+  const early = guess ? load(bookId, guess) : null
+  early?.catch(() => {})
+  const place = newerPlace(devicePlace, await accountMainPlace(bookId, deps))
+  const editionKey = keyFor(place)
   if (!editionKey) throw new Error(`${bookId} has no edition to read`)
-  const data = await (deps.loadEditionImpl ?? loadEdition)(bookId, editionKey)
+  const data = await (editionKey === guess && early ? early : load(bookId, editionKey))
   const chapters = marginPreviewChapters(data)
   if (!chapters.length) throw new Error(`${bookId} ${editionKey} has no chapters`)
   const edition = book.editions.find(e => e.key === editionKey)!
