@@ -15,6 +15,14 @@ const definition = 'pronoun. Used to refer to people or things already identifie
 // Profiles (social ship 2): live, the Worker serves wrangler.jsonc's switch (the
 // tinct-social marker); local dist is served without the Worker, so off.
 const socialProfiles = live && /"SOCIAL_PROFILES"\s*:\s*"1"/.test(await fs.readFile('wrangler.jsonc','utf8'))
+const AUDIO_MANIFEST_FIXTURES = { 'antigone/modern-en/ch1/manifest.json': 'scripts/fixtures/audio-manifests/antigone-modern-en-ch1.json' }
+// Diagnostics for a failure report: the page's visible text, or why there is none. A catch handler must never throw
+// itself: reading a page that is already closed (a reboot that failed after the previous context closed) replaced
+// the row's own error with "Target page, context or browser has been closed" and stopped the whole run (CI, 14 and
+// 20 Oct 2026, contentsAndSameEdition).
+const visibleText = (page, last) => page && !page.isClosed()
+  ? page.locator('body').innerText({ timeout: 5000 }).then(text => text.slice(-last), error => `(page text unavailable: ${error.message.split('\n')[0]})`)
+  : Promise.resolve('(page closed)')
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
 
@@ -65,6 +73,13 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     // Exercise the shared missing-entry UI without paying for inference.
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})
     if (req.method() !== 'GET') return route.abort()
+    // Before a deploy, a recording's manifest this check depends on is the one production served on 20 Oct 2026
+    // (scripts/fixtures/audio-manifests): the client's decision is what is checked, and a dropped connection to
+    // production failed antigone-audio-availability. After a deploy (READER_LIVE=1) production answers, as before.
+    if (!live && url.pathname === '/api/audio-manifest') {
+      const fixture = AUDIO_MANIFEST_FIXTURES[url.searchParams.get('path')]
+      if (fixture) return route.fulfill({ contentType: 'application/json', path: fixture })
+    }
     if (!live && url.origin === origin) {
       const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname === '/library' ? '/lab/library_2/index.html' : url.pathname
       const filename = path.resolve('dist', '.' + pathname)
@@ -88,7 +103,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   try {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {
-    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,ui:(await page.locator('body').innerText()).slice(-3500)}
+    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,ui:await visibleText(page,3500)}
     await page.screenshot({path:output+'/boot-failure-'+bookId+'-'+chapterNumber+'-'+Date.now()+'.png'}).catch(()=>{})
     await context.close()
     throw new Error('Reader boot failed: '+JSON.stringify(diagnostic),{cause:error})
@@ -302,7 +317,7 @@ async function run(engine,name,phone) {
     result.passed=false; result.error=error.stack
     if(state) {
       await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
-      result.visibleText=(await state.page.locator('body').innerText()).slice(-4000)
+      result.visibleText=await visibleText(state.page,4000)
       result.windows=await state.page.locator('[data-reader-window]').evaluateAll(nodes=>nodes.map(node=>{
         const box=node.getBoundingClientRect(),style=getComputedStyle(node)
         return {class:node.className,rect:box.toJSON(),inline:node.getAttribute('style'),z:style.zIndex,
@@ -310,7 +325,7 @@ async function run(engine,name,phone) {
             const b=n.getBoundingClientRect(),hit=document.elementFromPoint(b.x+b.width/2,b.y+b.height/2)
             return {label:n.getAttribute('aria-label'),rect:b.toJSON(),hit:hit?.outerHTML.slice(0,200)}
           })}
-      }))
+      })).catch(e=>`(windows unavailable: ${e.message.split('\n')[0]})`)
     }
   } finally { await browser.close(); results.push(result) }
 }
@@ -515,7 +530,7 @@ async function contentsAndSameEdition(engine,name,phone){
     result.passed=true
   }catch(error){
     result.passed=false;result.error=error.stack
-    if(state){await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-4000)}
+    if(state){await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{});result.visibleText=await visibleText(state.page,4000)}
   }finally{await browser.close();results.push(result)}
 }
 
@@ -676,7 +691,7 @@ async function highlightRegression(engine,name){
     result.passed=true
   }catch(error){
     result.passed=false;result.error=error.stack
-    if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-3000)}
+    if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=await visibleText(state.page,3000)}
   }finally{await browser.close();results.push(result)}
 }
 
@@ -824,7 +839,7 @@ async function antigoneAudioAvailability(engine,name) {
     result.passed=true
   } catch(error) {
     result.passed=false;result.error=error.stack
-    if(state) result.diagnostics={requests:state.requests,errors:state.errors,ui:(await state.page.locator('body').innerText()).slice(-2500)}
+    if(state) result.diagnostics={requests:state.requests,errors:state.errors,ui:await visibleText(state.page,2500)}
   }
   finally { await browser.close();results.push(result) }
 }
