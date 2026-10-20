@@ -11,15 +11,50 @@
 import { useEffect, useMemo, useState } from 'react'
 import { getBook } from '../../data/bookRegistry'
 import { readSupabaseAccessToken } from '../labAuth'
+import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
+import { marginPreviewAtForPage } from './marginPreviewFlag'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
-import { normalReaderHref, type MarginPreviewBook } from './marginPreviewModel'
+import {
+  marginPreviewCompareEdition,
+  marginPreviewLayoutHref,
+  marginPreviewPaper,
+  normalReaderHref,
+  type MarginPreviewBook,
+  type MarginPreviewPaper,
+  type MarginPreviewPlace,
+  type MarginPreviewView,
+} from './marginPreviewModel'
 
 // book.html (served as /lab/addbook/book): the margin reader's page without the PDF-only scripts (round 2).
 export const MARGIN_PREVIEW_FRAME_SRC = '/lab/addbook/book?tinctBook='
 
 declare global {
   interface Window {
-    TinctMarginPreview?: { bookId: string; load: () => Promise<MarginPreviewBook> }
+    TinctMarginPreview?: {
+      bookId: string
+      load: () => Promise<MarginPreviewBook>
+      /** The desktop paper for a window this wide: the book reader's text, as it sets it now. */
+      paper: (viewportWidth: number) => MarginPreviewPaper
+      /** Two-page or Compare: the book reader at this place, in that layout. */
+      layoutHref: (view: MarginPreviewView, place: MarginPreviewPlace) => string
+    }
+  }
+}
+
+/** The book reader's desktop preferences on this device, read only. */
+function desktopPrefs() {
+  let raw: unknown = null
+  try { raw = JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || 'null') } catch { /* defaults */ }
+  return parseLabPrefs(raw, 'desktop')
+}
+
+export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>): NonNullable<Window['TinctMarginPreview']> {
+  const book = getBook(bookId)
+  return {
+    bookId,
+    load: () => pending,
+    paper: width => marginPreviewPaper(desktopPrefs(), width, { shakespeare: book?.author === 'William Shakespeare' }),
+    layoutHref: (view, place) => marginPreviewLayoutHref(bookId, view, place, book ? marginPreviewCompareEdition(book, desktopPrefs(), place.editionKey) : undefined),
   }
 }
 
@@ -31,12 +66,12 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
   const [failed, setFailed] = useState(false)
   // One load per page, shared with the frame (it may ask before or after this renders).
   const pending = useMemo(() => {
-    const task = load(bookId, { readToken: readSupabaseAccessToken })
+    const task = load(bookId, { readToken: readSupabaseAccessToken, at: marginPreviewAtForPage() })
     task.catch(() => setFailed(true))
     return task
   }, [bookId, load])
   useEffect(() => {
-    window.TinctMarginPreview = { bookId, load: () => pending }
+    window.TinctMarginPreview = marginPreviewBridge(bookId, pending)
     const title = getBook(bookId)?.title
     if (title) document.title = `${title} · Margin preview · Tinct`
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }

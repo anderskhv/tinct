@@ -43,6 +43,11 @@ export interface LabV2SheetProps {
   /** Present once a compare edition is chosen: the switch between the main and compare page. */
   compare?: { active: boolean; onToggle: () => void } | null
   /**
+   * The margin preview's layout (Anders, 2026-10-20), on the desktop while this device has opted in: opens
+   * the book in Margin at the same place.
+   */
+  margin?: { onOpen: () => void } | null
+  /**
    * Compare needs something to pair; say so instead of hiding the switch.
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
    * 'paragraphs': an edition whose paragraphs do not match the other's.
@@ -189,7 +194,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, margin = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -365,6 +370,12 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   data-testid="lab-v2-show-compare" onClick={compare.onToggle}>
                   <span className="lab-v2-row-label">Show compare</span>
                   <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
+                </button>
+              )}
+              {margin && (
+                <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid="lab-v2-margin" onClick={margin.onOpen}>
+                  <span className="lab-v2-row-label">Margin</span>
+                  <span aria-hidden="true">›</span>
                 </button>
               )}
               {compareUnavailable && (

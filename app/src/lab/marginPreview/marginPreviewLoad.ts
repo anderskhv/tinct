@@ -16,6 +16,7 @@ import { apiUrl } from '../../utils/apiUrl'
 import { LAB_POSITION_STORAGE_KEY, libraryResumePlace, parseLabPositionState, type LabBookPlace } from '../labPosition'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import type { EditionData } from '../../types'
+import type { MarginPreviewAt } from './marginPreviewFlag'
 import { READER_BOOT_POSITION_PREFETCH, type ReaderBootPositionPrefetch } from '../readerBoot'
 import {
   isMarginPreviewBook,
@@ -38,6 +39,12 @@ export interface MarginPreviewDeps {
   readToken?: () => Promise<string | null>
   loadEditionImpl?: (bookId: string, editionKey: string) => Promise<EditionData>
   cloudWaitMs?: number
+  /**
+   * The place the link named (Margin from the book reader's layouts, marginPreviewFlag): the preview opens
+   * there, in that edition, newer than any place kept so far.
+   */
+  at?: MarginPreviewAt | null
+  now?: () => number
 }
 
 const registeredId = (bookId: string) => getBook(bookId)?.id
@@ -90,6 +97,16 @@ export async function accountMainPlace(bookId: string, deps: MarginPreviewDeps):
   try { return await Promise.race([read, late]) } finally { clearTimeout(timer) }
 }
 
+/** A link's place as a book reader's place, saved now: it wins over the preview's own. */
+function linkPlace(bookId: string, at: MarginPreviewAt, now: number): LabBookPlace {
+  return {
+    bookId, headerBook: bookId, chapterNumber: at.chapterNumber, sequentialChapter: at.chapterNumber,
+    paragraphIndex: at.paragraphIndex, wordIndex: at.wordIndex,
+    ...(at.editionKey ? { primaryEditionKey: at.editionKey } : {}),
+    updatedAt: now, deviceId: 'margin-preview', rev: 0,
+  }
+}
+
 export async function loadMarginPreviewBook(bookId: string, deps: MarginPreviewDeps = {}): Promise<MarginPreviewBook> {
   const book = getBook(bookId)
   if (!isMarginPreviewBook(book)) throw new Error(`${bookId} cannot open in the margin preview`)
@@ -103,7 +120,8 @@ export async function loadMarginPreviewBook(bookId: string, deps: MarginPreviewD
   const guess = keyFor(devicePlace)
   const early = guess ? load(bookId, guess) : null
   early?.catch(() => {})
-  const place = newerPlace(devicePlace, await accountMainPlace(bookId, deps))
+  const named = deps.at ? linkPlace(bookId, deps.at, deps.now?.() ?? Date.now()) : null
+  const place = named ?? newerPlace(devicePlace, await accountMainPlace(bookId, deps))
   const editionKey = keyFor(place)
   if (!editionKey) throw new Error(`${bookId} has no edition to read`)
   const data = await (editionKey === guess && early ? early : load(bookId, editionKey))
