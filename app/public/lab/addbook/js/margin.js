@@ -240,6 +240,8 @@
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const svg = body => `<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">${body}</svg>`;
   const ICONS = {
+    // Remove (a highlight): a ✕, in the bar's stroke.
+    remove: svg('<path d="M5 5l8 8M13 5l-8 8"/>'),
     more: svg('<circle cx="4" cy="9" r=".9"/><circle cx="9" cy="9" r=".9"/><circle cx="14" cy="9" r=".9"/>'),
     // The note: a pencil over a short rule (Anders, 15 Oct: in the style of Gloss's bar, drawn as our own).
     note: svg('<path d="M11.6 3.4l2.9 2.9-7.6 7.6-3.6.8.8-3.6z"/><path d="M10.1 4.9l2.9 2.9M10.5 15.3h4.6"/>'),
@@ -283,7 +285,8 @@
       return `<button type="button" class="mr-bar__item is-text" data-m="ask">Ask</button>${sep}<button type="button" class="mr-bar__item is-text" data-m="explain">Explain</button>${sep}`
         + swatchesHtml(o.colors, o.current) + sep
         + `<button type="button" class="mr-bar__item" data-m="note" aria-label="${o.noted ? 'Edit note' : 'Add note'}">${ICONS.note}</button>`
-        + (o.phone ? `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight">${ICONS.trash}</button>` : `<button type="button" class="mr-bar__item is-text" data-m="remove">Remove highlight</button>`);
+        // Remove highlight: a ✕ in the bar's icon style, named for screen readers and on hover (Anders, 20 Oct 2026: the words were too wide).
+        + `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight" title="Remove highlight">${ICONS.remove}</button>`;
     }
     if (state === 'asking') {
       // Gloss's field (Anders, 20 Oct 2026): one pill, a placeholder, the mic and a round send. No spelling marks or

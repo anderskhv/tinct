@@ -660,3 +660,5 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-bar.is-asking .mr-bar__send svg { stroke: var(--mr-ask-send-ink); width: 16px; height: 16px; stroke-width: 2; }
 .mr-bar.is-asking .mr-bar__send:disabled { opacity: .4; }
 .mr-bar.is-asking button:focus-visible { outline: 2px solid var(--mr-ask-send); outline-offset: 2px; }
+/* The unit marks' pills keep their 32px target in e-ink too (its display profile resets buttons' min-height). */
+html[data-eink="true"] .mr-unit .mr-pill, html[data-pdf-theme="eink"] .mr-unit .mr-pill { min-height: 32px; }

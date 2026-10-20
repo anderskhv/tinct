@@ -131,6 +131,30 @@
     return out.sort((a, b) => (b.openedAt || b.addedAt || 0) - (a.openedAt || a.addedAt || 0));
   }
   // Removes a book from this device and from the account.
+  /*
+   * Everything this device keeps for one own book besides its file (Anders, 20 Oct 2026; the privacy notice says they go
+   * with it): its place, highlights, margin cards and answers, chats, primers, catch-ups, printed page numbers, its view,
+   * and any library snapshot naming it. Keys are matched by the book's own 24-hex-digit id, so no other book's can match.
+   * The same rule as the library's delete (lab/library_2 forgetOwnBookHere). -> the number of keys removed
+   */
+  const SNAPSHOT_KEYS = /^tinct:(library-2-table:|lab-library-boot$|library-2-first-paint$)/;
+  function forgetBookHere(hex, storages = [global.localStorage, global.sessionStorage]) {
+    hex = String(hex || '').replace(/^(epub|pdf):/, '');
+    if (!/^[0-9a-f]{24}$/.test(hex)) return 0;
+    let gone = 0;
+    for (const s of storages) {
+      try {
+        if (!s) continue;
+        const keys = []; for (let i = 0; i < s.length; i++) { const k = s.key(i); if (k) keys.push(k) }
+        for (const k of keys) {
+          const mine = (k.startsWith(STORE_PREFIX) || k.startsWith('tinct:')) && k.includes(hex);
+          const names = !mine && SNAPSHOT_KEYS.test(k) && String(s.getItem(k) || '').includes(hex);
+          if (mine || names) { s.removeItem(k); gone++ }
+        }
+      } catch { /* blocked storage: nothing kept to forget */ }
+    }
+    return gone;
+  }
   async function removeBook(key, { notify = quiet } = {}) {
     const rec = await library.get(key);
     const id = rec?.cloudId || cloud.get(key)?.id;
@@ -138,6 +162,8 @@
     store.del('place:' + key.replace(/^epub:/, ''));
     // A scan's text being recognised: the account deletes the job with the book; this device forgets it.
     store.del('ocr:' + key.slice(key.indexOf(':') + 1));
+    // And every other key this device keeps for it (highlights, cards, chats, primers, its place).
+    forgetBookHere(key);
     if (!id) return true;
     try { await global.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
     catch { notify('Removed from this device, but not from your account. Try again.'); return false }
@@ -284,7 +310,7 @@
   const pdfHref = key => '/lab/addbook/?userBook=' + encodeURIComponent(String(key).slice(String(key).indexOf(':') + 1));
 
   global.TinctAddEngine = {
-    store, owner, library, cloud, covers, saveToAccount, shelf, removeBook,
+    store, owner, library, cloud, covers, saveToAccount, shelf, removeBook, forgetBookHere,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
     kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, epubHref, ACCOUNT_COPY_WAIT_MS,
   };

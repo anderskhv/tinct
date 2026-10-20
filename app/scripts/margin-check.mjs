@@ -734,7 +734,9 @@ async function behaviour(browser, origin) {
     const j = JSON.stringify({ ideas: ['MOCK idea 1', 'MOCK idea 2', 'MOCK idea 3'], questions: Q }), cut1 = j.indexOf('{"q":"MOCK streamed Q2'), cut2 = j.indexOf('{"q":"MOCK streamed Q3')
     // One quiz per passage since 20 Oct 2026 (Quiz me again on the same passage opens its quiz): each run starts from no quiz card.
     const run = async (chunks, fail) => {
-      await a.evaluate(() => { store.set('cards:' + state.key, keptCards().filter(c => c.kind !== 'quiz')); col.view = null; marginLayout({ fresh: true }) })
+      await a.evaluate(() => { for (const c of keptCards()) if (c.kind === 'quiz') { col.ctl.get(c.id)?.abort(); col.quiz.delete(c.id); col.live.delete(c.id) } openCard(null); store.set('cards:' + state.key, keptCards().filter(c => c.kind !== 'quiz')); col.view = null; marginLayout({ fresh: true }) })
+      // The page stays where the reader left it since 20 Oct 2026 (a card's answer never scrolls it): back to running text.
+      await a.evaluate(() => { goTo({ page: 2, frac: 0.05 }); onScroll() }); await a.waitForTimeout(600)
       await selectText(a); await a.waitForSelector('.mr-bar'); mock.chunks = chunks; mock.chunksFail = fail
       await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more'); await a.click('.mr-more [data-m="quiz"]')
       await a.waitForFunction(() => /MOCK streamed Q1/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 4000 }).catch(() => {})
@@ -1772,7 +1774,7 @@ async function openEpubHere(browser, origin, { width, height, look, margin = tru
   // The EPUB margin is off in the reader (EPUB_MARGIN = false, Anders 15 Oct); this check turns it on for its page.
   if (margin) await opened.page.evaluate(() => { window.TinctEpubMargin = true })
   await opened.page.evaluate(async () => { const b = new Uint8Array(await (await fetch('/__margin/anthology.epub')).arrayBuffer()); await openBook('epub', b, 'anthology.epub', 'epub:' + 'ab'.repeat(12)) })
-  await opened.page.waitForSelector('.epub-pg'); await opened.page.waitForTimeout(900)
+  await opened.page.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg'); await opened.page.waitForTimeout(900)
   return opened
 }
 // Select `chars` characters of the `nth` paragraph of chapter `ch` (1-based), as a reader would.
@@ -4201,12 +4203,14 @@ async function highlightBar(browser, origin) {
     await prefetchSettled(a)
     const make = async () => { await selectText(a); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {}); await a.click('.mr-float [data-m="dot"]'); await a.waitForTimeout(300); await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges()); if (phone) await a.evaluate(() => closeSheet2()); await a.waitForTimeout(300) }
     const clickHl = async () => { const p = await a.evaluate(() => { const i = [...document.querySelectorAll('.hl-layer i')].at(-1); const r = i.getBoundingClientRect(); return { x: r.left + Math.min(20, r.width / 2), y: r.top + r.height / 2 } }); await a.mouse.click(p.x, p.y); await a.waitForTimeout(500) }
-    const barNow = () => a.evaluate(() => { const b = document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar'); if (!b) return null; return { items: [...b.querySelectorAll('button')].map(x => x.dataset.m || (x.dataset.color ? 'color' : '?')), words: [...b.querySelectorAll('button')].map(x => x.textContent.trim()).filter(Boolean), remove: b.querySelector('[data-m="remove"]')?.getAttribute('aria-label') || b.querySelector('[data-m="remove"]')?.textContent, pressed: b.querySelector('.mr-swatch[aria-pressed="true"]')?.dataset.color, bg: getComputedStyle(b).backgroundColor, dark: (() => { const m = getComputedStyle(b).backgroundColor.match(/\d+/g).map(Number); return (m[0] + m[1] + m[2]) / 3 < 80 })() } })
+    const barNow = () => a.evaluate(() => { const b = document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar'); if (!b) return null; return { items: [...b.querySelectorAll('button')].map(x => x.dataset.m || (x.dataset.color ? 'color' : '?')), words: [...b.querySelectorAll('button')].map(x => x.textContent.trim()).filter(Boolean), remove: b.querySelector('[data-m="remove"]')?.getAttribute('aria-label') || b.querySelector('[data-m="remove"]')?.textContent, removeTitle: b.querySelector('[data-m="remove"]')?.getAttribute('title'), removeText: b.querySelector('[data-m="remove"]')?.textContent.trim(), removeIcon: !!b.querySelector('[data-m="remove"] svg'), pressed: b.querySelector('.mr-swatch[aria-pressed="true"]')?.dataset.color, bg: getComputedStyle(b).backgroundColor, dark: (() => { const m = getComputedStyle(b).backgroundColor.match(/\d+/g).map(Number); return (m[0] + m[1] + m[2]) / 3 < 80 })() } })
     await make()
     const color = await a.evaluate(() => highlights().at(-1)?.color)
     await clickHl()
     const bar = await barNow()
     ok(`${tag}: 2. a click on a highlight opens the dark bar: Ask, Explain, its colours (its own pressed), its note, Remove highlight`, bar && bar.dark && bar.items.join(',') === 'ask,explain,color,color,color,color,color,note,remove' && bar.pressed === color && bar.remove === 'Remove highlight', { bar, color })
+    // p (Anders, 20 Oct 2026): Remove highlight is an icon, a ✕ in the bar's icon style, never the words; named for screen readers and on hover.
+    ok(`${tag}: p. Remove highlight is an icon-only ✕ (aria-label and title "Remove highlight")`, bar && bar.removeIcon && bar.removeText === '' && bar.removeTitle === 'Remove highlight' && !bar.words.includes('Remove highlight'), bar)
     if (!phone && look === 'paper') await shot(a, 'highlight-bar-1440x900')
     const problems = await checkMargin(a)
     ok(`${tag}: the bar is laid out cleanly (inside the screen, nothing cut or overlapping)`, !problems.length, problems.slice(0, 4))
@@ -4724,7 +4728,8 @@ async function notebookCheck(browser, origin) {
     const named = k => all.entries.filter(e => e.kind === k)
     const unitLabel = await b.evaluate(() => TinctMargin.unitPhrase(primer.units[0]))
     ok(`${tag}: All lists the margin note, the unit's note, Catch me up, Recap, the unit's quiz and the Fact-check`, named('Note').length === 2 && named('Catch me up').length === 1 && named('Recap').length === 1 && named('Quiz').length === 1 && named('Fact-check').length === 1 && all.count === '6 entries', all.entries.map(e => [e.kind, e.chip]))
-    ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Catch me up')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip, { chip: named('Recap')[0]?.chip, unitLabel })
+    // (Catch me up is the second unit's since 20 Oct 2026: the first has none.)
+    ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip && !!named('Catch me up')[0]?.chip && named('Catch me up')[0].chip !== named('Recap')[0].chip, { chip: named('Recap')[0]?.chip, catchup: named('Catch me up')[0]?.chip, unitLabel })
     const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Fact-check')[0]?.id)
     ok(`${tag}: Fact-check is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
     await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
@@ -4803,7 +4808,7 @@ async function epubViewCheck(browser, origin) {
     const tag = `epub-view-${width}x${height}`
     const E = await epubPage(browser, origin, hex, { width, height })
     const e = E.page
-    await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
     const opened = await e.evaluate(() => ({ url: location.pathname + location.search, kind: state.kind, margin: marginOn(), mode: col.mode, dock: !!document.querySelector('.byob-dock'), nb: getComputedStyle(document.getElementById('notebookBtn')).display !== 'none' }))
     ok(`${tag}: the EPUB opens here, in Margin view (its column), at its own address, with the Notebook`, opened.url === `/lab/addbook/?userBook=${hex}` && opened.kind === 'epub' && opened.margin && opened.mode === 'column' && !opened.dock && opened.nb, opened)
     // The Aa panel: Margin view, and Convert to Tinct book.
@@ -4822,7 +4827,8 @@ async function epubViewCheck(browser, origin) {
     await e.evaluate(() => { const p = state.pages[3], t = epubParas(p)[2].firstChild, range = document.createRange(); range.setStart(t, 0); range.setEnd(t, 40); const info = { text: range.toString(), page: 4, range }; store.set('cards:' + state.key, [withSpan(TinctMargin.newCard({ kind: 'explain', page: 4, anchor: anchorOf(selectionShapes(range)), text: info.text, turns: [{ role: 'assistant', content: 'MOCK explain on an EPUB.' }] }), info)]); col.view = null; marginLayout({ fresh: true }) })
     await e.click('#notebookBtn'); await e.waitForSelector('.nb .nb-entry')
     const entry = await e.evaluate(nbState)
-    ok(`${tag}: the Notebook lists an EPUB's card by chapter and paragraph`, entry.entries.length === 1 && entry.entries[0].chip === 'ch. 4 ¶ 3' && entry.entries[0].kind === 'Explain', entry.entries)
+    // Named by the chapter's title as the pill names it (Anders, 20 Oct 2026: never "ch. 9", the file's spine index).
+    ok(`${tag}: the Notebook lists an EPUB's card by chapter and paragraph`, entry.entries.length === 1 && entry.entries[0].chip === '2 Candles Considered ¶ 3' && entry.entries[0].kind === 'Explain', entry.entries)
     await shot(e, `${tag}-notebook`)
     await e.click('.nb-entry .nb-kind'); await e.waitForTimeout(1500)
     const jump = await e.evaluate(() => { const c = (store.get('cards:' + state.key) || [])[0], r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], sr = document.getElementById('scroll').getBoundingClientRect(); return { open: col.open === c.id, inView: r.top > sr.top && r.bottom < sr.bottom, card: !!document.querySelector('.mr-card.is-open') } })
@@ -4831,7 +4837,7 @@ async function epubViewCheck(browser, origin) {
     await e.keyboard.press('Escape'); await e.evaluate(() => { openCard(null) })
     // Back at the place, then a reload: the same paragraph and word.
     await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await e.evaluate(() => savePlaceNow())
-    await e.reload(); await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
     const reloaded = await e.evaluate(spotNow)
     ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
     // The text size and the window's width change: the place stays.
@@ -4857,7 +4863,7 @@ async function epubViewCheck(browser, origin) {
     ok(`${tag}: chosen, the Tinct reader is where it opens on this device`, e.url().includes(`/reader?userBook=${hex}`), e.url())
     const target = await e.evaluate(() => 'Lamplight has always posed questions about the nature of the evening')
     await e.evaluate(([k, h, q]) => { localStorage.setItem('tinct-addbook:epub-view:' + h, JSON.stringify('margin')); const pos = JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)); localStorage.setItem('tinct-addbook:pos:' + k, JSON.stringify({ ...pos, via: 't', quote: q, at: Date.now() })) }, [key, hex, 'If we really do live in a lamplit household, then where does electricity fit'])
-    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
     const back = await e.evaluate(spotNow)
     ok(`${tag}: from the Tinct reader's Margin view, the EPUB opens here at the words it was at`, back.page === 2 && back.para === 1 && back.word === 0 && /^If we really do live/.test(back.quote), back)
     void target
@@ -4882,7 +4888,7 @@ const epubShot = (page, name) => page.screenshot({ path: join(EPUB_SHOTS, name +
 async function essaysOpen(browser, origin, { width = 1440, height = 900, look = 'night' } = {}) {
   const hex = addEssays()
   const E = await epubPage(browser, origin, hex, { width, height, look })
-  await E.page.waitForSelector('.epub-pg', { timeout: 30000 }); await E.page.waitForTimeout(1500)
+  await E.page.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await E.page.waitForTimeout(1500)
   return { ...E, hex, key: 'epub:' + hex }
 }
 const essayPage = (page, title) => page.evaluate(t => state.pages.findIndex(p => p.pg.textContent.trim().startsWith(t)) + 1, title)
@@ -5071,6 +5077,12 @@ async function epubQuizCheck(browser, origin) {
   const cards = await e.evaluate(() => keptCards().filter(c => c.kind === 'quiz' && !c.gone).length)
   const stubs = await e.evaluate(() => [...document.querySelectorAll('.mr-doc .mr-card')].filter(el => /Quiz me/.test(el.innerText)).length)
   ok('d. one quiz, one card: Quiz me again on the same passage opens the same card, no stub above it', cards === 1 && stubs === 1, { cards, stubs })
+  // q (20 Oct 2026): deleting the book from the reader leaves nothing of it on this device (place, highlights, cards, chats, primers).
+  await e.evaluate(() => { savePlaceNow(); const p = state.pages[8], t = epubParas(p)[3].firstChild, r = document.createRange(); r.setStart(t, 0); r.setEnd(t, 30); addHighlight({ text: r.toString(), page: 9, range: r }, { range: r, color: 'yellow' }); store.set('chat:' + state.key, [{ role: 'user', content: 'x' }]) })
+  const before = await e.evaluate(h => Object.keys(localStorage).filter(k => k.includes(h)), E.hex)
+  await e.evaluate(k => TinctReader.removeBook(k), E.key); await e.waitForTimeout(800)
+  const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex)
+  ok('q. deleting the book from the reader leaves no key of it on this device (its place, highlights, cards, chat, primers)', before.length >= 4 && left.length === 0, { before, left })
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
   return results

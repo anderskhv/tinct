@@ -104,7 +104,8 @@ const saveToAccount = async (key, file, meta, options = {}) => {
   await engine.saveToAccount(key, file, meta, { notify: toast, ...options });
   if (engine.cloud?.get(key)) dispatchEvent(new CustomEvent('tinct-book-saved', { detail: { key } }));
 };
-const removeBook = key => engine.removeBook(key, { notify: toast });
+// Deleting the book that is open closes it first, so nothing of it is written again after its keys are gone (engine.forgetBookHere).
+const removeBook = async key => { if (state.key === key) await closeBook({ toShelf: true }); return engine.removeBook(key, { notify: toast }) };
 // Opening your own file needs a Tinct account (searching free books does not). The
 // rights confirmation (add-engine.js) is asked once per account, before its first file opens.
 function needsAccount() {
@@ -369,6 +370,13 @@ async function openEpub(bytes, name, key, rec = null) {
   } else if (!isPhone() && prefs.dock !== 'closed') setTimeout(() => { if (hasBook() && !chat.el?.isConnected) openChat({ quiet: true }) }, 50);
   // The preview: the margin's first layout (reserveColumn's reflow) holds no spot while the place is being restored.
   if (state.preview) { epubHold.spot = null; epubHold.reflow++ }
+  // Tinct paper's fonts (the text's and the headings' EB Garamond), waited for at most 1.5 s before the place is found:
+  // a heading font that came later moved the text under the restored place (as the preview does, tinct-book.js fontsSoon).
+  if (isPaper() && !state.preview && document.fonts?.load) {
+    const body = getComputedStyle(root).getPropertyValue('--tb-font').trim() || "'Literata', Georgia, serif";
+    await Promise.race([Promise.all([`400 19px ${body}`, `italic 400 19px ${body}`, "700 20px 'EB Garamond'", "600 20px 'EB Garamond'"].map(font => document.fonts.load(font, 'Aa').catch(() => null))), new Promise(r => setTimeout(r, 1500))]);
+    if (token !== state.token) return;
+  }
   // A first open begins at the first section of the text (the Preface, not the title page; epub.js classify).
   requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else if (book.start > 0 && !state.preview) epubGoSpot(book.start + 1, 0, 0); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600) });
 }
@@ -7255,8 +7263,10 @@ document.fonts?.addEventListener?.('loadingdone', () => {
   // Not while a card is being answered: the place is held where the reader left it (holdPlace).
   if (!isEpub() || !state.pages.length || placeHeld()) return;
   const { spot, page } = epubHold; if (!spot || !page) return;
-  const now = epubSpot();
-  if (currentPlace().page === page && now.para === spot.para && (now.word || 0) <= (spot.word || 0)) return;
+  // Still there: the held word's line at the top of the view (a reflow that moved it a line or two down is gone back from).
+  const el = state.pages[page - 1] && epubParas(state.pages[page - 1])[spot.para], w = el && wordRect(el, spot.word || 0);
+  const top = $('scroll').getBoundingClientRect().top;
+  if (!w || (w.top >= top - w.height * 0.6 && w.top <= top + w.height * 0.6)) return;
   epubHold.reflow++;
   epubGoSpot(page, spot.para, spot.word);
   setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 400);
