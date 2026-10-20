@@ -2053,7 +2053,7 @@ const layoutChoice = o => `<button type="button" class="lab-v2-edition-option" d
 /** The panel's Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
 function drawLayoutChoices() {
   const panel = document.querySelector('.byob-aa-panel'); if (!panel) return;
-  const opts = RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
+  const opts = previewLayouts() || RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
   const box = panel.querySelector('[data-aa="layout"]'), row = panel.querySelector('[data-t="text"]');
   if (box) { box.hidden = !opts.length; box.querySelector('.lab-v2-edition-choices').innerHTML = opts.map(layoutChoice).join('') }
   if (row) row.hidden = !(RL.TINCT_TEXT === 'row' && hasText());
@@ -2096,6 +2096,7 @@ function openDisplay() {
   layer.querySelector('[data-aa="layout"]').addEventListener('click', e => {
     const b = e.target.closest('[data-layout]'); if (!b) return;
     if (b.dataset.layout === 'text') { closeDisplay(); readAsText(); return }
+    if (state.preview && PREVIEW_VIEWS[b.dataset.layout]) { closeDisplay(); previewView(b.dataset.layout); return }
     keepPagesHere();
     setLayout(b.dataset.layout);
     drawLayoutChoices();
@@ -5729,6 +5730,7 @@ function unitPagesLabel(unit) {
    text layer's own line boxes: baseline less 0.86 of the size). Found once per unit from the page's text, the layout
    drawn again when it is known. -> { head: { page, y }, end: { page, y } } or null (not yet) */
 function unitPlaceNow(u) {
+  if (state.preview && isEpub()) return previewUnitPlace(u);
   const had = primer.places.get(u.key);
   if (had) return had.value || null;
   const entry = { value: null };
@@ -5736,6 +5738,17 @@ function unitPlaceNow(u) {
   const key = state.key;
   unitPlace(u).then(v => { if (state.key !== key || primer.places.get(u.key) !== entry) return; entry.value = v; marginLayout() }, () => {});
   return null;
+}
+/* A Tinct book's chapter (the preview) is text laid out here: its start mark level with the chapter heading's top,
+   its end mark with the top of its last line, measured as they are drawn (the text reflows with the window and size). */
+function previewUnitPlace(u) {
+  const p = state.pages[u.start - 1], q = state.pages[u.to - 1]; if (!p || !q) return null;
+  const at = (pg, y) => { const r = pg.getBoundingClientRect(); return r.height > 0 ? (y - r.top) / r.height : 0 };
+  const head = p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head');
+  const last = [...epubParas(q)].reverse().find(el => el.textContent.trim().replace(/\u200b/g, ''));
+  let y = null;
+  if (last) { const r = document.createRange(); r.selectNodeContents(last); const lines = [...r.getClientRects()].filter(b => b.height > 0); y = lines.length ? lines[lines.length - 1].top : last.getBoundingClientRect().top }
+  return { head: { page: u.start, y: head ? at(p.pg, head.getBoundingClientRect().top) : 0.004 }, end: { page: u.to, y: y == null ? 0.9 : at(q.pg, y) } };
 }
 const compactText = t => String(t || '').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]/gu, '');
 const pageLinesMemo = new Map();
@@ -7089,12 +7102,14 @@ function epubGoSpot(n, para, word = 0) {
   // A little room above the paragraph, never as much as reaches the paragraph before (the phone's gap is small): its
   // last line would then be at the top, and the place read back as that paragraph's end.
   const room = () => { const prev = epubParas(p)[para - 1], top = el.getBoundingClientRect().top; return prev ? Math.max(0, Math.min(10, top - prev.getBoundingClientRect().bottom - 2)) : 10 };
-  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - room()));
+  // The word itself, while the view stays where it was brought (the preview hands it on: previewSpot).
+  const exact = state.preview ? (epubHold.exact = { page: n, para, word, top: null }) : null;
+  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - room())).then(() => { if (exact && epubHold.exact === exact) exact.top = $('scroll').scrollTop });
   return true;
 }
 /* A change of width (the window, Full width) or text size reflows the chapters: the paragraph and word at the
    top of the view stay there. The spot is read as the reader scrolls (not while the text reflows) and gone back to. */
-const epubHold = { spot: null, page: 0, raf: 0, reflow: 0 };
+const epubHold = { spot: null, page: 0, raf: 0, reflow: 0, exact: null };
 function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
 $('scroll').addEventListener('scroll', () => { if (isEpub() && !epubHold.raf) epubHold.raf = requestAnimationFrame(() => { epubHold.raf = 0; epubHoldNow() }) }, { passive: true });
 /** Around a reflow: `change()` reflows; the held spot is gone back to. */
@@ -7230,6 +7245,29 @@ $('column').addEventListener('click', e => {
 });
 /** The companion's document: never the whole book; the chapter the reader is in and the contents (marginDocument). */
 const previewDocument = () => ({ pages: null, limit: window.TinctAI?.DOCUMENT_CHARS || 560000, label: n => String(n) });
+/*
+ * The desktop's Layout (Anders, 20 Oct 2026: "margin reader becomes the default way to read anything with two page
+ * and compare mode as the two others"): Margin (here), Two-page and Compare (the book reader at this chapter,
+ * paragraph and word, in that layout: js/tinct-book.js layoutHref), then Back to normal reader. Leaving for Two-page
+ * or Compare keeps this device's opt-in; only Back to normal reader turns it off. The phone keeps its own Layout.
+ */
+const PREVIEW_VIEWS = { 'two-page': 'Two-page', compare: 'Compare' };
+function previewLayouts() {
+  if (!state.preview?.layoutHref || isPhone()) return null;
+  return [{ id: 'margin', label: 'Margin', on: true }, ...Object.entries(PREVIEW_VIEWS).map(([id, label]) => ({ id, label, on: false, leaves: true })), { id: 'text', label: PREVIEW_NORMAL, on: false, leaves: true }];
+}
+/** The place to hand over: the word the reader was brought to while the view has not moved since, else the top of the view. */
+function previewSpot() {
+  const page = currentPlace().page, s = $('scroll'), x = epubHold.exact;
+  if (x && x.top != null && x.page === page && Math.abs(s.scrollTop - x.top) <= 2) return { page, para: x.para, word: x.word };
+  const spot = epubSpot();
+  return { page, para: spot.para ?? 0, word: spot.para == null ? 0 : spot.word ?? 0 };
+}
+function previewView(view) {
+  const href = state.preview.layoutHref(view, previewSpot()); if (!href) return;
+  leavePlace(); stopNarration();
+  previewWindow().location.assign(href);
+}
 /** Back to normal reader: the place here is kept first; the book reader opens at its own place. */
 function previewLeave() {
   leavePlace(); stopNarration();
