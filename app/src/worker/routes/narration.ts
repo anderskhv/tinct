@@ -247,7 +247,7 @@ export async function handleNarration(request: Request, env: NarrationEnv, ctx: 
   }
 }
 
-/** The most listening one report may claim: a batch is about a minute of playback. */
+/** The most listening one report may claim: a batch is about five minutes of playback (usageReport.ts). */
 export const NARRATION_LISTEN_MAX_SECONDS = 300
 
 /**

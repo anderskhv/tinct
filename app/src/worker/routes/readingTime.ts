@@ -3,7 +3,7 @@
  *
  *   GET  /api/reading-time/status   { enabled } for anyone; the reader asks once per page
  *   GET  /api/reading-time          the signed-in reader's own ledger rows
- *   POST /api/reading-time/beat     one heartbeat (about once a minute while reading)
+ *   POST /api/reading-time/beat     one heartbeat (about every five minutes while reading)
  *   POST /api/reading-time/flush    time counted signed out or offline, once per flushId
  *   POST /api/reading-time/card     the reader's reading card, as PNG (not stored)
  *
@@ -13,8 +13,8 @@
  * migration not yet run) answers 503 and the reader again keeps its device
  * tally; nothing throws.
  *
- * The Worker sets the limits, not the browser: one beat per ~50 s per reader
- * (an atomic gate in the usage coordinator), at most 60 s credited per beat,
+ * The Worker sets the limits, not the browser: one beat per ~250 s per reader
+ * (an atomic gate in the usage coordinator), at most 300 s credited per beat,
  * at most 16 h a reader-local day, listening only while narration plays.
  * add_reading_time() enforces the daily cap again inside the database.
  */

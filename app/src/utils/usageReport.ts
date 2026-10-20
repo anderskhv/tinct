@@ -31,20 +31,32 @@ export function reportTalkSeconds(input: { seconds: number; authToken?: string |
   post('/api/voice-usage', { seconds: Math.round(input.seconds), ...(bookId ? { bookId } : {}) }, input.authToken)
 }
 
-export const LISTEN_REPORT_EVERY_SECONDS = 60
+/**
+ * Listened seconds go up in batches of about five minutes (one ai_usage_events
+ * row each), and at once on pause, book change, hide and pagehide, so the
+ * summed seconds are the same as with smaller batches.
+ */
+export const LISTEN_REPORT_EVERY_SECONDS = 5 * 60
+/** The most one report may carry: the Worker's NARRATION_LISTEN_MAX_SECONDS. */
+export const LISTEN_REPORT_MAX_SECONDS = 300
 
 /**
- * Accumulates listened seconds per book and reports them in batches of about a
- * minute, on pause, on book change and when the page is hidden.
+ * Accumulates listened seconds per book and reports them in batches of about
+ * five minutes, on pause, on book change and when the page is hidden.
  */
 export function createListenReporter(getToken: () => string | null | undefined) {
   let bookId: string | null = null
   let pending = 0
   const flush = () => {
-    const seconds = Math.round(pending)
+    let seconds = Math.round(pending)
     pending = 0
     if (seconds < 1 || !bookId) return
-    post('/api/narration/listen', { bookId, seconds }, getToken())
+    // Never more than the Worker credits per report: a larger batch is split.
+    while (seconds > 0) {
+      const part = Math.min(seconds, LISTEN_REPORT_MAX_SECONDS)
+      post('/api/narration/listen', { bookId, seconds: part }, getToken())
+      seconds -= part
+    }
   }
   return {
     /** Add playback time for a book; switching books reports the previous one first. */
