@@ -37,7 +37,9 @@
    * the current one here). An EPUB: none (it has one way to read here; no Two page or Compare yet).
    * -> [{ id, label, on, leaves? }]
    */
-  function options(kind, { layout = DEFAULT, hasText = false, tinctText = TINCT_TEXT, epubMargin = false } = {}) {
+  function options(kind, { layout = DEFAULT, hasText = false, tinctText = TINCT_TEXT, epubMargin = false, pdfText = false } = {}) {
+    // A PDF's Tinct text read here (the desktop, reader.js openPdfText): that view, and its Original pages.
+    if (kind === 'epub' && pdfText) return [{ id: 'margin', label: 'Tinct text', on: true }, { id: 'pages', label: 'Original pages', on: false }];
     // An EPUB read here in Margin view (the desktop, epubView): that view, and Convert to Tinct book (the Tinct reader).
     if (kind === 'epub' && epubMargin) return [{ id: 'margin', label: LAYOUTS.margin, on: true }, { id: 'text', label: 'Convert to Tinct book', on: false, leaves: true }];
     if (kind !== 'pdf') return [];

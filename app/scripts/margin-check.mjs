@@ -350,10 +350,10 @@ async function mockChat(body, res) {
    As the Worker after PR D: a book not stored yet has status { state: 'none', stored: false } (with
    `scanMock.legacy` set, the 404 it answered before); pages sent are recognised at the next status
    call, from `scanMock.recognised` (hex -> the recognised pages); the edition and the pages follow. */
-export const scanMock = { uploadDelay: 0, legacy: false, recognised: new Map(), jobs: new Map(), log: [] }
+export const scanMock = { uploadDelay: 0, legacy: false, failStart: false, recognised: new Map(), jobs: new Map(), log: [] }
 async function ocrRoute(req, res, [, hex, part, n]) {
   const book = account.books.find(b => b.sha256.startsWith(hex)), month = { used: 12, limit: 1500 }
-  const job = scanMock.jobs.get(hex), method = req.method
+  let job = scanMock.jobs.get(hex); const method = req.method
   if (method === 'PUT' || method === 'POST') await readBody(req)
   scanMock.log.push([method, part || 'job', hex, !!book])
   if (!book) return !part && method === 'GET' && !scanMock.legacy ? json(res, 200, { state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month, stored: false, tier: 'premium' }) : json(res, 404, { error: 'Not found' })
@@ -366,7 +366,10 @@ async function ocrRoute(req, res, [, hex, part, n]) {
   const pages = () => (scanMock.recognised.get(hex) || []).filter(pg => job?.done.has(pg.page))
   if (!part && method === 'GET') return json(res, 200, status())
   if (!part && method === 'POST') {
-    if (!job) scanMock.jobs.set(hex, { pages: (scanMock.recognised.get(hex) || []).length, missing: new Set((scanMock.recognised.get(hex) || []).map(pg => pg.page)), ready: new Set(), done: new Set() })
+    // The account busy as the reader says yes (scanMock.failStart): the job is not started.
+    if (scanMock.failStart) return json(res, 503, { error: 'busy' })
+    // The new job's status, as the Worker answers its POST (uploading, every page missing).
+    if (!job) { job = { pages: (scanMock.recognised.get(hex) || []).length, missing: new Set((scanMock.recognised.get(hex) || []).map(pg => pg.page)), ready: new Set(), done: new Set() }; scanMock.jobs.set(hex, job) }
     return json(res, 202, status())
   }
   if (part === 'pages' && n && method === 'PUT') { if (!job?.missing.delete(Number(n))) return json(res, 409, { error: 'not_expected' }); job.ready.add(Number(n)); return json(res, 200, { ok: true }) }
@@ -2104,8 +2107,17 @@ async function scanChecks(browser, origin) {
   scanMock.recognised.set(hex, made.recognised)
   const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
   const spans = (page, n = 1) => page.evaluate(k => document.querySelectorAll(`.pdf-sheet[data-page="${k}"] .text-layer span`).length, n)
+  // Every line the recognition note shows, as it shows it, kept here across the page's navigations.
+  const ocrLines = []
   const fresh = async ({ width, height, legacy }) => {
     const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700 })
+    // The Tinct reader (not served here): where a recognised scan goes on to as its Tinct text.
+    await ctx.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    await ctx.exposeBinding('__ocrLine', (_, text) => { if (ocrLines.at(-1) !== text) ocrLines.push(text) })
+    await ctx.addInitScript(() => {
+      new MutationObserver(() => { const n = document.querySelector('.byob-ocr'); if (n?.textContent) window.__ocrLine?.(n.textContent) })
+        .observe(document, { subtree: true, childList: true, characterData: true })
+    })
     await ctx.addInitScript(([session]) => {
       try {
         localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
@@ -2131,11 +2143,23 @@ async function scanChecks(browser, origin) {
     return { ctx, page, problems }
   }
   const noText = page => page.evaluate(() => (window.__toasts || []).some(t => /scan without text/.test(t)))
+  // The tap on "Recognise text", timed in the page: how soon "Recognising text…" and its bar show.
+  const tapStart = page => page.evaluate(() => new Promise(resolve => {
+    const t = performance.now()
+    document.querySelector('.byob-ocr [data-ocr="start"]').click()
+    const look = () => {
+      const el = document.querySelector('.byob-ocr[data-kind="progress"]'), bar = el?.querySelector('.byob-ocr-bar[role="progressbar"]')
+      if (el && /Recognising text…/.test(el.textContent)) resolve({ ms: Math.round(performance.now() - t), bar: !!bar, max: Number(bar?.getAttribute('aria-valuemax')), now: Number(bar?.getAttribute('aria-valuenow')), pages: state.pdf.numPages, button: !!el.querySelector('[data-ocr="start"]') })
+      else if (performance.now() - t > 3000) resolve({ ms: null })
+      else requestAnimationFrame(look)
+    }
+    look()
+  }))
+  const removeAll = () => { account.books = account.books.filter(b => !b.sha256.startsWith(hex)); scanMock.jobs.delete(hex) }
 
   // 1. The first-open race against an account that answers 404 until the copy is stored (the Worker before
   //    PR D): asked again once the copy is in, and the offer comes; the "can't be read aloud" line never shows.
   {
-    const removeAll = () => { account.books = account.books.filter(b => !b.sha256.startsWith(hex)); scanMock.jobs.delete(hex) }
     removeAll()
     const { ctx, page, problems } = await fresh({ width: 1440, height: 900, legacy: true })
     const offer = await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).then(() => true).catch(() => false)
@@ -2144,6 +2168,18 @@ async function scanChecks(browser, origin) {
     ok('...and "This PDF is a scan without text" never shows meanwhile', !await noText(page) && !problems.length, { toasts: await page.evaluate(() => window.__toasts), problems })
     await ctx.close()
     removeAll()
+  }
+  // 1b. The yes answered at once, and rolled back with a short line when the account cannot start the job (r, 20 Oct 2026).
+  {
+    removeAll(); scanMock.failStart = true
+    const { ctx, page, problems } = await fresh({ width: 1440, height: 900 })
+    await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).catch(() => {})
+    const tap = await tapStart(page)
+    ok('r: "Recognise text" answers within 100 ms: "Recognising text…" with a determinate bar of the book\'s pages, before the account is asked', tap.ms !== null && tap.ms < 100 && tap.bar && tap.max === tap.pages && tap.now === 0 && !tap.button, tap)
+    const back = await page.waitForFunction(() => document.querySelector('.byob-ocr[data-kind="offer"] [data-ocr="start"]') && (window.__toasts || []).includes('Could not start recognising the text. Try again.'), null, { timeout: 20000 }).then(() => true).catch(() => false)
+    ok('r: the account cannot start the job: the offer comes back, with "Could not start recognising the text. Try again."', back && !problems.length, { toasts: await page.evaluate(() => window.__toasts), kind: await page.evaluate(() => document.querySelector('.byob-ocr')?.dataset.kind), problems })
+    await ctx.close()
+    scanMock.failStart = false; removeAll(); ocrLines.length = 0
   }
   // 2. The same against PR D's Worker ({ state: 'none', stored: false }), then recognised, on the desktop.
   const { ctx, page, problems } = await fresh({ width: 1440, height: 900 })
@@ -2160,10 +2196,23 @@ async function scanChecks(browser, origin) {
   const noPrimer = await page.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), primer: !!document.querySelector('.mr-primer'), marks: document.querySelectorAll('.mr-mark.is-trigger, [data-trigger]').length }))
   ok('a scan with no text yet: no "Before you start" trigger, and B opens and asks nothing', !noPrimer.trigger && !noPrimer.primer && !noPrimer.marks && !chats().slice(q0).some(r => r.body?.companion?.intent === 'chapter'), { noPrimer, asked: chats().slice(q0).map(r => r.body?.companion?.intent) })
   await shot(page, 'scan-1440x900-offer')
-  // Started before the copy is stored: it waits for it, then sends the pages.
-  await page.click('.byob-ocr [data-ocr="start"]')
-  const layered = await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 60000 }).then(() => true).catch(() => false)
-  ok('recognised (mocked): the scan stays in the PDF reader, never the book reader, and its words are laid over page 1', layered && new URL(page.url()).pathname === '/lab/addbook/' && (await spans(page)) > 10, { url: page.url(), spans: await spans(page) })
+  // Started before the copy is stored: it waits for it, then sends the pages. The tap is answered at once.
+  const tap = await tapStart(page)
+  const askedYet = scanMock.log.some(([m, part, h]) => m === 'POST' && part === 'job' && h === hex)
+  ok('r: the yes shows "Recognising text…" and a bar at 0 of the pages within 100 ms, while the account copy is still on its way', tap.ms !== null && tap.ms < 100 && tap.bar && tap.max === tap.pages && !askedYet, { tap, askedYet })
+  const bars = []
+  const watchBar = setInterval(() => page.evaluate(() => Number(document.querySelector('.byob-ocr-bar')?.getAttribute('aria-valuenow'))).then(n => { if (Number.isFinite(n) && bars.at(-1) !== n) bars.push(n) }).catch(() => {}), 60)
+  // Recognised while the book is open: the desktop shows its Tinct text in Margin view at the same place (items r and s), no "ready" line.
+  const switched = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 60000 }).then(() => true).catch(() => false)
+  clearInterval(watchBar)
+  await page.waitForTimeout(800)
+  const kept = await page.evaluate(() => { const s = epubSpot(), at = currentPlace(); return { url: location.pathname + location.search, edition: store.get('edition:' + hexOf(state.key)), at: PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0), words: document.querySelectorAll('.pt-chapter p').length } })
+  ok('r: recognised while open (mocked job): the desktop switches to the Tinct text by itself, inside Margin view (no /reader), at the page it was on', switched && kept.url.startsWith('/lab/addbook/?userBook=' + hex) && kept.at?.page === 1 && kept.words > 2 && kept.edition === 'text', kept)
+  ok('r: no "Tinct text is ready" line on the way; the bar went up as pages were prepared', !ocrLines.some(t => /is ready/.test(t)) && bars.length >= 2 && bars.at(-1) > bars[0], { ocrLines, bars })
+  // The way back: Original pages, the scan with its words over its pages.
+  await page.evaluate(() => pdfTextToPages())
+  const layered = await page.waitForFunction(() => state.kind === 'pdf' && document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 60000 }).then(() => true).catch(() => false)
+  ok('recognised (mocked), and switched back to Original pages: the PDF reader, its words laid over page 1', layered && new URL(page.url()).pathname === '/lab/addbook/' && (await spans(page)) > 10, { url: page.url(), spans: await spans(page) })
   const puts = scanMock.log.filter(([m, part]) => m === 'PUT' && part === 'pages')
   ok('the pages were sent after the account copy was stored, every one', puts.length === made.recognised.length && puts.every(([, , , stored]) => stored), puts)
   // Placement: each line's span over its printed words (the fixture's own boxes), within 1% of the page.
@@ -2223,6 +2272,20 @@ async function scanChecks(browser, origin) {
   ok('no page errors on the desktop', !problems.length, problems)
   await ctx.close()
 
+  // 2b. Recognised while the book was not open (r): the next open on a phone is its Tinct text (its default, kept as
+  //     the phone's); on the desktop, its pages with the margin, as its rule says.
+  {
+    const P = await fresh({ width: 390, height: 844 })
+    const went = await P.page.waitForURL(`**/reader?userBook=${hex}**`, { timeout: 30000 }).then(() => true).catch(() => false)
+    const auto = await P.page.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:phone-edition:' + h) || 'null'), hex)
+    ok('r: recognised while away, the phone opens it as its Tinct text, kept as the phone\'s default (not a choice)', went && auto?.edition === 'text' && !P.problems.length, { url: P.page.url(), auto, problems: P.problems })
+    await P.ctx.close()
+    const D = await fresh({ width: 1440, height: 900 })
+    const here = await D.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 30000 }).then(() => true).catch(() => false)
+    await D.page.waitForTimeout(800)
+    ok('r: recognised while away, the desktop opens its pages with its words over them (its rule), no "ready" line', here && new URL(D.page.url()).pathname === '/lab/addbook/' && !(await D.page.evaluate(() => document.querySelector('.byob-ocr')?.textContent || '')).includes('ready') && !D.problems.length, { url: D.page.url(), problems: D.problems })
+    await D.ctx.close()
+  }
   // 3. The phone, opening the recognised scan from the account (its recognised pages fetched again).
   {
     const ph = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' }).catch(e => ({ error: String(e.message || e) }))
@@ -2933,12 +2996,13 @@ async function phoneKindCheck(browser, origin) {
     const page = await ctx.newPage(), errors = []
     page.on('pageerror', e => errors.push(e.message))
     await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
-    await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (typeof state !== 'undefined' && state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20), null, { timeout: 30000 }).catch(() => {})
+    await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (typeof state !== 'undefined' && ((state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20) || (state.pdfText && document.querySelector('.pt-chapter')))), null, { timeout: 30000 }).catch(() => {})
     await page.waitForTimeout(1200)
     const where = await page.evaluate(() => location.pathname + location.search)
+    const textView = where.startsWith('/lab/addbook/') && await page.evaluate(() => typeof isPdfText === 'function' && isPdfText() && !!document.querySelector('.pt-chapter'))
     const kept = await page.evaluate(hex => { const g = k => { try { return JSON.parse(localStorage.getItem('tinct-addbook:' + k)) } catch { return null } }; return { edition: g('edition:' + hex), auto: g('phone-edition:' + hex), desk: g('desk-edition:' + hex), rule: g('open-rule:' + hex), pos: g('pos:pdf:' + hex) } }, hex)
     if (!keep) await ctx.close()
-    return { where, kept, errors, ctx, page }
+    return { where, kept, errors, ctx, page, textView }
   }
   const views = SAMPLE ? [[390, 844, 'paper'], [360, 740, rotate(LOOKS, 2)]] : VIEWPORTS.filter(([w]) => w < 700).flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
   for (const [width, height, look] of views) {
@@ -3002,16 +3066,16 @@ async function phoneKindCheck(browser, origin) {
   // A desktop whose old default (16 Oct) kept running prose as Tinct text: a default, no choice; its pages now.
   const oldDefault = await open(prose, { width: 1440, height: 900, seed: { ['edition:' + prose]: 'text', ['desk-edition:' + prose]: { edition: 'text', kind: 'narrative', by: 'text', v: 1 }, ['open-rule:' + prose]: 2 } })
   ok('desk-pages: a desktop default kept as Tinct text under the rule of 16 Oct opens as its pages', oldDefault.where === `/lab/addbook/?userBook=${prose}` && oldDefault.kept.edition === 'pages' && oldDefault.kept.desk?.edition === 'pages', oldDefault)
-  // Convert to Tinct book, the reader's choice on this desktop, still opens the Tinct reader.
+  // Convert to Tinct book, the reader's choice on this desktop: its Tinct text here, in Margin view (item s, 20 Oct 2026), not the Tinct reader.
   const converted = await open(prose, { width: 1440, height: 900, seed: { ['edition:' + prose]: 'text' } })
-  ok('desk-pages: the reader\'s choice of Tinct text on the desktop (Convert to Tinct book) opens the Tinct reader', converted.where.startsWith('/reader?userBook=' + prose) && !converted.kept.desk, converted)
+  ok('desk-pages: the reader\'s choice of Tinct text on the desktop (Convert to Tinct book) opens its Tinct text in Margin view', converted.where === `/lab/addbook/?userBook=${prose}` && converted.textView && !converted.kept.desk, converted)
   // Read as Tinct text under the old default (a place in Tinct text from before the rule, nothing chosen): its pages now, at the same spot.
   const OLD = Date.UTC(2026, 9, 16, 9), NEW = Date.UTC(2026, 9, 17, 9)
   const legacy = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't', chapterNumber: 1, paragraphIndex: 2, wordIndex: 0 } } })
   ok('desk-pages: a place read in Tinct text under the old default (no choice) opens as its pages, the spot kept', legacy.where.startsWith('/lab/addbook/') && legacy.kept.edition === 'pages' && legacy.kept.pos?.page === 1 && legacy.kept.pos?.frac === 0.3 && legacy.kept.pos?.paragraphIndex === 2, legacy)
   // The reader's own choice of Tinct text stands; a place read in Tinct text since the rule began (here or on another device) is no choice (19 Oct).
   const chose = await open(mackay, { width: 1440, height: 900, seed: { ['edition:' + mackay]: 'text', ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't' } } })
-  ok('desk-pages: the reader\'s choice of Tinct text opens it as Tinct text', chose.where.startsWith('/reader?userBook=' + mackay) && chose.kept.edition === 'text' && !chose.kept.desk, chose)
+  ok('desk-pages: the reader\'s choice of Tinct text opens it as Tinct text (in Margin view)', chose.where === `/lab/addbook/?userBook=${mackay}` && chose.textView && chose.kept.edition === 'text' && !chose.kept.desk, chose)
   const since = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: NEW, edition: 't' } } })
   ok('desk-pages: a place read in Tinct text since the rule began (on a phone) opens as its pages on the desktop', since.where.startsWith('/lab/addbook/') && since.kept.desk?.edition === 'pages' && since.kept.pos?.page === 1, since)
   const inPages = await open(prose, { width: 1440, height: 900, seed: { ['pos:pdf:' + prose]: { page: 2, frac: 0.1, at: OLD, edition: 'p' } } })
@@ -4801,6 +4865,88 @@ async function epubPage(browser, origin, hex, { width, height, look = 'paper', i
 }
 // The paragraph and word at the top of the view, by the words there (they never move with the width or size).
 const spotNow = () => { const s = epubSpot(), place = currentPlace(); return { page: place.page, para: s.para, word: s.word, quote: s.quote } }
+/* A PDF's Tinct text in Margin view (Anders, 20 Oct 2026, item s; mockup 2b): on the desktop "Tinct text" reflows the PDF
+   here, on Tinct paper beside the margin, never the Tinct reader; "Original pages" goes back to the same place. */
+async function pdfTextCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  for (const [label, file] of [['prose', join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf')], ['figures', MARGIN_PAPER]]) {
+    const hex = addBook(file), tag = `pdf-text-${label}`
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } })
+    await ctx.addInitScript(([session, hex]) => {
+      try {
+        if (sessionStorage.getItem('seeded')) return
+        sessionStorage.setItem('seeded', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'dark' }))
+        localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('pages'))
+      } catch {}
+    }, [SESSION, hex])
+    await ctx.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    const page = await ctx.newPage(), problems = [], navs = []
+    page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+    page.on('framenavigated', f => { if (f === page.mainFrame()) navs.push(new URL(f.url()).pathname) })
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    await page.waitForFunction(() => state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 })
+    await page.waitForTimeout(800)
+    // Read to page 2, a third of the way down; a highlight made there on the PDF.
+    const before = await page.evaluate(() => { goTo({ page: Math.min(2, state.pages.length), frac: 0.3 }); onScroll(); savePlaceNow(); return currentPlace() })
+    await page.waitForTimeout(600)
+    const marked = await page.evaluate(() => {
+      const p = state.pages[Math.min(2, state.pages.length) - 1], spans = [...(p.layer?.querySelectorAll('span') || [])].filter(s => (s.textContent || '').trim().split(/\s+/).length >= 6)
+      const sp = spans[Math.floor(spans.length / 2)]; if (!sp) return null
+      const r = document.createRange(); r.selectNodeContents(sp); getSelection().removeAllRanges(); getSelection().addRange(r)
+      const text = getSelection().toString().replace(/\s+/g, ' ').trim()
+      const ids = addHighlight({ text }); getSelection().removeAllRanges()
+      return { text, ids }
+    })
+    const navsBefore = navs.length
+    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="text"]')
+    await page.click('.byob-aa-panel [data-layout="text"]')
+    const shown = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 30000 }).then(() => true).catch(() => false)
+    await page.waitForTimeout(1500)
+    const view = await page.evaluate(() => {
+      const sheet = document.querySelector('.epub-sheet'), cs = sheet && getComputedStyle(sheet), pg = document.querySelector('.epub-pg'), font = pg && getComputedStyle(pg).fontFamily
+      const s = epubSpot(), at = currentPlace(), pos = store.get('pos:pdf:' + hexOf(state.key))
+      return { url: location.pathname + location.search, kind: state.kind, paper: root.classList.contains('is-paper'), sheetBg: cs?.backgroundColor, shadow: cs?.boxShadow, font, column: col.mode, pdfSheets: document.querySelectorAll('.pdf-sheet').length, heads: document.querySelectorAll('.pt-chapter .tb-title, .pt-chapter h3.pt-h').length, figs: [...document.querySelectorAll('.pt-fig img')].map(i => ({ w: i.naturalWidth, h: i.naturalHeight, shown: i.getBoundingClientRect().width })), at, spot: s, pdfPage: PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0), pos, hl: highlights().filter(h => h.via === 'pdf').map(h => h.text), aa: null }
+    })
+    ok(`${tag}: "Tinct text" on the desktop reflows the PDF inside Margin view, with no navigation to /reader`, shown && !navs.slice(navsBefore).some(p => p.startsWith('/reader')) && view.url.startsWith('/lab/addbook/?userBook=' + hex) && view.kind === 'epub' && view.pdfSheets === 0, { shown, navs, view })
+    ok(`${tag}: Tinct paper (no white sheet or shadow), the reader's font, the margin's column beside it, chapter titles as headings`, view.paper && /rgba\(0, 0, 0, 0\)|transparent/.test(view.sheetBg) && (view.shadow === 'none' || !view.shadow) && !/mono/i.test(view.font) && view.column === 'column' && view.heads >= 1, view)
+    ok(`${tag}: it opens at the same place: the PDF's page ${before.page} at the top of the view`, view.pdfPage?.page === before.page, { before, pdfPage: view.pdfPage, spot: view.spot })
+    if (marked) ok(`${tag}: the highlight made on the PDF's page shows in the Tinct text (found by its words)`, view.hl.includes(marked.text) && await page.evaluate(() => [...CSS.highlights.keys()].some(k => k.startsWith('tinct-hl-'))), { marked, hl: view.hl })
+    if (label === 'figures') ok(`${tag}: the PDF's figures stand in the text as crisp crops of the page`, view.figs.length >= 1 && view.figs.every(f => f.w >= f.shown && f.w > 0), view.figs)
+    // A request from here reads the document as the PDF's pages, and its answer cites them.
+    const r0 = account.requests.length
+    await page.evaluate(() => {
+      const p = state.pages.find(q => epubParas(q).some(el => el.textContent.split(/\s+/).length > 12)), el = epubParas(p).find(el => el.textContent.split(/\s+/).length > 12)
+      el.scrollIntoView({ block: 'center' })
+      const t = el.firstChild
+      document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().setBaseAndExtent(t, 0, t, Math.min(t.length, 60))
+      document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
+    })
+    await page.waitForSelector('.mr-bar [data-m="explain"]', { timeout: 8000 }).catch(() => {})
+    await page.click('.mr-bar [data-m="explain"]').catch(() => {})
+    await page.waitForTimeout(1500)
+    const req = account.requests.slice(r0).find(r => r.body?.companion?.intent === 'explain')
+    const doc = req?.body?.companion?.document
+    ok(`${tag}: Explain in the Tinct text sends the document as the PDF's pages (kind pdf, its page numbers)`, doc?.kind === 'pdf' && doc.units?.length === await page.evaluate(() => state.pdfText.pages) && doc.units[0].n === '1', { kind: doc?.kind, units: doc?.units?.map(u => u.n) })
+    const label0 = await page.evaluate(() => { const c = keptCards().filter(c => !c.gone).at(-1); return c ? cardName(c) : null })
+    ok(`${tag}: its card names the PDF page its passage is printed on`, /· p\. \d+$/.test(label0 || ''), label0)
+    if (process.env.EPUB_SHOTS && label === 'figures') { mkdirSync(process.env.EPUB_SHOTS, { recursive: true }); await page.screenshot({ path: join(process.env.EPUB_SHOTS, 'pdf-tinct-text.png') }) }
+    await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
+    // Back: "Original pages", at the same place.
+    const spotNowText = await page.evaluate(() => { const at = currentPlace(), s = epubSpot(); return PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0) })
+    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="pages"]')
+    const aa = await page.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => b.dataset.layout))
+    await page.click('.byob-aa-panel [data-layout="pages"]')
+    const back = await page.waitForFunction(() => state.kind === 'pdf' && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).then(() => true).catch(() => false)
+    await page.waitForTimeout(1200)
+    const after = await page.evaluate(() => ({ at: currentPlace(), edition: store.get('edition:' + hexOf(state.key)), url: location.pathname + location.search }))
+    ok(`${tag}: the Aa panel offers Tinct text (chosen) and Original pages, and Original pages goes back to the same page`, JSON.stringify(aa) === '["margin","pages"]' && back && after.at.page === spotNowText?.page && Math.abs(after.at.frac - spotNowText.frac) < 0.2 && after.edition === 'pages', { aa, spotNowText, after })
+    ok(`${tag}: no page errors`, !problems.length, problems)
+    await ctx.close()
+  }
+  return results
+}
 async function epubViewCheck(browser, origin) {
   const results = [], ok = okList(results)
   const hex = addEpub(), key = 'epub:' + hex
@@ -5080,8 +5226,9 @@ async function epubQuizCheck(browser, origin) {
   // q (20 Oct 2026): deleting the book from the reader leaves nothing of it on this device (place, highlights, cards, chats, primers).
   await e.evaluate(() => { savePlaceNow(); const p = state.pages[8], t = epubParas(p)[3].firstChild, r = document.createRange(); r.setStart(t, 0); r.setEnd(t, 30); addHighlight({ text: r.toString(), page: 9, range: r }, { range: r, color: 'yellow' }); store.set('chat:' + state.key, [{ role: 'user', content: 'x' }]) })
   const before = await e.evaluate(h => Object.keys(localStorage).filter(k => k.includes(h)), E.hex)
-  await e.evaluate(k => TinctReader.removeBook(k), E.key); await e.waitForTimeout(800)
-  const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex)
+  // Removing the open book closes it (and may go on to Your books, a navigation): the keys are read once the page has settled.
+  await e.evaluate(k => TinctReader.removeBook(k), E.key).catch(() => {}); await e.waitForTimeout(800); await e.waitForLoadState('load').catch(() => {})
+  const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex).catch(async () => { await e.waitForTimeout(1500); return e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex) })
   ok('q. deleting the book from the reader leaves no key of it on this device (its place, highlights, cards, chat, primers)', before.length >= 4 && left.length === 0, { before, left })
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
@@ -5204,6 +5351,7 @@ const RUNS = {
   'epub-marks': [epubMarksCheck, rows => rows.some(r => !r.pass)],
   'epub-quiz': [epubQuizCheck, rows => rows.some(r => !r.pass)],
   'epub-ask': [epubAskCheck, rows => rows.some(r => !r.pass)],
+  'pdf-text': [pdfTextCheck, rows => rows.some(r => !r.pass)],
 }
 try {
   if (mode === 'sample' || mode === 'full') {
@@ -5244,7 +5392,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }
