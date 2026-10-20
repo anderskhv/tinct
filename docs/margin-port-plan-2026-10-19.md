@@ -20,6 +20,10 @@ This document covers two things: what the preview does today (branch `claude/mar
   - The edition is the main edition (option B): the book's saved place's edition, else the reader's main edition, else Modern English.
   - Each edition paragraph becomes one `<p>`. Underscore emphasis is shown as `<em>`, and the word count matches the book reader's tokenizer.
   - `js/tinct-book.js` builds the margin reader's EPUB model from it. `reader.js openRegistered` then opens it as an EPUB with the margin on at every width (`window.TinctEpubMargin`).
+- **Desktop (20 Oct):** Tinct paper. The text is set as the book reader's desktop leaf for this reader and window (font, size, line, paragraph gap, alignment, measure: `marginPreviewPaper`), on the theme's paper with no white sheet; it scrolls with the margin column beside it. Aa has a Layout section: Margin, Two-page and Compare, then Back to normal reader.
+  - Two-page and Compare open the book reader's deep link at the same chapter, paragraph and word (`/reader?book=&edition=&chapter=&paragraph=&word=&compare=&view=two-page|compare`). `view` and `chapter` are rules of their own, so the preview steps aside for that visit and the opt-in stays; the link's parameters leave the address once read.
+  - While the opt-in exists, the book reader's Book editions sheet (desktop) offers Margin, which opens `/reader?book=<id>&margin=1&edition=&chapter=&paragraph=&word=`: the preview at that place, newer than its own; the place leaves the address once read.
+  - Only Back to normal reader (`&margin=0`) turns the opt-in off.
 - **Desktop:** the full margin layout. That includes cards in the column (marks below 1180 px), the dark selection bar (Ask · Explain · Simplify · … · highlight), More (Define, Fact-check, Related, Counterpoint, Quiz me), the Notebook, margin notes, chapter pills (Primer, Catch me up, Recap, Quiz me, Note), Aa text size and themes, and the contents tree with parts.
 - **Phone:** the margin reader's phone UI. That includes the selection bar, bottom-sheet cards, the header pill that opens the chapters, the t menu (Chat, Summarize, Catch me up, Export notes, Library), and Aa.
 - **AI.** Requests use the margin routes unchanged (`/api/chat` signed in, `/api/lab-chat` as a guest, the same allowance and guest rules).
@@ -36,7 +40,7 @@ This document covers two things: what the preview does today (branch `claude/mar
 - Listen (narration).
 - Talk.
 - Cast.
-- Compare and the two-page desktop view.
+- Compare and the two-page desktop view inside the preview (the Layout switch hands over to the book reader for them).
 - The book reader's chat history.
 - Reading-year stats.
 - Sharing quotes.
