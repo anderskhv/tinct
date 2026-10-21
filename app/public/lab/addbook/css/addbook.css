@@ -160,6 +160,8 @@ body[data-view="reader"] #start { display: none; }
 .lab.byob.dark-pages .epub-pg a, html[data-pdf-theme="dark"] .lab.byob .epub-pg a, .lab.is-night .epub-pg a { text-decoration-color: color-mix(in srgb, #78aabd 70%, transparent); }
 .lab.byob.dark-pages .epub-pg .ep-note, html[data-pdf-theme="dark"] .lab.byob .epub-pg .ep-note, .lab.is-night .epub-pg .ep-note { color: var(--lab-ink-muted, #9a9083); }
 .epub-pg .ep-note { color: var(--lab-ink-muted, #4a443b); }
+/* A figure's caption ("Figure 2: …", epub.js markCaptions; Anders, 20 Oct 2026): smaller, muted, a little space above. */
+.epub-pg .ep-caption { margin-top: .6em; font-size: .84em; line-height: 1.4; color: var(--lab-ink-muted, #6b6357); -webkit-hyphens: manual; hyphens: manual; }
 
 /* Tinct paper (an EPUB on the desktop, reader.js applyPaper): the theme's own paper, one continuous page, the book
    reader's font, size, line, paragraph gap, alignment and measure (--tb-*), no sheets, border or shadow; the margin
@@ -169,6 +171,7 @@ body[data-view="reader"] #start { display: none; }
 .lab.byob.is-paper:not(.is-phone) .epub-pg { font-family: var(--tb-font, var(--lab-font-reader, 'Literata', Georgia, serif)); font-size: calc(var(--tb-size, 19px) * var(--epub-scale, 1)); line-height: var(--tb-lh, 1.48); color: var(--lab-ink) !important; }
 .lab.byob.is-paper:not(.is-phone) .epub-body p { margin: 0 0 var(--tb-gap, .28em); text-align: var(--tb-align, justify); text-justify: auto; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 2 3; -webkit-hyphenate-limit-before: 2; -webkit-hyphenate-limit-after: 3; }
 .lab.byob.is-paper:not(.is-phone) .epub-body p + p { margin-top: 0; }
+.lab.byob.is-paper:not(.is-phone) .epub-body .ep-caption { margin-top: .6em; margin-bottom: calc(var(--tb-gap, .28em) + .5em); }   /* a figure's caption: space above, and before the text resumes */
 .lab.byob.is-paper:not(.is-phone) .epub-body :is(p, div, li).ep-center { text-align: center; }
 .lab.byob.is-paper:not(.is-phone) .epub-body :is(p, div, li).ep-right { text-align: right; }
 .lab.byob.is-paper:not(.is-phone) .epub-body :is(h1, h2, h3, h4, h5, h6) { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; color: var(--lab-ink); line-height: 1.25; text-wrap: balance; text-align: left; }

@@ -145,7 +145,7 @@
    * One of the margin's actions as a structured request (docs/margin/PROMPTS.md): the Worker
    * builds the prompt from `intent`, the PDF's pages and the selection; the client never sends
    * one. o: { book, pdf: { pages, at }, selection, senses (define_sense), quiz: { question,
-   * expected, why, answer } (quiz_check), chapter: { action: { kind: 'primer', unitKey, unitTitle } }
+   * expected, why, answer, turns (a reply under the marking: the earlier turns on the question) } (quiz_check), chapter: { action: { kind: 'primer', unitKey, unitTitle } }
    * (Before you start), images (passage actions), document (the whole file; added in send()), stream }.
    * Quiz me on a whole unit is `quiz` without a selection.
    */
@@ -158,7 +158,7 @@
     if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300), ...(o.chapter.action.unitKind ? { unitKind: String(o.chapter.action.unitKind) } : {}) } };
     // Made ahead of the reader opening it (reader.js primerPrefetch): never charged to the reader's allowance.
     if (companion.chapter && o.speculative) companion.speculative = true;
-    if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000), ...(o.quiz.thesis ? { thesis: String(o.quiz.thesis).slice(0, 300) } : {}), ...(Array.isArray(o.quiz.ideas) && o.quiz.ideas.length ? { ideas: o.quiz.ideas.slice(0, 8).map(i => String(i).slice(0, 200)) } : {}), ...(o.quiz.idea ? { idea: String(o.quiz.idea).slice(0, 300) } : {}), ...(o.quiz.passage ? { passage: String(o.quiz.passage).slice(0, 4000) } : {}) };
+    if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000), ...(o.quiz.thesis ? { thesis: String(o.quiz.thesis).slice(0, 300) } : {}), ...(Array.isArray(o.quiz.ideas) && o.quiz.ideas.length ? { ideas: o.quiz.ideas.slice(0, 8).map(i => String(i).slice(0, 200)) } : {}), ...(o.quiz.idea ? { idea: String(o.quiz.idea).slice(0, 300) } : {}), ...(o.quiz.passage ? { passage: String(o.quiz.passage).slice(0, 4000) } : {}), ...(Array.isArray(o.quiz.turns) && o.quiz.turns.length ? { turns: o.quiz.turns.slice(0, 6).map(t => ({ role: t.role === 'grader' ? 'grader' : 'reader', text: String(t.text || '').slice(0, 600), ...(t.verdict ? { verdict: String(t.verdict) } : {}) })) } : {}) };
     // "Try new questions": the questions asked before on this text, each with its key idea and whether it was missed (Anders, 20 Oct 2026).
     if (intent === 'quiz' && Array.isArray(o.asked) && o.asked.length) companion.asked = o.asked.slice(-24).map(a => ({ q: String(a.q || '').slice(0, 300), ...(a.idea ? { idea: String(a.idea).slice(0, 300) } : {}), ...(a.missed ? { missed: true } : {}) }));
     // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
