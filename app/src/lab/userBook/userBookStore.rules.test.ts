@@ -13,39 +13,12 @@ import { convertPdf } from './pdfEdition'
 import { zip } from '../../../../addbooks/web/test/make-epub.mjs'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book tests
 import { pdfFixtures } from '../../../../addbooks/web/test/make-pdf.mjs'
+import { fakeIndexedDb } from './fakeIndexedDb.test-helpers'
 import { openUserBook } from './userBookStore'
 import { PDF_TEXT_CONVERTER, USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookEdition } from './userEdition'
 
 const OWNER = 'owner-1'
 const HEX = 'ab'.repeat(12)
-
-function fakeIndexedDb(records: Map<string, Record<string, unknown>>) {
-  const db = {
-    objectStoreNames: { contains: () => true },
-    createObjectStore() {},
-    close() {},
-    transaction() {
-      const tx: Record<string, unknown> & { oncomplete?: () => void } = {}
-      setTimeout(() => tx.oncomplete?.(), 5)
-      tx.objectStore = () => ({
-        get(key: string) {
-          const request: { result?: unknown; onsuccess?: () => void } = {}
-          setTimeout(() => { request.result = records.get(key); request.onsuccess?.() }, 0)
-          return request
-        },
-        put(value: Record<string, unknown>) { records.set(String(value.key), value) },
-      })
-      return tx
-    },
-  }
-  return {
-    open() {
-      const request: { result?: unknown; onsuccess?: () => void } = {}
-      setTimeout(() => { request.result = db; request.onsuccess?.() }, 0)
-      return request
-    },
-  }
-}
 
 const CONTAINER = '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'
 const page = (body: string) => `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>x</title></head><body>${body}</body></html>`

@@ -5,7 +5,7 @@
  * client never sends them. Pure: no browser or Worker APIs.
  */
 import { CONTEXTUAL_LOOKUP_PROMPT } from '../components/reader/contextualLookup'
-import { LAB_ASK_POLICY } from './labAskPrompt'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_POLICY, LAB_ASK_RECHECK_RULE } from './labAskPrompt'
 
 /** Added to every passage action and to `ask`, for a user's PDF only (never a registered book). */
 export const PDF_CITATION_RULE = 'The reader sees printed page numbers and the document\'s own numbering of equations, figures, tables and sections. You may cite them in braces, exactly as printed: {p. 12}, {pp. 12–13}, {eq. 1.2}, {fig. 1.3}, {table 2}, {sec. 2.4}. Cite only numbers that appear in the document. Put a citation after the sentence it supports, at most one per sentence. One number per tag: write {p. 4} and {p. 5}, never {p. 4, p. 5}. Never cite the bracketed paragraph numbers.'
@@ -306,4 +306,13 @@ const LAB_ASK_PAYLOAD_LINE = 'If they ask you to read a paragraph that is in the
 export const MARGIN_READ_LINE = 'If they ask you to read a paragraph that is in the chapter below, read it from there.'
 const LAB_ASK_CHECKED_WORDS = 'distinguish it from text you have checked'
 export const MARGIN_CHECKED_WORDS = 'keep it distinct from what the text says'
-export const MARGIN_LAB_ASK_POLICY = LAB_ASK_POLICY.replace(LAB_ASK_SUPPLIED_PARAGRAPH, MARGIN_CONTEXT_PARAGRAPH).replace(LAB_ASK_PAYLOAD_LINE, MARGIN_READ_LINE).replace(LAB_ASK_CHECKED_WORDS, MARGIN_CHECKED_WORDS)
+/**
+ * The grounding rules (Anders, 21 Oct 2026) in the margin. A margin answer stands alone (STANDS_ALONE_RULE), so
+ * when the reader questions one it re-reads and answers again, without "I was wrong" about an earlier reply.
+ */
+export const MARGIN_RECHECK_RULE = 'When the reader questions an answer, re-read the text, then answer from what it says, plainly and briefly. Never insist on an answer without checking it.'
+/** With the whole document the margin marks the reader's page, not "The reader is at:". */
+export const MARGIN_GROUND_FIRST_RULE = LAB_ASK_GROUND_FIRST_RULE.replace(' (marked "The reader is at:" below)', '')
+/** The margin's grounding rules, in order (marginContext.ts MARGIN_RULES). */
+export const MARGIN_GROUNDING_RULES: readonly string[] = Object.freeze([MARGIN_GROUND_FIRST_RULE, LAB_ASK_CHECKED_SPECIFICS_RULE, MARGIN_RECHECK_RULE])
+export const MARGIN_LAB_ASK_POLICY = LAB_ASK_POLICY.replace(LAB_ASK_SUPPLIED_PARAGRAPH, MARGIN_CONTEXT_PARAGRAPH).replace(LAB_ASK_PAYLOAD_LINE, MARGIN_READ_LINE).replace(LAB_ASK_CHECKED_WORDS, MARGIN_CHECKED_WORDS).replace(LAB_ASK_RECHECK_RULE, MARGIN_RECHECK_RULE)
