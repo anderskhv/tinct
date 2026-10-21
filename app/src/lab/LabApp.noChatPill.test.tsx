@@ -28,8 +28,9 @@ function expectNoPill() {
   expect(screen.queryByRole('button', { name: 'Restore chat' })).toBeNull()
 }
 
-function expectOneLibrarianRow() {
-  expect(screen.getAllByTestId('lab-super-row-librarian')).toHaveLength(1)
+/** The desktop's Librarian row (its body and two icons), or the phone's Chat · Talk row. */
+function expectOneLibrarianRow(phone = false) {
+  expect(screen.queryAllByTestId('lab-super-row-librarian')).toHaveLength(phone ? 0 : 1)
   expect(screen.getAllByTestId('lab-super-row-chat')).toHaveLength(1)
   expect(screen.getAllByTestId('lab-super-row-talk')).toHaveLength(1)
 }
@@ -40,10 +41,10 @@ describe('no chat pill in the reader', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="fixture-token" />)
     expectNoPill()
     fireEvent.click(screen.getByTestId('lab-super'))
-    expectOneLibrarianRow()
+    expectOneLibrarianRow(true)
     expect(screen.getByTestId('lab-super-row-talk').hasAttribute('data-default')).toBe(false)
-    // The row's body opens Chat, whatever an old "Tab opens" said.
-    fireEvent.click(screen.getByTestId('lab-super-row-librarian'))
+    // Chat opens Chat, whatever an old "Tab opens" said.
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
     expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
     expectNoPill()
   })
@@ -51,7 +52,7 @@ describe('no chat pill in the reader', () => {
   it('Reader settings has no Librarian section', () => {
     render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken="fixture-token" />)
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     const sheet = screen.getByTestId('lab-v2-sheet')
     expect(sheet.textContent).not.toContain('Show tab')
     expect(sheet.textContent).not.toContain('Tab opens')
@@ -79,13 +80,27 @@ describe('no chat pill in the reader', () => {
 describe('the menu’s Librarian row', () => {
   it('opens Chat from its body and either mode from its icons', () => {
     const onSelect = vi.fn()
-    render(<LabSuperMenu open phone onSelect={onSelect} onClose={() => {}} />)
+    render(<LabSuperMenu open onSelect={onSelect} onClose={() => {}} />)
     expect(screen.getByTestId('lab-super-row-librarian').textContent).toBe('Librarian')
     fireEvent.click(screen.getByTestId('lab-super-row-librarian'))
     expect(onSelect).toHaveBeenLastCalledWith('chat')
     fireEvent.click(screen.getByRole('button', { name: 'Talk' }))
     expect(onSelect).toHaveBeenLastCalledWith('talk')
     fireEvent.click(screen.getByRole('button', { name: 'Chat' }))
+    expect(onSelect).toHaveBeenLastCalledWith('chat')
+  })
+
+  it('on the phone: Chat · Talk as one row of two halves, no Librarian label (20 Oct 2026)', () => {
+    const onSelect = vi.fn()
+    render(<LabSuperMenu open phone onSelect={onSelect} onClose={() => {}} />)
+    expect(screen.queryByTestId('lab-super-row-librarian')).toBeNull()
+    expect(screen.getByTestId('lab-super-menu').textContent).not.toContain('Librarian')
+    expect(screen.getByTestId('lab-super-row-chat').textContent).toBe('Chat')
+    expect(screen.getByTestId('lab-super-row-talk').textContent).toBe('Talk')
+    expect(screen.getByTestId('lab-super-row-chat').parentElement).toBe(screen.getByTestId('lab-super-row-talk').parentElement)
+    fireEvent.click(screen.getByTestId('lab-super-row-talk'))
+    expect(onSelect).toHaveBeenLastCalledWith('talk')
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
     expect(onSelect).toHaveBeenLastCalledWith('chat')
   })
 

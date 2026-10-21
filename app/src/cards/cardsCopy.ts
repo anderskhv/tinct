@@ -95,6 +95,8 @@ export const CARDS_COPY = {
   unblock: 'Unblock',
   // Find readers lists Friends and Everyone profiles (19 Oct 2026): no longer only "public" ones.
   noSearchResult: 'No reader by that name.',
+  // Declines a follow request (the remove-follower action; 20 Oct 2026).
+  removeRequest: 'Remove',
   waitingRequests: (n: number) => `${n} waiting to be followed back`,
   boardUnavailable: 'The leaderboard is not available just now. Your reading time is safe.',
   // Under the board when friends cannot see you there (19 Oct 2026)

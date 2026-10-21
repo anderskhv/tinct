@@ -886,15 +886,15 @@ async function behaviour(browser, origin) {
   const after = account.marks.get(hex).marks.filter(m => !m.gone)
   ok('an offline edit and another device\'s edit both survive (409, merge, write again)', after.length === 4 && (await hl(a)).length === 4, { after: after.length, a: (await hl(a)).length })
   await B.ctx.close()
-  // Copy quote.
+  // Copy.
   await selectText(a); await a.waitForSelector('.mr-bar'); const sel = (await a.evaluate(() => getSelection().toString())).replace(/\s+/g, ' ').trim()
   await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   const moreText = (await a.innerText('.mr-more')).replace(/\s+/g, ' ').trim()
-  ok('More shows Define, Fact-check, Related, Counterpoint and Quiz me, then Copy quote, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy quote With the title and page number', moreText)
+  ok('More shows Define, Fact-check, Related, Counterpoint and Quiz me, then Copy, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy With the title and page number', moreText)
   await a.click('.mr-more [data-m="copy"]'); await a.waitForTimeout(300)
   const clip = await a.evaluate(() => navigator.clipboard.readText())
   const printed = await a.evaluate(() => pageLabel(mr?.info?.page || currentPlace().page))
-  ok('Copy quote copies the passage with the title and the printed page label', /^“.+”\n— .+, p\. \S+$/s.test(clip) && clip.includes(sel.slice(0, 15)) && clip.endsWith('p. ' + printed), { clip, printed })
+  ok('Copy copies the passage with the title and the printed page label', /^“.+”\n— .+, p\. \S+$/s.test(clip) && clip.includes(sel.slice(0, 15)) && clip.endsWith('p. ' + printed), { clip, printed })
   // Define: dictionary senses with the network off (after the one-time download to the offline cache).
   ok('the dictionary is kept for offline use', await a.evaluate(() => TinctDictionary.warm()))
   await A.ctx.setOffline(true)

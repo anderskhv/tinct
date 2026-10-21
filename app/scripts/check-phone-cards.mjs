@@ -6,10 +6,13 @@
 //
 //   PREVIEW_ORIGIN=http://127.0.0.1:4811 node scripts/check-phone-cards.mjs
 //
-// Checks: the top bar is the normal reader's (DOM and pixels); a selection shows the dark bar and no native callout;
-// each action opens its card (Explain, Simplify, Define, Fact-check, Counterpoint, Quiz me, Ask with a focused field,
-// a note); Chat and Talk open as cards; the start and end pills are there and open their cards; the place is
-// unchanged after each card opens and closes; a reload keeps the place. Screenshots go to OUT.
+// Checks: the top bar is the normal reader's (DOM and pixels); a selection shows the dark bar (Ask with no blinking
+// line) and no native callout; the ••• menu is compact and whole on screen; each action opens its card (Explain,
+// Simplify, Define, Fact-check, Counterpoint, Quiz me, Ask, a note), none quoting the passage, which stays
+// underlined on the page, the page dimmed behind, no field focused until tapped; a focused field with a shrunken
+// visualViewport (the keyboard) keeps the card inside it; Chat and Talk open as cards; the start pills sit on the
+// heading's line and the end pills have no label, and open their cards; the place is unchanged after each card
+// opens and closes; a reload keeps the place. Screenshots go to OUT.
 import { chromium, webkit, devices } from 'playwright'
 import { mkdirSync } from 'node:fs'
 import { join, resolve } from 'node:path'
@@ -67,6 +70,15 @@ async function boot(engine, search, seed = SEED, keep = null) {
         sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId, primaryEditionKey: 'modern-en', savedPlace: { bookId, chapterNumber: seed.chapterNumber, paragraphIndex: seed.paragraphIndex, wordIndex: 0, page: 0 } }))
       }
       HTMLMediaElement.prototype.play = async function () { this.muted = true }
+      // A visualViewport the check can shrink as the iOS keyboard does (window.__keyboard(px)).
+      const real = window.visualViewport
+      const fake = new EventTarget()
+      let keyboard = 0
+      for (const key of ['width', 'offsetLeft', 'pageLeft', 'pageTop', 'scale']) Object.defineProperty(fake, key, { get: () => real ? real[key] : 0 })
+      Object.defineProperty(fake, 'height', { get: () => (real ? real.height : innerHeight) - keyboard })
+      Object.defineProperty(fake, 'offsetTop', { get: () => 0 })
+      Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => fake })
+      window.__keyboard = px => { keyboard = px; fake.dispatchEvent(new Event('resize')) }
       const silent = async () => { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); return ctx.createMediaStreamDestination().stream } catch { return new MediaStream() } }
       if (navigator.mediaDevices) Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: silent })
       window.__copied = []
@@ -185,6 +197,8 @@ async function run(engineName) {
 
   // 2. Selection: the dark bar, no native callout, no native selection, not the old popup.
   await select(page)
+  const caret = await page.evaluate(() => { const ask = document.querySelector('[data-testid="lab-pbar-ask"]'); return { text: ask.textContent, children: ask.children.length } })
+  ok(`${tag}: Ask in the bar is the word alone, no blinking line after it`, caret.text === 'Ask' && caret.children === 0, caret)
   const bar = await page.evaluate(() => {
     const bar = document.querySelector('[data-testid="lab-phone-bar"]')
     const word = document.querySelector('.lab-passage .lab-hearing-word.is-selecting')
@@ -200,6 +214,27 @@ async function run(engineName) {
   // The passage owns the selection (lab.css .owns-text-selection: -webkit-touch-callout none); iOS draws no menu of its own.
   ok(`${tag}: no native callout or selection under the bar`, bar.owns && (bar.callout === 'none' || bar.callout === null) && bar.native === '', bar)
   shots.push(await shot(page, `${tag}-bar`))
+  // The ••• menu: compact, whole on screen, below the bar here and above it for a selection low on the page.
+  const moreBox = async () => {
+    await page.getByTestId('lab-pbar-more').click()
+    await page.getByTestId('lab-phone-more').waitFor()
+    await page.waitForTimeout(120)
+    return page.evaluate(() => {
+      const m = document.querySelector('[data-testid="lab-phone-more"]').getBoundingClientRect(), b = document.querySelector('[data-testid="lab-phone-bar"]').getBoundingClientRect()
+      const rows = [...document.querySelectorAll('[data-testid="lab-phone-more"] button')]
+      const widest = Math.max(...rows.map(r => { const range = document.createRange(); range.selectNodeContents(r); return range.getBoundingClientRect().width }))
+      return { m: [m.left, m.top, m.right, m.bottom].map(Math.round), bar: [b.top, b.bottom].map(Math.round), w: Math.round(m.width), widest: Math.round(widest), names: rows.map(r => r.textContent), below: m.top >= b.bottom }
+    })
+  }
+  let more = await moreBox()
+  const whole = box => box.m[0] >= 0 && box.m[1] >= 0 && box.m[2] <= 390 && box.m[3] <= 844
+  ok(`${tag}: ••• is compact (${more.w}px for ${more.widest}px of name) and whole on screen`, whole(more) && more.w <= more.widest + 40 && more.names.join('|') === 'Define|Fact-check|Counterpoint|Quiz me|Copy', more)
+  shots.push(await shot(page, `${tag}-more`))
+  await tapOutside(page)
+  await select(page, 150, 156).catch(() => select(page, 120, 126))
+  more = await moreBox()
+  ok(`${tag}: ••• for a selection low on the page is still whole on screen (${more.below ? 'below' : 'above'} the bar)`, whole(more) && (more.below || more.m[3] <= more.bar[0]), more)
+  shots.push(await shot(page, `${tag}-more-low`))
   await tapOutside(page)
   ok(`${tag}: a tap outside puts the bar away`, (await page.getByTestId('lab-phone-bar').count()) === 0)
   await check('the bar')
@@ -212,6 +247,14 @@ async function run(engineName) {
     await page.waitForTimeout(700)
     const card = await cardOf(page)
     ok(`${tag}: ${label} opens its card (${card.label})`, card.count === 1 && card.kind === kind && card.label?.startsWith(label) && !card.popup && card.bottom >= 840, card)
+    const look = await page.evaluate(() => ({
+      quote: document.querySelectorAll('[data-testid="lab-phone-card-quote"], .lab-pcard-quote').length,
+      underlined: [...document.querySelectorAll('[data-testid="lab-page-wrap"] .is-card-passage')].map(w => getComputedStyle(w).textDecorationLine),
+      scrim: (() => { const s = document.querySelector('[data-testid="lab-phone-card-scrim"]'); return s ? getComputedStyle(s).backgroundColor : null })(),
+      focused: document.activeElement?.tagName === 'TEXTAREA',
+    }))
+    ok(`${tag}: ${label}: no quote in the card, the passage underlined on the page (${look.underlined.length} words), the page dimmed, no field focused`,
+      look.quote === 0 && look.underlined.length > 0 && look.underlined.every(line => line.includes('underline')) && !!look.scrim && look.scrim !== 'rgba(0, 0, 0, 0)' && !look.focused, look)
     return card
   }
   const close1 = async (how, label) => {
@@ -252,16 +295,30 @@ async function run(engineName) {
     await close1('outside', label)
   }
 
-  // 4. Ask: the card with the passage quoted and its field focused (the keyboard's field).
+  // 4. Ask: a card like the others, its field visible and not focused (no cursor, no keyboard) until tapped.
   card = await action(() => page.getByTestId('lab-pbar-ask').click(), 'ask', 'Ask')
   const field = await page.evaluate(() => { const f = document.querySelector('[data-testid="lab-phone-card-input"]'); const r = f.getBoundingClientRect(); return { focused: document.activeElement === f, visible: r.height > 10 && r.bottom <= innerHeight && r.top > 0, placeholder: f.placeholder } })
-  ok(`${tag}: Ask's card quotes the passage and its field is visible and focused`, field.focused && field.visible && !!card.text && (await page.getByTestId('lab-phone-card-quote').count()) === 1, { field, card })
-  await page.keyboard.type('What does this mean')
+  ok(`${tag}: Ask's field is visible and not focused`, !field.focused && field.visible, { field, card })
   shots.push(await shot(page, `${tag}-ask`))
+  await page.getByTestId('lab-phone-card-input').click()
+  // The keyboard comes up: the card fits the visible window above it, the field and the title row in view.
+  await page.evaluate(() => window.__keyboard(336))
+  await page.waitForTimeout(400)
+  const fits = await page.evaluate(() => {
+    const vv = window.visualViewport, c = document.querySelector('[data-testid="lab-phone-card"]').getBoundingClientRect(), f = document.querySelector('[data-testid="lab-phone-card-input"]').getBoundingClientRect()
+    const label = document.querySelector('[data-testid="lab-phone-card-label"]').getBoundingClientRect()
+    return { vv: [vv.offsetTop, vv.height].map(Math.round), card: [c.top, c.bottom].map(Math.round), field: [f.top, f.bottom].map(Math.round), label: Math.round(label.top), focused: document.activeElement?.dataset.testid }
+  })
+  ok(`${tag}: with the keyboard up the card fits above it (${fits.card.join('–')} in ${fits.vv[1]}px)`, fits.card[0] >= fits.vv[0] && fits.card[1] <= fits.vv[0] + fits.vv[1] + 1 && fits.field[1] <= fits.vv[0] + fits.vv[1] && fits.label >= fits.vv[0] && fits.focused === 'lab-phone-card-input', fits)
+  await page.keyboard.type('What does this mean')
+  shots.push(await shot(page, `${tag}-ask-keyboard`))
   await page.getByTestId('lab-phone-card-send').click()
   await page.getByTestId('lab-phone-card-question').waitFor()
   await page.waitForTimeout(500)
   ok(`${tag}: Ask's question is answered in the card`, /MOCK reply/.test((await cardOf(page)).text))
+  const latest = await page.evaluate(() => { const vv = window.visualViewport, a = [...document.querySelectorAll('[data-testid="lab-phone-card"] [data-testid="lab-phone-card-answer"]')].pop()?.getBoundingClientRect(); return a ? { top: Math.round(a.top), bottom: Math.round(a.bottom), room: Math.round(vv.height) } : null })
+  ok(`${tag}: with the keyboard up the latest answer is in view`, !!latest && latest.bottom > 0 && latest.top < latest.room, latest)
+  await page.evaluate(() => window.__keyboard(0))
   await close1('drag', 'Ask')
 
   // 5. Highlight, a note, and deleting the highlight by a tap on it.
@@ -272,7 +329,8 @@ async function run(engineName) {
   await page.getByTestId('lab-pbar-note').click()
   await page.getByTestId('lab-phone-card').waitFor()
   card = await cardOf(page)
-  ok(`${tag}: the note opens as a card, its field focused`, card.kind === 'note' && card.focused === 'TEXTAREA:lab-phone-card-note', card)
+  ok(`${tag}: the note opens as a card, its field not focused until tapped`, card.kind === 'note' && !card.focused, card)
+  await page.getByTestId('lab-phone-card-note').click()
   await page.keyboard.type('A note of mine')
   // A note's words are upright, while written and once saved (Anders, 20 Oct 2026); the card's label stays italic.
   const noteStyle = await page.evaluate(() => ({ field: getComputedStyle(document.querySelector('[data-testid="lab-phone-card-note"]')).fontStyle, label: getComputedStyle(document.querySelector('[data-testid="lab-phone-card-label"]')).fontStyle }))
@@ -304,7 +362,15 @@ async function run(engineName) {
   ok(`${tag}: a tap on a highlight offers ✕, and ✕ deletes it`, await page.locator('[data-testid="lab-page-wrap"] .lab-passage [data-highlight-id]').count() === 0)
   await check('deleting a highlight')
 
-  // 6. Chat and Talk open as cards.
+  // 6. Chat and Talk open as cards; the t menu is the approved design.
+  await showControls(page)
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-menu').waitFor()
+  const menu = await page.evaluate(() => [...document.querySelectorAll('[data-testid="lab-super-menu"] .lab-super-row-label')].map(n => n.textContent))
+  ok(`${tag}: the t menu: ${menu.join(' · ')}`, menu.join('|') === 'Chat|Talk|Summarize|Catch me up|Text and theme|Reading settings|Library|Profile', menu)
+  shots.push(await shot(page, `${tag}-menu`))
+  await page.getByTestId('lab-super-scrim').click()
+  await page.waitForTimeout(200)
   await showControls(page)
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-chat').click()
@@ -333,8 +399,13 @@ async function run(engineName) {
   const startState = await boot(engine, `?book=${BOOK}&margin=1`, { chapterNumber: SEED.chapterNumber, paragraphIndex: 0 })
   const sp = startState.page
   const startHome = await placeOf(sp)
-  const startPill = await sp.evaluate(() => { const el = document.querySelector('[data-testid="lab-unit-start"]'); return el ? { text: el.textContent.replace(/\s+/g, ' ').trim(), primerChip: document.querySelectorAll('.lab-passage-header > .lab-chapter-preview').length } : null })
-  ok(`${tag}: the start pill sits below the heading ("Starting …" · ✧ Primer · ✧ Catch me up), in place of the Primer chip`, !!startPill && /^Starting .+✧Primer✧Catch me up$/.test(startPill.text) && startPill.primerChip === 0, startPill)
+  const startPill = await sp.evaluate(() => {
+    const el = document.querySelector('[data-testid="lab-unit-start"]'), head = el?.parentElement?.querySelector('.lab-passage-headline')
+    if (!el || !head) return null
+    const p = el.getBoundingClientRect(), h = head.getBoundingClientRect()
+    return { text: el.textContent.replace(/\s+/g, ' ').trim(), primerChip: document.querySelectorAll('.lab-passage-header > .lab-chapter-preview').length, sameLine: p.top < h.bottom && p.bottom > h.top && p.left >= h.right - 1, starting: /Starting/.test(document.querySelector('.lab-passage-header').textContent) }
+  })
+  ok(`${tag}: the start pills sit on the heading's line, beside it (✧ Primer · ✧ Catch me up), no "Starting" line`, !!startPill && /^✧Primer✧Catch me up$/.test(startPill.text) && startPill.primerChip === 0 && startPill.sameLine && !startPill.starting, startPill)
   shots.push(await shot(sp, `${tag}-start-pills`))
   const pillCard = async (testId, kind, label) => {
     await sp.getByTestId(testId).click()
@@ -350,10 +421,10 @@ async function run(engineName) {
   await pillCard('lab-unit-primer', 'chapter-notes-primer', 'Primer')
   await pillCard('lab-unit-catchup', 'catchup', 'Catch me up')
   // Turn to the chapter's end.
-  for (let i = 0; i < 60 && !(await sp.getByTestId('lab-unit-end').count()); i++) { await sp.keyboard.press('ArrowRight'); await sp.waitForTimeout(260) }
+  for (let i = 0; i < 60 && !(await sp.getByTestId('lab-unit-quiz').count()); i++) { await sp.keyboard.press('ArrowRight'); await sp.waitForTimeout(260) }
   await sp.waitForTimeout(600)
   const endPill = await sp.evaluate(() => { const el = document.querySelector('[data-testid="lab-chapter-end"]'); return el ? el.textContent.replace(/\s+/g, ' ').trim() : null })
-  ok(`${tag}: the end pill ("End of …" · ✧ Recap · ✧ Quiz me · Note)`, !!endPill && /^End of .+✧Recap✧Quiz meNote/.test(endPill), endPill)
+  ok(`${tag}: the end pills (✧ Recap · ✧ Quiz me · Note), no "End of" label`, !!endPill && /^✧Recap✧Quiz meNote/.test(endPill), endPill)
   shots.push(await shot(sp, `${tag}-end-pills`))
   const endHome = await placeOf(sp)
   for (const [testId, kind, label] of [['lab-unit-quiz', 'quiz', 'Quiz me (chapter)'], ['lab-chapter-note-open', 'chapter-note', 'Note (chapter)']]) {
@@ -386,7 +457,7 @@ async function run(engineName) {
   const firstState = await boot(engine, `?book=${BOOK}&margin=1`, { chapterNumber: 1, paragraphIndex: 0 })
   const fp = firstState.page
   const first = await fp.evaluate(() => document.querySelector('[data-testid="lab-unit-start"]')?.textContent.replace(/\s+/g, ' ').trim() ?? null)
-  ok(`${tag}: the first chapter's start pill has ✧ Primer and no ✧ Catch me up ("${first}")`, !!first && /^Starting .+✧Primer$/.test(first), first)
+  ok(`${tag}: the first chapter's start pill has ✧ Primer and no ✧ Catch me up ("${first}")`, first === '✧Primer', first)
   await showControls(fp)
   await fp.getByTestId('lab-super').click()
   await fp.getByTestId('lab-super-menu').waitFor()

@@ -44,6 +44,30 @@ export interface LabPhoneCardProps {
 export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, tall = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
   const ref = useRef<HTMLElement | null>(null)
   useLabKeyboardDock(ref, true)
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el || typeof window === 'undefined') return
+    let keyboard = false
+    // The card fits the part of the window the reader sees (visualViewport): with the keyboard up it shrinks to the
+    // room above it, and the latest answer and the field stay in view.
+    const fit = () => {
+      const room = phoneCardRoom(window.visualViewport, window.innerHeight)
+      el.style.setProperty('--lab-pcard-room', `${room.height}px`)
+      el.toggleAttribute('data-keyboard', room.keyboard)
+      if (room.keyboard && !keyboard) {
+        const body = el.querySelector<HTMLElement>('.lab-pcard-body')
+        if (body) body.scrollTop = body.scrollHeight
+        el.querySelectorAll<HTMLElement>('.tc-thread, .lab-ask-thread').forEach(node => { node.scrollTop = node.scrollHeight })
+      }
+      keyboard = room.keyboard
+    }
+    fit()
+    const viewport = window.visualViewport
+    viewport?.addEventListener('resize', fit)
+    viewport?.addEventListener('scroll', fit)
+    window.addEventListener('resize', fit)
+    return () => { viewport?.removeEventListener('resize', fit); viewport?.removeEventListener('scroll', fit); window.removeEventListener('resize', fit) }
+  }, [])
   const closeRef = useRef(onClose)
   closeRef.current = onClose
   // A tap outside closes the card and does nothing else: the page under the finger does not turn.
@@ -79,7 +103,9 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
     if (ref.current) ref.current.style.transform = ''
     if (start && event.clientY - start.y > 60) onClose()
   }
-  return (
+  return (<>
+    {/* The page behind the card is dimmed, so none of its words read beside or under the card. */}
+    <div className="lab-pcard-scrim" data-testid="lab-phone-card-scrim" aria-hidden="true" />
     <section
       ref={ref}
       className={`lab-pcard${tall ? ' is-tall' : ''}`}
@@ -100,14 +126,19 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       <div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>
       {foot}
     </section>
-  )
+  </>)
 }
 
-/** A passage quoted in a card, cut at 120 characters with … (the margin reader's `.mr-quote`). */
-export function PhoneQuote({ text }: { text: string }) {
-  const flat = text.replace(/\s+/g, ' ').trim()
-  const cut = flat.length > 120 ? flat.slice(0, 119).replace(/\s+\S*$/, '') + '…' : flat
-  return <p className="lab-pcard-quote" data-testid="lab-phone-card-quote">{cut}</p>
+/** Less than this between the window and what the reader sees is the software keyboard, not the browser's bars. */
+const KEYBOARD_MIN_PX = 80
+
+/**
+ * The height the card may fill: what the visual viewport shows (the window less the keyboard), and whether the
+ * keyboard is up.
+ */
+export function phoneCardRoom(viewport: { height?: number; offsetTop?: number } | null | undefined, innerHeight: number): { height: number; keyboard: boolean } {
+  const visible = typeof viewport?.height === 'number' && viewport.height > 0 ? viewport.height : innerHeight
+  return { height: Math.round(Math.min(innerHeight, visible)), keyboard: innerHeight - visible > KEYBOARD_MIN_PX }
 }
 
 /** The first sentence of the first paragraph, and what follows it. */

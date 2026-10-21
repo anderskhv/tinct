@@ -234,6 +234,40 @@ export interface ChatConversation {
   summaryPrompt?: string
   /** Epoch ms when the summary was generated. */
   summaryCreatedAt?: number
+  /**
+   * A margin card kept in the chat history (Explain, Simplify, Define, Ask, Before you start, Recap, Quiz me,
+   * Fact-check, Counterpoint…, 21 Oct 2026): its kind and passage. The conversation's messages are its question and
+   * answers. A deleted card keeps only this, `gone`, with no messages (a tombstone, so it stays deleted everywhere).
+   */
+  card?: ChatCard
+}
+
+/** A passage in an edition as the book reader keeps it (LabHighlightRange): `toWord` is exclusive. */
+export interface ChatCardAnchor {
+  editionKey: string
+  chapterNumber: number
+  paragraphIndex: number
+  fromWord: number
+  endParagraphIndex: number
+  toWord: number
+}
+
+export interface ChatCard {
+  /** The margin's own id for the card (the conversation's id is `mc_<id>`). */
+  id: string
+  kind: string
+  chapterNumber: number
+  anchor?: ChatCardAnchor
+  /** The passage as quoted. */
+  text?: string
+  /** The margin's boxes for the passage (a fallback for drawing it before the passage is measured). */
+  rects?: number[][]
+  /** The card's own state: a quiz's questions and answers, a chapter card's unit, sources. Small. */
+  data?: unknown
+  at: number
+  /** Last change (ms): the newer copy wins on another device. */
+  u: number
+  gone?: true
 }
 
 // === Highlights & Annotations ===
