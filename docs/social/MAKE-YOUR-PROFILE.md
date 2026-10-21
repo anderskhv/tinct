@@ -4,6 +4,8 @@ Asked for by Anders: every current reader is asked to make a profile, choose a p
 
 Status: concept for Anders. Nothing is built.
 
+**Anders, 21 Oct (later):** no come-back email. Anders texts the people he knows himself, with a link that opens the flow. The email parts below (0a, the send route, the waves) are dropped; the library card and the flow stay.
+
 **Anders, 21 Oct:** most of these screens exist already (sign-up's profile steps, Find readers, the Leaderboard card). The work is to chain them into one walk-through, the way a new reader would meet them, not to build new screens. The audience is every account that is not using Tinct now.
 
 ## Where things stand on main
