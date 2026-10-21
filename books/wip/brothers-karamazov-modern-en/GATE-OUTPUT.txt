@@ -1,0 +1,194 @@
+GATE OUTPUT — brothers-karamazov modern-en candidate (2026-10-05)
+Tool: unmodified books/classify-modern-en.py (sha256 950700285d86e2132cd4067969c68b575c8fb946f3f0fb8c97cae6471896e50b), run on a scratch mirror
+that holds the served original-en (sha256 b8ada3e43c6f997a0d55f77e1f22bb769f021071aaeff3d0cb25dcd1acb80736) and candidate.json
+(sha256 0426f2f3629b48a14b9363add7bcc4e7be633b8ac4bdfc29557713bb563aaf0f) in place of the live modern-en. No live file was touched.
+
+=== Reproduction of the assigned failure on the LIVE modern-en (main 791d2802), run in the repository
+brothers-karamazov original-en -> modern-en  (96 chapters)
+  weighted similarity : 0.896   (gate: <= 0.75)
+  light+mechanical    : 74/96 = 77.1%   (gate: <= 5%)
+  identical long paras: 327/4040 = 8.1%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 22  LIGHT 72  MECHANICAL 2
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL
+exit=1
+
+=== WHOLE BOOK, candidate
+brothers-karamazov original-en -> modern-en  (96 chapters)
+  weighted similarity : 0.690   (gate: <= 0.75)
+  light+mechanical    : 0/96 = 0.0%   (gate: <= 5%)
+  identical long paras: 21/4040 = 0.5%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 96  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+exit=0
+
+=== chapters 1-12
+  weighted similarity : 0.677   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/325 = 0.3%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 13-24
+  weighted similarity : 0.675   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/390 = 0.0%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 25-38
+  weighted similarity : 0.689   (gate: <= 0.75)
+  light+mechanical    : 0/14 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/553 = 0.0%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 39-41
+  weighted similarity : 0.693   (gate: <= 0.75)
+  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)
+  identical long paras: 4/208 = 1.9%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 42-53
+  weighted similarity : 0.699   (gate: <= 0.75)
+  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)
+  identical long paras: 7/784 = 0.9%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 54-62
+  weighted similarity : 0.685   (gate: <= 0.75)
+  light+mechanical    : 0/9 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/442 = 0.2%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 63-69
+  weighted similarity : 0.704   (gate: <= 0.75)
+  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/323 = 0.3%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 70-79
+  weighted similarity : 0.682   (gate: <= 0.75)
+  light+mechanical    : 0/10 = 0.0%   (gate: <= 5%)
+  identical long paras: 4/533 = 0.8%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 80-93
+  weighted similarity : 0.697   (gate: <= 0.75)
+  light+mechanical    : 0/14 = 0.0%   (gate: <= 5%)
+  identical long paras: 1/355 = 0.3%   (gate: <= 5%)
+GATE PASS
+
+=== chapters 94-96
+  weighted similarity : 0.726   (gate: <= 0.75)
+  light+mechanical    : 0/3 = 0.0%   (gate: <= 5%)
+  identical long paras: 2/127 = 1.6%   (gate: <= 5%)
+GATE PASS
+
+=== per-chapter detail (candidate)
+  ch    1  sim 0.545  REAL        I. Fyodor Pavlovitch Karamazov
+  ch    2  sim 0.573  REAL        II. He Gets Rid Of His Eldest Son
+  ch    3  sim 0.655  REAL        III. The Second Marriage And The Second Family
+  ch    4  sim 0.655  REAL        IV. The Third Son, Alyosha
+  ch    5  sim 0.680  REAL        V. Elders
+  ch    6  sim 0.678  REAL        I. They Arrive At The Monastery
+  ch    7  sim 0.678  REAL        II. The Old Buffoon
+  ch    8  sim 0.692  REAL        III. Peasant Women Who Have Faith
+  ch    9  sim 0.719  REAL        IV. A Lady Of Little Faith
+  ch   10  sim 0.724  REAL        V. So Be It! So Be It!
+  ch   11  sim 0.663  REAL        VI. Why Is Such A Man Alive?
+  ch   12  sim 0.715  REAL        VII. A Young Man Bent On A Career
+  ch   13  sim 0.614  REAL        VIII. The Scandalous Scene
+  ch   14  sim 0.643  REAL        I. In The Servants’ Quarters
+  ch   15  sim 0.653  REAL        II. Lizaveta
+  ch   16  sim 0.700  REAL        III. The Confession Of A Passionate Heart—In Verse
+  ch   17  sim 0.685  REAL        IV. The Confession Of A Passionate Heart—In Anecdo
+  ch   18  sim 0.676  REAL        V. The Confession Of A Passionate Heart—“Heels Up”
+  ch   19  sim 0.621  REAL        VI. Smerdyakov
+  ch   20  sim 0.666  REAL        VII. The Controversy
+  ch   21  sim 0.723  REAL        VIII. Over The Brandy
+  ch   22  sim 0.751  REAL        IX. The Sensualists
+  ch   23  sim 0.707  REAL        X. Both Together
+  ch   24  sim 0.645  REAL        XI. Another Reputation Ruined
+  ch   25  sim 0.683  REAL        I. Father Ferapont
+  ch   26  sim 0.728  REAL        II. At His Father’s
+  ch   27  sim 0.730  REAL        III. A Meeting With The Schoolboys
+  ch   28  sim 0.770  REAL        IV. At The Hohlakovs’
+  ch   29  sim 0.702  REAL        V. A Laceration In The Drawing-Room
+  ch   30  sim 0.705  REAL        VI. A Laceration In The Cottage
+  ch   31  sim 0.686  REAL        VII. And In The Open Air
+  ch   32  sim 0.684  REAL        I. The Engagement
+  ch   33  sim 0.696  REAL        II. Smerdyakov With A Guitar
+  ch   34  sim 0.648  REAL        III. The Brothers Make Friends
+  ch   35  sim 0.688  REAL        IV. Rebellion
+  ch   36  sim 0.697  REAL        V. The Grand Inquisitor
+  ch   37  sim 0.609  REAL        VI. For Awhile A Very Obscure One
+  ch   38  sim 0.693  REAL        VII. “It’s Always Worth While Speaking To A Clever
+  ch   39  sim 0.707  REAL        I. Father Zossima And His Visitors
+  ch   40  sim 0.677  REAL        II. The Duel
+  ch   41  sim 0.701  REAL        III. Conversations And Exhortations Of Father Zoss
+  ch   42  sim 0.682  REAL        I. The Breath Of Corruption
+  ch   43  sim 0.696  REAL        II. A Critical Moment
+  ch   44  sim 0.668  REAL        III. An Onion
+  ch   45  sim 0.708  REAL        IV. Cana Of Galilee
+  ch   46  sim 0.710  REAL        I. Kuzma Samsonov
+  ch   47  sim 0.713  REAL        II. Lyagavy
+  ch   48  sim 0.663  REAL        III. Gold-Mines
+  ch   49  sim 0.711  REAL        IV. In The Dark
+  ch   50  sim 0.775  REAL        V. A Sudden Resolution
+  ch   51  sim 0.657  REAL        VI. “I Am Coming, Too!”
+  ch   52  sim 0.718  REAL        VII. The First And Rightful Lover
+  ch   53  sim 0.678  REAL        VIII. Delirium
+  ch   54  sim 0.723  REAL        I. The Beginning Of Perhotin’s Official Career
+  ch   55  sim 0.647  REAL        II. The Alarm
+  ch   56  sim 0.708  REAL        III. The Sufferings Of A Soul, The First Ordeal
+  ch   57  sim 0.714  REAL        IV. The Second Ordeal
+  ch   58  sim 0.706  REAL        V. The Third Ordeal
+  ch   59  sim 0.635  REAL        VI. The Prosecutor Catches Mitya
+  ch   60  sim 0.688  REAL        VII. Mitya’s Great Secret. Received With Hisses
+  ch   61  sim 0.638  REAL        VIII. The Evidence Of The Witnesses. The Babe
+  ch   62  sim 0.729  REAL        IX. They Carry Mitya Away
+  ch   63  sim 0.608  REAL        I. Kolya Krassotkin
+  ch   64  sim 0.679  REAL        II. Children
+  ch   65  sim 0.673  REAL        III. The Schoolboy
+  ch   66  sim 0.789  REAL        IV. The Lost Dog
+  ch   67  sim 0.711  REAL        V. By Ilusha’s Bedside
+  ch   68  sim 0.751  REAL        VI. Precocity
+  ch   69  sim 0.638  REAL        VII. Ilusha
+  ch   70  sim 0.637  REAL        I. At Grushenka’s
+  ch   71  sim 0.685  REAL        II. The Injured Foot
+  ch   72  sim 0.662  REAL        III. A Little Demon
+  ch   73  sim 0.703  REAL        IV. A Hymn And A Secret
+  ch   74  sim 0.656  REAL        V. Not You, Not You!
+  ch   75  sim 0.620  REAL        VI. The First Interview With Smerdyakov
+  ch   76  sim 0.759  REAL        VII. The Second Visit To Smerdyakov
+  ch   77  sim 0.688  REAL        VIII. The Third And Last Interview With Smerdyakov
+  ch   78  sim 0.681  REAL        IX. The Devil. Ivan’s Nightmare
+  ch   79  sim 0.703  REAL        X. “It Was He Who Said That”
+  ch   80  sim 0.611  REAL        I. The Fatal Day
+  ch   81  sim 0.678  REAL        II. Dangerous Witnesses
+  ch   82  sim 0.744  REAL        III. The Medical Experts And A Pound Of Nuts
+  ch   83  sim 0.726  REAL        IV. Fortune Smiles On Mitya
+  ch   84  sim 0.722  REAL        V. A Sudden Catastrophe
+  ch   85  sim 0.695  REAL        VI. The Prosecutor’s Speech. Sketches Of Character
+  ch   86  sim 0.696  REAL        VII. An Historical Survey
+  ch   87  sim 0.728  REAL        VIII. A Treatise On Smerdyakov
+  ch   88  sim 0.722  REAL        IX. The Galloping Troika. The End Of The Prosecuto
+  ch   89  sim 0.750  REAL        X. The Speech For The Defense. An Argument That Cu
+  ch   90  sim 0.649  REAL        XI. There Was No Money. There Was No Robbery
+  ch   91  sim 0.669  REAL        XII. And There Was No Murder Either
+  ch   92  sim 0.667  REAL        XIII. A Corrupter Of Thought
+  ch   93  sim 0.695  REAL        XIV. The Peasants Stand Firm
+  ch   94  sim 0.698  REAL        I. Plans For Mitya’s Escape
+  ch   95  sim 0.776  REAL        II. For A Moment The Lie Becomes Truth
+  ch   96  sim 0.704  REAL        III. Ilusha’s Funeral. The Speech At The Stone
+brothers-karamazov original-en -> modern-en  (96 chapters)
+  weighted similarity : 0.690   (gate: <= 0.75)
+  light+mechanical    : 0/96 = 0.0%   (gate: <= 5%)
+  identical long paras: 21/4040 = 0.5%   (gate: <= 5%)
+
+=== books/audit-truncation.py brothers-karamazov en (scratch copy with only the EDITIONS_DIR line changed; run on candidate)
+== brothers-karamazov: modern-en vs original-en ==
+  ch 34 p  13  src=  34w tgt=  25w  ratio=0.74
+  ch 54 p  40  src=  21w tgt=  15w  ratio=0.71
+  TOTAL: 2

@@ -263,6 +263,17 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  'brothers-karamazov': {
+    revision: 'text-2026-10-21.4',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '5b2d957d5fdca2f1c6374afe61fd7a3e72e2316f06f5bc1f5796939485f91378',
+        after: '0426f2f3629b48a14b9363add7bcc4e7be633b8ac4bdfc29557713bb563aaf0f',
+      },
+    },
+  },
   'niels-lyhne': {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
