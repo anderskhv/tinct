@@ -95,6 +95,7 @@
  *
  *   GET    /api/user-books/primers/{bookHex}?unit={unitKey}   the stored primer, to its owner only (`primer: null` when none yet; 404 for a book not kept)
  *   PUT    /api/user-books/primers/{bookHex}?unit={unitKey}   store `{ primer: { kind, gist, sections, map } }` (or the shape before kinds)
+ *   DELETE /api/user-books/primers/{bookHex}?unit={unitKey}   remove that unit's primer (the card's bin, 21 Oct 2026); `primer: null`
  *                                                            (an owned PDF only; at most MAX_PRIMER_BYTES)
  *
  * The Worker validates the shape (companion/primerParse.ts) and stamps
@@ -1132,14 +1133,17 @@ async function countPrimers(bucket: R2Bucket, prefix: string): Promise<number> {
   return count
 }
 
-/** `/api/user-books/primers/{bookHex}?unit={unitKey}`: GET serves the stored primer to its owner, PUT stores one for an owned PDF. */
+/**
+ * `/api/user-books/primers/{bookHex}?unit={unitKey}`: GET serves the stored primer to its owner, PUT stores one for an
+ * owned PDF, DELETE removes one (only under the caller's own prefix; deleting what is not there is not an error).
+ */
 async function handlePrimer(
   request: Request,
   env: UserBooksEnv,
   deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
   bookHex: string,
 ): Promise<Response> {
-  if (!['GET', 'PUT'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
+  if (!['GET', 'PUT', 'DELETE'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
   const user = await deps.verifyUser(request)
   if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
   if (!BOOK_HEX.test(bookHex)) return notFound(request)
@@ -1149,6 +1153,12 @@ async function handlePrimer(
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
   const prefix = ownPrimerPrefix(user.id, bookHex)
   const key = `${prefix}${unitKey}`
+
+  if (request.method === 'DELETE') {
+    if (!await deps.checkRateLimit(`user-books-primer:${user.id}`, undefined, PRIMER_WRITES_PER_MINUTE)) return reply({ error: 'rate_limited' }, 429, request)
+    await bucket.delete(key)
+    return reply({ primer: null }, 200, request)
+  }
 
   if (request.method === 'GET') {
     // Under the caller's own prefix, so only its owner can reach it; it goes with the book.

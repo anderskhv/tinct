@@ -2,7 +2,23 @@
 
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
-**Last updated:** 2026-04-29
+**Last updated:** 2026-10-20
+
+---
+
+## Now — margin reader launch (updated 2026-10-20)
+
+In order. Decisions are in DECISIONS.md (20 Oct rows).
+
+1. **Night run 20→21 Oct** — desktop margin view: place writes back to the account; highlights/notes shared with the normal reader and phone; margin cards stored in the existing chat history; Listen in margin view.
+2. **Phone launch to everyone** — today's reader + selection bar, chapter pills, cards (#502), on Anders's go after he tests `?margin=1`.
+3. **Margin view as the desktop default** — books in progress keep their layout; newly opened books start in Margin. iPad by width (landscape desktop layouts with Margin default, portrait phone reader with cards).
+4. **Notebook in the chapter pill** (phone + desktop): Contents · Notebook, book order with a Recent switch, quiz entries show the reader's own answers.
+5. **Aa / t port** (approved mockup claude.ai/artifact/5uCBTerCmkccmf7Xbdx6PV): Aa = Layout, Theme, type, Advanced; t = Chat · Talk, Summarize, Catch me up, Reading settings, Profile.
+6. **Talk and Cast in margin view.**
+7. **Paste any text** — "+ Add → Paste text": keep formatting from clipboard HTML or Markdown (headings, lists, emphasis, quotes, links); strip page chrome by rule with start/end trim handles; title/author prefilled; stored as a private own book read in margin view with sections, marks, primer and quiz. Proposed: fixed-width allowed only inside pasted preformatted blocks; rule-based clean-up first (AI clean-up later if needed). One privacy-notice line. ~1–2 days.
+8. **Library card OCR progress** (ownOcrShelf.ts / library_2).
+9. **Later / on request** — phone scroll mode (Advanced: Pages / Scroll, ~2–3 days); page flips in margin view (~1 week); latency measurement vs Gloss; one-tap mutual invite link (needs a privacy line).
 
 ---
 
