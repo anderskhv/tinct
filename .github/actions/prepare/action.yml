@@ -1,0 +1,38 @@
+name: Prepare a Tinct check job
+description: Node 24.13.0, npm ci (scripts/cloud-setup.sh), optionally the production build with its bundle gate, and Playwright browsers.
+inputs:
+  build:
+    description: 'true: npm run build (CI=true) and npm run verify-bundle'
+    default: 'true'
+  browsers:
+    description: 'Playwright browsers to install (space separated), or empty for none'
+    default: 'chromium webkit'
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '24.13.0'
+        cache: npm
+        cache-dependency-path: app/package-lock.json
+    - name: Set up cloud checkout
+      shell: bash
+      working-directory: app
+      run: bash ../scripts/cloud-setup.sh
+    - name: Build
+      if: ${{ inputs.build == 'true' }}
+      shell: bash
+      working-directory: app
+      env:
+        CI: true
+      run: npm run build
+    - name: Verify the bundle
+      if: ${{ inputs.build == 'true' }}
+      shell: bash
+      working-directory: app
+      run: npm run verify-bundle
+    - name: Install silent browsers
+      if: ${{ inputs.browsers != '' }}
+      shell: bash
+      working-directory: app
+      run: npx playwright install --with-deps ${{ inputs.browsers }}

@@ -4866,6 +4866,16 @@ async function epubPage(browser, origin, hex, { width, height, look = 'paper', i
 }
 // The paragraph and word at the top of the view, by the words there (they never move with the width or size).
 const spotNow = () => { const s = epubSpot(), place = currentPlace(); return { page: place.page, para: s.para, word: s.word, quote: s.quote } }
+// The EPUB reader at rest: this open's place gone back to (reader.js epubHold.opened), no way there (settling) or
+// reflow (a text size, a width, a late font) under way, its fonts in. What the place checks mean by "then": a fixed
+// wait read the place before a slow runner had restored it (CI, 20 Oct 2026: a reload read a line early, and the
+// zoom that followed held that line). `width`: a window resize, whose reflow starts on its resize event.
+async function epubSettled(page, { width } = {}) {
+  if (width) await page.waitForFunction(w => innerWidth === w, width, { timeout: 10000 })
+  const frames = () => page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))))
+  const rest = () => page.waitForFunction(() => isEpub() && epubHold.opened === state.token && !epubHold.settling && !epubHold.reflow && document.fonts.status === 'loaded', null, { timeout: 20000 })
+  await frames(); await rest(); await frames(); await rest()
+}
 /* A PDF's Tinct text in Margin view (Anders, 20 Oct 2026, item s; mockup 2b): on the desktop "Tinct text" reflows the PDF
    here, on Tinct paper beside the margin, never the Tinct reader; "Original pages" goes back to the same place. */
 async function pdfTextCheck(browser, origin) {
@@ -5004,6 +5014,7 @@ async function epubViewCheck(browser, origin) {
     const E = await epubPage(browser, origin, hex, { width, height })
     const e = E.page
     await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
+    await epubSettled(e); await e.waitForFunction(() => col.mode != null, null, { timeout: 10000 }).catch(() => {})
     const opened = await e.evaluate(() => ({ url: location.pathname + location.search, kind: state.kind, margin: marginOn(), mode: col.mode, dock: !!document.querySelector('.byob-dock'), nb: getComputedStyle(document.getElementById('notebookBtn')).display !== 'none' }))
     ok(`${tag}: the EPUB opens here, in Margin view (its column), at its own address, with the Notebook`, opened.url === `/lab/addbook/?userBook=${hex}` && opened.kind === 'epub' && opened.margin && opened.mode === 'column' && !opened.dock && opened.nb, opened)
     // The Aa panel: Margin view, and Convert to Tinct book.
@@ -5013,7 +5024,7 @@ async function epubViewCheck(browser, origin) {
     await e.keyboard.press('Escape')
     // A place: chapter 3's third paragraph, some way in.
     await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
-    await e.waitForTimeout(400); await e.evaluate(() => savePlaceNow())
+    await e.waitForTimeout(400); await epubSettled(e); await e.evaluate(() => savePlaceNow())
     const here = await e.evaluate(spotNow)
     const kept = await e.evaluate(k => store.get('pos:' + k), key)
     ok(`${tag}: the place is kept by paragraph and word, with its words`, here.page === 3 && here.para === 3 && kept.para === 3 && kept.word === here.word && kept.word > 0 && kept.quote === here.quote && kept.quote.split(' ').length >= 10, { here, kept })
@@ -5026,27 +5037,28 @@ async function epubViewCheck(browser, origin) {
     ok(`${tag}: the Notebook lists an EPUB's card by chapter and paragraph`, entry.entries.length === 1 && entry.entries[0].chip === '2 Candles Considered ¶ 3' && entry.entries[0].kind === 'Explain', entry.entries)
     await shot(e, `${tag}-notebook`)
     await e.click('.nb-entry .nb-kind'); await e.waitForTimeout(1500)
+    await e.waitForFunction(() => !!document.querySelector('.mr-card.is-open'), null, { timeout: 10000 }).catch(() => {})
     const jump = await e.evaluate(() => { const c = (store.get('cards:' + state.key) || [])[0], r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], sr = document.getElementById('scroll').getBoundingClientRect(); return { open: col.open === c.id, inView: r.top > sr.top && r.bottom < sr.bottom, card: !!document.querySelector('.mr-card.is-open') } })
     ok(`${tag}: its entry jumps to the passage and opens the card`, jump.open && jump.inView && jump.card, jump)
     await shot(e, `${tag}-card`)
     await e.keyboard.press('Escape'); await e.evaluate(() => { openCard(null) })
     // Back at the place, then a reload: the same paragraph and word.
-    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await e.evaluate(() => savePlaceNow())
-    await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+    await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500); await epubSettled(e)
     const reloaded = await e.evaluate(spotNow)
     ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
     // The text size and the window's width change: the place stays.
-    await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800)
+    await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800); await epubSettled(e)
     const zoomed = await e.evaluate(spotNow)
-    await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800)
+    await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800); await epubSettled(e, { width: Math.round(width * 0.8) })
     const narrowed = await e.evaluate(spotNow)
-    await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800)
+    await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800); await epubSettled(e, { width })
     const sizedBack = await e.evaluate(spotNow)
     // The same paragraph, its line at the top (the word's line may start a word or two earlier once the lines wrap anew).
     const near = x => x.page === here.page && x.para === here.para && x.word <= here.word && here.word - x.word <= 12
     ok(`${tag}: a text size or width change keeps the paragraph and word at the top`, near(zoomed) && near(narrowed) && near(sizedBack), { here, zoomed, narrowed, sizedBack })
     // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
-    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600)
+    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e)
     await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
     await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel [data-layout="text"]')
     await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-aa-panel [data-layout="text"]')])
@@ -5058,7 +5070,7 @@ async function epubViewCheck(browser, origin) {
     ok(`${tag}: chosen, the Tinct reader is where it opens on this device`, e.url().includes(`/reader?userBook=${hex}`), e.url())
     const target = await e.evaluate(() => 'Lamplight has always posed questions about the nature of the evening')
     await e.evaluate(([k, h, q]) => { localStorage.setItem('tinct-addbook:epub-view:' + h, JSON.stringify('margin')); const pos = JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)); localStorage.setItem('tinct-addbook:pos:' + k, JSON.stringify({ ...pos, via: 't', quote: q, at: Date.now() })) }, [key, hex, 'If we really do live in a lamplit household, then where does electricity fit'])
-    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500); await epubSettled(e)
     const back = await e.evaluate(spotNow)
     ok(`${tag}: from the Tinct reader's Margin view, the EPUB opens here at the words it was at`, back.page === 2 && back.para === 1 && back.word === 0 && /^If we really do live/.test(back.quote), back)
     void target
@@ -5278,9 +5290,15 @@ async function epubQuizCheck(browser, origin) {
   // q (20 Oct 2026): deleting the book from the reader leaves nothing of it on this device (place, highlights, cards, chats, primers).
   await e.evaluate(() => { savePlaceNow(); const p = state.pages[8], t = epubParas(p)[3].firstChild, r = document.createRange(); r.setStart(t, 0); r.setEnd(t, 30); addHighlight({ text: r.toString(), page: 9, range: r }, { range: r, color: 'yellow' }); store.set('chat:' + state.key, [{ role: 'user', content: 'x' }]) })
   const before = await e.evaluate(h => Object.keys(localStorage).filter(k => k.includes(h)), E.hex)
-  // Removing the open book closes it (and may go on to Your books, a navigation): the keys are read once the page has settled.
-  await e.evaluate(k => TinctReader.removeBook(k), E.key).catch(() => {}); await e.waitForTimeout(800); await e.waitForLoadState('load').catch(() => {})
-  const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex).catch(async () => { await e.waitForTimeout(1500); return e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex) })
+  // Removing the open book closes it, forgets its keys, then replaces this page with My shelf (reader.js removeBook,
+  // start.js toShelf): a navigation. Waiting a fixed time and evaluating raced it ("Execution context was destroyed",
+  // 20 Oct 2026). The call is started without awaiting its promise across the navigation, and the keys are read on
+  // the shelf page, once it has loaded (same origin and tab: the same localStorage and sessionStorage).
+  const toShelf = e.waitForURL(u => new URL(u).pathname === '/library', { timeout: 20000, waitUntil: 'load' })
+  await e.evaluate(k => { window.__removing = TinctReader.removeBook(k) }, E.key)
+  const shelf = await toShelf.then(() => true, () => false)
+  ok('q. deleting the open book closes it and shows My shelf', shelf && new URL(e.url()).hash === '#my-shelf', e.url())
+  const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex)
   ok('q. deleting the book from the reader leaves no key of it on this device (its place, highlights, cards, chat, primers)', before.length >= 4 && left.length === 0, { before, left })
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
@@ -5570,12 +5588,28 @@ const RUNS = {
   'pdf-text': [pdfTextCheck, rows => rows.some(r => !r.pass)],
   'desk-polish': [deskPolishCheck, rows => rows.some(r => !r.pass)],
 }
+/* MARGIN_SHARD=i/n (CI, verify.yml margin-layout): this run takes the i-th of n parts of `sample`/`full`, so the
+   parts run side by side on separate runners. Every check is in exactly one part: the same greedy split (longest
+   first, onto the part with least time so far, by each check's seconds in CI's sample run of 20 Oct 2026; a check
+   not listed counts 20 s) is worked out from RUNS in every part. Without MARGIN_SHARD: every check, as before. */
+const SAMPLE_SECONDS = { column: 105, behaviour: 87, layout: 77, 'phone-ui': 41, long: 39, notebook: 37, polish: 35, 'phone-kind': 35, reader: 33, 'epub-ask': 24, primer: 23, 'column-page': 23 }
+function marginShard(names) {
+  const m = /^(\d+)\/(\d+)$/.exec(process.env.MARGIN_SHARD || '')
+  if (!m) return { index: 1, of: 1, names }
+  const index = Number(m[1]), of = Number(m[2])
+  if (!(of >= 1 && index >= 1 && index <= of)) throw new Error('MARGIN_SHARD must be i/n with 1 <= i <= n: ' + process.env.MARGIN_SHARD)
+  const parts = Array.from({ length: of }, () => ({ seconds: 0, names: [] }))
+  const order = names.map((name, at) => ({ name, at, seconds: SAMPLE_SECONDS[name] ?? 20 })).sort((a, b) => b.seconds - a.seconds || a.at - b.at)
+  for (const item of order) { const part = parts.reduce((low, p) => (p.seconds < low.seconds ? p : low)); part.seconds += item.seconds; part.names.push(item.name) }
+  return { index, of, names: parts[index - 1].names }
+}
 try {
   if (mode === 'sample' || mode === 'full') {
     // Every check in one run; each writes {name}-results.json. A failure in one does not stop the rest.
     SAMPLE = mode === 'sample'
-    const started = Date.now(), summary = []
-    for (const [name, [run, bad]] of Object.entries(RUNS)) {
+    const started = Date.now(), summary = [], shard = marginShard(Object.keys(RUNS))
+    if (shard.of > 1) console.log(`== shard ${shard.index}/${shard.of}: ${shard.names.join(', ')}`)
+    for (const [name, [run, bad]] of Object.entries(RUNS).filter(([name]) => shard.names.includes(name))) {
       // Each check starts from an empty account, as it does when run on its own.
       account.marks.clear(); account.cards.clear(); account.primers.clear(); account.requests.length = 0
       const t = Date.now(), rows = await run(browser, origin), fail = bad(rows)
@@ -5584,7 +5618,7 @@ try {
       console.log(`== ${name}: ${rows.length} row(s), ${fail ? 'FAILED' : 'clean'}, ${Math.round((Date.now() - t) / 1000)}s`)
       failed ||= fail
     }
-    writeFileSync(join(OUT, `${mode}-summary.json`), JSON.stringify({ mode, seconds: Math.round((Date.now() - started) / 1000), summary }, null, 2))
+    writeFileSync(join(OUT, `${mode}-summary${shard.of > 1 ? `-${shard.index}of${shard.of}` : ''}.json`), JSON.stringify({ mode, shard: shard.of > 1 ? `${shard.index}/${shard.of}` : null, seconds: Math.round((Date.now() - started) / 1000), summary }, null, 2))
   }
   else if (mode === 'contrast') { const rows = await contrast(browser, origin); failed = rows.some(r => r.required && !r.pass); writeFileSync(join(OUT, 'contrast-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'keys') { const rows = await keysAndAccess(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'keys-results.json'), JSON.stringify(rows, null, 2)) }
