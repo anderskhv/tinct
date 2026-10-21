@@ -4476,7 +4476,7 @@ async function unitMarks(browser, origin) {
   await hoverHead(a, units[0].key)
   const s1 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(1, '1 Introduction'), headH: [...state.pages[0].layer.querySelectorAll('span')].find(sp => /Introduction/.test(sp.textContent))?.getBoundingClientRect().height }), units[0].key)
   // The first unit offers no Catch me up (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page").
-  ok('1. hovered: ✧ Primer · ✧ Recap · ✧ Quiz me (nothing to catch up on yet), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Recap|Quiz me' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
+  ok('1. hovered: ✧ Primer · ✧ Recap · ✧ Quiz me · Note (nothing to catch up on yet), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Recap|Quiz me|Note' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
   await shot(a, 'unit-marks-start-1440x900')
   // The pills are part of the page: they scroll with it.
   const scroll = await a.evaluate(async k => { const s = document.getElementById('scroll'), t0 = __pills(k).top; s.scrollBy({ top: 200 }); await new Promise(r => setTimeout(r, 300)); const t1 = __pills(k).top; s.scrollBy({ top: -200 }); await new Promise(r => setTimeout(r, 300)); return { moved: Math.round(t0 - t1) } }, units[0].key)
@@ -4488,7 +4488,7 @@ async function unitMarks(browser, origin) {
   await a.evaluate(() => goTo({ page: 4, frac: 0.25 })); await a.waitForTimeout(900)
   await hoverHead(a, units[1].key)
   const s2 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(4, '2 Motivations'), col: __colMarks() }), units[1].key)
-  ok('2. a heading mid-page: ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me beside it; no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Catch me up|Recap|Quiz me' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
+  ok('2. a heading mid-page: ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me · Note beside it; no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Catch me up|Recap|Quiz me|Note' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
   await shot(a, 'unit-marks-end-1440x900')
   // 3. Cards from the pills open in the column level with the heading; their requests carry the unit's pages.
   const cardAt = () => a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), sr = document.getElementById('scroll').getBoundingClientRect(), r = el?.getBoundingClientRect(); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', top: r.top, inView: r.top < sr.bottom && r.bottom > sr.top } })
@@ -4514,6 +4514,10 @@ async function unitMarks(browser, origin) {
   ok('3. Primer opens Before you start for the unit, level with its heading, its button pressed', pm && Math.abs(pm.top - headNow) <= 16 && pm.unit === units[1].key && pm.pressed === 'true', { pm, headNow })
   await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(300)
   ok('3. Primer again folds it', !(await a.$('.mr-doc .mr-primer')))
+  await clickPill(a, 'note', units[1].key); await a.waitForTimeout(500)
+  const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f, top: el.getBoundingClientRect().top } })
+  ok('3. Note opens the reader\'s own note on the unit, with its cards from the heading down (after the folded recap, quiz, catch-up), its field ready, in view', nt && nt.field && nt.focused && nt.top >= headNow - 16 && nt.top < 860, { nt, headNow })
+  await a.keyboard.press('Escape'); await a.waitForTimeout(300)
   // 4. The chapter menu: the unit the reader is in, marked, with Recap, Quiz me and Catch me up.
   await a.evaluate(() => { openCard(null); goTo({ page: 6, frac: 0.3 }) }); await a.waitForTimeout(800)
   await a.evaluate(() => openContents()); await a.waitForTimeout(300)
@@ -4796,8 +4800,7 @@ async function notebookCheck(browser, origin) {
     const k0 = await b.evaluate(() => primer.units[0].key)
     await clickPill(b, 'recap', k0); await b.waitForTimeout(1300)
     await clickPill(b, 'quiz', k0); await b.waitForTimeout(1300)
-    // A note on the unit (one kept from before 21 Oct 2026, when the unit's marks had a Note pill): made as that pill did.
-    await b.evaluate(k => pillAction('note', k), k0); await b.waitForTimeout(500)
+    await clickPill(b, 'note', k0); await b.waitForTimeout(500)
     await b.keyboard.type('My note on the whole chapter.')
     await b.mouse.click(300, 500); await b.waitForTimeout(500)
     await b.evaluate(() => { openCard(null); goTo({ page: 2, frac: 0.1 }) }); await b.waitForTimeout(900)
@@ -5206,7 +5209,7 @@ async function epubUnitsCheck(browser, origin) {
   await hoverHead(e, key)
   const start = await e.evaluate(pillsOf, [n, key])
   // The first section offers no Catch me up (item l, Anders, 20 Oct 2026): nothing has been read before it.
-  ok('3/l. the first essay\'s heading, hovered: ✧ Primer · ✧ Recap · ✧ Quiz me right after its last word, on its line (hidden before); no marks or rules in the column', hidden && !hidden.shown && start && start.shown && start.pills.join('|') === 'Primer|Recap|Quiz me' && Math.abs(start.mid - start.lineMid) <= 3 && start.after >= 6 && start.after <= 20 && start.marks === 0 && start.rules === 0, { hidden, start })
+  ok('3/l. the first essay\'s heading, hovered: ✧ Primer · ✧ Recap · ✧ Quiz me · Note right after its last word, on its line (hidden before); no marks or rules in the column', hidden && !hidden.shown && start && start.shown && start.pills.join('|') === 'Primer|Recap|Quiz me|Note' && Math.abs(start.mid - start.lineMid) <= 3 && start.after >= 6 && start.after <= 20 && start.marks === 0 && start.rules === 0, { hidden, start })
   ok('3. the pills add no text to the heading (an EPUB\'s places are offsets in its text)', start && start.inHead && start.headText === '1 The Fate of Lamplight', start?.headText)
   await epubShot(e, 'unit-pills-hover')
   await e.evaluate(() => openContents()); await e.waitForTimeout(300)
@@ -5217,7 +5220,7 @@ async function epubUnitsCheck(browser, origin) {
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n2); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   await hoverHead(e, key2)
   const second = await e.evaluate(pillsOf, [n2, key2])
-  ok('3. the next essay\'s heading offers ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me', second?.shown && second.pills.join('|') === 'Primer|Catch me up|Recap|Quiz me', second)
+  ok('3. the next essay\'s heading offers ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me · Note', second?.shown && second.pills.join('|') === 'Primer|Catch me up|Recap|Quiz me|Note', second)
   // Keyboard: the heading takes the focus (Tab) and shows its pills; the next Tab is its Primer.
   await e.mouse.move(1300, 700); await e.waitForTimeout(1100)
   await e.evaluate(k => document.querySelector(`.mr-hp[data-unit="${k}"]`).closest('.mr-hp-head').focus(), key2); await e.waitForTimeout(200)

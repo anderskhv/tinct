@@ -729,12 +729,12 @@
   }
   /**
    * A unit's pills beside its heading in the text (Anders, 21 Oct 2026; replaces the wide column's Starting / End of marks):
-   * Primer, Catch me up, Recap, Quiz me, shown on hover or focus. They sit inside the heading, so their words are drawn by
+   * Primer, Catch me up, Recap, Quiz me and Note (the reader's own note on it, no ✧), shown on hover or focus. They sit inside the heading, so their words are drawn by
    * CSS (data-label) and are never text in the book: an EPUB's places and highlights are character offsets in its text.
    * ids: the pills to show; o: { name (the unit's phrase), line (the primer's), open (the open pill's id) }.
    */
   function headPillsHtml(ids, o = {}) {
-    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}` };
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return ids.map(id => `<button type="button" class="mr-pill mr-hp__pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}></button>`).join('');
   }
   /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */

@@ -6178,7 +6178,7 @@ function unitHeadEl(u) {
 }
 /*
  * A unit's pills beside its heading (Anders, 21 Oct 2026; the desktop's wide column): Primer · Catch me up · Recap ·
- * Quiz me, small, right after the heading's last word; shown while the pointer is over the heading or the pills, or the
+ * Quiz me · Note, small, right after the heading's last word; shown while the pointer is over the heading or the pills, or the
  * heading has the focus, then faded (CSS). Catch me up is left out where nothing came before. A touch-only screen shows
  * them all the time (CSS, hover: none). In an EPUB they sit inside the heading (no text of their own); on a PDF's page,
  * over it at the end of the heading's line, shown by the pointer's place (headHover).
@@ -6186,12 +6186,13 @@ function unitHeadEl(u) {
 function headPills(u, p, at) {
   let el = col.heads.get(u.key);
   if (!el) { el = document.createElement('span'); el.className = 'mr mr-hp'; el.setAttribute('role', 'group'); el.dataset.unit = u.key; col.heads.set(u.key, el) }
-  const open = primer.open && primer.unit?.key === u.key ? 'primer' : ['catchup', 'recap', 'quiz'].find(k => col.open && unitCard(u, k)?.id === col.open) || '';
-  const ids = nothingBefore(u) ? ['primer', 'recap', 'quiz'] : ['primer', 'catchup', 'recap', 'quiz'];
+  const open = primer.open && primer.unit?.key === u.key ? 'primer' : ['catchup', 'recap', 'quiz'].find(k => col.open && unitCard(u, k)?.id === col.open)
+    || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === u.to || c.unit === u.key)) ? 'note' : '');
+  const ids = nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note'];
   const phrase = TinctMargin.unitPhrase(u), sig = JSON.stringify([ids, open, phrase]);
   if (el.dataset.sig !== sig) {
     el.dataset.sig = sig;
-    el.setAttribute('aria-label', `${TinctMargin.html.unitName(u, state.title)}: Primer, Recap, Quiz me`);
+    el.setAttribute('aria-label', `${TinctMargin.html.unitName(u, state.title)}: Primer, Recap, Quiz me, Note`);
     el.innerHTML = TinctMargin.html.headPillsHtml(ids, { open, name: phrase, line: TinctMargin.triggerLine(u) });
   }
   if (isEpub()) {
