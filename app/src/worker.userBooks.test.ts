@@ -590,7 +590,26 @@ describe('/api/user-books/primers', () => {
     const epubPut = await putPrimer(call, 'token-a', epub.sha256.slice(0, 24), { primer })
     expect(epubPut.status).toBe(400)
     expect(await epubPut.json()).toEqual({ error: 'pdf_only' })
-    expect((await call(path(hex), { method: 'DELETE', token: 'token-a' })).status).toBe(405)
+    expect((await call(path(hex), { method: 'POST', token: 'token-a' })).status).toBe(405)
+    // DELETE is the owner's own too (the primer's bin, 21 Oct 2026): another account's call removes nothing of A's.
+    expect((await call(path(hex), { method: 'DELETE' })).status).toBe(401)
+    expect((await call(path(hex), { method: 'DELETE', token: 'token-b' })).status).toBe(200)
+    expect(r2.objects.has(`u/${A}/primers/${hex}/outline-0`)).toBe(true)
+  })
+
+  it('the bin deletes that unit\'s primer only, and deleting what is not there is not an error', async () => {
+    const { r2, call, hex } = await withPdf()
+    await putPrimer(call, 'token-a', hex, { primer }, 'outline-0')
+    await putPrimer(call, 'token-a', hex, { primer }, 'outline-1')
+    const gone = await call(path(hex, 'outline-0'), { method: 'DELETE', token: 'token-a' })
+    expect(gone.status).toBe(200)
+    expect(gone.headers.get('Cache-Control')).toBe('no-store')
+    expect(await gone.json()).toEqual({ primer: null })
+    expect(r2.objects.has(`u/${A}/primers/${hex}/outline-0`)).toBe(false)
+    expect(r2.objects.has(`u/${A}/primers/${hex}/outline-1`)).toBe(true)
+    expect(await (await call(path(hex, 'outline-0'), { token: 'token-a' })).json()).toEqual({ primer: null })
+    expect((await call(path(hex, 'outline-0'), { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect((await call(path(hex, '../x'), { method: 'DELETE', token: 'token-a' })).status).toBe(400)
   })
 
   it('needs a valid unit key and a primer in shape', async () => {

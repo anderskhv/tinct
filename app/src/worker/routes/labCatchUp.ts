@@ -23,6 +23,7 @@ import {
   CATCH_UP_ROUTE,
   CATCH_UP_UNIT_ID_PATTERN,
   catchUpCacheKey,
+  catchUpCrossesParts,
   catchUpStaticKey,
   catchUpStaticPath,
   catchUpFindUnit,
@@ -36,6 +37,7 @@ import { aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../
 import { allowanceUsedBody } from '../lib/aiAllowance'
 import { jsonResponse } from '../lib/responses'
 import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_RECAP_GROUNDING_RULE } from '../../companion/labAskPrompt'
 import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
 import { isUsableRecapSummary } from '../../recapSummary'
 import { sampleCatchUpText } from '../../ownCatchUp'
@@ -81,6 +83,9 @@ const MAX_TITLE_CHARS = 120
 const MAX_CHAPTER_NUMBER = 10_000
 
 const CATCH_UP_RULES = [
+  // The chat's grounding (#520), for a recap: what the span shows, never an outcome it does not.
+  LAB_RECAP_GROUNDING_RULE,
+  LAB_ASK_CHECKED_SPECIFICS_RULE,
   'Use only the passage. Do not go beyond it: no later events, no outcomes, no foreshadowing, and nothing you know about this book from elsewhere. The passage ends where the reader has read to.',
   'A long passage is sampled: parts of each chapter are left out. Cover the whole span evenly, not only its opening.',
   'For non-narrative text (proverbs, letters, essays, laws, poems) state the main points instead of events.',
@@ -89,11 +94,11 @@ const CATCH_UP_RULES = [
 ]
 
 /**
- * The compact block that opens the timeline: every chapter before the last
- * two the reader finished (`catchUpPlan`), in one entry.
+ * A group of several chapters (`catchUpPlan`): a part, or a run of chapters
+ * inside one, in one entry.
  */
 export const CATCH_UP_BLOCK_SYSTEM_PROMPT = [
-  'You write the opening entry of a "catch me up" timeline that a returning reader scrolls before they continue a book: one compact recap of the earlier chapters. The chapters after these get entries of their own, so this entry only needs to set them up.',
+  'You write one entry in a "catch me up" timeline that a returning reader scrolls before they continue a book: one compact recap of a group of consecutive chapters. The chapters before and after these get entries of their own.',
   'Summarise the passage below in at most three short plain declarative sentences in the present tense, at most 70 words in all: the main people, the situation and the turns that matter for what follows, in order. Leave out minor episodes.',
   ...CATCH_UP_RULES,
 ].join('\n')
@@ -116,6 +121,8 @@ export interface ParsedCatchUpRequest {
   unitId: string
   throughChapter: number | null
   bookTitle: string | null
+  /** The reader's chapter: no coverage at or after it is ever served. Null from an older client. */
+  placeChapter: number | null
 }
 
 /** Validate the body; malformed input is a 400, never a fetch or a model call. */
@@ -128,8 +135,14 @@ export function parseCatchUpRequest(raw: unknown): ParsedCatchUpRequest | null {
   const through = value.throughChapter
   if (through !== undefined && through !== null
     && (typeof through !== 'number' || !Number.isInteger(through) || through < 1 || through > MAX_CHAPTER_NUMBER)) return null
+  const place = value.placeChapter
+  if (place !== undefined && place !== null
+    && (typeof place !== 'number' || !Number.isInteger(place) || place < 1 || place > MAX_CHAPTER_NUMBER)) return null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, unitId: value.unitId, throughChapter: typeof through === 'number' ? through : null, bookTitle }
+  return {
+    bookId: book.bookId, editionKey: book.editionKey, unitId: value.unitId, throughChapter: typeof through === 'number' ? through : null, bookTitle,
+    placeChapter: typeof place === 'number' ? place : null,
+  }
 }
 
 /**
@@ -142,6 +155,19 @@ export function catchUpCoverage(unit: CatchUpUnit, throughChapter: number | null
   const at = unit.chapters.indexOf(throughChapter)
   if (at < 0) return null
   return { chapters: unit.chapters.slice(0, at + 1), complete: at === unit.chapters.length - 1 }
+}
+
+/**
+ * Whether every covered chapter comes before the reader's chapter, in the
+ * edition's reading order. No place (an older client) is not refused; an
+ * unknown place is.
+ */
+export function catchUpWithinPlace(chapters: ReadonlyArray<{ number: number }>, covered: readonly number[], placeChapter: number | null): boolean {
+  if (placeChapter === null) return true
+  const order = new Map(chapters.map((chapter, index) => [chapter.number, index]))
+  const place = order.get(placeChapter)
+  if (place === undefined) return false
+  return covered.every(n => { const at = order.get(n); return at !== undefined && at < place })
 }
 
 function cleanParagraph(text: string): string {
@@ -233,6 +259,10 @@ export async function handleLabCatchUp(
   if (!unit) return jsonResponse({ error: 'Unknown unit' }, 400, request)
   const coverage = catchUpCoverage(unit, parsed.throughChapter)
   if (!coverage) return jsonResponse({ error: 'Chapter not in unit' }, 400, request)
+  // A group never crosses a part, book or volume (catchUpPlan): every part has its own entry.
+  if (unit.kind === 'range' && catchUpCrossesParts(units, unit.chapters)) return jsonResponse({ error: 'Range crosses a part' }, 400, request)
+  // Hard guard: nothing at or after the reader's chapter, from the model, the cache or a prepared file.
+  if (!catchUpWithinPlace(index.chapters, coverage.chapters, parsed.placeChapter)) return jsonResponse({ error: 'Beyond the reader\'s place' }, 400, request)
   // A through chapter that ends the unit is the whole unit: one entry, one cache key.
   const throughChapter = coverage.complete ? null : parsed.throughChapter
   const respond = (summary: string, source: CatchUpResponse['source'], empty = false) => jsonResponse({
@@ -267,7 +297,7 @@ export async function handleLabCatchUp(
     ? `The reader has read all of ${unit.title}.`
     : `The reader is part-way through ${unit.title}; the passage ends with the last chapter they finished.`
   const content = `Location: ${where}. ${status}\n\nPassage:\n\n${passage}\n\nWrite the catch-up entry.`
-  const block = unit.kind === 'range'
+  const block = coverage.chapters.length > 1
   const system = block ? CATCH_UP_BLOCK_SYSTEM_PROMPT : CATCH_UP_SYSTEM_PROMPT
   const maxTokens = block ? CATCH_UP_BLOCK_MAX_TOKENS : CATCH_UP_MAX_TOKENS
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })

@@ -11,7 +11,7 @@ import { resolve } from 'node:path'
 import cardsCss from './cards.css?raw'
 import { accountCardsOpen, closeAccountCards, openAccountCards } from './openCards'
 import { CardStack } from './cardStack'
-import { AVATAR_480_IDS, accountCard, leaderboardCard, settingsCard, smallAvatarSrc, youCard, type CardsEnv } from './cardViews'
+import { AVATAR_480_IDS, accountCard, forgetProfiles, leaderboardCard, settingsCard, smallAvatarSrc, youCard, type CardsEnv } from './cardViews'
 import { CARDS_COPY } from './cardsCopy'
 import { ACCOUNT_DELETE_CONFIRM, ACCOUNT_DELETE_PATH } from '../worker/routes/accountDelete'
 import { dayMonthShort, readingFigures } from './cardsFormat'
@@ -517,6 +517,22 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     expect(byTest('following-you-row')).toBeNull()
   })
 
+  it('Remove hides the row on the tap, before the answer; a refusal brings it back and says so (21 Oct 2026)', async () => {
+    await open('find')
+    const inner = api()
+    let answer: (value: Response) => void = () => {}
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith('/api/social/remove-follower')) return new Promise<Response>(resolve => { answer = resolve })
+      return inner(input, init)
+    }))
+    click(byTest('following-you-row-remove'))
+    expect(byTest('following-you-row')).toBeNull()
+    answer(Response.json({ error: 'no' }, { status: 500 }))
+    await flush()
+    expect(byTest('following-you-row')).toBeTruthy()
+    expect(top().querySelector('.tc-status')?.textContent).toBe(CARDS_COPY.actionFailed)
+  })
+
   it('a reader followed back is a friend, not a request: no row on the You card, no Remove', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
@@ -713,10 +729,10 @@ describe('pending time is flushed before the board and figures are read (21 Octo
     await flush()
   }
 
-  it('the flush goes first; then Your reading, the rank and the Leaderboard all say 16 m, counted once', async () => {
+  it('the board does not wait for the flush (21 Oct 2026); Your reading reads after it; then Your reading, the rank and the Leaderboard all say 16 m, counted once', async () => {
     await openYou()
-    expect(order[0]).toBe('flush')
-    expect(order.slice(1).sort()).toEqual(['board', 'reading'])
+    // The board is asked for at once, beside the flush; Your reading only once the flush has landed.
+    expect(order).toEqual(['board', 'flush', 'reading'])
     expect(readPending(userId)).toEqual({})
     expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
     expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
@@ -732,21 +748,54 @@ describe('pending time is flushed before the board and figures are read (21 Octo
     order = []
     expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false, start: 'leaderboard' })).toBe(true)
     await flush()
-    expect(order[0]).toBe('flush')
-    expect(order).toContain('board')
+    expect(order).toEqual(['board', 'flush', 'reading'])
     expect(byTest('board-me')?.textContent).toContain('17 m')
   })
 
   it('a failed flush: the board still loads (12 m, the ledger) and Your reading keeps this device’s time (16 m)', async () => {
     flushFails = true
     await openYou()
-    expect(order[0]).toBe('flush')
-    expect(order).toContain('board')
+    expect(order).toEqual(['board', 'flush', 'reading'])
     expect(readPending(userId)).not.toEqual({})
     expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
     expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
     click(byTest('you-leaderboard'))
     expect(byTest('board-me')?.textContent).toContain('12 m')
+  })
+
+  it('the board shows while the flush is still on its way; when it lands, the viewer\'s row takes the flushed time and the rank follows', async () => {
+    let release = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const worker = ledgerWorker()
+    // A friend with 14 m; the board is read before this device's 4 m have landed.
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/reading-time/flush')) { order.push('flush sent'); await gate }
+      if (url.startsWith('/api/social/board')) {
+        order.push('board')
+        return Response.json({ tab: 'friends', total: 2, friends: 1, meShown: true, me: null, entries: [
+          { rank: 1, name: 'Bea', picture: pic('B'), seconds: 14 * 60, duration: '', me: false, handle: 'bea' },
+          { rank: 2, name: 'You', picture: pic('A'), seconds: ledgerSeconds, duration: '', me: true },
+        ] })
+      }
+      return worker(input, init)
+    }))
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    await flush()
+    const card = top()
+    const rows = () => [...card.querySelectorAll('[data-testid="board-rows"] > *')].map(node => node.textContent)
+    // On screen with the flush still held: the Worker's rows, the viewer at 12 m.
+    expect(order).toEqual(['board', 'flush sent'])
+    expect(rows()).toEqual([expect.stringMatching(/^1.*Bea.*14 m$/), expect.stringMatching(/^2.*You.*12 m$/)])
+    release()
+    await flush()
+    // Landed: Your reading says 16 m, and so does the board, re-ranked in place (no second board request).
+    expect(order).toEqual(['board', 'flush sent', 'flush', 'reading'])
+    expect(top()).toBe(card)
+    expect(rows()).toEqual([expect.stringMatching(/^1.*You.*16 m$/), expect.stringMatching(/^2.*Bea.*14 m$/)])
+    click(byTest('card-back'))
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 2')
   })
 
   it('nothing pending: no flush is sent', async () => {
@@ -1186,6 +1235,63 @@ describe('the name, changed on the You card (Anders, 15 October 2026)', () => {
   })
 })
 
+describe('the last board shows at once while the fresh one loads (21 October 2026: "still takes too long")', () => {
+  const entry = (rank: number, name: string, seconds: number, me = false) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(me ? {} : { handle: name.toLowerCase() }) })
+  const rows = () => [...top().querySelectorAll('[data-testid="board-rows"] > *')].map(node => node.textContent)
+
+  it('paints the board this page read last, before any answer, then swaps the fresh rows into the same card', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, friends: 1, total: 2, entries: [entry(1, 'Mette', 3600), entry(2, 'You', 60, true)] }, everyone: null }
+    await open('leaderboard')
+    expect(rows()).toEqual([expect.stringContaining('Mette1 h'), expect.stringContaining('You1 m')])
+    closeAccountCards()
+    // A minute later Mette has read another hour; the Worker is slow to answer.
+    boards = { friends: { ...FRIENDS_BOARD, friends: 1, total: 2, entries: [entry(1, 'Mette', 7200), entry(2, 'You', 60, true)] }, everyone: null }
+    const now = Date.now()
+    vi.spyOn(Date, 'now').mockReturnValue(now + 60_000)
+    let release = () => {}
+    const held = new Promise<void>(resolve => { release = resolve })
+    const answer = api()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith('/api/social/board')) await held
+      return answer(input, init)
+    }))
+    expect(await openAccountCards({ session, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    // Synchronously, from memory.
+    const card = top()
+    expect(card.dataset.card).toBe('leaderboard')
+    expect(rows()).toEqual([expect.stringContaining('Mette1 h'), expect.stringContaining('You1 m')])
+    await flush()
+    expect(rows()).toEqual([expect.stringContaining('Mette1 h'), expect.stringContaining('You1 m')])
+    release()
+    await flush()
+    expect(top()).toBe(card)
+    expect(rows()).toEqual([expect.stringContaining('Mette2 h'), expect.stringContaining('You1 m')])
+    // One board request for the open and the Leaderboard together.
+    expect(boardCalls).toEqual(['friends', 'friends'])
+  })
+
+  it('a reader without friends while Everyone is open: one request (the Worker picks the board), not Friends then Everyone', async () => {
+    const everyone = { tab: 'everyone', total: 2, friends: 0, meShown: true, everyoneOpen: true, me: null, entries: [entry(1, 'You', 19020, true), entry(2, 'Mette', 60)] }
+    const answer = api()
+    const asked: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/social/board')) {
+        asked.push(new URL(url, 'https://tinct.app').searchParams.get('tab') ?? '')
+        return Response.json(everyone)
+      }
+      return answer(input, init)
+    }))
+    await open('you')
+    expect(asked).toEqual(['default'])
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 2')
+    click(byTest('you-leaderboard'))
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
+    await flush()
+    expect(asked).toEqual(['default'])
+  })
+})
+
 describe('Leaderboard rows open profiles; Everyone first while open (Anders, 15 October 2026)', () => {
   const entry = (rank: number, name: string, seconds: number, me = false, handle?: string) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(handle ? { handle } : {}) })
   const everyone = { tab: 'everyone', total: 2, meShown: true, everyoneOpen: true, me: null, entries: [entry(1, 'You', 19020, true), entry(2, 'Mette', 60, false, 'mette')] }
@@ -1342,5 +1448,208 @@ describe('Find readers above the iPhone keyboard (15 October 2026)', () => {
     expect(root.style.height).toBe('508px')
     expect(root.style.getPropertyValue('--tc-vh')).toBe('508px')
     stack.closeAll()
+  })
+})
+
+describe('a stable Leaderboard (21 October 2026: "We want stable leaderboards")', () => {
+  const entry = (rank: number, name: string, seconds: number, me = false, handle?: string) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(handle ? { handle } : {}) })
+  const friendsBoard = { ...FRIENDS_BOARD, everyoneOpen: true, friends: 1, total: 2, entries: [entry(1, 'Mette', 7200, false, 'mette'), entry(2, 'You', 60, true)] }
+  const everyoneBoard = { tab: 'everyone', total: 3, meShown: true, everyoneOpen: true, friends: 1, me: null, entries: [entry(1, 'Ida', 9000, false, 'ida'), entry(2, 'Mette', 7200, false, 'mette'), entry(3, 'You', 60, true)] }
+
+  /** The Everyone board held until released. */
+  function holdEveryone(): () => void {
+    let release: () => void = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const inner = api()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).includes('/api/social/board?tab=everyone')) await gate
+      return inner(input, init)
+    }))
+    return release
+  }
+
+  it('a tab not read yet shows rows the size of the board at once, never an empty card; the rows replace them in place', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    const release = holdEveryone()
+    await open('you')
+    click(byTest('you-leaderboard'))
+    await flush()
+    expect(top().querySelectorAll('[data-testid="board-me"]')).toHaveLength(1)
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="everyone"]'))
+    // At once: the tab is chosen, the heading and placeholder rows stand where the rows will be, Find readers below them.
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
+    const skeleton = byTest('board-skeleton')
+    expect(skeleton?.getAttribute('aria-busy')).toBe('true')
+    expect(skeleton?.querySelectorAll('.tc-r.is-av .tc-av.is-s')).toHaveLength(5)
+    expect(top().querySelector('.tc-gh')?.textContent).toBe(CARDS_COPY.lastSevenDays)
+    expect(top().querySelector('[data-testid="board-skeleton"] ~ * [data-testid="board-find"]')).toBeTruthy()
+    // No row of the other tab is shown under this one.
+    expect(top().querySelectorAll('[data-testid="board-row"], [data-testid="board-me"]')).toHaveLength(0)
+    release()
+    await flush()
+    expect(byTest('board-skeleton')).toBeNull()
+    expect([...top().querySelectorAll('[data-testid="board-row"]')].map(row => row.textContent)).toEqual([expect.stringContaining('Ida'), expect.stringContaining('Mette')])
+  })
+
+  it('after switching tabs, the Leaderboard reopens on the tab the You card ranks on (21 Oct 2026: "5th of 8" over an Everyone board)', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    click(byTest('you-leaderboard'))
+    await flush()
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="everyone"]'))
+    await flush()
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="friends"]'))
+    await flush()
+    closeAccountCards()
+    await openAccountCards({ dark: false, session, social: true })
+    expect(byTest('you-leaderboard')?.textContent).toContain('2nd of 2')
+    click(byTest('you-leaderboard'))
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.friends)
+    expect(byTest('board-me')?.querySelector('.tc-rank')?.textContent).toBe('2')
+    await flush()
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.friends)
+  })
+
+  it('a first open on this device keeps the Leaderboard and Find readers rows in place while the profile is on its way', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    let release: () => void = () => {}
+    profileGate = new Promise<void>(resolve => { release = resolve })
+    // An account this page has not shown yet (nothing in memory or on the device for it).
+    await openAccountCards({ dark: false, session: { ...session, userId: '99999999-9999-4999-8999-999999999999' }, social: true })
+    await flush()
+    const order = () => [...top().querySelectorAll<HTMLElement>('.tc-body [data-testid]')].map(node => node.dataset.testid!.replace(/-skeleton$/, '')).filter(id => /^you-(reading|leaderboard|find|settings)$/.test(id))
+    expect(byTest('you-leaderboard-skeleton')).toBeTruthy()
+    expect(byTest('you-find-skeleton')).toBeTruthy()
+    const before = order()
+    release()
+    await flush()
+    expect(byTest('you-leaderboard-skeleton')).toBeNull()
+    expect(order()).toEqual(before)
+  })
+
+  it('the You card ranks on the tab the Leaderboard opens on: it changes with the tab, and a reopened You card shows that rank first', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    expect(byTest('you-leaderboard')?.textContent).toContain('2nd of 2')
+    click(byTest('you-leaderboard'))
+    await flush()
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="everyone"]'))
+    await flush()
+    click(byTest('board-me'))
+    await flush()
+    expect(top().dataset.card).toBe('you')
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
+    closeAccountCards()
+    // Reopened: the first frame already says the Everyone rank (no "2nd of 2" first).
+    await openAccountCards({ dark: false, session, social: true })
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
+    await flush()
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
+  })
+})
+
+describe('a reader\'s profile shows at once and answers a tap at once (21 October 2026)', () => {
+  const entry = (rank: number, name: string, seconds: number, me = false, handle?: string) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(handle ? { handle } : {}) })
+  const board = { ...FRIENDS_BOARD, everyoneOpen: false, friends: 1, total: 2, entries: [entry(1, 'Mette', 45240, false, 'mette'), entry(2, 'You', 60, true)] }
+  const mette = () => ({
+    handle: 'mette', name: 'Mette', link: 'tinct.app/@mette', picture: pic('M'), banner: { src: '/b.jpg', private: false }, relation: 'friend', followsYou: true, limited: false,
+    time: { last7: '12 h', year: '113 h', last7Seconds: 45240, yearSeconds: 407160 }, readingNow: null, finished: null,
+  })
+
+  /** Holds the requests whose path starts with `prefix` until released. */
+  function hold(prefix: string): () => void {
+    let release: () => void = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const inner = api()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith(prefix)) await gate
+      return inner(input, init)
+    }))
+    return release
+  }
+
+  beforeEach(() => forgetProfiles())
+
+  async function openMette() {
+    boards = { friends: board, everyone: null }
+    readerProfile = mette()
+    await open('you')
+    click(byTest('you-leaderboard'))
+    await flush()
+    click(top().querySelector('[data-testid="board-row"]'))
+  }
+
+  it('while it loads: no guessed Follow button (its place kept), no figures (their place kept); then the real ones', async () => {
+    await openMette()
+    const release = hold('/api/social/profile/')
+    await flush()
+    // The first fetch went out before the hold: open again with it held.
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    forgetProfiles()
+    click(top().querySelector('[data-testid="board-row"]'))
+    expect(byTest('profile-follow')).toBeNull()
+    expect(byTest('profile-follow-pending')?.style.visibility).toBe('hidden')
+    expect(byTest('profile-facts-skeleton')).toBeTruthy()
+    release()
+    await flush()
+    expect(byTest('profile-follow')?.textContent).toBe('Friends')
+    expect(byTest('profile-facts-skeleton')).toBeNull()
+  })
+
+  it('figures as the Leaderboard writes the same reader: "12 h 34", not "12 h"', async () => {
+    await openMette()
+    await flush()
+    const facts = [...top().querySelectorAll('[data-testid="card-facts"] > div')].map(node => node.textContent)
+    expect(facts[0]).toBe('12 h 34last 7 days')
+    expect(facts[1]).toBe('113 h 06this year')
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    await flush()
+    expect([...top().querySelectorAll('[data-testid="board-row"] .tc-v')].map(node => node.textContent)).toEqual(['12 h 34'])
+  })
+
+  it('opened again on this page: shown at once from memory, then read again behind', async () => {
+    await openMette()
+    await flush()
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    await flush()
+    hold('/api/social/profile/')
+    click(top().querySelector('[data-testid="board-row"]'))
+    // Before any answer: the figures and the button are there.
+    expect(byTest('profile-follow')?.textContent).toBe('Friends')
+    expect(top().querySelector('[data-testid="card-facts"]')?.textContent).toContain('12 h 34')
+  })
+
+  it('Follow and unfollow: the button changes on the tap, before the answer; a refusal puts it back and says so', async () => {
+    await openMette()
+    await flush()
+    const release = hold('/api/social/unfollow')
+    click(byTest('profile-follow'))
+    // At once: a friend unfollowed still follows you, so the button offers Follow back.
+    expect(byTest('profile-follow')?.textContent).toBe('Follow back')
+    release()
+    await flush()
+    // A refusal.
+    readerProfile = mette()
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    await flush()
+    forgetProfiles()
+    click(top().querySelector('[data-testid="board-row"]'))
+    await flush()
+    const inner = api()
+    let answer: (value: Response) => void = () => {}
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith('/api/social/unfollow')) return new Promise<Response>(resolve => { answer = resolve })
+      return inner(input, init)
+    }))
+    click(byTest('profile-follow'))
+    expect(byTest('profile-follow')?.textContent).toBe('Follow back')
+    answer(Response.json({ error: 'no' }, { status: 500 }))
+    await flush()
+    expect(byTest('profile-follow')?.textContent).toBe('Friends')
+    expect(top().querySelector('.tc-status')?.textContent).toBe(CARDS_COPY.actionFailed)
   })
 })

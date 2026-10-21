@@ -8,13 +8,13 @@
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
+import { croppedPicture, hasAvatarCrop, type AvatarCropSize } from '../social/avatarCrops'
 import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
 import {
   blockedReaderId,
   deleteOwnAccount,
   fetchFind,
   fetchProfile,
-  flushForFigures,
   openBillingPortal,
   saveProfile,
   searchReaders,
@@ -36,7 +36,7 @@ import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
 import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
 import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown, recordFindableNoticeSeen } from '../social/findableNotice'
-import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, rememberPickedBoard, type BoardTab } from './boardMemory'
+import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
 
@@ -93,6 +93,8 @@ export interface CardsEnv {
   resetPassword: () => Promise<string>
   navigate: (url: string) => void
   clipboard?: (text: string) => Promise<boolean>
+  /** Send this device's pending reading time and read Your reading again (openCards syncOwnTime); the board does not wait for it. */
+  syncOwnTime?: () => void
 }
 
 // ===== Pictures =====
@@ -100,8 +102,12 @@ export interface CardsEnv {
 /** A picture: the reader's own ({ kind, value, url }) or the social API's ProfilePicture. */
 export type CardPicture = Partial<ProfilePicture> & { kind?: PictureKind; value?: string | null; url?: string | null }
 
-/** Draw a picture into a round element. Stored photos load with the reader's token. */
-export function paintPicture(node: HTMLElement, picture: CardPicture | null | undefined, name: string, token: string | null): void {
+/**
+ * Draw a picture into a round element. Stored photos load with the reader's token.
+ * A painted picture is drawn from its disc-sized crop (avatarCrops.ts): `s` for a
+ * row (36 px), `l` for a hero (76 px), instead of the whole painting.
+ */
+export function paintPicture(node: HTMLElement, picture: CardPicture | null | undefined, name: string, token: string | null, size: AvatarCropSize = 'l'): void {
   // No name, no letter: never a stand-in initial.
   const initial = (name.trim()[0] || '').toUpperCase()
   let view: { src: string | null; pos: string; cover: boolean; private: boolean; initial: string }
@@ -113,6 +119,7 @@ export function paintPicture(node: HTMLElement, picture: CardPicture | null | un
   } else {
     view = { src: null, pos: '', cover: false, private: false, initial: picture?.initial || initial }
   }
+  if (view.src) view = croppedPicture(view, size)
   node.textContent = ''
   node.style.backgroundImage = ''
   if (!view.src) {
@@ -154,12 +161,21 @@ export function smallAvatarSrc(src: string): string {
   return match && AVATAR_480_IDS.includes(match[1]) ? `/lab/library_2/assets/covers/${match[1]}-480.webp` : src
 }
 
-/** A small row avatar (Leaderboard, Find readers): the small copy, painted once it scrolls near view. */
+/** Row pictures this page has drawn: a row built again (a refresh, a reopen) paints them at once. */
+const shownAvatars = new Set<string>()
+
+/**
+ * A small row avatar (Leaderboard, Find readers): the row-sized crop, painted
+ * once it scrolls near view, or at once when this page has drawn it before, so
+ * rows built again never show a blank disc for a frame (21 Oct 2026: the
+ * reopened board's pictures came 150 ms after its rows).
+ */
 function avatar(picture: CardPicture | null | undefined, name: string, token: string): HTMLElement {
   const node = el('span', { className: 'tc-av is-s', 'aria-hidden': 'true' })
-  const small = picture?.src ? { ...picture, src: smallAvatarSrc(picture.src) } : picture
-  const paint = () => paintPicture(node, small, name, token)
-  if (!small?.src || typeof IntersectionObserver === 'undefined') { paint(); return node }
+  // No crop for it (a painting added since): the small copy, as before.
+  const small = picture?.src && !hasAvatarCrop(picture.src, picture.pos) ? { ...picture, src: smallAvatarSrc(picture.src) } : picture
+  const paint = () => { paintPicture(node, small, name, token, 's'); if (small?.src) shownAvatars.add(small.src) }
+  if (!small?.src || shownAvatars.has(small.src) || typeof IntersectionObserver === 'undefined') { paint(); return node }
   const seen = new IntersectionObserver(entries => {
     if (!entries.some(entry => entry.isIntersecting)) return
     seen.disconnect()
@@ -393,11 +409,14 @@ export function youCard(env: CardsEnv): CardSpec {
       const readingGroup = group(
         readingRow,
         // Only once the reader joined the leaderboard.
-        env.social && profile?.onLeaderboard ? row({ label: CARDS_COPY.leaderboard, value: data.rank, chevron: true, onClick: () => card.stack.push(leaderboardCard(env)), testid: 'you-leaderboard' }) : null,
+        env.social && profile?.onLeaderboard ? row({ label: CARDS_COPY.leaderboard, value: shownRank(env), chevron: true, onClick: () => card.stack.push(leaderboardCard(env)), testid: 'you-leaderboard' })
+          // The profile on its way (a first open on this device): its row's place is kept, so nothing moves when it comes.
+          : env.social && waitingProfile ? row({ label: CARDS_COPY.leaderboard, value: el('i', { className: 'tc-skel', 'aria-hidden': 'true' }), testid: 'you-leaderboard-skeleton' }) : null,
       )
       const badge = data.findBadge > 0 ? el('span', { className: 'tc-badge', text: String(data.findBadge) }) : null
       const moreGroup = group(
-        env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' }) : null,
+        env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' })
+          : env.social && waitingProfile ? row({ label: CARDS_COPY.findReaders, testid: 'you-find-skeleton' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
       body.append(...[requestsGroup(env, card), findableNotice(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
@@ -683,6 +702,41 @@ export function readingCard(env: CardsEnv): CardSpec {
 const BOARD_FRESH_MS = 15_000
 
 /**
+ * The You card's rank: from the board the Leaderboard opens on as this page
+ * knows it now (the tab picked here, boardMemory knownDefaultBoard), else the
+ * last one shown. One source, so the You row and the board never disagree, and
+ * a reopened You card never shows the other tab's rank first (21 Oct 2026:
+ * "8th of 12", then "5th of 8").
+ */
+function shownRank(env: CardsEnv): string | null {
+  const board = env.social ? knownDefaultBoard(env.session.userId) : null
+  const me = board ? board.entries.find(entry => entry.me) ?? board.me : null
+  return (board && rankOf(me?.rank, board.total)) || env.data.rank
+}
+
+/** How many rows a board still loading will have: the last count this page saw for the tab, else its friends, else five. */
+function expectedRows(env: CardsEnv, tab: BoardTab): number {
+  const known = knownBoard(env.session.userId, tab)
+  if (known) return Math.max(1, known.entries.length + (known.me && !known.entries.some(entry => entry.me) ? 1 : 0))
+  const friends = env.data.board?.friends
+  return tab === 'friends' && typeof friends === 'number' ? Math.min(BOARD_SKELETON_MAX, friends + 1) : 5
+}
+const BOARD_SKELETON_MAX = 12
+
+/** Rows the height of the board's own while it loads, so nothing under them moves when it arrives. */
+function boardSkeleton(count: number): HTMLElement {
+  const rows = Array.from({ length: Math.min(count, BOARD_SKELETON_MAX) }, () => {
+    const node = row({ label: el('span', { className: 'tc-l' }, el('i', { className: 'tc-skel is-row', 'aria-hidden': 'true' })), value: el('i', { className: 'tc-skel', 'aria-hidden': 'true' }), className: 'is-av' })
+    node.prepend(el('span', { className: 'tc-rank', 'aria-hidden': 'true' }), el('span', { className: 'tc-av is-s is-skel', 'aria-hidden': 'true' }))
+    return node
+  })
+  const list = group(...rows)!
+  list.dataset.testid = 'board-skeleton'
+  list.setAttribute('aria-busy', 'true')
+  return list
+}
+
+/**
  * 3 · Leaderboard (Friends | Everyone). A row opens that reader's profile, as
  * Find readers does (everyone on your board is someone whose profile you can
  * already open; social.ts BoardEntry); your own row opens the You card.
@@ -693,21 +747,33 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   // Opens on the board the cards read on open (boardMemory loadDefaultBoard):
   // the tab picked on this page; else Friends with a mutual friend (19 Oct
   // 2026); else Everyone while it is open (Anders, 15 Oct 2026); else Friends.
-  const first = env.data.board ?? knownDefaultBoard(userId)
+  // This page's board for the tab the cards open on first (the one the You card's rank reads), then the open's.
+  const first = knownDefaultBoard(userId) ?? env.data.board
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
-  let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : false
+  // Known before any board from Find readers' answer, so the tabs show from the first frame.
+  let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : env.data.find?.everyoneOpen === true
+  let handle: CardHandle | null = null
+  // The viewer's own row took this device's flushed time (boardMemory noteOwnSeconds): show it in place.
+  const stop = onBoardsChanged(() => {
+    if (handle?.stack.isClosed) { stop(); return }
+    if (!handle || !board || board === 'loading') return
+    const known = knownBoard(userId, tabOf(board))
+    if (known && known !== board) { board = known; handle.refresh() }
+  })
   return {
     id: 'leaderboard',
     label: CARDS_COPY.leaderboard,
     render: card => {
+      handle = card
       // Nothing read yet: the board the cards open on (sharing the request the
       // cards made on open), so the tab is known before anything is asked twice.
+      // Never behind the flush (21 Oct 2026): the two go side by side.
       if (board === undefined && !first) {
         board = 'loading'
-        // This device's pending reading time first, so the board has it (21 Oct 2026).
-        void flushForFigures(env.session.token, userId).then(after => loadDefaultBoard(env.session.token, userId, after)).then(result => {
+        env.syncOwnTime?.()
+        void loadDefaultBoard(env.session.token, userId).then(result => {
           if (board !== 'loading') return
           board = result ?? null
           if (result) {
@@ -728,7 +794,12 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         if (known?.everyoneOpen !== undefined) everyoneOpen = known.everyoneOpen === true || tab === 'everyone'
         if (!known || knownBoardAge(userId, tab) > BOARD_FRESH_MS) {
           const asked = tab
-          void flushForFigures(env.session.token, userId).then(after => loadBoard(env.session.token, userId, asked, after)).then(result => {
+          env.syncOwnTime?.()
+          // The board the cards open on is asked for as such, so it shares the open's request.
+          const fresh = tabOf(knownDefaultBoard(userId)) === asked
+            ? loadDefaultBoard(env.session.token, userId).then(result => (result && tabOf(result) === asked ? result : loadBoard(env.session.token, userId, asked)))
+            : loadBoard(env.session.token, userId, asked)
+          void fresh.then(result => {
             if (asked !== tab) return
             if (!result) {
               // No Everyone board (any more): the Friends board. A failed refresh keeps the rows shown.
@@ -753,6 +824,9 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         body.append(segmented(CARDS_COPY.leaderboard, [{ value: 'friends', label: CARDS_COPY.friends }, { value: 'everyone', label: CARDS_COPY.everyone }], tab, value => {
           tab = value
           rememberPickedBoard(userId, value)
+          // The You card's rank, and the board the cards open on, follow the tab.
+          env.data.rank = shownRank(env)
+          env.data.board = knownBoard(userId, value) ?? env.data.board
           board = undefined
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
@@ -768,6 +842,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         if (hidden) body.append(el('p', { className: 'tc-foot', text: hidden, dataset: { testid: 'board-hidden' } }))
       } else if (board === null) {
         body.append(el('p', { className: 'tc-foot', style: { margin: '0 16px' }, text: CARDS_COPY.boardUnavailable }))
+      } else {
+        body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }), boardSkeleton(expectedRows(env, tab)))
       }
       body.append(group(row({ label: CARDS_COPY.findReaders, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'board-find' }))!)
       return [navBar(card, CARDS_COPY.leaderboard), body]
@@ -832,13 +908,13 @@ export function findCard(env: CardsEnv): CardSpec {
           }) as HTMLButtonElement
           remove.addEventListener('click', async event => {
             event.stopPropagation()
-            remove.disabled = true
-            const result = await socialAction(token, 'remove-follower', person.handle)
-            if (result.ok) {
-              removed.add(person.handle)
-              env.reloadFind()
-            } else status = CARDS_COPY.actionFailed
+            // Gone at once; back with a line if the Worker says no.
+            removed.add(person.handle)
             card.refresh()
+            const result = await socialAction(token, 'remove-follower', person.handle)
+            if (result.ok) env.reloadFind()
+            else { removed.delete(person.handle); status = CARDS_COPY.actionFailed }
+            if (!card.stack.isClosed) card.refresh()
           })
           extra.push(remove)
         }
@@ -927,69 +1003,109 @@ async function shareLink(url: string, clipboard?: (text: string) => Promise<bool
   return (await (clipboard ?? copyText)(url)) ? 'copied' : 'failed'
 }
 
-/** 5 · A reader's profile (from Find readers); Unblock for a reader the viewer blocked. */
+/**
+ * Readers' profiles this page has read, in memory only (like the boards: they
+ * describe other readers, so they are never written to this device's storage;
+ * sign-out forgets them). A profile opened again paints at once and refreshes
+ * behind (21 Oct 2026: its figures took a round trip every time).
+ */
+const knownProfiles = new Map<string, ProfilePageData>()
+const profileKey = (env: CardsEnv, handle: string) => `${env.session.userId ?? ''}:${handle}`
+
+/** Sign-out, and tests. */
+export function forgetProfiles(): void {
+  knownProfiles.clear()
+}
+
+/** 5 · A reader's profile (from the Leaderboard or Find readers); Unblock for a reader the viewer blocked. */
 export function profileCard(env: CardsEnv, handle: string, name: string, picture: CardPicture | null): CardSpec {
-  let data: ProfilePageData | null | undefined
+  const key = profileKey(env, handle)
+  /** undefined: not known yet; null: not visible (missing, Only me, hidden, blocked). */
+  let data: ProfilePageData | null | undefined = knownProfiles.get(key)
+  let asked = false
   /** The relation while the profile cannot be seen (follow from a link still works). */
   let unseen: Relation | null = null
+  /** A follow or unfollow on its way: the button already says what it leads to. */
+  let pending: Relation | null = null
   let expanded = false
   let status = ''
   /** Set while the viewer has blocked this reader (their profile answers 404): the card offers Unblock. */
   let blockedId: string | null = null
+  const read = async (card: CardHandle) => {
+    const result = await fetchProfile(env.session.token, handle)
+    data = result?.profile ?? null
+    if (data) knownProfiles.set(key, data)
+    else {
+      knownProfiles.delete(key)
+      blockedId = await blockedReaderId(env.session.token, handle)
+    }
+    if (!card.stack.isClosed) card.refresh()
+  }
   return {
     id: 'profile',
     label: name,
     render: card => {
       const token = env.session.token
-      if (data === undefined) {
-        data = null
-        void fetchProfile(token, handle).then(async result => {
-          data = result?.profile ?? null
-          if (!data) blockedId = await blockedReaderId(token, handle)
-          if (!card.stack.isClosed) card.refresh()
-        })
-      }
-      const current = data
+      if (!asked) { asked = true; void read(card) }
+      const current = data ?? null
+      // Not known yet: no guessed button and no figures, only their places (nothing moves when they come).
+      const loading = data === undefined
       const bg = el('div', { className: 'tc-hero-bg' })
       paintBanner(bg, current?.banner ?? { src: LIBRARY_BACKGROUND }, token)
       const back = el('button', { type: 'button', className: 'tc-disc is-b', 'aria-label': 'Back', html: ICONS.back, dataset: { testid: 'card-back' }, onclick: () => card.stack.back() })
       const pic = el('span', { className: 'tc-av', 'aria-hidden': 'true' })
       paintPicture(pic, current?.picture ?? picture, current?.name ?? name, token)
-      const relation: Relation | null = current ? current.relation : unseen ?? 'stranger'
+      const relation: Relation | null = pending ?? (current ? current.relation : unseen ?? 'stranger')
       const who = el('div', { className: 'tc-who' }, pic,
         el('span', { className: 'tc-nm' }, el('b', { text: current?.name ?? name }), current?.followsYou ? el('span', { text: CARDS_COPY.followsYou }) : null))
       const spec = followButton(relation)
       if (blockedId) {
         const id = blockedId
         const unblock = button(CARDS_COPY.unblock, 'line', async () => {
-          unblock.disabled = true
-          if (await unblockReader(token, id)) {
-            blockedId = null
-            data = (await fetchProfile(token, handle))?.profile ?? null
-          } else status = CARDS_COPY.actionFailed
+          // At once: the card is no longer blocked; back to Unblock if the Worker says no.
+          blockedId = null
           card.refresh()
+          if (await unblockReader(token, id)) await read(card)
+          else { blockedId = id; status = CARDS_COPY.actionFailed; card.refresh() }
         }, 'profile-unblock')
         who.append(unblock)
+      } else if (loading) {
+        // The button's place, kept for it: never "Follow" for a friend while their profile loads.
+        const placeholder = button(followButton('stranger')!.label, 'line', null, 'profile-follow-pending')
+        placeholder.style.visibility = 'hidden'
+        placeholder.setAttribute('aria-hidden', 'true')
+        who.append(placeholder)
       } else if (spec) {
         const action = spec.action
         const btn = button(spec.label, spec.style, action ? async () => {
-          btn.disabled = true
-          const result = await socialAction(token, action, handle)
-          if (!result.ok) status = CARDS_COPY.actionFailed
-          else {
-            unseen = result.relation ?? relationAfter(relation, action === 'follow')
-            // Following may open a Friends profile, unfollowing may close it: read it again.
-            data = (await fetchProfile(token, handle))?.profile ?? null
-            env.reloadFind()
-          }
+          // At once: the button says what the tap leads to; the Worker's answer settles it.
+          const before = relation
+          pending = relationAfter(before, action === 'follow')
           card.refresh()
+          const result = await socialAction(token, action, handle)
+          if (!result.ok) {
+            pending = null
+            status = CARDS_COPY.actionFailed
+          } else {
+            unseen = result.relation ?? pending
+            if (current) { current.relation = unseen; knownProfiles.set(key, current) }
+            pending = null
+            env.reloadFind()
+            // Following may open a Friends profile, unfollowing may close it: read it again, behind.
+            void read(card)
+          }
+          if (!card.stack.isClosed) card.refresh()
         } : null, 'profile-follow')
+        if (pending) btn.setAttribute('aria-busy', 'true')
         who.append(btn)
       }
       const hero = el('div', { className: 'tc-hero' }, bg, back, heroClose(card), who)
       const body = el('div', { className: 'tc-body is-under-hero', dataset: { testid: 'profile-body' } })
       const view = current ? readerCardView(current) : null
-      if (view && !view.limited) {
+      if (loading) {
+        body.append(el('div', { className: 'tc-g', dataset: { testid: 'profile-facts-skeleton' }, 'aria-busy': 'true' },
+          el('div', { className: 'tc-three' }, ...[0, 1, 2].map(() => el('div', {}, el('b', {}, el('i', { className: 'tc-skel', 'aria-hidden': 'true' })), el('span', { html: '&nbsp;' }))))))
+      } else if (view && !view.limited) {
         const facts = factsRow(view.facts, false)
         if (facts) body.append(el('div', { className: 'tc-g' }, facts))
         if (view.readingNow) {
