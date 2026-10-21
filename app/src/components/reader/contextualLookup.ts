@@ -3,7 +3,14 @@ export type ContextualLookup =
   | { kind: 'place'; name: string; description: string }
   | { kind: 'definition'; definition: string }
 
+/**
+ * Grounding (Anders, 21 Oct 2026, "go on chat"): at 1 Maccabees 13:11 a tapped "Jonathan the son of Absalom" got a card
+ * for Jonathan Maccabeus, because 13:8 and 13:12 name the famous one. The second line ties the card to the tapped
+ * occurrence. It is in the define turn's fixed opening; the route caches only the system prompt.
+ */
+export const CONTEXTUAL_LOOKUP_GROUNDING_LINE = `Identify a named person from the selected occurrence itself, in the current paragraph, and its own qualifiers ("son of X", a title, an epithet), never from another person of that name nearby or from fame. If the text does not settle who it is, say the identity is unclear and use uncertain rather than name the famous namesake.`
 export const CONTEXTUAL_LOOKUP_PROMPT = `Identify what the selected word denotes in the supplied passage before answering. A personal name or personification is a person only when the local context supports that reading; a capital letter, place, group, title or ordinary noun alone is not enough. Prefer the local relationship over matching a famous namesake. Do not merge people with the same name, invent a biography, or reveal later events.
+${CONTEXTUAL_LOOKUP_GROUNDING_LINE}
 For a person, give a short character card explaining who they are here and why their mention matters, not name etymology. Classify importance as major or minor relative to the current work (the named biblical book within the Bible), only when confident; otherwise use uncertain. Separate uncertain identity from established local facts. Use reliable general knowledge for brief background where relevant, not for unsupported identity claims.
 For a place (a town, region, river, mountain, building or other location), describe it: what and where it is, and why it matters in this passage. Do not give a part of speech.
 For a word or other non-person, give its part of speech and concise contextual meaning, including an archaic form if relevant.

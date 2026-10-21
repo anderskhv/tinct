@@ -171,6 +171,7 @@ import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
+import { withTextRetries } from './labTextRetry'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
@@ -1951,7 +1952,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const hyphensSettled = hyphenLang
       ? Promise.race([loadHyphenator(hyphenLang), new Promise<void>(resolve => window.setTimeout(resolve, LAB_HYPHENATION_WAIT_MS))])
       : null
-    loadLabBookSource({
+    withTextRetries(() => loadLabBookSource({
         readingFirst: true,
       bookId: activeBookId,
       chapterNumber: wanted,
@@ -1959,7 +1960,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       compareEditionKey,
       compareAfterFirstPage: !firstPageShownRef.current && !compareOnScreenRef.current,
       audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
-    }).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded).then((loaded) => {
+    }), () => !cancelled && navigation === chapterNavigationRef.current).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded).then((loaded) => {
       if (cancelled || navigation !== chapterNavigationRef.current) return
       // Bible's legacy loader has a Genesis fallback for network failures;
       // never let that replace a requested Bible chapter. Generic books may
@@ -5075,7 +5076,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setChapterNotes(null)
     if (notes && beats) ask.keepExplanation(title, chapterNotesText(title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: notes.request.bookId, chapterNumber: notes.request.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, chapterNotes, handleChat, handleTalk])
 
   // Catch me up hands what it showed to Chat or Talk the way Explain and
@@ -5085,7 +5086,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperSheet(null)
     if (text) ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
 
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
@@ -5489,9 +5490,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   /** The open card's body: the passage, what the action shows, and the follow-up line. */
   const renderPhoneCard = (card: PhoneCard) => {
+    // Talk about the card: what it showed is kept first (as a follow-up keeps it), then the voice conversation opens.
+    const talkAbout = (passage: PhonePassage | null) => () => {
+      const shown = phoneAnswerRef.current
+      if (passage && shown && !shown.kept && shown.answer) {
+        ask.keepExplanation(passage.text, shown.answer, passage.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: passage.chapterNumber })
+        shown.kept = true
+      }
+      dictation.stop()
+      ask.primeVoice()
+      requestAnimationFrame(() => handleTalk())
+    }
     const follow = (passage: PhonePassage | null, placeholder?: string) => (
       <PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
-        onMic={handleMic} micOn={dictation.state !== 'idle'} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} />
+        onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} />
     )
     const name = PHONE_CARD_NAMES[card.kind]
     if (card.kind === 'note' || card.kind === 'chapter-note') {
@@ -5508,7 +5520,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           <PhoneQuizBody
             request={onDelta => phoneCompanion(passage, 'quiz', onDelta)}
             mark={(question, answer) => phoneCompanion({ ...passage, text: '' }, 'quiz_check', () => {}, { question: question.q, expected: question.answer, why: question.why, answer })}
-            draft={draft} setDraft={setDraft} onMic={handleMic} micOn={dictation.state !== 'idle'} inputRef={phoneFieldRef} />
+            draft={draft} setDraft={setDraft} onMic={handleMic} micOn={dictation.state !== 'idle'} inputRef={phoneFieldRef}
+            follow={summary => {
+              const key = `quiz:${card.openedAt}`
+              const keep = () => { ask.keepExplanation(phoneCardLabel(name, card.chapterLabel), summary, passage.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: card.chapterNumber }); return true }
+              return pillCardFollow(key, keep, () => {
+                if (pillCardKeptRef.current !== key && keep()) pillCardKeptRef.current = key
+                ask.primeVoice()
+                requestAnimationFrame(() => handleTalk())
+              })
+            }}
+            thread={pillCardThread(card.openedAt)} />
         </LabPhoneCard>
       )
     }
@@ -5534,6 +5556,35 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
       </LabPhoneCard>
     )
+  }
+
+  // Primer, Recap, Summarize and Catch me up end with the follow-up field too (iPhone feedback, 21 Oct 2026), as a
+  // margin card or as the phone's sheet: a follow-up joins the chat's conversation with what the card showed kept
+  // first (as Chat from the card did); Talk starts the voice conversation about it.
+  const pillCardKeptRef = useRef<string | null>(null)
+  const pillCardFollow = (key: string, keep: () => boolean, talk: () => void) => (
+    <PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }}
+      onSend={question => {
+        if (pillCardKeptRef.current !== key && keep()) pillCardKeptRef.current = key
+        dictation.stop()
+        void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') })
+      }}
+      onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { dictation.stop(); talk() }} inputRef={phoneFieldRef} disabled={ask.typedLoading} />
+  )
+  const pillCardThread = (openedAt: number) => {
+    const turns = phoneCardTurns(openedAt)
+    return turns.length ? <div className="lab-pcard-thread" data-testid="lab-pill-card-thread"><PhonePassageBody turns={turns} pending={ask.typedLoading} /></div> : null
+  }
+
+  const notesOpenedAt = useMemo(() => Date.now(), [chapterNotes])
+  const catchUpShown = superSheet === 'catchup'
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const catchUpOpenedAt = useMemo(() => Date.now(), [catchUpShown])
+  const catchUpFollowProps = {
+    follow: (shown: () => string) => pillCardFollow(`catchup:${catchUpOpenedAt}`,
+      () => { const text = shown(); if (!text) return false; ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber }); return true },
+      () => continueCatchUp('talk', shown())),
+    thread: pillCardThread(catchUpOpenedAt),
   }
 
   if (temporaryHold && !holdRecovery) return (
@@ -5802,6 +5853,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onChat={text => continueCatchUp('chat', text)}
           onTalk={text => continueCatchUp('talk', text)}
           onTopUp={() => setSuperSheet('account')}
+          {...(showPhoneChrome ? catchUpFollowProps : {})}
         />
       )}
       {!frontispieceVisible && superSheet === 'catchup' && !userBook && !book.chaptersProvisional && (
@@ -5818,6 +5870,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onTalk={text => continueCatchUp('talk', text)}
           onTopUp={() => setSuperSheet('account')}
           card={marginPhone ? { label: phoneCardLabel(CATCH_UP_TITLE) } : undefined}
+          {...(showPhoneChrome ? catchUpFollowProps : {})}
         />
       )}
       {!frontispieceVisible && chapterNotes && (
@@ -5831,6 +5884,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           readToken={readSupabaseAccessToken}
           onTopUp={() => { setChapterNotes(null); setSuperSheet('account') }}
           card={marginPhone}
+          {...(showPhoneChrome ? {
+            follow: (beats: ChapterNotesBeat[] | null) => pillCardFollow(`notes:${notesOpenedAt}`,
+              () => { if (!beats) return false; ask.keepExplanation(chapterNotes.title, chapterNotesText(chapterNotes.title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: chapterNotes.request.bookId, chapterNumber: chapterNotes.request.chapterNumber }); return true },
+              () => continueChapterNotes('talk', chapterNotes.title, beats)),
+            thread: pillCardThread(notesOpenedAt),
+          } : {})}
         />
       )}
       {temporaryHold && holdRecovery && <div role="status" data-testid="edition-hold-recovery" style={{ padding: '12px 20px', borderBottom: '1px solid currentColor' }}>
@@ -6582,7 +6641,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onTalkExplanation={(answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
-            // Let the explanation enter the hook's context before starting voice.
+            // Let the explanation enter the hook's context before starting voice;
+            // the microphone is asked for now, in the tap (Safari).
+            ask.primeVoice()
             requestAnimationFrame(() => handleTalk())
           }}
           onRequestExplanation={(onDelta, text, intent) => {
