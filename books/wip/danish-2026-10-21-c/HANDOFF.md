@@ -70,3 +70,13 @@ Verdicts:
 - **Moby-Dick:** ready after fixes, provided Anders decides the units question. The review recommends restoring Melville's units; the remaining sites are listed in Appendix A of that review.
 
 All fixes are applied in both the JSON and `chapters/*.txt`. Structure is unchanged and the gates pass. Visual page-by-page QA in the reader is still outstanding.
+
+## Follow-up (21 Oct 2026, branch `claude/danish-1021-c-review`)
+- **Moby-Dick:** Melville's units are restored. That is 175 sites in 143 paragraphs: all of Appendix A plus 5 more found by an EN→DA cross-check. No metric remains, except Melville's own Lacépède quote in metres in ch105 ¶5.
+  - New candidate: blob 492ddebc28cff465604fc912aa28deb2e29ba726.
+  - Open point for Anders: the live edition renders leagues as *sømil*. This candidate uses *mil*, which keeps the figure.
+- **NFU:** the 386 paragraphs the review did not read are now proofread side by side. 30 issues were fixed: 1 meaning, 11 grammar and 18 style.
+  - New candidate: blob 781099ad893d29ffccd0c76a1690cb585e545c4d.
+- **C&P:** unchanged, blob d6b9d2a4f9409ad057609da42bd4d0868eaf313b.
+- **Gates** were re-run for all three books and pass. Each book's GATES.txt has the follow-up lines, and the details are in each INDEPENDENT-REVIEW.md "Follow-up" section.
+- **Status:** content candidates only. They are not integrated or published, and visual page-by-page QA in the reader is still outstanding.

@@ -2,6 +2,8 @@
 
 **Verdict: ready after fixes.** All fixes below are applied. The meaning-error rate is well under the threshold of 3 per 100 paragraphs. The book's long essayistic paragraphs had more small grammar slips than the other two books. A light native proofread of the unread part (64% of the text, mostly Part 1) would probably find about ten more. It does not need another full translation pass.
 
+**Follow-up (21 Oct 2026):** the unread 386 paragraphs have now been proofread side by side. 30 issues were found and fixed. See the Follow-up section at the end.
+
 ## Scope and method
 
 - **Reviewer:** Claude, in a session independent of the drafting run. Reviewed 21 Oct 2026 on branch `claude/danish-1021-c-review`, cut from `claude/danish-1021-c` at d3f0ce7ba0. No Anthropic API was used; all reading was done in the conversation.
@@ -131,3 +133,70 @@ Book-wide replacements (one pattern, several paragraphs):
   - JSON matches `chapters/*.txt`;
   - the number of `_` emphasis markers is unchanged.
 - `books/danish-lint.py`, wrapped read-only with the Mac path redirected to a scratch directory of symlinks: 6 hits, all STRAY-UNDERSCORE false positives on italic markup copied from EN. This is unchanged from the draft.
+
+## Follow-up (21 Oct 2026): proofread of the unread paragraphs
+
+- **Scope:** every paragraph the review above did not read, which is 386 of 495 paragraphs and about 26,800 Danish words. That covers Part 1 ch2–11 and the unsampled paragraphs of ch12–20.
+- **Method:** EN read against DA, paragraph by paragraph, in the conversation, with no Anthropic API. The severity scale is the one above. Each issue is counted once, before any fixes.
+- **Units:** the NFU units were left as the review decided (decision 1), because the task restored units only in Moby-Dick. These are the metric renderings of "six feet" (ch12 ¶17, ¶20, ch13 ¶1), "six inches" (ch12 ¶29) and "a foot of water" (ch17 ¶52). If Anders wants the Moby-Dick rule here too, it is five sentences.
+
+### Error rate before fixes (the 386 paragraphs)
+
+| Severity | Issues | Per 100 paragraphs | Per 10,000 DA words |
+|---|---|---|---|
+| Meaning | 1 | 0.3 | 0.4 |
+| Grammar | 11 | 2.8 | 4.1 |
+| Style | 18 | 4.7 | 6.7 |
+
+Part 1 is clean: 5 issues in 32 long paragraphs, 2 of them grammar and 3 style. Most slips cluster in the dialogue of ch14–15.
+
+### Fixes
+
+| Location | Severity | Issue | Before | After |
+|---|---|---|---|---|
+| ch14 ¶30 | meaning | *holde hen* means "keep in suspense", not "hold up" | »Holder jeg dig hen?« | »Opholder jeg dig?« |
+| ch8 ¶2 | grammar | *ville lige til at* | Jeg ville lige til at sige | Jeg skulle lige til at sige |
+| ch9 ¶3 | grammar | mixed *nok så … end* construction | Nok så reaktionært det end er | Hvor reaktionært det end er |
+| ch12 ¶2 | grammar | pronoun after *den eneste, der* | at andre fandt ham frastødende | at andre fandt én frastødende |
+| ch12 ¶7 | grammar | elided object (calque of "that you do") | Forestillingen om, at man gør, stammer | Forestillingen om, at man gør det, stammer |
+| ch14 ¶2 | grammar | spelling | lade dem allesammen piske | lade dem alle sammen piske |
+| ch15 ¶40 | grammar | reflexive word order | Du inviterede selv dig med | Du inviterede dig selv med |
+| ch15 ¶72 | grammar | positive form in a superlative series | de snavsede, mest latterlige | de mest snavsede, mest latterlige |
+| ch17 ¶86 | grammar | comma | Det er, som at sælge | Det er som at sælge |
+| ch19 ¶5 | grammar | adjective for adverb ("truly") | den sande gentlemanagtige | den sandt gentlemanagtige |
+| ch19 ¶22 | grammar | *holde* without *ud* | Jeg holdt ikke fire dage. | Jeg holdt det ikke ud i fire dage. |
+| ch19 ¶42 | grammar | *trådte* means "stepped", not "threaded" (same slip as ch20 ¶10) | mens han trådte sin nål | mens han satte tråd i nålen |
+| ch3 ¶2 | style | *grøn i hovedet* means "nauseous" | Jeg misunder det menneske, så jeg bliver grøn i hovedet. | Jeg er grøn af misundelse på det menneske. |
+| ch9 ¶1 | style | non-idiomatic noun | mine spøgefuldheder | mine vittigheder |
+| ch9 ¶1 | style | idiom | smutte ud ad en tangent | fare ud ad en tangent |
+| ch12 ¶3 | style | calque "I really was one" | jeg var virkelig en. | jeg var det virkelig. |
+| ch12 ¶7 | style | name left in English transliteration | Kostanzhogloer | Kostanzjogloer |
+| ch13 ¶1 | style | doubled verb (*finde sig i* + *affinde sig*) | jeg fandt mig villigt i at affinde mig med det | jeg fandt mig villigt i at tåle det |
+| ch13 ¶6 | style | calque "how the man disliked me" | tænkte jeg på, hvordan manden ikke kunne lide mig | tænkte jeg på, at manden ikke kunne lide mig |
+| ch14 ¶24 | style | archaic, unidiomatic | bød mig sidde ned | bad mig sætte mig |
+| ch14 ¶40 | style | word order | fik selv den mindste altid mig til at føle | fik selv den mindste mig altid til at føle |
+| ch14 ¶40 | style | unidiomatic reflexive | Jeg havde ladet mig selv forsømme alt for meget. | Jeg havde forsømt mig selv alt for meget. |
+| ch15 ¶2 | style | word order | Han anså altså sig selv for | Han anså sig altså for |
+| ch15 ¶15 | style | rare form | Han var tydeligvis harmfuld | Han var tydeligvis fortørnet |
+| ch15 ¶37 | style | the speaker is seated at the table | De står og sludrer om | De sidder og sludrer om |
+| ch15 ¶72 | style | calque | Al den vending fik mig til at blive temmelig svimmel | Al den vending gjorde mig temmelig svimmel |
+| ch15 ¶72 | style (precision) | "I was delirious", not "I was raving" | troede jeg, at jeg talte i vildelse | troede jeg, at jeg var i vildelse |
+| ch15 ¶75 | style | form of address: the narrator says De to Ferfitjkin (¶66, ¶78) | Også dig, Ferfitjkin | Også Dem, Ferfitjkin |
+| ch19 ¶22 | style | ambiguous *igen* ("again" or "back") | og stirrede igen. | og stirrede tilbage. |
+| ch20 ¶32 | style | she sat beside him, so she cannot "remain lying" | og blev liggende sådan | og blev siddende sådan |
+
+- **Whole-book greps** for each pattern above, including *trådt*, *ville lige til*, *harmfuld*, *bød mig* and *Også dig,*, found no further hits in NFU.
+  - **Note for the C&P owner:** C&P uses *allesammen* 20+ times. It was not changed, because C&P is outside this follow-up.
+- **Structure:** 24 paragraphs differ from c9029f4470. Paragraph counts, the `section` fields and the `_…_` markers are unchanged.
+- **Gates after the follow-up:**
+  - 21/21 chapters and 495 paragraphs, 1:1 with EN;
+  - DA/EN ratio 0.970–1.105;
+  - zero English paragraphs;
+  - JSON matches `chapters/*.txt`;
+  - `books/danish-lint.py`, wrapped read-only: 6 STRAY-UNDERSCORE false positives on italic markup, unchanged.
+- **New candidate:** `notes-from-underground-modern-da.json`
+  - git blob `781099ad893d29ffccd0c76a1690cb585e545c4d`;
+  - sha256 `a592988311ad9c61dd591d4b521f3d27c9b67f0e7c87ea75792f74599456bb3e`.
+  - The previous candidate at c9029f4470 was blob `ca4d7db1c9cbed7de381ab69aa82d2804e19dcfa`.
+  - The EN source blob is still `64f9f5dc…` on origin/main 483f00ca0b.
+- **Verdict:** ready. The whole book has now been read side by side once. Visual page-by-page QA in the reader is still outstanding.

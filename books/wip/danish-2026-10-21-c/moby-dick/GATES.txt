@@ -137,3 +137,7 @@ ch135 paras   62 en_chars   25157 da_chars   25399 ratio 1.010 english_paras []
 ch136 paras    3 en_chars    1519 da_chars    1524 ratio 1.003 english_paras []
 chapters done 136 / 136 | da words 208085 | gates_ok True
 LINT issues 0
+
+== Follow-up re-run 2026-10-21 (claude/danish-1021-c-review, scratch gate re-implementation, base c9029f4470) ==
+moby-dick: chapters 136/136 paras 2432 ratio 0.937-1.101 english_paras [] da_words 208069 changed_paras_vs_c9029f4470 143 gates_ok True
+LINT moby-dick                     0       0      0       0      0      0     0
