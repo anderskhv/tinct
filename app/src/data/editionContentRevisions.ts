@@ -283,6 +283,17 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repair (2026-10-21): chapters 1, 2, 5, 7, 8 and 9 re-rendered; paragraphs unchanged.
+  'jekyll-and-hyde': {
+    revision: 'text-2026-10-21.2',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b',
+        after: '640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d',
+      },
+    },
+  },
   'on-liberty': {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
