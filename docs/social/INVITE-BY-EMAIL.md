@@ -2,6 +2,17 @@
 
 Requested by Anders on 16 October 2026. Groups are on hold, so this replaces them for now. Mockups: https://claude.ai/artifact/WH78ShdjsqfYdxJGmr4uL6 (boards 1–8).
 
+> **Checked against main on 21 Oct** (drafts in `docs/social/invite/`). Corrections:
+> - The new defaults (Friends preselected, leaderboard on, Skip keeps both) are not shipped. A preselected choice is not valid consent under the GDPR, so Anders must pick an option in `invite/PRIVACY-DRAFT.md` §I.
+> - The "Followers" rename was never shipped or logged, so the copy still says Friends.
+> - The friend's "Joined from your invite" row needs a new home: Following you leaves out mutual friends.
+> - The footer must not say "unless someone else invites you", because the same inviter can re-send after 14 days.
+> - Email placeholders are snake_case.
+> - Uploaded and Google photos are private, so the email shows the initial avatar.
+> - Find readers already has an "Invite a reader" heading, so the two headings need merging.
+> - Use a separate `INVITE_EMAILS` switch, since lifecycle emails are off.
+> - `accept_invite()` writes both follow rows in one transaction, so no follow request appears.
+
 ## What it does
 
 A signed-in reader types a friend's email address. They can also suggest a book and add a note. Tinct then sends that person one email. When the friend joins from the email, the two follow each other straight away, both ways. They land in the returning-reader library with the suggested book on the table.
