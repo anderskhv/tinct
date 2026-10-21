@@ -42,12 +42,15 @@ export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 /** `src` reported while a narration chunk is being prepared: truthy so the shell resumes through the hook, never a URL. */
 export const NARRATION_PENDING_SRC = 'narration:pending'
 /**
- * Seconds of narration (at 1x) kept generated ahead of the playhead. Groups
- * generate in ~4 s (median, 2026-09-25) but each ensure round and download
- * crosses a phone's mobile network; 45 s kept playback only just ahead in a
- * car and ran dry. Stopping early wastes at most this much text: about 2 KB.
+ * Listening seconds kept generated ahead of the playhead while the page is
+ * visible (the audio is this times the speed). Pressing Play authorises
+ * generating the chapter as it is listened to; this window is the most a stop
+ * can waste: at most 90 s of listening, ~1.2 KB of text at 1x (~2.4 KB at 2x).
+ * 45 s one group at a time ran dry in a car (2026-09-25); since 2026-10-20
+ * the next groups are made side by side (narrationLookAheadWidth), so the
+ * window no longer has to hide serial synthesis and was cut from 150 s.
  */
-export const NARRATION_BUFFER_TARGET_SECONDS = 150
+export const NARRATION_BUFFER_TARGET_SECONDS = 90
 /**
  * The same, while the page is hidden (a locked phone in a car): nobody can
  * tap Retry, a gap there is silence until the reader looks at the phone, and
@@ -95,6 +98,8 @@ const NARRATION_STALL_NO_DATA_MS = 3_000
  */
 export const NARRATION_STALL_RETRY_MS = [0, 1_000, 2_000, 4_000, 6_000, 8_000, 10_000, 13_000, 16_000, 20_000, 25_000, 30_000]
 const NARRATION_STALL_HIDDEN_RETRY_MS = 10_000
+/** Hidden, a stalled recording waits this long (in silence) for its downloaded copy before it streams from the network again. */
+export const NARRATION_HIDDEN_STREAM_AFTER_MS = 20_000
 /** How often the stall watchdog looks while playing. */
 const NARRATION_STALL_CHECK_MS = 500
 const STALL_EVENTS = ['waiting', 'stalled', 'suspend', 'emptied', 'error'] as const
@@ -127,12 +132,27 @@ export function narrationPollDelayMs(poll: number, retryAfterMs?: number): numbe
 }
 
 /**
- * How many sentence groups a round prepares at once, by playback speed: at
- * speed a single synthesis cannot keep up with the listening.
+ * How many sentence groups the first preparation after Play asks for at
+ * once, by speed: the one Play needs, plus the next at speed.
  */
 export function narrationLookAheadWidth(rate: number): number {
   if (!Number.isFinite(rate) || rate < 1.5) return 1
   return rate < 2.5 ? 2 : 3
+}
+
+/**
+ * How many sentence groups the look-ahead prepares at once while playing,
+ * by speed: 2 up to 1.25x, 3 from 1.5x. One at a time (the rule until
+ * 2026-10-20) could not keep up at 1.75x with ~3.5 s per short paragraph
+ * (Anders, To the Lighthouse): playback outran the queue. The groups are
+ * always the next ones in playing order and always inside the window, so
+ * this changes when they are made, never how many: the Worker's per-group
+ * lease still makes each once, and its 60 ensure requests a minute per
+ * reader are far above a round every few seconds.
+ */
+export function narrationSynthesisWidth(rate: number): number {
+  if (!Number.isFinite(rate) || rate < 1.5) return 2
+  return 3
 }
 
 /**
@@ -272,6 +292,12 @@ function bareFollowParagraphs(paragraphs: FollowParagraph[]): FollowParagraph[] 
  */
 function waitClockMs(): number {
   return new Date().getTime()
+}
+
+function deferredSignal(): { promise: Promise<void>; resolve: () => void } {
+  let resolve: () => void = () => {}
+  const promise = new Promise<void>((done) => { resolve = done })
+  return { promise, resolve }
 }
 
 function wait(ms: number): Promise<void> {
@@ -479,6 +505,8 @@ export function useLabListen(options: UseLabListenOptions) {
   /** Paragraph index → hash of its narration text, for the current tuple. */
   const narrationHashesRef = useRef<Map<number, string>>(new Map())
   const narrationRoundRef = useRef<Promise<NarrationParagraphResult[]> | null>(null)
+  /** Resolves (and is replaced) each time one answer of a parallel round has been adopted. */
+  const roundProgressRef = useRef(deferredSignal())
   const narrationLookAheadRef = useRef<Promise<void> | null>(null)
   /** Recordings downloaded ahead of their turn (downloadAhead); created on first use. */
   const clipBufferRef = useRef<NarrationClipBuffer | null>(null)
@@ -492,6 +520,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const stallRef = useRef<{ index: number; time: number; attempts: number; since: number; nextAt: number } | null>(null)
   const noteProgressRef = useRef<(audio: HTMLAudioElement) => void>(() => {})
   const checkStallRef = useRef<() => void>(() => {})
+  const holdForStallRef = useRef<(audio: HTMLAudioElement) => boolean>(() => false)
   /** downloadAhead, for the element's handlers and the visibility listener. */
   const downloadAheadRef = useRef<() => void>(() => {})
   const narrationRetryRef = useRef<(() => void) | null>(null)
@@ -693,7 +722,8 @@ export function useLabListen(options: UseLabListenOptions) {
     const narration = optionsRef.current.narration
     if (!narration || indexes.length === 0) return { ok: false, reason: 'not_configured' }
     while (narrationRoundRef.current) {
-      try { await narrationRoundRef.current } catch { /* reported by its own caller */ }
+      // A round in flight may land what this caller needs part-way (its parallel answers apply as they come).
+      try { await Promise.race([narrationRoundRef.current, roundProgressRef.current.promise]) } catch { /* reported by its own caller */ }
       if (generation !== playRequestRef.current) return { ok: false, reason: 'cancelled' }
       // The round in flight may have landed exactly what this caller needs.
       if (satisfied?.()) return { ok: true }
@@ -713,8 +743,25 @@ export function useLabListen(options: UseLabListenOptions) {
       }
       return results
     }
-    const round = parallel && parallel.length > 1
-      ? Promise.all(parallel.map(target => ensureIndexes([target.index], { [target.index]: target.chunk })))
+    // Side by side, each answer is adopted as it arrives: the next recording
+    // never waits on a slower synthesis of a later one.
+    // The first request is the ordinary one (every paragraph in `indexes`
+    // reported, so cached paragraphs arrive whole in one answer); the others
+    // each name one further group to make at the same time.
+    const requests: Array<{ indexes: number[]; fromChunks?: Record<number, number> }> = parallel && parallel.length > 1
+      ? [{ indexes, fromChunks }, ...parallel.slice(1).map(target => ({ indexes: [target.index], fromChunks: { [target.index]: target.chunk } }))]
+      : []
+    const round = requests.length > 1
+      ? Promise.all(requests.map(request => ensureIndexes(request.indexes, request.fromChunks).then((results) => {
+          // Adopted on the same terms as the round's own end: unless a tuple change or stop aborted it.
+          if (!signal.aborted) {
+            applyPreparedNarration(results)
+            const progress = roundProgressRef.current
+            roundProgressRef.current = deferredSignal()
+            progress.resolve()
+          }
+          return results
+        })))
         .then(answers => answers.flat())
       : ensureIndexes(indexes, fromChunks)
     narrationRoundRef.current = round
@@ -949,6 +996,17 @@ export function useLabListen(options: UseLabListenOptions) {
 
   downloadAheadRef.current = downloadAhead
 
+  /** A sentence group's length before it exists: its words at a reading voice's pace (as the chapter clock estimates). */
+  const estimatedGroupSeconds = (clip: LabAudioClip): number => {
+    if (typeof clip.duration === 'number' && clip.duration > 0) return clip.duration
+    if (clip.kind !== 'paragraph') return 0
+    const text = narrationParagraphs().find(paragraph => paragraph.index === clip.index)?.text || ''
+    const tokens = text.split(/\s+/).filter(Boolean)
+    const from = clip.chunk?.wordFrom ?? 0
+    const to = clip.chunk?.wordTo && clip.chunk.wordTo > from ? clip.chunk.wordTo : tokens.length
+    return Math.max(1, (tokens.slice(from, to).join(' ').length || text.length) / 14)
+  }
+
   const scheduleNarrationLookAhead = useCallback(() => {
     const narration = optionsRef.current.narration
     if (!narration || narrationLookAheadRef.current) return
@@ -966,14 +1024,22 @@ export function useLabListen(options: UseLabListenOptions) {
         let buffered = 0
         const rate = audioRef.current?.playbackRate || 1
         const targetSeconds = (pageHidden() ? NARRATION_HIDDEN_BUFFER_TARGET_SECONDS : NARRATION_BUFFER_TARGET_SECONDS) * rate
-        const width = narrationLookAheadWidth(rate)
+        const width = narrationSynthesisWidth(rate)
         const targets: Array<{ index: number; chunk: number }> = []
-        for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds; position += 1) {
+        // Audio seconds up to each clip, counting groups still to make at their estimated length:
+        // a group starting past the window is never asked for, so a stop wastes at most the window.
+        let reach = 0
+        for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < targetSeconds && reach < targetSeconds; position += 1) {
           const clip = clipsRef.current[position]
           if (clip.kind !== 'paragraph') continue
+          const offset = position === clipIndexRef.current ? positionRef.current.time : 0
           if (clip.url && typeof clip.duration === 'number' && indexes.length === 0) {
-            buffered += Math.max(0, clip.duration - (position === clipIndexRef.current ? positionRef.current.time : 0))
+            buffered += Math.max(0, clip.duration - offset)
+            reach = buffered
+          } else if (clip.url && typeof clip.duration === 'number') {
+            reach += clip.duration
           } else if (!clip.url) {
+            reach += Math.max(0, estimatedGroupSeconds(clip) - offset)
             if (!indexes.includes(clip.index)) {
               indexes.push(clip.index)
               fromChunks[clip.index] = clip.chunk?.index ?? 0
@@ -1120,7 +1186,12 @@ export function useLabListen(options: UseLabListenOptions) {
       if (primingRef.current || isUnlockSource(audio)) return
       noteProgressRef.current(audio)
       // Silence is holding the element: its clock is the moment to swap in a ready clip.
-      if (isHoldSource(audio)) { runHoldRef.current(); return }
+      if (isHoldSource(audio)) {
+        // The hold's clock is the heartbeat on a locked phone: the buffer keeps downloading from it.
+        if (playingRef.current && waitClockMs() - clipBufferAtRef.current >= CLIP_BUFFER_REFRESH_MS) downloadAheadRef.current()
+        runHoldRef.current()
+        return
+      }
       // The next chapter's opening is playing before its clips exist here.
       if (bridgeRef.current) return
       const current = clipsRef.current[clipIndexRef.current]
@@ -1206,10 +1277,17 @@ export function useLabListen(options: UseLabListenOptions) {
       if (switchingRef.current && !ownError) return
       // A downloaded copy that will not play: drop it and stream the recording itself, same place.
       const failingUrl = failing ? clipSourceUrl(failing) : null
-      if (playingRef.current && failingUrl && audio.src.startsWith('blob:') && sourcePlaysClip(audio.src, failingUrl) && clipBufferRef.current?.sourceFor(failingUrl) === audio.src) {
+      if (playingRef.current && failingUrl && audio.src.startsWith('blob:') && sourcePlaysClip(audio.src, failingUrl) && clipBufferRef.current?.sourceFor(failingUrl) === audio.src.split('#')[0]) {
         clipBufferRef.current.forget(failingUrl)
         const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
-        playClipRef.current(clipIndexRef.current, live > 0 ? live : positionRef.current.time)
+        const index = clipIndexRef.current
+        const time = live > 0 ? live : positionRef.current.time
+        // Hidden: never a pause on a locked phone; silence holds the element and the swap happens from its event.
+        if (pageHidden() && startHoldRef.current(audio)) {
+          holdRef.current = { run: () => { playClipRef.current(index, time, true, true) }, request: playRequestRef.current, notBefore: 0 }
+          return
+        }
+        playClipRef.current(index, time)
         return
       }
       if (ownError && reloadClipRef.current(audio)) return
@@ -1261,7 +1339,7 @@ export function useLabListen(options: UseLabListenOptions) {
         }
       }
       setPlaying(true)
-      if (stallRef.current) publishPlaybackState(false)
+      if (stallRef.current && !pageHidden()) publishPlaybackState(false)
       if (!waitingForNarration(clipsRef.current[clipIndexRef.current], audio)) setPending(false)
       // iOS can drop Now Playing details set before audio first played; restate them once it does.
       applyMetadataRef.current()
@@ -1303,8 +1381,19 @@ export function useLabListen(options: UseLabListenOptions) {
     audio.addEventListener('waiting', handleWaiting)
     for (const type of ['pause', 'ended', 'emptied'] as const) audio.addEventListener(type, clearBuffering)
     // Bytes arriving: a slow load is buffering, not wedged. A stall-type event re-checks soon.
-    const handleProgress = () => { dataAtRef.current = waitClockMs() }
-    const handleStallEvent = () => { setTimeout(() => checkStallRef.current(), NARRATION_STALL_MS + 50) }
+    // Media events drive the checks too: a locked phone suspends timers, not the element's events.
+    const handleProgress = () => { dataAtRef.current = waitClockMs(); checkStallRef.current() }
+    const handleStallEvent = (event: Event) => {
+      // Hidden and out of audio: hold now, inside this event; no timer may come to notice it later.
+      // Not for a copy in memory (it only decodes) nor a source just assigned
+      // (an ordinary start): `stalled` — no data for ~3 s — counts for a fresh source too.
+      const streaming = !audio.src.startsWith('blob:')
+      const underrun = event.type === 'stalled' || (event.type === 'waiting' && !switchingRef.current)
+      if (underrun && streaming && pageHidden() && audio.readyState < 3 && !audio.paused && playingRef.current
+        && holdForStallRef.current(audio)) return
+      checkStallRef.current()
+      setTimeout(() => checkStallRef.current(), NARRATION_STALL_MS + 50)
+    }
     audio.addEventListener('progress', handleProgress)
     for (const type of STALL_EVENTS) audio.addEventListener(type, handleStallEvent)
     for (const type of nowPlayingEvents) audio.addEventListener(type, publishPosition)
@@ -1497,14 +1586,22 @@ export function useLabListen(options: UseLabListenOptions) {
     if (!continuousBoundary) {
       try { audio.pause() } catch { /* ignore */ }
     }
+    // A copy in memory starting part-way is given its start as a media
+    // fragment (#t=): WebKit left a seek on a fresh blob: source pending for
+    // good (harness, 20 Oct 2026: a locked-phone recovery that never sounded).
+    let fragmentStart = false
     if (!sameSrc) {
       // Downloaded ahead: the swap plays from memory, with no request at the boundary.
-      setAudioSource(audio, elementSource(url))
-      try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
+      const source = elementSource(url)
+      fragmentStart = source.startsWith('blob:') && offsetSeconds > 0
+      setAudioSource(audio, fragmentStart ? `${source}#t=${offsetSeconds.toFixed(3)}` : source)
+      if (!fragmentStart) { try { audio.currentTime = offsetSeconds } catch { /* ignore */ } }
     }
     const expectedSrc = audio.src
     const applyOffset = () => {
       if (!requestIsCurrent(request)) return
+      // The fragment already starts there; a seek on top is the one WebKit leaves pending.
+      if (fragmentStart && Math.abs((audio.currentTime || 0) - offsetSeconds) < 0.25) return
       if (offsetSeconds > 0 || audio.currentTime !== offsetSeconds) {
         try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
       }
@@ -1530,7 +1627,7 @@ export function useLabListen(options: UseLabListenOptions) {
     setPlaying(true)
     // A start that takes a while is silence: the lock screen says paused until sound comes ('playing').
     setTimeout(() => {
-      if (requestIsCurrent(request) && playingRef.current && pendingRef.current && audio.src === expectedSrc && !audio.ended) publishPlaybackState(false)
+      if (requestIsCurrent(request) && playingRef.current && pendingRef.current && audio.src === expectedSrc && !audio.ended && !pageHidden()) publishPlaybackState(false)
     }, NARRATION_SILENT_START_MS)
     if (clip.kind === 'paragraph' && clip.narration) scheduleNarrationLookAhead()
     downloadAhead()
@@ -1819,11 +1916,15 @@ export function useLabListen(options: UseLabListenOptions) {
 
   // --- Stalls: the element says it plays, but its clock stands still ------
   noteProgressRef.current = (audio) => {
+    // The hold's looping silence is not the recording's clock: it never ends a stall.
+    if (isHoldSource(audio)) return
     const progress = progressRef.current
     const time = audio.currentTime || 0
     const now = waitClockMs()
-    if (audio.src !== progress.src) { progressRef.current = { src: audio.src, time, at: now }; return }
-    if (time > progress.time + 0.05) {
+    // A reloaded recording already past the stalled second is sound again, even on its first tick.
+    const resumed = audio.src !== progress.src && stallRef.current != null && time > stallRef.current.time + 0.05
+    if (audio.src !== progress.src && !resumed) { progressRef.current = { src: audio.src, time, at: now }; return }
+    if (resumed || time > progress.time + 0.05) {
       progressRef.current = { src: audio.src, time, at: now }
       if (stallRef.current) {
         // Sound again: the stall is over; the transport and lock screen say so.
@@ -1835,6 +1936,50 @@ export function useLabListen(options: UseLabListenOptions) {
       progressRef.current = { src: audio.src, time, at: now }
     }
   }
+  /**
+   * A locked iPhone refuses play() without a gesture once the element is
+   * paused or idle, and it suspends timers: so on a hidden page a stall is
+   * never paused out of. Silence takes the element over (same element, no
+   * pause), its own events become the heartbeat that keeps the buffer
+   * downloading, and the recording is swapped back in from one of those
+   * events at the stalled second — from memory once the buffer's copy is
+   * here (never a second wait on the network), else from the network after
+   * NARRATION_HIDDEN_STREAM_AFTER_MS. Called from the watchdog and straight
+   * from the element's own `waiting`/`stalled` (no timer needed). False: the
+   * hold cannot be used here.
+   */
+  holdForStallRef.current = (audio) => {
+    if (isNativeCapacitor() || holdBrokenRef.current || !playingRef.current || userPausedRef.current) return false
+    if (isHoldSource(audio) || isUnlockSource(audio) || bridgeRef.current || !audio.src) return false
+    const index = clipIndexRef.current
+    const clip = clipsRef.current[index]
+    if (!clip || waitingForNarration(clip, audio)) return false
+    const now = waitClockMs()
+    const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
+    let stall = stallRef.current
+    if (!stall || stall.index !== index) {
+      stall = { index, time: live > 0 ? live : positionRef.current.clipIndex === index ? positionRef.current.time : 0, attempts: 0, since: now, nextAt: now }
+      stallRef.current = stall
+      positionRef.current = { clipIndex: index, time: stall.time }
+      setBufferingState(true)
+    }
+    stall.attempts += 1
+    const at = { index, time: stall.time, request: playRequestRef.current, since: now }
+    const run = () => {
+      const url = clipSourceUrl(clipsRef.current[at.index] ?? clip)
+      const copied = Boolean(url && clipBufferRef.current?.isReady(url))
+      if (!copied && waitClockMs() - at.since < NARRATION_HIDDEN_STREAM_AFTER_MS) {
+        // Not here yet: keep holding, look again at the hold's next event.
+        if (holdRef.current) holdRef.current.run = run
+        return
+      }
+      playClipRef.current(at.index, at.time, true, true)
+    }
+    if (!startHoldRef.current(audio)) return false
+    holdRef.current = { run, request: at.request, notBefore: 0 }
+    downloadAheadRef.current()
+    return true
+  }
   checkStallRef.current = () => {
     const audio = audioRef.current
     if (!audio || !playingRef.current || userPausedRef.current || primingRef.current) { stallRef.current = null; return }
@@ -1845,17 +1990,23 @@ export function useLabListen(options: UseLabListenOptions) {
     const now = waitClockMs()
     const progress = progressRef.current
     if (progress.src !== audio.src) { progressRef.current = { src: audio.src, time: audio.currentTime || 0, at: now }; return }
-    if (now - progress.at < NARRATION_STALL_MS) return
+    // The element's own clock, read now: a busy page may run this check before the
+    // `timeupdate` it owes, and a clock that moved is never a stall.
+    noteProgressRef.current(audio)
+    if (now - progressRef.current.at < NARRATION_STALL_MS) return
     let stall = stallRef.current
     if (!stall || stall.index !== index) {
       const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
       stall = { index, time: live > 0 ? live : positionRef.current.clipIndex === index ? positionRef.current.time : 0, attempts: 0, since: now, nextAt: now }
       stallRef.current = stall
       positionRef.current = { clipIndex: index, time: stall.time }
-      // Honest at once: the ring in the transport, paused on the lock screen.
+      // Honest at once: the ring in the transport, and in front of the reader
+      // paused on the lock screen. Hidden, the session stays 'playing': a
+      // locked iPhone may suspend a page whose audio says paused, and the
+      // recovery below keeps sound (silence) on the element meanwhile.
       clearTimeout(bufferingTimerRef.current)
       setBufferingState(true)
-      publishPlaybackState(false)
+      if (!pageHidden()) publishPlaybackState(false)
     }
     // Bytes still arriving for a recording the element streams: a slow load, not a wedge. Wait it out.
     const loading = audio.networkState === 2 && now - dataAtRef.current < NARRATION_STALL_NO_DATA_MS
@@ -1884,6 +2035,7 @@ export function useLabListen(options: UseLabListenOptions) {
       return
     }
     if (hidden && now - stall.since > NARRATION_HOLD_MAX_MS) return
+    if (hidden && holdForStallRef.current(audio)) return
     const attempt = stall.attempts
     stall.attempts += 1
     const following = NARRATION_STALL_RETRY_MS[stall.attempts]
@@ -1903,7 +2055,7 @@ export function useLabListen(options: UseLabListenOptions) {
     downloadAheadRef.current()
     playClipRef.current(index, stall.time, true, true)
     // Starting it again is not sound yet: the lock screen keeps saying paused until the clock moves.
-    publishPlaybackState(false)
+    if (!pageHidden()) publishPlaybackState(false)
   }
   // The watchdog's own beat: a stalled element sends no timeupdate. It never
   // drives the follow paint, which stays on the element's clock.
