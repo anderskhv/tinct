@@ -5976,6 +5976,8 @@ const primerKey = unit => 'primer:' + state.key + ':' + unit.key;
 const PRIMER_WAIT_MS = 45000;
 const PRIMER_SLOW = 'Before you start is taking too long. Try again.';
 const primerMaking = new Map();
+// The account writes of primers just made, still on their way (makePrimer).
+const primerStoring = new Set();
 // A cut-off primer is asked for once more, as one that does not parse.
 const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed', 'cut_off']);
 function makePrimer(unit, { speculative = false } = {}) {
@@ -6003,12 +6005,14 @@ function makePrimer(unit, { speculative = false } = {}) {
   })().then(({ content, kept }) => {
     if (state.key !== key) return kept;
     store.set(id, kept);
-    // With the book in the account: stored there too; its stamp replaces this browser's.
-    primerRemote('PUT', unit, content).then(put => {
+    // With the book in the account: stored there too; its stamp replaces this browser's. Not waited for, but
+    // tracked (primerStoring), so that "made ahead" counts as finished only once its copy is stored too.
+    const storing = primerRemote('PUT', unit, content).then(put => {
       if (!put || state.key !== key) return;
       store.set(id, put);
       if (primer.open && primer.unit?.key === unit.key && primer.data?.madeAt === kept.madeAt) { primer.data = put; marginLayout() }
-    });
+    }).finally(() => primerStoring.delete(storing));
+    primerStoring.add(storing);
     return kept;
   }).finally(() => primerMaking.delete(id));
   primerMaking.set(id, made);
@@ -6043,6 +6047,8 @@ function primerPrefetch() {
       if (remote) { store.set(id, remote); return }
       if (store.get(id) || primerMaking.has(id)) return;
       await makePrimer(unit, { speculative: true }).catch(() => { /* opened later, it is made then */ });
+      // Done once the account holds its copy as well (a check, or a second device, then sees it there).
+      await Promise.all([...primerStoring]);
     } finally { if (primerAhead.key === open) primerAhead.done = true }
   }, PRIMER_PREFETCH_MS);
 }
