@@ -152,6 +152,7 @@ import {
   labSignInUrl,
 } from './labPrefs'
 import { consumeCardParam } from '../cards/cardsBoot'
+import { useFollowRequestDot } from '../social/useFollowRequestDot'
 import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
@@ -841,6 +842,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperSheet('account')
   }, [])
   const accountCardsWanted = superSheet === 'account'
+  // The menu's Profile row shows a dot while someone asks to be friends (social/followRequests.ts).
+  const requestDotUser = signedIn && !privateBook ? (authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)) : null
+  const profileDot = useFollowRequestDot(requestDotUser, async () => authToken ?? await readSupabaseAccessToken())
   useEffect(() => {
     if (!accountCardsWanted) { closeLoadedAccountCards(); return }
     const start = accountCardRef.current ?? 'you'
@@ -5725,6 +5729,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           privateBook={privateBook}
           ownPdf={ownEditions}
           noCatchUp={marginPhone && !marginCatchUp}
+          profileDot={profileDot}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
