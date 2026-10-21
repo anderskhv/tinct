@@ -152,6 +152,7 @@ import {
   labSignInUrl,
 } from './labPrefs'
 import { consumeCardParam } from '../cards/cardsBoot'
+import { useFollowRequestDot } from '../social/useFollowRequestDot'
 import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
@@ -226,6 +227,7 @@ import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, regis
 import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills } from './marginPhone/marginPhoneContext'
 import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
+import { markPhoneCardPassage } from './marginPhone/phoneCardPassage'
 import { PHONE_CARD_NAMES, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
 import { DefinitionFallback } from '../components/reader/DefinitionFallback'
 import './lab.css'
@@ -841,6 +843,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperSheet('account')
   }, [])
   const accountCardsWanted = superSheet === 'account'
+  // The menu's Profile row shows a dot while someone asks to be friends (social/followRequests.ts).
+  const requestDotUser = signedIn && !privateBook ? (authUser?.id ?? (authToken === undefined ? readCachedSupabaseUser()?.id ?? null : null)) : null
+  const profileDot = useFollowRequestDot(requestDotUser, async () => authToken ?? await readSupabaseAccessToken())
   useEffect(() => {
     if (!accountCardsWanted) { closeLoadedAccountCards(); return }
     const start = accountCardRef.current ?? 'you'
@@ -5090,7 +5095,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (id === 'talk') handleTalk()
       else if (id === 'catchup') { if (signedIn) setSuperSheet('catchup'); else setAccountPrompt({ action: 'chat' }) }
       else if (id === 'summarize') openChapterNotes('end')
-      else if (id === 'settings') setSuperSheet('reading')
+      else if (id === 'settings' || id === 'text') setSuperSheet('reading')
+      // The phone's Reading settings: a PDF's editions with the voice and speed; an EPUB's voice and speed.
+      else if (id === 'reading') setSuperSheet('editions')
       else if (id === 'account') setSuperSheet('account')
       else if (id === 'editions' && ownEditions) setSuperSheet('editions')
       // Back to the library from an own book lands on the reading table, as from Tinct's (Anders, 2026-10-12).
@@ -5102,8 +5109,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // so far is Catch me up's job.
     if (id === 'summarize') { openChapterNotes('end'); return }
     if (id === 'catchup') { setSuperSheet('catchup'); return }
-    if (id === 'editions') { setSuperSheet('editions'); return }
-    if (id === 'settings') { setSuperSheet('reading'); return }
+    // The phone's Reading settings is the editions layer with the voice and speed (LabV2Sheet grouped); its Text
+    // and theme is the settings layer without them.
+    if (id === 'editions' || id === 'reading') { setSuperSheet('editions'); return }
+    if (id === 'settings' || id === 'text') { setSuperSheet('reading'); return }
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
@@ -5235,6 +5244,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       text: selection.text, paragraphIndex: selection.paragraphIndex,
       chapterNumber: selection.chapterNumber ?? book.chapterNumber, chapterLabel: selection.chapterLabel ?? book.chapterLabel,
       editionKey, paragraphs: selection.paragraphs ?? (compare ? book.compareParagraphs : book.paragraphs),
+      ranges: selection.chapterRanges?.length
+        ? selection.chapterRanges.map(part => ({ chapterNumber: part.chapterNumber, range: part.range }))
+        : selection.range ? [{ chapterNumber: selection.chapterNumber ?? book.chapterNumber, range: selection.range }] : [],
+      compare: selection.side === 'compare',
     }
   }
   /** One of the companion's actions on a passage, on the routes Explain uses (useLabAsk.explainSelection). */
@@ -5309,6 +5322,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [marginPhone, chapterNotes, superSheet])
   // A new book or chapter closes the card, as it does a selection.
   useLayoutEffect(() => { setPhoneCard(null) }, [book.bookId, book.chapterNumber])
+  // The card's passage stays underlined on the page while the card is open (the card does not quote it).
+  const phoneCardPassage = phoneCard && 'passage' in phoneCard ? phoneCard.passage : null
+  useLayoutEffect(() => {
+    if (!marginPhone || !phoneCardPassage?.ranges?.length) return
+    return markPhoneCardPassage(document.querySelector('[data-testid="lab-root"]'), phoneCardPassage.ranges, book.chapterNumber, !!phoneCardPassage.compare)
+  }, [marginPhone, phoneCardPassage, book.chapterNumber])
   /** A follow-up from a card: the chat's own question, with the passage attached and the card's answer as what the reader was shown. */
   const sendPhoneFollow = (passage: PhonePassage | null, question: string) => {
     const shown = phoneAnswerRef.current
@@ -5343,15 +5362,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     if (!id) return
     const note = highlightsApi.allHighlights.find(item => item.id === id)?.note ?? selection.existingNote ?? ''
-    // Rendered inside the tap, so the field takes the focus within the gesture and iOS raises the keyboard.
-    flushSync(() => { setPhoneNote(note); openPhoneCard({ kind: 'note', passage: phonePassageOf(selection), highlightId: id!, created }) })
-    phoneFieldRef.current?.focus({ preventScroll: true })
+    // The field is not focused: the keyboard comes up only when the reader taps it (iPhone feedback, 20 Oct 2026).
+    setPhoneNote(note)
+    openPhoneCard({ kind: 'note', passage: phonePassageOf(selection), highlightId: id!, created })
   }
   const phoneBarAsk = () => {
     const selection = selectionPopup
     if (!selection) return
-    flushSync(() => { setDraft(''); openPhoneCard({ kind: 'ask', passage: phonePassageOf(selection), openedAt: Date.now() }) })
-    phoneFieldRef.current?.focus({ preventScroll: true })
+    // Opens like any card, its field unfocused: no cursor and no keyboard until the reader taps the field.
+    setDraft('')
+    openPhoneCard({ kind: 'ask', passage: phonePassageOf(selection), openedAt: Date.now() })
   }
   const phoneBarAction = (kind: 'explain' | 'simplify' | PhoneMoreId) => {
     const selection = selectionPopup
@@ -5383,11 +5403,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   marginPhoneNoteRef.current = (chapterNumber: number) => {
     if (!marginPhone) return false
     const chapter = book.chapters.find(item => item.number === chapterNumber)
-    flushSync(() => {
-      setPhoneNote(highlightsApi.chapterNotes.find(note => note.chapterNumber === chapterNumber)?.note ?? '')
-      openPhoneCard({ kind: 'chapter-note', chapterNumber, chapterLabel: chapter?.title || book.chapterLabel })
-    })
-    phoneFieldRef.current?.focus({ preventScroll: true })
+    setPhoneNote(highlightsApi.chapterNotes.find(note => note.chapterNumber === chapterNumber)?.note ?? '')
+    openPhoneCard({ kind: 'chapter-note', chapterNumber, chapterLabel: chapter?.title || book.chapterLabel })
     return true
   }
   quizChapterRef.current = () => { setDraft(''); openPhoneCard({ kind: 'quiz', passage: null, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, openedAt: Date.now() }) }
@@ -5477,7 +5494,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (card.kind === 'note' || card.kind === 'chapter-note') {
       return (
         <LabPhoneCard label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={deletePhoneCard} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'}>
-          <PhoneNoteBody quote={card.kind === 'note' ? card.passage.text : undefined} value={phoneNote} onChange={setPhoneNote} inputRef={phoneFieldRef} chapter={card.kind === 'chapter-note'} />
+          <PhoneNoteBody value={phoneNote} onChange={setPhoneNote} inputRef={phoneFieldRef} chapter={card.kind === 'chapter-note'} />
         </LabPhoneCard>
       )
     }
@@ -5485,7 +5502,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const passage = card.passage ?? phoneChapterPassage()
       return (
         <LabPhoneCard label={phoneCardLabel(name, card.chapterLabel)} kind="quiz" onClose={closePhoneCard} onDelete={closePhoneCard}>
-          <PhoneQuizBody quote={card.passage?.text}
+          <PhoneQuizBody
             request={onDelta => phoneCompanion(passage, 'quiz', onDelta)}
             mark={(question, answer) => phoneCompanion({ ...passage, text: '' }, 'quiz_check', () => {}, { question: question.q, expected: question.answer, why: question.why, answer })}
             draft={draft} setDraft={setDraft} onMic={handleMic} micOn={dictation.state !== 'idle'} inputRef={phoneFieldRef} />
@@ -5511,7 +5528,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return (
       <LabPhoneCard label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={closePhoneCard}
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
-        <PhonePassageBody quote={card.kind === 'define' && !/\s/.test(card.word.trim()) ? undefined : card.passage.text} lead={lead} turns={turns} pending={pending} />
+        <PhonePassageBody lead={lead} turns={turns} pending={pending} />
       </LabPhoneCard>
     )
   }
@@ -5724,7 +5741,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           phone={showPhoneChrome}
           privateBook={privateBook}
           ownPdf={ownEditions}
-          noCatchUp={marginPhone && !marginCatchUp}
+          noCatchUp={showPhoneChrome && !marginCatchUp}
+          profileDot={profileDot}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}
         />
@@ -5740,6 +5758,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           phoneShakespeare={phoneShakespeare}
           onPrefs={sheetPrefs}
           ownPdf={ownEditions}
+          grouped={showPhoneChrome}
+          editionRows={!privateBook || ownEditions}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)

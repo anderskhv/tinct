@@ -257,7 +257,7 @@
   const shown = (id, all) => all || !LATER[id];
   // Related (FIXES-2026-10-15 A5): between Fact-check and Counterpoint.
   const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['related', 'Related', 'Where else the text takes this up'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
-  const MORE_ROWS_2 = [['copy', 'Copy quote', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
+  const MORE_ROWS_2 = [['copy', 'Copy', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
   const colorOf = (colors, key) => { const c = colors.find(x => x[0] === key) || colors[0]; return { key: c[0], label: c[1], dot: c[3] } };
   function dotHtml(colors, current, { noted = false } = {}) {
     const c = colorOf(colors, current);

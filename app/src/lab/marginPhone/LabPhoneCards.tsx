@@ -2,7 +2,8 @@ import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type Muta
 import type { LabAskTurn } from '../labAsk'
 import { isAiRestingError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
-import { PhoneAnswer, PhoneFollow, PhoneQuote, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
+import { PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
+import type { PhoneCardRange } from './phoneCardPassage'
 
 /** The passage a card is about: the words, where they are, and the chapter around them. */
 export interface PhonePassage {
@@ -12,6 +13,10 @@ export interface PhonePassage {
   chapterLabel: string
   editionKey: string
   paragraphs: string[]
+  /** Where the words are, underlined on the page while the card is open (phoneCardPassage.ts). */
+  ranges?: PhoneCardRange[]
+  /** Chosen in Compare's column. */
+  compare?: boolean
 }
 
 export type PhoneAnswerKind = 'explain' | 'simplify' | 'factcheck' | 'counterpoint'
@@ -74,14 +79,16 @@ export function PhoneThread({ turns, pending }: { turns: LabAskTurn[]; pending: 
   )
 }
 
-/** The body every passage card shares: the quote, what the card shows, the follow-ups. */
-export function PhonePassageBody({ quote, lead, turns, pending }: { quote?: string; lead?: ReactNode; turns: LabAskTurn[]; pending: boolean }) {
+/**
+ * The body every passage card shares: what the card shows, then the follow-ups. The passage is not quoted: it
+ * stays underlined on the page (LabApp, phoneCardPassage) and the card starts with its title row.
+ */
+export function PhonePassageBody({ lead, turns, pending }: { lead?: ReactNode; turns: LabAskTurn[]; pending: boolean }) {
   const end = useRef<HTMLDivElement | null>(null)
   const count = turns.length
   useEffect(() => { if (count) end.current?.scrollIntoView?.({ block: 'end' }) }, [count])
   return (
     <>
-      {quote && <PhoneQuote text={quote} />}
       {lead}
       <PhoneThread turns={turns} pending={pending} />
       <div ref={end} />
@@ -127,8 +134,7 @@ const VERDICT_WORD: Record<QuizResult['verdict'], string> = { right: 'Right.', n
  * The reader answers in the field (marked by the companion) or shows the
  * answer, then goes on; the end line counts the right answers.
  */
-export function PhoneQuizBody({ quote, request, mark, draft, setDraft, onMic, micOn, inputRef }: {
-  quote?: string
+export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, inputRef }: {
   request: (onDelta: (text: string) => void) => Promise<string>
   mark: (question: QuizQuestion, answer: string) => Promise<string>
   draft: string
@@ -187,7 +193,6 @@ export function PhoneQuizBody({ quote, request, mark, draft, setDraft, onMic, mi
   return (
     <>
       <div className="lab-pcard-body-inner">
-        {quote && <PhoneQuote text={quote} />}
         {body}
       </div>
       {status === 'ready' && questions && !done && (
@@ -205,8 +210,8 @@ export function PhoneQuizBody({ quote, request, mark, draft, setDraft, onMic, mi
   )
 }
 
-/** A note: the passage, the reader's words in an always editable field. */
-export function PhoneNoteBody({ quote, value, onChange, inputRef, chapter = false }: { quote?: string; value: string; onChange: (text: string) => void; inputRef?: MutableRefObject<HTMLTextAreaElement | null>; chapter?: boolean }) {
+/** A note: the reader's words in an always editable field (the passage stays underlined on the page). */
+export function PhoneNoteBody({ value, onChange, inputRef, chapter = false }: { value: string; onChange: (text: string) => void; inputRef?: MutableRefObject<HTMLTextAreaElement | null>; chapter?: boolean }) {
   const own = useRef<HTMLTextAreaElement | null>(null)
   const field = inputRef ?? own
   useEffect(() => {
@@ -217,7 +222,6 @@ export function PhoneNoteBody({ quote, value, onChange, inputRef, chapter = fals
   }, [value, field])
   return (
     <>
-      {quote && <PhoneQuote text={quote} />}
       <textarea ref={field} className="lab-pcard-note" data-testid="lab-phone-card-note" rows={3} placeholder={chapter ? 'A note on this chapter' : 'Add a note…'} aria-label={chapter ? 'Chapter note' : 'Highlight note'}
         value={value} onChange={event => onChange(event.target.value)} />
     </>

@@ -17,7 +17,7 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
   const opening = bookOpening(title)
   // A first chapter named as the book (a PDF's text before its first heading) is not named twice.
   const repeats = !!opening && sameWords(opening.title, title)
-  // The phone's margin mode: "Starting <chapter>" with ✧ Primer · ✧ Catch me up below the heading, in place of the Primer chip.
+  // The phone's margin mode: ✧ Primer · ✧ Catch me up on the heading's line, beside it, in place of the Primer chip.
   const margin = useMarginPhone()
   return <header className={`lab-passage-header${preview ? ' has-preview' : ''}${preview && title.length > 64 ? ' is-long-title' : ''}${opening ? ' has-book-opening' : ''}`}>
     {opening && <div className="lab-book-opening" data-testid={measuring ? undefined : 'lab-book-opening'}>
@@ -28,7 +28,6 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
     {/* Kept, hidden, when it repeats the opening: the paginators read its face from it. */}
     <h1 className="lab-passage-headline" data-testid={measuring ? undefined : "lab-passage-headline"} hidden={repeats || undefined}>{title}</h1>
     {preview && margin && <div className="lab-unit-pills is-start" data-testid={measuring ? undefined : 'lab-unit-start'}>
-      <p className="lab-unit-k">Starting {unitName(title)}</p>
       <div className="lab-unit-acts">
         <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-primer'} disabled={busy}
           tabIndex={onPreview ? 0 : -1} aria-label={`Primer for ${title}`}

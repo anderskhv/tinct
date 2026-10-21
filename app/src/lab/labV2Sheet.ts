@@ -119,6 +119,16 @@ export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
   catchup: 'Catch me up',
 }
 
+/** The phone's names for the two layers its t menu opens (grouped: Text and theme, Reading settings). */
+const LAB_V2_GROUPED_TITLES: Partial<Record<LabV2SheetLayer, string>> = {
+  reading: 'Text and theme',
+  editions: 'Reading settings',
+}
+
+export function labV2SheetTitle(layer: LabV2SheetLayer, grouped = false): string {
+  return (grouped && LAB_V2_GROUPED_TITLES[layer]) || LAB_V2_SHEET_TITLES[layer]
+}
+
 /**
  * How long the version pill stays: in over 120ms, held to the second, out
  * over the last 300ms. Reduced motion shows it without the fade for the same

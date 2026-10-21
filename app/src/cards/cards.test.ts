@@ -90,6 +90,7 @@ function api() {
       return Response.json({ ok: true })
     }
     if (url.startsWith('/api/social/follow')) return Response.json({ relation: 'friend', followsYou: true })
+    if (url.startsWith('/api/social/remove-follower')) return Response.json({ ok: true, relation: 'stranger', followsYou: false })
     if (url.startsWith('/api/social/profile/')) return readerProfile ? Response.json({ profile: readerProfile }) : Response.json({ error: 'Not found' }, { status: 404 })
     if (url.startsWith('/api/social/board')) {
       const tab = new URL(url, 'https://tinct.app').searchParams.get('tab') === 'everyone' ? 'everyone' : 'friends'
@@ -472,6 +473,45 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     expect(byTest('profile-follow')?.textContent).toBe('Requested')
     expect(top().querySelector('[data-testid="card-facts"]')).toBeNull()
     expect(top().querySelectorAll('.tc-g').length).toBe(0)
+  })
+
+  it('a request waiting shows at the top of the You card, opens Following you, and counts as seen here (20 Oct 2026)', async () => {
+    const seen = vi.fn()
+    window.addEventListener('tinct:follow-requests-seen', seen)
+    await open('you')
+    const line = byTest('you-requests')
+    expect(line?.textContent).toContain('Ellen Ravn wants to be friends')
+    expect(line?.querySelector('.tc-av')).toBeTruthy()
+    // The first block on the card, above the notice and Your reading.
+    expect(top().querySelector('.tc-body > .tc-g')?.contains(line!)).toBe(true)
+    expect(JSON.parse(localStorage.getItem(`tinct:follow-requests-seen:${session.userId}`) || '[]')).toEqual(['ellen'])
+    expect(seen).toHaveBeenCalled()
+    window.removeEventListener('tinct:follow-requests-seen', seen)
+    click(line)
+    expect(top().dataset.card).toBe('find')
+    expect(byTest('following-you-row')?.textContent).toContain('Ellen Ravn')
+    expect(byTest('following-you-row-button')?.textContent).toBe('Follow back')
+    expect(byTest('following-you-row-remove')?.getAttribute('aria-label')).toBe('Remove')
+  })
+
+  it('Remove declines a request with the existing remove-follower action and hides the row', async () => {
+    await open('find')
+    click(byTest('following-you-row-remove'))
+    await flush()
+    expect(posts).toContainEqual({ url: '/api/social/remove-follower', body: { handle: 'ellen' } })
+    expect(byTest('following-you-row')).toBeNull()
+  })
+
+  it('a reader followed back is a friend, not a request: no row on the You card, no Remove', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/social/find') && !url.includes('?q=')) return Response.json({ followingYou: [person('ellen', 'Ellen Ravn', 'friend')], alsoReading: [], link: 'tinct.app/@anders' })
+      return api()(input, init)
+    }))
+    await open('you')
+    expect(byTest('you-requests')).toBeNull()
+    click(byTest('you-find'))
+    expect(byTest('following-you-row-remove')).toBeNull()
   })
 
   it('the You card shows the notice once to a Friends profile; Dismiss keeps it away for this account', async () => {

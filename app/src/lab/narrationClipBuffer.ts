@@ -177,13 +177,18 @@ const sourceOrigins = new Map<string, string>()
 /** The clip URL behind an element source: the blob's origin, else the source itself. */
 export function clipUrlOfSource(src: string | null | undefined): string | null {
   if (!src) return null
-  return sourceOrigins.get(src) ?? src
+  return sourceOrigins.get(withoutFragment(src)) ?? src
+}
+
+/** A blob: source may carry a start (`#t=`): the copy is the same. */
+function withoutFragment(src: string): string {
+  return src.startsWith('blob:') ? src.split('#')[0] : src
 }
 
 /** True when the element source plays this clip URL (a buffered copy or the URL itself). */
 export function sourcePlaysClip(src: string | null | undefined, url: string | null | undefined): boolean {
   if (!src || !url) return false
-  const origin = sourceOrigins.get(src)
+  const origin = sourceOrigins.get(withoutFragment(src))
   if (origin) return origin === url || origin.endsWith(url) || url.endsWith(origin)
   return src === url || src.endsWith(url)
 }
@@ -315,7 +320,9 @@ export class NarrationClipBuffer {
       if (now - entry.dataAt >= stallAfter) {
         this.weakUntil = now + CLIP_BUFFER_WEAK_MS
         entry.resuming = true
-        entry.notBefore = now + CLIP_FETCH_RETRY_MS[Math.min(entry.retries, CLIP_FETCH_RETRY_MS.length - 1)]
+        // Nearly dry, the back-off stays short (≤ 1 s): the next try is the one that may catch the network coming back.
+        const nearDry = typeof this.aheadSeconds === 'number' && this.aheadSeconds < CLIP_BUFFER_NEAREST_FIRST_SECONDS
+        entry.notBefore = now + CLIP_FETCH_RETRY_MS[Math.min(entry.retries, nearDry ? 2 : CLIP_FETCH_RETRY_MS.length - 1)]
         entry.retries += 1
         this.signal({ kind: 'fetch-stalled', url: entry.url, aheadSeconds: this.aheadSeconds, retries: entry.retries })
         entry.controller?.abort()

@@ -97,9 +97,14 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   await page.waitForTimeout(700)
   return {context,page,requests,errors}
 }
+// The phone's t menu (20 Oct 2026) groups the desktop's Settings and Book editions rows as Text and theme
+// (themes, size, Advanced settings) and Reading settings (editions, compare, voice, speed). 'theme' names the
+// layer with the themes on either layout: the desktop's Settings, the phone's Text and theme.
 async function clickMenu(page,id) {
   await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-'+id).click()
+  const phone=await page.getByTestId('lab-super-row-text').count()>0
+  const row=id==='theme'?(phone?'text':'settings'):id
+  await page.getByTestId('lab-super-row-'+row).click()
 }
 // Compare the ink of each character, not span-fragment bookkeeping:
 // Chromium merges adjacent inline rects when a highlight wrapper changes.
@@ -250,7 +255,7 @@ async function run(engine,name,phone) {
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.getByTestId('lab-desktop-companion-close').click()
     }
-    await clickMenu(page,'settings')
+    await clickMenu(page,'theme')
     const sheet=page.getByTestId('lab-v2-sheet')
     if(!phone){
       const original=await sheet.boundingBox()
@@ -278,7 +283,7 @@ async function run(engine,name,phone) {
     }
     await page.getByTestId('lab-v2-sheet-confirm').click()
     for(const theme of ['dark','light']){
-      await clickMenu(page,'settings')
+      await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-'+theme).click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await select(page)
@@ -407,7 +412,7 @@ async function bookSurface(engine,name){
     assert.deepEqual(await wordBoxes(page),before,'decorative fold must never alter text geometry')
     await bare.evaluate(node=>node.remove())
     for(const theme of ['book','light','dark']){
-      await clickMenu(page,'settings')
+      await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-'+theme).click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.waitForTimeout(250)
@@ -476,7 +481,7 @@ async function contentsAndSameEdition(engine,name,phone){
     for(const theme of ['book','dark']){
       if(theme==='dark'){
         await deep.keyboard.press('Escape')
-        await clickMenu(deep,'settings')
+        await clickMenu(deep,'theme')
         await deep.getByTestId('lab-v2-theme-dark').click()
         await deep.getByTestId('lab-v2-sheet-close').click()
         await deep.getByTestId('lab-header-chapter').click()
@@ -554,7 +559,7 @@ async function safariPaintProbe(){
  const browser=await markInternal(await webkit.launch({headless:true}))
  try{
   const state=await boot(browser,false,'notes-from-underground','original-en',1,{paragraphIndex:0,highlights:[{id:'probe',bookId:'notes-from-underground',editionKey:'original-en',chapterNumber:1,paragraphIndex:0,endParagraphIndex:0,fromWord:0,toWord:115,color:'gold',kept:true}],deviceScaleFactor:2})
-  const {page}=state;await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-dark').click();await page.getByTestId('lab-v2-sheet-close').click()
+  const {page}=state;await clickMenu(page,'theme');await page.getByTestId('lab-v2-theme-dark').click();await page.getByTestId('lab-v2-sheet-close').click()
   const results=[]
   for(const variant of ['baseline','literal-scoped','literal-global','selectable-ancestors','no-isolation','refresh-registry','text-boundaries']){
    await page.reload({waitUntil:'domcontentloaded'})
@@ -628,7 +633,7 @@ async function highlightRegression(engine,name){
       const record={id:'persisted-gold',bookId:fixture.book,editionKey:fixture.edition,chapterNumber:fixture.chapter,paragraphIndex:fixture.p,endParagraphIndex:fixture.p,fromWord:0,toWord:fixture.to,color:'gold',kept:true}
       state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter,{paragraphIndex:fixture.p,highlights:[record],deviceScaleFactor:2})
       const {page}=state
-      await clickMenu(page,'settings')
+      await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-dark').click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.reload({waitUntil:'domcontentloaded'})
@@ -689,7 +694,7 @@ async function mobileChromeRegression(engine,name){
     state=await boot(browser,true,'notes-from-underground','original-en')
     const {page}=state
     for(const theme of ['dark','book','light']){
-      await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-'+theme).click()
+      await clickMenu(page,'theme');await page.getByTestId('lab-v2-theme-'+theme).click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.getByTestId('lab-super').click()
       const panel=await page.getByTestId('lab-super-menu').boundingBox()
@@ -844,19 +849,24 @@ async function menuRedesign(engine,name,phone) {
     assert.equal(await page.locator('meta[name="tinct-social"][content="1"]').count(),socialProfiles?1:0,'tinct-social marker matches SOCIAL_PROFILES')
     const accountRow='Profile'
     // Desktop: Library lives in the icon-only back arrow at the top left.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Librarian','Summarize','Catch me up','Book editions','Settings','Library',accountRow]:['Librarian','Summarize','Catch me up','Book editions','Settings',accountRow])
-    // One Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button:
-    // the only way to the librarian since the chat pill went (2026-10-08).
-    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),1)
+    // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
+    // chapter (this is chapter 1); Text and theme and Reading settings in place of Book editions and Settings.
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Text and theme','Reading settings','Library',accountRow]:['Librarian','Summarize','Catch me up','Book editions','Settings',accountRow])
+    // Desktop: one Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button, the only way to the
+    // librarian since the chat pill went (2026-10-08). Phone: Chat and Talk are the two halves of one row.
+    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),phone?0:1)
     assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
+    if(phone)assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
+    if(phone)assert.equal((await page.getByTestId('lab-super-row-text').locator('.lab-super-row-icon').innerText()).trim(),'Aa')
     assert.equal(await page.locator('.lab-librarian-tab,[data-testid="lab-librarian-tab-band"],[data-testid="lab-chat-orb"]').count(),0,'no chat pill')
     assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)
     if(!phone)assert.equal((await page.getByTestId('lab-library-back').innerText()).trim(),'')
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)
     assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
-    await page.getByTestId('lab-super-row-editions').click()
+    await page.getByTestId(phone?'lab-super-row-reading':'lab-super-row-editions').click()
+    if(phone)assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Reading settings')
     await page.getByTestId('lab-v2-main-edition').click()
     const modern=page.locator('[data-edition="modern-en"]')
     assert.match(await modern.innerText(),/Tinct Modern English.*Easy.*AI-generated/s)
@@ -871,12 +881,23 @@ async function menuRedesign(engine,name,phone) {
     await page.getByTestId('lab-v2-sheet-back').click()
     await page.getByTestId('lab-v2-sheet-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place)
-    await clickMenu(page,'settings')
+    // Voice and speed: in Settings on the desktop (without the editions); on the phone in Reading settings,
+    // with the editions, and Text and theme holds the themes, size and Advanced settings without them.
+    await clickMenu(page,phone?'reading':'settings')
     await page.getByTestId('lab-v2-narration-voice').selectOption('male')
     await page.getByTestId('lab-v2-audio-speed').selectOption('1.25')
-    assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
+    assert.equal(await page.getByTestId('lab-v2-main-edition').count(),phone?1:0)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
+    if(phone){
+      await clickMenu(page,'text')
+      assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Text and theme')
+      assert.equal(await page.getByTestId('lab-v2-themes').count(),1)
+      assert.equal(await page.getByTestId('lab-v2-advanced').count(),1)
+      assert.equal(await page.getByTestId('lab-v2-narration-voice').count(),0)
+      assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
+      await page.getByTestId('lab-v2-sheet-close').click()
+    }
     await clickMenu(page,'summarize')
     // Summarize is a card of beats in its own sheet, not a chat answer.
     await page.getByTestId('lab-chapter-notes').getByText('A compact opening grounded in the chapter.').waitFor()

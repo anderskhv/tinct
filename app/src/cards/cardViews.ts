@@ -33,6 +33,7 @@ import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictu
 import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
+import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
 import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, dismissFindableNotice, findableNoticeDue, findableNoticeText } from '../social/findableNotice'
 import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
@@ -398,11 +399,29 @@ export function youCard(env: CardsEnv): CardSpec {
         env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
-      body.append(...[findableNotice(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
+      body.append(...[requestsGroup(env, card), findableNotice(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
       status = ''
       return [hero, body]
     },
   }
+}
+
+/**
+ * Follow requests waiting (20 Oct 2026): "Anna and 1 other want to be
+ * friends" at the top of the You card, opening Find readers, where Following
+ * you lists them with Follow back. Shown here, they count as seen on this
+ * device, so the dot on the reader's picture clears.
+ */
+function requestsGroup(env: CardsEnv, card: CardHandle): HTMLElement | null {
+  if (!env.social || !env.data.profile) return null
+  const rows = env.data.find?.followingYou
+  const pending = pendingRequests(rows)
+  const line = requestsLine(pending)
+  if (!line) return null
+  markRequestsSeen(env.session.userId, rows)
+  const node = row({ label: line, className: 'is-av', chevron: true, testid: 'you-requests', onClick: () => card.stack.push(findCard(env)) })
+  node.prepend(avatar(pending[0].picture, pending[0].name, env.session.token))
+  return group(node)
 }
 
 /**
@@ -764,6 +783,8 @@ export function findCard(env: CardsEnv): CardSpec {
   let results: FindRow[] | null = null
   let timer: ReturnType<typeof setTimeout> | null = null
   const relations = new Map<string, Relation>()
+  /** Requests removed here, hidden at once while Find readers is read again. */
+  const removed = new Set<string>()
   let status = ''
   return {
     id: 'find',
@@ -793,6 +814,24 @@ export function findCard(env: CardsEnv): CardSpec {
             card.refresh()
           } : null, `${testid}-button`)
           extra.push(btn)
+        }
+        // A request can also be declined: Remove (the profile page's Remove follower; they are not told).
+        if (relation === 'followed' && testid === 'following-you-row') {
+          const remove = el('button', {
+            type: 'button', className: 'tc-disc', html: ICONS.x, 'aria-label': CARDS_COPY.removeRequest, title: CARDS_COPY.removeRequest,
+            dataset: { testid: `${testid}-remove` }, style: { flex: 'none', marginLeft: '8px' },
+          }) as HTMLButtonElement
+          remove.addEventListener('click', async event => {
+            event.stopPropagation()
+            remove.disabled = true
+            const result = await socialAction(token, 'remove-follower', person.handle)
+            if (result.ok) {
+              removed.add(person.handle)
+              env.reloadFind()
+            } else status = CARDS_COPY.actionFailed
+            card.refresh()
+          })
+          extra.push(remove)
         }
         const node = row({ label: person.name, className: 'is-av', testid, onClick: () => card.stack.push(profileCard(env, person.handle, person.name, person.picture)), extra })
         node.prepend(avatar(person.picture, person.name, token))
@@ -828,9 +867,12 @@ export function findCard(env: CardsEnv): CardSpec {
       })
       const search = el('label', { className: 'tc-search', dataset: { testid: 'find-search' } }, el('span', { html: ICONS.search, style: { display: 'contents' } }), input)
 
-      if (data?.followingYou.length) {
+      const followingYou = (data?.followingYou ?? []).filter(person => !removed.has(person.handle))
+      // Listed here, the requests count as seen on this device (the dot on the reader's picture clears).
+      if (data) markRequestsSeen(env.session.userId, data.followingYou)
+      if (followingYou.length) {
         // Following you is where a follow request is accepted (by following back); the count says how many wait.
-        const waiting = followBackCount(data.followingYou.map(person => ({ relation: relations.get(person.handle) ?? person.relation })))
+        const waiting = followBackCount(followingYou.map(person => ({ relation: relations.get(person.handle) ?? person.relation })))
         const title = heading(CARDS_COPY.followingYou)
         if (waiting > 0) {
           title.append(el('span', {
@@ -838,7 +880,7 @@ export function findCard(env: CardsEnv): CardSpec {
             style: { display: 'inline-grid', verticalAlign: 'middle', minWidth: '18px', height: '18px', fontSize: '11px', padding: '0 5px', marginLeft: '6px' },
           }))
         }
-        browse.append(title, group(...data.followingYou.map(person => personRow(person, 'following-you-row')))!)
+        browse.append(title, group(...followingYou.map(person => personRow(person, 'following-you-row')))!)
       }
       if (data?.alsoReading.length) browse.append(heading(CARDS_COPY.readingYourBooks), group(...data.alsoReading.map(person => personRow(person, 'reader-row')))!)
       const link = data?.link ?? env.data.profile?.link ?? null

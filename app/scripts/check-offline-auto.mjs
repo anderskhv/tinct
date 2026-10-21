@@ -161,7 +161,9 @@ try {
         if (record) {
           // The manual row agrees: nothing to tap.
           await page.getByTestId('lab-super').click()
-          await page.getByTestId('lab-super-row-editions').click()
+          await page.getByTestId('lab-super-menu').waitFor()
+          // The phone's t menu (20 Oct 2026): Reading settings holds the editions, voice, speed and offline row; the desktop keeps Book editions.
+          await page.getByTestId((await page.getByTestId('lab-super-row-reading').count() ? 'lab-super-row-reading' : 'lab-super-row-editions')).click()
           const row = page.getByTestId('lab-v2-offline')
           await row.waitFor()
           assert.equal(await row.getAttribute('data-offline-state'), 'saved', 'the Book editions row says Available offline')
