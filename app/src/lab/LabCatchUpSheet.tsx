@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Section } from '../types'
-import { catchUpPlan, catchUpSeparateWorks, catchUpUnits, type CatchUpEntry } from '../catchUp'
+import { catchUpBeforePlace, catchUpPlan, catchUpSeparateWorks, catchUpUnits, type CatchUpEntry } from '../catchUp'
 import type { LabChapter } from './labSource'
 import { useReaderWindow } from './useReaderWindow'
 import { LabBalanceEmptyLine } from './LabAiUsageBar'
@@ -68,7 +68,8 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     chapters, chapterNumber, paragraphIndex, completed,
     currentParagraphs: paragraphs ?? null,
     separateWorks: catchUpSeparateWorks({ bookId, form }),
-  }))
+  // Never anything at or past the reader's chapter, whatever the plan says.
+  }).filter(entry => catchUpBeforePlace(entry, chapterNumber)))
   const keys = useMemo(() => entries.map(entry => entry.key), [entries])
   const [states, setStates] = useState<Record<string, EntryState>>(() => {
     const initial: Record<string, EntryState> = {}
@@ -138,7 +139,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
       if (!result.ok && catchUpShouldCoolDown(result.status)) setCoolUntil(Date.now() + CATCH_UP_COOLDOWN_MS)
       setStates(prev => ({
         ...prev,
-        [entry.key]: result.ok ? { state: 'ok', summary: result.summary } : result.empty ? { state: 'empty' }
+        [entry.key]: result.ok ? { state: 'ok', summary: result.summary } : result.empty || result.beyond ? { state: 'empty' }
           : result.allowanceUsed ? { state: 'error', allowanceUsed: true } : result.resting ? { state: 'error', resting: true } : { state: 'error' },
       }))
     })()
