@@ -5776,13 +5776,13 @@ document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() ==
    etc.) it should minimize"): on the page's text (a new selection still gets its bar), the empty margin, anywhere
    else. Folded, it is the card's folded form in its place with its leader line (or its mark), one click from open;
    nothing is deleted, and an answer still on its way keeps coming (runCard) and shows when it is opened again. Not
-   a click in the card, its follow-up line, the selection's bar or menus, a mark or another card (they open their
-   own), the top bar, a toast or a dialog. Chat (the whole file's) keeps its own panel and rules; the phone's bottom
+   a click in the card, its follow-up line, the selection's bar or menus, a mark, a unit's pills or another card
+   (they open their own: folding first moved the pills away under the pointer, so Quiz me after Recap did nothing), the top bar, a toast or a dialog. Chat (the whole file's) keeps its own panel and rules; the phone's bottom
    card closes as above. Escape folds it too (the keys, below). */
 document.addEventListener('pointerdown', e => {
   const mode = marginMode();
   if (!col.open || col.open === 'whole' || !mode || mode === 'phone' || e.button > 0) return;
-  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
+  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
   openCard(null);
 }, true);
 // "/" opens Chat (about the whole PDF), its field ready; Escape folds the open card (after the bar and its menus).
@@ -6091,13 +6091,15 @@ function closePrimer() {
 const togglePrimer = opts => (primer.open ? closePrimer() : openPrimer(undefined, opts));
 /** Draw the primer into `el` (the column's, the floating one, or the phone's card). */
 function drawPrimer(el, { sheet = false } = {}) {
-  const sig = JSON.stringify([primer.unit?.key, primer.data?.madeAt, primer.wait, primer.status, !!MP.P, state.labels ? 1 : 0, sheet]);
+  // The quiz row names its questions only once a quiz on the unit knows how many (they scale with its length).
+  const made = primer.unit ? unitQuiz(primer.unit) : null, quizCount = made?.data?.questions?.length ? quizTotal(made.data) : 0;
+  const sig = JSON.stringify([primer.unit?.key, primer.data?.madeAt, primer.wait, primer.status, !!MP.P, state.labels ? 1 : 0, sheet, quizCount]);
   if (el.dataset.sig === sig) return;
   el.dataset.sig = sig;
   // The focus stays on the primer while it is drawn again (made, Redo); from the keys it starts on its close.
   if (el.contains(document.activeElement)) primer.keyed = true;
   const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
-  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title', unit });
+  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title', unit, quizCount });
   if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
   else el.innerHTML = inner;
   if (primer.wait) el.querySelector('.mr-wait')?.append(waitDots());

@@ -386,7 +386,7 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 .mr-quiz-row small { font: 12px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; margin-left: 12px; }
 /* Redo: the footer's 11.5px word with a 28px target; the footer reaches 7px into the primer's
    padding so its words sit where the mockup's do. */
-.mr-primer__foot { min-height: 28px; align-items: center; margin-bottom: -7px; }
+.mr-primer__foot { min-height: 28px; align-items: center; margin-bottom: -7px; justify-content: flex-end; }
 .mr-primer__foot button { min-height: 28px; padding: 0 0 0 12px; }
 .mr-primer .mr-status { margin: 0; }
 /* Narrow windows: the trigger is a mark; the primer floats beside it, as a card from a mark does. */
