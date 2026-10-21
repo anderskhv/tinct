@@ -18,10 +18,11 @@ The brief asked for parallel translation subagents and an independent EN/DA revi
 |---|---|---|---|---|---|
 | alice-in-wonderland | `f318e93ff68189301a3d245b256892778c96047d` | `alice-in-wonderland-modern-da.json` | all pass (see gates file) | self-review done | content ready, independent review open |
 | wuthering-heights | `bebdbfa87ba6b859f49403b158ff2ef47f5ff0e3` | `wuthering-heights-modern-da.json` | all pass; ratios 1.047–1.135, whole book 1.101 | self-review done | content ready, independent review open |
+| sense-and-sensibility | `510996959db872b734c00802818b676d464f2594` | `sense-and-sensibility-modern-da.json` | all pass; ratios 1.019–1.108, whole book 1.063 | self-review done | content ready, independent review open |
 
 Files per book: `{book}-modern-da.json` (live shape: `chapters[{number,title,paragraphs}]`, `sections`), `{book}-SOURCE-HASH.txt`, `{book}-gates.md`, `{book}-review-log.md`.
 
-Source files verified unchanged between `e8b2703325` and origin/main `a99529b95c` (21 Oct 2026, 13:06 UTC) and again at origin/main `5f4da80b25` (14:31 UTC).
+Source files verified unchanged between `e8b2703325` and origin/main `a99529b95c` (21 Oct 2026, 13:06 UTC) and again at origin/main `5f4da80b25` (14:31 UTC) and `d57568f872` (15:42 UTC).
 
 Words-per-hour figures are wall clock for one agent writing in-conversation; they measure drafting speed, not reviewed quality, and should be read with the review deviation above.
 
@@ -31,6 +32,8 @@ Words-per-hour figures are wall clock for one agent writing in-conversation; the
 |---|---|---|---|---|---|
 | alice-in-wonderland | 23,566 | 12:39–13:04 (25 min) | 13:04–13:10 | ~56,000 | ~45,000 |
 | wuthering-heights | 109,647 | 13:08–14:26 (78 min) | 14:26–14:35 | ~84,000 | ~76,000 |
+| sense-and-sensibility | 106,113 | 14:36–15:40 (64 min) | 15:40–15:46 | ~99,000 | ~91,000 |
+| **all three** | **239,326** | **167 min** | **21 min** | **~86,000** | **~76,000** |
 
 ## Integration requirements (separate, assigned step)
 
