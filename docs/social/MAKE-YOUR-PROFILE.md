@@ -4,6 +4,8 @@ Asked for by Anders: every current reader is asked to make a profile, choose a p
 
 Status: concept for Anders. Nothing is built.
 
+**Anders, 21 Oct:** most of these screens exist already (sign-up's profile steps, Find readers, the Leaderboard card). The work is to chain them into one walk-through, the way a new reader would meet them, not to build new screens. The audience is every account that is not using Tinct now.
+
 ## Where things stand on main
 
 - Every account has a profile row that was created automatically (`auto_created`), set to Only me with the leaderboard off.
@@ -51,18 +53,17 @@ Status: concept for Anders. Nothing is built.
   - This answers the open GDPR point in `docs/social/invite/PRIVACY-DRAFT.md` §I the same way.
 - **Unconfirmed emails:** choosing Everyone sends the confirmation email, and the profile shows to Friends until the reader confirms. The leaderboard row shows on the Friends board meanwhile. Alternative: let finishing this flow count as confirmed for accounts that signed in recently with a working session. Anders decides.
 
-## Who counts as stale (the email list)
+## Who gets it
 
-- Signed up before 1 October 2026.
-- No reading time in the last 21 days.
-- Email consent given at sign-up (`EMAIL_CONSENT_TEXT`) or a paying or trial history.
-- Not unsubscribed, not internal or test.
+**Every account not using Tinct now:** no reading or listening time in the last 21 days, including accounts that never read at all. Internal and test accounts are left out, and so is anyone who unsubscribed.
 
-Send in two waves (half, then the rest two days later) so replies and errors can be read in between. Track sent → opened → flow started → profile created → 10 minutes read within 7 days → replied.
+**The email part is limited by consent.** The in-app card reaches everyone who comes back. The email may only go to accounts that ticked the sign-up email line (`EMAIL_CONSENT_TEXT`) or that paid or had a trial. EU soft opt-in for existing users is narrow, so emailing the rest is Anders's call.
+
+**Sending:** in two waves (half, then the rest two days later), so replies and errors can be read in between. Track sent → opened → flow started → profile created → 10 minutes read within 7 days → replied.
 
 ## What Coder would build (when approved)
 
-1. **The flow:** reuse sign-up steps 2 and 3 (`signUpSteps.ts`) as a four-step "Make your profile" page at `/profile/start`. Find friends comes from the Find readers API, plus a new "most read this week" list. The last step saves visibility and `on_leaderboard` together, with `set_up_at`, in one request.
+1. **The flow:** chain the screens that exist into one walk-through: sign-up step 2 (name, picture and who can see you, from `signUpSteps.ts`), Find readers (`cardViews.ts` `findCard`), then the Leaderboard card. Add the leaderboard switch on the visibility step and the most-read list in Find readers; nothing else is a new screen. Find friends comes from the Find readers API, plus a new "most read this week" list. The last step saves visibility and `on_leaderboard` together, with `set_up_at`, in one request.
 2. **The library card:** a campaign key per account (`profile_campaign_shown_at`, count), replacing the reliance on `prompted_at` for this campaign.
 3. **The come-back email:**
    - a one-off send route behind its own switch (`COMEBACK_EMAIL`, separate from lifecycle emails), using `sendEmail()` with Anders as the reply-to;
