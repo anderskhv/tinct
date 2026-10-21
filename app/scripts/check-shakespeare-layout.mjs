@@ -32,11 +32,15 @@ async function prepare(context) {
     let last = performance.now()
     setInterval(() => { const now = performance.now(); if (now - last > 500) keep(diag.stalls, { start: Math.round(last), ms: Math.round(now - last) }); last = now }, 250)
   })
-  await context.route('**/*', async route => {
+  // Live, the site's own pages and assets load untouched: passing every request
+  // through route.continue() once left a script pending past the 30 s goto
+  // timeout with the page idle (21 Oct 2026, deploy run 39673147646). Only what
+  // the check changes is intercepted: other origins, and /api (answered 404).
+  const intercept = url => !live || url.origin !== origin || url.pathname.startsWith('/api/')
+  await context.route(intercept, async route => {
     const url = new URL(route.request().url())
     if (url.origin !== origin || route.request().method() !== 'GET') return route.abort()
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
-    if (live) return route.continue()
     const file = path.resolve('dist', '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname))
     if (file.startsWith(path.resolve('dist') + '/')) try { if ((await fs.stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
     return route.abort()
