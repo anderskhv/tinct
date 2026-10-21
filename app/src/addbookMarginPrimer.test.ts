@@ -109,11 +109,12 @@ describe('the trigger and the primer’s markup', () => {
     div.innerHTML = M.html.triggerHtml({ key: 'all', title: '', from: 1, start: 1, to: 15 })
     expect(div.textContent).toBe('Before you startThe gist and a map of the whole PDF.')
   })
-  it('a primer stored before kinds still renders as it did: title and close, gist, numbered Key claims with cite tags, Keep in mind, Map rows, the quiz row, the footer', () => {
+  it('a primer stored before kinds still renders as it did: title with Minimise and the bin (21 Oct 2026, no ×), gist, numbered Key claims with cite tags, Keep in mind, Map rows, the quiz row, the footer', () => {
     const div = document.createElement('div')
     div.innerHTML = M.html.primerHtml(primer, { P, resolve: resolveCite })
-    expect(div.querySelector('h4')?.textContent).toBe('Before you start×')
-    expect(div.querySelector('.mr-primer__close')?.getAttribute('aria-label')).toBe('Close')
+    expect(div.querySelector('h4')?.textContent).toBe('Before you start')
+    expect(div.querySelector('.mr-primer__close')?.getAttribute('aria-label')).toBe('Minimise')
+    expect(div.querySelector('h4 .mr-primer__delete')?.getAttribute('data-c')).toBe('delete')
     expect([...div.querySelectorAll('.mr-primer__head')].map(h => h.textContent)).toEqual(['Key claims', 'Keep in mind', 'Map'])
     expect([...div.querySelectorAll('.mr-primer__claims li')].map(li => li.textContent)).toEqual(['1Variances add. p. 12', '2Stirling holds. p. 13', '3No page.'])
     expect([...div.querySelectorAll('.mr-primer__claims .mr-cite')].map(b => (b as HTMLElement).dataset.page)).toEqual(['12', '13'])

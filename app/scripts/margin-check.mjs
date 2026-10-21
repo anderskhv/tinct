@@ -418,6 +418,7 @@ function start(port) {
       // As the Worker: one stored primer per book and unit, the owner's only; `primer: null` when none (PR C); PUT validates and stamps.
       const key = p.slice('/api/user-books/primers/'.length) + '?' + url.searchParams.get('unit')
       if (req.method === 'GET') return json(res, 200, { primer: account.primers.get(key) || null })
+      if (req.method === 'DELETE') { account.primers.delete(key); return json(res, 200, { primer: null }) }
       const body = JSON.parse((await readBody(req)).toString() || '{}'), content = PRIMER_PARSE.normalizePrimer(body.primer)
       if (!content) return json(res, 400, { error: 'invalid_primer' })
       const primer = { ...content, madeAt: new Date().toISOString(), unitKey: url.searchParams.get('unit') }
@@ -2375,9 +2376,9 @@ async function polish(browser, origin) {
     const made = await a.evaluate(() => col.open)
     const field = await a.evaluate(() => { const f = openCardEl()?.querySelector('.mr-follow__input'); return { focused: document.activeElement === f, drawn: !!openCardEl()?.querySelector('.mr-caret') } })
     ok(`${tag}: an opened card's follow-up field has no caret until the reader focuses it`, made && !field.focused && !field.drawn, field)
-    // Since 19 Oct 2026 (as Gloss) the bin is in the action row under the answer, beside copy (the phone's card hides copy).
-    const del = await a.evaluate(() => { const el = openCardEl(), b = el?.querySelector('.mr-card__acts .mr-card__delete'), copy = el?.querySelector('.mr-card__acts .mr-card__copy'); const r = b?.getBoundingClientRect(), shown = copy && copy.getBoundingClientRect().width > 0; return b && { w: r.width, h: r.height, inFollow: !!el.querySelector('.mr-follow .mr-card__delete'), beside: shown ? copy.nextElementSibling === b && Math.abs(copy.getBoundingClientRect().top - r.top) < 2 : !!b.closest('.mr-sheet'), copyShown: !!shown } })
-    ok(`${tag}: the open card has a bin in its action row beside copy, a 28px target, none in the follow-up field`, del && del.w >= 27.5 && del.h >= 27.5 && del.beside && !del.inFollow, del)
+    // Since 21 Oct 2026 the bin is in the card's head, after Minimise (the phone's bottom card: its head alone).
+    const del = await a.evaluate(() => { const el = openCardEl(), b = el?.querySelector('.mr-card__label > .mr-card__delete'); const r = b?.getBoundingClientRect(); return b && { w: r.width, h: r.height, inFollow: !!el.querySelector('.mr-follow .mr-card__delete'), inHead: true, afterMinimise: b.previousElementSibling?.classList.contains('mr-card__close') || !!b.closest('.mr-sheet') } })
+    ok(`${tag}: the open card has a bin in its head after Minimise, a 28px target, none in the follow-up field`, del && del.w >= 27.5 && del.h >= 27.5 && del.afterMinimise && !del.inFollow, del)
     await a.click(phone ? '.mr-sheet .mr-card__delete' : `.mr-card.is-open .mr-card__delete`); await a.waitForTimeout(400)
     const gone = await a.evaluate(id => ({ open: col.open, shown: !!document.querySelector(`.mr-card[data-id="${id}"], .mr-sheet[data-id="${id}"]`), stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: document.querySelector('.mr-undo:not([hidden])')?.innerText.replace(/\s+/g, ' ').trim() }), made)
     ok(`${tag}: delete takes the card away at once (no confirm), leaves a tombstone, and says "Deleted · Undo"`, !gone.open && !gone.shown && gone.stored?.gone === true && gone.undo === 'Deleted · Undo', gone)
@@ -3737,8 +3738,8 @@ async function columnPage(browser, origin) {
     }, ids)
     const m0 = await measure()
     const field = await fieldLook(a, '.mr-doc .mr-card.is-open')
-    ok(`${tag}: the open card's follow-up field is visible without the focus (border, placeholder "Ask a follow-up", mic and send inside)`, field && !field.focused && field.border >= 1 && field.borderColor !== 'rgba(0, 0, 0, 0)' && field.placeholder === 'Ask a follow-up' && field.phShown && field.order === 'input,mic,send' && field.sendDisabled && field.phContrast >= 4.5, field)
-    ok(`${tag}: the open card's bin is in its action row beside copy`, await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), d = el?.querySelector('.mr-card__acts .mr-card__delete'); return !!d && d.previousElementSibling?.classList.contains('mr-card__copy') && !el.querySelector('.mr-follow .mr-card__delete') }))
+    ok(`${tag}: the open card's follow-up field is visible without the focus (border, placeholder "Ask a follow-up", mic and send inside)`, field && !field.focused && field.border >= 1 && field.borderColor !== 'rgba(0, 0, 0, 0)' && field.placeholder === 'Ask a follow-up' && field.phShown && field.order === 'input,mic,talk,send' && field.sendDisabled && field.phContrast >= 4.5, field)
+    ok(`${tag}: the open card's bin is in its head beside Minimise (21 Oct 2026)`, await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), d = el?.querySelector('.mr-card__label > .mr-card__delete'); return !!d && d.previousElementSibling?.classList.contains('mr-card__close') && !el.querySelector('.mr-follow .mr-card__delete') }))
     ok(`${tag}: 9. the cards are in the page's layer (they scroll with it), never fixed to the window`, m0.cards.every(c => c && c.inDoc && c.position === 'absolute'), m0.cards)
     ok(`${tag}: 9. the open card's passage is underlined in the accent`, m0.ul && m0.ul.bg === m0.ul.want, m0.ul)
     ok(`${tag}: 9. cards close together are pushed down: none overlaps the one before`, m0.cards.every((c, i) => !i || c.top >= m0.cards[i - 1].bottom - 0.5), m0.cards.map(c => [Math.round(c.top), Math.round(c.bottom)]))
@@ -3857,7 +3858,7 @@ function fieldLook(a, sel) {
     let bg = rgb(cs.backgroundColor); if (!bg || bg.a < 1) { const c = rgb(getComputedStyle(el).backgroundColor); bg = bg && c ? { r: bg.r * bg.a + c.r * (1 - bg.a), g: bg.g * bg.a + c.g * (1 - bg.a), b: bg.b * bg.a + c.b * (1 - bg.a), a: 1 } : c }
     let fg = rgb(ph.color); if (fg && bg && fg.a < 1) fg = { r: fg.r * fg.a + bg.r * (1 - fg.a), g: fg.g * fg.a + bg.g * (1 - fg.a), b: fg.b * fg.a + bg.b * (1 - fg.a), a: 1 }
     const L1 = fg && bg ? lum(fg) : 0, L2 = bg ? lum(bg) : 0
-    const order = [...box.querySelectorAll('.mr-follow__input, .mr-follow__mic, .mr-follow__send')].map(n => n.classList.contains('mr-follow__input') ? 'input' : n.classList.contains('mr-follow__mic') ? 'mic' : 'send').join(',')
+    const order = [...box.querySelectorAll('.mr-follow__input, .mr-follow__mic, .mr-follow__talk, .mr-follow__send')].map(n => n.classList.contains('mr-follow__input') ? 'input' : n.classList.contains('mr-follow__mic') ? 'mic' : n.classList.contains('mr-follow__talk') ? 'talk' : 'send').join(',')
     const mr = mic?.getBoundingClientRect(), sr = send.getBoundingClientRect()
     return {
       focused: document.activeElement === f, border: parseFloat(cs.borderTopWidth), borderColor: cs.borderTopColor, radius: parseFloat(cs.borderTopLeftRadius), w: r.width, h: r.height,
@@ -3883,15 +3884,16 @@ async function cardsGloss(browser, origin) {
     await selectText(a); await a.waitForSelector('.mr-float [data-m="simplify"]', { timeout: 5000 }).catch(() => {})
     await a.click('.mr-float [data-m="simplify"]').catch(() => {}); await a.waitForTimeout(1300)
     const host = phone ? '.mr-sheet' : '.mr-card.is-open'
-    const look = await a.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const close = el.querySelector('.mr-card__close'), del = el.querySelector('.mr-card__delete'), copy = el.querySelector('.mr-card__acts .mr-card__copy'), about = el.querySelector('.mr-card__about'); return { close: close && [close.getAttribute('aria-label'), close.textContent.trim(), !!close.querySelector('svg path')], delInFollow: !!del?.closest('.mr-follow'), besideCopy: !!del && !!copy && copy.nextElementSibling === del, inActs: !!el.querySelector('.mr-card__acts .mr-card__delete'), copy: !!copy, quote: !!el.querySelector('.mr-quote'), described: el.getAttribute('aria-describedby') && document.getElementById(el.getAttribute('aria-describedby'))?.textContent.length > 5, bold: el.querySelectorAll('.mr-answer .is-bottom-line').length, answer: el.querySelector('.mr-answer')?.textContent.trim() } }, host)
+    const look = await a.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const close = el.querySelector('.mr-card__close'), del = el.querySelector('.mr-card__delete'), copy = el.querySelector('.mr-card__acts .mr-card__copy'), about = el.querySelector('.mr-card__about'); return { close: close && [close.getAttribute('aria-label'), close.textContent.trim(), !!close.querySelector('svg path')], delInFollow: !!del?.closest('.mr-follow'), besideCopy: !!del && !!copy && copy.nextElementSibling === del, inActs: !!el.querySelector('.mr-card__acts .mr-card__delete'), inHead: !!el.querySelector('.mr-card__label > .mr-card__delete'), copy: !!copy, quote: !!el.querySelector('.mr-quote'), described: el.getAttribute('aria-describedby') && document.getElementById(el.getAttribute('aria-describedby'))?.textContent.length > 5, bold: el.querySelectorAll('.mr-answer .is-bottom-line').length, answer: el.querySelector('.mr-answer')?.textContent.trim() } }, host)
     // The phone's bottom card has no minimise (20 Oct 2026): a drag down or a tap outside it closes it.
     if (phone) ok(`${tag}: 13. the phone's bottom card has no minimise`, look && !look.close, look)
     else ok(`${tag}: 13. the top-right control is "Minimise", one line, no ×`, look && look.close?.[0] === 'Minimise' && look.close[1] === '' && look.close[2], look)
-    ok(`${tag}: 13. the bin is in the action row under the answer, beside copy; none in the follow-up field`, look && look.inActs && look.besideCopy && !look.delInFollow && look.copy, look)
+    // Since 21 Oct 2026 the bin is in the head beside Minimise (every card the same); copy stays under the answer.
+    ok(`${tag}: 13. the bin is in the head; copy under the answer; none in the follow-up field`, look && !look.inActs && look.inHead && !look.delInFollow && look.copy, look)
     // The follow-up field (Anders, 19 Oct 2026: "it's too hidden that this is indeed a chat field"): seen without focusing it.
     const field = await fieldLook(a, host)
     ok(`${tag}: the follow-up field is visible without the focus: a non-zero border, rounded, the placeholder "Ask a follow-up"`, field && !field.focused && field.border >= 1 && field.borderColor !== 'rgba(0, 0, 0, 0)' && field.radius >= 8 && field.placeholder === 'Ask a follow-up' && field.phShown && field.w > 150 && field.h >= 36, field)
-    ok(`${tag}: the mic is inside the field on its right, then send (an up-arrow in a filled square, off while empty)`, field && field.micInside && field.order === 'input,mic,send' && field.sendDisabled && field.sendFill !== 'rgba(0, 0, 0, 0)' && field.sendOpacity < 0.6 && field.arrow && field.sendW >= 27.5, field)
+    ok(`${tag}: the mic is inside the field on its right, then Talk, then send (an up-arrow in a filled square, off while empty)`, field && field.micInside && field.order === 'input,mic,talk,send' && field.sendDisabled && field.sendFill !== 'rgba(0, 0, 0, 0)' && field.sendOpacity < 0.6 && field.arrow && field.sendW >= 27.5, field)
     ok(`${tag}: the placeholder is legible on the field (at least 4.5:1)`, field && field.phContrast >= 4.5, field && { ph: field.phColor, bg: field.bg, ratio: field.phContrast })
     // Typing turns send on; the button sends as Enter does (and the field empties).
     mock.next = 'MOCK FOLLOW-UP. A short reply.'
@@ -3923,7 +3925,7 @@ async function cardsGloss(browser, origin) {
     ok(`${tag}: 13. ${phone ? 'a tap outside closes the card' : 'Minimise folds the card'}; its answer is kept`, !folded.open && folded.kept, folded)
     // The bin deletes it and its saved answer (Undo offered).
     await a.evaluate(id => openCard(id), id); await a.waitForTimeout(400)
-    await a.click(`${host} .mr-card__acts .mr-card__delete`); await a.waitForTimeout(400)
+    await a.click(`${host} .mr-card__label .mr-card__delete`); await a.waitForTimeout(400)
     const gone = await a.evaluate(id => ({ open: col.open, stored: (store.get('cards:' + state.key) || []).find(c => c.id === id), undo: !!document.querySelector('.mr-undo:not([hidden])'), shown: !!document.querySelector(`.mr-card[data-id="${id}"]`) }), id)
     ok(`${tag}: 13. the bin in the action row deletes the card and its saved answer (Undo offered)`, !gone.open && gone.stored?.gone === true && !gone.stored.turns?.length && gone.undo && !gone.shown, gone)
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
@@ -5530,6 +5532,92 @@ async function deskPolishCheck(browser, origin) {
   }
   return results
 }
+/* cards-round2 (Anders, 21 Oct 2026): every margin card is as tall as what it holds (its follow-up row directly under
+   the last line, no empty band); every pill card (Primer, Catch me up, Recap, Quiz me's end) and every passage card ends
+   with the same follow-up field (mic, Talk, send) and no copy row; every card's head has minimise (–) and delete (bin),
+   no ×; a click outside a card (the Primer too) minimises it and loses nothing; the unit's pills sit 8px apart. */
+async function cardsRound2(browser, origin) {
+  const results = [], ok = okList(results)
+  const hex = addBook(SECTION_PAPER)
+  account.marks.clear(); account.cards.clear(); account.primers.clear()
+  const A = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
+  const a = A.page
+  await prefetchSettled(a)
+  await a.waitForFunction(() => primer.units?.length > 1, null, { timeout: 15000 }).catch(() => {})
+  const units = await a.evaluate(() => primer.units.map(u => ({ key: u.key })))
+  const shape = sel => a.evaluate(sel => {
+    const el = document.querySelector(sel); if (!el) return null
+    const r = el.getBoundingClientRect(), follow = el.querySelector('.mr-follow.has-field')
+    const lines = [...el.querySelectorAll('p, li, .mr-question, .mr-you, .mr-answer, .mr-map__row, .mr-status')].filter(x => !x.closest('.mr-follow') && x.getBoundingClientRect().height > 0).map(x => x.getBoundingClientRect().bottom)
+    const head = el.querySelector('.mr-card__label, .mr-primer__title')
+    return {
+      height: Math.round(r.height), gap: follow && lines.length ? Math.round(follow.getBoundingClientRect().top - Math.max(...lines)) : null,
+      mic: !!follow?.querySelector('[data-c="mic"]'), talk: !!follow?.querySelector('[data-c="talk"]'), send: !!follow?.querySelector('[data-c="send"]'),
+      copy: el.querySelectorAll('[data-c="copy"]').length, x: [...el.querySelectorAll('button')].filter(b => b.textContent.trim() === '×').length,
+      minimise: !!head?.querySelector('[data-c="close"][aria-label="Minimise"]'), bin: !!head?.querySelector('[data-c="delete"]'),
+      after: follow ? Math.round(r.bottom - follow.getBoundingClientRect().bottom) : null,
+    }
+  }, sel)
+  const fieldRow = s => !!s && s.mic && s.talk && s.send && s.copy === 0 && s.x === 0 && s.minimise && s.bin
+  const outside = async () => { await a.mouse.click(300, 450); await a.waitForTimeout(400) }
+  // The pills: 8px apart.
+  await a.evaluate(() => goTo({ page: 4, frac: 0.25 })); await a.waitForTimeout(900)
+  const gaps = await a.evaluate(k => { const m = document.querySelector(`.mr-doc .mr-unit.is-end[data-unit="${k}"]`); const spans = [...m.querySelectorAll('.mr-pill > span')].map(s => s.getBoundingClientRect()); return { gaps: spans.slice(1).map((b, i) => Math.round(b.left - spans[i].right)), heights: [...m.querySelectorAll('.mr-pill')].map(b => Math.round(b.getBoundingClientRect().height)) } }, units[0].key)
+  ok(`pills sit 8px apart (${gaps.gaps.join(', ')})`, gaps.gaps.length >= 2 && gaps.gaps.every(g => g >= 7.5 && g <= 8.5), gaps)
+  // Recap: a card as tall as its answer, the field under it, minimise and bin in its head, no copy.
+  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="recap"]`); await a.waitForTimeout(1500)
+  let s = await shape('.mr-doc .mr-card.is-open')
+  ok(`Recap: as tall as its answer (${s?.height}px, ${s?.gap}px to the field), the field with mic, Talk and send, minimise and bin in its head, no copy, no ×`, fieldRow(s) && s.gap <= 24, s)
+  await shot(a, 'cards-round2-recap-1440x900')
+  await outside()
+  ok('Recap: a click outside minimises it, its answer kept', await a.evaluate(() => !document.querySelector('.mr-doc .mr-card.is-open') && keptCards().some(c => c.data?.pill === 'recap' && (c.turns || []).some(t => t.role === 'assistant'))))
+  // A follow-up from the Recap card is answered in it.
+  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="recap"]`); await a.waitForTimeout(800)
+  await a.fill('.mr-doc .mr-card.is-open .mr-follow__input', 'Why does it matter?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
+  ok('Recap: a follow-up is answered in the card', await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); return !!el && /Why does it matter\?/.test(el.innerText) && el.querySelectorAll('.mr-answer').length >= 2 }))
+  // Talk from the card: the companion's Chat card with Talk on.
+  await a.click('.mr-doc .mr-card.is-open [data-c="talk"]'); await a.waitForTimeout(800)
+  ok('Recap: Talk in the field opens Chat with Talk on', await a.evaluate(() => chat.talk === true))
+  await a.evaluate(() => { setTalk(false); openCard(null) }); await a.waitForTimeout(300)
+  // Catch me up.
+  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="catchup"]`); await a.waitForTimeout(1500)
+  s = await shape('.mr-doc .mr-card.is-open')
+  ok(`Catch me up: as tall as its answer (${s?.height}px, ${s?.gap}px), the field, minimise and bin, no copy, no ×`, fieldRow(s) && s.gap <= 24, s)
+  await outside()
+  // Primer: sized to its content, the field, minimise and bin; a click outside minimises it.
+  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(900)
+  s = await shape('.mr-doc .mr-primer')
+  ok(`Primer: as tall as its content (${s?.height}px, ${s?.after}px under its field), the field with mic, Talk and send, minimise and bin, no ×`, fieldRow(s) && s.after !== null && s.after <= 30, s)
+  await shot(a, 'cards-round2-primer-1440x900')
+  await a.fill('.mr-doc .mr-primer .mr-follow__input', 'What should I watch for?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
+  ok('Primer: a follow-up opens Chat with the question and the primer kept', await a.evaluate(() => chat.turns.some(t => t.role === 'user' && /What should I watch for\?/.test(t.content || t.text || ''))), await a.evaluate(() => chat.turns.slice(-3)))
+  await a.evaluate(() => openCard(null)); await a.waitForTimeout(300)
+  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(600)
+  await outside()
+  ok('Primer: a click outside minimises it (folded to its pill), the primer kept', await a.evaluate(() => !document.querySelector('.mr-doc .mr-primer') && !!primer.data))
+  // The Primer's bin: it goes from here and from the account; Undo brings it back.
+  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(600)
+  const storedBefore = account.primers.size
+  await a.click('.mr-doc .mr-primer [data-c="delete"]'); await a.waitForTimeout(500)
+  const binned = await a.evaluate(() => ({ open: !!document.querySelector('.mr-doc .mr-primer'), kept: !!store.get(primerKey(primer.units[1])), undo: !!document.querySelector('.mr-undo') }))
+  ok('Primer: the bin removes it here and from the account, with Undo', !binned.open && !binned.kept && binned.undo && account.primers.size === storedBefore - 1, { ...binned, storedBefore, now: account.primers.size })
+  await a.click('.mr-undo [data-u="undo"]'); await a.waitForTimeout(600)
+  ok('Primer: Undo puts it back', await a.evaluate(() => !!store.get(primerKey(primer.units[1]))) && account.primers.size === storedBefore)
+  // Quiz me's end: the field under the score.
+  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="quiz"]`); await a.waitForTimeout(1500)
+  for (let i = 0; i < 6; i++) {
+    const step = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); const b = el?.querySelector('[data-c="show"], [data-c="next"]'); if (!b) return null; b.click(); return b.dataset.c })
+    if (!step) break
+    await a.waitForTimeout(400)
+  }
+  s = await shape('.mr-doc .mr-card.is-open')
+  ok(`Quiz me's end: the field (mic, Talk, send) under the score (${s?.gap}px), minimise and bin`, fieldRow(s) && s.gap <= 24 && await a.evaluate(() => !!document.querySelector('.mr-doc .mr-card.is-open [data-c="again"]')), s)
+  await shot(a, 'cards-round2-quiz-end-1440x900')
+  await outside()
+  ok('no page errors', !A.problems.length, A.problems)
+  await A.ctx.close()
+  return results
+}
 function lum255(c) { const v = String(c).match(/[\d.]+/g)?.slice(0, 3).map(Number) || [0, 0, 0]; return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2] }
 
 const RUNS = {
@@ -5576,6 +5664,7 @@ const RUNS = {
   'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
   'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
   'unit-marks': [unitMarks, rows => rows.some(r => !r.pass)],
+  'cards-round2': [cardsRound2, rows => rows.some(r => !r.pass)],
   'table-crop': [tableCrop, rows => rows.some(r => !r.pass)],
   notebook: [notebookCheck, rows => rows.some(r => !r.pass)],
   'epub-view': [epubViewCheck, rows => rows.some(r => !r.pass)],
@@ -5643,7 +5732,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

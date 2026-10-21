@@ -819,17 +819,21 @@
     minimise: svg('<path d="M4.5 9h9"/>'),
     // Send: the selection bar's up-arrow, in the same stroke (Anders, 19 Oct 2026, as Gloss's follow-up field).
     send: ICONS.up,
+    // Talk: the reader's "ılı" bars (src/lab/LabReaderIcons.tsx TalkIcon), filled (21 Oct 2026).
+    talk: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="is-filled"><rect x="4.2" y="9" width="2.6" height="6" rx="1.1"/><rect x="10.7" y="5" width="2.6" height="14" rx="1.1"/><rect x="17.2" y="8" width="2.6" height="8" rx="1.1"/></svg>',
   };
   /**
    * The follow-up line: a rounded, bordered field that is always visible, with its placeholder ("Ask a follow-up"),
    * the mic inside it on the right and then the send button, an up-arrow that is enabled once there is text (Anders,
    * 19 Oct 2026: "it's too hidden that this is indeed a chat field. Gloss does better"). Enter sends, as before; the
    * caret shows only when the field has the focus (15 Oct). An optional link ("Show answer") goes under the field.
-   * A card's bin is in its action row under the answer, beside copy (cardHtml), not here.
+   * A card's bin is in its head, beside minimise (cardHtml), not here. Talk (21 Oct 2026: every card's field has it,
+   * as the phone's) starts Chat with Talk on about what the card shows; a quiz's answer field has none (`talk: false`).
    */
-  function followHtml({ link = '', field = true, label = 'Follow up', placeholder = 'Ask a follow-up' } = {}) {
+  function followHtml({ link = '', field = true, label = 'Follow up', placeholder = 'Ask a follow-up', talk = true } = {}) {
     if (!field && !link) return '';
-    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}" spellcheck="false" autocorrect="off" autocomplete="off"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
+    const talkBtn = talk ? `<button type="button" class="mr-follow__talk" data-c="talk" aria-label="Talk about this">${CARD_ICONS.talk}</button>` : '';
+    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}" spellcheck="false" autocorrect="off" autocomplete="off"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>${talkBtn}<button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
     return `<div class="mr-follow${field ? ' has-field' : ''}">${box}${link}</div>`;
   }
   /**
@@ -846,25 +850,28 @@
     // "x of n": n is the quiz's real number of questions, one per key idea (known as soon as the ideas have streamed).
     const total = !o.writing ? q.questions?.length : q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : 0;
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1}${total ? ` of ${total}` : ''}</span>` : '';
-    // Its top-right control minimises it (folds it, as a click outside does). The phone's bottom card has none (Anders,
-    // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet).
-    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}${o.sheet ? '' : `<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button>`}</div>`;
+    // Its top-right controls: minimise (folds it, as a click outside does) and the bin (Anders, 21 Oct 2026: the same two
+    // on every margin card, the pill cards and Before you start too). The phone's bottom card has no minimise (Anders,
+    // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet). A note being written has no bin yet.
+    const bin = card.kind === 'note' && card.free && card.draft ? '' : deleteHtml(card);
+    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}${o.sheet ? '' : `<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button>`}${bin}</div>`;
     // The phone's card quotes its passage (Ask and a note, before anything is written in them).
     const quote = o.sheet && card.text ? `<div class="mr-quote">“${esc(cut(String(card.text).trim().replace(/^["“‘']+|["”’']+$/g, '')))}”</div>` : '';
     // The phone's Ask (reader.js phoneAsk): the passage and an empty field, the question not yet sent.
-    if (card.asking) return head + `<div class="mr-card__body">${quote}<div class="mr-card__acts">${deleteHtml(card)}</div></div>` + followHtml({ placeholder: 'Ask…', label: 'Ask about this passage' });
-    // The action row under the answer, as Gloss's: copy, once there is something to copy, then the bin (Anders,
-    // 19 Oct 2026: the bin moved out of the follow-up line into this row). There is no regenerate action for a card.
-    const acts = withCopy => `<div class="mr-card__acts">${withCopy ? `<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button>` : ''}${deleteHtml(card)}</div>`;
+    if (card.asking) return head + `<div class="mr-card__body">${quote}</div>` + followHtml({ placeholder: 'Ask…', label: 'Ask about this passage' });
+    // The action row under a passage card's answer, as Gloss's: copy, once there is something to copy (the bin is in
+    // the head). A pill card (Recap, Catch me up) has none: its follow-up field is its only row (21 Oct 2026).
+    const acts = withCopy => (withCopy && !q.pill ? `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>` : '');
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
       let body = '', foot = '';
       if (!qs.length) body = status;
       else if (q.done) {
-        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit.
+        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit;
+        // the follow-up field under the score, as every card ends (21 Oct 2026): a question about the quiz goes to Chat.
         body = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
-        foot = followHtml({ field: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
+        foot = followHtml({ link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
       } else if (!qs[q.i || 0]) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
@@ -885,13 +892,13 @@
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
           const last = i + 1 >= qs.length && (q.ended || !o.writing || i + 1 >= (q.ideas?.length || Infinity));
           // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
-          foot = followHtml({ field: o.pending == null && quizCanReply(r), link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          foot = followHtml({ field: o.pending == null && quizCanReply(r), talk: false, label: 'Your reply', link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
-        else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
+        else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', talk: false, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
-      // A quiz has nothing to copy; its action row holds the bin, unless an answer is being marked.
-      return head + `<div class="mr-card__body">${body}${o.pending != null ? '' : acts(false)}</div>` + foot;
+      // A quiz has nothing to copy and no action row (its bin is in the head).
+      return head + `<div class="mr-card__body">${body}</div>` + foot;
     }
     // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
     // Anders, 19 Oct 2026, night: on the wide column the figure is right beside its card (the leader line joins them), so
@@ -905,11 +912,11 @@
     // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
     // The phone's note on a passage (reader.js phoneNote): the passage, its note in a field, the bin.
     if (card.kind === 'note' && !card.free && o.sheet) {
-      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea><div class="mr-card__acts">${deleteHtml(card)}</div></div>`;
+      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea></div>`;
     }
     if (card.kind === 'note' && card.free) {
       const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
-      return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button>${card.draft ? '' : deleteHtml(card)}</div></div>`;
+      return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button></div></div>`;
     }
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
@@ -1382,7 +1389,8 @@
    *      unit (the unit's name, "Chapter 1: Introduction to Information Theory", shown under the title) }.
    */
   function primerHtml(p, o = {}) {
-    const close = o.close === false ? '' : '<button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Close">×</button>';
+    // Minimise (folds it back to its pill, nothing lost) and the bin, as every margin card's head (Anders, 21 Oct 2026: no ×).
+    const close = o.close === false ? '' : `<span class="mr-primer__ctl"><button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button><button type="button" class="mr-card__delete mr-primer__delete" data-c="delete" aria-label="Delete">${CARD_ICONS.trash}</button></span>`;
     const head = `<h4 class="mr-primer__title"${o.id ? ` id="${esc(o.id)}"` : ''}>Before you start${close}</h4>`;
     if (!p) {
       if (o.wait) return head + '<p class="mr-status mr-wait" role="status"></p>';

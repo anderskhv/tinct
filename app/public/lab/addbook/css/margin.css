@@ -667,3 +667,21 @@ html[data-eink="true"] .mr-unit .mr-pill, html[data-pdf-theme="eink"] .mr-unit .
 .mr-card__body > .mr-card__acts:last-child { padding-bottom: 3px; }
 /* A quiz card's answer bubble and feedback are set as its question (Anders, 20 Oct 2026: the bubble was smaller). */
 :is(.mr-card, .mr-sheet):has(.mr-question) :is(.mr-you, .mr-answer) { font-family: inherit; font-size: 18px; line-height: 1.45; }
+
+/* ---------- Cards, round 2 (Anders, 21 Oct 2026) ----------
+   Every card's head: minimise, then the bin (28px targets round 14px icons); Before you start's too, in place of its ×.
+   Every follow-up field: the mic, Talk (the reader's filled bars) and send. Before you start is as tall as what it
+   holds in the column, ending with the field. */
+.mr-card__label > .mr-card__delete { flex: none; min-width: 28px; min-height: 28px; display: grid; place-items: center; color: var(--mr-faint); }
+.mr-card__close + .mr-card__delete { margin-left: 0; }
+.mr-card__name + .mr-card__delete, .mr-card__count + .mr-card__delete { margin-left: auto; }
+.mr-card__label > .mr-card__delete svg, .mr-primer__ctl svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mr-primer__ctl { display: inline-flex; align-items: center; margin: -1px 0 -1px auto; color: var(--mr-faint); }
+.mr-primer__ctl button { min-width: 28px; min-height: 28px; display: grid; place-items: center; }
+.mr-primer .mr-primer__ctl .mr-primer__close { margin: 0; }
+.mr-follow__talk { flex: none; position: relative; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; background: none; color: var(--mr-muted); cursor: pointer; --mr-min: 28px; }
+.mr-follow .mr-follow__talk svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+.mr-follow__talk:hover { color: var(--mr-ink); }
+.mr-col:not(.mr-doc) .mr-primer { bottom: auto; max-height: calc(100% - 86px); }
+.mr-primer > .mr-follow { margin-top: 0; }
+:where(.mr-card__delete) { --mr-min: 28px; }

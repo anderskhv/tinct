@@ -3742,7 +3742,7 @@ const dictation = {
   field() {
     const t = this.target; if (!t) return null;
     if (t.bar) return mr?.el?.querySelector('.mr-ask') || null;
-    for (const host of document.querySelectorAll(`.mr-card[data-id="${CSS.escape(t.card)}"], .mr-sheet[data-id="${CSS.escape(t.card)}"]`)) { const f = host.querySelector('.mr-follow__input'); if (f) return f }
+    for (const host of document.querySelectorAll(`.mr-card[data-id="${CSS.escape(t.card)}"], .mr-sheet[data-id="${CSS.escape(t.card)}"], .mr-primer[data-id="${CSS.escape(t.card)}"]`)) { const f = host.querySelector('.mr-follow__input'); if (f) return f }
     return null;
   },
   set(state, notice = this.notice) {
@@ -5130,6 +5130,7 @@ function bindCardEvents(host) {
       const c = pb.dataset.c;
       if (c === 'close') { if (host === col.sheet) closeSheet2(); else closePrimer(); return }
       if (c === 'redo') { if (primer.unit) loadPrimer(primer.unit, { redo: true }); return }
+      if (c === 'delete') return deletePrimer();
       if (c === 'quiz') return quizUnit();
       if (pb.classList.contains('mr-trigger')) return openPrimer(triggerUnit() || currentUnit());
     }
@@ -5150,6 +5151,7 @@ function bindCardEvents(host) {
     if (c === 'mic') { const cid = b.closest('[data-id]')?.dataset.id; if (cid && b.closest('.mr-follow')?.querySelector('.mr-follow__input')) dictation.toggle({ card: cid }); return }
     if (c === 'send') { const f = b.closest('.mr-follow')?.querySelector('.mr-follow__input'); if (f) sendFollow(f); return }
     if (c === 'copy') return copyCard(id);
+    if (c === 'talk') return talkAbout(id);
     if (c === 'note-ask') return noteAsk(id);
     if (c === 'delete') return deleteCard(id);
     if (c === 'show' || c === 'next' || c === 'again') return quizStep(id, c);
@@ -5205,6 +5207,8 @@ function fitFollow(t) {
 }
 function followUp(id, text) {
   if (id === 'whole') { openWhole({ quiet: true }); ask(text); return }
+  // Before you start, and a quiz once it is done (21 Oct 2026): the question goes to Chat, with what the card showed kept first.
+  if (id === 'primer') return chatAbout(primerShown(), { question: text });
   // The phone's Ask (phoneAsk): its first question makes it a kept card, answered in its place.
   if (col.draft?.id === id && col.draft.asking) {
     const now = Date.now(), { draft: _d, asking: _a, ...rest } = col.draft;
@@ -5215,7 +5219,7 @@ function followUp(id, text) {
     return;
   }
   const card = cardById(id); if (!card) return;
-  if (card.kind === 'quiz') return quizCheck(card, text);
+  if (card.kind === 'quiz') return card.data?.done ? chatAbout(cardShown(card), { question: text }) : quizCheck(card, text);
   if (card.kind === 'note' || id.startsWith('n-')) {
     // A follow-up on a note asks about its passage: an Ask card for it.
     const v = viewCards().find(c => c.id === id); if (!v) return;
@@ -5225,6 +5229,70 @@ function followUp(id, text) {
   card.turns = [...(card.turns || []), { role: 'user', content: text, at: Date.now() }];
   holds.set(card.id, { turn: card.turns.length - 1, place: true });
   saveCard(card); runCard(card.id, text);
+}
+/*
+ * Talk and a question about a card that is not answered in the card (Before you start, a quiz's end): Chat about the
+ * whole file, with what the card showed kept in its thread first, once (Anders, 21 Oct 2026: every card's field has
+ * the mic and Talk). Talk turns Chat's Talk on (answers read aloud) and opens it; nothing on the page moves.
+ */
+const chatKept = new Set();
+function chatAbout(shown, { question = '', talk = false } = {}) {
+  loadTurns();
+  if (shown?.text && !chatKept.has(shown.key)) {
+    chatKept.add(shown.key);
+    const at = Date.now();
+    chat.turns.push({ role: 'user', content: shown.label, at }, { role: 'assistant', content: shown.text, at });
+    saveTurns();
+  }
+  if (talk) setTalk(true);
+  openWhole(question ? { quiet: true } : {});
+  if (question) ask(question);
+}
+/** What a card shows, as Chat keeps it: its name and its latest answer (a quiz: its questions, answers and marks). */
+function cardShown(card) {
+  if (!card) return null;
+  const label = cardName(card);
+  if (card.kind === 'quiz') {
+    const q = card.data || {};
+    const text = (q.questions || []).map((item, i) => { const r = (q.results || [])[i]; return `${i + 1}. ${item.q}\nExpected: ${item.answer}${item.why ? ' ' + item.why : ''}\nReader: ${!r ? 'not answered' : r.shown ? 'answer shown' : (r.verdict || '') + (r.feedback ? '. ' + r.feedback : '')}` }).join('\n\n');
+    return { key: `${card.id}:${(q.results || []).length}`, label, text: text ? `${TinctMargin.quizLine(q)}\n\n${text}` : '' };
+  }
+  const turns = (card.turns || []).filter(t => t.role !== 'user');
+  const text = String(turns[turns.length - 1]?.content || card.note || '').trim();
+  return { key: `${card.id}:${(card.turns || []).length}`, label: card.text ? `${label}: “${String(card.text).slice(0, 300)}”` : label, text };
+}
+/** Before you start as Chat keeps it: its gist and sections, as plain lines. */
+function primerShown() {
+  const p = primer.data; if (!p) return null;
+  const sections = TinctMargin.html.primerSections(p).map(sec => `${sec.title}\n${sec.items.map(it => '- ' + (it.term ? `${it.term} — ${it.meaning}` : it.text)).join('\n')}`).join('\n\n');
+  const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
+  return { key: `primer:${primer.unit?.key}:${p.madeAt || ''}`, label: `Before you start${unit ? ' · ' + unit : ''}`, text: `${p.gist || ''}\n\n${sections}`.trim() };
+}
+/** Talk in a card's field: Chat with Talk on, about what the card shows (the whole file's Chat: Talk on there). */
+function talkAbout(id) {
+  dictation.stop();
+  if (id === 'whole') { setTalk(true); return openWhole() }
+  chatAbout(id === 'primer' ? primerShown() : cardShown(cardById(id)), { talk: true });
+}
+/**
+ * Before you start's bin (Anders, 21 Oct 2026: the same head as every card): it goes from here and from the account,
+ * folded back to its pill; Undo puts it back for a few seconds. Opened again, it is made again.
+ */
+function deletePrimer() {
+  const unit = primer.unit; if (!unit) return;
+  // The Undo line stands where the primer opened: its unit's first page, near its top ([page, x, y, w, h] as firstRect).
+  const before = primer.data, key = primerKey(unit), rect = [unit.start || unit.from, 0, 0.05, 0, 0];
+  closePrimer();
+  store.del(key);
+  primer.data = null;
+  if (primerUsable()) primerRemote('DELETE', unit);
+  if (before) showUndo(rect, () => {
+    store.set(key, before);
+    primerRemote('PUT', unit, before).then(put => { if (put) store.set(key, put) });
+    marginLayout({ fresh: true });
+  });
+  marginLayout({ fresh: true });
+  announce('Deleted.');
 }
 async function copyCard(id) {
   const card = id === 'whole' ? null : viewCards().find(c => c.id === id);
@@ -5781,6 +5849,8 @@ document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() ==
    card closes as above. Escape folds it too (the keys, below). */
 document.addEventListener('pointerdown', e => {
   const mode = marginMode();
+  // Before you start folds back to its pill the same way (Anders, 21 Oct 2026); it is kept, one click from open.
+  if (primer.open && mode && mode !== 'phone' && e.button <= 0 && !e.target.closest?.('.mr-primer, .mr-pill, .mr-mark, .mr-trigger, .mr-card, .mr-float, .mr-more, .mr-pmore, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) closePrimer();
   if (!col.open || col.open === 'whole' || !mode || mode === 'phone' || e.button > 0) return;
   if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
   openCard(null);
@@ -6097,8 +6167,10 @@ function drawPrimer(el, { sheet = false } = {}) {
   // The focus stays on the primer while it is drawn again (made, Redo); from the keys it starts on its close.
   if (el.contains(document.activeElement)) primer.keyed = true;
   const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
-  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title', unit });
-  if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
+  // Made, it ends with the follow-up field, as every card does (21 Oct 2026): a question goes to Chat with it kept.
+  const inner = TinctMargin.html.primerHtml(primer.data, { P: MP.P, resolve: citeResolve, wait: primer.wait, status: primer.status, id: 'mr-primer-title', unit })
+    + (primer.data ? TinctMargin.html.followHtml() : '');
+  if (sheet) el.innerHTML = TinctMargin.html.sheetHtml(`<div class="mr-primer" data-id="primer" role="region" aria-labelledby="mr-primer-title">${inner}</div>`);
   else el.innerHTML = inner;
   if (primer.wait) el.querySelector('.mr-wait')?.append(waitDots());
   if (primer.keyed) { primer.keyed = false; const close = el.querySelector('.mr-primer__close'); close?.focus({ preventScroll: true }); requestAnimationFrame(() => { if (close?.isConnected && !el.contains(document.activeElement)) close.focus({ preventScroll: true }) }) }
@@ -6106,7 +6178,7 @@ function drawPrimer(el, { sheet = false } = {}) {
 function primerEl() {
   if (!primer.el) {
     const el = primer.el = document.createElement('div');
-    el.className = 'mr mr-primer'; el.setAttribute('role', 'region'); el.setAttribute('aria-labelledby', 'mr-primer-title');
+    el.className = 'mr mr-primer'; el.dataset.id = 'primer'; el.setAttribute('role', 'region'); el.setAttribute('aria-labelledby', 'mr-primer-title');
     bindCardEvents(el);
   }
   return primer.el;
