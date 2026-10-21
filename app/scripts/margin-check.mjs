@@ -464,9 +464,10 @@ async function readerPage(browser, origin, hex, { width, height, look, startPage
   return { ctx, page, problems }
 }
 // Before you start is made ahead as a signed-in reader opens a PDF (reader.js primerPrefetch, 19 Oct 2026): wait
-// until that has run (or found nothing to do), so a check's own requests and mocked replies are its own.
+// until that has run (or found nothing to do) and its account copy is stored (primerStoring), so a check's own
+// requests, mocked replies and stored primers are its own (a late PUT once landed after a check had cleared the account).
 async function prefetchSettled(page, ms = 15000) {
-  await page.waitForFunction(() => !window.TinctAI?.session?.().token || (primerAhead.key && !primerMaking.size && primerAhead.done), null, { timeout: ms, polling: 100 }).catch(() => {})
+  await page.waitForFunction(() => !window.TinctAI?.session?.().token || (primerAhead.key && !primerMaking.size && !primerStoring.size && primerAhead.done), null, { timeout: ms, polling: 100 }).catch(() => {})
 }
 // Select words on the first text page in view: `words` words from a long span, or one word.
 async function selectText(page, { oneWord = false, near = 'middle' } = {}) {
@@ -2107,15 +2108,20 @@ async function scanChecks(browser, origin) {
   scanMock.recognised.set(hex, made.recognised)
   const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
   const spans = (page, n = 1) => page.evaluate(k => document.querySelectorAll(`.pdf-sheet[data-page="${k}"] .text-layer span`).length, n)
-  // Every line the recognition note shows, as it shows it, kept here across the page's navigations.
-  const ocrLines = []
+  // Every line the recognition note shows, as it shows it, kept here across the page's navigations; and every
+  // value its bar shows, seen by the same observer as each note is drawn (polling it every 60 ms once missed all but one).
+  const ocrLines = [], ocrBars = []
   const fresh = async ({ width, height, legacy }) => {
     const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700 })
     // The Tinct reader (not served here): where a recognised scan goes on to as its Tinct text.
     await ctx.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
     await ctx.exposeBinding('__ocrLine', (_, text) => { if (ocrLines.at(-1) !== text) ocrLines.push(text) })
+    await ctx.exposeBinding('__ocrBar', (_, n) => { if (ocrBars.at(-1) !== n) ocrBars.push(n) })
     await ctx.addInitScript(() => {
-      new MutationObserver(() => { const n = document.querySelector('.byob-ocr'); if (n?.textContent) window.__ocrLine?.(n.textContent) })
+      new MutationObserver(() => {
+        const n = document.querySelector('.byob-ocr'); if (n?.textContent) window.__ocrLine?.(n.textContent)
+        const v = Number(n?.querySelector('.byob-ocr-bar')?.getAttribute('aria-valuenow')); if (n && Number.isFinite(v)) window.__ocrBar?.(v)
+      })
         .observe(document, { subtree: true, childList: true, characterData: true })
     })
     await ctx.addInitScript(([session]) => {
@@ -2197,15 +2203,14 @@ async function scanChecks(browser, origin) {
   ok('a scan with no text yet: no "Before you start" trigger, and B opens and asks nothing', !noPrimer.trigger && !noPrimer.primer && !noPrimer.marks && !chats().slice(q0).some(r => r.body?.companion?.intent === 'chapter'), { noPrimer, asked: chats().slice(q0).map(r => r.body?.companion?.intent) })
   await shot(page, 'scan-1440x900-offer')
   // Started before the copy is stored: it waits for it, then sends the pages. The tap is answered at once.
+  ocrBars.length = 0
   const tap = await tapStart(page)
   const askedYet = scanMock.log.some(([m, part, h]) => m === 'POST' && part === 'job' && h === hex)
   ok('r: the yes shows "Recognising text…" and a bar at 0 of the pages within 100 ms, while the account copy is still on its way', tap.ms !== null && tap.ms < 100 && tap.bar && tap.max === tap.pages && !askedYet, { tap, askedYet })
-  const bars = []
-  const watchBar = setInterval(() => page.evaluate(() => Number(document.querySelector('.byob-ocr-bar')?.getAttribute('aria-valuenow'))).then(n => { if (Number.isFinite(n) && bars.at(-1) !== n) bars.push(n) }).catch(() => {}), 60)
   // Recognised while the book is open: the desktop shows its Tinct text in Margin view at the same place (items r and s), no "ready" line.
   const switched = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 60000 }).then(() => true).catch(() => false)
-  clearInterval(watchBar)
   await page.waitForTimeout(800)
+  const bars = [...ocrBars]
   const kept = await page.evaluate(() => { const s = epubSpot(), at = currentPlace(); return { url: location.pathname + location.search, edition: store.get('edition:' + hexOf(state.key)), at: PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0), words: document.querySelectorAll('.pt-chapter p').length } })
   ok('r: recognised while open (mocked job): the desktop switches to the Tinct text by itself, inside Margin view (no /reader), at the page it was on', switched && kept.url.startsWith('/lab/addbook/?userBook=' + hex) && kept.at?.page === 1 && kept.words > 2 && kept.edition === 'text', kept)
   ok('r: no "Tinct text is ready" line on the way; the bar went up as pages were prepared', !ocrLines.some(t => /is ready/.test(t)) && bars.length >= 2 && bars.at(-1) > bars[0], { ocrLines, bars })
