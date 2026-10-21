@@ -40,3 +40,4 @@ White Rabbit = den Hvide Kanin; Mouse = Musen; Dodo = Dronten; Lory = Lorien; Ea
 ## Flagged pairs checked and accepted
 
 Short-ratio flags (all complete, Danish is simply more compact): ch3 p0, p44; ch6 p77; ch7 p26, p28, p41; ch9 p14, p84; ch10 p51; ch11 p11. Long-ratio flags (complete, no additions): ch6 p54, ch12 p11 (Danish needs »…« plus a clause where English uses a fragment).
+- Ch2 p11, Ch10 p24, p76: opening » added where a quoted stanza continues (mirrors the English “; p24 had been missing its opening mark).

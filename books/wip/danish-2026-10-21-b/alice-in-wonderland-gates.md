@@ -1,7 +1,7 @@
 # Gate results: alice-in-wonderland modern-da
 
 - Source: app/public/data/editions/alice-in-wonderland-modern-en.json at origin/main, git blob `f318e93ff68189301a3d245b256892778c96047d`
-- Candidate: books/wip/danish-2026-10-21-b/alice-in-wonderland-modern-da.json, git blob `24289bd6adfc945850727bccd4d0be8080de55e2`
+- Candidate: books/wip/danish-2026-10-21-b/alice-in-wonderland-modern-da.json, git blob `761b83bf977e8541a4a7f24ce44db434ca3cb3c3`
 
 | Ch | EN title | DA title | EN paras | DA paras | EN words | DA words | Ratio | Gate |
 |---|---|---|---|---|---|---|---|---|

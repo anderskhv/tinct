@@ -17,16 +17,20 @@ The brief asked for parallel translation subagents and an independent EN/DA revi
 | Book | Source blob (modern-en, origin/main) | Candidate | Gates | Review | Status |
 |---|---|---|---|---|---|
 | alice-in-wonderland | `f318e93ff68189301a3d245b256892778c96047d` | `alice-in-wonderland-modern-da.json` | all pass (see gates file) | self-review done | content ready, independent review open |
+| wuthering-heights | `bebdbfa87ba6b859f49403b158ff2ef47f5ff0e3` | `wuthering-heights-modern-da.json` | all pass; ratios 1.047–1.135, whole book 1.101 | self-review done | content ready, independent review open |
 
 Files per book: `{book}-modern-da.json` (live shape: `chapters[{number,title,paragraphs}]`, `sections`), `{book}-SOURCE-HASH.txt`, `{book}-gates.md`, `{book}-review-log.md`.
 
-Source files verified unchanged between `e8b2703325` and origin/main `a99529b95c` (21 Oct 2026, 13:06 UTC).
+Source files verified unchanged between `e8b2703325` and origin/main `a99529b95c` (21 Oct 2026, 13:06 UTC) and again at origin/main `5f4da80b25` (14:31 UTC).
+
+Words-per-hour figures are wall clock for one agent writing in-conversation; they measure drafting speed, not reviewed quality, and should be read with the review deviation above.
 
 ## Throughput
 
 | Book | EN words | Translation (wall clock, UTC) | Review and gates | Words per hour (translation) | Words per hour (incl. review) |
 |---|---|---|---|---|---|
 | alice-in-wonderland | 23,566 | 12:39–13:04 (25 min) | 13:04–13:10 | ~56,000 | ~45,000 |
+| wuthering-heights | 109,647 | 13:08–14:26 (78 min) | 14:26–14:35 | ~84,000 | ~76,000 |
 
 ## Integration requirements (separate, assigned step)
 
@@ -35,3 +39,7 @@ Source files verified unchanged between `e8b2703325` and origin/main `a99529b95c
 - Alignment is 1:1 with modern-en (same chapters, numbering and paragraph counts), so edition switching keeps position.
 - `books/danish-lint.py` hardcodes a Mac `EDITIONS_DIR`; it was run here through an import wrapper. Fixing the path is a tooling change for the integration step. Its STRAY-UNDERSCORE check flags intended `_emphasis_` (also in live editions).
 - Danish narration and onboarding are not part of this package.
+
+## Files in this worktree changed by someone else
+
+Two live edition files in this worktree were modified by another process while this run worked: `app/public/data/editions/notes-from-underground-modern-da.json` (changed 13:06 UTC, minified, 477 paragraphs differ from HEAD) and `app/public/data/editions/crime-and-punishment-modern-da.json` (changed 14:28 UTC, about 4,200 lines). I did not create, edit, revert or commit either; they are left as found for whoever owns them.
