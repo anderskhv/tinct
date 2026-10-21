@@ -747,19 +747,19 @@ describe('Removing one of My private uploads', () => {
     expect(await escaped).toBe(false)
   })
 
-  it('says what Remove from my books does for a Tinct book: its notes stay', async () => {
+  it('says what Remove from shelf does for a Tinct book: its place and notes stay', async () => {
     const asked = addToTinct.confirmDeleteUpload({ title: 'Antigone' }, { own: false })
     const dialog = document.querySelector('[data-testid="own-delete-dialog"]')!
     expect(dialog.querySelector('h2')?.textContent).toBe('Remove Antigone?')
-    expect(dialog.querySelector('.tui-dialog__body')?.textContent).toBe('Removes it from your books. Your notes stay if you add it again.')
+    expect(dialog.querySelector('.tui-dialog__body')?.textContent).toBe('Removes it from your shelf. Your place and notes stay if you add it again.')
     expect(dialog.querySelector('.own-delete-confirm')?.textContent).toBe('Remove')
     ;(dialog.querySelector('.own-delete-confirm') as HTMLButtonElement).click()
     expect(await asked).toBe(true)
-    expect(addToTinct.shelfAction(false).item).toBe('Remove from my books')
+    expect(addToTinct.shelfAction(false).item).toBe('Remove from shelf')
     expect(addToTinct.shelfAction(true).item).toBe('Delete')
   })
 
-  it('a Tinct book’s ••• offers Remove from my books, and Escape or a tap elsewhere closes it untouched', () => {
+  it('a Tinct book’s ••• offers Remove from shelf, and Escape or a tap elsewhere closes it untouched', () => {
     const wrap = document.createElement('div'); document.body.append(wrap)
     const onChoose = vi.fn()
     const more = addToTinct.shelfMenu('Antigone', { onChoose })
@@ -767,7 +767,7 @@ describe('Removing one of My private uploads', () => {
     expect(more.getAttribute('aria-expanded')).toBe('false')
     more.click()
     expect(more.getAttribute('aria-expanded')).toBe('true')
-    expect(wrap.querySelector('[role="menuitem"]')?.textContent).toBe('Remove from my books')
+    expect(wrap.querySelector('[role="menuitem"]')?.textContent).toBe('Remove from shelf')
     window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
     expect(wrap.querySelector('.shelf-menu')).toBeNull()
     more.click()
@@ -777,6 +777,73 @@ describe('Removing one of My private uploads', () => {
     more.click()
     ;(wrap.querySelector('[role="menuitem"]') as HTMLButtonElement).click()
     expect(onChoose).toHaveBeenCalledWith(more)
+  })
+
+  it('Currently reading’s own book: Read later, Remove from Currently reading, then Delete last; each runs its own action', () => {
+    const grid = document.createElement('div'); document.body.append(grid)
+    const onDelete = vi.fn(), later = vi.fn(), off = vi.fn()
+    const book = { key: 'pdf:aa', kind: 'pdf', title: 'Everettian relative states', author: '', href: '/lab/addbook/?userBook=aa' }
+    const card = addToTinct.ownBookCard(book, el, { onDelete, progress: true, actions: [{ label: addToTinct.READ_LATER, onChoose: later }, { label: addToTinct.OFF_READING, onChoose: off }] })
+    grid.append(card)
+    const more = card.querySelector('.shelf-more') as HTMLButtonElement
+    const open = () => { more.click(); return [...card.querySelectorAll('[role="menuitem"]')] as HTMLButtonElement[] }
+    let items = open()
+    expect(items.map(item => item.textContent)).toEqual(['Read later', 'Remove from Currently reading', 'Delete'])
+    expect(items.map(item => item.classList.contains('is-delete'))).toEqual([false, false, true])
+    expect(document.activeElement).toBe(items[0])
+    // Arrow keys move through the menu.
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+    expect(document.activeElement).toBe(items[1])
+    items[0].click()
+    expect(later).toHaveBeenCalledWith(book, more)
+    expect(card.querySelector('.shelf-menu')).toBeNull()
+    items = open(); items[1].click()
+    expect(off).toHaveBeenCalledWith(book, more)
+    items = open(); items[2].click()
+    expect(onDelete).toHaveBeenCalledWith(book, more)
+    expect(later).toHaveBeenCalledTimes(1); expect(off).toHaveBeenCalledTimes(1); expect(onDelete).toHaveBeenCalledTimes(1)
+  })
+
+  it('places the menu just below its •••, right edges aligned, flipping above or to the start only at the viewport’s edge', () => {
+    const place = addToTinct.shelfMenuPlace
+    const view = { width: 1440, height: 900 }, menu = { width: 220, height: 120 }
+    const button = (left: number, top: number) => ({ left, top, right: left + 30, bottom: top + 24 })
+    // A cover in the middle of the desktop page: below, right-aligned.
+    expect(place(button(600, 300), menu, view)).toEqual({ left: 410, top: 328, above: false, flipped: false })
+    // Near the bottom: above the button, still right-aligned.
+    expect(place(button(600, 820), menu, view)).toEqual({ left: 410, top: 696, above: true, flipped: false })
+    // Near the left edge (a phone's first cover): starts at the button's left edge.
+    expect(place(button(110, 300), menu, { width: 390, height: 844 })).toEqual({ left: 110, top: 328, above: false, flipped: true })
+    // Never outside the viewport.
+    const tight = place(button(300, 300), { width: 380, height: 120 }, { width: 390, height: 844 })
+    expect(tight.left).toBe(8)
+  })
+
+  it('opens the menu anchored to the ••• inside its card, wherever the card sits', () => {
+    const wrap = document.createElement('div'); wrap.className = 'card-wrap'; document.body.append(wrap)
+    const more = addToTinct.shelfMenu('Antigone', { items: [{ label: 'Read later', onChoose: vi.fn() }, { label: 'Remove from shelf', onChoose: vi.fn() }] })
+    wrap.append(more)
+    const rect = (left: number, top: number, width: number, height: number) => ({ left, top, width, height, right: left + width, bottom: top + height, x: left, y: top, toJSON: () => ({}) }) as DOMRect
+    const offsetParent = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetParent')
+    Object.defineProperty(HTMLElement.prototype, 'offsetParent', { configurable: true, get() { return this.classList?.contains('shelf-menu') ? wrap : null } })
+    const boxes = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (this: HTMLElement) {
+      if (this === wrap) return rect(400, 200, 220, 330)
+      if (this === more) return rect(584, 206, 30, 24)
+      if (this.classList.contains('shelf-menu')) return rect(0, 0, 210, 84)
+      return rect(0, 0, 0, 0)
+    })
+    try {
+      more.click()
+      const menu = wrap.querySelector('.shelf-menu') as HTMLElement
+      // 614 − 210 = 404 in the viewport, 4 px into the card; 230 + 4 = 234, 34 px down.
+      expect(menu.style.left).toBe('4px')
+      expect(menu.style.top).toBe('34px')
+      expect(menu.dataset.place).toBe('below end')
+    } finally {
+      boxes.mockRestore()
+      if (offsetParent) Object.defineProperty(HTMLElement.prototype, 'offsetParent', offsetParent)
+      else delete (HTMLElement.prototype as unknown as { offsetParent?: unknown }).offsetParent
+    }
   })
 
   it('deletes with Add a book’s own delete (this device and the account), finding an account-only copy first', async () => {

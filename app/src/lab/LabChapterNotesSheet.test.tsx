@@ -105,3 +105,24 @@ describe('LabChapterNotesSheet errors', () => {
     expect(screen.queryByTestId('lab-chapter-notes-resting')).toBeNull()
   })
 })
+
+describe('LabChapterNotesSheet with the follow-up field (phone, iPhone feedback 21 Oct 2026)', () => {
+  beforeEach(() => { localStorage.clear() })
+  afterEach(() => { cleanup() })
+
+  for (const card of [false, true]) {
+    it(`ends with the field in place of Chat, Talk and Copy${card ? ' (margin card)' : ' (sheet)'}, given the beats shown, with follow-ups under them`, () => {
+      store()
+      const follow = vi.fn((shown: typeof beats | null) => <input data-testid="follow" defaultValue={shown?.length ?? 0} />)
+      render(<LabChapterNotesSheet request={request} title="Recap · Nehemiah 12" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} card={card}
+        follow={follow} thread={<p data-testid="thread">A follow-up</p>} />)
+      expect((screen.getByTestId('follow') as HTMLInputElement).value).toBe('2')
+      expect(document.querySelectorAll('.lab-chapter-notes-tool')).toHaveLength(0)
+      expect(screen.queryByTestId('lab-chapter-notes-copy')).toBeNull()
+      // The thread scrolls with the beats, above the field.
+      const thread = screen.getByTestId('thread')
+      expect(thread.closest('.lab-catch-up-body')).not.toBeNull()
+      expect(thread.compareDocumentPosition(screen.getByTestId('follow')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    })
+  }
+})

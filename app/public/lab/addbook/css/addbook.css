@@ -194,6 +194,17 @@ body[data-view="reader"] #start { display: none; }
 .lab.byob.is-paper:not(.is-phone) .epub-sheet.is-front + .epub-sheet.is-front { padding-top: 1.1em; }
 .lab.byob.is-paper:not(.is-phone) .epub-sheet.is-front:has(+ .epub-sheet:not(.is-front)) { padding-bottom: 2.4em; margin-bottom: 1.4em; border-bottom: 1px solid color-mix(in srgb, var(--lab-ink) 12%, transparent) !important; }
 .lab.byob:not(.is-paper) .epub-sheet.is-front { padding-top: 1.4em; padding-bottom: 1.4em; }
+/* The paper's edges (Anders, 21 Oct 2026: "the page edges have disappeared"): Tinct paper is one continuous sheet on the
+   room, as a PDF's pages are, its sides edged by the PDF sheet's shadow, with room round the text (--paper-pad) that
+   never takes from its measure. The chapters meet with no gap, so the sheet runs on; the book's hidden contents page stays
+   out of it. The position strip (js/strip.js) sits in the room at its left. */
+.lab.byob.is-paper:not(.is-phone) { --paper-pad: clamp(28px, 3.4vw, 64px); }
+.lab.byob.is-paper:not(.is-phone).is-epub .pdf-column { gap: 0; }
+.lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc) { width: min(100%, calc(var(--tb-measure, 42em) + 2 * var(--paper-pad))); padding-left: var(--paper-pad); padding-right: var(--paper-pad); background: var(--pdf-paper) !important;
+  box-shadow: -12px 0 16px -14px rgba(40, 34, 20, .34), 12px 0 16px -14px rgba(40, 34, 20, .34), inset 1px 0 0 rgba(40, 34, 20, .07), inset -1px 0 0 rgba(40, 34, 20, .07) !important; }
+.lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc):first-child, .lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet.is-toc:first-child + .epub-sheet { padding-top: calc(12px + var(--paper-pad) * .5); }
+html[data-pdf-theme="dark"] .lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc) { box-shadow: -12px 0 18px -14px rgba(0, 0, 0, .8), 12px 0 18px -14px rgba(0, 0, 0, .8), inset 1px 0 0 rgba(255, 255, 255, .05), inset -1px 0 0 rgba(255, 255, 255, .05) !important; }
+html[data-pdf-theme="eink"] .lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc) { box-shadow: inset 1px 0 0 #777, inset -1px 0 0 #777 !important; }
 
 /* A PDF's Tinct text in Margin view (js/pdf-text-view.js, Anders, 20 Oct 2026, mockup 2b): Tinct paper as an EPUB's, the
    chapter's title as the book reader sets it, its headings as headings, and its formulas, figures and tables as crops
