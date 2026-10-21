@@ -5,7 +5,7 @@ language: en
 source: https://docs.python.org/3/library/venv.html
 retrieved: 2026-10-21
 sections: 5
-words: ~2490
+words: ~2500
 ---
 
 ## venv — Creation of virtual environments
@@ -28,13 +28,11 @@ A virtual environment is (amongst other things):
 
 See [**PEP 405**](https://peps.python.org/pep-0405/) for more background on Python virtual environments.
 
-See also
+> **See also**
+> [Python Packaging User Guide: Creating and using virtual environments](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)
 
-[Python Packaging User Guide: Creating and using virtual environments](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)
-
-[Availability](https://docs.python.org/3/library/intro.html#availability): not Android, not iOS, not WASI.
-
-This module is not supported on [mobile platforms](https://docs.python.org/3/library/intro.html#mobile-availability) or [WebAssembly platforms](https://docs.python.org/3/library/intro.html#wasm-availability).
+> **Availability:** not Android, not iOS, not WASI.
+> This module is not supported on [mobile platforms](https://docs.python.org/3/library/intro.html#mobile-availability) or [WebAssembly platforms](https://docs.python.org/3/library/intro.html#wasm-availability).
 
 ## Creating virtual environments
 
@@ -47,6 +45,8 @@ python -m venv /path/to/new/virtual/environment
 This creates the target directory (including parent directories as needed) and places a `pyvenv.cfg` file in it with a `home` key pointing to the Python installation from which the command was run. It also creates a `bin` (or `Scripts` on Windows) subdirectory containing a copy or symlink of the Python executable (as appropriate for the platform or arguments used at environment creation time). It also creates a `lib/pythonX.Y/site-packages` subdirectory (on Windows, this is `Lib\site-packages`). If an existing directory is specified, it will be re-used.
 
 Changed in version 3.5: The use of `venv` is now recommended for creating virtual environments.
+
+Deprecated since version 3.6, removed in version 3.8: **pyvenv** was the recommended tool for creating virtual environments for Python 3.3 and 3.4, and replaced in 3.5 by executing `venv` directly.
 
 …
 

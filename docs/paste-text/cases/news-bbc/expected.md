@@ -34,23 +34,7 @@ When she had asked a member of staff if the business owners intended to pay, she
 
 Alias came to our attention during a wider BBC probe into illegal working and criminality linked to some High Street businesses, including mini-marts and barbershops.
 
-His name was mentioned in social media videos, including on Kurdish Facebook pages, where business owners in the UK praised his ability to resolve problems linked to immigration fines.
-
-For months we monitored these videos, which carried Alias's name, that of his law firm, Liberty Solicitors, and a mobile phone number. Some had more than 20,000 views.
-
-In one, a Kurdish-speaking shop owner explained that, after having been issued with a penalty for employing an illegal worker, he had "tried two or three different places to get it sorted but nobody could resolve it".
-
-He went on to say that "Mr Alias" had got the fine cancelled - showing a letter as evidence.
-
-Alias told the BBC he had not commissioned, paid for, approved or circulated videos on social media.
-
-Our reporter contacted Alias on the phone, claiming to be a business owner who faced a fine after immigration officers had found somebody working at his mini-mart illegally.
-
-There was no actual shop, worker, or fine.
-
 …
-
-Home Secretary Shabana Mahmood told us the new review into the illegal-working fines scheme would aim "to ensure we are able to respond to non-compliance and non-payment through all available means".
 
 Alias has denied ever advising anyone to put a penalty into the name of someone who was not responsible for a business, or to give false information to the Home Office, and said he never would.
 

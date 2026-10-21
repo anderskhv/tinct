@@ -21,29 +21,7 @@ I started by turning on WAL mode like all the blog posts said to do and hoping f
 
 Today I was running a query (using [SQLite’s FTS5](https://www.sqlite.org/fts5.html) for full-text search) on a table with 4000 rows and it took 5 seconds. That seemed wrong to me: computers are fast!
 
-It turned out that what I needed to do was to run [`ANALYZE`](https://sqlite.org/lang_analyze.html)! Immediately the problem query went from taking 5 seconds to like 0.05 seconds (or some other number small enough that I didn’t care to investigate further). I still don’t know exactly what went wrong in the query plan, but my best guess is that it was some sort of [accidentally quadratic](https://accidentallyquadratic.tumblr.com/) thing.
-
-`ANALYZE` generates “statistics” (I guess about the number of rows in each table? and presumably other things?) so that the query planner can make better choices.
-
-Maybe one day I’ll learn to read a query plan.
-
-### cleaning up the database is tricky
-
-Occasionally I’ve run into situations where I accidentally put a bunch of rows in my database that I don’t want to be there (for example completed tasks from [django-tasks-db](https://github.com/RealOrangeOne/django-tasks-db)), and I want to clean them up.
-
-What’s happened to me a few times in this case is:
-
-1. I run some kind of command to clean up the rows
-2. The command takes more than 5 seconds, since there are a lot of rows (though I still have some questions about why these DELETE statements are so slow honestly, maybe there’s a bunch of Python code running inside a transaction, I’m not sure)
-3. One of the other workers tries to write the database while this is happening, and times out after 5 seconds (I have a timeout of 5 seconds set)
-
 …
-
-Mess with DNS has been running on SQLite for 4 years now (since 2022) and it’s been great, I think the move from Postgres was a great choice for that project.
-
-### that’s all!
-
-It’s always kind of fun to see how long it takes me to learn sort of basic things about the technologies I’m using. I think I used SQLite for a web project for the first time in 2022 and I only learned that `ANALYZE` existed today! I imagine in a year or two I’ll be learning about some other very basic feature.
 
 Some blog posts I’ve looked at, other than the official docs:
 
