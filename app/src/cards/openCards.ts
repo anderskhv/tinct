@@ -17,7 +17,7 @@ import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo, premiumOfferIntervals } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
-import { fetchFind, fetchOwnProfile, loadReading } from './cardsApi'
+import { fetchFind, fetchOwnProfile, flushForFigures, loadReading } from './cardsApi'
 import { forgetBoards, knownDefaultBoard, loadDefaultBoard } from './boardMemory'
 import { followBackCount } from './cardsRules'
 import { rankOf } from './cardsFormat'
@@ -119,13 +119,16 @@ function load(env: CardsEnv, social: boolean): void {
     // Profiles off or unavailable: the card shows what needs no profile (the last one stays painted if it was).
     set(result.ok ? { profile: result.profile, loading: settled('profile') } : { loading: settled('profile') })
   })
-  void loadReading(token, userId).then(reading => set(reading ? { reading, loading: settled('reading') } : { loading: settled('reading') }))
+  // This device's pending reading time goes up first (at most 2 s), so Your
+  // reading, the rank and the Leaderboard read the same ledger rows (21 Oct 2026).
+  const flushed = flushForFigures(token, userId)
+  void flushed.then(() => loadReading(token, userId)).then(reading => set(reading ? { reading, loading: settled('reading') } : { loading: settled('reading') }))
   if (social) {
     // The leaderboard now: the You row's rank comes from it (one request, not
     // /api/social/rank as well, which computes the same board again: 1-2 s each,
     // 10 Oct 2026), and Leaderboard opens without a wait. Kept in memory only.
     // The board the Leaderboard opens on (Everyone while open, else Friends), so its rank is the one shown.
-    void loadDefaultBoard(token, userId).then(board => {
+    void flushed.then(after => loadDefaultBoard(token, userId, after)).then(board => {
       if (!board) return
       env.data.board = board
       const me = board.entries.find(entry => entry.me) ?? board.me

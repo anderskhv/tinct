@@ -31,7 +31,7 @@
  * Pure: no browser or Worker APIs.
  */
 import { LAB_ASK_NO_PRAISE_RULE, renderShownExplanations } from './labAskPrompt'
-import { MARGIN_ANSWER_RULES, NO_EXTRACTION_TALK_RULE, PDF_CITATION_RULE, PDF_DOCUMENT_WORDING, PICTURE_RULE } from './marginPrompts'
+import { MARGIN_ANSWER_RULES, MARGIN_GROUNDING_RULES, NO_EXTRACTION_TALK_RULE, PDF_CITATION_RULE, PDF_DOCUMENT_WORDING, PICTURE_RULE } from './marginPrompts'
 
 /** About 150k tokens of English text at roughly 3.7 characters per token. The client holds the same bound (tinct-api.js). */
 export const MARGIN_DOCUMENT_CHARS = 560_000
@@ -184,6 +184,7 @@ const MARGIN_RULES_REST = [
   LAB_ASK_NO_PRAISE_RULE,
   'Answer completely and stop. Do not end with a question, an offer or an invitation to continue.',
   'Give clear answers with confidence in proportion to the evidence. Never invent a quotation, a source or a page number.',
+  ...MARGIN_GROUNDING_RULES,
   ...MARGIN_ANSWER_RULES,
 ]
 

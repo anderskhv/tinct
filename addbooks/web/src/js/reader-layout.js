@@ -398,5 +398,27 @@
       measure: Math.max(280, (w - 2 * 31 - 2 * padX - 56) / 2),
     };
   }
-  return { paper, epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, shortChapter, cutLabel, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
+  /*
+   * Margin view's text on the desktop (Anders, 20 Oct 2026, "Bold Conjectures II" at 2000 px: "the default text is too
+   * small and the side margins too big"): one column beside the margin, not the book reader's two-page leaf. Its size
+   * grows with the window (about 20px at 1280, 21.5px at 1440, 27.5px at 2000, at most 29px) and its line is 36em, about
+   * 77 characters with the default font (65 to 80 with the book's), never wider than its room (the sheet's min(100%, …)). The reader's
+   * Text size and Line width in the Aa panel (this device's, TEXT_SIZES and LINE_WIDTHS) scale it.
+   * -> { fontSize, measure } (px)
+   */
+  const TEXT_SIZES = [0.8, 0.9, 1, 1.1, 1.2, 1.35, 1.5];
+  const LINE_WIDTHS = [0.8, 0.9, 1, 1.1, 1.2];
+  const MEASURE_EM = 36;
+  function marginText(viewportWidth, { size = 1, width = 1 } = {}) {
+    const w = Number(viewportWidth) > 0 ? Number(viewportWidth) : 1440;
+    const one = (v, list) => (list.includes(Number(v)) ? Number(v) : 1);
+    const fontSize = clamp(21.5 + (w - 1440) * 6 / 560, 18, 29) * one(size, TEXT_SIZES);
+    return { fontSize, measure: Math.round(fontSize * MEASURE_EM * one(width, LINE_WIDTHS)) };
+  }
+  /** The next step of Text size or Line width from `now` (`dir` −1 or +1); the end step stays. */
+  function typeStep(list, now, dir) {
+    const i = list.indexOf(Number(now)), at = i < 0 ? list.indexOf(1) : i;
+    return list[Math.max(0, Math.min(list.length - 1, at + (dir > 0 ? 1 : -1)))];
+  }
+  return { marginText, typeStep, TEXT_SIZES, LINE_WIDTHS, paper, epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, shortChapter, cutLabel, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
 });
