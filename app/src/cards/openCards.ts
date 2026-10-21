@@ -23,7 +23,7 @@ import { followBackCount } from './cardsRules'
 import { rankOf } from './cardsFormat'
 import type { CardName } from './cardRoutes'
 import { CardStack } from './cardStack'
-import { cardSpec, type CardsData, type CardsEnv, type CardsSession } from './cardViews'
+import { cardSpec, forgetProfiles, type CardsData, type CardsEnv, type CardsSession } from './cardViews'
 import { readCardsCache, writeCardsCache } from './cardsCache'
 import { CARDS_COPY } from './cardsCopy'
 import { sessionStorageKey, storedSession, toCardsSession, type StoredAuthSession } from './cardsBoot'
@@ -217,6 +217,7 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
       wipeLabDeviceUserData()
       cached = null
       forgetBoards()
+      forgetProfiles()
       location.assign(landing)
     },
     // The sign-in page's reset flow (labSignIn.ts 'forgot'): the same email, the same return link.

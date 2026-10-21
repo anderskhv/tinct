@@ -11,7 +11,7 @@ import { resolve } from 'node:path'
 import cardsCss from './cards.css?raw'
 import { accountCardsOpen, closeAccountCards, openAccountCards } from './openCards'
 import { CardStack } from './cardStack'
-import { AVATAR_480_IDS, accountCard, leaderboardCard, settingsCard, smallAvatarSrc, youCard, type CardsEnv } from './cardViews'
+import { AVATAR_480_IDS, accountCard, forgetProfiles, leaderboardCard, settingsCard, smallAvatarSrc, youCard, type CardsEnv } from './cardViews'
 import { CARDS_COPY } from './cardsCopy'
 import { ACCOUNT_DELETE_CONFIRM, ACCOUNT_DELETE_PATH } from '../worker/routes/accountDelete'
 import { dayMonthShort, readingFigures } from './cardsFormat'
@@ -501,6 +501,22 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     await flush()
     expect(posts).toContainEqual({ url: '/api/social/remove-follower', body: { handle: 'ellen' } })
     expect(byTest('following-you-row')).toBeNull()
+  })
+
+  it('Remove hides the row on the tap, before the answer; a refusal brings it back and says so (21 Oct 2026)', async () => {
+    await open('find')
+    const inner = api()
+    let answer: (value: Response) => void = () => {}
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith('/api/social/remove-follower')) return new Promise<Response>(resolve => { answer = resolve })
+      return inner(input, init)
+    }))
+    click(byTest('following-you-row-remove'))
+    expect(byTest('following-you-row')).toBeNull()
+    answer(Response.json({ error: 'no' }, { status: 500 }))
+    await flush()
+    expect(byTest('following-you-row')).toBeTruthy()
+    expect(top().querySelector('.tc-status')?.textContent).toBe(CARDS_COPY.actionFailed)
   })
 
   it('a reader followed back is a friend, not a request: no row on the You card, no Remove', async () => {
@@ -1482,5 +1498,107 @@ describe('a stable Leaderboard (21 October 2026: "We want stable leaderboards")'
     expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
     await flush()
     expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
+  })
+})
+
+describe('a reader\'s profile shows at once and answers a tap at once (21 October 2026)', () => {
+  const entry = (rank: number, name: string, seconds: number, me = false, handle?: string) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(handle ? { handle } : {}) })
+  const board = { ...FRIENDS_BOARD, everyoneOpen: false, friends: 1, total: 2, entries: [entry(1, 'Mette', 45240, false, 'mette'), entry(2, 'You', 60, true)] }
+  const mette = () => ({
+    handle: 'mette', name: 'Mette', link: 'tinct.app/@mette', picture: pic('M'), banner: { src: '/b.jpg', private: false }, relation: 'friend', followsYou: true, limited: false,
+    time: { last7: '12 h', year: '113 h', last7Seconds: 45240, yearSeconds: 407160 }, readingNow: null, finished: null,
+  })
+
+  /** Holds the requests whose path starts with `prefix` until released. */
+  function hold(prefix: string): () => void {
+    let release: () => void = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const inner = api()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith(prefix)) await gate
+      return inner(input, init)
+    }))
+    return release
+  }
+
+  beforeEach(() => forgetProfiles())
+
+  async function openMette() {
+    boards = { friends: board, everyone: null }
+    readerProfile = mette()
+    await open('you')
+    click(byTest('you-leaderboard'))
+    await flush()
+    click(top().querySelector('[data-testid="board-row"]'))
+  }
+
+  it('while it loads: no guessed Follow button (its place kept), no figures (their place kept); then the real ones', async () => {
+    await openMette()
+    const release = hold('/api/social/profile/')
+    await flush()
+    // The first fetch went out before the hold: open again with it held.
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    forgetProfiles()
+    click(top().querySelector('[data-testid="board-row"]'))
+    expect(byTest('profile-follow')).toBeNull()
+    expect(byTest('profile-follow-pending')?.style.visibility).toBe('hidden')
+    expect(byTest('profile-facts-skeleton')).toBeTruthy()
+    release()
+    await flush()
+    expect(byTest('profile-follow')?.textContent).toBe('Friends')
+    expect(byTest('profile-facts-skeleton')).toBeNull()
+  })
+
+  it('figures as the Leaderboard writes the same reader: "12 h 34", not "12 h"', async () => {
+    await openMette()
+    await flush()
+    const facts = [...top().querySelectorAll('[data-testid="card-facts"] > div')].map(node => node.textContent)
+    expect(facts[0]).toBe('12 h 34last 7 days')
+    expect(facts[1]).toBe('113 h 06this year')
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    await flush()
+    expect([...top().querySelectorAll('[data-testid="board-row"] .tc-v')].map(node => node.textContent)).toEqual(['12 h 34'])
+  })
+
+  it('opened again on this page: shown at once from memory, then read again behind', async () => {
+    await openMette()
+    await flush()
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    await flush()
+    hold('/api/social/profile/')
+    click(top().querySelector('[data-testid="board-row"]'))
+    // Before any answer: the figures and the button are there.
+    expect(byTest('profile-follow')?.textContent).toBe('Friends')
+    expect(top().querySelector('[data-testid="card-facts"]')?.textContent).toContain('12 h 34')
+  })
+
+  it('Follow and unfollow: the button changes on the tap, before the answer; a refusal puts it back and says so', async () => {
+    await openMette()
+    await flush()
+    const release = hold('/api/social/unfollow')
+    click(byTest('profile-follow'))
+    // At once: a friend unfollowed still follows you, so the button offers Follow back.
+    expect(byTest('profile-follow')?.textContent).toBe('Follow back')
+    release()
+    await flush()
+    // A refusal.
+    readerProfile = mette()
+    top().querySelector<HTMLElement>('[data-testid="card-back"]')!.click()
+    await flush()
+    forgetProfiles()
+    click(top().querySelector('[data-testid="board-row"]'))
+    await flush()
+    const inner = api()
+    let answer: (value: Response) => void = () => {}
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith('/api/social/unfollow')) return new Promise<Response>(resolve => { answer = resolve })
+      return inner(input, init)
+    }))
+    click(byTest('profile-follow'))
+    expect(byTest('profile-follow')?.textContent).toBe('Follow back')
+    answer(Response.json({ error: 'no' }, { status: 500 }))
+    await flush()
+    expect(byTest('profile-follow')?.textContent).toBe('Friends')
+    expect(top().querySelector('.tc-status')?.textContent).toBe(CARDS_COPY.actionFailed)
   })
 })

@@ -663,6 +663,9 @@ describe('a reader’s own books are private', () => {
     expect(books.map(book => book.title)).toEqual(['a private book', 'Frankenstein'])
     expect(books[0]).toMatchObject({ bookId: 'private', cover: null, progress: null })
     expect(data.profile.time.last7).toBe('2 h')
+    // The seconds as well, so the account cards write them as the Leaderboard row does (21 Oct 2026).
+    expect(data.profile.time.last7Seconds).toBe(120 * 60)
+    expect(data.profile.time.yearSeconds).toBeGreaterThanOrEqual(120 * 60)
     expect(JSON.stringify(data)).not.toContain('userbook-')
     const page = await serveProfilePage(new Request('https://tinct.app/@bea'), on as never, deps(world), 'bea')
     const html = await page.text()
