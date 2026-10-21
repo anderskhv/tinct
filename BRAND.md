@@ -43,7 +43,7 @@ Tinct carries Anders's roots (the Enlightenment, optimism, Christianity) by maki
 
 The two headline lines appear everywhere; only their order changes with the channel. Landing page: lead with "The best way to read…", because a visitor who clicked through must know what Tinct is in five seconds. Posts, ads and video: lead with "No text is out of your league anymore", because a feed gives one line to make someone stop. Which leads where is the first thing the ad test checks.
 
-Under the screenshot on the landing page: **Tinct takes the tedium out of hard texts, and leaves the joy in.**
+Under the screenshot on the landing page: **Tinct takes the tedium out of hard texts and leaves you with the joy.**
 
 Launch post (the shape of Gloss's launch: one claim, three arrows, one hook):
 
@@ -65,7 +65,7 @@ Hero image: one hard line with the margin open (Explain answering, Simplify and 
 | | |
 |---|---|
 | **Category** | Deep reading, with a guide. "Tinct is a deep reading app." |
-| **Belief** (level 2) | Tinct takes the tedium out of hard texts, and leaves the joy in. Hard texts have barriers that should go (old language, missing context, nobody to ask, losing your place, the feed) and mountains worth climbing (the ideas, the meaning, the prose itself). Nobody can climb for you. Internal test for every feature: barrier or mountain? |
+| **Belief** (level 2) | Tinct takes the tedium out of hard texts and leaves you with the joy. Hard texts have barriers that should go (old language, missing context, nobody to ask, losing your place, the feed) and mountains worth climbing (the ideas, the meaning, the prose itself). Nobody can climb for you. Internal test for every feature: barrier or mountain? |
 | **Stance** | Discussing is reading; summarizing is skipping. |
 | **For** | Curious people with a hard text they keep meaning to read: Popper, the *Iliad*, the Bible, a physics paper. |
 | **Not for** | People who want the summary instead, people who prefer paper, purists who see any help as cheating. |
