@@ -6,7 +6,7 @@
 
 | Level | Question | Status |
 |---|---|---|
-| 0. Founder | Who is Anders, and what does he believe? | Agreed 2026-10-21 |
+| 0. Founder | Who is Anders, and what does Anders believe? | Agreed 2026-10-21 |
 | 1. Mission | Why does Tinct exist? | Close, 2026-10-21; refine through Anders's own posts |
 | 2. Tinct's belief | What does Tinct believe about reading? | In progress |
 | 3. Promise | What is Tinct, and what do you get? | Agreed (the core, below) |
