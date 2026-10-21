@@ -5662,6 +5662,32 @@ async function deskPolishCheck(browser, origin) {
     ok(`${tag}: D6 a figure's caption is smaller, muted, with space above; running text that starts "Figure 3" is not`, fig.caps === 1 && fig.text.startsWith('Figure 2:') && fig.capSize < fig.bodySize * 0.9 && fig.capColor !== fig.bodyColor && fig.above >= 6 && !fig.bodyCaption, fig)
     await e.waitForTimeout(400)
     await shotTo(e, `desk-${tag}-D6-caption`)
+    // 21 Oct 2026 (F): "Figure 2" in running text, and a link to the figure, show the figure (picture and caption) on
+    // hover beside the words; "Figure 3" (no such figure) shows nothing; the pointer gone, the pop-over goes.
+    const refAt = await e.evaluate(() => {
+      const p = [...document.querySelectorAll('.epub-pg p')].find(q => q.textContent.startsWith('The drawing in Figure 2')); if (!p) return null
+      p.scrollIntoView({ block: 'center' })
+      const t = p.firstChild, i = t.data.indexOf('Figure 2'), r = document.createRange(); r.setStart(t, i + 2); r.setEnd(t, i + 4)
+      const b = r.getBoundingClientRect(), a = p.querySelector('a').getBoundingClientRect()
+      const f3 = [...document.querySelectorAll('.epub-pg p')].find(q => q.textContent.startsWith('Figure 3 of')), f3r = document.createRange(); f3r.setStart(f3.firstChild, 1); f3r.setEnd(f3.firstChild, 3); f3.scrollIntoView({ block: 'nearest' })
+      return { x: b.left + b.width / 2, y: b.top + b.height / 2, ax: a.left + 8, ay: a.top + a.height / 2 }
+    })
+    const peek = () => e.evaluate(() => { const el = document.querySelector('.mr-figpeek'); if (!el) return null; const r = el.getBoundingClientRect(), img = el.querySelector('img'); return { img: !!img?.naturalWidth, alt: img?.alt, cap: el.querySelector('.mr-figpeek__cap')?.textContent || '', inside: r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight, top: r.top } })
+    let words = null, link = null, gone = null, none = null
+    if (refAt) {
+      await e.evaluate(() => { const p = [...document.querySelectorAll('.epub-pg p')].find(q => q.textContent.startsWith('The drawing in Figure 2')); p.scrollIntoView({ block: 'center' }) }); await e.waitForTimeout(300)
+      const at = await e.evaluate(() => { const p = [...document.querySelectorAll('.epub-pg p')].find(q => q.textContent.startsWith('The drawing in Figure 2')), t = p.firstChild, i = t.data.indexOf('Figure 2'), r = document.createRange(); r.setStart(t, i + 2); r.setEnd(t, i + 4); const b = r.getBoundingClientRect(), a = p.querySelector('a').getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2, ax: a.left + 8, ay: a.top + a.height / 2 } })
+      await e.mouse.move(at.x, at.y); await e.waitForTimeout(300); words = await peek()
+      await shotTo(e, `desk-${tag}-F-figure-hover`)
+      await e.mouse.move(at.x, at.y + 300); await e.waitForTimeout(400); gone = await peek()
+      await e.mouse.move(at.ax, at.ay); await e.waitForTimeout(300); link = await peek()
+      await e.mouse.move(5, at.y + 300); await e.waitForTimeout(400)
+      const f3 = await e.evaluate(() => { const p = [...document.querySelectorAll('.epub-pg p')].find(q => q.textContent.startsWith('Figure 3 of')); p.scrollIntoView({ block: 'center' }); return true }); await e.waitForTimeout(300)
+      const at3 = await e.evaluate(() => { const p = [...document.querySelectorAll('.epub-pg p')].find(q => q.textContent.startsWith('Figure 3 of')), r = document.createRange(); r.setStart(p.firstChild, 1); r.setEnd(p.firstChild, 4); const b = r.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2 } })
+      await e.mouse.move(at3.x, at3.y); await e.waitForTimeout(300); none = await peek()
+    }
+    ok(`${tag}: F "Figure 2" in the text, hovered: its picture and caption beside the words, in the window; gone with the pointer`, words?.img && /^Figure 2:/.test(words.cap) && words.inside && !gone, { refAt: !!refAt, words, gone })
+    ok(`${tag}: F a link to the figure, hovered, shows it too; "Figure 3" (no such figure) shows nothing`, link?.img && /^Figure 2:/.test(link.cap) && !none, { link, none })
     ok(`${tag}: D6 no page errors`, !E.problems.length, E.problems)
     await E.ctx.close()
   }

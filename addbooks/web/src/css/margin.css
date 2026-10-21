@@ -643,6 +643,11 @@ html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }
 .byob-unit-now__name { margin: 0; font-size: 16px; color: var(--mr-ink, inherit); font-variant-numeric: tabular-nums; }
 .byob-unit-now__acts { display: flex; flex-wrap: wrap; gap: 0 8px; }
 /* The figure large (a figure card's picture, a picture in the chat): over the reader, the page's room behind it. */
+/* A figure named in an EPUB's text, on hover (21 Oct 2026; reader.js figPeek): its picture and caption beside the words. */
+.mr-figpeek { position: fixed; z-index: 70; box-sizing: border-box; width: max-content; max-width: min(380px, calc(100vw - 24px)); padding: 10px; border-radius: 12px; background: var(--mr-card); color: var(--mr-ink); box-shadow: var(--mr-card-shadow); pointer-events: none; }
+.mr-figpeek > img, .mr-figpeek > svg { display: block; max-width: 100%; width: auto; height: auto; max-height: 260px; margin: 0 auto; border-radius: 4px; background: #fff; }
+.mr-figpeek > svg { width: 340px; }
+.mr-figpeek__cap { margin: 8px 2px 0; font: 12.5px/1.4 var(--mr-ui); color: var(--mr-muted); }
 .mr-figview { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 56px 16px 24px; background: color-mix(in srgb, var(--mr-room) 92%, transparent); }
 .mr-figview__fig { margin: 0; max-width: 100%; max-height: 100%; display: grid; place-items: center; }
 .mr-figview__fig img { display: block; max-width: min(100%, 1100px); max-height: calc(100vh - 96px); object-fit: contain; background: #fff; border-radius: 6px; box-shadow: var(--mr-card-shadow); }

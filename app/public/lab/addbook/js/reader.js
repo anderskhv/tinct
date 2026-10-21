@@ -6903,6 +6903,102 @@ function pageShapes(n) {
   })().catch(() => []));
   return shapeMemo.get(k);
 }
+/*
+ * A figure named in an EPUB's text (Anders, 21 Oct 2026: hovering "Figure 1" should show the figure, as the PDF's
+ * figures show on hover): a link into the book that lands on a picture, or the words "Figure 2", "Fig. 2", "Table 1" or
+ * "Plate I" in running text matched to a caption of that name (epub.js markCaptions; a Tinct text's crops,
+ * pdf-text-view.js), show the picture and its caption in a small pop-over beside the reference while the pointer is on
+ * it (a link's focus too). Pictures are copied from the page as they stand; nothing is fetched. Desktop, a pointer that
+ * hovers; the phone is unchanged.
+ */
+const figPeek = { el: null, ref: null, raf: 0, hide: 0, index: null, at: '' };
+const FIG_NAME = /\b(fig(?:ure)?s?\.?|plates?|tables?)\s*((?:\d+|[IVXLC]+)(?:[.\-–]\d+)*[a-z]?)\b/gi;
+const figKey = (kind, num) => `${/^tab/i.test(kind) ? 'table' : /^plate/i.test(kind) ? 'plate' : 'figure'} ${String(num).toLowerCase().replace(/[–-]/g, '.')}`;
+/** A caption's picture: in its figure, or the picture just before it (a block holding only a picture). */
+function captionPicture(cap) {
+  const fig = cap.closest('figure, .pt-fig'), inFig = fig?.querySelector('img, svg');
+  if (inFig) return inFig;
+  let prev = cap.previousElementSibling;
+  if (prev && (prev.matches('img, svg') || (prev.querySelector('img, svg') && !prev.textContent.trim()))) return prev.matches('img, svg') ? prev : prev.querySelector('img, svg');
+  return null;
+}
+/** The book's named figures: "figure 2" -> { pic, caption }, from its captions (built once a book, again if pages change). */
+function figIndex() {
+  const at = state.key + ':' + state.pages.length;
+  if (figPeek.at === at && figPeek.index) return figPeek.index;
+  const map = new Map();
+  for (const p of state.pages) for (const cap of p.pg.querySelectorAll('.ep-caption, .pt-fig .pt-cap')) {
+    const text = cap.textContent.replace(/\s+/g, ' ').trim(); FIG_NAME.lastIndex = 0;
+    const m = FIG_NAME.exec(text); if (!m || m.index > 2) continue;
+    const pic = captionPicture(cap); if (!pic) continue;
+    const key = figKey(m[1], m[2]); if (!map.has(key)) map.set(key, { pic, caption: text });
+  }
+  figPeek.index = map; figPeek.at = at;
+  return map;
+}
+/** A link into the book that lands on a picture (or a caption with one): that figure. */
+function figOfLink(a) {
+  const el = a.dataset.anchor && document.getElementById(a.dataset.anchor); if (!el) return null;
+  const pic = el.matches('img, svg') ? el : el.closest('figure, .pt-fig')?.querySelector('img, svg') || (!el.textContent.trim() || el.matches('figure, .pt-fig') ? el.querySelector('img, svg') : null) || (el.matches('.ep-caption') ? captionPicture(el) : null);
+  if (!pic) return null;
+  const cap = el.closest('figure, .pt-fig')?.querySelector('figcaption, .ep-caption, .pt-cap') || (el.matches('.ep-caption') ? el : el.nextElementSibling?.matches('.ep-caption') ? el.nextElementSibling : null);
+  return { pic, caption: cap?.textContent.replace(/\s+/g, ' ').trim() || '' };
+}
+/** The figure named by the words under the pointer ("Figure 2"), with the words' box; else null. */
+function figOfWords(x, y) {
+  let node = null, off = 0;
+  if (document.caretRangeFromPoint) { const r = document.caretRangeFromPoint(x, y); node = r?.startContainer; off = r?.startOffset ?? 0 }
+  else if (document.caretPositionFromPoint) { const c = document.caretPositionFromPoint(x, y); node = c?.offsetNode; off = c?.offset ?? 0 }
+  if (!node || node.nodeType !== 3 || !node.parentElement?.closest('.epub-pg') || node.parentElement.closest('.ep-caption, .pt-cap, a')) return null;
+  const text = node.data; FIG_NAME.lastIndex = 0;
+  for (let m; (m = FIG_NAME.exec(text));) {
+    if (off < m.index || off > m.index + m[0].length) continue;
+    const range = document.createRange(); range.setStart(node, m.index); range.setEnd(node, m.index + m[0].length);
+    const box = [...range.getClientRects()].find(b => x >= b.left - 2 && x <= b.right + 2 && y >= b.top - 2 && y <= b.bottom + 2);
+    if (!box) return null;
+    const fig = figIndex().get(figKey(m[1], m[2]));
+    return fig ? { ...fig, box, key: figKey(m[1], m[2]) + '@' + m.index } : null;
+  }
+  return null;
+}
+function figPeekShow(fig, box, key) {
+  clearTimeout(figPeek.hide);
+  if (figPeek.ref === key && figPeek.el?.isConnected) return;
+  figPeek.ref = key;
+  const el = figPeek.el || (figPeek.el = Object.assign(document.createElement('div'), { className: 'mr mr-figpeek' }));
+  el.setAttribute('role', 'tooltip');
+  const pic = fig.pic.localName === 'img' ? Object.assign(document.createElement('img'), { src: fig.pic.currentSrc || fig.pic.src, alt: fig.pic.alt || '' }) : fig.pic.cloneNode(true);
+  pic.removeAttribute?.('id'); pic.removeAttribute?.('style'); pic.removeAttribute?.('width'); pic.removeAttribute?.('height');
+  el.replaceChildren(pic);
+  if (fig.caption) { const c = document.createElement('p'); c.className = 'mr-figpeek__cap'; c.textContent = fig.caption.length > 220 ? fig.caption.slice(0, 217).trimEnd() + '…' : fig.caption; el.append(c) }
+  if (el.parentElement !== root) root.append(el);   // (in the reader, for its look's colours)
+  // Below the reference, else above it; inside the window.
+  const w = el.offsetWidth, h = el.offsetHeight, top = Math.max(document.getElementById('hdr').getBoundingClientRect().bottom + 8, 8);
+  const left = Math.max(12, Math.min(innerWidth - w - 12, box.left));
+  const y = box.bottom + 8 + h <= innerHeight - 8 ? box.bottom + 8 : Math.max(top, box.top - 8 - h);
+  el.style.left = Math.round(left) + 'px'; el.style.top = Math.round(y) + 'px';
+}
+function figPeekHide(now = false) {
+  clearTimeout(figPeek.hide);
+  const go = () => { figPeek.el?.remove(); figPeek.ref = null };
+  if (now) go(); else figPeek.hide = setTimeout(go, 160);
+}
+document.addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse' || e.buttons || !isEpub() || isPhone() || !hoverPointer.matches) return;
+  const { clientX: x, clientY: y, target } = e;
+  if (figPeek.raf) return;
+  figPeek.raf = requestAnimationFrame(() => {
+    figPeek.raf = 0;
+    const a = target.closest?.('.epub-pg a[data-chapter]'), link = a && figOfLink(a);
+    if (link) return figPeekShow(link, a.getBoundingClientRect(), 'a:' + (a.dataset.anchor || ''));
+    const words = target.closest?.('.epub-pg') ? figOfWords(x, y) : null;
+    if (words) return figPeekShow(words, words.box, words.key);
+    if (figPeek.ref) figPeekHide();
+  });
+}, { passive: true });
+document.addEventListener('focusin', e => { const a = e.target.closest?.('.epub-pg a[data-chapter]'), fig = a && isEpub() && !isPhone() && figOfLink(a); if (fig) figPeekShow(fig, a.getBoundingClientRect(), 'a:' + a.dataset.anchor); else if (figPeek.ref) figPeekHide(true) });
+$('scroll').addEventListener('scroll', () => { if (figPeek.ref) figPeekHide(true) }, { passive: true });
+addEventListener('keydown', e => { if (e.key === 'Escape' && figPeek.ref) figPeekHide(true) });
 /* ---------- Figures: areas with ink but no running text get a hover chip (TinctMargin.findFigures) ---------- */
 async function detectFigures(p) {
   if (!p.canvas || !p.layer || p.figLayer === p.layer) return;
