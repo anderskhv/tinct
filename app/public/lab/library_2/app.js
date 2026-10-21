@@ -535,9 +535,23 @@ function ambient(now){
  // A screen below the hero the scene's canvas gives its pixels back (780×1742 on a phone, 2026-10-21);
  // it is painted again half a screen before the hero returns, so it is never seen empty.
  if(!reduced.matches){if(heroBottom<-innerHeight){if(scene.width){scene.width=0;scene.height=0;}}else if(!scene.width&&heroBottom>-innerHeight/2)drawScene(now);}
- if(now-lastFrame>32||reduced.matches){lastFrame=now;if(heroBottom>0)drawScene(now);if(!$('librarian').hidden)drawOrb(now);}
+ if(now-lastFrame>32||reduced.matches){lastFrame=now;const held=lifeHeld(now);if(heroBottom>0){const key=held?sceneKey():null;if(!held||key!==heldSceneKey){heldSceneKey=key;drawScene(now);}}if(!$('librarian').hidden&&(!held||mode!=='minimized'))drawOrb(now);}
  if(!reduced.matches)ambientFrame=requestAnimationFrame(ambient);
 }
+// The room's life (flames, rain, the orb's turn) is the one thing the library draws on every frame,
+// and on a phone it took the main thread from everything else: a tap waited for the frame being
+// painted, and a returning reader's desk waited for the frames between its reads (2026-10-21,
+// scripts/check-library-speed.mjs: at rest 95% busy on a throttled phone, the cold desk 6.3 s with it
+// and 2.9 s without). It holds still, its last frame shown, while the page is still arriving (until
+// the library is ready and idle, at most 4 s), and while the room cannot be seen: under search (96% opaque), My shelf (the room is hidden), the
+// librarian on a phone (86% opaque, blurred) and the fade into the reader. Under the menu and an open
+// book the room shows through, so it keeps moving there. Anything else that changes the picture (a
+// scene arriving or crossfading, the canvas size, the featured book, its place and cover) still draws at once.
+let lifeStarted=reduced.matches,heldSceneKey=null;
+function heroCovered(){return searchOpen||collectionChoice!=='home'||openingReader||leaving||(innerWidth<700&&mode!=='minimized');}
+function lifeHeld(now){return !reduced.matches&&!sceneFrom&&(!lifeStarted||heroCovered());}
+function sceneKey(){const c=$('scene'),r=$('hero-book').getBoundingClientRect();return [sceneTo,c.clientWidth,c.clientHeight,c.width,Object.keys(images).length,document.documentElement.className,Math.round(r.left),Math.round(r.top),Math.round(r.width),Math.round(r.height),featured.id,textures.has(featured.id),textureWidths.get(featured.id),sourceCanvas?.parentElement?.id||''].join('|');}
+{const since=performance.now();const startLife=()=>{lifeStarted=true;};const waitForLife=()=>{const c=document.documentElement.classList;if((c.contains('library-ready')&&!c.contains('returning-pending')&&!c.contains('returning-scene-pending'))||performance.now()-since>4000){(window.requestIdleCallback||setTimeout)(startLife,{timeout:800});return;}setTimeout(waitForLife,150);};if(!lifeStarted)waitForLife();}
 function refreshAmbient(){cancelAnimationFrame(ambientFrame);ambientFrame=requestAnimationFrame(ambient);}
 addEventListener('tinct:display-profile',refreshAmbient);
 motionPreference.addEventListener('change',refreshAmbient);
