@@ -161,13 +161,21 @@ export function smallAvatarSrc(src: string): string {
   return match && AVATAR_480_IDS.includes(match[1]) ? `/lab/library_2/assets/covers/${match[1]}-480.webp` : src
 }
 
-/** A small row avatar (Leaderboard, Find readers): the row-sized crop, painted once it scrolls near view. */
+/** Row pictures this page has drawn: a row built again (a refresh, a reopen) paints them at once. */
+const shownAvatars = new Set<string>()
+
+/**
+ * A small row avatar (Leaderboard, Find readers): the row-sized crop, painted
+ * once it scrolls near view, or at once when this page has drawn it before, so
+ * rows built again never show a blank disc for a frame (21 Oct 2026: the
+ * reopened board's pictures came 150 ms after its rows).
+ */
 function avatar(picture: CardPicture | null | undefined, name: string, token: string): HTMLElement {
   const node = el('span', { className: 'tc-av is-s', 'aria-hidden': 'true' })
   // No crop for it (a painting added since): the small copy, as before.
   const small = picture?.src && !hasAvatarCrop(picture.src, picture.pos) ? { ...picture, src: smallAvatarSrc(picture.src) } : picture
-  const paint = () => paintPicture(node, small, name, token, 's')
-  if (!small?.src || typeof IntersectionObserver === 'undefined') { paint(); return node }
+  const paint = () => { paintPicture(node, small, name, token, 's'); if (small?.src) shownAvatars.add(small.src) }
+  if (!small?.src || shownAvatars.has(small.src) || typeof IntersectionObserver === 'undefined') { paint(); return node }
   const seen = new IntersectionObserver(entries => {
     if (!entries.some(entry => entry.isIntersecting)) return
     seen.disconnect()
@@ -401,11 +409,14 @@ export function youCard(env: CardsEnv): CardSpec {
       const readingGroup = group(
         readingRow,
         // Only once the reader joined the leaderboard.
-        env.social && profile?.onLeaderboard ? row({ label: CARDS_COPY.leaderboard, value: data.rank, chevron: true, onClick: () => card.stack.push(leaderboardCard(env)), testid: 'you-leaderboard' }) : null,
+        env.social && profile?.onLeaderboard ? row({ label: CARDS_COPY.leaderboard, value: shownRank(env), chevron: true, onClick: () => card.stack.push(leaderboardCard(env)), testid: 'you-leaderboard' })
+          // The profile on its way (a first open on this device): its row's place is kept, so nothing moves when it comes.
+          : env.social && waitingProfile ? row({ label: CARDS_COPY.leaderboard, value: el('i', { className: 'tc-skel', 'aria-hidden': 'true' }), testid: 'you-leaderboard-skeleton' }) : null,
       )
       const badge = data.findBadge > 0 ? el('span', { className: 'tc-badge', text: String(data.findBadge) }) : null
       const moreGroup = group(
-        env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' }) : null,
+        env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' })
+          : env.social && waitingProfile ? row({ label: CARDS_COPY.findReaders, testid: 'you-find-skeleton' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
       body.append(...[requestsGroup(env, card), findableNotice(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
@@ -684,6 +695,41 @@ export function readingCard(env: CardsEnv): CardSpec {
 const BOARD_FRESH_MS = 15_000
 
 /**
+ * The You card's rank: from the board the Leaderboard opens on as this page
+ * knows it now (the tab picked here, boardMemory knownDefaultBoard), else the
+ * last one shown. One source, so the You row and the board never disagree, and
+ * a reopened You card never shows the other tab's rank first (21 Oct 2026:
+ * "8th of 12", then "5th of 8").
+ */
+function shownRank(env: CardsEnv): string | null {
+  const board = env.social ? knownDefaultBoard(env.session.userId) : null
+  const me = board ? board.entries.find(entry => entry.me) ?? board.me : null
+  return (board && rankOf(me?.rank, board.total)) || env.data.rank
+}
+
+/** How many rows a board still loading will have: the last count this page saw for the tab, else its friends, else five. */
+function expectedRows(env: CardsEnv, tab: BoardTab): number {
+  const known = knownBoard(env.session.userId, tab)
+  if (known) return Math.max(1, known.entries.length + (known.me && !known.entries.some(entry => entry.me) ? 1 : 0))
+  const friends = env.data.board?.friends
+  return tab === 'friends' && typeof friends === 'number' ? Math.min(BOARD_SKELETON_MAX, friends + 1) : 5
+}
+const BOARD_SKELETON_MAX = 12
+
+/** Rows the height of the board's own while it loads, so nothing under them moves when it arrives. */
+function boardSkeleton(count: number): HTMLElement {
+  const rows = Array.from({ length: Math.min(count, BOARD_SKELETON_MAX) }, () => {
+    const node = row({ label: el('span', { className: 'tc-l' }, el('i', { className: 'tc-skel is-row', 'aria-hidden': 'true' })), value: el('i', { className: 'tc-skel', 'aria-hidden': 'true' }), className: 'is-av' })
+    node.prepend(el('span', { className: 'tc-rank', 'aria-hidden': 'true' }), el('span', { className: 'tc-av is-s is-skel', 'aria-hidden': 'true' }))
+    return node
+  })
+  const list = group(...rows)!
+  list.dataset.testid = 'board-skeleton'
+  list.setAttribute('aria-busy', 'true')
+  return list
+}
+
+/**
  * 3 · Leaderboard (Friends | Everyone). A row opens that reader's profile, as
  * Find readers does (everyone on your board is someone whose profile you can
  * already open; social.ts BoardEntry); your own row opens the You card.
@@ -694,11 +740,13 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   // Opens on the board the cards read on open (boardMemory loadDefaultBoard):
   // the tab picked on this page; else Friends with a mutual friend (19 Oct
   // 2026); else Everyone while it is open (Anders, 15 Oct 2026); else Friends.
-  const first = env.data.board ?? knownDefaultBoard(userId)
+  // This page's board for the tab the cards open on first (the one the You card's rank reads), then the open's.
+  const first = knownDefaultBoard(userId) ?? env.data.board
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
-  let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : false
+  // Known before any board from Find readers' answer, so the tabs show from the first frame.
+  let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : env.data.find?.everyoneOpen === true
   let handle: CardHandle | null = null
   // The viewer's own row took this device's flushed time (boardMemory noteOwnSeconds): show it in place.
   const stop = onBoardsChanged(() => {
@@ -769,6 +817,9 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         body.append(segmented(CARDS_COPY.leaderboard, [{ value: 'friends', label: CARDS_COPY.friends }, { value: 'everyone', label: CARDS_COPY.everyone }], tab, value => {
           tab = value
           rememberPickedBoard(userId, value)
+          // The You card's rank, and the board the cards open on, follow the tab.
+          env.data.rank = shownRank(env)
+          env.data.board = knownBoard(userId, value) ?? env.data.board
           board = undefined
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
@@ -784,6 +835,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         if (hidden) body.append(el('p', { className: 'tc-foot', text: hidden, dataset: { testid: 'board-hidden' } }))
       } else if (board === null) {
         body.append(el('p', { className: 'tc-foot', style: { margin: '0 16px' }, text: CARDS_COPY.boardUnavailable }))
+      } else {
+        body.append(heading(CARDS_COPY.lastSevenDays, { marginBottom: '-16px' }), boardSkeleton(expectedRows(env, tab)))
       }
       body.append(group(row({ label: CARDS_COPY.findReaders, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'board-find' }))!)
       return [navBar(card, CARDS_COPY.leaderboard), body]
