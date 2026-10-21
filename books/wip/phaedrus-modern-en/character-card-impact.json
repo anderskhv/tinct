@@ -1,0 +1,349 @@
+{
+ "package": "app/public/data/characters/phaedrus.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "a246a86ca83ff33521735c1ff70681037ed4d956f87e71d0812ddf864979e06c",
+ "candidateSha256": "5ad44b8b4dbd819c14936e91514f25d8f02a0c81f728ae7d666adaedf8e9575b",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 657,
+ "unchanged": 635,
+ "moved": 22,
+ "needsRuling": 0,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "theuth",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 87,
+   "oldEndOffset": 93,
+   "oldText": "Theuth",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 76,
+    "endOffset": 82,
+    "text": "Theuth",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "thamus",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 329,
+   "oldEndOffset": 335,
+   "oldText": "Thamus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 292,
+    "endOffset": 298,
+    "text": "Thamus",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "thamus",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 500,
+   "oldEndOffset": 505,
+   "oldText": "Ammon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 432,
+    "endOffset": 437,
+    "text": "Ammon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "theuth",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 519,
+   "oldEndOffset": 525,
+   "oldText": "Theuth",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 439,
+    "endOffset": 445,
+    "text": "Theuth",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "thamus",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 655,
+   "oldEndOffset": 661,
+   "oldText": "Thamus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 598,
+    "endOffset": 604,
+    "text": "Thamus",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "thamus",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 820,
+   "oldEndOffset": 826,
+   "oldText": "Thamus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 766,
+    "endOffset": 772,
+    "text": "Thamus",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "theuth",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 835,
+   "oldEndOffset": 841,
+   "oldText": "Theuth",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 859,
+    "endOffset": 865,
+    "text": "Theuth",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "theuth",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 926,
+   "oldEndOffset": 932,
+   "oldText": "Theuth",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 859,
+    "endOffset": 865,
+    "text": "Theuth",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "thamus",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 1044,
+   "oldEndOffset": 1050,
+   "oldText": "Thamus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 994,
+    "endOffset": 1000,
+    "text": "Thamus",
+    "note": "4 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "theuth",
+   "chapter": 6,
+   "paragraph": 2,
+   "oldStartOffset": 1078,
+   "oldEndOffset": 1084,
+   "oldText": "Theuth",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1028,
+    "endOffset": 1034,
+    "text": "Theuth",
+    "note": "5 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "adonis",
+   "chapter": 6,
+   "paragraph": 14,
+   "oldStartOffset": 267,
+   "oldEndOffset": 273,
+   "oldText": "Adonis",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 228,
+    "endOffset": 234,
+    "text": "Adonis",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lysias",
+   "chapter": 6,
+   "paragraph": 26,
+   "oldStartOffset": 16,
+   "oldEndOffset": 22,
+   "oldText": "Lysias",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 24,
+    "endOffset": 30,
+    "text": "Lysias",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lysias",
+   "chapter": 6,
+   "paragraph": 32,
+   "oldStartOffset": 28,
+   "oldEndOffset": 34,
+   "oldText": "Lysias",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 29,
+    "endOffset": 35,
+    "text": "Lysias",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "phaedrus",
+   "chapter": 6,
+   "paragraph": 34,
+   "oldStartOffset": 959,
+   "oldEndOffset": 967,
+   "oldText": "Phaedrus",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 936,
+    "endOffset": 944,
+    "text": "Phaedrus",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lysias",
+   "chapter": 6,
+   "paragraph": 36,
+   "oldStartOffset": 78,
+   "oldEndOffset": 84,
+   "oldText": "Lysias",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 88,
+    "endOffset": 94,
+    "text": "Lysias",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "nymphs",
+   "chapter": 6,
+   "paragraph": 36,
+   "oldStartOffset": 124,
+   "oldEndOffset": 130,
+   "oldText": "Nymphs",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 147,
+    "endOffset": 153,
+    "text": "Nymphs",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "homer",
+   "chapter": 6,
+   "paragraph": 36,
+   "oldStartOffset": 236,
+   "oldEndOffset": 241,
+   "oldText": "Homer",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 242,
+    "endOffset": 247,
+    "text": "Homer",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "solon",
+   "chapter": 6,
+   "paragraph": 36,
+   "oldStartOffset": 306,
+   "oldEndOffset": 311,
+   "oldText": "Solon",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 312,
+    "endOffset": 317,
+    "text": "Solon",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "god",
+   "chapter": 6,
+   "paragraph": 38,
+   "oldStartOffset": 80,
+   "oldEndOffset": 83,
+   "oldText": "God",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 75,
+    "endOffset": 78,
+    "text": "God",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lysias",
+   "chapter": 6,
+   "paragraph": 48,
+   "oldStartOffset": 67,
+   "oldEndOffset": 73,
+   "oldText": "Lysias",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 57,
+    "endOffset": 63,
+    "text": "Lysias",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "isocrates",
+   "chapter": 6,
+   "paragraph": 48,
+   "oldStartOffset": 543,
+   "oldEndOffset": 552,
+   "oldText": "Isocrates",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 519,
+    "endOffset": 528,
+    "text": "Isocrates",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "lysias",
+   "chapter": 6,
+   "paragraph": 48,
+   "oldStartOffset": 599,
+   "oldEndOffset": 605,
+   "oldText": "Lysias",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 583,
+    "endOffset": 589,
+    "text": "Lysias",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  }
+ ]
+}
