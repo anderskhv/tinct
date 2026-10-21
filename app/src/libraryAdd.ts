@@ -17,7 +17,7 @@
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './lab/labLibraryBoot'
-import { ownSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
+import { ownShelfSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
 import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
 import { userBookId } from './lab/userBook/userBookId'
 import { bookCoverSrc } from '../public/lab/book-cover.js'
@@ -150,7 +150,7 @@ export interface OwnBook {
 const ownBook = (book: OwnShelfBook): OwnBook => ({
   // This device's picture, else the account's stored copy of it (book-cover.js).
   key: book.key, kind: book.kind, title: book.title, author: book.author, cover: bookCoverSrc({ bookId: userBookId(book.hex), ownCover: book.cover, storedCover: book.storedCover }), at: book.at,
-  readingAt: book.reading?.lastActiveAt ?? null, savedAt: book.reading ? null : ownSavedAt(book.hex), percent: book.reading?.percent ?? null, href: book.href,
+  readingAt: book.reading?.lastActiveAt ?? null, savedAt: book.reading ? null : ownShelfSavedAt(book.hex), percent: book.reading?.percent ?? null, href: book.href,
 })
 
 /**
