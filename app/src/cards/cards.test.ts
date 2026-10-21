@@ -20,6 +20,7 @@ import { CARDS_CACHE_PREFIX, readCardsCache, writeCardsCache } from './cardsCach
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { forgetBoards } from './boardMemory'
 import { readingTimeStats } from '../readingTime/model'
+import { addPending, readPending, resetLedgerSends, resetReadingTimeSwitch } from '../lab/labReadingTime'
 import { preparePhoto } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
 
@@ -611,6 +612,97 @@ describe('reading time: one figure per label (Anders, 10 October 2026)', () => {
     expect(byTest('card-facts')!.querySelector('b')?.textContent).toBe('45 m')
     click(byTest('card-back'))
     expect(byTest('you-reading')?.textContent).toContain('45 m')
+  })
+})
+
+describe('pending time is flushed before the board and figures are read (21 October 2026: You 16 m, board 12 m)', () => {
+  const userId = '77777777-7777-4777-8777-777777777721'
+  let ledgerSeconds = 0
+  let flushFails = false
+  let order: string[] = []
+
+  /** The Worker's ledger and board for one reader: the board reads the ledger, as social.ts buildBoard does. */
+  function ledgerWorker() {
+    const rest = api()
+    return vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/reading-time/status')) return Response.json({ enabled: true })
+      if (url.startsWith('/api/reading-time/flush')) {
+        order.push('flush')
+        if (flushFails) return Response.json({ error: 'unavailable' }, { status: 503 })
+        const body = JSON.parse(String(init?.body)) as { entries: Array<{ read: number; listen: number }> }
+        for (const entry of body.entries) ledgerSeconds += entry.read + entry.listen
+        return Response.json({ enabled: true, credited: ledgerSeconds })
+      }
+      if (url.startsWith('/api/reading-time')) {
+        order.push('reading')
+        return Response.json({ enabled: true, rows: [{ day: today(), bookId: 'frankenstein', read: ledgerSeconds, listen: 0 }] })
+      }
+      if (url.startsWith('/api/social/board')) {
+        order.push('board')
+        return Response.json({ tab: 'friends', total: 1, meShown: true, me: null, entries: [{ rank: 1, name: 'Anders', picture: pic('A'), seconds: ledgerSeconds, duration: '', me: true }] })
+      }
+      return rest(input, init)
+    })
+  }
+
+  beforeEach(() => {
+    ledgerSeconds = 12 * 60
+    flushFails = false
+    order = []
+    resetReadingTimeSwitch()
+    resetLedgerSends()
+    // Four minutes read on this device since its last heartbeat.
+    addPending(userId, today(), 'frankenstein', { read: 4 * 60 })
+    vi.stubGlobal('fetch', ledgerWorker())
+  })
+
+  async function openYou() {
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false })).toBe(true)
+    await flush()
+  }
+
+  it('the flush goes first; then Your reading, the rank and the Leaderboard all say 16 m, counted once', async () => {
+    await openYou()
+    expect(order[0]).toBe('flush')
+    expect(order.slice(1).sort()).toEqual(['board', 'reading'])
+    expect(readPending(userId)).toEqual({})
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
+    click(byTest('you-leaderboard'))
+    expect(byTest('board-me')?.textContent).toContain('16 m')
+  })
+
+  it('the Leaderboard opened later sends what was read since before it asks again', async () => {
+    await openYou()
+    closeAccountCards()
+    forgetBoards()
+    addPending(userId, today(), 'frankenstein', { read: 60 })
+    order = []
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    await flush()
+    expect(order[0]).toBe('flush')
+    expect(order).toContain('board')
+    expect(byTest('board-me')?.textContent).toContain('17 m')
+  })
+
+  it('a failed flush: the board still loads (12 m, the ledger) and Your reading keeps this device’s time (16 m)', async () => {
+    flushFails = true
+    await openYou()
+    expect(order[0]).toBe('flush')
+    expect(order).toContain('board')
+    expect(readPending(userId)).not.toEqual({})
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
+    click(byTest('you-leaderboard'))
+    expect(byTest('board-me')?.textContent).toContain('12 m')
+  })
+
+  it('nothing pending: no flush is sent', async () => {
+    localStorage.clear()
+    await openYou()
+    expect(order).not.toContain('flush')
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}12 m`)
   })
 })
 

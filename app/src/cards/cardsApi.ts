@@ -3,6 +3,7 @@
  * 9 October 2026: no new privacy model, no new endpoints):
  *
  *   GET/POST /api/profile                 the reader's profile (socialClient.ts)
+ *   POST /api/reading-time/flush          this device's pending time, sent before the figures are read
  *   GET  /api/reading-time                the ledger -> readingTimeStats (one source for every figure)
  *   GET  /lab/catalogue.json + positions  Reading now / Finished: the library's own list (preReader/readingNow.ts)
  *   GET  /api/social/rank                 "3rd of 5"
@@ -20,7 +21,7 @@
 import { LAB_CATALOGUE_URL } from '../../public/lab/library-model.js'
 import { accountLabPositionRecord, type LabPositionState } from '../lab/labPosition'
 import { fetchLabPositionCloud, readLabPositionLocal } from '../lab/labPositionStore'
-import { fetchReadingTime, readPending, withPending } from '../lab/labReadingTime'
+import { fetchReadingTime, flushPendingNow, pendingForFigures, withPending } from '../lab/labReadingTime'
 import { localDay, readingTimeStats, weekBooks, type ReadingTimeStats } from '../readingTime/model'
 import { PRIVATE_BOOK_LABEL, isPrivateBucket } from '../readingTime/privateBook'
 import type { CatalogueEntry } from '../readingTime/yourReading'
@@ -32,6 +33,7 @@ import { readDeviceReadingMemory } from '../readingMemory/deviceStore'
 import { readShelfMembership } from '../libraryTwoSaved'
 import { apiUrl } from '../utils/apiUrl'
 
+export { flushPendingNow } from '../lab/labReadingTime'
 export { fetchOwnProfile, saveProfile, type OwnProfile } from '../social/socialClient'
 export { blockedReaderId, fetchBoard, fetchFind, fetchProfile, fetchRank, searchReaders, socialAction, unblockReader, type BoardData, type BoardEntry, type FindRow } from '../social/friendsClient'
 export type { ProfilePageData, ProfileBook, ProfilePicture } from '../social/profilePageView'
@@ -89,7 +91,10 @@ export async function loadReading(token: string, userId: string | null, fetchImp
     loadPositions(token, userId),
   ])
   if (!summary) return null
-  const rows = withPending(summary.rows, readPending(userId))
+  // This device's time not yet in the ledger. Opening the cards sends it first
+  // (flushPendingNow), so after a good flush this adds nothing; failed or
+  // offline, it keeps the figures from lagging the reader.
+  const rows = withPending(summary.rows, pendingForFigures(userId))
   const stats = readingTimeStats(rows, localDay())
   const local = (() => { try { return localStorage } catch { return null } })()
   const places = positions ? withProductionPlaces(positions, productionPlaces({ bookIds: catalogue.keys(), read: key => local?.getItem(key) ?? null })) : null
@@ -126,6 +131,19 @@ export async function loadReading(token: string, userId: string | null, fetchImp
     readingNow: list.readingNow.flatMap(row => { const name = title(row.bookId); return name ? [{ bookId: row.bookId, title: name, fraction: fraction(row.bookId, row.target.chapterNumber) }] : [] }),
     finished: list.finished.flatMap(row => { const name = title(row.bookId); return name ? [{ bookId: row.bookId, title: name, fraction: null }] : [] }),
   }
+}
+
+/**
+ * Before the You card's figures, its rank or the Leaderboard are read: send
+ * this device's pending reading time (flushPendingNow, at most a 2 s wait),
+ * so all three read the same ledger rows. Resolves to the time from which a
+ * board read includes what was sent (boardMemory `after`), 0 when nothing was
+ * sent; never throws, and a failed flush only means the figures add the
+ * pending time themselves.
+ */
+export async function flushForFigures(token: string, userId: string | null, fetchImpl?: typeof fetch): Promise<number> {
+  const outcome = await flushPendingNow(token, userId, fetchImpl ? { fetchImpl } : {}).catch(() => 'failed' as const)
+  return outcome === 'flushed' ? Date.now() : 0
 }
 
 /** Stripe's billing portal (existing /api/create-portal). */

@@ -17,7 +17,7 @@ import { fetchBoard, type BoardData } from './cardsApi'
 
 export type BoardTab = 'friends' | 'everyone'
 
-const pending = new Map<string, Promise<BoardData | null>>()
+const pending = new Map<string, { at: number; request: Promise<BoardData | null> }>()
 const last = new Map<BoardTab, { userId: string | null; board: BoardData; at: number }>()
 /** The tab the reader picked on the Leaderboard on this page (memory only). */
 let picked: { userId: string | null; tab: BoardTab } | null = null
@@ -37,28 +37,32 @@ export function hasFriends(board: BoardData | null | undefined): boolean {
   return typeof board.friends === 'number' ? board.friends > 0 : board.entries.some(entry => !entry.me)
 }
 
-/** A board, sharing a request already on its way for the same reader and tab. */
-export function loadBoard(token: string, userId: string | null, tab: BoardTab = 'friends'): Promise<BoardData | null> {
+/**
+ * A board, sharing a request already on its way for the same reader and tab.
+ * `after`: only a request started at or after this time (ms) is shared, so a
+ * board asked for before this device's pending time was flushed is not reused.
+ */
+export function loadBoard(token: string, userId: string | null, tab: BoardTab = 'friends', after = 0): Promise<BoardData | null> {
   const key = `${tab}:${token}`
   const running = pending.get(key)
-  if (running) return running
+  if (running && running.at >= after) return running.request
   const request = fetchBoard(token, tab).catch(() => null).then(board => {
     if (board) last.set(tab, { userId, board, at: Date.now() })
     // Closed (or gone): forget a stale Everyone board.
     else if (tab === 'everyone') last.delete('everyone')
     return board
-  }).finally(() => { pending.delete(key) })
-  pending.set(key, request)
+  }).finally(() => { if (pending.get(key)?.request === request) pending.delete(key) })
+  pending.set(key, { at: Date.now(), request })
   return request
 }
 
 /** The board the cards open on: the picked tab; else Friends with a friend; else Everyone while open; else Friends. */
-export async function loadDefaultBoard(token: string, userId: string | null): Promise<BoardData | null> {
+export async function loadDefaultBoard(token: string, userId: string | null, after = 0): Promise<BoardData | null> {
   const chosen = pickedTab(userId)
-  if (chosen === 'everyone') return (await loadBoard(token, userId, 'everyone')) ?? loadBoard(token, userId, 'friends')
-  const friends = await loadBoard(token, userId, 'friends')
+  if (chosen === 'everyone') return (await loadBoard(token, userId, 'everyone', after)) ?? loadBoard(token, userId, 'friends', after)
+  const friends = await loadBoard(token, userId, 'friends', after)
   if (chosen === 'friends' || hasFriends(friends) || (friends && friends.everyoneOpen !== true)) return friends
-  return (await loadBoard(token, userId, 'everyone')) ?? friends
+  return (await loadBoard(token, userId, 'everyone', after)) ?? friends
 }
 
 /** The last board this page read for this reader and tab, or null. */
