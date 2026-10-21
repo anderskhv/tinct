@@ -183,7 +183,7 @@
   /**
    * opts: root, scroll, header, enabled(), count(), sheet(n), text(n) -> Promise<{ items, view }>,
    * highlights(), cards(), cardLabel(card), label(n), goTo(place); for an EPUB also blocks(n) (its chapter's blocks, as
-   * pageBlocks gives them, or null), weights() (each chapter's share of the lane), name() and spot(n) (the words for n).
+   * pageBlocks gives them, or null), weights() (each chapter's share of the lane), name() and spot(n) (the words for n; none, a PDF's "p. 12 of 40").
    */
   function create(opts) {
     const el = document.createElement('div');
@@ -273,11 +273,11 @@
       const now = atY(G, (win.y0 + win.y1) / 2).n;
       el.setAttribute('aria-valuemin', '1'); el.setAttribute('aria-valuemax', String(N)); el.setAttribute('aria-valuenow', String(win.a.n));
       el.setAttribute('aria-label', opts.name ? opts.name() : 'Pages');
-      el.setAttribute('aria-valuetext', opts.spot ? opts.spot(win.a.n) : `p. ${opts.label(win.a.n)} of ${N}`);
+      el.setAttribute('aria-valuetext', opts.spot?.(win.a.n) || `p. ${opts.label(win.a.n)} of ${N}`);
       el.dataset.page = String(now);
       if (hover) {
         const near = hover.x >= S.dotX - 4 ? dots.find(d => Math.abs(d.y - hover.y) <= 4) : null;
-        tip.textContent = near ? near.label : opts.spot ? opts.spot(hover.n) : 'p. ' + opts.label(hover.n);
+        tip.textContent = near ? near.label : opts.spot?.(hover.n) || 'p. ' + opts.label(hover.n);
         tip.style.top = (clamp(near ? near.y : hover.y, top + 8, bottom - 8) - top) + 'px';
         tip.hidden = false;
       } else tip.hidden = true;

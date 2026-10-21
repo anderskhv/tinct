@@ -210,7 +210,11 @@ async function hoverHead(page, key = null) {
     if (el._band) { const b = el.parentElement.getBoundingClientRect(), f = el._band; return [b.left + f.x0 * b.width + 3, b.top + (f.y0 + f.y1) / 2 * b.height] }
     const h = el.closest('.mr-hp-head').getBoundingClientRect(); return [h.left + 6, h.top + Math.min(h.height / 2, 12)]
   }, key)
-  if (pt) { await page.mouse.move(pt[0], pt[1]); await page.waitForTimeout(250) }
+  if (pt) {
+    await page.mouse.move(pt[0], pt[1]); await page.waitForTimeout(120)
+    // Until its fade-in has ended (a slow runner: the transition still under way when read, CI 21 Oct 2026).
+    await page.waitForFunction(key => { const el = key ? document.querySelector(`.mr-hp[data-unit="${key}"]`) : null, cs = el && getComputedStyle(el); return !el || (cs.visibility === 'visible' && Number(cs.opacity) > 0.95) }, key, { timeout: 3000 }).catch(() => {})
+  }
   return !!pt
 }
 async function clickPill(page, pill, key = null) {
@@ -1462,6 +1466,7 @@ async function keysAndAccess(browser, origin) {
 // Small text that must reach 4.5:1 in every look: "Checking sources…", the primer's numbers and footer (the "/ the whole PDF"
 // foot line is gone since 15 Oct),
 // and the "N more on this page" row (release train 2: 3.89:1 in Paper and 4.28:1 in Book before).
+// (The primer's footer is its Redo since 21 Oct 2026: the hint colour, measured on the button.)
 const HINT_TEXT = ['status line', 'primer numbers', 'primer footer', 'stack row']
 async function contrast(browser, origin) {
   const rows = []
@@ -1474,7 +1479,7 @@ async function contrast(browser, origin) {
       const bg = el => { const layers = []; for (let e = el; e; e = e.parentElement) { const c = parse(getComputedStyle(e).backgroundColor); if (c.a > 0) { layers.push(c); if (c.a >= 1) break } } return layers.reverse().reduce((u, t) => over(t, u), { r: 255, g: 255, b: 255, a: 1 }) }
       const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4 }; return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b) }
       const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05) }
-      const cases = [['bar words', '[data-strip="a"] .mr-bar .is-ask'], ['More line', '[data-strip="c"] .mr-more__row span'], ['Define senses (secondary)', '[data-strip="e"] .mr-define__senses li:not(.is-fit)'], ['card label', '.cardbg .mr-card.is-open .mr-card__label'], ['quote', '.cardbg .mr-quote'], ['answer', '.cardbg .mr-answer p'], ['citation tag', '.cardbg .mr-cite'], ['status line', '[data-card="factcheck-checking"] .mr-status'], ['sources', '.cardbg .mr-sources a'], ['folded text', '[data-desk="margin"] .mr-card.is-folded .mr-card__text'], ['stack row', '[data-desk="overlap"] .mr-stack span'], ['trigger line', '[data-desk="trigger"] .mr-trigger__sub'], ['primer heading', '[data-desk="primer"] .mr-primer__head'], ['primer numbers', '[data-desk="primer"] .mr-primer__n'], ['map pages', '[data-desk="primer"] .mr-map__pages'], ['primer footer', '[data-desk="primer"] .mr-primer__foot span'], ['quiz link', '[data-card="quiz"] .mr-follow__link']]
+      const cases = [['bar words', '[data-strip="a"] .mr-bar .is-ask'], ['More line', '[data-strip="c"] .mr-more__row span'], ['Define senses (secondary)', '[data-strip="e"] .mr-define__senses li:not(.is-fit)'], ['card label', '.cardbg .mr-card.is-open .mr-card__label'], ['quote', '.cardbg .mr-quote'], ['answer', '.cardbg .mr-answer p'], ['citation tag', '.cardbg .mr-cite'], ['status line', '[data-card="factcheck-checking"] .mr-status'], ['sources', '.cardbg .mr-sources a'], ['folded text', '[data-desk="margin"] .mr-card.is-folded .mr-card__text'], ['stack row', '[data-desk="overlap"] .mr-stack span'], ['trigger line', '[data-desk="trigger"] .mr-trigger__sub'], ['primer heading', '[data-desk="primer"] .mr-primer__head'], ['primer numbers', '[data-desk="primer"] .mr-primer__n'], ['map pages', '[data-desk="primer"] .mr-map__pages'], ['primer footer', '[data-desk="primer"] .mr-primer__foot button'], ['quiz link', '[data-card="quiz"] .mr-follow__link']]
       return cases.map(([name, sel]) => { const el = document.querySelector(sel); if (!el) return { name, missing: true }; const cs = getComputedStyle(el); const fg = over(parse(cs.color), bg(el)); return { name, ratio: Math.round(ratio(fg, bg(el)) * 100) / 100, size: cs.fontSize } })
     })
     // PR C (Anders, 15 Oct): the mockup's faint small text now reads at least 4.5:1 (the --mr-hint token).

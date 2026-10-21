@@ -1372,7 +1372,7 @@ const strip = window.TinctStrip ? TinctStrip.create({
   blocks: n => (isEpub() ? epubStripBlocks(n) : null),
   weights: () => (isEpub() ? state.pages.map(p => p.sheet.offsetHeight) : null),
   name: () => (isEpub() ? 'Chapters' : 'Pages'),
-  spot: n => (isEpub() ? chapterPlace(n) : `p. ${pageLabel(n)}`),
+  spot: n => (isEpub() ? chapterPlace(n) : null),
   count: () => state.pages.length,
   sheet: n => state.pages[n - 1].sheet,
   // Text content the reader has read already, else read for the strip only (not kept).
