@@ -39,6 +39,8 @@ export interface OwnProfile {
   setUp: boolean
   needsSetup: boolean
   shouldPrompt: boolean
+  /** First set up before findable profiles (19 Oct 2026): the findable notice is for these only. Absent: false. */
+  setUpBeforeFindable?: boolean
   emailConfirmed: boolean
   emailOptIn: boolean
   googlePhoto: boolean

@@ -22,7 +22,7 @@ import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, pa
 import type { PictureView } from '../social/profileRules'
 import { fetchFollowRequests, socialFriendsOn } from '../social/friendsClient'
 import { FOLLOW_REQUESTS_SEEN_EVENT, REQUEST_DOT_CLASS, requestDotDue, type RequestRow } from '../social/followRequests'
-import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, dismissFindableNotice, findableNoticeDue, findableNoticeText } from '../social/findableNotice'
+import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown } from '../social/findableNotice'
 
 /** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
 export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
@@ -181,7 +181,11 @@ async function start(pending: CardName | null): Promise<void> {
     return
   }
   if (result.profile.shouldPrompt) showPrompt(token)
-  else if (socialFriendsOn() && findableNoticeDue(result.profile, userId)) showFindableNotice(userId!, result.profile.visibility)
+  else if (socialFriendsOn() && userId && findableNoticeFor(result.profile)) {
+    // Once per account: only after the account says it was not seen yet.
+    await checkFindableNoticeAccount(userId)
+    if (storedSession()?.session.userId === userId && findableNoticeDue(result.profile, userId)) showFindableNotice(userId, result.profile.visibility)
+  }
 }
 
 /**
@@ -215,8 +219,8 @@ export async function showRequestDot(token: string, userId: string | null, mount
 
 /**
  * The one-time notice about findable profiles (findableNotice.ts), in the
- * prompt's style: Settings opens the Settings card; either button keeps it
- * from coming back for this account.
+ * prompt's style: Settings opens the Settings card. Showing it marks it seen
+ * for the account; either button removes it.
  */
 export function showFindableNotice(userId: string, visibility: OwnProfile['visibility']): void {
   const text = findableNoticeText(visibility)
@@ -242,6 +246,7 @@ export function showFindableNotice(userId: string, visibility: OwnProfile['visib
   later.addEventListener('click', () => dismissFindableNotice(userId))
   card.append(line, go, later)
   document.body.append(card)
+  markFindableNoticeShown(userId)
 }
 
 /** Keep a small copy of the reader's own header picture on this device (avatarCache.ts). */

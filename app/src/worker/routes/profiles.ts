@@ -154,6 +154,13 @@ export function imageUrl(userId: string, slot: 'picture' | 'background', token: 
   return token ? `/api/profile/image?user=${userId}&slot=${slot}&v=${encodeURIComponent(token)}` : null
 }
 
+/**
+ * When findable profiles shipped (#488 merged, 19 Oct 2026, 22:11 Copenhagen).
+ * A profile first set up before then chose Friends or Everyone without knowing
+ * Find readers would list it by name and picture.
+ */
+export const FINDABLE_PROFILES_AT = Date.parse('2026-10-19T20:11:56Z')
+
 /** The reader's own profile as the client sees it. */
 function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; emailOptIn: boolean }, user: ProfileAuthUser, uploads: boolean) {
   const stored = row.picture_kind === 'upload' || row.picture_kind === 'google'
@@ -174,6 +181,13 @@ function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; ema
     needsSetup: row.auto_created && !row.set_up_at,
     /** The one gentle prompt: offered once, outside a book. */
     shouldPrompt: row.auto_created && !row.set_up_at && !row.prompted_at,
+    /**
+     * Set up before findable profiles (set_up_at, stamped once at set-up: the
+     * sign-up profile step, or the first choice of who can see you, picture
+     * or background; never moved): only these get the one-time findable
+     * notice. A profile set up since saw the choice already.
+     */
+    setUpBeforeFindable: Boolean(row.set_up_at && Date.parse(row.set_up_at) < FINDABLE_PROFILES_AT),
     emailConfirmed: account.emailConfirmed,
     emailOptIn: account.emailOptIn,
     googlePhoto: Boolean(googlePhotoUrl(user)),
