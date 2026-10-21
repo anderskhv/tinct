@@ -527,3 +527,15 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
 #book-overlay.book-flat #book-shape,#book-overlay.book-flat #turning-cover{transform-style:flat;will-change:auto}
 #book-overlay.book-flat #turning-cover>.cover-front{display:none!important}
 #book-overlay.book-flat #turning-cover>.cover-back{transform:translateX(-100%)}
+/* The book flap's shadows without blur (variant A, approved 2026-10-22). Each blurred box-shadow,
+   filter:blur and backdrop-filter in the opening book is drawn instead from gradients, a pre-rendered
+   9-slice image (assets/paper-shadow.png: box-shadow 0 10px 30px #0004 at 2x) or unblurred shadows,
+   so WebKit allocates no blur buffers for them. The paper's shadow image is its border-image,
+   drawn outside the paper (outset), so it adds no element and no layer of its own. */
+#book-backdrop{background:#080d0870;-webkit-backdrop-filter:none;backdrop-filter:none}
+#paper{background:linear-gradient(90deg,#6259391f,#62593912 7px,#62593903 15px,#62593900 20px),linear-gradient(180deg,#62593912,#62593900 7px),linear-gradient(0deg,#62593912,#62593900 7px),var(--page);box-shadow:none;border:0 solid transparent;border-image:url('assets/paper-shadow.png') 200 / 100px / 60px stretch}
+.cover-back{background:linear-gradient(270deg,#0000003e,#00000022 12px,#00000005 24px,#0000 30px),linear-gradient(180deg,#00000022,#0000 9px),linear-gradient(0deg,#00000022,#0000 9px),repeating-linear-gradient(90deg,#ffffff08 0 1px,transparent 1px 3px),linear-gradient(90deg,#e5dcc3,#f0e7cd 75%,#b9b198);box-shadow:inset 0 0 0 3px var(--cover-tone,#20352b)}
+.reader-dark .cover-back{background:linear-gradient(270deg,#0000003e,#00000022 12px,#00000005 24px,#0000 30px),linear-gradient(180deg,#00000022,#0000 9px),linear-gradient(0deg,#00000022,#0000 9px),#293328}
+.cover-back::after{top:0;bottom:0;width:calc(41% + 10px);filter:none;background:linear-gradient(90deg,#0000 20%,#312d2240 calc(100% - 22px),#312d224a calc(100% - 14px),#312d2222 calc(100% - 7px),#0000)}
+.binding-seam{box-shadow:3px 0 0 #00000026,6px 0 0 #00000017,10px 0 0 #0000000d}
+.book-slip{box-shadow:1px 0 0 #fff6,3px 1px 0 #30281b10,6px 2px 0 #30281b0b,10px 2px 0 #30281b07}

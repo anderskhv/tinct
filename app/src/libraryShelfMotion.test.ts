@@ -150,7 +150,8 @@ describe('every removal path uses the motion', () => {
     // The library's memory on a phone (20261021memory) and My shelf's ••• with Read later, anchored to
     // its button (20261021libmenu), both changed app.js and styles.css (20261021memmenu). add-to-tinct.js's
     // tag the build derives from its content. The book's flap drawn flat once turned (20261021flap) changed
-    // them again (20261021stack1). The room's life holding still while the page arrives, a touch answers and
+    // them again (20261021stack1). The book's flap shadows drawn without blur (20261022flapA) changed
+    // styles.css again. The room's life holding still while the page arrives, a touch answers and
     // a full-screen layer covers it (20261021speed) changed app.js alone (20261021stack2). A desk book's tap
     // answered at once with the fade to the reader's paper (20261021deskopen) changed bookshelf.js and
     // app.js (20261021stack3); a book opening from its painting's 960 px copy (20261021opencover) app.js
@@ -160,7 +161,7 @@ describe('every removal path uses the motion', () => {
     expect(lib('index.html')).toContain('app.js?v=20261021stack5')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
-    expect(lib('index.html')).toContain('styles.css?v=20261021stack1')
+    expect(lib('index.html')).toContain('styles.css?v=20261022flapA')
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
     expect(lib('app.js')).toContain('bookshelf.js?v=20261021deskopen')
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
