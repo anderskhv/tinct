@@ -662,10 +662,10 @@ describe('pending time is flushed before the board and figures are read (21 Octo
     await flush()
   }
 
-  it('the flush goes first; then Your reading, the rank and the Leaderboard all say 16 m, counted once', async () => {
+  it('the board does not wait for the flush (21 Oct 2026); Your reading reads after it; then Your reading, the rank and the Leaderboard all say 16 m, counted once', async () => {
     await openYou()
-    expect(order[0]).toBe('flush')
-    expect(order.slice(1).sort()).toEqual(['board', 'reading'])
+    // The board is asked for at once, beside the flush; Your reading only once the flush has landed.
+    expect(order).toEqual(['board', 'flush', 'reading'])
     expect(readPending(userId)).toEqual({})
     expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
     expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
@@ -681,21 +681,54 @@ describe('pending time is flushed before the board and figures are read (21 Octo
     order = []
     expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false, start: 'leaderboard' })).toBe(true)
     await flush()
-    expect(order[0]).toBe('flush')
-    expect(order).toContain('board')
+    expect(order).toEqual(['board', 'flush', 'reading'])
     expect(byTest('board-me')?.textContent).toContain('17 m')
   })
 
   it('a failed flush: the board still loads (12 m, the ledger) and Your reading keeps this device’s time (16 m)', async () => {
     flushFails = true
     await openYou()
-    expect(order[0]).toBe('flush')
-    expect(order).toContain('board')
+    expect(order).toEqual(['board', 'flush', 'reading'])
     expect(readPending(userId)).not.toEqual({})
     expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
     expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
     click(byTest('you-leaderboard'))
     expect(byTest('board-me')?.textContent).toContain('12 m')
+  })
+
+  it('the board shows while the flush is still on its way; when it lands, the viewer\'s row takes the flushed time and the rank follows', async () => {
+    let release = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const worker = ledgerWorker()
+    // A friend with 14 m; the board is read before this device's 4 m have landed.
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/reading-time/flush')) { order.push('flush sent'); await gate }
+      if (url.startsWith('/api/social/board')) {
+        order.push('board')
+        return Response.json({ tab: 'friends', total: 2, friends: 1, meShown: true, me: null, entries: [
+          { rank: 1, name: 'Bea', picture: pic('B'), seconds: 14 * 60, duration: '', me: false, handle: 'bea' },
+          { rank: 2, name: 'You', picture: pic('A'), seconds: ledgerSeconds, duration: '', me: true },
+        ] })
+      }
+      return worker(input, init)
+    }))
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    await flush()
+    const card = top()
+    const rows = () => [...card.querySelectorAll('[data-testid="board-rows"] > *')].map(node => node.textContent)
+    // On screen with the flush still held: the Worker's rows, the viewer at 12 m.
+    expect(order).toEqual(['board', 'flush sent'])
+    expect(rows()).toEqual([expect.stringMatching(/^1.*Bea.*14 m$/), expect.stringMatching(/^2.*You.*12 m$/)])
+    release()
+    await flush()
+    // Landed: Your reading says 16 m, and so does the board, re-ranked in place (no second board request).
+    expect(order).toEqual(['board', 'flush sent', 'flush', 'reading'])
+    expect(top()).toBe(card)
+    expect(rows()).toEqual([expect.stringMatching(/^1.*You.*16 m$/), expect.stringMatching(/^2.*Bea.*14 m$/)])
+    click(byTest('card-back'))
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 2')
   })
 
   it('nothing pending: no flush is sent', async () => {
@@ -1132,6 +1165,63 @@ describe('the name, changed on the You card (Anders, 15 October 2026)', () => {
     await flush()
     expect(top().querySelector('.tc-status')?.textContent).toBe('Please choose another name.')
     expect((byTest('you-name-input') as HTMLInputElement).value).toBe(' ')
+  })
+})
+
+describe('the last board shows at once while the fresh one loads (21 October 2026: "still takes too long")', () => {
+  const entry = (rank: number, name: string, seconds: number, me = false) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(me ? {} : { handle: name.toLowerCase() }) })
+  const rows = () => [...top().querySelectorAll('[data-testid="board-rows"] > *')].map(node => node.textContent)
+
+  it('paints the board this page read last, before any answer, then swaps the fresh rows into the same card', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, friends: 1, total: 2, entries: [entry(1, 'Mette', 3600), entry(2, 'You', 60, true)] }, everyone: null }
+    await open('leaderboard')
+    expect(rows()).toEqual([expect.stringContaining('Mette1 h'), expect.stringContaining('You1 m')])
+    closeAccountCards()
+    // A minute later Mette has read another hour; the Worker is slow to answer.
+    boards = { friends: { ...FRIENDS_BOARD, friends: 1, total: 2, entries: [entry(1, 'Mette', 7200), entry(2, 'You', 60, true)] }, everyone: null }
+    const now = Date.now()
+    vi.spyOn(Date, 'now').mockReturnValue(now + 60_000)
+    let release = () => {}
+    const held = new Promise<void>(resolve => { release = resolve })
+    const answer = api()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).startsWith('/api/social/board')) await held
+      return answer(input, init)
+    }))
+    expect(await openAccountCards({ session, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    // Synchronously, from memory.
+    const card = top()
+    expect(card.dataset.card).toBe('leaderboard')
+    expect(rows()).toEqual([expect.stringContaining('Mette1 h'), expect.stringContaining('You1 m')])
+    await flush()
+    expect(rows()).toEqual([expect.stringContaining('Mette1 h'), expect.stringContaining('You1 m')])
+    release()
+    await flush()
+    expect(top()).toBe(card)
+    expect(rows()).toEqual([expect.stringContaining('Mette2 h'), expect.stringContaining('You1 m')])
+    // One board request for the open and the Leaderboard together.
+    expect(boardCalls).toEqual(['friends', 'friends'])
+  })
+
+  it('a reader without friends while Everyone is open: one request (the Worker picks the board), not Friends then Everyone', async () => {
+    const everyone = { tab: 'everyone', total: 2, friends: 0, meShown: true, everyoneOpen: true, me: null, entries: [entry(1, 'You', 19020, true), entry(2, 'Mette', 60)] }
+    const answer = api()
+    const asked: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/social/board')) {
+        asked.push(new URL(url, 'https://tinct.app').searchParams.get('tab') ?? '')
+        return Response.json(everyone)
+      }
+      return answer(input, init)
+    }))
+    await open('you')
+    expect(asked).toEqual(['default'])
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 2')
+    click(byTest('you-leaderboard'))
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
+    await flush()
+    expect(asked).toEqual(['default'])
   })
 })
 
