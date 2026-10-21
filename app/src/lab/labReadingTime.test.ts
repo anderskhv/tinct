@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { act, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { addPending, beatPayload, fetchReadingTime, nextFlush, pendingSeconds, readPending, readingTimeSwitch, resetReadingTimeSwitch, sendFlush } from './labReadingTime'
+import { addPending, beatPayload, fetchReadingTime, flushPendingNow, nextFlush, pendingForBeat, pendingForFigures, pendingSeconds, readPending, readingTimeSwitch, resetLedgerSends, resetReadingTimeSwitch, sendFlush, withPending } from './labReadingTime'
 import { useLabReadingYear } from './useLabReadingYear'
 import { readLocalReadingYear, readingYearTotals } from './labReadingYear'
 import { BEAT_MAX_SECONDS, localDay } from '../readingTime/model'
@@ -9,6 +9,7 @@ import { BEAT_MAX_SECONDS, localDay } from '../readingTime/model'
 beforeEach(() => {
   localStorage.clear()
   resetReadingTimeSwitch()
+  resetLedgerSends()
 })
 
 afterEach(() => {
@@ -116,6 +117,80 @@ describe('pending time on the device', () => {
     addPending('u1', '2026-10-07', 'odyssey', { read: 600 })
     addPending('u1', '2026-10-07', 'bible', { read: 60 })
     expect(nextFlush({ userId: 'u1', today: '2026-10-07', currentBookId: 'odyssey', guestEarlier: null })?.entries).toEqual([{ day: '2026-10-07', bookId: 'bible', read: 60, listen: 0 }])
+  })
+})
+
+describe('flush on opening the You card or the Leaderboard (21 Oct 2026: You 16 m, board 12 m)', () => {
+  const USER = 'u1'
+  /** A Worker whose ledger takes flushes; `flushAnswer` overrides the flush reply. */
+  function worker(options: { flushAnswer?: () => Promise<Response> } = {}) {
+    const ledger: Array<{ day: string; bookId: string; read: number; listen: number }> = []
+    const calls: string[] = []
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      calls.push(url)
+      if (url.includes('/api/reading-time/status')) return Response.json({ enabled: true })
+      if (url.includes('/api/reading-time/flush')) {
+        if (options.flushAnswer) return options.flushAnswer()
+        const body = JSON.parse(String(init?.body)) as { entries: typeof ledger }
+        ledger.push(...body.entries)
+        return Response.json({ enabled: true, credited: body.entries.reduce((sum, entry) => sum + entry.read + entry.listen, 0) })
+      }
+      return Response.json({}, { status: 404 })
+    })
+    return { ledger, calls, fetchImpl: fetchMock as unknown as typeof fetch }
+  }
+  const total = (rows: Array<{ read: number; listen: number }>) => rows.reduce((sum, row) => sum + row.read + row.listen, 0)
+
+  it('sends everything pending, today’s current book too, and leaves nothing to add on top (no double count)', async () => {
+    const today = localDay()
+    addPending(USER, today, 'odyssey', { read: 240 })
+    addPending(USER, today, 'bible', { read: 60, listen: 30 })
+    const server = worker()
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('flushed')
+    expect(server.calls.filter(url => url.includes('/flush'))).toHaveLength(1)
+    expect(total(server.ledger)).toBe(330)
+    // The board reads the ledger; the You card reads the ledger plus what is still pending: the same.
+    expect(readPending(USER)).toEqual({})
+    expect(total(withPending(server.ledger, pendingForFigures(USER)))).toBe(total(server.ledger))
+    // A second open with nothing new pending writes nothing.
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('nothing')
+    expect(server.calls.filter(url => url.includes('/flush'))).toHaveLength(1)
+  })
+
+  it('nothing pending: asks nothing at all (no IO)', async () => {
+    const server = worker()
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('nothing')
+    expect(await flushPendingNow('token', null, { fetchImpl: server.fetchImpl })).toBe('nothing')
+    expect(server.calls).toEqual([])
+  })
+
+  it('a failed flush keeps the time pending, so the You card still adds it; a heartbeat never resends the unconfirmed seconds', async () => {
+    const today = localDay()
+    addPending(USER, today, 'odyssey', { read: 240 })
+    const server = worker({ flushAnswer: async () => { throw new Error('offline') } })
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl })).toBe('failed')
+    expect(pendingSeconds(pendingForFigures(USER))).toBe(240)
+    // The flush is resent under its id later; a beat carries only time read since.
+    expect(beatPayload(pendingForBeat(USER), today, 'odyssey', false)).toBeNull()
+    addPending(USER, today, 'odyssey', { read: 30 })
+    expect(beatPayload(pendingForBeat(USER), today, 'odyssey', false)).toMatchObject({ read: 30 })
+  })
+
+  it('waits at most the timeout; a send still on its way is left out of the figures until it settles', async () => {
+    const today = localDay()
+    addPending(USER, today, 'odyssey', { read: 240 })
+    let answer: (response: Response) => void = () => {}
+    const server = worker({ flushAnswer: () => new Promise<Response>(resolve => { answer = resolve }) })
+    const started = Date.now()
+    expect(await flushPendingNow('token', USER, { fetchImpl: server.fetchImpl, waitMs: 30 })).toBe('late')
+    expect(Date.now() - started).toBeLessThan(1000)
+    // On its way: neither counted twice (ledger + pending) nor stuck.
+    expect(pendingSeconds(pendingForFigures(USER))).toBe(0)
+    answer(Response.json({ enabled: true, credited: 240 }))
+    await new Promise(resolve => setTimeout(resolve, 0))
+    await new Promise(resolve => setTimeout(resolve, 0))
+    expect(readPending(USER)).toEqual({})
   })
 })
 

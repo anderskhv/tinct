@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { readLabDeviceId } from './labPositionStore'
 import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear } from './labReadingYear'
-import { SWITCH_RECHECK_MS, addPending, beatPayload, nextFlush, readPending, readingTimeSwitch, sendBeat, sendFlush, subtractPending, type LedgerStatus } from './labReadingTime'
+import { SWITCH_RECHECK_MS, addPending, beatPayload, nextFlush, pendingForBeat, readingTimeSwitch, sendBeat, sendFlush, subtractPending, trackSending, withLedgerSend, type LedgerStatus } from './labReadingTime'
 import { BEAT_MAX_SECONDS, BEAT_MIN_GAP_MS, PRIVATE_BOOK_ID, ledgerBookId, localDay } from '../readingTime/model'
 import { supabase } from '../services/supabase'
 
@@ -108,12 +108,15 @@ export function useLabReadingYear(input: {
     try {
       const token = await sessionToken(user)
       if (!token) return
-      const year = new Date().getFullYear()
-      const guestSeconds = readingYearTotals(readLocalReadingYear(year, null)).seconds
-      const batch = nextFlush({ userId: user, today: localDay(), currentBookId: bookRef.current, guestEarlier: guestSeconds > 0 ? { year, seconds: guestSeconds } : null })
-      if (!batch) return
-      const outcome = await sendFlush(token, user, batch, flushedYear => writeLocalReadingYear(emptyReadingYear(flushedYear), null))
-      settle(outcome)
+      // Under the ledger lock: the flush on opening the cards (flushPendingNow) reads the same store.
+      await withLedgerSend(async () => {
+        const year = new Date().getFullYear()
+        const guestSeconds = readingYearTotals(readLocalReadingYear(year, null)).seconds
+        const batch = nextFlush({ userId: user, today: localDay(), currentBookId: bookRef.current, guestEarlier: guestSeconds > 0 ? { year, seconds: guestSeconds } : null })
+        if (!batch) return
+        const outcome = await sendFlush(token, user, batch, flushedYear => writeLocalReadingYear(emptyReadingYear(flushedYear), null))
+        settle(outcome)
+      })
     } finally {
       sendingRef.current = false
     }
@@ -128,22 +131,28 @@ export function useLabReadingYear(input: {
     const user = userRef.current
     if (!user || ledgerRef.current !== 'on' || sendingRef.current) return
     const since = Date.now() - lastBeatRef.current
-    const pending = readPending(user)
+    // Less a flush sent but not yet confirmed: it carries those seconds already.
+    const pending = pendingForBeat(user)
     const current = pending[localDay()]?.[bookRef.current]
     const full = current ? current.read + current.listen >= BEAT_MAX_SECONDS : false
     if (since < LEDGER_BEAT_EVERY_MS && !((leaving || full) && since >= BEAT_MIN_GAP_MS)) return
-    const payload = beatPayload(pending, localDay(), bookRef.current, listeningRef.current)
-    if (!payload) return
+    if (!beatPayload(pending, localDay(), bookRef.current, listeningRef.current)) return
     lastBeatRef.current = Date.now()
     sendingRef.current = true
     let outcome: Awaited<ReturnType<typeof sendBeat>> = 'failed'
     try {
       const token = await sessionToken(user)
       if (!token) return
-      outcome = await sendBeat(token, payload)
-      // Sent is settled: the Worker's limits decide what of it counts.
-      if (outcome === 'credited') subtractPending(user, [payload])
-      else settle(outcome)
+      // Read again under the ledger lock: a flush on opening the cards may have sent it meanwhile.
+      outcome = await withLedgerSend(async () => {
+        const payload = beatPayload(pendingForBeat(user), localDay(), bookRef.current, listeningRef.current)
+        if (!payload) return 'failed' as const
+        const result = await trackSending(user, [payload], () => sendBeat(token, payload))
+        // Sent is settled: the Worker's limits decide what of it counts.
+        if (result === 'credited') subtractPending(user, [payload])
+        else settle(result)
+        return result
+      })
     } finally {
       sendingRef.current = false
     }

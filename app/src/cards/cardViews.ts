@@ -14,6 +14,7 @@ import {
   deleteOwnAccount,
   fetchFind,
   fetchProfile,
+  flushForFigures,
   openBillingPortal,
   saveProfile,
   searchReaders,
@@ -698,7 +699,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
       // cards made on open), so the tab is known before anything is asked twice.
       if (board === undefined && !first) {
         board = 'loading'
-        void loadDefaultBoard(env.session.token, userId).then(result => {
+        // This device's pending reading time first, so the board has it (21 Oct 2026).
+        void flushForFigures(env.session.token, userId).then(after => loadDefaultBoard(env.session.token, userId, after)).then(result => {
           if (board !== 'loading') return
           board = result ?? null
           if (result) {
@@ -719,7 +721,7 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         if (known?.everyoneOpen !== undefined) everyoneOpen = known.everyoneOpen === true || tab === 'everyone'
         if (!known || knownBoardAge(userId, tab) > BOARD_FRESH_MS) {
           const asked = tab
-          void loadBoard(env.session.token, userId, asked).then(result => {
+          void flushForFigures(env.session.token, userId).then(after => loadBoard(env.session.token, userId, asked, after)).then(result => {
             if (asked !== tab) return
             if (!result) {
               // No Everyone board (any more): the Friends board. A failed refresh keeps the rows shown.

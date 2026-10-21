@@ -5,6 +5,8 @@ import { IDLE_VOICE_SNAPSHOT, type VoiceAudioEngine, type VoiceUiSnapshot } from
 import type { AssistantPace } from '../lab/labAsk'
 import { nearbyParagraphWindow } from '../voice/context'
 import { holdScreenWakeLock } from '../lab/wakeLock'
+import { trackFunnel } from '../utils/funnel'
+import { requestTalkMicrophone, VOICE_MICROPHONE_TIMEOUT_MS, type PendingMicrophone } from '../voice/microphoneRequest'
 import type { AudioPlaybackAnchor, AudioPlaybackPause, VoiceApplicationToolHandler, VoiceLatencySample, VoiceReaderContext, VoiceReaderProfile, VoiceSessionMode } from '../voice/types'
 
 type VoiceControllerModule = typeof import('../voice/GrokVoiceSessionController')
@@ -96,6 +98,10 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
 
   // An AudioContext made in a tap that came before the session code loaded.
   const earlyContextRef = useRef<AudioContext | null>(null)
+  // The microphone asked for in the reader's tap, waiting for `start` to take it.
+  // Bumped by stop(): a start still loading Talk's code then does not go on.
+  const startRequestRef = useRef(0)
+  const primedMicrophoneRef = useRef<{ microphone: PendingMicrophone; timer: ReturnType<typeof setTimeout> } | null>(null)
   const disposedRef = useRef(false)
   const buildContextRef = useRef<() => VoiceReaderContext>(() => { throw new Error('unreachable') })
 
@@ -184,6 +190,9 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       controllerRef.current = null
       void earlyContextRef.current?.close().catch(() => {})
       earlyContextRef.current = null
+      const primed = primedMicrophoneRef.current
+      primedMicrophoneRef.current = null
+      if (primed) { clearTimeout(primed.timer); primed.microphone.cancel() }
     }
   }, [])
 
@@ -253,13 +262,65 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     } catch { /* The controller makes its own on start. */ }
   }, [])
 
+  const takePrimedMicrophone = useCallback((): PendingMicrophone | null => {
+    const primed = primedMicrophoneRef.current
+    primedMicrophoneRef.current = null
+    if (!primed) return null
+    clearTimeout(primed.timer)
+    return primed.microphone
+  }, [])
+
+  /**
+   * A tap that asked for the microphone and then did not start Talk lets it
+   * go. `closed`: the reader ended Talk with the prompt still unanswered,
+   * counted like the session's own cancellation (fixed codes only).
+   */
+  const releasePrimed = useCallback((closed = false) => {
+    const microphone = takePrimedMicrophone()
+    if (!microphone) return
+    if (closed && !microphone.settled) trackFunnel('talk_failed', { stage: 'setup_mic', reason: 'cancelled' })
+    microphone.cancel()
+  }, [takePrimedMicrophone])
+
+  /**
+   * Must run inside the reader's tap, before any await: asks for the
+   * microphone (WebKit grants a prompt-free retry and a reused permission only
+   * to a request made in the gesture) and unlocks audio. `start` takes the
+   * request; one nobody takes is let go when the request would have timed out.
+   */
+  const prime = useCallback(() => {
+    if (controllerRef.current?.getSnapshot().isActive) return
+    if (!primedMicrophoneRef.current) {
+      const microphone = requestTalkMicrophone()
+      const timer = setTimeout(() => {
+        if (primedMicrophoneRef.current?.microphone !== microphone) return
+        primedMicrophoneRef.current = null
+        microphone.cancel()
+      }, VOICE_MICROPHONE_TIMEOUT_MS)
+      primedMicrophoneRef.current = { microphone, timer }
+    }
+    // After the audio session is play-and-record, so the context is made in it.
+    unlockAudio()
+  }, [unlockAudio])
+
   const start = useCallback(async (overrides?: { authToken?: string | null; greeting?: string }) => {
     const opts = optionsRef.current
     opts.onSessionStart?.()
     const authToken = overrides?.authToken !== undefined ? overrides.authToken : opts.authToken
-    unlockAudio()
+    // Synchronous: a tap that calls start asks for the microphone in the tap
+    // itself, before Talk's code (a separate chunk on a first tap) loads.
+    prime()
+    const microphone = takePrimedMicrophone()
+    const startRequest = ++startRequestRef.current
     const controller = await ensureController().catch(() => null)
-    if (!controller) return IDLE_VOICE_SNAPSHOT
+    // Stopped while Talk's code was loading: the reader closed Talk, so the
+    // microphone is let go and no session starts.
+    if (startRequest !== startRequestRef.current) {
+      if (microphone && !microphone.settled) trackFunnel('talk_failed', { stage: 'setup_mic', reason: 'cancelled' })
+      microphone?.cancel()
+      return controller?.getSnapshot() ?? IDLE_VOICE_SNAPSHOT
+    }
+    if (!controller) { microphone?.cancel(); return IDLE_VOICE_SNAPSHOT }
     await controller.start({
       authToken,
       greeting: overrides?.greeting,
@@ -281,11 +342,13 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       assistantPace: opts.assistantPace,
       assistantSpeed: opts.assistantSpeed,
       voicePersona: opts.voicePersona,
+      ...(microphone ? { microphone } : {}),
     })
     return controller.getSnapshot()
-  }, [buildContext, ensureController, unlockAudio])
+  }, [buildContext, ensureController, prime, takePrimedMicrophone])
 
   const stop = useCallback(() => {
+    startRequestRef.current++
     controllerRef.current?.stop()
   }, [])
 
@@ -337,6 +400,8 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
     statusLabel,
     start,
     unlockAudio,
+    prime,
+    releasePrimed,
     stop,
     handleVoiceButton,
     explicitResume,
