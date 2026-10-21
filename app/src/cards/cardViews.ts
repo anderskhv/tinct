@@ -14,7 +14,6 @@ import {
   deleteOwnAccount,
   fetchFind,
   fetchProfile,
-  flushForFigures,
   openBillingPortal,
   saveProfile,
   searchReaders,
@@ -36,7 +35,7 @@ import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
 import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
 import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, dismissFindableNotice, findableNoticeDue, findableNoticeText } from '../social/findableNotice'
-import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, rememberPickedBoard, type BoardTab } from './boardMemory'
+import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
 
@@ -93,6 +92,8 @@ export interface CardsEnv {
   resetPassword: () => Promise<string>
   navigate: (url: string) => void
   clipboard?: (text: string) => Promise<boolean>
+  /** Send this device's pending reading time and read Your reading again (openCards syncOwnTime); the board does not wait for it. */
+  syncOwnTime?: () => void
 }
 
 // ===== Pictures =====
@@ -691,16 +692,26 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
   let everyoneOpen = first ? first.everyoneOpen === true || tabOf(first) === 'everyone' : false
+  let handle: CardHandle | null = null
+  // The viewer's own row took this device's flushed time (boardMemory noteOwnSeconds): show it in place.
+  const stop = onBoardsChanged(() => {
+    if (handle?.stack.isClosed) { stop(); return }
+    if (!handle || !board || board === 'loading') return
+    const known = knownBoard(userId, tabOf(board))
+    if (known && known !== board) { board = known; handle.refresh() }
+  })
   return {
     id: 'leaderboard',
     label: CARDS_COPY.leaderboard,
     render: card => {
+      handle = card
       // Nothing read yet: the board the cards open on (sharing the request the
       // cards made on open), so the tab is known before anything is asked twice.
+      // Never behind the flush (21 Oct 2026): the two go side by side.
       if (board === undefined && !first) {
         board = 'loading'
-        // This device's pending reading time first, so the board has it (21 Oct 2026).
-        void flushForFigures(env.session.token, userId).then(after => loadDefaultBoard(env.session.token, userId, after)).then(result => {
+        env.syncOwnTime?.()
+        void loadDefaultBoard(env.session.token, userId).then(result => {
           if (board !== 'loading') return
           board = result ?? null
           if (result) {
@@ -721,7 +732,12 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         if (known?.everyoneOpen !== undefined) everyoneOpen = known.everyoneOpen === true || tab === 'everyone'
         if (!known || knownBoardAge(userId, tab) > BOARD_FRESH_MS) {
           const asked = tab
-          void flushForFigures(env.session.token, userId).then(after => loadBoard(env.session.token, userId, asked, after)).then(result => {
+          env.syncOwnTime?.()
+          // The board the cards open on is asked for as such, so it shares the open's request.
+          const fresh = tabOf(knownDefaultBoard(userId)) === asked
+            ? loadDefaultBoard(env.session.token, userId).then(result => (result && tabOf(result) === asked ? result : loadBoard(env.session.token, userId, asked)))
+            : loadBoard(env.session.token, userId, asked)
+          void fresh.then(result => {
             if (asked !== tab) return
             if (!result) {
               // No Everyone board (any more): the Friends board. A failed refresh keeps the rows shown.
