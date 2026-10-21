@@ -8,10 +8,29 @@ const live = process.env.SHAKESPEARE_LIVE === '1'
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, ''), output = 'artifacts/shakespeare-layout'
 await fs.mkdir(output, { recursive: true })
 const results = []
+// Diagnostics only (a WebKit scenario once hung after reader-ready in CI):
+// nothing below changes what passes or fails. Each helper bounds its wait and
+// never throws.
+function settle(promise, ms) {
+  let timer
+  const outcome = promise.then(value => ({ value }), error => ({ error: String(error?.message || error).split('\n')[0] }))
+  return Promise.race([outcome, new Promise(resolve => { timer = setTimeout(() => resolve({ timedOut: true }), ms) })]).finally(() => clearTimeout(timer))
+}
 async function prepare(context) {
   await context.addInitScript(() => {
     HTMLMediaElement.prototype.play = async function () { this.muted = true }
     if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia = async () => { throw Error('Disabled for silent acceptance') }
+  })
+  // Long tasks (Chromium), paginator user timing (LabNativePaginator) and, for
+  // engines without longtask entries, main-thread stalls seen by a timer.
+  await context.addInitScript(() => {
+    const diag = window.__shakespeareDiag = { longTasks: 'unsupported', measures: [], stalls: [] }
+    const keep = (list, item) => { list.push(item); if (list.length > 40) list.shift() }
+    const observe = (type, onEntry) => { try { if (!PerformanceObserver.supportedEntryTypes?.includes(type)) return false; new PerformanceObserver(list => list.getEntries().forEach(onEntry)).observe({ type, buffered: true }); return true } catch { return false } }
+    if (observe('longtask', entry => keep(diag.longTasks, { start: Math.round(entry.startTime), ms: Math.round(entry.duration) }))) diag.longTasks = []
+    observe('measure', entry => { if (entry.name.startsWith('tinct:')) keep(diag.measures, { name: entry.name, start: Math.round(entry.startTime), ms: Math.round(entry.duration) }) })
+    let last = performance.now()
+    setInterval(() => { const now = performance.now(); if (now - last > 500) keep(diag.stalls, { start: Math.round(last), ms: Math.round(now - last) }); last = now }, 250)
   })
   await context.route('**/*', async route => {
     const url = new URL(route.request().url())
@@ -83,8 +102,23 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       const context = await browser.newContext({ ...device, viewport: { width: scenario.width, height: 844 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
       await prepare(context)
       const page = await context.newPage()
+      const events = [], startedAt = Date.now(), note = (...parts) => events.push(`+${Date.now() - startedAt}ms ${parts.join(' ')}`)
+      page.on('pageerror', error => note('pageerror', String(error.stack || error.message).slice(0, 600)))
+      page.on('console', message => { if (message.type() === 'error') note('console.error', message.text().slice(0, 300), message.location()?.url || '') })
+      page.on('framenavigated', frame => { if (frame === page.mainFrame()) note('navigated', frame.url()) })
+      page.on('crash', () => note('crash'))
       try {
         await boot(page, scenario)
+        // Liveness: a page that cannot answer a trivial evaluate after ready
+        // is reported, then given up to 60 s more before the checks run.
+        const probedAt = Date.now(), probe = settle(page.evaluate(() => 1), 65000)
+        if ((await settle(probe, 5000)).timedOut) {
+          console.log('HUNG after ready', engine, index, JSON.stringify(scenario))
+          const answer = await settle(probe, 60000)
+          console.log('HUNG answer', engine, index, answer.timedOut ? 'none after 65 s' : answer.error ? `error after ${Date.now() - probedAt} ms: ${answer.error}` : `after ${Date.now() - probedAt} ms`)
+          const diag = await settle(page.evaluate(() => window.__shakespeareDiag), 5000)
+          if (diag.value) console.log('HUNG diag', engine, index, JSON.stringify(diag.value))
+        }
         const state = await inspect(page, scenario)
         if (index === 0 || index === 7 || index === 15 || index >= 24) {
           await page.screenshot({ path: `${output}/${engine}-${index}.png` })
@@ -124,7 +158,16 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         }
         results.push({ engine, scenario, state })
         console.log('PASS', engine, index, scenario.book, scenario.width, scenario.layout, scenario.size, scenario.alignment)
-      } catch (error) { await page.screenshot({ path: `${output}/${engine}-${index}-failure.png` }); throw error } finally { await context.close() }
+      } catch (error) {
+        try {
+          console.log('FAIL', engine, index, JSON.stringify(scenario), String(error?.message).split('\n')[0])
+          const state = await settle(page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return { labRoot: !!root, readerReady: root?.dataset.readerReady ?? null, href: location.href, diag: window.__shakespeareDiag ?? null } }), 5000)
+          console.log('FAIL page', state.timedOut ? 'no answer in 5 s (main thread busy?)' : JSON.stringify(state.value ?? state.error))
+          console.log('FAIL events', events.length ? '\n' + events.join('\n') : 'none')
+          await page.screenshot({ path: `${output}/${engine}-${index}-failure.png`, timeout: 5000 }).catch(shot => console.log('FAIL screenshot skipped:', String(shot?.message).split('\n')[0]))
+        } catch {}
+        throw error
+      } finally { await context.close() }
     }
   } finally { await browser.close(); await fs.writeFile(`${output}/results.json`, JSON.stringify(results, null, 2)) }
 }
