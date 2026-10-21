@@ -267,3 +267,17 @@ describe('catchUpContextText', () => {
     expect(text).toBe(`Mid: ${'y'.repeat(10)}\nNew: ${'z'.repeat(10)}`)
   })
 })
+
+describe('LabCatchUpSheet with the follow-up field (phone, iPhone feedback 21 Oct 2026)', () => {
+  it('ends with the field in place of Chat and Talk; it carries what the sheet shows; follow-ups scroll with the timeline', async () => {
+    stubFetch(okBodies)
+    let shown: (() => string) | null = null
+    renderSheet({ follow: get => { shown = get; return <input data-testid="follow" /> }, thread: <p data-testid="thread">A follow-up</p> })
+    await waitFor(() => expect(screen.getAllByText(/Recap of/).length).toBeGreaterThan(0), slow)
+    expect(screen.queryByTestId('lab-catch-up-chat')).toBeNull()
+    expect(screen.queryByTestId('lab-catch-up-talk')).toBeNull()
+    expect(screen.getByTestId('follow').closest('.lab-catch-up-foot')?.classList.contains('is-follow')).toBe(true)
+    expect(screen.getByTestId('thread').closest('[data-testid="lab-catch-up-body"]')).not.toBeNull()
+    expect(shown!()).toMatch(/Recap of/)
+  })
+})

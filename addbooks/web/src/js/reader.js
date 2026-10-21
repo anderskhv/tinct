@@ -226,6 +226,7 @@ function waitStatus(label) {
 }
 async function openInTinct(bytes, name, key, upload, { quiet = false } = {}) {
   const token = ++state.token;
+  epubFontWait.end?.();   // an earlier open's font wait ends here, nothing moved
   showReader();
   closeAllPopups();
   waitStatus('Opening…');
@@ -301,6 +302,7 @@ async function closeBook({ fromHistory = false, toShelf = false, stay = false } 
   closeChat(); marginStop(); stopNarration(); closeAllPopups(); endSnip?.(); ocrStop(); strip?.close();
   window.TinctNotebook?.close();
   ++state.token;
+  epubFontWait.end?.();   // an earlier open's font wait ends here, nothing moved
   state.observer?.disconnect(); state.pdf?.destroy?.();
   Object.assign(state, { kind: null, pdf: null, epub: null, pages: [], fit: null, pagesAsked: false, lastPlace: null, key: '', name: '', title: '', author: '', scan: null, textEdition: null, titleReady: null, texts: new Map(), figs: new Map(), preview: null, pdfText: null }); toc.entries = []; toc.ready = false; zoomClass(); pdfTextLeave();
   Object.assign(book, { key: null, pdf: null, task: null, texts: [], numbers: [], matter: [], index: null });
@@ -326,6 +328,7 @@ window.TinctReader = { chooseFile, openStored, openFromUrl, urlHex, close: close
 /* ---------- EPUB ---------- */
 async function openEpub(bytes, name, key, rec = null) {
   const token = ++state.token;
+  epubFontWait.end?.();   // an earlier open's font wait ends here, nothing moved
   closeAllPopups();
   waitStatus('Opening…');
   let book;
@@ -387,7 +390,7 @@ async function openEpub(bytes, name, key, rec = null) {
     if (token !== state.token) return;
   }
   // A first open begins at the first section of the text (the Preface, not the title page; epub.js classify).
-  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else if (book.start > 0 && !state.preview) epubGoSpot(book.start + 1, 0, 0); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600); epubHold.opened = token });
+  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else if (book.start > 0 && !state.preview) epubGoSpot(book.start + 1, 0, 0); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600); epubHold.opened = token; if (!state.preview) epubFontWait(token) });
 }
 function applyEpubScale() { root.style.setProperty('--epub-scale', String(state.zoom)) }
 /**
@@ -487,6 +490,7 @@ async function freshPdfBytes(key) {
 async function openPdf(bytes, name, key, known = null) {
   await pdfReady();
   const token = ++state.token;
+  epubFontWait.end?.();   // an earlier open's font wait ends here, nothing moved
   closeAllPopups();
   waitStatus('Opening…');
   // Asked while the file opens: a place read later on another device of the account.
@@ -7611,7 +7615,49 @@ function epubSpotTop(page, spot) {
   return w ? w.top - $('scroll').getBoundingClientRect().top : null;
 }
 // The place as the reader leaves it: its paragraph and word, and where that word stands in the view (`at`).
-function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow || epubHold.settling || epubHold.opened !== state.token) return; const s = epubSpot(); if (s.para != null) { const page = currentPlace().page; Object.assign(epubHold, { spot: s, page, at: epubSpotTop(page, s) }) } }
+// The held word still on the top line (a restore's own last scroll, a scroll of a pixel or two) stays the held word, not
+// that line's first word: else each restore and reflow walked the place back to a line start, a line at a time when the
+// lines wrap anew (CI 21 Oct 2026, #519: word 23 held as 15 under the fallback font, then 12).
+function epubHoldNow() {
+  if (!isEpub() || !state.pages.length || epubHold.reflow || epubHold.settling || epubHold.opened !== state.token) return;
+  const s = epubSpot(); if (s.para == null) return;
+  const page = currentPlace().page, h = epubHold;
+  if (h.spot && h.page === page && h.spot.para === s.para && (h.spot.word || 0) > s.word) {
+    const held = epubSpotTop(page, h.spot), line = epubSpotTop(page, s);
+    if (held != null && line != null && Math.abs(held - line) < 2) { h.at = held; return }
+  }
+  Object.assign(h, { spot: s, page, at: epubSpotTop(page, s) });
+}
+/* Fonts still loading once the place is restored (the open waits at most 1.5 s for them: a cold cache, a slow
+   connection): their swap reflows the text, and Chrome scrolls the view to keep its anchor, a scroll that is not the
+   reader's. Until they are in, the restored place is the reader's place (no scroll is read back as it); once in, the
+   view goes back to it. The reader's own first wheel, touch, key or pointer press ends the wait at once, the text left
+   where it is (their gesture wins); so does EPUB_FONT_WAIT_MS, for fonts that never settle. (CI 21 Oct 2026, #519: a
+   reload opened a line or two early, and the size and width steps after it held that line.) */
+// The wait belongs to its open (state.token): a new open, a book or an edition switch ends it at once with nothing moved
+// (epubFontWait.end, called where each open begins), and its fonts-ready or cap callback, once stale, does nothing: an
+// earlier book's wait never holds the next book's place.
+const EPUB_FONT_WAIT_MS = 6000;
+function epubFontWait(token) {
+  epubFontWait.end?.();
+  if (token !== state.token || document.fonts?.status !== 'loading') return;
+  const inputs = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+  let on = true, cap = 0;
+  const end = back => {
+    if (!on) return; on = false; clearTimeout(cap);
+    for (const ev of inputs) removeEventListener(ev, mine, true);
+    if (epubFontWait.end === stop) epubFontWait.end = null;
+    epubHold.reflow = Math.max(0, epubHold.reflow - 1);
+    const { spot, page } = epubHold;
+    if (back && token === state.token && isEpub() && spot && page) epubGoSpot(page, spot.para, spot.word);
+  };
+  const mine = () => end(false), stop = () => end(false);
+  epubHold.reflow++;
+  epubFontWait.end = stop;
+  for (const ev of inputs) addEventListener(ev, mine, { capture: true, passive: true });
+  cap = setTimeout(() => { if (token === state.token) end(false) }, EPUB_FONT_WAIT_MS);
+  document.fonts.ready.then(() => requestAnimationFrame(() => { if (token === state.token) end(true) }));
+}
 $('scroll').addEventListener('scroll', () => { if (isEpub() && !epubHold.raf) epubHold.raf = requestAnimationFrame(() => { epubHold.raf = 0; epubHoldNow() }) }, { passive: true });
 /** Around a reflow: `change()` reflows; the held spot is gone back to. */
 function epubReflow(change) {
