@@ -5868,8 +5868,9 @@ document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() ==
    card closes as above. Escape folds it too (the keys, below). */
 document.addEventListener('pointerdown', e => {
   const mode = marginMode();
-  // Before you start folds back to its pill the same way (Anders, 21 Oct 2026); it is kept, one click from open.
-  if (primer.open && mode && mode !== 'phone' && e.button <= 0 && !e.target.closest?.('.mr-primer, .mr-pill, .mr-mark, .mr-trigger, .mr-card, .mr-float, .mr-more, .mr-pmore, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) closePrimer();
+  // Before you start folds back to its pill the same way (Anders, 21 Oct 2026); it is kept, one click from open. Like a
+  // card, it stays open for a press on a heading's pills or a paragraph's ✧ and its menu (#542).
+  if (primer.open && mode && mode !== 'phone' && e.button <= 0 && !e.target.closest?.('.mr-primer, .mr-pill, .mr-hp, .mr-pspark, .mr-pmenu, .mr-mark, .mr-trigger, .mr-card, .mr-float, .mr-more, .mr-pmore, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) closePrimer();
   if (!col.open || col.open === 'whole' || !mode || mode === 'phone' || e.button > 0) return;
   if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-hp, .mr-pspark, .mr-pmenu, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
   openCard(null);

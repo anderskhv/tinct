@@ -201,21 +201,41 @@ const restoreAside = () => { for (const el of document.querySelectorAll('[data-m
 // heading element; a PDF's heading line, its band on the page) or the pills. hoverHead puts the pointer there (the unit
 // `key`'s, else the first heading in view); clickPill then clicks one of its pills, as a reader does.
 async function hoverHead(page, key = null) {
-  const pt = await page.evaluate(key => {
-    const inView = e => { const r = (e.closest('.mr-hp-head') || e.parentElement).getBoundingClientRect(), top = document.getElementById('hdr').getBoundingClientRect().bottom; return r.bottom > top && r.top < innerHeight }
+  const found = await page.evaluate(key => {
+    // (A PDF page's pills: their heading's line on the page, not the whole page, must be in view.)
+    const line = e => { if (!e._band) return (e.closest('.mr-hp-head') || e.parentElement).getBoundingClientRect(); const b = e.parentElement.getBoundingClientRect(); return { top: b.top + e._band.y0 * b.height, bottom: b.top + e._band.y1 * b.height } }
+    const inView = e => { const r = line(e), top = document.getElementById('hdr').getBoundingClientRect().bottom; return r.bottom > top && r.top < innerHeight }
     const el = key ? document.querySelector(`.mr-hp[data-unit="${key}"]`) : [...document.querySelectorAll('.mr-hp')].find(inView)
     if (!el) return null
-    if (!inView(el)) el.scrollIntoView({ block: 'center' }) // (a heading off screen: brought into view, as a reader scrolls to it)
-    if (el._p) placePagePills(el, el._p, el._y) // (its line measured now that the page's text is drawn)
-    if (el._band) { const b = el.parentElement.getBoundingClientRect(), f = el._band; return [b.left + f.x0 * b.width + 3, b.top + (f.y0 + f.y1) / 2 * b.height] }
-    const h = el.closest('.mr-hp-head').getBoundingClientRect(); return [h.left + 6, h.top + Math.min(h.height / 2, 12)]
+    const r = line(el), sr = document.getElementById('scroll').getBoundingClientRect()
+    return { key: el.dataset.unit, page: !!el._p, by: inView(el) ? 0 : Math.round((r.top + r.bottom) / 2 - (sr.top + sr.bottom) / 2), at: [sr.left + sr.width / 2, sr.top + sr.height / 2] }
   }, key)
-  if (pt) {
-    await page.mouse.move(pt[0], pt[1]); await page.waitForTimeout(120)
-    // Until its fade-in has ended (a slow runner: the transition still under way when read, CI 21 Oct 2026).
-    await page.waitForFunction(key => { const el = key ? document.querySelector(`.mr-hp[data-unit="${key}"]`) : null, cs = el && getComputedStyle(el); return !el || (cs.visibility === 'visible' && Number(cs.opacity) > 0.95) }, key, { timeout: 3000 }).catch(() => {})
+  if (!found) return false
+  // A heading off screen: brought into view as a reader scrolls to it, with the wheel. (After a sent question the reader
+  // holds the place until the reader's own wheel, key or press; a scroll of the script's own would be put back.)
+  if (found.by) {
+    await page.mouse.move(found.at[0], found.at[1]); await page.mouse.wheel(0, found.by)
+    await page.waitForFunction(() => { const s = document.getElementById('scroll'), t = s.scrollTop; return new Promise(r => setTimeout(() => r(Math.abs(s.scrollTop - t) < 1), 150)) }, null, { timeout: 4000, polling: 200 }).catch(() => {})
   }
-  return !!pt
+  const sel = `.mr-hp[data-unit="${found.key}"]`
+  // A PDF page brought into view draws its text layer a moment later, and the heading's line is measured from it: wait
+  // for it, so the pointer goes to the line the reader sees (CI 21 Oct 2026: measured before, the line then moved away).
+  if (found.page) await page.waitForFunction(sel => { const el = document.querySelector(sel); return !el?._p || el._p.pg.querySelectorAll('.text-layer span').length > 0 }, sel, { timeout: 5000 }).catch(() => {})
+  // The pointer to the heading's line; moved again (as a hand does) if the pills did not show.
+  for (let i = 0; i < 3; i++) {
+    const pt = await page.evaluate(sel => {
+      const el = document.querySelector(sel); if (!el) return null
+      if (el._p) placePagePills(el, el._p, el._y) // (its line measured now that the page's text is drawn)
+      if (el._band) { const b = el.parentElement.getBoundingClientRect(), f = el._band; return [b.left + f.x0 * b.width + 3, b.top + (f.y0 + f.y1) / 2 * b.height] }
+      const h = el.closest('.mr-hp-head').getBoundingClientRect(); return [h.left + 6, h.top + Math.min(h.height / 2, 12)]
+    }, sel)
+    if (!pt) return false
+    await page.mouse.move(pt[0] + i, pt[1]); await page.waitForTimeout(120)
+    // Until its fade-in has ended (a slow runner: the transition still under way when read, CI 21 Oct 2026).
+    const shown = await page.waitForFunction(sel => { const el = document.querySelector(sel), cs = el && getComputedStyle(el); return !el || (cs.visibility === 'visible' && Number(cs.opacity) > 0.95) }, sel, { timeout: i < 2 ? 1500 : 3000 }).then(() => true, () => false)
+    if (shown) break
+  }
+  return true
 }
 async function clickPill(page, pill, key = null) {
   await hoverHead(page, key)
@@ -5708,7 +5728,8 @@ async function deskPolishCheck(browser, origin) {
 /* cards-round2 (Anders, 21 Oct 2026): every margin card is as tall as what it holds (its follow-up row directly under
    the last line, no empty band); every pill card (Primer, Catch me up, Recap, Quiz me's end) and every passage card ends
    with the same follow-up field (mic, Talk, send) and no copy row; every card's head has minimise (–) and delete (bin),
-   no ×; a click outside a card (the Primer too) minimises it and loses nothing; the unit's pills sit 8px apart. */
+   no ×; a click outside a card (the Primer too) minimises it and loses nothing; the unit's pills sit 8px apart. The pill
+   cards open as a reader opens them since #542: the pointer over the unit's heading, then its pill (clickPill). */
 async function cardsRound2(browser, origin) {
   const results = [], ok = okList(results)
   const hex = addBook(SECTION_PAPER)
@@ -5733,19 +5754,27 @@ async function cardsRound2(browser, origin) {
   }, sel)
   const fieldRow = s => !!s && s.mic && s.talk && s.send && s.copy === 0 && s.x === 0 && s.minimise && s.bin
   const outside = async () => { await a.mouse.click(300, 450); await a.waitForTimeout(400) }
-  // The pills: 8px apart.
+  // The pills: 8px apart (Anders, 21 Oct 2026: "pills sit 8px apart everywhere"), measured on a unit's heading pills
+  // (#542), shown as a reader shows them, the pointer over the heading. Each pill's ring is its ::before, so the gap is
+  // between those rings: the buttons' edges less their padding and the rings' margins.
   await a.evaluate(() => goTo({ page: 4, frac: 0.25 })); await a.waitForTimeout(900)
-  const gaps = await a.evaluate(k => { const m = document.querySelector(`.mr-doc .mr-unit.is-end[data-unit="${k}"]`); const spans = [...m.querySelectorAll('.mr-pill > span')].map(s => s.getBoundingClientRect()); return { gaps: spans.slice(1).map((b, i) => Math.round(b.left - spans[i].right)), heights: [...m.querySelectorAll('.mr-pill')].map(b => Math.round(b.getBoundingClientRect().height)) } }, units[0].key)
-  ok(`pills sit 8px apart (${gaps.gaps.join(', ')})`, gaps.gaps.length >= 2 && gaps.gaps.every(g => g >= 7.5 && g <= 8.5), gaps)
+  await hoverHead(a, units[1].key)
+  const gaps = await a.evaluate(k => {
+    const m = document.querySelector(`.mr-hp[data-unit="${k}"]`); if (!m) return null
+    const px = v => parseFloat(v) || 0
+    const rings = [...m.querySelectorAll('.mr-pill')].map(b => { const r = b.getBoundingClientRect(), cs = getComputedStyle(b), be = getComputedStyle(b, '::before'); return { left: r.left + px(cs.paddingLeft) + px(cs.borderLeftWidth) + px(be.marginLeft), right: r.right - px(cs.paddingRight) - px(cs.borderRightWidth) - px(be.marginRight), h: Math.round(r.height) } })
+    return { words: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), gaps: rings.slice(1).map((b, i) => Math.round(b.left - rings[i].right)), heights: rings.map(b => b.h), shown: getComputedStyle(m).visibility === 'visible' }
+  }, units[1].key)
+  ok(`pills sit 8px apart on the heading (${gaps?.gaps.join(', ')})`, !!gaps && gaps.shown && gaps.gaps.length >= 2 && gaps.gaps.every(g => g >= 7.5 && g <= 8.5), gaps)
   // Recap: a card as tall as its answer, the field under it, minimise and bin in its head, no copy.
-  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="recap"]`); await a.waitForTimeout(1500)
+  await clickPill(a, 'recap', units[0].key); await a.waitForTimeout(1500)
   let s = await shape('.mr-doc .mr-card.is-open')
   ok(`Recap: as tall as its answer (${s?.height}px, ${s?.gap}px to the field), the field with mic, Talk and send, minimise and bin in its head, no copy, no ×`, fieldRow(s) && s.gap <= 24, s)
   await shot(a, 'cards-round2-recap-1440x900')
   await outside()
   ok('Recap: a click outside minimises it, its answer kept', await a.evaluate(() => !document.querySelector('.mr-doc .mr-card.is-open') && keptCards().some(c => c.data?.pill === 'recap' && (c.turns || []).some(t => t.role === 'assistant'))))
   // A follow-up from the Recap card is answered in it.
-  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="recap"]`); await a.waitForTimeout(800)
+  await clickPill(a, 'recap', units[0].key); await a.waitForTimeout(800)
   await a.fill('.mr-doc .mr-card.is-open .mr-follow__input', 'Why does it matter?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
   ok('Recap: a follow-up is answered in the card', await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); return !!el && /Why does it matter\?/.test(el.innerText) && el.querySelectorAll('.mr-answer').length >= 2 }))
   // Talk from the card: the companion's Chat card with Talk on.
@@ -5753,23 +5782,23 @@ async function cardsRound2(browser, origin) {
   ok('Recap: Talk in the field opens Chat with Talk on', await a.evaluate(() => chat.talk === true))
   await a.evaluate(() => { setTalk(false); openCard(null) }); await a.waitForTimeout(300)
   // Catch me up.
-  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="catchup"]`); await a.waitForTimeout(1500)
+  await clickPill(a, 'catchup', units[1].key); await a.waitForTimeout(1500)
   s = await shape('.mr-doc .mr-card.is-open')
   ok(`Catch me up: as tall as its answer (${s?.height}px, ${s?.gap}px), the field, minimise and bin, no copy, no ×`, fieldRow(s) && s.gap <= 24, s)
   await outside()
   // Primer: sized to its content, the field, minimise and bin; a click outside minimises it.
-  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(900)
+  await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(900)
   s = await shape('.mr-doc .mr-primer')
   ok(`Primer: as tall as its content (${s?.height}px, ${s?.after}px under its field), the field with mic, Talk and send, minimise and bin, no ×`, fieldRow(s) && s.after !== null && s.after <= 30, s)
   await shot(a, 'cards-round2-primer-1440x900')
   await a.fill('.mr-doc .mr-primer .mr-follow__input', 'What should I watch for?'); await a.keyboard.press('Enter'); await a.waitForTimeout(1500)
   ok('Primer: a follow-up opens Chat with the question and the primer kept', await a.evaluate(() => chat.turns.some(t => t.role === 'user' && /What should I watch for\?/.test(t.content || t.text || ''))), await a.evaluate(() => chat.turns.slice(-3)))
   await a.evaluate(() => openCard(null)); await a.waitForTimeout(300)
-  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(600)
+  await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(600)
   await outside()
   ok('Primer: a click outside minimises it (folded to its pill), the primer kept', await a.evaluate(() => !document.querySelector('.mr-doc .mr-primer') && !!primer.data))
   // The Primer's bin: it goes from here and from the account; Undo brings it back.
-  await a.click(`.mr-doc .mr-unit.is-start[data-unit="${units[1].key}"] .mr-pill[data-pill="primer"]`); await a.waitForTimeout(600)
+  await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(600)
   const storedBefore = account.primers.size
   await a.click('.mr-doc .mr-primer [data-c="delete"]'); await a.waitForTimeout(500)
   const binned = await a.evaluate(() => ({ open: !!document.querySelector('.mr-doc .mr-primer'), kept: !!store.get(primerKey(primer.units[1])), undo: !!document.querySelector('.mr-undo') }))
@@ -5777,7 +5806,7 @@ async function cardsRound2(browser, origin) {
   await a.click('.mr-undo [data-u="undo"]'); await a.waitForTimeout(600)
   ok('Primer: Undo puts it back', await a.evaluate(() => !!store.get(primerKey(primer.units[1]))) && account.primers.size === storedBefore)
   // Quiz me's end: the field under the score.
-  await a.click(`.mr-doc .mr-unit.is-end[data-unit="${units[0].key}"] .mr-pill[data-pill="quiz"]`); await a.waitForTimeout(1500)
+  await clickPill(a, 'quiz', units[0].key); await a.waitForTimeout(1500)
   for (let i = 0; i < 6; i++) {
     const step = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'); const b = el?.querySelector('[data-c="show"], [data-c="next"]'); if (!b) return null; b.click(); return b.dataset.c })
     if (!step) break
