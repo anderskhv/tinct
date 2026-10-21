@@ -8,6 +8,7 @@
  *   GET  /api/social/board?tab=friends|everyone   the leaderboard (last 7 days); Everyone only once open
  *   GET  /api/social/rank                          "#N among friends" for the sheet and You
  *   GET  /api/social/find[?q=]                     search Friends and Everyone readers; Following you; Also reading your books
+ *   GET  /api/social/find?only=following-you       Following you alone (the follow-request dot)
  *   GET  /api/social/profile/{handle}              one profile as this visitor may see it
  *   POST /api/social/follow|unfollow|remove-follower|block  { handle }
  *   POST /api/social/unblock                       { id }
@@ -856,6 +857,8 @@ export async function handleSocial(request: Request, env: SocialEnv, deps: Socia
       return reply({ rank: board.me?.rank ?? null, total: board.total, seconds: board.me?.seconds ?? 0 }, 200, request)
     }
     if (path === '/api/social/find' && request.method === 'GET') {
+      // Following you only (the dot on the reader's picture, 20 Oct 2026): no ledger reads.
+      if (url.searchParams.get('only') === 'following-you') return reply({ followingYou: await followingYouRows(ctx, await circleOf(ctx, viewerId)) }, 200, request)
       const found = await buildFind(ctx, viewerId, url.searchParams.has('q') ? url.searchParams.get('q') : null)
       return reply(url.searchParams.has('q') ? found : { ...found, everyoneOpen: await everyoneOpen(ctx) }, 200, request)
     }

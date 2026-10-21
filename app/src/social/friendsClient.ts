@@ -82,6 +82,8 @@ async function postJson<T>(path: string, token: string, body: unknown, fetchImpl
 export const fetchBoard = (token: string, tab: 'friends' | 'everyone', fetchImpl?: FetchLike) => getJson<BoardData>(`/api/social/board?tab=${tab}&today=${localDay()}`, token, fetchImpl)
 export const fetchRank = (token: string, fetchImpl?: FetchLike) => getJson<{ rank: number | null; total: number; seconds: number }>(`/api/social/rank?today=${localDay()}`, token, fetchImpl)
 export const fetchFind = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[]; alsoReading: FindRow[]; link: string | null; everyoneOpen?: boolean }>('/api/social/find', token, fetchImpl)
+/** Following you alone, for the follow-request dot (no ledger reads on the Worker). */
+export const fetchFollowRequests = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[] }>('/api/social/find?only=following-you', token, fetchImpl)
 export const searchReaders = (token: string, q: string, fetchImpl?: FetchLike) => getJson<{ results: FindRow[] }>(`/api/social/find?q=${encodeURIComponent(q)}`, token, fetchImpl)
 export const fetchProfile = (token: string | null, handle: string, fetchImpl?: FetchLike) => getJson<{ profile: ProfilePageData }>(`/api/social/profile/${encodeURIComponent(handle)}`, token, fetchImpl)
 

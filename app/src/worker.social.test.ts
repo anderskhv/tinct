@@ -488,6 +488,8 @@ describe('private readers never appear', () => {
     const find = await json(await api(world, '/api/social/find', B))
     expect(find.followingYou).toEqual([{ name: 'Carl', handle: 'carl', link: 'tinct.app/@carl', relation: 'followed', book: null, picture: expect.objectContaining({ src: '/lab/library_2/assets/odyssey.jpg' }) }])
     expect((await json(await api(world, '/api/social/profile/carl', B))).profile).toMatchObject({ limited: true, time: null, readingNow: null })
+    // The dot on her picture asks for Following you alone (20 Oct 2026): the same rows, nothing else.
+    expect(await json(await api(world, '/api/social/find?only=following-you', B))).toEqual({ followingYou: find.followingYou })
     // Accepting is following back: friends, each sees the other's reading.
     const back = await json(await api(world, '/api/social/follow', B, { method: 'POST', body: JSON.stringify({ handle: 'carl' }) }))
     expect(back).toMatchObject({ relation: 'friend' })

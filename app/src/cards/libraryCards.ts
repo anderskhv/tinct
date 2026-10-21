@@ -20,7 +20,8 @@ import { NEUTRAL_READER_NAME } from './cardsCopy'
 import type { OwnProfile } from '../social/socialClient'
 import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, paintCachedAvatar, readAvatarCache, writeAvatarCache } from './avatarCache'
 import type { PictureView } from '../social/profileRules'
-import { socialFriendsOn } from '../social/friendsClient'
+import { fetchFollowRequests, socialFriendsOn } from '../social/friendsClient'
+import { FOLLOW_REQUESTS_SEEN_EVENT, REQUEST_DOT_CLASS, requestDotDue, type RequestRow } from '../social/followRequests'
 import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, dismissFindableNotice, findableNoticeDue, findableNoticeText } from '../social/findableNotice'
 
 /** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
@@ -51,6 +52,8 @@ function offerLegacyProfileStep(token: string, userId: string, returnTo: string)
 
 const STYLE = `
 #sign-in.cards-you{display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;padding:0;border-radius:50%;background:transparent;border:0}
+#sign-in.cards-you{position:relative}
+#sign-in.cards-you .${REQUEST_DOT_CLASS}{position:absolute;top:8px;right:7px;width:9px;height:9px;border-radius:50%;background:#78aabd;box-shadow:0 0 0 2px rgba(16,21,15,.85);pointer-events:none}
 #sign-in.cards-you .tinct-avatar{width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background-repeat:no-repeat;background-color:#6a6a6a;color:#fff;font:700 12px/1 "Playfair Display",Georgia,serif;box-shadow:0 0 0 1px rgba(238,238,238,.4)}
 .social-prompt{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 24px),420px);z-index:60;background:#1a2318;color:#eee7d0;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.5);padding:18px 18px 12px;font-family:Georgia,serif}
 .social-prompt b{display:block;font:700 17px system-ui,-apple-system,sans-serif;margin-bottom:6px}
@@ -172,12 +175,42 @@ async function start(pending: CardName | null): Promise<void> {
     if (sig && view.kind === 'image') void keepAvatar(userId, sig, view, token)
     else clearAvatarCache(userId)
   }
+  if (socialFriendsOn()) void showRequestDot(token, userId, mount)
   if (userId && legacyProfileStepDue(result.profile, userId)) {
     offerLegacyProfileStep(token, userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
     return
   }
   if (result.profile.shouldPrompt) showPrompt(token)
   else if (socialFriendsOn() && findableNoticeDue(result.profile, userId)) showFindableNotice(userId!, result.profile.visibility)
+}
+
+/**
+ * The dot on the picture while someone asks to be friends and this device has
+ * not shown it yet (followRequests.ts). Opening the You card or Following you
+ * marks them seen, and the dot goes.
+ */
+export async function showRequestDot(token: string, userId: string | null, mount: () => void = () => {}): Promise<void> {
+  if (!userId) return
+  const found = await fetchFollowRequests(token)
+  const rows: RequestRow[] = found?.followingYou ?? []
+  const paint = () => {
+    const button = document.getElementById('sign-in')
+    if (!button) return
+    const due = storedSession()?.session.userId === userId && requestDotDue(userId, rows)
+    let dot = button.querySelector<HTMLElement>(`.${REQUEST_DOT_CLASS}`)
+    if (!due) { dot?.remove(); button.setAttribute('aria-label', 'You'); return }
+    mount()
+    if (!dot) {
+      dot = document.createElement('span')
+      dot.className = REQUEST_DOT_CLASS
+      dot.setAttribute('aria-hidden', 'true')
+      dot.dataset.testid = 'request-dot'
+      button.append(dot)
+    }
+    button.setAttribute('aria-label', 'You, new friend requests')
+  }
+  paint()
+  window.addEventListener(FOLLOW_REQUESTS_SEEN_EVENT, paint)
 }
 
 /**
